@@ -906,7 +906,7 @@ InternalRead.exit63:                              ; preds = %117, %119
   %145 = load i32, ptr %144, align 8
   %146 = zext i32 %145 to i64
   %147 = icmp samesign ult i64 %indvars.iv.next, %146
-  br i1 %147, label %113, label %.loopexit, !llvm.loop !8
+  br i1 %147, label %113, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %128, %.preheader, %102
   %148 = load i32, ptr %46, align 8
@@ -982,7 +982,7 @@ InternalRead.exit.i65:                            ; preds = %159, %157
   store i32 4098, ptr %189, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
-  br i1 %exitcond.not.i, label %DGifSetupDecompress.exit, label %188, !llvm.loop !9
+  br i1 %exitcond.not.i, label %DGifSetupDecompress.exit, label %188, !llvm.loop !10
 
 .loopexit.sink.split.i:                           ; preds = %166, %InternalRead.exit.i65
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1226,7 +1226,7 @@ DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15
 
 61:                                               ; preds = %InternalRead.exit15.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %.preheader, !llvm.loop !10
+  br label %.preheader, !llvm.loop !11
 
 62:                                               ; preds = %.thread, %DGifGetCodeNext.exit.thread, %23, %25, %21, %9
   %.0 = phi i32 [ 0, %21 ], [ 0, %9 ], [ 1, %25 ], [ 0, %23 ], [ 0, %DGifGetCodeNext.exit.thread ], [ 1, %.thread ]
@@ -1279,7 +1279,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %26, ptr %27, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit141.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit141.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit141.loopexit:                            ; preds = %.lr.ph
   %28 = trunc nsw i64 %indvars.iv.next188 to i32
@@ -1329,7 +1329,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   store i32 4098, ptr %45, align 4
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next207, 4096
-  br i1 %exitcond209.not, label %46, label %.preheader, !llvm.loop !12
+  br i1 %exitcond209.not, label %46, label %.preheader, !llvm.loop !13
 
 46:                                               ; preds = %.preheader
   %47 = load i32, ptr %12, align 8
@@ -1388,7 +1388,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   %75 = getelementptr inbounds i32, ptr %9, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = icmp sgt i32 %76, %15
-  br i1 %77, label %.lr.ph.i, label %.sink.split, !llvm.loop !13
+  br i1 %77, label %.lr.ph.i, label %.sink.split, !llvm.loop !14
 
 78:                                               ; preds = %64
   %79 = icmp sgt i32 %39, %15
@@ -1410,7 +1410,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   %85 = getelementptr inbounds i32, ptr %9, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = icmp sgt i32 %86, %15
-  br i1 %87, label %.lr.ph.i120, label %.sink.split, !llvm.loop !13
+  br i1 %87, label %.lr.ph.i120, label %.sink.split, !llvm.loop !14
 
 .sink.split:                                      ; preds = %83, %81, %.lr.ph.i120, %73, %71, %.lr.ph.i, %78, %68
   %.07.i.sink = phi i32 [ %.0110173, %68 ], [ %39, %78 ], [ 4098, %71 ], [ %76, %73 ], [ %.089.i, %.lr.ph.i ], [ 4098, %81 ], [ %86, %83 ], [ %.089.i122, %.lr.ph.i120 ]
@@ -1456,7 +1456,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   %105 = load i32, ptr %104, align 4
   %106 = and i64 %indvars.iv.next193, 4294967295
   %exitcond195.not = icmp eq i64 %106, 4095
-  br i1 %exitcond195.not, label %.critedge.thread, label %.lr.ph157, !llvm.loop !14
+  br i1 %exitcond195.not, label %.critedge.thread, label %.lr.ph157, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph157
   %107 = icmp sgt i32 %.1103156, 4095
@@ -1497,7 +1497,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   %123 = icmp ne i64 %indvars.iv.next202, 0
   %124 = icmp slt i64 %indvars.iv.next197, %34
   %125 = select i1 %123, i1 %124, i1 false
-  br i1 %125, label %.lr.ph161, label %.loopexit.loopexit, !llvm.loop !15
+  br i1 %125, label %.lr.ph161, label %.loopexit.loopexit, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %.lr.ph161
   %126 = trunc nsw i64 %indvars.iv.next202 to i32
@@ -1549,7 +1549,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   %146 = getelementptr inbounds i32, ptr %9, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = icmp sgt i32 %147, %15
-  br i1 %148, label %.lr.ph.i126, label %DGifGetPrefixChar.exit130, !llvm.loop !13
+  br i1 %148, label %.lr.ph.i126, label %DGifGetPrefixChar.exit130, !llvm.loop !14
 
 DGifGetPrefixChar.exit130:                        ; preds = %.lr.ph.i126, %142, %144, %139
   %.07.i125 = phi i32 [ %.0110173, %139 ], [ 4098, %142 ], [ %147, %144 ], [ %.089.i128, %.lr.ph.i126 ]
@@ -1579,7 +1579,7 @@ DGifGetPrefixChar.exit130:                        ; preds = %.lr.ph.i126, %142, 
   %158 = getelementptr inbounds i32, ptr %9, i64 %157
   %159 = load i32, ptr %158, align 4
   %160 = icmp sgt i32 %159, %15
-  br i1 %160, label %.lr.ph.i132, label %DGifGetPrefixChar.exit136, !llvm.loop !13
+  br i1 %160, label %.lr.ph.i132, label %DGifGetPrefixChar.exit136, !llvm.loop !14
 
 DGifGetPrefixChar.exit136:                        ; preds = %.lr.ph.i132, %154, %156, %151
   %.07.i131 = phi i32 [ %39, %151 ], [ 4098, %154 ], [ %159, %156 ], [ %.089.i134, %.lr.ph.i132 ]
@@ -1594,7 +1594,7 @@ DGifGetPrefixChar.exit136:                        ; preds = %.lr.ph.i132, %154, 
   %.7 = phi i32 [ %.2106176, %46 ], [ %.3107, %DGifGetPrefixChar.exit130 ], [ %.3107, %DGifGetPrefixChar.exit136 ], [ %.3107, %131 ], [ %.3107, %128 ], [ %.3107, %.loopexit ]
   %.5 = phi i32 [ %.2177, %46 ], [ %.3, %DGifGetPrefixChar.exit130 ], [ %.3, %DGifGetPrefixChar.exit136 ], [ %.3, %131 ], [ %.3, %128 ], [ %.3, %.loopexit ]
   %164 = icmp slt i32 %.5, %2
-  br i1 %164, label %35, label %._crit_edge, !llvm.loop !16
+  br i1 %164, label %35, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %163, %.loopexit141
   %.0110.lcssa = phi i32 [ %17, %.loopexit141 ], [ %.1111, %163 ]
@@ -1807,7 +1807,7 @@ DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15
 
 56:                                               ; preds = %InternalRead.exit15.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader, !llvm.loop !18
 
 57:                                               ; preds = %.thread, %DGifGetCodeNext.exit.thread, %18, %20, %16, %9
   %.0 = phi i32 [ 0, %16 ], [ 0, %9 ], [ 1, %20 ], [ 0, %18 ], [ 0, %DGifGetCodeNext.exit.thread ], [ 1, %.thread ]
@@ -2107,7 +2107,7 @@ define hidden range(i32 0, 2) i32 @DGifSavedExtensionToGCB(ptr noundef readonly 
 21:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %DGifExtensionToGCB.exit, label %22, !llvm.loop !18
+  br i1 %exitcond.not, label %DGifExtensionToGCB.exit, label %22, !llvm.loop !19
 
 22:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
@@ -2478,7 +2478,7 @@ DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15
 
 50:                                               ; preds = %InternalRead.exit15.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %.preheader, !llvm.loop !19
+  br label %.preheader, !llvm.loop !20
 
 51:                                               ; preds = %29
   store i8 0, ptr %31, align 8
@@ -2654,7 +2654,7 @@ InternalRead.exit22.i:                            ; preds = %47, %44
   %74 = add nsw i32 %68, 8
   store i32 %74, ptr %8, align 4
   %75 = icmp slt i32 %74, %67
-  br i1 %75, label %16, label %._crit_edge, !llvm.loop !20
+  br i1 %75, label %16, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %66, %.preheader.._crit_edge_crit_edge
   %76 = phi i64 [ %.pre41, %.preheader.._crit_edge_crit_edge ], [ %73, %66 ]
@@ -2933,13 +2933,13 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
   %95 = add nsw i32 %94, %.0115
   %96 = load i32, ptr %41, align 4
   %97 = icmp slt i32 %95, %96
-  br i1 %97, label %73, label %._crit_edge, !llvm.loop !21
+  br i1 %97, label %73, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %93, %.preheader
   %98 = phi i32 [ %68, %.preheader ], [ %96, %93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !23
 
 99:                                               ; preds = %64
   %100 = call i32 @DGifGetLine(ptr noundef nonnull %0, ptr noundef nonnull %60, i32 noundef %58)
@@ -3064,7 +3064,7 @@ DGifGetExtensionNext.exit.thread:                 ; preds = %InternalRead.exit13
   %155 = zext i8 %154 to i32
   %156 = call i32 @GifAddExtensionBlock(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %155, ptr noundef nonnull %136) #14
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %DGifDecreaseImageCounter.exit, label %120
+  br i1 %157, label %DGifDecreaseImageCounter.exit, label %120, !llvm.loop !24
 
 158:                                              ; preds = %.thread88, %104, %.loopexit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -3072,7 +3072,7 @@ DGifGetExtensionNext.exit.thread:                 ; preds = %InternalRead.exit13
   %160 = load i32, ptr %159, align 8
   %161 = and i32 %160, 8
   %.not.i = icmp eq i32 %161, 0
-  br i1 %.not.i, label %DGifGetRecordType.exit.thread, label %14, !llvm.loop !23
+  br i1 %.not.i, label %DGifGetRecordType.exit.thread, label %14, !llvm.loop !25
 
 162:                                              ; preds = %26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -3133,21 +3133,23 @@ attributes #16 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !7, !8}

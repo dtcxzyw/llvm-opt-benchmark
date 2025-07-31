@@ -1020,7 +1020,7 @@ proto_item_set_generated.exit2392:                ; preds = %proto_item_set_gene
   call void @proto_item_set_len(ptr noundef %232, i32 noundef %233)
   %234 = load i32, ptr %11, align 4
   %235 = icmp slt i32 %197, %234
-  br i1 %235, label %.lr.ph2616, label %._crit_edge2617.loopexit, !llvm.loop !10
+  br i1 %235, label %.lr.ph2616, label %._crit_edge2617.loopexit, !llvm.loop !11
 
 ._crit_edge2617.loopexit:                         ; preds = %.lr.ph2616, %._crit_edge2609
   %.12323.lcssa.ph = phi i32 [ %.22324.lcssa, %._crit_edge2609 ], [ %.123232614, %.lr.ph2616 ]
@@ -1037,7 +1037,7 @@ proto_item_set_generated.exit2392:                ; preds = %proto_item_set_gene
   store i32 %.pre-phi, ptr %7, align 4
   %238 = load i32, ptr %8, align 4
   %239 = icmp slt i32 %.pre-phi, %238
-  br i1 %239, label %.lr.ph2623, label %.loopexit, !llvm.loop !11
+  br i1 %239, label %.lr.ph2623, label %.loopexit, !llvm.loop !12
 
 240:                                              ; preds = %129
   %241 = load i32, ptr @hf_slsk_compr_packet, align 4
@@ -1286,7 +1286,7 @@ proto_item_set_generated.exit2410:                ; preds = %proto_item_set_gene
   %.42326 = add i32 %.42326.in2588, 12
   %387 = load i32, ptr %11, align 4
   %388 = icmp slt i32 %380, %387
-  br i1 %388, label %.lr.ph2591, label %._crit_edge2592.loopexit, !llvm.loop !12
+  br i1 %388, label %.lr.ph2591, label %._crit_edge2592.loopexit, !llvm.loop !13
 
 ._crit_edge2592.loopexit:                         ; preds = %.lr.ph2591, %378
   %.42326.lcssa.ph = phi i32 [ %.42326, %378 ], [ %.423262589, %.lr.ph2591 ]
@@ -1303,7 +1303,7 @@ proto_item_set_generated.exit2410:                ; preds = %proto_item_set_gene
   store i32 %.pre-phi2652, ptr %7, align 4
   %391 = load i32, ptr %8, align 4
   %392 = icmp slt i32 %.pre-phi2652, %391
-  br i1 %392, label %.lr.ph2598, label %._crit_edge2599, !llvm.loop !13
+  br i1 %392, label %.lr.ph2598, label %._crit_edge2599, !llvm.loop !14
 
 ._crit_edge2599:                                  ; preds = %._crit_edge2592, %.lr.ph2598, %338
   %.32325.lcssa = phi i32 [ %347, %338 ], [ %.323252596, %.lr.ph2598 ], [ %.42326.lcssa, %._crit_edge2592 ]
@@ -1451,7 +1451,7 @@ proto_item_set_generated.exit2416:                ; preds = %proto_item_set_gene
   store i32 %485, ptr %7, align 4
   %486 = load i32, ptr %8, align 4
   %487 = icmp slt i32 %485, %486
-  br i1 %487, label %.lr.ph2566, label %._crit_edge2567, !llvm.loop !14
+  br i1 %487, label %.lr.ph2566, label %._crit_edge2567, !llvm.loop !15
 
 ._crit_edge2567:                                  ; preds = %480, %.lr.ph2566, %.preheader2437
   %.3.lcssa = phi i32 [ %472, %.preheader2437 ], [ %.32565, %.lr.ph2566 ], [ %484, %480 ]
@@ -1487,7 +1487,7 @@ proto_item_set_generated.exit2416:                ; preds = %proto_item_set_gene
   store i32 %504, ptr %7, align 4
   %505 = load i32, ptr %8, align 4
   %506 = icmp slt i32 %504, %505
-  br i1 %506, label %.lr.ph2572, label %.loopexit2436, !llvm.loop !15
+  br i1 %506, label %.lr.ph2572, label %.loopexit2436, !llvm.loop !16
 
 .loopexit2436:                                    ; preds = %.lr.ph2572, %500, %.preheader2435, %._crit_edge2567
   %.4 = phi i32 [ %.3.lcssa, %._crit_edge2567 ], [ %492, %.preheader2435 ], [ %.52571, %.lr.ph2572 ], [ %503, %500 ]
@@ -1539,7 +1539,7 @@ proto_item_set_generated.exit2416:                ; preds = %proto_item_set_gene
   store i32 %539, ptr %7, align 4
   %540 = load i32, ptr %8, align 4
   %541 = icmp slt i32 %539, %540
-  br i1 %541, label %.lr.ph2577, label %.loopexit2434, !llvm.loop !16
+  br i1 %541, label %.lr.ph2577, label %.loopexit2434, !llvm.loop !17
 
 .loopexit2434:                                    ; preds = %.lr.ph2577, %519, %.preheader2433, %.loopexit2436
   %.6 = phi i32 [ %.4, %.loopexit2436 ], [ %511, %.preheader2433 ], [ %.72576, %.lr.ph2577 ], [ %537, %519 ]
@@ -1579,7 +1579,7 @@ proto_item_set_generated.exit2416:                ; preds = %proto_item_set_gene
   store i32 %562, ptr %7, align 4
   %563 = load i32, ptr %8, align 4
   %564 = icmp slt i32 %562, %563
-  br i1 %564, label %.lr.ph2582, label %.loopexit, !llvm.loop !17
+  br i1 %564, label %.lr.ph2582, label %.loopexit, !llvm.loop !18
 
 565:                                              ; preds = %get_message_type.exit
   %566 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.206)
@@ -2113,7 +2113,7 @@ proto_item_set_generated.exit2425:                ; preds = %proto_item_set_gene
   %.72329 = add i32 %.72329.in2544, 12
   %947 = load i32, ptr %12, align 4
   %948 = icmp slt i32 %940, %947
-  br i1 %948, label %.lr.ph2547, label %._crit_edge2548, !llvm.loop !18
+  br i1 %948, label %.lr.ph2547, label %._crit_edge2548, !llvm.loop !19
 
 ._crit_edge2548:                                  ; preds = %938, %.lr.ph2547, %912
   %.72329.lcssa = phi i32 [ %.723292542, %912 ], [ %.723292545, %.lr.ph2547 ], [ %.72329, %938 ]
@@ -2122,7 +2122,7 @@ proto_item_set_generated.exit2425:                ; preds = %proto_item_set_gene
   call void @proto_item_set_len(ptr noundef %949, i32 noundef %950)
   %951 = load i32, ptr %11, align 4
   %952 = icmp slt i32 %914, %951
-  br i1 %952, label %.lr.ph2555, label %._crit_edge2556.loopexit, !llvm.loop !19
+  br i1 %952, label %.lr.ph2555, label %._crit_edge2556.loopexit, !llvm.loop !20
 
 ._crit_edge2556.loopexit:                         ; preds = %.lr.ph2555, %._crit_edge2548
   %.62328.lcssa.ph = phi i32 [ %.72329.lcssa, %._crit_edge2548 ], [ %.623282553, %.lr.ph2555 ]
@@ -2139,7 +2139,7 @@ proto_item_set_generated.exit2425:                ; preds = %proto_item_set_gene
   store i32 %.pre-phi2654, ptr %7, align 4
   %955 = load i32, ptr %8, align 4
   %956 = icmp slt i32 %.pre-phi2654, %955
-  br i1 %956, label %.lr.ph2562, label %._crit_edge2563, !llvm.loop !20
+  br i1 %956, label %.lr.ph2562, label %._crit_edge2563, !llvm.loop !21
 
 ._crit_edge2563:                                  ; preds = %._crit_edge2556, %.lr.ph2562, %884
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #5
@@ -2459,7 +2459,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1155, ptr %7, align 4
   %1166 = load i32, ptr %8, align 4
   %1167 = icmp slt i32 %1155, %1166
-  br i1 %1167, label %.lr.ph2538, label %.loopexit, !llvm.loop !21
+  br i1 %1167, label %.lr.ph2538, label %.loopexit, !llvm.loop !22
 
 1168:                                             ; preds = %get_message_type.exit
   %1169 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.208)
@@ -2522,7 +2522,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1194, ptr %7, align 4
   %1205 = load i32, ptr %8, align 4
   %1206 = icmp slt i32 %1194, %1205
-  br i1 %1206, label %.lr.ph2533, label %.loopexit, !llvm.loop !22
+  br i1 %1206, label %.lr.ph2533, label %.loopexit, !llvm.loop !23
 
 1207:                                             ; preds = %get_message_type.exit
   %1208 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.206)
@@ -2581,7 +2581,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1237, ptr %7, align 4
   %1244 = load i32, ptr %8, align 4
   %1245 = icmp slt i32 %1237, %1244
-  br i1 %1245, label %.lr.ph2528, label %.loopexit, !llvm.loop !23
+  br i1 %1245, label %.lr.ph2528, label %.loopexit, !llvm.loop !24
 
 1246:                                             ; preds = %get_message_type.exit
   %1247 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.231)
@@ -2627,7 +2627,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1267, ptr %7, align 4
   %1274 = load i32, ptr %8, align 4
   %1275 = icmp slt i32 %1267, %1274
-  br i1 %1275, label %.lr.ph2523, label %.loopexit, !llvm.loop !24
+  br i1 %1275, label %.lr.ph2523, label %.loopexit, !llvm.loop !25
 
 1276:                                             ; preds = %get_message_type.exit
   %1277 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.204)
@@ -2722,7 +2722,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1330, ptr %7, align 4
   %1337 = load i32, ptr %8, align 4
   %1338 = icmp slt i32 %1330, %1337
-  br i1 %1338, label %.lr.ph2510, label %._crit_edge2511, !llvm.loop !25
+  br i1 %1338, label %.lr.ph2510, label %._crit_edge2511, !llvm.loop !26
 
 ._crit_edge2511:                                  ; preds = %1328, %.lr.ph2510, %.preheader2447
   %.15.lcssa = phi i32 [ 12, %.preheader2447 ], [ %.152509, %.lr.ph2510 ], [ %1335, %1328 ]
@@ -2754,7 +2754,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1349, ptr %7, align 4
   %1353 = load i32, ptr %8, align 4
   %1354 = icmp slt i32 %1349, %1353
-  br i1 %1354, label %.lr.ph2518, label %.loopexit, !llvm.loop !26
+  br i1 %1354, label %.lr.ph2518, label %.loopexit, !llvm.loop !27
 
 1355:                                             ; preds = %get_message_type.exit
   %1356 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.297)
@@ -2867,7 +2867,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1434, ptr %7, align 4
   %1435 = load i32, ptr %8, align 4
   %1436 = icmp slt i32 %1434, %1435
-  br i1 %1436, label %.lr.ph2488, label %._crit_edge, !llvm.loop !27
+  br i1 %1436, label %.lr.ph2488, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %1429, %.lr.ph2488, %.preheader2453
   %.17.lcssa = phi i32 [ %1421, %.preheader2453 ], [ %.172487, %.lr.ph2488 ], [ %1433, %1429 ]
@@ -2897,7 +2897,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1448, ptr %7, align 4
   %1449 = load i32, ptr %8, align 4
   %1450 = icmp slt i32 %1448, %1449
-  br i1 %1450, label %.lr.ph2495, label %.loopexit2452, !llvm.loop !28
+  br i1 %1450, label %.lr.ph2495, label %.loopexit2452, !llvm.loop !29
 
 .loopexit2452:                                    ; preds = %.lr.ph2495, %1445, %1438, %._crit_edge
   %.18 = phi i32 [ %.17.lcssa, %._crit_edge ], [ %.192492, %1438 ], [ %.192493, %.lr.ph2495 ], [ %.19, %1445 ]
@@ -2949,7 +2949,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1483, ptr %7, align 4
   %1484 = load i32, ptr %8, align 4
   %1485 = icmp slt i32 %1483, %1484
-  br i1 %1485, label %.lr.ph2500, label %.loopexit2451, !llvm.loop !29
+  br i1 %1485, label %.lr.ph2500, label %.loopexit2451, !llvm.loop !30
 
 .loopexit2451:                                    ; preds = %.lr.ph2500, %1463, %.preheader2450, %.loopexit2452
   %.20 = phi i32 [ %.18, %.loopexit2452 ], [ %1455, %.preheader2450 ], [ %.212499, %.lr.ph2500 ], [ %1481, %1463 ]
@@ -2989,7 +2989,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1506, ptr %7, align 4
   %1507 = load i32, ptr %8, align 4
   %1508 = icmp slt i32 %1506, %1507
-  br i1 %1508, label %.lr.ph2505, label %.loopexit, !llvm.loop !30
+  br i1 %1508, label %.lr.ph2505, label %.loopexit, !llvm.loop !31
 
 1509:                                             ; preds = %get_message_type.exit
   %1510 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.303)
@@ -3064,7 +3064,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1558, ptr %7, align 4
   %1559 = load i32, ptr %8, align 4
   %1560 = icmp slt i32 %1558, %1559
-  br i1 %1560, label %.lr.ph2483, label %.loopexit, !llvm.loop !31
+  br i1 %1560, label %.lr.ph2483, label %.loopexit, !llvm.loop !32
 
 1561:                                             ; preds = %get_message_type.exit
   %1562 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.307)
@@ -3268,7 +3268,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1693, ptr %7, align 4
   %1694 = load i32, ptr %8, align 4
   %1695 = icmp slt i32 %1693, %1694
-  br i1 %1695, label %.lr.ph2478, label %.loopexit, !llvm.loop !32
+  br i1 %1695, label %.lr.ph2478, label %.loopexit, !llvm.loop !33
 
 1696:                                             ; preds = %get_message_type.exit
   %1697 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.252)
@@ -3348,7 +3348,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1735, ptr %7, align 4
   %1746 = load i32, ptr %8, align 4
   %1747 = icmp slt i32 %1735, %1746
-  br i1 %1747, label %.lr.ph2473, label %.loopexit, !llvm.loop !33
+  br i1 %1747, label %.lr.ph2473, label %.loopexit, !llvm.loop !34
 
 1748:                                             ; preds = %get_message_type.exit
   %1749 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.206)
@@ -3411,7 +3411,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1778, ptr %7, align 4
   %1789 = load i32, ptr %8, align 4
   %1790 = icmp slt i32 %1778, %1789
-  br i1 %1790, label %.lr.ph2468, label %.loopexit, !llvm.loop !34
+  br i1 %1790, label %.lr.ph2468, label %.loopexit, !llvm.loop !35
 
 1791:                                             ; preds = %get_message_type.exit
   %1792 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.206)
@@ -3466,7 +3466,7 @@ proto_item_set_generated.exit2431:                ; preds = %proto_item_set_gene
   store i32 %1824, ptr %7, align 4
   %1825 = load i32, ptr %8, align 4
   %1826 = icmp slt i32 %1824, %1825
-  br i1 %1826, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  br i1 %1826, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 1827:                                             ; preds = %get_message_type.exit
   %1828 = call fastcc zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.252)
@@ -3798,31 +3798,32 @@ attributes #6 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}

@@ -256,7 +256,7 @@ define hidden range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly captures(a
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %6
-  store i64 0, ptr %1, align 8, !tbaa !14
+  store i64 0, ptr %1, align 8, !tbaa !15
   br label %8
 
 8:                                                ; preds = %7, %6
@@ -265,12 +265,12 @@ define hidden range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly captures(a
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
-  store ptr null, ptr %0, align 8, !tbaa !16
+  store ptr null, ptr %0, align 8, !tbaa !17
   br label %17
 
 12:                                               ; preds = %8
   %13 = tail call noalias ptr @mi_strdup(ptr noundef nonnull %9) #8
-  store ptr %13, ptr %0, align 8, !tbaa !16
+  store ptr %13, ptr %0, align 8, !tbaa !17
   %14 = icmp eq ptr %13, null
   %brmerge = or i1 %.not, %14
   %.mux = select i1 %14, i32 12, i32 0
@@ -278,7 +278,7 @@ define hidden range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly captures(a
 
 15:                                               ; preds = %12
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
-  store i64 %16, ptr %1, align 8, !tbaa !14
+  store i64 %16, ptr %1, align 8, !tbaa !15
   br label %17
 
 17:                                               ; preds = %12, %15, %11, %3
@@ -304,11 +304,11 @@ define hidden noundef i32 @mi_wdupenv_s(ptr noundef writeonly captures(address_i
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %6
-  store i64 0, ptr %1, align 8, !tbaa !14
+  store i64 0, ptr %1, align 8, !tbaa !15
   br label %8
 
 8:                                                ; preds = %7, %6
-  store ptr null, ptr %0, align 8, !tbaa !18
+  store ptr null, ptr %0, align 8, !tbaa !19
   br label %9
 
 9:                                                ; preds = %3, %8
@@ -363,11 +363,12 @@ attributes #10 = { nounwind willreturn memory(read) }
 !9 = !{!"int", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"short", !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !5, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !4, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 short", !4, i64 0}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 omnipotent char", !4, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 short", !4, i64 0}

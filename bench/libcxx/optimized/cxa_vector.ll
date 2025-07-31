@@ -400,7 +400,7 @@ define dso_local void @__cxa_vec_cctor(ptr noundef %0, ptr noundef %1, i64 nound
   %17 = getelementptr inbounds nuw i8, ptr %.018, i64 %3
   %18 = getelementptr inbounds nuw i8, ptr %.01517, i64 %3
   %19 = icmp ult i64 %16, %2
-  br i1 %19, label %.lr.ph, label %_ZN10__cxxabiv112_GLOBAL__N_114st_cxa_cleanupD2Ev.exit, !llvm.loop !19
+  br i1 %19, label %.lr.ph, label %_ZN10__cxxabiv112_GLOBAL__N_114st_cxa_cleanupD2Ev.exit, !llvm.loop !20
 
 20:                                               ; preds = %.lr.ph
   %21 = landingpad { ptr, i32 }
@@ -422,7 +422,7 @@ _ZN10__cxxabiv112_GLOBAL__N_114st_cxa_cleanupD2Ev.exit: ; preds = %14, %9
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN10__cxxabiv112_GLOBAL__N_114st_cxa_cleanupD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8, !tbaa !16, !range !20, !noundef !21
+  %3 = load i8, ptr %2, align 8, !tbaa !16, !range !21, !noundef !22
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %__cxa_vec_cleanup.exit
 
@@ -436,7 +436,7 @@ define internal fastcc void @_ZN10__cxxabiv112_GLOBAL__N_114st_cxa_cleanupD2Ev(p
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = load ptr, ptr %0, align 8, !tbaa !8
   %15 = mul i64 %13, %10
@@ -454,7 +454,7 @@ define internal fastcc void @_ZN10__cxxabiv112_GLOBAL__N_114st_cxa_cleanupD2Ev(p
   %20 = add i64 %.012.i, -1
   %21 = getelementptr inbounds i8, ptr %.0.i, i64 %17
   invoke void %7(ptr noundef %21)
-          to label %18 unwind label %22, !llvm.loop !23
+          to label %18 unwind label %22, !llvm.loop !24
 
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
@@ -503,7 +503,7 @@ define dso_local void @__cxa_vec_dtor(ptr noundef %0, i64 noundef %1, i64 nounde
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %.0, i64 %15
   invoke void %3(ptr noundef %20)
-          to label %16 unwind label %21, !llvm.loop !24
+          to label %16 unwind label %21, !llvm.loop !25
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -553,7 +553,7 @@ define dso_local void @__cxa_vec_cleanup(ptr noundef %0, i64 noundef %1, i64 nou
   %11 = add i64 %.012, -1
   %12 = getelementptr inbounds i8, ptr %.0, i64 %8
   invoke void %3(ptr noundef %12)
-          to label %9 unwind label %13, !llvm.loop !23
+          to label %9 unwind label %13, !llvm.loop !24
 
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
@@ -612,7 +612,7 @@ define dso_local void @__cxa_vec_delete(ptr noundef %0, i64 noundef %1, i64 noun
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %.0.i.i, i64 %21
   invoke void %3(ptr noundef %26)
-          to label %22 unwind label %27, !llvm.loop !24
+          to label %22 unwind label %27, !llvm.loop !25
 
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
@@ -690,7 +690,7 @@ define dso_local void @__cxa_vec_delete2(ptr noundef %0, i64 noundef %1, i64 nou
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %.0.i, i64 %22
   invoke void %3(ptr noundef %27)
-          to label %23 unwind label %28, !llvm.loop !24
+          to label %23 unwind label %28, !llvm.loop !25
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -788,7 +788,7 @@ define dso_local void @__cxa_vec_delete3(ptr noundef %0, i64 noundef %1, i64 nou
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %.0.i, i64 %22
   invoke void %3(ptr noundef %27)
-          to label %23 unwind label %28, !llvm.loop !24
+          to label %23 unwind label %28, !llvm.loop !25
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -909,11 +909,12 @@ attributes #13 = { noreturn nounwind }
 !14 = !{!9, !5, i64 16}
 !15 = !{!9, !10, i64 24}
 !16 = !{!9, !12, i64 32}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = !{!9, !11, i64 8}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = !{!9, !11, i64 8}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}

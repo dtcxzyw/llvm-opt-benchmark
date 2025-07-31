@@ -309,7 +309,7 @@ define hidden noundef ptr @_ZNK22SerialBlockOffsetTable30block_start_reaching_in
   %.010 = load i8, ptr %16, align 1
   %17 = zext i8 %.010 to i32
   %.not = icmp samesign ugt i32 %10, %17
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %9, %2 ], [ %16, %.lr.ph ]
@@ -486,6 +486,7 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

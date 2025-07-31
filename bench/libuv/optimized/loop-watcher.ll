@@ -171,7 +171,7 @@ uv__queue_move.exit:                              ; preds = %1
   call void %21(ptr noundef nonnull %13) #4
   %22 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %2, %22
-  br i1 %.not, label %._crit_edge, label %11
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %11, %1, %uv__queue_move.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
@@ -392,7 +392,7 @@ uv__queue_move.exit:                              ; preds = %1
   call void %21(ptr noundef nonnull %13) #4
   %22 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %2, %22
-  br i1 %.not, label %._crit_edge, label %11
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %11, %1, %uv__queue_move.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
@@ -607,7 +607,7 @@ uv__queue_move.exit:                              ; preds = %1
   call void %21(ptr noundef nonnull %13) #4
   %22 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %2, %22
-  br i1 %.not, label %._crit_edge, label %11
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %11, %1, %uv__queue_move.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
@@ -668,3 +668,7 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

@@ -338,7 +338,7 @@ define range(i64 -2147483648, 2147483648) i64 @big5_to_euc_tw(ptr noundef readon
   %.048.be.i = phi ptr [ %.1.i, %64 ], [ %73, %72 ]
   %.0.be.i = phi ptr [ %66, %64 ], [ %74, %72 ]
   %76 = icmp sgt i32 %.049.be.i, 0
-  br i1 %76, label %.lr.ph.i, label %big52euc_tw.exit, !llvm.loop !5
+  br i1 %76, label %.lr.ph.i, label %big52euc_tw.exit, !llvm.loop !6
 
 big52euc_tw.exit:                                 ; preds = %.backedge.i, %1, %25, %62, %70
   %.04859.i = phi ptr [ %.04864.i, %70 ], [ %.04864.i, %62 ], [ %.04864.i, %25 ], [ %9, %1 ], [ %.048.be.i, %.backedge.i ]
@@ -477,7 +477,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_tw_to_mic(ptr noundef readonl
   %.3.i = phi ptr [ %.2.i, %50 ], [ %59, %58 ]
   %.1.i = phi ptr [ %52, %50 ], [ %60, %58 ]
   %63 = icmp sgt i32 %.145.i, 0
-  br i1 %63, label %.lr.ph.i, label %euc_tw2mic.exit, !llvm.loop !6
+  br i1 %63, label %.lr.ph.i, label %euc_tw2mic.exit, !llvm.loop !7
 
 euc_tw2mic.exit:                                  ; preds = %62, %1, %24, %56
   %.04253.i = phi ptr [ %.04257.i, %56 ], [ %.04257.i, %24 ], [ %8, %1 ], [ %.3.i, %62 ]
@@ -545,7 +545,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_tw(ptr noundef readonl
   %.049.be.i = phi ptr [ %.1.i, %69 ], [ %26, %25 ]
   %.0.be.i = phi ptr [ %71, %69 ], [ %27, %25 ]
   %29 = icmp sgt i32 %.050.be.i, 0
-  br i1 %29, label %.lr.ph.i, label %mic2euc_tw.exit, !llvm.loop !7
+  br i1 %29, label %.lr.ph.i, label %mic2euc_tw.exit, !llvm.loop !8
 
 30:                                               ; preds = %.lr.ph.i
   %31 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 7, ptr noundef nonnull %.067.i, i32 noundef %.05065.i) #5
@@ -698,7 +698,7 @@ define range(i64 -2147483648, 2147483648) i64 @big5_to_mic(ptr noundef readonly 
   %.038.be.i = phi ptr [ %56, %49 ], [ %27, %26 ]
   %.0.be.i = phi ptr [ %58, %49 ], [ %28, %26 ]
   %30 = icmp sgt i32 %.039.be.i, 0
-  br i1 %30, label %.lr.ph.i, label %big52mic.exit, !llvm.loop !8
+  br i1 %30, label %.lr.ph.i, label %big52mic.exit, !llvm.loop !9
 
 31:                                               ; preds = %.lr.ph.i
   %32 = call i32 @pg_encoding_verifymbchar(i32 noundef 36, ptr noundef nonnull %.056.i, i32 noundef %.03954.i) #5
@@ -826,7 +826,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_big5(ptr noundef readonly 
   %.052.be.i = phi ptr [ %57, %52 ], [ %26, %25 ]
   %.0.be.i = phi ptr [ %59, %52 ], [ %27, %25 ]
   %29 = icmp sgt i32 %.054.be.i, 0
-  br i1 %29, label %.lr.ph.i, label %mic2big5.exit, !llvm.loop !9
+  br i1 %29, label %.lr.ph.i, label %mic2big5.exit, !llvm.loop !10
 
 30:                                               ; preds = %.lr.ph.i
   %31 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 7, ptr noundef nonnull %.073.i, i32 noundef %.05471.i) #5
@@ -931,10 +931,11 @@ attributes #6 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}

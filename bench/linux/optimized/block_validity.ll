@@ -140,7 +140,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
 
 66:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !11
   %67 = icmp eq i32 %64, 1
   br i1 %67, label %.thread18, label %68
 
@@ -224,7 +224,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
 118:                                              ; preds = %116, %102
   %119 = phi i32 [ %103, %102 ], [ %117, %116 ]
   %120 = icmp ult i32 %119, %89
-  br i1 %120, label %94, label %.loopexit21, !llvm.loop !11
+  br i1 %120, label %94, label %.loopexit21, !llvm.loop !12
 
 .loopexit21:                                      ; preds = %118, %94, %110, %108, %78
   %121 = phi i32 [ -117, %110 ], [ %106, %108 ], [ 0, %78 ], [ 0, %118 ], [ %98, %94 ]
@@ -242,7 +242,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   br i1 %124, label %125, label %.thread
 
 125:                                              ; preds = %122, %60, %.loopexit23
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 688
   store volatile ptr %9, ptr %126, align 16
   %127 = load ptr, ptr %3, align 8
@@ -273,7 +273,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   %146 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull %138, i64 noundef %140, i64 noundef %145) #9
   %147 = call ptr @rb_next(ptr noundef nonnull %137) #7
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %148, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %132
   call void @__rcu_read_unlock() #7
@@ -292,7 +292,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   %155 = load ptr, ptr @ext4_system_zone_cachep, align 8
   call void @kmem_cache_free(ptr noundef %155, ptr noundef nonnull %153) #7
   %156 = icmp eq ptr %154, null
-  br i1 %156, label %.loopexit20, label %.preheader19, !llvm.loop !14
+  br i1 %156, label %.loopexit20, label %.preheader19, !llvm.loop !15
 
 .loopexit20:                                      ; preds = %.preheader19, %.thread
   call void @kfree(ptr noundef nonnull %9) #7
@@ -335,7 +335,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @add_system_zone(ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %.preheader, !llvm.loop !15
+  br i1 %21, label %22, label %.preheader, !llvm.loop !16
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 %18
@@ -485,7 +485,7 @@ define internal void @ext4_destroy_system_zone(ptr noundef %0) #2 align 16 {
   %7 = load ptr, ptr @ext4_system_zone_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %7, ptr noundef nonnull %5) #7
   %8 = icmp eq ptr %6, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %1
   tail call void @kfree(ptr noundef %2) #7
@@ -583,7 +583,7 @@ define dso_local range(i32 0, 2) i32 @ext4_sb_block_valid(ptr noundef readonly c
   %66 = getelementptr inbounds nuw i8, ptr %44, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.loopexit, label %43, !llvm.loop !16
+  br i1 %68, label %.loopexit, label %43, !llvm.loop !18
 
 .loopexit:                                        ; preds = %64, %56, %54, %38, %34
   %69 = phi i32 [ 1, %34 ], [ %63, %56 ], [ 0, %54 ], [ 1, %38 ], [ 1, %64 ]
@@ -688,7 +688,7 @@ define dso_local range(i32 0, 2) i32 @ext4_inode_block_valid(ptr noundef readonl
   %67 = getelementptr inbounds nuw i8, ptr %45, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.loopexit, label %44, !llvm.loop !16
+  br i1 %69, label %.loopexit, label %44, !llvm.loop !19
 
 .loopexit:                                        ; preds = %65, %57, %55, %39, %35
   %70 = phi i32 [ 1, %35 ], [ %64, %57 ], [ 0, %55 ], [ 1, %39 ], [ 1, %65 ]
@@ -808,7 +808,7 @@ define dso_local noundef range(i32 -117, 1) i32 @ext4_check_blockref(ptr noundef
   %78 = getelementptr inbounds nuw i8, ptr %66, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %ext4_inode_block_valid.exit.thread4.us, label %.preheader.us, !llvm.loop !16
+  br i1 %80, label %ext4_inode_block_valid.exit.thread4.us, label %.preheader.us, !llvm.loop !19
 
 ext4_inode_block_valid.exit.thread4.us:           ; preds = %76, %63, %59
   tail call void @__rcu_read_unlock() #7
@@ -816,7 +816,7 @@ ext4_inode_block_valid.exit.thread4.us:           ; preds = %76, %63, %59
 
 81:                                               ; preds = %ext4_inode_block_valid.exit.thread4.us, %.preheader7.split.us
   %82 = icmp ult ptr %30, %25
-  br i1 %82, label %.preheader7.split.us, label %.loopexit, !llvm.loop !17
+  br i1 %82, label %.preheader7.split.us, label %.loopexit, !llvm.loop !20
 
 .preheader7.split:                                ; preds = %.preheader7, %140
   %83 = phi ptr [ %84, %140 ], [ %3, %.preheader7 ]
@@ -894,7 +894,7 @@ ext4_inode_block_valid.exit:                      ; preds = %124
   %133 = load i64, ptr %28, align 8
   %.not6 = icmp eq i64 %133, %132
   tail call void @__rcu_read_unlock() #7
-  br i1 %.not6, label %140, label %ext4_inode_block_valid.exit.thread, !prof !19
+  br i1 %.not6, label %140, label %ext4_inode_block_valid.exit.thread, !prof !22
 
 ext4_inode_block_valid.exit.thread5:              ; preds = %70
   tail call void @__rcu_read_unlock() #7
@@ -905,7 +905,7 @@ ext4_inode_block_valid.exit.thread5:              ; preds = %70
   %136 = getelementptr inbounds nuw i8, ptr %120, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, null
-  br i1 %138, label %ext4_inode_block_valid.exit.thread4, label %.preheader, !llvm.loop !16
+  br i1 %138, label %ext4_inode_block_valid.exit.thread4, label %.preheader, !llvm.loop !19
 
 ext4_inode_block_valid.exit.thread4:              ; preds = %134, %113, %117
   tail call void @__rcu_read_unlock() #7
@@ -918,7 +918,7 @@ ext4_inode_block_valid.exit.thread:               ; preds = %ext4_inode_block_va
 
 140:                                              ; preds = %ext4_inode_block_valid.exit.thread4, %ext4_inode_block_valid.exit, %.preheader7.split
   %141 = icmp ult ptr %84, %25
-  br i1 %141, label %.preheader7.split, label %.loopexit, !llvm.loop !20
+  br i1 %141, label %.preheader7.split, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %140, %81, %ext4_inode_block_valid.exit.thread, %23, %16
   %142 = phi i32 [ -117, %ext4_inode_block_valid.exit.thread ], [ 0, %16 ], [ 0, %23 ], [ 0, %81 ], [ 0, %140 ]
@@ -1002,17 +1002,20 @@ attributes #9 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2156574662}
 !6 = !{i32 -117, i32 1}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !8, !9}
-!12 = !{i64 2156608798}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{!"branch_weights", i32 -2147483648, i32 0}
-!20 = distinct !{!20, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = !{i64 2156608798}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = distinct !{!16, !8, !9, !10}
+!17 = distinct !{!17, !8, !9, !10}
+!18 = distinct !{!18, !8, !9, !10}
+!19 = distinct !{!19, !8, !9, !10}
+!20 = distinct !{!20, !8, !9, !10, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = !{!"branch_weights", i32 -2147483648, i32 0}
+!23 = distinct !{!23, !8, !9, !10}

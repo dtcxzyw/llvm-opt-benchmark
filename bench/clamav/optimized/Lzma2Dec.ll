@@ -490,7 +490,7 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
   %187 = phi i32 [ %.pr, %186 ], [ %.0.i, %.thread165 ]
   %.1104169 = phi ptr [ %.2105, %186 ], [ %39, %.thread165 ]
   %.not = icmp eq i32 %187, 8
-  br i1 %.not, label %._crit_edge, label %24
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.backedge, %6
   store i32 1, ptr %5, align 4, !tbaa !19
@@ -525,7 +525,7 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr noundef writeonly captures(
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
   store i64 %.046, ptr %8, align 8, !tbaa !18
   %15 = load i64, ptr %11, align 8, !tbaa !20
-  %16 = load i64, ptr %12, align 8, !tbaa !32
+  %16 = load i64, ptr %12, align 8, !tbaa !34
   %17 = icmp eq i64 %15, %16
   br i1 %17, label %18, label %19
 
@@ -547,7 +547,7 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr noundef writeonly captures(
   store i64 %27, ptr %4, align 8, !tbaa !18
   %28 = load i64, ptr %11, align 8, !tbaa !20
   %29 = sub i64 %28, %20
-  %30 = load ptr, ptr %13, align 8, !tbaa !33
+  %30 = load ptr, ptr %13, align 8, !tbaa !35
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.044, ptr align 1 %31, i64 %29, i1 false)
   %32 = load i64, ptr %2, align 8, !tbaa !18
@@ -569,7 +569,7 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr noundef writeonly captures(
   %40 = icmp ne i64 %35, 0
   %or.cond.not = select i1 %39, i1 %40, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  br i1 %or.cond.not, label %14, label %.loopexit
+  br i1 %or.cond.not, label %14, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %34, %.thread
   ret i32 %24
@@ -592,9 +592,9 @@ define i32 @Lzma2Decode(ptr noundef %0, ptr noundef captures(none) %1, ptr nound
   store i64 0, ptr %3, align 8, !tbaa !18
   store i64 0, ptr %1, align 8, !tbaa !18
   store i32 0, ptr %6, align 4, !tbaa !19
-  store ptr %0, ptr %13, align 8, !tbaa !33
+  store ptr %0, ptr %13, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 %11, ptr %15, align 8, !tbaa !32
+  store i64 %11, ptr %15, align 8, !tbaa !34
   %16 = zext i8 %4 to i32
   %17 = icmp ugt i8 %4, 40
   br i1 %17, label %Lzma2Dec_GetOldProps.exit, label %18
@@ -693,5 +693,8 @@ attributes #5 = { nounwind }
 !29 = !{!8, !10, i64 68}
 !30 = !{!8, !10, i64 64}
 !31 = !{!8, !10, i64 12}
-!32 = !{!7, !14, i64 56}
-!33 = !{!7, !13, i64 24}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!7, !14, i64 56}
+!35 = !{!7, !13, i64 24}
+!36 = distinct !{!36, !33}

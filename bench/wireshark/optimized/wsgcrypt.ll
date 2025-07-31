@@ -473,7 +473,7 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   store i8 %41, ptr %45, align 1
   %46 = load ptr, ptr %9, align 8
   %47 = call ptr @gcry_md_read(ptr noundef %46, i32 noundef %0)
-  %48 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef %47, i64 noundef range(i64 0, 4294967296) %14, i64 noundef 48) #10, !alias.scope !8
+  %48 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef %47, i64 noundef range(i64 0, 4294967296) %14, i64 noundef 48) #10, !alias.scope !9
   %49 = zext i32 %.04047 to i64
   %50 = getelementptr i8, ptr %5, i64 %49
   %51 = sub i32 %6, %.04047
@@ -482,7 +482,7 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %50, ptr noundef nonnull align 16 %8, i64 noundef range(i64 0, 4294967296) %53, i1 noundef false) #10
   %54 = add i32 %.04047, %10
   %55 = icmp ult i32 %54, %6
-  br i1 %55, label %22, label %20, !llvm.loop !12
+  br i1 %55, label %22, label %20, !llvm.loop !13
 
 56:                                               ; preds = %16, %7, %11, %20
   %.0 = phi i32 [ 0, %20 ], [ 45, %11 ], [ 45, %7 ], [ %17, %16 ]
@@ -762,7 +762,7 @@ define i32 @hpke_set_nonce(ptr noundef %0, i64 noundef %1, ptr noundef readonly 
   %10 = lshr i64 %.020, 8
   %11 = add nuw nsw i64 %.01719, 1
   %exitcond.not = icmp eq i64 %11, 9
-  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.121 = phi i64 [ %17, %.lr.ph ], [ 0, %.preheader ]
@@ -774,7 +774,7 @@ define i32 @hpke_set_nonce(ptr noundef %0, i64 noundef %1, ptr noundef readonly 
   store i8 %16, ptr %14, align 1
   %17 = add nuw i64 %.121, 1
   %exitcond22.not = icmp eq i64 %17, %3
-  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %18 = tail call i32 @gcry_cipher_setiv(ptr noundef %0, ptr noundef %5, i64 noundef %3)
@@ -833,12 +833,13 @@ attributes #12 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
-!10 = distinct !{!10, !"memcpy.inline"}
-!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

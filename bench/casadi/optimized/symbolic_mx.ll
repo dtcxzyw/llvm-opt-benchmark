@@ -2709,7 +2709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i: ; p
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.019.028, i64 32
   %.not22 = icmp eq ptr %42, %23
-  br i1 %.not22, label %.critedge, label %.lr.ph
+  br i1 %.not22, label %.critedge, label %.lr.ph, !llvm.loop !88
 
 .critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2943,9 +2943,9 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !88
+  %2 = load ptr, ptr %0, align 8, !tbaa !90
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %4 = load ptr, ptr %3, align 8, !tbaa !92
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -2972,10 +2972,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !91
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !93
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !88
+  %.pr = load ptr, ptr %0, align 8, !tbaa !90
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, %1
@@ -2985,7 +2985,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !93
+  %17 = load ptr, ptr %16, align 8, !tbaa !95
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -3174,9 +3174,11 @@ attributes #24 = { noreturn }
 !85 = distinct !{!85, !"_ZN6casadi6strvecB5cxx11Ev"}
 !86 = !{!87, !87, i64 0}
 !87 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !9, i64 0}
-!88 = !{!89, !87, i64 0}
-!89 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !87, i64 0, !87, i64 8, !87, i64 16}
-!90 = !{!89, !87, i64 8}
-!91 = distinct !{!91, !92}
-!92 = !{!"llvm.loop.mustprogress"}
-!93 = !{!89, !87, i64 16}
+!88 = distinct !{!88, !89}
+!89 = !{!"llvm.loop.estimated_trip_count"}
+!90 = !{!91, !87, i64 0}
+!91 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !87, i64 0, !87, i64 8, !87, i64 16}
+!92 = !{!91, !87, i64 8}
+!93 = distinct !{!93, !94, !89}
+!94 = !{!"llvm.loop.mustprogress"}
+!95 = !{!91, !87, i64 16}

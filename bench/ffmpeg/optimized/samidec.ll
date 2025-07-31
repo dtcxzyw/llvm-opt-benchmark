@@ -197,7 +197,7 @@ av_isspace.exit103.thread.i:                      ; preds = %41, %41, %41, %41, 
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %.3.pn.i, i64 2
-  br label %46, !llvm.loop !36
+  br label %46, !llvm.loop !37
 
 60:                                               ; preds = %53
   %61 = load i8, ptr %.3.i, align 1, !tbaa !31
@@ -238,7 +238,7 @@ av_isspace.exit105.thread.i:                      ; preds = %60, %60, %60, %60, 
 av_isspace.exit106.i:                             ; preds = %64, %62, %62, %62, %62, %62
   %67 = phi i32 [ 1, %62 ], [ %66, %64 ], [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 1, %62 ]
   %68 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
-  br label %.outer.i, !llvm.loop !36
+  br label %.outer.i, !llvm.loop !37
 
 .outer.i:                                         ; preds = %44, %av_isspace.exit106.i
   %.3.ph.i = phi ptr [ %68, %av_isspace.exit106.i ], [ %.271.i, %44 ]
@@ -259,23 +259,23 @@ av_isspace.exit104.thread.i:                      ; preds = %50, %50, %50, %50, 
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 4096
   call void @av_bprint_clear(ptr noundef nonnull %70) #6
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %72 = load i32, ptr %71, align 8, !tbaa !37
+  %72 = load i32, ptr %71, align 8, !tbaa !38
   %.not100.i = icmp eq i32 %72, 0
   br i1 %.not100.i, label %79, label %73
 
 73:                                               ; preds = %._crit_edge.i
-  %74 = load ptr, ptr %9, align 8, !tbaa !39
+  %74 = load ptr, ptr %9, align 8, !tbaa !40
   %75 = call i32 @ff_htmlmarkup_to_ass(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %74) #6
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %sami_paragraph_to_ass.exit.thread23, label %77
 
 77:                                               ; preds = %73
-  %78 = load ptr, ptr %17, align 8, !tbaa !40
+  %78 = load ptr, ptr %17, align 8, !tbaa !41
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %70, ptr noundef nonnull @.str.9, ptr noundef %78) #6
   br label %79
 
 79:                                               ; preds = %77, %._crit_edge.i
-  %80 = load ptr, ptr %19, align 8, !tbaa !41
+  %80 = load ptr, ptr %19, align 8, !tbaa !42
   %81 = call i32 @ff_htmlmarkup_to_ass(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %80) #6
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %sami_paragraph_to_ass.exit.thread23, label %83
@@ -286,24 +286,24 @@ sami_paragraph_to_ass.exit.thread23:              ; preds = %73, %79, %.thread11
   br label %.thread
 
 83:                                               ; preds = %79
-  %84 = load ptr, ptr %16, align 8, !tbaa !42
+  %84 = load ptr, ptr %16, align 8, !tbaa !43
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %70, ptr noundef nonnull @.str.10, ptr noundef %84) #6
   call void @av_free(ptr noundef nonnull %15) #6
-  %85 = load ptr, ptr %70, align 8, !tbaa !43
+  %85 = load ptr, ptr %70, align 8, !tbaa !44
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 5120
-  %87 = load i32, ptr %86, align 8, !tbaa !44
+  %87 = load i32, ptr %86, align 8, !tbaa !45
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %86, align 8, !tbaa !44
+  store i32 %88, ptr %86, align 8, !tbaa !45
   %89 = call i32 @ff_ass_add_rect(ptr noundef %1, ptr noundef %85, i32 noundef %87, i32 noundef 0, ptr noundef null, ptr noundef null) #6
   %90 = icmp sgt i32 %89, -1
   br i1 %90, label %91, label %.thread
 
 91:                                               ; preds = %83, %10, %4
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %93 = load i32, ptr %92, align 4, !tbaa !45
+  %93 = load i32, ptr %92, align 4, !tbaa !46
   %94 = icmp ne i32 %93, 0
   %95 = zext i1 %94 to i32
-  store i32 %95, ptr %2, align 4, !tbaa !49
+  store i32 %95, ptr %2, align 4, !tbaa !50
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %97 = load i32, ptr %96, align 8, !tbaa !29
   br label %.thread
@@ -332,7 +332,7 @@ define internal noundef i32 @sami_close(ptr noundef readonly captures(none) %0) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @sami_flush(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %3 = load i32, ptr %2, align 4, !tbaa !50
+  %3 = load i32, ptr %2, align 4, !tbaa !51
   %4 = and i32 %3, 1073741824
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -341,7 +341,7 @@ define internal void @sami_flush(ptr noundef readonly captures(none) %0) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 5120
-  store i32 0, ptr %8, align 8, !tbaa !44
+  store i32 0, ptr %8, align 8, !tbaa !45
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -428,20 +428,21 @@ attributes #7 = { nounwind willreturn memory(read) }
 !31 = !{!8, !8, i64 0}
 !32 = !{!33, !10, i64 8}
 !33 = !{!"AVBPrint", !14, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !8, i64 20, !8, i64 21}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = !{!38, !10, i64 8}
-!38 = !{!"", !33, i64 0, !33, i64 1024, !33, i64 2048, !33, i64 3072, !33, i64 4096, !10, i64 5120}
-!39 = !{!38, !14, i64 0}
-!40 = !{!38, !14, i64 2048}
-!41 = !{!38, !14, i64 1024}
-!42 = !{!38, !14, i64 3072}
-!43 = !{!38, !14, i64 4096}
-!44 = !{!38, !10, i64 5120}
-!45 = !{!46, !10, i64 12}
-!46 = !{!"AVSubtitle", !47, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !48, i64 16, !13, i64 24}
-!47 = !{!"short", !8, i64 0}
-!48 = !{!"p2 _ZTS14AVSubtitleRect", !26, i64 0}
-!49 = !{!10, !10, i64 0}
-!50 = !{!5, !10, i64 68}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36}
+!38 = !{!39, !10, i64 8}
+!39 = !{!"", !33, i64 0, !33, i64 1024, !33, i64 2048, !33, i64 3072, !33, i64 4096, !10, i64 5120}
+!40 = !{!39, !14, i64 0}
+!41 = !{!39, !14, i64 2048}
+!42 = !{!39, !14, i64 1024}
+!43 = !{!39, !14, i64 3072}
+!44 = !{!39, !14, i64 4096}
+!45 = !{!39, !10, i64 5120}
+!46 = !{!47, !10, i64 12}
+!47 = !{!"AVSubtitle", !48, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !49, i64 16, !13, i64 24}
+!48 = !{!"short", !8, i64 0}
+!49 = !{!"p2 _ZTS14AVSubtitleRect", !26, i64 0}
+!50 = !{!10, !10, i64 0}
+!51 = !{!5, !10, i64 68}

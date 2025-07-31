@@ -709,7 +709,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %15, %2, %5, %9, %13
   store i8 %36, ptr %39, align 1, !tbaa !12
   %40 = add i32 %.01819.i, -2
   %41 = icmp ugt i64 %.020.i, 9999
-  br i1 %41, label %.lr.ph.i6, label %._crit_edge.i, !llvm.loop !16
+  br i1 %41, label %.lr.ph.i6, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i6 ]
@@ -855,7 +855,7 @@ define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m(ptr noun
   store i8 %15, ptr %17, align 1, !tbaa !12
   %18 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %18, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -865,7 +865,7 @@ define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m(ptr noun
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper11SHA256StateC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(108) ptr @_Znwm(i64 noundef 108) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(108) %2, i8 0, i64 108, i1 false)
-  store ptr %2, ptr %0, align 8, !tbaa !18
+  store ptr %2, ptr %0, align 8, !tbaa !19
   tail call void @mbedtls_sha256_init(ptr noundef nonnull %2)
   %3 = tail call i32 @mbedtls_sha256_starts(ptr noundef nonnull %2, i32 noundef 0)
   %.not = icmp eq i32 %3, 0
@@ -898,7 +898,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper11SHA256StateD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !18
+  %2 = load ptr, ptr %0, align 8, !tbaa !19
   invoke void @mbedtls_sha256_free(ptr noundef %2)
           to label %3 unwind label %7
 
@@ -938,7 +938,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper11SHA256State9AddStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !18
+  %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = load ptr, ptr %1, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !9
@@ -967,7 +967,7 @@ define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper11SHA256State9AddStringER
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper11SHA256State8FinalizeB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !18
+  %3 = load ptr, ptr %1, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1034,7 +1034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper11SHA256State9FinishHexEPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !18
+  %4 = load ptr, ptr %0, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %3, align 8, !tbaa !3
@@ -1098,7 +1098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   store i8 %30, ptr %32, align 1, !tbaa !12
   %33 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %33, 32
-  br i1 %exitcond.not.i, label %_ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m.exit, label %.lr.ph.i, !llvm.loop !18
 
 _ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m.exit: ; preds = %.lr.ph.i
   %34 = icmp eq ptr %18, %5
@@ -1146,7 +1146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper9SHA1StateC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(92) ptr @_Znwm(i64 noundef 92) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(92) %2, i8 0, i64 92, i1 false)
-  store ptr %2, ptr %0, align 8, !tbaa !20
+  store ptr %2, ptr %0, align 8, !tbaa !21
   tail call void @mbedtls_sha1_init(ptr noundef nonnull %2)
   %3 = tail call i32 @mbedtls_sha1_starts(ptr noundef nonnull %2)
   %.not = icmp eq i32 %3, 0
@@ -1177,7 +1177,7 @@ declare i32 @mbedtls_sha1_starts(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper9SHA1StateD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !20
+  %2 = load ptr, ptr %0, align 8, !tbaa !21
   invoke void @mbedtls_sha1_free(ptr noundef %2)
           to label %3 unwind label %7
 
@@ -1204,7 +1204,7 @@ declare void @mbedtls_sha1_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper9SHA1State9AddStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !20
+  %3 = load ptr, ptr %0, align 8, !tbaa !21
   %4 = load ptr, ptr %1, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !9
@@ -1235,7 +1235,7 @@ declare i32 @mbedtls_sha1_update(ptr noundef, ptr noundef, i64 noundef) local_un
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper9SHA1State8FinalizeB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !20
+  %3 = load ptr, ptr %1, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1304,7 +1304,7 @@ declare i32 @mbedtls_sha1_finish(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper9SHA1State9FinishHexEPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !20
+  %4 = load ptr, ptr %0, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %3, align 8, !tbaa !3
@@ -1368,7 +1368,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   store i8 %30, ptr %32, align 1, !tbaa !12
   %33 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %33, 20
-  br i1 %exitcond.not.i, label %_ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m.exit, label %.lr.ph.i, !llvm.loop !18
 
 _ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m.exit: ; preds = %.lr.ph.i
   %34 = icmp eq ptr %18, %5
@@ -1415,16 +1415,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6duckdb15EncryptionStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %2, align 8, !tbaa !24
+  store i8 0, ptr %2, align 8, !tbaa !25
   %3 = invoke noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #22
           to label %4 unwind label %7
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %3, i8 0, i64 400, i1 false)
-  store ptr %3, ptr %5, align 8, !tbaa !28
+  store ptr %3, ptr %5, align 8, !tbaa !29
   invoke void @mbedtls_gcm_init(ptr noundef nonnull %3)
           to label %6 unwind label %9
 
@@ -1456,9 +1456,9 @@ declare void @_ZN6duckdb15EncryptionStateD2Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   invoke void @mbedtls_gcm_free(ptr noundef %3)
           to label %4 unwind label %8
 
@@ -1486,9 +1486,9 @@ declare void @mbedtls_gcm_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   invoke void @mbedtls_gcm_free(ptr noundef %3)
           to label %4 unwind label %7
 
@@ -1516,7 +1516,7 @@ _ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSD2Ev.exit: ; preds = %4, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLS9IsOpenSSLEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !tbaa !24, !range !29, !noundef !30
+  %3 = load i8, ptr %2, align 8, !tbaa !25, !range !30, !noundef !31
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1561,7 +1561,7 @@ define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLS18Gen
   %14 = getelementptr inbounds nuw i8, ptr %.013, i64 %13
   %15 = sub i64 %.0912, %13
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %12, %3
   call void @llvm.lifetime.end.p0(i64 920, ptr nonnull %5) #19
@@ -1579,7 +1579,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLS20InitializeEncryptionEPKhmPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = load ptr, ptr %3, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !9
@@ -1639,7 +1639,7 @@ declare i32 @mbedtls_gcm_starts(ptr noundef, i32 noundef, ptr noundef, i64 nound
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLS20InitializeDecryptionEPKhmPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = load ptr, ptr %3, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !9
@@ -1696,7 +1696,7 @@ define hidden void @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLS20Ini
 define hidden noundef i64 @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLS7ProcessEPKhmPhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
   %9 = call i32 @mbedtls_gcm_update(ptr noundef %8, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
@@ -1719,7 +1719,7 @@ define hidden noundef i64 @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDT
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %5
-  %16 = load i64, ptr %6, align 8, !tbaa !32
+  %16 = load i64, ptr %6, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   ret i64 %16
 }
@@ -1730,7 +1730,7 @@ declare i32 @mbedtls_gcm_update(ptr noundef, ptr noundef, i64 noundef, ptr nound
 define hidden noundef i64 @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLS8FinalizeEPhmS2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
   %9 = call i32 @mbedtls_gcm_finish(ptr noundef %8, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %6, ptr noundef %3, i64 noundef %4)
   %.not = icmp eq i32 %9, 0
@@ -1753,7 +1753,7 @@ define hidden noundef i64 @_ZN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDT
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %5
-  %16 = load i64, ptr %6, align 8, !tbaa !32
+  %16 = load i64, ptr %6, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   ret i64 %16
 }
@@ -1821,22 +1821,23 @@ attributes #23 = { noreturn nounwind }
 !11 = !{!"long", !7, i64 0}
 !12 = !{!7, !7, i64 0}
 !13 = !{!10, !5, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = !{!19, !6, i64 0}
-!19 = !{!"_ZTSN14duckdb_mbedtls14MbedTlsWrapper11SHA256StateE", !6, i64 0}
-!20 = !{!21, !6, i64 0}
-!21 = !{!"_ZTSN14duckdb_mbedtls14MbedTlsWrapper9SHA1StateE", !6, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"vtable pointer", !8, i64 0}
-!24 = !{!25, !27, i64 8}
-!25 = !{!"_ZTSN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSE", !26, i64 0, !27, i64 8, !6, i64 16}
-!26 = !{!"_ZTSN6duckdb15EncryptionStateE"}
-!27 = !{!"bool", !7, i64 0}
-!28 = !{!25, !6, i64 16}
-!29 = !{i8 0, i8 2}
-!30 = !{}
-!31 = distinct !{!31, !15}
-!32 = !{!11, !11, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = !{!20, !6, i64 0}
+!20 = !{!"_ZTSN14duckdb_mbedtls14MbedTlsWrapper11SHA256StateE", !6, i64 0}
+!21 = !{!22, !6, i64 0}
+!22 = !{!"_ZTSN14duckdb_mbedtls14MbedTlsWrapper9SHA1StateE", !6, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"vtable pointer", !8, i64 0}
+!25 = !{!26, !28, i64 8}
+!26 = !{!"_ZTSN14duckdb_mbedtls14MbedTlsWrapper18AESGCMStateMBEDTLSE", !27, i64 0, !28, i64 8, !6, i64 16}
+!27 = !{!"_ZTSN6duckdb15EncryptionStateE"}
+!28 = !{!"bool", !7, i64 0}
+!29 = !{!26, !6, i64 16}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = distinct !{!32, !15, !16}
+!33 = !{!11, !11, i64 0}

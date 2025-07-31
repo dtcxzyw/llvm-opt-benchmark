@@ -245,7 +245,7 @@ ExecProcNode.exit.i:                              ; preds = %62, %60
   %131 = load i32, ptr %85, align 8
   %132 = sext i32 %131 to i64
   %133 = icmp slt i64 %indvars.iv.next.i.i, %132
-  br i1 %133, label %.lr.ph.i.i, label %ExecParallelHashMergeCounters.exit.i, !llvm.loop !8
+  br i1 %133, label %.lr.ph.i.i, label %ExecParallelHashMergeCounters.exit.i, !llvm.loop !9
 
 ExecParallelHashMergeCounters.exit.i:             ; preds = %.lr.ph.i.i, %._crit_edge.i
   call void @LWLockRelease(ptr noundef nonnull %95) #16
@@ -379,7 +379,7 @@ ExecProcNode.exit.i12:                            ; preds = %180, %178
   %214 = getelementptr inbounds ptr, ptr %205, i64 %213
   %215 = load ptr, ptr %214, align 8
   %.not.i40.i = icmp eq ptr %215, null
-  br i1 %.not.i40.i, label %ExecHashGetSkewBucket.exit.thread.i, label %.lr.ph.i.i14, !llvm.loop !9
+  br i1 %.not.i40.i, label %ExecHashGetSkewBucket.exit.thread.i, label %.lr.ph.i.i14, !llvm.loop !10
 
 ExecHashGetSkewBucket.exit.i:                     ; preds = %.lr.ph.i.i14
   %.not38.i = icmp eq i32 %.019.i.i, -1
@@ -597,7 +597,7 @@ dense_alloc.exit.i.i.i:                           ; preds = %324, %316, %304
   store i64 %storemerge.i.i.i, ptr %164, align 8
   %342 = load volatile i32, ptr @InterruptPending, align 4
   %.not50.i.i.i = icmp eq i32 %342, 0
-  br i1 %.not50.i.i.i, label %344, label %343, !prof !10
+  br i1 %.not50.i.i.i, label %344, label %343, !prof !11
 
 343:                                              ; preds = %341
   call void @ProcessInterrupts() #16
@@ -605,7 +605,7 @@ dense_alloc.exit.i.i.i:                           ; preds = %324, %316, %304
 
 344:                                              ; preds = %343, %341
   %.not.i.i.i = icmp eq ptr %279, null
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %278, !llvm.loop !11
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %278, !llvm.loop !12
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %344
   %.pre.i.i.i = load ptr, ptr %161, align 8
@@ -647,7 +647,7 @@ ExecHashRemoveNextSkewBucket.exit.thread.i.i:     ; preds = %._crit_edge.i.i.i
 ExecHashRemoveNextSkewBucket.exit.i.i:            ; preds = %._crit_edge.i.i.i
   %360 = load i64, ptr %166, align 8
   %361 = icmp ugt i64 %352, %360
-  br i1 %361, label %.lr.ph.i41.i, label %._crit_edge.i.i, !llvm.loop !12
+  br i1 %361, label %.lr.ph.i41.i, label %._crit_edge.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %ExecHashRemoveNextSkewBucket.exit.i.i, %ExecHashRemoveNextSkewBucket.exit.thread.i.i, %247
   %362 = phi i64 [ %241, %247 ], [ %359, %ExecHashRemoveNextSkewBucket.exit.thread.i.i ], [ %350, %ExecHashRemoveNextSkewBucket.exit.i.i ]
@@ -687,7 +687,7 @@ ExecHashGetSkewBucket.exit.thread.i:              ; preds = %211, %ExecHashGetSk
 
 375:                                              ; preds = %372, %188
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
-  br label %178
+  br label %178, !llvm.loop !14
 
 376:                                              ; preds = %184, %ExecProcNode.exit.i12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
@@ -750,12 +750,12 @@ ExecHashGetBucketAndBatch.exit.i.i:               ; preds = %ExecHashGetBucketAn
   %410 = add i64 %409, %.02529.i.i
   %411 = load i64, ptr %390, align 8
   %412 = icmp ult i64 %410, %411
-  br i1 %412, label %ExecHashGetBucketAndBatch.exit.i.i, label %._crit_edge.i43.i, !llvm.loop !13
+  br i1 %412, label %ExecHashGetBucketAndBatch.exit.i.i, label %._crit_edge.i43.i, !llvm.loop !15
 
 ._crit_edge.i43.i:                                ; preds = %ExecHashGetBucketAndBatch.exit.i.i, %.preheader.i.i
   %413 = load volatile i32, ptr @InterruptPending, align 4
   %.not28.i.i = icmp eq i32 %413, 0
-  br i1 %.not28.i.i, label %415, label %414, !prof !10
+  br i1 %.not28.i.i, label %415, label %414, !prof !11
 
 414:                                              ; preds = %._crit_edge.i43.i
   call void @ProcessInterrupts() #16
@@ -765,7 +765,7 @@ ExecHashGetBucketAndBatch.exit.i.i:               ; preds = %ExecHashGetBucketAn
   %416 = getelementptr inbounds nuw i8, ptr %.032.i.i, i64 24
   %.0.i44.i = load ptr, ptr %416, align 8
   %.not27.i.i = icmp eq ptr %.0.i44.i, null
-  br i1 %.not27.i.i, label %ExecHashIncreaseNumBuckets.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %.not27.i.i, label %ExecHashIncreaseNumBuckets.exit.i, label %.preheader.i.i, !llvm.loop !16
 
 ExecHashIncreaseNumBuckets.exit.i:                ; preds = %415, %380, %376
   %417 = load i32, ptr %14, align 8
@@ -1055,7 +1055,7 @@ define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(
   store volatile i64 0, ptr %115, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ExecParallelHashTableAlloc.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %ExecParallelHashTableAlloc.exit, label %.lr.ph.i, !llvm.loop !17
 
 116:                                              ; preds = %90
   %117 = load ptr, ptr %75, align 8
@@ -1112,7 +1112,7 @@ define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(
   %145 = fadd double %.07489.i, %144
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i79
-  br i1 %exitcond.not.i82, label %._crit_edge.i, label %141, !llvm.loop !16
+  br i1 %exitcond.not.i82, label %._crit_edge.i, label %141, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %141
   %146 = fcmp uge double %145, 1.000000e-02
@@ -1191,7 +1191,7 @@ define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(
   %191 = getelementptr inbounds ptr, ptr %182, i64 %190
   %192 = load ptr, ptr %191, align 8
   %.not84.i = icmp eq ptr %192, null
-  br i1 %.not84.i, label %._crit_edge96.i, label %.lr.ph95.i, !llvm.loop !17
+  br i1 %.not84.i, label %._crit_edge96.i, label %.lr.ph95.i, !llvm.loop !19
 
 ._crit_edge96.i:                                  ; preds = %188, %174
   %.0.lcssa.i = phi i32 [ %.091.i, %174 ], [ %.0.i, %188 ]
@@ -1235,7 +1235,7 @@ define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(
 .critedge.i:                                      ; preds = %.lr.ph95.i, %216, %._crit_edge96.i
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
   %exitcond111.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count.i79
-  br i1 %exitcond111.not.i, label %.sink.split.sink.split.i, label %174, !llvm.loop !18
+  br i1 %exitcond111.not.i, label %.sink.split.sink.split.i, label %174, !llvm.loop !20
 
 .sink.split.sink.split.i:                         ; preds = %.critedge.i, %._crit_edge.i, %135
   call void @free_attstatsslot(ptr noundef nonnull %2) #16
@@ -1482,7 +1482,7 @@ define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr noundef captur
   %50 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %44, i32 noundef 0) #16
   %51 = call i32 @BarrierPhase(ptr noundef nonnull %44) #16
   %52 = icmp slt i32 %51, 3
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46
   %53 = call zeroext i1 @BarrierDetach(ptr noundef nonnull %44) #16
@@ -1518,7 +1518,7 @@ define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr noundef captur
   %76 = load i32, ptr %24, align 8
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %31, label %._crit_edge46, !llvm.loop !20
+  br i1 %78, label %31, label %._crit_edge46, !llvm.loop !22
 
 ._crit_edge46:                                    ; preds = %54, %2
   store ptr %23, ptr @CurrentMemoryContext, align 8
@@ -1557,7 +1557,7 @@ define dso_local void @ExecParallelHashTableAlloc(ptr noundef readonly captures(
   store volatile i64 0, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1624,7 +1624,7 @@ define dso_local void @ExecHashTableDestroy(ptr noundef %0) local_unnamed_addr #
   %19 = load i32, ptr %4, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %8, label %.loopexit, !llvm.loop !21
+  br i1 %21, label %8, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %18, %.preheader, %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -2148,7 +2148,7 @@ dense_alloc.exit:                                 ; preds = %104, %116, %124
   %146 = add i64 %.pre-phi103, %.07384
   %147 = load volatile i32, ptr @InterruptPending, align 4
   %.not79 = icmp eq i32 %147, 0
-  br i1 %.not79, label %149, label %148, !prof !10
+  br i1 %.not79, label %149, label %148, !prof !11
 
 148:                                              ; preds = %145
   tail call void @ProcessInterrupts() #16
@@ -2157,14 +2157,14 @@ dense_alloc.exit:                                 ; preds = %104, %116, %124
 149:                                              ; preds = %148, %145
   %150 = load i64, ptr %60, align 8
   %151 = icmp ult i64 %146, %150
-  br i1 %151, label %63, label %._crit_edge, !llvm.loop !22
+  br i1 %151, label %63, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %149, %57
   %.171.lcssa = phi i64 [ %.07090, %57 ], [ %.2, %149 ]
   %.1.lcssa = phi i64 [ %.091, %57 ], [ %68, %149 ]
   tail call void @pfree(ptr noundef nonnull %.07289) #16
   %.not78 = icmp eq ptr %59, null
-  br i1 %.not78, label %._crit_edge94, label %57, !llvm.loop !23
+  br i1 %.not78, label %._crit_edge94, label %57, !llvm.loop !25
 
 ._crit_edge94:                                    ; preds = %._crit_edge
   %152 = icmp eq i64 %.171.lcssa, %.1.lcssa
@@ -2247,12 +2247,12 @@ ExecHashGetBucketAndBatch.exit.thread:            ; preds = %ExecParallelHashPus
 43:                                               ; preds = %43, %28
   %44 = load volatile i64, ptr %41, align 8
   store i64 %44, ptr %26, align 8
-  %45 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %41, i64 %44, i64 %42, ptr nonnull elementtype(i64) %41) #16, !srcloc !24
+  %45 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %41, i64 %44, i64 %42, ptr nonnull elementtype(i64) %41) #16, !srcloc !26
   %46 = extractvalue { i64, i8 } %45, 0
   %47 = extractvalue { i64, i8 } %45, 1
   store i64 %46, ptr %26, align 8
   %.not.i = icmp eq i8 %47, 0
-  br i1 %.not.i, label %43, label %ExecParallelHashPushTuple.exit.thread
+  br i1 %.not.i, label %43, label %ExecParallelHashPushTuple.exit.thread, !llvm.loop !27
 
 48:                                               ; preds = %ExecHashGetBucketAndBatch.exit
   %49 = load i32, ptr %7, align 4
@@ -2294,7 +2294,7 @@ ExecHashGetBucketAndBatch.exit.thread:            ; preds = %ExecParallelHashPus
   br label %ExecParallelHashPushTuple.exit.backedge
 
 ExecParallelHashPushTuple.exit.backedge:          ; preds = %67, %68, %81, %ExecHashGetBucketAndBatch.exit.thread
-  br label %ExecParallelHashPushTuple.exit
+  br label %ExecParallelHashPushTuple.exit, !llvm.loop !28
 
 68:                                               ; preds = %66
   call fastcc void @ExecParallelHashIncreaseNumBuckets(ptr noundef nonnull %0)
@@ -2597,12 +2597,12 @@ ExecHashGetBucketAndBatch.exit:
 25:                                               ; preds = %25, %ExecHashGetBucketAndBatch.exit
   %26 = load volatile i64, ptr %23, align 8
   store i64 %26, ptr %12, align 8
-  %27 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 %26, i64 %24, ptr nonnull elementtype(i64) %23) #16, !srcloc !24
+  %27 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 %26, i64 %24, ptr nonnull elementtype(i64) %23) #16, !srcloc !26
   %28 = extractvalue { i64, i8 } %27, 0
   %29 = extractvalue { i64, i8 } %27, 1
   store i64 %28, ptr %12, align 8
   %.not.i = icmp eq i8 %29, 0
-  br i1 %.not.i, label %25, label %ExecParallelHashPushTuple.exit
+  br i1 %.not.i, label %25, label %ExecParallelHashPushTuple.exit, !llvm.loop !27
 
 ExecParallelHashPushTuple.exit:                   ; preds = %25
   %30 = load i8, ptr %3, align 1, !range !4, !noundef !5
@@ -2682,7 +2682,7 @@ define dso_local noundef zeroext i1 @ExecScanHashBucket(ptr noundef captures(non
   %39 = getelementptr inbounds nuw i8, ptr %.126.us, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %11
-  br i1 %41, label %._crit_edge, label %.critedge.us, !llvm.loop !25
+  br i1 %41, label %._crit_edge, label %.critedge.us, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %38, %.lr.ph.split.us
   %.12643.us.lcssa = phi ptr [ %.12641, %.lr.ph.split.us ], [ %.126.us, %38 ]
@@ -2698,7 +2698,7 @@ define dso_local noundef zeroext i1 @ExecScanHashBucket(ptr noundef captures(non
   %.12643.us49 = phi ptr [ %.126.us, %38 ], [ %.12641, %.lr.ph.split.us ]
   %.126.us = load ptr, ptr %.12643.us49, align 8
   %.not30.us.not = icmp eq ptr %.126.us, null
-  br i1 %.not30.us.not, label %.loopexit, label %38, !llvm.loop !25
+  br i1 %.not30.us.not, label %.loopexit, label %38, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
   %.12643 = phi ptr [ %.126, %.critedge ], [ %.12641, %.lr.ph ]
@@ -2733,7 +2733,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
 .critedge:                                        ; preds = %ExecQualAndReset.exit, %.lr.ph.split
   %.126 = load ptr, ptr %.12643, align 8
   %.not30.not = icmp eq ptr %.126, null
-  br i1 %.not30.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !27
+  br i1 %.not30.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.us, %29, %.loopexit33
   %.not3036 = phi i1 [ true, %.loopexit33 ], [ false, %29 ], [ false, %.critedge.us ], [ false, %.critedge ]
@@ -2801,7 +2801,7 @@ define dso_local noundef zeroext i1 @ExecParallelScanHashBucket(ptr noundef capt
   %37 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %11
-  br i1 %39, label %._crit_edge, label %.critedge.us, !llvm.loop !28
+  br i1 %39, label %._crit_edge, label %.critedge.us, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %36, %.lr.ph.split.us
   %.12541.us.lcssa = phi ptr [ %.024, %.lr.ph.split.us ], [ %44, %36 ]
@@ -2819,7 +2819,7 @@ define dso_local noundef zeroext i1 @ExecParallelScanHashBucket(ptr noundef capt
   %.125.val.us = load i64, ptr %.12541.us47, align 8
   %44 = tail call ptr @dsa_get_address(ptr noundef %.val29.us, i64 noundef %.125.val.us) #16
   %.not27.us.not = icmp eq ptr %44, null
-  br i1 %.not27.us.not, label %.loopexit, label %36, !llvm.loop !28
+  br i1 %.not27.us.not, label %.loopexit, label %36, !llvm.loop !32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
   %.12541 = phi ptr [ %56, %.critedge ], [ %.024, %.lr.ph ]
@@ -2856,7 +2856,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
   %.125.val = load i64, ptr %.12541, align 8
   %56 = call ptr @dsa_get_address(ptr noundef %.val29, i64 noundef %.125.val) #16
   %.not27.not = icmp eq ptr %56, null
-  br i1 %.not27.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not27.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.us, %26, %.loopexit32
   %.not2735 = phi i1 [ true, %.loopexit32 ], [ false, %26 ], [ false, %.critedge.us ], [ false, %.critedge ]
@@ -3026,7 +3026,7 @@ define dso_local void @ExecHashTableDetachBatch(ptr noundef captures(none) %0) l
   tail call void @dsa_free(ptr noundef %44, i64 noundef %45) #16
   store i64 %43, ptr %35, align 8
   %.not41 = icmp eq i64 %43, 0
-  br i1 %.not41, label %._crit_edge, label %38, !llvm.loop !30
+  br i1 %.not41, label %._crit_edge, label %38, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %38, %.preheader
   %46 = load i64, ptr %13, align 8
@@ -3145,19 +3145,19 @@ define dso_local noundef zeroext i1 @ExecScanHashTableForUnmatched(ptr noundef c
 53:                                               ; preds = %.lr.ph
   %54 = load ptr, ptr %.233, align 8
   %.not29 = icmp eq ptr %54, null
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %53, %42
   %55 = load volatile i32, ptr @InterruptPending, align 4
   %.not30 = icmp eq i32 %55, 0
-  br i1 %.not30, label %.backedge, label %56, !prof !10
+  br i1 %.not30, label %.backedge, label %56, !prof !11
 
 56:                                               ; preds = %._crit_edge
   tail call void @ProcessInterrupts() #16
   br label %.backedge
 
 .backedge:                                        ; preds = %56, %._crit_edge
-  br label %13
+  br label %13, !llvm.loop !36
 
 .loopexit:                                        ; preds = %26, %45
   %.0 = phi i1 [ true, %45 ], [ false, %26 ]
@@ -3237,19 +3237,19 @@ define dso_local noundef zeroext i1 @ExecParallelScanHashTableForUnmatched(ptr n
   %.2.val = load i64, ptr %.229, align 8
   %37 = tail call ptr @dsa_get_address(ptr noundef %.val, i64 noundef %.2.val) #16
   %.not23 = icmp eq ptr %37, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %36, %25
   %38 = load volatile i32, ptr @InterruptPending, align 4
   %.not24 = icmp eq i32 %38, 0
-  br i1 %.not24, label %.backedge, label %39, !prof !10
+  br i1 %.not24, label %.backedge, label %39, !prof !11
 
 39:                                               ; preds = %._crit_edge
   tail call void @ProcessInterrupts() #16
   br label %.backedge
 
 .backedge:                                        ; preds = %39, %._crit_edge
-  br label %10
+  br label %10, !llvm.loop !38
 
 .loopexit:                                        ; preds = %13, %28
   %.0 = phi i1 [ true, %28 ], [ false, %13 ]
@@ -3316,7 +3316,7 @@ define dso_local void @ExecHashTableResetMatchFlags(ptr noundef readonly capture
   store i16 %16, ptr %14, align 2
   %.0 = load ptr, ptr %.023, align 8
   %.not20 = icmp eq ptr %.0, null
-  br i1 %.not20, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not20, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %0, align 8
@@ -3327,7 +3327,7 @@ define dso_local void @ExecHashTableResetMatchFlags(ptr noundef readonly capture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %10, label %.preheader, !llvm.loop !34
+  br i1 %19, label %10, label %.preheader, !llvm.loop !40
 
 20:                                               ; preds = %.lr.ph34, %._crit_edge32
   %21 = phi i32 [ %6, %.lr.ph34 ], [ %33, %._crit_edge32 ]
@@ -3352,7 +3352,7 @@ define dso_local void @ExecHashTableResetMatchFlags(ptr noundef readonly capture
   store i16 %32, ptr %30, align 2
   %.1 = load ptr, ptr %.129, align 8
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge32.loopexit, label %.lr.ph31, !llvm.loop !35
+  br i1 %.not, label %._crit_edge32.loopexit, label %.lr.ph31, !llvm.loop !41
 
 ._crit_edge32.loopexit:                           ; preds = %.lr.ph31
   %.pre40 = load i32, ptr %5, align 4
@@ -3363,7 +3363,7 @@ define dso_local void @ExecHashTableResetMatchFlags(ptr noundef readonly capture
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next38, %34
-  br i1 %35, label %20, label %._crit_edge35, !llvm.loop !36
+  br i1 %35, label %20, label %._crit_edge35, !llvm.loop !42
 
 ._crit_edge35:                                    ; preds = %._crit_edge32, %.preheader
   ret void
@@ -3422,7 +3422,7 @@ define dso_local i32 @ExecHashGetSkewBucket(ptr noundef readonly captures(none) 
   %20 = getelementptr inbounds ptr, ptr %11, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %17, %.lr.ph, %6, %2
   %.013 = phi i32 [ -1, %2 ], [ -1, %6 ], [ -1, %17 ], [ %.019, %.lr.ph ]
@@ -3717,7 +3717,7 @@ define dso_local void @ExecHashTableDetach(ptr noundef captures(none) %0) local_
   %26 = load i32, ptr %11, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !37
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %8
   %29 = tail call zeroext i1 @BarrierArriveAndDetach(ptr noundef nonnull %5) #16
@@ -3839,7 +3839,7 @@ define internal fastcc void @ExecParallelHashIncreaseNumBatches(ptr noundef %0) 
   %34 = load i32, ptr %17, align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next.i, %35
-  br i1 %36, label %.lr.ph.i, label %ExecParallelHashCloseBatchAccessors.exit, !llvm.loop !38
+  br i1 %36, label %.lr.ph.i, label %ExecParallelHashCloseBatchAccessors.exit, !llvm.loop !44
 
 ExecParallelHashCloseBatchAccessors.exit:         ; preds = %.lr.ph.i, %11
   %37 = load ptr, ptr %12, align 8
@@ -3929,7 +3929,7 @@ ExecParallelHashCloseBatchAccessors.exit:         ; preds = %.lr.ph.i, %11
   store volatile i64 0, ptr %95, align 8
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph136, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph136, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph136, %63
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -3956,7 +3956,7 @@ ExecParallelHashCloseBatchAccessors.exit:         ; preds = %.lr.ph.i, %11
   %107 = load i32, ptr %0, align 8
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next, %108
-  br i1 %109, label %.lr.ph, label %.loopexit, !llvm.loop !40
+  br i1 %109, label %.lr.ph, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.lr.ph, %97, %._crit_edge
   %110 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -3999,7 +3999,7 @@ ExecParallelHashCloseBatchAccessors.exit:         ; preds = %.lr.ph.i, %11
   %132 = load i32, ptr %115, align 8
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next.i107, %133
-  br i1 %134, label %119, label %ExecParallelHashCloseBatchAccessors.exit108, !llvm.loop !38
+  br i1 %134, label %119, label %ExecParallelHashCloseBatchAccessors.exit108, !llvm.loop !44
 
 ExecParallelHashCloseBatchAccessors.exit108:      ; preds = %119, %114
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -4117,12 +4117,12 @@ ExecHashGetBucketAndBatch.exit.thread:            ; preds = %175, %ExecHashGetBu
 206:                                              ; preds = %206, %ExecHashGetBucketAndBatch.exit.thread
   %207 = load volatile i64, ptr %204, align 8
   store i64 %207, ptr %196, align 8
-  %208 = tail call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %204, i64 %207, i64 %205, ptr nonnull elementtype(i64) %204) #16, !srcloc !24
+  %208 = tail call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %204, i64 %207, i64 %205, ptr nonnull elementtype(i64) %204) #16, !srcloc !26
   %209 = extractvalue { i64, i8 } %208, 0
   %210 = extractvalue { i64, i8 } %208, 1
   store i64 %209, ptr %196, align 8
   %.not.i118 = icmp eq i8 %210, 0
-  br i1 %.not.i118, label %206, label %ExecParallelHashPushTuple.exit
+  br i1 %.not.i118, label %206, label %ExecParallelHashPushTuple.exit, !llvm.loop !27
 
 211:                                              ; preds = %ExecHashGetBucketAndBatch.exit
   %212 = load i32, ptr %177, align 4
@@ -4161,14 +4161,14 @@ ExecParallelHashPushTuple.exit:                   ; preds = %206, %211
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   %237 = load i64, ptr %172, align 8
   %238 = icmp ult i64 %236, %237
-  br i1 %238, label %175, label %._crit_edge139, !llvm.loop !41
+  br i1 %238, label %175, label %._crit_edge139, !llvm.loop !47
 
 ._crit_edge139:                                   ; preds = %ExecParallelHashPushTuple.exit, %ExecParallelHashPopChunkQueue.exit
   %239 = load ptr, ptr %141, align 8
   tail call void @dsa_free(ptr noundef %239, i64 noundef %165) #16
   %240 = load volatile i32, ptr @InterruptPending, align 4
   %.not29.i = icmp eq i32 %240, 0
-  br i1 %.not29.i, label %242, label %241, !prof !10
+  br i1 %.not29.i, label %242, label %241, !prof !11
 
 241:                                              ; preds = %._crit_edge139
   tail call void @ProcessInterrupts() #16
@@ -4181,7 +4181,7 @@ ExecParallelHashPushTuple.exit:                   ; preds = %206, %211
   %246 = getelementptr inbounds nuw i8, ptr %243, i64 32
   %247 = load i64, ptr %246, align 8
   %.not.i119 = icmp eq i64 %247, 0
-  br i1 %.not.i119, label %ExecParallelHashRepartitionFirst.exit, label %ExecParallelHashPopChunkQueue.exit, !llvm.loop !42
+  br i1 %.not.i119, label %ExecParallelHashRepartitionFirst.exit, label %ExecParallelHashPopChunkQueue.exit, !llvm.loop !48
 
 ExecParallelHashRepartitionFirst.exit:            ; preds = %242, %139
   %.lcssa133 = phi ptr [ %160, %139 ], [ %244, %242 ]
@@ -4228,7 +4228,7 @@ ExecParallelHashRepartitionFirst.exit:            ; preds = %242, %139
   store ptr %273, ptr %274, align 8
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph42.i, label %261, !llvm.loop !43
+  br i1 %exitcond.not.i, label %.lr.ph42.i, label %261, !llvm.loop !49
 
 275:                                              ; preds = %._crit_edge.i, %.lr.ph42.i
   %indvars.iv45.i = phi i64 [ 1, %.lr.ph42.i ], [ %indvars.iv.next46.i, %._crit_edge.i ]
@@ -4286,7 +4286,7 @@ ExecHashGetBucketAndBatch.exit.i:                 ; preds = %287, %.lr.ph40.i
   call void @sts_puttuple(ptr noundef %311, ptr noundef nonnull %2, ptr noundef nonnull %280) #16
   %312 = load volatile i32, ptr @InterruptPending, align 4
   %.not35.i = icmp eq i32 %312, 0
-  br i1 %.not35.i, label %314, label %313, !prof !10
+  br i1 %.not35.i, label %314, label %313, !prof !11
 
 313:                                              ; preds = %ExecHashGetBucketAndBatch.exit.i
   call void @ProcessInterrupts() #16
@@ -4296,7 +4296,7 @@ ExecHashGetBucketAndBatch.exit.i:                 ; preds = %287, %.lr.ph40.i
   %315 = load ptr, ptr %276, align 8
   %316 = call ptr @sts_parallel_scan_next(ptr noundef %315, ptr noundef nonnull %2) #16
   %.not.i113 = icmp eq ptr %316, null
-  br i1 %.not.i113, label %._crit_edge.i, label %.lr.ph40.i, !llvm.loop !44
+  br i1 %.not.i113, label %._crit_edge.i, label %.lr.ph40.i, !llvm.loop !50
 
 ._crit_edge.i:                                    ; preds = %314, %275
   %317 = load ptr, ptr %276, align 8
@@ -4304,7 +4304,7 @@ ExecHashGetBucketAndBatch.exit.i:                 ; preds = %287, %.lr.ph40.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count.i
-  br i1 %exitcond49.not.i, label %ExecParallelHashRepartitionRest.exit, label %275, !llvm.loop !45
+  br i1 %exitcond49.not.i, label %ExecParallelHashRepartitionRest.exit, label %275, !llvm.loop !51
 
 ExecParallelHashRepartitionRest.exit:             ; preds = %._crit_edge.i, %ExecParallelHashRepartitionFirst.exit
   call void @pfree(ptr noundef %257) #16
@@ -4361,7 +4361,7 @@ ExecParallelHashRepartitionRest.exit:             ; preds = %._crit_edge.i, %Exe
   %356 = load i32, ptr %322, align 8
   %357 = sext i32 %356 to i64
   %358 = icmp slt i64 %indvars.iv.next.i117, %357
-  br i1 %358, label %.lr.ph.i115, label %ExecParallelHashMergeCounters.exit, !llvm.loop !8
+  br i1 %358, label %.lr.ph.i115, label %ExecParallelHashMergeCounters.exit, !llvm.loop !9
 
 ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i115, %ExecParallelHashRepartitionRest.exit
   call void @LWLockRelease(ptr noundef nonnull %319) #16
@@ -4489,7 +4489,7 @@ ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i115, %ExecP
   %437 = load i32, ptr %386, align 8
   %438 = sext i32 %437 to i64
   %439 = icmp slt i64 %indvars.iv.next157, %438
-  br i1 %439, label %393, label %._crit_edge146, !llvm.loop !46
+  br i1 %439, label %393, label %._crit_edge146, !llvm.loop !52
 
 .thread:                                          ; preds = %._crit_edge146, %362
   br label %440
@@ -4572,7 +4572,7 @@ define internal fastcc void @ExecParallelHashIncreaseNumBuckets(ptr noundef capt
   %39 = load i32, ptr %10, align 8
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %42 = load ptr, ptr %16, align 8
@@ -4662,12 +4662,12 @@ ExecHashGetBucketAndBatch.exit:                   ; preds = %ExecHashGetBucketAn
 96:                                               ; preds = %96, %ExecHashGetBucketAndBatch.exit
   %97 = load volatile i64, ptr %95, align 8
   store i64 %97, ptr %86, align 8
-  %98 = tail call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %95, i64 %97, i64 %87, ptr nonnull elementtype(i64) %95) #16, !srcloc !24
+  %98 = tail call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %95, i64 %97, i64 %87, ptr nonnull elementtype(i64) %95) #16, !srcloc !26
   %99 = extractvalue { i64, i8 } %98, 0
   %100 = extractvalue { i64, i8 } %98, 1
   store i64 %99, ptr %86, align 8
   %.not.i41 = icmp eq i8 %100, 0
-  br i1 %.not.i41, label %96, label %ExecParallelHashPushTuple.exit
+  br i1 %.not.i41, label %96, label %ExecParallelHashPushTuple.exit, !llvm.loop !27
 
 ExecParallelHashPushTuple.exit:                   ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -4678,12 +4678,12 @@ ExecParallelHashPushTuple.exit:                   ; preds = %96
   %106 = add i64 %105, %.03848
   %107 = load i64, ptr %82, align 8
   %108 = icmp ult i64 %106, %107
-  br i1 %108, label %ExecHashGetBucketAndBatch.exit, label %._crit_edge49, !llvm.loop !48
+  br i1 %108, label %ExecHashGetBucketAndBatch.exit, label %._crit_edge49, !llvm.loop !54
 
 ._crit_edge49:                                    ; preds = %ExecParallelHashPushTuple.exit, %ExecParallelHashPopChunkQueue.exit
   %109 = load volatile i32, ptr @InterruptPending, align 4
   %.not40 = icmp eq i32 %109, 0
-  br i1 %.not40, label %111, label %110, !prof !10
+  br i1 %.not40, label %111, label %110, !prof !11
 
 110:                                              ; preds = %._crit_edge49
   tail call void @ProcessInterrupts() #16
@@ -4696,7 +4696,7 @@ ExecParallelHashPushTuple.exit:                   ; preds = %96
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %116 = load i64, ptr %115, align 8
   %.not.i = icmp eq i64 %116, 0
-  br i1 %.not.i, label %._crit_edge51, label %ExecParallelHashPopChunkQueue.exit, !llvm.loop !49
+  br i1 %.not.i, label %._crit_edge51, label %ExecParallelHashPopChunkQueue.exit, !llvm.loop !55
 
 ._crit_edge51:                                    ; preds = %111, %50
   %.lcssa = phi ptr [ %71, %50 ], [ %113, %111 ]
@@ -4751,7 +4751,7 @@ define internal fastcc void @ExecParallelHashEnsureBatchAccessors(ptr noundef ca
   %26 = load i32, ptr %7, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %28, label %.lr.ph.i, label %ExecParallelHashCloseBatchAccessors.exit.loopexit, !llvm.loop !38
+  br i1 %28, label %.lr.ph.i, label %ExecParallelHashCloseBatchAccessors.exit.loopexit, !llvm.loop !44
 
 ExecParallelHashCloseBatchAccessors.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %4, align 8
@@ -4830,7 +4830,7 @@ ExecParallelHashCloseBatchAccessors.exit:         ; preds = %ExecParallelHashClo
   %78 = load i32, ptr %36, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next, %79
-  br i1 %80, label %48, label %._crit_edge, !llvm.loop !50
+  br i1 %80, label %48, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %48, %30
   store ptr %33, ptr @CurrentMemoryContext, align 8
@@ -4935,48 +4935,54 @@ attributes #17 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = !{i64 2224687, i64 2224704, i64 2224727}
-!25 = distinct !{!25, !7, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7, !26}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = !{i64 2224687, i64 2224704, i64 2224727}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !7, !8, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8, !30}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}

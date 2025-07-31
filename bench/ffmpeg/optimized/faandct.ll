@@ -235,7 +235,7 @@ row_fdct.exit:                                    ; preds = %3, %row_fdct.exit
   store i16 %201, ptr %202, align 2, !tbaa !4
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next89, 8
-  br i1 %exitcond.not, label %203, label %row_fdct.exit, !llvm.loop !12
+  br i1 %exitcond.not, label %203, label %row_fdct.exit, !llvm.loop !13
 
 203:                                              ; preds = %row_fdct.exit
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #3
@@ -468,7 +468,7 @@ row_fdct.exit:                                    ; preds = %3, %row_fdct.exit
   store i16 %185, ptr %186, align 2, !tbaa !4
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, 8
-  br i1 %exitcond.not, label %187, label %row_fdct.exit, !llvm.loop !13
+  br i1 %exitcond.not, label %187, label %row_fdct.exit, !llvm.loop !14
 
 187:                                              ; preds = %row_fdct.exit
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #3
@@ -492,7 +492,8 @@ attributes #3 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}

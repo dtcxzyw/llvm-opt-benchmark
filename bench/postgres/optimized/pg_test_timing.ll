@@ -249,7 +249,7 @@ handle_args.exit:                                 ; preds = %66
   %110 = sub i64 %99, %91
   %111 = sdiv i64 %110, 1000
   %112 = icmp ult i64 %111, %85
-  br i1 %112, label %94, label %test_timing.exit.loopexit, !llvm.loop !6
+  br i1 %112, label %94, label %test_timing.exit.loopexit, !llvm.loop !7
 
 113:                                              ; preds = %94
   %114 = load ptr, ptr @stderr, align 8
@@ -291,7 +291,7 @@ test_timing.exit:                                 ; preds = %test_timing.exit.lo
 135:                                              ; preds = %131
   %136 = add nsw i64 %.028.i, -1
   %137 = icmp samesign ugt i64 %.028.i, 1
-  br i1 %137, label %131, label %.critedge.i, !llvm.loop !7
+  br i1 %137, label %131, label %.critedge.i, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %135, %131
   %.0.lcssa.i = phi i64 [ 0, %135 ], [ %.028.i, %131 ]
@@ -311,7 +311,7 @@ test_timing.exit:                                 ; preds = %test_timing.exit.lo
   %146 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.24, i32 noundef 6, i64 noundef %140, i32 noundef 9, double noundef %145, i32 noundef 10, i64 noundef %142) #10
   %147 = add nuw nsw i64 %.02730.i, 1
   %exitcond.i = icmp eq i64 %.02730.i, %.0.lcssa.i
-  br i1 %exitcond.i, label %output.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.i, label %output.exit, label %.lr.ph.i, !llvm.loop !9
 
 output.exit:                                      ; preds = %.lr.ph.i, %.critedge.i
   ret i32 0
@@ -377,8 +377,9 @@ attributes #14 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

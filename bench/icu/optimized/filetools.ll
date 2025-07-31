@@ -763,7 +763,7 @@ define void @swapFileSepChar(ptr noundef captures(none) %0, i8 noundef signext %
   store i8 %., ptr %7, align 1, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -826,6 +826,7 @@ attributes #20 = { nounwind willreturn memory(read) }
 !21 = !{!"_ZTS4stat", !22, i64 0, !22, i64 8, !22, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !22, i64 40, !22, i64 48, !22, i64 56, !22, i64 64, !23, i64 72, !23, i64 88, !23, i64 104, !7, i64 120}
 !22 = !{!"long", !7, i64 0}
 !23 = !{!"_ZTS8timespec", !22, i64 0, !22, i64 8}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !25, !26}

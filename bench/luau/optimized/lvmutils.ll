@@ -142,13 +142,13 @@ define hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !14
+  %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = ptrtoint ptr %14 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = lshr exact i64 %20, 5
   %22 = trunc i64 %21 to i32
-  store i32 %22, ptr %5, align 4, !tbaa !21
+  store i32 %22, ptr %5, align 4, !tbaa !22
   br label %23
 
 23:                                               ; preds = %15, %12
@@ -159,21 +159,21 @@ define hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %29 = load ptr, ptr %28, align 8, !tbaa !30
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 3
-  %33 = load i8, ptr %32, align 1, !tbaa !30
+  %33 = load i8, ptr %32, align 1, !tbaa !31
   %34 = and i8 %33, 1
   %.not43 = icmp eq i8 %34, 0
   br i1 %.not43, label %35, label %.thread
 
 35:                                               ; preds = %31
-  %36 = load ptr, ptr %6, align 8, !tbaa !31
+  %36 = load ptr, ptr %6, align 8, !tbaa !32
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 3032
-  %38 = load ptr, ptr %37, align 8, !tbaa !32
+  %38 = load ptr, ptr %37, align 8, !tbaa !33
   %39 = tail call noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef nonnull %29, i32 noundef 0, ptr noundef %38)
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread, label %..thread44_crit_edge
@@ -184,7 +184,7 @@ define hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   br label %.thread44
 
 .thread:                                          ; preds = %31, %27, %23, %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !34
   br label %.critedge
 
 41:                                               ; preds = %9
@@ -206,19 +206,19 @@ define hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 
 49:                                               ; preds = %.thread44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %51 = load ptr, ptr %50, align 8, !tbaa !35
+  %51 = load ptr, ptr %50, align 8, !tbaa !36
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull readonly align 8 dereferenceable(16) %.4, i64 16, i1 false), !tbaa.struct !33
-  %54 = load ptr, ptr %52, align 8, !tbaa !36
+  %53 = load ptr, ptr %52, align 8, !tbaa !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull readonly align 8 dereferenceable(16) %.4, i64 16, i1 false), !tbaa.struct !34
+  %54 = load ptr, ptr %52, align 8, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull readonly align 8 dereferenceable(16) %.03451, i64 16, i1 false), !tbaa.struct !33
-  %56 = load ptr, ptr %52, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull readonly align 8 dereferenceable(16) %.03451, i64 16, i1 false), !tbaa.struct !34
+  %56 = load ptr, ptr %52, align 8, !tbaa !37
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !37
-  %60 = load ptr, ptr %52, align 8, !tbaa !36
+  %59 = load ptr, ptr %58, align 8, !tbaa !38
+  %60 = load ptr, ptr %52, align 8, !tbaa !37
   %61 = ptrtoint ptr %59 to i64
   %62 = ptrtoint ptr %60 to i64
   %63 = sub i64 %61, %62
@@ -227,7 +227,7 @@ define hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 
 65:                                               ; preds = %49
   tail call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i = load ptr, ptr %52, align 8, !tbaa !36
+  %.pre.i = load ptr, ptr %52, align 8, !tbaa !37
   br label %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit
 
 _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %49, %65
@@ -236,14 +236,14 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %49, %65
   %68 = ptrtoint ptr %51 to i64
   %69 = sub i64 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  store ptr %70, ptr %52, align 8, !tbaa !36
+  store ptr %70, ptr %52, align 8, !tbaa !37
   tail call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %66, i32 noundef 1)
-  %71 = load ptr, ptr %50, align 8, !tbaa !35
+  %71 = load ptr, ptr %50, align 8, !tbaa !36
   %72 = getelementptr inbounds i8, ptr %71, i64 %69
-  %73 = load ptr, ptr %52, align 8, !tbaa !36
+  %73 = load ptr, ptr %52, align 8, !tbaa !37
   %74 = getelementptr inbounds i8, ptr %73, i64 -16
-  store ptr %74, ptr %52, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !33
+  store ptr %74, ptr %52, align 8, !tbaa !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !34
   br label %.critedge
 
 75:                                               ; preds = %7
@@ -296,21 +296,21 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 3
-  %22 = load i8, ptr %21, align 1, !tbaa !30
+  %22 = load i8, ptr %21, align 1, !tbaa !31
   %23 = and i8 %22, 2
   %.not = icmp eq i8 %23, 0
   br i1 %.not, label %24, label %.thread
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr %6, align 8, !tbaa !31
+  %25 = load ptr, ptr %6, align 8, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 3040
-  %27 = load ptr, ptr %26, align 8, !tbaa !32
+  %27 = load ptr, ptr %26, align 8, !tbaa !33
   %28 = call noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef nonnull %18, i32 noundef 1, ptr noundef %27)
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread, label %._crit_edge
@@ -322,7 +322,7 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 
 .thread:                                          ; preds = %20, %16, %24, %10
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %31 = load i8, ptr %30, align 4, !tbaa !38
+  %31 = load i8, ptr %30, align 4, !tbaa !39
   %.not58 = icmp eq i8 %31, 0
   br i1 %.not58, label %33, label %32
 
@@ -332,7 +332,7 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 
 33:                                               ; preds = %.thread
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 3
-  store i8 0, ptr %34, align 1, !tbaa !30
+  store i8 0, ptr %34, align 1, !tbaa !31
   %35 = icmp eq ptr %12, @luaO_nilobject_
   br i1 %35, label %36, label %38
 
@@ -343,15 +343,15 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 38:                                               ; preds = %33, %36
   %39 = phi ptr [ %37, %36 ], [ %12, %33 ]
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !14
+  %41 = load ptr, ptr %40, align 8, !tbaa !15
   %42 = ptrtoint ptr %39 to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = lshr exact i64 %44, 5
   %46 = trunc i64 %45 to i32
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %46, ptr %47, align 4, !tbaa !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  store i32 %46, ptr %47, align 4, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %49 = load i32, ptr %48, align 4, !tbaa !4
   %50 = icmp sgt i32 %49, 4
@@ -395,20 +395,20 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull readonly align 8 dereferenceable(16) %.4, i64 16, i1 false), !tbaa.struct !33
-  %73 = load ptr, ptr %71, align 8, !tbaa !36
+  %72 = load ptr, ptr %71, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull readonly align 8 dereferenceable(16) %.4, i64 16, i1 false), !tbaa.struct !34
+  %73 = load ptr, ptr %71, align 8, !tbaa !37
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull readonly align 8 dereferenceable(16) %.072, i64 16, i1 false), !tbaa.struct !33
-  %75 = load ptr, ptr %71, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull readonly align 8 dereferenceable(16) %.072, i64 16, i1 false), !tbaa.struct !34
+  %75 = load ptr, ptr %71, align 8, !tbaa !37
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %77 = load ptr, ptr %71, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %77 = load ptr, ptr %71, align 8, !tbaa !37
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %80 = load ptr, ptr %79, align 8, !tbaa !37
-  %81 = load ptr, ptr %71, align 8, !tbaa !36
+  %80 = load ptr, ptr %79, align 8, !tbaa !38
+  %81 = load ptr, ptr %71, align 8, !tbaa !37
   %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
   %84 = sub i64 %82, %83
@@ -417,21 +417,21 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
 
 86:                                               ; preds = %70
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 4)
-  %.pre.i = load ptr, ptr %71, align 8, !tbaa !36
+  %.pre.i = load ptr, ptr %71, align 8, !tbaa !37
   br label %_ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit
 
 _ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit: ; preds = %70, %86
   %87 = phi ptr [ %81, %70 ], [ %.pre.i, %86 ]
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  store ptr %88, ptr %71, align 8, !tbaa !36
+  store ptr %88, ptr %71, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %87, i32 noundef 0)
   br label %.critedge
 
 89:                                               ; preds = %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.4, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.4, i64 16, i1 false), !tbaa.struct !34
   %90 = add nuw nsw i32 %.04970, 1
   %exitcond.not = icmp eq i32 %90, 100
-  br i1 %exitcond.not, label %91, label %7, !llvm.loop !39
+  br i1 %exitcond.not, label %91, label %7, !llvm.loop !40
 
 91:                                               ; preds = %89
   call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.1) #12
@@ -470,9 +470,9 @@ define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly cap
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !40
+  %15 = load i32, ptr %14, align 4, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !40
+  %17 = load i32, ptr %16, align 4, !tbaa !41
   %18 = tail call i32 @llvm.umin.i32(i32 %15, i32 %17)
   %19 = zext i32 %18 to i64
   %20 = tail call i32 @memcmp(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %19) #13
@@ -496,7 +496,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z13luaV_lessthanP9lua_StatePK10lua_
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %.not = icmp eq i32 %5, %7
-  br i1 %.not, label %9, label %8, !prof !42
+  br i1 %.not, label %9, label %8, !prof !43
 
 8:                                                ; preds = %3
   tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 16) #12
@@ -506,7 +506,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z13luaV_lessthanP9lua_StatePK10lua_
   switch i32 %5, label %19 [
     i32 3, label %10
     i32 5, label %15
-  ], !prof !43
+  ], !prof !44
 
 10:                                               ; preds = %9
   %11 = load double, ptr %1, align 8, !tbaa !9
@@ -564,19 +564,19 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12call_orderTMP9lua_Stat
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !33
-  %22 = load ptr, ptr %18, align 8, !tbaa !36
+  %21 = load ptr, ptr %20, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !34
+  %22 = load ptr, ptr %18, align 8, !tbaa !37
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !33
-  %24 = load ptr, ptr %18, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !34
+  %24 = load ptr, ptr %18, align 8, !tbaa !37
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !37
-  %28 = load ptr, ptr %18, align 8, !tbaa !36
+  %27 = load ptr, ptr %26, align 8, !tbaa !38
+  %28 = load ptr, ptr %18, align 8, !tbaa !37
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -585,7 +585,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12call_orderTMP9lua_Stat
 
 33:                                               ; preds = %17
   tail call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i = load ptr, ptr %18, align 8, !tbaa !36
+  %.pre.i = load ptr, ptr %18, align 8, !tbaa !37
   br label %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit
 
 _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %17, %33
@@ -594,15 +594,15 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %17, %33
   %36 = ptrtoint ptr %21 to i64
   %37 = sub i64 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  store ptr %38, ptr %18, align 8, !tbaa !36
+  store ptr %38, ptr %18, align 8, !tbaa !37
   tail call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %34, i32 noundef 1)
-  %39 = load ptr, ptr %20, align 8, !tbaa !35
+  %39 = load ptr, ptr %20, align 8, !tbaa !36
   %40 = getelementptr inbounds i8, ptr %39, i64 %37
-  %41 = load ptr, ptr %18, align 8, !tbaa !36
+  %41 = load ptr, ptr %18, align 8, !tbaa !37
   %42 = getelementptr inbounds i8, ptr %41, i64 -16
-  store ptr %42, ptr %18, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !33
-  %43 = load ptr, ptr %18, align 8, !tbaa !36
+  store ptr %42, ptr %18, align 8, !tbaa !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !34
+  %43 = load ptr, ptr %18, align 8, !tbaa !37
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %45 = load i32, ptr %44, align 4, !tbaa !4
   switch i32 %45, label %.fold.split [
@@ -672,9 +672,9 @@ define hidden noundef range(i32 0, 2) i32 @_Z14luaV_lessequalP9lua_StatePK10lua_
 
 28:                                               ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %30 = load i32, ptr %29, align 4, !tbaa !40
+  %30 = load i32, ptr %29, align 4, !tbaa !41
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %32 = load i32, ptr %31, align 4, !tbaa !40
+  %32 = load i32, ptr %31, align 4, !tbaa !41
   %33 = tail call i32 @llvm.umin.i32(i32 %30, i32 %32)
   %34 = zext i32 %33 to i64
   %35 = tail call i32 @memcmp(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %21, i64 noundef %34) #13
@@ -734,24 +734,24 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaV_equalvalP9lua_StatePK10lua_T
   br label %_Z10luai_veceqPKfS0_.exit
 
 10:                                               ; preds = %3
-  %11 = load float, ptr %1, align 4, !tbaa !44
-  %12 = load float, ptr %2, align 4, !tbaa !44
+  %11 = load float, ptr %1, align 4, !tbaa !45
+  %12 = load float, ptr %2, align 4, !tbaa !45
   %13 = fcmp oeq float %11, %12
   br i1 %13, label %14, label %_Z10luai_veceqPKfS0_.exit
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %16 = load float, ptr %15, align 4, !tbaa !44
+  %16 = load float, ptr %15, align 4, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %18 = load float, ptr %17, align 4, !tbaa !44
+  %18 = load float, ptr %17, align 4, !tbaa !45
   %19 = fcmp oeq float %16, %18
   br i1 %19, label %20, label %_Z10luai_veceqPKfS0_.exit
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load float, ptr %21, align 4, !tbaa !44
+  %22 = load float, ptr %21, align 4, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %24 = load float, ptr %23, align 4, !tbaa !44
+  %24 = load float, ptr %23, align 4, !tbaa !45
   %25 = fcmp oeq float %22, %24
   br label %_Z10luai_veceqPKfS0_.exit
 
@@ -769,33 +769,33 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaV_equalvalP9lua_StatePK10lua_T
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !34
+  %36 = load i32, ptr %35, align 8, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load i32, ptr %37, align 8, !tbaa !34
+  %38 = load i32, ptr %37, align 8, !tbaa !35
   %39 = icmp eq i32 %36, %38
   br label %_Z10luai_veceqPKfS0_.exit
 
 40:                                               ; preds = %3
   %41 = load ptr, ptr %1, align 8, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !46
+  %43 = load ptr, ptr %42, align 8, !tbaa !47
   %44 = load ptr, ptr %2, align 8, !tbaa !9
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !46
+  %46 = load ptr, ptr %45, align 8, !tbaa !47
   %47 = icmp eq ptr %43, null
   br i1 %47, label %select.unfold, label %48
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 3
-  %50 = load i8, ptr %49, align 1, !tbaa !30
+  %50 = load i8, ptr %49, align 1, !tbaa !31
   %.not.i = icmp sgt i8 %50, -1
   br i1 %.not.i, label %51, label %select.unfold
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !31
+  %53 = load ptr, ptr %52, align 8, !tbaa !32
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 3088
-  %55 = load ptr, ptr %54, align 8, !tbaa !32
+  %55 = load ptr, ptr %54, align 8, !tbaa !33
   %56 = tail call noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef nonnull %43, i32 noundef 7, ptr noundef %55)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %select.unfold, label %58
@@ -810,14 +810,14 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaV_equalvalP9lua_StatePK10lua_T
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %46, i64 3
-  %64 = load i8, ptr %63, align 1, !tbaa !30
+  %64 = load i8, ptr %63, align 1, !tbaa !31
   %.not26.i = icmp sgt i8 %64, -1
   br i1 %.not26.i, label %65, label %select.unfold
 
 65:                                               ; preds = %62
-  %66 = load ptr, ptr %52, align 8, !tbaa !31
+  %66 = load ptr, ptr %52, align 8, !tbaa !32
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 3088
-  %68 = load ptr, ptr %67, align 8, !tbaa !32
+  %68 = load ptr, ptr %67, align 8, !tbaa !33
   %69 = tail call noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef nonnull %46, i32 noundef 7, ptr noundef %68)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %select.unfold, label %71
@@ -836,24 +836,24 @@ select.unfold:                                    ; preds = %71, %51, %65, %40, 
 76:                                               ; preds = %3
   %77 = load ptr, ptr %1, align 8, !tbaa !9
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !29
+  %79 = load ptr, ptr %78, align 8, !tbaa !30
   %80 = load ptr, ptr %2, align 8, !tbaa !9
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !29
+  %82 = load ptr, ptr %81, align 8, !tbaa !30
   %83 = icmp eq ptr %79, null
   br i1 %83, label %select.unfold46, label %84
 
 84:                                               ; preds = %76
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 3
-  %86 = load i8, ptr %85, align 1, !tbaa !30
+  %86 = load i8, ptr %85, align 1, !tbaa !31
   %.not.i38 = icmp sgt i8 %86, -1
   br i1 %.not.i38, label %87, label %select.unfold46
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !31
+  %89 = load ptr, ptr %88, align 8, !tbaa !32
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 3088
-  %91 = load ptr, ptr %90, align 8, !tbaa !32
+  %91 = load ptr, ptr %90, align 8, !tbaa !33
   %92 = tail call noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef nonnull %79, i32 noundef 7, ptr noundef %91)
   %93 = icmp eq ptr %92, null
   br i1 %93, label %select.unfold46, label %94
@@ -868,14 +868,14 @@ select.unfold:                                    ; preds = %71, %51, %65, %40, 
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %82, i64 3
-  %100 = load i8, ptr %99, align 1, !tbaa !30
+  %100 = load i8, ptr %99, align 1, !tbaa !31
   %.not26.i40 = icmp sgt i8 %100, -1
   br i1 %.not26.i40, label %101, label %select.unfold46
 
 101:                                              ; preds = %98
-  %102 = load ptr, ptr %88, align 8, !tbaa !31
+  %102 = load ptr, ptr %88, align 8, !tbaa !32
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 3088
-  %104 = load ptr, ptr %103, align 8, !tbaa !32
+  %104 = load ptr, ptr %103, align 8, !tbaa !33
   %105 = tail call noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef nonnull %82, i32 noundef 7, ptr noundef %104)
   %106 = icmp eq ptr %105, null
   br i1 %106, label %select.unfold46, label %107
@@ -900,19 +900,19 @@ select.unfold46:                                  ; preds = %107, %87, %101, %76
 _ZL10get_compTMP9lua_StateP8LuaTableS2_3TMS.exit: ; preds = %94, %107, %58, %71
   %.0 = phi ptr [ %56, %58 ], [ %56, %71 ], [ %92, %94 ], [ %92, %107 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %117 = load ptr, ptr %116, align 8, !tbaa !36
+  %117 = load ptr, ptr %116, align 8, !tbaa !37
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %119 = load ptr, ptr %118, align 8, !tbaa !35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull readonly align 8 dereferenceable(16) %.0, i64 16, i1 false), !tbaa.struct !33
-  %120 = load ptr, ptr %116, align 8, !tbaa !36
+  %119 = load ptr, ptr %118, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull readonly align 8 dereferenceable(16) %.0, i64 16, i1 false), !tbaa.struct !34
+  %120 = load ptr, ptr %116, align 8, !tbaa !37
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !33
-  %122 = load ptr, ptr %116, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !34
+  %122 = load ptr, ptr %116, align 8, !tbaa !37
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %125 = load ptr, ptr %124, align 8, !tbaa !37
-  %126 = load ptr, ptr %116, align 8, !tbaa !36
+  %125 = load ptr, ptr %124, align 8, !tbaa !38
+  %126 = load ptr, ptr %116, align 8, !tbaa !37
   %127 = ptrtoint ptr %125 to i64
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
@@ -921,7 +921,7 @@ _ZL10get_compTMP9lua_StateP8LuaTableS2_3TMS.exit: ; preds = %94, %107, %58, %71
 
 131:                                              ; preds = %_ZL10get_compTMP9lua_StateP8LuaTableS2_3TMS.exit
   tail call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i = load ptr, ptr %116, align 8, !tbaa !36
+  %.pre.i = load ptr, ptr %116, align 8, !tbaa !37
   br label %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit
 
 _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %_ZL10get_compTMP9lua_StateP8LuaTableS2_3TMS.exit, %131
@@ -930,15 +930,15 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %_ZL10get_compT
   %134 = ptrtoint ptr %119 to i64
   %135 = sub i64 %133, %134
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 48
-  store ptr %136, ptr %116, align 8, !tbaa !36
+  store ptr %136, ptr %116, align 8, !tbaa !37
   tail call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %132, i32 noundef 1)
-  %137 = load ptr, ptr %118, align 8, !tbaa !35
+  %137 = load ptr, ptr %118, align 8, !tbaa !36
   %138 = getelementptr inbounds i8, ptr %137, i64 %135
-  %139 = load ptr, ptr %116, align 8, !tbaa !36
+  %139 = load ptr, ptr %116, align 8, !tbaa !37
   %140 = getelementptr inbounds i8, ptr %139, i64 -16
-  store ptr %140, ptr %116, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !tbaa.struct !33
-  %141 = load ptr, ptr %116, align 8, !tbaa !36
+  store ptr %140, ptr %116, align 8, !tbaa !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !tbaa.struct !34
+  %141 = load ptr, ptr %116, align 8, !tbaa !37
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 12
   %143 = load i32, ptr %142, align 4, !tbaa !4
   switch i32 %143, label %.fold.split [
@@ -978,7 +978,7 @@ define hidden void @_Z11luaV_concatP9lua_Stateii(ptr noundef %0, i32 noundef %1,
 15:                                               ; preds = %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84, %3
   %.070 = phi i32 [ %2, %3 ], [ %128, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84 ]
   %.0 = phi i32 [ %1, %3 ], [ %127, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84 ]
-  %16 = load ptr, ptr %8, align 8, !tbaa !48
+  %16 = load ptr, ptr %8, align 8, !tbaa !49
   %17 = sext i32 %.070 to i64
   %18 = getelementptr inbounds %struct.lua_TValue, ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -1026,17 +1026,17 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit.thread: ; preds = %23, %15
 
 .thread.i:                                        ; preds = %35, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit.thread
   %.015.i = phi ptr [ %36, %35 ], [ %31, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit.thread ]
-  %38 = load ptr, ptr %12, align 8, !tbaa !35
-  %39 = load ptr, ptr %13, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
-  %40 = load ptr, ptr %13, align 8, !tbaa !36
+  %38 = load ptr, ptr %12, align 8, !tbaa !36
+  %39 = load ptr, ptr %13, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !34
+  %40 = load ptr, ptr %13, align 8, !tbaa !37
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull readonly align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !33
-  %42 = load ptr, ptr %13, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull readonly align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !34
+  %42 = load ptr, ptr %13, align 8, !tbaa !37
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull readonly align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !33
-  %44 = load ptr, ptr %14, align 8, !tbaa !37
-  %45 = load ptr, ptr %13, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull readonly align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !34
+  %44 = load ptr, ptr %14, align 8, !tbaa !38
+  %45 = load ptr, ptr %13, align 8, !tbaa !37
   %46 = ptrtoint ptr %44 to i64
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
@@ -1045,7 +1045,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit.thread: ; preds = %23, %15
 
 50:                                               ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !37
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
 _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %50
@@ -1054,14 +1054,14 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %53 = ptrtoint ptr %38 to i64
   %54 = sub i64 %52, %53
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  store ptr %55, ptr %13, align 8, !tbaa !36
+  store ptr %55, ptr %13, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %51, i32 noundef 1)
-  %56 = load ptr, ptr %12, align 8, !tbaa !35
+  %56 = load ptr, ptr %12, align 8, !tbaa !36
   %57 = getelementptr inbounds i8, ptr %56, i64 %54
-  %58 = load ptr, ptr %13, align 8, !tbaa !36
+  %58 = load ptr, ptr %13, align 8, !tbaa !37
   %59 = getelementptr inbounds i8, ptr %58, i64 -16
-  store ptr %59, ptr %13, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !33
+  store ptr %59, ptr %13, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !34
   br label %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84
 
 60:                                               ; preds = %35
@@ -1071,7 +1071,7 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
 61:                                               ; preds = %23, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit
   %62 = load ptr, ptr %18, align 8, !tbaa !9
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 20
-  %64 = load i32, ptr %63, align 4, !tbaa !40
+  %64 = load i32, ptr %63, align 4, !tbaa !41
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %74
 
@@ -1129,7 +1129,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
 .critedge2:                                       ; preds = %.lr.ph, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86
   %88 = load ptr, ptr %80, align 8, !tbaa !9
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 20
-  %90 = load i32, ptr %89, align 4, !tbaa !40
+  %90 = load i32, ptr %89, align 4, !tbaa !41
   %91 = zext i32 %90 to i64
   %92 = sub i64 1073741824, %.073100
   %93 = icmp ult i64 %92, %91
@@ -1143,7 +1143,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
   %96 = add i64 %.073100, %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %77
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !50
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
   %97 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1174,7 +1174,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
   %106 = getelementptr inbounds %struct.lua_TValue, ptr %19, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !9
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
-  %109 = load i32, ptr %108, align 4, !tbaa !40
+  %109 = load i32, ptr %108, align 4, !tbaa !41
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds nuw i8, ptr %.076, i64 %.174107
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 24
@@ -1183,7 +1183,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, -1
   %114 = trunc nuw i64 %indvars.iv115 to i32
   %115 = icmp sgt i32 %114, 1
-  br i1 %115, label %104, label %116, !llvm.loop !50
+  br i1 %115, label %104, label %116, !llvm.loop !51
 
 116:                                              ; preds = %104
   %117 = icmp ult i64 %113, 512
@@ -1213,7 +1213,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit84: ; preds = %66, %68, %_ZL10call
   %127 = sub nsw i32 %.0, %.071
   %128 = sub nsw i32 %.070, %.071
   %129 = icmp sgt i32 %127, 1
-  br i1 %129, label %15, label %130, !llvm.loop !51
+  br i1 %129, label %15, label %130, !llvm.loop !52
 
 130:                                              ; preds = %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84
   ret void
@@ -1248,24 +1248,24 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS8EEvP9lua_StateP10lua_
   br i1 %or.cond, label %19, label %36
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %2, align 4, !tbaa !44
-  %21 = load float, ptr %3, align 4, !tbaa !44
+  %20 = load float, ptr %2, align 4, !tbaa !45
+  %21 = load float, ptr %3, align 4, !tbaa !45
   %22 = fadd float %20, %21
-  store float %22, ptr %1, align 4, !tbaa !44
+  store float %22, ptr %1, align 4, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %24 = load float, ptr %23, align 4, !tbaa !44
+  %24 = load float, ptr %23, align 4, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %26 = load float, ptr %25, align 4, !tbaa !44
+  %26 = load float, ptr %25, align 4, !tbaa !45
   %27 = fadd float %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %27, ptr %28, align 4, !tbaa !44
+  store float %27, ptr %28, align 4, !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load float, ptr %29, align 4, !tbaa !44
+  %30 = load float, ptr %29, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load float, ptr %31, align 4, !tbaa !44
+  %32 = load float, ptr %31, align 4, !tbaa !45
   %33 = fadd float %30, %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %33, ptr %34, align 4, !tbaa !44
+  store float %33, ptr %34, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %35, align 4, !tbaa !4
   br label %105
@@ -1391,19 +1391,19 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit65:        ; preds = %61, %63
 .thread.i:                                        ; preds = %76, %71
   %.015.i = phi ptr [ %77, %76 ], [ %72, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %80 = load ptr, ptr %79, align 8, !tbaa !35
+  %80 = load ptr, ptr %79, align 8, !tbaa !36
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
-  %83 = load ptr, ptr %81, align 8, !tbaa !36
+  %82 = load ptr, ptr %81, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !34
+  %83 = load ptr, ptr %81, align 8, !tbaa !37
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %85 = load ptr, ptr %81, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %85 = load ptr, ptr %81, align 8, !tbaa !37
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %88 = load ptr, ptr %87, align 8, !tbaa !37
-  %89 = load ptr, ptr %81, align 8, !tbaa !36
+  %88 = load ptr, ptr %87, align 8, !tbaa !38
+  %89 = load ptr, ptr %81, align 8, !tbaa !37
   %90 = ptrtoint ptr %88 to i64
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
@@ -1412,7 +1412,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit65:        ; preds = %61, %63
 
 94:                                               ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %81, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %81, align 8, !tbaa !37
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
 _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %94
@@ -1421,14 +1421,14 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %97 = ptrtoint ptr %80 to i64
   %98 = sub i64 %96, %97
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 48
-  store ptr %99, ptr %81, align 8, !tbaa !36
+  store ptr %99, ptr %81, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %95, i32 noundef 1)
-  %100 = load ptr, ptr %79, align 8, !tbaa !35
+  %100 = load ptr, ptr %79, align 8, !tbaa !36
   %101 = getelementptr inbounds i8, ptr %100, i64 %98
-  %102 = load ptr, ptr %81, align 8, !tbaa !36
+  %102 = load ptr, ptr %81, align 8, !tbaa !37
   %103 = getelementptr inbounds i8, ptr %102, i64 -16
-  store ptr %103, ptr %81, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !33
+  store ptr %103, ptr %81, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !34
   br label %105
 
 104:                                              ; preds = %76
@@ -1465,24 +1465,24 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_
   br i1 %or.cond, label %19, label %36
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %2, align 4, !tbaa !44
-  %21 = load float, ptr %3, align 4, !tbaa !44
+  %20 = load float, ptr %2, align 4, !tbaa !45
+  %21 = load float, ptr %3, align 4, !tbaa !45
   %22 = fsub float %20, %21
-  store float %22, ptr %1, align 4, !tbaa !44
+  store float %22, ptr %1, align 4, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %24 = load float, ptr %23, align 4, !tbaa !44
+  %24 = load float, ptr %23, align 4, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %26 = load float, ptr %25, align 4, !tbaa !44
+  %26 = load float, ptr %25, align 4, !tbaa !45
   %27 = fsub float %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %27, ptr %28, align 4, !tbaa !44
+  store float %27, ptr %28, align 4, !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load float, ptr %29, align 4, !tbaa !44
+  %30 = load float, ptr %29, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load float, ptr %31, align 4, !tbaa !44
+  %32 = load float, ptr %31, align 4, !tbaa !45
   %33 = fsub float %30, %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %33, ptr %34, align 4, !tbaa !44
+  store float %33, ptr %34, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %35, align 4, !tbaa !4
   br label %105
@@ -1608,19 +1608,19 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit65:        ; preds = %61, %63
 .thread.i:                                        ; preds = %76, %71
   %.015.i = phi ptr [ %77, %76 ], [ %72, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %80 = load ptr, ptr %79, align 8, !tbaa !35
+  %80 = load ptr, ptr %79, align 8, !tbaa !36
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
-  %83 = load ptr, ptr %81, align 8, !tbaa !36
+  %82 = load ptr, ptr %81, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !34
+  %83 = load ptr, ptr %81, align 8, !tbaa !37
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %85 = load ptr, ptr %81, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %85 = load ptr, ptr %81, align 8, !tbaa !37
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %88 = load ptr, ptr %87, align 8, !tbaa !37
-  %89 = load ptr, ptr %81, align 8, !tbaa !36
+  %88 = load ptr, ptr %87, align 8, !tbaa !38
+  %89 = load ptr, ptr %81, align 8, !tbaa !37
   %90 = ptrtoint ptr %88 to i64
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
@@ -1629,7 +1629,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit65:        ; preds = %61, %63
 
 94:                                               ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %81, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %81, align 8, !tbaa !37
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
 _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %94
@@ -1638,14 +1638,14 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %97 = ptrtoint ptr %80 to i64
   %98 = sub i64 %96, %97
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 48
-  store ptr %99, ptr %81, align 8, !tbaa !36
+  store ptr %99, ptr %81, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %95, i32 noundef 1)
-  %100 = load ptr, ptr %79, align 8, !tbaa !35
+  %100 = load ptr, ptr %79, align 8, !tbaa !36
   %101 = getelementptr inbounds i8, ptr %100, i64 %98
-  %102 = load ptr, ptr %81, align 8, !tbaa !36
+  %102 = load ptr, ptr %81, align 8, !tbaa !37
   %103 = getelementptr inbounds i8, ptr %102, i64 -16
-  store ptr %103, ptr %81, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !33
+  store ptr %103, ptr %81, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !34
   br label %105
 
 104:                                              ; preds = %76
@@ -1679,24 +1679,24 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
   br i1 %or.cond, label %19, label %36
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %2, align 4, !tbaa !44
-  %21 = load float, ptr %3, align 4, !tbaa !44
+  %20 = load float, ptr %2, align 4, !tbaa !45
+  %21 = load float, ptr %3, align 4, !tbaa !45
   %22 = fmul float %20, %21
-  store float %22, ptr %1, align 4, !tbaa !44
+  store float %22, ptr %1, align 4, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %24 = load float, ptr %23, align 4, !tbaa !44
+  %24 = load float, ptr %23, align 4, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %26 = load float, ptr %25, align 4, !tbaa !44
+  %26 = load float, ptr %25, align 4, !tbaa !45
   %27 = fmul float %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %27, ptr %28, align 4, !tbaa !44
+  store float %27, ptr %28, align 4, !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load float, ptr %29, align 4, !tbaa !44
+  %30 = load float, ptr %29, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load float, ptr %31, align 4, !tbaa !44
+  %32 = load float, ptr %31, align 4, !tbaa !45
   %33 = fmul float %30, %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %33, ptr %34, align 4, !tbaa !44
+  store float %33, ptr %34, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %35, align 4, !tbaa !4
   br label %134
@@ -1736,19 +1736,19 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
 .thread:                                          ; preds = %..thread_crit_edge, %.thread91
   %46 = phi double [ %44, %.thread91 ], [ %.pre114, %..thread_crit_edge ]
   %47 = fptrunc double %46 to float
-  %48 = load float, ptr %2, align 4, !tbaa !44
+  %48 = load float, ptr %2, align 4, !tbaa !45
   %49 = fmul float %48, %47
-  store float %49, ptr %1, align 4, !tbaa !44
+  store float %49, ptr %1, align 4, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %51 = load float, ptr %50, align 4, !tbaa !44
+  %51 = load float, ptr %50, align 4, !tbaa !45
   %52 = fmul float %51, %47
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %52, ptr %53, align 4, !tbaa !44
+  store float %52, ptr %53, align 4, !tbaa !45
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %55 = load float, ptr %54, align 4, !tbaa !44
+  %55 = load float, ptr %54, align 4, !tbaa !45
   %56 = fmul float %55, %47
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %56, ptr %57, align 4, !tbaa !44
+  store float %56, ptr %57, align 4, !tbaa !45
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %58, align 4, !tbaa !4
   br label %134
@@ -1788,19 +1788,19 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
 .thread94:                                        ; preds = %..thread94_crit_edge, %.thread97
   %69 = phi double [ %67, %.thread97 ], [ %.pre, %..thread94_crit_edge ]
   %70 = fptrunc double %69 to float
-  %71 = load float, ptr %3, align 4, !tbaa !44
+  %71 = load float, ptr %3, align 4, !tbaa !45
   %72 = fmul float %71, %70
-  store float %72, ptr %1, align 4, !tbaa !44
+  store float %72, ptr %1, align 4, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %74 = load float, ptr %73, align 4, !tbaa !44
+  %74 = load float, ptr %73, align 4, !tbaa !45
   %75 = fmul float %74, %70
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %75, ptr %76, align 4, !tbaa !44
+  store float %75, ptr %76, align 4, !tbaa !45
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %78 = load float, ptr %77, align 4, !tbaa !44
+  %78 = load float, ptr %77, align 4, !tbaa !45
   %79 = fmul float %78, %70
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %79, ptr %80, align 4, !tbaa !44
+  store float %79, ptr %80, align 4, !tbaa !45
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %81, align 4, !tbaa !4
   br label %134
@@ -1878,19 +1878,19 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %90, %92
 .thread.i:                                        ; preds = %105, %100
   %.015.i = phi ptr [ %106, %105 ], [ %101, %100 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %109 = load ptr, ptr %108, align 8, !tbaa !35
+  %109 = load ptr, ptr %108, align 8, !tbaa !36
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
-  %112 = load ptr, ptr %110, align 8, !tbaa !36
+  %111 = load ptr, ptr %110, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !34
+  %112 = load ptr, ptr %110, align 8, !tbaa !37
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %114 = load ptr, ptr %110, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %114 = load ptr, ptr %110, align 8, !tbaa !37
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %117 = load ptr, ptr %116, align 8, !tbaa !37
-  %118 = load ptr, ptr %110, align 8, !tbaa !36
+  %117 = load ptr, ptr %116, align 8, !tbaa !38
+  %118 = load ptr, ptr %110, align 8, !tbaa !37
   %119 = ptrtoint ptr %117 to i64
   %120 = ptrtoint ptr %118 to i64
   %121 = sub i64 %119, %120
@@ -1899,7 +1899,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %90, %92
 
 123:                                              ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %110, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %110, align 8, !tbaa !37
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
 _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %123
@@ -1908,14 +1908,14 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %126 = ptrtoint ptr %109 to i64
   %127 = sub i64 %125, %126
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 48
-  store ptr %128, ptr %110, align 8, !tbaa !36
+  store ptr %128, ptr %110, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %124, i32 noundef 1)
-  %129 = load ptr, ptr %108, align 8, !tbaa !35
+  %129 = load ptr, ptr %108, align 8, !tbaa !36
   %130 = getelementptr inbounds i8, ptr %129, i64 %127
-  %131 = load ptr, ptr %110, align 8, !tbaa !36
+  %131 = load ptr, ptr %110, align 8, !tbaa !37
   %132 = getelementptr inbounds i8, ptr %131, i64 -16
-  store ptr %132, ptr %110, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !33
+  store ptr %132, ptr %110, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !34
   br label %134
 
 133:                                              ; preds = %105
@@ -1949,24 +1949,24 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
   br i1 %or.cond, label %19, label %36
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %2, align 4, !tbaa !44
-  %21 = load float, ptr %3, align 4, !tbaa !44
+  %20 = load float, ptr %2, align 4, !tbaa !45
+  %21 = load float, ptr %3, align 4, !tbaa !45
   %22 = fdiv float %20, %21
-  store float %22, ptr %1, align 4, !tbaa !44
+  store float %22, ptr %1, align 4, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %24 = load float, ptr %23, align 4, !tbaa !44
+  %24 = load float, ptr %23, align 4, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %26 = load float, ptr %25, align 4, !tbaa !44
+  %26 = load float, ptr %25, align 4, !tbaa !45
   %27 = fdiv float %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %27, ptr %28, align 4, !tbaa !44
+  store float %27, ptr %28, align 4, !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load float, ptr %29, align 4, !tbaa !44
+  %30 = load float, ptr %29, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load float, ptr %31, align 4, !tbaa !44
+  %32 = load float, ptr %31, align 4, !tbaa !45
   %33 = fdiv float %30, %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %33, ptr %34, align 4, !tbaa !44
+  store float %33, ptr %34, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %35, align 4, !tbaa !4
   br label %134
@@ -2006,19 +2006,19 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
 .thread:                                          ; preds = %..thread_crit_edge, %.thread91
   %46 = phi double [ %44, %.thread91 ], [ %.pre114, %..thread_crit_edge ]
   %47 = fptrunc double %46 to float
-  %48 = load float, ptr %2, align 4, !tbaa !44
+  %48 = load float, ptr %2, align 4, !tbaa !45
   %49 = fdiv float %48, %47
-  store float %49, ptr %1, align 4, !tbaa !44
+  store float %49, ptr %1, align 4, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %51 = load float, ptr %50, align 4, !tbaa !44
+  %51 = load float, ptr %50, align 4, !tbaa !45
   %52 = fdiv float %51, %47
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %52, ptr %53, align 4, !tbaa !44
+  store float %52, ptr %53, align 4, !tbaa !45
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %55 = load float, ptr %54, align 4, !tbaa !44
+  %55 = load float, ptr %54, align 4, !tbaa !45
   %56 = fdiv float %55, %47
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %56, ptr %57, align 4, !tbaa !44
+  store float %56, ptr %57, align 4, !tbaa !45
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %58, align 4, !tbaa !4
   br label %134
@@ -2058,19 +2058,19 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
 .thread94:                                        ; preds = %..thread94_crit_edge, %.thread97
   %69 = phi double [ %67, %.thread97 ], [ %.pre, %..thread94_crit_edge ]
   %70 = fptrunc double %69 to float
-  %71 = load float, ptr %3, align 4, !tbaa !44
+  %71 = load float, ptr %3, align 4, !tbaa !45
   %72 = fdiv float %70, %71
-  store float %72, ptr %1, align 4, !tbaa !44
+  store float %72, ptr %1, align 4, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %74 = load float, ptr %73, align 4, !tbaa !44
+  %74 = load float, ptr %73, align 4, !tbaa !45
   %75 = fdiv float %70, %74
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %75, ptr %76, align 4, !tbaa !44
+  store float %75, ptr %76, align 4, !tbaa !45
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %78 = load float, ptr %77, align 4, !tbaa !44
+  %78 = load float, ptr %77, align 4, !tbaa !45
   %79 = fdiv float %70, %78
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %79, ptr %80, align 4, !tbaa !44
+  store float %79, ptr %80, align 4, !tbaa !45
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %81, align 4, !tbaa !4
   br label %134
@@ -2148,19 +2148,19 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %90, %92
 .thread.i:                                        ; preds = %105, %100
   %.015.i = phi ptr [ %106, %105 ], [ %101, %100 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %109 = load ptr, ptr %108, align 8, !tbaa !35
+  %109 = load ptr, ptr %108, align 8, !tbaa !36
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
-  %112 = load ptr, ptr %110, align 8, !tbaa !36
+  %111 = load ptr, ptr %110, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !34
+  %112 = load ptr, ptr %110, align 8, !tbaa !37
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %114 = load ptr, ptr %110, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %114 = load ptr, ptr %110, align 8, !tbaa !37
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %117 = load ptr, ptr %116, align 8, !tbaa !37
-  %118 = load ptr, ptr %110, align 8, !tbaa !36
+  %117 = load ptr, ptr %116, align 8, !tbaa !38
+  %118 = load ptr, ptr %110, align 8, !tbaa !37
   %119 = ptrtoint ptr %117 to i64
   %120 = ptrtoint ptr %118 to i64
   %121 = sub i64 %119, %120
@@ -2169,7 +2169,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %90, %92
 
 123:                                              ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %110, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %110, align 8, !tbaa !37
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
 _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %123
@@ -2178,14 +2178,14 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %126 = ptrtoint ptr %109 to i64
   %127 = sub i64 %125, %126
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 48
-  store ptr %128, ptr %110, align 8, !tbaa !36
+  store ptr %128, ptr %110, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %124, i32 noundef 1)
-  %129 = load ptr, ptr %108, align 8, !tbaa !35
+  %129 = load ptr, ptr %108, align 8, !tbaa !36
   %130 = getelementptr inbounds i8, ptr %129, i64 %127
-  %131 = load ptr, ptr %110, align 8, !tbaa !36
+  %131 = load ptr, ptr %110, align 8, !tbaa !37
   %132 = getelementptr inbounds i8, ptr %131, i64 -16
-  store ptr %132, ptr %110, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !33
+  store ptr %132, ptr %110, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !34
   br label %134
 
 133:                                              ; preds = %105
@@ -2219,36 +2219,36 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
   br i1 %or.cond, label %19, label %48
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %2, align 4, !tbaa !44
+  %20 = load float, ptr %2, align 4, !tbaa !45
   %21 = fpext float %20 to double
-  %22 = load float, ptr %3, align 4, !tbaa !44
+  %22 = load float, ptr %3, align 4, !tbaa !45
   %23 = fpext float %22 to double
   %24 = fdiv double %21, %23
   %25 = tail call noundef double @llvm.floor.f64(double %24)
   %26 = fptrunc double %25 to float
-  store float %26, ptr %1, align 4, !tbaa !44
+  store float %26, ptr %1, align 4, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %28 = load float, ptr %27, align 4, !tbaa !44
+  %28 = load float, ptr %27, align 4, !tbaa !45
   %29 = fpext float %28 to double
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %31 = load float, ptr %30, align 4, !tbaa !44
+  %31 = load float, ptr %30, align 4, !tbaa !45
   %32 = fpext float %31 to double
   %33 = fdiv double %29, %32
   %34 = tail call noundef double @llvm.floor.f64(double %33)
   %35 = fptrunc double %34 to float
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %35, ptr %36, align 4, !tbaa !44
+  store float %35, ptr %36, align 4, !tbaa !45
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load float, ptr %37, align 4, !tbaa !44
+  %38 = load float, ptr %37, align 4, !tbaa !45
   %39 = fpext float %38 to double
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %41 = load float, ptr %40, align 4, !tbaa !44
+  %41 = load float, ptr %40, align 4, !tbaa !45
   %42 = fpext float %41 to double
   %43 = fdiv double %39, %42
   %44 = tail call noundef double @llvm.floor.f64(double %43)
   %45 = fptrunc double %44 to float
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %45, ptr %46, align 4, !tbaa !44
+  store float %45, ptr %46, align 4, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %47, align 4, !tbaa !4
   br label %167
@@ -2288,29 +2288,29 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
 .thread:                                          ; preds = %..thread_crit_edge, %.thread91
   %58 = phi double [ %56, %.thread91 ], [ %.pre114, %..thread_crit_edge ]
   %59 = fptrunc double %58 to float
-  %60 = load float, ptr %2, align 4, !tbaa !44
+  %60 = load float, ptr %2, align 4, !tbaa !45
   %61 = fpext float %60 to double
   %62 = fpext float %59 to double
   %63 = fdiv double %61, %62
   %64 = call noundef double @llvm.floor.f64(double %63)
   %65 = fptrunc double %64 to float
-  store float %65, ptr %1, align 4, !tbaa !44
+  store float %65, ptr %1, align 4, !tbaa !45
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %67 = load float, ptr %66, align 4, !tbaa !44
+  %67 = load float, ptr %66, align 4, !tbaa !45
   %68 = fpext float %67 to double
   %69 = fdiv double %68, %62
   %70 = call noundef double @llvm.floor.f64(double %69)
   %71 = fptrunc double %70 to float
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %71, ptr %72, align 4, !tbaa !44
+  store float %71, ptr %72, align 4, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %74 = load float, ptr %73, align 4, !tbaa !44
+  %74 = load float, ptr %73, align 4, !tbaa !45
   %75 = fpext float %74 to double
   %76 = fdiv double %75, %62
   %77 = call noundef double @llvm.floor.f64(double %76)
   %78 = fptrunc double %77 to float
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %78, ptr %79, align 4, !tbaa !44
+  store float %78, ptr %79, align 4, !tbaa !45
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %80, align 4, !tbaa !4
   br label %167
@@ -2351,28 +2351,28 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
   %91 = phi double [ %89, %.thread97 ], [ %.pre, %..thread94_crit_edge ]
   %92 = fptrunc double %91 to float
   %93 = fpext float %92 to double
-  %94 = load float, ptr %3, align 4, !tbaa !44
+  %94 = load float, ptr %3, align 4, !tbaa !45
   %95 = fpext float %94 to double
   %96 = fdiv double %93, %95
   %97 = call noundef double @llvm.floor.f64(double %96)
   %98 = fptrunc double %97 to float
-  store float %98, ptr %1, align 4, !tbaa !44
+  store float %98, ptr %1, align 4, !tbaa !45
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %100 = load float, ptr %99, align 4, !tbaa !44
+  %100 = load float, ptr %99, align 4, !tbaa !45
   %101 = fpext float %100 to double
   %102 = fdiv double %93, %101
   %103 = call noundef double @llvm.floor.f64(double %102)
   %104 = fptrunc double %103 to float
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %104, ptr %105, align 4, !tbaa !44
+  store float %104, ptr %105, align 4, !tbaa !45
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %107 = load float, ptr %106, align 4, !tbaa !44
+  %107 = load float, ptr %106, align 4, !tbaa !45
   %108 = fpext float %107 to double
   %109 = fdiv double %93, %108
   %110 = call noundef double @llvm.floor.f64(double %109)
   %111 = fptrunc double %110 to float
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %111, ptr %112, align 4, !tbaa !44
+  store float %111, ptr %112, align 4, !tbaa !45
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %113, align 4, !tbaa !4
   br label %167
@@ -2451,19 +2451,19 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %122, %124
 .thread.i:                                        ; preds = %138, %133
   %.015.i = phi ptr [ %139, %138 ], [ %134, %133 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %142 = load ptr, ptr %141, align 8, !tbaa !35
+  %142 = load ptr, ptr %141, align 8, !tbaa !36
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
-  %145 = load ptr, ptr %143, align 8, !tbaa !36
+  %144 = load ptr, ptr %143, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !34
+  %145 = load ptr, ptr %143, align 8, !tbaa !37
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %147 = load ptr, ptr %143, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %147 = load ptr, ptr %143, align 8, !tbaa !37
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %150 = load ptr, ptr %149, align 8, !tbaa !37
-  %151 = load ptr, ptr %143, align 8, !tbaa !36
+  %150 = load ptr, ptr %149, align 8, !tbaa !38
+  %151 = load ptr, ptr %143, align 8, !tbaa !37
   %152 = ptrtoint ptr %150 to i64
   %153 = ptrtoint ptr %151 to i64
   %154 = sub i64 %152, %153
@@ -2472,7 +2472,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %122, %124
 
 156:                                              ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %143, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %143, align 8, !tbaa !37
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
 _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %156
@@ -2481,14 +2481,14 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %159 = ptrtoint ptr %142 to i64
   %160 = sub i64 %158, %159
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 48
-  store ptr %161, ptr %143, align 8, !tbaa !36
+  store ptr %161, ptr %143, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %157, i32 noundef 1)
-  %162 = load ptr, ptr %141, align 8, !tbaa !35
+  %162 = load ptr, ptr %141, align 8, !tbaa !36
   %163 = getelementptr inbounds i8, ptr %162, i64 %160
-  %164 = load ptr, ptr %143, align 8, !tbaa !36
+  %164 = load ptr, ptr %143, align 8, !tbaa !37
   %165 = getelementptr inbounds i8, ptr %164, i64 -16
-  store ptr %165, ptr %143, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %165, i64 16, i1 false), !tbaa.struct !33
+  store ptr %165, ptr %143, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %165, i64 16, i1 false), !tbaa.struct !34
   br label %167
 
 166:                                              ; preds = %138
@@ -2645,19 +2645,19 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit51:        ; preds = %44, %46
 .thread.i:                                        ; preds = %62, %57
   %.015.i = phi ptr [ %63, %62 ], [ %58, %57 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %66 = load ptr, ptr %65, align 8, !tbaa !35
+  %66 = load ptr, ptr %65, align 8, !tbaa !36
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
-  %69 = load ptr, ptr %67, align 8, !tbaa !36
+  %68 = load ptr, ptr %67, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !34
+  %69 = load ptr, ptr %67, align 8, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %71 = load ptr, ptr %67, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %71 = load ptr, ptr %67, align 8, !tbaa !37
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %74 = load ptr, ptr %73, align 8, !tbaa !37
-  %75 = load ptr, ptr %67, align 8, !tbaa !36
+  %74 = load ptr, ptr %73, align 8, !tbaa !38
+  %75 = load ptr, ptr %67, align 8, !tbaa !37
   %76 = ptrtoint ptr %74 to i64
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
@@ -2666,7 +2666,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit51:        ; preds = %44, %46
 
 80:                                               ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %67, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %67, align 8, !tbaa !37
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
 _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %80
@@ -2675,14 +2675,14 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %83 = ptrtoint ptr %66 to i64
   %84 = sub i64 %82, %83
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  store ptr %85, ptr %67, align 8, !tbaa !36
+  store ptr %85, ptr %67, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %81, i32 noundef 1)
-  %86 = load ptr, ptr %65, align 8, !tbaa !35
+  %86 = load ptr, ptr %65, align 8, !tbaa !36
   %87 = getelementptr inbounds i8, ptr %86, i64 %84
-  %88 = load ptr, ptr %67, align 8, !tbaa !36
+  %88 = load ptr, ptr %67, align 8, !tbaa !37
   %89 = getelementptr inbounds i8, ptr %88, i64 -16
-  store ptr %89, ptr %67, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false), !tbaa.struct !33
+  store ptr %89, ptr %67, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false), !tbaa.struct !34
   br label %91
 
 90:                                               ; preds = %62
@@ -2836,19 +2836,19 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit51:        ; preds = %44, %46
 .thread.i:                                        ; preds = %59, %54
   %.015.i = phi ptr [ %60, %59 ], [ %55, %54 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %63 = load ptr, ptr %62, align 8, !tbaa !35
+  %63 = load ptr, ptr %62, align 8, !tbaa !36
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
-  %66 = load ptr, ptr %64, align 8, !tbaa !36
+  %65 = load ptr, ptr %64, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !34
+  %66 = load ptr, ptr %64, align 8, !tbaa !37
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %68 = load ptr, ptr %64, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %68 = load ptr, ptr %64, align 8, !tbaa !37
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %71 = load ptr, ptr %70, align 8, !tbaa !37
-  %72 = load ptr, ptr %64, align 8, !tbaa !36
+  %71 = load ptr, ptr %70, align 8, !tbaa !38
+  %72 = load ptr, ptr %64, align 8, !tbaa !37
   %73 = ptrtoint ptr %71 to i64
   %74 = ptrtoint ptr %72 to i64
   %75 = sub i64 %73, %74
@@ -2857,7 +2857,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit51:        ; preds = %44, %46
 
 77:                                               ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %64, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %64, align 8, !tbaa !37
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
 _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %77
@@ -2866,14 +2866,14 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %80 = ptrtoint ptr %63 to i64
   %81 = sub i64 %79, %80
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 48
-  store ptr %82, ptr %64, align 8, !tbaa !36
+  store ptr %82, ptr %64, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %78, i32 noundef 1)
-  %83 = load ptr, ptr %62, align 8, !tbaa !35
+  %83 = load ptr, ptr %62, align 8, !tbaa !36
   %84 = getelementptr inbounds i8, ptr %83, i64 %81
-  %85 = load ptr, ptr %64, align 8, !tbaa !36
+  %85 = load ptr, ptr %64, align 8, !tbaa !37
   %86 = getelementptr inbounds i8, ptr %85, i64 -16
-  store ptr %86, ptr %64, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false), !tbaa.struct !33
+  store ptr %86, ptr %64, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false), !tbaa.struct !34
   br label %88
 
 87:                                               ; preds = %59
@@ -2910,19 +2910,19 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS15EEvP9lua_StateP10lua
   br i1 %or.cond, label %19, label %31
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %2, align 4, !tbaa !44
+  %20 = load float, ptr %2, align 4, !tbaa !45
   %21 = fneg float %20
-  store float %21, ptr %1, align 4, !tbaa !44
+  store float %21, ptr %1, align 4, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %23 = load float, ptr %22, align 4, !tbaa !44
+  %23 = load float, ptr %22, align 4, !tbaa !45
   %24 = fneg float %23
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %24, ptr %25, align 4, !tbaa !44
+  store float %24, ptr %25, align 4, !tbaa !45
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %27 = load float, ptr %26, align 4, !tbaa !44
+  %27 = load float, ptr %26, align 4, !tbaa !45
   %28 = fneg float %27
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %28, ptr %29, align 4, !tbaa !44
+  store float %28, ptr %29, align 4, !tbaa !45
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %30, align 4, !tbaa !4
   br label %100
@@ -3046,19 +3046,19 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit59:        ; preds = %56, %58
 .thread.i:                                        ; preds = %71, %66
   %.015.i = phi ptr [ %72, %71 ], [ %67, %66 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !35
+  %75 = load ptr, ptr %74, align 8, !tbaa !36
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
-  %78 = load ptr, ptr %76, align 8, !tbaa !36
+  %77 = load ptr, ptr %76, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !34
+  %78 = load ptr, ptr %76, align 8, !tbaa !37
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %80 = load ptr, ptr %76, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %80 = load ptr, ptr %76, align 8, !tbaa !37
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %83 = load ptr, ptr %82, align 8, !tbaa !37
-  %84 = load ptr, ptr %76, align 8, !tbaa !36
+  %83 = load ptr, ptr %82, align 8, !tbaa !38
+  %84 = load ptr, ptr %76, align 8, !tbaa !37
   %85 = ptrtoint ptr %83 to i64
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
@@ -3067,7 +3067,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit59:        ; preds = %56, %58
 
 89:                                               ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %76, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %76, align 8, !tbaa !37
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
 _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %89
@@ -3076,14 +3076,14 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %92 = ptrtoint ptr %75 to i64
   %93 = sub i64 %91, %92
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 48
-  store ptr %94, ptr %76, align 8, !tbaa !36
+  store ptr %94, ptr %76, align 8, !tbaa !37
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %90, i32 noundef 1)
-  %95 = load ptr, ptr %74, align 8, !tbaa !35
+  %95 = load ptr, ptr %74, align 8, !tbaa !36
   %96 = getelementptr inbounds i8, ptr %95, i64 %93
-  %97 = load ptr, ptr %76, align 8, !tbaa !36
+  %97 = load ptr, ptr %76, align 8, !tbaa !37
   %98 = getelementptr inbounds i8, ptr %97, i64 -16
-  store ptr %98, ptr %76, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !tbaa.struct !33
+  store ptr %98, ptr %76, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !tbaa.struct !34
   br label %100
 
 99:                                               ; preds = %71
@@ -3107,22 +3107,22 @@ define hidden void @_Z10luaV_dolenP9lua_StateP10lua_TValuePKS1_(ptr noundef %0, 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !30
+  %13 = load i8, ptr %12, align 1, !tbaa !31
   %14 = and i8 %13, 64
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %15, label %.thread
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !31
+  %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 3080
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = tail call noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef nonnull %9, i32 noundef 6, ptr noundef %19)
   %.not28 = icmp eq ptr %20, null
   br i1 %.not28, label %.thread, label %.critedge
@@ -3135,7 +3135,7 @@ define hidden void @_Z10luaV_dolenP9lua_StateP10lua_TValuePKS1_(ptr noundef %0, 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %2, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %26 = load i32, ptr %25, align 4, !tbaa !40
+  %26 = load i32, ptr %25, align 4, !tbaa !41
   %27 = uitofp i32 %26 to double
   br label %.sink.split
 
@@ -3156,19 +3156,19 @@ define hidden void @_Z10luaV_dolenP9lua_StateP10lua_TValuePKS1_(ptr noundef %0, 
 
 34:                                               ; preds = %.critedge
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !35
+  %36 = load ptr, ptr %35, align 8, !tbaa !36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull readonly align 8 dereferenceable(16) %.0, i64 16, i1 false), !tbaa.struct !33
-  %39 = load ptr, ptr %37, align 8, !tbaa !36
+  %38 = load ptr, ptr %37, align 8, !tbaa !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull readonly align 8 dereferenceable(16) %.0, i64 16, i1 false), !tbaa.struct !34
+  %39 = load ptr, ptr %37, align 8, !tbaa !37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
-  %41 = load ptr, ptr %37, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  %41 = load ptr, ptr %37, align 8, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) @luaO_nilobject_, i64 16, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) @luaO_nilobject_, i64 16, i1 false), !tbaa.struct !34
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %44 = load ptr, ptr %43, align 8, !tbaa !37
-  %45 = load ptr, ptr %37, align 8, !tbaa !36
+  %44 = load ptr, ptr %43, align 8, !tbaa !38
+  %45 = load ptr, ptr %37, align 8, !tbaa !37
   %46 = ptrtoint ptr %44 to i64
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
@@ -3177,7 +3177,7 @@ define hidden void @_Z10luaV_dolenP9lua_StateP10lua_TValuePKS1_(ptr noundef %0, 
 
 50:                                               ; preds = %34
   tail call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i = load ptr, ptr %37, align 8, !tbaa !36
+  %.pre.i = load ptr, ptr %37, align 8, !tbaa !37
   br label %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit
 
 _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %34, %50
@@ -3186,14 +3186,14 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %34, %50
   %53 = ptrtoint ptr %36 to i64
   %54 = sub i64 %52, %53
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  store ptr %55, ptr %37, align 8, !tbaa !36
+  store ptr %55, ptr %37, align 8, !tbaa !37
   tail call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %51, i32 noundef 1)
-  %56 = load ptr, ptr %35, align 8, !tbaa !35
+  %56 = load ptr, ptr %35, align 8, !tbaa !36
   %57 = getelementptr inbounds i8, ptr %56, i64 %54
-  %58 = load ptr, ptr %37, align 8, !tbaa !36
+  %58 = load ptr, ptr %37, align 8, !tbaa !37
   %59 = getelementptr inbounds i8, ptr %58, i64 -16
-  store ptr %59, ptr %37, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !33
+  store ptr %59, ptr %37, align 8, !tbaa !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !34
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 12
   %61 = load i32, ptr %60, align 4, !tbaa !4
   %62 = icmp eq i32 %61, 3
@@ -3323,9 +3323,9 @@ declare hidden void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef,
 ; Function Attrs: mustprogress noinline uwtable
 define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load i16, ptr %4, align 8, !tbaa !52
+  %5 = load i16, ptr %4, align 8, !tbaa !53
   %6 = add i16 %5, 1
-  store i16 %6, ptr %4, align 8, !tbaa !52
+  store i16 %6, ptr %4, align 8, !tbaa !53
   %7 = icmp ugt i16 %6, 199
   br i1 %7, label %8, label %9
 
@@ -3335,9 +3335,9 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
 
 9:                                                ; preds = %8, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !36
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -3346,7 +3346,7 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %9
   tail call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 20)
-  %.pre = load ptr, ptr %12, align 8, !tbaa !36
+  %.pre = load ptr, ptr %12, align 8, !tbaa !37
   br label %19
 
 19:                                               ; preds = %9, %18
@@ -3356,9 +3356,9 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
   %23 = getelementptr inbounds %struct.lua_TValue, ptr %20, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !53
+  %26 = load ptr, ptr %25, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %28 = load ptr, ptr %27, align 8, !tbaa !54
+  %28 = load ptr, ptr %27, align 8, !tbaa !55
   %29 = icmp eq ptr %26, %28
   br i1 %29, label %30, label %32
 
@@ -3368,32 +3368,32 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
 
 32:                                               ; preds = %19
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %33, ptr %25, align 8, !tbaa !53
+  store ptr %33, ptr %25, align 8, !tbaa !54
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi ptr [ %31, %30 ], [ %33, %32 ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %24, ptr %36, align 8, !tbaa !55
-  store ptr %23, ptr %35, align 8, !tbaa !58
+  store ptr %24, ptr %36, align 8, !tbaa !56
+  store ptr %23, ptr %35, align 8, !tbaa !59
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 320
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %37, ptr %38, align 8, !tbaa !59
+  store ptr %37, ptr %38, align 8, !tbaa !60
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr null, ptr %39, align 8, !tbaa !60
+  store ptr null, ptr %39, align 8, !tbaa !61
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  store i32 0, ptr %40, align 4, !tbaa !61
+  store i32 0, ptr %40, align 4, !tbaa !62
   %41 = icmp sgt i32 %2, -1
   %42 = zext i1 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i32 %42, ptr %43, align 8, !tbaa !62
+  store i32 %42, ptr %43, align 8, !tbaa !63
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %23, ptr %44, align 8, !tbaa !48
+  store ptr %23, ptr %44, align 8, !tbaa !49
   %45 = load ptr, ptr %24, align 8, !tbaa !9
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !9
   %48 = tail call noundef i32 %47(ptr noundef nonnull %0)
-  %49 = load ptr, ptr %25, align 8, !tbaa !53
+  %49 = load ptr, ptr %25, align 8, !tbaa !54
   %50 = getelementptr inbounds i8, ptr %49, i64 -40
   br i1 %41, label %51, label %65
 
@@ -3402,33 +3402,33 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %51
-  %54 = load ptr, ptr %12, align 8, !tbaa !36
+  %54 = load ptr, ptr %12, align 8, !tbaa !37
   %55 = zext nneg i32 %48 to i64
   %56 = sub nsw i64 0, %55
   %57 = getelementptr inbounds %struct.lua_TValue, ptr %54, i64 %56
-  %58 = load ptr, ptr %50, align 8, !tbaa !58
+  %58 = load ptr, ptr %50, align 8, !tbaa !59
   %59 = zext nneg i32 %2 to i64
   %60 = getelementptr inbounds nuw %struct.lua_TValue, ptr %58, i64 %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !34
   br label %65
 
 61:                                               ; preds = %51
-  %62 = load ptr, ptr %50, align 8, !tbaa !58
+  %62 = load ptr, ptr %50, align 8, !tbaa !59
   %63 = zext nneg i32 %2 to i64
   %64 = getelementptr inbounds nuw %struct.lua_TValue, ptr %62, i64 %63, i32 2
   store i32 0, ptr %64, align 4, !tbaa !4
   br label %65
 
 65:                                               ; preds = %53, %61, %34
-  store ptr %50, ptr %25, align 8, !tbaa !53
-  %66 = load ptr, ptr %50, align 8, !tbaa !58
-  store ptr %66, ptr %44, align 8, !tbaa !48
+  store ptr %50, ptr %25, align 8, !tbaa !54
+  %66 = load ptr, ptr %50, align 8, !tbaa !59
+  store ptr %66, ptr %44, align 8, !tbaa !49
   %67 = getelementptr inbounds i8, ptr %49, i64 -24
-  %68 = load ptr, ptr %67, align 8, !tbaa !59
-  store ptr %68, ptr %12, align 8, !tbaa !36
-  %69 = load i16, ptr %4, align 8, !tbaa !52
+  %68 = load ptr, ptr %67, align 8, !tbaa !60
+  store ptr %68, ptr %12, align 8, !tbaa !37
+  %69 = load i16, ptr %4, align 8, !tbaa !53
   %70 = add i16 %69, -1
-  store i16 %70, ptr %4, align 8, !tbaa !52
+  store i16 %70, ptr %4, align 8, !tbaa !53
   ret void
 }
 
@@ -3452,27 +3452,27 @@ define hidden void @_Z14luaV_tryfuncTMP9lua_StateP10lua_TValue(ptr noundef %0, p
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = icmp ugt ptr %10, %1
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %9, align 8, !tbaa !36
+  %.pre = load ptr, ptr %9, align 8, !tbaa !37
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
   %12 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %10, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %13, ptr %9, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !33
+  store ptr %13, ptr %9, align 8, !tbaa !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   ret void
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.019 = phi ptr [ %14, %.lr.ph ], [ %10, %8 ]
   %14 = getelementptr inbounds i8, ptr %.019, i64 -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.019, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.019, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !34
   %15 = icmp ugt ptr %14, %1
-  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !63
+  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !64
 }
 
 declare hidden void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -3520,55 +3520,56 @@ attributes #13 = { nounwind willreturn memory(read) }
 !9 = !{!6, !6, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"double", !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !19, i64 32}
-!15 = !{!"_ZTS8LuaTable", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !8, i64 8, !6, i64 12, !16, i64 16, !18, i64 24, !19, i64 32, !20, i64 40}
-!16 = !{!"p1 _ZTS8LuaTable", !17, i64 0}
-!17 = !{!"any pointer", !6, i64 0}
-!18 = !{!"p1 _ZTS10lua_TValue", !17, i64 0}
-!19 = !{!"p1 _ZTS7LuaNode", !17, i64 0}
-!20 = !{!"p1 _ZTS8GCObject", !17, i64 0}
-!21 = !{!22, !8, i64 84}
-!22 = !{!"_ZTS9lua_State", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !23, i64 5, !23, i64 6, !18, i64 8, !18, i64 16, !24, i64 24, !25, i64 32, !18, i64 40, !18, i64 48, !25, i64 56, !25, i64 64, !8, i64 72, !8, i64 76, !26, i64 80, !26, i64 82, !8, i64 84, !16, i64 88, !27, i64 96, !20, i64 104, !28, i64 112, !17, i64 120}
-!23 = !{!"bool", !6, i64 0}
-!24 = !{!"p1 _ZTS12global_State", !17, i64 0}
-!25 = !{!"p1 _ZTS8CallInfo", !17, i64 0}
-!26 = !{!"short", !6, i64 0}
-!27 = !{!"p1 _ZTS5UpVal", !17, i64 0}
-!28 = !{!"p1 _ZTS7TString", !17, i64 0}
-!29 = !{!15, !16, i64 16}
-!30 = !{!15, !6, i64 3}
-!31 = !{!22, !24, i64 24}
-!32 = !{!28, !28, i64 0}
-!33 = !{i64 0, i64 8, !9, i64 8, i64 4, !9, i64 12, i64 4, !34}
-!34 = !{!8, !8, i64 0}
-!35 = !{!22, !18, i64 48}
-!36 = !{!22, !18, i64 8}
-!37 = !{!22, !18, i64 40}
-!38 = !{!15, !6, i64 4}
-!39 = distinct !{!39, !13}
-!40 = !{!41, !8, i64 20}
-!41 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !26, i64 4, !28, i64 8, !8, i64 16, !8, i64 20, !6, i64 24}
-!42 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!43 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"float", !6, i64 0}
-!46 = !{!47, !16, i64 8}
-!47 = !{!"_ZTS5Udata", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !8, i64 4, !16, i64 8, !6, i64 16}
-!48 = !{!22, !18, i64 16}
-!49 = distinct !{!49, !13}
-!50 = distinct !{!50, !13}
-!51 = distinct !{!51, !13}
-!52 = !{!22, !26, i64 80}
-!53 = !{!22, !25, i64 32}
-!54 = !{!22, !25, i64 56}
-!55 = !{!56, !18, i64 8}
-!56 = !{!"_ZTS8CallInfo", !18, i64 0, !18, i64 8, !18, i64 16, !57, i64 24, !8, i64 32, !8, i64 36}
-!57 = !{!"p1 int", !17, i64 0}
-!58 = !{!56, !18, i64 0}
-!59 = !{!56, !18, i64 16}
-!60 = !{!56, !57, i64 24}
-!61 = !{!56, !8, i64 36}
-!62 = !{!56, !8, i64 32}
-!63 = distinct !{!63, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !20, i64 32}
+!16 = !{!"_ZTS8LuaTable", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !8, i64 8, !6, i64 12, !17, i64 16, !19, i64 24, !20, i64 32, !21, i64 40}
+!17 = !{!"p1 _ZTS8LuaTable", !18, i64 0}
+!18 = !{!"any pointer", !6, i64 0}
+!19 = !{!"p1 _ZTS10lua_TValue", !18, i64 0}
+!20 = !{!"p1 _ZTS7LuaNode", !18, i64 0}
+!21 = !{!"p1 _ZTS8GCObject", !18, i64 0}
+!22 = !{!23, !8, i64 84}
+!23 = !{!"_ZTS9lua_State", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !24, i64 5, !24, i64 6, !19, i64 8, !19, i64 16, !25, i64 24, !26, i64 32, !19, i64 40, !19, i64 48, !26, i64 56, !26, i64 64, !8, i64 72, !8, i64 76, !27, i64 80, !27, i64 82, !8, i64 84, !17, i64 88, !28, i64 96, !21, i64 104, !29, i64 112, !18, i64 120}
+!24 = !{!"bool", !6, i64 0}
+!25 = !{!"p1 _ZTS12global_State", !18, i64 0}
+!26 = !{!"p1 _ZTS8CallInfo", !18, i64 0}
+!27 = !{!"short", !6, i64 0}
+!28 = !{!"p1 _ZTS5UpVal", !18, i64 0}
+!29 = !{!"p1 _ZTS7TString", !18, i64 0}
+!30 = !{!16, !17, i64 16}
+!31 = !{!16, !6, i64 3}
+!32 = !{!23, !25, i64 24}
+!33 = !{!29, !29, i64 0}
+!34 = !{i64 0, i64 8, !9, i64 8, i64 4, !9, i64 12, i64 4, !35}
+!35 = !{!8, !8, i64 0}
+!36 = !{!23, !19, i64 48}
+!37 = !{!23, !19, i64 8}
+!38 = !{!23, !19, i64 40}
+!39 = !{!16, !6, i64 4}
+!40 = distinct !{!40, !13, !14}
+!41 = !{!42, !8, i64 20}
+!42 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !27, i64 4, !29, i64 8, !8, i64 16, !8, i64 20, !6, i64 24}
+!43 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!44 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"float", !6, i64 0}
+!47 = !{!48, !17, i64 8}
+!48 = !{!"_ZTS5Udata", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !8, i64 4, !17, i64 8, !6, i64 16}
+!49 = !{!23, !19, i64 16}
+!50 = distinct !{!50, !13, !14}
+!51 = distinct !{!51, !13, !14}
+!52 = distinct !{!52, !13, !14}
+!53 = !{!23, !27, i64 80}
+!54 = !{!23, !26, i64 32}
+!55 = !{!23, !26, i64 56}
+!56 = !{!57, !19, i64 8}
+!57 = !{!"_ZTS8CallInfo", !19, i64 0, !19, i64 8, !19, i64 16, !58, i64 24, !8, i64 32, !8, i64 36}
+!58 = !{!"p1 int", !18, i64 0}
+!59 = !{!57, !19, i64 0}
+!60 = !{!57, !19, i64 16}
+!61 = !{!57, !58, i64 24}
+!62 = !{!57, !8, i64 36}
+!63 = !{!57, !8, i64 32}
+!64 = distinct !{!64, !13, !14}

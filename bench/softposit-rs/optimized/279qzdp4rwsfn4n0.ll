@@ -84,7 +84,7 @@ define hidden { i8, i8 } @_ZN9softposit4p8e04P8E017separate_bits_tmp17h714205659
   %6 = add i8 %.0916, -1
   %7 = shl nuw i8 %.017, 1
   %8 = icmp sgt i8 %7, -1
-  br i1 %8, label %.lr.ph18, label %._crit_edge
+  br i1 %8, label %.lr.ph18, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph18, %.preheader
   %.09.lcssa = phi i8 [ -1, %.preheader ], [ %6, %.lr.ph18 ]
@@ -105,7 +105,7 @@ define hidden { i8, i8 } @_ZN9softposit4p8e04P8E017separate_bits_tmp17h714205659
   %12 = add nuw nsw i8 %.11013, 1
   %13 = shl i8 %.114, 1
   %14 = icmp sgt i8 %13, -1
-  br i1 %14, label %.loopexit, label %.lr.ph
+  br i1 %14, label %.loopexit, label %.lr.ph, !llvm.loop !24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
@@ -150,7 +150,7 @@ define void @_ZN9softposit6quire83ops3fdp17h907619d422d2fb9fE(ptr noalias nounde
   %22 = add i8 %.0916.i, -1
   %23 = shl nuw i8 %.017.i, 1
   %24 = icmp sgt i8 %23, -1
-  br i1 %24, label %.lr.ph18.i, label %._crit_edge.i
+  br i1 %24, label %.lr.ph18.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph18.i, %.preheader.i
   %.09.lcssa.i = phi i8 [ -1, %.preheader.i ], [ %22, %.lr.ph18.i ]
@@ -164,7 +164,7 @@ define void @_ZN9softposit6quire83ops3fdp17h907619d422d2fb9fE(ptr noalias nounde
   %26 = add nuw nsw i8 %.11013.i, 1
   %27 = shl i8 %.114.i, 1
   %28 = icmp sgt i8 %27, -1
-  br i1 %28, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit, label %.lr.ph.i
+  br i1 %28, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit: ; preds = %.lr.ph.i, %.preheader12.i, %._crit_edge.i
   %.211.i = phi i8 [ %.09.lcssa.i, %._crit_edge.i ], [ 0, %.preheader12.i ], [ %26, %.lr.ph.i ]
@@ -187,7 +187,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.689692909401
   %33 = add i8 %.0916.i41, -1
   %34 = shl nuw i8 %.017.i40, 1
   %35 = icmp sgt i8 %34, -1
-  br i1 %35, label %.lr.ph18.i39, label %._crit_edge.i36
+  br i1 %35, label %.lr.ph18.i39, label %._crit_edge.i36, !llvm.loop !22
 
 ._crit_edge.i36:                                  ; preds = %.lr.ph18.i39, %.preheader.i35
   %.09.lcssa.i37 = phi i8 [ -1, %.preheader.i35 ], [ %33, %.lr.ph18.i39 ]
@@ -201,7 +201,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.689692909401
   %37 = add nuw nsw i8 %.11013.i32, 1
   %38 = shl i8 %.114.i31, 1
   %39 = icmp sgt i8 %38, -1
-  br i1 %39, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit42, label %.lr.ph.i30
+  br i1 %39, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit42, label %.lr.ph.i30, !llvm.loop !24
 
 _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit42: ; preds = %.lr.ph.i30, %.preheader12.i29, %._crit_edge.i36
   %.211.i33 = phi i8 [ %.09.lcssa.i37, %._crit_edge.i36 ], [ 0, %.preheader12.i29 ], [ %37, %.lr.ph.i30 ]
@@ -270,7 +270,7 @@ define void @_ZN9softposit6quire83ops7fdp_one17h25167088ca3576bcE(ptr noalias no
   %18 = add i8 %.0916.i, -1
   %19 = shl nuw i8 %.017.i, 1
   %20 = icmp sgt i8 %19, -1
-  br i1 %20, label %.lr.ph18.i, label %._crit_edge.i
+  br i1 %20, label %.lr.ph18.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph18.i, %.preheader.i
   %.09.lcssa.i = phi i8 [ -1, %.preheader.i ], [ %18, %.lr.ph18.i ]
@@ -284,7 +284,7 @@ define void @_ZN9softposit6quire83ops7fdp_one17h25167088ca3576bcE(ptr noalias no
   %22 = add nuw nsw i8 %.11013.i, 1
   %23 = shl i8 %.114.i, 1
   %24 = icmp sgt i8 %23, -1
-  br i1 %24, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit, label %.lr.ph.i
+  br i1 %24, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit: ; preds = %.lr.ph.i, %.preheader12.i, %._crit_edge.i
   %.211.i = phi i8 [ %.09.lcssa.i, %._crit_edge.i ], [ 0, %.preheader12.i ], [ %22, %.lr.ph.i ]
@@ -363,7 +363,7 @@ define noundef i32 @_ZN9softposit4pxe17convert22convert_px1bits_to_u3217h0aa1cb8
   %27 = shl i32 %.0.in36, 1
   %28 = and i32 %.0.in36, 268435456
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %._crit_edge, label %.lr.ph
+  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 30:                                               ; preds = %41, %36, %._crit_edge
   %.032 = phi i64 [ %24, %._crit_edge ], [ %24, %36 ], [ %43, %41 ]
@@ -437,7 +437,7 @@ define noundef i64 @_ZN9softposit4pxe17convert22convert_px1bits_to_u6417h5f59905
   %25 = shl i32 %.0.in35, 1
   %26 = and i32 %.0.in35, 268435456
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %._crit_edge, label %.lr.ph
+  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 28:                                               ; preds = %38, %33, %._crit_edge
   %.031 = phi i64 [ %22, %._crit_edge ], [ %22, %33 ], [ %40, %38 ]
@@ -505,3 +505,8 @@ attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !19 = distinct !{!19, !17, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17ha4771de67d835390E.llvm.6896929094011925488: argument 0"}
 !20 = !{!14, !16}
 !21 = !{!11, !19}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23}

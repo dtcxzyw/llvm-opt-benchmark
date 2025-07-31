@@ -352,7 +352,7 @@ for.body.prol:                                    ; preds = %for.body.preheader2
   %incdec.ptr49.prol = getelementptr inbounds nuw i8, ptr %d.1192.prol, i64 1
   %prol.iter.next = add nuw nsw i32 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i32 %prol.iter.next, %xtraiter
-  br i1 %prol.iter.cmp.not, label %for.body.prol.loopexit.loopexit, label %for.body.prol, !llvm.loop !26
+  br i1 %prol.iter.cmp.not, label %for.body.prol.loopexit.loopexit, label %for.body.prol, !llvm.loop !27
 
 for.body.prol.loopexit.loopexit:                  ; preds = %for.body.prol
   %25 = add i32 %i.0191.ph, %xtraiter
@@ -407,7 +407,7 @@ for.body:                                         ; preds = %for.body.prol.loope
   %incdec.ptr49.7 = getelementptr inbounds nuw i8, ptr %d.1192, i64 8
   %inc50.7 = add nuw nsw i32 %i.0191, 8
   %exitcond.not.7 = icmp eq i32 %inc50.7, %conv11
-  br i1 %exitcond.not.7, label %lor.lhs.false52.loopexit, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not.7, label %lor.lhs.false52.loopexit, label %for.body, !llvm.loop !29
 
 lor.lhs.false52.loopexit:                         ; preds = %for.body
   %incdec.ptr48.6.le = getelementptr inbounds nuw i8, ptr %p.1193, i64 7
@@ -459,7 +459,7 @@ if.end94:                                         ; preds = %for.body84.preheade
   %cmp = icmp ult ptr %p.5, %add.ptr
   %cmp6 = icmp ult ptr %d.6, %add.ptr5
   %42 = select i1 %cmp, i1 %cmp6, i1 false
-  br i1 %42, label %while.body, label %exit.loopexit, !llvm.loop !29
+  br i1 %42, label %while.body, label %exit.loopexit, !llvm.loop !30
 
 exit.loopexit:                                    ; preds = %if.end94, %if.end72, %if.else, %lor.lhs.false52, %lor.lhs.false42, %sw.default, %sw.bb18, %if.end, %if.then
   %.pre = load ptr, ptr %bmpData, align 8, !tbaa !21
@@ -631,7 +631,7 @@ if.end57:                                         ; preds = %if.then55, %for.bod
   %spec.select231 = getelementptr inbounds nuw i8, ptr %d.1303, i64 %spec.select231.idx
   %inc71 = add nuw nsw i32 %i.0300, 1
   %exitcond312.not = icmp eq i32 %inc71, %conv11
-  br i1 %exitcond312.not, label %lor.lhs.false73, label %for.body, !llvm.loop !30
+  br i1 %exitcond312.not, label %lor.lhs.false73, label %for.body, !llvm.loop !31
 
 lor.lhs.false73:                                  ; preds = %if.end57
   %cmp80.peel.not = icmp eq i32 %rem35, 0
@@ -684,7 +684,7 @@ for.body113:                                      ; preds = %if.end94, %for.body
   %spec.select233 = getelementptr inbounds nuw i8, ptr %d.4298, i64 %spec.select233.idx
   %inc136 = add nuw nsw i32 %i109.0297, 1
   %exitcond.not = icmp eq i32 %inc136, %conv7
-  br i1 %exitcond.not, label %if.end144, label %for.body113, !llvm.loop !31
+  br i1 %exitcond.not, label %if.end144, label %for.body113, !llvm.loop !32
 
 if.end144:                                        ; preds = %for.body113, %lor.lhs.false73, %if.end21, %sw.bb
   %shift.8 = phi i32 [ %cond, %if.end21 ], [ 4, %sw.bb ], [ %spec.select, %lor.lhs.false73 ], [ %spec.select232, %for.body113 ]
@@ -694,7 +694,7 @@ if.end144:                                        ; preds = %for.body113, %lor.l
   %cmp = icmp ult ptr %p.4, %add.ptr
   %cmp6 = icmp ult ptr %d.8, %add.ptr5
   %26 = select i1 %cmp, i1 %cmp6, i1 false
-  br i1 %26, label %while.body, label %exit.loopexit, !llvm.loop !32
+  br i1 %26, label %while.body, label %exit.loopexit, !llvm.loop !33
 
 exit.loopexit:                                    ; preds = %if.end144, %if.end94, %if.else, %if.end42, %sw.default, %sw.bb17, %if.end, %if.then
   %.pre = load ptr, ptr %bmpData, align 8, !tbaa !21
@@ -724,13 +724,13 @@ entry:
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
   %0 = load ptr, ptr %vtable, align 8
   %call = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %header, i64 noundef 54) #14
-  %1 = load i16, ptr %header, align 2, !tbaa !33
+  %1 = load i16, ptr %header, align 2, !tbaa !34
   %cmp.not = icmp eq i16 %1, 19778
   br i1 %cmp.not, label %if.end, label %cleanup164
 
 if.end:                                           ; preds = %entry
   %Compression = getelementptr inbounds nuw i8, ptr %header, i64 30
-  %2 = load i32, ptr %Compression, align 2, !tbaa !35
+  %2 = load i32, ptr %Compression, align 2, !tbaa !36
   %cmp2 = icmp ugt i32 %2, 2
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -740,15 +740,15 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %BPP = getelementptr inbounds nuw i8, ptr %header, i64 28
-  %3 = load i16, ptr %BPP, align 2, !tbaa !36
+  %3 = load i16, ptr %BPP, align 2, !tbaa !37
   %cmp6 = icmp ugt i16 %3, 32
   br i1 %cmp6, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
   %Width = getelementptr inbounds nuw i8, ptr %header, i64 18
-  %4 = load i32, ptr %Width, align 2, !tbaa !37
+  %4 = load i32, ptr %Width, align 2, !tbaa !38
   %Height = getelementptr inbounds nuw i8, ptr %header, i64 22
-  %5 = load i32, ptr %Height, align 2, !tbaa !38
+  %5 = load i32, ptr %Height, align 2, !tbaa !39
   %cmp.i = icmp ult i32 %4, 23001
   %cmp1.i = icmp ult i32 %5, 23001
   %6 = and i1 %cmp.i, %cmp1.i
@@ -760,17 +760,17 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
 
 if.end9:                                          ; preds = %lor.lhs.false
   %BitmapDataSize = getelementptr inbounds nuw i8, ptr %header, i64 34
-  %7 = load i32, ptr %BitmapDataSize, align 2, !tbaa !39
+  %7 = load i32, ptr %BitmapDataSize, align 2, !tbaa !40
   %sub = sub i32 0, %7
   %rem10 = and i32 %sub, 3
   %add = add i32 %rem10, %7
-  store i32 %add, ptr %BitmapDataSize, align 2, !tbaa !39
+  store i32 %add, ptr %BitmapDataSize, align 2, !tbaa !40
   %vtable12 = load ptr, ptr %file, align 8, !tbaa !3
   %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 24
   %8 = load ptr, ptr %vfn13, align 8
   %call14 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %file) #14
   %BitmapDataOffset = getelementptr inbounds nuw i8, ptr %header, i64 10
-  %9 = load i32, ptr %BitmapDataOffset, align 2, !tbaa !40
+  %9 = load i32, ptr %BitmapDataOffset, align 2, !tbaa !41
   %conv15 = zext i32 %9 to i64
   %sub16 = sub nsw i64 %conv15, %call14
   %div = sdiv i64 %sub16, 4
@@ -791,12 +791,12 @@ if.then19:                                        ; preds = %if.end9
 
 if.end25:                                         ; preds = %if.then19, %if.end9
   %paletteData.0 = phi ptr [ %call20, %if.then19 ], [ null, %if.end9 ]
-  %13 = load i32, ptr %BitmapDataSize, align 2, !tbaa !39
+  %13 = load i32, ptr %BitmapDataSize, align 2, !tbaa !40
   %tobool27.not = icmp eq i32 %13, 0
   br i1 %tobool27.not, label %if.then28, label %if.end25.if.end36_crit_edge
 
 if.end25.if.end36_crit_edge:                      ; preds = %if.end25
-  %.pre = load i32, ptr %BitmapDataOffset, align 2, !tbaa !40
+  %.pre = load i32, ptr %BitmapDataOffset, align 2, !tbaa !41
   br label %if.end36
 
 if.then28:                                        ; preds = %if.end25
@@ -805,9 +805,9 @@ if.then28:                                        ; preds = %if.end25
   %14 = load ptr, ptr %vfn30, align 8
   %call31 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %file) #14
   %conv32 = trunc i64 %call31 to i32
-  %15 = load i32, ptr %BitmapDataOffset, align 2, !tbaa !40
+  %15 = load i32, ptr %BitmapDataOffset, align 2, !tbaa !41
   %sub34 = sub i32 %conv32, %15
-  store i32 %sub34, ptr %BitmapDataSize, align 2, !tbaa !39
+  store i32 %sub34, ptr %BitmapDataSize, align 2, !tbaa !40
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then28, %if.end25.if.end36_crit_edge
@@ -817,9 +817,9 @@ if.end36:                                         ; preds = %if.then28, %if.end2
   %vfn40 = getelementptr inbounds nuw i8, ptr %vtable39, i64 8
   %17 = load ptr, ptr %vfn40, align 8
   %call41 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef %conv38, i1 noundef zeroext false) #14
-  %18 = load i32, ptr %Width, align 2, !tbaa !37
+  %18 = load i32, ptr %Width, align 2, !tbaa !38
   %conv43 = uitofp i32 %18 to float
-  %19 = load i16, ptr %BPP, align 2, !tbaa !36
+  %19 = load i16, ptr %BPP, align 2, !tbaa !37
   %conv46 = uitofp i16 %19 to float
   %div47 = fmul float %conv46, 1.250000e-01
   %mul48 = fmul float %div47, %conv43
@@ -832,46 +832,46 @@ if.end36:                                         ; preds = %if.then28, %if.end2
   %rem57 = and i32 %sub56, 3
   %add58 = add nsw i32 %rem57, %widthInBytes.0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bmpData) #14
-  %20 = load i32, ptr %BitmapDataSize, align 2, !tbaa !39
+  %20 = load i32, ptr %BitmapDataSize, align 2, !tbaa !40
   %conv61 = zext i32 %20 to i64
   %call62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv61) #16
   store ptr %call62, ptr %bmpData, align 8, !tbaa !21
   %vtable65 = load ptr, ptr %file, align 8, !tbaa !3
   %21 = load ptr, ptr %vtable65, align 8
   %call67 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %call62, i64 noundef %conv61) #14
-  %22 = load i32, ptr %Compression, align 2, !tbaa !35
-  %.pre212 = load i32, ptr %BitmapDataSize, align 2, !tbaa !39
+  %22 = load i32, ptr %Compression, align 2, !tbaa !36
+  %.pre212 = load i32, ptr %BitmapDataSize, align 2, !tbaa !40
   switch i32 %22, label %if.end36.sw.epilog_crit_edge [
     i32 1, label %sw.bb
     i32 2, label %sw.bb77
   ]
 
 if.end36.sw.epilog_crit_edge:                     ; preds = %if.end36
-  %.pre213 = load i32, ptr %Height, align 2, !tbaa !38
+  %.pre213 = load i32, ptr %Height, align 2, !tbaa !39
   br label %sw.epilog
 
 sw.bb:                                            ; preds = %if.end36
-  %23 = load i32, ptr %Width, align 2, !tbaa !37
-  %24 = load i32, ptr %Height, align 2, !tbaa !38
+  %23 = load i32, ptr %Width, align 2, !tbaa !38
+  %24 = load i32, ptr %Height, align 2, !tbaa !39
   call void @_ZNK3irr5video15CImageLoaderBMP17decompress8BitRLEERPhiiii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %bmpData, i32 noundef %.pre212, i32 noundef %23, i32 noundef %24, i32 noundef %rem57)
-  %25 = load i32, ptr %Width, align 2, !tbaa !37
+  %25 = load i32, ptr %Width, align 2, !tbaa !38
   %add73 = add i32 %25, %rem57
-  %26 = load i32, ptr %Height, align 2, !tbaa !38
+  %26 = load i32, ptr %Height, align 2, !tbaa !39
   %mul75 = mul i32 %add73, %26
-  store i32 %mul75, ptr %BitmapDataSize, align 2, !tbaa !39
+  store i32 %mul75, ptr %BitmapDataSize, align 2, !tbaa !40
   br label %sw.epilog
 
 sw.bb77:                                          ; preds = %if.end36
-  %27 = load i32, ptr %Width, align 2, !tbaa !37
-  %28 = load i32, ptr %Height, align 2, !tbaa !38
+  %27 = load i32, ptr %Width, align 2, !tbaa !38
+  %28 = load i32, ptr %Height, align 2, !tbaa !39
   call void @_ZNK3irr5video15CImageLoaderBMP17decompress4BitRLEERPhiiii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %bmpData, i32 noundef %.pre212, i32 noundef %27, i32 noundef %28, i32 noundef %rem57)
-  %29 = load i32, ptr %Width, align 2, !tbaa !37
+  %29 = load i32, ptr %Width, align 2, !tbaa !38
   %add82 = add i32 %29, 1
   %div83205 = lshr i32 %add82, 1
   %add84 = add nuw i32 %div83205, %rem57
-  %30 = load i32, ptr %Height, align 2, !tbaa !38
+  %30 = load i32, ptr %Height, align 2, !tbaa !39
   %mul86 = mul i32 %add84, %30
-  store i32 %mul86, ptr %BitmapDataSize, align 2, !tbaa !39
+  store i32 %mul86, ptr %BitmapDataSize, align 2, !tbaa !40
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb77, %sw.bb, %if.end36.sw.epilog_crit_edge
@@ -902,10 +902,10 @@ delete.notnull94:                                 ; preds = %delete.end
 if.end96:                                         ; preds = %sw.epilog
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dim) #14
   %Height.i = getelementptr inbounds nuw i8, ptr %dim, i64 4
-  %34 = load i32, ptr %Width, align 2, !tbaa !37
-  store i32 %34, ptr %dim, align 4, !tbaa !41
-  store i32 %31, ptr %Height.i, align 4, !tbaa !43
-  %35 = load i16, ptr %BPP, align 2, !tbaa !36
+  %34 = load i32, ptr %Width, align 2, !tbaa !38
+  store i32 %34, ptr %dim, align 4, !tbaa !42
+  store i32 %31, ptr %Height.i, align 4, !tbaa !44
+  %35 = load i16, ptr %BPP, align 2, !tbaa !37
   switch i16 %35, label %sw.epilog151 [
     i16 1, label %sw.bb103
     i16 4, label %sw.bb111
@@ -920,9 +920,9 @@ sw.bb103:                                         ; preds = %if.end96
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call104, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
   %36 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i = getelementptr inbounds nuw i8, ptr %call104, i64 24
-  %37 = load ptr, ptr %Data.i, align 8, !tbaa !44
-  %38 = load i32, ptr %Width, align 2, !tbaa !37
-  %39 = load i32, ptr %Height, align 2, !tbaa !38
+  %37 = load ptr, ptr %Data.i, align 8, !tbaa !45
+  %38 = load i32, ptr %Width, align 2, !tbaa !38
+  %39 = load i32, ptr %Height, align 2, !tbaa !39
   call void @_ZN3irr5video15CColorConverter18convert1BitTo16BitEPKhPsiiib(ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %rem57, i1 noundef zeroext true) #14
   br label %sw.epilog151
 
@@ -931,9 +931,9 @@ sw.bb111:                                         ; preds = %if.end96
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call112, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
   %40 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i206 = getelementptr inbounds nuw i8, ptr %call112, i64 24
-  %41 = load ptr, ptr %Data.i206, align 8, !tbaa !44
-  %42 = load i32, ptr %Width, align 2, !tbaa !37
-  %43 = load i32, ptr %Height, align 2, !tbaa !38
+  %41 = load ptr, ptr %Data.i206, align 8, !tbaa !45
+  %42 = load i32, ptr %Width, align 2, !tbaa !38
+  %43 = load i32, ptr %Height, align 2, !tbaa !39
   call void @_ZN3irr5video15CColorConverter18convert4BitTo16BitEPKhPsiiPKiib(ptr noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef %43, ptr noundef %paletteData.0, i32 noundef %rem57, i1 noundef zeroext true) #14
   br label %sw.epilog151
 
@@ -942,9 +942,9 @@ sw.bb119:                                         ; preds = %if.end96
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call120, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
   %44 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i207 = getelementptr inbounds nuw i8, ptr %call120, i64 24
-  %45 = load ptr, ptr %Data.i207, align 8, !tbaa !44
-  %46 = load i32, ptr %Width, align 2, !tbaa !37
-  %47 = load i32, ptr %Height, align 2, !tbaa !38
+  %45 = load ptr, ptr %Data.i207, align 8, !tbaa !45
+  %46 = load i32, ptr %Width, align 2, !tbaa !38
+  %47 = load i32, ptr %Height, align 2, !tbaa !39
   call void @_ZN3irr5video15CColorConverter18convert8BitTo16BitEPKhPsiiPKiib(ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47, ptr noundef %paletteData.0, i32 noundef %rem57, i1 noundef zeroext true) #14
   br label %sw.epilog151
 
@@ -953,9 +953,9 @@ sw.bb127:                                         ; preds = %if.end96
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call128, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
   %48 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i208 = getelementptr inbounds nuw i8, ptr %call128, i64 24
-  %49 = load ptr, ptr %Data.i208, align 8, !tbaa !44
-  %50 = load i32, ptr %Width, align 2, !tbaa !37
-  %51 = load i32, ptr %Height, align 2, !tbaa !38
+  %49 = load ptr, ptr %Data.i208, align 8, !tbaa !45
+  %50 = load i32, ptr %Width, align 2, !tbaa !38
+  %51 = load i32, ptr %Height, align 2, !tbaa !39
   call void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %rem57, i1 noundef zeroext true) #14
   br label %sw.epilog151
 
@@ -964,9 +964,9 @@ sw.bb135:                                         ; preds = %if.end96
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call136, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
   %52 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i209 = getelementptr inbounds nuw i8, ptr %call136, i64 24
-  %53 = load ptr, ptr %Data.i209, align 8, !tbaa !44
-  %54 = load i32, ptr %Width, align 2, !tbaa !37
-  %55 = load i32, ptr %Height, align 2, !tbaa !38
+  %53 = load ptr, ptr %Data.i209, align 8, !tbaa !45
+  %54 = load i32, ptr %Width, align 2, !tbaa !38
+  %55 = load i32, ptr %Height, align 2, !tbaa !39
   call void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef %rem57, i1 noundef zeroext true, i1 noundef zeroext true) #14
   br label %sw.epilog151
 
@@ -975,9 +975,9 @@ sw.bb143:                                         ; preds = %if.end96
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call144, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
   %56 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i210 = getelementptr inbounds nuw i8, ptr %call144, i64 24
-  %57 = load ptr, ptr %Data.i210, align 8, !tbaa !44
-  %58 = load i32, ptr %Width, align 2, !tbaa !37
-  %59 = load i32, ptr %Height, align 2, !tbaa !38
+  %57 = load ptr, ptr %Data.i210, align 8, !tbaa !45
+  %58 = load i32, ptr %Width, align 2, !tbaa !38
+  %59 = load i32, ptr %Height, align 2, !tbaa !39
   call void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef %rem57, i1 noundef zeroext true) #14
   br label %sw.epilog151
 
@@ -1169,7 +1169,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1, !tbaa !17
   %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !48
+  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !49
 
 land.rhs21.loopexit.i:                            ; preds = %for.inc.i
   %8 = zext i32 %inc.i to i64
@@ -1216,7 +1216,7 @@ for.inc.i42:                                      ; preds = %for.body.i32
   %arrayidx.i46 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i45
   %14 = load i8, ptr %arrayidx.i46, align 1, !tbaa !17
   %tobool.not.i47 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !48
+  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !50
 
 land.rhs21.loopexit.i48:                          ; preds = %for.inc.i42
   %15 = zext i32 %inc.i43 to i64
@@ -1263,7 +1263,7 @@ for.inc.i79:                                      ; preds = %for.body.i69
   %arrayidx.i83 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i82
   %21 = load i8, ptr %arrayidx.i83, align 1, !tbaa !17
   %tobool.not.i84 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !48
+  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !51
 
 land.rhs21.loopexit.i85:                          ; preds = %for.inc.i79
   %22 = zext i32 %inc.i80 to i64
@@ -1340,30 +1340,33 @@ attributes #17 = { noreturn nounwind }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"short", !9, i64 0}
 !21 = !{!8, !8, i64 0}
-!22 = distinct !{!22, !23, !24, !25}
+!22 = distinct !{!22, !23, !24, !25, !26}
 !23 = !{!"llvm.loop.mustprogress"}
 !24 = !{!"llvm.loop.isvectorized", i32 1}
 !25 = !{!"llvm.loop.unroll.runtime.disable"}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.unroll.disable"}
-!28 = distinct !{!28, !23, !24}
-!29 = distinct !{!29, !23}
-!30 = distinct !{!30, !23}
-!31 = distinct !{!31, !23}
-!32 = distinct !{!32, !23}
-!33 = !{!34, !20, i64 0}
-!34 = !{!"_ZTSN3irr5video10SBMPHeaderE", !20, i64 0, !10, i64 2, !10, i64 6, !10, i64 10, !10, i64 14, !10, i64 18, !10, i64 22, !20, i64 26, !20, i64 28, !10, i64 30, !10, i64 34, !10, i64 38, !10, i64 42, !10, i64 46, !10, i64 50}
-!35 = !{!34, !10, i64 30}
-!36 = !{!34, !20, i64 28}
-!37 = !{!34, !10, i64 18}
-!38 = !{!34, !10, i64 22}
-!39 = !{!34, !10, i64 34}
-!40 = !{!34, !10, i64 10}
-!41 = !{!42, !10, i64 0}
-!42 = !{!"_ZTSN3irr4core11dimension2dIjEE", !10, i64 0, !10, i64 4}
-!43 = !{!42, !10, i64 4}
-!44 = !{!45, !8, i64 24}
-!45 = !{!"_ZTSN3irr5video6IImageE", !46, i64 8, !42, i64 12, !8, i64 24, !8, i64 32, !10, i64 40, !10, i64 44, !47, i64 48, !47, i64 49}
-!46 = !{!"_ZTSN3irr5video13ECOLOR_FORMATE", !9, i64 0}
-!47 = !{!"bool", !9, i64 0}
-!48 = distinct !{!48, !23}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !28, !26}
+!28 = !{!"llvm.loop.unroll.disable"}
+!29 = distinct !{!29, !23, !24, !26}
+!30 = distinct !{!30, !23, !26}
+!31 = distinct !{!31, !23, !26}
+!32 = distinct !{!32, !23, !26}
+!33 = distinct !{!33, !23, !26}
+!34 = !{!35, !20, i64 0}
+!35 = !{!"_ZTSN3irr5video10SBMPHeaderE", !20, i64 0, !10, i64 2, !10, i64 6, !10, i64 10, !10, i64 14, !10, i64 18, !10, i64 22, !20, i64 26, !20, i64 28, !10, i64 30, !10, i64 34, !10, i64 38, !10, i64 42, !10, i64 46, !10, i64 50}
+!36 = !{!35, !10, i64 30}
+!37 = !{!35, !20, i64 28}
+!38 = !{!35, !10, i64 18}
+!39 = !{!35, !10, i64 22}
+!40 = !{!35, !10, i64 34}
+!41 = !{!35, !10, i64 10}
+!42 = !{!43, !10, i64 0}
+!43 = !{!"_ZTSN3irr4core11dimension2dIjEE", !10, i64 0, !10, i64 4}
+!44 = !{!43, !10, i64 4}
+!45 = !{!46, !8, i64 24}
+!46 = !{!"_ZTSN3irr5video6IImageE", !47, i64 8, !43, i64 12, !8, i64 24, !8, i64 32, !10, i64 40, !10, i64 44, !48, i64 48, !48, i64 49}
+!47 = !{!"_ZTSN3irr5video13ECOLOR_FORMATE", !9, i64 0}
+!48 = !{!"bool", !9, i64 0}
+!49 = distinct !{!49, !23, !26}
+!50 = distinct !{!50, !23, !26}
+!51 = distinct !{!51, !23, !26}

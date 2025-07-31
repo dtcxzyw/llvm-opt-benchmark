@@ -141,7 +141,7 @@ define dso_local ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr n
 16:                                               ; preds = %12, %15
   %.pre = phi ptr [ %.pre46, %12 ], [ %.pre.pre, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %12, !llvm.loop !11
+  br label %12, !llvm.loop !12
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 776), align 8
@@ -297,7 +297,7 @@ plugin_get_syms.exit.thread:                      ; preds = %54, %plugin_get_sym
   %82 = phi ptr [ %78, %77 ], [ %24, %29 ]
   %.124 = phi ptr [ %80, %77 ], [ %.023, %29 ]
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  br label %23, !llvm.loop !12
+  br label %23, !llvm.loop !13
 
 .loopexit:                                        ; preds = %76, %73
   %.1.ph = phi i32 [ 0, %73 ], [ %.2, %76 ]
@@ -827,7 +827,7 @@ define dso_local ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_a
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #13
   %23 = call i32 @xstrncmp(ptr noundef nonnull %20, ptr noundef nonnull %21, i64 noundef %22) #10
   %.not25 = icmp eq i32 %23, 0
-  br i1 %.not25, label %24, label %42, !llvm.loop !13
+  br i1 %.not25, label %24, label %42, !llvm.loop !14
 
 24:                                               ; preds = %.lr.ph
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #13
@@ -837,7 +837,7 @@ define dso_local ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_a
   %28 = getelementptr inbounds i8, ptr %20, i64 %27
   %29 = call i32 @xstrcmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.27) #10
   %.not26 = icmp eq i32 %29, 0
-  br i1 %.not26, label %30, label %42, !llvm.loop !13
+  br i1 %.not26, label %30, label %42, !llvm.loop !14
 
 30:                                               ; preds = %24
   %sext27 = add i64 %26, -8589934592
@@ -878,7 +878,7 @@ define dso_local ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_a
   %44 = call i32 @closedir(ptr noundef nonnull %15)
   %45 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #10
   %.not22 = icmp eq ptr %45, null
-  br i1 %.not22, label %.loopexit, label %.lr.ph43, !llvm.loop !14
+  br i1 %.not22, label %.loopexit, label %.lr.ph43, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %11, %17, %9
   %.019 = phi ptr [ %.141, %17 ], [ null, %9 ], [ null, %11 ], [ %.2.lcssa, %._crit_edge ]
@@ -951,10 +951,11 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !9, !10, !11}

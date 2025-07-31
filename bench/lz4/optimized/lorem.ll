@@ -296,7 +296,7 @@ init_word_len.exit:                               ; preds = %.preheader, %init_w
   %18 = add i64 %.061.i.i, %17
   %19 = add nuw nsw i64 %.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %19, 255
-  br i1 %exitcond.not.i.i, label %sumLen.exit.i, label %init_word_len.exit, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %sumLen.exit.i, label %init_word_len.exit, !llvm.loop !14
 
 sumLen.exit.i:                                    ; preds = %init_word_len.exit
   %20 = add i64 %18, 16
@@ -323,7 +323,7 @@ sumLen.exit.i:                                    ; preds = %init_word_len.exit
   %30 = getelementptr inbounds nuw i8, ptr %.012.i, i64 %28
   %31 = add nuw nsw i64 %.0911.i, 1
   %exitcond.not.i7 = icmp eq i64 %31, 255
-  br i1 %exitcond.not.i7, label %init_word_buffer.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond.not.i7, label %init_word_buffer.exit, label %.preheader.i, !llvm.loop !15
 
 init_word_buffer.exit:                            ; preds = %.preheader.i, %init_word_buffer.exit
   %.02.i.i8 = phi i32 [ %36, %init_word_buffer.exit ], [ 0, %.preheader.i ]
@@ -337,7 +337,7 @@ init_word_buffer.exit:                            ; preds = %.preheader.i, %init
   %36 = add i32 %35, %.02.i.i8
   %37 = add nuw nsw i64 %.0131.i.i, 1
   %exitcond.not.i.i9 = icmp eq i64 %37, 255
-  br i1 %exitcond.not.i.i9, label %countFreqs.exit.i, label %init_word_buffer.exit, !llvm.loop !15
+  br i1 %exitcond.not.i.i9, label %countFreqs.exit.i, label %init_word_buffer.exit, !llvm.loop !16
 
 countFreqs.exit.i:                                ; preds = %init_word_buffer.exit
   store i32 %36, ptr @g_distribCount, align 4, !tbaa !9
@@ -368,13 +368,13 @@ countFreqs.exit.i:                                ; preds = %init_word_buffer.ex
   store i32 %44, ptr %49, align 4, !tbaa !9
   %lftr.wideiv = trunc i64 %48 to i32
   %exitcond = icmp eq i32 %46, %lftr.wideiv
-  br i1 %exitcond, label %._crit_edge.i, label %47, !llvm.loop !16
+  br i1 %exitcond, label %._crit_edge.i, label %47, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %47, %38
   %.1.lcssa.i = phi i64 [ %.0203.i, %38 ], [ %48, %47 ]
   %50 = add nuw nsw i64 %.04.i, 1
   %exitcond6.not.i = icmp eq i64 %50, 255
-  br i1 %exitcond6.not.i, label %init_word_distrib.exit, label %38, !llvm.loop !17
+  br i1 %exitcond6.not.i, label %init_word_distrib.exit, label %38, !llvm.loop !18
 
 init_word_distrib.exit:                           ; preds = %._crit_edge.i, %5
   %51 = phi i32 [ %6, %5 ], [ %36, %._crit_edge.i ]
@@ -421,7 +421,7 @@ init_word_distrib.exit:                           ; preds = %._crit_edge.i, %5
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 %57
-  store i8 46, ptr %78, align 1, !tbaa !18
+  store i8 46, ptr %78, align 1, !tbaa !19
   %79 = icmp ugt i64 %75, 2
   br i1 %79, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i, label %80
 
@@ -435,9 +435,9 @@ init_word_distrib.exit:                           ; preds = %._crit_edge.i, %5
   br i1 %.not.i, label %84, label %87
 
 84:                                               ; preds = %82
-  %85 = load i8, ptr %83, align 1, !tbaa !18
+  %85 = load i8, ptr %83, align 1, !tbaa !19
   %86 = add i8 %85, -32
-  store i8 %86, ptr %83, align 1, !tbaa !18
+  store i8 %86, ptr %83, align 1, !tbaa !19
   br label %87
 
 87:                                               ; preds = %84, %82
@@ -447,7 +447,7 @@ init_word_distrib.exit:                           ; preds = %._crit_edge.i, %5
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 %71
-  store i8 46, ptr %91, align 1, !tbaa !18
+  store i8 46, ptr %91, align 1, !tbaa !19
   %92 = icmp ugt i64 %88, 2
   br i1 %92, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i, label %93
 
@@ -464,7 +464,7 @@ writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i: ; preds = %90, 
   br label %writeLastCharacters.exit.sink.split.sink.split.i.i.i
 
 writeLastCharacters.exit.sink.split.sink.split.i.i.i: ; preds = %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i, %93, %80
-  store i8 10, ptr %54, align 1, !tbaa !18
+  store i8 10, ptr %54, align 1, !tbaa !19
   br label %generateWord.exit.i
 
 97:                                               ; preds = %55
@@ -473,9 +473,9 @@ writeLastCharacters.exit.sink.split.sink.split.i.i.i: ; preds = %writeLastCharac
   br i1 %.not.i, label %99, label %102
 
 99:                                               ; preds = %97
-  %100 = load i8, ptr %98, align 1, !tbaa !18
+  %100 = load i8, ptr %98, align 1, !tbaa !19
   %101 = add i8 %100, -32
-  store i8 %101, ptr %98, align 1, !tbaa !18
+  store i8 %101, ptr %98, align 1, !tbaa !19
   br label %102
 
 102:                                              ; preds = %99, %97
@@ -492,7 +492,7 @@ generateWord.exit.i:                              ; preds = %80, %93, %writeLast
   %108 = phi i64 [ %1, %74 ], [ %1, %87 ], [ %106, %102 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i ], [ %1, %93 ], [ %1, %80 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond.not.i11, label %109, label %55, !llvm.loop !19
+  br i1 %exitcond.not.i11, label %109, label %55, !llvm.loop !20
 
 109:                                              ; preds = %generateWord.exit.i
   %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_words, i64 144), align 16, !tbaa !4
@@ -517,7 +517,7 @@ generateWord.exit.i:                              ; preds = %80, %93, %writeLast
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 %107
-  store i8 46, ptr %125, align 1, !tbaa !18
+  store i8 46, ptr %125, align 1, !tbaa !19
   %126 = icmp ugt i64 %122, 2
   br i1 %126, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i, label %127
 
@@ -534,7 +534,7 @@ generateWord.exit.i:                              ; preds = %80, %93, %writeLast
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 %118
-  store i8 46, ptr %134, align 1, !tbaa !18
+  store i8 46, ptr %134, align 1, !tbaa !19
   %135 = icmp ugt i64 %131, 2
   br i1 %135, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i, label %136
 
@@ -552,7 +552,7 @@ writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i: ; preds = %13
   br label %writeLastCharacters.exit.sink.split.sink.split.i.i14.i
 
 writeLastCharacters.exit.sink.split.sink.split.i.i14.i: ; preds = %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i, %136, %127
-  store i8 10, ptr %54, align 1, !tbaa !18
+  store i8 10, ptr %54, align 1, !tbaa !19
   br label %generateFirstSentence.exit
 
 142:                                              ; preds = %109
@@ -712,7 +712,7 @@ generateFirstSentence.exit:                       ; preds = %127, %136, %writeLa
 
 267:                                              ; preds = %264
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 %236
-  store i8 46, ptr %268, align 1, !tbaa !18
+  store i8 46, ptr %268, align 1, !tbaa !19
   %269 = icmp ugt i64 %265, 2
   br i1 %269, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i, label %270
 
@@ -726,9 +726,9 @@ generateFirstSentence.exit:                       ; preds = %127, %136, %writeLa
   br i1 %.not.i.i, label %274, label %277
 
 274:                                              ; preds = %272
-  %275 = load i8, ptr %273, align 1, !tbaa !18
+  %275 = load i8, ptr %273, align 1, !tbaa !19
   %276 = add i8 %275, -32
-  store i8 %276, ptr %273, align 1, !tbaa !18
+  store i8 %276, ptr %273, align 1, !tbaa !19
   br label %277
 
 277:                                              ; preds = %274, %272
@@ -738,7 +738,7 @@ generateFirstSentence.exit:                       ; preds = %127, %136, %writeLa
 
 280:                                              ; preds = %277
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 %261
-  store i8 46, ptr %281, align 1, !tbaa !18
+  store i8 46, ptr %281, align 1, !tbaa !19
   %282 = icmp ugt i64 %278, 2
   br i1 %282, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i, label %283
 
@@ -755,7 +755,7 @@ writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i: ; preds = %28
   br label %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i
 
 writeLastCharacters.exit.sink.split.sink.split.i.i.i.i: ; preds = %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i, %283, %270
-  store i8 10, ptr %149, align 1, !tbaa !18
+  store i8 10, ptr %149, align 1, !tbaa !19
   br label %generateWord.exit.i.i
 
 287:                                              ; preds = %230
@@ -764,9 +764,9 @@ writeLastCharacters.exit.sink.split.sink.split.i.i.i.i: ; preds = %writeLastChar
   br i1 %.not.i.i, label %289, label %292
 
 289:                                              ; preds = %287
-  %290 = load i8, ptr %288, align 1, !tbaa !18
+  %290 = load i8, ptr %288, align 1, !tbaa !19
   %291 = add i8 %290, -32
-  store i8 %291, ptr %288, align 1, !tbaa !18
+  store i8 %291, ptr %288, align 1, !tbaa !19
   br label %292
 
 292:                                              ; preds = %289, %287
@@ -785,12 +785,12 @@ generateWord.exit.i.i:                            ; preds = %270, %283, %writeLa
   %300 = phi i64 [ %234, %264 ], [ %1, %277 ], [ %296, %292 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %283 ], [ %1, %270 ]
   %301 = phi i64 [ %1, %264 ], [ %1, %277 ], [ %296, %292 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %283 ], [ %1, %270 ]
   %302 = add nuw nsw i32 %.01922.i.i, 1
-  br i1 %248, label %generateSentence.exit.i, label %230, !llvm.loop !20
+  br i1 %248, label %generateSentence.exit.i, label %230, !llvm.loop !21
 
 generateSentence.exit.i:                          ; preds = %generateWord.exit.i.i
   %303 = add nuw nsw i32 %.09.i, 1
   %exitcond.not.i14 = icmp eq i32 %303, %170
-  br i1 %exitcond.not.i14, label %._crit_edge.i15, label %171, !llvm.loop !21
+  br i1 %exitcond.not.i14, label %._crit_edge.i15, label %171, !llvm.loop !22
 
 ._crit_edge.i15:                                  ; preds = %generateSentence.exit.i
   %304 = icmp ult i64 %299, %1
@@ -799,7 +799,7 @@ generateSentence.exit.i:                          ; preds = %generateWord.exit.i
 305:                                              ; preds = %._crit_edge.i15
   %306 = add nuw i64 %299, 1
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 %299
-  store i8 10, ptr %307, align 1, !tbaa !18
+  store i8 10, ptr %307, align 1, !tbaa !19
   br label %308
 
 308:                                              ; preds = %305, %._crit_edge.i15
@@ -812,13 +812,13 @@ generateSentence.exit.i:                          ; preds = %generateWord.exit.i
 313:                                              ; preds = %308
   %314 = add nuw i64 %311, 1
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 %311
-  store i8 10, ptr %315, align 1, !tbaa !18
+  store i8 10, ptr %315, align 1, !tbaa !19
   br label %generateParagraph.exit
 
 generateParagraph.exit:                           ; preds = %308, %313
   %316 = phi i64 [ %309, %308 ], [ %314, %313 ]
   %317 = phi i64 [ %310, %308 ], [ %314, %313 ]
-  br i1 %.not6, label %318, label %150
+  br i1 %.not6, label %318, label %150, !llvm.loop !23
 
 318:                                              ; preds = %generateParagraph.exit, %150
   %319 = phi i64 [ %316, %generateParagraph.exit ], [ %151, %150 ]
@@ -879,14 +879,16 @@ attributes #9 = { noreturn nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = !{!7, !7, i64 0}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !13}

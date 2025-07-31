@@ -97,7 +97,7 @@ define internal i32 @acpt_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 10:                                               ; preds = %7
   %11 = tail call fastcc i32 @acpt_state(ptr noundef nonnull %0, ptr noundef %5)
   %12 = icmp slt i32 %11, 1
-  br i1 %12, label %.loopexit, label %7, !llvm.loop !20
+  br i1 %12, label %.loopexit, label %7, !llvm.loop !21
 
 13:                                               ; preds = %7
   %14 = tail call i32 @BIO_read(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2) #7
@@ -161,28 +161,28 @@ define internal i64 @acpt_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, p
   ]
 
 7:                                                ; preds = %4
-  store i32 1, ptr %6, align 8, !tbaa !21
+  store i32 1, ptr %6, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !24
+  %9 = load i32, ptr %8, align 8, !tbaa !25
   %.not.i = icmp eq i32 %9, -1
   br i1 %.not.i, label %acpt_close_socket.exit, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i32 @shutdown(i32 noundef %9, i32 noundef 2) #7
-  %12 = load i32, ptr %8, align 8, !tbaa !24
+  %12 = load i32, ptr %8, align 8, !tbaa !25
   %13 = tail call i32 @close(i32 noundef %12) #7
-  store i32 -1, ptr %8, align 8, !tbaa !24
+  store i32 -1, ptr %8, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 -1, ptr %14, align 8, !tbaa !25
+  store i32 -1, ptr %14, align 8, !tbaa !26
   br label %acpt_close_socket.exit
 
 acpt_close_socket.exit:                           ; preds = %7, %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
   tail call void @BIO_ADDRINFO_free(ptr noundef %16) #7
-  store ptr null, ptr %15, align 8, !tbaa !26
+  store ptr null, ptr %15, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %17, align 8, !tbaa !27
+  store i32 0, ptr %17, align 8, !tbaa !28
   br label %142
 
 18:                                               ; preds = %4
@@ -206,14 +206,14 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
   tail call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str.2, i32 noundef 431) #7
-  store ptr null, ptr %26, align 8, !tbaa !29
+  store ptr null, ptr %26, align 8, !tbaa !30
   %28 = tail call i32 @BIO_parse_hostserv(ptr noundef nonnull %3, ptr noundef nonnull %26, ptr noundef nonnull %24, i32 noundef 1) #7
   %29 = sext i32 %28 to i64
-  %30 = load ptr, ptr %24, align 8, !tbaa !28
+  %30 = load ptr, ptr %24, align 8, !tbaa !29
   %.not110 = icmp eq ptr %25, %30
   br i1 %.not110, label %32, label %31
 
@@ -223,48 +223,48 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 32:                                               ; preds = %31, %23
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %33, align 8, !tbaa !30
+  store i32 1, ptr %33, align 8, !tbaa !31
   br label %142
 
 34:                                               ; preds = %22
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
   tail call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str.2, i32 noundef 441) #7
   %37 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, i32 noundef 442) #7
-  store ptr %37, ptr %35, align 8, !tbaa !28
+  store ptr %37, ptr %35, align 8, !tbaa !29
   %38 = icmp eq ptr %37, null
   br i1 %38, label %142, label %39
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %40, align 8, !tbaa !30
+  store i32 1, ptr %40, align 8, !tbaa !31
   br label %142
 
 41:                                               ; preds = %22
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %43 = load i32, ptr %42, align 8, !tbaa !31
+  %43 = load i32, ptr %42, align 8, !tbaa !32
   %44 = or i32 %43, 8
-  store i32 %44, ptr %42, align 8, !tbaa !31
+  store i32 %44, ptr %42, align 8, !tbaa !32
   br label %142
 
 45:                                               ; preds = %22
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 312
-  %47 = load ptr, ptr %46, align 8, !tbaa !32
+  %47 = load ptr, ptr %46, align 8, !tbaa !33
   %48 = tail call i32 @BIO_free(ptr noundef %47) #7
-  store ptr %3, ptr %46, align 8, !tbaa !32
+  store ptr %3, ptr %46, align 8, !tbaa !33
   br label %142
 
 49:                                               ; preds = %22
-  %50 = load i32, ptr %3, align 4, !tbaa !33
+  %50 = load i32, ptr %3, align 4, !tbaa !34
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %50, ptr %51, align 4, !tbaa !34
+  store i32 %50, ptr %51, align 4, !tbaa !35
   br label %142
 
 52:                                               ; preds = %22
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %54 = load i32, ptr %53, align 8, !tbaa !31
+  %54 = load i32, ptr %53, align 8, !tbaa !32
   %55 = or i32 %54, 32
-  store i32 %55, ptr %53, align 8, !tbaa !31
+  store i32 %55, ptr %53, align 8, !tbaa !32
   br label %142
 
 56:                                               ; preds = %21
@@ -275,62 +275,62 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %59 = load i32, ptr %58, align 8, !tbaa !31
+  %59 = load i32, ptr %58, align 8, !tbaa !32
   %60 = and i32 %59, -9
-  store i32 %60, ptr %58, align 8, !tbaa !31
+  store i32 %60, ptr %58, align 8, !tbaa !32
   br label %142
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !31
+  %63 = load i32, ptr %62, align 8, !tbaa !32
   %64 = and i32 %63, -33
-  store i32 %64, ptr %62, align 8, !tbaa !31
+  store i32 %64, ptr %62, align 8, !tbaa !32
   br label %142
 
 65:                                               ; preds = %4
   %.not108 = icmp eq i64 %2, 0
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %67 = load i32, ptr %66, align 4, !tbaa !35
+  %67 = load i32, ptr %66, align 4, !tbaa !36
   br i1 %.not108, label %70, label %68
 
 68:                                               ; preds = %65
   %69 = or i32 %67, 8
-  store i32 %69, ptr %66, align 4, !tbaa !35
+  store i32 %69, ptr %66, align 4, !tbaa !36
   br label %142
 
 70:                                               ; preds = %65
   %71 = and i32 %67, -9
-  store i32 %71, ptr %66, align 4, !tbaa !35
+  store i32 %71, ptr %66, align 4, !tbaa !36
   br label %142
 
 72:                                               ; preds = %4
-  %73 = load i32, ptr %3, align 4, !tbaa !33
+  %73 = load i32, ptr %3, align 4, !tbaa !34
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %73, ptr %74, align 8, !tbaa !25
+  store i32 %73, ptr %74, align 8, !tbaa !26
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %73, ptr %75, align 8, !tbaa !24
-  store i32 5, ptr %6, align 8, !tbaa !21
+  store i32 %73, ptr %75, align 8, !tbaa !25
+  store i32 5, ptr %6, align 8, !tbaa !22
   %76 = trunc i64 %2 to i32
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %76, ptr %77, align 4, !tbaa !36
+  store i32 %76, ptr %77, align 4, !tbaa !37
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %78, align 8, !tbaa !30
+  store i32 1, ptr %78, align 8, !tbaa !31
   br label %142
 
 79:                                               ; preds = %4
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %81 = load i32, ptr %80, align 8, !tbaa !30
+  %81 = load i32, ptr %80, align 8, !tbaa !31
   %.not106 = icmp eq i32 %81, 0
   br i1 %.not106, label %142, label %82
 
 82:                                               ; preds = %79
   %.not107 = icmp eq ptr %3, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !24
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !25
   br i1 %.not107, label %._crit_edge, label %83
 
 83:                                               ; preds = %82
-  store i32 %.pre, ptr %3, align 4, !tbaa !33
+  store i32 %.pre, ptr %3, align 4, !tbaa !34
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %82, %83
@@ -339,7 +339,7 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 85:                                               ; preds = %4
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %87 = load i32, ptr %86, align 8, !tbaa !30
+  %87 = load i32, ptr %86, align 8, !tbaa !31
   %.not = icmp eq i32 %87, 0
   br i1 %.not, label %142, label %88
 
@@ -351,8 +351,8 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %93 = load ptr, ptr %92, align 8, !tbaa !37
-  store ptr %93, ptr %3, align 8, !tbaa !38
+  %93 = load ptr, ptr %92, align 8, !tbaa !38
+  store ptr %93, ptr %3, align 8, !tbaa !39
   br label %142
 
 94:                                               ; preds = %88
@@ -362,8 +362,8 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %98 = load ptr, ptr %97, align 8, !tbaa !39
-  store ptr %98, ptr %3, align 8, !tbaa !38
+  %98 = load ptr, ptr %97, align 8, !tbaa !40
+  store ptr %98, ptr %3, align 8, !tbaa !39
   br label %142
 
 99:                                               ; preds = %94
@@ -373,8 +373,8 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 296
-  %103 = load ptr, ptr %102, align 8, !tbaa !40
-  store ptr %103, ptr %3, align 8, !tbaa !38
+  %103 = load ptr, ptr %102, align 8, !tbaa !41
+  store ptr %103, ptr %3, align 8, !tbaa !39
   br label %142
 
 104:                                              ; preds = %99
@@ -384,8 +384,8 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 304
-  %108 = load ptr, ptr %107, align 8, !tbaa !41
-  store ptr %108, ptr %3, align 8, !tbaa !38
+  %108 = load ptr, ptr %107, align 8, !tbaa !42
+  store ptr %108, ptr %3, align 8, !tbaa !39
   br label %142
 
 109:                                              ; preds = %104
@@ -394,7 +394,7 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %113 = load ptr, ptr %112, align 8, !tbaa !42
+  %113 = load ptr, ptr %112, align 8, !tbaa !43
   %114 = tail call i32 @BIO_ADDRINFO_family(ptr noundef %113) #7
   switch i32 %114, label %120 [
     i32 10, label %142
@@ -407,7 +407,7 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 116:                                              ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %118 = load i32, ptr %117, align 4, !tbaa !34
+  %118 = load i32, ptr %117, align 4, !tbaa !35
   %119 = sext i32 %118 to i64
   br label %142
 
@@ -416,25 +416,25 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 
 121:                                              ; preds = %4
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %123 = load i32, ptr %122, align 4, !tbaa !36
+  %123 = load i32, ptr %122, align 4, !tbaa !37
   %124 = sext i32 %123 to i64
   br label %142
 
 125:                                              ; preds = %4
   %126 = trunc i64 %2 to i32
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %126, ptr %127, align 4, !tbaa !36
+  store i32 %126, ptr %127, align 4, !tbaa !37
   br label %142
 
 128:                                              ; preds = %4
   %129 = trunc i64 %2 to i32
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %129, ptr %130, align 8, !tbaa !31
+  store i32 %129, ptr %130, align 8, !tbaa !32
   br label %142
 
 131:                                              ; preds = %4
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %133 = load i32, ptr %132, align 8, !tbaa !31
+  %133 = load i32, ptr %132, align 8, !tbaa !32
   %134 = sext i32 %133 to i64
   br label %142
 
@@ -459,25 +459,25 @@ acpt_close_socket.exit:                           ; preds = %7, %10
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @acpt_new(ptr noundef writeonly captures(none) initializes((40, 44), (48, 52), (56, 60)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %2, align 8, !tbaa !30
+  store i32 0, ptr %2, align 8, !tbaa !31
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 -1, ptr %3, align 8, !tbaa !25
+  store i32 -1, ptr %3, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %4, align 8, !tbaa !27
+  store i32 0, ptr %4, align 8, !tbaa !28
   %5 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 320, ptr noundef nonnull @.str.2, i32 noundef 95) #7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %BIO_ACCEPT_new.exit.thread, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 256, ptr %8, align 4, !tbaa !34
+  store i32 256, ptr %8, align 4, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 -1, ptr %9, align 8, !tbaa !24
+  store i32 -1, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %10, align 8, !tbaa !3
-  store i32 1, ptr %5, align 8, !tbaa !21
+  store i32 1, ptr %5, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 1, ptr %11, align 4, !tbaa !36
+  store i32 1, ptr %11, align 4, !tbaa !37
   br label %BIO_ACCEPT_new.exit.thread
 
 BIO_ACCEPT_new.exit.thread:                       ; preds = %1, %7
@@ -492,7 +492,7 @@ define internal range(i32 0, 2) i32 @acpt_free(ptr noundef captures(address_is_n
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !36
+  %5 = load i32, ptr %4, align 4, !tbaa !37
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %35, label %6
 
@@ -500,50 +500,50 @@ define internal range(i32 0, 2) i32 @acpt_free(ptr noundef captures(address_is_n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load i32, ptr %9, align 8, !tbaa !24
+  %10 = load i32, ptr %9, align 8, !tbaa !25
   %.not.i = icmp eq i32 %10, -1
   br i1 %.not.i, label %BIO_ACCEPT_free.exit, label %11
 
 11:                                               ; preds = %6
   %12 = tail call i32 @shutdown(i32 noundef %10, i32 noundef 2) #7
-  %13 = load i32, ptr %9, align 8, !tbaa !24
+  %13 = load i32, ptr %9, align 8, !tbaa !25
   %14 = tail call i32 @close(i32 noundef %13) #7
-  store i32 -1, ptr %9, align 8, !tbaa !24
+  store i32 -1, ptr %9, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 -1, ptr %15, align 8, !tbaa !25
+  store i32 -1, ptr %15, align 8, !tbaa !26
   br label %BIO_ACCEPT_free.exit
 
 BIO_ACCEPT_free.exit:                             ; preds = %6, %11
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef 106) #7
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !28
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
   tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.2, i32 noundef 107) #7
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !26
+  %21 = load ptr, ptr %20, align 8, !tbaa !27
   tail call void @BIO_ADDRINFO_free(ptr noundef %21) #7
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %23 = load ptr, ptr %22, align 8, !tbaa !37
+  %23 = load ptr, ptr %22, align 8, !tbaa !38
   tail call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str.2, i32 noundef 109) #7
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  %25 = load ptr, ptr %24, align 8, !tbaa !39
+  %25 = load ptr, ptr %24, align 8, !tbaa !40
   tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str.2, i32 noundef 110) #7
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 296
-  %27 = load ptr, ptr %26, align 8, !tbaa !40
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
   tail call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str.2, i32 noundef 111) #7
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 304
-  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  %29 = load ptr, ptr %28, align 8, !tbaa !42
   tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str.2, i32 noundef 112) #7
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 312
-  %31 = load ptr, ptr %30, align 8, !tbaa !32
+  %31 = load ptr, ptr %30, align 8, !tbaa !33
   %32 = tail call i32 @BIO_free(ptr noundef %31) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef 114) #7
   store ptr null, ptr %7, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %33, align 8, !tbaa !27
+  store i32 0, ptr %33, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %34, align 8, !tbaa !30
+  store i32 0, ptr %34, align 8, !tbaa !31
   br label %35
 
 35:                                               ; preds = %3, %BIO_ACCEPT_free.exit, %1
@@ -571,7 +571,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   br label %16
 
 16:                                               ; preds = %.backedge, %2
-  %17 = load i32, ptr %1, align 8, !tbaa !21
+  %17 = load i32, ptr %1, align 8, !tbaa !22
   switch i32 %17, label %.thread131 [
     i32 1, label %18
     i32 2, label %32
@@ -582,41 +582,41 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   ]
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr %9, align 8, !tbaa !29
+  %19 = load ptr, ptr %9, align 8, !tbaa !30
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %10, align 8, !tbaa !28
+  %22 = load ptr, ptr %10, align 8, !tbaa !29
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 157, ptr noundef nonnull @__func__.acpt_state) #7
-  %25 = load ptr, ptr %9, align 8, !tbaa !29
-  %26 = load ptr, ptr %10, align 8, !tbaa !28
+  %25 = load ptr, ptr %9, align 8, !tbaa !30
+  %26 = load ptr, ptr %10, align 8, !tbaa !29
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 143, ptr noundef nonnull @.str.3, ptr noundef %25, ptr noundef %26) #7
   br label %.thread131
 
 27:                                               ; preds = %21, %18
-  %28 = load ptr, ptr %12, align 8, !tbaa !37
+  %28 = load ptr, ptr %12, align 8, !tbaa !38
   tail call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str.2, i32 noundef 168) #7
-  store ptr null, ptr %12, align 8, !tbaa !37
-  %29 = load ptr, ptr %13, align 8, !tbaa !39
+  store ptr null, ptr %12, align 8, !tbaa !38
+  %29 = load ptr, ptr %13, align 8, !tbaa !40
   tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str.2, i32 noundef 170) #7
-  store ptr null, ptr %13, align 8, !tbaa !39
-  %30 = load ptr, ptr %14, align 8, !tbaa !40
+  store ptr null, ptr %13, align 8, !tbaa !40
+  %30 = load ptr, ptr %14, align 8, !tbaa !41
   tail call void @CRYPTO_free(ptr noundef %30, ptr noundef nonnull @.str.2, i32 noundef 172) #7
-  store ptr null, ptr %14, align 8, !tbaa !40
-  %31 = load ptr, ptr %15, align 8, !tbaa !41
+  store ptr null, ptr %14, align 8, !tbaa !41
+  %31 = load ptr, ptr %15, align 8, !tbaa !42
   tail call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str.2, i32 noundef 174) #7
-  store ptr null, ptr %15, align 8, !tbaa !41
-  store i32 2, ptr %1, align 8, !tbaa !21
+  store ptr null, ptr %15, align 8, !tbaa !42
+  store i32 2, ptr %1, align 8, !tbaa !22
   br label %.backedge
 
 32:                                               ; preds = %16
-  %33 = load i32, ptr %8, align 4, !tbaa !34
+  %33 = load i32, ptr %8, align 4, !tbaa !35
   switch i32 %33, label %36 [
     i32 6, label %37
     i32 4, label %34
@@ -637,14 +637,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
 
 37:                                               ; preds = %32, %35, %34
   %.094 = phi i32 [ 2, %34 ], [ 0, %35 ], [ 10, %32 ]
-  %38 = load ptr, ptr %9, align 8, !tbaa !29
-  %39 = load ptr, ptr %10, align 8, !tbaa !28
+  %38 = load ptr, ptr %9, align 8, !tbaa !30
+  %39 = load ptr, ptr %10, align 8, !tbaa !29
   %40 = tail call i32 @BIO_lookup(ptr noundef %38, ptr noundef %39, i32 noundef 1, i32 noundef %.094, i32 noundef 1, ptr noundef nonnull %11) #7
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.thread131, label %42
 
 42:                                               ; preds = %37
-  %43 = load ptr, ptr %11, align 8, !tbaa !26
+  %43 = load ptr, ptr %11, align 8, !tbaa !27
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46
 
@@ -655,26 +655,26 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   br label %.thread131
 
 46:                                               ; preds = %42
-  store ptr %43, ptr %5, align 8, !tbaa !42
-  store i32 3, ptr %1, align 8, !tbaa !21
+  store ptr %43, ptr %5, align 8, !tbaa !43
+  store i32 3, ptr %1, align 8, !tbaa !22
   br label %.backedge
 
 47:                                               ; preds = %16
   %48 = tail call i32 @ERR_set_mark() #7
-  %49 = load ptr, ptr %5, align 8, !tbaa !42
+  %49 = load ptr, ptr %5, align 8, !tbaa !43
   %50 = tail call i32 @BIO_ADDRINFO_family(ptr noundef %49) #7
-  %51 = load ptr, ptr %5, align 8, !tbaa !42
+  %51 = load ptr, ptr %5, align 8, !tbaa !43
   %52 = tail call i32 @BIO_ADDRINFO_socktype(ptr noundef %51) #7
-  %53 = load ptr, ptr %5, align 8, !tbaa !42
+  %53 = load ptr, ptr %5, align 8, !tbaa !43
   %54 = tail call i32 @BIO_ADDRINFO_protocol(ptr noundef %53) #7
   %55 = tail call i32 @BIO_socket(i32 noundef %50, i32 noundef %52, i32 noundef %54, i32 noundef 0) #7
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %47
-  %58 = load ptr, ptr %5, align 8, !tbaa !42
+  %58 = load ptr, ptr %5, align 8, !tbaa !43
   %59 = tail call ptr @BIO_ADDRINFO_next(ptr noundef %58) #7
-  store ptr %59, ptr %5, align 8, !tbaa !42
+  store ptr %59, ptr %5, align 8, !tbaa !43
   %.not117 = icmp eq ptr %59, null
   br i1 %.not117, label %62, label %60
 
@@ -687,9 +687,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 233, ptr noundef nonnull @__func__.acpt_state) #7
   %64 = tail call ptr @__errno_location() #9
-  %65 = load i32, ptr %64, align 4, !tbaa !33
-  %66 = load ptr, ptr %9, align 8, !tbaa !29
-  %67 = load ptr, ptr %10, align 8, !tbaa !28
+  %65 = load i32, ptr %64, align 4, !tbaa !34
+  %66 = load ptr, ptr %9, align 8, !tbaa !30
+  %67 = load ptr, ptr %10, align 8, !tbaa !29
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %65, ptr noundef nonnull @.str.4, ptr noundef %66, ptr noundef %67) #7
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 236, ptr noundef nonnull @__func__.acpt_state) #7
@@ -697,37 +697,37 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   br label %.thread131
 
 68:                                               ; preds = %47
-  store i32 %55, ptr %6, align 8, !tbaa !24
-  store i32 %55, ptr %7, align 8, !tbaa !25
-  store i32 4, ptr %1, align 8, !tbaa !21
+  store i32 %55, ptr %6, align 8, !tbaa !25
+  store i32 %55, ptr %7, align 8, !tbaa !26
+  store i32 4, ptr %1, align 8, !tbaa !22
   br label %.backedge
 
 69:                                               ; preds = %16
-  %70 = load i32, ptr %6, align 8, !tbaa !24
-  %71 = load ptr, ptr %5, align 8, !tbaa !42
+  %70 = load i32, ptr %6, align 8, !tbaa !25
+  %71 = load ptr, ptr %5, align 8, !tbaa !43
   %72 = tail call ptr @BIO_ADDRINFO_address(ptr noundef %71) #7
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %74 = load i32, ptr %73, align 8, !tbaa !31
+  %74 = load i32, ptr %73, align 8, !tbaa !32
   %75 = tail call i32 @BIO_listen(i32 noundef %70, ptr noundef %72, i32 noundef %74) #7
   %.not115 = icmp eq i32 %75, 0
   br i1 %.not115, label %76, label %79
 
 76:                                               ; preds = %69
-  %77 = load i32, ptr %6, align 8, !tbaa !24
+  %77 = load i32, ptr %6, align 8, !tbaa !25
   %78 = tail call i32 @BIO_closesocket(i32 noundef %77) #7
   br label %.thread131
 
 79:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store ptr %80, ptr %3, align 8, !tbaa !43
-  %81 = load i32, ptr %6, align 8, !tbaa !24
+  store ptr %80, ptr %3, align 8, !tbaa !44
+  %81 = load i32, ptr %6, align 8, !tbaa !25
   %82 = call i32 @BIO_sock_info(i32 noundef %81, i32 noundef 0, ptr noundef nonnull %3) #7
   %.not116 = icmp eq i32 %82, 0
   br i1 %.not116, label %83, label %86
 
 83:                                               ; preds = %79
-  %84 = load i32, ptr %6, align 8, !tbaa !24
+  %84 = load i32, ptr %6, align 8, !tbaa !25
   %85 = call i32 @BIO_closesocket(i32 noundef %84) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   br label %.thread131
@@ -735,10 +735,10 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
 86:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   %87 = call ptr @BIO_ADDR_hostname_string(ptr noundef nonnull %80, i32 noundef 1) #7
-  store ptr %87, ptr %12, align 8, !tbaa !37
+  store ptr %87, ptr %12, align 8, !tbaa !38
   %88 = call ptr @BIO_ADDR_service_string(ptr noundef nonnull %80, i32 noundef 1) #7
-  store ptr %88, ptr %13, align 8, !tbaa !39
-  store i32 5, ptr %1, align 8, !tbaa !21
+  store ptr %88, ptr %13, align 8, !tbaa !40
+  store i32 5, ptr %1, align 8, !tbaa !22
   br label %.thread131
 
 89:                                               ; preds = %16
@@ -747,23 +747,23 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   br i1 %.not, label %92, label %91
 
 91:                                               ; preds = %89
-  store i32 6, ptr %1, align 8, !tbaa !21
+  store i32 6, ptr %1, align 8, !tbaa !22
   br label %.backedge
 
 92:                                               ; preds = %89
   tail call void @BIO_clear_flags(ptr noundef nonnull %0, i32 noundef 15) #7
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %93, align 4, !tbaa !44
-  %94 = load ptr, ptr %14, align 8, !tbaa !40
+  store i32 0, ptr %93, align 4, !tbaa !45
+  %94 = load ptr, ptr %14, align 8, !tbaa !41
   tail call void @CRYPTO_free(ptr noundef %94, ptr noundef nonnull @.str.2, i32 noundef 283) #7
-  store ptr null, ptr %14, align 8, !tbaa !40
-  %95 = load ptr, ptr %15, align 8, !tbaa !41
+  store ptr null, ptr %14, align 8, !tbaa !41
+  %95 = load ptr, ptr %15, align 8, !tbaa !42
   tail call void @CRYPTO_free(ptr noundef %95, ptr noundef nonnull @.str.2, i32 noundef 285) #7
-  store ptr null, ptr %15, align 8, !tbaa !41
-  %96 = load i32, ptr %6, align 8, !tbaa !24
+  store ptr null, ptr %15, align 8, !tbaa !42
+  %96 = load i32, ptr %6, align 8, !tbaa !25
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %99 = load i32, ptr %98, align 4, !tbaa !35
+  %99 = load i32, ptr %98, align 4, !tbaa !36
   %100 = tail call i32 @BIO_accept_ex(i32 noundef %96, ptr noundef nonnull %97, i32 noundef %99) #7
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %102, label %.critedge
@@ -775,7 +775,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
 
 104:                                              ; preds = %102
   tail call void @BIO_set_flags(ptr noundef nonnull %0, i32 noundef 12) #7
-  store i32 3, ptr %93, align 4, !tbaa !44
+  store i32 3, ptr %93, align 4, !tbaa !45
   br label %.thread131
 
 .critedge:                                        ; preds = %92
@@ -791,7 +791,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   %110 = tail call ptr @BIO_get_callback_arg(ptr noundef nonnull %0) #7
   tail call void @BIO_set_callback_arg(ptr noundef nonnull %105, ptr noundef %110) #7
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %112 = load ptr, ptr %111, align 8, !tbaa !32
+  %112 = load ptr, ptr %111, align 8, !tbaa !33
   %.not113 = icmp eq ptr %112, null
   br i1 %.not113, label %118, label %113
 
@@ -813,10 +813,10 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
 
 121:                                              ; preds = %118
   %122 = tail call ptr @BIO_ADDR_hostname_string(ptr noundef nonnull %97, i32 noundef 1) #7
-  store ptr %122, ptr %14, align 8, !tbaa !40
+  store ptr %122, ptr %14, align 8, !tbaa !41
   %123 = tail call ptr @BIO_ADDR_service_string(ptr noundef nonnull %97, i32 noundef 1) #7
-  store ptr %123, ptr %15, align 8, !tbaa !41
-  store i32 6, ptr %1, align 8, !tbaa !21
+  store ptr %123, ptr %15, align 8, !tbaa !42
+  store i32 6, ptr %1, align 8, !tbaa !22
   br label %.thread131
 
 124:                                              ; preds = %16
@@ -825,11 +825,11 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   br i1 %126, label %127, label %.thread131
 
 127:                                              ; preds = %124
-  store i32 5, ptr %1, align 8, !tbaa !21
+  store i32 5, ptr %1, align 8, !tbaa !22
   br label %.backedge
 
 .backedge:                                        ; preds = %127, %91, %68, %60, %46, %27
-  br label %16
+  br label %16, !llvm.loop !46
 
 128:                                              ; preds = %113, %116, %118
   %.0100 = phi ptr [ %105, %113 ], [ %.1101, %118 ], [ %105, %116 ]
@@ -963,30 +963,32 @@ attributes #9 = { nounwind willreturn memory(none) }
 !15 = !{!"crypto_ex_data_st", !5, i64 0, !16, i64 8}
 !16 = !{!"p1 _ZTS13stack_st_void", !6, i64 0}
 !17 = !{!4, !12, i64 72}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = !{!22, !11, i64 0}
-!22 = !{!"bio_accept_st", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !10, i64 16, !10, i64 24, !11, i64 32, !23, i64 40, !23, i64 48, !7, i64 56, !10, i64 168, !10, i64 176, !7, i64 184, !10, i64 296, !10, i64 304, !12, i64 312}
-!23 = !{!"p1 _ZTS8addrinfo", !6, i64 0}
-!24 = !{!22, !11, i64 32}
-!25 = !{!4, !11, i64 56}
-!26 = !{!22, !23, i64 40}
-!27 = !{!4, !11, i64 48}
-!28 = !{!22, !10, i64 24}
-!29 = !{!22, !10, i64 16}
-!30 = !{!4, !11, i64 40}
-!31 = !{!22, !11, i64 8}
-!32 = !{!22, !12, i64 312}
-!33 = !{!11, !11, i64 0}
-!34 = !{!22, !11, i64 4}
-!35 = !{!22, !11, i64 12}
-!36 = !{!4, !11, i64 44}
-!37 = !{!22, !10, i64 168}
-!38 = !{!10, !10, i64 0}
-!39 = !{!22, !10, i64 176}
-!40 = !{!22, !10, i64 296}
-!41 = !{!22, !10, i64 304}
-!42 = !{!22, !23, i64 48}
-!43 = !{!7, !7, i64 0}
-!44 = !{!4, !11, i64 52}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = !{!23, !11, i64 0}
+!23 = !{!"bio_accept_st", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !10, i64 16, !10, i64 24, !11, i64 32, !24, i64 40, !24, i64 48, !7, i64 56, !10, i64 168, !10, i64 176, !7, i64 184, !10, i64 296, !10, i64 304, !12, i64 312}
+!24 = !{!"p1 _ZTS8addrinfo", !6, i64 0}
+!25 = !{!23, !11, i64 32}
+!26 = !{!4, !11, i64 56}
+!27 = !{!23, !24, i64 40}
+!28 = !{!4, !11, i64 48}
+!29 = !{!23, !10, i64 24}
+!30 = !{!23, !10, i64 16}
+!31 = !{!4, !11, i64 40}
+!32 = !{!23, !11, i64 8}
+!33 = !{!23, !12, i64 312}
+!34 = !{!11, !11, i64 0}
+!35 = !{!23, !11, i64 4}
+!36 = !{!23, !11, i64 12}
+!37 = !{!4, !11, i64 44}
+!38 = !{!23, !10, i64 168}
+!39 = !{!10, !10, i64 0}
+!40 = !{!23, !10, i64 176}
+!41 = !{!23, !10, i64 296}
+!42 = !{!23, !10, i64 304}
+!43 = !{!23, !24, i64 48}
+!44 = !{!7, !7, i64 0}
+!45 = !{!4, !11, i64 52}
+!46 = distinct !{!46, !20}

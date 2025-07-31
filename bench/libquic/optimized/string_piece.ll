@@ -1207,7 +1207,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, %1
-  br i1 %18, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %.lr.ph.i.i, !llvm.loop !23
+  br i1 %18, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %.lr.ph.i.i, !llvm.loop !24
 
 _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit: ; preds = %.lr.ph.i.i, %14, %3, %7
   %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ -1, %.lr.ph.i.i ], [ %15, %14 ]
@@ -1240,7 +1240,7 @@ define noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx111
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, %1
-  br i1 %18, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %18, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN4base8internal6rfindTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit: ; preds = %.lr.ph.i, %14, %3, %7
   %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i ]
@@ -1391,10 +1391,10 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i:            ; preds = %22, %_ZSt4findIPKcc
   %62 = load i8, ptr %61, align 1, !tbaa !16
   %63 = zext i8 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 %63
-  store i8 1, ptr %64, align 1, !tbaa !24
+  store i8 1, ptr %64, align 1, !tbaa !25
   %65 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %65, %10
-  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !27
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader: ; preds = %.lr.ph.i
   %.not26 = icmp ult i64 %2, %6
@@ -1410,14 +1410,14 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %69 = load i8, ptr %68, align 1, !tbaa !16
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1, !tbaa !24, !range !27, !noundef !28
+  %72 = load i8, ptr %71, align 1, !tbaa !25, !range !28, !noundef !29
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %._crit_edge, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit: ; preds = %67
   %74 = add i64 %.01527, 1
   %exitcond.not = icmp eq i64 %74, %6
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, %67, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader ], [ %.01527, %67 ], [ -1, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit ]
@@ -1581,7 +1581,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 19:                                               ; preds = %16
   %20 = add i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %20, %6
-  br i1 %exitcond.not.i.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %16, !llvm.loop !30
+  br i1 %exitcond.not.i.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %16, !llvm.loop !31
 
 21:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #15
@@ -1595,10 +1595,10 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
-  store i8 1, ptr %25, align 1, !tbaa !24
+  store i8 1, ptr %25, align 1, !tbaa !25
   %26 = add nuw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %26, %10
-  br i1 %exitcond.not.i.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i, label %.lr.ph.i.i, !llvm.loop !27
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i: ; preds = %.lr.ph.i.i
   %.not18.i = icmp ult i64 %2, %6
@@ -1614,14 +1614,14 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %30 = load i8, ptr %29, align 1, !tbaa !16
   %31 = zext i8 %30 to i64
   %32 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !24, !range !27, !noundef !28
+  %33 = load i8, ptr %32, align 1, !tbaa !25, !range !28, !noundef !29
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i, label %._crit_edge.i
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i: ; preds = %28
   %35 = add i64 %.01519.i, 1
   %exitcond.not.i = icmp eq i64 %35, %6
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %28, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %28, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i, %28, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i
   %spec.select.i = phi i64 [ -1, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i ], [ -1, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i ], [ %.01519.i, %28 ]
@@ -1669,7 +1669,7 @@ define noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPiece
 19:                                               ; preds = %16
   %20 = add i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, %6
-  br i1 %exitcond.not.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %16, !llvm.loop !30
+  br i1 %exitcond.not.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %16, !llvm.loop !31
 
 21:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #15
@@ -1683,10 +1683,10 @@ define noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPiece
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
-  store i8 1, ptr %25, align 1, !tbaa !24
+  store i8 1, ptr %25, align 1, !tbaa !25
   %26 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %26, %10
-  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !27
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader: ; preds = %.lr.ph.i
   %.not18 = icmp ult i64 %2, %6
@@ -1702,14 +1702,14 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %30 = load i8, ptr %29, align 1, !tbaa !16
   %31 = zext i8 %30 to i64
   %32 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !24, !range !27, !noundef !28
+  %33 = load i8, ptr %32, align 1, !tbaa !25, !range !28, !noundef !29
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, label %._crit_edge
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit: ; preds = %28
   %35 = add i64 %.01519, 1
   %exitcond.not = icmp eq i64 %35, %6
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, %28, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader ], [ %.01519, %28 ], [ -1, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit ]
@@ -1742,7 +1742,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 11:                                               ; preds = %8
   %12 = add i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %12, %5
-  br i1 %exitcond.not.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %8, !llvm.loop !30
+  br i1 %exitcond.not.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %8, !llvm.loop !31
 
 _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit: ; preds = %8, %11, %3
   %.08.i.i = phi i64 [ -1, %3 ], [ %.09.i.i, %8 ], [ -1, %11 ]
@@ -1770,7 +1770,7 @@ define noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPiece
 11:                                               ; preds = %8
   %12 = add i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %12, %5
-  br i1 %exitcond.not.i, label %_ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, label %8, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, label %8, !llvm.loop !31
 
 _ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit: ; preds = %8, %11, %3
   %.08.i = phi i64 [ -1, %3 ], [ -1, %11 ], [ %.09.i, %8 ]
@@ -1814,7 +1814,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = icmp eq i8 %23, %13
-  br i1 %24, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %.lr.ph.i.i.i, !llvm.loop !23
+  br i1 %24, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %.lr.ph.i.i.i, !llvm.loop !24
 
 25:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #15
@@ -1828,10 +1828,10 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %27 = load i8, ptr %26, align 1, !tbaa !16
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 %28
-  store i8 1, ptr %29, align 1, !tbaa !24
+  store i8 1, ptr %29, align 1, !tbaa !25
   %30 = add nuw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %30, %10
-  br i1 %exitcond.not.i.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i: ; preds = %.lr.ph.i.i
   %31 = add i64 %6, -1
@@ -1845,12 +1845,12 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %35 = load i8, ptr %34, align 1, !tbaa !16
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !24, !range !27, !noundef !28
+  %38 = load i8, ptr %37, align 1, !tbaa !25, !range !28, !noundef !29
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp eq i64 %.013.i, 0
   %or.cond.i = or i1 %40, %39
   %41 = add i64 %.013.i, -1
-  br i1 %or.cond.i, label %42, label %33, !llvm.loop !32
+  br i1 %or.cond.i, label %42, label %33, !llvm.loop !33
 
 42:                                               ; preds = %33
   %spec.select.i = select i1 %39, i64 %.013.i, i64 -1
@@ -1899,7 +1899,7 @@ define noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = icmp eq i8 %23, %13
-  br i1 %24, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %.lr.ph.i.i, !llvm.loop !23
+  br i1 %24, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %.lr.ph.i.i, !llvm.loop !24
 
 25:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #15
@@ -1913,10 +1913,10 @@ define noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7
   %27 = load i8, ptr %26, align 1, !tbaa !16
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 %28
-  store i8 1, ptr %29, align 1, !tbaa !24
+  store i8 1, ptr %29, align 1, !tbaa !25
   %30 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %30, %10
-  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, label %.lr.ph.i, !llvm.loop !27
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit: ; preds = %.lr.ph.i
   %31 = add i64 %6, -1
@@ -1930,12 +1930,12 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %35 = load i8, ptr %34, align 1, !tbaa !16
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !24, !range !27, !noundef !28
+  %38 = load i8, ptr %37, align 1, !tbaa !25, !range !28, !noundef !29
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp eq i64 %.013, 0
   %or.cond = or i1 %40, %39
   %41 = add i64 %.013, -1
-  br i1 %or.cond, label %42, label %33, !llvm.loop !32
+  br i1 %or.cond, label %42, label %33, !llvm.loop !33
 
 42:                                               ; preds = %33
   %spec.select = select i1 %39, i64 %.013, i64 -1
@@ -1973,7 +1973,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, %1
-  br i1 %18, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5rfindEcm.exit, label %.lr.ph.i.i.i, !llvm.loop !23
+  br i1 %18, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5rfindEcm.exit, label %.lr.ph.i.i.i, !llvm.loop !24
 
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5rfindEcm.exit: ; preds = %.lr.ph.i.i.i, %14, %3, %7
   %.010.i.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i.i.i ]
@@ -2017,7 +2017,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !16
   %.not.not.i.i.i = icmp eq i8 %22, %14
-  br i1 %.not.not.i.i.i, label %.lr.ph.i.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, !llvm.loop !33
+  br i1 %.not.not.i.i.i, label %.lr.ph.i.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, !llvm.loop !34
 
 23:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #15
@@ -2031,10 +2031,10 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %25 = load i8, ptr %24, align 1, !tbaa !16
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
-  store i8 1, ptr %27, align 1, !tbaa !24
+  store i8 1, ptr %27, align 1, !tbaa !25
   %28 = add nuw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %28, %11
-  br i1 %exitcond.not.i.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i, label %.lr.ph.i.i, !llvm.loop !27
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i: ; preds = %.lr.ph.i.i
   %29 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2042,7 +2042,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %31 = load i8, ptr %30, align 1, !tbaa !16
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !24, !range !27, !noundef !28
+  %34 = load i8, ptr %33, align 1, !tbaa !25, !range !28, !noundef !29
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.lr.ph.i, label %._crit_edge.i
 
@@ -2057,9 +2057,9 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %39 = load i8, ptr %38, align 1, !tbaa !16
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !24, !range !27, !noundef !28
+  %42 = load i8, ptr %41, align 1, !tbaa !25, !range !28, !noundef !29
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !34
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i, %.lr.ph.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i
   %.2.i = phi i64 [ %.sroa.speculated.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader.i ], [ %37, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i ], [ -1, %.lr.ph.i ]
@@ -2108,7 +2108,7 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !16
   %.not.not.i.i = icmp eq i8 %22, %14
-  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, !llvm.loop !33
+  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, !llvm.loop !34
 
 23:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #15
@@ -2122,10 +2122,10 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
   %25 = load i8, ptr %24, align 1, !tbaa !16
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
-  store i8 1, ptr %27, align 1, !tbaa !24
+  store i8 1, ptr %27, align 1, !tbaa !25
   %28 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %28, %11
-  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !27
 
 _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader: ; preds = %.lr.ph.i
   %29 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2133,7 +2133,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %31 = load i8, ptr %30, align 1, !tbaa !16
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !24, !range !27, !noundef !28
+  %34 = load i8, ptr %33, align 1, !tbaa !25, !range !28, !noundef !29
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.lr.ph, label %._crit_edge
 
@@ -2148,9 +2148,9 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %39 = load i8, ptr %38, align 1, !tbaa !16
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !24, !range !27, !noundef !28
+  %42 = load i8, ptr %41, align 1, !tbaa !25, !range !28, !noundef !29
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, %.lr.ph, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader
   %.2 = phi i64 [ %.sroa.speculated, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.preheader ], [ -1, %.lr.ph ], [ %37, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit ]
@@ -2188,7 +2188,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !16
   %.not.not.i.i = icmp eq i8 %16, %1
-  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, !llvm.loop !33
+  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, !llvm.loop !34
 
 _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit: ; preds = %.lr.ph.i.i, %13, %3, %7
   %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ -1, %.lr.ph.i.i ], [ %14, %13 ]
@@ -2221,7 +2221,7 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !16
   %.not.not.i = icmp eq i8 %16, %1
-  br i1 %.not.not.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, !llvm.loop !33
+  br i1 %.not.not.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, !llvm.loop !34
 
 _ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit: ; preds = %.lr.ph.i, %13, %3, %7
   %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %14, %13 ], [ -1, %.lr.ph.i ]
@@ -2278,7 +2278,7 @@ define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC2EPKt(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat($_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC5EPKt) align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !35
+  store ptr %1, ptr %0, align 8, !tbaa !36
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -2289,69 +2289,69 @@ define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_2
 6:                                                ; preds = %2, %4
   %7 = phi i64 [ %5, %4 ], [ 0, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !38
+  store i64 %7, ptr %8, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat($_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC5ERKS5_) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !39
-  store ptr %3, ptr %0, align 8, !tbaa !35
+  %3 = load ptr, ptr %1, align 8, !tbaa !40
+  store ptr %3, ptr %0, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !42
-  store i64 %6, ptr %4, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !43
+  store i64 %6, ptr %4, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC2EPKtm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 comdat($_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC5EPKtm) align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !35
+  store ptr %1, ptr %0, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %4, align 8, !tbaa !38
+  store i64 %2, ptr %4, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC2ERKN9__gnu_cxx17__normal_iteratorIPKtS5_EESD_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 comdat($_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC5ERKN9__gnu_cxx17__normal_iteratorIPKtS5_EESD_) align 2 {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8, !tbaa !43
-  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !43
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8, !tbaa !44
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !44
   %4 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %5 = ptrtoint ptr %.sroa.01.0.copyload to i64
   %6 = sub i64 %4, %5
   %7 = ashr exact i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !38
+  store i64 %7, ptr %8, align 8, !tbaa !39
   %.not = icmp eq ptr %.sroa.0.0.copyload, %.sroa.01.0.copyload
   %spec.select = select i1 %.not, ptr null, ptr %.sroa.01.0.copyload
-  store ptr %spec.select, ptr %0, align 8, !tbaa !35
+  store ptr %spec.select, ptr %0, align 8, !tbaa !36
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !38
+  %3 = load i64, ptr %2, align 8, !tbaa !39
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !38
+  %3 = load i64, ptr %2, align 8, !tbaa !39
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !38
+  %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = icmp eq i64 %3, 0
   ret i1 %4
 }
@@ -2364,15 +2364,15 @@ define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE3setEPKtm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !35
+  store ptr %1, ptr %0, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %4, align 8, !tbaa !38
+  store i64 %2, ptr %4, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE3setEPKt(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !35
+  store ptr %1, ptr %0, align 8, !tbaa !36
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -2383,73 +2383,73 @@ define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_2
 5:                                                ; preds = %2, %3
   %6 = phi i64 [ %4, %3 ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %6, ptr %7, align 8, !tbaa !38
+  store i64 %6, ptr %7, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i16 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !35
+  %3 = load ptr, ptr %0, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i16, ptr %3, i64 %1
-  %5 = load i16, ptr %4, align 2, !tbaa !44
+  %5 = load i16, ptr %4, align 2, !tbaa !45
   ret i16 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i16 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5frontEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
-  %3 = load i16, ptr %2, align 2, !tbaa !44
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
+  %3 = load i16, ptr %2, align 2, !tbaa !45
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i16 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4backEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !38
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = getelementptr i16, ptr %2, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -2
-  %7 = load i16, ptr %6, align 2, !tbaa !44
+  %7 = load i16, ptr %6, align 2, !tbaa !45
   ret i16 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !35
+  %3 = load ptr, ptr %0, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i16, ptr %3, i64 %1
-  store ptr %4, ptr %0, align 8, !tbaa !35
+  store ptr %4, ptr %0, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = sub i64 %6, %1
-  store i64 %7, ptr %5, align 8, !tbaa !38
+  store i64 %7, ptr %5, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE13remove_suffixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !38
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = sub i64 %4, %1
-  store i64 %5, ptr %3, align 8, !tbaa !38
+  store i64 %5, ptr %3, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i32 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE7compareERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !35
-  %4 = load ptr, ptr %1, align 8, !tbaa !35
+  %3 = load ptr, ptr %0, align 8, !tbaa !36
+  %4 = load ptr, ptr %1, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !38
+  %8 = load i64, ptr %7, align 8, !tbaa !39
   %. = tail call i64 @llvm.umin.i64(i64 %6, i64 %8)
   %9 = tail call noundef i32 @_ZN4base9c16memcmpEPKtS1_m(ptr noundef %3, ptr noundef %4, i64 noundef %.)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %2
-  %12 = load i64, ptr %5, align 8, !tbaa !38
-  %13 = load i64, ptr %7, align 8, !tbaa !38
+  %12 = load i64, ptr %5, align 8, !tbaa !39
+  %13 = load i64, ptr %7, align 8, !tbaa !39
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %17, label %15
 
@@ -2473,22 +2473,22 @@ define weak_odr noundef i32 @_ZN4base16BasicStringPieceINSt7__cxx1112basic_strin
 define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE9as_stringEv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.1") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %.thread, label %9
 
 .thread:                                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %7, ptr %0, align 8, !tbaa !46
+  store ptr %7, ptr %0, align 8, !tbaa !47
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !42
-  store i16 0, ptr %7, align 8, !tbaa !44
+  store i64 0, ptr %8, align 8, !tbaa !43
+  store i16 0, ptr %7, align 8, !tbaa !45
   br label %.critedge
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %1, align 8, !tbaa !35
+  %10 = load ptr, ptr %1, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %0, align 8, !tbaa !46
+  store ptr %11, ptr %0, align 8, !tbaa !47
   %12 = icmp eq ptr %10, null
   br i1 %12, label %.noexc, label %13
 
@@ -2504,7 +2504,7 @@ define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_
 
 ._crit_edge.i.thread.i:                           ; preds = %13
   %15 = call noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %15, ptr %0, align 8, !tbaa !39
+  store ptr %15, ptr %0, align 8, !tbaa !40
   %16 = load i64, ptr %3, align 8, !tbaa !18
   store i64 %16, ptr %11, align 8, !tbaa !16
   br label %20
@@ -2514,8 +2514,8 @@ define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %._crit_edge.i.i
-  %19 = load i16, ptr %10, align 2, !tbaa !44
-  store i16 %19, ptr %11, align 8, !tbaa !44
+  %19 = load i16, ptr %10, align 2, !tbaa !45
+  store i16 %19, ptr %11, align 8, !tbaa !45
   br label %26
 
 20:                                               ; preds = %._crit_edge.i.i, %._crit_edge.i.thread.i
@@ -2525,7 +2525,7 @@ define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_
 
 ._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i: ; preds = %20
   %.pre11.i.i = load i64, ptr %3, align 8, !tbaa !18
-  %.pre12.i.i = load ptr, ptr %0, align 8, !tbaa !39
+  %.pre12.i.i = load ptr, ptr %0, align 8, !tbaa !40
   br label %26
 
 23:                                               ; preds = %20
@@ -2539,9 +2539,9 @@ define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_
   %27 = phi ptr [ %.pre12.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i ], [ %11, %18 ]
   %28 = phi i64 [ %.pre11.i.i, %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i ], [ 1, %18 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %28, ptr %29, align 8, !tbaa !42
+  store i64 %28, ptr %29, align 8, !tbaa !43
   %30 = getelementptr inbounds nuw i16, ptr %27, i64 %28
-  store i16 0, ptr %30, align 2, !tbaa !44
+  store i16 0, ptr %30, align 2, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   br label %.critedge
 
@@ -2551,68 +2551,68 @@ define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !38
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i16, ptr %2, i64 %4
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !35
+  %3 = load ptr, ptr %1, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
-  store ptr %6, ptr %0, align 8, !tbaa !47
+  store ptr %6, ptr %0, align 8, !tbaa !48
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !35
-  store ptr %3, ptr %0, align 8, !tbaa !47
+  %3 = load ptr, ptr %1, align 8, !tbaa !36
+  store ptr %3, ptr %0, align 8, !tbaa !48
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !38
+  %3 = load i64, ptr %2, align 8, !tbaa !39
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !38
+  %3 = load i64, ptr %2, align 8, !tbaa !39
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE12CopyToStringEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !38
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %7, align 8, !tbaa !42
-  %8 = load ptr, ptr %1, align 8, !tbaa !39
-  store i16 0, ptr %8, align 2, !tbaa !44
+  store i64 0, ptr %7, align 8, !tbaa !43
+  %8 = load ptr, ptr %1, align 8, !tbaa !40
+  store i16 0, ptr %8, align 2, !tbaa !45
   br label %_ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_.exit
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %0, align 8, !tbaa !35
+  %10 = load ptr, ptr %0, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !42
+  %12 = load i64, ptr %11, align 8, !tbaa !43
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %12, ptr noundef %10, i64 noundef %4)
   br label %_ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_.exit
 
@@ -2623,21 +2623,21 @@ _ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !38
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %7, align 8, !tbaa !42
-  %8 = load ptr, ptr %1, align 8, !tbaa !39
-  store i16 0, ptr %8, align 2, !tbaa !44
+  store i64 0, ptr %7, align 8, !tbaa !43
+  %8 = load ptr, ptr %1, align 8, !tbaa !40
+  store i16 0, ptr %8, align 2, !tbaa !45
   br label %_ZN4base8internal13CopyToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEvRKNS_16BasicStringPieceIT_EEPS8_.exit
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %0, align 8, !tbaa !35
+  %10 = load ptr, ptr %0, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !42
+  %12 = load i64, ptr %11, align 8, !tbaa !43
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %12, ptr noundef %10, i64 noundef %4)
   br label %_ZN4base8internal13CopyToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEvRKNS_16BasicStringPieceIT_EEPS8_.exit
 
@@ -2648,13 +2648,13 @@ _ZN4base8internal13CopyToStringTINSt7__cxx1112basic_stringItNS_20string16_char_t
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE14AppendToStringEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !38
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %_ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_.exit, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !42
+  %8 = load i64, ptr %7, align 8, !tbaa !43
   %9 = sub i64 2305843009213693951, %8
   %10 = icmp ult i64 %9, %4
   br i1 %10, label %11, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit.i.i
@@ -2664,7 +2664,7 @@ define weak_odr void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit.i.i: ; preds = %6
-  %12 = load ptr, ptr %0, align 8, !tbaa !35
+  %12 = load ptr, ptr %0, align 8, !tbaa !36
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i64 noundef %4)
   br label %_ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_.exit
 
@@ -2675,13 +2675,13 @@ _ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_str
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !38
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %_ZN4base8internal15AppendToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEvRKNS_16BasicStringPieceIT_EEPS8_.exit, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !42
+  %8 = load i64, ptr %7, align 8, !tbaa !43
   %9 = sub i64 2305843009213693951, %8
   %10 = icmp ult i64 %9, %4
   br i1 %10, label %11, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit.i
@@ -2691,7 +2691,7 @@ define void @_ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit.i: ; preds = %6
-  %12 = load ptr, ptr %0, align 8, !tbaa !35
+  %12 = load ptr, ptr %0, align 8, !tbaa !36
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i64 noundef %4)
   br label %_ZN4base8internal15AppendToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEvRKNS_16BasicStringPieceIT_EEPS8_.exit
 
@@ -2702,10 +2702,10 @@ _ZN4base8internal15AppendToStringTINSt7__cxx1112basic_stringItNS_20string16_char
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4copyEPtmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = sub i64 %6, %3
   %.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %7)
-  %8 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %0, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i16, ptr %8, i64 %3
   %10 = shl i64 %.sroa.speculated.i.i, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %1, ptr align 2 %9, i64 %10, i1 false)
@@ -2715,10 +2715,10 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN4base8internal4copyERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPtmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = sub i64 %6, %3
   %.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %7)
-  %8 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %0, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i16, ptr %8, i64 %3
   %10 = shl i64 %.sroa.speculated.i, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %1, ptr align 2 %9, i64 %10, i1 false)
@@ -2728,15 +2728,15 @@ define noundef i64 @_ZN4base8internal4copyERKNS_16BasicStringPieceINSt7__cxx1112
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE11starts_withERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !38
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %.not = icmp ult i64 %4, %6
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !35
-  %9 = load ptr, ptr %1, align 8, !tbaa !35
+  %8 = load ptr, ptr %0, align 8, !tbaa !36
+  %9 = load ptr, ptr %1, align 8, !tbaa !36
   %10 = tail call noundef i32 @_ZN4base9c16memcmpEPKtS1_m(ptr noundef %8, ptr noundef %9, i64 noundef %6)
   %11 = icmp eq i32 %10, 0
   br label %12
@@ -2749,17 +2749,17 @@ define weak_odr noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112bas
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE9ends_withERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !38
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %.not = icmp ult i64 %4, %6
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %0, align 8, !tbaa !36
   %9 = sub nuw i64 %4, %6
   %10 = getelementptr inbounds nuw i16, ptr %8, i64 %9
-  %11 = load ptr, ptr %1, align 8, !tbaa !35
+  %11 = load ptr, ptr %1, align 8, !tbaa !36
   %12 = tail call noundef i32 @_ZN4base9c16memcmpEPKtS1_m(ptr noundef %10, ptr noundef %11, i64 noundef %6)
   %13 = icmp eq i32 %12, 0
   br label %14
@@ -2772,27 +2772,27 @@ define weak_odr noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112bas
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4findERKS6_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp ugt i64 %2, %5
   br i1 %6, label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %0, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i16, ptr %8, i64 %2
   %10 = getelementptr inbounds nuw i16, ptr %8, i64 %5
-  %11 = load ptr, ptr %1, align 8, !tbaa !35
+  %11 = load ptr, ptr %1, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !38
+  %13 = load i64, ptr %12, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i16, ptr %11, i64 %13
   %15 = tail call noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %14)
-  %16 = load ptr, ptr %0, align 8, !tbaa !35
+  %16 = load ptr, ptr %0, align 8, !tbaa !36
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 1
-  %21 = load i64, ptr %12, align 8, !tbaa !38
+  %21 = load i64, ptr %12, align 8, !tbaa !39
   %22 = add i64 %20, %21
-  %23 = load i64, ptr %4, align 8, !tbaa !38
+  %23 = load i64, ptr %4, align 8, !tbaa !39
   %.not.i.i = icmp ugt i64 %22, %23
   %24 = select i1 %.not.i.i, i64 -1, i64 %20
   br label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit
@@ -2805,27 +2805,27 @@ _ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20s
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp ugt i64 %2, %5
   br i1 %6, label %_ZN4base8internal5findTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EESB_m.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %0, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i16, ptr %8, i64 %2
   %10 = getelementptr inbounds nuw i16, ptr %8, i64 %5
-  %11 = load ptr, ptr %1, align 8, !tbaa !35
+  %11 = load ptr, ptr %1, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !38
+  %13 = load i64, ptr %12, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i16, ptr %11, i64 %13
   %15 = tail call noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %14)
-  %16 = load ptr, ptr %0, align 8, !tbaa !35
+  %16 = load ptr, ptr %0, align 8, !tbaa !36
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 1
-  %21 = load i64, ptr %12, align 8, !tbaa !38
+  %21 = load i64, ptr %12, align 8, !tbaa !39
   %22 = add i64 %20, %21
-  %23 = load i64, ptr %4, align 8, !tbaa !38
+  %23 = load i64, ptr %4, align 8, !tbaa !39
   %.not.i = icmp ugt i64 %22, %23
   %24 = select i1 %.not.i, i64 -1, i64 %20
   br label %_ZN4base8internal5findTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EESB_m.exit
@@ -2838,12 +2838,12 @@ _ZN4base8internal5findTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaI
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4findEtm(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %.not.i.i = icmp ult i64 %2, %5
   br i1 %.not.i.i, label %6, label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !35
+  %7 = load ptr, ptr %0, align 8, !tbaa !36
   %.idx17.i.i = shl nuw nsw i64 %2, 1
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx17.i.i
   %.idx.i.i = shl nuw nsw i64 %5, 1
@@ -2861,25 +2861,25 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 13:                                               ; preds = %28, %.lr.ph.i.i.i.i.i
   %.047.i.i.i.i.i = phi i64 [ %10, %.lr.ph.i.i.i.i.i ], [ %30, %28 ]
   %.02946.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i ], [ %29, %28 ]
-  %14 = load i16, ptr %.02946.i.i.i.i.i, align 2, !tbaa !44
+  %14 = load i16, ptr %.02946.i.i.i.i.i, align 2, !tbaa !45
   %15 = icmp eq i16 %14, %1
   br i1 %15, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
-  %18 = load i16, ptr %17, align 2, !tbaa !44
+  %18 = load i16, ptr %17, align 2, !tbaa !45
   %19 = icmp eq i16 %18, %1
   br i1 %19, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
-  %22 = load i16, ptr %21, align 2, !tbaa !44
+  %22 = load i16, ptr %21, align 2, !tbaa !45
   %23 = icmp eq i16 %22, %1
   br i1 %23, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit15, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !44
+  %26 = load i16, ptr %25, align 2, !tbaa !45
   %27 = icmp eq i16 %26, %1
   br i1 %27, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit17, label %28
 
@@ -2887,7 +2887,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %30 = add nsw i64 %.047.i.i.i.i.i, -1
   %31 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !49
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !50
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %28
   %32 = add i64 %.idx17.i.i, %12
@@ -2905,7 +2905,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   ]
 
 34:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %35 = load i16, ptr %.029.lcssa.i.i.i.i.i, align 2, !tbaa !44
+  %35 = load i16, ptr %.029.lcssa.i.i.i.i.i, align 2, !tbaa !45
   %36 = icmp eq i16 %35, %1
   br i1 %36, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i, label %37
 
@@ -2915,7 +2915,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %37, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %39 = load i16, ptr %.1.i.i.i.i.i, align 2, !tbaa !44
+  %39 = load i16, ptr %.1.i.i.i.i.i, align 2, !tbaa !45
   %40 = icmp eq i16 %39, %1
   br i1 %40, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i, label %41
 
@@ -2925,7 +2925,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %41, %._crit_edge.i.i.i.i.i
   %.2.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %43 = load i16, ptr %.2.i.i.i.i.i, align 2, !tbaa !44
+  %43 = load i16, ptr %.2.i.i.i.i.i, align 2, !tbaa !45
   %44 = icmp eq i16 %43, %1
   br i1 %44, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i, label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit
 
@@ -2961,12 +2961,12 @@ _ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %.not.i = icmp ult i64 %2, %5
   br i1 %.not.i, label %6, label %_ZN4base8internal5findTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !35
+  %7 = load ptr, ptr %0, align 8, !tbaa !36
   %.idx17.i = shl nuw nsw i64 %2, 1
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx17.i
   %.idx.i = shl nuw nsw i64 %5, 1
@@ -2984,25 +2984,25 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
 13:                                               ; preds = %28, %.lr.ph.i.i.i.i
   %.047.i.i.i.i = phi i64 [ %10, %.lr.ph.i.i.i.i ], [ %30, %28 ]
   %.02946.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %29, %28 ]
-  %14 = load i16, ptr %.02946.i.i.i.i, align 2, !tbaa !44
+  %14 = load i16, ptr %.02946.i.i.i.i, align 2, !tbaa !45
   %15 = icmp eq i16 %14, %1
   br i1 %15, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
-  %18 = load i16, ptr %17, align 2, !tbaa !44
+  %18 = load i16, ptr %17, align 2, !tbaa !45
   %19 = icmp eq i16 %18, %1
   br i1 %19, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
-  %22 = load i16, ptr %21, align 2, !tbaa !44
+  %22 = load i16, ptr %21, align 2, !tbaa !45
   %23 = icmp eq i16 %22, %1
   br i1 %23, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit15, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !44
+  %26 = load i16, ptr %25, align 2, !tbaa !45
   %27 = icmp eq i16 %26, %1
   br i1 %27, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit17, label %28
 
@@ -3010,7 +3010,7 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   %30 = add nsw i64 %.047.i.i.i.i, -1
   %31 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !49
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !50
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %28
   %32 = add i64 %.idx17.i, %12
@@ -3028,7 +3028,7 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
   ]
 
 34:                                               ; preds = %._crit_edge.i.i.i.i
-  %35 = load i16, ptr %.029.lcssa.i.i.i.i, align 2, !tbaa !44
+  %35 = load i16, ptr %.029.lcssa.i.i.i.i, align 2, !tbaa !45
   %36 = icmp eq i16 %35, %1
   br i1 %36, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i, label %37
 
@@ -3038,7 +3038,7 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %37, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %39 = load i16, ptr %.1.i.i.i.i, align 2, !tbaa !44
+  %39 = load i16, ptr %.1.i.i.i.i, align 2, !tbaa !45
   %40 = icmp eq i16 %39, %1
   br i1 %40, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i, label %41
 
@@ -3048,7 +3048,7 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
 
 ._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %41, %._crit_edge.i.i.i.i
   %.2.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %43 = load i16, ptr %.2.i.i.i.i, align 2, !tbaa !44
+  %43 = load i16, ptr %.2.i.i.i.i, align 2, !tbaa !45
   %44 = icmp eq i16 %43, %1
   br i1 %44, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i, label %_ZN4base8internal5findTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit
 
@@ -3089,9 +3089,9 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %7 = alloca %"class.std::reverse_iterator.7", align 8
   %8 = alloca %"class.std::reverse_iterator.7", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !38
+  %10 = load i64, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !38
+  %12 = load i64, ptr %11, align 8, !tbaa !39
   %13 = icmp ult i64 %10, %12
   br i1 %13, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %14
 
@@ -3104,24 +3104,24 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %0, align 8, !tbaa !35
+  %18 = load ptr, ptr %0, align 8, !tbaa !36
   %19 = sub i64 %10, %12
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %19)
   %20 = getelementptr inbounds nuw i16, ptr %18, i64 %.sroa.speculated.i.i
   %21 = getelementptr inbounds nuw i16, ptr %20, i64 %12
-  %22 = load ptr, ptr %1, align 8, !tbaa !35
+  %22 = load ptr, ptr %1, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i16, ptr %22, i64 %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  store ptr %21, ptr %5, align 8, !tbaa !47
-  store ptr %18, ptr %6, align 8, !tbaa !47
-  store ptr %23, ptr %7, align 8, !tbaa !47
-  store ptr %22, ptr %8, align 8, !tbaa !47
+  store ptr %21, ptr %5, align 8, !tbaa !48
+  store ptr %18, ptr %6, align 8, !tbaa !48
+  store ptr %23, ptr %7, align 8, !tbaa !48
+  store ptr %22, ptr %8, align 8, !tbaa !48
   call void @_ZSt8__searchISt16reverse_iteratorIPKtES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.7") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %24 = load ptr, ptr %4, align 8, !tbaa !47
+  %24 = load ptr, ptr %4, align 8, !tbaa !48
   %25 = icmp eq ptr %24, %18
   br i1 %25, label %_ZSt8find_endIPKtS1_ET_S2_S2_T0_S3_.exit.thread.i.i, label %_ZSt8find_endIPKtS1_ET_S2_S2_T0_S3_.exit.i.i
 
@@ -3145,7 +3145,7 @@ _ZSt8find_endIPKtS1_ET_S2_S2_T0_S3_.exit.i.i:     ; preds = %17
   br i1 %.not.i.i, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %28
 
 28:                                               ; preds = %_ZSt8find_endIPKtS1_ET_S2_S2_T0_S3_.exit.i.i
-  %29 = load ptr, ptr %0, align 8, !tbaa !35
+  %29 = load ptr, ptr %0, align 8, !tbaa !36
   %30 = ptrtoint ptr %27 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
@@ -3165,9 +3165,9 @@ define noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx111
   %7 = alloca %"class.std::reverse_iterator.7", align 8
   %8 = alloca %"class.std::reverse_iterator.7", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !38
+  %10 = load i64, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !38
+  %12 = load i64, ptr %11, align 8, !tbaa !39
   %13 = icmp ult i64 %10, %12
   br i1 %13, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EESB_m.exit, label %14
 
@@ -3180,24 +3180,24 @@ define noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx111
   br label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EESB_m.exit
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %0, align 8, !tbaa !35
+  %18 = load ptr, ptr %0, align 8, !tbaa !36
   %19 = sub i64 %10, %12
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %19)
   %20 = getelementptr inbounds nuw i16, ptr %18, i64 %.sroa.speculated.i
   %21 = getelementptr inbounds nuw i16, ptr %20, i64 %12
-  %22 = load ptr, ptr %1, align 8, !tbaa !35
+  %22 = load ptr, ptr %1, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i16, ptr %22, i64 %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  store ptr %21, ptr %5, align 8, !tbaa !47
-  store ptr %18, ptr %6, align 8, !tbaa !47
-  store ptr %23, ptr %7, align 8, !tbaa !47
-  store ptr %22, ptr %8, align 8, !tbaa !47
+  store ptr %21, ptr %5, align 8, !tbaa !48
+  store ptr %18, ptr %6, align 8, !tbaa !48
+  store ptr %23, ptr %7, align 8, !tbaa !48
+  store ptr %22, ptr %8, align 8, !tbaa !48
   call void @_ZSt8__searchISt16reverse_iteratorIPKtES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.7") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %24 = load ptr, ptr %4, align 8, !tbaa !47
+  %24 = load ptr, ptr %4, align 8, !tbaa !48
   %25 = icmp eq ptr %24, %18
   br i1 %25, label %_ZSt8find_endIPKtS1_ET_S2_S2_T0_S3_.exit.thread.i, label %_ZSt8find_endIPKtS1_ET_S2_S2_T0_S3_.exit.i
 
@@ -3221,7 +3221,7 @@ _ZSt8find_endIPKtS1_ET_S2_S2_T0_S3_.exit.i:       ; preds = %17
   br i1 %.not.i, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EESB_m.exit, label %28
 
 28:                                               ; preds = %_ZSt8find_endIPKtS1_ET_S2_S2_T0_S3_.exit.i
-  %29 = load ptr, ptr %0, align 8, !tbaa !35
+  %29 = load ptr, ptr %0, align 8, !tbaa !36
   %30 = ptrtoint ptr %27 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
@@ -3236,16 +3236,16 @@ _ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESa
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %7
 
 7:                                                ; preds = %3
   %8 = add i64 %5, -1
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %9 = load ptr, ptr %0, align 8, !tbaa !35
+  %9 = load ptr, ptr %0, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i16, ptr %9, i64 %.sroa.speculated.i.i
-  %11 = load i16, ptr %10, align 2, !tbaa !44
+  %11 = load i16, ptr %10, align 2, !tbaa !45
   %12 = icmp eq i16 %11, %1
   br i1 %12, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %.lr.ph.i.i
 
@@ -3257,9 +3257,9 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 14:                                               ; preds = %.lr.ph.i.i
   %15 = add i64 %.0914.i.i, -1
   %16 = getelementptr inbounds nuw i16, ptr %9, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !44
+  %17 = load i16, ptr %16, align 2, !tbaa !45
   %18 = icmp eq i16 %17, %1
-  br i1 %18, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %.lr.ph.i.i, !llvm.loop !50
+  br i1 %18, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %.lr.ph.i.i, !llvm.loop !51
 
 _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit: ; preds = %.lr.ph.i.i, %14, %3, %7
   %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ -1, %.lr.ph.i.i ], [ %15, %14 ]
@@ -3269,16 +3269,16 @@ _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %7
 
 7:                                                ; preds = %3
   %8 = add i64 %5, -1
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %9 = load ptr, ptr %0, align 8, !tbaa !35
+  %9 = load ptr, ptr %0, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i16, ptr %9, i64 %.sroa.speculated.i
-  %11 = load i16, ptr %10, align 2, !tbaa !44
+  %11 = load i16, ptr %10, align 2, !tbaa !45
   %12 = icmp eq i16 %11, %1
   br i1 %12, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %.lr.ph.i
 
@@ -3290,9 +3290,9 @@ define noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx111
 14:                                               ; preds = %.lr.ph.i
   %15 = add i64 %.0914.i, -1
   %16 = getelementptr inbounds nuw i16, ptr %9, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !44
+  %17 = load i16, ptr %16, align 2, !tbaa !45
   %18 = icmp eq i16 %17, %1
-  br i1 %18, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %.lr.ph.i, !llvm.loop !50
+  br i1 %18, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %.lr.ph.i, !llvm.loop !51
 
 _ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit: ; preds = %.lr.ph.i, %14, %3, %7
   %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i ]
@@ -3301,13 +3301,13 @@ _ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESa
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE13find_first_ofERKS6_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !35
+  %4 = load ptr, ptr %0, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i16, ptr %4, i64 %6
-  %8 = load ptr, ptr %1, align 8, !tbaa !35
+  %8 = load ptr, ptr %1, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !38
+  %10 = load i64, ptr %9, align 8, !tbaa !39
   %.idx.i = shl nuw nsw i64 %10, 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %.not26.i.i = icmp samesign eq i64 %2, %6
@@ -3321,24 +3321,24 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.preheader.i.preheader.i
   %.01427.i.i = phi ptr [ %19, %._crit_edge.i.i ], [ %12, %.preheader.i.preheader.i ]
-  %13 = load i16, ptr %.01427.i.i, align 2, !tbaa !44
+  %13 = load i16, ptr %.01427.i.i, align 2, !tbaa !45
   br label %16
 
 14:                                               ; preds = %16
   %15 = getelementptr inbounds nuw i8, ptr %.01225.i.i, i64 2
   %.not16.i.i = icmp eq ptr %15, %11
-  br i1 %.not16.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !51
+  br i1 %.not16.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !52
 
 16:                                               ; preds = %14, %.preheader.i.i
   %.01225.i.i = phi ptr [ %8, %.preheader.i.i ], [ %15, %14 ]
-  %17 = load i16, ptr %.01225.i.i, align 2, !tbaa !44
+  %17 = load i16, ptr %.01225.i.i, align 2, !tbaa !45
   %18 = icmp eq i16 %13, %17
   br i1 %18, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.i, label %14
 
 ._crit_edge.i.i:                                  ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.01427.i.i, i64 2
   %.not.i.i = icmp eq ptr %19, %7
-  br i1 %.not.i.i, label %_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.preheader.i.i, !llvm.loop !52
+  br i1 %.not.i.i, label %_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.preheader.i.i, !llvm.loop !53
 
 _ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.i: ; preds = %16
   %20 = icmp eq ptr %.01427.i.i, %7
@@ -3358,13 +3358,13 @@ _ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stri
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !35
+  %4 = load ptr, ptr %0, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i16, ptr %4, i64 %6
-  %8 = load ptr, ptr %1, align 8, !tbaa !35
+  %8 = load ptr, ptr %1, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !38
+  %10 = load i64, ptr %9, align 8, !tbaa !39
   %.idx = shl nuw nsw i64 %10, 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not26.i = icmp samesign eq i64 %2, %6
@@ -3378,24 +3378,24 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %._crit_edge.i
   %.01427.i = phi ptr [ %19, %._crit_edge.i ], [ %12, %.preheader.i.preheader ]
-  %13 = load i16, ptr %.01427.i, align 2, !tbaa !44
+  %13 = load i16, ptr %.01427.i, align 2, !tbaa !45
   br label %16
 
 14:                                               ; preds = %16
   %15 = getelementptr inbounds nuw i8, ptr %.01225.i, i64 2
   %.not16.i = icmp eq ptr %15, %11
-  br i1 %.not16.i, label %._crit_edge.i, label %16, !llvm.loop !51
+  br i1 %.not16.i, label %._crit_edge.i, label %16, !llvm.loop !52
 
 16:                                               ; preds = %14, %.preheader.i
   %.01225.i = phi ptr [ %8, %.preheader.i ], [ %15, %14 ]
-  %17 = load i16, ptr %.01225.i, align 2, !tbaa !44
+  %17 = load i16, ptr %.01225.i, align 2, !tbaa !45
   %18 = icmp eq i16 %13, %17
   br i1 %18, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit, label %14
 
 ._crit_edge.i:                                    ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.01427.i, i64 2
   %.not.i = icmp eq ptr %19, %7
-  br i1 %.not.i, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.thread, label %.preheader.i, !llvm.loop !52
+  br i1 %.not.i, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.thread, label %.preheader.i, !llvm.loop !53
 
 _ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit:   ; preds = %16
   %20 = icmp eq ptr %.01427.i, %7
@@ -3416,12 +3416,12 @@ _ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.thread: ; preds = %._crit_edge.i,
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE13find_first_ofEtm(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %.not.i.i.i = icmp ult i64 %2, %5
   br i1 %.not.i.i.i, label %6, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4findEtm.exit
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !35
+  %7 = load ptr, ptr %0, align 8, !tbaa !36
   %.idx17.i.i.i = shl nuw nsw i64 %2, 1
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx17.i.i.i
   %.idx.i.i.i = shl nuw nsw i64 %5, 1
@@ -3439,25 +3439,25 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 13:                                               ; preds = %28, %.lr.ph.i.i.i.i.i.i
   %.047.i.i.i.i.i.i = phi i64 [ %10, %.lr.ph.i.i.i.i.i.i ], [ %30, %28 ]
   %.02946.i.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i.i ], [ %29, %28 ]
-  %14 = load i16, ptr %.02946.i.i.i.i.i.i, align 2, !tbaa !44
+  %14 = load i16, ptr %.02946.i.i.i.i.i.i, align 2, !tbaa !45
   %15 = icmp eq i16 %14, %1
   br i1 %15, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.i, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 2
-  %18 = load i16, ptr %17, align 2, !tbaa !44
+  %18 = load i16, ptr %17, align 2, !tbaa !45
   %19 = icmp eq i16 %18, %1
   br i1 %19, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.i.loopexit.split.loop.exit, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 4
-  %22 = load i16, ptr %21, align 2, !tbaa !44
+  %22 = load i16, ptr %21, align 2, !tbaa !45
   %23 = icmp eq i16 %22, %1
   br i1 %23, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.i.loopexit.split.loop.exit15, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !44
+  %26 = load i16, ptr %25, align 2, !tbaa !45
   %27 = icmp eq i16 %26, %1
   br i1 %27, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.i.loopexit.split.loop.exit17, label %28
 
@@ -3465,7 +3465,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 8
   %30 = add nsw i64 %.047.i.i.i.i.i.i, -1
   %31 = icmp sgt i64 %.047.i.i.i.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !49
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !50
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %28
   %32 = add i64 %.idx17.i.i.i, %12
@@ -3483,7 +3483,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   ]
 
 34:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %35 = load i16, ptr %.029.lcssa.i.i.i.i.i.i, align 2, !tbaa !44
+  %35 = load i16, ptr %.029.lcssa.i.i.i.i.i.i, align 2, !tbaa !45
   %36 = icmp eq i16 %35, %1
   br i1 %36, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.i, label %37
 
@@ -3493,7 +3493,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 
 ._crit_edge._crit_edge.i.i.i.i.i.i:               ; preds = %37, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
-  %39 = load i16, ptr %.1.i.i.i.i.i.i, align 2, !tbaa !44
+  %39 = load i16, ptr %.1.i.i.i.i.i.i, align 2, !tbaa !45
   %40 = icmp eq i16 %39, %1
   br i1 %40, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.i, label %41
 
@@ -3503,7 +3503,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 
 ._crit_edge._crit_edge52.i.i.i.i.i.i:             ; preds = %41, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
-  %43 = load i16, ptr %.2.i.i.i.i.i.i, align 2, !tbaa !44
+  %43 = load i16, ptr %.2.i.i.i.i.i.i, align 2, !tbaa !45
   %44 = icmp eq i16 %43, %1
   br i1 %44, label %_ZSt4findIPKttET_S2_S2_RKT0_.exit.i.i.i, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4findEtm.exit
 
@@ -3539,13 +3539,13 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE17find_first_not_ofERKS6_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %.not28.i = icmp ult i64 %2, %5
   br i1 %.not28.i, label %.preheader.lr.ph.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit
 
 .preheader.lr.ph.i:                               ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !38
+  %7 = load i64, ptr %6, align 8, !tbaa !39
   %.not.i = icmp eq i64 %7, 0
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %1, align 8
@@ -3554,25 +3554,25 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %18
   %.01829.us.i = phi i64 [ %19, %18 ], [ %2, %.preheader.lr.ph.i ]
   %10 = getelementptr inbounds nuw i16, ptr %8, i64 %.01829.us.i
-  %11 = load i16, ptr %10, align 2, !tbaa !44
+  %11 = load i16, ptr %10, align 2, !tbaa !45
   br label %14
 
 12:                                               ; preds = %14
   %13 = add nuw i64 %.026.us.i, 1
   %exitcond.not.i = icmp eq i64 %13, %7
-  br i1 %exitcond.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %14, !llvm.loop !53
+  br i1 %exitcond.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %14, !llvm.loop !54
 
 14:                                               ; preds = %12, %.preheader.us.i
   %.026.us.i = phi i64 [ 0, %.preheader.us.i ], [ %13, %12 ]
   %15 = getelementptr inbounds nuw i16, ptr %9, i64 %.026.us.i
-  %16 = load i16, ptr %15, align 2, !tbaa !44
+  %16 = load i16, ptr %15, align 2, !tbaa !45
   %17 = icmp eq i16 %11, %16
   br i1 %17, label %18, label %12
 
 18:                                               ; preds = %14
   %19 = add nuw i64 %.01829.us.i, 1
   %exitcond32.not.i = icmp eq i64 %19, %5
-  br i1 %exitcond32.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.preheader.us.i, !llvm.loop !54
+  br i1 %exitcond32.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.preheader.us.i, !llvm.loop !55
 
 _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit: ; preds = %18, %12, %3, %.preheader.lr.ph.i
   %.019.i = phi i64 [ -1, %3 ], [ %2, %.preheader.lr.ph.i ], [ %.01829.us.i, %12 ], [ -1, %18 ]
@@ -3582,13 +3582,13 @@ _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %.not28 = icmp ult i64 %2, %5
   br i1 %.not28, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !38
+  %7 = load i64, ptr %6, align 8, !tbaa !39
   %.not = icmp eq i64 %7, 0
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %1, align 8
@@ -3597,25 +3597,25 @@ define noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPiece
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %18
   %.01829.us = phi i64 [ %19, %18 ], [ %2, %.preheader.lr.ph ]
   %10 = getelementptr inbounds nuw i16, ptr %8, i64 %.01829.us
-  %11 = load i16, ptr %10, align 2, !tbaa !44
+  %11 = load i16, ptr %10, align 2, !tbaa !45
   br label %14
 
 12:                                               ; preds = %14
   %13 = add nuw i64 %.026.us, 1
   %exitcond.not = icmp eq i64 %13, %7
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !53
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !54
 
 14:                                               ; preds = %.preheader.us, %12
   %.026.us = phi i64 [ 0, %.preheader.us ], [ %13, %12 ]
   %15 = getelementptr inbounds nuw i16, ptr %9, i64 %.026.us
-  %16 = load i16, ptr %15, align 2, !tbaa !44
+  %16 = load i16, ptr %15, align 2, !tbaa !45
   %17 = icmp eq i16 %11, %16
   br i1 %17, label %18, label %12
 
 18:                                               ; preds = %14
   %19 = add nuw i64 %.01829.us, 1
   %exitcond32.not = icmp eq i64 %19, %5
-  br i1 %exitcond32.not, label %.loopexit, label %.preheader.us, !llvm.loop !54
+  br i1 %exitcond32.not, label %.loopexit, label %.preheader.us, !llvm.loop !55
 
 .loopexit:                                        ; preds = %18, %12, %.preheader.lr.ph, %3
   %.019 = phi i64 [ -1, %3 ], [ %2, %.preheader.lr.ph ], [ %.01829.us, %12 ], [ -1, %18 ]
@@ -3625,25 +3625,25 @@ define noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPiece
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE17find_first_not_ofEtm(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp ult i64 %2, %5
   br i1 %6, label %.lr.ph.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit
 
 .lr.ph.i.i:                                       ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !35
+  %7 = load ptr, ptr %0, align 8, !tbaa !36
   br label %8
 
 8:                                                ; preds = %11, %.lr.ph.i.i
   %.09.i.i = phi i64 [ %2, %.lr.ph.i.i ], [ %12, %11 ]
   %9 = getelementptr inbounds nuw i16, ptr %7, i64 %.09.i.i
-  %10 = load i16, ptr %9, align 2, !tbaa !44
+  %10 = load i16, ptr %9, align 2, !tbaa !45
   %.not.i.i = icmp eq i16 %10, %1
   br i1 %.not.i.i, label %11, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit
 
 11:                                               ; preds = %8
   %12 = add i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %12, %5
-  br i1 %exitcond.not.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %8, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %8, !llvm.loop !57
 
 _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit: ; preds = %8, %11, %3
   %.08.i.i = phi i64 [ -1, %3 ], [ %.09.i.i, %8 ], [ -1, %11 ]
@@ -3653,25 +3653,25 @@ _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp ult i64 %2, %5
   br i1 %6, label %.lr.ph.i, label %_ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit
 
 .lr.ph.i:                                         ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !35
+  %7 = load ptr, ptr %0, align 8, !tbaa !36
   br label %8
 
 8:                                                ; preds = %11, %.lr.ph.i
   %.09.i = phi i64 [ %2, %.lr.ph.i ], [ %12, %11 ]
   %9 = getelementptr inbounds nuw i16, ptr %7, i64 %.09.i
-  %10 = load i16, ptr %9, align 2, !tbaa !44
+  %10 = load i16, ptr %9, align 2, !tbaa !45
   %.not.i = icmp eq i16 %10, %1
   br i1 %.not.i, label %11, label %_ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit
 
 11:                                               ; preds = %8
   %12 = add i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %12, %5
-  br i1 %exitcond.not.i, label %_ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %8, !llvm.loop !56
+  br i1 %exitcond.not.i, label %_ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %8, !llvm.loop !57
 
 _ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit: ; preds = %8, %11, %3
   %.08.i = phi i64 [ -1, %3 ], [ -1, %11 ], [ %.09.i, %8 ]
@@ -3681,13 +3681,13 @@ _ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringItNS_20string16_c
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE12find_last_ofERKS6_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !38
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %.not26.not.i = icmp eq i64 %9, 0
   %10 = load ptr, ptr %0, align 8
   %11 = load ptr, ptr %1, align 8
@@ -3701,22 +3701,22 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 .lr.ph.us.i:                                      ; preds = %17, %.lr.ph.us.preheader.i
   %.015.us.i = phi i64 [ %18, %17 ], [ %.sroa.speculated.i, %.lr.ph.us.preheader.i ]
   %13 = getelementptr inbounds nuw i16, ptr %10, i64 %.015.us.i
-  %14 = load i16, ptr %13, align 2, !tbaa !44
+  %14 = load i16, ptr %13, align 2, !tbaa !45
   br label %19
 
 15:                                               ; preds = %19
   %16 = add nuw i64 %.01427.us.i, 1
   %exitcond.not.i = icmp eq i64 %16, %9
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19, !llvm.loop !57
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19, !llvm.loop !58
 
 17:                                               ; preds = %._crit_edge.us.i
   %18 = add i64 %.015.us.i, -1
-  br label %.lr.ph.us.i, !llvm.loop !58
+  br label %.lr.ph.us.i, !llvm.loop !59
 
 19:                                               ; preds = %15, %.lr.ph.us.i
   %.01427.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %16, %15 ]
   %20 = getelementptr inbounds nuw i16, ptr %11, i64 %.01427.us.i
-  %21 = load i16, ptr %20, align 2, !tbaa !44
+  %21 = load i16, ptr %20, align 2, !tbaa !45
   %22 = icmp eq i16 %14, %21
   br i1 %22, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %15
 
@@ -3732,13 +3732,13 @@ _ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !38
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %.not26.not = icmp eq i64 %9, 0
   %10 = load ptr, ptr %0, align 8
   %11 = load ptr, ptr %1, align 8
@@ -3752,22 +3752,22 @@ define noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %17
   %.015.us = phi i64 [ %18, %17 ], [ %.sroa.speculated, %.lr.ph.us.preheader ]
   %13 = getelementptr inbounds nuw i16, ptr %10, i64 %.015.us
-  %14 = load i16, ptr %13, align 2, !tbaa !44
+  %14 = load i16, ptr %13, align 2, !tbaa !45
   br label %19
 
 15:                                               ; preds = %19
   %16 = add nuw i64 %.01427.us, 1
   %exitcond.not = icmp eq i64 %16, %9
-  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !58
 
 17:                                               ; preds = %._crit_edge.us
   %18 = add i64 %.015.us, -1
-  br label %.lr.ph.us, !llvm.loop !58
+  br label %.lr.ph.us, !llvm.loop !59
 
 19:                                               ; preds = %.lr.ph.us, %15
   %.01427.us = phi i64 [ 0, %.lr.ph.us ], [ %16, %15 ]
   %20 = getelementptr inbounds nuw i16, ptr %11, i64 %.01427.us
-  %21 = load i16, ptr %20, align 2, !tbaa !44
+  %21 = load i16, ptr %20, align 2, !tbaa !45
   %22 = icmp eq i16 %14, %21
   br i1 %22, label %.thread, label %15
 
@@ -3783,16 +3783,16 @@ define noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE12find_last_ofEtm(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm.exit, label %7
 
 7:                                                ; preds = %3
   %8 = add i64 %5, -1
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %9 = load ptr, ptr %0, align 8, !tbaa !35
+  %9 = load ptr, ptr %0, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i16, ptr %9, i64 %.sroa.speculated.i.i.i
-  %11 = load i16, ptr %10, align 2, !tbaa !44
+  %11 = load i16, ptr %10, align 2, !tbaa !45
   %12 = icmp eq i16 %11, %1
   br i1 %12, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm.exit, label %.lr.ph.i.i.i
 
@@ -3804,9 +3804,9 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 14:                                               ; preds = %.lr.ph.i.i.i
   %15 = add i64 %.0914.i.i.i, -1
   %16 = getelementptr inbounds nuw i16, ptr %9, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !44
+  %17 = load i16, ptr %16, align 2, !tbaa !45
   %18 = icmp eq i16 %17, %1
-  br i1 %18, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm.exit, label %.lr.ph.i.i.i, !llvm.loop !50
+  br i1 %18, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm.exit: ; preds = %.lr.ph.i.i.i, %14, %3, %7
   %.010.i.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i.i.i ]
@@ -3816,7 +3816,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE16find_last_not_ofERKS6_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %7
 
@@ -3824,30 +3824,30 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %8 = add i64 %5, -1
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !38
+  %10 = load i64, ptr %9, align 8, !tbaa !39
   %.not2831.not.i = icmp eq i64 %10, 0
   br i1 %.not2831.not.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !35
-  %12 = load ptr, ptr %1, align 8, !tbaa !35
+  %11 = load ptr, ptr %0, align 8, !tbaa !36
+  %12 = load ptr, ptr %1, align 8, !tbaa !36
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %21, %.lr.ph.lr.ph.i
   %.01735.us.i = phi i64 [ %.sroa.speculated.i, %.lr.ph.lr.ph.i ], [ %22, %21 ]
   %13 = getelementptr inbounds nuw i16, ptr %11, i64 %.01735.us.i
-  %14 = load i16, ptr %13, align 2, !tbaa !44
+  %14 = load i16, ptr %13, align 2, !tbaa !45
   br label %17
 
 15:                                               ; preds = %17
   %16 = add nuw i64 %.01532.us.i, 1
   %exitcond.not.i = icmp eq i64 %16, %10
-  br i1 %exitcond.not.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %17, !llvm.loop !59
+  br i1 %exitcond.not.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %17, !llvm.loop !60
 
 17:                                               ; preds = %15, %.lr.ph.us.i
   %.01532.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw i16, ptr %12, i64 %.01532.us.i
-  %19 = load i16, ptr %18, align 2, !tbaa !44
+  %19 = load i16, ptr %18, align 2, !tbaa !45
   %20 = icmp eq i16 %14, %19
   br i1 %20, label %.critedge.us.i, label %15
 
@@ -3857,7 +3857,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 
 21:                                               ; preds = %.critedge.us.i
   %22 = add i64 %.01735.us.i, -1
-  br label %.lr.ph.us.i, !llvm.loop !60
+  br label %.lr.ph.us.i, !llvm.loop !61
 
 _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit: ; preds = %.critedge.us.i, %15, %3, %7
   %.018.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %.01735.us.i, %15 ], [ -1, %.critedge.us.i ]
@@ -3867,7 +3867,7 @@ _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %.critedge.thread, label %7
 
@@ -3875,30 +3875,30 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
   %8 = add i64 %5, -1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !38
+  %10 = load i64, ptr %9, align 8, !tbaa !39
   %.not2831.not = icmp eq i64 %10, 0
   br i1 %.not2831.not, label %.critedge.thread, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !35
-  %12 = load ptr, ptr %1, align 8, !tbaa !35
+  %11 = load ptr, ptr %0, align 8, !tbaa !36
+  %12 = load ptr, ptr %1, align 8, !tbaa !36
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %21, %.lr.ph.lr.ph
   %.01735.us = phi i64 [ %.sroa.speculated, %.lr.ph.lr.ph ], [ %22, %21 ]
   %13 = getelementptr inbounds nuw i16, ptr %11, i64 %.01735.us
-  %14 = load i16, ptr %13, align 2, !tbaa !44
+  %14 = load i16, ptr %13, align 2, !tbaa !45
   br label %17
 
 15:                                               ; preds = %17
   %16 = add nuw i64 %.01532.us, 1
   %exitcond.not = icmp eq i64 %16, %10
-  br i1 %exitcond.not, label %.critedge.thread, label %17, !llvm.loop !59
+  br i1 %exitcond.not, label %.critedge.thread, label %17, !llvm.loop !60
 
 17:                                               ; preds = %15, %.lr.ph.us
   %.01532.us = phi i64 [ 0, %.lr.ph.us ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw i16, ptr %12, i64 %.01532.us
-  %19 = load i16, ptr %18, align 2, !tbaa !44
+  %19 = load i16, ptr %18, align 2, !tbaa !45
   %20 = icmp eq i16 %14, %19
   br i1 %20, label %.critedge.us, label %15
 
@@ -3908,7 +3908,7 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
 
 21:                                               ; preds = %.critedge.us
   %22 = add i64 %.01735.us, -1
-  br label %.lr.ph.us, !llvm.loop !60
+  br label %.lr.ph.us, !llvm.loop !61
 
 .critedge.thread:                                 ; preds = %.critedge.us, %15, %7, %3
   %.018 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ %.01735.us, %15 ], [ -1, %.critedge.us ]
@@ -3918,16 +3918,16 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE16find_last_not_ofEtm(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %7
 
 7:                                                ; preds = %3
   %8 = add i64 %5, -1
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %9 = load ptr, ptr %0, align 8, !tbaa !35
+  %9 = load ptr, ptr %0, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i16, ptr %9, i64 %.sroa.speculated.i.i
-  %11 = load i16, ptr %10, align 2, !tbaa !44
+  %11 = load i16, ptr %10, align 2, !tbaa !45
   %.not.not14.i.i = icmp eq i16 %11, %1
   br i1 %.not.not14.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit
 
@@ -3939,9 +3939,9 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 13:                                               ; preds = %.lr.ph.i.i
   %14 = add i64 %.0915.i.i, -1
   %15 = getelementptr inbounds nuw i16, ptr %9, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !44
+  %16 = load i16, ptr %15, align 2, !tbaa !45
   %.not.not.i.i = icmp eq i16 %16, %1
-  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, !llvm.loop !61
+  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, !llvm.loop !62
 
 _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit: ; preds = %.lr.ph.i.i, %13, %3, %7
   %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ -1, %.lr.ph.i.i ], [ %14, %13 ]
@@ -3951,16 +3951,16 @@ _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %7
 
 7:                                                ; preds = %3
   %8 = add i64 %5, -1
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %9 = load ptr, ptr %0, align 8, !tbaa !35
+  %9 = load ptr, ptr %0, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i16, ptr %9, i64 %.sroa.speculated.i
-  %11 = load i16, ptr %10, align 2, !tbaa !44
+  %11 = load i16, ptr %10, align 2, !tbaa !45
   %.not.not14.i = icmp eq i16 %11, %1
   br i1 %.not.not14.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit
 
@@ -3972,9 +3972,9 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
 13:                                               ; preds = %.lr.ph.i
   %14 = add i64 %.0915.i, -1
   %15 = getelementptr inbounds nuw i16, ptr %9, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !44
+  %16 = load i16, ptr %15, align 2, !tbaa !45
   %.not.not.i = icmp eq i16 %16, %1
-  br i1 %.not.not.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, !llvm.loop !61
+  br i1 %.not.not.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, !llvm.loop !62
 
 _ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit: ; preds = %.lr.ph.i, %13, %3, %7
   %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %14, %13 ], [ -1, %.lr.ph.i ]
@@ -3986,11 +3986,11 @@ define weak_odr { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_str
   %4 = alloca %"class.base::BasicStringPiece.0", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %6)
   %7 = sub i64 %6, %spec.select.i.i
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %7)
-  %8 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %0, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i16, ptr %8, i64 %spec.select.i.i
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1EPKtm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %9, i64 noundef %.0.i.i)
   %.fca.0.load.i.i = load ptr, ptr %4, align 8
@@ -4007,11 +4007,11 @@ define { ptr, i64 } @_ZN4base8internal6substrERKNS_16BasicStringPieceINSt7__cxx1
   %4 = alloca %"class.base::BasicStringPiece.0", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !38
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %6)
   %7 = sub i64 %6, %spec.select.i
   %.0.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %7)
-  %8 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %0, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i16, ptr %8, i64 %spec.select.i
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1EPKtm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %9, i64 noundef %.0.i)
   %.fca.0.load.i = load ptr, ptr %4, align 8
@@ -4159,7 +4159,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_eq
   %34 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 4
   %35 = add nsw i64 %.047.i.i, -1
   %36 = icmp sgt i64 %.047.i.i, 1
-  br i1 %36, label %18, label %._crit_edge.loopexit.i.i, !llvm.loop !62
+  br i1 %36, label %18, label %._crit_edge.loopexit.i.i, !llvm.loop !63
 
 ._crit_edge.loopexit.i.i:                         ; preds = %33
   %.pre54.i.i = ptrtoint ptr %scevgep.i.i to i64
@@ -4257,7 +4257,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_eq
   %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i61, i64 4
   %78 = add nsw i64 %.047.i.i60, -1
   %79 = icmp sgt i64 %.047.i.i60, 1
-  br i1 %79, label %61, label %._crit_edge.loopexit.i.i62, !llvm.loop !62
+  br i1 %79, label %61, label %._crit_edge.loopexit.i.i62, !llvm.loop !63
 
 ._crit_edge.loopexit.i.i62:                       ; preds = %76
   %.pre54.i.i63 = ptrtoint ptr %scevgep.i.i59 to i64
@@ -4337,7 +4337,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit67:
   %104 = load i8, ptr %.035, align 1, !tbaa !16
   %105 = load i8, ptr %.0, align 1, !tbaa !16
   %106 = icmp eq i8 %104, %105
-  br i1 %106, label %107, label %.loopexit, !llvm.loop !63
+  br i1 %106, label %107, label %.loopexit, !llvm.loop !64
 
 107:                                              ; preds = %.preheader
   %108 = getelementptr inbounds nuw i8, ptr %.0, i64 1
@@ -4347,7 +4347,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit67:
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   %112 = icmp eq ptr %111, %1
-  br i1 %112, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader, !llvm.loop !64
+  br i1 %112, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader, !llvm.loop !65
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit: ; preds = %29
   %113 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 3
@@ -4387,7 +4387,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
   br i1 %15, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %11
-  %16 = load i16, ptr %2, align 2, !tbaa !44
+  %16 = load i16, ptr %2, align 2, !tbaa !45
   %17 = and i64 %13, -8
   %scevgep.i.i = getelementptr i8, ptr %0, i64 %17
   br label %18
@@ -4395,25 +4395,25 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
 18:                                               ; preds = %33, %.lr.ph.i.i
   %.047.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ %35, %33 ]
   %.02946.i.i = phi ptr [ %0, %.lr.ph.i.i ], [ %34, %33 ]
-  %19 = load i16, ptr %.02946.i.i, align 2, !tbaa !44
+  %19 = load i16, ptr %.02946.i.i, align 2, !tbaa !45
   %20 = icmp eq i16 %19, %16
   br i1 %20, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 2
-  %23 = load i16, ptr %22, align 2, !tbaa !44
+  %23 = load i16, ptr %22, align 2, !tbaa !45
   %24 = icmp eq i16 %23, %16
   br i1 %24, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit116, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 4
-  %27 = load i16, ptr %26, align 2, !tbaa !44
+  %27 = load i16, ptr %26, align 2, !tbaa !45
   %28 = icmp eq i16 %27, %16
   br i1 %28, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit114, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 6
-  %31 = load i16, ptr %30, align 2, !tbaa !44
+  %31 = load i16, ptr %30, align 2, !tbaa !45
   %32 = icmp eq i16 %31, %16
   br i1 %32, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit, label %33
 
@@ -4421,7 +4421,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
   %34 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 8
   %35 = add nsw i64 %.047.i.i, -1
   %36 = icmp sgt i64 %.047.i.i, 1
-  br i1 %36, label %18, label %._crit_edge.loopexit.i.i, !llvm.loop !65
+  br i1 %36, label %18, label %._crit_edge.loopexit.i.i, !llvm.loop !66
 
 ._crit_edge.loopexit.i.i:                         ; preds = %33
   %.pre54.i.i = ptrtoint ptr %scevgep.i.i to i64
@@ -4439,16 +4439,16 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
   ]
 
 ._crit_edge._crit_edge52.i.i:                     ; preds = %._crit_edge.i.i
-  %.pre53.i.i = load i16, ptr %2, align 2, !tbaa !44
+  %.pre53.i.i = load i16, ptr %2, align 2, !tbaa !45
   br label %50
 
 ._crit_edge._crit_edge.i.i:                       ; preds = %._crit_edge.i.i
-  %.pre.i.i = load i16, ptr %2, align 2, !tbaa !44
+  %.pre.i.i = load i16, ptr %2, align 2, !tbaa !45
   br label %44
 
 38:                                               ; preds = %._crit_edge.i.i
-  %39 = load i16, ptr %.029.lcssa.i.i, align 2, !tbaa !44
-  %40 = load i16, ptr %2, align 2, !tbaa !44
+  %39 = load i16, ptr %.029.lcssa.i.i, align 2, !tbaa !45
+  %40 = load i16, ptr %2, align 2, !tbaa !45
   %41 = icmp eq i16 %39, %40
   br i1 %41, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %42
 
@@ -4459,7 +4459,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
 44:                                               ; preds = %42, %._crit_edge._crit_edge.i.i
   %45 = phi i16 [ %40, %42 ], [ %.pre.i.i, %._crit_edge._crit_edge.i.i ]
   %.1.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i, %._crit_edge._crit_edge.i.i ]
-  %46 = load i16, ptr %.1.i.i, align 2, !tbaa !44
+  %46 = load i16, ptr %.1.i.i, align 2, !tbaa !45
   %47 = icmp eq i16 %46, %45
   br i1 %47, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %48
 
@@ -4470,7 +4470,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
 50:                                               ; preds = %48, %._crit_edge._crit_edge52.i.i
   %51 = phi i16 [ %45, %48 ], [ %.pre53.i.i, %._crit_edge._crit_edge52.i.i ]
   %.2.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i, %._crit_edge._crit_edge52.i.i ]
-  %52 = load i16, ptr %.2.i.i, align 2, !tbaa !44
+  %52 = load i16, ptr %.2.i.i, align 2, !tbaa !45
   %53 = icmp eq i16 %52, %51
   br i1 %53, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %54
 
@@ -4486,7 +4486,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
   br i1 %58, label %.lr.ph.i.i58, label %._crit_edge.i.i48
 
 .lr.ph.i.i58:                                     ; preds = %.loopexit
-  %59 = load i16, ptr %2, align 2, !tbaa !44
+  %59 = load i16, ptr %2, align 2, !tbaa !45
   %60 = and i64 %56, -8
   %scevgep.i.i59 = getelementptr i8, ptr %.037, i64 %60
   br label %61
@@ -4494,25 +4494,25 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
 61:                                               ; preds = %76, %.lr.ph.i.i58
   %.047.i.i60 = phi i64 [ %57, %.lr.ph.i.i58 ], [ %78, %76 ]
   %.02946.i.i61 = phi ptr [ %.037, %.lr.ph.i.i58 ], [ %77, %76 ]
-  %62 = load i16, ptr %.02946.i.i61, align 2, !tbaa !44
+  %62 = load i16, ptr %.02946.i.i61, align 2, !tbaa !45
   %63 = icmp eq i16 %62, %59
   br i1 %63, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit68, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %.02946.i.i61, i64 2
-  %66 = load i16, ptr %65, align 2, !tbaa !44
+  %66 = load i16, ptr %65, align 2, !tbaa !45
   %67 = icmp eq i16 %66, %59
   br i1 %67, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit68.loopexit.split.loop.exit, label %68
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %.02946.i.i61, i64 4
-  %70 = load i16, ptr %69, align 2, !tbaa !44
+  %70 = load i16, ptr %69, align 2, !tbaa !45
   %71 = icmp eq i16 %70, %59
   br i1 %71, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit68.loopexit.split.loop.exit106, label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %.02946.i.i61, i64 6
-  %74 = load i16, ptr %73, align 2, !tbaa !44
+  %74 = load i16, ptr %73, align 2, !tbaa !45
   %75 = icmp eq i16 %74, %59
   br i1 %75, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit68.loopexit.split.loop.exit108, label %76
 
@@ -4520,7 +4520,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
   %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i61, i64 8
   %78 = add nsw i64 %.047.i.i60, -1
   %79 = icmp sgt i64 %.047.i.i60, 1
-  br i1 %79, label %61, label %._crit_edge.loopexit.i.i62, !llvm.loop !65
+  br i1 %79, label %61, label %._crit_edge.loopexit.i.i62, !llvm.loop !66
 
 ._crit_edge.loopexit.i.i62:                       ; preds = %76
   %.pre54.i.i63 = ptrtoint ptr %scevgep.i.i59 to i64
@@ -4538,16 +4538,16 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
   ]
 
 ._crit_edge._crit_edge52.i.i51:                   ; preds = %._crit_edge.i.i48
-  %.pre53.i.i52 = load i16, ptr %2, align 2, !tbaa !44
+  %.pre53.i.i52 = load i16, ptr %2, align 2, !tbaa !45
   br label %93
 
 ._crit_edge._crit_edge.i.i55:                     ; preds = %._crit_edge.i.i48
-  %.pre.i.i56 = load i16, ptr %2, align 2, !tbaa !44
+  %.pre.i.i56 = load i16, ptr %2, align 2, !tbaa !45
   br label %87
 
 81:                                               ; preds = %._crit_edge.i.i48
-  %82 = load i16, ptr %.029.lcssa.i.i50, align 2, !tbaa !44
-  %83 = load i16, ptr %2, align 2, !tbaa !44
+  %82 = load i16, ptr %.029.lcssa.i.i50, align 2, !tbaa !45
+  %83 = load i16, ptr %2, align 2, !tbaa !45
   %84 = icmp eq i16 %82, %83
   br i1 %84, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit68, label %85
 
@@ -4558,7 +4558,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
 87:                                               ; preds = %85, %._crit_edge._crit_edge.i.i55
   %88 = phi i16 [ %83, %85 ], [ %.pre.i.i56, %._crit_edge._crit_edge.i.i55 ]
   %.1.i.i57 = phi ptr [ %86, %85 ], [ %.029.lcssa.i.i50, %._crit_edge._crit_edge.i.i55 ]
-  %89 = load i16, ptr %.1.i.i57, align 2, !tbaa !44
+  %89 = load i16, ptr %.1.i.i57, align 2, !tbaa !45
   %90 = icmp eq i16 %89, %88
   br i1 %90, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit68, label %91
 
@@ -4569,7 +4569,7 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPKtS1_N9__gnu_cxx5__ops19_Iter_eq
 93:                                               ; preds = %91, %._crit_edge._crit_edge52.i.i51
   %94 = phi i16 [ %88, %91 ], [ %.pre53.i.i52, %._crit_edge._crit_edge52.i.i51 ]
   %.2.i.i53 = phi ptr [ %92, %91 ], [ %.029.lcssa.i.i50, %._crit_edge._crit_edge52.i.i51 ]
-  %95 = load i16, ptr %.2.i.i53, align 2, !tbaa !44
+  %95 = load i16, ptr %.2.i.i53, align 2, !tbaa !45
   %96 = icmp eq i16 %95, %94
   br i1 %96, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit68, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit
 
@@ -4598,10 +4598,10 @@ _ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit68:
 .preheader:                                       ; preds = %101, %110
   %.035 = phi ptr [ %111, %110 ], [ %102, %101 ]
   %.0 = phi ptr [ %108, %110 ], [ %8, %101 ]
-  %104 = load i16, ptr %.035, align 2, !tbaa !44
-  %105 = load i16, ptr %.0, align 2, !tbaa !44
+  %104 = load i16, ptr %.035, align 2, !tbaa !45
+  %105 = load i16, ptr %.0, align 2, !tbaa !45
   %106 = icmp eq i16 %104, %105
-  br i1 %106, label %107, label %.loopexit, !llvm.loop !66
+  br i1 %106, label %107, label %.loopexit, !llvm.loop !67
 
 107:                                              ; preds = %.preheader
   %108 = getelementptr inbounds nuw i8, ptr %.0, i64 2
@@ -4611,7 +4611,7 @@ _ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit68:
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %.035, i64 2
   %112 = icmp eq ptr %111, %1
-  br i1 %112, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader, !llvm.loop !67
+  br i1 %112, label %_ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader, !llvm.loop !68
 
 _ZSt9__find_ifIPKtN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit: ; preds = %29
   %113 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 6
@@ -4657,7 +4657,7 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5
   br i1 %21, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %16
-  %22 = load i8, ptr %14, align 1, !tbaa !16, !noalias !68
+  %22 = load i8, ptr %14, align 1, !tbaa !16, !noalias !69
   %23 = mul nsw i64 %20, -4
   %scevgep.i = getelementptr i8, ptr %6, i64 %23
   br label %.lr.ph.i.i
@@ -4666,32 +4666,32 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5
   %24 = phi ptr [ %37, %40 ], [ %6, %.lr.ph.i.preheader.i ]
   %.020.i.i = phi i64 [ %41, %40 ], [ %20, %.lr.ph.i.preheader.i ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -1
-  %26 = load i8, ptr %25, align 1, !tbaa !16, !noalias !68
+  %26 = load i8, ptr %25, align 1, !tbaa !16, !noalias !69
   %27 = icmp eq i8 %26, %22
   br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds i8, ptr %24, i64 -2
-  %30 = load i8, ptr %29, align 1, !tbaa !16, !noalias !68
+  %30 = load i8, ptr %29, align 1, !tbaa !16, !noalias !69
   %31 = icmp eq i8 %30, %22
   br i1 %31, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit95, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %24, i64 -3
-  %34 = load i8, ptr %33, align 1, !tbaa !16, !noalias !68
+  %34 = load i8, ptr %33, align 1, !tbaa !16, !noalias !69
   %35 = icmp eq i8 %34, %22
   br i1 %35, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit93, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %24, i64 -4
-  %38 = load i8, ptr %37, align 1, !tbaa !16, !noalias !68
+  %38 = load i8, ptr %37, align 1, !tbaa !16, !noalias !69
   %39 = icmp eq i8 %38, %22
   br i1 %39, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, label %40
 
 40:                                               ; preds = %36
   %41 = add nsw i64 %.020.i.i, -1
   %42 = icmp sgt i64 %.020.i.i, 1
-  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !73
+  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !74
 
 ._crit_edge.loopexit.i.i:                         ; preds = %40
   %.pre38.i.i = ptrtoint ptr %scevgep.i to i64
@@ -4708,17 +4708,17 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5
   ]
 
 ._crit_edge.i._crit_edge24.i:                     ; preds = %._crit_edge.i.i
-  %.pre26.i = load i8, ptr %14, align 1, !tbaa !16, !noalias !68
+  %.pre26.i = load i8, ptr %14, align 1, !tbaa !16, !noalias !69
   br label %56
 
 ._crit_edge.i._crit_edge.i:                       ; preds = %._crit_edge.i.i
-  %.pre.i = load i8, ptr %14, align 1, !tbaa !16, !noalias !68
+  %.pre.i = load i8, ptr %14, align 1, !tbaa !16, !noalias !69
   br label %50
 
 45:                                               ; preds = %._crit_edge.i.i
   %46 = getelementptr inbounds i8, ptr %43, i64 -1
-  %47 = load i8, ptr %46, align 1, !tbaa !16, !noalias !68
-  %48 = load i8, ptr %14, align 1, !tbaa !16, !noalias !68
+  %47 = load i8, ptr %46, align 1, !tbaa !16, !noalias !69
+  %48 = load i8, ptr %14, align 1, !tbaa !16, !noalias !69
   %49 = icmp eq i8 %47, %48
   br i1 %49, label %.critedge, label %50
 
@@ -4726,7 +4726,7 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5
   %51 = phi i8 [ %.pre.i, %._crit_edge.i._crit_edge.i ], [ %48, %45 ]
   %52 = phi ptr [ %43, %._crit_edge.i._crit_edge.i ], [ %46, %45 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 -1
-  %54 = load i8, ptr %53, align 1, !tbaa !16, !noalias !68
+  %54 = load i8, ptr %53, align 1, !tbaa !16, !noalias !69
   %55 = icmp eq i8 %54, %51
   br i1 %55, label %.critedge, label %56
 
@@ -4734,7 +4734,7 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5
   %57 = phi i8 [ %.pre26.i, %._crit_edge.i._crit_edge24.i ], [ %51, %50 ]
   %58 = phi ptr [ %43, %._crit_edge.i._crit_edge24.i ], [ %53, %50 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 -1
-  %60 = load i8, ptr %59, align 1, !tbaa !16, !noalias !68
+  %60 = load i8, ptr %59, align 1, !tbaa !16, !noalias !69
   %61 = icmp eq i8 %60, %57
   %spec.select.i = select i1 %61, ptr %58, ptr %7
   br label %.critedge
@@ -4764,7 +4764,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 .lr.ph.i.preheader.i11:                           ; preds = %.preheader42
   %73 = getelementptr inbounds i8, ptr %65, i64 -1
-  %74 = load i8, ptr %73, align 1, !tbaa !16, !noalias !74
+  %74 = load i8, ptr %73, align 1, !tbaa !16, !noalias !75
   %75 = mul nsw i64 %71, -4
   %scevgep.i12 = getelementptr i8, ptr %67, i64 %75
   br label %.lr.ph.i.i13
@@ -4773,32 +4773,32 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %76 = phi ptr [ %89, %92 ], [ %67, %.lr.ph.i.preheader.i11 ]
   %.020.i.i14 = phi i64 [ %93, %92 ], [ %71, %.lr.ph.i.preheader.i11 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -1
-  %78 = load i8, ptr %77, align 1, !tbaa !16, !noalias !74
+  %78 = load i8, ptr %77, align 1, !tbaa !16, !noalias !75
   %79 = icmp eq i8 %78, %74
   br i1 %79, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, label %80
 
 80:                                               ; preds = %.lr.ph.i.i13
   %81 = getelementptr inbounds i8, ptr %76, i64 -2
-  %82 = load i8, ptr %81, align 1, !tbaa !16, !noalias !74
+  %82 = load i8, ptr %81, align 1, !tbaa !16, !noalias !75
   %83 = icmp eq i8 %82, %74
   br i1 %83, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit86, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %76, i64 -3
-  %86 = load i8, ptr %85, align 1, !tbaa !16, !noalias !74
+  %86 = load i8, ptr %85, align 1, !tbaa !16, !noalias !75
   %87 = icmp eq i8 %86, %74
   br i1 %87, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit84, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %76, i64 -4
-  %90 = load i8, ptr %89, align 1, !tbaa !16, !noalias !74
+  %90 = load i8, ptr %89, align 1, !tbaa !16, !noalias !75
   %91 = icmp eq i8 %90, %74
   br i1 %91, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit, label %92
 
 92:                                               ; preds = %88
   %93 = add nsw i64 %.020.i.i14, -1
   %94 = icmp sgt i64 %.020.i.i14, 1
-  br i1 %94, label %.lr.ph.i.i13, label %._crit_edge.loopexit.i.i15, !llvm.loop !73
+  br i1 %94, label %.lr.ph.i.i13, label %._crit_edge.loopexit.i.i15, !llvm.loop !74
 
 ._crit_edge.loopexit.i.i15:                       ; preds = %92
   %.pre38.i.i16 = ptrtoint ptr %scevgep.i12 to i64
@@ -4816,19 +4816,19 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 ._crit_edge.i._crit_edge24.i3:                    ; preds = %._crit_edge.i.i1
   %.phi.trans.insert25.i4 = getelementptr inbounds i8, ptr %65, i64 -1
-  %.pre26.i5 = load i8, ptr %.phi.trans.insert25.i4, align 1, !tbaa !16, !noalias !74
+  %.pre26.i5 = load i8, ptr %.phi.trans.insert25.i4, align 1, !tbaa !16, !noalias !75
   br label %109
 
 ._crit_edge.i._crit_edge.i8:                      ; preds = %._crit_edge.i.i1
   %.phi.trans.insert.i9 = getelementptr inbounds i8, ptr %65, i64 -1
-  %.pre.i10 = load i8, ptr %.phi.trans.insert.i9, align 1, !tbaa !16, !noalias !74
+  %.pre.i10 = load i8, ptr %.phi.trans.insert.i9, align 1, !tbaa !16, !noalias !75
   br label %103
 
 97:                                               ; preds = %._crit_edge.i.i1
   %98 = getelementptr inbounds i8, ptr %95, i64 -1
-  %99 = load i8, ptr %98, align 1, !tbaa !16, !noalias !74
+  %99 = load i8, ptr %98, align 1, !tbaa !16, !noalias !75
   %100 = getelementptr inbounds i8, ptr %65, i64 -1
-  %101 = load i8, ptr %100, align 1, !tbaa !16, !noalias !74
+  %101 = load i8, ptr %100, align 1, !tbaa !16, !noalias !75
   %102 = icmp eq i8 %99, %101
   br i1 %102, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, label %103
 
@@ -4836,7 +4836,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %104 = phi i8 [ %.pre.i10, %._crit_edge.i._crit_edge.i8 ], [ %101, %97 ]
   %105 = phi ptr [ %95, %._crit_edge.i._crit_edge.i8 ], [ %98, %97 ]
   %106 = getelementptr inbounds i8, ptr %105, i64 -1
-  %107 = load i8, ptr %106, align 1, !tbaa !16, !noalias !74
+  %107 = load i8, ptr %106, align 1, !tbaa !16, !noalias !75
   %108 = icmp eq i8 %107, %104
   br i1 %108, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, label %109
 
@@ -4844,7 +4844,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %110 = phi i8 [ %.pre26.i5, %._crit_edge.i._crit_edge24.i3 ], [ %104, %103 ]
   %111 = phi ptr [ %95, %._crit_edge.i._crit_edge24.i3 ], [ %106, %103 ]
   %112 = getelementptr inbounds i8, ptr %111, i64 -1
-  %113 = load i8, ptr %112, align 1, !tbaa !16, !noalias !74
+  %113 = load i8, ptr %112, align 1, !tbaa !16, !noalias !75
   %114 = icmp eq i8 %113, %110
   %spec.select.i6 = select i1 %114, ptr %111, ptr %66
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
@@ -4891,13 +4891,13 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 132:                                              ; preds = %129
   %133 = icmp eq ptr %124, %119
-  br i1 %133, label %.critedge, label %.preheader, !llvm.loop !79
+  br i1 %133, label %.critedge, label %.preheader, !llvm.loop !80
 
 134:                                              ; preds = %.preheader
   store ptr %122, ptr %1, align 8, !tbaa !19
   %.pre = load ptr, ptr %2, align 8, !tbaa !19
   %.pre77 = load ptr, ptr %3, align 8, !tbaa !19
-  br label %.preheader42, !llvm.loop !80
+  br label %.preheader42, !llvm.loop !81
 
 .critedge:                                        ; preds = %121, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, %132, %129, %.lr.ph.i.i, %56, %50, %45, %._crit_edge.i.i, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit95, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit93, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, %5, %9
   %.sink.i.i.sink = phi ptr [ %6, %9 ], [ %6, %5 ], [ %43, %45 ], [ %52, %50 ], [ %7, %._crit_edge.i.i ], [ %spec.select.i, %56 ], [ %62, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit93 ], [ %64, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit95 ], [ %24, %.lr.ph.i.i ], [ %.sink.i.i7, %129 ], [ %119, %132 ], [ %119, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20 ], [ %119, %121 ]
@@ -4907,14 +4907,14 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKtES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.7") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 comdat {
-  %6 = load ptr, ptr %1, align 8, !tbaa !47
-  %7 = load ptr, ptr %2, align 8, !tbaa !47
+  %6 = load ptr, ptr %1, align 8, !tbaa !48
+  %7 = load ptr, ptr %2, align 8, !tbaa !48
   %8 = icmp eq ptr %6, %7
   br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %3, align 8, !tbaa !47
-  %11 = load ptr, ptr %4, align 8, !tbaa !47
+  %10 = load ptr, ptr %3, align 8, !tbaa !48
+  %11 = load ptr, ptr %4, align 8, !tbaa !48
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %.critedge, label %13
 
@@ -4932,7 +4932,7 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKtES3_N9__gnu_cxx5
   br i1 %21, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %16
-  %22 = load i16, ptr %14, align 2, !tbaa !44, !noalias !81
+  %22 = load i16, ptr %14, align 2, !tbaa !45, !noalias !82
   %23 = mul nsw i64 %20, -8
   %scevgep.i = getelementptr i8, ptr %6, i64 %23
   br label %.lr.ph.i.i
@@ -4941,32 +4941,32 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKtES3_N9__gnu_cxx5
   %24 = phi ptr [ %37, %40 ], [ %6, %.lr.ph.i.preheader.i ]
   %.020.i.i = phi i64 [ %41, %40 ], [ %20, %.lr.ph.i.preheader.i ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -2
-  %26 = load i16, ptr %25, align 2, !tbaa !44, !noalias !81
+  %26 = load i16, ptr %25, align 2, !tbaa !45, !noalias !82
   %27 = icmp eq i16 %26, %22
   br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds i8, ptr %24, i64 -4
-  %30 = load i16, ptr %29, align 2, !tbaa !44, !noalias !81
+  %30 = load i16, ptr %29, align 2, !tbaa !45, !noalias !82
   %31 = icmp eq i16 %30, %22
   br i1 %31, label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit96, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %24, i64 -6
-  %34 = load i16, ptr %33, align 2, !tbaa !44, !noalias !81
+  %34 = load i16, ptr %33, align 2, !tbaa !45, !noalias !82
   %35 = icmp eq i16 %34, %22
   br i1 %35, label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit94, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %24, i64 -8
-  %38 = load i16, ptr %37, align 2, !tbaa !44, !noalias !81
+  %38 = load i16, ptr %37, align 2, !tbaa !45, !noalias !82
   %39 = icmp eq i16 %38, %22
   br i1 %39, label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, label %40
 
 40:                                               ; preds = %36
   %41 = add nsw i64 %.020.i.i, -1
   %42 = icmp sgt i64 %.020.i.i, 1
-  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !86
+  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !87
 
 ._crit_edge.loopexit.i.i:                         ; preds = %40
   %.pre38.i.i = ptrtoint ptr %scevgep.i to i64
@@ -4984,17 +4984,17 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKtES3_N9__gnu_cxx5
   ]
 
 ._crit_edge.i._crit_edge24.i:                     ; preds = %._crit_edge.i.i
-  %.pre26.i = load i16, ptr %14, align 2, !tbaa !44, !noalias !81
+  %.pre26.i = load i16, ptr %14, align 2, !tbaa !45, !noalias !82
   br label %56
 
 ._crit_edge.i._crit_edge.i:                       ; preds = %._crit_edge.i.i
-  %.pre.i = load i16, ptr %14, align 2, !tbaa !44, !noalias !81
+  %.pre.i = load i16, ptr %14, align 2, !tbaa !45, !noalias !82
   br label %50
 
 45:                                               ; preds = %._crit_edge.i.i
   %46 = getelementptr inbounds i8, ptr %43, i64 -2
-  %47 = load i16, ptr %46, align 2, !tbaa !44, !noalias !81
-  %48 = load i16, ptr %14, align 2, !tbaa !44, !noalias !81
+  %47 = load i16, ptr %46, align 2, !tbaa !45, !noalias !82
+  %48 = load i16, ptr %14, align 2, !tbaa !45, !noalias !82
   %49 = icmp eq i16 %47, %48
   br i1 %49, label %.critedge, label %50
 
@@ -5002,7 +5002,7 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKtES3_N9__gnu_cxx5
   %51 = phi i16 [ %.pre.i, %._crit_edge.i._crit_edge.i ], [ %48, %45 ]
   %52 = phi ptr [ %43, %._crit_edge.i._crit_edge.i ], [ %46, %45 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 -2
-  %54 = load i16, ptr %53, align 2, !tbaa !44, !noalias !81
+  %54 = load i16, ptr %53, align 2, !tbaa !45, !noalias !82
   %55 = icmp eq i16 %54, %51
   br i1 %55, label %.critedge, label %56
 
@@ -5010,7 +5010,7 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKtES3_N9__gnu_cxx5
   %57 = phi i16 [ %.pre26.i, %._crit_edge.i._crit_edge24.i ], [ %51, %50 ]
   %58 = phi ptr [ %43, %._crit_edge.i._crit_edge24.i ], [ %53, %50 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 -2
-  %60 = load i16, ptr %59, align 2, !tbaa !44, !noalias !81
+  %60 = load i16, ptr %59, align 2, !tbaa !45, !noalias !82
   %61 = icmp eq i16 %60, %57
   %spec.select.i = select i1 %61, ptr %58, ptr %7
   br label %.critedge
@@ -5040,7 +5040,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 .lr.ph.i.preheader.i11:                           ; preds = %.preheader43
   %73 = getelementptr inbounds i8, ptr %65, i64 -2
-  %74 = load i16, ptr %73, align 2, !tbaa !44, !noalias !87
+  %74 = load i16, ptr %73, align 2, !tbaa !45, !noalias !88
   %75 = mul nsw i64 %71, -8
   %scevgep.i12 = getelementptr i8, ptr %67, i64 %75
   br label %.lr.ph.i.i13
@@ -5049,32 +5049,32 @@ _ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %76 = phi ptr [ %89, %92 ], [ %67, %.lr.ph.i.preheader.i11 ]
   %.020.i.i14 = phi i64 [ %93, %92 ], [ %71, %.lr.ph.i.preheader.i11 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -2
-  %78 = load i16, ptr %77, align 2, !tbaa !44, !noalias !87
+  %78 = load i16, ptr %77, align 2, !tbaa !45, !noalias !88
   %79 = icmp eq i16 %78, %74
   br i1 %79, label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21, label %80
 
 80:                                               ; preds = %.lr.ph.i.i13
   %81 = getelementptr inbounds i8, ptr %76, i64 -4
-  %82 = load i16, ptr %81, align 2, !tbaa !44, !noalias !87
+  %82 = load i16, ptr %81, align 2, !tbaa !45, !noalias !88
   %83 = icmp eq i16 %82, %74
   br i1 %83, label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21.loopexit.split.loop.exit87, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %76, i64 -6
-  %86 = load i16, ptr %85, align 2, !tbaa !44, !noalias !87
+  %86 = load i16, ptr %85, align 2, !tbaa !45, !noalias !88
   %87 = icmp eq i16 %86, %74
   br i1 %87, label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21.loopexit.split.loop.exit85, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %76, i64 -8
-  %90 = load i16, ptr %89, align 2, !tbaa !44, !noalias !87
+  %90 = load i16, ptr %89, align 2, !tbaa !45, !noalias !88
   %91 = icmp eq i16 %90, %74
   br i1 %91, label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21.loopexit.split.loop.exit, label %92
 
 92:                                               ; preds = %88
   %93 = add nsw i64 %.020.i.i14, -1
   %94 = icmp sgt i64 %.020.i.i14, 1
-  br i1 %94, label %.lr.ph.i.i13, label %._crit_edge.loopexit.i.i15, !llvm.loop !86
+  br i1 %94, label %.lr.ph.i.i13, label %._crit_edge.loopexit.i.i15, !llvm.loop !87
 
 ._crit_edge.loopexit.i.i15:                       ; preds = %92
   %.pre38.i.i16 = ptrtoint ptr %scevgep.i12 to i64
@@ -5093,19 +5093,19 @@ _ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 ._crit_edge.i._crit_edge24.i3:                    ; preds = %._crit_edge.i.i1
   %.phi.trans.insert25.i4 = getelementptr inbounds i8, ptr %65, i64 -2
-  %.pre26.i5 = load i16, ptr %.phi.trans.insert25.i4, align 2, !tbaa !44, !noalias !87
+  %.pre26.i5 = load i16, ptr %.phi.trans.insert25.i4, align 2, !tbaa !45, !noalias !88
   br label %109
 
 ._crit_edge.i._crit_edge.i8:                      ; preds = %._crit_edge.i.i1
   %.phi.trans.insert.i9 = getelementptr inbounds i8, ptr %65, i64 -2
-  %.pre.i10 = load i16, ptr %.phi.trans.insert.i9, align 2, !tbaa !44, !noalias !87
+  %.pre.i10 = load i16, ptr %.phi.trans.insert.i9, align 2, !tbaa !45, !noalias !88
   br label %103
 
 97:                                               ; preds = %._crit_edge.i.i1
   %98 = getelementptr inbounds i8, ptr %95, i64 -2
-  %99 = load i16, ptr %98, align 2, !tbaa !44, !noalias !87
+  %99 = load i16, ptr %98, align 2, !tbaa !45, !noalias !88
   %100 = getelementptr inbounds i8, ptr %65, i64 -2
-  %101 = load i16, ptr %100, align 2, !tbaa !44, !noalias !87
+  %101 = load i16, ptr %100, align 2, !tbaa !45, !noalias !88
   %102 = icmp eq i16 %99, %101
   br i1 %102, label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21, label %103
 
@@ -5113,7 +5113,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %104 = phi i16 [ %.pre.i10, %._crit_edge.i._crit_edge.i8 ], [ %101, %97 ]
   %105 = phi ptr [ %95, %._crit_edge.i._crit_edge.i8 ], [ %98, %97 ]
   %106 = getelementptr inbounds i8, ptr %105, i64 -2
-  %107 = load i16, ptr %106, align 2, !tbaa !44, !noalias !87
+  %107 = load i16, ptr %106, align 2, !tbaa !45, !noalias !88
   %108 = icmp eq i16 %107, %104
   br i1 %108, label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21, label %109
 
@@ -5121,7 +5121,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %110 = phi i16 [ %.pre26.i5, %._crit_edge.i._crit_edge24.i3 ], [ %104, %103 ]
   %111 = phi ptr [ %95, %._crit_edge.i._crit_edge24.i3 ], [ %106, %103 ]
   %112 = getelementptr inbounds i8, ptr %111, i64 -2
-  %113 = load i16, ptr %112, align 2, !tbaa !44, !noalias !87
+  %113 = load i16, ptr %112, align 2, !tbaa !45, !noalias !88
   %114 = icmp eq i16 %113, %110
   %spec.select.i6 = select i1 %114, ptr %111, ptr %66
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21
@@ -5142,7 +5142,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %.sink.i.i7 = phi ptr [ %95, %97 ], [ %105, %103 ], [ %66, %._crit_edge.i.i1 ], [ %spec.select.i6, %109 ], [ %115, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21.loopexit.split.loop.exit ], [ %116, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21.loopexit.split.loop.exit85 ], [ %117, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21.loopexit.split.loop.exit87 ], [ %76, %.lr.ph.i.i13 ]
   %118 = ptrtoint ptr %.sink.i.i7 to i64
   store i64 %118, ptr %1, align 8
-  %119 = load ptr, ptr %2, align 8, !tbaa !47
+  %119 = load ptr, ptr %2, align 8, !tbaa !48
   %120 = icmp eq ptr %.sink.i.i7, %119
   br i1 %120, label %.critedge, label %121
 
@@ -5155,30 +5155,30 @@ _ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %.sroa.023.0 = phi ptr [ %126, %132 ], [ %14, %121 ]
   %.sroa.031.0 = phi ptr [ %124, %132 ], [ %122, %121 ]
   %124 = getelementptr inbounds i8, ptr %.sroa.031.0, i64 -2
-  %125 = load i16, ptr %124, align 2, !tbaa !44
+  %125 = load i16, ptr %124, align 2, !tbaa !45
   %126 = getelementptr inbounds i8, ptr %.sroa.023.0, i64 -2
-  %127 = load i16, ptr %126, align 2, !tbaa !44
+  %127 = load i16, ptr %126, align 2, !tbaa !45
   %128 = icmp eq i16 %125, %127
   br i1 %128, label %129, label %134
 
 129:                                              ; preds = %.preheader
-  %130 = load ptr, ptr %4, align 8, !tbaa !47
+  %130 = load ptr, ptr %4, align 8, !tbaa !48
   %131 = icmp eq ptr %126, %130
   br i1 %131, label %.critedge, label %132
 
 132:                                              ; preds = %129
   %133 = icmp eq ptr %124, %119
-  br i1 %133, label %.critedge, label %.preheader, !llvm.loop !92
+  br i1 %133, label %.critedge, label %.preheader, !llvm.loop !93
 
 134:                                              ; preds = %.preheader
-  store ptr %122, ptr %1, align 8, !tbaa !47
-  %.pre = load ptr, ptr %2, align 8, !tbaa !47
-  %.pre78 = load ptr, ptr %3, align 8, !tbaa !47
-  br label %.preheader43, !llvm.loop !93
+  store ptr %122, ptr %1, align 8, !tbaa !48
+  %.pre = load ptr, ptr %2, align 8, !tbaa !48
+  %.pre78 = load ptr, ptr %3, align 8, !tbaa !48
+  br label %.preheader43, !llvm.loop !94
 
 .critedge:                                        ; preds = %121, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21, %132, %129, %.lr.ph.i.i, %56, %50, %45, %._crit_edge.i.i, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit96, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit94, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, %5, %9
   %.sink.i.i.sink = phi ptr [ %6, %9 ], [ %6, %5 ], [ %43, %45 ], [ %52, %50 ], [ %7, %._crit_edge.i.i ], [ %spec.select.i, %56 ], [ %62, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit94 ], [ %64, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit96 ], [ %24, %.lr.ph.i.i ], [ %.sink.i.i7, %129 ], [ %119, %132 ], [ %119, %_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit21 ], [ %119, %121 ]
-  store ptr %.sink.i.i.sink, ptr %0, align 8, !tbaa !47
+  store ptr %.sink.i.i.sink, ptr %0, align 8, !tbaa !48
   ret void
 }
 
@@ -5230,76 +5230,77 @@ attributes #17 = { noreturn nounwind }
 !18 = !{!9, !9, i64 0}
 !19 = !{!20, !5, i64 0}
 !20 = !{!"_ZTSSt16reverse_iteratorIPKcE", !5, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"bool", !7, i64 0}
-!26 = distinct !{!26, !22}
-!27 = !{i8 0, i8 2}
-!28 = !{}
-!29 = distinct !{!29, !22}
-!30 = distinct !{!30, !22}
-!31 = distinct !{!31, !22}
-!32 = distinct !{!32, !22}
-!33 = distinct !{!33, !22}
-!34 = distinct !{!34, !22}
-!35 = !{!36, !37, i64 0}
-!36 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE", !37, i64 0, !9, i64 8}
-!37 = !{!"p1 short", !6, i64 0}
-!38 = !{!36, !9, i64 8}
-!39 = !{!40, !37, i64 0}
-!40 = !{!"_ZTSNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEE", !41, i64 0, !9, i64 8, !7, i64 16}
-!41 = !{!"_ZTSNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderE", !37, i64 0}
-!42 = !{!40, !9, i64 8}
-!43 = !{!37, !37, i64 0}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"short", !7, i64 0}
-!46 = !{!41, !37, i64 0}
-!47 = !{!48, !37, i64 0}
-!48 = !{!"_ZTSSt16reverse_iteratorIPKtE", !37, i64 0}
-!49 = distinct !{!49, !22}
-!50 = distinct !{!50, !22}
-!51 = distinct !{!51, !22}
-!52 = distinct !{!52, !22}
-!53 = distinct !{!53, !22}
-!54 = distinct !{!54, !22, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = distinct !{!56, !22}
-!57 = distinct !{!57, !22}
-!58 = distinct !{!58, !22, !55}
-!59 = distinct !{!59, !22}
-!60 = distinct !{!60, !55}
-!61 = distinct !{!61, !22}
-!62 = distinct !{!62, !22}
-!63 = distinct !{!63, !22}
-!64 = distinct !{!64, !22}
-!65 = distinct !{!65, !22}
-!66 = distinct !{!66, !22}
-!67 = distinct !{!67, !22}
-!68 = !{!69, !71}
-!69 = distinct !{!69, !70, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
-!70 = distinct !{!70, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
-!71 = distinct !{!71, !72, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
-!72 = distinct !{!72, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
-!73 = distinct !{!73, !22}
-!74 = !{!75, !77}
-!75 = distinct !{!75, !76, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
-!76 = distinct !{!76, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
-!77 = distinct !{!77, !78, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
-!78 = distinct !{!78, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
-!79 = distinct !{!79, !22}
-!80 = distinct !{!80, !22}
-!81 = !{!82, !84}
-!82 = distinct !{!82, !83, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
-!83 = distinct !{!83, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
-!84 = distinct !{!84, !85, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
-!85 = distinct !{!85, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
-!86 = distinct !{!86, !22}
-!87 = !{!88, !90}
-!88 = distinct !{!88, !89, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
-!89 = distinct !{!89, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
-!90 = distinct !{!90, !91, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
-!91 = distinct !{!91, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
-!92 = distinct !{!92, !22}
-!93 = distinct !{!93, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"bool", !7, i64 0}
+!27 = distinct !{!27, !22, !23}
+!28 = !{i8 0, i8 2}
+!29 = !{}
+!30 = distinct !{!30, !22, !23}
+!31 = distinct !{!31, !22, !23}
+!32 = distinct !{!32, !22, !23}
+!33 = distinct !{!33, !22, !23}
+!34 = distinct !{!34, !22, !23}
+!35 = distinct !{!35, !22, !23}
+!36 = !{!37, !38, i64 0}
+!37 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE", !38, i64 0, !9, i64 8}
+!38 = !{!"p1 short", !6, i64 0}
+!39 = !{!37, !9, i64 8}
+!40 = !{!41, !38, i64 0}
+!41 = !{!"_ZTSNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEE", !42, i64 0, !9, i64 8, !7, i64 16}
+!42 = !{!"_ZTSNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderE", !38, i64 0}
+!43 = !{!41, !9, i64 8}
+!44 = !{!38, !38, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"short", !7, i64 0}
+!47 = !{!42, !38, i64 0}
+!48 = !{!49, !38, i64 0}
+!49 = !{!"_ZTSSt16reverse_iteratorIPKtE", !38, i64 0}
+!50 = distinct !{!50, !22, !23}
+!51 = distinct !{!51, !22, !23}
+!52 = distinct !{!52, !22, !23}
+!53 = distinct !{!53, !22, !23}
+!54 = distinct !{!54, !22, !23}
+!55 = distinct !{!55, !22, !23, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = distinct !{!57, !22, !23}
+!58 = distinct !{!58, !22, !23}
+!59 = distinct !{!59, !22, !23, !56}
+!60 = distinct !{!60, !22, !23}
+!61 = distinct !{!61, !56}
+!62 = distinct !{!62, !22, !23}
+!63 = distinct !{!63, !22, !23}
+!64 = distinct !{!64, !22, !23}
+!65 = distinct !{!65, !22, !23}
+!66 = distinct !{!66, !22, !23}
+!67 = distinct !{!67, !22, !23}
+!68 = distinct !{!68, !22, !23}
+!69 = !{!70, !72}
+!70 = distinct !{!70, !71, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
+!71 = distinct !{!71, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
+!72 = distinct !{!72, !73, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
+!73 = distinct !{!73, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
+!74 = distinct !{!74, !22, !23}
+!75 = !{!76, !78}
+!76 = distinct !{!76, !77, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
+!77 = distinct !{!77, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
+!78 = distinct !{!78, !79, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
+!79 = distinct !{!79, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
+!80 = distinct !{!80, !22, !23}
+!81 = distinct !{!81, !22, !23}
+!82 = !{!83, !85}
+!83 = distinct !{!83, !84, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
+!84 = distinct !{!84, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
+!85 = distinct !{!85, !86, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
+!86 = distinct !{!86, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
+!87 = distinct !{!87, !22, !23}
+!88 = !{!89, !91}
+!89 = distinct !{!89, !90, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
+!90 = distinct !{!90, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
+!91 = distinct !{!91, !92, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
+!92 = distinct !{!92, !"_ZSt9__find_ifISt16reverse_iteratorIPKtEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
+!93 = distinct !{!93, !22, !23}
+!94 = distinct !{!94, !22, !23}

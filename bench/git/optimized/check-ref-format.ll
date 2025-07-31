@@ -154,7 +154,7 @@ check_ref_format_branch.exit:                     ; preds = %skip_prefix.exit.i
   %.1 = phi i32 [ %50, %49 ], [ %46, %45 ], [ %42, %41 ], [ %.03962, %37 ], [ %.03962, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread85, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge.thread85, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph
   %53 = trunc nuw nsw i64 %indvars.iv to i32
@@ -196,12 +196,12 @@ check_ref_format_branch.exit:                     ; preds = %skip_prefix.exit.i
   %68 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %69 = icmp eq i8 %66, 47
   %or.cond.i = and i1 %.010.i, %69
-  br i1 %or.cond.i, label %65, label %70, !llvm.loop !16
+  br i1 %or.cond.i, label %65, label %70, !llvm.loop !17
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 1
   store i8 %66, ptr %.0.ph.i, align 1, !tbaa !12
-  br label %.outer.i, !llvm.loop !16
+  br label %.outer.i, !llvm.loop !17
 
 collapse_slashes.exit:                            ; preds = %65
   store i8 0, ptr %.0.ph.i, align 1, !tbaa !12
@@ -299,7 +299,8 @@ attributes #10 = { nounwind willreturn memory(read) }
 !10 = !{!"strbuf", !11, i64 0, !11, i64 8, !5, i64 16}
 !11 = !{!"long", !7, i64 0}
 !12 = !{!7, !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}

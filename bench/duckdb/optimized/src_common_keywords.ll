@@ -57,7 +57,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery17ScanKeywordLookupEPKcPKNS_13P
   %26 = ashr exact i64 %25, 4
   %27 = sdiv i64 %26, 2
   %28 = getelementptr inbounds %"struct.duckdb_libpgquery::PGScanKeyword", ptr %.036, i64 %27
-  %29 = load ptr, ptr %28, align 8, !tbaa !8
+  %29 = load ptr, ptr %28, align 8, !tbaa !9
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %9) #5
   %.not46 = icmp eq i32 %30, 0
   %31 = icmp slt i32 %30, 0
@@ -65,7 +65,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery17ScanKeywordLookupEPKcPKNS_13P
   %33 = getelementptr inbounds i8, ptr %28, i64 -16
   %.241 = select i1 %31, ptr %.039, ptr %33
   %.238 = select i1 %31, ptr %32, ptr %.036
-  br i1 %.not46, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %21, !llvm.loop !13
+  br i1 %.not46, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %21, !llvm.loop !14
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %21, %22
   %.2 = phi ptr [ %28, %22 ], [ null, %21 ]
@@ -107,11 +107,12 @@ attributes #7 = { builtin nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !10, i64 0}
-!9 = !{!"_ZTSN17duckdb_libpgquery13PGScanKeywordE", !10, i64 0, !12, i64 8, !12, i64 10}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !4, i64 0}
-!12 = !{!"short", !4, i64 0}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"_ZTSN17duckdb_libpgquery13PGScanKeywordE", !11, i64 0, !13, i64 8, !13, i64 10}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !4, i64 0}
+!13 = !{!"short", !4, i64 0}
+!14 = distinct !{!14, !7, !8}

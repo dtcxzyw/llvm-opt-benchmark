@@ -654,7 +654,7 @@ define internal fastcc ptr @proc_lookupfd_common(ptr %.-72.val, ptr noundef %0, 
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %3, align 8
   tail call void @fput(ptr noundef nonnull %12) #7
-  %17 = call ptr %1(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %3) #7, !callees !12
+  %17 = call ptr %1(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %3) #7, !callees !13
   br label %18
 
 18:                                               ; preds = %14, %11, %9
@@ -811,7 +811,7 @@ define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr readn
   %21 = zext i32 %17 to i64
   %22 = load i32, ptr %20, align 8
   %23 = zext i32 %22 to i64
-  %24 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %23, i64 %21) #7, !srcloc !13
+  %24 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %23, i64 %21) #7, !srcloc !14
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = and i64 %24, %21
@@ -829,14 +829,14 @@ define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr readn
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 %21) #7, !srcloc !14
+  %40 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 %21) #7, !srcloc !15
   %41 = icmp ult i8 %40, 2
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i8 %40, 0
   %43 = or i32 %37, 524288
   %44 = select i1 %42, i32 %37, i32 %43
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, ptr nonnull elementtype(i64) %45) #7, !srcloc !15
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, ptr nonnull elementtype(i64) %45) #7, !srcloc !16
   br label %46
 
 46:                                               ; preds = %34, %14
@@ -947,9 +947,10 @@ attributes #8 = { nounwind memory(none) }
 !7 = !{!"branch_weights", i32 2000, i32 1}
 !8 = !{i64 2150261101}
 !9 = !{!"auto-init"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{ptr @proc_fd_instantiate, ptr @proc_fdinfo_instantiate}
-!13 = !{i64 276394}
-!14 = !{i64 2149025099, i64 2149025173}
-!15 = !{i64 2148002266, i64 2148002305, i64 2148002326, i64 2148002363, i64 2148002386, i64 2148002256}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{ptr @proc_fd_instantiate, ptr @proc_fdinfo_instantiate}
+!14 = !{i64 276394}
+!15 = !{i64 2149025099, i64 2149025173}
+!16 = !{i64 2148002266, i64 2148002305, i64 2148002326, i64 2148002363, i64 2148002386, i64 2148002256}

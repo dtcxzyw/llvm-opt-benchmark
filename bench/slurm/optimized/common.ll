@@ -171,7 +171,7 @@ define dso_local noundef ptr @replus(ptr noundef returned captures(ret: address,
 
 6:                                                ; preds = %2, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %2, !llvm.loop !11
+  br label %2, !llvm.loop !12
 
 7:                                                ; preds = %2
   ret ptr %0
@@ -285,7 +285,7 @@ define dso_local range(i32 0, 23) i32 @build_nodes_bitmap(ptr noundef %0, ptr no
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
-  br i1 %38, label %.lr.ph.i, label %_find_node_inx.exit, !llvm.loop !12
+  br i1 %38, label %.lr.ph.i, label %_find_node_inx.exit, !llvm.loop !13
 
 _find_node_inx.exit:                              ; preds = %33, %.preheader.i, %21, %24
   tail call void @free(ptr noundef %15) #16
@@ -301,7 +301,7 @@ _find_node_inx.exit:                              ; preds = %33, %.preheader.i, 
 .backedge:                                        ; preds = %39, %_find_node_inx.exit
   %41 = tail call ptr @hostlist_shift(ptr noundef nonnull %11) #16
   %.not16 = icmp eq ptr %41, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
   tail call void @hostlist_destroy(ptr noundef nonnull %11) #16
@@ -437,7 +437,7 @@ free_switch_nodes_maps.exit:                      ; preds = %free_switch_nodes_m
   %44 = load i32, ptr %42, align 8
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ult i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph20, label %.loopexit, !llvm.loop !14
+  br i1 %46, label %.lr.ph20, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %41, %18, %9, %4
   %.09 = phi i32 [ -1, %9 ], [ -1, %4 ], [ 0, %18 ], [ 0, %41 ]
@@ -470,7 +470,7 @@ define dso_local i32 @get_row_number(ptr noundef %0, ptr noundef %1) local_unnam
   br label %7
 
 7:                                                ; preds = %7, %6
-  br label %7, !llvm.loop !15
+  br label %7, !llvm.loop !16
 
 8:                                                ; preds = %2
   %9 = call i32 @gtk_tree_model_get_iter(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %1) #16
@@ -482,7 +482,7 @@ define dso_local i32 @get_row_number(ptr noundef %0, ptr noundef %1) local_unnam
   br label %11
 
 11:                                               ; preds = %11, %10
-  br label %11, !llvm.loop !16
+  br label %11, !llvm.loop !17
 
 12:                                               ; preds = %8
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4, i32 noundef -1) #16
@@ -549,7 +549,7 @@ define dso_local ptr @find_col_name(ptr noundef readonly captures(address) %0, i
 
 9:                                                ; preds = %5
   %10 = icmp eq i32 %7, %1
-  br i1 %10, label %11, label %3, !llvm.loop !17
+  br i1 %10, label %11, label %3, !llvm.loop !18
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.05, i64 112
@@ -577,7 +577,7 @@ define dso_local ptr @get_pointer(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %8
 
 8:                                                ; preds = %8, %7
-  br label %8, !llvm.loop !18
+  br label %8, !llvm.loop !19
 
 9:                                                ; preds = %3
   %10 = call i32 @gtk_tree_model_get_iter(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %1) #16
@@ -589,7 +589,7 @@ define dso_local ptr @get_pointer(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %12
 
 12:                                               ; preds = %12, %11
-  br label %12, !llvm.loop !19
+  br label %12, !llvm.loop !20
 
 13:                                               ; preds = %9
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %2, ptr noundef nonnull %5, i32 noundef -1) #16
@@ -644,14 +644,14 @@ define dso_local void @make_fields_menu(ptr noundef %0, ptr noundef %1, ptr noun
   %.not31.us = icmp ne ptr %24, null
   %.not32.us = icmp eq i32 %20, %.037.us
   %or.cond.us = and i1 %.not32.us, %.not31.us
-  br i1 %or.cond.us, label %25, label %16, !llvm.loop !20
+  br i1 %or.cond.us, label %25, label %16, !llvm.loop !21
 
 25:                                               ; preds = %22
   %26 = tail call ptr @gtk_check_menu_item_new_with_label(ptr noundef nonnull %24) #16
   %27 = tail call i64 @gtk_check_menu_item_get_type() #17
   %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef %27) #16
   %29 = getelementptr inbounds nuw i8, ptr %.1.us, i64 120
-  %30 = load i8, ptr %29, align 8, !range !21, !noundef !22
+  %30 = load i8, ptr %29, align 8, !range !22, !noundef !23
   %31 = zext nneg i8 %30 to i32
   tail call void @gtk_check_menu_item_set_active(ptr noundef %28, i32 noundef %31) #16
   %32 = tail call i64 @g_signal_connect_data(ptr noundef %26, ptr noundef nonnull @.str.10, ptr noundef nonnull @_toggle_state_changed, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0) #16
@@ -663,7 +663,7 @@ define dso_local void @make_fields_menu(ptr noundef %0, ptr noundef %1, ptr noun
 .loopexit.us:                                     ; preds = %16, %18, %25
   %35 = add nuw nsw i32 %.037.us, 1
   %exitcond46.not = icmp eq i32 %35, %3
-  br i1 %exitcond46.not, label %.loopexit33, label %.preheader.us, !llvm.loop !23
+  br i1 %exitcond46.not, label %.loopexit33, label %.preheader.us, !llvm.loop !24
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %.037 = phi i32 [ %56, %.loopexit ], [ 0, %.preheader.lr.ph ]
@@ -687,14 +687,14 @@ define dso_local void @make_fields_menu(ptr noundef %0, ptr noundef %1, ptr noun
   %.not31 = icmp ne ptr %44, null
   %.not32 = icmp eq i32 %40, %.037
   %or.cond = and i1 %.not32, %.not31
-  br i1 %or.cond, label %45, label %36, !llvm.loop !20
+  br i1 %or.cond, label %45, label %36, !llvm.loop !21
 
 45:                                               ; preds = %42
   %46 = tail call ptr @gtk_check_menu_item_new_with_label(ptr noundef nonnull %44) #16
   %47 = tail call i64 @gtk_check_menu_item_get_type() #17
   %48 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %47) #16
   %49 = getelementptr inbounds nuw i8, ptr %.1, i64 120
-  %50 = load i8, ptr %49, align 8, !range !21, !noundef !22
+  %50 = load i8, ptr %49, align 8, !range !22, !noundef !23
   %51 = zext nneg i8 %50 to i32
   tail call void @gtk_check_menu_item_set_active(ptr noundef %48, i32 noundef %51) #16
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 176
@@ -708,7 +708,7 @@ define dso_local void @make_fields_menu(ptr noundef %0, ptr noundef %1, ptr noun
 .loopexit:                                        ; preds = %38, %36, %45
   %56 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %56, %3
-  br i1 %exitcond.not, label %.loopexit33, label %.preheader, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit33, label %.preheader, !llvm.loop !26
 
 .loopexit33:                                      ; preds = %.loopexit, %.loopexit.us, %10, %5
   ret void
@@ -764,7 +764,7 @@ define internal void @_popup_state_changed(ptr readnone captures(none) %0, ptr n
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 8, !range !21, !noundef !22
+  %6 = load i8, ptr %5, align 8, !range !22, !noundef !23
   %not. = xor i8 %6, 1
   store i8 %not., ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -779,7 +779,7 @@ define internal void @_popup_state_changed(ptr readnone captures(none) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define internal void @_toggle_state_changed(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load i8, ptr %3, align 8, !range !21, !noundef !22
+  %4 = load i8, ptr %3, align 8, !range !22, !noundef !23
   %not. = xor i8 %4, 1
   store i8 %not., ptr %3, align 8
   store i8 1, ptr @toggled, align 1
@@ -848,7 +848,7 @@ replus.exit.preheader:                            ; preds = %18
 
 25:                                               ; preds = %24, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %18, !llvm.loop !11
+  br label %18, !llvm.loop !12
 
 .lr.ph34:                                         ; preds = %.lr.ph.preheader, %replus.exit.backedge
   %.12733 = phi ptr [ %26, %replus.exit.backedge ], [ %.029, %.lr.ph.preheader ]
@@ -862,7 +862,7 @@ replus.exit.backedge:                             ; preds = %.lr.ph34, %32
   %29 = getelementptr inbounds nuw i8, ptr %.12733, i64 200
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, -1
-  br i1 %31, label %.loopexit, label %.lr.ph34, !llvm.loop !26
+  br i1 %31, label %.loopexit, label %.lr.ph34, !llvm.loop !27
 
 32:                                               ; preds = %.lr.ph34
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18
@@ -879,7 +879,7 @@ replus.exit.backedge:                             ; preds = %.lr.ph34, %32
   %37 = load ptr, ptr %14, align 8
   %38 = tail call ptr @list_next(ptr noundef %15) #16
   %.not21 = icmp eq ptr %38, null
-  br i1 %.not21, label %._crit_edge, label %.preheader, !llvm.loop !27
+  br i1 %.not21, label %._crit_edge, label %.preheader, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.loopexit, %12
   tail call void @list_iterator_destroy(ptr noundef %15) #16
@@ -925,7 +925,7 @@ define dso_local void @make_options_menu(ptr noundef %0, ptr noundef %1, ptr nou
   br label %16
 
 16:                                               ; preds = %16, %15
-  br label %16, !llvm.loop !28
+  br label %16, !llvm.loop !29
 
 17:                                               ; preds = %4
   %18 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %0) #16
@@ -958,7 +958,7 @@ define dso_local void @make_options_menu(ptr noundef %0, ptr noundef %1, ptr nou
   %30 = getelementptr inbounds nuw i8, ptr %.025, i64 200
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %32, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds nuw i8, ptr %.025, i64 176
@@ -1223,7 +1223,7 @@ define dso_local void @create_page(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %42
 
 42:                                               ; preds = %42, %41
-  br label %42, !llvm.loop !30
+  br label %42, !llvm.loop !31
 
 43:                                               ; preds = %20
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -1282,7 +1282,7 @@ define dso_local ptr @create_treeview(ptr noundef initializes((80, 88)) %0, ptr 
   store ptr %0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %8, align 8
-  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 508), align 4, !range !21, !noundef !22
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 508), align 4, !range !22, !noundef !23
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %12
 
@@ -1467,7 +1467,7 @@ define dso_local range(i32 0, 2) i32 @row_clicked(ptr noundef %0, ptr noundef %1
   br label %80
 
 77:                                               ; preds = %50
-  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 60), align 4, !range !21, !noundef !22
+  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 60), align 4, !range !22, !noundef !23
   %79 = xor i8 %78, 1
   %not. = zext nneg i8 %79 to i32
   br label %80
@@ -1597,7 +1597,7 @@ define dso_local ptr @create_treeview_2cols_attach_to_table(ptr noundef %0) loca
   %5 = tail call ptr (i32, ...) @gtk_tree_store_new(i32 noundef 3, i64 noundef 64, i64 noundef 64, i64 noundef 64) #16
   %6 = tail call ptr @gtk_tree_view_column_new() #16
   %7 = tail call ptr @gtk_cell_renderer_text_new() #16
-  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 508), align 4, !range !21, !noundef !22
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 508), align 4, !range !22, !noundef !23
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %11
 
@@ -1683,7 +1683,7 @@ define dso_local void @create_treestore(ptr noundef %0, ptr noundef readonly cap
   store i64 %10, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %15 = call ptr @gtk_tree_store_newv(i32 noundef %2, ptr noundef nonnull %7) #16
@@ -1705,7 +1705,7 @@ define dso_local void @create_treestore(ptr noundef %0, ptr noundef readonly cap
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_add_col_to_treeview.exit.thread ], [ 1, %17 ]
   %21 = getelementptr inbounds nuw %struct.display_data, ptr %1, i64 %indvars.iv72
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load i8, ptr %22, align 8, !range !21, !noundef !22
+  %23 = load i8, ptr %22, align 8, !range !22, !noundef !23
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %_add_col_to_treeview.exit.thread
 
@@ -1887,7 +1887,7 @@ _add_col_to_treeview.exit:                        ; preds = %56, %57
 _add_col_to_treeview.exit.thread:                 ; preds = %28, %70, %91, %98, %105, %_add_col_to_treeview.exit, %.lr.ph69
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %6
-  br i1 %exitcond76.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !32
+  br i1 %exitcond76.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !33
 
 ._crit_edge70:                                    ; preds = %_add_col_to_treeview.exit.thread, %17
   %107 = icmp sgt i32 %3, -1
@@ -1995,7 +1995,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %28 = getelementptr inbounds i8, ptr %20, i64 %indvars.iv.next
   %29 = load i8, ptr %28, align 1
   %.not66 = icmp eq i8 %29, 0
-  br i1 %.not66, label %.critedge.thread, label %.lr.ph, !llvm.loop !33
+  br i1 %.not66, label %.critedge.thread, label %.lr.ph, !llvm.loop !34
 
 .critedge:                                        ; preds = %.lr.ph
   %30 = getelementptr inbounds i8, ptr %20, i64 %indvars.iv
@@ -2025,7 +2025,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %43 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv.next143
   %44 = load i8, ptr %43, align 1
   %.not77 = icmp eq i8 %44, 0
-  br i1 %.not77, label %.critedge5.thread, label %.lr.ph104, !llvm.loop !34
+  br i1 %.not77, label %.critedge5.thread, label %.lr.ph104, !llvm.loop !35
 
 .critedge5:                                       ; preds = %.lr.ph104
   switch i8 %37, label %.critedge5.thread [
@@ -2055,7 +2055,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %53 = getelementptr inbounds i8, ptr %33, i64 %52
   %54 = load i8, ptr %53, align 1
   %.not = icmp eq i8 %54, 0
-  br i1 %.not, label %.critedge.thread, label %.lr.ph.preheader, !llvm.loop !35
+  br i1 %.not, label %.critedge.thread, label %.lr.ph.preheader, !llvm.loop !36
 
 .critedge.thread:                                 ; preds = %.critedge5.thread, %27, %.preheader83
   %.05998 = phi i64 [ 0, %.preheader83 ], [ %.059107, %27 ], [ %51, %.critedge5.thread ]
@@ -2092,7 +2092,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %67 = getelementptr inbounds i8, ptr %59, i64 %indvars.iv.next145
   %68 = load i8, ptr %67, align 1
   %.not70 = icmp eq i8 %68, 0
-  br i1 %.not70, label %.critedge7.thread, label %.lr.ph113, !llvm.loop !36
+  br i1 %.not70, label %.critedge7.thread, label %.lr.ph113, !llvm.loop !37
 
 .critedge7:                                       ; preds = %.lr.ph113
   %69 = getelementptr inbounds i8, ptr %59, i64 %indvars.iv144
@@ -2122,7 +2122,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %82 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv.next148
   %83 = load i8, ptr %82, align 1
   %.not74 = icmp eq i8 %83, 0
-  br i1 %.not74, label %.critedge9.thread, label %.lr.ph118, !llvm.loop !37
+  br i1 %.not74, label %.critedge9.thread, label %.lr.ph118, !llvm.loop !38
 
 .critedge9:                                       ; preds = %.lr.ph118
   switch i8 %76, label %.critedge9.thread [
@@ -2152,7 +2152,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %92 = getelementptr inbounds i8, ptr %72, i64 %91
   %93 = load i8, ptr %92, align 1
   %.not69 = icmp eq i8 %93, 0
-  br i1 %.not69, label %.critedge7.thread, label %.lr.ph113.preheader, !llvm.loop !38
+  br i1 %.not69, label %.critedge7.thread, label %.lr.ph113.preheader, !llvm.loop !39
 
 .critedge7.thread:                                ; preds = %.critedge9.thread, %66, %.critedge.thread
   %.05891 = phi i64 [ 0, %.critedge.thread ], [ %.058121, %66 ], [ %90, %.critedge9.thread ]
@@ -2215,7 +2215,7 @@ define internal i32 @_sort_iter_compare_func_char(ptr noundef %0, ptr noundef %1
 24:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge26, label %25, !llvm.loop !39
+  br i1 %exitcond.not, label %.critedge26, label %25, !llvm.loop !40
 
 25:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
@@ -2387,7 +2387,7 @@ define dso_local range(i32 0, 2) i32 @left_button_pressed(ptr noundef %0, ptr no
   br label %26
 
 26:                                               ; preds = %26, %25
-  br label %26, !llvm.loop !40
+  br label %26, !llvm.loop !41
 
 27:                                               ; preds = %23
   %28 = load i64, ptr @left_button_pressed.last_time, align 8
@@ -2413,7 +2413,7 @@ define dso_local range(i32 0, 2) i32 @left_button_pressed(ptr noundef %0, ptr no
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr @left_button_pressed.last_user_data, align 8
-  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 60), align 4, !range !21, !noundef !22
+  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 60), align 4, !range !22, !noundef !23
   %41 = xor i8 %40, 1
   %not. = zext nneg i8 %41 to i32
   store i64 %6, ptr @left_button_pressed.last_time, align 8
@@ -2740,7 +2740,7 @@ define dso_local noundef i32 @delete_popup(ptr readnone captures(none) %0, ptr r
 16:                                               ; preds = %10, %.lr.ph
   %17 = tail call ptr @list_next(ptr noundef %5) #16
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .loopexit:                                        ; preds = %16, %3, %14
   tail call void @list_iterator_destroy(ptr noundef %5) #16
@@ -2784,7 +2784,7 @@ define internal void @_handle_response(ptr readnone captures(none) %0, i32 nound
   tail call void @destroy_popup_info(ptr noundef nonnull %18)
   %20 = tail call ptr @list_next(ptr noundef %16) #16
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %delete_popups.exit, label %.lr.ph.i, !llvm.loop !42
+  br i1 %.not.i, label %delete_popups.exit, label %.lr.ph.i, !llvm.loop !43
 
 delete_popups.exit:                               ; preds = %.lr.ph.i, %14
   tail call void @list_iterator_destroy(ptr noundef %16) #16
@@ -2836,7 +2836,7 @@ define internal noundef i32 @_frame_callback(ptr readnone captures(none) %0, ptr
   tail call void @gtk_window_resize(ptr noundef %22, i32 noundef %23, i32 noundef %24) #16
   %25 = tail call ptr @list_next(ptr noundef %15) #16
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %18, %7
   tail call void @list_iterator_destroy(ptr noundef %15) #16
@@ -2873,7 +2873,7 @@ define dso_local void @setup_popup_info(ptr noundef captures(none) initializes((
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %11, i64 96, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3103,7 +3103,7 @@ define dso_local noundef i32 @delete_popups() local_unnamed_addr #2 {
   tail call void @destroy_popup_info(ptr noundef nonnull %4)
   %6 = tail call ptr @list_next(ptr noundef %2) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   tail call void @list_iterator_destroy(ptr noundef %2) #16
@@ -3141,7 +3141,7 @@ switch.lookup:                                    ; preds = %1
   %11 = call i32 @sleep(i32 noundef %10) #16
   %12 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store ptr null, ptr %8, align 8
@@ -3192,7 +3192,7 @@ define dso_local void @set_for_update(ptr noundef %0, i32 noundef %1) local_unna
   call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %9, ptr noundef nonnull %3, i32 noundef %1, i32 noundef 0, i32 noundef -1) #16
   %10 = call i32 @gtk_tree_model_iter_next(ptr noundef %0, ptr noundef nonnull %3) #16
   %.not8 = icmp eq i32 %10, 0
-  br i1 %.not8, label %.loopexit, label %8, !llvm.loop !46
+  br i1 %.not8, label %.loopexit, label %8, !llvm.loop !47
 
 .loopexit:                                        ; preds = %8, %5
   call void @gtk_tree_path_free(ptr noundef nonnull %4) #16
@@ -3237,7 +3237,7 @@ define dso_local void @remove_old(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not7, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %8, %12
-  br label %.preheader, !llvm.loop !47
+  br label %.preheader, !llvm.loop !48
 
 12:                                               ; preds = %.preheader
   %13 = call i32 @gtk_tree_model_iter_next(ptr noundef %0, ptr noundef nonnull %3) #16
@@ -3275,7 +3275,7 @@ define dso_local ptr @create_pulldown_combo(ptr noundef readonly captures(none) 
   %10 = getelementptr inbounds nuw %struct.display_data, ptr %0, i64 %indvars.iv.next, i32 1
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %12 = tail call i64 @gtk_tree_model_get_type() #17
@@ -3344,7 +3344,7 @@ define dso_local ptr @str_tolower(ptr noundef readonly captures(none) %0) local_
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %5
@@ -3672,7 +3672,7 @@ define dso_local void @add_display_treestore_line(i32 noundef %0, ptr noundef %1
   %19 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %10) #16
   %20 = call i32 @gtk_tree_model_iter_next(ptr noundef %19, ptr noundef %2) #16
   %.not19 = icmp eq i32 %20, 0
-  br i1 %.not19, label %.thread, label %13, !llvm.loop !50
+  br i1 %.not19, label %.thread, label %13, !llvm.loop !51
 
 .thread:                                          ; preds = %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
@@ -3729,7 +3729,7 @@ define dso_local void @add_display_treestore_line_with_font(i32 noundef %0, ptr 
   %20 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %11) #16
   %21 = call i32 @gtk_tree_model_iter_next(ptr noundef %20, ptr noundef %2) #16
   %.not20 = icmp eq i32 %21, 0
-  br i1 %.not20, label %.thread, label %14, !llvm.loop !51
+  br i1 %.not20, label %.thread, label %14, !llvm.loop !52
 
 .thread:                                          ; preds = %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
@@ -3814,7 +3814,7 @@ define dso_local ptr @visible_to_str(ptr noundef readonly captures(none) %0) loc
 4:                                                ; preds = %1, %14
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %14 ]
   %5 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %indvars.iv
-  %6 = load i8, ptr %5, align 1, !range !21, !noundef !22
+  %6 = load i8, ptr %5, align 1, !range !22, !noundef !23
   %7 = trunc nuw i8 %6 to i1
   %8 = icmp ne i64 %indvars.iv, 9
   %or.cond = and i1 %8, %7
@@ -3846,7 +3846,7 @@ page_to_str.exit:                                 ; preds = %12, %switch.lookup
 14:                                               ; preds = %4, %page_to_str.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %15, label %4, !llvm.loop !52
+  br i1 %exitcond.not, label %15, label %4, !llvm.loop !53
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %2, align 8
@@ -3897,7 +3897,7 @@ define dso_local void @select_admin_common(ptr noundef %0, ptr noundef %1, ptr n
   %24 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not23 = icmp eq ptr %25, null
-  br i1 %.not23, label %._crit_edge, label %17, !llvm.loop !53
+  br i1 %.not23, label %._crit_edge, label %17, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %17, %13
   call void @g_list_foreach(ptr noundef %15, ptr noundef nonnull @gtk_tree_path_free, ptr noundef null) #16
@@ -3946,7 +3946,7 @@ define dso_local void @set_column_width_fixed(ptr noundef %0, i32 noundef %1, i3
   %12 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not11 = icmp eq ptr %13, null
-  br i1 %.not11, label %14, label %.preheader, !llvm.loop !54
+  br i1 %.not11, label %14, label %.preheader, !llvm.loop !55
 
 14:                                               ; preds = %11
   tail call void @g_list_free(ptr noundef nonnull %4) #16
@@ -4131,50 +4131,51 @@ attributes #18 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = distinct !{!23, !9, !10, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !10}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}
-!43 = distinct !{!43, !9, !10}
-!44 = distinct !{!44, !9, !10}
-!45 = distinct !{!45, !9, !10}
-!46 = distinct !{!46, !10}
-!47 = distinct !{!47, !10}
-!48 = distinct !{!48, !9, !10}
-!49 = distinct !{!49, !9, !10}
-!50 = distinct !{!50, !10}
-!51 = distinct !{!51, !10}
-!52 = distinct !{!52, !9, !10}
-!53 = distinct !{!53, !9, !10}
-!54 = distinct !{!54, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = distinct !{!24, !9, !10, !11, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !9, !10, !11}
+!27 = distinct !{!27, !9, !10, !11}
+!28 = distinct !{!28, !9, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !9, !10, !11}
+!31 = distinct !{!31, !10, !11}
+!32 = distinct !{!32, !9, !10, !11}
+!33 = distinct !{!33, !9, !10, !11}
+!34 = distinct !{!34, !9, !10, !11}
+!35 = distinct !{!35, !9, !10, !11}
+!36 = distinct !{!36, !9, !10, !11}
+!37 = distinct !{!37, !9, !10, !11}
+!38 = distinct !{!38, !9, !10, !11}
+!39 = distinct !{!39, !9, !10, !11}
+!40 = distinct !{!40, !9, !10, !11}
+!41 = distinct !{!41, !10, !11}
+!42 = distinct !{!42, !9, !10, !11}
+!43 = distinct !{!43, !9, !10, !11}
+!44 = distinct !{!44, !9, !10, !11}
+!45 = distinct !{!45, !9, !10, !11}
+!46 = distinct !{!46, !9, !10, !11}
+!47 = distinct !{!47, !10, !11}
+!48 = distinct !{!48, !10, !11}
+!49 = distinct !{!49, !9, !10, !11}
+!50 = distinct !{!50, !9, !10, !11}
+!51 = distinct !{!51, !10, !11}
+!52 = distinct !{!52, !10, !11}
+!53 = distinct !{!53, !9, !10, !11}
+!54 = distinct !{!54, !9, !10, !11}
+!55 = distinct !{!55, !9, !10, !11}

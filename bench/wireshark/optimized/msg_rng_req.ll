@@ -469,7 +469,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_req_decoder(ptr noundef %0, ptr no
   br label %116
 
 84:                                               ; preds = %26
-  %85 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %85 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %87, label %90
 
@@ -484,7 +484,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_req_decoder(ptr noundef %0, ptr no
   br label %116
 
 93:                                               ; preds = %26, %26
-  %94 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %94 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
   %95 = trunc nuw i8 %94 to i1
   %or.cond.v = select i1 %95, i32 140, i32 150
   %or.cond = icmp eq i32 %15, %or.cond.v
@@ -512,7 +512,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_req_decoder(ptr noundef %0, ptr no
 .backedge:                                        ; preds = %104, %116
   %.0.be = phi i32 [ %117, %116 ], [ %107, %104 ]
   %108 = icmp ult i32 %.0.be, %6
-  br i1 %108, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %108, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 109:                                              ; preds = %26
   %110 = load i32, ptr @ett_mac_mgmt_msg_rng_req_decoder, align 4
@@ -577,8 +577,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}

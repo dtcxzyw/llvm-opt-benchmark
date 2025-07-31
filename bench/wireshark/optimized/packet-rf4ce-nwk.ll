@@ -764,12 +764,12 @@ define internal void @uat_security_records_type_tostr_cb(ptr noundef readonly ca
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !9
 
 18:                                               ; preds = %.lr.ph20
   %19 = load i32, ptr %15, align 8
   %20 = icmp eq i32 %19, %10
-  br i1 %20, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %20, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
 
 ._crit_edge21:                                    ; preds = %18, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %17, %18 ]
@@ -976,7 +976,7 @@ define internal void @uat_sec_record_post_update() #0 {
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
   %23 = select i1 %19, i1 %22, i1 false
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1255,7 +1255,7 @@ define internal fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr nound
   store i32 %66, ptr %2, align 4
   %67 = add nuw nsw i32 %.06572, 1
   %exitcond.not = icmp eq i32 %67, %57
-  br i1 %exitcond.not, label %.loopexit71, label %61, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit71, label %61, !llvm.loop !11
 
 .loopexit71:                                      ; preds = %61, %54
   %68 = phi i32 [ %55, %54 ], [ %66, %61 ]
@@ -1280,7 +1280,7 @@ define internal fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr nound
   store i32 %79, ptr %2, align 4
   %80 = add nuw nsw i32 %.073, 1
   %exitcond74.not = icmp eq i32 %80, %70
-  br i1 %exitcond74.not, label %.loopexit, label %74, !llvm.loop !11
+  br i1 %exitcond74.not, label %.loopexit, label %74, !llvm.loop !12
 
 .loopexit:                                        ; preds = %74, %.loopexit71
   ret void
@@ -1360,7 +1360,7 @@ define internal fastcc noundef zeroext i1 @rf4ce_security_parse_sec_str(ptr noun
   %18 = getelementptr i8, ptr %.14148.us, i64 1
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next55, 16
-  br i1 %exitcond56.not, label %.loopexit, label %.split.us, !llvm.loop !12
+  br i1 %exitcond56.not, label %.loopexit, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %.split.preheader, %36
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %36 ]
@@ -1411,7 +1411,7 @@ define internal fastcc noundef zeroext i1 @rf4ce_security_parse_sec_str(ptr noun
   %.2 = load i8, ptr %37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %22, %27, %36, %16, %.split.us, %2
   %.039 = phi i1 [ false, %2 ], [ %.not47.us.not.not, %.split.us ], [ %.not47.us.not.not, %16 ], [ true, %36 ], [ false, %27 ], [ false, %22 ]
@@ -1463,12 +1463,13 @@ attributes #11 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8}

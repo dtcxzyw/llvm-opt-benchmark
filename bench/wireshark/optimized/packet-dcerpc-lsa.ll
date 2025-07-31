@@ -5886,7 +5886,7 @@ lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit: ; 
   %38 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i54, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0)
   %39 = add nuw nsw i32 %.010.i53, 1
   %exitcond.not.i55 = icmp eq i32 %39, 16
-  br i1 %exitcond.not.i55, label %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_salt.exit, label %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit, !llvm.loop !10
+  br i1 %exitcond.not.i55, label %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_salt.exit, label %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit, !llvm.loop !11
 
 lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_salt.exit: ; preds = %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit
   %40 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfoInternalAES_cipher, align 4
@@ -15410,6 +15410,7 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

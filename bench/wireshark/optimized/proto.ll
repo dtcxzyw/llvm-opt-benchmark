@@ -689,7 +689,7 @@ define hidden void @proto_init(ptr noundef readonly captures(address_is_null) %0
   %43 = getelementptr inbounds nuw i8, ptr %.03746, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not41 = icmp eq ptr %44, null
-  br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 45:                                               ; preds = %._crit_edge
   tail call void %2(i32 noundef 5, ptr noundef null, ptr noundef %3)
@@ -712,7 +712,7 @@ define hidden void @proto_init(ptr noundef readonly captures(address_is_null) %0
   %49 = getelementptr inbounds nuw i8, ptr %.03848, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not43 = icmp eq ptr %50, null
-  br i1 %.not43, label %._crit_edge51, label %.lr.ph50, !llvm.loop !9
+  br i1 %.not43, label %._crit_edge51, label %.lr.ph50, !llvm.loop !10
 
 51:                                               ; preds = %._crit_edge51
   tail call void %2(i32 noundef 7, ptr noundef null, ptr noundef %3)
@@ -774,13 +774,13 @@ define internal fastcc void @proto_cleanup_base() unnamed_addr #0 {
 14:                                               ; preds = %.lr.ph
   %15 = load i32, ptr @gpa_hfinfo.0, align 8
   %16 = icmp ugt i32 %12, %15
-  %17 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %17 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %18 = trunc nuw i8 %17 to i1
   %or.cond = select i1 %16, i1 %18, i1 false
   br i1 %or.cond, label %.loopexit, label %20
 
 19:                                               ; preds = %.lr.ph
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %.loopexit, label %.thread
 
@@ -867,7 +867,7 @@ define internal fastcc void @proto_cleanup_base() unnamed_addr #0 {
   tail call void @g_free(ptr noundef %10)
   %55 = load ptr, ptr @protocols, align 8
   %.not34 = icmp eq ptr %55, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %52, %6
   %56 = load ptr, ptr @proto_names, align 8
@@ -1806,7 +1806,7 @@ define void @proto_tree_children_foreach(ptr noundef readonly captures(address_i
   %7 = load ptr, ptr %6, align 8
   tail call void %1(ptr noundef nonnull %.012, ptr noundef %2)
   %.not10 = icmp eq ptr %7, null
-  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %3
   ret void
@@ -1830,7 +1830,7 @@ define hidden void @proto_tree_reset(ptr noundef captures(address_is_null) %0) l
   %7 = load ptr, ptr %6, align 8
   tail call fastcc void @proto_tree_free_node(ptr noundef nonnull %.012.i)
   %.not10.i = icmp eq ptr %7, null
-  br i1 %.not10.i, label %proto_tree_children_foreach.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not10.i, label %proto_tree_children_foreach.exit, label %.lr.ph.i, !llvm.loop !14
 
 proto_tree_children_foreach.exit:                 ; preds = %.lr.ph.i, %1, %4
   %8 = load ptr, ptr %3, align 8
@@ -1872,7 +1872,7 @@ define internal fastcc void @proto_tree_free_node(ptr noundef readonly captures(
   %7 = load ptr, ptr %6, align 8
   tail call fastcc void @proto_tree_free_node(ptr noundef nonnull %.012.i)
   %.not10.i = icmp eq ptr %7, null
-  br i1 %.not10.i, label %proto_tree_children_foreach.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not10.i, label %proto_tree_children_foreach.exit, label %.lr.ph.i, !llvm.loop !14
 
 proto_tree_children_foreach.exit:                 ; preds = %.lr.ph.i, %1, %4
   %.not = icmp eq ptr %3, null
@@ -1902,13 +1902,13 @@ define internal void @free_GPtrArray_value(ptr noundef %0, ptr noundef %1, ptr r
 7:                                                ; preds = %3
   %8 = load i32, ptr @gpa_hfinfo.0, align 8
   %9 = icmp ult i32 %8, %5
-  %10 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %10 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %11 = trunc nuw i8 %10 to i1
   %or.cond = select i1 %9, i1 %11, i1 false
   br i1 %or.cond, label %13, label %14
 
 12:                                               ; preds = %3
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %13, label %.thread
 
@@ -2020,7 +2020,7 @@ define void @proto_tree_free(ptr noundef %0) local_unnamed_addr #0 {
   %7 = load ptr, ptr %6, align 8
   tail call fastcc void @proto_tree_free_node(ptr noundef nonnull %.012.i)
   %.not10.i = icmp eq ptr %7, null
-  br i1 %.not10.i, label %proto_tree_children_foreach.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not10.i, label %proto_tree_children_foreach.exit, label %.lr.ph.i, !llvm.loop !14
 
 proto_tree_children_foreach.exit:                 ; preds = %.lr.ph.i, %1, %4
   %8 = load ptr, ptr %3, align 8
@@ -2051,7 +2051,7 @@ define zeroext i1 @proto_tree_set_visible(ptr noundef readonly captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i8, ptr %6, align 8, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 8, !range !11, !noundef !12
   %8 = trunc nuw i8 %7 to i1
   store i8 %3, ptr %6, align 8
   ret i1 %8
@@ -2083,7 +2083,7 @@ define noundef zeroext i1 @proto_field_is_referenced(ptr noundef readonly captur
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i8, ptr %6, align 8, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 8, !range !11, !noundef !12
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %39, label %9
 
@@ -2094,13 +2094,13 @@ define noundef zeroext i1 @proto_field_is_referenced(ptr noundef readonly captur
 11:                                               ; preds = %9
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -2144,7 +2144,7 @@ define noundef zeroext i1 @proto_field_is_referenced(ptr noundef readonly captur
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %36 = load i8, ptr %35, align 1, !range !10, !noundef !11
+  %36 = load i8, ptr %35, align 1, !range !11, !noundef !12
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %39
 
@@ -2163,7 +2163,7 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 define void @proto_report_dissector_bug(ptr noundef %0, ...) local_unnamed_addr #8 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #39
-  %3 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %3 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %4 = trunc nuw i8 %3 to i1
   call void @llvm.va_start.p0(ptr nonnull %2)
   br i1 %4, label %5, label %10
@@ -2193,13 +2193,13 @@ define nonnull ptr @proto_registrar_get_nth(i32 noundef %0) local_unnamed_addr #
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
   %5 = icmp ugt i32 %0, %4
-  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %9, label %10
 
 8:                                                ; preds = %1
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %9, label %.thread
 
@@ -2267,7 +2267,7 @@ define internal i32 @prefix_hash(ptr noundef %0) #0 {
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %.0, i64 1
-  br label %3, !llvm.loop !14
+  br label %3, !llvm.loop !15
 
 .loopexit:                                        ; preds = %3, %5
   %8 = tail call i32 @g_str_hash(ptr noundef %2)
@@ -2324,7 +2324,7 @@ switch.early.test45:                              ; preds = %12
 
 14:                                               ; preds = %12, %switch.early.test45, %switch.early.test45
   %.not = icmp eq i8 %5, %7
-  br i1 %.not, label %3, label %.thread
+  br i1 %.not, label %3, label %.thread, !llvm.loop !16
 
 .thread:                                          ; preds = %switch.early.test45, %switch.early.test, %8, %8, %14
   %.148 = phi i32 [ 0, %14 ], [ 0, %switch.early.test45 ], [ 0, %switch.early.test ], [ 1, %8 ], [ 1, %8 ]
@@ -2880,13 +2880,13 @@ ptvcursor_tree.exit:                              ; preds = %4
 18:                                               ; preds = %10
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
   %20 = icmp ugt i32 %16, %19
-  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %22 = trunc nuw i8 %21 to i1
   %or.cond = select i1 %20, i1 %22, i1 false
   br i1 %or.cond, label %24, label %25
 
 23:                                               ; preds = %10
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %24, label %.thread
 
@@ -2925,7 +2925,7 @@ ptvcursor_tree.exit:                              ; preds = %4
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %34
-  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %46
 
@@ -2951,7 +2951,7 @@ ptvcursor_tree.exit:                              ; preds = %4
 
 56:                                               ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %58 = load i8, ptr %57, align 8, !range !10, !noundef !11
+  %58 = load i8, ptr %57, align 8, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %proto_tree_add_text_node.exit, label %60
 
@@ -2983,7 +2983,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %74 = load i8, ptr %73, align 1, !range !10, !noundef !11
+  %74 = load i8, ptr %73, align 1, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %proto_tree_add_text_node.exit
 
@@ -3014,7 +3014,7 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load i8, ptr %90, align 8, !range !10, !noundef !11
+  %91 = load i8, ptr %90, align 8, !range !11, !noundef !12
   %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %97, label %93
 
@@ -3092,7 +3092,7 @@ define internal fastcc noundef ptr @proto_tree_add_fake_node(ptr noundef %0, ptr
   %.04050 = phi i32 [ 1, %.lr.ph ], [ %7, %19 ]
   %7 = add i32 %.04050, 1
   %.not48 = icmp ugt i32 %7, %5
-  br i1 %.not48, label %8, label %19, !prof !15
+  br i1 %.not48, label %8, label %19, !prof !17
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3112,7 +3112,7 @@ define internal fastcc noundef ptr @proto_tree_add_fake_node(ptr noundef %0, ptr
   %20 = getelementptr inbounds nuw i8, ptr %.051, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.loopexit, label %6, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %6, !llvm.loop !18
 
 .loopexit:                                        ; preds = %19, %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3345,13 +3345,13 @@ define hidden noundef ptr @proto_tree_add_text_internal(ptr noundef %0, ptr noun
 24:                                               ; preds = %16
   %25 = load i32, ptr @gpa_hfinfo.0, align 8
   %26 = icmp ugt i32 %22, %25
-  %27 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %27 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %28 = trunc nuw i8 %27 to i1
   %or.cond = select i1 %26, i1 %28, i1 false
   br i1 %or.cond, label %30, label %31
 
 29:                                               ; preds = %16
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %30, label %.thread
 
@@ -3390,7 +3390,7 @@ define hidden noundef ptr @proto_tree_add_text_internal(ptr noundef %0, ptr noun
   br i1 %45, label %46, label %62
 
 46:                                               ; preds = %40
-  %47 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %47 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %52
 
@@ -3416,7 +3416,7 @@ define hidden noundef ptr @proto_tree_add_text_internal(ptr noundef %0, ptr noun
 
 62:                                               ; preds = %40
   %63 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %64 = load i8, ptr %63, align 8, !range !10, !noundef !11
+  %64 = load i8, ptr %63, align 8, !range !11, !noundef !12
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %proto_tree_add_text_node.exit, label %66
 
@@ -3448,7 +3448,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %66, %proto_item_is_
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %41, i64 9
-  %80 = load i8, ptr %79, align 1, !range !10, !noundef !11
+  %80 = load i8, ptr %79, align 1, !range !11, !noundef !12
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %82, label %proto_tree_add_text_node.exit
 
@@ -3475,7 +3475,7 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load i8, ptr %92, align 8, !range !10, !noundef !11
+  %93 = load i8, ptr %92, align 8, !range !11, !noundef !12
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %99, label %95
 
@@ -3532,13 +3532,13 @@ define hidden noundef ptr @proto_tree_add_text_valist_internal(ptr noundef %0, p
 17:                                               ; preds = %9
   %18 = load i32, ptr @gpa_hfinfo.0, align 8
   %19 = icmp ugt i32 %15, %18
-  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %21 = trunc nuw i8 %20 to i1
   %or.cond = select i1 %19, i1 %21, i1 false
   br i1 %or.cond, label %23, label %24
 
 22:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %23, label %.thread
 
@@ -3577,7 +3577,7 @@ define hidden noundef ptr @proto_tree_add_text_valist_internal(ptr noundef %0, p
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %33
-  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %45
 
@@ -3603,7 +3603,7 @@ define hidden noundef ptr @proto_tree_add_text_valist_internal(ptr noundef %0, p
 
 55:                                               ; preds = %33
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %57 = load i8, ptr %56, align 8, !range !10, !noundef !11
+  %57 = load i8, ptr %56, align 8, !range !11, !noundef !12
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %proto_tree_add_text_node.exit, label %59
 
@@ -3635,7 +3635,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %34, i64 9
-  %73 = load i8, ptr %72, align 1, !range !10, !noundef !11
+  %73 = load i8, ptr %72, align 1, !range !11, !noundef !12
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %proto_tree_add_text_node.exit
 
@@ -3662,7 +3662,7 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load i8, ptr %85, align 8, !range !10, !noundef !11
+  %86 = load i8, ptr %85, align 8, !range !11, !noundef !12
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %92, label %88
 
@@ -3763,7 +3763,7 @@ get_hfi_length.exit:                              ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 0, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %.pre45.i, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hfi_text_only, i64 56), align 8
   %.not43.i = icmp eq i32 %19, 3
@@ -3777,7 +3777,7 @@ get_hfi_length.exit:                              ; preds = %2
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %.pre45.i, i64 9
-  %23 = load i8, ptr %22, align 1, !range !10, !noundef !11
+  %23 = load i8, ptr %22, align 1, !range !11, !noundef !12
   %24 = trunc nuw i8 %23 to i1
   %25 = icmp ne ptr %11, null
   %or.cond.i = and i1 %25, %24
@@ -3827,7 +3827,7 @@ proto_tree_add_text_node.exit:                    ; preds = %27, %26, %21, %get_
 proto_tree_add_text_node.exit.thread:             ; preds = %2, %45, %proto_tree_add_text_node.exit
   %.0.i9 = phi ptr [ %44, %45 ], [ null, %proto_tree_add_text_node.exit ], [ null, %2 ]
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %46 = load ptr, ptr @stdout, align 8, !noalias !17
+  %46 = load ptr, ptr @stdout, align 8, !noalias !19
   %47 = call i32 @__vfprintf_chk(ptr noundef %46, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %3) #39
   call void @llvm.va_end.p0(ptr nonnull %3)
   %48 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.14)
@@ -3859,13 +3859,13 @@ define hidden noundef ptr @proto_tree_add_format_text(ptr noundef %0, ptr nounde
 15:                                               ; preds = %7
   %16 = load i32, ptr @gpa_hfinfo.0, align 8
   %17 = icmp ugt i32 %13, %16
-  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %19 = trunc nuw i8 %18 to i1
   %or.cond = select i1 %17, i1 %19, i1 false
   br i1 %or.cond, label %21, label %22
 
 20:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %21, label %.thread
 
@@ -3904,7 +3904,7 @@ define hidden noundef ptr @proto_tree_add_format_text(ptr noundef %0, ptr nounde
   br i1 %36, label %37, label %53
 
 37:                                               ; preds = %31
-  %38 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %38 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %43
 
@@ -3930,7 +3930,7 @@ define hidden noundef ptr @proto_tree_add_format_text(ptr noundef %0, ptr nounde
 
 53:                                               ; preds = %31
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %55 = load i8, ptr %54, align 8, !range !10, !noundef !11
+  %55 = load i8, ptr %54, align 8, !range !11, !noundef !12
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %proto_tree_add_text_node.exit, label %57
 
@@ -3962,7 +3962,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %proto_item_is_
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %32, i64 9
-  %71 = load i8, ptr %70, align 1, !range !10, !noundef !11
+  %71 = load i8, ptr %70, align 1, !range !11, !noundef !12
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %proto_tree_add_text_node.exit
 
@@ -3989,7 +3989,7 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load i8, ptr %83, align 8, !range !10, !noundef !11
+  %84 = load i8, ptr %83, align 8, !range !11, !noundef !12
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %90, label %86
 
@@ -4036,7 +4036,7 @@ define void @proto_item_set_text(ptr noundef readonly captures(address_is_null) 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i8, ptr %10, align 8, !range !10, !noundef !11
+  %11 = load i8, ptr %10, align 8, !range !11, !noundef !12
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %16, label %proto_item_is_hidden.exit
 
@@ -4097,13 +4097,13 @@ define hidden noundef ptr @proto_tree_add_format_wsp_text(ptr noundef %0, ptr no
 15:                                               ; preds = %7
   %16 = load i32, ptr @gpa_hfinfo.0, align 8
   %17 = icmp ugt i32 %13, %16
-  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %19 = trunc nuw i8 %18 to i1
   %or.cond = select i1 %17, i1 %19, i1 false
   br i1 %or.cond, label %21, label %22
 
 20:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %21, label %.thread
 
@@ -4142,7 +4142,7 @@ define hidden noundef ptr @proto_tree_add_format_wsp_text(ptr noundef %0, ptr no
   br i1 %36, label %37, label %53
 
 37:                                               ; preds = %31
-  %38 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %38 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %43
 
@@ -4168,7 +4168,7 @@ define hidden noundef ptr @proto_tree_add_format_wsp_text(ptr noundef %0, ptr no
 
 53:                                               ; preds = %31
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %55 = load i8, ptr %54, align 8, !range !10, !noundef !11
+  %55 = load i8, ptr %54, align 8, !range !11, !noundef !12
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %proto_tree_add_text_node.exit, label %57
 
@@ -4200,7 +4200,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %proto_item_is_
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %32, i64 9
-  %71 = load i8, ptr %70, align 1, !range !10, !noundef !11
+  %71 = load i8, ptr %70, align 1, !range !11, !noundef !12
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %proto_tree_add_text_node.exit
 
@@ -4227,7 +4227,7 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load i8, ptr %83, align 8, !range !10, !noundef !11
+  %84 = load i8, ptr %83, align 8, !range !11, !noundef !12
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %90, label %86
 
@@ -4279,13 +4279,13 @@ define noundef ptr @proto_tree_add_item_ret_int(ptr noundef %0, i32 noundef %1, 
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
   %11 = icmp ugt i32 %1, %10
-  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %13 = trunc nuw i8 %12 to i1
   %or.cond = select i1 %11, i1 %13, i1 false
   br i1 %or.cond, label %15, label %16
 
 14:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %15, label %.thread
 
@@ -4423,13 +4423,13 @@ ws_sign_ext32.exit:                               ; preds = %44, %47, %57
 73:                                               ; preds = %64
   %74 = load i32, ptr @gpa_hfinfo.0, align 8
   %75 = icmp ugt i32 %71, %74
-  %76 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %76 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %77 = trunc nuw i8 %76 to i1
   %or.cond7 = select i1 %75, i1 %77, i1 false
   br i1 %or.cond7, label %79, label %80
 
 78:                                               ; preds = %64
-  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old6 = trunc nuw i8 %.old5 to i1
   br i1 %.old6, label %79, label %.thread102
 
@@ -4468,7 +4468,7 @@ ws_sign_ext32.exit:                               ; preds = %44, %47, %57
   br i1 %94, label %95, label %111
 
 95:                                               ; preds = %89
-  %96 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %96 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %98, label %101
 
@@ -4494,7 +4494,7 @@ ws_sign_ext32.exit:                               ; preds = %44, %47, %57
 
 111:                                              ; preds = %89
   %112 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %113 = load i8, ptr %112, align 8, !range !10, !noundef !11
+  %113 = load i8, ptr %112, align 8, !range !11, !noundef !12
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %133, label %115
 
@@ -4526,7 +4526,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %115, %proto_item_is
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %90, i64 9
-  %129 = load i8, ptr %128, align 1, !range !10, !noundef !11
+  %129 = load i8, ptr %128, align 1, !range !11, !noundef !12
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %131, label %133
 
@@ -4712,7 +4712,7 @@ define internal fastcc noalias noundef ptr @new_field_info(ptr noundef readonly 
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i32 0, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %43 = load i8, ptr %42, align 8, !range !10, !noundef !11
+  %43 = load i8, ptr %42, align 8, !range !11, !noundef !12
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %58, label %45
 
@@ -4730,7 +4730,7 @@ define internal fastcc noalias noundef ptr @new_field_info(ptr noundef readonly 
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 9
-  %53 = load i8, ptr %52, align 1, !range !10, !noundef !11
+  %53 = load i8, ptr %52, align 1, !range !11, !noundef !12
   %54 = trunc nuw i8 %53 to i1
   %55 = icmp ne ptr %12, null
   %or.cond = and i1 %55, %54
@@ -4929,7 +4929,7 @@ define internal fastcc noundef ptr @proto_tree_add_node(ptr noundef %0, ptr noun
   %.04757 = phi i32 [ 1, %.lr.ph ], [ %7, %23 ]
   %7 = add i32 %.04757, 1
   %.not55 = icmp ugt i32 %7, %5
-  br i1 %.not55, label %8, label %23, !prof !15
+  br i1 %.not55, label %8, label %23, !prof !17
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4955,7 +4955,7 @@ define internal fastcc noundef ptr @proto_tree_add_node(ptr noundef %0, ptr noun
   %24 = getelementptr inbounds nuw i8, ptr %.058, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.loopexit, label %6, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %6, !llvm.loop !22
 
 .loopexit:                                        ; preds = %23, %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5089,13 +5089,13 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = icmp ugt i32 %1, %11
-  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %16, label %17
 
 15:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %16, label %.thread
 
@@ -5220,13 +5220,13 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
 69:                                               ; preds = %60
   %70 = load i32, ptr @gpa_hfinfo.0, align 8
   %71 = icmp ugt i32 %67, %70
-  %72 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %72 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %73 = trunc nuw i8 %72 to i1
   %or.cond7 = select i1 %71, i1 %73, i1 false
   br i1 %or.cond7, label %75, label %76
 
 74:                                               ; preds = %60
-  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old6 = trunc nuw i8 %.old5 to i1
   br i1 %.old6, label %75, label %.thread107
 
@@ -5265,7 +5265,7 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
   br i1 %90, label %91, label %107
 
 91:                                               ; preds = %85
-  %92 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %92 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %94, label %97
 
@@ -5291,7 +5291,7 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
 
 107:                                              ; preds = %85
   %108 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %109 = load i8, ptr %108, align 8, !range !10, !noundef !11
+  %109 = load i8, ptr %108, align 8, !range !11, !noundef !12
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %129, label %111
 
@@ -5323,7 +5323,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %111, %proto_item_is
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %86, i64 9
-  %125 = load i8, ptr %124, align 1, !range !10, !noundef !11
+  %125 = load i8, ptr %124, align 1, !range !11, !noundef !12
   %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %127, label %129
 
@@ -5581,13 +5581,13 @@ define noundef ptr @ptvcursor_add_ret_uint(ptr noundef captures(none) %0, i32 no
 11:                                               ; preds = %5
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %5
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -5735,7 +5735,7 @@ test_length.exit:                                 ; preds = %33, %49
   store i32 %76, ptr %74, align 4
   %77 = load i32, ptr @gpa_hfinfo.0, align 8
   %78 = icmp ugt i32 %1, %77
-  %79 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %79 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %80 = trunc nuw i8 %79 to i1
   %or.cond4 = select i1 %78, i1 %80, i1 false
   br i1 %or.cond4, label %81, label %82
@@ -5774,7 +5774,7 @@ test_length.exit:                                 ; preds = %33, %49
   br i1 %97, label %98, label %116
 
 98:                                               ; preds = %90
-  %99 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %99 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %104
 
@@ -5802,7 +5802,7 @@ test_length.exit:                                 ; preds = %33, %49
 
 116:                                              ; preds = %90
   %117 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %118 = load i8, ptr %117, align 8, !range !10, !noundef !11
+  %118 = load i8, ptr %117, align 8, !range !11, !noundef !12
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %139, label %120
 
@@ -5838,7 +5838,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %120, %121, %proto_i
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %93, i64 9
-  %135 = load i8, ptr %134, align 1, !range !10, !noundef !11
+  %135 = load i8, ptr %134, align 1, !range !11, !noundef !12
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %137, label %139
 
@@ -6421,7 +6421,7 @@ get_uint64_value.exit296:                         ; preds = %85, %report_type_le
   br i1 %.not276, label %106, label %104
 
 104:                                              ; preds = %102
-  %105 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %103) #44, !srcloc !21
+  %105 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %103) #44, !srcloc !23
   br label %106
 
 106:                                              ; preds = %102, %104
@@ -7004,7 +7004,7 @@ proto_tree_set_eui64_tvb.exit:                    ; preds = %172, %148, %6, %22,
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %.0358, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %detect_trailing_stray_characters.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %detect_trailing_stray_characters.exit, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.i:                                         ; preds = %352, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %351, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %352 ]
@@ -7037,13 +7037,13 @@ define noundef ptr @ptvcursor_add_ret_int(ptr noundef captures(none) %0, i32 nou
 11:                                               ; preds = %5
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %5
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -7211,7 +7211,7 @@ ws_sign_ext32.exit:                               ; preds = %55, %58, %68
   store i32 %86, ptr %84, align 4
   %87 = load i32, ptr @gpa_hfinfo.0, align 8
   %88 = icmp ugt i32 %1, %87
-  %89 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %89 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %90 = trunc nuw i8 %89 to i1
   %or.cond4 = select i1 %88, i1 %90, i1 false
   br i1 %or.cond4, label %91, label %92
@@ -7250,7 +7250,7 @@ ws_sign_ext32.exit:                               ; preds = %55, %58, %68
   br i1 %107, label %108, label %126
 
 108:                                              ; preds = %100
-  %109 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %109 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %114
 
@@ -7278,7 +7278,7 @@ ws_sign_ext32.exit:                               ; preds = %55, %58, %68
 
 126:                                              ; preds = %100
   %127 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %128 = load i8, ptr %127, align 8, !range !10, !noundef !11
+  %128 = load i8, ptr %127, align 8, !range !11, !noundef !12
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %149, label %130
 
@@ -7314,7 +7314,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %130, %131, %proto_i
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %103, i64 9
-  %145 = load i8, ptr %144, align 1, !range !10, !noundef !11
+  %145 = load i8, ptr %144, align 1, !range !11, !noundef !12
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %147, label %149
 
@@ -7347,13 +7347,13 @@ define noundef ptr @ptvcursor_add_ret_string(ptr noundef captures(none) %0, i32 
 11:                                               ; preds = %6
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %6
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -7525,13 +7525,13 @@ get_stringztrunc_value.exit:                      ; preds = %69, %73
 95:                                               ; preds = %86
   %96 = load i32, ptr @gpa_hfinfo.0, align 8
   %97 = icmp ugt i32 %93, %96
-  %98 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %98 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %99 = trunc nuw i8 %98 to i1
   %or.cond4 = select i1 %97, i1 %99, i1 false
   br i1 %or.cond4, label %101, label %102
 
 100:                                              ; preds = %86
-  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old3 = trunc nuw i8 %.old2 to i1
   br i1 %.old3, label %101, label %.thread106
 
@@ -7572,7 +7572,7 @@ get_stringztrunc_value.exit:                      ; preds = %69, %73
   br i1 %118, label %119, label %137
 
 119:                                              ; preds = %111
-  %120 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %120 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %122, label %125
 
@@ -7600,7 +7600,7 @@ get_stringztrunc_value.exit:                      ; preds = %69, %73
 
 137:                                              ; preds = %111
   %138 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %139 = load i8, ptr %138, align 8, !range !10, !noundef !11
+  %139 = load i8, ptr %138, align 8, !range !11, !noundef !12
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %160, label %141
 
@@ -7636,7 +7636,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %141, %142, %proto_i
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds nuw i8, ptr %114, i64 9
-  %156 = load i8, ptr %155, align 1, !range !10, !noundef !11
+  %156 = load i8, ptr %155, align 1, !range !11, !noundef !12
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %158, label %160
 
@@ -7672,13 +7672,13 @@ define noundef ptr @ptvcursor_add_ret_boolean(ptr noundef captures(none) %0, i32
 11:                                               ; preds = %5
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %5
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -7865,13 +7865,13 @@ get_uint64_value.exit:                            ; preds = %test_length.exit, %
 90:                                               ; preds = %81
   %91 = load i32, ptr @gpa_hfinfo.0, align 8
   %92 = icmp ugt i32 %88, %91
-  %93 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %93 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %94 = trunc nuw i8 %93 to i1
   %or.cond7 = select i1 %92, i1 %94, i1 false
   br i1 %or.cond7, label %96, label %97
 
 95:                                               ; preds = %81
-  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old6 = trunc nuw i8 %.old5 to i1
   br i1 %.old6, label %96, label %.thread106
 
@@ -7912,7 +7912,7 @@ get_uint64_value.exit:                            ; preds = %test_length.exit, %
   br i1 %113, label %114, label %132
 
 114:                                              ; preds = %106
-  %115 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %115 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %117, label %120
 
@@ -7940,7 +7940,7 @@ get_uint64_value.exit:                            ; preds = %test_length.exit, %
 
 132:                                              ; preds = %106
   %133 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %134 = load i8, ptr %133, align 8, !range !10, !noundef !11
+  %134 = load i8, ptr %133, align 8, !range !11, !noundef !12
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %155, label %136
 
@@ -7976,7 +7976,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %136, %137, %proto_i
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %109, i64 9
-  %151 = load i8, ptr %150, align 1, !range !10, !noundef !11
+  %151 = load i8, ptr %150, align 1, !range !11, !noundef !12
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %155
 
@@ -8032,13 +8032,13 @@ define noundef ptr @proto_tree_add_item_ret_uint64(ptr noundef %0, i32 noundef %
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = icmp ugt i32 %1, %11
-  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %16, label %17
 
 15:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %16, label %.thread
 
@@ -8167,13 +8167,13 @@ get_uint64_value.exit:                            ; preds = %45, %report_type_le
 69:                                               ; preds = %60
   %70 = load i32, ptr @gpa_hfinfo.0, align 8
   %71 = icmp ugt i32 %67, %70
-  %72 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %72 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %73 = trunc nuw i8 %72 to i1
   %or.cond7 = select i1 %71, i1 %73, i1 false
   br i1 %or.cond7, label %75, label %76
 
 74:                                               ; preds = %60
-  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old6 = trunc nuw i8 %.old5 to i1
   br i1 %.old6, label %75, label %.thread104
 
@@ -8212,7 +8212,7 @@ get_uint64_value.exit:                            ; preds = %45, %report_type_le
   br i1 %90, label %91, label %107
 
 91:                                               ; preds = %85
-  %92 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %92 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %94, label %97
 
@@ -8238,7 +8238,7 @@ get_uint64_value.exit:                            ; preds = %45, %report_type_le
 
 107:                                              ; preds = %85
   %108 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %109 = load i8, ptr %108, align 8, !range !10, !noundef !11
+  %109 = load i8, ptr %108, align 8, !range !11, !noundef !12
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %129, label %111
 
@@ -8270,7 +8270,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %111, %proto_item_is
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %86, i64 9
-  %125 = load i8, ptr %124, align 1, !range !10, !noundef !11
+  %125 = load i8, ptr %124, align 1, !range !11, !noundef !12
   %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %127, label %129
 
@@ -8421,13 +8421,13 @@ define noundef ptr @proto_tree_add_item_ret_int64(ptr noundef %0, i32 noundef %1
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = icmp ugt i32 %1, %11
-  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %16, label %17
 
 15:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %16, label %.thread
 
@@ -8535,13 +8535,13 @@ define noundef ptr @proto_tree_add_item_ret_int64(ptr noundef %0, i32 noundef %1
 60:                                               ; preds = %51
   %61 = load i32, ptr @gpa_hfinfo.0, align 8
   %62 = icmp ugt i32 %58, %61
-  %63 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %63 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %64 = trunc nuw i8 %63 to i1
   %or.cond7 = select i1 %62, i1 %64, i1 false
   br i1 %or.cond7, label %66, label %67
 
 65:                                               ; preds = %51
-  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old6 = trunc nuw i8 %.old5 to i1
   br i1 %.old6, label %66, label %.thread97
 
@@ -8580,7 +8580,7 @@ define noundef ptr @proto_tree_add_item_ret_int64(ptr noundef %0, i32 noundef %1
   br i1 %81, label %82, label %98
 
 82:                                               ; preds = %76
-  %83 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %83 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %85, label %88
 
@@ -8606,7 +8606,7 @@ define noundef ptr @proto_tree_add_item_ret_int64(ptr noundef %0, i32 noundef %1
 
 98:                                               ; preds = %76
   %99 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %100 = load i8, ptr %99, align 8, !range !10, !noundef !11
+  %100 = load i8, ptr %99, align 8, !range !11, !noundef !12
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %120, label %102
 
@@ -8638,7 +8638,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %102, %proto_item_is
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %77, i64 9
-  %116 = load i8, ptr %115, align 1, !range !10, !noundef !11
+  %116 = load i8, ptr %115, align 1, !range !11, !noundef !12
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %120
 
@@ -8892,13 +8892,13 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
 11:                                               ; preds = %8
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %8
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -9026,13 +9026,13 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
 64:                                               ; preds = %55
   %65 = load i32, ptr @gpa_hfinfo.0, align 8
   %66 = icmp ugt i32 %62, %65
-  %67 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %67 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %68 = trunc nuw i8 %67 to i1
   %or.cond4 = select i1 %66, i1 %68, i1 false
   br i1 %or.cond4, label %70, label %71
 
 69:                                               ; preds = %55
-  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old3 = trunc nuw i8 %.old2 to i1
   br i1 %.old3, label %70, label %.thread113
 
@@ -9071,7 +9071,7 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
   br i1 %85, label %86, label %102
 
 86:                                               ; preds = %80
-  %87 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %87 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %89, label %92
 
@@ -9097,7 +9097,7 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
 
 102:                                              ; preds = %80
   %103 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %104 = load i8, ptr %103, align 8, !range !10, !noundef !11
+  %104 = load i8, ptr %103, align 8, !range !11, !noundef !12
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %124, label %106
 
@@ -9129,7 +9129,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %106, %proto_item_is
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %81, i64 9
-  %120 = load i8, ptr %119, align 1, !range !10, !noundef !11
+  %120 = load i8, ptr %119, align 1, !range !11, !noundef !12
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %122, label %124
 
@@ -9168,13 +9168,13 @@ define noundef ptr @proto_tree_add_item_ret_boolean(ptr noundef %0, i32 noundef 
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
   %11 = icmp ugt i32 %1, %10
-  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %13 = trunc nuw i8 %12 to i1
   %or.cond = select i1 %11, i1 %13, i1 false
   br i1 %or.cond, label %15, label %16
 
 14:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %15, label %.thread
 
@@ -9283,13 +9283,13 @@ get_uint64_value.exit:                            ; preds = %39, %report_type_le
 59:                                               ; preds = %50
   %60 = load i32, ptr @gpa_hfinfo.0, align 8
   %61 = icmp ugt i32 %57, %60
-  %62 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %62 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %63 = trunc nuw i8 %62 to i1
   %or.cond7 = select i1 %61, i1 %63, i1 false
   br i1 %or.cond7, label %65, label %66
 
 64:                                               ; preds = %50
-  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old6 = trunc nuw i8 %.old5 to i1
   br i1 %.old6, label %65, label %.thread96
 
@@ -9328,7 +9328,7 @@ get_uint64_value.exit:                            ; preds = %39, %report_type_le
   br i1 %80, label %81, label %97
 
 81:                                               ; preds = %75
-  %82 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %82 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %87
 
@@ -9354,7 +9354,7 @@ get_uint64_value.exit:                            ; preds = %39, %report_type_le
 
 97:                                               ; preds = %75
   %98 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %99 = load i8, ptr %98, align 8, !range !10, !noundef !11
+  %99 = load i8, ptr %98, align 8, !range !11, !noundef !12
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %119, label %101
 
@@ -9386,7 +9386,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %101, %proto_item_is
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %76, i64 9
-  %115 = load i8, ptr %114, align 1, !range !10, !noundef !11
+  %115 = load i8, ptr %114, align 1, !range !11, !noundef !12
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %117, label %119
 
@@ -9419,13 +9419,13 @@ define noundef ptr @proto_tree_add_item_ret_float(ptr noundef %0, i32 noundef %1
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
   %11 = icmp ugt i32 %1, %10
-  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i = select i1 %11, i1 %13, i1 false
   br i1 %or.cond.i, label %15, label %16
 
 14:                                               ; preds = %7
-  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i = trunc nuw i8 %.old.i to i1
   br i1 %.old1.i, label %15, label %.thread.i
 
@@ -9514,13 +9514,13 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 50:                                               ; preds = %41
   %51 = load i32, ptr @gpa_hfinfo.0, align 8
   %52 = icmp ugt i32 %48, %51
-  %53 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %53 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %54 = trunc nuw i8 %53 to i1
   %or.cond = select i1 %52, i1 %54, i1 false
   br i1 %or.cond, label %56, label %57
 
 55:                                               ; preds = %41
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %56, label %.thread
 
@@ -9559,7 +9559,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
   br i1 %71, label %72, label %88
 
 72:                                               ; preds = %66
-  %73 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %73 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %78
 
@@ -9585,7 +9585,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 
 88:                                               ; preds = %66
   %89 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %90 = load i8, ptr %89, align 8, !range !10, !noundef !11
+  %90 = load i8, ptr %89, align 8, !range !11, !noundef !12
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %110, label %92
 
@@ -9617,7 +9617,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %92, %proto_item_is_
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %67, i64 9
-  %106 = load i8, ptr %105, align 1, !range !10, !noundef !11
+  %106 = load i8, ptr %105, align 1, !range !11, !noundef !12
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %108, label %110
 
@@ -9677,13 +9677,13 @@ define noundef ptr @proto_tree_add_item_ret_double(ptr noundef %0, i32 noundef %
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
   %11 = icmp ugt i32 %1, %10
-  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i = select i1 %11, i1 %13, i1 false
   br i1 %or.cond.i, label %15, label %16
 
 14:                                               ; preds = %7
-  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i = trunc nuw i8 %.old.i to i1
   br i1 %.old1.i, label %15, label %.thread.i
 
@@ -9772,13 +9772,13 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 50:                                               ; preds = %41
   %51 = load i32, ptr @gpa_hfinfo.0, align 8
   %52 = icmp ugt i32 %48, %51
-  %53 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %53 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %54 = trunc nuw i8 %53 to i1
   %or.cond = select i1 %52, i1 %54, i1 false
   br i1 %or.cond, label %56, label %57
 
 55:                                               ; preds = %41
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %56, label %.thread
 
@@ -9817,7 +9817,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
   br i1 %71, label %72, label %88
 
 72:                                               ; preds = %66
-  %73 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %73 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %78
 
@@ -9843,7 +9843,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 
 88:                                               ; preds = %66
   %89 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %90 = load i8, ptr %89, align 8, !range !10, !noundef !11
+  %90 = load i8, ptr %89, align 8, !range !11, !noundef !12
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %110, label %92
 
@@ -9875,7 +9875,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %92, %proto_item_is_
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %67, i64 9
-  %106 = load i8, ptr %105, align 1, !range !10, !noundef !11
+  %106 = load i8, ptr %105, align 1, !range !11, !noundef !12
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %108, label %110
 
@@ -9921,13 +9921,13 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = icmp ugt i32 %1, %11
-  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %16, label %17
 
 15:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %16, label %.thread
 
@@ -9992,7 +9992,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
   br i1 %.not78, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %38) #44, !srcloc !23
+  %40 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %38) #44, !srcloc !25
   br label %41
 
 41:                                               ; preds = %39, %37
@@ -10023,13 +10023,13 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
 53:                                               ; preds = %44
   %54 = load i32, ptr @gpa_hfinfo.0, align 8
   %55 = icmp ugt i32 %51, %54
-  %56 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %56 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %57 = trunc nuw i8 %56 to i1
   %or.cond4 = select i1 %55, i1 %57, i1 false
   br i1 %or.cond4, label %59, label %60
 
 58:                                               ; preds = %44
-  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old3 = trunc nuw i8 %.old2 to i1
   br i1 %.old3, label %59, label %.thread92
 
@@ -10068,7 +10068,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
   br i1 %74, label %75, label %91
 
 75:                                               ; preds = %69
-  %76 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %76 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %78, label %81
 
@@ -10094,7 +10094,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
 
 91:                                               ; preds = %69
   %92 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %93 = load i8, ptr %92, align 8, !range !10, !noundef !11
+  %93 = load i8, ptr %92, align 8, !range !11, !noundef !12
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %113, label %95
 
@@ -10126,7 +10126,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %95, %proto_item_is_
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %70, i64 9
-  %109 = load i8, ptr %108, align 1, !range !10, !noundef !11
+  %109 = load i8, ptr %108, align 1, !range !11, !noundef !12
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %113
 
@@ -10167,13 +10167,13 @@ define noundef ptr @proto_tree_add_item_ret_ipv6(ptr noundef %0, i32 noundef %1,
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = icmp ugt i32 %1, %11
-  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %14 = trunc nuw i8 %13 to i1
   %or.cond.i = select i1 %12, i1 %14, i1 false
   br i1 %or.cond.i, label %16, label %17
 
 15:                                               ; preds = %7
-  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i = trunc nuw i8 %.old.i to i1
   br i1 %.old1.i, label %16, label %.thread.i
 
@@ -10249,13 +10249,13 @@ proto_registrar_get_nth.exit:                     ; preds = %19
 44:                                               ; preds = %35
   %45 = load i32, ptr @gpa_hfinfo.0, align 8
   %46 = icmp ugt i32 %42, %45
-  %47 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %47 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %48 = trunc nuw i8 %47 to i1
   %or.cond = select i1 %46, i1 %48, i1 false
   br i1 %or.cond, label %50, label %51
 
 49:                                               ; preds = %35
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %50, label %.thread
 
@@ -10294,7 +10294,7 @@ proto_registrar_get_nth.exit:                     ; preds = %19
   br i1 %65, label %66, label %82
 
 66:                                               ; preds = %60
-  %67 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %67 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %72
 
@@ -10320,7 +10320,7 @@ proto_registrar_get_nth.exit:                     ; preds = %19
 
 82:                                               ; preds = %60
   %83 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %84 = load i8, ptr %83, align 8, !range !10, !noundef !11
+  %84 = load i8, ptr %83, align 8, !range !11, !noundef !12
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %104, label %86
 
@@ -10352,7 +10352,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %86, %proto_item_is_
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %61, i64 9
-  %100 = load i8, ptr %99, align 1, !range !10, !noundef !11
+  %100 = load i8, ptr %99, align 1, !range !11, !noundef !12
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %104
 
@@ -10397,13 +10397,13 @@ define noundef ptr @proto_tree_add_item_ret_ether(ptr noundef %0, i32 noundef %1
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
   %11 = icmp ugt i32 %1, %10
-  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %13 = trunc nuw i8 %12 to i1
   %or.cond.i = select i1 %11, i1 %13, i1 false
   br i1 %or.cond.i, label %15, label %16
 
 14:                                               ; preds = %7
-  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i = trunc nuw i8 %.old.i to i1
   br i1 %.old1.i, label %15, label %.thread.i
 
@@ -10479,13 +10479,13 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 44:                                               ; preds = %35
   %45 = load i32, ptr @gpa_hfinfo.0, align 8
   %46 = icmp ugt i32 %42, %45
-  %47 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %47 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %48 = trunc nuw i8 %47 to i1
   %or.cond = select i1 %46, i1 %48, i1 false
   br i1 %or.cond, label %50, label %51
 
 49:                                               ; preds = %35
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %50, label %.thread
 
@@ -10524,7 +10524,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
   br i1 %65, label %66, label %82
 
 66:                                               ; preds = %60
-  %67 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %67 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %72
 
@@ -10550,7 +10550,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 
 82:                                               ; preds = %60
   %83 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %84 = load i8, ptr %83, align 8, !range !10, !noundef !11
+  %84 = load i8, ptr %83, align 8, !range !11, !noundef !12
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %104, label %86
 
@@ -10582,7 +10582,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %86, %proto_item_is_
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %61, i64 9
-  %100 = load i8, ptr %99, align 1, !range !10, !noundef !11
+  %100 = load i8, ptr %99, align 1, !range !11, !noundef !12
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %104
 
@@ -10615,13 +10615,13 @@ define noundef ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %0, i3
 12:                                               ; preds = %9
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
   %14 = icmp ugt i32 %1, %13
-  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %16 = trunc nuw i8 %15 to i1
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %18, label %19
 
 17:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %18, label %.thread
 
@@ -10778,13 +10778,13 @@ get_stringztrunc_value.exit:                      ; preds = %58, %60
 78:                                               ; preds = %69
   %79 = load i32, ptr @gpa_hfinfo.0, align 8
   %80 = icmp ugt i32 %76, %79
-  %81 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %81 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %82 = trunc nuw i8 %81 to i1
   %or.cond4 = select i1 %80, i1 %82, i1 false
   br i1 %or.cond4, label %84, label %85
 
 83:                                               ; preds = %69
-  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old3 = trunc nuw i8 %.old2 to i1
   br i1 %.old3, label %84, label %.thread117
 
@@ -10823,7 +10823,7 @@ get_stringztrunc_value.exit:                      ; preds = %58, %60
   br i1 %99, label %100, label %116
 
 100:                                              ; preds = %94
-  %101 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %101 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %106
 
@@ -10849,7 +10849,7 @@ get_stringztrunc_value.exit:                      ; preds = %58, %60
 
 116:                                              ; preds = %94
   %117 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %118 = load i8, ptr %117, align 8, !range !10, !noundef !11
+  %118 = load i8, ptr %117, align 8, !range !11, !noundef !12
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %138, label %120
 
@@ -10881,7 +10881,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %120, %proto_item_is
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %95, i64 9
-  %134 = load i8, ptr %133, align 1, !range !10, !noundef !11
+  %134 = load i8, ptr %133, align 1, !range !11, !noundef !12
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %136, label %138
 
@@ -10940,7 +10940,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %120, %proto_item_is
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %4, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %detect_trailing_stray_characters.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %detect_trailing_stray_characters.exit, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.i:                                         ; preds = %158, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %157, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %158 ]
@@ -10979,13 +10979,13 @@ define noundef ptr @proto_tree_add_item_ret_display_string_and_length(ptr nounde
 12:                                               ; preds = %9
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
   %14 = icmp ugt i32 %1, %13
-  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %16 = trunc nuw i8 %15 to i1
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %18, label %19
 
 17:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %18, label %.thread
 
@@ -11196,13 +11196,13 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
 105:                                              ; preds = %96
   %106 = load i32, ptr @gpa_hfinfo.0, align 8
   %107 = icmp ugt i32 %103, %106
-  %108 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %108 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %109 = trunc nuw i8 %108 to i1
   %or.cond4 = select i1 %107, i1 %109, i1 false
   br i1 %or.cond4, label %111, label %112
 
 110:                                              ; preds = %96
-  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old3 = trunc nuw i8 %.old2 to i1
   br i1 %.old3, label %111, label %.thread194
 
@@ -11241,7 +11241,7 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
   br i1 %126, label %127, label %143
 
 127:                                              ; preds = %121
-  %128 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %128 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %130, label %133
 
@@ -11267,7 +11267,7 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
 
 143:                                              ; preds = %121
   %144 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %145 = load i8, ptr %144, align 8, !range !10, !noundef !11
+  %145 = load i8, ptr %144, align 8, !range !11, !noundef !12
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %165, label %147
 
@@ -11299,7 +11299,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %147, %proto_item_is
 
 159:                                              ; preds = %156
   %160 = getelementptr inbounds nuw i8, ptr %122, i64 9
-  %161 = load i8, ptr %160, align 1, !range !10, !noundef !11
+  %161 = load i8, ptr %160, align 1, !range !11, !noundef !12
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %163, label %165
 
@@ -11430,7 +11430,7 @@ proto_tree_set_bytes.exit191:                     ; preds = %186
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %4, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %detect_trailing_stray_characters.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %detect_trailing_stray_characters.exit, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.i:                                         ; preds = %209, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %208, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %209 ]
@@ -11476,13 +11476,13 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
 11:                                               ; preds = %8
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %8
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -11562,13 +11562,13 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
 51:                                               ; preds = %42
   %52 = load i32, ptr @gpa_hfinfo.0, align 8
   %53 = icmp ugt i32 %49, %52
-  %54 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %54 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %55 = trunc nuw i8 %54 to i1
   %or.cond4 = select i1 %53, i1 %55, i1 false
   br i1 %or.cond4, label %57, label %58
 
 56:                                               ; preds = %42
-  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old3 = trunc nuw i8 %.old2 to i1
   br i1 %.old3, label %57, label %.thread88
 
@@ -11607,7 +11607,7 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
   br i1 %72, label %73, label %89
 
 73:                                               ; preds = %67
-  %74 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %74 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %79
 
@@ -11633,7 +11633,7 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
 
 89:                                               ; preds = %67
   %90 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %91 = load i8, ptr %90, align 8, !range !10, !noundef !11
+  %91 = load i8, ptr %90, align 8, !range !11, !noundef !12
   %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %111, label %93
 
@@ -11665,7 +11665,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %93, %proto_item_is_
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds nuw i8, ptr %68, i64 9
-  %107 = load i8, ptr %106, align 1, !range !10, !noundef !11
+  %107 = load i8, ptr %106, align 1, !range !11, !noundef !12
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %109, label %111
 
@@ -12659,13 +12659,13 @@ define noundef ptr @ptvcursor_add(ptr noundef captures(none) %0, i32 noundef %1,
 10:                                               ; preds = %4
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = icmp ugt i32 %1, %11
-  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %16, label %17
 
 15:                                               ; preds = %4
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %16, label %.thread
 
@@ -12776,7 +12776,7 @@ test_length.exit:                                 ; preds = %26, %43
   store i32 %56, ptr %54, align 4
   %57 = load i32, ptr @gpa_hfinfo.0, align 8
   %58 = icmp ugt i32 %1, %57
-  %59 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %59 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %60 = trunc nuw i8 %59 to i1
   %or.cond4 = select i1 %58, i1 %60, i1 false
   br i1 %or.cond4, label %61, label %62
@@ -12815,7 +12815,7 @@ test_length.exit:                                 ; preds = %26, %43
   br i1 %77, label %78, label %96
 
 78:                                               ; preds = %70
-  %79 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %79 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %84
 
@@ -12843,7 +12843,7 @@ test_length.exit:                                 ; preds = %26, %43
 
 96:                                               ; preds = %70
   %97 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %98 = load i8, ptr %97, align 8, !range !10, !noundef !11
+  %98 = load i8, ptr %97, align 8, !range !11, !noundef !12
   %99 = trunc nuw i8 %98 to i1
   br i1 %99, label %119, label %100
 
@@ -12879,7 +12879,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %100, %101, %proto_i
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %73, i64 9
-  %115 = load i8, ptr %114, align 1, !range !10, !noundef !11
+  %115 = load i8, ptr %114, align 1, !range !11, !noundef !12
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %117, label %119
 
@@ -12989,13 +12989,13 @@ test_length.exit:                                 ; preds = %10, %24
 34:                                               ; preds = %25
   %35 = load i32, ptr @gpa_hfinfo.0, align 8
   %36 = icmp ugt i32 %32, %35
-  %37 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %37 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %38 = trunc nuw i8 %37 to i1
   %or.cond = select i1 %36, i1 %38, i1 false
   br i1 %or.cond, label %40, label %41
 
 39:                                               ; preds = %25
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %40, label %.thread
 
@@ -13034,7 +13034,7 @@ test_length.exit:                                 ; preds = %10, %24
   br i1 %55, label %56, label %72
 
 56:                                               ; preds = %50
-  %57 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %57 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %62
 
@@ -13060,7 +13060,7 @@ test_length.exit:                                 ; preds = %10, %24
 
 72:                                               ; preds = %50
   %73 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %74 = load i8, ptr %73, align 8, !range !10, !noundef !11
+  %74 = load i8, ptr %73, align 8, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %94, label %76
 
@@ -13092,7 +13092,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %76, %proto_item_is_
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %51, i64 9
-  %90 = load i8, ptr %89, align 1, !range !10, !noundef !11
+  %90 = load i8, ptr %89, align 1, !range !11, !noundef !12
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %94
 
@@ -13120,13 +13120,13 @@ define noundef ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noun
 8:                                                ; preds = %6
   %9 = load i32, ptr @gpa_hfinfo.0, align 8
   %10 = icmp ugt i32 %1, %9
-  %11 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %11 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %12 = trunc nuw i8 %11 to i1
   %or.cond = select i1 %10, i1 %12, i1 false
   br i1 %or.cond, label %14, label %15
 
 13:                                               ; preds = %6
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %14, label %.thread
 
@@ -13255,13 +13255,13 @@ test_length.exit:                                 ; preds = %11, %25
 38:                                               ; preds = %29
   %39 = load i32, ptr @gpa_hfinfo.0, align 8
   %40 = icmp ugt i32 %36, %39
-  %41 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %41 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %42 = trunc nuw i8 %41 to i1
   %or.cond = select i1 %40, i1 %42, i1 false
   br i1 %or.cond, label %44, label %45
 
 43:                                               ; preds = %29
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %44, label %.thread
 
@@ -13303,7 +13303,7 @@ test_length.exit:                                 ; preds = %11, %25
   %61 = load i32, ptr %8, align 4
   %62 = tail call fastcc i32 @get_full_length(ptr noundef %52, ptr noundef %2, i32 noundef %3, i32 noundef %61, i32 noundef %12, i32 noundef %5)
   store i32 %62, ptr %6, align 4
-  %63 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %63 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %65, label %69
 
@@ -13332,7 +13332,7 @@ test_length.exit:                                 ; preds = %11, %25
 
 81:                                               ; preds = %54
   %82 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %83 = load i8, ptr %82, align 8, !range !10, !noundef !11
+  %83 = load i8, ptr %82, align 8, !range !11, !noundef !12
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %105, label %85
 
@@ -13364,7 +13364,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %85, %proto_item_is_
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %55, i64 9
-  %99 = load i8, ptr %98, align 1, !range !10, !noundef !11
+  %99 = load i8, ptr %98, align 1, !range !11, !noundef !12
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %105
 
@@ -13398,13 +13398,13 @@ define noundef ptr @proto_tree_add_item_ret_length(ptr noundef %0, i32 noundef %
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
   %11 = icmp ugt i32 %1, %10
-  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %13 = trunc nuw i8 %12 to i1
   %or.cond = select i1 %11, i1 %13, i1 false
   br i1 %or.cond, label %15, label %16
 
 14:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %15, label %.thread
 
@@ -13450,13 +13450,13 @@ define noundef ptr @proto_tree_add_bytes_item(ptr noundef %0, i32 noundef %1, pt
 13:                                               ; preds = %9
   %14 = load i32, ptr @gpa_hfinfo.0, align 8
   %15 = icmp ugt i32 %1, %14
-  %16 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %16 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %17 = trunc nuw i8 %16 to i1
   %or.cond = select i1 %15, i1 %17, i1 false
   br i1 %or.cond, label %19, label %20
 
 18:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %19, label %.thread
 
@@ -13646,13 +13646,13 @@ validate_proto_tree_add_bytes_ftype.exit:         ; preds = %29
 91:                                               ; preds = %82
   %92 = load i32, ptr @gpa_hfinfo.0, align 8
   %93 = icmp ugt i32 %89, %92
-  %94 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %94 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %95 = trunc nuw i8 %94 to i1
   %or.cond7 = select i1 %93, i1 %95, i1 false
   br i1 %or.cond7, label %97, label %98
 
 96:                                               ; preds = %82
-  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old6 = trunc nuw i8 %.old5 to i1
   br i1 %.old6, label %97, label %.thread186
 
@@ -13699,7 +13699,7 @@ validate_proto_tree_add_bytes_ftype.exit:         ; preds = %29
   br label %116
 
 116:                                              ; preds = %114, %113
-  %117 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %117 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %119, label %123
 
@@ -13728,7 +13728,7 @@ validate_proto_tree_add_bytes_ftype.exit:         ; preds = %29
 
 135:                                              ; preds = %107
   %136 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %137 = load i8, ptr %136, align 8, !range !10, !noundef !11
+  %137 = load i8, ptr %136, align 8, !range !11, !noundef !12
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %160, label %139
 
@@ -13760,7 +13760,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %139, %proto_item_is
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %108, i64 9
-  %153 = load i8, ptr %152, align 1, !range !10, !noundef !11
+  %153 = load i8, ptr %152, align 1, !range !11, !noundef !12
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %155, label %160
 
@@ -13893,13 +13893,13 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
 12:                                               ; preds = %9
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
   %14 = icmp ugt i32 %1, %13
-  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %16 = trunc nuw i8 %15 to i1
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %18, label %19
 
 17:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %18, label %.thread
 
@@ -14032,13 +14032,13 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
 71:                                               ; preds = %62
   %72 = load i32, ptr @gpa_hfinfo.0, align 8
   %73 = icmp ugt i32 %69, %72
-  %74 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %74 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %75 = trunc nuw i8 %74 to i1
   %or.cond7 = select i1 %73, i1 %75, i1 false
   br i1 %or.cond7, label %77, label %78
 
 76:                                               ; preds = %62
-  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old6 = trunc nuw i8 %.old5 to i1
   br i1 %.old6, label %77, label %.thread128
 
@@ -14077,7 +14077,7 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
   br i1 %92, label %93, label %109
 
 93:                                               ; preds = %87
-  %94 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %94 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %96, label %99
 
@@ -14103,7 +14103,7 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
 
 109:                                              ; preds = %87
   %110 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %111 = load i8, ptr %110, align 8, !range !10, !noundef !11
+  %111 = load i8, ptr %110, align 8, !range !11, !noundef !12
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %131, label %113
 
@@ -14135,7 +14135,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %113, %proto_item_is
 
 125:                                              ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %88, i64 9
-  %127 = load i8, ptr %126, align 1, !range !10, !noundef !11
+  %127 = load i8, ptr %126, align 1, !range !11, !noundef !12
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %131
 
@@ -14211,13 +14211,13 @@ define noundef ptr @proto_tree_add_none_format(ptr noundef %0, i32 noundef %1, p
 17:                                               ; preds = %10
   %18 = load i32, ptr @gpa_hfinfo.0, align 8
   %19 = icmp ugt i32 %1, %18
-  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %21 = trunc nuw i8 %20 to i1
   %or.cond = select i1 %19, i1 %21, i1 false
   br i1 %or.cond, label %23, label %24
 
 22:                                               ; preds = %10
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %23, label %.thread
 
@@ -14256,7 +14256,7 @@ define noundef ptr @proto_tree_add_none_format(ptr noundef %0, i32 noundef %1, p
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %33
-  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %45
 
@@ -14282,7 +14282,7 @@ define noundef ptr @proto_tree_add_none_format(ptr noundef %0, i32 noundef %1, p
 
 55:                                               ; preds = %33
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %57 = load i8, ptr %56, align 8, !range !10, !noundef !11
+  %57 = load i8, ptr %56, align 8, !range !11, !noundef !12
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %77, label %59
 
@@ -14314,7 +14314,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %34, i64 9
-  %73 = load i8, ptr %72, align 1, !range !10, !noundef !11
+  %73 = load i8, ptr %72, align 1, !range !11, !noundef !12
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %77
 
@@ -14350,7 +14350,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i8, ptr %93, align 8, !range !10, !noundef !11
+  %94 = load i8, ptr %93, align 8, !range !11, !noundef !12
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %100, label %96
 
@@ -14410,13 +14410,13 @@ define noundef ptr @proto_tree_add_protocol_format(ptr noundef %0, i32 noundef %
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
   %20 = icmp ugt i32 %1, %19
-  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %22 = trunc nuw i8 %21 to i1
   %or.cond = select i1 %20, i1 %22, i1 false
   br i1 %or.cond, label %24, label %25
 
 23:                                               ; preds = %11
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %24, label %.thread
 
@@ -14455,7 +14455,7 @@ define noundef ptr @proto_tree_add_protocol_format(ptr noundef %0, i32 noundef %
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %34
-  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %46
 
@@ -14481,7 +14481,7 @@ define noundef ptr @proto_tree_add_protocol_format(ptr noundef %0, i32 noundef %
 
 56:                                               ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %58 = load i8, ptr %57, align 8, !range !10, !noundef !11
+  %58 = load i8, ptr %57, align 8, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %78, label %60
 
@@ -14513,7 +14513,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %74 = load i8, ptr %73, align 1, !range !10, !noundef !11
+  %74 = load i8, ptr %73, align 1, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %78
 
@@ -14577,7 +14577,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
   %103 = getelementptr inbounds nuw i8, ptr %phi.call, i64 48
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load i8, ptr %105, align 8, !range !10, !noundef !11
+  %106 = load i8, ptr %105, align 8, !range !11, !noundef !12
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %112, label %108
 
@@ -14623,13 +14623,13 @@ define noundef ptr @proto_tree_add_bytes(ptr noundef %0, i32 noundef %1, ptr nou
 11:                                               ; preds = %6
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %6
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -14688,7 +14688,7 @@ test_length.exit:                                 ; preds = %27, %28
   store i32 %38, ptr %36, align 4
   %39 = load i32, ptr @gpa_hfinfo.0, align 8
   %40 = icmp ugt i32 %1, %39
-  %41 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %41 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %42 = trunc nuw i8 %41 to i1
   %or.cond4 = select i1 %40, i1 %42, i1 false
   br i1 %or.cond4, label %43, label %44
@@ -14725,7 +14725,7 @@ test_length.exit:                                 ; preds = %27, %28
   br i1 %57, label %58, label %74
 
 58:                                               ; preds = %52
-  %59 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %59 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %64
 
@@ -14751,7 +14751,7 @@ test_length.exit:                                 ; preds = %27, %28
 
 74:                                               ; preds = %52
   %75 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %76 = load i8, ptr %75, align 8, !range !10, !noundef !11
+  %76 = load i8, ptr %75, align 8, !range !11, !noundef !12
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %96, label %78
 
@@ -14783,7 +14783,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %78, %proto_item_is_
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %53, i64 9
-  %92 = load i8, ptr %91, align 1, !range !10, !noundef !11
+  %92 = load i8, ptr %91, align 1, !range !11, !noundef !12
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %94, label %96
 
@@ -14856,13 +14856,13 @@ define noundef ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef
 12:                                               ; preds = %7
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
   %14 = icmp ugt i32 %1, %13
-  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %16 = trunc nuw i8 %15 to i1
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %18, label %19
 
 17:                                               ; preds = %7
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %18, label %.thread
 
@@ -14921,7 +14921,7 @@ test_length.exit:                                 ; preds = %28, %29
   store i32 %39, ptr %37, align 4
   %40 = load i32, ptr @gpa_hfinfo.0, align 8
   %41 = icmp ugt i32 %1, %40
-  %42 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %42 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %43 = trunc nuw i8 %42 to i1
   %or.cond4 = select i1 %41, i1 %43, i1 false
   br i1 %or.cond4, label %44, label %45
@@ -14958,7 +14958,7 @@ test_length.exit:                                 ; preds = %28, %29
   br i1 %58, label %59, label %75
 
 59:                                               ; preds = %53
-  %60 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %60 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %65
 
@@ -14984,7 +14984,7 @@ test_length.exit:                                 ; preds = %28, %29
 
 75:                                               ; preds = %53
   %76 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %77 = load i8, ptr %76, align 8, !range !10, !noundef !11
+  %77 = load i8, ptr %76, align 8, !range !11, !noundef !12
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %97, label %79
 
@@ -15016,7 +15016,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %79, %proto_item_is_
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %54, i64 9
-  %93 = load i8, ptr %92, align 1, !range !10, !noundef !11
+  %93 = load i8, ptr %92, align 1, !range !11, !noundef !12
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %95, label %97
 
@@ -15102,7 +15102,7 @@ define noundef ptr @proto_tree_add_bytes_format_value(ptr noundef %0, i32 nounde
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i8, ptr %22, align 8, !range !10, !noundef !11
+  %23 = load i8, ptr %22, align 8, !range !11, !noundef !12
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %28, label %proto_item_is_hidden.exit
 
@@ -15129,7 +15129,7 @@ define internal fastcc void @proto_tree_set_representation_value(ptr noundef rea
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i8, ptr %6, align 8, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 8, !range !11, !noundef !12
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %16, label %9
 
@@ -15320,7 +15320,7 @@ hfinfo_container_bitwidth.exit.thread:            ; preds = %48, %48, %48, %56, 
   %.1.i.i = getelementptr i8, ptr %.2.i.i, i64 1
   %75 = add nuw nsw i32 %66, 1
   %exitcond.not.i.i = icmp eq i32 %66, %61
-  br i1 %exitcond.not.i.i, label %decode_bitfield_value.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i.i, label %decode_bitfield_value.exit, label %.lr.ph.i, !llvm.loop !26
 
 decode_bitfield_value.exit:                       ; preds = %72, %hfinfo_container_bitwidth.exit.thread
   %.1.i.lcssa.i = phi ptr [ %.1.i9.i, %hfinfo_container_bitwidth.exit.thread ], [ %.1.i.i, %72 ]
@@ -15436,7 +15436,7 @@ define noundef ptr @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %1, 
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i8, ptr %22, align 8, !range !10, !noundef !11
+  %23 = load i8, ptr %22, align 8, !range !11, !noundef !12
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %28, label %proto_item_is_hidden.exit
 
@@ -15479,13 +15479,13 @@ define noundef ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %1, ptr noun
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -15524,7 +15524,7 @@ define noundef ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -15550,7 +15550,7 @@ define noundef ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %1, ptr noun
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -15582,7 +15582,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -15667,7 +15667,7 @@ define noundef ptr @proto_tree_add_time_format(ptr noundef %0, i32 noundef %1, p
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -15714,13 +15714,13 @@ define noundef ptr @proto_tree_add_ipxnet(ptr noundef %0, i32 noundef %1, ptr no
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -15759,7 +15759,7 @@ define noundef ptr @proto_tree_add_ipxnet(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -15785,7 +15785,7 @@ define noundef ptr @proto_tree_add_ipxnet(ptr noundef %0, i32 noundef %1, ptr no
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -15817,7 +15817,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -15893,7 +15893,7 @@ define noundef ptr @proto_tree_add_ipxnet_format(ptr noundef %0, i32 noundef %1,
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -15941,13 +15941,13 @@ define noundef ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %1, ptr noun
 17:                                               ; preds = %10
   %18 = load i32, ptr @gpa_hfinfo.0, align 8
   %19 = icmp ugt i32 %1, %18
-  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %21 = trunc nuw i8 %20 to i1
   %or.cond = select i1 %19, i1 %21, i1 false
   br i1 %or.cond, label %23, label %24
 
 22:                                               ; preds = %10
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %23, label %.thread
 
@@ -15986,7 +15986,7 @@ define noundef ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %33
-  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %45
 
@@ -16012,7 +16012,7 @@ define noundef ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %1, ptr noun
 
 55:                                               ; preds = %33
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %57 = load i8, ptr %56, align 8, !range !10, !noundef !11
+  %57 = load i8, ptr %56, align 8, !range !11, !noundef !12
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %77, label %59
 
@@ -16044,7 +16044,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %34, i64 9
-  %73 = load i8, ptr %72, align 1, !range !10, !noundef !11
+  %73 = load i8, ptr %72, align 1, !range !11, !noundef !12
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %77
 
@@ -16123,7 +16123,7 @@ define noundef ptr @proto_tree_add_ipv4_format(ptr noundef %0, i32 noundef %1, p
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -16171,13 +16171,13 @@ define noundef ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noun
 17:                                               ; preds = %10
   %18 = load i32, ptr @gpa_hfinfo.0, align 8
   %19 = icmp ugt i32 %1, %18
-  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %21 = trunc nuw i8 %20 to i1
   %or.cond = select i1 %19, i1 %21, i1 false
   br i1 %or.cond, label %23, label %24
 
 22:                                               ; preds = %10
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %23, label %.thread
 
@@ -16216,7 +16216,7 @@ define noundef ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %33
-  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %45
 
@@ -16242,7 +16242,7 @@ define noundef ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noun
 
 55:                                               ; preds = %33
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %57 = load i8, ptr %56, align 8, !range !10, !noundef !11
+  %57 = load i8, ptr %56, align 8, !range !11, !noundef !12
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %77, label %59
 
@@ -16274,7 +16274,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %34, i64 9
-  %73 = load i8, ptr %72, align 1, !range !10, !noundef !11
+  %73 = load i8, ptr %72, align 1, !range !11, !noundef !12
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %77
 
@@ -16363,7 +16363,7 @@ define noundef ptr @proto_tree_add_ipv6_format(ptr noundef %0, i32 noundef %1, p
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -16410,13 +16410,13 @@ define noundef ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %1, ptr noun
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -16455,7 +16455,7 @@ define noundef ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -16481,7 +16481,7 @@ define noundef ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %1, ptr noun
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -16513,7 +16513,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -16597,7 +16597,7 @@ define noundef ptr @proto_tree_add_guid_format(ptr noundef %0, i32 noundef %1, p
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -16644,13 +16644,13 @@ define noundef ptr @proto_tree_add_oid(ptr noundef %0, i32 noundef %1, ptr nound
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -16689,7 +16689,7 @@ define noundef ptr @proto_tree_add_oid(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -16715,7 +16715,7 @@ define noundef ptr @proto_tree_add_oid(ptr noundef %0, i32 noundef %1, ptr nound
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -16747,7 +16747,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -16843,7 +16843,7 @@ define noundef ptr @proto_tree_add_oid_format(ptr noundef %0, i32 noundef %1, pt
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -16882,13 +16882,13 @@ define noundef ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr no
 11:                                               ; preds = %6
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %6
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -16949,7 +16949,7 @@ test_length.exit:                                 ; preds = %29, %27
   store i32 %38, ptr %36, align 4
   %39 = load i32, ptr @gpa_hfinfo.0, align 8
   %40 = icmp ugt i32 %1, %39
-  %41 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %41 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %42 = trunc nuw i8 %41 to i1
   %or.cond4 = select i1 %40, i1 %42, i1 false
   br i1 %or.cond4, label %43, label %44
@@ -16986,7 +16986,7 @@ test_length.exit:                                 ; preds = %29, %27
   br i1 %57, label %58, label %74
 
 58:                                               ; preds = %52
-  %59 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %59 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %64
 
@@ -17012,7 +17012,7 @@ test_length.exit:                                 ; preds = %29, %27
 
 74:                                               ; preds = %52
   %75 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %76 = load i8, ptr %75, align 8, !range !10, !noundef !11
+  %76 = load i8, ptr %75, align 8, !range !11, !noundef !12
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %96, label %78
 
@@ -17044,7 +17044,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %78, %proto_item_is_
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %53, i64 9
-  %92 = load i8, ptr %91, align 1, !range !10, !noundef !11
+  %92 = load i8, ptr %91, align 1, !range !11, !noundef !12
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %94, label %96
 
@@ -17138,7 +17138,7 @@ define noundef ptr @proto_tree_add_string_format(ptr noundef %0, i32 noundef %1,
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -17185,13 +17185,13 @@ define noundef ptr @proto_tree_add_ether(ptr noundef %0, i32 noundef %1, ptr nou
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -17230,7 +17230,7 @@ define noundef ptr @proto_tree_add_ether(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -17256,7 +17256,7 @@ define noundef ptr @proto_tree_add_ether(ptr noundef %0, i32 noundef %1, ptr nou
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -17288,7 +17288,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -17364,7 +17364,7 @@ define noundef ptr @proto_tree_add_ether_format(ptr noundef %0, i32 noundef %1, 
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -17411,13 +17411,13 @@ define noundef ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr n
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -17456,7 +17456,7 @@ define noundef ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -17482,7 +17482,7 @@ define noundef ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr n
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -17514,7 +17514,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -17588,7 +17588,7 @@ define noundef ptr @proto_tree_add_boolean_format(ptr noundef %0, i32 noundef %1
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -17635,13 +17635,13 @@ define noundef ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %1, ptr nou
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -17680,7 +17680,7 @@ define noundef ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -17706,7 +17706,7 @@ define noundef ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %1, ptr nou
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -17738,7 +17738,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -17815,7 +17815,7 @@ define noundef ptr @proto_tree_add_float_format(ptr noundef %0, i32 noundef %1, 
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -17862,13 +17862,13 @@ define noundef ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %1, ptr no
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -17907,7 +17907,7 @@ define noundef ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -17933,7 +17933,7 @@ define noundef ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %1, ptr no
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -17965,7 +17965,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -18041,7 +18041,7 @@ define noundef ptr @proto_tree_add_double_format(ptr noundef %0, i32 noundef %1,
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -18088,13 +18088,13 @@ define noundef ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -18133,7 +18133,7 @@ define noundef ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -18159,7 +18159,7 @@ define noundef ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -18191,7 +18191,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -18271,7 +18271,7 @@ define noundef ptr @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %1, p
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -18318,13 +18318,13 @@ define noundef ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr no
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -18363,7 +18363,7 @@ define noundef ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -18389,7 +18389,7 @@ define noundef ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr no
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -18421,7 +18421,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -18500,7 +18500,7 @@ define noundef ptr @proto_tree_add_uint64_format(ptr noundef %0, i32 noundef %1,
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -18547,13 +18547,13 @@ define noundef ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %1, ptr nound
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -18592,7 +18592,7 @@ define noundef ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -18618,7 +18618,7 @@ define noundef ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %1, ptr nound
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -18650,7 +18650,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -18725,7 +18725,7 @@ define noundef ptr @proto_tree_add_int_format(ptr noundef %0, i32 noundef %1, pt
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -18772,13 +18772,13 @@ define noundef ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr nou
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
   %18 = icmp ugt i32 %1, %17
-  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %19 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %20 = trunc nuw i8 %19 to i1
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %22, label %23
 
 21:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %22, label %.thread
 
@@ -18817,7 +18817,7 @@ define noundef ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -18843,7 +18843,7 @@ define noundef ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr nou
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %56 = load i8, ptr %55, align 8, !range !11, !noundef !12
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %76, label %58
 
@@ -18875,7 +18875,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !11, !noundef !12
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %76
 
@@ -18950,7 +18950,7 @@ define noundef ptr @proto_tree_add_int64_format(ptr noundef %0, i32 noundef %1, 
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -18998,13 +18998,13 @@ define noundef ptr @proto_tree_add_eui64(ptr noundef %0, i32 noundef %1, ptr nou
 17:                                               ; preds = %10
   %18 = load i32, ptr @gpa_hfinfo.0, align 8
   %19 = icmp ugt i32 %1, %18
-  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %20 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %21 = trunc nuw i8 %20 to i1
   %or.cond = select i1 %19, i1 %21, i1 false
   br i1 %or.cond, label %23, label %24
 
 22:                                               ; preds = %10
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %23, label %.thread
 
@@ -19043,7 +19043,7 @@ define noundef ptr @proto_tree_add_eui64(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %33
-  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %40 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %45
 
@@ -19069,7 +19069,7 @@ define noundef ptr @proto_tree_add_eui64(ptr noundef %0, i32 noundef %1, ptr nou
 
 55:                                               ; preds = %33
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %57 = load i8, ptr %56, align 8, !range !10, !noundef !11
+  %57 = load i8, ptr %56, align 8, !range !11, !noundef !12
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %77, label %59
 
@@ -19101,7 +19101,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %34, i64 9
-  %73 = load i8, ptr %72, align 1, !range !10, !noundef !11
+  %73 = load i8, ptr %72, align 1, !range !11, !noundef !12
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %77
 
@@ -19209,7 +19209,7 @@ define noundef ptr @proto_tree_add_eui64_format(ptr noundef %0, i32 noundef %1, 
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %23, label %19
 
@@ -20317,7 +20317,7 @@ set_address_ipv4.exit:                            ; preds = %3
   store i32 4, ptr %308, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #39
   %309 = load i32, ptr %307, align 4
-  %310 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %309) #44, !srcloc !24
+  %310 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %309) #44, !srcloc !27
   store i32 %310, ptr %4, align 4
   %311 = call dereferenceable_or_null(4) ptr @g_memdup2(ptr noundef nonnull %4, i64 noundef 4) #42
   %312 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -20664,7 +20664,7 @@ define internal fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %0, ptr nound
 19:                                               ; preds = %21
   %20 = getelementptr i8, ptr %.04959, i64 1
   %exitcond.not = icmp eq ptr %20, %17
-  br i1 %exitcond.not, label %.critedge, label %21, !llvm.loop !25
+  br i1 %exitcond.not, label %.critedge, label %21, !llvm.loop !28
 
 21:                                               ; preds = %.lr.ph, %19
   %.04959 = phi ptr [ %2, %.lr.ph ], [ %20, %19 ]
@@ -20715,7 +20715,7 @@ define internal fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %0, ptr nound
   br label %61
 
 45:                                               ; preds = %.loopexit
-  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 381), align 1, !range !10, !noundef !11
+  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 381), align 1, !range !11, !noundef !12
   %47 = trunc nuw i8 %46 to i1
   %48 = zext i32 %3 to i64
   br i1 %47, label %49, label %52
@@ -21584,16 +21584,16 @@ define hidden nonnull ptr @proto_custom_set(ptr noundef %0, ptr noundef %1, i32 
   br label %.lr.ph552
 
 .outer382..outer382..loopexit_crit_edge_crit_edge: ; preds = %241, %hfinfo_same_name_get_prev.exit349
-  br label %.outer382..loopexit_crit_edge, !llvm.loop !26
+  br label %.outer382..loopexit_crit_edge, !llvm.loop !29
 
 .outer382..loopexit_crit_edge:                    ; preds = %484, %483, %.outer382..outer382..loopexit_crit_edge_crit_edge
   %split567 = phi i32 [ %.7271.ph760, %.outer382..outer382..loopexit_crit_edge_crit_edge ], [ %.8272.lcssa, %483 ], [ %.8272.lcssa, %484 ]
   %split568 = phi i32 [ %.6.ph761, %.outer382..outer382..loopexit_crit_edge_crit_edge ], [ %.7.lcssa, %483 ], [ %.7.lcssa, %484 ]
   %split569 = phi ptr [ %.1.ph763, %.outer382..outer382..loopexit_crit_edge_crit_edge ], [ %.2, %483 ], [ %.2, %484 ]
-  br label %.loopexit, !llvm.loop !26
+  br label %.loopexit, !llvm.loop !29
 
 ..loopexit_crit_edge:                             ; preds = %proto_get_finfo_ptr_array.exit.thread.us660, %proto_get_finfo_ptr_array.exit.thread.us582, %proto_get_finfo_ptr_array.exit.thread, %proto_get_finfo_ptr_array.exit.thread.us
-  br label %.loopexit, !llvm.loop !26
+  br label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %.outer382..loopexit_crit_edge
   %.7271.ph.lcssa503 = phi i32 [ %.7271.ph760, %..loopexit_crit_edge ], [ %split567, %.outer382..loopexit_crit_edge ]
@@ -21651,7 +21651,7 @@ define hidden nonnull ptr @proto_custom_set(ptr noundef %0, ptr noundef %1, i32 
 
 36:                                               ; preds = %31
   call void @g_ptr_array_unref(ptr noundef nonnull %30)
-  br label %123, !llvm.loop !26
+  br label %123, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.preheader, %protoo_strlcpy.exit
   %.2260547 = phi i32 [ %69, %protoo_strlcpy.exit ], [ %.0258551, %.preheader ]
@@ -21719,7 +21719,7 @@ protoo_strlcpy.exit:                              ; preds = %56, %58
   call void @g_free(ptr noundef %42)
   %70 = add i32 %.1275545, 1
   %.not320 = icmp sgt i32 %70, %.0256
-  br i1 %.not320, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not320, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %protoo_strlcpy.exit
   %.pre1056 = load ptr, ptr %8, align 8
@@ -21730,10 +21730,10 @@ protoo_strlcpy.exit:                              ; preds = %56, %58
   %.2266.lcssa = phi i32 [ %.0264550, %.preheader ], [ %66, %._crit_edge.loopexit ]
   %.2260.lcssa = phi i32 [ %.0258551, %.preheader ], [ %69, %._crit_edge.loopexit ]
   call void @g_ptr_array_unref(ptr noundef %71)
-  br label %123, !llvm.loop !26
+  br label %123, !llvm.loop !30
 
 72:                                               ; preds = %26
-  br i1 %29, label %73, label %123, !llvm.loop !26
+  br i1 %29, label %73, label %123, !llvm.loop !30
 
 73:                                               ; preds = %72
   %.not316 = icmp eq i32 %.0264550, 0
@@ -21825,14 +21825,14 @@ protoo_strlcpy.exit334:                           ; preds = %90, %92
 protoo_strlcpy.exit338:                           ; preds = %108, %110
   %.08.i337 = phi i32 [ %117, %110 ], [ 0, %108 ]
   %118 = add i32 %.08.i337, %.5263
-  br label %123, !llvm.loop !26
+  br label %123, !llvm.loop !30
 
 119:                                              ; preds = %105
   %120 = add i32 %.5263, -1
   %121 = sext i32 %120 to i64
   %122 = getelementptr i8, ptr %5, i64 %121
   store i8 0, ptr %122, align 1
-  br label %123, !llvm.loop !26
+  br label %123, !llvm.loop !30
 
 123:                                              ; preds = %._crit_edge, %protoo_strlcpy.exit338, %119, %72, %36
   %.1265 = phi i32 [ %.0264550, %36 ], [ %.2266.lcssa, %._crit_edge ], [ %.6270, %protoo_strlcpy.exit338 ], [ %.6270, %119 ], [ %.0264550, %72 ]
@@ -21841,12 +21841,12 @@ protoo_strlcpy.exit338:                           ; preds = %108, %110
   %124 = add i32 %22, 1
   %125 = call ptr @g_slist_nth_data(ptr noundef %1, i32 noundef %22)
   %.not = icmp eq ptr %125, null
-  br i1 %.not, label %.outer388._crit_edge, label %20
+  br i1 %.not, label %.outer388._crit_edge, label %20, !llvm.loop !29
 
 126:                                              ; preds = %20
   %127 = load i32, ptr @gpa_hfinfo.0, align 8
   %128 = icmp ugt i32 %24, %127
-  %129 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %129 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %.fr774 = freeze i8 %129
   %130 = trunc i8 %.fr774 to i1
   %or.cond = and i1 %128, %130
@@ -21906,7 +21906,7 @@ protoo_strlcpy.exit338:                           ; preds = %108, %110
   %149 = getelementptr ptr, ptr %136, i64 %148
   %150 = load ptr, ptr %149, align 8
   %.not314.us = icmp eq ptr %150, null
-  br i1 %.not314.us, label %.split563.us, label %.preheader385.split.us, !llvm.loop !28
+  br i1 %.not314.us, label %.split563.us, label %.preheader385.split.us, !llvm.loop !32
 
 .preheader385.split:                              ; preds = %.preheader385, %159
   %.1254 = phi ptr [ %162, %159 ], [ %139, %.preheader385 ]
@@ -21944,7 +21944,7 @@ protoo_strlcpy.exit338:                           ; preds = %108, %110
   %161 = getelementptr ptr, ptr %136, i64 %160
   %162 = load ptr, ptr %161, align 8
   %.not314 = icmp eq ptr %162, null
-  br i1 %.not314, label %.split563.us, label %.preheader385.split, !llvm.loop !30
+  br i1 %.not314, label %.split563.us, label %.preheader385.split, !llvm.loop !34
 
 .split563.us:                                     ; preds = %147, %159
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 7410, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.5) #37
@@ -21956,12 +21956,12 @@ protoo_strlcpy.exit338:                           ; preds = %108, %110
   %.2255.ph762 = phi ptr [ %499, %495 ], [ %.2255.ph762.ph, %.lr.ph566.lr.ph.preheader ]
   %.6.ph761 = phi i32 [ %.7.lcssa, %495 ], [ %.0258551, %.lr.ph566.lr.ph.preheader ]
   %.7271.ph760 = phi i32 [ %.8272.lcssa, %495 ], [ %.0264550, %.lr.ph566.lr.ph.preheader ]
-  br label %.lr.ph566, !llvm.loop !26
+  br label %.lr.ph566, !llvm.loop !29
 
 .lr.ph566:                                        ; preds = %.lr.ph566.lr.ph, %hfinfo_same_name_get_prev.exit349
   %.0251.ph384744 = phi i32 [ %.0251.ph764, %.lr.ph566.lr.ph ], [ %258, %hfinfo_same_name_get_prev.exit349 ]
   %.2255.ph383743 = phi ptr [ %.2255.ph762, %.lr.ph566.lr.ph ], [ %.4, %hfinfo_same_name_get_prev.exit349 ]
-  br i1 %12, label %.lr.ph566.split.us, label %.lr.ph566.split, !llvm.loop !26
+  br i1 %12, label %.lr.ph566.split.us, label %.lr.ph566.split, !llvm.loop !29
 
 .lr.ph566.split.us:                               ; preds = %.lr.ph566, %proto_get_finfo_ptr_array.exit.thread.us
   %.2255565.us = phi ptr [ %175, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.2255.ph383743, %.lr.ph566 ]
@@ -21992,17 +21992,17 @@ proto_get_finfo_ptr_array.exit.thread.us:         ; preds = %171, %proto_get_fin
   %174 = getelementptr inbounds nuw i8, ptr %.2255565.us, i64 64
   %175 = load ptr, ptr %174, align 8
   %.not302.us = icmp eq ptr %175, null
-  br i1 %.not302.us, label %..loopexit_crit_edge, label %.lr.ph566.split.us, !llvm.loop !31
+  br i1 %.not302.us, label %..loopexit_crit_edge, label %.lr.ph566.split.us, !llvm.loop !35
 
 .lr.ph566.split:                                  ; preds = %.lr.ph566
   br i1 %.not.i339, label %.lr.ph566.split.split.us, label %.lr.ph566.split.split
 
 .lr.ph566.split.split.us:                         ; preds = %.lr.ph566.split
   %176 = load i32, ptr @gpa_hfinfo.0, align 8
-  %177 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %177 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %178 = trunc nuw i8 %177 to i1
   %179 = load ptr, ptr @gpa_hfinfo.2, align 8
-  br label %proto_get_finfo_ptr_array.exit.thread.us582, !llvm.loop !26
+  br label %proto_get_finfo_ptr_array.exit.thread.us582, !llvm.loop !29
 
 proto_get_finfo_ptr_array.exit.thread.us582:      ; preds = %186, %.lr.ph566.split.split.us
   %.2255565.us581 = phi ptr [ %.2255.ph383743, %.lr.ph566.split.split.us ], [ %189, %186 ]
@@ -22029,20 +22029,20 @@ proto_get_finfo_ptr_array.exit.thread.us582:      ; preds = %186, %.lr.ph566.spl
   %188 = getelementptr ptr, ptr %179, i64 %187
   %189 = load ptr, ptr %188, align 8
   %.not.i341.us = icmp eq ptr %189, null
-  br i1 %.not.i341.us, label %.split591.us, label %proto_get_finfo_ptr_array.exit.thread.us582, !llvm.loop !32
+  br i1 %.not.i341.us, label %.split591.us, label %proto_get_finfo_ptr_array.exit.thread.us582, !llvm.loop !36
 
 .lr.ph566.split.split:                            ; preds = %.lr.ph566.split
   %190 = load ptr, ptr %15, align 8
   %191 = load ptr, ptr %190, align 8
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %.lr.ph566.split.split.split.us, label %.lr.ph566.split.split.split, !llvm.loop !26
+  br i1 %192, label %.lr.ph566.split.split.split.us, label %.lr.ph566.split.split.split, !llvm.loop !29
 
 .lr.ph566.split.split.split.us:                   ; preds = %.lr.ph566.split.split
   %193 = load i32, ptr @gpa_hfinfo.0, align 8
-  %194 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %194 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %195 = trunc nuw i8 %194 to i1
   %196 = load ptr, ptr @gpa_hfinfo.2, align 8
-  br label %proto_get_finfo_ptr_array.exit.thread.us660, !llvm.loop !26
+  br label %proto_get_finfo_ptr_array.exit.thread.us660, !llvm.loop !29
 
 proto_get_finfo_ptr_array.exit.thread.us660:      ; preds = %203, %.lr.ph566.split.split.split.us
   %.2255565.us658 = phi ptr [ %.2255.ph383743, %.lr.ph566.split.split.split.us ], [ %206, %203 ]
@@ -22069,7 +22069,7 @@ proto_get_finfo_ptr_array.exit.thread.us660:      ; preds = %203, %.lr.ph566.spl
   %205 = getelementptr ptr, ptr %196, i64 %204
   %206 = load ptr, ptr %205, align 8
   %.not.i341.us664 = icmp eq ptr %206, null
-  br i1 %.not.i341.us664, label %.split591.us, label %proto_get_finfo_ptr_array.exit.thread.us660, !llvm.loop !32
+  br i1 %.not.i341.us664, label %.split591.us, label %proto_get_finfo_ptr_array.exit.thread.us660, !llvm.loop !36
 
 .lr.ph566.split.split.split:                      ; preds = %.lr.ph566.split.split, %226
   %.2255565 = phi ptr [ %230, %226 ], [ %.2255.ph383743, %.lr.ph566.split.split ]
@@ -22104,13 +22104,13 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph566.split.spl
 218:                                              ; preds = %proto_get_finfo_ptr_array.exit.thread
   %219 = load i32, ptr @gpa_hfinfo.0, align 8
   %220 = icmp ugt i32 %.2255.val, %219
-  %221 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %221 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %222 = trunc nuw i8 %221 to i1
   %or.cond.i = select i1 %220, i1 %222, i1 false
   br i1 %or.cond.i, label %.loopexit381, label %223
 
 .split587.us:                                     ; preds = %proto_get_finfo_ptr_array.exit.thread.us660, %proto_get_finfo_ptr_array.exit.thread.us582, %proto_get_finfo_ptr_array.exit.thread
-  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i = trunc nuw i8 %.old.i to i1
   br i1 %.old1.i, label %.loopexit381, label %.thread.i
 
@@ -22135,7 +22135,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph566.split.spl
   %229 = getelementptr ptr, ptr %227, i64 %228
   %230 = load ptr, ptr %229, align 8
   %.not.i341 = icmp eq ptr %230, null
-  br i1 %.not.i341, label %.split591.us, label %.lr.ph566.split.split.split, !llvm.loop !33
+  br i1 %.not.i341, label %.split591.us, label %.lr.ph566.split.split.split, !llvm.loop !37
 
 .split591.us:                                     ; preds = %203, %186, %226
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 7004, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.5) #37
@@ -22174,13 +22174,13 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph566.split.spl
 243:                                              ; preds = %241
   %244 = load i32, ptr @gpa_hfinfo.0, align 8
   %245 = icmp ugt i32 %.2255.val329, %244
-  %246 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %246 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %247 = trunc nuw i8 %246 to i1
   %or.cond.i346 = select i1 %245, i1 %247, i1 false
   br i1 %or.cond.i346, label %.loopexit380, label %249
 
 248:                                              ; preds = %241
-  %.old.i342 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i342 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i343 = trunc nuw i8 %.old.i342 to i1
   br i1 %.old1.i343, label %.loopexit380, label %.thread.i344
 
@@ -22214,7 +22214,7 @@ hfinfo_same_name_get_prev.exit349:                ; preds = %252, %238
   %.4 = phi ptr [ %240, %238 ], [ %256, %252 ]
   %258 = add i32 %.us-phi576, %.0251.ph384744
   %.not302564 = icmp eq ptr %.4, null
-  br i1 %.not302564, label %.outer382..outer382..loopexit_crit_edge_crit_edge, label %.lr.ph566, !llvm.loop !32
+  br i1 %.not302564, label %.outer382..outer382..loopexit_crit_edge_crit_edge, label %.lr.ph566, !llvm.loop !36
 
 259:                                              ; preds = %233
   br i1 %12, label %260, label %262
@@ -22658,7 +22658,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %423, %425, %429, %4
   %.9 = phi i32 [ %453, %446 ], [ %463, %458 ], [ %465, %464 ], [ %476, %.thread1072 ]
   %478 = add i32 %.3277752, 1
   %.not306 = icmp sgt i32 %478, %.12571071
-  br i1 %.not306, label %._crit_edge757, label %274, !llvm.loop !35
+  br i1 %.not306, label %._crit_edge757, label %274, !llvm.loop !39
 
 ._crit_edge757:                                   ; preds = %477, %267
   %479 = phi i32 [ %269, %267 ], [ %270, %477 ]
@@ -22674,7 +22674,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %423, %425, %429, %4
 
 483:                                              ; preds = %480, %._crit_edge757
   %.2 = phi ptr [ %.1.ph763, %._crit_edge757 ], [ %482, %480 ]
-  br i1 %.not318, label %484, label %.outer382..loopexit_crit_edge, !llvm.loop !26
+  br i1 %.not318, label %484, label %.outer382..loopexit_crit_edge, !llvm.loop !29
 
 484:                                              ; preds = %483
   %485 = getelementptr i8, ptr %.us-phi575, i64 60
@@ -22682,18 +22682,18 @@ hf_try_val64_to_str_const.exit:                   ; preds = %423, %425, %429, %4
   switch i32 %.2255.val330, label %486 [
     i32 -1, label %.outer382..loopexit_crit_edge
     i32 0, label %491
-  ], !llvm.loop !26
+  ], !llvm.loop !29
 
 486:                                              ; preds = %484
   %487 = load i32, ptr @gpa_hfinfo.0, align 8
   %488 = icmp ugt i32 %.2255.val330, %487
-  %489 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %489 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %490 = trunc nuw i8 %489 to i1
   %or.cond.i361 = select i1 %488, i1 %490, i1 false
   br i1 %or.cond.i361, label %.loopexit379, label %492
 
 491:                                              ; preds = %484
-  %.old.i357 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i357 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i358 = trunc nuw i8 %.old.i357 to i1
   br i1 %.old1.i358, label %.loopexit379, label %.thread.i359
 
@@ -22717,7 +22717,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %423, %425, %429, %4
   %498 = getelementptr ptr, ptr %496, i64 %497
   %499 = load ptr, ptr %498, align 8
   %.not.i363 = icmp eq ptr %499, null
-  br i1 %.not.i363, label %500, label %.lr.ph566.lr.ph, !llvm.loop !32
+  br i1 %.not.i363, label %500, label %.lr.ph566.lr.ph, !llvm.loop !36
 
 500:                                              ; preds = %495
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 7004, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.5) #37
@@ -23068,7 +23068,7 @@ set_address_ipv4.exit:                            ; preds = %8
   store i32 4, ptr %93, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #39
   %94 = load i32, ptr %92, align 4
-  %95 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %94) #44, !srcloc !24
+  %95 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %94) #44, !srcloc !27
   store i32 %95, ptr %4, align 4
   %96 = call dereferenceable_or_null(4) ptr @g_memdup2(ptr noundef nonnull %4, i64 noundef 4) #42
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23415,7 +23415,7 @@ define hidden noalias ptr @proto_custom_get_filter(ptr noundef readonly captures
 37:                                               ; preds = %36, %.lr.ph271
   %38 = add i32 %.1120270, 1
   %.not152 = icmp sgt i32 %38, %.0117
-  br i1 %.not152, label %._crit_edge272.loopexit, label %.lr.ph271, !llvm.loop !36
+  br i1 %.not152, label %._crit_edge272.loopexit, label %.lr.ph271, !llvm.loop !40
 
 ._crit_edge272.loopexit:                          ; preds = %37
   %.pre = load ptr, ptr %5, align 8
@@ -23457,7 +23457,7 @@ define hidden noalias ptr @proto_custom_get_filter(ptr noundef readonly captures
 51:                                               ; preds = %10
   %52 = load i32, ptr @gpa_hfinfo.0, align 8
   %53 = icmp ugt i32 %13, %52
-  %54 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %54 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %.fr279 = freeze i8 %54
   %55 = trunc i8 %.fr279 to i1
   %or.cond = and i1 %53, %55
@@ -23517,7 +23517,7 @@ define hidden noalias ptr @proto_custom_get_filter(ptr noundef readonly captures
   %74 = getelementptr ptr, ptr %61, i64 %73
   %75 = load ptr, ptr %74, align 8
   %.not146.us = icmp eq ptr %75, null
-  br i1 %.not146.us, label %.split256.us, label %.preheader186.split.us, !llvm.loop !37
+  br i1 %.not146.us, label %.split256.us, label %.preheader186.split.us, !llvm.loop !41
 
 .preheader186.split:                              ; preds = %.preheader186, %84
   %.1122 = phi ptr [ %87, %84 ], [ %64, %.preheader186 ]
@@ -23555,7 +23555,7 @@ define hidden noalias ptr @proto_custom_get_filter(ptr noundef readonly captures
   %86 = getelementptr ptr, ptr %61, i64 %85
   %87 = load ptr, ptr %86, align 8
   %.not146 = icmp eq ptr %87, null
-  br i1 %.not146, label %.split256.us, label %.preheader186.split, !llvm.loop !38
+  br i1 %.not146, label %.split256.us, label %.preheader186.split, !llvm.loop !42
 
 .split256.us:                                     ; preds = %72, %84
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 7625, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.5) #37
@@ -23598,7 +23598,7 @@ proto_get_finfo_ptr_array.exit.thread.us:         ; preds = %98, %proto_get_finf
   %101 = getelementptr inbounds nuw i8, ptr %.2123258.us, i64 64
   %102 = load ptr, ptr %101, align 8
   %.not139.us = icmp eq ptr %102, null
-  br i1 %.not139.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !39
+  br i1 %.not139.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !43
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %126
   %.2123258 = phi ptr [ %130, %126 ], [ %.2123.ph267, %.lr.ph ]
@@ -23639,13 +23639,13 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %106, %.lr.ph.split,
 117:                                              ; preds = %proto_get_finfo_ptr_array.exit.thread
   %118 = load i32, ptr @gpa_hfinfo.0, align 8
   %119 = icmp ugt i32 %.2123.val158, %118
-  %120 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %120 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %121 = trunc nuw i8 %120 to i1
   %or.cond.i = select i1 %119, i1 %121, i1 false
   br i1 %or.cond.i, label %.loopexit185, label %123
 
 122:                                              ; preds = %proto_get_finfo_ptr_array.exit.thread
-  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i = trunc nuw i8 %.old.i to i1
   br i1 %.old1.i, label %.loopexit185, label %.thread.i
 
@@ -23669,7 +23669,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %106, %.lr.ph.split,
   %129 = getelementptr ptr, ptr %127, i64 %128
   %130 = load ptr, ptr %129, align 8
   %.not.i160 = icmp eq ptr %130, null
-  br i1 %.not.i160, label %131, label %.lr.ph.split, !llvm.loop !40
+  br i1 %.not.i160, label %131, label %.lr.ph.split, !llvm.loop !44
 
 131:                                              ; preds = %126
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 7004, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.5) #37
@@ -23708,13 +23708,13 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %106, %.lr.ph.split,
 144:                                              ; preds = %142
   %145 = load i32, ptr @gpa_hfinfo.0, align 8
   %146 = icmp ugt i32 %.2123.val157, %145
-  %147 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %147 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %148 = trunc nuw i8 %147 to i1
   %or.cond.i165 = select i1 %146, i1 %148, i1 false
   br i1 %or.cond.i165, label %.loopexit184, label %150
 
 149:                                              ; preds = %142
-  %.old.i161 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i161 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i162 = trunc nuw i8 %.old.i161 to i1
   br i1 %.old1.i162, label %.loopexit184, label %.thread.i163
 
@@ -23748,7 +23748,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %106, %.lr.ph.split,
   %.2123.ph.be = phi ptr [ %193, %189 ], [ %141, %139 ], [ %157, %153 ]
   %.0114.ph.be = add i32 %.us-phi262, %.0114.ph268
   %.not139257 = icmp eq ptr %.2123.ph.be, null
-  br i1 %.not139257, label %.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %.not139257, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
 159:                                              ; preds = %134
   br i1 %8, label %160, label %162
@@ -23809,7 +23809,7 @@ proto_construct_match_selected_string.exit:       ; preds = %.lr.ph266
 177:                                              ; preds = %proto_construct_match_selected_string.exit.thread, %174, %176, %proto_construct_match_selected_string.exit
   %178 = add i32 %.3265, 1
   %.not143 = icmp sgt i32 %178, %.1118378
-  br i1 %.not143, label %._crit_edge, label %.lr.ph266, !llvm.loop !41
+  br i1 %.not143, label %._crit_edge, label %.lr.ph266, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %177
   br i1 %.not142, label %._crit_edge.thread, label %.loopexit
@@ -23825,13 +23825,13 @@ proto_construct_match_selected_string.exit:       ; preds = %.lr.ph266
 180:                                              ; preds = %._crit_edge.thread
   %181 = load i32, ptr @gpa_hfinfo.0, align 8
   %182 = icmp ugt i32 %.2123.val, %181
-  %183 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %183 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %184 = trunc nuw i8 %183 to i1
   %or.cond.i174 = select i1 %182, i1 %184, i1 false
   br i1 %or.cond.i174, label %.loopexit183, label %186
 
 185:                                              ; preds = %._crit_edge.thread
-  %.old.i170 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i170 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i171 = trunc nuw i8 %.old.i170 to i1
   br i1 %.old1.i171, label %.loopexit183, label %.thread.i172
 
@@ -23865,7 +23865,7 @@ proto_construct_match_selected_string.exit:       ; preds = %.lr.ph266
   %195 = getelementptr inbounds nuw i8, ptr %.0116274, i64 8
   %196 = load ptr, ptr %195, align 8
   %.not = icmp eq ptr %196, null
-  br i1 %.not, label %._crit_edge277, label %10, !llvm.loop !42
+  br i1 %.not, label %._crit_edge277, label %10, !llvm.loop !46
 
 ._crit_edge277:                                   ; preds = %.loopexit, %3
   call void @g_ptr_array_add(ptr noundef %7, ptr noundef null)
@@ -23932,7 +23932,7 @@ define void @proto_item_append_text(ptr noundef readonly captures(address_is_nul
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i8, ptr %10, align 8, !range !10, !noundef !11
+  %11 = load i8, ptr %10, align 8, !range !11, !noundef !12
   %12 = trunc nuw i8 %11 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
@@ -24104,7 +24104,7 @@ define void @proto_item_prepend_text(ptr noundef readonly captures(address_is_nu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i8, ptr %11, align 8, !range !10, !noundef !11
+  %12 = load i8, ptr %11, align 8, !range !11, !noundef !12
   %13 = trunc nuw i8 %12 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
@@ -24437,13 +24437,13 @@ define hidden void @proto_tree_prime_with_hfid(ptr noundef readnone captures(non
 4:                                                ; preds = %2
   %5 = load i32, ptr @gpa_hfinfo.0, align 8
   %6 = icmp ugt i32 %1, %5
-  %7 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %7 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %8 = trunc nuw i8 %7 to i1
   %or.cond = select i1 %6, i1 %8, i1 false
   br i1 %or.cond, label %10, label %11
 
 9:                                                ; preds = %2
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %10, label %.thread
 
@@ -24546,13 +24546,13 @@ define hidden void @proto_tree_prime_with_hfid_print(ptr noundef readnone captur
 4:                                                ; preds = %2
   %5 = load i32, ptr @gpa_hfinfo.0, align 8
   %6 = icmp ugt i32 %1, %5
-  %7 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %7 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %8 = trunc nuw i8 %7 to i1
   %or.cond = select i1 %6, i1 %8, i1 false
   br i1 %or.cond, label %10, label %11
 
 9:                                                ; preds = %2
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %10, label %.thread
 
@@ -24695,7 +24695,7 @@ define ptr @proto_item_get_parent_nth(ptr noundef readonly captures(address_is_n
   %5 = getelementptr inbounds nuw i8, ptr %.05, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not10 = icmp eq ptr %6, null
-  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !43
+  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.preheader, %3, %2
   %.06 = phi ptr [ null, %2 ], [ %.05, %.preheader ], [ null, %3 ]
@@ -24734,7 +24734,7 @@ define ptr @proto_tree_get_root(ptr noundef readonly captures(address_is_null, r
   %2 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not8 = icmp eq ptr %3, null
-  br i1 %.not8, label %.loopexit, label %.preheader, !llvm.loop !44
+  br i1 %.not8, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.preheader, %1
   %.05 = phi ptr [ null, %1 ], [ %.0, %.preheader ]
@@ -24750,7 +24750,7 @@ define void @proto_tree_move_item(ptr noundef captures(address) %0, ptr noundef 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i8, ptr %7, align 8, !range !10, !noundef !11
+  %8 = load i8, ptr %7, align 8, !range !11, !noundef !12
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %49
 
@@ -24801,7 +24801,7 @@ define void @proto_tree_move_item(ptr noundef captures(address) %0, ptr noundef 
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %2
-  br i1 %32, label %33, label %.preheader, !llvm.loop !45
+  br i1 %32, label %33, label %.preheader, !llvm.loop !49
 
 .critedge:                                        ; preds = %.preheader
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 8147, ptr noundef nonnull @.str.96) #37
@@ -25016,7 +25016,7 @@ define internal fastcc void @check_protocol_filter_name_or_fail(ptr noundef %0) 
   %20 = getelementptr i8, ptr %.026, i64 1
   %21 = load i8, ptr %20, align 1
   %.not22.not = icmp eq i8 %21, 0
-  br i1 %.not22.not, label %.critedge, label %22, !llvm.loop !46
+  br i1 %.not22.not, label %.critedge, label %22, !llvm.loop !50
 
 22:                                               ; preds = %.lr.ph, %19
   %23 = phi i8 [ %13, %.lr.ph ], [ %21, %19 ]
@@ -25189,7 +25189,7 @@ proto_get_id_by_short_name.exit:                  ; preds = %3, %7
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
   %43 = icmp samesign ult i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi ptr [ %23, %.preheader ], [ %39, %.lr.ph ]
@@ -25255,7 +25255,7 @@ define ptr @find_protocol_by_id(i32 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
   %5 = icmp ugt i32 %0, %4
-  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %8, label %9
@@ -25347,13 +25347,13 @@ define internal fastcc void @hfinfo_remove_from_gpa_name_map(ptr noundef readonl
 14:                                               ; preds = %7, %.thread
   %15 = load i32, ptr @gpa_hfinfo.0, align 8
   %16 = icmp ugt i32 %6, %15
-  %17 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %17 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %18 = trunc nuw i8 %17 to i1
   %or.cond.i = select i1 %16, i1 %18, i1 false
   br i1 %or.cond.i, label %20, label %21
 
 19:                                               ; preds = %7, %.thread
-  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i = trunc nuw i8 %.old.i to i1
   br i1 %.old1.i, label %20, label %.thread.i
 
@@ -25812,7 +25812,7 @@ sub_1:                                            ; preds = %sub_0
 46:                                               ; preds = %.sink.split, %44, %41
   %47 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.051)
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %46, %8
   ret void
@@ -25859,7 +25859,7 @@ proto_get_protocol_filter_name.exit:              ; preds = %.lr.ph, %9
 13:                                               ; preds = %proto_get_protocol_filter_name.exit
   %14 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.0710)
   %.not.not = icmp eq ptr %14, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %proto_get_protocol_filter_name.exit, %13, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ %.not8, %13 ], [ %.not8, %proto_get_protocol_filter_name.exit ]
@@ -25946,7 +25946,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.tr7, i64 36
-  %9 = load i8, ptr %8, align 4, !range !10, !noundef !11
+  %9 = load i8, ptr %8, align 4, !range !11, !noundef !12
   %10 = trunc nuw i8 %9 to i1
   br label %.loopexit
 
@@ -25973,7 +25973,7 @@ tailrecurse:                                      ; preds = %1, %tailrecurse
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   %.tr.lcssa = phi ptr [ %0, %1 ], [ %5, %tailrecurse ]
   %8 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 37
-  %9 = load i8, ptr %8, align 1, !range !10, !noundef !11
+  %9 = load i8, ptr %8, align 1, !range !11, !noundef !12
   %10 = trunc nuw i8 %9 to i1
   ret i1 %10
 }
@@ -25992,7 +25992,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %1
 
 5:                                                ; preds = %tailrecurse
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 38
-  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 2, !range !11, !noundef !12
   %8 = trunc nuw i8 %7 to i1
   ret i1 %8
 }
@@ -26001,7 +26001,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %1
 define void @proto_disable_by_default(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @find_protocol_by_id(i32 noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 38
-  %4 = load i8, ptr %3, align 2, !range !10, !noundef !11
+  %4 = load i8, ptr %3, align 2, !range !11, !noundef !12
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %7, label %6
 
@@ -26031,7 +26031,7 @@ define void @proto_disable_by_default(i32 noundef %0) local_unnamed_addr #0 {
 define void @proto_set_decoding(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call ptr @find_protocol_by_id(i32 noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 38
-  %5 = load i8, ptr %4, align 2, !range !10, !noundef !11
+  %5 = load i8, ptr %4, align 2, !range !11, !noundef !12
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %8, label %7
 
@@ -26066,7 +26066,7 @@ define void @proto_disable_all() local_unnamed_addr #25 {
   %.07 = phi ptr [ %11, %9 ], [ %1, %0 ]
   %3 = load ptr, ptr %.07, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 38
-  %5 = load i8, ptr %4, align 2, !range !10, !noundef !11
+  %5 = load i8, ptr %4, align 2, !range !11, !noundef !12
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %9
 
@@ -26079,7 +26079,7 @@ define void @proto_disable_all() local_unnamed_addr #25 {
   %10 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !50
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !54
 
 .loopexit:                                        ; preds = %9, %0
   ret void
@@ -26095,13 +26095,13 @@ define void @proto_reenable_all() local_unnamed_addr #0 {
   %.09 = phi ptr [ %17, %proto_heuristic_dissector_foreach.exit ], [ %1, %0 ]
   %3 = load ptr, ptr %.09, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 38
-  %5 = load i8, ptr %4, align 2, !range !10, !noundef !11
+  %5 = load i8, ptr %4, align 2, !range !11, !noundef !12
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 37
-  %9 = load i8, ptr %8, align 1, !range !10, !noundef !11
+  %9 = load i8, ptr %8, align 1, !range !11, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 %9, ptr %10, align 4
   br label %11
@@ -26120,7 +26120,7 @@ proto_heuristic_dissector_foreach.exit:           ; preds = %11, %13
   %16 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !51
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !55
 
 .loopexit:                                        ; preds = %proto_heuristic_dissector_foreach.exit, %0
   ret void
@@ -26129,7 +26129,7 @@ proto_heuristic_dissector_foreach.exit:           ; preds = %11, %13
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @heur_reenable_cb(ptr noundef captures(none) initializes((40, 41)) %0, ptr readnone captures(none) %1) #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %4 = load i8, ptr %3, align 1, !range !10, !noundef !11
+  %4 = load i8, ptr %3, align 1, !range !11, !noundef !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %4, ptr %5, align 8
   ret void
@@ -26183,7 +26183,7 @@ proto_register_field_common.exit.us:              ; preds = %.lr.ph.split.us, %.
   %17 = add nuw nsw i32 %.020.us, 1
   %18 = getelementptr i8, ptr %.01519.us, i64 80
   %exitcond25.not = icmp eq i32 %17, %2
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !52
+  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !56
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %proto_register_field_common.exit
   %.020 = phi i32 [ %27, %proto_register_field_common.exit ], [ 0, %.lr.ph ]
@@ -26212,7 +26212,7 @@ proto_register_field_common.exit:                 ; preds = %.lr.ph.split, %.lr.
   %27 = add nuw nsw i32 %.020, 1
   %28 = getelementptr i8, ptr %.01519, i64 80
   %exitcond.not = icmp eq i32 %27, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %proto_register_field_common.exit, %proto_register_field_common.exit.us, %10
   ret void
@@ -26280,7 +26280,7 @@ define void @proto_deregister_field(i32 noundef %0, i32 noundef %1) local_unname
 33:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !58
 
 .loopexit:                                        ; preds = %33, %.preheader, %5, %7, %2, %20
   ret void
@@ -26347,7 +26347,7 @@ define void @proto_deregister_all_fields_with_prefix(i32 noundef %0, ptr noundef
 
 31:                                               ; preds = %.preheader, %20
   %.not22 = icmp eq i32 %indvars, 0
-  br i1 %.not22, label %.loopexit, label %.preheader, !llvm.loop !55
+  br i1 %.not22, label %.loopexit, label %.preheader, !llvm.loop !59
 
 .loopexit:                                        ; preds = %31, %8, %5, %2
   ret void
@@ -26451,7 +26451,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %25 = getelementptr i8, ptr %.05385, i64 40
   %26 = load ptr, ptr %25, align 8
   %.not67 = icmp eq ptr %26, null
-  br i1 %.not67, label %.thread, label %.lr.ph, !llvm.loop !56
+  br i1 %.not67, label %.thread, label %.lr.ph, !llvm.loop !60
 
 27:                                               ; preds = %19
   %28 = and i32 %1, 512
@@ -26474,7 +26474,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %36 = getelementptr i8, ptr %.05587, i64 24
   %37 = load ptr, ptr %36, align 8
   %.not66 = icmp eq ptr %37, null
-  br i1 %.not66, label %._crit_edge, label %.lr.ph88, !llvm.loop !57
+  br i1 %.not66, label %._crit_edge, label %.lr.ph88, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph88, %29
   tail call void @val64_string_ext_free(ptr noundef nonnull %2)
@@ -26498,7 +26498,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %44 = getelementptr i8, ptr %.05490, i64 24
   %45 = load ptr, ptr %44, align 8
   %.not65 = icmp eq ptr %45, null
-  br i1 %.not65, label %.thread, label %.lr.ph91, !llvm.loop !58
+  br i1 %.not65, label %.thread, label %.lr.ph91, !llvm.loop !62
 
 46:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   %47 = and i32 %1, 4096
@@ -26532,7 +26532,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %58 = getelementptr i8, ptr %.05293, i64 40
   %59 = load ptr, ptr %58, align 8
   %.not73 = icmp eq ptr %59, null
-  br i1 %.not73, label %.thread, label %.lr.ph94, !llvm.loop !59
+  br i1 %.not73, label %.thread, label %.lr.ph94, !llvm.loop !63
 
 60:                                               ; preds = %52
   %61 = and i32 %1, 512
@@ -26555,7 +26555,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %69 = getelementptr i8, ptr %.05096, i64 24
   %70 = load ptr, ptr %69, align 8
   %.not72 = icmp eq ptr %70, null
-  br i1 %.not72, label %._crit_edge99, label %.lr.ph98, !llvm.loop !60
+  br i1 %.not72, label %._crit_edge99, label %.lr.ph98, !llvm.loop !64
 
 ._crit_edge99:                                    ; preds = %.lr.ph98, %62
   tail call void @value_string_ext_free(ptr noundef nonnull %2)
@@ -26579,7 +26579,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %77 = getelementptr i8, ptr %.0101, i64 24
   %78 = load ptr, ptr %77, align 8
   %.not71 = icmp eq ptr %78, null
-  br i1 %.not71, label %.thread, label %.lr.ph102, !llvm.loop !61
+  br i1 %.not71, label %.thread, label %.lr.ph102, !llvm.loop !65
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph91, %.lr.ph94, %.lr.ph102, %5, %._crit_edge, %._crit_edge99, %.preheader, %.preheader78, %.preheader80, %.preheader82, %6, %9, %15, %48, %38, %71
   %.05177 = phi ptr [ null, %71 ], [ null, %38 ], [ %2, %48 ], [ %2, %15 ], [ %2, %9 ], [ %2, %6 ], [ %2, %.preheader82 ], [ %2, %.preheader80 ], [ %2, %.preheader78 ], [ %2, %.preheader ], [ null, %._crit_edge99 ], [ null, %._crit_edge ], [ %2, %5 ], [ %2, %.lr.ph102 ], [ %2, %.lr.ph94 ], [ %2, %.lr.ph91 ], [ %2, %.lr.ph ]
@@ -26698,7 +26698,7 @@ define void @proto_register_subtree_array(ptr noundef readonly captures(none) %0
   %24 = load i32, ptr @num_tree_types, align 4
   %25 = add i32 %24, %1
   %26 = icmp slt i32 %23, %25
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !62
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %2
   %27 = icmp sgt i32 %1, 0
@@ -26726,7 +26726,7 @@ define void @proto_register_subtree_array(ptr noundef readonly captures(none) %0
   %35 = add i32 %32, 1
   store i32 %35, ptr @num_tree_types, align 4
   %exitcond.not = icmp eq i32 %33, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph21, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph21, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %31, %.loopexit
   ret void
@@ -26856,7 +26856,7 @@ hfinfo_container_bitwidth.exit:                   ; preds = %6
   %.1.i.i = getelementptr i8, ptr %.2.i.i, i64 1
   %39 = add nuw nsw i32 %30, 1
   %exitcond.not.i.i = icmp eq i32 %30, %25
-  br i1 %exitcond.not.i.i, label %decode_bitfield_value.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i.i, label %decode_bitfield_value.exit, label %.lr.ph.i, !llvm.loop !26
 
 decode_bitfield_value.exit:                       ; preds = %36, %23
   %.1.i.lcssa.i = phi ptr [ %.1.i9.i, %23 ], [ %.1.i.i, %36 ]
@@ -27088,7 +27088,7 @@ hfinfo_container_bitwidth.exit:                   ; preds = %3, %9, %9, %9, %12,
   %.1.i.i = getelementptr i8, ptr %.2.i.i, i64 1
   %48 = add nuw nsw i32 %39, 1
   %exitcond.not.i.i = icmp eq i32 %39, %34
-  br i1 %exitcond.not.i.i, label %decode_bitfield_value.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i.i, label %decode_bitfield_value.exit, label %.lr.ph.i, !llvm.loop !26
 
 decode_bitfield_value.exit:                       ; preds = %45, %33
   %.1.i.lcssa.i = phi ptr [ %.1.i9.i, %33 ], [ %.1.i.i, %45 ]
@@ -27372,7 +27372,7 @@ hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, 
   %.1.i.i = getelementptr i8, ptr %.2.i.i, i64 1
   %64 = add nuw nsw i32 %54, 1
   %exitcond.not.i.i = icmp eq i32 %54, %51
-  br i1 %exitcond.not.i.i, label %decode_bitfield_varint_value.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i.i, label %decode_bitfield_varint_value.exit, label %.lr.ph.i, !llvm.loop !68
 
 65:                                               ; preds = %38
   br i1 %47, label %67, label %66
@@ -27423,7 +27423,7 @@ hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, 
   %.1.i.i91 = getelementptr i8, ptr %.2.i.i87, i64 1
   %82 = add nuw nsw i32 %73, 1
   %exitcond.not.i.i92 = icmp eq i32 %73, %68
-  br i1 %exitcond.not.i.i92, label %decode_bitfield_varint_value.exit, label %.lr.ph.i85
+  br i1 %exitcond.not.i.i92, label %decode_bitfield_varint_value.exit, label %.lr.ph.i85, !llvm.loop !26
 
 decode_bitfield_varint_value.exit:                ; preds = %60, %79, %67, %50
   %.1.i.lcssa.i93.sink103 = phi ptr [ %.1.i8.i, %50 ], [ %.1.i9.i, %67 ], [ %.1.i.i91, %79 ], [ %.1.i.i, %60 ]
@@ -27836,7 +27836,7 @@ hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, 
   %.1.i.i = getelementptr i8, ptr %.2.i.i, i64 1
   %62 = add nuw nsw i32 %52, 1
   %exitcond.not.i.i = icmp eq i32 %52, %49
-  br i1 %exitcond.not.i.i, label %decode_bitfield_varint_value.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i.i, label %decode_bitfield_varint_value.exit, label %.lr.ph.i, !llvm.loop !68
 
 63:                                               ; preds = %38
   br i1 %45, label %65, label %64
@@ -27887,7 +27887,7 @@ hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, 
   %.1.i.i91 = getelementptr i8, ptr %.2.i.i87, i64 1
   %80 = add nuw nsw i32 %71, 1
   %exitcond.not.i.i92 = icmp eq i32 %71, %66
-  br i1 %exitcond.not.i.i92, label %decode_bitfield_varint_value.exit, label %.lr.ph.i85
+  br i1 %exitcond.not.i.i92, label %decode_bitfield_varint_value.exit, label %.lr.ph.i85, !llvm.loop !26
 
 decode_bitfield_varint_value.exit:                ; preds = %58, %77, %65, %48
   %.1.i.lcssa.i93.sink105 = phi ptr [ %.1.i8.i, %48 ], [ %.1.i9.i, %65 ], [ %.1.i.i91, %77 ], [ %.1.i.i, %58 ]
@@ -28345,13 +28345,13 @@ define ptr @proto_registrar_get_name(i32 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
   %5 = icmp ugt i32 %0, %4
-  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %9, label %10
 
 8:                                                ; preds = %1
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %9, label %.thread
 
@@ -28394,13 +28394,13 @@ define ptr @proto_registrar_get_abbrev(i32 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
   %5 = icmp ugt i32 %0, %4
-  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %9, label %10
 
 8:                                                ; preds = %1
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %9, label %.thread
 
@@ -28444,13 +28444,13 @@ define i32 @proto_registrar_get_ftype(i32 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
   %5 = icmp ugt i32 %0, %4
-  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %9, label %10
 
 8:                                                ; preds = %1
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %9, label %.thread
 
@@ -28494,13 +28494,13 @@ define i32 @proto_registrar_get_parent(i32 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
   %5 = icmp ugt i32 %0, %4
-  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %9, label %10
 
 8:                                                ; preds = %1
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %9, label %.thread
 
@@ -28544,13 +28544,13 @@ define zeroext i1 @proto_registrar_is_protocol(i32 noundef %0) local_unnamed_add
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
   %5 = icmp ugt i32 %0, %4
-  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %9, label %10
 
 8:                                                ; preds = %1
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %9, label %.thread
 
@@ -28606,13 +28606,13 @@ define hidden i32 @proto_registrar_get_length(i32 noundef %0) local_unnamed_addr
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
   %5 = icmp ugt i32 %0, %4
-  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %6 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %9, label %10
 
 8:                                                ; preds = %1
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %9, label %.thread
 
@@ -28739,7 +28739,7 @@ define internal fastcc noundef zeroext i1 @proto_tree_traverse_pre_order(ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc zeroext i1 @proto_tree_traverse_pre_order(ptr noundef nonnull %.012, ptr noundef %1, ptr noundef %2)
-  br i1 %11, label %.loopexit, label %7, !llvm.loop !64
+  br i1 %11, label %.loopexit, label %7, !llvm.loop !69
 
 .loopexit:                                        ; preds = %7, %8, %3
   %.0 = phi i1 [ true, %3 ], [ %.not.not.not, %8 ], [ %.not.not.not, %7 ]
@@ -28995,7 +28995,7 @@ define internal noundef zeroext i1 @check_for_undecoded(ptr noundef readonly cap
   %32 = load i32, ptr %12, align 4
   %33 = add i32 %32, %31
   %34 = icmp slt i32 %30, %33
-  br i1 %34, label %17, label %.critedge, !llvm.loop !65
+  br i1 %34, label %17, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %20, %17, %9, %5, %2
   ret i1 false
@@ -29027,7 +29027,7 @@ proto_get_first_protocol.exit:                    ; preds = %0
   %13 = load i32, ptr %12, align 8
   %.not4.i = icmp eq i32 %13, -1
   %.pre.pre = load i32, ptr @gpa_hfinfo.0, align 8
-  %.pre88.pre = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %.pre88.pre = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %.fr58 = freeze i8 %.pre88.pre
   %.pre89.pre = load ptr, ptr @gpa_hfinfo.2, align 8
   br i1 %.not4.i, label %proto_is_protocol_enabled_by_default.exit, label %tailrecurse.i.preheader
@@ -29101,7 +29101,7 @@ find_protocol_by_id.exit:                         ; preds = %tailrecurse.i, %36
 proto_is_protocol_enabled_by_default.exit:        ; preds = %find_protocol_by_id.exit, %.lr.ph
   %.tr.lcssa.i = phi ptr [ %6, %.lr.ph ], [ %.0.i15, %find_protocol_by_id.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 37
-  %42 = load i8, ptr %41, align 1, !range !10, !noundef !11
+  %42 = load i8, ptr %41, align 1, !range !11, !noundef !12
   %43 = trunc nuw i8 %42 to i1
   %44 = select i1 %43, i32 84, i32 70
   %45 = icmp eq ptr %6, null
@@ -29150,7 +29150,7 @@ find_protocol_by_id.exit21.us:                    ; preds = %59, %56
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %proto_is_protocol_enabled.exit.thread, label %.lr.ph.i.us, !llvm.loop !66
+  br i1 %65, label %proto_is_protocol_enabled.exit.thread, label %.lr.ph.i.us, !llvm.loop !71
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %find_protocol_by_id.exit21
   %.tr7.i = phi ptr [ %86, %find_protocol_by_id.exit21 ], [ %6, %.lr.ph.i.preheader ]
@@ -29216,7 +29216,7 @@ find_protocol_by_id.exit21:                       ; preds = %78, %81
 proto_is_protocol_enabled.exit:                   ; preds = %.lr.ph.i.us, %.lr.ph.i
   %.us-phi = phi ptr [ %.tr7.i, %.lr.ph.i ], [ %.tr7.i.us, %.lr.ph.i.us ]
   %88 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 36
-  %89 = load i8, ptr %88, align 4, !range !10, !noundef !11
+  %89 = load i8, ptr %88, align 4, !range !11, !noundef !12
   %90 = trunc nuw i8 %89 to i1
   %spec.select = select i1 %90, i32 84, i32 70
   br label %proto_is_protocol_enabled.exit.thread
@@ -29292,7 +29292,7 @@ find_protocol_by_id.exit27:                       ; preds = %tailrecurse.i10, %1
 
 proto_can_toggle_protocol.exit:                   ; preds = %find_protocol_by_id.exit27
   %120 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 38
-  %121 = load i8, ptr %120, align 2, !range !10, !noundef !11
+  %121 = load i8, ptr %120, align 2, !range !11, !noundef !12
   %122 = trunc nuw i8 %121 to i1
   %123 = select i1 %122, i32 84, i32 70
   %124 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.130, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef %44, i32 noundef %91, i32 noundef %123)
@@ -29306,7 +29306,7 @@ proto_get_next_protocol.exit:                     ; preds = %proto_can_toggle_pr
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %130 = load i32, ptr %129, align 8
   %.not = icmp eq i32 %130, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %proto_can_toggle_protocol.exit, %proto_get_next_protocol.exit, %0, %proto_get_first_protocol.exit
   ret void
@@ -29339,13 +29339,13 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ugt i64 %indvars.iv, %13
-  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %16 = trunc nuw i8 %15 to i1
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %.loopexit.loopexit, label %19
 
 17:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %.loopexit, label %.thread
 
@@ -29552,7 +29552,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not169 = icmp eq ptr %106, null
-  br i1 %.not169, label %.thread243, label %69, !llvm.loop !68
+  br i1 %.not169, label %.thread243, label %69, !llvm.loop !73
 
 107:                                              ; preds = %45
   %108 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -29584,7 +29584,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not166 = icmp eq ptr %123, null
-  br i1 %.not166, label %.thread243, label %113, !llvm.loop !69
+  br i1 %.not166, label %.thread243, label %113, !llvm.loop !74
 
 124:                                              ; preds = %.lr.ph, %124
   %125 = phi ptr [ %40, %.lr.ph ], [ %139, %124 ]
@@ -29605,7 +29605,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
   %.not165 = icmp eq ptr %139, null
-  br i1 %.not165, label %.thread243, label %124, !llvm.loop !70
+  br i1 %.not165, label %.thread243, label %124, !llvm.loop !75
 
 140:                                              ; preds = %36, %._crit_edge274
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -29630,7 +29630,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
 .thread243:                                       ; preds = %124, %113, %101, %36, %.preheader251, %.preheader, %.thread189.thread, %29, %._crit_edge274, %50, %107, %63, %147, %140, %26, %21, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.thread243, %0
   ret void
@@ -29679,7 +29679,7 @@ define zeroext i1 @proto_registrar_dump_fieldcount() local_unnamed_addr #0 {
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %12, label %13
 
@@ -29714,7 +29714,7 @@ define zeroext i1 @proto_registrar_dump_fieldcount() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = zext i32 %22 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !72
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %21, %0
   %.020.lcssa = phi i32 [ 0, %0 ], [ %.121, %21 ]
@@ -29808,7 +29808,7 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %18, label %19
 
@@ -29841,13 +29841,13 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
 32:                                               ; preds = %28
   %33 = load i32, ptr @gpa_hfinfo.0, align 8
   %34 = icmp ugt i32 %30, %33
-  %35 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %35 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %36 = trunc nuw i8 %35 to i1
   %or.cond4 = select i1 %34, i1 %36, i1 false
   br i1 %or.cond4, label %.loopexit95, label %38
 
 37:                                               ; preds = %28
-  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old3 = trunc nuw i8 %.old2 to i1
   br i1 %.old3, label %.loopexit95, label %.thread88
 
@@ -29903,7 +29903,7 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
   %55 = getelementptr ptr, ptr %.060, i64 %54
   %.059 = load ptr, ptr %55, align 8
   %.not75.not = icmp eq ptr %.059, null
-  br i1 %.not75.not, label %.critedge, label %49, !llvm.loop !73
+  br i1 %.not75.not, label %.critedge, label %49, !llvm.loop !78
 
 .loopexit:                                        ; preds = %49, %47
   %.not77 = icmp eq ptr %.061118, null
@@ -29975,7 +29975,7 @@ switch.lookup:                                    ; preds = %66
   %82 = zext i32 %81 to i64
   %83 = call i64 @strlen(ptr noundef %74) #41
   %84 = icmp ugt i64 %83, %82
-  br i1 %84, label %.lr.ph.i, label %dot_to_underscore.exit, !llvm.loop !74
+  br i1 %84, label %.lr.ph.i, label %dot_to_underscore.exit, !llvm.loop !79
 
 dot_to_underscore.exit:                           ; preds = %80, %switch.lookup
   %85 = call i32 @g_strcmp0(ptr noundef %.054120, ptr noundef %74)
@@ -30002,7 +30002,7 @@ dot_to_underscore.exit:                           ; preds = %80, %switch.lookup
   %88 = load i32, ptr @gpa_hfinfo.0, align 8
   %89 = zext i32 %88 to i64
   %90 = icmp samesign ult i64 %indvars.iv.next, %89
-  br i1 %90, label %10, label %._crit_edge, !llvm.loop !75
+  br i1 %90, label %10, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.critedge
   %91 = icmp eq ptr %.162, null
@@ -30088,13 +30088,13 @@ define void @proto_registrar_dump_fields() local_unnamed_addr #0 {
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ugt i64 %indvars.iv, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %.loopexit.loopexit, label %18
 
 16:                                               ; preds = %8
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %.loopexit, label %.thread
 
@@ -30149,13 +30149,13 @@ define void @proto_registrar_dump_fields() local_unnamed_addr #0 {
 40:                                               ; preds = %36
   %41 = load i32, ptr @gpa_hfinfo.0, align 8
   %42 = icmp ugt i32 %38, %41
-  %43 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %43 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %44 = trunc nuw i8 %43 to i1
   %or.cond4 = select i1 %42, i1 %44, i1 false
   br i1 %or.cond4, label %.loopexit77, label %46
 
 45:                                               ; preds = %36
-  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old2 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old3 = trunc nuw i8 %.old2 to i1
   br i1 %.old3, label %.loopexit77, label %.thread75
 
@@ -30269,7 +30269,7 @@ define void @proto_registrar_dump_fields() local_unnamed_addr #0 {
 85:                                               ; preds = %28, %76, %33, %20, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %85, %0
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %1) #39
@@ -30304,13 +30304,13 @@ define zeroext i1 @proto_registrar_dump_field_completions(ptr noundef readonly c
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ugt i64 %indvars.iv, %13
-  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %16 = trunc nuw i8 %15 to i1
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %.loopexit.loopexit, label %19
 
 17:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %.loopexit, label %.thread
 
@@ -30373,7 +30373,7 @@ define zeroext i1 @proto_registrar_dump_field_completions(ptr noundef readonly c
   %.1 = phi i1 [ %.041, %.lr.ph ], [ %.041, %21 ], [ %.041, %29 ], [ %.041, %34 ], [ %.041, %37 ], [ true, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %44, %1
   %.0.lcssa = phi i1 [ false, %1 ], [ %.1, %44 ]
@@ -30391,7 +30391,7 @@ define void @proto_registrar_dump_ftypes() local_unnamed_addr #0 {
   %4 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.168, ptr noundef %2, ptr noundef %3)
   %5 = add nuw nsw i32 %.04, 1
   %exitcond.not = icmp eq i32 %5, 46
-  br i1 %exitcond.not, label %6, label %1, !llvm.loop !78
+  br i1 %exitcond.not, label %6, label %1, !llvm.loop !83
 
 6:                                                ; preds = %1
   ret void
@@ -30582,7 +30582,7 @@ define internal fastcc noundef zeroext i1 @construct_match_selected_string(ptr n
   %.181 = getelementptr i8, ptr %.080110, i64 %.pn
   %92 = add nuw nsw i32 %.082109, 1
   %exitcond.not = icmp eq i32 %92, %spec.select
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !84
 
 93:                                               ; preds = %.critedge
   %.not101 = icmp eq ptr %2, null
@@ -30621,13 +30621,13 @@ define noundef ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %0,
 11:                                               ; preds = %9
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %3, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -30751,13 +30751,13 @@ define noundef ptr @proto_tree_add_bitmask_with_flags(ptr noundef %0, ptr nounde
 10:                                               ; preds = %8
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = icmp ugt i32 %3, %11
-  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %16, label %17
 
 15:                                               ; preds = %8
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %16, label %.thread
 
@@ -30942,13 +30942,13 @@ proto_item_add_subtree.exit:                      ; preds = %38
 52:                                               ; preds = %48
   %53 = load i32, ptr @gpa_hfinfo.0, align 8
   %54 = icmp ugt i32 %50, %53
-  %55 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %55 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %56 = trunc nuw i8 %55 to i1
   %or.cond3 = select i1 %54, i1 %56, i1 false
   br i1 %or.cond3, label %.loopexit, label %58
 
 57:                                               ; preds = %48
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old2 = trunc nuw i8 %.old to i1
   br i1 %.old2, label %.loopexit, label %.thread
 
@@ -30994,7 +30994,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   %74 = or i64 %69, %.0279470
   %.not313.not399 = icmp ult i64 %31, %69
   %.not313.not = select i1 %.not306, i1 %.not313.not399, i1 false
-  br i1 %.not313.not, label %393, label %75, !llvm.loop !80
+  br i1 %.not313.not, label %393, label %75, !llvm.loop !85
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -31048,7 +31048,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   unreachable
 
 92:                                               ; preds = %86, %84, %82, %80, %78
-  br i1 %.not314, label %93, label %393, !llvm.loop !80
+  br i1 %.not314, label %93, label %393, !llvm.loop !85
 
 93:                                               ; preds = %92
   %94 = load i64, ptr %68, align 8
@@ -31756,7 +31756,7 @@ hf_try_val64_to_str.exit387.thread:               ; preds = %hf_try_val64_to_str
   %.1 = getelementptr i8, ptr %.0472, i64 8
   %394 = load ptr, ptr %.1, align 8
   %.not307 = icmp eq ptr %394, null
-  br i1 %.not307, label %._crit_edge, label %48
+  br i1 %.not307, label %._crit_edge, label %48, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %393
   %395 = trunc nuw i8 %.1270 to i1
@@ -31818,13 +31818,13 @@ define noundef ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %0, ptr 
 10:                                               ; preds = %8
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = icmp ugt i32 %3, %11
-  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %16, label %17
 
 15:                                               ; preds = %8
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %16, label %.thread
 
@@ -32015,13 +32015,13 @@ define noundef ptr @proto_tree_add_bitmask_len(ptr noundef %0, ptr noundef %1, i
 11:                                               ; preds = %9
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %4, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %17, label %18
 
 16:                                               ; preds = %9
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %17, label %.thread
 
@@ -32198,13 +32198,13 @@ define noundef ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %1, ptr
 8:                                                ; preds = %6
   %9 = load i32, ptr @gpa_hfinfo.0, align 8
   %10 = icmp ugt i32 %1, %9
-  %11 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %11 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %12 = trunc nuw i8 %11 to i1
   %or.cond = select i1 %10, i1 %12, i1 false
   br i1 %or.cond, label %14, label %15
 
 13:                                               ; preds = %6
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %14, label %.thread
 
@@ -32312,7 +32312,7 @@ test_length.exit:                                 ; preds = %27, %43
   store i32 %49, ptr %47, align 4
   %50 = load i32, ptr @gpa_hfinfo.0, align 8
   %51 = icmp ugt i32 %1, %50
-  %52 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %52 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %53 = trunc nuw i8 %52 to i1
   %or.cond4 = select i1 %51, i1 %53, i1 false
   br i1 %or.cond4, label %54, label %55
@@ -32349,7 +32349,7 @@ test_length.exit:                                 ; preds = %27, %43
   br i1 %68, label %69, label %85
 
 69:                                               ; preds = %63
-  %70 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %70 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %75
 
@@ -32375,7 +32375,7 @@ test_length.exit:                                 ; preds = %27, %43
 
 85:                                               ; preds = %63
   %86 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %87 = load i8, ptr %86, align 8, !range !10, !noundef !11
+  %87 = load i8, ptr %86, align 8, !range !11, !noundef !12
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %107, label %89
 
@@ -32407,7 +32407,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %89, %proto_item_is_
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %64, i64 9
-  %103 = load i8, ptr %102, align 1, !range !10, !noundef !11
+  %103 = load i8, ptr %102, align 1, !range !11, !noundef !12
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %105, label %107
 
@@ -32437,13 +32437,13 @@ define noundef ptr @proto_tree_add_bits_ret_val(ptr noundef %0, i32 noundef %1, 
 11:                                               ; preds = %7
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = icmp ugt i32 %1, %12
-  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %14 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %15 = trunc nuw i8 %14 to i1
   %or.cond.i = select i1 %13, i1 %15, i1 false
   br i1 %or.cond.i, label %17, label %18
 
 16:                                               ; preds = %7
-  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old.i = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1.i = trunc nuw i8 %.old.i to i1
   br i1 %.old1.i, label %17, label %.thread.i
 
@@ -32576,7 +32576,7 @@ _proto_tree_add_bits_ret_val.exit.thread:         ; preds = %70
   store i32 %76, ptr %74, align 4
   %77 = load i32, ptr @gpa_hfinfo.0, align 8
   %78 = icmp ugt i32 %1, %77
-  %79 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %79 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %80 = trunc nuw i8 %79 to i1
   %or.cond4.i = select i1 %78, i1 %80, i1 false
   br i1 %or.cond4.i, label %81, label %82
@@ -32613,7 +32613,7 @@ _proto_tree_add_bits_ret_val.exit.thread:         ; preds = %70
   br i1 %95, label %96, label %112
 
 96:                                               ; preds = %90
-  %97 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %97 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %102
 
@@ -32639,7 +32639,7 @@ _proto_tree_add_bits_ret_val.exit.thread:         ; preds = %70
 
 112:                                              ; preds = %90
   %113 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %114 = load i8, ptr %113, align 8, !range !10, !noundef !11
+  %114 = load i8, ptr %113, align 8, !range !11, !noundef !12
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %134, label %116
 
@@ -32671,7 +32671,7 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %proto_item_is_hidde
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %91, i64 9
-  %130 = load i8, ptr %129, align 1, !range !10, !noundef !11
+  %130 = load i8, ptr %129, align 1, !range !11, !noundef !12
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %134
 
@@ -32838,13 +32838,13 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
 10:                                               ; preds = %6
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = icmp ugt i32 %1, %11
-  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %13 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %16, label %17
 
 15:                                               ; preds = %6
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %16, label %.thread
 
@@ -32958,7 +32958,7 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
   %75 = getelementptr %struct.crumb_spec_t, ptr %4, i64 %70
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %.not165 = icmp eq i8 %72, 0
-  br i1 %.not165, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %.not165, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %68
   %77 = add nuw nsw i32 %.1151, 7
@@ -33009,7 +33009,7 @@ ws_sign_ext64.exit:                               ; preds = %33, %82, %._crit_ed
   store i32 %97, ptr %95, align 4
   %98 = load i32, ptr @gpa_hfinfo.0, align 8
   %99 = icmp ugt i32 %1, %98
-  %100 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %100 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %101 = trunc nuw i8 %100 to i1
   %or.cond4 = select i1 %99, i1 %101, i1 false
   br i1 %or.cond4, label %102, label %103
@@ -33046,7 +33046,7 @@ ws_sign_ext64.exit:                               ; preds = %33, %82, %._crit_ed
   br i1 %116, label %117, label %133
 
 117:                                              ; preds = %111
-  %118 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %118 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %120, label %123
 
@@ -33072,7 +33072,7 @@ ws_sign_ext64.exit:                               ; preds = %33, %82, %._crit_ed
 
 133:                                              ; preds = %111
   %134 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %135 = load i8, ptr %134, align 8, !range !10, !noundef !11
+  %135 = load i8, ptr %134, align 8, !range !11, !noundef !12
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %155, label %137
 
@@ -33104,7 +33104,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %137, %proto_item_is
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %112, i64 9
-  %151 = load i8, ptr %150, align 1, !range !10, !noundef !11
+  %151 = load i8, ptr %150, align 1, !range !11, !noundef !12
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %155
 
@@ -33163,7 +33163,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %137, %proto_item_is
   %.1.i = getelementptr i8, ptr %.2.i, i64 1
   %177 = add nuw nsw i32 %168, 1
   %exitcond.not.i = icmp eq i32 %168, %159
-  br i1 %exitcond.not.i, label %other_decode_bitfield_value.exit, label %167
+  br i1 %exitcond.not.i, label %other_decode_bitfield_value.exit, label %167, !llvm.loop !26
 
 other_decode_bitfield_value.exit:                 ; preds = %174
   store i8 0, ptr %.1.i, align 1
@@ -33308,13 +33308,13 @@ define hidden void @proto_tree_add_split_bits_crumb(ptr noundef %0, i32 noundef 
 26:                                               ; preds = %24
   %27 = load i32, ptr @gpa_hfinfo.0, align 8
   %28 = icmp ugt i32 %1, %27
-  %29 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %29 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %30 = trunc nuw i8 %29 to i1
   %or.cond = select i1 %28, i1 %30, i1 false
   br i1 %or.cond, label %32, label %33
 
 31:                                               ; preds = %24
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %32, label %.thread
 
@@ -33393,13 +33393,13 @@ define noundef ptr @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 no
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
   %20 = icmp ugt i32 %1, %19
-  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %22 = trunc nuw i8 %21 to i1
   %or.cond = select i1 %20, i1 %22, i1 false
   br i1 %or.cond, label %24, label %25
 
 23:                                               ; preds = %11
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %24, label %.thread
 
@@ -33438,7 +33438,7 @@ define noundef ptr @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 no
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %34
-  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %46
 
@@ -33464,7 +33464,7 @@ define noundef ptr @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 no
 
 56:                                               ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %58 = load i8, ptr %57, align 8, !range !10, !noundef !11
+  %58 = load i8, ptr %57, align 8, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %78, label %60
 
@@ -33496,7 +33496,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %74 = load i8, ptr %73, align 1, !range !10, !noundef !11
+  %74 = load i8, ptr %73, align 1, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %78
 
@@ -33545,7 +33545,7 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
   store i32 %13, ptr %11, align 4
   %14 = load i32, ptr @gpa_hfinfo.0, align 8
   %15 = icmp ugt i32 %1, %14
-  %16 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %16 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %17 = trunc nuw i8 %16 to i1
   %or.cond.i = select i1 %15, i1 %17, i1 false
   br i1 %or.cond.i, label %18, label %19
@@ -33583,7 +33583,7 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
   br i1 %33, label %34, label %50
 
 34:                                               ; preds = %28
-  %35 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %35 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %40
 
@@ -33609,7 +33609,7 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
 
 50:                                               ; preds = %28
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %52 = load i8, ptr %51, align 8, !range !10, !noundef !11
+  %52 = load i8, ptr %51, align 8, !range !11, !noundef !12
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %72, label %54
 
@@ -33641,7 +33641,7 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %proto_item_is_hidde
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %29, i64 9
-  %68 = load i8, ptr %67, align 1, !range !10, !noundef !11
+  %68 = load i8, ptr %67, align 1, !range !11, !noundef !12
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %72
 
@@ -33828,13 +33828,13 @@ define noundef ptr @proto_tree_add_uint64_bits_format_value(ptr noundef %0, i32 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
   %20 = icmp ugt i32 %1, %19
-  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %22 = trunc nuw i8 %21 to i1
   %or.cond = select i1 %20, i1 %22, i1 false
   br i1 %or.cond, label %24, label %25
 
 23:                                               ; preds = %11
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %24, label %.thread
 
@@ -33873,7 +33873,7 @@ define noundef ptr @proto_tree_add_uint64_bits_format_value(ptr noundef %0, i32 
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %34
-  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %46
 
@@ -33899,7 +33899,7 @@ define noundef ptr @proto_tree_add_uint64_bits_format_value(ptr noundef %0, i32 
 
 56:                                               ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %58 = load i8, ptr %57, align 8, !range !10, !noundef !11
+  %58 = load i8, ptr %57, align 8, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %78, label %60
 
@@ -33931,7 +33931,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %74 = load i8, ptr %73, align 1, !range !10, !noundef !11
+  %74 = load i8, ptr %73, align 1, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %78
 
@@ -33992,13 +33992,13 @@ define hidden noundef ptr @proto_tree_add_float_bits_format_value(ptr noundef %0
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
   %20 = icmp ugt i32 %1, %19
-  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %22 = trunc nuw i8 %21 to i1
   %or.cond = select i1 %20, i1 %22, i1 false
   br i1 %or.cond, label %24, label %25
 
 23:                                               ; preds = %11
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %24, label %.thread
 
@@ -34037,7 +34037,7 @@ define hidden noundef ptr @proto_tree_add_float_bits_format_value(ptr noundef %0
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %34
-  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %46
 
@@ -34063,7 +34063,7 @@ define hidden noundef ptr @proto_tree_add_float_bits_format_value(ptr noundef %0
 
 56:                                               ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %58 = load i8, ptr %57, align 8, !range !10, !noundef !11
+  %58 = load i8, ptr %57, align 8, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %78, label %60
 
@@ -34095,7 +34095,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %74 = load i8, ptr %73, align 1, !range !10, !noundef !11
+  %74 = load i8, ptr %73, align 1, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %78
 
@@ -34155,13 +34155,13 @@ define hidden noundef ptr @proto_tree_add_int_bits_format_value(ptr noundef %0, 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
   %20 = icmp ugt i32 %1, %19
-  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %22 = trunc nuw i8 %21 to i1
   %or.cond = select i1 %20, i1 %22, i1 false
   br i1 %or.cond, label %24, label %25
 
 23:                                               ; preds = %11
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %24, label %.thread
 
@@ -34200,7 +34200,7 @@ define hidden noundef ptr @proto_tree_add_int_bits_format_value(ptr noundef %0, 
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %34
-  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %46
 
@@ -34226,7 +34226,7 @@ define hidden noundef ptr @proto_tree_add_int_bits_format_value(ptr noundef %0, 
 
 56:                                               ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %58 = load i8, ptr %57, align 8, !range !10, !noundef !11
+  %58 = load i8, ptr %57, align 8, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %78, label %60
 
@@ -34258,7 +34258,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %74 = load i8, ptr %73, align 1, !range !10, !noundef !11
+  %74 = load i8, ptr %73, align 1, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %78
 
@@ -34319,13 +34319,13 @@ define hidden noundef ptr @proto_tree_add_int64_bits_format_value(ptr noundef %0
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
   %20 = icmp ugt i32 %1, %19
-  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %22 = trunc nuw i8 %21 to i1
   %or.cond = select i1 %20, i1 %22, i1 false
   br i1 %or.cond, label %24, label %25
 
 23:                                               ; preds = %11
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %24, label %.thread
 
@@ -34364,7 +34364,7 @@ define hidden noundef ptr @proto_tree_add_int64_bits_format_value(ptr noundef %0
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %34
-  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %46
 
@@ -34390,7 +34390,7 @@ define hidden noundef ptr @proto_tree_add_int64_bits_format_value(ptr noundef %0
 
 56:                                               ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %58 = load i8, ptr %57, align 8, !range !10, !noundef !11
+  %58 = load i8, ptr %57, align 8, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %78, label %60
 
@@ -34422,7 +34422,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %74 = load i8, ptr %73, align 1, !range !10, !noundef !11
+  %74 = load i8, ptr %73, align 1, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %78
 
@@ -34483,13 +34483,13 @@ define hidden noundef ptr @proto_tree_add_boolean_bits_format_value(ptr noundef 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
   %20 = icmp ugt i32 %1, %19
-  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %21 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %22 = trunc nuw i8 %21 to i1
   %or.cond = select i1 %20, i1 %22, i1 false
   br i1 %or.cond, label %24, label %25
 
 23:                                               ; preds = %11
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %24, label %.thread
 
@@ -34528,7 +34528,7 @@ define hidden noundef ptr @proto_tree_add_boolean_bits_format_value(ptr noundef 
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %34
-  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %41 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %46
 
@@ -34554,7 +34554,7 @@ define hidden noundef ptr @proto_tree_add_boolean_bits_format_value(ptr noundef 
 
 56:                                               ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %58 = load i8, ptr %57, align 8, !range !10, !noundef !11
+  %58 = load i8, ptr %57, align 8, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %78, label %60
 
@@ -34586,7 +34586,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %74 = load i8, ptr %73, align 1, !range !10, !noundef !11
+  %74 = load i8, ptr %73, align 1, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %78
 
@@ -34645,13 +34645,13 @@ define noundef ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i
 15:                                               ; preds = %8
   %16 = load i32, ptr @gpa_hfinfo.0, align 8
   %17 = icmp ugt i32 %1, %16
-  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %19 = trunc nuw i8 %18 to i1
   %or.cond = select i1 %17, i1 %19, i1 false
   br i1 %or.cond, label %21, label %22
 
 20:                                               ; preds = %8
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %21, label %.thread
 
@@ -34690,7 +34690,7 @@ define noundef ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i
   br i1 %36, label %37, label %53
 
 37:                                               ; preds = %31
-  %38 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %38 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %43
 
@@ -34716,7 +34716,7 @@ define noundef ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i
 
 53:                                               ; preds = %31
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %55 = load i8, ptr %54, align 8, !range !10, !noundef !11
+  %55 = load i8, ptr %54, align 8, !range !11, !noundef !12
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %75, label %57
 
@@ -34748,7 +34748,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %proto_item_is_
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %32, i64 9
-  %71 = load i8, ptr %70, align 1, !range !10, !noundef !11
+  %71 = load i8, ptr %70, align 1, !range !11, !noundef !12
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %75
 
@@ -34835,13 +34835,13 @@ define noundef ptr @proto_tree_add_ascii_7bits_item(ptr noundef %0, i32 noundef 
 15:                                               ; preds = %8
   %16 = load i32, ptr @gpa_hfinfo.0, align 8
   %17 = icmp ugt i32 %1, %16
-  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %19 = trunc nuw i8 %18 to i1
   %or.cond = select i1 %17, i1 %19, i1 false
   br i1 %or.cond, label %21, label %22
 
 20:                                               ; preds = %8
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %21, label %.thread
 
@@ -34880,7 +34880,7 @@ define noundef ptr @proto_tree_add_ascii_7bits_item(ptr noundef %0, i32 noundef 
   br i1 %36, label %37, label %53
 
 37:                                               ; preds = %31
-  %38 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !10, !noundef !11
+  %38 = load i8, ptr @wireshark_abort_on_too_many_items, align 1, !range !11, !noundef !12
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %43
 
@@ -34906,7 +34906,7 @@ define noundef ptr @proto_tree_add_ascii_7bits_item(ptr noundef %0, i32 noundef 
 
 53:                                               ; preds = %31
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %55 = load i8, ptr %54, align 8, !range !10, !noundef !11
+  %55 = load i8, ptr %54, align 8, !range !11, !noundef !12
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %75, label %57
 
@@ -34938,7 +34938,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %proto_item_is_
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %32, i64 9
-  %71 = load i8, ptr %70, align 1, !range !10, !noundef !11
+  %71 = load i8, ptr %70, align 1, !range !11, !noundef !12
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %75
 
@@ -35014,13 +35014,13 @@ define noundef ptr @proto_tree_add_checksum(ptr noundef %0, ptr noundef %1, i32 
 13:                                               ; preds = %10
   %14 = load i32, ptr @gpa_hfinfo.0, align 8
   %15 = icmp ugt i32 %3, %14
-  %16 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %16 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %17 = trunc nuw i8 %16 to i1
   %or.cond = select i1 %15, i1 %17, i1 false
   br i1 %or.cond, label %19, label %20
 
 18:                                               ; preds = %10
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %19, label %.thread
 
@@ -35303,13 +35303,13 @@ define noundef ptr @proto_tree_add_checksum_bytes(ptr noundef %0, ptr noundef %1
 12:                                               ; preds = %10
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
   %14 = icmp ugt i32 %3, %13
-  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10
+  %15 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11
   %16 = trunc nuw i8 %15 to i1
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %18, label %19
 
 17:                                               ; preds = %10
-  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %.old = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !11, !noundef !12
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %18, label %.thread
 
@@ -35556,7 +35556,7 @@ proto_item_set_generated.exit153:                 ; preds = %106, %103, %101, %.
   %129 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %123, i64 noundef %124, i32 noundef 2, i64 noundef %125, ptr noundef nonnull @.str.198, i32 noundef %128)
   %130 = add nuw i64 %.0158, 1
   %exitcond.not = icmp eq i64 %130, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 131:                                              ; preds = %._crit_edge
   %132 = tail call ptr @expert_get_summary(ptr noundef nonnull %5)
@@ -36025,80 +36025,86 @@ attributes #44 = { nounwind memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = distinct !{!16, !7}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"vprintf.inline: argument 0"}
-!19 = distinct !{!19, !"vprintf.inline"}
-!20 = distinct !{!20, !7}
-!21 = !{i64 2151657778}
-!22 = distinct !{!22, !7}
-!23 = !{i64 2151751316}
-!24 = !{i64 2151066434}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !8}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = distinct !{!18, !7, !8}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"vprintf.inline: argument 0"}
+!21 = distinct !{!21, !"vprintf.inline"}
+!22 = distinct !{!22, !7, !8}
+!23 = !{i64 2151657778}
+!24 = distinct !{!24, !7, !8}
+!25 = !{i64 2151751316}
+!26 = distinct !{!26, !8}
+!27 = !{i64 2151066434}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !8}
 !30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7, !29}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7, !34}
-!34 = !{!"llvm.loop.unswitch.partial.disable"}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7, !29}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7, !29}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7, !29}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !29}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7}
-!78 = distinct !{!78, !7}
-!79 = distinct !{!79, !7}
-!80 = distinct !{!80, !7}
-!81 = distinct !{!81, !7}
-!82 = distinct !{!82, !7}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8, !33}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8, !38}
+!38 = !{!"llvm.loop.unswitch.partial.disable"}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8, !33}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8, !33}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8, !33}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = distinct !{!70, !7, !8}
+!71 = distinct !{!71, !33}
+!72 = distinct !{!72, !7, !8}
+!73 = distinct !{!73, !7, !8}
+!74 = distinct !{!74, !7, !8}
+!75 = distinct !{!75, !7, !8}
+!76 = distinct !{!76, !7, !8}
+!77 = distinct !{!77, !7, !8}
+!78 = distinct !{!78, !7, !8}
+!79 = distinct !{!79, !7, !8}
+!80 = distinct !{!80, !7, !8}
+!81 = distinct !{!81, !7, !8}
+!82 = distinct !{!82, !7, !8}
+!83 = distinct !{!83, !7, !8}
+!84 = distinct !{!84, !7, !8}
+!85 = distinct !{!85, !7}
+!86 = distinct !{!86, !8}
+!87 = distinct !{!87, !7, !8}
+!88 = distinct !{!88, !7, !8}

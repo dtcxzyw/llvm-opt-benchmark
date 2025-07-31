@@ -45,7 +45,7 @@ define hidden noundef ptr @_Z15_hb_shapers_getv() local_unnamed_addr #0 {
 _ZN16hb_lazy_loader_tI17hb_shaper_entry_t24hb_shapers_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i: ; preds = %10, %9, %.thread.i.i
   %11 = load atomic i64, ptr @_ZL14static_shapers acquire, align 8
   %.not.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %.split.loop.exit16.i.i
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %.split.loop.exit16.i.i, !llvm.loop !6
 
 .split.loop.exit16.i.i:                           ; preds = %_ZN16hb_lazy_loader_tI17hb_shaper_entry_t24hb_shapers_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i, %0
   %.lcssa.i.i = phi i64 [ %1, %0 ], [ %11, %_ZN16hb_lazy_loader_tI17hb_shaper_entry_t24hb_shapers_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i ]
@@ -139,14 +139,14 @@ define linkonce_odr hidden noundef ptr @_ZN24hb_shapers_lazy_loader_t6createEv()
 37:                                               ; preds = %19, %24, %27
   %.2 = phi i32 [ %28, %27 ], [ %.147, %24 ], [ %.147, %19 ]
   %38 = icmp eq i64 %indvars.iv, 0
-  br i1 %38, label %19, label %._crit_edge, !llvm.loop !6
+  br i1 %38, label %19, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %37, %13
   %.1.lcssa = phi i32 [ %.037, %13 ], [ %.2, %37 ]
   %39 = load i8, ptr %.036, align 1
   %.not46 = icmp eq i8 %39, 0
   %40 = getelementptr inbounds nuw i8, ptr %.036, i64 1
-  br i1 %.not46, label %.loopexit, label %8, !llvm.loop !8
+  br i1 %.not46, label %.loopexit, label %8, !llvm.loop !10
 
 .loopexit:                                        ; preds = %._crit_edge, %5, %0, %3
   %.038 = phi ptr [ null, %3 ], [ null, %0 ], [ null, %5 ], [ %6, %._crit_edge ]
@@ -197,5 +197,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}

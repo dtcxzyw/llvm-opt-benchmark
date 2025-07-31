@@ -1054,7 +1054,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit: ; preds = %3
   %.0.in.i = load i16, ptr %gep.i, align 2
   %.0.i = sext i16 %.0.in.i to i32
   %63 = icmp samesign ugt i32 %.0813.i, 1
-  br i1 %63, label %59, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit49, !llvm.loop !10
+  br i1 %63, label %59, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit49, !llvm.loop !11
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit49: ; preds = %59, %50
   %.09.i48 = phi i32 [ %55, %50 ], [ %.0.i, %59 ]
@@ -1183,7 +1183,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit56: ; preds = 
   %.0.in.i62 = load i16, ptr %gep.i61, align 2
   %.0.i63 = sext i16 %.0.in.i62 to i32
   %148 = icmp samesign ugt i32 %.0813.i60, 1
-  br i1 %148, label %144, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit65, !llvm.loop !10
+  br i1 %148, label %144, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit65, !llvm.loop !11
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit65: ; preds = %144, %135
   %.09.i64 = phi i32 [ %140, %135 ], [ %.0.i63, %144 ]
@@ -1309,7 +1309,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit72: ; preds = 
   %.0.in.i78 = load i16, ptr %gep.i77, align 2
   %.0.i79 = sext i16 %.0.in.i78 to i32
   %230 = icmp samesign ugt i32 %.0813.i76, 1
-  br i1 %230, label %226, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit81, !llvm.loop !10
+  br i1 %230, label %226, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit81, !llvm.loop !11
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit81: ; preds = %226, %217
   %.09.i80 = phi i32 [ %222, %217 ], [ %.0.i79, %226 ]
@@ -1938,7 +1938,7 @@ default.unreachable:                              ; preds = %_ZNK10OpenSubdiv6v3
   %371 = getelementptr inbounds i32, ptr %.0136, i64 %370
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %372, label %17, !llvm.loop !11
+  br i1 %exitcond.not, label %372, label %17, !llvm.loop !12
 
 372:                                              ; preds = %367
   ret void
@@ -2118,7 +2118,8 @@ attributes #5 = { nofree nounwind }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv: argument 0"}
 !7 = distinct !{!7, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

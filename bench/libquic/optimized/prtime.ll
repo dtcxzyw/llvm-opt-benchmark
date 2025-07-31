@@ -302,7 +302,7 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %.0.in = load i8, ptr %130, align 1, !tbaa !10
   %.0 = sext i8 %.0.in to i32
   %131 = icmp sgt i32 %114, %.0
-  br i1 %131, label %.lr.ph, label %.loopexit.loopexit152, !llvm.loop !25
+  br i1 %131, label %.lr.ph, label %.loopexit.loopexit152, !llvm.loop !26
 
 .loopexit.loopexit:                               ; preds = %84
   store i32 %86, ptr %59, align 4, !tbaa !22
@@ -346,7 +346,7 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %155 = add nsw i8 %153, 7
   %storemerge = select i1 %154, i8 %155, i8 %153
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i8 %storemerge, ptr %156, align 2, !tbaa !26
+  store i8 %storemerge, ptr %156, align 2, !tbaa !27
   %157 = tail call i64 %1(ptr noundef nonnull %0)
   store i64 %157, ptr %3, align 4
   %158 = trunc i64 %157 to i32
@@ -480,7 +480,7 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   br label %218
 
 218:                                              ; preds = %209, %187
-  %219 = load i8, ptr %156, align 2, !tbaa !26
+  %219 = load i8, ptr %156, align 2, !tbaa !27
   %220 = add i8 %219, -1
   %221 = icmp slt i8 %220, 0
   %spec.store.select.i = select i1 %221, i8 6, i8 %220
@@ -533,7 +533,7 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   br label %248
 
 248:                                              ; preds = %246, %243, %224
-  %249 = load i8, ptr %156, align 2, !tbaa !26
+  %249 = load i8, ptr %156, align 2, !tbaa !27
   %250 = add i8 %249, 1
   %251 = icmp sgt i8 %250, 6
   %spec.store.select57.i = select i1 %251, i8 0, i8 %250
@@ -1364,7 +1364,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %275 = add i8 %274, -48
   %or.cond807 = icmp ult i8 %275, 10
   %.0576.add = add nuw nsw i64 %.0576.idx, 1
-  br i1 %or.cond807, label %273, label %.critedge, !llvm.loop !27
+  br i1 %or.cond807, label %273, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %273
   %276 = icmp eq i8 %9, 43
@@ -1431,7 +1431,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %318 = add i8 %317, -48
   %or.cond808 = icmp ult i8 %318, 10
   %319 = getelementptr inbounds nuw i8, ptr %.0561, i64 1
-  br i1 %or.cond808, label %316, label %.critedge6, !llvm.loop !28
+  br i1 %or.cond808, label %316, label %.critedge6, !llvm.loop !29
 
 .critedge6:                                       ; preds = %316
   switch i8 %317, label %535 [
@@ -1481,7 +1481,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %342 = add i8 %341, -48
   %or.cond809 = icmp ult i8 %342, 10
   %.1562.add = add nuw nsw i64 %.1562.idx, 1
-  br i1 %or.cond809, label %340, label %.critedge10, !llvm.loop !29
+  br i1 %or.cond809, label %340, label %.critedge10, !llvm.loop !30
 
 .critedge10:                                      ; preds = %340
   %.1562.ptr.le = getelementptr inbounds nuw i8, ptr %.0561, i64 %.1562.idx
@@ -1522,7 +1522,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %362 = add i8 %361, -48
   %or.cond810 = icmp ult i8 %362, 10
   %363 = getelementptr inbounds nuw i8, ptr %.2563, i64 1
-  br i1 %or.cond810, label %360, label %.critedge12, !llvm.loop !30
+  br i1 %or.cond810, label %360, label %.critedge12, !llvm.loop !31
 
 .critedge12:                                      ; preds = %360
   %364 = icmp eq ptr %.2563, %spec.select
@@ -1582,7 +1582,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %398 = load i8, ptr %397, align 1, !tbaa !10
   %399 = add i8 %398, -48
   %or.cond811 = icmp ult i8 %399, 10
-  br i1 %or.cond811, label %.lr.ph, label %.critedge14.loopexit, !llvm.loop !31
+  br i1 %or.cond811, label %.lr.ph, label %.critedge14.loopexit, !llvm.loop !32
 
 .critedge14.loopexit:                             ; preds = %.lr.ph
   %.pre935 = ptrtoint ptr %397 to i64
@@ -1604,7 +1604,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %404 = add nsw i32 %.0560886, 1
   %405 = mul nsw i32 %.3568885, 10
   %406 = icmp slt i32 %.0560886, 5
-  br i1 %406, label %.lr.ph887, label %.loopexit859, !llvm.loop !32
+  br i1 %406, label %.lr.ph887, label %.loopexit859, !llvm.loop !33
 
 .loopexit859:                                     ; preds = %.lr.ph887, %.critedge14, %383
   %407 = phi i8 [ %361, %383 ], [ %400, %.critedge14 ], [ %400, %.lr.ph887 ]
@@ -1630,7 +1630,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
 .critedge18:                                      ; preds = %.preheader, %.preheader
   %412 = getelementptr inbounds nuw i8, ptr %.0559, i64 1
   %.pr = load i8, ptr %412, align 1, !tbaa !10
-  br label %.preheader, !llvm.loop !33
+  br label %.preheader, !llvm.loop !34
 
 413:                                              ; preds = %.preheader, %.preheader
   %414 = getelementptr inbounds nuw i8, ptr %.0559, i64 1
@@ -2014,7 +2014,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
 
 .critedge833:                                     ; preds = %607, %609
   %613 = getelementptr inbounds nuw i8, ptr %.8, i64 1
-  br label %607, !llvm.loop !34
+  br label %607, !llvm.loop !35
 
 .critedge26:                                      ; preds = %607, %607, %607, %607, %607, %607, %607, %607, %607, %607, %607, %607, %609
   %614 = icmp slt i32 %.1598, 0
@@ -2039,7 +2039,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
 
 .backedge:                                        ; preds = %625, %619, %615, %615, %615, %615, %615, %615, %615, %615, %615
   %.10.be = getelementptr inbounds nuw i8, ptr %.10, i64 1
-  br label %615, !llvm.loop !35
+  br label %615, !llvm.loop !36
 
 617:                                              ; preds = %615
   %618 = icmp ugt ptr %.10, %0
@@ -2074,7 +2074,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %633 = phi i8 [ %spec.select979, %629 ], [ 45, %625 ], [ %616, %615 ]
   %.11 = phi ptr [ %spec.select980, %629 ], [ %.10, %615 ], [ %.10, %625 ]
   %.not754 = icmp eq i8 %633, 0
-  br i1 %.not754, label %._crit_edge, label %.lr.ph912, !llvm.loop !36
+  br i1 %.not754, label %._crit_edge, label %.lr.ph912, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.thread849
   %634 = icmp ne i32 %.1622, 0
@@ -2219,7 +2219,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %675 = trunc nsw i32 %.0574.lcssa956 to i8
   %676 = add nsw i8 %675, -1
   %677 = getelementptr inbounds nuw i8, ptr %5, i64 26
-  store i8 %676, ptr %677, align 2, !tbaa !26
+  store i8 %676, ptr %677, align 2, !tbaa !27
   br label %678
 
 678:                                              ; preds = %674, %668
@@ -2241,41 +2241,41 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
 685:                                              ; preds = %682
   %686 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %687 = load i32, ptr %686, align 4, !tbaa !17
-  store i32 %687, ptr %6, align 8, !tbaa !37
+  store i32 %687, ptr %6, align 8, !tbaa !38
   %688 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %689 = load i32, ptr %688, align 4, !tbaa !16
   %690 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %689, ptr %690, align 4, !tbaa !42
+  store i32 %689, ptr %690, align 4, !tbaa !43
   %691 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %692 = load i32, ptr %691, align 4, !tbaa !15
   %693 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %692, ptr %693, align 8, !tbaa !43
+  store i32 %692, ptr %693, align 8, !tbaa !44
   %694 = load i32, ptr %669, align 4, !tbaa !21
   %695 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %694, ptr %695, align 4, !tbaa !44
+  store i32 %694, ptr %695, align 4, !tbaa !45
   %696 = load i32, ptr %671, align 4, !tbaa !22
   %697 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %696, ptr %697, align 8, !tbaa !45
+  store i32 %696, ptr %697, align 8, !tbaa !46
   %698 = zext nneg i16 %683 to i32
   %699 = add nsw i32 %698, -1900
   %700 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 %699, ptr %700, align 4, !tbaa !46
+  store i32 %699, ptr %700, align 4, !tbaa !47
   %701 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 -1, ptr %701, align 8, !tbaa !47
+  store i32 -1, ptr %701, align 8, !tbaa !48
   %702 = call i64 @mktime(ptr noundef nonnull %6) #8
   %.not760 = icmp eq i64 %702, -1
   br i1 %.not760, label %.thread850, label %715
 
 .thread850:                                       ; preds = %682, %685
-  store i64 86400, ptr %7, align 8, !tbaa !48
+  store i64 86400, ptr %7, align 8, !tbaa !49
   %703 = call ptr @localtime_r(ptr noundef nonnull %7, ptr noundef nonnull %6) #8
   %704 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %705 = load i32, ptr %704, align 4, !tbaa !42
+  %705 = load i32, ptr %704, align 4, !tbaa !43
   %706 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %707 = load i32, ptr %706, align 8, !tbaa !43
+  %707 = load i32, ptr %706, align 8, !tbaa !44
   %708 = mul nsw i32 %707, 60
   %709 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %710 = load i32, ptr %709, align 4, !tbaa !44
+  %710 = load i32, ptr %709, align 4, !tbaa !45
   %711 = mul i32 %710, 1440
   %712 = add i32 %705, -2880
   %713 = add i32 %712, %708
@@ -2289,7 +2289,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %717 = load i32, ptr %5, align 4, !tbaa !20
   %718 = sext i32 %717 to i64
   %719 = add nsw i64 %716, %718
-  store i64 %719, ptr %2, align 8, !tbaa !48
+  store i64 %719, ptr %2, align 8, !tbaa !49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #8
   br label %.loopexit861
@@ -2348,7 +2348,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   %764 = sext i32 %763 to i64
   %765 = add nsw i64 %762, %764
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #8
-  store i64 %765, ptr %2, align 8, !tbaa !48
+  store i64 %765, ptr %2, align 8, !tbaa !49
   br label %.loopexit861
 
 .loopexit861:                                     ; preds = %.lr.ph912, %715, %._crit_edge.thread, %3, %720
@@ -2402,29 +2402,30 @@ attributes #9 = { nounwind willreturn memory(read) }
 !20 = !{!12, !5, i64 0}
 !21 = !{!12, !5, i64 16}
 !22 = !{!12, !5, i64 20}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = !{!12, !6, i64 26}
-!27 = distinct !{!27, !24}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = distinct !{!31, !24}
-!32 = distinct !{!32, !24}
-!33 = distinct !{!33, !24}
-!34 = distinct !{!34, !24}
-!35 = distinct !{!35, !24}
-!36 = distinct !{!36, !24}
-!37 = !{!38, !5, i64 0}
-!38 = !{!"_ZTS2tm", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !39, i64 40, !40, i64 48}
-!39 = !{!"long", !6, i64 0}
-!40 = !{!"p1 omnipotent char", !41, i64 0}
-!41 = !{!"any pointer", !6, i64 0}
-!42 = !{!38, !5, i64 4}
-!43 = !{!38, !5, i64 8}
-!44 = !{!38, !5, i64 12}
-!45 = !{!38, !5, i64 16}
-!46 = !{!38, !5, i64 20}
-!47 = !{!38, !5, i64 32}
-!48 = !{!39, !39, i64 0}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = !{!12, !6, i64 26}
+!28 = distinct !{!28, !24, !25}
+!29 = distinct !{!29, !24, !25}
+!30 = distinct !{!30, !24, !25}
+!31 = distinct !{!31, !24, !25}
+!32 = distinct !{!32, !24, !25}
+!33 = distinct !{!33, !24, !25}
+!34 = distinct !{!34, !24, !25}
+!35 = distinct !{!35, !24, !25}
+!36 = distinct !{!36, !25}
+!37 = distinct !{!37, !24, !25}
+!38 = !{!39, !5, i64 0}
+!39 = !{!"_ZTS2tm", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !40, i64 40, !41, i64 48}
+!40 = !{!"long", !6, i64 0}
+!41 = !{!"p1 omnipotent char", !42, i64 0}
+!42 = !{!"any pointer", !6, i64 0}
+!43 = !{!39, !5, i64 4}
+!44 = !{!39, !5, i64 8}
+!45 = !{!39, !5, i64 12}
+!46 = !{!39, !5, i64 16}
+!47 = !{!39, !5, i64 20}
+!48 = !{!39, !5, i64 32}
+!49 = !{!40, !40, i64 0}

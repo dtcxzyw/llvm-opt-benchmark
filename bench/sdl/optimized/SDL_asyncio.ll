@@ -441,7 +441,7 @@ define internal fastcc zeroext i1 @GetAsyncIOTaskOutcome(ptr noundef %0, ptr nou
   %4 = load ptr, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
+  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   %8 = select i1 %7, ptr null, ptr %4
   store ptr %8, ptr %1, align 8
@@ -550,7 +550,7 @@ define internal fastcc zeroext i1 @GetAsyncIOTaskOutcome(ptr noundef %0, ptr nou
   br i1 %.not70, label %70, label %78
 
 70:                                               ; preds = %66
-  %71 = load i8, ptr %5, align 8, !range !5, !noundef !6
+  %71 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %72 = trunc nuw i8 %71 to i1
   %.1 = xor i1 %72, true
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -642,7 +642,7 @@ define hidden void @SDL_DestroyAsyncIOQueue_REAL(ptr noundef %0) local_unnamed_a
 12:                                               ; preds = %8
   %13 = load ptr, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 200
-  %15 = load i8, ptr %14, align 8, !range !5, !noundef !6
+  %15 = load i8, ptr %14, align 8, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %20
 
@@ -662,7 +662,7 @@ define hidden void @SDL_DestroyAsyncIOQueue_REAL(ptr noundef %0) local_unnamed_a
 22:                                               ; preds = %20, %8
   %23 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %3) #5
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %8, label %._crit_edge, !llvm.loop !7
+  br i1 %24, label %8, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %22, %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -765,8 +765,9 @@ attributes #6 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4, !5}

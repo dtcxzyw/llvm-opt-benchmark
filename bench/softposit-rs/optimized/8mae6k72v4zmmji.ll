@@ -146,7 +146,7 @@ define hidden noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit
   %.0.i.i = add i32 %20, -1073741824
   %21 = and i32 %.014.i.i, 268435456
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i, label %.lr.ph.i.i
+  br i1 %22, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i: ; preds = %.lr.ph.i.i, %16
   %.011.lcssa.i.i = phi i32 [ 0, %16 ], [ %19, %.lr.ph.i.i ]
@@ -224,7 +224,7 @@ define hidden noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit
   %10 = add i8 %.01921.i, -1
   %11 = shl nuw i32 %.022.i, 1
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %13 = ashr i8 %10, 2
@@ -333,7 +333,7 @@ define hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel6exp_m117h3c14aa
   %.0.i.i.i = add i32 %27, -1073741824
   %28 = and i32 %.014.i.i.i, 268435456
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %29, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i: ; preds = %.lr.ph.i.i.i, %23
   %.011.lcssa.i.i.i = phi i32 [ 0, %23 ], [ %26, %.lr.ph.i.i.i ]
@@ -396,44 +396,44 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   store i32 991371647, ptr %61, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 7292733, ptr %.sroa.4.0..sroa_idx, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !5)
+  call void @llvm.experimental.noalias.scope.decl(metadata !8)
   br label %62
 
 62:                                               ; preds = %62, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit"
   %.pn.add6.i = phi i64 [ 4, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit" ], [ %.pn.add.i, %62 ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %.pn.add6.i
-  %63 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !5, !noalias !8, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %9, i32 noundef %63, i1 noundef zeroext false), !noalias !5
+  %63 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !8, !noalias !11, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %9, i32 noundef %63, i1 noundef zeroext false), !noalias !8
   %.pn.add.i = add nuw nsw i64 %.pn.add6.i, 4
   %64 = icmp eq i64 %.pn.add.i, 12
-  br i1 %64, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit", label %62
+  br i1 %64, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit", label %62, !llvm.loop !13
 
 "_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit": ; preds = %62
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   %65 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7)
-  %66 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %65, i32 noundef %65), !noalias !10
-  %67 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %66, i32 noundef %65), !noalias !10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !18, !noalias !13
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef 340020827, i1 noundef zeroext true), !noalias !13
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %65, i32 noundef 215678692, i1 noundef zeroext true), !noalias !13
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %66, i32 noundef 127774922, i1 noundef zeroext true), !noalias !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !13
-  %68 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !24, !noalias !21
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 939524098, i1 noundef zeroext true), !noalias !21
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %65, i32 noundef 715827866, i1 noundef zeroext true), !noalias !21
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %66, i32 noundef 492130904, i1 noundef zeroext true), !noalias !21
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %67, i32 noundef %68, i1 noundef zeroext true), !noalias !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !21
-  %69 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !21
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !21
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !21
+  %66 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %65, i32 noundef %65), !noalias !14
+  %67 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %66, i32 noundef %65), !noalias !14
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !22, !noalias !17
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef 340020827, i1 noundef zeroext true), !noalias !17
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %65, i32 noundef 215678692, i1 noundef zeroext true), !noalias !17
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %66, i32 noundef 127774922, i1 noundef zeroext true), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !17
+  %68 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !28, !noalias !25
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 939524098, i1 noundef zeroext true), !noalias !25
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %65, i32 noundef 715827866, i1 noundef zeroext true), !noalias !25
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %66, i32 noundef 492130904, i1 noundef zeroext true), !noalias !25
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %67, i32 noundef %68, i1 noundef zeroext true), !noalias !25
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !25
+  %69 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !25
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !25
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !25
   %70 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %65, i32 noundef %65)
   %71 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %70, i32 noundef %69)
   %72 = icmp eq i32 %71, 0
@@ -557,7 +557,7 @@ define hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel3log17h4af2fc342
   %14 = add i8 %.0916.i.i, -1
   %15 = shl nuw i32 %.017.i.i, 1
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %.lr.ph18.i.i, label %._crit_edge.i.i
+  br i1 %16, label %.lr.ph18.i.i, label %._crit_edge.i.i, !llvm.loop !31
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph18.i.i, %.preheader.i.i
   %.09.lcssa.i.i = phi i8 [ -1, %.preheader.i.i ], [ %14, %.lr.ph18.i.i ]
@@ -571,7 +571,7 @@ define hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel3log17h4af2fc342
   %18 = add nuw nsw i8 %.11013.i.i, 1
   %19 = shl i32 %.114.i.i, 1
   %20 = icmp sgt i32 %19, -1
-  br i1 %20, label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit, label %.lr.ph.i.i
+  br i1 %20, label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = %.lr.ph.i.i, %.preheader12.i.i, %._crit_edge.i.i
   %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %18, %.lr.ph.i.i ]
@@ -614,19 +614,19 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   %.0.i2 = phi i32 [ %36, %34 ], [ %39, %37 ], [ %31, %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit ], [ 1073741824, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit.thread" ]
   %40 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3div17h16b276436e5bfe98E"(i32 noundef %.0.i16, i32 noundef %.0.i2)
   %41 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %40, i32 noundef %40)
-  %42 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %41, i32 noundef %41), !noalias !27
-  %43 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %42, i32 noundef %41), !noalias !27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !33, !noalias !30
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 885836926, i1 noundef zeroext true), !noalias !30
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %41, i32 noundef 824489066, i1 noundef zeroext true), !noalias !30
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %42, i32 noundef 774603584, i1 noundef zeroext true), !noalias !30
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %43, i32 noundef 752184744, i1 noundef zeroext true), !noalias !30
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !30
-  %44 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !30
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !30
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !30
+  %42 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %41, i32 noundef %41), !noalias !33
+  %43 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %42, i32 noundef %41), !noalias !33
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !39, !noalias !36
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 885836926, i1 noundef zeroext true), !noalias !36
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %41, i32 noundef 824489066, i1 noundef zeroext true), !noalias !36
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %42, i32 noundef 774603584, i1 noundef zeroext true), !noalias !36
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %43, i32 noundef 752184744, i1 noundef zeroext true), !noalias !36
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !36
+  %44 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !36
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !36
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !36
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %7, i32 noundef 984263336, i32 noundef 1073741826, i1 noundef zeroext true)
@@ -655,7 +655,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   %54 = add i8 %.01921.i.i, -1
   %55 = shl nuw i32 %.022.i.i, 1
   %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %.lr.ph.i.i3, label %._crit_edge.i.i4
+  br i1 %56, label %.lr.ph.i.i3, label %._crit_edge.i.i4, !llvm.loop !7
 
 ._crit_edge.i.i4:                                 ; preds = %.lr.ph.i.i3
   %57 = ashr i8 %54, 2
@@ -707,17 +707,17 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i: 
   store i32 991371647, ptr %86, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 7292733, ptr %.sroa.4.0..sroa_idx, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  call void @llvm.experimental.noalias.scope.decl(metadata !42)
   br label %87
 
 87:                                               ; preds = %87, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_i3217h4f00cc7b49d63ce8E.llvm.10961338582784087609.exit"
   %.pn.add6.i = phi i64 [ 4, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_i3217h4f00cc7b49d63ce8E.llvm.10961338582784087609.exit" ], [ %.pn.add.i, %87 ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.pn.add6.i
-  %88 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !36, !noalias !39, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %.06.i, i32 noundef %88, i1 noundef zeroext true), !noalias !36
+  %88 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !42, !noalias !45, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %.06.i, i32 noundef %88, i1 noundef zeroext true), !noalias !42
   %.pn.add.i = add nuw nsw i64 %.pn.add6.i, 4
   %89 = icmp eq i64 %.pn.add.i, 12
-  br i1 %89, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609.exit", label %87
+  br i1 %89, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609.exit", label %87, !llvm.loop !47
 
 "_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609.exit": ; preds = %87
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
@@ -765,9 +765,9 @@ define hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel5atan217h9b8a551
   store i32 751602956, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -850045374, ptr %16, align 4
-  %17 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %8, i32 noundef %8), !noalias !41
-  %18 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %17, i32 noundef %8), !noalias !41
-  %19 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %17, i32 noundef %17), !noalias !41
+  %17 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %8, i32 noundef %8), !noalias !48
+  %18 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %17, i32 noundef %8), !noalias !48
+  %19 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %17, i32 noundef %17), !noalias !48
   %20 = call noundef i32 @_ZN9softposit7polynom4poly4Poly6poly8k17hefd6015b8a1a2869E.llvm.10961338582784087609(i32 noundef %8, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef -233109685, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3)
   %21 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %20, i32 noundef %8)
@@ -926,7 +926,7 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit: ; 
   %.0.i.i.i = add i32 %38, -1073741824
   %39 = and i32 %.014.i.i.i, 268435456
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %40, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i: ; preds = %.lr.ph.i.i.i, %34
   %.011.lcssa.i.i.i = phi i32 [ 0, %34 ], [ %37, %.lr.ph.i.i.i ]
@@ -1011,7 +1011,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %.0.i.i.i75 = add i32 %86, -1073741824
   %87 = and i32 %.014.i.i.i73, 268435456
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76, label %.lr.ph.i.i.i72
+  br i1 %88, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76, label %.lr.ph.i.i.i72, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76: ; preds = %.lr.ph.i.i.i72, %82
   %.011.lcssa.i.i.i77 = phi i32 [ 0, %82 ], [ %85, %.lr.ph.i.i.i72 ]
@@ -1082,7 +1082,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %128 = shl i32 %.014.i.i.i91.in, 1
   %129 = and i32 %.014.i.i.i91.in, 268435456
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %.lr.ph.i.i.i90
+  br i1 %130, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %.lr.ph.i.i.i90, !llvm.loop !5
 
 "_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109": ; preds = %78, %30, %72, %23, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86"
   %.058 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
@@ -1141,7 +1141,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %.0.i.i.i.i = add i32 %155, -1073741824
   %156 = and i32 %.014.i.i.i.i, 268435456
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %157, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %151
   %.011.lcssa.i.i.i.i = phi i32 [ 0, %151 ], [ %154, %.lr.ph.i.i.i.i ]
@@ -1204,44 +1204,44 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i.i
   store i32 991371647, ptr %189, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 7292733, ptr %.sroa.4.0..sroa_idx.i, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  call void @llvm.experimental.noalias.scope.decl(metadata !51)
   br label %190
 
 190:                                              ; preds = %190, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.i"
   %.pn.add6.i.i = phi i64 [ 4, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.i" ], [ %.pn.add.i.i, %190 ]
   %.sroa.0.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.add6.i.i
-  %191 = load i32, ptr %.sroa.0.0.ptr.i.i, align 4, !alias.scope !44, !noalias !47, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %137, i32 noundef %191, i1 noundef zeroext false), !noalias !44
+  %191 = load i32, ptr %.sroa.0.0.ptr.i.i, align 4, !alias.scope !51, !noalias !54, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %137, i32 noundef %191, i1 noundef zeroext false), !noalias !51
   %.pn.add.i.i = add nuw nsw i64 %.pn.add6.i.i, 4
   %192 = icmp eq i64 %.pn.add.i.i, 12
-  br i1 %192, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit.i", label %190
+  br i1 %192, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit.i", label %190, !llvm.loop !13
 
 "_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit.i": ; preds = %190
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
   %193 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8)
-  %194 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %193, i32 noundef %193), !noalias !49
-  %195 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %194, i32 noundef %193), !noalias !49
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false), !alias.scope !57, !noalias !52
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i32 noundef 1073741824, i32 noundef 340020827, i1 noundef zeroext true), !noalias !52
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %193, i32 noundef 215678692, i1 noundef zeroext true), !noalias !52
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %194, i32 noundef 127774922, i1 noundef zeroext true), !noalias !52
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !noalias !52
-  %196 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5), !noalias !52
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !52
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !52
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !alias.scope !63, !noalias !60
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 1073741824, i32 noundef 939524098, i1 noundef zeroext true), !noalias !60
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %193, i32 noundef 715827866, i1 noundef zeroext true), !noalias !60
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %194, i32 noundef 492130904, i1 noundef zeroext true), !noalias !60
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %195, i32 noundef %196, i1 noundef zeroext true), !noalias !60
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !noalias !60
-  %197 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3), !noalias !60
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !60
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !60
+  %194 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %193, i32 noundef %193), !noalias !56
+  %195 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %194, i32 noundef %193), !noalias !56
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !59
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false), !alias.scope !64, !noalias !59
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i32 noundef 1073741824, i32 noundef 340020827, i1 noundef zeroext true), !noalias !59
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %193, i32 noundef 215678692, i1 noundef zeroext true), !noalias !59
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %194, i32 noundef 127774922, i1 noundef zeroext true), !noalias !59
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !noalias !59
+  %196 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5), !noalias !59
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !59
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !59
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !67
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !alias.scope !70, !noalias !67
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 1073741824, i32 noundef 939524098, i1 noundef zeroext true), !noalias !67
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %193, i32 noundef 715827866, i1 noundef zeroext true), !noalias !67
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %194, i32 noundef 492130904, i1 noundef zeroext true), !noalias !67
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %195, i32 noundef %196, i1 noundef zeroext true), !noalias !67
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !noalias !67
+  %197 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3), !noalias !67
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !67
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !67
   %198 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %193, i32 noundef %193)
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %198, i32 noundef %197, i1 noundef zeroext true)
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 1073741824, i32 noundef 1073741824, i1 noundef zeroext true)
@@ -1353,7 +1353,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4log217h3385a54ce9bb657cE(i32 
   %13 = add i8 %.0916.i.i, -1
   %14 = shl nuw i32 %.017.i.i, 1
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %.lr.ph18.i.i, label %._crit_edge.i.i
+  br i1 %15, label %.lr.ph18.i.i, label %._crit_edge.i.i, !llvm.loop !31
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph18.i.i, %.preheader.i.i
   %.09.lcssa.i.i = phi i8 [ -1, %.preheader.i.i ], [ %13, %.lr.ph18.i.i ]
@@ -1367,7 +1367,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4log217h3385a54ce9bb657cE(i32 
   %17 = add nuw nsw i8 %.11013.i.i, 1
   %18 = shl i32 %.114.i.i, 1
   %19 = icmp sgt i32 %18, -1
-  br i1 %19, label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit, label %.lr.ph.i.i
+  br i1 %19, label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = %.lr.ph.i.i, %.preheader12.i.i, %._crit_edge.i.i
   %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %17, %.lr.ph.i.i ]
@@ -1410,19 +1410,19 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   %.0.i6 = phi i32 [ %35, %33 ], [ %38, %36 ], [ %30, %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit ], [ 1073741824, %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit.thread" ]
   %39 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3div17h16b276436e5bfe98E"(i32 noundef %.0.i510, i32 noundef %.0.i6)
   %40 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %39, i32 noundef %39)
-  %41 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %40, i32 noundef %40), !noalias !66
-  %42 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %41, i32 noundef %40), !noalias !66
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !69
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !72, !noalias !69
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1063486688, i1 noundef zeroext true), !noalias !69
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %40, i32 noundef 960217638, i1 noundef zeroext true), !noalias !69
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %41, i32 noundef 891925289, i1 noundef zeroext true), !noalias !69
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %42, i32 noundef 857130606, i1 noundef zeroext true), !noalias !69
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !69
-  %43 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !69
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !69
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !69
+  %41 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %40, i32 noundef %40), !noalias !73
+  %42 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %41, i32 noundef %40), !noalias !73
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !76
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !79, !noalias !76
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1063486688, i1 noundef zeroext true), !noalias !76
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %40, i32 noundef 960217638, i1 noundef zeroext true), !noalias !76
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %41, i32 noundef 891925289, i1 noundef zeroext true), !noalias !76
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %42, i32 noundef 857130606, i1 noundef zeroext true), !noalias !76
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !76
+  %43 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !76
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !76
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !76
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %44 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %40, i32 noundef %39)
@@ -1451,7 +1451,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   %53 = add i8 %.01921.i.i, -1
   %54 = shl nuw i32 %.022.i.i, 1
   %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %.lr.ph.i.i7, label %._crit_edge.i.i8
+  br i1 %55, label %.lr.ph.i.i7, label %._crit_edge.i.i8, !llvm.loop !7
 
 ._crit_edge.i.i8:                                 ; preds = %.lr.ph.i.i7
   %56 = ashr i8 %53, 2
@@ -1624,7 +1624,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef3sin17h1c7df31d6c465e5bE(i32 n
   %.0.i.i.i = add i32 %33, -1073741824
   %34 = and i32 %.014.i.i.i, 268435456
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %35, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i: ; preds = %.lr.ph.i.i.i, %29
   %.011.lcssa.i.i.i = phi i32 [ 0, %29 ], [ %32, %.lr.ph.i.i.i ]
@@ -1684,17 +1684,17 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   store i32 7408454, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 116376, ptr %.sroa.5.0..sroa_idx, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  call void @llvm.experimental.noalias.scope.decl(metadata !82)
   br label %68
 
 68:                                               ; preds = %68, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit"
   %.pn.add6.i = phi i64 [ 4, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit" ], [ %.pn.add.i, %68 ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.add6.i
-  %69 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !75, !noalias !78, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %15, i32 noundef %69, i1 noundef zeroext false), !noalias !75
+  %69 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !82, !noalias !85, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %15, i32 noundef %69, i1 noundef zeroext false), !noalias !82
   %.pn.add.i = add nuw nsw i64 %.pn.add6.i, 4
   %70 = icmp eq i64 %.pn.add.i, 16
-  br i1 %70, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit", label %68
+  br i1 %70, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit", label %68, !llvm.loop !87
 
 "_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit": ; preds = %68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -1706,29 +1706,29 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %72 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %71, i32 noundef %71)
   %73 = sub i32 0, %71
   %spec.select = select i1 %.0.i, i32 %71, i32 %73
-  %74 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %72, i32 noundef %72), !noalias !80
-  %75 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %74, i32 noundef %72), !noalias !80
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !83
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !88, !noalias !83
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef -127932730, i1 noundef zeroext true), !noalias !83
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %72, i32 noundef 45666547, i1 noundef zeroext true), !noalias !83
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %74, i32 noundef -13885841, i1 noundef zeroext true), !noalias !83
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !83
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !83
-  %76 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !83
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !83
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !83
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !91
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !94, !noalias !91
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1073741824, i1 noundef zeroext true), !noalias !91
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %72, i32 noundef -715827882, i1 noundef zeroext true), !noalias !91
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %74, i32 noundef 340018238, i1 noundef zeroext true), !noalias !91
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %75, i32 noundef %76, i1 noundef zeroext true), !noalias !91
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !91
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !91
-  %77 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !91
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !91
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !91
+  %74 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %72, i32 noundef %72), !noalias !88
+  %75 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %74, i32 noundef %72), !noalias !88
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !91
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !96, !noalias !91
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef -127932730, i1 noundef zeroext true), !noalias !91
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %72, i32 noundef 45666547, i1 noundef zeroext true), !noalias !91
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %74, i32 noundef -13885841, i1 noundef zeroext true), !noalias !91
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !91
+  %76 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !91
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !91
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !91
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !99
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !102, !noalias !99
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1073741824, i1 noundef zeroext true), !noalias !99
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %72, i32 noundef -715827882, i1 noundef zeroext true), !noalias !99
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %74, i32 noundef 340018238, i1 noundef zeroext true), !noalias !99
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %75, i32 noundef %76, i1 noundef zeroext true), !noalias !99
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !99
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !99
+  %77 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !99
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !99
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !99
   %78 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %77, i32 noundef %spec.select)
   br label %12
 
@@ -1826,7 +1826,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef3cos17h90497f359d2c8995E(i32 n
   %.0.i.i.i = add i32 %40, -1073741824
   %41 = and i32 %.014.i.i.i, 268435456
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %42, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i: ; preds = %.lr.ph.i.i.i, %36
   %.011.lcssa.i.i.i = phi i32 [ 0, %36 ], [ %39, %.lr.ph.i.i.i ]
@@ -1905,7 +1905,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %85 = add i8 %.01921.i.i, -1
   %86 = shl nuw i32 %.022.i.i, 1
   %87 = icmp sgt i32 %86, -1
-  br i1 %87, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %87, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %88 = ashr i8 %85, 2
@@ -1964,17 +1964,17 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i: 
   store i32 %118, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %119, ptr %.sroa.5.0..sroa_idx, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  call void @llvm.experimental.noalias.scope.decl(metadata !105)
   br label %121
 
 121:                                              ; preds = %121, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_i3217h4f00cc7b49d63ce8E.llvm.10961338582784087609.exit"
   %.pn.add6.i = phi i64 [ 4, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_i3217h4f00cc7b49d63ce8E.llvm.10961338582784087609.exit" ], [ %.pn.add.i, %121 ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.add6.i
-  %122 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !97, !noalias !100, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %.06.i, i32 noundef %122, i1 noundef zeroext false), !noalias !97
+  %122 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !105, !noalias !108, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %.06.i, i32 noundef %122, i1 noundef zeroext false), !noalias !105
   %.pn.add.i = add nuw nsw i64 %.pn.add6.i, 4
   %123 = icmp eq i64 %.pn.add.i, 16
-  br i1 %123, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit", label %121
+  br i1 %123, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit", label %121, !llvm.loop !87
 
 "_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit": ; preds = %121
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -1988,29 +1988,29 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i: 
   %127 = icmp eq i32 %126, 0
   %128 = sub i32 0, %124
   %spec.select = select i1 %127, i32 %128, i32 %124
-  %129 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %125, i32 noundef %125), !noalias !102
-  %130 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %129, i32 noundef %125), !noalias !102
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !105
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !110, !noalias !105
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef -127932730, i1 noundef zeroext true), !noalias !105
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %125, i32 noundef 45666547, i1 noundef zeroext true), !noalias !105
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %129, i32 noundef -13885841, i1 noundef zeroext true), !noalias !105
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !105
-  %131 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !105
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !105
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !105
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !113
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !116, !noalias !113
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1073741824, i1 noundef zeroext true), !noalias !113
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %125, i32 noundef -715827882, i1 noundef zeroext true), !noalias !113
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %129, i32 noundef 340018238, i1 noundef zeroext true), !noalias !113
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %130, i32 noundef %131, i1 noundef zeroext true), !noalias !113
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !113
-  %132 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !113
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !113
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !113
+  %129 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %125, i32 noundef %125), !noalias !110
+  %130 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %129, i32 noundef %125), !noalias !110
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !118, !noalias !113
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef -127932730, i1 noundef zeroext true), !noalias !113
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %125, i32 noundef 45666547, i1 noundef zeroext true), !noalias !113
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %129, i32 noundef -13885841, i1 noundef zeroext true), !noalias !113
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !113
+  %131 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !113
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !113
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !113
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !121
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !124, !noalias !121
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1073741824, i1 noundef zeroext true), !noalias !121
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %125, i32 noundef -715827882, i1 noundef zeroext true), !noalias !121
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %129, i32 noundef 340018238, i1 noundef zeroext true), !noalias !121
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %130, i32 noundef %131, i1 noundef zeroext true), !noalias !121
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !121
+  %132 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !121
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !121
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !121
   %133 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %132, i32 noundef %spec.select)
   br label %12
 
@@ -2094,7 +2094,7 @@ define { i32, i32 } @_ZN9softposit5p32e24math5sleef7sin_cos17h26098b81853a2de8E(
   %.0.i.i.i = add i32 %37, -1073741824
   %38 = and i32 %.014.i.i.i, 268435456
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %39, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i: ; preds = %.lr.ph.i.i.i, %33
   %.011.lcssa.i.i.i = phi i32 [ 0, %33 ], [ %36, %.lr.ph.i.i.i ]
@@ -2162,17 +2162,17 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   store i32 %72, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %73, ptr %.sroa.5.0..sroa_idx, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  call void @llvm.experimental.noalias.scope.decl(metadata !127)
   br label %75
 
 75:                                               ; preds = %75, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit"
   %.pn.add6.i = phi i64 [ 4, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit" ], [ %.pn.add.i, %75 ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.add6.i
-  %76 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !119, !noalias !122, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %19, i32 noundef %76, i1 noundef zeroext false), !noalias !119
+  %76 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !127, !noalias !130, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %19, i32 noundef %76, i1 noundef zeroext false), !noalias !127
   %.pn.add.i = add nuw nsw i64 %.pn.add6.i, 4
   %77 = icmp eq i64 %.pn.add.i, 16
-  br i1 %77, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit", label %75
+  br i1 %77, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit", label %75, !llvm.loop !87
 
 "_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit": ; preds = %75
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -2182,29 +2182,29 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   %79 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %78, i32 noundef %78)
-  %80 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %79, i32 noundef %79), !noalias !124
-  %81 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %80, i32 noundef %79), !noalias !124
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !127
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !132, !noalias !127
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef -127932730, i1 noundef zeroext true), !noalias !127
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %79, i32 noundef 45666547, i1 noundef zeroext true), !noalias !127
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %80, i32 noundef -13885841, i1 noundef zeroext true), !noalias !127
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !127
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !127
-  %82 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !127
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !127
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !127
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !135
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !138, !noalias !135
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1073741824, i1 noundef zeroext true), !noalias !135
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %79, i32 noundef -715827882, i1 noundef zeroext true), !noalias !135
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %80, i32 noundef 340018238, i1 noundef zeroext true), !noalias !135
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %81, i32 noundef %82, i1 noundef zeroext true), !noalias !135
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !135
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !135
-  %83 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !135
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !135
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !135
+  %80 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %79, i32 noundef %79), !noalias !132
+  %81 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %80, i32 noundef %79), !noalias !132
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !135
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !140, !noalias !135
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef -127932730, i1 noundef zeroext true), !noalias !135
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %79, i32 noundef 45666547, i1 noundef zeroext true), !noalias !135
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %80, i32 noundef -13885841, i1 noundef zeroext true), !noalias !135
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !135
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !135
+  %82 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !135
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !135
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !135
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !143
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !146, !noalias !143
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1073741824, i1 noundef zeroext true), !noalias !143
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %79, i32 noundef -715827882, i1 noundef zeroext true), !noalias !143
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %80, i32 noundef 340018238, i1 noundef zeroext true), !noalias !143
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %81, i32 noundef %82, i1 noundef zeroext true), !noalias !143
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !143
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !143
+  %83 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !143
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !143
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !143
   %84 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %83, i32 noundef %78)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6)
   store i32 7415184, ptr %6, align 4
@@ -2302,7 +2302,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef3tan17hcc30bc70ca467b55E(i32 n
   %.0.i.i.i = add i32 %30, -1073741824
   %31 = and i32 %.014.i.i.i, 268435456
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %32, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i: ; preds = %.lr.ph.i.i.i, %26
   %.011.lcssa.i.i.i = phi i32 [ 0, %26 ], [ %29, %.lr.ph.i.i.i ]
@@ -2365,17 +2365,17 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   store i32 %65, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %66, ptr %.sroa.5.0..sroa_idx, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !141)
+  call void @llvm.experimental.noalias.scope.decl(metadata !149)
   br label %68
 
 68:                                               ; preds = %68, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit"
   %.pn.add6.i = phi i64 [ 4, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit" ], [ %.pn.add.i, %68 ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.pn.add6.i
-  %69 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !141, !noalias !144, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %12, i32 noundef %69, i1 noundef zeroext false), !noalias !141
+  %69 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !149, !noalias !152, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %12, i32 noundef %69, i1 noundef zeroext false), !noalias !149
   %.pn.add.i = add nuw nsw i64 %.pn.add6.i, 4
   %70 = icmp eq i64 %.pn.add.i, 16
-  br i1 %70, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit", label %68
+  br i1 %70, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit", label %68, !llvm.loop !87
 
 "_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit": ; preds = %68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -2408,9 +2408,9 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   store i32 850045684, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 1073741824, ptr %81, align 4
-  %82 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %72, i32 noundef %72), !noalias !146
-  %83 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %82, i32 noundef %72), !noalias !146
-  %84 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %82, i32 noundef %82), !noalias !146
+  %82 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %72, i32 noundef %72), !noalias !154
+  %83 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %82, i32 noundef %72), !noalias !154
+  %84 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %82, i32 noundef %82), !noalias !154
   %85 = call noundef i32 @_ZN9softposit7polynom4poly4Poly6poly7k17h37a5fe4b7ac3be05E.llvm.10961338582784087609(i32 noundef %72, i32 noundef %82, i32 noundef %83, i32 noundef %84, i32 noundef 272866781, ptr noalias noundef nonnull readonly align 4 %75, i64 noundef 7)
   %86 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %85, i32 noundef %71)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
@@ -2434,9 +2434,9 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   store i32 850045684, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 1073741824, ptr %95, align 4
-  %96 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %72, i32 noundef %72), !noalias !149
-  %97 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %96, i32 noundef %72), !noalias !149
-  %98 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %96, i32 noundef %96), !noalias !149
+  %96 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %72, i32 noundef %72), !noalias !157
+  %97 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %96, i32 noundef %72), !noalias !157
+  %98 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %96, i32 noundef %96), !noalias !157
   %99 = call noundef i32 @_ZN9softposit7polynom4poly4Poly6poly7k17h37a5fe4b7ac3be05E.llvm.10961338582784087609(i32 noundef %72, i32 noundef %96, i32 noundef %97, i32 noundef %98, i32 noundef 272866781, ptr noalias noundef nonnull readonly align 4 %89, i64 noundef 7)
   %100 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %99, i32 noundef %88)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
@@ -2476,9 +2476,9 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4atan17hb7f606f8e957233fE(i32 
   store i32 751602956, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -850045374, ptr %14, align 4
-  %15 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %6, i32 noundef %6), !noalias !152
-  %16 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %15, i32 noundef %6), !noalias !152
-  %17 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %15, i32 noundef %15), !noalias !152
+  %15 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %6, i32 noundef %6), !noalias !160
+  %16 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %15, i32 noundef %6), !noalias !160
+  %17 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %15, i32 noundef %15), !noalias !160
   %18 = call noundef i32 @_ZN9softposit7polynom4poly4Poly6poly8k17hefd6015b8a1a2869E.llvm.10961338582784087609(i32 noundef %6, i32 noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef -233109685, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2)
   %19 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %6, i32 noundef %18)
@@ -2646,29 +2646,29 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4acos17h8bdbcf687ea59c95E(i32 
   %.036 = phi i32 [ %14, %10 ], [ %.034, %15 ]
   %18 = icmp eq i32 %.034, 1073741824
   %.037 = select i1 %18, i32 0, i32 %.036
-  %19 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.03954, i32 noundef %.03954), !noalias !155
-  %20 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %19, i32 noundef %.03954), !noalias !155
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !158
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !163, !noalias !158
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef 470924243, i1 noundef zeroext true), !noalias !158
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.03954, i32 noundef 393561721, i1 noundef zeroext true), !noalias !158
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %19, i32 noundef 482689413, i1 noundef zeroext true), !noalias !158
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !158
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !158
-  %21 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !158
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !158
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !158
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !166
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !169, !noalias !166
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 715827790, i1 noundef zeroext true), !noalias !166
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %.03954, i32 noundef 563726078, i1 noundef zeroext true), !noalias !166
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %19, i32 noundef 498250079, i1 noundef zeroext true), !noalias !166
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %20, i32 noundef %21, i1 noundef zeroext true), !noalias !166
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !166
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !166
-  %22 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !166
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !166
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !166
+  %19 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.03954, i32 noundef %.03954), !noalias !163
+  %20 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %19, i32 noundef %.03954), !noalias !163
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !166
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !171, !noalias !166
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef 470924243, i1 noundef zeroext true), !noalias !166
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.03954, i32 noundef 393561721, i1 noundef zeroext true), !noalias !166
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %19, i32 noundef 482689413, i1 noundef zeroext true), !noalias !166
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !166
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !166
+  %21 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !166
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !166
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !166
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !174
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !177, !noalias !174
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 715827790, i1 noundef zeroext true), !noalias !174
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %.03954, i32 noundef 563726078, i1 noundef zeroext true), !noalias !174
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %19, i32 noundef 498250079, i1 noundef zeroext true), !noalias !174
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %20, i32 noundef %21, i1 noundef zeroext true), !noalias !174
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !174
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !174
+  %22 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !174
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !174
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !174
   %23 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.037, i32 noundef %.03954)
   %24 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %22, i32 noundef %23)
   %25 = xor i32 %.037, %0
@@ -2809,7 +2809,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4cbrt17ha0b366940e54d57aE(i32 
   %10 = add i8 %.0916.i.i, -1
   %11 = shl nuw i32 %.017.i.i, 1
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %.lr.ph18.i.i, label %._crit_edge.i.i
+  br i1 %12, label %.lr.ph18.i.i, label %._crit_edge.i.i, !llvm.loop !31
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph18.i.i, %.preheader.i.i
   %.09.lcssa.i.i = phi i8 [ -1, %.preheader.i.i ], [ %10, %.lr.ph18.i.i ]
@@ -2823,7 +2823,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4cbrt17ha0b366940e54d57aE(i32 
   %14 = add nuw nsw i8 %.11013.i.i, 1
   %15 = shl i32 %.114.i.i, 1
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit, label %.lr.ph.i.i
+  br i1 %16, label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = %.lr.ph.i.i, %.preheader12.i.i, %._crit_edge.i.i
   %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %14, %.lr.ph.i.i ]
@@ -2854,29 +2854,29 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   %38 = tail call noundef i32 @_ZN9softposit5p32e24math5sleef6kernel5pow2i17hee776e34a5c33325E.llvm.580202203830469859(i32 noundef %37)
   %39 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %36, i32 noundef %38)
   %.0 = tail call i32 @llvm.abs.i32(i32 %27, i1 false)
-  %40 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.0, i32 noundef %.0), !noalias !172
-  %41 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %40, i32 noundef %.0), !noalias !172
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !175
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !180, !noalias !175
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef -1393588784, i1 noundef zeroext true), !noalias !175
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.0, i32 noundef 1263048496, i1 noundef zeroext true), !noalias !175
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %40, i32 noundef -966787600, i1 noundef zeroext true), !noalias !175
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !175
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !175
-  %42 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !175
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !175
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !175
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !183
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !186, !noalias !183
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1223000368, i1 noundef zeroext true), !noalias !183
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %.0, i32 noundef -1329395840, i1 noundef zeroext true), !noalias !183
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %40, i32 noundef 1405872400, i1 noundef zeroext true), !noalias !183
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %41, i32 noundef %42, i1 noundef zeroext true), !noalias !183
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !183
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !183
-  %43 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !183
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !183
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !183
+  %40 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.0, i32 noundef %.0), !noalias !180
+  %41 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %40, i32 noundef %.0), !noalias !180
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !183
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !188, !noalias !183
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef -1393588784, i1 noundef zeroext true), !noalias !183
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.0, i32 noundef 1263048496, i1 noundef zeroext true), !noalias !183
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %40, i32 noundef -966787600, i1 noundef zeroext true), !noalias !183
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !183
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !183
+  %42 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !183
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !183
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !183
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !191
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !194, !noalias !191
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 1223000368, i1 noundef zeroext true), !noalias !191
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %.0, i32 noundef -1329395840, i1 noundef zeroext true), !noalias !191
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %40, i32 noundef 1405872400, i1 noundef zeroext true), !noalias !191
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %41, i32 noundef %42, i1 noundef zeroext true), !noalias !191
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !191
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !191
+  %43 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !191
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !191
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !191
   %44 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.0, i32 noundef %43)
   %45 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %44, i32 noundef %43)
   %46 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3div17h16b276436e5bfe98E"(i32 noundef 1207959552, i32 noundef 1275068416)
@@ -2997,9 +2997,9 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4exp217h06699633706008f9E(i32 
   store i32 991371647, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 1073741824, ptr %26, align 4
-  %27 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.0.i, i32 noundef %.0.i), !noalias !189
-  %28 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %27, i32 noundef %.0.i), !noalias !189
-  %29 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %27, i32 noundef %27), !noalias !189
+  %27 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.0.i, i32 noundef %.0.i), !noalias !197
+  %28 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %27, i32 noundef %.0.i), !noalias !197
+  %29 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %27, i32 noundef %27), !noalias !197
   %30 = call noundef i32 @_ZN9softposit7polynom4poly4Poly6poly7k17h37a5fe4b7ac3be05E.llvm.10961338582784087609(i32 noundef %.0.i, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef 67064610, ptr noalias noundef nonnull readonly align 4 %20, i64 noundef 7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   br i1 %5, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %31
@@ -3044,7 +3044,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4exp217h06699633706008f9E(i32 
   %.0.i.i.i = add i32 %47, -1073741824
   %48 = and i32 %.014.i.i.i, 268435456
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %49, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i: ; preds = %.lr.ph.i.i.i, %43
   %.011.lcssa.i.i.i = phi i32 [ 0, %43 ], [ %46, %.lr.ph.i.i.i ]
@@ -3127,17 +3127,17 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef5exp1017h0aa6f3c223873f50E(i32
   store i32 832702888, ptr %7, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 5500735, ptr %.sroa.4.0..sroa_idx, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !192)
+  call void @llvm.experimental.noalias.scope.decl(metadata !200)
   br label %8
 
 8:                                                ; preds = %8, %1
   %.pn.add6.i = phi i64 [ 4, %1 ], [ %.pn.add.i, %8 ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.pn.add6.i
-  %9 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !192, !noalias !195, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %6, i32 noundef %9, i1 noundef zeroext false), !noalias !192
+  %9 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !200, !noalias !203, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %6, i32 noundef %9, i1 noundef zeroext false), !noalias !200
   %.pn.add.i = add nuw nsw i64 %.pn.add6.i, 4
   %10 = icmp eq i64 %.pn.add.i, 12
-  br i1 %10, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit", label %8
+  br i1 %10, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit", label %8, !llvm.loop !13
 
 "_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit": ; preds = %8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
@@ -3201,7 +3201,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef5exp1017h0aa6f3c223873f50E(i32
   %.0.i.i.i = add i32 %36, -1073741824
   %37 = and i32 %.014.i.i.i, 268435456
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %38, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i: ; preds = %.lr.ph.i.i.i, %32
   %.011.lcssa.i.i.i = phi i32 [ 0, %32 ], [ %35, %.lr.ph.i.i.i ]
@@ -3322,7 +3322,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef3exp17hbbe3e5e7379a8bc8E(i32 n
   %.0.i.i.i = add i32 %27, -1073741824
   %28 = and i32 %.014.i.i.i, 268435456
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %29, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i: ; preds = %.lr.ph.i.i.i, %23
   %.011.lcssa.i.i.i = phi i32 [ 0, %23 ], [ %26, %.lr.ph.i.i.i ]
@@ -3385,44 +3385,44 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   store i32 991371647, ptr %61, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 7292733, ptr %.sroa.4.0..sroa_idx, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !197)
+  call void @llvm.experimental.noalias.scope.decl(metadata !205)
   br label %62
 
 62:                                               ; preds = %62, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit"
   %.pn.add6.i = phi i64 [ 4, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit" ], [ %.pn.add.i, %62 ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %.pn.add6.i
-  %63 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !197, !noalias !200, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %9, i32 noundef %63, i1 noundef zeroext false), !noalias !197
+  %63 = load i32, ptr %.sroa.0.0.ptr.i, align 4, !alias.scope !205, !noalias !208, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %9, i32 noundef %63, i1 noundef zeroext false), !noalias !205
   %.pn.add.i = add nuw nsw i64 %.pn.add6.i, 4
   %64 = icmp eq i64 %.pn.add.i, 12
-  br i1 %64, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit", label %62
+  br i1 %64, label %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit", label %62, !llvm.loop !13
 
 "_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit": ; preds = %62
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   %65 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7)
-  %66 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %65, i32 noundef %65), !noalias !202
-  %67 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %66, i32 noundef %65), !noalias !202
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !205
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !210, !noalias !205
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef 340020827, i1 noundef zeroext true), !noalias !205
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %65, i32 noundef 215678692, i1 noundef zeroext true), !noalias !205
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %66, i32 noundef 127774922, i1 noundef zeroext true), !noalias !205
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !205
-  %68 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !205
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !205
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !205
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !213
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !216, !noalias !213
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 939524098, i1 noundef zeroext true), !noalias !213
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %65, i32 noundef 715827866, i1 noundef zeroext true), !noalias !213
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %66, i32 noundef 492130904, i1 noundef zeroext true), !noalias !213
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %67, i32 noundef %68, i1 noundef zeroext true), !noalias !213
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !213
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !213
-  %69 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !213
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !213
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !213
+  %66 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %65, i32 noundef %65), !noalias !210
+  %67 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %66, i32 noundef %65), !noalias !210
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !213
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !218, !noalias !213
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef 340020827, i1 noundef zeroext true), !noalias !213
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %65, i32 noundef 215678692, i1 noundef zeroext true), !noalias !213
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %66, i32 noundef 127774922, i1 noundef zeroext true), !noalias !213
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !213
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !213
+  %68 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !213
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !213
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !213
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !221
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !224, !noalias !221
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef 939524098, i1 noundef zeroext true), !noalias !221
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %65, i32 noundef 715827866, i1 noundef zeroext true), !noalias !221
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %66, i32 noundef 492130904, i1 noundef zeroext true), !noalias !221
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %67, i32 noundef %68, i1 noundef zeroext true), !noalias !221
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !221
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !221
+  %69 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !221
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !221
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !221
   %70 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %65, i32 noundef %65)
   %71 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %70, i32 noundef %69)
   %72 = icmp eq i32 %71, 0
@@ -3631,9 +3631,9 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07
   %6 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %7 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !alias.scope !219
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !alias.scope !227
   %8 = icmp ugt i64 %4, 1
-  br i1 %8, label %9, label %14, !prof !222
+  br i1 %8, label %9, label %14, !prof !230
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3659,9 +3659,9 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720
   %7 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false), !alias.scope !223
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false), !alias.scope !231
   %9 = icmp ugt i64 %5, 2
-  br i1 %9, label %10, label %17, !prof !222
+  br i1 %9, label %10, label %17, !prof !230
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3690,9 +3690,9 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a1965
   %7 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false), !alias.scope !226
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false), !alias.scope !234
   %9 = icmp ugt i64 %5, 2
-  br i1 %9, label %10, label %17, !prof !222
+  br i1 %9, label %10, label %17, !prof !230
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3721,9 +3721,9 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %9 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !alias.scope !229
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !alias.scope !237
   %10 = icmp ugt i64 %6, 3
-  br i1 %10, label %11, label %20, !prof !222
+  br i1 %10, label %11, label %20, !prof !230
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -3755,9 +3755,9 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced2
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %9 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !alias.scope !232
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !alias.scope !240
   %10 = icmp ugt i64 %6, 3
-  br i1 %10, label %11, label %20, !prof !222
+  br i1 %10, label %11, label %20, !prof !230
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -3794,51 +3794,51 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8
   br i1 %11, label %12, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
 
 12:                                               ; preds = %6
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 2, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.30.llvm.10961338582784087609) #13, !noalias !235
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 2, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.30.llvm.10961338582784087609) #13, !noalias !243
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit": ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !238)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !238
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false), !alias.scope !241, !noalias !238
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !246
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false), !alias.scope !249, !noalias !246
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %14 = load i32, ptr %13, align 4, !alias.scope !238, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 1073741824, i32 noundef %14, i1 noundef zeroext true), !noalias !238
-  %15 = load i32, ptr %4, align 4, !alias.scope !238, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %0, i32 noundef %15, i1 noundef zeroext true), !noalias !238
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %1, i32 noundef %3, i1 noundef zeroext true), !noalias !238
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !238
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false), !noalias !238
-  %16 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %9), !noalias !238
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !238
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !238
+  %14 = load i32, ptr %13, align 4, !alias.scope !246, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 1073741824, i32 noundef %14, i1 noundef zeroext true), !noalias !246
+  %15 = load i32, ptr %4, align 4, !alias.scope !246, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %0, i32 noundef %15, i1 noundef zeroext true), !noalias !246
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %1, i32 noundef %3, i1 noundef zeroext true), !noalias !246
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !246
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false), !noalias !246
+  %16 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %9), !noalias !246
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !246
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !246
   %17 = add i64 %5, -2
-  call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !244
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false), !alias.scope !247, !noalias !244
+  call void @llvm.experimental.noalias.scope.decl(metadata !252)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !252
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false), !alias.scope !255, !noalias !252
   %18 = icmp ugt i64 %17, 2
-  br i1 %18, label %_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609.exit, label %19, !prof !222
+  br i1 %18, label %_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609.exit, label %19, !prof !230
 
 19:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 2, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.19) #13, !noalias !244
+  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 2, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.19) #13, !noalias !252
   unreachable
 
 _ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609.exit: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %22 = load i32, ptr %21, align 4, !alias.scope !244, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 1073741824, i32 noundef %22, i1 noundef zeroext true), !noalias !244
+  %22 = load i32, ptr %21, align 4, !alias.scope !252, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 1073741824, i32 noundef %22, i1 noundef zeroext true), !noalias !252
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %24 = load i32, ptr %23, align 4, !alias.scope !244, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %0, i32 noundef %24, i1 noundef zeroext true), !noalias !244
-  %25 = load i32, ptr %20, align 4, !alias.scope !244, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %1, i32 noundef %25, i1 noundef zeroext true), !noalias !244
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %2, i32 noundef %16, i1 noundef zeroext true), !noalias !244
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !244
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !244
-  %26 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7), !noalias !244
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !244
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !244
+  %24 = load i32, ptr %23, align 4, !alias.scope !252, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %0, i32 noundef %24, i1 noundef zeroext true), !noalias !252
+  %25 = load i32, ptr %20, align 4, !alias.scope !252, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %1, i32 noundef %25, i1 noundef zeroext true), !noalias !252
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %2, i32 noundef %16, i1 noundef zeroext true), !noalias !252
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !252
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !252
+  %26 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7), !noalias !252
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !252
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !252
   ret i32 %26
 }
 
@@ -3852,57 +3852,57 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly7k17h37a5fe4b7ac3
   br i1 %12, label %13, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
 
 13:                                               ; preds = %7
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 3, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.34.llvm.10961338582784087609) #13, !noalias !250
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 3, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.34.llvm.10961338582784087609) #13, !noalias !258
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit": ; preds = %7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !253
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false), !alias.scope !256, !noalias !253
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !261
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false), !alias.scope !264, !noalias !261
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %15 = load i32, ptr %14, align 4, !alias.scope !253, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef 1073741824, i32 noundef %15, i1 noundef zeroext true), !noalias !253
+  %15 = load i32, ptr %14, align 4, !alias.scope !261, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef 1073741824, i32 noundef %15, i1 noundef zeroext true), !noalias !261
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %17 = load i32, ptr %16, align 4, !alias.scope !253, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %0, i32 noundef %17, i1 noundef zeroext true), !noalias !253
-  %18 = load i32, ptr %5, align 4, !alias.scope !253, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %1, i32 noundef %18, i1 noundef zeroext true), !noalias !253
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %2, i32 noundef %4, i1 noundef zeroext true), !noalias !253
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !253
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !253
-  %19 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %10), !noalias !253
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !253
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !253
+  %17 = load i32, ptr %16, align 4, !alias.scope !261, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %0, i32 noundef %17, i1 noundef zeroext true), !noalias !261
+  %18 = load i32, ptr %5, align 4, !alias.scope !261, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %1, i32 noundef %18, i1 noundef zeroext true), !noalias !261
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %2, i32 noundef %4, i1 noundef zeroext true), !noalias !261
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !261
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !261
+  %19 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %10), !noalias !261
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !261
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !261
   %20 = add i64 %6, -3
-  call void @llvm.experimental.noalias.scope.decl(metadata !259)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !259
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !alias.scope !262, !noalias !259
+  call void @llvm.experimental.noalias.scope.decl(metadata !267)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !267
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !alias.scope !270, !noalias !267
   %21 = icmp ugt i64 %20, 3
-  br i1 %21, label %_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit, label %22, !prof !222
+  br i1 %21, label %_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit, label %22, !prof !230
 
 22:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #13, !noalias !259
+  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #13, !noalias !267
   unreachable
 
 _ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %25 = load i32, ptr %24, align 4, !alias.scope !259, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef 1073741824, i32 noundef %25, i1 noundef zeroext true), !noalias !259
+  %25 = load i32, ptr %24, align 4, !alias.scope !267, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef 1073741824, i32 noundef %25, i1 noundef zeroext true), !noalias !267
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %27 = load i32, ptr %26, align 4, !alias.scope !259, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %0, i32 noundef %27, i1 noundef zeroext true), !noalias !259
+  %27 = load i32, ptr %26, align 4, !alias.scope !267, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %0, i32 noundef %27, i1 noundef zeroext true), !noalias !267
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %29 = load i32, ptr %28, align 4, !alias.scope !259, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %1, i32 noundef %29, i1 noundef zeroext true), !noalias !259
-  %30 = load i32, ptr %23, align 4, !alias.scope !259, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %2, i32 noundef %30, i1 noundef zeroext true), !noalias !259
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %3, i32 noundef %19, i1 noundef zeroext true), !noalias !259
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !259
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !noalias !259
-  %31 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8), !noalias !259
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !259
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !259
+  %29 = load i32, ptr %28, align 4, !alias.scope !267, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %1, i32 noundef %29, i1 noundef zeroext true), !noalias !267
+  %30 = load i32, ptr %23, align 4, !alias.scope !267, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %2, i32 noundef %30, i1 noundef zeroext true), !noalias !267
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %3, i32 noundef %19, i1 noundef zeroext true), !noalias !267
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !267
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !noalias !267
+  %31 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8), !noalias !267
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !267
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !267
   ret i32 %31
 }
 
@@ -3916,60 +3916,60 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly8k17hefd6015b8a1a
   br i1 %12, label %13, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
 
 13:                                               ; preds = %7
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 4, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.36.llvm.10961338582784087609) #13, !noalias !265
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 4, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.36.llvm.10961338582784087609) #13, !noalias !273
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit": ; preds = %7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !268
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false), !alias.scope !271, !noalias !268
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !276
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false), !alias.scope !279, !noalias !276
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %15 = load i32, ptr %14, align 4, !alias.scope !268, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef 1073741824, i32 noundef %15, i1 noundef zeroext true), !noalias !268
+  %15 = load i32, ptr %14, align 4, !alias.scope !276, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef 1073741824, i32 noundef %15, i1 noundef zeroext true), !noalias !276
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %17 = load i32, ptr %16, align 4, !alias.scope !268, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %0, i32 noundef %17, i1 noundef zeroext true), !noalias !268
+  %17 = load i32, ptr %16, align 4, !alias.scope !276, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %0, i32 noundef %17, i1 noundef zeroext true), !noalias !276
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %19 = load i32, ptr %18, align 4, !alias.scope !268, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %1, i32 noundef %19, i1 noundef zeroext true), !noalias !268
-  %20 = load i32, ptr %5, align 4, !alias.scope !268, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %2, i32 noundef %20, i1 noundef zeroext true), !noalias !268
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true), !noalias !268
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !268
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !268
-  %21 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %10), !noalias !268
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !268
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !268
+  %19 = load i32, ptr %18, align 4, !alias.scope !276, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %1, i32 noundef %19, i1 noundef zeroext true), !noalias !276
+  %20 = load i32, ptr %5, align 4, !alias.scope !276, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %2, i32 noundef %20, i1 noundef zeroext true), !noalias !276
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true), !noalias !276
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !276
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !276
+  %21 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %10), !noalias !276
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !276
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !276
   %22 = add i64 %6, -4
-  call void @llvm.experimental.noalias.scope.decl(metadata !274)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !274
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !alias.scope !277, !noalias !274
+  call void @llvm.experimental.noalias.scope.decl(metadata !282)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !282
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !alias.scope !285, !noalias !282
   %23 = icmp ugt i64 %22, 3
-  br i1 %23, label %_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit, label %24, !prof !222
+  br i1 %23, label %_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit, label %24, !prof !230
 
 24:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #13, !noalias !274
+  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #13, !noalias !282
   unreachable
 
 _ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %27 = load i32, ptr %26, align 4, !alias.scope !274, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef 1073741824, i32 noundef %27, i1 noundef zeroext true), !noalias !274
+  %27 = load i32, ptr %26, align 4, !alias.scope !282, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef 1073741824, i32 noundef %27, i1 noundef zeroext true), !noalias !282
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %29 = load i32, ptr %28, align 4, !alias.scope !274, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %0, i32 noundef %29, i1 noundef zeroext true), !noalias !274
+  %29 = load i32, ptr %28, align 4, !alias.scope !282, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %0, i32 noundef %29, i1 noundef zeroext true), !noalias !282
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %31 = load i32, ptr %30, align 4, !alias.scope !274, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %1, i32 noundef %31, i1 noundef zeroext true), !noalias !274
-  %32 = load i32, ptr %25, align 4, !alias.scope !274, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %2, i32 noundef %32, i1 noundef zeroext true), !noalias !274
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %3, i32 noundef %21, i1 noundef zeroext true), !noalias !274
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !274
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !noalias !274
-  %33 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8), !noalias !274
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !274
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !274
+  %31 = load i32, ptr %30, align 4, !alias.scope !282, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %1, i32 noundef %31, i1 noundef zeroext true), !noalias !282
+  %32 = load i32, ptr %25, align 4, !alias.scope !282, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %2, i32 noundef %32, i1 noundef zeroext true), !noalias !282
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %3, i32 noundef %21, i1 noundef zeroext true), !noalias !282
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !282
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !noalias !282
+  %33 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8), !noalias !282
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !282
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !282
   ret i32 %33
 }
 
@@ -3982,23 +3982,23 @@ _ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.109613385827840
   %5 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %4, i32 noundef %0)
   %6 = load i32, ptr %1, align 4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !280
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !283, !noalias !280
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !288
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !291, !noalias !288
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %9 = load i32, ptr %8, align 4, !alias.scope !280, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef %9, i1 noundef zeroext true), !noalias !280
+  %9 = load i32, ptr %8, align 4, !alias.scope !288, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef %9, i1 noundef zeroext true), !noalias !288
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i32, ptr %10, align 4, !alias.scope !280, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %0, i32 noundef %11, i1 noundef zeroext true), !noalias !280
-  %12 = load i32, ptr %7, align 4, !alias.scope !280, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %4, i32 noundef %12, i1 noundef zeroext true), !noalias !280
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true), !noalias !280
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !280
-  %13 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !280
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !280
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !280
+  %11 = load i32, ptr %10, align 4, !alias.scope !288, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %0, i32 noundef %11, i1 noundef zeroext true), !noalias !288
+  %12 = load i32, ptr %7, align 4, !alias.scope !288, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %4, i32 noundef %12, i1 noundef zeroext true), !noalias !288
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true), !noalias !288
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !288
+  %13 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !288
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !288
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !288
   ret i32 %13
 }
 
@@ -4023,42 +4023,42 @@ _ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE.exit:
   %7 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %6, i32 noundef %0)
   %8 = load i32, ptr %1, align 4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !292
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !293, !noalias !292
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !300
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !301, !noalias !300
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %11 = load i32, ptr %10, align 4, !alias.scope !292, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef %11, i1 noundef zeroext true), !noalias !292
+  %11 = load i32, ptr %10, align 4, !alias.scope !300, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1073741824, i32 noundef %11, i1 noundef zeroext true), !noalias !300
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %12, align 4, !alias.scope !292, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %0, i32 noundef %13, i1 noundef zeroext true), !noalias !292
-  %14 = load i32, ptr %9, align 4, !alias.scope !292, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %6, i32 noundef %14, i1 noundef zeroext true), !noalias !292
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %7, i32 noundef %8, i1 noundef zeroext true), !noalias !292
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !292
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !292
-  %15 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !292
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !292
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !292
-  call void @llvm.experimental.noalias.scope.decl(metadata !296)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !299
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !300, !noalias !299
+  %13 = load i32, ptr %12, align 4, !alias.scope !300, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %0, i32 noundef %13, i1 noundef zeroext true), !noalias !300
+  %14 = load i32, ptr %9, align 4, !alias.scope !300, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %6, i32 noundef %14, i1 noundef zeroext true), !noalias !300
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %7, i32 noundef %8, i1 noundef zeroext true), !noalias !300
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !300
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !300
+  %15 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !300
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !300
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !300
+  call void @llvm.experimental.noalias.scope.decl(metadata !304)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !307
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !308, !noalias !307
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i32, ptr %17, align 4, !alias.scope !299, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef %18, i1 noundef zeroext true), !noalias !299
+  %18 = load i32, ptr %17, align 4, !alias.scope !307, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 1073741824, i32 noundef %18, i1 noundef zeroext true), !noalias !307
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %20 = load i32, ptr %19, align 4, !alias.scope !299, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %0, i32 noundef %20, i1 noundef zeroext true), !noalias !299
-  %21 = load i32, ptr %16, align 4, !alias.scope !299, !noundef !4
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %6, i32 noundef %21, i1 noundef zeroext true), !noalias !299
-  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %7, i32 noundef %15, i1 noundef zeroext true), !noalias !299
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !299
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !299
-  %22 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !299
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !299
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !299
+  %20 = load i32, ptr %19, align 4, !alias.scope !307, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %0, i32 noundef %20, i1 noundef zeroext true), !noalias !307
+  %21 = load i32, ptr %16, align 4, !alias.scope !307, !noundef !4
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %6, i32 noundef %21, i1 noundef zeroext true), !noalias !307
+  call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %7, i32 noundef %15, i1 noundef zeroext true), !noalias !307
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !307
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !307
+  %22 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !307
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !307
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !307
   ret i32 %22
 }
 
@@ -4105,7 +4105,7 @@ define hidden void @"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith.
   tail call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %3, i32 noundef %6, i1 noundef zeroext true)
   %.pn.add = add nuw nsw i64 %.pn.add6, 4
   %7 = icmp eq i64 %.pn.add, 12
-  br i1 %7, label %4, label %5
+  br i1 %7, label %4, label %5, !llvm.loop !47
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4123,7 +4123,7 @@ define hidden void @"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith.
   tail call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %3, i32 noundef %6, i1 noundef zeroext false)
   %.pn.add = add nuw nsw i64 %.pn.add6, 4
   %7 = icmp eq i64 %.pn.add, 12
-  br i1 %7, label %4, label %5
+  br i1 %7, label %4, label %5, !llvm.loop !13
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
@@ -4218,301 +4218,309 @@ attributes #13 = { noreturn }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
 !4 = !{}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 1"}
-!7 = distinct !{!7, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
 !8 = !{!9}
-!9 = distinct !{!9, !7, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 0"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
-!12 = distinct !{!12, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
-!15 = distinct !{!15, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
-!16 = distinct !{!16, !17, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
-!17 = distinct !{!17, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!20 = distinct !{!20, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!21 = !{!22, !16}
-!22 = distinct !{!22, !23, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!23 = distinct !{!23, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!26 = distinct !{!26, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609: argument 0"}
-!29 = distinct !{!29, !"_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609"}
-!30 = !{!31, !28}
-!31 = distinct !{!31, !32, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
-!32 = distinct !{!32, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
+!9 = distinct !{!9, !10, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 1"}
+!10 = distinct !{!10, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"}
+!11 = !{!12}
+!12 = distinct !{!12, !10, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 0"}
+!13 = distinct !{!13, !6}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
+!16 = distinct !{!16, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
+!19 = distinct !{!19, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
+!20 = distinct !{!20, !21, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
+!21 = distinct !{!21, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!24 = distinct !{!24, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!25 = !{!26, !20}
+!26 = distinct !{!26, !27, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!27 = distinct !{!27, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!30 = distinct !{!30, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!35 = distinct !{!35, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609: argument 1"}
-!38 = distinct !{!38, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609"}
+!34 = distinct !{!34, !35, !"_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609: argument 0"}
+!35 = distinct !{!35, !"_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609"}
+!36 = !{!37, !34}
+!37 = distinct !{!37, !38, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
+!38 = distinct !{!38, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
 !39 = !{!40}
-!40 = distinct !{!40, !38, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609: argument 0"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609: argument 0"}
-!43 = distinct !{!43, !"_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 1"}
-!46 = distinct !{!46, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"}
-!47 = !{!48}
-!48 = distinct !{!48, !46, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 0"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
-!51 = distinct !{!51, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
-!52 = !{!53, !55}
-!53 = distinct !{!53, !54, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
-!54 = distinct !{!54, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
-!55 = distinct !{!55, !56, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
-!56 = distinct !{!56, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!59 = distinct !{!59, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!60 = !{!61, !55}
-!61 = distinct !{!61, !62, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!62 = distinct !{!62, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!65 = distinct !{!65, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609: argument 0"}
-!68 = distinct !{!68, !"_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609"}
-!69 = !{!70, !67}
-!70 = distinct !{!70, !71, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
-!71 = distinct !{!71, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!74 = distinct !{!74, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 1"}
-!77 = distinct !{!77, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE"}
-!78 = !{!79}
-!79 = distinct !{!79, !77, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 0"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
-!82 = distinct !{!82, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
-!83 = !{!84, !86}
-!84 = distinct !{!84, !85, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
-!85 = distinct !{!85, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
-!86 = distinct !{!86, !87, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
-!87 = distinct !{!87, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!40 = distinct !{!40, !41, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!41 = distinct !{!41, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609: argument 1"}
+!44 = distinct !{!44, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609"}
+!45 = !{!46}
+!46 = distinct !{!46, !44, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609: argument 0"}
+!47 = distinct !{!47, !6}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609: argument 0"}
+!50 = distinct !{!50, !"_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 1"}
+!53 = distinct !{!53, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"}
+!54 = !{!55}
+!55 = distinct !{!55, !53, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 0"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
+!58 = distinct !{!58, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
+!59 = !{!60, !62}
+!60 = distinct !{!60, !61, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
+!61 = distinct !{!61, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
+!62 = distinct !{!62, !63, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
+!63 = distinct !{!63, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!66 = distinct !{!66, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!67 = !{!68, !62}
+!68 = distinct !{!68, !69, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!69 = distinct !{!69, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!72 = distinct !{!72, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609: argument 0"}
+!75 = distinct !{!75, !"_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609"}
+!76 = !{!77, !74}
+!77 = distinct !{!77, !78, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
+!78 = distinct !{!78, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!81 = distinct !{!81, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 1"}
+!84 = distinct !{!84, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE"}
+!85 = !{!86}
+!86 = distinct !{!86, !84, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 0"}
+!87 = distinct !{!87, !6}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!90 = distinct !{!90, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!91 = !{!92, !86}
-!92 = distinct !{!92, !93, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!93 = distinct !{!93, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!96 = distinct !{!96, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 1"}
-!99 = distinct !{!99, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE"}
-!100 = !{!101}
-!101 = distinct !{!101, !99, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 0"}
+!89 = distinct !{!89, !90, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
+!90 = distinct !{!90, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
+!91 = !{!92, !94}
+!92 = distinct !{!92, !93, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
+!93 = distinct !{!93, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
+!94 = distinct !{!94, !95, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
+!95 = distinct !{!95, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!98 = distinct !{!98, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!99 = !{!100, !94}
+!100 = distinct !{!100, !101, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!101 = distinct !{!101, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
-!104 = distinct !{!104, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
-!105 = !{!106, !108}
-!106 = distinct !{!106, !107, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
-!107 = distinct !{!107, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
-!108 = distinct !{!108, !109, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
-!109 = distinct !{!109, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!103 = distinct !{!103, !104, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!104 = distinct !{!104, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 1"}
+!107 = distinct !{!107, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE"}
+!108 = !{!109}
+!109 = distinct !{!109, !107, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 0"}
 !110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!112 = distinct !{!112, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!113 = !{!114, !108}
-!114 = distinct !{!114, !115, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!115 = distinct !{!115, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!118 = distinct !{!118, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 1"}
-!121 = distinct !{!121, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE"}
-!122 = !{!123}
-!123 = distinct !{!123, !121, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 0"}
+!111 = distinct !{!111, !112, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
+!112 = distinct !{!112, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
+!113 = !{!114, !116}
+!114 = distinct !{!114, !115, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
+!115 = distinct !{!115, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
+!116 = distinct !{!116, !117, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
+!117 = distinct !{!117, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!120 = distinct !{!120, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!121 = !{!122, !116}
+!122 = distinct !{!122, !123, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!123 = distinct !{!123, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
 !124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
-!126 = distinct !{!126, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
-!127 = !{!128, !130}
-!128 = distinct !{!128, !129, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
-!129 = distinct !{!129, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
-!130 = distinct !{!130, !131, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
-!131 = distinct !{!131, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!125 = distinct !{!125, !126, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!126 = distinct !{!126, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!127 = !{!128}
+!128 = distinct !{!128, !129, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 1"}
+!129 = distinct !{!129, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE"}
+!130 = !{!131}
+!131 = distinct !{!131, !129, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 0"}
 !132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!134 = distinct !{!134, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!135 = !{!136, !130}
-!136 = distinct !{!136, !137, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!137 = distinct !{!137, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!140 = distinct !{!140, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 1"}
-!143 = distinct !{!143, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE"}
-!144 = !{!145}
-!145 = distinct !{!145, !143, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 0"}
+!133 = distinct !{!133, !134, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
+!134 = distinct !{!134, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
+!135 = !{!136, !138}
+!136 = distinct !{!136, !137, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
+!137 = distinct !{!137, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
+!138 = distinct !{!138, !139, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
+!139 = distinct !{!139, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!142 = distinct !{!142, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!143 = !{!144, !138}
+!144 = distinct !{!144, !145, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!145 = distinct !{!145, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609: argument 0"}
-!148 = distinct !{!148, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609"}
+!147 = distinct !{!147, !148, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!148 = distinct !{!148, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
 !149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609: argument 0"}
-!151 = distinct !{!151, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609"}
+!150 = distinct !{!150, !151, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 1"}
+!151 = distinct !{!151, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE"}
 !152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609: argument 0"}
-!154 = distinct !{!154, !"_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609"}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
-!157 = distinct !{!157, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
-!158 = !{!159, !161}
-!159 = distinct !{!159, !160, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
-!160 = distinct !{!160, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
-!161 = distinct !{!161, !162, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
-!162 = distinct !{!162, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!153 = distinct !{!153, !151, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE: argument 0"}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609: argument 0"}
+!156 = distinct !{!156, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609"}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609: argument 0"}
+!159 = distinct !{!159, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609"}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609: argument 0"}
+!162 = distinct !{!162, !"_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609"}
 !163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!165 = distinct !{!165, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!166 = !{!167, !161}
-!167 = distinct !{!167, !168, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!168 = distinct !{!168, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!171 = distinct !{!171, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
-!174 = distinct !{!174, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
-!175 = !{!176, !178}
-!176 = distinct !{!176, !177, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
-!177 = distinct !{!177, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
-!178 = distinct !{!178, !179, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
-!179 = distinct !{!179, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!164 = distinct !{!164, !165, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
+!165 = distinct !{!165, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
+!166 = !{!167, !169}
+!167 = distinct !{!167, !168, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
+!168 = distinct !{!168, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
+!169 = distinct !{!169, !170, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
+!170 = distinct !{!170, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!171 = !{!172}
+!172 = distinct !{!172, !173, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!173 = distinct !{!173, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!174 = !{!175, !169}
+!175 = distinct !{!175, !176, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!176 = distinct !{!176, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
+!177 = !{!178}
+!178 = distinct !{!178, !179, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!179 = distinct !{!179, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
 !180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!182 = distinct !{!182, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!183 = !{!184, !178}
-!184 = distinct !{!184, !185, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!185 = distinct !{!185, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!188 = distinct !{!188, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609: argument 0"}
-!191 = distinct !{!191, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609"}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 1"}
-!194 = distinct !{!194, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"}
-!195 = !{!196}
-!196 = distinct !{!196, !194, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 0"}
+!181 = distinct !{!181, !182, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
+!182 = distinct !{!182, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
+!183 = !{!184, !186}
+!184 = distinct !{!184, !185, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
+!185 = distinct !{!185, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
+!186 = distinct !{!186, !187, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
+!187 = distinct !{!187, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!190 = distinct !{!190, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!191 = !{!192, !186}
+!192 = distinct !{!192, !193, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!193 = distinct !{!193, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
+!194 = !{!195}
+!195 = distinct !{!195, !196, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!196 = distinct !{!196, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
 !197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 1"}
-!199 = distinct !{!199, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"}
+!198 = distinct !{!198, !199, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609: argument 0"}
+!199 = distinct !{!199, !"_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609"}
 !200 = !{!201}
-!201 = distinct !{!201, !199, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 0"}
-!202 = !{!203}
-!203 = distinct !{!203, !204, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
-!204 = distinct !{!204, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
-!205 = !{!206, !208}
-!206 = distinct !{!206, !207, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
-!207 = distinct !{!207, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
-!208 = distinct !{!208, !209, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
-!209 = distinct !{!209, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!201 = distinct !{!201, !202, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 1"}
+!202 = distinct !{!202, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"}
+!203 = !{!204}
+!204 = distinct !{!204, !202, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 0"}
+!205 = !{!206}
+!206 = distinct !{!206, !207, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 1"}
+!207 = distinct !{!207, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"}
+!208 = !{!209}
+!209 = distinct !{!209, !207, !"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609: argument 0"}
 !210 = !{!211}
-!211 = distinct !{!211, !212, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!212 = distinct !{!212, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!213 = !{!214, !208}
-!214 = distinct !{!214, !215, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!215 = distinct !{!215, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!216 = !{!217}
-!217 = distinct !{!217, !218, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!218 = distinct !{!218, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!219 = !{!220}
-!220 = distinct !{!220, !221, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!221 = distinct !{!221, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!222 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!223 = !{!224}
-!224 = distinct !{!224, !225, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!225 = distinct !{!225, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!228 = distinct !{!228, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!231 = distinct !{!231, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!232 = !{!233}
-!233 = distinct !{!233, !234, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!234 = distinct !{!234, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!235 = !{!236}
-!236 = distinct !{!236, !237, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609: argument 0"}
-!237 = distinct !{!237, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609"}
-!238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
-!240 = distinct !{!240, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
-!241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!243 = distinct !{!243, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!246 = distinct !{!246, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!249 = distinct !{!249, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609: argument 0"}
-!252 = distinct !{!252, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609"}
-!253 = !{!254}
-!254 = distinct !{!254, !255, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
-!255 = distinct !{!255, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
-!256 = !{!257}
-!257 = distinct !{!257, !258, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!258 = distinct !{!258, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609: argument 0"}
-!261 = distinct !{!261, !"_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609"}
-!262 = !{!263}
-!263 = distinct !{!263, !264, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!264 = distinct !{!264, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!265 = !{!266}
-!266 = distinct !{!266, !267, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609: argument 0"}
-!267 = distinct !{!267, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609"}
-!268 = !{!269}
-!269 = distinct !{!269, !270, !"_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced255dcaE.llvm.10961338582784087609: argument 0"}
-!270 = distinct !{!270, !"_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced255dcaE.llvm.10961338582784087609"}
-!271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!273 = distinct !{!273, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609: argument 0"}
-!276 = distinct !{!276, !"_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609"}
-!277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!279 = distinct !{!279, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!280 = !{!281}
-!281 = distinct !{!281, !282, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
-!282 = distinct !{!282, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
-!283 = !{!284}
-!284 = distinct !{!284, !285, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!285 = distinct !{!285, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE: argument 0"}
-!288 = distinct !{!288, !"_ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE"}
-!289 = !{!290}
-!290 = distinct !{!290, !291, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
-!291 = distinct !{!291, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
-!292 = !{!290, !287}
-!293 = !{!294}
-!294 = distinct !{!294, !295, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!295 = distinct !{!295, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
-!296 = !{!297}
-!297 = distinct !{!297, !298, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
-!298 = distinct !{!298, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
-!299 = !{!297, !287}
-!300 = !{!301}
-!301 = distinct !{!301, !302, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
-!302 = distinct !{!302, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!211 = distinct !{!211, !212, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609: argument 0"}
+!212 = distinct !{!212, !"_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609"}
+!213 = !{!214, !216}
+!214 = distinct !{!214, !215, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
+!215 = distinct !{!215, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
+!216 = distinct !{!216, !217, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609: argument 0"}
+!217 = distinct !{!217, !"_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609"}
+!218 = !{!219}
+!219 = distinct !{!219, !220, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!220 = distinct !{!220, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!221 = !{!222, !216}
+!222 = distinct !{!222, !223, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!223 = distinct !{!223, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
+!224 = !{!225}
+!225 = distinct !{!225, !226, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!226 = distinct !{!226, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!227 = !{!228}
+!228 = distinct !{!228, !229, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!229 = distinct !{!229, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!230 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!231 = !{!232}
+!232 = distinct !{!232, !233, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!233 = distinct !{!233, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!234 = !{!235}
+!235 = distinct !{!235, !236, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!236 = distinct !{!236, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!237 = !{!238}
+!238 = distinct !{!238, !239, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!239 = distinct !{!239, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!240 = !{!241}
+!241 = distinct !{!241, !242, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!242 = distinct !{!242, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!243 = !{!244}
+!244 = distinct !{!244, !245, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609: argument 0"}
+!245 = distinct !{!245, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609"}
+!246 = !{!247}
+!247 = distinct !{!247, !248, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609: argument 0"}
+!248 = distinct !{!248, !"_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609"}
+!249 = !{!250}
+!250 = distinct !{!250, !251, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!251 = distinct !{!251, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!252 = !{!253}
+!253 = distinct !{!253, !254, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!254 = distinct !{!254, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
+!255 = !{!256}
+!256 = distinct !{!256, !257, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!257 = distinct !{!257, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!258 = !{!259}
+!259 = distinct !{!259, !260, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609: argument 0"}
+!260 = distinct !{!260, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609"}
+!261 = !{!262}
+!262 = distinct !{!262, !263, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
+!263 = distinct !{!263, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
+!264 = !{!265}
+!265 = distinct !{!265, !266, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!266 = distinct !{!266, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!267 = !{!268}
+!268 = distinct !{!268, !269, !"_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609: argument 0"}
+!269 = distinct !{!269, !"_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609"}
+!270 = !{!271}
+!271 = distinct !{!271, !272, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!272 = distinct !{!272, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!273 = !{!274}
+!274 = distinct !{!274, !275, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609: argument 0"}
+!275 = distinct !{!275, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h19de55e44f27b7d6E.llvm.10961338582784087609"}
+!276 = !{!277}
+!277 = distinct !{!277, !278, !"_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced255dcaE.llvm.10961338582784087609: argument 0"}
+!278 = distinct !{!278, !"_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced255dcaE.llvm.10961338582784087609"}
+!279 = !{!280}
+!280 = distinct !{!280, !281, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!281 = distinct !{!281, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!282 = !{!283}
+!283 = distinct !{!283, !284, !"_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609: argument 0"}
+!284 = distinct !{!284, !"_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609"}
+!285 = !{!286}
+!286 = distinct !{!286, !287, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!287 = distinct !{!287, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!288 = !{!289}
+!289 = distinct !{!289, !290, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
+!290 = distinct !{!290, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
+!291 = !{!292}
+!292 = distinct !{!292, !293, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!293 = distinct !{!293, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!294 = !{!295}
+!295 = distinct !{!295, !296, !"_ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE: argument 0"}
+!296 = distinct !{!296, !"_ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE"}
+!297 = !{!298}
+!298 = distinct !{!298, !299, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609: argument 0"}
+!299 = distinct !{!299, !"_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609"}
+!300 = !{!298, !295}
+!301 = !{!302}
+!302 = distinct !{!302, !303, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!303 = distinct !{!303, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}
+!304 = !{!305}
+!305 = distinct !{!305, !306, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609: argument 0"}
+!306 = distinct !{!306, !"_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609"}
+!307 = !{!305, !295}
+!308 = !{!309}
+!309 = distinct !{!309, !310, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E: argument 0"}
+!310 = distinct !{!310, !"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"}

@@ -255,7 +255,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
   store i8 %168, ptr %169, align 1, !tbaa !62
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 3
-  br i1 %exitcond127.not, label %.loopexit, label %166, !llvm.loop !76
+  br i1 %exitcond127.not, label %.loopexit, label %166, !llvm.loop !77
 
 170:                                              ; preds = %163
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.57.0..sroa_idx, i8 -1, i64 3, i1 false)
@@ -268,7 +268,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
 172:                                              ; preds = %.loopexit, %179
   %indvars.iv128 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next129, %179 ]
   %173 = getelementptr inbounds nuw [8 x %struct.ProgressFrame], ptr %171, i64 0, i64 %indvars.iv128
-  %174 = load ptr, ptr %173, align 8, !tbaa !77
+  %174 = load ptr, ptr %173, align 8, !tbaa !78
   %.not119 = icmp eq ptr %174, null
   br i1 %.not119, label %179, label %175
 
@@ -282,10 +282,10 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
 179:                                              ; preds = %172, %175
   %.sink = phi i32 [ %178, %175 ], [ -1, %172 ]
   %180 = getelementptr inbounds nuw [8 x i32], ptr %.sroa.3.0..sroa_idx, i64 0, i64 %indvars.iv128
-  store i32 %.sink, ptr %180, align 4, !tbaa !78
+  store i32 %.sink, ptr %180, align 4, !tbaa !79
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 8
-  br i1 %exitcond131.not, label %181, label %172, !llvm.loop !79
+  br i1 %exitcond131.not, label %181, label %172, !llvm.loop !80
 
 181:                                              ; preds = %179
   %182 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %5, i64 noundef 92) #4
@@ -310,7 +310,7 @@ define internal i32 @vaapi_vp9_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 480
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 316, ptr nonnull %4) #4
-  store i32 %2, ptr %4, align 4, !tbaa !78
+  store i32 %2, ptr %4, align 4, !tbaa !79
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(312) %.sroa.3.0..sroa_idx, i8 0, i64 312, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -322,15 +322,15 @@ define internal i32 @vaapi_vp9_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   %12 = getelementptr inbounds nuw [8 x %struct._VASegmentParameterVP9], ptr %9, i64 0, i64 %indvars.iv
   %13 = getelementptr inbounds nuw [8 x %struct.anon.2], ptr %10, i64 0, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %15 = load i8, ptr %14, align 2, !tbaa !80
+  %15 = load i8, ptr %14, align 2, !tbaa !81
   %16 = and i8 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %18 = load i8, ptr %17, align 2, !tbaa !82
+  %18 = load i8, ptr %17, align 2, !tbaa !83
   %19 = shl i8 %18, 1
   %20 = and i8 %19, 6
   %21 = or disjoint i8 %20, %16
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  %23 = load i8, ptr %22, align 1, !tbaa !83
+  %23 = load i8, ptr %22, align 1, !tbaa !84
   %24 = shl i8 %23, 3
   %25 = and i8 %24, 8
   %26 = or disjoint i8 %21, %25
@@ -361,7 +361,7 @@ define internal i32 @vaapi_vp9_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   store i64 %36, ptr %.sroa.9.0..sroa_idx, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %37, label %11, !llvm.loop !84
+  br i1 %exitcond.not, label %37, label %11, !llvm.loop !85
 
 37:                                               ; preds = %11
   %38 = zext i32 %2 to i64
@@ -495,14 +495,15 @@ attributes #4 = { nounwind }
 !71 = !{!44, !8, i64 1}
 !72 = !{!73, !73, i64 0}
 !73 = !{!"short", !8, i64 0}
-!74 = distinct !{!74, !75}
+!74 = distinct !{!74, !75, !76}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = distinct !{!76, !75}
-!77 = !{!29, !30, i64 0}
-!78 = !{!10, !10, i64 0}
-!79 = distinct !{!79, !75}
-!80 = !{!81, !8, i64 2}
-!81 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !73, i64 6, !8, i64 8, !8, i64 10, !8, i64 18}
-!82 = !{!81, !8, i64 4}
-!83 = !{!81, !8, i64 3}
-!84 = distinct !{!84, !75}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = distinct !{!77, !75, !76}
+!78 = !{!29, !30, i64 0}
+!79 = !{!10, !10, i64 0}
+!80 = distinct !{!80, !75, !76}
+!81 = !{!82, !8, i64 2}
+!82 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !73, i64 6, !8, i64 8, !8, i64 10, !8, i64 18}
+!83 = !{!82, !8, i64 4}
+!84 = !{!82, !8, i64 3}
+!85 = distinct !{!85, !75, !76}

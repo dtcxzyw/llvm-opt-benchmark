@@ -165,7 +165,7 @@ _ZNSt3__125__libcpp_thread_sleep_forB8ne210000ERKNS_6chrono8durationIxNS_5ratioI
 define dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3__119__thread_local_dataEv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZNSt3__119__thread_local_dataEvE3__p acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %7, !prof !17
+  br i1 %2, label %3, label %7, !prof !18
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNSt3__119__thread_local_dataEvE3__p) #21
@@ -177,12 +177,12 @@ define dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3__119__th
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
-  store ptr @_ZZNSt3__119__thread_local_dataEvE3__b, ptr @_ZZNSt3__119__thread_local_dataEvE3__p, align 8, !tbaa !18
+  store ptr @_ZZNSt3__119__thread_local_dataEvE3__b, ptr @_ZZNSt3__119__thread_local_dataEvE3__p, align 8, !tbaa !19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNSt3__119__thread_local_dataEvE3__p) #21
   br label %7
 
 7:                                                ; preds = %6, %3, %0
-  %8 = load ptr, ptr @_ZZNSt3__119__thread_local_dataEvE3__p, align 8, !tbaa !18
+  %8 = load ptr, ptr @_ZZNSt3__119__thread_local_dataEvE3__p, align 8, !tbaa !19
   ret ptr %8
 
 9:                                                ; preds = %5
@@ -218,51 +218,51 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNSt3__119__thread_struct_impD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %7 = load ptr, ptr %0, align 8, !tbaa !25
+  %7 = load ptr, ptr %0, align 8, !tbaa !26
   call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %._crit_edge15, label %.lr.ph14
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.07.011 = phi ptr [ %14, %.lr.ph ], [ %3, %1 ]
-  %11 = load ptr, ptr %.sroa.07.011, align 8, !tbaa !30
+  %11 = load ptr, ptr %.sroa.07.011, align 8, !tbaa !31
   tail call void @_ZNSt3__118condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #21
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !35
   tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %13) #21
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 16
   %15 = icmp eq ptr %14, %5
-  br i1 %15, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %15, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge15:                                    ; preds = %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, %._crit_edge
-  %16 = load ptr, ptr %2, align 8, !tbaa !21
+  %16 = load ptr, ptr %2, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %_ZNSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEED2B8ne210000Ev.exit, label %17
 
 17:                                               ; preds = %._crit_edge15
-  store ptr %16, ptr %4, align 8, !tbaa !24
+  store ptr %16, ptr %4, align 8, !tbaa !25
   tail call void @_ZdlPv(ptr noundef nonnull %16) #21
   br label %_ZNSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEED2B8ne210000Ev.exit
 
 _ZNSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEED2B8ne210000Ev.exit: ; preds = %._crit_edge15, %17
-  %18 = load ptr, ptr %0, align 8, !tbaa !25
+  %18 = load ptr, ptr %0, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %18, null
   br i1 %.not.i.i1, label %_ZNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEED2B8ne210000Ev.exit, label %19
 
 19:                                               ; preds = %_ZNSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEED2B8ne210000Ev.exit
-  store ptr %18, ptr %8, align 8, !tbaa !29
+  store ptr %18, ptr %8, align 8, !tbaa !30
   tail call void @_ZdlPv(ptr noundef nonnull %18) #21
   br label %_ZNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEED2B8ne210000Ev.exit
 
@@ -271,19 +271,19 @@ _ZNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEED2B8ne210
 
 .lr.ph14:                                         ; preds = %._crit_edge, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit
   %.sroa.02.012 = phi ptr [ %30, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ %7, %._crit_edge ]
-  %20 = load ptr, ptr %.sroa.02.012, align 8, !tbaa !36
+  %20 = load ptr, ptr %.sroa.02.012, align 8, !tbaa !37
   invoke void @_ZNSt3__117__assoc_sub_state12__make_readyEv(ptr noundef nonnull align 8 dereferenceable(116) %20)
           to label %21 unwind label %32
 
 21:                                               ; preds = %.lr.ph14
-  %22 = load ptr, ptr %.sroa.02.012, align 8, !tbaa !36
+  %22 = load ptr, ptr %.sroa.02.012, align 8, !tbaa !37
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = atomicrmw add ptr %23, i64 -1 acq_rel, align 8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %22, align 8, !tbaa !38
+  %27 = load ptr, ptr %22, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
@@ -292,7 +292,7 @@ _ZNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEED2B8ne210
 _ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit: ; preds = %21, %26
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.02.012, i64 8
   %31 = icmp eq ptr %30, %9
-  br i1 %31, label %._crit_edge15, label %.lr.ph14, !llvm.loop !40
+  br i1 %31, label %._crit_edge15, label %.lr.ph14, !llvm.loop !41
 
 32:                                               ; preds = %.lr.ph14
   %33 = landingpad { ptr, i32 }
@@ -314,21 +314,21 @@ declare void @_ZNSt3__117__assoc_sub_state12__make_readyEv(ptr noundef nonnull a
 define hidden void @_ZNSt3__119__thread_struct_imp25notify_all_at_thread_exitEPNS_18condition_variableEPNS_5mutexE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = icmp ult ptr %6, %8
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
-  store ptr %1, ptr %6, align 8, !tbaa !42
+  store ptr %1, ptr %6, align 8, !tbaa !43
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !43
+  store ptr %2, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %_ZNSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEE9push_backB8ne210000EOS6_.exit
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %4, align 8, !tbaa !21
+  %13 = load ptr, ptr %4, align 8, !tbaa !22
   %14 = ptrtoint ptr %6 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -354,12 +354,12 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %16
   %28 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %26, i64 %.0.i.i.i.i
-  store ptr %1, ptr %27, align 8, !tbaa !42
+  store ptr %1, ptr %27, align 8, !tbaa !43
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !43
+  store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %30 = load ptr, ptr %5, align 8, !tbaa !24
-  %31 = load ptr, ptr %4, align 8, !tbaa !21
+  %30 = load ptr, ptr %5, align 8, !tbaa !25
+  %31 = load ptr, ptr %4, align 8, !tbaa !22
   %32 = ptrtoint ptr %30 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
@@ -367,9 +367,9 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
   %36 = sub nsw i64 0, %35
   %37 = getelementptr inbounds %"struct.std::__1::pair", ptr %27, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 8 %31, i64 %34, i1 false)
-  store ptr %37, ptr %4, align 8, !tbaa !44
-  store ptr %29, ptr %5, align 8, !tbaa !44
-  store ptr %28, ptr %7, align 8, !tbaa !44
+  store ptr %37, ptr %4, align 8, !tbaa !45
+  store ptr %29, ptr %5, align 8, !tbaa !45
+  store ptr %28, ptr %7, align 8, !tbaa !45
   %.not.i3.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i3.i.i.i, label %_ZNSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEE9push_backB8ne210000EOS6_.exit, label %38
 
@@ -379,26 +379,26 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
 
 _ZNSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEE9push_backB8ne210000EOS6_.exit: ; preds = %10, %_ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEE11__recommendB8ne210000Em.exit.i.i.i, %38
   %.0.i.i = phi ptr [ %11, %10 ], [ %29, %_ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEE11__recommendB8ne210000Em.exit.i.i.i ], [ %29, %38 ]
-  store ptr %.0.i.i, ptr %5, align 8, !tbaa !24
+  store ptr %.0.i.i, ptr %5, align 8, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNSt3__119__thread_struct_imp27__make_ready_at_thread_exitEPNS_17__assoc_sub_stateE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !45
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = icmp ult ptr %4, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  store ptr %1, ptr %4, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %_ZNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE9push_backB8ne210000ERKS2_.exit
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %0, align 8, !tbaa !25
+  %11 = load ptr, ptr %0, align 8, !tbaa !26
   %12 = ptrtoint ptr %4 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
@@ -424,10 +424,10 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %14
   %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.0.i.i.i.i
-  store ptr %1, ptr %25, align 8, !tbaa !36
+  store ptr %1, ptr %25, align 8, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %28 = load ptr, ptr %3, align 8, !tbaa !29
-  %29 = load ptr, ptr %0, align 8, !tbaa !25
+  %28 = load ptr, ptr %3, align 8, !tbaa !30
+  %29 = load ptr, ptr %0, align 8, !tbaa !26
   %30 = ptrtoint ptr %28 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
@@ -435,9 +435,9 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
   %34 = sub nsw i64 0, %33
   %35 = getelementptr inbounds ptr, ptr %25, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 8 %29, i64 %32, i1 false)
-  store ptr %35, ptr %0, align 8, !tbaa !46
-  store ptr %27, ptr %3, align 8, !tbaa !46
-  store ptr %26, ptr %5, align 8, !tbaa !46
+  store ptr %35, ptr %0, align 8, !tbaa !47
+  store ptr %27, ptr %3, align 8, !tbaa !47
+  store ptr %26, ptr %5, align 8, !tbaa !47
   %.not.i3.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i3.i.i.i, label %_ZNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE9push_backB8ne210000ERKS2_.exit, label %36
 
@@ -447,7 +447,7 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
 
 _ZNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE9push_backB8ne210000ERKS2_.exit: ; preds = %8, %_ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__recommendB8ne210000Em.exit.i.i.i, %36
   %.0.i.i = phi ptr [ %9, %8 ], [ %27, %_ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__recommendB8ne210000Em.exit.i.i.i ], [ %27, %36 ]
-  store ptr %.0.i.i, ptr %3, align 8, !tbaa !29
+  store ptr %.0.i.i, ptr %3, align 8, !tbaa !30
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = atomicrmw add ptr %37, i64 1 monotonic, align 8
   ret void
@@ -457,7 +457,7 @@ _ZNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE9push_bac
 define dso_local void @_ZNSt3__115__thread_structC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  store ptr %2, ptr %0, align 8, !tbaa !47
+  store ptr %2, ptr %0, align 8, !tbaa !48
   ret void
 }
 
@@ -469,7 +469,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNSt3__115__thread_structD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !47
+  %2 = load ptr, ptr %0, align 8, !tbaa !48
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
 
@@ -484,24 +484,24 @@ define dso_local void @_ZNSt3__115__thread_structD2Ev(ptr noundef nonnull readon
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__115__thread_struct25notify_all_at_thread_exitEPNS_18condition_variableEPNS_5mutexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !47
+  %4 = load ptr, ptr %0, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %9 = load ptr, ptr %8, align 8, !tbaa !42
   %10 = icmp ult ptr %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %3
-  store ptr %1, ptr %7, align 8, !tbaa !42
+  store ptr %1, ptr %7, align 8, !tbaa !43
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %2, ptr %.sroa.5.0..sroa_idx2.i, align 8, !tbaa !43
+  store ptr %2, ptr %.sroa.5.0..sroa_idx2.i, align 8, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %_ZNSt3__119__thread_struct_imp25notify_all_at_thread_exitEPNS_18condition_variableEPNS_5mutexE.exit
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %5, align 8, !tbaa !21
+  %14 = load ptr, ptr %5, align 8, !tbaa !22
   %15 = ptrtoint ptr %7 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -527,12 +527,12 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #24
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %17
   %29 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %27, i64 %.0.i.i.i.i.i
-  store ptr %1, ptr %28, align 8, !tbaa !42
+  store ptr %1, ptr %28, align 8, !tbaa !43
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %2, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !43
+  store ptr %2, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %31 = load ptr, ptr %6, align 8, !tbaa !24
-  %32 = load ptr, ptr %5, align 8, !tbaa !21
+  %31 = load ptr, ptr %6, align 8, !tbaa !25
+  %32 = load ptr, ptr %5, align 8, !tbaa !22
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
@@ -540,9 +540,9 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds %"struct.std::__1::pair", ptr %28, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 8 %32, i64 %35, i1 false)
-  store ptr %38, ptr %5, align 8, !tbaa !44
-  store ptr %30, ptr %6, align 8, !tbaa !44
-  store ptr %29, ptr %8, align 8, !tbaa !44
+  store ptr %38, ptr %5, align 8, !tbaa !45
+  store ptr %30, ptr %6, align 8, !tbaa !45
+  store ptr %29, ptr %8, align 8, !tbaa !45
   %.not.i3.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i3.i.i.i.i, label %_ZNSt3__119__thread_struct_imp25notify_all_at_thread_exitEPNS_18condition_variableEPNS_5mutexE.exit, label %39
 
@@ -552,27 +552,27 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
 
 _ZNSt3__119__thread_struct_imp25notify_all_at_thread_exitEPNS_18condition_variableEPNS_5mutexE.exit: ; preds = %11, %_ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEE11__recommendB8ne210000Em.exit.i.i.i.i, %39
   %.0.i.i.i = phi ptr [ %12, %11 ], [ %30, %_ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEE11__recommendB8ne210000Em.exit.i.i.i.i ], [ %30, %39 ]
-  store ptr %.0.i.i.i, ptr %6, align 8, !tbaa !24
+  store ptr %.0.i.i.i, ptr %6, align 8, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__115__thread_struct27__make_ready_at_thread_exitEPNS_17__assoc_sub_stateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !47
+  %3 = load ptr, ptr %0, align 8, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   %8 = icmp ult ptr %5, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %2
-  store ptr %1, ptr %5, align 8, !tbaa !36
+  store ptr %1, ptr %5, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %_ZNSt3__119__thread_struct_imp27__make_ready_at_thread_exitEPNS_17__assoc_sub_stateE.exit
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8, !tbaa !25
+  %12 = load ptr, ptr %3, align 8, !tbaa !26
   %13 = ptrtoint ptr %5 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -598,10 +598,10 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %15
   %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0.i.i.i.i.i
-  store ptr %1, ptr %26, align 8, !tbaa !36
+  store ptr %1, ptr %26, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load ptr, ptr %4, align 8, !tbaa !29
-  %30 = load ptr, ptr %3, align 8, !tbaa !25
+  %29 = load ptr, ptr %4, align 8, !tbaa !30
+  %30 = load ptr, ptr %3, align 8, !tbaa !26
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
@@ -609,9 +609,9 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
   %35 = sub nsw i64 0, %34
   %36 = getelementptr inbounds ptr, ptr %26, i64 %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 8 %30, i64 %33, i1 false)
-  store ptr %36, ptr %3, align 8, !tbaa !46
-  store ptr %28, ptr %4, align 8, !tbaa !46
-  store ptr %27, ptr %6, align 8, !tbaa !46
+  store ptr %36, ptr %3, align 8, !tbaa !47
+  store ptr %28, ptr %4, align 8, !tbaa !47
+  store ptr %27, ptr %6, align 8, !tbaa !47
   %.not.i3.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i3.i.i.i.i, label %_ZNSt3__119__thread_struct_imp27__make_ready_at_thread_exitEPNS_17__assoc_sub_stateE.exit, label %37
 
@@ -621,7 +621,7 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
 
 _ZNSt3__119__thread_struct_imp27__make_ready_at_thread_exitEPNS_17__assoc_sub_stateE.exit: ; preds = %9, %_ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__recommendB8ne210000Em.exit.i.i.i.i, %37
   %.0.i.i.i = phi ptr [ %10, %9 ], [ %28, %_ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__recommendB8ne210000Em.exit.i.i.i.i ], [ %28, %37 ]
-  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !29
+  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !30
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = atomicrmw add ptr %38, i64 1 monotonic, align 8
   ret void
@@ -674,7 +674,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne210000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8, !tbaa !39
   ret void
 }
 
@@ -700,7 +700,7 @@ define linkonce_odr hidden void @_ZNSt3__121__thread_specific_ptrINS_15__thread_
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !47
+  %4 = load ptr, ptr %0, align 8, !tbaa !48
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZNSt3__115__thread_structD2Ev.exit, label %6
 
@@ -776,38 +776,39 @@ attributes #26 = { builtin nounwind }
 !12 = !{!"long long", !7, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"int", !7, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"branch_weights", i32 1, i32 1048575}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTSNSt3__121__thread_specific_ptrINS_15__thread_structEEE", !20, i64 0}
-!20 = !{!"any pointer", !7, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"_ZTSNSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEEE", !23, i64 0, !23, i64 8, !23, i64 16}
-!23 = !{!"p1 _ZTSNSt3__14pairIPNS_18condition_variableEPNS_5mutexEEE", !20, i64 0}
-!24 = !{!22, !23, i64 8}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"_ZTSNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEEE", !27, i64 0, !27, i64 8, !27, i64 16}
-!27 = !{!"p2 _ZTSNSt3__117__assoc_sub_stateE", !28, i64 0}
-!28 = !{!"any p2 pointer", !20, i64 0}
-!29 = !{!26, !27, i64 8}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"_ZTSNSt3__14pairIPNS_18condition_variableEPNS_5mutexEEE", !32, i64 0, !33, i64 8}
-!32 = !{!"p1 _ZTSNSt3__118condition_variableE", !20, i64 0}
-!33 = !{!"p1 _ZTSNSt3__15mutexE", !20, i64 0}
-!34 = !{!31, !33, i64 8}
-!35 = distinct !{!35, !16}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTSNSt3__117__assoc_sub_stateE", !20, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"vtable pointer", !8, i64 0}
-!40 = distinct !{!40, !16}
-!41 = !{!22, !23, i64 16}
-!42 = !{!32, !32, i64 0}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!"branch_weights", i32 1, i32 1048575}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTSNSt3__121__thread_specific_ptrINS_15__thread_structEEE", !21, i64 0}
+!21 = !{!"any pointer", !7, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"_ZTSNSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_allocatorIS6_EEEE", !24, i64 0, !24, i64 8, !24, i64 16}
+!24 = !{!"p1 _ZTSNSt3__14pairIPNS_18condition_variableEPNS_5mutexEEE", !21, i64 0}
+!25 = !{!23, !24, i64 8}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"_ZTSNSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEEE", !28, i64 0, !28, i64 8, !28, i64 16}
+!28 = !{!"p2 _ZTSNSt3__117__assoc_sub_stateE", !29, i64 0}
+!29 = !{!"any p2 pointer", !21, i64 0}
+!30 = !{!27, !28, i64 8}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"_ZTSNSt3__14pairIPNS_18condition_variableEPNS_5mutexEEE", !33, i64 0, !34, i64 8}
+!33 = !{!"p1 _ZTSNSt3__118condition_variableE", !21, i64 0}
+!34 = !{!"p1 _ZTSNSt3__15mutexE", !21, i64 0}
+!35 = !{!32, !34, i64 8}
+!36 = distinct !{!36, !16, !17}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTSNSt3__117__assoc_sub_stateE", !21, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"vtable pointer", !8, i64 0}
+!41 = distinct !{!41, !16, !17}
+!42 = !{!23, !24, i64 16}
 !43 = !{!33, !33, i64 0}
-!44 = !{!23, !23, i64 0}
-!45 = !{!26, !27, i64 16}
-!46 = !{!27, !27, i64 0}
-!47 = !{!48, !49, i64 0}
-!48 = !{!"_ZTSNSt3__115__thread_structE", !49, i64 0}
-!49 = !{!"p1 _ZTSNSt3__119__thread_struct_impE", !20, i64 0}
+!44 = !{!34, !34, i64 0}
+!45 = !{!24, !24, i64 0}
+!46 = !{!27, !28, i64 16}
+!47 = !{!28, !28, i64 0}
+!48 = !{!49, !50, i64 0}
+!49 = !{!"_ZTSNSt3__115__thread_structE", !50, i64 0}
+!50 = !{!"p1 _ZTSNSt3__119__thread_struct_impE", !21, i64 0}

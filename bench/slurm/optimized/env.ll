@@ -70,7 +70,7 @@ define dso_local noundef zeroext i1 @load_env(ptr noundef %0, ptr noundef writeo
   %30 = icmp eq i8 %18, 61
   %indvars.iv.next170 = add i64 %indvars.iv169, 1
   %indvars.iv.next182 = add i32 %indvars.iv181, 1
-  br i1 %30, label %.critedge2, label %17, !llvm.loop !11
+  br i1 %30, label %.critedge2, label %17, !llvm.loop !12
 
 .critedge2:                                       ; preds = %17, %29, %19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv159
@@ -102,7 +102,7 @@ define dso_local noundef zeroext i1 @load_env(ptr noundef %0, ptr noundef writeo
   %.not116 = icmp eq i8 %43, 0
   %indvars.iv.next173 = add i64 %indvars.iv172, 1
   %indvars.iv.next185 = add i32 %indvars.iv184, 1
-  br i1 %.not116, label %.critedge119, label %32, !llvm.loop !12
+  br i1 %.not116, label %.critedge119, label %32, !llvm.loop !13
 
 .critedge4:                                       ; preds = %34
   %.not106 = icmp eq i8 %33, 61
@@ -147,7 +147,7 @@ define dso_local noundef zeroext i1 @load_env(ptr noundef %0, ptr noundef writeo
   %58 = load i8, ptr %57, align 1
   %.not115 = icmp eq i8 %58, 0
   %indvars.iv.next188 = add i32 %indvars.iv187, 1
-  br i1 %.not115, label %.critedge119, label %45, !llvm.loop !13
+  br i1 %.not115, label %.critedge119, label %45, !llvm.loop !14
 
 .critedge6:                                       ; preds = %51
   %59 = trunc nuw i64 %indvars.iv175 to i32
@@ -183,7 +183,7 @@ define dso_local noundef zeroext i1 @load_env(ptr noundef %0, ptr noundef writeo
   %70 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next192
   %71 = load i8, ptr %70, align 1
   %.not110 = icmp eq i8 %71, 0
-  br i1 %.not110, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not110, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %69, %60
   %72 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #5
@@ -203,7 +203,7 @@ define dso_local noundef zeroext i1 @load_env(ptr noundef %0, ptr noundef writeo
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %79, 1
   %.not114 = icmp eq i16 %80, 0
-  br i1 %.not114, label %.critedge119, label %73, !llvm.loop !15
+  br i1 %.not114, label %.critedge119, label %73, !llvm.loop !16
 
 .loopexit:                                        ; preds = %73, %.preheader
   %.188 = phi i32 [ %.087151, %.preheader ], [ %61, %73 ]
@@ -253,11 +253,12 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}

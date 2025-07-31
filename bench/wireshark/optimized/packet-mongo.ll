@@ -775,7 +775,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   %111 = add i32 %110, %.019.i
   %112 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %113 = icmp ult i32 %111, %112
-  br i1 %113, label %.lr.ph.i57, label %dissect_mongo_reply.exit, !llvm.loop !8
+  br i1 %113, label %.lr.ph.i57, label %dissect_mongo_reply.exit, !llvm.loop !9
 
 114:                                              ; preds = %13
   %115 = load i32, ptr @hf_mongo_query_flags, align 4
@@ -832,7 +832,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   %162 = add i32 %161, %.050.i
   %163 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %164 = icmp ult i32 %162, %163
-  br i1 %164, label %.lr.ph.i59, label %dissect_mongo_reply.exit, !llvm.loop !9
+  br i1 %164, label %.lr.ph.i59, label %dissect_mongo_reply.exit, !llvm.loop !10
 
 165:                                              ; preds = %13
   %166 = load i32, ptr @hf_mongo_zero, align 4
@@ -910,7 +910,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   %.0.i = add i32 %.015.i, 8
   %229 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %230 = icmp ult i32 %.0.i, %229
-  br i1 %230, label %.lr.ph.i61, label %dissect_mongo_reply.exit, !llvm.loop !10
+  br i1 %230, label %.lr.ph.i61, label %dissect_mongo_reply.exit, !llvm.loop !11
 
 231:                                              ; preds = %13
   %232 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %2)
@@ -1139,7 +1139,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   %377 = sub i32 %.05253.i.i, %376
   %378 = add i32 %376, %.054.i.i
   %379 = icmp sgt i32 %377, 0
-  br i1 %379, label %.lr.ph.i.i, label %dissect_op_msg_section.exit.i, !llvm.loop !11
+  br i1 %379, label %.lr.ph.i.i, label %dissect_op_msg_section.exit.i, !llvm.loop !12
 
 380:                                              ; preds = %.lr.ph.i65
   %381 = zext i8 %347 to i32
@@ -1151,7 +1151,7 @@ dissect_op_msg_section.exit.i:                    ; preds = %.lr.ph.i.i, %380, %
   %383 = add i32 %.pre-phi.i.i, %.022.i
   %384 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %383)
   %385 = icmp sgt i32 %384, %345
-  br i1 %385, label %.lr.ph.i65, label %._crit_edge.i, !llvm.loop !12
+  br i1 %385, label %.lr.ph.i65, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %dissect_op_msg_section.exit.i, %337
   %.0.lcssa.i64 = phi i32 [ %343, %337 ], [ %383, %dissect_op_msg_section.exit.i ]
@@ -1450,7 +1450,7 @@ define internal fastcc noundef i32 @dissect_bson_document(ptr noundef %0, ptr no
   %.1188 = phi i32 [ %57, %43 ], [ %61, %58 ], [ %71, %62 ], [ %75, %72 ], [ %83, %76 ], [ %175, %172 ], [ %171, %168 ], [ %104, %84 ], [ %108, %105 ], [ %123, %109 ], [ %136, %124 ], [ %163, %137 ], [ %167, %164 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   %177 = icmp ult i32 %.1188, %42
-  br i1 %177, label %43, label %178, !llvm.loop !13
+  br i1 %177, label %43, label %178, !llvm.loop !14
 
 178:                                              ; preds = %176
   %179 = load i32, ptr @proto_mongo, align 4
@@ -1545,11 +1545,12 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

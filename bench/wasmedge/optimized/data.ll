@@ -231,5 +231,6 @@ attributes #10 = { builtin nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN8WasmEdge4LLVM4Data11DataContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !6 = distinct !{!6, !"_ZSt11make_uniqueIN8WasmEdge4LLVM4Data11DataContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.estimated_trip_count"}

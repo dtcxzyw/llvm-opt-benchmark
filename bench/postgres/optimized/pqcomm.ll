@@ -1328,7 +1328,7 @@ define dso_local range(i32 -1, 256) i32 @pq_getbyte() local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = tail call fastcc i32 @pq_recvbuf()
   %.not2 = icmp eq i32 %5, 0
-  br i1 %.not2, label %1, label %.loopexit, !llvm.loop !6
+  br i1 %.not2, label %1, label %.loopexit, !llvm.loop !7
 
 6:                                                ; preds = %1
   %7 = add nsw i32 %2, 1
@@ -1450,7 +1450,7 @@ define dso_local range(i32 -1, 256) i32 @pq_peekbyte() local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = tail call fastcc i32 @pq_recvbuf()
   %.not2 = icmp eq i32 %5, 0
-  br i1 %.not2, label %1, label %.loopexit, !llvm.loop !7
+  br i1 %.not2, label %1, label %.loopexit, !llvm.loop !8
 
 6:                                                ; preds = %1
   %7 = sext i32 %2 to i64
@@ -1556,7 +1556,7 @@ define dso_local range(i32 -1, 1) i32 @pq_getbytes(ptr noundef writeonly capture
 6:                                                ; preds = %3
   %7 = tail call fastcc i32 @pq_recvbuf()
   %.not18 = icmp eq i32 %7, 0
-  br i1 %.not18, label %3, label %.loopexit, !llvm.loop !8
+  br i1 %.not18, label %3, label %.loopexit, !llvm.loop !9
 
 8:                                                ; preds = %3
   %9 = sub i32 %5, %4
@@ -1571,7 +1571,7 @@ define dso_local range(i32 -1, 1) i32 @pq_getbytes(ptr noundef writeonly capture
   %15 = getelementptr inbounds nuw i8, ptr %.01224, i64 %spec.select
   %16 = sub i64 %.01125, %spec.select
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %8, %6, %2
   %.013 = phi i32 [ 0, %2 ], [ -1, %6 ], [ 0, %8 ]
@@ -1641,7 +1641,7 @@ define dso_local range(i32 -1, 1) i32 @pq_getmessage(ptr noundef %0, i32 noundef
 8:                                                ; preds = %5
   %9 = call fastcc i32 @pq_recvbuf()
   %.not18.i = icmp eq i32 %9, 0
-  br i1 %.not18.i, label %5, label %19, !llvm.loop !8
+  br i1 %.not18.i, label %5, label %19, !llvm.loop !9
 
 10:                                               ; preds = %5
   %11 = sub i32 %7, %6
@@ -1656,7 +1656,7 @@ define dso_local range(i32 -1, 1) i32 @pq_getmessage(ptr noundef %0, i32 noundef
   %17 = getelementptr inbounds nuw i8, ptr %.01224.i, i64 %spec.select.i
   %18 = sub i64 %.01125.i, %spec.select.i
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %pq_getbytes.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %.not.i, label %pq_getbytes.exit, label %.preheader.i, !llvm.loop !10
 
 19:                                               ; preds = %8
   %20 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #21
@@ -1724,7 +1724,7 @@ pq_getbytes.exit:                                 ; preds = %10
 46:                                               ; preds = %43
   %47 = call fastcc i32 @pq_recvbuf()
   %.not18.i16 = icmp eq i32 %47, 0
-  br i1 %.not18.i16, label %43, label %pq_getbytes.exit20, !llvm.loop !8
+  br i1 %.not18.i16, label %43, label %pq_getbytes.exit20, !llvm.loop !9
 
 48:                                               ; preds = %43
   %49 = sub i32 %45, %44
@@ -1739,7 +1739,7 @@ pq_getbytes.exit:                                 ; preds = %10
   %55 = getelementptr inbounds nuw i8, ptr %.01224.i14, i64 %spec.select.i18
   %56 = sub i64 %.01125.i13, %spec.select.i18
   %.not.i19 = icmp eq i64 %56, 0
-  br i1 %.not.i19, label %.loopexit.loopexit, label %.preheader.i12, !llvm.loop !9
+  br i1 %.not.i19, label %.loopexit.loopexit, label %.preheader.i12, !llvm.loop !10
 
 57:                                               ; preds = %35
   store ptr %36, ptr @PG_exception_stack, align 8
@@ -1824,7 +1824,7 @@ define internal fastcc range(i32 -1, 1) i32 @pq_discardbytes(i64 noundef range(i
 5:                                                ; preds = %2
   %6 = tail call fastcc i32 @pq_recvbuf()
   %.not14 = icmp eq i32 %6, 0
-  br i1 %.not14, label %2, label %.loopexit, !llvm.loop !10
+  br i1 %.not14, label %2, label %.loopexit, !llvm.loop !11
 
 7:                                                ; preds = %2
   %8 = sub i32 %4, %3
@@ -1835,7 +1835,7 @@ define internal fastcc range(i32 -1, 1) i32 @pq_discardbytes(i64 noundef range(i
   store i32 %11, ptr @PqRecvPointer, align 4
   %12 = sub i64 %.0820, %spec.select
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %7, %5, %1
   %.09 = phi i32 [ 0, %1 ], [ -1, %5 ], [ 0, %7 ]
@@ -1984,7 +1984,7 @@ socket_set_nonblocking.exit19._crit_edge29:       ; preds = %socket_set_nonblock
   %42 = phi i64 [ %.pre, %socket_set_nonblocking.exit19._crit_edge29 ], [ %37, %32 ]
   %.1 = phi ptr [ %.01021, %socket_set_nonblocking.exit19._crit_edge29 ], [ %38, %32 ]
   %.not = icmp eq i64 %.pr, 0
-  br i1 %.not, label %socket_set_nonblocking.exit19._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %socket_set_nonblocking.exit19._crit_edge, label %.lr.ph, !llvm.loop !13
 
 socket_set_nonblocking.exit19._crit_edge:         ; preds = %socket_set_nonblocking.exit, %40, %socket_set_nonblocking.exit19, %2
   %.112 = phi i32 [ 0, %2 ], [ -1, %socket_set_nonblocking.exit19 ], [ 0, %40 ], [ -1, %socket_set_nonblocking.exit ]
@@ -2521,7 +2521,7 @@ define dso_local noundef zeroext i1 @pq_check_connection() local_unnamed_addr #0
 7:                                                ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %8, !llvm.loop !13
+  br i1 %exitcond.not, label %.thread, label %8, !llvm.loop !14
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -2855,13 +2855,14 @@ attributes #26 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

@@ -206,7 +206,7 @@ _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.e
   %36 = getelementptr inbounds nuw i8, ptr %.013.i.i.i7, i64 %.sink.i.i.i11
   %.1.i.i.i13 = load ptr, ptr %36, align 8, !tbaa !19
   %.not.i.i.i14 = icmp eq ptr %.1.i.i.i13, null
-  br i1 %.not.i.i.i14, label %_ZNSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE11upper_boundERKS4_.exit, label %.lr.ph.i.i.i6, !llvm.loop !23
+  br i1 %.not.i.i.i14, label %_ZNSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE11upper_boundERKS4_.exit, label %.lr.ph.i.i.i6, !llvm.loop !24
 
 _ZNSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE11upper_boundERKS4_.exit: ; preds = %35
   %.not24 = icmp eq ptr %.19.i.i.i, %.19.i.i.i12
@@ -230,7 +230,7 @@ _ZNSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_com
 44:                                               ; preds = %.lr.ph
   %45 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.025) #18
   %.not = icmp eq ptr %45, %.19.i.i.i12
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %44, %_ZN5boost13serialization9singletonISt8multisetIPKNS0_18extended_type_infoENS0_6detail11key_compareESaIS5_EEE20get_mutable_instanceEv.exit, %_ZNSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE11upper_boundERKS4_.exit, %40, %1
   ret void
@@ -285,7 +285,7 @@ _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.e
   %16 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %16, align 8, !tbaa !19
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
 
 _ZNKSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i: ; preds = %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.thread.i.i.i
   %17 = icmp eq ptr %.19.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_18extended_type_infoENS0_6detail11key_compareESaIS5_EEE12get_instanceEvE1t, i64 8)
@@ -321,9 +321,9 @@ define void @_ZN5boost13serialization18extended_type_infoD2Ev(ptr nonnull readno
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5boost13serialization18extended_type_infoC2EjPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 24)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization18extended_type_infoE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization18extended_type_infoE, i64 16), ptr %0, align 8, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %4, align 8, !tbaa !28
+  store i32 %1, ptr %4, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %5, align 8, !tbaa !3
   ret void
@@ -345,14 +345,14 @@ define noundef zeroext i1 @_ZNK5boost13serialization18extended_type_infoltERKS1_
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !28
+  %6 = load i32, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !28
+  %8 = load i32, ptr %7, align 8, !tbaa !29
   %9 = icmp eq i32 %6, %8
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %0, align 8, !tbaa !26
+  %11 = load ptr, ptr %0, align 8, !tbaa !27
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %16
@@ -373,14 +373,14 @@ define noundef zeroext i1 @_ZNK5boost13serialization18extended_type_infoeqERKS1_
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !28
+  %6 = load i32, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !28
+  %8 = load i32, ptr %7, align 8, !tbaa !29
   %.not = icmp eq i32 %6, %8
   br i1 %.not, label %9, label %14
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %0, align 8, !tbaa !26
+  %10 = load ptr, ptr %0, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -436,7 +436,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_18extended_type_infoENS1_11key_compareESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 1, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_18extended_type_infoENS1_11key_compareESaIS6_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !29
+  store i8 1, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_18extended_type_infoENS1_11key_compareESaIS6_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !30
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   invoke void @_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -479,13 +479,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN5boost13serialization18extend
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !32
   tail call void @_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -531,7 +531,7 @@ _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.e
   %18 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 %.sink.i
   %.07.i = load ptr, ptr %18, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.07.i, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE23_M_get_insert_equal_posERKS4_.exit, label %6, !llvm.loop !34
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE23_M_get_insert_equal_posERKS4_.exit, label %6, !llvm.loop !35
 
 _ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE23_M_get_insert_equal_posERKS4_.exit: ; preds = %17
   %19 = icmp eq ptr %.0711.i, %4
@@ -625,17 +625,18 @@ attributes #21 = { builtin allocsize(0) }
 !18 = !{!11, !14, i64 32}
 !19 = !{!8, !8, i64 0}
 !20 = !{i8 0, i8 2}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !22}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"vtable pointer", !7, i64 0}
-!28 = !{!4, !5, i64 8}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"bool", !6, i64 0}
-!31 = !{!12, !8, i64 24}
-!32 = !{!12, !8, i64 16}
-!33 = distinct !{!33, !22}
-!34 = distinct !{!34, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = distinct !{!25, !22, !23}
+!26 = distinct !{!26, !22, !23}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"vtable pointer", !7, i64 0}
+!29 = !{!4, !5, i64 8}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"bool", !6, i64 0}
+!32 = !{!12, !8, i64 24}
+!33 = !{!12, !8, i64 16}
+!34 = distinct !{!34, !22, !23}
+!35 = distinct !{!35, !22, !23}

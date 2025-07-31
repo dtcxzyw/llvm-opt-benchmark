@@ -141,16 +141,16 @@ mi_atomic_maxi64_relaxed.exit.i:                  ; preds = %16, %14
   br label %mi_stat_update.exit
 
 27:                                               ; preds = %4
-  %28 = load i64, ptr %8, align 8, !tbaa !12
+  %28 = load i64, ptr %8, align 8, !tbaa !13
   %29 = add nsw i64 %28, %1
-  store i64 %29, ptr %8, align 8, !tbaa !12
+  store i64 %29, ptr %8, align 8, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !14
+  %31 = load i64, ptr %30, align 8, !tbaa !15
   %32 = icmp sgt i64 %29, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %27
-  store i64 %29, ptr %30, align 8, !tbaa !14
+  store i64 %29, ptr %30, align 8, !tbaa !15
   br label %34
 
 34:                                               ; preds = %33, %27
@@ -158,16 +158,16 @@ mi_atomic_maxi64_relaxed.exit.i:                  ; preds = %16, %14
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34
-  %37 = load i64, ptr %0, align 8, !tbaa !15
+  %37 = load i64, ptr %0, align 8, !tbaa !16
   %38 = add nsw i64 %37, %1
-  store i64 %38, ptr %0, align 8, !tbaa !15
+  store i64 %38, ptr %0, align 8, !tbaa !16
   br label %mi_stat_update.exit
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !16
+  %41 = load i64, ptr %40, align 8, !tbaa !17
   %42 = sub nsw i64 %41, %1
-  store i64 %42, ptr %40, align 8, !tbaa !16
+  store i64 %42, ptr %40, align 8, !tbaa !17
   br label %mi_stat_update.exit
 
 mi_stat_update.exit:                              ; preds = %2, %21, %23, %36, %39
@@ -219,16 +219,16 @@ mi_atomic_maxi64_relaxed.exit.i:                  ; preds = %17, %15
   br label %mi_stat_update.exit
 
 27:                                               ; preds = %5
-  %28 = load i64, ptr %9, align 8, !tbaa !12
+  %28 = load i64, ptr %9, align 8, !tbaa !13
   %29 = sub nsw i64 %28, %1
-  store i64 %29, ptr %9, align 8, !tbaa !12
+  store i64 %29, ptr %9, align 8, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !14
+  %31 = load i64, ptr %30, align 8, !tbaa !15
   %32 = icmp sgt i64 %29, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %27
-  store i64 %29, ptr %30, align 8, !tbaa !14
+  store i64 %29, ptr %30, align 8, !tbaa !15
   br label %34
 
 34:                                               ; preds = %33, %27
@@ -236,16 +236,16 @@ mi_atomic_maxi64_relaxed.exit.i:                  ; preds = %17, %15
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34
-  %37 = load i64, ptr %0, align 8, !tbaa !15
+  %37 = load i64, ptr %0, align 8, !tbaa !16
   %38 = sub nsw i64 %37, %1
-  store i64 %38, ptr %0, align 8, !tbaa !15
+  store i64 %38, ptr %0, align 8, !tbaa !16
   br label %mi_stat_update.exit
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !16
+  %41 = load i64, ptr %40, align 8, !tbaa !17
   %42 = add nsw i64 %41, %1
-  store i64 %42, ptr %40, align 8, !tbaa !16
+  store i64 %42, ptr %40, align 8, !tbaa !17
   br label %mi_stat_update.exit
 
 mi_stat_update.exit:                              ; preds = %2, %22, %24, %36, %39
@@ -272,16 +272,16 @@ define hidden void @_mi_stat_adjust_increase(ptr noundef captures(address) %0, i
   br label %mi_stat_adjust.exit
 
 14:                                               ; preds = %4
-  %15 = load i64, ptr %8, align 8, !tbaa !12
+  %15 = load i64, ptr %8, align 8, !tbaa !13
   %16 = add nsw i64 %15, %1
-  store i64 %16, ptr %8, align 8, !tbaa !12
-  %17 = load i64, ptr %0, align 8, !tbaa !15
+  store i64 %16, ptr %8, align 8, !tbaa !13
+  %17 = load i64, ptr %0, align 8, !tbaa !16
   %18 = add nsw i64 %17, %1
-  store i64 %18, ptr %0, align 8, !tbaa !15
+  store i64 %18, ptr %0, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !16
+  %20 = load i64, ptr %19, align 8, !tbaa !17
   %21 = add nsw i64 %20, %1
-  store i64 %21, ptr %19, align 8, !tbaa !16
+  store i64 %21, ptr %19, align 8, !tbaa !17
   br label %mi_stat_adjust.exit
 
 mi_stat_adjust.exit:                              ; preds = %2, %9, %14
@@ -309,16 +309,16 @@ define hidden void @_mi_stat_adjust_decrease(ptr noundef captures(address) %0, i
   br label %mi_stat_adjust.exit
 
 15:                                               ; preds = %5
-  %16 = load i64, ptr %9, align 8, !tbaa !12
+  %16 = load i64, ptr %9, align 8, !tbaa !13
   %17 = sub nsw i64 %16, %1
-  store i64 %17, ptr %9, align 8, !tbaa !12
-  %18 = load i64, ptr %0, align 8, !tbaa !15
+  store i64 %17, ptr %9, align 8, !tbaa !13
+  %18 = load i64, ptr %0, align 8, !tbaa !16
   %19 = sub nsw i64 %18, %1
-  store i64 %19, ptr %0, align 8, !tbaa !15
+  store i64 %19, ptr %0, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !16
+  %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = sub nsw i64 %21, %1
-  store i64 %22, ptr %20, align 8, !tbaa !16
+  store i64 %22, ptr %20, align 8, !tbaa !17
   br label %mi_stat_adjust.exit
 
 mi_stat_adjust.exit:                              ; preds = %2, %10, %15
@@ -328,7 +328,7 @@ mi_stat_adjust.exit:                              ; preds = %2, %10, %15
 ; Function Attrs: nounwind uwtable
 define hidden void @mi_stats_reset() local_unnamed_addr #2 {
   %1 = tail call ptr @mi_heap_get_default() #8
-  %2 = load ptr, ptr %1, align 8, !tbaa !17
+  %2 = load ptr, ptr %1, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %.not = icmp eq ptr %3, @_mi_stats_main
   br i1 %.not, label %5, label %4
@@ -339,12 +339,12 @@ define hidden void @mi_stats_reset() local_unnamed_addr #2 {
 
 5:                                                ; preds = %4, %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(688) @_mi_stats_main, i8 0, i64 688, i1 false)
-  %6 = load i64, ptr @mi_process_start, align 8, !tbaa !25
+  %6 = load i64, ptr @mi_process_start, align 8, !tbaa !26
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
+  %9 = load i64, ptr @mi_clock_diff, align 8, !tbaa !26
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %_mi_clock_start.exit
 
@@ -352,12 +352,12 @@ define hidden void @mi_stats_reset() local_unnamed_addr #2 {
   %12 = tail call i64 @_mi_prim_clock_now() #8
   %13 = tail call i64 @_mi_prim_clock_now() #8
   %14 = sub nsw i64 %13, %12
-  store i64 %14, ptr @mi_clock_diff, align 8, !tbaa !25
+  store i64 %14, ptr @mi_clock_diff, align 8, !tbaa !26
   br label %_mi_clock_start.exit
 
 _mi_clock_start.exit:                             ; preds = %8, %11
   %15 = tail call i64 @_mi_prim_clock_now() #8
-  store i64 %15, ptr @mi_process_start, align 8, !tbaa !25
+  store i64 %15, ptr @mi_process_start, align 8, !tbaa !26
   br label %16
 
 16:                                               ; preds = %_mi_clock_start.exit, %5
@@ -372,7 +372,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @_mi_clock_start() local_unnamed_addr #2 {
-  %1 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
+  %1 = load i64, ptr @mi_clock_diff, align 8, !tbaa !26
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %3, label %7
 
@@ -380,7 +380,7 @@ define hidden i64 @_mi_clock_start() local_unnamed_addr #2 {
   %4 = tail call i64 @_mi_prim_clock_now() #8
   %5 = tail call i64 @_mi_prim_clock_now() #8
   %6 = sub nsw i64 %5, %4
-  store i64 %6, ptr @mi_clock_diff, align 8, !tbaa !25
+  store i64 %6, ptr @mi_clock_diff, align 8, !tbaa !26
   br label %7
 
 7:                                                ; preds = %3, %0
@@ -394,7 +394,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 ; Function Attrs: nounwind uwtable
 define hidden void @mi_stats_merge() local_unnamed_addr #2 {
   %1 = tail call ptr @mi_heap_get_default() #8
-  %2 = load ptr, ptr %1, align 8, !tbaa !17
+  %2 = load ptr, ptr %1, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   tail call fastcc void @mi_stats_merge_from(ptr noundef nonnull %3) #9
   ret void
@@ -406,376 +406,376 @@ define internal fastcc void @mi_stats_merge_from(ptr noundef %0) unnamed_addr #5
   br i1 %.not, label %346, label %2
 
 2:                                                ; preds = %1
-  %3 = load i64, ptr %0, align 8, !tbaa !15
+  %3 = load i64, ptr %0, align 8, !tbaa !16
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !16
+  %7 = load i64, ptr %6, align 8, !tbaa !17
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %5, %2
   %10 = atomicrmw add ptr @_mi_stats_main, i64 %3 monotonic, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !12
+  %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 24), i64 %12 monotonic, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !16
+  %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 8), i64 %15 monotonic, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !14
+  %18 = load i64, ptr %17, align 8, !tbaa !15
   %19 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 16), i64 %18 monotonic, align 8
   br label %20
 
 20:                                               ; preds = %9, %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load i64, ptr %21, align 8, !tbaa !15
+  %22 = load i64, ptr %21, align 8, !tbaa !16
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load i64, ptr %25, align 8, !tbaa !16
+  %26 = load i64, ptr %25, align 8, !tbaa !17
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %39, label %28
 
 28:                                               ; preds = %24, %20
   %29 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 32), i64 %22 monotonic, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load i64, ptr %30, align 8, !tbaa !12
+  %31 = load i64, ptr %30, align 8, !tbaa !13
   %32 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 56), i64 %31 monotonic, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load i64, ptr %33, align 8, !tbaa !16
+  %34 = load i64, ptr %33, align 8, !tbaa !17
   %35 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 40), i64 %34 monotonic, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load i64, ptr %36, align 8, !tbaa !14
+  %37 = load i64, ptr %36, align 8, !tbaa !15
   %38 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 48), i64 %37 monotonic, align 8
   br label %39
 
 39:                                               ; preds = %28, %24
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %41 = load i64, ptr %40, align 8, !tbaa !15
+  %41 = load i64, ptr %40, align 8, !tbaa !16
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %45 = load i64, ptr %44, align 8, !tbaa !16
+  %45 = load i64, ptr %44, align 8, !tbaa !17
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %58, label %47
 
 47:                                               ; preds = %43, %39
   %48 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %41 monotonic, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %50 = load i64, ptr %49, align 8, !tbaa !12
+  %50 = load i64, ptr %49, align 8, !tbaa !13
   %51 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 88), i64 %50 monotonic, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %53 = load i64, ptr %52, align 8, !tbaa !16
+  %53 = load i64, ptr %52, align 8, !tbaa !17
   %54 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %53 monotonic, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %56 = load i64, ptr %55, align 8, !tbaa !14
+  %56 = load i64, ptr %55, align 8, !tbaa !15
   %57 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 80), i64 %56 monotonic, align 8
   br label %58
 
 58:                                               ; preds = %47, %43
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %60 = load i64, ptr %59, align 8, !tbaa !15
+  %60 = load i64, ptr %59, align 8, !tbaa !16
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %64 = load i64, ptr %63, align 8, !tbaa !16
+  %64 = load i64, ptr %63, align 8, !tbaa !17
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %77, label %66
 
 66:                                               ; preds = %62, %58
   %67 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %60 monotonic, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %69 = load i64, ptr %68, align 8, !tbaa !12
+  %69 = load i64, ptr %68, align 8, !tbaa !13
   %70 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %69 monotonic, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %72 = load i64, ptr %71, align 8, !tbaa !16
+  %72 = load i64, ptr %71, align 8, !tbaa !17
   %73 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %72 monotonic, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %75 = load i64, ptr %74, align 8, !tbaa !14
+  %75 = load i64, ptr %74, align 8, !tbaa !15
   %76 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112), i64 %75 monotonic, align 8
   br label %77
 
 77:                                               ; preds = %66, %62
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %79 = load i64, ptr %78, align 8, !tbaa !15
+  %79 = load i64, ptr %78, align 8, !tbaa !16
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %83 = load i64, ptr %82, align 8, !tbaa !16
+  %83 = load i64, ptr %82, align 8, !tbaa !17
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %96, label %85
 
 85:                                               ; preds = %81, %77
   %86 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 128), i64 %79 monotonic, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %88 = load i64, ptr %87, align 8, !tbaa !12
+  %88 = load i64, ptr %87, align 8, !tbaa !13
   %89 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 152), i64 %88 monotonic, align 8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %91 = load i64, ptr %90, align 8, !tbaa !16
+  %91 = load i64, ptr %90, align 8, !tbaa !17
   %92 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 136), i64 %91 monotonic, align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %94 = load i64, ptr %93, align 8, !tbaa !14
+  %94 = load i64, ptr %93, align 8, !tbaa !15
   %95 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 144), i64 %94 monotonic, align 8
   br label %96
 
 96:                                               ; preds = %85, %81
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %98 = load i64, ptr %97, align 8, !tbaa !15
+  %98 = load i64, ptr %97, align 8, !tbaa !16
   %99 = icmp eq i64 %98, 0
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %102 = load i64, ptr %101, align 8, !tbaa !16
+  %102 = load i64, ptr %101, align 8, !tbaa !17
   %103 = icmp eq i64 %102, 0
   br i1 %103, label %115, label %104
 
 104:                                              ; preds = %100, %96
   %105 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 160), i64 %98 monotonic, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %107 = load i64, ptr %106, align 8, !tbaa !12
+  %107 = load i64, ptr %106, align 8, !tbaa !13
   %108 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 184), i64 %107 monotonic, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %110 = load i64, ptr %109, align 8, !tbaa !16
+  %110 = load i64, ptr %109, align 8, !tbaa !17
   %111 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 168), i64 %110 monotonic, align 8
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %113 = load i64, ptr %112, align 8, !tbaa !14
+  %113 = load i64, ptr %112, align 8, !tbaa !15
   %114 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 176), i64 %113 monotonic, align 8
   br label %115
 
 115:                                              ; preds = %104, %100
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %117 = load i64, ptr %116, align 8, !tbaa !15
+  %117 = load i64, ptr %116, align 8, !tbaa !16
   %118 = icmp eq i64 %117, 0
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %121 = load i64, ptr %120, align 8, !tbaa !16
+  %121 = load i64, ptr %120, align 8, !tbaa !17
   %122 = icmp eq i64 %121, 0
   br i1 %122, label %134, label %123
 
 123:                                              ; preds = %119, %115
   %124 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 192), i64 %117 monotonic, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %126 = load i64, ptr %125, align 8, !tbaa !12
+  %126 = load i64, ptr %125, align 8, !tbaa !13
   %127 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 216), i64 %126 monotonic, align 8
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %129 = load i64, ptr %128, align 8, !tbaa !16
+  %129 = load i64, ptr %128, align 8, !tbaa !17
   %130 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 200), i64 %129 monotonic, align 8
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %132 = load i64, ptr %131, align 8, !tbaa !14
+  %132 = load i64, ptr %131, align 8, !tbaa !15
   %133 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 208), i64 %132 monotonic, align 8
   br label %134
 
 134:                                              ; preds = %123, %119
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %136 = load i64, ptr %135, align 8, !tbaa !15
+  %136 = load i64, ptr %135, align 8, !tbaa !16
   %137 = icmp eq i64 %136, 0
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %140 = load i64, ptr %139, align 8, !tbaa !16
+  %140 = load i64, ptr %139, align 8, !tbaa !17
   %141 = icmp eq i64 %140, 0
   br i1 %141, label %153, label %142
 
 142:                                              ; preds = %138, %134
   %143 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 256), i64 %136 monotonic, align 8
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %145 = load i64, ptr %144, align 8, !tbaa !12
+  %145 = load i64, ptr %144, align 8, !tbaa !13
   %146 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 280), i64 %145 monotonic, align 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %148 = load i64, ptr %147, align 8, !tbaa !16
+  %148 = load i64, ptr %147, align 8, !tbaa !17
   %149 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 264), i64 %148 monotonic, align 8
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %151 = load i64, ptr %150, align 8, !tbaa !14
+  %151 = load i64, ptr %150, align 8, !tbaa !15
   %152 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 272), i64 %151 monotonic, align 8
   br label %153
 
 153:                                              ; preds = %142, %138
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %155 = load i64, ptr %154, align 8, !tbaa !15
+  %155 = load i64, ptr %154, align 8, !tbaa !16
   %156 = icmp eq i64 %155, 0
   br i1 %156, label %157, label %161
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %159 = load i64, ptr %158, align 8, !tbaa !16
+  %159 = load i64, ptr %158, align 8, !tbaa !17
   %160 = icmp eq i64 %159, 0
   br i1 %160, label %172, label %161
 
 161:                                              ; preds = %157, %153
   %162 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 224), i64 %155 monotonic, align 8
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %164 = load i64, ptr %163, align 8, !tbaa !12
+  %164 = load i64, ptr %163, align 8, !tbaa !13
   %165 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 248), i64 %164 monotonic, align 8
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %167 = load i64, ptr %166, align 8, !tbaa !16
+  %167 = load i64, ptr %166, align 8, !tbaa !17
   %168 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 232), i64 %167 monotonic, align 8
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %170 = load i64, ptr %169, align 8, !tbaa !14
+  %170 = load i64, ptr %169, align 8, !tbaa !15
   %171 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 240), i64 %170 monotonic, align 8
   br label %172
 
 172:                                              ; preds = %161, %157
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %174 = load i64, ptr %173, align 8, !tbaa !15
+  %174 = load i64, ptr %173, align 8, !tbaa !16
   %175 = icmp eq i64 %174, 0
   br i1 %175, label %176, label %180
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %178 = load i64, ptr %177, align 8, !tbaa !16
+  %178 = load i64, ptr %177, align 8, !tbaa !17
   %179 = icmp eq i64 %178, 0
   br i1 %179, label %191, label %180
 
 180:                                              ; preds = %176, %172
   %181 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 %174 monotonic, align 8
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %183 = load i64, ptr %182, align 8, !tbaa !12
+  %183 = load i64, ptr %182, align 8, !tbaa !13
   %184 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 312), i64 %183 monotonic, align 8
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %186 = load i64, ptr %185, align 8, !tbaa !16
+  %186 = load i64, ptr %185, align 8, !tbaa !17
   %187 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 296), i64 %186 monotonic, align 8
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %189 = load i64, ptr %188, align 8, !tbaa !14
+  %189 = load i64, ptr %188, align 8, !tbaa !15
   %190 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 %189 monotonic, align 8
   br label %191
 
 191:                                              ; preds = %180, %176
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %193 = load i64, ptr %192, align 8, !tbaa !15
+  %193 = load i64, ptr %192, align 8, !tbaa !16
   %194 = icmp eq i64 %193, 0
   br i1 %194, label %195, label %199
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %197 = load i64, ptr %196, align 8, !tbaa !16
+  %197 = load i64, ptr %196, align 8, !tbaa !17
   %198 = icmp eq i64 %197, 0
   br i1 %198, label %210, label %199
 
 199:                                              ; preds = %195, %191
   %200 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 416), i64 %193 monotonic, align 8
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %202 = load i64, ptr %201, align 8, !tbaa !12
+  %202 = load i64, ptr %201, align 8, !tbaa !13
   %203 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 440), i64 %202 monotonic, align 8
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %205 = load i64, ptr %204, align 8, !tbaa !16
+  %205 = load i64, ptr %204, align 8, !tbaa !17
   %206 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 424), i64 %205 monotonic, align 8
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %208 = load i64, ptr %207, align 8, !tbaa !14
+  %208 = load i64, ptr %207, align 8, !tbaa !15
   %209 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 432), i64 %208 monotonic, align 8
   br label %210
 
 210:                                              ; preds = %199, %195
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %212 = load i64, ptr %211, align 8, !tbaa !15
+  %212 = load i64, ptr %211, align 8, !tbaa !16
   %213 = icmp eq i64 %212, 0
   br i1 %213, label %214, label %218
 
 214:                                              ; preds = %210
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %216 = load i64, ptr %215, align 8, !tbaa !16
+  %216 = load i64, ptr %215, align 8, !tbaa !17
   %217 = icmp eq i64 %216, 0
   br i1 %217, label %229, label %218
 
 218:                                              ; preds = %214, %210
   %219 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 448), i64 %212 monotonic, align 8
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %221 = load i64, ptr %220, align 8, !tbaa !12
+  %221 = load i64, ptr %220, align 8, !tbaa !13
   %222 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 472), i64 %221 monotonic, align 8
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %224 = load i64, ptr %223, align 8, !tbaa !16
+  %224 = load i64, ptr %223, align 8, !tbaa !17
   %225 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 456), i64 %224 monotonic, align 8
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %227 = load i64, ptr %226, align 8, !tbaa !14
+  %227 = load i64, ptr %226, align 8, !tbaa !15
   %228 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 464), i64 %227 monotonic, align 8
   br label %229
 
 229:                                              ; preds = %218, %214
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %231 = load i64, ptr %230, align 8, !tbaa !15
+  %231 = load i64, ptr %230, align 8, !tbaa !16
   %232 = icmp eq i64 %231, 0
   br i1 %232, label %233, label %237
 
 233:                                              ; preds = %229
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %235 = load i64, ptr %234, align 8, !tbaa !16
+  %235 = load i64, ptr %234, align 8, !tbaa !17
   %236 = icmp eq i64 %235, 0
   br i1 %236, label %248, label %237
 
 237:                                              ; preds = %233, %229
   %238 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 320), i64 %231 monotonic, align 8
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %240 = load i64, ptr %239, align 8, !tbaa !12
+  %240 = load i64, ptr %239, align 8, !tbaa !13
   %241 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 344), i64 %240 monotonic, align 8
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %243 = load i64, ptr %242, align 8, !tbaa !16
+  %243 = load i64, ptr %242, align 8, !tbaa !17
   %244 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 328), i64 %243 monotonic, align 8
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %246 = load i64, ptr %245, align 8, !tbaa !14
+  %246 = load i64, ptr %245, align 8, !tbaa !15
   %247 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 336), i64 %246 monotonic, align 8
   br label %248
 
 248:                                              ; preds = %237, %233
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %250 = load i64, ptr %249, align 8, !tbaa !15
+  %250 = load i64, ptr %249, align 8, !tbaa !16
   %251 = icmp eq i64 %250, 0
   br i1 %251, label %252, label %256
 
 252:                                              ; preds = %248
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %254 = load i64, ptr %253, align 8, !tbaa !16
+  %254 = load i64, ptr %253, align 8, !tbaa !17
   %255 = icmp eq i64 %254, 0
   br i1 %255, label %267, label %256
 
 256:                                              ; preds = %252, %248
   %257 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 352), i64 %250 monotonic, align 8
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %259 = load i64, ptr %258, align 8, !tbaa !12
+  %259 = load i64, ptr %258, align 8, !tbaa !13
   %260 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 376), i64 %259 monotonic, align 8
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %262 = load i64, ptr %261, align 8, !tbaa !16
+  %262 = load i64, ptr %261, align 8, !tbaa !17
   %263 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 360), i64 %262 monotonic, align 8
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %265 = load i64, ptr %264, align 8, !tbaa !14
+  %265 = load i64, ptr %264, align 8, !tbaa !15
   %266 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 368), i64 %265 monotonic, align 8
   br label %267
 
 267:                                              ; preds = %256, %252
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %269 = load i64, ptr %268, align 8, !tbaa !15
+  %269 = load i64, ptr %268, align 8, !tbaa !16
   %270 = icmp eq i64 %269, 0
   br i1 %270, label %271, label %275
 
 271:                                              ; preds = %267
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %273 = load i64, ptr %272, align 8, !tbaa !16
+  %273 = load i64, ptr %272, align 8, !tbaa !17
   %274 = icmp eq i64 %273, 0
   br i1 %274, label %mi_stats_add.exit, label %275
 
 275:                                              ; preds = %271, %267
   %276 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 384), i64 %269 monotonic, align 8
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %278 = load i64, ptr %277, align 8, !tbaa !12
+  %278 = load i64, ptr %277, align 8, !tbaa !13
   %279 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 408), i64 %278 monotonic, align 8
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %281 = load i64, ptr %280, align 8, !tbaa !16
+  %281 = load i64, ptr %280, align 8, !tbaa !17
   %282 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 392), i64 %281 monotonic, align 8
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %284 = load i64, ptr %283, align 8, !tbaa !14
+  %284 = load i64, ptr %283, align 8, !tbaa !15
   %285 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 400), i64 %284 monotonic, align 8
   br label %mi_stats_add.exit
 
@@ -856,7 +856,7 @@ define hidden void @_mi_stats_done(ptr noundef %0) local_unnamed_addr #5 {
 ; Function Attrs: nounwind uwtable
 define hidden void @mi_stats_print_out(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @mi_heap_get_default() #8
-  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   tail call fastcc void @mi_stats_merge_from(ptr noundef nonnull %5) #9
   tail call fastcc void @_mi_stats_print(ptr noundef nonnull @_mi_stats_main, ptr noundef %0, ptr noundef %1) #9
@@ -870,15 +870,15 @@ define internal fastcc void @_mi_stats_print(ptr noundef readonly captures(none)
   %6 = alloca %struct.buffered_s, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #10
-  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %1, ptr %6, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %7, align 8, !tbaa !29
+  store ptr %2, ptr %7, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %10, align 8
-  store i64 255, ptr %9, align 8, !tbaa !30
-  store ptr %5, ptr %8, align 8, !tbaa !31
+  store i64 255, ptr %9, align 8, !tbaa !31
+  store ptr %5, ptr %8, align 8, !tbaa !32
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %6, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38) #8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %11, ptr noundef nonnull @.str, i64 noundef 1, ptr noundef %6, ptr noundef nonnull @.str.1) #9
@@ -886,12 +886,12 @@ define internal fastcc void @_mi_stats_print(ptr noundef readonly captures(none)
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %12, ptr noundef nonnull @.str.2, i64 noundef 1, ptr noundef %6, ptr noundef nonnull @.str.1) #9
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %6, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.3) #8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %14 = load i64, ptr %13, align 8, !tbaa !14
+  %14 = load i64, ptr %13, align 8, !tbaa !15
   call fastcc void @mi_printf_amount(i64 noundef %14, i64 noundef 1, ptr noundef nonnull %6, ptr noundef null) #9
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %6, ptr noundef nonnull @.str.30) #8
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %6, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.4) #8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %16 = load i64, ptr %15, align 8, !tbaa !14
+  %16 = load i64, ptr %15, align 8, !tbaa !15
   call fastcc void @mi_printf_amount(i64 noundef %16, i64 noundef 1, ptr noundef nonnull %6, ptr noundef null) #9
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %6, ptr noundef nonnull @.str.30) #8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -988,36 +988,36 @@ _mi_os_numa_node_count.exit:                      ; preds = %mi_stat_counter_pri
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %57, i8 0, i64 56, i1 false)
-  %58 = load i64, ptr @mi_process_start, align 8, !tbaa !25
+  %58 = load i64, ptr @mi_process_start, align 8, !tbaa !26
   %59 = call i64 @_mi_prim_clock_now() #8
-  %60 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
+  %60 = load i64, ptr @mi_clock_diff, align 8, !tbaa !26
   %61 = add i64 %58, %60
   %62 = sub i64 %59, %61
-  store i64 %62, ptr %4, align 8, !tbaa !32
+  store i64 %62, ptr %4, align 8, !tbaa !33
   %63 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 %63, ptr %64, align 8, !tbaa !34
+  store i64 %63, ptr %64, align 8, !tbaa !35
   %65 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 %65, ptr %66, align 8, !tbaa !35
+  store i64 %65, ptr %66, align 8, !tbaa !36
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %63, ptr %67, align 8, !tbaa !36
+  store i64 %63, ptr %67, align 8, !tbaa !37
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %65, ptr %68, align 8, !tbaa !37
+  store i64 %65, ptr %68, align 8, !tbaa !38
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 0, ptr %70, align 8, !tbaa !38
+  store i64 0, ptr %70, align 8, !tbaa !39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   call void @_mi_prim_process_info(ptr noundef nonnull %4) #8
-  %71 = load i64, ptr %4, align 8, !tbaa !32
+  %71 = load i64, ptr %4, align 8, !tbaa !33
   %72 = call i64 @llvm.smax.i64(i64 %71, i64 0)
-  %73 = load i64, ptr %57, align 8, !tbaa !39
+  %73 = load i64, ptr %57, align 8, !tbaa !40
   %74 = call i64 @llvm.smax.i64(i64 %73, i64 0)
-  %75 = load i64, ptr %69, align 8, !tbaa !40
+  %75 = load i64, ptr %69, align 8, !tbaa !41
   %76 = call i64 @llvm.smax.i64(i64 %75, i64 0)
-  %77 = load i64, ptr %68, align 8, !tbaa !37
-  %78 = load i64, ptr %66, align 8, !tbaa !35
-  %79 = load i64, ptr %70, align 8, !tbaa !38
+  %77 = load i64, ptr %68, align 8, !tbaa !38
+  %78 = load i64, ptr %66, align 8, !tbaa !36
+  %79 = load i64, ptr %70, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
   %80 = udiv i64 %72, 1000
   %81 = urem i64 %72, 1000
@@ -1046,7 +1046,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %mi_stat_counter_pri
 ; Function Attrs: nounwind uwtable
 define hidden void @mi_stats_print(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @mi_heap_get_default() #8
-  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   tail call fastcc void @mi_stats_merge_from(ptr noundef nonnull %4) #9
   tail call fastcc void @_mi_stats_print(ptr noundef nonnull @_mi_stats_main, ptr noundef %0, ptr noundef null) #9
@@ -1056,7 +1056,7 @@ define hidden void @mi_stats_print(ptr noundef %0) local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define hidden void @mi_thread_stats_print_out(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @mi_heap_get_default() #8
-  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   tail call fastcc void @_mi_stats_print(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1) #9
   ret void
@@ -1073,7 +1073,7 @@ declare i64 @_mi_prim_clock_now() local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden i64 @_mi_clock_end(i64 noundef %0) local_unnamed_addr #2 {
   %2 = tail call i64 @_mi_prim_clock_now() #8
-  %3 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
+  %3 = load i64, ptr @mi_clock_diff, align 8, !tbaa !26
   %4 = add i64 %0, %3
   %5 = sub i64 %2, %4
   ret i64 %5
@@ -1085,35 +1085,35 @@ define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_nu
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
-  %11 = load i64, ptr @mi_process_start, align 8, !tbaa !25
+  %11 = load i64, ptr @mi_process_start, align 8, !tbaa !26
   %12 = tail call i64 @_mi_prim_clock_now() #8
-  %13 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
+  %13 = load i64, ptr @mi_clock_diff, align 8, !tbaa !26
   %14 = add i64 %11, %13
   %15 = sub i64 %12, %14
-  store i64 %15, ptr %9, align 8, !tbaa !32
+  store i64 %15, ptr %9, align 8, !tbaa !33
   %16 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i64 %16, ptr %17, align 8, !tbaa !34
+  store i64 %16, ptr %17, align 8, !tbaa !35
   %18 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i64 %18, ptr %19, align 8, !tbaa !35
+  store i64 %18, ptr %19, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %16, ptr %20, align 8, !tbaa !36
+  store i64 %16, ptr %20, align 8, !tbaa !37
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 %18, ptr %21, align 8, !tbaa !37
+  store i64 %18, ptr %21, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 0, ptr %24, align 8, !tbaa !38
+  store i64 0, ptr %24, align 8, !tbaa !39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   call void @_mi_prim_process_info(ptr noundef nonnull %9) #8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %25
 
 25:                                               ; preds = %8
-  %26 = load i64, ptr %9, align 8, !tbaa !32
+  %26 = load i64, ptr %9, align 8, !tbaa !33
   %27 = call i64 @llvm.smax.i64(i64 %26, i64 0)
-  store i64 %27, ptr %0, align 8, !tbaa !25
+  store i64 %27, ptr %0, align 8, !tbaa !26
   br label %28
 
 28:                                               ; preds = %25, %8
@@ -1121,9 +1121,9 @@ define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_nu
   br i1 %.not24, label %32, label %29
 
 29:                                               ; preds = %28
-  %30 = load i64, ptr %22, align 8, !tbaa !39
+  %30 = load i64, ptr %22, align 8, !tbaa !40
   %31 = call i64 @llvm.smax.i64(i64 %30, i64 0)
-  store i64 %31, ptr %1, align 8, !tbaa !25
+  store i64 %31, ptr %1, align 8, !tbaa !26
   br label %32
 
 32:                                               ; preds = %29, %28
@@ -1131,9 +1131,9 @@ define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_nu
   br i1 %.not25, label %36, label %33
 
 33:                                               ; preds = %32
-  %34 = load i64, ptr %23, align 8, !tbaa !40
+  %34 = load i64, ptr %23, align 8, !tbaa !41
   %35 = call i64 @llvm.smax.i64(i64 %34, i64 0)
-  store i64 %35, ptr %2, align 8, !tbaa !25
+  store i64 %35, ptr %2, align 8, !tbaa !26
   br label %36
 
 36:                                               ; preds = %33, %32
@@ -1141,8 +1141,8 @@ define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_nu
   br i1 %.not26, label %39, label %37
 
 37:                                               ; preds = %36
-  %38 = load i64, ptr %20, align 8, !tbaa !36
-  store i64 %38, ptr %3, align 8, !tbaa !25
+  %38 = load i64, ptr %20, align 8, !tbaa !37
+  store i64 %38, ptr %3, align 8, !tbaa !26
   br label %39
 
 39:                                               ; preds = %37, %36
@@ -1150,8 +1150,8 @@ define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_nu
   br i1 %.not27, label %42, label %40
 
 40:                                               ; preds = %39
-  %41 = load i64, ptr %21, align 8, !tbaa !37
-  store i64 %41, ptr %4, align 8, !tbaa !25
+  %41 = load i64, ptr %21, align 8, !tbaa !38
+  store i64 %41, ptr %4, align 8, !tbaa !26
   br label %42
 
 42:                                               ; preds = %40, %39
@@ -1159,8 +1159,8 @@ define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_nu
   br i1 %.not28, label %45, label %43
 
 43:                                               ; preds = %42
-  %44 = load i64, ptr %17, align 8, !tbaa !34
-  store i64 %44, ptr %5, align 8, !tbaa !25
+  %44 = load i64, ptr %17, align 8, !tbaa !35
+  store i64 %44, ptr %5, align 8, !tbaa !26
   br label %45
 
 45:                                               ; preds = %43, %42
@@ -1168,8 +1168,8 @@ define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_nu
   br i1 %.not29, label %48, label %46
 
 46:                                               ; preds = %45
-  %47 = load i64, ptr %19, align 8, !tbaa !35
-  store i64 %47, ptr %6, align 8, !tbaa !25
+  %47 = load i64, ptr %19, align 8, !tbaa !36
+  store i64 %47, ptr %6, align 8, !tbaa !26
   br label %48
 
 48:                                               ; preds = %46, %45
@@ -1177,8 +1177,8 @@ define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_nu
   br i1 %.not30, label %51, label %49
 
 49:                                               ; preds = %48
-  %50 = load i64, ptr %24, align 8, !tbaa !38
-  store i64 %50, ptr %7, align 8, !tbaa !25
+  %50 = load i64, ptr %24, align 8, !tbaa !39
+  store i64 %50, ptr %7, align 8, !tbaa !26
   br label %51
 
 51:                                               ; preds = %49, %48
@@ -1198,7 +1198,7 @@ define internal void @mi_buffered_out(ptr noundef readonly captures(address_is_n
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %5 = load i8, ptr %0, align 1, !tbaa !41
+  %5 = load i8, ptr %0, align 1, !tbaa !42
   %.not19 = icmp eq i8 %5, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
@@ -1212,48 +1212,48 @@ define internal void @mi_buffered_out(ptr noundef readonly captures(address_is_n
 10:                                               ; preds = %.lr.ph, %33
   %11 = phi i8 [ %5, %.lr.ph ], [ %35, %33 ]
   %.020 = phi ptr [ %0, %.lr.ph ], [ %34, %33 ]
-  %12 = load i64, ptr %6, align 8, !tbaa !42
-  %13 = load i64, ptr %7, align 8, !tbaa !30
+  %12 = load i64, ptr %6, align 8, !tbaa !43
+  %13 = load i64, ptr %7, align 8, !tbaa !31
   %.not18 = icmp ult i64 %12, %13
   br i1 %.not18, label %20, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %8, align 8, !tbaa !31
+  %15 = load ptr, ptr %8, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %12
-  store i8 0, ptr %16, align 1, !tbaa !41
-  %17 = load ptr, ptr %1, align 8, !tbaa !26
-  %18 = load ptr, ptr %9, align 8, !tbaa !29
-  %19 = load ptr, ptr %8, align 8, !tbaa !31
+  store i8 0, ptr %16, align 1, !tbaa !42
+  %17 = load ptr, ptr %1, align 8, !tbaa !27
+  %18 = load ptr, ptr %9, align 8, !tbaa !30
+  %19 = load ptr, ptr %8, align 8, !tbaa !32
   tail call void @_mi_fputs(ptr noundef %17, ptr noundef %18, ptr noundef null, ptr noundef %19) #8
   br label %20
 
 20:                                               ; preds = %14, %10
   %21 = phi i64 [ 0, %14 ], [ %12, %10 ]
-  %22 = load ptr, ptr %8, align 8, !tbaa !31
+  %22 = load ptr, ptr %8, align 8, !tbaa !32
   %23 = add nuw i64 %21, 1
-  store i64 %23, ptr %6, align 8, !tbaa !42
+  store i64 %23, ptr %6, align 8, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
-  store i8 %11, ptr %24, align 1, !tbaa !41
+  store i8 %11, ptr %24, align 1, !tbaa !42
   %25 = icmp eq i8 %11, 10
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr %8, align 8, !tbaa !31
-  %28 = load i64, ptr %6, align 8, !tbaa !42
+  %27 = load ptr, ptr %8, align 8, !tbaa !32
+  %28 = load i64, ptr %6, align 8, !tbaa !43
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
-  store i8 0, ptr %29, align 1, !tbaa !41
-  %30 = load ptr, ptr %1, align 8, !tbaa !26
-  %31 = load ptr, ptr %9, align 8, !tbaa !29
-  %32 = load ptr, ptr %8, align 8, !tbaa !31
+  store i8 0, ptr %29, align 1, !tbaa !42
+  %30 = load ptr, ptr %1, align 8, !tbaa !27
+  %31 = load ptr, ptr %9, align 8, !tbaa !30
+  %32 = load ptr, ptr %8, align 8, !tbaa !32
   tail call void @_mi_fputs(ptr noundef %30, ptr noundef %31, ptr noundef null, ptr noundef %32) #8
-  store i64 0, ptr %6, align 8, !tbaa !42
+  store i64 0, ptr %6, align 8, !tbaa !43
   br label %33
 
 33:                                               ; preds = %26, %20
   %34 = getelementptr inbounds nuw i8, ptr %.020, i64 1
-  %35 = load i8, ptr %34, align 1, !tbaa !41
+  %35 = load i8, ptr %34, align 1, !tbaa !42
   %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !43
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !44
 
 .loopexit:                                        ; preds = %33, %.preheader, %2
   ret void
@@ -1271,21 +1271,21 @@ define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none
 9:                                                ; preds = %5
   %10 = icmp sgt i64 %2, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !14
+  %12 = load i64, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %10, label %15, label %19
 
 15:                                               ; preds = %9
   tail call fastcc void @mi_printf_amount(i64 noundef %12, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #9
-  %16 = load i64, ptr %0, align 8, !tbaa !15
+  %16 = load i64, ptr %0, align 8, !tbaa !16
   tail call fastcc void @mi_printf_amount(i64 noundef %16, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #9
-  %17 = load i64, ptr %13, align 8, !tbaa !16
+  %17 = load i64, ptr %13, align 8, !tbaa !17
   tail call fastcc void @mi_printf_amount(i64 noundef %17, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #9
-  %18 = load i64, ptr %14, align 8, !tbaa !12
+  %18 = load i64, ptr %14, align 8, !tbaa !13
   tail call fastcc void @mi_printf_amount(i64 noundef %18, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
-  store i8 0, ptr %8, align 16, !tbaa !41
+  store i8 0, ptr %8, align 16, !tbaa !42
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.46, ptr noundef nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.45) #8
@@ -1293,11 +1293,11 @@ define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none
 
 19:                                               ; preds = %9
   tail call fastcc void @mi_printf_amount(i64 noundef %12, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null) #9
-  %20 = load i64, ptr %0, align 8, !tbaa !15
+  %20 = load i64, ptr %0, align 8, !tbaa !16
   tail call fastcc void @mi_printf_amount(i64 noundef %20, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null) #9
-  %21 = load i64, ptr %13, align 8, !tbaa !16
+  %21 = load i64, ptr %13, align 8, !tbaa !17
   tail call fastcc void @mi_printf_amount(i64 noundef %21, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null) #9
-  %22 = load i64, ptr %14, align 8, !tbaa !12
+  %22 = load i64, ptr %14, align 8, !tbaa !13
   tail call fastcc void @mi_printf_amount(i64 noundef %22, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null) #9
   %23 = icmp eq i64 %2, -1
   br i1 %23, label %24, label %mi_printf_amount.exit
@@ -1308,21 +1308,21 @@ define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none
 
 mi_printf_amount.exit:                            ; preds = %19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
-  store i8 0, ptr %7, align 16, !tbaa !41
+  store i8 0, ptr %7, align 16, !tbaa !42
   %25 = call i32 (ptr, i64, ptr, ...) @_mi_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.49, i64 noundef 0, ptr noundef nonnull @.str.1) #8
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.46, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
-  store i8 0, ptr %6, align 16, !tbaa !41
+  store i8 0, ptr %6, align 16, !tbaa !42
   %26 = call i32 (ptr, i64, ptr, ...) @_mi_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.49, i64 noundef poison, ptr noundef nonnull poison) #8
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.46, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #10
   br label %27
 
 27:                                               ; preds = %24, %mi_printf_amount.exit, %15
-  %28 = load i64, ptr %0, align 8, !tbaa !15
+  %28 = load i64, ptr %0, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !16
+  %30 = load i64, ptr %29, align 8, !tbaa !17
   %31 = icmp sgt i64 %28, %30
   br i1 %31, label %32, label %35
 
@@ -1340,13 +1340,13 @@ mi_printf_amount.exit:                            ; preds = %19
 
 36:                                               ; preds = %5
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !14
+  %38 = load i64, ptr %37, align 8, !tbaa !15
   tail call fastcc void @mi_printf_amount(i64 noundef %38, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #9
-  %39 = load i64, ptr %0, align 8, !tbaa !15
+  %39 = load i64, ptr %0, align 8, !tbaa !16
   tail call fastcc void @mi_printf_amount(i64 noundef %39, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #9
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load i64, ptr %40, align 8, !tbaa !12
+  %41 = load i64, ptr %40, align 8, !tbaa !13
   tail call fastcc void @mi_printf_amount(i64 noundef %41, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null) #9
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.30) #8
   br label %42
@@ -1362,7 +1362,7 @@ define internal fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef range(
   %5 = alloca [32 x i8], align 16
   %6 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
-  store i8 0, ptr %5, align 16, !tbaa !41
+  store i8 0, ptr %5, align 16, !tbaa !42
   %7 = icmp slt i64 %1, 1
   %8 = select i1 %7, ptr @.str.45, ptr @.str.48
   %.not51 = icmp eq i64 %1, 0
@@ -1451,37 +1451,38 @@ attributes #10 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!4, !5, i64 0}
 !9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !5, i64 24}
-!13 = !{!"mi_stat_count_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
-!14 = !{!13, !5, i64 16}
-!15 = !{!13, !5, i64 0}
-!16 = !{!13, !5, i64 8}
-!17 = !{!18, !19, i64 0}
-!18 = !{!"mi_heap_s", !19, i64 0, !6, i64 8, !5, i64 16, !21, i64 24, !5, i64 32, !6, i64 40, !22, i64 56, !5, i64 192, !5, i64 200, !5, i64 208, !24, i64 216, !23, i64 224, !6, i64 225, !6, i64 232, !6, i64 1264}
-!19 = !{!"p1 _ZTS8mi_tld_s", !20, i64 0}
-!20 = !{!"any pointer", !6, i64 0}
-!21 = !{!"int", !6, i64 0}
-!22 = !{!"mi_random_cxt_s", !6, i64 0, !6, i64 64, !21, i64 128, !23, i64 132}
-!23 = !{!"_Bool", !6, i64 0}
-!24 = !{!"p1 _ZTS9mi_heap_s", !20, i64 0}
-!25 = !{!5, !5, i64 0}
-!26 = !{!27, !20, i64 0}
-!27 = !{!"buffered_s", !20, i64 0, !20, i64 8, !28, i64 16, !5, i64 24, !5, i64 32}
-!28 = !{!"p1 omnipotent char", !20, i64 0}
-!29 = !{!27, !20, i64 8}
-!30 = !{!27, !5, i64 32}
-!31 = !{!27, !28, i64 16}
-!32 = !{!33, !5, i64 0}
-!33 = !{!"mi_process_info_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
-!34 = !{!33, !5, i64 40}
-!35 = !{!33, !5, i64 48}
-!36 = !{!33, !5, i64 24}
-!37 = !{!33, !5, i64 32}
-!38 = !{!33, !5, i64 56}
-!39 = !{!33, !5, i64 8}
-!40 = !{!33, !5, i64 16}
-!41 = !{!6, !6, i64 0}
-!42 = !{!27, !5, i64 24}
-!43 = distinct !{!43, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !5, i64 24}
+!14 = !{!"mi_stat_count_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!15 = !{!14, !5, i64 16}
+!16 = !{!14, !5, i64 0}
+!17 = !{!14, !5, i64 8}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"mi_heap_s", !20, i64 0, !6, i64 8, !5, i64 16, !22, i64 24, !5, i64 32, !6, i64 40, !23, i64 56, !5, i64 192, !5, i64 200, !5, i64 208, !25, i64 216, !24, i64 224, !6, i64 225, !6, i64 232, !6, i64 1264}
+!20 = !{!"p1 _ZTS8mi_tld_s", !21, i64 0}
+!21 = !{!"any pointer", !6, i64 0}
+!22 = !{!"int", !6, i64 0}
+!23 = !{!"mi_random_cxt_s", !6, i64 0, !6, i64 64, !22, i64 128, !24, i64 132}
+!24 = !{!"_Bool", !6, i64 0}
+!25 = !{!"p1 _ZTS9mi_heap_s", !21, i64 0}
+!26 = !{!5, !5, i64 0}
+!27 = !{!28, !21, i64 0}
+!28 = !{!"buffered_s", !21, i64 0, !21, i64 8, !29, i64 16, !5, i64 24, !5, i64 32}
+!29 = !{!"p1 omnipotent char", !21, i64 0}
+!30 = !{!28, !21, i64 8}
+!31 = !{!28, !5, i64 32}
+!32 = !{!28, !29, i64 16}
+!33 = !{!34, !5, i64 0}
+!34 = !{!"mi_process_info_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
+!35 = !{!34, !5, i64 40}
+!36 = !{!34, !5, i64 48}
+!37 = !{!34, !5, i64 24}
+!38 = !{!34, !5, i64 32}
+!39 = !{!34, !5, i64 56}
+!40 = !{!34, !5, i64 8}
+!41 = !{!34, !5, i64 16}
+!42 = !{!6, !6, i64 0}
+!43 = !{!28, !5, i64 24}
+!44 = distinct !{!44, !11, !12}

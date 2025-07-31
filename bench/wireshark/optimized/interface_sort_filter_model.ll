@@ -247,20 +247,20 @@ define void @_ZN24InterfaceSortFilterModel16setStoreOnChangeEb(ptr noundef align
   %9 = load ptr, ptr @mainApp, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 ptrtoint (ptr @_ZN15MainApplication18preferencesChangedEv to i64), ptr %3, align 8, !noalias !8
+  store i64 ptrtoint (ptr @_ZN15MainApplication18preferencesChangedEv to i64), ptr %3, align 8, !noalias !9
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !8
-  store i64 ptrtoint (ptr @_ZN24InterfaceSortFilterModel19resetPreferenceDataEv to i64), ptr %4, align 8, !noalias !8
+  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !9
+  store i64 ptrtoint (ptr @_ZN24InterfaceSortFilterModel19resetPreferenceDataEv to i64), ptr %4, align 8, !noalias !9
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !8
-  %10 = tail call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #20, !noalias !8
-  store i32 1, ptr %10, align 4, !noalias !8
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !9
+  %10 = tail call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #20, !noalias !9
+  store i32 1, ptr %10, align 4, !noalias !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM24InterfaceSortFilterModelFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %11, align 8, !noalias !8
+  store ptr @_ZN9QtPrivate11QSlotObjectIM24InterfaceSortFilterModelFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %11, align 8, !noalias !9
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 ptrtoint (ptr @_ZN24InterfaceSortFilterModel19resetPreferenceDataEv to i64), ptr %12, align 8, !noalias !8
+  store i64 ptrtoint (ptr @_ZN24InterfaceSortFilterModel19resetPreferenceDataEv to i64), ptr %12, align 8, !noalias !9
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !8
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !9
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %9, ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %10, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15MainApplication16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -410,7 +410,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %_ZN5QListIiE5clearE
 59:                                               ; preds = %57
   %60 = load i32, ptr %58, align 4
   %61 = icmp eq i32 %60, %50
-  br i1 %61, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %57, !llvm.loop !11
+  br i1 %61, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %57, !llvm.loop !12
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %59
   %62 = ptrtoint ptr %58 to i64
@@ -451,7 +451,7 @@ _ZN5QListIiE6appendEi.exit:                       ; preds = %_ZNK23QListSpecialM
   %74 = load i64, ptr %38, align 8
   %75 = getelementptr %class.QString, ptr %73, i64 %74
   %.not = icmp eq ptr %72, %75
-  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %71, %36
   %76 = load ptr, ptr %6, align 8
@@ -490,7 +490,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %84, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %86 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %86, %81
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !14
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %78
   %87 = load ptr, ptr %6, align 8
@@ -507,7 +507,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %._crit_edge, %_ZN17
   br label %98
 
 89:                                               ; preds = %_ZN5QListI7QStringED2Ev.exit, %_ZN7QStringC2EPKc.exit
-  %90 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 272), align 8, !range !14, !noundef !15
+  %90 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 272), align 8, !range !15, !noundef !16
   %91 = xor i8 %90, 1
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %91, ptr %92, align 8
@@ -578,7 +578,7 @@ define void @_ZN24InterfaceSortFilterModel17setSortByActivityEb(ptr noundef alig
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel14sortByActivityEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(72) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i8, ptr %2, align 4, !range !14, !noundef !15
+  %3 = load i8, ptr %2, align 4, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -638,7 +638,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i:       ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %14 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %14, %9
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i, %4
   %15 = load ptr, ptr %0, align 8
@@ -672,7 +672,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel12filterHiddenEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(72) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8, !range !14, !noundef !15
+  %3 = load i8, ptr %2, align 8, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -680,11 +680,11 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel12filterHiddenEv(ptr no
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define void @_ZN24InterfaceSortFilterModel18toggleFilterHiddenEv(ptr noundef align 8 dereferenceable_or_null(72) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8, !range !14, !noundef !15
+  %3 = load i8, ptr %2, align 8, !range !15, !noundef !16
   %4 = xor i8 %3, 1
   store i8 %4, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %6 = load i8, ptr %5, align 1, !range !14, !noundef !15
+  %6 = load i8, ptr %5, align 1, !range !15, !noundef !16
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %9
 
@@ -705,7 +705,7 @@ declare void @prefs_main_write() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel12filterByTypeEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(72) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %3 = load i8, ptr %2, align 1, !range !14, !noundef !15
+  %3 = load i8, ptr %2, align 1, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -876,7 +876,7 @@ define void @_ZN24InterfaceSortFilterModel14typesDisplayedEv(ptr dead_on_unwind 
 59:                                               ; preds = %57
   %60 = load i32, ptr %58, align 4
   %61 = icmp eq i32 %60, %43
-  br i1 %61, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %57, !llvm.loop !11
+  br i1 %61, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %57, !llvm.loop !12
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %59
   %62 = ptrtoint ptr %58 to i64
@@ -934,7 +934,7 @@ _ZN5QListIiE6appendEi.exit:                       ; preds = %_ZNK23QListSpecialM
 
 77:                                               ; preds = %_ZN5QListIiE6appendEi.exit, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %49
   %78 = add nuw i32 %.08, 1
-  br label %26, !llvm.loop !16
+  br label %26, !llvm.loop !17
 
 .loopexit:                                        ; preds = %33, %16
   ret void
@@ -992,7 +992,7 @@ define void @_ZN24InterfaceSortFilterModel23setInterfaceTypeVisibleEib(ptr nound
 24:                                               ; preds = %22
   %25 = load i32, ptr %23, align 4
   %26 = icmp eq i32 %25, %1
-  br i1 %26, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %22, !llvm.loop !11
+  br i1 %26, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %22, !llvm.loop !12
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %24
   %27 = ptrtoint ptr %23 to i64
@@ -1030,7 +1030,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %24
 39:                                               ; preds = %37
   %40 = load i32, ptr %38, align 4
   %41 = icmp eq i32 %40, %1
-  br i1 %41, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit11, label %37, !llvm.loop !11
+  br i1 %41, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit11, label %37, !llvm.loop !12
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit11: ; preds = %39
   %42 = ptrtoint ptr %38 to i64
@@ -1048,7 +1048,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit11.thread: ; preds = %37,
 
 45:                                               ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit11.thread, %30
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %47 = load i8, ptr %46, align 1, !range !14, !noundef !15
+  %47 = load i8, ptr %46, align 1, !range !15, !noundef !16
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %138
 
@@ -1126,7 +1126,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %68, %_ZN17QArrayDat
   %72 = load i64, ptr %51, align 8
   %73 = getelementptr i32, ptr %71, i64 %72
   %.not66 = icmp eq ptr %70, %73
-  br i1 %.not66, label %._crit_edge, label %57, !llvm.loop !17
+  br i1 %.not66, label %._crit_edge, label %57, !llvm.loop !18
 
 74:                                               ; preds = %_ZN7QStringD2Ev.exit38
   %75 = landingpad { ptr, i32 }
@@ -1367,7 +1367,7 @@ define void @_ZN24InterfaceSortFilterModel20toggleTypeVisibilityEi(ptr noundef a
 13:                                               ; preds = %11
   %14 = load i32, ptr %12, align 4
   %15 = icmp eq i32 %14, %1
-  br i1 %15, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i, label %11, !llvm.loop !11
+  br i1 %15, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i, label %11, !llvm.loop !12
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i: ; preds = %13
   %16 = ptrtoint ptr %12 to i64
@@ -1379,13 +1379,13 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i: ; preds = %13
 
 .thread.i:                                        ; preds = %11, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i, %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %20 = load i8, ptr %19, align 2, !range !14, !noundef !15
+  %20 = load i8, ptr %19, align 2, !range !15, !noundef !16
   %21 = trunc nuw i8 %20 to i1
   br label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit
 
 22:                                               ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %24 = load i8, ptr %23, align 2, !range !14, !noundef !15
+  %24 = load i8, ptr %23, align 2, !range !15, !noundef !16
   %25 = trunc nuw i8 %24 to i1
   %26 = xor i1 %25, true
   br label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit
@@ -1419,7 +1419,7 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownE
 13:                                               ; preds = %11
   %14 = load i32, ptr %12, align 4
   %15 = icmp eq i32 %14, %1
-  br i1 %15, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %11, !llvm.loop !11
+  br i1 %15, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %11, !llvm.loop !12
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %13
   %16 = ptrtoint ptr %12 to i64
@@ -1431,14 +1431,14 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %13
 
 .thread:                                          ; preds = %11, %2, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %20 = load i8, ptr %19, align 2, !range !14, !noundef !15
+  %20 = load i8, ptr %19, align 2, !range !15, !noundef !16
   %21 = trunc nuw i8 %20 to i1
   %22 = xor i1 %21, true
   br label %27
 
 23:                                               ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %25 = load i8, ptr %24, align 2, !range !14, !noundef !15
+  %25 = load i8, ptr %24, align 2, !range !15, !noundef !16
   %26 = trunc nuw i8 %25 to i1
   br label %27
 
@@ -1519,7 +1519,7 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel19filterAcceptsColumnEi
 28:                                               ; preds = %26
   %29 = load i32, ptr %27, align 4
   %30 = icmp eq i32 %29, %1
-  br i1 %30, label %31, label %26, !llvm.loop !18
+  br i1 %30, label %31, label %26, !llvm.loop !19
 
 31:                                               ; preds = %28
   %32 = ptrtoint ptr %27 to i64
@@ -1619,7 +1619,7 @@ define noundef i32 @_ZN24InterfaceSortFilterModel17mapSourceToColumnE20Interface
 13:                                               ; preds = %11
   %14 = load i32, ptr %12, align 4
   %15 = icmp eq i32 %14, %1
-  br i1 %15, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit, label %11, !llvm.loop !18
+  br i1 %15, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit, label %11, !llvm.loop !19
 
 _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit: ; preds = %13
   %16 = ptrtoint ptr %12 to i64
@@ -1637,7 +1637,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit: 
 20:                                               ; preds = %.preheader
   %21 = load i32, ptr %19, align 4
   %22 = icmp eq i32 %21, %1
-  br i1 %22, label %23, label %.preheader, !llvm.loop !18
+  br i1 %22, label %23, label %.preheader, !llvm.loop !19
 
 23:                                               ; preds = %20
   %24 = ptrtoint ptr %19 to i64
@@ -1766,7 +1766,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
 27:                                               ; preds = %25
   %28 = load i32, ptr %26, align 4
   %29 = icmp eq i32 %28, %9
-  br i1 %29, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit, label %25, !llvm.loop !18
+  br i1 %29, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit, label %25, !llvm.loop !19
 
 _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit: ; preds = %27
   %30 = ptrtoint ptr %26 to i64
@@ -1807,7 +1807,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.t
 46:                                               ; preds = %44
   %47 = load i32, ptr %45, align 4
   %48 = icmp eq i32 %47, %37
-  br i1 %48, label %49, label %44, !llvm.loop !18
+  br i1 %48, label %49, label %44, !llvm.loop !19
 
 49:                                               ; preds = %46
   %50 = ptrtoint ptr %45 to i64
@@ -2072,15 +2072,15 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel8lessThanERK11QModelInd
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19
   %8 = load i32, ptr %1, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !noalias !19
+  %10 = load ptr, ptr %9, align 8, !noalias !20
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %20, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %13 = load i32, ptr %12, align 4, !noalias !19
+  %13 = load i32, ptr %12, align 4, !noalias !20
   %14 = icmp eq i32 %13, 11
   br i1 %14, label %15, label %16
 
@@ -2089,38 +2089,38 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel8lessThanERK11QModelInd
   br label %_ZNK11QModelIndex7siblingEii.exit
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %10, align 8, !noalias !19
+  %17 = load ptr, ptr %10, align 8, !noalias !20
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  %19 = load ptr, ptr %18, align 8, !noalias !19
+  %19 = load ptr, ptr %18, align 8, !noalias !20
   call void %19(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %5, ptr noundef nonnull align 8 dereferenceable_or_null(16) %10, i32 noundef %8, i32 noundef 11, ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %1)
   br label %_ZNK11QModelIndex7siblingEii.exit
 
 20:                                               ; preds = %3
-  store i32 -1, ptr %5, align 8, !alias.scope !19
+  store i32 -1, ptr %5, align 8, !alias.scope !20
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 -1, ptr %21, align 4, !alias.scope !19
+  store i32 -1, ptr %21, align 4, !alias.scope !20
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false), !alias.scope !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false), !alias.scope !20
   br label %_ZNK11QModelIndex7siblingEii.exit
 
 _ZNK11QModelIndex7siblingEii.exit:                ; preds = %15, %16, %20
-  call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %24 = load ptr, ptr %23, align 8, !noalias !22
+  %24 = load ptr, ptr %23, align 8, !noalias !23
   %.not.i17 = icmp eq ptr %24, null
   br i1 %.not.i17, label %29, label %25
 
 25:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit
-  %26 = load ptr, ptr %24, align 8, !noalias !22
+  %26 = load ptr, ptr %24, align 8, !noalias !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 144
-  %28 = load ptr, ptr %27, align 8, !noalias !22
+  %28 = load ptr, ptr %27, align 8, !noalias !23
   call void %28(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %4, ptr noundef nonnull align 8 dereferenceable_or_null(16) %24, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5, i32 noundef 256)
   br label %_ZNK11QModelIndex4dataEi.exit
 
 29:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !23
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 2, ptr %30, align 8, !alias.scope !22
+  store i64 2, ptr %30, align 8, !alias.scope !23
   br label %_ZNK11QModelIndex4dataEi.exit
 
 _ZNK11QModelIndex4dataEi.exit:                    ; preds = %25, %29
@@ -2134,15 +2134,15 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %25, %29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #19
   %33 = load i32, ptr %2, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = load ptr, ptr %34, align 8, !noalias !25
+  %35 = load ptr, ptr %34, align 8, !noalias !26
   %.not.i18 = icmp eq ptr %35, null
   br i1 %.not.i18, label %45, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %38 = load i32, ptr %37, align 4, !noalias !25
+  %38 = load i32, ptr %37, align 4, !noalias !26
   %39 = icmp eq i32 %38, 11
   br i1 %39, label %40, label %41
 
@@ -2151,38 +2151,38 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %25, %29
   br label %_ZNK11QModelIndex7siblingEii.exit19
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr %35, align 8, !noalias !25
+  %42 = load ptr, ptr %35, align 8, !noalias !26
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 112
-  %44 = load ptr, ptr %43, align 8, !noalias !25
+  %44 = load ptr, ptr %43, align 8, !noalias !26
   call void %44(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %7, ptr noundef nonnull align 8 dereferenceable_or_null(16) %35, i32 noundef %33, i32 noundef 11, ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %2)
   br label %_ZNK11QModelIndex7siblingEii.exit19
 
 45:                                               ; preds = %32
-  store i32 -1, ptr %7, align 8, !alias.scope !25
+  store i32 -1, ptr %7, align 8, !alias.scope !26
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 -1, ptr %46, align 4, !alias.scope !25
+  store i32 -1, ptr %46, align 4, !alias.scope !26
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !alias.scope !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !alias.scope !26
   br label %_ZNK11QModelIndex7siblingEii.exit19
 
 _ZNK11QModelIndex7siblingEii.exit19:              ; preds = %40, %41, %45
-  call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %49 = load ptr, ptr %48, align 8, !noalias !28
+  %49 = load ptr, ptr %48, align 8, !noalias !29
   %.not.i20 = icmp eq ptr %49, null
   br i1 %.not.i20, label %54, label %50
 
 50:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit19
-  %51 = load ptr, ptr %49, align 8, !noalias !28
+  %51 = load ptr, ptr %49, align 8, !noalias !29
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 144
-  %53 = load ptr, ptr %52, align 8, !noalias !28
+  %53 = load ptr, ptr %52, align 8, !noalias !29
   call void %53(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %6, ptr noundef nonnull align 8 dereferenceable_or_null(16) %49, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %7, i32 noundef 256)
   br label %_ZNK11QModelIndex4dataEi.exit21
 
 54:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !29
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %55, align 8, !alias.scope !28
+  store i64 2, ptr %55, align 8, !alias.scope !29
   br label %_ZNK11QModelIndex4dataEi.exit21
 
 _ZNK11QModelIndex4dataEi.exit21:                  ; preds = %50, %54
@@ -2194,7 +2194,7 @@ _ZNK11QModelIndex4dataEi.exit21:                  ; preds = %50, %54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %59 = load i8, ptr %58, align 4, !range !14, !noundef !15
+  %59 = load i8, ptr %58, align 4, !range !15, !noundef !16
   %60 = trunc nuw i8 %59 to i1
   %or.cond = and i1 %56, %60
   %or.cond.not = xor i1 %or.cond, true
@@ -2945,7 +2945,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM24InterfaceSortFilterModel
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !15
+  %17 = load ptr, ptr %16, align 8, !nosanitize !16
   br label %_ZN9QtPrivate15FunctionPointerIM24InterfaceSortFilterModelFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -3667,7 +3667,7 @@ define linkonce_odr noundef i64 @_ZN9QtPrivate19sequential_erase_ifI5QListIiEZNS
   %29 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
   %30 = add nsw i64 %.052.i.i.i, -1
   %31 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !31
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !32
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %28
   %gepdiff = and i64 %.idx44, 12
@@ -3803,7 +3803,7 @@ _ZSt4nextIN5QListIiE8iteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.
   %.sroa.038.1 = phi ptr [ %.sroa.038.054, %.lr.ph ], [ %78, %77 ]
   %80 = getelementptr i8, ptr %72, i64 4
   %.not = icmp eq ptr %80, %68
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %79
   %.pre62 = load ptr, ptr %3, align 8
@@ -4061,30 +4061,31 @@ attributes #22 = { builtin nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN7QObject7connectIM15MainApplicationFvvEM24InterfaceSortFilterModelFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
-!10 = distinct !{!10, !"_ZN7QObject7connectIM15MainApplicationFvvEM24InterfaceSortFilterModelFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK11QModelIndex7siblingEii: argument 0"}
-!21 = distinct !{!21, !"_ZNK11QModelIndex7siblingEii"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNK11QModelIndex4dataEi: argument 0"}
-!24 = distinct !{!24, !"_ZNK11QModelIndex4dataEi"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNK11QModelIndex7siblingEii: argument 0"}
-!27 = distinct !{!27, !"_ZNK11QModelIndex7siblingEii"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZNK11QModelIndex4dataEi: argument 0"}
-!30 = distinct !{!30, !"_ZNK11QModelIndex4dataEi"}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN7QObject7connectIM15MainApplicationFvvEM24InterfaceSortFilterModelFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
+!11 = distinct !{!11, !"_ZN7QObject7connectIM15MainApplicationFvvEM24InterfaceSortFilterModelFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNK11QModelIndex7siblingEii: argument 0"}
+!22 = distinct !{!22, !"_ZNK11QModelIndex7siblingEii"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNK11QModelIndex4dataEi: argument 0"}
+!25 = distinct !{!25, !"_ZNK11QModelIndex4dataEi"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZNK11QModelIndex7siblingEii: argument 0"}
+!28 = distinct !{!28, !"_ZNK11QModelIndex7siblingEii"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNK11QModelIndex4dataEi: argument 0"}
+!31 = distinct !{!31, !"_ZNK11QModelIndex4dataEi"}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}

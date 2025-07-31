@@ -57,7 +57,7 @@ define noundef i32 @ff_perlin_init(ptr noundef writeonly captures(none) initiali
 .preheader33:                                     ; preds = %28
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.promoted = load i32, ptr %26, align 4, !tbaa !17
+  %.promoted = load i32, ptr %26, align 4, !tbaa !18
   br label %31
 
 28:                                               ; preds = %24, %28
@@ -67,7 +67,7 @@ define noundef i32 @ff_perlin_init(ptr noundef writeonly captures(none) initiali
   store i8 %29, ptr %30, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.preheader33, label %28, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader33, label %28, !llvm.loop !20
 
 31:                                               ; preds = %.preheader33, %31
   %indvars.iv38 = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next39, %31 ]
@@ -76,17 +76,17 @@ define noundef i32 @ff_perlin_init(ptr noundef writeonly captures(none) initiali
   %34 = and i32 %33, 63
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !20
+  %37 = load i32, ptr %36, align 4, !tbaa !21
   %38 = add i32 %32, 9
   %39 = and i32 %38, 63
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !20
+  %42 = load i32, ptr %41, align 4, !tbaa !21
   %43 = add i32 %42, %37
   %44 = and i32 %32, 63
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %45
-  store i32 %43, ptr %46, align 4, !tbaa !20
+  store i32 %43, ptr %46, align 4, !tbaa !21
   %47 = add i32 %32, 1
   %48 = trunc i64 %indvars.iv38 to i32
   %49 = sub i32 256, %48
@@ -105,7 +105,7 @@ define noundef i32 @ff_perlin_init(ptr noundef writeonly captures(none) initiali
   store i8 %53, ptr %59, align 1, !tbaa !14
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 256
-  br i1 %exitcond41.not, label %60, label %31, !llvm.loop !21
+  br i1 %exitcond41.not, label %60, label %31, !llvm.loop !22
 
 60:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #5
@@ -504,7 +504,7 @@ perlin_get.exit:                                  ; preds = %grad.exit174.i, %12
   %251 = fmul nsz double %.02023, 2.000000e+00
   %252 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %252, %6
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %17, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %17, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -534,11 +534,12 @@ attributes #5 = { nounwind }
 !12 = !{!5, !9, i64 536}
 !13 = !{!5, !9, i64 540}
 !14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !9, i64 256}
-!18 = !{!"AVLFG", !7, i64 0, !9, i64 256}
-!19 = distinct !{!19, !16}
-!20 = !{!9, !9, i64 0}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !9, i64 256}
+!19 = !{!"AVLFG", !7, i64 0, !9, i64 256}
+!20 = distinct !{!20, !16, !17}
+!21 = !{!9, !9, i64 0}
+!22 = distinct !{!22, !16, !17}
+!23 = distinct !{!23, !16, !17}

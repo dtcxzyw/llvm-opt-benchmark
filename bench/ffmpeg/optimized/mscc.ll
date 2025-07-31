@@ -211,7 +211,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 .loopexit:                                        ; preds = %58, %64, %65
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !52
+  %67 = load ptr, ptr %66, align 8, !tbaa !53
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %67, ptr noundef nonnull align 8 dereferenceable(1024) %68, i64 1024, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -220,7 +220,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 69:                                               ; preds = %.loopexit, %48
   %70 = load ptr, ptr %19, align 8, !tbaa !37
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %72 = load i64, ptr %71, align 8, !tbaa !53
+  %72 = load i64, ptr %71, align 8, !tbaa !54
   %73 = and i64 %72, 2147483648
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %bytestream2_init.exit, label %75
@@ -440,7 +440,7 @@ bytestream2_put_byte.exit.i:                      ; preds = %177, %169, %163, %1
   %.sroa.0.2 = phi ptr [ %.sroa.0.1, %153 ], [ %162, %161 ], [ %168, %167 ], [ %176, %173 ], [ %182, %181 ], [ %.sroa.0.1, %157 ], [ %.sroa.0.1, %163 ], [ %.sroa.0.1, %169 ], [ %.sroa.0.1, %177 ]
   %183 = add nuw nsw i32 %.075132.i, 1
   %exitcond.not.i = icmp eq i32 %183, %99
-  br i1 %exitcond.not.i, label %184, label %153, !llvm.loop !54
+  br i1 %exitcond.not.i, label %184, label %153, !llvm.loop !55
 
 184:                                              ; preds = %bytestream2_put_byte.exit.i
   %185 = add i32 %.070136.i, %99
@@ -684,7 +684,7 @@ bytestream2_put_byte.exit109.i:                   ; preds = %bytestream2_get_le3
   %.sroa.0.5 = phi ptr [ %.sroa.0.4, %.lr.ph.i ], [ %252, %251 ], [ %264, %263 ], [ %289, %281 ], [ %301, %300 ], [ %.sroa.0.4, %bytestream2_get_byte.exit98.i ], [ %.sroa.0.4, %bytestream2_get_le16.exit101.i ], [ %.sroa.0.4, %bytestream2_get_le24.exit104.i ], [ %.sroa.0.4, %bytestream2_get_le32.exit107.i ]
   %302 = add nuw nsw i32 %.176133.i, 1
   %exitcond146.not.i = icmp eq i32 %302, %191
-  br i1 %exitcond146.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
+  br i1 %exitcond146.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !56
 
 ._crit_edge.i:                                    ; preds = %bytestream2_put_byte.exit109.i
   %.pre.i = load i32, ptr %84, align 8, !tbaa !29
@@ -711,12 +711,12 @@ bytestream2_put_byte.exit109.i:                   ; preds = %bytestream2_get_le3
   %310 = sub i64 %85, %309
   %311 = trunc i64 %310 to i32
   %312 = icmp sgt i32 %311, 0
-  br i1 %312, label %93, label %rle_uncompress.exit.thread, !llvm.loop !56
+  br i1 %312, label %93, label %rle_uncompress.exit.thread, !llvm.loop !57
 
 rle_uncompress.exit:                              ; preds = %.lr.ph, %rle_uncompress.exit
   %313 = phi i32 [ %193, %.lr.ph ], [ %330, %rle_uncompress.exit ]
   %.1174 = phi i32 [ 0, %.lr.ph ], [ %329, %rle_uncompress.exit ]
-  %314 = load ptr, ptr %1, align 8, !tbaa !52
+  %314 = load ptr, ptr %1, align 8, !tbaa !53
   %315 = xor i32 %.1174, -1
   %316 = add i32 %313, %315
   %317 = load i32, ptr %195, align 8, !tbaa !49
@@ -735,7 +735,7 @@ rle_uncompress.exit:                              ; preds = %.lr.ph, %rle_uncomp
   %329 = add nuw nsw i32 %.1174, 1
   %330 = load i32, ptr %192, align 4, !tbaa !35
   %331 = icmp slt i32 %329, %330
-  br i1 %331, label %rle_uncompress.exit, label %rle_uncompress.exit._crit_edge, !llvm.loop !57
+  br i1 %331, label %rle_uncompress.exit, label %rle_uncompress.exit._crit_edge, !llvm.loop !58
 
 rle_uncompress.exit._crit_edge:                   ; preds = %rle_uncompress.exit, %rle_uncompress.exit.preheader
   store i32 1, ptr %2, align 4, !tbaa !49
@@ -865,11 +865,12 @@ attributes #8 = { noreturn nounwind }
 !47 = !{!32, !14, i64 0}
 !48 = !{!32, !10, i64 8}
 !49 = !{!10, !10, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!14, !14, i64 0}
-!53 = !{!32, !13, i64 40}
-!54 = distinct !{!54, !51}
-!55 = distinct !{!55, !51}
-!56 = distinct !{!56, !51}
-!57 = distinct !{!57, !51}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!14, !14, i64 0}
+!54 = !{!32, !13, i64 40}
+!55 = distinct !{!55, !51, !52}
+!56 = distinct !{!56, !51, !52}
+!57 = distinct !{!57, !51, !52}
+!58 = distinct !{!58, !51, !52}

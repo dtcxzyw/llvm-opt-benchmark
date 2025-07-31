@@ -477,7 +477,7 @@ _ZL10TestPrintfv.exit:                            ; preds = %.loopexit50.i
   store i8 %160, ptr %161, align 1, !tbaa !22
   %162 = add nuw nsw i64 %.044139.i, 1
   %exitcond.not.i = icmp eq i64 %162, 1024
-  br i1 %exitcond.not.i, label %.preheader.i5, label %158, !llvm.loop !27
+  br i1 %exitcond.not.i, label %.preheader.i5, label %158, !llvm.loop !28
 
 .preheader.i5:                                    ; preds = %158, %.critedge68.i
   %.058141.i = phi i64 [ %283, %.critedge68.i ], [ 0, %158 ]
@@ -534,7 +534,7 @@ _ZL10TestPrintfv.exit:                            ; preds = %.loopexit50.i
   %183 = icmp ne i64 %169, %182
   %184 = icmp ne i64 %181, 0
   %185 = and i1 %184, %183
-  br i1 %185, label %170, label %186, !llvm.loop !28
+  br i1 %185, label %170, label %186, !llvm.loop !29
 
 186:                                              ; preds = %.noexc73.i, %.noexc.i
   %.010.i.i = phi i64 [ 0, %.noexc.i ], [ %182, %.noexc73.i ]
@@ -624,7 +624,7 @@ _ZL10TestPrintfv.exit:                            ; preds = %.loopexit50.i
   %228 = icmp ne i64 %214, %227
   %229 = icmp ne i64 %226, 0
   %230 = and i1 %229, %228
-  br i1 %230, label %215, label %231, !llvm.loop !28
+  br i1 %230, label %215, label %231, !llvm.loop !29
 
 .loopexit94.i:                                    ; preds = %217, %215
   %lpad.loopexit96.i = landingpad { ptr, i32 }
@@ -682,7 +682,7 @@ _ZL10TestPrintfv.exit:                            ; preds = %.loopexit50.i
   %250 = icmp ne i64 %234, %249
   %251 = icmp ne i64 %248, 0
   %252 = and i1 %251, %250
-  br i1 %252, label %238, label %253, !llvm.loop !29
+  br i1 %252, label %238, label %253, !llvm.loop !30
 
 253:                                              ; preds = %.noexc86.i, %.noexc85.i
   %.010.i84.i = phi i64 [ 0, %.noexc85.i ], [ %249, %.noexc86.i ]
@@ -753,7 +753,7 @@ _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit89.i: 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
   %268 = add nuw nsw i64 %.052140.i, 1
   %exitcond168.i = icmp eq i64 %268, 10
-  br i1 %exitcond168.i, label %.critedge68.i, label %164, !llvm.loop !30
+  br i1 %exitcond168.i, label %.critedge68.i, label %164, !llvm.loop !31
 
 269:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i7, %.loopexit.split-lp95.i, %.loopexit94.i, %192
   %.pn.pn.i = phi { ptr, i32 } [ %193, %192 ], [ %lpad.loopexit96.i, %.loopexit94.i ], [ %lpad.loopexit.split-lp97.i, %.loopexit.split-lp95.i ], [ %lpad.loopexit.i, %.loopexit.i7 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
@@ -823,7 +823,7 @@ _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit93.i: 
 .critedge68.i:                                    ; preds = %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit89.i
   %283 = add nuw nsw i64 %.058141.i, 1
   %exitcond169.i = icmp eq i64 %283, 8
-  br i1 %exitcond169.i, label %284, label %.preheader.i5, !llvm.loop !31
+  br i1 %exitcond169.i, label %284, label %.preheader.i5, !llvm.loop !32
 
 _ZL20TestZeroCopyBioPairsv.exit:                  ; preds = %164, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit93.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
@@ -1208,10 +1208,11 @@ attributes #21 = { nounwind allocsize(0) }
 !22 = !{!9, !9, i64 0}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"p1 omnipotent char", !17, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = distinct !{!28, !26}
-!29 = distinct !{!29, !26}
-!30 = distinct !{!30, !26}
-!31 = distinct !{!31, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = distinct !{!29, !26, !27}
+!30 = distinct !{!30, !26, !27}
+!31 = distinct !{!31, !26, !27}
+!32 = distinct !{!32, !26, !27}

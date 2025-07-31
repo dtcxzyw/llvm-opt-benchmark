@@ -1468,5 +1468,6 @@ attributes #18 = { noreturn }
 !77 = !{!78, !78, i64 0}
 !78 = !{!"float", !8, i64 0}
 !79 = !{!66, !66, i64 0}
-!80 = distinct !{!80, !81}
+!80 = distinct !{!80, !81, !82}
 !81 = !{!"llvm.loop.mustprogress"}
+!82 = !{!"llvm.loop.estimated_trip_count"}

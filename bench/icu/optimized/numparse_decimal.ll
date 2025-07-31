@@ -290,7 +290,7 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96: ; preds =
   store i16 2, ptr %113, align 8, !tbaa !6
   %.add = add nuw nsw i64 %.idx, 64
   %114 = icmp samesign eq i64 %.add, 648
-  br i1 %114, label %.loopexit97.loopexit, label %112
+  br i1 %114, label %.loopexit97.loopexit, label %112, !llvm.loop !34
 
 .loopexit97.loopexit:                             ; preds = %112
   %.ptr80 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -298,7 +298,7 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96: ; preds =
 
 .loopexit97:                                      ; preds = %.loopexit97.loopexit, %108
   %115 = phi ptr [ null, %108 ], [ %.ptr80, %.loopexit97.loopexit ]
-  %116 = load ptr, ptr %12, align 8, !tbaa !34
+  %116 = load ptr, ptr %12, align 8, !tbaa !36
   %117 = icmp eq ptr %116, null
   br i1 %117, label %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit, label %118
 
@@ -318,14 +318,14 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96: ; preds =
   %124 = getelementptr inbounds i8, ptr %123, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %124) #9
   %125 = icmp eq ptr %124, %116
-  br i1 %125, label %.loopexit.i, label %.preheader.i
+  br i1 %125, label %.loopexit.i, label %.preheader.i, !llvm.loop !37
 
 .loopexit.i:                                      ; preds = %.preheader.i, %118
   call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %119) #9
   br label %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit
 
 _ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit: ; preds = %.loopexit97, %.loopexit.i
-  store ptr %115, ptr %12, align 8, !tbaa !34
+  store ptr %115, ptr %12, align 8, !tbaa !36
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %130
@@ -348,7 +348,7 @@ _ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit: ; preds = 
 136:                                              ; preds = %130
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.loopexit, label %130, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %130, !llvm.loop !38
 
 137:                                              ; preds = %130
   %138 = landingpad { ptr, i32 }
@@ -360,27 +360,27 @@ _ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit: ; preds = 
   %140 = trunc i32 %3 to i8
   %141 = lshr i8 %140, 3
   %142 = and i8 %141, 1
-  store i8 %142, ptr %139, align 8, !tbaa !37
+  store i8 %142, ptr %139, align 8, !tbaa !40
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %144 = lshr i8 %140, 5
   %145 = and i8 %144, 1
-  store i8 %145, ptr %143, align 1, !tbaa !38
+  store i8 %145, ptr %143, align 1, !tbaa !41
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %147 = lshr i8 %140, 4
   %148 = and i8 %147, 1
-  store i8 %148, ptr %146, align 2, !tbaa !39
+  store i8 %148, ptr %146, align 2, !tbaa !42
   %149 = invoke noundef signext i16 @_ZNK6icu_776number4impl7Grouper10getPrimaryEv(ptr noundef nonnull align 4 dereferenceable(12) %2)
           to label %150 unwind label %128
 
 150:                                              ; preds = %.loopexit
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %149, ptr %151, align 4, !tbaa !40
+  store i16 %149, ptr %151, align 4, !tbaa !43
   %152 = invoke noundef signext i16 @_ZNK6icu_776number4impl7Grouper12getSecondaryEv(ptr noundef nonnull align 4 dereferenceable(12) %2)
           to label %153 unwind label %128
 
 153:                                              ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %152, ptr %154, align 2, !tbaa !41
+  store i16 %152, ptr %154, align 2, !tbaa !44
   ret void
 
 155:                                              ; preds = %38, %128, %137, %95, %93, %64, %62, %42, %40, %17
@@ -445,7 +445,7 @@ declare noundef signext i16 @_ZNK6icu_776number4impl7Grouper12getSecondaryEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !34
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   %3 = icmp eq ptr %2, null
   br i1 %3, label %12, label %4
 
@@ -465,7 +465,7 @@ define linkonce_odr void @_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEED2Ev(ptr n
   %10 = getelementptr inbounds i8, ptr %9, i64 -64
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #9
   %11 = icmp eq ptr %10, %2
-  br i1 %11, label %.loopexit, label %.preheader
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.preheader, %4
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %5) #9
@@ -517,7 +517,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #9
   call void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %6)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 1, ptr %16, align 8, !tbaa !42
+  store i8 1, ptr %16, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #9
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -621,14 +621,14 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   br i1 %56, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %44, %54
-  %57 = load ptr, ptr %20, align 8, !tbaa !34
+  %57 = load ptr, ptr %20, align 8, !tbaa !36
   %.not368 = icmp eq ptr %57, null
   br i1 %.not368, label %.thread317, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %83
   %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.thread ]
   %.3491 = phi i8 [ %.5.ph, %83 ], [ 0, %.thread ]
-  %58 = load ptr, ptr %20, align 8, !tbaa !34
+  %58 = load ptr, ptr %20, align 8, !tbaa !36
   %59 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %58, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i16, ptr %60, align 8, !tbaa !6
@@ -685,7 +685,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %.5.ph = phi i8 [ %81, %79 ], [ 1, %75 ], [ %.3491, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.thread317, label %.preheader, !llvm.loop !46
+  br i1 %exitcond.not, label %.thread317, label %.preheader, !llvm.loop !50
 
 .loopexit:                                        ; preds = %54
   %84 = icmp sgt i8 %55, -1
@@ -694,12 +694,12 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
 85:                                               ; preds = %.thread312, %.loopexit
   %.2316 = phi i8 [ %.3491, %.thread312 ], [ 0, %.loopexit ]
   %.1232315 = phi i8 [ %82, %.thread312 ], [ %55, %.loopexit ]
-  %86 = load i8, ptr %16, align 8, !tbaa !42, !range !47, !noundef !48
+  %86 = load i8, ptr %16, align 8, !tbaa !46, !range !51, !noundef !52
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %85
-  store i8 0, ptr %16, align 8, !tbaa !42
+  store i8 0, ptr %16, align 8, !tbaa !46
   invoke void @_ZN6icu_776number4impl15DecimalQuantity5clearEv(ptr noundef nonnull align 8 dereferenceable(66) %6)
           to label %89 unwind label %52
 
@@ -714,7 +714,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %94 = xor i16 %93, 1
   %95 = zext nneg i16 %94 to i32
   %spec.select = add nsw i32 %.0163, %95
-  br label %36, !llvm.loop !49
+  br label %36, !llvm.loop !53
 
 .thread317:                                       ; preds = %.thread, %.loopexit, %83
   %.2320 = phi i8 [ %.5.ph, %83 ], [ 0, %.loopexit ], [ 0, %.thread ]
@@ -813,7 +813,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %148 = phi i16 [ %125, %124 ], [ %138, %136 ]
   %.0198 = phi i1 [ false, %124 ], [ %144, %136 ]
   %.9 = phi i8 [ %.8, %124 ], [ %137, %136 ]
-  %149 = load i8, ptr %25, align 1, !tbaa !38, !range !47, !noundef !48
+  %149 = load i8, ptr %25, align 1, !tbaa !41, !range !51, !noundef !52
   %150 = trunc nuw i8 %149 to i1
   %151 = and i16 %148, 1
   %.not253 = icmp eq i16 %151, 0
@@ -906,7 +906,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %.10325 = phi i8 [ %.10, %179 ], [ %.10, %188 ], [ %.10, %186 ], [ %.10, %180 ], [ %167, %175 ]
   %.2200324 = phi i8 [ 1, %179 ], [ 0, %188 ], [ 0, %186 ], [ 0, %180 ], [ 1, %175 ]
   %.2205 = phi i8 [ %.0203, %179 ], [ 1, %188 ], [ %.0203, %186 ], [ %.0203, %180 ], [ %.0203, %175 ]
-  %192 = load i8, ptr %25, align 1, !tbaa !38, !range !47, !noundef !48
+  %192 = load i8, ptr %25, align 1, !tbaa !41, !range !51, !noundef !52
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %209, label %194
 
@@ -954,7 +954,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %211 = trunc nuw i8 %.4202 to i1
   %212 = or i8 %.4202, %.2205
   %or.cond4.not = icmp eq i8 %212, 0
-  %213 = load i8, ptr %31, align 2, !range !47
+  %213 = load i8, ptr %31, align 2, !range !51
   %214 = trunc nuw i8 %213 to i1
   %or.cond284 = select i1 %210, i1 %214, i1 false
   %or.cond293 = select i1 %or.cond4.not, i1 true, i1 %or.cond284
@@ -966,7 +966,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   br i1 %or.cond6, label %.thread330.thread, label %217
 
 217:                                              ; preds = %215
-  %218 = load i8, ptr %32, align 8, !tbaa !37, !range !47, !noundef !48
+  %218 = load i8, ptr %32, align 8, !tbaa !40, !range !51, !noundef !52
   %219 = trunc nuw i8 %218 to i1
   br i1 %219, label %220, label %235
 
@@ -985,7 +985,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   br label %230
 
 226:                                              ; preds = %220
-  %227 = load i16, ptr %33, align 2, !tbaa !41
+  %227 = load i16, ptr %33, align 2, !tbaa !44
   %228 = sext i16 %227 to i32
   %229 = icmp eq i32 %.0237.ph, %228
   br label %230
@@ -996,7 +996,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   br i1 %cond367, label %231, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
 
 231:                                              ; preds = %230
-  %232 = load i16, ptr %34, align 4, !tbaa !40
+  %232 = load i16, ptr %34, align 4, !tbaa !43
   %233 = sext i16 %232 to i32
   %234 = icmp eq i32 %.0206, %233
   br label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
@@ -1040,7 +1040,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
           to label %243 unwind label %.loopexit.split-lp377
 
 243:                                              ; preds = %242
-  store i8 1, ptr %16, align 8, !tbaa !42
+  store i8 1, ptr %16, align 8, !tbaa !46
   br label %.thread330
 
 244:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
@@ -1107,7 +1107,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
   %.5197 = phi i32 [ %.1193, %.thread330 ], [ %.0224.ph, %267 ], [ 2, %215 ]
   %.6191 = phi i32 [ %.0185.ph, %.thread330 ], [ %.0212.ph, %267 ], [ %.0185.ph, %215 ]
   %.11 = phi i8 [ %.1156, %.thread330 ], [ 1, %267 ], [ %.10325, %215 ]
-  %268 = load i8, ptr %32, align 8, !tbaa !37, !range !47, !noundef !48
+  %268 = load i8, ptr %32, align 8, !tbaa !40, !range !51, !noundef !52
   %269 = trunc nuw i8 %268 to i1
   br i1 %269, label %270, label %285
 
@@ -1126,7 +1126,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
   br label %280
 
 276:                                              ; preds = %270
-  %277 = load i16, ptr %33, align 2, !tbaa !41
+  %277 = load i16, ptr %33, align 2, !tbaa !44
   %278 = sext i16 %277 to i32
   %279 = icmp eq i32 %.5242, %278
   br label %280
@@ -1137,7 +1137,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
   br i1 %cond, label %281, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
 
 281:                                              ; preds = %280
-  %282 = load i16, ptr %34, align 4, !tbaa !40
+  %282 = load i16, ptr %34, align 4, !tbaa !43
   %283 = sext i16 %282 to i32
   %284 = icmp eq i32 %.5211, %283
   br label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
@@ -1200,11 +1200,11 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; p
   br i1 %or.cond290, label %301, label %.thread607
 
 .thread607:                                       ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
-  store i8 1, ptr %16, align 8, !tbaa !42
+  store i8 1, ptr %16, align 8, !tbaa !46
   br label %303
 
 301:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
-  %.pre = load i8, ptr %16, align 8, !tbaa !42, !range !47
+  %.pre = load i8, ptr %16, align 8, !tbaa !46, !range !51
   %302 = trunc nuw i8 %.pre to i1
   br i1 %302, label %303, label %311
 
@@ -1290,11 +1290,11 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; p
 
 338:                                              ; preds = %.critedge
   %339 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 1, ptr %339, align 8, !tbaa !50
+  store i8 1, ptr %339, align 8, !tbaa !54
   %340 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %341 = load i32, ptr %340, align 4, !tbaa !52
+  %341 = load i32, ptr %340, align 4, !tbaa !56
   %342 = or i32 %341, 128
-  store i32 %342, ptr %340, align 4, !tbaa !52
+  store i32 %342, ptr %340, align 4, !tbaa !56
   br label %345
 
 343:                                              ; preds = %317, %314
@@ -1309,9 +1309,9 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; p
 
 348:                                              ; preds = %345
   %349 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %350 = load i32, ptr %349, align 4, !tbaa !52
+  %350 = load i32, ptr %349, align 4, !tbaa !56
   %351 = or i32 %350, 32
-  store i32 %351, ptr %349, align 4, !tbaa !52
+  store i32 %351, ptr %349, align 4, !tbaa !56
   br label %352
 
 352:                                              ; preds = %348, %345
@@ -1383,7 +1383,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStri
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 8, !tbaa !37, !range !47, !noundef !48
+  %6 = load i8, ptr %5, align 8, !tbaa !40, !range !51, !noundef !52
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %27
 
@@ -1410,14 +1410,14 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher13validateGr
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %19 = load i16, ptr %18, align 4, !tbaa !40
+  %19 = load i16, ptr %18, align 4, !tbaa !43
   %20 = sext i16 %19 to i32
   %21 = icmp eq i32 %2, %20
   br label %30
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %24 = load i16, ptr %23, align 2, !tbaa !41
+  %24 = load i16, ptr %23, align 2, !tbaa !44
   %25 = sext i16 %24 to i32
   %26 = icmp eq i32 %2, %25
   br label %30
@@ -1453,7 +1453,7 @@ declare void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher9smokeTestERKNS_13StringSegmentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %10
 
@@ -1480,19 +1480,19 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher9smokeTestER
   br i1 %.not13, label %17, label %.loopexit
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %3, align 8, !tbaa !34
+  %18 = load ptr, ptr %3, align 8, !tbaa !36
   %.not15 = icmp eq ptr %18, null
   br i1 %.not15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %17, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %17 ]
-  %19 = load ptr, ptr %3, align 8, !tbaa !34
+  %19 = load ptr, ptr %3, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %19, i64 %indvars.iv
   %21 = tail call noundef zeroext i1 @_ZNK6icu_7713StringSegment10startsWithERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   %or.cond = select i1 %21, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !53
+  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.preheader, %17, %10, %14, %8
   %.010 = phi i1 [ %9, %8 ], [ true, %14 ], [ true, %10 ], [ false, %17 ], [ %21, %.preheader ]
@@ -1525,7 +1525,7 @@ _ZN6icu_7713UnicodeStringC2IA10_DsvEERKT_.exit:   ; preds = %2
 define linkonce_odr void @_ZN6icu_778numparse4impl14DecimalMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #6 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_778numparse4impl14DecimalMatcherE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEED2Ev.exit, label %5
 
@@ -1545,7 +1545,7 @@ define linkonce_odr void @_ZN6icu_778numparse4impl14DecimalMatcherD2Ev(ptr nound
   %11 = getelementptr inbounds i8, ptr %10, i64 -64
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #9
   %12 = icmp eq ptr %11, %3
-  br i1 %12, label %.loopexit.i, label %.preheader.i
+  br i1 %12, label %.loopexit.i, label %.preheader.i, !llvm.loop !45
 
 .loopexit.i:                                      ; preds = %.preheader.i, %5
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %6) #9
@@ -1660,23 +1660,27 @@ attributes #9 = { nounwind }
 !31 = !{!"p1 omnipotent char", !17, i64 0}
 !32 = !{!"p1 _ZTSN6icu_7710CharStringE", !17, i64 0}
 !33 = !{!"p1 char16_t", !17, i64 0}
-!34 = !{!21, !22, i64 0}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!9, !11, i64 8}
-!38 = !{!9, !11, i64 9}
-!39 = !{!9, !11, i64 10}
-!40 = !{!9, !12, i64 12}
-!41 = !{!9, !12, i64 14}
-!42 = !{!43, !11, i64 8}
-!43 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !44, i64 0, !11, i64 8, !29, i64 12, !29, i64 16, !7, i64 20, !7, i64 21, !45, i64 24, !29, i64 32, !29, i64 36, !29, i64 40, !29, i64 44, !7, i64 48, !11, i64 64, !11, i64 65}
-!44 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
-!45 = !{!"double", !7, i64 0}
-!46 = distinct !{!46, !36}
-!47 = !{i8 0, i8 2}
-!48 = !{}
-!49 = distinct !{!49, !36}
-!50 = !{!51, !11, i64 8}
-!51 = !{!"_ZTSN6icu_778numparse4impl12ParsedNumberE", !43, i64 0, !29, i64 72, !29, i64 76, !13, i64 80, !13, i64 144, !7, i64 208}
-!52 = !{!51, !29, i64 76}
-!53 = distinct !{!53, !36}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!21, !22, i64 0}
+!37 = distinct !{!37, !35}
+!38 = distinct !{!38, !39, !35}
+!39 = !{!"llvm.loop.mustprogress"}
+!40 = !{!9, !11, i64 8}
+!41 = !{!9, !11, i64 9}
+!42 = !{!9, !11, i64 10}
+!43 = !{!9, !12, i64 12}
+!44 = !{!9, !12, i64 14}
+!45 = distinct !{!45, !35}
+!46 = !{!47, !11, i64 8}
+!47 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !48, i64 0, !11, i64 8, !29, i64 12, !29, i64 16, !7, i64 20, !7, i64 21, !49, i64 24, !29, i64 32, !29, i64 36, !29, i64 40, !29, i64 44, !7, i64 48, !11, i64 64, !11, i64 65}
+!48 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
+!49 = !{!"double", !7, i64 0}
+!50 = distinct !{!50, !39, !35}
+!51 = !{i8 0, i8 2}
+!52 = !{}
+!53 = distinct !{!53, !39}
+!54 = !{!55, !11, i64 8}
+!55 = !{!"_ZTSN6icu_778numparse4impl12ParsedNumberE", !47, i64 0, !29, i64 72, !29, i64 76, !13, i64 80, !13, i64 144, !7, i64 208}
+!56 = !{!55, !29, i64 76}
+!57 = distinct !{!57, !39, !35}

@@ -79,9 +79,9 @@ define void @_ZN9CryptData8SetKey15EPKc(ptr noundef nonnull align 8 dereferencea
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2508
   store i32 %5, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2514
-  store i16 0, ptr %7, align 2, !tbaa !8
+  store i16 0, ptr %7, align 2, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2512
-  store i16 0, ptr %8, align 8, !tbaa !8
+  store i16 0, ptr %8, align 8, !tbaa !9
   %9 = load i8, ptr %1, align 1, !tbaa !3
   %.not14 = icmp eq i8 %9, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -97,21 +97,21 @@ define void @_ZN9CryptData8SetKey15EPKc(ptr noundef nonnull align 8 dereferencea
   %13 = zext i8 %10 to i32
   %14 = zext i8 %10 to i64
   %15 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = xor i32 %11, %13
   %18 = xor i32 %17, %16
   %19 = trunc i32 %18 to i16
-  store i16 %19, ptr %8, align 8, !tbaa !8
+  store i16 %19, ptr %8, align 8, !tbaa !9
   %20 = lshr i32 %16, 16
   %21 = add nuw nsw i32 %20, %13
   %22 = trunc i32 %21 to i16
   %23 = add i16 %12, %22
-  store i16 %23, ptr %7, align 2, !tbaa !8
+  store i16 %23, ptr %7, align 2, !tbaa !9
   %24 = add i64 %.015, 1
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 }
 
 declare void @_Z9InitCRC32Pj(ptr noundef) local_unnamed_addr #3
@@ -126,22 +126,22 @@ define void @_ZN9CryptData17SetAV15EncryptionEv(ptr noundef nonnull align 8 dere
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   tail call void @_Z9InitCRC32Pj(ptr noundef nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 2, ptr %3, align 4, !tbaa !13
+  store i32 2, ptr %3, align 4, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2508
-  store i16 18277, ptr %4, align 4, !tbaa !8
+  store i16 18277, ptr %4, align 4, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2510
-  store i16 -28639, ptr %5, align 2, !tbaa !8
+  store i16 -28639, ptr %5, align 2, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2512
-  store i16 29570, ptr %6, align 8, !tbaa !8
+  store i16 29570, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2514
-  store i16 21013, ptr %7, align 2, !tbaa !8
+  store i16 21013, ptr %7, align 2, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN9CryptData18SetCmt13EncryptionEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2516) initializes((940, 944), (2504, 2507)) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 1, ptr %2, align 4, !tbaa !13
+  store i32 1, ptr %2, align 4, !tbaa !14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2504
   store i8 0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2505
@@ -178,7 +178,7 @@ define void @_ZN9CryptData9Decrypt13EPhm(ptr noundef nonnull align 8 captures(no
   store i8 %15, ptr %.035, align 1, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %7, %3
   ret void
@@ -201,30 +201,30 @@ define void @_ZN9CryptData7Crypt15EPhm(ptr noundef nonnull align 8 captures(none
   %.06 = phi i64 [ %2, %.lr.ph ], [ %10, %9 ]
   %.035 = phi ptr [ %1, %.lr.ph ], [ %35, %9 ]
   %10 = add i64 %.06, -1
-  %11 = load i16, ptr %4, align 4, !tbaa !8
+  %11 = load i16, ptr %4, align 4, !tbaa !9
   %12 = add i16 %11, 4660
   %13 = lshr i16 %12, 1
   %14 = and i16 %13, 255
   %15 = zext nneg i16 %14 to i64
   %16 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !10
-  %18 = load i16, ptr %6, align 2, !tbaa !8
+  %17 = load i32, ptr %16, align 4, !tbaa !11
+  %18 = load i16, ptr %6, align 2, !tbaa !9
   %19 = trunc i32 %17 to i16
   %20 = xor i16 %18, %19
-  store i16 %20, ptr %6, align 2, !tbaa !8
+  store i16 %20, ptr %6, align 2, !tbaa !9
   %21 = lshr i32 %17, 16
-  %22 = load i16, ptr %7, align 8, !tbaa !8
+  %22 = load i16, ptr %7, align 8, !tbaa !9
   %23 = trunc nuw i32 %21 to i16
   %24 = sub i16 %22, %23
-  store i16 %24, ptr %7, align 8, !tbaa !8
+  store i16 %24, ptr %7, align 8, !tbaa !9
   %25 = xor i16 %24, %12
-  %26 = load i16, ptr %8, align 2, !tbaa !8
+  %26 = load i16, ptr %8, align 2, !tbaa !9
   %27 = tail call i16 @llvm.fshl.i16(i16 %26, i16 %26, i16 15)
   %28 = xor i16 %27, %20
   %29 = tail call i16 @llvm.fshl.i16(i16 %28, i16 %28, i16 15)
-  store i16 %29, ptr %8, align 2, !tbaa !8
+  store i16 %29, ptr %8, align 2, !tbaa !9
   %30 = xor i16 %29, %25
-  store i16 %30, ptr %4, align 4, !tbaa !8
+  store i16 %30, ptr %4, align 4, !tbaa !9
   %31 = lshr i16 %30, 8
   %32 = load i8, ptr %.035, align 1, !tbaa !3
   %33 = trunc nuw i16 %31 to i8
@@ -232,7 +232,7 @@ define void @_ZN9CryptData7Crypt15EPhm(ptr noundef nonnull align 8 captures(none
   store i8 %34, ptr %.035, align 1, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %9, %3
   ret void
@@ -247,13 +247,13 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   call void @_Z8strncpyzPcPKcm(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 512)
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2488
-  store i32 -744245127, ptr %6, align 8, !tbaa !10
+  store i32 -744245127, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2492
-  store i32 1064112887, ptr %7, align 4, !tbaa !10
+  store i32 1064112887, ptr %7, align 4, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2496
-  store i32 1964352053, ptr %8, align 8, !tbaa !10
+  store i32 1964352053, ptr %8, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2500
-  store i32 -1528303325, ptr %9, align 4, !tbaa !10
+  store i32 -1528303325, ptr %9, align 4, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %10, ptr noundef nonnull align 16 dereferenceable(256) @_ZL16InitSubstTable20, i64 256, i1 false)
   %.not52 = icmp eq i64 %5, 0
@@ -271,13 +271,13 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   %.narrow.us = sub i8 %13, %.032.tr.us
   %14 = zext i8 %.narrow.us to i64
   %15 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !3
   %.narrow37.us = add i8 %18, %.032.tr.us
   %19 = zext i8 %.narrow37.us to i64
   %20 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !10
+  %21 = load i32, ptr %20, align 4, !tbaa !11
   %22 = and i32 %21, 255
   %.03340.us = and i32 %16, 255
   %.not3841.us = icmp eq i32 %.03340.us, %22
@@ -300,17 +300,17 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.033.us = and i32 %31, 255
   %.not38.us = icmp eq i32 %.033.us, %22
-  br i1 %.not38.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !20
+  br i1 %.not38.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !21
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %11
   %32 = add nuw i64 %.03444.us, 2
   %33 = icmp ult i64 %32, %5
-  br i1 %33, label %11, label %._crit_edge46.us, !llvm.loop !21
+  br i1 %33, label %11, label %._crit_edge46.us, !llvm.loop !22
 
 ._crit_edge46.us:                                 ; preds = %._crit_edge.us
   %34 = add nuw nsw i32 %.03247.us, 1
   %exitcond.not = icmp eq i32 %34, 256
-  br i1 %exitcond.not, label %.split49.us, label %.preheader39.us, !llvm.loop !22
+  br i1 %exitcond.not, label %.split49.us, label %.preheader39.us, !llvm.loop !23
 
 .split49.us:                                      ; preds = %._crit_edge46.us
   %35 = and i64 %5, 15
@@ -340,7 +340,7 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   call void @_ZN9CryptData14EncryptBlock20EPh(ptr noundef nonnull align 8 dereferenceable(2516) %0, ptr noundef nonnull %40)
   %41 = add i64 %.051, 16
   %42 = icmp ult i64 %41, %5
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 }
 
 declare void @_Z8strncpyzPcPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -359,45 +359,45 @@ define void @_ZN9CryptData6Swap20EPhS0_(ptr noundef nonnull readnone align 8 cap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN9CryptData14EncryptBlock20EPh(ptr noundef nonnull align 8 captures(none) dereferenceable(2516) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !10
+  %3 = load i32, ptr %1, align 4, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2488
-  %5 = load i32, ptr %4, align 8, !tbaa !10
+  %5 = load i32, ptr %4, align 8, !tbaa !11
   %6 = xor i32 %5, %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !10
+  %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2492
-  %10 = load i32, ptr %9, align 4, !tbaa !10
+  %10 = load i32, ptr %9, align 4, !tbaa !11
   %11 = xor i32 %10, %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %12, align 4, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2496
-  %15 = load i32, ptr %14, align 8, !tbaa !10
+  %15 = load i32, ptr %14, align 8, !tbaa !11
   %16 = xor i32 %15, %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !10
+  %18 = load i32, ptr %17, align 4, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2500
-  %20 = load i32, ptr %19, align 4, !tbaa !10
+  %20 = load i32, ptr %19, align 4, !tbaa !11
   %21 = xor i32 %20, %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2232
   br label %62
 
 23:                                               ; preds = %62
   %24 = xor i32 %98, %5
-  store i32 %24, ptr %1, align 4, !tbaa !10
-  %25 = load i32, ptr %9, align 4, !tbaa !10
+  store i32 %24, ptr %1, align 4, !tbaa !11
+  %25 = load i32, ptr %9, align 4, !tbaa !11
   %26 = xor i32 %25, %130
-  store i32 %26, ptr %7, align 4, !tbaa !10
-  %27 = load i32, ptr %14, align 8, !tbaa !10
+  store i32 %26, ptr %7, align 4, !tbaa !11
+  %27 = load i32, ptr %14, align 8, !tbaa !11
   %28 = xor i32 %27, %.03942
-  store i32 %28, ptr %12, align 4, !tbaa !10
-  %29 = load i32, ptr %19, align 4, !tbaa !10
+  store i32 %28, ptr %12, align 4, !tbaa !11
+  %29 = load i32, ptr %19, align 4, !tbaa !11
   %30 = xor i32 %29, %.04041
-  store i32 %30, ptr %17, align 4, !tbaa !10
+  store i32 %30, ptr %17, align 4, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %.promoted.i = load i32, ptr %4, align 8, !tbaa !10
-  %.promoted10.i = load i32, ptr %9, align 4, !tbaa !10
-  %.promoted11.i = load i32, ptr %14, align 8, !tbaa !10
-  %.promoted12.i = load i32, ptr %19, align 4, !tbaa !10
+  %.promoted.i = load i32, ptr %4, align 8, !tbaa !11
+  %.promoted10.i = load i32, ptr %9, align 4, !tbaa !11
+  %.promoted11.i = load i32, ptr %14, align 8, !tbaa !11
+  %.promoted12.i = load i32, ptr %19, align 4, !tbaa !11
   br label %32
 
 32:                                               ; preds = %32, %23
@@ -410,33 +410,33 @@ define void @_ZN9CryptData14EncryptBlock20EPh(ptr noundef nonnull align 8 captur
   %38 = load i8, ptr %37, align 1, !tbaa !3
   %39 = zext i8 %38 to i64
   %40 = getelementptr inbounds nuw [256 x i32], ptr %31, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !10
+  %41 = load i32, ptr %40, align 4, !tbaa !11
   %42 = xor i32 %41, %33
-  store i32 %42, ptr %4, align 8, !tbaa !10
+  store i32 %42, ptr %4, align 8, !tbaa !11
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %44 = load i8, ptr %43, align 1, !tbaa !3
   %45 = zext i8 %44 to i64
   %46 = getelementptr inbounds nuw [256 x i32], ptr %31, i64 0, i64 %45
-  %47 = load i32, ptr %46, align 4, !tbaa !10
+  %47 = load i32, ptr %46, align 4, !tbaa !11
   %48 = xor i32 %47, %34
-  store i32 %48, ptr %9, align 4, !tbaa !10
+  store i32 %48, ptr %9, align 4, !tbaa !11
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %50 = load i8, ptr %49, align 1, !tbaa !3
   %51 = zext i8 %50 to i64
   %52 = getelementptr inbounds nuw [256 x i32], ptr %31, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !10
+  %53 = load i32, ptr %52, align 4, !tbaa !11
   %54 = xor i32 %53, %35
-  store i32 %54, ptr %14, align 8, !tbaa !10
+  store i32 %54, ptr %14, align 8, !tbaa !11
   %55 = getelementptr inbounds nuw i8, ptr %37, i64 3
   %56 = load i8, ptr %55, align 1, !tbaa !3
   %57 = zext i8 %56 to i64
   %58 = getelementptr inbounds nuw [256 x i32], ptr %31, i64 0, i64 %57
-  %59 = load i32, ptr %58, align 4, !tbaa !10
+  %59 = load i32, ptr %58, align 4, !tbaa !11
   %60 = xor i32 %59, %36
-  store i32 %60, ptr %19, align 4, !tbaa !10
+  store i32 %60, ptr %19, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %61 = icmp samesign ult i64 %indvars.iv.i, 12
-  br i1 %61, label %32, label %_ZN9CryptData9UpdKeys20EPh.exit, !llvm.loop !25
+  br i1 %61, label %32, label %_ZN9CryptData9UpdKeys20EPh.exit, !llvm.loop !26
 
 _ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %32
   ret void
@@ -452,7 +452,7 @@ _ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %32
   %65 = and i32 %.045, 3
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %68 = load i32, ptr %67, align 4, !tbaa !11
   %69 = xor i32 %68, %64
   %70 = and i32 %69, 255
   %71 = zext nneg i32 %70 to i64
@@ -517,7 +517,7 @@ _ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %32
   %130 = xor i32 %129, %.03843
   %131 = add nuw nsw i32 %.045, 1
   %exitcond.not = icmp eq i32 %131, 32
-  br i1 %exitcond.not, label %23, label %62, !llvm.loop !26
+  br i1 %exitcond.not, label %23, label %62, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -527,10 +527,10 @@ define void @_ZN9CryptData9UpdKeys20EPh(ptr noundef nonnull align 8 captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2492
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2500
-  %.promoted = load i32, ptr %4, align 8, !tbaa !10
-  %.promoted10 = load i32, ptr %5, align 4, !tbaa !10
-  %.promoted11 = load i32, ptr %6, align 8, !tbaa !10
-  %.promoted12 = load i32, ptr %7, align 4, !tbaa !10
+  %.promoted = load i32, ptr %4, align 8, !tbaa !11
+  %.promoted10 = load i32, ptr %5, align 4, !tbaa !11
+  %.promoted11 = load i32, ptr %6, align 8, !tbaa !11
+  %.promoted12 = load i32, ptr %7, align 4, !tbaa !11
   br label %9
 
 8:                                                ; preds = %9
@@ -546,57 +546,57 @@ define void @_ZN9CryptData9UpdKeys20EPh(ptr noundef nonnull align 8 captures(non
   %15 = load i8, ptr %14, align 1, !tbaa !3
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !10
+  %18 = load i32, ptr %17, align 4, !tbaa !11
   %19 = xor i32 %10, %18
-  store i32 %19, ptr %4, align 8, !tbaa !10
+  store i32 %19, ptr %4, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = zext i8 %21 to i64
   %23 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %24 = load i32, ptr %23, align 4, !tbaa !11
   %25 = xor i32 %11, %24
-  store i32 %25, ptr %5, align 4, !tbaa !10
+  store i32 %25, ptr %5, align 4, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %27 = load i8, ptr %26, align 1, !tbaa !3
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !10
+  %30 = load i32, ptr %29, align 4, !tbaa !11
   %31 = xor i32 %12, %30
-  store i32 %31, ptr %6, align 8, !tbaa !10
+  store i32 %31, ptr %6, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 3
   %33 = load i8, ptr %32, align 1, !tbaa !3
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %34
-  %36 = load i32, ptr %35, align 4, !tbaa !10
+  %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = xor i32 %13, %36
-  store i32 %37, ptr %7, align 4, !tbaa !10
+  store i32 %37, ptr %7, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %38 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %38, label %9, label %8, !llvm.loop !25
+  br i1 %38, label %9, label %8, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN9CryptData14DecryptBlock20EPh(ptr noundef nonnull align 8 captures(none) dereferenceable(2516) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
-  %4 = load i32, ptr %1, align 4, !tbaa !10
+  %4 = load i32, ptr %1, align 4, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2488
-  %6 = load i32, ptr %5, align 8, !tbaa !10
+  %6 = load i32, ptr %5, align 8, !tbaa !11
   %7 = xor i32 %6, %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !10
+  %9 = load i32, ptr %8, align 4, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2492
-  %11 = load i32, ptr %10, align 4, !tbaa !10
+  %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = xor i32 %11, %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 4, !tbaa !10
+  %14 = load i32, ptr %13, align 4, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2496
-  %16 = load i32, ptr %15, align 8, !tbaa !10
+  %16 = load i32, ptr %15, align 8, !tbaa !11
   %17 = xor i32 %16, %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !10
+  %19 = load i32, ptr %18, align 4, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2500
-  %21 = load i32, ptr %20, align 4, !tbaa !10
+  %21 = load i32, ptr %20, align 4, !tbaa !11
   %22 = xor i32 %21, %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2232
@@ -604,21 +604,21 @@ define void @_ZN9CryptData14DecryptBlock20EPh(ptr noundef nonnull align 8 captur
 
 24:                                               ; preds = %63
   %25 = xor i32 %99, %6
-  store i32 %25, ptr %1, align 4, !tbaa !10
-  %26 = load i32, ptr %10, align 4, !tbaa !10
+  store i32 %25, ptr %1, align 4, !tbaa !11
+  %26 = load i32, ptr %10, align 4, !tbaa !11
   %27 = xor i32 %26, %131
-  store i32 %27, ptr %8, align 4, !tbaa !10
-  %28 = load i32, ptr %15, align 8, !tbaa !10
+  store i32 %27, ptr %8, align 4, !tbaa !11
+  %28 = load i32, ptr %15, align 8, !tbaa !11
   %29 = xor i32 %28, %.03942
-  store i32 %29, ptr %13, align 4, !tbaa !10
-  %30 = load i32, ptr %20, align 4, !tbaa !10
+  store i32 %29, ptr %13, align 4, !tbaa !11
+  %30 = load i32, ptr %20, align 4, !tbaa !11
   %31 = xor i32 %30, %.04041
-  store i32 %31, ptr %18, align 4, !tbaa !10
+  store i32 %31, ptr %18, align 4, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %.promoted.i = load i32, ptr %5, align 8, !tbaa !10
-  %.promoted10.i = load i32, ptr %10, align 4, !tbaa !10
-  %.promoted11.i = load i32, ptr %15, align 8, !tbaa !10
-  %.promoted12.i = load i32, ptr %20, align 4, !tbaa !10
+  %.promoted.i = load i32, ptr %5, align 8, !tbaa !11
+  %.promoted10.i = load i32, ptr %10, align 4, !tbaa !11
+  %.promoted11.i = load i32, ptr %15, align 8, !tbaa !11
+  %.promoted12.i = load i32, ptr %20, align 4, !tbaa !11
   br label %33
 
 33:                                               ; preds = %33, %24
@@ -631,35 +631,35 @@ define void @_ZN9CryptData14DecryptBlock20EPh(ptr noundef nonnull align 8 captur
   %39 = load i8, ptr %38, align 4, !tbaa !3
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw [256 x i32], ptr %32, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = xor i32 %42, %34
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !3
   %46 = zext i8 %45 to i64
   %47 = getelementptr inbounds nuw [256 x i32], ptr %32, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = xor i32 %48, %35
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %51 = load i8, ptr %50, align 2, !tbaa !3
   %52 = zext i8 %51 to i64
   %53 = getelementptr inbounds nuw [256 x i32], ptr %32, i64 0, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !10
+  %54 = load i32, ptr %53, align 4, !tbaa !11
   %55 = xor i32 %54, %36
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 3
   %57 = load i8, ptr %56, align 1, !tbaa !3
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds nuw [256 x i32], ptr %32, i64 0, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !10
+  %60 = load i32, ptr %59, align 4, !tbaa !11
   %61 = xor i32 %60, %37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %62 = icmp samesign ult i64 %indvars.iv.i, 12
-  br i1 %62, label %33, label %_ZN9CryptData9UpdKeys20EPh.exit, !llvm.loop !25
+  br i1 %62, label %33, label %_ZN9CryptData9UpdKeys20EPh.exit, !llvm.loop !26
 
 _ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %33
-  store i32 %43, ptr %5, align 8, !tbaa !10
-  store i32 %49, ptr %10, align 4, !tbaa !10
-  store i32 %55, ptr %15, align 8, !tbaa !10
-  store i32 %61, ptr %20, align 4, !tbaa !10
+  store i32 %43, ptr %5, align 8, !tbaa !11
+  store i32 %49, ptr %10, align 4, !tbaa !11
+  store i32 %55, ptr %15, align 8, !tbaa !11
+  store i32 %61, ptr %20, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
   ret void
 
@@ -674,7 +674,7 @@ _ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %33
   %66 = and i32 %.045, 3
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %67
-  %69 = load i32, ptr %68, align 4, !tbaa !10
+  %69 = load i32, ptr %68, align 4, !tbaa !11
   %70 = xor i32 %69, %65
   %71 = and i32 %70, 255
   %72 = zext nneg i32 %71 to i64
@@ -739,7 +739,7 @@ _ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %33
   %131 = xor i32 %130, %.03843
   %132 = add nsw i32 %.045, -1
   %.not = icmp eq i32 %.045, 0
-  br i1 %.not, label %24, label %63, !llvm.loop !27
+  br i1 %.not, label %24, label %63, !llvm.loop !28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -765,14 +765,14 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
 
 16:                                               ; preds = %.split.us
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %18 = load i8, ptr %17, align 8, !tbaa !28, !range !37, !noundef !38
+  %18 = load i8, ptr %17, align 8, !tbaa !29, !range !38, !noundef !39
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %.split51.us
 
 20:                                               ; preds = %16, %.split.us
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
-  br i1 %exitcond65.not, label %.critedge, label %.split.us, !llvm.loop !39
+  br i1 %exitcond65.not, label %.critedge, label %.split.us, !llvm.loop !40
 
 .split:                                           ; preds = %5, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %5 ]
@@ -782,7 +782,7 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
 
 23:                                               ; preds = %.split
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %25 = load i8, ptr %24, align 8, !tbaa !28, !range !37, !noundef !38
+  %25 = load i8, ptr %24, align 8, !tbaa !29, !range !38, !noundef !39
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %32
 
@@ -804,7 +804,7 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
 32:                                               ; preds = %.split, %23, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !40
+  br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !41
 
 .critedge:                                        ; preds = %32, %20
   call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %8) #20
@@ -854,10 +854,10 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
 
 54:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false), !tbaa.struct !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false), !tbaa.struct !42
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #20
   call void @_Z9sha1_doneP12sha1_contextPj(ptr noundef nonnull %11, ptr noundef nonnull %12)
-  %55 = load i32, ptr %44, align 16, !tbaa !10
+  %55 = load i32, ptr %44, align 16, !tbaa !11
   %56 = trunc i32 %55 to i8
   %57 = lshr exact i32 %.04353, 14
   %58 = zext nneg i32 %57 to i64
@@ -871,36 +871,36 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #20
   %61 = add nuw nsw i32 %.04353, 1
   %exitcond66.not = icmp eq i32 %61, 262144
-  br i1 %exitcond66.not, label %45, label %46, !llvm.loop !44
+  br i1 %exitcond66.not, label %45, label %46, !llvm.loop !45
 
 .preheader:                                       ; preds = %45, %78
   %indvars.iv71 = phi i64 [ 0, %45 ], [ %indvars.iv.next72, %78 ]
   %62 = getelementptr inbounds nuw [5 x i32], ptr %13, i64 0, i64 %indvars.iv71
-  %63 = load i32, ptr %62, align 4, !tbaa !10
+  %63 = load i32, ptr %62, align 4, !tbaa !11
   %64 = shl nuw nsw i64 %indvars.iv71, 2
   br label %79
 
 65:                                               ; preds = %78
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %67 = load i32, ptr %66, align 8, !tbaa !45
+  %67 = load i32, ptr %66, align 8, !tbaa !46
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw [4 x %"struct.CryptData::KDF3CacheItem"], ptr %0, i64 0, i64 %68
   %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIwSaIwEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %69, ptr noundef nonnull align 8 dereferenceable(25) %2)
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %72 = load i8, ptr %71, align 8, !tbaa !46, !range !37, !noundef !38
+  %72 = load i8, ptr %71, align 8, !tbaa !47, !range !38, !noundef !39
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store i8 %72, ptr %73, align 8, !tbaa !46
-  %74 = load i32, ptr %66, align 8, !tbaa !45
+  store i8 %72, ptr %73, align 8, !tbaa !47
+  %74 = load i32, ptr %66, align 8, !tbaa !46
   %75 = zext i32 %74 to i64
   %76 = getelementptr inbounds nuw [4 x %"struct.CryptData::KDF3CacheItem"], ptr %0, i64 0, i64 %75, i32 4
   %77 = zext i1 %36 to i8
-  store i8 %77, ptr %76, align 8, !tbaa !28
+  store i8 %77, ptr %76, align 8, !tbaa !29
   br i1 %36, label %85, label %88
 
 78:                                               ; preds = %79
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 4
-  br i1 %exitcond74.not, label %65, label %.preheader, !llvm.loop !47
+  br i1 %exitcond74.not, label %65, label %.preheader, !llvm.loop !48
 
 79:                                               ; preds = %.preheader, %79
   %indvars.iv67 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next68, %79 ]
@@ -913,7 +913,7 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
   store i8 %82, ptr %84, align 1, !tbaa !3
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 4
-  br i1 %exitcond70.not, label %78, label %79, !llvm.loop !48
+  br i1 %exitcond70.not, label %78, label %79, !llvm.loop !49
 
 85:                                               ; preds = %65
   %86 = getelementptr inbounds nuw [4 x %"struct.CryptData::KDF3CacheItem"], ptr %0, i64 0, i64 %75, i32 1
@@ -925,13 +925,13 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
   %89 = getelementptr inbounds nuw [4 x %"struct.CryptData::KDF3CacheItem"], ptr %0, i64 0, i64 %75, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   call void @_Z11SecHideDataPvmbb(ptr noundef nonnull %89, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false)
-  %90 = load i32, ptr %66, align 8, !tbaa !45
+  %90 = load i32, ptr %66, align 8, !tbaa !46
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw [4 x %"struct.CryptData::KDF3CacheItem"], ptr %0, i64 0, i64 %91, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   %93 = add i32 %90, 1
   %94 = and i32 %93, 3
-  store i32 %94, ptr %66, align 8, !tbaa !45
+  store i32 %94, ptr %66, align 8, !tbaa !46
   call void @_Z9cleandataPvm(ptr noundef nonnull %8, i64 noundef 1032)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #20
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #20
@@ -1002,30 +1002,30 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #20
   %28 = add i32 %7, -1
-  store i32 %28, ptr %12, align 4, !tbaa !10
+  store i32 %28, ptr %12, align 4, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 16, ptr %29, align 4, !tbaa !10
+  store i32 16, ptr %29, align 4, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 16, ptr %30, align 4, !tbaa !10
+  store i32 16, ptr %30, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #20
-  store ptr %4, ptr %13, align 16, !tbaa !49
+  store ptr %4, ptr %13, align 16, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %5, ptr %31, align 8, !tbaa !49
+  store ptr %5, ptr %31, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %6, ptr %32, align 16, !tbaa !49
+  store ptr %6, ptr %32, align 16, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14) #20
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %15) #20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #20
-  store i8 0, ptr %16, align 1, !tbaa !51
+  store i8 0, ptr %16, align 1, !tbaa !52
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #20
-  store i8 0, ptr %17, align 1, !tbaa !51
+  store i8 0, ptr %17, align 1, !tbaa !52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #20
   br label %.preheader
 
 .preheader:                                       ; preds = %8, %._crit_edge
   %indvars.iv33 = phi i64 [ 0, %8 ], [ %indvars.iv.next34, %._crit_edge ]
   %33 = getelementptr inbounds nuw [3 x i32], ptr %12, i64 0, i64 %indvars.iv33
-  %34 = load i32, ptr %33, align 4, !tbaa !10
+  %34 = load i32, ptr %33, align 4, !tbaa !11
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1048,11 +1048,11 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noun
 
 ._crit_edge:                                      ; preds = %38, %.preheader
   %36 = getelementptr inbounds nuw [3 x ptr], ptr %13, i64 0, i64 %indvars.iv33
-  %37 = load ptr, ptr %36, align 8, !tbaa !49
+  %37 = load ptr, ptr %36, align 8, !tbaa !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %37, ptr noundef nonnull align 16 dereferenceable(32) %11, i64 32, i1 false)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 3
-  br i1 %exitcond36.not, label %35, label %.preheader, !llvm.loop !52
+  br i1 %exitcond36.not, label %35, label %.preheader, !llvm.loop !53
 
 .lr.ph:                                           ; preds = %.preheader, %38
   %.02529 = phi i32 [ %39, %38 ], [ 0, %.preheader ]
@@ -1063,7 +1063,7 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noun
 38:                                               ; preds = %40
   %39 = add nuw i32 %.02529, 1
   %exitcond32.not = icmp eq i32 %39, %34
-  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
@@ -1075,7 +1075,7 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noun
   store i8 %45, ptr %43, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %38, label %40, !llvm.loop !54
+  br i1 %exitcond.not, label %38, label %40, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1107,12 +1107,12 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %18
-  %20 = load i8, ptr %6, align 1, !tbaa !51, !range !37, !noundef !38
+  %20 = load i8, ptr %6, align 1, !tbaa !52, !range !38, !noundef !39
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %.thread66, label %22
 
 .thread66:                                        ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false), !tbaa.struct !56
   br label %33
 
 22:                                               ; preds = %19, %18
@@ -1138,7 +1138,7 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   store i8 %27, ptr %28, align 1, !tbaa !3
   %29 = add nuw nsw i64 %.04152, 1
   %exitcond.not = icmp eq i64 %29, %.043
-  br i1 %exitcond.not, label %.preheader51, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond.not, label %.preheader51, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph54.preheader, %.preheader51
   call void @_Z11sha256_initP14sha256_context(ptr noundef nonnull %13)
@@ -1146,13 +1146,13 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   br i1 %.not, label %33, label %30
 
 30:                                               ; preds = %._crit_edge
-  %.pre = load i8, ptr %6, align 1, !tbaa !51, !range !37
+  %.pre = load i8, ptr %6, align 1, !tbaa !52, !range !38
   %31 = trunc nuw i8 %.pre to i1
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 104, i1 false), !tbaa.struct !55
-  store i8 1, ptr %6, align 1, !tbaa !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 104, i1 false), !tbaa.struct !56
+  store i8 1, ptr %6, align 1, !tbaa !52
   br label %33
 
 33:                                               ; preds = %.thread66, %32, %30, %._crit_edge
@@ -1164,12 +1164,12 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   br i1 %.not49, label %37, label %34
 
 34:                                               ; preds = %33
-  %35 = load i8, ptr %8, align 1, !tbaa !51, !range !37, !noundef !38
+  %35 = load i8, ptr %8, align 1, !tbaa !52, !range !38, !noundef !39
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %.thread67, label %37
 
 .thread67:                                        ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false), !tbaa.struct !56
   br label %48
 
 37:                                               ; preds = %34, %33
@@ -1195,7 +1195,7 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   store i8 %42, ptr %43, align 1, !tbaa !3
   %44 = add nuw nsw i64 %.03955, 1
   %exitcond63.not = icmp eq i64 %44, %.043
-  br i1 %exitcond63.not, label %.preheader, label %.lr.ph57, !llvm.loop !57
+  br i1 %exitcond63.not, label %.preheader, label %.lr.ph57, !llvm.loop !58
 
 ._crit_edge60:                                    ; preds = %.lr.ph59.preheader, %.preheader
   call void @_Z11sha256_initP14sha256_context(ptr noundef nonnull %15)
@@ -1203,13 +1203,13 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
   br i1 %.not49, label %48, label %45
 
 45:                                               ; preds = %._crit_edge60
-  %.pre65 = load i8, ptr %8, align 1, !tbaa !51, !range !37
+  %.pre65 = load i8, ptr %8, align 1, !tbaa !52, !range !38
   %46 = trunc nuw i8 %.pre65 to i1
   br i1 %46, label %48, label %47
 
 47:                                               ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false), !tbaa.struct !55
-  store i8 1, ptr %8, align 1, !tbaa !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false), !tbaa.struct !56
+  store i8 1, ptr %8, align 1, !tbaa !52
   br label %48
 
 48:                                               ; preds = %.thread67, %47, %45, %._crit_edge60
@@ -1263,7 +1263,7 @@ define void @_ZN9CryptData8SetKey50EbP11SecPasswordPKwPKhS5_jPhS6_(ptr noundef n
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  %26 = load i32, ptr %25, align 8, !tbaa !58
+  %26 = load i32, ptr %25, align 8, !tbaa !59
   %27 = icmp eq i32 %26, %6
   br i1 %27, label %28, label %34
 
@@ -1286,7 +1286,7 @@ define void @_ZN9CryptData8SetKey50EbP11SecPasswordPKwPKhS5_jPhS6_(ptr noundef n
 34:                                               ; preds = %28, %24, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %35, label %21, !llvm.loop !60
+  br i1 %exitcond.not, label %35, label %21, !llvm.loop !61
 
 35:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %13) #20
@@ -1296,19 +1296,19 @@ define void @_ZN9CryptData8SetKey50EbP11SecPasswordPKwPKhS5_jPhS6_(ptr noundef n
   call void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef nonnull %13, i64 noundef %36, ptr noundef %4, i64 noundef 16, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef %37)
   call void @_Z9cleandataPvm(ptr noundef nonnull %13, i64 noundef 2048)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %39 = load i32, ptr %38, align 8, !tbaa !61
+  %39 = load i32, ptr %38, align 8, !tbaa !62
   %40 = add i32 %39, 1
-  store i32 %40, ptr %38, align 8, !tbaa !61
+  store i32 %40, ptr %38, align 8, !tbaa !62
   %41 = and i32 %39, 3
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw %"struct.CryptData::KDF5CacheItem", ptr %20, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  store i32 %6, ptr %44, align 8, !tbaa !58
+  store i32 %6, ptr %44, align 8, !tbaa !59
   %45 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIwSaIwEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %43, ptr noundef nonnull align 8 dereferenceable(25) %2)
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %47 = load i8, ptr %46, align 8, !tbaa !46, !range !37, !noundef !38
+  %47 = load i8, ptr %46, align 8, !tbaa !47, !range !38, !noundef !39
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store i8 %47, ptr %48, align 8, !tbaa !46
+  store i8 %47, ptr %48, align 8, !tbaa !47
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 48
@@ -1352,7 +1352,7 @@ define void @_ZN9CryptData8SetKey50EbP11SecPasswordPKwPKhS5_jPhS6_(ptr noundef n
   store i8 %64, ptr %62, align 1, !tbaa !3
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 32
-  br i1 %exitcond70.not, label %57, label %58, !llvm.loop !62
+  br i1 %exitcond70.not, label %57, label %58, !llvm.loop !63
 
 65:                                               ; preds = %57, %55
   %.not55 = icmp eq ptr %5, null
@@ -1384,7 +1384,7 @@ define void @_Z16ConvertHashToMACP9HashValuePh(ptr noundef %0, ptr noundef %1) l
   %3 = alloca [4 x i8], align 1
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  %6 = load i32, ptr %0, align 4, !tbaa !63
+  %6 = load i32, ptr %0, align 4, !tbaa !64
   %7 = icmp eq i32 %6, 2
   br i1 %7, label %8, label %21
 
@@ -1392,7 +1392,7 @@ define void @_Z16ConvertHashToMACP9HashValuePh(ptr noundef %0, ptr noundef %1) l
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !3
-  store i32 %10, ptr %3, align 4, !tbaa !10
+  store i32 %10, ptr %3, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %1, i64 noundef 32, ptr noundef nonnull %3, i64 noundef 4, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %12
@@ -1401,7 +1401,7 @@ define void @_Z16ConvertHashToMACP9HashValuePh(ptr noundef %0, ptr noundef %1) l
   store i32 %20, ptr %9, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
-  %.pr = load i32, ptr %0, align 4, !tbaa !63
+  %.pr = load i32, ptr %0, align 4, !tbaa !64
   br label %21
 
 12:                                               ; preds = %8, %12
@@ -1417,7 +1417,7 @@ define void @_Z16ConvertHashToMACP9HashValuePh(ptr noundef %0, ptr noundef %1) l
   %20 = xor i32 %19, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %11, label %12, !llvm.loop !66
+  br i1 %exitcond.not, label %11, label %12, !llvm.loop !67
 
 21:                                               ; preds = %11, %2
   %22 = phi i32 [ %.pr, %11 ], [ %6, %2 ]
@@ -1476,7 +1476,7 @@ define void @_ZN9CryptDataC2Ev(ptr noundef nonnull align 8 dereferenceable(2516)
 _ZN9CryptData13KDF3CacheItemC2Ev.exit:            ; preds = %.noexc3.i
   %.add = add nuw nsw i64 %.idx, 80
   %10 = icmp eq i64 %.add, 320
-  br i1 %10, label %.preheader35, label %3
+  br i1 %10, label %.preheader35, label %3, !llvm.loop !68
 
 .preheader35:                                     ; preds = %_ZN9CryptData13KDF3CacheItemC2Ev.exit, %_ZN9CryptData13KDF5CacheItemC2Ev.exit
   %.idx11 = phi i64 [ %.add12, %_ZN9CryptData13KDF5CacheItemC2Ev.exit ], [ 328, %_ZN9CryptData13KDF3CacheItemC2Ev.exit ]
@@ -1518,7 +1518,7 @@ _ZN9CryptData13KDF3CacheItemC2Ev.exit:            ; preds = %.noexc3.i
 _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
   %.add12 = add nuw nsw i64 %.idx11, 152
   %18 = icmp samesign eq i64 %.add12, 936
-  br i1 %18, label %19, label %.preheader35
+  br i1 %18, label %19, label %.preheader35, !llvm.loop !69
 
 19:                                               ; preds = %_ZN9CryptData13KDF5CacheItemC2Ev.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 944
@@ -1527,10 +1527,10 @@ _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 0, ptr %22, align 4, !tbaa !13
-  store i32 0, ptr %2, align 8, !tbaa !45
+  store i32 0, ptr %22, align 4, !tbaa !14
+  store i32 0, ptr %2, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 0, ptr %23, align 8, !tbaa !61
+  store i32 0, ptr %23, align 8, !tbaa !62
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %24, i8 0, i64 1024, i1 false)
   ret void
@@ -1550,7 +1550,7 @@ _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
   %29 = getelementptr inbounds i8, ptr %28, i64 -80
   tail call void @_ZN9CryptData13KDF3CacheItemD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %29) #20
   %30 = icmp eq ptr %29, %0
-  br i1 %30, label %.loopexit, label %.preheader36
+  br i1 %30, label %.loopexit, label %.preheader36, !llvm.loop !70
 
 31:                                               ; preds = %.preheader35
   %32 = landingpad { ptr, i32 }
@@ -1568,7 +1568,7 @@ _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
   %.ptr19 = getelementptr inbounds i8, ptr %0, i64 %.add17
   tail call void @_ZN9CryptData13KDF5CacheItemD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr19) #20
   %34 = icmp eq i64 %.add17, 328
-  br i1 %34, label %.loopexit33, label %.preheader
+  br i1 %34, label %.loopexit33, label %.preheader, !llvm.loop !71
 
 35:                                               ; preds = %19
   %36 = landingpad { ptr, i32 }
@@ -1581,7 +1581,7 @@ _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
   %.ptr23 = getelementptr inbounds i8, ptr %0, i64 %.add21
   tail call void @_ZN9CryptData13KDF5CacheItemD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr23) #20
   %38 = icmp eq i64 %.add21, 328
-  br i1 %38, label %.loopexit33, label %37
+  br i1 %38, label %.loopexit33, label %37, !llvm.loop !72
 
 .loopexit33:                                      ; preds = %.preheader, %37, %.body31
   %.pn = phi { ptr, i32 } [ %eh.lpad-body32, %.body31 ], [ %36, %37 ], [ %eh.lpad-body32, %.preheader ]
@@ -1592,7 +1592,7 @@ _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
   %41 = getelementptr inbounds i8, ptr %40, i64 -80
   tail call void @_ZN9CryptData13KDF3CacheItemD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %41) #20
   %42 = icmp eq ptr %41, %0
-  br i1 %42, label %.loopexit, label %39
+  br i1 %42, label %.loopexit, label %39, !llvm.loop !73
 
 .loopexit:                                        ; preds = %.preheader36, %39, %.body
   %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn, %39 ], [ %eh.lpad-body, %.preheader36 ]
@@ -1677,7 +1677,7 @@ declare void @_ZN8RijndaelC1Ev(ptr noundef nonnull align 4 dereferenceable(264))
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9CryptData12DecryptBlockEPhm(ptr noundef nonnull align 8 dereferenceable(2516) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  %5 = load i32, ptr %4, align 4, !tbaa !13
+  %5 = load i32, ptr %4, align 4, !tbaa !14
   switch i32 %5, label %_ZN9CryptData9Decrypt13EPhm.exit [
     i32 1, label %6
     i32 2, label %20
@@ -1716,7 +1716,7 @@ define void @_ZN9CryptData12DecryptBlockEPhm(ptr noundef nonnull align 8 derefer
   store i8 %18, ptr %.035.i, align 1, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %.035.i, i64 1
   %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %_ZN9CryptData9Decrypt13EPhm.exit, label %10, !llvm.loop !18
+  br i1 %.not.i, label %_ZN9CryptData9Decrypt13EPhm.exit, label %10, !llvm.loop !19
 
 20:                                               ; preds = %3
   %.not4.i12 = icmp eq i64 %2, 0
@@ -1734,30 +1734,30 @@ define void @_ZN9CryptData12DecryptBlockEPhm(ptr noundef nonnull align 8 derefer
   %.06.i14 = phi i64 [ %2, %.lr.ph.i13 ], [ %27, %26 ]
   %.035.i15 = phi ptr [ %1, %.lr.ph.i13 ], [ %52, %26 ]
   %27 = add i64 %.06.i14, -1
-  %28 = load i16, ptr %21, align 4, !tbaa !8
+  %28 = load i16, ptr %21, align 4, !tbaa !9
   %29 = add i16 %28, 4660
   %30 = lshr i16 %29, 1
   %31 = and i16 %30, 255
   %32 = zext nneg i16 %31 to i64
   %33 = getelementptr inbounds nuw [256 x i32], ptr %22, i64 0, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !10
-  %35 = load i16, ptr %23, align 2, !tbaa !8
+  %34 = load i32, ptr %33, align 4, !tbaa !11
+  %35 = load i16, ptr %23, align 2, !tbaa !9
   %36 = trunc i32 %34 to i16
   %37 = xor i16 %35, %36
-  store i16 %37, ptr %23, align 2, !tbaa !8
+  store i16 %37, ptr %23, align 2, !tbaa !9
   %38 = lshr i32 %34, 16
-  %39 = load i16, ptr %24, align 8, !tbaa !8
+  %39 = load i16, ptr %24, align 8, !tbaa !9
   %40 = trunc nuw i32 %38 to i16
   %41 = sub i16 %39, %40
-  store i16 %41, ptr %24, align 8, !tbaa !8
+  store i16 %41, ptr %24, align 8, !tbaa !9
   %42 = xor i16 %41, %29
-  %43 = load i16, ptr %25, align 2, !tbaa !8
+  %43 = load i16, ptr %25, align 2, !tbaa !9
   %44 = tail call i16 @llvm.fshl.i16(i16 %43, i16 %43, i16 15)
   %45 = xor i16 %44, %37
   %46 = tail call i16 @llvm.fshl.i16(i16 %45, i16 %45, i16 15)
-  store i16 %46, ptr %25, align 2, !tbaa !8
+  store i16 %46, ptr %25, align 2, !tbaa !9
   %47 = xor i16 %42, %46
-  store i16 %47, ptr %21, align 4, !tbaa !8
+  store i16 %47, ptr %21, align 4, !tbaa !9
   %48 = lshr i16 %47, 8
   %49 = load i8, ptr %.035.i15, align 1, !tbaa !3
   %50 = trunc nuw i16 %48 to i8
@@ -1765,7 +1765,7 @@ define void @_ZN9CryptData12DecryptBlockEPhm(ptr noundef nonnull align 8 derefer
   store i8 %51, ptr %.035.i15, align 1, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %.035.i15, i64 1
   %.not.i16 = icmp eq i64 %27, 0
-  br i1 %.not.i16, label %_ZN9CryptData9Decrypt13EPhm.exit, label %26, !llvm.loop !19
+  br i1 %.not.i16, label %_ZN9CryptData9Decrypt13EPhm.exit, label %26, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.019 = phi i64 [ %54, %.lr.ph ], [ 0, %.preheader ]
@@ -1773,7 +1773,7 @@ define void @_ZN9CryptData12DecryptBlockEPhm(ptr noundef nonnull align 8 derefer
   tail call void @_ZN9CryptData14DecryptBlock20EPh(ptr noundef nonnull align 8 dereferenceable(2516) %0, ptr noundef %53)
   %54 = add i64 %.019, 16
   %55 = icmp ult i64 %54, %2
-  br i1 %55, label %.lr.ph, label %_ZN9CryptData9Decrypt13EPhm.exit, !llvm.loop !67
+  br i1 %55, label %.lr.ph, label %_ZN9CryptData9Decrypt13EPhm.exit, !llvm.loop !74
 
 56:                                               ; preds = %3, %3
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
@@ -1795,17 +1795,17 @@ define noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPass
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %15 = load i8, ptr %14, align 8, !tbaa !46, !range !37, !noundef !38
+  %15 = load i8, ptr %14, align 8, !tbaa !47, !range !38, !noundef !39
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %66
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 %2, ptr %18, align 4, !tbaa !13
+  store i32 %2, ptr %18, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %10) #20
   call void @_ZN11SecPassword3GetEPwm(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull %10, i64 noundef 512)
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 508
-  store i32 0, ptr %19, align 4, !tbaa !68
+  store i32 0, ptr %19, align 4, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11) #20
   %20 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 512)
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 127
@@ -1853,9 +1853,9 @@ define noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPass
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 2508
   store i32 %41, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2514
-  store i16 0, ptr %43, align 2, !tbaa !8
+  store i16 0, ptr %43, align 2, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2512
-  store i16 0, ptr %44, align 8, !tbaa !8
+  store i16 0, ptr %44, align 8, !tbaa !9
   %45 = load i8, ptr %11, align 16, !tbaa !3
   %.not14.i = icmp eq i8 %45, 0
   br i1 %.not14.i, label %_ZN9CryptData8SetKey13EPKc.exit, label %.lr.ph.i17
@@ -1868,7 +1868,7 @@ define noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPass
   %49 = zext i8 %46 to i32
   %50 = zext i8 %46 to i64
   %51 = getelementptr inbounds nuw [256 x i32], ptr %39, i64 0, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !10
+  %52 = load i32, ptr %51, align 4, !tbaa !11
   %53 = xor i32 %47, %49
   %54 = xor i32 %53, %52
   %55 = lshr i32 %52, 16
@@ -1879,7 +1879,7 @@ define noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPass
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !3
   %.not.i18 = icmp eq i8 %61, 0
-  br i1 %.not.i18, label %_ZN9CryptData8SetKey13EPKc.exit.loopexit19, label %.lr.ph.i17, !llvm.loop !12
+  br i1 %.not.i18, label %_ZN9CryptData8SetKey13EPKc.exit.loopexit19, label %.lr.ph.i17, !llvm.loop !13
 
 62:                                               ; preds = %17
   call void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferenceable(2516) %0, ptr noundef nonnull %11)
@@ -1901,8 +1901,8 @@ _ZN9CryptData8SetKey13EPKc.exit.loopexit:         ; preds = %.lr.ph.i
 
 _ZN9CryptData8SetKey13EPKc.exit.loopexit19:       ; preds = %.lr.ph.i17
   %65 = trunc i32 %54 to i16
-  store i16 %65, ptr %44, align 8, !tbaa !8
-  store i16 %58, ptr %43, align 2, !tbaa !8
+  store i16 %65, ptr %44, align 8, !tbaa !9
+  store i16 %58, ptr %43, align 2, !tbaa !9
   br label %_ZN9CryptData8SetKey13EPKc.exit
 
 _ZN9CryptData8SetKey13EPKc.exit:                  ; preds = %_ZN9CryptData8SetKey13EPKc.exit.loopexit19, %_ZN9CryptData8SetKey13EPKc.exit.loopexit, %38, %22, %64, %63, %62, %17
@@ -1936,7 +1936,7 @@ define void @_Z6GetRndPhm(ptr noundef writeonly captures(none) %0, i64 noundef %
 
 .critedge:                                        ; preds = %2, %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
-  store i64 0, ptr %3, align 8, !tbaa !70
+  store i64 0, ptr %3, align 8, !tbaa !77
   call void @_ZN7RarTime14SetCurrentTimeEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %9 = call noundef i64 @_ZN7RarTime6GetWinEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %10 = call i64 @clock() #20
@@ -1949,7 +1949,7 @@ define void @_Z6GetRndPhm(ptr noundef writeonly captures(none) %0, i64 noundef %
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store i32 %17, ptr @_ZZL13TimeRandomizePhmE5Count, align 4, !tbaa !10
+  store i32 %17, ptr @_ZZL13TimeRandomizePhmE5Count, align 4, !tbaa !11
   br label %_ZL13TimeRandomizePhm.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1967,7 +1967,7 @@ define void @_Z6GetRndPhm(ptr noundef writeonly captures(none) %0, i64 noundef %
   store i8 %20, ptr %21, align 1, !tbaa !3
   %22 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %22, %1
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !72
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !79
 
 _ZL13TimeRandomizePhm.exit:                       ; preds = %.critedge, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
@@ -1993,14 +1993,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !73
-  %6 = load ptr, ptr %1, align 8, !tbaa !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !80
+  %6 = load ptr, ptr %1, align 8, !tbaa !81
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
-  %12 = load ptr, ptr %0, align 8, !tbaa !74
+  %11 = load ptr, ptr %10, align 8, !tbaa !82
+  %12 = load ptr, ptr %0, align 8, !tbaa !81
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -2009,7 +2009,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 17:                                               ; preds = %3
   %18 = icmp ugt i64 %9, 9223372036854775804
-  br i1 %18, label %19, label %_ZNSt12_Vector_baseIwSaIwEE11_M_allocateEm.exit.i, !prof !76
+  br i1 %18, label %19, label %_ZNSt12_Vector_baseIwSaIwEE11_M_allocateEm.exit.i, !prof !83
 
 19:                                               ; preds = %17
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -2033,14 +2033,14 @@ _ZNSt6vectorIwSaIwEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKwS1_
   br label %_ZNSt12_Vector_baseIwSaIwEE13_M_deallocateEPwm.exit
 
 _ZNSt12_Vector_baseIwSaIwEE13_M_deallocateEPwm.exit: ; preds = %_ZNSt6vectorIwSaIwEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKwS1_EEEEPwmT_S9_.exit, %22
-  store ptr %20, ptr %0, align 8, !tbaa !74
+  store ptr %20, ptr %0, align 8, !tbaa !81
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
-  store ptr %23, ptr %10, align 8, !tbaa !75
+  store ptr %23, ptr %10, align 8, !tbaa !82
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKwSt6vectorIwSaIwEEEENS1_IPwS6_EEET0_T_SB_SA_.exit
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !73
+  %26 = load ptr, ptr %25, align 8, !tbaa !80
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %27, %14
   %.not24 = icmp ult i64 %28, %9
@@ -2060,10 +2060,10 @@ _ZNSt12_Vector_baseIwSaIwEE13_M_deallocateEPwm.exit: ; preds = %_ZNSt6vectorIwSa
 
 32:                                               ; preds = %31
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %28, i1 false)
-  %.pre = load ptr, ptr %1, align 8, !tbaa !74
-  %.pre26 = load ptr, ptr %25, align 8, !tbaa !73
-  %.pre27 = load ptr, ptr %0, align 8, !tbaa !74
-  %.pre28 = load ptr, ptr %4, align 8, !tbaa !73
+  %.pre = load ptr, ptr %1, align 8, !tbaa !81
+  %.pre26 = load ptr, ptr %25, align 8, !tbaa !80
+  %.pre27 = load ptr, ptr %0, align 8, !tbaa !81
+  %.pre28 = load ptr, ptr %4, align 8, !tbaa !80
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
   %.pre32 = sub i64 %.pre29, %.pre30
@@ -2086,10 +2086,10 @@ _ZSt4copyIPwS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKwSt6vectorIwSaIwEEEENS1_IPwS6_EEET0_T_SB_SA_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKwSt6vectorIwSaIwEEEENS1_IPwS6_EEET0_T_SB_SA_.exit: ; preds = %37, %_ZSt4copyIPwS0_ET0_T_S2_S1_.exit, %30, %29, %_ZNSt12_Vector_baseIwSaIwEE13_M_deallocateEPwm.exit
-  %41 = load ptr, ptr %0, align 8, !tbaa !74
+  %41 = load ptr, ptr %0, align 8, !tbaa !81
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %42, ptr %43, align 8, !tbaa !73
+  store ptr %42, ptr %43, align 8, !tbaa !80
   br label %44
 
 44:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKwSt6vectorIwSaIwEEEENS1_IPwS6_EEET0_T_SB_SA_.exit, %2
@@ -2190,74 +2190,81 @@ attributes #24 = { builtin nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"short", !4, i64 0}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !4, i64 0}
-!12 = distinct !{!12, !7}
-!13 = !{!14, !15, i64 940}
-!14 = !{!"_ZTS9CryptData", !4, i64 0, !11, i64 320, !4, i64 328, !11, i64 936, !15, i64 940, !16, i64 944, !4, i64 1208, !4, i64 2232, !4, i64 2488, !4, i64 2504, !4, i64 2508}
-!15 = !{!"_ZTS12CRYPT_METHOD", !4, i64 0}
-!16 = !{!"_ZTS8Rijndael", !17, i64 0, !11, i64 4, !4, i64 8, !4, i64 24}
-!17 = !{!"bool", !4, i64 0}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = !{!29, !17, i64 72}
-!29 = !{!"_ZTSN9CryptData13KDF3CacheItemE", !30, i64 0, !4, i64 32, !4, i64 40, !4, i64 56, !17, i64 72}
-!30 = !{!"_ZTS11SecPassword", !31, i64 0, !17, i64 24}
-!31 = !{!"_ZTSSt6vectorIwSaIwEE", !32, i64 0}
-!32 = !{!"_ZTSSt12_Vector_baseIwSaIwEE", !33, i64 0}
-!33 = !{!"_ZTSNSt12_Vector_baseIwSaIwEE12_Vector_implE", !34, i64 0}
-!34 = !{!"_ZTSNSt12_Vector_baseIwSaIwEE17_Vector_impl_dataE", !35, i64 0, !35, i64 8, !35, i64 16}
-!35 = !{!"p1 wchar_t", !36, i64 0}
-!36 = !{!"any pointer", !4, i64 0}
-!37 = !{i8 0, i8 2}
-!38 = !{}
-!39 = distinct !{!39, !7, !23}
-!40 = distinct !{!40, !7}
-!41 = !{i64 0, i64 20, !3, i64 24, i64 8, !42, i64 32, i64 64, !3}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"long", !4, i64 0}
-!44 = distinct !{!44, !7}
-!45 = !{!14, !11, i64 320}
-!46 = !{!30, !17, i64 24}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"p1 omnipotent char", !36, i64 0}
-!51 = !{!17, !17, i64 0}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = !{i64 0, i64 32, !3, i64 32, i64 8, !42, i64 40, i64 64, !3}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = !{!59, !11, i64 80}
-!59 = !{!"_ZTSN9CryptData13KDF5CacheItemE", !30, i64 0, !4, i64 32, !4, i64 48, !11, i64 80, !4, i64 84, !4, i64 116}
-!60 = distinct !{!60, !7}
-!61 = !{!14, !11, i64 936}
-!62 = distinct !{!62, !7}
-!63 = !{!64, !65, i64 0}
-!64 = !{!"_ZTS9HashValue", !65, i64 0, !4, i64 4}
-!65 = !{!"_ZTS9HASH_TYPE", !4, i64 0}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"wchar_t", !4, i64 0}
-!70 = !{!71, !43, i64 0}
-!71 = !{!"_ZTS7RarTime", !43, i64 0}
-!72 = distinct !{!72, !7}
-!73 = !{!34, !35, i64 8}
-!74 = !{!34, !35, i64 0}
-!75 = !{!34, !35, i64 16}
-!76 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"short", !4, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !4, i64 0}
+!13 = distinct !{!13, !7, !8}
+!14 = !{!15, !16, i64 940}
+!15 = !{!"_ZTS9CryptData", !4, i64 0, !12, i64 320, !4, i64 328, !12, i64 936, !16, i64 940, !17, i64 944, !4, i64 1208, !4, i64 2232, !4, i64 2488, !4, i64 2504, !4, i64 2508}
+!16 = !{!"_ZTS12CRYPT_METHOD", !4, i64 0}
+!17 = !{!"_ZTS8Rijndael", !18, i64 0, !12, i64 4, !4, i64 8, !4, i64 24}
+!18 = !{!"bool", !4, i64 0}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = !{!30, !18, i64 72}
+!30 = !{!"_ZTSN9CryptData13KDF3CacheItemE", !31, i64 0, !4, i64 32, !4, i64 40, !4, i64 56, !18, i64 72}
+!31 = !{!"_ZTS11SecPassword", !32, i64 0, !18, i64 24}
+!32 = !{!"_ZTSSt6vectorIwSaIwEE", !33, i64 0}
+!33 = !{!"_ZTSSt12_Vector_baseIwSaIwEE", !34, i64 0}
+!34 = !{!"_ZTSNSt12_Vector_baseIwSaIwEE12_Vector_implE", !35, i64 0}
+!35 = !{!"_ZTSNSt12_Vector_baseIwSaIwEE17_Vector_impl_dataE", !36, i64 0, !36, i64 8, !36, i64 16}
+!36 = !{!"p1 wchar_t", !37, i64 0}
+!37 = !{!"any pointer", !4, i64 0}
+!38 = !{i8 0, i8 2}
+!39 = !{}
+!40 = distinct !{!40, !7, !8, !24}
+!41 = distinct !{!41, !7, !8}
+!42 = !{i64 0, i64 20, !3, i64 24, i64 8, !43, i64 32, i64 64, !3}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"long", !4, i64 0}
+!45 = distinct !{!45, !7, !8}
+!46 = !{!15, !12, i64 320}
+!47 = !{!31, !18, i64 24}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 omnipotent char", !37, i64 0}
+!52 = !{!18, !18, i64 0}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = !{i64 0, i64 32, !3, i64 32, i64 8, !43, i64 40, i64 64, !3}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = !{!60, !12, i64 80}
+!60 = !{!"_ZTSN9CryptData13KDF5CacheItemE", !31, i64 0, !4, i64 32, !4, i64 48, !12, i64 80, !4, i64 84, !4, i64 116}
+!61 = distinct !{!61, !7, !8}
+!62 = !{!15, !12, i64 936}
+!63 = distinct !{!63, !7, !8}
+!64 = !{!65, !66, i64 0}
+!65 = !{!"_ZTS9HashValue", !66, i64 0, !4, i64 4}
+!66 = !{!"_ZTS9HASH_TYPE", !4, i64 0}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !8}
+!69 = distinct !{!69, !8}
+!70 = distinct !{!70, !8}
+!71 = distinct !{!71, !8}
+!72 = distinct !{!72, !8}
+!73 = distinct !{!73, !8}
+!74 = distinct !{!74, !7, !8}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"wchar_t", !4, i64 0}
+!77 = !{!78, !44, i64 0}
+!78 = !{!"_ZTS7RarTime", !44, i64 0}
+!79 = distinct !{!79, !7, !8}
+!80 = !{!35, !36, i64 8}
+!81 = !{!35, !36, i64 0}
+!82 = !{!35, !36, i64 16}
+!83 = !{!"branch_weights", !"expected", i32 1, i32 2000}

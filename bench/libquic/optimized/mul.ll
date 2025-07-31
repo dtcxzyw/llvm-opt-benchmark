@@ -349,7 +349,7 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
   %92 = icmp eq i32 %87, %4
   %93 = icmp eq i32 %87, %5
   %or.cond271 = or i1 %92, %93
-  br i1 %or.cond271, label %94, label %.preheader275
+  br i1 %or.cond271, label %94, label %.preheader275, !llvm.loop !15
 
 94:                                               ; preds = %91
   %95 = sub nsw i32 %4, %87
@@ -391,21 +391,21 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
   %117 = mul nuw nsw i32 %3, 3
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw i64, ptr %0, i64 %118
-  %120 = load i64, ptr %119, align 8, !tbaa !15
+  %120 = load i64, ptr %119, align 8, !tbaa !17
   %121 = sext i32 %115 to i64
   %122 = add i64 %120, %121
-  store i64 %122, ptr %119, align 8, !tbaa !15
+  store i64 %122, ptr %119, align 8, !tbaa !17
   %123 = icmp ult i64 %122, %121
   br i1 %123, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %116, %.preheader
   %.0 = phi ptr [ %124, %.preheader ], [ %119, %116 ]
   %124 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %125 = load i64, ptr %124, align 8, !tbaa !15
+  %125 = load i64, ptr %124, align 8, !tbaa !17
   %126 = add i64 %125, 1
-  store i64 %126, ptr %124, align 8, !tbaa !15
+  store i64 %126, ptr %124, align 8, !tbaa !17
   %127 = icmp eq i64 %126, 0
-  br i1 %127, label %.preheader, label %.loopexit, !llvm.loop !17
+  br i1 %127, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %110, %116, %10
   ret void
@@ -597,21 +597,21 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
   %107 = add nuw nsw i32 %8, %3
   %108 = zext nneg i32 %107 to i64
   %109 = getelementptr inbounds nuw i64, ptr %0, i64 %108
-  %110 = load i64, ptr %109, align 8, !tbaa !15
+  %110 = load i64, ptr %109, align 8, !tbaa !17
   %111 = sext i32 %105 to i64
   %112 = add i64 %110, %111
-  store i64 %112, ptr %109, align 8, !tbaa !15
+  store i64 %112, ptr %109, align 8, !tbaa !17
   %113 = icmp ult i64 %112, %111
   br i1 %113, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %106, %.preheader
   %.0 = phi ptr [ %114, %.preheader ], [ %109, %106 ]
   %114 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %115 = load i64, ptr %114, align 8, !tbaa !15
+  %115 = load i64, ptr %114, align 8, !tbaa !17
   %116 = add i64 %115, 1
-  store i64 %116, ptr %114, align 8, !tbaa !15
+  store i64 %116, ptr %114, align 8, !tbaa !17
   %117 = icmp eq i64 %116, 0
-  br i1 %117, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %117, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %99, %106, %17, %22, %14
   ret void
@@ -640,9 +640,9 @@ define internal fastcc void @bn_mul_normal(ptr noundef %0, ptr noundef %1, i32 n
 12:                                               ; preds = %8
   %13 = sext i32 %.050 to i64
   %14 = getelementptr inbounds i64, ptr %0, i64 %13
-  %15 = load i64, ptr %.048, align 8, !tbaa !15
+  %15 = load i64, ptr %.048, align 8, !tbaa !17
   %16 = tail call i64 @bn_mul_words(ptr noundef %0, ptr noundef %.045, i32 noundef %.050, i64 noundef %15) #5
-  store i64 %16, ptr %14, align 8, !tbaa !15
+  store i64 %16, ptr %14, align 8, !tbaa !17
   %17 = icmp eq i32 %.047, 1
   br i1 %17, label %.loopexit, label %.lr.ph
 
@@ -653,30 +653,30 @@ define internal fastcc void @bn_mul_normal(ptr noundef %0, ptr noundef %1, i32 n
   %.14959 = phi ptr [ %41, %38 ], [ %.048, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %.062, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %.14959, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !15
+  %20 = load i64, ptr %19, align 8, !tbaa !17
   %21 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %18, ptr noundef %.045, i32 noundef %.050, i64 noundef %20) #5
   %22 = getelementptr inbounds nuw i8, ptr %.04661, i64 8
-  store i64 %21, ptr %22, align 8, !tbaa !15
+  store i64 %21, ptr %22, align 8, !tbaa !17
   %23 = icmp eq i32 %.160, 2
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %.062, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %.14959, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !15
+  %27 = load i64, ptr %26, align 8, !tbaa !17
   %28 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %25, ptr noundef %.045, i32 noundef %.050, i64 noundef %27) #5
   %29 = getelementptr inbounds nuw i8, ptr %.04661, i64 16
-  store i64 %28, ptr %29, align 8, !tbaa !15
+  store i64 %28, ptr %29, align 8, !tbaa !17
   %30 = icmp samesign ult i32 %.160, 4
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %.062, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %.14959, i64 24
-  %34 = load i64, ptr %33, align 8, !tbaa !15
+  %34 = load i64, ptr %33, align 8, !tbaa !17
   %35 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %32, ptr noundef %.045, i32 noundef %.050, i64 noundef %34) #5
   %36 = getelementptr inbounds nuw i8, ptr %.04661, i64 24
-  store i64 %35, ptr %36, align 8, !tbaa !15
+  store i64 %35, ptr %36, align 8, !tbaa !17
   %37 = icmp eq i32 %.160, 4
   br i1 %37, label %.loopexit, label %38
 
@@ -684,12 +684,12 @@ define internal fastcc void @bn_mul_normal(ptr noundef %0, ptr noundef %1, i32 n
   %39 = add nsw i32 %.160, -4
   %40 = getelementptr inbounds nuw i8, ptr %.062, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %.14959, i64 32
-  %42 = load i64, ptr %41, align 8, !tbaa !15
+  %42 = load i64, ptr %41, align 8, !tbaa !17
   %43 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %40, ptr noundef %.045, i32 noundef %.050, i64 noundef %42) #5
   %44 = getelementptr inbounds nuw i8, ptr %.04661, i64 32
-  store i64 %43, ptr %44, align 8, !tbaa !15
+  store i64 %43, ptr %44, align 8, !tbaa !17
   %45 = icmp samesign ult i32 %39, 2
-  br i1 %45, label %.loopexit, label %.lr.ph
+  br i1 %45, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %38, %.lr.ph, %24, %31, %12, %10
   ret void
@@ -740,7 +740,7 @@ define hidden range(i32 0, 2) i32 @BN_mul_word(ptr noundef %0, i64 noundef %1) l
   store i32 %20, ptr %3, align 8, !tbaa !6
   %21 = sext i32 %19 to i64
   %22 = getelementptr inbounds i64, ptr %18, i64 %21
-  store i64 %10, ptr %22, align 8, !tbaa !15
+  store i64 %10, ptr %22, align 8, !tbaa !17
   br label %23
 
 23:                                               ; preds = %8, %17, %11, %2, %7
@@ -860,7 +860,7 @@ define hidden range(i32 0, 2) i32 @BN_sqr(ptr noundef %0, ptr noundef readonly c
   %60 = zext nneg i32 %6 to i64
   %61 = getelementptr i64, ptr %59, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -8
-  %63 = load i64, ptr %62, align 8, !tbaa !15
+  %63 = load i64, ptr %62, align 8, !tbaa !17
   %64 = icmp ult i64 %63, 4294967296
   %65 = sext i1 %64 to i32
   %spec.select = add nsw i32 %20, %65
@@ -897,8 +897,8 @@ define internal fastcc void @bn_sqr_normal(ptr noundef initializes((0, 8)) %0, p
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr i64, ptr %0, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
-  store i64 0, ptr %8, align 8, !tbaa !15
-  store i64 0, ptr %0, align 8, !tbaa !15
+  store i64 0, ptr %8, align 8, !tbaa !17
+  store i64 0, ptr %0, align 8, !tbaa !17
   %9 = icmp samesign ugt i32 %2, 1
   br i1 %9, label %10, label %._crit_edge
 
@@ -906,11 +906,11 @@ define internal fastcc void @bn_sqr_normal(ptr noundef initializes((0, 8)) %0, p
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = add nsw i32 %2, -1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i64, ptr %1, align 8, !tbaa !15
+  %14 = load i64, ptr %1, align 8, !tbaa !17
   %15 = tail call i64 @bn_mul_words(ptr noundef nonnull %11, ptr noundef nonnull %13, i32 noundef %12, i64 noundef %14) #5
   %16 = zext nneg i32 %12 to i64
   %17 = getelementptr inbounds nuw i64, ptr %11, i64 %16
-  store i64 %15, ptr %17, align 8, !tbaa !15
+  store i64 %15, ptr %17, align 8, !tbaa !17
   %.not = icmp eq i32 %2, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -928,15 +928,15 @@ define internal fastcc void @bn_sqr_normal(ptr noundef initializes((0, 8)) %0, p
   %.04145 = phi i32 [ %19, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %22 = getelementptr inbounds nuw i8, ptr %.14046, i64 8
-  %23 = load i64, ptr %.14046, align 8, !tbaa !15
+  %23 = load i64, ptr %.14046, align 8, !tbaa !17
   %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   %25 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %.147, ptr noundef nonnull %22, i32 noundef %24, i64 noundef %23) #5
   %26 = getelementptr inbounds i64, ptr %.147, i64 %indvars.iv.next
-  store i64 %25, ptr %26, align 8, !tbaa !15
+  store i64 %25, ptr %26, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %.147, i64 16
   %28 = add nsw i32 %.04145, -1
   %29 = icmp samesign ugt i32 %.04145, 1
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %10
   %30 = tail call i64 @bn_add_words(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %0, i32 noundef %5) #5
@@ -1030,21 +1030,21 @@ define internal fastcc void @bn_sqr_recursive(ptr noundef %0, ptr noundef %1, i3
   %49 = add nuw nsw i32 %5, %2
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw i64, ptr %0, i64 %50
-  %52 = load i64, ptr %51, align 8, !tbaa !15
+  %52 = load i64, ptr %51, align 8, !tbaa !17
   %53 = sext i32 %47 to i64
   %54 = add i64 %52, %53
-  store i64 %54, ptr %51, align 8, !tbaa !15
+  store i64 %54, ptr %51, align 8, !tbaa !17
   %55 = icmp ult i64 %54, %53
   br i1 %55, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %48, %.preheader
   %.0 = phi ptr [ %56, %.preheader ], [ %51, %48 ]
   %56 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !15
+  %57 = load i64, ptr %56, align 8, !tbaa !17
   %58 = add i64 %57, 1
-  store i64 %58, ptr %56, align 8, !tbaa !15
+  store i64 %58, ptr %56, align 8, !tbaa !17
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %59, label %.preheader, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %35, %48, %10, %7, %6
   ret void
@@ -1066,10 +1066,10 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
 
 .preheader:                                       ; preds = %8
   %12 = getelementptr inbounds i64, ptr %2, i64 %9
-  %13 = load i64, ptr %12, align 8, !tbaa !15
+  %13 = load i64, ptr %12, align 8, !tbaa !17
   %14 = add i64 %6, %13
   %15 = sub i64 0, %14
-  store i64 %15, ptr %10, align 8, !tbaa !15
+  store i64 %15, ptr %10, align 8, !tbaa !17
   %16 = icmp eq i32 %4, -1
   br i1 %16, label %.thread158, label %.lr.ph191.preheader
 
@@ -1084,11 +1084,11 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %.0110188 = phi ptr [ %39, %37 ], [ %12, %.lr.ph191.preheader ]
   %.0114187 = phi ptr [ %40, %37 ], [ %10, %.lr.ph191.preheader ]
   %17 = getelementptr inbounds nuw i8, ptr %.0110188, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !15
+  %18 = load i64, ptr %17, align 8, !tbaa !17
   %19 = add i64 %spec.select190, %18
   %20 = sub i64 0, %19
   %21 = getelementptr inbounds nuw i8, ptr %.0114187, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !15
+  store i64 %20, ptr %21, align 8, !tbaa !17
   %22 = icmp eq i32 %.0101189, -2
   br i1 %22, label %.thread158, label %23
 
@@ -1096,11 +1096,11 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %.not144 = icmp eq i64 %18, 0
   %spec.select147 = select i1 %.not144, i64 %spec.select190, i64 1
   %24 = getelementptr inbounds nuw i8, ptr %.0110188, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !15
+  %25 = load i64, ptr %24, align 8, !tbaa !17
   %26 = add i64 %spec.select147, %25
   %27 = sub i64 0, %26
   %28 = getelementptr inbounds nuw i8, ptr %.0114187, i64 16
-  store i64 %27, ptr %28, align 8, !tbaa !15
+  store i64 %27, ptr %28, align 8, !tbaa !17
   %29 = icmp samesign ugt i32 %.0101189, -4
   br i1 %29, label %.thread158, label %30
 
@@ -1108,11 +1108,11 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %.not145 = icmp eq i64 %25, 0
   %spec.select148 = select i1 %.not145, i64 %spec.select147, i64 1
   %31 = getelementptr inbounds nuw i8, ptr %.0110188, i64 24
-  %32 = load i64, ptr %31, align 8, !tbaa !15
+  %32 = load i64, ptr %31, align 8, !tbaa !17
   %33 = add i64 %spec.select148, %32
   %34 = sub i64 0, %33
   %35 = getelementptr inbounds nuw i8, ptr %.0114187, i64 24
-  store i64 %34, ptr %35, align 8, !tbaa !15
+  store i64 %34, ptr %35, align 8, !tbaa !17
   %36 = icmp eq i32 %.0101189, -4
   br i1 %36, label %.thread158, label %37
 
@@ -1122,14 +1122,14 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %38 = add nuw nsw i32 %.0101189, 4
   %39 = getelementptr inbounds nuw i8, ptr %.0110188, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %.0114187, i64 32
-  %41 = load i64, ptr %39, align 8, !tbaa !15
+  %41 = load i64, ptr %39, align 8, !tbaa !17
   %42 = add i64 %spec.select149, %41
   %43 = sub i64 0, %42
-  store i64 %43, ptr %40, align 8, !tbaa !15
+  store i64 %43, ptr %40, align 8, !tbaa !17
   %.not143 = icmp eq i64 %41, 0
   %spec.select = select i1 %.not143, i64 %spec.select149, i64 1
   %44 = icmp eq i32 %38, -1
-  br i1 %44, label %.thread158, label %.lr.ph191
+  br i1 %44, label %.thread158, label %.lr.ph191, !llvm.loop !25
 
 45:                                               ; preds = %8
   %46 = getelementptr inbounds i64, ptr %1, i64 %9
@@ -1141,9 +1141,9 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %.6174 = phi i64 [ %spec.select152, %68 ], [ %6, %45 ]
   %.0111173 = phi ptr [ %70, %68 ], [ %46, %45 ]
   %.1115172 = phi ptr [ %71, %68 ], [ %10, %45 ]
-  %47 = load i64, ptr %.0111173, align 8, !tbaa !15
+  %47 = load i64, ptr %.0111173, align 8, !tbaa !17
   %48 = sub i64 %47, %.6174
-  store i64 %48, ptr %.1115172, align 8, !tbaa !15
+  store i64 %48, ptr %.1115172, align 8, !tbaa !17
   %49 = icmp slt i32 %.0175, 2
   br i1 %49, label %.thread158, label %50
 
@@ -1151,10 +1151,10 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %.not139 = icmp eq i64 %47, 0
   %spec.select150 = select i1 %.not139, i64 %.6174, i64 0
   %51 = getelementptr inbounds nuw i8, ptr %.0111173, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !15
+  %52 = load i64, ptr %51, align 8, !tbaa !17
   %53 = sub i64 %52, %spec.select150
   %54 = getelementptr inbounds nuw i8, ptr %.1115172, i64 8
-  store i64 %53, ptr %54, align 8, !tbaa !15
+  store i64 %53, ptr %54, align 8, !tbaa !17
   %55 = icmp eq i32 %.0175, 2
   br i1 %55, label %.thread158, label %56
 
@@ -1162,10 +1162,10 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %.not140 = icmp eq i64 %52, 0
   %spec.select151 = select i1 %.not140, i64 %spec.select150, i64 0
   %57 = getelementptr inbounds nuw i8, ptr %.0111173, i64 16
-  %58 = load i64, ptr %57, align 8, !tbaa !15
+  %58 = load i64, ptr %57, align 8, !tbaa !17
   %59 = sub i64 %58, %spec.select151
   %60 = getelementptr inbounds nuw i8, ptr %.1115172, i64 16
-  store i64 %59, ptr %60, align 8, !tbaa !15
+  store i64 %59, ptr %60, align 8, !tbaa !17
   %.not141 = icmp eq i64 %58, 0
   %spec.select152 = select i1 %.not141, i64 %spec.select151, i64 0
   %61 = icmp samesign ult i32 %.0175, 4
@@ -1173,10 +1173,10 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %.0111173, i64 24
-  %64 = load i64, ptr %63, align 8, !tbaa !15
+  %64 = load i64, ptr %63, align 8, !tbaa !17
   %65 = sub i64 %64, %spec.select152
   %66 = getelementptr inbounds nuw i8, ptr %.1115172, i64 24
-  store i64 %65, ptr %66, align 8, !tbaa !15
+  store i64 %65, ptr %66, align 8, !tbaa !17
   %67 = icmp eq i32 %.0175, 4
   br i1 %67, label %.thread158, label %68
 
@@ -1187,14 +1187,14 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %71 = getelementptr inbounds nuw i8, ptr %.1115172, i64 32
   %.not6 = icmp eq i64 %spec.select152, 0
   %.not = select i1 %.not142, i1 true, i1 %.not6
-  br i1 %.not, label %.preheader164, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %.preheader164, label %.lr.ph, !llvm.loop !26
 
 .preheader164:                                    ; preds = %68, %45
   %.1115.lcssa = phi ptr [ %10, %45 ], [ %71, %68 ]
   %.0111.lcssa = phi ptr [ %46, %45 ], [ %70, %68 ]
   %.0.lcssa = phi i32 [ %4, %45 ], [ %69, %68 ]
-  %72 = load i64, ptr %.0111.lcssa, align 8, !tbaa !15
-  store i64 %72, ptr %.1115.lcssa, align 8, !tbaa !15
+  %72 = load i64, ptr %.0111.lcssa, align 8, !tbaa !17
+  store i64 %72, ptr %.1115.lcssa, align 8, !tbaa !17
   %73 = icmp eq i32 %.0.lcssa, 1
   br i1 %73, label %.thread158, label %.lr.ph181
 
@@ -1203,25 +1203,25 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %.2113179 = phi ptr [ %90, %88 ], [ %.0111.lcssa, %.preheader164 ]
   %.3117178 = phi ptr [ %91, %88 ], [ %.1115.lcssa, %.preheader164 ]
   %74 = getelementptr inbounds nuw i8, ptr %.2113179, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !15
+  %75 = load i64, ptr %74, align 8, !tbaa !17
   %76 = getelementptr inbounds nuw i8, ptr %.3117178, i64 8
-  store i64 %75, ptr %76, align 8, !tbaa !15
+  store i64 %75, ptr %76, align 8, !tbaa !17
   %77 = icmp eq i32 %.7108180, 2
   br i1 %77, label %.thread158, label %78
 
 78:                                               ; preds = %.lr.ph181
   %79 = getelementptr inbounds nuw i8, ptr %.2113179, i64 16
-  %80 = load i64, ptr %79, align 8, !tbaa !15
+  %80 = load i64, ptr %79, align 8, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %.3117178, i64 16
-  store i64 %80, ptr %81, align 8, !tbaa !15
+  store i64 %80, ptr %81, align 8, !tbaa !17
   %82 = icmp samesign ult i32 %.7108180, 4
   br i1 %82, label %.thread158, label %83
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds nuw i8, ptr %.2113179, i64 24
-  %85 = load i64, ptr %84, align 8, !tbaa !15
+  %85 = load i64, ptr %84, align 8, !tbaa !17
   %86 = getelementptr inbounds nuw i8, ptr %.3117178, i64 24
-  store i64 %85, ptr %86, align 8, !tbaa !15
+  store i64 %85, ptr %86, align 8, !tbaa !17
   %87 = icmp eq i32 %.7108180, 4
   br i1 %87, label %.thread158, label %88
 
@@ -1229,10 +1229,10 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %89 = add nsw i32 %.7108180, -4
   %90 = getelementptr inbounds nuw i8, ptr %.2113179, i64 32
   %91 = getelementptr inbounds nuw i8, ptr %.3117178, i64 32
-  %92 = load i64, ptr %90, align 8, !tbaa !15
-  store i64 %92, ptr %91, align 8, !tbaa !15
+  %92 = load i64, ptr %90, align 8, !tbaa !17
+  store i64 %92, ptr %91, align 8, !tbaa !17
   %93 = icmp samesign ult i32 %89, 2
-  br i1 %93, label %.thread158, label %.lr.ph181
+  br i1 %93, label %.thread158, label %.lr.ph181, !llvm.loop !27
 
 .thread158:                                       ; preds = %.lr.ph, %50, %56, %62, %83, %78, %.lr.ph181, %88, %37, %.lr.ph191, %23, %30, %.preheader164, %.preheader, %5
   ret void
@@ -1278,11 +1278,16 @@ attributes #5 = { nounwind }
 !12 = !{!"int", !10, i64 0}
 !13 = !{!7, !12, i64 16}
 !14 = !{!7, !8, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !10, i64 0}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !10, i64 0}
+!19 = distinct !{!19, !20, !16}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = distinct !{!21, !20, !16}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !20, !16}
+!24 = distinct !{!24, !20, !16}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !20, !16}
+!27 = distinct !{!27, !16}

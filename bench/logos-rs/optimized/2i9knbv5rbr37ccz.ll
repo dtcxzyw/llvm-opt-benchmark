@@ -53,7 +53,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   %.sroa.015.0 = select i1 %20, i64 %21, i64 %.sroa.03.020
   %22 = sub i64 %.sroa.016.0, %.sroa.015.0
   %23 = icmp ult i64 %.sroa.015.0, %.sroa.016.0
-  br i1 %23, label %7, label %._crit_edge
+  br i1 %23, label %7, label %._crit_edge, !llvm.loop !3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -93,7 +93,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_sear
   %.sroa.015.0.i = select i1 %18, i64 %19, i64 %.sroa.03.020.i
   %20 = sub i64 %.sroa.016.0.i, %.sroa.015.0.i
   %21 = icmp ult i64 %.sroa.015.0.i, %.sroa.016.0.i
-  br i1 %21, label %7, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h2124293df0f37c87E.exit"
+  br i1 %21, label %7, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h2124293df0f37c87E.exit", !llvm.loop !3
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h2124293df0f37c87E.exit": ; preds = %7, %16, %3
   %.sroa.3.0.i = phi i64 [ 0, %3 ], [ %.sroa.015.0.i, %16 ], [ %9, %7 ]
@@ -147,3 +147,5 @@ attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

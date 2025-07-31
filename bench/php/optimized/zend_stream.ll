@@ -299,7 +299,7 @@ zend_stream_fsize.exit:                           ; preds = %36
   store i8 %57, ptr %58, align 1, !tbaa !13
   %59 = add nuw i64 %.024.i, 1
   %exitcond.not.i = icmp eq i64 %59, %51
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !26
 
 .critedge.i:                                      ; preds = %56, %.lr.ph.i, %.lr.ph.i
   %.0.lcssa.ph.i = phi i64 [ %51, %56 ], [ %.024.i, %.lr.ph.i ], [ %.024.i, %.lr.ph.i ]
@@ -326,7 +326,7 @@ zend_stream_read.exit:                            ; preds = %.critedge.i, %61, %
 
 69:                                               ; preds = %zend_stream_read.exit
   %70 = add i64 %.021.i, %.0113
-  br label %48
+  br label %48, !llvm.loop !28
 
 71:                                               ; preds = %zend_stream_read.exit
   %72 = icmp sgt i64 %.021.i, -1
@@ -384,7 +384,7 @@ zend_stream_fsize.exit.thread:                    ; preds = %36, %zend_stream_fs
   store i8 %86, ptr %87, align 1, !tbaa !13
   %88 = add nuw i64 %.024.i131, 1
   %exitcond.not.i139 = icmp eq i64 %88, %.0110
-  br i1 %exitcond.not.i139, label %.critedge.i136, label %.lr.ph.i130
+  br i1 %exitcond.not.i139, label %.critedge.i136, label %.lr.ph.i130, !llvm.loop !26
 
 .critedge.i136:                                   ; preds = %85, %.lr.ph.i130, %.lr.ph.i130
   %.0.lcssa.ph.i137 = phi i64 [ %.0110, %85 ], [ %.024.i131, %.lr.ph.i130 ], [ %.024.i131, %.lr.ph.i130 ]
@@ -423,7 +423,7 @@ zend_stream_read.exit140:                         ; preds = %.critedge.i136, %90
 .backedge:                                        ; preds = %102, %98
   %.be = phi ptr [ %103, %102 ], [ %.pre172.pre, %98 ]
   %.0110.be = phi i64 [ %99, %102 ], [ %100, %98 ]
-  br label %78
+  br label %78, !llvm.loop !29
 
 104:                                              ; preds = %zend_stream_read.exit140
   %105 = icmp sgt i64 %.021.i138, -1
@@ -530,14 +530,14 @@ define internal i64 @zend_stream_stdio_fsizer(ptr noundef captures(address_is_nu
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !26
+  %9 = load i32, ptr %8, align 8, !tbaa !30
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 32768
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !29
+  %14 = load i64, ptr %13, align 8, !tbaa !33
   br label %15
 
 15:                                               ; preds = %1, %3, %7, %12
@@ -564,7 +564,7 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #11
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_destroy_file_handle(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 58
-  %3 = load i8, ptr %2, align 2, !tbaa !30, !range !31, !noundef !32
+  %3 = load i8, ptr %2, align 2, !tbaa !34, !range !35, !noundef !36
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %7
 
@@ -677,7 +677,7 @@ define internal void @zend_file_handle_dtor(ptr noundef captures(none) %0) #0 {
 
 14:                                               ; preds = %.sink.split, %4, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !33
+  %16 = load ptr, ptr %15, align 8, !tbaa !37
   %.not25 = icmp eq ptr %16, null
   br i1 %.not25, label %27, label %17
 
@@ -702,7 +702,7 @@ define internal void @zend_file_handle_dtor(ptr noundef captures(none) %0) #0 {
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %17, %21, %26
-  store ptr null, ptr %15, align 8, !tbaa !33
+  store ptr null, ptr %15, align 8, !tbaa !37
   br label %27
 
 27:                                               ; preds = %zend_string_release_ex.exit, %14
@@ -839,11 +839,15 @@ attributes #17 = { nounwind allocsize(1) }
 !23 = !{!11, !11, i64 0}
 !24 = !{!5, !12, i64 72}
 !25 = !{!12, !12, i64 0}
-!26 = !{!27, !16, i64 24}
-!27 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !28, i64 72, !28, i64 88, !28, i64 104, !6, i64 120}
-!28 = !{!"timespec", !12, i64 0, !12, i64 8}
-!29 = !{!27, !12, i64 48}
-!30 = !{!5, !10, i64 58}
-!31 = !{i8 0, i8 2}
-!32 = !{}
-!33 = !{!5, !8, i64 48}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !27}
+!29 = distinct !{!29, !27}
+!30 = !{!31, !16, i64 24}
+!31 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !32, i64 72, !32, i64 88, !32, i64 104, !6, i64 120}
+!32 = !{!"timespec", !12, i64 0, !12, i64 8}
+!33 = !{!31, !12, i64 48}
+!34 = !{!5, !10, i64 58}
+!35 = !{i8 0, i8 2}
+!36 = !{}
+!37 = !{!5, !8, i64 48}

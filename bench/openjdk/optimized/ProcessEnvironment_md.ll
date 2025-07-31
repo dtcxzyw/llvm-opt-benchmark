@@ -127,7 +127,7 @@ define ptr @Java_java_lang_ProcessEnvironment_environ(ptr noundef %0, ptr nounde
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv.next86
   %73 = load ptr, ptr %72, align 8
   %.not68 = icmp eq ptr %73, null
-  br i1 %.not68, label %.loopexit, label %.lr.ph78, !llvm.loop !8
+  br i1 %.not68, label %.loopexit, label %.lr.ph78, !llvm.loop !9
 
 .loopexit:                                        ; preds = %26, %39, %70, %.preheader, %._crit_edge, %2
   %.0 = phi ptr [ null, %2 ], [ null, %._crit_edge ], [ %19, %.preheader ], [ null, %26 ], [ null, %39 ], [ %19, %70 ]
@@ -153,6 +153,7 @@ attributes #3 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

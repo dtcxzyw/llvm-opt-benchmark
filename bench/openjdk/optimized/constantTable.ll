@@ -368,7 +368,7 @@ _ZL13constant_sizePN13ConstantTable8ConstantE.exit: ; preds = %switch.lookup, %1
   %44 = load i32, ptr %0, align 8
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %46, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %43
   %47 = add i32 %.1, -1
@@ -529,10 +529,10 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
 
 _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %62, %64, %67
   %69 = phi i32 [ %63, %62 ], [ %68, %67 ], [ %65, %64 ]
-  store ptr null, ptr %13, align 8, !alias.scope !9
-  store i32 1, ptr %14, align 8, !alias.scope !9
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %3, align 8, !alias.scope !9
-  store i32 %69, ptr %15, align 4, !alias.scope !9
+  store ptr null, ptr %13, align 8, !alias.scope !10
+  store i32 1, ptr %14, align 8, !alias.scope !10
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %3, align 8, !alias.scope !10
+  store i32 %69, ptr %15, align 4, !alias.scope !10
   %70 = load ptr, ptr %12, align 8
   %71 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
   %.not.i40 = icmp eq ptr %71, null
@@ -619,7 +619,7 @@ _ZN17AbstractAssembler16address_constantEPh.exit43: ; preds = %91
   %112 = load i32, ptr %100, align 8
   %113 = zext i32 %112 to i64
   %114 = icmp samesign ult i64 %indvars.iv.next, %113
-  br i1 %114, label %.lr.ph, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100, !llvm.loop !14
+  br i1 %114, label %.lr.ph, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100, !llvm.loop !15
 
 115:                                              ; preds = %20
   %.sroa.5.sroa.10.0.insert.ext94 = zext i32 %.sroa.5.0.copyload61 to i64
@@ -639,10 +639,10 @@ _ZN17AbstractAssembler16address_constantEPh.exit43: ; preds = %91
 
 _ZN11OopRecorder10find_indexEP8Metadata.exit:     ; preds = %115, %121
   %.0.i.i = phi i32 [ %122, %121 ], [ %119, %115 ]
-  store ptr null, ptr %9, align 8, !alias.scope !15
-  store i32 12, ptr %10, align 8, !alias.scope !15
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr %4, align 8, !alias.scope !15
-  store i32 %.0.i.i, ptr %11, align 4, !alias.scope !15
+  store ptr null, ptr %9, align 8, !alias.scope !16
+  store i32 12, ptr %10, align 8, !alias.scope !16
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr %4, align 8, !alias.scope !16
+  store i32 %.0.i.i, ptr %11, align 4, !alias.scope !16
   %123 = load ptr, ptr %12, align 8
   %124 = call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 8) #10
   %.not.i46 = icmp eq ptr %124, null
@@ -690,7 +690,7 @@ _ZN17AbstractAssembler12int_constantEi.exit.thread100: ; preds = %105, %_ZN17Abs
   %139 = load i32, ptr %0, align 8
   %140 = sext i32 %139 to i64
   %.not = icmp slt i64 %indvars.iv.next126, %140
-  br i1 %.not, label %16, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, !llvm.loop !20
+  br i1 %.not, label %16, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, !llvm.loop !21
 
 _ZN17AbstractAssembler16address_constantEPh.exit43.thread: ; preds = %_ZN17AbstractAssembler12int_constantEi.exit, %_ZN17AbstractAssembler12int_constantEi.exit.thread100, %91, %21, %30, %39, %48, %_ZN11OopRecorder10find_indexEP8_jobject.exit, %81, %_ZN11OopRecorder10find_indexEP8Metadata.exit, %.lr.ph, %2
   %141 = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %_ZN17AbstractAssembler12int_constantEi.exit ], [ true, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ], [ false, %91 ], [ false, %21 ], [ false, %30 ], [ false, %39 ], [ false, %48 ], [ false, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ false, %81 ], [ false, %_ZN11OopRecorder10find_indexEP8Metadata.exit ]
@@ -746,7 +746,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   store ptr %21, ptr %19, align 8
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count159
-  br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !21
+  br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !22
 
 .lr.ph.split.split.us88:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us88
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph.split.split.us88 ], [ 0, %.lr.ph.split ]
@@ -762,7 +762,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   store ptr %28, ptr %26, align 8
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count159
-  br i1 %exitcond150.not, label %._crit_edge, label %.lr.ph.split.split.us88, !llvm.loop !23
+  br i1 %exitcond150.not, label %._crit_edge, label %.lr.ph.split.split.us88, !llvm.loop !24
 
 .lr.ph.split.split.us93:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us93
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph.split.split.us93 ], [ 0, %.lr.ph.split ]
@@ -779,7 +779,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   store ptr %36, ptr %33, align 8
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count159
-  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph.split.split.us93, !llvm.loop !24
+  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph.split.split.us93, !llvm.loop !25
 
 .lr.ph.split.split.us98:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us98
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph.split.split.us98 ], [ 0, %.lr.ph.split ]
@@ -796,7 +796,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   store ptr %44, ptr %41, align 8
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count159
-  br i1 %exitcond140.not, label %._crit_edge, label %.lr.ph.split.split.us98, !llvm.loop !25
+  br i1 %exitcond140.not, label %._crit_edge, label %.lr.ph.split.split.us98, !llvm.loop !26
 
 .lr.ph.split.split.us103:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us103
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph.split.split.us103 ], [ 0, %.lr.ph.split ]
@@ -812,7 +812,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   store ptr %51, ptr %48, align 8
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count159
-  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.split.split.us103, !llvm.loop !26
+  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.split.split.us103, !llvm.loop !27
 
 .lr.ph.split.split.us108:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us108
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph.split.split.us108 ], [ 0, %.lr.ph.split ]
@@ -834,7 +834,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   store ptr %58, ptr %55, align 8
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count159
-  br i1 %exitcond130.not, label %._crit_edge, label %.lr.ph.split.split.us108, !llvm.loop !27
+  br i1 %exitcond130.not, label %._crit_edge, label %.lr.ph.split.split.us108, !llvm.loop !28
 
 .lr.ph.split.split.us113:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us113
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.us113 ], [ 0, %.lr.ph.split ]
@@ -850,7 +850,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   store ptr %65, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count159
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us113, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us113, !llvm.loop !29
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -872,7 +872,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   store ptr %72, ptr %69, align 8
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
-  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !29
+  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !30
 
 73:                                               ; preds = %.lr.ph
   %74 = load ptr, ptr @g_assert_poison, align 8
@@ -910,7 +910,7 @@ define hidden noundef range(i32 0, -1) i32 @_ZNK13ConstantTable11find_offsetERNS
   %11 = load i32, ptr %0, align 8
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next.i, %12
-  br i1 %13, label %6, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread, !llvm.loop !30
+  br i1 %13, label %6, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread, !llvm.loop !31
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread: ; preds = %10, %2
   %14 = load ptr, ptr @g_assert_poison, align 8
@@ -967,7 +967,7 @@ define hidden void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull al
   %14 = load i32, ptr %0, align 8
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next.i, %15
-  br i1 %16, label %9, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread, !llvm.loop !30
+  br i1 %16, label %9, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread, !llvm.loop !31
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit: ; preds = %9
   %17 = load ptr, ptr %8, align 8
@@ -1092,7 +1092,7 @@ _ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit: ; preds = %5, %30
   %44 = load i32, ptr %1, align 8
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next.i.i, %45
-  br i1 %46, label %39, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, !llvm.loop !30
+  br i1 %46, label %39, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, !llvm.loop !31
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds = %39
   %47 = load ptr, ptr %38, align 8
@@ -1186,7 +1186,7 @@ define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias
   %18 = load i32, ptr %1, align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next.i.i, %19
-  br i1 %20, label %13, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, !llvm.loop !30
+  br i1 %20, label %13, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, !llvm.loop !31
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds = %13
   %21 = load ptr, ptr %12, align 8
@@ -1272,7 +1272,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13Growa
   %18 = load i32, ptr %1, align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next.i.i, %19
-  br i1 %20, label %13, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, !llvm.loop !30
+  br i1 %20, label %13, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, !llvm.loop !31
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds = %13
   %21 = load ptr, ptr %12, align 8
@@ -1415,7 +1415,7 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit: 
   store i64 %.sroa.0.0.copyload.i, ptr %46, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %24
-  br i1 %.not, label %._crit_edge, label %25
+  br i1 %.not, label %._crit_edge, label %25, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit, %_ZN13GrowableArrayI6jvalueEC2Ei.exit
   ret void
@@ -1641,7 +1641,7 @@ define hidden void @_ZNK13ConstantTable15fill_jump_tableEP17C2_MacroAssemblerP16
   %48 = add nuw i32 %.014, 1
   %49 = load i32, ptr %29, align 8
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %32, label %.loopexit, !llvm.loop !31
+  br i1 %50, label %32, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %32, %16, %4
   ret void
@@ -1743,7 +1743,7 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !32
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !34
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1759,7 +1759,7 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !33
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !35
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1851,7 +1851,7 @@ _ZN13GrowableArrayIN13ConstantTable8ConstantEE8allocateEv.exit: ; preds = %7, %1
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !34
+  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !36
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1879,7 +1879,7 @@ _ZN13GrowableArrayIN13ConstantTable8ConstantEE8allocateEv.exit: ; preds = %7, %1
   %41 = load i32, ptr %3, align 4
   %42 = trunc nuw i64 %indvars.iv.next22 to i32
   %43 = icmp sgt i32 %41, %42
-  br i1 %43, label %.lr.ph19, label %.preheader, !llvm.loop !35
+  br i1 %43, label %.lr.ph19, label %.preheader, !llvm.loop !37
 
 44:                                               ; preds = %.preheader
   %45 = load i64, ptr %4, align 8
@@ -1919,33 +1919,35 @@ attributes #10 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"_ZN16RelocationHolder9constructI14oop_RelocationJiEEES_DpRKT0_: argument 0"}
-!11 = distinct !{!11, !"_ZN16RelocationHolder9constructI14oop_RelocationJiEEES_DpRKT0_"}
-!12 = distinct !{!12, !13, !"_ZN14oop_Relocation4specEi: argument 0"}
-!13 = distinct !{!13, !"_ZN14oop_Relocation4specEi"}
-!14 = distinct !{!14, !7}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"_ZN16RelocationHolder9constructI19metadata_RelocationJiEEES_DpRKT0_: argument 0"}
-!17 = distinct !{!17, !"_ZN16RelocationHolder9constructI19metadata_RelocationJiEEES_DpRKT0_"}
-!18 = distinct !{!18, !19, !"_ZN19metadata_Relocation4specEi: argument 0"}
-!19 = distinct !{!19, !"_ZN19metadata_Relocation4specEi"}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !7, !22}
-!24 = distinct !{!24, !7, !22}
-!25 = distinct !{!25, !7, !22}
-!26 = distinct !{!26, !7, !22}
-!27 = distinct !{!27, !7, !22}
-!28 = distinct !{!28, !7, !22}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"_ZN16RelocationHolder9constructI14oop_RelocationJiEEES_DpRKT0_: argument 0"}
+!12 = distinct !{!12, !"_ZN16RelocationHolder9constructI14oop_RelocationJiEEES_DpRKT0_"}
+!13 = distinct !{!13, !14, !"_ZN14oop_Relocation4specEi: argument 0"}
+!14 = distinct !{!14, !"_ZN14oop_Relocation4specEi"}
+!15 = distinct !{!15, !7, !8}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"_ZN16RelocationHolder9constructI19metadata_RelocationJiEEES_DpRKT0_: argument 0"}
+!18 = distinct !{!18, !"_ZN16RelocationHolder9constructI19metadata_RelocationJiEEES_DpRKT0_"}
+!19 = distinct !{!19, !20, !"_ZN19metadata_Relocation4specEi: argument 0"}
+!20 = distinct !{!20, !"_ZN19metadata_Relocation4specEi"}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !7, !8, !23}
+!25 = distinct !{!25, !7, !8, !23}
+!26 = distinct !{!26, !7, !8, !23}
+!27 = distinct !{!27, !7, !8, !23}
+!28 = distinct !{!28, !7, !8, !23}
+!29 = distinct !{!29, !7, !8, !23}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}

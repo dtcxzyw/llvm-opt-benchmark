@@ -124,11 +124,11 @@ define noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_li
   %19 = getelementptr inbounds nuw [20 x ptr], ptr %6, i64 0, i64 %.037.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   %21 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.037.i.i, i32 1
-  %22 = load ptr, ptr %21, align 8, !tbaa !14
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
   store ptr %20, ptr %22, align 8, !tbaa !11
   %23 = add nuw nsw i64 %.037.i.i, 1
   %exitcond42.not.i.i = icmp eq i64 %23, %2
-  br i1 %exitcond42.not.i.i, label %.thread, label %.critedge30.i.i, !llvm.loop !15
+  br i1 %exitcond42.not.i.i, label %.thread, label %.critedge30.i.i, !llvm.loop !16
 
 _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.i: ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #7
@@ -159,12 +159,12 @@ _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thr
 30:                                               ; preds = %.lr.ph.i
   %31 = add nuw i64 %.01421.i, 1
   %exitcond.not.i = icmp eq i64 %31, %2
-  br i1 %exitcond.not.i, label %.lr.ph23.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.lr.ph23.i, label %.lr.ph.i, !llvm.loop !17
 
 .lr.ph.i:                                         ; preds = %28, %30
   %.01421.i = phi i64 [ %31, %30 ], [ 0, %28 ]
   %32 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.01421.i, i32 2
-  %33 = load ptr, ptr %32, align 8, !tbaa !17
+  %33 = load ptr, ptr %32, align 8, !tbaa !18
   %.not.i23 = icmp eq ptr %33, null
   br i1 %.not.i23, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %30
 
@@ -172,13 +172,13 @@ _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thr
   %.022.i = phi i64 [ %39, %.lr.ph23.i ], [ 0, %30 ]
   %34 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.022.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  %36 = load ptr, ptr %35, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !14
+  %38 = load ptr, ptr %37, align 8, !tbaa !15
   store ptr %36, ptr %38, align 8, !tbaa !11
   %39 = add nuw i64 %.022.i, 1
   %exitcond27.not.i = icmp eq i64 %39, %2
-  br i1 %exitcond27.not.i, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %.lr.ph23.i, !llvm.loop !18
+  br i1 %exitcond27.not.i, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %.lr.ph23.i, !llvm.loop !19
 
 40:                                               ; preds = %.thread
   store ptr %9, ptr %3, align 8, !tbaa !11
@@ -225,10 +225,11 @@ attributes #8 = { nounwind willreturn memory(read) }
 !9 = !{!"any pointer", !4, i64 0}
 !10 = !{!"any p2 pointer", !9, i64 0}
 !11 = !{!9, !9, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!7, !10, i64 8}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = !{!7, !9, i64 16}
-!18 = distinct !{!18, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!7, !10, i64 8}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = !{!7, !9, i64 16}
+!19 = distinct !{!19, !13, !14}

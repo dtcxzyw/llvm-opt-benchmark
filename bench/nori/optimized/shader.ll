@@ -219,7 +219,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind
   %17 = udiv i64 %.02229.i, 10000
   %18 = add i32 %.02328.i, 4
   %19 = icmp ult i64 %.02229.i, 100000
-  br i1 %19, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %19, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
   %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
@@ -277,7 +277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %39, ptr %42, align 1
   %43 = add i32 %.01819.i, -2
   %44 = icmp ugt i64 %.020.i, 9999
-  br i1 %44, label %.lr.ph.i7, label %._crit_edge.i, !llvm.loop !8
+  br i1 %44, label %.lr.ph.i7, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
@@ -460,7 +460,8 @@ attributes #7 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}

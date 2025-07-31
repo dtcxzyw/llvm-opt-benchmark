@@ -138,12 +138,12 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr
   %60 = zext i32 %56 to i64
   %61 = call i64 @file_seek(ptr noundef %59, i64 noundef %60, i32 noundef 0, ptr noundef %1)
   %62 = icmp eq i64 %61, -1
-  br i1 %62, label %mp2t_bits_per_second.exit.thread, label %.preheader120
+  br i1 %62, label %mp2t_bits_per_second.exit.thread, label %.preheader120, !llvm.loop !9
 
 63:                                               ; preds = %.lr.ph
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next217, %48
-  br i1 %exitcond219.not, label %mp2t_bits_per_second.exit.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond219.not, label %mp2t_bits_per_second.exit.thread, label %.lr.ph, !llvm.loop !10
 
 .preheader:                                       ; preds = %35, %72
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %72 ], [ 0, %35 ]
@@ -165,13 +165,13 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr
 72:                                               ; preds = %.preheader
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next213, 40
-  br i1 %exitcond215.not, label %mp2t_bits_per_second.exit.thread, label %.preheader, !llvm.loop !9
+  br i1 %exitcond215.not, label %mp2t_bits_per_second.exit.thread, label %.preheader, !llvm.loop !11
 
 73:                                               ; preds = %.thread, %33
   %.3100 = phi i32 [ %34, %33 ], [ 0, %.thread ]
   %.4 = phi i8 [ %.1, %33 ], [ %71, %.thread ]
   %74 = icmp ult i32 %.3100, 10
-  br i1 %74, label %21, label %.loopexit, !llvm.loop !10
+  br i1 %74, label %21, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %73, %28
   %.2 = phi i8 [ %.1, %28 ], [ %.4, %73 ]
@@ -228,7 +228,7 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr
 .backedge.i.i:                                    ; preds = %105, %99, %97
   %108 = add nuw nsw i32 %93, 1
   %exitcond.not.i.i = icmp eq i32 %93, 100
-  br i1 %exitcond.not.i.i, label %109, label %92, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %109, label %92, !llvm.loop !13
 
 109:                                              ; preds = %.backedge.i.i, %92
   call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %5) #7
@@ -325,7 +325,7 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr
 .backedge.i36.i:                                  ; preds = %166, %160, %158
   %169 = add nuw nsw i32 %154, 1
   %exitcond.not.i33.i = icmp eq i32 %154, 100
-  br i1 %exitcond.not.i33.i, label %170, label %153, !llvm.loop !11
+  br i1 %exitcond.not.i33.i, label %170, label %153, !llvm.loop !13
 
 170:                                              ; preds = %.backedge.i36.i, %153
   call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %4) #7
@@ -356,7 +356,7 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr
   %183 = icmp ne i16 %140, %182
   %184 = icmp eq i32 %.372.i, %.171.i
   %185 = select i1 %183, i1 true, i1 %184
-  br i1 %185, label %152, label %186, !llvm.loop !12
+  br i1 %185, label %152, label %186, !llvm.loop !14
 
 186:                                              ; preds = %173
   %187 = zext i8 %174 to i64
@@ -689,10 +689,12 @@ attributes #8 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

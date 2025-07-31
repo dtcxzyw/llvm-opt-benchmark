@@ -71,14 +71,14 @@ define ptr @lv_svg_load_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !25
 
 4:                                                ; preds = %2
   %.not7 = icmp eq i32 %1, 0
   br i1 %.not7, label %.preheader8, label %5
 
 .preheader8:                                      ; preds = %4, %.preheader8
-  br label %.preheader8
+  br label %.preheader8, !llvm.loop !26
 
 5:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #3
@@ -92,8 +92,8 @@ define ptr @lv_svg_load_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !24
-  store ptr null, ptr %10, align 8, !tbaa !24
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  store ptr null, ptr %10, align 8, !tbaa !27
   br label %12
 
 12:                                               ; preds = %5, %7, %9
@@ -180,8 +180,11 @@ attributes #3 = { nounwind }
 !19 = !{!20, !8, i64 1}
 !20 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 8}
 !21 = !{!8, !8, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!25, !7, i64 24}
-!25 = !{!"", !26, i64 0, !13, i64 8, !11, i64 16, !11, i64 20, !7, i64 24, !7, i64 32}
-!26 = !{!"short", !8, i64 0}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = !{!28, !7, i64 24}
+!28 = !{!"", !29, i64 0, !13, i64 8, !11, i64 16, !11, i64 20, !7, i64 24, !7, i64 32}
+!29 = !{!"short", !8, i64 0}

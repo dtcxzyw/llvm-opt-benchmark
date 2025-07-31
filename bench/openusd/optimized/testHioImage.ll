@@ -955,7 +955,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit: ; pr
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.01209.01241, i64 16
   %.not1214.not = icmp ne ptr %186, %164
   %or.cond.not = select i1 %179, i1 %.not1214.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 187:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugPluginEE13_FetchPointerEv.exit.thread.i
   %188 = landingpad { ptr, i32 }
@@ -1004,7 +1004,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEEEvPT_.exit.i.i.i.i: ; preds = %201, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %205 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %.not.i.i.i.i168 = icmp eq ptr %205, %.pre1293
-  br i1 %.not.i.i.i.i168, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i.i168, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %88, align 8
@@ -1262,7 +1262,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %235, %239
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #18
   %287 = getelementptr inbounds nuw i8, ptr %.sroa.01189.01245, i64 8
   %.not1215 = icmp eq ptr %287, %247
-  br i1 %.not1215, label %._crit_edge1248, label %.lr.ph1247
+  br i1 %.not1215, label %._crit_edge1248, label %.lr.ph1247, !llvm.loop !10
 
 ._crit_edge1248:                                  ; preds = %286
   %288 = icmp eq i32 %.1105, 2
@@ -3287,7 +3287,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %49)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 196608
-  br i1 %exitcond.not, label %_ZNSt6vectorIhSaIhEED2Ev.exit403, label %995, !llvm.loop !8
+  br i1 %exitcond.not, label %_ZNSt6vectorIhSaIhEED2Ev.exit403, label %995, !llvm.loop !11
 
 1007:                                             ; preds = %.noexc182, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__6TfTypeESaIS1_EED2Ev.exit181
   %1008 = landingpad { ptr, i32 }
@@ -4082,7 +4082,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__8HioImageEED2Ev.exit443: ; 
   %1304 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 4
   %1305 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i458 = icmp eq ptr %1304, %1293
-  br i1 %.not.i.i.i.i.i458, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i458, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %1292
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40)
@@ -4402,7 +4402,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31)
   %indvars.iv.next1278 = add nuw nsw i64 %indvars.iv1277, 1
   %exitcond1280.not = icmp eq i64 %indvars.iv.next1278, 128
-  br i1 %exitcond1280.not, label %1450, label %1398, !llvm.loop !10
+  br i1 %exitcond1280.not, label %1450, label %1398, !llvm.loop !13
 
 1426:                                             ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit401, %1073, %1071, %1069
   %.pn159 = phi { ptr, i32 } [ %1075, %_ZNSt6vectorIhSaIhEED2Ev.exit401 ], [ %1074, %1073 ], [ %1070, %1069 ], [ %1072, %1071 ]
@@ -4496,7 +4496,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit498:                 ; preds = %.invoke1317, %1382
 1450:                                             ; preds = %1425
   %indvars.iv.next1282 = add nuw nsw i64 %indvars.iv1281, 1
   %exitcond1284.not = icmp eq i64 %indvars.iv.next1282, 128
-  br i1 %exitcond1284.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit500, label %.preheader1231, !llvm.loop !11
+  br i1 %exitcond1284.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit500, label %.preheader1231, !llvm.loop !14
 
 _ZNSt6vectorIfSaIfEED2Ev.exit500:                 ; preds = %1450
   call void @_ZdlPvm(ptr noundef nonnull %1381, i64 noundef 196608) #21
@@ -5270,7 +5270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit570: ;
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %indvars.iv.next1286 = add nuw nsw i64 %indvars.iv1285, 1
   %exitcond1288.not = icmp eq i64 %indvars.iv.next1286, 256
-  br i1 %exitcond1288.not, label %1782, label %1729, !llvm.loop !12
+  br i1 %exitcond1288.not, label %1782, label %1729, !llvm.loop !15
 
 1752:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit498, %1447, %1445
   %.pn157 = phi { ptr, i32 } [ %1449, %_ZNSt6vectorIfSaIfEED2Ev.exit498 ], [ %1448, %1447 ], [ %1446, %1445 ]
@@ -5386,7 +5386,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit599:                 ; preds = %.invoke1325, %1725,
 1782:                                             ; preds = %1751
   %indvars.iv.next1290 = add nuw nsw i64 %indvars.iv1289, 1
   %exitcond1292.not = icmp eq i64 %indvars.iv.next1290, 256
-  br i1 %exitcond1292.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit601, label %.preheader, !llvm.loop !13
+  br i1 %exitcond1292.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit601, label %.preheader, !llvm.loop !16
 
 _ZNSt6vectorIfSaIfEED2Ev.exit601:                 ; preds = %1782
   call void @_ZdlPvm(ptr noundef nonnull %1711, i64 noundef 1048576) #21
@@ -5779,7 +5779,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEEEvPT_.exit.i.i.i: ; preds = %10, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %14, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -6017,7 +6017,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, %2
   ret void
@@ -6154,12 +6154,12 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14G
   store i8 %.sink.i.i.i.i.i, ptr %13, align 1
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 256
-  br i1 %exitcond.not.i.i.i.i.i, label %14, label %3, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i.i, label %14, label %3, !llvm.loop !18
 
 14:                                               ; preds = %3
   %indvars.iv.next5.i.i.i.i.i = add nuw nsw i64 %indvars.iv4.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next5.i.i.i.i.i, 256
-  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit", label %.preheader.i.i.i.i.i, !llvm.loop !16
+  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit", label %.preheader.i.i.i.i.i, !llvm.loop !19
 
 "_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit": ; preds = %14
   ret void
@@ -6197,12 +6197,12 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13G
   store i8 %13, ptr %16, align 1
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 256
-  br i1 %exitcond.not.i.i.i.i.i, label %17, label %3, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i.i.i, label %17, label %3, !llvm.loop !20
 
 17:                                               ; preds = %3
   %indvars.iv.next5.i.i.i.i.i = add nuw nsw i64 %indvars.iv4.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next5.i.i.i.i.i, 256
-  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit", label %.preheader.i.i.i.i.i, !llvm.loop !18
+  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit", label %.preheader.i.i.i.i.i, !llvm.loop !21
 
 "_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit": ; preds = %17
   ret void
@@ -6245,12 +6245,12 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17G
   store float %20, ptr %23, align 4
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 256
-  br i1 %exitcond.not.i.i.i.i.i, label %24, label %5, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i.i.i, label %24, label %5, !llvm.loop !22
 
 24:                                               ; preds = %5
   %indvars.iv.next5.i.i.i.i.i = add nuw nsw i64 %indvars.iv4.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next5.i.i.i.i.i, 256
-  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit", label %.preheader.i.i.i.i.i, !llvm.loop !20
+  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit", label %.preheader.i.i.i.i.i, !llvm.loop !23
 
 "_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit": ; preds = %24
   ret void
@@ -6316,17 +6316,20 @@ attributes #22 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", i32 1, i32 1048575}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !9, !7}
+!13 = distinct !{!13, !9, !7}
+!14 = distinct !{!14, !9, !7}
+!15 = distinct !{!15, !9, !7}
+!16 = distinct !{!16, !9, !7}
+!17 = distinct !{!17, !9, !7}
+!18 = distinct !{!18, !9, !7}
+!19 = distinct !{!19, !9, !7}
+!20 = distinct !{!20, !9, !7}
+!21 = distinct !{!21, !9, !7}
+!22 = distinct !{!22, !9, !7}
+!23 = distinct !{!23, !9, !7}

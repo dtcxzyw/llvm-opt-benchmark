@@ -281,7 +281,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
 19:                                               ; preds = %.lr.ph, %.lr.ph
   %.0 = add nuw i64 %.017, 1
   %20 = icmp ult i64 %.0, %3
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
@@ -343,3 +343,5 @@ attributes #7 = { noreturn }
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZN6memchr6memchr7memchr228_$u7b$$u7b$closure$u7d$$u7d$17hb81189e345f3ef9cE.llvm.18437011518490787362: argument 0"}
 !22 = distinct !{!22, !"_ZN6memchr6memchr7memchr228_$u7b$$u7b$closure$u7d$$u7d$17hb81189e345f3ef9cE.llvm.18437011518490787362"}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}

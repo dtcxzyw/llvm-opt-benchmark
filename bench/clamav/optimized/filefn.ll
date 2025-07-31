@@ -167,7 +167,7 @@ define noundef i64 @_Z11GetFreeDiskPKw(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #14
   %5 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef 2048)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #14
-  %6 = load i8, ptr %3, align 16, !tbaa !11
+  %6 = load i8, ptr %3, align 16, !tbaa !12
   %.not = icmp eq i8 %6, 0
   %7 = select i1 %.not, ptr @.str.2, ptr %3
   %8 = call i32 @statvfs64(ptr noundef nonnull %7, ptr noundef nonnull %4) #14
@@ -369,7 +369,7 @@ define noundef ptr @_Z6MkTempPwm(ptr noundef %0, i64 noundef %1) local_unnamed_a
   %5 = alloca [50 x i32], align 16
   %6 = tail call i64 @wcslen(ptr noundef %0) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !tbaa !12
+  store i64 0, ptr %4, align 8, !tbaa !13
   call void @_ZN7RarTime14SetCurrentTimeEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %7 = call noundef i64 @_ZN7RarTime6GetWinEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %8 = udiv i64 %7, 100000
@@ -398,7 +398,7 @@ define noundef ptr @_Z6MkTempPwm(ptr noundef %0, i64 noundef %1) local_unnamed_a
   %23 = icmp uge i64 %22, %1
   %24 = icmp eq i32 %18, 1000
   %or.cond = or i1 %24, %23
-  br i1 %or.cond, label %.thread26, label %25, !llvm.loop !15
+  br i1 %or.cond, label %.thread26, label %25, !llvm.loop !16
 
 .thread26:                                        ; preds = %17, %2
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #14
@@ -443,7 +443,7 @@ define void @_Z11CalcFileSumP4FilePjPhjlj(ptr noundef %0, ptr noundef writeonly 
   %9 = alloca %class.DataHash, align 8
   %10 = alloca %class.DataHash, align 8
   %11 = alloca %struct.HashValue, align 4
-  %12 = load ptr, ptr %0, align 8, !tbaa !16
+  %12 = load ptr, ptr %0, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8256) %0)
@@ -458,16 +458,16 @@ define void @_Z11CalcFileSumP4FilePjPhjlj(ptr noundef %0, ptr noundef writeonly 
 18:                                               ; preds = %18, %17
   %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %18 ]
   %19 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv.i.i
-  store ptr @.str, ptr %19, align 8, !tbaa !18
+  store ptr @.str, ptr %19, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit, label %18, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit, label %18, !llvm.loop !22
 
 _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit:          ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
-  store i32 142, ptr %21, align 8, !tbaa !22
+  store i32 142, ptr %21, align 8, !tbaa !23
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %8)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #14
   br label %22
@@ -478,7 +478,7 @@ _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit:          ; preds = %18
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %0, align 8, !tbaa !16
+  %26 = load ptr, ptr %0, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(8256) %0, i64 noundef 0, i32 noundef 0)
@@ -521,7 +521,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
   %.031.us = phi i64 [ %spec.select.us, %51 ], [ %4, %.preheader ]
   %35 = icmp eq i64 %.031.us, 9223372034707292159
   %36 = call i64 @llvm.smin.i64(i64 %.031.us, i64 1048576)
-  %37 = load ptr, ptr %0, align 8, !tbaa !16
+  %37 = load ptr, ptr %0, align 8, !tbaa !17
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = invoke noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %malloc.i, i64 noundef %36)
@@ -552,7 +552,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
 51:                                               ; preds = %50, %49
   %52 = sub nsw i64 %.031.us, %44
   %spec.select.us = select i1 %35, i64 9223372034707292159, i64 %52
-  br label %.preheader.split.us, !llvm.loop !25
+  br label %.preheader.split.us, !llvm.loop !26
 
 .split.us:                                        ; preds = %50, %48, %.preheader.split.us
   %53 = landingpad { ptr, i32 }
@@ -564,7 +564,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
   %.031 = phi i64 [ %spec.select, %78 ], [ %4, %.preheader ]
   %54 = icmp eq i64 %.031, 9223372034707292159
   %55 = call i64 @llvm.smin.i64(i64 %.031, i64 1048576)
-  %56 = load ptr, ptr %0, align 8, !tbaa !16
+  %56 = load ptr, ptr %0, align 8, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = invoke noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %malloc.i, i64 noundef %55)
@@ -619,10 +619,10 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
 78:                                               ; preds = %76, %77
   %79 = sub nsw i64 %.031, %70
   %spec.select = select i1 %54, i64 9223372034707292159, i64 %79
-  br label %.preheader.split
+  br label %.preheader.split, !llvm.loop !28
 
 .split73.us:                                      ; preds = %66, %41
-  %80 = load ptr, ptr %0, align 8, !tbaa !16
+  %80 = load ptr, ptr %0, align 8, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load ptr, ptr %81, align 8
   invoke void %82(ptr noundef nonnull align 8 dereferenceable(8256) %0, i64 noundef %15, i32 noundef 0)
@@ -640,16 +640,16 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
 86:                                               ; preds = %86, %85
   %indvars.iv.i.i57 = phi i64 [ 0, %85 ], [ %indvars.iv.next.i.i58, %86 ]
   %87 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv.i.i57
-  store ptr @.str, ptr %87, align 8, !tbaa !18
+  store ptr @.str, ptr %87, align 8, !tbaa !19
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %exitcond.not.i.i59 = icmp eq i64 %indvars.iv.next.i.i58, 8
-  br i1 %exitcond.not.i.i59, label %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i, label %86, !llvm.loop !21
+  br i1 %exitcond.not.i.i59, label %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i, label %86, !llvm.loop !22
 
 _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i:        ; preds = %86
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, i8 0, i64 40, i1 false)
-  store i32 144, ptr %89, align 8, !tbaa !22
+  store i32 144, ptr %89, align 8, !tbaa !23
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %7)
           to label %_Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit60 unwind label %90
 
@@ -826,7 +826,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   %19 = phi i64 [ %28, %24 ], [ 0, %13 ]
   %.03561 = phi i32 [ %27, %24 ], [ 0, %13 ]
   %.13760 = phi i64 [ %.2, %24 ], [ %.036, %13 ]
-  %20 = load ptr, ptr %2, align 8, !tbaa !27
+  %20 = load ptr, ptr %2, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i32, ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4, !tbaa !7
   %23 = icmp eq i32 %18, %22
@@ -849,7 +849,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   %31 = load i64, ptr %14, align 8
   %32 = icmp ugt i64 %31, %28
   %or.cond57 = select i1 %.not47, i1 %32, i1 false
-  br i1 %or.cond57, label %.lr.ph, label %.critedge, !llvm.loop !30
+  br i1 %or.cond57, label %.lr.ph, label %.critedge, !llvm.loop !32
 
 33:                                               ; preds = %.critedge
   %34 = getelementptr inbounds nuw i32, ptr %5, i64 %.137.lcssa
@@ -860,7 +860,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   %36 = load i32, ptr %.1, align 4, !tbaa !7
   %37 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %36)
   %38 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  br i1 %37, label %35, label %.loopexit, !llvm.loop !31
+  br i1 %37, label %35, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %35, %.critedge
   %.034 = phi ptr [ %5, %.critedge ], [ %.1, %35 ]
@@ -886,7 +886,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   call void @llvm.lifetime.start.p0(i64 8240, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   %47 = call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext true)
-  %48 = load i8, ptr %42, align 1, !range !32
+  %48 = load i8, ptr %42, align 1, !range !34
   %49 = trunc nuw i8 %48 to i1
   %or.cond = select i1 %47, i1 %49, i1 false
   br i1 %or.cond, label %50, label %.critedge52
@@ -910,10 +910,10 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
 55:                                               ; preds = %.critedge52, %43
   %.0 = getelementptr inbounds i8, ptr %.066, i64 -4
   %.not49.not = icmp ugt ptr %.0, %.034
-  br i1 %.not49.not, label %43, label %.critedge54, !llvm.loop !33
+  br i1 %.not49.not, label %43, label %.critedge54, !llvm.loop !35
 
 .critedge54:                                      ; preds = %55, %.loopexit
-  %56 = load i64, ptr %14, align 8, !tbaa !34
+  %56 = load i64, ptr %14, align 8, !tbaa !36
   %57 = call noundef i64 @wcslen(ptr noundef %0) #16
   %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE10_M_replaceEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %56, ptr noundef %0, i64 noundef %57)
   br label %59
@@ -979,29 +979,31 @@ attributes #16 = { nounwind willreturn memory(read) }
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"wchar_t", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!5, !5, i64 0}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"_ZTS7RarTime", !14, i64 0}
-!14 = !{!"long", !5, i64 0}
-!15 = distinct !{!15, !10}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"vtable pointer", !6, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 wchar_t", !20, i64 0}
-!20 = !{!"any pointer", !5, i64 0}
-!21 = distinct !{!21, !10}
-!22 = !{!23, !24, i64 104}
-!23 = !{!"_ZTS10uiMsgStore", !5, i64 0, !5, i64 64, !4, i64 96, !4, i64 100, !24, i64 104}
-!24 = !{!"_ZTS14UIMESSAGE_CODE", !5, i64 0}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = !{!28, !19, i64 0}
-!28 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE", !29, i64 0, !14, i64 8, !5, i64 16}
-!29 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderE", !19, i64 0}
-!30 = distinct !{!30, !10}
-!31 = distinct !{!31, !10}
-!32 = !{i8 0, i8 2}
-!33 = distinct !{!33, !10}
-!34 = !{!28, !14, i64 8}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!5, !5, i64 0}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"_ZTS7RarTime", !15, i64 0}
+!15 = !{!"long", !5, i64 0}
+!16 = distinct !{!16, !10, !11}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"vtable pointer", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 wchar_t", !21, i64 0}
+!21 = !{!"any pointer", !5, i64 0}
+!22 = distinct !{!22, !10, !11}
+!23 = !{!24, !25, i64 104}
+!24 = !{!"_ZTS10uiMsgStore", !5, i64 0, !5, i64 64, !4, i64 96, !4, i64 100, !25, i64 104}
+!25 = !{!"_ZTS14UIMESSAGE_CODE", !5, i64 0}
+!26 = distinct !{!26, !11, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !11}
+!29 = !{!30, !20, i64 0}
+!30 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE", !31, i64 0, !15, i64 8, !5, i64 16}
+!31 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderE", !20, i64 0}
+!32 = distinct !{!32, !10, !11}
+!33 = distinct !{!33, !10, !11}
+!34 = !{i8 0, i8 2}
+!35 = distinct !{!35, !10, !11}
+!36 = !{!30, !15, i64 8}

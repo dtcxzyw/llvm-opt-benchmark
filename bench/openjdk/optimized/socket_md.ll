@@ -129,7 +129,7 @@ define hidden i32 @dbgsysAccept(i32 noundef %0, ptr noundef %1, ptr noundef %2) 
 10:                                               ; preds = %7, %7
   %11 = tail call i32 @accept(i32 noundef %0, ptr %1, ptr noundef %2) #12
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %._crit_edge, label %7
+  br i1 %12, label %._crit_edge, label %7, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %10, %7, %3
   %.lcssa = phi i32 [ %4, %3 ], [ %8, %7 ], [ %11, %10 ]
@@ -152,7 +152,7 @@ define hidden i32 @dbgsysRecvFrom(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %12 = tail call ptr @__errno_location() #13
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
-  br i1 %14, label %7, label %.critedge, !llvm.loop !6
+  br i1 %14, label %7, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %7, %11
   ret i32 %9
@@ -174,7 +174,7 @@ define hidden i32 @dbgsysSendTo(i32 noundef %0, ptr noundef %1, i64 noundef %2, 
   %12 = tail call ptr @__errno_location() #13
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
-  br i1 %14, label %7, label %.critedge, !llvm.loop !8
+  br i1 %14, label %7, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %7, %11
   ret i32 %9
@@ -196,7 +196,7 @@ define hidden i32 @dbgsysRecv(i32 noundef %0, ptr noundef %1, i64 noundef %2, i3
   %10 = tail call ptr @__errno_location() #13
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %5, label %.critedge, !llvm.loop !9
+  br i1 %12, label %5, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %5, %9
   ret i32 %7
@@ -218,7 +218,7 @@ define hidden i32 @dbgsysSend(i32 noundef %0, ptr noundef %1, i64 noundef %2, i3
   %10 = tail call ptr @__errno_location() #13
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %5, label %.critedge, !llvm.loop !10
+  br i1 %12, label %5, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %5, %9
   ret i32 %7
@@ -530,7 +530,9 @@ attributes #15 = { cold noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !9, !7}

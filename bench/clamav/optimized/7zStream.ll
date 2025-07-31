@@ -34,7 +34,7 @@ define i32 @SeqInStream_Read2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %13 = sub i64 %.01627, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %11, %4, %.thread
   %.3 = phi i32 [ %.2.ph, %.thread ], [ 0, %4 ], [ 0, %11 ]
@@ -78,7 +78,7 @@ define i32 @SeqInStream_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %12 = sub i64 %.01627.i, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %SeqInStream_Read2.exit, label %.lr.ph.i
+  br i1 %.not.i, label %SeqInStream_Read2.exit, label %.lr.ph.i, !llvm.loop !10
 
 SeqInStream_Read2.exit:                           ; preds = %10, %3, %.thread.i
   %.3.i = phi i32 [ %.2.ph.i, %.thread.i ], [ 0, %3 ], [ 0, %10 ]
@@ -105,9 +105,9 @@ define i32 @SeqInStream_ReadByte(ptr noundef %0, ptr noundef %1) local_unnamed_a
 define i32 @LookInStream_SeekTo(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store i64 %1, ptr %3, align 8, !tbaa !10
+  store i64 %1, ptr %3, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret i32 %6
@@ -122,17 +122,17 @@ define i32 @LookInStream_LookRead(ptr noundef %0, ptr noundef writeonly captures
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %0, align 8, !tbaa !14
+  %8 = load ptr, ptr %0, align 8, !tbaa !16
   %9 = call i32 %8(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2) #7
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %17
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %4, align 8, !tbaa !15
+  %11 = load ptr, ptr %4, align 8, !tbaa !17
   %12 = load i64, ptr %2, align 8, !tbaa !3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %11, i64 %12, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !16
+  %14 = load ptr, ptr %13, align 8, !tbaa !18
   %15 = load i64, ptr %2, align 8, !tbaa !3
   %16 = call i32 %14(ptr noundef nonnull %0, i64 noundef %15) #7
   br label %17
@@ -161,7 +161,7 @@ define i32 @LookInStream_Read2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %.01627 = phi i64 [ %2, %.lr.ph ], [ %15, %13 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 %.01627, ptr %5, align 8, !tbaa !3
-  %8 = load ptr, ptr %6, align 8, !tbaa !17
+  %8 = load ptr, ptr %6, align 8, !tbaa !19
   %9 = call i32 %8(ptr noundef %0, ptr noundef %.01428, ptr noundef nonnull %5) #7
   %.not20 = icmp eq i32 %9, 0
   br i1 %.not20, label %10, label %.thread
@@ -181,7 +181,7 @@ define i32 @LookInStream_Read2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %15 = sub i64 %.01627, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %.loopexit, label %7
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !20
 
 .loopexit:                                        ; preds = %13, %4, %.thread
   %.3 = phi i32 [ %.2.ph, %.thread ], [ 0, %4 ], [ 0, %13 ]
@@ -203,7 +203,7 @@ define i32 @LookInStream_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   %.01627.i = phi i64 [ %2, %.lr.ph.i ], [ %14, %12 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 %.01627.i, ptr %4, align 8, !tbaa !3
-  %7 = load ptr, ptr %5, align 8, !tbaa !17
+  %7 = load ptr, ptr %5, align 8, !tbaa !19
   %8 = call i32 %7(ptr noundef %0, ptr noundef %.01428.i, ptr noundef nonnull %4) #7
   %.not20.i = icmp eq i32 %8, 0
   br i1 %.not20.i, label %9, label %.thread.i
@@ -223,7 +223,7 @@ define i32 @LookInStream_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   %14 = sub i64 %.01627.i, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %LookInStream_Read2.exit, label %6
+  br i1 %.not.i, label %LookInStream_Read2.exit, label %6, !llvm.loop !20
 
 LookInStream_Read2.exit:                          ; preds = %12, %3, %.thread.i
   %.3.i = phi i32 [ %.2.ph.i, %.thread.i ], [ 0, %3 ], [ 0, %12 ]
@@ -234,13 +234,13 @@ LookInStream_Read2.exit:                          ; preds = %12, %3, %.thread.i
 define void @LookToRead_CreateVTable(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr @LookToRead_Look_Exact, ptr @LookToRead_Look_Lookahead
-  store ptr %3, ptr %0, align 8, !tbaa !18
+  store ptr %3, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @LookToRead_Skip, ptr %4, align 8, !tbaa !20
+  store ptr @LookToRead_Skip, ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @LookToRead_Read, ptr %5, align 8, !tbaa !21
+  store ptr @LookToRead_Read, ptr %5, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @LookToRead_Seek, ptr %6, align 8, !tbaa !22
+  store ptr @LookToRead_Seek, ptr %6, align 8, !tbaa !25
   ret void
 }
 
@@ -249,9 +249,9 @@ define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr noundef write
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load i64, ptr %5, align 8, !tbaa !23
+  %6 = load i64, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !24
+  %8 = load i64, ptr %7, align 8, !tbaa !27
   %9 = sub i64 %6, %8
   %10 = icmp eq i64 %6, %8
   %.pre15 = load i64, ptr %2, align 8, !tbaa !3
@@ -262,15 +262,15 @@ define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr noundef write
   br i1 %.not, label %.thread, label %12
 
 12:                                               ; preds = %11
-  store i64 0, ptr %7, align 8, !tbaa !24
+  store i64 0, ptr %7, align 8, !tbaa !27
   store i64 16384, ptr %4, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
-  %15 = load ptr, ptr %14, align 8, !tbaa !26
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = call i32 %15(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %4) #7
   %18 = load i64, ptr %4, align 8, !tbaa !3
-  store i64 %18, ptr %5, align 8, !tbaa !23
+  store i64 %18, ptr %5, align 8, !tbaa !26
   %.pre = load i64, ptr %2, align 8, !tbaa !3
   br label %19
 
@@ -288,9 +288,9 @@ define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr noundef write
 .thread:                                          ; preds = %11, %23, %19
   %.017 = phi i32 [ %.0, %23 ], [ %.0, %19 ], [ 0, %11 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = load i64, ptr %7, align 8, !tbaa !24
+  %25 = load i64, ptr %7, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
-  store ptr %26, ptr %1, align 8, !tbaa !15
+  store ptr %26, ptr %1, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret i32 %.017
 }
@@ -298,9 +298,9 @@ define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr noundef write
 ; Function Attrs: nounwind uwtable
 define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !tbaa !23
+  %5 = load i64, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i64, ptr %6, align 8, !tbaa !24
+  %7 = load i64, ptr %6, align 8, !tbaa !27
   %8 = sub i64 %5, %7
   %9 = icmp eq i64 %5, %7
   %.pre = load i64, ptr %2, align 8, !tbaa !3
@@ -311,7 +311,7 @@ define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr noundef writeonly
   br i1 %.not, label %.thread, label %11
 
 11:                                               ; preds = %10
-  store i64 0, ptr %6, align 8, !tbaa !24
+  store i64 0, ptr %6, align 8, !tbaa !27
   %12 = load i64, ptr %2, align 8, !tbaa !3
   %13 = icmp ugt i64 %12, 16384
   br i1 %13, label %14, label %15
@@ -322,12 +322,12 @@ define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr noundef writeonly
 
 15:                                               ; preds = %14, %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
-  %18 = load ptr, ptr %17, align 8, !tbaa !26
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = tail call i32 %18(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %2) #7
   %21 = load i64, ptr %2, align 8, !tbaa !3
-  store i64 %21, ptr %4, align 8, !tbaa !23
+  store i64 %21, ptr %4, align 8, !tbaa !26
   br label %.thread
 
 22:                                               ; preds = %3
@@ -341,34 +341,34 @@ define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr noundef writeonly
 .thread:                                          ; preds = %10, %15, %24, %22
   %.02125 = phi i32 [ 0, %24 ], [ 0, %22 ], [ 0, %10 ], [ %20, %15 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load i64, ptr %6, align 8, !tbaa !24
+  %26 = load i64, ptr %6, align 8, !tbaa !27
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
-  store ptr %27, ptr %1, align 8, !tbaa !15
+  store ptr %27, ptr %1, align 8, !tbaa !17
   ret i32 %.02125
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @LookToRead_Skip(ptr noundef captures(none) %0, i64 noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !24
+  %4 = load i64, ptr %3, align 8, !tbaa !27
   %5 = add i64 %4, %1
-  store i64 %5, ptr %3, align 8, !tbaa !24
+  store i64 %5, ptr %3, align 8, !tbaa !27
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @LookToRead_Read(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !tbaa !23
+  %5 = load i64, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i64, ptr %6, align 8, !tbaa !24
+  %7 = load i64, ptr %6, align 8, !tbaa !27
   %8 = icmp eq i64 %5, %7
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = tail call i32 %12(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2) #7
   br label %21
 
@@ -379,9 +379,9 @@ define internal i32 @LookToRead_Read(ptr noundef captures(none) %0, ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %18, i64 %spec.select, i1 false)
-  %19 = load i64, ptr %6, align 8, !tbaa !24
+  %19 = load i64, ptr %6, align 8, !tbaa !27
   %20 = add i64 %19, %spec.select
-  store i64 %20, ptr %6, align 8, !tbaa !24
+  store i64 %20, ptr %6, align 8, !tbaa !27
   store i64 %spec.select, ptr %2, align 8, !tbaa !3
   br label %21
 
@@ -395,9 +395,9 @@ define internal i32 @LookToRead_Seek(ptr noundef captures(none) initializes((40,
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = tail call i32 %8(ptr noundef %6, ptr noundef %1, i32 noundef %2) #7
   ret i32 %9
 }
@@ -411,7 +411,7 @@ define void @LookToRead_Init(ptr noundef writeonly captures(none) initializes((4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SecToLook_CreateVTable(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #3 {
-  store ptr @SecToLook_Read, ptr %0, align 8, !tbaa !29
+  store ptr @SecToLook_Read, ptr %0, align 8, !tbaa !32
   ret void
 }
 
@@ -419,24 +419,24 @@ define void @SecToLook_CreateVTable(ptr noundef writeonly captures(none) initial
 define internal i32 @SecToLook_Read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %7 = load i64, ptr %2, align 8, !tbaa !3
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %LookInStream_LookRead.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %6, align 8, !tbaa !14
+  %10 = load ptr, ptr %6, align 8, !tbaa !16
   %11 = call i32 %10(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %2) #7
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %LookInStream_LookRead.exit
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %4, align 8, !tbaa !15
+  %13 = load ptr, ptr %4, align 8, !tbaa !17
   %14 = load i64, ptr %2, align 8, !tbaa !3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %13, i64 %14, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !16
+  %16 = load ptr, ptr %15, align 8, !tbaa !18
   %17 = load i64, ptr %2, align 8, !tbaa !3
   %18 = call i32 %16(ptr noundef nonnull %6, i64 noundef %17) #7
   br label %LookInStream_LookRead.exit
@@ -449,16 +449,16 @@ LookInStream_LookRead.exit:                       ; preds = %3, %9, %12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SecToRead_CreateVTable(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #3 {
-  store ptr @SecToRead_Read, ptr %0, align 8, !tbaa !29
+  store ptr @SecToRead_Read, ptr %0, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @SecToRead_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
   %8 = tail call i32 %7(ptr noundef %5, ptr noundef %1, ptr noundef %2) #7
   ret i32 %8
 }
@@ -490,25 +490,28 @@ attributes #7 = { nounwind }
 !7 = !{!8, !9, i64 0}
 !8 = !{!"", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"long long", !5, i64 0}
-!12 = !{!13, !9, i64 24}
-!13 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
-!14 = !{!13, !9, i64 0}
-!15 = !{!9, !9, i64 0}
-!16 = !{!13, !9, i64 8}
-!17 = !{!13, !9, i64 16}
-!18 = !{!19, !9, i64 0}
-!19 = !{!"", !13, i64 0, !9, i64 32, !4, i64 40, !4, i64 48, !5, i64 56}
-!20 = !{!19, !9, i64 8}
-!21 = !{!19, !9, i64 16}
-!22 = !{!19, !9, i64 24}
-!23 = !{!19, !4, i64 48}
-!24 = !{!19, !4, i64 40}
-!25 = !{!19, !9, i64 32}
-!26 = !{!27, !9, i64 0}
-!27 = !{!"", !9, i64 0, !9, i64 8, !4, i64 16}
-!28 = !{!27, !9, i64 8}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long long", !5, i64 0}
+!14 = !{!15, !9, i64 24}
+!15 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!16 = !{!15, !9, i64 0}
+!17 = !{!9, !9, i64 0}
+!18 = !{!15, !9, i64 8}
+!19 = !{!15, !9, i64 16}
+!20 = distinct !{!20, !11}
+!21 = !{!22, !9, i64 0}
+!22 = !{!"", !15, i64 0, !9, i64 32, !4, i64 40, !4, i64 48, !5, i64 56}
+!23 = !{!22, !9, i64 8}
+!24 = !{!22, !9, i64 16}
+!25 = !{!22, !9, i64 24}
+!26 = !{!22, !4, i64 48}
+!27 = !{!22, !4, i64 40}
+!28 = !{!22, !9, i64 32}
 !29 = !{!30, !9, i64 0}
-!30 = !{!"", !8, i64 0, !9, i64 8}
+!30 = !{!"", !9, i64 0, !9, i64 8, !4, i64 16}
 !31 = !{!30, !9, i64 8}
+!32 = !{!33, !9, i64 0}
+!33 = !{!"", !8, i64 0, !9, i64 8}
+!34 = !{!33, !9, i64 8}

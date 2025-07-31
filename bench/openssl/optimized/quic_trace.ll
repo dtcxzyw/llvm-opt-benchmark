@@ -249,7 +249,7 @@ put_conn_id.exit58:                               ; preds = %.lr.ph.i.i55, %68, 
 
 81:                                               ; preds = %put_conn_id.exit58, %put_conn_id.exit
   %82 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %83 = load i64, ptr %82, align 8, !tbaa !19
+  %83 = load i64, ptr %82, align 8, !tbaa !20
   %84 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.9, i64 noundef %83) #3
   %85 = load i32, ptr %16, align 8
   %86 = and i32 %85, 255
@@ -259,9 +259,9 @@ put_conn_id.exit58:                               ; preds = %.lr.ph.i.i55, %68, 
 88:                                               ; preds = %81
   %89 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.10) #3
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %91 = load ptr, ptr %90, align 8, !tbaa !20
+  %91 = load ptr, ptr %90, align 8, !tbaa !21
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %93 = load i64, ptr %92, align 8, !tbaa !21
+  %93 = load i64, ptr %92, align 8, !tbaa !22
   %94 = icmp eq i64 %93, 0
   br i1 %94, label %95, label %.lr.ph.i.i59
 
@@ -315,7 +315,7 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
   %118 = and i32 %117, 15
   %119 = zext nneg i32 %118 to i64
   %120 = icmp samesign ult i64 %115, %119
-  br i1 %120, label %110, label %._crit_edge, !llvm.loop !22
+  br i1 %120, label %110, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %110, %105
   %121 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.7) #3
@@ -343,7 +343,7 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
   br i1 %.not.i, label %291, label %131
 
 131:                                              ; preds = %128
-  %132 = load i64, ptr %14, align 8, !tbaa !23
+  %132 = load i64, ptr %14, align 8, !tbaa !24
   switch i64 %132, label %291 [
     i64 1, label %133
     i64 0, label %136
@@ -391,13 +391,13 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
 
 139:                                              ; preds = %131, %131
   %140 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.27) #3
-  %141 = load i64, ptr %14, align 8, !tbaa !23
+  %141 = load i64, ptr %14, align 8, !tbaa !24
   %142 = icmp eq i64 %141, 3
   %.str.28..str.29.i = select i1 %142, ptr @.str.28, ptr @.str.29
   %143 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.28..str.29.i) #3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #3
-  store i64 0, ptr %13, align 8, !tbaa !23
+  store i64 0, ptr %13, align 8, !tbaa !24
   %144 = call i32 @ossl_quic_wire_peek_frame_ack_num_ranges(ptr noundef nonnull %15, ptr noundef nonnull %13) #3
   %145 = icmp eq i32 %144, 0
   %146 = load i64, ptr %13, align 8
@@ -412,57 +412,57 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
   br i1 %151, label %frame_ack.exit.thread.i, label %152
 
 152:                                              ; preds = %148
-  store ptr %150, ptr %12, align 8, !tbaa !24
-  %153 = load i64, ptr %13, align 8, !tbaa !23
+  store ptr %150, ptr %12, align 8, !tbaa !25
+  %153 = load i64, ptr %13, align 8, !tbaa !24
   %154 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %153, ptr %154, align 8, !tbaa !28
+  store i64 %153, ptr %154, align 8, !tbaa !29
   %155 = call i32 @ossl_quic_wire_decode_frame_ack(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %12, ptr noundef null) #3
   %.not.i.i65 = icmp eq i32 %155, 0
   br i1 %.not.i.i65, label %frame_ack.exit.i, label %156
 
 156:                                              ; preds = %152
-  %157 = load ptr, ptr %12, align 8, !tbaa !24
+  %157 = load ptr, ptr %12, align 8, !tbaa !25
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load i64, ptr %158, align 8, !tbaa !29
+  %159 = load i64, ptr %158, align 8, !tbaa !30
   %160 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.52, i64 noundef %159) #3
   %161 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %162 = load i64, ptr %161, align 8
   %163 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.53, i64 noundef %162) #3
-  %164 = load i64, ptr %13, align 8, !tbaa !23
+  %164 = load i64, ptr %13, align 8, !tbaa !24
   %165 = add i64 %164, -1
   %166 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.54, i64 noundef %165) #3
-  %167 = load ptr, ptr %12, align 8, !tbaa !24
+  %167 = load ptr, ptr %12, align 8, !tbaa !25
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %169 = load i64, ptr %168, align 8, !tbaa !29
-  %170 = load i64, ptr %167, align 8, !tbaa !31
+  %169 = load i64, ptr %168, align 8, !tbaa !30
+  %170 = load i64, ptr %167, align 8, !tbaa !32
   %171 = sub i64 %169, %170
   %172 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.55, i64 noundef %171) #3
-  %173 = load i64, ptr %13, align 8, !tbaa !23
+  %173 = load i64, ptr %13, align 8, !tbaa !24
   %174 = icmp ugt i64 %173, 1
   br i1 %174, label %.lr.ph.i.i66, label %frame_ack.exit.thread98.i
 
 .lr.ph.i.i66:                                     ; preds = %156, %.lr.ph.i.i66
   %.01923.i.i = phi i64 [ %191, %.lr.ph.i.i66 ], [ 1, %156 ]
-  %175 = load ptr, ptr %12, align 8, !tbaa !24
+  %175 = load ptr, ptr %12, align 8, !tbaa !25
   %176 = getelementptr %struct.ossl_quic_ack_range_st, ptr %175, i64 %.01923.i.i
   %177 = getelementptr i8, ptr %176, i64 -16
-  %178 = load i64, ptr %177, align 8, !tbaa !31
+  %178 = load i64, ptr %177, align 8, !tbaa !32
   %179 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %175, i64 %.01923.i.i, i32 1
-  %180 = load i64, ptr %179, align 8, !tbaa !29
+  %180 = load i64, ptr %179, align 8, !tbaa !30
   %181 = add i64 %178, -2
   %182 = sub i64 %181, %180
   %183 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.56, i64 noundef %182) #3
-  %184 = load ptr, ptr %12, align 8, !tbaa !24
+  %184 = load ptr, ptr %12, align 8, !tbaa !25
   %185 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %184, i64 %.01923.i.i
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %187 = load i64, ptr %186, align 8, !tbaa !29
-  %188 = load i64, ptr %185, align 8, !tbaa !31
+  %187 = load i64, ptr %186, align 8, !tbaa !30
+  %188 = load i64, ptr %185, align 8, !tbaa !32
   %189 = sub i64 %187, %188
   %190 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.57, i64 noundef %189) #3
   %191 = add nuw i64 %.01923.i.i, 1
-  %192 = load i64, ptr %13, align 8, !tbaa !23
+  %192 = load i64, ptr %13, align 8, !tbaa !24
   %193 = icmp ult i64 %191, %192
-  br i1 %193, label %.lr.ph.i.i66, label %frame_ack.exit.thread98.i, !llvm.loop !32
+  br i1 %193, label %.lr.ph.i.i66, label %frame_ack.exit.thread98.i, !llvm.loop !33
 
 frame_ack.exit.thread.i:                          ; preds = %148, %139
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
@@ -517,10 +517,10 @@ switch.lookup75:                                  ; preds = %131, %131, %131, %1
   br i1 %.not.i87.i, label %frame_stream.exit.thread.i, label %209
 
 209:                                              ; preds = %switch.lookup75
-  %210 = load i64, ptr %11, align 8, !tbaa !33
+  %210 = load i64, ptr %11, align 8, !tbaa !34
   %211 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.58, i64 noundef %210) #3
   %212 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %213 = load i64, ptr %212, align 8, !tbaa !35
+  %213 = load i64, ptr %212, align 8, !tbaa !36
   %214 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.61, i64 noundef %213) #3
   %215 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %216 = load i8, ptr %215, align 8
@@ -530,7 +530,7 @@ switch.lookup75:                                  ; preds = %131, %131, %131, %1
 
 218:                                              ; preds = %209
   %219 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %220 = load i64, ptr %219, align 8, !tbaa !36
+  %220 = load i64, ptr %219, align 8, !tbaa !37
   %221 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.62, i64 noundef %220) #3
   br label %frame_stream.exit.i
 
@@ -560,12 +560,12 @@ frame_stream.exit.i:                              ; preds = %222, %218
 
 230:                                              ; preds = %131, %131
   %231 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.36) #3
-  %232 = load i64, ptr %14, align 8, !tbaa !23
+  %232 = load i64, ptr %14, align 8, !tbaa !24
   %233 = icmp eq i64 %232, 18
   %.str.37..str.38.i = select i1 %233, ptr @.str.37, ptr @.str.38
   %234 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38.i) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
-  store i64 0, ptr %10, align 8, !tbaa !23
+  store i64 0, ptr %10, align 8, !tbaa !24
   %235 = call i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef nonnull %15, ptr noundef nonnull %10) #3
   %.not.i89.i = icmp eq i32 %235, 0
   br i1 %.not.i89.i, label %frame_max_streams.exit.thread.i, label %frame_max_streams.exit.i
@@ -575,7 +575,7 @@ frame_max_streams.exit.thread.i:                  ; preds = %230
   br label %291
 
 frame_max_streams.exit.i:                         ; preds = %230
-  %236 = load i64, ptr %10, align 8, !tbaa !23
+  %236 = load i64, ptr %10, align 8, !tbaa !24
   %237 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.75, i64 noundef %236) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
   br label %288
@@ -594,12 +594,12 @@ frame_max_streams.exit.i:                         ; preds = %230
 
 244:                                              ; preds = %131, %131
   %245 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.41) #3
-  %246 = load i64, ptr %14, align 8, !tbaa !23
+  %246 = load i64, ptr %14, align 8, !tbaa !24
   %247 = icmp eq i64 %246, 22
   %.str.37..str.38110.i = select i1 %247, ptr @.str.37, ptr @.str.38
   %248 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38110.i) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
-  store i64 0, ptr %9, align 8, !tbaa !23
+  store i64 0, ptr %9, align 8, !tbaa !24
   %249 = call i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef nonnull %15, ptr noundef nonnull %9) #3
   %.not.i91.i = icmp eq i32 %249, 0
   br i1 %.not.i91.i, label %frame_streams_blocked.exit.thread.i, label %frame_streams_blocked.exit.i
@@ -609,7 +609,7 @@ frame_streams_blocked.exit.thread.i:              ; preds = %244
   br label %291
 
 frame_streams_blocked.exit.i:                     ; preds = %244
-  %250 = load i64, ptr %9, align 8, !tbaa !23
+  %250 = load i64, ptr %9, align 8, !tbaa !24
   %251 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.73, i64 noundef %250) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
   br label %288
@@ -640,7 +640,7 @@ frame_streams_blocked.exit.i:                     ; preds = %244
 
 264:                                              ; preds = %131, %131
   %265 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.46) #3
-  %266 = load i64, ptr %14, align 8, !tbaa !23
+  %266 = load i64, ptr %14, align 8, !tbaa !24
   %267 = icmp eq i64 %266, 29
   %.str.47..str.48.i = select i1 %267, ptr @.str.47, ptr @.str.48
   %268 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.47..str.48.i) #3
@@ -655,13 +655,13 @@ frame_conn_closed.exit.thread.i:                  ; preds = %264
 
 270:                                              ; preds = %264
   %271 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %272 = load i64, ptr %271, align 8, !tbaa !37
+  %272 = load i64, ptr %271, align 8, !tbaa !38
   %273 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.81, i64 noundef %272) #3
   %274 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.82) #3
   %275 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %276 = load ptr, ptr %275, align 8, !tbaa !39
+  %276 = load ptr, ptr %275, align 8, !tbaa !40
   %277 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %278 = load i64, ptr %277, align 8, !tbaa !40
+  %278 = load i64, ptr %277, align 8, !tbaa !41
   %.not.i.i.i = icmp eq i64 %278, 0
   br i1 %.not.i.i.i, label %frame_conn_closed.exit.i, label %.lr.ph.i.i.i
 
@@ -673,7 +673,7 @@ frame_conn_closed.exit.thread.i:                  ; preds = %264
   %282 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.83, i32 noundef %281) #3
   %283 = add nuw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %283, %278
-  br i1 %exitcond.not.i.i.i, label %frame_conn_closed.exit.i, label %.lr.ph.i.i.i, !llvm.loop !41
+  br i1 %exitcond.not.i.i.i, label %frame_conn_closed.exit.i, label %.lr.ph.i.i.i, !llvm.loop !42
 
 frame_conn_closed.exit.i:                         ; preds = %.lr.ph.i.i.i, %270
   %284 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.7) #3
@@ -745,13 +745,13 @@ define internal fastcc range(i32 0, 2) i32 @frame_reset_stream(ptr noundef %0, p
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !42
+  %6 = load i64, ptr %3, align 8, !tbaa !43
   %7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef %6) #3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !44
+  %9 = load i64, ptr %8, align 8, !tbaa !45
   %10 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.59, i64 noundef %9) #3
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !45
+  %12 = load i64, ptr %11, align 8, !tbaa !46
   %13 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.60, i64 noundef %12) #3
   br label %14
 
@@ -770,10 +770,10 @@ define internal fastcc range(i32 0, 2) i32 @frame_stop_sending(ptr noundef %0, p
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !46
+  %6 = load i64, ptr %3, align 8, !tbaa !47
   %7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef %6) #3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !48
+  %9 = load i64, ptr %8, align 8, !tbaa !49
   %10 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.59, i64 noundef %9) #3
   br label %11
 
@@ -792,10 +792,10 @@ define internal fastcc range(i32 0, 2) i32 @frame_crypto(ptr noundef %0, ptr nou
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !49
+  %6 = load i64, ptr %3, align 8, !tbaa !50
   %7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.61, i64 noundef %6) #3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !51
+  %9 = load i64, ptr %8, align 8, !tbaa !52
   %10 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.62, i64 noundef %9) #3
   br label %11
 
@@ -817,8 +817,8 @@ define internal fastcc range(i32 0, 2) i32 @frame_new_token(ptr noundef %0, ptr 
 
 6:                                                ; preds = %2
   %7 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.63) #3
-  %8 = load ptr, ptr %3, align 8, !tbaa !52
-  %9 = load i64, ptr %4, align 8, !tbaa !23
+  %8 = load ptr, ptr %3, align 8, !tbaa !53
+  %9 = load i64, ptr %4, align 8, !tbaa !24
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %.lr.ph.i.i
 
@@ -851,13 +851,13 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i, %11
 define internal fastcc range(i32 0, 2) i32 @frame_max_data(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  store i64 0, ptr %3, align 8, !tbaa !23
+  store i64 0, ptr %3, align 8, !tbaa !24
   %4 = call i32 @ossl_quic_wire_decode_frame_max_data(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !23
+  %6 = load i64, ptr %3, align 8, !tbaa !24
   %7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.73, i64 noundef %6) #3
   br label %8
 
@@ -872,15 +872,15 @@ define internal fastcc range(i32 0, 2) i32 @frame_max_stream_data(ptr noundef %0
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  store i64 0, ptr %3, align 8, !tbaa !23
+  store i64 0, ptr %3, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
-  store i64 0, ptr %4, align 8, !tbaa !23
+  store i64 0, ptr %4, align 8, !tbaa !24
   %5 = call i32 @ossl_quic_wire_decode_frame_max_stream_data(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #3
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %4, align 8, !tbaa !23
+  %7 = load i64, ptr %4, align 8, !tbaa !24
   %8 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef %7) #3
   br label %9
 
@@ -895,13 +895,13 @@ define internal fastcc range(i32 0, 2) i32 @frame_max_stream_data(ptr noundef %0
 define internal fastcc range(i32 0, 2) i32 @frame_data_blocked(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  store i64 0, ptr %3, align 8, !tbaa !23
+  store i64 0, ptr %3, align 8, !tbaa !24
   %4 = call i32 @ossl_quic_wire_decode_frame_data_blocked(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !23
+  %6 = load i64, ptr %3, align 8, !tbaa !24
   %7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.73, i64 noundef %6) #3
   br label %8
 
@@ -916,17 +916,17 @@ define internal fastcc range(i32 0, 2) i32 @frame_stream_data_blocked(ptr nounde
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  store i64 0, ptr %3, align 8, !tbaa !23
+  store i64 0, ptr %3, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
-  store i64 0, ptr %4, align 8, !tbaa !23
+  store i64 0, ptr %4, align 8, !tbaa !24
   %5 = call i32 @ossl_quic_wire_decode_frame_stream_data_blocked(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #3
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %3, align 8, !tbaa !23
+  %7 = load i64, ptr %3, align 8, !tbaa !24
   %8 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef %7) #3
-  %9 = load i64, ptr %4, align 8, !tbaa !23
+  %9 = load i64, ptr %4, align 8, !tbaa !24
   %10 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.73, i64 noundef %9) #3
   br label %11
 
@@ -946,10 +946,10 @@ define internal fastcc range(i32 0, 2) i32 @frame_new_conn_id(ptr noundef %0, pt
   br i1 %.not, label %35, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !53
+  %6 = load i64, ptr %3, align 8, !tbaa !54
   %7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.76, i64 noundef %6) #3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !56
+  %9 = load i64, ptr %8, align 8, !tbaa !57
   %10 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.77, i64 noundef %9) #3
   %11 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.78) #3
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1013,7 +1013,7 @@ define internal fastcc range(i32 0, 2) i32 @frame_retire_conn_id(ptr noundef %0,
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !23
+  %6 = load i64, ptr %3, align 8, !tbaa !24
   %7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.76, i64 noundef %6) #3
   br label %8
 
@@ -1027,13 +1027,13 @@ define internal fastcc range(i32 0, 2) i32 @frame_retire_conn_id(ptr noundef %0,
 define internal fastcc range(i32 0, 2) i32 @frame_path_challenge(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  store i64 0, ptr %3, align 8, !tbaa !23
+  store i64 0, ptr %3, align 8, !tbaa !24
   %4 = call i32 @ossl_quic_wire_decode_frame_path_challenge(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !23
+  %6 = load i64, ptr %3, align 8, !tbaa !24
   %7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.80, i64 noundef %6) #3
   br label %8
 
@@ -1047,13 +1047,13 @@ define internal fastcc range(i32 0, 2) i32 @frame_path_challenge(ptr noundef %0,
 define internal fastcc range(i32 0, 2) i32 @frame_path_response(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  store i64 0, ptr %3, align 8, !tbaa !23
+  store i64 0, ptr %3, align 8, !tbaa !24
   %4 = call i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !23
+  %6 = load i64, ptr %3, align 8, !tbaa !24
   %7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.80, i64 noundef %6) #3
   br label %8
 
@@ -1129,43 +1129,44 @@ attributes #3 = { nounwind }
 !14 = !{!"quic_conn_id_st", !7, i64 0, !7, i64 1}
 !15 = !{!14, !7, i64 0}
 !16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!12, !9, i64 72}
-!20 = !{!12, !5, i64 56}
-!21 = !{!12, !9, i64 64}
-!22 = distinct !{!22, !18}
-!23 = !{!9, !9, i64 0}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"ossl_quic_frame_ack_st", !26, i64 0, !9, i64 8, !27, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !13, i64 48}
-!26 = !{!"p1 _ZTS22ossl_quic_ack_range_st", !6, i64 0}
-!27 = !{!"", !9, i64 0}
-!28 = !{!25, !9, i64 8}
-!29 = !{!30, !9, i64 8}
-!30 = !{!"ossl_quic_ack_range_st", !9, i64 0, !9, i64 8}
-!31 = !{!30, !9, i64 0}
-!32 = distinct !{!32, !18}
-!33 = !{!34, !9, i64 0}
-!34 = !{!"ossl_quic_frame_stream_st", !9, i64 0, !9, i64 8, !9, i64 16, !5, i64 24, !13, i64 32, !13, i64 32}
-!35 = !{!34, !9, i64 8}
-!36 = !{!34, !9, i64 16}
-!37 = !{!38, !9, i64 8}
-!38 = !{!"ossl_quic_frame_conn_close_st", !13, i64 0, !9, i64 8, !9, i64 16, !5, i64 24, !9, i64 32}
-!39 = !{!38, !5, i64 24}
-!40 = !{!38, !9, i64 32}
-!41 = distinct !{!41, !18}
-!42 = !{!43, !9, i64 0}
-!43 = !{!"ossl_quic_frame_reset_stream_st", !9, i64 0, !9, i64 8, !9, i64 16}
-!44 = !{!43, !9, i64 8}
-!45 = !{!43, !9, i64 16}
-!46 = !{!47, !9, i64 0}
-!47 = !{!"ossl_quic_frame_stop_sending_st", !9, i64 0, !9, i64 8}
-!48 = !{!47, !9, i64 8}
-!49 = !{!50, !9, i64 0}
-!50 = !{!"ossl_quic_frame_crypto_st", !9, i64 0, !9, i64 8, !5, i64 16}
-!51 = !{!50, !9, i64 8}
-!52 = !{!5, !5, i64 0}
-!53 = !{!54, !9, i64 0}
-!54 = !{!"ossl_quic_frame_new_conn_id_st", !9, i64 0, !9, i64 8, !14, i64 16, !55, i64 37}
-!55 = !{!"", !7, i64 0}
-!56 = !{!54, !9, i64 8}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!12, !9, i64 72}
+!21 = !{!12, !5, i64 56}
+!22 = !{!12, !9, i64 64}
+!23 = distinct !{!23, !18, !19}
+!24 = !{!9, !9, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"ossl_quic_frame_ack_st", !27, i64 0, !9, i64 8, !28, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !13, i64 48}
+!27 = !{!"p1 _ZTS22ossl_quic_ack_range_st", !6, i64 0}
+!28 = !{!"", !9, i64 0}
+!29 = !{!26, !9, i64 8}
+!30 = !{!31, !9, i64 8}
+!31 = !{!"ossl_quic_ack_range_st", !9, i64 0, !9, i64 8}
+!32 = !{!31, !9, i64 0}
+!33 = distinct !{!33, !18, !19}
+!34 = !{!35, !9, i64 0}
+!35 = !{!"ossl_quic_frame_stream_st", !9, i64 0, !9, i64 8, !9, i64 16, !5, i64 24, !13, i64 32, !13, i64 32}
+!36 = !{!35, !9, i64 8}
+!37 = !{!35, !9, i64 16}
+!38 = !{!39, !9, i64 8}
+!39 = !{!"ossl_quic_frame_conn_close_st", !13, i64 0, !9, i64 8, !9, i64 16, !5, i64 24, !9, i64 32}
+!40 = !{!39, !5, i64 24}
+!41 = !{!39, !9, i64 32}
+!42 = distinct !{!42, !18, !19}
+!43 = !{!44, !9, i64 0}
+!44 = !{!"ossl_quic_frame_reset_stream_st", !9, i64 0, !9, i64 8, !9, i64 16}
+!45 = !{!44, !9, i64 8}
+!46 = !{!44, !9, i64 16}
+!47 = !{!48, !9, i64 0}
+!48 = !{!"ossl_quic_frame_stop_sending_st", !9, i64 0, !9, i64 8}
+!49 = !{!48, !9, i64 8}
+!50 = !{!51, !9, i64 0}
+!51 = !{!"ossl_quic_frame_crypto_st", !9, i64 0, !9, i64 8, !5, i64 16}
+!52 = !{!51, !9, i64 8}
+!53 = !{!5, !5, i64 0}
+!54 = !{!55, !9, i64 0}
+!55 = !{!"ossl_quic_frame_new_conn_id_st", !9, i64 0, !9, i64 8, !14, i64 16, !56, i64 37}
+!56 = !{!"", !7, i64 0}
+!57 = !{!55, !9, i64 8}

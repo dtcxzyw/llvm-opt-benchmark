@@ -409,7 +409,7 @@ define hidden void @remove_tap_listener_rtpstream(ptr noundef %0) local_unnamed_
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
+  %4 = load i8, ptr %3, align 8, !range !9, !noundef !10
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -432,7 +432,7 @@ define hidden void @register_tap_listener_rtpstream(ptr noundef %0, ptr noundef 
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load i8, ptr %5, align 8, !range !8, !noundef !9
+  %6 = load i8, ptr %5, align 8, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %15, label %8
 
@@ -514,7 +514,7 @@ define hidden range(i32 0, 2) i32 @rtpstream_packet_cb(ptr noundef %0, ptr nound
   %28 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not14.i = icmp eq ptr %29, null
-  br i1 %.not14.i, label %rtpstream_info_multihash_lookup.exit.thread, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not14.i, label %rtpstream_info_multihash_lookup.exit.thread, label %.lr.ph.i, !llvm.loop !11
 
 rtpstream_info_multihash_lookup.exit:             ; preds = %.lr.ph.i
   %30 = load ptr, ptr %.01118.i, align 8
@@ -624,7 +624,7 @@ rtpstream_info_analyse_init.exit:                 ; preds = %rtpstream_info_mult
   store i16 %rev18.i, ptr %7, align 2
   %89 = fsub double %75, %80
   %90 = fptoui double %89 to i32
-  %91 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %90) #21, !srcloc !11
+  %91 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %90) #21, !srcloc !12
   store i32 %91, ptr %8, align 4
   %92 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 2, i64 noundef 1, ptr noundef %87)
   %93 = icmp eq i64 %92, 0
@@ -742,12 +742,12 @@ define hidden void @rtp_write_header(ptr noundef %0, ptr noundef %1) local_unnam
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
-  %19 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #21, !srcloc !12
+  %19 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #21, !srcloc !13
   store i32 %19, ptr %3, align 4
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %21 = load i32, ptr %20, align 8
   %22 = sdiv i32 %21, 1000
-  %23 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #21, !srcloc !13
+  %23 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #21, !srcloc !14
   store i32 %23, ptr %4, align 4
   store i32 0, ptr %5, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -756,7 +756,7 @@ define hidden void @rtp_write_header(ptr noundef %0, ptr noundef %1) local_unnam
   %spec.store.select = zext nneg i32 %26 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %28, i64 noundef range(i64 -2147483648, 2147483648) %spec.store.select, i64 noundef 4) #17, !alias.scope !14
+  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %28, i64 noundef range(i64 -2147483648, 2147483648) %spec.store.select, i64 noundef 4) #17, !alias.scope !15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i16, ptr %30, align 8
   %rev = call i16 @llvm.bswap.i16(i16 %31)
@@ -841,7 +841,7 @@ rtpstream_to_hash.exit:                           ; preds = %2, %3
   %13 = getelementptr inbounds nuw i8, ptr %.01118, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not14 = icmp eq ptr %14, null
-  br i1 %.not14, label %.thread, label %.lr.ph, !llvm.loop !10
+  br i1 %.not14, label %.thread, label %.lr.ph, !llvm.loop !11
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr %.01118, align 8
@@ -942,7 +942,7 @@ rtpstream_to_hash.exit:                           ; preds = %2, %3
   %13 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not20.not = icmp eq ptr %14, null
-  br i1 %.not20.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !18
+  br i1 %.not20.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %12, %rtpstream_to_hash.exit, %8
   %.sink = phi ptr [ %7, %8 ], [ null, %rtpstream_to_hash.exit ], [ %7, %12 ]
@@ -1030,7 +1030,7 @@ define hidden void @rtpstream_info_analyse_process(ptr noundef %0, ptr noundef %
 34:                                               ; preds = %31, %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %21, label %24, !llvm.loop !19
+  br i1 %exitcond.not.i, label %21, label %24, !llvm.loop !20
 
 35:                                               ; preds = %21
   tail call void @g_free(ptr noundef nonnull %23)
@@ -1148,7 +1148,7 @@ define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr noundef writeon
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store double %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 7280
-  %62 = load i8, ptr %61, align 8, !range !8, !noundef !9
+  %62 = load i8, ptr %61, align 8, !range !9, !noundef !10
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i8 %62, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 7136
@@ -1338,17 +1338,18 @@ attributes #21 = { nounwind memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = !{i64 2151394831}
-!12 = !{i64 2151392378}
-!13 = !{i64 2151393162}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
-!16 = distinct !{!16, !"memcpy.inline"}
-!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 2151394831}
+!13 = !{i64 2151392378}
+!14 = !{i64 2151393162}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
+!17 = distinct !{!17, !"memcpy.inline"}
+!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

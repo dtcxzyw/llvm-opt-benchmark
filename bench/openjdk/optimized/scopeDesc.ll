@@ -201,7 +201,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %4, %.preheader.i.i,
   %50 = tail call noundef ptr @_ZN10ScopeValue9read_fromEP19DebugInfoReadStream(ptr noundef nonnull %10) #9
   %51 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %51, %.0.i.i
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN20CompressedReadStream8read_intEv.exit, %2
   %.010 = phi ptr [ null, %2 ], [ %5, %_ZN20CompressedReadStream8read_intEv.exit ], [ %5, %.lr.ph ]
@@ -820,7 +820,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE4pushERKS1_.ex
   store ptr %55, ptr %71, align 8
   %72 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %72, %.0.i.i
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIP10ScopeValueEC2Ei.exit, %2
   %.011 = phi ptr [ null, %2 ], [ %46, %_ZN13GrowableArrayIP10ScopeValueEC2Ei.exit ], [ %46, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE4pushERKS1_.exit ]
@@ -956,7 +956,7 @@ _ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE4pushERKS1_.
   store ptr %55, ptr %71, align 8
   %72 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %72, %.0.i.i
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIP12MonitorValueEC2Ei.exit, %2
   %.011 = phi ptr [ null, %2 ], [ %46, %_ZN13GrowableArrayIP12MonitorValueEC2Ei.exit ], [ %46, %_ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE4pushERKS1_.exit ]
@@ -1028,7 +1028,7 @@ define hidden noundef ptr @_ZN9ScopeDesc24objects_to_rematerializeER5frameR11Reg
 38:                                               ; preds = %39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %39, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %39, !llvm.loop !12
 
 39:                                               ; preds = %38, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
@@ -1072,7 +1072,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_mi
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, %7, %3
   %.014 = phi ptr [ null, %3 ], [ %8, %7 ], [ %8, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ]
@@ -1390,7 +1390,7 @@ _ZN13GrowableArrayIP10ScopeValueE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !13
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1406,7 +1406,7 @@ _ZN13GrowableArrayIP10ScopeValueE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !14
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !15
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1496,7 +1496,7 @@ _ZN13GrowableArrayIP12MonitorValueE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !15
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1512,7 +1512,7 @@ _ZN13GrowableArrayIP12MonitorValueE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !16
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1555,14 +1555,15 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

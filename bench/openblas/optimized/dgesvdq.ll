@@ -717,7 +717,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %376, ptr %28, align 4, !tbaa !3
   %377 = load i32, ptr %23, align 4, !tbaa !3
   %.not1800.not = icmp slt i32 %361, %377
-  br i1 %.not1800.not, label %.lr.ph1958, label %._crit_edge1959, !llvm.loop !11
+  br i1 %.not1800.not, label %.lr.ph1958, label %._crit_edge1959, !llvm.loop !12
 
 ._crit_edge1959:                                  ; preds = %375, %._crit_edge.thread, %._crit_edge
   %378 = load double, ptr %19, align 8, !tbaa !7
@@ -773,7 +773,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %392, ptr %391, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge1964.loopexit, label %.lr.ph1963, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge1964.loopexit, label %.lr.ph1963, !llvm.loop !13
 
 ._crit_edge1964.loopexit:                         ; preds = %.lr.ph1963
   %.pre2425 = load i32, ptr %6, align 4, !tbaa !3
@@ -803,7 +803,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %indvars.iv.next2236 = add nsw i64 %indvars.iv2235, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next2236 to i32
   %exitcond2238.not = icmp eq i32 %399, %lftr.wideiv
-  br i1 %exitcond2238.not, label %._crit_edge1970, label %.lr.ph1969, !llvm.loop !13
+  br i1 %exitcond2238.not, label %._crit_edge1970, label %.lr.ph1969, !llvm.loop !14
 
 ._crit_edge1970:                                  ; preds = %.lr.ph1969, %._crit_edge1964
   br i1 %74, label %404, label %405
@@ -947,7 +947,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %478, ptr %30, align 4, !tbaa !3
   %indvars.iv.next2255 = add nuw nsw i64 %indvars.iv2254, 1
   %exitcond2258.not = icmp eq i64 %indvars.iv.next2255, %wide.trip.count2257
-  br i1 %exitcond2258.not, label %.loopexit1951.sink.split, label %468, !llvm.loop !14
+  br i1 %exitcond2258.not, label %.loopexit1951.sink.split, label %468, !llvm.loop !15
 
 479:                                              ; preds = %._crit_edge1976
   store i32 %454, ptr %23, align 4, !tbaa !3
@@ -993,7 +993,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %505, ptr %30, align 4, !tbaa !3
   %indvars.iv.next2250 = add nuw nsw i64 %indvars.iv2249, 1
   %exitcond2253.not = icmp eq i64 %indvars.iv.next2250, %wide.trip.count2252
-  br i1 %exitcond2253.not, label %.loopexit1952.sink.split, label %484, !llvm.loop !15
+  br i1 %exitcond2253.not, label %.loopexit1952.sink.split, label %484, !llvm.loop !16
 
 506:                                              ; preds = %479
   %507 = add i32 %32, 1
@@ -1022,7 +1022,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %518, ptr %30, align 4, !tbaa !3
   %indvars.iv.next2245 = add nuw nsw i64 %indvars.iv2244, 1
   %exitcond2248.not = icmp eq i64 %indvars.iv.next2245, %wide.trip.count2247
-  br i1 %exitcond2248.not, label %.sink.split2564, label %.lr.ph1981, !llvm.loop !16
+  br i1 %exitcond2248.not, label %.sink.split2564, label %.lr.ph1981, !llvm.loop !17
 
 .sink.split2564:                                  ; preds = %.lr.ph1981, %517
   %storemerge1803.lcssa.ph = phi i32 [ %508, %517 ], [ %511, %.lr.ph1981 ]
@@ -1062,7 +1062,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %530, ptr %28, align 4, !tbaa !3
   %531 = load i32, ptr %23, align 4, !tbaa !3
   %.not1806.not = icmp slt i32 %529, %531
-  br i1 %.not1806.not, label %.lr.ph1992, label %._crit_edge1993, !llvm.loop !17
+  br i1 %.not1806.not, label %.lr.ph1992, label %._crit_edge1993, !llvm.loop !18
 
 ._crit_edge1993:                                  ; preds = %.lr.ph1992, %520
   %532 = load i32, ptr %6, align 4, !tbaa !3
@@ -1169,12 +1169,12 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 560:                                              ; preds = %556, %559
   %exitcond2265.not = icmp eq i64 %indvars.iv.next2262, %wide.trip.count2264
-  br i1 %exitcond2265.not, label %._crit_edge2018, label %556, !llvm.loop !18
+  br i1 %exitcond2265.not, label %._crit_edge2018, label %556, !llvm.loop !19
 
 ._crit_edge2018:                                  ; preds = %560, %.lr.ph2022
   %indvars.iv.next2260 = add nuw nsw i64 %indvars.iv2259, 1
   %exitcond2268.not = icmp eq i64 %indvars.iv.next2260, %wide.trip.count2267
-  br i1 %exitcond2268.not, label %._crit_edge2023, label %.lr.ph2022, !llvm.loop !19
+  br i1 %exitcond2268.not, label %._crit_edge2023, label %.lr.ph2022, !llvm.loop !20
 
 ._crit_edge2023:                                  ; preds = %._crit_edge2018
   store i32 %549, ptr %24, align 4, !tbaa !3
@@ -1253,12 +1253,12 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %586, ptr %gep2477, align 8, !tbaa !7
   %indvars.iv.next2272 = add nuw nsw i64 %indvars.iv2271, 1
   %exitcond2275.not = icmp eq i64 %indvars.iv.next2272, %wide.trip.count2274
-  br i1 %exitcond2275.not, label %._crit_edge2029, label %584, !llvm.loop !20
+  br i1 %exitcond2275.not, label %._crit_edge2029, label %584, !llvm.loop !21
 
 ._crit_edge2029:                                  ; preds = %584, %582
   %indvars.iv.next2270 = add nuw nsw i64 %indvars.iv2269, 1
   %exitcond2278.not = icmp eq i64 %indvars.iv.next2270, %wide.trip.count2277
-  br i1 %exitcond2278.not, label %587, label %582, !llvm.loop !21
+  br i1 %exitcond2278.not, label %587, label %582, !llvm.loop !22
 
 587:                                              ; preds = %._crit_edge2029
   store i32 %576, ptr %24, align 4, !tbaa !3
@@ -1321,7 +1321,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %609, ptr %gep2479, align 8, !tbaa !7
   store double %607, ptr %gep2481, align 8, !tbaa !7
   %exitcond2285.not = icmp eq i64 %indvars.iv.next2282, %wide.trip.count2284
-  br i1 %exitcond2285.not, label %._crit_edge2040, label %606, !llvm.loop !22
+  br i1 %exitcond2285.not, label %._crit_edge2040, label %606, !llvm.loop !23
 
 ._crit_edge2040:                                  ; preds = %606
   store double %607, ptr %27, align 8, !tbaa !7
@@ -1330,7 +1330,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 610:                                              ; preds = %._crit_edge2040, %.lr.ph2045
   %indvars.iv.next2280 = add nuw nsw i64 %indvars.iv2279, 1
   %exitcond2288.not = icmp eq i64 %indvars.iv.next2280, %wide.trip.count2287
-  br i1 %exitcond2288.not, label %..loopexit1950_crit_edge, label %.lr.ph2045, !llvm.loop !23
+  br i1 %exitcond2288.not, label %..loopexit1950_crit_edge, label %.lr.ph2045, !llvm.loop !24
 
 611:                                              ; preds = %573
   call void @dlacpy_(ptr noundef nonnull @.str.1, ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %10, ptr noundef nonnull %11) #6
@@ -1486,12 +1486,12 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %685, ptr %gep2485, align 8, !tbaa !7
   %indvars.iv.next2292 = add nuw nsw i64 %indvars.iv2291, 1
   %exitcond2295.not = icmp eq i64 %indvars.iv.next2292, %wide.trip.count2294
-  br i1 %exitcond2295.not, label %._crit_edge2051, label %683, !llvm.loop !24
+  br i1 %exitcond2295.not, label %._crit_edge2051, label %683, !llvm.loop !25
 
 ._crit_edge2051:                                  ; preds = %683, %681
   %indvars.iv.next2290 = add nuw nsw i64 %indvars.iv2289, 1
   %exitcond2298.not = icmp eq i64 %indvars.iv.next2290, %wide.trip.count2297
-  br i1 %exitcond2298.not, label %686, label %681, !llvm.loop !25
+  br i1 %exitcond2298.not, label %686, label %681, !llvm.loop !26
 
 686:                                              ; preds = %._crit_edge2051
   store i32 %675, ptr %24, align 4, !tbaa !3
@@ -1562,7 +1562,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %711, ptr %gep2491, align 8, !tbaa !7
   store double %709, ptr %gep2493, align 8, !tbaa !7
   %exitcond2315.not = icmp eq i64 %indvars.iv.next2312, %wide.trip.count2314
-  br i1 %exitcond2315.not, label %._crit_edge2074, label %708, !llvm.loop !26
+  br i1 %exitcond2315.not, label %._crit_edge2074, label %708, !llvm.loop !27
 
 ._crit_edge2074:                                  ; preds = %708
   store double %709, ptr %27, align 8, !tbaa !7
@@ -1571,7 +1571,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 712:                                              ; preds = %._crit_edge2074, %.lr.ph2079
   %indvars.iv.next2310 = add nuw nsw i64 %indvars.iv2309, 1
   %exitcond2318.not = icmp eq i64 %indvars.iv.next2310, %wide.trip.count2317
-  br i1 %exitcond2318.not, label %713, label %.lr.ph2079, !llvm.loop !27
+  br i1 %exitcond2318.not, label %713, label %.lr.ph2079, !llvm.loop !28
 
 713:                                              ; preds = %712
   store i32 %703, ptr %24, align 4, !tbaa !3
@@ -1611,12 +1611,12 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %gep2497 = getelementptr double, ptr %invariant.gep2496, i64 %724
   store double %723, ptr %gep2497, align 8, !tbaa !7
   %exitcond2323.not = icmp eq i64 %indvars.iv.next2320, %wide.trip.count2322
-  br i1 %exitcond2323.not, label %._crit_edge2086, label %722, !llvm.loop !28
+  br i1 %exitcond2323.not, label %._crit_edge2086, label %722, !llvm.loop !29
 
 ._crit_edge2086:                                  ; preds = %722
   %indvars.iv.next2325 = add nuw nsw i64 %indvars.iv2324, 1
   %exitcond2328.not = icmp eq i64 %indvars.iv.next2325, %wide.trip.count2327
-  br i1 %exitcond2328.not, label %..loopexit1949_crit_edge, label %.lr.ph2085, !llvm.loop !29
+  br i1 %exitcond2328.not, label %..loopexit1949_crit_edge, label %.lr.ph2085, !llvm.loop !30
 
 ..loopexit1949_crit_edge:                         ; preds = %._crit_edge2086
   store i32 %714, ptr %24, align 4, !tbaa !3
@@ -1683,7 +1683,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %747, ptr %gep2487, align 8, !tbaa !7
   store double %745, ptr %gep2489, align 8, !tbaa !7
   %exitcond2305.not = icmp eq i64 %indvars.iv.next2302, %wide.trip.count2304
-  br i1 %exitcond2305.not, label %._crit_edge2062, label %744, !llvm.loop !30
+  br i1 %exitcond2305.not, label %._crit_edge2062, label %744, !llvm.loop !31
 
 ._crit_edge2062:                                  ; preds = %744
   store double %745, ptr %27, align 8, !tbaa !7
@@ -1692,7 +1692,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 748:                                              ; preds = %._crit_edge2062, %.lr.ph2067
   %indvars.iv.next2300 = add nuw nsw i64 %indvars.iv2299, 1
   %exitcond2308.not = icmp eq i64 %indvars.iv.next2300, %wide.trip.count2307
-  br i1 %exitcond2308.not, label %._crit_edge2068, label %.lr.ph2067, !llvm.loop !31
+  br i1 %exitcond2308.not, label %._crit_edge2068, label %.lr.ph2067, !llvm.loop !32
 
 ._crit_edge2068:                                  ; preds = %748
   store i32 %739, ptr %24, align 4, !tbaa !3
@@ -1810,12 +1810,12 @@ thread-pre-split1920:                             ; preds = %781, %782
   store double %795, ptr %gep2521, align 8, !tbaa !7
   %indvars.iv.next2382 = add nuw nsw i64 %indvars.iv2381, 1
   %exitcond2385.not = icmp eq i64 %indvars.iv.next2382, %wide.trip.count2384
-  br i1 %exitcond2385.not, label %._crit_edge2153, label %793, !llvm.loop !32
+  br i1 %exitcond2385.not, label %._crit_edge2153, label %793, !llvm.loop !33
 
 ._crit_edge2153:                                  ; preds = %793, %791
   %indvars.iv.next2380 = add nuw nsw i64 %indvars.iv2379, 1
   %exitcond2388.not = icmp eq i64 %indvars.iv.next2380, %wide.trip.count2387
-  br i1 %exitcond2388.not, label %796, label %791, !llvm.loop !33
+  br i1 %exitcond2388.not, label %796, label %791, !llvm.loop !34
 
 796:                                              ; preds = %._crit_edge2153
   store i32 %785, ptr %24, align 4, !tbaa !3
@@ -1878,7 +1878,7 @@ thread-pre-split1920:                             ; preds = %781, %782
   store double %818, ptr %gep2523, align 8, !tbaa !7
   store double %816, ptr %gep2525, align 8, !tbaa !7
   %exitcond2395.not = icmp eq i64 %indvars.iv.next2392, %wide.trip.count2394
-  br i1 %exitcond2395.not, label %._crit_edge2164, label %815, !llvm.loop !34
+  br i1 %exitcond2395.not, label %._crit_edge2164, label %815, !llvm.loop !35
 
 ._crit_edge2164:                                  ; preds = %815
   store double %816, ptr %27, align 8, !tbaa !7
@@ -1887,7 +1887,7 @@ thread-pre-split1920:                             ; preds = %781, %782
 819:                                              ; preds = %._crit_edge2164, %.lr.ph2169
   %indvars.iv.next2390 = add nuw nsw i64 %indvars.iv2389, 1
   %exitcond2398.not = icmp eq i64 %indvars.iv.next2390, %wide.trip.count2397
-  br i1 %exitcond2398.not, label %820, label %.lr.ph2169, !llvm.loop !35
+  br i1 %exitcond2398.not, label %820, label %.lr.ph2169, !llvm.loop !36
 
 820:                                              ; preds = %819
   store i32 %810, ptr %24, align 4, !tbaa !3
@@ -1927,12 +1927,12 @@ thread-pre-split1920:                             ; preds = %781, %782
   %gep2529 = getelementptr double, ptr %invariant.gep2528, i64 %831
   store double %830, ptr %gep2529, align 8, !tbaa !7
   %exitcond2403.not = icmp eq i64 %indvars.iv.next2400, %wide.trip.count2402
-  br i1 %exitcond2403.not, label %._crit_edge2176, label %829, !llvm.loop !36
+  br i1 %exitcond2403.not, label %._crit_edge2176, label %829, !llvm.loop !37
 
 ._crit_edge2176:                                  ; preds = %829
   %indvars.iv.next2405 = add nuw nsw i64 %indvars.iv2404, 1
   %exitcond2408.not = icmp eq i64 %indvars.iv.next2405, %wide.trip.count2407
-  br i1 %exitcond2408.not, label %..loopexit_crit_edge, label %.lr.ph2175, !llvm.loop !37
+  br i1 %exitcond2408.not, label %..loopexit_crit_edge, label %.lr.ph2175, !llvm.loop !38
 
 ..loopexit_crit_edge:                             ; preds = %._crit_edge2176
   store i32 %821, ptr %24, align 4, !tbaa !3
@@ -1980,7 +1980,7 @@ thread-pre-split1920:                             ; preds = %781, %782
   store double %841, ptr %gep2531, align 8, !tbaa !7
   store double %839, ptr %gep2533, align 8, !tbaa !7
   %exitcond2415.not = icmp eq i64 %indvars.iv.next2412, %wide.trip.count2414
-  br i1 %exitcond2415.not, label %._crit_edge2186, label %838, !llvm.loop !38
+  br i1 %exitcond2415.not, label %._crit_edge2186, label %838, !llvm.loop !39
 
 ._crit_edge2186:                                  ; preds = %838
   store double %839, ptr %27, align 8, !tbaa !7
@@ -1989,7 +1989,7 @@ thread-pre-split1920:                             ; preds = %781, %782
 842:                                              ; preds = %._crit_edge2186, %.lr.ph2191
   %indvars.iv.next2410 = add nuw nsw i64 %indvars.iv2409, 1
   %exitcond2418.not = icmp eq i64 %indvars.iv.next2410, %wide.trip.count2417
-  br i1 %exitcond2418.not, label %._crit_edge2192, label %.lr.ph2191, !llvm.loop !39
+  br i1 %exitcond2418.not, label %._crit_edge2192, label %.lr.ph2191, !llvm.loop !40
 
 ._crit_edge2192:                                  ; preds = %842
   store i32 %833, ptr %24, align 4, !tbaa !3
@@ -2063,12 +2063,12 @@ thread-pre-split1920:                             ; preds = %781, %782
   store double %869, ptr %gep2509, align 8, !tbaa !7
   %indvars.iv.next2352 = add nuw nsw i64 %indvars.iv2351, 1
   %exitcond2355.not = icmp eq i64 %indvars.iv.next2352, %wide.trip.count2354
-  br i1 %exitcond2355.not, label %._crit_edge2118, label %867, !llvm.loop !40
+  br i1 %exitcond2355.not, label %._crit_edge2118, label %867, !llvm.loop !41
 
 ._crit_edge2118:                                  ; preds = %867, %.lr.ph2122
   %indvars.iv.next2350 = add nuw nsw i64 %indvars.iv2349, 1
   %exitcond2358.not = icmp eq i64 %indvars.iv.next2350, %wide.trip.count2357
-  br i1 %exitcond2358.not, label %870, label %.lr.ph2122, !llvm.loop !41
+  br i1 %exitcond2358.not, label %870, label %.lr.ph2122, !llvm.loop !42
 
 870:                                              ; preds = %._crit_edge2118
   store i32 %783, ptr %24, align 4, !tbaa !3
@@ -2143,7 +2143,7 @@ thread-pre-split1920:                             ; preds = %781, %782
   store double %900, ptr %gep2511, align 8, !tbaa !7
   store double %898, ptr %gep2513, align 8, !tbaa !7
   %exitcond2365.not = icmp eq i64 %indvars.iv.next2362, %wide.trip.count2364
-  br i1 %exitcond2365.not, label %._crit_edge2129, label %897, !llvm.loop !42
+  br i1 %exitcond2365.not, label %._crit_edge2129, label %897, !llvm.loop !43
 
 ._crit_edge2129:                                  ; preds = %897
   store double %898, ptr %27, align 8, !tbaa !7
@@ -2152,7 +2152,7 @@ thread-pre-split1920:                             ; preds = %781, %782
 901:                                              ; preds = %._crit_edge2129, %.lr.ph2134
   %indvars.iv.next2360 = add nuw nsw i64 %indvars.iv2359, 1
   %exitcond2368.not = icmp eq i64 %indvars.iv.next2360, %wide.trip.count2367
-  br i1 %exitcond2368.not, label %._crit_edge2135, label %.lr.ph2134, !llvm.loop !43
+  br i1 %exitcond2368.not, label %._crit_edge2135, label %.lr.ph2134, !llvm.loop !44
 
 ._crit_edge2135:                                  ; preds = %901
   store i32 %892, ptr %24, align 4, !tbaa !3
@@ -2197,7 +2197,7 @@ thread-pre-split1920:                             ; preds = %781, %782
   store double %911, ptr %gep2515, align 8, !tbaa !7
   store double %909, ptr %gep2517, align 8, !tbaa !7
   %exitcond2375.not = icmp eq i64 %indvars.iv.next2372, %wide.trip.count2374
-  br i1 %exitcond2375.not, label %._crit_edge2141, label %908, !llvm.loop !44
+  br i1 %exitcond2375.not, label %._crit_edge2141, label %908, !llvm.loop !45
 
 ._crit_edge2141:                                  ; preds = %908
   store double %909, ptr %27, align 8, !tbaa !7
@@ -2206,7 +2206,7 @@ thread-pre-split1920:                             ; preds = %781, %782
 912:                                              ; preds = %._crit_edge2141, %.lr.ph2146
   %indvars.iv.next2370 = add nuw nsw i64 %indvars.iv2369, 1
   %exitcond2378.not = icmp eq i64 %indvars.iv.next2370, %wide.trip.count2377
-  br i1 %exitcond2378.not, label %._crit_edge2147, label %.lr.ph2146, !llvm.loop !45
+  br i1 %exitcond2378.not, label %._crit_edge2147, label %.lr.ph2146, !llvm.loop !46
 
 ._crit_edge2147:                                  ; preds = %912
   store i32 %903, ptr %24, align 4, !tbaa !3
@@ -2276,12 +2276,12 @@ thread-pre-split1920:                             ; preds = %781, %782
   store double %938, ptr %gep2501, align 8, !tbaa !7
   %indvars.iv.next2332 = add nuw nsw i64 %indvars.iv2331, 1
   %exitcond2335.not = icmp eq i64 %indvars.iv.next2332, %wide.trip.count2334
-  br i1 %exitcond2335.not, label %._crit_edge2096, label %936, !llvm.loop !46
+  br i1 %exitcond2335.not, label %._crit_edge2096, label %936, !llvm.loop !47
 
 ._crit_edge2096:                                  ; preds = %936, %.lr.ph2100
   %indvars.iv.next2330 = add nuw nsw i64 %indvars.iv2329, 1
   %exitcond2338.not = icmp eq i64 %indvars.iv.next2330, %wide.trip.count2337
-  br i1 %exitcond2338.not, label %939, label %.lr.ph2100, !llvm.loop !47
+  br i1 %exitcond2338.not, label %939, label %.lr.ph2100, !llvm.loop !48
 
 939:                                              ; preds = %._crit_edge2096
   store i32 %783, ptr %24, align 4, !tbaa !3
@@ -2358,12 +2358,12 @@ thread-pre-split1920:                             ; preds = %781, %782
   store double %976, ptr %gep2505, align 8, !tbaa !7
   %indvars.iv.next2340 = add nuw nsw i64 %indvars.iv2339, 1
   %exitcond2343.not = icmp eq i64 %indvars.iv.next2340, %wide.trip.count2342
-  br i1 %exitcond2343.not, label %._crit_edge2107, label %973, !llvm.loop !48
+  br i1 %exitcond2343.not, label %._crit_edge2107, label %973, !llvm.loop !49
 
 ._crit_edge2107:                                  ; preds = %973, %971
   %indvars.iv.next2345 = add nuw nsw i64 %indvars.iv2344, 1
   %exitcond2348.not = icmp eq i64 %indvars.iv.next2345, %wide.trip.count2347
-  br i1 %exitcond2348.not, label %._crit_edge2112, label %971, !llvm.loop !49
+  br i1 %exitcond2348.not, label %._crit_edge2112, label %971, !llvm.loop !50
 
 ._crit_edge2112:                                  ; preds = %._crit_edge2107, %947
   %storemerge1841.lcssa = phi i32 [ 1, %947 ], [ %970, %._crit_edge2107 ]
@@ -2787,18 +2787,18 @@ thread-pre-split1920:                             ; preds = %781, %782
   %1248 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.next2420
   %1249 = load double, ptr %1248, align 8, !tbaa !7
   %1250 = fcmp ogt double %1249, 0.000000e+00
-  br i1 %1250, label %._crit_edge2197.loopexit, label %.lr.ph2608, !llvm.loop !50
+  br i1 %1250, label %._crit_edge2197.loopexit, label %.lr.ph2608, !llvm.loop !51
 
 .lr.ph2608:                                       ; preds = %.lr.ph2196.preheader, %.lr.ph2196
   %indvars.iv24192607 = phi i64 [ %indvars.iv.next2420, %.lr.ph2196 ], [ %1244, %.lr.ph2196.preheader ]
   %indvars.iv.next2420 = add nsw i64 %indvars.iv24192607, -1
   %indvars2422 = trunc i64 %indvars.iv.next2420 to i32
   %1251 = icmp sgt i64 %indvars.iv24192607, 1
-  br i1 %1251, label %.lr.ph2196, label %.._crit_edge2197.loopexit_crit_edge, !llvm.loop !50
+  br i1 %1251, label %.lr.ph2196, label %.._crit_edge2197.loopexit_crit_edge, !llvm.loop !51
 
 .._crit_edge2197.loopexit_crit_edge:              ; preds = %.lr.ph2608
   store i32 %indvars2422, ptr %30, align 4, !tbaa !3
-  br label %._crit_edge2197, !llvm.loop !50
+  br label %._crit_edge2197, !llvm.loop !51
 
 ._crit_edge2197.loopexit:                         ; preds = %.lr.ph2196
   store i32 %indvars2422, ptr %30, align 4, !tbaa !3
@@ -2941,45 +2941,46 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
-!31 = distinct !{!31, !10}
-!32 = distinct !{!32, !10}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !10}
-!37 = distinct !{!37, !10}
-!38 = distinct !{!38, !10}
-!39 = distinct !{!39, !10}
-!40 = distinct !{!40, !10}
-!41 = distinct !{!41, !10}
-!42 = distinct !{!42, !10}
-!43 = distinct !{!43, !10}
-!44 = distinct !{!44, !10}
-!45 = distinct !{!45, !10}
-!46 = distinct !{!46, !10}
-!47 = distinct !{!47, !10}
-!48 = distinct !{!48, !10}
-!49 = distinct !{!49, !10}
-!50 = distinct !{!50, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}
+!31 = distinct !{!31, !10, !11}
+!32 = distinct !{!32, !10, !11}
+!33 = distinct !{!33, !10, !11}
+!34 = distinct !{!34, !10, !11}
+!35 = distinct !{!35, !10, !11}
+!36 = distinct !{!36, !10, !11}
+!37 = distinct !{!37, !10, !11}
+!38 = distinct !{!38, !10, !11}
+!39 = distinct !{!39, !10, !11}
+!40 = distinct !{!40, !10, !11}
+!41 = distinct !{!41, !10, !11}
+!42 = distinct !{!42, !10, !11}
+!43 = distinct !{!43, !10, !11}
+!44 = distinct !{!44, !10, !11}
+!45 = distinct !{!45, !10, !11}
+!46 = distinct !{!46, !10, !11}
+!47 = distinct !{!47, !10, !11}
+!48 = distinct !{!48, !10, !11}
+!49 = distinct !{!49, !10, !11}
+!50 = distinct !{!50, !10, !11}
+!51 = distinct !{!51, !10, !11}

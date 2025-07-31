@@ -296,7 +296,7 @@ define i32 @Region_CountIterationRects(ptr noundef readonly captures(none) %0) l
   %39 = zext i1 %38 to i32
   %spec.select = add nsw i32 %.3, %39
   %.old1 = icmp samesign ugt i32 %.1, 1
-  br i1 %.old1, label %.preheader, label %.loopexit
+  br i1 %.old1, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
   %40 = trunc nsw i64 %indvars.iv.next to i32
@@ -309,7 +309,7 @@ define i32 @Region_CountIterationRects(ptr noundef readonly captures(none) %0) l
   %41 = shl nsw i32 %.0, 1
   %42 = add nsw i32 %41, %.134
   %43 = icmp slt i32 %42, %12
-  br i1 %43, label %.lr.ph, label %.loopexit44, !llvm.loop !6
+  br i1 %43, label %.lr.ph, label %.loopexit44, !llvm.loop !8
 
 .loopexit44:                                      ; preds = %.loopexit, %.lr.ph, %14, %10, %1, %5
   %.035 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 1, %10 ], [ 0, %14 ], [ %.237, %.loopexit ], [ %.13645, %.lr.ph ]
@@ -408,7 +408,7 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr noundef captures(none) %0, 
 .backedge.backedge:                               ; preds = %51, %62, %65
   %.173.be = phi i32 [ %53, %51 ], [ %64, %62 ], [ %59, %65 ]
   %.0.be = phi i32 [ 0, %51 ], [ 0, %62 ], [ %60, %65 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !10
 
 54:                                               ; preds = %44
   store i32 %spec.select, ptr %33, align 4
@@ -619,7 +619,7 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   %92 = zext i1 %91 to i32
   %spec.select.i = add nsw i32 %.3.i, %92
   %.old1.i = icmp samesign ugt i32 %.1.i, 1
-  br i1 %.old1.i, label %.preheader.i, label %.loopexit.i
+  br i1 %.old1.i, label %.preheader.i, label %.loopexit.i, !llvm.loop !6
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %.preheader.i
   %93 = trunc nsw i64 %indvars.iv.next.i to i32
@@ -632,7 +632,7 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   %94 = shl nsw i32 %.0.i, 1
   %95 = add nsw i32 %94, %.134.i
   %96 = icmp slt i32 %95, %50
-  br i1 %96, label %.lr.ph.i, label %Region_CountIterationRects.exit, !llvm.loop !6
+  br i1 %96, label %.lr.ph.i, label %Region_CountIterationRects.exit, !llvm.loop !8
 
 Region_CountIterationRects.exit:                  ; preds = %.lr.ph.i, %.loopexit.i, %68
   %.035.i = phi i32 [ %.mux, %68 ], [ %.13645.i, %.lr.ph.i ], [ %.237.i, %.loopexit.i ]
@@ -746,7 +746,7 @@ Region_NextIteration.exit.us.lr.ph:               ; preds = %.split.us
 137:                                              ; preds = %131
   %138 = shl nsw i32 %136, 1
   %139 = add nsw i32 %138, %134
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !10
 
 140:                                              ; preds = %131, %.backedge.i
   %.sroa.11.2 = phi i32 [ %.sroa.11.1.ph, %.backedge.i ], [ %.067.i, %131 ]
@@ -777,7 +777,7 @@ Region_NextIteration.exit.us.lr.ph:               ; preds = %.split.us
 .backedge.i.outer.backedge:                       ; preds = %149, %146
   %.173.i.ph.be = phi i32 [ %148, %146 ], [ %144, %149 ]
   %.0.i57.ph.be = phi i32 [ 0, %146 ], [ %145, %149 ]
-  br label %.backedge.i.outer
+  br label %.backedge.i.outer, !llvm.loop !10
 
 Region_NextIteration.exit.loopexit:               ; preds = %149
   %153 = trunc i32 %spec.select88.i to i16
@@ -799,7 +799,7 @@ Region_NextIteration.exit.loopexit:               ; preds = %149
   %166 = getelementptr inbounds nuw %struct.XRectangle, ptr %165, i64 %indvars.iv, i32 3
   store i16 %164, ptr %166, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.preheader, !llvm.loop !8
+  br label %.preheader, !llvm.loop !11
 
 167:                                              ; preds = %127, %126
   %168 = load ptr, ptr %0, align 8
@@ -842,5 +842,8 @@ attributes #7 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !9, !7}

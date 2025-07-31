@@ -3446,4 +3446,5 @@ attributes #13 = { builtin nounwind }
 !20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
 !22 = !{ptr @_ZN7rocksdb6crc32c11crc32c_3wayEjPKcm}
-!23 = distinct !{!23, !21}
+!23 = distinct !{!23, !21, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}

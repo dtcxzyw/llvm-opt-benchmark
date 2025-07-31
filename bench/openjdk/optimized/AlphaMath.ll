@@ -34,7 +34,7 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
 12:                                               ; preds = %7
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 256
-  br i1 %exitcond47.not, label %.preheader35, label %1, !llvm.loop !8
+  br i1 %exitcond47.not, label %.preheader35, label %1, !llvm.loop !9
 
 .preheader35:                                     ; preds = %12, %._crit_edge
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge ], [ 1, %12 ]
@@ -59,14 +59,14 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
   %24 = add i32 %.040, %18
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, %indvars.iv52
-  br i1 %exitcond51.not, label %._crit_edge, label %20, !llvm.loop !9
+  br i1 %exitcond51.not, label %._crit_edge, label %20, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr align 1 %gep, i8 -1, i64 %14, i1 false)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond58.not = icmp eq i64 %indvar.next, 255
-  br i1 %exitcond58.not, label %25, label %.preheader35, !llvm.loop !10
+  br i1 %exitcond58.not, label %25, label %.preheader35, !llvm.loop !11
 
 25:                                               ; preds = %._crit_edge
   ret void
@@ -86,8 +86,9 @@ attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

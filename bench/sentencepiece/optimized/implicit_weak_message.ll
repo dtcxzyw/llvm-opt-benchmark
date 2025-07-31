@@ -385,7 +385,7 @@ _ZZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx111
   %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %.01526, i64 noundef %21)
   %29 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.loopexit, label %thread-pre-split
+  br i1 %.not, label %.loopexit, label %thread-pre-split, !llvm.loop !45
 
 ._crit_edge.loopexit:                             ; preds = %thread-pre-split
   %.pre = load ptr, ptr %4, align 8, !tbaa !40
@@ -473,7 +473,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 define linkonce_odr void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv() #13 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !20
-  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
   tail call void %3()
   ret void
 }
@@ -558,5 +558,7 @@ attributes #19 = { builtin allocsize(0) }
 !42 = !{!"int", !7, i64 0}
 !43 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !6, i64 0}
 !44 = !{!41, !42, i64 28}
-!45 = !{!46, !6, i64 0}
-!46 = !{!"_ZTSZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!48, !6, i64 0}
+!48 = !{!"_ZTSZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0}

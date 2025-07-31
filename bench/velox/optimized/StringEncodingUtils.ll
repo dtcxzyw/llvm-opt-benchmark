@@ -77,7 +77,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true2
 for.cond.i:                                       ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.04.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %call7.val9
-  br i1 %cmp.i.not.i, label %if.then, label %for.body.i
+  br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %land.lhs.true5, %for.cond.i
   %__begin3.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i ], [ %call7.val, %land.lhs.true5 ]
@@ -556,3 +556,5 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}

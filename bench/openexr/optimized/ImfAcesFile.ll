@@ -1985,20 +1985,20 @@ define void @_ZN7Imf_3_413AcesInputFile10readPixelsEii(ptr noundef nonnull reado
 64:                                               ; preds = %.lr.ph, %_ZN9Imath_3_24halfaSEf.exit25
   %.042 = phi i32 [ %17, %.lr.ph ], [ %255, %_ZN9Imath_3_24halfaSEf.exit25 ]
   %.01441 = phi ptr [ %63, %.lr.ph ], [ %254, %_ZN9Imath_3_24halfaSEf.exit25 ]
-  %65 = load i16, ptr %.01441, align 2, !tbaa !60
+  %65 = load i16, ptr %.01441, align 2, !tbaa !61
   %66 = zext i16 %65 to i64
   %67 = getelementptr inbounds nuw %union.imath_half_uif, ptr %25, i64 %66
-  %68 = load float, ptr %67, align 4, !tbaa !63
+  %68 = load float, ptr %67, align 4, !tbaa !64
   %69 = getelementptr inbounds nuw i8, ptr %.01441, i64 2
-  %70 = load i16, ptr %69, align 2, !tbaa !60
+  %70 = load i16, ptr %69, align 2, !tbaa !61
   %71 = zext i16 %70 to i64
   %72 = getelementptr inbounds nuw %union.imath_half_uif, ptr %25, i64 %71
-  %73 = load float, ptr %72, align 4, !tbaa !63
+  %73 = load float, ptr %72, align 4, !tbaa !64
   %74 = getelementptr inbounds nuw i8, ptr %.01441, i64 4
-  %75 = load i16, ptr %74, align 2, !tbaa !60
+  %75 = load i16, ptr %74, align 2, !tbaa !61
   %76 = zext i16 %75 to i64
   %77 = getelementptr inbounds nuw %union.imath_half_uif, ptr %25, i64 %76
-  %78 = load float, ptr %77, align 4, !tbaa !63
+  %78 = load float, ptr %77, align 4, !tbaa !64
   %79 = fmul float %73, %43
   %80 = tail call float @llvm.fmuladd.f32(float %68, float %42, float %79)
   %81 = tail call float @llvm.fmuladd.f32(float %78, float %44, float %80)
@@ -2029,7 +2029,7 @@ define void @_ZN7Imf_3_413AcesInputFile10readPixelsEii(ptr noundef nonnull reado
 
 105:                                              ; preds = %64
   %106 = icmp samesign ugt i32 %100, 2139095039
-  br i1 %106, label %107, label %118, !prof !64
+  br i1 %106, label %107, label %118, !prof !65
 
 107:                                              ; preds = %105
   %108 = or disjoint i16 %103, 31744
@@ -2048,7 +2048,7 @@ define void @_ZN7Imf_3_413AcesInputFile10readPixelsEii(ptr noundef nonnull reado
 
 118:                                              ; preds = %105
   %119 = icmp samesign ugt i32 %100, 1199566847
-  br i1 %119, label %120, label %122, !prof !64
+  br i1 %119, label %120, label %122, !prof !65
 
 120:                                              ; preds = %118
   %121 = or disjoint i16 %103, 31744
@@ -2096,7 +2096,7 @@ define void @_ZN7Imf_3_413AcesInputFile10readPixelsEii(ptr noundef nonnull reado
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %107, %110, %120, %122, %131, %145, %148
   %.0.i.i.i = phi i16 [ %117, %110 ], [ %121, %120 ], [ %130, %122 ], [ %108, %107 ], [ %103, %131 ], [ %149, %148 ], [ %143, %145 ]
-  store i16 %.0.i.i.i, ptr %.01441, align 2, !tbaa !65
+  store i16 %.0.i.i.i, ptr %.01441, align 2, !tbaa !66
   %150 = bitcast float %96 to i32
   %151 = tail call float @llvm.fabs.f32(float %96)
   %152 = bitcast float %151 to i32
@@ -2108,7 +2108,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %107, %110, %120, %1
 
 157:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit
   %158 = icmp samesign ugt i32 %152, 2139095039
-  br i1 %158, label %159, label %170, !prof !64
+  br i1 %158, label %159, label %170, !prof !65
 
 159:                                              ; preds = %157
   %160 = or disjoint i16 %155, 31744
@@ -2127,7 +2127,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %107, %110, %120, %1
 
 170:                                              ; preds = %157
   %171 = icmp samesign ugt i32 %152, 1199566847
-  br i1 %171, label %172, label %174, !prof !64
+  br i1 %171, label %172, label %174, !prof !65
 
 172:                                              ; preds = %170
   %173 = or disjoint i16 %155, 31744
@@ -2175,7 +2175,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %107, %110, %120, %1
 
 _ZN9Imath_3_24halfaSEf.exit21:                    ; preds = %159, %162, %172, %174, %183, %197, %200
   %.0.i.i.i20 = phi i16 [ %169, %162 ], [ %173, %172 ], [ %182, %174 ], [ %160, %159 ], [ %155, %183 ], [ %201, %200 ], [ %195, %197 ]
-  store i16 %.0.i.i.i20, ptr %69, align 2, !tbaa !65
+  store i16 %.0.i.i.i20, ptr %69, align 2, !tbaa !66
   %202 = bitcast float %97 to i32
   %203 = tail call float @llvm.fabs.f32(float %97)
   %204 = bitcast float %203 to i32
@@ -2187,7 +2187,7 @@ _ZN9Imath_3_24halfaSEf.exit21:                    ; preds = %159, %162, %172, %1
 
 209:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit21
   %210 = icmp samesign ugt i32 %204, 2139095039
-  br i1 %210, label %211, label %222, !prof !64
+  br i1 %210, label %211, label %222, !prof !65
 
 211:                                              ; preds = %209
   %212 = or disjoint i16 %207, 31744
@@ -2206,7 +2206,7 @@ _ZN9Imath_3_24halfaSEf.exit21:                    ; preds = %159, %162, %172, %1
 
 222:                                              ; preds = %209
   %223 = icmp samesign ugt i32 %204, 1199566847
-  br i1 %223, label %224, label %226, !prof !64
+  br i1 %223, label %224, label %226, !prof !65
 
 224:                                              ; preds = %222
   %225 = or disjoint i16 %207, 31744
@@ -2254,11 +2254,11 @@ _ZN9Imath_3_24halfaSEf.exit21:                    ; preds = %159, %162, %172, %1
 
 _ZN9Imath_3_24halfaSEf.exit25:                    ; preds = %211, %214, %224, %226, %235, %249, %252
   %.0.i.i.i24 = phi i16 [ %221, %214 ], [ %225, %224 ], [ %234, %226 ], [ %212, %211 ], [ %207, %235 ], [ %253, %252 ], [ %247, %249 ]
-  store i16 %.0.i.i.i24, ptr %74, align 2, !tbaa !65
+  store i16 %.0.i.i.i24, ptr %74, align 2, !tbaa !66
   %254 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %.01441, i64 %15
   %255 = add i32 %.042, 1
   %exitcond.not = icmp eq i32 %.042, %24
-  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !67
 
 .loopexit:                                        ; preds = %._crit_edge, %11, %3
   ret void
@@ -2512,12 +2512,13 @@ attributes #17 = { builtin nounwind }
 !55 = !{!56}
 !56 = distinct !{!56, !57, !"_ZN9Imath_3_2mlIffEENS_4Vec3IT_EERKS3_RKNS_8Matrix44IT0_EE: argument 0"}
 !57 = distinct !{!57, !"_ZN9Imath_3_2mlIffEENS_4Vec3IT_EERKS3_RKNS_8Matrix44IT0_EE"}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!61, !62, i64 0}
-!61 = !{!"_ZTSN9Imath_3_24halfE", !62, i64 0}
-!62 = !{!"short", !7, i64 0}
-!63 = !{!7, !7, i64 0}
-!64 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!65 = !{!62, !62, i64 0}
-!66 = distinct !{!66, !59}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"_ZTSN9Imath_3_24halfE", !63, i64 0}
+!63 = !{!"short", !7, i64 0}
+!64 = !{!7, !7, i64 0}
+!65 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!66 = !{!63, !63, i64 0}
+!67 = distinct !{!67, !59, !60}

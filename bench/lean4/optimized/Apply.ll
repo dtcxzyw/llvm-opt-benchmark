@@ -21352,7 +21352,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit32
   %.029.be = phi ptr [ %.0, %lean_dec.exit32 ], [ %64, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !19
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -27835,7 +27835,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %0, ptr noundef %15) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20
+  br i1 %19, label %3, label %20, !llvm.loop !21
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -28226,7 +28226,7 @@ lean_obj_tag.exit.i:                              ; preds = %23, %20
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %32 = tail call zeroext i8 @lean_name_eq(ptr noundef %9, ptr noundef %29) #5
   %33 = icmp eq i8 %32, 0
-  br i1 %33, label %lean_array_uget.exit, label %36
+  br i1 %33, label %lean_array_uget.exit, label %36, !llvm.loop !21
 
 34:                                               ; preds = %lean_obj_tag.exit.i
   %35 = tail call ptr @lean_array_push(ptr noundef %.02238, ptr noundef %9) #5
@@ -32018,7 +32018,7 @@ lean_nat_sub.exit:                                ; preds = %lean_dec.exit308
   br label %lean_dec.exit307
 
 lean_dec.exit307:                                 ; preds = %369, %368, %366
-  br i1 %.not688, label %lean_dec.exit307.thread635, label %lean_dec.exit307.lean_dec.exit307.thread_crit_edge, !prof !19
+  br i1 %.not688, label %lean_dec.exit307.thread635, label %lean_dec.exit307.lean_dec.exit307.thread_crit_edge, !prof !22
 
 lean_dec.exit307.lean_dec.exit307.thread_crit_edge: ; preds = %lean_dec.exit307
   %.pre = lshr i64 %267, 1
@@ -33809,7 +33809,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %0, ptr noundef %15) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_List_elem___at_Lean_MVarId_apply___spec__1.exit
+  br i1 %19, label %3, label %l_List_elem___at_Lean_MVarId_apply___spec__1.exit, !llvm.loop !21
 
 l_List_elem___at_Lean_MVarId_apply___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -41958,7 +41958,7 @@ define ptr @l_Lean_MVarId_nthConstructor___lambda__1(ptr noundef readonly captur
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
   %or.cond = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond, label %21, label %lean_nat_lt.exit, !prof !20
+  br i1 %or.cond, label %21, label %lean_nat_lt.exit, !prof !23
 
 21:                                               ; preds = %11
   %22 = icmp ult ptr %1, %14
@@ -63745,5 +63745,8 @@ attributes #6 = { noreturn nounwind }
 !16 = !{!"short", !6, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!19 = !{!"branch_weights", !"expected", i32 1074010192, i32 1073473456}
-!20 = !{!"branch_weights", i32 4000000, i32 4001}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = !{!"branch_weights", !"expected", i32 1074010192, i32 1073473456}
+!23 = !{!"branch_weights", i32 4000000, i32 4001}

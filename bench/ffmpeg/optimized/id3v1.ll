@@ -511,7 +511,7 @@ get_string.exit73.i:                              ; preds = %106, %104
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %125 = zext i8 %121 to i64
   %126 = getelementptr inbounds nuw [192 x ptr], ptr @ff_id3v1_genre_str, i64 0, i64 %125
-  %127 = load ptr, ptr %126, align 8, !tbaa !29
+  %127 = load ptr, ptr %126, align 8, !tbaa !30
   %128 = call i32 @av_dict_set(ptr noundef nonnull %124, ptr noundef nonnull @.str.198, ptr noundef %127, i32 noundef 0) #3
   br label %parse_tag.exit
 
@@ -575,6 +575,7 @@ attributes #3 = { nounwind }
 !24 = !{!25, !13, i64 144}
 !25 = !{!"AVIOContext", !6, i64 0, !18, i64 8, !13, i64 16, !18, i64 24, !18, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !19, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !13, i64 92, !13, i64 96, !19, i64 104, !18, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !13, i64 144, !13, i64 148, !18, i64 152, !18, i64 160, !7, i64 168, !13, i64 176, !18, i64 184, !19, i64 192, !19, i64 200}
 !26 = !{!8, !8, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!18, !18, i64 0}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!18, !18, i64 0}

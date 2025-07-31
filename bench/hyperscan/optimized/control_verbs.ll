@@ -127,7 +127,7 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
   %.1152 = phi ptr [ %.0151261, %46 ], [ %51, %50 ]
   %.1144 = phi ptr [ %47, %46 ], [ %.0143262, %50 ]
   %53 = icmp ult ptr %.1144, %.1152
-  br i1 %53, label %._crit_edge265, label %38, !llvm.loop !7
+  br i1 %53, label %._crit_edge265, label %38, !llvm.loop !8
 
 54:                                               ; preds = %48
   %55 = ptrtoint ptr %43 to i64
@@ -192,7 +192,7 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
   %.1141 = phi ptr [ %.0140266, %77 ], [ %84, %83 ]
   %.1132 = phi ptr [ %78, %77 ], [ %.0131267, %83 ]
   %92 = icmp ult ptr %.1132, %.1141
-  br i1 %92, label %.loopexit, label %68, !llvm.loop !8
+  br i1 %92, label %.loopexit, label %68, !llvm.loop !9
 
 .loopexit:                                        ; preds = %91, %85
   %.pn200 = phi i32 [ %90, %85 ], [ %61, %91 ]
@@ -557,7 +557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %19
 212:                                              ; preds = %119, %118, %117, %114
   %.5150 = phi ptr [ %.4149245, %114 ], [ %111, %117 ], [ %111, %118 ], [ %111, %119 ]
   %.not180 = icmp eq i32 %115, 0
-  br i1 %.not180, label %.loopexit235, label %114, !llvm.loop !9
+  br i1 %.not180, label %.loopexit235, label %114, !llvm.loop !10
 
 .loopexit235:                                     ; preds = %212, %106, %98
   %.3148 = phi ptr [ %.2147, %98 ], [ %.2147, %106 ], [ %.5150, %212 ]
@@ -584,7 +584,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %19
   %cond = icmp eq i8 %221, 0
   %spec.select203 = select i1 %cond, ptr null, ptr %.5138250
   %.not196 = icmp eq i32 %220, 0
-  br i1 %.not196, label %._crit_edge, label %.lr.ph251, !llvm.loop !10
+  br i1 %.not196, label %._crit_edge, label %.lr.ph251, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph251, %.loopexit235
   %.5138.lcssa = phi ptr [ %.4137, %.loopexit235 ], [ %spec.select203, %.lr.ph251 ]
@@ -742,7 +742,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %29 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %29)
   %.not22.i = icmp eq ptr %1, %12
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %30, !prof !11
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %30, !prof !12
 
 30:                                               ; preds = %25
   switch i64 %28, label %33 [
@@ -897,10 +897,11 @@ attributes #15 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}

@@ -195,7 +195,7 @@ define dso_local void @int_to_scsilun(i64 noundef %0, ptr noundef writeonly capt
   %12 = lshr i64 %5, 16
   %13 = add nuw nsw i64 %4, 2
   %14 = icmp samesign ult i64 %4, 6
-  br i1 %14, label %3, label %15, !llvm.loop !8
+  br i1 %14, label %3, label %15, !llvm.loop !9
 
 15:                                               ; preds = %3
   ret void
@@ -332,7 +332,7 @@ define dso_local ptr @scsi_sense_desc_find(ptr noundef readonly captures(ret: ad
   %25 = add nuw nsw i32 %24, 2
   %26 = add nuw nsw i32 %25, %30
   %27 = icmp samesign ult i32 %26, %16
-  br i1 %27, label %28, label %.thread3, !llvm.loop !9
+  br i1 %27, label %28, label %.thread3, !llvm.loop !10
 
 28:                                               ; preds = %21, %18
   %29 = phi ptr [ %19, %18 ], [ %33, %21 ]
@@ -412,7 +412,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_information(ptr n
   %21 = add nuw nsw i32 %20, 2
   %22 = add nuw nsw i32 %21, %26
   %23 = icmp samesign ult i32 %22, %9
-  br i1 %23, label %24, label %.thread4, !llvm.loop !9
+  br i1 %23, label %24, label %.thread4, !llvm.loop !11
 
 24:                                               ; preds = %17, %14
   %25 = phi ptr [ %15, %14 ], [ %29, %17 ]
@@ -512,7 +512,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_field_pointer(ptr
   %24 = add nuw nsw i32 %23, 2
   %25 = add nuw nsw i32 %24, %29
   %26 = icmp samesign ult i32 %25, %11
-  br i1 %26, label %27, label %.thread4, !llvm.loop !9
+  br i1 %26, label %27, label %.thread4, !llvm.loop !12
 
 27:                                               ; preds = %20, %17
   %28 = phi ptr [ %18, %17 ], [ %32, %20 ]
@@ -625,8 +625,11 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}

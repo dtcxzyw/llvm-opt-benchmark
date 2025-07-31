@@ -1434,7 +1434,7 @@ define hidden void @CAST_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr
   store i8 %245, ptr %244, align 1, !tbaa !6
   %.1 = add nsw i64 %.1274, -8
   %247 = icmp samesign ugt i64 %.1274, 7
-  br i1 %247, label %184, label %._crit_edge277, !llvm.loop !15
+  br i1 %247, label %184, label %._crit_edge277, !llvm.loop !16
 
 ._crit_edge277:                                   ; preds = %184, %182
   %.1248.lcssa = phi ptr [ %1, %182 ], [ %246, %184 ]
@@ -1610,7 +1610,7 @@ define hidden void @CAST_set_key(ptr noundef writeonly captures(none) %0, i64 no
   store i32 %8, ptr %9, align 4, !tbaa !9
   %10 = add nuw nsw i64 %.1196, 1
   %exitcond.not = icmp eq i64 %10, %spec.store.select
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = icmp ult i64 %1, 11
@@ -2307,7 +2307,7 @@ define hidden void @CAST_set_key(ptr noundef writeonly captures(none) %0, i64 no
   store i32 %666, ptr %667, align 4, !tbaa !9
   %.not = icmp eq ptr %.0193, %5
   %668 = getelementptr inbounds nuw i8, ptr %.0193, i64 64
-  br i1 %.not, label %68, label %.preheader
+  br i1 %.not, label %68, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %68, %.preheader
   %.2219 = phi i64 [ %680, %.preheader ], [ 0, %68 ]
@@ -2326,7 +2326,7 @@ define hidden void @CAST_set_key(ptr noundef writeonly captures(none) %0, i64 no
   store i32 %677, ptr %679, align 4, !tbaa !9
   %680 = add nuw nsw i64 %.2219, 1
   %exitcond236.not = icmp eq i64 %680, 16
-  br i1 %exitcond236.not, label %681, label %.preheader, !llvm.loop !17
+  br i1 %exitcond236.not, label %681, label %.preheader, !llvm.loop !19
 
 681:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
@@ -2451,7 +2451,7 @@ define hidden void @CAST_cfb64_encrypt(ptr noundef readonly captures(none) %0, p
   %82 = add nsw i32 %.0100114, 1
   %83 = and i32 %82, 7
   %.not108 = icmp eq i64 %27, 0
-  br i1 %.not108, label %.loopexit, label %26, !llvm.loop !18
+  br i1 %.not108, label %.loopexit, label %26, !llvm.loop !20
 
 84:                                               ; preds = %.lr.ph119, %132
   %.in121 = phi i64 [ %2, %.lr.ph119 ], [ %85, %132 ]
@@ -2533,7 +2533,7 @@ define hidden void @CAST_cfb64_encrypt(ptr noundef readonly captures(none) %0, p
   %140 = add nsw i32 %.2102118, 1
   %141 = and i32 %140, 7
   %.not107 = icmp eq i64 %85, 0
-  br i1 %.not107, label %.loopexit, label %84, !llvm.loop !19
+  br i1 %.not107, label %.loopexit, label %84, !llvm.loop !21
 
 .loopexit:                                        ; preds = %74, %132, %.preheader109, %.preheader
   %.1101 = phi i32 [ %9, %.preheader ], [ %9, %.preheader109 ], [ %141, %132 ], [ %83, %74 ]
@@ -2574,10 +2574,12 @@ attributes #6 = { nounwind }
 !10 = !{!"int", !7, i64 0}
 !11 = !{!12, !10, i64 128}
 !12 = !{!"cast_key_st", !7, i64 0, !10, i64 128}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}
+!21 = distinct !{!21, !14, !15}

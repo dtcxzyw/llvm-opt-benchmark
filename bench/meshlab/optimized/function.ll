@@ -297,7 +297,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListI7QStringE9push_backERKS0_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %.sroa.08.0 = load ptr, ptr %.sroa.08.013, align 8
   %.not = icmp eq ptr %.sroa.08.0, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 11:                                               ; preds = %.lr.ph
   %12 = landingpad { ptr, i32 }
@@ -409,7 +409,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
 
 _ZN7QStringD2Ev.exit.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %.lr.ph.i.i.i
   %.not.i.i.i = icmp eq ptr %10, %15
-  br i1 %.not.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
+  br i1 %.not.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   invoke void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef %5)
@@ -542,7 +542,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %24, %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %.not.i = icmp eq ptr %26, %20
-  br i1 %.not.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit: ; preds = %_ZN7QStringC2ERKS_.exit.i
   %.pre = load ptr, ptr %0, align 8
@@ -593,7 +593,7 @@ _ZN7QStringC2ERKS_.exit.i11:                      ; preds = %44, %.lr.ph.i7
   %46 = getelementptr inbounds nuw i8, ptr %.010.i8, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.079.i9, i64 8
   %.not.i12 = icmp eq ptr %46, %38
-  br i1 %.not.i12, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7, !llvm.loop !9
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13: ; preds = %_ZN7QStringC2ERKS_.exit.i11, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
   %48 = load atomic i32, ptr %11 monotonic, align 4
@@ -649,7 +649,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i: ; preds = %_ZN9QtPrivate8RefC
 
 _ZN7QStringD2Ev.exit.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %54, %59
-  br i1 %.not.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 _ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit: ; preds = %_ZN7QStringD2Ev.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread15
   call void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef nonnull %11)
@@ -750,7 +750,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
 12:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i"
   %13 = load ptr, ptr %.sroa.03.06.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit.loopexit", label %.lr.ph.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit.loopexit", label %.lr.ph.i.i.i, !llvm.loop !10
 
 "_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit.loopexit": ; preds = %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i"
   %.sroa.03.0.lcssa.i.i.i.ph = phi ptr [ %4, %12 ], [ %.sroa.03.06.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i" ]
@@ -807,7 +807,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
 12:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function26getFilterFunctionParameterERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i"
   %13 = load ptr, ptr %.sroa.03.06.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function26getFilterFunctionParameterERK7QStringE3$_0ET_S9_S9_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function26getFilterFunctionParameterERK7QStringE3$_0ET_S9_S9_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !11
 
 "_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function26getFilterFunctionParameterERK7QStringE3$_0ET_S9_S9_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function26getFilterFunctionParameterERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i", %12, %2
   %.sroa.03.0.lcssa.i.i.i = phi ptr [ %5, %2 ], [ %.sroa.03.06.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function26getFilterFunctionParameterERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i" ], [ %13, %12 ]
@@ -893,7 +893,9 @@ attributes #17 = { noreturn }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !8, !6}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8, !6}
+!10 = distinct !{!10, !8, !6}
+!11 = distinct !{!11, !8, !6}

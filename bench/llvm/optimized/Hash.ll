@@ -29,7 +29,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %0, 
   %9 = xor i32 %8, %.035
   %10 = getelementptr inbounds nuw i8, ptr %.02234, i64 4
   %.not = icmp eq ptr %10, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 11:                                               ; preds = %._crit_edge
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
@@ -93,7 +93,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV2ENS_9StringRefE(ptr read
   %10 = xor i32 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %.02338, i64 4
   %.not = icmp eq ptr %11, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge45:                                    ; preds = %.lr.ph44, %._crit_edge
   %.1.lcssa = phi i32 [ %.0.lcssa, %._crit_edge ], [ %19, %.lr.ph44 ]
@@ -112,16 +112,16 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV2ENS_9StringRefE(ptr read
   %19 = xor i32 %18, %17
   %20 = getelementptr inbounds nuw i8, ptr %.02441, i64 1
   %.not25 = icmp eq ptr %20, %5
-  br i1 %.not25, label %._crit_edge45, label %.lr.ph44
+  br i1 %.not25, label %._crit_edge45, label %.lr.ph44, !llvm.loop !9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN4llvm3pdb12hashBufferV8ENS_8ArrayRefIhEE(ptr %0, i64 %1) local_unnamed_addr #3 {
   %3 = alloca %"class.llvm::JamCRC", align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  store i32 0, ptr %3, align 4, !tbaa !6
+  store i32 0, ptr %3, align 4, !tbaa !10
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr %0, i64 %1) #6
-  %4 = load i32, ptr %3, align 4, !tbaa !6
+  %4 = load i32, ptr %3, align 4, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   ret i32 %4
 }
@@ -147,6 +147,10 @@ attributes #6 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"_ZTSN4llvm6JamCRCE", !8, i64 0}
-!8 = !{!"int", !4, i64 0}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"_ZTSN4llvm6JamCRCE", !12, i64 0}
+!12 = !{!"int", !4, i64 0}

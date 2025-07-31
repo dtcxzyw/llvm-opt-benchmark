@@ -293,7 +293,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %100 = load i32, ptr %38, align 8
   %101 = zext i32 %100 to i64
   %102 = icmp samesign ult i64 %99, %101
-  br i1 %102, label %.preheader19, label %.loopexit, !llvm.loop !10
+  br i1 %102, label %.preheader19, label %.loopexit, !llvm.loop !11
 
 103:                                              ; preds = %94, %91
   %104 = phi i32 [ %92, %91 ], [ %95, %94 ]
@@ -332,7 +332,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %.preheader, !llvm.loop !11
+  br i1 %121, label %122, label %.preheader, !llvm.loop !12
 
 122:                                              ; preds = %.preheader
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 16
@@ -477,14 +477,14 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr noundef readnone 
   %45 = phi i32 [ %23, %21 ], [ %23, %39 ], [ %43, %40 ]
   %46 = add nuw nsw i64 %22, 1
   %47 = icmp eq i64 %46, 8
-  br i1 %47, label %.split7.us.us, label %21, !llvm.loop !12
+  br i1 %47, label %.split7.us.us, label %21, !llvm.loop !13
 
 .split7.us.us:                                    ; preds = %44
   %48 = add nuw nsw i64 %17, 1
   %49 = load i32, ptr %10, align 8
   %50 = zext i32 %49 to i64
   %51 = icmp samesign ult i64 %48, %50
-  br i1 %51, label %.split.us.us, label %.split10.us, !llvm.loop !14
+  br i1 %51, label %.split.us.us, label %.split10.us, !llvm.loop !15
 
 .split:                                           ; preds = %13, %.split7
   %52 = phi i64 [ %91, %.split7 ], [ 0, %13 ]
@@ -544,14 +544,14 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr noundef readnone 
   %88 = phi i32 [ %58, %56 ], [ %58, %74 ], [ %86, %85 ]
   %89 = add nuw nsw i64 %57, 1
   %90 = icmp eq i64 %89, 8
-  br i1 %90, label %.split7, label %56, !llvm.loop !15
+  br i1 %90, label %.split7, label %56, !llvm.loop !16
 
 .split7:                                          ; preds = %87
   %91 = add nuw nsw i64 %52, 1
   %92 = load i32, ptr %10, align 8
   %93 = zext i32 %92 to i64
   %94 = icmp samesign ult i64 %91, %93
-  br i1 %94, label %.split, label %.split10.us, !llvm.loop !16
+  br i1 %94, label %.split, label %.split10.us, !llvm.loop !17
 
 .split10.us:                                      ; preds = %.split7, %.split7.us.us
   %.us-phi11 = phi i32 [ %45, %.split7.us.us ], [ %88, %.split7 ]
@@ -620,13 +620,14 @@ attributes #8 = { nounwind allocsize(0) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i64 1811097, i64 1811118}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !8, !9, !13}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !8, !9, !10, !14}
+!16 = distinct !{!16, !8, !9, !10}
+!17 = distinct !{!17, !8, !9, !10}

@@ -1255,7 +1255,7 @@ is_ddp_address.exit172:                           ; preds = %14
   store i32 0, ptr %37, align 4
   %38 = xor i1 %33, %31
   %39 = tail call ptr @find_or_create_conversation(ptr noundef %1)
-  %40 = load i8, ptr @atp_defragment, align 1, !range !8, !noundef !9
+  %40 = load i8, ptr @atp_defragment, align 1, !range !9, !noundef !10
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %63
 
@@ -1387,8 +1387,8 @@ is_ddp_address.exit172:                           ; preds = %14
 .thread:                                          ; preds = %107, %112
   %.0152175 = phi ptr [ null, %112 ], [ %80, %107 ]
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %114 = load i8, ptr %113, align 8, !range !8, !noundef !9
-  %115 = load i8, ptr @atp_defragment, align 1, !range !8, !noundef !9
+  %114 = load i8, ptr %113, align 8, !range !9, !noundef !10
+  %115 = load i8, ptr @atp_defragment, align 1, !range !9, !noundef !10
   %116 = trunc nuw i8 %115 to i1
   %or.cond9 = select i1 %116, i1 %31, i1 false
   br i1 %or.cond9, label %117, label %123
@@ -1868,7 +1868,7 @@ define internal i32 @dissect_ddp_zip(ptr noundef %0, ptr noundef readonly captur
   %31 = add nuw nsw i32 %.0134141, 2
   %32 = add nuw nsw i32 %.0142, 1
   %exitcond147.not = icmp eq i32 %32, %24
-  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph143, !llvm.loop !10
+  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph143, !llvm.loop !11
 
 33:                                               ; preds = %15
   %34 = load i32, ptr @hf_zip_flags, align 4
@@ -1923,7 +1923,7 @@ define internal i32 @dissect_ddp_zip(ptr noundef %0, ptr noundef readonly captur
   call void @proto_item_set_len(ptr noundef %72, i32 noundef %73)
   %74 = add nuw nsw i32 %.1140, 1
   %exitcond.not = icmp eq i32 %74, %54
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 75:                                               ; preds = %15
   %76 = load i32, ptr @hf_zip_zero_value, align 4
@@ -2099,7 +2099,7 @@ is_ddp_address.exit77:                            ; preds = %14
   %74 = add i32 %73, %72
   %75 = add nuw nsw i32 %.079, 1
   %exitcond.not = icmp eq i32 %75, %68
-  br i1 %exitcond.not, label %is_ddp_address.exit.thread.sink.split, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %is_ddp_address.exit.thread.sink.split, label %.lr.ph, !llvm.loop !13
 
 is_ddp_address.exit.thread.sink.split:            ; preds = %.lr.ph, %50, %48, %55, %58, %40, %21
   %76 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -2267,7 +2267,7 @@ define internal i32 @dissect_rtmp_data(ptr noundef %0, ptr noundef readonly capt
   %81 = add i32 %.1109, %.sink
   %82 = add i32 %.0103107, 1
   %83 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %81)
-  br i1 %83, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %83, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %80, %40, %17
   %84 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2647,11 +2647,12 @@ attributes #11 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

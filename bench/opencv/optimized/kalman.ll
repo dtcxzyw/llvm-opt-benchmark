@@ -1044,7 +1044,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %44) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #16
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %27) #16
-  br i1 %429, label %518, label %286
+  br i1 %429, label %518, label %286, !llvm.loop !89
 
 430:                                              ; preds = %2
   %431 = landingpad { ptr, i32 }
@@ -1369,7 +1369,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239: ; preds = %_Z
   %520 = and i32 %427, 223
   %521 = icmp eq i32 %520, 81
   %or.cond5 = or i1 %519, %521
-  br i1 %or.cond5, label %522, label %207, !llvm.loop !89
+  br i1 %or.cond5, label %522, label %207, !llvm.loop !91
 
 522:                                              ; preds = %518
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #16
@@ -1541,7 +1541,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   store ptr %1, ptr %0, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !91
+  %7 = load i32, ptr %6, align 4, !tbaa !93
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %16
 
@@ -1670,7 +1670,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !91
+  %23 = load i32, ptr %22, align 4, !tbaa !93
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 1, i32 noundef %23, ptr noundef null)
   %24 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_IfEaSEONS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %25 unwind label %26
@@ -1796,7 +1796,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !91
+  %21 = load i32, ptr %20, align 4, !tbaa !93
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 1, i32 noundef %21, ptr noundef null)
   %22 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %23 unwind label %24
@@ -1956,5 +1956,7 @@ attributes #18 = { noreturn }
 !87 = !{!53, !10, i64 4}
 !88 = !{!84, !12, i64 0}
 !89 = distinct !{!89, !90}
-!90 = !{!"llvm.loop.mustprogress"}
-!91 = !{!11, !10, i64 4}
+!90 = !{!"llvm.loop.estimated_trip_count"}
+!91 = distinct !{!91, !92, !90}
+!92 = !{!"llvm.loop.mustprogress"}
+!93 = !{!11, !10, i64 4}

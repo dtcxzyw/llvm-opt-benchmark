@@ -202,7 +202,7 @@ check_retval.exit57:                              ; preds = %.lr.ph
   %79 = load double, ptr %3, align 8, !tbaa !4
   %80 = fsub double 1.000000e+01, %79
   %81 = fcmp ogt double %80, 1.000000e-15
-  br i1 %81, label %.lr.ph, label %.loopexit
+  br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %69, %check_retval.exit57
   %puts40 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -307,23 +307,23 @@ check_retval.exit75:                              ; preds = %check_retval.exit73
 
 check_retval.exit77:                              ; preds = %check_retval.exit75, %129
   %puts41 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %132 = load i64, ptr %4, align 8, !tbaa !30
-  %133 = load i64, ptr %5, align 8, !tbaa !30
+  %132 = load i64, ptr %4, align 8, !tbaa !32
+  %133 = load i64, ptr %5, align 8, !tbaa !32
   %134 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i64 noundef %132, i64 noundef %133)
-  %135 = load i64, ptr %6, align 8, !tbaa !30
-  %136 = load i64, ptr %7, align 8, !tbaa !30
+  %135 = load i64, ptr %6, align 8, !tbaa !32
+  %136 = load i64, ptr %7, align 8, !tbaa !32
   %137 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i64 noundef %135, i64 noundef %136)
-  %138 = load i64, ptr %8, align 8, !tbaa !30
+  %138 = load i64, ptr %8, align 8, !tbaa !32
   %139 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %138)
-  %140 = load i64, ptr %10, align 8, !tbaa !30
+  %140 = load i64, ptr %10, align 8, !tbaa !32
   %141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i64 noundef %140)
-  %142 = load i64, ptr %9, align 8, !tbaa !30
+  %142 = load i64, ptr %9, align 8, !tbaa !32
   %143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i64 noundef %142)
-  %144 = load i64, ptr %11, align 8, !tbaa !30
+  %144 = load i64, ptr %11, align 8, !tbaa !32
   %145 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %144)
-  %146 = load i64, ptr %12, align 8, !tbaa !30
+  %146 = load i64, ptr %12, align 8, !tbaa !32
   %147 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %146)
-  %148 = load i64, ptr %13, align 8, !tbaa !30
+  %148 = load i64, ptr %13, align 8, !tbaa !32
   %149 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %148)
   %150 = load double, ptr %3, align 8, !tbaa !4
   %.val = load ptr, ptr %25, align 8, !tbaa !22
@@ -380,7 +380,7 @@ define internal noundef i32 @f(double noundef %0, ptr noundef readonly captures(
   %10 = tail call double @llvm.fmuladd.f64(double %0, double %0, double 1.000000e+00)
   %11 = fdiv double 1.000000e+00, %10
   %12 = tail call double @llvm.fmuladd.f64(double %5, double %9, double %11)
-  %13 = tail call double @atan(double noundef %0) #10, !tbaa !31
+  %13 = tail call double @atan(double noundef %0) #10, !tbaa !33
   %14 = fneg double %5
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %13, double %12)
   %16 = load ptr, ptr %2, align 8, !tbaa !22
@@ -423,7 +423,7 @@ declare i32 @ARKodeGetNumLinRhsEvals(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @check_ans(double %.0.val.16.val.0.val, double noundef %0) unnamed_addr #5 {
-  %2 = tail call double @atan(double noundef %0) #10, !tbaa !31
+  %2 = tail call double @atan(double noundef %0) #10, !tbaa !33
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = tail call double @llvm.fmuladd.f64(double %3, double 0x3EB0C6F7A0B5ED8D, double 1.000000e-10)
   %5 = fdiv double 1.000000e+00, %4
@@ -591,5 +591,7 @@ attributes #11 = { cold nounwind }
 !27 = !{!"long", !6, i64 0}
 !28 = !{!"int", !6, i64 0}
 !29 = !{!"p1 double", !10, i64 0}
-!30 = !{!27, !27, i64 0}
-!31 = !{!28, !28, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!27, !27, i64 0}
+!33 = !{!28, !28, i64 0}

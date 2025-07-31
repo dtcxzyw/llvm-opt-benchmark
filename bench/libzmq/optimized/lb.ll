@@ -614,7 +614,7 @@ _ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit:    ; preds = %24, %27
 32:                                               ; preds = %31, %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit
   %33 = phi i64 [ 0, %31 ], [ %17, %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit ]
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %.loopexit, label %8, !llvm.loop !37
+  br i1 %.not, label %.loopexit, label %8, !llvm.loop !38
 
 .loopexit:                                        ; preds = %8, %32, %.preheader, %1
   %.0 = phi i1 [ true, %1 ], [ false, %.preheader ], [ %13, %32 ], [ %13, %8 ]
@@ -709,6 +709,7 @@ attributes #23 = { nounwind willreturn memory(none) }
 !32 = !{}
 !33 = !{!22, !28, i64 40}
 !34 = !{!17, !17, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}

@@ -56,7 +56,7 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit:      ; preds = %1
   %spec.select = add i32 %17, %.030
   %18 = getelementptr inbounds nuw i8, ptr %.01829, i64 8
   %.not = icmp eq ptr %18, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 19:                                               ; preds = %._crit_edge
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 29, ptr noundef nonnull @.str.1)
@@ -81,7 +81,7 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25:    ; preds = %20
 ._crit_edge35:                                    ; preds = %.lr.ph34, %20, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25
   %.020.lcssa = phi i32 [ 0, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25 ], [ 0, %20 ], [ %spec.select23, %.lr.ph34 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %29 = load i32, ptr %28, align 4, !tbaa !17
+  %29 = load i32, ptr %28, align 4, !tbaa !19
   %30 = icmp eq i32 %.020.lcssa, %29
   br i1 %30, label %38, label %37
 
@@ -96,7 +96,7 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25:    ; preds = %20
   %spec.select23 = add i32 %35, %.02032
   %36 = getelementptr inbounds nuw i8, ptr %.01933, i64 8
   %.not22 = icmp eq ptr %36, %27
-  br i1 %.not22, label %._crit_edge35, label %.lr.ph34
+  br i1 %.not22, label %._crit_edge35, label %.lr.ph34, !llvm.loop !20
 
 37:                                               ; preds = %._crit_edge35
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 34, ptr noundef nonnull @.str.2)
@@ -115,13 +115,13 @@ declare void @_Z18invoke_exit_actionj(i32 noundef) local_unnamed_addr #0
 define hidden void @_ZN3sat15clause_use_list8iterator7consumeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !18
-  %.promoted = load i32, ptr %2, align 4, !tbaa !21
+  %4 = load i32, ptr %3, align 8, !tbaa !21
+  %.promoted = load i32, ptr %2, align 4, !tbaa !24
   %5 = icmp eq i32 %.promoted, %4
   br i1 %5, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = load ptr, ptr %0, align 8, !tbaa !22
+  %6 = load ptr, ptr %0, align 8, !tbaa !25
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   br label %8
 
@@ -138,7 +138,7 @@ define hidden void @_ZN3sat15clause_use_list8iterator7consumeEv(ptr noundef nonn
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !23
+  %18 = load i32, ptr %17, align 8, !tbaa !26
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %19
   store ptr %12, ptr %20, align 8, !tbaa !15
@@ -146,9 +146,9 @@ define hidden void @_ZN3sat15clause_use_list8iterator7consumeEv(ptr noundef nonn
 
 21:                                               ; preds = %8
   %22 = add i32 %9, 1
-  store i32 %22, ptr %2, align 4, !tbaa !21
+  store i32 %22, ptr %2, align 4, !tbaa !24
   %23 = icmp eq i32 %22, %4
-  br i1 %23, label %.loopexit, label %8, !llvm.loop !24
+  br i1 %23, label %.loopexit, label %8, !llvm.loop !27
 
 .loopexit:                                        ; preds = %21, %1, %16
   ret void
@@ -158,24 +158,24 @@ define hidden void @_ZN3sat15clause_use_list8iterator7consumeEv(ptr noundef nonn
 define hidden void @_ZN3sat15clause_use_list8iteratorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !18
-  %.promoted = load i32, ptr %2, align 4, !tbaa !21
+  %4 = load i32, ptr %3, align 8, !tbaa !21
+  %.promoted = load i32, ptr %2, align 4, !tbaa !24
   %5 = icmp ult i32 %.promoted, %4
-  %.pre10 = load ptr, ptr %0, align 8, !tbaa !22
+  %.pre10 = load ptr, ptr %0, align 8, !tbaa !25
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.promoted5 = load i32, ptr %6, align 8, !tbaa !23
+  %.promoted5 = load i32, ptr %6, align 8, !tbaa !26
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN3sat15clause_use_list8iterator4nextEv.exit
   %8 = phi i32 [ %.promoted5, %.lr.ph ], [ %11, %_ZN3sat15clause_use_list8iterator4nextEv.exit ]
   %9 = phi i32 [ %.promoted, %.lr.ph ], [ %15, %_ZN3sat15clause_use_list8iterator4nextEv.exit ]
   %10 = add nuw i32 %9, 1
-  store i32 %10, ptr %2, align 4, !tbaa !21
+  store i32 %10, ptr %2, align 4, !tbaa !24
   %11 = add i32 %8, 1
-  store i32 %11, ptr %6, align 8, !tbaa !23
+  store i32 %11, ptr %6, align 8, !tbaa !26
   %12 = icmp eq i32 %10, %4
   br i1 %12, label %._crit_edge, label %.lr.ph.i.i
 
@@ -196,9 +196,9 @@ define hidden void @_ZN3sat15clause_use_list8iteratorD2Ev(ptr noundef nonnull al
 
 22:                                               ; preds = %14
   %23 = add i32 %15, 1
-  store i32 %23, ptr %2, align 4, !tbaa !21
+  store i32 %23, ptr %2, align 4, !tbaa !24
   %24 = icmp eq i32 %23, %4
-  br i1 %24, label %._crit_edge, label %14, !llvm.loop !24
+  br i1 %24, label %._crit_edge, label %14, !llvm.loop !27
 
 _ZN3sat15clause_use_list8iterator4nextEv.exit:    ; preds = %14
   %25 = zext i32 %11 to i64
@@ -214,7 +214,7 @@ _ZN3sat15clause_use_list8iterator4nextEv.exit:    ; preds = %14
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !23
+  %31 = load i32, ptr %30, align 8, !tbaa !26
   %32 = getelementptr inbounds i8, ptr %28, i64 -4
   store i32 %31, ptr %32, align 4, !tbaa !10
   br label %_ZN6vectorIPN3sat6clauseELb0EjE6shrinkEj.exit
@@ -260,12 +260,15 @@ attributes #6 = { nounwind }
 !14 = !{!"_ZTS10ptr_vectorIN3sat6clauseEE", !4, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTSN3sat6clauseE", !7, i64 0}
-!17 = !{!13, !11, i64 12}
-!18 = !{!19, !11, i64 8}
-!19 = !{!"_ZTSN3sat15clause_use_list8iteratorE", !20, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!20 = !{!"p1 _ZTS10ptr_vectorIN3sat6clauseEE", !7, i64 0}
-!21 = !{!19, !11, i64 12}
-!22 = !{!19, !20, i64 0}
-!23 = !{!19, !11, i64 16}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!13, !11, i64 12}
+!20 = distinct !{!20, !18}
+!21 = !{!22, !11, i64 8}
+!22 = !{!"_ZTSN3sat15clause_use_list8iteratorE", !23, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!23 = !{!"p1 _ZTS10ptr_vectorIN3sat6clauseEE", !7, i64 0}
+!24 = !{!22, !11, i64 12}
+!25 = !{!22, !23, i64 0}
+!26 = !{!22, !11, i64 16}
+!27 = distinct !{!27, !28, !18}
+!28 = !{!"llvm.loop.mustprogress"}

@@ -107,10 +107,10 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %50 = or disjoint i32 %49, %48
   %51 = or disjoint i32 %50, -16777216
   %52 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv110.i
-  store i32 %51, ptr %52, align 4, !tbaa !40
+  store i32 %51, ptr %52, align 4, !tbaa !41
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next111.i, 256
-  br i1 %exitcond113.not.i, label %.loopexit.i, label %.preheader72.i, !llvm.loop !41
+  br i1 %exitcond113.not.i, label %.loopexit.i, label %.preheader72.i, !llvm.loop !42
 
 .loopexit.i:                                      ; preds = %40, %19
   %.044.i = phi ptr [ %22, %19 ], [ %39, %40 ]
@@ -142,7 +142,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %62 = load ptr, ptr %15, align 8, !tbaa !32
   %63 = load ptr, ptr %62, align 8, !tbaa !37
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  %65 = load i32, ptr %64, align 8, !tbaa !40
+  %65 = load i32, ptr %64, align 8, !tbaa !41
   %66 = mul nsw i32 %65, %.04692.i
   %67 = add nsw i32 %66, %.04789.i
   %68 = sext i32 %67 to i64
@@ -215,14 +215,14 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %105 = add nsw i32 %.sroa.5.061.i.i.i, 4
   %106 = tail call i32 @llvm.umin.i32(i32 %93, i32 %105)
   %107 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i.i
-  store i32 %104, ptr %107, align 4, !tbaa !40
+  store i32 %104, ptr %107, align 4, !tbaa !41
   %108 = tail call i32 @llvm.abs.i32(i32 %104, i1 true)
   %109 = add nuw nsw i32 %108, %.063.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %110 = icmp samesign ult i64 %indvars.iv.i.i.i, 63
   %111 = icmp samesign ult i32 %109, 64
   %112 = select i1 %110, i1 %111, i1 false
-  br i1 %112, label %94, label %113, !llvm.loop !42
+  br i1 %112, label %94, label %113, !llvm.loop !43
 
 113:                                              ; preds = %96
   %114 = add nsw i32 %106, 7
@@ -237,7 +237,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %.04665.i.i.i = phi ptr [ %7, %113 ], [ %140, %139 ]
   %.04864.i.i.i = phi ptr [ %117, %113 ], [ %.149.i.i.i, %139 ]
   %119 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %indvars.iv70.i.i.i
-  %120 = load i32, ptr %119, align 4, !tbaa !40
+  %120 = load i32, ptr %119, align 4, !tbaa !41
   %121 = icmp slt i32 %120, 0
   %122 = ptrtoint ptr %.04864.i.i.i to i64
   %123 = sub i64 %55, %122
@@ -279,7 +279,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %142 = icmp samesign ult i64 %indvars.iv70.i.i.i, 63
   %143 = icmp sgt i32 %141, 0
   %144 = select i1 %142, i1 %143, i1 false
-  br i1 %144, label %118, label %seq_unpack_rle_block.exit.i.i, !llvm.loop !43
+  br i1 %144, label %118, label %seq_unpack_rle_block.exit.i.i, !llvm.loop !44
 
 seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %124
   %.047.i.i.i = phi ptr [ null, %124 ], [ null, %132 ], [ %.149.i.i.i, %139 ], [ null, %94 ]
@@ -295,12 +295,12 @@ seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %12
   store i64 %148, ptr %.05385.i.i, align 1
   %149 = load ptr, ptr %15, align 8, !tbaa !32
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 64
-  %151 = load i32, ptr %150, align 8, !tbaa !40
+  %151 = load i32, ptr %150, align 8, !tbaa !41
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds i8, ptr %.05385.i.i, i64 %152
   %indvars.iv.next104.i.i = add nuw nsw i64 %indvars.iv103.i.i, 1
   %exitcond106.not.i.i = icmp eq i64 %indvars.iv.next104.i.i, 8
-  br i1 %exitcond106.not.i.i, label %seq_decode_op2.exit.i, label %145, !llvm.loop !44
+  br i1 %exitcond106.not.i.i, label %seq_decode_op2.exit.i, label %145, !llvm.loop !45
 
 154:                                              ; preds = %87
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
@@ -333,14 +333,14 @@ seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %12
   %170 = add nsw i32 %.sroa.5.061.i63.i.i, 4
   %171 = tail call i32 @llvm.umin.i32(i32 %158, i32 %170)
   %172 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %indvars.iv.i61.i.i
-  store i32 %169, ptr %172, align 4, !tbaa !40
+  store i32 %169, ptr %172, align 4, !tbaa !41
   %173 = tail call i32 @llvm.abs.i32(i32 %169, i1 true)
   %174 = add nuw nsw i32 %173, %.063.i62.i.i
   %indvars.iv.next.i64.i.i = add nuw nsw i64 %indvars.iv.i61.i.i, 1
   %175 = icmp samesign ult i64 %indvars.iv.i61.i.i, 63
   %176 = icmp samesign ult i32 %174, 64
   %177 = select i1 %175, i1 %176, i1 false
-  br i1 %177, label %159, label %178, !llvm.loop !42
+  br i1 %177, label %159, label %178, !llvm.loop !43
 
 178:                                              ; preds = %161
   %179 = add nsw i32 %171, 7
@@ -355,7 +355,7 @@ seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %12
   %.04665.i67.i.i = phi ptr [ %7, %178 ], [ %205, %204 ]
   %.04864.i68.i.i = phi ptr [ %182, %178 ], [ %.149.i70.i.i, %204 ]
   %184 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %indvars.iv70.i65.i.i
-  %185 = load i32, ptr %184, align 4, !tbaa !40
+  %185 = load i32, ptr %184, align 4, !tbaa !41
   %186 = icmp slt i32 %185, 0
   %187 = ptrtoint ptr %.04864.i68.i.i to i64
   %188 = sub i64 %55, %187
@@ -397,7 +397,7 @@ seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %12
   %207 = icmp samesign ult i64 %indvars.iv70.i65.i.i, 63
   %208 = icmp sgt i32 %206, 0
   %209 = select i1 %207, i1 %208, i1 false
-  br i1 %209, label %183, label %seq_unpack_rle_block.exit75.i.i, !llvm.loop !43
+  br i1 %209, label %183, label %seq_unpack_rle_block.exit75.i.i, !llvm.loop !44
 
 seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %189
   %.047.i73.i.i = phi ptr [ null, %189 ], [ null, %197 ], [ %.149.i70.i.i, %204 ], [ null, %159 ]
@@ -417,7 +417,7 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
   %214 = load i8, ptr %213, align 1, !tbaa !36
   %215 = load ptr, ptr %15, align 8, !tbaa !32
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 64
-  %217 = load i32, ptr %216, align 8, !tbaa !40
+  %217 = load i32, ptr %216, align 8, !tbaa !41
   %218 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %219 = mul nsw i32 %217, %218
   %220 = sext i32 %219 to i64
@@ -425,13 +425,13 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
   store i8 %214, ptr %221, align 1, !tbaa !36
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %222, label %211, !llvm.loop !45
+  br i1 %exitcond.not.i.i, label %222, label %211, !llvm.loop !46
 
 222:                                              ; preds = %211
   %223 = getelementptr inbounds nuw i8, ptr %.15483.i.i, i64 1
   %indvars.iv.next100.i.i = add nuw nsw i64 %indvars.iv99.i.i, 1
   %exitcond102.not.i.i = icmp eq i64 %indvars.iv.next100.i.i, 8
-  br i1 %exitcond102.not.i.i, label %seq_decode_op2.exit.i, label %.preheader78.i.i, !llvm.loop !46
+  br i1 %exitcond102.not.i.i, label %seq_decode_op2.exit.i, label %.preheader78.i.i, !llvm.loop !47
 
 224:                                              ; preds = %83
   %225 = icmp eq i8 %85, 0
@@ -486,17 +486,17 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
   store i8 %258, ptr %259, align 1, !tbaa !36
   %indvars.iv.next108.i.i = add nuw nsw i64 %indvars.iv107.i.i, 1
   %exitcond110.not.i.i = icmp eq i64 %indvars.iv.next108.i.i, 8
-  br i1 %exitcond110.not.i.i, label %260, label %246, !llvm.loop !47
+  br i1 %exitcond110.not.i.i, label %260, label %246, !llvm.loop !48
 
 260:                                              ; preds = %246
   %261 = load ptr, ptr %15, align 8, !tbaa !32
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 64
-  %263 = load i32, ptr %262, align 8, !tbaa !40
+  %263 = load i32, ptr %262, align 8, !tbaa !41
   %264 = sext i32 %263 to i64
   %265 = getelementptr inbounds i8, ptr %.25590.i.i, i64 %264
   %266 = add nuw nsw i32 %.291.i.i, 1
   %exitcond111.not.i.i = icmp eq i32 %266, 8
-  br i1 %exitcond111.not.i.i, label %.loopexit.loopexit.i.i, label %.preheader.i.i, !llvm.loop !48
+  br i1 %exitcond111.not.i.i, label %.loopexit.loopexit.i.i, label %.preheader.i.i, !llvm.loop !49
 
 .loopexit.loopexit.i.i:                           ; preds = %260
   %267 = zext nneg i32 %235 to i64
@@ -518,12 +518,12 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
   %274 = getelementptr inbounds nuw i8, ptr %.01213.i.i, i64 8
   %275 = load ptr, ptr %15, align 8, !tbaa !32
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 64
-  %277 = load i32, ptr %276, align 8, !tbaa !40
+  %277 = load i32, ptr %276, align 8, !tbaa !41
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds i8, ptr %.01014.i.i, i64 %278
   %280 = add nuw nsw i32 %.015.i.i, 1
   %exitcond.not.i53.i = icmp eq i32 %280, 8
-  br i1 %exitcond.not.i53.i, label %seq_decode_op2.exit.thread60.i, label %.preheader.i52.i, !llvm.loop !49
+  br i1 %exitcond.not.i53.i, label %seq_decode_op2.exit.thread60.i, label %.preheader.i52.i, !llvm.loop !50
 
 .preheader.i:                                     ; preds = %61, %284
   %.011.i54.i = phi ptr [ %296, %284 ], [ %.490.i, %61 ]
@@ -540,7 +540,7 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
   %289 = and i32 %288, 7
   %290 = load ptr, ptr %15, align 8, !tbaa !32
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 64
-  %292 = load i32, ptr %291, align 8, !tbaa !40
+  %292 = load i32, ptr %291, align 8, !tbaa !41
   %293 = mul nsw i32 %289, %292
   %294 = and i32 %287, 7
   %295 = add nsw i32 %293, %294
@@ -550,7 +550,7 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
   %299 = getelementptr inbounds i8, ptr %69, i64 %298
   store i8 %297, ptr %299, align 1, !tbaa !36
   %.not.i55.i = icmp sgt i8 %286, -1
-  br i1 %.not.i55.i, label %.preheader.i, label %seq_decode_op2.exit.thread60.i, !llvm.loop !50
+  br i1 %.not.i55.i, label %.preheader.i, label %seq_decode_op2.exit.thread60.i, !llvm.loop !51
 
 default.unreachable:                              ; preds = %61
   unreachable
@@ -574,12 +574,12 @@ seq_decode_op2.exit.thread60.i:                   ; preds = %284, %.preheader.i5
   %.563.i = phi ptr [ %.0.i51.i, %seq_decode_op2.exit.i ], [ %.0.i51.ph.i, %seq_decode_op2.exit.thread121.i ], [ %.490.i, %61 ], [ %274, %.preheader.i52.i ], [ %296, %284 ]
   %300 = add nuw nsw i32 %.04789.i, 8
   %301 = icmp samesign ult i32 %.04789.i, 248
-  br i1 %301, label %61, label %302, !llvm.loop !51
+  br i1 %301, label %61, label %302, !llvm.loop !52
 
 302:                                              ; preds = %seq_decode_op2.exit.thread60.i
   %303 = add nuw nsw i32 %.04692.i, 8
   %304 = icmp samesign ult i32 %.04692.i, 120
-  br i1 %304, label %.preheader69.i, label %.loopexit, !llvm.loop !52
+  br i1 %304, label %.preheader69.i, label %.loopexit, !llvm.loop !53
 
 seqvideo_decode.exit.thread:                      ; preds = %seq_decode_op2.exit.i, %269, %.preheader.i, %26, %54, %seq_decode_op2.exit.thread117.i
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #7
@@ -593,7 +593,7 @@ seqvideo_decode.exit.thread:                      ; preds = %seq_decode_op2.exit
   br i1 %307, label %309, label %308
 
 308:                                              ; preds = %.loopexit
-  store i32 1, ptr %2, align 4, !tbaa !40
+  store i32 1, ptr %2, align 4, !tbaa !41
   br label %309
 
 309:                                              ; preds = %seqvideo_decode.exit.thread, %.loopexit, %4, %308
@@ -687,18 +687,19 @@ attributes #7 = { nounwind }
 !35 = !{!34, !10, i64 32}
 !36 = !{!8, !8, i64 0}
 !37 = !{!14, !14, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!10, !10, i64 0}
-!41 = distinct !{!41, !39}
-!42 = distinct !{!42, !39}
-!43 = distinct !{!43, !39}
-!44 = distinct !{!44, !39}
-!45 = distinct !{!45, !39}
-!46 = distinct !{!46, !39}
-!47 = distinct !{!47, !39}
-!48 = distinct !{!48, !39}
-!49 = distinct !{!49, !39}
-!50 = distinct !{!50, !39}
-!51 = distinct !{!51, !39}
-!52 = distinct !{!52, !39}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = !{!10, !10, i64 0}
+!42 = distinct !{!42, !39, !40}
+!43 = distinct !{!43, !39, !40}
+!44 = distinct !{!44, !39, !40}
+!45 = distinct !{!45, !39, !40}
+!46 = distinct !{!46, !39, !40}
+!47 = distinct !{!47, !39, !40}
+!48 = distinct !{!48, !39, !40}
+!49 = distinct !{!49, !39, !40}
+!50 = distinct !{!50, !39, !40}
+!51 = distinct !{!51, !39, !40}
+!52 = distinct !{!52, !39, !40}
+!53 = distinct !{!53, !39, !40}

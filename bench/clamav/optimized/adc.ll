@@ -264,7 +264,7 @@ define range(i32 -3, 2) i32 @adc_decompress(ptr noundef captures(address_is_null
   store i16 %110, ptr %21, align 2, !tbaa !14
   %111 = load i64, ptr %16, align 8, !tbaa !19
   %.not132 = icmp eq i64 %111, 0
-  br i1 %.not132, label %.critedge, label %.lr.ph159
+  br i1 %.not132, label %.critedge, label %.lr.ph159, !llvm.loop !22
 
 .critedgethread-pre-split:                        ; preds = %.lr.ph159, %.preheader
   %.pr = load i16, ptr %21, align 2, !tbaa !14
@@ -366,7 +366,7 @@ define range(i32 -3, 2) i32 @adc_decompress(ptr noundef captures(address_is_null
   store i16 %152, ptr %21, align 2, !tbaa !14
   %153 = load i64, ptr %18, align 8, !tbaa !20
   %.not128 = icmp eq i64 %153, 0
-  br i1 %.not128, label %.critedge2, label %.lr.ph
+  br i1 %.not128, label %.critedge2, label %.lr.ph, !llvm.loop !24
 
 .critedge2:                                       ; preds = %150
   %154 = icmp eq i16 %152, 0
@@ -479,3 +479,6 @@ attributes #8 = { nounwind }
 !19 = !{!4, !9, i64 8}
 !20 = !{!4, !9, i64 32}
 !21 = !{!7, !7, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !23}

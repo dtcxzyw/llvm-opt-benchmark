@@ -91,10 +91,10 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, i8 0, i64 40, i1 false)
-  store i32 5, ptr %53, align 8, !tbaa !67
+  store i32 5, ptr %53, align 8, !tbaa !68
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store ptr %50, ptr %12, align 8, !tbaa !64
-  store i32 2, ptr %54, align 8, !tbaa !70
+  store i32 2, ptr %54, align 8, !tbaa !71
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %51, ptr %55, align 8, !tbaa !64
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %12)
@@ -105,8 +105,8 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   %56 = phi i1 [ %22, %.thread ], [ true, %36 ], [ true, %.critedge ], [ true, %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ true, %32 ], [ %27, %23 ]
   %57 = phi i1 [ false, %.thread ], [ true, %36 ], [ true, %.critedge ], [ true, %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ true, %32 ], [ %26, %23 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 48852
-  %59 = load i8, ptr %58, align 4, !tbaa !71, !range !58, !noundef !59
-  %60 = load ptr, ptr %0, align 8, !tbaa !72
+  %59 = load i8, ptr %58, align 4, !tbaa !72, !range !58, !noundef !59
+  %60 = load ptr, ptr %0, align 8, !tbaa !73
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef i64 %62(ptr noundef nonnull align 8 dereferenceable(57108) %0)
@@ -114,15 +114,15 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
 
 64:                                               ; preds = %.critedge94
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %66 = load i64, ptr %65, align 8, !tbaa !74
+  %66 = load i64, ptr %65, align 8, !tbaa !75
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %68 = load i64, ptr %67, align 8, !tbaa !75
+  %68 = load i64, ptr %67, align 8, !tbaa !76
   %69 = add nsw i64 %68, %66
-  store i64 %69, ptr %67, align 8, !tbaa !75
+  store i64 %69, ptr %67, align 8, !tbaa !76
   br label %70
 
 70:                                               ; preds = %64, %.critedge94
-  %71 = load ptr, ptr %0, align 8, !tbaa !72
+  %71 = load ptr, ptr %0, align 8, !tbaa !73
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(8256) %0)
@@ -130,15 +130,15 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 52
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %13, ptr noundef nonnull %75, i64 noundef 2048)
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 48850
-  %77 = load i8, ptr %76, align 2, !tbaa !76, !range !58, !noundef !59
+  %77 = load i8, ptr %76, align 2, !tbaa !77, !range !58, !noundef !59
   %78 = trunc nuw i8 %77 to i1
   %79 = xor i1 %78, true
   call void @_Z14NextVolumeNamePwjb(ptr noundef nonnull %13, i32 noundef 2048, i1 noundef zeroext %79)
   %80 = getelementptr inbounds nuw i8, ptr %16, i64 57501
-  %81 = load i8, ptr %80, align 1, !tbaa !77, !range !58, !noundef !59
+  %81 = load i8, ptr %80, align 1, !tbaa !78, !range !58, !noundef !59
   %82 = shl nuw nsw i8 %81, 2
   %83 = zext nneg i8 %82 to i32
-  %84 = load ptr, ptr %0, align 8, !tbaa !72
+  %84 = load ptr, ptr %0, align 8, !tbaa !73
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i32 noundef %83)
@@ -158,7 +158,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   br i1 %56, label %95, label %96
 
 95:                                               ; preds = %94
-  store i64 0, ptr %88, align 8, !tbaa !90
+  store i64 0, ptr %88, align 8, !tbaa !91
   br label %96
 
 96:                                               ; preds = %95, %94
@@ -168,7 +168,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %14) #6
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %14, ptr noundef nonnull %75, i64 noundef 2048)
   call void @_Z14NextVolumeNamePwjb(ptr noundef nonnull %14, i32 noundef 2048, i1 noundef zeroext true)
-  %98 = load ptr, ptr %0, align 8, !tbaa !72
+  %98 = load ptr, ptr %0, align 8, !tbaa !73
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %14, i32 noundef %83)
@@ -184,15 +184,15 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   br label %.critedge96
 
 103:                                              ; preds = %.thread107, %96
-  %104 = load ptr, ptr %89, align 8, !tbaa !91
+  %104 = load ptr, ptr %89, align 8, !tbaa !92
   %.not.i = icmp eq ptr %104, null
   br i1 %.not.i, label %.thread.i.thread, label %105
 
 105:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %8) #6
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %8, ptr noundef nonnull %13, i64 noundef 2048)
-  %106 = load ptr, ptr %89, align 8, !tbaa !91
-  %107 = load i64, ptr %90, align 8, !tbaa !92
+  %106 = load ptr, ptr %89, align 8, !tbaa !92
+  %107 = load i64, ptr %90, align 8, !tbaa !93
   %108 = call noundef i32 %106(i32 noundef 3, i64 noundef %107, i64 noundef %91, i64 noundef 0)
   %109 = icmp eq i32 %108, -1
   br i1 %109, label %.thread.i.thread120, label %110
@@ -207,8 +207,8 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %10) #6
   %113 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %13, ptr noundef nonnull %9, i64 noundef 2048)
   call void @_Z8strncpyzPcPKcm(ptr noundef nonnull %10, ptr noundef nonnull %9, i64 noundef 2048)
-  %114 = load ptr, ptr %89, align 8, !tbaa !91
-  %115 = load i64, ptr %90, align 8, !tbaa !92
+  %114 = load ptr, ptr %89, align 8, !tbaa !92
+  %115 = load i64, ptr %90, align 8, !tbaa !93
   %116 = call noundef i32 %114(i32 noundef 0, i64 noundef %115, i64 noundef %92, i64 noundef 0)
   %117 = icmp eq i32 %116, -1
   br i1 %117, label %.thread.i, label %118
@@ -228,18 +228,18 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #6
-  %122 = load ptr, ptr %93, align 8, !tbaa !93
+  %122 = load ptr, ptr %93, align 8, !tbaa !94
   %.not28.i = icmp eq ptr %122, null
   br i1 %.not28.i, label %132, label %125
 
 .thread.i.thread120:                              ; preds = %105
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #6
-  %123 = load ptr, ptr %93, align 8, !tbaa !93
+  %123 = load ptr, ptr %93, align 8, !tbaa !94
   %.not28.i122 = icmp eq ptr %123, null
   br i1 %.not28.i122, label %.loopexit, label %125
 
 .thread.i.thread:                                 ; preds = %103
-  %124 = load ptr, ptr %93, align 8, !tbaa !93
+  %124 = load ptr, ptr %93, align 8, !tbaa !94
   %.not28.i111 = icmp eq ptr %124, null
   br i1 %.not28.i111, label %.loopexit, label %125
 
@@ -247,7 +247,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   %.02231.i112 = phi i1 [ false, %.thread.i.thread ], [ %117, %.thread.i ], [ true, %.thread.i.thread120 ]
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %11) #6
   %126 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %13, ptr noundef nonnull %11, i64 noundef 2048)
-  %127 = load ptr, ptr %93, align 8, !tbaa !93
+  %127 = load ptr, ptr %93, align 8, !tbaa !94
   %128 = call noundef i32 %127(ptr noundef nonnull %11, i32 noundef 0)
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %.thread44.i, label %130
@@ -269,25 +269,25 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   br label %.thread42.i
 
 .thread42.i:                                      ; preds = %.thread42.sink.split.i, %132, %130
-  %.pr = load ptr, ptr %89, align 8, !tbaa !91
+  %.pr = load ptr, ptr %89, align 8, !tbaa !92
   %133 = icmp eq ptr %.pr, null
   br i1 %133, label %134, label %_ZL12DllVolChangeP11CommandDataPwm.exit
 
 134:                                              ; preds = %.thread42.i
-  %.pr126 = load ptr, ptr %93, align 8, !tbaa !93
+  %.pr126 = load ptr, ptr %93, align 8, !tbaa !94
   %135 = icmp eq ptr %.pr126, null
   br i1 %135, label %.loopexit, label %_ZL12DllVolChangeP11CommandDataPwm.exit
 
 _ZL12DllVolChangeP11CommandDataPwm.exit:          ; preds = %.thread42.i, %134
-  %136 = load ptr, ptr %0, align 8, !tbaa !72
+  %136 = load ptr, ptr %0, align 8, !tbaa !73
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load ptr, ptr %137, align 8
   %139 = call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i32 noundef %83)
-  br i1 %139, label %.critedge96, label %94, !llvm.loop !94
+  br i1 %139, label %.critedge96, label %94, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.thread.i.thread, %.thread.i.thread120, %130, %132, %134, %.thread44.i
   %140 = getelementptr inbounds nuw i8, ptr %16, i64 83424
-  store i32 15, ptr %140, align 8, !tbaa !95
+  store i32 15, ptr %140, align 8, !tbaa !96
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #6
   br label %141
 
@@ -303,17 +303,17 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %141
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %143, i8 0, i64 40, i1 false)
-  store i32 69, ptr %144, align 8, !tbaa !67
+  store i32 69, ptr %144, align 8, !tbaa !68
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store i32 1, ptr %145, align 8, !tbaa !70
+  store i32 1, ptr %145, align 8, !tbaa !71
   store ptr %13, ptr %7, align 8, !tbaa !64
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %7)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7) #6
-  %146 = load ptr, ptr %0, align 8, !tbaa !72
+  %146 = load ptr, ptr %0, align 8, !tbaa !73
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %148 = load ptr, ptr %147, align 8
   %149 = call noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %75, i32 noundef %83)
-  %150 = load ptr, ptr %0, align 8, !tbaa !72
+  %150 = load ptr, ptr %0, align 8, !tbaa !73
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(57108) %0, i64 noundef %63, i32 noundef 0)
@@ -324,21 +324,21 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %141
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #6
   %153 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %13, ptr noundef nonnull %6, i64 noundef 2048)
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 83440
-  %155 = load ptr, ptr %154, align 8, !tbaa !91
+  %155 = load ptr, ptr %154, align 8, !tbaa !92
   %.not.i100 = icmp eq ptr %155, null
   br i1 %.not.i100, label %168, label %156
 
 156:                                              ; preds = %.critedge96
   %157 = getelementptr inbounds nuw i8, ptr %16, i64 83432
-  %158 = load i64, ptr %157, align 8, !tbaa !92
+  %158 = load i64, ptr %157, align 8, !tbaa !93
   %159 = ptrtoint ptr %13 to i64
   %160 = call noundef i32 %155(i32 noundef 3, i64 noundef %158, i64 noundef %159, i64 noundef 1)
   %161 = icmp eq i32 %160, -1
   br i1 %161, label %_ZL12DllVolNotifyP11CommandDataPw.exit.thread, label %162
 
 162:                                              ; preds = %156
-  %163 = load ptr, ptr %154, align 8, !tbaa !91
-  %164 = load i64, ptr %157, align 8, !tbaa !92
+  %163 = load ptr, ptr %154, align 8, !tbaa !92
+  %164 = load i64, ptr %157, align 8, !tbaa !93
   %165 = ptrtoint ptr %6 to i64
   %166 = call noundef i32 %163(i32 noundef 0, i64 noundef %164, i64 noundef %165, i64 noundef 1)
   %167 = icmp eq i32 %166, -1
@@ -346,7 +346,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %141
 
 168:                                              ; preds = %162, %.critedge96
   %169 = getelementptr inbounds nuw i8, ptr %16, i64 83448
-  %170 = load ptr, ptr %169, align 8, !tbaa !93
+  %170 = load ptr, ptr %169, align 8, !tbaa !94
   %.not14.i = icmp eq ptr %170, null
   br i1 %.not14.i, label %173, label %171
 
@@ -361,7 +361,7 @@ _ZL12DllVolNotifyP11CommandDataPw.exit.thread:    ; preds = %171, %156, %162
 
 173:                                              ; preds = %171, %168
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #6
-  %174 = load i8, ptr %58, align 4, !tbaa !71, !range !58, !noundef !59
+  %174 = load i8, ptr %58, align 4, !tbaa !72, !range !58, !noundef !59
   %.not = icmp eq i8 %174, %59
   br i1 %.not, label %181, label %175
 
@@ -381,9 +381,9 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit105: ; preds = %176
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %178, i8 0, i64 40, i1 false)
-  store i32 57, ptr %179, align 8, !tbaa !67
+  store i32 57, ptr %179, align 8, !tbaa !68
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store i32 1, ptr %180, align 8, !tbaa !70
+  store i32 1, ptr %180, align 8, !tbaa !71
   store ptr %75, ptr %5, align 8, !tbaa !64
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %5)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #6
@@ -409,11 +409,11 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit105: ; preds = %176
 189:                                              ; preds = %186
   call void @_ZN7Archive17ConvertAttributesEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 48832
-  %191 = load i64, ptr %190, align 8, !tbaa !96
+  %191 = load i64, ptr %190, align 8, !tbaa !97
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 22264
-  %193 = load i64, ptr %192, align 8, !tbaa !97
+  %193 = load i64, ptr %192, align 8, !tbaa !98
   %194 = sub nsw i64 %191, %193
-  %195 = load ptr, ptr %0, align 8, !tbaa !72
+  %195 = load ptr, ptr %0, align 8, !tbaa !73
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 40
   %197 = load ptr, ptr %196, align 8
   call void %197(ptr noundef nonnull align 8 dereferenceable(57108) %0, i64 noundef %194, i32 noundef 0)
@@ -430,25 +430,25 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit105: ; preds = %176
   %202 = getelementptr inbounds nuw i8, ptr %20, i64 8353
   %203 = load i8, ptr %202, align 1, !tbaa !57, !range !58, !noundef !59
   %204 = getelementptr inbounds nuw i8, ptr %20, i64 8288
-  %205 = load i64, ptr %204, align 8, !tbaa !98
+  %205 = load i64, ptr %204, align 8, !tbaa !99
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %205, ptr %206, align 8, !tbaa !99
+  store i64 %205, ptr %206, align 8, !tbaa !100
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %205, ptr %207, align 8, !tbaa !100
+  store i64 %205, ptr %207, align 8, !tbaa !101
   br label %208
 
 208:                                              ; preds = %199, %201
   %.sink = phi i8 [ %203, %201 ], [ 0, %199 ]
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 153
-  store i8 %.sink, ptr %209, align 1, !tbaa !101
+  store i8 %.sink, ptr %209, align 1, !tbaa !102
   call void @_ZN11ComprDataIO18AdjustTotalArcSizeEP7Archive(ptr noundef nonnull align 8 dereferenceable(266) %1, ptr noundef nonnull %0)
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  store i64 0, ptr %210, align 8, !tbaa !102
+  store i64 0, ptr %210, align 8, !tbaa !103
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %212 = getelementptr inbounds nuw i8, ptr %20, i64 8312
-  %213 = load i32, ptr %212, align 8, !tbaa !103
+  %213 = load i32, ptr %212, align 8, !tbaa !104
   %214 = getelementptr inbounds nuw i8, ptr %16, i64 75224
-  %215 = load i32, ptr %214, align 8, !tbaa !104
+  %215 = load i32, ptr %214, align 8, !tbaa !105
   call void @_ZN8DataHash4InitE9HASH_TYPEj(ptr noundef nonnull align 8 dereferenceable(16) %211, i32 noundef %213, i32 noundef %215)
   br label %216
 
@@ -577,43 +577,44 @@ attributes #7 = { nounwind willreturn memory(read) }
 !62 = !{!7, !7, i64 0}
 !63 = !{!44, !9, i64 8402}
 !64 = !{!42, !42, i64 0}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!68, !69, i64 104}
-!68 = !{!"_ZTS10uiMsgStore", !7, i64 0, !7, i64 64, !16, i64 96, !16, i64 100, !69, i64 104}
-!69 = !{!"_ZTS14UIMESSAGE_CODE", !7, i64 0}
-!70 = !{!68, !16, i64 96}
-!71 = !{!4, !9, i64 48852}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"vtable pointer", !8, i64 0}
-!74 = !{!19, !6, i64 200}
-!75 = !{!19, !6, i64 192}
-!76 = !{!4, !9, i64 48850}
-!77 = !{!78, !9, i64 57501}
-!78 = !{!"_ZTS10RAROptions", !16, i64 0, !16, i64 4, !9, i64 8, !9, i64 9, !9, i64 10, !6, i64 16, !7, i64 24, !7, i64 8216, !79, i64 16408, !9, i64 16412, !7, i64 16416, !7, i64 24608, !80, i64 32800, !80, i64 32804, !80, i64 32808, !80, i64 32812, !7, i64 32816, !7, i64 41008, !9, i64 49200, !9, i64 49201, !9, i64 49202, !7, i64 49204, !81, i64 57396, !82, i64 57400, !83, i64 57404, !16, i64 57408, !27, i64 57412, !16, i64 57416, !16, i64 57420, !84, i64 57424, !9, i64 57428, !9, i64 57429, !9, i64 57430, !9, i64 57431, !9, i64 57432, !16, i64 57436, !16, i64 57440, !9, i64 57444, !9, i64 57445, !9, i64 57446, !9, i64 57447, !9, i64 57448, !85, i64 57452, !86, i64 57456, !6, i64 57464, !16, i64 57472, !9, i64 57476, !9, i64 57477, !9, i64 57478, !16, i64 57480, !16, i64 57484, !9, i64 57488, !9, i64 57489, !9, i64 57490, !9, i64 57491, !16, i64 57492, !16, i64 57496, !9, i64 57500, !9, i64 57501, !9, i64 57502, !9, i64 57503, !7, i64 57504, !7, i64 58016, !9, i64 58528, !9, i64 58529, !9, i64 58530, !9, i64 58531, !9, i64 58532, !30, i64 58536, !30, i64 58544, !30, i64 58552, !9, i64 58560, !9, i64 58561, !9, i64 58562, !30, i64 58568, !30, i64 58576, !30, i64 58584, !9, i64 58592, !9, i64 58593, !9, i64 58594, !6, i64 58600, !6, i64 58608, !9, i64 58616, !9, i64 58617, !9, i64 58618, !7, i64 58620, !7, i64 58812, !16, i64 67004, !87, i64 67008, !88, i64 67012, !89, i64 67016, !89, i64 67020, !89, i64 67024, !9, i64 67028, !7, i64 67032, !16, i64 75224, !7, i64 75228, !16, i64 83420, !16, i64 83424, !6, i64 83432, !14, i64 83440, !14, i64 83448, !14, i64 83456}
-!79 = !{!"_ZTS10QOPEN_MODE", !7, i64 0}
-!80 = !{!"_ZTS11RAR_CHARSET", !7, i64 0}
-!81 = !{!"_ZTS12MESSAGE_TYPE", !7, i64 0}
-!82 = !{!"_ZTS17SOUND_NOTIFY_MODE", !7, i64 0}
-!83 = !{!"_ZTS14OVERWRITE_MODE", !7, i64 0}
-!84 = !{!"_ZTS12ARC_METADATA", !7, i64 0}
-!85 = !{!"_ZTS14PATH_EXCL_MODE", !7, i64 0}
-!86 = !{!"_ZTS12RECURSE_MODE", !7, i64 0}
-!87 = !{!"_ZTS18APPENDARCNAME_MODE", !7, i64 0}
-!88 = !{!"_ZTS10POWER_MODE", !7, i64 0}
-!89 = !{!"_ZTS12EXTTIME_MODE", !7, i64 0}
-!90 = !{!19, !6, i64 208}
-!91 = !{!78, !14, i64 83440}
-!92 = !{!78, !6, i64 83432}
-!93 = !{!78, !14, i64 83448}
-!94 = distinct !{!94, !66}
-!95 = !{!78, !16, i64 83424}
-!96 = !{!4, !6, i64 48832}
-!97 = !{!4, !6, i64 22264}
-!98 = !{!44, !6, i64 8288}
-!99 = !{!19, !6, i64 72}
-!100 = !{!19, !6, i64 64}
-!101 = !{!19, !9, i64 153}
-!102 = !{!19, !6, i64 176}
-!103 = !{!44, !27, i64 8312}
-!104 = !{!78, !16, i64 75224}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!69, !70, i64 104}
+!69 = !{!"_ZTS10uiMsgStore", !7, i64 0, !7, i64 64, !16, i64 96, !16, i64 100, !70, i64 104}
+!70 = !{!"_ZTS14UIMESSAGE_CODE", !7, i64 0}
+!71 = !{!69, !16, i64 96}
+!72 = !{!4, !9, i64 48852}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"vtable pointer", !8, i64 0}
+!75 = !{!19, !6, i64 200}
+!76 = !{!19, !6, i64 192}
+!77 = !{!4, !9, i64 48850}
+!78 = !{!79, !9, i64 57501}
+!79 = !{!"_ZTS10RAROptions", !16, i64 0, !16, i64 4, !9, i64 8, !9, i64 9, !9, i64 10, !6, i64 16, !7, i64 24, !7, i64 8216, !80, i64 16408, !9, i64 16412, !7, i64 16416, !7, i64 24608, !81, i64 32800, !81, i64 32804, !81, i64 32808, !81, i64 32812, !7, i64 32816, !7, i64 41008, !9, i64 49200, !9, i64 49201, !9, i64 49202, !7, i64 49204, !82, i64 57396, !83, i64 57400, !84, i64 57404, !16, i64 57408, !27, i64 57412, !16, i64 57416, !16, i64 57420, !85, i64 57424, !9, i64 57428, !9, i64 57429, !9, i64 57430, !9, i64 57431, !9, i64 57432, !16, i64 57436, !16, i64 57440, !9, i64 57444, !9, i64 57445, !9, i64 57446, !9, i64 57447, !9, i64 57448, !86, i64 57452, !87, i64 57456, !6, i64 57464, !16, i64 57472, !9, i64 57476, !9, i64 57477, !9, i64 57478, !16, i64 57480, !16, i64 57484, !9, i64 57488, !9, i64 57489, !9, i64 57490, !9, i64 57491, !16, i64 57492, !16, i64 57496, !9, i64 57500, !9, i64 57501, !9, i64 57502, !9, i64 57503, !7, i64 57504, !7, i64 58016, !9, i64 58528, !9, i64 58529, !9, i64 58530, !9, i64 58531, !9, i64 58532, !30, i64 58536, !30, i64 58544, !30, i64 58552, !9, i64 58560, !9, i64 58561, !9, i64 58562, !30, i64 58568, !30, i64 58576, !30, i64 58584, !9, i64 58592, !9, i64 58593, !9, i64 58594, !6, i64 58600, !6, i64 58608, !9, i64 58616, !9, i64 58617, !9, i64 58618, !7, i64 58620, !7, i64 58812, !16, i64 67004, !88, i64 67008, !89, i64 67012, !90, i64 67016, !90, i64 67020, !90, i64 67024, !9, i64 67028, !7, i64 67032, !16, i64 75224, !7, i64 75228, !16, i64 83420, !16, i64 83424, !6, i64 83432, !14, i64 83440, !14, i64 83448, !14, i64 83456}
+!80 = !{!"_ZTS10QOPEN_MODE", !7, i64 0}
+!81 = !{!"_ZTS11RAR_CHARSET", !7, i64 0}
+!82 = !{!"_ZTS12MESSAGE_TYPE", !7, i64 0}
+!83 = !{!"_ZTS17SOUND_NOTIFY_MODE", !7, i64 0}
+!84 = !{!"_ZTS14OVERWRITE_MODE", !7, i64 0}
+!85 = !{!"_ZTS12ARC_METADATA", !7, i64 0}
+!86 = !{!"_ZTS14PATH_EXCL_MODE", !7, i64 0}
+!87 = !{!"_ZTS12RECURSE_MODE", !7, i64 0}
+!88 = !{!"_ZTS18APPENDARCNAME_MODE", !7, i64 0}
+!89 = !{!"_ZTS10POWER_MODE", !7, i64 0}
+!90 = !{!"_ZTS12EXTTIME_MODE", !7, i64 0}
+!91 = !{!19, !6, i64 208}
+!92 = !{!79, !14, i64 83440}
+!93 = !{!79, !6, i64 83432}
+!94 = !{!79, !14, i64 83448}
+!95 = distinct !{!95, !66, !67}
+!96 = !{!79, !16, i64 83424}
+!97 = !{!4, !6, i64 48832}
+!98 = !{!4, !6, i64 22264}
+!99 = !{!44, !6, i64 8288}
+!100 = !{!19, !6, i64 72}
+!101 = !{!19, !6, i64 64}
+!102 = !{!19, !9, i64 153}
+!103 = !{!19, !6, i64 176}
+!104 = !{!44, !27, i64 8312}
+!105 = !{!79, !16, i64 75224}

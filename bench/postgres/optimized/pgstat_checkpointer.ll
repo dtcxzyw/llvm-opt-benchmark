@@ -65,7 +65,7 @@ define dso_local void @pgstat_report_checkpointer() local_unnamed_addr #0 {
 28:                                               ; preds = %.preheader1.i
   %.6.add.i = add nuw nsw i64 %.6.idx6.i, 8
   %29 = icmp samesign ult i64 %.6.idx6.i, 80
-  br i1 %29, label %.preheader1.i, label %.preheader.i, !llvm.loop !6
+  br i1 %29, label %.preheader1.i, label %.preheader.i, !llvm.loop !7
 
 .preheader.i:                                     ; preds = %28, %31
   %.7.idx.i = phi i64 [ %.7.add.i, %31 ], [ %.6.add.i, %28 ]
@@ -77,7 +77,7 @@ define dso_local void @pgstat_report_checkpointer() local_unnamed_addr #0 {
   %.7.add.i = add nuw nsw i64 %.7.idx.i, 1
   %32 = load i8, ptr %.7.ptr.i, align 1
   %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %.preheader.i, label %.loopexit, !llvm.loop !7
+  br i1 %.not.i, label %.preheader.i, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %4, %.preheader1.i, %31
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 432
@@ -87,7 +87,7 @@ define dso_local void @pgstat_report_checkpointer() local_unnamed_addr #0 {
   %36 = load i32, ptr %33, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %33, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
   %38 = load i64, ptr @PendingCheckpointerStats, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %40 = load i64, ptr %39, align 8
@@ -138,7 +138,7 @@ define dso_local void @pgstat_report_checkpointer() local_unnamed_addr #0 {
   %76 = load i64, ptr %75, align 8
   %77 = add i64 %76, %74
   store i64 %77, ptr %75, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   %78 = load i32, ptr %33, align 4
   %79 = add i32 %78, 1
   store i32 %79, ptr %33, align 4
@@ -185,16 +185,16 @@ pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changeco
   %8 = load i32, ptr %7, align 4
   %9 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %pgstat_begin_changecount_read.exit.i, label %10, !prof !10
+  br i1 %.not.i.i, label %pgstat_begin_changecount_read.exit.i, label %10, !prof !11
 
 10:                                               ; preds = %pgstat_end_changecount_read.exit.i
   tail call void @ProcessInterrupts() #4
   br label %pgstat_begin_changecount_read.exit.i
 
 pgstat_begin_changecount_read.exit.i:             ; preds = %10, %pgstat_end_changecount_read.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %5, ptr noundef nonnull readonly align 1 dereferenceable(88) %6, i64 88, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %5, ptr noundef nonnull readonly align 1 dereferenceable(88) %6, i64 88, i1 false)
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
   %11 = and i32 %8, 1
   %.not.i5.i = icmp eq i32 %11, 0
   br i1 %.not.i5.i, label %12, label %pgstat_end_changecount_read.exit.i.backedge
@@ -205,7 +205,7 @@ pgstat_begin_changecount_read.exit.i:             ; preds = %10, %pgstat_end_cha
   br i1 %14, label %pgstat_copy_changecounted_stats.exit, label %pgstat_end_changecount_read.exit.i.backedge
 
 pgstat_end_changecount_read.exit.i.backedge:      ; preds = %12, %pgstat_begin_changecount_read.exit.i
-  br label %pgstat_end_changecount_read.exit.i, !llvm.loop !13
+  br label %pgstat_end_changecount_read.exit.i, !llvm.loop !14
 
 pgstat_copy_changecounted_stats.exit:             ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 520
@@ -229,16 +229,16 @@ pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changeco
   %4 = load i32, ptr %3, align 4
   %5 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %pgstat_begin_changecount_read.exit.i, label %6, !prof !10
+  br i1 %.not.i.i, label %pgstat_begin_changecount_read.exit.i, label %6, !prof !11
 
 6:                                                ; preds = %pgstat_end_changecount_read.exit.i
   tail call void @ProcessInterrupts() #4
   br label %pgstat_begin_changecount_read.exit.i
 
 pgstat_begin_changecount_read.exit.i:             ; preds = %6, %pgstat_end_changecount_read.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 224), ptr noundef nonnull readonly align 1 dereferenceable(88) %2, i64 88, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 224), ptr noundef nonnull readonly align 1 dereferenceable(88) %2, i64 88, i1 false)
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
   %7 = and i32 %4, 1
   %.not.i5.i = icmp eq i32 %7, 0
   br i1 %.not.i5.i, label %8, label %pgstat_end_changecount_read.exit.i.backedge
@@ -249,7 +249,7 @@ pgstat_begin_changecount_read.exit.i:             ; preds = %6, %pgstat_end_chan
   br i1 %10, label %pgstat_copy_changecounted_stats.exit, label %pgstat_end_changecount_read.exit.i.backedge
 
 pgstat_end_changecount_read.exit.i.backedge:      ; preds = %8, %pgstat_begin_changecount_read.exit.i
-  br label %pgstat_end_changecount_read.exit.i, !llvm.loop !13
+  br label %pgstat_end_changecount_read.exit.i, !llvm.loop !14
 
 pgstat_copy_changecounted_stats.exit:             ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 528
@@ -328,13 +328,14 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{i64 2150456314}
-!9 = !{i64 2150456418}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{i64 2150456757}
-!12 = !{i64 2150456851}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{i64 2150456314}
+!10 = !{i64 2150456418}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = !{i64 2150456757}
+!13 = !{i64 2150456851}
+!14 = distinct !{!14, !5, !6}

@@ -166,7 +166,7 @@ define hidden range(i32 0, 18) i32 @avifGetExifOrientationOffset(ptr noundef %0,
   %59 = add nuw i16 %.02841, 1
   %60 = load i16, ptr %7, align 2
   %61 = icmp ult i16 %59, %60
-  br i1 %61, label %.lr.ph, label %avifGetExifTiffHeaderOffset.exit.sink.split, !llvm.loop !6
+  br i1 %61, label %.lr.ph, label %avifGetExifTiffHeaderOffset.exit.sink.split, !llvm.loop !7
 
 avifGetExifTiffHeaderOffset.exit.sink.split:      ; preds = %58, %.preheader, %53
   %.sink = phi i64 [ %57, %53 ], [ %1, %.preheader ], [ %1, %58 ]
@@ -382,6 +382,7 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

@@ -121,13 +121,13 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
 
 ._crit_edge279:                                   ; preds = %41, %.preheader
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !28
+  %52 = load ptr, ptr %51, align 8, !tbaa !29
   %.not174 = icmp eq ptr %52, null
   br i1 %.not174, label %53, label %.thread265
 
 53:                                               ; preds = %._crit_edge279
   %54 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #7
-  store ptr %54, ptr %51, align 8, !tbaa !28
+  store ptr %54, ptr %51, align 8, !tbaa !29
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %60
 
@@ -139,17 +139,17 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
 
 60:                                               ; preds = %53
   %61 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !29
+  %62 = load ptr, ptr %61, align 8, !tbaa !30
   %63 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %64 = load ptr, ptr %63, align 8, !tbaa !29
+  %64 = load ptr, ptr %63, align 8, !tbaa !30
   %65 = tail call ptr @H5T_path_find(ptr noundef %62, ptr noundef %64) #6
-  store ptr %65, ptr %54, align 8, !tbaa !32
+  store ptr %65, ptr %54, align 8, !tbaa !33
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %60
   tail call void @free(ptr noundef nonnull %54) #6
-  store ptr null, ptr %51, align 8, !tbaa !28
+  store ptr null, ptr %51, align 8, !tbaa !29
   %68 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !14
   %69 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !14
   %70 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_array, i32 noundef 103, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.5) #6
@@ -157,16 +157,16 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
 
 71:                                               ; preds = %60
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 76
-  %73 = load i32, ptr %72, align 4, !tbaa !35
+  %73 = load i32, ptr %72, align 4, !tbaa !36
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %73, ptr %74, align 4, !tbaa !38
+  store i32 %73, ptr %74, align 4, !tbaa !39
   br label %.thread265
 
 75:                                               ; preds = %17
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !28
+  %77 = load ptr, ptr %76, align 8, !tbaa !29
   tail call void @free(ptr noundef %77) #6
-  store ptr null, ptr %76, align 8, !tbaa !28
+  store ptr null, ptr %76, align 8, !tbaa !29
   br label %.thread265
 
 78:                                               ; preds = %17
@@ -193,16 +193,16 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
 
 91:                                               ; preds = %85
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %93 = load ptr, ptr %92, align 8, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !39
+  %93 = load ptr, ptr %92, align 8, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !40
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %95 = load ptr, ptr %94, align 8, !tbaa !16
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %97 = load i64, ptr %96, align 8, !tbaa !40
+  %97 = load i64, ptr %96, align 8, !tbaa !41
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %99 = load ptr, ptr %98, align 8, !tbaa !16
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %101 = load i64, ptr %100, align 8, !tbaa !40
+  %101 = load i64, ptr %100, align 8, !tbaa !41
   %102 = icmp uge i64 %97, %101
   %103 = icmp ne i64 %5, 0
   %or.cond5 = or i1 %103, %102
@@ -240,14 +240,14 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   %.not169 = icmp eq i64 %6, 0
   %spec.select272 = select i1 %.not169, i64 %101, i64 %6
   %117 = mul nsw i64 %.0126192202, %spec.select272
-  %118 = load ptr, ptr %93, align 8, !tbaa !32
+  %118 = load ptr, ptr %93, align 8, !tbaa !33
   %119 = tail call zeroext i1 @H5T_path_noop(ptr noundef %118) #6
   br i1 %119, label %163, label %120
 
 120:                                              ; preds = %.thread210
   %121 = load ptr, ptr %94, align 8, !tbaa !16
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %123 = load ptr, ptr %122, align 8, !tbaa !29
+  %123 = load ptr, ptr %122, align 8, !tbaa !30
   %124 = tail call ptr @H5T_copy(ptr noundef %123, i32 noundef 1) #6
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %130
@@ -261,7 +261,7 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
 130:                                              ; preds = %120
   %131 = load ptr, ptr %98, align 8, !tbaa !16
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  %133 = load ptr, ptr %132, align 8, !tbaa !29
+  %133 = load ptr, ptr %132, align 8, !tbaa !30
   %134 = tail call ptr @H5T_copy(ptr noundef %133, i32 noundef 1) #6
   %135 = icmp eq ptr %134, null
   br i1 %135, label %136, label %140
@@ -273,9 +273,9 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   br label %.thread221.thread249
 
 140:                                              ; preds = %130
-  %141 = load ptr, ptr %93, align 8, !tbaa !32
+  %141 = load ptr, ptr %93, align 8, !tbaa !33
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 48
-  %143 = load i8, ptr %142, align 8, !tbaa !41, !range !7, !noundef !8
+  %143 = load i8, ptr %142, align 8, !tbaa !42, !range !7, !noundef !8
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %147, label %145
 
@@ -332,9 +332,9 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   %.1136273 = phi ptr [ %175, %174 ], [ %.0135186208, %163 ]
   %165 = load ptr, ptr %94, align 8, !tbaa !16
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %167 = load i64, ptr %166, align 8, !tbaa !40
+  %167 = load i64, ptr %166, align 8, !tbaa !41
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %.1134274, ptr align 1 %.1136273, i64 %167, i1 false)
-  %168 = load ptr, ptr %93, align 8, !tbaa !32
+  %168 = load ptr, ptr %93, align 8, !tbaa !33
   %169 = load ptr, ptr %94, align 8, !tbaa !16
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 48
   %171 = load i64, ptr %170, align 8, !tbaa !25
@@ -350,7 +350,7 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   %spec.select = select i1 %.not171, ptr null, ptr %177
   %178 = add nuw i64 %.0276, 1
   %exitcond.not = icmp eq i64 %178, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 179:                                              ; preds = %.lr.ph
   %180 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !14
@@ -517,20 +517,21 @@ attributes #7 = { nounwind allocsize(0,1) }
 !23 = !{!"p1 _ZTS10H5RS_str_t", !13, i64 0}
 !24 = !{!"p1 _ZTS13H5VL_object_t", !13, i64 0}
 !25 = !{!5, !5, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!11, !13, i64 16}
-!29 = !{!30, !31, i64 32}
-!30 = !{!"H5T_shared_t", !15, i64 0, !12, i64 8, !12, i64 12, !15, i64 16, !12, i64 24, !4, i64 28, !31, i64 32, !24, i64 40, !5, i64 48}
-!31 = !{!"p1 _ZTS5H5T_t", !13, i64 0}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"H5T_conv_array_t", !34, i64 0}
-!34 = !{!"p1 _ZTS10H5T_path_t", !13, i64 0}
-!35 = !{!36, !12, i64 76}
-!36 = !{!"H5T_path_t", !5, i64 0, !31, i64 32, !31, i64 40, !37, i64 48, !4, i64 64, !4, i64 65, !11, i64 72}
-!37 = !{!"H5T_conv_func_t", !4, i64 0, !5, i64 8}
-!38 = !{!11, !12, i64 4}
-!39 = !{i64 0, i64 48, !25}
-!40 = !{!30, !15, i64 16}
-!41 = !{!36, !4, i64 48}
-!42 = distinct !{!42, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!11, !13, i64 16}
+!30 = !{!31, !32, i64 32}
+!31 = !{!"H5T_shared_t", !15, i64 0, !12, i64 8, !12, i64 12, !15, i64 16, !12, i64 24, !4, i64 28, !32, i64 32, !24, i64 40, !5, i64 48}
+!32 = !{!"p1 _ZTS5H5T_t", !13, i64 0}
+!33 = !{!34, !35, i64 0}
+!34 = !{!"H5T_conv_array_t", !35, i64 0}
+!35 = !{!"p1 _ZTS10H5T_path_t", !13, i64 0}
+!36 = !{!37, !12, i64 76}
+!37 = !{!"H5T_path_t", !5, i64 0, !32, i64 32, !32, i64 40, !38, i64 48, !4, i64 64, !4, i64 65, !11, i64 72}
+!38 = !{!"H5T_conv_func_t", !4, i64 0, !5, i64 8}
+!39 = !{!11, !12, i64 4}
+!40 = !{i64 0, i64 48, !25}
+!41 = !{!31, !15, i64 16}
+!42 = !{!37, !4, i64 48}
+!43 = distinct !{!43, !27, !28}

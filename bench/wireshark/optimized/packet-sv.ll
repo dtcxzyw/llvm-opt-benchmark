@@ -481,7 +481,7 @@ define internal i32 @dissect_sv_Data(i1 noundef zeroext %0, ptr noundef %1, i32 
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = load i8, ptr @sv_decode_data_as_phsmeas, align 1, !range !8, !noundef !9
+  %11 = load i8, ptr @sv_decode_data_as_phsmeas, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %50
 
@@ -552,7 +552,7 @@ define internal i32 @dissect_sv_Data(i1 noundef zeroext %0, ptr noundef %1, i32 
   %45 = lshr i32 %44, 3
   %46 = zext nneg i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
-  br i1 %47, label %.lr.ph.split.us.i, label %dissect_PhsMeas1.exit, !llvm.loop !10
+  br i1 %47, label %.lr.ph.split.us.i, label %dissect_PhsMeas1.exit, !llvm.loop !11
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %48 = and i32 %25, -8
@@ -682,9 +682,10 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}

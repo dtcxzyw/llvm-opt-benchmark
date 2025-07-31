@@ -234,7 +234,7 @@ define internal i32 @drm_bridge_connector_detect(ptr noundef readonly captures(n
   %28 = load ptr, ptr %18, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %30 = icmp eq ptr %28, %29
-  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !11
 
 31:                                               ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -310,7 +310,7 @@ define internal void @drm_bridge_connector_oob_hotplug_event(ptr noundef initial
   %22 = load ptr, ptr %12, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %24 = icmp eq ptr %22, %23
-  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %20, %2
   tail call void @drm_kms_helper_connector_hotplug_event(ptr noundef %0) #4
@@ -343,7 +343,7 @@ define internal void @drm_bridge_connector_debugfs_init(ptr noundef readonly cap
 16:                                               ; preds = %14, %.preheader
   %17 = load ptr, ptr %8, align 8
   %18 = icmp eq ptr %17, %5
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %16, %2
   ret void
@@ -414,7 +414,7 @@ define internal i32 @drm_bridge_connector_get_modes(ptr noundef %0) #0 align 16 
   %31 = load ptr, ptr %21, align 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %33 = icmp eq ptr %31, %32
-  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !14
 
 34:                                               ; preds = %5
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -549,7 +549,7 @@ define internal void @drm_bridge_connector_hpd_cb(ptr noundef initializes((176, 
   %22 = load ptr, ptr %12, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %24 = icmp eq ptr %22, %23
-  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %20, %2
   tail call void @drm_kms_helper_connector_hotplug_event(ptr noundef %0) #4
@@ -574,8 +574,12 @@ attributes #4 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = distinct !{!15, !8, !9, !10}

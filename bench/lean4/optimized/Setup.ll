@@ -6206,7 +6206,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exi
   store ptr %.sink76, ptr %86, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %.sink81, i64 16
   store ptr %.sink, ptr %87, align 8, !tbaa !4
-  br label %6
+  br label %6, !llvm.loop !15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6673,7 +6673,7 @@ lean_alloc_ctor.exit27:                           ; preds = %lean_alloc_ctor.exi
   store ptr %40, ptr %50, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %23, ptr %51, align 8, !tbaa !4
-  br label %3
+  br label %3, !llvm.loop !17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7215,7 +7215,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exi
   store ptr %.sink76, ptr %86, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %.sink81, i64 16
   store ptr %.sink, ptr %87, align 8, !tbaa !4
-  br label %6
+  br label %6, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8023,7 +8023,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lea
   store ptr %.sink83, ptr %102, align 8, !tbaa !4
   %103 = getelementptr inbounds nuw i8, ptr %.sink88, i64 16
   store ptr %.sink, ptr %103, align 8, !tbaa !4
-  br label %6
+  br label %6, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9998,7 +9998,7 @@ lean_dec.exit:                                    ; preds = %61, %60, %58, %lean
   %64 = tail call ptr @l_Lean_Name_toString(ptr noundef %26, i8 noundef zeroext 1, ptr noundef %63) #6
   %65 = tail call ptr @l___private_Lean_Setup_0__Lean_toJsonModuleArtifacts____x40_Lean_Setup___hyg_549_(ptr noundef %36)
   %66 = tail call ptr @l_Lean_RBNode_insert___at_Lean_Json_mkObj___spec__1(ptr noundef %62, ptr noundef %64, ptr noundef %65) #6
-  br label %3
+  br label %3, !llvm.loop !20
 }
 
 declare ptr @l_Lean_RBNode_insert___at_Lean_Json_mkObj___spec__1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -17317,9 +17317,9 @@ _init_l_Lean_instReprImport___closed__1.exit:     ; preds = %_init_l___private_L
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_reprImport____x40_Lean_Setup___hyg_34____boxed, ptr %108, align 8, !tbaa !4
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store i16 2, ptr %109, align 8, !tbaa !15
+  store i16 2, ptr %109, align 8, !tbaa !21
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 18
-  store i16 0, ptr %110, align 2, !tbaa !15
+  store i16 0, ptr %110, align 2, !tbaa !21
   store ptr %104, ptr @l_Lean_instReprImport___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %104) #6
   %111 = load ptr, ptr @l_Lean_instReprImport___closed__1, align 8, !tbaa !4
@@ -17363,9 +17363,9 @@ _init_l___private_Lean_Setup_0__Lean_toJsonImport____x40_Lean_Setup___hyg_124___
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_toJsonImport____x40_Lean_Setup___hyg_124____lambda__1___boxed, ptr %123, align 8, !tbaa !4
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store i16 1, ptr %124, align 8, !tbaa !15
+  store i16 1, ptr %124, align 8, !tbaa !21
   %125 = getelementptr inbounds nuw i8, ptr %119, i64 18
-  store i16 0, ptr %125, align 2, !tbaa !15
+  store i16 0, ptr %125, align 2, !tbaa !21
   store ptr %119, ptr @l___private_Lean_Setup_0__Lean_toJsonImport____x40_Lean_Setup___hyg_124____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %119) #6
   %126 = tail call ptr @lean_array_mk(ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
@@ -17387,9 +17387,9 @@ _init_l_Lean_instToJsonImport___closed__1.exit:   ; preds = %_init_l___private_L
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_toJsonImport____x40_Lean_Setup___hyg_124_, ptr %131, align 8, !tbaa !4
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store i16 1, ptr %132, align 8, !tbaa !15
+  store i16 1, ptr %132, align 8, !tbaa !21
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 18
-  store i16 0, ptr %133, align 2, !tbaa !15
+  store i16 0, ptr %133, align 2, !tbaa !21
   store ptr %127, ptr @l_Lean_instToJsonImport___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %127) #6
   %134 = load ptr, ptr @l_Lean_instToJsonImport___closed__1, align 8, !tbaa !4
@@ -17495,9 +17495,9 @@ _init_l_Lean_instFromJsonImport___closed__1.exit: ; preds = %_init_l_Lean_instTo
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_fromJsonImport____x40_Lean_Setup___hyg_190_, ptr %185, align 8, !tbaa !4
   %186 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  store i16 1, ptr %186, align 8, !tbaa !15
+  store i16 1, ptr %186, align 8, !tbaa !21
   %187 = getelementptr inbounds nuw i8, ptr %181, i64 18
-  store i16 0, ptr %187, align 2, !tbaa !15
+  store i16 0, ptr %187, align 2, !tbaa !21
   store ptr %181, ptr @l_Lean_instFromJsonImport___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %181) #6
   %188 = load ptr, ptr @l_Lean_instFromJsonImport___closed__1, align 8, !tbaa !4
@@ -17734,9 +17734,9 @@ _init_l_Lean_instReprModuleArtifacts___closed__1.exit: ; preds = %_init_l___priv
   %264 = getelementptr inbounds nuw i8, ptr %260, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_reprModuleArtifacts____x40_Lean_Setup___hyg_417____boxed, ptr %264, align 8, !tbaa !4
   %265 = getelementptr inbounds nuw i8, ptr %260, i64 16
-  store i16 2, ptr %265, align 8, !tbaa !15
+  store i16 2, ptr %265, align 8, !tbaa !21
   %266 = getelementptr inbounds nuw i8, ptr %260, i64 18
-  store i16 0, ptr %266, align 2, !tbaa !15
+  store i16 0, ptr %266, align 2, !tbaa !21
   store ptr %260, ptr @l_Lean_instReprModuleArtifacts___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %260) #6
   %267 = load ptr, ptr @l_Lean_instReprModuleArtifacts___closed__1, align 8, !tbaa !4
@@ -17801,9 +17801,9 @@ _init_l_Lean_instToJsonModuleArtifacts___closed__1.exit: ; preds = %_init_l_Lean
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_toJsonModuleArtifacts____x40_Lean_Setup___hyg_549_, ptr %287, align 8, !tbaa !4
   %288 = getelementptr inbounds nuw i8, ptr %283, i64 16
-  store i16 1, ptr %288, align 8, !tbaa !15
+  store i16 1, ptr %288, align 8, !tbaa !21
   %289 = getelementptr inbounds nuw i8, ptr %283, i64 18
-  store i16 0, ptr %289, align 2, !tbaa !15
+  store i16 0, ptr %289, align 2, !tbaa !21
   store ptr %283, ptr @l_Lean_instToJsonModuleArtifacts___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %283) #6
   %290 = load ptr, ptr @l_Lean_instToJsonModuleArtifacts___closed__1, align 8, !tbaa !4
@@ -17955,9 +17955,9 @@ _init_l_Lean_instFromJsonModuleArtifacts___closed__1.exit: ; preds = %_init_l_Op
   %365 = getelementptr inbounds nuw i8, ptr %361, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_fromJsonModuleArtifacts____x40_Lean_Setup___hyg_593_, ptr %365, align 8, !tbaa !4
   %366 = getelementptr inbounds nuw i8, ptr %361, i64 16
-  store i16 1, ptr %366, align 8, !tbaa !15
+  store i16 1, ptr %366, align 8, !tbaa !21
   %367 = getelementptr inbounds nuw i8, ptr %361, i64 18
-  store i16 0, ptr %367, align 2, !tbaa !15
+  store i16 0, ptr %367, align 2, !tbaa !21
   store ptr %361, ptr @l_Lean_instFromJsonModuleArtifacts___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %361) #6
   %368 = load ptr, ptr @l_Lean_instFromJsonModuleArtifacts___closed__1, align 8, !tbaa !4
@@ -18436,9 +18436,9 @@ _init_l_Lean_instReprModuleSetup___closed__1.exit: ; preds = %_init_l___private_
   %536 = getelementptr inbounds nuw i8, ptr %532, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____boxed, ptr %536, align 8, !tbaa !4
   %537 = getelementptr inbounds nuw i8, ptr %532, i64 16
-  store i16 2, ptr %537, align 8, !tbaa !15
+  store i16 2, ptr %537, align 8, !tbaa !21
   %538 = getelementptr inbounds nuw i8, ptr %532, i64 18
-  store i16 0, ptr %538, align 2, !tbaa !15
+  store i16 0, ptr %538, align 2, !tbaa !21
   store ptr %532, ptr @l_Lean_instReprModuleSetup___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %532) #6
   %539 = load ptr, ptr @l_Lean_instReprModuleSetup___closed__1, align 8, !tbaa !4
@@ -18504,9 +18504,9 @@ _init_l_Lean_instToJsonModuleSetup___closed__1.exit: ; preds = %_init_l_Lean_ins
   %563 = getelementptr inbounds nuw i8, ptr %559, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_toJsonModuleSetup____x40_Lean_Setup___hyg_1087_, ptr %563, align 8, !tbaa !4
   %564 = getelementptr inbounds nuw i8, ptr %559, i64 16
-  store i16 1, ptr %564, align 8, !tbaa !15
+  store i16 1, ptr %564, align 8, !tbaa !21
   %565 = getelementptr inbounds nuw i8, ptr %559, i64 18
-  store i16 0, ptr %565, align 2, !tbaa !15
+  store i16 0, ptr %565, align 2, !tbaa !21
   store ptr %559, ptr @l_Lean_instToJsonModuleSetup___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %559) #6
   %566 = load ptr, ptr @l_Lean_instToJsonModuleSetup___closed__1, align 8, !tbaa !4
@@ -18694,9 +18694,9 @@ _init_l_Lean_instFromJsonModuleSetup___closed__1.exit: ; preds = %_init_l_Lean_i
   %663 = getelementptr inbounds nuw i8, ptr %659, i64 8
   store ptr @l___private_Lean_Setup_0__Lean_fromJsonModuleSetup____x40_Lean_Setup___hyg_1209_, ptr %663, align 8, !tbaa !4
   %664 = getelementptr inbounds nuw i8, ptr %659, i64 16
-  store i16 1, ptr %664, align 8, !tbaa !15
+  store i16 1, ptr %664, align 8, !tbaa !21
   %665 = getelementptr inbounds nuw i8, ptr %659, i64 18
-  store i16 0, ptr %665, align 2, !tbaa !15
+  store i16 0, ptr %665, align 2, !tbaa !21
   store ptr %659, ptr @l_Lean_instFromJsonModuleSetup___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %659) #6
   %666 = load ptr, ptr @l_Lean_instFromJsonModuleSetup___closed__1, align 8, !tbaa !4
@@ -18718,9 +18718,9 @@ _init_l_Lean_ModuleSetup_load___closed__1.exit:   ; preds = %_init_l_Lean_instFr
   %671 = getelementptr inbounds nuw i8, ptr %667, i64 8
   store ptr @l_Lean_Json_Parser_any, ptr %671, align 8, !tbaa !4
   %672 = getelementptr inbounds nuw i8, ptr %667, i64 16
-  store i16 1, ptr %672, align 8, !tbaa !15
+  store i16 1, ptr %672, align 8, !tbaa !21
   %673 = getelementptr inbounds nuw i8, ptr %667, i64 18
-  store i16 0, ptr %673, align 2, !tbaa !15
+  store i16 0, ptr %673, align 2, !tbaa !21
   store ptr %667, ptr @l_Lean_ModuleSetup_load___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %667) #6
   %674 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.46, i64 noundef 27, i64 noundef 27) #6
@@ -18818,5 +18818,11 @@ attributes #7 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
 !14 = !{!6, !6, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !6, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !6, i64 0}

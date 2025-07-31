@@ -153,7 +153,7 @@ define noundef i32 @dsbmv_thread_U(i64 noundef %0, i64 noundef %1, double nounde
   %88 = zext i32 %85 to i64
   %89 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !18
-  %91 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %90, i32 %83) #7, !srcloc !29
+  %91 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %90, i32 %83) #7, !srcloc !30
   %92 = extractvalue { i32, i32 } %91, 0
   store volatile i32 %92, ptr %12, align 4, !tbaa !18
   %.0..0..0..0..0..0..i = load volatile i32, ptr %12, align 4, !tbaa !18
@@ -195,14 +195,14 @@ blas_quickdivide.exit:                            ; preds = %78, %87
   store ptr %108, ptr %109, align 8, !tbaa !26
   %110 = sub nsw i64 %.1120136, %spec.select133
   %111 = icmp sgt i64 %110, 0
-  br i1 %111, label %78, label %.loopexit, !llvm.loop !30
+  br i1 %111, label %78, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %blas_quickdivide.exit, %52
   %.1123 = phi i64 [ %68, %52 ], [ %97, %blas_quickdivide.exit ]
   %112 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr null, ptr %112, align 16, !tbaa !31
+  store ptr null, ptr %112, align 16, !tbaa !32
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store ptr %9, ptr %113, align 8, !tbaa !32
+  store ptr %9, ptr %113, align 8, !tbaa !33
   %114 = add nsw i64 %.1123, -1
   %115 = getelementptr inbounds [17 x %struct.blas_queue], ptr %14, i64 0, i64 %114, i32 8
   store ptr null, ptr %115, align 8, !tbaa !26
@@ -213,11 +213,11 @@ blas_quickdivide.exit:                            ; preds = %78, %87
 .lr.ph142:                                        ; preds = %.loopexit, %.lr.ph142
   %.2121141 = phi i64 [ %121, %.lr.ph142 ], [ 1, %.loopexit ]
   %118 = getelementptr inbounds nuw [17 x %struct.blas_queue], ptr %14, i64 0, i64 %.2121141, i32 7
-  %119 = load ptr, ptr %118, align 8, !tbaa !32
+  %119 = load ptr, ptr %118, align 8, !tbaa !33
   %120 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %119, i64 noundef 1, ptr noundef %9, i64 noundef 1, ptr noundef null, i64 noundef 0) #7
   %121 = add nuw i64 %.2121141, 1
   %exitcond.not = icmp eq i64 %121, %.1123
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph142, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph142, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph142, %28, %73, %.loopexit
   %122 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef %2, ptr noundef %9, i64 noundef 1, ptr noundef %7, i64 noundef %8, ptr noundef null, i64 noundef 0) #7
@@ -289,7 +289,7 @@ define internal noundef i32 @sbmv_kernel(ptr noundef readonly captures(none) %0,
   %.161 = phi ptr [ %46, %.lr.ph ], [ %.055, %30 ]
   %spec.select = tail call i64 @llvm.smin.i64(i64 %.05262, i64 %17)
   %33 = getelementptr inbounds double, ptr %.056, i64 %.05262
-  %34 = load double, ptr %33, align 8, !tbaa !34
+  %34 = load double, ptr %33, align 8, !tbaa !35
   %35 = sub nsw i64 %17, %spec.select
   %36 = getelementptr inbounds double, ptr %.161, i64 %35
   %37 = sub nsw i64 %.05262, %spec.select
@@ -299,13 +299,13 @@ define internal noundef i32 @sbmv_kernel(ptr noundef readonly captures(none) %0,
   %41 = getelementptr inbounds double, ptr %.056, i64 %37
   %42 = tail call double @ddot_k(i64 noundef %40, ptr noundef %36, i64 noundef 1, ptr noundef %41, i64 noundef 1) #7
   %43 = getelementptr inbounds double, ptr %4, i64 %.05262
-  %44 = load double, ptr %43, align 8, !tbaa !34
+  %44 = load double, ptr %43, align 8, !tbaa !35
   %45 = fadd double %42, %44
-  store double %45, ptr %43, align 8, !tbaa !34
+  store double %45, ptr %43, align 8, !tbaa !35
   %46 = getelementptr inbounds double, ptr %.161, i64 %11
   %47 = add i64 %.05262, 1
   %exitcond.not = icmp eq i64 %47, %.053
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
   ret i32 0
@@ -374,13 +374,14 @@ attributes #7 = { nounwind }
 !24 = !{!20, !5, i64 32}
 !25 = !{!20, !5, i64 40}
 !26 = !{!20, !21, i64 64}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{i64 1032686}
-!30 = distinct !{!30, !28}
-!31 = !{!20, !5, i64 48}
-!32 = !{!20, !5, i64 56}
-!33 = distinct !{!33, !28}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"double", !6, i64 0}
-!36 = distinct !{!36, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{i64 1032686}
+!31 = distinct !{!31, !28, !29}
+!32 = !{!20, !5, i64 48}
+!33 = !{!20, !5, i64 56}
+!34 = distinct !{!34, !28, !29}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"double", !6, i64 0}
+!37 = distinct !{!37, !28, !29}

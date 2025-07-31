@@ -64,7 +64,7 @@ define dso_local zeroext i1 @i915_syncmap_is_later(ptr noundef captures(none) %0
   %38 = lshr i64 %37, 4
   %39 = load i64, ptr %31, align 8
   %40 = icmp eq i64 %38, %39
-  br i1 %40, label %.preheader, label %.loopexit, !llvm.loop !8
+  br i1 %40, label %.preheader, label %.loopexit, !llvm.loop !9
 
 41:                                               ; preds = %.preheader
   store ptr %23, ptr %0, align 8
@@ -98,7 +98,7 @@ define dso_local zeroext i1 @i915_syncmap_is_later(ptr noundef captures(none) %0
 define dso_local noundef range(i32 -12, 1) i32 @i915_syncmap_set(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %20, label %6, !prof !9
+  br i1 %5, label %20, label %6, !prof !10
 
 6:                                                ; preds = %3
   %7 = lshr i64 %1, 4
@@ -139,7 +139,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr noundef cap
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 88) #6
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.thread, label %10, !prof !9
+  br i1 %9, label %.thread, label %10, !prof !10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -163,7 +163,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr noundef cap
   %22 = lshr i64 %21, 4
   %23 = load i64, ptr %15, align 8
   %24 = icmp eq i64 %22, %23
-  br i1 %24, label %25, label %.preheader, !llvm.loop !10
+  br i1 %24, label %25, label %.preheader, !llvm.loop !11
 
 25:                                               ; preds = %17, %.preheader
   %26 = phi ptr [ %15, %17 ], [ %13, %.preheader ]
@@ -185,7 +185,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr noundef cap
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %39 = tail call noalias noundef align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 152) #6
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread, label %41, !prof !9
+  br i1 %40, label %.thread, label %41, !prof !10
 
 41:                                               ; preds = %37
   %42 = load i32, ptr %30, align 8
@@ -194,7 +194,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr noundef cap
   %45 = lshr i64 %44, 4
   %46 = load i64, ptr %29, align 8
   %47 = xor i64 %45, %46
-  %48 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %47, i32 -1) #7, !srcloc !11
+  %48 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %47, i32 -1) #7, !srcloc !12
   %49 = or i32 %48, 3
   %50 = add i32 %42, 1
   %51 = add i32 %50, %49
@@ -263,7 +263,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr noundef cap
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %93 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %92, i32 noundef 3264, i64 noundef 88) #6
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread, label %95, !prof !9
+  br i1 %94, label %.thread, label %95, !prof !10
 
 95:                                               ; preds = %91
   %96 = getelementptr ptr, ptr %87, i64 %86
@@ -315,7 +315,7 @@ define dso_local void @i915_syncmap_free(ptr noundef captures(none) %0) local_un
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %.preheader, !llvm.loop !12
+  br i1 %7, label %8, label %.preheader, !llvm.loop !13
 
 8:                                                ; preds = %.preheader
   tail call fastcc void @__sync_free(ptr noundef nonnull %4)
@@ -337,7 +337,7 @@ define internal fastcc void @__sync_free(ptr noundef %0) unnamed_addr #2 align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = getelementptr i8, ptr %0, i64 24
   %8 = load i32, ptr %6, align 4
-  %9 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 -1) #7, !srcloc !14
+  %9 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 -1) #7, !srcloc !15
   %10 = add i32 %9, 1
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.loopexit, label %.lr.ph
@@ -354,10 +354,10 @@ define internal fastcc void @__sync_free(ptr noundef %0) unnamed_addr #2 align 1
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @__sync_free(ptr noundef %19)
   %20 = load i32, ptr %6, align 4
-  %21 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %20, i32 -1) #7, !srcloc !14
+  %21 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %20, i32 -1) #7, !srcloc !15
   %22 = add i32 %21, 1
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %23, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %1
   tail call void @kfree(ptr noundef %0) #8
@@ -391,13 +391,14 @@ attributes #8 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 2000, i32 1}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !7}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = distinct !{!10, !7}
-!11 = !{i64 908945}
-!12 = distinct !{!12, !13, !7}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{i64 906292}
-!15 = distinct !{!15, !13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 908945}
+!13 = distinct !{!13, !14, !7, !8}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{i64 906292}
+!16 = distinct !{!16, !14, !7, !8}

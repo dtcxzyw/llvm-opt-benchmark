@@ -49,7 +49,7 @@ define dso_local i32 @acpi_ev_walk_gpe_list(ptr noundef readonly captures(none) 
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %19, %16, %2
   %23 = phi i32 [ %18, %16 ], [ 0, %2 ], [ 0, %19 ]
@@ -127,12 +127,12 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr noundef wr
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader6, !llvm.loop !9
+  br i1 %14, label %.loopexit, label %.preheader6, !llvm.loop !10
 
 .loopexit:                                        ; preds = %11, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store i64 0, ptr %3, align 8, !annotation !10
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !11
+  store i64 0, ptr %3, align 8, !annotation !11
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !12
   %15 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   %16 = and i64 %15, 512
@@ -157,7 +157,7 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr noundef wr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %.preheader, !llvm.loop !12
+  br i1 %31, label %32, label %.preheader, !llvm.loop !13
 
 32:                                               ; preds = %.preheader
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -301,7 +301,7 @@ define dso_local noundef i32 @acpi_ev_delete_gpe_handlers(ptr noundef readnone c
   %26 = load ptr, ptr %25, align 8
   tail call void @kfree(ptr noundef nonnull %24) #5
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %21, %19
   store ptr null, ptr %15, align 8
@@ -313,14 +313,14 @@ define dso_local noundef i32 @acpi_ev_delete_gpe_handlers(ptr noundef readnone c
 30:                                               ; preds = %.loopexit, %11
   %31 = add nuw nsw i64 %12, 1
   %32 = icmp eq i64 %31, 8
-  br i1 %32, label %33, label %11, !llvm.loop !14
+  br i1 %32, label %33, label %11, !llvm.loop !15
 
 33:                                               ; preds = %30
   %34 = add nuw nsw i64 %10, 1
   %35 = load i32, ptr %4, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %34, %36
-  br i1 %37, label %9, label %.loopexit3, !llvm.loop !15
+  br i1 %37, label %9, label %.loopexit3, !llvm.loop !16
 
 .loopexit3:                                       ; preds = %33, %3
   ret i32 0
@@ -347,14 +347,15 @@ attributes #6 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = !{!"auto-init"}
-!11 = !{i64 1806069, i64 1806090}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = !{!"auto-init"}
+!12 = !{i64 1806069, i64 1806090}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}

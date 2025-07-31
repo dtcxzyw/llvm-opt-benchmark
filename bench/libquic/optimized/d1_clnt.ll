@@ -591,7 +591,7 @@ dtls1_get_hello_verify.exit._crit_edge:           ; preds = %dtls1_get_hello_ver
   br i1 %.not217, label %.backedge, label %237
 
 .backedge:                                        ; preds = %235, %237, %230
-  br label %26
+  br label %26, !llvm.loop !86
 
 237:                                              ; preds = %235
   store i32 %27, ptr %14, align 4, !tbaa !42
@@ -788,3 +788,5 @@ attributes #4 = { nounwind }
 !83 = !{!55, !9, i64 81}
 !84 = !{!47, !11, i64 300}
 !85 = !{!47, !11, i64 298}
+!86 = distinct !{!86, !87}
+!87 = !{!"llvm.loop.estimated_trip_count"}

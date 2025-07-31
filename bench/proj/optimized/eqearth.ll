@@ -238,7 +238,7 @@ define internal { double, double } @_ZL17eqearth_e_inverse5PJ_XYP8PJconsts(doubl
   br i1 %32, label %35, label %16
 
 33:                                               ; preds = %16
-  %34 = load ptr, ptr %2, align 8, !tbaa !55
+  %34 = load ptr, ptr %2, align 8, !tbaa !56
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %34, i32 noundef 2050)
   br label %56
 
@@ -368,6 +368,7 @@ attributes #7 = { nounwind }
 !50 = !{!4, !14, i64 256}
 !51 = !{!45, !14, i64 0}
 !52 = !{!13, !13, i64 0}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!4, !5, i64 0}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!4, !5, i64 0}

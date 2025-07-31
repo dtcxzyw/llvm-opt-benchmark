@@ -179,7 +179,7 @@ define linkonce_odr dso_local noundef float @_Z5root3f(float noundef %0) local_u
   %9 = fmul float %.146.i, 1.250000e-01
   %10 = fmul float %.13945.i, 2.000000e+00
   %11 = fcmp ogt float %9, 8.000000e+00
-  br i1 %11, label %.lr.ph47.i, label %_ZL6_root3f.exit, !llvm.loop !12
+  br i1 %11, label %.lr.ph47.i, label %_ZL6_root3f.exit, !llvm.loop !13
 
 _ZL6_root3f.exit:                                 ; preds = %.lr.ph47.i, %.preheader.i
   %.139.lcssa.i = phi float [ %.038.lcssa.i, %.preheader.i ], [ %10, %.lr.ph47.i ]
@@ -256,7 +256,7 @@ _ZL6_root3f.exit:                                 ; preds = %.lr.ph47.i, %.prehe
   %62 = fmul float %.146.i12, 1.250000e-01
   %63 = fmul float %.13945.i13, 2.000000e+00
   %64 = fcmp ogt float %62, 8.000000e+00
-  br i1 %64, label %.lr.ph47.i11, label %_ZL6_root3f.exit17, !llvm.loop !12
+  br i1 %64, label %.lr.ph47.i11, label %_ZL6_root3f.exit17, !llvm.loop !13
 
 _ZL6_root3f.exit17:                               ; preds = %.lr.ph47.i11, %.preheader.i6
   %.139.lcssa.i9 = phi float [ %.038.lcssa.i7, %.preheader.i6 ], [ %63, %.lr.ph47.i11 ]
@@ -952,7 +952,7 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   %..1112 = select i1 %50, float %41, float %.1112139
   %51 = add nuw nsw i32 %.0126137, 1
   %exitcond.not = icmp eq i32 %51, 10
-  br i1 %exitcond.not, label %.preheader, label %.preheader131, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader, label %.preheader131, !llvm.loop !14
 
 52:                                               ; preds = %.preheader, %66
   %.1127 = phi i32 [ %53, %66 ], [ 10, %.preheader ]
@@ -996,7 +996,7 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   %.1 = select i1 %73, float %.0, float %74
   %76 = tail call noundef float @llvm.fabs.f32(float %.1)
   %77 = fcmp ogt float %76, 0x3E80000000000000
-  br i1 %77, label %52, label %.loopexit, !llvm.loop !14
+  br i1 %77, label %52, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader131, %54, %52, %66, %32, %34, %5
   %.0106 = phi float [ 0.000000e+00, %5 ], [ %.0117, %32 ], [ %.0111, %34 ], [ %.5, %66 ], [ %.2, %52 ], [ %.4, %54 ], [ %41, %.preheader131 ]
@@ -1053,8 +1053,9 @@ attributes #7 = { nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}

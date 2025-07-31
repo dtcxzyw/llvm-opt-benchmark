@@ -615,7 +615,7 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 322:                                              ; preds = %.sink.split, %297, %280
   %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next654, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit624, label %280, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit624, label %280, !llvm.loop !12
 
 .loopexit624:                                     ; preds = %322, %271, %270
   br i1 %.not573609, label %.loopexit623, label %323
@@ -682,7 +682,7 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 362:                                              ; preds = %336, %332, %343
   %indvars.iv.next657 = add nuw nsw i64 %indvars.iv656, 1
   %exitcond660.not = icmp eq i64 %indvars.iv.next657, %wide.trip.count659
-  br i1 %exitcond660.not, label %.loopexit623, label %332, !llvm.loop !12
+  br i1 %exitcond660.not, label %.loopexit623, label %332, !llvm.loop !13
 
 .loopexit623:                                     ; preds = %362, %323, %.loopexit624
   br i1 %.not571604, label %364, label %363
@@ -769,7 +769,7 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %391 = load i32, ptr %22, align 4, !tbaa !3
   %392 = sext i32 %391 to i64
   %.not584.not = icmp slt i64 %indvars.iv661, %392
-  br i1 %.not584.not, label %.lr.ph641, label %.loopexit, !llvm.loop !13
+  br i1 %.not584.not, label %.lr.ph641, label %.loopexit, !llvm.loop !14
 
 .loopexit.sink.split:                             ; preds = %234, %239, %241
   %.sink688 = phi i32 [ %242, %241 ], [ %240, %239 ], [ %233, %234 ]
@@ -868,8 +868,9 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

@@ -208,7 +208,7 @@ define i64 @autoinc(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %.1 = phi i32 [ %98, %95 ], [ %.097, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %100 = icmp samesign ult i64 %indvars.iv.next, %56
-  br i1 %100, label %57, label %101
+  br i1 %100, label %57, label %101, !llvm.loop !7
 
 101:                                              ; preds = %99
   %102 = icmp sgt i32 %.1, 0
@@ -289,3 +289,5 @@ attributes #7 = { cold nounwind }
 !4 = !{}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}

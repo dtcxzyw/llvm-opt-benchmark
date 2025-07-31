@@ -982,5 +982,6 @@ attributes #8 = { allocsize(1) }
 !11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
 !12 = distinct !{!12, !"memcpy.inline"}
 !13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!"llvm.loop.estimated_trip_count"}

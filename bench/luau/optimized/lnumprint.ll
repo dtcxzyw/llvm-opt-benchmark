@@ -274,7 +274,7 @@ _ZL9schubfachim.exit:                             ; preds = %37, %149, %160
   store i16 %197, ptr %192, align 1
   %198 = udiv i32 %.026.i, 100
   %199 = icmp ugt i32 %.026.i, 999
-  br i1 %199, label %.lr.ph28.i, label %._crit_edge29.i, !llvm.loop !12
+  br i1 %199, label %.lr.ph28.i, label %._crit_edge29.i, !llvm.loop !13
 
 ._crit_edge29.i:                                  ; preds = %.lr.ph28.i, %._crit_edge.i78
   %.1.lcssa.i = phi ptr [ %.018.lcssa.i, %._crit_edge.i78 ], [ %192, %.lr.ph28.i ]
@@ -324,7 +324,7 @@ _ZL16printunsignedrevPcm.exit:                    ; preds = %._crit_edge29.i, %2
   %221 = getelementptr inbounds i8, ptr %.0.i80, i64 -1
   %222 = load i8, ptr %221, align 1, !tbaa !5
   %223 = icmp eq i8 %222, 48
-  br i1 %223, label %220, label %_Z8trimzeroPc.exit, !llvm.loop !13
+  br i1 %223, label %220, label %_Z8trimzeroPc.exit, !llvm.loop !14
 
 224:                                              ; preds = %210
   %225 = icmp eq i32 %.sroa.4.0.i, 0
@@ -358,7 +358,7 @@ _ZL16printunsignedrevPcm.exit:                    ; preds = %._crit_edge29.i, %2
   %240 = getelementptr inbounds i8, ptr %.0.i81, i64 -1
   %241 = load i8, ptr %240, align 1, !tbaa !5
   %242 = icmp eq i8 %241, 48
-  br i1 %242, label %239, label %_Z8trimzeroPc.exit, !llvm.loop !13
+  br i1 %242, label %239, label %_Z8trimzeroPc.exit, !llvm.loop !14
 
 243:                                              ; preds = %229
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %22, ptr noundef nonnull align 1 dereferenceable(17) %.2.i, i64 17, i1 false)
@@ -389,7 +389,7 @@ _ZL16printunsignedrevPcm.exit:                    ; preds = %._crit_edge29.i, %2
   %257 = getelementptr inbounds i8, ptr %.0.i83, i64 -1
   %258 = load i8, ptr %257, align 1, !tbaa !5
   %259 = icmp eq i8 %258, 48
-  br i1 %259, label %256, label %_Z8trimzeroPc.exit84, !llvm.loop !13
+  br i1 %259, label %256, label %_Z8trimzeroPc.exit84, !llvm.loop !14
 
 _Z8trimzeroPc.exit84:                             ; preds = %256
   %260 = icmp eq i8 %258, 46
@@ -469,7 +469,8 @@ attributes #5 = { nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"long", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}

@@ -209,7 +209,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr readnone ca
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr readnone captures(none) %4) #6 {
-  %6 = load ptr, ptr %1, align 8, !tbaa !13
+  %6 = load ptr, ptr %1, align 8, !tbaa !14
   %7 = load i8, ptr %6, align 1, !tbaa !6
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %15
@@ -219,7 +219,7 @@ define internal i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr no
   %11 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !6
   store i8 %12, ptr %3, align 1, !tbaa !6
-  %13 = load ptr, ptr %1, align 8, !tbaa !13
+  %13 = load ptr, ptr %1, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   br label %75
 
@@ -331,7 +331,7 @@ code_to_mbc.exit:                                 ; preds = %get_lower_case.exit
   %69 = ptrtoint ptr %3 to i64
   %70 = sub i64 %68, %69
   %71 = trunc i64 %70 to i32
-  %72 = load ptr, ptr %1, align 8, !tbaa !13
+  %72 = load ptr, ptr %1, align 8, !tbaa !14
   %sext = shl i64 %70, 32
   %73 = ashr exact i64 %sext, 32
   %74 = getelementptr inbounds i8, ptr %72, i64 %73
@@ -340,7 +340,7 @@ code_to_mbc.exit:                                 ; preds = %get_lower_case.exit
 75:                                               ; preds = %code_to_mbc.exit, %9
   %storemerge = phi ptr [ %74, %code_to_mbc.exit ], [ %14, %9 ]
   %.0 = phi i32 [ %71, %code_to_mbc.exit ], [ 1, %9 ]
-  store ptr %storemerge, ptr %1, align 8, !tbaa !13
+  store ptr %storemerge, ptr %1, align 8, !tbaa !14
   ret i32 %.0
 }
 
@@ -514,9 +514,9 @@ get_upper_case.exit:                              ; preds = %73, %77, %get_lower
   br i1 %.not, label %89, label %86
 
 86:                                               ; preds = %get_upper_case.exit
-  store i32 %.0.i, ptr %3, align 4, !tbaa !16
+  store i32 %.0.i, ptr %3, align 4, !tbaa !17
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %87, align 4, !tbaa !18
+  store i32 1, ptr %87, align 4, !tbaa !19
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.0.i3239, ptr %88, align 4, !tbaa !9
   br label %93
@@ -526,9 +526,9 @@ get_upper_case.exit:                              ; preds = %73, %77, %get_lower
   br i1 %.not31, label %93, label %90
 
 90:                                               ; preds = %89
-  store i32 %.0.i, ptr %3, align 4, !tbaa !16
+  store i32 %.0.i, ptr %3, align 4, !tbaa !17
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %91, align 4, !tbaa !18
+  store i32 1, ptr %91, align 4, !tbaa !19
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.0.i34, ptr %92, align 4, !tbaa !9
   br label %93
@@ -569,7 +569,7 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
 23:                                               ; preds = %9
   %24 = zext nneg i32 %21 to i64
   %25 = getelementptr inbounds nuw [13 x %struct.enc_property], ptr @onig_jis_property.wordlist, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 2, !tbaa !19
+  %26 = load i8, ptr %25, align 2, !tbaa !20
   %27 = icmp sgt i8 %26, -1
   br i1 %27, label %28, label %.critedge28.thread.i
 
@@ -600,7 +600,7 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
 
 onig_jis_property.exit:                           ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %44 = load i8, ptr %43, align 1, !tbaa !21
+  %44 = load i8, ptr %43, align 1, !tbaa !22
   %45 = zext i8 %44 to i32
   br label %46
 
@@ -621,7 +621,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr readnone 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %0 to i64
   %9 = getelementptr inbounds nuw [0 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %8
-  %10 = load i16, ptr %9, align 2, !tbaa !22
+  %10 = load i16, ptr %9, align 2, !tbaa !23
   %11 = zext i16 %10 to i32
   %12 = lshr i32 %11, %1
   %13 = and i32 %12, 1
@@ -643,7 +643,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr readnone 
 21:                                               ; preds = %18
   %22 = zext nneg i32 %19 to i64
   %23 = getelementptr inbounds nuw [6 x ptr], ptr @PropertyList, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !24
+  %24 = load ptr, ptr %23, align 8, !tbaa !25
   %25 = tail call i32 @onig_is_in_code_range(ptr noundef %24, i32 noundef %0) #7
   br label %26
 
@@ -666,8 +666,8 @@ define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr n
 9:                                                ; preds = %6
   %10 = zext nneg i32 %7 to i64
   %11 = getelementptr inbounds nuw [6 x ptr], ptr @PropertyList, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !24
-  store ptr %12, ptr %2, align 8, !tbaa !24
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  store ptr %12, ptr %2, align 8, !tbaa !25
   br label %13
 
 13:                                               ; preds = %6, %4, %9
@@ -700,7 +700,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone captures(address
   %15 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %.preheader, label %.loopexit.loopexit, !llvm.loop !26
+  br i1 %17, label %.preheader, label %.loopexit.loopexit, !llvm.loop !27
 
 .loopexit.loopexit:                               ; preds = %.preheader, %11
   %.pre = load i8, ptr %.1, align 1, !tbaa !6
@@ -807,19 +807,20 @@ attributes #7 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 omnipotent char", !15, i64 0}
-!15 = !{!"any pointer", !7, i64 0}
-!16 = !{!17, !10, i64 0}
-!17 = !{!"", !10, i64 0, !10, i64 4, !7, i64 8}
-!18 = !{!17, !10, i64 4}
-!19 = !{!20, !7, i64 0}
-!20 = !{!"enc_property", !7, i64 0, !7, i64 1}
-!21 = !{!20, !7, i64 1}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"short", !7, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 int", !15, i64 0}
-!26 = distinct !{!26, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !16, i64 0}
+!16 = !{!"any pointer", !7, i64 0}
+!17 = !{!18, !10, i64 0}
+!18 = !{!"", !10, i64 0, !10, i64 4, !7, i64 8}
+!19 = !{!18, !10, i64 4}
+!20 = !{!21, !7, i64 0}
+!21 = !{!"enc_property", !7, i64 0, !7, i64 1}
+!22 = !{!21, !7, i64 1}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"short", !7, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 int", !16, i64 0}
+!27 = distinct !{!27, !12, !13}

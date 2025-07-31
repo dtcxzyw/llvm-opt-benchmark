@@ -115,7 +115,7 @@ define dso_local noundef i64 @_ZN4llvm8xxHash64ENS_9StringRefE(ptr %0, i64 %1) l
   %73 = ptrtoint ptr %72 to i64
   %74 = add i64 %73, 8
   %.not64 = icmp ugt i64 %74, %62
-  br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %60
   %.159.lcssa = phi i64 [ %61, %60 ], [ %71, %.lr.ph ]
@@ -146,7 +146,7 @@ define dso_local noundef i64 @_ZN4llvm8xxHash64ENS_9StringRefE(ptr %0, i64 %1) l
 .lr.ph92:                                         ; preds = %84, %.lr.ph92
   %.490 = phi ptr [ %92, %.lr.ph92 ], [ %.3, %84 ]
   %.36189 = phi i64 [ %91, %.lr.ph92 ], [ %.260, %84 ]
-  %86 = load i8, ptr %.490, align 1, !tbaa !6
+  %86 = load i8, ptr %.490, align 1, !tbaa !7
   %87 = zext i8 %86 to i64
   %88 = mul i64 %87, 2870177450012600261
   %89 = xor i64 %88, %.36189
@@ -154,7 +154,7 @@ define dso_local noundef i64 @_ZN4llvm8xxHash64ENS_9StringRefE(ptr %0, i64 %1) l
   %91 = mul i64 %90, -7046029288634856825
   %92 = getelementptr inbounds nuw i8, ptr %.490, i64 1
   %93 = icmp ult ptr %92, %3
-  br i1 %93, label %.lr.ph92, label %._crit_edge93, !llvm.loop !9
+  br i1 %93, label %.lr.ph92, label %._crit_edge93, !llvm.loop !10
 
 ._crit_edge93:                                    ; preds = %.lr.ph92, %84
   %.361.lcssa = phi i64 [ %.260, %84 ], [ %91, %.lr.ph92 ]
@@ -188,7 +188,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
 
 4:                                                ; preds = %2
   %5 = icmp samesign ugt i64 %1, 8
-  br i1 %5, label %6, label %26, !prof !10
+  br i1 %5, label %6, label %26, !prof !11
 
 6:                                                ; preds = %4
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 24), i64 1) ]
@@ -222,7 +222,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
 
 26:                                               ; preds = %4
   %27 = icmp samesign ugt i64 %1, 3
-  br i1 %27, label %28, label %47, !prof !10
+  br i1 %27, label %28, label %47, !prof !11
 
 28:                                               ; preds = %26
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
@@ -256,13 +256,13 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   br i1 %.not.i, label %72, label %48
 
 48:                                               ; preds = %47
-  %49 = load i8, ptr %0, align 1, !tbaa !6
+  %49 = load i8, ptr %0, align 1, !tbaa !7
   %50 = lshr i64 %1, 1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 %50
-  %52 = load i8, ptr %51, align 1, !tbaa !6
+  %52 = load i8, ptr %51, align 1, !tbaa !7
   %53 = getelementptr i8, ptr %0, i64 %1
   %54 = getelementptr i8, ptr %53, i64 -1
-  %55 = load i8, ptr %54, align 1, !tbaa !6
+  %55 = load i8, ptr %54, align 1, !tbaa !7
   %56 = zext i8 %49 to i64
   %57 = shl nuw nsw i64 %56, 16
   %58 = zext i8 %52 to i64
@@ -513,7 +513,7 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_m(ptr nound
   %25 = add i64 %.0261, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %4, label %11, !llvm.loop !11
+  br i1 %exitcond.not, label %4, label %11, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.1.lcssa = phi i64 [ %10, %4 ], [ %57, %.lr.ph ]
@@ -570,7 +570,7 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_m(ptr nound
   %57 = add i64 %.13, %56
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
   %exitcond10.not = icmp eq i64 %indvars.iv.next8, %5
-  br i1 %exitcond10.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond10.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
@@ -611,24 +611,24 @@ define internal fastcc noundef i64 @_ZL17XXH3_hashLong_64bPKhmS0_m(ptr noundef %
   %18 = xor i64 %.0.copyload.i.i.i.i.i.i36, %.0.copyload.i.i.i.i.i.i
   %19 = xor i64 %.0.i315, 1
   %20 = getelementptr inbounds nuw i64, ptr %3, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !13
+  %21 = load i64, ptr %20, align 8, !tbaa !14
   %22 = add i64 %21, %.0.copyload.i.i.i.i.i.i
-  store i64 %22, ptr %20, align 8, !tbaa !13
+  store i64 %22, ptr %20, align 8, !tbaa !14
   %23 = and i64 %18, 4294967295
   %24 = lshr i64 %18, 32
   %25 = mul nuw i64 %23, %24
   %26 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i315
-  %27 = load i64, ptr %26, align 8, !tbaa !13
+  %27 = load i64, ptr %26, align 8, !tbaa !14
   %28 = add i64 %27, %25
-  store i64 %28, ptr %26, align 8, !tbaa !13
+  store i64 %28, ptr %26, align 8, !tbaa !14
   %29 = add nuw nsw i64 %.0.i315, 1
   %exitcond14.not = icmp eq i64 %29, 8
-  br i1 %exitcond14.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit, label %14, !llvm.loop !15
+  br i1 %exitcond14.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit, label %14, !llvm.loop !16
 
 _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit:     ; preds = %14
   %30 = add nuw nsw i64 %.0.i286, 1
   %exitcond15.not = icmp eq i64 %30, %8
-  br i1 %exitcond15.not, label %_ZL15XXH3_accumulatePmPKhS1_m.exit29, label %.lr.ph8, !llvm.loop !16
+  br i1 %exitcond15.not, label %_ZL15XXH3_accumulatePmPKhS1_m.exit29, label %.lr.ph8, !llvm.loop !17
 
 _ZL15XXH3_accumulatePmPKhS1_m.exit29:             ; preds = %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit, %._crit_edge
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %1
@@ -647,19 +647,19 @@ _ZL15XXH3_accumulatePmPKhS1_m.exit29:             ; preds = %_ZL26XXH3_accumulat
   %37 = xor i64 %.0.copyload.i.i.i.i.i.i38, %.0.copyload.i.i.i.i.i.i37
   %38 = xor i64 %.0.i349, 1
   %39 = getelementptr inbounds nuw i64, ptr %3, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !13
+  %40 = load i64, ptr %39, align 8, !tbaa !14
   %41 = add i64 %40, %.0.copyload.i.i.i.i.i.i37
-  store i64 %41, ptr %39, align 8, !tbaa !13
+  store i64 %41, ptr %39, align 8, !tbaa !14
   %42 = and i64 %37, 4294967295
   %43 = lshr i64 %37, 32
   %44 = mul nuw i64 %42, %43
   %45 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i349
-  %46 = load i64, ptr %45, align 8, !tbaa !13
+  %46 = load i64, ptr %45, align 8, !tbaa !14
   %47 = add i64 %46, %44
-  store i64 %47, ptr %45, align 8, !tbaa !13
+  store i64 %47, ptr %45, align 8, !tbaa !14
   %48 = add nuw nsw i64 %.0.i349, 1
   %exitcond16.not = icmp eq i64 %48, 8
-  br i1 %exitcond16.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit35, label %33, !llvm.loop !15
+  br i1 %exitcond16.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit35, label %33, !llvm.loop !16
 
 _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit35:   ; preds = %33
   %49 = mul i64 %1, -7046029288634856825
@@ -671,9 +671,9 @@ _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit35:   ; preds = %33
   %.idx.i = shl nuw nsw i64 %.011.i, 4
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %52 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 11), i64 %.idx.i
-  %.val.i = load i64, ptr %51, align 16, !tbaa !13
+  %.val.i = load i64, ptr %51, align 16, !tbaa !14
   %53 = getelementptr i8, ptr %51, i64 8
-  %.val9.i = load i64, ptr %53, align 8, !tbaa !13
+  %.val9.i = load i64, ptr %53, align 8, !tbaa !14
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %52, align 1
   %54 = xor i64 %.0.copyload.i.i.i.i.i.i.i.i, %.val.i
@@ -690,7 +690,7 @@ _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit35:   ; preds = %33
   %63 = add i64 %.0810.i, %62
   %64 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %64, 4
-  br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %50, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %50, !llvm.loop !18
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %50
   %65 = lshr i64 %63, 37
@@ -727,29 +727,29 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %50
   %81 = xor i64 %.0.copyload.i.i.i.i.i.i40, %.0.copyload.i.i.i.i.i.i39
   %82 = xor i64 %.0.i321, 1
   %83 = getelementptr inbounds nuw i64, ptr %3, i64 %82
-  %84 = load i64, ptr %83, align 8, !tbaa !13
+  %84 = load i64, ptr %83, align 8, !tbaa !14
   %85 = add i64 %84, %.0.copyload.i.i.i.i.i.i39
-  store i64 %85, ptr %83, align 8, !tbaa !13
+  store i64 %85, ptr %83, align 8, !tbaa !14
   %86 = and i64 %81, 4294967295
   %87 = lshr i64 %81, 32
   %88 = mul nuw i64 %86, %87
   %89 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i321
-  %90 = load i64, ptr %89, align 8, !tbaa !13
+  %90 = load i64, ptr %89, align 8, !tbaa !14
   %91 = add i64 %90, %88
-  store i64 %91, ptr %89, align 8, !tbaa !13
+  store i64 %91, ptr %89, align 8, !tbaa !14
   %92 = add nuw nsw i64 %.0.i321, 1
   %exitcond.not = icmp eq i64 %92, 8
-  br i1 %exitcond.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit33, label %77, !llvm.loop !15
+  br i1 %exitcond.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit33, label %77, !llvm.loop !16
 
 _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit33:   ; preds = %77
   %93 = add nuw nsw i64 %.0.i2, 1
   %exitcond11.not = icmp eq i64 %93, 16
-  br i1 %exitcond11.not, label %_ZL15XXH3_accumulatePmPKhS1_m.exit, label %72, !llvm.loop !16
+  br i1 %exitcond11.not, label %_ZL15XXH3_accumulatePmPKhS1_m.exit, label %72, !llvm.loop !17
 
 _ZL15XXH3_accumulatePmPKhS1_m.exit:               ; preds = %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit33, %_ZL15XXH3_accumulatePmPKhS1_m.exit
   %.0.i303 = phi i64 [ %102, %_ZL15XXH3_accumulatePmPKhS1_m.exit ], [ 0, %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit33 ]
   %94 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i303
-  %95 = load i64, ptr %94, align 8, !tbaa !13
+  %95 = load i64, ptr %94, align 8, !tbaa !14
   %96 = lshr i64 %95, 47
   %97 = shl nuw nsw i64 %.0.i303, 3
   %98 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 128), i64 %97
@@ -758,15 +758,15 @@ _ZL15XXH3_accumulatePmPKhS1_m.exit:               ; preds = %_ZL26XXH3_accumulat
   %99 = xor i64 %96, %.0.copyload.i.i.i.i.i.i41
   %100 = xor i64 %99, %95
   %101 = mul i64 %100, 2654435761
-  store i64 %101, ptr %94, align 8, !tbaa !13
+  store i64 %101, ptr %94, align 8, !tbaa !14
   %102 = add nuw nsw i64 %.0.i303, 1
   %exitcond12.not = icmp eq i64 %102, 8
-  br i1 %exitcond12.not, label %_ZL23XXH3_scrambleAcc_scalarPmPKh.exit, label %_ZL15XXH3_accumulatePmPKhS1_m.exit, !llvm.loop !18
+  br i1 %exitcond12.not, label %_ZL23XXH3_scrambleAcc_scalarPmPKh.exit, label %_ZL15XXH3_accumulatePmPKhS1_m.exit, !llvm.loop !19
 
 _ZL23XXH3_scrambleAcc_scalarPmPKh.exit:           ; preds = %_ZL15XXH3_accumulatePmPKhS1_m.exit
   %103 = add nuw nsw i64 %.04, 1
   %exitcond13.not = icmp eq i64 %103, %5
-  br i1 %exitcond13.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond13.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
@@ -877,13 +877,13 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   br i1 %.not.i, label %113, label %77
 
 77:                                               ; preds = %76
-  %78 = load i8, ptr %0, align 1, !tbaa !6
+  %78 = load i8, ptr %0, align 1, !tbaa !7
   %79 = lshr i64 %1, 1
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 %79
-  %81 = load i8, ptr %80, align 1, !tbaa !6
+  %81 = load i8, ptr %80, align 1, !tbaa !7
   %82 = getelementptr i8, ptr %0, i64 %1
   %83 = getelementptr i8, ptr %82, i64 -1
-  %84 = load i8, ptr %83, align 1, !tbaa !6
+  %84 = load i8, ptr %83, align 1, !tbaa !7
   %85 = zext i8 %78 to i32
   %86 = shl nuw nsw i32 %85, 16
   %87 = zext i8 %81 to i32
@@ -1193,29 +1193,29 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit:         ; preds = %116, %178
   %267 = xor i64 %.0.copyload.i.i.i.i.i.i76, %.0.copyload.i.i.i.i.i.i75
   %268 = xor i64 %.0.i1892, 1
   %269 = getelementptr inbounds nuw i64, ptr %3, i64 %268
-  %270 = load i64, ptr %269, align 8, !tbaa !13
+  %270 = load i64, ptr %269, align 8, !tbaa !14
   %271 = add i64 %270, %.0.copyload.i.i.i.i.i.i75
-  store i64 %271, ptr %269, align 8, !tbaa !13
+  store i64 %271, ptr %269, align 8, !tbaa !14
   %272 = and i64 %267, 4294967295
   %273 = lshr i64 %267, 32
   %274 = mul nuw i64 %272, %273
   %275 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i1892
-  %276 = load i64, ptr %275, align 8, !tbaa !13
+  %276 = load i64, ptr %275, align 8, !tbaa !14
   %277 = add i64 %276, %274
-  store i64 %277, ptr %275, align 8, !tbaa !13
+  store i64 %277, ptr %275, align 8, !tbaa !14
   %278 = add nuw nsw i64 %.0.i1892, 1
   %exitcond.not = icmp eq i64 %278, 8
-  br i1 %exitcond.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit19, label %263, !llvm.loop !15
+  br i1 %exitcond.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit19, label %263, !llvm.loop !16
 
 _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit19:   ; preds = %263
   %279 = add nuw nsw i64 %.0.i1393, 1
   %exitcond102.not = icmp eq i64 %279, 16
-  br i1 %exitcond102.not, label %_ZL15XXH3_accumulatePmPKhS1_m.exit, label %258, !llvm.loop !16
+  br i1 %exitcond102.not, label %_ZL15XXH3_accumulatePmPKhS1_m.exit, label %258, !llvm.loop !17
 
 _ZL15XXH3_accumulatePmPKhS1_m.exit:               ; preds = %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit19, %_ZL15XXH3_accumulatePmPKhS1_m.exit
   %.0.i1694 = phi i64 [ %288, %_ZL15XXH3_accumulatePmPKhS1_m.exit ], [ 0, %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit19 ]
   %280 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i1694
-  %281 = load i64, ptr %280, align 8, !tbaa !13
+  %281 = load i64, ptr %280, align 8, !tbaa !14
   %282 = lshr i64 %281, 47
   %283 = shl nuw nsw i64 %.0.i1694, 3
   %284 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 128), i64 %283
@@ -1224,15 +1224,15 @@ _ZL15XXH3_accumulatePmPKhS1_m.exit:               ; preds = %_ZL26XXH3_accumulat
   %285 = xor i64 %282, %.0.copyload.i.i.i.i.i.i77
   %286 = xor i64 %285, %281
   %287 = mul i64 %286, 2654435761
-  store i64 %287, ptr %280, align 8, !tbaa !13
+  store i64 %287, ptr %280, align 8, !tbaa !14
   %288 = add nuw nsw i64 %.0.i1694, 1
   %exitcond103.not = icmp eq i64 %288, 8
-  br i1 %exitcond103.not, label %_ZL23XXH3_scrambleAcc_scalarPmPKh.exit, label %_ZL15XXH3_accumulatePmPKhS1_m.exit, !llvm.loop !18
+  br i1 %exitcond103.not, label %_ZL23XXH3_scrambleAcc_scalarPmPKh.exit, label %_ZL15XXH3_accumulatePmPKhS1_m.exit, !llvm.loop !19
 
 _ZL23XXH3_scrambleAcc_scalarPmPKh.exit:           ; preds = %_ZL15XXH3_accumulatePmPKhS1_m.exit
   %289 = add nuw nsw i64 %.0.i95, 1
   %exitcond104.not = icmp eq i64 %289, %255
-  br i1 %exitcond104.not, label %_Z18XXH3_hashLong_128bPKhmS0_m.exit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond104.not, label %_Z18XXH3_hashLong_128bPKhmS0_m.exit, label %.lr.ph, !llvm.loop !21
 
 _Z18XXH3_hashLong_128bPKhmS0_m.exit:              ; preds = %_ZL23XXH3_scrambleAcc_scalarPmPKh.exit, %253
   %290 = and i64 %254, -1024
@@ -1262,24 +1262,24 @@ _Z18XXH3_hashLong_128bPKhmS0_m.exit:              ; preds = %_ZL23XXH3_scrambleA
   %302 = xor i64 %.0.copyload.i.i.i.i.i.i79, %.0.copyload.i.i.i.i.i.i78
   %303 = xor i64 %.0.i1796, 1
   %304 = getelementptr inbounds nuw i64, ptr %3, i64 %303
-  %305 = load i64, ptr %304, align 8, !tbaa !13
+  %305 = load i64, ptr %304, align 8, !tbaa !14
   %306 = add i64 %305, %.0.copyload.i.i.i.i.i.i78
-  store i64 %306, ptr %304, align 8, !tbaa !13
+  store i64 %306, ptr %304, align 8, !tbaa !14
   %307 = and i64 %302, 4294967295
   %308 = lshr i64 %302, 32
   %309 = mul nuw i64 %307, %308
   %310 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i1796
-  %311 = load i64, ptr %310, align 8, !tbaa !13
+  %311 = load i64, ptr %310, align 8, !tbaa !14
   %312 = add i64 %311, %309
-  store i64 %312, ptr %310, align 8, !tbaa !13
+  store i64 %312, ptr %310, align 8, !tbaa !14
   %313 = add nuw nsw i64 %.0.i1796, 1
   %exitcond105.not = icmp eq i64 %313, 8
-  br i1 %exitcond105.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit, label %298, !llvm.loop !15
+  br i1 %exitcond105.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit, label %298, !llvm.loop !16
 
 _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit:     ; preds = %298
   %314 = add nuw nsw i64 %.0.i1497, 1
   %exitcond106.not = icmp eq i64 %314, %292
-  br i1 %exitcond106.not, label %_ZL15XXH3_accumulatePmPKhS1_m.exit15, label %.lr.ph98, !llvm.loop !16
+  br i1 %exitcond106.not, label %_ZL15XXH3_accumulatePmPKhS1_m.exit15, label %.lr.ph98, !llvm.loop !17
 
 _ZL15XXH3_accumulatePmPKhS1_m.exit15:             ; preds = %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit, %_Z18XXH3_hashLong_128bPKhmS0_m.exit
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 %1
@@ -1298,19 +1298,19 @@ _ZL15XXH3_accumulatePmPKhS1_m.exit15:             ; preds = %_ZL26XXH3_accumulat
   %321 = xor i64 %.0.copyload.i.i.i.i.i.i81, %.0.copyload.i.i.i.i.i.i80
   %322 = xor i64 %.0.i2099, 1
   %323 = getelementptr inbounds nuw i64, ptr %3, i64 %322
-  %324 = load i64, ptr %323, align 8, !tbaa !13
+  %324 = load i64, ptr %323, align 8, !tbaa !14
   %325 = add i64 %324, %.0.copyload.i.i.i.i.i.i80
-  store i64 %325, ptr %323, align 8, !tbaa !13
+  store i64 %325, ptr %323, align 8, !tbaa !14
   %326 = and i64 %321, 4294967295
   %327 = lshr i64 %321, 32
   %328 = mul nuw i64 %326, %327
   %329 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i2099
-  %330 = load i64, ptr %329, align 8, !tbaa !13
+  %330 = load i64, ptr %329, align 8, !tbaa !14
   %331 = add i64 %330, %328
-  store i64 %331, ptr %329, align 8, !tbaa !13
+  store i64 %331, ptr %329, align 8, !tbaa !14
   %332 = add nuw nsw i64 %.0.i2099, 1
   %exitcond107.not = icmp eq i64 %332, 8
-  br i1 %exitcond107.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit21, label %317, !llvm.loop !15
+  br i1 %exitcond107.not, label %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit21, label %317, !llvm.loop !16
 
 _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit21:   ; preds = %317
   %333 = mul i64 %1, -7046029288634856825
@@ -1322,9 +1322,9 @@ _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit21:   ; preds = %317
   %.idx.i = shl nuw nsw i64 %.011.i, 4
   %335 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %336 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 11), i64 %.idx.i
-  %.val.i = load i64, ptr %335, align 16, !tbaa !13
+  %.val.i = load i64, ptr %335, align 16, !tbaa !14
   %337 = getelementptr i8, ptr %335, i64 8
-  %.val9.i = load i64, ptr %337, align 8, !tbaa !13
+  %.val9.i = load i64, ptr %337, align 8, !tbaa !14
   call void @llvm.assume(i1 true) [ "align"(ptr %336, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %336, align 1
   %338 = xor i64 %.0.copyload.i.i.i.i.i.i.i.i, %.val.i
@@ -1341,7 +1341,7 @@ _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit21:   ; preds = %317
   %347 = add i64 %.0810.i, %346
   %348 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %348, 4
-  br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %334, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %334, !llvm.loop !18
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %334
   %349 = mul i64 %1, -4417276706812531889
@@ -1354,9 +1354,9 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %334
   %.idx.i84 = shl nuw nsw i64 %.011.i82, 4
   %352 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i84
   %353 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 117), i64 %.idx.i84
-  %.val.i85 = load i64, ptr %352, align 16, !tbaa !13
+  %.val.i85 = load i64, ptr %352, align 16, !tbaa !14
   %354 = getelementptr i8, ptr %352, i64 8
-  %.val9.i86 = load i64, ptr %354, align 8, !tbaa !13
+  %.val9.i86 = load i64, ptr %354, align 8, !tbaa !14
   call void @llvm.assume(i1 true) [ "align"(ptr %353, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i87 = load i64, ptr %353, align 1
   %355 = xor i64 %.0.copyload.i.i.i.i.i.i.i.i87, %.val.i85
@@ -1373,7 +1373,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %334
   %364 = add i64 %.0810.i83, %363
   %365 = add nuw nsw i64 %.011.i82, 1
   %exitcond.not.i89 = icmp eq i64 %365, 4
-  br i1 %exitcond.not.i89, label %_ZL14XXH3_mergeAccsPKmPKhm.exit90, label %351, !llvm.loop !17
+  br i1 %exitcond.not.i89, label %_ZL14XXH3_mergeAccsPKmPKhm.exit90, label %351, !llvm.loop !18
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit90:                ; preds = %351
   %366 = lshr i64 %347, 37
@@ -1459,7 +1459,7 @@ define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr no
   %36 = xor i64 %34, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %37 = icmp samesign ult i64 %indvars.iv, 128
-  br i1 %37, label %4, label %38, !llvm.loop !21
+  br i1 %37, label %4, label %38, !llvm.loop !22
 
 38:                                               ; preds = %4
   %39 = lshr i64 %23, 37
@@ -1533,7 +1533,7 @@ define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr no
   %80 = xor i64 %78, %79
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 32
   %.not = icmp samesign ult i64 %1, %indvars.iv.next14
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   %.sroa.019.1.lcssa = phi i64 [ %43, %38 ], [ %67, %.lr.ph ]
@@ -1635,23 +1635,24 @@ attributes #7 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C++ TBAA"}
-!9 = distinct !{!9, !4}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !7, i64 0}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = distinct !{!10, !4, !5}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !8, i64 0}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !4, !5}

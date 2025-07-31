@@ -102,7 +102,7 @@ define i64 @text_normalize_buffer(ptr noundef captures(none) %0, ptr noundef rea
   %34 = icmp ult i64 %33, %2
   %35 = icmp ult ptr %.2, %7
   %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %17, label %._crit_edge.loopexit
+  br i1 %36, label %17, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %32
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
@@ -126,9 +126,9 @@ define i64 @text_normalize_buffer(ptr noundef captures(none) %0, ptr noundef rea
 ; Function Attrs: nounwind uwtable
 define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %5 = load i64, ptr %4, align 8, !tbaa !16
+  %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load i64, ptr %6, align 8, !tbaa !20
+  %7 = load i64, ptr %6, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = and i64 %7, 4294967295
@@ -145,7 +145,7 @@ define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i6
   %.57 = phi i64 [ %., %44 ], [ %.53, %3 ]
   %.056 = phi i64 [ %48, %44 ], [ %2, %3 ]
   %.03055 = phi i64 [ %49, %44 ], [ 0, %3 ]
-  %15 = load ptr, ptr %11, align 8, !tbaa !21
+  %15 = load ptr, ptr %11, align 8, !tbaa !23
   %16 = tail call ptr %15(ptr noundef %1, i64 noundef %.056, i64 noundef range(i64 1, 0) %.57, i32 noundef 0) #4
   %.not37 = icmp eq ptr %16, null
   br i1 %.not37, label %.loopexit, label %17
@@ -208,7 +208,7 @@ define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i6
   %41 = icmp ult i64 %40, %.57
   %42 = icmp ult ptr %.2.i, %20
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %24, label %44
+  br i1 %43, label %24, label %44, !llvm.loop !16
 
 44:                                               ; preds = %39
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
@@ -223,7 +223,7 @@ define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i6
   %.51 = tail call i64 @llvm.umin.i64(i64 %10, i64 %50)
   %. = tail call i64 @llvm.umin.i64(i64 %.51, i64 %51)
   %.not = icmp eq i64 %., 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %17, %44, %.lr.ph, %3
   %.030.lcssa = phi i64 [ 0, %3 ], [ %.03055, %17 ], [ %49, %44 ], [ %.03055, %.lr.ph ]
@@ -257,9 +257,12 @@ attributes #4 = { nounwind }
 !13 = !{!4, !10, i64 24}
 !14 = !{!7, !7, i64 0}
 !15 = !{!10, !10, i64 0}
-!16 = !{!17, !9, i64 88}
-!17 = !{!"cl_fmap", !6, i64 0, !6, i64 8, !6, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !18, i64 56, !18, i64 57, !18, i64 58, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !18, i64 152, !7, i64 153, !18, i64 169, !7, i64 170, !18, i64 190, !7, i64 191, !19, i64 224, !5, i64 232}
-!18 = !{!"_Bool", !7, i64 0}
-!19 = !{!"p1 long", !6, i64 0}
-!20 = !{!17, !9, i64 40}
-!21 = !{!17, !6, i64 104}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !9, i64 88}
+!19 = !{!"cl_fmap", !6, i64 0, !6, i64 8, !6, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !20, i64 56, !20, i64 57, !20, i64 58, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !20, i64 152, !7, i64 153, !20, i64 169, !7, i64 170, !20, i64 190, !7, i64 191, !21, i64 224, !5, i64 232}
+!20 = !{!"_Bool", !7, i64 0}
+!21 = !{!"p1 long", !6, i64 0}
+!22 = !{!19, !9, i64 40}
+!23 = !{!19, !6, i64 104}
+!24 = distinct !{!24, !17}

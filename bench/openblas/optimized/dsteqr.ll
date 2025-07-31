@@ -222,7 +222,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .backedge:                                        ; preds = %.loopexit563, %100
   %99 = load i32, ptr %1, align 4, !tbaa !3
   %.not651 = icmp slt i32 %.1495, %99
-  br i1 %.not651, label %.lr.ph, label %.outer564._crit_edge
+  br i1 %.not651, label %.lr.ph, label %.outer564._crit_edge, !llvm.loop !12
 
 100:                                              ; preds = %.loopexit563
   %101 = sub nsw i32 %.1495, %.0489604
@@ -331,7 +331,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %157 = select i1 %155, double %154, double %156
   %158 = call double @llvm.fmuladd.f64(double %152, double %157, double %49)
   %159 = fcmp ugt double %146, %158
-  br i1 %159, label %139, label %160, !llvm.loop !11
+  br i1 %159, label %139, label %160, !llvm.loop !13
 
 160:                                              ; preds = %140
   %161 = trunc nsw i64 %indvars.iv696 to i32
@@ -480,7 +480,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %241 = load i32, ptr %9, align 4, !tbaa !3
   %242 = sext i32 %241 to i64
   %.not533.not = icmp sgt i64 %indvars.iv699, %242
-  br i1 %.not533.not, label %.lr.ph623, label %._crit_edge624, !llvm.loop !12
+  br i1 %.not533.not, label %.lr.ph623, label %._crit_edge624, !llvm.loop !14
 
 ._crit_edge624:                                   ; preds = %240, %183
   %243 = phi double [ %203, %183 ], [ %230, %240 ]
@@ -505,7 +505,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %253 = fsub double %252, %.0490.lcssa
   store double %253, ptr %128, align 8, !tbaa !7
   store double %251, ptr %132, align 8, !tbaa !7
-  br label %137
+  br label %137, !llvm.loop !15
 
 254:                                              ; preds = %.thread548
   %.not536.not = icmp slt i32 %.1499.ph, %.0479
@@ -513,7 +513,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .outer.backedge:                                  ; preds = %254, %177
   %.1499.ph.be = phi i32 [ %180, %177 ], [ %129, %254 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !15
 
 255:                                              ; preds = %.outer560, %380
   %.3 = phi i32 [ %312, %380 ], [ %.3.ph, %.outer560 ]
@@ -549,7 +549,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %275 = select i1 %273, double %272, double %274
   %276 = call double @llvm.fmuladd.f64(double %270, double %275, double %49)
   %277 = fcmp ugt double %264, %276
-  br i1 %277, label %257, label %278, !llvm.loop !13
+  br i1 %277, label %257, label %278, !llvm.loop !16
 
 278:                                              ; preds = %258
   %279 = trunc nsw i64 %indvars.iv690 to i32
@@ -710,7 +710,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %367 = load i32, ptr %9, align 4, !tbaa !3
   %368 = sext i32 %367 to i64
   %.not526.not = icmp slt i64 %indvars.iv693, %368
-  br i1 %.not526.not, label %.lr.ph610, label %._crit_edge611, !llvm.loop !14
+  br i1 %.not526.not, label %.lr.ph610, label %._crit_edge611, !llvm.loop !17
 
 ._crit_edge611:                                   ; preds = %366, %311
   %369 = phi double [ %331, %311 ], [ %357, %366 ]
@@ -739,7 +739,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %383 = fsub double %382, %.1491.lcssa
   store double %383, ptr %303, align 8, !tbaa !7
   store double %381, ptr %307, align 8, !tbaa !7
-  br label %255
+  br label %255, !llvm.loop !18
 
 384:                                              ; preds = %.thread552
   %.not529.not = icmp sgt i32 %.2500.ph, %.0479
@@ -747,7 +747,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .outer560.backedge:                               ; preds = %384, %298
   %.2500.ph.be = phi i32 [ %301, %298 ], [ %304, %384 ]
-  br label %.outer560
+  br label %.outer560, !llvm.loop !18
 
 .loopexit556:                                     ; preds = %384, %298, %254, %177, %309, %181
   %.2 = phi i32 [ %58, %181 ], [ %58, %309 ], [ %.1, %177 ], [ %.1, %254 ], [ %.3, %298 ], [ %.3, %384 ]
@@ -764,7 +764,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 385:                                              ; preds = %.loopexit556, %.sink.split760
   %386 = icmp slt i32 %.2, %58
-  br i1 %386, label %.outer564, label %387
+  br i1 %386, label %.outer564, label %387, !llvm.loop !12
 
 387:                                              ; preds = %385
   %388 = load i32, ptr %1, align 4, !tbaa !3
@@ -791,7 +791,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 395:                                              ; preds = %.lr.ph633, %392
   %indvars.iv.next704 = add nuw nsw i64 %indvars.iv703, 1
   %exitcond707.not = icmp eq i64 %indvars.iv.next704, %wide.trip.count706
-  br i1 %exitcond707.not, label %.loopexit, label %.lr.ph633, !llvm.loop !15
+  br i1 %exitcond707.not, label %.loopexit, label %.lr.ph633, !llvm.loop !19
 
 .outer564._crit_edge:                             ; preds = %.outer564, %.backedge
   %.lcssa = phi i32 [ %99, %.backedge ], [ %60, %.outer564 ]
@@ -839,7 +839,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1488 = select i1 %409, i32 %410, i32 %.0487636
   %indvars.iv.next711 = add nuw nsw i64 %indvars.iv710, 1
   %exitcond714.not = icmp eq i64 %indvars.iv.next711, %wide.trip.count713
-  br i1 %exitcond714.not, label %._crit_edge640, label %.lr.ph639, !llvm.loop !16
+  br i1 %exitcond714.not, label %._crit_edge640, label %.lr.ph639, !llvm.loop !20
 
 ._crit_edge640:                                   ; preds = %.lr.ph639, %.lr.ph650
   %.2492.lcssa = phi double [ %402, %.lr.ph650 ], [ %.3493, %.lr.ph639 ]
@@ -867,7 +867,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next709 = add nuw nsw i64 %indvars.iv708, 1
   %420 = sext i32 %419 to i64
   %.not.not652 = icmp slt i64 %indvars.iv708, %420
-  br i1 %.not.not652, label %.lr.ph650, label %.loopexit, !llvm.loop !17
+  br i1 %.not.not652, label %.lr.ph650, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %395, %418, %387, %397, %396, %44, %45, %43, %.thread545
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
@@ -948,12 +948,16 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}

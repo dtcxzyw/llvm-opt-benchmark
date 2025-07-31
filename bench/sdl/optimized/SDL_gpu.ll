@@ -610,7 +610,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %220
 
@@ -733,7 +733,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %54 = load ptr, ptr %27, align 8
   %55 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetDescription, ptr %54, i64 %indvars.iv, i32 1
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 25
-  %57 = load i8, ptr %56, align 1, !range !5, !noundef !6
+  %57 = load i8, ptr %56, align 1, !range !6, !noundef !7
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %94
 
@@ -849,11 +849,11 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %95 = load i32, ptr %28, align 8
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next, %96
-  br i1 %97, label %37, label %._crit_edge, !llvm.loop !7
+  br i1 %97, label %37, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %94, %26
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %99 = load i8, ptr %98, align 8, !range !5, !noundef !6
+  %99 = load i8, ptr %98, align 8, !range !6, !noundef !7
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %114
 
@@ -908,7 +908,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 114:                                              ; preds = %110, %._crit_edge
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 89
-  %116 = load i8, ptr %115, align 1, !range !5, !noundef !6
+  %116 = load i8, ptr %115, align 1, !range !6, !noundef !7
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %129
 
@@ -1032,7 +1032,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 155:                                              ; preds = %156
   %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next584, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge541, label %156, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge541, label %156, !llvm.loop !9
 
 156:                                              ; preds = %.lr.ph540, %155
   %indvars.iv583 = phi i64 [ 0, %.lr.ph540 ], [ %indvars.iv.next584, %155 ]
@@ -1088,7 +1088,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 173:                                              ; preds = %.lr.ph545
   %indvars.iv.next587 = add nuw nsw i64 %indvars.iv586, 1
   %exitcond590.not = icmp eq i64 %indvars.iv.next587, %164
-  br i1 %exitcond590.not, label %.thread443, label %.lr.ph545, !llvm.loop !9
+  br i1 %exitcond590.not, label %.thread443, label %.lr.ph545, !llvm.loop !10
 
 .lr.ph545:                                        ; preds = %170, %173
   %indvars.iv586 = phi i64 [ %indvars.iv.next587, %173 ], [ 0, %170 ]
@@ -1107,11 +1107,11 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 .thread443:                                       ; preds = %173, %170
   %178 = add nuw i32 %.0205546, 1
   %exitcond591.not = icmp eq i32 %178, %143
-  br i1 %exitcond591.not, label %._crit_edge549, label %163, !llvm.loop !10
+  br i1 %exitcond591.not, label %._crit_edge549, label %163, !llvm.loop !11
 
 ._crit_edge549:                                   ; preds = %.thread443, %._crit_edge541
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %180 = load i8, ptr %179, align 8, !range !5, !noundef !6
+  %180 = load i8, ptr %179, align 8, !range !6, !noundef !7
   %181 = trunc nuw i8 %180 to i1
   br i1 %181, label %.preheader509, label %183
 
@@ -1137,7 +1137,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 187:                                              ; preds = %183
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 130
-  %189 = load i8, ptr %188, align 2, !range !5, !noundef !6
+  %189 = load i8, ptr %188, align 2, !range !6, !noundef !7
   %190 = trunc nuw i8 %189 to i1
   br i1 %190, label %191, label %196
 
@@ -1157,7 +1157,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 196:                                              ; preds = %191, %187
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %198 = load i8, ptr %197, align 4, !range !5, !noundef !6
+  %198 = load i8, ptr %197, align 4, !range !6, !noundef !7
   %199 = trunc nuw i8 %198 to i1
   br i1 %199, label %200, label %.critedge336
 
@@ -1285,7 +1285,7 @@ define hidden void @SDL_GPU_BlitCommon(ptr noundef %0, ptr noundef readonly capt
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %37, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %40 = load i8, ptr %39, align 4, !range !5, !noundef !6
+  %40 = load i8, ptr %39, align 4, !range !6, !noundef !7
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i8 %40, ptr %41, align 8
   %42 = call ptr @SDL_BeginGPURenderPass_REAL(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 1, ptr noundef null)
@@ -1319,13 +1319,13 @@ define hidden void @SDL_GPU_BlitCommon(ptr noundef %0, ptr noundef readonly capt
   %62 = load ptr, ptr %42, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 684
-  %65 = load i8, ptr %64, align 4, !range !5, !noundef !6
+  %65 = load i8, ptr %64, align 4, !range !6, !noundef !7
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %69 = load i8, ptr %68, align 8, !range !5, !noundef !6
+  %69 = load i8, ptr %68, align 8, !range !6, !noundef !7
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %73, label %.preheader.i
 
@@ -1461,13 +1461,13 @@ SDL_BindGPUGraphicsPipeline_REAL.exit:            ; preds = %76, %80, %82
 149:                                              ; preds = %144, %146
   %150 = load ptr, ptr %0, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 684
-  %152 = load i8, ptr %151, align 4, !range !5, !noundef !6
+  %152 = load i8, ptr %151, align 4, !range !6, !noundef !7
   %153 = trunc nuw i8 %152 to i1
   br i1 %153, label %154, label %160
 
 154:                                              ; preds = %149
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %156 = load i8, ptr %155, align 1, !range !5, !noundef !6
+  %156 = load i8, ptr %155, align 1, !range !6, !noundef !7
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %.preheader.i56, label %160
 
@@ -1495,13 +1495,13 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
   %164 = load ptr, ptr %42, align 8
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 684
-  %167 = load i8, ptr %166, align 4, !range !5, !noundef !6
+  %167 = load i8, ptr %166, align 4, !range !6, !noundef !7
   %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %169, label %181
 
 169:                                              ; preds = %163
   %170 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %171 = load i8, ptr %170, align 8, !range !5, !noundef !6
+  %171 = load i8, ptr %170, align 8, !range !6, !noundef !7
   %172 = trunc nuw i8 %171 to i1
   br i1 %172, label %175, label %.preheader27.i
 
@@ -1518,7 +1518,7 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
 
 175:                                              ; preds = %169
   %176 = getelementptr inbounds nuw i8, ptr %164, i64 72
-  %177 = load i8, ptr %176, align 8, !range !5, !noundef !6
+  %177 = load i8, ptr %176, align 8, !range !6, !noundef !7
   %178 = trunc nuw i8 %177 to i1
   br i1 %178, label %181, label %.preheader.i57
 
@@ -1548,13 +1548,13 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
   %187 = load ptr, ptr %42, align 8
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 684
-  %190 = load i8, ptr %189, align 4, !range !5, !noundef !6
+  %190 = load i8, ptr %189, align 4, !range !6, !noundef !7
   %191 = trunc nuw i8 %190 to i1
   br i1 %191, label %192, label %198
 
 192:                                              ; preds = %.loopexit
   %193 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %194 = load i8, ptr %193, align 8, !range !5, !noundef !6
+  %194 = load i8, ptr %193, align 8, !range !6, !noundef !7
   %195 = trunc nuw i8 %194 to i1
   br i1 %195, label %198, label %.preheader.i58
 
@@ -1625,13 +1625,13 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 684
-  %20 = load i8, ptr %19, align 4, !range !5, !noundef !6
+  %20 = load i8, ptr %19, align 4, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %141
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %24 = load i8, ptr %23, align 1, !range !5, !noundef !6
+  %24 = load i8, ptr %23, align 1, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %.preheader, label %28
 
@@ -1648,19 +1648,19 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8, !range !5, !noundef !6
+  %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %.preheader322, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = load i8, ptr %33, align 8, !range !5, !noundef !6
+  %34 = load i8, ptr %33, align 8, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.preheader322, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
+  %38 = load i8, ptr %37, align 8, !range !6, !noundef !7
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %.preheader322, label %.preheader271
 
@@ -1689,14 +1689,14 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 43:                                               ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge178, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge178, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %44 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetInfo, ptr %1, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %47 = load i8, ptr %46, align 8, !range !5, !noundef !6
+  %47 = load i8, ptr %46, align 8, !range !6, !noundef !7
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %55
 
@@ -1891,7 +1891,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 
 114:                                              ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %116 = load i8, ptr %115, align 4, !range !5, !noundef !6
+  %116 = load i8, ptr %115, align 4, !range !6, !noundef !7
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %129
 
@@ -1980,7 +1980,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   store ptr %150, ptr %151, align 8
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count294
-  br i1 %exitcond295.not, label %._crit_edge, label %148, !llvm.loop !12
+  br i1 %exitcond295.not, label %._crit_edge, label %148, !llvm.loop !13
 
 152:                                              ; preds = %._crit_edge
   %153 = load ptr, ptr %3, align 8
@@ -2014,13 +2014,13 @@ define hidden void @SDL_SetGPUViewport_REAL(ptr noundef readonly captures(addres
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 684
-  %14 = load i8, ptr %13, align 4, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 4, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 8, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %22, label %.preheader
 
@@ -2100,13 +2100,13 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %.preheader65
 
@@ -2123,7 +2123,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 122
-  %27 = load i8, ptr %26, align 2, !range !5, !noundef !6
+  %27 = load i8, ptr %26, align 2, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %.loopexit, label %.preheader64
 
@@ -2169,14 +2169,14 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
 .thread53.us:                                     ; preds = %.preheader62.us, %39, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %.thread53.us
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %40 = load i32, ptr %29, align 8
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next76, %41
-  br i1 %42, label %.preheader63.us, label %.preheader61, !llvm.loop !14
+  br i1 %42, label %.preheader63.us, label %.preheader61, !llvm.loop !15
 
 .preheader61:                                     ; preds = %._crit_edge.us, %.preheader64
   %.not71 = icmp eq i32 %3, 0
@@ -2222,7 +2222,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
 .thread57:                                        ; preds = %.preheader, %52, %.lr.ph.split, %47
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !16
+  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.thread57, %.preheader63.lr.ph, %.lr.ph, %.preheader61, %25, %13
   %53 = load ptr, ptr %0, align 8
@@ -2256,13 +2256,13 @@ define hidden void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %0, i32 noun
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 684
-  %15 = load i8, ptr %14, align 4, !range !5, !noundef !6
+  %15 = load i8, ptr %14, align 4, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %19 = load i8, ptr %18, align 1, !range !5, !noundef !6
+  %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %.preheader, label %23
 
@@ -2300,13 +2300,13 @@ define hidden void @SDL_DrawGPUPrimitives_REAL(ptr noundef readonly captures(add
   %10 = load ptr, ptr %0, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 684
-  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i8, ptr %16, align 8, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 8, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %21, label %.preheader27
 
@@ -2323,7 +2323,7 @@ define hidden void @SDL_DrawGPUPrimitives_REAL(ptr noundef readonly captures(add
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
+  %23 = load i8, ptr %22, align 8, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %27, label %.preheader
 
@@ -2361,13 +2361,13 @@ define hidden void @SDL_EndGPURenderPass_REAL(ptr noundef readonly captures(addr
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 684
-  %9 = load i8, ptr %8, align 4, !range !5, !noundef !6
+  %9 = load i8, ptr %8, align 4, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i8, ptr %12, align 8, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 8, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %17, label %.preheader
 
@@ -2739,7 +2739,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef readonly
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %10 = load i8, ptr %9, align 4, !range !5, !noundef !6
+  %10 = load i8, ptr %9, align 4, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
   %12 = add i32 %1, -105
   %or.cond = icmp ult i32 %12, -104
@@ -2765,7 +2765,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef readonly
 17:                                               ; preds = %15
   %18 = zext i32 %1 to i64
   %19 = getelementptr inbounds nuw [105 x i8], ptr @TextureFormatIsComputeWritable, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1, !range !5, !noundef !6
+  %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %.thread
 
@@ -2793,7 +2793,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsSampleCount_REAL(ptr noundef rea
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %9 = load i8, ptr %8, align 4, !range !5, !noundef !6
+  %9 = load i8, ptr %8, align 4, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
   %11 = add i32 %1, -105
   %or.cond = icmp ult i32 %11, -104
@@ -2843,7 +2843,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %12 = load i8, ptr %11, align 4, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 4, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %53
 
@@ -3092,7 +3092,7 @@ define hidden ptr @SDL_CreateGPUShader_REAL(ptr noundef readonly captures(addres
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %12 = load i8, ptr %11, align 4, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 4, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %26
 
@@ -3163,7 +3163,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %12 = load i8, ptr %11, align 4, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 4, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %183
 
@@ -3697,7 +3697,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   %.20 = phi i1 [ %.18.ph, %155 ], [ %.18.ph, %.thread343 ], [ %.19, %.thread339 ], [ true, %159 ], [ true, %.preheader368 ]
   %160 = load i32, ptr %15, align 4
   %161 = load i32, ptr %40, align 4
-  %162 = load i8, ptr %11, align 4, !range !5, !noundef !6
+  %162 = load i8, ptr %11, align 4, !range !6, !noundef !7
   %163 = trunc nuw i8 %162 to i1
   %164 = add i32 %160, -105
   %or.cond.i = icmp ult i32 %164, -104
@@ -3723,7 +3723,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
 169:                                              ; preds = %167
   %170 = zext i32 %160 to i64
   %171 = getelementptr inbounds nuw [105 x i8], ptr @TextureFormatIsComputeWritable, i64 0, i64 %170
-  %172 = load i8, ptr %171, align 1, !range !5, !noundef !6
+  %172 = load i8, ptr %171, align 1, !range !6, !noundef !7
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %174, label %.preheader366.preheader
 
@@ -3934,13 +3934,13 @@ define hidden void @SDL_InsertGPUDebugLabel_REAL(ptr noundef %0, ptr noundef %1)
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 684
-  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %.preheader, label %21
 
@@ -3985,13 +3985,13 @@ define hidden void @SDL_PushGPUDebugGroup_REAL(ptr noundef %0, ptr noundef %1) l
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 684
-  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %.preheader, label %21
 
@@ -4028,13 +4028,13 @@ define hidden void @SDL_PopGPUDebugGroup_REAL(ptr noundef %0) local_unnamed_addr
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 684
-  %8 = load i8, ptr %7, align 4, !range !5, !noundef !6
+  %8 = load i8, ptr %7, align 4, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.preheader, label %16
 
@@ -4301,13 +4301,13 @@ define hidden void @SDL_PushGPUVertexUniformData_REAL(ptr noundef %0, i32 nounde
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 684
-  %15 = load i8, ptr %14, align 4, !range !5, !noundef !6
+  %15 = load i8, ptr %14, align 4, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %19 = load i8, ptr %18, align 1, !range !5, !noundef !6
+  %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %.preheader, label %23
 
@@ -4352,13 +4352,13 @@ define hidden void @SDL_PushGPUComputeUniformData_REAL(ptr noundef %0, i32 nound
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 684
-  %15 = load i8, ptr %14, align 4, !range !5, !noundef !6
+  %15 = load i8, ptr %14, align 4, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %19 = load i8, ptr %18, align 1, !range !5, !noundef !6
+  %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %.preheader, label %23
 
@@ -4404,13 +4404,13 @@ define hidden void @SDL_SetGPUScissor_REAL(ptr noundef readonly captures(address
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 684
-  %14 = load i8, ptr %13, align 4, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 4, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 8, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %22, label %.preheader
 
@@ -4448,13 +4448,13 @@ define hidden void @SDL_SetGPUBlendConstants_REAL(ptr noundef readonly captures(
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 684
-  %11 = load i8, ptr %10, align 4, !range !5, !noundef !6
+  %11 = load i8, ptr %10, align 4, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i8, ptr %14, align 8, !range !5, !noundef !6
+  %15 = load i8, ptr %14, align 8, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %.preheader
 
@@ -4492,13 +4492,13 @@ define hidden void @SDL_SetGPUStencilReference_REAL(ptr noundef readonly capture
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 684
-  %10 = load i8, ptr %9, align 4, !range !5, !noundef !6
+  %10 = load i8, ptr %9, align 4, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i8, ptr %13, align 8, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %18, label %.preheader
 
@@ -4546,13 +4546,13 @@ define hidden void @SDL_BindGPUVertexBuffers_REAL(ptr noundef readonly captures(
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %.preheader
 
@@ -4598,13 +4598,13 @@ define hidden void @SDL_BindGPUIndexBuffer_REAL(ptr noundef readonly captures(ad
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 684
-  %15 = load i8, ptr %14, align 4, !range !5, !noundef !6
+  %15 = load i8, ptr %14, align 4, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i8, ptr %18, align 8, !range !5, !noundef !6
+  %19 = load i8, ptr %18, align 8, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %23, label %.preheader
 
@@ -4652,13 +4652,13 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %.preheader65
 
@@ -4675,7 +4675,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 122
-  %27 = load i8, ptr %26, align 2, !range !5, !noundef !6
+  %27 = load i8, ptr %26, align 2, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %.loopexit, label %.preheader64
 
@@ -4721,14 +4721,14 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
 .thread53.us:                                     ; preds = %.preheader62.us, %39, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %.thread53.us
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %40 = load i32, ptr %29, align 8
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next76, %41
-  br i1 %42, label %.preheader63.us, label %.preheader61, !llvm.loop !19
+  br i1 %42, label %.preheader63.us, label %.preheader61, !llvm.loop !20
 
 .preheader61:                                     ; preds = %._crit_edge.us, %.preheader64
   %.not71 = icmp eq i32 %3, 0
@@ -4774,7 +4774,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
 .thread57:                                        ; preds = %.preheader, %52, %.lr.ph.split, %47
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !20
+  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.thread57, %.preheader63.lr.ph, %.lr.ph, %.preheader61, %25, %13
   %53 = load ptr, ptr %0, align 8
@@ -4811,13 +4811,13 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %.preheader63, label %.preheader64
 
@@ -4863,14 +4863,14 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
 .thread52.us:                                     ; preds = %.preheader61.us, %33, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !22
 
 ._crit_edge.us:                                   ; preds = %.thread52.us
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %34 = load i32, ptr %23, align 8
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next75, %35
-  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !22
+  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !23
 
 .preheader64:                                     ; preds = %19, %.preheader64
   %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1895) #7
@@ -4927,7 +4927,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
 .thread56:                                        ; preds = %.preheader, %48, %.lr.ph.split, %43
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !23
+  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.thread56, %.preheader62.lr.ph, %.lr.ph, %.preheader60, %13
   %49 = load ptr, ptr %0, align 8
@@ -4964,13 +4964,13 @@ define hidden void @SDL_BindGPUVertexStorageBuffers_REAL(ptr noundef readonly ca
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %.preheader
 
@@ -5018,13 +5018,13 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %.preheader63, label %.preheader64
 
@@ -5070,14 +5070,14 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
 .thread52.us:                                     ; preds = %.preheader61.us, %33, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %.thread52.us
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %34 = load i32, ptr %23, align 8
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next75, %35
-  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !25
+  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !26
 
 .preheader64:                                     ; preds = %19, %.preheader64
   %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1979) #7
@@ -5134,7 +5134,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
 .thread56:                                        ; preds = %.preheader, %48, %.lr.ph.split, %43
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !26
+  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.thread56, %.preheader62.lr.ph, %.lr.ph, %.preheader60, %13
   %49 = load ptr, ptr %0, align 8
@@ -5171,13 +5171,13 @@ define hidden void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef readonly 
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %.preheader
 
@@ -5215,13 +5215,13 @@ define hidden void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef readonly captu
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 684
-  %14 = load i8, ptr %13, align 4, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 4, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 8, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %22, label %.preheader28
 
@@ -5238,7 +5238,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef readonly captu
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %24 = load i8, ptr %23, align 8, !range !5, !noundef !6
+  %24 = load i8, ptr %23, align 8, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %28, label %.preheader
 
@@ -5284,13 +5284,13 @@ define hidden void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef readonly capt
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 684
-  %16 = load i8, ptr %15, align 4, !range !5, !noundef !6
+  %16 = load i8, ptr %15, align 4, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i8, ptr %19, align 8, !range !5, !noundef !6
+  %20 = load i8, ptr %19, align 8, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %24, label %.preheader28
 
@@ -5307,7 +5307,7 @@ define hidden void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef readonly capt
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %30, label %.preheader
 
@@ -5353,13 +5353,13 @@ define hidden void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef readon
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 684
-  %16 = load i8, ptr %15, align 4, !range !5, !noundef !6
+  %16 = load i8, ptr %15, align 4, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i8, ptr %19, align 8, !range !5, !noundef !6
+  %20 = load i8, ptr %19, align 8, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %24, label %.preheader28
 
@@ -5376,7 +5376,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef readon
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %30, label %.preheader
 
@@ -5449,13 +5449,13 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 684
-  %30 = load i8, ptr %29, align 4, !range !5, !noundef !6
+  %30 = load i8, ptr %29, align 4, !range !6, !noundef !7
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %.critedge81
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %34 = load i8, ptr %33, align 1, !range !5, !noundef !6
+  %34 = load i8, ptr %33, align 1, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.preheader, label %38
 
@@ -5472,19 +5472,19 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load i8, ptr %39, align 8, !range !5, !noundef !6
+  %40 = load i8, ptr %39, align 8, !range !6, !noundef !7
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %.preheader124, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %44 = load i8, ptr %43, align 8, !range !5, !noundef !6
+  %44 = load i8, ptr %43, align 8, !range !6, !noundef !7
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %.preheader124, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %48 = load i8, ptr %47, align 8, !range !5, !noundef !6
+  %48 = load i8, ptr %47, align 8, !range !6, !noundef !7
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %.preheader124, label %.preheader108
 
@@ -5513,7 +5513,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
 53:                                               ; preds = %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge81, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.critedge81, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
@@ -5609,13 +5609,13 @@ define hidden void @SDL_BindGPUComputePipeline_REAL(ptr noundef readonly capture
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 684
-  %14 = load i8, ptr %13, align 4, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 4, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 8, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %22, label %.preheader
 
@@ -5666,13 +5666,13 @@ define hidden void @SDL_BindGPUComputeSamplers_REAL(ptr noundef readonly capture
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %.preheader
 
@@ -5720,13 +5720,13 @@ define hidden void @SDL_BindGPUComputeStorageTextures_REAL(ptr noundef readonly 
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %.preheader
 
@@ -5774,13 +5774,13 @@ define hidden void @SDL_BindGPUComputeStorageBuffers_REAL(ptr noundef readonly c
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 684
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %.preheader
 
@@ -5818,13 +5818,13 @@ define hidden void @SDL_DispatchGPUCompute_REAL(ptr noundef readonly captures(ad
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 684
-  %12 = load i8, ptr %11, align 4, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 4, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i8, ptr %15, align 8, !range !5, !noundef !6
+  %16 = load i8, ptr %15, align 8, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %20, label %.preheader26
 
@@ -5841,7 +5841,7 @@ define hidden void @SDL_DispatchGPUCompute_REAL(ptr noundef readonly captures(ad
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %22 = load i8, ptr %21, align 8, !range !5, !noundef !6
+  %22 = load i8, ptr %21, align 8, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %26, label %.preheader
 
@@ -5879,13 +5879,13 @@ define hidden void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef readonly cap
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 684
-  %11 = load i8, ptr %10, align 4, !range !5, !noundef !6
+  %11 = load i8, ptr %10, align 4, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i8, ptr %14, align 8, !range !5, !noundef !6
+  %15 = load i8, ptr %14, align 8, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %.preheader25
 
@@ -5902,7 +5902,7 @@ define hidden void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef readonly cap
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %.preheader
 
@@ -5940,13 +5940,13 @@ define hidden void @SDL_EndGPUComputePass_REAL(ptr noundef readonly captures(add
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 684
-  %9 = load i8, ptr %8, align 4, !range !5, !noundef !6
+  %9 = load i8, ptr %8, align 4, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i8, ptr %12, align 8, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 8, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %17, label %.preheader
 
@@ -6047,13 +6047,13 @@ define hidden ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %0) local_unnamed_addr 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 684
-  %8 = load i8, ptr %7, align 4, !range !5, !noundef !6
+  %8 = load i8, ptr %7, align 4, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %31
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.preheader, label %16
 
@@ -6070,19 +6070,19 @@ define hidden ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %0) local_unnamed_addr 
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 8, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.preheader34, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load i8, ptr %21, align 8, !range !5, !noundef !6
+  %22 = load i8, ptr %21, align 8, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %.preheader34, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %.preheader34, label %31
 
@@ -6143,13 +6143,13 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
   %17 = load ptr, ptr %0, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 684
-  %20 = load i8, ptr %19, align 4, !range !5, !noundef !6
+  %20 = load i8, ptr %19, align 4, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %38
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i8, ptr %23, align 8, !range !5, !noundef !6
+  %24 = load i8, ptr %23, align 8, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %28, label %.preheader43
 
@@ -6235,13 +6235,13 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
   %17 = load ptr, ptr %0, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 684
-  %20 = load i8, ptr %19, align 4, !range !5, !noundef !6
+  %20 = load i8, ptr %19, align 4, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %38
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i8, ptr %23, align 8, !range !5, !noundef !6
+  %24 = load i8, ptr %23, align 8, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %28, label %.preheader43
 
@@ -6327,13 +6327,13 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   %20 = load ptr, ptr %0, align 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 684
-  %23 = load i8, ptr %22, align 4, !range !5, !noundef !6
+  %23 = load i8, ptr %22, align 4, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %.thread63
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i8, ptr %26, align 8, !range !5, !noundef !6
+  %27 = load i8, ptr %26, align 8, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %31, label %.preheader69
 
@@ -6438,13 +6438,13 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 684
-  %21 = load i8, ptr %20, align 4, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 4, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %39
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load i8, ptr %24, align 8, !range !5, !noundef !6
+  %25 = load i8, ptr %24, align 8, !range !6, !noundef !7
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %29, label %.preheader44
 
@@ -6530,13 +6530,13 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
   %16 = load ptr, ptr %0, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 684
-  %19 = load i8, ptr %18, align 4, !range !5, !noundef !6
+  %19 = load i8, ptr %18, align 4, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %37
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
+  %23 = load i8, ptr %22, align 8, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %27, label %.preheader42
 
@@ -6622,13 +6622,13 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
   %16 = load ptr, ptr %0, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 684
-  %19 = load i8, ptr %18, align 4, !range !5, !noundef !6
+  %19 = load i8, ptr %18, align 4, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %37
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
+  %23 = load i8, ptr %22, align 8, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %27, label %.preheader42
 
@@ -6698,13 +6698,13 @@ define hidden void @SDL_EndGPUCopyPass_REAL(ptr noundef readonly captures(addres
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 684
-  %9 = load i8, ptr %8, align 4, !range !5, !noundef !6
+  %9 = load i8, ptr %8, align 4, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i8, ptr %12, align 8, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 8, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %17, label %.preheader
 
@@ -6752,13 +6752,13 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 684
-  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %50
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %.preheader, label %21
 
@@ -6775,19 +6775,19 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
+  %23 = load i8, ptr %22, align 8, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %.preheader78, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %27 = load i8, ptr %26, align 8, !range !5, !noundef !6
+  %27 = load i8, ptr %26, align 8, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %.preheader78, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %31 = load i8, ptr %30, align 8, !range !5, !noundef !6
+  %31 = load i8, ptr %30, align 8, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %.preheader78, label %36
 
@@ -6851,7 +6851,7 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   tail call void %52(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 684
-  %55 = load i8, ptr %54, align 4, !range !5, !noundef !6
+  %55 = load i8, ptr %54, align 4, !range !6, !noundef !7
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %.thread
 
@@ -6884,13 +6884,13 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 684
-  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %87
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %.preheader, label %21
 
@@ -6907,19 +6907,19 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
+  %23 = load i8, ptr %22, align 8, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %.preheader146, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %27 = load i8, ptr %26, align 8, !range !5, !noundef !6
+  %27 = load i8, ptr %26, align 8, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %.preheader146, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %31 = load i8, ptr %30, align 8, !range !5, !noundef !6
+  %31 = load i8, ptr %30, align 8, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %.preheader146, label %36
 
@@ -7119,7 +7119,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUSwapchainComposition_REAL(ptr nou
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   %15 = icmp ugt i32 %2, 3
   %or.cond = and i1 %15, %14
@@ -7168,7 +7168,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUPresentMode_REAL(ptr noundef read
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   %15 = icmp ugt i32 %2, 2
   %or.cond = and i1 %15, %14
@@ -7287,7 +7287,7 @@ define hidden zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef readonl
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %14 = load i8, ptr %13, align 4, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 4, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %24
 
@@ -7345,7 +7345,7 @@ define hidden zeroext i1 @SDL_SetGPUAllowedFramesInFlight_REAL(ptr noundef reado
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %8 = load i8, ptr %7, align 4, !range !5, !noundef !6
+  %8 = load i8, ptr %7, align 4, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   %10 = add i32 %1, -4
   %or.cond = icmp ult i32 %10, -3
@@ -7437,13 +7437,13 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 684
-  %20 = load i8, ptr %19, align 4, !range !5, !noundef !6
+  %20 = load i8, ptr %19, align 4, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %43
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %24 = load i8, ptr %23, align 1, !range !5, !noundef !6
+  %24 = load i8, ptr %23, align 1, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %.preheader, label %28
 
@@ -7460,19 +7460,19 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8, !range !5, !noundef !6
+  %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %.preheader43, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = load i8, ptr %33, align 8, !range !5, !noundef !6
+  %34 = load i8, ptr %33, align 8, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.preheader43, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
+  %38 = load i8, ptr %37, align 8, !range !6, !noundef !7
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %.preheader43, label %43
 
@@ -7566,13 +7566,13 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 684
-  %20 = load i8, ptr %19, align 4, !range !5, !noundef !6
+  %20 = load i8, ptr %19, align 4, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %43
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %24 = load i8, ptr %23, align 1, !range !5, !noundef !6
+  %24 = load i8, ptr %23, align 1, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %.preheader, label %28
 
@@ -7589,19 +7589,19 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8, !range !5, !noundef !6
+  %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %.preheader43, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = load i8, ptr %33, align 8, !range !5, !noundef !6
+  %34 = load i8, ptr %33, align 8, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.preheader43, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
+  %38 = load i8, ptr %37, align 8, !range !6, !noundef !7
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %.preheader43, label %43
 
@@ -7649,13 +7649,13 @@ define hidden zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef %0) local_
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 684
-  %8 = load i8, ptr %7, align 4, !range !5, !noundef !6
+  %8 = load i8, ptr %7, align 4, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %31
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.preheader, label %16
 
@@ -7672,19 +7672,19 @@ define hidden zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef %0) local_
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 8, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.preheader33, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load i8, ptr %21, align 8, !range !5, !noundef !6
+  %22 = load i8, ptr %21, align 8, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %.preheader33, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %.preheader33, label %31
 
@@ -7727,13 +7727,13 @@ define hidden ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %0
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 684
-  %8 = load i8, ptr %7, align 4, !range !5, !noundef !6
+  %8 = load i8, ptr %7, align 4, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %31
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.preheader, label %16
 
@@ -7750,19 +7750,19 @@ define hidden ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %0
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 8, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.preheader33, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load i8, ptr %21, align 8, !range !5, !noundef !6
+  %22 = load i8, ptr %21, align 8, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %.preheader33, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %.preheader33, label %31
 
@@ -7805,13 +7805,13 @@ define hidden zeroext i1 @SDL_CancelGPUCommandBuffer_REAL(ptr noundef %0) local_
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 684
-  %8 = load i8, ptr %7, align 4, !range !5, !noundef !6
+  %8 = load i8, ptr %7, align 4, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.preheader, label %16
 
@@ -8069,28 +8069,29 @@ attributes #12 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !4, !17}
-!17 = !{!"llvm.loop.unswitch.partial.disable"}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4, !15}
-!20 = distinct !{!20, !4, !17}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4, !15}
-!23 = distinct !{!23, !4, !17}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4, !15}
-!26 = distinct !{!26, !4, !17}
-!27 = distinct !{!27, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !4, !5, !18}
+!18 = !{!"llvm.loop.unswitch.partial.disable"}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5, !16}
+!21 = distinct !{!21, !4, !5, !18}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !4, !5, !16}
+!24 = distinct !{!24, !4, !5, !18}
+!25 = distinct !{!25, !4, !5}
+!26 = distinct !{!26, !4, !5, !16}
+!27 = distinct !{!27, !4, !5, !18}
+!28 = distinct !{!28, !4, !5}

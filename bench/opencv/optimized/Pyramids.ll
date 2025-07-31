@@ -504,7 +504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %.lo
   %160 = load ptr, ptr @window_name, align 8, !tbaa !37
   store ptr %74, ptr %8, align 8, !tbaa !34
   %161 = icmp eq ptr %160, null
-  br i1 %161, label %._crit_edge, label %114
+  br i1 %161, label %._crit_edge, label %114, !llvm.loop !56
 
 .thread62:                                        ; preds = %134, %95
   %.0 = phi i32 [ 1, %95 ], [ 0, %134 ]
@@ -659,3 +659,5 @@ attributes #13 = { builtin nounwind }
 !53 = !{!"_ZTSN2cv7MatStepE", !54, i64 0, !11, i64 8}
 !54 = !{!"p1 long", !15, i64 0}
 !55 = !{!49, !17, i64 8}
+!56 = distinct !{!56, !57}
+!57 = !{!"llvm.loop.estimated_trip_count"}

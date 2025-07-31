@@ -718,7 +718,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
   store ptr %51, ptr %48, align 8, !tbaa !3
   store ptr %49, ptr %50, align 8, !tbaa !3
   %52 = icmp slt i64 %.044, %8
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %47, %6
   %.042.lcssa = phi i64 [ %1, %6 ], [ %.044, %47 ]
@@ -829,7 +829,7 @@ define internal fastcc noundef ptr @heapify_internal(ptr noundef %0, ptr noundef
   %8 = lshr i64 %.056.i.i, 1
   %9 = add nuw nsw i32 %.07.i.i, 1
   %10 = icmp samesign ugt i64 %.056.i.i, 3
-  br i1 %10, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !30
+  br i1 %10, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %11 = zext nneg i32 %9 to i64
@@ -858,7 +858,7 @@ define internal fastcc noundef ptr @heapify_internal(ptr noundef %0, ptr noundef
   %18 = ashr i64 %.02438.i, 1
   %19 = tail call i32 %1(ptr noundef %0, i64 noundef %18) #2, !callees !26
   %.not29.i = icmp eq i32 %19, 0
-  br i1 %.not29.i, label %.lr.ph.i, label %cache_friendly_heapify.exit
+  br i1 %.not29.i, label %.lr.ph.i, label %cache_friendly_heapify.exit, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %.preheader34.i, %17
   %.02438.i = phi i64 [ %18, %17 ], [ %.02340.i, %.preheader34.i ]
@@ -869,12 +869,12 @@ define internal fastcc noundef ptr @heapify_internal(ptr noundef %0, ptr noundef
 21:                                               ; preds = %.lr.ph.i
   %22 = add nsw i64 %.02340.i, -1
   %.not.not.i = icmp sgt i64 %.02340.i, %14
-  br i1 %.not.not.i, label %.preheader34.i, label %.preheader32.i, !llvm.loop !31
+  br i1 %.not.not.i, label %.preheader34.i, label %.preheader32.i, !llvm.loop !33
 
 .loopexit31.i:                                    ; preds = %.lr.ph43.i
   %.1.i = add i64 %.146.i, -1
   %.not26.i = icmp slt i64 %.1.i, %13
-  br i1 %.not26.i, label %cache_friendly_heapify.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %.not26.i, label %cache_friendly_heapify.exit, label %.preheader.i, !llvm.loop !34
 
 .preheader.i:                                     ; preds = %.loopexit31.i, %.preheader.preheader.i
   %.146.i = phi i64 [ %.1.i, %.loopexit31.i ], [ %.144.i, %.preheader.preheader.i ]
@@ -886,7 +886,7 @@ define internal fastcc noundef ptr @heapify_internal(ptr noundef %0, ptr noundef
   %25 = ashr i64 %.12542.i, 1
   %26 = tail call i32 %1(ptr noundef %0, i64 noundef %25) #2, !callees !26
   %.not27.i = icmp eq i32 %26, 0
-  br i1 %.not27.i, label %.lr.ph43.i, label %cache_friendly_heapify.exit
+  br i1 %.not27.i, label %.lr.ph43.i, label %cache_friendly_heapify.exit, !llvm.loop !35
 
 .lr.ph43.i:                                       ; preds = %.preheader.i, %24
   %.12542.i = phi i64 [ %25, %24 ], [ %.146.i, %.preheader.i ]
@@ -907,7 +907,7 @@ define internal fastcc noundef ptr @heapify_internal(ptr noundef %0, ptr noundef
   %.010 = add nsw i64 %.010.in, -1
   %33 = tail call i32 %1(ptr noundef %0, i64 noundef %.010) #2, !callees !26
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %30, label %cache_friendly_heapify.exit, !llvm.loop !33
+  br i1 %.not, label %30, label %cache_friendly_heapify.exit, !llvm.loop !36
 
 cache_friendly_heapify.exit:                      ; preds = %30, %32, %.preheader34.i, %17, %.preheader.i, %.loopexit31.i, %24, %.preheader32.i
   %.0 = phi ptr [ @_Py_NoneStruct, %.preheader32.i ], [ null, %24 ], [ @_Py_NoneStruct, %.loopexit31.i ], [ null, %.preheader.i ], [ null, %17 ], [ null, %.preheader34.i ], [ @_Py_NoneStruct, %30 ], [ null, %32 ]
@@ -1015,7 +1015,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
   store ptr %47, ptr %44, align 8, !tbaa !3
   store ptr %45, ptr %46, align 8, !tbaa !3
   %48 = icmp slt i64 %.044, %7
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %43, %4
   %49 = phi ptr [ %6, %4 ], [ %.147, %43 ]
@@ -1112,7 +1112,7 @@ Py_DECREF.exit.i:                                 ; preds = %76, %73, %Py_DECREF
   store ptr %86, ptr %83, align 8, !tbaa !3
   store ptr %84, ptr %85, align 8, !tbaa !3
   %87 = icmp sgt i64 %55, %1
-  br i1 %87, label %.lr.ph.i, label %.critedge, !llvm.loop !35
+  br i1 %87, label %.lr.ph.i, label %.critedge, !llvm.loop !38
 
 .critedge.sink.split:                             ; preds = %38, %78, %._crit_edge, %2
   %PyExc_RuntimeError.sink.i.sink = phi ptr [ @PyExc_IndexError, %2 ], [ @PyExc_IndexError, %._crit_edge ], [ @PyExc_RuntimeError, %78 ], [ @PyExc_RuntimeError, %38 ]
@@ -1171,12 +1171,15 @@ attributes #2 = { nounwind }
 !24 = !{!"", !13, i64 0, !25, i64 24, !14, i64 32}
 !25 = !{!"p2 _ZTS7_object", !5, i64 0}
 !26 = !{ptr @siftup, ptr @siftup_max}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28}
-!30 = distinct !{!30, !28}
-!31 = distinct !{!31, !28}
-!32 = distinct !{!32, !28}
-!33 = distinct !{!33, !28}
-!34 = distinct !{!34, !28}
-!35 = distinct !{!35, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !28, !29}
+!31 = distinct !{!31, !28, !29}
+!32 = distinct !{!32, !29}
+!33 = distinct !{!33, !28, !29}
+!34 = distinct !{!34, !28, !29}
+!35 = distinct !{!35, !29}
+!36 = distinct !{!36, !28, !29}
+!37 = distinct !{!37, !28, !29}
+!38 = distinct !{!38, !28, !29}

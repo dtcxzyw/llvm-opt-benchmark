@@ -947,7 +947,7 @@ define void @_ZN6icu_7721ConfusabledataBuilder5buildEPKciR10UErrorCode(ptr nound
 
 143:                                              ; preds = %141
   %144 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %119, i32 noundef %142)
-          to label %129 unwind label %147, !llvm.loop !54
+          to label %129 unwind label %147, !llvm.loop !55
 
 145:                                              ; preds = %129
   %146 = landingpad { ptr, i32 }
@@ -1083,7 +1083,7 @@ _ZN6icu_7713SPUStringPool4sortER10UErrorCode.exit: ; preds = %163
 _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %206, %193
   %224 = add nuw nsw i32 %.0104147, 1
   %exitcond.not = icmp eq i32 %224, %175
-  br i1 %exitcond.not, label %.preheader140, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %.preheader140, label %.lr.ph, !llvm.loop !56
 
 225:                                              ; preds = %.preheader140, %.critedge132
   %.0103 = phi i32 [ %266, %.critedge132 ], [ 0, %.preheader140 ]
@@ -1165,7 +1165,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %206, %193
 
 262:                                              ; preds = %260
   %263 = add nsw i32 %.0102, 1
-  br label %.preheader, !llvm.loop !56
+  br label %.preheader, !llvm.loop !57
 
 264:                                              ; preds = %260, %253
   %265 = landingpad { ptr, i32 }
@@ -1174,7 +1174,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %206, %193
 
 .critedge132:                                     ; preds = %236
   %266 = add nuw nsw i32 %.0103, 1
-  br label %225, !llvm.loop !57
+  br label %225, !llvm.loop !58
 
 .critedge134:                                     ; preds = %228
   invoke void @_ZN6icu_7721ConfusabledataBuilder10outputDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -1259,7 +1259,7 @@ define void @_ZN6icu_7721ConfusabledataBuilder10outputDataER10UErrorCode(ptr nou
   %7 = load i32, ptr %6, align 8, !tbaa !22
   %8 = load ptr, ptr %0, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !58
+  %10 = load ptr, ptr %9, align 8, !tbaa !59
   %11 = shl i32 %7, 2
   %12 = tail call noundef ptr @_ZN6icu_779SpoofData12reserveSpaceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %13 = load i32, ptr %1, align 4, !tbaa !15
@@ -1283,23 +1283,23 @@ define void @_ZN6icu_7721ConfusabledataBuilder10outputDataER10UErrorCode(ptr nou
   store i32 %18, ptr %19, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader52
   %20 = load ptr, ptr %0, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !58
-  %23 = load ptr, ptr %22, align 8, !tbaa !65
+  %22 = load ptr, ptr %21, align 8, !tbaa !59
+  %23 = load ptr, ptr %22, align 8, !tbaa !66
   %24 = ptrtoint ptr %12 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store i32 %27, ptr %28, align 4, !tbaa !73
+  store i32 %27, ptr %28, align 4, !tbaa !74
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 %7, ptr %29, align 4, !tbaa !75
+  store i32 %7, ptr %29, align 4, !tbaa !76
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store ptr %12, ptr %30, align 8, !tbaa !76
+  store ptr %12, ptr %30, align 8, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !37
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1325,26 +1325,26 @@ define void @_ZN6icu_7721ConfusabledataBuilder10outputDataER10UErrorCode(ptr nou
   %42 = tail call noundef i32 @_ZNK6icu_777UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %40, i32 noundef %41)
   %43 = trunc i32 %42 to i16
   %44 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv58
-  store i16 %43, ptr %44, align 2, !tbaa !77
+  store i16 %43, ptr %44, align 2, !tbaa !78
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge56, label %.lr.ph55, !llvm.loop !79
+  br i1 %exitcond62.not, label %._crit_edge56, label %.lr.ph55, !llvm.loop !80
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %.preheader
   %45 = load ptr, ptr %0, align 8, !tbaa !27
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !58
-  %48 = load ptr, ptr %47, align 8, !tbaa !65
+  %47 = load ptr, ptr %46, align 8, !tbaa !59
+  %48 = load ptr, ptr %47, align 8, !tbaa !66
   %49 = ptrtoint ptr %36 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = trunc i64 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 20
-  store i32 %52, ptr %53, align 4, !tbaa !80
+  store i32 %52, ptr %53, align 4, !tbaa !81
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store i32 %34, ptr %54, align 4, !tbaa !81
+  store i32 %34, ptr %54, align 4, !tbaa !82
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store ptr %36, ptr %55, align 8, !tbaa !82
+  store ptr %36, ptr %55, align 8, !tbaa !83
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !42
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1364,28 +1364,28 @@ define void @_ZN6icu_7721ConfusabledataBuilder10outputDataER10UErrorCode(ptr nou
 
 71:                                               ; preds = %._crit_edge56
   %72 = load ptr, ptr %56, align 8, !tbaa !42
-  store ptr %68, ptr %3, align 8, !tbaa !83
+  store ptr %68, ptr %3, align 8, !tbaa !84
   %73 = add i32 %65, 1
   %74 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %72, ptr noundef nonnull %3, i32 noundef %73, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %75 unwind label %89
 
 75:                                               ; preds = %71
-  %76 = load ptr, ptr %3, align 8, !tbaa !83
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %76) #13, !srcloc !85
+  %76 = load ptr, ptr %3, align 8, !tbaa !84
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %76) #13, !srcloc !86
   %77 = load ptr, ptr %0, align 8, !tbaa !27
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !58
-  %80 = load ptr, ptr %79, align 8, !tbaa !65
+  %79 = load ptr, ptr %78, align 8, !tbaa !59
+  %80 = load ptr, ptr %79, align 8, !tbaa !66
   %81 = ptrtoint ptr %68 to i64
   %82 = ptrtoint ptr %80 to i64
   %83 = sub i64 %81, %82
   %84 = trunc i64 %83 to i32
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 28
-  store i32 %84, ptr %85, align 4, !tbaa !86
+  store i32 %84, ptr %85, align 4, !tbaa !87
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  store i32 %65, ptr %86, align 4, !tbaa !87
+  store i32 %65, ptr %86, align 4, !tbaa !88
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  store ptr %68, ptr %87, align 8, !tbaa !88
+  store ptr %68, ptr %87, align 8, !tbaa !89
   br label %88
 
 88:                                               ; preds = %._crit_edge, %._crit_edge56, %75, %2
@@ -1394,8 +1394,8 @@ define void @_ZN6icu_7721ConfusabledataBuilder10outputDataER10UErrorCode(ptr nou
 89:                                               ; preds = %71
   %90 = landingpad { ptr, i32 }
           cleanup
-  %91 = load ptr, ptr %3, align 8, !tbaa !83
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %91) #13, !srcloc !85
+  %91 = load ptr, ptr %3, align 8, !tbaa !84
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %91) #13, !srcloc !86
   resume { ptr, i32 } %90
 }
 
@@ -1503,40 +1503,41 @@ attributes #15 = { allocsize(0) }
 !49 = !{i64 2150356828}
 !50 = !{!51, !51, i64 0}
 !51 = !{!"char16_t", !7, i64 0}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = distinct !{!54, !53}
-!55 = distinct !{!55, !53}
-!56 = distinct !{!56, !53}
-!57 = distinct !{!57, !53}
-!58 = !{!59, !61, i64 16}
-!59 = !{!"_ZTSN6icu_779SpoofImplE", !24, i64 0, !60, i64 8, !12, i64 12, !61, i64 16, !31, i64 24, !62, i64 32, !63, i64 40}
-!60 = !{!"_ZTSN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EEE", !12, i64 0}
-!61 = !{!"p1 _ZTSN6icu_779SpoofDataE", !6, i64 0}
-!62 = !{!"p1 omnipotent char", !6, i64 0}
-!63 = !{!"_ZTS17URestrictionLevel", !7, i64 0}
-!64 = distinct !{!64, !53}
-!65 = !{!66, !67, i64 0}
-!66 = !{!"_ZTSN6icu_779SpoofDataE", !67, i64 0, !7, i64 8, !68, i64 16, !12, i64 24, !69, i64 28, !71, i64 32, !72, i64 40, !30, i64 48}
-!67 = !{!"p1 _ZTSN6icu_7715SpoofDataHeaderE", !6, i64 0}
-!68 = !{!"p1 _ZTS11UDataMemory", !6, i64 0}
-!69 = !{!"_ZTSSt6atomicIiE", !70, i64 0}
-!70 = !{!"_ZTSSt13__atomic_baseIiE", !12, i64 0}
-!71 = !{!"p1 int", !6, i64 0}
-!72 = !{!"p1 short", !6, i64 0}
-!73 = !{!74, !12, i64 12}
-!74 = !{!"_ZTSN6icu_7715SpoofDataHeaderE", !12, i64 0, !7, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !7, i64 36}
-!75 = !{!74, !12, i64 16}
-!76 = !{!66, !71, i64 32}
-!77 = !{!78, !78, i64 0}
-!78 = !{!"short", !7, i64 0}
-!79 = distinct !{!79, !53}
-!80 = !{!74, !12, i64 20}
-!81 = !{!74, !12, i64 24}
-!82 = !{!66, !72, i64 40}
-!83 = !{!84, !30, i64 0}
-!84 = !{!"_ZTSN6icu_779Char16PtrE", !30, i64 0}
-!85 = !{i64 2150356722}
-!86 = !{!74, !12, i64 28}
-!87 = !{!74, !12, i64 32}
-!88 = !{!66, !30, i64 48}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = distinct !{!55, !53, !54}
+!56 = distinct !{!56, !53, !54}
+!57 = distinct !{!57, !53, !54}
+!58 = distinct !{!58, !53, !54}
+!59 = !{!60, !62, i64 16}
+!60 = !{!"_ZTSN6icu_779SpoofImplE", !24, i64 0, !61, i64 8, !12, i64 12, !62, i64 16, !31, i64 24, !63, i64 32, !64, i64 40}
+!61 = !{!"_ZTSN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EEE", !12, i64 0}
+!62 = !{!"p1 _ZTSN6icu_779SpoofDataE", !6, i64 0}
+!63 = !{!"p1 omnipotent char", !6, i64 0}
+!64 = !{!"_ZTS17URestrictionLevel", !7, i64 0}
+!65 = distinct !{!65, !53, !54}
+!66 = !{!67, !68, i64 0}
+!67 = !{!"_ZTSN6icu_779SpoofDataE", !68, i64 0, !7, i64 8, !69, i64 16, !12, i64 24, !70, i64 28, !72, i64 32, !73, i64 40, !30, i64 48}
+!68 = !{!"p1 _ZTSN6icu_7715SpoofDataHeaderE", !6, i64 0}
+!69 = !{!"p1 _ZTS11UDataMemory", !6, i64 0}
+!70 = !{!"_ZTSSt6atomicIiE", !71, i64 0}
+!71 = !{!"_ZTSSt13__atomic_baseIiE", !12, i64 0}
+!72 = !{!"p1 int", !6, i64 0}
+!73 = !{!"p1 short", !6, i64 0}
+!74 = !{!75, !12, i64 12}
+!75 = !{!"_ZTSN6icu_7715SpoofDataHeaderE", !12, i64 0, !7, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !7, i64 36}
+!76 = !{!75, !12, i64 16}
+!77 = !{!67, !72, i64 32}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"short", !7, i64 0}
+!80 = distinct !{!80, !53, !54}
+!81 = !{!75, !12, i64 20}
+!82 = !{!75, !12, i64 24}
+!83 = !{!67, !73, i64 40}
+!84 = !{!85, !30, i64 0}
+!85 = !{!"_ZTSN6icu_779Char16PtrE", !30, i64 0}
+!86 = !{i64 2150356722}
+!87 = !{!75, !12, i64 28}
+!88 = !{!75, !12, i64 32}
+!89 = !{!67, !30, i64 48}

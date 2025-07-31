@@ -196,7 +196,7 @@ define hidden void @_ZN8XNMethod14attach_gc_dataEP7nmethod(ptr noundef %0) local
 40:                                               ; preds = %38
   %41 = load atomic i8, ptr @_ZGVZN13RelocIterator9oop_relocEvE5proto acquire, align 8
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %43, label %_ZN13RelocIterator9oop_relocEv.exit, !prof !8
+  br i1 %42, label %43, label %_ZN13RelocIterator9oop_relocEv.exit, !prof !9
 
 43:                                               ; preds = %40
   %44 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #11
@@ -204,9 +204,9 @@ define hidden void @_ZN8XNMethod14attach_gc_dataEP7nmethod(ptr noundef %0) local
   br i1 %.not.i17, label %_ZN13RelocIterator9oop_relocEv.exit, label %45
 
 45:                                               ; preds = %43
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !9
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !9
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !9
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !10
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !10
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !10
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #11
   br label %_ZN13RelocIterator9oop_relocEv.exit
 
@@ -304,7 +304,7 @@ _ZN13GrowableArrayIPP7oopDescE8allocateEv.exit.i: ; preds = %76, %72, %68
   store ptr %86, ptr %84, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %87 = icmp samesign ult i64 %indvars.iv.next.i, %80
-  br i1 %87, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !12
+  br i1 %87, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !13
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
   %88 = load ptr, ptr %6, align 8
@@ -321,7 +321,7 @@ _ZN13GrowableArrayIPP7oopDescE8allocateEv.exit.i: ; preds = %76, %72, %68
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %91 = trunc nuw i64 %indvars.iv.next22.i to i32
   %92 = icmp sgt i32 %.0.i.i.i.i.i, %91
-  br i1 %92, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !13
+  br i1 %92, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !14
 
 93:                                               ; preds = %.preheader.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %88) #11
@@ -526,7 +526,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %53, %63
   tail call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_94ELS3_103ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.7, i64 noundef %70, i64 noundef %71, ptr noundef %67)
   %72 = getelementptr inbounds nuw i8, ptr %.03237, i64 8
   %73 = icmp ult ptr %72, %44
-  br i1 %73, label %46, label %._crit_edge, !llvm.loop !14
+  br i1 %73, label %46, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %66, %37
   %74 = tail call noundef ptr @_ZNK16XNMethodDataOops16immediates_beginEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #11
@@ -574,7 +574,7 @@ _ZNK7oopDesc5klassEv.exit35:                      ; preds = %89, %99
   tail call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_94ELS3_103ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.8, i64 noundef %81, i64 noundef %84, i64 noundef %85, ptr noundef %101)
   %102 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %103 = icmp ult ptr %102, %75
-  br i1 %103, label %78, label %.loopexit, !llvm.loop !15
+  br i1 %103, label %78, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZNK7oopDesc5klassEv.exit35, %._crit_edge, %3, %1
   ret void
@@ -909,7 +909,7 @@ define hidden void @_ZN8XNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(p
 15:                                               ; preds = %.lr.ph, %12
   %16 = getelementptr inbounds nuw i8, ptr %.02122, i64 8
   %17 = icmp ult ptr %16, %10
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %15, %2
   %18 = getelementptr i8, ptr %0, i64 112
@@ -937,7 +937,7 @@ define hidden void @_ZN8XNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(p
 29:                                               ; preds = %.lr.ph25, %25
   %30 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %31 = icmp ult ptr %30, %21
-  br i1 %31, label %.lr.ph25, label %._crit_edge26, !llvm.loop !17
+  br i1 %31, label %.lr.ph25, label %._crit_edge26, !llvm.loop !18
 
 ._crit_edge26:                                    ; preds = %29, %._crit_edge
   %32 = tail call noundef zeroext i1 @_ZNK16XNMethodDataOops18has_non_immediatesEv(ptr noundef nonnull align 8 dereferenceable(9) %19) #11
@@ -1459,15 +1459,16 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"branch_weights", i32 1, i32 1048575}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_: argument 0"}
-!11 = distinct !{!11, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", i32 1, i32 1048575}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_: argument 0"}
+!12 = distinct !{!12, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

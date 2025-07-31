@@ -112,7 +112,7 @@ define dso_local i32 @snd_hdac_chmap_to_spk_mask(i8 noundef zeroext %0) #3 align
   %10 = getelementptr i8, ptr %4, i64 8
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %.loopexit, label %2, !llvm.loop !9
+  br i1 %12, label %.loopexit, label %2, !llvm.loop !10
 
 .loopexit:                                        ; preds = %9, %6
   %13 = phi i32 [ %8, %6 ], [ 0, %9 ]
@@ -129,13 +129,13 @@ define dso_local range(i32 0, 256) i32 @snd_hdac_spk_to_chmap(i32 noundef %0) #3
   %4 = getelementptr i8, ptr %3, i64 8
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %.loopexit, label %7, !llvm.loop !10
+  br i1 %6, label %.loopexit, label %7, !llvm.loop !11
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr i8, ptr %3, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %0
-  br i1 %10, label %11, label %.preheader, !llvm.loop !10
+  br i1 %10, label %11, label %.preheader, !llvm.loop !12
 
 11:                                               ; preds = %7
   %12 = zext i8 %5 to i32
@@ -164,7 +164,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 16:                                               ; preds = %.preheader35
   %17 = add nuw nsw i64 %12, 1
   %18 = icmp eq i64 %17, 50
-  br i1 %18, label %.loopexit36, label %.preheader35, !llvm.loop !11
+  br i1 %18, label %.loopexit36, label %.preheader35, !llvm.loop !13
 
 19:                                               ; preds = %.preheader35
   %20 = trunc i64 %12 to i32
@@ -219,7 +219,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %45 = getelementptr i8, ptr %42, i64 8
   %46 = load i8, ptr %45, align 4
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %.thread25, label %40, !llvm.loop !9
+  br i1 %47, label %.thread25, label %40, !llvm.loop !14
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -240,7 +240,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 59:                                               ; preds = %.preheader32
   %60 = add nuw nsw i32 %53, 1
   %61 = icmp eq i32 %60, 8
-  br i1 %61, label %.thread25, label %.preheader32, !llvm.loop !12
+  br i1 %61, label %.thread25, label %.preheader32, !llvm.loop !15
 
 62:                                               ; preds = %.preheader32
   %63 = zext nneg i32 %53 to i64
@@ -252,7 +252,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 .thread25:                                        ; preds = %44, %59, %48, %62
   %66 = add nuw nsw i64 %37, 1
   %67 = icmp eq i64 %66, %33
-  br i1 %67, label %.loopexit34, label %36, !llvm.loop !13
+  br i1 %67, label %.loopexit34, label %36, !llvm.loop !16
 
 68:                                               ; preds = %68, %.loopexit34
   %69 = phi i64 [ 0, %.loopexit34 ], [ %77, %68 ]
@@ -266,7 +266,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %77 = add nuw nsw i64 %69, 1
   %78 = icmp eq i64 %77, 8
   %79 = select i1 %76, i1 true, i1 %78
-  br i1 %79, label %80, label %68, !llvm.loop !14
+  br i1 %79, label %80, label %68, !llvm.loop !17
 
 80:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
@@ -274,7 +274,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 
 81:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !18
   br label %82
 
 82:                                               ; preds = %87, %81
@@ -287,7 +287,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 87:                                               ; preds = %82
   %88 = add nuw nsw i64 %83, 1
   %89 = icmp eq i64 %88, 50
-  br i1 %89, label %90, label %82, !llvm.loop !11
+  br i1 %89, label %90, label %82, !llvm.loop !19
 
 90:                                               ; preds = %87, %82
   %91 = phi i64 [ %83, %82 ], [ 50, %87 ]
@@ -316,7 +316,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %107 = phi i64 [ 0, %103 ], [ %139, %131 ]
   %108 = phi i32 [ 0, %103 ], [ %136, %131 ]
   %109 = icmp sgt i32 %108, 7
-  br i1 %109, label %.loopexit31, label %110, !prof !16
+  br i1 %109, label %.loopexit31, label %110, !prof !20
 
 110:                                              ; preds = %105
   %111 = sext i32 %108 to i64
@@ -334,9 +334,9 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 
 .loopexit31:                                      ; preds = %126, %105
   %117 = phi i32 [ %108, %105 ], [ 8, %126 ]
-  tail call void asm sideeffect "360: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 360b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 360) #13, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 357, i32 2305, i64 12) #13, !srcloc !18
-  tail call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_end\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #13, !srcloc !19
+  tail call void asm sideeffect "360: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 360b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 360) #13, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 357, i32 2305, i64 12) #13, !srcloc !22
+  tail call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_end\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #13, !srcloc !23
   %.pre = load i32, ptr %100, align 4
   br label %131
 
@@ -353,7 +353,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 126:                                              ; preds = %118
   %127 = add nsw i64 %119, 1
   %128 = icmp eq i64 %127, 8
-  br i1 %128, label %.loopexit31, label %118, !prof !20, !llvm.loop !21
+  br i1 %128, label %.loopexit31, label %118, !prof !24, !llvm.loop !25
 
 129:                                              ; preds = %118
   %130 = trunc i64 %119 to i32
@@ -371,7 +371,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %139 = add nuw nsw i64 %107, 1
   %140 = sext i32 %132 to i64
   %141 = icmp slt i64 %139, %140
-  br i1 %141, label %105, label %112, !llvm.loop !22
+  br i1 %141, label %105, label %112, !llvm.loop !27
 
 142:                                              ; preds = %155, %114
   %143 = phi i32 [ %115, %114 ], [ %156, %155 ]
@@ -395,7 +395,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %156 = phi i32 [ %143, %142 ], [ %152, %150 ]
   %157 = add nuw nsw i32 %144, 1
   %158 = icmp eq i32 %157, 8
-  br i1 %158, label %.loopexit30, label %142, !llvm.loop !23
+  br i1 %158, label %.loopexit30, label %142, !llvm.loop !28
 
 .loopexit30:                                      ; preds = %155, %90
   br i1 %2, label %159, label %.loopexit29
@@ -427,7 +427,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   store i32 %171, ptr %172, align 4
   %173 = add nuw nsw i64 %168, 1
   %174 = icmp eq i64 %173, %164
-  br i1 %174, label %165, label %167, !llvm.loop !24
+  br i1 %174, label %165, label %167, !llvm.loop !29
 
 .thread26:                                        ; preds = %.thread26.preheader, %.thread26
   %175 = phi i64 [ %179, %.thread26 ], [ %.ph90, %.thread26.preheader ]
@@ -437,7 +437,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   store i32 %177, ptr %178, align 4
   %179 = add nuw nsw i64 %175, 1
   %180 = icmp eq i64 %179, 8
-  br i1 %180, label %.loopexit29, label %.thread26, !llvm.loop !25
+  br i1 %180, label %.loopexit29, label %.thread26, !llvm.loop !30
 
 .loopexit29:                                      ; preds = %.thread26, %165, %.loopexit30
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -461,7 +461,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %196 = add nuw nsw i64 %184, 1
   %197 = icmp eq i64 %196, 8
   %198 = select i1 %195, i1 true, i1 %197
-  br i1 %198, label %199, label %183, !llvm.loop !26
+  br i1 %198, label %199, label %183, !llvm.loop !31
 
 199:                                              ; preds = %183
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
@@ -477,7 +477,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 205:                                              ; preds = %200
   %206 = add nuw nsw i64 %201, 1
   %207 = icmp eq i64 %206, 50
-  br i1 %207, label %.split49.preheader, label %200, !llvm.loop !11
+  br i1 %207, label %.split49.preheader, label %200, !llvm.loop !32
 
 .loopexit28:                                      ; preds = %200
   %208 = trunc i64 %201 to i32
@@ -519,13 +519,13 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %229 = getelementptr i8, ptr %228, i64 8
   %230 = load i8, ptr %229, align 4
   %231 = icmp eq i8 %230, 0
-  br i1 %231, label %.loopexit.us, label %232, !llvm.loop !10
+  br i1 %231, label %.loopexit.us, label %232, !llvm.loop !11
 
 232:                                              ; preds = %.preheader.us
   %233 = getelementptr i8, ptr %228, i64 12
   %234 = load i32, ptr %233, align 4
   %235 = icmp eq i32 %234, %226
-  br i1 %235, label %.loopexit.us, label %.preheader.us, !llvm.loop !10
+  br i1 %235, label %.loopexit.us, label %.preheader.us, !llvm.loop !33
 
 .loopexit.us:                                     ; preds = %.preheader.us, %232, %222, %216, %.split49.us
   %236 = phi i8 [ 0, %216 ], [ 3, %222 ], [ 0, %.split49.us ], [ %230, %232 ], [ 0, %.preheader.us ]
@@ -533,7 +533,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   store i8 %236, ptr %237, align 1
   %238 = add nuw nsw i64 %212, 1
   %239 = icmp eq i64 %238, 8
-  br i1 %239, label %.loopexit27, label %.split49.us, !llvm.loop !27
+  br i1 %239, label %.loopexit27, label %.split49.us, !llvm.loop !34
 
 .loopexit27:                                      ; preds = %.loopexit.us, %.split49.preheader, %80
   ret void
@@ -553,7 +553,7 @@ define dso_local i32 @snd_hdac_get_active_channels(i32 noundef %0) #4 align 16 {
 7:                                                ; preds = %2
   %8 = add nuw nsw i64 %3, 1
   %9 = icmp eq i64 %8, 50
-  br i1 %9, label %.thread, label %2, !llvm.loop !11
+  br i1 %9, label %.thread, label %2, !llvm.loop !36
 
 10:                                               ; preds = %2
   %11 = trunc i64 %3 to i32
@@ -585,7 +585,7 @@ define dso_local nonnull ptr @snd_hdac_get_ch_alloc_from_ca(i32 noundef %0) #4 a
 7:                                                ; preds = %2
   %8 = add nuw nsw i64 %3, 1
   %9 = icmp eq i64 %8, 50
-  br i1 %9, label %10, label %2, !llvm.loop !11
+  br i1 %9, label %10, label %2, !llvm.loop !37
 
 10:                                               ; preds = %7, %2
   %11 = phi i64 [ %3, %2 ], [ 50, %7 ]
@@ -638,7 +638,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
   %30 = getelementptr i8, ptr %24, i64 8
   %31 = load i8, ptr %30, align 4
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %.loopexit13, label %22, !llvm.loop !9
+  br i1 %32, label %.loopexit13, label %22, !llvm.loop !38
 
 .loopexit13:                                      ; preds = %29, %26
   %33 = phi i32 [ %28, %26 ], [ 0, %29 ]
@@ -648,7 +648,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
   %37 = add i32 %19, %36
   %38 = add nuw nsw i64 %17, 1
   %39 = icmp eq i64 %38, %13
-  br i1 %39, label %.loopexit14, label %16, !llvm.loop !29
+  br i1 %39, label %.loopexit14, label %16, !llvm.loop !39
 
 40:                                               ; preds = %55, %.loopexit14
   %41 = phi i64 [ 0, %.loopexit14 ], [ %56, %55 ]
@@ -674,11 +674,11 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
 55:                                               ; preds = %48, %40
   %56 = add nuw nsw i64 %41, 1
   %57 = icmp eq i64 %56, 50
-  br i1 %57, label %.loopexit12, label %40, !llvm.loop !30
+  br i1 %57, label %.loopexit12, label %40, !llvm.loop !40
 
 58:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %7, i8 0, i64 80, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %7, i8 0, i64 80, i1 false), !annotation !18
   %59 = icmp slt i32 %2, 3
   br i1 %59, label %.loopexit47, label %.preheader11
 
@@ -701,7 +701,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
   %71 = phi i32 [ %69, %66 ], [ %61, %.preheader11 ]
   %72 = add nuw nsw i64 %60, 1
   %73 = icmp eq i64 %72, 11
-  br i1 %73, label %.preheader9, label %.preheader11, !llvm.loop !31
+  br i1 %73, label %.preheader9, label %.preheader11, !llvm.loop !41
 
 .preheader9:                                      ; preds = %70, %84
   %74 = phi i64 [ %85, %84 ], [ 0, %70 ]
@@ -721,7 +721,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
 84:                                               ; preds = %79, %.preheader9
   %85 = add nuw nsw i64 %74, 1
   %86 = icmp eq i64 %85, 50
-  br i1 %86, label %.preheader.preheader, label %.preheader9, !llvm.loop !32
+  br i1 %86, label %.preheader.preheader, label %.preheader9, !llvm.loop !42
 
 .loopexit10:                                      ; preds = %79
   %87 = load i32, ptr %75, align 4
@@ -734,7 +734,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
 89:                                               ; preds = %.preheader
   %90 = add nuw nsw i64 %92, 1
   %91 = icmp eq i64 %90, 50
-  br i1 %91, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %91, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .preheader:                                       ; preds = %.preheader.preheader, %89
   %92 = phi i64 [ %90, %89 ], [ 0, %.preheader.preheader ]
@@ -776,7 +776,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
   %117 = phi i32 [ %115, %107 ], [ %102, %100 ]
   %118 = add nuw nsw i64 %101, 1
   %119 = icmp eq i64 %118, 11
-  br i1 %119, label %.loopexit47, label %100, !llvm.loop !6
+  br i1 %119, label %.loopexit47, label %100, !llvm.loop !44
 
 .loopexit47:                                      ; preds = %116, %58
   %120 = phi i32 [ 0, %58 ], [ %99, %116 ]
@@ -829,12 +829,12 @@ define dso_local void @snd_hdac_register_chmap_ops(ptr noundef %0, ptr noundef w
   %24 = phi i32 [ %19, %18 ], [ %13, %11 ]
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp eq i64 %25, 8
-  br i1 %26, label %27, label %11, !llvm.loop !34
+  br i1 %26, label %27, label %11, !llvm.loop !45
 
 27:                                               ; preds = %22
   %28 = add nuw nsw i64 %6, 1
   %29 = icmp eq i64 %28, 50
-  br i1 %29, label %30, label %5, !llvm.loop !35
+  br i1 %29, label %30, label %5, !llvm.loop !46
 
 30:                                               ; preds = %27
   ret void
@@ -847,7 +847,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_add_chmap_ctls(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store ptr null, ptr %4, align 8, !annotation !15
+  store ptr null, ptr %4, align 8, !annotation !18
   %5 = sext i32 %1 to i64
   %6 = call i32 @snd_pcm_add_chmap_ctls(ptr noundef %0, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef %5, ptr noundef nonnull %4) #13
   %7 = icmp slt i32 %6, 0
@@ -878,7 +878,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_add_chmap_ctls(ptr noun
   store i32 %22, ptr %20, align 8
   %23 = add nuw i32 %18, 1
   %24 = icmp ult i32 %23, %14
-  br i1 %24, label %17, label %.loopexit, !llvm.loop !36
+  br i1 %24, label %17, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %17, %8
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 88
@@ -947,7 +947,7 @@ define internal noundef i32 @hdmi_chmap_ctl_get(ptr noundef readonly captures(no
   store i64 %20, ptr %21, align 8
   %22 = add nuw nsw i64 %17, 1
   %23 = icmp eq i64 %22, 8
-  br i1 %23, label %24, label %16, !llvm.loop !37
+  br i1 %23, label %24, label %16, !llvm.loop !48
 
 24:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
@@ -975,7 +975,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr noundef readonly captures(none) %0, 
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %2
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !18
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -985,7 +985,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr noundef readonly captures(none) %0, 
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %22 to i64
   %26 = zext i32 %24 to i64
-  %27 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %26, i64 %25) #13, !srcloc !38
+  %27 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %26, i64 %25) #13, !srcloc !49
   %28 = trunc i64 %27 to i32
   %29 = and i32 %22, %28
   %30 = load ptr, ptr %6, align 8
@@ -1010,7 +1010,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr noundef readonly captures(none) %0, 
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 224
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.thread, label %.preheader12, !llvm.loop !39
+  br i1 %45, label %.thread, label %.preheader12, !llvm.loop !50
 
 46:                                               ; preds = %.preheader12
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 192
@@ -1044,7 +1044,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr noundef readonly captures(none) %0, 
   store i8 %60, ptr %61, align 1
   %62 = add nuw nsw i64 %57, 1
   %63 = icmp eq i64 %62, 8
-  br i1 %63, label %64, label %56, !llvm.loop !40
+  br i1 %63, label %64, label %56, !llvm.loop !51
 
 64:                                               ; preds = %56
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -1079,7 +1079,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr noundef readonly captures(none) %0, 
   %84 = getelementptr i8, ptr %78, i64 8
   %85 = load i8, ptr %84, align 4
   %86 = icmp eq i8 %85, 0
-  br i1 %86, label %.loopexit, label %76, !llvm.loop !9
+  br i1 %86, label %.loopexit, label %76, !llvm.loop !52
 
 .loopexit:                                        ; preds = %83, %80
   %87 = phi i32 [ %82, %80 ], [ 0, %83 ]
@@ -1089,7 +1089,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr noundef readonly captures(none) %0, 
   %91 = add i32 %73, %90
   %92 = add nuw nsw i64 %71, 1
   %93 = icmp eq i64 %92, 8
-  br i1 %93, label %.preheader, label %.preheader11, !llvm.loop !29
+  br i1 %93, label %.preheader, label %.preheader11, !llvm.loop !53
 
 .preheader:                                       ; preds = %.loopexit, %106
   %94 = phi i64 [ %107, %106 ], [ 0, %.loopexit ]
@@ -1111,7 +1111,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr noundef readonly captures(none) %0, 
 106:                                              ; preds = %101, %.preheader
   %107 = add nuw nsw i64 %94, 1
   %108 = icmp eq i64 %107, 50
-  br i1 %108, label %.thread, label %.preheader, !llvm.loop !30
+  br i1 %108, label %.thread, label %.preheader, !llvm.loop !54
 
 109:                                              ; preds = %101
   %110 = load i32, ptr %95, align 4
@@ -1158,7 +1158,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly c
 
 14:                                               ; preds = %4
   %15 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %16 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %3, i32 0, i64 4, i64 %15) #13, !srcloc !41
+  %16 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %3, i32 0, i64 4, i64 %15) #13, !srcloc !55
   %17 = extractvalue { ptr, i64 } %16, 0
   %18 = extractvalue { ptr, i64 } %16, 1
   %19 = ptrtoint ptr %17 to i64
@@ -1194,12 +1194,12 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly c
   %40 = phi i32 [ %38, %35 ], [ %30, %28 ]
   %41 = add nuw nsw i64 %29, 1
   %42 = icmp eq i64 %41, 11
-  br i1 %42, label %43, label %28, !llvm.loop !42
+  br i1 %42, label %43, label %28, !llvm.loop !56
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %45 = sext i32 %40 to i64
-  %46 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %45) #14, !srcloc !43
+  %46 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %45) #14, !srcloc !57
   %47 = icmp ult i64 %46, 2
   br i1 %47, label %.loopexit15, label %48
 
@@ -1213,7 +1213,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly c
   %53 = add i32 %60, 1
   %54 = sext i32 %53 to i64
   %55 = icmp ult i64 %46, %54
-  br i1 %55, label %.loopexit15, label %56, !llvm.loop !44
+  br i1 %55, label %.loopexit15, label %56, !llvm.loop !58
 
 56:                                               ; preds = %52, %48
   %57 = phi i64 [ 2, %48 ], [ %54, %52 ]
@@ -1234,7 +1234,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly c
   %70 = phi i32 [ 0, %56 ], [ %120, %116 ]
   %71 = phi ptr [ @channel_allocations, %56 ], [ %121, %116 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !18
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 36
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, %60
@@ -1259,7 +1259,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly c
 
 86:                                               ; preds = %84
   %87 = call i64 @llvm.read_register.i64(metadata !0)
-  %88 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %68, i32 %82, i64 4, i64 %87) #13, !srcloc !45
+  %88 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %68, i32 %82, i64 4, i64 %87) #13, !srcloc !59
   %89 = extractvalue { ptr, i64 } %88, 0
   %90 = extractvalue { ptr, i64 } %88, 1
   %91 = ptrtoint ptr %89 to i64
@@ -1271,7 +1271,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly c
 94:                                               ; preds = %86
   %95 = getelementptr i8, ptr %68, i64 4
   %96 = call i64 @llvm.read_register.i64(metadata !0)
-  %97 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %95, i32 %62, i64 4, i64 %96) #13, !srcloc !46
+  %97 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %95, i32 %62, i64 4, i64 %96) #13, !srcloc !60
   %98 = extractvalue { ptr, i64 } %97, 0
   %99 = extractvalue { ptr, i64 } %97, 1
   %100 = ptrtoint ptr %98 to i64
@@ -1291,7 +1291,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly c
   %109 = add i32 %65, %69
   %110 = load ptr, ptr %51, align 8
   call void %110(ptr noundef %9, ptr noundef %71, ptr noundef nonnull %5, i32 noundef %60) #13
-  br i1 %64, label %.critedge, label %111, !prof !47
+  br i1 %64, label %.critedge, label %111, !prof !61
 
 .critedge:                                        ; preds = %107
   call void @__copy_overflow(i32 noundef 32, i64 noundef %63) #13
@@ -1314,7 +1314,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly c
   %120 = add nuw nsw i32 %70, 1
   %121 = getelementptr i8, ptr %71, i64 44
   %122 = icmp eq i32 %120, 50
-  br i1 %122, label %52, label %66, !llvm.loop !48
+  br i1 %122, label %52, label %66, !llvm.loop !62
 
 .loopexit:                                        ; preds = %80, %84, %94, %86, %103, %111, %.critedge
   %.ph13 = phi i32 [ -14, %.critedge ], [ -19, %80 ], [ -12, %84 ], [ -14, %94 ], [ -14, %86 ], [ -12, %103 ], [ -14, %111 ]
@@ -1325,7 +1325,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly c
   %123 = phi i32 [ 0, %43 ], [ %117, %52 ]
   %124 = getelementptr i8, ptr %3, i64 4
   %125 = call i64 @llvm.read_register.i64(metadata !0)
-  %126 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %124, i32 %123, i64 4, i64 %125) #13, !srcloc !49
+  %126 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %124, i32 %123, i64 4, i64 %125) #13, !srcloc !63
   %127 = extractvalue { ptr, i64 } %126, 0
   %128 = extractvalue { ptr, i64 } %126, 1
   %129 = ptrtoint ptr %127 to i64
@@ -1372,13 +1372,13 @@ define internal void @hdmi_cea_alloc_to_tlv_chmap(ptr readnone captures(none) %0
   %12 = getelementptr i8, ptr %11, i64 8
   %13 = load i8, ptr %12, align 4
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %.loopexit, label %15, !llvm.loop !10
+  br i1 %14, label %.loopexit, label %15, !llvm.loop !11
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr i8, ptr %11, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %10
-  br i1 %18, label %.loopexit1.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %18, label %.loopexit1.loopexit, label %.preheader, !llvm.loop !64
 
 .loopexit1.loopexit:                              ; preds = %15
   %19 = zext i8 %13 to i32
@@ -1396,16 +1396,16 @@ define internal void @hdmi_cea_alloc_to_tlv_chmap(ptr readnone captures(none) %0
   %25 = phi i32 [ %21, %.loopexit ], [ %8, %6 ]
   %26 = add nsw i64 %7, -1
   %27 = icmp eq i64 %7, 0
-  br i1 %27, label %28, label %6, !llvm.loop !50
+  br i1 %27, label %28, label %6, !llvm.loop !65
 
 28:                                               ; preds = %24
   %29 = icmp eq i32 %25, %3
-  br i1 %29, label %31, label %30, !prof !51
+  br i1 %29, label %31, label %30, !prof !66
 
 30:                                               ; preds = %28
-  tail call void asm sideeffect "368: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 368b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 368) #13, !srcloc !52
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 648, i32 2305, i64 12) #13, !srcloc !53
-  tail call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_end\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #13, !srcloc !54
+  tail call void asm sideeffect "368: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 368b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 368) #13, !srcloc !67
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 648, i32 2305, i64 12) #13, !srcloc !68
+  tail call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_end\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #13, !srcloc !69
   br label %31
 
 31:                                               ; preds = %30, %28
@@ -1490,52 +1490,67 @@ attributes #14 = { nounwind memory(none) }
 !3 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
 !11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!"auto-init"}
-!16 = !{!"branch_weights", i32 1, i32 127}
-!17 = !{i64 2155515107, i64 2155514916, i64 2155514968, i64 2155515014, i64 2155515042}
-!18 = !{i64 2155515181, i64 2155515210, i64 2155515256, i64 2155515314, i64 2155515368, i64 2155515422, i64 2155515477, i64 2155515508, i64 2155515816, i64 2155515822, i64 2155515869, i64 2155515892, i64 2155515918}
-!19 = !{i64 2155516373, i64 2155516184, i64 2155516234, i64 2155516280, i64 2155516308}
-!20 = !{!"branch_weights", i32 127, i32 255873}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = !{i64 268087}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = !{i64 2155534362}
-!42 = distinct !{!42, !7, !8}
-!43 = !{i64 2148500283, i64 2148500311, i64 2148500317, i64 2148500333, i64 2148500349, i64 2148500376, i64 2148500709, i64 2148500009, i64 2148500715, i64 2148500763, i64 2148500827, i64 2148500891, i64 2148500948, i64 2148500090, i64 2148500115, i64 2148501155, i64 2148501285, i64 2148501216, i64 2148501299, i64 2148500207}
-!44 = distinct !{!44, !7, !8}
-!45 = !{i64 2155535845}
-!46 = !{i64 2155536882}
-!47 = !{!"branch_weights", i32 1, i32 2000}
-!48 = distinct !{!48, !7, !8}
-!49 = !{i64 2155537953}
-!50 = distinct !{!50, !7, !8}
-!51 = !{!"branch_weights", i32 2000, i32 1}
-!52 = !{i64 2155532027, i64 2155531836, i64 2155531888, i64 2155531934, i64 2155531962}
-!53 = !{i64 2155532101, i64 2155532130, i64 2155532176, i64 2155532234, i64 2155532288, i64 2155532342, i64 2155532397, i64 2155532428, i64 2155532736, i64 2155532742, i64 2155532789, i64 2155532812, i64 2155532838}
-!54 = !{i64 2155533293, i64 2155533104, i64 2155533154, i64 2155533200, i64 2155533228}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = distinct !{!16, !7, !8, !9}
+!17 = distinct !{!17, !7, !8, !9}
+!18 = !{!"auto-init"}
+!19 = distinct !{!19, !7, !8, !9}
+!20 = !{!"branch_weights", i32 1, i32 127}
+!21 = !{i64 2155515107, i64 2155514916, i64 2155514968, i64 2155515014, i64 2155515042}
+!22 = !{i64 2155515181, i64 2155515210, i64 2155515256, i64 2155515314, i64 2155515368, i64 2155515422, i64 2155515477, i64 2155515508, i64 2155515816, i64 2155515822, i64 2155515869, i64 2155515892, i64 2155515918}
+!23 = !{i64 2155516373, i64 2155516184, i64 2155516234, i64 2155516280, i64 2155516308}
+!24 = !{!"branch_weights", i32 127, i32 255873}
+!25 = distinct !{!25, !7, !8, !26}
+!26 = !{!"llvm.loop.estimated_trip_count", i32 2016}
+!27 = distinct !{!27, !7, !8, !9}
+!28 = distinct !{!28, !7, !8, !9}
+!29 = distinct !{!29, !7, !8, !9}
+!30 = distinct !{!30, !7, !8, !9}
+!31 = distinct !{!31, !7, !8, !9}
+!32 = distinct !{!32, !7, !8, !9}
+!33 = distinct !{!33, !7, !8, !9}
+!34 = distinct !{!34, !7, !8, !9, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !7, !8, !9}
+!37 = distinct !{!37, !7, !8, !9}
+!38 = distinct !{!38, !7, !8, !9}
+!39 = distinct !{!39, !7, !8, !9}
+!40 = distinct !{!40, !7, !8, !9}
+!41 = distinct !{!41, !7, !8, !9}
+!42 = distinct !{!42, !7, !8, !9}
+!43 = distinct !{!43, !7, !8, !9}
+!44 = distinct !{!44, !7, !8, !9}
+!45 = distinct !{!45, !7, !8, !9}
+!46 = distinct !{!46, !7, !8, !9}
+!47 = distinct !{!47, !7, !8, !9}
+!48 = distinct !{!48, !7, !8, !9}
+!49 = !{i64 268087}
+!50 = distinct !{!50, !7, !8, !9}
+!51 = distinct !{!51, !7, !8, !9}
+!52 = distinct !{!52, !7, !8, !9}
+!53 = distinct !{!53, !7, !8, !9}
+!54 = distinct !{!54, !7, !8, !9}
+!55 = !{i64 2155534362}
+!56 = distinct !{!56, !7, !8, !9}
+!57 = !{i64 2148500283, i64 2148500311, i64 2148500317, i64 2148500333, i64 2148500349, i64 2148500376, i64 2148500709, i64 2148500009, i64 2148500715, i64 2148500763, i64 2148500827, i64 2148500891, i64 2148500948, i64 2148500090, i64 2148500115, i64 2148501155, i64 2148501285, i64 2148501216, i64 2148501299, i64 2148500207}
+!58 = distinct !{!58, !7, !8, !9}
+!59 = !{i64 2155535845}
+!60 = !{i64 2155536882}
+!61 = !{!"branch_weights", i32 1, i32 2000}
+!62 = distinct !{!62, !7, !8, !9}
+!63 = !{i64 2155537953}
+!64 = distinct !{!64, !7, !8, !9}
+!65 = distinct !{!65, !7, !8, !9}
+!66 = !{!"branch_weights", i32 2000, i32 1}
+!67 = !{i64 2155532027, i64 2155531836, i64 2155531888, i64 2155531934, i64 2155531962}
+!68 = !{i64 2155532101, i64 2155532130, i64 2155532176, i64 2155532234, i64 2155532288, i64 2155532342, i64 2155532397, i64 2155532428, i64 2155532736, i64 2155532742, i64 2155532789, i64 2155532812, i64 2155532838}
+!69 = !{i64 2155533293, i64 2155533104, i64 2155533154, i64 2155533200, i64 2155533228}

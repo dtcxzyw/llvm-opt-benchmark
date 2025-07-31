@@ -311,7 +311,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %96 = call i32 @stat(ptr noundef %95, ptr noundef nonnull %9) #14
   %97 = icmp sgt i32 %96, -1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #14
-  br i1 %97, label %.lr.ph187, label %.thread, !llvm.loop !38
+  br i1 %97, label %.lr.ph187, label %.thread, !llvm.loop !39
 
 .split.split:                                     ; preds = %57, %.split.split
   %.297 = phi i32 [ %spec.select, %.split.split ], [ 0, %57 ]
@@ -326,32 +326,32 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #14
   %105 = zext i1 %104 to i32
   %spec.select = add nuw nsw i32 %.297, %105
-  br i1 %104, label %.split.split, label %.thread
+  br i1 %104, label %.split.split, label %.thread, !llvm.loop !40
 
 .thread:                                          ; preds = %.split.split, %.lr.ph184, %.split.us, %.lr.ph187, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
   %.1159 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us ], [ %.1.ph, %.lr.ph187 ], [ null, %.split.us ], [ null, %.lr.ph184 ], [ null, %.split.split ]
   %.us-phi = phi i32 [ %.196.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.297.us140186, %.lr.ph187 ], [ %90, %.split.split.us ], [ %.297.us183, %.lr.ph184 ], [ %70, %.split.us ], [ %spec.select, %.split.split ]
-  %106 = load ptr, ptr %30, align 8, !tbaa !39
+  %106 = load ptr, ptr %30, align 8, !tbaa !41
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %107) #14
-  %108 = load ptr, ptr %30, align 8, !tbaa !39
+  %108 = load ptr, ptr %30, align 8, !tbaa !41
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8, !tbaa !40
+  %110 = load ptr, ptr %109, align 8, !tbaa !42
   %111 = call i32 @sk_find(ptr noundef %110, ptr noundef nonnull %7, ptr noundef nonnull %6) #14
   %.not106 = icmp eq i32 %111, 0
   br i1 %.not106, label %118, label %112
 
 112:                                              ; preds = %.thread
-  %113 = load ptr, ptr %30, align 8, !tbaa !39
+  %113 = load ptr, ptr %30, align 8, !tbaa !41
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !40
+  %115 = load ptr, ptr %114, align 8, !tbaa !42
   %116 = load i64, ptr %7, align 8, !tbaa !30
   %117 = call ptr @sk_value(ptr noundef %115, i64 noundef %116) #14
   br label %118
 
 118:                                              ; preds = %112, %.thread
   %.091 = phi ptr [ %117, %112 ], [ null, %.thread ]
-  %119 = load ptr, ptr %30, align 8, !tbaa !39
+  %119 = load ptr, ptr %30, align 8, !tbaa !41
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %120) #14
   br i1 %27, label %121, label %143
@@ -440,10 +440,10 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %151 = load ptr, ptr %26, align 8, !tbaa !13
   %152 = call i64 @sk_num(ptr noundef %151) #14
   %153 = icmp ult i64 %150, %152
-  br i1 %153, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %153, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %149, %31
-  br i1 %32, label %31, label %.loopexit, !llvm.loop !47
+  br i1 %32, label %31, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %._crit_edge, %.thread128
   %.084 = phi i32 [ %.3.ph, %.thread128 ], [ 0, %._crit_edge ]
@@ -576,7 +576,7 @@ thread-pre-split:                                 ; preds = %65
   %30 = load ptr, ptr %7, align 8, !tbaa !13
   %31 = tail call i64 @sk_num(ptr noundef %30) #14
   %32 = icmp ult i64 %29, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %28, %25, %.preheader
   %.049.lcssa = phi i64 [ 0, %.preheader ], [ %.04981, %25 ], [ %29, %28 ]
@@ -672,7 +672,7 @@ by_dir_entry_free.exit63:                         ; preds = %62, %64
   %.148 = phi ptr [ %.047, %10 ], [ %13, %53 ], [ %13, %._crit_edge ], [ %13, %12 ]
   %66 = load i8, ptr %.045, align 1, !tbaa !22
   %.not60 = icmp eq i8 %66, 0
-  br i1 %.not60, label %.thread66, label %thread-pre-split, !llvm.loop !49
+  br i1 %.not60, label %.thread66, label %thread-pre-split, !llvm.loop !51
 
 .thread66:                                        ; preds = %42, %65, %41, %by_dir_entry_free.exit, %by_dir_entry_free.exit63, %8
   %.046 = phi i32 [ 0, %8 ], [ 0, %by_dir_entry_free.exit63 ], [ 0, %by_dir_entry_free.exit ], [ 0, %41 ], [ 0, %42 ], [ 1, %65 ]
@@ -699,9 +699,9 @@ declare ptr @sk_new(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @by_dir_hash_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !50
+  %3 = load ptr, ptr %0, align 8, !tbaa !52
   %4 = load i64, ptr %3, align 8, !tbaa !27
-  %5 = load ptr, ptr %1, align 8, !tbaa !50
+  %5 = load ptr, ptr %1, align 8, !tbaa !52
   %6 = load i64, ptr %5, align 8, !tbaa !27
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %4, i64 %6)
   ret i32 %.0
@@ -797,19 +797,21 @@ attributes #15 = { nounwind willreturn memory(read) }
 !33 = !{!"buf_mem_st", !29, i64 0, !18, i64 8, !29, i64 16}
 !34 = !{!33, !29, i64 16}
 !35 = !{!24, !16, i64 8}
-!36 = distinct !{!36, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !37}
-!39 = !{!15, !19, i64 24}
-!40 = !{!41, !42, i64 8}
-!41 = !{!"x509_store_st", !16, i64 0, !42, i64 8, !10, i64 16, !43, i64 72, !44, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !16, i64 176}
-!42 = !{!"p1 _ZTS20stack_st_X509_OBJECT", !9, i64 0}
-!43 = !{!"p1 _ZTS20stack_st_X509_LOOKUP", !9, i64 0}
-!44 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
-!45 = distinct !{!45, !46}
-!46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = distinct !{!48, !46}
-!49 = distinct !{!49, !46}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS20lookup_dir_hashes_st", !9, i64 0}
+!36 = distinct !{!36, !37, !38}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = distinct !{!39, !37, !38}
+!40 = distinct !{!40, !37}
+!41 = !{!15, !19, i64 24}
+!42 = !{!43, !44, i64 8}
+!43 = !{!"x509_store_st", !16, i64 0, !44, i64 8, !10, i64 16, !45, i64 72, !46, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !16, i64 176}
+!44 = !{!"p1 _ZTS20stack_st_X509_OBJECT", !9, i64 0}
+!45 = !{!"p1 _ZTS20stack_st_X509_LOOKUP", !9, i64 0}
+!46 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
+!47 = distinct !{!47, !48, !37}
+!48 = !{!"llvm.loop.mustprogress"}
+!49 = distinct !{!49, !48, !37}
+!50 = distinct !{!50, !48, !37}
+!51 = distinct !{!51, !48, !37}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS20lookup_dir_hashes_st", !9, i64 0}

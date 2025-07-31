@@ -145,7 +145,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
 ._crit_edge:                                      ; preds = %.lr.ph
   %87 = add nuw nsw i64 %.0189203, 2
   %88 = icmp slt i64 %87, %68
-  br i1 %88, label %.lr.ph.preheader, label %.preheader200, !llvm.loop !17
+  br i1 %88, label %.lr.ph.preheader, label %.preheader200, !llvm.loop !18
 
 89:                                               ; preds = %.lr.ph207, %89
   %.0192206 = phi i64 [ %57, %.lr.ph207 ], [ %94, %89 ]
@@ -157,17 +157,17 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   %93 = call i32 @dgemm_kernel(i64 noundef %spec.store.select6, i64 noundef %spec.store.select, i64 noundef %spec.select, double noundef -1.000000e+00, ptr noundef %3, ptr noundef %42, ptr noundef %gep210, i64 noundef %14) #4
   %94 = add nuw nsw i64 %.0192206, 192
   %95 = icmp slt i64 %94, %.0181
-  br i1 %95, label %89, label %._crit_edge208, !llvm.loop !18
+  br i1 %95, label %89, label %._crit_edge208, !llvm.loop !19
 
 ._crit_edge208:                                   ; preds = %89, %.preheader200
   %96 = add nuw nsw i64 %.0190211, 8256
   %97 = icmp slt i64 %96, %.0183
-  br i1 %97, label %66, label %.loopexit201, !llvm.loop !19
+  br i1 %97, label %66, label %.loopexit201, !llvm.loop !20
 
 .loopexit201:                                     ; preds = %._crit_edge208, %46
   %98 = add nuw nsw i64 %.0187212, %spec.store.select7
   %99 = icmp slt i64 %98, %30
-  br i1 %99, label %46, label %.lr.ph217, !llvm.loop !20
+  br i1 %99, label %46, label %.lr.ph217, !llvm.loop !21
 
 100:                                              ; preds = %.lr.ph217, %100
   %.1188216 = phi i64 [ 0, %.lr.ph217 ], [ %103, %100 ]
@@ -180,7 +180,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   %106 = getelementptr inbounds double, ptr %.0182, i64 %.neg
   %107 = call i32 @dlaswp_plus(i64 noundef %102, i64 noundef %104, i64 noundef %45, double noundef 0.000000e+00, ptr noundef %106, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
   %108 = icmp slt i64 %103, %30
-  br i1 %108, label %100, label %.loopexit, !llvm.loop !21
+  br i1 %108, label %100, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %100, %26, %35
   %.0 = phi i32 [ %36, %35 ], [ 0, %26 ], [ %.1, %100 ]
@@ -237,10 +237,11 @@ attributes #4 = { nounwind }
 !12 = !{!4, !8, i64 72}
 !13 = !{!4, !5, i64 16}
 !14 = !{!8, !8, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = distinct !{!19, !16, !17}
+!20 = distinct !{!20, !16, !17}
+!21 = distinct !{!21, !16, !17}
+!22 = distinct !{!22, !16, !17}

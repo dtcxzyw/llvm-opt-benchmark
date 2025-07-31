@@ -169,7 +169,7 @@ define hidden void @_ZN15G1SurvRateGroup19stop_adding_regionsEv(ptr noundef nonn
   %45 = load i32, ptr %2, align 4
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %44, %46
-  br i1 %47, label %23, label %._crit_edge, !llvm.loop !8
+  br i1 %47, label %23, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %39, %6
   %.lcssa = phi i32 [ %19, %6 ], [ %45, %39 ]
@@ -252,7 +252,7 @@ define hidden void @_ZN15G1SurvRateGroup28all_surviving_words_recordedERK13G1Pre
   %29 = load i32, ptr %0, align 8
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %28, %30
-  br i1 %31, label %.lr.ph.i, label %_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv.exit, !llvm.loop !9
+  br i1 %31, label %.lr.ph.i, label %_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv.exit, !llvm.loop !10
 
 _ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv.exitthread-pre-split: ; preds = %3, %4
   %.pr = load i32, ptr %0, align 8
@@ -307,7 +307,7 @@ _ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit.i: ; preds =
   %62 = load i32, ptr %0, align 8
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %61, %63
-  br i1 %64, label %35, label %_ZN15G1SurvRateGroup20finalize_predictionsERK13G1Predictions.exit, !llvm.loop !10
+  br i1 %64, label %35, label %_ZN15G1SurvRateGroup20finalize_predictionsERK13G1Predictions.exit, !llvm.loop !11
 
 _ZN15G1SurvRateGroup20finalize_predictionsERK13G1Predictions.exit: ; preds = %_ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit.i, %_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv.exit
   %.09.lcssa.i = phi double [ 0.000000e+00, %_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv.exit ], [ %57, %_ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit.i ]
@@ -356,7 +356,7 @@ define hidden void @_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv(ptr noundef 
   %26 = load i32, ptr %0, align 8
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %25, %27
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %1
   ret void
@@ -412,7 +412,7 @@ _ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit: ; preds = %
   %33 = load i32, ptr %0, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %32, %34
-  br i1 %35, label %6, label %._crit_edge, !llvm.loop !10
+  br i1 %35, label %6, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit, %2
   %.09.lcssa = phi double [ 0.000000e+00, %2 ], [ %28, %_ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit ]
@@ -488,8 +488,9 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

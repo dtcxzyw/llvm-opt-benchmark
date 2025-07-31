@@ -457,10 +457,10 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   call void @X11_Xinput2SelectTouch(ptr noundef %0, ptr noundef nonnull %1) #12
   %38 = call zeroext i1 @X11_Xinput2SelectMouseAndKeyboard(ptr noundef %0, ptr noundef nonnull %1) #12
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 117
-  %40 = load i8, ptr %39, align 1, !range !5, !noundef !6
+  %40 = load i8, ptr %39, align 1, !range !6, !noundef !7
   %41 = trunc nuw i8 %40 to i1
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 116
-  %43 = load i8, ptr %42, align 4, !range !5, !noundef !6
+  %43 = load i8, ptr %42, align 4, !range !6, !noundef !7
   %44 = trunc nuw i8 %43 to i1
   %.0.i = select i1 %44, i64 0, i64 76
   %45 = load ptr, ptr @X11_XSelectInput, align 8
@@ -659,7 +659,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %152 = ashr exact i32 %.0262317, 1
   %153 = and i32 %.0262317, 2
   %154 = icmp eq i32 %153, 0
-  br i1 %154, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %154, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %144
   %.0262.lcssa = phi i32 [ %148, %144 ], [ %152, %.lr.ph ]
@@ -678,7 +678,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %161 = ashr exact i32 %.0261320, 1
   %162 = and i32 %.0261320, 2
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %.lr.ph323, label %._crit_edge324, !llvm.loop !8
+  br i1 %163, label %.lr.ph323, label %._crit_edge324, !llvm.loop !9
 
 ._crit_edge324:                                   ; preds = %.lr.ph323, %._crit_edge
   %.0261.lcssa = phi i32 [ %157, %._crit_edge ], [ %161, %.lr.ph323 ]
@@ -708,7 +708,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %172 = ashr exact i32 %.0260327, 1
   %173 = and i32 %.0260327, 2
   %174 = icmp eq i32 %173, 0
-  br i1 %174, label %.lr.ph330, label %.preheader, !llvm.loop !9
+  br i1 %174, label %.lr.ph330, label %.preheader, !llvm.loop !10
 
 175:                                              ; preds = %.lr.ph334, %175
   %indvars.iv = phi i64 [ 0, %.lr.ph334 ], [ %indvars.iv.next, %175 ]
@@ -743,7 +743,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   store i8 7, ptr %199, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge335, label %175, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge335, label %175, !llvm.loop !11
 
 ._crit_edge335:                                   ; preds = %175, %.preheader
   %200 = load ptr, ptr @X11_XStoreColors, align 8
@@ -759,13 +759,13 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
 
 205:                                              ; preds = %._crit_edge335, %203
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 153
-  %207 = load i8, ptr %206, align 1, !range !5, !noundef !6
+  %207 = load i8, ptr %206, align 1, !range !6, !noundef !7
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %209, label %218
 
 209:                                              ; preds = %205
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 154
-  %211 = load i8, ptr %210, align 2, !range !5, !noundef !6
+  %211 = load i8, ptr %210, align 2, !range !6, !noundef !7
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %213, label %218
 
@@ -1160,10 +1160,10 @@ SetupWindowInput.exit314:                         ; preds = %423, %428, %431
   call void @X11_Xinput2SelectTouch(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   %434 = call zeroext i1 @X11_Xinput2SelectMouseAndKeyboard(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   %435 = getelementptr inbounds nuw i8, ptr %424, i64 117
-  %436 = load i8, ptr %435, align 1, !range !5, !noundef !6
+  %436 = load i8, ptr %435, align 1, !range !6, !noundef !7
   %437 = trunc nuw i8 %436 to i1
   %438 = getelementptr inbounds nuw i8, ptr %424, i64 116
-  %439 = load i8, ptr %438, align 4, !range !5, !noundef !6
+  %439 = load i8, ptr %438, align 4, !range !6, !noundef !7
   %440 = trunc nuw i8 %439 to i1
   %.0.i313 = select i1 %440, i64 0, i64 76
   %441 = load ptr, ptr @X11_XSelectInput, align 8
@@ -1447,7 +1447,7 @@ define internal fastcc void @X11_ConstrainPopup(ptr noundef captures(none) %0, i
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 267
-  %9 = load i8, ptr %8, align 1, !range !5, !noundef !6
+  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1458,7 +1458,7 @@ define internal fastcc void @X11_ConstrainPopup(ptr noundef captures(none) %0, i
   %.in64 = select i1 %10, ptr %14, ptr %15
   %16 = load i32, ptr %.in64, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 270
-  %18 = load i8, ptr %17, align 2, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 2, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.preheader, label %63
 
@@ -1487,7 +1487,7 @@ define internal fastcc void @X11_ConstrainPopup(ptr noundef captures(none) %0, i
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 786432
   %.not65 = icmp eq i64 %31, 0
-  br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.154.lcssa = phi i32 [ 0, %.preheader ], [ %25, %.lr.ph ]
@@ -1813,7 +1813,7 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   %50 = add nuw nsw i32 %.04354, 1
   %51 = load i32, ptr %14, align 8
   %52 = icmp slt i32 %50, %51
-  br i1 %52, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
+  br i1 %52, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %16, align 4
@@ -1825,7 +1825,7 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   %.1.lcssa = phi ptr [ %.03658, %.lr.ph60.split ], [ %49, %._crit_edge.loopexit ]
   %55 = add nuw nsw i32 %.04257, 1
   %56 = icmp slt i32 %55, %53
-  br i1 %56, label %.lr.ph60.split, label %._crit_edge61, !llvm.loop !13
+  br i1 %56, label %.lr.ph60.split, label %._crit_edge61, !llvm.loop !14
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %.lr.ph60, %23
   %57 = load ptr, ptr @X11_XChangeProperty, align 8
@@ -1927,9 +1927,9 @@ define hidden noundef zeroext i1 @X11_SetWindowPosition(ptr noundef %0, ptr noun
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 267
-  %10 = load i8, ptr %9, align 1, !range !5, !noundef !6
+  %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 268
-  %12 = load i8, ptr %11, align 4, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 4, !range !6, !noundef !7
   %13 = tail call zeroext i1 @X11_SyncWindow(ptr noundef %0, ptr noundef nonnull %1)
   store i8 %10, ptr %9, align 1
   store i8 %12, ptr %11, align 4
@@ -2361,7 +2361,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 
 97:                                               ; preds = %thread-pre-split.thread.i
   call void @SDL_Delay_REAL(i32 noundef 10) #12
-  br label %47
+  br label %47, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %thread-pre-split.thread.i
   %98 = load i32, ptr %17, align 8
@@ -2570,7 +2570,7 @@ thread-pre-split.thread.i34:                      ; preds = %199, %195, %189, %1
 
 209:                                              ; preds = %thread-pre-split.thread.i34
   tail call void @SDL_Delay_REAL(i32 noundef 10) #12
-  br label %149
+  br label %149, !llvm.loop !17
 
 .loopexit.i35:                                    ; preds = %199, %182, %204
   %.0.i = phi i1 [ false, %204 ], [ true, %182 ], [ true, %199 ]
@@ -2606,7 +2606,7 @@ X11_SyncWindowTimeout.exit:                       ; preds = %.loopexit.i35, %210
   %.1 = select i1 %or.cond, i64 %..025, i64 %.02537
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %213, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %213, !llvm.loop !18
 
 222:                                              ; preds = %X11_SyncWindowTimeout.exit, %X11_ExternalResizeMoveSync.exit
   %.026 = phi i1 [ true, %X11_ExternalResizeMoveSync.exit ], [ %.1.i, %X11_SyncWindowTimeout.exit ]
@@ -2689,9 +2689,9 @@ define hidden void @X11_SetWindowSize(ptr noundef %0, ptr noundef %1) local_unna
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 267
-  %16 = load i8, ptr %15, align 1, !range !5, !noundef !6
+  %16 = load i8, ptr %15, align 1, !range !6, !noundef !7
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 268
-  %18 = load i8, ptr %17, align 4, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 4, !range !6, !noundef !7
   %19 = tail call zeroext i1 @X11_SyncWindow(ptr noundef %0, ptr noundef nonnull %1)
   store i8 %16, ptr %15, align 1
   store i8 %18, ptr %17, align 4
@@ -2766,7 +2766,7 @@ define hidden void @X11_SetWindowSize(ptr noundef %0, ptr noundef %1) local_unna
   %59 = load i32, ptr %45, align 4
   %60 = call i32 %56(ptr noundef %10, i64 noundef %57, i32 noundef %58, i32 noundef %59) #12
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 267
-  %62 = load i8, ptr %61, align 1, !range !5, !noundef !6
+  %62 = load i8, ptr %61, align 1, !range !6, !noundef !7
   %63 = trunc nuw i8 %62 to i1
   %.in.v = select i1 %63, i64 136, i64 24
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v
@@ -3112,7 +3112,7 @@ SetWindowBordered.exit:                           ; preds = %31, %38
   %55 = call i32 %53(ptr noundef %16, i64 noundef %54, ptr noundef nonnull %6) #12
   %56 = load i32, ptr %49, align 4
   %.not36 = icmp eq i32 %56, 2
-  br i1 %.not36, label %57, label %50, !llvm.loop !16
+  br i1 %.not36, label %57, label %50, !llvm.loop !19
 
 57:                                               ; preds = %50
   br i1 %.not, label %62, label %58
@@ -3368,7 +3368,7 @@ define hidden void @X11_ShowWindow(ptr noundef %0, ptr noundef %1) local_unnamed
   %42 = load ptr, ptr @X11_XFlush, align 8
   %43 = call i32 %42(ptr noundef %13) #12
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 537
-  %45 = load i8, ptr %44, align 1, !range !5, !noundef !6
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %58, label %47
 
@@ -3380,13 +3380,13 @@ define hidden void @X11_ShowWindow(ptr noundef %0, ptr noundef %1) local_unnamed
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 153
-  %52 = load i8, ptr %51, align 1, !range !5, !noundef !6
+  %52 = load i8, ptr %51, align 1, !range !6, !noundef !7
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 154
-  %56 = load i8, ptr %55, align 2, !range !5, !noundef !6
+  %56 = load i8, ptr %55, align 2, !range !6, !noundef !7
   %57 = xor i8 %56, 1
   br label %58
 
@@ -3394,7 +3394,7 @@ define hidden void @X11_ShowWindow(ptr noundef %0, ptr noundef %1) local_unnamed
   %.1 = phi i8 [ %.0, %20 ], [ 1, %41 ], [ 0, %50 ], [ 0, %47 ], [ %57, %54 ]
   %59 = load ptr, ptr %11, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 184
-  %61 = load i8, ptr %60, align 8, !range !5, !noundef !6
+  %61 = load i8, ptr %60, align 8, !range !6, !noundef !7
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %72, label %63
 
@@ -3423,19 +3423,19 @@ define hidden void @X11_ShowWindow(ptr noundef %0, ptr noundef %1) local_unnamed
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, 786432
   %.not.i65 = icmp eq i64 %79, 0
-  br i1 %.not.i65, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i65, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 400
   store ptr %1, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 265
-  %82 = load i8, ptr %81, align 1, !range !5, !noundef !6
+  %82 = load i8, ptr %81, align 1, !range !6, !noundef !7
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %X11_SetKeyboardFocus.exit, label %84
 
 84:                                               ; preds = %._crit_edge.i
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 271
-  %86 = load i8, ptr %85, align 1, !range !5, !noundef !6
+  %86 = load i8, ptr %85, align 1, !range !6, !noundef !7
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %X11_SetKeyboardFocus.exit, label %88
 
@@ -3477,7 +3477,7 @@ X11_SetKeyboardFocus.exit:                        ; preds = %88, %84, %._crit_ed
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 537
-  %110 = load i8, ptr %109, align 1, !range !5, !noundef !6
+  %110 = load i8, ptr %109, align 1, !range !6, !noundef !7
   %111 = trunc nuw i8 %110 to i1
   %.in.v = select i1 %111, i64 136, i64 24
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v
@@ -3558,7 +3558,7 @@ define internal fastcc void @X11_SetKeyboardFocus(ptr noundef %0, i1 noundef zer
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 786432
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %0, %2 ], [ %7, %.lr.ph ]
@@ -3568,13 +3568,13 @@ define internal fastcc void @X11_SetKeyboardFocus(ptr noundef %0, i1 noundef zer
 
 12:                                               ; preds = %._crit_edge
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 265
-  %14 = load i8, ptr %13, align 1, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 271
-  %18 = load i8, ptr %17, align 1, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %22, label %20
 
@@ -3679,7 +3679,7 @@ define hidden void @X11_HideWindow(ptr noundef %0, ptr noundef %1) local_unnamed
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, 786432
   %.not.i25 = icmp eq i64 %54, 0
-  br i1 %.not.i25, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i25, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %44
   %.0.lcssa.i = phi ptr [ %46, %44 ], [ %51, %.lr.ph.i ]
@@ -3689,13 +3689,13 @@ define hidden void @X11_HideWindow(ptr noundef %0, ptr noundef %1) local_unnamed
 
 56:                                               ; preds = %._crit_edge.i
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 265
-  %58 = load i8, ptr %57, align 1, !range !5, !noundef !6
+  %58 = load i8, ptr %57, align 1, !range !6, !noundef !7
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %X11_SetKeyboardFocus.exit, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 271
-  %62 = load i8, ptr %61, align 1, !range !5, !noundef !6
+  %62 = load i8, ptr %61, align 1, !range !6, !noundef !7
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %X11_SetKeyboardFocus.exit, label %64
 
@@ -4078,7 +4078,7 @@ define hidden void @X11_RestoreWindow(ptr noundef %0, ptr noundef %1) local_unna
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 542
-  %6 = load i8, ptr %5, align 2, !range !5, !noundef !6
+  %6 = load i8, ptr %5, align 2, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %38
 
@@ -4133,7 +4133,7 @@ define hidden void @X11_RestoreWindow(ptr noundef %0, ptr noundef %1) local_unna
 31:                                               ; preds = %28
   %32 = load ptr, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 538
-  %34 = load i8, ptr %33, align 2, !range !5, !noundef !6
+  %34 = load i8, ptr %33, align 2, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
   br label %36
 
@@ -4201,7 +4201,7 @@ define hidden range(i32 0, 3) i32 @X11_SetWindowFullscreen(ptr noundef %0, ptr n
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 272
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 542
-  %36 = load i8, ptr %35, align 2, !range !5, !noundef !6
+  %36 = load i8, ptr %35, align 2, !range !6, !noundef !7
   %37 = trunc nuw i8 %36 to i1
   %38 = icmp ne i32 %3, 0
   %or.cond.not.i = or i1 %38, %37
@@ -4387,7 +4387,7 @@ define hidden range(i32 0, 3) i32 @X11_SetWindowFullscreen(ptr noundef %0, ptr n
   %138 = load i64, ptr %41, align 8
   store i64 %138, ptr %75, align 8
   %139 = getelementptr inbounds nuw i8, ptr %13, i64 538
-  %140 = load i8, ptr %139, align 2, !range !5, !noundef !6
+  %140 = load i8, ptr %139, align 2, !range !6, !noundef !7
   %..i = zext nneg i8 %140 to i64
   store i64 %..i, ptr %77, align 8
   %141 = load ptr, ptr %28, align 8
@@ -4544,7 +4544,7 @@ thread-pre-split.i:                               ; preds = %53
   %56 = call i32 %54(ptr noundef %15, i64 noundef %46, i64 noundef range(i64 1, 0) %39, i64 noundef 0, i64 noundef %55, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %4) #12
   %57 = load i64, ptr %8, align 8
   %.not9.i = icmp eq i64 %57, 0
-  br i1 %.not9.i, label %X11_ReadProperty.exit, label %thread-pre-split.i, !llvm.loop !18
+  br i1 %.not9.i, label %X11_ReadProperty.exit, label %thread-pre-split.i, !llvm.loop !21
 
 X11_ReadProperty.exit:                            ; preds = %53
   %58 = load ptr, ptr %4, align 8
@@ -4614,7 +4614,7 @@ define hidden zeroext i1 @X11_SetWindowMouseGrab(ptr noundef %0, ptr noundef %1,
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 116
-  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %24
 
@@ -4631,7 +4631,7 @@ define hidden zeroext i1 @X11_SetWindowMouseGrab(ptr noundef %0, ptr noundef %1,
 24:                                               ; preds = %21, %19, %15
   %25 = load ptr, ptr %8, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1642
-  %27 = load i8, ptr %26, align 2, !range !5, !noundef !6
+  %27 = load i8, ptr %26, align 2, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %40, label %.preheader
 
@@ -4655,7 +4655,7 @@ define hidden zeroext i1 @X11_SetWindowMouseGrab(ptr noundef %0, ptr noundef %1,
   tail call void @SDL_Delay_REAL(i32 noundef 50) #12
   %36 = add nuw nsw i32 %.02738, 1
   %exitcond.not = icmp eq i32 %36, 100
-  br i1 %exitcond.not, label %37, label %30, !llvm.loop !19
+  br i1 %exitcond.not, label %37, label %30, !llvm.loop !22
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %8, align 8
@@ -4682,7 +4682,7 @@ define hidden zeroext i1 @X11_SetWindowMouseGrab(ptr noundef %0, ptr noundef %1,
   %50 = tail call i32 %49(ptr noundef %10, i32 noundef 0) #12
   %51 = load ptr, ptr %8, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1642
-  %53 = load i8, ptr %52, align 2, !range !5, !noundef !6
+  %53 = load i8, ptr %52, align 2, !range !6, !noundef !7
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %.sink.split, label %56
 
@@ -4733,7 +4733,7 @@ define hidden zeroext i1 @X11_SetWindowKeyboardGrab(ptr noundef readonly capture
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1762
-  %21 = load i8, ptr %20, align 2, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 2, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %45
 
@@ -4845,7 +4845,7 @@ define hidden void @X11_DestroyWindow(ptr noundef %0, ptr noundef %1) local_unna
 26:                                               ; preds = %.lr.ph, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %26, %19, %5
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -5147,7 +5147,7 @@ define hidden zeroext i1 @X11_SetWindowFocusable(ptr noundef readnone captures(n
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 786432
   %.not.i = icmp eq i64 %42, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %32
   %.0.lcssa.i = phi ptr [ %34, %32 ], [ %39, %.lr.ph.i ]
@@ -5157,13 +5157,13 @@ define hidden zeroext i1 @X11_SetWindowFocusable(ptr noundef readnone captures(n
 
 44:                                               ; preds = %._crit_edge.i
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 265
-  %46 = load i8, ptr %45, align 1, !range !5, !noundef !6
+  %46 = load i8, ptr %45, align 1, !range !6, !noundef !7
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %X11_SetKeyboardFocus.exit, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 271
-  %50 = load i8, ptr %49, align 1, !range !5, !noundef !6
+  %50 = load i8, ptr %49, align 1, !range !6, !noundef !7
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %X11_SetKeyboardFocus.exit, label %52
 
@@ -5248,21 +5248,24 @@ attributes #14 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5, !15}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !4, !5}

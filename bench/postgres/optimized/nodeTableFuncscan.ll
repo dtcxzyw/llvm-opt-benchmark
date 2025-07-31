@@ -335,7 +335,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((344, 352)) 
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = call i64 %31(ptr noundef %29, ptr noundef nonnull %1, ptr noundef nonnull %5) #8
-  %33 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %33 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %264, label %35
 
@@ -404,7 +404,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((344, 352)) 
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %77 = load ptr, ptr %76, align 8
   %78 = call i64 %77(ptr noundef %74, ptr noundef nonnull %1, ptr noundef nonnull %4) #8
-  %79 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %79 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %.split75.i, label %84
 
@@ -432,7 +432,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((344, 352)) 
   %92 = load ptr, ptr %53, align 8
   call void %92(ptr noundef nonnull %0, ptr noundef %91, ptr noundef %86) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.split.split.i, !llvm.loop !8
+  br label %.split.split.i, !llvm.loop !9
 
 93:                                               ; preds = %.thread.i
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -440,7 +440,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((344, 352)) 
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load ptr, ptr %96, align 8
   %98 = call i64 %97(ptr noundef %95, ptr noundef nonnull %1, ptr noundef nonnull %4) #8
-  %99 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %99 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %105
 
@@ -503,7 +503,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((344, 352)) 
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %132 = load ptr, ptr %131, align 8
   %133 = call i64 %132(ptr noundef nonnull %129, ptr noundef nonnull %1, ptr noundef nonnull %4) #8
-  %134 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %134 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %.split83.i, label %141
 
@@ -602,7 +602,7 @@ list_head.exit.us.i:                              ; preds = %182, %.lr.ph61.spli
   %185 = phi ptr [ %184, %182 ], [ null, %.lr.ph61.split.us.i ]
   %186 = load volatile i32, ptr @InterruptPending, align 4
   %.not.us.i = icmp eq i32 %186, 0
-  br i1 %.not.us.i, label %.lr.ph.us.i, label %187, !prof !9
+  br i1 %.not.us.i, label %.lr.ph.us.i, label %187, !prof !10
 
 187:                                              ; preds = %list_head.exit.us.i
   call void @ProcessInterrupts() #8
@@ -639,7 +639,7 @@ list_head.exit.us.i:                              ; preds = %182, %.lr.ph61.spli
   %206 = call i64 %200(ptr noundef nonnull %0, i32 noundef %205, i32 noundef %202, i32 noundef %204, ptr noundef nonnull %3) #8
   %207 = getelementptr inbounds nuw i64, ptr %159, i64 %indvars.iv.i31
   store i64 %206, ptr %207, align 8
-  %208 = load i8, ptr %3, align 1, !range !6, !noundef !7
+  %208 = load i8, ptr %3, align 1, !range !7, !noundef !8
   %209 = trunc nuw i8 %208 to i1
   %210 = icmp ne ptr %.059.us.i, null
   %or.cond.us.i = select i1 %209, i1 %210, i1 false
@@ -655,7 +655,7 @@ list_head.exit.us.i:                              ; preds = %182, %.lr.ph61.spli
   %215 = load ptr, ptr %214, align 8
   %216 = call i64 %215(ptr noundef nonnull %212, ptr noundef nonnull %1, ptr noundef nonnull %3) #8
   store i64 %216, ptr %207, align 8
-  %.pre.i34 = load i8, ptr %3, align 1, !range !6
+  %.pre.i34 = load i8, ptr %3, align 1, !range !7
   %.pre43 = trunc nuw i8 %.pre.i34 to i1
   br i1 %.pre43, label %.thread.i33, label %220
 
@@ -668,7 +668,7 @@ list_head.exit.us.i:                              ; preds = %182, %.lr.ph61.spli
   br i1 %219, label %.split.us.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.thread.i33
-  %.pre67.i = load i8, ptr %3, align 1, !range !6
+  %.pre67.i = load i8, ptr %3, align 1, !range !7
   br label %220
 
 220:                                              ; preds = %213, %._crit_edge.i, %217
@@ -709,7 +709,7 @@ list_head.exit.us.i:                              ; preds = %182, %.lr.ph61.spli
   %.1.us.i = phi ptr [ %..i.us.i, %228 ], [ null, %227 ]
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %193, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %193, !llvm.loop !11
 
 ._crit_edge.us.i:                                 ; preds = %236
   %237 = load ptr, ptr %14, align 8
@@ -718,12 +718,12 @@ list_head.exit.us.i:                              ; preds = %182, %.lr.ph61.spli
   call void @MemoryContextReset(ptr noundef %238) #8
   %239 = load ptr, ptr %171, align 8
   %240 = call zeroext i1 %239(ptr noundef nonnull %0) #8
-  br i1 %240, label %.lr.ph61.split.us.i, label %tfuncLoadRows.exit, !llvm.loop !11
+  br i1 %240, label %.lr.ph61.split.us.i, label %tfuncLoadRows.exit, !llvm.loop !12
 
 .lr.ph61.split.i:                                 ; preds = %.lr.ph61.i, %243
   %241 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i30 = icmp eq i32 %241, 0
-  br i1 %.not.i30, label %243, label %242, !prof !9
+  br i1 %.not.i30, label %243, label %242, !prof !10
 
 242:                                              ; preds = %.lr.ph61.split.i
   call void @ProcessInterrupts() #8
@@ -742,7 +742,7 @@ list_head.exit.us.i:                              ; preds = %182, %.lr.ph61.spli
   call void @MemoryContextReset(ptr noundef %250) #8
   %251 = load ptr, ptr %171, align 8
   %252 = call zeroext i1 %251(ptr noundef nonnull %0) #8
-  br i1 %252, label %.lr.ph61.split.i, label %tfuncLoadRows.exit, !llvm.loop !13
+  br i1 %252, label %.lr.ph61.split.i, label %tfuncLoadRows.exit, !llvm.loop !14
 
 .split.us.i:                                      ; preds = %.thread.i33
   %253 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -852,13 +852,14 @@ attributes #11 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !5, !6}

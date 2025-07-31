@@ -68,24 +68,24 @@ define void @b2DynamicTree_Destroy(ptr noundef captures(none) initializes((8, 16
   %5 = mul i32 %4, 40
   tail call void @b2Free(ptr noundef %2, i32 noundef %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load i32, ptr %8, align 8, !tbaa !22
+  %9 = load i32, ptr %8, align 8, !tbaa !23
   %10 = shl i32 %9, 2
   tail call void @b2Free(ptr noundef %7, i32 noundef %10) #13
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
-  %13 = load i32, ptr %8, align 8, !tbaa !22
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  %13 = load i32, ptr %8, align 8, !tbaa !23
   %14 = shl i32 %13, 4
   tail call void @b2Free(ptr noundef %12, i32 noundef %14) #13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !24
-  %17 = load i32, ptr %8, align 8, !tbaa !22
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
+  %17 = load i32, ptr %8, align 8, !tbaa !23
   %18 = shl i32 %17, 3
   tail call void @b2Free(ptr noundef %16, i32 noundef %18) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !25
-  %21 = load i32, ptr %8, align 8, !tbaa !22
+  %20 = load ptr, ptr %19, align 8, !tbaa !26
+  %21 = load i32, ptr %8, align 8, !tbaa !23
   %22 = shl i32 %21, 2
   tail call void @b2Free(ptr noundef %20, i32 noundef %22) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
@@ -106,11 +106,11 @@ define noundef i32 @b2DynamicTree_CreateProxy(ptr noundef captures(none) %0, <2 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %4, ptr %10, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %3, ptr %11, align 8, !tbaa !26
+  store i64 %3, ptr %11, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i16 0, ptr %12, align 4, !tbaa !33
+  store i16 0, ptr %12, align 4, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 38
-  store i16 5, ptr %13, align 2, !tbaa !34
+  store i16 5, ptr %13, align 2, !tbaa !35
   tail call fastcc void @b2InsertLeaf(ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext true)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !18
@@ -186,7 +186,7 @@ define internal fastcc i32 @b2AllocateNode(ptr noundef captures(none) %0) unname
   %38 = add nsw i32 %37, -1
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 41:                                               ; preds = %._crit_edge, %1
   %42 = phi i32 [ %33, %._crit_edge ], [ %3, %1 ]
@@ -196,7 +196,7 @@ define internal fastcc i32 @b2AllocateNode(ptr noundef captures(none) %0) unname
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i32, ptr %46, align 8, !tbaa !16
   store i32 %47, ptr %2, align 4, !tbaa !17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) @b2_defaultTreeNode, i64 40, i1 false), !tbaa.struct !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) @b2_defaultTreeNode, i64 40, i1 false), !tbaa.struct !37
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %49 = load i32, ptr %48, align 4, !tbaa !14
   %50 = add nsw i32 %49, 1
@@ -246,7 +246,7 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   %25 = sext i32 %5 to i64
   %26 = getelementptr inbounds %struct.b2TreeNode, ptr %12, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
-  %28 = load i16, ptr %27, align 4, !tbaa !33
+  %28 = load i16, ptr %27, align 4, !tbaa !34
   %.not20.i = icmp eq i16 %28, 0
   br i1 %.not20.i, label %b2FindBestSibling.exit, label %.lr.ph.preheader.i
 
@@ -286,7 +286,7 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   %.011422.i = phi float [ %.51198.i, %143 ], [ %40, %.lr.ph.preheader.i ]
   %.012121.i = phi i32 [ %.2123.i, %143 ], [ %5, %.lr.ph.preheader.i ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
-  %48 = load i32, ptr %47, align 4, !tbaa !41
+  %48 = load i32, ptr %47, align 4, !tbaa !42
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = load i32, ptr %49, align 8, !tbaa !16
   %51 = fadd float %.010625.i, %.010924.i
@@ -298,12 +298,12 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   %55 = sext i32 %48 to i64
   %56 = getelementptr inbounds %struct.b2TreeNode, ptr %12, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
-  %58 = load i16, ptr %57, align 4, !tbaa !33
+  %58 = load i16, ptr %57, align 4, !tbaa !34
   %59 = icmp eq i16 %58, 0
   %60 = sext i32 %50 to i64
   %61 = getelementptr inbounds %struct.b2TreeNode, ptr %12, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 36
-  %63 = load i16, ptr %62, align 4, !tbaa !33
+  %63 = load i16, ptr %62, align 4, !tbaa !34
   %64 = icmp eq i16 %63, 0
   %.sroa.029.0.copyload.i = load <2 x float>, ptr %56, align 8
   %.sroa.632.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -441,9 +441,9 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   %145 = sext i32 %.2123.i to i64
   %146 = getelementptr inbounds %struct.b2TreeNode, ptr %12, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 36
-  %148 = load i16, ptr %147, align 4, !tbaa !33
+  %148 = load i16, ptr %147, align 4, !tbaa !34
   %.not.i = icmp eq i16 %148, 0
-  br i1 %.not.i, label %b2FindBestSibling.exit.loopexit, label %.lr.ph.i
+  br i1 %.not.i, label %b2FindBestSibling.exit.loopexit, label %.lr.ph.i, !llvm.loop !43
 
 b2FindBestSibling.exit.loopexit:                  ; preds = %143, %117, %114
   %.1111.i.ph = phi i32 [ %.610.i, %117 ], [ %.5.i, %114 ], [ %.610.i, %143 ]
@@ -487,17 +487,17 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.418.0..sroa_idx, align 8
   %169 = getelementptr inbounds %struct.b2TreeNode, ptr %152, i64 %13
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  %171 = load i64, ptr %170, align 8, !tbaa !26
+  %171 = load i64, ptr %170, align 8, !tbaa !27
   %172 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %173 = load i64, ptr %172, align 8, !tbaa !26
+  %173 = load i64, ptr %172, align 8, !tbaa !27
   %174 = or i64 %173, %171
   %175 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  store i64 %174, ptr %175, align 8, !tbaa !26
+  store i64 %174, ptr %175, align 8, !tbaa !27
   %176 = getelementptr inbounds nuw i8, ptr %157, i64 36
-  %177 = load i16, ptr %176, align 4, !tbaa !33
+  %177 = load i16, ptr %176, align 4, !tbaa !34
   %178 = add i16 %177, 1
   %179 = getelementptr inbounds nuw i8, ptr %154, i64 36
-  store i16 %178, ptr %179, align 4, !tbaa !33
+  store i16 %178, ptr %179, align 4, !tbaa !34
   %.not = icmp eq i32 %150, -1
   br i1 %.not, label %193, label %180
 
@@ -505,12 +505,12 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %181 = sext i32 %150 to i64
   %182 = getelementptr inbounds %struct.b2TreeNode, ptr %152, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 28
-  %184 = load i32, ptr %183, align 4, !tbaa !41
+  %184 = load i32, ptr %183, align 4, !tbaa !42
   %185 = icmp eq i32 %184, %.1111.i
   br i1 %185, label %186, label %187
 
 186:                                              ; preds = %180
-  store i32 %151, ptr %183, align 4, !tbaa !41
+  store i32 %151, ptr %183, align 4, !tbaa !42
   br label %189
 
 187:                                              ; preds = %180
@@ -520,7 +520,7 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
 
 189:                                              ; preds = %187, %186
   %190 = getelementptr inbounds nuw i8, ptr %154, i64 28
-  store i32 %.1111.i, ptr %190, align 4, !tbaa !41
+  store i32 %.1111.i, ptr %190, align 4, !tbaa !42
   store i32 %1, ptr %156, align 8, !tbaa !16
   %191 = getelementptr inbounds nuw i8, ptr %157, i64 24
   store i32 %151, ptr %191, align 8, !tbaa !16
@@ -530,7 +530,7 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
 
 193:                                              ; preds = %b2FindBestSibling.exit
   %194 = getelementptr inbounds nuw i8, ptr %154, i64 28
-  store i32 %.1111.i, ptr %194, align 4, !tbaa !41
+  store i32 %.1111.i, ptr %194, align 4, !tbaa !42
   store i32 %1, ptr %156, align 8, !tbaa !16
   %195 = getelementptr inbounds nuw i8, ptr %157, i64 24
   store i32 %151, ptr %195, align 8, !tbaa !16
@@ -551,7 +551,7 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %198 = sext i32 %.0134 to i64
   %199 = getelementptr inbounds %struct.b2TreeNode, ptr %152, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 28
-  %201 = load i32, ptr %200, align 4, !tbaa !41
+  %201 = load i32, ptr %200, align 4, !tbaa !42
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %203 = load i32, ptr %202, align 8, !tbaa !16
   %204 = sext i32 %201 to i64
@@ -588,43 +588,43 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i122, ptr %.sroa.4.0..sroa_idx, align 8
   %222 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  %223 = load i64, ptr %222, align 8, !tbaa !26
+  %223 = load i64, ptr %222, align 8, !tbaa !27
   %224 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %225 = load i64, ptr %224, align 8, !tbaa !26
+  %225 = load i64, ptr %224, align 8, !tbaa !27
   %226 = or i64 %225, %223
   %227 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  store i64 %226, ptr %227, align 8, !tbaa !26
+  store i64 %226, ptr %227, align 8, !tbaa !27
   %228 = getelementptr inbounds nuw i8, ptr %205, i64 36
-  %229 = load i16, ptr %228, align 4, !tbaa !33
+  %229 = load i16, ptr %228, align 4, !tbaa !34
   %230 = getelementptr inbounds nuw i8, ptr %207, i64 36
-  %231 = load i16, ptr %230, align 4, !tbaa !33
+  %231 = load i16, ptr %230, align 4, !tbaa !34
   %232 = tail call noundef i16 @llvm.umax.i16(i16 %229, i16 %231)
   %233 = add i16 %232, 1
   %234 = getelementptr inbounds nuw i8, ptr %199, i64 36
-  store i16 %233, ptr %234, align 4, !tbaa !33
+  store i16 %233, ptr %234, align 4, !tbaa !34
   %235 = getelementptr inbounds nuw i8, ptr %205, i64 38
-  %236 = load i16, ptr %235, align 2, !tbaa !34
+  %236 = load i16, ptr %235, align 2, !tbaa !35
   %237 = getelementptr inbounds nuw i8, ptr %207, i64 38
-  %238 = load i16, ptr %237, align 2, !tbaa !34
+  %238 = load i16, ptr %237, align 2, !tbaa !35
   %239 = or i16 %238, %236
   %240 = and i16 %239, 2
   %241 = getelementptr inbounds nuw i8, ptr %199, i64 38
-  %242 = load i16, ptr %241, align 2, !tbaa !34
+  %242 = load i16, ptr %241, align 2, !tbaa !35
   %243 = or i16 %240, %242
-  store i16 %243, ptr %241, align 2, !tbaa !34
+  store i16 %243, ptr %241, align 2, !tbaa !35
   br i1 %2, label %244, label %b2RotateNodes.exit
 
 244:                                              ; preds = %.lr.ph
   %.val110 = load ptr, ptr %0, align 8, !tbaa !15
   %245 = getelementptr inbounds %struct.b2TreeNode, ptr %.val110, i64 %198
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 36
-  %247 = load i16, ptr %246, align 4, !tbaa !33
+  %247 = load i16, ptr %246, align 4, !tbaa !34
   %248 = icmp ult i16 %247, 2
   br i1 %248, label %b2RotateNodes.exit, label %249
 
 249:                                              ; preds = %244
   %250 = getelementptr inbounds nuw i8, ptr %245, i64 28
-  %251 = load i32, ptr %250, align 4, !tbaa !41
+  %251 = load i32, ptr %250, align 4, !tbaa !42
   %252 = getelementptr inbounds nuw i8, ptr %245, i64 32
   %253 = load i32, ptr %252, align 8, !tbaa !16
   %254 = sext i32 %251 to i64
@@ -632,13 +632,13 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %256 = sext i32 %253 to i64
   %257 = getelementptr inbounds %struct.b2TreeNode, ptr %.val110, i64 %256
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 36
-  %259 = load i16, ptr %258, align 4, !tbaa !33
+  %259 = load i16, ptr %258, align 4, !tbaa !34
   %260 = icmp eq i16 %259, 0
   br i1 %260, label %261, label %345
 
 261:                                              ; preds = %249
   %262 = getelementptr inbounds nuw i8, ptr %257, i64 28
-  %263 = load i32, ptr %262, align 4, !tbaa !41
+  %263 = load i32, ptr %262, align 4, !tbaa !42
   %264 = getelementptr inbounds nuw i8, ptr %257, i64 32
   %265 = load i32, ptr %264, align 8, !tbaa !16
   %266 = sext i32 %263 to i64
@@ -721,31 +721,31 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   br i1 %314, label %319, label %332
 
 319:                                              ; preds = %313
-  store i32 %263, ptr %250, align 4, !tbaa !41
-  store i32 %251, ptr %262, align 4, !tbaa !41
+  store i32 %263, ptr %250, align 4, !tbaa !42
+  store i32 %251, ptr %262, align 4, !tbaa !42
   store i32 %253, ptr %315, align 8, !tbaa !16
   %320 = getelementptr inbounds nuw i8, ptr %267, i64 24
   store i32 %.0134, ptr %320, align 8, !tbaa !16
   store <2 x float> %.sroa.03.4.vec.insert.i.i, ptr %257, align 8
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %271, align 8
   %321 = getelementptr inbounds nuw i8, ptr %269, i64 36
-  %322 = load i16, ptr %321, align 4, !tbaa !33
+  %322 = load i16, ptr %321, align 4, !tbaa !34
   %323 = add i16 %322, 1
-  store i16 %323, ptr %316, align 4, !tbaa !33
+  store i16 %323, ptr %316, align 4, !tbaa !34
   %324 = getelementptr inbounds nuw i8, ptr %267, i64 36
-  %325 = load i16, ptr %324, align 4, !tbaa !33
+  %325 = load i16, ptr %324, align 4, !tbaa !34
   %326 = tail call noundef i16 @llvm.umax.i16(i16 %323, i16 %325)
   %327 = add i16 %326, 1
-  store i16 %327, ptr %246, align 4, !tbaa !33
-  %328 = load i64, ptr %317, align 8, !tbaa !26
+  store i16 %327, ptr %246, align 4, !tbaa !34
+  %328 = load i64, ptr %317, align 8, !tbaa !27
   %329 = getelementptr inbounds nuw i8, ptr %269, i64 16
-  %330 = load i64, ptr %329, align 8, !tbaa !26
+  %330 = load i64, ptr %329, align 8, !tbaa !27
   %331 = or i64 %330, %328
-  store i64 %331, ptr %318, align 8, !tbaa !26
+  store i64 %331, ptr %318, align 8, !tbaa !27
   br label %.critedge.sink.split.i
 
 332:                                              ; preds = %313
-  store i32 %265, ptr %250, align 4, !tbaa !41
+  store i32 %265, ptr %250, align 4, !tbaa !42
   store i32 %251, ptr %264, align 8, !tbaa !16
   store i32 %253, ptr %315, align 8, !tbaa !16
   %333 = getelementptr inbounds nuw i8, ptr %269, i64 24
@@ -753,27 +753,27 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   store <2 x float> %.sroa.03.4.vec.insert.i346.i, ptr %257, align 8
   store <2 x float> %.sroa.35.12.vec.insert.i352.i, ptr %271, align 8
   %334 = getelementptr inbounds nuw i8, ptr %267, i64 36
-  %335 = load i16, ptr %334, align 4, !tbaa !33
+  %335 = load i16, ptr %334, align 4, !tbaa !34
   %336 = add i16 %335, 1
-  store i16 %336, ptr %316, align 4, !tbaa !33
+  store i16 %336, ptr %316, align 4, !tbaa !34
   %337 = getelementptr inbounds nuw i8, ptr %269, i64 36
-  %338 = load i16, ptr %337, align 4, !tbaa !33
+  %338 = load i16, ptr %337, align 4, !tbaa !34
   %339 = tail call noundef i16 @llvm.umax.i16(i16 %336, i16 %338)
   %340 = add i16 %339, 1
-  store i16 %340, ptr %246, align 4, !tbaa !33
-  %341 = load i64, ptr %317, align 8, !tbaa !26
+  store i16 %340, ptr %246, align 4, !tbaa !34
+  %341 = load i64, ptr %317, align 8, !tbaa !27
   %342 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  %343 = load i64, ptr %342, align 8, !tbaa !26
+  %343 = load i64, ptr %342, align 8, !tbaa !27
   %344 = or i64 %343, %341
-  store i64 %344, ptr %318, align 8, !tbaa !26
+  store i64 %344, ptr %318, align 8, !tbaa !27
   br label %.critedge.sink.split.i
 
 345:                                              ; preds = %249
   %346 = getelementptr inbounds nuw i8, ptr %257, i64 36
-  %347 = load i16, ptr %346, align 4, !tbaa !33
+  %347 = load i16, ptr %346, align 4, !tbaa !34
   %348 = icmp eq i16 %347, 0
   %349 = getelementptr inbounds nuw i8, ptr %255, i64 28
-  %350 = load i32, ptr %349, align 4, !tbaa !41
+  %350 = load i32, ptr %349, align 4, !tbaa !42
   %351 = getelementptr inbounds nuw i8, ptr %255, i64 32
   %352 = load i32, ptr %351, align 8, !tbaa !16
   br i1 %348, label %353, label %432
@@ -859,26 +859,26 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
 
 406:                                              ; preds = %401
   store i32 %350, ptr %252, align 8, !tbaa !16
-  store i32 %253, ptr %349, align 4, !tbaa !41
+  store i32 %253, ptr %349, align 4, !tbaa !42
   store i32 %251, ptr %403, align 8, !tbaa !16
   %407 = getelementptr inbounds nuw i8, ptr %355, i64 24
   store i32 %.0134, ptr %407, align 8, !tbaa !16
   store <2 x float> %.sroa.03.4.vec.insert.i368.i, ptr %255, align 8
   store <2 x float> %.sroa.35.12.vec.insert.i374.i, ptr %359, align 8
   %408 = getelementptr inbounds nuw i8, ptr %357, i64 36
-  %409 = load i16, ptr %408, align 4, !tbaa !33
+  %409 = load i16, ptr %408, align 4, !tbaa !34
   %410 = add i16 %409, 1
-  store i16 %410, ptr %258, align 4, !tbaa !33
+  store i16 %410, ptr %258, align 4, !tbaa !34
   %411 = getelementptr inbounds nuw i8, ptr %355, i64 36
-  %412 = load i16, ptr %411, align 4, !tbaa !33
+  %412 = load i16, ptr %411, align 4, !tbaa !34
   %413 = tail call noundef i16 @llvm.umax.i16(i16 %410, i16 %412)
   %414 = add i16 %413, 1
-  store i16 %414, ptr %246, align 4, !tbaa !33
-  %415 = load i64, ptr %404, align 8, !tbaa !26
+  store i16 %414, ptr %246, align 4, !tbaa !34
+  %415 = load i64, ptr %404, align 8, !tbaa !27
   %416 = getelementptr inbounds nuw i8, ptr %357, i64 16
-  %417 = load i64, ptr %416, align 8, !tbaa !26
+  %417 = load i64, ptr %416, align 8, !tbaa !27
   %418 = or i64 %417, %415
-  store i64 %418, ptr %405, align 8, !tbaa !26
+  store i64 %418, ptr %405, align 8, !tbaa !27
   br label %.critedge.sink.split.i
 
 419:                                              ; preds = %401
@@ -890,24 +890,24 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   store <2 x float> %.sroa.03.4.vec.insert.i386.i, ptr %255, align 8
   store <2 x float> %.sroa.35.12.vec.insert.i392.i, ptr %359, align 8
   %421 = getelementptr inbounds nuw i8, ptr %355, i64 36
-  %422 = load i16, ptr %421, align 4, !tbaa !33
+  %422 = load i16, ptr %421, align 4, !tbaa !34
   %423 = add i16 %422, 1
-  store i16 %423, ptr %258, align 4, !tbaa !33
+  store i16 %423, ptr %258, align 4, !tbaa !34
   %424 = getelementptr inbounds nuw i8, ptr %357, i64 36
-  %425 = load i16, ptr %424, align 4, !tbaa !33
+  %425 = load i16, ptr %424, align 4, !tbaa !34
   %426 = tail call noundef i16 @llvm.umax.i16(i16 %423, i16 %425)
   %427 = add i16 %426, 1
-  store i16 %427, ptr %246, align 4, !tbaa !33
-  %428 = load i64, ptr %404, align 8, !tbaa !26
+  store i16 %427, ptr %246, align 4, !tbaa !34
+  %428 = load i64, ptr %404, align 8, !tbaa !27
   %429 = getelementptr inbounds nuw i8, ptr %355, i64 16
-  %430 = load i64, ptr %429, align 8, !tbaa !26
+  %430 = load i64, ptr %429, align 8, !tbaa !27
   %431 = or i64 %430, %428
-  store i64 %431, ptr %405, align 8, !tbaa !26
+  store i64 %431, ptr %405, align 8, !tbaa !27
   br label %.critedge.sink.split.i
 
 432:                                              ; preds = %345
   %433 = getelementptr inbounds nuw i8, ptr %257, i64 28
-  %434 = load i32, ptr %433, align 4, !tbaa !41
+  %434 = load i32, ptr %433, align 4, !tbaa !42
   %435 = getelementptr inbounds nuw i8, ptr %257, i64 32
   %436 = load i32, ptr %435, align 8, !tbaa !16
   %437 = sext i32 %350 to i64
@@ -1046,8 +1046,8 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %.sroa.35.12.vec.insert.i418.i = insertelement <2 x float> %.sroa.35.8.vec.insert.i415.i, float %472, i64 1
   %.sroa.03.0.vec.insert.i409.i = insertelement <2 x float> poison, float %466, i64 0
   %.sroa.03.4.vec.insert.i412.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i409.i, float %468, i64 1
-  store i32 %434, ptr %250, align 4, !tbaa !41
-  store i32 %251, ptr %433, align 4, !tbaa !41
+  store i32 %434, ptr %250, align 4, !tbaa !42
+  store i32 %251, ptr %433, align 4, !tbaa !42
   %531 = getelementptr inbounds nuw i8, ptr %255, i64 24
   store i32 %253, ptr %531, align 8, !tbaa !16
   %532 = getelementptr inbounds nuw i8, ptr %442, i64 24
@@ -1055,22 +1055,22 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   store <2 x float> %.sroa.03.4.vec.insert.i412.i, ptr %257, align 8
   store <2 x float> %.sroa.35.12.vec.insert.i418.i, ptr %454, align 8
   %533 = getelementptr inbounds nuw i8, ptr %444, i64 36
-  %534 = load i16, ptr %533, align 4, !tbaa !33
+  %534 = load i16, ptr %533, align 4, !tbaa !34
   %535 = tail call noundef i16 @llvm.umax.i16(i16 %259, i16 %534)
   %536 = add i16 %535, 1
-  store i16 %536, ptr %346, align 4, !tbaa !33
+  store i16 %536, ptr %346, align 4, !tbaa !34
   %537 = getelementptr inbounds nuw i8, ptr %442, i64 36
-  %538 = load i16, ptr %537, align 4, !tbaa !33
+  %538 = load i16, ptr %537, align 4, !tbaa !34
   %539 = tail call noundef i16 @llvm.umax.i16(i16 %536, i16 %538)
   %540 = add i16 %539, 1
-  store i16 %540, ptr %246, align 4, !tbaa !33
+  store i16 %540, ptr %246, align 4, !tbaa !34
   %541 = getelementptr inbounds nuw i8, ptr %255, i64 16
-  %542 = load i64, ptr %541, align 8, !tbaa !26
+  %542 = load i64, ptr %541, align 8, !tbaa !27
   %543 = getelementptr inbounds nuw i8, ptr %444, i64 16
-  %544 = load i64, ptr %543, align 8, !tbaa !26
+  %544 = load i64, ptr %543, align 8, !tbaa !27
   %545 = or i64 %544, %542
   %546 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  store i64 %545, ptr %546, align 8, !tbaa !26
+  store i64 %545, ptr %546, align 8, !tbaa !27
   br label %.critedge.sink.split.i
 
 547:                                              ; preds = %432
@@ -1078,7 +1078,7 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %.sroa.35.12.vec.insert.i436.i = insertelement <2 x float> %.sroa.35.8.vec.insert.i433.i, float %489, i64 1
   %.sroa.03.0.vec.insert.i427.i = insertelement <2 x float> poison, float %483, i64 0
   %.sroa.03.4.vec.insert.i430.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i427.i, float %485, i64 1
-  store i32 %436, ptr %250, align 4, !tbaa !41
+  store i32 %436, ptr %250, align 4, !tbaa !42
   store i32 %251, ptr %435, align 8, !tbaa !16
   %548 = getelementptr inbounds nuw i8, ptr %255, i64 24
   store i32 %253, ptr %548, align 8, !tbaa !16
@@ -1087,22 +1087,22 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   store <2 x float> %.sroa.03.4.vec.insert.i430.i, ptr %257, align 8
   store <2 x float> %.sroa.35.12.vec.insert.i436.i, ptr %454, align 8
   %550 = getelementptr inbounds nuw i8, ptr %442, i64 36
-  %551 = load i16, ptr %550, align 4, !tbaa !33
+  %551 = load i16, ptr %550, align 4, !tbaa !34
   %552 = tail call noundef i16 @llvm.umax.i16(i16 %259, i16 %551)
   %553 = add i16 %552, 1
-  store i16 %553, ptr %346, align 4, !tbaa !33
+  store i16 %553, ptr %346, align 4, !tbaa !34
   %554 = getelementptr inbounds nuw i8, ptr %444, i64 36
-  %555 = load i16, ptr %554, align 4, !tbaa !33
+  %555 = load i16, ptr %554, align 4, !tbaa !34
   %556 = tail call noundef i16 @llvm.umax.i16(i16 %553, i16 %555)
   %557 = add i16 %556, 1
-  store i16 %557, ptr %246, align 4, !tbaa !33
+  store i16 %557, ptr %246, align 4, !tbaa !34
   %558 = getelementptr inbounds nuw i8, ptr %255, i64 16
-  %559 = load i64, ptr %558, align 8, !tbaa !26
+  %559 = load i64, ptr %558, align 8, !tbaa !27
   %560 = getelementptr inbounds nuw i8, ptr %442, i64 16
-  %561 = load i64, ptr %560, align 8, !tbaa !26
+  %561 = load i64, ptr %560, align 8, !tbaa !27
   %562 = or i64 %561, %559
   %563 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  store i64 %562, ptr %563, align 8, !tbaa !26
+  store i64 %562, ptr %563, align 8, !tbaa !27
   br label %.critedge.sink.split.i
 
 564:                                              ; preds = %432
@@ -1111,7 +1111,7 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %.sroa.03.0.vec.insert.i445.i = insertelement <2 x float> poison, float %500, i64 0
   %.sroa.03.4.vec.insert.i448.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i445.i, float %502, i64 1
   store i32 %350, ptr %252, align 8, !tbaa !16
-  store i32 %253, ptr %349, align 4, !tbaa !41
+  store i32 %253, ptr %349, align 4, !tbaa !42
   %565 = getelementptr inbounds nuw i8, ptr %257, i64 24
   store i32 %251, ptr %565, align 8, !tbaa !16
   %566 = getelementptr inbounds nuw i8, ptr %438, i64 24
@@ -1119,22 +1119,22 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   store <2 x float> %.sroa.03.4.vec.insert.i448.i, ptr %255, align 8
   store <2 x float> %.sroa.35.12.vec.insert.i454.i, ptr %446, align 8
   %567 = getelementptr inbounds nuw i8, ptr %440, i64 36
-  %568 = load i16, ptr %567, align 4, !tbaa !33
+  %568 = load i16, ptr %567, align 4, !tbaa !34
   %569 = tail call noundef i16 @llvm.umax.i16(i16 %347, i16 %568)
   %570 = add i16 %569, 1
-  store i16 %570, ptr %258, align 4, !tbaa !33
+  store i16 %570, ptr %258, align 4, !tbaa !34
   %571 = getelementptr inbounds nuw i8, ptr %438, i64 36
-  %572 = load i16, ptr %571, align 4, !tbaa !33
+  %572 = load i16, ptr %571, align 4, !tbaa !34
   %573 = tail call noundef i16 @llvm.umax.i16(i16 %570, i16 %572)
   %574 = add i16 %573, 1
-  store i16 %574, ptr %246, align 4, !tbaa !33
+  store i16 %574, ptr %246, align 4, !tbaa !34
   %575 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  %576 = load i64, ptr %575, align 8, !tbaa !26
+  %576 = load i64, ptr %575, align 8, !tbaa !27
   %577 = getelementptr inbounds nuw i8, ptr %440, i64 16
-  %578 = load i64, ptr %577, align 8, !tbaa !26
+  %578 = load i64, ptr %577, align 8, !tbaa !27
   %579 = or i64 %578, %576
   %580 = getelementptr inbounds nuw i8, ptr %255, i64 16
-  store i64 %579, ptr %580, align 8, !tbaa !26
+  store i64 %579, ptr %580, align 8, !tbaa !27
   br label %.critedge.sink.split.i
 
 581:                                              ; preds = %432
@@ -1151,22 +1151,22 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   store <2 x float> %.sroa.03.4.vec.insert.i466.i, ptr %255, align 8
   store <2 x float> %.sroa.35.12.vec.insert.i472.i, ptr %446, align 8
   %584 = getelementptr inbounds nuw i8, ptr %438, i64 36
-  %585 = load i16, ptr %584, align 4, !tbaa !33
+  %585 = load i16, ptr %584, align 4, !tbaa !34
   %586 = tail call noundef i16 @llvm.umax.i16(i16 %347, i16 %585)
   %587 = add i16 %586, 1
-  store i16 %587, ptr %258, align 4, !tbaa !33
+  store i16 %587, ptr %258, align 4, !tbaa !34
   %588 = getelementptr inbounds nuw i8, ptr %440, i64 36
-  %589 = load i16, ptr %588, align 4, !tbaa !33
+  %589 = load i16, ptr %588, align 4, !tbaa !34
   %590 = tail call noundef i16 @llvm.umax.i16(i16 %587, i16 %589)
   %591 = add i16 %590, 1
-  store i16 %591, ptr %246, align 4, !tbaa !33
+  store i16 %591, ptr %246, align 4, !tbaa !34
   %592 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  %593 = load i64, ptr %592, align 8, !tbaa !26
+  %593 = load i64, ptr %592, align 8, !tbaa !27
   %594 = getelementptr inbounds nuw i8, ptr %438, i64 16
-  %595 = load i64, ptr %594, align 8, !tbaa !26
+  %595 = load i64, ptr %594, align 8, !tbaa !27
   %596 = or i64 %595, %593
   %597 = getelementptr inbounds nuw i8, ptr %255, i64 16
-  store i64 %596, ptr %597, align 8, !tbaa !26
+  store i64 %596, ptr %597, align 8, !tbaa !27
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %581, %564, %547, %530, %419, %406, %332, %319
@@ -1176,35 +1176,35 @@ b2FindBestSibling.exit:                           ; preds = %b2FindBestSibling.e
   %.sink13.i = phi ptr [ %444, %530 ], [ %442, %547 ], [ %440, %564 ], [ %438, %581 ], [ %355, %419 ], [ %357, %406 ], [ %267, %332 ], [ %269, %319 ]
   %.sink10.i = phi ptr [ %257, %530 ], [ %257, %547 ], [ %255, %564 ], [ %255, %581 ], [ %255, %419 ], [ %255, %406 ], [ %257, %332 ], [ %257, %319 ]
   %598 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 16
-  %599 = load i64, ptr %598, align 8, !tbaa !26
+  %599 = load i64, ptr %598, align 8, !tbaa !27
   %600 = or i64 %599, %.sink17.i
   %601 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  store i64 %600, ptr %601, align 8, !tbaa !26
+  store i64 %600, ptr %601, align 8, !tbaa !27
   %602 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 38
-  %603 = load i16, ptr %602, align 2, !tbaa !34
+  %603 = load i16, ptr %602, align 2, !tbaa !35
   %604 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 38
-  %605 = load i16, ptr %604, align 2, !tbaa !34
+  %605 = load i16, ptr %604, align 2, !tbaa !35
   %606 = or i16 %605, %603
   %607 = and i16 %606, 2
   %608 = getelementptr inbounds nuw i8, ptr %.sink10.i, i64 38
-  %609 = load i16, ptr %608, align 2, !tbaa !34
+  %609 = load i16, ptr %608, align 2, !tbaa !35
   %610 = or i16 %607, %609
-  store i16 %610, ptr %608, align 2, !tbaa !34
+  store i16 %610, ptr %608, align 2, !tbaa !35
   %611 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 38
-  %612 = load i16, ptr %611, align 2, !tbaa !34
+  %612 = load i16, ptr %611, align 2, !tbaa !35
   %613 = or i16 %610, %612
   %614 = and i16 %613, 2
   %615 = getelementptr inbounds nuw i8, ptr %245, i64 38
-  %616 = load i16, ptr %615, align 2, !tbaa !34
+  %616 = load i16, ptr %615, align 2, !tbaa !35
   %617 = or i16 %614, %616
-  store i16 %617, ptr %615, align 2, !tbaa !34
+  store i16 %617, ptr %615, align 2, !tbaa !35
   br label %b2RotateNodes.exit
 
 b2RotateNodes.exit:                               ; preds = %.critedge.sink.split.i, %432, %353, %261, %244, %.lr.ph
   %.0.in = getelementptr inbounds %struct.b2TreeNode, ptr %152, i64 %198, i32 2
   %.0 = load i32, ptr %.0.in, align 8, !tbaa !16
   %.not108 = icmp eq i32 %.0, -1
-  br i1 %.not108, label %.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %.not108, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
 .loopexit:                                        ; preds = %b2RotateNodes.exit, %197, %7
   ret void
@@ -1231,7 +1231,7 @@ define void @b2DynamicTree_DestroyProxy(ptr noundef captures(none) %0, i32 nound
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !41
+  %16 = load i32, ptr %15, align 4, !tbaa !42
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %18, label %21
 
@@ -1249,12 +1249,12 @@ define void @b2DynamicTree_DestroyProxy(ptr noundef captures(none) %0, i32 nound
   %23 = sext i32 %14 to i64
   %24 = getelementptr inbounds %struct.b2TreeNode, ptr %8, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 28
-  %26 = load i32, ptr %25, align 4, !tbaa !41
+  %26 = load i32, ptr %25, align 4, !tbaa !42
   %27 = icmp eq i32 %26, %10
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %22
-  store i32 %.0.i, ptr %25, align 4, !tbaa !41
+  store i32 %.0.i, ptr %25, align 4, !tbaa !42
   br label %.lr.ph.preheader.i
 
 29:                                               ; preds = %22
@@ -1273,7 +1273,7 @@ define void @b2DynamicTree_DestroyProxy(ptr noundef captures(none) %0, i32 nound
   store i32 %34, ptr %36, align 8, !tbaa !16
   %37 = load ptr, ptr %0, align 8, !tbaa !15
   %38 = getelementptr inbounds %struct.b2TreeNode, ptr %37, i64 %11, i32 6
-  store i16 0, ptr %38, align 2, !tbaa !34
+  store i16 0, ptr %38, align 2, !tbaa !35
   store i32 %10, ptr %33, align 4, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !14
@@ -1286,7 +1286,7 @@ define void @b2DynamicTree_DestroyProxy(ptr noundef captures(none) %0, i32 nound
   %42 = sext i32 %.05359.i to i64
   %43 = getelementptr inbounds %struct.b2TreeNode, ptr %8, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 28
-  %45 = load i32, ptr %44, align 4, !tbaa !41
+  %45 = load i32, ptr %44, align 4, !tbaa !42
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds %struct.b2TreeNode, ptr %8, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -1323,24 +1323,24 @@ define void @b2DynamicTree_DestroyProxy(ptr noundef captures(none) %0, i32 nound
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %66 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !26
+  %67 = load i64, ptr %66, align 8, !tbaa !27
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %69 = load i64, ptr %68, align 8, !tbaa !26
+  %69 = load i64, ptr %68, align 8, !tbaa !27
   %70 = or i64 %69, %67
   %71 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i64 %70, ptr %71, align 8, !tbaa !26
+  store i64 %70, ptr %71, align 8, !tbaa !27
   %72 = getelementptr inbounds nuw i8, ptr %47, i64 36
-  %73 = load i16, ptr %72, align 4, !tbaa !33
+  %73 = load i16, ptr %72, align 4, !tbaa !34
   %74 = getelementptr inbounds nuw i8, ptr %51, i64 36
-  %75 = load i16, ptr %74, align 4, !tbaa !33
+  %75 = load i16, ptr %74, align 4, !tbaa !34
   %76 = tail call noundef i16 @llvm.umax.i16(i16 %73, i16 %75)
   %77 = add i16 %76, 1
   %78 = getelementptr inbounds nuw i8, ptr %43, i64 36
-  store i16 %77, ptr %78, align 4, !tbaa !33
+  store i16 %77, ptr %78, align 4, !tbaa !34
   %79 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %80 = load i32, ptr %79, align 8, !tbaa !16
   %.not57.i = icmp eq i32 %80, -1
-  br i1 %.not57.i, label %b2RemoveLeaf.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not57.i, label %b2RemoveLeaf.exit, label %.lr.ph.i, !llvm.loop !45
 
 81:                                               ; preds = %21
   store i32 %.0.i, ptr %3, align 8, !tbaa !3
@@ -1354,7 +1354,7 @@ define void @b2DynamicTree_DestroyProxy(ptr noundef captures(none) %0, i32 nound
   store i32 %85, ptr %87, align 8, !tbaa !16
   %88 = load ptr, ptr %0, align 8, !tbaa !15
   %89 = getelementptr inbounds %struct.b2TreeNode, ptr %88, i64 %11, i32 6
-  store i16 0, ptr %89, align 2, !tbaa !34
+  store i16 0, ptr %89, align 2, !tbaa !35
   store i32 %10, ptr %84, align 4, !tbaa !17
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %91 = load i32, ptr %90, align 4, !tbaa !14
@@ -1370,7 +1370,7 @@ b2RemoveLeaf.exit:                                ; preds = %.lr.ph.i, %6, %81
   store i32 %94, ptr %96, align 8, !tbaa !16
   %97 = load ptr, ptr %0, align 8, !tbaa !15
   %98 = getelementptr inbounds %struct.b2TreeNode, ptr %97, i64 %.pre, i32 6
-  store i16 0, ptr %98, align 2, !tbaa !34
+  store i16 0, ptr %98, align 2, !tbaa !35
   store i32 %1, ptr %93, align 4, !tbaa !17
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %100 = load i32, ptr %99, align 4, !tbaa !14
@@ -1411,7 +1411,7 @@ define void @b2DynamicTree_MoveProxy(ptr noundef captures(none) %0, i32 noundef 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %18 = load i32, ptr %17, align 4, !tbaa !41
+  %18 = load i32, ptr %17, align 4, !tbaa !42
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %20, label %23
 
@@ -1429,12 +1429,12 @@ define void @b2DynamicTree_MoveProxy(ptr noundef captures(none) %0, i32 noundef 
   %25 = sext i32 %16 to i64
   %26 = getelementptr inbounds %struct.b2TreeNode, ptr %10, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 28
-  %28 = load i32, ptr %27, align 4, !tbaa !41
+  %28 = load i32, ptr %27, align 4, !tbaa !42
   %29 = icmp eq i32 %28, %12
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %24
-  store i32 %.0.i, ptr %27, align 4, !tbaa !41
+  store i32 %.0.i, ptr %27, align 4, !tbaa !42
   br label %.lr.ph.preheader.i
 
 31:                                               ; preds = %24
@@ -1453,7 +1453,7 @@ define void @b2DynamicTree_MoveProxy(ptr noundef captures(none) %0, i32 noundef 
   store i32 %36, ptr %38, align 8, !tbaa !16
   %39 = load ptr, ptr %0, align 8, !tbaa !15
   %40 = getelementptr inbounds %struct.b2TreeNode, ptr %39, i64 %13, i32 6
-  store i16 0, ptr %40, align 2, !tbaa !34
+  store i16 0, ptr %40, align 2, !tbaa !35
   store i32 %12, ptr %35, align 4, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !14
@@ -1466,7 +1466,7 @@ define void @b2DynamicTree_MoveProxy(ptr noundef captures(none) %0, i32 noundef 
   %44 = sext i32 %.05359.i to i64
   %45 = getelementptr inbounds %struct.b2TreeNode, ptr %10, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
-  %47 = load i32, ptr %46, align 4, !tbaa !41
+  %47 = load i32, ptr %46, align 4, !tbaa !42
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds %struct.b2TreeNode, ptr %10, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -1503,24 +1503,24 @@ define void @b2DynamicTree_MoveProxy(ptr noundef captures(none) %0, i32 noundef 
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %68 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %69 = load i64, ptr %68, align 8, !tbaa !26
+  %69 = load i64, ptr %68, align 8, !tbaa !27
   %70 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %71 = load i64, ptr %70, align 8, !tbaa !26
+  %71 = load i64, ptr %70, align 8, !tbaa !27
   %72 = or i64 %71, %69
   %73 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i64 %72, ptr %73, align 8, !tbaa !26
+  store i64 %72, ptr %73, align 8, !tbaa !27
   %74 = getelementptr inbounds nuw i8, ptr %49, i64 36
-  %75 = load i16, ptr %74, align 4, !tbaa !33
+  %75 = load i16, ptr %74, align 4, !tbaa !34
   %76 = getelementptr inbounds nuw i8, ptr %53, i64 36
-  %77 = load i16, ptr %76, align 4, !tbaa !33
+  %77 = load i16, ptr %76, align 4, !tbaa !34
   %78 = tail call noundef i16 @llvm.umax.i16(i16 %75, i16 %77)
   %79 = add i16 %78, 1
   %80 = getelementptr inbounds nuw i8, ptr %45, i64 36
-  store i16 %79, ptr %80, align 4, !tbaa !33
+  store i16 %79, ptr %80, align 4, !tbaa !34
   %81 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %82 = load i32, ptr %81, align 8, !tbaa !16
   %.not57.i = icmp eq i32 %82, -1
-  br i1 %.not57.i, label %b2RemoveLeaf.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not57.i, label %b2RemoveLeaf.exit, label %.lr.ph.i, !llvm.loop !45
 
 83:                                               ; preds = %23
   store i32 %.0.i, ptr %5, align 8, !tbaa !3
@@ -1534,7 +1534,7 @@ define void @b2DynamicTree_MoveProxy(ptr noundef captures(none) %0, i32 noundef 
   store i32 %87, ptr %89, align 8, !tbaa !16
   %90 = load ptr, ptr %0, align 8, !tbaa !15
   %91 = getelementptr inbounds %struct.b2TreeNode, ptr %90, i64 %13, i32 6
-  store i16 0, ptr %91, align 2, !tbaa !34
+  store i16 0, ptr %91, align 2, !tbaa !35
   store i32 %12, ptr %86, align 4, !tbaa !17
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %93 = load i32, ptr %92, align 4, !tbaa !14
@@ -1576,63 +1576,63 @@ define void @b2DynamicTree_EnlargeProxy(ptr noundef readonly captures(none) %0, 
   %.02024 = phi i32 [ %9, %.lr.ph ], [ %.020.be, %.backedge ]
   %11 = sext i32 %.02024 to i64
   %12 = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %11
-  %13 = load float, ptr %12, align 4, !tbaa !44
+  %13 = load float, ptr %12, align 4, !tbaa !46
   %14 = fcmp olt float %.sroa.0.0.vec.extract.i, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  store float %.sroa.0.0.vec.extract.i, ptr %12, align 4, !tbaa !44
+  store float %.sroa.0.0.vec.extract.i, ptr %12, align 4, !tbaa !46
   br label %16
 
 16:                                               ; preds = %15, %10
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %18 = load float, ptr %17, align 4, !tbaa !45
+  %18 = load float, ptr %17, align 4, !tbaa !47
   %19 = fcmp olt float %.sroa.0.4.vec.extract.i, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  store float %.sroa.0.4.vec.extract.i, ptr %17, align 4, !tbaa !45
+  store float %.sroa.0.4.vec.extract.i, ptr %17, align 4, !tbaa !47
   br label %21
 
 21:                                               ; preds = %20, %16
   %.1.i = phi i1 [ true, %20 ], [ %14, %16 ]
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %23 = load float, ptr %22, align 4, !tbaa !46
+  %23 = load float, ptr %22, align 4, !tbaa !48
   %24 = fcmp olt float %23, %.sroa.5.8.vec.extract.i
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %27 = load float, ptr %26, align 4, !tbaa !47
+  %27 = load float, ptr %26, align 4, !tbaa !49
   %28 = fcmp olt float %27, %.sroa.5.12.vec.extract.i
   br i1 %28, label %32, label %b2EnlargeAABB.exit
 
 .thread:                                          ; preds = %21
-  store float %.sroa.5.8.vec.extract.i, ptr %22, align 4, !tbaa !46
+  store float %.sroa.5.8.vec.extract.i, ptr %22, align 4, !tbaa !48
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %30 = load float, ptr %29, align 4, !tbaa !47
+  %30 = load float, ptr %29, align 4, !tbaa !49
   %31 = fcmp olt float %30, %.sroa.5.12.vec.extract.i
   br i1 %31, label %32, label %.backedge.sink.split
 
 32:                                               ; preds = %.thread, %25
   %33 = phi ptr [ %29, %.thread ], [ %26, %25 ]
-  store float %.sroa.5.12.vec.extract.i, ptr %33, align 4, !tbaa !47
+  store float %.sroa.5.12.vec.extract.i, ptr %33, align 4, !tbaa !49
   br label %.backedge.sink.split
 
 b2EnlargeAABB.exit:                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 38
-  %35 = load i16, ptr %34, align 2, !tbaa !34
+  %35 = load i16, ptr %34, align 2, !tbaa !35
   %36 = or i16 %35, 2
-  store i16 %36, ptr %34, align 2, !tbaa !34
+  store i16 %36, ptr %34, align 2, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !16
   br i1 %.1.i, label %.backedge, label %b2EnlargeAABB.exit._crit_edge
 
 .backedge.sink.split:                             ; preds = %.thread, %32
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 38
-  %40 = load i16, ptr %39, align 2, !tbaa !34
+  %40 = load i16, ptr %39, align 2, !tbaa !35
   %41 = or i16 %40, 2
-  store i16 %41, ptr %39, align 2, !tbaa !34
+  store i16 %41, ptr %39, align 2, !tbaa !35
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !16
   br label %.backedge
@@ -1640,7 +1640,7 @@ b2EnlargeAABB.exit:                               ; preds = %25
 .backedge:                                        ; preds = %.backedge.sink.split, %b2EnlargeAABB.exit
   %.020.be = phi i32 [ %38, %b2EnlargeAABB.exit ], [ %43, %.backedge.sink.split ]
   %.not = icmp eq i32 %.020.be, -1
-  br i1 %.not, label %._crit_edge30, label %10
+  br i1 %.not, label %._crit_edge30, label %10, !llvm.loop !50
 
 b2EnlargeAABB.exit._crit_edge:                    ; preds = %b2EnlargeAABB.exit
   %.not2126 = icmp eq i32 %38, -1
@@ -1651,18 +1651,18 @@ b2EnlargeAABB.exit._crit_edge:                    ; preds = %b2EnlargeAABB.exit
   %44 = sext i32 %.227 to i64
   %45 = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 38
-  %47 = load i16, ptr %46, align 2, !tbaa !34
+  %47 = load i16, ptr %46, align 2, !tbaa !35
   %48 = and i16 %47, 2
   %.not22 = icmp eq i16 %48, 0
   br i1 %.not22, label %49, label %._crit_edge30
 
 49:                                               ; preds = %.lr.ph29
   %50 = or disjoint i16 %47, 2
-  store i16 %50, ptr %46, align 2, !tbaa !34
+  store i16 %50, ptr %46, align 2, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %52 = load i32, ptr %51, align 8, !tbaa !16
   %.not21 = icmp eq i32 %52, -1
-  br i1 %.not21, label %._crit_edge30, label %.lr.ph29, !llvm.loop !48
+  br i1 %.not21, label %._crit_edge30, label %.lr.ph29, !llvm.loop !51
 
 ._crit_edge30:                                    ; preds = %.backedge, %49, %.lr.ph29, %4, %b2EnlargeAABB.exit._crit_edge
   ret void
@@ -1679,7 +1679,7 @@ define range(i32 0, 65536) i32 @b2DynamicTree_GetHeight(ptr noundef readonly cap
   %6 = load ptr, ptr %0, align 8, !tbaa !15
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds %struct.b2TreeNode, ptr %6, i64 %7, i32 5
-  %9 = load i16, ptr %8, align 4, !tbaa !33
+  %9 = load i16, ptr %8, align 4, !tbaa !34
   %10 = zext i16 %9 to i32
   br label %11
 
@@ -1728,7 +1728,7 @@ define float @b2DynamicTree_GetAreaRatio(ptr noundef readonly captures(none) %0)
   %.01827 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %36 ]
   %22 = getelementptr inbounds nuw %struct.b2TreeNode, ptr %6, i64 %indvars.iv
   %23 = getelementptr i8, ptr %22, i64 38
-  %.val = load i16, ptr %23, align 2, !tbaa !34
+  %.val = load i16, ptr %23, align 2, !tbaa !35
   %24 = and i16 %.val, 5
   %or.cond = icmp ne i16 %24, 1
   %25 = icmp eq i64 %indvars.iv, %20
@@ -1752,7 +1752,7 @@ define float @b2DynamicTree_GetAreaRatio(ptr noundef readonly captures(none) %0)
   %.1 = phi float [ %35, %26 ], [ %.01827, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 37:                                               ; preds = %1, %._crit_edge
   %.0 = phi float [ %21, %._crit_edge ], [ 0.000000e+00, %1 ]
@@ -1776,7 +1776,7 @@ define i32 @b2DynamicTree_GetByteCount(ptr noundef readonly captures(none) %0) l
   %4 = mul i32 %3, 40
   %5 = add i32 %4, 72
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load i32, ptr %6, align 8, !tbaa !22
+  %7 = load i32, ptr %6, align 8, !tbaa !23
   %8 = shl i32 %7, 5
   %9 = add i32 %5, %8
   ret i32 %9
@@ -1816,7 +1816,7 @@ define i64 @b2DynamicTree_Query(ptr noundef readonly captures(none) %0, <2 x flo
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !3
-  store i32 %13, ptr %7, align 16, !tbaa !39
+  store i32 %13, ptr %7, align 16, !tbaa !40
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %1, i64 0
   %.sroa.3.8.vec.extract.i = extractelement <2 x float> %2, i64 0
   br label %14
@@ -1828,9 +1828,9 @@ define i64 @b2DynamicTree_Query(ptr noundef readonly captures(none) %0, <2 x flo
   %15 = add nsw i32 %.02742, -1
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !39
+  %18 = load i32, ptr %17, align 4, !tbaa !40
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %b2AABB_Overlaps.exit.thread, label %20, !llvm.loop !50
+  br i1 %19, label %b2AABB_Overlaps.exit.thread, label %20, !llvm.loop !53
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8, !tbaa !15
@@ -1855,14 +1855,14 @@ define i64 @b2DynamicTree_Query(ptr noundef readonly captures(none) %0, <2 x flo
 
 34:                                               ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !26
+  %36 = load i64, ptr %35, align 8, !tbaa !27
   %37 = and i64 %36, %3
   %.not = icmp eq i64 %37, 0
   br i1 %.not, label %b2AABB_Overlaps.exit.thread, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %23, i64 38
-  %.val = load i16, ptr %39, align 2, !tbaa !34
+  %.val = load i16, ptr %39, align 2, !tbaa !35
   %40 = and i16 %.val, 4
   %.not41 = icmp eq i16 %40, 0
   br i1 %.not41, label %46, label %41
@@ -1880,14 +1880,14 @@ define i64 @b2DynamicTree_Query(ptr noundef readonly captures(none) %0, <2 x flo
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  %50 = load i32, ptr %49, align 4, !tbaa !41
-  store i32 %50, ptr %17, align 4, !tbaa !39
+  %50 = load i32, ptr %49, align 4, !tbaa !42
+  store i32 %50, ptr %17, align 4, !tbaa !40
   %51 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %52 = load i32, ptr %51, align 8, !tbaa !16
   %53 = add nuw nsw i32 %.02742, 1
   %54 = zext nneg i32 %.02742 to i64
   %55 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %54
-  store i32 %52, ptr %55, align 4, !tbaa !39
+  store i32 %52, ptr %55, align 4, !tbaa !40
   br label %b2AABB_Overlaps.exit.thread
 
 b2AABB_Overlaps.exit.thread:                      ; preds = %41, %20, %46, %48, %34, %14
@@ -1954,7 +1954,7 @@ b2Normalize.exit:                                 ; preds = %11, %18
   %26 = fneg float %.sroa.0.4.vec.extract.i97
   %27 = select i1 %25, float %26, float %.sroa.0.4.vec.extract.i97
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %29 = load float, ptr %28, align 4, !tbaa !51
+  %29 = load float, ptr %28, align 4, !tbaa !54
   %.sroa.02.0.vec.extract.i = extractelement <2 x float> %.sroa.059.0.copyload, i64 0
   %30 = fmul float %.sroa.0.0.vec.extract.i, %29
   %31 = fadd float %.sroa.02.0.vec.extract.i, %30
@@ -1976,10 +1976,10 @@ b2Normalize.exit:                                 ; preds = %11, %18
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #13
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !3
-  store i32 %43, ptr %6, align 16, !tbaa !39
+  store i32 %43, ptr %6, align 16, !tbaa !40
   %44 = load ptr, ptr %0, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 16, i1 false), !tbaa.struct !53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 16, i1 false), !tbaa.struct !56
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %46
 
@@ -1993,19 +1993,19 @@ b2Normalize.exit:                                 ; preds = %11, %18
   %47 = add nsw i32 %.082191, -1
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw [1024 x i32], ptr %6, i64 0, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !39
+  %50 = load i32, ptr %49, align 4, !tbaa !40
   %51 = icmp eq i32 %50, -1
-  br i1 %51, label %b2AABB_Overlaps.exit.thread, label %52, !llvm.loop !54
+  br i1 %51, label %b2AABB_Overlaps.exit.thread, label %52, !llvm.loop !57
 
 52:                                               ; preds = %46
   %53 = sext i32 %50 to i64
   %54 = getelementptr inbounds %struct.b2TreeNode, ptr %44, i64 %53
   %55 = add nsw i32 %.sroa.078.1196, 1
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %57 = load i64, ptr %56, align 8, !tbaa !26
+  %57 = load i64, ptr %56, align 8, !tbaa !27
   %58 = and i64 %57, %2
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %b2AABB_Overlaps.exit.thread, label %60, !llvm.loop !54
+  br i1 %59, label %b2AABB_Overlaps.exit.thread, label %60, !llvm.loop !57
 
 60:                                               ; preds = %52
   %.sroa.013.0.copyload = load <2 x float>, ptr %54, align 8
@@ -2026,7 +2026,7 @@ b2Normalize.exit:                                 ; preds = %11, %18
   %.sroa.3.12.vec.extract.i = extractelement <2 x float> %.sroa.5.0193, i64 1
   %64 = fcmp ule float %.sroa.01.4.vec.extract.i113, %.sroa.3.12.vec.extract.i
   %or.cond186 = select i1 %or.cond3.i.not187, i1 %64, i1 false
-  br i1 %or.cond186, label %65, label %b2AABB_Overlaps.exit.thread, !llvm.loop !54
+  br i1 %or.cond186, label %65, label %b2AABB_Overlaps.exit.thread, !llvm.loop !57
 
 65:                                               ; preds = %60
   %66 = fadd <2 x float> %.sroa.013.0.copyload, %.sroa.6.0.copyload
@@ -2049,17 +2049,17 @@ b2Normalize.exit:                                 ; preds = %11, %18
   %83 = fmul float %27, %75
   %84 = fadd float %82, %83
   %85 = fcmp olt float %84, %81
-  br i1 %85, label %b2AABB_Overlaps.exit.thread, label %86, !llvm.loop !54
+  br i1 %85, label %b2AABB_Overlaps.exit.thread, label %86, !llvm.loop !57
 
 86:                                               ; preds = %65
   %87 = getelementptr i8, ptr %54, i64 38
-  %.val = load i16, ptr %87, align 2, !tbaa !34
+  %.val = load i16, ptr %87, align 2, !tbaa !35
   %88 = and i16 %.val, 4
   %.not = icmp eq i16 %88, 0
   br i1 %.not, label %111, label %89
 
 89:                                               ; preds = %86
-  store float %.0194, ptr %45, align 4, !tbaa !51
+  store float %.0194, ptr %45, align 4, !tbaa !54
   %90 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %91 = load i32, ptr %90, align 8, !tbaa !16
   %92 = call float %3(ptr noundef nonnull %7, i32 noundef %50, i32 noundef %91, ptr noundef %4) #13
@@ -2098,7 +2098,7 @@ b2Normalize.exit:                                 ; preds = %11, %18
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %54, i64 28
-  %115 = load i32, ptr %114, align 4, !tbaa !41
+  %115 = load i32, ptr %114, align 4, !tbaa !42
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds %struct.b2TreeNode, ptr %44, i64 %116
   %118 = load <2 x float>, ptr %117, align 8
@@ -2138,8 +2138,8 @@ b2Normalize.exit:                                 ; preds = %11, %18
   %152 = getelementptr inbounds nuw [1024 x i32], ptr %6, i64 0, i64 %151
   %. = select i1 %150, i32 %128, i32 %115
   %.198 = select i1 %150, i32 %115, i32 %128
-  store i32 %., ptr %49, align 4, !tbaa !39
-  store i32 %.198, ptr %152, align 4, !tbaa !39
+  store i32 %., ptr %49, align 4, !tbaa !40
+  store i32 %.198, ptr %152, align 4, !tbaa !40
   %.587 = add nuw nsw i32 %.082191, 1
   br label %b2AABB_Overlaps.exit.thread
 
@@ -2180,7 +2180,7 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %13 = load i32, ptr %12, align 4, !tbaa !55
+  %13 = load i32, ptr %12, align 4, !tbaa !58
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %187, label %15
 
@@ -2197,7 +2197,7 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %.sroa.073.0.lcssa = phi <2 x float> [ %.sroa.073.0.copyload, %15 ], [ %.sroa.02.4.vec.insert.i168, %.lr.ph ]
   %.sroa.13.0.lcssa = phi <2 x float> [ %.sroa.073.0.copyload, %15 ], [ %.sroa.02.4.vec.insert.i174, %.lr.ph ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %18 = load float, ptr %17, align 4, !tbaa !57
+  %18 = load float, ptr %17, align 4, !tbaa !60
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.073.0.lcssa, i64 0
   %19 = fsub float %.sroa.01.0.vec.extract.i, %18
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %.sroa.073.0.lcssa, i64 1
@@ -2225,7 +2225,7 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %36 = fneg float %.sroa.0.4.vec.extract.i134
   %37 = select i1 %35, float %36, float %.sroa.0.4.vec.extract.i134
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %39 = load float, ptr %38, align 4, !tbaa !58
+  %39 = load float, ptr %38, align 4, !tbaa !61
   %40 = fmul float %39, %.sroa.0.4.vec.extract.i134
   %41 = fmul float %39, %.sroa.0.4.vec.extract.i
   %42 = fadd float %19, %40
@@ -2245,12 +2245,12 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %53 = select i1 %52, float %22, float %49
   %.sroa.02.4.vec.insert.i162 = insertelement <2 x float> %.sroa.02.0.vec.insert.i159, float %53, i64 1
   call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %6) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %6, ptr noundef nonnull align 4 dereferenceable(84) %1, i64 80, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %6, ptr noundef nonnull align 4 dereferenceable(84) %1, i64 80, i1 false), !tbaa.struct !62
   %54 = load ptr, ptr %0, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #13
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !3
-  store i32 %56, ptr %7, align 16, !tbaa !39
+  store i32 %56, ptr %7, align 16, !tbaa !40
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 80
   br label %68
 
@@ -2280,7 +2280,7 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %.sroa.02.4.vec.insert.i174 = insertelement <2 x float> %.sroa.02.0.vec.insert.i171, float %67, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 68:                                               ; preds = %._crit_edge, %b2AABB_Overlaps.exit.thread
   %.sroa.0107.1279 = phi i32 [ 0, %._crit_edge ], [ %.sroa.0107.2, %b2AABB_Overlaps.exit.thread ]
@@ -2292,19 +2292,19 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %69 = add nsw i32 %.0112274, -1
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !39
+  %72 = load i32, ptr %71, align 4, !tbaa !40
   %73 = icmp eq i32 %72, -1
-  br i1 %73, label %b2AABB_Overlaps.exit.thread, label %74, !llvm.loop !61
+  br i1 %73, label %b2AABB_Overlaps.exit.thread, label %74, !llvm.loop !64
 
 74:                                               ; preds = %68
   %75 = sext i32 %72 to i64
   %76 = getelementptr inbounds %struct.b2TreeNode, ptr %54, i64 %75
   %77 = add nsw i32 %.sroa.0107.1279, 1
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %79 = load i64, ptr %78, align 8, !tbaa !26
+  %79 = load i64, ptr %78, align 8, !tbaa !27
   %80 = and i64 %79, %2
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %b2AABB_Overlaps.exit.thread, label %82, !llvm.loop !61
+  br i1 %81, label %b2AABB_Overlaps.exit.thread, label %82, !llvm.loop !64
 
 82:                                               ; preds = %74
   %83 = load <2 x float>, ptr %76, align 8
@@ -2325,7 +2325,7 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %.sroa.3.12.vec.extract.i = extractelement <2 x float> %.sroa.5.0276, i64 1
   %89 = fcmp ule float %.sroa.01.4.vec.extract.i178, %.sroa.3.12.vec.extract.i
   %or.cond265 = select i1 %or.cond3.i.not266, i1 %89, i1 false
-  br i1 %or.cond265, label %90, label %b2AABB_Overlaps.exit.thread, !llvm.loop !61
+  br i1 %or.cond265, label %90, label %b2AABB_Overlaps.exit.thread, !llvm.loop !64
 
 90:                                               ; preds = %82
   %91 = fadd <2 x float> %83, %85
@@ -2350,17 +2350,17 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %110 = fmul float %37, %102
   %111 = fadd float %109, %110
   %112 = fcmp olt float %111, %108
-  br i1 %112, label %b2AABB_Overlaps.exit.thread, label %113, !llvm.loop !61
+  br i1 %112, label %b2AABB_Overlaps.exit.thread, label %113, !llvm.loop !64
 
 113:                                              ; preds = %90
   %114 = getelementptr i8, ptr %76, i64 38
-  %.val = load i16, ptr %114, align 2, !tbaa !34
+  %.val = load i16, ptr %114, align 2, !tbaa !35
   %115 = and i16 %.val, 4
   %.not = icmp eq i16 %115, 0
   br i1 %.not, label %141, label %116
 
 116:                                              ; preds = %113
-  store float %.0111277, ptr %57, align 4, !tbaa !58
+  store float %.0111277, ptr %57, align 4, !tbaa !61
   %117 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %118 = load i32, ptr %117, align 8, !tbaa !16
   %119 = call float %3(ptr noundef nonnull %6, i32 noundef %72, i32 noundef %118, ptr noundef %4) #13
@@ -2404,7 +2404,7 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
 
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %76, i64 28
-  %145 = load i32, ptr %144, align 4, !tbaa !41
+  %145 = load i32, ptr %144, align 4, !tbaa !42
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds %struct.b2TreeNode, ptr %54, i64 %146
   %148 = load <2 x float>, ptr %147, align 8
@@ -2444,8 +2444,8 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %182 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %181
   %. = select i1 %180, i32 %158, i32 %145
   %.282 = select i1 %180, i32 %145, i32 %158
-  store i32 %., ptr %71, align 4, !tbaa !39
-  store i32 %.282, ptr %182, align 4, !tbaa !39
+  store i32 %., ptr %71, align 4, !tbaa !40
+  store i32 %.282, ptr %182, align 4, !tbaa !40
   %.5117 = add nuw nsw i32 %.0112274, 1
   br label %b2AABB_Overlaps.exit.thread
 
@@ -2487,34 +2487,34 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load i32, ptr %9, align 8, !tbaa !22
+  %10 = load i32, ptr %9, align 8, !tbaa !23
   %11 = icmp sgt i32 %6, %10
   br i1 %11, label %12, label %._crit_edge80
 
 ._crit_edge80:                                    ; preds = %8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !24
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %26
 
 12:                                               ; preds = %8
   %13 = sdiv i32 %6, 2
   %14 = add nsw i32 %13, %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !21
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   %17 = shl i32 %10, 2
   tail call void @b2Free(ptr noundef %16, i32 noundef %17) #13
   %18 = shl i32 %14, 2
   %19 = tail call ptr @b2Alloc(i32 noundef %18) #13
-  store ptr %19, ptr %15, align 8, !tbaa !21
+  store ptr %19, ptr %15, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !24
-  %22 = load i32, ptr %9, align 8, !tbaa !22
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %22 = load i32, ptr %9, align 8, !tbaa !23
   %23 = shl i32 %22, 3
   tail call void @b2Free(ptr noundef %21, i32 noundef %23) #13
   %24 = shl i32 %14, 3
   %25 = tail call ptr @b2Alloc(i32 noundef %24) #13
-  store ptr %25, ptr %20, align 8, !tbaa !24
-  store i32 %14, ptr %9, align 8, !tbaa !22
+  store ptr %25, ptr %20, align 8, !tbaa !25
+  store i32 %14, ptr %9, align 8, !tbaa !23
   br label %26
 
 26:                                               ; preds = %._crit_edge80, %12
@@ -2526,7 +2526,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %31 = sext i32 %29 to i64
   %32 = getelementptr inbounds %struct.b2TreeNode, ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !21
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2538,7 +2538,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %.053.ph.us = phi ptr [ %60, %54 ], [ %32, %26 ]
   %.052.ph.us = phi i32 [ %55, %54 ], [ 0, %26 ]
   %38 = getelementptr inbounds nuw i8, ptr %.053.ph.us, i64 36
-  %39 = load i16, ptr %38, align 4, !tbaa !33
+  %39 = load i16, ptr %38, align 4, !tbaa !34
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %._crit_edge62.split.us.us, label %.lr.ph.us
 
@@ -2547,7 +2547,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %.053.lcssa.us = phi ptr [ %.053.ph.us, %.outer.us ], [ %72, %70 ]
   %.052.lcssa.us = phi i32 [ %.052.ph.us, %.outer.us ], [ %.1.us.us, %70 ]
   %41 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv77
-  store i32 %.054.lcssa.us, ptr %41, align 4, !tbaa !39
+  store i32 %.054.lcssa.us, ptr %41, align 4, !tbaa !40
   %42 = getelementptr inbounds nuw %struct.b2Vec2, ptr %27, i64 %indvars.iv77
   %43 = load <2 x float>, ptr %.053.lcssa.us, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.053.lcssa.us, i64 8
@@ -2571,17 +2571,17 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %55 = add nsw i32 %.052.lcssa.us, -1
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds [1024 x i32], ptr %4, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !39
+  %58 = load i32, ptr %57, align 4, !tbaa !40
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds %struct.b2TreeNode, ptr %30, i64 %59
-  br label %.outer.us, !llvm.loop !62
+  br label %.outer.us, !llvm.loop !65
 
 .lr.ph.us:                                        ; preds = %.outer.us, %70
   %.05259.us.us = phi i32 [ %.1.us.us, %70 ], [ %.052.ph.us, %.outer.us ]
   %.05358.us.us = phi ptr [ %72, %70 ], [ %.053.ph.us, %.outer.us ]
   %.05457.us.us = phi i32 [ %62, %70 ], [ %.054.ph.us, %.outer.us ]
   %61 = getelementptr inbounds nuw i8, ptr %.05358.us.us, i64 28
-  %62 = load i32, ptr %61, align 4, !tbaa !41
+  %62 = load i32, ptr %61, align 4, !tbaa !42
   %63 = icmp slt i32 %.05259.us.us, 1024
   br i1 %63, label %64, label %70
 
@@ -2591,7 +2591,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %67 = add nsw i32 %.05259.us.us, 1
   %68 = sext i32 %.05259.us.us to i64
   %69 = getelementptr inbounds [1024 x i32], ptr %4, i64 0, i64 %68
-  store i32 %66, ptr %69, align 4, !tbaa !39
+  store i32 %66, ptr %69, align 4, !tbaa !40
   br label %70
 
 70:                                               ; preds = %64, %.lr.ph.us
@@ -2605,15 +2605,15 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   store i32 %73, ptr %76, align 8, !tbaa !16
   %77 = load ptr, ptr %0, align 8, !tbaa !15
   %78 = getelementptr inbounds %struct.b2TreeNode, ptr %77, i64 %75, i32 6
-  store i16 0, ptr %78, align 2, !tbaa !34
+  store i16 0, ptr %78, align 2, !tbaa !35
   store i32 %.05457.us.us, ptr %36, align 4, !tbaa !17
   %79 = load i32, ptr %37, align 4, !tbaa !14
   %80 = add nsw i32 %79, -1
   store i32 %80, ptr %37, align 4, !tbaa !14
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 36
-  %82 = load i16, ptr %81, align 4, !tbaa !33
+  %82 = load i16, ptr %81, align 4, !tbaa !34
   %83 = icmp eq i16 %82, 0
-  br i1 %83, label %._crit_edge62.split.us.us, label %.lr.ph.us, !llvm.loop !64
+  br i1 %83, label %._crit_edge62.split.us.us, label %.lr.ph.us, !llvm.loop !67
 
 .outer:                                           ; preds = %26, %127
   %indvars.iv = phi i64 [ %indvars.iv.next, %127 ], [ 0, %26 ]
@@ -2621,7 +2621,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %.053.ph = phi ptr [ %133, %127 ], [ %32, %26 ]
   %.052.ph = phi i32 [ %128, %127 ], [ 0, %26 ]
   %84 = getelementptr inbounds nuw i8, ptr %.053.ph, i64 36
-  %85 = load i16, ptr %84, align 4, !tbaa !33
+  %85 = load i16, ptr %84, align 4, !tbaa !34
   %86 = icmp eq i16 %85, 0
   br i1 %86, label %._crit_edge, label %.lr.ph
 
@@ -2630,7 +2630,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %.05358 = phi ptr [ %115, %113 ], [ %.053.ph, %.outer ]
   %.05457 = phi i32 [ %105, %113 ], [ %.054.ph, %.outer ]
   %87 = getelementptr inbounds nuw i8, ptr %.05358, i64 38
-  %88 = load i16, ptr %87, align 2, !tbaa !34
+  %88 = load i16, ptr %87, align 2, !tbaa !35
   %89 = and i16 %88, 2
   %.not = icmp eq i16 %89, 0
   br i1 %.not, label %._crit_edge, label %103
@@ -2640,7 +2640,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %.053.lcssa = phi ptr [ %.053.ph, %.outer ], [ %.05358, %.lr.ph ], [ %115, %113 ]
   %.052.lcssa = phi i32 [ %.052.ph, %.outer ], [ %.05259, %.lr.ph ], [ %.1, %113 ]
   %90 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
-  store i32 %.054.lcssa, ptr %90, align 4, !tbaa !39
+  store i32 %.054.lcssa, ptr %90, align 4, !tbaa !40
   %91 = getelementptr inbounds nuw %struct.b2Vec2, ptr %27, i64 %indvars.iv
   %92 = load <2 x float>, ptr %.053.lcssa, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 8
@@ -2662,7 +2662,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 
 103:                                              ; preds = %.lr.ph
   %104 = getelementptr inbounds nuw i8, ptr %.05358, i64 28
-  %105 = load i32, ptr %104, align 4, !tbaa !41
+  %105 = load i32, ptr %104, align 4, !tbaa !42
   %106 = icmp slt i32 %.05259, 1024
   br i1 %106, label %107, label %113
 
@@ -2672,7 +2672,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %110 = add nsw i32 %.05259, 1
   %111 = sext i32 %.05259 to i64
   %112 = getelementptr inbounds [1024 x i32], ptr %4, i64 0, i64 %111
-  store i32 %109, ptr %112, align 4, !tbaa !39
+  store i32 %109, ptr %112, align 4, !tbaa !40
   br label %113
 
 113:                                              ; preds = %103, %107
@@ -2686,57 +2686,57 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   store i32 %116, ptr %119, align 8, !tbaa !16
   %120 = load ptr, ptr %0, align 8, !tbaa !15
   %121 = getelementptr inbounds %struct.b2TreeNode, ptr %120, i64 %118, i32 6
-  store i16 0, ptr %121, align 2, !tbaa !34
+  store i16 0, ptr %121, align 2, !tbaa !35
   store i32 %.05457, ptr %36, align 4, !tbaa !17
   %122 = load i32, ptr %37, align 4, !tbaa !14
   %123 = add nsw i32 %122, -1
   store i32 %123, ptr %37, align 4, !tbaa !14
   %124 = getelementptr inbounds nuw i8, ptr %115, i64 36
-  %125 = load i16, ptr %124, align 4, !tbaa !33
+  %125 = load i16, ptr %124, align 4, !tbaa !34
   %126 = icmp eq i16 %125, 0
-  br i1 %126, label %._crit_edge, label %.lr.ph
+  br i1 %126, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 127:                                              ; preds = %._crit_edge
   %128 = add nsw i32 %.052.lcssa, -1
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds [1024 x i32], ptr %4, i64 0, i64 %129
-  %131 = load i32, ptr %130, align 4, !tbaa !39
+  %131 = load i32, ptr %130, align 4, !tbaa !40
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds %struct.b2TreeNode, ptr %30, i64 %132
-  br label %.outer
+  br label %.outer, !llvm.loop !68
 
 .split69.us:                                      ; preds = %._crit_edge, %._crit_edge62.split.us.us
   %.us-phi70.in = phi i64 [ %indvars.iv.next78, %._crit_edge62.split.us.us ], [ %indvars.iv.next, %._crit_edge ]
   %.us-phi71.in = phi i64 [ %indvars.iv77, %._crit_edge62.split.us.us ], [ %indvars.iv, %._crit_edge ]
   %.us-phi70 = trunc i64 %.us-phi70.in to i32
   %134 = load ptr, ptr %0, align 8, !tbaa !15
-  %135 = load ptr, ptr %33, align 8, !tbaa !21
+  %135 = load ptr, ptr %33, align 8, !tbaa !22
   %136 = and i64 %.us-phi71.in, 4294967295
   %137 = icmp eq i64 %136, 0
   br i1 %137, label %138, label %143
 
 138:                                              ; preds = %.split69.us
-  %139 = load i32, ptr %135, align 4, !tbaa !39
+  %139 = load i32, ptr %135, align 4, !tbaa !40
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds %struct.b2TreeNode, ptr %134, i64 %140, i32 2
   store i32 -1, ptr %141, align 8, !tbaa !16
-  %142 = load i32, ptr %135, align 4, !tbaa !39
+  %142 = load i32, ptr %135, align 4, !tbaa !40
   br label %b2BuildTree.exit
 
 143:                                              ; preds = %.split69.us
-  %144 = load ptr, ptr %35, align 8, !tbaa !24
+  %144 = load ptr, ptr %35, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 20480, ptr nonnull %3) #13
   %145 = tail call fastcc i32 @b2AllocateNode(ptr noundef nonnull %0)
-  store i32 %145, ptr %3, align 16, !tbaa !65
+  store i32 %145, ptr %3, align 16, !tbaa !69
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %146, align 4, !tbaa !67
+  store i32 -1, ptr %146, align 4, !tbaa !71
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %147, align 8, !tbaa !68
+  store i32 0, ptr %147, align 8, !tbaa !72
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %.us-phi70, ptr %148, align 16, !tbaa !69
+  store i32 %.us-phi70, ptr %148, align 16, !tbaa !73
   %149 = tail call fastcc i32 @b2PartitionMid(ptr noundef %135, ptr noundef %144, i32 noundef range(i32 -2147483647, -2147483648) %.us-phi70)
   %150 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %149, ptr %150, align 4, !tbaa !70
+  store i32 %149, ptr %150, align 4, !tbaa !74
   br label %.outer85
 
 .outer85:                                         ; preds = %.outer85.backedge, %143
@@ -2750,7 +2750,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 154:                                              ; preds = %.outer85, %231
   %155 = phi i32 [ %156, %231 ], [ %.ph, %.outer85 ]
   %156 = add nsw i32 %155, 1
-  store i32 %156, ptr %153, align 4, !tbaa !67
+  store i32 %156, ptr %153, align 4, !tbaa !71
   switch i32 %155, label %213 [
     i32 1, label %157
     i32 -1, label %214
@@ -2764,18 +2764,18 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %160 = add nsw i32 %.098.i.ph, -1
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds %struct.b2RebuildItem, ptr %3, i64 %161
-  %163 = load i32, ptr %162, align 4, !tbaa !65
+  %163 = load i32, ptr %162, align 4, !tbaa !69
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds %struct.b2TreeNode, ptr %134, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  %167 = load i32, ptr %166, align 4, !tbaa !67
+  %167 = load i32, ptr %166, align 4, !tbaa !71
   %168 = icmp eq i32 %167, 0
-  %169 = load i32, ptr %152, align 4, !tbaa !65
+  %169 = load i32, ptr %152, align 4, !tbaa !69
   br i1 %168, label %170, label %172
 
 170:                                              ; preds = %159
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 28
-  store i32 %169, ptr %171, align 4, !tbaa !41
+  store i32 %169, ptr %171, align 4, !tbaa !42
   br label %174
 
 172:                                              ; preds = %159
@@ -2789,7 +2789,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   store i32 %163, ptr %177, align 8, !tbaa !16
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 28
-  %179 = load i32, ptr %178, align 4, !tbaa !41
+  %179 = load i32, ptr %178, align 4, !tbaa !42
   %180 = sext i32 %179 to i64
   %181 = getelementptr inbounds %struct.b2TreeNode, ptr %134, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %176, i64 32
@@ -2826,26 +2826,26 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %.sroa.433.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %176, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.433.0..sroa_idx.i, align 8
   %200 = getelementptr inbounds nuw i8, ptr %181, i64 36
-  %201 = load i16, ptr %200, align 4, !tbaa !33
+  %201 = load i16, ptr %200, align 4, !tbaa !34
   %202 = getelementptr inbounds nuw i8, ptr %185, i64 36
-  %203 = load i16, ptr %202, align 4, !tbaa !33
+  %203 = load i16, ptr %202, align 4, !tbaa !34
   %204 = tail call noundef i16 @llvm.umax.i16(i16 %201, i16 %203)
   %205 = add i16 %204, 1
   %206 = getelementptr inbounds nuw i8, ptr %176, i64 36
-  store i16 %205, ptr %206, align 4, !tbaa !33
+  store i16 %205, ptr %206, align 4, !tbaa !34
   %207 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  %208 = load i64, ptr %207, align 8, !tbaa !26
+  %208 = load i64, ptr %207, align 8, !tbaa !27
   %209 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %210 = load i64, ptr %209, align 8, !tbaa !26
+  %210 = load i64, ptr %209, align 8, !tbaa !27
   %211 = or i64 %210, %208
   %212 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  store i64 %211, ptr %212, align 8, !tbaa !26
+  store i64 %211, ptr %212, align 8, !tbaa !27
   br label %.outer85.backedge
 
 .outer85.backedge:                                ; preds = %174, %234
   %.ph.be = phi i32 [ -1, %234 ], [ %167, %174 ]
   %.098.i.ph.be = phi i32 [ %235, %234 ], [ %160, %174 ]
-  br label %.outer85
+  br label %.outer85, !llvm.loop !75
 
 213:                                              ; preds = %154
   br label %214
@@ -2855,8 +2855,8 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %.sink.i = phi i64 [ 16, %213 ], [ 12, %154 ]
   %215 = getelementptr inbounds nuw i8, ptr %152, i64 %.sink124.i
   %216 = getelementptr inbounds nuw i8, ptr %152, i64 %.sink.i
-  %.099.i = load i32, ptr %215, align 4, !tbaa !39
-  %.0100.i = load i32, ptr %216, align 4, !tbaa !39
+  %.099.i = load i32, ptr %215, align 4, !tbaa !40
+  %.0100.i = load i32, ptr %216, align 4, !tbaa !40
   %217 = sub nsw i32 %.0100.i, %.099.i
   %218 = icmp eq i32 %217, 1
   br i1 %218, label %219, label %234
@@ -2864,8 +2864,8 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 219:                                              ; preds = %214
   %220 = sext i32 %.099.i to i64
   %221 = getelementptr inbounds i32, ptr %135, i64 %220
-  %222 = load i32, ptr %221, align 4, !tbaa !39
-  %223 = load i32, ptr %152, align 4, !tbaa !65
+  %222 = load i32, ptr %221, align 4, !tbaa !40
+  %223 = load i32, ptr %152, align 4, !tbaa !69
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds %struct.b2TreeNode, ptr %134, i64 %224
   %226 = icmp eq i32 %156, 0
@@ -2873,7 +2873,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 
 227:                                              ; preds = %219
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 28
-  store i32 %222, ptr %228, align 4, !tbaa !41
+  store i32 %222, ptr %228, align 4, !tbaa !42
   br label %231
 
 229:                                              ; preds = %219
@@ -2885,35 +2885,35 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %232 = sext i32 %222 to i64
   %233 = getelementptr inbounds %struct.b2TreeNode, ptr %134, i64 %232, i32 2
   store i32 %223, ptr %233, align 8, !tbaa !16
-  br label %154
+  br label %154, !llvm.loop !75
 
 234:                                              ; preds = %214
   %235 = add nsw i32 %.098.i.ph, 1
   %236 = sext i32 %235 to i64
   %237 = getelementptr inbounds %struct.b2RebuildItem, ptr %3, i64 %236
   %238 = tail call fastcc i32 @b2AllocateNode(ptr noundef nonnull %0)
-  store i32 %238, ptr %237, align 4, !tbaa !65
+  store i32 %238, ptr %237, align 4, !tbaa !69
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 4
-  store i32 -1, ptr %239, align 4, !tbaa !67
+  store i32 -1, ptr %239, align 4, !tbaa !71
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store i32 %.099.i, ptr %240, align 4, !tbaa !68
+  store i32 %.099.i, ptr %240, align 4, !tbaa !72
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  store i32 %.0100.i, ptr %241, align 4, !tbaa !69
+  store i32 %.0100.i, ptr %241, align 4, !tbaa !73
   %242 = sext i32 %.099.i to i64
   %243 = getelementptr inbounds i32, ptr %135, i64 %242
   %244 = getelementptr inbounds %struct.b2Vec2, ptr %144, i64 %242
   %245 = tail call fastcc i32 @b2PartitionMid(ptr noundef %243, ptr noundef %244, i32 noundef %217)
   %246 = getelementptr inbounds nuw i8, ptr %237, i64 12
   %247 = add nsw i32 %245, %.099.i
-  store i32 %247, ptr %246, align 4, !tbaa !70
+  store i32 %247, ptr %246, align 4, !tbaa !74
   br label %.outer85.backedge
 
 248:                                              ; preds = %157
-  %249 = load i32, ptr %3, align 16, !tbaa !65
+  %249 = load i32, ptr %3, align 16, !tbaa !69
   %250 = sext i32 %249 to i64
   %251 = getelementptr inbounds %struct.b2TreeNode, ptr %134, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 28
-  %253 = load i32, ptr %252, align 4, !tbaa !41
+  %253 = load i32, ptr %252, align 4, !tbaa !42
   %254 = sext i32 %253 to i64
   %255 = getelementptr inbounds %struct.b2TreeNode, ptr %134, i64 %254
   %256 = getelementptr inbounds nuw i8, ptr %251, i64 32
@@ -2950,20 +2950,20 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %251, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i115.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %274 = getelementptr inbounds nuw i8, ptr %255, i64 36
-  %275 = load i16, ptr %274, align 4, !tbaa !33
+  %275 = load i16, ptr %274, align 4, !tbaa !34
   %276 = getelementptr inbounds nuw i8, ptr %259, i64 36
-  %277 = load i16, ptr %276, align 4, !tbaa !33
+  %277 = load i16, ptr %276, align 4, !tbaa !34
   %278 = tail call noundef i16 @llvm.umax.i16(i16 %275, i16 %277)
   %279 = add i16 %278, 1
   %280 = getelementptr inbounds nuw i8, ptr %251, i64 36
-  store i16 %279, ptr %280, align 4, !tbaa !33
+  store i16 %279, ptr %280, align 4, !tbaa !34
   %281 = getelementptr inbounds nuw i8, ptr %255, i64 16
-  %282 = load i64, ptr %281, align 8, !tbaa !26
+  %282 = load i64, ptr %281, align 8, !tbaa !27
   %283 = getelementptr inbounds nuw i8, ptr %259, i64 16
-  %284 = load i64, ptr %283, align 8, !tbaa !26
+  %284 = load i64, ptr %283, align 8, !tbaa !27
   %285 = or i64 %284, %282
   %286 = getelementptr inbounds nuw i8, ptr %251, i64 16
-  store i64 %285, ptr %286, align 8, !tbaa !26
+  store i64 %285, ptr %286, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 20480, ptr nonnull %3) #13
   br label %b2BuildTree.exit
 
@@ -3028,7 +3028,7 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
   %.sroa.02.4.vec.insert.i126 = insertelement <2 x float> %.sroa.02.0.vec.insert.i123, float %26, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %8, label %16, !llvm.loop !71
+  br i1 %exitcond.not, label %8, label %16, !llvm.loop !76
 
 .preheader:                                       ; preds = %8, %.critedge113
   %.0103146 = phi i32 [ %.2, %.critedge113 ], [ %2, %8 ]
@@ -3042,14 +3042,14 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
 30:                                               ; preds = %.preheader, %34
   %indvars.iv165 = phi i64 [ %27, %.preheader ], [ %indvars.iv.next166, %34 ]
   %31 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv165
-  %32 = load float, ptr %31, align 4, !tbaa !72
+  %32 = load float, ptr %31, align 4, !tbaa !77
   %33 = fcmp olt float %32, %12
   br i1 %33, label %34, label %.critedge.split.loop.exit181
 
 34:                                               ; preds = %30
   %indvars.iv.next166 = add nsw i64 %indvars.iv165, 1
   %35 = icmp slt i64 %indvars.iv.next166, %28
-  br i1 %35, label %30, label %.critedge, !llvm.loop !73
+  br i1 %35, label %30, label %.critedge, !llvm.loop !78
 
 .critedge.split.loop.exit181:                     ; preds = %30
   %36 = trunc nsw i64 %indvars.iv165 to i32
@@ -3068,18 +3068,18 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
 40:                                               ; preds = %38
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, -1
   %41 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv.next170
-  %42 = load float, ptr %41, align 4, !tbaa !72
+  %42 = load float, ptr %41, align 4, !tbaa !77
   %43 = fcmp ult float %42, %12
-  br i1 %43, label %.critedge2, label %38, !llvm.loop !74
+  br i1 %43, label %.critedge2, label %38, !llvm.loop !79
 
 .critedge2:                                       ; preds = %40
   %44 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv.next170
   %45 = getelementptr inbounds i32, ptr %0, i64 %37
-  %46 = load i32, ptr %45, align 4, !tbaa !39
+  %46 = load i32, ptr %45, align 4, !tbaa !40
   %47 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next170
-  %48 = load i32, ptr %47, align 4, !tbaa !39
-  store i32 %48, ptr %45, align 4, !tbaa !39
-  store i32 %46, ptr %47, align 4, !tbaa !39
+  %48 = load i32, ptr %47, align 4, !tbaa !40
+  store i32 %48, ptr %45, align 4, !tbaa !40
+  store i32 %46, ptr %47, align 4, !tbaa !40
   %49 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %37
   %50 = load i64, ptr %49, align 4
   %51 = load i64, ptr %44, align 4
@@ -3093,7 +3093,7 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
   %.2.in = phi i64 [ %indvars.iv.next170, %.critedge2 ], [ %indvars.iv169, %38 ]
   %.2 = trunc i64 %.2.in to i32
   %53 = icmp slt i32 %.2107, %.2
-  br i1 %53, label %.preheader, label %.loopexit, !llvm.loop !75
+  br i1 %53, label %.preheader, label %.loopexit, !llvm.loop !80
 
 .preheader128:                                    ; preds = %8, %.critedge114
   %.3142 = phi i32 [ %.5, %.critedge114 ], [ %2, %8 ]
@@ -3107,14 +3107,14 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
 57:                                               ; preds = %.preheader128, %61
   %indvars.iv159 = phi i64 [ %54, %.preheader128 ], [ %indvars.iv.next160, %61 ]
   %58 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv159, i32 1
-  %59 = load float, ptr %58, align 4, !tbaa !76
+  %59 = load float, ptr %58, align 4, !tbaa !81
   %60 = fcmp olt float %59, %14
   br i1 %60, label %61, label %.critedge4.split.loop.exit179
 
 61:                                               ; preds = %57
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
   %62 = icmp slt i64 %indvars.iv.next160, %55
-  br i1 %62, label %57, label %.critedge4, !llvm.loop !77
+  br i1 %62, label %57, label %.critedge4, !llvm.loop !82
 
 .critedge4.split.loop.exit179:                    ; preds = %57
   %63 = trunc nsw i64 %indvars.iv159 to i32
@@ -3133,17 +3133,17 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
 67:                                               ; preds = %65
   %indvars.iv.next163 = add nsw i64 %indvars.iv162, -1
   %68 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv.next163, i32 1
-  %69 = load float, ptr %68, align 4, !tbaa !76
+  %69 = load float, ptr %68, align 4, !tbaa !81
   %70 = fcmp ult float %69, %14
-  br i1 %70, label %.critedge6, label %65, !llvm.loop !78
+  br i1 %70, label %.critedge6, label %65, !llvm.loop !83
 
 .critedge6:                                       ; preds = %67
   %71 = getelementptr inbounds i32, ptr %0, i64 %64
-  %72 = load i32, ptr %71, align 4, !tbaa !39
+  %72 = load i32, ptr %71, align 4, !tbaa !40
   %73 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next163
-  %74 = load i32, ptr %73, align 4, !tbaa !39
-  store i32 %74, ptr %71, align 4, !tbaa !39
-  store i32 %72, ptr %73, align 4, !tbaa !39
+  %74 = load i32, ptr %73, align 4, !tbaa !40
+  store i32 %74, ptr %71, align 4, !tbaa !40
+  store i32 %72, ptr %73, align 4, !tbaa !40
   %75 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %64
   %76 = load i64, ptr %75, align 4
   %77 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv.next163
@@ -3158,7 +3158,7 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
   %.5.in = phi i64 [ %indvars.iv.next163, %.critedge6 ], [ %indvars.iv162, %65 ]
   %.5 = trunc i64 %.5.in to i32
   %80 = icmp slt i32 %.6, %.5
-  br i1 %80, label %.preheader128, label %.loopexit, !llvm.loop !79
+  br i1 %80, label %.preheader128, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.critedge114, %.critedge113
   %.3108 = phi i32 [ %.2107, %.critedge113 ], [ %.6, %.critedge114 ]
@@ -3222,64 +3222,69 @@ attributes #13 = { nounwind }
 !16 = !{!7, !7, i64 0}
 !17 = !{!4, !9, i64 20}
 !18 = !{!4, !9, i64 24}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!4, !10, i64 32}
-!22 = !{!4, !9, i64 64}
-!23 = !{!4, !11, i64 40}
-!24 = !{!4, !12, i64 48}
-!25 = !{!4, !10, i64 56}
-!26 = !{!27, !31, i64 16}
-!27 = !{!"b2TreeNode", !28, i64 0, !31, i64 16, !7, i64 24, !9, i64 28, !7, i64 32, !32, i64 36, !32, i64 38}
-!28 = !{!"b2AABB", !29, i64 0, !29, i64 8}
-!29 = !{!"b2Vec2", !30, i64 0, !30, i64 4}
-!30 = !{!"float", !7, i64 0}
-!31 = !{!"long", !7, i64 0}
-!32 = !{!"short", !7, i64 0}
-!33 = !{!27, !32, i64 36}
-!34 = !{!27, !32, i64 38}
-!35 = distinct !{!35, !20}
-!36 = !{i64 0, i64 4, !37, i64 4, i64 4, !37, i64 8, i64 4, !37, i64 12, i64 4, !37, i64 16, i64 8, !38, i64 24, i64 4, !16, i64 28, i64 4, !39, i64 32, i64 4, !16, i64 36, i64 2, !40, i64 38, i64 2, !40}
-!37 = !{!30, !30, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!4, !10, i64 32}
+!23 = !{!4, !9, i64 64}
+!24 = !{!4, !11, i64 40}
+!25 = !{!4, !12, i64 48}
+!26 = !{!4, !10, i64 56}
+!27 = !{!28, !32, i64 16}
+!28 = !{!"b2TreeNode", !29, i64 0, !32, i64 16, !7, i64 24, !9, i64 28, !7, i64 32, !33, i64 36, !33, i64 38}
+!29 = !{!"b2AABB", !30, i64 0, !30, i64 8}
+!30 = !{!"b2Vec2", !31, i64 0, !31, i64 4}
+!31 = !{!"float", !7, i64 0}
+!32 = !{!"long", !7, i64 0}
+!33 = !{!"short", !7, i64 0}
+!34 = !{!28, !33, i64 36}
+!35 = !{!28, !33, i64 38}
+!36 = distinct !{!36, !20, !21}
+!37 = !{i64 0, i64 4, !38, i64 4, i64 4, !38, i64 8, i64 4, !38, i64 12, i64 4, !38, i64 16, i64 8, !39, i64 24, i64 4, !16, i64 28, i64 4, !40, i64 32, i64 4, !16, i64 36, i64 2, !41, i64 38, i64 2, !41}
 !38 = !{!31, !31, i64 0}
-!39 = !{!9, !9, i64 0}
-!40 = !{!32, !32, i64 0}
-!41 = !{!27, !9, i64 28}
-!42 = distinct !{!42, !20}
-!43 = distinct !{!43, !20}
-!44 = !{!28, !30, i64 0}
-!45 = !{!28, !30, i64 4}
-!46 = !{!28, !30, i64 8}
-!47 = !{!28, !30, i64 12}
-!48 = distinct !{!48, !20}
-!49 = distinct !{!49, !20}
-!50 = distinct !{!50, !20}
-!51 = !{!52, !30, i64 16}
-!52 = !{!"b2RayCastInput", !29, i64 0, !29, i64 8, !30, i64 16}
-!53 = !{i64 0, i64 4, !37, i64 4, i64 4, !37, i64 8, i64 4, !37, i64 12, i64 4, !37, i64 16, i64 4, !37}
-!54 = distinct !{!54, !20}
-!55 = !{!56, !9, i64 64}
-!56 = !{!"b2ShapeCastInput", !7, i64 0, !9, i64 64, !30, i64 68, !29, i64 72, !30, i64 80}
-!57 = !{!56, !30, i64 68}
-!58 = !{!56, !30, i64 80}
-!59 = !{i64 0, i64 64, !16, i64 64, i64 4, !39, i64 68, i64 4, !37, i64 72, i64 4, !37, i64 76, i64 4, !37, i64 80, i64 4, !37}
-!60 = distinct !{!60, !20}
-!61 = distinct !{!61, !20}
-!62 = distinct !{!62, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = distinct !{!64, !63}
-!65 = !{!66, !9, i64 0}
-!66 = !{!"b2RebuildItem", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16}
-!67 = !{!66, !9, i64 4}
-!68 = !{!66, !9, i64 8}
-!69 = !{!66, !9, i64 16}
-!70 = !{!66, !9, i64 12}
-!71 = distinct !{!71, !20}
-!72 = !{!29, !30, i64 0}
-!73 = distinct !{!73, !20}
-!74 = distinct !{!74, !20}
-!75 = distinct !{!75, !20}
-!76 = !{!29, !30, i64 4}
-!77 = distinct !{!77, !20}
-!78 = distinct !{!78, !20}
-!79 = distinct !{!79, !20}
+!39 = !{!32, !32, i64 0}
+!40 = !{!9, !9, i64 0}
+!41 = !{!33, !33, i64 0}
+!42 = !{!28, !9, i64 28}
+!43 = distinct !{!43, !21}
+!44 = distinct !{!44, !20, !21}
+!45 = distinct !{!45, !20, !21}
+!46 = !{!29, !31, i64 0}
+!47 = !{!29, !31, i64 4}
+!48 = !{!29, !31, i64 8}
+!49 = !{!29, !31, i64 12}
+!50 = distinct !{!50, !21}
+!51 = distinct !{!51, !20, !21}
+!52 = distinct !{!52, !20, !21}
+!53 = distinct !{!53, !20}
+!54 = !{!55, !31, i64 16}
+!55 = !{!"b2RayCastInput", !30, i64 0, !30, i64 8, !31, i64 16}
+!56 = !{i64 0, i64 4, !38, i64 4, i64 4, !38, i64 8, i64 4, !38, i64 12, i64 4, !38, i64 16, i64 4, !38}
+!57 = distinct !{!57, !20}
+!58 = !{!59, !9, i64 64}
+!59 = !{!"b2ShapeCastInput", !7, i64 0, !9, i64 64, !31, i64 68, !30, i64 72, !31, i64 80}
+!60 = !{!59, !31, i64 68}
+!61 = !{!59, !31, i64 80}
+!62 = !{i64 0, i64 64, !16, i64 64, i64 4, !40, i64 68, i64 4, !38, i64 72, i64 4, !38, i64 76, i64 4, !38, i64 80, i64 4, !38}
+!63 = distinct !{!63, !20, !21}
+!64 = distinct !{!64, !20}
+!65 = distinct !{!65, !21, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = distinct !{!67, !21, !66}
+!68 = distinct !{!68, !21}
+!69 = !{!70, !9, i64 0}
+!70 = !{!"b2RebuildItem", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16}
+!71 = !{!70, !9, i64 4}
+!72 = !{!70, !9, i64 8}
+!73 = !{!70, !9, i64 16}
+!74 = !{!70, !9, i64 12}
+!75 = distinct !{!75, !21}
+!76 = distinct !{!76, !20, !21}
+!77 = !{!30, !31, i64 0}
+!78 = distinct !{!78, !20, !21}
+!79 = distinct !{!79, !20, !21}
+!80 = distinct !{!80, !20, !21}
+!81 = !{!30, !31, i64 4}
+!82 = distinct !{!82, !20, !21}
+!83 = distinct !{!83, !20, !21}
+!84 = distinct !{!84, !20, !21}

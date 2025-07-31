@@ -31,7 +31,7 @@ define hidden zeroext i1 @_ZN19pyo3_macros_backend5utils9is_python17h2a11954d4f4
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 4
-  br i1 %8, label %.lr.ph.i, label %_ZN19pyo3_macros_backend5utils15unwrap_ty_group17h813d41acd1c48707E.exit
+  br i1 %8, label %.lr.ph.i, label %_ZN19pyo3_macros_backend5utils15unwrap_ty_group17h813d41acd1c48707E.exit, !llvm.loop !3
 
 _ZN19pyo3_macros_backend5utils15unwrap_ty_group17h813d41acd1c48707E.exit: ; preds = %.lr.ph.i, %1
   %9 = phi i64 [ %3, %1 ], [ %7, %.lr.ph.i ]
@@ -646,7 +646,7 @@ define void @_ZN19pyo3_macros_backend5utils7get_doc17h84cb2c9e291a1b9bE(ptr writ
   br label %.thread66
 
 131:                                              ; preds = %51
-  br i1 %55, label %132, label %42
+  br i1 %55, label %132, label %42, !llvm.loop !5
 
 132:                                              ; preds = %131
   invoke void @_ZN3syn4attr4Meta18require_name_value17hc1a9a39f828d86ebE(ptr nonnull sret([24 x i8]) align 8 %25, ptr nonnull align 8 %43)
@@ -664,7 +664,7 @@ define void @_ZN19pyo3_macros_backend5utils7get_doc17h84cb2c9e291a1b9bE(ptr writ
 138:                                              ; preds = %173, %169, %133
   %.sroa.0.1 = phi i1 [ false, %169 ], [ false, %173 ], [ %.sroa.0.0.ph, %133 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$core..result..Result$LT$$RF$syn..attr..MetaNameValue$C$syn..error..Error$GT$$GT$17hda51f8b9988974d3E"(ptr nonnull align 8 %25)
-          to label %.outer unwind label %.thread70.loopexit.loopexit.split-lp
+          to label %.outer unwind label %.thread70.loopexit.loopexit.split-lp, !llvm.loop !5
 
 139:                                              ; preds = %136
   invoke void @_ZN5alloc6string6String4push17h7fe2e37fa72da61fE(ptr nonnull align 8 %27, i32 10)
@@ -1257,3 +1257,6 @@ attributes #9 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}

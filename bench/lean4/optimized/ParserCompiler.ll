@@ -299950,7 +299950,7 @@ lean_inc.exit263:                                 ; preds = %433, %432, %430, %4
 
 .backedge.backedge:                               ; preds = %lean_inc.exit263, %437, %439, %440, %lean_inc.exit268, %241, %243, %244, %lean_inc.exit269, %223, %225, %226, %lean_inc.exit280, %41, %43, %44
   %.0226.be = phi ptr [ %29, %44 ], [ %29, %43 ], [ %29, %41 ], [ %29, %lean_inc.exit280 ], [ %211, %226 ], [ %211, %225 ], [ %211, %223 ], [ %211, %lean_inc.exit269 ], [ %229, %244 ], [ %229, %243 ], [ %229, %241 ], [ %229, %lean_inc.exit268 ], [ %425, %440 ], [ %425, %439 ], [ %425, %437 ], [ %425, %lean_inc.exit263 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !20
 
 434:                                              ; preds = %lean_inc.exit263
   %435 = load i32, ptr %.0226, align 4, !tbaa !8
@@ -304596,3 +304596,5 @@ attributes #7 = { noreturn nounwind }
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!"branch_weights", i32 4000000, i32 4001}
 !19 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}

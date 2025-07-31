@@ -302,7 +302,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %.pr = load i8, ptr %84, align 1, !tbaa !97
   %85 = add i8 %.pr, -48
   %or.cond534 = icmp ult i8 %85, 10
-  br i1 %or.cond534, label %.lr.ph, label %.critedge5, !llvm.loop !103
+  br i1 %or.cond534, label %.lr.ph, label %.critedge5, !llvm.loop !104
 
 .critedge5:                                       ; preds = %.lr.ph, %.preheader
   %.lcssa557 = phi i8 [ %81, %.preheader ], [ %.pr, %.lr.ph ]
@@ -363,7 +363,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
 98:                                               ; preds = %88, %96, %95, %94, %93, %92, %91, %90
   %.sink = phi i32 [ 7, %96 ], [ 3, %95 ], [ 4, %94 ], [ 6, %93 ], [ 5, %92 ], [ 2, %91 ], [ 1, %90 ], [ 0, %88 ]
   %99 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 %.sink, ptr %99, align 8, !tbaa !104
+  store i32 %.sink, ptr %99, align 8, !tbaa !105
   store i32 2, ptr %30, align 4, !tbaa !97
   store i32 0, ptr %29, align 8, !tbaa !99
   store i64 1, ptr %28, align 8, !tbaa !98
@@ -416,12 +416,12 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
 119:                                              ; preds = %113
   %120 = load ptr, ptr %27, align 8, !tbaa !23
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 96
-  %122 = load i32, ptr %121, align 8, !tbaa !107
+  %122 = load i32, ptr %121, align 8, !tbaa !108
   %123 = or i32 %122, 8
-  store i32 %123, ptr %121, align 8, !tbaa !107
+  store i32 %123, ptr %121, align 8, !tbaa !108
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  store i32 %117, ptr %124, align 8, !tbaa !109
-  store i64 %115, ptr %37, align 8, !tbaa !110
+  store i32 %117, ptr %124, align 8, !tbaa !110
+  store i64 %115, ptr %37, align 8, !tbaa !111
   store i32 0, ptr %29, align 8, !tbaa !99
   store i32 3, ptr %30, align 4, !tbaa !97
   store i32 0, ptr %31, align 4, !tbaa !97
@@ -474,7 +474,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %145 = load i64, ptr %28, align 8, !tbaa !98
   %146 = getelementptr inbounds nuw i8, ptr %54, i64 %145
   %147 = call i64 @strtol(ptr noundef %146, ptr noundef nonnull %6, i32 noundef 10) #8
-  %148 = load ptr, ptr %6, align 8, !tbaa !111
+  %148 = load ptr, ptr %6, align 8, !tbaa !112
   %149 = load i8, ptr %148, align 1, !tbaa !97
   %150 = icmp eq i8 %149, 0
   %151 = add i64 %147, 9223372036854775807
@@ -485,11 +485,11 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
 153:                                              ; preds = %139
   %154 = load ptr, ptr %27, align 8, !tbaa !23
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 96
-  %156 = load i32, ptr %155, align 8, !tbaa !107
+  %156 = load i32, ptr %155, align 8, !tbaa !108
   %157 = or i32 %156, 128
-  store i32 %157, ptr %155, align 8, !tbaa !107
+  store i32 %157, ptr %155, align 8, !tbaa !108
   %158 = getelementptr inbounds nuw i8, ptr %154, i64 48
-  store i64 %147, ptr %158, align 8, !tbaa !112
+  store i64 %147, ptr %158, align 8, !tbaa !113
   br label %159
 
 159:                                              ; preds = %153, %139
@@ -544,7 +544,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %179 = getelementptr i8, ptr %178, i64 -1
   store i8 0, ptr %179, align 1, !tbaa !97
   %180 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %180, ptr %36, align 8, !tbaa !113
+  store i64 %180, ptr %36, align 8, !tbaa !114
   store i32 5, ptr %30, align 4, !tbaa !97
   store i32 0, ptr %31, align 4, !tbaa !97
   store i64 0, ptr %28, align 8, !tbaa !98
@@ -586,7 +586,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %197 = getelementptr i8, ptr %196, i64 -1
   store i8 0, ptr %197, align 1, !tbaa !97
   %198 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %198, ptr %35, align 8, !tbaa !114
+  store i64 %198, ptr %35, align 8, !tbaa !115
   store i32 6, ptr %30, align 4, !tbaa !97
   store i32 0, ptr %31, align 4, !tbaa !97
   store i64 0, ptr %28, align 8, !tbaa !98
@@ -645,7 +645,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   br i1 %.not522, label %222, label %236
 
 222:                                              ; preds = %213
-  %223 = load ptr, ptr %7, align 8, !tbaa !111
+  %223 = load ptr, ptr %7, align 8, !tbaa !112
   %224 = load i8, ptr %223, align 1, !tbaa !97
   %225 = icmp eq i8 %224, 0
   %226 = load i64, ptr %8, align 8
@@ -657,11 +657,11 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
 229:                                              ; preds = %222
   %230 = load ptr, ptr %27, align 8, !tbaa !23
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 96
-  %232 = load i32, ptr %231, align 8, !tbaa !107
+  %232 = load i32, ptr %231, align 8, !tbaa !108
   %233 = or i32 %232, 64
-  store i32 %233, ptr %231, align 8, !tbaa !107
+  store i32 %233, ptr %231, align 8, !tbaa !108
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 40
-  store i64 %226, ptr %234, align 8, !tbaa !115
+  store i64 %226, ptr %234, align 8, !tbaa !116
   br label %235
 
 235:                                              ; preds = %229, %222
@@ -850,9 +850,9 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %310 = getelementptr i8, ptr %309, i64 -1
   store i8 0, ptr %310, align 1, !tbaa !97
   %311 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %311, ptr %33, align 8, !tbaa !116
+  store i64 %311, ptr %33, align 8, !tbaa !117
   %312 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %313 = load i32, ptr %312, align 8, !tbaa !104
+  %313 = load i32, ptr %312, align 8, !tbaa !105
   %314 = icmp eq i32 %313, 2
   br i1 %314, label %315, label %316
 
@@ -927,7 +927,7 @@ switch.early.test:                                ; preds = %317
   %339 = getelementptr i8, ptr %338, i64 -1
   store i8 0, ptr %339, align 1, !tbaa !97
   %340 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %340, ptr %32, align 8, !tbaa !117
+  store i64 %340, ptr %32, align 8, !tbaa !118
   store i32 1, ptr %30, align 4, !tbaa !97
   call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %48)
   br label %520
@@ -946,7 +946,7 @@ switch.early.test:                                ; preds = %317
   %350 = getelementptr i8, ptr %349, i64 -1
   store i8 0, ptr %350, align 1, !tbaa !97
   %351 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %351, ptr %32, align 8, !tbaa !117
+  store i64 %351, ptr %32, align 8, !tbaa !118
   store i32 1, ptr %30, align 4, !tbaa !97
   call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %48)
   br label %520
@@ -1065,7 +1065,7 @@ switch.early.test:                                ; preds = %317
   %388 = getelementptr i8, ptr %387, i64 -4
   store i8 0, ptr %388, align 1, !tbaa !97
   %389 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %389, ptr %32, align 8, !tbaa !117
+  store i64 %389, ptr %32, align 8, !tbaa !118
   store i32 0, ptr %29, align 8, !tbaa !99
   store i64 0, ptr %28, align 8, !tbaa !98
   br label %520
@@ -1118,7 +1118,7 @@ switch.early.test:                                ; preds = %317
   %407 = getelementptr i8, ptr %406, i64 -1
   store i8 0, ptr %407, align 1, !tbaa !97
   %408 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %408, ptr %34, align 8, !tbaa !118
+  store i64 %408, ptr %34, align 8, !tbaa !119
   call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %48)
   store i32 1, ptr %30, align 4, !tbaa !97
   br label %520
@@ -1137,7 +1137,7 @@ switch.early.test:                                ; preds = %317
   %418 = getelementptr i8, ptr %417, i64 -1
   store i8 0, ptr %418, align 1, !tbaa !97
   %419 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %419, ptr %34, align 8, !tbaa !118
+  store i64 %419, ptr %34, align 8, !tbaa !119
   call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %48)
   store i32 1, ptr %30, align 4, !tbaa !97
   br label %520
@@ -1226,7 +1226,7 @@ switch.early.test:                                ; preds = %317
 
 451:                                              ; preds = %448
   %452 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %452, ptr %33, align 8, !tbaa !116
+  store i64 %452, ptr %33, align 8, !tbaa !117
   %453 = zext i32 %443 to i64
   %454 = getelementptr i8, ptr %54, i64 %452
   %455 = getelementptr i8, ptr %454, i64 %453
@@ -1289,9 +1289,9 @@ switch.early.test:                                ; preds = %317
 
 481:                                              ; preds = %471
   %482 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 1, ptr %482, align 8, !tbaa !104
+  store i32 1, ptr %482, align 8, !tbaa !105
   %483 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  store i64 0, ptr %483, align 8, !tbaa !119
+  store i64 0, ptr %483, align 8, !tbaa !120
   %.pre564 = load ptr, ptr %27, align 8, !tbaa !23
   br label %490
 
@@ -1305,7 +1305,7 @@ switch.early.test:                                ; preds = %317
 .thread548:                                       ; preds = %484
   %487 = load ptr, ptr %27, align 8, !tbaa !23
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
-  store i32 0, ptr %488, align 8, !tbaa !120
+  store i32 0, ptr %488, align 8, !tbaa !121
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   br label %490
 
@@ -1317,9 +1317,9 @@ switch.early.test:                                ; preds = %317
 490:                                              ; preds = %.thread548, %481
   %491 = phi ptr [ %487, %.thread548 ], [ %.pre564, %481 ]
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 96
-  %493 = load i32, ptr %492, align 8, !tbaa !107
+  %493 = load i32, ptr %492, align 8, !tbaa !108
   %494 = or i32 %493, 64
-  store i32 %494, ptr %492, align 8, !tbaa !107
+  store i32 %494, ptr %492, align 8, !tbaa !108
   store i32 0, ptr %29, align 8, !tbaa !99
   store i32 3, ptr %30, align 4, !tbaa !97
   store i32 0, ptr %31, align 4, !tbaa !97
@@ -1364,7 +1364,7 @@ switch.early.test:                                ; preds = %317
 
 508:                                              ; preds = %501
   %509 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %509, ptr %32, align 8, !tbaa !117
+  store i64 %509, ptr %32, align 8, !tbaa !118
   %510 = getelementptr i8, ptr %54, i64 %53
   %511 = getelementptr i8, ptr %510, i64 -1
   store i8 0, ptr %511, align 1, !tbaa !97
@@ -1380,7 +1380,7 @@ switch.early.test:                                ; preds = %317
 
 515:                                              ; preds = %512
   %516 = load i64, ptr %28, align 8, !tbaa !98
-  store i64 %516, ptr %32, align 8, !tbaa !117
+  store i64 %516, ptr %32, align 8, !tbaa !118
   call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %48)
   store i32 0, ptr %30, align 4, !tbaa !97
   store i32 0, ptr %31, align 4, !tbaa !97
@@ -1635,64 +1635,64 @@ define internal fastcc void @ftp_pl_insert_finfo(ptr noundef %0, ptr noundef %1)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %10 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %9) #8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %12 = load i64, ptr %11, align 8, !tbaa !117
+  %12 = load i64, ptr %11, align 8, !tbaa !118
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
-  store ptr %13, ptr %1, align 8, !tbaa !121
+  store ptr %13, ptr %1, align 8, !tbaa !122
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %15 = load i64, ptr %14, align 8, !tbaa !114
+  %15 = load i64, ptr %14, align 8, !tbaa !115
   %.not = icmp eq i64 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 %15
   %spec.select = select i1 %.not, ptr null, ptr %16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %spec.select, ptr %18, align 8, !tbaa !122
+  store ptr %spec.select, ptr %18, align 8, !tbaa !123
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %20 = load i64, ptr %19, align 8, !tbaa !110
+  %20 = load i64, ptr %19, align 8, !tbaa !111
   %.not49 = icmp eq i64 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 %20
   %22 = select i1 %.not49, ptr null, ptr %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %22, ptr %23, align 8, !tbaa !123
+  store ptr %22, ptr %23, align 8, !tbaa !124
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %25 = load i64, ptr %24, align 8, !tbaa !118
+  %25 = load i64, ptr %24, align 8, !tbaa !119
   %.not50 = icmp eq i64 %25, 0
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
   %27 = select i1 %.not50, ptr null, ptr %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %27, ptr %28, align 8, !tbaa !124
+  store ptr %27, ptr %28, align 8, !tbaa !125
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %30 = load i64, ptr %29, align 8, !tbaa !116
+  %30 = load i64, ptr %29, align 8, !tbaa !117
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 %30
-  store ptr %31, ptr %17, align 8, !tbaa !125
+  store ptr %31, ptr %17, align 8, !tbaa !126
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %33 = load i64, ptr %32, align 8, !tbaa !113
+  %33 = load i64, ptr %32, align 8, !tbaa !114
   %.not51 = icmp eq i64 %33, 0
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 %33
   %35 = select i1 %.not51, ptr null, ptr %34
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %35, ptr %36, align 8, !tbaa !126
+  store ptr %35, ptr %36, align 8, !tbaa !127
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2416
-  %38 = load ptr, ptr %37, align 8, !tbaa !127
+  %38 = load ptr, ptr %37, align 8, !tbaa !128
   %.not52 = icmp eq ptr %38, null
   %spec.store.select = select i1 %.not52, ptr @Curl_fnmatch, ptr %38
   tail call void @Curl_set_in_callback(ptr noundef %0, i1 noundef zeroext true) #8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2424
-  %40 = load ptr, ptr %39, align 8, !tbaa !128
+  %40 = load ptr, ptr %39, align 8, !tbaa !129
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !20
-  %43 = load ptr, ptr %1, align 8, !tbaa !121
+  %43 = load ptr, ptr %1, align 8, !tbaa !122
   %44 = tail call i32 %spec.store.select(ptr noundef %40, ptr noundef %42, ptr noundef %43) #8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %.critedge57
 
 46:                                               ; preds = %2
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !104
+  %48 = load i32, ptr %47, align 8, !tbaa !105
   %49 = icmp eq i32 %48, 2
   br i1 %49, label %50, label %.critedge
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr %28, align 8, !tbaa !124
+  %51 = load ptr, ptr %28, align 8, !tbaa !125
   %.not53 = icmp eq ptr %51, null
   br i1 %.not53, label %.critedge, label %52
 
@@ -1859,30 +1859,31 @@ attributes #9 = { nounwind willreturn memory(read) }
 !99 = !{!24, !25, i64 24}
 !100 = distinct !{!100, !101}
 !101 = !{!"llvm.loop.mustprogress"}
-!102 = distinct !{!102, !101}
-!103 = distinct !{!103, !101}
-!104 = !{!105, !25, i64 8}
-!105 = !{!"curl_fileinfo", !6, i64 0, !25, i64 8, !12, i64 16, !25, i64 24, !25, i64 28, !25, i64 32, !12, i64 40, !12, i64 48, !106, i64 56, !25, i64 96, !6, i64 104, !12, i64 112, !12, i64 120}
-!106 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32}
-!107 = !{!108, !25, i64 96}
-!108 = !{!"fileinfo", !105, i64 0, !32, i64 128, !74, i64 160}
-!109 = !{!108, !25, i64 24}
-!110 = !{!24, !12, i64 72}
-!111 = !{!6, !6, i64 0}
-!112 = !{!108, !12, i64 48}
-!113 = !{!24, !12, i64 48}
-!114 = !{!24, !12, i64 56}
-!115 = !{!108, !12, i64 40}
-!116 = !{!24, !12, i64 64}
-!117 = !{!24, !12, i64 40}
-!118 = !{!24, !12, i64 80}
-!119 = !{!105, !12, i64 40}
-!120 = !{!108, !25, i64 8}
-!121 = !{!105, !6, i64 0}
-!122 = !{!105, !6, i64 80}
-!123 = !{!105, !6, i64 64}
-!124 = !{!105, !6, i64 88}
-!125 = !{!105, !6, i64 56}
-!126 = !{!105, !6, i64 72}
-!127 = !{!30, !7, i64 2416}
-!128 = !{!30, !7, i64 2424}
+!102 = distinct !{!102, !101, !103}
+!103 = !{!"llvm.loop.estimated_trip_count"}
+!104 = distinct !{!104, !101, !103}
+!105 = !{!106, !25, i64 8}
+!106 = !{!"curl_fileinfo", !6, i64 0, !25, i64 8, !12, i64 16, !25, i64 24, !25, i64 28, !25, i64 32, !12, i64 40, !12, i64 48, !107, i64 56, !25, i64 96, !6, i64 104, !12, i64 112, !12, i64 120}
+!107 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32}
+!108 = !{!109, !25, i64 96}
+!109 = !{!"fileinfo", !106, i64 0, !32, i64 128, !74, i64 160}
+!110 = !{!109, !25, i64 24}
+!111 = !{!24, !12, i64 72}
+!112 = !{!6, !6, i64 0}
+!113 = !{!109, !12, i64 48}
+!114 = !{!24, !12, i64 48}
+!115 = !{!24, !12, i64 56}
+!116 = !{!109, !12, i64 40}
+!117 = !{!24, !12, i64 64}
+!118 = !{!24, !12, i64 40}
+!119 = !{!24, !12, i64 80}
+!120 = !{!106, !12, i64 40}
+!121 = !{!109, !25, i64 8}
+!122 = !{!106, !6, i64 0}
+!123 = !{!106, !6, i64 80}
+!124 = !{!106, !6, i64 64}
+!125 = !{!106, !6, i64 88}
+!126 = !{!106, !6, i64 56}
+!127 = !{!106, !6, i64 72}
+!128 = !{!30, !7, i64 2416}
+!129 = !{!30, !7, i64 2424}

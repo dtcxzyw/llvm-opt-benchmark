@@ -187,7 +187,7 @@ _ZNKSt6vectorIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5_EEE12
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i7, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i6, i64 8
   %.not.i.i.i.i8 = icmp eq ptr %59, %35
-  br i1 %.not.i.i.i.i8, label %_ZNSt6vectorIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i5, !llvm.loop !6
+  br i1 %.not.i.i.i.i8, label %_ZNSt6vectorIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i5, !llvm.loop !7
 
 _ZNSt6vectorIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i5, %_ZNKSt6vectorIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5_EEE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i9 = phi ptr [ %56, %_ZNKSt6vectorIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5_EEE12_M_check_lenEmPKc.exit.i.i ], [ %60, %.lr.ph.i.i.i.i5 ]
@@ -255,7 +255,7 @@ _ZNKSt6vectorIiN7glslang14pool_allocatorIiEEE12_M_check_lenEmPKc.exit.i.i.i: ; p
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i.i, i64 4
   %92 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i = icmp eq ptr %91, %67
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIiN7glslang14pool_allocatorIiEEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS3_EEDpOT_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIiN7glslang14pool_allocatorIiEEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS3_EEDpOT_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIiN7glslang14pool_allocatorIiEEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS3_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIiN7glslang14pool_allocatorIiEEE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %88, %_ZNKSt6vectorIiN7glslang14pool_allocatorIiEEE12_M_check_lenEmPKc.exit.i.i.i ], [ %92, %.lr.ph.i.i.i.i.i ]
@@ -310,7 +310,7 @@ define void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull al
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = add nsw i32 %12, -1
-  store i32 %16, ptr %11, align 8, !noalias !8
+  store i32 %16, ptr %11, align 8, !noalias !9
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw [2 x %"struct.glslang::HlslToken"], ptr %15, i64 0, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false)
@@ -384,10 +384,10 @@ define void @_ZN7glslang15HlslTokenStream11recedeTokenEv(ptr noundef nonnull ali
   %8 = getelementptr inbounds [2 x %"struct.glslang::HlslToken"], ptr %3, i64 0, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %10 = load i32, ptr %9, align 8, !noalias !11
+  %10 = load i32, ptr %9, align 8, !noalias !12
   %11 = add nsw i32 %10, 1
   %12 = srem i32 %11, 2
-  store i32 %12, ptr %9, align 8, !noalias !11
+  store i32 %12, ptr %9, align 8, !noalias !12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds [2 x %"struct.glslang::HlslToken"], ptr %13, i64 0, i64 %14
@@ -437,7 +437,7 @@ define noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15E
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = add nsw i32 %17, -1
-  store i32 %21, ptr %16, align 8, !noalias !14
+  store i32 %21, ptr %16, align 8, !noalias !15
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw [2 x %"struct.glslang::HlslToken"], ptr %20, i64 0, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %23, i64 40, i1 false)
@@ -528,16 +528,17 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN7glslang15HlslTokenStream11popPreTokenEv: argument 0"}
-!10 = distinct !{!10, !"_ZN7glslang15HlslTokenStream11popPreTokenEv"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN7glslang15HlslTokenStream14popTokenBufferEv: argument 0"}
-!13 = distinct !{!13, !"_ZN7glslang15HlslTokenStream14popTokenBufferEv"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN7glslang15HlslTokenStream11popPreTokenEv: argument 0"}
-!16 = distinct !{!16, !"_ZN7glslang15HlslTokenStream11popPreTokenEv"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN7glslang15HlslTokenStream11popPreTokenEv: argument 0"}
+!11 = distinct !{!11, !"_ZN7glslang15HlslTokenStream11popPreTokenEv"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN7glslang15HlslTokenStream14popTokenBufferEv: argument 0"}
+!14 = distinct !{!14, !"_ZN7glslang15HlslTokenStream14popTokenBufferEv"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN7glslang15HlslTokenStream11popPreTokenEv: argument 0"}
+!17 = distinct !{!17, !"_ZN7glslang15HlslTokenStream11popPreTokenEv"}

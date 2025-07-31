@@ -110,7 +110,7 @@ define dso_local noundef range(i32 -12, 1) i32 @scsi_proc_hostdir_add(ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
-  br i1 %13, label %14, label %6, !llvm.loop !5
+  br i1 %13, label %14, label %6, !llvm.loop !9
 
 14:                                               ; preds = %10
   %15 = icmp eq ptr %8, null
@@ -205,7 +205,7 @@ define dso_local void @scsi_proc_hostdir_rm(ptr noundef readonly captures(addres
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
-  br i1 %13, label %14, label %6, !llvm.loop !5
+  br i1 %13, label %14, label %6, !llvm.loop !10
 
 14:                                               ; preds = %10
   %15 = icmp eq ptr %8, null
@@ -258,7 +258,7 @@ define dso_local void @scsi_proc_host_add(ptr noundef %0) local_unnamed_addr #0 
   br i1 %7, label %30, label %8
 
 8:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, i8 0, i64 10, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, i8 0, i64 10, i1 false), !annotation !11
   tail call void @mutex_lock(ptr noundef nonnull @global_host_template_mutex) #10
   br label %9
 
@@ -276,7 +276,7 @@ define dso_local void @scsi_proc_host_add(ptr noundef %0) local_unnamed_addr #0 
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %4
-  br i1 %16, label %17, label %9, !llvm.loop !5
+  br i1 %16, label %17, label %9, !llvm.loop !12
 
 17:                                               ; preds = %13
   tail call void @mutex_unlock(ptr noundef nonnull @global_host_template_mutex) #10
@@ -328,7 +328,7 @@ define dso_local void @scsi_proc_host_rm(ptr noundef readonly captures(none) %0)
   br i1 %7, label %25, label %8
 
 8:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, i8 0, i64 10, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, i8 0, i64 10, i1 false), !annotation !11
   tail call void @mutex_lock(ptr noundef nonnull @global_host_template_mutex) #10
   br label %9
 
@@ -346,7 +346,7 @@ define dso_local void @scsi_proc_host_rm(ptr noundef readonly captures(none) %0)
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %4
-  br i1 %16, label %17, label %9, !llvm.loop !5
+  br i1 %16, label %17, label %9, !llvm.loop !13
 
 17:                                               ; preds = %13
   tail call void @mutex_unlock(ptr noundef nonnull @global_host_template_mutex) #10
@@ -511,7 +511,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proc_scsi_write(ptr read
   br i1 %12, label %116, label %13
 
 13:                                               ; preds = %9
-  store ptr null, ptr %5, align 8, !annotation !8
+  store ptr null, ptr %5, align 8, !annotation !11
   %14 = tail call i64 @_copy_from_user(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %2) #10
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %.thread
@@ -672,7 +672,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proc_scsi_write(ptr read
 
 108:                                              ; preds = %105, %100
   %109 = phi i32 [ %107, %105 ], [ 0, %100 ]
-  %110 = call fastcc i32 @scsi_remove_single_device(i32 noundef %86, i32 noundef %94, i32 noundef %102, i32 noundef %109), !range !9
+  %110 = call fastcc i32 @scsi_remove_single_device(i32 noundef %86, i32 noundef %94, i32 noundef %102, i32 noundef %109), !range !14
   br label %111
 
 111:                                              ; preds = %108, %72
@@ -726,7 +726,7 @@ define internal ptr @scsi_seq_start(ptr noundef captures(none) %0, ptr noundef r
   %17 = icmp eq ptr %16, null
   %18 = icmp eq i64 %13, 0
   %19 = select i1 %17, i1 true, i1 %18
-  br i1 %19, label %.loopexit, label %10, !llvm.loop !10
+  br i1 %19, label %.loopexit, label %10, !llvm.loop !15
 
 .loopexit:                                        ; preds = %10, %2
   %20 = phi ptr [ %4, %2 ], [ %16, %10 ]
@@ -793,7 +793,7 @@ define internal noundef i32 @scsi_seq_show(ptr noundef %0, ptr noundef %1) #0 al
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext %27) #10
   %28 = add nuw nsw i64 %23, 1
   %29 = icmp eq i64 %28, 8
-  br i1 %29, label %30, label %22, !llvm.loop !11
+  br i1 %29, label %30, label %22, !llvm.loop !16
 
 30:                                               ; preds = %22
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #10
@@ -809,7 +809,7 @@ define internal noundef i32 @scsi_seq_show(ptr noundef %0, ptr noundef %1) #0 al
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext %37) #10
   %38 = add nuw nsw i64 %33, 1
   %39 = icmp eq i64 %38, 16
-  br i1 %39, label %40, label %32, !llvm.loop !12
+  br i1 %39, label %40, label %32, !llvm.loop !17
 
 40:                                               ; preds = %32
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.13) #10
@@ -825,7 +825,7 @@ define internal noundef i32 @scsi_seq_show(ptr noundef %0, ptr noundef %1) #0 al
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext %47) #10
   %48 = add nuw nsw i64 %43, 1
   %49 = icmp eq i64 %48, 4
-  br i1 %49, label %50, label %42, !llvm.loop !13
+  br i1 %49, label %50, label %42, !llvm.loop !18
 
 50:                                               ; preds = %42
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #10
@@ -956,12 +956,17 @@ attributes #12 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = !{i32 -6, i32 1}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = !{i32 -6, i32 1}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}

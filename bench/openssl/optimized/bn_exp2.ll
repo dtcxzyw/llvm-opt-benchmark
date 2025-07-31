@@ -209,7 +209,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %100 = trunc nsw i64 %indvars.iv.next261 to i32
   %.1158.highbits = lshr i32 %100, %98
   %101 = icmp eq i32 %.1158.highbits, 0
-  br i1 %101, label %.lr.ph236, label %.loopexit228, !llvm.loop !14
+  br i1 %101, label %.lr.ph236, label %.loopexit228, !llvm.loop !15
 
 .lr.ph236:                                        ; preds = %.lr.ph236.preheader, %99
   %indvars.iv260 = phi i64 [ 1, %.lr.ph236.preheader ], [ %indvars.iv.next261, %99 ]
@@ -271,7 +271,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %.2 = add nsw i32 %.2.in, 1
   %121 = tail call i32 @BN_is_bit_set(ptr noundef %2, i32 noundef %.2) #4
   %.not205 = icmp eq i32 %121, 0
-  br i1 %.not205, label %120, label %122, !llvm.loop !15
+  br i1 %.not205, label %120, label %122, !llvm.loop !16
 
 122:                                              ; preds = %120
   %123 = add nsw i32 %.0172.in249, -2
@@ -288,7 +288,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %spec.select = or disjoint i32 %124, %126
   %127 = add nsw i32 %.3239, -1
   %.not206.not = icmp sgt i32 %127, %.2.in
-  br i1 %.not206.not, label %.lr.ph240, label %.loopexit226, !llvm.loop !16
+  br i1 %.not206.not, label %.lr.ph240, label %.loopexit226, !llvm.loop !17
 
 .loopexit226:                                     ; preds = %.lr.ph240, %122, %116, %115
   %.1176 = phi i32 [ %.0175247, %115 ], [ %.0175247, %116 ], [ %.2, %122 ], [ %.2, %.lr.ph240 ]
@@ -310,7 +310,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %.4 = add nsw i32 %.4.in, 1
   %133 = tail call i32 @BN_is_bit_set(ptr noundef %4, i32 noundef %.4) #4
   %.not210 = icmp eq i32 %133, 0
-  br i1 %.not210, label %132, label %134, !llvm.loop !17
+  br i1 %.not210, label %132, label %134, !llvm.loop !18
 
 134:                                              ; preds = %132
   %135 = add nsw i32 %.0172.in249, -2
@@ -327,7 +327,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %spec.select219 = or disjoint i32 %136, %138
   %139 = add nsw i32 %.5243, -1
   %.not211.not = icmp sgt i32 %139, %.4.in
-  br i1 %.not211.not, label %.lr.ph244, label %.loopexit, !llvm.loop !18
+  br i1 %.not211.not, label %.lr.ph244, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph244, %134, %128, %.loopexit226
   %.1174 = phi i32 [ %.0173248, %.loopexit226 ], [ %.0173248, %128 ], [ %.4, %134 ], [ %.4, %.lr.ph244 ]
@@ -371,7 +371,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %.4166 = phi i32 [ %.1163, %149 ], [ 0, %148 ], [ 0, %151 ]
   %.2161 = phi i32 [ %.1160, %149 ], [ %.1160, %148 ], [ 0, %151 ]
   %158 = icmp samesign ugt i32 %.0172.in249, 1
-  br i1 %158, label %.lr.ph254, label %._crit_edge, !llvm.loop !19
+  br i1 %158, label %.lr.ph254, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %157, %.preheader
   %159 = tail call i32 @BN_from_montgomery(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %.1, ptr noundef %6) #4
@@ -474,11 +474,12 @@ attributes #4 = { nounwind }
 !9 = !{!"bignum_st", !10, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20}
 !10 = !{!"p1 long", !5, i64 0}
 !11 = !{!"int", !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}
+!19 = distinct !{!19, !13, !14}
+!20 = distinct !{!20, !13, !14}

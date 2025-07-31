@@ -416,7 +416,7 @@ invoke.cont49:                                    ; preds = %invoke.cont60
   %41 = load i32, ptr %current_size_.i.i.i.i40, align 8
   %42 = sext i32 %41 to i64
   %cmp51.not = icmp slt i64 %indvars.iv.next105, %42
-  br i1 %cmp51.not, label %invoke.cont55, label %invoke.cont77, !llvm.loop !6
+  br i1 %cmp51.not, label %invoke.cont55, label %invoke.cont77, !llvm.loop !7
 
 invoke.cont55:                                    ; preds = %invoke.cont55.lr.ph, %invoke.cont49
   %43 = phi ptr [ null, %invoke.cont55.lr.ph ], [ %54, %invoke.cont49 ]
@@ -1605,6 +1605,7 @@ attributes #24 = { allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

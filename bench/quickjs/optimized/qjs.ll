@@ -449,7 +449,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.2170 = phi ptr [ %spec.select286292296300, %45 ], [ %53, %49 ], [ %.0168568, %32 ]
   %.2 = phi i32 [ %.3, %45 ], [ %50, %49 ], [ %.3, %32 ]
   %152 = icmp slt i32 %.2, %0
-  br i1 %152, label %.lr.ph, label %.critedge.loopexit
+  br i1 %152, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !15
 
 .critedge.loopexit:                               ; preds = %25, %19, %.thread324, %.lr.ph
   %.0235.lcssa.ph = phi i32 [ %.0235557, %.lr.ph ], [ %.3238, %.thread324 ], [ %.0235557, %19 ], [ %.0235557, %25 ]
@@ -499,7 +499,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 161:                                              ; preds = %160
   %162 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #19
-  store ptr %162, ptr %3, align 8, !tbaa !15
+  store ptr %162, ptr %3, align 8, !tbaa !17
   tail call void @free(ptr noundef %162) #15
   %163 = call ptr @JS_NewRuntime2(ptr noundef nonnull @trace_mf, ptr noundef nonnull %3) #15
   br label %166
@@ -576,7 +576,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not272, label %190, label %187
 
 187:                                              ; preds = %186
-  %188 = load i32, ptr @qjsc_qjscalc_size, align 4, !tbaa !17
+  %188 = load i32, ptr @qjsc_qjscalc_size, align 4, !tbaa !19
   %189 = zext i32 %188 to i64
   call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_qjscalc, i64 noundef %189, i32 noundef 0) #15
   br label %190
@@ -603,7 +603,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 198:                                              ; preds = %.lr.ph625
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph625, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph625, !llvm.loop !21
 
 .lr.ph625:                                        ; preds = %.lr.ph625.preheader, %198
   %indvars.iv = phi i64 [ 0, %.lr.ph625.preheader ], [ %indvars.iv.next, %198 ]
@@ -639,9 +639,9 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 211:                                              ; preds = %208
   %212 = inttoptr i64 %.sroa.07.1.i to ptr
-  %213 = load i32, ptr %212, align 4, !tbaa !21
+  %213 = load i32, ptr %212, align 4, !tbaa !23
   %214 = add i32 %213, -1
-  store i32 %214, ptr %212, align 4, !tbaa !21
+  store i32 %214, ptr %212, align 4, !tbaa !23
   %215 = icmp slt i32 %214, 1
   br i1 %215, label %216, label %eval_buf.exit
 
@@ -666,7 +666,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   br i1 %.0235.lcssa, label %224, label %.thread359
 
 .thread359:                                       ; preds = %217, %221
-  %222 = load i32, ptr @qjsc_repl_size, align 4, !tbaa !17
+  %222 = load i32, ptr @qjsc_repl_size, align 4, !tbaa !19
   %223 = zext i32 %222 to i64
   call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_repl, i64 noundef %223, i32 noundef 0) #15
   br label %224
@@ -705,19 +705,19 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
 234:                                              ; preds = %229, %.split628.us
   %.0156629 = phi i32 [ 0, %229 ], [ %265, %.split628.us ]
   %235 = call i64 @clock() #15
-  store i64 %235, ptr %6, align 16, !tbaa !23
+  store i64 %235, ptr %6, align 16, !tbaa !25
   %236 = call ptr @JS_NewRuntime() #15
   %237 = call i64 @clock() #15
-  store i64 %237, ptr %230, align 8, !tbaa !23
+  store i64 %237, ptr %230, align 8, !tbaa !25
   %238 = call ptr @JS_NewContext(ptr noundef %236) #15
   %239 = call i64 @clock() #15
-  store i64 %239, ptr %231, align 16, !tbaa !23
+  store i64 %239, ptr %231, align 16, !tbaa !25
   call void @JS_FreeContext(ptr noundef %238) #15
   %240 = call i64 @clock() #15
-  store i64 %240, ptr %232, align 8, !tbaa !23
+  store i64 %240, ptr %232, align 8, !tbaa !25
   call void @JS_FreeRuntime(ptr noundef %236) #15
   %241 = call i64 @clock() #15
-  store i64 %241, ptr %233, align 16, !tbaa !23
+  store i64 %241, ptr %233, align 16, !tbaa !25
   %242 = icmp eq i32 %.0156629, 0
   br i1 %242, label %.split.us, label %.split
 
@@ -726,55 +726,55 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %indvars.iv746 = phi i64 [ %indvars.iv.next747, %.split.us ], [ 4, %234 ]
   %indvars.iv.next747 = add nsw i64 %indvars.iv746, -1
   %244 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %indvars.iv.next747
-  %245 = load i64, ptr %244, align 8, !tbaa !23
+  %245 = load i64, ptr %244, align 8, !tbaa !25
   %246 = sub i64 %243, %245
   %247 = sitofp i64 %246 to double
   %248 = fmul double %247, 1.000000e+03
   %249 = fdiv double %248, 1.000000e+06
   %250 = getelementptr inbounds nuw [5 x double], ptr %7, i64 0, i64 %indvars.iv746
-  store double %249, ptr %250, align 8, !tbaa !25
+  store double %249, ptr %250, align 8, !tbaa !27
   %251 = icmp samesign ugt i64 %indvars.iv746, 1
-  br i1 %251, label %.split.us, label %.split628.us, !llvm.loop !27
+  br i1 %251, label %.split.us, label %.split628.us, !llvm.loop !29
 
 .split:                                           ; preds = %234, %263
   %252 = phi i64 [ %254, %263 ], [ %241, %234 ]
   %indvars.iv743 = phi i64 [ %indvars.iv.next744, %263 ], [ 4, %234 ]
   %indvars.iv.next744 = add nsw i64 %indvars.iv743, -1
   %253 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %indvars.iv.next744
-  %254 = load i64, ptr %253, align 8, !tbaa !23
+  %254 = load i64, ptr %253, align 8, !tbaa !25
   %255 = sub i64 %252, %254
   %256 = sitofp i64 %255 to double
   %257 = fmul double %256, 1.000000e+03
   %258 = fdiv double %257, 1.000000e+06
   %259 = getelementptr inbounds nuw [5 x double], ptr %7, i64 0, i64 %indvars.iv743
-  %260 = load double, ptr %259, align 8, !tbaa !25
+  %260 = load double, ptr %259, align 8, !tbaa !27
   %261 = fcmp ogt double %260, %258
   br i1 %261, label %262, label %263
 
 262:                                              ; preds = %.split
-  store double %258, ptr %259, align 8, !tbaa !25
+  store double %258, ptr %259, align 8, !tbaa !27
   br label %263
 
 263:                                              ; preds = %262, %.split
   %264 = icmp samesign ugt i64 %indvars.iv743, 1
-  br i1 %264, label %.split, label %.split628.us, !llvm.loop !29
+  br i1 %264, label %.split, label %.split628.us, !llvm.loop !31
 
 .split628.us:                                     ; preds = %263, %.split.us
   %265 = add nuw nsw i32 %.0156629, 1
   %exitcond749.not = icmp eq i32 %265, 100
-  br i1 %exitcond749.not, label %266, label %234, !llvm.loop !30
+  br i1 %exitcond749.not, label %266, label %234, !llvm.loop !32
 
 266:                                              ; preds = %.split628.us
   %267 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %268 = load double, ptr %267, align 8, !tbaa !25
+  %268 = load double, ptr %267, align 8, !tbaa !27
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %270 = load double, ptr %269, align 16, !tbaa !25
+  %270 = load double, ptr %269, align 16, !tbaa !27
   %271 = fadd double %268, %270
   %272 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %273 = load double, ptr %272, align 8, !tbaa !25
+  %273 = load double, ptr %272, align 8, !tbaa !27
   %274 = fadd double %271, %273
   %275 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %276 = load double, ptr %275, align 16, !tbaa !25
+  %276 = load double, ptr %275, align 16, !tbaa !27
   %277 = fadd double %274, %276
   %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %277, double noundef %268, double noundef %270, double noundef %273, double noundef %276)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #15
@@ -917,9 +917,9 @@ define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, pt
 
 28:                                               ; preds = %25
   %29 = inttoptr i64 %.sroa.07.1 to ptr
-  %30 = load i32, ptr %29, align 4, !tbaa !21
+  %30 = load i32, ptr %29, align 4, !tbaa !23
   %31 = add i32 %30, -1
-  store i32 %31, ptr %29, align 4, !tbaa !21
+  store i32 %31, ptr %29, align 4, !tbaa !23
   %32 = icmp slt i32 %31, 1
   br i1 %32, label %33, label %JS_FreeValue.exit
 
@@ -954,7 +954,7 @@ define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, p
   br i1 %.not17, label %11, label %.thread
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %4, align 8, !tbaa !23
+  %12 = load i64, ptr %4, align 8, !tbaa !25
   %13 = call i32 @JS_DetectModule(ptr noundef nonnull %5, i64 noundef %12) #15
   %.fr22 = freeze i32 %13
   %14 = icmp ne i32 %.fr22, 0
@@ -969,7 +969,7 @@ define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, p
 
 .thread:                                          ; preds = %16, %9
   %17 = phi i32 [ 1, %9 ], [ %spec.select, %16 ]
-  %18 = load i64, ptr %4, align 8, !tbaa !23
+  %18 = load i64, ptr %4, align 8, !tbaa !25
   %19 = trunc i64 %18 to i32
   %20 = call fastcc i32 @eval_buf(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %19, ptr noundef %1, i32 noundef %17)
   call void @js_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #15
@@ -1003,12 +1003,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @js_trace_malloc(ptr noundef captures(none) %0, i64 noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !31
+  %4 = load i64, ptr %3, align 8, !tbaa !33
   %5 = add i64 %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !33
+  %7 = load i64, ptr %6, align 8, !tbaa !35
   %8 = icmp ugt i64 %5, %7
-  br i1 %8, label %18, label %9, !prof !34
+  br i1 %8, label %18, label %9, !prof !36
 
 9:                                                ; preds = %2
   %10 = tail call noalias ptr @malloc(i64 noundef %1) #19
@@ -1017,14 +1017,14 @@ define internal noundef ptr @js_trace_malloc(ptr noundef captures(none) %0, i64 
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %0, align 8, !tbaa !35
+  %12 = load i64, ptr %0, align 8, !tbaa !37
   %13 = add i64 %12, 1
-  store i64 %13, ptr %0, align 8, !tbaa !35
+  store i64 %13, ptr %0, align 8, !tbaa !37
   %14 = tail call i64 @malloc_usable_size(ptr noundef nonnull %10) #15
   %15 = add i64 %14, 8
-  %16 = load i64, ptr %3, align 8, !tbaa !31
+  %16 = load i64, ptr %3, align 8, !tbaa !33
   %17 = add i64 %15, %16
-  store i64 %17, ptr %3, align 8, !tbaa !31
+  store i64 %17, ptr %3, align 8, !tbaa !33
   br label %18
 
 18:                                               ; preds = %9, %11, %2
@@ -1039,15 +1039,15 @@ define internal void @js_trace_free(ptr noundef captures(none) %0, ptr noundef %
 
 3:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @js_trace_malloc_printf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef nonnull %1)
-  %4 = load i64, ptr %0, align 8, !tbaa !35
+  %4 = load i64, ptr %0, align 8, !tbaa !37
   %5 = add i64 %4, -1
-  store i64 %5, ptr %0, align 8, !tbaa !35
+  store i64 %5, ptr %0, align 8, !tbaa !37
   %6 = tail call i64 @malloc_usable_size(ptr noundef nonnull %1) #15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !31
+  %8 = load i64, ptr %7, align 8, !tbaa !33
   %reass.sub = sub i64 %8, %6
   %9 = add i64 %reass.sub, -8
-  store i64 %9, ptr %7, align 8, !tbaa !31
+  store i64 %9, ptr %7, align 8, !tbaa !33
   tail call void @free(ptr noundef nonnull %1) #15
   br label %10
 
@@ -1066,12 +1066,12 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !31
+  %8 = load i64, ptr %7, align 8, !tbaa !33
   %9 = add i64 %8, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !33
+  %11 = load i64, ptr %10, align 8, !tbaa !35
   %12 = icmp ugt i64 %9, %11
-  br i1 %12, label %js_trace_malloc.exit, label %13, !prof !34
+  br i1 %12, label %js_trace_malloc.exit, label %13, !prof !36
 
 13:                                               ; preds = %6
   %14 = tail call noalias ptr @malloc(i64 noundef %2) #19
@@ -1080,14 +1080,14 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
   br i1 %.not.i, label %js_trace_malloc.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = load i64, ptr %0, align 8, !tbaa !35
+  %16 = load i64, ptr %0, align 8, !tbaa !37
   %17 = add i64 %16, 1
-  store i64 %17, ptr %0, align 8, !tbaa !35
+  store i64 %17, ptr %0, align 8, !tbaa !37
   %18 = tail call i64 @malloc_usable_size(ptr noundef nonnull %14) #15
   %19 = add i64 %18, 8
-  %20 = load i64, ptr %7, align 8, !tbaa !31
+  %20 = load i64, ptr %7, align 8, !tbaa !33
   %21 = add i64 %19, %20
-  store i64 %21, ptr %7, align 8, !tbaa !31
+  store i64 %21, ptr %7, align 8, !tbaa !33
   br label %js_trace_malloc.exit
 
 22:                                               ; preds = %3
@@ -1097,24 +1097,24 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
 
 25:                                               ; preds = %22
   tail call void (ptr, ptr, ...) @js_trace_malloc_printf(ptr noundef %0, ptr noundef nonnull @.str.35, i64 noundef 0, ptr noundef nonnull %1)
-  %26 = load i64, ptr %0, align 8, !tbaa !35
+  %26 = load i64, ptr %0, align 8, !tbaa !37
   %27 = add i64 %26, -1
-  store i64 %27, ptr %0, align 8, !tbaa !35
+  store i64 %27, ptr %0, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !31
+  %29 = load i64, ptr %28, align 8, !tbaa !33
   %reass.sub = sub i64 %29, %23
   %30 = add i64 %reass.sub, -8
-  store i64 %30, ptr %28, align 8, !tbaa !31
+  store i64 %30, ptr %28, align 8, !tbaa !33
   tail call void @free(ptr noundef nonnull %1) #15
   br label %js_trace_malloc.exit
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !31
+  %33 = load i64, ptr %32, align 8, !tbaa !33
   %34 = sub i64 %2, %23
   %35 = add i64 %34, %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !33
+  %37 = load i64, ptr %36, align 8, !tbaa !35
   %38 = icmp ugt i64 %35, %37
   br i1 %38, label %js_trace_malloc.exit, label %39
 
@@ -1128,9 +1128,9 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
 41:                                               ; preds = %39
   %42 = tail call i64 @malloc_usable_size(ptr noundef nonnull %40) #15
   %43 = sub i64 %42, %23
-  %44 = load i64, ptr %32, align 8, !tbaa !31
+  %44 = load i64, ptr %32, align 8, !tbaa !33
   %45 = add i64 %43, %44
-  store i64 %45, ptr %32, align 8, !tbaa !31
+  store i64 %45, ptr %32, align 8, !tbaa !33
   br label %js_trace_malloc.exit
 
 js_trace_malloc.exit:                             ; preds = %15, %13, %6, %39, %41, %31, %4, %25
@@ -1192,7 +1192,7 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
 
 23:                                               ; preds = %20, %15
   %24 = phi ptr [ %18, %15 ], [ %21, %20 ]
-  %25 = load ptr, ptr %24, align 8, !tbaa !36
+  %25 = load ptr, ptr %24, align 8, !tbaa !38
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
 
@@ -1201,8 +1201,8 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
   br label %36
 
 29:                                               ; preds = %23
-  %30 = load ptr, ptr %6, align 8, !tbaa !37
-  %.val = load ptr, ptr %30, align 8, !tbaa !15
+  %30 = load ptr, ptr %6, align 8, !tbaa !39
+  %.val = load ptr, ptr %30, align 8, !tbaa !17
   %31 = ptrtoint ptr %25 to i64
   %32 = ptrtoint ptr %.val to i64
   %33 = sub i64 %31, %32
@@ -1216,7 +1216,7 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
 
 .backedge.backedge:                               ; preds = %36, %53, %58
   %.0.be = phi ptr [ %37, %36 ], [ %57, %53 ], [ %7, %58 ]
-  br label %.backedge, !llvm.loop !38
+  br label %.backedge, !llvm.loop !40
 
 38:                                               ; preds = %10
   %39 = getelementptr inbounds nuw i8, ptr %.0, i64 2
@@ -1245,7 +1245,7 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
 
 53:                                               ; preds = %50, %45
   %54 = phi ptr [ %48, %45 ], [ %51, %50 ]
-  %55 = load i64, ptr %54, align 8, !tbaa !23
+  %55 = load i64, ptr %54, align 8, !tbaa !25
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %55)
   %57 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   br label %.backedge.backedge
@@ -1356,27 +1356,29 @@ attributes #20 = { nounwind allocsize(1) }
 !12 = !{!10, !10, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!15 = !{!16, !8, i64 0}
-!16 = !{!"trace_malloc_data", !8, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !10, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!22, !18, i64 0}
-!22 = !{!"JSRefCountHeader", !18, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"long", !10, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !8, i64 0}
+!18 = !{!"trace_malloc_data", !8, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !10, i64 0}
+!21 = distinct !{!21, !22, !16}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!24, !20, i64 0}
+!24 = !{!"JSRefCountHeader", !20, i64 0}
 !25 = !{!26, !26, i64 0}
-!26 = !{!"double", !10, i64 0}
-!27 = distinct !{!27, !20, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !20}
-!30 = distinct !{!30, !20}
-!31 = !{!32, !24, i64 8}
-!32 = !{!"JSMallocState", !24, i64 0, !24, i64 8, !24, i64 16, !9, i64 24}
-!33 = !{!32, !24, i64 16}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = !{!32, !24, i64 0}
-!36 = !{!9, !9, i64 0}
-!37 = !{!32, !9, i64 24}
-!38 = distinct !{!38, !20}
+!26 = !{!"long", !10, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"double", !10, i64 0}
+!29 = distinct !{!29, !22, !16, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !22, !16}
+!32 = distinct !{!32, !22, !16}
+!33 = !{!34, !26, i64 8}
+!34 = !{!"JSMallocState", !26, i64 0, !26, i64 8, !26, i64 16, !9, i64 24}
+!35 = !{!34, !26, i64 16}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = !{!34, !26, i64 0}
+!38 = !{!9, !9, i64 0}
+!39 = !{!34, !9, i64 24}
+!40 = distinct !{!40, !16}

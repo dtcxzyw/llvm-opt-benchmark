@@ -86,7 +86,7 @@ while.body.i:                                     ; preds = %while.body.i, %entr
   %d.1.i = select i1 %cmp1.i, i64 %sub.i, i64 %shr.i
   %first.addr.1.i = select i1 %cmp1.i, ptr %incdec.ptr.i, ptr %first.addr.010.i
   %cmp.i = icmp sgt i64 %d.1.i, 0
-  br i1 %cmp.i, label %while.body.i, label %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !7
+  br i1 %cmp.i, label %while.body.i, label %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !8
 
 _ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit:  ; preds = %while.body.i
   %1 = load i32, ptr %first.addr.1.i, align 4
@@ -122,7 +122,7 @@ while.body.i:                                     ; preds = %while.body.i, %entr
   %d.1.i = select i1 %cmp1.i, i64 %sub.i, i64 %shr.i
   %first.addr.1.i = select i1 %cmp1.i, ptr %incdec.ptr.i, ptr %first.addr.010.i
   %cmp.i = icmp sgt i64 %d.1.i, 0
-  br i1 %cmp.i, label %while.body.i, label %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !7
+  br i1 %cmp.i, label %while.body.i, label %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !8
 
 _ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit:  ; preds = %while.body.i
   %2 = load i32, ptr %first.addr.1.i, align 4
@@ -176,7 +176,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %d.1.i = select i1 %cmp1.i, i64 %sub.i, i64 %shr.i
   %first.addr.1.i = select i1 %cmp1.i, ptr %incdec.ptr.i, ptr %first.addr.010.i
   %cmp.i8 = icmp sgt i64 %d.1.i, 0
-  br i1 %cmp.i8, label %while.body.i, label %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !7
+  br i1 %cmp.i8, label %while.body.i, label %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !8
 
 _ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit:  ; preds = %while.body.i
   %4 = load i32, ptr %first.addr.1.i, align 4
@@ -214,6 +214,7 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

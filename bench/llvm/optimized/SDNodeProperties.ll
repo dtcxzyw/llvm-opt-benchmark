@@ -162,33 +162,33 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93: ; preds = %_ZN4llvm
   %36 = or i32 %35, %.0383
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0172.0382, i64 8
   %.not376 = icmp eq ptr %37, %12
-  br i1 %.not376, label %._crit_edge, label %.lr.ph
+  br i1 %.not376, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 38:                                               ; preds = %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !54
+  %40 = load ptr, ptr %39, align 8, !tbaa !56
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load i32, ptr %41, align 8, !tbaa !55
+  %42 = load i32, ptr %41, align 8, !tbaa !57
   %43 = zext i32 %42 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 3, ptr %44, align 8, !tbaa !56, !alias.scope !59
+  store i8 3, ptr %44, align 8, !tbaa !58, !alias.scope !61
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 5, ptr %45, align 1, !tbaa !62, !alias.scope !59
-  store ptr @.str.12, ptr %6, align 8, !tbaa !63, !alias.scope !59
+  store i8 5, ptr %45, align 1, !tbaa !64, !alias.scope !61
+  store ptr @.str.12, ptr %6, align 8, !tbaa !65, !alias.scope !61
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %.sroa.0.0.copyload.i.i, ptr %46, align 8, !tbaa !63, !alias.scope !59
+  store ptr %.sroa.0.0.copyload.i.i, ptr %46, align 8, !tbaa !65, !alias.scope !61
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %.sroa.2.0.copyload.i.i, ptr %47, align 8, !tbaa !63, !alias.scope !59
+  store i64 %.sroa.2.0.copyload.i.i, ptr %47, align 8, !tbaa !65, !alias.scope !61
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #9
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %49, align 1, !tbaa !62
-  store ptr @.str.13, ptr %7, align 8, !tbaa !63
-  store i8 3, ptr %48, align 8, !tbaa !56
+  store i8 1, ptr %49, align 1, !tbaa !64
+  store ptr @.str.13, ptr %7, align 8, !tbaa !65
+  store i8 3, ptr %48, align 8, !tbaa !58
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(34) %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
   %50 = load ptr, ptr %0, align 8, !tbaa !12
@@ -197,19 +197,19 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93: ; preds = %_ZN4llvm
   %.sroa.2.0..sroa_idx.i.i100 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %.sroa.2.0.copyload.i.i101 = load i64, ptr %.sroa.2.0..sroa_idx.i.i100, align 8, !tbaa !52
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 5, ptr %52, align 8, !tbaa !56
+  store i8 5, ptr %52, align 8, !tbaa !58
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 1, ptr %53, align 1, !tbaa !62
-  store ptr %.sroa.0.0.copyload.i.i99, ptr %8, align 8, !tbaa !63
+  store i8 1, ptr %53, align 1, !tbaa !64
+  store ptr %.sroa.0.0.copyload.i.i99, ptr %8, align 8, !tbaa !65
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.2.0.copyload.i.i101, ptr %54, align 8, !tbaa !63
+  store i64 %.sroa.2.0.copyload.i.i101, ptr %54, align 8, !tbaa !65
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(34) %8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %56, align 1, !tbaa !62
-  store ptr @.str.14, ptr %9, align 8, !tbaa !63
-  store i8 3, ptr %55, align 8, !tbaa !56
+  store i8 1, ptr %56, align 1, !tbaa !64
+  store ptr @.str.14, ptr %9, align 8, !tbaa !65
+  store i8 3, ptr %55, align 8, !tbaa !58
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %3, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(34) %9)
   call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %40, i64 %43, ptr noundef nonnull align 8 dereferenceable(34) %3) #11
   unreachable
@@ -228,23 +228,23 @@ declare void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(pt
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #4 comdat {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load i8, ptr %4, align 8, !tbaa !56, !noalias !64
+  %5 = load i8, ptr %4, align 8, !tbaa !58, !noalias !66
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load i8, ptr %8, align 8, !tbaa !56, !noalias !64
+  %9 = load i8, ptr %8, align 8, !tbaa !58, !noalias !66
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %12, align 8, !tbaa !56, !alias.scope !64
+  store i8 0, ptr %12, align 8, !tbaa !58, !alias.scope !66
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 1, ptr %13, align 1, !tbaa !62, !alias.scope !64
+  store i8 1, ptr %13, align 1, !tbaa !64, !alias.scope !66
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 14:                                               ; preds = %7
@@ -252,7 +252,7 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !69
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 17:                                               ; preds = %14
@@ -260,39 +260,39 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !69
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %22 = load i8, ptr %21, align 1, !tbaa !62, !noalias !64
+  %22 = load i8, ptr %21, align 1, !tbaa !64, !noalias !66
   %23 = icmp eq i8 %22, 1
-  %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !64
+  %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !66
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.56.0.copyload.i = load i64, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !64
+  %.sroa.56.0.copyload.i = load i64, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !66
   %.014.i = select i1 %23, i8 %5, i8 2
   %.sroa.05.0.i = select i1 %23, ptr %.sroa.05.0.copyload.i, ptr %1
   %.sroa.56.0.i = select i1 %23, i64 %.sroa.56.0.copyload.i, i64 undef
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %25 = load i8, ptr %24, align 1, !tbaa !62, !noalias !64
+  %25 = load i8, ptr %24, align 1, !tbaa !64, !noalias !66
   %26 = icmp eq i8 %25, 1
-  %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !64
+  %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !64
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !66
   %.0.i = select i1 %26, i8 %9, i8 2
   %.sroa.04.0.i = select i1 %26, ptr %.sroa.04.0.copyload.i, ptr %2
   %.sroa.5.0.i = select i1 %26, i64 %.sroa.5.0.copyload.i, i64 undef
-  store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !64
+  store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !66
   %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.56.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !tbaa !63, !alias.scope !64
+  store i64 %.sroa.56.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !tbaa !65, !alias.scope !66
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !64
+  store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !66
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.5.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !63, !alias.scope !64
+  store i64 %.sroa.5.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !65, !alias.scope !66
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.014.i, ptr %28, align 8, !tbaa !56, !alias.scope !64
+  store i8 %.014.i, ptr %28, align 8, !tbaa !58, !alias.scope !66
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 %.0.i, ptr %29, align 1, !tbaa !62, !alias.scope !64
+  store i8 %.0.i, ptr %29, align 1, !tbaa !64, !alias.scope !66
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
@@ -380,18 +380,20 @@ attributes #11 = { noreturn nounwind }
 !51 = !{!"p1 omnipotent char", !5, i64 0}
 !52 = !{!53, !53, i64 0}
 !53 = !{!"long", !6, i64 0}
-!54 = !{!19, !5, i64 0}
-!55 = !{!19, !20, i64 8}
-!56 = !{!57, !58, i64 32}
-!57 = !{!"_ZTSN4llvm5TwineE", !6, i64 0, !6, i64 16, !58, i64 32, !58, i64 33}
-!58 = !{!"_ZTSN4llvm5Twine8NodeKindE", !6, i64 0}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
-!61 = distinct !{!61, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
-!62 = !{!57, !58, i64 33}
-!63 = !{!6, !6, i64 0}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
-!66 = distinct !{!66, !"_ZNK4llvm5Twine6concatERKS0_"}
-!67 = !{i64 0, i64 16, !63, i64 16, i64 16, !63, i64 32, i64 1, !68, i64 33, i64 1, !68}
-!68 = !{!58, !58, i64 0}
+!54 = distinct !{!54, !55}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!19, !5, i64 0}
+!57 = !{!19, !20, i64 8}
+!58 = !{!59, !60, i64 32}
+!59 = !{!"_ZTSN4llvm5TwineE", !6, i64 0, !6, i64 16, !60, i64 32, !60, i64 33}
+!60 = !{!"_ZTSN4llvm5Twine8NodeKindE", !6, i64 0}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
+!63 = distinct !{!63, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
+!64 = !{!59, !60, i64 33}
+!65 = !{!6, !6, i64 0}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
+!68 = distinct !{!68, !"_ZNK4llvm5Twine6concatERKS0_"}
+!69 = !{i64 0, i64 16, !65, i64 16, i64 16, !65, i64 32, i64 1, !70, i64 33, i64 1, !70}
+!70 = !{!60, !60, i64 0}

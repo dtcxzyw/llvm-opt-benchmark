@@ -572,7 +572,7 @@ put_char.exit386:                                 ; preds = %190, %196
   call fastcc void @jv_dump_term(ptr noundef %0, i64 %161, ptr %162, i32 noundef %3, i32 noundef %155, ptr noundef %5, ptr noundef %6)
   %198 = add nuw nsw i32 %.1316498, 1
   %exitcond.not = icmp eq i32 %198, %152
-  br i1 %exitcond.not, label %.critedge, label %156, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge, label %156, !llvm.loop !15
 
 199:                                              ; preds = %.critedge
   call fastcc void @put_char(i8 noundef signext 10, ptr noundef %5, ptr noundef %6)
@@ -1058,7 +1058,7 @@ put_char.exit431:                                 ; preds = %.thread480, %.threa
 
 391:                                              ; preds = %put_str.exit425, %put_char.exit431, %put_char.exit428, %359, %put_char.exit428.thread
   call fastcc void @jv_dump_term(ptr noundef %0, i64 %.sroa.018.0, ptr %.sroa.5.0, i32 noundef %3, i32 noundef %252, ptr noundef %5, ptr noundef %6)
-  br label %254
+  br label %254, !llvm.loop !16
 
 .loopexit:                                        ; preds = %290, %270
   br i1 %.not348457, label %393, label %392
@@ -1161,7 +1161,7 @@ declare ptr @tsd_dtoa_context_get(...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @jv_dump(i64 %0, ptr %1, i32 noundef %2) local_unnamed_addr #5 {
-  %4 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %4 = load ptr, ptr @stdout, align 8, !tbaa !17
   %5 = tail call ptr (...) @tsd_dtoa_context_get() #11
   tail call fastcc void @jv_dump_term(ptr noundef %5, i64 %0, ptr %1, i32 noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef null)
   ret void
@@ -1173,12 +1173,12 @@ define dso_local void @jv_show(i64 %0, ptr %1, i32 noundef %2) local_unnamed_add
   %5 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #11
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !17
   %9 = or i32 %2, 16
   %10 = select i1 %4, i32 533, i32 %9
   %11 = tail call ptr (...) @tsd_dtoa_context_get() #11
   tail call fastcc void @jv_dump_term(ptr noundef %11, i64 %6, ptr %7, i32 noundef %10, i32 noundef 0, ptr noundef %8, ptr noundef null)
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !17
   %13 = tail call i32 @fflush(ptr noundef %12)
   ret void
 }
@@ -1323,7 +1323,7 @@ define internal fastcc void @jvp_dump_string(i64 %0, ptr %1, i32 noundef %2, ptr
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %22, i64 %27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #11
-  store i32 0, ptr %20, align 4, !tbaa !17
+  store i32 0, ptr %20, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19)
   store i8 34, ptr %19, align 1, !tbaa !11
@@ -1359,7 +1359,7 @@ put_char.exit:                                    ; preds = %29, %36
 39:                                               ; preds = %.lr.ph, %.critedge
   %40 = phi ptr [ %37, %.lr.ph ], [ %159, %.critedge ]
   %.063111 = phi ptr [ %22, %.lr.ph ], [ %40, %.critedge ]
-  %41 = load i32, ptr %20, align 4, !tbaa !17
+  %41 = load i32, ptr %20, align 4, !tbaa !19
   %42 = add i32 %41, -32
   %or.cond = icmp ult i32 %42, 95
   br i1 %or.cond, label %43, label %62
@@ -1391,7 +1391,7 @@ put_char.exit:                                    ; preds = %29, %36
 
 put_char.exit71:                                  ; preds = %45, %51
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
-  %.pre = load i32, ptr %20, align 4, !tbaa !17
+  %.pre = load i32, ptr %20, align 4, !tbaa !19
   br label %52
 
 52:                                               ; preds = %43, %put_char.exit71
@@ -1647,7 +1647,7 @@ put_char.exit104:                                 ; preds = %111, %120
 
 139:                                              ; preds = %136
   %140 = add nsw i32 %41, -65536
-  store i32 %140, ptr %20, align 4, !tbaa !17
+  store i32 %140, ptr %20, align 4, !tbaa !19
   %141 = lshr i32 %140, 10
   %142 = and i32 %141, 1023
   %143 = or disjoint i32 %142, 55296
@@ -1680,7 +1680,7 @@ put_char.exit104:                                 ; preds = %111, %120
 .critedge:                                        ; preds = %156, %149, %133, %126, %put_char.exit74, %put_char.exit80, %put_char.exit86, %put_char.exit92, %put_char.exit98, %put_char.exit104
   %159 = call ptr @jvp_utf8_next(ptr noundef nonnull %40, ptr noundef %28, ptr noundef nonnull %20) #11
   %.not = icmp eq ptr %159, null
-  br i1 %.not, label %._crit_edge, label %39, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %39, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.critedge, %put_char.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -1857,7 +1857,7 @@ put_char.exit.us:                                 ; preds = %.lr.ph, %put_char.e
   %fputc.i.us = tail call i32 @fputc(i32 9, ptr %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %.not11.us = icmp eq i32 %9, 0
-  br i1 %.not11.us, label %.loopexit, label %put_char.exit.us, !llvm.loop !20
+  br i1 %.not11.us, label %.loopexit, label %put_char.exit.us, !llvm.loop !22
 
 put_char.exit:                                    ; preds = %put_char.exit.preheader, %put_char.exit
   %10 = phi ptr [ %15, %put_char.exit ], [ %.pre24, %put_char.exit.preheader ]
@@ -1873,7 +1873,7 @@ put_char.exit:                                    ; preds = %put_char.exit.prehe
   store ptr %15, ptr %8, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %.not11 = icmp eq i32 %12, 0
-  br i1 %.not11, label %.loopexit, label %put_char.exit, !llvm.loop !22
+  br i1 %.not11, label %.loopexit, label %put_char.exit, !llvm.loop !24
 
 16:                                               ; preds = %4
   %17 = lshr i32 %1, 8
@@ -1899,7 +1899,7 @@ put_char.exit14.us:                               ; preds = %.lr.ph20, %put_char
   %fputc.i13.us = tail call i32 @fputc(i32 32, ptr %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.not10.us = icmp eq i32 %21, 0
-  br i1 %.not10.us, label %.loopexit, label %put_char.exit14.us, !llvm.loop !23
+  br i1 %.not10.us, label %.loopexit, label %put_char.exit14.us, !llvm.loop !25
 
 put_char.exit14:                                  ; preds = %put_char.exit14.preheader, %put_char.exit14
   %22 = phi ptr [ %27, %put_char.exit14 ], [ %.pre26, %put_char.exit14.preheader ]
@@ -1915,7 +1915,7 @@ put_char.exit14:                                  ; preds = %put_char.exit14.pre
   store ptr %27, ptr %20, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.not10 = icmp eq i32 %24, 0
-  br i1 %.not10, label %.loopexit, label %put_char.exit14, !llvm.loop !24
+  br i1 %.not10, label %.loopexit, label %put_char.exit14, !llvm.loop !26
 
 .loopexit:                                        ; preds = %put_char.exit, %put_char.exit.us, %put_char.exit14, %put_char.exit14.us, %.preheader, %16
   ret void
@@ -1982,16 +1982,18 @@ attributes #11 = { nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !6, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !14}
 !17 = !{!18, !18, i64 0}
-!18 = !{!"int", !7, i64 0}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13, !21}
-!24 = distinct !{!24, !13}
+!18 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !7, i64 0}
+!21 = distinct !{!21, !13, !14}
+!22 = distinct !{!22, !13, !14, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !13, !14}
+!25 = distinct !{!25, !13, !14, !23}
+!26 = distinct !{!26, !13, !14}

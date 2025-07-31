@@ -208,7 +208,7 @@ wmem_array_grow.exit:                             ; preds = %.wmem_array_grow.ex
   %34 = add i32 %33, %2
   store i32 %34, ptr %6, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load i8, ptr %35, align 8, !range !8, !noundef !9
+  %36 = load i8, ptr %35, align 8, !range !9, !noundef !10
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %wmem_array_write_null_terminator.exit
 
@@ -262,7 +262,7 @@ define ptr @wmem_array_index(ptr noundef readonly captures(none) %0, i32 noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not = icmp ult i32 %1, %4
-  br i1 %.not, label %6, label %5, !prof !10
+  br i1 %.not, label %6, label %5, !prof !11
 
 5:                                                ; preds = %2
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @__func__.wmem_array_index, ptr noundef nonnull @.str.1) #15
@@ -350,7 +350,7 @@ define ptr @wmem_array_finalize(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !8, !noundef !9
+  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = zext nneg i8 %5 to i32
@@ -420,8 +420,9 @@ attributes #15 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}

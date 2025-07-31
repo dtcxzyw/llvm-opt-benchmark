@@ -167,7 +167,7 @@ os_pages_unmap.exit.i.i:                          ; preds = %56, %46, %41
 
 71:                                               ; preds = %os_pages_unmap.exit.i.i
   %72 = icmp eq ptr %40, null
-  br i1 %72, label %31, label %os_pages_trim.exit.loopexit.split.loop.exit.i
+  br i1 %72, label %31, label %os_pages_trim.exit.loopexit.split.loop.exit.i, !llvm.loop !13
 
 os_pages_trim.exit.loopexit.split.loop.exit.i:    ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %40, i64 %44
@@ -412,7 +412,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 define zeroext i1 @duckdb_je_pages_purge_forced(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @madvise_dont_need_zeros_is_faulty, align 4, !tbaa !3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %7, !prof !13
+  br i1 %.not, label %4, label %7, !prof !15
 
 4:                                                ; preds = %2
   %5 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef 4) #10
@@ -561,7 +561,7 @@ madvise_MADV_DONTNEED_zeroes_pages.exit:          ; preds = %27, %29
 
 43:                                               ; preds = %.preheader.i
   %44 = icmp slt i64 %40, 1
-  br i1 %44, label %.preheader.i, label %45
+  br i1 %44, label %.preheader.i, label %45, !llvm.loop !16
 
 45:                                               ; preds = %43, %.preheader.i
   %.116.le.i.i = call i64 @llvm.smax.i64(i64 %40, i64 0)
@@ -734,4 +734,7 @@ attributes #13 = { nounwind willreturn memory(read) }
 !10 = !{}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !5, i64 0}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!16 = distinct !{!16, !14}

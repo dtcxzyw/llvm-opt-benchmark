@@ -2368,9 +2368,9 @@ define linkonce_odr dso_local void @_ZNSt6locale5_Impl19_M_remove_referenceEv(pt
   br i1 %.not1, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8, !tbaa !67
+  %4 = load i32, ptr %0, align 8, !tbaa !68
   %5 = add nsw i32 %4, -1
-  store i32 %5, ptr %0, align 8, !tbaa !67
+  store i32 %5, ptr %0, align 8, !tbaa !68
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit
 
 6:                                                ; preds = %1
@@ -2522,6 +2522,7 @@ attributes #23 = { noreturn nounwind }
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_KcJEES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESJ_: argument 0"}
 !64 = distinct !{!64, !"_ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_KcJEES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESJ_"}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!27, !27, i64 0}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!27, !27, i64 0}

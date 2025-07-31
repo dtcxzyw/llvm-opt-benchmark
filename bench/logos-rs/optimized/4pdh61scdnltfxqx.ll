@@ -201,7 +201,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   br label %67
 
 73:                                               ; preds = %40
-  br i1 %41, label %74, label %36
+  br i1 %41, label %74, label %36, !llvm.loop !3
 
 74:                                               ; preds = %73
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %12)
@@ -453,7 +453,7 @@ define hidden void @_ZN13logos_codegen5graph4rope7Pattern8to_bytes17he146391181b
 40:                                               ; preds = %37
   %41 = extractvalue { i1, i8 } %35, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdfe0f69c98acfe02E"(ptr nonnull align 8 %5, i8 %41)
-          to label %29 unwind label %15
+          to label %29 unwind label %15, !llvm.loop !5
 
 42:                                               ; preds = %15
   %43 = landingpad { ptr, i32 }
@@ -627,3 +627,6 @@ attributes #10 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}

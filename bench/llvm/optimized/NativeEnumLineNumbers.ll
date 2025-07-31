@@ -240,5 +240,6 @@ attributes #11 = { builtin nounwind }
 !23 = !{!24, !25, i64 0}
 !24 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm3pdb14IPDBLineNumberELb0EE", !25, i64 0}
 !25 = !{!"p1 _ZTSN4llvm3pdb14IPDBLineNumberE", !9, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
+!28 = !{!"llvm.loop.estimated_trip_count"}

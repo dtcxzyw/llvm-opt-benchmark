@@ -475,12 +475,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 54:                                               ; preds = %53, %49
   %55 = add nuw nsw i64 %.02933.us, 1
   %exitcond.not = icmp eq i64 %55, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %54
   %56 = add nuw nsw i64 %.02834.us, 1
   %exitcond37.not = icmp eq i64 %56, %1
-  br i1 %exitcond37.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !26
+  br i1 %exitcond37.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !27
 
 ._crit_edge35:                                    ; preds = %._crit_edge.us, %33
   ret void
@@ -657,19 +657,19 @@ define void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull writ
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss11IndexBinaryE, i64 16), ptr %0, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = trunc i64 %1 to i32
-  store i32 %6, ptr %5, align 8, !tbaa !28
+  store i32 %6, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = sdiv i64 %1, 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %7, align 4, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %10, align 8, !tbaa !29
+  store i64 0, ptr %10, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %11, align 8, !tbaa !30
+  store i8 0, ptr %11, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 1, ptr %12, align 1, !tbaa !31
+  store i8 1, ptr %12, align 1, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %2, ptr %13, align 4, !tbaa !32
+  store i32 %2, ptr %13, align 4, !tbaa !33
   %14 = and i64 %1, 7
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %38, label %16
@@ -825,14 +825,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %8 = shl nuw nsw i64 %6, 2
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #23
   %10 = getelementptr inbounds nuw i32, ptr %9, i64 %6
-  store i32 0, ptr %9, align 4, !tbaa !33
+  store i32 0, ptr %9, align 4, !tbaa !34
   %11 = icmp eq i64 %6, 1
   br i1 %11, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   %12 = getelementptr i8, ptr %9, i64 4
   %13 = add nsw i64 %8, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %13, i1 false), !tbaa !33
+  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %13, i1 false), !tbaa !34
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -890,13 +890,13 @@ define void @_ZNK5faiss11IndexBinary7displayEv(ptr noundef nonnull readonly alig
   %3 = getelementptr inbounds i8, ptr %2, i64 -8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !34
+  %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = load i8, ptr %6, align 1, !tbaa !14
   %8 = icmp eq i8 %7, 42
   %.idx.i = zext i1 %8 to i64
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !29
+  %11 = load i64, ptr %10, align 8, !tbaa !30
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %9, i64 noundef %11)
   ret void
 }
@@ -957,16 +957,17 @@ attributes #23 = { builtin allocsize(0) }
 !20 = !{!"_ZTSN5faiss10MetricTypeE", !8, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"vtable pointer", !9, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = !{!17, !18, i64 8}
-!29 = !{!17, !11, i64 16}
-!30 = !{!17, !19, i64 24}
-!31 = !{!17, !19, i64 25}
-!32 = !{!17, !20, i64 28}
-!33 = !{!18, !18, i64 0}
-!34 = !{!35, !6, i64 8}
-!35 = !{!"_ZTSSt9type_info", !6, i64 8}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = distinct !{!27, !24, !25, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = !{!17, !18, i64 8}
+!30 = !{!17, !11, i64 16}
+!31 = !{!17, !19, i64 24}
+!32 = !{!17, !19, i64 25}
+!33 = !{!17, !20, i64 28}
+!34 = !{!18, !18, i64 0}
+!35 = !{!36, !6, i64 8}
+!36 = !{!"_ZTSSt9type_info", !6, i64 8}

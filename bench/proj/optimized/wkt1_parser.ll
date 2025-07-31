@@ -217,7 +217,7 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
 .preheader125:                                    ; preds = %13, %29
   %.087132 = phi i64 [ %30, %29 ], [ 0, %13 ]
   %16 = getelementptr inbounds nuw [26 x %struct.osr_cs_wkt_tokens], ptr @_ZL6tokens, i64 0, i64 %.087132
-  %17 = load ptr, ptr %16, align 16, !tbaa !21
+  %17 = load ptr, ptr %16, align 16, !tbaa !22
   %18 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %.0, ptr noundef %17) #10
   br i1 %18, label %19, label %29
 
@@ -234,13 +234,13 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
   %26 = getelementptr inbounds nuw i8, ptr %.0, i64 %20
   store ptr %26, ptr %3, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !24
+  %28 = load i32, ptr %27, align 8, !tbaa !25
   br label %71
 
 29:                                               ; preds = %.preheader125, %19
   %30 = add nuw nsw i64 %.087132, 1
   %exitcond.not = icmp eq i64 %30, 26
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader125, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader125, !llvm.loop !26
 
 .loopexit.loopexit:                               ; preds = %29
   %.pre = load i8, ptr %.0, align 1, !tbaa !12
@@ -304,7 +304,7 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
   %47 = add i8 %46, -48
   %or.cond110 = icmp ult i8 %47, 10
   %48 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br i1 %or.cond110, label %45, label %.critedge4, !llvm.loop !26
+  br i1 %or.cond110, label %45, label %.critedge4, !llvm.loop !27
 
 .critedge4:                                       ; preds = %45
   %49 = icmp eq i8 %46, 46
@@ -316,7 +316,7 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
   %50 = load i8, ptr %.5, align 1, !tbaa !12
   %51 = add i8 %50, -48
   %or.cond111 = icmp ult i8 %51, 10
-  br i1 %or.cond111, label %.preheader, label %.critedge6, !llvm.loop !27
+  br i1 %or.cond111, label %.preheader, label %.critedge6, !llvm.loop !28
 
 .critedge6:                                       ; preds = %.preheader, %.critedge4
   %52 = phi i8 [ %46, %.critedge4 ], [ %50, %.preheader ]
@@ -348,7 +348,7 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
   %60 = add i8 %59, -48
   %or.cond112 = icmp ult i8 %60, 10
   %61 = getelementptr inbounds nuw i8, ptr %.8, i64 1
-  br i1 %or.cond112, label %58, label %.critedge8, !llvm.loop !28
+  br i1 %or.cond112, label %58, label %.critedge8, !llvm.loop !29
 
 .critedge8:                                       ; preds = %58, %.critedge6
   %.6 = phi ptr [ %.4, %.critedge6 ], [ %.8, %58 ]
@@ -368,7 +368,7 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
   %66 = and i8 %65, -33
   %67 = add i8 %66, -65
   %or.cond123 = icmp ult i8 %67, 26
-  br i1 %or.cond123, label %.critedge10, label %.critedge12, !llvm.loop !29
+  br i1 %or.cond123, label %.critedge10, label %.critedge12, !llvm.loop !30
 
 .critedge12:                                      ; preds = %.critedge10
   store ptr %.9, ptr %3, align 8, !tbaa !17
@@ -441,14 +441,15 @@ attributes #12 = { nounwind willreturn memory(read) }
 !16 = !{!15, !5, i64 8}
 !17 = !{!15, !5, i64 16}
 !18 = !{!11, !11, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!22, !5, i64 0}
-!22 = !{!"_ZTS17osr_cs_wkt_tokens", !5, i64 0, !23, i64 8}
-!23 = !{!"int", !7, i64 0}
-!24 = !{!22, !23, i64 8}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = distinct !{!29, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!23, !5, i64 0}
+!23 = !{!"_ZTS17osr_cs_wkt_tokens", !5, i64 0, !24, i64 8}
+!24 = !{!"int", !7, i64 0}
+!25 = !{!23, !24, i64 8}
+!26 = distinct !{!26, !20, !21}
+!27 = distinct !{!27, !20, !21}
+!28 = distinct !{!28, !20, !21}
+!29 = distinct !{!29, !20, !21}
+!30 = distinct !{!30, !20, !21}

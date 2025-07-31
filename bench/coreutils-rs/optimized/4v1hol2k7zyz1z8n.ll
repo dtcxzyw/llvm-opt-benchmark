@@ -73,12 +73,12 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
   %20 = sub i64 %.013, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %.loopexit, label %11
+  br i1 %21, label %.loopexit, label %11, !llvm.loop !15
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6uucore8features5pipes6splice17h15cd2df93b70bc5eE.llvm.1966342284610798123(ptr noalias noundef sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, i64 noundef %3) unnamed_addr #1 {
-  %5 = load i32, ptr %1, align 4, !alias.scope !15, !noundef !4
+  %5 = load i32, ptr %1, align 4, !alias.scope !17, !noundef !4
   tail call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, i32 noundef %5, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef 1, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %3, i32 noundef 0)
   ret void
 }
@@ -86,7 +86,7 @@ define hidden void @_ZN6uucore8features5pipes6splice17h15cd2df93b70bc5eE.llvm.19
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6uucore8features5pipes8vmsplice17h0179fce1bb133243E(ptr noalias noundef sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca [1 x { { { ptr, i64 }, {} } }], align 8
-  %6 = load i32, ptr %1, align 4, !alias.scope !18, !noundef !4
+  %6 = load i32, ptr %1, align 4, !alias.scope !20, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %2, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -161,9 +161,11 @@ attributes #7 = { noreturn }
 !12 = !{!8}
 !13 = !{i32 0, i32 2}
 !14 = !{i32 0, i32 134}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.1966342284610798123: argument 0"}
-!17 = distinct !{!17, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.1966342284610798123"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.1966342284610798123: argument 0"}
-!20 = distinct !{!20, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.1966342284610798123"}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.1966342284610798123: argument 0"}
+!19 = distinct !{!19, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.1966342284610798123"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.1966342284610798123: argument 0"}
+!22 = distinct !{!22, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.1966342284610798123"}

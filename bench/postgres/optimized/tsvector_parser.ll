@@ -678,7 +678,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 325:                                              ; preds = %310
   %326 = load i8, ptr %12, align 8, !range !4, !noundef !5
   %327 = trunc nuw i8 %326 to i1
-  br i1 %327, label %328, label %13
+  br i1 %327, label %328, label %13, !llvm.loop !6
 
 328:                                              ; preds = %325
   %.not382 = icmp eq ptr %3, null
@@ -1057,7 +1057,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %503 = sext i32 %501 to i64
   %504 = getelementptr inbounds i8, ptr %502, i64 %503
   store ptr %504, ptr %0, align 8
-  br label %.outer
+  br label %.outer, !llvm.loop !6
 
 prssyntaxerror.exit:                              ; preds = %14, %435, %431, %415, %411, %317, %313, %235, %231, %176, %172, %142, %138, %39, %35, %490, %491, %400, %404, %363, %364, %342, %343, %201, %202, %164, %165, %65, %69, %495, %466, %458, %450
   %.0 = phi i1 [ false, %450 ], [ false, %458 ], [ false, %466 ], [ false, %495 ], [ false, %69 ], [ false, %65 ], [ true, %165 ], [ true, %164 ], [ true, %202 ], [ true, %201 ], [ true, %343 ], [ true, %342 ], [ true, %364 ], [ true, %363 ], [ false, %404 ], [ false, %400 ], [ true, %491 ], [ true, %490 ], [ false, %35 ], [ false, %39 ], [ false, %138 ], [ false, %142 ], [ false, %172 ], [ false, %176 ], [ false, %231 ], [ false, %235 ], [ false, %313 ], [ false, %317 ], [ false, %411 ], [ false, %415 ], [ false, %431 ], [ false, %435 ], [ false, %14 ]
@@ -1138,3 +1138,5 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

@@ -1608,7 +1608,7 @@ define dso_local range(i32 -2147483616, -2147483648) i32 @cms_main(i32 noundef %
   %460 = getelementptr inbounds nuw i8, ptr %.05521978, i64 8
   %461 = load ptr, ptr %460, align 8, !tbaa !17
   %.not860 = icmp eq ptr %461, null
-  br i1 %.not860, label %.loopexit, label %.lr.ph1979, !llvm.loop !29
+  br i1 %.not860, label %.loopexit, label %.lr.ph1979, !llvm.loop !30
 
 .lr.ph1979:                                       ; preds = %.preheader1289, %459
   %462 = phi ptr [ %461, %459 ], [ %455, %.preheader1289 ]
@@ -1909,7 +1909,7 @@ define dso_local range(i32 -2147483616, -2147483648) i32 @cms_main(i32 noundef %
   %591 = getelementptr inbounds nuw i8, ptr %.05791993, i64 16
   %592 = load ptr, ptr %591, align 8, !tbaa !26
   %.not890 = icmp eq ptr %592, null
-  br i1 %.not890, label %._crit_edge1997, label %.lr.ph1996, !llvm.loop !30
+  br i1 %.not890, label %._crit_edge1997, label %.lr.ph1996, !llvm.loop !31
 
 ._crit_edge1997:                                  ; preds = %590, %.lr.ph1996, %587
   %.0579.lcssa = phi ptr [ null, %587 ], [ %.05791993, %.lr.ph1996 ], [ null, %590 ]
@@ -1957,7 +1957,7 @@ define dso_local range(i32 -2147483616, -2147483648) i32 @cms_main(i32 noundef %
   %616 = add nuw nsw i32 %.05862003, 1
   %617 = call i32 @OPENSSL_sk_num(ptr noundef %15) #3
   %618 = icmp slt i32 %616, %617
-  br i1 %618, label %587, label %._crit_edge2005, !llvm.loop !31
+  br i1 %618, label %587, label %._crit_edge2005, !llvm.loop !32
 
 ._crit_edge2005:                                  ; preds = %.thread1005, %.preheader
   %.not884 = icmp eq ptr %.1638.lcssa2235232224392504, null
@@ -2113,7 +2113,7 @@ define dso_local range(i32 -2147483616, -2147483648) i32 @cms_main(i32 noundef %
   %693 = call ptr @OPENSSL_sk_value(ptr noundef %.10622, i32 noundef %723) #3
   %694 = call ptr @load_cert_pass(ptr noundef %692, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.302) #3
   %695 = icmp eq ptr %694, null
-  br i1 %695, label %.thread1096, label %.lr.ph2807, !llvm.loop !32
+  br i1 %695, label %.thread1096, label %.lr.ph2807, !llvm.loop !33
 
 .lr.ph2807:                                       ; preds = %.lr.ph1987, %691
   %696 = phi ptr [ %694, %691 ], [ %689, %.lr.ph1987 ]
@@ -2139,7 +2139,7 @@ define dso_local range(i32 -2147483616, -2147483648) i32 @cms_main(i32 noundef %
   %706 = getelementptr inbounds nuw i8, ptr %.05551981, i64 16
   %707 = load ptr, ptr %706, align 8, !tbaa !26
   %.not880 = icmp eq ptr %707, null
-  br i1 %.not880, label %._crit_edge1983, label %.lr.ph1982, !llvm.loop !33
+  br i1 %.not880, label %._crit_edge1983, label %.lr.ph1982, !llvm.loop !34
 
 ._crit_edge1983:                                  ; preds = %705, %.preheader1287
   %708 = load ptr, ptr %6, align 8, !tbaa !11
@@ -2176,7 +2176,7 @@ define dso_local range(i32 -2147483616, -2147483648) i32 @cms_main(i32 noundef %
   %723 = add nuw nsw i32 %.055919852805, 1
   %724 = call i32 @OPENSSL_sk_num(ptr noundef %.10611) #3
   %725 = icmp slt i32 %723, %724
-  br i1 %725, label %691, label %._crit_edge1988, !llvm.loop !32
+  br i1 %725, label %691, label %._crit_edge1988, !llvm.loop !33
 
 ._crit_edge1988:                                  ; preds = %.thread1035, %683
   %.4764.lcssa = phi ptr [ %.1761980986, %683 ], [ null, %.thread1035 ]
@@ -2580,7 +2580,7 @@ define dso_local range(i32 -2147483616, -2147483648) i32 @cms_main(i32 noundef %
   %860 = load ptr, ptr %859, align 8, !tbaa !26
   call void @CRYPTO_free(ptr noundef nonnull %.46912007, ptr noundef nonnull @.str.271, i32 noundef 1307) #3
   %.not935 = icmp eq ptr %860, null
-  br i1 %.not935, label %._crit_edge2009, label %.lr.ph2008, !llvm.loop !34
+  br i1 %.not935, label %._crit_edge2009, label %.lr.ph2008, !llvm.loop !35
 
 ._crit_edge2009:                                  ; preds = %.lr.ph2008, %.thread1191
   call void @X509_STORE_free(ptr noundef %.07661126) #3
@@ -2707,7 +2707,7 @@ define internal fastcc ptr @load_content_info(i32 noundef %0, ptr noundef %1, i3
   %7 = tail call ptr @app_get0_libctx() #3
   %8 = tail call ptr @app_get0_propq() #3
   %9 = tail call ptr @CMS_ContentInfo_new_ex(ptr noundef %7, ptr noundef %8) #3
-  store ptr %9, ptr %6, align 8, !tbaa !35
+  store ptr %9, ptr %6, align 8, !tbaa !36
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %14
 
@@ -2748,11 +2748,11 @@ define internal fastcc ptr @load_content_info(i32 noundef %0, ptr noundef %1, i3
 26:                                               ; preds = %24
   %27 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %28 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %27, ptr noundef nonnull @.str.321, ptr noundef %4) #3
-  %.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %31
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr %6, align 8, !tbaa !35
+  %30 = load ptr, ptr %6, align 8, !tbaa !36
   br label %33
 
 31:                                               ; preds = %26, %21
@@ -2790,7 +2790,7 @@ define internal fastcc range(i32 0, 2) i32 @save_certs(ptr noundef nonnull %0, p
   %9 = add nuw nsw i32 %.01013, 1
   %10 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #3
   %11 = icmp slt i32 %9, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %12 = tail call i32 @BIO_free(ptr noundef nonnull %3) #3
@@ -2861,7 +2861,7 @@ define internal fastcc range(i32 0, 2) i32 @cms_set_pkey_param(ptr noundef %0, p
   %8 = add nuw nsw i32 %.010, 1
   %9 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #3
   %10 = icmp slt i32 %8, %9
-  br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !38
+  br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.preheader, %7
   %.010 = phi i32 [ %8, %7 ], [ 0, %.preheader ]
@@ -3025,26 +3025,26 @@ define internal fastcc void @receipt_request_print(ptr noundef nonnull %0) unnam
   br label %55
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %2, align 8, !tbaa !39
+  %26 = load ptr, ptr %2, align 8, !tbaa !40
   call void @CMS_ReceiptRequest_get0_values(ptr noundef %26, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4) #3
   %27 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %28 = call i32 @BIO_puts(ptr noundef %27, ptr noundef nonnull @.str.326) #3
-  %29 = load ptr, ptr %6, align 8, !tbaa !41
+  %29 = load ptr, ptr %6, align 8, !tbaa !42
   %30 = call i32 @ASN1_STRING_length(ptr noundef %29) #3
-  %31 = load ptr, ptr %6, align 8, !tbaa !41
+  %31 = load ptr, ptr %6, align 8, !tbaa !42
   %32 = call ptr @ASN1_STRING_get0_data(ptr noundef %31) #3
   %33 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %34 = call i32 @BIO_dump_indent(ptr noundef %33, ptr noundef %32, i32 noundef %30, i32 noundef 4) #3
   %35 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %36 = call i32 @BIO_puts(ptr noundef %35, ptr noundef nonnull @.str.327) #3
-  %37 = load ptr, ptr %5, align 8, !tbaa !43
+  %37 = load ptr, ptr %5, align 8, !tbaa !44
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %42, label %38
 
 38:                                               ; preds = %25
   %39 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %40 = call i32 @BIO_puts(ptr noundef %39, ptr noundef nonnull @.str.328) #3
-  %41 = load ptr, ptr %5, align 8, !tbaa !43
+  %41 = load ptr, ptr %5, align 8, !tbaa !44
   call fastcc void @gnames_stack_print(ptr noundef %41)
   br label %51
 
@@ -3071,16 +3071,16 @@ define internal fastcc void @receipt_request_print(ptr noundef nonnull %0) unnam
 51:                                               ; preds = %45, %49, %47, %38
   %52 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %53 = call i32 @BIO_puts(ptr noundef %52, ptr noundef nonnull @.str.332) #3
-  %54 = load ptr, ptr %4, align 8, !tbaa !43
+  %54 = load ptr, ptr %4, align 8, !tbaa !44
   call fastcc void @gnames_stack_print(ptr noundef %54)
   br label %55
 
 55:                                               ; preds = %21, %51, %16
-  %56 = load ptr, ptr %2, align 8, !tbaa !39
+  %56 = load ptr, ptr %2, align 8, !tbaa !40
   call void @CMS_ReceiptRequest_free(ptr noundef %56) #3
   %57 = call i32 @OPENSSL_sk_num(ptr noundef %7) #3
   %58 = icmp slt i32 %13, %57
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %55, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
@@ -3180,13 +3180,13 @@ define internal fastcc void @gnames_stack_print(ptr noundef %0) unnamed_addr #0 
   %14 = add nuw nsw i32 %.011, 1
   %15 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #3
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph14
   %17 = add nuw nsw i32 %.01012, 1
   %18 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #3
   %19 = icmp slt i32 %17, %18
-  br i1 %19, label %.lr.ph14, label %._crit_edge15, !llvm.loop !47
+  br i1 %19, label %.lr.ph14, label %._crit_edge15, !llvm.loop !48
 
 ._crit_edge15:                                    ; preds = %._crit_edge, %1
   ret void
@@ -3209,7 +3209,7 @@ define internal fastcc ptr @make_names_stack(ptr noundef nonnull %0) unnamed_add
   %7 = add nuw nsw i32 %.02238, 1
   %8 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #3
   %9 = icmp slt i32 %7, %8
-  br i1 %9, label %.lr.ph, label %.loopexit, !llvm.loop !48
+  br i1 %9, label %.lr.ph, label %.loopexit, !llvm.loop !49
 
 .lr.ph:                                           ; preds = %.preheader, %6
   %.02238 = phi i32 [ %7, %6 ], [ 0, %.preheader ]
@@ -3294,25 +3294,26 @@ attributes #3 = { nounwind }
 !24 = !{!"p1 _ZTS16cms_key_param_st", !6, i64 0}
 !25 = !{!22, !23, i64 8}
 !26 = !{!22, !24, i64 16}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28}
-!30 = distinct !{!30, !28}
-!31 = distinct !{!31, !28}
-!32 = distinct !{!32, !28}
-!33 = distinct !{!33, !28}
-!34 = distinct !{!34, !28}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS18CMS_ContentInfo_st", !6, i64 0}
-!37 = distinct !{!37, !28}
-!38 = distinct !{!38, !28}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 _ZTS21CMS_ReceiptRequest_st", !6, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !6, i64 0}
-!45 = distinct !{!45, !28}
-!46 = distinct !{!46, !28}
-!47 = distinct !{!47, !28}
-!48 = distinct !{!48, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !28, !29}
+!31 = distinct !{!31, !28, !29}
+!32 = distinct !{!32, !28, !29}
+!33 = distinct !{!33, !28, !29}
+!34 = distinct !{!34, !28, !29}
+!35 = distinct !{!35, !28, !29}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS18CMS_ContentInfo_st", !6, i64 0}
+!38 = distinct !{!38, !28, !29}
+!39 = distinct !{!39, !28, !29}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS21CMS_ReceiptRequest_st", !6, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !6, i64 0}
+!46 = distinct !{!46, !28, !29}
+!47 = distinct !{!47, !28, !29}
+!48 = distinct !{!48, !28, !29}
+!49 = distinct !{!49, !28, !29}

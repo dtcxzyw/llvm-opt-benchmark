@@ -133,7 +133,7 @@ define internal void @pbl_printf(ptr noundef %0, ...) #4 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = load ptr, ptr @stdout, align 8, !noalias !8
+  %3 = load ptr, ptr @stdout, align 8, !noalias !9
   %4 = call i32 @__vfprintf_chk(ptr noundef %3, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #14
   call void @llvm.va_end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
@@ -337,7 +337,7 @@ define hidden noundef zeroext i1 @pbl_add_proto_file_to_be_parsed(ptr noundef %0
   %13 = getelementptr inbounds nuw i8, ptr %.04659, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not50 = icmp eq ptr %14, null
-  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %12, %.thread
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -435,7 +435,7 @@ define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr noundef reado
 18:                                               ; preds = %.sink.split, %11
   %.1 = phi i32 [ %.038, %11 ], [ %15, %.sink.split ]
   %19 = add i32 %.037, 1
-  br label %5, !llvm.loop !12
+  br label %5, !llvm.loop !13
 
 20:                                               ; preds = %5
   %21 = sext i32 %.038 to i64
@@ -512,7 +512,7 @@ define hidden ptr @pbl_get_node_full_name(ptr noundef captures(address_is_null) 
   %9 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %check_node_depth.exit, label %.preheader, !llvm.loop !13
+  br i1 %.not.i, label %check_node_depth.exit, label %.preheader, !llvm.loop !14
 
 check_node_depth.exit:                            ; preds = %.preheader
   %11 = icmp slt i32 %8, 101
@@ -653,7 +653,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly c
   %38 = icmp ne ptr %37, null
   %39 = icmp ne ptr %35, null
   %or.cond5 = select i1 %38, i1 %39, i1 false
-  br i1 %or.cond5, label %.lr.ph, label %.critedge, !llvm.loop !14
+  br i1 %or.cond5, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %33
   %40 = icmp eq ptr %37, null
@@ -670,7 +670,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly c
   %.3 = phi ptr [ %.2, %28 ], [ %.04871, %.lr.ph73 ], [ %.2, %.critedge.thread84 ], [ %.2, %.critedge ], [ %.2, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %44 = icmp sgt i64 %indvars.iv, 0
-  br i1 %44, label %.lr.ph73, label %._crit_edge, !llvm.loop !15
+  br i1 %44, label %.lr.ph73, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.critedge.thread, %.critedge.thread84
   %.150 = phi ptr [ null, %.critedge.thread ], [ %.251.lcssa87, %.critedge.thread84 ]
@@ -786,7 +786,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef capture
   %34 = getelementptr i8, ptr %23, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 46
-  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %32
   %37 = getelementptr i8, ptr %23, i64 %33
@@ -795,7 +795,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef capture
   %39 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef nonnull %20, ptr noundef %38, i32 noundef %2)
   tail call void @g_free(ptr noundef %38)
   %.not45 = icmp eq ptr %39, null
-  br i1 %.not45, label %.preheader.preheader, label %.lr.ph._crit_edge, !llvm.loop !17
+  br i1 %.not45, label %.preheader.preheader, label %.lr.ph._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.preheader, %21
   tail call void @g_free(ptr noundef %23)
@@ -985,7 +985,7 @@ define hidden i32 @pbl_field_descriptor_type(ptr noundef captures(none) %0) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @pbl_field_descriptor_is_repeated(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i8, ptr %2, align 8, !range !18, !noundef !19
+  %3 = load i8, ptr %2, align 8, !range !19, !noundef !20
   %4 = zext nneg i8 %3 to i32
   ret i32 %4
 }
@@ -997,7 +997,7 @@ define hidden range(i32 0, 2) i32 @pbl_field_descriptor_is_packed(ptr noundef ca
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load i8, ptr %6, align 8, !range !18, !noundef !19
+  %7 = load i8, ptr %6, align 8, !range !19, !noundef !20
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %45, label %9
 
@@ -1138,7 +1138,7 @@ define hidden noundef ptr @pbl_field_descriptor_enum_type(ptr noundef readonly c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @pbl_field_descriptor_is_required(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %3 = load i8, ptr %2, align 1, !range !18, !noundef !19
+  %3 = load i8, ptr %2, align 1, !range !19, !noundef !20
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1146,7 +1146,7 @@ define hidden zeroext i1 @pbl_field_descriptor_is_required(ptr noundef readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @pbl_field_descriptor_has_default_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 90
-  %3 = load i8, ptr %2, align 2, !range !18, !noundef !19
+  %3 = load i8, ptr %2, align 2, !range !19, !noundef !20
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1196,7 +1196,7 @@ define hidden double @pbl_field_descriptor_default_value_double(ptr noundef read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @pbl_field_descriptor_default_value_bool(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load i8, ptr %2, align 8, !range !18, !noundef !19
+  %3 = load i8, ptr %2, align 8, !range !19, !noundef !20
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1443,7 +1443,7 @@ define hidden void @pbl_foreach_message(ptr noundef readonly captures(none) %0, 
   call fastcc void @pbl_traverse_sub_tree(ptr noundef %10, ptr noundef %1, ptr noundef %2)
   %11 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
@@ -1485,7 +1485,7 @@ define internal fastcc void @pbl_traverse_sub_tree(ptr noundef %0, ptr noundef r
   %13 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %check_node_depth.exit, label %.preheader, !llvm.loop !13
+  br i1 %.not.i, label %check_node_depth.exit, label %.preheader, !llvm.loop !14
 
 check_node_depth.exit:                            ; preds = %.preheader
   %15 = icmp slt i32 %12, 101
@@ -1503,7 +1503,7 @@ check_node_depth.exit:                            ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not14 = icmp eq ptr %20, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %9, %check_node_depth.exit, %3
   ret void
@@ -1765,7 +1765,7 @@ pbl_get_option_by_name.exit:                      ; preds = %31
   %.0.be.i = getelementptr i8, ptr %.034.i, i64 1
   %87 = load ptr, ptr %8, align 8
   %88 = icmp ult ptr %87, %76
-  br i1 %88, label %.lr.ph.i, label %.critedge.i, !llvm.loop !22
+  br i1 %88, label %.lr.ph.i, label %.critedge.i, !llvm.loop !23
 
 89:                                               ; preds = %80
   %90 = and i8 %82, -8
@@ -1933,7 +1933,7 @@ define hidden noundef ptr @pbl_add_child(ptr noundef %0, ptr noundef %1) local_u
   %6 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %check_node_depth.exit, label %.preheader, !llvm.loop !13
+  br i1 %.not.i, label %check_node_depth.exit, label %.preheader, !llvm.loop !14
 
 check_node_depth.exit:                            ; preds = %.preheader
   %8 = icmp slt i32 %5, 101
@@ -2178,7 +2178,7 @@ define hidden noundef ptr @pbl_merge_children(ptr noundef returned %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %.03450, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not43 = icmp eq ptr %13, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %14 = load ptr, ptr %6, align 8
@@ -2316,21 +2316,22 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"vprintf.inline: argument 0"}
-!10 = distinct !{!10, !"vprintf.inline"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"vprintf.inline: argument 0"}
+!11 = distinct !{!11, !"vprintf.inline"}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}

@@ -281,7 +281,7 @@ define void @ff_vp9_loopfilter_sb(ptr noundef readonly captures(none) %0, ptr no
   %212 = getelementptr inbounds i8, ptr %.0161.i103, i64 %38
   %213 = getelementptr inbounds nuw i8, ptr %.0.i104, i64 16
   %214 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %214, label %39, label %filter_plane_cols.exit, !llvm.loop !60
+  br i1 %214, label %39, label %filter_plane_cols.exit, !llvm.loop !61
 
 filter_plane_cols.exit:                           ; preds = %._crit_edge
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -535,17 +535,17 @@ filter_plane_rows.exit.preheader:                 ; preds = %._crit_edge111
   %391 = getelementptr inbounds nuw i8, ptr %.0163.i59106, i64 2
   %392 = add i32 %389, -1
   %.not.not.i62 = icmp ult i32 %392, %244
-  br i1 %.not.not.i62, label %250, label %._crit_edge111, !llvm.loop !61
+  br i1 %.not.not.i62, label %250, label %._crit_edge111, !llvm.loop !62
 
 ._crit_edge111:                                   ; preds = %388, %235
   %393 = getelementptr inbounds nuw i8, ptr %.0.i58114, i64 8
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %394 = getelementptr inbounds i8, ptr %.0159.i113, i64 %33
   %exitcond.not = icmp eq i64 %indvars.iv.next140, 8
-  br i1 %exitcond.not, label %filter_plane_rows.exit.preheader, label %235, !llvm.loop !62
+  br i1 %exitcond.not, label %filter_plane_rows.exit.preheader, label %235, !llvm.loop !63
 
 filter_plane_rows.exit.loopexit:                  ; preds = %._crit_edge133
-  br i1 %396, label %395, label %776, !llvm.loop !63
+  br i1 %396, label %395, label %776, !llvm.loop !64
 
 395:                                              ; preds = %filter_plane_rows.exit.preheader, %filter_plane_rows.exit.loopexit
   %396 = phi i1 [ true, %filter_plane_rows.exit.preheader ], [ false, %filter_plane_rows.exit.loopexit ]
@@ -829,7 +829,7 @@ filter_plane_rows.exit.loopexit:                  ; preds = %._crit_edge133
   %597 = getelementptr inbounds i8, ptr %.0161.i42125, i64 %232
   %598 = getelementptr inbounds i8, ptr %.0.i43126, i64 %416
   %599 = icmp slt i64 %indvars.iv.next143, 8
-  br i1 %599, label %418, label %filter_plane_cols.exit57, !llvm.loop !60
+  br i1 %599, label %418, label %filter_plane_cols.exit57, !llvm.loop !61
 
 filter_plane_cols.exit57:                         ; preds = %._crit_edge123
   %600 = load i8, ptr %19, align 4, !tbaa !35
@@ -1079,7 +1079,7 @@ filter_plane_cols.exit57:                         ; preds = %._crit_edge123
   %772 = getelementptr inbounds i8, ptr %.0163.i75128, i64 %612
   %773 = add i32 %770, -1
   %.not.not.i78 = icmp ult i32 %773, %624
-  br i1 %.not.not.i78, label %630, label %._crit_edge133, !llvm.loop !61
+  br i1 %.not.not.i78, label %630, label %._crit_edge133, !llvm.loop !62
 
 ._crit_edge133:                                   ; preds = %769, %615
   %774 = shl i64 %indvars.iv145, 4
@@ -1089,7 +1089,7 @@ filter_plane_cols.exit57:                         ; preds = %._crit_edge123
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %775 = getelementptr inbounds i8, ptr %.0159.i73135, i64 %614
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 8
-  br i1 %exitcond148.not, label %filter_plane_rows.exit.loopexit, label %615, !llvm.loop !62
+  br i1 %exitcond148.not, label %filter_plane_rows.exit.loopexit, label %615, !llvm.loop !63
 
 776:                                              ; preds = %filter_plane_rows.exit.loopexit
   ret void
@@ -1158,9 +1158,10 @@ attributes #1 = { nounwind }
 !55 = !{!36, !8, i64 3224}
 !56 = !{!8, !8, i64 0}
 !57 = !{!7, !7, i64 0}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = distinct !{!60, !59}
-!61 = distinct !{!61, !59}
-!62 = distinct !{!62, !59}
-!63 = distinct !{!63, !59}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = distinct !{!61, !59, !60}
+!62 = distinct !{!62, !59, !60}
+!63 = distinct !{!63, !59, !60}
+!64 = distinct !{!64, !59, !60}

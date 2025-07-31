@@ -622,7 +622,7 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   %.1242 = phi i32 [ %.0241328, %318 ], [ %351, %344 ]
   %353 = or i32 %.1242, %.1244
   %.not288 = icmp eq i32 %353, 0
-  br i1 %.not288, label %._crit_edge, label %297, !llvm.loop !8
+  br i1 %.not288, label %._crit_edge, label %297, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %352, %250
   %.0260.lcssa = phi i32 [ %3, %250 ], [ %.1261, %352 ]
@@ -955,6 +955,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

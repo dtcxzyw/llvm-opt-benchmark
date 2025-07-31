@@ -206,7 +206,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %110 = icmp ne i32 %.2788, %.5777
   %111 = fcmp ugt double %.1, %.1739
   %or.cond = and i1 %110, %111
-  br i1 %or.cond, label %.preheader922, label %112
+  br i1 %or.cond, label %.preheader922, label %112, !llvm.loop !9
 
 112:                                              ; preds = %109
   %.not825 = icmp eq i32 %.2788, %.0794949
@@ -415,7 +415,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store double %225, ptr %gep1032, align 8, !tbaa !7
   %indvars.iv.next986 = add nuw nsw i64 %indvars.iv985, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next986, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph934, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph934, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph934, %221
   store i32 %222, ptr %8, align 4, !tbaa !3
@@ -489,7 +489,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store double %266, ptr %gep1022, align 8, !tbaa !7
   %indvars.iv.next982 = add nsw i64 %indvars.iv981, -1
   %267 = icmp samesign ugt i64 %indvars.iv981, 1
-  br i1 %267, label %257, label %268, !llvm.loop !11
+  br i1 %267, label %257, label %268, !llvm.loop !13
 
 268:                                              ; preds = %257
   %269 = fdiv double %255, %233
@@ -498,7 +498,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store double %270, ptr %gep1028, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %271 = icmp sgt i64 %indvars.iv, 1
-  br i1 %271, label %.lr.ph, label %.loopexit921, !llvm.loop !12
+  br i1 %271, label %.lr.ph, label %.loopexit921, !llvm.loop !14
 
 .sink.split:                                      ; preds = %216, %._crit_edge, %64
   %.1773.ph.ph = phi i32 [ %.0772953, %64 ], [ %.2774854, %._crit_edge ], [ %.2774854, %216 ]
@@ -542,7 +542,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.1773870 = phi i32 [ %.2774854, %.loopexit921 ], [ %.1773.ph, %274 ]
   %288 = add nsw i32 %.0764.neg872, %.0794949
   %289 = icmp slt i32 %288, 1
-  br i1 %289, label %.loopexit920, label %36
+  br i1 %289, label %.loopexit920, label %36, !llvm.loop !15
 
 290:                                              ; preds = %29
   %291 = load i32, ptr %1, align 4, !tbaa !3
@@ -698,7 +698,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %384 = icmp ne i32 %.6792, %.11783
   %385 = fcmp ugt double %.3, %.4
   %or.cond831 = and i1 %384, %385
-  br i1 %or.cond831, label %338, label %386
+  br i1 %or.cond831, label %338, label %386, !llvm.loop !16
 
 386:                                              ; preds = %383
   %.not816 = icmp eq i32 %.6792, %.1795967
@@ -916,7 +916,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %indvars.iv.next996 = add nuw nsw i64 %indvars.iv995, 1
   %lftr.wideiv998 = trunc i64 %indvars.iv.next996 to i32
   %exitcond999.not = icmp eq i32 %511, %lftr.wideiv998
-  br i1 %exitcond999.not, label %._crit_edge966, label %.lr.ph965, !llvm.loop !13
+  br i1 %exitcond999.not, label %._crit_edge966, label %.lr.ph965, !llvm.loop !17
 
 ._crit_edge966:                                   ; preds = %.lr.ph965
   %514 = sub nsw i32 %488, %.1795967
@@ -1004,7 +1004,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store double %565, ptr %gep1034, align 8, !tbaa !7
   %indvars.iv.next991 = add nuw nsw i64 %indvars.iv990, 1
   %.not820.not = icmp slt i64 %indvars.iv990, %545
-  br i1 %.not820.not, label %556, label %566, !llvm.loop !14
+  br i1 %.not820.not, label %556, label %566, !llvm.loop !18
 
 566:                                              ; preds = %556
   %567 = fdiv double %551, %530
@@ -1014,7 +1014,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %indvars.iv.next989 = add nuw nsw i64 %indvars.iv988, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next989 to i32
   %exitcond994.not = icmp eq i32 %546, %lftr.wideiv
-  br i1 %exitcond994.not, label %.loopexit, label %.lr.ph961, !llvm.loop !15
+  br i1 %exitcond994.not, label %.loopexit, label %.lr.ph961, !llvm.loop !19
 
 .sink.split1047:                                  ; preds = %495, %._crit_edge966, %331
   %.7779.ph.ph = phi i32 [ %.6778970, %331 ], [ %.8780896, %._crit_edge966 ], [ %.8780896, %495 ]
@@ -1059,7 +1059,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %585 = add nuw nsw i32 %.4768914, %.1795967
   %586 = load i32, ptr %1, align 4, !tbaa !3
   %587 = icmp sgt i32 %585, %586
-  br i1 %587, label %.loopexit920, label %297
+  br i1 %587, label %.loopexit920, label %297, !llvm.loop !20
 
 .loopexit920:                                     ; preds = %287, %584, %31, %290, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
@@ -1116,9 +1116,14 @@ attributes #5 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !12, !10}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12, !10}
+!14 = distinct !{!14, !12, !10}
 !15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !12, !10}
+!18 = distinct !{!18, !12, !10}
+!19 = distinct !{!19, !12, !10}
+!20 = distinct !{!20, !10}

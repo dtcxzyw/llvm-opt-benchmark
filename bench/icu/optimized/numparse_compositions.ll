@@ -219,7 +219,7 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
           to label %72 unwind label %.loopexit71.loopexit.split-lp
 
 72:                                               ; preds = %70
-  %73 = load i32, ptr %7, align 8, !tbaa !13
+  %73 = load i32, ptr %7, align 8, !tbaa !14
   %.not58 = icmp ne i32 %71, %73
   %74 = icmp sgt i32 %73, %37
   %or.cond64 = and i1 %.not58, %74
@@ -355,7 +355,7 @@ define void @_ZNK6icu_778numparse4impl13SeriesMatcher11postProcessERNS1_12Parsed
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(216) %1)
   %15 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %15, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -363,13 +363,13 @@ define void @_ZN6icu_778numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnul
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl18ArraySeriesMatcherE, i64 16), ptr %0, align 8, !tbaa !6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %2, align 8, !tbaa !23
+  store ptr %3, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 3, ptr %4, align 8, !tbaa !27
+  store i32 3, ptr %4, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %5, align 4, !tbaa !28
+  store i8 0, ptr %5, align 4, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %6, align 8, !tbaa !29
+  store i32 0, ptr %6, align 8, !tbaa !31
   ret void
 }
 
@@ -377,60 +377,60 @@ define void @_ZN6icu_778numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnul
 define void @_ZN6icu_778numparse4impl18ArraySeriesMatcherC2ERNS_15MaybeStackArrayIPKNS1_18NumberParseMatcherELi3EEEi(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 21)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl18ArraySeriesMatcherE, i64 16), ptr %0, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %1, align 8, !tbaa !23
-  store ptr %5, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %1, align 8, !tbaa !25
+  store ptr %5, ptr %4, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !27
-  store i32 %8, ptr %6, align 8, !tbaa !27
+  %8 = load i32, ptr %7, align 8, !tbaa !29
+  store i32 %8, ptr %6, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %11 = load i8, ptr %10, align 4, !tbaa !28
-  store i8 %11, ptr %9, align 4, !tbaa !28
+  %11 = load i8, ptr %10, align 4, !tbaa !30
+  store i8 %11, ptr %9, align 4, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = icmp eq ptr %5, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %15, ptr %4, align 8, !tbaa !23
+  store ptr %15, ptr %4, align 8, !tbaa !25
   %16 = sext i32 %8 to i64
   %17 = shl nsw i64 %16, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 8 %12, i64 %17, i1 false)
   br label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2EOS6_.exit
 
 18:                                               ; preds = %3
-  store ptr %12, ptr %1, align 8, !tbaa !23
-  store i32 3, ptr %7, align 8, !tbaa !27
-  store i8 0, ptr %10, align 4, !tbaa !28
+  store ptr %12, ptr %1, align 8, !tbaa !25
+  store i32 3, ptr %7, align 8, !tbaa !29
+  store i8 0, ptr %10, align 4, !tbaa !30
   br label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2EOS6_.exit
 
 _ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2EOS6_.exit: ; preds = %14, %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %2, ptr %19, align 8, !tbaa !29
+  store i32 %2, ptr %19, align 8, !tbaa !31
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_778numparse4impl18ArraySeriesMatcher6lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !31
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK6icu_778numparse4impl18ArraySeriesMatcher5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK6icu_778numparse4impl18ArraySeriesMatcher3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load i32, ptr %4, align 8, !tbaa !29
+  %5 = load i32, ptr %4, align 8, !tbaa !31
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   ret ptr %7
@@ -474,13 +474,13 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr void @_ZN6icu_778numparse4impl18ArraySeriesMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl18ArraySeriesMatcherE, i64 16), ptr %0, align 8, !tbaa !6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i8, ptr %2, align 4, !tbaa !28
+  %3 = load i8, ptr %2, align 4, !tbaa !30
   %.not.i.i = icmp eq i8 %3, 0
   br i1 %.not.i.i, label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
   invoke void @uprv_free_77(ptr noundef %6)
           to label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.exit unwind label %7
 
@@ -500,13 +500,13 @@ _ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.ex
 define linkonce_odr void @_ZN6icu_778numparse4impl18ArraySeriesMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl18ArraySeriesMatcherE, i64 16), ptr %0, align 8, !tbaa !6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i8, ptr %2, align 4, !tbaa !28
+  %3 = load i8, ptr %2, align 4, !tbaa !30
   %.not.i.i.i = icmp eq i8 %3, 0
   br i1 %.not.i.i.i, label %_ZN6icu_778numparse4impl18ArraySeriesMatcherD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
   invoke void @uprv_free_77(ptr noundef %6)
           to label %_ZN6icu_778numparse4impl18ArraySeriesMatcherD2Ev.exit unwind label %7
 
@@ -596,26 +596,28 @@ attributes #16 = { builtin nounwind }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"p1 _ZTSN6icu_778numparse4impl18NumberParseMatcherE", !10, i64 0}
 !10 = !{!"any pointer", !4, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !18, i64 72}
-!14 = !{!"_ZTSN6icu_778numparse4impl12ParsedNumberE", !15, i64 0, !18, i64 72, !18, i64 76, !20, i64 80, !20, i64 144, !4, i64 208}
-!15 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !16, i64 0, !17, i64 8, !18, i64 12, !18, i64 16, !4, i64 20, !4, i64 21, !19, i64 24, !18, i64 32, !18, i64 36, !18, i64 40, !18, i64 44, !4, i64 48, !17, i64 64, !17, i64 65}
-!16 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
-!17 = !{!"bool", !4, i64 0}
-!18 = !{!"int", !4, i64 0}
-!19 = !{!"double", !4, i64 0}
-!20 = !{!"_ZTSN6icu_7713UnicodeStringE", !21, i64 0, !4, i64 8}
-!21 = !{!"_ZTSN6icu_7711ReplaceableE", !22, i64 0}
-!22 = !{!"_ZTSN6icu_777UObjectE"}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"_ZTSN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEE", !25, i64 0, !18, i64 8, !4, i64 12, !4, i64 16}
-!25 = !{!"p2 _ZTSN6icu_778numparse4impl18NumberParseMatcherE", !26, i64 0}
-!26 = !{!"any p2 pointer", !10, i64 0}
-!27 = !{!24, !18, i64 8}
-!28 = !{!24, !4, i64 12}
-!29 = !{!30, !18, i64 48}
-!30 = !{!"_ZTSN6icu_778numparse4impl18ArraySeriesMatcherE", !31, i64 0, !24, i64 8, !18, i64 48}
-!31 = !{!"_ZTSN6icu_778numparse4impl13SeriesMatcherE", !32, i64 0}
-!32 = !{!"_ZTSN6icu_778numparse4impl18CompositionMatcherE", !33, i64 0}
-!33 = !{!"_ZTSN6icu_778numparse4impl18NumberParseMatcherE"}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !19, i64 72}
+!15 = !{!"_ZTSN6icu_778numparse4impl12ParsedNumberE", !16, i64 0, !19, i64 72, !19, i64 76, !21, i64 80, !21, i64 144, !4, i64 208}
+!16 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !17, i64 0, !18, i64 8, !19, i64 12, !19, i64 16, !4, i64 20, !4, i64 21, !20, i64 24, !19, i64 32, !19, i64 36, !19, i64 40, !19, i64 44, !4, i64 48, !18, i64 64, !18, i64 65}
+!17 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
+!18 = !{!"bool", !4, i64 0}
+!19 = !{!"int", !4, i64 0}
+!20 = !{!"double", !4, i64 0}
+!21 = !{!"_ZTSN6icu_7713UnicodeStringE", !22, i64 0, !4, i64 8}
+!22 = !{!"_ZTSN6icu_7711ReplaceableE", !23, i64 0}
+!23 = !{!"_ZTSN6icu_777UObjectE"}
+!24 = distinct !{!24, !13}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTSN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEE", !27, i64 0, !19, i64 8, !4, i64 12, !4, i64 16}
+!27 = !{!"p2 _ZTSN6icu_778numparse4impl18NumberParseMatcherE", !28, i64 0}
+!28 = !{!"any p2 pointer", !10, i64 0}
+!29 = !{!26, !19, i64 8}
+!30 = !{!26, !4, i64 12}
+!31 = !{!32, !19, i64 48}
+!32 = !{!"_ZTSN6icu_778numparse4impl18ArraySeriesMatcherE", !33, i64 0, !26, i64 8, !19, i64 48}
+!33 = !{!"_ZTSN6icu_778numparse4impl13SeriesMatcherE", !34, i64 0}
+!34 = !{!"_ZTSN6icu_778numparse4impl18CompositionMatcherE", !35, i64 0}
+!35 = !{!"_ZTSN6icu_778numparse4impl18NumberParseMatcherE"}

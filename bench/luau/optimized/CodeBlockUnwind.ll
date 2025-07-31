@@ -49,7 +49,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen21createBlockUnwindInfoEPvPhmRm(pt
   %24 = getelementptr inbounds nuw i8, ptr %.016.i, i64 %23
   %.0.copyload2.i = load i32, ptr %24, align 1
   %25 = icmp eq i32 %.0.copyload2.i, 0
-  br i1 %25, label %_ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit, label %.lr.ph.i
+  br i1 %25, label %_ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit: ; preds = %21, %.preheader.i, %18
   %26 = load ptr, ptr %0, align 8, !tbaa !4
@@ -57,7 +57,7 @@ _ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit: ; preds = %21, %.preheader.i,
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %30 = add i64 %29, %10
-  store i64 %30, ptr %3, align 8, !tbaa !8
+  store i64 %30, ptr %3, align 8, !tbaa !10
   br label %31
 
 31:                                               ; preds = %4, %_ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit
@@ -103,7 +103,7 @@ define dso_local void @_ZN4Luau7CodeGen22destroyBlockUnwindInfoEPvS1_(ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %.016.i, i64 %11
   %.0.copyload2.i = load i32, ptr %12, align 1
   %13 = icmp eq i32 %.0.copyload2.i, 0
-  br i1 %13, label %_ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit, label %.lr.ph.i
+  br i1 %13, label %_ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit: ; preds = %9, %6, %.preheader.i, %2
   ret void
@@ -132,6 +132,8 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !5 = !{!"vtable pointer", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{ptr @__deregister_frame, ptr @__register_frame}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"long", !10, i64 0}
-!10 = !{!"omnipotent char", !6, i64 0}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !12, i64 0}
+!12 = !{!"omnipotent char", !6, i64 0}

@@ -457,7 +457,7 @@ define ptr @dt_map_location_get_locations_by_path(ptr noundef %0, i32 noundef %1
   %94 = load ptr, ptr %3, align 8, !tbaa !53
   %95 = call i32 @sqlite3_step(ptr noundef %94) #10
   %96 = icmp eq i32 %95, 100
-  br i1 %96, label %.lr.ph.split, label %._crit_edge
+  br i1 %96, label %.lr.ph.split, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %93, %69, %45
   %.029.lcssa = phi ptr [ null, %45 ], [ %.1.us, %69 ], [ %.1, %93 ]
@@ -520,7 +520,7 @@ define ptr @dt_map_location_get_locations_on_map(ptr noundef readonly captures(n
 16:                                               ; preds = %10, %6
   %17 = load ptr, ptr %2, align 8, !tbaa !53
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %19 = load float, ptr %18, align 4, !tbaa !62
+  %19 = load float, ptr %18, align 4, !tbaa !64
   %20 = fpext reassoc nsz arcp contract afn float %19 to double
   %21 = call i32 @sqlite3_bind_double(ptr noundef %17, i32 noundef 1, double noundef %20) #10
   %.not21 = icmp eq i32 %21, 0
@@ -537,7 +537,7 @@ define ptr @dt_map_location_get_locations_on_map(ptr noundef readonly captures(n
 28:                                               ; preds = %22, %16
   %29 = load ptr, ptr %2, align 8, !tbaa !53
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %31 = load float, ptr %30, align 4, !tbaa !65
+  %31 = load float, ptr %30, align 4, !tbaa !67
   %32 = fpext reassoc nsz arcp contract afn float %31 to double
   %33 = call i32 @sqlite3_bind_double(ptr noundef %29, i32 noundef 2, double noundef %32) #10
   %.not22 = icmp eq i32 %33, 0
@@ -553,7 +553,7 @@ define ptr @dt_map_location_get_locations_on_map(ptr noundef readonly captures(n
 
 40:                                               ; preds = %34, %28
   %41 = load ptr, ptr %2, align 8, !tbaa !53
-  %42 = load float, ptr %0, align 4, !tbaa !66
+  %42 = load float, ptr %0, align 4, !tbaa !68
   %43 = fpext reassoc nsz arcp contract afn float %42 to double
   %44 = call i32 @sqlite3_bind_double(ptr noundef %41, i32 noundef 3, double noundef %43) #10
   %.not23 = icmp eq i32 %44, 0
@@ -570,7 +570,7 @@ define ptr @dt_map_location_get_locations_on_map(ptr noundef readonly captures(n
 51:                                               ; preds = %45, %40
   %52 = load ptr, ptr %2, align 8, !tbaa !53
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load float, ptr %53, align 4, !tbaa !67
+  %54 = load float, ptr %53, align 4, !tbaa !69
   %55 = fpext reassoc nsz arcp contract afn float %54 to double
   %56 = call i32 @sqlite3_bind_double(ptr noundef %52, i32 noundef 4, double noundef %55) #10
   %.not24 = icmp eq i32 %56, 0
@@ -599,31 +599,31 @@ define ptr @dt_map_location_get_locations_on_map(ptr noundef readonly captures(n
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %2, align 8, !tbaa !53
   %70 = call i32 @sqlite3_column_int(ptr noundef %69, i32 noundef 0) #10
-  store i32 %70, ptr %67, align 8, !tbaa !68
+  store i32 %70, ptr %67, align 8, !tbaa !70
   %71 = load ptr, ptr %2, align 8, !tbaa !53
   %72 = call i32 @sqlite3_column_int(ptr noundef %71, i32 noundef 1) #10
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  store i32 %72, ptr %74, align 8, !tbaa !71
+  store i32 %72, ptr %74, align 8, !tbaa !73
   %75 = load ptr, ptr %2, align 8, !tbaa !53
   %76 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %75, i32 noundef 2) #10
-  store double %76, ptr %73, align 8, !tbaa !72
+  store double %76, ptr %73, align 8, !tbaa !74
   %77 = load ptr, ptr %2, align 8, !tbaa !53
   %78 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %77, i32 noundef 3) #10
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store double %78, ptr %79, align 8, !tbaa !73
+  store double %78, ptr %79, align 8, !tbaa !75
   %80 = load ptr, ptr %2, align 8, !tbaa !53
   %81 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %80, i32 noundef 4) #10
   %82 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store double %81, ptr %82, align 8, !tbaa !74
+  store double %81, ptr %82, align 8, !tbaa !76
   %83 = load ptr, ptr %2, align 8, !tbaa !53
   %84 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %83, i32 noundef 5) #10
   %85 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store double %84, ptr %85, align 8, !tbaa !75
+  store double %84, ptr %85, align 8, !tbaa !77
   %86 = load ptr, ptr %2, align 8, !tbaa !53
   %87 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %86, i32 noundef 6) #10
   %88 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  store double %87, ptr %88, align 8, !tbaa !76
+  store double %87, ptr %88, align 8, !tbaa !78
   %89 = call ptr @g_list_prepend(ptr noundef %.026, ptr noundef nonnull %67) #10
   br label %90
 
@@ -632,7 +632,7 @@ define ptr @dt_map_location_get_locations_on_map(ptr noundef readonly captures(n
   %91 = load ptr, ptr %2, align 8, !tbaa !53
   %92 = call i32 @sqlite3_step(ptr noundef %91) #10
   %93 = icmp eq i32 %92, 100
-  br i1 %93, label %.lr.ph, label %._crit_edge
+  br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %90, %63
   %.0.lcssa = phi ptr [ null, %63 ], [ %.1, %90 ]
@@ -650,7 +650,7 @@ declare double @sqlite3_column_double(ptr noundef, i32 noundef) local_unnamed_ad
 define void @dt_map_location_get_polygons(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i32, ptr %3, align 8, !tbaa !71
+  %4 = load i32, ptr %3, align 8, !tbaa !73
   %.not = icmp eq i32 %4, 2
   br i1 %.not, label %5, label %55
 
@@ -682,7 +682,7 @@ define void @dt_map_location_get_polygons(ptr noundef captures(none) %0) local_u
 
 19:                                               ; preds = %13, %9
   %20 = load ptr, ptr %2, align 8, !tbaa !53
-  %21 = load i32, ptr %0, align 8, !tbaa !68
+  %21 = load i32, ptr %0, align 8, !tbaa !70
   %22 = call i32 @sqlite3_bind_int(ptr noundef %20, i32 noundef 1, i32 noundef %21) #10
   %.not21 = icmp eq i32 %22, 0
   br i1 %.not21, label %29, label %23
@@ -705,16 +705,16 @@ define void @dt_map_location_get_polygons(ptr noundef captures(none) %0) local_u
   %34 = load ptr, ptr %2, align 8, !tbaa !53
   %35 = call i32 @sqlite3_column_bytes(ptr noundef %34, i32 noundef 0) #10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %35, ptr %36, align 8, !tbaa !77
+  store i32 %35, ptr %36, align 8, !tbaa !80
   %37 = sext i32 %35 to i64
   %38 = call noalias ptr @malloc(i64 noundef %37) #13
   %39 = load ptr, ptr %2, align 8, !tbaa !53
   %40 = call ptr @sqlite3_column_blob(ptr noundef %39, i32 noundef 0) #10
-  %41 = load i32, ptr %36, align 8, !tbaa !77
+  %41 = load i32, ptr %36, align 8, !tbaa !80
   %42 = sext i32 %41 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr align 1 %40, i64 %42, i1 false)
   %43 = ashr i32 %41, 3
-  store i32 %43, ptr %36, align 8, !tbaa !77
+  store i32 %43, ptr %36, align 8, !tbaa !80
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph, label %._crit_edge
 
@@ -722,7 +722,7 @@ define void @dt_map_location_get_polygons(ptr noundef captures(none) %0) local_u
   %.017.lcssa = phi ptr [ null, %33 ], [ %47, %.lr.ph ]
   %45 = call ptr @g_list_reverse(ptr noundef %.017.lcssa) #10
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %45, ptr %46, align 8, !tbaa !78
+  store ptr %45, ptr %46, align 8, !tbaa !81
   br label %52
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
@@ -732,9 +732,9 @@ define void @dt_map_location_get_polygons(ptr noundef captures(none) %0) local_u
   %47 = call ptr @g_list_prepend(ptr noundef %.01723, ptr noundef %.01822) #10
   %48 = add nuw nsw i32 %.024, 1
   %49 = getelementptr inbounds nuw i8, ptr %.01822, i64 8
-  %50 = load i32, ptr %36, align 8, !tbaa !77
+  %50 = load i32, ptr %36, align 8, !tbaa !80
   %51 = icmp slt i32 %48, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 52:                                               ; preds = %._crit_edge, %29
   %53 = load ptr, ptr %2, align 8, !tbaa !53
@@ -761,28 +761,28 @@ declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @dt_map_location_free_polygons(ptr noundef captures(none) initializes((64, 68)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i32, ptr %2, align 8, !tbaa !71
+  %3 = load i32, ptr %2, align 8, !tbaa !73
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !78
+  %7 = load ptr, ptr %6, align 8, !tbaa !81
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %7, align 8, !tbaa !79
+  %9 = load ptr, ptr %7, align 8, !tbaa !83
   tail call void @g_free(ptr noundef %9) #10
-  %10 = load ptr, ptr %6, align 8, !tbaa !78
+  %10 = load ptr, ptr %6, align 8, !tbaa !81
   tail call void @g_list_free(ptr noundef %10) #10
   br label %11
 
 11:                                               ; preds = %8, %5, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %12, align 8, !tbaa !78
+  store ptr null, ptr %12, align 8, !tbaa !81
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %13, align 8, !tbaa !77
+  store i32 0, ptr %13, align 8, !tbaa !80
   ret void
 }
 
@@ -794,7 +794,7 @@ define void @dt_map_location_free_result(ptr noundef readonly captures(address_i
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !81
+  %3 = load ptr, ptr %0, align 8, !tbaa !85
   %.not4 = icmp eq ptr %3, null
   br i1 %.not4, label %5, label %4
 
@@ -829,7 +829,7 @@ define ptr @dt_map_location_sort(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %11
   %.02231 = phi ptr [ %13, %11 ], [ %0, %1 ]
-  %3 = load ptr, ptr %.02231, align 8, !tbaa !79
+  %3 = load ptr, ptr %.02231, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   br label %6
@@ -848,20 +848,20 @@ define ptr @dt_map_location_sort(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %6, %8
   %10 = getelementptr inbounds nuw i8, ptr %.024, i64 1
-  br label %6
+  br label %6, !llvm.loop !86
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %.02231, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !82
+  %13 = load ptr, ptr %12, align 8, !tbaa !87
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge36:                                    ; preds = %22, %._crit_edge
   ret ptr %2
 
 .lr.ph35:                                         ; preds = %._crit_edge, %22
   %.02333 = phi ptr [ %24, %22 ], [ %2, %._crit_edge ]
-  %14 = load ptr, ptr %.02333, align 8, !tbaa !79
+  %14 = load ptr, ptr %.02333, align 8, !tbaa !83
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !56
   br label %17
@@ -880,13 +880,13 @@ define ptr @dt_map_location_sort(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %17
+  br label %17, !llvm.loop !89
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %.02333, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !82
+  %24 = load ptr, ptr %23, align 8, !tbaa !87
   %.not27 = icmp eq ptr %24, null
-  br i1 %.not27, label %._crit_edge36, label %.lr.ph35
+  br i1 %.not27, label %._crit_edge36, label %.lr.ph35, !llvm.loop !90
 }
 
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -973,26 +973,26 @@ define noalias noundef ptr @dt_map_location_get_data(i32 noundef %0) local_unnam
   %43 = load ptr, ptr %2, align 8, !tbaa !53
   %44 = call i32 @sqlite3_column_int(ptr noundef %43, i32 noundef 0) #10
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store i32 %44, ptr %45, align 8, !tbaa !83
+  store i32 %44, ptr %45, align 8, !tbaa !91
   %46 = load ptr, ptr %2, align 8, !tbaa !53
   %47 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %46, i32 noundef 1) #10
-  store double %47, ptr %42, align 8, !tbaa !84
+  store double %47, ptr %42, align 8, !tbaa !92
   %48 = load ptr, ptr %2, align 8, !tbaa !53
   %49 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %48, i32 noundef 2) #10
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store double %49, ptr %50, align 8, !tbaa !85
+  store double %49, ptr %50, align 8, !tbaa !93
   %51 = load ptr, ptr %2, align 8, !tbaa !53
   %52 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %51, i32 noundef 3) #10
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store double %52, ptr %53, align 8, !tbaa !86
+  store double %52, ptr %53, align 8, !tbaa !94
   %54 = load ptr, ptr %2, align 8, !tbaa !53
   %55 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %54, i32 noundef 4) #10
   %56 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store double %55, ptr %56, align 8, !tbaa !87
+  store double %55, ptr %56, align 8, !tbaa !95
   %57 = load ptr, ptr %2, align 8, !tbaa !53
   %58 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %57, i32 noundef 5) #10
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store double %58, ptr %59, align 8, !tbaa !88
+  store double %58, ptr %59, align 8, !tbaa !96
   br label %60
 
 60:                                               ; preds = %41, %37
@@ -1056,7 +1056,7 @@ define void @dt_map_location_set_data(i32 noundef %0, ptr noundef readonly captu
 28:                                               ; preds = %22, %19
   %29 = load ptr, ptr %3, align 8, !tbaa !53
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %31 = load i32, ptr %30, align 8, !tbaa !83
+  %31 = load i32, ptr %30, align 8, !tbaa !91
   %32 = call i32 @sqlite3_bind_int(ptr noundef %29, i32 noundef 2, i32 noundef %31) #10
   %.not22 = icmp eq i32 %32, 0
   br i1 %.not22, label %39, label %33
@@ -1071,7 +1071,7 @@ define void @dt_map_location_set_data(i32 noundef %0, ptr noundef readonly captu
 
 39:                                               ; preds = %33, %28
   %40 = load ptr, ptr %3, align 8, !tbaa !53
-  %41 = load double, ptr %1, align 8, !tbaa !84
+  %41 = load double, ptr %1, align 8, !tbaa !92
   %42 = call i32 @sqlite3_bind_double(ptr noundef %40, i32 noundef 3, double noundef %41) #10
   %.not23 = icmp eq i32 %42, 0
   br i1 %.not23, label %49, label %43
@@ -1087,7 +1087,7 @@ define void @dt_map_location_set_data(i32 noundef %0, ptr noundef readonly captu
 49:                                               ; preds = %43, %39
   %50 = load ptr, ptr %3, align 8, !tbaa !53
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load double, ptr %51, align 8, !tbaa !85
+  %52 = load double, ptr %51, align 8, !tbaa !93
   %53 = call i32 @sqlite3_bind_double(ptr noundef %50, i32 noundef 4, double noundef %52) #10
   %.not24 = icmp eq i32 %53, 0
   br i1 %.not24, label %60, label %54
@@ -1103,7 +1103,7 @@ define void @dt_map_location_set_data(i32 noundef %0, ptr noundef readonly captu
 60:                                               ; preds = %54, %49
   %61 = load ptr, ptr %3, align 8, !tbaa !53
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %63 = load double, ptr %62, align 8, !tbaa !86
+  %63 = load double, ptr %62, align 8, !tbaa !94
   %64 = call i32 @sqlite3_bind_double(ptr noundef %61, i32 noundef 5, double noundef %63) #10
   %.not25 = icmp eq i32 %64, 0
   br i1 %.not25, label %71, label %65
@@ -1119,7 +1119,7 @@ define void @dt_map_location_set_data(i32 noundef %0, ptr noundef readonly captu
 71:                                               ; preds = %65, %60
   %72 = load ptr, ptr %3, align 8, !tbaa !53
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load double, ptr %73, align 8, !tbaa !87
+  %74 = load double, ptr %73, align 8, !tbaa !95
   %75 = call i32 @sqlite3_bind_double(ptr noundef %72, i32 noundef 6, double noundef %74) #10
   %.not26 = icmp eq i32 %75, 0
   br i1 %.not26, label %82, label %76
@@ -1135,7 +1135,7 @@ define void @dt_map_location_set_data(i32 noundef %0, ptr noundef readonly captu
 82:                                               ; preds = %76, %71
   %83 = load ptr, ptr %3, align 8, !tbaa !53
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %85 = load double, ptr %84, align 8, !tbaa !88
+  %85 = load double, ptr %84, align 8, !tbaa !96
   %86 = call i32 @sqlite3_bind_double(ptr noundef %83, i32 noundef 7, double noundef %85) #10
   %.not27 = icmp eq i32 %86, 0
   br i1 %.not27, label %93, label %87
@@ -1149,7 +1149,7 @@ define void @dt_map_location_set_data(i32 noundef %0, ptr noundef readonly captu
   br label %93
 
 93:                                               ; preds = %87, %82
-  %94 = load i32, ptr %30, align 8, !tbaa !83
+  %94 = load i32, ptr %30, align 8, !tbaa !91
   %.not28 = icmp eq i32 %94, 2
   %95 = load ptr, ptr %3, align 8, !tbaa !53
   br i1 %.not28, label %98, label %96
@@ -1161,10 +1161,10 @@ define void @dt_map_location_set_data(i32 noundef %0, ptr noundef readonly captu
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %100 = load ptr, ptr %99, align 8, !tbaa !89
-  %101 = load ptr, ptr %100, align 8, !tbaa !79
+  %100 = load ptr, ptr %99, align 8, !tbaa !97
+  %101 = load ptr, ptr %100, align 8, !tbaa !83
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %103 = load i32, ptr %102, align 8, !tbaa !90
+  %103 = load i32, ptr %102, align 8, !tbaa !98
   %104 = shl nsw i32 %103, 3
   %105 = call i32 @sqlite3_bind_blob(ptr noundef %95, i32 noundef 8, ptr noundef %101, i32 noundef %104, ptr noundef null) #10
   %.not29 = icmp eq i32 %105, 0
@@ -1356,8 +1356,8 @@ define ptr @dt_map_location_find_locations(i32 noundef %0) local_unnamed_addr #0
   br i1 %102, label %.lr.ph.i, label %_is_point_in_polygon.exit.thread
 
 .lr.ph.i:                                         ; preds = %95
-  %103 = load float, ptr %101, align 4, !tbaa !91
-  %104 = load float, ptr %100, align 4, !tbaa !93
+  %103 = load float, ptr %101, align 4, !tbaa !99
+  %104 = load float, ptr %100, align 4, !tbaa !101
   %105 = add nsw i32 %98, -1
   br label %106
 
@@ -1373,8 +1373,8 @@ define ptr @dt_map_location_find_locations(i32 noundef %0) local_unnamed_addr #0
   %.139.i = select i1 %107, ptr %108, ptr %.0381.i
   %.035.in.i = select i1 %107, ptr %108, ptr %100
   %.034.in.i = select i1 %107, ptr %109, ptr %101
-  %.034.i = load float, ptr %.034.in.i, align 4, !tbaa !91
-  %.035.i = load float, ptr %.035.in.i, align 4, !tbaa !93
+  %.034.i = load float, ptr %.034.in.i, align 4, !tbaa !99
+  %.035.i = load float, ptr %.035.in.i, align 4, !tbaa !101
   %110 = fcmp reassoc nsz arcp contract afn ogt float %.0372.i, %68
   %111 = fcmp reassoc nsz arcp contract afn ogt float %.035.i, %68
   %or.cond.i = select i1 %110, i1 %111, i1 false
@@ -1403,7 +1403,7 @@ define ptr @dt_map_location_find_locations(i32 noundef %0) local_unnamed_addr #0
   %.1.i = phi i32 [ %.2.i, %115 ], [ %.05.i, %106 ], [ %.05.i, %112 ]
   %125 = add nuw nsw i32 %.0334.i, 1
   %exitcond.not.i = icmp eq i32 %125, %98
-  br i1 %exitcond.not.i, label %_is_point_in_polygon.exit, label %106
+  br i1 %exitcond.not.i, label %_is_point_in_polygon.exit, label %106, !llvm.loop !102
 
 _is_point_in_polygon.exit:                        ; preds = %124
   %.not22 = icmp eq i32 %.1.i, 0
@@ -1433,7 +1433,7 @@ _is_point_in_polygon.exit.thread:                 ; preds = %95, %_is_point_in_p
   %137 = load ptr, ptr %2, align 8, !tbaa !53
   %138 = call i32 @sqlite3_step(ptr noundef %137) #10
   %139 = icmp eq i32 %138, 100
-  br i1 %139, label %.lr.ph, label %._crit_edge
+  br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %136, %53
   %.0.lcssa = phi ptr [ null, %53 ], [ %.3, %136 ]
@@ -1448,7 +1448,7 @@ define ptr @_map_location_find_images(ptr noundef readonly captures(none) %0) lo
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i32, ptr %3, align 8, !tbaa !71
+  %4 = load i32, ptr %3, align 8, !tbaa !73
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !13
   %6 = and i32 %5, 256
   %.not = icmp eq i32 %6, 0
@@ -1525,7 +1525,7 @@ define ptr @_map_location_find_images(ptr noundef readonly captures(none) %0) lo
 
 43:                                               ; preds = %33, %37, %21, %25, %9, %13
   %44 = load ptr, ptr %2, align 8, !tbaa !53
-  %45 = load i32, ptr %0, align 8, !tbaa !68
+  %45 = load i32, ptr %0, align 8, !tbaa !70
   %46 = call i32 @sqlite3_bind_int(ptr noundef %44, i32 noundef 1, i32 noundef %45) #10
   %.not22 = icmp eq i32 %46, 0
   br i1 %.not22, label %53, label %47
@@ -1540,7 +1540,7 @@ define ptr @_map_location_find_images(ptr noundef readonly captures(none) %0) lo
 
 53:                                               ; preds = %47, %43
   %54 = load ptr, ptr %2, align 8, !tbaa !53
-  %55 = load i32, ptr %3, align 8, !tbaa !71
+  %55 = load i32, ptr %3, align 8, !tbaa !73
   %56 = call i32 @sqlite3_bind_int(ptr noundef %54, i32 noundef 2, i32 noundef %55) #10
   %.not23 = icmp eq i32 %56, 0
   br i1 %.not23, label %63, label %57
@@ -1568,7 +1568,7 @@ define ptr @_map_location_find_images(ptr noundef readonly captures(none) %0) lo
   %.028 = phi ptr [ null, %.lr.ph ], [ %.2, %_is_point_in_polygon.exit.thread ]
   %70 = load ptr, ptr %2, align 8, !tbaa !53
   %71 = call i32 @sqlite3_column_int(ptr noundef %70, i32 noundef 0) #10
-  %72 = load i32, ptr %3, align 8, !tbaa !71
+  %72 = load i32, ptr %3, align 8, !tbaa !73
   %73 = icmp eq i32 %72, 2
   br i1 %73, label %74, label %_is_point_in_polygon.exit.thread.sink.split
 
@@ -1579,16 +1579,16 @@ define ptr @_map_location_find_images(ptr noundef readonly captures(none) %0) lo
   %78 = load ptr, ptr %2, align 8, !tbaa !53
   %79 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %78, i32 noundef 2) #10
   %80 = fptrunc reassoc nsz arcp contract afn double %79 to float
-  %81 = load i32, ptr %67, align 8, !tbaa !77
-  %82 = load ptr, ptr %68, align 8, !tbaa !78
-  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %81 = load i32, ptr %67, align 8, !tbaa !80
+  %82 = load ptr, ptr %68, align 8, !tbaa !81
+  %83 = load ptr, ptr %82, align 8, !tbaa !83
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = icmp sgt i32 %81, 0
   br i1 %85, label %.lr.ph.i, label %_is_point_in_polygon.exit.thread
 
 .lr.ph.i:                                         ; preds = %74
-  %86 = load float, ptr %84, align 4, !tbaa !91
-  %87 = load float, ptr %83, align 4, !tbaa !93
+  %86 = load float, ptr %84, align 4, !tbaa !99
+  %87 = load float, ptr %83, align 4, !tbaa !101
   %88 = add nsw i32 %81, -1
   br label %89
 
@@ -1604,8 +1604,8 @@ define ptr @_map_location_find_images(ptr noundef readonly captures(none) %0) lo
   %.139.i = select i1 %90, ptr %91, ptr %.0381.i
   %.035.in.i = select i1 %90, ptr %91, ptr %83
   %.034.in.i = select i1 %90, ptr %92, ptr %84
-  %.034.i = load float, ptr %.034.in.i, align 4, !tbaa !91
-  %.035.i = load float, ptr %.035.in.i, align 4, !tbaa !93
+  %.034.i = load float, ptr %.034.in.i, align 4, !tbaa !99
+  %.035.i = load float, ptr %.035.in.i, align 4, !tbaa !101
   %93 = fcmp reassoc nsz arcp contract afn ogt float %.0372.i, %80
   %94 = fcmp reassoc nsz arcp contract afn ogt float %.035.i, %80
   %or.cond.i = select i1 %93, i1 %94, i1 false
@@ -1634,7 +1634,7 @@ define ptr @_map_location_find_images(ptr noundef readonly captures(none) %0) lo
   %.1.i = phi i32 [ %.2.i, %98 ], [ %.05.i, %89 ], [ %.05.i, %95 ]
   %108 = add nuw nsw i32 %.0334.i, 1
   %exitcond.not.i = icmp eq i32 %108, %81
-  br i1 %exitcond.not.i, label %_is_point_in_polygon.exit, label %89
+  br i1 %exitcond.not.i, label %_is_point_in_polygon.exit, label %89, !llvm.loop !102
 
 _is_point_in_polygon.exit:                        ; preds = %107
   %.not24 = icmp eq i32 %.1.i, 0
@@ -1651,7 +1651,7 @@ _is_point_in_polygon.exit.thread:                 ; preds = %_is_point_in_polygo
   %112 = load ptr, ptr %2, align 8, !tbaa !53
   %113 = call i32 @sqlite3_step(ptr noundef %112) #10
   %114 = icmp eq i32 %113, 100
-  br i1 %114, label %69, label %._crit_edge
+  br i1 %114, label %69, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %_is_point_in_polygon.exit.thread, %63
   %.0.lcssa = phi ptr [ null, %63 ], [ %.2, %_is_point_in_polygon.exit.thread ]
@@ -1724,7 +1724,7 @@ define void @dt_map_location_update_locations(i32 noundef %0, ptr noundef %1) lo
   %37 = load ptr, ptr %3, align 8, !tbaa !53
   %38 = call i32 @sqlite3_step(ptr noundef %37) #10
   %39 = icmp eq i32 %38, 100
-  br i1 %39, label %.lr.ph, label %._crit_edge
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %40 = load ptr, ptr %3, align 8, !tbaa !53
@@ -1739,13 +1739,13 @@ define void @dt_map_location_update_locations(i32 noundef %0, ptr noundef %1) lo
 
 .lr.ph33:                                         ; preds = %._crit_edge, %49
   %.02131 = phi ptr [ %51, %49 ], [ %36, %._crit_edge ]
-  %42 = load ptr, ptr %.02131, align 8, !tbaa !79
+  %42 = load ptr, ptr %.02131, align 8, !tbaa !83
   %43 = call ptr @g_list_find(ptr noundef %1, ptr noundef %42) #10
   %.not28 = icmp eq ptr %43, null
   br i1 %.not28, label %44, label %49
 
 44:                                               ; preds = %.lr.ph33
-  %45 = load ptr, ptr %.02131, align 8, !tbaa !79
+  %45 = load ptr, ptr %.02131, align 8, !tbaa !83
   %46 = ptrtoint ptr %45 to i64
   %47 = trunc i64 %46 to i32
   %48 = call i32 @dt_tag_detach(i32 noundef %47, i32 noundef %0, i32 noundef 0, i32 noundef 0) #10
@@ -1753,9 +1753,9 @@ define void @dt_map_location_update_locations(i32 noundef %0, ptr noundef %1) lo
 
 49:                                               ; preds = %.lr.ph33, %44
   %50 = getelementptr inbounds nuw i8, ptr %.02131, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !82
+  %51 = load ptr, ptr %50, align 8, !tbaa !87
   %.not25 = icmp eq ptr %51, null
-  br i1 %.not25, label %.preheader, label %.lr.ph33
+  br i1 %.not25, label %.preheader, label %.lr.ph33, !llvm.loop !106
 
 ._crit_edge37:                                    ; preds = %59, %.preheader
   call void @g_list_free(ptr noundef %.022.lcssa40) #10
@@ -1764,13 +1764,13 @@ define void @dt_map_location_update_locations(i32 noundef %0, ptr noundef %1) lo
 
 .lr.ph36:                                         ; preds = %.preheader, %59
   %.035 = phi ptr [ %61, %59 ], [ %1, %.preheader ]
-  %52 = load ptr, ptr %.035, align 8, !tbaa !79
+  %52 = load ptr, ptr %.035, align 8, !tbaa !83
   %53 = call ptr @g_list_find(ptr noundef %.022.lcssa40, ptr noundef %52) #10
   %.not27 = icmp eq ptr %53, null
   br i1 %.not27, label %54, label %59
 
 54:                                               ; preds = %.lr.ph36
-  %55 = load ptr, ptr %.035, align 8, !tbaa !79
+  %55 = load ptr, ptr %.035, align 8, !tbaa !83
   %56 = ptrtoint ptr %55 to i64
   %57 = trunc i64 %56 to i32
   %58 = call i32 @dt_tag_attach(i32 noundef %57, i32 noundef %0, i32 noundef 0, i32 noundef 0) #10
@@ -1778,9 +1778,9 @@ define void @dt_map_location_update_locations(i32 noundef %0, ptr noundef %1) lo
 
 59:                                               ; preds = %.lr.ph36, %54
   %60 = getelementptr inbounds nuw i8, ptr %.035, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !82
+  %61 = load ptr, ptr %60, align 8, !tbaa !87
   %.not26 = icmp eq ptr %61, null
-  br i1 %.not26, label %._crit_edge37, label %.lr.ph36
+  br i1 %.not26, label %._crit_edge37, label %.lr.ph36, !llvm.loop !107
 }
 
 declare ptr @g_list_find(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1791,7 +1791,7 @@ declare i32 @dt_tag_attach(i32 noundef, i32 noundef, i32 noundef, i32 noundef) l
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_map_location_update_images(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !68
+  %2 = load i32, ptr %0, align 8, !tbaa !70
   %3 = tail call ptr @dt_tag_get_images(i32 noundef %2) #10
   %4 = tail call ptr @_map_location_find_images(ptr noundef nonnull %0)
   %.not25 = icmp eq ptr %3, null
@@ -1805,14 +1805,14 @@ define range(i32 0, 2) i32 @dt_map_location_update_images(ptr noundef readonly c
 .lr.ph:                                           ; preds = %1, %13
   %.02027 = phi ptr [ %15, %13 ], [ %3, %1 ]
   %.02126 = phi i32 [ %.1, %13 ], [ 0, %1 ]
-  %5 = load ptr, ptr %.02027, align 8, !tbaa !79
+  %5 = load ptr, ptr %.02027, align 8, !tbaa !83
   %6 = tail call ptr @g_list_find(ptr noundef %4, ptr noundef %5) #10
   %.not24 = icmp eq ptr %6, null
   br i1 %.not24, label %7, label %13
 
 7:                                                ; preds = %.lr.ph
-  %8 = load i32, ptr %0, align 8, !tbaa !68
-  %9 = load ptr, ptr %.02027, align 8, !tbaa !79
+  %8 = load i32, ptr %0, align 8, !tbaa !70
+  %9 = load ptr, ptr %.02027, align 8, !tbaa !83
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i32
   %12 = tail call i32 @dt_tag_detach(i32 noundef %8, i32 noundef %11, i32 noundef 0, i32 noundef 0) #10
@@ -1821,9 +1821,9 @@ define range(i32 0, 2) i32 @dt_map_location_update_images(ptr noundef readonly c
 13:                                               ; preds = %.lr.ph, %7
   %.1 = phi i32 [ %.02126, %.lr.ph ], [ 1, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !82
+  %15 = load ptr, ptr %14, align 8, !tbaa !87
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.preheader, label %.lr.ph
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %24, %.preheader
   %.2.lcssa = phi i32 [ %.021.lcssa, %.preheader ], [ %.3, %24 ]
@@ -1834,14 +1834,14 @@ define range(i32 0, 2) i32 @dt_map_location_update_images(ptr noundef readonly c
 .lr.ph31:                                         ; preds = %.preheader, %24
   %.030 = phi ptr [ %26, %24 ], [ %4, %.preheader ]
   %.229 = phi i32 [ %.3, %24 ], [ %.021.lcssa, %.preheader ]
-  %16 = load ptr, ptr %.030, align 8, !tbaa !79
+  %16 = load ptr, ptr %.030, align 8, !tbaa !83
   %17 = tail call ptr @g_list_find(ptr noundef %3, ptr noundef %16) #10
   %.not23 = icmp eq ptr %17, null
   br i1 %.not23, label %18, label %24
 
 18:                                               ; preds = %.lr.ph31
-  %19 = load i32, ptr %0, align 8, !tbaa !68
-  %20 = load ptr, ptr %.030, align 8, !tbaa !79
+  %19 = load i32, ptr %0, align 8, !tbaa !70
+  %20 = load ptr, ptr %.030, align 8, !tbaa !83
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i32
   %23 = tail call i32 @dt_tag_attach(i32 noundef %19, i32 noundef %22, i32 noundef 0, i32 noundef 0) #10
@@ -1850,9 +1850,9 @@ define range(i32 0, 2) i32 @dt_map_location_update_images(ptr noundef readonly c
 24:                                               ; preds = %.lr.ph31, %18
   %.3 = phi i32 [ %.229, %.lr.ph31 ], [ 1, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %.030, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !82
+  %26 = load ptr, ptr %25, align 8, !tbaa !87
   %.not22 = icmp eq ptr %26, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph31
+  br i1 %.not22, label %._crit_edge, label %.lr.ph31, !llvm.loop !109
 }
 
 declare ptr @dt_tag_get_images(i32 noundef) local_unnamed_addr #2
@@ -1866,28 +1866,28 @@ define ptr @dt_map_location_data_tag_root() local_unnamed_addr #8 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @dt_map_location_included(float noundef %0, float noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5 = load i32, ptr %4, align 8, !tbaa !83
+  %5 = load i32, ptr %4, align 8, !tbaa !91
   switch i32 %5, label %.thread [
     i32 0, label %6
     i32 1, label %26
   ]
 
 6:                                                ; preds = %3
-  %7 = load double, ptr %2, align 8, !tbaa !84
+  %7 = load double, ptr %2, align 8, !tbaa !92
   %8 = fpext reassoc nsz arcp contract afn float %0 to double
   %9 = fsub reassoc nsz arcp contract afn double %7, %8
   %10 = fmul reassoc nsz arcp contract afn double %9, %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load double, ptr %11, align 8, !tbaa !86
+  %12 = load double, ptr %11, align 8, !tbaa !94
   %13 = fmul reassoc nsz arcp contract afn double %12, %12
   %14 = fdiv reassoc nsz arcp contract afn double %10, %13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load double, ptr %15, align 8, !tbaa !85
+  %16 = load double, ptr %15, align 8, !tbaa !93
   %17 = fpext reassoc nsz arcp contract afn float %1 to double
   %18 = fsub reassoc nsz arcp contract afn double %16, %17
   %19 = fmul reassoc nsz arcp contract afn double %18, %18
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %21 = load double, ptr %20, align 8, !tbaa !87
+  %21 = load double, ptr %20, align 8, !tbaa !95
   %22 = fmul reassoc nsz arcp contract afn double %21, %21
   %23 = fdiv reassoc nsz arcp contract afn double %19, %22
   %24 = fadd reassoc nsz arcp contract afn double %23, %14
@@ -1896,9 +1896,9 @@ define range(i32 0, 2) i32 @dt_map_location_included(float noundef %0, float nou
 
 26:                                               ; preds = %3
   %27 = fpext reassoc nsz arcp contract afn float %0 to double
-  %28 = load double, ptr %2, align 8, !tbaa !84
+  %28 = load double, ptr %2, align 8, !tbaa !92
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %30 = load double, ptr %29, align 8, !tbaa !86
+  %30 = load double, ptr %29, align 8, !tbaa !94
   %31 = fsub reassoc nsz arcp contract afn double %28, %30
   %32 = fcmp reassoc nsz arcp contract afn olt double %31, %27
   %33 = fadd reassoc nsz arcp contract afn double %30, %28
@@ -1909,9 +1909,9 @@ define range(i32 0, 2) i32 @dt_map_location_included(float noundef %0, float nou
 35:                                               ; preds = %26
   %36 = fpext reassoc nsz arcp contract afn float %1 to double
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load double, ptr %37, align 8, !tbaa !85
+  %38 = load double, ptr %37, align 8, !tbaa !93
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %40 = load double, ptr %39, align 8, !tbaa !87
+  %40 = load double, ptr %39, align 8, !tbaa !95
   %41 = fsub reassoc nsz arcp contract afn double %38, %40
   %42 = fcmp reassoc nsz arcp contract afn olt double %41, %36
   %43 = fadd reassoc nsz arcp contract afn double %40, %38
@@ -1948,19 +1948,19 @@ define ptr @dt_map_location_convert_polygons(ptr noundef %0, ptr noundef writeon
   %.04061.us = phi ptr [ %15, %.lr.ph.split.us ], [ %0, %.lr.ph ]
   %.04160.us = phi ptr [ %13, %.lr.ph.split.us ], [ null, %.lr.ph ]
   %.04255.us = phi ptr [ %16, %.lr.ph.split.us ], [ %7, %.lr.ph ]
-  %8 = load ptr, ptr %.04061.us, align 8, !tbaa !79
-  %9 = load float, ptr %8, align 4, !tbaa !93
-  store float %9, ptr %.04255.us, align 4, !tbaa !93
+  %8 = load ptr, ptr %.04061.us, align 8, !tbaa !83
+  %9 = load float, ptr %8, align 4, !tbaa !101
+  store float %9, ptr %.04255.us, align 4, !tbaa !101
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %11 = load float, ptr %10, align 4, !tbaa !91
+  %11 = load float, ptr %10, align 4, !tbaa !99
   %12 = getelementptr inbounds nuw i8, ptr %.04255.us, i64 4
-  store float %11, ptr %12, align 4, !tbaa !91
+  store float %11, ptr %12, align 4, !tbaa !99
   %13 = tail call ptr @g_list_prepend(ptr noundef %.04160.us, ptr noundef nonnull %.04255.us) #10
   %14 = getelementptr inbounds nuw i8, ptr %.04061.us, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !82
+  %15 = load ptr, ptr %14, align 8, !tbaa !87
   %16 = getelementptr inbounds nuw i8, ptr %.04255.us, i64 8
   %.not50.us = icmp eq ptr %15, null
-  br i1 %.not50.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !94
+  br i1 %.not50.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !110
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us
   %17 = tail call ptr @g_list_reverse(ptr noundef %13) #10
@@ -1979,29 +1979,29 @@ define ptr @dt_map_location_convert_polygons(ptr noundef %0, ptr noundef writeon
   %.sroa.10.057 = phi float [ %28, %.lr.ph.split ], [ -1.800000e+02, %.lr.ph ]
   %.sroa.13.056 = phi float [ %33, %.lr.ph.split ], [ 9.000000e+01, %.lr.ph ]
   %.04255 = phi ptr [ %36, %.lr.ph.split ], [ %7, %.lr.ph ]
-  %19 = load ptr, ptr %.04061, align 8, !tbaa !79
-  %20 = load float, ptr %19, align 4, !tbaa !93
-  store float %20, ptr %.04255, align 4, !tbaa !93
+  %19 = load ptr, ptr %.04061, align 8, !tbaa !83
+  %20 = load float, ptr %19, align 4, !tbaa !101
+  store float %20, ptr %.04255, align 4, !tbaa !101
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %22 = load float, ptr %21, align 4, !tbaa !91
+  %22 = load float, ptr %21, align 4, !tbaa !99
   %23 = getelementptr inbounds nuw i8, ptr %.04255, i64 4
-  store float %22, ptr %23, align 4, !tbaa !91
+  store float %22, ptr %23, align 4, !tbaa !99
   %24 = tail call ptr @g_list_prepend(ptr noundef %.04160, ptr noundef nonnull %.04255) #10
-  %25 = load float, ptr %21, align 4, !tbaa !91
+  %25 = load float, ptr %21, align 4, !tbaa !99
   %26 = fcmp reassoc nsz arcp contract afn olt float %25, %.sroa.0.059
   %..sroa.0.0 = select reassoc nsz arcp contract afn i1 %26, float %25, float %.sroa.0.059
   %27 = fcmp reassoc nsz arcp contract afn ogt float %25, %.sroa.10.057
   %28 = select reassoc nsz arcp contract afn i1 %27, float %25, float %.sroa.10.057
-  %29 = load float, ptr %19, align 4, !tbaa !93
+  %29 = load float, ptr %19, align 4, !tbaa !101
   %30 = fcmp reassoc nsz arcp contract afn ogt float %29, %.sroa.7.058
   %31 = select reassoc nsz arcp contract afn i1 %30, float %29, float %.sroa.7.058
   %32 = fcmp reassoc nsz arcp contract afn olt float %29, %.sroa.13.056
   %33 = select reassoc nsz arcp contract afn i1 %32, float %29, float %.sroa.13.056
   %34 = getelementptr inbounds nuw i8, ptr %.04061, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !82
+  %35 = load ptr, ptr %34, align 8, !tbaa !87
   %36 = getelementptr inbounds nuw i8, ptr %.04255, i64 8
   %.not50 = icmp eq ptr %35, null
-  br i1 %.not50, label %._crit_edge.thread81, label %.lr.ph.split
+  br i1 %.not50, label %._crit_edge.thread81, label %.lr.ph.split, !llvm.loop !111
 
 ._crit_edge.thread81:                             ; preds = %.lr.ph.split
   %37 = tail call ptr @g_list_reverse(ptr noundef %24) #10
@@ -2117,38 +2117,55 @@ attributes #13 = { nounwind allocsize(0) }
 !57 = !{!"dt_map_location_t", !12, i64 0, !7, i64 8, !12, i64 16}
 !58 = !{!57, !12, i64 0}
 !59 = !{!57, !12, i64 16}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = !{!63, !64, i64 4}
-!63 = !{!"dt_map_box_t", !64, i64 0, !64, i64 4, !64, i64 8, !64, i64 12}
-!64 = !{!"float", !9, i64 0}
-!65 = !{!63, !64, i64 12}
-!66 = !{!63, !64, i64 0}
-!67 = !{!63, !64, i64 8}
-!68 = !{!69, !12, i64 0}
-!69 = !{!"dt_location_draw_t", !12, i64 0, !70, i64 8, !8, i64 72}
-!70 = !{!"dt_map_location_data_t", !42, i64 0, !42, i64 8, !42, i64 16, !42, i64 24, !42, i64 32, !12, i64 40, !16, i64 48, !12, i64 56}
-!71 = !{!69, !12, i64 48}
-!72 = !{!69, !42, i64 8}
-!73 = !{!69, !42, i64 16}
-!74 = !{!69, !42, i64 24}
-!75 = !{!69, !42, i64 32}
-!76 = !{!69, !42, i64 40}
-!77 = !{!69, !12, i64 64}
-!78 = !{!69, !16, i64 56}
-!79 = !{!80, !8, i64 0}
-!80 = !{!"_GList", !8, i64 0, !16, i64 8, !16, i64 16}
-!81 = !{!16, !16, i64 0}
-!82 = !{!80, !16, i64 8}
-!83 = !{!70, !12, i64 40}
-!84 = !{!70, !42, i64 0}
-!85 = !{!70, !42, i64 8}
-!86 = !{!70, !42, i64 16}
-!87 = !{!70, !42, i64 24}
-!88 = !{!70, !42, i64 32}
-!89 = !{!70, !16, i64 48}
-!90 = !{!70, !12, i64 56}
-!91 = !{!92, !64, i64 4}
-!92 = !{!"dt_geo_map_display_point_t", !64, i64 0, !64, i64 4}
-!93 = !{!92, !64, i64 0}
-!94 = distinct !{!94, !61}
+!60 = distinct !{!60, !61, !62}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !61}
+!64 = !{!65, !66, i64 4}
+!65 = !{!"dt_map_box_t", !66, i64 0, !66, i64 4, !66, i64 8, !66, i64 12}
+!66 = !{!"float", !9, i64 0}
+!67 = !{!65, !66, i64 12}
+!68 = !{!65, !66, i64 0}
+!69 = !{!65, !66, i64 8}
+!70 = !{!71, !12, i64 0}
+!71 = !{!"dt_location_draw_t", !12, i64 0, !72, i64 8, !8, i64 72}
+!72 = !{!"dt_map_location_data_t", !42, i64 0, !42, i64 8, !42, i64 16, !42, i64 24, !42, i64 32, !12, i64 40, !16, i64 48, !12, i64 56}
+!73 = !{!71, !12, i64 48}
+!74 = !{!71, !42, i64 8}
+!75 = !{!71, !42, i64 16}
+!76 = !{!71, !42, i64 24}
+!77 = !{!71, !42, i64 32}
+!78 = !{!71, !42, i64 40}
+!79 = distinct !{!79, !61}
+!80 = !{!71, !12, i64 64}
+!81 = !{!71, !16, i64 56}
+!82 = distinct !{!82, !61}
+!83 = !{!84, !8, i64 0}
+!84 = !{!"_GList", !8, i64 0, !16, i64 8, !16, i64 16}
+!85 = !{!16, !16, i64 0}
+!86 = distinct !{!86, !61}
+!87 = !{!84, !16, i64 8}
+!88 = distinct !{!88, !61}
+!89 = distinct !{!89, !61}
+!90 = distinct !{!90, !61}
+!91 = !{!72, !12, i64 40}
+!92 = !{!72, !42, i64 0}
+!93 = !{!72, !42, i64 8}
+!94 = !{!72, !42, i64 16}
+!95 = !{!72, !42, i64 24}
+!96 = !{!72, !42, i64 32}
+!97 = !{!72, !16, i64 48}
+!98 = !{!72, !12, i64 56}
+!99 = !{!100, !66, i64 4}
+!100 = !{!"dt_geo_map_display_point_t", !66, i64 0, !66, i64 4}
+!101 = !{!100, !66, i64 0}
+!102 = distinct !{!102, !61}
+!103 = distinct !{!103, !61}
+!104 = distinct !{!104, !61}
+!105 = distinct !{!105, !61}
+!106 = distinct !{!106, !61}
+!107 = distinct !{!107, !61}
+!108 = distinct !{!108, !61}
+!109 = distinct !{!109, !61}
+!110 = distinct !{!110, !61, !62}
+!111 = distinct !{!111, !61}

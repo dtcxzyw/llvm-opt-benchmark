@@ -1248,7 +1248,7 @@ fdt_rw_probe_.exit:                               ; preds = %49, %48
 85:                                               ; preds = %60
   %86 = sext i32 %82 to i64
   %87 = add nsw i64 %86, 4
-  store i32 16777216, ptr %81, align 4, !tbaa !28
+  store i32 16777216, ptr %81, align 4, !tbaa !29
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %88, i8 0, i64 %87, i1 false)
   %89 = sext i32 %3 to i64
@@ -1459,7 +1459,7 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %70 = load i32, ptr %4, align 4, !tbaa !15
   %71 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %70, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %71, 9
-  br i1 %.not, label %72, label %69, !llvm.loop !30
+  br i1 %.not, label %72, label %69, !llvm.loop !31
 
 72:                                               ; preds = %69
   %73 = load i32, ptr %4, align 4, !tbaa !15
@@ -1551,7 +1551,7 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %138 = sext i32 %29 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %118, ptr readonly align 1 %137, i64 %138, i1 false)
   %139 = getelementptr inbounds nuw i8, ptr %.050, i64 16
-  store i32 671088640, ptr %139, align 4, !tbaa !31
+  store i32 671088640, ptr %139, align 4, !tbaa !32
   %140 = sext i32 %85 to i64
   %141 = getelementptr inbounds i8, ptr %.050, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1638,14 +1638,14 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %214 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   store i32 %rev.i.i30.i, ptr %214, align 4, !tbaa !23
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %.050, i64 %108, i1 false)
-  store i32 -302117424, ptr %1, align 4, !tbaa !32
+  store i32 -302117424, ptr %1, align 4, !tbaa !33
   %rev.i.i61 = call noundef i32 @llvm.bswap.i32(i32 %2)
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %rev.i.i61, ptr %215, align 4, !tbaa !33
+  store i32 %rev.i.i61, ptr %215, align 4, !tbaa !34
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 285212672, ptr %216, align 4, !tbaa !6
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 268435456, ptr %217, align 4, !tbaa !34
+  store i32 268435456, ptr %217, align 4, !tbaa !35
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %219 = load i8, ptr %218, align 1, !tbaa !3
   %220 = zext i8 %219 to i32
@@ -1904,7 +1904,7 @@ fdt_rw_probe_.exit:                               ; preds = %45, %44
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %80
   %85 = sext i32 %48 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %65, ptr readonly align 1 %84, i64 %85, i1 false)
-  store i32 671088640, ptr %66, align 4, !tbaa !31
+  store i32 671088640, ptr %66, align 4, !tbaa !32
   %86 = sext i32 %63 to i64
   %87 = getelementptr inbounds i8, ptr %0, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2011,7 +2011,7 @@ fdt_rw_probe_.exit:                               ; preds = %45, %44
   %179 = add i32 %178, %169
   %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %179)
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %rev.i.i, ptr %180, align 4, !tbaa !33
+  store i32 %rev.i.i, ptr %180, align 4, !tbaa !34
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %24, %4, %1, %fdt_rw_probe_.exit
@@ -2071,12 +2071,13 @@ attributes #10 = { nounwind willreturn memory(read) }
 !23 = !{!7, !8, i64 32}
 !24 = !{!21, !8, i64 0}
 !25 = !{!21, !8, i64 8}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!29, !8, i64 0}
-!29 = !{!"fdt_node_header", !8, i64 0, !4, i64 4}
-!30 = distinct !{!30, !27}
-!31 = !{!7, !8, i64 16}
-!32 = !{!7, !8, i64 0}
-!33 = !{!7, !8, i64 4}
-!34 = !{!7, !8, i64 24}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!30, !8, i64 0}
+!30 = !{!"fdt_node_header", !8, i64 0, !4, i64 4}
+!31 = distinct !{!31, !27, !28}
+!32 = !{!7, !8, i64 16}
+!33 = !{!7, !8, i64 0}
+!34 = !{!7, !8, i64 4}
+!35 = !{!7, !8, i64 24}

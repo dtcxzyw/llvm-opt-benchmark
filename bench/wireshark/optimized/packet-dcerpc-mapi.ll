@@ -8577,7 +8577,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %15
   %56 = add nuw i32 %.0211.i, 4
   %57 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i77 = icmp eq i32 %57, %50
-  br i1 %exitcond.not.i77, label %mapi_dissect_element_handles_cnf.exit, label %.lr.ph.i76, !llvm.loop !8
+  br i1 %exitcond.not.i77, label %mapi_dissect_element_handles_cnf.exit, label %.lr.ph.i76, !llvm.loop !9
 
 mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i76, %33
   %58 = load ptr, ptr %10, align 8
@@ -8589,7 +8589,7 @@ mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i76, %33
 
 62:                                               ; preds = %mapi_dissect_element_handles_cnf.exit
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %64 = load i8, ptr %63, align 1, !range !9, !noundef !10
+  %64 = load i8, ptr %63, align 1, !range !10, !noundef !11
   %65 = trunc nuw i8 %64 to i1
   %66 = and i32 %34, 7
   %.not73 = icmp eq i32 %66, 0
@@ -8653,7 +8653,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_CLIENTINFO(ptr noundef %0, i32 n
   %17 = alloca i16, align 2
   %18 = alloca i16, align 2
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %20 = load i8, ptr %19, align 2, !range !9, !noundef !10
+  %20 = load i8, ptr %19, align 2, !range !10, !noundef !11
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #6
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #6
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #6
@@ -8788,7 +8788,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_CLIENTINFO(ptr noundef %0, i32 n
   %90 = load i16, ptr %14, align 2
   %91 = zext i16 %90 to i32
   %92 = icmp samesign ult i32 %89, %91
-  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 93:                                               ; preds = %._crit_edge, %79
   %.3148 = phi i32 [ %.2147, %79 ], [ %spec.select173, %._crit_edge ]
@@ -8871,7 +8871,7 @@ define hidden i32 @mapi_dissect_struct_AUX_HEADER(ptr noundef %0, i32 noundef %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
   store i8 0, ptr %13, align 1
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 2, !range !10, !noundef !11
   store i8 1, ptr %14, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %16
@@ -9066,7 +9066,7 @@ mapi_dissect_AUX_HEADER_TYPE_ENUM.exit:           ; preds = %20, %.sink.split.i
 
 101:                                              ; preds = %34
   %102 = load i32, ptr @hf_mapi_AuxDataVersion1_AuxiliaryEXOrgInfo, align 4
-  %103 = load i8, ptr %14, align 2, !range !9, !noundef !10
+  %103 = load i8, ptr %14, align 2, !range !10, !noundef !11
   store i8 1, ptr %14, align 2
   %.not.i.i.i.i = icmp eq ptr %.0153.i.i, null
   br i1 %.not.i.i.i.i, label %mapi_dissect_element_AuxDataVersion1_AuxiliaryEXOrgInfo.exit.i.i, label %104
@@ -9251,7 +9251,7 @@ mapi_dissect_AuxDataVersion1.exit.i:              ; preds = %111, %mapi_dissect_
 
 187:                                              ; preds = %120
   %188 = load i32, ptr @hf_mapi_AuxDataVersion2_AuxiliaryEXOrgInfo, align 4
-  %189 = load i8, ptr %14, align 2, !range !9, !noundef !10
+  %189 = load i8, ptr %14, align 2, !range !10, !noundef !11
   store i8 1, ptr %14, align 2
   %.not.i.i.i18.i = icmp eq ptr %.0153.i17.i, null
   br i1 %.not.i.i.i18.i, label %mapi_dissect_element_AuxDataVersion2_AuxiliaryEXOrgInfo.exit.i.i, label %190
@@ -9302,7 +9302,7 @@ define hidden i32 @mapi_dissect_struct_EcDoRpcMapiRequest(ptr noundef %0, i32 no
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
   store i8 0, ptr %9, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -9354,7 +9354,7 @@ define hidden i32 @mapi_dissect_struct_request(ptr noundef %0, i32 noundef %1, p
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %16 = load i8, ptr %15, align 1, !range !9, !noundef !10
+  %16 = load i8, ptr %15, align 1, !range !10, !noundef !11
   %17 = trunc nuw i8 %16 to i1
   br i1 %.not, label %23, label %18
 
@@ -9462,7 +9462,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %33
   %74 = add nuw i32 %.0211.i, 4
   %75 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i77 = icmp eq i32 %75, %68
-  br i1 %exitcond.not.i77, label %mapi_dissect_element_handles_cnf.exit, label %.lr.ph.i76, !llvm.loop !8
+  br i1 %exitcond.not.i77, label %mapi_dissect_element_handles_cnf.exit, label %.lr.ph.i76, !llvm.loop !9
 
 mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i76, %51
   %76 = load ptr, ptr %10, align 8
@@ -9474,7 +9474,7 @@ mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i76, %51
 
 80:                                               ; preds = %mapi_dissect_element_handles_cnf.exit
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %82 = load i8, ptr %81, align 1, !range !9, !noundef !10
+  %82 = load i8, ptr %81, align 1, !range !10, !noundef !11
   %83 = trunc nuw i8 %82 to i1
   %84 = and i32 %52, 7
   %.not73 = icmp eq i32 %84, 0
@@ -9498,7 +9498,7 @@ define hidden i32 @mapi_dissect_struct_EcDoRpcMapiResponse(ptr noundef %0, i32 n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
   store i8 0, ptr %9, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -9534,7 +9534,7 @@ define hidden i32 @mapi_dissect_struct_EcDoRpcMapiResponse(ptr noundef %0, i32 n
 define hidden i32 @mapi_dissect_struct_SyncUploadStateStreamContinue_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -9576,7 +9576,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportMessageMove_req(ptr noundef %0,
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 2, !range !10, !noundef !11
   store i8 1, ptr %14, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %16
@@ -9735,7 +9735,7 @@ define hidden i32 @mapi_dissect_struct_Logon_repl(ptr noundef %0, i32 noundef %1
   %11 = alloca i8, align 1
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 2, !range !10, !noundef !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
   store i8 1, ptr %13, align 2
   %.not = icmp eq ptr %3, null
@@ -9777,7 +9777,7 @@ define hidden i32 @mapi_dissect_struct_Logon_repl(ptr noundef %0, i32 noundef %1
   %31 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %30, ptr noundef null)
   %32 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %32, 13
-  br i1 %exitcond.not.i, label %mapi_dissect_element_Logon_repl_FolderIds.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i, label %mapi_dissect_element_Logon_repl_FolderIds.exit, label %.preheader, !llvm.loop !13
 
 mapi_dissect_element_Logon_repl_FolderIds.exit:   ; preds = %.preheader
   %33 = load i32, ptr @hf_mapi_Logon_repl_ResponseFlags, align 4
@@ -9832,7 +9832,7 @@ mapi_dissect_element_Logon_repl_StoreState.exit:  ; preds = %55, %58
   %60 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.089.i127, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %59, ptr noundef null)
   %61 = add nuw nsw i32 %.010.i126, 1
   %exitcond.not.i128 = icmp eq i32 %61, 13
-  br i1 %exitcond.not.i128, label %mapi_dissect_element_Logon_repl_FolderIds.exit129, label %.preheader131, !llvm.loop !12
+  br i1 %exitcond.not.i128, label %mapi_dissect_element_Logon_repl_FolderIds.exit129, label %.preheader131, !llvm.loop !13
 
 mapi_dissect_element_Logon_repl_FolderIds.exit129: ; preds = %.preheader131
   %62 = load i32, ptr @hf_mapi_Logon_repl_ReplId, align 4
@@ -9899,7 +9899,7 @@ define hidden i32 @mapi_dissect_struct_AuxInfo(ptr noundef %0, i32 noundef %1, p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 3
   %.not = icmp eq i32 %13, 0
@@ -9958,7 +9958,7 @@ define hidden i32 @mapi_dissect_struct_AuxInfo(ptr noundef %0, i32 noundef %1, p
   %39 = load i32, ptr @ett_mapi_connect_request, align 4
   %40 = tail call ptr @proto_tree_add_subtree(ptr noundef %.041, ptr noundef nonnull %35, i32 noundef 0, i32 noundef %38, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.3870)
   %41 = tail call i32 @tvb_reported_length(ptr noundef nonnull %35)
-  %42 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %42 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %43 = trunc nuw i8 %42 to i1
   %44 = icmp eq i32 %41, 0
   %or.cond.not.i = select i1 %43, i1 true, i1 %44
@@ -9975,7 +9975,7 @@ define hidden i32 @mapi_dissect_struct_AuxInfo(ptr noundef %0, i32 noundef %1, p
   %51 = icmp sgt i32 %50, -1
   %52 = icmp ult i32 %50, %41
   %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %.lr.ph.i, label %mapi_dissect_element_AuxInfo_auxHeader.exit, !llvm.loop !13
+  br i1 %53, label %.lr.ph.i, label %mapi_dissect_element_AuxInfo_auxHeader.exit, !llvm.loop !14
 
 mapi_dissect_element_AuxInfo_auxHeader.exit:      ; preds = %.lr.ph.i, %36
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -9987,7 +9987,7 @@ mapi_dissect_element_AuxInfo_auxHeader.exit:      ; preds = %.lr.ph.i, %36
   br i1 %.not47, label %66, label %59
 
 59:                                               ; preds = %mapi_dissect_element_AuxInfo_auxHeader.exit
-  %60 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %60 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %61 = trunc nuw i8 %60 to i1
   %62 = and i32 %34, 3
   %.not48 = icmp eq i32 %62, 0
@@ -10016,7 +10016,7 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #6
   store i16 0, ptr %11, align 2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %13 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %13 = load i8, ptr %12, align 1, !range !10, !noundef !11
   %14 = trunc nuw i8 %13 to i1
   %15 = and i32 %1, 1
   %.not = icmp eq i32 %15, 0
@@ -10038,7 +10038,7 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   %.082 = phi ptr [ %21, %18 ], [ null, %8 ]
   %23 = load i32, ptr @hf_mapi_RPC_HEADER_EXT_Version, align 4
   %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.082, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
-  %25 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %25 = load i8, ptr %12, align 1, !range !10, !noundef !11
   %26 = trunc nuw i8 %25 to i1
   %27 = and i32 %24, 1
   %.not90 = icmp eq i32 %27, 0
@@ -10090,7 +10090,7 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   br i1 %.not94, label %62, label %55
 
 55:                                               ; preds = %45
-  %56 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %56 = load i8, ptr %12, align 1, !range !10, !noundef !11
   %57 = trunc nuw i8 %56 to i1
   %58 = and i32 %49, 1
   %.not95 = icmp eq i32 %58, 0
@@ -10304,7 +10304,7 @@ define internal fastcc i32 @mapi_dissect_RgbInOut(ptr noundef %0, i32 noundef %1
   %70 = load i16, ptr %9, align 2
   %71 = zext i16 %70 to i32
   %72 = icmp ult i32 %.1, %71
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %69, %34
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
@@ -10315,7 +10315,7 @@ define internal fastcc i32 @mapi_dissect_RgbInOut(ptr noundef %0, i32 noundef %1
   %77 = and i32 %76, 1
   %.not66 = icmp eq i32 %77, 0
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %79 = load i8, ptr %78, align 1, !range !9, !noundef !10
+  %79 = load i8, ptr %78, align 1, !range !10, !noundef !11
   %80 = trunc nuw i8 %79 to i1
   br i1 %.not66, label %86, label %81
 
@@ -10408,7 +10408,7 @@ define hidden i32 @mapi_dissect_enum_MAPITAGS(ptr noundef %0, i32 noundef %1, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_DATA_BLOB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -10443,7 +10443,7 @@ define hidden i32 @mapi_dissect_struct_DATA_BLOB(ptr noundef %0, i32 noundef %1,
   br i1 %.not33, label %37, label %30
 
 30:                                               ; preds = %19
-  %31 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %31 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %32 = trunc nuw i8 %31 to i1
   %33 = and i32 %23, 3
   %.not34 = icmp eq i32 %33, 0
@@ -10544,7 +10544,7 @@ define hidden i32 @mapi_dissect_enum_ROP_OPNUM(ptr noundef %0, i32 noundef %1, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SBinary_short(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -10570,7 +10570,7 @@ define hidden i32 @mapi_dissect_struct_SBinary_short(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -10604,7 +10604,7 @@ define hidden i32 @mapi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 nounde
   br i1 %.not33, label %36, label %29
 
 29:                                               ; preds = %19
-  %30 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %30 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %31 = trunc nuw i8 %30 to i1
   %32 = and i32 %22, 3
   %.not34 = icmp eq i32 %32, 0
@@ -10624,7 +10624,7 @@ define hidden i32 @mapi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -10657,7 +10657,7 @@ define hidden i32 @mapi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not27, label %35, label %28
 
 28:                                               ; preds = %19
-  %29 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %29 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %30 = trunc nuw i8 %29 to i1
   %31 = and i32 %21, 3
   %.not28 = icmp eq i32 %31, 0
@@ -10677,7 +10677,7 @@ define hidden i32 @mapi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -10711,7 +10711,7 @@ define hidden i32 @mapi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %
   br i1 %.not33, label %36, label %29
 
 29:                                               ; preds = %19
-  %30 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %30 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %31 = trunc nuw i8 %30 to i1
   %32 = and i32 %22, 3
   %.not34 = icmp eq i32 %32, 0
@@ -10731,7 +10731,7 @@ define hidden i32 @mapi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_LPWSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -10764,7 +10764,7 @@ define hidden i32 @mapi_dissect_struct_LPWSTR(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not27, label %35, label %28
 
 28:                                               ; preds = %19
-  %29 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %29 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %30 = trunc nuw i8 %29 to i1
   %31 = and i32 %21, 3
   %.not28 = icmp eq i32 %31, 0
@@ -10784,7 +10784,7 @@ define hidden i32 @mapi_dissect_struct_LPWSTR(ptr noundef %0, i32 noundef %1, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SPLSTRArrayW(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -10818,7 +10818,7 @@ define hidden i32 @mapi_dissect_struct_SPLSTRArrayW(ptr noundef %0, i32 noundef 
   br i1 %.not33, label %36, label %29
 
 29:                                               ; preds = %19
-  %30 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %30 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %31 = trunc nuw i8 %30 to i1
   %32 = and i32 %22, 3
   %.not34 = icmp eq i32 %32, 0
@@ -10838,7 +10838,7 @@ define hidden i32 @mapi_dissect_struct_SPLSTRArrayW(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -10872,7 +10872,7 @@ define hidden i32 @mapi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef 
   br i1 %.not33, label %36, label %29
 
 29:                                               ; preds = %19
-  %30 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %30 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %31 = trunc nuw i8 %30 to i1
   %32 = and i32 %22, 3
   %.not34 = icmp eq i32 %32, 0
@@ -10892,7 +10892,7 @@ define hidden i32 @mapi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SGuidArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -10926,7 +10926,7 @@ define hidden i32 @mapi_dissect_struct_SGuidArray(ptr noundef %0, i32 noundef %1
   br i1 %.not33, label %36, label %29
 
 29:                                               ; preds = %19
-  %30 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %30 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %31 = trunc nuw i8 %30 to i1
   %32 = and i32 %22, 3
   %.not34 = icmp eq i32 %32, 0
@@ -10946,7 +10946,7 @@ define hidden i32 @mapi_dissect_struct_SGuidArray(ptr noundef %0, i32 noundef %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SRestriction_wrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -10969,7 +10969,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction_wrap(ptr noundef %0, i32 nou
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.020, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %19, 32768
-  br i1 %exitcond.not.i, label %mapi_dissect_element_SRestriction_wrap_wrap.exit, label %16, !llvm.loop !15
+  br i1 %exitcond.not.i, label %mapi_dissect_element_SRestriction_wrap_wrap.exit, label %16, !llvm.loop !16
 
 mapi_dissect_element_SRestriction_wrap_wrap.exit: ; preds = %16
   %20 = sub i32 %18, %1
@@ -10981,7 +10981,7 @@ mapi_dissect_element_SRestriction_wrap_wrap.exit: ; preds = %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SPropValue_wrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -11004,7 +11004,7 @@ define hidden i32 @mapi_dissect_struct_SPropValue_wrap(ptr noundef %0, i32 nound
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.020, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %19, 32768
-  br i1 %exitcond.not.i, label %mapi_dissect_element_SPropValue_wrap_wrap.exit, label %16, !llvm.loop !16
+  br i1 %exitcond.not.i, label %mapi_dissect_element_SPropValue_wrap_wrap.exit, label %16, !llvm.loop !17
 
 mapi_dissect_element_SPropValue_wrap_wrap.exit:   ; preds = %16
   %20 = sub i32 %18, %1
@@ -11016,7 +11016,7 @@ mapi_dissect_element_SPropValue_wrap_wrap.exit:   ; preds = %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SPropValue_array_wrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -11039,7 +11039,7 @@ define hidden i32 @mapi_dissect_struct_SPropValue_array_wrap(ptr noundef %0, i32
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.020, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %19, 32768
-  br i1 %exitcond.not.i, label %mapi_dissect_element_SPropValue_array_wrap_wrap.exit, label %16, !llvm.loop !17
+  br i1 %exitcond.not.i, label %mapi_dissect_element_SPropValue_array_wrap_wrap.exit, label %16, !llvm.loop !18
 
 mapi_dissect_element_SPropValue_array_wrap_wrap.exit: ; preds = %16
   %20 = sub i32 %18, %1
@@ -11077,7 +11077,7 @@ define hidden i32 @mapi_dissect_enum_ActionType(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_MoveCopy_Action(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -11094,7 +11094,7 @@ define hidden i32 @mapi_dissect_struct_MoveCopy_Action(ptr noundef %0, i32 nound
   %16 = load i32, ptr @hf_mapi_MoveCopy_Action_FolderInThisStore, align 4
   %17 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %16, i32 noundef 0)
   %18 = load i32, ptr @hf_mapi_MoveCopy_Action_StoreEID, align 4
-  %19 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %19 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_MoveCopy_Action_StoreEID.exit, label %20
@@ -11141,7 +11141,7 @@ mapi_dissect_element_MoveCopy_Action_FolderEID.exit: ; preds = %mapi_dissect_ele
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ReplyOOF_Action(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -11170,7 +11170,7 @@ define hidden i32 @mapi_dissect_struct_ReplyOOF_Action(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_RecipientBlock(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -11187,7 +11187,7 @@ define hidden i32 @mapi_dissect_struct_RecipientBlock(ptr noundef %0, i32 nounde
   %16 = load i32, ptr @hf_mapi_RecipientBlock_Reserved, align 4
   %17 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %16, i32 noundef 0)
   %18 = load i32, ptr @hf_mapi_RecipientBlock_PropertyValue, align 4
-  %19 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %19 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %24, label %20
@@ -11210,7 +11210,7 @@ define hidden i32 @mapi_dissect_struct_RecipientBlock(ptr noundef %0, i32 nounde
   %27 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i, ptr noundef %2, ptr noundef %.020.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 noundef 0)
   %28 = add nuw nsw i32 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %28, 32768
-  br i1 %exitcond.not.i.i.i, label %mapi_dissect_element_RecipientBlock_PropertyValue.exit, label %25, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %mapi_dissect_element_RecipientBlock_PropertyValue.exit, label %25, !llvm.loop !18
 
 mapi_dissect_element_RecipientBlock_PropertyValue.exit: ; preds = %25
   %29 = sub i32 %27, %17
@@ -11254,7 +11254,7 @@ declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ForwardDelegate_Action(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -11283,7 +11283,7 @@ define hidden i32 @mapi_dissect_struct_ActionBlockData(ptr noundef %0, i32 nound
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %13 = load i8, ptr %12, align 2, !range !9, !noundef !10
+  %13 = load i8, ptr %12, align 2, !range !10, !noundef !11
   store i8 1, ptr %12, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %14
@@ -11366,7 +11366,7 @@ define hidden i32 @mapi_dissect_struct_ActionBlockData(ptr noundef %0, i32 nound
 
 48:                                               ; preds = %29
   %49 = load i32, ptr @hf_mapi_ActionData_PropValue, align 4
-  %50 = load i8, ptr %12, align 2, !range !9, !noundef !10
+  %50 = load i8, ptr %12, align 2, !range !10, !noundef !11
   store i8 1, ptr %12, align 2
   %.not.i.i.i.i = icmp eq ptr %.063.i.i, null
   br i1 %.not.i.i.i.i, label %55, label %51
@@ -11389,7 +11389,7 @@ define hidden i32 @mapi_dissect_struct_ActionBlockData(ptr noundef %0, i32 nound
   %58 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i.i.i, ptr noundef %2, ptr noundef %.020.i.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %57, i32 noundef 0)
   %59 = add nuw nsw i32 %.010.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %59, 32768
-  br i1 %exitcond.not.i.i.i.i.i, label %mapi_dissect_element_ActionData_PropValue.exit.i.i, label %56, !llvm.loop !16
+  br i1 %exitcond.not.i.i.i.i.i, label %mapi_dissect_element_ActionData_PropValue.exit.i.i, label %56, !llvm.loop !17
 
 mapi_dissect_element_ActionData_PropValue.exit.i.i: ; preds = %56
   %60 = sub i32 %58, %25
@@ -11399,7 +11399,7 @@ mapi_dissect_element_ActionData_PropValue.exit.i.i: ; preds = %56
 
 61:                                               ; preds = %29
   %62 = load i32, ptr @hf_mapi_ActionData_ForwardAction, align 4
-  %63 = load i8, ptr %12, align 2, !range !9, !noundef !10
+  %63 = load i8, ptr %12, align 2, !range !10, !noundef !11
   store i8 1, ptr %12, align 2
   %.not.i.i65.i.i = icmp eq ptr %.063.i.i, null
   br i1 %.not.i.i65.i.i, label %mapi_dissect_element_ActionData_ForwardAction.exit.i.i, label %64
@@ -11423,7 +11423,7 @@ mapi_dissect_element_ActionData_ForwardAction.exit.i.i: ; preds = %64, %61
 
 72:                                               ; preds = %29
   %73 = load i32, ptr @hf_mapi_ActionData_DelegateAction, align 4
-  %74 = load i8, ptr %12, align 2, !range !9, !noundef !10
+  %74 = load i8, ptr %12, align 2, !range !10, !noundef !11
   store i8 1, ptr %12, align 2
   %.not.i.i67.i.i = icmp eq ptr %.063.i.i, null
   br i1 %.not.i.i67.i.i, label %mapi_dissect_element_ActionData_DelegateAction.exit.i.i, label %75
@@ -11460,7 +11460,7 @@ mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit: ; preds = %29, %30, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ActionBlock(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -11485,7 +11485,7 @@ define hidden i32 @mapi_dissect_struct_ActionBlock(ptr noundef %0, i32 noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_RuleAction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -11517,7 +11517,7 @@ define hidden i32 @mapi_dissect_struct_ShortArray_r(ptr noundef %0, i32 noundef 
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %15 = load i8, ptr %14, align 1, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 1, !range !10, !noundef !11
   %16 = trunc nuw i8 %15 to i1
   br i1 %.not, label %22, label %17
 
@@ -11572,7 +11572,7 @@ define hidden i32 @mapi_dissect_struct_ShortArray_r(ptr noundef %0, i32 noundef 
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %44 = load i8, ptr %43, align 1, !range !9, !noundef !10
+  %44 = load i8, ptr %43, align 1, !range !10, !noundef !11
   %45 = trunc nuw i8 %44 to i1
   %46 = and i32 %36, 7
   %.not44 = icmp eq i32 %46, 0
@@ -11598,7 +11598,7 @@ define hidden i32 @mapi_dissect_struct_LongArray_r(ptr noundef %0, i32 noundef %
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %15 = load i8, ptr %14, align 1, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 1, !range !10, !noundef !11
   %16 = trunc nuw i8 %15 to i1
   br i1 %.not, label %22, label %17
 
@@ -11653,7 +11653,7 @@ define hidden i32 @mapi_dissect_struct_LongArray_r(ptr noundef %0, i32 noundef %
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %44 = load i8, ptr %43, align 1, !range !9, !noundef !10
+  %44 = load i8, ptr %43, align 1, !range !10, !noundef !11
   %45 = trunc nuw i8 %44 to i1
   %46 = and i32 %36, 7
   %.not44 = icmp eq i32 %46, 0
@@ -11679,7 +11679,7 @@ define hidden i32 @mapi_dissect_struct_BinaryArray_r(ptr noundef %0, i32 noundef
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %15 = load i8, ptr %14, align 1, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 1, !range !10, !noundef !11
   %16 = trunc nuw i8 %15 to i1
   br i1 %.not, label %22, label %17
 
@@ -11734,7 +11734,7 @@ define hidden i32 @mapi_dissect_struct_BinaryArray_r(ptr noundef %0, i32 noundef
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %44 = load i8, ptr %43, align 1, !range !9, !noundef !10
+  %44 = load i8, ptr %43, align 1, !range !10, !noundef !11
   %45 = trunc nuw i8 %44 to i1
   %46 = and i32 %36, 7
   %.not44 = icmp eq i32 %46, 0
@@ -11760,7 +11760,7 @@ define hidden i32 @mapi_dissect_struct_DateTimeArray_r(ptr noundef %0, i32 nound
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %15 = load i8, ptr %14, align 1, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 1, !range !10, !noundef !11
   %16 = trunc nuw i8 %15 to i1
   br i1 %.not, label %22, label %17
 
@@ -11815,7 +11815,7 @@ define hidden i32 @mapi_dissect_struct_DateTimeArray_r(ptr noundef %0, i32 nound
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %44 = load i8, ptr %43, align 1, !range !9, !noundef !10
+  %44 = load i8, ptr %43, align 1, !range !10, !noundef !11
   %45 = trunc nuw i8 %44 to i1
   %46 = and i32 %36, 7
   %.not44 = icmp eq i32 %46, 0
@@ -11841,7 +11841,7 @@ define hidden i32 @mapi_dissect_struct_Binary_r(ptr noundef %0, i32 noundef %1, 
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %15 = load i8, ptr %14, align 1, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 1, !range !10, !noundef !11
   %16 = trunc nuw i8 %15 to i1
   br i1 %.not, label %22, label %17
 
@@ -11896,7 +11896,7 @@ define hidden i32 @mapi_dissect_struct_Binary_r(ptr noundef %0, i32 noundef %1, 
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %44 = load i8, ptr %43, align 1, !range !9, !noundef !10
+  %44 = load i8, ptr %43, align 1, !range !10, !noundef !11
   %45 = trunc nuw i8 %44 to i1
   %46 = and i32 %36, 7
   %.not44 = icmp eq i32 %46, 0
@@ -11920,7 +11920,7 @@ define hidden i32 @mapi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 2, !range !10, !noundef !11
   store i8 1, ptr %13, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %19, label %15
@@ -11955,7 +11955,7 @@ define hidden i32 @mapi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   %.0155.i.i = phi ptr [ %25, %23 ], [ null, %19 ]
   %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0155.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %11)
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %29 = load i8, ptr %28, align 1, !range !9, !noundef !10
+  %29 = load i8, ptr %28, align 1, !range !10, !noundef !11
   %30 = trunc nuw i8 %29 to i1
   %31 = and i32 %27, 7
   %.not157.i.i = icmp eq i32 %31, 0
@@ -12027,7 +12027,7 @@ define hidden i32 @mapi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
 
 56:                                               ; preds = %26
   %57 = load i32, ptr @hf_mapi_mapi_SPropValue_CTR_svreid, align 4
-  %58 = load i8, ptr %13, align 2, !range !9, !noundef !10
+  %58 = load i8, ptr %13, align 2, !range !10, !noundef !11
   store i8 1, ptr %13, align 2
   %.not.i.i.i.i = icmp eq ptr %.0155.i.i, null
   br i1 %.not.i.i.i.i, label %mapi_dissect_element_SPropValue_CTR_svreid.exit.i.i, label %59
@@ -12061,7 +12061,7 @@ mapi_dissect_element_SPropValue_CTR_svreid.exit.i.i: ; preds = %59, %56
 
 73:                                               ; preds = %26
   %74 = load i32, ptr @hf_mapi_mapi_SPropValue_CTR_Restrictions, align 4
-  %75 = load i8, ptr %13, align 2, !range !9, !noundef !10
+  %75 = load i8, ptr %13, align 2, !range !10, !noundef !11
   store i8 1, ptr %13, align 2
   %.not.i.i158.i.i = icmp eq ptr %.0155.i.i, null
   br i1 %.not.i.i158.i.i, label %80, label %76
@@ -12084,7 +12084,7 @@ mapi_dissect_element_SPropValue_CTR_svreid.exit.i.i: ; preds = %59, %56
   %83 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i.i.i, ptr noundef %2, ptr noundef %.020.i.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %82, i32 noundef 0)
   %84 = add nuw nsw i32 %.010.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %84, 32768
-  br i1 %exitcond.not.i.i.i.i.i, label %mapi_dissect_element_SPropValue_CTR_Restrictions.exit.i.i, label %81, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i.i, label %mapi_dissect_element_SPropValue_CTR_Restrictions.exit.i.i, label %81, !llvm.loop !16
 
 mapi_dissect_element_SPropValue_CTR_Restrictions.exit.i.i: ; preds = %81
   %85 = sub i32 %83, %.0.i.i
@@ -12094,7 +12094,7 @@ mapi_dissect_element_SPropValue_CTR_Restrictions.exit.i.i: ; preds = %81
 
 86:                                               ; preds = %26
   %87 = load i32, ptr @hf_mapi_mapi_SPropValue_CTR_RuleAction, align 4
-  %88 = load i8, ptr %13, align 2, !range !9, !noundef !10
+  %88 = load i8, ptr %13, align 2, !range !10, !noundef !11
   store i8 1, ptr %13, align 2
   %.not.i.i160.i.i = icmp eq ptr %.0155.i.i, null
   br i1 %.not.i.i160.i.i, label %mapi_dissect_element_SPropValue_CTR_RuleAction.exit.i.i, label %89
@@ -12190,7 +12190,7 @@ mapi_dissect_element_SPropValue_value.exit:       ; preds = %26, %35, %38, %41, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SPropValue_array(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -12216,7 +12216,7 @@ define hidden i32 @mapi_dissect_struct_SPropValue_array(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SPropTagArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -12268,7 +12268,7 @@ define hidden i32 @mapi_dissect_enum_ulRowFlags(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_Release_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -12295,7 +12295,7 @@ define hidden i32 @mapi_dissect_struct_Release_req(ptr noundef %0, i32 noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_Release_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -12341,7 +12341,7 @@ define hidden i32 @mapi_dissect_enum_OpenFolder_OpenModeFlags(ptr noundef %0, i3
 define hidden i32 @mapi_dissect_struct_OpenFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -12377,7 +12377,7 @@ define hidden i32 @mapi_dissect_struct_OpenFolder_req(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_OpenFolder_Replicas(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -12406,7 +12406,7 @@ define hidden i32 @mapi_dissect_struct_OpenFolder_Replicas(ptr noundef %0, i32 n
 define hidden i32 @mapi_dissect_struct_OpenFolder_Success(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -12449,7 +12449,7 @@ mapi_dissect_element_OpenFolder_Success_Ghost.exit: ; preds = %16, %21
 define hidden i32 @mapi_dissect_struct_OpenFolder_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -12522,7 +12522,7 @@ define hidden i32 @mapi_dissect_struct_TypedString(ptr noundef %0, i32 noundef %
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -12617,7 +12617,7 @@ define hidden i32 @mapi_dissect_enum_OpenMessage_OpenModeFlags(ptr noundef %0, i
 define hidden i32 @mapi_dissect_struct_OpenMessage_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -12739,7 +12739,7 @@ define hidden i32 @mapi_dissect_enum_addr_type(ptr noundef %0, i32 noundef %1, p
 define hidden i32 @mapi_dissect_struct_RecipExchange(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -12771,7 +12771,7 @@ define hidden i32 @mapi_dissect_struct_RecipExchange(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_RecipSMTP(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -12795,7 +12795,7 @@ define hidden i32 @mapi_dissect_struct_RecipientRow(ptr noundef %0, i32 noundef 
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 2, !range !10, !noundef !11
   store i8 1, ptr %14, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %16
@@ -12887,7 +12887,7 @@ define hidden i32 @mapi_dissect_struct_OpenMessage_recipients(ptr noundef %0, i3
   %9 = alloca i16, align 2
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -12924,7 +12924,7 @@ define hidden i32 @mapi_dissect_struct_OpenMessage_recipients(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_OpenMessage_Success(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -12949,7 +12949,7 @@ define hidden i32 @mapi_dissect_struct_OpenMessage_Success(ptr noundef %0, i32 n
   %24 = load i32, ptr @hf_mapi_OpenMessage_Success_ColumnCount, align 4
   %25 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.062, ptr noundef %4, ptr noundef %5, i32 noundef %24, i32 noundef 0)
   %26 = load i32, ptr @hf_mapi_OpenMessage_Success_RecipientColumns, align 4
-  %27 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %27 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.062, null
   br i1 %.not.i.i, label %mapi_dissect_element_OpenMessage_Success_RecipientColumns.exit, label %28
@@ -12982,7 +12982,7 @@ mapi_dissect_element_OpenMessage_Success_RecipientColumns.exit: ; preds = %15, %
 define hidden i32 @mapi_dissect_struct_OpenMessage_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -13065,7 +13065,7 @@ define hidden i32 @mapi_dissect_bitmap_TableFlags(ptr noundef %0, i32 noundef %1
 define hidden i32 @mapi_dissect_struct_GetHierarchyTable_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -13126,7 +13126,7 @@ mapi_dissect_element_GetHierarchyTable_req_TableFlags.exit: ; preds = %33, %36
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetHierarchyTable_repl_success(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13152,7 +13152,7 @@ define hidden i32 @mapi_dissect_struct_GetHierarchyTable_repl_success(ptr nounde
 define hidden i32 @mapi_dissect_struct_GetHierarchyTable_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -13176,7 +13176,7 @@ define hidden i32 @mapi_dissect_struct_GetHierarchyTable_repl(ptr noundef %0, i3
   br i1 %.not.i.i, label %.thread20.i.i, label %22
 
 .thread20.i.i:                                    ; preds = %16
-  %21 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   br label %mapi_dissect_element_GetHierarchyTable_repl_repl.exit
 
@@ -13184,7 +13184,7 @@ define hidden i32 @mapi_dissect_struct_GetHierarchyTable_repl(ptr noundef %0, i3
   %23 = load i32, ptr @ett_mapi_GetHierarchyTable_repl_status, align 4
   %24 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %23, ptr noundef nonnull %9, ptr noundef nonnull @.str.6144)
   %25 = load i32, ptr @hf_mapi_GetHierarchyTable_repl_status_Success, align 4
-  %26 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %26 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %mapi_dissect_element_GetHierarchyTable_repl_repl.exit, label %27
@@ -13217,7 +13217,7 @@ mapi_dissect_element_GetHierarchyTable_repl_repl.exit: ; preds = %.thread20.i.i,
 define hidden i32 @mapi_dissect_struct_GetContentsTable_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -13278,7 +13278,7 @@ mapi_dissect_element_GetContentsTable_req_TableFlags.exit: ; preds = %33, %36
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetContentsTable_repl_success(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13304,7 +13304,7 @@ define hidden i32 @mapi_dissect_struct_GetContentsTable_repl_success(ptr noundef
 define hidden i32 @mapi_dissect_struct_GetContentsTable_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -13328,7 +13328,7 @@ define hidden i32 @mapi_dissect_struct_GetContentsTable_repl(ptr noundef %0, i32
   br i1 %.not.i.i, label %.thread20.i.i, label %22
 
 .thread20.i.i:                                    ; preds = %16
-  %21 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   br label %mapi_dissect_element_GetContentsTable_repl_repl.exit
 
@@ -13336,7 +13336,7 @@ define hidden i32 @mapi_dissect_struct_GetContentsTable_repl(ptr noundef %0, i32
   %23 = load i32, ptr @ett_mapi_GetContentsTable_repl_status, align 4
   %24 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %23, ptr noundef nonnull %9, ptr noundef nonnull @.str.6145)
   %25 = load i32, ptr @hf_mapi_GetContentsTable_repl_status_Success, align 4
-  %26 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %26 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %mapi_dissect_element_GetContentsTable_repl_repl.exit, label %27
@@ -13368,7 +13368,7 @@ mapi_dissect_element_GetContentsTable_repl_repl.exit: ; preds = %.thread20.i.i, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CreateMessage_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13404,7 +13404,7 @@ define hidden i32 @mapi_dissect_struct_CreateMessage_req(ptr noundef %0, i32 nou
 define hidden i32 @mapi_dissect_struct_CreateMessage_repl_success(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -13445,7 +13445,7 @@ mapi_dissect_element_CreateMessage_repl_success_MessageId.exit: ; preds = %16, %
 define hidden i32 @mapi_dissect_struct_CreateMessage_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -13490,7 +13490,7 @@ mapi_dissect_element_CreateMessage_repl_repl.exit: ; preds = %21, %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetProps_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13524,7 +13524,7 @@ define hidden i32 @mapi_dissect_struct_GetProps_req(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetProps_repl_success(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13552,7 +13552,7 @@ define hidden i32 @mapi_dissect_struct_GetProps_repl_success(ptr noundef %0, i32
 define hidden i32 @mapi_dissect_struct_GetProps_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -13597,7 +13597,7 @@ mapi_dissect_element_GetProps_repl_repl.exit:     ; preds = %21, %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetPropsAll_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13628,7 +13628,7 @@ define hidden i32 @mapi_dissect_struct_GetPropsAll_req(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetPropsAll_repl_success(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %mapi_dissect_element_GetPropsAll_repl_success_properties.exit, label %11
@@ -13638,7 +13638,7 @@ define hidden i32 @mapi_dissect_struct_GetPropsAll_repl_success(ptr noundef %0, 
   %13 = load i32, ptr @ett_mapi_GetPropsAll_repl_success, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
   %15 = load i32, ptr @hf_mapi_GetPropsAll_repl_success_properties, align 4
-  %16 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %16 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %mapi_dissect_element_GetPropsAll_repl_success_properties.exit, label %17
@@ -13669,7 +13669,7 @@ mapi_dissect_element_GetPropsAll_repl_success_properties.exit: ; preds = %8, %11
 define hidden i32 @mapi_dissect_struct_GetPropsAll_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -13714,7 +13714,7 @@ mapi_dissect_element_GetPropsAll_repl_repl.exit:  ; preds = %21, %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetPropList_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13741,7 +13741,7 @@ define hidden i32 @mapi_dissect_struct_GetPropList_req(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetPropList_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13769,7 +13769,7 @@ define hidden i32 @mapi_dissect_struct_PropertyProblem(ptr noundef %0, i32 nound
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -13804,7 +13804,7 @@ define hidden i32 @mapi_dissect_struct_PropertyProblem(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetProps_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13823,7 +13823,7 @@ define hidden i32 @mapi_dissect_struct_SetProps_req(ptr noundef %0, i32 noundef 
   %18 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
   %20 = load i32, ptr @hf_mapi_SetProps_req_values, align 4
-  %21 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_SetProps_req_values.exit, label %22
@@ -13852,7 +13852,7 @@ mapi_dissect_element_SetProps_req_values.exit:    ; preds = %15, %22
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetProps_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13878,7 +13878,7 @@ define hidden i32 @mapi_dissect_struct_SetProps_repl(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_DeleteProps_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13908,7 +13908,7 @@ define hidden i32 @mapi_dissect_struct_DeleteProps_req(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_DeleteProps_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13960,7 +13960,7 @@ define hidden i32 @mapi_dissect_enum_SaveFlags(ptr noundef %0, i32 noundef %1, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SaveChangesMessage_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -13991,7 +13991,7 @@ define hidden i32 @mapi_dissect_struct_SaveChangesMessage_req(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SaveChangesMessage_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14018,7 +14018,7 @@ define hidden i32 @mapi_dissect_struct_SaveChangesMessage_repl(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_RemoveAllRecipients_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14047,7 +14047,7 @@ define hidden i32 @mapi_dissect_struct_RemoveAllRecipients_req(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_RemoveAllRecipients_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -14093,7 +14093,7 @@ define hidden i32 @mapi_dissect_enum_modrecip(ptr noundef %0, i32 noundef %1, pt
 define hidden i32 @mapi_dissect_struct_ModifyRecipientRow(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -14125,7 +14125,7 @@ define hidden i32 @mapi_dissect_struct_ModifyRecipientRow(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ModifyRecipients_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14158,7 +14158,7 @@ define hidden i32 @mapi_dissect_struct_ModifyRecipients_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_ModifyRecipients_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -14177,7 +14177,7 @@ define hidden noundef i32 @mapi_dissect_struct_ModifyRecipients_repl(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ReadRecipients_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14209,7 +14209,7 @@ define hidden i32 @mapi_dissect_struct_ReadRecipients_req(ptr noundef %0, i32 no
 define hidden i32 @mapi_dissect_struct_ReadRecipientRow(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -14245,7 +14245,7 @@ define hidden i32 @mapi_dissect_struct_ReadRecipientRow(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ReadRecipients_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14272,7 +14272,7 @@ define hidden i32 @mapi_dissect_struct_ReadRecipients_repl(ptr noundef %0, i32 n
 define hidden i32 @mapi_dissect_struct_OpenRecipientRow(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -14310,7 +14310,7 @@ define hidden i32 @mapi_dissect_struct_OpenRecipientRow(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ReloadCachedInformation_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14335,7 +14335,7 @@ define hidden i32 @mapi_dissect_struct_ReloadCachedInformation_req(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ReloadCachedInformation_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14358,7 +14358,7 @@ define hidden i32 @mapi_dissect_struct_ReloadCachedInformation_repl(ptr noundef 
   %22 = load i32, ptr @hf_mapi_ReloadCachedInformation_repl_RecipientCount, align 4
   %23 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
   %24 = load i32, ptr @hf_mapi_ReloadCachedInformation_repl_RecipientColumns, align 4
-  %25 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %25 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.056, null
   br i1 %.not.i.i, label %mapi_dissect_element_ReloadCachedInformation_repl_RecipientColumns.exit, label %26
@@ -14428,7 +14428,7 @@ define hidden i32 @mapi_dissect_bitmap_MSGFLAG_READ(ptr noundef %0, i32 noundef 
 define hidden i32 @mapi_dissect_struct_SetMessageReadFlag_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -14493,7 +14493,7 @@ define hidden i32 @mapi_dissect_struct_SetMessageReadFlag_repl(ptr noundef %0, i
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -14600,7 +14600,7 @@ define hidden i32 @mapi_dissect_enum_TableStatus(ptr noundef %0, i32 noundef %1,
 define hidden i32 @mapi_dissect_struct_SetColumns_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -14636,7 +14636,7 @@ define hidden i32 @mapi_dissect_struct_SetColumns_req(ptr noundef %0, i32 nounde
 define hidden i32 @mapi_dissect_struct_SetColumns_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -14718,7 +14718,7 @@ define hidden i32 @mapi_dissect_struct_SSortOrder(ptr noundef %0, i32 noundef %1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -14751,7 +14751,7 @@ define hidden i32 @mapi_dissect_struct_SSortOrder(ptr noundef %0, i32 noundef %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SSortOrderSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14781,7 +14781,7 @@ define hidden i32 @mapi_dissect_struct_SSortOrderSet(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SortTable_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14813,7 +14813,7 @@ define hidden i32 @mapi_dissect_struct_SortTable_req(ptr noundef %0, i32 noundef
 define hidden i32 @mapi_dissect_struct_SortTable_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -14841,7 +14841,7 @@ define hidden i32 @mapi_dissect_struct_SortTable_repl(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SAndRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14867,7 +14867,7 @@ define hidden i32 @mapi_dissect_struct_SAndRestriction(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SOrRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -14893,7 +14893,7 @@ define hidden i32 @mapi_dissect_struct_SOrRestriction(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SNotRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %11
@@ -14903,7 +14903,7 @@ define hidden i32 @mapi_dissect_struct_SNotRestriction(ptr noundef %0, i32 nound
   %13 = load i32, ptr @ett_mapi_mapi_SNotRestriction, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
   %15 = load i32, ptr @hf_mapi_mapi_SNotRestriction_res, align 4
-  %16 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %16 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.thread, label %17
@@ -14928,7 +14928,7 @@ define hidden i32 @mapi_dissect_struct_SNotRestriction(ptr noundef %0, i32 nound
   %24 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i, ptr noundef %2, ptr noundef %.020.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = add nuw nsw i32 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %25, 32768
-  br i1 %exitcond.not.i.i.i, label %mapi_dissect_element_SNotRestriction_res.exit, label %22, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i, label %mapi_dissect_element_SNotRestriction_res.exit, label %22, !llvm.loop !16
 
 mapi_dissect_element_SNotRestriction_res.exit:    ; preds = %22
   %26 = sub i32 %24, %1
@@ -14944,7 +14944,7 @@ define hidden i32 @mapi_dissect_bitmap_fuzzyLevel(ptr noundef %0, i32 noundef %1
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 3
   %.not = icmp eq i32 %13, 0
@@ -14988,7 +14988,7 @@ define hidden i32 @mapi_dissect_bitmap_fuzzyLevel(ptr noundef %0, i32 noundef %1
 define hidden i32 @mapi_dissect_struct_SContentRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -15048,7 +15048,7 @@ define hidden i32 @mapi_dissect_struct_SBitmaskRestriction(ptr noundef %0, i32 n
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -15111,7 +15111,7 @@ define hidden i32 @mapi_dissect_struct_SSizeRestriction(ptr noundef %0, i32 noun
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -15147,7 +15147,7 @@ define hidden i32 @mapi_dissect_struct_SSizeRestriction(ptr noundef %0, i32 noun
 define hidden i32 @mapi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -15182,7 +15182,7 @@ define hidden i32 @mapi_dissect_struct_SCompareProps(ptr noundef %0, i32 noundef
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %13 = load i8, ptr %12, align 2, !range !9, !noundef !10
+  %13 = load i8, ptr %12, align 2, !range !10, !noundef !11
   store i8 1, ptr %12, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %14
@@ -15221,7 +15221,7 @@ define hidden i32 @mapi_dissect_struct_SCompareProps(ptr noundef %0, i32 noundef
 define hidden i32 @mapi_dissect_struct_SExistRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -15250,7 +15250,7 @@ define hidden i32 @mapi_dissect_struct_SExistRestriction(ptr noundef %0, i32 nou
 define hidden i32 @mapi_dissect_struct_SSubRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -15280,7 +15280,7 @@ define hidden i32 @mapi_dissect_struct_SSubRestriction(ptr noundef %0, i32 nound
 define hidden i32 @mapi_dissect_struct_SCommentRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -15323,7 +15323,7 @@ mapi_dissect_element_SCommentRestriction_Restriction.exit: ; preds = %16, %22
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15349,7 +15349,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SRestriction_and(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15375,7 +15375,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction_and(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SRestriction_or(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15401,7 +15401,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction_or(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SRestriction_sub(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15427,7 +15427,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction_sub(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SRestriction_comment(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15453,7 +15453,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction_comment(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_Restrict_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15481,7 +15481,7 @@ define hidden i32 @mapi_dissect_struct_Restrict_req(ptr noundef %0, i32 noundef 
 define hidden i32 @mapi_dissect_struct_Restrict_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -15536,7 +15536,7 @@ define hidden i32 @mapi_dissect_enum_QueryRowsFlags(ptr noundef %0, i32 noundef 
 define hidden i32 @mapi_dissect_struct_QueryRows_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -15572,7 +15572,7 @@ define hidden i32 @mapi_dissect_struct_QueryRows_req(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_QueryRows_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15601,7 +15601,7 @@ define hidden i32 @mapi_dissect_struct_QueryRows_repl(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetStatus_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15629,7 +15629,7 @@ define hidden i32 @mapi_dissect_struct_GetStatus_req(ptr noundef %0, i32 noundef
 define hidden i32 @mapi_dissect_struct_GetStatus_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -15657,7 +15657,7 @@ define hidden i32 @mapi_dissect_struct_GetStatus_repl(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_QueryPosition_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15684,7 +15684,7 @@ define hidden i32 @mapi_dissect_struct_QueryPosition_req(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_QueryPosition_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15738,7 +15738,7 @@ define hidden i32 @mapi_dissect_enum_BOOKMARK(ptr noundef %0, i32 noundef %1, pt
 define hidden i32 @mapi_dissect_struct_SeekRow_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -15774,7 +15774,7 @@ define hidden i32 @mapi_dissect_struct_SeekRow_req(ptr noundef %0, i32 noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SeekRow_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15801,7 +15801,7 @@ define hidden i32 @mapi_dissect_struct_SeekRow_repl(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SeekRowBookmark_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15820,7 +15820,7 @@ define hidden i32 @mapi_dissect_struct_SeekRowBookmark_req(ptr noundef %0, i32 n
   %18 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
   %20 = load i32, ptr @hf_mapi_SeekRowBookmark_req_Bookmark, align 4
-  %21 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.044, null
   br i1 %.not.i.i, label %mapi_dissect_element_SeekRowBookmark_req_Bookmark.exit, label %22
@@ -15853,7 +15853,7 @@ mapi_dissect_element_SeekRowBookmark_req_Bookmark.exit: ; preds = %15, %22
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SeekRowBookmark_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15882,7 +15882,7 @@ define hidden i32 @mapi_dissect_struct_SeekRowBookmark_repl(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SeekRowApprox_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15913,7 +15913,7 @@ define hidden i32 @mapi_dissect_struct_SeekRowApprox_req(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SeekRowApprox_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -15932,7 +15932,7 @@ define hidden noundef i32 @mapi_dissect_struct_SeekRowApprox_repl(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CreateBookmark_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -15959,7 +15959,7 @@ define hidden i32 @mapi_dissect_struct_CreateBookmark_req(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CreateBookmark_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %mapi_dissect_element_CreateBookmark_repl_bookmark.exit, label %11
@@ -15969,7 +15969,7 @@ define hidden i32 @mapi_dissect_struct_CreateBookmark_repl(ptr noundef %0, i32 n
   %13 = load i32, ptr @ett_mapi_CreateBookmark_repl, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
   %15 = load i32, ptr @hf_mapi_CreateBookmark_repl_bookmark, align 4
-  %16 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %16 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %mapi_dissect_element_CreateBookmark_repl_bookmark.exit, label %17
@@ -16082,7 +16082,7 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_req(ptr noundef %0, i32 noun
   %12 = alloca i8, align 1
   %13 = alloca i8, align 1
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 2, !range !10, !noundef !11
   store i8 1, ptr %14, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %16
@@ -16193,7 +16193,7 @@ mapi_dissect_element_CreateFolder_req_FolderComment.exit: ; preds = %49, %50, %5
 define hidden i32 @mapi_dissect_struct_CreateFolder_GhostInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -16236,7 +16236,7 @@ mapi_dissect_element_CreateFolder_GhostInfo_Ghost.exit: ; preds = %16, %21
 define hidden i32 @mapi_dissect_struct_CreateFolder_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -16316,7 +16316,7 @@ define hidden i32 @mapi_dissect_bitmap_DeleteFolderFlags(ptr noundef %0, i32 nou
 define hidden i32 @mapi_dissect_struct_DeleteFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -16377,7 +16377,7 @@ mapi_dissect_element_DeleteFolder_req_DeleteFolderFlags.exit: ; preds = %31, %34
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_DeleteFolder_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16402,7 +16402,7 @@ define hidden i32 @mapi_dissect_struct_DeleteFolder_repl(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_DeleteMessages_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16436,7 +16436,7 @@ define hidden i32 @mapi_dissect_struct_DeleteMessages_req(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_DeleteMessages_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16461,7 +16461,7 @@ define hidden i32 @mapi_dissect_struct_DeleteMessages_repl(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetMessageStatus_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16492,7 +16492,7 @@ define hidden i32 @mapi_dissect_bitmap_ulMessageStatus(ptr noundef %0, i32 nound
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 3
   %.not = icmp eq i32 %13, 0
@@ -16535,7 +16535,7 @@ define hidden i32 @mapi_dissect_bitmap_ulMessageStatus(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetMessageStatus_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16568,7 +16568,7 @@ define hidden i32 @mapi_dissect_struct_SetMessageStatus_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetMessageStatus_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16594,7 +16594,7 @@ define hidden i32 @mapi_dissect_struct_SetMessageStatus_repl(ptr noundef %0, i32
 define hidden i32 @mapi_dissect_struct_GetAttachmentTable_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -16655,7 +16655,7 @@ mapi_dissect_element_GetAttachmentTable_req_TableFlags.exit: ; preds = %33, %36
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_GetAttachmentTable_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -16701,7 +16701,7 @@ define hidden i32 @mapi_dissect_enum_OpenAttachmentFlags(ptr noundef %0, i32 nou
 define hidden i32 @mapi_dissect_struct_OpenAttach_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -16737,7 +16737,7 @@ define hidden i32 @mapi_dissect_struct_OpenAttach_req(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_OpenAttach_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -16756,7 +16756,7 @@ define hidden noundef i32 @mapi_dissect_struct_OpenAttach_repl(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CreateAttach_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16785,7 +16785,7 @@ define hidden i32 @mapi_dissect_struct_CreateAttach_req(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CreateAttach_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16810,7 +16810,7 @@ define hidden i32 @mapi_dissect_struct_CreateAttach_repl(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_DeleteAttach_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16839,7 +16839,7 @@ define hidden i32 @mapi_dissect_struct_DeleteAttach_req(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_DeleteAttach_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -16859,7 +16859,7 @@ define hidden noundef i32 @mapi_dissect_struct_DeleteAttach_repl(ptr noundef %0,
 define hidden i32 @mapi_dissect_struct_SaveChangesAttachment_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -16893,7 +16893,7 @@ define hidden i32 @mapi_dissect_struct_SaveChangesAttachment_req(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SaveChangesAttachment_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -16912,7 +16912,7 @@ define hidden noundef i32 @mapi_dissect_struct_SaveChangesAttachment_repl(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetReceiveFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16943,7 +16943,7 @@ define hidden i32 @mapi_dissect_struct_SetReceiveFolder_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SetReceiveFolder_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -16962,7 +16962,7 @@ define hidden noundef i32 @mapi_dissect_struct_SetReceiveFolder_repl(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetReceiveFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -16991,7 +16991,7 @@ define hidden i32 @mapi_dissect_struct_GetReceiveFolder_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetReceiveFolder_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17046,7 +17046,7 @@ define hidden i32 @mapi_dissect_struct_RegisterNotification_req(ptr noundef %0, 
   %9 = alloca ptr, align 8
   %10 = alloca i16, align 2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -17100,7 +17100,7 @@ mapi_dissect_element_RegisterNotification_req_u.exit: ; preds = %28, %17
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_RegisterNotification_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -17121,7 +17121,7 @@ define hidden i32 @mapi_dissect_bitmap_MsgFlags(ptr noundef %0, i32 noundef %1, 
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 3
   %.not = icmp eq i32 %13, 0
@@ -17164,7 +17164,7 @@ define hidden i32 @mapi_dissect_bitmap_MsgFlags(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17189,7 +17189,7 @@ define hidden i32 @mapi_dissect_struct_GID(ptr noundef %0, i32 noundef %1, ptr n
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %21, 6
-  br i1 %exitcond.not.i, label %mapi_dissect_element_GID_GlobalCounter.exit, label %18, !llvm.loop !18
+  br i1 %exitcond.not.i, label %mapi_dissect_element_GID_GlobalCounter.exit, label %18, !llvm.loop !19
 
 mapi_dissect_element_GID_GlobalCounter.exit:      ; preds = %18
   %22 = sub i32 %20, %1
@@ -17228,7 +17228,7 @@ define hidden i32 @mapi_dissect_enum_RichTableNotificationType(ptr noundef %0, i
 define hidden i32 @mapi_dissect_struct_NewMailNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -17277,7 +17277,7 @@ mapi_dissect_element_NewMailNotification_MessageClass.exit: ; preds = %25, %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FolderCreatedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17307,7 +17307,7 @@ define hidden i32 @mapi_dissect_struct_FolderCreatedNotification(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FolderDeletedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17334,7 +17334,7 @@ define hidden i32 @mapi_dissect_struct_FolderDeletedNotification(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FolderModifiedNotification_10(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17362,7 +17362,7 @@ define hidden i32 @mapi_dissect_struct_FolderModifiedNotification_10(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FolderMoveCopyNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17393,7 +17393,7 @@ define hidden i32 @mapi_dissect_struct_FolderMoveCopyNotification(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SearchCompleteNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17418,7 +17418,7 @@ define hidden i32 @mapi_dissect_struct_SearchCompleteNotification(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_HierarchyRowAddedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17447,7 +17447,7 @@ define hidden i32 @mapi_dissect_struct_HierarchyRowAddedNotification(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_HierarchyRowDeletedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17472,7 +17472,7 @@ define hidden i32 @mapi_dissect_struct_HierarchyRowDeletedNotification(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_HierarchyRowModifiedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17503,7 +17503,7 @@ define hidden i32 @mapi_dissect_struct_HierarchyTableChange(ptr noundef %0, i32 
   %9 = alloca ptr, align 8
   %10 = alloca i16, align 2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -17548,7 +17548,7 @@ define hidden i32 @mapi_dissect_struct_HierarchyTableChange(ptr noundef %0, i32 
 
 28:                                               ; preds = %24
   %29 = load i32, ptr @hf_mapi_HierarchyTableChangeUnion_HierarchyRowDeletedNotification, align 4
-  %30 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %30 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not.i.i.i.i = icmp eq ptr %.027.i.i, null
   br i1 %.not.i.i.i.i, label %mapi_dissect_element_HierarchyTableChangeUnion_HierarchyRowDeletedNotification.exit.i.i, label %31
@@ -17589,7 +17589,7 @@ mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.exit: ; pred
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_IcsNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17617,7 +17617,7 @@ define hidden i32 @mapi_dissect_struct_IcsNotification(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FolderModifiedNotification_1010(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17647,7 +17647,7 @@ define hidden i32 @mapi_dissect_struct_FolderModifiedNotification_1010(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FolderModifiedNotification_2010(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17677,7 +17677,7 @@ define hidden i32 @mapi_dissect_struct_FolderModifiedNotification_2010(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FolderModifiedNotification_3010(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17709,7 +17709,7 @@ define hidden i32 @mapi_dissect_struct_FolderModifiedNotification_3010(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_MessageCreatedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17739,7 +17739,7 @@ define hidden i32 @mapi_dissect_struct_MessageCreatedNotification(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_MessageDeletedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17766,7 +17766,7 @@ define hidden i32 @mapi_dissect_struct_MessageDeletedNotification(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_MessageModifiedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17796,7 +17796,7 @@ define hidden i32 @mapi_dissect_struct_MessageModifiedNotification(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_MessageMoveCopyNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17827,7 +17827,7 @@ define hidden i32 @mapi_dissect_struct_MessageMoveCopyNotification(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ContentsRowAddedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17864,7 +17864,7 @@ define hidden i32 @mapi_dissect_struct_ContentsRowAddedNotification(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ContentsRowDeletedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17893,7 +17893,7 @@ define hidden i32 @mapi_dissect_struct_ContentsRowDeletedNotification(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ContentsRowModifiedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -17932,7 +17932,7 @@ define hidden i32 @mapi_dissect_struct_ContentsTableChange(ptr noundef %0, i32 n
   %9 = alloca ptr, align 8
   %10 = alloca i16, align 2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -18000,7 +18000,7 @@ mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.exit: ; preds 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SearchMessageCreatedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18032,7 +18032,7 @@ define hidden i32 @mapi_dissect_struct_SearchMessageCreatedNotification(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SearchMessageRemovedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18061,7 +18061,7 @@ define hidden i32 @mapi_dissect_struct_SearchMessageRemovedNotification(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SearchMessageModifiedNotification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18093,7 +18093,7 @@ define hidden i32 @mapi_dissect_struct_Notify_repl(ptr noundef %0, i32 noundef %
   %9 = alloca ptr, align 8
   %10 = alloca i16, align 2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -18187,7 +18187,7 @@ define hidden i32 @mapi_dissect_struct_Notify_repl(ptr noundef %0, i32 noundef %
 
 47:                                               ; preds = %28
   %48 = load i32, ptr @hf_mapi_NotificationData_SearchCompleteNotification, align 4
-  %49 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %49 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not.i.i.i.i = icmp eq ptr %.0147.i.i, null
   br i1 %.not.i.i.i.i, label %mapi_dissect_element_NotificationData_SearchCompleteNotification.exit.i.i, label %50
@@ -18331,7 +18331,7 @@ define hidden i32 @mapi_dissect_struct_OpenStream_req(ptr noundef %0, i32 nounde
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -18370,7 +18370,7 @@ define hidden i32 @mapi_dissect_struct_OpenStream_req(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_OpenStream_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18396,7 +18396,7 @@ define hidden i32 @mapi_dissect_struct_OpenStream_repl(ptr noundef %0, i32 nound
 define hidden i32 @mapi_dissect_struct_ReadStream_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -18440,7 +18440,7 @@ mapi_dissect_element_ReadStream_req_MaximumByteCount.exit: ; preds = %16, %23
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ReadStream_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -18473,7 +18473,7 @@ define hidden i32 @mapi_dissect_struct_ReadStream_repl(ptr noundef %0, i32 nound
   br i1 %.not27, label %35, label %28
 
 28:                                               ; preds = %19
-  %29 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %29 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %30 = trunc nuw i8 %29 to i1
   %31 = and i32 %21, 3
   %.not28 = icmp eq i32 %31, 0
@@ -18493,7 +18493,7 @@ define hidden i32 @mapi_dissect_struct_ReadStream_repl(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_WriteStream_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18522,7 +18522,7 @@ define hidden i32 @mapi_dissect_struct_WriteStream_req(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_WriteStream_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18547,7 +18547,7 @@ define hidden i32 @mapi_dissect_struct_WriteStream_repl(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SeekStream_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18578,7 +18578,7 @@ define hidden i32 @mapi_dissect_struct_SeekStream_req(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SeekStream_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18603,7 +18603,7 @@ define hidden i32 @mapi_dissect_struct_SeekStream_repl(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetStreamSize_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18632,7 +18632,7 @@ define hidden i32 @mapi_dissect_struct_SetStreamSize_req(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SetStreamSize_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -18653,7 +18653,7 @@ define hidden i32 @mapi_dissect_bitmap_SearchFlags(ptr noundef %0, i32 noundef %
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 3
   %.not = icmp eq i32 %13, 0
@@ -18696,7 +18696,7 @@ define hidden i32 @mapi_dissect_bitmap_SearchFlags(ptr noundef %0, i32 noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetSearchCriteria_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18730,7 +18730,7 @@ define hidden i32 @mapi_dissect_struct_SetSearchCriteria_req(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SetSearchCriteria_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -18749,7 +18749,7 @@ define hidden noundef i32 @mapi_dissect_struct_SetSearchCriteria_repl(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetSearchCriteria_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18782,7 +18782,7 @@ define hidden i32 @mapi_dissect_struct_GetSearchCriteria_req(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetSearchCriteria_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18841,7 +18841,7 @@ define hidden i32 @mapi_dissect_enum_SubmitFlags(ptr noundef %0, i32 noundef %1,
 define hidden i32 @mapi_dissect_struct_SubmitMessage_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -18873,7 +18873,7 @@ define hidden i32 @mapi_dissect_struct_SubmitMessage_req(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SubmitMessage_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -18892,7 +18892,7 @@ define hidden noundef i32 @mapi_dissect_struct_SubmitMessage_repl(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_MoveCopyMessages_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18924,7 +18924,7 @@ define hidden i32 @mapi_dissect_struct_MoveCopyMessages_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_MoveCopyMessages_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18949,7 +18949,7 @@ define hidden i32 @mapi_dissect_struct_MoveCopyMessages_repl(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AbortSubmit_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -18980,7 +18980,7 @@ define hidden i32 @mapi_dissect_struct_AbortSubmit_req(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_AbortSubmit_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -19000,7 +19000,7 @@ define hidden noundef i32 @mapi_dissect_struct_AbortSubmit_repl(ptr noundef %0, 
 define hidden i32 @mapi_dissect_struct_MoveFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -19049,7 +19049,7 @@ mapi_dissect_element_MoveFolder_req_NewFolderName.exit: ; preds = %25, %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_MoveFolder_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19075,7 +19075,7 @@ define hidden i32 @mapi_dissect_struct_MoveFolder_repl(ptr noundef %0, i32 nound
 define hidden i32 @mapi_dissect_struct_CopyFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -19126,7 +19126,7 @@ mapi_dissect_element_CopyFolder_req_NewFolderName.exit: ; preds = %27, %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CopyFolder_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19151,7 +19151,7 @@ define hidden i32 @mapi_dissect_struct_CopyFolder_repl(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_QueryColumnsAll_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19178,7 +19178,7 @@ define hidden i32 @mapi_dissect_struct_QueryColumnsAll_req(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_QueryColumnsAll_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19204,7 +19204,7 @@ define hidden i32 @mapi_dissect_struct_QueryColumnsAll_repl(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_Abort_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19232,7 +19232,7 @@ define hidden i32 @mapi_dissect_struct_Abort_req(ptr noundef %0, i32 noundef %1,
 define hidden i32 @mapi_dissect_struct_Abort_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -19298,7 +19298,7 @@ define hidden i32 @mapi_dissect_bitmap_CopyFlags(ptr noundef %0, i32 noundef %1,
 define hidden i32 @mapi_dissect_struct_CopyTo_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -19351,7 +19351,7 @@ define hidden i32 @mapi_dissect_struct_CopyTo_req(ptr noundef %0, i32 noundef %1
 mapi_dissect_element_CopyTo_req_CopyFlags.exit:   ; preds = %33, %36
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
   %38 = load i32, ptr @hf_mapi_CopyTo_req_ExcludedTags, align 4
-  %39 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %39 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i46 = icmp eq ptr %.044, null
   br i1 %.not.i.i46, label %mapi_dissect_element_CopyTo_req_ExcludedTags.exit, label %40
@@ -19380,7 +19380,7 @@ mapi_dissect_element_CopyTo_req_ExcludedTags.exit: ; preds = %mapi_dissect_eleme
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CopyTo_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19406,7 +19406,7 @@ define hidden i32 @mapi_dissect_struct_CopyTo_repl(ptr noundef %0, i32 noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CopyToStream_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19433,7 +19433,7 @@ define hidden i32 @mapi_dissect_struct_CopyToStream_req(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CopyToStream_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19460,7 +19460,7 @@ define hidden i32 @mapi_dissect_struct_CopyToStream_repl(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CloneStream_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19489,7 +19489,7 @@ define hidden i32 @mapi_dissect_struct_CloneStream_req(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_CloneStream_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -19546,7 +19546,7 @@ define hidden i32 @mapi_dissect_bitmap_PermissionsTableFlags(ptr noundef %0, i32
 define hidden i32 @mapi_dissect_struct_GetPermissionsTable_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -19607,7 +19607,7 @@ mapi_dissect_element_GetPermissionsTable_req_TableFlags.exit: ; preds = %33, %36
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_GetPermissionsTable_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -19664,7 +19664,7 @@ define hidden i32 @mapi_dissect_bitmap_RulesTableFlags(ptr noundef %0, i32 nound
 define hidden i32 @mapi_dissect_struct_GetRulesTable_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -19725,7 +19725,7 @@ mapi_dissect_element_GetRulesTable_req_TableFlags.exit: ; preds = %33, %36
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_GetRulesTable_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -19782,7 +19782,7 @@ define hidden i32 @mapi_dissect_bitmap_ModifyPermissionsFlags(ptr noundef %0, i3
 define hidden i32 @mapi_dissect_struct_PermissionData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -19802,7 +19802,7 @@ define hidden i32 @mapi_dissect_struct_PermissionData(ptr noundef %0, i32 nounde
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
   %19 = load i32, ptr @hf_mapi_PermissionData_lpProps, align 4
-  %20 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %20 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %mapi_dissect_element_PermissionData_lpProps.exit, label %21
@@ -19832,7 +19832,7 @@ mapi_dissect_element_PermissionData_lpProps.exit: ; preds = %16, %21
 define hidden i32 @mapi_dissect_struct_PermissionsData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -19890,7 +19890,7 @@ mapi_dissect_element_PermissionsData_ModifyFlags.exit: ; preds = %27, %30
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ModifyPermissions_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -19919,7 +19919,7 @@ define hidden i32 @mapi_dissect_struct_ModifyPermissions_req(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_ModifyPermissions_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -19939,7 +19939,7 @@ define hidden noundef i32 @mapi_dissect_struct_ModifyPermissions_repl(ptr nounde
 define hidden i32 @mapi_dissect_struct_RuleData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -19959,7 +19959,7 @@ define hidden i32 @mapi_dissect_struct_RuleData(ptr noundef %0, i32 noundef %1, 
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
   %19 = load i32, ptr @hf_mapi_RuleData_PropertyValues, align 4
-  %20 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %20 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %mapi_dissect_element_RuleData_PropertyValues.exit, label %21
@@ -20026,7 +20026,7 @@ define hidden i32 @mapi_dissect_bitmap_ModifyRulesFlag(ptr noundef %0, i32 nound
 define hidden i32 @mapi_dissect_struct_ModifyRules_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -20088,7 +20088,7 @@ mapi_dissect_element_ModifyRules_req_ModifyRulesFlags.exit: ; preds = %31, %34
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_ModifyRules_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -20107,7 +20107,7 @@ define hidden noundef i32 @mapi_dissect_struct_ModifyRules_repl(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetOwningServers_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20136,7 +20136,7 @@ define hidden i32 @mapi_dissect_struct_GetOwningServers_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetOwningServers_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20164,7 +20164,7 @@ define hidden i32 @mapi_dissect_struct_GetOwningServers_repl(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_LongTermIdFromId_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20193,7 +20193,7 @@ define hidden i32 @mapi_dissect_struct_LongTermIdFromId_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_LongTermId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20218,7 +20218,7 @@ define hidden i32 @mapi_dissect_struct_LongTermId(ptr noundef %0, i32 noundef %1
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %21, 6
-  br i1 %exitcond.not.i, label %mapi_dissect_element_LongTermId_GlobalCounter.exit, label %18, !llvm.loop !19
+  br i1 %exitcond.not.i, label %mapi_dissect_element_LongTermId_GlobalCounter.exit, label %18, !llvm.loop !20
 
 mapi_dissect_element_LongTermId_GlobalCounter.exit: ; preds = %18
   %22 = load i32, ptr @hf_mapi_LongTermId_padding, align 4
@@ -20232,7 +20232,7 @@ mapi_dissect_element_LongTermId_GlobalCounter.exit: ; preds = %18
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_LongTermIdFromId_repl_Success(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20258,7 +20258,7 @@ define hidden i32 @mapi_dissect_struct_LongTermIdFromId_repl_Success(ptr noundef
 define hidden i32 @mapi_dissect_struct_LongTermIdFromId_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -20282,7 +20282,7 @@ define hidden i32 @mapi_dissect_struct_LongTermIdFromId_repl(ptr noundef %0, i32
   br i1 %.not.i.i, label %.thread20.i.i, label %22
 
 .thread20.i.i:                                    ; preds = %16
-  %21 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   br label %mapi_dissect_element_LongTermIdFromId_repl_repl.exit
 
@@ -20290,7 +20290,7 @@ define hidden i32 @mapi_dissect_struct_LongTermIdFromId_repl(ptr noundef %0, i32
   %23 = load i32, ptr @ett_mapi_LongTermIdFromId_repl_status, align 4
   %24 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %23, ptr noundef nonnull %9, ptr noundef nonnull @.str.6159)
   %25 = load i32, ptr @hf_mapi_LongTermIdFromId_repl_status_Success, align 4
-  %26 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %26 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %mapi_dissect_element_LongTermIdFromId_repl_repl.exit, label %27
@@ -20322,7 +20322,7 @@ mapi_dissect_element_LongTermIdFromId_repl_repl.exit: ; preds = %.thread20.i.i, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_IdFromLongTermId_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20351,7 +20351,7 @@ define hidden i32 @mapi_dissect_struct_IdFromLongTermId_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_IdFromLongTermId_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20376,7 +20376,7 @@ define hidden i32 @mapi_dissect_struct_IdFromLongTermId_repl(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_PublicFolderIsGhosted_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20406,7 +20406,7 @@ define hidden i32 @mapi_dissect_struct_PublicFolderIsGhosted_req(ptr noundef %0,
 define hidden i32 @mapi_dissect_struct_PublicFolderIsGhosted_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -20473,7 +20473,7 @@ define hidden i32 @mapi_dissect_enum_OpenEmbeddedMessage_OpenModeFlags(ptr nound
 define hidden i32 @mapi_dissect_struct_OpenEmbeddedMessage_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -20509,7 +20509,7 @@ define hidden i32 @mapi_dissect_struct_OpenEmbeddedMessage_req(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_OpenEmbeddedMessage_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20550,7 +20550,7 @@ define hidden i32 @mapi_dissect_struct_OpenEmbeddedMessage_repl(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetSpooler_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20577,7 +20577,7 @@ define hidden i32 @mapi_dissect_struct_SetSpooler_req(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SetSpooler_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -20623,7 +20623,7 @@ define hidden i32 @mapi_dissect_enum_LockState(ptr noundef %0, i32 noundef %1, p
 define hidden i32 @mapi_dissect_struct_SpoolerLockMessage_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -20657,7 +20657,7 @@ define hidden i32 @mapi_dissect_struct_SpoolerLockMessage_req(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SpoolerLockMessage_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -20676,7 +20676,7 @@ define hidden noundef i32 @mapi_dissect_struct_SpoolerLockMessage_repl(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AddressTypes_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20703,7 +20703,7 @@ define hidden i32 @mapi_dissect_struct_AddressTypes_req(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AddressTypes_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20731,7 +20731,7 @@ define hidden i32 @mapi_dissect_struct_AddressTypes_repl(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_TransportSend_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20759,7 +20759,7 @@ define hidden i32 @mapi_dissect_struct_TransportSend_req(ptr noundef %0, i32 nou
 define hidden i32 @mapi_dissect_struct_TransportSend_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -20781,7 +20781,7 @@ define hidden i32 @mapi_dissect_struct_TransportSend_repl(ptr noundef %0, i32 no
   br i1 %.not.i.i, label %.thread20.i.i, label %20
 
 .thread20.i.i:                                    ; preds = %16
-  %19 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %19 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   br label %mapi_dissect_element_TransportSend_repl_properties.exit
 
@@ -20789,7 +20789,7 @@ define hidden i32 @mapi_dissect_struct_TransportSend_repl(ptr noundef %0, i32 no
   %21 = load i32, ptr @ett_mapi_TransportSend_lpProps, align 4
   %22 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.026, ptr noundef %0, i32 noundef %18, i32 noundef -1, i32 noundef %21, ptr noundef nonnull %9, ptr noundef nonnull @.str.6160)
   %23 = load i32, ptr @hf_mapi_TransportSend_lpProps_lpProps, align 4
-  %24 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %24 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %mapi_dissect_element_TransportSend_repl_properties.exit, label %25
@@ -20822,7 +20822,7 @@ mapi_dissect_element_TransportSend_repl_properties.exit: ; preds = %.thread20.i.
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FastTransferSourceGetBuffer_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -20878,7 +20878,7 @@ define hidden i32 @mapi_dissect_enum_TransferStatus(ptr noundef %0, i32 noundef 
 define hidden i32 @mapi_dissect_struct_FastTransferSourceGetBuffer_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -20942,7 +20942,7 @@ define hidden i32 @mapi_dissect_struct_FindRow_req(ptr noundef %0, i32 noundef %
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -20973,7 +20973,7 @@ define hidden i32 @mapi_dissect_struct_FindRow_req(ptr noundef %0, i32 noundef %
   %27 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
   %28 = load i32, ptr @hf_mapi_FindRow_req_bookmark, align 4
-  %29 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %29 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not.i.i = icmp eq ptr %.050, null
   br i1 %.not.i.i, label %mapi_dissect_element_FindRow_req_bookmark.exit, label %30
@@ -21002,7 +21002,7 @@ mapi_dissect_element_FindRow_req_bookmark.exit:   ; preds = %17, %30
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FindRow_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21031,7 +21031,7 @@ define hidden i32 @mapi_dissect_struct_FindRow_repl(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_Progress_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21060,7 +21060,7 @@ define hidden i32 @mapi_dissect_struct_Progress_req(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_Progress_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21087,7 +21087,7 @@ define hidden i32 @mapi_dissect_struct_Progress_repl(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_TransportNewMail_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21122,7 +21122,7 @@ define hidden i32 @mapi_dissect_struct_TransportNewMail_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_TransportNewMail_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -21141,7 +21141,7 @@ define hidden noundef i32 @mapi_dissect_struct_TransportNewMail_repl(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetValidAttachments_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21168,7 +21168,7 @@ define hidden i32 @mapi_dissect_struct_GetValidAttachments_req(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetValidAttachments_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21220,7 +21220,7 @@ define hidden i32 @mapi_dissect_enum_ulKind(ptr noundef %0, i32 noundef %1, ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21249,7 +21249,7 @@ define hidden i32 @mapi_dissect_struct_MAPINAMEID(ptr noundef %0, i32 noundef %1
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -21313,7 +21313,7 @@ mapi_dissect_element_MAPINAMEID_kind.exit:        ; preds = %26, %27, %30
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetNamesFromIDs_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21343,7 +21343,7 @@ define hidden i32 @mapi_dissect_struct_GetNamesFromIDs_req(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetNamesFromIDs_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21369,7 +21369,7 @@ define hidden i32 @mapi_dissect_struct_GetNamesFromIDs_repl(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetIDsFromNames_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21401,7 +21401,7 @@ define hidden i32 @mapi_dissect_struct_GetIDsFromNames_req(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetIDsFromNames_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21427,7 +21427,7 @@ define hidden i32 @mapi_dissect_struct_GetIDsFromNames_repl(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_UpdateDeferredActionMessages_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21446,7 +21446,7 @@ define hidden i32 @mapi_dissect_struct_UpdateDeferredActionMessages_req(ptr noun
   %18 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
   %20 = load i32, ptr @hf_mapi_UpdateDeferredActionMessages_req_ServerEntryId, align 4
-  %21 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.038, null
   br i1 %.not.i.i, label %mapi_dissect_element_UpdateDeferredActionMessages_req_ServerEntryId.exit, label %22
@@ -21493,7 +21493,7 @@ mapi_dissect_element_UpdateDeferredActionMessages_req_ClientEntryId.exit: ; pred
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_UpdateDeferredActionMessages_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -21512,7 +21512,7 @@ define hidden noundef i32 @mapi_dissect_struct_UpdateDeferredActionMessages_repl
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_EmptyFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21543,7 +21543,7 @@ define hidden i32 @mapi_dissect_struct_EmptyFolder_req(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_EmptyFolder_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21568,7 +21568,7 @@ define hidden i32 @mapi_dissect_struct_EmptyFolder_repl(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ExpandRow_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21599,7 +21599,7 @@ define hidden i32 @mapi_dissect_struct_ExpandRow_req(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ExpandRow_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21628,7 +21628,7 @@ define hidden i32 @mapi_dissect_struct_ExpandRow_repl(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CollapseRow_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21657,7 +21657,7 @@ define hidden i32 @mapi_dissect_struct_CollapseRow_req(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CollapseRow_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21682,7 +21682,7 @@ define hidden i32 @mapi_dissect_struct_CollapseRow_repl(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_LockRegionStream_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21715,7 +21715,7 @@ define hidden i32 @mapi_dissect_struct_LockRegionStream_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_LockRegionStream_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -21734,7 +21734,7 @@ define hidden noundef i32 @mapi_dissect_struct_LockRegionStream_repl(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_UnlockRegionStream_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21767,7 +21767,7 @@ define hidden i32 @mapi_dissect_struct_UnlockRegionStream_req(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_UnlockRegionStream_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -21786,7 +21786,7 @@ define hidden noundef i32 @mapi_dissect_struct_UnlockRegionStream_repl(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CommitStream_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21813,7 +21813,7 @@ define hidden i32 @mapi_dissect_struct_CommitStream_req(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_CommitStream_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -21832,7 +21832,7 @@ define hidden noundef i32 @mapi_dissect_struct_CommitStream_repl(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetStreamSize_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21859,7 +21859,7 @@ define hidden i32 @mapi_dissect_struct_GetStreamSize_req(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetStreamSize_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -21923,7 +21923,7 @@ define hidden i32 @mapi_dissect_struct_QueryNamedProperties_req(ptr noundef %0, 
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -21999,7 +21999,7 @@ mapi_dissect_element_QueryNamedProperties_req_PropertyGuid.exit: ; preds = %mapi
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_QueryNamedProperties_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22026,7 +22026,7 @@ define hidden i32 @mapi_dissect_struct_QueryNamedProperties_repl(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetPerUserLongTermIds_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22055,7 +22055,7 @@ define hidden i32 @mapi_dissect_struct_GetPerUserLongTermIds_req(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetPerUserLongTermIds_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22081,7 +22081,7 @@ define hidden i32 @mapi_dissect_struct_GetPerUserLongTermIds_repl(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetPerUserGuid_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22110,7 +22110,7 @@ define hidden i32 @mapi_dissect_struct_GetPerUserGuid_req(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetPerUserGuid_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22135,7 +22135,7 @@ define hidden i32 @mapi_dissect_struct_GetPerUserGuid_repl(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ReadPerUserInformation_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22162,7 +22162,7 @@ define hidden i32 @mapi_dissect_struct_ReadPerUserInformation_req(ptr noundef %0
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %23, 24
-  br i1 %exitcond.not.i, label %mapi_dissect_element_ReadPerUserInformation_req_FolderId.exit, label %20, !llvm.loop !20
+  br i1 %exitcond.not.i, label %mapi_dissect_element_ReadPerUserInformation_req_FolderId.exit, label %20, !llvm.loop !21
 
 mapi_dissect_element_ReadPerUserInformation_req_FolderId.exit: ; preds = %20
   %24 = load i32, ptr @hf_mapi_ReadPerUserInformation_req_WhatIfChanged, align 4
@@ -22180,7 +22180,7 @@ mapi_dissect_element_ReadPerUserInformation_req_FolderId.exit: ; preds = %20
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ReadPerUserInformation_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22208,7 +22208,7 @@ define hidden i32 @mapi_dissect_struct_ReadPerUserInformation_repl(ptr noundef %
 define hidden i32 @mapi_dissect_struct_SetReadFlags_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -22272,7 +22272,7 @@ mapi_dissect_element_SetReadFlags_req_ReadFlags.exit: ; preds = %33, %36
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetReadFlags_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22298,7 +22298,7 @@ define hidden i32 @mapi_dissect_struct_SetReadFlags_repl(ptr noundef %0, i32 nou
 define hidden i32 @mapi_dissect_struct_CopyProperties_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -22349,7 +22349,7 @@ define hidden i32 @mapi_dissect_struct_CopyProperties_req(ptr noundef %0, i32 no
 mapi_dissect_element_CopyProperties_req_CopyFlags.exit: ; preds = %31, %34
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
   %36 = load i32, ptr @hf_mapi_CopyProperties_req_PropertyTags, align 4
-  %37 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %37 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i40 = icmp eq ptr %.038, null
   br i1 %.not.i.i40, label %mapi_dissect_element_CopyProperties_req_PropertyTags.exit, label %38
@@ -22378,7 +22378,7 @@ mapi_dissect_element_CopyProperties_req_PropertyTags.exit: ; preds = %mapi_disse
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_CopyProperties_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22404,7 +22404,7 @@ define hidden i32 @mapi_dissect_struct_CopyProperties_repl(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FILETIME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -22439,7 +22439,7 @@ define hidden i32 @mapi_dissect_struct_FILETIME(ptr noundef %0, i32 noundef %1, 
   br i1 %.not33, label %37, label %30
 
 30:                                               ; preds = %19
-  %31 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %31 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %32 = trunc nuw i8 %31 to i1
   %33 = and i32 %23, 3
   %.not34 = icmp eq i32 %33, 0
@@ -22459,7 +22459,7 @@ define hidden i32 @mapi_dissect_struct_FILETIME(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ReceiveFolder(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22490,7 +22490,7 @@ define hidden i32 @mapi_dissect_struct_ReceiveFolder(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetReceiveFolderTable_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22517,7 +22517,7 @@ define hidden i32 @mapi_dissect_struct_GetReceiveFolderTable_req(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetReceiveFolderTable_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22543,7 +22543,7 @@ define hidden i32 @mapi_dissect_struct_GetReceiveFolderTable_repl(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetCollapseState_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22574,7 +22574,7 @@ define hidden i32 @mapi_dissect_struct_GetCollapseState_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetCollapseState_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %mapi_dissect_element_GetCollapseState_repl_CollapseState.exit, label %11
@@ -22584,7 +22584,7 @@ define hidden i32 @mapi_dissect_struct_GetCollapseState_repl(ptr noundef %0, i32
   %13 = load i32, ptr @ett_mapi_GetCollapseState_repl, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
   %15 = load i32, ptr @hf_mapi_GetCollapseState_repl_CollapseState, align 4
-  %16 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %16 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %mapi_dissect_element_GetCollapseState_repl_CollapseState.exit, label %17
@@ -22614,7 +22614,7 @@ mapi_dissect_element_GetCollapseState_repl_CollapseState.exit: ; preds = %8, %11
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetCollapseState_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22633,7 +22633,7 @@ define hidden i32 @mapi_dissect_struct_SetCollapseState_req(ptr noundef %0, i32 
   %18 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
   %20 = load i32, ptr @hf_mapi_SetCollapseState_req_CollapseState, align 4
-  %21 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_SetCollapseState_req_CollapseState.exit, label %22
@@ -22662,7 +22662,7 @@ mapi_dissect_element_SetCollapseState_req_CollapseState.exit: ; preds = %15, %22
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetCollapseState_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %mapi_dissect_element_SetCollapseState_repl_bookmark.exit, label %11
@@ -22672,7 +22672,7 @@ define hidden i32 @mapi_dissect_struct_SetCollapseState_repl(ptr noundef %0, i32
   %13 = load i32, ptr @ett_mapi_SetCollapseState_repl, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
   %15 = load i32, ptr @hf_mapi_SetCollapseState_repl_bookmark, align 4
-  %16 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %16 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %mapi_dissect_element_SetCollapseState_repl_bookmark.exit, label %17
@@ -22702,7 +22702,7 @@ mapi_dissect_element_SetCollapseState_repl_bookmark.exit: ; preds = %8, %11, %17
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetTransportFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22729,7 +22729,7 @@ define hidden i32 @mapi_dissect_struct_GetTransportFolder_req(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetTransportFolder_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22754,7 +22754,7 @@ define hidden i32 @mapi_dissect_struct_GetTransportFolder_repl(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_Pending_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22779,7 +22779,7 @@ define hidden i32 @mapi_dissect_struct_Pending_repl(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_OptionsData_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -22811,7 +22811,7 @@ define hidden i32 @mapi_dissect_struct_OptionsData_req(ptr noundef %0, i32 nound
 define hidden i32 @mapi_dissect_struct_OptionsData_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -22828,7 +22828,7 @@ define hidden i32 @mapi_dissect_struct_OptionsData_repl(ptr noundef %0, i32 noun
   %17 = load i32, ptr @hf_mapi_OptionsData_repl_Reserved, align 4
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_OptionsData_repl_OptionsInfo, align 4
-  %20 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %20 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i = icmp eq ptr %.044, null
   br i1 %.not.i.i, label %mapi_dissect_element_OptionsData_repl_OptionsInfo.exit, label %21
@@ -22939,7 +22939,7 @@ define hidden i32 @mapi_dissect_bitmap_SynchronizationFlag(ptr noundef %0, i32 n
   %9 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 1
   %.not = icmp eq i32 %13, 0
@@ -22985,7 +22985,7 @@ define hidden i32 @mapi_dissect_bitmap_SynchronizationExtraFlags(ptr noundef %0,
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 3
   %.not = icmp eq i32 %13, 0
@@ -23030,7 +23030,7 @@ define hidden i32 @mapi_dissect_struct_SyncConfigure_req(ptr noundef %0, i32 nou
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %13
@@ -23094,7 +23094,7 @@ mapi_dissect_element_SyncConfigure_req_SendOptions.exit: ; preds = %36, %39
   %45 = load i32, ptr @hf_mapi_SyncConfigure_req_SynchronizationExtraFlags, align 4
   %46 = call i32 @mapi_dissect_bitmap_SynchronizationExtraFlags(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %45, i32 poison)
   %47 = load i32, ptr @hf_mapi_SyncConfigure_req_PropertyTags, align 4
-  %48 = load i8, ptr %11, align 2, !range !9, !noundef !10
+  %48 = load i8, ptr %11, align 2, !range !10, !noundef !11
   store i8 1, ptr %11, align 2
   %.not.i.i70 = icmp eq ptr %.068, null
   br i1 %.not.i.i70, label %mapi_dissect_element_SyncConfigure_req_PropertyTags.exit, label %49
@@ -23123,7 +23123,7 @@ mapi_dissect_element_SyncConfigure_req_PropertyTags.exit: ; preds = %mapi_dissec
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SyncConfigure_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -23180,7 +23180,7 @@ define hidden i32 @mapi_dissect_bitmap_ImportFlag(ptr noundef %0, i32 noundef %1
 define hidden i32 @mapi_dissect_struct_SyncImportMessageChange_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -23233,7 +23233,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportMessageChange_req(ptr noundef %
 mapi_dissect_element_SyncImportMessageChange_req_ImportFlag.exit: ; preds = %33, %36
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
   %38 = load i32, ptr @hf_mapi_SyncImportMessageChange_req_PropertyValues, align 4
-  %39 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %39 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not.i.i46 = icmp eq ptr %.044, null
   br i1 %.not.i.i46, label %mapi_dissect_element_SyncImportMessageChange_req_PropertyValues.exit, label %40
@@ -23262,7 +23262,7 @@ mapi_dissect_element_SyncImportMessageChange_req_PropertyValues.exit: ; preds = 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SyncImportMessageChange_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23287,7 +23287,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportMessageChange_repl(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SyncImportHierarchyChange_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23306,7 +23306,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportHierarchyChange_req(ptr noundef
   %18 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
   %20 = load i32, ptr @hf_mapi_SyncImportHierarchyChange_req_HierarchyValues, align 4
-  %21 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.038, null
   br i1 %.not.i.i, label %mapi_dissect_element_SyncImportHierarchyChange_req_HierarchyValues.exit, label %22
@@ -23353,7 +23353,7 @@ mapi_dissect_element_SyncImportHierarchyChange_req_PropertyValues.exit: ; preds 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SyncImportHierarchyChange_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23378,7 +23378,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportHierarchyChange_repl(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SyncImportDeletes_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23399,7 +23399,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportDeletes_req(ptr noundef %0, i32
   %20 = load i32, ptr @hf_mapi_SyncImportDeletes_req_IsHierarchy, align 4
   %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %20, i32 noundef 0)
   %22 = load i32, ptr @hf_mapi_SyncImportDeletes_req_PropertyValues, align 4
-  %23 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %23 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.038, null
   br i1 %.not.i.i, label %mapi_dissect_element_SyncImportDeletes_req_PropertyValues.exit, label %24
@@ -23428,7 +23428,7 @@ mapi_dissect_element_SyncImportDeletes_req_PropertyValues.exit: ; preds = %15, %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SyncImportDeletes_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -23474,7 +23474,7 @@ define hidden i32 @mapi_dissect_enum_StateProperty(ptr noundef %0, i32 noundef %
 define hidden i32 @mapi_dissect_struct_SyncUploadStateStreamBegin_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -23508,7 +23508,7 @@ define hidden i32 @mapi_dissect_struct_SyncUploadStateStreamBegin_req(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamBegin_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -23527,7 +23527,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamBegin_repl(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamContinue_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -23546,7 +23546,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamContinue_rep
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SyncUploadStateStreamEnd_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23573,7 +23573,7 @@ define hidden i32 @mapi_dissect_struct_SyncUploadStateStreamEnd_req(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamEnd_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -23592,7 +23592,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamEnd_repl(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SyncImportMessageMove_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23617,7 +23617,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportMessageMove_repl(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetPropertiesNoReplicate_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23636,7 +23636,7 @@ define hidden i32 @mapi_dissect_struct_SetPropertiesNoReplicate_req(ptr noundef 
   %18 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
   %20 = load i32, ptr @hf_mapi_SetPropertiesNoReplicate_req_values, align 4
-  %21 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_SetPropertiesNoReplicate_req_values.exit, label %22
@@ -23665,7 +23665,7 @@ mapi_dissect_element_SetPropertiesNoReplicate_req_values.exit: ; preds = %15, %2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetPropertiesNoReplicate_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23691,7 +23691,7 @@ define hidden i32 @mapi_dissect_struct_SetPropertiesNoReplicate_repl(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_DeletePropertiesNoReplicate_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23710,7 +23710,7 @@ define hidden i32 @mapi_dissect_struct_DeletePropertiesNoReplicate_req(ptr nound
   %18 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
   %20 = load i32, ptr @hf_mapi_DeletePropertiesNoReplicate_req_PropertyTags, align 4
-  %21 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_DeletePropertiesNoReplicate_req_PropertyTags.exit, label %22
@@ -23739,7 +23739,7 @@ mapi_dissect_element_DeletePropertiesNoReplicate_req_PropertyTags.exit: ; preds 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_DeletePropertiesNoReplicate_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23765,7 +23765,7 @@ define hidden i32 @mapi_dissect_struct_DeletePropertiesNoReplicate_repl(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetStoreState_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23793,7 +23793,7 @@ define hidden i32 @mapi_dissect_struct_GetStoreState_req(ptr noundef %0, i32 nou
 define hidden i32 @mapi_dissect_struct_GetStoreState_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -23847,7 +23847,7 @@ mapi_dissect_element_GetStoreState_repl_StoreState.exit: ; preds = %27, %30
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SyncOpenCollector_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23878,7 +23878,7 @@ define hidden i32 @mapi_dissect_struct_SyncOpenCollector_req(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SyncOpenCollector_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -23897,7 +23897,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncOpenCollector_repl(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetLocalReplicaIds_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23926,7 +23926,7 @@ define hidden i32 @mapi_dissect_struct_GetLocalReplicaIds_req(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_GetLocalReplicaIds_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23951,7 +23951,7 @@ define hidden i32 @mapi_dissect_struct_GetLocalReplicaIds_repl(ptr noundef %0, i
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %21, 6
-  br i1 %exitcond.not.i, label %mapi_dissect_element_GetLocalReplicaIds_repl_GlobalCount.exit, label %18, !llvm.loop !21
+  br i1 %exitcond.not.i, label %mapi_dissect_element_GetLocalReplicaIds_repl_GlobalCount.exit, label %18, !llvm.loop !22
 
 mapi_dissect_element_GetLocalReplicaIds_repl_GlobalCount.exit: ; preds = %18
   %22 = sub i32 %20, %1
@@ -23963,7 +23963,7 @@ mapi_dissect_element_GetLocalReplicaIds_repl_GlobalCount.exit: ; preds = %18
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SyncImportReadStateChanges_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -23992,7 +23992,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportReadStateChanges_req(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SyncImportReadStateChanges_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -24011,7 +24011,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncImportReadStateChanges_repl(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ResetTable_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24038,7 +24038,7 @@ define hidden i32 @mapi_dissect_struct_ResetTable_req(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_ResetTable_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -24057,7 +24057,7 @@ define hidden noundef i32 @mapi_dissect_struct_ResetTable_repl(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SyncGetTransferState_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24086,7 +24086,7 @@ define hidden i32 @mapi_dissect_struct_SyncGetTransferState_req(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SyncGetTransferState_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -24105,7 +24105,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncGetTransferState_repl(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_OpenPublicFolderByName_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24133,7 +24133,7 @@ define hidden i32 @mapi_dissect_struct_OpenPublicFolderByName_req(ptr noundef %0
 define hidden i32 @mapi_dissect_struct_OpenPublicFolderByName_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -24175,7 +24175,7 @@ mapi_dissect_element_OpenPublicFolderByName_repl_Ghost.exit: ; preds = %16, %21
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_SetSyncNotificationGuid_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24200,7 +24200,7 @@ define hidden i32 @mapi_dissect_struct_SetSyncNotificationGuid_req(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_SetSyncNotificationGuid_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -24219,7 +24219,7 @@ define hidden noundef i32 @mapi_dissect_struct_SetSyncNotificationGuid_repl(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_FreeBookmark_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24238,7 +24238,7 @@ define hidden i32 @mapi_dissect_struct_FreeBookmark_req(ptr noundef %0, i32 noun
   %18 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
   %20 = load i32, ptr @hf_mapi_FreeBookmark_req_bookmark, align 4
-  %21 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %21 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_FreeBookmark_req_bookmark.exit, label %22
@@ -24267,7 +24267,7 @@ mapi_dissect_element_FreeBookmark_req_bookmark.exit: ; preds = %15, %22
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @mapi_dissect_struct_FreeBookmark_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %11
@@ -24286,7 +24286,7 @@ define hidden noundef i32 @mapi_dissect_struct_FreeBookmark_repl(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_WriteAndCommitStream_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24315,7 +24315,7 @@ define hidden i32 @mapi_dissect_struct_WriteAndCommitStream_req(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_WriteAndCommitStream_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24340,7 +24340,7 @@ define hidden i32 @mapi_dissect_struct_WriteAndCommitStream_repl(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_HardDeleteMessages_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24374,7 +24374,7 @@ define hidden i32 @mapi_dissect_struct_HardDeleteMessages_req(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_HardDeleteMessages_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24399,7 +24399,7 @@ define hidden i32 @mapi_dissect_struct_HardDeleteMessages_repl(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_HardDeleteMessagesAndSubfolders_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24430,7 +24430,7 @@ define hidden i32 @mapi_dissect_struct_HardDeleteMessagesAndSubfolders_req(ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_HardDeleteMessagesAndSubfolders_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24482,7 +24482,7 @@ define hidden i32 @mapi_dissect_enum_DayOfWeek(ptr noundef %0, i32 noundef %1, p
 define hidden i32 @mapi_dissect_struct_LogonTime(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -24562,7 +24562,7 @@ define hidden i32 @mapi_dissect_struct_Logon_req(ptr noundef %0, i32 noundef %1,
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %13 = load i8, ptr %12, align 2, !range !9, !noundef !10
+  %13 = load i8, ptr %12, align 2, !range !10, !noundef !11
   store i8 1, ptr %12, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %14
@@ -24660,7 +24660,7 @@ mapi_dissect_element_Logon_req_StoreState.exit:   ; preds = %49, %52
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_RopBufferTooSmall_repl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24763,7 +24763,7 @@ define hidden i32 @mapi_dissect_enum_AUX_VERSION(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_REQUESTID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24843,7 +24843,7 @@ define hidden i32 @mapi_dissect_enum_SERVERINFO_ServerType(ptr noundef %0, i32 n
 define hidden i32 @mapi_dissect_struct_AUX_PERF_SERVERINFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -24881,7 +24881,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_SERVERINFO(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_SESSIONINFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24910,7 +24910,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_SESSIONINFO(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_SESSIONINFO_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24941,7 +24941,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_SESSIONINFO_V2(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_DEFMDB_SUCCESS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -24972,7 +24972,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_DEFMDB_SUCCESS(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_DEFGC_SUCCESS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -25005,7 +25005,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_DEFGC_SUCCESS(ptr noundef %0, i3
   %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 noundef 0)
   %29 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %29, 3
-  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_DEFGC_SUCCESS_Reserved.exit, label %26, !llvm.loop !22
+  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_DEFGC_SUCCESS_Reserved.exit, label %26, !llvm.loop !23
 
 mapi_dissect_element_AUX_PERF_DEFGC_SUCCESS_Reserved.exit: ; preds = %26
   %30 = sub i32 %28, %1
@@ -25017,7 +25017,7 @@ mapi_dissect_element_AUX_PERF_DEFGC_SUCCESS_Reserved.exit: ; preds = %26
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_MDB_SUCCESS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -25052,7 +25052,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_MDB_SUCCESS(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_MDB_SUCCESS_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -25091,7 +25091,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_MDB_SUCCESS_V2(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_GC_SUCCESS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -25128,7 +25128,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_GC_SUCCESS(ptr noundef %0, i32 n
   %32 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.062, ptr noundef %4, ptr noundef %5, i32 noundef %31, i32 noundef 0)
   %33 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %33, 3
-  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_GC_SUCCESS_Reserved_2.exit, label %30, !llvm.loop !23
+  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_GC_SUCCESS_Reserved_2.exit, label %30, !llvm.loop !24
 
 mapi_dissect_element_AUX_PERF_GC_SUCCESS_Reserved_2.exit: ; preds = %30
   %34 = sub i32 %32, %1
@@ -25140,7 +25140,7 @@ mapi_dissect_element_AUX_PERF_GC_SUCCESS_Reserved_2.exit: ; preds = %30
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_GC_SUCCESS_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -25177,7 +25177,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_GC_SUCCESS_V2(ptr noundef %0, i3
   %32 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.062, ptr noundef %4, ptr noundef %5, i32 noundef %31, i32 noundef 0)
   %33 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %33, 3
-  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_GC_SUCCESS_V2_Reserved.exit, label %30, !llvm.loop !24
+  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_GC_SUCCESS_V2_Reserved.exit, label %30, !llvm.loop !25
 
 mapi_dissect_element_AUX_PERF_GC_SUCCESS_V2_Reserved.exit: ; preds = %30
   %34 = sub i32 %32, %1
@@ -25190,7 +25190,7 @@ mapi_dissect_element_AUX_PERF_GC_SUCCESS_V2_Reserved.exit: ; preds = %30
 define hidden i32 @mapi_dissect_struct_AUX_PERF_FAILURE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -25232,7 +25232,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_FAILURE(ptr noundef %0, i32 noun
   %35 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %34, i32 noundef 0)
   %36 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %36, 3
-  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_FAILURE_Reserved.exit, label %33, !llvm.loop !25
+  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_FAILURE_Reserved.exit, label %33, !llvm.loop !26
 
 mapi_dissect_element_AUX_PERF_FAILURE_Reserved.exit: ; preds = %33
   %37 = sub i32 %35, %1
@@ -25245,7 +25245,7 @@ mapi_dissect_element_AUX_PERF_FAILURE_Reserved.exit: ; preds = %33
 define hidden i32 @mapi_dissect_struct_AUX_PERF_FAILURE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -25291,7 +25291,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_FAILURE_V2(ptr noundef %0, i32 n
   %39 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.080, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 0)
   %40 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %40, 3
-  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_FAILURE_V2_Reserved_2.exit, label %37, !llvm.loop !26
+  br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_FAILURE_V2_Reserved_2.exit, label %37, !llvm.loop !27
 
 mapi_dissect_element_AUX_PERF_FAILURE_V2_Reserved_2.exit: ; preds = %37
   %41 = sub i32 %39, %1
@@ -25305,7 +25305,7 @@ define hidden i32 @mapi_dissect_bitmap_CLIENT_CONTROL_EnableFlags(ptr noundef %0
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 3
   %.not = icmp eq i32 %13, 0
@@ -25348,7 +25348,7 @@ define hidden i32 @mapi_dissect_bitmap_CLIENT_CONTROL_EnableFlags(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_CLIENT_CONTROL(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -25375,7 +25375,7 @@ define hidden i32 @mapi_dissect_struct_AUX_CLIENT_CONTROL(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_PROCESSINFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -25410,7 +25410,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_PROCESSINFO(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_OSVERSIONINFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -25451,7 +25451,7 @@ define hidden i32 @mapi_dissect_bitmap_EXORGINFO_OrgFlags(ptr noundef %0, i32 no
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 3
   %.not = icmp eq i32 %13, 0
@@ -25494,7 +25494,7 @@ define hidden i32 @mapi_dissect_bitmap_EXORGINFO_OrgFlags(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_EXORGINFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -25521,7 +25521,7 @@ define hidden i32 @mapi_dissect_bitmap_RPC_HEADER_EXT_Flags(ptr noundef %0, i32 
   %9 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 1
   %.not = icmp eq i32 %13, 0
@@ -25565,7 +25565,7 @@ define hidden i32 @mapi_dissect_bitmap_RPC_HEADER_EXT_Flags(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 1
   %.not = icmp eq i32 %12, 0
@@ -25604,7 +25604,7 @@ define hidden i32 @mapi_dissect_struct_RPC_HEADER_EXT(ptr noundef %0, i32 nounde
   br i1 %.not45, label %41, label %34
 
 34:                                               ; preds = %19
-  %35 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %35 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %36 = trunc nuw i8 %35 to i1
   %37 = and i32 %27, 1
   %.not46 = icmp eq i32 %37, 0
@@ -25624,7 +25624,7 @@ define hidden i32 @mapi_dissect_struct_RPC_HEADER_EXT(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AuxInfoOut(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -25657,7 +25657,7 @@ define hidden i32 @mapi_dissect_struct_AuxInfoOut(ptr noundef %0, i32 noundef %1
   br i1 %.not33, label %35, label %28
 
 28:                                               ; preds = %19
-  %29 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %29 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %30 = trunc nuw i8 %29 to i1
   %31 = and i32 %21, 3
   %.not34 = icmp eq i32 %31, 0
@@ -25679,7 +25679,7 @@ define hidden i32 @mapi_dissect_bitmap_RpcExt2Flags(ptr noundef %0, i32 noundef 
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
   %13 = and i32 %1, 3
   %.not = icmp eq i32 %13, 0
@@ -25723,7 +25723,7 @@ define hidden i32 @mapi_dissect_bitmap_RpcExt2Flags(ptr noundef %0, i32 noundef 
 define hidden i32 @mapi_dissect_struct_RopInput(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -25754,7 +25754,7 @@ define hidden i32 @mapi_dissect_struct_RopInput(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ROPInputBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 7
   %.not = icmp eq i32 %12, 0
@@ -25787,7 +25787,7 @@ define hidden i32 @mapi_dissect_struct_ROPInputBuffer(ptr noundef %0, i32 nounde
   br i1 %.not39, label %35, label %28
 
 28:                                               ; preds = %19
-  %29 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %29 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %30 = trunc nuw i8 %29 to i1
   %31 = and i32 %21, 7
   %.not40 = icmp eq i32 %31, 0
@@ -25808,7 +25808,7 @@ define hidden i32 @mapi_dissect_struct_ROPInputBuffer(ptr noundef %0, i32 nounde
 define hidden i32 @mapi_dissect_struct_RopOutput(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   store i8 1, ptr %10, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %12
@@ -25839,7 +25839,7 @@ define hidden i32 @mapi_dissect_struct_RopOutput(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ROPOutputBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 7
   %.not = icmp eq i32 %12, 0
@@ -25872,7 +25872,7 @@ define hidden i32 @mapi_dissect_struct_ROPOutputBuffer(ptr noundef %0, i32 nound
   br i1 %.not39, label %35, label %28
 
 28:                                               ; preds = %19
-  %29 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %29 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %30 = trunc nuw i8 %29 to i1
   %31 = and i32 %21, 7
   %.not40 = icmp eq i32 %31, 0
@@ -26006,7 +26006,7 @@ define internal i32 @mapi_dissect_element_SPLSTRArrayW_strings_(ptr noundef %0, 
 define internal i32 @mapi_dissect_element_SBinaryArray_bin_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_mapi_mapi_SBinaryArray_bin, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SBinary_short.exit, label %10
@@ -26053,7 +26053,7 @@ define internal i32 @mapi_dissect_element_ForwardDelegate_Action_RecipientBlock_
 define internal i32 @mapi_dissect_element_RuleAction_ActionBlock_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_mapi_RuleAction_ActionBlock, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_ActionBlock.exit, label %10
@@ -26368,7 +26368,7 @@ define internal fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 no
 14:                                               ; preds = %13
   %15 = load i32, ptr @hf_mapi_mapi_SRestriction_CTR_resAnd, align 4
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %17 = load i8, ptr %16, align 2, !range !9, !noundef !10
+  %17 = load i8, ptr %16, align 2, !range !10, !noundef !11
   store i8 1, ptr %16, align 2
   %.not.i.i = icmp eq ptr %.075, null
   br i1 %.not.i.i, label %mapi_dissect_element_SRestriction_CTR_resAnd.exit, label %18
@@ -26393,7 +26393,7 @@ mapi_dissect_element_SRestriction_CTR_resAnd.exit: ; preds = %14, %18
 26:                                               ; preds = %13
   %27 = load i32, ptr @hf_mapi_mapi_SRestriction_CTR_resOr, align 4
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %29 = load i8, ptr %28, align 2, !range !9, !noundef !10
+  %29 = load i8, ptr %28, align 2, !range !10, !noundef !11
   store i8 1, ptr %28, align 2
   %.not.i.i77 = icmp eq ptr %.075, null
   br i1 %.not.i.i77, label %mapi_dissect_element_SRestriction_CTR_resOr.exit, label %30
@@ -26448,7 +26448,7 @@ mapi_dissect_element_SRestriction_CTR_resOr.exit: ; preds = %26, %30
 56:                                               ; preds = %13
   %57 = load i32, ptr @hf_mapi_mapi_SRestriction_CTR_resExist, align 4
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %59 = load i8, ptr %58, align 2, !range !9, !noundef !10
+  %59 = load i8, ptr %58, align 2, !range !10, !noundef !11
   store i8 1, ptr %58, align 2
   %.not.i.i80 = icmp eq ptr %.075, null
   br i1 %.not.i.i80, label %mapi_dissect_element_SRestriction_CTR_resExist.exit, label %60
@@ -27541,7 +27541,7 @@ define internal fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef 
 define internal fastcc i32 @mapi_dissect_element_RopRequest_ReloadCachedInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopRequest_ReloadCachedInformation, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_ReloadCachedInformation_req.exit, label %10
@@ -27567,7 +27567,7 @@ mapi_dissect_struct_ReloadCachedInformation_req.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopRequest_SetSyncNotificationGuid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopRequest_SetSyncNotificationGuid, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SetSyncNotificationGuid_req.exit, label %10
@@ -28266,7 +28266,7 @@ define internal fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %1
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Release(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_Release, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_Release_repl.exit, label %8
@@ -28286,7 +28286,7 @@ mapi_dissect_struct_Release_repl.exit:            ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_GetPropList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_GetPropList, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetPropList_repl.exit, label %10
@@ -28313,7 +28313,7 @@ mapi_dissect_struct_GetPropList_repl.exit:        ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_SetProps(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_SetProps, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SetProps_repl.exit, label %10
@@ -28340,7 +28340,7 @@ mapi_dissect_struct_SetProps_repl.exit:           ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_DeleteProps(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_DeleteProps, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_DeleteProps_repl.exit, label %10
@@ -28367,7 +28367,7 @@ mapi_dissect_struct_DeleteProps_repl.exit:        ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_RemoveAllRecipients(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_RemoveAllRecipients, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_RemoveAllRecipients_repl.exit, label %8
@@ -28387,7 +28387,7 @@ mapi_dissect_struct_RemoveAllRecipients_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRecipients(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ModifyRecipients, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_ModifyRecipients_repl.exit, label %8
@@ -28407,7 +28407,7 @@ mapi_dissect_struct_ModifyRecipients_repl.exit:   ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_ReadRecipients(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_ReadRecipients, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_ReadRecipients_repl.exit, label %10
@@ -28435,7 +28435,7 @@ define internal fastcc i32 @mapi_dissect_element_RopReply_SetColumns(ptr noundef
   %7 = alloca i8, align 1
   %8 = load i32, ptr @hf_mapi_RopReply_SetColumns, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SetColumns_repl.exit, label %11
@@ -28465,7 +28465,7 @@ define internal fastcc i32 @mapi_dissect_element_RopReply_SortTable(ptr noundef 
   %7 = alloca i8, align 1
   %8 = load i32, ptr @hf_mapi_RopReply_SortTable, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SortTable_repl.exit, label %11
@@ -28495,7 +28495,7 @@ define internal fastcc i32 @mapi_dissect_element_RopReply_Restrict(ptr noundef %
   %7 = alloca i8, align 1
   %8 = load i32, ptr @hf_mapi_RopReply_Restrict, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_Restrict_repl.exit, label %11
@@ -28525,7 +28525,7 @@ define internal fastcc i32 @mapi_dissect_element_RopReply_GetStatus(ptr noundef 
   %7 = alloca i8, align 1
   %8 = load i32, ptr @hf_mapi_RopReply_GetStatus, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetStatus_repl.exit, label %11
@@ -28554,7 +28554,7 @@ mapi_dissect_struct_GetStatus_repl.exit:          ; preds = %6, %11
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SeekRowApprox(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SeekRowApprox, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SeekRowApprox_repl.exit, label %8
@@ -28574,7 +28574,7 @@ mapi_dissect_struct_SeekRowApprox_repl.exit:      ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_DeleteFolder(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_DeleteFolder, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_DeleteFolder_repl.exit, label %10
@@ -28600,7 +28600,7 @@ mapi_dissect_struct_DeleteFolder_repl.exit:       ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_DeleteMessages(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_DeleteMessages, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_DeleteMessages_repl.exit, label %10
@@ -28626,7 +28626,7 @@ mapi_dissect_struct_DeleteMessages_repl.exit:     ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_SetMessageStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_SetMessageStatus, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SetMessageStatus_repl.exit, label %10
@@ -28652,7 +28652,7 @@ mapi_dissect_struct_SetMessageStatus_repl.exit:   ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetAttachmentTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_GetAttachmentTable, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_GetAttachmentTable_repl.exit, label %8
@@ -28672,7 +28672,7 @@ mapi_dissect_struct_GetAttachmentTable_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_OpenAttach(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_OpenAttach, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_OpenAttach_repl.exit, label %8
@@ -28692,7 +28692,7 @@ mapi_dissect_struct_OpenAttach_repl.exit:         ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_CreateAttach(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_CreateAttach, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_CreateAttach_repl.exit, label %10
@@ -28718,7 +28718,7 @@ mapi_dissect_struct_CreateAttach_repl.exit:       ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_DeleteAttach(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_DeleteAttach, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_DeleteAttach_repl.exit, label %8
@@ -28738,7 +28738,7 @@ mapi_dissect_struct_DeleteAttach_repl.exit:       ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SaveChangesAttachment(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SaveChangesAttachment, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SaveChangesAttachment_repl.exit, label %8
@@ -28758,7 +28758,7 @@ mapi_dissect_struct_SaveChangesAttachment_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetReceiveFolder(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetReceiveFolder, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SetReceiveFolder_repl.exit, label %8
@@ -28778,7 +28778,7 @@ mapi_dissect_struct_SetReceiveFolder_repl.exit:   ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Advise(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_Advise, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_RegisterNotification_repl.exit, label %8
@@ -28798,7 +28798,7 @@ mapi_dissect_struct_RegisterNotification_repl.exit: ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_OpenStream(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_OpenStream, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_OpenStream_repl.exit, label %10
@@ -28824,7 +28824,7 @@ mapi_dissect_struct_OpenStream_repl.exit:         ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_WriteStream(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_WriteStream, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_WriteStream_repl.exit, label %10
@@ -28850,7 +28850,7 @@ mapi_dissect_struct_WriteStream_repl.exit:        ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_SeekStream(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_SeekStream, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SeekStream_repl.exit, label %10
@@ -28876,7 +28876,7 @@ mapi_dissect_struct_SeekStream_repl.exit:         ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetStreamSize(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetStreamSize, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SetStreamSize_repl.exit, label %8
@@ -28896,7 +28896,7 @@ mapi_dissect_struct_SetStreamSize_repl.exit:      ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSearchCriteria(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetSearchCriteria, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SetSearchCriteria_repl.exit, label %8
@@ -28916,7 +28916,7 @@ mapi_dissect_struct_SetSearchCriteria_repl.exit:  ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SubmitMessage(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SubmitMessage, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SubmitMessage_repl.exit, label %8
@@ -28936,7 +28936,7 @@ mapi_dissect_struct_SubmitMessage_repl.exit:      ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_MoveCopyMessages(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_MoveCopyMessages, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_MoveCopyMessages_repl.exit, label %10
@@ -28962,7 +28962,7 @@ mapi_dissect_struct_MoveCopyMessages_repl.exit:   ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_AbortSubmit(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_AbortSubmit, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_AbortSubmit_repl.exit, label %8
@@ -28982,7 +28982,7 @@ mapi_dissect_struct_AbortSubmit_repl.exit:        ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_MoveFolder(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_MoveFolder, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_MoveFolder_repl.exit, label %10
@@ -29008,7 +29008,7 @@ mapi_dissect_struct_MoveFolder_repl.exit:         ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_CopyFolder(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_CopyFolder, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_CopyFolder_repl.exit, label %10
@@ -29034,7 +29034,7 @@ mapi_dissect_struct_CopyFolder_repl.exit:         ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_QueryColumnsAll(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_QueryColumnsAll, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_QueryColumnsAll_repl.exit, label %10
@@ -29062,7 +29062,7 @@ define internal fastcc i32 @mapi_dissect_element_RopReply_Abort(ptr noundef %0, 
   %7 = alloca i8, align 1
   %8 = load i32, ptr @hf_mapi_RopReply_Abort, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %10 = load i8, ptr %9, align 2, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   store i8 1, ptr %9, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_Abort_repl.exit, label %11
@@ -29091,7 +29091,7 @@ mapi_dissect_struct_Abort_repl.exit:              ; preds = %6, %11
 define internal fastcc i32 @mapi_dissect_element_RopReply_CopyTo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_CopyTo, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_CopyTo_repl.exit, label %10
@@ -29118,7 +29118,7 @@ mapi_dissect_struct_CopyTo_repl.exit:             ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CloneStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_CloneStream, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_CloneStream_repl.exit, label %8
@@ -29138,7 +29138,7 @@ mapi_dissect_struct_CloneStream_repl.exit:        ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetPermissionsTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_GetPermissionsTable, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_GetPermissionsTable_repl.exit, label %8
@@ -29158,7 +29158,7 @@ mapi_dissect_struct_GetPermissionsTable_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetRulesTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_GetRulesTable, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_GetRulesTable_repl.exit, label %8
@@ -29178,7 +29178,7 @@ mapi_dissect_struct_GetRulesTable_repl.exit:      ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyPermissions(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ModifyPermissions, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_ModifyPermissions_repl.exit, label %8
@@ -29198,7 +29198,7 @@ mapi_dissect_struct_ModifyPermissions_repl.exit:  ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRules(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ModifyRules, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_ModifyRules_repl.exit, label %8
@@ -29218,7 +29218,7 @@ mapi_dissect_struct_ModifyRules_repl.exit:        ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_IdFromLongTermId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_IdFromLongTermId, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_IdFromLongTermId_repl.exit, label %10
@@ -29244,7 +29244,7 @@ mapi_dissect_struct_IdFromLongTermId_repl.exit:   ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSpooler(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetSpooler, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SetSpooler_repl.exit, label %8
@@ -29264,7 +29264,7 @@ mapi_dissect_struct_SetSpooler_repl.exit:         ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SpoolerLockMessage(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SpoolerLockMessage, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SpoolerLockMessage_repl.exit, label %8
@@ -29284,7 +29284,7 @@ mapi_dissect_struct_SpoolerLockMessage_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_TransportNewMail(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_TransportNewMail, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_TransportNewMail_repl.exit, label %8
@@ -29304,7 +29304,7 @@ mapi_dissect_struct_TransportNewMail_repl.exit:   ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_GetValidAttachments(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_GetValidAttachments, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetValidAttachments_repl.exit, label %10
@@ -29331,7 +29331,7 @@ mapi_dissect_struct_GetValidAttachments_repl.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_GetNamesFromIDs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_GetNamesFromIDs, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetNamesFromIDs_repl.exit, label %10
@@ -29358,7 +29358,7 @@ mapi_dissect_struct_GetNamesFromIDs_repl.exit:    ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_GetIDsFromNames(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_GetIDsFromNames, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetIDsFromNames_repl.exit, label %10
@@ -29385,7 +29385,7 @@ mapi_dissect_struct_GetIDsFromNames_repl.exit:    ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UpdateDeferredActionMessages(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_UpdateDeferredActionMessages, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_UpdateDeferredActionMessages_repl.exit, label %8
@@ -29405,7 +29405,7 @@ mapi_dissect_struct_UpdateDeferredActionMessages_repl.exit: ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_EmptyFolder(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_EmptyFolder, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_EmptyFolder_repl.exit, label %10
@@ -29431,7 +29431,7 @@ mapi_dissect_struct_EmptyFolder_repl.exit:        ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_CollapseRow(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_CollapseRow, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_CollapseRow_repl.exit, label %10
@@ -29457,7 +29457,7 @@ mapi_dissect_struct_CollapseRow_repl.exit:        ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_LockRegionStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_LockRegionStream, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_LockRegionStream_repl.exit, label %8
@@ -29477,7 +29477,7 @@ mapi_dissect_struct_LockRegionStream_repl.exit:   ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UnlockRegionStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_UnlockRegionStream, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_UnlockRegionStream_repl.exit, label %8
@@ -29497,7 +29497,7 @@ mapi_dissect_struct_UnlockRegionStream_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CommitStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_CommitStream, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_CommitStream_repl.exit, label %8
@@ -29517,7 +29517,7 @@ mapi_dissect_struct_CommitStream_repl.exit:       ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_GetStreamSize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_GetStreamSize, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetStreamSize_repl.exit, label %10
@@ -29543,7 +29543,7 @@ mapi_dissect_struct_GetStreamSize_repl.exit:      ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_GetPerUserLongTermIds(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_GetPerUserLongTermIds, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetPerUserLongTermIds_repl.exit, label %10
@@ -29570,7 +29570,7 @@ mapi_dissect_struct_GetPerUserLongTermIds_repl.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_GetPerUserGuid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_GetPerUserGuid, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetPerUserGuid_repl.exit, label %10
@@ -29596,7 +29596,7 @@ mapi_dissect_struct_GetPerUserGuid_repl.exit:     ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_SetReadFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_SetReadFlags, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SetReadFlags_repl.exit, label %10
@@ -29622,7 +29622,7 @@ mapi_dissect_struct_SetReadFlags_repl.exit:       ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_CopyProperties(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_CopyProperties, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_CopyProperties_repl.exit, label %10
@@ -29649,7 +29649,7 @@ mapi_dissect_struct_CopyProperties_repl.exit:     ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_GetReceiveFolderTable(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_GetReceiveFolderTable, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetReceiveFolderTable_repl.exit, label %10
@@ -29676,7 +29676,7 @@ mapi_dissect_struct_GetReceiveFolderTable_repl.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_Pending(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_Pending, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_Pending_repl.exit, label %10
@@ -29702,7 +29702,7 @@ mapi_dissect_struct_Pending_repl.exit:            ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_GetTransportFolder(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_GetTransportFolder, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_GetTransportFolder_repl.exit, label %10
@@ -29728,7 +29728,7 @@ mapi_dissect_struct_GetTransportFolder_repl.exit: ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncConfigure(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncConfigure, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncConfigure_repl.exit, label %8
@@ -29748,7 +29748,7 @@ mapi_dissect_struct_SyncConfigure_repl.exit:      ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_SyncImportMessageChange(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_SyncImportMessageChange, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncImportMessageChange_repl.exit, label %10
@@ -29774,7 +29774,7 @@ mapi_dissect_struct_SyncImportMessageChange_repl.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_SyncImportHierarchyChange(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_SyncImportHierarchyChange, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncImportHierarchyChange_repl.exit, label %10
@@ -29800,7 +29800,7 @@ mapi_dissect_struct_SyncImportHierarchyChange_repl.exit: ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportDeletes(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncImportDeletes, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncImportDeletes_repl.exit, label %8
@@ -29820,7 +29820,7 @@ mapi_dissect_struct_SyncImportDeletes_repl.exit:  ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamBegin(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncUploadStateStreamBegin, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncUploadStateStreamBegin_repl.exit, label %8
@@ -29840,7 +29840,7 @@ mapi_dissect_struct_SyncUploadStateStreamBegin_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamContinue(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncUploadStateStreamContinue, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncUploadStateStreamContinue_repl.exit, label %8
@@ -29860,7 +29860,7 @@ mapi_dissect_struct_SyncUploadStateStreamContinue_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamEnd(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncUploadStateStreamEnd, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncUploadStateStreamEnd_repl.exit, label %8
@@ -29880,7 +29880,7 @@ mapi_dissect_struct_SyncUploadStateStreamEnd_repl.exit: ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_SyncImportMessageMove(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_SyncImportMessageMove, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncImportMessageMove_repl.exit, label %10
@@ -29906,7 +29906,7 @@ mapi_dissect_struct_SyncImportMessageMove_repl.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_SetPropertiesNoReplicate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_SetPropertiesNoReplicate, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_SetPropertiesNoReplicate_repl.exit, label %10
@@ -29933,7 +29933,7 @@ mapi_dissect_struct_SetPropertiesNoReplicate_repl.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_DeletePropertiesNoReplicate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_DeletePropertiesNoReplicate, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_DeletePropertiesNoReplicate_repl.exit, label %10
@@ -29960,7 +29960,7 @@ mapi_dissect_struct_DeletePropertiesNoReplicate_repl.exit: ; preds = %6, %10
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncOpenCollector(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncOpenCollector, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncOpenCollector_repl.exit, label %8
@@ -29980,7 +29980,7 @@ mapi_dissect_struct_SyncOpenCollector_repl.exit:  ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportReadStateChanges(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncImportReadStateChanges, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncImportReadStateChanges_repl.exit, label %8
@@ -30000,7 +30000,7 @@ mapi_dissect_struct_SyncImportReadStateChanges_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ResetTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ResetTable, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_ResetTable_repl.exit, label %8
@@ -30020,7 +30020,7 @@ mapi_dissect_struct_ResetTable_repl.exit:         ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncGetTransferState(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncGetTransferState, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SyncGetTransferState_repl.exit, label %8
@@ -30040,7 +30040,7 @@ mapi_dissect_struct_SyncGetTransferState_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSyncNotificationGuid(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetSyncNotificationGuid, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_SetSyncNotificationGuid_repl.exit, label %8
@@ -30060,7 +30060,7 @@ mapi_dissect_struct_SetSyncNotificationGuid_repl.exit: ; preds = %4, %8
 define internal fastcc noundef i32 @mapi_dissect_element_RopReply_FreeBookmark(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_FreeBookmark, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %7 = load i8, ptr %6, align 2, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 2, !range !10, !noundef !11
   store i8 1, ptr %6, align 2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %mapi_dissect_struct_FreeBookmark_repl.exit, label %8
@@ -30080,7 +30080,7 @@ mapi_dissect_struct_FreeBookmark_repl.exit:       ; preds = %4, %8
 define internal fastcc i32 @mapi_dissect_element_RopReply_WriteAndCommitStream(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_WriteAndCommitStream, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_WriteAndCommitStream_repl.exit, label %10
@@ -30106,7 +30106,7 @@ mapi_dissect_struct_WriteAndCommitStream_repl.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_HardDeleteMessages(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_HardDeleteMessages, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_HardDeleteMessages_repl.exit, label %10
@@ -30132,7 +30132,7 @@ mapi_dissect_struct_HardDeleteMessages_repl.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_HardDeleteMessagesAndSubfolders(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_HardDeleteMessagesAndSubfolders, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_HardDeleteMessagesAndSubfolders_repl.exit, label %10
@@ -30158,7 +30158,7 @@ mapi_dissect_struct_HardDeleteMessagesAndSubfolders_repl.exit: ; preds = %6, %10
 define internal fastcc i32 @mapi_dissect_element_RopReply_RopBufferTooSmall(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mapi_RopReply_RopBufferTooSmall, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 2, !range !10, !noundef !11
   store i8 1, ptr %8, align 2
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mapi_dissect_struct_RopBufferTooSmall_repl.exit, label %10
@@ -30656,7 +30656,7 @@ define internal i32 @mapi_dissect_EcRGetDCName_response(ptr noundef %0, i32 noun
   %14 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, i32 noundef 0)
   %15 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %15, 16
-  br i1 %exitcond.not.i, label %mapi_dissect_element_EcRGetDCName_rgchDomainController.exit, label %12, !llvm.loop !27
+  br i1 %exitcond.not.i, label %mapi_dissect_element_EcRGetDCName_rgchDomainController.exit, label %12, !llvm.loop !28
 
 mapi_dissect_element_EcRGetDCName_rgchDomainController.exit: ; preds = %12
   %16 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
@@ -30703,7 +30703,7 @@ define internal i32 @mapi_dissect_EcRNetGetDCName_response(ptr noundef %0, i32 n
   %11 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, i32 noundef 0)
   %12 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %12, 16
-  br i1 %exitcond.not.i, label %mapi_dissect_element_EcRNetGetDCName_rgchDomainController.exit, label %9, !llvm.loop !28
+  br i1 %exitcond.not.i, label %mapi_dissect_element_EcRNetGetDCName_rgchDomainController.exit, label %9, !llvm.loop !29
 
 mapi_dissect_element_EcRNetGetDCName_rgchDomainController.exit: ; preds = %9
   %13 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %11, ptr noundef %4, ptr noundef %5)
@@ -31735,26 +31735,27 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}

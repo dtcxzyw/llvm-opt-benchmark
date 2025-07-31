@@ -59,7 +59,7 @@ define ptr @OPENSSL_asc2uni(ptr noundef readonly captures(none) %0, i32 noundef 
   br i1 %.not, label %27, label %26
 
 26:                                               ; preds = %._crit_edge
-  store i32 %13, ptr %3, align 4, !tbaa !8
+  store i32 %13, ptr %3, align 4, !tbaa !9
   br label %27
 
 27:                                               ; preds = %26, %._crit_edge
@@ -67,7 +67,7 @@ define ptr @OPENSSL_asc2uni(ptr noundef readonly captures(none) %0, i32 noundef 
   br i1 %.not32, label %29, label %28
 
 28:                                               ; preds = %27
-  store ptr %15, ptr %2, align 8, !tbaa !10
+  store ptr %15, ptr %2, align 8, !tbaa !11
   br label %29
 
 29:                                               ; preds = %27, %28, %11, %9
@@ -134,7 +134,7 @@ define noalias ptr @OPENSSL_uni2asc(ptr noundef readonly captures(none) %0, i32 
   store i8 %20, ptr %22, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %23 = icmp samesign ult i64 %indvars.iv.next, %18
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %24 = zext nneg i32 %.020 to i64
@@ -152,7 +152,7 @@ define noalias ptr @OPENSSL_uni2asc(ptr noundef readonly captures(none) %0, i32 
 define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store i64 0, ptr %5, align 8, !tbaa !14
+  store i64 0, ptr %5, align 8, !tbaa !15
   %6 = icmp eq i32 %1, -1
   br i1 %6, label %7, label %10
 
@@ -210,7 +210,7 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br i1 %.not.i, label %33, label %32
 
 32:                                               ; preds = %._crit_edge.i
-  store i32 %19, ptr %3, align 4, !tbaa !8
+  store i32 %19, ptr %3, align 4, !tbaa !9
   br label %33
 
 33:                                               ; preds = %32, %._crit_edge.i
@@ -218,7 +218,7 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br i1 %.not32.i, label %OPENSSL_asc2uni.exit, label %OPENSSL_asc2uni.exit.sink.split
 
 34:                                               ; preds = %.lr.ph
-  %35 = load i64, ptr %5, align 8, !tbaa !14
+  %35 = load i64, ptr %5, align 8, !tbaa !15
   %36 = icmp ugt i64 %35, 1114111
   br i1 %36, label %OPENSSL_asc2uni.exit, label %37
 
@@ -228,7 +228,7 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %.1 = add nuw nsw i32 %.1.v, %.04865
   %39 = add nuw nsw i32 %15, %.05164
   %40 = icmp slt i32 %39, %.047
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %37
   %41 = add nuw nsw i32 %.1, 2
@@ -249,13 +249,13 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %48 = getelementptr inbounds i8, ptr %0, i64 %47
   %49 = sub nsw i32 %.047, %.15266
   %50 = call i32 @UTF8_getc(ptr noundef %48, i32 noundef %49, ptr noundef nonnull %5) #6
-  %51 = load i64, ptr %5, align 8, !tbaa !14
+  %51 = load i64, ptr %5, align 8, !tbaa !15
   %52 = icmp ugt i64 %51, 65535
   br i1 %52, label %53, label %68
 
 53:                                               ; preds = %.lr.ph68
   %54 = add i64 %51, -65536
-  store i64 %54, ptr %5, align 8, !tbaa !14
+  store i64 %54, ptr %5, align 8, !tbaa !15
   %55 = lshr i64 %54, 10
   %56 = trunc i64 %55 to i16
   %57 = add i16 %56, -10240
@@ -278,7 +278,7 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %69 = lshr i64 %51, 8
   %70 = trunc nuw i64 %69 to i8
   store i8 %70, ptr %.04967, align 1, !tbaa !3
-  %71 = load i64, ptr %5, align 8, !tbaa !14
+  %71 = load i64, ptr %5, align 8, !tbaa !15
   %72 = getelementptr inbounds nuw i8, ptr %.04967, i64 2
   br label %73
 
@@ -290,7 +290,7 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   store i8 %.sink, ptr %74, align 1, !tbaa !3
   %75 = add nsw i32 %50, %.15266
   %76 = icmp slt i32 %75, %.047
-  br i1 %76, label %.lr.ph68, label %._crit_edge69, !llvm.loop !17
+  br i1 %76, label %.lr.ph68, label %._crit_edge69, !llvm.loop !18
 
 ._crit_edge69:                                    ; preds = %73, %._crit_edge.thread
   %.048.lcssa7274 = phi i32 [ 2, %._crit_edge.thread ], [ %41, %73 ]
@@ -303,7 +303,7 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br i1 %.not, label %80, label %79
 
 79:                                               ; preds = %._crit_edge69
-  store i32 %.048.lcssa7274, ptr %3, align 4, !tbaa !8
+  store i32 %.048.lcssa7274, ptr %3, align 4, !tbaa !9
   br label %80
 
 80:                                               ; preds = %79, %._crit_edge69
@@ -312,7 +312,7 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
 
 OPENSSL_asc2uni.exit.sink.split:                  ; preds = %80, %33
   %.sink75 = phi ptr [ %21, %33 ], [ %77, %80 ]
-  store ptr %.sink75, ptr %2, align 8, !tbaa !10
+  store ptr %.sink75, ptr %2, align 8, !tbaa !11
   br label %OPENSSL_asc2uni.exit
 
 OPENSSL_asc2uni.exit:                             ; preds = %34, %OPENSSL_asc2uni.exit.sink.split, %._crit_edge.thread, %33, %17, %80, %._crit_edge
@@ -423,7 +423,7 @@ bmp_to_utf8.exit:                                 ; preds = %9, %24
   store i8 %54, ptr %56, align 1, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %57 = icmp samesign ult i64 %indvars.iv.next.i, %39
-  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %58 = getelementptr i8, ptr %51, i64 %50
@@ -437,7 +437,7 @@ bmp_to_utf8.exit:                                 ; preds = %9, %24
   %spec.select = add nuw nsw i32 %spec.select.v, %.04383
   %62 = add nuw nsw i32 %.fr79, %.04482
   %63 = icmp slt i32 %spec.select, %1
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %60, %.preheader80
   %.044.lcssa = phi i32 [ 0, %.preheader80 ], [ %62, %60 ]
@@ -538,7 +538,7 @@ bmp_to_utf8.exit62:                               ; preds = %84, %99
   %114 = phi i32 [ %109, %bmp_to_utf8.exit62.thread ], [ %spec.select78, %bmp_to_utf8.exit62 ]
   %115 = add nsw i32 %.0.i5975, %.24684
   %116 = icmp slt i32 %114, %1
-  br i1 %116, label %.lr.ph86, label %._crit_edge87.loopexit, !llvm.loop !19
+  br i1 %116, label %.lr.ph86, label %._crit_edge87.loopexit, !llvm.loop !20
 
 ._crit_edge87.loopexit:                           ; preds = %113
   %117 = sext i32 %115 to i64
@@ -598,7 +598,7 @@ define ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %1, align 8, !tbaa !20
+  %4 = load ptr, ptr %1, align 8, !tbaa !21
   %5 = tail call ptr @ossl_pkcs12_get0_pkcs7ctx(ptr noundef %4) #6
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %9, label %6
@@ -630,7 +630,7 @@ define ptr @d2i_PKCS12_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %1, align 8, !tbaa !20
+  %4 = load ptr, ptr %1, align 8, !tbaa !21
   %5 = tail call ptr @ossl_pkcs12_get0_pkcs7ctx(ptr noundef %4) #6
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %9, label %6
@@ -671,19 +671,20 @@ attributes #6 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"int", !4, i64 0}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !4, i64 0}
-!13 = distinct !{!13, !7}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !4, i64 0}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS9PKCS12_st", !12, i64 0}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !4, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !4, i64 0}
+!14 = distinct !{!14, !7, !8}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !4, i64 0}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS9PKCS12_st", !13, i64 0}

@@ -140,7 +140,7 @@ define hidden noundef ptr @_ZN9metaspace10FreeBlocks12remove_blockEm(ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i, i64 %.sink.i.i.i
   %.19.i.i.i = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %.19.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.i, label %.lr.ph.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i, label %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 _ZN9metaspace9BlockTree16find_closest_fitEm.exit.i: ; preds = %13
   %.not.i = icmp eq ptr %.2.i.i.i, null
@@ -190,7 +190,7 @@ _ZN9metaspace9BlockTree16find_closest_fitEm.exit.thread17.i: ; preds = %11, %_ZN
 32:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
-  br i1 %exitcond.not.i.i, label %_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 .critedge.loopexit.i.i:                           ; preds = %.lr.ph.i.i
   %33 = trunc i64 %indvars.iv.i.i to i32
@@ -443,7 +443,7 @@ _ZN9metaspace9BlockTree22replace_node_in_parentEPNS0_4NodeES2_.exit41: ; preds =
   %45 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not16.i = icmp eq ptr %46, null
-  br i1 %.not16.i, label %_ZN9metaspace9BlockTree9successorEPNS0_4NodeE.exit, label %.preheader17.i, !llvm.loop !10
+  br i1 %.not16.i, label %_ZN9metaspace9BlockTree9successorEPNS0_4NodeE.exit, label %.preheader17.i, !llvm.loop !11
 
 _ZN9metaspace9BlockTree9successorEPNS0_4NodeE.exit: ; preds = %.preheader17.i
   %47 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
@@ -570,8 +570,9 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

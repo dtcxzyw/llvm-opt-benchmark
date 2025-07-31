@@ -289,7 +289,7 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %186 = tail call float @llvm.fmuladd.f32(float %185, float %12, float %.0140163)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %156, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %156, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %156, %.preheader
   %.0140.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %186, %156 ]
@@ -629,6 +629,7 @@ attributes #10 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

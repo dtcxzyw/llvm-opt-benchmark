@@ -194,14 +194,14 @@ define internal fastcc range(i32 -6, 1) i32 @start_bunzip(ptr noundef writeonly 
   %24 = select i1 %23, i32 %22, i32 %21
   %25 = add nsw i32 %20, -1
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %18, !llvm.loop !8
+  br i1 %26, label %27, label %18, !llvm.loop !9
 
 27:                                               ; preds = %18
   %28 = getelementptr [256 x i32], ptr %13, i64 0, i64 %15
   store i32 %24, ptr %28, align 4
   %29 = add nuw nsw i64 %15, 1
   %30 = icmp eq i64 %29, 256
-  br i1 %30, label %31, label %14, !llvm.loop !10
+  br i1 %30, label %31, label %14, !llvm.loop !11
 
 31:                                               ; preds = %27
   %32 = tail call fastcc i32 @get_bits(ptr noundef nonnull %5, i8 noundef zeroext 32) #11
@@ -303,7 +303,7 @@ define internal fastcc i32 @read_bunzip(ptr noundef %0, ptr noundef writeonly ca
   store i32 %46, ptr %0, align 8
   %47 = and i64 %33, 4294967295
   %48 = icmp eq i64 %47, 4096
-  br i1 %48, label %.loopexit, label %31, !llvm.loop !11
+  br i1 %48, label %.loopexit, label %31, !llvm.loop !12
 
 49:                                               ; preds = %31
   %50 = trunc i64 %33 to i32
@@ -340,22 +340,22 @@ define internal fastcc i32 @read_bunzip(ptr noundef %0, ptr noundef writeonly ca
 
 72:                                               ; preds = %63
   %73 = icmp eq i32 %67, %54
-  br i1 %73, label %16, label %74, !llvm.loop !11
+  br i1 %73, label %16, label %74, !llvm.loop !13
 
 74:                                               ; preds = %72
   store i32 4, ptr %57, align 8
-  br label %16, !llvm.loop !11
+  br label %16, !llvm.loop !13
 
 75:                                               ; preds = %63
   store i32 %67, ptr %0, align 8
   store i32 5, ptr %57, align 8
   %76 = icmp eq i32 %67, 0
-  br i1 %76, label %58, label %77
+  br i1 %76, label %58, label %77, !llvm.loop !14
 
 77:                                               ; preds = %75
   %78 = add nsw i32 %67, -1
   store i32 %78, ptr %0, align 8
-  br label %16, !llvm.loop !11
+  br label %16, !llvm.loop !13
 
 79:                                               ; preds = %58
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -517,7 +517,7 @@ define internal fastcc i32 @get_bits(ptr noundef captures(none) %0, i8 noundef z
   store i32 %55, ptr %13, align 4
   store i32 %46, ptr %3, align 8
   %56 = icmp samesign ult i32 %46, %.pre-phi
-  br i1 %56, label %14, label %.loopexit5, !llvm.loop !12
+  br i1 %56, label %14, label %.loopexit5, !llvm.loop !15
 
 .loopexit5:                                       ; preds = %45, %..loopexit5_crit_edge
   %57 = phi i32 [ %.pre13, %..loopexit5_crit_edge ], [ %55, %45 ]
@@ -619,13 +619,13 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %55 = phi i32 [ %51, %48 ], [ %42, %41 ]
   %56 = add nuw nsw i32 %43, 1
   %57 = icmp eq i32 %56, 16
-  br i1 %57, label %.loopexit67, label %41, !llvm.loop !13
+  br i1 %57, label %.loopexit67, label %41, !llvm.loop !16
 
 .loopexit67:                                      ; preds = %54, %31
   %58 = phi i32 [ %32, %31 ], [ %55, %54 ]
   %59 = add nuw nsw i32 %33, 1
   %60 = icmp eq i32 %59, 16
-  br i1 %60, label %61, label %31, !llvm.loop !14
+  br i1 %60, label %61, label %31, !llvm.loop !17
 
 61:                                               ; preds = %.loopexit67
   %62 = tail call fastcc i32 @get_bits(ptr noundef %0, i8 noundef zeroext 3) #11
@@ -658,7 +658,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i8 %76, ptr %77, align 1
   %78 = add nuw nsw i64 %75, 1
   %79 = icmp eq i64 %78, %69
-  br i1 %79, label %70, label %74, !llvm.loop !15
+  br i1 %79, label %70, label %74, !llvm.loop !18
 
 80:                                               ; preds = %.loopexit63, %72
   %81 = phi i64 [ 0, %72 ], [ %96, %.loopexit63 ]
@@ -681,7 +681,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %89 = tail call fastcc i32 @get_bits(ptr noundef %0, i8 noundef zeroext 1) #11
   %90 = icmp eq i32 %89, 0
   %indvar.next = add i64 %indvar, 1
-  br i1 %90, label %.loopexit63.loopexit, label %.preheader64, !llvm.loop !16
+  br i1 %90, label %.loopexit63.loopexit, label %.preheader64, !llvm.loop !19
 
 .loopexit63.loopexit:                             ; preds = %87
   %91 = zext nneg i32 %88 to i64
@@ -697,7 +697,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i8 %94, ptr %11, align 1
   %96 = add nuw nsw i64 %81, 1
   %97 = icmp eq i64 %96, %73
-  br i1 %97, label %.loopexit66, label %80, !llvm.loop !17
+  br i1 %97, label %.loopexit66, label %80, !llvm.loop !20
 
 .loopexit66:                                      ; preds = %.loopexit63, %70
   %98 = add i32 %58, 2
@@ -717,7 +717,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %109 = phi ptr [ %215, %.loopexit56 ], [ %117, %.loopexit55 ]
   %110 = add nuw nsw i64 %114, 1
   %111 = icmp eq i64 %110, %69
-  br i1 %111, label %112, label %113, !llvm.loop !18
+  br i1 %111, label %112, label %113, !llvm.loop !21
 
 112:                                              ; preds = %105
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(1024) %9, i8 0, i64 1024, i1 false)
@@ -729,9 +729,9 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %116 = phi ptr [ null, %.loopexit66 ], [ %108, %105 ]
   %117 = phi ptr [ null, %.loopexit66 ], [ %109, %105 ]
   call void @llvm.lifetime.start.p0(i64 258, ptr nonnull %2) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(258) %2, i8 0, i64 258, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(258) %2, i8 0, i64 258, i1 false), !annotation !22
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %3, i8 0, i64 21, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %3, i8 0, i64 21, i1 false), !annotation !22
   %118 = tail call fastcc i32 @get_bits(ptr noundef %0, i8 noundef zeroext 5) #11
   br i1 %99, label %119, label %.thread45
 
@@ -763,7 +763,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %135 = add nuw nsw i64 %122, 1
   %136 = icmp slt i64 %135, %103
   %137 = icmp eq i64 %135, %104
-  br i1 %137, label %144, label %121, !llvm.loop !20
+  br i1 %137, label %144, label %121, !llvm.loop !23
 
 138:                                              ; preds = %.preheader54
   %139 = add nuw i32 %127, 1
@@ -771,7 +771,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %141 = add nsw i32 %126, -1
   %142 = add nsw i32 %141, %140
   %143 = icmp ugt i32 %142, 19
-  br i1 %143, label %.loopexit55, label %.preheader54, !llvm.loop !21
+  br i1 %143, label %.loopexit55, label %.preheader54, !llvm.loop !24
 
 144:                                              ; preds = %129
   %145 = load i8, ptr %2, align 16
@@ -791,7 +791,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %156 = tail call i32 @llvm.smax.i32(i32 %148, i32 %152)
   %157 = add nuw nsw i64 %147, 1
   %158 = icmp eq i64 %157, %104
-  br i1 %158, label %164, label %.preheader60, !llvm.loop !22
+  br i1 %158, label %164, label %.preheader60, !llvm.loop !25
 
 .thread45:                                        ; preds = %113, %144
   %.ph = phi i1 [ %136, %144 ], [ false, %113 ]
@@ -869,13 +869,13 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %203 = phi i32 [ %198, %197 ], [ %192, %.preheader52 ]
   %204 = add nuw nsw i64 %191, 1
   %205 = icmp eq i64 %204, %104
-  br i1 %205, label %.loopexit53, label %.preheader52, !llvm.loop !23
+  br i1 %205, label %.loopexit53, label %.preheader52, !llvm.loop !26
 
 .loopexit53:                                      ; preds = %202
   %206 = add nuw nsw i64 %189, 1
   %207 = trunc i64 %189 to i32
   %208 = icmp sgt i32 %175, %207
-  br i1 %208, label %.outer, label %.preheader57.preheader, !llvm.loop !24
+  br i1 %208, label %.outer, label %.preheader57.preheader, !llvm.loop !27
 
 .outer:                                           ; preds = %.loopexit53, %171
   %.ph159 = phi i64 [ %206, %.loopexit53 ], [ %178, %171 ]
@@ -886,7 +886,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %209 = add nuw nsw i64 %189, 1
   %210 = trunc i64 %189 to i32
   %211 = icmp sgt i32 %175, %210
-  br i1 %211, label %188, label %.loopexit58, !llvm.loop !24
+  br i1 %211, label %188, label %.loopexit58, !llvm.loop !27
 
 .loopexit58:                                      ; preds = %.preheader57, %.loopexit53.thread
   %212 = phi i1 [ %177, %.loopexit53.thread ], [ %182, %.preheader57 ]
@@ -910,7 +910,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i8 %226, ptr %224, align 1
   %227 = add nuw nsw i64 %220, 1
   %228 = icmp eq i64 %227, %104
-  br i1 %228, label %.loopexit58, label %.preheader57, !llvm.loop !25
+  br i1 %228, label %.loopexit58, label %.preheader57, !llvm.loop !28
 
 .preheader207:                                    ; preds = %.loopexit58, %.preheader207
   %229 = phi i64 [ %244, %.preheader207 ], [ %219, %.loopexit58 ]
@@ -934,7 +934,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i32 %243, ptr %245, align 4
   %246 = trunc i64 %244 to i32
   %247 = icmp sgt i32 %214, %246
-  br i1 %247, label %.preheader207, label %.loopexit56.loopexit, !llvm.loop !26
+  br i1 %247, label %.preheader207, label %.loopexit56.loopexit, !llvm.loop !29
 
 .loopexit56.loopexit:                             ; preds = %.preheader207
   %248 = add i32 %241, -1
@@ -978,7 +978,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i8 %267, ptr %268, align 1
   %269 = add nuw nsw i64 %266, 1
   %270 = icmp eq i64 %269, 256
-  br i1 %270, label %260, label %265, !llvm.loop !27
+  br i1 %270, label %260, label %265, !llvm.loop !30
 
 271:                                              ; preds = %427, %367
   %272 = phi ptr [ %293, %367 ], [ %428, %427 ]
@@ -1036,7 +1036,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
 
 308:                                              ; preds = %313
   %309 = icmp eq i64 %318, %303
-  br i1 %309, label %.loopexit48, label %313, !llvm.loop !28
+  br i1 %309, label %.loopexit48, label %313, !llvm.loop !31
 
 .loopexit48:                                      ; preds = %308, %302
   %310 = phi i32 [ %300, %302 ], [ %324, %308 ]
@@ -1060,7 +1060,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i32 %323, ptr %100, align 8
   %324 = load i32, ptr %298, align 4
   %325 = icmp ult i32 %323, %324
-  br i1 %325, label %308, label %.loopexit, !llvm.loop !28
+  br i1 %325, label %308, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %313, %..loopexit_crit_edge
   %326 = phi i32 [ %.pre154, %..loopexit_crit_edge ], [ %322, %313 ]
@@ -1088,7 +1088,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %343 = load i32, ptr %342, align 4
   %344 = icmp sgt i32 %336, %343
   %345 = add i32 %340, 1
-  br i1 %344, label %339, label %346, !llvm.loop !29
+  br i1 %344, label %339, label %346, !llvm.loop !33
 
 346:                                              ; preds = %339
   %347 = load i32, ptr %298, align 4
@@ -1124,7 +1124,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %370 = shl i32 %369, %364
   %371 = add i32 %370, %368
   %372 = shl i32 %369, 1
-  br label %271, !llvm.loop !30
+  br label %271, !llvm.loop !34
 
 373:                                              ; preds = %360
   br i1 %366, label %.loopexit49, label %374
@@ -1160,7 +1160,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %394 = getelementptr i32, ptr %5, i64 %393
   store i32 %388, ptr %394, align 4
   %395 = icmp eq i32 %391, 0
-  br i1 %395, label %.loopexit49, label %389, !llvm.loop !31
+  br i1 %395, label %.loopexit49, label %389, !llvm.loop !35
 
 .loopexit49:                                      ; preds = %389, %377, %373
   %396 = phi i32 [ %431, %373 ], [ %431, %377 ], [ %392, %389 ]
@@ -1189,7 +1189,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %413 = getelementptr i8, ptr %11, i64 %412
   store i8 %411, ptr %413, align 1
   %414 = icmp eq i32 %408, 0
-  br i1 %414, label %415, label %406, !llvm.loop !32
+  br i1 %414, label %415, label %406, !llvm.loop !36
 
 415:                                              ; preds = %406
   store i8 %405, ptr %11, align 1
@@ -1206,7 +1206,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %425 = sext i32 %396 to i64
   %426 = getelementptr i32, ptr %5, i64 %425
   store i32 %423, ptr %426, align 4
-  br label %427, !llvm.loop !30
+  br label %427, !llvm.loop !37
 
 427:                                              ; preds = %415, %260
   %428 = phi ptr [ %109, %260 ], [ %293, %415 ]
@@ -1235,7 +1235,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i32 %440, ptr %441, align 4
   %444 = add nuw nsw i64 %439, 1
   %445 = icmp eq i64 %444, 256
-  br i1 %445, label %435, label %.preheader, !llvm.loop !33
+  br i1 %445, label %435, label %.preheader, !llvm.loop !38
 
 446:                                              ; preds = %446, %437
   %447 = phi i64 [ 0, %437 ], [ %462, %446 ]
@@ -1257,7 +1257,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i32 %461, ptr %454, align 4
   %462 = add nuw nsw i64 %447, 1
   %463 = icmp eq i64 %462, %438
-  br i1 %463, label %.thread46, label %446, !llvm.loop !34
+  br i1 %463, label %.thread46, label %446, !llvm.loop !39
 
 464:                                              ; preds = %435
   %465 = icmp eq i32 %396, 0
@@ -1328,32 +1328,37 @@ attributes #12 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 -6, i32 1}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !9, !7}
-!13 = distinct !{!13, !9, !7}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9, !7}
-!16 = distinct !{!16, !9, !7}
-!17 = distinct !{!17, !9, !7}
-!18 = distinct !{!18, !9, !7}
-!19 = !{!"auto-init"}
-!20 = distinct !{!20, !9, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !9, !7}
-!23 = distinct !{!23, !9, !7}
-!24 = distinct !{!24, !9, !7}
-!25 = distinct !{!25, !9, !7}
-!26 = distinct !{!26, !9, !7}
-!27 = distinct !{!27, !9, !7}
-!28 = distinct !{!28, !9, !7}
-!29 = distinct !{!29, !9, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !9, !7}
-!32 = distinct !{!32, !9, !7}
-!33 = distinct !{!33, !9, !7}
-!34 = distinct !{!34, !9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !7, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !10, !7, !8}
+!16 = distinct !{!16, !10, !7, !8}
+!17 = distinct !{!17, !10, !7, !8}
+!18 = distinct !{!18, !10, !7, !8}
+!19 = distinct !{!19, !10, !7, !8}
+!20 = distinct !{!20, !10, !7, !8}
+!21 = distinct !{!21, !10, !7, !8}
+!22 = !{!"auto-init"}
+!23 = distinct !{!23, !10, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !10, !7, !8}
+!26 = distinct !{!26, !10, !7, !8}
+!27 = distinct !{!27, !10, !7, !8}
+!28 = distinct !{!28, !10, !7, !8}
+!29 = distinct !{!29, !10, !7, !8}
+!30 = distinct !{!30, !10, !7, !8}
+!31 = distinct !{!31, !10, !7, !8}
+!32 = distinct !{!32, !10, !7}
+!33 = distinct !{!33, !10, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !10, !7, !8}
+!36 = distinct !{!36, !10, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !10, !7, !8}
+!39 = distinct !{!39, !10, !7, !8}

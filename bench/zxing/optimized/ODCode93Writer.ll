@@ -914,7 +914,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %335
   %345 = add nuw nsw i64 %336, 37
   %346 = lshr i64 %338, 6
   %347 = getelementptr inbounds nuw i64, ptr %341, i64 %346
-  store ptr %347, ptr %337, align 8, !tbaa !26
+  store ptr %347, ptr %337, align 8, !tbaa !27
   store ptr %341, ptr %10, align 8
   store i32 0, ptr %344, align 8
   %.zext137 = lshr i64 %345, 6
@@ -946,22 +946,22 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit134:          ; preds = %335
   br i1 %.not.i49, label %363, label %360
 
 360:                                              ; preds = %352
-  %361 = load i64, ptr %358, align 8, !tbaa !32
+  %361 = load i64, ptr %358, align 8, !tbaa !33
   %362 = or i64 %361, %359
   br label %_ZNSt14_Bit_referenceaSEb.exit.i
 
 363:                                              ; preds = %352
   %364 = xor i64 %359, -1
-  %365 = load i64, ptr %358, align 8, !tbaa !32
+  %365 = load i64, ptr %358, align 8, !tbaa !33
   %366 = and i64 %365, %364
   br label %_ZNSt14_Bit_referenceaSEb.exit.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i:                 ; preds = %363, %360
   %storemerge.i = phi i64 [ %366, %363 ], [ %362, %360 ]
-  store i64 %storemerge.i, ptr %358, align 8, !tbaa !32
+  store i64 %storemerge.i, ptr %358, align 8, !tbaa !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i50, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader, label %352, !llvm.loop !33
+  br i1 %exitcond.not.i50, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader, label %352, !llvm.loop !34
 
 _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i
   %367 = load ptr, ptr %9, align 8, !tbaa !20
@@ -991,7 +991,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_
   %.not.i55 = icmp slt i32 %.03.i, 20
   %spec.store.select.i = select i1 %.not.i55, i32 %378, i32 1
   %379 = icmp samesign ugt i64 %indvars.iv.i52, 1
-  br i1 %379, label %.lr.ph.i51, label %_ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, !llvm.loop !34
+  br i1 %379, label %.lr.ph.i51, label %_ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, !llvm.loop !35
 
 380:                                              ; preds = %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66
   %indvars.iv = phi i64 [ 9, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader ], [ %indvars.iv.next, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66 ]
@@ -1007,7 +1007,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_
   %387 = sext i32 %386 to i64
   %388 = select i1 %.not.i56, i64 -1, i64 %387
   %389 = getelementptr inbounds [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %388
-  %390 = load i32, ptr %389, align 4, !tbaa !35
+  %390 = load i32, ptr %389, align 4, !tbaa !36
   br label %391
 
 391:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i62, %380
@@ -1027,34 +1027,34 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_
   br i1 %.not.i58, label %405, label %402
 
 402:                                              ; preds = %391
-  %403 = load i64, ptr %399, align 8, !tbaa !32
+  %403 = load i64, ptr %399, align 8, !tbaa !33
   %404 = or i64 %403, %401
   br label %_ZNSt14_Bit_referenceaSEb.exit.i62
 
 405:                                              ; preds = %391
   %406 = xor i64 %401, -1
-  %407 = load i64, ptr %399, align 8, !tbaa !32
+  %407 = load i64, ptr %399, align 8, !tbaa !33
   %408 = and i64 %407, %406
   br label %_ZNSt14_Bit_referenceaSEb.exit.i62
 
 _ZNSt14_Bit_referenceaSEb.exit.i62:               ; preds = %405, %402
   %storemerge.i63 = phi i64 [ %408, %405 ], [ %404, %402 ]
-  store i64 %storemerge.i63, ptr %399, align 8, !tbaa !32
+  store i64 %storemerge.i63, ptr %399, align 8, !tbaa !33
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 9
-  br i1 %exitcond.not.i65, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66, label %391, !llvm.loop !33
+  br i1 %exitcond.not.i65, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66, label %391, !llvm.loop !34
 
 _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 9
   %409 = add nuw nsw i64 %.031142, 1
   %exitcond.not = icmp eq i64 %409, %.pre
-  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %380, !llvm.loop !36
+  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %380, !llvm.loop !37
 
 _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %.lr.ph.i51
   %410 = srem i32 %377, 47
   %411 = sext i32 %410 to i64
   %412 = getelementptr inbounds [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %411
-  %413 = load i32, ptr %412, align 4, !tbaa !35
+  %413 = load i32, ptr %412, align 4, !tbaa !36
   %414 = and i64 %indvars.iv.next, 4294967295
   br label %415
 
@@ -1075,22 +1075,22 @@ _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.not.i68, label %429, label %426
 
 426:                                              ; preds = %415
-  %427 = load i64, ptr %423, align 8, !tbaa !32
+  %427 = load i64, ptr %423, align 8, !tbaa !33
   %428 = or i64 %427, %425
   br label %_ZNSt14_Bit_referenceaSEb.exit.i72
 
 429:                                              ; preds = %415
   %430 = xor i64 %425, -1
-  %431 = load i64, ptr %423, align 8, !tbaa !32
+  %431 = load i64, ptr %423, align 8, !tbaa !33
   %432 = and i64 %431, %430
   br label %_ZNSt14_Bit_referenceaSEb.exit.i72
 
 _ZNSt14_Bit_referenceaSEb.exit.i72:               ; preds = %429, %426
   %storemerge.i73 = phi i64 [ %432, %429 ], [ %428, %426 ]
-  store i64 %storemerge.i73, ptr %423, align 8, !tbaa !32
+  store i64 %storemerge.i73, ptr %423, align 8, !tbaa !33
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, 9
-  br i1 %exitcond.not.i75, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit76, label %415, !llvm.loop !33
+  br i1 %exitcond.not.i75, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit76, label %415, !llvm.loop !34
 
 _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit76: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i72
   %433 = add nuw i64 %indvars.iv, 18
@@ -1162,12 +1162,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i77: ; 
   %.not.i88 = icmp slt i32 %.03.i83, 15
   %spec.store.select.i89 = select i1 %.not.i88, i32 %462, i32 1
   %463 = icmp samesign ugt i64 %indvars.iv.i82, 1
-  br i1 %463, label %.lr.ph.i81, label %._crit_edge.loopexit.i90, !llvm.loop !34
+  br i1 %463, label %.lr.ph.i81, label %._crit_edge.loopexit.i90, !llvm.loop !35
 
 _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit91: ; preds = %._crit_edge.loopexit.i90, %443
   %.011.lcssa.i79 = phi i64 [ 0, %443 ], [ %452, %._crit_edge.loopexit.i90 ]
   %464 = getelementptr inbounds [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %.011.lcssa.i79
-  %465 = load i32, ptr %464, align 4, !tbaa !35
+  %465 = load i32, ptr %464, align 4, !tbaa !36
   %466 = and i64 %433, 4294967295
   br label %467
 
@@ -1188,22 +1188,22 @@ _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.not.i93, label %481, label %478
 
 478:                                              ; preds = %467
-  %479 = load i64, ptr %475, align 8, !tbaa !32
+  %479 = load i64, ptr %475, align 8, !tbaa !33
   %480 = or i64 %479, %477
   br label %_ZNSt14_Bit_referenceaSEb.exit.i97
 
 481:                                              ; preds = %467
   %482 = xor i64 %477, -1
-  %483 = load i64, ptr %475, align 8, !tbaa !32
+  %483 = load i64, ptr %475, align 8, !tbaa !33
   %484 = and i64 %483, %482
   br label %_ZNSt14_Bit_referenceaSEb.exit.i97
 
 _ZNSt14_Bit_referenceaSEb.exit.i97:               ; preds = %481, %478
   %storemerge.i98 = phi i64 [ %484, %481 ], [ %480, %478 ]
-  store i64 %storemerge.i98, ptr %475, align 8, !tbaa !32
+  store i64 %storemerge.i98, ptr %475, align 8, !tbaa !33
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i92, 1
   %exitcond.not.i100 = icmp eq i64 %indvars.iv.next.i99, 9
-  br i1 %exitcond.not.i100, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit101, label %467, !llvm.loop !33
+  br i1 %exitcond.not.i100, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit101, label %467, !llvm.loop !34
 
 _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit101: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i97
   %485 = add nuw i64 %indvars.iv, 27
@@ -1227,22 +1227,22 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit101: ; preds = %_ZNSt14_
   br i1 %.not.i103, label %501, label %498
 
 498:                                              ; preds = %487
-  %499 = load i64, ptr %495, align 8, !tbaa !32
+  %499 = load i64, ptr %495, align 8, !tbaa !33
   %500 = or i64 %499, %497
   br label %_ZNSt14_Bit_referenceaSEb.exit.i107
 
 501:                                              ; preds = %487
   %502 = xor i64 %497, -1
-  %503 = load i64, ptr %495, align 8, !tbaa !32
+  %503 = load i64, ptr %495, align 8, !tbaa !33
   %504 = and i64 %503, %502
   br label %_ZNSt14_Bit_referenceaSEb.exit.i107
 
 _ZNSt14_Bit_referenceaSEb.exit.i107:              ; preds = %501, %498
   %storemerge.i108 = phi i64 [ %504, %501 ], [ %500, %498 ]
-  store i64 %storemerge.i108, ptr %495, align 8, !tbaa !32
+  store i64 %storemerge.i108, ptr %495, align 8, !tbaa !33
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 9
-  br i1 %exitcond.not.i110, label %505, label %487, !llvm.loop !33
+  br i1 %exitcond.not.i110, label %505, label %487, !llvm.loop !34
 
 505:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i107
   %506 = add nuw nsw i32 %368, 36
@@ -1252,22 +1252,22 @@ _ZNSt14_Bit_referenceaSEb.exit.i107:              ; preds = %501, %498
   %509 = and i32 %506, 63
   %510 = zext nneg i32 %509 to i64
   %511 = shl nuw i64 1, %510
-  %512 = load i64, ptr %508, align 8, !tbaa !32
+  %512 = load i64, ptr %508, align 8, !tbaa !33
   %513 = or i64 %512, %511
-  store i64 %513, ptr %508, align 8, !tbaa !32
-  %514 = load i32, ptr %1, align 4, !tbaa !37
+  store i64 %513, ptr %508, align 8, !tbaa !33
+  %514 = load i32, ptr %1, align 4, !tbaa !38
   %515 = icmp sgt i32 %514, -1
   %spec.select = select i1 %515, i32 %514, i32 10
   invoke void @_ZN5ZXing4OneD12WriterHelper12RenderResultERKSt6vectorIbSaIbEEiii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %3, i32 noundef %4, i32 noundef %spec.select)
           to label %516 unwind label %533
 
 516:                                              ; preds = %505
-  %517 = load ptr, ptr %10, align 8, !tbaa !39
+  %517 = load ptr, ptr %10, align 8, !tbaa !40
   %.not.i.i114 = icmp eq ptr %517, null
   br i1 %.not.i.i114, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %518
 
 518:                                              ; preds = %516
-  %519 = load ptr, ptr %337, align 8, !tbaa !26
+  %519 = load ptr, ptr %337, align 8, !tbaa !27
   %520 = ptrtoint ptr %519 to i64
   %521 = ptrtoint ptr %517 to i64
   %522 = sub i64 %520, %521
@@ -1307,14 +1307,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 533:                                              ; preds = %505
   %534 = landingpad { ptr, i32 }
           cleanup
-  %.pre150 = load ptr, ptr %10, align 8, !tbaa !39
+  %.pre150 = load ptr, ptr %10, align 8, !tbaa !40
   %.not.i.i115 = icmp eq ptr %.pre150, null
   br i1 %.not.i.i115, label %.body, label %535
 
 535:                                              ; preds = %.thread, %533
   %.pn36153 = phi { ptr, i32 } [ %532, %.thread ], [ %534, %533 ]
   %536 = phi ptr [ %341, %.thread ], [ %.pre150, %533 ]
-  %537 = load ptr, ptr %337, align 8, !tbaa !26
+  %537 = load ptr, ptr %337, align 8, !tbaa !27
   %538 = ptrtoint ptr %537 to i64
   %539 = ptrtoint ptr %536 to i64
   %540 = sub i64 %538, %539
@@ -1725,7 +1725,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 12:                                               ; preds = %10
   %13 = add nuw i64 %8, 1
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !40
+  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !41
 
 .noexc11:                                         ; preds = %12
   tail call void @_ZSt17__throw_bad_allocv() #17
@@ -1826,7 +1826,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %.0 = phi i64 [ %spec.store.select.i, %26 ], [ %11, %23 ], [ %11, %21 ]
   %28 = add nuw i64 %.0, 1
   %29 = icmp slt i64 %28, 0
-  br i1 %29, label %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit, !prof !40
+  br i1 %29, label %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit, !prof !41
 
 30:                                               ; preds = %27
   tail call void @_ZSt17__throw_bad_allocv() #17
@@ -1977,20 +1977,21 @@ attributes #19 = { builtin nounwind }
 !21 = !{!7, !9, i64 0}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"wchar_t", !11, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !30, i64 32}
-!27 = !{!"_ZTSNSt13_Bvector_baseISaIbEE18_Bvector_impl_dataE", !28, i64 0, !28, i64 16, !30, i64 32}
-!28 = !{!"_ZTSSt13_Bit_iterator", !29, i64 0}
-!29 = !{!"_ZTSSt18_Bit_iterator_base", !30, i64 0, !31, i64 8}
-!30 = !{!"p1 long", !10, i64 0}
-!31 = !{!"int", !11, i64 0}
-!32 = !{!13, !13, i64 0}
-!33 = distinct !{!33, !25}
-!34 = distinct !{!34, !25}
-!35 = !{!31, !31, i64 0}
-!36 = distinct !{!36, !25}
-!37 = !{!38, !31, i64 0}
-!38 = !{!"_ZTSN5ZXing4OneD12Code93WriterE", !31, i64 0}
-!39 = !{!29, !30, i64 0}
-!40 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !31, i64 32}
+!28 = !{!"_ZTSNSt13_Bvector_baseISaIbEE18_Bvector_impl_dataE", !29, i64 0, !29, i64 16, !31, i64 32}
+!29 = !{!"_ZTSSt13_Bit_iterator", !30, i64 0}
+!30 = !{!"_ZTSSt18_Bit_iterator_base", !31, i64 0, !32, i64 8}
+!31 = !{!"p1 long", !10, i64 0}
+!32 = !{!"int", !11, i64 0}
+!33 = !{!13, !13, i64 0}
+!34 = distinct !{!34, !25, !26}
+!35 = distinct !{!35, !25, !26}
+!36 = !{!32, !32, i64 0}
+!37 = distinct !{!37, !25, !26}
+!38 = !{!39, !32, i64 0}
+!39 = !{!"_ZTSN5ZXing4OneD12Code93WriterE", !32, i64 0}
+!40 = !{!30, !31, i64 0}
+!41 = !{!"branch_weights", !"expected", i32 1, i32 2000}

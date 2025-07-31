@@ -1439,7 +1439,7 @@ _ZNSolsEPFRSoS_E.exit203:                         ; preds = %.noexc262, %483, %4
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSolsEPFRSoS_E.exit203, %488
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #17
-  br i1 %switch, label %292, label %_ZNSolsEPFRSoS_E.exit166
+  br i1 %switch, label %292, label %_ZNSolsEPFRSoS_E.exit166, !llvm.loop !102
 
 489:                                              ; preds = %.loopexit276, %.loopexit.split-lp277, %449, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206, %414, %395
   %.pn81.pn.pn.pn = phi { ptr, i32 } [ %478, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206 ], [ %.pn73.pn.pn.pn, %414 ], [ %396, %395 ], [ %450, %449 ], [ %lpad.loopexit278, %.loopexit276 ], [ %lpad.loopexit.split-lp279, %.loopexit.split-lp277 ]
@@ -1463,7 +1463,7 @@ _ZNSolsEPFRSoS_E.exit166:                         ; preds = %_ZNSt6vectorIN2cv5R
   %492 = getelementptr inbounds nuw i8, ptr %14, i64 312
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %492) #17
   %493 = getelementptr inbounds nuw i8, ptr %14, i64 288
-  %494 = load ptr, ptr %493, align 8, !tbaa !101
+  %494 = load ptr, ptr %493, align 8, !tbaa !103
   %.not.i.i.i.i.i = icmp eq ptr %494, null
   br i1 %.not.i.i.i.i.i, label %_ZN2cv13HOGDescriptorD2Ev.exit.i, label %495
 
@@ -1476,7 +1476,7 @@ _ZN2cv13HOGDescriptorD2Ev.exit.i:                 ; preds = %495, %_ZNSolsEPFRSo
   %496 = getelementptr inbounds nuw i8, ptr %14, i64 112
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %496) #17
   %497 = getelementptr inbounds nuw i8, ptr %14, i64 88
-  %498 = load ptr, ptr %497, align 8, !tbaa !101
+  %498 = load ptr, ptr %497, align 8, !tbaa !103
   %.not.i.i.i.i1.i = icmp eq ptr %498, null
   br i1 %.not.i.i.i.i1.i, label %_ZN8DetectorD2Ev.exit, label %499
 
@@ -1739,27 +1739,27 @@ define linkonce_odr hidden void @_ZN8DetectorC2Ev(ptr noundef nonnull align 8 de
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 8, ptr %14, align 4, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 9, ptr %15, align 8, !tbaa !102
+  store i32 9, ptr %15, align 8, !tbaa !104
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 1, ptr %16, align 4, !tbaa !103
+  store i32 1, ptr %16, align 4, !tbaa !105
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double -1.000000e+00, ptr %17, align 8, !tbaa !104
+  store double -1.000000e+00, ptr %17, align 8, !tbaa !106
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %18, align 8, !tbaa !105
+  store i32 0, ptr %18, align 8, !tbaa !107
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double 2.000000e-01, ptr %19, align 8, !tbaa !106
+  store double 2.000000e-01, ptr %19, align 8, !tbaa !108
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 1, ptr %20, align 8, !tbaa !107
+  store i8 1, ptr %20, align 8, !tbaa !109
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %22, i32 noundef 0) #17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store float -1.000000e+00, ptr %23, align 8, !tbaa !108
+  store float -1.000000e+00, ptr %23, align 8, !tbaa !110
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store i32 64, ptr %24, align 4, !tbaa !109
+  store i32 64, ptr %24, align 4, !tbaa !111
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 0, ptr %25, align 8, !tbaa !110
+  store i8 0, ptr %25, align 8, !tbaa !112
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN2cv13HOGDescriptorE, i64 16), ptr %26, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -1771,27 +1771,27 @@ define linkonce_odr hidden void @_ZN8DetectorC2Ev(ptr noundef nonnull align 8 de
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i64 34359738376, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 9, ptr %31, align 8, !tbaa !102
+  store i32 9, ptr %31, align 8, !tbaa !104
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 1, ptr %32, align 4, !tbaa !103
+  store i32 1, ptr %32, align 4, !tbaa !105
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store double -1.000000e+00, ptr %33, align 8, !tbaa !104
+  store double -1.000000e+00, ptr %33, align 8, !tbaa !106
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 0, ptr %34, align 8, !tbaa !105
+  store i32 0, ptr %34, align 8, !tbaa !107
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store double 2.000000e-01, ptr %35, align 8, !tbaa !106
+  store double 2.000000e-01, ptr %35, align 8, !tbaa !108
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i8 0, ptr %36, align 8, !tbaa !107
+  store i8 0, ptr %36, align 8, !tbaa !109
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %38, i32 noundef 0) #17
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store float -1.000000e+00, ptr %39, align 8, !tbaa !108
+  store float -1.000000e+00, ptr %39, align 8, !tbaa !110
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  store i32 64, ptr %40, align 4, !tbaa !109
+  store i32 64, ptr %40, align 4, !tbaa !111
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store i8 0, ptr %41, align 8, !tbaa !110
+  store i8 0, ptr %41, align 8, !tbaa !112
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
   invoke void @_ZN2cv13HOGDescriptor24getDefaultPeopleDetectorEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %3)
@@ -1809,7 +1809,7 @@ define linkonce_odr hidden void @_ZN8DetectorC2Ev(ptr noundef nonnull align 8 de
           to label %46 unwind label %58
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr %3, align 8, !tbaa !101
+  %47 = load ptr, ptr %3, align 8, !tbaa !103
   %.not.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %48
 
@@ -1837,7 +1837,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %46, %48
           to label %53 unwind label %64
 
 53:                                               ; preds = %49
-  %54 = load ptr, ptr %5, align 8, !tbaa !101
+  %54 = load ptr, ptr %5, align 8, !tbaa !103
   %.not.i.i.i13 = icmp eq ptr %54, null
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIfSaIfEED2Ev.exit14, label %55
 
@@ -1858,7 +1858,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit14:                  ; preds = %53, %55
 58:                                               ; preds = %42
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = load ptr, ptr %3, align 8, !tbaa !101
+  %60 = load ptr, ptr %3, align 8, !tbaa !103
   %.not.i.i.i15 = icmp eq ptr %60, null
   br i1 %.not.i.i.i15, label %_ZNSt6vectorIfSaIfEED2Ev.exit16, label %61
 
@@ -1880,7 +1880,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit16:                  ; preds = %61, %58, %56
 64:                                               ; preds = %49
   %65 = landingpad { ptr, i32 }
           cleanup
-  %66 = load ptr, ptr %5, align 8, !tbaa !101
+  %66 = load ptr, ptr %5, align 8, !tbaa !103
   %.not.i.i.i17 = icmp eq ptr %66, null
   br i1 %.not.i.i.i17, label %_ZNSt6vectorIfSaIfEED2Ev.exit18, label %67
 
@@ -1936,7 +1936,7 @@ define linkonce_odr hidden void @_ZN8DetectorD2Ev(ptr noundef nonnull align 8 de
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %5 = load ptr, ptr %4, align 8, !tbaa !101
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZN2cv13HOGDescriptorD2Ev.exit, label %6
 
@@ -1950,7 +1950,7 @@ _ZN2cv13HOGDescriptorD2Ev.exit:                   ; preds = %1, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %10 = load ptr, ptr %9, align 8, !tbaa !101
+  %10 = load ptr, ptr %9, align 8, !tbaa !103
   %.not.i.i.i.i1 = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i1, label %_ZN2cv13HOGDescriptorD2Ev.exit2, label %11
 
@@ -1985,7 +1985,7 @@ define linkonce_odr hidden void @_ZN2cv13HOGDescriptorD2Ev(ptr noundef nonnull a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load ptr, ptr %3, align 8, !tbaa !101
+  %4 = load ptr, ptr %3, align 8, !tbaa !103
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %5
 
@@ -2190,15 +2190,17 @@ attributes #19 = { noreturn }
 !96 = !{!95, !17, i64 0}
 !97 = !{!95, !17, i64 12}
 !98 = !{!95, !17, i64 4}
-!99 = distinct !{!99, !100}
+!99 = distinct !{!99, !100, !101}
 !100 = !{!"llvm.loop.mustprogress"}
-!101 = !{!63, !64, i64 0}
-!102 = !{!57, !17, i64 40}
-!103 = !{!57, !17, i64 44}
-!104 = !{!57, !58, i64 48}
-!105 = !{!57, !59, i64 56}
-!106 = !{!57, !58, i64 64}
-!107 = !{!57, !34, i64 72}
-!108 = !{!57, !72, i64 184}
-!109 = !{!57, !17, i64 188}
-!110 = !{!57, !34, i64 192}
+!101 = !{!"llvm.loop.estimated_trip_count"}
+!102 = distinct !{!102, !101}
+!103 = !{!63, !64, i64 0}
+!104 = !{!57, !17, i64 40}
+!105 = !{!57, !17, i64 44}
+!106 = !{!57, !58, i64 48}
+!107 = !{!57, !59, i64 56}
+!108 = !{!57, !58, i64 64}
+!109 = !{!57, !34, i64 72}
+!110 = !{!57, !72, i64 184}
+!111 = !{!57, !17, i64 188}
+!112 = !{!57, !34, i64 192}

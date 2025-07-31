@@ -469,7 +469,7 @@ _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endi
 
 74:                                               ; preds = %65, %62
   %storemerge = phi i32 [ %73, %65 ], [ %64, %62 ]
-  store i32 %storemerge, ptr %0, align 8, !tbaa !75
+  store i32 %storemerge, ptr %0, align 8, !tbaa !76
   ret void
 }
 
@@ -491,14 +491,14 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm3msf14MSFErrCate
 define linkonce_odr hidden void @_ZN4llvm11StringErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #7 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8, !tbaa !81
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !84
+  %7 = load i64, ptr %6, align 8, !tbaa !85
   %8 = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %8)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -517,14 +517,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define linkonce_odr hidden void @_ZN4llvm3msf8MSFErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #7 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm11StringErrorE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8, !tbaa !81
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !84
+  %7 = load i64, ptr %6, align 8, !tbaa !85
   %8 = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %8)
   br label %_ZN4llvm11StringErrorD2Ev.exit
@@ -546,22 +546,22 @@ declare void @_ZNK4llvm11StringError3logERNS_11raw_ostreamE(ptr noundef nonnull 
 define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca %"class.llvm::raw_string_ostream", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !85
+  store ptr %4, ptr %0, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !tbaa !84
+  store i64 0, ptr %5, align 8, !tbaa !85
   store i8 0, ptr %4, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #15
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %6, align 8, !tbaa !86
+  store i32 0, ptr %6, align 8, !tbaa !87
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i8 0, ptr %7, align 8, !tbaa !91
+  store i8 0, ptr %7, align 8, !tbaa !92
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 1, ptr %8, align 4, !tbaa !92
+  store i32 1, ptr %8, align 4, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %0, ptr %10, align 8, !tbaa !93
+  store ptr %0, ptr %10, align 8, !tbaa !94
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
   %11 = load ptr, ptr %1, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -716,25 +716,26 @@ attributes #17 = { builtin nounwind }
 !70 = !{!71, !63, i64 16}
 !71 = !{!"_ZTSNSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE17_Vector_impl_dataE", !63, i64 0, !63, i64 8, !63, i64 16}
 !72 = !{!71, !63, i64 8}
-!73 = distinct !{!73, !74}
+!73 = distinct !{!73, !74, !75}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!76, !60, i64 0}
-!76 = !{!"_ZTSN4llvm3msf15MSFStreamLayoutE", !60, i64 0, !77, i64 8}
-!77 = !{!"_ZTSSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE", !78, i64 0}
-!78 = !{!"_ZTSSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE", !79, i64 0}
-!79 = !{!"_ZTSNSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE12_Vector_implE", !71, i64 0}
-!80 = !{!81, !83, i64 0}
-!81 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !82, i64 0, !64, i64 8, !11, i64 16}
-!82 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !83, i64 0}
-!83 = !{!"p1 omnipotent char", !21, i64 0}
-!84 = !{!81, !64, i64 8}
-!85 = !{!82, !83, i64 0}
-!86 = !{!87, !88, i64 8}
-!87 = !{!"_ZTSN4llvm11raw_ostreamE", !88, i64 8, !83, i64 16, !83, i64 24, !83, i64 32, !89, i64 40, !90, i64 44}
-!88 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !11, i64 0}
-!89 = !{!"bool", !11, i64 0}
-!90 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !11, i64 0}
-!91 = !{!87, !89, i64 40}
-!92 = !{!87, !90, i64 44}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !21, i64 0}
+!75 = !{!"llvm.loop.estimated_trip_count"}
+!76 = !{!77, !60, i64 0}
+!77 = !{!"_ZTSN4llvm3msf15MSFStreamLayoutE", !60, i64 0, !78, i64 8}
+!78 = !{!"_ZTSSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE", !79, i64 0}
+!79 = !{!"_ZTSSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE", !80, i64 0}
+!80 = !{!"_ZTSNSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE12_Vector_implE", !71, i64 0}
+!81 = !{!82, !84, i64 0}
+!82 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !83, i64 0, !64, i64 8, !11, i64 16}
+!83 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !84, i64 0}
+!84 = !{!"p1 omnipotent char", !21, i64 0}
+!85 = !{!82, !64, i64 8}
+!86 = !{!83, !84, i64 0}
+!87 = !{!88, !89, i64 8}
+!88 = !{!"_ZTSN4llvm11raw_ostreamE", !89, i64 8, !84, i64 16, !84, i64 24, !84, i64 32, !90, i64 40, !91, i64 44}
+!89 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !11, i64 0}
+!90 = !{!"bool", !11, i64 0}
+!91 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !11, i64 0}
+!92 = !{!88, !90, i64 40}
+!93 = !{!88, !91, i64 44}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !21, i64 0}

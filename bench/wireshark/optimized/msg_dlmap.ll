@@ -1930,7 +1930,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %448 = load i32, ptr @hf_dlmap_harq_dl_map_number_of_subchannels, align 4
   %449 = tail call ptr @proto_tree_add_bits_item(ptr noundef %386, i32 noundef %448, ptr noundef %4, i32 noundef %447, i32 noundef 7, i32 noundef 0)
   %450 = add i32 %.0210.i, 33
-  %451 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %451 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
   %452 = trunc nuw i8 %451 to i1
   br i1 %452, label %453, label %460
 
@@ -2114,7 +2114,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.3.i.i = phi i32 [ %587, %583 ], [ %.2.i.i, %581 ]
   %589 = add nuw nsw i32 %.0110.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.0110.i.i, %501
-  br i1 %exitcond.not.i.i, label %DL_HARQ_Chase_sub_burst_IE.exit.i, label %508, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %DL_HARQ_Chase_sub_burst_IE.exit.i, label %508, !llvm.loop !11
 
 590:                                              ; preds = %467
   %591 = sdiv i32 %486, 4
@@ -2221,10 +2221,10 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.2.i154.i = phi i32 [ %672, %669 ], [ %.1.i153.i, %667 ]
   %674 = add nuw nsw i32 %.097101.i.i, 1
   %exitcond.not.i155.i = icmp eq i32 %.097101.i.i, %604
-  br i1 %exitcond.not.i155.i, label %675, label %611, !llvm.loop !11
+  br i1 %exitcond.not.i155.i, label %675, label %611, !llvm.loop !12
 
 675:                                              ; preds = %673
-  %676 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %676 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
   %677 = trunc nuw i8 %676 to i1
   br i1 %677, label %678, label %DL_HARQ_Chase_sub_burst_IE.exit.i
 
@@ -2371,10 +2371,10 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.3.i159.i = phi i32 [ %790, %787 ], [ %.2.i158.i, %785 ]
   %792 = add nuw nsw i32 %.0117122.i.i, 1
   %exitcond.not.i160.i = icmp eq i32 %.0117122.i.i, %700
-  br i1 %exitcond.not.i160.i, label %793, label %707, !llvm.loop !12
+  br i1 %exitcond.not.i160.i, label %793, label %707, !llvm.loop !13
 
 793:                                              ; preds = %791
-  %794 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %794 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
   %795 = trunc nuw i8 %794 to i1
   br i1 %795, label %796, label %DL_HARQ_Chase_sub_burst_IE.exit.i
 
@@ -2502,7 +2502,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %886 = add nuw nsw i32 %.0104112.us.i.i, 1
   %887 = load i32, ptr @N_layer, align 4
   %888 = icmp slt i32 %886, %887
-  br i1 %888, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i, !llvm.loop !13
+  br i1 %888, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i, !llvm.loop !14
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   br i1 %849, label %.lr.ph.split.split.us.i.i, label %.lr.ph.split.split.i.i
@@ -2519,7 +2519,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %895 = add nuw nsw i32 %.0104112.us115.i.i, 1
   %896 = load i32, ptr @N_layer, align 4
   %897 = icmp slt i32 %895, %896
-  br i1 %897, label %.lr.ph.split.split.us.i.i, label %._crit_edge.i.i, !llvm.loop !15
+  br i1 %897, label %.lr.ph.split.split.us.i.i, label %._crit_edge.i.i, !llvm.loop !16
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.split.i.i, %.lr.ph.split.split.i.i
   %.3113.i.i = phi i32 [ %906, %.lr.ph.split.split.i.i ], [ %863, %.lr.ph.split.i.i ]
@@ -2536,13 +2536,13 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %907 = add nuw nsw i32 %.0104112.i.i, 1
   %908 = load i32, ptr @N_layer, align 4
   %909 = icmp slt i32 %907, %908
-  br i1 %909, label %.lr.ph.split.split.i.i, label %._crit_edge.i.i, !llvm.loop !16
+  br i1 %909, label %.lr.ph.split.split.i.i, label %._crit_edge.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split.i.i, %.lr.ph.split.split.us.i.i, %873, %860
   %.3.lcssa.i.i = phi i32 [ %863, %860 ], [ %885, %873 ], [ %894, %.lr.ph.split.split.us.i.i ], [ %906, %.lr.ph.split.split.i.i ]
   %910 = add nuw nsw i32 %.0103119.i.i, 1
   %exitcond.not.i163.i = icmp eq i32 %.0103119.i.i, %815
-  br i1 %exitcond.not.i163.i, label %911, label %822, !llvm.loop !17
+  br i1 %exitcond.not.i163.i, label %911, label %822, !llvm.loop !18
 
 911:                                              ; preds = %._crit_edge.i.i
   %912 = srem i32 %.3.lcssa.i.i, 4
@@ -2566,7 +2566,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 924:                                              ; preds = %913, %911
   %.6.i.i = phi i32 [ %923, %913 ], [ %.3.lcssa.i.i, %911 ]
-  %925 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %925 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
   %926 = trunc nuw i8 %925 to i1
   br i1 %926, label %927, label %DL_HARQ_Chase_sub_burst_IE.exit.i
 
@@ -2688,7 +2688,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %1010 = add nuw nsw i32 %.09397.us.i.i, 1
   %1011 = load i32, ptr @N_layer, align 4
   %1012 = icmp slt i32 %1010, %1011
-  br i1 %1012, label %.lr.ph.split.us.i174.i, label %._crit_edge.i167.i, !llvm.loop !18
+  br i1 %1012, label %.lr.ph.split.us.i174.i, label %._crit_edge.i167.i, !llvm.loop !19
 
 .lr.ph.split.i172.i:                              ; preds = %.lr.ph.i171.i, %1017
   %.398.i.i = phi i32 [ %1029, %1017 ], [ %997, %.lr.ph.i171.i ]
@@ -2718,16 +2718,16 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %1030 = add nuw nsw i32 %.09397.i.i, 1
   %1031 = load i32, ptr @N_layer, align 4
   %1032 = icmp slt i32 %1030, %1031
-  br i1 %1032, label %.lr.ph.split.i172.i, label %._crit_edge.i167.i, !llvm.loop !19
+  br i1 %1032, label %.lr.ph.split.i172.i, label %._crit_edge.i167.i, !llvm.loop !20
 
 ._crit_edge.i167.i:                               ; preds = %1017, %1006, %994
   %.3.lcssa.i168.i = phi i32 [ %997, %994 ], [ %1009, %1006 ], [ %1029, %1017 ]
   %1033 = add nuw nsw i32 %.09299.i.i, 1
   %exitcond.not.i169.i = icmp eq i32 %.09299.i.i, %949
-  br i1 %exitcond.not.i169.i, label %1034, label %956, !llvm.loop !20
+  br i1 %exitcond.not.i169.i, label %1034, label %956, !llvm.loop !21
 
 1034:                                             ; preds = %._crit_edge.i167.i
-  %1035 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %1035 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
   %1036 = trunc nuw i8 %1035 to i1
   br i1 %1036, label %1037, label %DL_HARQ_Chase_sub_burst_IE.exit.i
 
@@ -2858,7 +2858,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %1130 = add nuw nsw i32 %.097100.us.i.i, 1
   %1131 = load i32, ptr @N_layer, align 4
   %1132 = icmp slt i32 %1130, %1131
-  br i1 %1132, label %.lr.ph.split.us.i187.i, label %._crit_edge.i179.i, !llvm.loop !21
+  br i1 %1132, label %.lr.ph.split.us.i187.i, label %._crit_edge.i179.i, !llvm.loop !22
 
 .lr.ph.split.i184.i:                              ; preds = %.lr.ph.i183.i
   br i1 %1090, label %.lr.ph.split.split.us.i186.i, label %.lr.ph.split.split.i185.i
@@ -2875,7 +2875,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %1139 = add nuw nsw i32 %.097100.us103.i.i, 1
   %1140 = load i32, ptr @N_layer, align 4
   %1141 = icmp slt i32 %1139, %1140
-  br i1 %1141, label %.lr.ph.split.split.us.i186.i, label %._crit_edge.i179.i, !llvm.loop !22
+  br i1 %1141, label %.lr.ph.split.split.us.i186.i, label %._crit_edge.i179.i, !llvm.loop !23
 
 .lr.ph.split.split.i185.i:                        ; preds = %.lr.ph.split.i184.i, %.lr.ph.split.split.i185.i
   %.3101.i.i = phi i32 [ %1150, %.lr.ph.split.split.i185.i ], [ %1104, %.lr.ph.split.i184.i ]
@@ -2892,16 +2892,16 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %1151 = add nuw nsw i32 %.097100.i.i, 1
   %1152 = load i32, ptr @N_layer, align 4
   %1153 = icmp slt i32 %1151, %1152
-  br i1 %1153, label %.lr.ph.split.split.i185.i, label %._crit_edge.i179.i, !llvm.loop !23
+  br i1 %1153, label %.lr.ph.split.split.i185.i, label %._crit_edge.i179.i, !llvm.loop !24
 
 ._crit_edge.i179.i:                               ; preds = %.lr.ph.split.split.i185.i, %.lr.ph.split.split.us.i186.i, %1114, %1101
   %.3.lcssa.i180.i = phi i32 [ %1104, %1101 ], [ %1129, %1114 ], [ %1138, %.lr.ph.split.split.us.i186.i ], [ %1150, %.lr.ph.split.split.i185.i ]
   %1154 = add nuw nsw i32 %.096107.i.i, 1
   %exitcond.not.i181.i = icmp eq i32 %.096107.i.i, %1056
-  br i1 %exitcond.not.i181.i, label %1155, label %1063, !llvm.loop !24
+  br i1 %exitcond.not.i181.i, label %1155, label %1063, !llvm.loop !25
 
 1155:                                             ; preds = %._crit_edge.i179.i
-  %1156 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %1156 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
   %1157 = trunc nuw i8 %1156 to i1
   br i1 %1157, label %1158, label %DL_HARQ_Chase_sub_burst_IE.exit.i
 
@@ -3035,10 +3035,10 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.4.i192.i = phi i32 [ %1256, %1253 ], [ %.2.i191.i, %1249 ]
   %1258 = add nuw nsw i32 %.09699.i.i, 1
   %exitcond.not.i193.i = icmp eq i32 %.09699.i.i, %1177
-  br i1 %exitcond.not.i193.i, label %1259, label %1184, !llvm.loop !25
+  br i1 %exitcond.not.i193.i, label %1259, label %1184, !llvm.loop !26
 
 1259:                                             ; preds = %1257
-  %1260 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %1260 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
   %1261 = trunc nuw i8 %1260 to i1
   br i1 %1261, label %1262, label %DL_HARQ_Chase_sub_burst_IE.exit.i
 
@@ -3062,7 +3062,7 @@ DL_HARQ_Chase_sub_burst_IE.exit.i:                ; preds = %588, %1262, %1259, 
   %1274 = and i32 %1273, 1020
   %1275 = add i32 %1274, %486
   %1276 = icmp slt i32 %1275, %419
-  br i1 %1276, label %423, label %.loopexit.i, !llvm.loop !26
+  br i1 %1276, label %423, label %.loopexit.i, !llvm.loop !27
 
 .loopexit.i:                                      ; preds = %DL_HARQ_Chase_sub_burst_IE.exit.i, %1270
   %.1.i330 = phi i32 [ %486, %1270 ], [ %1275, %DL_HARQ_Chase_sub_burst_IE.exit.i ]
@@ -3199,7 +3199,7 @@ HARQ_ACK_IE.exit:                                 ; preds = %1303, %1309
   %1372 = add i32 %.265.i, 16
   %1373 = add nuw nsw i32 %.066.i, 1
   %exitcond.not.i = icmp eq i32 %1373, %1366
-  br i1 %exitcond.not.i, label %.loopexit.i337, label %.lr.ph.i339, !llvm.loop !27
+  br i1 %exitcond.not.i, label %.loopexit.i337, label %.lr.ph.i339, !llvm.loop !28
 
 .loopexit.i337:                                   ; preds = %.lr.ph.i339, %1359, %.lr.ph69.i
   %.1.i338 = phi i32 [ %.06467.i, %.lr.ph69.i ], [ %1369, %1359 ], [ %1372, %.lr.ph.i339 ]
@@ -3220,7 +3220,7 @@ HARQ_ACK_IE.exit:                                 ; preds = %1303, %1309
   %1388 = add i32 %.1.i338, 20
   %1389 = add nuw nsw i32 %.06368.i, 1
   %exitcond73.not.i = icmp eq i32 %1389, %1353
-  br i1 %exitcond73.not.i, label %Enhanced_DL_MAP_IE.exit, label %.lr.ph69.i, !llvm.loop !28
+  br i1 %exitcond73.not.i, label %Enhanced_DL_MAP_IE.exit, label %.lr.ph69.i, !llvm.loop !29
 
 Enhanced_DL_MAP_IE.exit:                          ; preds = %.loopexit.i337, %1323
   %.064.lcssa.i = phi i32 [ %1356, %1323 ], [ %1388, %.loopexit.i337 ]
@@ -3637,13 +3637,13 @@ MIMO_DL_Enhanced_IE.exit:                         ; preds = %1468, %1474
   %.12.i = phi i32 [ %1698, %1686 ], [ %.10.i, %.thread276.i ]
   %1700 = add nuw nsw i32 %.0281.i, 1
   %exitcond.not.i356 = icmp eq i32 %1700, %1552
-  br i1 %exitcond.not.i356, label %._crit_edge.i, label %.lr.ph.i355, !llvm.loop !29
+  br i1 %exitcond.not.i356, label %._crit_edge.i, label %.lr.ph.i355, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %1699, %.lr.ph285.i
   %.2.lcssa.i = phi i32 [ %1558, %.lr.ph285.i ], [ %.12.i, %1699 ]
   %1701 = add nuw nsw i32 %.0264283.i, 1
   %exitcond290.not.i = icmp eq i32 %1701, %1527
-  br i1 %exitcond290.not.i, label %AAS_SDMA_DL_IE.exit, label %.lr.ph285.i, !llvm.loop !30
+  br i1 %exitcond290.not.i, label %AAS_SDMA_DL_IE.exit, label %.lr.ph285.i, !llvm.loop !31
 
 AAS_SDMA_DL_IE.exit:                              ; preds = %._crit_edge.i, %1487
   %.0265.lcssa.i = phi i32 [ %1533, %1487 ], [ %.2.lcssa.i, %._crit_edge.i ]
@@ -4208,7 +4208,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i369
 2159:                                             ; preds = %switch.lookup, %.lr.ph.i369
   %.1.i370 = phi i32 [ %2130, %.lr.ph.i369 ], [ %2158, %switch.lookup ]
   %2160 = icmp slt i32 %.1.i370, %2110
-  br i1 %2160, label %.lr.ph.i369, label %HARQ_Map_Pointer_IE.exit, !llvm.loop !31
+  br i1 %2160, label %.lr.ph.i369, label %HARQ_Map_Pointer_IE.exit, !llvm.loop !32
 
 HARQ_Map_Pointer_IE.exit:                         ; preds = %2159, %2075
   %.0.lcssa.i = phi i32 [ %2108, %2075 ], [ %.1.i370, %2159 ]
@@ -4959,7 +4959,7 @@ Broadcast_Control_Pointer_IE.exit:                ; preds = %2216, %2264
   %.3 = add i32 %.pn, %.2403
   %2704 = add nuw nsw i32 %.0292404, 1
   %exitcond.not = icmp eq i32 %2704, %2674
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .loopexit:                                        ; preds = %2703, %2673, %2659
   %.1 = phi i32 [ %.pre427, %2659 ], [ %2679, %2673 ], [ %.3, %2703 ]
@@ -5321,7 +5321,7 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
   %215 = add i32 %.10, 3
   %216 = add nuw nsw i32 %.0275291, 1
   %exitcond.not = icmp eq i32 %216, %.0274297
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %212
   %217 = srem i32 %215, 8
@@ -5432,7 +5432,7 @@ define internal i32 @dissect_mac_mgmt_msg_dlmap_decoder(ptr noundef %0, ptr noun
   %32 = tail call fastcc i32 @dissect_dlmap_ie(ptr noundef %28, ptr noundef %1, i32 noundef %.058, i32 noundef %29, ptr noundef %0)
   %33 = add i32 %32, %.058
   %34 = icmp slt i32 %33, %30
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %35 = and i32 %33, 1
@@ -5692,7 +5692,7 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
   %82 = add nuw nsw i32 %.0141, 1
   %83 = load i32, ptr @N_layer, align 4
   %84 = icmp slt i32 %82, %83
-  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67
   %.2.lcssa = phi i32 [ %76, %67 ], [ %81, %.lr.ph ]
@@ -5720,7 +5720,7 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
   %100 = add i32 %.3142, 9
   %101 = add nuw nsw i32 %.1143, 1
   %exitcond.not = icmp eq i32 %101, %91
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph145, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph145, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph145, %._crit_edge, %64
   %.1131 = phi i32 [ %.0130, %64 ], [ %94, %._crit_edge ], [ %100, %.lr.ph145 ]
@@ -5808,34 +5808,35 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7, !14}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !14}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7, !14}
-!22 = distinct !{!22, !7, !14}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7, !8, !15}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8, !15}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8, !15}
+!23 = distinct !{!23, !7, !8, !15}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}

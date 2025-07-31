@@ -272,15 +272,15 @@ Abc_Clock.exit164.i:                              ; preds = %125, %Abc_Clock.exi
   br i1 %.not146.i, label %.thread.i, label %147
 
 147:                                              ; preds = %146
-  %148 = load i32, ptr %45, align 8, !tbaa !46
+  %148 = load i32, ptr %45, align 8, !tbaa !47
   %149 = add nsw i32 %148, 1
-  store i32 %149, ptr %45, align 8, !tbaa !46
+  store i32 %149, ptr %45, align 8, !tbaa !47
   br label %.critedge4.i
 
 .thread.i:                                        ; preds = %145, %146
-  %150 = load i32, ptr %46, align 4, !tbaa !47
+  %150 = load i32, ptr %46, align 4, !tbaa !48
   %151 = add nsw i32 %150, 1
-  store i32 %151, ptr %46, align 4, !tbaa !47
+  store i32 %151, ptr %46, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #12
   %152 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %14) #12
   %153 = icmp slt i32 %152, 0
@@ -318,27 +318,27 @@ Abc_Clock.exit168.i:                              ; preds = %163, %Abc_Clock.exi
   %.0.i167.i = phi i64 [ %168, %163 ], [ -1, %Abc_Clock.exit166.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #12
   %169 = add i64 %.0.i167.i, %.0.i165.neg.i
-  %170 = load i64, ptr %49, align 8, !tbaa !48
+  %170 = load i64, ptr %49, align 8, !tbaa !49
   %171 = add nsw i64 %169, %170
-  store i64 %171, ptr %49, align 8, !tbaa !48
-  %172 = load ptr, ptr %50, align 8, !tbaa !49
-  %173 = load ptr, ptr %51, align 8, !tbaa !50
+  store i64 %171, ptr %49, align 8, !tbaa !49
+  %172 = load ptr, ptr %50, align 8, !tbaa !50
+  %173 = load ptr, ptr %51, align 8, !tbaa !51
   %174 = zext nneg i32 %160 to i64
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 %174
-  %176 = load i8, ptr %175, align 1, !tbaa !51
+  %176 = load i8, ptr %175, align 1, !tbaa !52
   %177 = sext i8 %176 to i64
   %178 = getelementptr inbounds ptr, ptr %172, i64 %177
-  %179 = load ptr, ptr %178, align 8, !tbaa !52
-  %180 = load ptr, ptr %52, align 8, !tbaa !53
+  %179 = load ptr, ptr %178, align 8, !tbaa !53
+  %180 = load ptr, ptr %52, align 8, !tbaa !54
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %174
-  %182 = load i8, ptr %181, align 1, !tbaa !51
+  %182 = load i8, ptr %181, align 1, !tbaa !52
   %183 = sext i8 %182 to i32
-  %184 = load ptr, ptr %53, align 8, !tbaa !54
+  %184 = load ptr, ptr %53, align 8, !tbaa !55
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   store i32 0, ptr %185, align 4, !tbaa !21
   %186 = load i16, ptr %133, align 4, !tbaa !41
   %187 = sext i16 %186 to i32
-  %188 = load i32, ptr %184, align 8, !tbaa !55
+  %188 = load i32, ptr %184, align 8, !tbaa !56
   %.not.i.i.i = icmp slt i32 %188, %187
   br i1 %.not.i.i.i, label %189, label %Vec_PtrGrow.exit.i.i
 
@@ -361,7 +361,7 @@ Abc_Clock.exit168.i:                              ; preds = %163, %Abc_Clock.exi
 198:                                              ; preds = %196, %194
   %199 = phi ptr [ %195, %194 ], [ %197, %196 ]
   store ptr %199, ptr %190, align 8, !tbaa !23
-  store i32 %187, ptr %184, align 8, !tbaa !55
+  store i32 %187, ptr %184, align 8, !tbaa !56
   br label %Vec_PtrGrow.exit.i.i
 
 Vec_PtrGrow.exit.i.i:                             ; preds = %198, %Abc_Clock.exit168.i
@@ -380,7 +380,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %198, %Abc_Clock.exi
   store ptr null, ptr %204, align 8, !tbaa !24
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_PtrFill.exit.i, label %202, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %Vec_PtrFill.exit.i, label %202, !llvm.loop !57
 
 Vec_PtrFill.exit.i:                               ; preds = %202, %Vec_PtrGrow.exit.i.i
   store i32 %187, ptr %185, align 4, !tbaa !21
@@ -395,7 +395,7 @@ Vec_PtrFill.exit.i:                               ; preds = %202, %Vec_PtrGrow.e
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv228.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next229.i, %.lr.ph.i ]
   %207 = getelementptr inbounds nuw i8, ptr %179, i64 %indvars.iv228.i
-  %208 = load i8, ptr %207, align 1, !tbaa !51
+  %208 = load i8, ptr %207, align 1, !tbaa !52
   %209 = sext i8 %208 to i64
   %210 = getelementptr inbounds [6 x i32], ptr %135, i64 0, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !37
@@ -412,14 +412,14 @@ Vec_PtrFill.exit.i:                               ; preds = %202, %Vec_PtrGrow.e
   %220 = zext nneg i32 %218 to i64
   %221 = xor i64 %219, %220
   %222 = inttoptr i64 %221 to ptr
-  %223 = load ptr, ptr %53, align 8, !tbaa !54
+  %223 = load ptr, ptr %53, align 8, !tbaa !55
   %224 = getelementptr i8, ptr %223, i64 8
   %.val159.i = load ptr, ptr %224, align 8, !tbaa !23
   %225 = getelementptr inbounds nuw ptr, ptr %.val159.i, i64 %indvars.iv228.i
   store ptr %222, ptr %225, align 8, !tbaa !24
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i, 1
   %exitcond232.not.i = icmp eq i64 %indvars.iv.next229.i, %wide.trip.count231.i
-  br i1 %exitcond232.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !57
+  br i1 %exitcond232.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !58
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %Vec_PtrFill.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #12
@@ -438,7 +438,7 @@ Vec_PtrFill.exit.i:                               ; preds = %202, %Vec_PtrGrow.e
 Abc_Clock.exit170.i:                              ; preds = %228, %._crit_edge.i
   %.0.i169.neg.i = phi i64 [ %.neg201.i, %228 ], [ 1, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #12
-  %231 = load ptr, ptr %53, align 8, !tbaa !54
+  %231 = load ptr, ptr %53, align 8, !tbaa !55
   %232 = getelementptr i8, ptr %231, i64 4
   %.val150.i = load i32, ptr %232, align 4, !tbaa !21
   %233 = icmp sgt i32 %.val150.i, 0
@@ -458,17 +458,17 @@ Abc_Clock.exit170.i:                              ; preds = %228, %._crit_edge.i
   %239 = and i64 %238, -2
   %240 = inttoptr i64 %239 to ptr
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 12
-  %242 = load i32, ptr %241, align 4, !tbaa !58
+  %242 = load i32, ptr %241, align 4, !tbaa !59
   %243 = add nsw i32 %242, 1
-  store i32 %243, ptr %241, align 4, !tbaa !58
+  store i32 %243, ptr %241, align 4, !tbaa !59
   %indvars.iv.next234.i = add nuw nsw i64 %indvars.iv233.i, 1
   %exitcond237.not.i = icmp eq i64 %indvars.iv.next234.i, %wide.trip.count236.i
-  br i1 %exitcond237.not.i, label %.critedge.i, label %235, !llvm.loop !59
+  br i1 %exitcond237.not.i, label %.critedge.i, label %235, !llvm.loop !60
 
 .critedge.i:                                      ; preds = %235, %Abc_Clock.exit170.i
   call void @Ivy_ManIncrementTravId(ptr noundef nonnull %0) #12
   %244 = call i32 @Ivy_ObjMffcLabel(ptr noundef nonnull %0, ptr noundef nonnull %85) #12
-  %245 = load ptr, ptr %53, align 8, !tbaa !54
+  %245 = load ptr, ptr %53, align 8, !tbaa !55
   %246 = getelementptr i8, ptr %245, i64 4
   %.val149.i = load i32, ptr %246, align 4, !tbaa !21
   %247 = icmp sgt i32 %.val149.i, 0
@@ -488,12 +488,12 @@ Abc_Clock.exit170.i:                              ; preds = %228, %._crit_edge.i
   %253 = and i64 %252, -2
   %254 = inttoptr i64 %253 to ptr
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 12
-  %256 = load i32, ptr %255, align 4, !tbaa !58
+  %256 = load i32, ptr %255, align 4, !tbaa !59
   %257 = add nsw i32 %256, -1
-  store i32 %257, ptr %255, align 4, !tbaa !58
+  store i32 %257, ptr %255, align 4, !tbaa !59
   %indvars.iv.next239.i = add nuw nsw i64 %indvars.iv238.i, 1
   %exitcond242.not.i = icmp eq i64 %indvars.iv.next239.i, %wide.trip.count241.i
-  br i1 %exitcond242.not.i, label %.critedge2.i, label %249, !llvm.loop !60
+  br i1 %exitcond242.not.i, label %.critedge2.i, label %249, !llvm.loop !61
 
 .critedge2.i:                                     ; preds = %249, %.critedge.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #12
@@ -513,9 +513,9 @@ Abc_Clock.exit172.i:                              ; preds = %260, %.critedge2.i
   %.0.i171.i = phi i64 [ %265, %260 ], [ -1, %.critedge2.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #12
   %266 = add i64 %.0.i171.i, %.0.i169.neg.i
-  %267 = load i64, ptr %56, align 8, !tbaa !61
+  %267 = load i64, ptr %56, align 8, !tbaa !62
   %268 = add nsw i64 %266, %267
-  store i64 %268, ptr %56, align 8, !tbaa !61
+  store i64 %268, ptr %56, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #12
   %269 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #12
   %270 = icmp slt i32 %269, 0
@@ -532,21 +532,21 @@ Abc_Clock.exit172.i:                              ; preds = %260, %.critedge2.i
 Abc_Clock.exit174.i:                              ; preds = %271, %Abc_Clock.exit172.i
   %.0.i173.neg.i = phi i64 [ %.neg204.i, %271 ], [ 1, %Abc_Clock.exit172.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #12
-  %274 = load ptr, ptr %53, align 8, !tbaa !54
-  %275 = load ptr, ptr %58, align 8, !tbaa !62
-  %276 = load ptr, ptr %59, align 8, !tbaa !63
+  %274 = load ptr, ptr %53, align 8, !tbaa !55
+  %275 = load ptr, ptr %58, align 8, !tbaa !63
+  %276 = load ptr, ptr %59, align 8, !tbaa !64
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 %174
-  %278 = load i8, ptr %277, align 1, !tbaa !51
+  %278 = load i8, ptr %277, align 1, !tbaa !52
   %279 = getelementptr i8, ptr %275, i64 8
-  %.val48.i.i = load ptr, ptr %279, align 8, !tbaa !64
+  %.val48.i.i = load ptr, ptr %279, align 8, !tbaa !65
   %280 = zext i8 %278 to i64
   %281 = getelementptr inbounds nuw ptr, ptr %.val48.i.i, i64 %280
   %282 = load ptr, ptr %281, align 8, !tbaa !24
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 4
   %284 = load i32, ptr %283, align 4, !tbaa !21
-  %285 = load i32, ptr %60, align 4, !tbaa !66
+  %285 = load i32, ptr %60, align 4, !tbaa !67
   %286 = add nsw i32 %285, %284
-  store i32 %286, ptr %60, align 4, !tbaa !66
+  store i32 %286, ptr %60, align 4, !tbaa !67
   %287 = icmp sgt i32 %284, 0
   br i1 %287, label %.lr.ph56.i.i, label %Rwt_CutEvaluate.exit.i
 
@@ -564,7 +564,7 @@ Abc_Clock.exit174.i:                              ; preds = %271, %Abc_Clock.exi
   %292 = getelementptr inbounds nuw ptr, ptr %.val47.i.i, i64 %indvars.iv59.i.i
   %293 = load ptr, ptr %292, align 8, !tbaa !24
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 32
-  %295 = load ptr, ptr %294, align 8, !tbaa !67
+  %295 = load ptr, ptr %294, align 8, !tbaa !68
   %.val50.i.i = load i32, ptr %289, align 4, !tbaa !21
   %296 = icmp sgt i32 %.val50.i.i, 0
   br i1 %296, label %.lr.ph.i176.i, label %.critedge2.i.i
@@ -578,23 +578,23 @@ Abc_Clock.exit174.i:                              ; preds = %271, %Abc_Clock.exi
   %.val46.i.i = load ptr, ptr %290, align 8, !tbaa !23
   %299 = getelementptr inbounds nuw ptr, ptr %.val46.i.i, i64 %indvars.iv.i177.i
   %300 = load ptr, ptr %299, align 8, !tbaa !24
-  %.val49.i.i = load ptr, ptr %297, align 8, !tbaa !70
+  %.val49.i.i = load ptr, ptr %297, align 8, !tbaa !71
   %301 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val49.i.i, i64 %indvars.iv.i177.i, i32 2
-  store ptr %300, ptr %301, align 8, !tbaa !51
+  store ptr %300, ptr %301, align 8, !tbaa !52
   %indvars.iv.next.i178.i = add nuw nsw i64 %indvars.iv.i177.i, 1
   %.val.i.i = load i32, ptr %289, align 4, !tbaa !21
   %302 = sext i32 %.val.i.i to i64
   %303 = icmp slt i64 %indvars.iv.next.i178.i, %302
-  br i1 %303, label %298, label %.critedge2.i.i, !llvm.loop !74
+  br i1 %303, label %298, label %.critedge2.i.i, !llvm.loop !75
 
 .critedge2.i.i:                                   ; preds = %298, %291
-  %.val83.i.i.i = load i32, ptr %295, align 8, !tbaa !75
+  %.val83.i.i.i = load i32, ptr %295, align 8, !tbaa !76
   %.not.i.i175.i = icmp eq i32 %.val83.i.i.i, 0
   br i1 %.not.i.i175.i, label %304, label %Ivy_GraphToNetworkCount.exit.i.i
 
 304:                                              ; preds = %.critedge2.i.i
   %305 = getelementptr i8, ptr %295, i64 4
-  %.val84.i.i.i = load i32, ptr %305, align 4, !tbaa !76
+  %.val84.i.i.i = load i32, ptr %305, align 4, !tbaa !77
   %306 = getelementptr i8, ptr %295, i64 24
   %.val85.i.i.i = load i32, ptr %306, align 8
   %307 = lshr i32 %.val85.i.i.i, 1
@@ -613,7 +613,7 @@ Abc_Clock.exit174.i:                              ; preds = %271, %Abc_Clock.exi
 .critedge.preheader.i.i.i:                        ; preds = %315, %.preheader.i.i.i
   %.lcssa.i.i.i = phi i32 [ 0, %.preheader.i.i.i ], [ %330, %315 ]
   %310 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  %311 = load i32, ptr %310, align 8, !tbaa !77
+  %311 = load i32, ptr %310, align 8, !tbaa !78
   %312 = icmp slt i32 %.lcssa.i.i.i, %311
   br i1 %312, label %.lr.ph102.i.i.i, label %Ivy_GraphToNetworkCount.exit.i.i
 
@@ -624,10 +624,10 @@ Abc_Clock.exit174.i:                              ; preds = %271, %Abc_Clock.exi
 
 315:                                              ; preds = %315, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %315 ]
-  %.val82.i.i.i = load ptr, ptr %309, align 8, !tbaa !70
+  %.val82.i.i.i = load ptr, ptr %309, align 8, !tbaa !71
   %316 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val82.i.i.i, i64 %indvars.iv.i.i.i
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  %318 = load ptr, ptr %317, align 8, !tbaa !51
+  %318 = load ptr, ptr %317, align 8, !tbaa !52
   %319 = ptrtoint ptr %318 to i64
   %320 = and i64 %319, -2
   %321 = inttoptr i64 %320 to ptr
@@ -641,15 +641,15 @@ Abc_Clock.exit174.i:                              ; preds = %271, %Abc_Clock.exi
   %329 = or disjoint i32 %328, %327
   store i32 %329, ptr %325, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %330 = load i32, ptr %305, align 4, !tbaa !76
+  %330 = load i32, ptr %305, align 4, !tbaa !77
   %331 = sext i32 %330 to i64
   %332 = icmp slt i64 %indvars.iv.next.i.i.i, %331
-  br i1 %332, label %315, label %.critedge.preheader.i.i.i, !llvm.loop !78
+  br i1 %332, label %315, label %.critedge.preheader.i.i.i, !llvm.loop !79
 
 333:                                              ; preds = %.critedge.i.i.i, %.lr.ph102.i.i.i
   %indvars.iv109.i.i.i = phi i64 [ %314, %.lr.ph102.i.i.i ], [ %indvars.iv.next110.i.i.i, %.critedge.i.i.i ]
   %.063101.i.i.i = phi i32 [ 0, %.lr.ph102.i.i.i ], [ %.164.i.i.i, %.critedge.i.i.i ]
-  %.val81.i.i.i = load ptr, ptr %313, align 8, !tbaa !70
+  %.val81.i.i.i = load ptr, ptr %313, align 8, !tbaa !71
   %334 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val81.i.i.i, i64 %indvars.iv109.i.i.i
   %335 = load i32, ptr %334, align 8
   %336 = lshr i32 %335, 1
@@ -663,9 +663,9 @@ Abc_Clock.exit174.i:                              ; preds = %271, %Abc_Clock.exi
   %344 = zext nneg i32 %343 to i64
   %345 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val81.i.i.i, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %339, i64 8
-  %347 = load ptr, ptr %346, align 8, !tbaa !51
+  %347 = load ptr, ptr %346, align 8, !tbaa !52
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 8
-  %349 = load ptr, ptr %348, align 8, !tbaa !51
+  %349 = load ptr, ptr %348, align 8, !tbaa !52
   %350 = icmp ne ptr %347, null
   %351 = icmp ne ptr %349, null
   %or.cond.i.i.i = select i1 %350, i1 %351, i1 false
@@ -686,8 +686,8 @@ Abc_Clock.exit174.i:                              ; preds = %271, %Abc_Clock.exi
   %364 = and i32 %363, -1552
   %365 = or disjoint i32 %364, 5
   store i32 %365, ptr %61, align 8
-  store ptr %357, ptr %62, align 8, !tbaa !79
-  store ptr %362, ptr %63, align 8, !tbaa !80
+  store ptr %357, ptr %62, align 8, !tbaa !80
+  store ptr %362, ptr %63, align 8, !tbaa !81
   %.not.i.i.i.i = icmp eq i64 %360, %359
   br i1 %.not.i.i.i.i, label %Ivy_ObjCreateGhost.exit.i.i.i, label %366
 
@@ -710,8 +710,8 @@ Ivy_ObjFaninId1.exit.i.i.i.i:                     ; preds = %367, %366
   br i1 %373, label %374, label %Ivy_ObjCreateGhost.exit.i.i.i
 
 374:                                              ; preds = %Ivy_ObjFaninId1.exit.i.i.i.i
-  store ptr %362, ptr %62, align 8, !tbaa !79
-  store ptr %357, ptr %63, align 8, !tbaa !80
+  store ptr %362, ptr %62, align 8, !tbaa !80
+  store ptr %357, ptr %63, align 8, !tbaa !81
   br label %Ivy_ObjCreateGhost.exit.i.i.i
 
 Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %374, %Ivy_ObjFaninId1.exit.i.i.i.i, %352
@@ -727,9 +727,9 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %374, %Ivy_ObjFaninI
   br i1 %381, label %.thread.i.i.i, label %382
 
 382:                                              ; preds = %380
-  %.val86.i.i.i = load i32, ptr %65, align 8, !tbaa !81
+  %.val86.i.i.i = load i32, ptr %65, align 8, !tbaa !82
   %383 = getelementptr i8, ptr %378, i64 4
-  %.val87.i.i.i = load i32, ptr %383, align 4, !tbaa !82
+  %.val87.i.i.i = load i32, ptr %383, align 4, !tbaa !83
   %.not98.i.i.i = icmp eq i32 %.val87.i.i.i, %.val86.i.i.i
   br i1 %.not98.i.i.i, label %.thread.i.i.i, label %386
 
@@ -762,7 +762,7 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %374, %Ivy_ObjFaninI
   %396 = ptrtoint ptr %.06991.i.i.i to i64
   %397 = and i64 %396, -2
   %398 = inttoptr i64 %397 to ptr
-  %399 = load ptr, ptr %66, align 8, !tbaa !83
+  %399 = load ptr, ptr %66, align 8, !tbaa !84
   %400 = icmp eq ptr %399, %398
   br i1 %400, label %411, label %401
 
@@ -789,7 +789,7 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %374, %Ivy_ObjFaninI
 
 .critedge.i.i.i:                                  ; preds = %411
   %413 = getelementptr inbounds nuw i8, ptr %334, i64 8
-  store ptr %.06991.i.i.i, ptr %413, align 8, !tbaa !51
+  store ptr %.06991.i.i.i, ptr %413, align 8, !tbaa !52
   %414 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %415 = load i32, ptr %414, align 8
   %416 = and i32 %.062.i.i.i, 16383
@@ -797,10 +797,10 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %374, %Ivy_ObjFaninI
   %418 = or disjoint i32 %417, %416
   store i32 %418, ptr %414, align 8
   %indvars.iv.next110.i.i.i = add nsw i64 %indvars.iv109.i.i.i, 1
-  %419 = load i32, ptr %310, align 8, !tbaa !77
+  %419 = load i32, ptr %310, align 8, !tbaa !78
   %420 = sext i32 %419 to i64
   %421 = icmp slt i64 %indvars.iv.next110.i.i.i, %420
-  br i1 %421, label %333, label %Ivy_GraphToNetworkCount.exit.i.i, !llvm.loop !84
+  br i1 %421, label %333, label %Ivy_GraphToNetworkCount.exit.i.i, !llvm.loop !85
 
 Ivy_GraphToNetworkCount.exit.i.i:                 ; preds = %.critedge.i.i.i, %411, %.thread.i.i.i, %Ivy_ObjCreateGhost.exit.i.i.i, %.critedge.preheader.i.i.i, %304, %.critedge2.i.i
   %.0.i.i.i = phi i32 [ 0, %304 ], [ 0, %.critedge2.i.i ], [ 0, %.critedge.preheader.i.i.i ], [ %.164.i.i.i, %.critedge.i.i.i ], [ -1, %411 ], [ -1, %.thread.i.i.i ], [ -1, %Ivy_ObjCreateGhost.exit.i.i.i ]
@@ -815,7 +815,7 @@ Ivy_GraphToNetworkCount.exit.i.i:                 ; preds = %.critedge.i.i.i, %4
   %.val45.i.i = load i32, ptr %283, align 4, !tbaa !21
   %425 = sext i32 %.val45.i.i to i64
   %426 = icmp slt i64 %indvars.iv.next60.i.i, %425
-  br i1 %426, label %291, label %.critedge.i.i, !llvm.loop !85
+  br i1 %426, label %291, label %.critedge.i.i, !llvm.loop !86
 
 .critedge.i.i:                                    ; preds = %Ivy_GraphToNetworkCount.exit.i.i
   %427 = icmp eq i32 %.1.i.i, -1
@@ -843,24 +843,24 @@ Abc_Clock.exit180.i:                              ; preds = %430, %Rwt_CutEvalua
   %.0.i179.i = phi i64 [ %435, %430 ], [ -1, %Rwt_CutEvaluate.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
   %436 = add i64 %.0.i179.i, %.0.i173.neg.i
-  %437 = load i64, ptr %68, align 8, !tbaa !86
+  %437 = load i64, ptr %68, align 8, !tbaa !87
   %438 = add nsw i64 %436, %437
-  store i64 %438, ptr %68, align 8, !tbaa !86
+  store i64 %438, ptr %68, align 8, !tbaa !87
   %.not147.i = icmp ne ptr %.039.i.i, null
   %439 = icmp slt i32 %.0220.i, %.2187.i
   %or.cond189.i = select i1 %.not147.i, i1 %439, i1 false
   br i1 %or.cond189.i, label %440, label %.critedge4.i
 
 440:                                              ; preds = %Abc_Clock.exit180.i
-  store ptr %.039.i.i, ptr %69, align 8, !tbaa !87
+  store ptr %.039.i.i, ptr %69, align 8, !tbaa !88
   %441 = lshr i8 %182, 4
   %.lobit.i = and i8 %441, 1
   %442 = zext nneg i8 %.lobit.i to i32
-  store i32 %442, ptr %70, align 8, !tbaa !88
-  %443 = load ptr, ptr %71, align 8, !tbaa !89
+  store i32 %442, ptr %70, align 8, !tbaa !89
+  %443 = load ptr, ptr %71, align 8, !tbaa !90
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 4
   store i32 0, ptr %444, align 4, !tbaa !21
-  %445 = load ptr, ptr %53, align 8, !tbaa !54
+  %445 = load ptr, ptr %53, align 8, !tbaa !55
   %446 = getelementptr i8, ptr %445, i64 4
   %.val148213.i = load i32, ptr %446, align 4, !tbaa !21
   %447 = icmp sgt i32 %.val148213.i, 0
@@ -873,10 +873,10 @@ Abc_Clock.exit180.i:                              ; preds = %430, %Rwt_CutEvalua
   %.val152.i = load ptr, ptr %449, align 8, !tbaa !23
   %450 = getelementptr inbounds nuw ptr, ptr %.val152.i, i64 %indvars.iv243.i
   %451 = load ptr, ptr %450, align 8, !tbaa !24
-  %452 = load ptr, ptr %71, align 8, !tbaa !89
+  %452 = load ptr, ptr %71, align 8, !tbaa !90
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 4
   %454 = load i32, ptr %453, align 4, !tbaa !21
-  %455 = load i32, ptr %452, align 8, !tbaa !55
+  %455 = load i32, ptr %452, align 8, !tbaa !56
   %456 = icmp eq i32 %454, %455
   br i1 %456, label %457, label %.Vec_PtrGrow.exit11_crit_edge.i.i
 
@@ -906,7 +906,7 @@ Abc_Clock.exit180.i:                              ; preds = %430, %Rwt_CutEvalua
 Vec_PtrGrow.exit.i182.i:                          ; preds = %464, %462
   %466 = phi ptr [ %463, %462 ], [ %465, %464 ]
   store ptr %466, ptr %460, align 8, !tbaa !23
-  store i32 16, ptr %452, align 8, !tbaa !55
+  store i32 16, ptr %452, align 8, !tbaa !56
   br label %Vec_PtrPush.exit.i
 
 467:                                              ; preds = %457
@@ -929,7 +929,7 @@ Vec_PtrGrow.exit.i182.i:                          ; preds = %464, %462
 477:                                              ; preds = %475, %473
   %478 = phi ptr [ %474, %473 ], [ %476, %475 ]
   store ptr %478, ptr %469, align 8, !tbaa !23
-  store i32 %468, ptr %452, align 8, !tbaa !55
+  store i32 %468, ptr %452, align 8, !tbaa !56
   br label %Vec_PtrPush.exit.i
 
 Vec_PtrPush.exit.i:                               ; preds = %477, %Vec_PtrGrow.exit.i182.i, %.Vec_PtrGrow.exit11_crit_edge.i.i
@@ -941,12 +941,12 @@ Vec_PtrPush.exit.i:                               ; preds = %477, %Vec_PtrGrow.e
   %483 = getelementptr inbounds ptr, ptr %479, i64 %482
   store ptr %451, ptr %483, align 8, !tbaa !24
   %indvars.iv.next244.i = add nuw nsw i64 %indvars.iv243.i, 1
-  %484 = load ptr, ptr %53, align 8, !tbaa !54
+  %484 = load ptr, ptr %53, align 8, !tbaa !55
   %485 = getelementptr i8, ptr %484, i64 4
   %.val148.i = load i32, ptr %485, align 4, !tbaa !21
   %486 = sext i32 %.val148.i to i64
   %487 = icmp slt i64 %indvars.iv.next244.i, %486
-  br i1 %487, label %.lr.ph216.i, label %.critedge4.i, !llvm.loop !90
+  br i1 %487, label %.lr.ph216.i, label %.critedge4.i, !llvm.loop !91
 
 .critedge4.i:                                     ; preds = %Vec_PtrPush.exit.i, %440, %Abc_Clock.exit180.i, %147, %131
   %.1186.i = phi i32 [ %.2187.i, %Abc_Clock.exit180.i ], [ %.0185217.i, %147 ], [ %.0185217.i, %131 ], [ %.2187.i, %440 ], [ %.2187.i, %Vec_PtrPush.exit.i ]
@@ -956,7 +956,7 @@ Vec_PtrPush.exit.i:                               ; preds = %477, %Vec_PtrGrow.e
   %488 = load i32, ptr %111, align 4, !tbaa !39
   %489 = sext i32 %488 to i64
   %490 = icmp slt i64 %indvars.iv.next247.i, %489
-  br i1 %490, label %131, label %._crit_edge222.loopexit.i, !llvm.loop !91
+  br i1 %490, label %131, label %._crit_edge222.loopexit.i, !llvm.loop !92
 
 ._crit_edge222.loopexit.i:                        ; preds = %.critedge4.i
   %491 = zext nneg i32 %.1140.i to i64
@@ -982,14 +982,14 @@ Abc_Clock.exit184.i:                              ; preds = %494, %._crit_edge22
   %.0.i183.i = phi i64 [ %499, %494 ], [ -1, %._crit_edge222.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
   %500 = add i64 %.0.i183.i, %.0.i163.neg.i
-  %501 = load i64, ptr %73, align 8, !tbaa !92
+  %501 = load i64, ptr %73, align 8, !tbaa !93
   %502 = add nsw i64 %500, %501
-  store i64 %502, ptr %73, align 8, !tbaa !92
+  store i64 %502, ptr %73, align 8, !tbaa !93
   %503 = icmp eq i32 %.0.lcssa.i, -1
   br i1 %503, label %Ivy_NodeRewrite.exit.thread.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %Abc_Clock.exit184.i
-  %504 = load ptr, ptr %71, align 8, !tbaa !89
+  %504 = load ptr, ptr %71, align 8, !tbaa !90
   %505 = getelementptr i8, ptr %504, i64 4
   %.val224.i = load i32, ptr %505, align 4, !tbaa !21
   %506 = icmp sgt i32 %.val224.i, 0
@@ -1002,39 +1002,39 @@ Abc_Clock.exit184.i:                              ; preds = %494, %._crit_edge22
   %.val151.i = load ptr, ptr %508, align 8, !tbaa !23
   %509 = getelementptr inbounds nuw ptr, ptr %.val151.i, i64 %indvars.iv249.i
   %510 = load ptr, ptr %509, align 8, !tbaa !24
-  %511 = load ptr, ptr %69, align 8, !tbaa !87
+  %511 = load ptr, ptr %69, align 8, !tbaa !88
   %512 = getelementptr i8, ptr %511, i64 16
-  %.val160.i = load ptr, ptr %512, align 8, !tbaa !70
+  %.val160.i = load ptr, ptr %512, align 8, !tbaa !71
   %513 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val160.i, i64 %indvars.iv249.i, i32 2
-  store ptr %510, ptr %513, align 8, !tbaa !51
+  store ptr %510, ptr %513, align 8, !tbaa !52
   %indvars.iv.next250.i = add nuw nsw i64 %indvars.iv249.i, 1
-  %514 = load ptr, ptr %71, align 8, !tbaa !89
+  %514 = load ptr, ptr %71, align 8, !tbaa !90
   %515 = getelementptr i8, ptr %514, i64 4
   %.val.i = load i32, ptr %515, align 4, !tbaa !21
   %516 = sext i32 %.val.i to i64
   %517 = icmp slt i64 %indvars.iv.next250.i, %516
-  br i1 %517, label %.lr.ph226.i, label %.critedge6.i, !llvm.loop !93
+  br i1 %517, label %.lr.ph226.i, label %.critedge6.i, !llvm.loop !94
 
 .critedge6.i:                                     ; preds = %.lr.ph226.i, %.preheader.i
-  %518 = load ptr, ptr %59, align 8, !tbaa !63
+  %518 = load ptr, ptr %59, align 8, !tbaa !64
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 %.0139.lcssa.i
-  %520 = load i8, ptr %519, align 1, !tbaa !51
+  %520 = load i8, ptr %519, align 1, !tbaa !52
   %521 = zext i8 %520 to i64
   %522 = getelementptr inbounds nuw [222 x i32], ptr %74, i64 0, i64 %521
   %523 = load i32, ptr %522, align 4, !tbaa !37
   %524 = add nsw i32 %523, 1
   store i32 %524, ptr %522, align 4, !tbaa !37
-  %525 = load i32, ptr %75, align 8, !tbaa !94
+  %525 = load i32, ptr %75, align 8, !tbaa !95
   %526 = add nsw i32 %525, %.0.lcssa.i
-  store i32 %526, ptr %75, align 8, !tbaa !94
+  store i32 %526, ptr %75, align 8, !tbaa !95
   %527 = icmp sgt i32 %.0.lcssa.i, 0
   %or.cond.i = select i1 %76, i1 true, i1 %527
   br i1 %or.cond.i, label %Ivy_NodeRewrite.exit, label %Ivy_NodeRewrite.exit.thread.thread
 
 Ivy_NodeRewrite.exit:                             ; preds = %.critedge6.i
-  %528 = load i32, ptr %77, align 4, !tbaa !95
+  %528 = load i32, ptr %77, align 4, !tbaa !96
   %529 = add nsw i32 %528, 1
-  store i32 %529, ptr %77, align 4, !tbaa !95
+  store i32 %529, ptr %77, align 4, !tbaa !96
   %530 = icmp eq i32 %.0.lcssa.i, 0
   %or.cond = and i1 %76, %530
   %or.cond94 = or i1 %527, %or.cond
@@ -1105,7 +1105,7 @@ Ivy_NodeRewrite.exit.thread.thread:               ; preds = %Ivy_NodeRewrite.exi
   %.val = load i32, ptr %556, align 4, !tbaa !21
   %557 = sext i32 %.val to i64
   %558 = icmp slt i64 %indvars.iv.next, %557
-  br i1 %558, label %81, label %.critedge, !llvm.loop !96
+  br i1 %558, label %81, label %.critedge, !llvm.loop !97
 
 .critedge:                                        ; preds = %93, %Ivy_NodeRewrite.exit.thread.thread, %.critedge68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
@@ -1200,7 +1200,7 @@ declare i32 @Rwt_ManReadCompl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
-  %.val29.i = load i32, ptr %2, align 8, !tbaa !75
+  %.val29.i = load i32, ptr %2, align 8, !tbaa !76
   %.not.i = icmp eq i32 %.val29.i, 0
   %4 = getelementptr i8, ptr %2, i64 24
   %.val31.i = load i32, ptr %4, align 8
@@ -1208,7 +1208,7 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 32
-  %.val32.i = load ptr, ptr %6, align 8, !tbaa !83
+  %.val32.i = load ptr, ptr %6, align 8, !tbaa !84
   %7 = and i32 %.val31.i, 1
   %8 = ptrtoint ptr %.val32.i to i64
   %9 = zext nneg i32 %7 to i64
@@ -1217,7 +1217,7 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
 
 11:                                               ; preds = %3
   %12 = getelementptr i8, ptr %2, i64 4
-  %.val30.i = load i32, ptr %12, align 4, !tbaa !76
+  %.val30.i = load i32, ptr %12, align 4, !tbaa !77
   %13 = lshr i32 %.val31.i, 1
   %14 = and i32 %13, 1073741823
   %.not38.i = icmp ult i32 %14, %.val30.i
@@ -1225,7 +1225,7 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
 
 .preheader.i:                                     ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !77
+  %16 = load i32, ptr %15, align 8, !tbaa !78
   %17 = icmp slt i32 %.val30.i, %16
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr i8, ptr %2, i64 16
@@ -1234,10 +1234,10 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
 
 20:                                               ; preds = %11
   %21 = getelementptr i8, ptr %2, i64 16
-  %.val36.i = load ptr, ptr %21, align 8, !tbaa !70
+  %.val36.i = load ptr, ptr %21, align 8, !tbaa !71
   %22 = zext nneg i32 %14 to i64
   %23 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val36.i, i64 %22, i32 2
-  %24 = load ptr, ptr %23, align 8, !tbaa !51
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
   %25 = and i32 %.val31.i, 1
   %26 = ptrtoint ptr %24 to i64
   %27 = zext nneg i32 %25 to i64
@@ -1246,14 +1246,14 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
 
 29:                                               ; preds = %29, %.preheader.i
   %indvars.iv.i = phi i64 [ %19, %.preheader.i ], [ %indvars.iv.next.i, %29 ]
-  %.val.i = load ptr, ptr %18, align 8, !tbaa !70
+  %.val.i = load ptr, ptr %18, align 8, !tbaa !71
   %30 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val.i, i64 %indvars.iv.i
   %31 = load i32, ptr %30, align 8
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 1073741823
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val.i, i64 %34, i32 2
-  %36 = load ptr, ptr %35, align 8, !tbaa !51
+  %36 = load ptr, ptr %35, align 8, !tbaa !52
   %37 = and i32 %31, 1
   %38 = ptrtoint ptr %36 to i64
   %39 = zext nneg i32 %37 to i64
@@ -1265,7 +1265,7 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
   %45 = and i32 %44, 1073741823
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val.i, i64 %46, i32 2
-  %48 = load ptr, ptr %47, align 8, !tbaa !51
+  %48 = load ptr, ptr %47, align 8, !tbaa !52
   %49 = and i32 %43, 1
   %50 = ptrtoint ptr %48 to i64
   %51 = zext nneg i32 %49 to i64
@@ -1273,12 +1273,12 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
   %53 = inttoptr i64 %52 to ptr
   %54 = tail call ptr @Ivy_And(ptr noundef nonnull %0, ptr noundef %41, ptr noundef %53) #12
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !51
+  store ptr %54, ptr %55, align 8, !tbaa !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %56 = load i32, ptr %15, align 8, !tbaa !77
+  %56 = load i32, ptr %15, align 8, !tbaa !78
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next.i, %57
-  br i1 %58, label %29, label %.critedge.i, !llvm.loop !97
+  br i1 %58, label %29, label %.critedge.i, !llvm.loop !98
 
 .critedge.i:                                      ; preds = %29
   %.val35.i = load i32, ptr %4, align 8
@@ -1329,7 +1329,7 @@ define i32 @Ivy_NodeGetTruth_rec(ptr noundef readonly captures(none) %0, ptr nou
 6:                                                ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !99
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
@@ -1345,7 +1345,7 @@ define i32 @Ivy_NodeGetTruth_rec(ptr noundef readonly captures(none) %0, ptr nou
 
 ._crit_edge:                                      ; preds = %6, %3
   %14 = getelementptr i8, ptr %0, i64 16
-  %.val28 = load ptr, ptr %14, align 8, !tbaa !79
+  %.val28 = load ptr, ptr %14, align 8, !tbaa !80
   %15 = ptrtoint ptr %.val28 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
@@ -1366,7 +1366,7 @@ common.ret39:                                     ; preds = %._crit_edge, %11, %
 
 24:                                               ; preds = %._crit_edge
   %25 = getelementptr i8, ptr %0, i64 24
-  %.val30 = load ptr, ptr %25, align 8, !tbaa !80
+  %.val30 = load ptr, ptr %25, align 8, !tbaa !81
   %26 = ptrtoint ptr %.val30 to i64
   %27 = and i64 %26, -2
   %28 = inttoptr i64 %27 to ptr
@@ -1381,7 +1381,7 @@ common.ret39:                                     ; preds = %._crit_edge, %11, %
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %.val29 = load i32, ptr %1, align 8, !tbaa !75
+  %.val29 = load i32, ptr %1, align 8, !tbaa !76
   %.not = icmp eq i32 %.val29, 0
   %3 = getelementptr i8, ptr %1, i64 24
   %.val31 = load i32, ptr %3, align 8
@@ -1389,7 +1389,7 @@ define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 32
-  %.val32 = load ptr, ptr %5, align 8, !tbaa !83
+  %.val32 = load ptr, ptr %5, align 8, !tbaa !84
   %6 = and i32 %.val31, 1
   %7 = ptrtoint ptr %.val32 to i64
   %8 = zext nneg i32 %6 to i64
@@ -1398,7 +1398,7 @@ define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
 
 10:                                               ; preds = %2
   %11 = getelementptr i8, ptr %1, i64 4
-  %.val30 = load i32, ptr %11, align 4, !tbaa !76
+  %.val30 = load i32, ptr %11, align 4, !tbaa !77
   %12 = lshr i32 %.val31, 1
   %13 = and i32 %12, 1073741823
   %.not38 = icmp ult i32 %13, %.val30
@@ -1406,7 +1406,7 @@ define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
 
 .preheader:                                       ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !77
+  %15 = load i32, ptr %14, align 8, !tbaa !78
   %16 = icmp slt i32 %.val30, %15
   tail call void @llvm.assume(i1 %16)
   %17 = getelementptr i8, ptr %1, i64 16
@@ -1415,10 +1415,10 @@ define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
 
 19:                                               ; preds = %10
   %20 = getelementptr i8, ptr %1, i64 16
-  %.val36 = load ptr, ptr %20, align 8, !tbaa !70
+  %.val36 = load ptr, ptr %20, align 8, !tbaa !71
   %21 = zext nneg i32 %13 to i64
   %22 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val36, i64 %21, i32 2
-  %23 = load ptr, ptr %22, align 8, !tbaa !51
+  %23 = load ptr, ptr %22, align 8, !tbaa !52
   %24 = and i32 %.val31, 1
   %25 = ptrtoint ptr %23 to i64
   %26 = zext nneg i32 %24 to i64
@@ -1427,14 +1427,14 @@ define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
 
 28:                                               ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ %18, %.preheader ], [ %indvars.iv.next, %28 ]
-  %.val = load ptr, ptr %17, align 8, !tbaa !70
+  %.val = load ptr, ptr %17, align 8, !tbaa !71
   %29 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %indvars.iv
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 1
   %32 = and i32 %31, 1073741823
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %33, i32 2
-  %35 = load ptr, ptr %34, align 8, !tbaa !51
+  %35 = load ptr, ptr %34, align 8, !tbaa !52
   %36 = and i32 %30, 1
   %37 = ptrtoint ptr %35 to i64
   %38 = zext nneg i32 %36 to i64
@@ -1446,7 +1446,7 @@ define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
   %44 = and i32 %43, 1073741823
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %45, i32 2
-  %47 = load ptr, ptr %46, align 8, !tbaa !51
+  %47 = load ptr, ptr %46, align 8, !tbaa !52
   %48 = and i32 %42, 1
   %49 = ptrtoint ptr %47 to i64
   %50 = zext nneg i32 %48 to i64
@@ -1454,12 +1454,12 @@ define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
   %52 = inttoptr i64 %51 to ptr
   %53 = tail call ptr @Ivy_And(ptr noundef %0, ptr noundef %40, ptr noundef %52) #12
   %54 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %53, ptr %54, align 8, !tbaa !51
+  store ptr %53, ptr %54, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = load i32, ptr %14, align 8, !tbaa !77
+  %55 = load i32, ptr %14, align 8, !tbaa !78
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %28, label %.critedge, !llvm.loop !97
+  br i1 %57, label %28, label %.critedge, !llvm.loop !98
 
 .critedge:                                        ; preds = %28
   %.val35 = load i32, ptr %3, align 8
@@ -1482,7 +1482,7 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %9 = load ptr, ptr %8, align 8, !tbaa !89
+  %9 = load ptr, ptr %8, align 8, !tbaa !90
   %10 = getelementptr i8, ptr %9, i64 4
   %.val39 = load i32, ptr %10, align 4, !tbaa !21
   %11 = icmp sgt i32 %.val39, 0
@@ -1502,22 +1502,22 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !58
+  %20 = load i32, ptr %19, align 4, !tbaa !59
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %19, align 4, !tbaa !58
+  store i32 %21, ptr %19, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !99
+  br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !100
 
 .critedge:                                        ; preds = %13, %5
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !58
-  store i32 0, ptr %22, align 4, !tbaa !58
+  %23 = load i32, ptr %22, align 4, !tbaa !59
+  store i32 0, ptr %22, align 4, !tbaa !59
   tail call void @Ivy_ObjDelete_rec(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #12
-  store i32 %23, ptr %22, align 4, !tbaa !58
+  store i32 %23, ptr %22, align 4, !tbaa !59
   %24 = load ptr, ptr %6, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
-  %26 = load ptr, ptr %25, align 8, !tbaa !89
+  %26 = load ptr, ptr %25, align 8, !tbaa !90
   %27 = getelementptr i8, ptr %26, i64 4
   %.val38 = load i32, ptr %27, align 4, !tbaa !21
   %28 = icmp sgt i32 %.val38, 0
@@ -1537,15 +1537,15 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %37 = load i32, ptr %36, align 4, !tbaa !58
+  %37 = load i32, ptr %36, align 4, !tbaa !59
   %38 = add nsw i32 %37, -1
-  store i32 %38, ptr %36, align 4, !tbaa !58
+  store i32 %38, ptr %36, align 4, !tbaa !59
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.critedge2, label %30, !llvm.loop !100
+  br i1 %exitcond61.not, label %.critedge2, label %30, !llvm.loop !101
 
 .critedge2:                                       ; preds = %30, %.critedge
-  %.val29.i = load i32, ptr %2, align 8, !tbaa !75
+  %.val29.i = load i32, ptr %2, align 8, !tbaa !76
   %.not.i = icmp eq i32 %.val29.i, 0
   %39 = getelementptr i8, ptr %2, i64 24
   %.val31.i = load i32, ptr %39, align 8
@@ -1553,7 +1553,7 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
 
 40:                                               ; preds = %.critedge2
   %41 = getelementptr i8, ptr %0, i64 32
-  %.val32.i = load ptr, ptr %41, align 8, !tbaa !83
+  %.val32.i = load ptr, ptr %41, align 8, !tbaa !84
   %42 = and i32 %.val31.i, 1
   %43 = ptrtoint ptr %.val32.i to i64
   %44 = zext nneg i32 %42 to i64
@@ -1562,7 +1562,7 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
 
 46:                                               ; preds = %.critedge2
   %47 = getelementptr i8, ptr %2, i64 4
-  %.val30.i = load i32, ptr %47, align 4, !tbaa !76
+  %.val30.i = load i32, ptr %47, align 4, !tbaa !77
   %48 = lshr i32 %.val31.i, 1
   %49 = and i32 %48, 1073741823
   %.not38.i = icmp ult i32 %49, %.val30.i
@@ -1570,7 +1570,7 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .preheader.i:                                     ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !77
+  %51 = load i32, ptr %50, align 8, !tbaa !78
   %52 = icmp slt i32 %.val30.i, %51
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr i8, ptr %2, i64 16
@@ -1579,10 +1579,10 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
 
 55:                                               ; preds = %46
   %56 = getelementptr i8, ptr %2, i64 16
-  %.val36.i = load ptr, ptr %56, align 8, !tbaa !70
+  %.val36.i = load ptr, ptr %56, align 8, !tbaa !71
   %57 = zext nneg i32 %49 to i64
   %58 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val36.i, i64 %57, i32 2
-  %59 = load ptr, ptr %58, align 8, !tbaa !51
+  %59 = load ptr, ptr %58, align 8, !tbaa !52
   %60 = and i32 %.val31.i, 1
   %61 = ptrtoint ptr %59 to i64
   %62 = zext nneg i32 %60 to i64
@@ -1591,14 +1591,14 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
 
 64:                                               ; preds = %64, %.preheader.i
   %indvars.iv.i = phi i64 [ %54, %.preheader.i ], [ %indvars.iv.next.i, %64 ]
-  %.val.i = load ptr, ptr %53, align 8, !tbaa !70
+  %.val.i = load ptr, ptr %53, align 8, !tbaa !71
   %65 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val.i, i64 %indvars.iv.i
   %66 = load i32, ptr %65, align 8
   %67 = lshr i32 %66, 1
   %68 = and i32 %67, 1073741823
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val.i, i64 %69, i32 2
-  %71 = load ptr, ptr %70, align 8, !tbaa !51
+  %71 = load ptr, ptr %70, align 8, !tbaa !52
   %72 = and i32 %66, 1
   %73 = ptrtoint ptr %71 to i64
   %74 = zext nneg i32 %72 to i64
@@ -1610,7 +1610,7 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
   %80 = and i32 %79, 1073741823
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val.i, i64 %81, i32 2
-  %83 = load ptr, ptr %82, align 8, !tbaa !51
+  %83 = load ptr, ptr %82, align 8, !tbaa !52
   %84 = and i32 %78, 1
   %85 = ptrtoint ptr %83 to i64
   %86 = zext nneg i32 %84 to i64
@@ -1618,12 +1618,12 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
   %88 = inttoptr i64 %87 to ptr
   %89 = tail call ptr @Ivy_And(ptr noundef nonnull %0, ptr noundef %76, ptr noundef %88) #12
   %90 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %89, ptr %90, align 8, !tbaa !51
+  store ptr %89, ptr %90, align 8, !tbaa !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %91 = load i32, ptr %50, align 8, !tbaa !77
+  %91 = load i32, ptr %50, align 8, !tbaa !78
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next.i, %92
-  br i1 %93, label %64, label %.critedge.i, !llvm.loop !97
+  br i1 %93, label %64, label %.critedge.i, !llvm.loop !98
 
 .critedge.i:                                      ; preds = %64
   %.val35.i = load i32, ptr %39, align 8
@@ -1639,7 +1639,7 @@ Ivy_GraphToNetwork.exit:                          ; preds = %40, %55, %.critedge
   tail call void @Ivy_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %.025.i, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
   %98 = load ptr, ptr %6, align 8, !tbaa !9
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 144
-  %100 = load ptr, ptr %99, align 8, !tbaa !89
+  %100 = load ptr, ptr %99, align 8, !tbaa !90
   %101 = getelementptr i8, ptr %100, i64 4
   %.val53 = load i32, ptr %101, align 4, !tbaa !21
   %102 = icmp sgt i32 %.val53, 0
@@ -1664,7 +1664,7 @@ Ivy_GraphToNetwork.exit:                          ; preds = %40, %55, %.critedge
 
 113:                                              ; preds = %.lr.ph55
   %114 = getelementptr i8, ptr %110, i64 12
-  %.val48 = load i32, ptr %114, align 4, !tbaa !58
+  %.val48 = load i32, ptr %114, align 4, !tbaa !59
   %115 = icmp eq i32 %.val48, 0
   br i1 %115, label %116, label %117
 
@@ -1677,12 +1677,12 @@ Ivy_GraphToNetwork.exit:                          ; preds = %40, %55, %.critedge
   %118 = phi ptr [ %103, %.lr.ph55 ], [ %103, %113 ], [ %.pre, %116 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 144
-  %120 = load ptr, ptr %119, align 8, !tbaa !89
+  %120 = load ptr, ptr %119, align 8, !tbaa !90
   %121 = getelementptr i8, ptr %120, i64 4
   %.val = load i32, ptr %121, align 4, !tbaa !21
   %122 = sext i32 %.val to i64
   %123 = icmp slt i64 %indvars.iv.next63, %122
-  br i1 %123, label %.lr.ph55, label %.critedge4, !llvm.loop !101
+  br i1 %123, label %.lr.ph55, label %.critedge4, !llvm.loop !102
 
 .critedge4:                                       ; preds = %117, %Ivy_GraphToNetwork.exit
   ret void
@@ -1788,61 +1788,62 @@ attributes #14 = { nounwind allocsize(0) }
 !41 = !{!42, !43, i64 4}
 !42 = !{!"Ivy_Cut_t_", !15, i64 0, !43, i64 4, !43, i64 6, !6, i64 8, !15, i64 32}
 !43 = !{!"short", !6, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!26, !15, i64 1080}
-!47 = !{!26, !15, i64 1076}
-!48 = !{!26, !5, i64 1096}
-!49 = !{!26, !29, i64 56}
-!50 = !{!26, !28, i64 24}
-!51 = !{!6, !6, i64 0}
-!52 = !{!28, !28, i64 0}
-!53 = !{!26, !28, i64 16}
-!54 = !{!26, !11, i64 152}
-!55 = !{!22, !15, i64 0}
-!56 = distinct !{!56, !45}
-!57 = distinct !{!57, !45}
-!58 = !{!14, !15, i64 12}
-!59 = distinct !{!59, !45}
-!60 = distinct !{!60, !45}
-!61 = !{!26, !5, i64 1128}
-!62 = !{!26, !31, i64 80}
-!63 = !{!26, !28, i64 32}
-!64 = !{!65, !12, i64 8}
-!65 = !{!"Vec_Vec_t_", !15, i64 0, !15, i64 4, !12, i64 8}
-!66 = !{!26, !15, i64 1084}
-!67 = !{!68, !69, i64 32}
-!68 = !{!"Rwt_Node_t_", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 10, !15, i64 11, !15, i64 11, !15, i64 11, !69, i64 16, !69, i64 24, !69, i64 32}
-!69 = !{!"p1 _ZTS11Rwt_Node_t_", !12, i64 0}
-!70 = !{!71, !72, i64 16}
-!71 = !{!"Dec_Graph_t_", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !72, i64 16, !73, i64 24}
-!72 = !{!"p1 _ZTS11Dec_Node_t_", !12, i64 0}
-!73 = !{!"Dec_Edge_t_", !15, i64 0, !15, i64 0}
-!74 = distinct !{!74, !45}
-!75 = !{!71, !15, i64 0}
-!76 = !{!71, !15, i64 4}
-!77 = !{!71, !15, i64 8}
-!78 = distinct !{!78, !45}
-!79 = !{!14, !13, i64 16}
-!80 = !{!14, !13, i64 24}
-!81 = !{!10, !15, i64 176}
-!82 = !{!14, !15, i64 4}
-!83 = !{!10, !13, i64 32}
-!84 = distinct !{!84, !45}
-!85 = distinct !{!85, !45}
-!86 = !{!26, !5, i64 1120}
-!87 = !{!26, !12, i64 128}
-!88 = !{!26, !15, i64 112}
-!89 = !{!26, !11, i64 144}
-!90 = distinct !{!90, !45}
-!91 = distinct !{!91, !45}
-!92 = !{!26, !5, i64 1112}
-!93 = distinct !{!93, !45}
-!94 = !{!26, !15, i64 184}
-!95 = !{!26, !15, i64 180}
-!96 = distinct !{!96, !45}
-!97 = distinct !{!97, !45}
-!98 = distinct !{!98, !45}
-!99 = distinct !{!99, !45}
-!100 = distinct !{!100, !45}
-!101 = distinct !{!101, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!26, !15, i64 1080}
+!48 = !{!26, !15, i64 1076}
+!49 = !{!26, !5, i64 1096}
+!50 = !{!26, !29, i64 56}
+!51 = !{!26, !28, i64 24}
+!52 = !{!6, !6, i64 0}
+!53 = !{!28, !28, i64 0}
+!54 = !{!26, !28, i64 16}
+!55 = !{!26, !11, i64 152}
+!56 = !{!22, !15, i64 0}
+!57 = distinct !{!57, !45, !46}
+!58 = distinct !{!58, !45, !46}
+!59 = !{!14, !15, i64 12}
+!60 = distinct !{!60, !45, !46}
+!61 = distinct !{!61, !45, !46}
+!62 = !{!26, !5, i64 1128}
+!63 = !{!26, !31, i64 80}
+!64 = !{!26, !28, i64 32}
+!65 = !{!66, !12, i64 8}
+!66 = !{!"Vec_Vec_t_", !15, i64 0, !15, i64 4, !12, i64 8}
+!67 = !{!26, !15, i64 1084}
+!68 = !{!69, !70, i64 32}
+!69 = !{!"Rwt_Node_t_", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 10, !15, i64 11, !15, i64 11, !15, i64 11, !70, i64 16, !70, i64 24, !70, i64 32}
+!70 = !{!"p1 _ZTS11Rwt_Node_t_", !12, i64 0}
+!71 = !{!72, !73, i64 16}
+!72 = !{!"Dec_Graph_t_", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !73, i64 16, !74, i64 24}
+!73 = !{!"p1 _ZTS11Dec_Node_t_", !12, i64 0}
+!74 = !{!"Dec_Edge_t_", !15, i64 0, !15, i64 0}
+!75 = distinct !{!75, !45, !46}
+!76 = !{!72, !15, i64 0}
+!77 = !{!72, !15, i64 4}
+!78 = !{!72, !15, i64 8}
+!79 = distinct !{!79, !45, !46}
+!80 = !{!14, !13, i64 16}
+!81 = !{!14, !13, i64 24}
+!82 = !{!10, !15, i64 176}
+!83 = !{!14, !15, i64 4}
+!84 = !{!10, !13, i64 32}
+!85 = distinct !{!85, !45, !46}
+!86 = distinct !{!86, !45, !46}
+!87 = !{!26, !5, i64 1120}
+!88 = !{!26, !12, i64 128}
+!89 = !{!26, !15, i64 112}
+!90 = !{!26, !11, i64 144}
+!91 = distinct !{!91, !45, !46}
+!92 = distinct !{!92, !45, !46}
+!93 = !{!26, !5, i64 1112}
+!94 = distinct !{!94, !45, !46}
+!95 = !{!26, !15, i64 184}
+!96 = !{!26, !15, i64 180}
+!97 = distinct !{!97, !45, !46}
+!98 = distinct !{!98, !45, !46}
+!99 = distinct !{!99, !45, !46}
+!100 = distinct !{!100, !45, !46}
+!101 = distinct !{!101, !45, !46}
+!102 = distinct !{!102, !45, !46}

@@ -1002,7 +1002,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %236, %._crit_edge
   br i1 %314, label %._crit_edge290, label %.lr.ph289
 
 ._crit_edge290:                                   ; preds = %382, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
-  %315 = load i32, ptr %1, align 4, !tbaa !38
+  %315 = load i32, ptr %1, align 4, !tbaa !39
   %316 = icmp sgt i32 %315, -1
   %spec.select = select i1 %316, i32 %315, i32 10
   invoke void @_ZN5ZXing4OneD12WriterHelper12RenderResultERKSt6vectorIbSaIbEEiii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef %3, i32 noundef %4, i32 noundef %spec.select)
@@ -1044,7 +1044,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %236, %._crit_edge
   %334 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %335 = add nsw i64 %.047.i.i.i.i.i, -1
   %336 = icmp samesign ugt i64 %.047.i.i.i.i.i, 1
-  br i1 %336, label %318, label %._crit_edge._crit_edge52.i.i.i.i.i184, !llvm.loop !40
+  br i1 %336, label %318, label %._crit_edge._crit_edge52.i.i.i.i.i184, !llvm.loop !41
 
 ._crit_edge._crit_edge52.i.i.i.i.i184:            ; preds = %333
   %337 = icmp eq i32 %317, 0
@@ -1072,7 +1072,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %236, %._crit_edge
   %344 = ashr i64 %sext, 32
   %345 = select i1 %341, i64 -1, i64 %344
   %346 = getelementptr inbounds [20 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %345
-  %347 = load i32, ptr %346, align 4, !tbaa !41
+  %347 = load i32, ptr %346, align 4, !tbaa !42
   %348 = shl nuw i64 1, %345
   %349 = and i64 %348, 1019351
   %350 = icmp ne i64 %349, 0
@@ -1101,20 +1101,20 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %236, %._crit_edge
 
 358:                                              ; preds = %352
   %359 = xor i64 %357, -1
-  %360 = load i64, ptr %.sroa.0232.1.us, align 8, !tbaa !42
+  %360 = load i64, ptr %.sroa.0232.1.us, align 8, !tbaa !43
   %361 = and i64 %360, %359
   br label %_ZNSt14_Bit_referenceaSEb.exit.us
 
 362:                                              ; preds = %352
-  %363 = load i64, ptr %.sroa.0232.1.us, align 8, !tbaa !42
+  %363 = load i64, ptr %.sroa.0232.1.us, align 8, !tbaa !43
   %364 = or i64 %363, %357
   br label %_ZNSt14_Bit_referenceaSEb.exit.us
 
 _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %362, %358
   %storemerge.us = phi i64 [ %361, %358 ], [ %364, %362 ]
-  store i64 %storemerge.us, ptr %.sroa.0232.1.us, align 8, !tbaa !42
+  store i64 %storemerge.us, ptr %.sroa.0232.1.us, align 8, !tbaa !43
   %or.cond9.us = or i1 %353, %351
-  br i1 %or.cond9.us, label %select.unfold.split.us, label %352, !llvm.loop !43
+  br i1 %or.cond9.us, label %select.unfold.split.us, label %352, !llvm.loop !44
 
 select.unfold.split.us:                           ; preds = %_ZNSt14_Bit_referenceaSEb.exit.us
   %365 = add nuw nsw i32 %.077.ph284, 1
@@ -1124,7 +1124,7 @@ select.unfold.split.us:                           ; preds = %_ZNSt14_Bit_referen
   %369 = and i32 %368, %347
   %370 = icmp eq i32 %369, 0
   %exitcond296.not = icmp eq i32 %365, 7
-  br i1 %exitcond296.not, label %.outer.split, label %.outer.split.us, !llvm.loop !45
+  br i1 %exitcond296.not, label %.outer.split, label %.outer.split.us, !llvm.loop !46
 
 .outer.split:                                     ; preds = %select.unfold.split.us
   %.sroa.0.0.copyload.i190 = load ptr, ptr %228, align 8
@@ -1143,9 +1143,9 @@ select.unfold.split.us:                           ; preds = %_ZNSt14_Bit_referen
   %377 = zext nneg i32 %spec.select260.us to i64
   %378 = shl nuw i64 1, %377
   %379 = xor i64 %378, -1
-  %380 = load i64, ptr %spec.select259.us, align 8, !tbaa !42
+  %380 = load i64, ptr %spec.select259.us, align 8, !tbaa !43
   %381 = and i64 %380, %379
-  store i64 %381, ptr %spec.select259.us, align 8, !tbaa !42
+  store i64 %381, ptr %spec.select259.us, align 8, !tbaa !43
   br label %382
 
 382:                                              ; preds = %374, %.outer.split
@@ -1153,7 +1153,7 @@ select.unfold.split.us:                           ; preds = %_ZNSt14_Bit_referen
   %.sroa.9.2 = phi i32 [ %spec.select260.us, %.outer.split ], [ %spec.select262, %374 ]
   %383 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0286, i64 4
   %384 = icmp eq ptr %383, %313
-  br i1 %384, label %._crit_edge290, label %.lr.ph289
+  br i1 %384, label %._crit_edge290, label %.lr.ph289, !llvm.loop !47
 
 385:                                              ; preds = %._crit_edge290
   %386 = load ptr, ptr %17, align 8, !tbaa !23
@@ -1441,7 +1441,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit12: ; pred
 .critedge:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit12
   %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef 0, ptr noundef %9, i64 noundef %5)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %25, ptr %0, align 8, !tbaa !46
+  store ptr %25, ptr %0, align 8, !tbaa !48
   %26 = load ptr, ptr %24, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = icmp eq ptr %26, %27
@@ -1520,7 +1520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %8
   store i8 0, ptr %52, align 1, !tbaa !14
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %53, ptr %0, align 8, !tbaa !46
+  store ptr %53, ptr %0, align 8, !tbaa !48
   %54 = load ptr, ptr %1, align 8, !tbaa !31
   %55 = icmp eq ptr %54, %10
   br i1 %55, label %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i13
@@ -1596,7 +1596,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit: ; preds = 
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %8
   store i8 0, ptr %20, align 1, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %21, ptr %0, align 8, !tbaa !46
+  store ptr %21, ptr %0, align 8, !tbaa !48
   %22 = load ptr, ptr %1, align 8, !tbaa !31
   %23 = icmp eq ptr %22, %10
   br i1 %23, label %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
@@ -1629,7 +1629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %24
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !46
+  store ptr %4, ptr %0, align 8, !tbaa !48
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -2413,14 +2413,16 @@ attributes #18 = { builtin nounwind }
 !33 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !34, i64 0}
 !34 = !{!"p1 omnipotent char", !6, i64 0}
 !35 = !{!32, !11, i64 8}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!39, !26, i64 0}
-!39 = !{!"_ZTSN5ZXing4OneD13CodabarWriterE", !26, i64 0}
-!40 = distinct !{!40, !37}
-!41 = !{!26, !26, i64 0}
-!42 = !{!11, !11, i64 0}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !37}
-!46 = !{!33, !34, i64 0}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!40, !26, i64 0}
+!40 = !{!"_ZTSN5ZXing4OneD13CodabarWriterE", !26, i64 0}
+!41 = distinct !{!41, !37, !38}
+!42 = !{!26, !26, i64 0}
+!43 = !{!11, !11, i64 0}
+!44 = distinct !{!44, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !37, !38}
+!47 = distinct !{!47, !38}
+!48 = !{!33, !34, i64 0}

@@ -262,7 +262,7 @@ encrypt.exit:                                     ; preds = %161
   store <2 x i64> %220, ptr %221, align 16
   %222 = add nuw nsw i64 %.016.i.i, 2
   %223 = icmp samesign ult i64 %.016.i.i, 12
-  br i1 %223, label %189, label %precomp_for_block_count.exit, !llvm.loop !6
+  br i1 %223, label %189, label %precomp_for_block_count.exit, !llvm.loop !7
 
 precomp_for_block_count.exit:                     ; preds = %189
   ret i32 0
@@ -342,7 +342,7 @@ required_blocks.exit.thread:                      ; preds = %21, %27
   %37 = getelementptr i8, ptr %5, i64 %6
   %38 = sub nsw i64 0, %36
   %39 = getelementptr i8, ptr %37, i64 %38
-  %40 = call ptr @__memcpy_chk(ptr noundef nonnull %18, ptr noundef nonnull readonly %39, i64 noundef range(i64 1, 16) %36, i64 noundef 16) #14, !alias.scope !7
+  %40 = call ptr @__memcpy_chk(ptr noundef nonnull %18, ptr noundef nonnull readonly %39, i64 noundef range(i64 1, 16) %36, i64 noundef 16) #14, !alias.scope !8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %42 = load <2 x i64>, ptr %41, align 16
   %.val85.i.i = load <2 x i64>, ptr %19, align 16
@@ -386,7 +386,7 @@ required_blocks.exit.thread:                      ; preds = %21, %27
   %69 = add <2 x i64> %.010.i.i, <i64 1, i64 0>
   %70 = add nuw nsw i64 %.089.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %70, 7
-  br i1 %exitcond.not.i.i, label %incr_counters.exit.i, label %.preheader518.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %incr_counters.exit.i, label %.preheader518.i, !llvm.loop !12
 
 incr_counters.exit.i:                             ; preds = %.preheader518.i
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %15) #14
@@ -402,7 +402,7 @@ incr_counters.exit.i:                             ; preds = %.preheader518.i
   store <2 x i64> %75, ptr %76, align 16
   %77 = add nuw nsw i64 %.032.i.i, 1
   %exitcond.not.i281.i = icmp eq i64 %77, 7
-  br i1 %exitcond.not.i281.i, label %.preheader30.i.i, label %72, !llvm.loop !12
+  br i1 %exitcond.not.i281.i, label %.preheader30.i.i, label %72, !llvm.loop !13
 
 .preheader30.i.i:                                 ; preds = %72, %87
   %.02834.i.i = phi i64 [ %88, %87 ], [ 1, %72 ]
@@ -423,12 +423,12 @@ incr_counters.exit.i:                             ; preds = %.preheader518.i
   store <2 x i64> %85, ptr %83, align 16
   %86 = add nuw nsw i64 %.133.i.i, 1
   %exitcond37.not.i.i = icmp eq i64 %86, 7
-  br i1 %exitcond37.not.i.i, label %87, label %82, !llvm.loop !13
+  br i1 %exitcond37.not.i.i, label %87, label %82, !llvm.loop !14
 
 87:                                               ; preds = %82
   %88 = add nuw nsw i64 %.02834.i.i, 1
   %exitcond38.not.i.i = icmp eq i64 %88, 14
-  br i1 %exitcond38.not.i.i, label %.preheader29.i.i, label %.preheader30.i.i, !llvm.loop !14
+  br i1 %exitcond38.not.i.i, label %.preheader29.i.i, label %.preheader30.i.i, !llvm.loop !15
 
 89:                                               ; preds = %89, %.preheader29.i.i
   %.235.i.i = phi i64 [ 0, %.preheader29.i.i ], [ %97, %89 ]
@@ -442,7 +442,7 @@ incr_counters.exit.i:                             ; preds = %.preheader518.i
   store <2 x i64> %96, ptr %90, align 16
   %97 = add nuw nsw i64 %.235.i.i, 1
   %exitcond39.not.i.i = icmp eq i64 %97, 7
-  br i1 %exitcond39.not.i.i, label %encrypt_xor_wide.exit.i, label %89, !llvm.loop !15
+  br i1 %exitcond39.not.i.i, label %encrypt_xor_wide.exit.i, label %89, !llvm.loop !16
 
 encrypt_xor_wide.exit.i:                          ; preds = %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %0, ptr noundef nonnull align 16 dereferenceable(112) %15, i64 112, i1 false)
@@ -477,7 +477,7 @@ encrypt_xor_wide.exit.._crit_edge_crit_edge.i:    ; preds = %encrypt_xor_wide.ex
   %106 = add <2 x i64> %.010.i282.i, <i64 1, i64 0>
   %107 = add nuw nsw i64 %.089.i283.i, 1
   %exitcond.not.i284.i = icmp eq i64 %107, 7
-  br i1 %exitcond.not.i284.i, label %incr_counters.exit285.i, label %102, !llvm.loop !11
+  br i1 %exitcond.not.i284.i, label %incr_counters.exit285.i, label %102, !llvm.loop !12
 
 incr_counters.exit285.i:                          ; preds = %102
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %14) #14
@@ -493,7 +493,7 @@ incr_counters.exit285.i:                          ; preds = %102
   store <2 x i64> %112, ptr %113, align 16
   %114 = add nuw nsw i64 %.032.i286.i, 1
   %exitcond.not.i287.i = icmp eq i64 %114, 7
-  br i1 %exitcond.not.i287.i, label %.preheader30.i288.i, label %109, !llvm.loop !12
+  br i1 %exitcond.not.i287.i, label %.preheader30.i288.i, label %109, !llvm.loop !13
 
 .preheader30.i288.i:                              ; preds = %109, %124
   %.02834.i289.i = phi i64 [ %125, %124 ], [ 1, %109 ]
@@ -514,12 +514,12 @@ incr_counters.exit285.i:                          ; preds = %102
   store <2 x i64> %122, ptr %120, align 16
   %123 = add nuw nsw i64 %.133.i290.i, 1
   %exitcond37.not.i291.i = icmp eq i64 %123, 7
-  br i1 %exitcond37.not.i291.i, label %124, label %119, !llvm.loop !13
+  br i1 %exitcond37.not.i291.i, label %124, label %119, !llvm.loop !14
 
 124:                                              ; preds = %119
   %125 = add nuw nsw i64 %.02834.i289.i, 1
   %exitcond38.not.i292.i = icmp eq i64 %125, 14
-  br i1 %exitcond38.not.i292.i, label %.preheader29.i293.i, label %.preheader30.i288.i, !llvm.loop !14
+  br i1 %exitcond38.not.i292.i, label %.preheader29.i293.i, label %.preheader30.i288.i, !llvm.loop !15
 
 126:                                              ; preds = %126, %.preheader29.i293.i
   %.235.i294.i = phi i64 [ 0, %.preheader29.i293.i ], [ %134, %126 ]
@@ -533,7 +533,7 @@ incr_counters.exit285.i:                          ; preds = %102
   store <2 x i64> %133, ptr %127, align 16
   %134 = add nuw nsw i64 %.235.i294.i, 1
   %exitcond39.not.i295.i = icmp eq i64 %134, 7
-  br i1 %exitcond39.not.i295.i, label %encrypt_xor_wide.exit296.i, label %126, !llvm.loop !15
+  br i1 %exitcond39.not.i295.i, label %encrypt_xor_wide.exit296.i, label %126, !llvm.loop !16
 
 encrypt_xor_wide.exit296.i:                       ; preds = %126
   %135 = getelementptr i8, ptr %0, i64 %.1231540.i
@@ -579,7 +579,7 @@ encrypt_xor_wide.exit296.i:                       ; preds = %126
   %163 = xor <2 x i64> %162, %159
   %164 = add nuw nsw i64 %.0533.i, 1
   %exitcond.not.i = icmp eq i64 %164, 7
-  br i1 %exitcond.not.i, label %.preheader516.i, label %148, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.preheader516.i, label %148, !llvm.loop !17
 
 .preheader516.i:                                  ; preds = %148, %.preheader516.i
   %.010.i297.i = phi <2 x i64> [ %168, %.preheader516.i ], [ %106, %148 ]
@@ -591,7 +591,7 @@ encrypt_xor_wide.exit296.i:                       ; preds = %126
   %168 = add <2 x i64> %.010.i297.i, <i64 1, i64 0>
   %169 = add nuw nsw i64 %.089.i298.i, 1
   %exitcond.not.i299.i = icmp eq i64 %169, 7
-  br i1 %exitcond.not.i299.i, label %incr_counters.exit300.i, label %.preheader516.i, !llvm.loop !11
+  br i1 %exitcond.not.i299.i, label %incr_counters.exit300.i, label %.preheader516.i, !llvm.loop !12
 
 incr_counters.exit300.i:                          ; preds = %.preheader516.i
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %13) #14
@@ -607,7 +607,7 @@ incr_counters.exit300.i:                          ; preds = %.preheader516.i
   store <2 x i64> %174, ptr %175, align 16
   %176 = add nuw nsw i64 %.032.i301.i, 1
   %exitcond.not.i302.i = icmp eq i64 %176, 7
-  br i1 %exitcond.not.i302.i, label %.preheader30.i303.i, label %171, !llvm.loop !12
+  br i1 %exitcond.not.i302.i, label %.preheader30.i303.i, label %171, !llvm.loop !13
 
 .preheader30.i303.i:                              ; preds = %171, %185
   %.02834.i304.i = phi i64 [ %186, %185 ], [ 1, %171 ]
@@ -627,12 +627,12 @@ incr_counters.exit300.i:                          ; preds = %.preheader516.i
   store <2 x i64> %183, ptr %181, align 16
   %184 = add nuw nsw i64 %.133.i305.i, 1
   %exitcond37.not.i306.i = icmp eq i64 %184, 7
-  br i1 %exitcond37.not.i306.i, label %185, label %180, !llvm.loop !13
+  br i1 %exitcond37.not.i306.i, label %185, label %180, !llvm.loop !14
 
 185:                                              ; preds = %180
   %186 = add nuw nsw i64 %.02834.i304.i, 1
   %exitcond38.not.i307.i = icmp eq i64 %186, 14
-  br i1 %exitcond38.not.i307.i, label %.preheader29.i308.i, label %.preheader30.i303.i, !llvm.loop !14
+  br i1 %exitcond38.not.i307.i, label %.preheader29.i308.i, label %.preheader30.i303.i, !llvm.loop !15
 
 187:                                              ; preds = %187, %.preheader29.i308.i
   %.235.i309.i = phi i64 [ 0, %.preheader29.i308.i ], [ %195, %187 ]
@@ -646,7 +646,7 @@ incr_counters.exit300.i:                          ; preds = %.preheader516.i
   store <2 x i64> %194, ptr %188, align 16
   %195 = add nuw nsw i64 %.235.i309.i, 1
   %exitcond39.not.i310.i = icmp eq i64 %195, 7
-  br i1 %exitcond39.not.i310.i, label %encrypt_xor_wide.exit311.i, label %187, !llvm.loop !15
+  br i1 %exitcond39.not.i310.i, label %encrypt_xor_wide.exit311.i, label %187, !llvm.loop !16
 
 encrypt_xor_wide.exit311.i:                       ; preds = %187
   %196 = getelementptr i8, ptr %135, i64 112
@@ -681,7 +681,7 @@ encrypt_xor_wide.exit311.i:                       ; preds = %187
   %214 = xor <2 x i64> %213, %210
   %215 = add nuw nsw i64 %.1537.i, 1
   %exitcond625.not.i = icmp eq i64 %215, 7
-  br i1 %exitcond625.not.i, label %216, label %199, !llvm.loop !17
+  br i1 %exitcond625.not.i, label %216, label %199, !llvm.loop !18
 
 216:                                              ; preds = %199
   %217 = shufflevector <2 x i64> %214, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -697,7 +697,7 @@ encrypt_xor_wide.exit311.i:                       ; preds = %187
   %227 = xor <2 x i64> %226, %211
   %228 = add i64 %101, 224
   %.not255.i = icmp ugt i64 %228, %4
-  br i1 %.not255.i, label %._crit_edge.i, label %.preheader517.i, !llvm.loop !18
+  br i1 %.not255.i, label %._crit_edge.i, label %.preheader517.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %216, %encrypt_xor_wide.exit.._crit_edge_crit_edge.i
   %.val262.i = phi <2 x i64> [ %.val262.pre.i, %encrypt_xor_wide.exit.._crit_edge_crit_edge.i ], [ %227, %216 ]
@@ -742,7 +742,7 @@ encrypt_xor_wide.exit311.i:                       ; preds = %187
   %257 = xor <2 x i64> %256, %253
   %258 = add nuw nsw i64 %.2545.i, 1
   %exitcond626.not.i = icmp eq i64 %258, 7
-  br i1 %exitcond626.not.i, label %259, label %242, !llvm.loop !19
+  br i1 %exitcond626.not.i, label %259, label %242, !llvm.loop !20
 
 259:                                              ; preds = %242
   %260 = shufflevector <2 x i64> %257, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -776,7 +776,7 @@ encrypt_xor_wide.exit311.i:                       ; preds = %187
   %277 = add <2 x i64> %.010.i312.i, <i64 1, i64 0>
   %278 = add nuw nsw i64 %.089.i313.i, 1
   %exitcond.not.i314.i = icmp eq i64 %278, 7
-  br i1 %exitcond.not.i314.i, label %incr_counters.exit315.i, label %.preheader515.i, !llvm.loop !11
+  br i1 %exitcond.not.i314.i, label %incr_counters.exit315.i, label %.preheader515.i, !llvm.loop !12
 
 incr_counters.exit315.i:                          ; preds = %.preheader515.i
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %12) #14
@@ -792,7 +792,7 @@ incr_counters.exit315.i:                          ; preds = %.preheader515.i
   store <2 x i64> %283, ptr %284, align 16
   %285 = add nuw nsw i64 %.032.i316.i, 1
   %exitcond.not.i317.i = icmp eq i64 %285, 7
-  br i1 %exitcond.not.i317.i, label %.preheader30.i318.i, label %280, !llvm.loop !12
+  br i1 %exitcond.not.i317.i, label %.preheader30.i318.i, label %280, !llvm.loop !13
 
 .preheader30.i318.i:                              ; preds = %280, %296
   %.02834.i319.i = phi i64 [ %297, %296 ], [ 1, %280 ]
@@ -814,12 +814,12 @@ incr_counters.exit315.i:                          ; preds = %.preheader515.i
   store <2 x i64> %294, ptr %292, align 16
   %295 = add nuw nsw i64 %.133.i320.i, 1
   %exitcond37.not.i321.i = icmp eq i64 %295, 7
-  br i1 %exitcond37.not.i321.i, label %296, label %291, !llvm.loop !13
+  br i1 %exitcond37.not.i321.i, label %296, label %291, !llvm.loop !14
 
 296:                                              ; preds = %291
   %297 = add nuw nsw i64 %.02834.i319.i, 1
   %exitcond38.not.i322.i = icmp eq i64 %297, 14
-  br i1 %exitcond38.not.i322.i, label %.preheader29.i323.i, label %.preheader30.i318.i, !llvm.loop !14
+  br i1 %exitcond38.not.i322.i, label %.preheader29.i323.i, label %.preheader30.i318.i, !llvm.loop !15
 
 298:                                              ; preds = %298, %.preheader29.i323.i
   %.235.i324.i = phi i64 [ 0, %.preheader29.i323.i ], [ %306, %298 ]
@@ -833,7 +833,7 @@ incr_counters.exit315.i:                          ; preds = %.preheader515.i
   store <2 x i64> %305, ptr %299, align 16
   %306 = add nuw nsw i64 %.235.i324.i, 1
   %exitcond39.not.i325.i = icmp eq i64 %306, 7
-  br i1 %exitcond39.not.i325.i, label %encrypt_xor_wide.exit326.i, label %298, !llvm.loop !15
+  br i1 %exitcond39.not.i325.i, label %encrypt_xor_wide.exit326.i, label %298, !llvm.loop !16
 
 encrypt_xor_wide.exit326.i:                       ; preds = %298
   %307 = getelementptr i8, ptr %0, i64 %.0230.i
@@ -872,7 +872,7 @@ encrypt_xor_wide.exit326.._crit_edge553_crit_edge.i: ; preds = %encrypt_xor_wide
   %317 = add <2 x i64> %.010.i327.i, <i64 1, i64 0>
   %318 = add nuw nsw i64 %.089.i328.i, 1
   %exitcond.not.i329.i = icmp eq i64 %318, 7
-  br i1 %exitcond.not.i329.i, label %incr_counters.exit330.i, label %313, !llvm.loop !11
+  br i1 %exitcond.not.i329.i, label %incr_counters.exit330.i, label %313, !llvm.loop !12
 
 incr_counters.exit330.i:                          ; preds = %313
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #14
@@ -888,7 +888,7 @@ incr_counters.exit330.i:                          ; preds = %313
   store <2 x i64> %323, ptr %324, align 16
   %325 = add nuw nsw i64 %.032.i331.i, 1
   %exitcond.not.i332.i = icmp eq i64 %325, 7
-  br i1 %exitcond.not.i332.i, label %.preheader30.i333.i, label %320, !llvm.loop !12
+  br i1 %exitcond.not.i332.i, label %.preheader30.i333.i, label %320, !llvm.loop !13
 
 .preheader30.i333.i:                              ; preds = %320, %335
   %.02834.i334.i = phi i64 [ %336, %335 ], [ 1, %320 ]
@@ -909,12 +909,12 @@ incr_counters.exit330.i:                          ; preds = %313
   store <2 x i64> %333, ptr %331, align 16
   %334 = add nuw nsw i64 %.133.i335.i, 1
   %exitcond37.not.i336.i = icmp eq i64 %334, 7
-  br i1 %exitcond37.not.i336.i, label %335, label %330, !llvm.loop !13
+  br i1 %exitcond37.not.i336.i, label %335, label %330, !llvm.loop !14
 
 335:                                              ; preds = %330
   %336 = add nuw nsw i64 %.02834.i334.i, 1
   %exitcond38.not.i337.i = icmp eq i64 %336, 14
-  br i1 %exitcond38.not.i337.i, label %.preheader29.i338.i, label %.preheader30.i333.i, !llvm.loop !14
+  br i1 %exitcond38.not.i337.i, label %.preheader29.i338.i, label %.preheader30.i333.i, !llvm.loop !15
 
 337:                                              ; preds = %337, %.preheader29.i338.i
   %.235.i339.i = phi i64 [ 0, %.preheader29.i338.i ], [ %345, %337 ]
@@ -928,7 +928,7 @@ incr_counters.exit330.i:                          ; preds = %313
   store <2 x i64> %344, ptr %338, align 16
   %345 = add nuw nsw i64 %.235.i339.i, 1
   %exitcond39.not.i340.i = icmp eq i64 %345, 7
-  br i1 %exitcond39.not.i340.i, label %encrypt_xor_wide.exit341.i, label %337, !llvm.loop !15
+  br i1 %exitcond39.not.i340.i, label %encrypt_xor_wide.exit341.i, label %337, !llvm.loop !16
 
 encrypt_xor_wide.exit341.i:                       ; preds = %337
   %346 = getelementptr i8, ptr %0, i64 %.3233552.i
@@ -970,7 +970,7 @@ encrypt_xor_wide.exit341.i:                       ; preds = %337
   %372 = xor <2 x i64> %371, %368
   %373 = add nuw nsw i64 %.3549.i, 1
   %exitcond627.not.i = icmp eq i64 %373, 7
-  br i1 %exitcond627.not.i, label %374, label %357, !llvm.loop !20
+  br i1 %exitcond627.not.i, label %374, label %357, !llvm.loop !21
 
 374:                                              ; preds = %357
   %375 = shufflevector <2 x i64> %372, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -986,7 +986,7 @@ encrypt_xor_wide.exit341.i:                       ; preds = %337
   %385 = xor <2 x i64> %384, %369
   %386 = add i64 %312, 112
   %.not256.i = icmp ugt i64 %386, %4
-  br i1 %.not256.i, label %._crit_edge553.i, label %.preheader514.i, !llvm.loop !21
+  br i1 %.not256.i, label %._crit_edge553.i, label %.preheader514.i, !llvm.loop !22
 
 ._crit_edge553.i:                                 ; preds = %374, %encrypt_xor_wide.exit326.._crit_edge553_crit_edge.i
   %387 = phi <2 x i64> [ %.pre, %encrypt_xor_wide.exit326.._crit_edge553_crit_edge.i ], [ %348, %374 ]
@@ -1030,7 +1030,7 @@ encrypt_xor_wide.exit341.i:                       ; preds = %337
   %414 = xor <2 x i64> %413, %410
   %415 = add nuw nsw i64 %.4559.i, 1
   %exitcond628.not.i = icmp eq i64 %415, 7
-  br i1 %exitcond628.not.i, label %416, label %399, !llvm.loop !22
+  br i1 %exitcond628.not.i, label %416, label %399, !llvm.loop !23
 
 416:                                              ; preds = %399
   %417 = shufflevector <2 x i64> %414, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -1096,7 +1096,7 @@ encrypt_xor_wide.exit341.i:                       ; preds = %337
   %443 = add <2 x i64> %.010.i342.i, <i64 1, i64 0>
   %444 = add nuw nsw i64 %.089.i343.i, 1
   %exitcond.not.i344.i = icmp eq i64 %444, 4
-  br i1 %exitcond.not.i344.i, label %incr_counters.exit345.preheader.i, label %439, !llvm.loop !11
+  br i1 %exitcond.not.i344.i, label %incr_counters.exit345.preheader.i, label %439, !llvm.loop !12
 
 incr_counters.exit345.preheader.i:                ; preds = %439
   %445 = getelementptr i8, ptr %0, i64 %.4234567.i
@@ -1119,7 +1119,7 @@ incr_counters.exit345.preheader.i:                ; preds = %439
   %455 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i.i, <2 x i64> %454)
   %456 = add nuw nsw i64 %.015.i.i, 1
   %exitcond.not.i346.i = icmp eq i64 %456, 14
-  br i1 %exitcond.not.i346.i, label %encrypt_xor_block.exit.i, label %452, !llvm.loop !23
+  br i1 %exitcond.not.i346.i, label %encrypt_xor_block.exit.i, label %452, !llvm.loop !24
 
 encrypt_xor_block.exit.i:                         ; preds = %452
   %457 = shl nuw nsw i64 %.5560.i, 4
@@ -1132,7 +1132,7 @@ encrypt_xor_block.exit.i:                         ; preds = %452
   store <2 x i64> %463, ptr %458, align 1
   %464 = add nuw nsw i64 %.5560.i, 1
   %exitcond629.not.i = icmp eq i64 %464, 4
-  br i1 %exitcond629.not.i, label %465, label %447, !llvm.loop !24
+  br i1 %exitcond629.not.i, label %465, label %447, !llvm.loop !25
 
 465:                                              ; preds = %encrypt_xor_block.exit.i
   %466 = load <2 x i64>, ptr %432, align 16
@@ -1170,7 +1170,7 @@ encrypt_xor_block.exit.i:                         ; preds = %452
   %490 = xor <2 x i64> %489, %486
   %491 = add nuw nsw i64 %.6564.i, 1
   %exitcond630.not.i = icmp eq i64 %491, 4
-  br i1 %exitcond630.not.i, label %492, label %475, !llvm.loop !25
+  br i1 %exitcond630.not.i, label %492, label %475, !llvm.loop !26
 
 492:                                              ; preds = %475
   %493 = shufflevector <2 x i64> %490, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -1186,7 +1186,7 @@ encrypt_xor_block.exit.i:                         ; preds = %452
   %503 = xor <2 x i64> %502, %487
   %504 = add i64 %434, 64
   %.not257.i = icmp ugt i64 %504, %4
-  br i1 %.not257.i, label %.preheader512.i.loopexit, label %.preheader513.i, !llvm.loop !26
+  br i1 %.not257.i, label %.preheader512.i.loopexit, label %.preheader513.i, !llvm.loop !27
 
 .preheader511.i:                                  ; preds = %.critedge.i, %.preheader511.lr.ph.i
   %505 = phi <2 x i64> [ %.promoted70, %.preheader511.lr.ph.i ], [ %566, %.critedge.i ]
@@ -1222,7 +1222,7 @@ encrypt_xor_block.exit.i:                         ; preds = %452
   %515 = add <2 x i64> %.010.i347.i, <i64 1, i64 0>
   %516 = add nuw nsw i64 %.089.i348.i, 1
   %exitcond.not.i349.i = icmp eq i64 %516, 2
-  br i1 %exitcond.not.i349.i, label %incr_counters.exit350.preheader.i, label %511, !llvm.loop !11
+  br i1 %exitcond.not.i349.i, label %incr_counters.exit350.preheader.i, label %511, !llvm.loop !12
 
 incr_counters.exit350.preheader.i:                ; preds = %511
   %517 = getelementptr i8, ptr %0, i64 %.5235573.i
@@ -1246,7 +1246,7 @@ incr_counters.exit350.preheader.i:                ; preds = %511
   %527 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i352.i, <2 x i64> %526)
   %528 = add nuw nsw i64 %.015.i351.i, 1
   %exitcond.not.i353.i = icmp eq i64 %528, 14
-  br i1 %exitcond.not.i353.i, label %encrypt_xor_block.exit354.i, label %524, !llvm.loop !23
+  br i1 %exitcond.not.i353.i, label %encrypt_xor_block.exit354.i, label %524, !llvm.loop !24
 
 encrypt_xor_block.exit354.i:                      ; preds = %524
   %529 = getelementptr i8, ptr %517, i64 %.7570.i
@@ -1256,7 +1256,7 @@ encrypt_xor_block.exit354.i:                      ; preds = %524
   %533 = load <2 x i64>, ptr %530, align 1
   %534 = xor <2 x i64> %533, %532
   store <2 x i64> %534, ptr %529, align 1
-  br i1 %520, label %519, label %.critedge.i, !llvm.loop !27
+  br i1 %520, label %519, label %.critedge.i, !llvm.loop !28
 
 .critedge.i:                                      ; preds = %encrypt_xor_block.exit354.i
   %535 = load <2 x i64>, ptr %438, align 16
@@ -1295,7 +1295,7 @@ encrypt_xor_block.exit354.i:                      ; preds = %524
   %566 = xor <2 x i64> %565, %563
   %567 = add i64 %506, 32
   %.not258.i = icmp ugt i64 %567, %4
-  br i1 %.not258.i, label %.preheader510.i.loopexit, label %.preheader511.i, !llvm.loop !28
+  br i1 %.not258.i, label %.preheader510.i.loopexit, label %.preheader511.i, !llvm.loop !29
 
 568:                                              ; preds = %encrypt_xor_block.exit358.i, %.lr.ph.i
   %569 = phi <2 x i64> [ %.promoted72, %.lr.ph.i ], [ %607, %encrypt_xor_block.exit358.i ]
@@ -1317,7 +1317,7 @@ encrypt_xor_block.exit354.i:                      ; preds = %524
   %579 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i356.i, <2 x i64> %578)
   %580 = add nuw nsw i64 %.015.i355.i, 1
   %exitcond.not.i357.i = icmp eq i64 %580, 14
-  br i1 %exitcond.not.i357.i, label %encrypt_xor_block.exit358.i, label %576, !llvm.loop !23
+  br i1 %exitcond.not.i357.i, label %encrypt_xor_block.exit358.i, label %576, !llvm.loop !24
 
 encrypt_xor_block.exit358.i:                      ; preds = %576
   %581 = getelementptr i8, ptr %0, i64 %.6236577.i
@@ -1351,7 +1351,7 @@ encrypt_xor_block.exit358.i:                      ; preds = %576
   %608 = add <2 x i64> %.6243576.i, <i64 1, i64 0>
   %609 = add i64 %570, 16
   %610 = icmp ult i64 %609, %4
-  br i1 %610, label %568, label %._crit_edge578.i.loopexit, !llvm.loop !29
+  br i1 %610, label %568, label %._crit_edge578.i.loopexit, !llvm.loop !30
 
 ._crit_edge578.i.loopexit:                        ; preds = %encrypt_xor_block.exit358.i
   store <2 x i64> %607, ptr %19, align 16
@@ -1411,7 +1411,7 @@ encrypt.exit.i:                                   ; preds = %614
   %639 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i361.i, <2 x i64> %638)
   %640 = add nuw nsw i64 %.015.i360.i, 1
   %exitcond.not.i362.i = icmp eq i64 %640, 14
-  br i1 %exitcond.not.i362.i, label %encrypt_xor_block.exit363.i, label %636, !llvm.loop !23
+  br i1 %exitcond.not.i362.i, label %encrypt_xor_block.exit363.i, label %636, !llvm.loop !24
 
 encrypt_xor_block.exit363.i:                      ; preds = %636
   %641 = load <2 x i64>, ptr %623, align 16
@@ -1636,7 +1636,7 @@ required_blocks.exit.i:                           ; preds = %29
   %36 = getelementptr i8, ptr %5, i64 %6
   %37 = sub nsw i64 0, %35
   %38 = getelementptr i8, ptr %36, i64 %37
-  %39 = call ptr @__memcpy_chk(ptr noundef nonnull %18, ptr noundef nonnull readonly %38, i64 noundef range(i64 1, 16) %35, i64 noundef 16) #14, !alias.scope !30
+  %39 = call ptr @__memcpy_chk(ptr noundef nonnull %18, ptr noundef nonnull readonly %38, i64 noundef range(i64 1, 16) %35, i64 noundef 16) #14, !alias.scope !31
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %41 = load <2 x i64>, ptr %40, align 16
   %.val85.i.i = load <2 x i64>, ptr %16, align 16
@@ -1677,7 +1677,7 @@ required_blocks.exit.i:                           ; preds = %29
   %64 = getelementptr i8, ptr %2, i64 %3
   %65 = sub nsw i64 0, %63
   %66 = getelementptr i8, ptr %64, i64 %65
-  %67 = call ptr @__memcpy_chk(ptr noundef nonnull %19, ptr noundef nonnull readonly %66, i64 noundef range(i64 1, 16) %63, i64 noundef 16) #14, !alias.scope !34
+  %67 = call ptr @__memcpy_chk(ptr noundef nonnull %19, ptr noundef nonnull readonly %66, i64 noundef range(i64 1, 16) %63, i64 noundef 16) #14, !alias.scope !35
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %69 = load <2 x i64>, ptr %68, align 16
   %.val85.i66.i = load <2 x i64>, ptr %16, align 16
@@ -1808,7 +1808,7 @@ required_blocks.exit:                             ; preds = %134
   %144 = getelementptr i8, ptr %5, i64 %6
   %145 = sub nsw i64 0, %143
   %146 = getelementptr i8, ptr %144, i64 %145
-  %147 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef nonnull readonly %146, i64 noundef range(i64 1, 16) %143, i64 noundef 16) #14, !alias.scope !38
+  %147 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef nonnull readonly %146, i64 noundef range(i64 1, 16) %143, i64 noundef 16) #14, !alias.scope !39
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %149 = load <2 x i64>, ptr %148, align 16
   %.val85.i.i37 = load <2 x i64>, ptr %20, align 16
@@ -1884,7 +1884,7 @@ required_blocks.exit:                             ; preds = %134
   %185 = add <2 x i64> %.010.i.i, <i64 1, i64 0>
   %186 = add nuw nsw i64 %.089.i.i, 1
   %exitcond.not.i.i32 = icmp eq i64 %186, 7
-  br i1 %exitcond.not.i.i32, label %incr_counters.exit.i, label %181, !llvm.loop !11
+  br i1 %exitcond.not.i.i32, label %incr_counters.exit.i, label %181, !llvm.loop !12
 
 incr_counters.exit.i:                             ; preds = %181
   %187 = getelementptr i8, ptr %2, i64 %.0176420.i
@@ -1923,7 +1923,7 @@ incr_counters.exit.i:                             ; preds = %181
   %212 = xor <2 x i64> %211, %208
   %213 = add nuw nsw i64 %.0413.i, 1
   %exitcond.not.i = icmp eq i64 %213, 7
-  br i1 %exitcond.not.i, label %214, label %197, !llvm.loop !42
+  br i1 %exitcond.not.i, label %214, label %197, !llvm.loop !43
 
 214:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %12) #14
@@ -1939,7 +1939,7 @@ incr_counters.exit.i:                             ; preds = %181
   store <2 x i64> %219, ptr %220, align 16
   %221 = add nuw nsw i64 %.032.i.i, 1
   %exitcond.not.i215.i = icmp eq i64 %221, 7
-  br i1 %exitcond.not.i215.i, label %.preheader30.i.i, label %216, !llvm.loop !12
+  br i1 %exitcond.not.i215.i, label %.preheader30.i.i, label %216, !llvm.loop !13
 
 .preheader30.i.i:                                 ; preds = %216, %230
   %.02834.i.i = phi i64 [ %231, %230 ], [ 1, %216 ]
@@ -1959,12 +1959,12 @@ incr_counters.exit.i:                             ; preds = %181
   store <2 x i64> %228, ptr %226, align 16
   %229 = add nuw nsw i64 %.133.i.i, 1
   %exitcond37.not.i.i = icmp eq i64 %229, 7
-  br i1 %exitcond37.not.i.i, label %230, label %225, !llvm.loop !13
+  br i1 %exitcond37.not.i.i, label %230, label %225, !llvm.loop !14
 
 230:                                              ; preds = %225
   %231 = add nuw nsw i64 %.02834.i.i, 1
   %exitcond38.not.i.i = icmp eq i64 %231, 14
-  br i1 %exitcond38.not.i.i, label %.preheader29.i.i, label %.preheader30.i.i, !llvm.loop !14
+  br i1 %exitcond38.not.i.i, label %.preheader29.i.i, label %.preheader30.i.i, !llvm.loop !15
 
 232:                                              ; preds = %232, %.preheader29.i.i
   %.235.i.i = phi i64 [ 0, %.preheader29.i.i ], [ %240, %232 ]
@@ -1978,7 +1978,7 @@ incr_counters.exit.i:                             ; preds = %181
   store <2 x i64> %239, ptr %233, align 16
   %240 = add nuw nsw i64 %.235.i.i, 1
   %exitcond39.not.i.i = icmp eq i64 %240, 7
-  br i1 %exitcond39.not.i.i, label %encrypt_xor_wide.exit.i, label %232, !llvm.loop !15
+  br i1 %exitcond39.not.i.i, label %encrypt_xor_wide.exit.i, label %232, !llvm.loop !16
 
 encrypt_xor_wide.exit.i:                          ; preds = %232
   %241 = getelementptr i8, ptr %0, i64 %.0176420.i
@@ -1996,7 +1996,7 @@ encrypt_xor_wide.exit.i:                          ; preds = %232
   %246 = add <2 x i64> %.010.i216.i, <i64 1, i64 0>
   %247 = add nuw nsw i64 %.089.i217.i, 1
   %exitcond.not.i218.i = icmp eq i64 %247, 7
-  br i1 %exitcond.not.i218.i, label %incr_counters.exit219.i, label %242, !llvm.loop !11
+  br i1 %exitcond.not.i218.i, label %incr_counters.exit219.i, label %242, !llvm.loop !12
 
 incr_counters.exit219.i:                          ; preds = %242
   %248 = add i64 %.0176420.i, 112
@@ -2026,7 +2026,7 @@ incr_counters.exit219.i:                          ; preds = %242
   %265 = xor <2 x i64> %264, %261
   %266 = add nuw nsw i64 %.1417.i, 1
   %exitcond486.not.i = icmp eq i64 %266, 7
-  br i1 %exitcond486.not.i, label %267, label %250, !llvm.loop !43
+  br i1 %exitcond486.not.i, label %267, label %250, !llvm.loop !44
 
 267:                                              ; preds = %250
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #14
@@ -2042,7 +2042,7 @@ incr_counters.exit219.i:                          ; preds = %242
   store <2 x i64> %272, ptr %273, align 16
   %274 = add nuw nsw i64 %.032.i220.i, 1
   %exitcond.not.i221.i = icmp eq i64 %274, 7
-  br i1 %exitcond.not.i221.i, label %.preheader30.i222.i, label %269, !llvm.loop !12
+  br i1 %exitcond.not.i221.i, label %.preheader30.i222.i, label %269, !llvm.loop !13
 
 .preheader30.i222.i:                              ; preds = %269, %283
   %.02834.i223.i = phi i64 [ %284, %283 ], [ 1, %269 ]
@@ -2062,12 +2062,12 @@ incr_counters.exit219.i:                          ; preds = %242
   store <2 x i64> %281, ptr %279, align 16
   %282 = add nuw nsw i64 %.133.i224.i, 1
   %exitcond37.not.i225.i = icmp eq i64 %282, 7
-  br i1 %exitcond37.not.i225.i, label %283, label %278, !llvm.loop !13
+  br i1 %exitcond37.not.i225.i, label %283, label %278, !llvm.loop !14
 
 283:                                              ; preds = %278
   %284 = add nuw nsw i64 %.02834.i223.i, 1
   %exitcond38.not.i226.i = icmp eq i64 %284, 14
-  br i1 %exitcond38.not.i226.i, label %.preheader29.i227.i, label %.preheader30.i222.i, !llvm.loop !14
+  br i1 %exitcond38.not.i226.i, label %.preheader29.i227.i, label %.preheader30.i222.i, !llvm.loop !15
 
 285:                                              ; preds = %285, %.preheader29.i227.i
   %.235.i228.i = phi i64 [ 0, %.preheader29.i227.i ], [ %293, %285 ]
@@ -2081,7 +2081,7 @@ incr_counters.exit219.i:                          ; preds = %242
   store <2 x i64> %292, ptr %286, align 16
   %293 = add nuw nsw i64 %.235.i228.i, 1
   %exitcond39.not.i229.i = icmp eq i64 %293, 7
-  br i1 %exitcond39.not.i229.i, label %encrypt_xor_wide.exit230.i, label %285, !llvm.loop !15
+  br i1 %exitcond39.not.i229.i, label %encrypt_xor_wide.exit230.i, label %285, !llvm.loop !16
 
 encrypt_xor_wide.exit230.i:                       ; preds = %285
   %294 = shufflevector <2 x i64> %265, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -2100,7 +2100,7 @@ encrypt_xor_wide.exit230.i:                       ; preds = %285
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #14
   %306 = add i64 %176, 224
   %.not195.i = icmp ugt i64 %306, %3
-  br i1 %.not195.i, label %.preheader399.i.loopexit, label %.preheader400.i, !llvm.loop !44
+  br i1 %.not195.i, label %.preheader399.i.loopexit, label %.preheader400.i, !llvm.loop !45
 
 .preheader398.i:                                  ; preds = %encrypt_xor_wide.exit245.i, %.preheader398.lr.ph.i
   %307 = phi <2 x i64> [ %.promoted70, %.preheader398.lr.ph.i ], [ %383, %encrypt_xor_wide.exit245.i ]
@@ -2137,7 +2137,7 @@ encrypt_xor_wide.exit230.i:                       ; preds = %285
   %317 = add <2 x i64> %.010.i231.i, <i64 1, i64 0>
   %318 = add nuw nsw i64 %.089.i232.i, 1
   %exitcond.not.i233.i = icmp eq i64 %318, 7
-  br i1 %exitcond.not.i233.i, label %incr_counters.exit234.i, label %313, !llvm.loop !11
+  br i1 %exitcond.not.i233.i, label %incr_counters.exit234.i, label %313, !llvm.loop !12
 
 incr_counters.exit234.i:                          ; preds = %313
   %319 = getelementptr i8, ptr %2, i64 %.1177428.i
@@ -2176,7 +2176,7 @@ incr_counters.exit234.i:                          ; preds = %313
   %344 = xor <2 x i64> %343, %340
   %345 = add nuw nsw i64 %.2425.i, 1
   %exitcond487.not.i = icmp eq i64 %345, 7
-  br i1 %exitcond487.not.i, label %346, label %329, !llvm.loop !45
+  br i1 %exitcond487.not.i, label %346, label %329, !llvm.loop !46
 
 346:                                              ; preds = %329
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10) #14
@@ -2192,7 +2192,7 @@ incr_counters.exit234.i:                          ; preds = %313
   store <2 x i64> %351, ptr %352, align 16
   %353 = add nuw nsw i64 %.032.i235.i, 1
   %exitcond.not.i236.i = icmp eq i64 %353, 7
-  br i1 %exitcond.not.i236.i, label %.preheader30.i237.i, label %348, !llvm.loop !12
+  br i1 %exitcond.not.i236.i, label %.preheader30.i237.i, label %348, !llvm.loop !13
 
 .preheader30.i237.i:                              ; preds = %348, %362
   %.02834.i238.i = phi i64 [ %363, %362 ], [ 1, %348 ]
@@ -2212,12 +2212,12 @@ incr_counters.exit234.i:                          ; preds = %313
   store <2 x i64> %360, ptr %358, align 16
   %361 = add nuw nsw i64 %.133.i239.i, 1
   %exitcond37.not.i240.i = icmp eq i64 %361, 7
-  br i1 %exitcond37.not.i240.i, label %362, label %357, !llvm.loop !13
+  br i1 %exitcond37.not.i240.i, label %362, label %357, !llvm.loop !14
 
 362:                                              ; preds = %357
   %363 = add nuw nsw i64 %.02834.i238.i, 1
   %exitcond38.not.i241.i = icmp eq i64 %363, 14
-  br i1 %exitcond38.not.i241.i, label %.preheader29.i242.i, label %.preheader30.i237.i, !llvm.loop !14
+  br i1 %exitcond38.not.i241.i, label %.preheader29.i242.i, label %.preheader30.i237.i, !llvm.loop !15
 
 364:                                              ; preds = %364, %.preheader29.i242.i
   %.235.i243.i = phi i64 [ 0, %.preheader29.i242.i ], [ %372, %364 ]
@@ -2231,7 +2231,7 @@ incr_counters.exit234.i:                          ; preds = %313
   store <2 x i64> %371, ptr %365, align 16
   %372 = add nuw nsw i64 %.235.i243.i, 1
   %exitcond39.not.i244.i = icmp eq i64 %372, 7
-  br i1 %exitcond39.not.i244.i, label %encrypt_xor_wide.exit245.i, label %364, !llvm.loop !15
+  br i1 %exitcond39.not.i244.i, label %encrypt_xor_wide.exit245.i, label %364, !llvm.loop !16
 
 encrypt_xor_wide.exit245.i:                       ; preds = %364
   %373 = shufflevector <2 x i64> %344, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -2250,7 +2250,7 @@ encrypt_xor_wide.exit245.i:                       ; preds = %364
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #14
   %385 = add i64 %308, 112
   %.not196.i = icmp ugt i64 %385, %3
-  br i1 %.not196.i, label %.preheader397.i.loopexit, label %.preheader398.i, !llvm.loop !46
+  br i1 %.not196.i, label %.preheader397.i.loopexit, label %.preheader398.i, !llvm.loop !47
 
 .loopexit395.i:                                   ; preds = %encrypt_xor_block.exit.i
   %386 = shufflevector <2 x i64> %435, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -2266,7 +2266,7 @@ encrypt_xor_wide.exit245.i:                       ; preds = %364
   %396 = xor <2 x i64> %395, %432
   %397 = add i64 %399, 64
   %.not197.i = icmp ugt i64 %397, %3
-  br i1 %.not197.i, label %.preheader394.i.loopexit, label %.preheader396.i, !llvm.loop !47
+  br i1 %.not197.i, label %.preheader394.i.loopexit, label %.preheader396.i, !llvm.loop !48
 
 .preheader396.i:                                  ; preds = %.loopexit395.i, %.preheader396.lr.ph.i
   %398 = phi <2 x i64> [ %.promoted72, %.preheader396.lr.ph.i ], [ %396, %.loopexit395.i ]
@@ -2303,7 +2303,7 @@ encrypt_xor_wide.exit245.i:                       ; preds = %364
   %408 = add <2 x i64> %.010.i246.i, <i64 1, i64 0>
   %409 = add nuw nsw i64 %.089.i247.i, 1
   %exitcond.not.i248.i = icmp eq i64 %409, 4
-  br i1 %exitcond.not.i248.i, label %incr_counters.exit249.i, label %404, !llvm.loop !11
+  br i1 %exitcond.not.i248.i, label %incr_counters.exit249.i, label %404, !llvm.loop !12
 
 incr_counters.exit249.i:                          ; preds = %404
   %410 = getelementptr i8, ptr %2, i64 %.2178438.i
@@ -2342,7 +2342,7 @@ incr_counters.exit249.i:                          ; preds = %404
   %435 = xor <2 x i64> %434, %431
   %436 = add nuw nsw i64 %.3434.i, 1
   %exitcond488.not.i = icmp eq i64 %436, 4
-  br i1 %exitcond488.not.i, label %437, label %420, !llvm.loop !48
+  br i1 %exitcond488.not.i, label %437, label %420, !llvm.loop !49
 
 437:                                              ; preds = %420
   %438 = getelementptr i8, ptr %0, i64 %.2178438.i
@@ -2364,7 +2364,7 @@ incr_counters.exit249.i:                          ; preds = %404
   %447 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i.i, <2 x i64> %446)
   %448 = add nuw nsw i64 %.015.i.i, 1
   %exitcond.not.i250.i = icmp eq i64 %448, 14
-  br i1 %exitcond.not.i250.i, label %encrypt_xor_block.exit.i, label %444, !llvm.loop !23
+  br i1 %exitcond.not.i250.i, label %encrypt_xor_block.exit.i, label %444, !llvm.loop !24
 
 encrypt_xor_block.exit.i:                         ; preds = %444
   %449 = shl nuw nsw i64 %.4435.i, 4
@@ -2377,7 +2377,7 @@ encrypt_xor_block.exit.i:                         ; preds = %444
   store <2 x i64> %455, ptr %450, align 1
   %456 = add nuw nsw i64 %.4435.i, 1
   %exitcond489.not.i = icmp eq i64 %456, 4
-  br i1 %exitcond489.not.i, label %.loopexit395.i, label %439, !llvm.loop !49
+  br i1 %exitcond489.not.i, label %.loopexit395.i, label %439, !llvm.loop !50
 
 .loopexit.i:                                      ; preds = %encrypt_xor_block.exit258.i
   %457 = shufflevector <16 x i8> %.val207389.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2411,7 +2411,7 @@ encrypt_xor_block.exit.i:                         ; preds = %444
   %485 = xor <2 x i64> %484, %482
   %486 = add i64 %488, 32
   %.not198.i = icmp ugt i64 %486, %3
-  br i1 %.not198.i, label %.preheader393.i.loopexit, label %.critedge.preheader.i, !llvm.loop !50
+  br i1 %.not198.i, label %.preheader393.i.loopexit, label %.critedge.preheader.i, !llvm.loop !51
 
 .critedge.preheader.i:                            ; preds = %.loopexit.i, %.critedge.preheader.lr.ph.i
   %487 = phi <2 x i64> [ %.promoted74, %.critedge.preheader.lr.ph.i ], [ %485, %.loopexit.i ]
@@ -2447,7 +2447,7 @@ encrypt_xor_block.exit.i:                         ; preds = %444
   %496 = add <2 x i64> %.010.i251.i, <i64 1, i64 0>
   %497 = add nuw nsw i64 %.089.i252.i, 1
   %exitcond.not.i253.i = icmp eq i64 %497, 2
-  br i1 %exitcond.not.i253.i, label %incr_counters.exit254.i, label %.critedge.i, !llvm.loop !11
+  br i1 %exitcond.not.i253.i, label %incr_counters.exit254.i, label %.critedge.i, !llvm.loop !12
 
 incr_counters.exit254.i:                          ; preds = %.critedge.i
   %498 = getelementptr i8, ptr %2, i64 %.3179444.i
@@ -2476,7 +2476,7 @@ incr_counters.exit254.i:                          ; preds = %.critedge.i
   %511 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i256.i, <2 x i64> %510)
   %512 = add nuw nsw i64 %.015.i255.i, 1
   %exitcond.not.i257.i = icmp eq i64 %512, 14
-  br i1 %exitcond.not.i257.i, label %encrypt_xor_block.exit258.i, label %508, !llvm.loop !23
+  br i1 %exitcond.not.i257.i, label %encrypt_xor_block.exit258.i, label %508, !llvm.loop !24
 
 encrypt_xor_block.exit258.i:                      ; preds = %508
   %513 = getelementptr i8, ptr %502, i64 %.6441.i
@@ -2486,7 +2486,7 @@ encrypt_xor_block.exit258.i:                      ; preds = %508
   %517 = load <2 x i64>, ptr %514, align 1
   %518 = xor <2 x i64> %517, %516
   store <2 x i64> %518, ptr %513, align 1
-  br i1 %504, label %503, label %.loopexit.i, !llvm.loop !51
+  br i1 %504, label %503, label %.loopexit.i, !llvm.loop !52
 
 519:                                              ; preds = %encrypt_xor_block.exit262.i, %.lr.ph.i
   %520 = phi <2 x i64> [ %.promoted76, %.lr.ph.i ], [ %553, %encrypt_xor_block.exit262.i ]
@@ -2512,7 +2512,7 @@ encrypt_xor_block.exit258.i:                      ; preds = %508
   %533 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i260.i, <2 x i64> %532)
   %534 = add nuw nsw i64 %.015.i259.i, 1
   %exitcond.not.i261.i = icmp eq i64 %534, 14
-  br i1 %exitcond.not.i261.i, label %encrypt_xor_block.exit262.i, label %530, !llvm.loop !23
+  br i1 %exitcond.not.i261.i, label %encrypt_xor_block.exit262.i, label %530, !llvm.loop !24
 
 encrypt_xor_block.exit262.i:                      ; preds = %530
   %535 = shufflevector <16 x i8> %.val209391.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2542,7 +2542,7 @@ encrypt_xor_block.exit262.i:                      ; preds = %530
   %558 = add <2 x i64> %.4185447.i, <i64 1, i64 0>
   %559 = add i64 %521, 16
   %560 = icmp ult i64 %559, %3
-  br i1 %560, label %519, label %._crit_edge.i.loopexit, !llvm.loop !52
+  br i1 %560, label %519, label %._crit_edge.i.loopexit, !llvm.loop !53
 
 ._crit_edge.i.loopexit:                           ; preds = %encrypt_xor_block.exit262.i
   store <2 x i64> %553, ptr %20, align 16
@@ -2644,7 +2644,7 @@ encrypt.exit.i:                                   ; preds = %564
   %621 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i294.i, <2 x i64> %620)
   %622 = add nuw nsw i64 %.015.i293.i, 1
   %exitcond.not.i295.i = icmp eq i64 %622, 14
-  br i1 %exitcond.not.i295.i, label %.lr.ph457.i, label %618, !llvm.loop !23
+  br i1 %exitcond.not.i295.i, label %.lr.ph457.i, label %618, !llvm.loop !24
 
 .lr.ph457.i:                                      ; preds = %618
   %623 = bitcast <16 x i8> %.val84120.i285.i to <2 x i64>
@@ -2876,7 +2876,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   %37 = xor <2 x i64> %36, %33
   %38 = add nuw nsw i64 %.068128, 1
   %exitcond.not = icmp eq i64 %38, 14
-  br i1 %exitcond.not, label %39, label %22, !llvm.loop !53
+  br i1 %exitcond.not, label %39, label %22, !llvm.loop !54
 
 39:                                               ; preds = %22
   %40 = shufflevector <2 x i64> %37, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -2893,7 +2893,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   store <2 x i64> %50, ptr %1, align 16
   %51 = add i64 %11, 224
   %.not = icmp ugt i64 %51, %3
-  br i1 %.not, label %.preheader124, label %10, !llvm.loop !54
+  br i1 %.not, label %.preheader124, label %10, !llvm.loop !55
 
 .preheader123:                                    ; preds = %84, %.preheader124
   %.1.lcssa = phi i64 [ %.069.lcssa, %.preheader124 ], [ %56, %84 ]
@@ -2947,7 +2947,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   %82 = xor <2 x i64> %81, %78
   %83 = add nuw nsw i64 %.067134, 1
   %exitcond162.not = icmp eq i64 %83, 7
-  br i1 %exitcond162.not, label %84, label %67, !llvm.loop !55
+  br i1 %exitcond162.not, label %84, label %67, !llvm.loop !56
 
 84:                                               ; preds = %67
   %85 = shufflevector <2 x i64> %82, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -2964,7 +2964,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   store <2 x i64> %95, ptr %1, align 16
   %96 = add i64 %56, 112
   %.not75 = icmp ugt i64 %96, %3
-  br i1 %.not75, label %.preheader123, label %55, !llvm.loop !56
+  br i1 %.not75, label %.preheader123, label %55, !llvm.loop !57
 
 .preheader:                                       ; preds = %129, %.preheader123
   %.2.lcssa = phi i64 [ %.1.lcssa, %.preheader123 ], [ %101, %129 ]
@@ -3018,7 +3018,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   %127 = xor <2 x i64> %126, %123
   %128 = add nuw nsw i64 %.066142, 1
   %exitcond163.not = icmp eq i64 %128, 4
-  br i1 %exitcond163.not, label %129, label %112, !llvm.loop !57
+  br i1 %exitcond163.not, label %129, label %112, !llvm.loop !58
 
 129:                                              ; preds = %112
   %130 = shufflevector <2 x i64> %127, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
@@ -3035,7 +3035,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   store <2 x i64> %140, ptr %1, align 16
   %141 = add i64 %101, 64
   %.not76 = icmp ugt i64 %141, %3
-  br i1 %.not76, label %.preheader, label %100, !llvm.loop !58
+  br i1 %.not76, label %.preheader, label %100, !llvm.loop !59
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %.critedge
   %.val83 = phi <2 x i64> [ %.val83.pre, %.critedge.lr.ph ], [ %175, %.critedge ]
@@ -3079,7 +3079,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   store <2 x i64> %175, ptr %1, align 16
   %176 = add i64 %142, 32
   %.not77 = icmp ugt i64 %176, %3
-  br i1 %.not77, label %._crit_edge, label %.critedge, !llvm.loop !59
+  br i1 %.not77, label %._crit_edge, label %.critedge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader
   %.3.lcssa = phi i64 [ %.2.lcssa, %.preheader ], [ %142, %.critedge ]
@@ -3149,59 +3149,60 @@ attributes #14 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8, !10}
-!8 = distinct !{!8, !9, !"memcpy.inline: argument 0"}
-!9 = distinct !{!9, !"memcpy.inline"}
-!10 = distinct !{!10, !9, !"memcpy.inline: argument 1"}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = !{!31, !33}
-!31 = distinct !{!31, !32, !"memcpy.inline: argument 0"}
-!32 = distinct !{!32, !"memcpy.inline"}
-!33 = distinct !{!33, !32, !"memcpy.inline: argument 1"}
-!34 = !{!35, !37}
-!35 = distinct !{!35, !36, !"memcpy.inline: argument 0"}
-!36 = distinct !{!36, !"memcpy.inline"}
-!37 = distinct !{!37, !36, !"memcpy.inline: argument 1"}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"memcpy.inline: argument 0"}
-!40 = distinct !{!40, !"memcpy.inline"}
-!41 = distinct !{!41, !40, !"memcpy.inline: argument 1"}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5}
-!56 = distinct !{!56, !5}
-!57 = distinct !{!57, !5}
-!58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!9, !11}
+!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
+!10 = distinct !{!10, !"memcpy.inline"}
+!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
+!33 = distinct !{!33, !"memcpy.inline"}
+!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
+!35 = !{!36, !38}
+!36 = distinct !{!36, !37, !"memcpy.inline: argument 0"}
+!37 = distinct !{!37, !"memcpy.inline"}
+!38 = distinct !{!38, !37, !"memcpy.inline: argument 1"}
+!39 = !{!40, !42}
+!40 = distinct !{!40, !41, !"memcpy.inline: argument 0"}
+!41 = distinct !{!41, !"memcpy.inline"}
+!42 = distinct !{!42, !41, !"memcpy.inline: argument 1"}
+!43 = distinct !{!43, !5, !6}
+!44 = distinct !{!44, !5, !6}
+!45 = distinct !{!45, !5, !6}
+!46 = distinct !{!46, !5, !6}
+!47 = distinct !{!47, !5, !6}
+!48 = distinct !{!48, !5, !6}
+!49 = distinct !{!49, !5, !6}
+!50 = distinct !{!50, !5, !6}
+!51 = distinct !{!51, !5, !6}
+!52 = distinct !{!52, !5, !6}
+!53 = distinct !{!53, !5, !6}
+!54 = distinct !{!54, !5, !6}
+!55 = distinct !{!55, !5, !6}
+!56 = distinct !{!56, !5, !6}
+!57 = distinct !{!57, !5, !6}
+!58 = distinct !{!58, !5, !6}
+!59 = distinct !{!59, !5, !6}
+!60 = distinct !{!60, !5, !6}

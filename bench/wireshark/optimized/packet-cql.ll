@@ -1019,7 +1019,7 @@ proto_item_set_generated.exit.thread:             ; preds = %122, %125, %128, %1
   %233 = load i32, ptr %8, align 4
   %234 = zext i32 %233 to i64
   %235 = icmp samesign ult i64 %232, %234
-  br i1 %235, label %.lr.ph716, label %.loopexit, !llvm.loop !8
+  br i1 %235, label %.lr.ph716, label %.loopexit, !llvm.loop !9
 
 236:                                              ; preds = %208
   %237 = load i32, ptr %7, align 4
@@ -1167,7 +1167,7 @@ proto_item_set_generated.exit.thread:             ; preds = %122, %125, %128, %1
   %330 = load i32, ptr %25, align 4
   %331 = zext i32 %330 to i64
   %332 = icmp samesign ult i64 %329, %331
-  br i1 %332, label %.lr.ph704, label %._crit_edge705, !llvm.loop !9
+  br i1 %332, label %.lr.ph704, label %._crit_edge705, !llvm.loop !10
 
 ._crit_edge705:                                   ; preds = %328, %313
   %.6.lcssa = phi i32 [ %316, %313 ], [ %.7, %328 ]
@@ -1176,7 +1176,7 @@ proto_item_set_generated.exit.thread:             ; preds = %122, %125, %128, %1
   %334 = load i32, ptr %11, align 4
   %335 = zext i32 %334 to i64
   %336 = icmp samesign ult i64 %333, %335
-  br i1 %336, label %.lr.ph710, label %._crit_edge711, !llvm.loop !10
+  br i1 %336, label %.lr.ph710, label %._crit_edge711, !llvm.loop !11
 
 ._crit_edge711:                                   ; preds = %._crit_edge705, %281
   %.4601.lcssa = phi i32 [ 3, %281 ], [ %.6.lcssa, %._crit_edge705 ]
@@ -1213,7 +1213,7 @@ proto_item_set_generated.exit.thread:             ; preds = %122, %125, %128, %1
   %359 = load i32, ptr %8, align 4
   %360 = zext i32 %359 to i64
   %361 = icmp samesign ult i64 %358, %360
-  br i1 %361, label %.lr.ph700, label %.loopexit, !llvm.loop !11
+  br i1 %361, label %.lr.ph700, label %.loopexit, !llvm.loop !12
 
 362:                                              ; preds = %208
   %363 = load i32, ptr %7, align 4
@@ -1250,7 +1250,7 @@ proto_item_set_generated.exit.thread:             ; preds = %122, %125, %128, %1
   store i8 %380, ptr %381, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %add_cql_uuid.exit, label %377, !llvm.loop !12
+  br i1 %exitcond.not.i, label %add_cql_uuid.exit, label %377, !llvm.loop !13
 
 add_cql_uuid.exit:                                ; preds = %377
   %382 = call ptr @proto_tree_add_guid(ptr noundef %57, i32 noundef %368, ptr noundef %.4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %5)
@@ -1346,7 +1346,7 @@ add_cql_uuid.exit:                                ; preds = %377
   %438 = load i32, ptr %30, align 4
   %439 = zext i32 %438 to i64
   %440 = icmp samesign ult i64 %437, %439
-  br i1 %440, label %.lr.ph690, label %._crit_edge691, !llvm.loop !13
+  br i1 %440, label %.lr.ph690, label %._crit_edge691, !llvm.loop !14
 
 ._crit_edge691:                                   ; preds = %.lr.ph690, %.lr.ph696
   %.11.lcssa = phi i32 [ %427, %.lr.ph696 ], [ %436, %.lr.ph690 ]
@@ -1354,7 +1354,7 @@ add_cql_uuid.exit:                                ; preds = %377
   %442 = load i32, ptr %29, align 4
   %443 = zext i32 %442 to i64
   %444 = icmp samesign ult i64 %441, %443
-  br i1 %444, label %.lr.ph696, label %.loopexit, !llvm.loop !14
+  br i1 %444, label %.lr.ph696, label %.loopexit, !llvm.loop !15
 
 445:                                              ; preds = %383
   %446 = load i32, ptr @ett_cql_message, align 4
@@ -1404,7 +1404,7 @@ add_cql_uuid.exit:                                ; preds = %377
   %471 = load i32, ptr %31, align 4
   %472 = zext i32 %471 to i64
   %473 = icmp samesign ult i64 %470, %472
-  br i1 %473, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %473, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %469, %449
   %.12.lcssa = phi i32 [ %454, %449 ], [ %.13, %469 ]
@@ -1560,14 +1560,14 @@ add_cql_uuid.exit:                                ; preds = %377
   %558 = load i32, ptr %15, align 4
   %559 = sext i32 %558 to i64
   %560 = icmp slt i64 %.pre-phi, %559
-  br i1 %560, label %.lr.ph681, label %.loopexit673, !llvm.loop !16
+  br i1 %560, label %.lr.ph681, label %.loopexit673, !llvm.loop !17
 
 .loopexit673:                                     ; preds = %557, %.preheader, %530
   %.17 = phi i32 [ %531, %530 ], [ %.14683, %.preheader ], [ %.16, %557 ]
   %561 = load i32, ptr %20, align 4
   %562 = sext i32 %561 to i64
   %563 = icmp slt i64 %527, %562
-  br i1 %563, label %524, label %.loopexit, !llvm.loop !17
+  br i1 %563, label %524, label %.loopexit, !llvm.loop !18
 
 564:                                              ; preds = %474
   %565 = load i32, ptr @hf_cql_string_length, align 4
@@ -1957,7 +1957,7 @@ define internal fastcc void @dissect_cql_query_parameters(ptr noundef %0, ptr no
   %36 = load i32, ptr %7, align 4
   %37 = zext i32 %36 to i64
   %38 = icmp samesign ult i64 %35, %37
-  br i1 %38, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !18
+  br i1 %38, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %57
   %.069 = phi i64 [ %58, %57 ], [ 0, %.lr.ph ]
@@ -1990,7 +1990,7 @@ define internal fastcc void @dissect_cql_query_parameters(ptr noundef %0, ptr no
   %59 = load i32, ptr %7, align 4
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ult i64 %58, %60
-  br i1 %61, label %.lr.ph.split, label %.loopexit, !llvm.loop !20
+  br i1 %61, label %.lr.ph.split, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %57, %34, %18, %4
   %.059 = phi i32 [ %16, %4 ], [ %21, %18 ], [ %.3.us, %34 ], [ %.3, %57 ]
@@ -2165,7 +2165,7 @@ define internal fastcc i32 @parse_result_metadata(ptr noundef %0, ptr noundef %1
   %56 = add i32 %55, %51
   %57 = call fastcc i32 @parse_option(ptr noundef %31, ptr noundef %1, ptr noundef %2, i32 noundef %56)
   %exitcond65.not = icmp eq i32 %32, %5
-  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.thread, %.lr.ph.split
   %.062 = phi i32 [ %60, %.lr.ph.split ], [ 0, %.thread ]
@@ -2184,7 +2184,7 @@ define internal fastcc i32 @parse_result_metadata(ptr noundef %0, ptr noundef %1
   %68 = add i32 %67, %63
   %69 = call fastcc i32 @parse_option(ptr noundef %59, ptr noundef %1, ptr noundef %2, i32 noundef %68)
   %exitcond.not = icmp eq i32 %60, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %11, %6
   %.057 = phi i32 [ %3, %6 ], [ %3, %11 ], [ %28, %.thread ], [ %57, %.lr.ph.split.us ], [ %69, %.lr.ph.split ]
@@ -2350,7 +2350,7 @@ proto_item_set_hidden.exit42:                     ; preds = %proto_item_set_hidd
   %83 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, i32 noundef %.02743)
   %84 = add nuw nsw i32 %.044, 1
   %exitcond.not = icmp eq i32 %84, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %proto_item_set_hidden.exit42, %6
   %.027.lcssa = phi i32 [ %4, %6 ], [ %83, %proto_item_set_hidden.exit42 ]
@@ -2527,7 +2527,7 @@ define internal fastcc i32 @parse_option(ptr noundef %0, ptr noundef %1, ptr nou
   %45 = add nuw i32 %.072, 1
   %46 = load i32, ptr %8, align 4
   %47 = icmp ult i32 %45, %46
-  br i1 %47, label %.lr.ph73, label %.loopexit, !llvm.loop !24
+  br i1 %47, label %.lr.ph73, label %.loopexit, !llvm.loop !25
 
 48:                                               ; preds = %4
   %49 = load i32, ptr @hf_cql_result_rows_tuple_size, align 4
@@ -2544,7 +2544,7 @@ define internal fastcc i32 @parse_option(ptr noundef %0, ptr noundef %1, ptr nou
   %54 = add nuw i32 %.170, 1
   %55 = load i32, ptr %7, align 4
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit.sink.split:                             ; preds = %4, %4, %13
   %.sink = phi i32 [ %14, %13 ], [ %11, %4 ], [ %11, %4 ]
@@ -2789,7 +2789,7 @@ add_varint_item.exit:                             ; preds = %73, %switch.lookup
   store i8 %117, ptr %118, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %add_cql_uuid.exit, label %114, !llvm.loop !12
+  br i1 %exitcond.not.i, label %add_cql_uuid.exit, label %114, !llvm.loop !13
 
 add_cql_uuid.exit:                                ; preds = %114
   %119 = call ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %102, ptr noundef %2, i32 noundef %20, i32 noundef 16, ptr noundef nonnull %7)
@@ -2854,7 +2854,7 @@ add_varint_item.exit231:                          ; preds = %127, %switch.lookup
   store i8 %151, ptr %152, align 1
   %indvars.iv.next.i234 = add nuw nsw i64 %indvars.iv.i233, 1
   %exitcond.not.i235 = icmp eq i64 %indvars.iv.next.i234, 8
-  br i1 %exitcond.not.i235, label %add_cql_uuid.exit236, label %148, !llvm.loop !12
+  br i1 %exitcond.not.i235, label %add_cql_uuid.exit236, label %148, !llvm.loop !13
 
 add_cql_uuid.exit236:                             ; preds = %148
   %153 = call ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %136, ptr noundef %2, i32 noundef %20, i32 noundef 16, ptr noundef nonnull %6)
@@ -2931,7 +2931,7 @@ add_cql_uuid.exit236:                             ; preds = %148
   %190 = add nuw nsw i32 %.0221266, 1
   %191 = load i32, ptr %12, align 4
   %192 = icmp slt i32 %190, %191
-  br i1 %192, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %192, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 193:                                              ; preds = %45
   %194 = load i32, ptr @ett_cql_result_map, align 4
@@ -2970,7 +2970,7 @@ add_cql_uuid.exit236:                             ; preds = %148
   %212 = add nuw nsw i32 %.1222268, 1
   %213 = load i32, ptr %13, align 4
   %214 = icmp slt i32 %212, %213
-  br i1 %214, label %.lr.ph270, label %.loopexit, !llvm.loop !27
+  br i1 %214, label %.lr.ph270, label %.loopexit, !llvm.loop !28
 
 215:                                              ; preds = %45
   %216 = load i32, ptr @ett_cql_result_set, align 4
@@ -3006,7 +3006,7 @@ add_cql_uuid.exit236:                             ; preds = %148
   %232 = add nuw nsw i32 %.2223272, 1
   %233 = load i32, ptr %14, align 4
   %234 = icmp slt i32 %232, %233
-  br i1 %234, label %.lr.ph274, label %.loopexit, !llvm.loop !28
+  br i1 %234, label %.lr.ph274, label %.loopexit, !llvm.loop !29
 
 235:                                              ; preds = %45
   %236 = load i32, ptr @hf_cql_string_length, align 4
@@ -3182,7 +3182,7 @@ proto_item_set_hidden.exit257:                    ; preds = %proto_item_set_hidd
   %323 = add nuw i32 %.0224276, 1
   %324 = load i32, ptr %15, align 4
   %325 = icmp ult i32 %323, %324
-  br i1 %325, label %.lr.ph278, label %.loopexit, !llvm.loop !29
+  br i1 %325, label %.lr.ph278, label %.loopexit, !llvm.loop !30
 
 326:                                              ; preds = %45
   %327 = load i32, ptr @hf_cql_result_rows_tuple_size, align 4
@@ -3219,7 +3219,7 @@ proto_item_set_hidden.exit260:                    ; preds = %326, %330, %333
   %341 = add nuw i32 %.1225280, 1
   %342 = load i32, ptr %11, align 4
   %343 = icmp ult i32 %341, %342
-  br i1 %343, label %.lr.ph282, label %.loopexit, !llvm.loop !30
+  br i1 %343, label %.lr.ph282, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph270, %.lr.ph274, %proto_item_set_hidden.exit257, %.lr.ph282, %186, %proto_item_set_hidden.exit251, %proto_item_set_hidden.exit260, %45, %229, %208, %173, %170, %add_cql_uuid.exit236, %add_varint_item.exit231, %121, %add_cql_uuid.exit, %97, %93, %89, %85, %add_varint_item.exit, %69, %63, %59, %53, %47
   %.0220 = phi i32 [ %20, %45 ], [ %52, %47 ], [ %58, %53 ], [ %62, %59 ], [ %68, %63 ], [ %72, %69 ], [ %84, %add_varint_item.exit ], [ %88, %85 ], [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %120, %add_cql_uuid.exit ], [ %126, %121 ], [ %134, %add_varint_item.exit231 ], [ %154, %add_cql_uuid.exit236 ], [ %177, %173 ], [ %.1, %170 ], [ %220, %229 ], [ %198, %208 ], [ %20, %proto_item_set_hidden.exit260 ], [ %20, %proto_item_set_hidden.exit251 ], [ %187, %186 ], [ %340, %.lr.ph282 ], [ %322, %proto_item_set_hidden.exit257 ], [ %231, %.lr.ph274 ], [ %211, %.lr.ph270 ], [ %189, %.lr.ph ]
@@ -3288,28 +3288,29 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7, !19}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8, !20}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}

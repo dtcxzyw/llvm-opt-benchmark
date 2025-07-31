@@ -460,7 +460,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bc(ptr noundef readonly capt
   %350 = sitofp i32 %349 to double
   %351 = getelementptr inbounds nuw i8, ptr %.2451472, i64 4
   %.not462 = icmp ugt ptr %351, %135
-  br i1 %.not462, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not462, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph532, %.preheader469, %.preheader
   %.1450 = phi ptr [ %54, %.preheader ], [ %54, %.preheader469 ], [ %245, %.lr.ph532 ], [ %351, %.lr.ph ]
@@ -537,7 +537,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bc(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %397, %1
   ret i32 0
@@ -866,7 +866,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %251 = sitofp i32 %250 to double
   %252 = getelementptr inbounds nuw i8, ptr %.0542, i64 8
   %.not473 = icmp ugt ptr %252, %107
-  br i1 %.not473, label %.loopexit, label %.lr.ph543, !llvm.loop !10
+  br i1 %.not473, label %.loopexit, label %.lr.ph543, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.preheader479, %.lr.ph
   %.2502 = phi ptr [ %362, %.lr.ph ], [ %111, %.preheader479 ]
@@ -1005,7 +1005,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %361 = sitofp i32 %360 to double
   %362 = getelementptr inbounds nuw i8, ptr %.2502, i64 8
   %.not472 = icmp ugt ptr %362, %107
-  br i1 %.not472, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not472, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph543, %.preheader479, %.preheader
   %.1463 = phi ptr [ %127, %.preheader ], [ %127, %.preheader479 ], [ %240, %.lr.ph543 ], [ %350, %.lr.ph ]
@@ -1076,13 +1076,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %.5 = select i1 %.inv478, double 0xC1E0000000000000, double %.4
   %407 = fptosi double %.5 to i32
   store i32 %407, ptr %.1, align 4
-  br i1 %109, label %108, label %.loopexit481, !llvm.loop !12
+  br i1 %109, label %108, label %.loopexit481, !llvm.loop !13
 
 .loopexit481:                                     ; preds = %.loopexit, %50
   %indvars.iv.next619 = add nsw i64 %indvars.iv618, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next619 to i32
   %exitcond.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit481, %1
   ret i32 0
@@ -1407,7 +1407,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %250 = sitofp i32 %249 to double
   %251 = getelementptr inbounds nuw i8, ptr %.0542, i64 12
   %.not473 = icmp ugt ptr %251, %107
-  br i1 %.not473, label %.loopexit, label %.lr.ph543, !llvm.loop !14
+  br i1 %.not473, label %.loopexit, label %.lr.ph543, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.preheader479, %.lr.ph
   %.2502 = phi ptr [ %361, %.lr.ph ], [ %110, %.preheader479 ]
@@ -1546,7 +1546,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %360 = sitofp i32 %359 to double
   %361 = getelementptr inbounds nuw i8, ptr %.2502, i64 12
   %.not472 = icmp ugt ptr %361, %107
-  br i1 %.not472, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not472, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph543, %.preheader479, %.preheader
   %.1463 = phi ptr [ %126, %.preheader ], [ %126, %.preheader479 ], [ %239, %.lr.ph543 ], [ %349, %.lr.ph ]
@@ -1619,13 +1619,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   store i32 %406, ptr %.1, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit481, label %108, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit481, label %108, !llvm.loop !17
 
 .loopexit481:                                     ; preds = %.loopexit, %50
   %indvars.iv.next619 = add nsw i64 %indvars.iv618, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next619 to i32
   %exitcond621.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond621.not, label %._crit_edge, label %35, !llvm.loop !17
+  br i1 %exitcond621.not, label %._crit_edge, label %35, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit481, %1
   ret i32 0
@@ -1950,7 +1950,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %250 = sitofp i32 %249 to double
   %251 = getelementptr inbounds nuw i8, ptr %.0542, i64 16
   %.not473 = icmp ugt ptr %251, %107
-  br i1 %.not473, label %.loopexit, label %.lr.ph543, !llvm.loop !18
+  br i1 %.not473, label %.loopexit, label %.lr.ph543, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.preheader479, %.lr.ph
   %.2502 = phi ptr [ %361, %.lr.ph ], [ %110, %.preheader479 ]
@@ -2089,7 +2089,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %360 = sitofp i32 %359 to double
   %361 = getelementptr inbounds nuw i8, ptr %.2502, i64 16
   %.not472 = icmp ugt ptr %361, %107
-  br i1 %.not472, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not472, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph543, %.preheader479, %.preheader
   %.1463 = phi ptr [ %126, %.preheader ], [ %126, %.preheader479 ], [ %239, %.lr.ph543 ], [ %349, %.lr.ph ]
@@ -2162,13 +2162,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   store i32 %406, ptr %.1, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit481, label %108, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit481, label %108, !llvm.loop !21
 
 .loopexit481:                                     ; preds = %.loopexit, %50
   %indvars.iv.next619 = add nsw i64 %indvars.iv618, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next619 to i32
   %exitcond621.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond621.not, label %._crit_edge, label %35, !llvm.loop !21
+  br i1 %exitcond621.not, label %._crit_edge, label %35, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit481, %1
   ret i32 0
@@ -2185,19 +2185,20 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

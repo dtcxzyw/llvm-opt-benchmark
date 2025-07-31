@@ -278,7 +278,7 @@ define dso_local ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unna
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.next67.i
   %49 = load i8, ptr %48, align 1
   %.not48.i = icmp eq i8 %49, 59
-  br i1 %.not48.i, label %.critedge.loopexit.split.loop.exit.i, label %46, !llvm.loop !11
+  br i1 %.not48.i, label %.critedge.loopexit.split.loop.exit.i, label %46, !llvm.loop !12
 
 .critedge.loopexit.split.loop.exit.i:             ; preds = %47
   %indvars.le.i = trunc i64 %indvars.iv.next67.i to i32
@@ -381,7 +381,7 @@ define dso_local range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) loc
   %20 = icmp slt i64 %indvars.iv, %16
   %or.cond = and i1 %20, %.not
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %or.cond, label %17, label %.critedge, !llvm.loop !12
+  br i1 %or.cond, label %17, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %17
   %21 = getelementptr inbounds i8, ptr %14, i64 %15
@@ -438,7 +438,7 @@ define dso_local range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) loc
   %47 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv.next82
   %48 = load i8, ptr %47, align 1
   %.not56 = icmp eq i8 %48, %35
-  br i1 %.not56, label %.critedge2, label %39, !llvm.loop !13
+  br i1 %.not56, label %.critedge2, label %39, !llvm.loop !14
 
 .critedge2.loopexit.split.loop.exit:              ; preds = %39
   %49 = trunc nsw i64 %indvars.iv81 to i32
@@ -507,7 +507,7 @@ define dso_local range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) loc
   store i32 %82, ptr %9, align 4
   %83 = load i32, ptr %0, align 8
   %84 = icmp slt i32 %56, %83
-  br i1 %84, label %12, label %.loopexit, !llvm.loop !14
+  br i1 %84, label %12, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %71, %1, %52, %23
   %.052 = phi i32 [ -1, %23 ], [ -1, %52 ], [ 0, %1 ], [ 0, %71 ]
@@ -691,7 +691,7 @@ define dso_local ptr @client_req_parse_spawn_req(ptr noundef readonly captures(n
   %100 = load i32, ptr %37, align 4
   %101 = zext i32 %100 to i64
   %102 = icmp samesign ult i64 %indvars.iv.next225, %101
-  br i1 %102, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !15
+  br i1 %102, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !16
 
 .lr.ph203:                                        ; preds = %.preheader, %.loopexit
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %.loopexit ], [ 0, %.preheader ]
@@ -850,7 +850,7 @@ define dso_local ptr @client_req_parse_spawn_req(ptr noundef readonly captures(n
   %203 = load i32, ptr %154, align 4
   %204 = zext i32 %203 to i64
   %205 = icmp samesign ult i64 %indvars.iv.next232, %204
-  br i1 %205, label %181, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %205, label %181, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %197
   %206 = trunc nsw i64 %indvars.iv.next230 to i32
@@ -1014,7 +1014,7 @@ define dso_local ptr @client_req_parse_spawn_req(ptr noundef readonly captures(n
   %303 = load i32, ptr %234, align 8
   %304 = zext i32 %303 to i64
   %305 = icmp samesign ult i64 %indvars.iv.next239, %304
-  br i1 %305, label %259, label %.loopexit.loopexit, !llvm.loop !17
+  br i1 %305, label %259, label %.loopexit.loopexit, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %297
   %306 = trunc nsw i64 %indvars.iv.next237 to i32
@@ -1026,7 +1026,7 @@ define dso_local ptr @client_req_parse_spawn_req(ptr noundef readonly captures(n
   %307 = load i32, ptr %21, align 8
   %308 = zext i32 %307 to i64
   %309 = icmp samesign ult i64 %indvars.iv.next244, %308
-  br i1 %309, label %.lr.ph203, label %.loopexit170, !llvm.loop !18
+  br i1 %309, label %.lr.ph203, label %.loopexit170, !llvm.loop !19
 
 .loopexit170:                                     ; preds = %.loopexit, %.preheader, %213
   %310 = tail call i32 @slurm_get_log_level() #11
@@ -1081,7 +1081,7 @@ client_req_get_int.exit.thread:                   ; preds = %1
   %9 = load i32, ptr %4, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next.i.i, %10
-  br i1 %11, label %12, label %client_req_get_str.exit, !llvm.loop !19
+  br i1 %11, label %12, label %client_req_get_str.exit, !llvm.loop !20
 
 12:                                               ; preds = %8, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %8 ]
@@ -1121,7 +1121,7 @@ client_req_get_str.exit:                          ; preds = %8, %client_req_get_
   %27 = load i32, ptr %4, align 4
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next.i.i36, %28
-  br i1 %29, label %.lr.ph.i.i33, label %client_req_get_int.exit, !llvm.loop !19
+  br i1 %29, label %.lr.ph.i.i33, label %client_req_get_int.exit, !llvm.loop !20
 
 .lr.ph.i.i33:                                     ; preds = %client_req_get_str.exit, %26
   %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i36, %26 ], [ 0, %client_req_get_str.exit ]
@@ -1162,7 +1162,7 @@ client_req_get_int.exit:                          ; preds = %26, %client_req_get
   %45 = load i32, ptr %4, align 4
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next.i.i43, %46
-  br i1 %47, label %.lr.ph.i.i40, label %client_req_get_int.exit46, !llvm.loop !19
+  br i1 %47, label %.lr.ph.i.i40, label %client_req_get_int.exit46, !llvm.loop !20
 
 .lr.ph.i.i40:                                     ; preds = %client_req_get_int.exit, %44
   %indvars.iv.i.i41 = phi i64 [ %indvars.iv.next.i.i43, %44 ], [ 0, %client_req_get_int.exit ]
@@ -1219,7 +1219,7 @@ client_req_get_int.exit46:                        ; preds = %44, %client_req_get
   %74 = load i32, ptr %4, align 4
   %75 = zext i32 %74 to i64
   %76 = icmp samesign ult i64 %indvars.iv.next.i.i51, %75
-  br i1 %76, label %.lr.ph.i.i48, label %client_req_get_str.exit54, !llvm.loop !19
+  br i1 %76, label %.lr.ph.i.i48, label %client_req_get_str.exit54, !llvm.loop !20
 
 .lr.ph.i.i48:                                     ; preds = %67, %73
   %indvars.iv.i.i49 = phi i64 [ %indvars.iv.next.i.i51, %73 ], [ 0, %67 ]
@@ -1248,7 +1248,7 @@ client_req_get_str.exit54:                        ; preds = %73, %67, %_client_r
   %88 = load i32, ptr %60, align 4
   %89 = zext i32 %88 to i64
   %90 = icmp samesign ult i64 %indvars.iv.next, %89
-  br i1 %90, label %67, label %._crit_edge, !llvm.loop !20
+  br i1 %90, label %67, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %client_req_get_str.exit54, %client_req_get_int.exit46
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1265,7 +1265,7 @@ client_req_get_str.exit54:                        ; preds = %73, %67, %_client_r
   %95 = load i32, ptr %4, align 4
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next.i.i59, %96
-  br i1 %97, label %98, label %client_req_get_int.exit62, !llvm.loop !19
+  br i1 %97, label %98, label %client_req_get_int.exit62, !llvm.loop !20
 
 98:                                               ; preds = %94, %.lr.ph.i.i56
   %indvars.iv.i.i57 = phi i64 [ 0, %.lr.ph.i.i56 ], [ %indvars.iv.next.i.i59, %94 ]
@@ -1325,7 +1325,7 @@ client_req_get_int.exit62:                        ; preds = %94, %._crit_edge, %
   %128 = load i32, ptr %4, align 4
   %129 = zext i32 %128 to i64
   %130 = icmp samesign ult i64 %indvars.iv.next.i.i67, %129
-  br i1 %130, label %.lr.ph.i.i64, label %client_req_get_str.exit70, !llvm.loop !19
+  br i1 %130, label %.lr.ph.i.i64, label %client_req_get_str.exit70, !llvm.loop !20
 
 .lr.ph.i.i64:                                     ; preds = %121, %127
   %indvars.iv.i.i65 = phi i64 [ %indvars.iv.next.i.i67, %127 ], [ 0, %121 ]
@@ -1363,7 +1363,7 @@ client_req_get_str.exit70:                        ; preds = %127, %121, %_client
   %147 = load i32, ptr %4, align 4
   %148 = zext i32 %147 to i64
   %149 = icmp samesign ult i64 %indvars.iv.next.i.i75, %148
-  br i1 %149, label %.lr.ph.i.i72, label %client_req_get_str.exit78, !llvm.loop !19
+  br i1 %149, label %.lr.ph.i.i72, label %client_req_get_str.exit78, !llvm.loop !20
 
 .lr.ph.i.i72:                                     ; preds = %client_req_get_str.exit70, %146
   %indvars.iv.i.i73 = phi i64 [ %indvars.iv.next.i.i75, %146 ], [ 0, %client_req_get_str.exit70 ]
@@ -1393,7 +1393,7 @@ client_req_get_str.exit78:                        ; preds = %146, %client_req_ge
   %161 = load i32, ptr %91, align 8
   %162 = zext i32 %161 to i64
   %163 = icmp samesign ult i64 %indvars.iv.next119, %162
-  br i1 %163, label %121, label %._crit_edge100, !llvm.loop !21
+  br i1 %163, label %121, label %._crit_edge100, !llvm.loop !22
 
 ._crit_edge100:                                   ; preds = %client_req_get_str.exit78, %client_req_get_int.exit62
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #11
@@ -1416,7 +1416,7 @@ define dso_local noundef zeroext i1 @client_req_get_str(ptr noundef readonly cap
   %8 = load i32, ptr %4, align 4
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %indvars.iv.next.i, %9
-  br i1 %10, label %11, label %_client_req_get_val.exit.thread, !llvm.loop !19
+  br i1 %10, label %11, label %_client_req_get_val.exit.thread, !llvm.loop !20
 
 11:                                               ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
@@ -1462,7 +1462,7 @@ define dso_local noundef zeroext i1 @client_req_get_int(ptr noundef readonly cap
   %8 = load i32, ptr %4, align 4
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %indvars.iv.next.i, %9
-  br i1 %10, label %11, label %_client_req_get_val.exit.thread, !llvm.loop !19
+  br i1 %10, label %11, label %_client_req_get_val.exit.thread, !llvm.loop !20
 
 11:                                               ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
@@ -1512,7 +1512,7 @@ define dso_local noundef zeroext i1 @client_req_get_bool(ptr noundef readonly ca
   %8 = load i32, ptr %4, align 4
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %indvars.iv.next.i, %9
-  br i1 %10, label %11, label %_client_req_get_val.exit.thread, !llvm.loop !19
+  br i1 %10, label %11, label %_client_req_get_val.exit.thread, !llvm.loop !20
 
 11:                                               ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
@@ -1636,7 +1636,7 @@ define dso_local range(i32 -1, 1) i32 @client_resp_send(ptr noundef readonly cap
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %36, %33
-  br label %.lr.ph.split, !llvm.loop !22
+  br label %.lr.ph.split, !llvm.loop !23
 
 37:                                               ; preds = %2
   %38 = icmp ne i32 %7, 1
@@ -1716,7 +1716,7 @@ define dso_local range(i32 -1, 1) i32 @client_resp_send(ptr noundef readonly cap
   br label %.lr.ph86.split.backedge
 
 .lr.ph86.split.backedge:                          ; preds = %64, %61
-  br label %.lr.ph86.split, !llvm.loop !23
+  br label %.lr.ph86.split, !llvm.loop !24
 
 .thread:                                          ; preds = %.split88.us, %.loopexit, %.split91.us, %57, %.split74.us, %29, %11
   %.0 = phi i32 [ -1, %11 ], [ -1, %29 ], [ -1, %.split74.us ], [ -1, %57 ], [ -1, %.split91.us ], [ 0, %.loopexit ], [ 0, %.split88.us ]
@@ -1788,7 +1788,7 @@ define dso_local i32 @send_kvs_fence_resp_to_clients(i32 noundef %0, ptr noundef
   %20 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
   %21 = load i8, ptr %20, align 1
   %.not.i = icmp eq i8 %21, 0
-  br i1 %.not.i, label %_str_replace.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %_str_replace.exit, label %.lr.ph.i, !llvm.loop !25
 
 _str_replace.exit:                                ; preds = %19, %13
   store ptr %14, ptr %4, align 8
@@ -1832,7 +1832,7 @@ _str_replace.exit:                                ; preds = %19, %13
   %36 = getelementptr inbounds nuw i8, ptr %.010.i29, i64 1
   %37 = load i8, ptr %36, align 1
   %.not.i30 = icmp eq i8 %37, 0
-  br i1 %.not.i30, label %_str_replace.exit31, label %.lr.ph.i28, !llvm.loop !24
+  br i1 %.not.i30, label %_str_replace.exit31, label %.lr.ph.i28, !llvm.loop !25
 
 _str_replace.exit31:                              ; preds = %35, %29
   store ptr %30, ptr %4, align 8
@@ -1860,7 +1860,7 @@ _str_replace.exit31:                              ; preds = %35, %29
   %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 40), align 8
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
   %.0.lcssa = phi i32 [ %0, %39 ], [ %44, %.lr.ph ]
@@ -1913,21 +1913,22 @@ attributes #13 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}
+!26 = distinct !{!26, !9, !10, !11}

@@ -649,7 +649,7 @@ _ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit: ; preds = %151, %156
   %183 = call noundef ptr @_ZN14ciMethodBlocks13make_block_atEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %182)
   %184 = add nuw nsw i32 %.05381, 1
   %exitcond89.not = icmp eq i32 %184, %173
-  br i1 %exitcond89.not, label %._crit_edge83.loopexit, label %.lr.ph82, !llvm.loop !8
+  br i1 %exitcond89.not, label %._crit_edge83.loopexit, label %.lr.ph82, !llvm.loop !9
 
 ._crit_edge83.loopexit:                           ; preds = %.lr.ph82
   %.pre94 = load ptr, ptr %3, align 8
@@ -732,7 +732,7 @@ _ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit: ; preds = %207, %211
   %238 = call noundef ptr @_ZN14ciMethodBlocks13make_block_atEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %237)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
   %239 = load ptr, ptr %35, align 8
@@ -866,7 +866,7 @@ _ZNK16ciBytecodeStream12get_far_destEv.exit71:    ; preds = %295, %299
   store ptr %323, ptr %35, align 8
   %324 = load ptr, ptr %36, align 8
   %.not.i = icmp ult ptr %323, %324
-  br i1 %.not.i, label %41, label %_ZN16ciBytecodeStream4nextEv.exit.thread, !llvm.loop !10
+  br i1 %.not.i, label %41, label %_ZN16ciBytecodeStream4nextEv.exit.thread, !llvm.loop !11
 
 _ZN16ciBytecodeStream4nextEv.exit.thread:         ; preds = %_ZN16ciBytecodeStream4nextEv.exit, %322, %_ZN16ciBytecodeStreamC2EP8ciMethod.exit.thread, %_ZN16ciBytecodeStreamC2EP8ciMethod.exit
   %325 = phi i32 [ %33, %_ZN16ciBytecodeStreamC2EP8ciMethod.exit ], [ %11, %_ZN16ciBytecodeStreamC2EP8ciMethod.exit.thread ], [ %33, %322 ], [ %33, %_ZN16ciBytecodeStream4nextEv.exit ]
@@ -1108,7 +1108,7 @@ _ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit:  ; preds = %75
   %125 = load i32, ptr %90, align 8
   %126 = load i32, ptr %89, align 4
   %.not = icmp slt i32 %125, %126
-  br i1 %.not, label %.lr.ph, label %.loopexit54, !llvm.loop !11
+  br i1 %.not, label %.lr.ph, label %.loopexit54, !llvm.loop !12
 
 .loopexit54:                                      ; preds = %120, %_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE6appendERKS1_.exit
   call void @_ZN14ciMethodBlocks11do_analysisEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -1185,14 +1185,14 @@ _ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit50: ; preds = %129
   %.039.in = getelementptr inbounds nuw i8, ptr %158, i64 8
   %.039 = load i32, ptr %.039.in, align 4
   %162 = icmp slt i32 %.039, %153
-  br i1 %162, label %.lr.ph59, label %._crit_edge, !llvm.loop !12
+  br i1 %162, label %.lr.ph59, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph59, %.lr.ph61
   call void @_ZN24ciExceptionHandlerStream4nextEv(ptr noundef nonnull align 8 dereferenceable(29) %5)
   %163 = load i32, ptr %144, align 8
   %164 = load i32, ptr %143, align 4
   %.not53 = icmp slt i32 %163, %164
-  br i1 %.not53, label %.lr.ph61, label %.loopexit, !llvm.loop !13
+  br i1 %.not53, label %.lr.ph61, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit50, %.loopexit54
   ret void
@@ -1292,7 +1292,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %33, %_ZNK10ciMetada
   store i32 %55, ptr %2, align 8
   %56 = load i32, ptr %7, align 4
   %.not7 = icmp slt i32 %55, %56
-  br i1 %.not7, label %11, label %.loopexit, !llvm.loop !14
+  br i1 %.not7, label %11, label %.loopexit, !llvm.loop !15
 
 .loopexit.sink.split:                             ; preds = %26, %44
   %.sink20 = phi i32 [ %45, %44 ], [ %12, %26 ]
@@ -1328,7 +1328,7 @@ define hidden void @_ZN14ciMethodBlocks15clear_processedEv(ptr noundef nonnull r
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1434,7 +1434,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit:    ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1450,7 +1450,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit:    ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1510,15 +1510,16 @@ attributes #10 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

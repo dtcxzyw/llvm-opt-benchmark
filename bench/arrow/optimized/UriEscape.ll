@@ -317,7 +317,7 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   %70 = getelementptr inbounds nuw i8, ptr %.06376.us93, i64 1
   %.not67.us97 = icmp ult ptr %70, %1
   %or.cond72.us98 = select i1 %.not, i1 true, i1 %.not67.us97
-  br i1 %or.cond72.us98, label %.lr.ph.split.split.split.us, label %.sink.split, !llvm.loop !8
+  br i1 %or.cond72.us98, label %.lr.ph.split.split.split.us, label %.sink.split, !llvm.loop !9
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %.not, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
@@ -462,7 +462,7 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   %.2.us107 = phi ptr [ %99, %91 ], [ %88, %87 ], [ %90, %89 ], [ %.06177.us104, %79 ], [ %86, %80 ], [ %78, %72 ]
   %.1.us108 = phi i32 [ 0, %91 ], [ 0, %87 ], [ 0, %89 ], [ 0, %79 ], [ 0, %80 ], [ 1, %72 ]
   %101 = getelementptr inbounds nuw i8, ptr %.06376.us105, i64 1
-  br label %.lr.ph.split.split.split.split.us, !llvm.loop !9
+  br label %.lr.ph.split.split.split.split.us, !llvm.loop !10
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %131
   %.06078 = phi i32 [ %.1, %131 ], [ 0, %.lr.ph.split.split.split ]
@@ -605,7 +605,7 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   %.1 = phi i32 [ 0, %122 ], [ 0, %105 ], [ 0, %103 ], [ 0, %107 ], [ 0, %108 ], [ 1, %115 ]
   %132 = getelementptr inbounds nuw i8, ptr %.06376, i64 1
   %.not67 = icmp ult ptr %132, %1
-  br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split
+  br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split, !llvm.loop !11
 
 .sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %131, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us, %69, %.lr.ph.split.us, %36, %.preheader, %8
   %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.2.us, %36 ], [ %.06177.us, %.lr.ph.split.us ], [ %.2.us95, %69 ], [ %.06177.us92, %.lr.ph.split.split.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2, %131 ], [ %.06177, %.lr.ph.split.split.split.split ]
@@ -832,7 +832,7 @@ define ptr @uriUnescapeInPlaceExA(ptr noundef captures(address, ret: address, pr
   %.073.be = phi i32 [ 0, %70 ], [ 0, %59 ], [ 0, %54 ], [ %.174, %47 ], [ 0, %64 ]
   %.071.be = phi ptr [ %72, %70 ], [ %60, %59 ], [ %55, %54 ], [ %.2, %47 ], [ %66, %64 ]
   %.070.be = phi ptr [ %71, %70 ], [ %11, %59 ], [ %14, %54 ], [ %48, %47 ], [ %65, %64 ]
-  br label %5
+  br label %5, !llvm.loop !12
 
 61:                                               ; preds = %5
   br i1 %.not, label %62, label %.sink.split
@@ -902,7 +902,7 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %36
   %.06177.us = phi ptr [ %.2.us, %36 ], [ %2, %.lr.ph ]
   %.06376.us = phi ptr [ %37, %36 ], [ %0, %.lr.ph ]
-  %10 = load i32, ptr %.06376.us, align 4, !tbaa !10
+  %10 = load i32, ptr %.06376.us, align 4, !tbaa !13
   switch i32 %10, label %27 [
     i32 0, label %.sink.split
     i32 32, label %21
@@ -977,25 +977,25 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   ]
 
 11:                                               ; preds = %.lr.ph.split.us
-  store i32 37, ptr %.06177.us, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us, align 4, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
-  store i32 48, ptr %12, align 4, !tbaa !10
+  store i32 48, ptr %12, align 4, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
-  store i32 68, ptr %13, align 4, !tbaa !10
+  store i32 68, ptr %13, align 4, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
   br label %36
 
 15:                                               ; preds = %.lr.ph.split.us
-  store i32 37, ptr %.06177.us, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us, align 4, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
-  store i32 48, ptr %16, align 4, !tbaa !10
+  store i32 48, ptr %16, align 4, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
-  store i32 65, ptr %17, align 4, !tbaa !10
+  store i32 65, ptr %17, align 4, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
   br label %36
 
 19:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
-  store i32 %10, ptr %.06177.us, align 4, !tbaa !10
+  store i32 %10, ptr %.06177.us, align 4, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
   br label %36
 
@@ -1004,28 +1004,28 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br i1 %.not71, label %24, label %23
 
 23:                                               ; preds = %21
-  store i32 43, ptr %.06177.us, align 4, !tbaa !10
+  store i32 43, ptr %.06177.us, align 4, !tbaa !13
   br label %36
 
 24:                                               ; preds = %21
-  store i32 37, ptr %.06177.us, align 4, !tbaa !10
-  store i32 50, ptr %22, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us, align 4, !tbaa !13
+  store i32 50, ptr %22, align 4, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
-  store i32 48, ptr %25, align 4, !tbaa !10
+  store i32 48, ptr %25, align 4, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
   br label %36
 
 27:                                               ; preds = %.lr.ph.split.us
-  store i32 37, ptr %.06177.us, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us, align 4, !tbaa !13
   %28 = lshr i32 %10, 4
   %29 = and i32 %28, 15
   %30 = tail call i32 @uriHexToLetterW(i32 noundef %29) #2
   %31 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 4
-  store i32 %30, ptr %31, align 4, !tbaa !10
+  store i32 %30, ptr %31, align 4, !tbaa !13
   %32 = and i32 %10, 15
   %33 = tail call i32 @uriHexToLetterW(i32 noundef %32) #2
   %34 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 8
-  store i32 %33, ptr %34, align 4, !tbaa !10
+  store i32 %33, ptr %34, align 4, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %.06177.us, i64 12
   br label %36
 
@@ -1034,7 +1034,7 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   %37 = getelementptr inbounds nuw i8, ptr %.06376.us, i64 4
   %.not67.us = icmp ult ptr %37, %1
   %or.cond72.us = select i1 %.not, i1 true, i1 %.not67.us
-  br i1 %or.cond72.us, label %.lr.ph.split.us, label %.sink.split, !llvm.loop !12
+  br i1 %or.cond72.us, label %.lr.ph.split.us, label %.sink.split, !llvm.loop !15
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %.not71, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -1043,7 +1043,7 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   %.06078.us91 = phi i32 [ %.1.us96, %69 ], [ 0, %.lr.ph.split.split ]
   %.06177.us92 = phi ptr [ %.2.us95, %69 ], [ %2, %.lr.ph.split.split ]
   %.06376.us93 = phi ptr [ %70, %69 ], [ %0, %.lr.ph.split.split ]
-  %38 = load i32, ptr %.06376.us93, align 4, !tbaa !10
+  %38 = load i32, ptr %.06376.us93, align 4, !tbaa !13
   switch i32 %38, label %60 [
     i32 0, label %.sink.split
     i32 32, label %56
@@ -1118,17 +1118,17 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   ]
 
 39:                                               ; preds = %.lr.ph.split.split.split.us
-  store i32 37, ptr %.06177.us92, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us92, align 4, !tbaa !13
   %40 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i32 48, ptr %40, align 4, !tbaa !10
+  store i32 48, ptr %40, align 4, !tbaa !13
   %41 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
-  store i32 68, ptr %41, align 4, !tbaa !10
+  store i32 68, ptr %41, align 4, !tbaa !13
   %42 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
-  store i32 37, ptr %42, align 4, !tbaa !10
+  store i32 37, ptr %42, align 4, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 16
-  store i32 48, ptr %43, align 4, !tbaa !10
+  store i32 48, ptr %43, align 4, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 20
-  store i32 65, ptr %44, align 4, !tbaa !10
+  store i32 65, ptr %44, align 4, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 24
   br label %69
 
@@ -1137,45 +1137,45 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br i1 %.not70.us94, label %47, label %69
 
 47:                                               ; preds = %46
-  store i32 37, ptr %.06177.us92, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us92, align 4, !tbaa !13
   %48 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i32 48, ptr %48, align 4, !tbaa !10
+  store i32 48, ptr %48, align 4, !tbaa !13
   %49 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
-  store i32 68, ptr %49, align 4, !tbaa !10
+  store i32 68, ptr %49, align 4, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
-  store i32 37, ptr %50, align 4, !tbaa !10
+  store i32 37, ptr %50, align 4, !tbaa !13
   %51 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 16
-  store i32 48, ptr %51, align 4, !tbaa !10
+  store i32 48, ptr %51, align 4, !tbaa !13
   %52 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 20
-  store i32 65, ptr %52, align 4, !tbaa !10
+  store i32 65, ptr %52, align 4, !tbaa !13
   %53 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 24
   br label %69
 
 54:                                               ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
-  store i32 %38, ptr %.06177.us92, align 4, !tbaa !10
+  store i32 %38, ptr %.06177.us92, align 4, !tbaa !13
   %55 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
   br label %69
 
 56:                                               ; preds = %.lr.ph.split.split.split.us
-  store i32 37, ptr %.06177.us92, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us92, align 4, !tbaa !13
   %57 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i32 50, ptr %57, align 4, !tbaa !10
+  store i32 50, ptr %57, align 4, !tbaa !13
   %58 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
-  store i32 48, ptr %58, align 4, !tbaa !10
+  store i32 48, ptr %58, align 4, !tbaa !13
   %59 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
   br label %69
 
 60:                                               ; preds = %.lr.ph.split.split.split.us
-  store i32 37, ptr %.06177.us92, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us92, align 4, !tbaa !13
   %61 = lshr i32 %38, 4
   %62 = and i32 %61, 15
   %63 = tail call i32 @uriHexToLetterW(i32 noundef %62) #2
   %64 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 4
-  store i32 %63, ptr %64, align 4, !tbaa !10
+  store i32 %63, ptr %64, align 4, !tbaa !13
   %65 = and i32 %38, 15
   %66 = tail call i32 @uriHexToLetterW(i32 noundef %65) #2
   %67 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 8
-  store i32 %66, ptr %67, align 4, !tbaa !10
+  store i32 %66, ptr %67, align 4, !tbaa !13
   %68 = getelementptr inbounds nuw i8, ptr %.06177.us92, i64 12
   br label %69
 
@@ -1185,7 +1185,7 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   %70 = getelementptr inbounds nuw i8, ptr %.06376.us93, i64 4
   %.not67.us97 = icmp ult ptr %70, %1
   %or.cond72.us98 = select i1 %.not, i1 true, i1 %.not67.us97
-  br i1 %or.cond72.us98, label %.lr.ph.split.split.split.us, label %.sink.split, !llvm.loop !13
+  br i1 %or.cond72.us98, label %.lr.ph.split.split.split.us, label %.sink.split, !llvm.loop !16
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %.not, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
@@ -1194,7 +1194,7 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   %.06078.us103 = phi i32 [ %.1.us108, %100 ], [ 0, %.lr.ph.split.split.split ]
   %.06177.us104 = phi ptr [ %.2.us107, %100 ], [ %2, %.lr.ph.split.split.split ]
   %.06376.us105 = phi ptr [ %101, %100 ], [ %0, %.lr.ph.split.split.split ]
-  %71 = load i32, ptr %.06376.us105, align 4, !tbaa !10
+  %71 = load i32, ptr %.06376.us105, align 4, !tbaa !13
   switch i32 %71, label %91 [
     i32 0, label %.sink.split
     i32 32, label %89
@@ -1269,17 +1269,17 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   ]
 
 72:                                               ; preds = %.lr.ph.split.split.split.split.us
-  store i32 37, ptr %.06177.us104, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us104, align 4, !tbaa !13
   %73 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  store i32 48, ptr %73, align 4, !tbaa !10
+  store i32 48, ptr %73, align 4, !tbaa !13
   %74 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 8
-  store i32 68, ptr %74, align 4, !tbaa !10
+  store i32 68, ptr %74, align 4, !tbaa !13
   %75 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 12
-  store i32 37, ptr %75, align 4, !tbaa !10
+  store i32 37, ptr %75, align 4, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 16
-  store i32 48, ptr %76, align 4, !tbaa !10
+  store i32 48, ptr %76, align 4, !tbaa !13
   %77 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 20
-  store i32 65, ptr %77, align 4, !tbaa !10
+  store i32 65, ptr %77, align 4, !tbaa !13
   %78 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 24
   br label %100
 
@@ -1288,41 +1288,41 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br i1 %.not70.us106, label %80, label %100
 
 80:                                               ; preds = %79
-  store i32 37, ptr %.06177.us104, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us104, align 4, !tbaa !13
   %81 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  store i32 48, ptr %81, align 4, !tbaa !10
+  store i32 48, ptr %81, align 4, !tbaa !13
   %82 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 8
-  store i32 68, ptr %82, align 4, !tbaa !10
+  store i32 68, ptr %82, align 4, !tbaa !13
   %83 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 12
-  store i32 37, ptr %83, align 4, !tbaa !10
+  store i32 37, ptr %83, align 4, !tbaa !13
   %84 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 16
-  store i32 48, ptr %84, align 4, !tbaa !10
+  store i32 48, ptr %84, align 4, !tbaa !13
   %85 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 20
-  store i32 65, ptr %85, align 4, !tbaa !10
+  store i32 65, ptr %85, align 4, !tbaa !13
   %86 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 24
   br label %100
 
 87:                                               ; preds = %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.split.us
-  store i32 %71, ptr %.06177.us104, align 4, !tbaa !10
+  store i32 %71, ptr %.06177.us104, align 4, !tbaa !13
   %88 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
   br label %100
 
 89:                                               ; preds = %.lr.ph.split.split.split.split.us
-  store i32 43, ptr %.06177.us104, align 4, !tbaa !10
+  store i32 43, ptr %.06177.us104, align 4, !tbaa !13
   %90 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
   br label %100
 
 91:                                               ; preds = %.lr.ph.split.split.split.split.us
-  store i32 37, ptr %.06177.us104, align 4, !tbaa !10
+  store i32 37, ptr %.06177.us104, align 4, !tbaa !13
   %92 = lshr i32 %71, 4
   %93 = and i32 %92, 15
   %94 = tail call i32 @uriHexToLetterW(i32 noundef %93) #2
   %95 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 4
-  store i32 %94, ptr %95, align 4, !tbaa !10
+  store i32 %94, ptr %95, align 4, !tbaa !13
   %96 = and i32 %71, 15
   %97 = tail call i32 @uriHexToLetterW(i32 noundef %96) #2
   %98 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 8
-  store i32 %97, ptr %98, align 4, !tbaa !10
+  store i32 %97, ptr %98, align 4, !tbaa !13
   %99 = getelementptr inbounds nuw i8, ptr %.06177.us104, i64 12
   br label %100
 
@@ -1330,13 +1330,13 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   %.2.us107 = phi ptr [ %99, %91 ], [ %88, %87 ], [ %90, %89 ], [ %.06177.us104, %79 ], [ %86, %80 ], [ %78, %72 ]
   %.1.us108 = phi i32 [ 0, %91 ], [ 0, %87 ], [ 0, %89 ], [ 0, %79 ], [ 0, %80 ], [ 1, %72 ]
   %101 = getelementptr inbounds nuw i8, ptr %.06376.us105, i64 4
-  br label %.lr.ph.split.split.split.split.us, !llvm.loop !14
+  br label %.lr.ph.split.split.split.split.us, !llvm.loop !17
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %131
   %.06078 = phi i32 [ %.1, %131 ], [ 0, %.lr.ph.split.split.split ]
   %.06177 = phi ptr [ %.2, %131 ], [ %2, %.lr.ph.split.split.split ]
   %.06376 = phi ptr [ %132, %131 ], [ %0, %.lr.ph.split.split.split ]
-  %102 = load i32, ptr %.06376, align 4, !tbaa !10
+  %102 = load i32, ptr %.06376, align 4, !tbaa !13
   switch i32 %102, label %122 [
     i32 0, label %.sink.split
     i32 32, label %103
@@ -1411,12 +1411,12 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   ]
 
 103:                                              ; preds = %.lr.ph.split.split.split.split
-  store i32 43, ptr %.06177, align 4, !tbaa !10
+  store i32 43, ptr %.06177, align 4, !tbaa !13
   %104 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
   br label %131
 
 105:                                              ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split
-  store i32 %102, ptr %.06177, align 4, !tbaa !10
+  store i32 %102, ptr %.06177, align 4, !tbaa !13
   %106 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
   br label %131
 
@@ -1425,46 +1425,46 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br i1 %.not70, label %108, label %131
 
 108:                                              ; preds = %107
-  store i32 37, ptr %.06177, align 4, !tbaa !10
+  store i32 37, ptr %.06177, align 4, !tbaa !13
   %109 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  store i32 48, ptr %109, align 4, !tbaa !10
+  store i32 48, ptr %109, align 4, !tbaa !13
   %110 = getelementptr inbounds nuw i8, ptr %.06177, i64 8
-  store i32 68, ptr %110, align 4, !tbaa !10
+  store i32 68, ptr %110, align 4, !tbaa !13
   %111 = getelementptr inbounds nuw i8, ptr %.06177, i64 12
-  store i32 37, ptr %111, align 4, !tbaa !10
+  store i32 37, ptr %111, align 4, !tbaa !13
   %112 = getelementptr inbounds nuw i8, ptr %.06177, i64 16
-  store i32 48, ptr %112, align 4, !tbaa !10
+  store i32 48, ptr %112, align 4, !tbaa !13
   %113 = getelementptr inbounds nuw i8, ptr %.06177, i64 20
-  store i32 65, ptr %113, align 4, !tbaa !10
+  store i32 65, ptr %113, align 4, !tbaa !13
   %114 = getelementptr inbounds nuw i8, ptr %.06177, i64 24
   br label %131
 
 115:                                              ; preds = %.lr.ph.split.split.split.split
-  store i32 37, ptr %.06177, align 4, !tbaa !10
+  store i32 37, ptr %.06177, align 4, !tbaa !13
   %116 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  store i32 48, ptr %116, align 4, !tbaa !10
+  store i32 48, ptr %116, align 4, !tbaa !13
   %117 = getelementptr inbounds nuw i8, ptr %.06177, i64 8
-  store i32 68, ptr %117, align 4, !tbaa !10
+  store i32 68, ptr %117, align 4, !tbaa !13
   %118 = getelementptr inbounds nuw i8, ptr %.06177, i64 12
-  store i32 37, ptr %118, align 4, !tbaa !10
+  store i32 37, ptr %118, align 4, !tbaa !13
   %119 = getelementptr inbounds nuw i8, ptr %.06177, i64 16
-  store i32 48, ptr %119, align 4, !tbaa !10
+  store i32 48, ptr %119, align 4, !tbaa !13
   %120 = getelementptr inbounds nuw i8, ptr %.06177, i64 20
-  store i32 65, ptr %120, align 4, !tbaa !10
+  store i32 65, ptr %120, align 4, !tbaa !13
   %121 = getelementptr inbounds nuw i8, ptr %.06177, i64 24
   br label %131
 
 122:                                              ; preds = %.lr.ph.split.split.split.split
-  store i32 37, ptr %.06177, align 4, !tbaa !10
+  store i32 37, ptr %.06177, align 4, !tbaa !13
   %123 = lshr i32 %102, 4
   %124 = and i32 %123, 15
   %125 = tail call i32 @uriHexToLetterW(i32 noundef %124) #2
   %126 = getelementptr inbounds nuw i8, ptr %.06177, i64 4
-  store i32 %125, ptr %126, align 4, !tbaa !10
+  store i32 %125, ptr %126, align 4, !tbaa !13
   %127 = and i32 %102, 15
   %128 = tail call i32 @uriHexToLetterW(i32 noundef %127) #2
   %129 = getelementptr inbounds nuw i8, ptr %.06177, i64 8
-  store i32 %128, ptr %129, align 4, !tbaa !10
+  store i32 %128, ptr %129, align 4, !tbaa !13
   %130 = getelementptr inbounds nuw i8, ptr %.06177, i64 12
   br label %131
 
@@ -1473,11 +1473,11 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   %.1 = phi i32 [ 0, %122 ], [ 0, %105 ], [ 0, %103 ], [ 0, %107 ], [ 0, %108 ], [ 1, %115 ]
   %132 = getelementptr inbounds nuw i8, ptr %.06376, i64 4
   %.not67 = icmp ult ptr %132, %1
-  br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split
+  br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split, !llvm.loop !18
 
 .sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %131, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us, %69, %.lr.ph.split.us, %36, %.preheader, %8
   %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.2.us, %36 ], [ %.06177.us, %.lr.ph.split.us ], [ %.2.us95, %69 ], [ %.06177.us92, %.lr.ph.split.split.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2, %131 ], [ %.06177, %.lr.ph.split.split.split.split ]
-  store i32 0, ptr %.us-phi.sink, align 4, !tbaa !10
+  store i32 0, ptr %.us-phi.sink, align 4, !tbaa !13
   br label %133
 
 133:                                              ; preds = %.sink.split, %5
@@ -1506,7 +1506,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   %.073 = phi i32 [ 0, %.preheader ], [ %.073.be, %.backedge ]
   %.071 = phi ptr [ %0, %.preheader ], [ %.071.be, %.backedge ]
   %.070 = phi ptr [ %0, %.preheader ], [ %.070.be, %.backedge ]
-  %6 = load i32, ptr %.070, align 4, !tbaa !10
+  %6 = load i32, ptr %.070, align 4, !tbaa !13
   switch i32 %6, label %66 [
     i32 0, label %7
     i32 37, label %10
@@ -1518,12 +1518,12 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %8, label %9, label %72
 
 9:                                                ; preds = %7
-  store i32 0, ptr %.071, align 4, !tbaa !10
+  store i32 0, ptr %.071, align 4, !tbaa !13
   br label %72
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %.070, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !10
+  %12 = load i32, ptr %11, align 4, !tbaa !13
   switch i32 %12, label %55 [
     i32 48, label %13
     i32 49, label %13
@@ -1551,7 +1551,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
 
 13:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
   %14 = getelementptr inbounds nuw i8, ptr %.070, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !10
+  %15 = load i32, ptr %14, align 4, !tbaa !13
   switch i32 %15, label %48 [
     i32 48, label %16
     i32 49, label %16
@@ -1579,7 +1579,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
 
 16:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
   %17 = tail call zeroext i8 @uriHexdigToIntW(i32 noundef %12) #2
-  %18 = load i32, ptr %14, align 4, !tbaa !10
+  %18 = load i32, ptr %14, align 4, !tbaa !13
   %19 = tail call zeroext i8 @uriHexdigToIntW(i32 noundef %18) #2
   %20 = zext i8 %17 to i32
   %21 = shl nuw nsw i32 %20, 4
@@ -1602,7 +1602,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %.not81, label %26, label %46
 
 26:                                               ; preds = %25
-  store i32 10, ptr %.071, align 4, !tbaa !10
+  store i32 10, ptr %.071, align 4, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   br label %46
 
@@ -1611,9 +1611,9 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %.not80, label %29, label %46
 
 29:                                               ; preds = %28
-  store i32 13, ptr %.071, align 4, !tbaa !10
+  store i32 13, ptr %.071, align 4, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %.071, i64 4
-  store i32 10, ptr %30, align 4, !tbaa !10
+  store i32 10, ptr %30, align 4, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %.071, i64 8
   br label %46
 
@@ -1622,12 +1622,12 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %.not79, label %33, label %46
 
 33:                                               ; preds = %32
-  store i32 13, ptr %.071, align 4, !tbaa !10
+  store i32 13, ptr %.071, align 4, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   br label %46
 
 35:                                               ; preds = %24
-  store i32 10, ptr %.071, align 4, !tbaa !10
+  store i32 10, ptr %.071, align 4, !tbaa !13
   %36 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   br label %46
 
@@ -1640,25 +1640,25 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   ]
 
 39:                                               ; preds = %37
-  store i32 10, ptr %.071, align 4, !tbaa !10
+  store i32 10, ptr %.071, align 4, !tbaa !13
   br label %46
 
 40:                                               ; preds = %37
-  store i32 13, ptr %.071, align 4, !tbaa !10
-  store i32 10, ptr %38, align 4, !tbaa !10
+  store i32 13, ptr %.071, align 4, !tbaa !13
+  store i32 10, ptr %38, align 4, !tbaa !13
   %41 = getelementptr inbounds nuw i8, ptr %.071, i64 8
   br label %46
 
 42:                                               ; preds = %37
-  store i32 13, ptr %.071, align 4, !tbaa !10
+  store i32 13, ptr %.071, align 4, !tbaa !13
   br label %46
 
 43:                                               ; preds = %37
-  store i32 13, ptr %.071, align 4, !tbaa !10
+  store i32 13, ptr %.071, align 4, !tbaa !13
   br label %46
 
 44:                                               ; preds = %16
-  store i32 %23, ptr %.071, align 4, !tbaa !10
+  store i32 %23, ptr %.071, align 4, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   br label %46
 
@@ -1673,10 +1673,10 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
-  store i32 37, ptr %.071, align 4, !tbaa !10
-  %51 = load i32, ptr %11, align 4, !tbaa !10
+  store i32 37, ptr %.071, align 4, !tbaa !13
+  %51 = load i32, ptr %11, align 4, !tbaa !13
   %52 = getelementptr inbounds nuw i8, ptr %.071, i64 4
-  store i32 %51, ptr %52, align 4, !tbaa !10
+  store i32 %51, ptr %52, align 4, !tbaa !13
   br label %53
 
 53:                                               ; preds = %50, %48
@@ -1688,7 +1688,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %55
-  store i32 37, ptr %.071, align 4, !tbaa !10
+  store i32 37, ptr %.071, align 4, !tbaa !13
   br label %58
 
 58:                                               ; preds = %57, %55
@@ -1699,7 +1699,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   %.073.be = phi i32 [ 0, %69 ], [ 0, %58 ], [ 0, %53 ], [ %.174, %46 ], [ 0, %63 ]
   %.071.be = phi ptr [ %71, %69 ], [ %59, %58 ], [ %54, %53 ], [ %.2, %46 ], [ %65, %63 ]
   %.070.be = phi ptr [ %70, %69 ], [ %11, %58 ], [ %14, %53 ], [ %47, %46 ], [ %64, %63 ]
-  br label %5
+  br label %5, !llvm.loop !19
 
 60:                                               ; preds = %5
   br i1 %.not, label %61, label %.sink.split
@@ -1710,7 +1710,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
 
 .sink.split:                                      ; preds = %61, %60
   %.sink = phi i32 [ 32, %60 ], [ 43, %61 ]
-  store i32 %.sink, ptr %.071, align 4, !tbaa !10
+  store i32 %.sink, ptr %.071, align 4, !tbaa !13
   br label %63
 
 63:                                               ; preds = %.sink.split, %61
@@ -1723,7 +1723,7 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %66
-  store i32 %6, ptr %.071, align 4, !tbaa !10
+  store i32 %6, ptr %.071, align 4, !tbaa !13
   br label %69
 
 69:                                               ; preds = %68, %66
@@ -1750,12 +1750,17 @@ attributes #2 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !4, i64 0}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !4, i64 0}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

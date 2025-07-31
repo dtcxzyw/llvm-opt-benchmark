@@ -826,7 +826,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %19 = load ptr, ptr @l_List_foldl___at_Lean_rewriteManualLinksCore_rw___spec__2___closed__1, align 8, !tbaa !12
   %20 = tail call ptr @lean_string_append(ptr noundef %.0, ptr noundef %19) #4
   %21 = tail call ptr @lean_string_append(ptr noundef %20, ptr noundef %16) #4
-  br label %3
+  br label %3, !llvm.loop !16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -921,7 +921,7 @@ lean_obj_tag.exit.i:                              ; preds = %37, %34
   %46 = load ptr, ptr @l_List_foldl___at_Lean_rewriteManualLinksCore_rw___spec__2___closed__1, align 8, !tbaa !12
   %47 = tail call ptr @lean_string_append(ptr noundef %.0.i22, ptr noundef %46) #4
   %48 = tail call ptr @lean_string_append(ptr noundef %47, ptr noundef %43) #4
-  br label %.preheader
+  br label %.preheader, !llvm.loop !16
 
 l_List_foldl___at_Lean_rewriteManualLinksCore_rw___spec__2.exit: ; preds = %lean_obj_tag.exit.i
   %49 = tail call ptr @lean_string_push(ptr noundef %.0.i22, i32 noundef 93) #4
@@ -1688,7 +1688,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %18 = load ptr, ptr @l_List_foldl___at_Lean_rewriteManualLinksCore_rw___spec__2___closed__1, align 8, !tbaa !12
   %19 = tail call ptr @lean_string_append(ptr noundef %.0.i, ptr noundef %18) #4
   %20 = tail call ptr @lean_string_append(ptr noundef %19, ptr noundef %15) #4
-  br label %3
+  br label %3, !llvm.loop !16
 
 l_List_foldl___at_Lean_rewriteManualLinksCore_rw___spec__2.exit: ; preds = %lean_obj_tag.exit.i
   %21 = ptrtoint ptr %1 to i64
@@ -1857,7 +1857,7 @@ lean_string_dec_eq.exit:                          ; preds = %11, %18, %22
   %33 = and i64 %32, 1
   %34 = icmp ne i64 %33, 0
   %or.cond = select i1 %31, i1 %34, i1 false
-  br i1 %or.cond, label %35, label %lean_nat_lt.exit, !prof !16
+  br i1 %or.cond, label %35, label %lean_nat_lt.exit, !prof !18
 
 35:                                               ; preds = %28
   %36 = icmp ult ptr %12, %16
@@ -18504,7 +18504,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit90
   %.074.be = phi ptr [ %.0, %lean_dec.exit90 ], [ %231, %lean_alloc_ctor.exit ]
-  br label %4
+  br label %4, !llvm.loop !19
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -20060,7 +20060,7 @@ lean_alloc_ctor.exit173:                          ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit173, %lean_dec.exit107
   %.090.be = phi ptr [ %.0, %lean_dec.exit107 ], [ %265, %lean_alloc_ctor.exit173 ]
-  br label %4
+  br label %4, !llvm.loop !20
 }
 
 declare ptr @l_String_quote(ptr noundef) local_unnamed_addr #1
@@ -20743,9 +20743,9 @@ _init_l_Lean_manualRoot___closed__2.exit:         ; preds = %_init_l_Lean_manual
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @l_Lean_manualRoot___lambda__1, ptr %45, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i16 2, ptr %46, align 8, !tbaa !17
+  store i16 2, ptr %46, align 8, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 18
-  store i16 0, ptr %47, align 2, !tbaa !17
+  store i16 0, ptr %47, align 2, !tbaa !21
   store ptr %41, ptr @l_Lean_manualRoot___closed__2, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %41) #4
   %48 = tail call ptr @lean_mk_string(ptr noundef nonnull @.str) #4
@@ -21021,6 +21021,10 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"any pointer", !6, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!6, !6, i64 0}
-!16 = !{!"branch_weights", i32 4000000, i32 4001}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!"branch_weights", i32 4000000, i32 4001}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !6, i64 0}

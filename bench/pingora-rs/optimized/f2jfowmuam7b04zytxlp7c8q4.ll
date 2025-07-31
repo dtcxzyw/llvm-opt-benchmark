@@ -71,11 +71,11 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h60ec890491667151E(
   %32 = shl i64 %.sroa.04.0.i, 1
   %33 = or disjoint i64 %32, 1
   %.not.i = icmp ult i64 %33, %.sroa.0.0.sroa.speculated.i
-  br i1 %.not.i, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit
+  br i1 %.not.i, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit, !llvm.loop !3
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit: ; preds = %26, %31, %12
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph13
+  br i1 %.not, label %._crit_edge, label %.lr.ph13, !llvm.loop !5
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -104,3 +104,6 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.89.0-nightly (60dabef95 2025-05-19)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}

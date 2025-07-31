@@ -92,7 +92,7 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr nound
   %36 = add nuw nsw i32 %.09.i, 1
   %37 = lshr i32 %.0288.i, 1
   %38 = icmp ugt i32 %.0288.i, 3
-  br i1 %38, label %.lr.ph.i, label %.lr.ph15.i
+  br i1 %38, label %.lr.ph.i, label %.lr.ph15.i, !llvm.loop !4
 
 .lr.ph15.i:                                       ; preds = %.lr.ph.i, %.lr.ph15.i
   %.114.i = phi i32 [ %43, %.lr.ph15.i ], [ %36, %.lr.ph.i ]
@@ -106,7 +106,7 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr nound
   %42 = lshr i32 %.13013.i, 1
   %43 = add nsw i32 %.114.i, -1
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph15.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph15.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph15.i, %.preheader.._crit_edge_crit_edge.i
   %44 = phi ptr [ %.pre.i, %.preheader.._crit_edge_crit_edge.i ], [ %39, %.lr.ph15.i ]
@@ -217,7 +217,7 @@ heap_node_swap.exit.i:                            ; preds = %83, %82, %78
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %85 = load ptr, ptr %28, align 8
   %.not35.i = icmp eq ptr %85, null
-  br i1 %.not35.i, label %heap_insert.exit, label %.lr.ph20.i
+  br i1 %.not35.i, label %heap_insert.exit, label %.lr.ph20.i, !llvm.loop !7
 
 heap_insert.exit:                                 ; preds = %53, %timer_less_than.exit.i, %heap_node_swap.exit.i, %._crit_edge.i
   %86 = load i32, ptr %6, align 8
@@ -280,7 +280,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
   %17 = add nuw nsw i32 %.06522.i, 1
   %18 = lshr i32 %.023.i, 1
   %19 = icmp ugt i32 %.023.i, 3
-  br i1 %19, label %.lr.ph.i, label %.lr.ph29.i
+  br i1 %19, label %.lr.ph.i, label %.lr.ph29.i, !llvm.loop !8
 
 .lr.ph29.i:                                       ; preds = %.lr.ph.i, %.lr.ph29.i
   %.128.i = phi i32 [ %24, %.lr.ph29.i ], [ %17, %.lr.ph.i ]
@@ -294,7 +294,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
   %23 = lshr i32 %.16727.i, 1
   %24 = add nsw i32 %.128.i, -1
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph29.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph29.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph29.i, %7
   %.070.lcssa.i = phi ptr [ %10, %7 ], [ %.171.i, %.lr.ph29.i ]
@@ -514,7 +514,7 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
 
 heap_node_swap.exit.i:                            ; preds = %113, %112, %108
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %59
+  br label %59, !llvm.loop !10
 
 .lr.ph32.i:                                       ; preds = %.preheader.i, %heap_node_swap.exit101.i
   %115 = phi ptr [ %152, %heap_node_swap.exit101.i ], [ %85, %.preheader.i ]
@@ -613,7 +613,7 @@ heap_node_swap.exit101.i:                         ; preds = %150, %149, %145
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %152 = load ptr, ptr %39, align 8
   %.not88.i = icmp eq ptr %152, null
-  br i1 %.not88.i, label %heap_remove.exit, label %.lr.ph32.i
+  br i1 %.not88.i, label %heap_remove.exit, label %.lr.ph32.i, !llvm.loop !11
 
 heap_remove.exit:                                 ; preds = %120, %timer_less_than.exit95.i, %heap_node_swap.exit101.i, %7, %28, %31, %.preheader.i
   %153 = load i32, ptr %4, align 8
@@ -770,7 +770,7 @@ define hidden void @uv__run_timers(ptr noundef readonly captures(none) %0) local
   store ptr %.val15, ptr %3, align 8
   %.val = load ptr, ptr %4, align 8
   %17 = icmp eq ptr %.val, null
-  br i1 %17, label %._crit_edge, label %7
+  br i1 %17, label %._crit_edge, label %7, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %12, %7
   %.pre = load ptr, ptr %2, align 8
@@ -807,7 +807,7 @@ uv_timer_again.exit:                              ; preds = %.lr.ph19, %28
   call void %33(ptr noundef nonnull %24) #10
   %34 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %2, %34
-  br i1 %.not, label %._crit_edge20, label %.lr.ph19
+  br i1 %.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !13
 
 ._crit_edge20:                                    ; preds = %uv_timer_again.exit, %1, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
@@ -853,3 +853,13 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

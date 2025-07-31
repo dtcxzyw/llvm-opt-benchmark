@@ -554,7 +554,7 @@ _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit109: ; preds = %208, %213, %_Z
   tail call void @_ZN8facebook4yoga29roundLayoutResultsToPixelGridEPNS0_4NodeEdd(ptr noundef %237, double noundef %13, double noundef %14)
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0113, i64 8
   %239 = icmp eq ptr %238, %235
-  br i1 %239, label %._crit_edge, label %.lr.ph
+  br i1 %239, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 }
 
 declare noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
@@ -640,3 +640,5 @@ attributes #5 = { nounwind }
 !58 = !{!43, !43, i64 0}
 !59 = !{!54, !54, i64 0}
 !60 = !{!49, !49, i64 0}
+!61 = distinct !{!61, !62}
+!62 = !{!"llvm.loop.estimated_trip_count"}

@@ -98,7 +98,7 @@ Aig_ManObj.exit:                                  ; preds = %21, %26
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Cnf_CutSuperAreaFlow(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 4
-  %.val17 = load i32, ptr %3, align 4, !tbaa !36
+  %.val17 = load i32, ptr %3, align 4, !tbaa !37
   %4 = mul i32 %.val17, 100
   %5 = add i32 %4, 100
   %6 = icmp sgt i32 %.val17, 0
@@ -142,7 +142,7 @@ define i32 @Cnf_CutSuperAreaFlow(ptr noundef readonly captures(none) %0, ptr nou
   %.1 = phi i32 [ %26, %18 ], [ %.020, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !37
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !38
 
 .critedge:                                        ; preds = %27, %2
   %.0.lcssa = phi i32 [ %5, %2 ], [ %.1, %27 ]
@@ -155,14 +155,14 @@ define void @Cnf_DeriveMapping(ptr noundef readonly captures(none) %0) local_unn
   %3 = getelementptr i8, ptr %2, i64 32
   %.val52 = load ptr, ptr %3, align 8, !tbaa !19
   %4 = getelementptr i8, ptr %.val52, i64 4
-  %.val52.val = load i32, ptr %4, align 4, !tbaa !36
+  %.val52.val = load i32, ptr %4, align 4, !tbaa !37
   %5 = sext i32 %.val52.val to i64
   %6 = shl nsw i64 %5, 2
   %calloc = tail call ptr @calloc(i64 1, i64 %6)
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %8, align 4, !tbaa !36
-  store i32 100, ptr %7, align 8, !tbaa !38
+  store i32 0, ptr %8, align 4, !tbaa !37
+  store i32 100, ptr %7, align 8, !tbaa !39
   %9 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !30
@@ -335,7 +335,7 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   %109 = lshr i64 %108, 56
   %110 = trunc nuw nsw i64 %109 to i32
   %111 = icmp samesign ult i32 %106, %110
-  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %105
   %112 = load i32, ptr %.1, align 4, !tbaa !16
@@ -366,10 +366,10 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %127 = load ptr, ptr %126, align 8, !tbaa !19
   %128 = getelementptr i8, ptr %127, i64 4
-  %.val51 = load i32, ptr %128, align 4, !tbaa !36
+  %.val51 = load i32, ptr %128, align 4, !tbaa !37
   %129 = sext i32 %.val51 to i64
   %130 = icmp slt i64 %indvars.iv.next, %129
-  br i1 %130, label %13, label %.critedge.loopexit, !llvm.loop !40
+  br i1 %130, label %13, label %.critedge.loopexit, !llvm.loop !41
 
 .critedge.loopexit:                               ; preds = %124
   %.pre = load ptr, ptr %10, align 8, !tbaa !30
@@ -459,10 +459,11 @@ attributes #9 = { nounwind }
 !31 = !{!"Vec_Ptr_t_", !11, i64 0, !11, i64 4, !6, i64 8}
 !32 = !{!6, !6, i64 0}
 !33 = !{!23, !11, i64 36}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!31, !11, i64 4}
-!37 = distinct !{!37, !35}
-!38 = !{!31, !11, i64 0}
-!39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!31, !11, i64 4}
+!38 = distinct !{!38, !35, !36}
+!39 = !{!31, !11, i64 0}
+!40 = distinct !{!40, !35, !36}
+!41 = distinct !{!41, !35, !36}

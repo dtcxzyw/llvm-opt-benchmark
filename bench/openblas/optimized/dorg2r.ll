@@ -129,7 +129,7 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .loopexit:                                        ; preds = %.lr.ph110.preheader, %92
   %indvar.next126 = add nuw nsw i64 %indvar125, 1
   %exitcond135.not = icmp eq i64 %indvar.next126, %wide.trip.count
-  br i1 %exitcond135.not, label %.loopexit99, label %58, !llvm.loop !11
+  br i1 %exitcond135.not, label %.loopexit99, label %58, !llvm.loop !12
 
 58:                                               ; preds = %.lr.ph112, %.loopexit
   %indvars.iv130 = phi i64 [ %48, %.lr.ph112 ], [ %indvars.iv.next131, %.loopexit ]
@@ -250,6 +250,7 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}

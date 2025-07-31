@@ -1575,7 +1575,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %30, %31, %37
   %208 = call fastcc i32 @dissect_sflow_5_flow_record(ptr noundef %0, ptr noundef %1, ptr noundef %88, i32 noundef %.07071.i.i.us)
   %209 = add nuw nsw i32 %.072.i.i.us, 1
   %exitcond.not.i83.i.us = icmp eq i32 %209, %206
-  br i1 %exitcond.not.i83.i.us, label %dissect_sflow_5_expanded_flow_sample.exit.i.us, label %.lr.ph.i82.i.us, !llvm.loop !8
+  br i1 %exitcond.not.i83.i.us, label %dissect_sflow_5_expanded_flow_sample.exit.i.us, label %.lr.ph.i82.i.us, !llvm.loop !9
 
 dissect_sflow_5_expanded_flow_sample.exit.i.us:   ; preds = %.lr.ph.i82.i.us, %201
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
@@ -1611,7 +1611,7 @@ dissect_sflow_5_expanded_flow_sample.exit.i.us:   ; preds = %.lr.ph.i82.i.us, %2
   %226 = call fastcc i32 @dissect_sflow_5_counters_record(ptr noundef %0, ptr noundef %88, i32 noundef %.02627.i.i.us)
   %227 = add nuw nsw i32 %.028.i.i.us, 1
   %exitcond.not.i79.i.us = icmp eq i32 %227, %224
-  br i1 %exitcond.not.i79.i.us, label %dissect_sflow_5_counters_sample.exit.i.us, label %.lr.ph.i78.i.us, !llvm.loop !9
+  br i1 %exitcond.not.i79.i.us, label %dissect_sflow_5_counters_sample.exit.i.us, label %.lr.ph.i78.i.us, !llvm.loop !10
 
 228:                                              ; preds = %85
   %229 = load ptr, ptr %8, align 8
@@ -1692,7 +1692,7 @@ dissect_sflow_5_expanded_flow_sample.exit.i.us:   ; preds = %.lr.ph.i82.i.us, %2
   %279 = call fastcc i32 @dissect_sflow_5_flow_record(ptr noundef %0, ptr noundef %1, ptr noundef %88, i32 noundef %.068.i.i.us)
   %280 = add nuw nsw i32 %.06667.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i32 %280, %277
-  br i1 %exitcond.not.i.i.us, label %dissect_sflow_5_flow_sample.exit.i.us, label %.lr.ph.i.i.us, !llvm.loop !10
+  br i1 %exitcond.not.i.i.us, label %dissect_sflow_5_flow_sample.exit.i.us, label %.lr.ph.i.i.us, !llvm.loop !11
 
 dissect_sflow_5_flow_sample.exit.i.us:            ; preds = %.lr.ph.i.i.us, %272
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
@@ -1710,7 +1710,7 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
   %283 = add nuw nsw i32 %.090.us, 1
   %exitcond93.not = icmp eq i32 %283, %74
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_sflow_245_samples.exit
   %.090 = phi i32 [ %451, %dissect_sflow_245_samples.exit ], [ 0, %.lr.ph ]
@@ -1839,7 +1839,7 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   call void @proto_item_set_end(ptr noundef %339, ptr noundef %0, i32 noundef %.2.i.i)
   %361 = add nuw i32 %.089.i.i, 1
   %exitcond.not.i90.i = icmp eq i32 %361, %335
-  br i1 %exitcond.not.i90.i, label %dissect_sflow_245_samples.exit, label %.lr.ph.i89.i, !llvm.loop !13
+  br i1 %exitcond.not.i90.i, label %dissect_sflow_245_samples.exit, label %.lr.ph.i89.i, !llvm.loop !14
 
 362:                                              ; preds = %.lr.ph.split
   %363 = load ptr, ptr %8, align 8
@@ -1960,7 +1960,7 @@ dissect_sflow_245_samples.exit:                   ; preds = %360, %.lr.ph.split,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
   %451 = add nuw nsw i32 %.090, 1
   %exitcond.not = icmp eq i32 %451, %74
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %dissect_sflow_245_samples.exit, %dissect_sflow_245_samples.exit.us, %56
   %452 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -2353,7 +2353,7 @@ dissect_sflow_245_address_type.exit.i:            ; preds = %201, %199, %197, %1
   %215 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %209, i32 noundef %213, ptr noundef %0, i32 noundef %207, i32 noundef 4, i32 noundef %212, ptr noundef nonnull @.str.867, i32 noundef %214, i32 noundef %212)
   %216 = add nuw nsw i32 %.055.i, 4
   %exitcond.not.i = icmp eq i32 %214, %210
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %dissect_sflow_245_address_type.exit.i
   %217 = shl i32 %204, 2
@@ -2378,7 +2378,7 @@ dissect_sflow_245_address_type.exit.i:            ; preds = %201, %199, %197, %1
   %230 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %224, i32 noundef %228, ptr noundef %0, i32 noundef %222, i32 noundef 4, i32 noundef %227, ptr noundef nonnull @.str.867, i32 noundef %229, i32 noundef %227)
   %231 = add nuw nsw i32 %.157.i, 4
   %exitcond62.not.i = icmp eq i32 %229, %225
-  br i1 %exitcond62.not.i, label %dissect_sflow_5_extended_mpls_data.exit, label %.lr.ph59.i, !llvm.loop !16
+  br i1 %exitcond62.not.i, label %dissect_sflow_5_extended_mpls_data.exit, label %.lr.ph59.i, !llvm.loop !17
 
 dissect_sflow_5_extended_mpls_data.exit:          ; preds = %.lr.ph59.i, %._crit_edge.i
   %232 = shl i32 %219, 2
@@ -2520,7 +2520,7 @@ dissect_sflow_5_extended_nat.exit:                ; preds = %dissect_sflow_245_a
   %312 = add nuw i32 %.015.i, 1
   %.013.i = add i32 %.01316.i, 4
   %exitcond.not.i127 = icmp eq i32 %312, %307
-  br i1 %exitcond.not.i127, label %dissect_sflow_5_extended_vlan_tunnel.exit, label %.lr.ph.i126, !llvm.loop !17
+  br i1 %exitcond.not.i127, label %dissect_sflow_5_extended_vlan_tunnel.exit, label %.lr.ph.i126, !llvm.loop !18
 
 313:                                              ; preds = %9
   %314 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %20)
@@ -2784,7 +2784,7 @@ define internal fastcc i32 @dissect_sflow_245_sampled_header(ptr noundef %0, ptr
   %38 = call zeroext i1 @col_get_writable(ptr noundef %37, i32 noundef -1)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %40 = load i8, ptr %39, align 4
-  %41 = load i8, ptr @global_analyze_samp_ip_headers, align 1, !range !18, !noundef !19
+  %41 = load i8, ptr @global_analyze_samp_ip_headers, align 1, !range !19, !noundef !20
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %45, label %43
 
@@ -2869,7 +2869,7 @@ define internal fastcc i32 @dissect_sflow_245_sampled_header(ptr noundef %0, ptr
   br i1 %93, label %94, label %102
 
 94:                                               ; preds = %92
-  %95 = load i8, ptr @global_dissect_samp_headers, align 1, !range !18, !noundef !19
+  %95 = load i8, ptr @global_dissect_samp_headers, align 1, !range !19, !noundef !20
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %100, label %97
 
@@ -3109,7 +3109,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %39 = add i32 %.08896.us, 4
   %40 = add nuw nsw i32 %.08995.us, 1
   %exitcond113.not = icmp eq i32 %40, %29
-  br i1 %exitcond113.not, label %._crit_edge99.thread, label %.lr.ph.us, !llvm.loop !20
+  br i1 %exitcond113.not, label %._crit_edge99.thread, label %.lr.ph.us, !llvm.loop !21
 
 .lr.ph98.split:                                   ; preds = %.lr.ph98, %._crit_edge
   %.08896 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 16, %.lr.ph98 ]
@@ -3136,13 +3136,13 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %55 = add i32 %.294, 4
   %56 = add nuw nsw i32 %.09193, 1
   %exitcond.not = icmp eq i32 %56, %44
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph98.split
   %.2.lcssa = phi i32 [ %45, %.lr.ph98.split ], [ %55, %.lr.ph ]
   %57 = add nuw nsw i32 %.08995, 1
   %exitcond112.not = icmp eq i32 %57, %29
-  br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !22
+  br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !23
 
 ._crit_edge99:                                    ; preds = %._crit_edge, %19
   %.088.lcssa = phi i32 [ 16, %19 ], [ %.2.lcssa, %._crit_edge ]
@@ -3169,7 +3169,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %70 = add nuw nsw i32 %.190102, 1
   %.4 = add i32 %.4103, 4
   %exitcond114.not = icmp eq i32 %70, %61
-  br i1 %exitcond114.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !23
+  br i1 %exitcond114.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !24
 
 ._crit_edge106:                                   ; preds = %.lr.ph105, %59
   %.4.in.lcssa = phi i32 [ %.088.lcssa, %59 ], [ %.4103, %.lr.ph105 ]
@@ -3696,21 +3696,22 @@ attributes #9 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !7, !12}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !7, !8, !13}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}

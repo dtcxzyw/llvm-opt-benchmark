@@ -81,7 +81,7 @@ define range(i32 0, 2) i32 @ossl_quic_obj_init(ptr noundef %0, ptr noundef %1, i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.032.i, ptr %45, align 8, !tbaa !59
+  store ptr %.032.i, ptr %45, align 8, !tbaa !60
   %46 = getelementptr inbounds nuw i8, ptr %.032.i, i64 88
   %47 = load ptr, ptr %46, align 8, !tbaa !54
   store ptr %47, ptr %32, align 8, !tbaa !54
@@ -99,18 +99,18 @@ define range(i32 0, 2) i32 @ossl_quic_obj_init(ptr noundef %0, ptr noundef %1, i
   %53 = getelementptr inbounds nuw i8, ptr %.134.i, i64 64
   %54 = load ptr, ptr %53, align 8, !tbaa !53
   %.not25.i = icmp eq ptr %54, null
-  br i1 %.not25.i, label %.critedge28.i, label %48, !llvm.loop !60
+  br i1 %.not25.i, label %.critedge28.i, label %48, !llvm.loop !61
 
 55:                                               ; preds = %48
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %.134.i, ptr %56, align 8, !tbaa !61
+  store ptr %.134.i, ptr %56, align 8, !tbaa !62
   %57 = getelementptr inbounds nuw i8, ptr %.134.i, i64 96
   %58 = load ptr, ptr %57, align 8, !tbaa !55
   br label %60
 
 .critedge28.i:                                    ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr null, ptr %59, align 8, !tbaa !61
+  store ptr null, ptr %59, align 8, !tbaa !62
   br label %60
 
 60:                                               ; preds = %.critedge28.i, %55
@@ -139,13 +139,13 @@ declare i32 @ossl_ssl_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !62
+  %2 = load i32, ptr %0, align 8, !tbaa !63
   %.not = icmp eq i32 %2, 128
   br i1 %.not, label %3, label %10
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !64
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
@@ -208,7 +208,7 @@ define range(i32 0, 2) i32 @ossl_quic_obj_desires_blocking(ptr noundef readonly 
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !53
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.critedge, label %2, !llvm.loop !74
+  br i1 %.not, label %.critedge, label %2, !llvm.loop !75
 
 .critedge:                                        ; preds = %2, %8
   %11 = icmp ne i8 %6, 1
@@ -235,7 +235,7 @@ define range(i32 0, 2) i32 @ossl_quic_obj_blocking(ptr noundef readonly captures
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !53
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %ossl_quic_obj_desires_blocking.exit.thread, label %2, !llvm.loop !74
+  br i1 %.not.i, label %ossl_quic_obj_desires_blocking.exit.thread, label %2, !llvm.loop !75
 
 ossl_quic_obj_desires_blocking.exit.thread:       ; preds = %2, %7
   %10 = getelementptr i8, ptr %0, i64 88
@@ -348,21 +348,22 @@ attributes #5 = { nounwind }
 !54 = !{!49, !51, i64 88}
 !55 = !{!49, !52, i64 96}
 !56 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!49, !50, i64 72}
-!60 = distinct !{!60, !58}
-!61 = !{!49, !50, i64 80}
-!62 = !{!49, !5, i64 0}
-!63 = !{!64, !65, i64 120}
-!64 = !{!"quic_conn_st", !49, i64 0, !65, i64 120, !66, i64 128, !67, i64 136, !51, i64 144, !52, i64 152, !68, i64 160, !69, i64 168, !70, i64 176, !6, i64 184, !71, i64 296, !21, i64 328, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 337, !5, i64 337, !5, i64 340, !5, i64 344, !21, i64 352, !5, i64 360, !21, i64 368, !5, i64 376}
-!65 = !{!"p1 _ZTS6ssl_st", !9, i64 0}
-!66 = !{!"p1 _ZTS16quic_listener_st", !9, i64 0}
-!67 = !{!"p1 _ZTS14quic_domain_st", !9, i64 0}
-!68 = !{!"p1 _ZTS15quic_channel_st", !9, i64 0}
-!69 = !{!"p1 _ZTS15crypto_mutex_st", !9, i64 0}
-!70 = !{!"p1 _ZTS11quic_xso_st", !9, i64 0}
-!71 = !{!"quic_thread_assist_st", !68, i64 0, !72, i64 8, !73, i64 16, !5, i64 24, !5, i64 28}
-!72 = !{!"p1 _ZTS17crypto_condvar_st", !9, i64 0}
-!73 = !{!"p1 _ZTS16crypto_thread_st", !9, i64 0}
-!74 = distinct !{!74, !58}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = !{!49, !50, i64 72}
+!61 = distinct !{!61, !58, !59}
+!62 = !{!49, !50, i64 80}
+!63 = !{!49, !5, i64 0}
+!64 = !{!65, !66, i64 120}
+!65 = !{!"quic_conn_st", !49, i64 0, !66, i64 120, !67, i64 128, !68, i64 136, !51, i64 144, !52, i64 152, !69, i64 160, !70, i64 168, !71, i64 176, !6, i64 184, !72, i64 296, !21, i64 328, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 336, !5, i64 337, !5, i64 337, !5, i64 340, !5, i64 344, !21, i64 352, !5, i64 360, !21, i64 368, !5, i64 376}
+!66 = !{!"p1 _ZTS6ssl_st", !9, i64 0}
+!67 = !{!"p1 _ZTS16quic_listener_st", !9, i64 0}
+!68 = !{!"p1 _ZTS14quic_domain_st", !9, i64 0}
+!69 = !{!"p1 _ZTS15quic_channel_st", !9, i64 0}
+!70 = !{!"p1 _ZTS15crypto_mutex_st", !9, i64 0}
+!71 = !{!"p1 _ZTS11quic_xso_st", !9, i64 0}
+!72 = !{!"quic_thread_assist_st", !69, i64 0, !73, i64 8, !74, i64 16, !5, i64 24, !5, i64 28}
+!73 = !{!"p1 _ZTS17crypto_condvar_st", !9, i64 0}
+!74 = !{!"p1 _ZTS16crypto_thread_st", !9, i64 0}
+!75 = distinct !{!75, !58, !59}

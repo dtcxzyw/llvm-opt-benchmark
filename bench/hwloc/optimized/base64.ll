@@ -87,7 +87,7 @@ define hidden i32 @hwloc_encode_to_base64(ptr noundef readonly captures(none) %0
   %52 = add i32 %.064, 1
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ugt i64 %.046.lcssa, %53
-  br i1 %54, label %47, label %55, !llvm.loop !8
+  br i1 %54, label %47, label %55, !llvm.loop !9
 
 55:                                               ; preds = %47
   %56 = load i8, ptr %46, align 1, !tbaa !3
@@ -181,13 +181,13 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %.060, i64 1
   %8 = tail call ptr @__ctype_b_loc() #6
-  %9 = load ptr, ptr %8, align 8, !tbaa !9
+  %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = sext i8 %5 to i64
   %11 = getelementptr inbounds i16, ptr %9, i64 %10
-  %12 = load i16, ptr %11, align 2, !tbaa !12
+  %12 = load i16, ptr %11, align 2, !tbaa !13
   %13 = and i16 %12, 8192
   %.not73 = icmp eq i16 %13, 0
-  br i1 %.not73, label %14, label %4, !llvm.loop !14
+  br i1 %.not73, label %14, label %4, !llvm.loop !15
 
 14:                                               ; preds = %6
   %cond91 = icmp eq i8 %5, 61
@@ -205,13 +205,13 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
     i32 1, label %26
     i32 2, label %40
     i32 3, label %56
-  ], !llvm.loop !14
+  ], !llvm.loop !15
 
 19:                                               ; preds = %18
   br i1 %.not74, label %.outer.backedge, label %20
 
 .outer.backedge:                                  ; preds = %19, %21
-  br label %.outer, !llvm.loop !14
+  br label %.outer, !llvm.loop !15
 
 20:                                               ; preds = %19
   br i1 %.not82, label %21, label %.loopexit
@@ -257,7 +257,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   %.058.ph.ph.be = phi i32 [ %67, %66 ], [ %.pre, %29 ], [ %.pre137, %45 ], [ %.pre, %26 ], [ %.pre137, %40 ]
   %.not83.ph.be = phi i1 [ true, %66 ], [ false, %29 ], [ false, %45 ], [ false, %26 ], [ false, %40 ]
   %.056.ph.ph.be = phi i32 [ 0, %66 ], [ 2, %29 ], [ 3, %45 ], [ 2, %26 ], [ 3, %40 ]
-  br label %.outer.outer, !llvm.loop !14
+  br label %.outer.outer, !llvm.loop !15
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %3
   %.060.ph.ph = phi ptr [ %0, %3 ], [ %7, %.outer.outer.backedge ]
@@ -332,7 +332,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   %.262113 = phi ptr [ %77, %76 ], [ %69, %.preheader ]
   %72 = sext i32 %.1114 to i64
   %73 = getelementptr inbounds i16, ptr %9, i64 %72
-  %74 = load i16, ptr %73, align 2, !tbaa !12
+  %74 = load i16, ptr %73, align 2, !tbaa !13
   %75 = and i16 %74, 8192
   %.not85 = icmp eq i16 %75, 0
   br i1 %.not85, label %80, label %76
@@ -342,7 +342,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   %78 = load i8, ptr %.262113, align 1, !tbaa !3
   %79 = sext i8 %78 to i32
   %cond92 = icmp eq i8 %78, 0
-  br i1 %cond92, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %cond92, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 80:                                               ; preds = %.lr.ph
   %.not86 = icmp eq i32 %.1114, 61
@@ -365,7 +365,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   %.3116 = phi ptr [ %91, %90 ], [ %.161, %85 ]
   %86 = sext i32 %.2117 to i64
   %87 = getelementptr inbounds i16, ptr %9, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !12
+  %88 = load i16, ptr %87, align 2, !tbaa !13
   %89 = and i16 %88, 8192
   %.not90 = icmp eq i16 %89, 0
   br i1 %.not90, label %.loopexit, label %90
@@ -375,7 +375,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   %92 = load i8, ptr %.3116, align 1, !tbaa !3
   %93 = sext i8 %92 to i32
   %.not87 = icmp eq i8 %92, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph118, !llvm.loop !16
+  br i1 %.not87, label %._crit_edge, label %.lr.ph118, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %90, %85
   br i1 %.not74, label %99, label %94
@@ -423,14 +423,15 @@ attributes #6 = { nounwind willreturn memory(none) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 short", !11, i64 0}
-!11 = !{!"any pointer", !4, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"short", !4, i64 0}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 short", !12, i64 0}
+!12 = !{!"any pointer", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"short", !4, i64 0}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

@@ -78,7 +78,7 @@ define range(i32 -22, 1) i32 @av_cast5_init(ptr noundef captures(none) %0, ptr n
   %30 = load i32, ptr %16, align 4, !tbaa !4
   %31 = sext i32 %30 to i64
   %.not.not = icmp slt i64 %indvars.iv31, %31
-  br i1 %.not.not, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %.not.not, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %3
   %.025 = phi i32 [ -22, %3 ], [ 0, %23 ], [ 0, %.lr.ph ]
@@ -1079,7 +1079,7 @@ define void @av_cast5_crypt2(ptr noundef readonly captures(none) %0, ptr noundef
   store i8 %16, ptr %17, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %9, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond.not, label %9, label %.preheader.us, !llvm.loop !15
 
 18:                                               ; preds = %.lr.ph.split.us
   %.025.val.us = load i32, ptr %.02534.us, align 1, !tbaa !9
@@ -1093,7 +1093,7 @@ define void @av_cast5_crypt2(ptr noundef readonly captures(none) %0, ptr noundef
   %22 = getelementptr inbounds nuw i8, ptr %.02435.us, i64 8
   %23 = add nsw i32 %8, -1
   %.not.us = icmp eq i32 %8, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %24 = phi i32 [ %27, %.lr.ph.split ], [ %7, %.lr.ph ]
@@ -1104,7 +1104,7 @@ define void @av_cast5_crypt2(ptr noundef readonly captures(none) %0, ptr noundef
   %26 = getelementptr inbounds nuw i8, ptr %.02435, i64 8
   %27 = add nsw i32 %24, -1
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %20, %6
   ret void
@@ -2095,7 +2095,7 @@ define void @av_cast5_crypt(ptr noundef readonly captures(none) %0, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %.015.us, i64 8
   %11 = add nsw i32 %7, -1
   %.not.us = icmp eq i32 %7, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %12 = phi i32 [ %15, %.lr.ph.split ], [ %6, %.lr.ph ]
@@ -2106,7 +2106,7 @@ define void @av_cast5_crypt(ptr noundef readonly captures(none) %0, ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %15 = add nsw i32 %12, -1
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
   ret void
@@ -2143,12 +2143,13 @@ attributes #10 = { nounwind }
 !8 = !{!"int", !6, i64 0}
 !9 = !{!6, !6, i64 0}
 !10 = !{!8, !8, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12, !16}
-!19 = distinct !{!19, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13, !17}
+!20 = distinct !{!20, !12, !13}

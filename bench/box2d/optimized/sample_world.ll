@@ -232,7 +232,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
           to label %69 unwind label %75
 
 69:                                               ; preds = %66
-  store float 0x3FB99999A0000000, ptr %35, align 4, !tbaa !49
+  store float 0x3FB99999A0000000, ptr %35, align 4, !tbaa !50
   %70 = invoke i64 @b2CreatePolygonShape(i64 %.sroa.056.1, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %71 unwind label %75
 
@@ -242,7 +242,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #16
   %74 = add nuw i32 %.096117, 1
   %exitcond.not = icmp eq i32 %.096117, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !52
 
 75:                                               ; preds = %69, %66
   %76 = landingpad { ptr, i32 }
@@ -286,7 +286,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
           to label %88 unwind label %92
 
 88:                                               ; preds = %87
-  store i32 2, ptr %6, align 8, !tbaa !52
+  store i32 2, ptr %6, align 8, !tbaa !53
   %89 = fadd float %85, -3.000000e+00
   store float %89, ptr %39, align 4, !tbaa !28
   store float 1.000000e+01, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !28
@@ -322,7 +322,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
 
 .preheader:                                       ; preds = %90, %98
   %.0101130 = phi i32 [ %101, %98 ], [ 0, %90 ]
-  store float 1.000000e+01, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !53
+  store float 1.000000e+01, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !54
   br label %102
 
 98:                                               ; preds = %106
@@ -331,7 +331,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
   store float %100, ptr %39, align 4, !tbaa !41
   %101 = add nuw nsw i32 %.0101130, 1
   %exitcond142.not = icmp eq i32 %101, 10
-  br i1 %exitcond142.not, label %91, label %.preheader, !llvm.loop !54
+  br i1 %exitcond142.not, label %91, label %.preheader, !llvm.loop !55
 
 102:                                              ; preds = %.preheader, %106
   %.0100129 = phi i32 [ 0, %.preheader ], [ %109, %106 ]
@@ -344,12 +344,12 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
           to label %106 unwind label %110
 
 106:                                              ; preds = %104
-  %107 = load float, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !53
+  %107 = load float, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !54
   %108 = fadd float %107, 5.000000e-01
-  store float %108, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !53
+  store float %108, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !54
   %109 = add nuw nsw i32 %.0100129, 1
   %exitcond141.not = icmp eq i32 %109, 5
-  br i1 %exitcond141.not, label %98, label %102, !llvm.loop !55
+  br i1 %exitcond141.not, label %98, label %102, !llvm.loop !56
 
 110:                                              ; preds = %104, %102
   %111 = landingpad { ptr, i32 }
@@ -393,7 +393,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
   %.sroa.016.0.vec.insert20 = insertelement <2 x float> %.sroa.016.2127, float %121, i64 0
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %9) #16
   %exitcond140.not = icmp eq i32 %119, %117
-  br i1 %exitcond140.not, label %.loopexit, label %118, !llvm.loop !56
+  br i1 %exitcond140.not, label %.loopexit, label %118, !llvm.loop !57
 
 122:                                              ; preds = %118
   %123 = landingpad { ptr, i32 }
@@ -425,7 +425,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %10) #16
   %130 = add nuw nsw i32 %.092132, 1
   %exitcond143.not = icmp eq i32 %130, 5
-  br i1 %exitcond143.not, label %.loopexit, label %126, !llvm.loop !57
+  br i1 %exitcond143.not, label %.loopexit, label %126, !llvm.loop !58
 
 131:                                              ; preds = %127, %126
   %132 = landingpad { ptr, i32 }
@@ -438,13 +438,13 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
   %133 = add nuw nsw i32 %.0102133, 1
   %134 = load i32, ptr %14, align 8, !tbaa !25
   %135 = icmp slt i32 %133, %134
-  br i1 %135, label %80, label %._crit_edge137, !llvm.loop !58
+  br i1 %135, label %80, label %._crit_edge137, !llvm.loop !59
 
 136:                                              ; preds = %._crit_edge137
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  store i32 0, ptr %137, align 4, !tbaa !59
+  store i32 0, ptr %137, align 4, !tbaa !60
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store float 0.000000e+00, ptr %138, align 8, !tbaa !60
+  store float 0.000000e+00, ptr %138, align 8, !tbaa !61
   %139 = load float, ptr %13, align 4, !tbaa !7
   %140 = fmul float %139, 5.000000e-01
   %141 = fadd float %140, -1.200000e+04
@@ -453,9 +453,9 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 328
   store float 7.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !28
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  store i8 1, ptr %143, align 4, !tbaa !61
+  store i8 1, ptr %143, align 4, !tbaa !62
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 333
-  store i8 0, ptr %144, align 1, !tbaa !62
+  store i8 0, ptr %144, align 1, !tbaa !63
   ret void
 
 145:                                              ; preds = %._crit_edge137
@@ -534,26 +534,26 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
   %9 = fmul float %5, %8
   %10 = fmul float %9, 5.000000e-01
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %12 = load float, ptr %11, align 4, !tbaa !63
+  %12 = load float, ptr %11, align 4, !tbaa !64
   %13 = fcmp ogt float %12, 0.000000e+00
   %14 = fdiv float 1.000000e+00, %12
   %15 = select i1 %13, float %14, float 0.000000e+00
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %17 = load i8, ptr %16, align 1, !tbaa !64, !range !31, !noundef !32
+  %17 = load i8, ptr %16, align 1, !tbaa !65, !range !31, !noundef !32
   %18 = trunc nuw i8 %17 to i1
   %spec.store.select = select i1 %18, float 0.000000e+00, float %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %20 = load float, ptr %19, align 8, !tbaa !60
+  %20 = load float, ptr %19, align 8, !tbaa !61
   %21 = fmul float %20, %spec.store.select
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %23 = load float, ptr %22, align 4, !tbaa !65
+  %23 = load float, ptr %22, align 4, !tbaa !66
   %24 = fadd float %23, %21
   %25 = fneg float %10
   %26 = fcmp olt float %24, %25
   %27 = fcmp ogt float %24, %10
   %28 = select i1 %27, float %10, float %24
   %29 = select i1 %26, float %25, float %28
-  store float %29, ptr %22, align 4, !tbaa !65
+  store float %29, ptr %22, align 4, !tbaa !66
   %30 = fcmp une float %20, 0.000000e+00
   br i1 %30, label %31, label %33
 
@@ -564,7 +564,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
 
 33:                                               ; preds = %31, %2
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 333
-  %35 = load i8, ptr %34, align 1, !tbaa !62, !range !31, !noundef !32
+  %35 = load i8, ptr %34, align 1, !tbaa !63, !range !31, !noundef !32
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %40
 
@@ -573,12 +573,12 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
   %.sroa.03.0.copyload = load i64, ptr %38, align 8
   %39 = tail call <2 x float> @b2Body_GetPosition(i64 %.sroa.03.0.copyload)
   %.sroa.04.0.vec.extract = extractelement <2 x float> %39, i64 0
-  store float %.sroa.04.0.vec.extract, ptr @g_camera, align 4, !tbaa !66
+  store float %.sroa.04.0.vec.extract, ptr @g_camera, align 4, !tbaa !67
   br label %40
 
 40:                                               ; preds = %37, %33
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %42 = load i32, ptr %41, align 8, !tbaa !67
+  %42 = load i32, ptr %41, align 8, !tbaa !68
   %43 = and i32 %42, 1
   %.not = icmp ne i32 %43, 0
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 332
@@ -589,35 +589,35 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %49 = load i32, ptr %48, align 4, !tbaa !59
+  %49 = load i32, ptr %48, align 4, !tbaa !60
   %50 = sitofp i32 %49 to float
   %51 = fadd float %50, 5.000000e-01
   %52 = load float, ptr %4, align 4, !tbaa !7
   %53 = fmul float %52, %51
   %54 = fsub float %53, %10
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  store float %54, ptr %55, align 4, !tbaa !68
+  store float %54, ptr %55, align 4, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
   call void @b2DefaultExplosionDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ExplosionDef) align 8 %3)
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load i64, ptr %55, align 4
   store i64 %57, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float 2.000000e+00, ptr %58, align 8, !tbaa !69
+  store float 2.000000e+00, ptr %58, align 8, !tbaa !70
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store float 0x3FB99999A0000000, ptr %59, align 4, !tbaa !71
+  store float 0x3FB99999A0000000, ptr %59, align 4, !tbaa !72
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store float 1.000000e+00, ptr %60, align 8, !tbaa !72
+  store float 1.000000e+00, ptr %60, align 8, !tbaa !73
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.01.0.copyload = load i32, ptr %61, align 4
   call void @b2World_Explode(i32 %.sroa.01.0.copyload, ptr noundef nonnull %3)
-  %62 = load i32, ptr %48, align 4, !tbaa !59
+  %62 = load i32, ptr %48, align 4, !tbaa !60
   %63 = add nsw i32 %62, 1
   %64 = load i32, ptr %6, align 8, !tbaa !25
   %65 = srem i32 %63, %64
-  store i32 %65, ptr %48, align 4, !tbaa !59
+  store i32 %65, ptr %48, align 4, !tbaa !60
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
-  %.pre = load i8, ptr %44, align 4, !tbaa !61, !range !31
+  %.pre = load i8, ptr %44, align 4, !tbaa !62, !range !31
   br label %66
 
 66:                                               ; preds = %47, %40
@@ -632,7 +632,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
   br label %71
 
 71:                                               ; preds = %69, %66
-  %72 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
+  %72 = load ptr, ptr @g_mainWindow, align 8, !tbaa !74
   %73 = call i32 @glfwGetKey(ptr noundef %72, i32 noundef 65)
   %74 = icmp eq i32 %73, 1
   br i1 %74, label %75, label %77
@@ -643,7 +643,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
   br label %77
 
 77:                                               ; preds = %75, %71
-  %78 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
+  %78 = load ptr, ptr @g_mainWindow, align 8, !tbaa !74
   %79 = call i32 @glfwGetKey(ptr noundef %78, i32 noundef 83)
   %80 = icmp eq i32 %79, 1
   br i1 %80, label %81, label %83
@@ -654,7 +654,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
   br label %83
 
 83:                                               ; preds = %81, %77
-  %84 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
+  %84 = load ptr, ptr @g_mainWindow, align 8, !tbaa !74
   %85 = call i32 @glfwGetKey(ptr noundef %84, i32 noundef 68)
   %86 = icmp eq i32 %85, 1
   br i1 %86, label %87, label %89
@@ -676,39 +676,39 @@ define linkonce_odr dso_local void @_ZN10LargeWorld8UpdateUIEv(ptr noundef nonnu
   %4 = alloca %struct.ImVec2, align 4
   %5 = alloca %struct.ImVec2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !75
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !76
   %7 = sitofp i32 %6 to float
   %8 = fadd float %7, -1.600000e+02
   %9 = fadd float %8, -5.000000e+01
-  store float 1.000000e+01, ptr %2, align 4, !tbaa !76
+  store float 1.000000e+01, ptr %2, align 4, !tbaa !77
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %9, ptr %10, align 4, !tbaa !78
+  store float %9, ptr %10, align 4, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !76
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !77
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float 0.000000e+00, ptr %11, align 4, !tbaa !78
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !79
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store float 2.400000e+02, ptr %4, align 4, !tbaa !76
+  store float 2.400000e+02, ptr %4, align 4, !tbaa !77
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 1.600000e+02, ptr %12, align 4, !tbaa !78
+  store float 1.600000e+02, ptr %12, align 4, !tbaa !79
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   %13 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1, ptr noundef null, i32 noundef 2)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %15 = call noundef zeroext i1 @_ZN5ImGui11SliderFloatEPKcPfffS1_i(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, float noundef -4.000000e+02, float noundef 4.000000e+02, ptr noundef nonnull @.str.3, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  store float 0.000000e+00, ptr %5, align 4, !tbaa !76
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !77
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %16, align 4, !tbaa !78
+  store float 0.000000e+00, ptr %16, align 4, !tbaa !79
   %17 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %1
-  store float 0.000000e+00, ptr %14, align 8, !tbaa !60
+  store float 0.000000e+00, ptr %14, align 8, !tbaa !61
   br label %19
 
 19:                                               ; preds = %18, %1
@@ -845,35 +845,36 @@ attributes #16 = { nounwind }
 !44 = !{!"_ZTS5b2Rot", !21, i64 0, !21, i64 4}
 !45 = !{!"p1 omnipotent char", !11, i64 0}
 !46 = !{!15, !15, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!50, !21, i64 136}
-!50 = !{!"_ZTS9b2Polygon", !12, i64 0, !12, i64 64, !24, i64 128, !21, i64 136, !15, i64 140}
-!51 = distinct !{!51, !48}
-!52 = !{!42, !43, i64 0}
-!53 = !{!42, !21, i64 8}
-!54 = distinct !{!54, !48}
-!55 = distinct !{!55, !48}
-!56 = distinct !{!56, !48}
-!57 = distinct !{!57, !48}
-!58 = distinct !{!58, !48}
-!59 = !{!8, !15, i64 308}
-!60 = !{!8, !21, i64 320}
-!61 = !{!8, !23, i64 332}
-!62 = !{!8, !23, i64 333}
-!63 = !{!30, !21, i64 12}
-!64 = !{!30, !23, i64 41}
-!65 = !{!8, !21, i64 292}
-!66 = !{!34, !21, i64 0}
-!67 = !{!9, !15, i64 64}
-!68 = !{!8, !21, i64 324}
-!69 = !{!70, !21, i64 16}
-!70 = !{!"_ZTS14b2ExplosionDef", !40, i64 0, !24, i64 8, !21, i64 16, !21, i64 20, !21, i64 24}
-!71 = !{!70, !21, i64 20}
-!72 = !{!70, !21, i64 24}
-!73 = !{!74, !74, i64 0}
-!74 = !{!"p1 _ZTS10GLFWwindow", !11, i64 0}
-!75 = !{!34, !15, i64 16}
-!76 = !{!77, !21, i64 0}
-!77 = !{!"_ZTS6ImVec2", !21, i64 0, !21, i64 4}
-!78 = !{!77, !21, i64 4}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!51, !21, i64 136}
+!51 = !{!"_ZTS9b2Polygon", !12, i64 0, !12, i64 64, !24, i64 128, !21, i64 136, !15, i64 140}
+!52 = distinct !{!52, !48, !49}
+!53 = !{!42, !43, i64 0}
+!54 = !{!42, !21, i64 8}
+!55 = distinct !{!55, !48, !49}
+!56 = distinct !{!56, !48, !49}
+!57 = distinct !{!57, !48, !49}
+!58 = distinct !{!58, !48, !49}
+!59 = distinct !{!59, !48, !49}
+!60 = !{!8, !15, i64 308}
+!61 = !{!8, !21, i64 320}
+!62 = !{!8, !23, i64 332}
+!63 = !{!8, !23, i64 333}
+!64 = !{!30, !21, i64 12}
+!65 = !{!30, !23, i64 41}
+!66 = !{!8, !21, i64 292}
+!67 = !{!34, !21, i64 0}
+!68 = !{!9, !15, i64 64}
+!69 = !{!8, !21, i64 324}
+!70 = !{!71, !21, i64 16}
+!71 = !{!"_ZTS14b2ExplosionDef", !40, i64 0, !24, i64 8, !21, i64 16, !21, i64 20, !21, i64 24}
+!72 = !{!71, !21, i64 20}
+!73 = !{!71, !21, i64 24}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTS10GLFWwindow", !11, i64 0}
+!76 = !{!34, !15, i64 16}
+!77 = !{!78, !21, i64 0}
+!78 = !{!"_ZTS6ImVec2", !21, i64 0, !21, i64 4}
+!79 = !{!78, !21, i64 4}

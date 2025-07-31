@@ -216,7 +216,7 @@ define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 .preheader614.backedge:                           ; preds = %38, %39
   %.not351.be = phi i1 [ true, %38 ], [ false, %39 ]
   %.1273.be = phi i32 [ 1, %38 ], [ 2, %39 ]
-  br label %.preheader614
+  br label %.preheader614, !llvm.loop !9
 
 39:                                               ; preds = %.preheader614
   br i1 %.not328, label %.preheader614.backedge, label %.loopexit615
@@ -259,7 +259,7 @@ define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   br i1 %.not351, label %.backedge623, label %.loopexit615
 
 .loopexit.i:                                      ; preds = %61
-  br i1 %.not.i, label %find_string.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %.not.i, label %find_string.exit, label %.preheader.i, !llvm.loop !10
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.loopexit.i
   %.01523.i = phi ptr [ %.01622.i, %.loopexit.i ], [ @cloc_day, %.preheader.i.preheader ]
@@ -285,7 +285,7 @@ define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %62 = add nuw nsw i32 %.01420.i, 1
   %63 = getelementptr i8, ptr %.119.i, i64 8
   %exitcond.not.i = icmp eq i32 %62, 7
-  br i1 %exitcond.not.i, label %.loopexit.i, label %54, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit.i, label %54, !llvm.loop !11
 
 find_string.exit:                                 ; preds = %.loopexit.i, %59
   %.0.i = phi ptr [ %60, %59 ], [ null, %.loopexit.i ]
@@ -303,10 +303,10 @@ find_string.exit:                                 ; preds = %.loopexit.i, %59
   %.0264.be = phi i32 [ %.0264884, %.loopexit617 ], [ %.0264884, %64 ], [ %.0264884, %76 ], [ %.0264884, %104 ], [ %.0264884, %124 ], [ %.0264884, %144 ], [ %.0264884, %168 ], [ %.0264884, %189 ], [ %.0264884, %conv_num.exit462 ], [ %.0264884, %229 ], [ %.0264884, %242 ], [ %.0264884, %conv_num.exit496 ], [ %.0264884, %274 ], [ %., %294 ], [ %.0264884, %305 ], [ %.0264884, %318 ], [ %.0264884, %379 ], [ %.0264884, %408 ], [ %.0264884, %563 ], [ %.0264884, %549 ], [ %.0264884, %.loopexit616 ], [ %.0264884, %336 ], [ %.0264884, %359 ], [ %.0264884, %444 ], [ %.0264884, %.thread ], [ %.0264884, %470 ], [ %.0264884, %469 ], [ %.0264884, %477 ], [ %.0264884, %476 ], [ %.0264884, %482 ], [ %.0264884, %481 ], [ %.0264884, %493 ], [ %.0264884, %492 ], [ %.0264884, %505 ], [ %.0264884, %503 ], [ %.0264884, %553 ], [ %.0264884, %552 ], [ %.0264884, %.preheader612 ], [ %.0264884, %.preheader620 ]
   %.0262.be = phi i32 [ %.0262885, %.loopexit617 ], [ %.0262885, %64 ], [ %.0262885, %76 ], [ %.0262885, %104 ], [ %.0262885, %124 ], [ %.0262885, %144 ], [ %.0262885, %168 ], [ %.0262885, %189 ], [ %.0262885, %conv_num.exit462 ], [ %.0262885, %229 ], [ %.0262885, %242 ], [ %.0262885, %conv_num.exit496 ], [ %.0262885, %274 ], [ %292, %294 ], [ %.0262885, %305 ], [ %.0262885, %318 ], [ %.0262885, %379 ], [ %.0262885, %408 ], [ %.0262885, %563 ], [ %.0262885, %549 ], [ %.0262885, %.loopexit616 ], [ %.0262885, %336 ], [ %.0262885, %359 ], [ %.0262885, %444 ], [ %.0262885, %.thread ], [ %.0262885, %470 ], [ %.0262885, %469 ], [ %.0262885, %477 ], [ %.0262885, %476 ], [ %.0262885, %482 ], [ %.0262885, %481 ], [ %.0262885, %493 ], [ %.0262885, %492 ], [ %.0262885, %505 ], [ %.0262885, %503 ], [ %.0262885, %553 ], [ %.0262885, %552 ], [ %.0262885, %.preheader612 ], [ %.0262885, %.preheader620 ]
   %.not = icmp eq ptr %.0277.be, null
-  br i1 %.not, label %.critedge, label %19, !llvm.loop !10
+  br i1 %.not, label %.critedge, label %19, !llvm.loop !12
 
 .loopexit.i398:                                   ; preds = %73
-  br i1 %.not.i399, label %find_string.exit401, label %.preheader.i392, !llvm.loop !8
+  br i1 %.not.i399, label %find_string.exit401, label %.preheader.i392, !llvm.loop !10
 
 .preheader.i392:                                  ; preds = %.preheader.i392.preheader, %.loopexit.i398
   %.01523.i393 = phi ptr [ %.01622.i394, %.loopexit.i398 ], [ @cloc_mon, %.preheader.i392.preheader ]
@@ -332,7 +332,7 @@ find_string.exit:                                 ; preds = %.loopexit.i, %59
   %74 = add nuw nsw i32 %.01420.i395, 1
   %75 = getelementptr i8, ptr %.119.i396, i64 8
   %exitcond.not.i397 = icmp eq i32 %74, 12
-  br i1 %exitcond.not.i397, label %.loopexit.i398, label %66, !llvm.loop !9
+  br i1 %exitcond.not.i397, label %.loopexit.i398, label %66, !llvm.loop !11
 
 find_string.exit401:                              ; preds = %.loopexit.i398, %71
   %.0.i400 = phi ptr [ %72, %71 ], [ null, %.loopexit.i398 ]
@@ -368,7 +368,7 @@ find_string.exit401:                              ; preds = %.loopexit.i398, %71
   %91 = add i8 %87, -48
   %92 = icmp ult i8 %91, 10
   %or.cond10.i = select i1 %or.cond4.i, i1 %92, i1 false
-  br i1 %or.cond10.i, label %.preheader.i402, label %.critedge.i, !llvm.loop !11
+  br i1 %or.cond10.i, label %.preheader.i402, label %.critedge.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %.preheader.i402
   %93 = icmp ugt i32 %84, 99
@@ -427,7 +427,7 @@ conv_num.exit:                                    ; preds = %78, %.critedge.i, %
   %119 = add i8 %115, -48
   %120 = icmp ult i8 %119, 10
   %or.cond10.i411 = select i1 %or.cond4.i410, i1 %120, i1 false
-  br i1 %or.cond10.i411, label %.preheader.i405, label %.critedge.i412, !llvm.loop !11
+  br i1 %or.cond10.i411, label %.preheader.i405, label %.critedge.i412, !llvm.loop !13
 
 .critedge.i412:                                   ; preds = %.preheader.i405
   %121 = add i32 %112, -32
@@ -476,7 +476,7 @@ conv_num.exit414:                                 ; preds = %106, %.critedge.i41
   %139 = add i8 %135, -48
   %140 = icmp ult i8 %139, 10
   %or.cond10.i422 = select i1 %or.cond4.i421, i1 %140, i1 false
-  br i1 %or.cond10.i422, label %.preheader.i416, label %.critedge.i423, !llvm.loop !11
+  br i1 %or.cond10.i422, label %.preheader.i416, label %.critedge.i423, !llvm.loop !13
 
 .critedge.i423:                                   ; preds = %.preheader.i416
   %141 = icmp ugt i32 %132, 23
@@ -524,7 +524,7 @@ conv_num.exit426:                                 ; preds = %.loopexit618, %.cri
   %159 = add i8 %155, -48
   %160 = icmp ult i8 %159, 10
   %or.cond10.i434 = select i1 %or.cond4.i433, i1 %160, i1 false
-  br i1 %or.cond10.i434, label %.preheader.i428, label %.critedge.i435, !llvm.loop !11
+  br i1 %or.cond10.i434, label %.preheader.i428, label %.critedge.i435, !llvm.loop !13
 
 .critedge.i435:                                   ; preds = %.preheader.i428
   %161 = add i32 %152, -13
@@ -584,7 +584,7 @@ conv_num.exit438:                                 ; preds = %conv_num.exit438thr
   %183 = add i8 %179, -48
   %184 = icmp ult i8 %183, 10
   %or.cond10.i446 = select i1 %or.cond4.i445, i1 %184, i1 false
-  br i1 %or.cond10.i446, label %.preheader.i440, label %.critedge.i447, !llvm.loop !11
+  br i1 %or.cond10.i446, label %.preheader.i440, label %.critedge.i447, !llvm.loop !13
 
 .critedge.i447:                                   ; preds = %.preheader.i440
   %185 = add i32 %176, -367
@@ -631,7 +631,7 @@ conv_num.exit450:                                 ; preds = %170, %.critedge.i44
   %204 = add i8 %200, -48
   %205 = icmp ult i8 %204, 10
   %or.cond10.i458 = select i1 %or.cond4.i457, i1 %205, i1 false
-  br i1 %or.cond10.i458, label %.preheader.i452, label %.critedge.i459, !llvm.loop !11
+  br i1 %or.cond10.i458, label %.preheader.i452, label %.critedge.i459, !llvm.loop !13
 
 .critedge.i459:                                   ; preds = %.preheader.i452
   %206 = icmp ugt i32 %197, 59
@@ -673,7 +673,7 @@ conv_num.exit462:                                 ; preds = %191, %.critedge.i45
   %222 = add i8 %218, -48
   %223 = icmp ult i8 %222, 10
   %or.cond10.i470 = select i1 %or.cond4.i469, i1 %223, i1 false
-  br i1 %or.cond10.i470, label %.preheader.i464, label %.critedge.i471, !llvm.loop !11
+  br i1 %or.cond10.i470, label %.preheader.i464, label %.critedge.i471, !llvm.loop !13
 
 .critedge.i471:                                   ; preds = %.preheader.i464
   %224 = add i32 %215, -13
@@ -698,7 +698,7 @@ conv_num.exit474:                                 ; preds = %209, %.critedge.i47
   br label %.backedge623
 
 .loopexit.i481:                                   ; preds = %237
-  br label %find_string.exit484, !llvm.loop !8
+  br label %find_string.exit484, !llvm.loop !10
 
 .preheader:                                       ; preds = %.preheader614, %237
   %.01420.i478 = phi i32 [ %238, %237 ], [ 0, %.preheader614 ]
@@ -718,7 +718,7 @@ conv_num.exit474:                                 ; preds = %209, %.critedge.i47
   %238 = add nuw nsw i32 %.01420.i478, 1
   %239 = getelementptr i8, ptr %.119.i479, i64 8
   %exitcond.not.i480 = icmp eq i32 %238, 2
-  br i1 %exitcond.not.i480, label %.loopexit.i481, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not.i480, label %.loopexit.i481, label %.preheader, !llvm.loop !11
 
 find_string.exit484:                              ; preds = %235, %.loopexit.i481
   %.0.i483 = phi ptr [ %236, %235 ], [ null, %.loopexit.i481 ]
@@ -761,7 +761,7 @@ find_string.exit484:                              ; preds = %235, %.loopexit.i48
   %259 = add i8 %255, -48
   %260 = icmp ult i8 %259, 10
   %or.cond10.i492 = select i1 %or.cond4.i491, i1 %260, i1 false
-  br i1 %or.cond10.i492, label %.preheader.i486, label %.critedge.i493, !llvm.loop !11
+  br i1 %or.cond10.i492, label %.preheader.i486, label %.critedge.i493, !llvm.loop !13
 
 .critedge.i493:                                   ; preds = %.preheader.i486
   %261 = icmp ugt i32 %252, 61
@@ -782,12 +782,12 @@ conv_num.exit496:                                 ; preds = %246, %.critedge.i49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
   %265 = call zeroext i1 @ws_strtoi64(ptr noundef nonnull %.0277880, ptr noundef nonnull %7, ptr noundef nonnull %6)
-  br i1 %265, label %266, label %274, !llvm.loop !10
+  br i1 %265, label %266, label %274, !llvm.loop !14
 
 266:                                              ; preds = %264
   %267 = load i64, ptr %6, align 8
   %268 = icmp slt i64 %267, 0
-  br i1 %268, label %274, label %269, !llvm.loop !10
+  br i1 %268, label %274, label %269, !llvm.loop !14
 
 269:                                              ; preds = %266
   %270 = load ptr, ptr %7, align 8
@@ -832,7 +832,7 @@ conv_num.exit496:                                 ; preds = %246, %.critedge.i49
   %288 = add i8 %284, -48
   %289 = icmp ult i8 %288, 10
   %or.cond10.i504 = select i1 %or.cond4.i503, i1 %289, i1 false
-  br i1 %or.cond10.i504, label %.preheader.i498, label %.critedge.i505, !llvm.loop !11
+  br i1 %or.cond10.i504, label %.preheader.i498, label %.critedge.i505, !llvm.loop !13
 
 .critedge.i505:                                   ; preds = %.preheader.i498
   %290 = icmp ugt i32 %281, 53
@@ -940,7 +940,7 @@ conv_num.exit532:                                 ; preds = %307, %.preheader.i5
   %333 = add i8 %329, -48
   %334 = icmp ult i8 %333, 10
   %or.cond10.i540 = select i1 %or.cond4.i539, i1 %334, i1 false
-  br i1 %or.cond10.i540, label %.preheader.i534, label %.critedge.i541, !llvm.loop !11
+  br i1 %or.cond10.i540, label %.preheader.i534, label %.critedge.i541, !llvm.loop !13
 
 .critedge.i541:                                   ; preds = %.preheader.i534
   %335 = icmp ugt i32 %326, 99
@@ -959,7 +959,7 @@ conv_num.exit532:                                 ; preds = %307, %.preheader.i5
   %341 = load i16, ptr %340, align 2
   %342 = and i16 %341, 8
   %.not352 = icmp eq i16 %342, 0
-  br i1 %.not352, label %.backedge623, label %.preheader612, !llvm.loop !12
+  br i1 %.not352, label %.backedge623, label %.preheader612, !llvm.loop !15
 
 343:                                              ; preds = %.preheader614
   %344 = load i8, ptr %.0277880, align 1
@@ -986,7 +986,7 @@ conv_num.exit532:                                 ; preds = %307, %.preheader.i5
   %356 = add i8 %352, -48
   %357 = icmp ult i8 %356, 10
   %or.cond10.i552 = select i1 %or.cond4.i551, i1 %357, i1 false
-  br i1 %or.cond10.i552, label %.preheader.i546, label %.critedge.i553, !llvm.loop !11
+  br i1 %or.cond10.i552, label %.preheader.i546, label %.critedge.i553, !llvm.loop !13
 
 .critedge.i553:                                   ; preds = %.preheader.i546
   %358 = add i32 %349, -54
@@ -1023,7 +1023,7 @@ conv_num.exit532:                                 ; preds = %307, %.preheader.i5
   %373 = add i8 %369, -48
   %374 = icmp ult i8 %373, 10
   %or.cond10.i564 = select i1 %or.cond4.i563, i1 %374, i1 false
-  br i1 %or.cond10.i564, label %.preheader.i558, label %.critedge.i565, !llvm.loop !11
+  br i1 %or.cond10.i564, label %.preheader.i558, label %.critedge.i565, !llvm.loop !13
 
 .critedge.i565:                                   ; preds = %.preheader.i558
   %375 = icmp ugt i32 %366, 9999
@@ -1069,7 +1069,7 @@ conv_num.exit568:                                 ; preds = %360, %.critedge.i56
   %394 = add i8 %390, -48
   %395 = icmp ult i8 %394, 10
   %or.cond10.i576 = select i1 %or.cond4.i575, i1 %395, i1 false
-  br i1 %or.cond10.i576, label %.preheader.i570, label %.critedge.i577, !llvm.loop !11
+  br i1 %or.cond10.i576, label %.preheader.i570, label %.critedge.i577, !llvm.loop !13
 
 .critedge.i577:                                   ; preds = %.preheader.i570
   %396 = icmp ugt i32 %387, 99
@@ -1130,7 +1130,7 @@ conv_num.exit580:                                 ; preds = %381, %.critedge.i57
   %417 = and i16 %416, 256
   %.not329 = icmp eq i16 %417, 0
   %418 = getelementptr i8, ptr %.6283, i64 1
-  br i1 %.not329, label %.loopexit, label %.preheader613, !llvm.loop !13
+  br i1 %.not329, label %.loopexit, label %.preheader613, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader613, %..loopexit_crit_edge
   %419 = phi i8 [ %.pre, %..loopexit_crit_edge ], [ %413, %.preheader613 ]
@@ -1382,7 +1382,7 @@ thread-pre-split592:                              ; preds = %424, %435, %439, %.
   %525 = load i16, ptr %524, align 2
   %526 = and i16 %525, 8
   %.not330.us = icmp eq i16 %526, 0
-  br i1 %.not330.us, label %.lr.ph869, label %.outer, !llvm.loop !14
+  br i1 %.not330.us, label %.lr.ph869, label %.outer, !llvm.loop !17
 
 .outer:                                           ; preds = %520, %.lr.ph.split.us
   %.us-phi855 = phi ptr [ %.9.ph876, %.lr.ph.split.us ], [ %521, %520 ]
@@ -1395,7 +1395,7 @@ thread-pre-split592:                              ; preds = %424, %435, %439, %.
   %532 = add nuw nsw i32 %.pr596873874, 1
   store i32 %532, ptr %5, align 4
   %exitcond.not = icmp eq i32 %532, 4
-  br i1 %exitcond.not, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %exitcond.not, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
 
 .outer._crit_edge:                                ; preds = %.outer, %.lr.ph869
   %.0261.ph.lcssa = phi i32 [ %.0261.ph877, %.lr.ph869 ], [ %531, %.outer ]
@@ -1461,7 +1461,7 @@ thread-pre-split592:                              ; preds = %424, %435, %439, %.
   %561 = and i16 %560, 256
   %.not327 = icmp eq i16 %561, 0
   %562 = getelementptr i8, ptr %.10, i64 1
-  br i1 %.not327, label %563, label %556, !llvm.loop !17
+  br i1 %.not327, label %563, label %556, !llvm.loop !20
 
 563:                                              ; preds = %556
   br i1 %.not328, label %.backedge623, label %.loopexit615
@@ -1633,7 +1633,7 @@ first_wday_of.exit:                               ; preds = %599, %607, %608
   %656 = load i32, ptr %655, align 4
   %.not320 = icmp slt i32 %650, %656
   %657 = add i32 %653, 1
-  br i1 %.not320, label %658, label %652, !llvm.loop !18
+  br i1 %.not320, label %658, label %652, !llvm.loop !21
 
 658:                                              ; preds = %652
   %659 = icmp sgt i32 %653, 12
@@ -1749,7 +1749,7 @@ first_wday_of.exit588:                            ; preds = %699, %706, %707
   %spec.store.select = select i1 %724, i32 0, i32 %723
   %725 = add i32 %722, 1
   %.not324 = icmp sgt i32 %722, %721
-  br i1 %.not324, label %._crit_edge904, label %.lr.ph903, !llvm.loop !19
+  br i1 %.not324, label %._crit_edge904, label %.lr.ph903, !llvm.loop !22
 
 ._crit_edge904:                                   ; preds = %.lr.ph903, %first_wday_of.exit588
   %.1263.lcssa = phi i32 [ %.sext7.i586, %first_wday_of.exit588 ], [ %spec.store.select, %.lr.ph903 ]
@@ -1773,7 +1773,7 @@ define internal fastcc noundef ptr @find_string(ptr noundef %0, ptr noundef writ
 
 .loopexit:                                        ; preds = %13
   %.not = icmp eq ptr %.01622, null
-  br i1 %.not, label %.loopexit17, label %.preheader, !llvm.loop !8
+  br i1 %.not, label %.loopexit17, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %5, %.loopexit
   %.01523 = phi ptr [ %.01622, %.loopexit ], [ %2, %5 ]
@@ -1798,7 +1798,7 @@ define internal fastcc noundef ptr @find_string(ptr noundef %0, ptr noundef writ
   %14 = add nuw nsw i32 %.01420, 1
   %15 = getelementptr i8, ptr %.119, i64 8
   %exitcond.not = icmp eq i32 %14, %4
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !11
 
 .loopexit17:                                      ; preds = %.loopexit, %5, %11
   %.0 = phi ptr [ %12, %11 ], [ null, %5 ], [ null, %.loopexit ]
@@ -1840,17 +1840,20 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

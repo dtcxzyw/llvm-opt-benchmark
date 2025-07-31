@@ -397,7 +397,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   br label %.lr.ph130.backedge
 
 .lr.ph130.backedge:                               ; preds = %99, %96
-  br label %.lr.ph130, !llvm.loop !11
+  br label %.lr.ph130, !llvm.loop !12
 
 .outer._crit_edge:                                ; preds = %.split136.us, %.outer87._crit_edge
   %100 = getelementptr inbounds i8, ptr %57, i64 %58
@@ -447,7 +447,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   %indvars.iv287 = phi i64 [ %indvars.iv.next, %120 ], [ 0, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv287, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond, label %125, label %120, !llvm.loop !12
+  br i1 %exitcond, label %125, label %120, !llvm.loop !13
 
 120:                                              ; preds = %.lr.ph288
   %121 = getelementptr inbounds nuw [18 x %struct.anon], ptr @pmi2_cmd_handlers, i64 0, i64 %indvars.iv.next
@@ -455,7 +455,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   %123 = load ptr, ptr %115, align 8
   %124 = call i32 @slurm_xstrcmp(ptr noundef %123, ptr noundef nonnull %122) #7
   %.not79 = icmp eq i32 %124, 0
-  br i1 %.not79, label %._crit_edge, label %.lr.ph288, !llvm.loop !12
+  br i1 %.not79, label %._crit_edge, label %.lr.ph288, !llvm.loop !13
 
 125:                                              ; preds = %.lr.ph288
   %126 = load ptr, ptr %115, align 8
@@ -637,7 +637,7 @@ define internal noundef i32 @_handle_abort(i32 %0, i32 %1, ptr noundef %2) #0 {
 8:                                                ; preds = %7, %3
   %9 = tail call i32 @client_req_parse_body(ptr noundef %2) #7
   %10 = call zeroext i1 @client_req_get_bool(ptr noundef %2, ptr noundef nonnull @.str.41, ptr noundef nonnull %4) #7
-  %11 = load i8, ptr %4, align 1, !range !13, !noundef !14
+  %11 = load i8, ptr %4, align 1, !range !14, !noundef !15
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %17
 
@@ -924,7 +924,7 @@ define internal i32 @_handle_info_getnodeattr(i32 noundef %0, i32 noundef %1, pt
   %13 = load ptr, ptr %4, align 8
   %14 = call ptr @node_attr_get(ptr noundef %13) #7
   %15 = icmp eq ptr %14, null
-  %16 = load i8, ptr %5, align 1, !range !13
+  %16 = load i8, ptr %5, align 1, !range !14
   %17 = trunc nuw i8 %16 to i1
   %or.cond = select i1 %15, i1 %17, i1 false
   br i1 %or.cond, label %24, label %18
@@ -1337,10 +1337,11 @@ attributes #8 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = !{i8 0, i8 2}
-!14 = !{}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = !{i8 0, i8 2}
+!15 = !{}

@@ -67,7 +67,7 @@ decode_len.exit:                                  ; preds = %bytestream2_get_lev
   %.neg = sub i64 %29, %5
   %.neg4 = trunc i64 %.neg to i32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !15
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
   %32 = ptrtoint ptr %31 to i64
   %.neg.i = sub i64 %32, %5
   %33 = trunc i64 %.neg.i to i32
@@ -136,12 +136,12 @@ bytestream2_get_levarint.exit.i:                  ; preds = %24
   br i1 %or.cond.i, label %snappy_literal.exit.thread, label %decode_len.exit
 
 decode_len.exit:                                  ; preds = %bytestream2_get_levarint.exit.i
-  %29 = load i64, ptr %2, align 8, !tbaa !16
+  %29 = load i64, ptr %2, align 8, !tbaa !17
   %30 = icmp sgt i64 %28, %29
   br i1 %30, label %snappy_literal.exit.thread, label %31
 
 31:                                               ; preds = %decode_len.exit
-  store i64 %28, ptr %2, align 8, !tbaa !16
+  store i64 %28, ptr %2, align 8, !tbaa !17
   %32 = ptrtoint ptr %1 to i64
   br label %33
 
@@ -326,7 +326,7 @@ bytestream2_get_byte.exit.i:                      ; preds = %108, %107
   store i8 %125, ptr %126, align 1, !tbaa !12
   %indvars.iv.next.i.i48 = add nuw nsw i64 %indvars.iv.i.i47, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i48, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %snappy_literal.exit, label %123, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %snappy_literal.exit, label %123, !llvm.loop !19
 
 127:                                              ; preds = %bytestream2_get_byte.exit
   %128 = trunc i64 %.038 to i32
@@ -370,7 +370,7 @@ bytestream2_get_le16.exit.i:                      ; preds = %134, %133
   store i8 %147, ptr %148, align 1, !tbaa !12
   %indvars.iv.next.i.i53 = add nuw nsw i64 %indvars.iv.i.i52, 1
   %exitcond.not.i.i54 = icmp eq i64 %indvars.iv.next.i.i53, %wide.trip.count.i.i51
-  br i1 %exitcond.not.i.i54, label %snappy_literal.exit, label %145, !llvm.loop !18
+  br i1 %exitcond.not.i.i54, label %snappy_literal.exit, label %145, !llvm.loop !19
 
 149:                                              ; preds = %bytestream2_get_byte.exit
   %150 = trunc i64 %.038 to i32
@@ -414,7 +414,7 @@ bytestream2_get_le32.exit.i56:                    ; preds = %156, %155
   store i8 %169, ptr %170, align 1, !tbaa !12
   %indvars.iv.next.i.i61 = add nuw nsw i64 %indvars.iv.i.i60, 1
   %exitcond.not.i.i62 = icmp eq i64 %indvars.iv.next.i.i61, %wide.trip.count.i.i59
-  br i1 %exitcond.not.i.i62, label %snappy_literal.exit, label %167, !llvm.loop !18
+  br i1 %exitcond.not.i.i62, label %snappy_literal.exit, label %167, !llvm.loop !19
 
 default.unreachable75:                            ; preds = %bytestream2_get_byte.exit
   unreachable
@@ -425,7 +425,7 @@ snappy_literal.exit:                              ; preds = %167, %145, %123, %9
   %171 = icmp sgt i32 %.043, -1
   %172 = getelementptr inbounds nuw i8, ptr %.041, i64 %.pre-phi
   %173 = sub nsw i64 %.038, %.pre-phi
-  br i1 %171, label %33, label %snappy_literal.exit.thread, !llvm.loop !19
+  br i1 %171, label %33, label %snappy_literal.exit.thread, !llvm.loop !20
 
 snappy_literal.exit.thread:                       ; preds = %19, %bytestream2_get_byte.exit.i.i, %bytestream2_get_le32.exit.i56, %bytestream2_get_le16.exit.i, %bytestream2_get_byte.exit.i, %bytestream2_get_le32.exit.i, %33, %snappy_literal.exit, %bytestream2_get_levarint.exit.i, %decode_len.exit
   %.0 = phi i32 [ -1397118274, %decode_len.exit ], [ -1094995529, %bytestream2_get_levarint.exit.i ], [ -1094995529, %bytestream2_get_le32.exit.i56 ], [ -1094995529, %bytestream2_get_le16.exit.i ], [ -1094995529, %bytestream2_get_byte.exit.i ], [ -1094995529, %bytestream2_get_le32.exit.i ], [ 0, %33 ], [ %.043, %snappy_literal.exit ], [ -1094995529, %bytestream2_get_byte.exit.i.i ], [ -1094995529, %19 ]
@@ -461,10 +461,11 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = !{!5, !6, i64 0}
 !11 = !{!6, !6, i64 0}
 !12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!5, !6, i64 16}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !8, i64 0}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!5, !6, i64 16}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !8, i64 0}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}

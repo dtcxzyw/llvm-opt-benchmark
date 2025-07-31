@@ -72,7 +72,7 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
 39:                                               ; preds = %34
   %40 = add nuw i64 %.06179, 1
   %exitcond.not = icmp eq i64 %40, %2
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !17
 
 41:                                               ; preds = %34
   %42 = xor i8 %38, %36
@@ -122,7 +122,7 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %76 = load i32, ptr %75, align 8, !tbaa !10
   %77 = zext i32 %76 to i64
   %78 = icmp ult i64 %.06179, %77
-  br i1 %78, label %._crit_edge, label %.lr.ph106
+  br i1 %78, label %._crit_edge, label %.lr.ph106, !llvm.loop !18
 
 .lr.ph106:                                        ; preds = %.lr.ph82.preheader, %.lr.ph82
   %79 = phi i64 [ %77, %.lr.ph82 ], [ %71, %.lr.ph82.preheader ]
@@ -149,11 +149,14 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %95 = ptrtoint ptr %94 to i64
   %96 = and i64 %95, 1
   %.not71 = icmp eq i64 %96, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph82
+  br i1 %.not71, label %._crit_edge93.._crit_edge.loopexit_crit_edge, label %.lr.ph82, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph106, %._crit_edge93, %.lr.ph82, %.lr.ph82.preheader, %41
-  %97 = phi ptr [ %64, %41 ], [ %64, %.lr.ph82.preheader ], [ %94, %.lr.ph82 ], [ %94, %._crit_edge93 ], [ %81, %.lr.ph106 ]
-  %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph82.preheader ], [ %93, %.lr.ph82 ], [ %93, %._crit_edge93 ], [ %.06381105, %.lr.ph106 ]
+._crit_edge93.._crit_edge.loopexit_crit_edge:     ; preds = %._crit_edge93
+  br label %._crit_edge, !llvm.loop !18
+
+._crit_edge:                                      ; preds = %.lr.ph106, %.lr.ph82, %.lr.ph82.preheader, %._crit_edge93.._crit_edge.loopexit_crit_edge, %41
+  %97 = phi ptr [ %64, %41 ], [ %94, %._crit_edge93.._crit_edge.loopexit_crit_edge ], [ %64, %.lr.ph82.preheader ], [ %94, %.lr.ph82 ], [ %81, %.lr.ph106 ]
+  %.063.lcssa = phi ptr [ %0, %41 ], [ %93, %._crit_edge93.._crit_edge.loopexit_crit_edge ], [ %0, %.lr.ph82.preheader ], [ %93, %.lr.ph82 ], [ %.06381105, %.lr.ph106 ]
   %98 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %57
   store ptr %97, ptr %98, align 8, !tbaa !13
   %99 = ptrtoint ptr %1 to i64
@@ -276,12 +279,12 @@ define dso_local void @cb_each(ptr noundef readonly captures(none) %0, ptr nound
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, 1
   %.not29 = icmp eq i64 %32, 0
-  br i1 %.not29, label %.preheader, label %.lr.ph, !llvm.loop !17
+  br i1 %.not29, label %.preheader, label %.lr.ph, !llvm.loop !19
 
 33:                                               ; preds = %35
   %34 = add nuw i64 %.02635, 1
   %exitcond.not = icmp eq i64 %34, %2
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !20
 
 35:                                               ; preds = %.lr.ph36, %33
   %.02635 = phi i64 [ 0, %.lr.ph36 ], [ %34, %33 ]
@@ -359,8 +362,10 @@ attributes #4 = { nounwind }
 !11 = !{!"int", !8, i64 0}
 !12 = !{!8, !8, i64 0}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}

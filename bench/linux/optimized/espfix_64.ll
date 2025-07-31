@@ -294,7 +294,7 @@ define dso_local void @init_espfix_ap(i32 noundef %0) local_unnamed_addr #2 alig
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %110 = add nuw nsw i64 %108, 1
   %111 = icmp eq i64 %110, 512
-  br i1 %111, label %.loopexit.loopexit, label %107, !llvm.loop !11
+  br i1 %111, label %.loopexit.loopexit, label %107, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %107
   %.pre6 = load i64, ptr @page_offset_base, align 8
@@ -348,7 +348,7 @@ define dso_local void @init_espfix_ap(i32 noundef %0) local_unnamed_addr #2 alig
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %145 = add nuw nsw i64 %143, 1
   %146 = icmp eq i64 %145, 32
-  br i1 %146, label %147, label %142, !llvm.loop !12
+  br i1 %146, label %147, label %142, !llvm.loop !13
 
 147:                                              ; preds = %142
   %148 = inttoptr i64 %133 to ptr
@@ -417,8 +417,9 @@ attributes #5 = { nounwind memory(read) }
 !5 = !{i64 2149559814, i64 2149559847, i64 2149559853, i64 2149559869, i64 2149559888, i64 2149559919, i64 2149560872, i64 2149559461, i64 2149560878, i64 2149560926, i64 2149560990, i64 2149561054, i64 2149561111, i64 2149561318, i64 2149561366, i64 2149561430, i64 2149561494, i64 2149561551, i64 2149559579, i64 2149559604, i64 2149561761, i64 2149561889, i64 2149561822, i64 2149561903, i64 2149561917, i64 2149562033, i64 2149561978, i64 2149562047, i64 2149559738, i64 1855702, i64 1855742, i64 1855751, i64 1855801, i64 1855822, i64 1855842}
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{i64 2151785792}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}

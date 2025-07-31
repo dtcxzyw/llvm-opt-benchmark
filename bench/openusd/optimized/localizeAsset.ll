@@ -1162,20 +1162,20 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define linkonce_odr void @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEESt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_S6_S8_S9_EPSC_St12_PlaceholderILi1EESG_ILi2EESG_ILi3EEEEE9_M_invokeERKSt9_Any_dataS6_S8_OS9_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdUtilsDependencyInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !noalias !8
-  %.unpack.i.i.i.i.i.i = load i64, ptr %6, align 8, !noalias !8
+  %8 = load ptr, ptr %7, align 8, !noalias !9
+  %.unpack.i.i.i.i.i.i = load i64, ptr %6, align 8, !noalias !9
   %.elt5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.unpack6.i.i.i.i.i.i = load i64, ptr %.elt5.i.i.i.i.i.i, align 8, !noalias !8
+  %.unpack6.i.i.i.i.i.i = load i64, ptr %.elt5.i.i.i.i.i.i, align 8, !noalias !9
   %9 = getelementptr inbounds i8, ptr %8, i64 %.unpack6.i.i.i.i.i.i
   %10 = and i64 %.unpack.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i.i.i.i.i, label %16, label %11
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %9, align 8, !noalias !8
+  %12 = load ptr, ptr %9, align 8, !noalias !9
   %13 = getelementptr i8, ptr %12, i64 %.unpack.i.i.i.i.i.i
   %14 = getelementptr i8, ptr %13, i64 -1
-  %15 = load ptr, ptr %14, align 8, !noalias !8, !nosanitize !21
+  %15 = load ptr, ptr %14, align 8, !noalias !9, !nosanitize !22
   br label %_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit
 
 16:                                               ; preds = %5
@@ -1184,7 +1184,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrRes
 
 _ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit: ; preds = %11, %16
   %18 = phi ptr [ %15, %11 ], [ %17, %16 ]
-  %19 = load i32, ptr %4, align 4, !noalias !8
+  %19 = load i32, ptr %4, align 4, !noalias !9
   tail call void %18(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdUtilsDependencyInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(640) %9, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %19)
   ret void
 }
@@ -1273,7 +1273,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12Sdf
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.02430.i) #12
   %16 = getelementptr inbounds nuw i8, ptr %.02430.i, i64 64
   %.not28.i = icmp eq ptr %16, %14
-  br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %2, align 8
@@ -1353,7 +1353,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERKNS
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 112) #15
   %.not.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EESt4pairIKS7_S6_ESaISA_ENSt8__detail10_Select1stESt8equal_toIS7_EN32pxrInternal_v0_24__pxrReserved__27UsdUtils_ProcessedPathCache17ProcessedPathHashENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EESt4pairIKS7_S6_ESaISA_ENSt8__detail10_Select1stESt8equal_toIS7_EN32pxrInternal_v0_24__pxrReserved__27UsdUtils_ProcessedPathCache17ProcessedPathHashENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !24
 
 _ZNSt10_HashtableISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EESt4pairIKS7_S6_ESaISA_ENSt8__detail10_Select1stESt8equal_toIS7_EN32pxrInternal_v0_24__pxrReserved__27UsdUtils_ProcessedPathCache17ProcessedPathHashENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEED2Ev.exit
   %16 = load ptr, ptr %0, align 8
@@ -1395,7 +1395,7 @@ define linkonce_odr void @_ZNSt13unordered_mapISt5tupleIJNSt7__cxx1112basic_stri
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i, i64 noundef 112) #15
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %_ZNSt10_HashtableISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EESt4pairIKS7_S6_ESaISA_ENSt8__detail10_Select1stESt8equal_toIS7_EN32pxrInternal_v0_24__pxrReserved__27UsdUtils_ProcessedPathCache17ProcessedPathHashENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i, label %_ZNSt10_HashtableISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EESt4pairIKS7_S6_ESaISA_ENSt8__detail10_Select1stESt8equal_toIS7_EN32pxrInternal_v0_24__pxrReserved__27UsdUtils_ProcessedPathCache17ProcessedPathHashENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
 _ZNSt10_HashtableISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EESt4pairIKS7_S6_ESaISA_ENSt8__detail10_Select1stESt8equal_toIS7_EN32pxrInternal_v0_24__pxrReserved__27UsdUtils_ProcessedPathCache17ProcessedPathHashENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i, %1
   %8 = load ptr, ptr %0, align 8
@@ -1462,7 +1462,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, %2
   ret void
@@ -1489,7 +1489,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 96) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1511,7 +1511,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__8TfR
   tail call void @_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8SdfLayerEEES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1828,7 +1828,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetL
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef 80) #15
   %.not.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %1
   %8 = load ptr, ptr %2, align 8
@@ -1863,7 +1863,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__26UsdUtils_DirectoryRemapperD2Ev.exit: ; pr
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i) #12
   %23 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %23, %21
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !29
 
 _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %18, align 8
@@ -1910,7 +1910,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3) #12
   %41 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 32
   %.not.i.i.i.i4 = icmp eq ptr %41, %40
-  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !29
+  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !30
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i2
   %.pr.i5 = load ptr, ptr %37, align 8
@@ -2053,27 +2053,28 @@ attributes #15 = { builtin nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{i64 56294496, i64 56294505, i64 56294529}
 !5 = !{i64 56293442, i64 56293451, i64 56293480, i64 56293507}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !11, !13, !15, !17, !19}
-!9 = distinct !{!9, !10, !"_ZSt13__invoke_implIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEERPS2_JS7_S9_SA_EET_St21__invoke_memfun_derefOT0_OT1_DpOT2_: argument 0"}
-!10 = distinct !{!10, !"_ZSt13__invoke_implIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEERPS2_JS7_S9_SA_EET_St21__invoke_memfun_derefOT0_OT1_DpOT2_"}
-!11 = distinct !{!11, !12, !"_ZSt8__invokeIRMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEJRPS1_S7_S9_SA_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_: argument 0"}
-!12 = distinct !{!12, !"_ZSt8__invokeIRMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEJRPS1_S7_S9_SA_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_"}
-!13 = distinct !{!13, !14, !"_ZNSt5_BindIFMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEPS1_St12_PlaceholderILi1EESE_ILi2EESE_ILi3EEEE6__callIS2_JS7_S9_OSA_EJLm0ELm1ELm2ELm3EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE: argument 0"}
-!14 = distinct !{!14, !"_ZNSt5_BindIFMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEPS1_St12_PlaceholderILi1EESE_ILi2EESE_ILi3EEEE6__callIS2_JS7_S9_OSA_EJLm0ELm1ELm2ELm3EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE"}
-!15 = distinct !{!15, !16, !"_ZNSt5_BindIFMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEPS1_St12_PlaceholderILi1EESE_ILi2EESE_ILi3EEEEclIJS7_S9_SA_ES2_EET0_DpOT_: argument 0"}
-!16 = distinct !{!16, !"_ZNSt5_BindIFMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEPS1_St12_PlaceholderILi1EESE_ILi2EESE_ILi3EEEEclIJS7_S9_SA_ES2_EET0_DpOT_"}
-!17 = distinct !{!17, !18, !"_ZSt13__invoke_implIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!18 = distinct !{!18, !"_ZSt13__invoke_implIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EET_St14__invoke_otherOT0_DpOT1_"}
-!19 = distinct !{!19, !20, !"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_: argument 0"}
-!20 = distinct !{!20, !"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_"}
-!21 = !{}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !12, !14, !16, !18, !20}
+!10 = distinct !{!10, !11, !"_ZSt13__invoke_implIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEERPS2_JS7_S9_SA_EET_St21__invoke_memfun_derefOT0_OT1_DpOT2_: argument 0"}
+!11 = distinct !{!11, !"_ZSt13__invoke_implIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEERPS2_JS7_S9_SA_EET_St21__invoke_memfun_derefOT0_OT1_DpOT2_"}
+!12 = distinct !{!12, !13, !"_ZSt8__invokeIRMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEJRPS1_S7_S9_SA_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_: argument 0"}
+!13 = distinct !{!13, !"_ZSt8__invokeIRMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEJRPS1_S7_S9_SA_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_"}
+!14 = distinct !{!14, !15, !"_ZNSt5_BindIFMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEPS1_St12_PlaceholderILi1EESE_ILi2EESE_ILi3EEEE6__callIS2_JS7_S9_OSA_EJLm0ELm1ELm2ELm3EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE: argument 0"}
+!15 = distinct !{!15, !"_ZNSt5_BindIFMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEPS1_St12_PlaceholderILi1EESE_ILi2EESE_ILi3EEEE6__callIS2_JS7_S9_OSA_EJLm0ELm1ELm2ELm3EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE"}
+!16 = distinct !{!16, !17, !"_ZNSt5_BindIFMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEPS1_St12_PlaceholderILi1EESE_ILi2EESE_ILi3EEEEclIJS7_S9_SA_ES2_EET0_DpOT_: argument 0"}
+!17 = distinct !{!17, !"_ZNSt5_BindIFMN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackageEFNS0_22UsdUtilsDependencyInfoERKNS0_8TfRefPtrINS0_8SdfLayerEEERKS2_NS0_23UsdUtils_DependencyTypeEEPS1_St12_PlaceholderILi1EESE_ILi2EESE_ILi3EEEEclIJS7_S9_SA_ES2_EET0_DpOT_"}
+!18 = distinct !{!18, !19, !"_ZSt13__invoke_implIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!19 = distinct !{!19, !"_ZSt13__invoke_implIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EET_St14__invoke_otherOT0_DpOT1_"}
+!20 = distinct !{!20, !21, !"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_: argument 0"}
+!21 = distinct !{!21, !"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__22UsdUtilsDependencyInfoERSt5_BindIFMNS0_33UsdUtils_AssetLocalizationPackageEFS1_RKNS0_8TfRefPtrINS0_8SdfLayerEEERKS1_NS0_23UsdUtils_DependencyTypeEEPS3_St12_PlaceholderILi1EESF_ILi2EESF_ILi3EEEEJS8_SA_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_"}
+!22 = !{}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}

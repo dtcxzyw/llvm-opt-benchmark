@@ -39,7 +39,7 @@ define dso_local noundef zeroext i1 @php_odbc_connstr_is_quoted(ptr noundef read
   %.1 = phi i64 [ %9, %8 ], [ %.01521, %.lr.ph ], [ %.01521, %.fold.split ]
   %13 = add i64 %.1, 1
   %.not19.not = icmp ult i64 %13, %4
-  br i1 %.not19.not, label %.lr.ph, label %.critedge
+  br i1 %.not19.not, label %.lr.ph, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %12, %8, %3, %1
   %.016 = phi i1 [ false, %1 ], [ true, %3 ], [ true, %12 ], [ false, %8 ]
@@ -109,7 +109,7 @@ define dso_local i64 @php_odbc_connstr_quote(ptr noundef writeonly captures(none
   %18 = add i64 %.024, %.sink
   %.118 = getelementptr inbounds nuw i8, ptr %.01723, i64 1
   %19 = icmp ugt i64 %18, 2
-  br i1 %19, label %.lr.ph, label %.thread
+  br i1 %19, label %.lr.ph, label %.thread, !llvm.loop !9
 
 .thread:                                          ; preds = %17, %.lr.ph, %8, %3
   %.019.lcssa = phi ptr [ %4, %3 ], [ %.01922, %8 ], [ %.01922, %.lr.ph ], [ %.120, %17 ]
@@ -136,3 +136,6 @@ attributes #4 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}

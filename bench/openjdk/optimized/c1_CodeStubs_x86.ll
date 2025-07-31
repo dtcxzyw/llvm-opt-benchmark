@@ -1242,7 +1242,7 @@ switch.lookup:                                    ; preds = %91
   call void @_ZN9Assembler3nopEj(ptr noundef nonnull align 8 dereferenceable(40) %177, i32 noundef 1) #6
   %178 = add nsw i32 %.07482, 1
   %179 = icmp slt i32 %178, %175
-  br i1 %179, label %.lr.ph83, label %._crit_edge, !llvm.loop !8
+  br i1 %179, label %.lr.ph83, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph83, %switch.lookup
   %180 = load i32, ptr %18, align 8
@@ -1443,7 +1443,7 @@ define hidden void @_ZN13ArrayCopyStub9emit_codeEP13LIR_Assembler(ptr noundef no
   store ptr @all_VMRegs, ptr %17, align 8
   %.add = add nuw nsw i64 %.idx, 16
   %18 = icmp eq i64 %.add, 80
-  br i1 %18, label %19, label %16
+  br i1 %18, label %19, label %16, !llvm.loop !10
 
 19:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, ptr noundef nonnull align 1 dereferenceable(5) @__const._ZN13ArrayCopyStub9emit_codeEP13LIR_Assembler.signature, i64 5, i1 false)
@@ -1523,7 +1523,7 @@ define hidden void @_ZN13ArrayCopyStub9emit_codeEP13LIR_Assembler(ptr noundef no
 59:                                               ; preds = %52, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %60, label %49, !llvm.loop !9
+  br i1 %exitcond.not, label %60, label %49, !llvm.loop !11
 
 60:                                               ; preds = %59
   call void @_ZN13LIR_Assembler10align_callE8LIR_Code(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 76) #6
@@ -2950,7 +2950,9 @@ attributes #7 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}

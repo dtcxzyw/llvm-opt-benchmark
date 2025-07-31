@@ -84,7 +84,7 @@ define range(i32 0, 1044481) i32 @ff_aac_ac_map_process(ptr noundef captures(non
   %33 = zext i8 %32 to i16
   %34 = shl i16 %33, 12
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  store i16 %34, ptr %35, align 4, !tbaa !13
+  store i16 %34, ptr %35, align 4, !tbaa !14
   %36 = zext i8 %32 to i32
   %37 = shl nuw nsw i32 %36, 12
   ret i32 %37
@@ -105,7 +105,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 1114352) i32 @ff_aac_ac_get_context(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %6 = load i16, ptr %5, align 4, !tbaa !13
+  %6 = load i16, ptr %5, align 4, !tbaa !14
   %7 = add nsw i32 %2, 1
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [513 x i8], ptr %0, i64 0, i64 %8
@@ -121,7 +121,7 @@ define range(i32 0, 1114352) i32 @ff_aac_ac_get_context(ptr noundef captures(non
   %19 = zext i8 %18 to i32
   %20 = add nuw nsw i32 %16, %19
   %21 = trunc i32 %20 to i16
-  store i16 %21, ptr %5, align 4, !tbaa !13
+  store i16 %21, ptr %5, align 4, !tbaa !14
   %22 = icmp sgt i32 %2, 3
   br i1 %22, label %23, label %34
 
@@ -156,7 +156,7 @@ define range(i32 0, 256) i32 @ff_aac_ac_get_pk(i32 noundef %0) local_unnamed_add
   %5 = add nsw i32 %4, %.01622
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [742 x i32], ptr @ff_aac_ac_hash_m, i64 0, i64 %6
-  %8 = load i32, ptr %7, align 4, !tbaa !14
+  %8 = load i32, ptr %7, align 4, !tbaa !15
   %9 = ashr i32 %8, 8
   %10 = icmp ult i32 %0, %9
   br i1 %10, label %15, label %11
@@ -174,7 +174,7 @@ define range(i32 0, 256) i32 @ff_aac_ac_get_pk(i32 noundef %0) local_unnamed_add
   %.1 = phi i32 [ %5, %2 ], [ %.023, %11 ]
   %16 = sub nsw i32 %.1, %.117
   %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %2, label %18, !llvm.loop !15
+  br i1 %17, label %2, label %18, !llvm.loop !16
 
 18:                                               ; preds = %15
   %19 = sext i32 %.1 to i64
@@ -213,14 +213,14 @@ define void @ff_aac_ac_update_context(ptr noundef captures(none) initializes((52
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_aac_ac_init(ptr noundef writeonly captures(none) initializes((0, 6)) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
-  store i16 0, ptr %0, align 2, !tbaa !16
+  store i16 0, ptr %0, align 2, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 -1, ptr %3, align 2, !tbaa !18
+  store i16 -1, ptr %3, align 2, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !19
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !23
-  %8 = load ptr, ptr %1, align 8, !tbaa !24
+  %7 = load i32, ptr %6, align 8, !tbaa !24
+  %8 = load ptr, ptr %1, align 8, !tbaa !25
   %9 = lshr i32 %5, 3
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
@@ -231,22 +231,22 @@ define void @ff_aac_ac_init(ptr noundef writeonly captures(none) initializes((0,
   %16 = lshr i32 %15, 16
   %17 = add i32 %5, 16
   %18 = tail call i32 @llvm.umin.i32(i32 %7, i32 %17)
-  store i32 %18, ptr %4, align 8, !tbaa !19
+  store i32 %18, ptr %4, align 8, !tbaa !20
   %19 = trunc nuw i32 %16 to i16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %19, ptr %20, align 2, !tbaa !25
+  store i16 %19, ptr %20, align 2, !tbaa !26
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i16, ptr %5, align 2, !tbaa !25
+  %6 = load i16, ptr %5, align 2, !tbaa !26
   %7 = zext i16 %6 to i32
-  %8 = load i16, ptr %0, align 2, !tbaa !16
+  %8 = load i16, ptr %0, align 2, !tbaa !17
   %9 = zext i16 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %11 = load i16, ptr %10, align 2, !tbaa !18
+  %11 = load i16, ptr %10, align 2, !tbaa !19
   %12 = zext i16 %11 to i32
   %13 = sub nsw i32 %12, %9
   %14 = add nsw i32 %13, 1
@@ -262,7 +262,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   ]
 
 18:                                               ; preds = %4
-  %19 = load i16, ptr %2, align 2, !tbaa !26
+  %19 = load i16, ptr %2, align 2, !tbaa !27
   %20 = zext i16 %19 to i32
   %21 = mul nsw i32 %14, %20
   %22 = icmp sgt i32 %21, %17
@@ -271,13 +271,13 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %25 = load i16, ptr %24, align 2, !tbaa !26
+  %25 = load i16, ptr %24, align 2, !tbaa !27
   %26 = zext i16 %25 to i32
   %27 = mul nsw i32 %14, %26
   %28 = icmp sgt i32 %27, %17
   %spec.select108 = select i1 %28, ptr %24, ptr %.ptr100
   %29 = getelementptr inbounds nuw i8, ptr %spec.select108, i64 2
-  %30 = load i16, ptr %29, align 2, !tbaa !26
+  %30 = load i16, ptr %29, align 2, !tbaa !27
   %31 = zext i16 %30 to i32
   %32 = mul nsw i32 %14, %31
   %33 = icmp sgt i32 %32, %17
@@ -285,7 +285,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   br label %.loopexit
 
 34:                                               ; preds = %4
-  %35 = load i16, ptr %2, align 2, !tbaa !26
+  %35 = load i16, ptr %2, align 2, !tbaa !27
   %36 = zext i16 %35 to i32
   %37 = mul nsw i32 %14, %36
   %.not105 = icmp sgt i32 %37, %17
@@ -296,25 +296,25 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   %.2115 = phi ptr [ %spec.select109, %.preheader ], [ %2, %34 ]
   %38 = zext nneg i32 %.0116 to i64
   %39 = getelementptr inbounds nuw i16, ptr %.2115, i64 %38
-  %40 = load i16, ptr %39, align 2, !tbaa !26
+  %40 = load i16, ptr %39, align 2, !tbaa !27
   %41 = zext i16 %40 to i32
   %42 = mul nsw i32 %14, %41
   %43 = icmp sgt i32 %42, %17
   %spec.select109 = select i1 %43, ptr %39, ptr %.2115
   %44 = lshr i32 %.0116, 1
   %.not106 = icmp samesign ult i32 %.0116, 2
-  br i1 %.not106, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %.not106, label %.loopexit, label %.preheader, !llvm.loop !28
 
 45:                                               ; preds = %4
   %.ptr101 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %46 = load i16, ptr %.ptr101, align 2, !tbaa !26
+  %46 = load i16, ptr %.ptr101, align 2, !tbaa !27
   %47 = zext i16 %46 to i32
   %48 = mul nsw i32 %14, %47
   %49 = icmp sgt i32 %48, %17
   %spec.select110 = select i1 %49, i64 30, i64 -2
   %.4.add = add nsw i64 %spec.select110, 16
   %.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.4.add
-  %50 = load i16, ptr %.ptr, align 2, !tbaa !26
+  %50 = load i16, ptr %.ptr, align 2, !tbaa !27
   %51 = zext i16 %50 to i32
   %52 = mul nsw i32 %14, %51
   %53 = icmp sgt i32 %52, %17
@@ -325,7 +325,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
 54:                                               ; preds = %45
   %.5.ptr.add = add nsw i64 %.5.idx, 8
   %.ptr104 = getelementptr inbounds nuw i8, ptr %2, i64 %.5.ptr.add
-  %55 = load i16, ptr %.ptr104, align 2, !tbaa !26
+  %55 = load i16, ptr %.ptr104, align 2, !tbaa !27
   %56 = zext i16 %55 to i32
   %57 = mul nsw i32 %14, %56
   %58 = icmp sgt i32 %57, %17
@@ -336,7 +336,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   %.6.idx = phi i64 [ 46, %45 ], [ %spec.select111, %54 ]
   %.6.add = add nsw i64 %.6.idx, 4
   %.ptr103 = getelementptr inbounds nuw i8, ptr %2, i64 %.6.add
-  %60 = load i16, ptr %.ptr103, align 2, !tbaa !26
+  %60 = load i16, ptr %.ptr103, align 2, !tbaa !27
   %61 = zext i16 %60 to i32
   %62 = mul nsw i32 %14, %61
   %63 = icmp sgt i32 %62, %17
@@ -347,7 +347,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %.7.ptr, i64 2
-  %66 = load i16, ptr %65, align 2, !tbaa !26
+  %66 = load i16, ptr %65, align 2, !tbaa !27
   %67 = zext i16 %66 to i32
   %68 = mul nsw i32 %14, %67
   %69 = icmp sgt i32 %68, %17
@@ -369,7 +369,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   %sext = shl i64 %72, 31
   %77 = ashr i64 %sext, 32
   %78 = getelementptr inbounds i16, ptr %2, i64 %77
-  %79 = load i16, ptr %78, align 2, !tbaa !26
+  %79 = load i16, ptr %78, align 2, !tbaa !27
   %80 = zext i16 %79 to i32
   %81 = mul nsw i32 %14, %80
   %82 = ashr i32 %81, 14
@@ -381,7 +381,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   %.096 = phi i32 [ %84, %76 ], [ %12, %.loopexit ]
   %86 = sext i32 %75 to i64
   %87 = getelementptr inbounds i16, ptr %2, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !26
+  %88 = load i16, ptr %87, align 2, !tbaa !27
   %89 = zext i16 %88 to i32
   %90 = mul nsw i32 %14, %89
   %91 = ashr i32 %90, 14
@@ -427,13 +427,13 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   %reass.add = shl i32 %.298, 1
   %112 = or disjoint i32 %reass.add, 1
   %113 = shl i32 %.193, 1
-  %114 = load i32, ptr %93, align 8, !tbaa !19
-  %115 = load ptr, ptr %1, align 8, !tbaa !24
+  %114 = load i32, ptr %93, align 8, !tbaa !20
+  %115 = load ptr, ptr %1, align 8, !tbaa !25
   %116 = lshr i32 %114, 3
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !10
-  %120 = load i32, ptr %94, align 8, !tbaa !23
+  %120 = load i32, ptr %94, align 8, !tbaa !24
   %121 = icmp slt i32 %114, %120
   %122 = zext i1 %121 to i32
   %spec.select.i = add i32 %114, %122
@@ -441,18 +441,18 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   %124 = and i32 %114, 7
   %125 = shl nuw nsw i32 %123, %124
   %126 = lshr i32 %125, 7
-  store i32 %spec.select.i, ptr %93, align 8, !tbaa !19
+  store i32 %spec.select.i, ptr %93, align 8, !tbaa !20
   %127 = and i32 %126, 1
   %128 = or disjoint i32 %127, %113
-  br label %95
+  br label %95, !llvm.loop !29
 
 129:                                              ; preds = %103
   %130 = trunc i32 %.094 to i16
-  store i16 %130, ptr %0, align 2, !tbaa !16
+  store i16 %130, ptr %0, align 2, !tbaa !17
   %131 = trunc i32 %.197 to i16
-  store i16 %131, ptr %10, align 2, !tbaa !18
+  store i16 %131, ptr %10, align 2, !tbaa !19
   %132 = trunc i32 %.092 to i16
-  store i16 %132, ptr %5, align 2, !tbaa !25
+  store i16 %132, ptr %5, align 2, !tbaa !26
   %133 = trunc i32 %75 to i16
   ret i16 %133
 }
@@ -524,20 +524,22 @@ attributes #10 = { nounwind }
 !8 = !{!"int", !6, i64 0}
 !9 = !{!"short", !6, i64 0}
 !10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!5, !9, i64 524}
-!14 = !{!8, !8, i64 0}
-!15 = distinct !{!15, !12}
-!16 = !{!17, !9, i64 0}
-!17 = !{!"AACArith", !9, i64 0, !9, i64 2, !9, i64 4}
-!18 = !{!17, !9, i64 2}
-!19 = !{!20, !8, i64 16}
-!20 = !{!"GetBitContext", !21, i64 0, !21, i64 8, !8, i64 16, !8, i64 20, !8, i64 24}
-!21 = !{!"p1 omnipotent char", !22, i64 0}
-!22 = !{!"any pointer", !6, i64 0}
-!23 = !{!20, !8, i64 24}
-!24 = !{!20, !21, i64 0}
-!25 = !{!17, !9, i64 4}
-!26 = !{!9, !9, i64 0}
-!27 = distinct !{!27, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!5, !9, i64 524}
+!15 = !{!8, !8, i64 0}
+!16 = distinct !{!16, !12, !13}
+!17 = !{!18, !9, i64 0}
+!18 = !{!"AACArith", !9, i64 0, !9, i64 2, !9, i64 4}
+!19 = !{!18, !9, i64 2}
+!20 = !{!21, !8, i64 16}
+!21 = !{!"GetBitContext", !22, i64 0, !22, i64 8, !8, i64 16, !8, i64 20, !8, i64 24}
+!22 = !{!"p1 omnipotent char", !23, i64 0}
+!23 = !{!"any pointer", !6, i64 0}
+!24 = !{!21, !8, i64 24}
+!25 = !{!21, !22, i64 0}
+!26 = !{!18, !9, i64 4}
+!27 = !{!9, !9, i64 0}
+!28 = distinct !{!28, !12, !13}
+!29 = distinct !{!29, !13}

@@ -49,19 +49,19 @@ define ptr @proj_context_errno_string(ptr noundef %0, i32 noundef %1) local_unna
 8:                                                ; preds = %.preheader
   %.031.add = add nuw nsw i64 %.031.idx42, 16
   %.not = icmp eq i64 %.031.add, 240
-  br i1 %.not, label %.loopexit, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !3
 
 .preheader:                                       ; preds = %6, %8
   %.031.idx42 = phi i64 [ %.031.add, %8 ], [ 0, %6 ]
   %.031.ptr43 = getelementptr inbounds nuw i8, ptr @_ZL13error_strings, i64 %.031.idx42
-  %9 = load i32, ptr %.031.ptr43, align 16, !tbaa !3
+  %9 = load i32, ptr %.031.ptr43, align 16, !tbaa !5
   %.not35 = icmp eq i32 %1, %9
   br i1 %.not35, label %.thread, label %8
 
 .thread:                                          ; preds = %.preheader
   %.031.ptr43.le = getelementptr inbounds nuw i8, ptr @_ZL13error_strings, i64 %.031.idx42
   %10 = getelementptr inbounds nuw i8, ptr %.031.ptr43.le, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !10
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.thread
@@ -84,24 +84,24 @@ define ptr @proj_context_errno_string(ptr noundef %0, i32 noundef %1) local_unna
 
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds nuw i8, ptr %.030, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !11
+  %19 = load i64, ptr %18, align 8, !tbaa !13
   %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #4
   %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %.030, i64 noundef 0, i64 noundef %19, ptr noundef nonnull %.4, i64 noundef %20)
   br label %29
 
 22:                                               ; preds = %.loopexit
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %.030, i64 noundef 50, i8 noundef signext 0)
-  %23 = load ptr, ptr %.030, align 8, !tbaa !15
+  %23 = load ptr, ptr %.030, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %.030, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !11
+  %25 = load i64, ptr %24, align 8, !tbaa !13
   %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %25, ptr noundef nonnull @.str.2, i32 noundef %1) #4
-  %27 = load ptr, ptr %.030, align 8, !tbaa !15
+  %27 = load ptr, ptr %.030, align 8, !tbaa !17
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #5
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %.030, i64 noundef %28, i8 noundef signext 0)
   br label %29
 
 29:                                               ; preds = %22, %17
-  %30 = load ptr, ptr %.030, align 8, !tbaa !15
+  %30 = load ptr, ptr %.030, align 8, !tbaa !17
   br label %31
 
 31:                                               ; preds = %6, %29
@@ -135,16 +135,18 @@ attributes #5 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !5, i64 0}
-!4 = !{!"_ZTS3$_0", !5, i64 0, !8, i64 8}
-!5 = !{!"int", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C++ TBAA"}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !6, i64 0}
-!10 = !{!4, !8, i64 8}
-!11 = !{!12, !14, i64 8}
-!12 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !13, i64 0, !14, i64 8, !6, i64 16}
-!13 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !8, i64 0}
-!14 = !{!"long", !6, i64 0}
-!15 = !{!12, !8, i64 0}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"_ZTS3$_0", !7, i64 0, !10, i64 8}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !8, i64 0}
+!12 = !{!6, !10, i64 8}
+!13 = !{!14, !16, i64 8}
+!14 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !15, i64 0, !16, i64 8, !8, i64 16}
+!15 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !10, i64 0}
+!16 = !{!"long", !8, i64 0}
+!17 = !{!14, !10, i64 0}

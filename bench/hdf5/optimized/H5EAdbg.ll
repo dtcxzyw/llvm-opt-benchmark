@@ -310,8 +310,8 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %72 = load ptr, ptr %44, align 8, !tbaa !17
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
-  %74 = load ptr, ptr %73, align 8, !tbaa !58
-  %75 = load ptr, ptr %66, align 8, !tbaa !59
+  %74 = load ptr, ptr %73, align 8, !tbaa !59
+  %75 = load ptr, ptr %66, align 8, !tbaa !60
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %77 = load i64, ptr %76, align 8, !tbaa !39
   %78 = mul i64 %77, %indvars.iv
@@ -349,7 +349,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   %95 = phi i64 [ 0, %.lr.ph130 ], [ %102, %94 ]
   %.084129 = phi i32 [ 0, %.lr.ph130 ], [ %101, %94 ]
   %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.084129) #5
-  %97 = load ptr, ptr %93, align 8, !tbaa !60
+  %97 = load ptr, ptr %93, align 8, !tbaa !61
   %98 = getelementptr inbounds nuw i64, ptr %97, i64 %95
   %99 = load i64, ptr %98, align 8, !tbaa !16
   %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %90, ptr noundef nonnull @.str.4, i32 noundef %92, ptr noundef nonnull %9, i64 noundef %99) #5
@@ -357,7 +357,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   %102 = zext i32 %101 to i64
   %103 = load i64, ptr %52, align 8, !tbaa !54
   %104 = icmp ugt i64 %103, %102
-  br i1 %104, label %94, label %._crit_edge, !llvm.loop !61
+  br i1 %104, label %94, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %94, %87
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #5
@@ -386,7 +386,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   %115 = phi i64 [ 0, %.lr.ph133 ], [ %122, %114 ]
   %.0131 = phi i32 [ 0, %.lr.ph133 ], [ %121, %114 ]
   %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.0131) #5
-  %117 = load ptr, ptr %113, align 8, !tbaa !62
+  %117 = load ptr, ptr %113, align 8, !tbaa !63
   %118 = getelementptr inbounds nuw i64, ptr %117, i64 %115
   %119 = load i64, ptr %118, align 8, !tbaa !16
   %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %110, ptr noundef nonnull @.str.4, i32 noundef %112, ptr noundef nonnull %10, i64 noundef %119) #5
@@ -394,7 +394,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   %122 = zext i32 %121 to i64
   %123 = load i64, ptr %55, align 8, !tbaa !55
   %124 = icmp ugt i64 %123, %122
-  br i1 %124, label %114, label %._crit_edge134, !llvm.loop !63
+  br i1 %124, label %114, label %._crit_edge134, !llvm.loop !64
 
 ._crit_edge134:                                   ; preds = %114, %107
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #5
@@ -521,22 +521,22 @@ define range(i32 -1, 1) i32 @H5EA__sblock_debug(ptr noundef %0, i64 noundef %1, 
   %45 = load ptr, ptr %44, align 8, !tbaa !36
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.6, ptr noundef %45) #5
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 288
-  %48 = load i64, ptr %47, align 8, !tbaa !64
+  %48 = load i64, ptr %47, align 8, !tbaa !65
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.39, i64 noundef %48) #5
   %50 = getelementptr inbounds nuw i8, ptr %34, i64 328
-  %51 = load i64, ptr %50, align 8, !tbaa !67
+  %51 = load i64, ptr %50, align 8, !tbaa !68
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.40, i64 noundef %51) #5
   %53 = getelementptr inbounds nuw i8, ptr %34, i64 336
-  %54 = load i64, ptr %53, align 8, !tbaa !68
+  %54 = load i64, ptr %53, align 8, !tbaa !69
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.41, i64 noundef %54) #5
-  %56 = load i64, ptr %50, align 8, !tbaa !67
+  %56 = load i64, ptr %50, align 8, !tbaa !68
   %.not69 = icmp eq i64 %56, 0
   br i1 %.not69, label %75, label %57
 
 57:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #5
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.42, i32 noundef %3, ptr noundef nonnull @.str.4) #5
-  %59 = load i64, ptr %50, align 8, !tbaa !67
+  %59 = load i64, ptr %50, align 8, !tbaa !68
   %.not91 = icmp eq i64 %59, 0
   br i1 %.not91, label %._crit_edge, label %.lr.ph
 
@@ -551,15 +551,15 @@ define range(i32 -1, 1) i32 @H5EA__sblock_debug(ptr noundef %0, i64 noundef %1, 
   %65 = phi i64 [ 0, %.lr.ph ], [ %72, %64 ]
   %.090 = phi i32 [ 0, %.lr.ph ], [ %71, %64 ]
   %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.090) #5
-  %67 = load ptr, ptr %63, align 8, !tbaa !69
+  %67 = load ptr, ptr %63, align 8, !tbaa !70
   %68 = getelementptr inbounds nuw i64, ptr %67, i64 %65
   %69 = load i64, ptr %68, align 8, !tbaa !16
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %60, ptr noundef nonnull @.str.4, i32 noundef %62, ptr noundef nonnull %10, i64 noundef %69) #5
   %71 = add i32 %.090, 1
   %72 = zext i32 %71 to i64
-  %73 = load i64, ptr %50, align 8, !tbaa !67
+  %73 = load i64, ptr %50, align 8, !tbaa !68
   %74 = icmp ugt i64 %73, %72
-  br i1 %74, label %64, label %._crit_edge, !llvm.loop !70
+  br i1 %74, label %64, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %64, %57
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #5
@@ -682,7 +682,7 @@ define range(i32 -1, 1) i32 @H5EA__dblock_debug(ptr noundef %0, i64 noundef %1, 
   %44 = load ptr, ptr %43, align 8, !tbaa !36
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.6, ptr noundef %44) #5
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 280
-  %47 = load i64, ptr %46, align 8, !tbaa !71
+  %47 = load i64, ptr %46, align 8, !tbaa !72
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.46, i64 noundef %47) #5
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.47, i32 noundef %3, ptr noundef nonnull @.str.4) #5
   %.not83 = icmp eq i64 %7, 0
@@ -698,14 +698,14 @@ define range(i32 -1, 1) i32 @H5EA__dblock_debug(ptr noundef %0, i64 noundef %1, 
 54:                                               ; preds = %56
   %55 = add nuw i64 %.05082, 1
   %exitcond.not = icmp eq i64 %55, %7
-  br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !73
+  br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !74
 
 56:                                               ; preds = %.lr.ph, %54
   %.05082 = phi i64 [ 0, %.lr.ph ], [ %55, %54 ]
   %57 = load ptr, ptr %41, align 8, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = load ptr, ptr %58, align 8, !tbaa !58
-  %60 = load ptr, ptr %53, align 8, !tbaa !74
+  %59 = load ptr, ptr %58, align 8, !tbaa !59
+  %60 = load ptr, ptr %53, align 8, !tbaa !75
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !39
   %63 = mul i64 %62, %.05082
@@ -847,22 +847,23 @@ attributes #5 = { nounwind }
 !53 = !{!"p1 _ZTS10H5EA_hdr_t", !14, i64 0}
 !54 = !{!52, !15, i64 312}
 !55 = !{!52, !15, i64 320}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!11, !14, i64 64}
-!59 = !{!52, !14, i64 248}
-!60 = !{!52, !24, i64 256}
-!61 = distinct !{!61, !57}
-!62 = !{!52, !24, i64 264}
-!63 = distinct !{!63, !57}
-!64 = !{!65, !15, i64 288}
-!65 = !{!"H5EA_sblock_t", !19, i64 0, !15, i64 248, !24, i64 256, !13, i64 264, !53, i64 272, !15, i64 280, !15, i64 288, !4, i64 296, !35, i64 304, !66, i64 312, !12, i64 320, !15, i64 328, !15, i64 336, !15, i64 344, !15, i64 352, !15, i64 360}
-!66 = !{!"p1 _ZTS13H5EA_iblock_t", !14, i64 0}
-!67 = !{!65, !15, i64 328}
-!68 = !{!65, !15, i64 336}
-!69 = !{!65, !24, i64 256}
-!70 = distinct !{!70, !57}
-!71 = !{!72, !15, i64 280}
-!72 = !{!"H5EA_dblock_t", !19, i64 0, !15, i64 248, !14, i64 256, !53, i64 264, !15, i64 272, !15, i64 280, !4, i64 288, !35, i64 296, !14, i64 304, !15, i64 312, !15, i64 320}
-!73 = distinct !{!73, !57}
-!74 = !{!72, !14, i64 256}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = !{!11, !14, i64 64}
+!60 = !{!52, !14, i64 248}
+!61 = !{!52, !24, i64 256}
+!62 = distinct !{!62, !57, !58}
+!63 = !{!52, !24, i64 264}
+!64 = distinct !{!64, !57, !58}
+!65 = !{!66, !15, i64 288}
+!66 = !{!"H5EA_sblock_t", !19, i64 0, !15, i64 248, !24, i64 256, !13, i64 264, !53, i64 272, !15, i64 280, !15, i64 288, !4, i64 296, !35, i64 304, !67, i64 312, !12, i64 320, !15, i64 328, !15, i64 336, !15, i64 344, !15, i64 352, !15, i64 360}
+!67 = !{!"p1 _ZTS13H5EA_iblock_t", !14, i64 0}
+!68 = !{!66, !15, i64 328}
+!69 = !{!66, !15, i64 336}
+!70 = !{!66, !24, i64 256}
+!71 = distinct !{!71, !57, !58}
+!72 = !{!73, !15, i64 280}
+!73 = !{!"H5EA_dblock_t", !19, i64 0, !15, i64 248, !14, i64 256, !53, i64 264, !15, i64 272, !15, i64 280, !4, i64 288, !35, i64 296, !14, i64 304, !15, i64 312, !15, i64 320}
+!74 = distinct !{!74, !57, !58}
+!75 = !{!73, !14, i64 256}

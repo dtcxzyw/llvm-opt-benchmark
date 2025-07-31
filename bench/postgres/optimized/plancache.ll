@@ -256,7 +256,7 @@ define internal void @PlanCacheRelCallback(i64 %0, i32 noundef %1) #0 {
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.024.071, i64 8
   %95 = load ptr, ptr %94, align 8
   %.not51 = icmp eq ptr %95, @saved_plan_list
-  br i1 %.not51, label %select.unfold._crit_edge, label %.lr.ph72.split, !llvm.loop !9
+  br i1 %.not51, label %select.unfold._crit_edge, label %.lr.ph72.split, !llvm.loop !10
 
 select.unfold._crit_edge:                         ; preds = %.critedge, %.critedge.us, %2
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cached_expression_list, i64 8), align 8
@@ -290,7 +290,7 @@ select.unfold63.us:                               ; preds = %104, %101, %.lr.ph7
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.024.174.us, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not53.us = icmp eq ptr %106, @cached_expression_list
-  br i1 %.not53.us, label %select.unfold63._crit_edge, label %.lr.ph75.split.us, !llvm.loop !10
+  br i1 %.not53.us, label %select.unfold63._crit_edge, label %.lr.ph75.split.us, !llvm.loop !11
 
 .lr.ph75.split:                                   ; preds = %.lr.ph75, %select.unfold63
   %.sroa.024.174 = phi ptr [ %116, %select.unfold63 ], [ %96, %.lr.ph75 ]
@@ -313,7 +313,7 @@ select.unfold63:                                  ; preds = %110, %114, %.lr.ph7
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.024.174, i64 8
   %116 = load ptr, ptr %115, align 8
   %.not53 = icmp eq ptr %116, @cached_expression_list
-  br i1 %.not53, label %select.unfold63._crit_edge, label %.lr.ph75.split, !llvm.loop !11
+  br i1 %.not53, label %select.unfold63._crit_edge, label %.lr.ph75.split, !llvm.loop !12
 
 select.unfold63._crit_edge:                       ; preds = %select.unfold63, %select.unfold63.us, %select.unfold._crit_edge
   ret void
@@ -380,7 +380,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
 27:                                               ; preds = %.lr.ph132.split.us
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %.critedge, label %.lr.ph132.split.us, !llvm.loop !12
+  br i1 %exitcond173.not, label %.critedge, label %.lr.ph132.split.us, !llvm.loop !13
 
 .lr.ph132.split:                                  ; preds = %.lr.ph132, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.lr.ph132 ]
@@ -542,7 +542,7 @@ select.unfold120:                                 ; preds = %.critedge113, %.lr.
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.055.0147, i64 8
   %96 = load ptr, ptr %95, align 8
   %.not93 = icmp eq ptr %96, @saved_plan_list
-  br i1 %.not93, label %select.unfold._crit_edge, label %6, !llvm.loop !13
+  br i1 %.not93, label %select.unfold._crit_edge, label %6, !llvm.loop !14
 
 select.unfold._crit_edge:                         ; preds = %.critedge111, %3
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cached_expression_list, i64 8), align 8
@@ -572,7 +572,7 @@ select.unfold._crit_edge:                         ; preds = %.critedge111, %3
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.055.1159.us, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not95.us = icmp eq ptr %106, @cached_expression_list
-  br i1 %.not95.us, label %select.unfold124._crit_edge, label %.lr.ph160.split.us, !llvm.loop !14
+  br i1 %.not95.us, label %select.unfold124._crit_edge, label %.lr.ph160.split.us, !llvm.loop !15
 
 .lr.ph150.us:                                     ; preds = %102
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
@@ -658,7 +658,7 @@ select.unfold._crit_edge:                         ; preds = %.critedge111, %3
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.055.1159, i64 8
   %138 = load ptr, ptr %137, align 8
   %.not95 = icmp eq ptr %138, @cached_expression_list
-  br i1 %.not95, label %select.unfold124._crit_edge, label %.lr.ph160.split, !llvm.loop !15
+  br i1 %.not95, label %select.unfold124._crit_edge, label %.lr.ph160.split, !llvm.loop !16
 
 select.unfold124._crit_edge:                      ; preds = %.critedge115, %.critedge115.us, %select.unfold._crit_edge
   ret void
@@ -705,7 +705,7 @@ select.unfold.i:                                  ; preds = %16, %13, %11, %8, %
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.030.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not22.i = icmp eq ptr %19, @saved_plan_list
-  br i1 %.not22.i, label %select.unfold._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not22.i, label %select.unfold._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %3
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cached_expression_list, i64 8), align 8
@@ -721,7 +721,7 @@ select.unfold27.i:                                ; preds = %select.unfold._crit
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.132.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not24.i = icmp eq ptr %23, @cached_expression_list
-  br i1 %.not24.i, label %ResetPlanCache.exit, label %select.unfold27.i, !llvm.loop !17
+  br i1 %.not24.i, label %ResetPlanCache.exit, label %select.unfold27.i, !llvm.loop !18
 
 ResetPlanCache.exit:                              ; preds = %select.unfold27.i, %select.unfold._crit_edge.i
   ret void
@@ -2987,7 +2987,7 @@ select.unfold:                                    ; preds = %10, %13, %5, %8, %.
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not22 = icmp eq ptr %16, @saved_plan_list
-  br i1 %.not22, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not22, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !17
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %0
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cached_expression_list, i64 8), align 8
@@ -3003,7 +3003,7 @@ select.unfold27:                                  ; preds = %select.unfold._crit
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.132, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not24 = icmp eq ptr %20, @cached_expression_list
-  br i1 %.not24, label %select.unfold27._crit_edge, label %select.unfold27, !llvm.loop !17
+  br i1 %.not24, label %select.unfold27._crit_edge, label %select.unfold27, !llvm.loop !18
 
 select.unfold27._crit_edge:                       ; preds = %select.unfold27, %select.unfold._crit_edge
   ret void
@@ -3306,15 +3306,16 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !7}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !9}
 !14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

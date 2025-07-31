@@ -299,7 +299,7 @@ av1_metadata_update_sequence_header.exit:         ; preds = %109, %91, %88, %12
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %120 = load i32, ptr %119, align 8, !tbaa !61
+  %120 = load i32, ptr %119, align 8, !tbaa !62
   %121 = icmp eq i32 %120, 2
   br i1 %121, label %122, label %133
 
@@ -313,7 +313,7 @@ av1_metadata_update_sequence_header.exit:         ; preds = %109, %91, %88, %12
 
 124:                                              ; preds = %123
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %126 = load i32, ptr %125, align 8, !tbaa !61
+  %126 = load i32, ptr %125, align 8, !tbaa !62
   %127 = icmp eq i32 %126, 1
   br i1 %127, label %128, label %133
 
@@ -329,7 +329,7 @@ av1_metadata_update_sequence_header.exit:         ; preds = %109, %91, %88, %12
 
 133:                                              ; preds = %123, %124, %128, %118, %122
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 2976
-  %135 = load i32, ptr %134, align 8, !tbaa !62
+  %135 = load i32, ptr %134, align 8, !tbaa !63
   %.not39 = icmp eq i32 %135, 0
   br i1 %.not39, label %.loopexit, label %136
 
@@ -359,7 +359,7 @@ av1_metadata_update_sequence_header.exit:         ; preds = %109, %91, %88, %12
 
 148:                                              ; preds = %141, %146
   %149 = icmp samesign ugt i64 %indvars.iv48, 1
-  br i1 %149, label %141, label %.loopexit, !llvm.loop !63
+  br i1 %149, label %141, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %148, %136, %133, %132
   %.2 = phi i32 [ %130, %132 ], [ 0, %133 ], [ 0, %136 ], [ 0, %148 ]
@@ -441,8 +441,9 @@ attributes #4 = { nounwind }
 !56 = !{!26, !13, i64 2972}
 !57 = !{!50, !8, i64 8}
 !58 = !{!50, !13, i64 12}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!26, !13, i64 80}
-!62 = !{!26, !13, i64 2976}
-!63 = distinct !{!63, !60}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!26, !13, i64 80}
+!63 = !{!26, !13, i64 2976}
+!64 = distinct !{!64, !60, !61}

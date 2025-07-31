@@ -126,16 +126,16 @@ define ptr @Dec_SopToAig(ptr noundef %0, ptr noundef %1, ptr noundef readonly ca
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.val = load ptr, ptr %8, align 8, !tbaa !13
-  %.val12 = load ptr, ptr %9, align 8, !tbaa !34
+  %.val12 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %indvars.iv, i32 2
   store ptr %12, ptr %13, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %5, align 4, !tbaa !11
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %10, label %.critedge, !llvm.loop !37
+  br i1 %16, label %10, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %10, %3
   %17 = tail call ptr @Dec_GraphToNetwork(ptr noundef %0, ptr noundef nonnull %4)
@@ -170,16 +170,16 @@ define ptr @Dec_GraphToAig(ptr noundef %0, ptr noundef readonly captures(none) %
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.val = load ptr, ptr %7, align 8, !tbaa !13
-  %.val10 = load ptr, ptr %8, align 8, !tbaa !34
+  %.val10 = load ptr, ptr %8, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !36
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %indvars.iv, i32 2
   store ptr %11, ptr %12, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %4, align 4, !tbaa !11
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %9, label %.critedge, !llvm.loop !38
+  br i1 %15, label %9, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %9, %3
   %16 = tail call ptr @Dec_GraphToNetwork(ptr noundef %0, ptr noundef nonnull %1)
@@ -269,7 +269,7 @@ define ptr @Dec_GraphToNetworkNoStrash(ptr noundef %0, ptr noundef readonly capt
   %56 = load i32, ptr %15, align 8, !tbaa !12
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %29, label %.critedge, !llvm.loop !39
+  br i1 %58, label %29, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %29
   %.val30 = load i32, ptr %12, align 8
@@ -289,7 +289,7 @@ declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !40
+  %5 = load ptr, ptr %0, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %.val = load i32, ptr %1, align 8, !tbaa !3
@@ -348,7 +348,7 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, p
   %34 = load i32, ptr %9, align 4, !tbaa !11
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %19, label %.critedge.preheader, !llvm.loop !43
+  br i1 %36, label %19, label %.critedge.preheader, !llvm.loop !44
 
 37:                                               ; preds = %.lr.ph95, %.critedge
   %indvars.iv103 = phi i64 [ %18, %.lr.ph95 ], [ %indvars.iv.next104, %.critedge ]
@@ -398,18 +398,18 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, p
   br i1 %73, label %.thread, label %74
 
 74:                                               ; preds = %72
-  %.val2.i = load ptr, ptr %70, align 8, !tbaa !40
+  %.val2.i = load ptr, ptr %70, align 8, !tbaa !41
   %75 = getelementptr i8, ptr %70, i64 16
-  %.val3.i = load i32, ptr %75, align 8, !tbaa !44
+  %.val3.i = load i32, ptr %75, align 8, !tbaa !45
   %76 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 224
   %77 = add nsw i32 %.val3.i, 1
   %78 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 228
-  %79 = load i32, ptr %78, align 4, !tbaa !45
+  %79 = load i32, ptr %78, align 4, !tbaa !46
   %.not.i.not.i.i.i = icmp slt i32 %.val3.i, %79
   br i1 %.not.i.not.i.i.i, label %Abc_NodeIsTravIdCurrent.exit, label %80
 
 80:                                               ; preds = %74
-  %81 = load i32, ptr %76, align 8, !tbaa !46
+  %81 = load i32, ptr %76, align 8, !tbaa !47
   %82 = shl nsw i32 %81, 1
   %.not.i.i.i = icmp slt i32 %.val3.i, %82
   %.not.i.i.not.i.i.i = icmp sgt i32 %81, %.val3.i
@@ -420,7 +420,7 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, p
 
 84:                                               ; preds = %83
   %85 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 232
-  %86 = load ptr, ptr %85, align 8, !tbaa !47
+  %86 = load ptr, ptr %85, align 8, !tbaa !48
   %.not9.i.i.i.i.i = icmp eq ptr %86, null
   %87 = sext i32 %77 to i64
   %88 = shl nsw i64 %87, 2
@@ -436,7 +436,7 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, p
 
 93:                                               ; preds = %91, %89
   %94 = phi ptr [ %90, %89 ], [ %92, %91 ]
-  store ptr %94, ptr %85, align 8, !tbaa !47
+  store ptr %94, ptr %85, align 8, !tbaa !48
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 95:                                               ; preds = %80
@@ -444,7 +444,7 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, p
 
 96:                                               ; preds = %95
   %97 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 232
-  %98 = load ptr, ptr %97, align 8, !tbaa !47
+  %98 = load ptr, ptr %97, align 8, !tbaa !48
   %.not9.i21.i.i.i.i = icmp eq ptr %98, null
   %99 = sext i32 %82 to i64
   %100 = shl nsw i64 %99, 2
@@ -460,13 +460,13 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, p
 
 105:                                              ; preds = %103, %101
   %106 = phi ptr [ %102, %101 ], [ %104, %103 ]
-  store ptr %106, ptr %97, align 8, !tbaa !47
+  store ptr %106, ptr %97, align 8, !tbaa !48
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %105, %93
   %.sink.i.i.i.i = phi i32 [ %82, %105 ], [ %77, %93 ]
-  store i32 %.sink.i.i.i.i, ptr %76, align 8, !tbaa !46
-  %.pre.i.i.i = load i32, ptr %78, align 4, !tbaa !45
+  store i32 %.sink.i.i.i.i, ptr %76, align 8, !tbaa !47
+  %.pre.i.i.i = load i32, ptr %78, align 4, !tbaa !46
   br label %Vec_IntGrow.exit.i.i.i.i
 
 Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.sink.split.i.i.i.i, %95, %83
@@ -476,7 +476,7 @@ Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.si
 
 .lr.ph.i.i.i.i:                                   ; preds = %Vec_IntGrow.exit.i.i.i.i
   %108 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 232
-  %109 = load ptr, ptr %108, align 8, !tbaa !47
+  %109 = load ptr, ptr %108, align 8, !tbaa !48
   %110 = sext i32 %107 to i64
   %111 = shl nsw i64 %110, 2
   %scevgep.i.i.i.i = getelementptr i8, ptr %109, i64 %111
@@ -484,23 +484,23 @@ Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.si
   %113 = zext i32 %112 to i64
   %114 = shl nuw nsw i64 %113, 2
   %115 = add nuw nsw i64 %114, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i.i, i8 0, i64 %115, i1 false), !tbaa !48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i.i, i8 0, i64 %115, i1 false), !tbaa !49
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %Vec_IntGrow.exit.i.i.i.i
-  store i32 %77, ptr %78, align 4, !tbaa !45
-  %.val.pre.i = load ptr, ptr %70, align 8, !tbaa !40
+  store i32 %77, ptr %78, align 4, !tbaa !46
+  %.val.pre.i = load ptr, ptr %70, align 8, !tbaa !41
   br label %Abc_NodeIsTravIdCurrent.exit
 
 Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.i.i.i
   %.val.i = phi ptr [ %.val2.i, %74 ], [ %.val.pre.i, %._crit_edge.i.i.i.i ]
   %116 = getelementptr i8, ptr %.val2.i, i64 232
-  %.val.i.i.i = load ptr, ptr %116, align 8, !tbaa !47
+  %.val.i.i.i = load ptr, ptr %116, align 8, !tbaa !48
   %117 = sext i32 %.val3.i to i64
   %118 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !48
+  %119 = load i32, ptr %118, align 4, !tbaa !49
   %120 = getelementptr inbounds nuw i8, ptr %.val.i, i64 216
-  %121 = load i32, ptr %120, align 8, !tbaa !49
+  %121 = load i32, ptr %120, align 8, !tbaa !50
   %.not91 = icmp eq i32 %119, %121
   br i1 %.not91, label %.thread, label %124
 
@@ -533,7 +533,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   %135 = ptrtoint ptr %.06684 to i64
   %136 = and i64 %135, -2
   %137 = inttoptr i64 %136 to ptr
-  %138 = load ptr, ptr %0, align 8, !tbaa !40
+  %138 = load ptr, ptr %0, align 8, !tbaa !41
   %139 = tail call ptr @Abc_AigConst1(ptr noundef %138) #8
   %140 = icmp eq ptr %139, %137
   br i1 %140, label %151, label %141
@@ -572,7 +572,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   %159 = load i32, ptr %14, align 8, !tbaa !12
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv.next104, %160
-  br i1 %161, label %37, label %.critedge2, !llvm.loop !50
+  br i1 %161, label %37, label %.critedge2, !llvm.loop !51
 
 .critedge2:                                       ; preds = %56, %.thread, %151, %.critedge, %.critedge.preheader, %4, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %.critedge.preheader ], [ -1, %56 ], [ -1, %.thread ], [ -1, %151 ], [ %.161, %.critedge ]
@@ -583,7 +583,7 @@ declare ptr @Abc_AigAndLookup(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define i32 @Dec_GraphUpdateNetwork(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !40
+  %5 = load ptr, ptr %0, align 8, !tbaa !41
   %6 = tail call ptr @Dec_GraphToNetwork(ptr noundef %5, ptr noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %8 = load ptr, ptr %7, align 8, !tbaa !15
@@ -603,7 +603,7 @@ define ptr @Dec_GraphToNetworkAig(ptr noundef %0, ptr noundef readonly captures(
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 24
-  %.val37 = load ptr, ptr %5, align 8, !tbaa !51
+  %.val37 = load ptr, ptr %5, align 8, !tbaa !52
   %6 = and i32 %.val31, 1
   %7 = ptrtoint ptr %.val37 to i64
   %8 = zext nneg i32 %6 to i64
@@ -673,7 +673,7 @@ define ptr @Dec_GraphToNetworkAig(ptr noundef %0, ptr noundef readonly captures(
   %55 = load i32, ptr %14, align 8, !tbaa !12
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %28, label %.critedge, !llvm.loop !57
+  br i1 %57, label %28, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %28
   %.val27 = load i32, ptr %3, align 8
@@ -714,7 +714,7 @@ define ptr @Dec_GraphFactorSop(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %12 = load i32, ptr %4, align 4, !tbaa !11
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %8, label %.critedge, !llvm.loop !58
+  br i1 %14, label %8, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %8, %2
   %.lcssa13 = phi i32 [ %5, %2 ], [ %12, %8 ]
@@ -726,7 +726,7 @@ define ptr @Dec_GraphFactorSop(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr i8, ptr %0, i64 24
-  %.val37.i = load ptr, ptr %17, align 8, !tbaa !51
+  %.val37.i = load ptr, ptr %17, align 8, !tbaa !52
   %18 = and i32 %.val31.i, 1
   %19 = ptrtoint ptr %.val37.i to i64
   %20 = zext nneg i32 %18 to i64
@@ -794,7 +794,7 @@ define ptr @Dec_GraphFactorSop(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %66 = load i32, ptr %25, align 8, !tbaa !12
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next.i, %67
-  br i1 %68, label %39, label %.critedge.i, !llvm.loop !57
+  br i1 %68, label %39, label %.critedge.i, !llvm.loop !58
 
 .critedge.i:                                      ; preds = %39
   %.val27.i = load i32, ptr %15, align 8
@@ -833,7 +833,7 @@ define ptr @Dec_GraphToNetworkIvy(ptr noundef %0, ptr noundef readonly captures(
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 32
-  %.val37 = load ptr, ptr %5, align 8, !tbaa !59
+  %.val37 = load ptr, ptr %5, align 8, !tbaa !60
   %6 = and i32 %.val31, 1
   %7 = ptrtoint ptr %.val37 to i64
   %8 = zext nneg i32 %6 to i64
@@ -903,7 +903,7 @@ define ptr @Dec_GraphToNetworkIvy(ptr noundef %0, ptr noundef readonly captures(
   %55 = load i32, ptr %14, align 8, !tbaa !12
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %28, label %.critedge, !llvm.loop !64
+  br i1 %57, label %28, label %.critedge, !llvm.loop !65
 
 .critedge:                                        ; preds = %28
   %.val27 = load i32, ptr %3, align 8
@@ -987,36 +987,37 @@ attributes #10 = { nounwind allocsize(0) }
 !29 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
 !30 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
 !31 = !{!"p1 float", !9, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!35, !9, i64 8}
-!35 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
-!36 = !{!9, !9, i64 0}
-!37 = distinct !{!37, !33}
-!38 = distinct !{!38, !33}
-!39 = distinct !{!39, !33}
-!40 = !{!41, !20, i64 0}
-!41 = !{!"Abc_Obj_t_", !20, i64 0, !42, i64 8, !5, i64 16, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !23, i64 24, !23, i64 40, !6, i64 56, !6, i64 64}
-!42 = !{!"p1 _ZTS10Abc_Obj_t_", !9, i64 0}
-!43 = distinct !{!43, !33}
-!44 = !{!41, !5, i64 16}
-!45 = !{!23, !5, i64 4}
-!46 = !{!23, !5, i64 0}
-!47 = !{!23, !24, i64 8}
-!48 = !{!5, !5, i64 0}
-!49 = !{!16, !5, i64 216}
-!50 = distinct !{!50, !33}
-!51 = !{!52, !53, i64 24}
-!52 = !{!"Hop_Man_t_", !19, i64 0, !19, i64 8, !19, i64 16, !53, i64 24, !54, i64 32, !6, i64 72, !5, i64 96, !5, i64 100, !55, i64 104, !5, i64 112, !9, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !19, i64 144, !19, i64 152, !53, i64 160, !56, i64 168, !56, i64 176}
-!53 = !{!"p1 _ZTS10Hop_Obj_t_", !9, i64 0}
-!54 = !{!"Hop_Obj_t_", !6, i64 0, !6, i64 8, !53, i64 16, !53, i64 24, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 36}
-!55 = !{!"p2 _ZTS10Hop_Obj_t_", !9, i64 0}
-!56 = !{!"long", !6, i64 0}
-!57 = distinct !{!57, !33}
-!58 = distinct !{!58, !33}
-!59 = !{!60, !61, i64 32}
-!60 = !{!"Ivy_Man_t_", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !61, i64 32, !62, i64 40, !6, i64 120, !5, i64 152, !5, i64 156, !24, i64 160, !5, i64 168, !5, i64 172, !5, i64 176, !5, i64 180, !29, i64 184, !5, i64 192, !9, i64 200, !9, i64 208, !63, i64 216, !5, i64 224, !19, i64 232, !19, i64 240, !61, i64 248, !56, i64 256, !56, i64 264}
-!61 = !{!"p1 _ZTS10Ivy_Obj_t_", !9, i64 0}
-!62 = !{!"Ivy_Obj_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 9, !5, i64 9, !5, i64 9, !5, i64 12, !61, i64 16, !61, i64 24, !61, i64 32, !61, i64 40, !61, i64 48, !61, i64 56, !61, i64 64, !61, i64 72}
-!63 = !{!"p1 _ZTS10Ivy_Man_t_", !9, i64 0}
-!64 = distinct !{!64, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!36, !9, i64 8}
+!36 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
+!37 = !{!9, !9, i64 0}
+!38 = distinct !{!38, !33, !34}
+!39 = distinct !{!39, !33, !34}
+!40 = distinct !{!40, !33, !34}
+!41 = !{!42, !20, i64 0}
+!42 = !{!"Abc_Obj_t_", !20, i64 0, !43, i64 8, !5, i64 16, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !23, i64 24, !23, i64 40, !6, i64 56, !6, i64 64}
+!43 = !{!"p1 _ZTS10Abc_Obj_t_", !9, i64 0}
+!44 = distinct !{!44, !33, !34}
+!45 = !{!42, !5, i64 16}
+!46 = !{!23, !5, i64 4}
+!47 = !{!23, !5, i64 0}
+!48 = !{!23, !24, i64 8}
+!49 = !{!5, !5, i64 0}
+!50 = !{!16, !5, i64 216}
+!51 = distinct !{!51, !33, !34}
+!52 = !{!53, !54, i64 24}
+!53 = !{!"Hop_Man_t_", !19, i64 0, !19, i64 8, !19, i64 16, !54, i64 24, !55, i64 32, !6, i64 72, !5, i64 96, !5, i64 100, !56, i64 104, !5, i64 112, !9, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !19, i64 144, !19, i64 152, !54, i64 160, !57, i64 168, !57, i64 176}
+!54 = !{!"p1 _ZTS10Hop_Obj_t_", !9, i64 0}
+!55 = !{!"Hop_Obj_t_", !6, i64 0, !6, i64 8, !54, i64 16, !54, i64 24, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 36}
+!56 = !{!"p2 _ZTS10Hop_Obj_t_", !9, i64 0}
+!57 = !{!"long", !6, i64 0}
+!58 = distinct !{!58, !33, !34}
+!59 = distinct !{!59, !33, !34}
+!60 = !{!61, !62, i64 32}
+!61 = !{!"Ivy_Man_t_", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !62, i64 32, !63, i64 40, !6, i64 120, !5, i64 152, !5, i64 156, !24, i64 160, !5, i64 168, !5, i64 172, !5, i64 176, !5, i64 180, !29, i64 184, !5, i64 192, !9, i64 200, !9, i64 208, !64, i64 216, !5, i64 224, !19, i64 232, !19, i64 240, !62, i64 248, !57, i64 256, !57, i64 264}
+!62 = !{!"p1 _ZTS10Ivy_Obj_t_", !9, i64 0}
+!63 = !{!"Ivy_Obj_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 9, !5, i64 9, !5, i64 9, !5, i64 12, !62, i64 16, !62, i64 24, !62, i64 32, !62, i64 40, !62, i64 48, !62, i64 56, !62, i64 64, !62, i64 72}
+!64 = !{!"p1 _ZTS10Ivy_Man_t_", !9, i64 0}
+!65 = distinct !{!65, !33, !34}

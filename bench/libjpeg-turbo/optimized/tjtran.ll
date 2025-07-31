@@ -873,7 +873,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond64, label %493, label %379
 
 379:                                              ; preds = %371, %368
-  %380 = load i32, ptr %3, align 8, !tbaa !18
+  %380 = load i32, ptr %3, align 8, !tbaa !19
   %381 = icmp ne i32 %380, 0
   %382 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %383 = load i32, ptr %382, align 4
@@ -902,13 +902,13 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %398 = load i32, ptr %397, align 4, !tbaa !15
   %399 = srem i32 %383, %398
   %400 = sub nsw i32 %380, %396
-  store i32 %400, ptr %3, align 8, !tbaa !18
+  store i32 %400, ptr %3, align 8, !tbaa !19
   %401 = add nsw i32 %396, %386
-  store i32 %401, ptr %385, align 8, !tbaa !19
+  store i32 %401, ptr %385, align 8, !tbaa !20
   %402 = sub nsw i32 %383, %399
-  store i32 %402, ptr %382, align 4, !tbaa !20
+  store i32 %402, ptr %382, align 4, !tbaa !21
   %403 = add nsw i32 %399, %389
-  store i32 %403, ptr %388, align 4, !tbaa !21
+  store i32 %403, ptr %388, align 4, !tbaa !22
   br label %406
 
 404:                                              ; preds = %391
@@ -1038,7 +1038,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 483:                                              ; preds = %473
   %484 = load ptr, ptr %5, align 8, !tbaa !4
-  %485 = load i64, ptr %4, align 8, !tbaa !22
+  %485 = load i64, ptr %4, align 8, !tbaa !23
   %486 = call i64 @fwrite(ptr noundef %484, i64 noundef %485, i64 noundef 1, ptr noundef nonnull %476)
   %487 = icmp eq i64 %486, 0
   br i1 %487, label %488, label %493
@@ -1275,11 +1275,12 @@ attributes #20 = { cold noreturn nounwind }
 !13 = !{!"int", !7, i64 0}
 !14 = !{!11, !13, i64 16}
 !15 = !{!13, !13, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!11, !13, i64 0}
-!19 = !{!11, !13, i64 8}
-!20 = !{!11, !13, i64 4}
-!21 = !{!11, !13, i64 12}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"long", !7, i64 0}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!11, !13, i64 0}
+!20 = !{!11, !13, i64 8}
+!21 = !{!11, !13, i64 4}
+!22 = !{!11, !13, i64 12}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !7, i64 0}

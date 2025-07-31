@@ -425,7 +425,7 @@ zend_arena_alloc.exit:                            ; preds = %26, %28
 223:                                              ; preds = %214, %218, %190, %204, %203, %168, %176, %159, %163, %150, %154, %141, %145, %123, %127, %112, %113, %85, %89, %67, %71, %99, %94, %53, %48
   %224 = getelementptr inbounds nuw i8, ptr %.0754, i64 32
   %225 = icmp ult ptr %224, %43
-  br i1 %225, label %45, label %._crit_edge
+  br i1 %225, label %45, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %223, %zend_arena_alloc.exit
   %226 = load i32, ptr %11, align 8, !tbaa !16
@@ -506,11 +506,11 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
 
 264:                                              ; preds = %261
   %265 = load ptr, ptr %260, align 8, !tbaa !41
-  %266 = load i32, ptr %265, align 4, !tbaa !47
+  %266 = load i32, ptr %265, align 4, !tbaa !49
   %267 = icmp ne i32 %266, 0
   call void @llvm.assume(i1 %267)
   %268 = add i32 %266, -1
-  store i32 %268, ptr %265, align 4, !tbaa !47
+  store i32 %268, ptr %265, align 4, !tbaa !49
   %.not3.i = icmp eq i32 %268, 0
   br i1 %.not3.i, label %269, label %zval_ptr_dtor_nogc.exit
 
@@ -545,7 +545,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
 278:                                              ; preds = %277
   %279 = sext i32 %.0571771 to i64
   %280 = getelementptr inbounds %struct._zval_struct, ptr %259, i64 %279
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !51
   %281 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %279
   %282 = load i8, ptr %257, align 1, !tbaa !41
   store i8 %282, ptr %281, align 1, !tbaa !41
@@ -559,7 +559,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
   %.2579 = phi i32 [ %.0571771, %283 ], [ %.0577770, %274 ]
   %.2573 = phi i32 [ %284, %283 ], [ %.0571771, %274 ]
   %286 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %.2579, ptr %286, align 4, !tbaa !50
+  store i32 %.2579, ptr %286, align 4, !tbaa !52
   br label %zval_ptr_dtor_nogc.exit
 
 287:                                              ; preds = %271
@@ -575,7 +575,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
 291:                                              ; preds = %290
   %292 = sext i32 %.0571771 to i64
   %293 = getelementptr inbounds %struct._zval_struct, ptr %259, i64 %292
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !51
   %294 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %292
   %295 = load i8, ptr %257, align 1, !tbaa !41
   store i8 %295, ptr %294, align 1, !tbaa !41
@@ -589,7 +589,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
   %.2582 = phi i32 [ %.0571771, %296 ], [ %.0580769, %287 ]
   %.3574 = phi i32 [ %297, %296 ], [ %.0571771, %287 ]
   %299 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %.2582, ptr %299, align 4, !tbaa !50
+  store i32 %.2582, ptr %299, align 4, !tbaa !52
   br label %zval_ptr_dtor_nogc.exit
 
 300:                                              ; preds = %271
@@ -605,7 +605,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
 304:                                              ; preds = %303
   %305 = sext i32 %.0571771 to i64
   %306 = getelementptr inbounds %struct._zval_struct, ptr %259, i64 %305
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %306, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %306, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !51
   %307 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %305
   %308 = load i8, ptr %257, align 1, !tbaa !41
   store i8 %308, ptr %307, align 1, !tbaa !41
@@ -619,7 +619,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
   %.2585 = phi i32 [ %.0571771, %309 ], [ %.0583768, %300 ]
   %.4 = phi i32 [ %310, %309 ], [ %.0571771, %300 ]
   %312 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %.2585, ptr %312, align 4, !tbaa !50
+  store i32 %.2585, ptr %312, align 4, !tbaa !52
   br label %zval_ptr_dtor_nogc.exit
 
 313:                                              ; preds = %271
@@ -636,12 +636,12 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
   %319 = load i64, ptr %317, align 8, !tbaa !41
   %320 = trunc i64 %319 to i32
   %321 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %320, ptr %321, align 4, !tbaa !50
+  store i32 %320, ptr %321, align 4, !tbaa !52
   br label %zval_ptr_dtor_nogc.exit
 
 322:                                              ; preds = %315
   %323 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %.0571771, ptr %323, align 4, !tbaa !50
+  store i32 %.0571771, ptr %323, align 4, !tbaa !52
   %324 = sext i32 %.0571771 to i64
   store i64 %324, ptr %7, align 8, !tbaa !41
   store i32 4, ptr %254, align 8, !tbaa !41
@@ -656,7 +656,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
   %330 = load ptr, ptr %253, align 8, !tbaa !46
   %331 = getelementptr inbounds %struct._zval_struct, ptr %330, i64 %324
   %332 = getelementptr inbounds %struct._zval_struct, ptr %330, i64 %256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %331, ptr noundef nonnull align 8 dereferenceable(16) %332, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %331, ptr noundef nonnull align 8 dereferenceable(16) %332, i64 16, i1 false), !tbaa.struct !51
   %333 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %324
   %334 = load i8, ptr %257, align 1, !tbaa !41
   store i8 %334, ptr %333, align 1, !tbaa !41
@@ -675,17 +675,17 @@ bias_key.exit:                                    ; preds = %313
   %341 = load ptr, ptr %340, align 8, !tbaa !41
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 24
   %343 = getelementptr inbounds nuw i8, ptr %341, i64 16
-  %344 = load i64, ptr %343, align 8, !tbaa !51
+  %344 = load i64, ptr %343, align 8, !tbaa !53
   %345 = and i64 %344, -8
   %346 = add i64 %345, 32
   %347 = call noalias ptr @_emalloc(i64 noundef %346) #12
-  store i32 1, ptr %347, align 4, !tbaa !47
+  store i32 1, ptr %347, align 4, !tbaa !49
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 4
   store i32 22, ptr %348, align 4, !tbaa !41
   %349 = getelementptr inbounds nuw i8, ptr %347, i64 8
-  store i64 0, ptr %349, align 8, !tbaa !53
+  store i64 0, ptr %349, align 8, !tbaa !55
   %350 = getelementptr inbounds nuw i8, ptr %347, i64 16
-  store i64 %344, ptr %350, align 8, !tbaa !51
+  store i64 %344, ptr %350, align 8, !tbaa !53
   %351 = getelementptr inbounds nuw i8, ptr %347, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %351, ptr nonnull align 1 %342, i64 %344, i1 false)
   %352 = getelementptr inbounds nuw [1 x i8], ptr %351, i64 0, i64 %344
@@ -695,7 +695,7 @@ bias_key.exit:                                    ; preds = %313
   %355 = add nuw nsw i64 %354, 99
   %356 = call i64 @zend_string_hash_func(ptr noundef nonnull %347) #9
   %357 = add i64 %355, %356
-  store i64 %357, ptr %349, align 8, !tbaa !53
+  store i64 %357, ptr %349, align 8, !tbaa !55
   %358 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef nonnull %347) #9
   %.not624 = icmp eq ptr %358, null
   br i1 %.not624, label %377, label %359
@@ -708,7 +708,7 @@ bias_key.exit:                                    ; preds = %313
   call void @llvm.assume(i1 %363)
   %364 = trunc i64 %360 to i32
   %365 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %364, ptr %365, align 4, !tbaa !50
+  store i32 %364, ptr %365, align 4, !tbaa !52
   %366 = load ptr, ptr %253, align 8, !tbaa !46
   %367 = getelementptr inbounds %struct._zval_struct, ptr %366, i64 %339
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 9
@@ -718,11 +718,11 @@ bias_key.exit:                                    ; preds = %313
 
 370:                                              ; preds = %359
   %371 = load ptr, ptr %367, align 8, !tbaa !41
-  %372 = load i32, ptr %371, align 4, !tbaa !47
+  %372 = load i32, ptr %371, align 4, !tbaa !49
   %373 = icmp ne i32 %372, 0
   call void @llvm.assume(i1 %373)
   %374 = add i32 %372, -1
-  store i32 %374, ptr %371, align 4, !tbaa !47
+  store i32 %374, ptr %371, align 4, !tbaa !49
   %.not3.i643 = icmp eq i32 %374, 0
   br i1 %.not3.i643, label %375, label %zval_ptr_dtor_nogc.exit644
 
@@ -733,7 +733,7 @@ bias_key.exit:                                    ; preds = %313
 
 377:                                              ; preds = %bias_key.exit
   %378 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %.0571771, ptr %378, align 4, !tbaa !50
+  store i32 %.0571771, ptr %378, align 4, !tbaa !52
   %379 = sext i32 %.0571771 to i64
   store i64 %379, ptr %7, align 8, !tbaa !41
   store i32 4, ptr %254, align 8, !tbaa !41
@@ -745,7 +745,7 @@ bias_key.exit:                                    ; preds = %313
   %382 = load ptr, ptr %253, align 8, !tbaa !46
   %383 = getelementptr inbounds %struct._zval_struct, ptr %382, i64 %379
   %384 = getelementptr inbounds %struct._zval_struct, ptr %382, i64 %256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %383, ptr noundef nonnull align 8 dereferenceable(16) %384, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %383, ptr noundef nonnull align 8 dereferenceable(16) %384, i64 16, i1 false), !tbaa.struct !51
   %385 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %379
   %386 = load i8, ptr %257, align 1, !tbaa !41
   store i8 %386, ptr %385, align 1, !tbaa !41
@@ -754,7 +754,7 @@ bias_key.exit:                                    ; preds = %313
   %389 = sext i32 %388 to i64
   %390 = getelementptr inbounds %struct._zval_struct, ptr %387, i64 %389
   %391 = getelementptr inbounds %struct._zval_struct, ptr %387, i64 %339
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %390, ptr noundef nonnull align 8 dereferenceable(16) %391, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %390, ptr noundef nonnull align 8 dereferenceable(16) %391, i64 16, i1 false), !tbaa.struct !51
   %392 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %389
   %393 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %339
   %394 = load i8, ptr %393, align 1, !tbaa !41
@@ -773,11 +773,11 @@ zval_ptr_dtor_nogc.exit644:                       ; preds = %375, %370, %359, %3
   br i1 %.not.i654, label %399, label %zval_ptr_dtor_nogc.exit
 
 399:                                              ; preds = %zval_ptr_dtor_nogc.exit644
-  %400 = load i32, ptr %347, align 4, !tbaa !47
+  %400 = load i32, ptr %347, align 4, !tbaa !49
   %401 = icmp ne i32 %400, 0
   call void @llvm.assume(i1 %401)
   %402 = add i32 %400, -1
-  store i32 %402, ptr %347, align 4, !tbaa !47
+  store i32 %402, ptr %347, align 4, !tbaa !49
   %403 = icmp eq i32 %402, 0
   br i1 %403, label %404, label %zval_ptr_dtor_nogc.exit
 
@@ -789,13 +789,13 @@ bias_key.exit668:                                 ; preds = %271
   %405 = icmp eq i8 %258, 1
   call void @llvm.assume(i1 %405)
   %406 = call noalias ptr @_emalloc_40() #9
-  store i32 1, ptr %406, align 4, !tbaa !47
+  store i32 1, ptr %406, align 4, !tbaa !49
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 4
   store i32 22, ptr %407, align 4, !tbaa !41
   %408 = getelementptr inbounds nuw i8, ptr %406, i64 8
-  store i64 0, ptr %408, align 8, !tbaa !53
+  store i64 0, ptr %408, align 8, !tbaa !55
   %409 = getelementptr inbounds nuw i8, ptr %406, i64 16
-  store i64 8, ptr %409, align 8, !tbaa !51
+  store i64 8, ptr %409, align 8, !tbaa !53
   %410 = getelementptr inbounds nuw i8, ptr %406, i64 24
   %411 = load i64, ptr %260, align 1
   store i64 %411, ptr %410, align 8
@@ -803,7 +803,7 @@ bias_key.exit668:                                 ; preds = %271
   store i8 0, ptr %412, align 1, !tbaa !41
   %413 = call i64 @zend_string_hash_func(ptr noundef nonnull %406) #9
   %414 = add i64 %413, 200
-  store i64 %414, ptr %408, align 8, !tbaa !53
+  store i64 %414, ptr %408, align 8, !tbaa !55
   %415 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef nonnull %406) #9
   %.not622 = icmp eq ptr %415, null
   br i1 %.not622, label %420, label %416
@@ -812,12 +812,12 @@ bias_key.exit668:                                 ; preds = %271
   %417 = load i64, ptr %415, align 8, !tbaa !41
   %418 = trunc i64 %417 to i32
   %419 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %418, ptr %419, align 4, !tbaa !50
+  store i32 %418, ptr %419, align 4, !tbaa !52
   br label %432
 
 420:                                              ; preds = %bias_key.exit668
   %421 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %.0571771, ptr %421, align 4, !tbaa !50
+  store i32 %.0571771, ptr %421, align 4, !tbaa !52
   %422 = sext i32 %.0571771 to i64
   store i64 %422, ptr %7, align 8, !tbaa !41
   store i32 4, ptr %254, align 8, !tbaa !41
@@ -829,7 +829,7 @@ bias_key.exit668:                                 ; preds = %271
   %425 = load ptr, ptr %253, align 8, !tbaa !46
   %426 = getelementptr inbounds %struct._zval_struct, ptr %425, i64 %422
   %427 = getelementptr inbounds %struct._zval_struct, ptr %425, i64 %256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %426, ptr noundef nonnull align 8 dereferenceable(16) %427, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %426, ptr noundef nonnull align 8 dereferenceable(16) %427, i64 16, i1 false), !tbaa.struct !51
   %428 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %422
   %429 = load i8, ptr %257, align 1, !tbaa !41
   store i8 %429, ptr %428, align 1, !tbaa !41
@@ -847,11 +847,11 @@ bias_key.exit668:                                 ; preds = %271
   br i1 %.not.i655, label %435, label %zval_ptr_dtor_nogc.exit
 
 435:                                              ; preds = %432
-  %436 = load i32, ptr %406, align 4, !tbaa !47
+  %436 = load i32, ptr %406, align 4, !tbaa !49
   %437 = icmp ne i32 %436, 0
   call void @llvm.assume(i1 %437)
   %438 = add i32 %436, -1
-  store i32 %438, ptr %406, align 4, !tbaa !47
+  store i32 %438, ptr %406, align 4, !tbaa !49
   %439 = icmp eq i32 %438, 0
   br i1 %439, label %440, label %zval_ptr_dtor_nogc.exit
 
@@ -875,21 +875,21 @@ bias_key.exit668:                                 ; preds = %271
   br i1 %.not.i.i670, label %448, label %create_str_cache_key.exit
 
 448:                                              ; preds = %443
-  %449 = load i32, ptr %444, align 4, !tbaa !47
+  %449 = load i32, ptr %444, align 4, !tbaa !49
   %450 = add i32 %449, 1
-  store i32 %450, ptr %444, align 4, !tbaa !47
+  store i32 %450, ptr %444, align 4, !tbaa !49
   br label %create_str_cache_key.exit
 
 451:                                              ; preds = %441
   %452 = load ptr, ptr %260, align 8, !tbaa !41
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 24
   %454 = getelementptr inbounds nuw i8, ptr %452, i64 16
-  %455 = load i64, ptr %454, align 8, !tbaa !51
+  %455 = load i64, ptr %454, align 8, !tbaa !53
   %456 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %457 = load ptr, ptr %456, align 8, !tbaa !41
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 24
   %459 = getelementptr inbounds nuw i8, ptr %457, i64 16
-  %460 = load i64, ptr %459, align 8, !tbaa !51
+  %460 = load i64, ptr %459, align 8, !tbaa !53
   %461 = call ptr @zend_string_concat2(ptr noundef nonnull %453, i64 noundef %455, ptr noundef nonnull %458, i64 noundef %460) #9
   br label %479
 
@@ -899,17 +899,17 @@ bias_key.exit668:                                 ; preds = %271
   %464 = load ptr, ptr %260, align 8, !tbaa !41
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 24
   %466 = getelementptr inbounds nuw i8, ptr %464, i64 16
-  %467 = load i64, ptr %466, align 8, !tbaa !51
+  %467 = load i64, ptr %466, align 8, !tbaa !53
   %468 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %469 = load ptr, ptr %468, align 8, !tbaa !41
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 24
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 16
-  %472 = load i64, ptr %471, align 8, !tbaa !51
+  %472 = load i64, ptr %471, align 8, !tbaa !53
   %473 = getelementptr inbounds nuw i8, ptr %260, i64 32
   %474 = load ptr, ptr %473, align 8, !tbaa !41
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 24
   %476 = getelementptr inbounds nuw i8, ptr %474, i64 16
-  %477 = load i64, ptr %476, align 8, !tbaa !51
+  %477 = load i64, ptr %476, align 8, !tbaa !53
   %478 = call ptr @zend_string_concat3(ptr noundef nonnull %465, i64 noundef %467, ptr noundef nonnull %470, i64 noundef %472, ptr noundef nonnull %475, i64 noundef %477) #9
   br label %479
 
@@ -917,7 +917,7 @@ bias_key.exit668:                                 ; preds = %271
   %.0.i669 = phi ptr [ %461, %451 ], [ %478, %462 ]
   %480 = add nuw nsw i64 %442, 4294967295
   %481 = getelementptr inbounds nuw i8, ptr %.0.i669, i64 8
-  %482 = load i64, ptr %481, align 8, !tbaa !53
+  %482 = load i64, ptr %481, align 8, !tbaa !55
   %.not.i.i.i = icmp eq i64 %482, 0
   br i1 %.not.i.i.i, label %483, label %bias_key.exit.i
 
@@ -929,7 +929,7 @@ bias_key.exit.i:                                  ; preds = %483, %479
   %485 = phi i64 [ %484, %483 ], [ %482, %479 ]
   %486 = and i64 %480, 4294967295
   %487 = add i64 %485, %486
-  store i64 %487, ptr %481, align 8, !tbaa !53
+  store i64 %487, ptr %481, align 8, !tbaa !55
   br label %create_str_cache_key.exit
 
 create_str_cache_key.exit:                        ; preds = %443, %448, %bias_key.exit.i
@@ -946,11 +946,11 @@ create_str_cache_key.exit:                        ; preds = %443, %448, %bias_ke
   br i1 %.not.i657, label %493, label %zend_string_release_ex.exit658
 
 493:                                              ; preds = %489
-  %494 = load i32, ptr %.017.i, align 4, !tbaa !47
+  %494 = load i32, ptr %.017.i, align 4, !tbaa !49
   %495 = icmp ne i32 %494, 0
   call void @llvm.assume(i1 %495)
   %496 = add i32 %494, -1
-  store i32 %496, ptr %.017.i, align 4, !tbaa !47
+  store i32 %496, ptr %.017.i, align 4, !tbaa !49
   %497 = icmp eq i32 %496, 0
   br i1 %497, label %498, label %zend_string_release_ex.exit658
 
@@ -962,7 +962,7 @@ zend_string_release_ex.exit658:                   ; preds = %489, %493, %498
   %499 = load i64, ptr %488, align 8, !tbaa !41
   %500 = trunc i64 %499 to i32
   %501 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %500, ptr %501, align 4, !tbaa !50
+  store i32 %500, ptr %501, align 4, !tbaa !52
   %502 = load ptr, ptr %253, align 8, !tbaa !46
   %503 = getelementptr inbounds %struct._zval_struct, ptr %502, i64 %256
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 9
@@ -972,11 +972,11 @@ zend_string_release_ex.exit658:                   ; preds = %489, %493, %498
 
 506:                                              ; preds = %zend_string_release_ex.exit658
   %507 = load ptr, ptr %503, align 8, !tbaa !41
-  %508 = load i32, ptr %507, align 4, !tbaa !47
+  %508 = load i32, ptr %507, align 4, !tbaa !49
   %509 = icmp ne i32 %508, 0
   call void @llvm.assume(i1 %509)
   %510 = add i32 %508, -1
-  store i32 %510, ptr %507, align 4, !tbaa !47
+  store i32 %510, ptr %507, align 4, !tbaa !49
   %.not3.i646 = icmp eq i32 %510, 0
   br i1 %.not3.i646, label %511, label %zval_ptr_dtor_nogc.exit647
 
@@ -1007,11 +1007,11 @@ zval_ptr_dtor_nogc.exit647:                       ; preds = %zend_string_release
 
 520:                                              ; preds = %.lr.ph757
   %521 = load ptr, ptr %517, align 8, !tbaa !41
-  %522 = load i32, ptr %521, align 4, !tbaa !47
+  %522 = load i32, ptr %521, align 4, !tbaa !49
   %523 = icmp ne i32 %522, 0
   call void @llvm.assume(i1 %523)
   %524 = add i32 %522, -1
-  store i32 %524, ptr %521, align 4, !tbaa !47
+  store i32 %524, ptr %521, align 4, !tbaa !49
   %.not3.i649 = icmp eq i32 %524, 0
   br i1 %.not3.i649, label %525, label %zval_ptr_dtor_nogc.exit650
 
@@ -1023,11 +1023,11 @@ zval_ptr_dtor_nogc.exit647:                       ; preds = %zend_string_release
 zval_ptr_dtor_nogc.exit650:                       ; preds = %.lr.ph757, %520, %525
   %527 = add nsw i32 %.0575755, -1
   %528 = icmp sgt i32 %.0575755, 2
-  br i1 %528, label %.lr.ph757, label %zval_ptr_dtor_nogc.exit.loopexit788
+  br i1 %528, label %.lr.ph757, label %zval_ptr_dtor_nogc.exit.loopexit788, !llvm.loop !56
 
 529:                                              ; preds = %create_str_cache_key.exit
   %530 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %.0571771, ptr %530, align 4, !tbaa !50
+  store i32 %.0571771, ptr %530, align 4, !tbaa !52
   %531 = sext i32 %.0571771 to i64
   store i64 %531, ptr %7, align 8, !tbaa !41
   store i32 4, ptr %254, align 8, !tbaa !41
@@ -1039,11 +1039,11 @@ zval_ptr_dtor_nogc.exit650:                       ; preds = %.lr.ph757, %520, %5
   br i1 %.not.i659, label %536, label %zend_string_release_ex.exit660
 
 536:                                              ; preds = %529
-  %537 = load i32, ptr %.017.i, align 4, !tbaa !47
+  %537 = load i32, ptr %.017.i, align 4, !tbaa !49
   %538 = icmp ne i32 %537, 0
   call void @llvm.assume(i1 %538)
   %539 = add i32 %537, -1
-  store i32 %539, ptr %.017.i, align 4, !tbaa !47
+  store i32 %539, ptr %.017.i, align 4, !tbaa !49
   %540 = icmp eq i32 %539, 0
   br i1 %540, label %541, label %zend_string_release_ex.exit660
 
@@ -1063,7 +1063,7 @@ zend_string_release_ex.exit660._crit_edge:        ; preds = %zend_string_release
   %543 = load ptr, ptr %253, align 8, !tbaa !46
   %544 = getelementptr inbounds %struct._zval_struct, ptr %543, i64 %531
   %545 = getelementptr inbounds %struct._zval_struct, ptr %543, i64 %256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %544, ptr noundef nonnull align 8 dereferenceable(16) %545, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %544, ptr noundef nonnull align 8 dereferenceable(16) %545, i64 16, i1 false), !tbaa.struct !51
   %546 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %531
   %547 = load i8, ptr %257, align 1, !tbaa !41
   store i8 %547, ptr %546, align 1, !tbaa !41
@@ -1094,7 +1094,7 @@ zend_string_release_ex.exit660._crit_edge:        ; preds = %zend_string_release
   %555 = load ptr, ptr %253, align 8, !tbaa !46
   %556 = getelementptr inbounds %struct._zval_struct, ptr %555, i64 %indvars.iv792
   %557 = getelementptr inbounds %struct._zval_struct, ptr %555, i64 %indvars.iv.next795
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %556, ptr noundef nonnull align 8 dereferenceable(16) %557, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %556, ptr noundef nonnull align 8 dereferenceable(16) %557, i64 16, i1 false), !tbaa.struct !51
   br label %558
 
 558:                                              ; preds = %554, %.lr.ph764
@@ -1102,14 +1102,14 @@ zend_string_release_ex.exit660._crit_edge:        ; preds = %zend_string_release
   %indvars.iv.next793 = add nsw i64 %indvars.iv792, 1
   %560 = icmp sgt i32 %.1576759, 2
   %561 = trunc nsw i64 %indvars.iv792 to i32
-  br i1 %560, label %.lr.ph764, label %zval_ptr_dtor_nogc.exit.loopexit
+  br i1 %560, label %.lr.ph764, label %zval_ptr_dtor_nogc.exit.loopexit, !llvm.loop !57
 
 562:                                              ; preds = %271
   %563 = icmp eq i8 %258, 1
   call void @llvm.assume(i1 %563)
   %564 = load ptr, ptr %260, align 8, !tbaa !41
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 28
-  %566 = load i32, ptr %565, align 4, !tbaa !54
+  %566 = load i32, ptr %565, align 4, !tbaa !58
   %567 = icmp eq i32 %566, 0
   br i1 %567, label %568, label %588
 
@@ -1124,7 +1124,7 @@ zend_string_release_ex.exit660._crit_edge:        ; preds = %zend_string_release
 571:                                              ; preds = %570
   %572 = sext i32 %.0571771 to i64
   %573 = getelementptr inbounds %struct._zval_struct, ptr %259, i64 %572
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %573, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %573, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !51
   %574 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %572
   %575 = load i8, ptr %257, align 1, !tbaa !41
   store i8 %575, ptr %574, align 1, !tbaa !41
@@ -1141,11 +1141,11 @@ zend_string_release_ex.exit660._crit_edge:        ; preds = %zend_string_release
   br i1 %.not.i651, label %zval_ptr_dtor_nogc.exit653, label %581
 
 581:                                              ; preds = %578
-  %582 = load i32, ptr %564, align 4, !tbaa !47
+  %582 = load i32, ptr %564, align 4, !tbaa !49
   %583 = icmp ne i32 %582, 0
   call void @llvm.assume(i1 %583)
   %584 = add i32 %582, -1
-  store i32 %584, ptr %564, align 4, !tbaa !47
+  store i32 %584, ptr %564, align 4, !tbaa !49
   %.not3.i652 = icmp eq i32 %584, 0
   br i1 %.not3.i652, label %585, label %zval_ptr_dtor_nogc.exit653
 
@@ -1158,21 +1158,21 @@ zval_ptr_dtor_nogc.exit653:                       ; preds = %585, %581, %578, %5
   %.2588 = phi i32 [ %.0571771, %576 ], [ %.0586767, %578 ], [ %.0586767, %581 ], [ %.0586767, %585 ]
   %.8 = phi i32 [ %577, %576 ], [ %.0571771, %578 ], [ %.0571771, %581 ], [ %.0571771, %585 ]
   %587 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %.2588, ptr %587, align 4, !tbaa !50
+  store i32 %.2588, ptr %587, align 4, !tbaa !52
   br label %zval_ptr_dtor_nogc.exit
 
 588:                                              ; preds = %562, %271
   %589 = icmp eq i8 %258, 1
   call void @llvm.assume(i1 %589)
   %590 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
-  store i32 %.0571771, ptr %590, align 4, !tbaa !50
+  store i32 %.0571771, ptr %590, align 4, !tbaa !52
   %.not631 = icmp eq i32 %.0568772, %.0571771
   br i1 %.not631, label %596, label %591
 
 591:                                              ; preds = %588
   %592 = sext i32 %.0571771 to i64
   %593 = getelementptr inbounds %struct._zval_struct, ptr %259, i64 %592
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %593, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %593, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !51
   %594 = getelementptr inbounds %struct._literal_info, ptr %.0.i, i64 %592
   %595 = load i8, ptr %257, align 1, !tbaa !41
   store i8 %595, ptr %594, align 1, !tbaa !41
@@ -1201,7 +1201,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %zval_ptr_dtor_nogc.
   %601 = add nsw i32 %.1569, 1
   %602 = load i32, ptr %11, align 8, !tbaa !16
   %603 = icmp slt i32 %601, %602
-  br i1 %603, label %255, label %._crit_edge774
+  br i1 %603, label %255, label %._crit_edge774, !llvm.loop !60
 
 ._crit_edge774:                                   ; preds = %zval_ptr_dtor_nogc.exit, %zend_arena_alloc.exit636
   %.0571.lcssa = phi i32 [ 0, %zend_arena_alloc.exit636 ], [ %.1572, %zval_ptr_dtor_nogc.exit ]
@@ -1251,7 +1251,7 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   %629 = getelementptr inbounds i32, ptr %628, i64 %626
   %630 = getelementptr inbounds i32, ptr %629, i64 %626
   %631 = getelementptr inbounds i32, ptr %630, i64 %626
-  %632 = load i32, ptr @zend_op_array_extension_handles, align 4, !tbaa !50
+  %632 = load i32, ptr @zend_op_array_extension_handles, align 4, !tbaa !52
   %633 = shl i32 %632, 3
   %634 = load ptr, ptr %38, align 8, !tbaa !37
   %635 = load i32, ptr %40, align 8, !tbaa !38
@@ -1285,7 +1285,7 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   %652 = load i32, ptr %651, align 8, !tbaa !41
   %653 = zext i32 %652 to i64
   %654 = getelementptr inbounds nuw i32, ptr %.0.i634, i64 %653
-  %655 = load i32, ptr %654, align 4, !tbaa !50
+  %655 = load i32, ptr %654, align 4, !tbaa !52
   store i32 %655, ptr %651, align 8, !tbaa !41
   br label %656
 
@@ -1300,7 +1300,7 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   %662 = load i32, ptr %661, align 4, !tbaa !41
   %663 = zext i32 %662 to i64
   %664 = getelementptr inbounds nuw i32, ptr %.0.i634, i64 %663
-  %665 = load i32, ptr %664, align 4, !tbaa !50
+  %665 = load i32, ptr %664, align 4, !tbaa !52
   store i32 %665, ptr %661, align 4, !tbaa !41
   br label %666
 
@@ -1376,18 +1376,18 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   br i1 %.not.i671, label %688, label %672
 
 672:                                              ; preds = %669
-  %673 = load i32, ptr %644, align 4, !tbaa !56
+  %673 = load i32, ptr %644, align 4, !tbaa !61
   %674 = and i32 %673, 256
   %.not33.i = icmp eq i32 %674, 0
   br i1 %.not33.i, label %type_num_classes.exit.thread, label %675
 
 675:                                              ; preds = %672
-  %676 = load i32, ptr %645, align 8, !tbaa !57
+  %676 = load i32, ptr %645, align 8, !tbaa !62
   %.not34.i = icmp ugt i32 %671, %676
   br i1 %.not34.i, label %682, label %677, !prof !34
 
 677:                                              ; preds = %675
-  %678 = load ptr, ptr %643, align 8, !tbaa !58
+  %678 = load ptr, ptr %643, align 8, !tbaa !63
   %679 = add i32 %671, -1
   %680 = zext i32 %679 to i64
   %681 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %678, i64 %680
@@ -1399,13 +1399,13 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   br i1 %.not35.i, label %type_num_classes.exit.thread, label %684, !prof !32
 
 684:                                              ; preds = %682
-  %685 = load ptr, ptr %643, align 8, !tbaa !58
+  %685 = load ptr, ptr %643, align 8, !tbaa !63
   %686 = zext i32 %676 to i64
   %687 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %685, i64 %686
   br label %691
 
 688:                                              ; preds = %669
-  %689 = load ptr, ptr %643, align 8, !tbaa !58
+  %689 = load ptr, ptr %643, align 8, !tbaa !63
   %690 = getelementptr inbounds i8, ptr %689, i64 -32
   br label %691
 
@@ -1413,7 +1413,7 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   %.029.i = phi ptr [ %681, %677 ], [ %687, %684 ], [ %690, %688 ]
   %692 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %693 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
-  %694 = load i32, ptr %693, align 8, !tbaa !59
+  %694 = load i32, ptr %693, align 8, !tbaa !64
   %695 = and i32 %694, 29360128
   %.not36.i = icmp eq i32 %695, 0
   br i1 %.not36.i, label %type_num_classes.exit.thread, label %696
@@ -1429,8 +1429,8 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   br i1 %.not38.i, label %704, label %700
 
 700:                                              ; preds = %698
-  %701 = load ptr, ptr %692, align 8, !tbaa !62
-  %702 = load i32, ptr %701, align 8, !tbaa !63
+  %701 = load ptr, ptr %692, align 8, !tbaa !67
+  %702 = load i32, ptr %701, align 8, !tbaa !68
   %703 = zext i32 %702 to i64
   br label %type_num_classes.exit
 
@@ -1438,9 +1438,9 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   %705 = and i32 %694, 262144
   %706 = icmp ne i32 %705, 0
   call void @llvm.assume(i1 %706)
-  %707 = load ptr, ptr %692, align 8, !tbaa !62
+  %707 = load ptr, ptr %692, align 8, !tbaa !67
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 8
-  %709 = load i32, ptr %707, align 8, !tbaa !63
+  %709 = load i32, ptr %707, align 8, !tbaa !68
   %710 = zext i32 %709 to i64
   %.idx.i = shl nuw nsw i64 %710, 4
   %711 = getelementptr inbounds nuw i8, ptr %708, i64 %.idx.i
@@ -1451,14 +1451,14 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   %.02842.i = phi ptr [ %722, %721 ], [ %708, %704 ]
   %.03041.i = phi i64 [ %.1.i, %721 ], [ 0, %704 ]
   %712 = getelementptr inbounds nuw i8, ptr %.02842.i, i64 8
-  %713 = load i32, ptr %712, align 8, !tbaa !65
+  %713 = load i32, ptr %712, align 8, !tbaa !70
   %714 = and i32 %713, 524288
   %.not39.i = icmp eq i32 %714, 0
   br i1 %.not39.i, label %719, label %715
 
 715:                                              ; preds = %.lr.ph.i
-  %716 = load ptr, ptr %.02842.i, align 8, !tbaa !66
-  %717 = load i32, ptr %716, align 8, !tbaa !63
+  %716 = load ptr, ptr %.02842.i, align 8, !tbaa !71
+  %717 = load i32, ptr %716, align 8, !tbaa !68
   %718 = zext i32 %717 to i64
   br label %721
 
@@ -1473,7 +1473,7 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   %.1.i = add i64 %.pn.i, %.03041.i
   %722 = getelementptr inbounds nuw i8, ptr %.02842.i, i64 16
   %723 = icmp ult ptr %722, %711
-  br i1 %723, label %.lr.ph.i, label %type_num_classes.exit
+  br i1 %723, label %.lr.ph.i, label %type_num_classes.exit, !llvm.loop !72
 
 type_num_classes.exit:                            ; preds = %721, %700
   %.0.i672 = phi i64 [ %703, %700 ], [ %.1.i, %721 ]
@@ -1483,17 +1483,17 @@ type_num_classes.exit:                            ; preds = %721, %700
 type_num_classes.exit.thread740:                  ; preds = %696, %type_num_classes.exit
   %.0.i672743 = phi i64 [ %.0.i672, %type_num_classes.exit ], [ 1, %696 ]
   %724 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  store i32 %.0732776, ptr %724, align 4, !tbaa !67
+  store i32 %.0732776, ptr %724, align 4, !tbaa !73
   %.tr616 = trunc i64 %.0.i672743 to i32
   %725 = shl i32 %.tr616, 3
   %726 = add i32 %725, %.0732776
   br label %type_num_classes.exit.thread
 
 727:                                              ; preds = %666
-  %728 = load ptr, ptr %643, align 8, !tbaa !58
+  %728 = load ptr, ptr %643, align 8, !tbaa !63
   %729 = getelementptr inbounds i8, ptr %728, i64 -24
   %730 = getelementptr inbounds i8, ptr %728, i64 -16
-  %731 = load i32, ptr %730, align 8, !tbaa !59
+  %731 = load i32, ptr %730, align 8, !tbaa !64
   %732 = and i32 %731, 29360128
   %.not36.i674 = icmp eq i32 %732, 0
   br i1 %.not36.i674, label %type_num_classes.exit.thread, label %733
@@ -1509,8 +1509,8 @@ type_num_classes.exit.thread740:                  ; preds = %696, %type_num_clas
   br i1 %.not38.i676, label %741, label %737
 
 737:                                              ; preds = %735
-  %738 = load ptr, ptr %729, align 8, !tbaa !62
-  %739 = load i32, ptr %738, align 8, !tbaa !63
+  %738 = load ptr, ptr %729, align 8, !tbaa !67
+  %739 = load i32, ptr %738, align 8, !tbaa !68
   %740 = zext i32 %739 to i64
   br label %type_num_classes.exit687
 
@@ -1518,9 +1518,9 @@ type_num_classes.exit.thread740:                  ; preds = %696, %type_num_clas
   %742 = and i32 %731, 262144
   %743 = icmp ne i32 %742, 0
   call void @llvm.assume(i1 %743)
-  %744 = load ptr, ptr %729, align 8, !tbaa !62
+  %744 = load ptr, ptr %729, align 8, !tbaa !67
   %745 = getelementptr inbounds nuw i8, ptr %744, i64 8
-  %746 = load i32, ptr %744, align 8, !tbaa !63
+  %746 = load i32, ptr %744, align 8, !tbaa !68
   %747 = zext i32 %746 to i64
   %.idx.i678 = shl nuw nsw i64 %747, 4
   %748 = getelementptr inbounds nuw i8, ptr %745, i64 %.idx.i678
@@ -1531,14 +1531,14 @@ type_num_classes.exit.thread740:                  ; preds = %696, %type_num_clas
   %.02842.i681 = phi ptr [ %759, %758 ], [ %745, %741 ]
   %.03041.i682 = phi i64 [ %.1.i685, %758 ], [ 0, %741 ]
   %749 = getelementptr inbounds nuw i8, ptr %.02842.i681, i64 8
-  %750 = load i32, ptr %749, align 8, !tbaa !65
+  %750 = load i32, ptr %749, align 8, !tbaa !70
   %751 = and i32 %750, 524288
   %.not39.i683 = icmp eq i32 %751, 0
   br i1 %.not39.i683, label %756, label %752
 
 752:                                              ; preds = %.lr.ph.i680
-  %753 = load ptr, ptr %.02842.i681, align 8, !tbaa !66
-  %754 = load i32, ptr %753, align 8, !tbaa !63
+  %753 = load ptr, ptr %.02842.i681, align 8, !tbaa !71
+  %754 = load i32, ptr %753, align 8, !tbaa !68
   %755 = zext i32 %754 to i64
   br label %758
 
@@ -1553,7 +1553,7 @@ type_num_classes.exit.thread740:                  ; preds = %696, %type_num_clas
   %.1.i685 = add i64 %.pn.i684, %.03041.i682
   %759 = getelementptr inbounds nuw i8, ptr %.02842.i681, i64 16
   %760 = icmp ult ptr %759, %748
-  br i1 %760, label %.lr.ph.i680, label %type_num_classes.exit687
+  br i1 %760, label %.lr.ph.i680, label %type_num_classes.exit687, !llvm.loop !72
 
 type_num_classes.exit687:                         ; preds = %758, %737
   %.0.i677 = phi i64 [ %740, %737 ], [ %.1.i685, %758 ]
@@ -1592,7 +1592,7 @@ type_num_classes.exit687.thread746:               ; preds = %733, %type_num_clas
   %778 = call i64 @zend_string_hash_func(ptr noundef %777) #9
   %779 = getelementptr inbounds nuw i8, ptr %777, i64 8
   %780 = add i64 %778, 3
-  store i64 %780, ptr %779, align 8, !tbaa !53
+  store i64 %780, ptr %779, align 8, !tbaa !55
   %781 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %777) #9
   %.not.i688 = icmp eq ptr %781, null
   br i1 %.not.i688, label %785, label %782
@@ -1620,11 +1620,11 @@ type_num_classes.exit687.thread746:               ; preds = %733, %type_num_clas
   br i1 %.not.i.i690, label %793, label %add_static_slot.exit
 
 793:                                              ; preds = %789
-  %794 = load i32, ptr %777, align 4, !tbaa !47
+  %794 = load i32, ptr %777, align 4, !tbaa !49
   %795 = icmp ne i32 %794, 0
   call void @llvm.assume(i1 %795)
   %796 = add i32 %794, -1
-  store i32 %796, ptr %777, align 4, !tbaa !47
+  store i32 %796, ptr %777, align 4, !tbaa !49
   %797 = icmp eq i32 %796, 0
   br i1 %797, label %798, label %add_static_slot.exit
 
@@ -1635,12 +1635,12 @@ type_num_classes.exit687.thread746:               ; preds = %733, %type_num_clas
 add_static_slot.exit:                             ; preds = %789, %793, %798
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
   %799 = getelementptr inbounds nuw i8, ptr %.1777, i64 52
-  store i32 %.0.i689, ptr %799, align 4, !tbaa !67
+  store i32 %.0.i689, ptr %799, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 800:                                              ; preds = %765
   %801 = getelementptr inbounds nuw i8, ptr %.1777, i64 52
-  store i32 %.0732776, ptr %801, align 4, !tbaa !67
+  store i32 %.0732776, ptr %801, align 4, !tbaa !73
   %802 = add i32 %.0732776, 24
   br label %type_num_classes.exit.thread
 
@@ -1652,18 +1652,18 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   %806 = load i32, ptr %805, align 4, !tbaa !41
   %807 = zext i32 %806 to i64
   %808 = getelementptr inbounds nuw i32, ptr %627, i64 %807
-  %809 = load i32, ptr %808, align 4, !tbaa !50
+  %809 = load i32, ptr %808, align 4, !tbaa !52
   %810 = icmp sgt i32 %809, -1
   %811 = getelementptr inbounds nuw i8, ptr %.1777, i64 52
   br i1 %810, label %812, label %813
 
 812:                                              ; preds = %804
-  store i32 %809, ptr %811, align 4, !tbaa !67
+  store i32 %809, ptr %811, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 813:                                              ; preds = %804
-  store i32 %.0732776, ptr %811, align 4, !tbaa !67
-  store i32 %.0732776, ptr %808, align 4, !tbaa !50
+  store i32 %.0732776, ptr %811, align 4, !tbaa !73
+  store i32 %.0732776, ptr %808, align 4, !tbaa !52
   %814 = add i32 %.0732776, 8
   br label %type_num_classes.exit.thread
 
@@ -1679,25 +1679,25 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   %820 = load i32, ptr %819, align 4, !tbaa !41
   %821 = zext i32 %820 to i64
   %822 = getelementptr inbounds nuw i32, ptr %630, i64 %821
-  %823 = load i32, ptr %822, align 4, !tbaa !50
+  %823 = load i32, ptr %822, align 4, !tbaa !52
   %824 = icmp sgt i32 %823, -1
   %825 = getelementptr inbounds nuw i8, ptr %.1777, i64 52
   br i1 %824, label %826, label %830
 
 826:                                              ; preds = %818
-  store i32 %823, ptr %825, align 4, !tbaa !67
+  store i32 %823, ptr %825, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 827:                                              ; preds = %816
   %828 = getelementptr inbounds nuw i8, ptr %.1777, i64 52
-  store i32 %.0732776, ptr %828, align 4, !tbaa !67
+  store i32 %.0732776, ptr %828, align 4, !tbaa !73
   %829 = add i32 %.0732776, 24
   br label %type_num_classes.exit.thread
 
 830:                                              ; preds = %818
-  store i32 %.0732776, ptr %825, align 4, !tbaa !67
+  store i32 %.0732776, ptr %825, align 4, !tbaa !73
   %831 = add i32 %.0732776, 24
-  store i32 %.0732776, ptr %822, align 4, !tbaa !50
+  store i32 %.0732776, ptr %822, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 832:                                              ; preds = %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666
@@ -1712,33 +1712,33 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   %837 = load i32, ptr %836, align 4, !tbaa !41
   %838 = zext i32 %837 to i64
   %839 = getelementptr inbounds nuw i32, ptr %630, i64 %838
-  %840 = load i32, ptr %839, align 4, !tbaa !50
+  %840 = load i32, ptr %839, align 4, !tbaa !52
   %841 = icmp sgt i32 %840, -1
   %842 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  %843 = load i32, ptr %842, align 4, !tbaa !67
+  %843 = load i32, ptr %842, align 4, !tbaa !73
   %844 = and i32 %843, 3
   br i1 %841, label %845, label %853
 
 845:                                              ; preds = %835
   %846 = or i32 %844, %840
-  store i32 %846, ptr %842, align 4, !tbaa !67
+  store i32 %846, ptr %842, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 847:                                              ; preds = %833
   %848 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  %849 = load i32, ptr %848, align 4, !tbaa !67
+  %849 = load i32, ptr %848, align 4, !tbaa !73
   %850 = and i32 %849, 3
   %851 = or i32 %850, %.0732776
-  store i32 %851, ptr %848, align 4, !tbaa !67
+  store i32 %851, ptr %848, align 4, !tbaa !73
   %852 = add i32 %.0732776, 24
   br label %type_num_classes.exit.thread
 
 853:                                              ; preds = %835
   %854 = or i32 %844, %.0732776
-  store i32 %854, ptr %842, align 4, !tbaa !67
+  store i32 %854, ptr %842, align 4, !tbaa !73
   %855 = add i32 %.0732776, 24
   %856 = and i32 %.0732776, -4
-  store i32 %856, ptr %839, align 4, !tbaa !50
+  store i32 %856, ptr %839, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 857:                                              ; preds = %666
@@ -1753,33 +1753,33 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   %862 = load i32, ptr %861, align 4, !tbaa !41
   %863 = zext i32 %862 to i64
   %864 = getelementptr inbounds nuw i32, ptr %630, i64 %863
-  %865 = load i32, ptr %864, align 4, !tbaa !50
+  %865 = load i32, ptr %864, align 4, !tbaa !52
   %866 = icmp sgt i32 %865, -1
   %867 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  %868 = load i32, ptr %867, align 4, !tbaa !67
+  %868 = load i32, ptr %867, align 4, !tbaa !73
   %869 = and i32 %868, 1
   br i1 %866, label %870, label %878
 
 870:                                              ; preds = %860
   %871 = or i32 %869, %865
-  store i32 %871, ptr %867, align 4, !tbaa !67
+  store i32 %871, ptr %867, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 872:                                              ; preds = %858
   %873 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  %874 = load i32, ptr %873, align 4, !tbaa !67
+  %874 = load i32, ptr %873, align 4, !tbaa !73
   %875 = and i32 %874, 1
   %876 = or i32 %875, %.0732776
-  store i32 %876, ptr %873, align 4, !tbaa !67
+  store i32 %876, ptr %873, align 4, !tbaa !73
   %877 = add i32 %.0732776, 24
   br label %type_num_classes.exit.thread
 
 878:                                              ; preds = %860
   %879 = or i32 %869, %.0732776
-  store i32 %879, ptr %867, align 4, !tbaa !67
+  store i32 %879, ptr %867, align 4, !tbaa !73
   %880 = add i32 %.0732776, 24
   %881 = and i32 %.0732776, -2
-  store i32 %881, ptr %864, align 4, !tbaa !50
+  store i32 %881, ptr %864, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 882:                                              ; preds = %666, %666, %666
@@ -1787,7 +1787,7 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   %884 = load i32, ptr %883, align 4, !tbaa !41
   %885 = zext i32 %884 to i64
   %886 = getelementptr inbounds nuw i32, ptr %628, i64 %885
-  %887 = load i32, ptr %886, align 4, !tbaa !50
+  %887 = load i32, ptr %886, align 4, !tbaa !52
   %888 = icmp sgt i32 %887, -1
   %889 = getelementptr inbounds nuw i8, ptr %.1777, i64 16
   br i1 %888, label %890, label %891
@@ -1799,7 +1799,7 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
 891:                                              ; preds = %882
   store i32 %.0732776, ptr %889, align 8, !tbaa !41
   %892 = add i32 %.0732776, 8
-  store i32 %.0732776, ptr %886, align 4, !tbaa !50
+  store i32 %.0732776, ptr %886, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 893:                                              ; preds = %666
@@ -1814,7 +1814,7 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   %898 = load i32, ptr %897, align 4, !tbaa !41
   %899 = zext i32 %898 to i64
   %900 = getelementptr inbounds nuw i32, ptr %631, i64 %899
-  %901 = load i32, ptr %900, align 4, !tbaa !50
+  %901 = load i32, ptr %900, align 4, !tbaa !52
   %902 = icmp sgt i32 %901, -1
   %903 = getelementptr inbounds nuw i8, ptr %.1777, i64 16
   br i1 %902, label %904, label %908
@@ -1832,7 +1832,7 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
 908:                                              ; preds = %896
   store i32 %.0732776, ptr %903, align 8, !tbaa !41
   %909 = add i32 %.0732776, 16
-  store i32 %.0732776, ptr %900, align 4, !tbaa !50
+  store i32 %.0732776, ptr %900, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 910:                                              ; preds = %666
@@ -1858,7 +1858,7 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   %924 = call i64 @zend_string_hash_func(ptr noundef %923) #9
   %925 = getelementptr inbounds nuw i8, ptr %923, i64 8
   %926 = add i64 %924, 2
-  store i64 %926, ptr %925, align 8, !tbaa !53
+  store i64 %926, ptr %925, align 8, !tbaa !55
   %927 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %923) #9
   %.not.i691 = icmp eq ptr %927, null
   br i1 %.not.i691, label %931, label %928
@@ -1886,11 +1886,11 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   br i1 %.not.i.i693, label %939, label %add_static_slot.exit694
 
 939:                                              ; preds = %935
-  %940 = load i32, ptr %923, align 4, !tbaa !47
+  %940 = load i32, ptr %923, align 4, !tbaa !49
   %941 = icmp ne i32 %940, 0
   call void @llvm.assume(i1 %941)
   %942 = add i32 %940, -1
-  store i32 %942, ptr %923, align 4, !tbaa !47
+  store i32 %942, ptr %923, align 4, !tbaa !49
   %943 = icmp eq i32 %942, 0
   br i1 %943, label %944, label %add_static_slot.exit694
 
@@ -1918,7 +1918,7 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
   %952 = load i32, ptr %951, align 8, !tbaa !41
   %953 = zext i32 %952 to i64
   %954 = getelementptr inbounds nuw i32, ptr %627, i64 %953
-  %955 = load i32, ptr %954, align 4, !tbaa !50
+  %955 = load i32, ptr %954, align 4, !tbaa !52
   %956 = icmp sgt i32 %955, -1
   %957 = getelementptr inbounds nuw i8, ptr %.1777, i64 16
   br i1 %956, label %958, label %959
@@ -1930,7 +1930,7 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
 959:                                              ; preds = %950
   store i32 %.0732776, ptr %957, align 8, !tbaa !41
   %960 = add i32 %.0732776, 8
-  store i32 %.0732776, ptr %954, align 4, !tbaa !50
+  store i32 %.0732776, ptr %954, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 961:                                              ; preds = %666
@@ -1938,19 +1938,19 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
   %963 = load i32, ptr %962, align 8, !tbaa !41
   %964 = zext i32 %963 to i64
   %965 = getelementptr inbounds nuw i32, ptr %.0.i638, i64 %964
-  %966 = load i32, ptr %965, align 4, !tbaa !50
+  %966 = load i32, ptr %965, align 4, !tbaa !52
   %967 = icmp sgt i32 %966, -1
   %968 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
   br i1 %967, label %969, label %970
 
 969:                                              ; preds = %961
-  store i32 %966, ptr %968, align 4, !tbaa !67
+  store i32 %966, ptr %968, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 970:                                              ; preds = %961
-  store i32 %.0732776, ptr %968, align 4, !tbaa !67
+  store i32 %.0732776, ptr %968, align 4, !tbaa !73
   %971 = add i32 %.0732776, 8
-  store i32 %.0732776, ptr %965, align 4, !tbaa !50
+  store i32 %.0732776, ptr %965, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 972:                                              ; preds = %666
@@ -1958,19 +1958,19 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
   %974 = load i32, ptr %973, align 4, !tbaa !41
   %975 = zext i32 %974 to i64
   %976 = getelementptr inbounds nuw i32, ptr %.0.i638, i64 %975
-  %977 = load i32, ptr %976, align 4, !tbaa !50
+  %977 = load i32, ptr %976, align 4, !tbaa !52
   %978 = icmp sgt i32 %977, -1
   %979 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
   br i1 %978, label %980, label %981
 
 980:                                              ; preds = %972
-  store i32 %977, ptr %979, align 4, !tbaa !67
+  store i32 %977, ptr %979, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 981:                                              ; preds = %972
-  store i32 %.0732776, ptr %979, align 4, !tbaa !67
+  store i32 %.0732776, ptr %979, align 4, !tbaa !73
   %982 = add i32 %.0732776, 8
-  store i32 %.0732776, ptr %976, align 4, !tbaa !50
+  store i32 %.0732776, ptr %976, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 983:                                              ; preds = %666
@@ -2000,7 +2000,7 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
   %1001 = call i64 @zend_string_hash_func(ptr noundef %1000) #9
   %1002 = getelementptr inbounds nuw i8, ptr %1000, i64 8
   %1003 = add i64 %1001, 1
-  store i64 %1003, ptr %1002, align 8, !tbaa !53
+  store i64 %1003, ptr %1002, align 8, !tbaa !55
   %1004 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %1000) #9
   %.not.i695 = icmp eq ptr %1004, null
   br i1 %.not.i695, label %1008, label %1005
@@ -2028,11 +2028,11 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
   br i1 %.not.i.i697, label %1016, label %add_static_slot.exit698
 
 1016:                                             ; preds = %1012
-  %1017 = load i32, ptr %1000, align 4, !tbaa !47
+  %1017 = load i32, ptr %1000, align 4, !tbaa !49
   %1018 = icmp ne i32 %1017, 0
   call void @llvm.assume(i1 %1018)
   %1019 = add i32 %1017, -1
-  store i32 %1019, ptr %1000, align 4, !tbaa !47
+  store i32 %1019, ptr %1000, align 4, !tbaa !49
   %1020 = icmp eq i32 %1019, 0
   br i1 %1020, label %1021, label %add_static_slot.exit698
 
@@ -2043,12 +2043,12 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
 add_static_slot.exit698:                          ; preds = %1012, %1016, %1021
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   %1022 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  store i32 %.0.i696, ptr %1022, align 4, !tbaa !67
+  store i32 %.0.i696, ptr %1022, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 1023:                                             ; preds = %983, %984
   %1024 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  store i32 %.0732776, ptr %1024, align 4, !tbaa !67
+  store i32 %.0732776, ptr %1024, align 4, !tbaa !73
   %1025 = add i32 %.0732776, 16
   br label %type_num_classes.exit.thread
 
@@ -2075,7 +2075,7 @@ add_static_slot.exit698:                          ; preds = %1012, %1016, %1021
   %1040 = call i64 @zend_string_hash_func(ptr noundef %1039) #9
   %1041 = getelementptr inbounds nuw i8, ptr %1039, i64 8
   %1042 = add i64 %1040, 3
-  store i64 %1042, ptr %1041, align 8, !tbaa !53
+  store i64 %1042, ptr %1041, align 8, !tbaa !55
   %1043 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %1039) #9
   %.not.i699 = icmp eq ptr %1043, null
   br i1 %.not.i699, label %1047, label %1044
@@ -2103,11 +2103,11 @@ add_static_slot.exit698:                          ; preds = %1012, %1016, %1021
   br i1 %.not.i.i701, label %1055, label %add_static_slot.exit702
 
 1055:                                             ; preds = %1051
-  %1056 = load i32, ptr %1039, align 4, !tbaa !47
+  %1056 = load i32, ptr %1039, align 4, !tbaa !49
   %1057 = icmp ne i32 %1056, 0
   call void @llvm.assume(i1 %1057)
   %1058 = add i32 %1056, -1
-  store i32 %1058, ptr %1039, align 4, !tbaa !47
+  store i32 %1058, ptr %1039, align 4, !tbaa !49
   %1059 = icmp eq i32 %1058, 0
   br i1 %1059, label %1060, label %add_static_slot.exit702
 
@@ -2118,18 +2118,18 @@ add_static_slot.exit698:                          ; preds = %1012, %1016, %1021
 add_static_slot.exit702:                          ; preds = %1051, %1055, %1060
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   %1061 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  %1062 = load i32, ptr %1061, align 4, !tbaa !67
+  %1062 = load i32, ptr %1061, align 4, !tbaa !73
   %1063 = and i32 %1062, 3
   %1064 = or i32 %1063, %.0.i700
-  store i32 %1064, ptr %1061, align 4, !tbaa !67
+  store i32 %1064, ptr %1061, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 1065:                                             ; preds = %1027
   %1066 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  %1067 = load i32, ptr %1066, align 4, !tbaa !67
+  %1067 = load i32, ptr %1066, align 4, !tbaa !73
   %1068 = and i32 %1067, 3
   %1069 = or i32 %1068, %.0732776
-  store i32 %1069, ptr %1066, align 4, !tbaa !67
+  store i32 %1069, ptr %1066, align 4, !tbaa !73
   %1070 = add i32 %.0732776, 24
   br label %type_num_classes.exit.thread
 
@@ -2141,22 +2141,22 @@ add_static_slot.exit702:                          ; preds = %1051, %1055, %1060
   %1074 = load i32, ptr %1073, align 4, !tbaa !41
   %1075 = zext i32 %1074 to i64
   %1076 = getelementptr inbounds nuw i32, ptr %627, i64 %1075
-  %1077 = load i32, ptr %1076, align 4, !tbaa !50
+  %1077 = load i32, ptr %1076, align 4, !tbaa !52
   %1078 = icmp sgt i32 %1077, -1
   %1079 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  %1080 = load i32, ptr %1079, align 4, !tbaa !67
+  %1080 = load i32, ptr %1079, align 4, !tbaa !73
   %1081 = and i32 %1080, 3
   br i1 %1078, label %1082, label %1084
 
 1082:                                             ; preds = %1072
   %1083 = or i32 %1081, %1077
-  store i32 %1083, ptr %1079, align 4, !tbaa !67
+  store i32 %1083, ptr %1079, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 1084:                                             ; preds = %1072
   %1085 = or i32 %1081, %.0732776
-  store i32 %1085, ptr %1079, align 4, !tbaa !67
-  store i32 %.0732776, ptr %1076, align 4, !tbaa !50
+  store i32 %1085, ptr %1079, align 4, !tbaa !73
+  store i32 %.0732776, ptr %1076, align 4, !tbaa !52
   %1086 = add i32 %.0732776, 8
   br label %type_num_classes.exit.thread
 
@@ -2168,19 +2168,19 @@ add_static_slot.exit702:                          ; preds = %1051, %1055, %1060
   %1090 = load i32, ptr %1089, align 4, !tbaa !41
   %1091 = zext i32 %1090 to i64
   %1092 = getelementptr inbounds nuw i32, ptr %627, i64 %1091
-  %1093 = load i32, ptr %1092, align 4, !tbaa !50
+  %1093 = load i32, ptr %1092, align 4, !tbaa !52
   %1094 = icmp sgt i32 %1093, -1
   %1095 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
   br i1 %1094, label %1096, label %1097
 
 1096:                                             ; preds = %1088
-  store i32 %1093, ptr %1095, align 4, !tbaa !67
+  store i32 %1093, ptr %1095, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 1097:                                             ; preds = %1088
-  store i32 %.0732776, ptr %1095, align 4, !tbaa !67
+  store i32 %.0732776, ptr %1095, align 4, !tbaa !73
   %1098 = add i32 %.0732776, 8
-  store i32 %.0732776, ptr %1092, align 4, !tbaa !50
+  store i32 %.0732776, ptr %1092, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 1099:                                             ; preds = %666
@@ -2191,7 +2191,7 @@ add_static_slot.exit702:                          ; preds = %1051, %1055, %1060
   %1102 = load i32, ptr %1101, align 8, !tbaa !41
   %1103 = zext i32 %1102 to i64
   %1104 = getelementptr inbounds nuw i32, ptr %627, i64 %1103
-  %1105 = load i32, ptr %1104, align 4, !tbaa !50
+  %1105 = load i32, ptr %1104, align 4, !tbaa !52
   %1106 = icmp sgt i32 %1105, -1
   %1107 = getelementptr inbounds nuw i8, ptr %.1777, i64 12
   br i1 %1106, label %1108, label %1109
@@ -2203,7 +2203,7 @@ add_static_slot.exit702:                          ; preds = %1051, %1055, %1060
 1109:                                             ; preds = %1100
   store i32 %.0732776, ptr %1107, align 4, !tbaa !41
   %1110 = add i32 %.0732776, 8
-  store i32 %.0732776, ptr %1104, align 4, !tbaa !50
+  store i32 %.0732776, ptr %1104, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 1111:                                             ; preds = %666
@@ -2214,24 +2214,24 @@ add_static_slot.exit702:                          ; preds = %1051, %1055, %1060
   %1114 = load i32, ptr %1113, align 8, !tbaa !41
   %1115 = zext i32 %1114 to i64
   %1116 = getelementptr inbounds nuw i32, ptr %627, i64 %1115
-  %1117 = load i32, ptr %1116, align 4, !tbaa !50
+  %1117 = load i32, ptr %1116, align 4, !tbaa !52
   %1118 = icmp sgt i32 %1117, -1
   %1119 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  %1120 = load i32, ptr %1119, align 4, !tbaa !67
+  %1120 = load i32, ptr %1119, align 4, !tbaa !73
   %1121 = and i32 %1120, 1
   br i1 %1118, label %1122, label %1124
 
 1122:                                             ; preds = %1112
   %1123 = or i32 %1121, %1117
-  store i32 %1123, ptr %1119, align 4, !tbaa !67
+  store i32 %1123, ptr %1119, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 1124:                                             ; preds = %1112
   %1125 = or i32 %1121, %.0732776
-  store i32 %1125, ptr %1119, align 4, !tbaa !67
+  store i32 %1125, ptr %1119, align 4, !tbaa !73
   %1126 = add i32 %.0732776, 8
   %1127 = and i32 %.0732776, -2
-  store i32 %1127, ptr %1116, align 4, !tbaa !50
+  store i32 %1127, ptr %1116, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 1128:                                             ; preds = %666
@@ -2239,24 +2239,24 @@ add_static_slot.exit702:                          ; preds = %1051, %1055, %1060
   %1130 = load i32, ptr %1129, align 4, !tbaa !41
   %1131 = zext i32 %1130 to i64
   %1132 = getelementptr inbounds nuw i32, ptr %629, i64 %1131
-  %1133 = load i32, ptr %1132, align 4, !tbaa !50
+  %1133 = load i32, ptr %1132, align 4, !tbaa !52
   %1134 = icmp sgt i32 %1133, -1
   %1135 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
   br i1 %1134, label %1136, label %1137
 
 1136:                                             ; preds = %1128
-  store i32 %1133, ptr %1135, align 4, !tbaa !67
+  store i32 %1133, ptr %1135, align 4, !tbaa !73
   br label %type_num_classes.exit.thread
 
 1137:                                             ; preds = %1128
-  store i32 %.0732776, ptr %1135, align 4, !tbaa !67
+  store i32 %.0732776, ptr %1135, align 4, !tbaa !73
   %1138 = add i32 %.0732776, 8
-  store i32 %.0732776, ptr %1132, align 4, !tbaa !50
+  store i32 %.0732776, ptr %1132, align 4, !tbaa !52
   br label %type_num_classes.exit.thread
 
 1139:                                             ; preds = %666, %666, %666
   %1140 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
-  store i32 %.0732776, ptr %1140, align 4, !tbaa !67
+  store i32 %.0732776, ptr %1140, align 4, !tbaa !73
   %1141 = add i32 %.0732776, 8
   br label %type_num_classes.exit.thread
 
@@ -2273,12 +2273,12 @@ type_num_classes.exit.thread:                     ; preds = %741, %727, %704, %6
   %.1733 = phi i32 [ %.0732776, %666 ], [ %.0732776, %type_num_classes.exit ], [ %726, %type_num_classes.exit.thread740 ], [ %.0732776, %type_num_classes.exit687 ], [ %763, %type_num_classes.exit687.thread746 ], [ %.2734, %add_static_slot.exit ], [ %802, %800 ], [ %.0732776, %812 ], [ %814, %813 ], [ %.0732776, %803 ], [ %.0732776, %826 ], [ %831, %830 ], [ %829, %827 ], [ %.0732776, %815 ], [ %.0732776, %845 ], [ %855, %853 ], [ %852, %847 ], [ %.0732776, %832 ], [ %.0732776, %870 ], [ %880, %878 ], [ %877, %872 ], [ %.0732776, %857 ], [ %.0732776, %890 ], [ %892, %891 ], [ %.0732776, %904 ], [ %909, %908 ], [ %907, %905 ], [ %.0732776, %893 ], [ %.3735, %add_static_slot.exit694 ], [ %948, %946 ], [ %.0732776, %958 ], [ %960, %959 ], [ %.0732776, %949 ], [ %.0732776, %969 ], [ %971, %970 ], [ %.0732776, %980 ], [ %982, %981 ], [ %.4736, %add_static_slot.exit698 ], [ %1025, %1023 ], [ %.5737, %add_static_slot.exit702 ], [ %1070, %1065 ], [ %.0732776, %1082 ], [ %1086, %1084 ], [ %.0732776, %1071 ], [ %.0732776, %1096 ], [ %1098, %1097 ], [ %.0732776, %1087 ], [ %.0732776, %1108 ], [ %1110, %1109 ], [ %.0732776, %1099 ], [ %.0732776, %1122 ], [ %1126, %1124 ], [ %.0732776, %1111 ], [ %.0732776, %1136 ], [ %1138, %1137 ], [ %1141, %1139 ], [ %1145, %1143 ], [ %.0732776, %1142 ], [ %.0732776, %672 ], [ %.0732776, %682 ], [ %.0732776, %691 ], [ %.0732776, %704 ], [ %.0732776, %727 ], [ %.0732776, %741 ]
   %1146 = getelementptr inbounds nuw i8, ptr %.1777, i64 32
   %1147 = icmp ult ptr %1146, %637
-  br i1 %1147, label %646, label %._crit_edge779
+  br i1 %1147, label %646, label %._crit_edge779, !llvm.loop !74
 
 ._crit_edge779:                                   ; preds = %type_num_classes.exit.thread, %zend_arena_alloc.exit640
   %.0732.lcssa = phi i32 [ %633, %zend_arena_alloc.exit640 ], [ %.1733, %type_num_classes.exit.thread ]
   %1148 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %.0732.lcssa, ptr %1148, align 8, !tbaa !68
+  store i32 %.0732.lcssa, ptr %1148, align 8, !tbaa !75
   call void @zend_hash_destroy(ptr noundef nonnull %8) #9
   %1149 = load ptr, ptr %1, align 8, !tbaa !36
   %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 8
@@ -2286,7 +2286,7 @@ type_num_classes.exit.thread:                     ; preds = %741, %727, %704, %6
   %1152 = icmp ule ptr %10, %1151
   %.not.i662781 = icmp ugt ptr %10, %1149
   %or.cond.i782 = and i1 %.not.i662781, %1152
-  br i1 %or.cond.i782, label %zend_arena_release.exit, label %.critedge.i, !prof !69
+  br i1 %or.cond.i782, label %zend_arena_release.exit, label %.critedge.i, !prof !76
 
 .critedge.i:                                      ; preds = %._crit_edge779, %.critedge.i
   %.0.i661783 = phi ptr [ %1154, %.critedge.i ], [ %1149, %._crit_edge779 ]
@@ -2299,7 +2299,7 @@ type_num_classes.exit.thread:                     ; preds = %741, %727, %704, %6
   %1157 = icmp ule ptr %10, %1156
   %.not.i662 = icmp ugt ptr %10, %1154
   %or.cond.i = and i1 %.not.i662, %1157
-  br i1 %or.cond.i, label %zend_arena_release.exit, label %.critedge.i, !prof !70
+  br i1 %or.cond.i, label %zend_arena_release.exit, label %.critedge.i, !prof !77, !llvm.loop !78
 
 zend_arena_release.exit:                          ; preds = %.critedge.i, %._crit_edge779
   %.0.i661.lcssa = phi ptr [ %1149, %._crit_edge779 ], [ %1154, %.critedge.i ]
@@ -2329,20 +2329,20 @@ zend_arena_release.exit:                          ; preds = %.critedge.i, %._cri
   br i1 %1171, label %1172, label %1179
 
 1172:                                             ; preds = %1163
-  %1173 = load i32, ptr %1148, align 8, !tbaa !68
+  %1173 = load i32, ptr %1148, align 8, !tbaa !75
   %1174 = add nsw i32 %1173, 7
   %1175 = and i32 %1174, -8
-  store i32 %1175, ptr %1148, align 8, !tbaa !68
+  store i32 %1175, ptr %1148, align 8, !tbaa !75
   %1176 = getelementptr inbounds nuw i8, ptr %1168, i64 12
   store i32 %1175, ptr %1176, align 4, !tbaa !41
-  %1177 = load i32, ptr %1148, align 8, !tbaa !68
+  %1177 = load i32, ptr %1148, align 8, !tbaa !75
   %1178 = add i32 %1177, 16
-  store i32 %1178, ptr %1148, align 8, !tbaa !68
+  store i32 %1178, ptr %1148, align 8, !tbaa !75
   br label %1179
 
 1179:                                             ; preds = %1160, %1163, %1172
   %1180 = getelementptr inbounds nuw i8, ptr %.2, i64 32
-  br label %1160
+  br label %1160, !llvm.loop !79
 
 .loopexit:                                        ; preds = %1160, %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #9
@@ -2467,27 +2467,36 @@ attributes #12 = { nounwind allocsize(0) }
 !44 = !{!40, !8, i64 29}
 !45 = !{!40, !8, i64 30}
 !46 = !{!17, !29, i64 192}
-!47 = !{!48, !18, i64 0}
-!48 = !{!"_zend_refcounted_h", !18, i64 0, !8, i64 4}
-!49 = !{i64 0, i64 8, !41, i64 8, i64 4, !41, i64 12, i64 4, !41}
-!50 = !{!18, !18, i64 0}
-!51 = !{!52, !12, i64 16}
-!52 = !{!"_zend_string", !48, i64 0, !12, i64 8, !12, i64 16, !8, i64 24}
-!53 = !{!52, !12, i64 8}
-!54 = !{!55, !18, i64 28}
-!55 = !{!"_zend_array", !48, i64 0, !8, i64 8, !18, i64 12, !8, i64 16, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !12, i64 40, !7, i64 48}
-!56 = !{!17, !18, i64 4}
-!57 = !{!17, !18, i64 32}
-!58 = !{!17, !22, i64 40}
-!59 = !{!60, !18, i64 16}
-!60 = !{!"_zend_arg_info", !19, i64 0, !61, i64 8, !19, i64 24}
-!61 = !{!"", !7, i64 0, !18, i64 8}
-!62 = !{!60, !7, i64 8}
-!63 = !{!64, !18, i64 0}
-!64 = !{!"", !18, i64 0, !8, i64 8}
-!65 = !{!61, !18, i64 8}
-!66 = !{!61, !7, i64 0}
-!67 = !{!40, !18, i64 20}
-!68 = !{!17, !18, i64 88}
-!69 = !{!"branch_weights", i32 1, i32 1999}
-!70 = !{!"branch_weights", i32 1999, i32 3}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!50, !18, i64 0}
+!50 = !{!"_zend_refcounted_h", !18, i64 0, !8, i64 4}
+!51 = !{i64 0, i64 8, !41, i64 8, i64 4, !41, i64 12, i64 4, !41}
+!52 = !{!18, !18, i64 0}
+!53 = !{!54, !12, i64 16}
+!54 = !{!"_zend_string", !50, i64 0, !12, i64 8, !12, i64 16, !8, i64 24}
+!55 = !{!54, !12, i64 8}
+!56 = distinct !{!56, !48}
+!57 = distinct !{!57, !48}
+!58 = !{!59, !18, i64 28}
+!59 = !{!"_zend_array", !50, i64 0, !8, i64 8, !18, i64 12, !8, i64 16, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !12, i64 40, !7, i64 48}
+!60 = distinct !{!60, !48}
+!61 = !{!17, !18, i64 4}
+!62 = !{!17, !18, i64 32}
+!63 = !{!17, !22, i64 40}
+!64 = !{!65, !18, i64 16}
+!65 = !{!"_zend_arg_info", !19, i64 0, !66, i64 8, !19, i64 24}
+!66 = !{!"", !7, i64 0, !18, i64 8}
+!67 = !{!65, !7, i64 8}
+!68 = !{!69, !18, i64 0}
+!69 = !{!"", !18, i64 0, !8, i64 8}
+!70 = !{!66, !18, i64 8}
+!71 = !{!66, !7, i64 0}
+!72 = distinct !{!72, !48}
+!73 = !{!40, !18, i64 20}
+!74 = distinct !{!74, !48}
+!75 = !{!17, !18, i64 88}
+!76 = !{!"branch_weights", i32 1, i32 1999}
+!77 = !{!"branch_weights", i32 1999, i32 3}
+!78 = distinct !{!78, !48}
+!79 = distinct !{!79, !48}

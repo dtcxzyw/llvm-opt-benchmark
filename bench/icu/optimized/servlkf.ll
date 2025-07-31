@@ -705,7 +705,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit.us: ; preds =
   %35 = load ptr, ptr %8, align 8, !tbaa !24
   %36 = call noundef ptr @uhash_nextElement_77(ptr noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %.not14 = icmp eq ptr %36, null
-  br i1 %.not14, label %.thread, label %.lr.ph.split
+  br i1 %.not14, label %.thread, label %.lr.ph.split, !llvm.loop !33
 
 .thread:                                          ; preds = %.lr.ph.split, %26, %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit.us, %9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
@@ -845,5 +845,7 @@ attributes #16 = { noreturn nounwind }
 !27 = !{!"_ZTS10UHashtable", !28, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !29, i64 64, !29, i64 68, !7, i64 72, !7, i64 73}
 !28 = !{!"p1 _ZTS12UHashElement", !6, i64 0}
 !29 = !{!"float", !7, i64 0}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !31, !32}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !31}

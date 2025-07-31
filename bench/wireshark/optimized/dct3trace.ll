@@ -435,7 +435,7 @@ hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %91
 113:                                              ; preds = %41
   %114 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.9) #9
   %.not99 = icmp eq ptr %114, null
-  br i1 %.not99, label %.outer.split, label %115, !llvm.loop !6
+  br i1 %.not99, label %.outer.split, label %115, !llvm.loop !12
 
 115:                                              ; preds = %113
   %116 = load i8, ptr %9, align 1
@@ -632,7 +632,7 @@ define internal fastcc noundef zeroext i1 @xml_get_int(ptr noundef %0, ptr nound
   br label %.sink.split
 
 30:                                               ; preds = %23
-  %31 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef %18, i64 noundef range(i64 -9223372036854775808, 32) %26, i64 noundef 32) #8, !alias.scope !11
+  %31 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef %18, i64 noundef range(i64 -9223372036854775808, 32) %26, i64 noundef 32) #8, !alias.scope !13
   %32 = getelementptr [32 x i8], ptr %7, i64 0, i64 %26
   store i8 0, ptr %32, align 1
   %33 = call zeroext i1 @ws_strtoi32(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %0)
@@ -739,11 +739,13 @@ attributes #10 = { nounwind willreturn memory(none) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !7}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
-!13 = distinct !{!13, !"memcpy.inline"}
-!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!10 = distinct !{!10, !11, !7}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}

@@ -289,12 +289,12 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
   store i8 %72, ptr %.1129161.i, align 1, !tbaa !20
   %74 = add nuw i64 %.2162.i, 1
   %exitcond.not.i = icmp eq i64 %74, %.0130.i
-  br i1 %exitcond.not.i, label %.preheader153.i, label %.lr.ph163.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.preheader153.i, label %.lr.ph163.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %110, %.preheader.i
   %75 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %31, ptr noundef %20, ptr noundef null) #6
   %.not142.i = icmp eq i32 %75, 0
-  br i1 %.not142.i, label %pkcs12kdf_derive.exit, label %76
+  br i1 %.not142.i, label %pkcs12kdf_derive.exit, label %76, !llvm.loop !25
 
 76:                                               ; preds = %.loopexit.i, %.lr.ph174.i
   %.0117173.i = phi ptr [ %1, %.lr.ph174.i ], [ %91, %.loopexit.i ]
@@ -319,7 +319,7 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
 82:                                               ; preds = %87
   %83 = add nuw i64 %.0121164.i, 1
   %exitcond188.not.i = icmp eq i64 %83, %30
-  br i1 %exitcond188.not.i, label %._crit_edge.i, label %.lr.ph165.i, !llvm.loop !24
+  br i1 %exitcond188.not.i, label %._crit_edge.i, label %.lr.ph165.i, !llvm.loop !26
 
 .lr.ph165.i:                                      ; preds = %.preheader151.i, %82
   %.0121164.i = phi i64 [ %83, %82 ], [ 1, %.preheader151.i ]
@@ -357,7 +357,7 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
   store i8 %94, ptr %95, align 1, !tbaa !20
   %96 = add nuw nsw i64 %.0125166.i, 1
   %exitcond190.not.i = icmp eq i64 %96, %40
-  br i1 %exitcond190.not.i, label %.preheader.i, label %.preheader, !llvm.loop !25
+  br i1 %exitcond190.not.i, label %.preheader.i, label %.preheader, !llvm.loop !27
 
 .lr.ph170.i:                                      ; preds = %.preheader.i, %110
   %.1169.i = phi i64 [ %111, %110 ], [ 0, %.preheader.i ]
@@ -380,12 +380,12 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
   store i8 %108, ptr %100, align 1, !tbaa !20
   %109 = lshr i16 %107, 8
   %.not147.i = icmp eq i64 %99, 0
-  br i1 %.not147.i, label %110, label %98, !llvm.loop !26
+  br i1 %.not147.i, label %110, label %98, !llvm.loop !28
 
 110:                                              ; preds = %98
   %111 = add i64 %.1169.i, %40
   %112 = icmp ult i64 %111, %55
-  br i1 %112, label %.lr.ph170.i, label %.loopexit.i, !llvm.loop !27
+  br i1 %112, label %.lr.ph170.i, label %.loopexit.i, !llvm.loop !29
 
 .loopexit152.sink.split.i:                        ; preds = %33, %18
   %.sink192.i = phi i32 [ 63, %18 ], [ 69, %33 ]
@@ -426,7 +426,7 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_set_ctx_params(ptr noundef %0, p
   br i1 %5, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !28
+  %6 = load ptr, ptr %1, align 8, !tbaa !30
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %7
 
@@ -444,24 +444,24 @@ ossl_param_is_empty.exit:                         ; preds = %2
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %13, align 8, !tbaa !30
-  %16 = load i64, ptr %14, align 8, !tbaa !31
+  %15 = load ptr, ptr %13, align 8, !tbaa !32
+  %16 = load i64, ptr %14, align 8, !tbaa !33
   tail call void @CRYPTO_clear_free(ptr noundef %15, i64 noundef %16, ptr noundef nonnull @.str, i32 noundef 204) #6
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %18 = load i64, ptr %17, align 8, !tbaa !32
+  %18 = load i64, ptr %17, align 8, !tbaa !34
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %12
   %21 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 209) #6
-  store ptr %21, ptr %13, align 8, !tbaa !30
+  store ptr %21, ptr %13, align 8, !tbaa !32
   %22 = icmp eq ptr %21, null
   br i1 %22, label %ossl_param_is_empty.exit.thread, label %pkcs12kdf_set_membuf.exit
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  %25 = load ptr, ptr %24, align 8, !tbaa !35
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %pkcs12kdf_set_membuf.exit, label %26
 
@@ -478,24 +478,24 @@ pkcs12kdf_set_membuf.exit:                        ; preds = %26, %23, %20, %10
 29:                                               ; preds = %pkcs12kdf_set_membuf.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %32 = load ptr, ptr %30, align 8, !tbaa !30
-  %33 = load i64, ptr %31, align 8, !tbaa !31
+  %32 = load ptr, ptr %30, align 8, !tbaa !32
+  %33 = load i64, ptr %31, align 8, !tbaa !33
   tail call void @CRYPTO_clear_free(ptr noundef %32, i64 noundef %33, ptr noundef nonnull @.str, i32 noundef 204) #6
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  %35 = load i64, ptr %34, align 8, !tbaa !32
+  %35 = load i64, ptr %34, align 8, !tbaa !34
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %29
   %38 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 209) #6
-  store ptr %38, ptr %30, align 8, !tbaa !30
+  store ptr %38, ptr %30, align 8, !tbaa !32
   %39 = icmp eq ptr %38, null
   br i1 %39, label %ossl_param_is_empty.exit.thread, label %pkcs12kdf_set_membuf.exit36
 
 40:                                               ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !33
+  %42 = load ptr, ptr %41, align 8, !tbaa !35
   %.not.i33 = icmp eq ptr %42, null
   br i1 %.not.i33, label %pkcs12kdf_set_membuf.exit36, label %43
 
@@ -648,16 +648,18 @@ attributes #6 = { nounwind }
 !18 = !{!4, !12, i64 64}
 !19 = !{!4, !13, i64 72}
 !20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !22}
-!26 = distinct !{!26, !22}
-!27 = distinct !{!27, !22}
-!28 = !{!29, !11, i64 0}
-!29 = !{!"ossl_param_st", !11, i64 0, !13, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
-!30 = !{!11, !11, i64 0}
-!31 = !{!12, !12, i64 0}
-!32 = !{!29, !12, i64 24}
-!33 = !{!29, !5, i64 16}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !22, !23}
+!27 = distinct !{!27, !22, !23}
+!28 = distinct !{!28, !22, !23}
+!29 = distinct !{!29, !22, !23}
+!30 = !{!31, !11, i64 0}
+!31 = !{!"ossl_param_st", !11, i64 0, !13, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
+!32 = !{!11, !11, i64 0}
+!33 = !{!12, !12, i64 0}
+!34 = !{!31, !12, i64 24}
+!35 = !{!31, !5, i64 16}

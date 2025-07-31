@@ -180,7 +180,7 @@ define internal i32 @vpk_read_packet(ptr noundef readonly captures(none) %0, ptr
 40:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %41 = load ptr, ptr %26, align 8, !tbaa !29
-  %42 = load ptr, ptr %34, align 8, !tbaa !53
+  %42 = load ptr, ptr %34, align 8, !tbaa !54
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   %44 = mul i32 %21, %43
   %45 = zext i32 %44 to i64
@@ -194,7 +194,7 @@ define internal i32 @vpk_read_packet(ptr noundef readonly captures(none) %0, ptr
 ._crit_edge:                                      ; preds = %36, %.preheader
   %.140.lcssa = phi i32 [ %30, %.preheader ], [ %21, %36 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %28, ptr %50, align 8, !tbaa !54
+  store i64 %28, ptr %50, align 8, !tbaa !55
   br label %.thread.sink.split
 
 51:                                               ; preds = %2
@@ -212,7 +212,7 @@ define internal i32 @vpk_read_packet(ptr noundef readonly captures(none) %0, ptr
 .thread.sink.split:                               ; preds = %53, %._crit_edge
   %.1.ph = phi i32 [ %.140.lcssa, %._crit_edge ], [ %58, %53 ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %59, align 4, !tbaa !55
+  store i32 0, ptr %59, align 4, !tbaa !56
   br label %.thread
 
 .thread:                                          ; preds = %40, %.thread.sink.split, %16, %51
@@ -347,8 +347,9 @@ attributes #3 = { nounwind }
 !48 = !{!13, !18, i64 48}
 !49 = !{!50, !50, i64 0}
 !50 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!34, !6, i64 24}
-!54 = !{!34, !22, i64 72}
-!55 = !{!34, !10, i64 36}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!34, !6, i64 24}
+!55 = !{!34, !22, i64 72}
+!56 = !{!34, !10, i64 36}

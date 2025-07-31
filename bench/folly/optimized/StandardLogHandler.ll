@@ -962,7 +962,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
 70:                                               ; preds = %65, %_ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEEclIJRKSA_EEEPSB_DpOT_.exit36
   %.028 = load ptr, ptr %.02840, align 8, !tbaa !52
   %.not30 = icmp eq ptr %.028, null
-  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 .body:                                            ; preds = %68, %51, %66, %28
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %29, %28 ], [ %69, %68 ], [ %52, %51 ]
@@ -1238,6 +1238,7 @@ attributes #19 = { builtin allocsize(0) }
 !69 = !{!68, !19, i64 12}
 !70 = !{!19, !19, i64 0}
 !71 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!72 = distinct !{!72, !73}
+!72 = distinct !{!72, !73, !74}
 !73 = !{!"llvm.loop.mustprogress"}
-!74 = distinct !{!74, !73}
+!74 = !{!"llvm.loop.estimated_trip_count"}
+!75 = distinct !{!75, !73, !74}

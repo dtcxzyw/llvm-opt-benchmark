@@ -3212,7 +3212,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i130:               ; preds = %1165, %1163
 1177:                                             ; preds = %.lr.ph.i
   %1178 = getelementptr inbounds nuw i8, ptr %.sroa.034.039.i, i64 8
   %.not37.i = icmp eq ptr %1178, %1176
-  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %1177, %1173
   store i32 2, ptr %21, align 4
@@ -4100,5 +4100,7 @@ attributes #20 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}

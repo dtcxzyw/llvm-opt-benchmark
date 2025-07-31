@@ -269,7 +269,7 @@ define void @DES_xcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %175 = getelementptr inbounds nuw i8, ptr %.1295317, i64 8
   %.1 = add nsw i64 %.1321, -8
   %176 = icmp samesign ugt i64 %.1321, 8
-  br i1 %176, label %139, label %._crit_edge324.thread, !llvm.loop !10
+  br i1 %176, label %139, label %._crit_edge324.thread, !llvm.loop !11
 
 ._crit_edge324:                                   ; preds = %136
   %.not303 = icmp eq i64 %2, 0
@@ -426,6 +426,7 @@ attributes #3 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

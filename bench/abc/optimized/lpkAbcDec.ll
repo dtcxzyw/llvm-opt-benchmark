@@ -71,7 +71,7 @@ define ptr @Lpk_ImplementFun(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %43 = lshr i32 %42, 7
   %44 = and i32 %43, 31
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %46 = load ptr, ptr %45, align 8, !tbaa !25
+  %46 = load ptr, ptr %45, align 8, !tbaa !26
   switch i32 %44, label %64 [
     i32 0, label %47
     i32 1, label %56
@@ -79,8 +79,8 @@ define ptr @Lpk_ImplementFun(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 
 47:                                               ; preds = %._crit_edge
   %48 = getelementptr i8, ptr %46, i64 24
-  %.val32 = load ptr, ptr %48, align 8, !tbaa !39
-  %49 = load i32, ptr %41, align 4, !tbaa !44
+  %.val32 = load ptr, ptr %48, align 8, !tbaa !40
+  %49 = load i32, ptr %41, align 4, !tbaa !45
   %50 = and i32 %49, 1
   %51 = xor i32 %50, 1
   %52 = ptrtoint ptr %.val32 to i64
@@ -90,11 +90,11 @@ define ptr @Lpk_ImplementFun(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   br label %66
 
 56:                                               ; preds = %._crit_edge
-  %.val33 = load ptr, ptr %46, align 8, !tbaa !45
+  %.val33 = load ptr, ptr %46, align 8, !tbaa !46
   %57 = getelementptr i8, ptr %.val33, i64 8
   %.val33.val = load ptr, ptr %57, align 8, !tbaa !20
   %.val33.val.val = load ptr, ptr %.val33.val, align 8, !tbaa !22
-  %58 = load i32, ptr %41, align 4, !tbaa !44
+  %58 = load i32, ptr %41, align 4, !tbaa !45
   %59 = and i32 %58, 1
   %60 = ptrtoint ptr %.val33.val.val to i64
   %61 = zext nneg i32 %59 to i64
@@ -164,7 +164,7 @@ define ptr @Lpk_Implement_rec(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %24 = and i32 %23, 31
   %25 = zext nneg i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %26, label %10, label %._crit_edge, !llvm.loop !46
+  br i1 %26, label %10, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %21, %4
   %27 = tail call ptr @Lpk_ImplementFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
@@ -205,7 +205,7 @@ define ptr @Lpk_Implement(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   store ptr %12, ptr %8, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !47
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !48
 
 .critedge:                                        ; preds = %7, %4
   %13 = getelementptr i8, ptr %2, i64 8
@@ -215,7 +215,7 @@ define ptr @Lpk_Implement(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   %16 = load ptr, ptr %15, align 8, !tbaa !22
   %17 = tail call ptr @Lpk_Implement_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %16)
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %3, ptr %18, align 4, !tbaa !48
+  store i32 %3, ptr %18, align 4, !tbaa !49
   ret ptr %17
 }
 
@@ -252,11 +252,11 @@ define range(i32 0, 2) i32 @Lpk_Decompose_rec(ptr noundef %0, ptr noundef %1) lo
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %29 = load i32, ptr %28, align 4, !tbaa !49
+  %29 = load i32, ptr %28, align 4, !tbaa !50
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %31 = tail call i32 @Lpk_SuppDelay(i32 noundef %29, ptr noundef nonnull %30) #6
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %33 = load i32, ptr %32, align 8, !tbaa !51
+  %33 = load i32, ptr %32, align 8, !tbaa !52
   %34 = icmp sgt i32 %31, %33
   br i1 %34, label %234, label %35
 
@@ -277,10 +277,10 @@ define range(i32 0, 2) i32 @Lpk_Decompose_rec(ptr noundef %0, ptr noundef %1) lo
   br i1 %41, label %Abc_Clock.exit, label %42
 
 42:                                               ; preds = %39
-  %43 = load i64, ptr %10, align 8, !tbaa !52
+  %43 = load i64, ptr %10, align 8, !tbaa !53
   %.neg133 = mul i64 %43, -1000000
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !54
+  %45 = load i64, ptr %44, align 8, !tbaa !55
   %.neg = sdiv i64 %45, -1000
   %.neg134 = add i64 %.neg, %.neg133
   br label %Abc_Clock.exit
@@ -288,9 +288,9 @@ define range(i32 0, 2) i32 @Lpk_Decompose_rec(ptr noundef %0, ptr noundef %1) lo
 Abc_Clock.exit:                                   ; preds = %39, %42
   %.0.i.neg = phi i64 [ %.neg134, %42 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
-  %46 = load ptr, ptr %0, align 8, !tbaa !55
+  %46 = load ptr, ptr %0, align 8, !tbaa !56
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i32, ptr %47, align 4, !tbaa !56
+  %48 = load i32, ptr %47, align 4, !tbaa !57
   %49 = call ptr @Lpk_DsdAnalize(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %48) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #6
   %50 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #6
@@ -298,10 +298,10 @@ Abc_Clock.exit:                                   ; preds = %39, %42
   br i1 %51, label %Abc_Clock.exit107, label %52
 
 52:                                               ; preds = %Abc_Clock.exit
-  %53 = load i64, ptr %9, align 8, !tbaa !52
+  %53 = load i64, ptr %9, align 8, !tbaa !53
   %54 = mul nsw i64 %53, 1000000
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %56 = load i64, ptr %55, align 8, !tbaa !54
+  %56 = load i64, ptr %55, align 8, !tbaa !55
   %57 = sdiv i64 %56, 1000
   %58 = add nsw i64 %57, %54
   br label %Abc_Clock.exit107
@@ -311,14 +311,14 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit, %52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #6
   %59 = add i64 %.0.i106, %.0.i.neg
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8241992
-  %61 = load i64, ptr %60, align 8, !tbaa !58
+  %61 = load i64, ptr %60, align 8, !tbaa !59
   %62 = add nsw i64 %59, %61
-  store i64 %62, ptr %60, align 8, !tbaa !58
+  store i64 %62, ptr %60, align 8, !tbaa !59
   %63 = icmp ne ptr %49, null
   br i1 %63, label %64, label %103
 
 64:                                               ; preds = %Abc_Clock.exit107
-  %65 = load i32, ptr %49, align 4, !tbaa !59
+  %65 = load i32, ptr %49, align 4, !tbaa !60
   %66 = load i32, ptr %11, align 8
   %67 = lshr i32 %66, 12
   %68 = and i32 %67, 15
@@ -330,7 +330,7 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit, %52
 
 72:                                               ; preds = %64
   %73 = getelementptr inbounds nuw i8, ptr %49, i64 28
-  %74 = load i32, ptr %73, align 4, !tbaa !61
+  %74 = load i32, ptr %73, align 4, !tbaa !62
   %75 = lshr i32 %66, 16
   %76 = and i32 %75, 16383
   %.not94 = icmp sgt i32 %74, %76
@@ -338,8 +338,8 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit, %52
 
 77:                                               ; preds = %72
   %78 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %79 = load i32, ptr %78, align 4, !tbaa !62
-  %80 = load i32, ptr %32, align 8, !tbaa !51
+  %79 = load i32, ptr %78, align 4, !tbaa !63
+  %80 = load i32, ptr %32, align 8, !tbaa !52
   %.not95 = icmp sgt i32 %79, %80
   br i1 %.not95, label %103, label %81
 
@@ -347,16 +347,16 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit, %52
   %82 = call fastcc i64 @Abc_Clock()
   %83 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %84 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %85 = load i32, ptr %84, align 4, !tbaa !63
+  %85 = load i32, ptr %84, align 4, !tbaa !64
   %86 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !64
+  %87 = load i32, ptr %86, align 4, !tbaa !65
   %88 = call ptr @Lpk_DsdSplit(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %83, i32 noundef %85, i32 noundef %87) #6
   %89 = call fastcc i64 @Abc_Clock()
   %90 = sub i64 %89, %82
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8242000
-  %92 = load i64, ptr %91, align 8, !tbaa !65
+  %92 = load i64, ptr %91, align 8, !tbaa !66
   %93 = add nsw i64 %90, %92
-  store i64 %93, ptr %91, align 8, !tbaa !65
+  store i64 %93, ptr %91, align 8, !tbaa !66
   %94 = load i32, ptr %11, align 8
   %95 = lshr i32 %94, 7
   %96 = and i32 %95, 31
@@ -380,10 +380,10 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit, %52
   br i1 %105, label %Abc_Clock.exit109, label %106
 
 106:                                              ; preds = %103
-  %107 = load i64, ptr %8, align 8, !tbaa !52
+  %107 = load i64, ptr %8, align 8, !tbaa !53
   %.neg136 = mul i64 %107, -1000000
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %109 = load i64, ptr %108, align 8, !tbaa !54
+  %109 = load i64, ptr %108, align 8, !tbaa !55
   %.neg135 = sdiv i64 %109, -1000
   %.neg137 = add i64 %.neg135, %.neg136
   br label %Abc_Clock.exit109
@@ -398,10 +398,10 @@ Abc_Clock.exit109:                                ; preds = %103, %106
   br i1 %112, label %Abc_Clock.exit111, label %113
 
 113:                                              ; preds = %Abc_Clock.exit109
-  %114 = load i64, ptr %7, align 8, !tbaa !52
+  %114 = load i64, ptr %7, align 8, !tbaa !53
   %115 = mul nsw i64 %114, 1000000
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %117 = load i64, ptr %116, align 8, !tbaa !54
+  %117 = load i64, ptr %116, align 8, !tbaa !55
   %118 = sdiv i64 %117, 1000
   %119 = add nsw i64 %118, %115
   br label %Abc_Clock.exit111
@@ -411,15 +411,15 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
   %120 = add i64 %.0.i110, %.0.i108.neg
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8241976
-  %122 = load i64, ptr %121, align 8, !tbaa !66
+  %122 = load i64, ptr %121, align 8, !tbaa !67
   %123 = add nsw i64 %120, %122
-  store i64 %123, ptr %121, align 8, !tbaa !66
+  store i64 %123, ptr %121, align 8, !tbaa !67
   %.not138 = icmp eq ptr %110, null
   br i1 %.not138, label %199, label %124
 
 124:                                              ; preds = %Abc_Clock.exit111
   %125 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %126 = load i32, ptr %125, align 4, !tbaa !67
+  %126 = load i32, ptr %125, align 4, !tbaa !68
   %127 = load i32, ptr %11, align 8
   %128 = lshr i32 %127, 12
   %129 = and i32 %128, 15
@@ -428,7 +428,7 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
 
 130:                                              ; preds = %124
   %131 = getelementptr inbounds nuw i8, ptr %110, i64 20
-  %132 = load i32, ptr %131, align 4, !tbaa !68
+  %132 = load i32, ptr %131, align 4, !tbaa !69
   %.not97 = icmp sgt i32 %132, %129
   %or.cond132 = and i1 %63, %.not97
   br i1 %or.cond132, label %134, label %156
@@ -438,9 +438,9 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
 
 134:                                              ; preds = %130, %133
   %135 = getelementptr inbounds nuw i8, ptr %110, i64 28
-  %136 = load i32, ptr %135, align 4, !tbaa !61
+  %136 = load i32, ptr %135, align 4, !tbaa !62
   %137 = getelementptr inbounds nuw i8, ptr %49, i64 28
-  %138 = load i32, ptr %137, align 4, !tbaa !61
+  %138 = load i32, ptr %137, align 4, !tbaa !62
   %139 = icmp slt i32 %136, %138
   br i1 %139, label %156, label %140
 
@@ -450,9 +450,9 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
 
 142:                                              ; preds = %140
   %143 = getelementptr inbounds nuw i8, ptr %110, i64 20
-  %144 = load i32, ptr %143, align 4, !tbaa !68
+  %144 = load i32, ptr %143, align 4, !tbaa !69
   %145 = getelementptr inbounds nuw i8, ptr %49, i64 20
-  %146 = load i32, ptr %145, align 4, !tbaa !68
+  %146 = load i32, ptr %145, align 4, !tbaa !69
   %147 = icmp slt i32 %144, %146
   br i1 %147, label %156, label %148
 
@@ -462,9 +462,9 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
 
 150:                                              ; preds = %148
   %151 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %152 = load i32, ptr %151, align 4, !tbaa !62
+  %152 = load i32, ptr %151, align 4, !tbaa !63
   %153 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %154 = load i32, ptr %153, align 4, !tbaa !62
+  %154 = load i32, ptr %153, align 4, !tbaa !63
   %155 = icmp slt i32 %152, %154
   br i1 %155, label %156, label %.thread127
 
@@ -475,10 +475,10 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
   br i1 %158, label %Abc_Clock.exit113, label %159
 
 159:                                              ; preds = %156
-  %160 = load i64, ptr %6, align 8, !tbaa !52
+  %160 = load i64, ptr %6, align 8, !tbaa !53
   %.neg143 = mul i64 %160, -1000000
   %161 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %162 = load i64, ptr %161, align 8, !tbaa !54
+  %162 = load i64, ptr %161, align 8, !tbaa !55
   %.neg142 = sdiv i64 %162, -1000
   %.neg144 = add i64 %.neg142, %.neg143
   br label %Abc_Clock.exit113
@@ -487,9 +487,9 @@ Abc_Clock.exit113:                                ; preds = %156, %159
   %.0.i112.neg = phi i64 [ %.neg144, %159 ], [ 1, %156 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
   %163 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %164 = load i32, ptr %163, align 4, !tbaa !69
+  %164 = load i32, ptr %163, align 4, !tbaa !70
   %165 = getelementptr inbounds nuw i8, ptr %110, i64 36
-  %166 = load i32, ptr %165, align 4, !tbaa !70
+  %166 = load i32, ptr %165, align 4, !tbaa !71
   %167 = call ptr @Lpk_MuxSplit(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %164, i32 noundef %166) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
   %168 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #6
@@ -497,10 +497,10 @@ Abc_Clock.exit113:                                ; preds = %156, %159
   br i1 %169, label %Abc_Clock.exit115, label %170
 
 170:                                              ; preds = %Abc_Clock.exit113
-  %171 = load i64, ptr %5, align 8, !tbaa !52
+  %171 = load i64, ptr %5, align 8, !tbaa !53
   %172 = mul nsw i64 %171, 1000000
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %174 = load i64, ptr %173, align 8, !tbaa !54
+  %174 = load i64, ptr %173, align 8, !tbaa !55
   %175 = sdiv i64 %174, 1000
   %176 = add nsw i64 %175, %172
   br label %Abc_Clock.exit115
@@ -510,9 +510,9 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
   %177 = add i64 %.0.i114, %.0.i112.neg
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 8241984
-  %179 = load i64, ptr %178, align 8, !tbaa !71
+  %179 = load i64, ptr %178, align 8, !tbaa !72
   %180 = add nsw i64 %177, %179
-  store i64 %180, ptr %178, align 8, !tbaa !71
+  store i64 %180, ptr %178, align 8, !tbaa !72
   %181 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %182 = load i32, ptr %181, align 8
   %183 = lshr i32 %182, 7
@@ -561,10 +561,10 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   br i1 %201, label %Abc_Clock.exit117, label %202
 
 202:                                              ; preds = %.thread127
-  %203 = load i64, ptr %4, align 8, !tbaa !52
+  %203 = load i64, ptr %4, align 8, !tbaa !53
   %.neg140 = mul i64 %203, -1000000
   %204 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %205 = load i64, ptr %204, align 8, !tbaa !54
+  %205 = load i64, ptr %204, align 8, !tbaa !55
   %.neg139 = sdiv i64 %205, -1000
   %.neg141 = add i64 %.neg139, %.neg140
   br label %Abc_Clock.exit117
@@ -574,9 +574,9 @@ Abc_Clock.exit117:                                ; preds = %.thread127, %202
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   %206 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %207 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %208 = load i32, ptr %207, align 4, !tbaa !63
+  %208 = load i32, ptr %207, align 4, !tbaa !64
   %209 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %210 = load i32, ptr %209, align 4, !tbaa !64
+  %210 = load i32, ptr %209, align 4, !tbaa !65
   %211 = call ptr @Lpk_DsdSplit(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %206, i32 noundef %208, i32 noundef %210) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   %212 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #6
@@ -584,10 +584,10 @@ Abc_Clock.exit117:                                ; preds = %.thread127, %202
   br i1 %213, label %Abc_Clock.exit119, label %214
 
 214:                                              ; preds = %Abc_Clock.exit117
-  %215 = load i64, ptr %3, align 8, !tbaa !52
+  %215 = load i64, ptr %3, align 8, !tbaa !53
   %216 = mul nsw i64 %215, 1000000
   %217 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %218 = load i64, ptr %217, align 8, !tbaa !54
+  %218 = load i64, ptr %217, align 8, !tbaa !55
   %219 = sdiv i64 %218, 1000
   %220 = add nsw i64 %219, %216
   br label %Abc_Clock.exit119
@@ -597,9 +597,9 @@ Abc_Clock.exit119:                                ; preds = %Abc_Clock.exit117, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
   %221 = add i64 %.0.i118, %.0.i116.neg
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 8242000
-  %223 = load i64, ptr %222, align 8, !tbaa !65
+  %223 = load i64, ptr %222, align 8, !tbaa !66
   %224 = add nsw i64 %221, %223
-  store i64 %224, ptr %222, align 8, !tbaa !65
+  store i64 %224, ptr %222, align 8, !tbaa !66
   %225 = load i32, ptr %11, align 8
   %226 = lshr i32 %225, 7
   %227 = and i32 %226, 31
@@ -636,7 +636,7 @@ declare ptr @Lpk_MuxSplit(ptr noundef, ptr noundef, i32 noundef, i32 noundef) lo
 ; Function Attrs: nounwind uwtable
 define void @Lpk_DecomposeClean(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
-  %.val89 = load i32, ptr %3, align 4, !tbaa !48
+  %.val89 = load i32, ptr %3, align 4, !tbaa !49
   %4 = icmp slt i32 %1, %.val89
   br i1 %4, label %.lr.ph, label %.critedge
 
@@ -652,28 +652,28 @@ define void @Lpk_DecomposeClean(ptr noundef captures(none) %0, i32 noundef %1) l
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   tail call void @Lpk_FunFree(ptr noundef %9) #6
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %.val8 = load i32, ptr %3, align 4, !tbaa !48
+  %.val8 = load i32, ptr %3, align 4, !tbaa !49
   %10 = sext i32 %.val8 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %7, label %.critedge, !llvm.loop !72
+  br i1 %11, label %7, label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %7, %2
-  store i32 %1, ptr %3, align 4, !tbaa !48
+  store i32 %1, ptr %3, align 4, !tbaa !49
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @Lpk_Decompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %2, i64 4
-  %.val = load i32, ptr %9, align 4, !tbaa !48
+  %.val = load i32, ptr %9, align 4, !tbaa !49
   %10 = tail call ptr @Lpk_FunCreate(ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef %6, i32 noundef %7) #6
-  %11 = load i32, ptr %4, align 4, !tbaa !44
+  %11 = load i32, ptr %4, align 4, !tbaa !45
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !44
+  %14 = load i32, ptr %13, align 4, !tbaa !45
   %.not28 = icmp eq i32 %14, 0
   br i1 %.not28, label %22, label %15
 
@@ -728,7 +728,7 @@ define ptr @Lpk_Decompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   store ptr %42, ptr %38, align 8, !tbaa !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Lpk_Implement.exit, label %37, !llvm.loop !47
+  br i1 %exitcond.not.i, label %Lpk_Implement.exit, label %37, !llvm.loop !48
 
 Lpk_Implement.exit:                               ; preds = %37, %34
   %43 = getelementptr i8, ptr %2, i64 8
@@ -737,12 +737,12 @@ Lpk_Implement.exit:                               ; preds = %37, %34
   %45 = getelementptr inbounds ptr, ptr %.val.i, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !22
   %47 = tail call ptr @Lpk_Implement_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %46)
-  store i32 %.val, ptr %9, align 4, !tbaa !48
+  store i32 %.val, ptr %9, align 4, !tbaa !49
   br label %48
 
 48:                                               ; preds = %32, %Lpk_Implement.exit, %30
   %.0 = phi ptr [ %31, %30 ], [ %47, %Lpk_Implement.exit ], [ null, %32 ]
-  %.val89.i = load i32, ptr %9, align 4, !tbaa !48
+  %.val89.i = load i32, ptr %9, align 4, !tbaa !49
   %49 = icmp slt i32 %.val, %.val89.i
   br i1 %49, label %.lr.ph.i31, label %Lpk_DecomposeClean.exit
 
@@ -758,13 +758,13 @@ Lpk_Implement.exit:                               ; preds = %37, %34
   %54 = load ptr, ptr %53, align 8, !tbaa !22
   tail call void @Lpk_FunFree(ptr noundef %54) #6
   %indvars.iv.next.i34 = add nsw i64 %indvars.iv.i32, 1
-  %.val8.i = load i32, ptr %9, align 4, !tbaa !48
+  %.val8.i = load i32, ptr %9, align 4, !tbaa !49
   %55 = sext i32 %.val8.i to i64
   %56 = icmp slt i64 %indvars.iv.next.i34, %55
-  br i1 %56, label %52, label %Lpk_DecomposeClean.exit, !llvm.loop !72
+  br i1 %56, label %52, label %Lpk_DecomposeClean.exit, !llvm.loop !73
 
 Lpk_DecomposeClean.exit:                          ; preds = %52, %48
-  store i32 %.val, ptr %9, align 4, !tbaa !48
+  store i32 %.val, ptr %9, align 4, !tbaa !49
   ret ptr %.0
 }
 
@@ -786,10 +786,10 @@ define internal fastcc i64 @Abc_Clock() unnamed_addr #4 {
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr %1, align 8, !tbaa !52
+  %5 = load i64, ptr %1, align 8, !tbaa !53
   %6 = mul nsw i64 %5, 1000000
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !54
+  %8 = load i64, ptr %7, align 8, !tbaa !55
   %9 = sdiv i64 %8, 1000
   %10 = add nsw i64 %9, %6
   br label %11
@@ -836,53 +836,54 @@ attributes #6 = { nounwind }
 !20 = !{!21, !6, i64 8}
 !21 = !{!"Vec_Ptr_t_", !11, i64 0, !11, i64 4, !6, i64 8}
 !22 = !{!6, !6, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !6, i64 256}
-!26 = !{!"Abc_Ntk_t_", !11, i64 0, !11, i64 4, !27, i64 8, !27, i64 16, !28, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !7, i64 96, !11, i64 140, !11, i64 144, !11, i64 148, !11, i64 152, !9, i64 160, !11, i64 168, !29, i64 176, !9, i64 184, !11, i64 192, !11, i64 196, !11, i64 200, !30, i64 208, !11, i64 216, !31, i64 224, !33, i64 240, !34, i64 248, !6, i64 256, !35, i64 264, !6, i64 272, !36, i64 280, !11, i64 284, !14, i64 288, !15, i64 296, !32, i64 304, !37, i64 312, !15, i64 320, !9, i64 328, !6, i64 336, !6, i64 344, !9, i64 352, !6, i64 360, !6, i64 368, !14, i64 376, !14, i64 384, !27, i64 392, !38, i64 400, !15, i64 408, !14, i64 416, !14, i64 424, !15, i64 432, !14, i64 440, !14, i64 448, !14, i64 456}
-!27 = !{!"p1 omnipotent char", !6, i64 0}
-!28 = !{!"p1 _ZTS9Nm_Man_t_", !6, i64 0}
-!29 = !{!"p1 _ZTS10Abc_Des_t_", !6, i64 0}
-!30 = !{!"double", !7, i64 0}
-!31 = !{!"Vec_Int_t_", !11, i64 0, !11, i64 4, !32, i64 8}
-!32 = !{!"p1 int", !6, i64 0}
-!33 = !{!"p1 _ZTS12Mem_Fixed_t_", !6, i64 0}
-!34 = !{!"p1 _ZTS11Mem_Step_t_", !6, i64 0}
-!35 = !{!"p1 _ZTS14Abc_ManTime_t_", !6, i64 0}
-!36 = !{!"float", !7, i64 0}
-!37 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
-!38 = !{!"p1 float", !6, i64 0}
-!39 = !{!40, !41, i64 24}
-!40 = !{!"Hop_Man_t_", !15, i64 0, !15, i64 8, !15, i64 16, !41, i64 24, !42, i64 32, !7, i64 72, !11, i64 96, !11, i64 100, !43, i64 104, !11, i64 112, !6, i64 120, !11, i64 128, !11, i64 132, !11, i64 136, !15, i64 144, !15, i64 152, !41, i64 160, !17, i64 168, !17, i64 176}
-!41 = !{!"p1 _ZTS10Hop_Obj_t_", !6, i64 0}
-!42 = !{!"Hop_Obj_t_", !7, i64 0, !7, i64 8, !41, i64 16, !41, i64 24, !11, i64 32, !11, i64 32, !11, i64 32, !11, i64 32, !11, i64 32, !11, i64 36}
-!43 = !{!"p2 _ZTS10Hop_Obj_t_", !6, i64 0}
-!44 = !{!11, !11, i64 0}
-!45 = !{!40, !15, i64 0}
-!46 = distinct !{!46, !24}
-!47 = distinct !{!47, !24}
-!48 = !{!21, !11, i64 4}
-!49 = !{!50, !11, i64 12}
-!50 = !{!"Lpk_Fun_t_", !15, i64 0, !11, i64 8, !11, i64 8, !11, i64 9, !11, i64 10, !11, i64 11, !11, i64 11, !11, i64 12, !7, i64 16, !11, i64 144, !7, i64 148, !7, i64 212, !7, i64 228}
-!51 = !{!50, !11, i64 144}
-!52 = !{!53, !17, i64 0}
-!53 = !{!"timespec", !17, i64 0, !17, i64 8}
-!54 = !{!53, !17, i64 8}
-!55 = !{!4, !5, i64 0}
-!56 = !{!57, !11, i64 8}
-!57 = !{!"Lpk_Par_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44}
-!58 = !{!4, !17, i64 8241992}
-!59 = !{!60, !11, i64 0}
-!60 = !{!"Lpk_Res_t_", !11, i64 0, !11, i64 4, !11, i64 8, !7, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36}
-!61 = !{!60, !11, i64 28}
-!62 = !{!60, !11, i64 24}
-!63 = !{!60, !11, i64 8}
-!64 = !{!60, !11, i64 4}
-!65 = !{!4, !17, i64 8242000}
-!66 = !{!4, !17, i64 8241976}
-!67 = !{!60, !11, i64 16}
-!68 = !{!60, !11, i64 20}
-!69 = !{!60, !11, i64 32}
-!70 = !{!60, !11, i64 36}
-!71 = !{!4, !17, i64 8241984}
-!72 = distinct !{!72, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !6, i64 256}
+!27 = !{!"Abc_Ntk_t_", !11, i64 0, !11, i64 4, !28, i64 8, !28, i64 16, !29, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !7, i64 96, !11, i64 140, !11, i64 144, !11, i64 148, !11, i64 152, !9, i64 160, !11, i64 168, !30, i64 176, !9, i64 184, !11, i64 192, !11, i64 196, !11, i64 200, !31, i64 208, !11, i64 216, !32, i64 224, !34, i64 240, !35, i64 248, !6, i64 256, !36, i64 264, !6, i64 272, !37, i64 280, !11, i64 284, !14, i64 288, !15, i64 296, !33, i64 304, !38, i64 312, !15, i64 320, !9, i64 328, !6, i64 336, !6, i64 344, !9, i64 352, !6, i64 360, !6, i64 368, !14, i64 376, !14, i64 384, !28, i64 392, !39, i64 400, !15, i64 408, !14, i64 416, !14, i64 424, !15, i64 432, !14, i64 440, !14, i64 448, !14, i64 456}
+!28 = !{!"p1 omnipotent char", !6, i64 0}
+!29 = !{!"p1 _ZTS9Nm_Man_t_", !6, i64 0}
+!30 = !{!"p1 _ZTS10Abc_Des_t_", !6, i64 0}
+!31 = !{!"double", !7, i64 0}
+!32 = !{!"Vec_Int_t_", !11, i64 0, !11, i64 4, !33, i64 8}
+!33 = !{!"p1 int", !6, i64 0}
+!34 = !{!"p1 _ZTS12Mem_Fixed_t_", !6, i64 0}
+!35 = !{!"p1 _ZTS11Mem_Step_t_", !6, i64 0}
+!36 = !{!"p1 _ZTS14Abc_ManTime_t_", !6, i64 0}
+!37 = !{!"float", !7, i64 0}
+!38 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
+!39 = !{!"p1 float", !6, i64 0}
+!40 = !{!41, !42, i64 24}
+!41 = !{!"Hop_Man_t_", !15, i64 0, !15, i64 8, !15, i64 16, !42, i64 24, !43, i64 32, !7, i64 72, !11, i64 96, !11, i64 100, !44, i64 104, !11, i64 112, !6, i64 120, !11, i64 128, !11, i64 132, !11, i64 136, !15, i64 144, !15, i64 152, !42, i64 160, !17, i64 168, !17, i64 176}
+!42 = !{!"p1 _ZTS10Hop_Obj_t_", !6, i64 0}
+!43 = !{!"Hop_Obj_t_", !7, i64 0, !7, i64 8, !42, i64 16, !42, i64 24, !11, i64 32, !11, i64 32, !11, i64 32, !11, i64 32, !11, i64 32, !11, i64 36}
+!44 = !{!"p2 _ZTS10Hop_Obj_t_", !6, i64 0}
+!45 = !{!11, !11, i64 0}
+!46 = !{!41, !15, i64 0}
+!47 = distinct !{!47, !24, !25}
+!48 = distinct !{!48, !24, !25}
+!49 = !{!21, !11, i64 4}
+!50 = !{!51, !11, i64 12}
+!51 = !{!"Lpk_Fun_t_", !15, i64 0, !11, i64 8, !11, i64 8, !11, i64 9, !11, i64 10, !11, i64 11, !11, i64 11, !11, i64 12, !7, i64 16, !11, i64 144, !7, i64 148, !7, i64 212, !7, i64 228}
+!52 = !{!51, !11, i64 144}
+!53 = !{!54, !17, i64 0}
+!54 = !{!"timespec", !17, i64 0, !17, i64 8}
+!55 = !{!54, !17, i64 8}
+!56 = !{!4, !5, i64 0}
+!57 = !{!58, !11, i64 8}
+!58 = !{!"Lpk_Par_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44}
+!59 = !{!4, !17, i64 8241992}
+!60 = !{!61, !11, i64 0}
+!61 = !{!"Lpk_Res_t_", !11, i64 0, !11, i64 4, !11, i64 8, !7, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36}
+!62 = !{!61, !11, i64 28}
+!63 = !{!61, !11, i64 24}
+!64 = !{!61, !11, i64 8}
+!65 = !{!61, !11, i64 4}
+!66 = !{!4, !17, i64 8242000}
+!67 = !{!4, !17, i64 8241976}
+!68 = !{!61, !11, i64 16}
+!69 = !{!61, !11, i64 20}
+!70 = !{!61, !11, i64 32}
+!71 = !{!61, !11, i64 36}
+!72 = !{!4, !17, i64 8241984}
+!73 = distinct !{!73, !24, !25}

@@ -269,12 +269,12 @@ RequiresSetenv.exit.thread71:                     ; preds = %65
 90:                                               ; preds = %87, %.lr.ph.split.split.us.i.i
   %91 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
   %.not.us35.i.i = icmp eq ptr %91, null
-  br i1 %.not.us35.i.i, label %.critedge75, label %.lr.ph.split.split.us.i.i, !llvm.loop !9
+  br i1 %.not.us35.i.i, label %.critedge75, label %.lr.ph.split.split.us.i.i, !llvm.loop !10
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.split.i.i, %.lr.ph.split.split.i.i
   %92 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
   %.not.i.i = icmp eq ptr %92, null
-  br i1 %.not.i.i, label %.critedge75, label %.lr.ph.split.split.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %.critedge75, label %.lr.ph.split.split.i.i, !llvm.loop !11
 
 RequiresSetenv.exit.thread:                       ; preds = %50, %56, %53, %59
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %14)
@@ -796,8 +796,9 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8}

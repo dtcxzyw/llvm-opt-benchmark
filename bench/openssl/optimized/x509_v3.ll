@@ -118,7 +118,7 @@ define range(i32 -1, 2147483647) i32 @X509v3_get_ext_by_critical(ptr noundef %0,
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !15
+  %17 = load i32, ptr %16, align 8, !tbaa !16
   %18 = icmp sgt i32 %17, 0
   %..i = zext i1 %18 to i32
   br label %X509_EXTENSION_get_critical.exit
@@ -126,7 +126,7 @@ define range(i32 -1, 2147483647) i32 @X509v3_get_ext_by_critical(ptr noundef %0,
 X509_EXTENSION_get_critical.exit:                 ; preds = %12, %15
   %.0.i = phi i32 [ 0, %12 ], [ %..i, %15 ]
   %19 = icmp eq i32 %.0.i, %9
-  br i1 %19, label %.loopexit, label %10, !llvm.loop !16
+  br i1 %19, label %.loopexit, label %10, !llvm.loop !17
 
 .loopexit:                                        ; preds = %10, %X509_EXTENSION_get_critical.exit, %3
   %.0 = phi i32 [ -1, %3 ], [ -1, %10 ], [ %.015, %X509_EXTENSION_get_critical.exit ]
@@ -140,7 +140,7 @@ define range(i32 0, 2) i32 @X509_EXTENSION_get_critical(ptr noundef readonly cap
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !15
+  %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = icmp sgt i32 %5, 0
   %. = zext i1 %6 to i32
   br label %7
@@ -200,7 +200,7 @@ define noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) %0, ptr
   br i1 %4, label %23, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr %0, align 8, !tbaa !17
+  %6 = load ptr, ptr %0, align 8, !tbaa !18
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %11
 
@@ -225,12 +225,12 @@ define noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) %0, ptr
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %0, align 8, !tbaa !17
+  %20 = load ptr, ptr %0, align 8, !tbaa !18
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %19
-  store ptr %.1, ptr %0, align 8, !tbaa !17
+  store ptr %.1, ptr %0, align 8, !tbaa !18
   br label %28
 
 23:                                               ; preds = %3
@@ -249,7 +249,7 @@ define noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) %0, ptr
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink38, ptr noundef nonnull @__func__.X509v3_add_ext) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #6
   tail call void @X509_EXTENSION_free(ptr noundef %.022.ph) #6
-  %25 = load ptr, ptr %0, align 8, !tbaa !17
+  %25 = load ptr, ptr %0, align 8, !tbaa !18
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
@@ -298,7 +298,7 @@ define ptr @X509v3_add_extensions(ptr noundef captures(address_is_null) %0, ptr 
   %8 = add nuw nsw i32 %.02040, 1
   %9 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
   %10 = icmp slt i32 %8, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.preheader37, %7
   %.02040 = phi i32 [ %8, %7 ], [ 0, %.preheader37 ]
@@ -312,7 +312,7 @@ define ptr @X509v3_add_extensions(ptr noundef captures(address_is_null) %0, ptr 
 
 X509_EXTENSION_get_object.exit:                   ; preds = %.lr.ph, %13
   %.0.i = phi ptr [ %14, %13 ], [ null, %.lr.ph ]
-  %15 = load ptr, ptr %0, align 8, !tbaa !17
+  %15 = load ptr, ptr %0, align 8, !tbaa !18
   %16 = icmp eq ptr %15, null
   br i1 %16, label %X509v3_get_ext_by_OBJ.exit.thread, label %17
 
@@ -341,10 +341,10 @@ X509v3_get_ext_by_OBJ.exit:                       ; preds = %21
 
 .preheader:                                       ; preds = %X509v3_get_ext_by_OBJ.exit, %X509v3_get_ext_by_OBJ.exit30
   %.0 = phi i32 [ %.012.i28, %X509v3_get_ext_by_OBJ.exit30 ], [ %.012.i, %X509v3_get_ext_by_OBJ.exit ]
-  %26 = load ptr, ptr %0, align 8, !tbaa !17
+  %26 = load ptr, ptr %0, align 8, !tbaa !18
   %27 = tail call ptr @OPENSSL_sk_delete(ptr noundef %26, i32 noundef %.0) #6
   tail call void @X509_EXTENSION_free(ptr noundef %27) #6
-  %28 = load ptr, ptr %0, align 8, !tbaa !17
+  %28 = load ptr, ptr %0, align 8, !tbaa !18
   %29 = icmp eq ptr %28, null
   br i1 %29, label %X509v3_get_ext_by_OBJ.exit.thread, label %30
 
@@ -369,7 +369,7 @@ X509v3_get_ext_by_OBJ.exit:                       ; preds = %21
 
 X509v3_get_ext_by_OBJ.exit30:                     ; preds = %34
   %.not24 = icmp eq i32 %.012.i28, -1
-  br i1 %.not24, label %X509v3_get_ext_by_OBJ.exit.thread, label %.preheader, !llvm.loop !20
+  br i1 %.not24, label %X509v3_get_ext_by_OBJ.exit.thread, label %.preheader, !llvm.loop !21
 
 X509v3_get_ext_by_OBJ.exit.thread:                ; preds = %20, %.preheader, %X509v3_get_ext_by_OBJ.exit30, %33, %X509_EXTENSION_get_object.exit, %X509v3_get_ext_by_OBJ.exit
   %39 = tail call ptr @X509v3_add_ext(ptr noundef nonnull %0, ptr noundef %11, i32 noundef -1)
@@ -377,7 +377,7 @@ X509v3_get_ext_by_OBJ.exit.thread:                ; preds = %20, %.preheader, %X
   br i1 %.not25.not, label %.loopexit, label %7
 
 ._crit_edge:                                      ; preds = %7, %.preheader37
-  %40 = load ptr, ptr %0, align 8, !tbaa !17
+  %40 = load ptr, ptr %0, align 8, !tbaa !18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %X509v3_get_ext_by_OBJ.exit.thread, %._crit_edge, %6
@@ -431,7 +431,7 @@ define ptr @X509_EXTENSION_create_by_OBJ(ptr noundef captures(address_is_null) %
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %7 = load ptr, ptr %0, align 8, !tbaa !22
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13
 
@@ -463,11 +463,11 @@ X509_EXTENSION_set_object.exit:                   ; preds = %13
   %.not.i = icmp eq i32 %2, 0
   %18 = select i1 %.not.i, i32 0, i32 255
   %19 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i32 %18, ptr %19, align 8, !tbaa !15
+  store i32 %18, ptr %19, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !23
-  %23 = load i32, ptr %3, align 8, !tbaa !24
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  %23 = load i32, ptr %3, align 8, !tbaa !25
   %24 = tail call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %20, ptr noundef %22, i32 noundef %23) #6
   %.not.i27.not = icmp eq i32 %24, 0
   br i1 %.not.i27.not, label %X509_EXTENSION_set_object.exit.thread, label %25
@@ -476,19 +476,19 @@ X509_EXTENSION_set_object.exit:                   ; preds = %13
   br i1 %5, label %33, label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %0, align 8, !tbaa !21
+  %27 = load ptr, ptr %0, align 8, !tbaa !22
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %26
-  store ptr %.0, ptr %0, align 8, !tbaa !21
+  store ptr %.0, ptr %0, align 8, !tbaa !22
   br label %33
 
 X509_EXTENSION_set_object.exit.thread:            ; preds = %13, %17, %X509_EXTENSION_set_object.exit
   br i1 %5, label %32, label %30
 
 30:                                               ; preds = %X509_EXTENSION_set_object.exit.thread
-  %31 = load ptr, ptr %0, align 8, !tbaa !21
+  %31 = load ptr, ptr %0, align 8, !tbaa !22
   %.not24 = icmp eq ptr %.0, %31
   br i1 %.not24, label %33, label %32
 
@@ -535,7 +535,7 @@ define range(i32 0, 2) i32 @X509_EXTENSION_set_critical(ptr noundef writeonly ca
   %.not = icmp eq i32 %1, 0
   %5 = select i1 %.not, i32 0, i32 255
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %5, ptr %6, align 8, !tbaa !15
+  store i32 %5, ptr %6, align 8, !tbaa !16
   br label %7
 
 7:                                                ; preds = %2, %4
@@ -551,8 +551,8 @@ define range(i32 0, 2) i32 @X509_EXTENSION_set_data(ptr noundef %0, ptr noundef 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
-  %8 = load i32, ptr %1, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %8 = load i32, ptr %1, align 8, !tbaa !25
   %9 = tail call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %5, ptr noundef %7, i32 noundef %8) #6
   %.not = icmp ne i32 %9, 0
   %. = zext i1 %.not to i32
@@ -604,15 +604,16 @@ attributes #6 = { nounwind }
 !10 = !{!"asn1_string_st", !9, i64 0, !9, i64 4, !11, i64 8, !12, i64 16}
 !11 = !{!"p1 omnipotent char", !6, i64 0}
 !12 = !{!"long", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!4, !9, i64 8}
-!16 = distinct !{!16, !14}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !6, i64 0}
-!19 = distinct !{!19, !14}
-!20 = distinct !{!20, !14}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS17X509_extension_st", !6, i64 0}
-!23 = !{!10, !11, i64 8}
-!24 = !{!10, !9, i64 0}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!4, !9, i64 8}
+!17 = distinct !{!17, !14, !15}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !6, i64 0}
+!20 = distinct !{!20, !14, !15}
+!21 = distinct !{!21, !14, !15}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS17X509_extension_st", !6, i64 0}
+!24 = !{!10, !11, i64 8}
+!25 = !{!10, !9, i64 0}

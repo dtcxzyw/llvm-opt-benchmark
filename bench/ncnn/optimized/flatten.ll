@@ -172,7 +172,7 @@ define internal void @_ZNK4ncnn7Flatten7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %36 = load i32, ptr %9, align 4, !tbaa !16
   %37 = sext i32 %36 to i64
   %.not.not = icmp slt i64 %indvars.iv, %37
-  br i1 %.not.not, label %.noexc, label %._crit_edge
+  br i1 %.not.not, label %.noexc, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.noexc, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -207,7 +207,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #6
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare !callback !45 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
+declare !callback !47 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
@@ -274,5 +274,7 @@ attributes #10 = { builtin nounwind }
 !42 = !{!43}
 !43 = distinct !{!43, !44, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
 !44 = distinct !{!44, !"_ZNK4ncnn3Mat7channelEi"}
-!45 = !{!46}
-!46 = !{i64 2, i64 -1, i64 -1, i1 true}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!48}
+!48 = !{i64 2, i64 -1, i64 -1, i1 true}

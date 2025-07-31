@@ -154,7 +154,7 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %91 = add nsw i32 %.06268.us, 1
   %92 = load i32, ptr %65, align 4, !tbaa !33
   %.not.us.not = icmp slt i32 %.06268.us, %92
-  br i1 %.not.us.not, label %.lr.ph69.split.us, label %._crit_edge, !llvm.loop !39
+  br i1 %.not.us.not, label %.lr.ph69.split.us, label %._crit_edge, !llvm.loop !40
 
 .lr.ph69.split:                                   ; preds = %.lr.ph69, %.preheader
   %.06268 = phi i32 [ %105, %.preheader ], [ %64, %.lr.ph69 ]
@@ -182,7 +182,7 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %105 = add nsw i32 %.06268, 1
   %106 = load i32, ptr %65, align 4, !tbaa !33
   %.not.not = icmp slt i32 %.06268, %106
-  br i1 %.not.not, label %.lr.ph69.split, label %._crit_edge, !llvm.loop !41
+  br i1 %.not.not, label %.lr.ph69.split, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.preheader, %10
   call void @lv_free(ptr noundef %62) #4
@@ -275,8 +275,9 @@ attributes #4 = { nounwind }
 !34 = !{!7, !7, i64 0}
 !35 = !{!36, !7, i64 3}
 !36 = !{!"", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !38, !39, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !38, !39}

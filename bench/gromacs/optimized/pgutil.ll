@@ -190,7 +190,7 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit: ; preds = %31, %_ZSt4fin
 76:                                               ; preds = %.lr.ph225
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count260
-  br i1 %exitcond261.not, label %_Z15search_res_atomPKciPK7t_atomsS0_b.exit, label %.lr.ph225, !llvm.loop !27
+  br i1 %exitcond261.not, label %_Z15search_res_atomPKciPK7t_atomsS0_b.exit, label %.lr.ph225, !llvm.loop !28
 
 77:                                               ; preds = %.lr.ph225
   %78 = trunc nuw nsw i64 %indvars.iv257 to i32
@@ -219,7 +219,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %76, %69, %77
   %indvars.iv.next263 = add nsw i64 %indvars.iv262, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next263 to i32
   %exitcond265.not = icmp eq i32 %9, %lftr.wideiv
-  br i1 %exitcond265.not, label %.critedge2, label %.lr.ph227, !llvm.loop !28
+  br i1 %exitcond265.not, label %.critedge2, label %.lr.ph227, !llvm.loop !29
 
 .critedge96.loopexit:                             ; preds = %.lr.ph227
   %85 = trunc nsw i64 %indvars.iv262 to i32
@@ -248,12 +248,12 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %76, %69, %77
 
 .critedge4:                                       ; preds = %.lr.ph234, %88
   %92 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv266
-  %93 = load ptr, ptr %92, align 8, !tbaa !29
+  %93 = load ptr, ptr %92, align 8, !tbaa !30
   %.not91 = icmp eq ptr %93, null
   br i1 %.not91, label %98, label %94
 
 94:                                               ; preds = %.critedge4
-  %95 = load ptr, ptr %93, align 8, !tbaa !31
+  %95 = load ptr, ptr %93, align 8, !tbaa !32
   %96 = tail call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef nonnull %.0, ptr noundef %95)
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.loopexit, label %98
@@ -262,7 +262,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %76, %69, %77
   %indvars.iv.next267 = add nsw i64 %indvars.iv266, 1
   %lftr.wideiv269 = trunc i64 %indvars.iv.next267 to i32
   %exitcond270.not = icmp eq i32 %9, %lftr.wideiv269
-  br i1 %exitcond270.not, label %.critedge2, label %.lr.ph234, !llvm.loop !33
+  br i1 %exitcond270.not, label %.critedge2, label %.lr.ph234, !llvm.loop !34
 
 .critedge2:                                       ; preds = %84, %98, %.critedge96
   %.0278 = phi ptr [ %.0, %.critedge96 ], [ %.0, %98 ], [ %21, %84 ]
@@ -288,11 +288,11 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %76, %69, %77
   %107 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %.pre-phi, i32 7
   %108 = load i32, ptr %107, align 4, !tbaa !19
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %110 = load ptr, ptr %109, align 8, !tbaa !34
+  %110 = load ptr, ptr %109, align 8, !tbaa !35
   %111 = sext i32 %.0171274 to i64
   %112 = getelementptr inbounds %struct.t_resinfo, ptr %110, i64 %111
-  %113 = load ptr, ptr %112, align 8, !tbaa !35
-  %114 = load ptr, ptr %113, align 8, !tbaa !31
+  %113 = load ptr, ptr %112, align 8, !tbaa !36
+  %114 = load ptr, ptr %113, align 8, !tbaa !32
   tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef 156, ptr noundef nonnull %.0277, i32 noundef %108, ptr noundef %114, ptr noundef %3, i1 noundef zeroext %4)
   br label %.loopexit
 
@@ -437,7 +437,7 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129: ; preds = %129, %_ZSt
 174:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_Z15search_res_atomPKciPK7t_atomsS0_b.exit136, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %_Z15search_res_atomPKciPK7t_atomsS0_b.exit136, label %.lr.ph, !llvm.loop !28
 
 175:                                              ; preds = %.lr.ph
   %176 = trunc nuw nsw i64 %indvars.iv to i32
@@ -466,7 +466,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit136:    ; preds = %174, %167, %175
 183:                                              ; preds = %.lr.ph215
   %184 = add nsw i32 %.2214, -1
   %185 = icmp sgt i32 %.2214, 0
-  br i1 %185, label %.lr.ph215, label %.critedge99, !llvm.loop !37
+  br i1 %185, label %.lr.ph215, label %.critedge99, !llvm.loop !38
 
 .critedge6:                                       ; preds = %.lr.ph215
   %186 = add nuw nsw i32 %.2214, 1
@@ -493,11 +493,11 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit136:    ; preds = %174, %167, %175
 
 196:                                              ; preds = %192
   %197 = getelementptr inbounds nuw ptr, ptr %13, i64 %189
-  %198 = load ptr, ptr %197, align 8, !tbaa !29
-  %199 = load ptr, ptr %198, align 8, !tbaa !31
+  %198 = load ptr, ptr %197, align 8, !tbaa !30
+  %199 = load ptr, ptr %198, align 8, !tbaa !32
   %200 = tail call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef nonnull %116, ptr noundef %199)
   %201 = icmp eq i32 %200, 0
-  br i1 %201, label %.loopexit, label %188, !llvm.loop !38
+  br i1 %201, label %.loopexit, label %188, !llvm.loop !39
 
 .critedge8:                                       ; preds = %188, %192
   %202 = icmp sgt i32 %.3, 0
@@ -507,11 +507,11 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit136:    ; preds = %174, %167, %175
   %204 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %187, i32 7
   %205 = load i32, ptr %204, align 4, !tbaa !19
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %207 = load ptr, ptr %206, align 8, !tbaa !34
+  %207 = load ptr, ptr %206, align 8, !tbaa !35
   %208 = sext i32 %.1172 to i64
   %209 = getelementptr inbounds %struct.t_resinfo, ptr %207, i64 %208
-  %210 = load ptr, ptr %209, align 8, !tbaa !35
-  %211 = load ptr, ptr %210, align 8, !tbaa !31
+  %210 = load ptr, ptr %209, align 8, !tbaa !36
+  %211 = load ptr, ptr %210, align 8, !tbaa !32
   tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef 195, ptr noundef nonnull %116, i32 noundef %205, ptr noundef %211, ptr noundef %3, i1 noundef zeroext %4)
   br label %.loopexit
 
@@ -561,7 +561,7 @@ define i64 @_Z15search_res_atomPKciPK7t_atomsS0_b(ptr noundef %0, i32 noundef %1
 15:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !28
 
 16:                                               ; preds = %11
   %17 = trunc nuw nsw i64 %indvars.iv to i32
@@ -581,7 +581,7 @@ define internal fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef ran
   %7 = alloca ptr, align 8
   %8 = alloca [1024 x i8], align 16
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  store ptr @.str, ptr %7, align 8, !tbaa !31
+  store ptr @.str, ptr %7, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #13
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(6) @.str.1) #12
   %.not = icmp eq i32 %10, 0
@@ -646,20 +646,20 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = load ptr, ptr %1, align 8, !tbaa !31
+  %5 = load ptr, ptr %1, align 8, !tbaa !32
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %7, ptr %0, align 8, !tbaa !39
+  store ptr %7, ptr %0, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store i64 %6, ptr %4, align 8, !tbaa !41
+  store i64 %6, ptr %4, align 8, !tbaa !42
   %8 = icmp ugt i64 %6, 15
   br i1 %8, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %3
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %9, ptr %0, align 8, !tbaa !43
-  %10 = load i64, ptr %4, align 8, !tbaa !41
-  store i64 %10, ptr %7, align 8, !tbaa !45
+  store ptr %9, ptr %0, align 8, !tbaa !44
+  %10 = load i64, ptr %4, align 8, !tbaa !42
+  store i64 %10, ptr %7, align 8, !tbaa !46
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %3
@@ -670,8 +670,8 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   ]
 
 12:                                               ; preds = %._crit_edge.i.i.i.i
-  %13 = load i8, ptr %5, align 1, !tbaa !45
-  store i8 %13, ptr %11, align 1, !tbaa !45
+  %13 = load i8, ptr %5, align 1, !tbaa !46
+  store i8 %13, ptr %11, align 1, !tbaa !46
   br label %15
 
 14:                                               ; preds = %._crit_edge.i.i.i.i
@@ -679,12 +679,12 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   br label %15
 
 15:                                               ; preds = %14, %12, %._crit_edge.i.i.i.i
-  %16 = load i64, ptr %4, align 8, !tbaa !41
+  %16 = load i64, ptr %4, align 8, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %16, ptr %17, align 8, !tbaa !46
-  %18 = load ptr, ptr %0, align 8, !tbaa !43
+  store i64 %16, ptr %17, align 8, !tbaa !47
+  %18 = load ptr, ptr %0, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
-  store i8 0, ptr %19, align 1, !tbaa !45
+  store i8 0, ptr %19, align 1, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20)
@@ -705,7 +705,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
 25:                                               ; preds = %21
   %26 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %20, align 8, !tbaa !47
+  %27 = load ptr, ptr %20, align 8, !tbaa !48
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %28
 
@@ -714,23 +714,23 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %25, %28
-  store ptr null, ptr %20, align 8, !tbaa !47
+  store ptr null, ptr %20, align 8, !tbaa !48
   br label %29
 
 29:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %23
   %.pn = phi { ptr, i32 } [ %26, %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit ], [ %24, %23 ]
-  %30 = load ptr, ptr %0, align 8, !tbaa !43
+  %30 = load ptr, ptr %0, align 8, !tbaa !44
   %31 = icmp eq ptr %30, %7
   br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %29
-  %32 = load i64, ptr %17, align 8, !tbaa !46
+  %32 = load i64, ptr %17, align 8, !tbaa !47
   %33 = icmp ult i64 %32, 16
   call void @llvm.assume(i1 %33)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %29
-  %34 = load i64, ptr %7, align 8, !tbaa !45
+  %34 = load i64, ptr %7, align 8, !tbaa !46
   %35 = add i64 %34, 1
   call void @_ZdlPvm(ptr noundef %30, i64 noundef %35) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -742,7 +742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
@@ -751,21 +751,21 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
-  store ptr null, ptr %2, align 8, !tbaa !47
-  %5 = load ptr, ptr %0, align 8, !tbaa !43
+  store ptr null, ptr %2, align 8, !tbaa !48
+  %5 = load ptr, ptr %0, align 8, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !46
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   %10 = icmp ult i64 %9, 16
   tail call void @llvm.assume(i1 %10)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
-  %11 = load i64, ptr %6, align 8, !tbaa !45
+  %11 = load i64, ptr %6, align 8, !tbaa !46
   %12 = add i64 %11, 1
   tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %12) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -839,27 +839,28 @@ attributes #15 = { builtin nounwind }
 !22 = !{!"short", !7, i64 0}
 !23 = !{!"_ZTS12ParticleType", !7, i64 0}
 !24 = !{!6, !6, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = distinct !{!28, !26}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p2 omnipotent char", !13, i64 0}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 omnipotent char", !10, i64 0}
-!33 = distinct !{!33, !26}
-!34 = !{!5, !14, i64 48}
-!35 = !{!36, !30, i64 0}
-!36 = !{!"_ZTS9t_resinfo", !30, i64 0, !6, i64 8, !7, i64 12, !6, i64 16, !7, i64 20, !30, i64 24}
-!37 = distinct !{!37, !26}
-!38 = distinct !{!38, !26}
-!39 = !{!40, !32, i64 0}
-!40 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !32, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"long", !7, i64 0}
-!43 = !{!44, !32, i64 0}
-!44 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !40, i64 0, !42, i64 8, !7, i64 16}
-!45 = !{!7, !7, i64 0}
-!46 = !{!44, !42, i64 8}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !10, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = distinct !{!29, !26, !27}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p2 omnipotent char", !13, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 omnipotent char", !10, i64 0}
+!34 = distinct !{!34, !26, !27}
+!35 = !{!5, !14, i64 48}
+!36 = !{!37, !31, i64 0}
+!37 = !{!"_ZTS9t_resinfo", !31, i64 0, !6, i64 8, !7, i64 12, !6, i64 16, !7, i64 20, !31, i64 24}
+!38 = distinct !{!38, !26, !27}
+!39 = distinct !{!39, !26, !27}
+!40 = !{!41, !33, i64 0}
+!41 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !33, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"long", !7, i64 0}
+!44 = !{!45, !33, i64 0}
+!45 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !41, i64 0, !43, i64 8, !7, i64 16}
+!46 = !{!7, !7, i64 0}
+!47 = !{!45, !43, i64 8}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !10, i64 0}

@@ -3162,7 +3162,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %35, ptr noundef nonnull align 8 dereferenceable(256) %37, i64 256, i1 false), !noalias !9
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfd3085a2237b27e9E"(ptr nonnull align 8 %41, ptr nonnull align 8 %35)
-          to label %.backedge.i.i unwind label %.body.i.i, !noalias !9
+          to label %.backedge.i.i unwind label %.body.i.i, !noalias !9, !llvm.loop !15
 
 .sink.split.i.i:                                  ; preds = %167, %160
   %.sink68.i.i = phi ptr [ %113, %160 ], [ %114, %167 ]
@@ -3202,7 +3202,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 
 183:                                              ; preds = %182
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h4e91fc2553556607E"(ptr nonnull align 8 %37)
-          to label %.backedge.i.i.outer unwind label %.loopexit.i.i.loopexit.split-lp, !noalias !9
+          to label %.backedge.i.i.outer unwind label %.loopexit.i.i.loopexit.split-lp, !noalias !9, !llvm.loop !15
 
 184:                                              ; preds = %180
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..drain..Drain$LT$syn..attr..Attribute$GT$$GT$17h2ddc6312cfdde45bE"(ptr nonnull align 8 %38)
@@ -3892,7 +3892,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
           to label %.backedge.i.backedge unwind label %.thread157.loopexit.i, !noalias !6
 
 .backedge.i.backedge:                             ; preds = %393, %392
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !17
 
 .thread.i:                                        ; preds = %389, %381, %.thread157.loopexit.split-lp.i, %.thread157.loopexit.i
   %.pn147155.i = phi { ptr, i32 } [ %390, %389 ], [ %382, %381 ], [ %lpad.loopexit.i, %.thread157.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread157.loopexit.split-lp.i ]
@@ -6745,7 +6745,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_function
 698:                                              ; preds = %700, %535
   %699 = add i64 %.sroa.07.0, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %531, ptr nonnull align 8 %21)
-          to label %530 unwind label %.loopexit
+          to label %530 unwind label %.loopexit, !llvm.loop !18
 
 700:                                              ; preds = %535
   invoke void @_ZN5quote9__private18push_comma_spanned17h59fad627f4945a24E(ptr nonnull align 8 %21, i32 %516)
@@ -7763,3 +7763,7 @@ attributes #12 = { noreturn }
 !12 = !{!13, !10, !7}
 !13 = distinct !{!13, !14, !"_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute17hf0f79a6be5fd8eaaE: argument 0"}
 !14 = distinct !{!14, !"_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute17hf0f79a6be5fd8eaaE"}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}

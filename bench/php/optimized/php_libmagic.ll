@@ -20,7 +20,7 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr noundef readonly
   %6 = add i64 %.04549, %switch.select63
   %7 = add nuw i64 %.050, 1
   %exitcond.not = icmp eq i64 %7, %1
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %8 = add i64 %6, 4
@@ -31,11 +31,11 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr noundef readonly
 ._crit_edge:                                      ; preds = %3, %._crit_edge.loopexit
   %.045.lcssa = phi i64 [ 32, %3 ], [ %10, %._crit_edge.loopexit ]
   %11 = tail call noalias ptr @_emalloc(i64 noundef %.045.lcssa) #2
-  store i32 1, ptr %11, align 4, !tbaa !7
+  store i32 1, ptr %11, align 4, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 22, ptr %12, align 4, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %13, align 8, !tbaa !10
+  store i64 0, ptr %13, align 8, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i8 126, ptr %14, align 1, !tbaa !4
   br i1 %.not56, label %._crit_edge54, label %.lr.ph53
@@ -77,7 +77,7 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr noundef readonly
   %26 = add nuw i64 %.152, 1
   %27 = add i64 %.sink61, 1
   %exitcond58.not = icmp eq i64 %26, %1
-  br i1 %exitcond58.not, label %._crit_edge54, label %.lr.ph53
+  br i1 %exitcond58.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !15
 
 ._crit_edge54:                                    ; preds = %24, %._crit_edge
   %.2.lcssa = phi i64 [ 1, %._crit_edge ], [ %27, %24 ]
@@ -111,7 +111,7 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr noundef readonly
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %41 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.5
   store i8 0, ptr %41, align 1, !tbaa !4
-  store i64 %.5, ptr %40, align 8, !tbaa !13
+  store i64 %.5, ptr %40, align 8, !tbaa !16
   ret ptr %11
 }
 
@@ -131,10 +131,13 @@ attributes #2 = { nounwind allocsize(0) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"_zend_refcounted_h", !9, i64 0, !5, i64 4}
-!9 = !{!"int", !5, i64 0}
-!10 = !{!11, !12, i64 8}
-!11 = !{!"_zend_string", !8, i64 0, !12, i64 8, !12, i64 16, !5, i64 24}
-!12 = !{!"long", !5, i64 0}
-!13 = !{!11, !12, i64 16}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"_zend_refcounted_h", !11, i64 0, !5, i64 4}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!13, !14, i64 8}
+!13 = !{!"_zend_string", !10, i64 0, !14, i64 8, !14, i64 16, !5, i64 24}
+!14 = !{!"long", !5, i64 0}
+!15 = distinct !{!15, !8}
+!16 = !{!13, !14, i64 16}

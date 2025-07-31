@@ -120,7 +120,7 @@ define hidden void @zif_pdo_drivers(ptr noundef readonly captures(none) %0, ptr 
 24:                                               ; preds = %.lr.ph, %18
   %25 = getelementptr inbounds nuw i8, ptr %.021, i64 32
   %.not19 = icmp eq ptr %25, %12
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %24, %6, %5
   ret void
@@ -158,12 +158,12 @@ define hidden noundef i32 @zm_startup_pdo(i32 %0, i32 noundef %1) #1 {
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
-  %10 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !22
+  %10 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !24
   %11 = tail call ptr %10(ptr noundef nonnull @.str.16, i64 noundef 12, i1 noundef zeroext true) #13
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !23
+  store ptr %11, ptr %12, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 360
-  store ptr @std_object_handlers, ptr %13, align 8, !tbaa !38
+  store ptr @std_object_handlers, ptr %13, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store ptr null, ptr %14, align 8, !tbaa !11
   %15 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %3, ptr noundef %9, i32 noundef 0) #13
@@ -171,29 +171,29 @@ define hidden noundef i32 @zm_startup_pdo(i32 %0, i32 noundef %1) #1 {
   store i64 0, ptr %4, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %16, align 8, !tbaa !11
-  %17 = load ptr, ptr @zend_known_strings, align 8, !tbaa !39
+  %17 = load ptr, ptr @zend_known_strings, align 8, !tbaa !41
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 200
-  %19 = load ptr, ptr %18, align 8, !tbaa !41
+  %19 = load ptr, ptr %18, align 8, !tbaa !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %20 = call ptr @zend_declare_typed_property(ptr noundef %15, ptr noundef %19, ptr noundef nonnull %4, i32 noundef 2, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %21, align 8, !tbaa !11
   %22 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #14
-  store i32 1, ptr %22, align 4, !tbaa !42
+  store i32 1, ptr %22, align 4, !tbaa !44
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 150, ptr %23, align 4, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 0, ptr %24, align 8, !tbaa !43
+  store i64 0, ptr %24, align 8, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i64 9, ptr %25, align 8, !tbaa !45
+  store i64 9, ptr %25, align 8, !tbaa !47
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 1 dereferenceable(9) @.str.17, i64 9, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 33
   store i8 0, ptr %27, align 1, !tbaa !11
-  store ptr null, ptr %7, align 8, !tbaa !46
+  store ptr null, ptr %7, align 8, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 130, ptr %28, align 8, !tbaa !48
+  store i32 130, ptr %28, align 8, !tbaa !50
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %29, align 4
   %30 = call ptr @zend_declare_typed_property(ptr noundef %15, ptr noundef nonnull %22, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %7) #13
@@ -203,11 +203,11 @@ define hidden noundef i32 @zm_startup_pdo(i32 %0, i32 noundef %1) #1 {
   br i1 %.not.i.i, label %33, label %register_class_PDOException.exit
 
 33:                                               ; preds = %2
-  %34 = load i32, ptr %22, align 4, !tbaa !42
+  %34 = load i32, ptr %22, align 4, !tbaa !44
   %35 = icmp ne i32 %34, 0
   call void @llvm.assume(i1 %35)
   %36 = add i32 %34, -1
-  store i32 %36, ptr %22, align 4, !tbaa !42
+  store i32 %36, ptr %22, align 4, !tbaa !44
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %register_class_PDOException.exit
 
@@ -248,7 +248,7 @@ define hidden noundef i32 @zm_shutdown_pdo(i32 %0, i32 %1) #1 {
 define hidden void @zm_info_pdo(ptr readnone captures(none) %0) #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
-  store ptr null, ptr %2, align 8, !tbaa !49
+  store ptr null, ptr %2, align 8, !tbaa !51
   %3 = tail call noalias ptr @_estrdup(ptr noundef nonnull @.str.7) #13
   tail call void @php_info_print_table_start() #13
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #13
@@ -278,7 +278,7 @@ define hidden void @zm_info_pdo(ptr readnone captures(none) %0) #1 {
   %16 = load ptr, ptr %15, align 8, !tbaa !18
   %17 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %2, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %.021, ptr noundef %16) #13
   call void @_efree(ptr noundef %.021) #13
-  %18 = load ptr, ptr %2, align 8, !tbaa !49
+  %18 = load ptr, ptr %2, align 8, !tbaa !51
   br label %19
 
 19:                                               ; preds = %.lr.ph, %14
@@ -286,7 +286,7 @@ define hidden void @zm_info_pdo(ptr readnone captures(none) %0) #1 {
   %.1 = phi ptr [ %18, %14 ], [ %.021, %.lr.ph ]
   %21 = getelementptr inbounds nuw i8, ptr %.01420, i64 32
   %.not16 = icmp eq ptr %21, %7
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %19, %1
   %22 = phi ptr [ null, %1 ], [ %20, %19 ]
@@ -295,7 +295,7 @@ define hidden void @zm_info_pdo(ptr readnone captures(none) %0) #1 {
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %24 = select i1 %.not17, ptr @.str.7, ptr %23
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %24) #13
-  %25 = load ptr, ptr %2, align 8, !tbaa !49
+  %25 = load ptr, ptr %2, align 8, !tbaa !51
   %.not18 = icmp eq ptr %25, null
   %.0.lcssa. = select i1 %.not18, ptr %.0.lcssa, ptr %25
   call void @_efree(ptr noundef %.0.lcssa.) #13
@@ -308,7 +308,7 @@ define hidden void @zm_info_pdo(ptr readnone captures(none) %0) #1 {
 define dso_local range(i32 -1, 1) i32 @php_pdo_register_driver(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !50
+  %4 = load i64, ptr %3, align 8, !tbaa !53
   %.not = icmp eq i64 %4, 20240423
   br i1 %.not, label %7, label %5
 
@@ -400,7 +400,7 @@ define hidden noundef ptr @pdo_find_driver(ptr noundef %0, i32 noundef %1) local
   br i1 %.not.i, label %zend_hash_str_find_ptr.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %4, align 8, !tbaa !11, !nonnull !51, !noundef !51
+  %6 = load ptr, ptr %4, align 8, !tbaa !11, !nonnull !54, !noundef !54
   br label %zend_hash_str_find_ptr.exit
 
 zend_hash_str_find_ptr.exit:                      ; preds = %2, %5
@@ -438,7 +438,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   %.0155.be = phi i64 [ %10, %9 ], [ %.3.lcssa, %.critedge2 ]
   %.0153.be = phi i32 [ %.0153214, %9 ], [ %.1154, %.critedge2 ]
   %11 = icmp ult i64 %.0155.be, %1
-  br i1 %11, label %6, label %._crit_edge
+  br i1 %11, label %6, label %._crit_edge, !llvm.loop !55
 
 12:                                               ; preds = %6
   %13 = add nuw i64 %.0155213, 1
@@ -486,11 +486,11 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   %26 = add nuw nsw i32 %.0152.ph194, 1
   %27 = add i64 %.1156189, 2
   %28 = icmp ult i64 %27, %1
-  br i1 %28, label %.lr.ph, label %.thread
+  br i1 %28, label %.lr.ph, label %.thread, !llvm.loop !56
 
 29:                                               ; preds = %18
   %30 = icmp ult i64 %21, %1
-  br i1 %30, label %18, label %.thread.loopexit
+  br i1 %30, label %18, label %.thread.loopexit, !llvm.loop !56
 
 .loopexit180:                                     ; preds = %22, %23, %18
   %.0158 = trunc i64 %.1156189 to i32
@@ -515,7 +515,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
 39:                                               ; preds = %.lr.ph198, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next, %78 ]
   %40 = getelementptr inbounds nuw %struct.pdo_data_src_parser, ptr %2, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8, !tbaa !52
+  %41 = load ptr, ptr %40, align 8, !tbaa !57
   %42 = tail call i32 @strncmp(ptr noundef %37, ptr noundef %41, i64 noundef %38) #16
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %78
@@ -528,13 +528,13 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %50 = load i32, ptr %49, align 8, !tbaa !54
+  %50 = load i32, ptr %49, align 8, !tbaa !59
   %.not170 = icmp eq i32 %50, 0
   br i1 %.not170, label %54, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !55
+  %53 = load ptr, ptr %52, align 8, !tbaa !60
   tail call void @_efree(ptr noundef %53) #13
   br label %54
 
@@ -550,7 +550,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   %60 = sext i32 %59 to i64
   %61 = tail call noalias ptr @_estrndup(ptr noundef %58, i64 noundef %60) #13
   %62 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %61, ptr %62, align 8, !tbaa !55
+  store ptr %61, ptr %62, align 8, !tbaa !60
   br label %76
 
 63:                                               ; preds = %54
@@ -560,7 +560,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   %67 = sext i32 %66 to i64
   %68 = tail call noalias ptr @_emalloc(i64 noundef %67) #14
   %69 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %68, ptr %69, align 8, !tbaa !55
+  store ptr %68, ptr %69, align 8, !tbaa !60
   %.not171199 = icmp eq i32 %64, 0
   br i1 %.not171199, label %.critedge, label %.lr.ph203.preheader
 
@@ -587,7 +587,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   %.1.v = select i1 %75, i64 2, i64 1
   %.1 = getelementptr inbounds nuw i8, ptr %.0149201, i64 %.1.v
   %.not171 = icmp eq i32 %.1151, 0
-  br i1 %.not171, label %.critedge, label %.lr.ph203
+  br i1 %.not171, label %.critedge, label %.lr.ph203, !llvm.loop !61
 
 .critedge:                                        ; preds = %.lr.ph203, %73, %63
   %.0.lcssa = phi ptr [ %68, %63 ], [ %74, %73 ], [ %.0202, %.lr.ph203 ]
@@ -595,14 +595,14 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   br label %76
 
 76:                                               ; preds = %.critedge, %56
-  store i32 1, ptr %49, align 8, !tbaa !54
+  store i32 1, ptr %49, align 8, !tbaa !59
   %77 = add nsw i32 %.0153214, 1
   br label %.loopexit
 
 78:                                               ; preds = %39, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %39
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !62
 
 .loopexit:                                        ; preds = %78, %32, %76
   %.1154 = phi i32 [ %77, %76 ], [ %.0153214, %32 ], [ %.0153214, %78 ]
@@ -611,7 +611,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
 
 .lr.ph208:                                        ; preds = %.loopexit
   %80 = tail call ptr @__ctype_b_loc() #17
-  %81 = load ptr, ptr %80, align 8, !tbaa !56
+  %81 = load ptr, ptr %80, align 8, !tbaa !63
   br label %82
 
 82:                                               ; preds = %.lr.ph208, %89
@@ -620,7 +620,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   %84 = load i8, ptr %83, align 1, !tbaa !11
   %85 = sext i8 %84 to i64
   %86 = getelementptr inbounds i16, ptr %81, i64 %85
-  %87 = load i16, ptr %86, align 2, !tbaa !58
+  %87 = load i16, ptr %86, align 2, !tbaa !65
   %88 = and i16 %87, 8192
   %.not174 = icmp eq i16 %88, 0
   br i1 %.not174, label %.critedge2, label %89
@@ -628,7 +628,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
 89:                                               ; preds = %82
   %90 = add nuw i64 %.3207, 1
   %exitcond235.not = icmp eq i64 %90, %1
-  br i1 %exitcond235.not, label %.critedge2, label %82
+  br i1 %exitcond235.not, label %.critedge2, label %82, !llvm.loop !67
 
 .critedge2:                                       ; preds = %82, %89, %.loopexit
   %.3.lcssa = phi i64 [ %.2178, %.loopexit ], [ %1, %89 ], [ %.3207, %82 ]
@@ -745,41 +745,49 @@ attributes #17 = { nounwind willreturn memory(none) }
 !19 = !{!"", !20, i64 0, !16, i64 8, !16, i64 16, !10, i64 24}
 !20 = !{!"p1 omnipotent char", !10, i64 0}
 !21 = !{!19, !16, i64 8}
-!22 = !{!10, !10, i64 0}
-!23 = !{!24, !25, i64 8}
-!24 = !{!"_zend_class_entry", !6, i64 0, !25, i64 8, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !26, i64 40, !26, i64 48, !26, i64 56, !14, i64 64, !14, i64 120, !14, i64 176, !27, i64 232, !28, i64 240, !29, i64 248, !30, i64 256, !30, i64 264, !30, i64 272, !30, i64 280, !30, i64 288, !30, i64 296, !30, i64 304, !30, i64 312, !30, i64 320, !30, i64 328, !30, i64 336, !30, i64 344, !30, i64 352, !31, i64 360, !32, i64 368, !33, i64 376, !6, i64 384, !10, i64 392, !10, i64 400, !10, i64 408, !10, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !5, i64 436, !6, i64 440, !34, i64 448, !35, i64 456, !36, i64 464, !37, i64 472, !5, i64 480, !37, i64 488, !25, i64 496, !6, i64 504}
-!25 = !{!"p1 _ZTS12_zend_string", !10, i64 0}
-!26 = !{!"p1 _ZTS12_zval_struct", !10, i64 0}
-!27 = !{!"p1 _ZTS24_zend_class_mutable_data", !10, i64 0}
-!28 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !10, i64 0}
-!29 = !{!"p2 _ZTS19_zend_property_info", !10, i64 0}
-!30 = !{!"p1 _ZTS14_zend_function", !10, i64 0}
-!31 = !{!"p1 _ZTS21_zend_object_handlers", !10, i64 0}
-!32 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !10, i64 0}
-!33 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !10, i64 0}
-!34 = !{!"p1 _ZTS16_zend_class_name", !10, i64 0}
-!35 = !{!"p2 _ZTS17_zend_trait_alias", !10, i64 0}
-!36 = !{!"p2 _ZTS22_zend_trait_precedence", !10, i64 0}
-!37 = !{!"p1 _ZTS11_zend_array", !10, i64 0}
-!38 = !{!24, !31, i64 360}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p2 _ZTS12_zend_string", !10, i64 0}
-!41 = !{!25, !25, i64 0}
-!42 = !{!15, !5, i64 0}
-!43 = !{!44, !16, i64 8}
-!44 = !{!"_zend_string", !15, i64 0, !16, i64 8, !16, i64 16, !6, i64 24}
-!45 = !{!44, !16, i64 16}
-!46 = !{!47, !10, i64 0}
-!47 = !{!"", !10, i64 0, !5, i64 8}
-!48 = !{!47, !5, i64 8}
-!49 = !{!20, !20, i64 0}
-!50 = !{!19, !16, i64 16}
-!51 = !{}
-!52 = !{!53, !20, i64 0}
-!53 = !{!"pdo_data_src_parser", !20, i64 0, !20, i64 8, !5, i64 16}
-!54 = !{!53, !5, i64 16}
-!55 = !{!53, !20, i64 8}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"p1 short", !10, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"short", !6, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!10, !10, i64 0}
+!25 = !{!26, !27, i64 8}
+!26 = !{!"_zend_class_entry", !6, i64 0, !27, i64 8, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !28, i64 40, !28, i64 48, !28, i64 56, !14, i64 64, !14, i64 120, !14, i64 176, !29, i64 232, !30, i64 240, !31, i64 248, !32, i64 256, !32, i64 264, !32, i64 272, !32, i64 280, !32, i64 288, !32, i64 296, !32, i64 304, !32, i64 312, !32, i64 320, !32, i64 328, !32, i64 336, !32, i64 344, !32, i64 352, !33, i64 360, !34, i64 368, !35, i64 376, !6, i64 384, !10, i64 392, !10, i64 400, !10, i64 408, !10, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !5, i64 436, !6, i64 440, !36, i64 448, !37, i64 456, !38, i64 464, !39, i64 472, !5, i64 480, !39, i64 488, !27, i64 496, !6, i64 504}
+!27 = !{!"p1 _ZTS12_zend_string", !10, i64 0}
+!28 = !{!"p1 _ZTS12_zval_struct", !10, i64 0}
+!29 = !{!"p1 _ZTS24_zend_class_mutable_data", !10, i64 0}
+!30 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !10, i64 0}
+!31 = !{!"p2 _ZTS19_zend_property_info", !10, i64 0}
+!32 = !{!"p1 _ZTS14_zend_function", !10, i64 0}
+!33 = !{!"p1 _ZTS21_zend_object_handlers", !10, i64 0}
+!34 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !10, i64 0}
+!35 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !10, i64 0}
+!36 = !{!"p1 _ZTS16_zend_class_name", !10, i64 0}
+!37 = !{!"p2 _ZTS17_zend_trait_alias", !10, i64 0}
+!38 = !{!"p2 _ZTS22_zend_trait_precedence", !10, i64 0}
+!39 = !{!"p1 _ZTS11_zend_array", !10, i64 0}
+!40 = !{!26, !33, i64 360}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p2 _ZTS12_zend_string", !10, i64 0}
+!43 = !{!27, !27, i64 0}
+!44 = !{!15, !5, i64 0}
+!45 = !{!46, !16, i64 8}
+!46 = !{!"_zend_string", !15, i64 0, !16, i64 8, !16, i64 16, !6, i64 24}
+!47 = !{!46, !16, i64 16}
+!48 = !{!49, !10, i64 0}
+!49 = !{!"", !10, i64 0, !5, i64 8}
+!50 = !{!49, !5, i64 8}
+!51 = !{!20, !20, i64 0}
+!52 = distinct !{!52, !23}
+!53 = !{!19, !16, i64 16}
+!54 = !{}
+!55 = distinct !{!55, !23}
+!56 = distinct !{!56, !23}
+!57 = !{!58, !20, i64 0}
+!58 = !{!"pdo_data_src_parser", !20, i64 0, !20, i64 8, !5, i64 16}
+!59 = !{!58, !5, i64 16}
+!60 = !{!58, !20, i64 8}
+!61 = distinct !{!61, !23}
+!62 = distinct !{!62, !23}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 short", !10, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"short", !6, i64 0}
+!67 = distinct !{!67, !23}

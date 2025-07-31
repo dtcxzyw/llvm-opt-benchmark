@@ -375,7 +375,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
   %107 = add i32 %106, %37
   %108 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %107)
   %.not142.us = icmp eq i16 %108, 0
-  br i1 %.not142.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %.not142.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_msrp_three_packed_event.exit
   %.0188 = phi i32 [ %295, %dissect_msrp_three_packed_event.exit ], [ 0, %.lr.ph ]
@@ -513,7 +513,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
   %.3.i = phi i32 [ %191, %187 ], [ %.2.i156, %185 ]
   %193 = add i32 %.036.i, 1
   %194 = icmp ult i32 %.3.i, %112
-  br i1 %194, label %.lr.ph.i154, label %dissect_msrp_three_packed_event.exit, !llvm.loop !10
+  br i1 %194, label %.lr.ph.i154, label %dissect_msrp_three_packed_event.exit, !llvm.loop !11
 
 195:                                              ; preds = %.lr.ph.split
   %196 = load i32, ptr @hf_msrp_stream_da, align 4
@@ -663,7 +663,7 @@ dissect_msrp_three_packed_event.exit:             ; preds = %290, %238, %192, %1
   %296 = add i32 %295, %37
   %297 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %296)
   %.not142 = icmp eq i16 %297, 0
-  br i1 %.not142, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not142, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %dissect_msrp_three_packed_event.exit, %dissect_msrp_three_packed_event.exit.us, %.lr.ph194
   %.1.lcssa = phi i32 [ %.0138190, %.lr.ph194 ], [ %.2.us, %dissect_msrp_three_packed_event.exit.us ], [ %.2, %dissect_msrp_three_packed_event.exit ]
@@ -673,7 +673,7 @@ dissect_msrp_three_packed_event.exit:             ; preds = %290, %238, %192, %1
   %301 = add i32 %300, 1
   %302 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %301)
   %.not141 = icmp eq i16 %302, 0
-  br i1 %.not141, label %._crit_edge195.loopexit, label %.lr.ph194, !llvm.loop !12
+  br i1 %.not141, label %._crit_edge195.loopexit, label %.lr.ph194, !llvm.loop !13
 
 ._crit_edge195.loopexit:                          ; preds = %._crit_edge
   %303 = add i32 %.1.lcssa, 2
@@ -744,10 +744,11 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

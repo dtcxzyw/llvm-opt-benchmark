@@ -182,7 +182,7 @@ RSTRING_PTR.exit60.i:                             ; preds = %25, %16
   %85 = add nuw nsw i64 %83, %84
   %86 = urem i64 %85, 36
   %.not.i = icmp ult i64 %64, %12
-  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i.loopexit
+  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !22
 
 bubblebabble_str_new.exit:                        ; preds = %.lr.ph.i, %._crit_edge.i
   %.149.ph.i = phi i64 [ %35, %._crit_edge.i ], [ %61, %.lr.ph.i ]
@@ -204,7 +204,7 @@ define internal i64 @rb_digest_class_s_bubblebabble(i32 noundef %0, ptr noundef 
   %7 = call i64 @rb_string_value(ptr noundef nonnull %4) #4
   %8 = load i64, ptr %4, align 8, !tbaa !6
   %9 = inttoptr i64 %8 to ptr
-  %10 = load i64, ptr %9, align 8, !tbaa !10, !noalias !22
+  %10 = load i64, ptr %9, align 8, !tbaa !10, !noalias !24
   %11 = and i64 %10, 8192
   %.not.i.i.i = icmp eq i64 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -232,7 +232,7 @@ RSTRING_PTR.exit.i:                               ; preds = %13, %3
   %22 = add nuw nsw i64 %21, 2
   %23 = call i64 @rb_str_new(ptr noundef null, i64 noundef %22) #4, !callees !17
   %24 = inttoptr i64 %23 to ptr
-  %25 = load i64, ptr %24, align 8, !tbaa !10, !noalias !25
+  %25 = load i64, ptr %24, align 8, !tbaa !10, !noalias !27
   %26 = and i64 %25, 8192
   %.not.i.i57.i = icmp eq i64 %26, 0
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -336,7 +336,7 @@ RSTRING_PTR.exit60.i:                             ; preds = %28, %19
   %88 = add nuw nsw i64 %86, %87
   %89 = urem i64 %88, 36
   %.not.i = icmp ult i64 %67, %15
-  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i.loopexit
+  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !22
 
 bubblebabble_str_new.exit:                        ; preds = %.lr.ph.i, %._crit_edge.i
   %.149.ph.i = phi i64 [ %38, %._crit_edge.i ], [ %64, %.lr.ph.i ]
@@ -358,7 +358,7 @@ define internal i64 @rb_digest_instance_bubblebabble(i64 noundef %0) #0 {
   %5 = call i64 @rb_string_value(ptr noundef nonnull %2) #4
   %6 = load i64, ptr %2, align 8, !tbaa !6
   %7 = inttoptr i64 %6 to ptr
-  %8 = load i64, ptr %7, align 8, !tbaa !10, !noalias !28
+  %8 = load i64, ptr %7, align 8, !tbaa !10, !noalias !30
   %9 = and i64 %8, 8192
   %.not.i.i.i = icmp eq i64 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -386,7 +386,7 @@ RSTRING_PTR.exit.i:                               ; preds = %11, %1
   %20 = add nuw nsw i64 %19, 2
   %21 = call i64 @rb_str_new(ptr noundef null, i64 noundef %20) #4, !callees !17
   %22 = inttoptr i64 %21 to ptr
-  %23 = load i64, ptr %22, align 8, !tbaa !10, !noalias !31
+  %23 = load i64, ptr %22, align 8, !tbaa !10, !noalias !33
   %24 = and i64 %23, 8192
   %.not.i.i57.i = icmp eq i64 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -490,7 +490,7 @@ RSTRING_PTR.exit60.i:                             ; preds = %26, %17
   %86 = add nuw nsw i64 %84, %85
   %87 = urem i64 %86, 36
   %.not.i = icmp ult i64 %65, %13
-  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i.loopexit
+  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !22
 
 bubblebabble_str_new.exit:                        ; preds = %.lr.ph.i, %._crit_edge.i
   %.149.ph.i = phi i64 [ %36, %._crit_edge.i ], [ %62, %.lr.ph.i ]
@@ -554,15 +554,17 @@ attributes #5 = { noreturn nounwind }
 !19 = distinct !{!19, !20, !"rbimpl_rstring_getmem: argument 0"}
 !20 = distinct !{!20, !"rbimpl_rstring_getmem"}
 !21 = !{!8, !8, i64 0}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"rbimpl_rstring_getmem: argument 0"}
-!24 = distinct !{!24, !"rbimpl_rstring_getmem"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"rbimpl_rstring_getmem: argument 0"}
-!27 = distinct !{!27, !"rbimpl_rstring_getmem"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"rbimpl_rstring_getmem: argument 0"}
-!30 = distinct !{!30, !"rbimpl_rstring_getmem"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"rbimpl_rstring_getmem: argument 0"}
-!33 = distinct !{!33, !"rbimpl_rstring_getmem"}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"rbimpl_rstring_getmem: argument 0"}
+!26 = distinct !{!26, !"rbimpl_rstring_getmem"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"rbimpl_rstring_getmem: argument 0"}
+!29 = distinct !{!29, !"rbimpl_rstring_getmem"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"rbimpl_rstring_getmem: argument 0"}
+!32 = distinct !{!32, !"rbimpl_rstring_getmem"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"rbimpl_rstring_getmem: argument 0"}
+!35 = distinct !{!35, !"rbimpl_rstring_getmem"}

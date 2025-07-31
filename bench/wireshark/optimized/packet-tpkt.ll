@@ -168,7 +168,7 @@ define hidden void @dissect_asciitpkt(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
-  %14 = load i8, ptr @tpkt_desegment, align 1, !range !8, !noundef !9
+  %14 = load i8, ptr @tpkt_desegment, align 1, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   %indvars.iv.i.sroa.gep110 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br i1 %15, label %16, label %19
@@ -263,7 +263,7 @@ define hidden void @dissect_asciitpkt(ptr noundef %0, ptr noundef %1, ptr nounde
   %57 = shl i32 %.1.i, %56
   %58 = add i32 %57, %.02733.i
   %59 = add nsw i32 %.02535.i, -1
-  br i1 %42, label %41, label %parseVersionText.exit, !llvm.loop !10
+  br i1 %42, label %41, label %parseVersionText.exit, !llvm.loop !11
 
 parseVersionText.exit:                            ; preds = %55
   %.0..0..0..0.36 = load volatile i32, ptr %5, align 4
@@ -309,7 +309,7 @@ parseVersionText.exit:                            ; preds = %55
   %78 = shl i32 %.1.i100, %77
   %79 = add i32 %78, %.02733.i95
   %80 = add nsw i32 %.02535.i93, -1
-  br i1 %63, label %62, label %parseReservedText.exit, !llvm.loop !11
+  br i1 %63, label %62, label %parseReservedText.exit, !llvm.loop !12
 
 parseReservedText.exit:                           ; preds = %76
   %.0..0..0..0.37 = load volatile i32, ptr %5, align 4
@@ -357,7 +357,7 @@ parseReservedText.exit:                           ; preds = %76
   %101 = add nsw i32 %.02535.i102, -1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %parseLengthText.exit, label %83, !llvm.loop !12
+  br i1 %exitcond.not.i, label %parseLengthText.exit, label %83, !llvm.loop !13
 
 parseLengthText.exit:                             ; preds = %97
   store volatile i32 %100, ptr %6, align 4
@@ -366,12 +366,12 @@ parseLengthText.exit:                             ; preds = %97
   store ptr @.str, ptr %1, align 8
   %103 = load ptr, ptr %21, align 8
   call void @col_set_str(ptr noundef %103, i32 noundef 35, ptr noundef nonnull @.str)
-  %104 = load i8, ptr @tpkt_desegment, align 1, !range !8, !noundef !9
+  %104 = load i8, ptr @tpkt_desegment, align 1, !range !9, !noundef !10
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %111, label %106
 
 106:                                              ; preds = %parseLengthText.exit
-  %107 = load i8, ptr %22, align 8, !range !8, !noundef !9
+  %107 = load i8, ptr %22, align 8, !range !9, !noundef !10
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %111, label %109
 
@@ -544,7 +544,7 @@ parseLengthText.exit:                             ; preds = %97
   %.0..0..0..0.30 = load volatile i32, ptr %5, align 4
   %176 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.30)
   %.not = icmp eq i32 %176, 0
-  br i1 %.not, label %.loopexit, label %26, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %26, !llvm.loop !14
 
 .loopexit:                                        ; preds = %172, %19, %28, %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
@@ -729,7 +729,7 @@ define void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %3, label %69, label %64
 
 64:                                               ; preds = %61
-  %65 = load i8, ptr %21, align 8, !range !8, !noundef !9
+  %65 = load i8, ptr %21, align 8, !range !9, !noundef !10
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %69, label %67
 
@@ -905,7 +905,7 @@ define void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.0..0..0..0.35 = load volatile i32, ptr %6, align 4
   %135 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.35)
   %.not = icmp eq i32 %135, 0
-  br i1 %.not, label %.loopexit, label %25, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %25, !llvm.loop !15
 
 .loopexit:                                        ; preds = %131, %17, %31, %34, %27, %57, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
@@ -965,7 +965,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tpkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = load i8, ptr @tpkt_desegment, align 1, !range !8, !noundef !9
+  %5 = load i8, ptr @tpkt_desegment, align 1, !range !9, !noundef !10
   %6 = trunc nuw i8 %5 to i1
   %7 = load ptr, ptr @osi_tp_handle, align 8
   tail call void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %6, ptr noundef %7)
@@ -1040,7 +1040,7 @@ define internal i32 @dissect_tpkt_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %18, label %is_tpkt.exit.thread, label %is_tpkt.exit
 
 is_tpkt.exit:                                     ; preds = %16
-  %19 = load i8, ptr @tpkt_desegment, align 1, !range !8, !noundef !9
+  %19 = load i8, ptr @tpkt_desegment, align 1, !range !9, !noundef !10
   %20 = trunc nuw i8 %19 to i1
   %21 = load ptr, ptr @osi_tp_handle, align 8
   tail call void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %20, ptr noundef %21)
@@ -1079,12 +1079,13 @@ attributes #7 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

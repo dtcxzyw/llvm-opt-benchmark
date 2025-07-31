@@ -597,18 +597,18 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   br i1 %.not176, label %25, label %28
 
 28:                                               ; preds = %.lr.ph
-  %29 = load ptr, ptr %14, align 8, !tbaa !108
+  %29 = load ptr, ptr %14, align 8, !tbaa !109
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.60, ptr noundef %29) #9
   br label %191
 
 ._crit_edge:                                      ; preds = %25, %19
-  %30 = load ptr, ptr %14, align 8, !tbaa !108
+  %30 = load ptr, ptr %14, align 8, !tbaa !109
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.61, ptr noundef %30) #9
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 1312
   %32 = load ptr, ptr %31, align 8, !tbaa !52
   %33 = load ptr, ptr %32, align 8, !tbaa !65
   %34 = tail call i32 @vaMaxNumProfiles(ptr noundef %33) #9
-  store i32 %34, ptr %5, align 4, !tbaa !109
+  store i32 %34, ptr %5, align 4, !tbaa !110
   %35 = sext i32 %34 to i64
   %36 = tail call ptr @av_malloc_array(i64 noundef %35, i64 noundef 4) #9
   store ptr %36, ptr %2, align 8, !tbaa !98
@@ -630,12 +630,12 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
 43:                                               ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 1192
   %45 = load ptr, ptr %44, align 8, !tbaa !53
-  %46 = load ptr, ptr %45, align 8, !tbaa !110
+  %46 = load ptr, ptr %45, align 8, !tbaa !111
   %.not159 = icmp eq ptr %46, null
   br i1 %.not159, label %51, label %.preheader182
 
 .preheader182:                                    ; preds = %43
-  %47 = load i32, ptr %46, align 4, !tbaa !111
+  %47 = load i32, ptr %46, align 4, !tbaa !112
   %.not160196 = icmp eq i32 %47, -99
   br i1 %.not160196, label %.loopexit, label %.lr.ph199
 
@@ -657,7 +657,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   %55 = phi ptr [ %46, %.lr.ph199 ], [ %92, %90 ]
   %.0142197 = phi ptr [ undef, %.lr.ph199 ], [ %.2144, %90 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !113
+  %57 = load i32, ptr %56, align 4, !tbaa !114
   %.not161 = icmp eq i32 %21, %57
   br i1 %.not161, label %58, label %90
 
@@ -665,7 +665,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   %59 = load i8, ptr %22, align 8, !tbaa !104
   %60 = zext i8 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %62 = load i32, ptr %61, align 4, !tbaa !114
+  %62 = load i32, ptr %61, align 4, !tbaa !115
   %.not162 = icmp eq i32 %62, %60
   br i1 %.not162, label %63, label %90
 
@@ -674,23 +674,23 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   br i1 %64, label %65, label %75
 
 65:                                               ; preds = %63
-  %66 = load i8, ptr %48, align 1, !tbaa !115
+  %66 = load i8, ptr %48, align 1, !tbaa !116
   %67 = zext i8 %66 to i32
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 12
-  %69 = load i32, ptr %68, align 4, !tbaa !116
+  %69 = load i32, ptr %68, align 4, !tbaa !117
   %.not163 = icmp eq i32 %69, %67
   br i1 %.not163, label %70, label %90
 
 70:                                               ; preds = %65
-  %71 = load i8, ptr %49, align 2, !tbaa !117
+  %71 = load i8, ptr %49, align 2, !tbaa !118
   %72 = zext i8 %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %74 = load i32, ptr %73, align 4, !tbaa !118
+  %74 = load i32, ptr %73, align 4, !tbaa !119
   %.not164 = icmp eq i32 %74, %72
   br i1 %.not164, label %75, label %90
 
 75:                                               ; preds = %70, %63
-  %76 = load i32, ptr %50, align 8, !tbaa !119
+  %76 = load i32, ptr %50, align 8, !tbaa !120
   %.not165 = icmp eq i32 %76, %54
   %.not166 = icmp eq i32 %76, -99
   %or.cond = or i1 %.not165, %.not166
@@ -698,11 +698,11 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  %79 = load i32, ptr %78, align 4, !tbaa !120
+  %79 = load i32, ptr %78, align 4, !tbaa !121
   %80 = call ptr @vaProfileStr(i32 noundef %79) #9
-  %81 = load i32, ptr %5, align 4, !tbaa !109
+  %81 = load i32, ptr %5, align 4, !tbaa !110
   %82 = icmp sgt i32 %81, 0
-  %.pre = load i32, ptr %78, align 4, !tbaa !120
+  %.pre = load i32, ptr %78, align 4, !tbaa !121
   br i1 %82, label %.lr.ph194, label %._crit_edge195
 
 .lr.ph194:                                        ; preds = %77
@@ -712,24 +712,24 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
 83:                                               ; preds = %84
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond217.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count216
-  br i1 %exitcond217.not, label %._crit_edge195, label %84, !llvm.loop !121
+  br i1 %exitcond217.not, label %._crit_edge195, label %84, !llvm.loop !122
 
 84:                                               ; preds = %.lr.ph194, %83
   %indvars.iv213 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next214, %83 ]
   %85 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv213
-  %86 = load i32, ptr %85, align 4, !tbaa !109
+  %86 = load i32, ptr %85, align 4, !tbaa !110
   %87 = icmp eq i32 %86, %.pre
   br i1 %87, label %88, label %83
 
 ._crit_edge195:                                   ; preds = %83, %77
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.64, ptr noundef %80, i32 noundef %.pre) #9
   %.pre233 = load ptr, ptr %44, align 8, !tbaa !53
-  %.pre234 = load ptr, ptr %.pre233, align 8, !tbaa !110
+  %.pre234 = load ptr, ptr %.pre233, align 8, !tbaa !111
   br label %90
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 1224
-  store ptr %55, ptr %89, align 8, !tbaa !122
+  store ptr %55, ptr %89, align 8, !tbaa !123
   br label %.loopexit
 
 90:                                               ; preds = %75, %65, %70, %52, %58, %._crit_edge195
@@ -737,15 +737,15 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   %.2144 = phi ptr [ %.0142197, %52 ], [ %.0142197, %58 ], [ %.0142197, %65 ], [ %.0142197, %70 ], [ %80, %._crit_edge195 ], [ %.0142197, %75 ]
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %92 = getelementptr inbounds nuw %struct.VAAPIEncodeProfile, ptr %91, i64 %indvars.iv.next219
-  %93 = load i32, ptr %92, align 4, !tbaa !111
+  %93 = load i32, ptr %92, align 4, !tbaa !112
   %.not160 = icmp eq i32 %93, -99
-  br i1 %.not160, label %.loopexit, label %52, !llvm.loop !123
+  br i1 %.not160, label %.loopexit, label %52, !llvm.loop !124
 
 .loopexit:                                        ; preds = %90, %.preheader182, %88
   %.1143 = phi ptr [ %80, %88 ], [ undef, %.preheader182 ], [ %.2144, %90 ]
   %.1 = phi ptr [ %55, %88 ], [ undef, %.preheader182 ], [ %55, %90 ]
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 1224
-  %95 = load ptr, ptr %94, align 8, !tbaa !122
+  %95 = load ptr, ptr %94, align 8, !tbaa !123
   %.not168 = icmp eq ptr %95, null
   br i1 %.not168, label %96, label %97
 
@@ -754,18 +754,18 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   br label %190
 
 97:                                               ; preds = %.loopexit
-  %98 = load i32, ptr %.1, align 4, !tbaa !111
+  %98 = load i32, ptr %.1, align 4, !tbaa !112
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store i32 %98, ptr %99, align 8, !tbaa !119
+  store i32 %98, ptr %99, align 8, !tbaa !120
   %100 = getelementptr inbounds nuw i8, ptr %.1, i64 20
-  %101 = load i32, ptr %100, align 4, !tbaa !120
+  %101 = load i32, ptr %100, align 4, !tbaa !121
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 1244
   store i32 %101, ptr %102, align 4, !tbaa !67
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.66, ptr noundef %.1143, i32 noundef %101) #9
   %103 = load ptr, ptr %31, align 8, !tbaa !52
   %104 = load ptr, ptr %103, align 8, !tbaa !65
   %105 = call i32 @vaMaxNumEntrypoints(ptr noundef %104) #9
-  store i32 %105, ptr %5, align 4, !tbaa !109
+  store i32 %105, ptr %5, align 4, !tbaa !110
   %106 = sext i32 %105 to i64
   %107 = call ptr @av_malloc_array(i64 noundef %106, i64 noundef 4) #9
   store ptr %107, ptr %3, align 8, !tbaa !98
@@ -781,12 +781,12 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   br i1 %.not170, label %.preheader181, label %116
 
 .preheader181:                                    ; preds = %108
-  %113 = load i32, ptr %5, align 4, !tbaa !109
+  %113 = load i32, ptr %5, align 4, !tbaa !110
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %.preheader.lr.ph, label %.thread178
 
 .preheader.lr.ph:                                 ; preds = %.preheader181
-  %115 = load i32, ptr %vaapi_encode_entrypoints_normal.vaapi_encode_entrypoints_low_power, align 4, !tbaa !109
+  %115 = load i32, ptr %vaapi_encode_entrypoints_normal.vaapi_encode_entrypoints_low_power, align 4, !tbaa !110
   %.not171201 = icmp eq i32 %115, 0
   %wide.trip.count227 = zext nneg i32 %113 to i64
   br label %.preheader
@@ -803,15 +803,15 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
 
 .lr.ph203:                                        ; preds = %.preheader
   %119 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv224
-  %120 = load i32, ptr %119, align 4, !tbaa !109
+  %120 = load i32, ptr %119, align 4, !tbaa !110
   br label %124
 
 121:                                              ; preds = %124
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %122 = getelementptr inbounds nuw i32, ptr %vaapi_encode_entrypoints_normal.vaapi_encode_entrypoints_low_power, i64 %indvars.iv.next222
-  %123 = load i32, ptr %122, align 4, !tbaa !109
+  %123 = load i32, ptr %122, align 4, !tbaa !110
   %.not171 = icmp eq i32 %123, 0
-  br i1 %.not171, label %._crit_edge204, label %124, !llvm.loop !124
+  br i1 %.not171, label %._crit_edge204, label %124, !llvm.loop !125
 
 124:                                              ; preds = %.lr.ph203, %121
   %indvars.iv221 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next222, %121 ]
@@ -822,7 +822,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
 ._crit_edge204:                                   ; preds = %121, %.preheader
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
-  br i1 %exitcond228.not, label %.thread178, label %.preheader, !llvm.loop !125
+  br i1 %exitcond228.not, label %.thread178, label %.preheader, !llvm.loop !126
 
 .thread178:                                       ; preds = %._crit_edge204, %.preheader181
   %127 = load i32, ptr %102, align 4, !tbaa !67
@@ -832,7 +832,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
 128:                                              ; preds = %124
   %129 = and i64 %indvars.iv224, 4294967295
   %130 = getelementptr inbounds nuw i32, ptr %107, i64 %129
-  %131 = load i32, ptr %130, align 4, !tbaa !109
+  %131 = load i32, ptr %130, align 4, !tbaa !110
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 1248
   store i32 %131, ptr %132, align 8, !tbaa !68
   %133 = call ptr @vaEntrypointStr(i32 noundef %131) #9
@@ -847,35 +847,35 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   %indvars.iv229 = phi i64 [ 0, %128 ], [ %indvars.iv.next230, %158 ]
   %139 = getelementptr inbounds nuw [12 x %struct.VAAPIEncodeRTFormat], ptr @vaapi_encode_rt_formats, i64 0, i64 %indvars.iv229
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 12
-  %141 = load i32, ptr %140, align 4, !tbaa !126
+  %141 = load i32, ptr %140, align 4, !tbaa !127
   %142 = icmp eq i32 %141, %21
   br i1 %142, label %143, label %158
 
 143:                                              ; preds = %138
   %144 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %145 = load i32, ptr %144, align 16, !tbaa !128
-  %146 = load i32, ptr %135, align 4, !tbaa !114
+  %145 = load i32, ptr %144, align 16, !tbaa !129
+  %146 = load i32, ptr %135, align 4, !tbaa !115
   %147 = icmp eq i32 %145, %146
   br i1 %147, label %148, label %158
 
 148:                                              ; preds = %143
   %149 = getelementptr inbounds nuw i8, ptr %139, i64 20
-  %150 = load i32, ptr %149, align 4, !tbaa !129
-  %151 = load i32, ptr %136, align 4, !tbaa !116
+  %150 = load i32, ptr %149, align 4, !tbaa !130
+  %151 = load i32, ptr %136, align 4, !tbaa !117
   %152 = icmp eq i32 %150, %151
   br i1 %152, label %153, label %158
 
 153:                                              ; preds = %148
   %154 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  %155 = load i32, ptr %154, align 8, !tbaa !130
-  %156 = load i32, ptr %137, align 4, !tbaa !118
+  %155 = load i32, ptr %154, align 8, !tbaa !131
+  %156 = load i32, ptr %137, align 4, !tbaa !119
   %157 = icmp eq i32 %155, %156
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %138, %143, %148, %153
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %exitcond232.not = icmp eq i64 %indvars.iv.next230, 12
-  br i1 %exitcond232.not, label %159, label %138, !llvm.loop !131
+  br i1 %exitcond232.not, label %159, label %138, !llvm.loop !132
 
 159:                                              ; preds = %158
   %160 = load i32, ptr %102, align 4, !tbaa !67
@@ -884,9 +884,9 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   br label %190
 
 162:                                              ; preds = %153
-  store i32 0, ptr %4, align 4, !tbaa !109
+  store i32 0, ptr %4, align 4, !tbaa !110
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !109
+  store i32 0, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !110
   %163 = load ptr, ptr %31, align 8, !tbaa !52
   %164 = load ptr, ptr %163, align 8, !tbaa !65
   %165 = load i32, ptr %102, align 4, !tbaa !67
@@ -901,21 +901,21 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   br label %190
 
 170:                                              ; preds = %162
-  %171 = load i32, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !132
+  %171 = load i32, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !133
   %172 = icmp eq i32 %171, -2147483648
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %170
-  %174 = load ptr, ptr %139, align 8, !tbaa !134
+  %174 = load ptr, ptr %139, align 8, !tbaa !135
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.72, ptr noundef %174) #9
   br label %190
 
 175:                                              ; preds = %170
   %176 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %177 = load i32, ptr %176, align 8, !tbaa !135
+  %177 = load i32, ptr %176, align 8, !tbaa !136
   %178 = and i32 %177, %171
   %.not175 = icmp eq i32 %178, 0
-  %179 = load ptr, ptr %139, align 8, !tbaa !134
+  %179 = load ptr, ptr %139, align 8, !tbaa !135
   br i1 %.not175, label %180, label %183
 
 180:                                              ; preds = %175
@@ -933,9 +933,9 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   store i32 %187, ptr %185, align 8, !tbaa !69
   %188 = sext i32 %186 to i64
   %189 = getelementptr inbounds [4 x %struct._VAConfigAttrib], ptr %184, i64 0, i64 %188
-  store i32 0, ptr %189, align 8, !tbaa !109
+  store i32 0, ptr %189, align 8, !tbaa !110
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 4
-  store i32 %177, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !109
+  store i32 %177, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !110
   br label %190
 
 190:                                              ; preds = %173, %183, %97, %._crit_edge, %180, %168, %159, %.thread178, %116, %96, %41
@@ -984,7 +984,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !132
+  %20 = load i32, ptr %19, align 4, !tbaa !133
   %21 = icmp eq i32 %20, -2147483648
   br i1 %21, label %22, label %23
 
@@ -995,7 +995,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 1212
-  %25 = load i32, ptr %24, align 4, !tbaa !136
+  %25 = load i32, ptr %24, align 4, !tbaa !137
   %.not276 = icmp ne i32 %25, 0
   %26 = and i32 %20, 128
   %.not277 = icmp eq i32 %26, 0
@@ -1003,7 +1003,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   br i1 %or.cond316, label %27, label %.preheader
 
 27:                                               ; preds = %23
-  store i32 0, ptr %24, align 4, !tbaa !136
+  store i32 0, ptr %24, align 4, !tbaa !137
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.91) #9
   br label %.preheader
 
@@ -1017,7 +1017,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   %.0254322 = phi i32 [ %.1255, %45 ], [ 1, %.preheader ]
   %29 = getelementptr inbounds nuw [7 x %struct.VAAPIEncodeRCMode], ptr @vaapi_encode_rc_modes, i64 0, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  %31 = load i32, ptr %30, align 4, !tbaa !137
+  %31 = load i32, ptr %30, align 4, !tbaa !138
   %32 = and i32 %31, %20
   %.not278 = icmp eq i32 %32, 0
   br i1 %.not278, label %45, label %33
@@ -1026,13 +1026,13 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   %.not279 = icmp eq i32 %.0254322, 0
   %34 = select i1 %.not279, ptr @.str.94, ptr @.str.93
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !139
+  %36 = load ptr, ptr %35, align 8, !tbaa !140
   %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0249325, i64 noundef %.0251324, ptr noundef nonnull @.str.92, ptr noundef nonnull %34, ptr noundef %36) #9
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %33
-  store i8 0, ptr %.0249325, align 1, !tbaa !140
+  store i8 0, ptr %.0249325, align 1, !tbaa !141
   br label %.loopexit
 
 40:                                               ; preds = %33
@@ -1048,7 +1048,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   %.1250 = phi ptr [ %43, %40 ], [ %.0249325, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !141
+  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !142
 
 .loopexit:                                        ; preds = %40, %45, %39
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.95, ptr noundef nonnull %5) #9
@@ -1057,7 +1057,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 46:                                               ; preds = %.loopexit, %22
   %.0239 = phi i32 [ 16, %22 ], [ %20, %.loopexit ]
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 1208
-  %48 = load i32, ptr %47, align 8, !tbaa !142
+  %48 = load i32, ptr %47, align 8, !tbaa !143
   %.not280 = icmp eq i32 %48, 0
   br i1 %.not280, label %58, label %49
 
@@ -1065,20 +1065,20 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   %50 = sext i32 %48 to i64
   %51 = getelementptr inbounds [7 x %struct.VAAPIEncodeRCMode], ptr @vaapi_encode_rc_modes, i64 0, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 20
-  %53 = load i32, ptr %52, align 4, !tbaa !137
+  %53 = load i32, ptr %52, align 4, !tbaa !138
   %54 = and i32 %53, %.0239
   %.not296 = icmp eq i32 %54, 0
   br i1 %.not296, label %55, label %120
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !139
+  %57 = load ptr, ptr %56, align 8, !tbaa !140
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.96, ptr noundef %57, ptr noundef nonnull %5) #9
   br label %312
 
 58:                                               ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 1216
-  %60 = load i32, ptr %59, align 8, !tbaa !143
+  %60 = load i32, ptr %59, align 8, !tbaa !144
   %.not281 = icmp eq i32 %60, 0
   br i1 %.not281, label %64, label %61
 
@@ -1127,13 +1127,13 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 80:                                               ; preds = %73
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %82 = load i64, ptr %81, align 8, !tbaa !144
+  %82 = load i64, ptr %81, align 8, !tbaa !145
   %83 = icmp sgt i64 %82, 0
   br i1 %83, label %84, label %91
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  %86 = load i32, ptr %85, align 4, !tbaa !145
+  %86 = load i32, ptr %85, align 4, !tbaa !146
   %87 = icmp sgt i32 %86, 0
   br i1 %87, label %88, label %91
 
@@ -1148,7 +1148,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 91:                                               ; preds = %90, %84, %80
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  %93 = load i32, ptr %92, align 4, !tbaa !145
+  %93 = load i32, ptr %92, align 4, !tbaa !146
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %95, label %100
 
@@ -1168,13 +1168,13 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   br label %100
 
 100:                                              ; preds = %99, %91
-  %101 = load i64, ptr %81, align 8, !tbaa !144
+  %101 = load i64, ptr %81, align 8, !tbaa !145
   %102 = icmp sgt i64 %101, 0
   br i1 %102, label %103, label %.thread
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %105 = load i64, ptr %104, align 8, !tbaa !146
+  %105 = load i64, ptr %104, align 8, !tbaa !147
   %106 = icmp eq i64 %105, %101
   br i1 %106, label %107, label %.thread329
 
@@ -1185,7 +1185,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 109:                                              ; preds = %107
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.116) #9
-  %.pr.pre = load i64, ptr %81, align 8, !tbaa !144
+  %.pr.pre = load i64, ptr %81, align 8, !tbaa !145
   %110 = icmp sgt i64 %.pr.pre, 0
   br i1 %110, label %.thread329, label %.thread
 
@@ -1226,40 +1226,40 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 120:                                              ; preds = %117, %.thread, %114, %112, %.thread329, %107, %97, %95, %88, %77, %70, %61, %49
   %.0240 = phi ptr [ %51, %49 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %61 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %70 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %77 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 200), %88 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 160), %95 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %97 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 80), %107 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 240), %.thread329 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 120), %112 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 80), %114 ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 160), %.thread ], [ getelementptr inbounds nuw (i8, ptr @vaapi_encode_rc_modes, i64 40), %117 ]
   %121 = getelementptr inbounds nuw i8, ptr %.0240, i64 24
-  %122 = load i32, ptr %121, align 8, !tbaa !147
+  %122 = load i32, ptr %121, align 8, !tbaa !148
   %.not297 = icmp eq i32 %122, 0
   br i1 %.not297, label %158, label %123
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %125 = load i64, ptr %124, align 8, !tbaa !144
+  %125 = load i64, ptr %124, align 8, !tbaa !145
   %126 = icmp slt i64 %125, 1
   br i1 %126, label %127, label %130
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %.0240, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !139
+  %129 = load ptr, ptr %128, align 8, !tbaa !140
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.99, ptr noundef %129) #9
   br label %312
 
 130:                                              ; preds = %123
-  %131 = load i32, ptr %.0240, align 8, !tbaa !148
+  %131 = load i32, ptr %.0240, align 8, !tbaa !149
   %132 = icmp eq i32 %131, 6
   br i1 %132, label %133, label %137
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %135 = load i32, ptr %134, align 4, !tbaa !149
+  %135 = load i32, ptr %134, align 4, !tbaa !150
   %136 = icmp sgt i32 %135, 0
   %spec.select = select i1 %136, i32 %135, i32 60
   br label %158
 
 137:                                              ; preds = %130
   %138 = getelementptr inbounds nuw i8, ptr %.0240, i64 28
-  %139 = load i32, ptr %138, align 4, !tbaa !150
+  %139 = load i32, ptr %138, align 4, !tbaa !151
   %.not298 = icmp eq i32 %139, 0
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %141 = load i64, ptr %140, align 8, !tbaa !146
+  %141 = load i64, ptr %140, align 8, !tbaa !147
   br i1 %.not298, label %153, label %142
 
 142:                                              ; preds = %137
@@ -1290,9 +1290,9 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 155:                                              ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %.0240, i64 8
-  %157 = load ptr, ptr %156, align 8, !tbaa !139
+  %157 = load ptr, ptr %156, align 8, !tbaa !140
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.101, ptr noundef %157) #9
-  %.pre = load i64, ptr %124, align 8, !tbaa !144
+  %.pre = load i64, ptr %124, align 8, !tbaa !145
   br label %158
 
 158:                                              ; preds = %153, %155, %120, %133, %147, %151
@@ -1300,19 +1300,19 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   %.0242 = phi i32 [ 100, %133 ], [ %150, %147 ], [ 50, %151 ], [ 100, %120 ], [ 100, %155 ], [ 100, %153 ]
   %.0241 = phi i64 [ %125, %133 ], [ %141, %147 ], [ %152, %151 ], [ 0, %120 ], [ %.pre, %155 ], [ %125, %153 ]
   %159 = getelementptr inbounds nuw i8, ptr %.0240, i64 32
-  %160 = load i32, ptr %159, align 8, !tbaa !151
+  %160 = load i32, ptr %159, align 8, !tbaa !152
   %.not299 = icmp eq i32 %160, 0
   br i1 %.not299, label %179, label %161
 
 161:                                              ; preds = %158
   %162 = getelementptr inbounds nuw i8, ptr %7, i64 1216
-  %163 = load i32, ptr %162, align 8, !tbaa !143
+  %163 = load i32, ptr %162, align 8, !tbaa !144
   %.not300 = icmp eq i32 %163, 0
   br i1 %.not300, label %164, label %179
 
 164:                                              ; preds = %161
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  %166 = load i32, ptr %165, align 4, !tbaa !145
+  %166 = load i32, ptr %165, align 4, !tbaa !146
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %168, label %174
 
@@ -1331,17 +1331,17 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   %175 = getelementptr inbounds nuw i8, ptr %7, i64 1192
   %176 = load ptr, ptr %175, align 8, !tbaa !53
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 12
-  %178 = load i32, ptr %177, align 4, !tbaa !152
+  %178 = load i32, ptr %177, align 4, !tbaa !153
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.102, i32 noundef %178) #9
   br label %179
 
 179:                                              ; preds = %158, %168, %161, %172, %174
   %.0244 = phi i32 [ %173, %172 ], [ %178, %174 ], [ %163, %161 ], [ %166, %168 ], [ 0, %158 ]
   %180 = getelementptr inbounds nuw i8, ptr %.0240, i64 36
-  %181 = load i32, ptr %180, align 4, !tbaa !153
+  %181 = load i32, ptr %180, align 4, !tbaa !154
   %.not302 = icmp eq i32 %181, 0
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %183 = load i32, ptr %182, align 8, !tbaa !154
+  %183 = load i32, ptr %182, align 8, !tbaa !155
   %.not303 = icmp eq i32 %183, 0
   br i1 %.not302, label %208, label %184
 
@@ -1354,19 +1354,19 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 187:                                              ; preds = %184
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %189 = load i64, ptr %188, align 8, !tbaa !146
+  %189 = load i64, ptr %188, align 8, !tbaa !147
   %190 = icmp sgt i64 %189, 0
   br i1 %190, label %194, label %191
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %193 = load i64, ptr %192, align 8, !tbaa !144
+  %193 = load i64, ptr %192, align 8, !tbaa !145
   br label %194
 
 194:                                              ; preds = %187, %191, %185
   %.0245 = phi i64 [ %186, %185 ], [ %193, %191 ], [ %189, %187 ]
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %196 = load i32, ptr %195, align 8, !tbaa !155
+  %196 = load i32, ptr %195, align 8, !tbaa !156
   %.not307 = icmp eq i32 %196, 0
   br i1 %.not307, label %201, label %197
 
@@ -1396,18 +1396,18 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 209:                                              ; preds = %208
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %211 = load i32, ptr %210, align 8, !tbaa !155
+  %211 = load i32, ptr %210, align 8, !tbaa !156
   %.not304 = icmp eq i32 %211, 0
   br i1 %.not304, label %215, label %212
 
 212:                                              ; preds = %209, %208
   %213 = getelementptr inbounds nuw i8, ptr %.0240, i64 8
-  %214 = load ptr, ptr %213, align 8, !tbaa !139
+  %214 = load ptr, ptr %213, align 8, !tbaa !140
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.104, ptr noundef %214) #9
   br label %215
 
 215:                                              ; preds = %212, %209
-  %216 = load i32, ptr %.0240, align 8, !tbaa !148
+  %216 = load i32, ptr %.0240, align 8, !tbaa !149
   %.not305 = icmp eq i32 %216, 6
   %spec.select317 = select i1 %.not305, i32 %.0243, i32 1000
   br label %217
@@ -1429,37 +1429,37 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 222:                                              ; preds = %217
   %223 = getelementptr inbounds nuw i8, ptr %7, i64 1232
-  store ptr %.0240, ptr %223, align 8, !tbaa !156
+  store ptr %.0240, ptr %223, align 8, !tbaa !157
   %224 = getelementptr inbounds nuw i8, ptr %7, i64 1240
-  store i32 %.0244, ptr %224, align 8, !tbaa !157
+  store i32 %.0244, ptr %224, align 8, !tbaa !158
   %225 = getelementptr inbounds nuw i8, ptr %.0240, i64 20
-  %226 = load i32, ptr %225, align 4, !tbaa !137
+  %226 = load i32, ptr %225, align 4, !tbaa !138
   %227 = getelementptr inbounds nuw i8, ptr %7, i64 1252
-  store i32 %226, ptr %227, align 4, !tbaa !158
+  store i32 %226, ptr %227, align 4, !tbaa !159
   %228 = trunc i64 %.0241 to i32
   %229 = getelementptr inbounds nuw i8, ptr %7, i64 1256
-  store i32 %228, ptr %229, align 8, !tbaa !159
+  store i32 %228, ptr %229, align 8, !tbaa !160
   %230 = getelementptr inbounds nuw i8, ptr %.0240, i64 8
-  %231 = load ptr, ptr %230, align 8, !tbaa !139
+  %231 = load ptr, ptr %230, align 8, !tbaa !140
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.106, ptr noundef %231) #9
   %232 = getelementptr inbounds nuw i8, ptr %7, i64 1212
-  %233 = load i32, ptr %232, align 4, !tbaa !136
+  %233 = load i32, ptr %232, align 4, !tbaa !137
   %.not308 = icmp eq i32 %233, 0
   br i1 %.not308, label %238, label %234
 
 234:                                              ; preds = %222
-  %235 = load i32, ptr %227, align 4, !tbaa !158
+  %235 = load i32, ptr %227, align 4, !tbaa !159
   %236 = icmp eq i32 %235, 16
   br i1 %236, label %237, label %238
 
 237:                                              ; preds = %234
-  store i32 0, ptr %232, align 4, !tbaa !136
+  store i32 0, ptr %232, align 4, !tbaa !137
   br label %238
 
 238:                                              ; preds = %237, %234, %222
   %.not309 = phi ptr [ @.str.109, %237 ], [ @.str.108, %234 ], [ @.str.109, %222 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.107, ptr noundef nonnull %.not309) #9
-  %239 = load i32, ptr %19, align 4, !tbaa !132
+  %239 = load i32, ptr %19, align 4, !tbaa !133
   %240 = icmp eq i32 %239, -2147483648
   br i1 %240, label %252, label %241
 
@@ -1471,18 +1471,18 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   store i32 %245, ptr %243, align 8, !tbaa !69
   %246 = sext i32 %244 to i64
   %247 = getelementptr inbounds [4 x %struct._VAConfigAttrib], ptr %242, i64 0, i64 %246
-  %248 = load i32, ptr %232, align 4, !tbaa !136
+  %248 = load i32, ptr %232, align 4, !tbaa !137
   %.not310 = icmp eq i32 %248, 0
-  %249 = load i32, ptr %227, align 4, !tbaa !158
+  %249 = load i32, ptr %227, align 4, !tbaa !159
   %250 = or i32 %249, 128
   %251 = select i1 %.not310, i32 %249, i32 %250
-  store i32 5, ptr %247, align 8, !tbaa !109
+  store i32 5, ptr %247, align 8, !tbaa !110
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %247, i64 4
-  store i32 %251, ptr %.sroa.219.0..sroa_idx, align 4, !tbaa !109
+  store i32 %251, ptr %.sroa.219.0..sroa_idx, align 4, !tbaa !110
   br label %252
 
 252:                                              ; preds = %238, %241
-  %253 = load i32, ptr %159, align 8, !tbaa !151
+  %253 = load i32, ptr %159, align 8, !tbaa !152
   %.not311 = icmp eq i32 %253, 0
   br i1 %.not311, label %255, label %254
 
@@ -1491,12 +1491,12 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   br label %255
 
 255:                                              ; preds = %254, %252
-  %256 = load i32, ptr %225, align 4, !tbaa !137
+  %256 = load i32, ptr %225, align 4, !tbaa !138
   %.not312 = icmp eq i32 %256, 16
   br i1 %.not312, label %275, label %257
 
 257:                                              ; preds = %255
-  %258 = load i32, ptr %.0240, align 8, !tbaa !148
+  %258 = load i32, ptr %.0240, align 8, !tbaa !149
   %259 = icmp eq i32 %258, 6
   br i1 %259, label %260, label %261
 
@@ -1505,7 +1505,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   br label %264
 
 261:                                              ; preds = %257
-  %262 = load i32, ptr %121, align 8, !tbaa !147
+  %262 = load i32, ptr %121, align 8, !tbaa !148
   %.not313 = icmp eq i32 %262, 0
   br i1 %.not313, label %264, label %263
 
@@ -1516,35 +1516,35 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 264:                                              ; preds = %261, %263, %260
   %265 = getelementptr inbounds nuw i8, ptr %7, i64 1412
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %267 = load i32, ptr %266, align 4, !tbaa !160
+  %267 = load i32, ptr %266, align 4, !tbaa !161
   %spec.select318 = call i32 @llvm.smax.i32(i32 %267, i32 0)
-  %268 = load i32, ptr %232, align 4, !tbaa !136
+  %268 = load i32, ptr %232, align 4, !tbaa !137
   %.not314 = icmp eq i32 %268, 0
   %269 = select i1 %.not314, i32 16, i32 8
   %270 = call i32 @llvm.smax.i32(i32 %.0244, i32 1)
   %271 = call i32 @llvm.umin.i32(i32 %270, i32 51)
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %273 = load i32, ptr %272, align 8, !tbaa !161
+  %273 = load i32, ptr %272, align 8, !tbaa !162
   %274 = call i32 @llvm.smax.i32(i32 %273, i32 0)
-  store i32 %228, ptr %265, align 4, !tbaa !109
+  store i32 %228, ptr %265, align 4, !tbaa !110
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1416
-  store i32 %.0242, ptr %.sroa.27.0..sroa_idx, align 4, !tbaa !109
+  store i32 %.0242, ptr %.sroa.27.0..sroa_idx, align 4, !tbaa !110
   %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1420
-  store i32 %.1, ptr %.sroa.38.0..sroa_idx, align 4, !tbaa !109
+  store i32 %.1, ptr %.sroa.38.0..sroa_idx, align 4, !tbaa !110
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1424
-  store i32 0, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !109
+  store i32 0, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !110
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1428
-  store i32 %spec.select318, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !109
+  store i32 %spec.select318, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !110
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1432
-  store i32 0, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !109
+  store i32 0, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !110
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1436
-  store i32 %269, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !140
+  store i32 %269, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !141
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1440
-  store i32 %271, ptr %.sroa.28.0..sroa_idx, align 4, !tbaa !109
+  store i32 %271, ptr %.sroa.28.0..sroa_idx, align 4, !tbaa !110
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1444
-  store i32 %274, ptr %.sroa.29.0..sroa_idx, align 4, !tbaa !109
+  store i32 %274, ptr %.sroa.29.0..sroa_idx, align 4, !tbaa !110
   %.sroa.30.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1448
-  store i32 %.0244, ptr %.sroa.30.0..sroa_idx, align 4, !tbaa !109
+  store i32 %.0244, ptr %.sroa.30.0..sroa_idx, align 4, !tbaa !110
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1452
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.31.0..sroa_idx, i8 0, i64 20, i1 false)
   %.val = load ptr, ptr %6, align 8, !tbaa !4
@@ -1552,7 +1552,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   br label %275
 
 275:                                              ; preds = %264, %255
-  %276 = load i32, ptr %180, align 4, !tbaa !153
+  %276 = load i32, ptr %180, align 4, !tbaa !154
   %.not315 = icmp eq i32 %276, 0
   br i1 %.not315, label %281, label %277
 
@@ -1561,9 +1561,9 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   %278 = getelementptr inbounds nuw i8, ptr %7, i64 1472
   %279 = trunc i64 %.1248 to i32
   %280 = trunc i64 %.1246 to i32
-  store i32 %279, ptr %278, align 8, !tbaa !109
+  store i32 %279, ptr %278, align 8, !tbaa !110
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1476
-  store i32 %280, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !109
+  store i32 %280, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !110
   %.sroa.35.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.35.0..sroa_idx, i8 0, i64 16, i1 false)
   %.val319 = load ptr, ptr %6, align 8, !tbaa !4
@@ -1572,13 +1572,13 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 
 281:                                              ; preds = %277, %275
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %283 = load i32, ptr %282, align 4, !tbaa !162
+  %283 = load i32, ptr %282, align 4, !tbaa !163
   %284 = icmp sgt i32 %283, 0
   br i1 %284, label %285, label %293
 
 285:                                              ; preds = %281
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %287 = load i32, ptr %286, align 4, !tbaa !163
+  %287 = load i32, ptr %286, align 4, !tbaa !164
   %288 = icmp sgt i32 %287, 0
   br i1 %288, label %289, label %293
 
@@ -1591,26 +1591,26 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
 293:                                              ; preds = %285, %281
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %296 = load i32, ptr %295, align 4, !tbaa !164
+  %296 = load i32, ptr %295, align 4, !tbaa !165
   %297 = sext i32 %296 to i64
-  %298 = load i32, ptr %294, align 4, !tbaa !165
+  %298 = load i32, ptr %294, align 4, !tbaa !166
   %299 = sext i32 %298 to i64
   %300 = call i32 @av_reduce(ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %297, i64 noundef %299, i64 noundef 65535) #9
   br label %301
 
 301:                                              ; preds = %293, %289
-  %302 = load i32, ptr %2, align 4, !tbaa !109
-  %303 = load i32, ptr %3, align 4, !tbaa !109
+  %302 = load i32, ptr %2, align 4, !tbaa !110
+  %303 = load i32, ptr %3, align 4, !tbaa !110
   %304 = sitofp i32 %302 to double
   %305 = sitofp i32 %303 to double
   %306 = fdiv nsz double %304, %305
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.114, i32 noundef %302, i32 noundef %303, double noundef %306) #9
   %307 = getelementptr inbounds nuw i8, ptr %7, i64 1496
-  %308 = load i32, ptr %3, align 4, !tbaa !109
+  %308 = load i32, ptr %3, align 4, !tbaa !110
   %309 = shl i32 %308, 16
-  %310 = load i32, ptr %2, align 4, !tbaa !109
+  %310 = load i32, ptr %2, align 4, !tbaa !110
   %311 = or i32 %309, %310
-  store i32 %311, ptr %307, align 8, !tbaa !109
+  store i32 %311, ptr %307, align 8, !tbaa !110
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1500
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.0..sroa_idx, i8 0, i64 20, i1 false)
   %.val320 = load ptr, ptr %6, align 8, !tbaa !4
@@ -1651,13 +1651,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vaapi_encode_init_gop_stru
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !132
+  %17 = load i32, ptr %16, align 4, !tbaa !133
   %18 = icmp eq i32 %17, -2147483648
   %19 = and i32 %17, 65535
   %20 = lshr i32 %17, 16
   %.046 = select i1 %18, i32 0, i32 %20
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 1128
-  store i32 0, ptr %21, align 8, !tbaa !166
+  store i32 0, ptr %21, align 8, !tbaa !167
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 1192
   %23 = load ptr, ptr %22, align 8, !tbaa !53
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1668,13 +1668,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vaapi_encode_init_gop_stru
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %29 = load i32, ptr %28, align 4, !tbaa !149
+  %29 = load i32, ptr %28, align 4, !tbaa !150
   %30 = icmp slt i32 %29, 2
   br i1 %30, label %.thread.thread, label %31
 
 31:                                               ; preds = %27
-  store i32 39, ptr %2, align 8, !tbaa !109
-  store i32 0, ptr %16, align 4, !tbaa !109
+  store i32 39, ptr %2, align 8, !tbaa !110
+  store i32 0, ptr %16, align 4, !tbaa !110
   %32 = load ptr, ptr %5, align 8, !tbaa !52
   %33 = load ptr, ptr %32, align 8, !tbaa !65
   %34 = load i32, ptr %8, align 4, !tbaa !67
@@ -1689,7 +1689,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vaapi_encode_init_gop_stru
   br label %61
 
 39:                                               ; preds = %31
-  %40 = load i32, ptr %16, align 4, !tbaa !132
+  %40 = load i32, ptr %16, align 4, !tbaa !133
   %41 = icmp eq i32 %40, -2147483648
   br i1 %41, label %.thread.thread.sink.split, label %42
 
@@ -1723,7 +1723,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vaapi_encode_init_gop_stru
 
 53:                                               ; preds = %51
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.127) #9
-  %.pre = load i32, ptr %16, align 4, !tbaa !132
+  %.pre = load i32, ptr %16, align 4, !tbaa !133
   br label %.thread
 
 .thread:                                          ; preds = %53, %51
@@ -1736,7 +1736,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vaapi_encode_init_gop_stru
   br i1 %or.cond59, label %56, label %.thread.thread
 
 56:                                               ; preds = %.thread
-  store i32 1, ptr %21, align 8, !tbaa !166
+  store i32 1, ptr %21, align 8, !tbaa !167
   br label %.thread.thread.sink.split
 
 .thread.thread.sink.split:                        ; preds = %39, %56
@@ -1777,7 +1777,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_slice_str
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %12 = load i32, ptr %11, align 4, !tbaa !167
+  %12 = load i32, ptr %11, align 4, !tbaa !168
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %93
 
@@ -1809,36 +1809,36 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_slice_str
   %28 = add i32 %27, %26
   %29 = sdiv i32 %28, %17
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 1584
-  store i32 %29, ptr %30, align 8, !tbaa !168
+  store i32 %29, ptr %30, align 8, !tbaa !169
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %32 = load i32, ptr %31, align 8, !tbaa !56
   %33 = add nsw i32 %21, -1
   %34 = add i32 %33, %32
   %35 = sdiv i32 %34, %21
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 1588
-  store i32 %35, ptr %36, align 4, !tbaa !169
+  store i32 %35, ptr %36, align 4, !tbaa !170
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %38 = load i32, ptr %37, align 4, !tbaa !167
+  %38 = load i32, ptr %37, align 4, !tbaa !168
   %39 = icmp slt i32 %38, 2
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %24
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 1604
-  %42 = load i32, ptr %41, align 4, !tbaa !170
+  %42 = load i32, ptr %41, align 4, !tbaa !171
   %.not66 = icmp eq i32 %42, 0
   br i1 %.not66, label %43, label %49
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 1600
-  %45 = load i32, ptr %44, align 8, !tbaa !171
+  %45 = load i32, ptr %44, align 8, !tbaa !172
   %.not67 = icmp eq i32 %45, 0
   br i1 %.not67, label %46, label %49
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 1592
-  store i32 1, ptr %47, align 8, !tbaa !172
+  store i32 1, ptr %47, align 8, !tbaa !173
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 1596
-  store i32 %29, ptr %48, align 4, !tbaa !173
+  store i32 %29, ptr %48, align 4, !tbaa !174
   br label %93
 
 49:                                               ; preds = %43, %40, %24
@@ -1860,9 +1860,9 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_slice_str
 
 60:                                               ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %62 = load i32, ptr %61, align 4, !tbaa !132
+  %62 = load i32, ptr %61, align 4, !tbaa !133
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %64 = load i32, ptr %63, align 4, !tbaa !132
+  %64 = load i32, ptr %63, align 4, !tbaa !133
   %65 = icmp eq i32 %62, -2147483648
   %66 = icmp eq i32 %64, -2147483648
   %or.cond = select i1 %65, i1 true, i1 %66
@@ -1874,13 +1874,13 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_slice_str
 
 68:                                               ; preds = %60
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 1604
-  %70 = load i32, ptr %69, align 4, !tbaa !170
+  %70 = load i32, ptr %69, align 4, !tbaa !171
   %.not69 = icmp eq i32 %70, 0
   br i1 %.not69, label %.critedge.thread, label %71
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 1600
-  %73 = load i32, ptr %72, align 8, !tbaa !171
+  %73 = load i32, ptr %72, align 8, !tbaa !172
   %.not70 = icmp ne i32 %73, 0
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %75 = load i32, ptr %74, align 4
@@ -1911,14 +1911,14 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_slice_str
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 1592
-  %84 = load i32, ptr %83, align 8, !tbaa !172
-  %85 = load i32, ptr %37, align 4, !tbaa !167
+  %84 = load i32, ptr %83, align 8, !tbaa !173
+  %85 = load i32, ptr %37, align 4, !tbaa !168
   %86 = icmp sgt i32 %84, %85
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %82
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.134, i32 noundef %84, i32 noundef %85) #9
-  %.pre = load i32, ptr %83, align 8, !tbaa !172
+  %.pre = load i32, ptr %83, align 8, !tbaa !173
   br label %88
 
 88:                                               ; preds = %87, %82
@@ -1965,10 +1965,10 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_packed_he
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !132
+  %17 = load i32, ptr %16, align 4, !tbaa !133
   %18 = icmp eq i32 %17, -2147483648
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 1220
-  %20 = load i32, ptr %19, align 4, !tbaa !174
+  %20 = load i32, ptr %19, align 4, !tbaa !175
   br i1 %18, label %21, label %25
 
 21:                                               ; preds = %15
@@ -2003,8 +2003,8 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_packed_he
   br label %30
 
 30:                                               ; preds = %28, %29
-  %31 = load i32, ptr %19, align 4, !tbaa !174
-  %32 = load i32, ptr %16, align 4, !tbaa !132
+  %31 = load i32, ptr %19, align 4, !tbaa !175
+  %32 = load i32, ptr %16, align 4, !tbaa !133
   %33 = and i32 %32, %31
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 1260
   store i32 %33, ptr %34, align 4, !tbaa !89
@@ -2019,14 +2019,14 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_packed_he
   store i32 %39, ptr %37, align 8, !tbaa !69
   %40 = sext i32 %38 to i64
   %41 = getelementptr inbounds [4 x %struct._VAConfigAttrib], ptr %36, i64 0, i64 %40
-  store i32 10, ptr %41, align 8, !tbaa !109
+  store i32 10, ptr %41, align 8, !tbaa !110
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store i32 %33, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !109
+  store i32 %33, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !110
   br label %42
 
 42:                                               ; preds = %.thread, %35, %30
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 1220
-  %44 = load i32, ptr %43, align 4, !tbaa !174
+  %44 = load i32, ptr %43, align 4, !tbaa !175
   %45 = and i32 %44, 1
   %.not35 = icmp eq i32 %45, 0
   br i1 %.not35, label %55, label %46
@@ -2081,25 +2081,25 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_roi(ptr n
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !132
+  %17 = load i32, ptr %16, align 4, !tbaa !133
   %18 = icmp eq i32 %17, -2147483648
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1140
-  store i32 0, ptr %20, align 4, !tbaa !175
+  store i32 0, ptr %20, align 4, !tbaa !176
   br label %35
 
 21:                                               ; preds = %15
   %22 = and i32 %17, 255
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 1952
-  store i32 %22, ptr %23, align 8, !tbaa !176
+  store i32 %22, ptr %23, align 8, !tbaa !177
   %.not17 = icmp eq i32 %22, 0
   br i1 %.not17, label %32, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 1252
-  %26 = load i32, ptr %25, align 4, !tbaa !158
+  %26 = load i32, ptr %25, align 4, !tbaa !159
   %27 = icmp eq i32 %26, 16
   %28 = and i32 %17, 512
   %29 = icmp ne i32 %28, 0
@@ -2110,7 +2110,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_roi(ptr n
 32:                                               ; preds = %24, %21
   %33 = phi i32 [ 0, %21 ], [ %31, %24 ]
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 1140
-  store i32 %33, ptr %34, align 4, !tbaa !175
+  store i32 %33, ptr %34, align 4, !tbaa !176
   br label %35
 
 35:                                               ; preds = %19, %32, %13
@@ -2146,7 +2146,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_quality(p
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !132
+  %19 = load i32, ptr %18, align 4, !tbaa !133
   %20 = icmp eq i32 %19, -2147483648
   br i1 %20, label %21, label %23
 
@@ -2164,13 +2164,13 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_quality(p
 
 25:                                               ; preds = %23
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.154, i32 noundef %19, i32 noundef %19) #9
-  %26 = load i32, ptr %18, align 4, !tbaa !132
+  %26 = load i32, ptr %18, align 4, !tbaa !133
   br label %27
 
 27:                                               ; preds = %25, %23
   %.0 = phi i32 [ %26, %25 ], [ %6, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 1544
-  store i32 %.0, ptr %28, align 8, !tbaa !109
+  store i32 %.0, ptr %28, align 8, !tbaa !110
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1548
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3.0..sroa_idx, i8 0, i64 16, i1 false)
   %.val = load ptr, ptr %3, align 8, !tbaa !4
@@ -2191,7 +2191,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_max_frame
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store i64 38, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1252
-  %6 = load i32, ptr %5, align 4, !tbaa !158
+  %6 = load i32, ptr %5, align 4, !tbaa !159
   %7 = icmp eq i32 %6, 16
   br i1 %7, label %8, label %10
 
@@ -2222,7 +2222,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_max_frame
 
 22:                                               ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %24 = load i32, ptr %23, align 4, !tbaa !132
+  %24 = load i32, ptr %23, align 4, !tbaa !133
   %25 = icmp eq i32 %24, -2147483648
   br i1 %25, label %26, label %28
 
@@ -2248,9 +2248,9 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_max_frame
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 1204
   %35 = load i32, ptr %34, align 4, !tbaa !64
   %36 = shl nsw i32 %35, 3
-  store i32 0, ptr %33, align 8, !tbaa !109
+  store i32 0, ptr %33, align 8, !tbaa !110
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1524
-  store i32 %36, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !109
+  store i32 %36, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !110
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i8 0, i64 16, i1 false)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.159, i32 noundef %35) #9
@@ -2277,46 +2277,46 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vaapi_encode_create_recon_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !177
+  %7 = load ptr, ptr %6, align 8, !tbaa !178
   %8 = tail call ptr @av_hwdevice_hwconfig_alloc(ptr noundef %7) #9
-  store ptr %8, ptr %2, align 8, !tbaa !178
+  store ptr %8, ptr %2, align 8, !tbaa !179
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %34, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1300
   %11 = load i32, ptr %10, align 4, !tbaa !27
-  store i32 %11, ptr %8, align 4, !tbaa !180
+  store i32 %11, ptr %8, align 4, !tbaa !181
   %12 = call i32 @ff_hw_base_get_recon_format(ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %3) #9
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %34, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %6, align 8, !tbaa !177
+  %15 = load ptr, ptr %6, align 8, !tbaa !178
   %16 = call ptr @av_hwframe_ctx_alloc(ptr noundef %15) #9
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store ptr %16, ptr %17, align 8, !tbaa !182
+  store ptr %16, ptr %17, align 8, !tbaa !183
   %.not25 = icmp eq ptr %16, null
   br i1 %.not25, label %34, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !183
+  %20 = load ptr, ptr %19, align 8, !tbaa !184
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %20, ptr %21, align 8, !tbaa !70
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 60
-  store i32 44, ptr %22, align 4, !tbaa !186
-  %23 = load i32, ptr %3, align 4, !tbaa !109
+  store i32 44, ptr %22, align 4, !tbaa !187
+  %23 = load i32, ptr %3, align 4, !tbaa !110
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i32 %23, ptr %24, align 8, !tbaa !101
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !57
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 68
-  store i32 %26, ptr %27, align 4, !tbaa !187
+  store i32 %26, ptr %27, align 4, !tbaa !188
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %29 = load i32, ptr %28, align 4, !tbaa !59
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  store i32 %29, ptr %30, align 8, !tbaa !188
+  store i32 %29, ptr %30, align 8, !tbaa !189
   %31 = call i32 @av_hwframe_ctx_init(ptr noundef nonnull %16) #9
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %34
@@ -2361,7 +2361,7 @@ define internal range(i32 -12, 1) i32 @vaapi_encode_alloc_output_buffer(ptr %0, 
   br label %22
 
 20:                                               ; preds = %2
-  %21 = load i32, ptr %1, align 4, !tbaa !109
+  %21 = load i32, ptr %1, align 4, !tbaa !110
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.162, i32 noundef %21) #9
   br label %22
 
@@ -2374,7 +2374,7 @@ define internal range(i32 -12, 1) i32 @vaapi_encode_alloc_output_buffer(ptr %0, 
 define internal void @vaapi_encode_free_output_buffer(ptr %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = load i32, ptr %1, align 4, !tbaa !109
+  %5 = load i32, ptr %1, align 4, !tbaa !110
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 1312
   %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = load ptr, ptr %7, align 8, !tbaa !65
@@ -2400,23 +2400,23 @@ define noundef i32 @ff_vaapi_encode_close(ptr noundef %0) local_unnamed_addr #2 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1152
-  %5 = load ptr, ptr %4, align 8, !tbaa !189
+  %5 = load ptr, ptr %4, align 8, !tbaa !190
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %36, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %8 = load ptr, ptr %7, align 8, !tbaa !190
+  %8 = load ptr, ptr %7, align 8, !tbaa !191
   %.not2732 = icmp eq ptr %8, null
   br i1 %.not2732, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.02333 = phi ptr [ %10, %.lr.ph ], [ %8, %6 ]
   %9 = getelementptr inbounds nuw i8, ptr %.02333, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !191
+  %10 = load ptr, ptr %9, align 8, !tbaa !192
   %11 = tail call i32 @vaapi_encode_free(ptr noundef nonnull %0, ptr noundef nonnull %.02333)
   %.not27 = icmp eq ptr %10, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !193
+  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !194
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1320
@@ -2476,59 +2476,59 @@ define noundef i32 @ff_vaapi_encode_close(ptr noundef %0) local_unnamed_addr #2 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @vaapi_encode_free(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !194
+  %3 = load ptr, ptr %1, align 8, !tbaa !195
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !195
+  %5 = load i32, ptr %4, align 8, !tbaa !196
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %vaapi_encode_discard.exit, label %6
 
 6:                                                ; preds = %2
   %7 = tail call fastcc i32 @vaapi_encode_wait(ptr noundef %0, ptr noundef nonnull %1)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !196
+  %9 = load ptr, ptr %8, align 8, !tbaa !197
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %vaapi_encode_discard.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !200
+  %12 = load i64, ptr %11, align 8, !tbaa !201
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load i64, ptr %13, align 8, !tbaa !201
+  %14 = load i64, ptr %13, align 8, !tbaa !202
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.165, i64 noundef %12, i64 noundef %14) #9
   tail call void @av_refstruct_unref(ptr noundef nonnull %8) #9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 -1, ptr %15, align 8, !tbaa !202
+  store i32 -1, ptr %15, align 8, !tbaa !203
   br label %vaapi_encode_discard.exit
 
 vaapi_encode_discard.exit:                        ; preds = %10, %6, %2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %17 = load ptr, ptr %16, align 8, !tbaa !203
+  %17 = load ptr, ptr %16, align 8, !tbaa !204
   %.not14 = icmp eq ptr %17, null
   br i1 %.not14, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %vaapi_encode_discard.exit
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %19 = load i32, ptr %18, align 8, !tbaa !204
+  %19 = load i32, ptr %18, align 8, !tbaa !205
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %21 = load ptr, ptr %16, align 8, !tbaa !203
+  %21 = load ptr, ptr %16, align 8, !tbaa !204
   %22 = getelementptr inbounds nuw %struct.VAAPIEncodeSlice, ptr %21, i64 %indvars.iv, i32 5
   tail call void @av_freep(ptr noundef nonnull %22) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %18, align 8, !tbaa !204
+  %23 = load i32, ptr %18, align 8, !tbaa !205
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !205
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !206
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %vaapi_encode_discard.exit
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @av_freep(ptr noundef nonnull %26) #9
   tail call void @av_freep(ptr noundef nonnull %16) #9
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %28 = load i32, ptr %27, align 8, !tbaa !202
+  %28 = load i32, ptr %27, align 8, !tbaa !203
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %31, label %30
 
@@ -2556,34 +2556,34 @@ declare i32 @ff_hw_base_encode_close(ptr noundef) local_unnamed_addr #1
 define internal range(i32 -12, 1) i32 @vaapi_encode_init(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = load ptr, ptr %1, align 8, !tbaa !194
+  %5 = load ptr, ptr %1, align 8, !tbaa !195
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !206
+  %7 = load ptr, ptr %6, align 8, !tbaa !207
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1192
   %9 = load ptr, ptr %8, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !207
+  %11 = load i64, ptr %10, align 8, !tbaa !208
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %2
   %13 = tail call noalias ptr @av_mallocz(i64 noundef %11) #9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !208
+  store ptr %13, ptr %14, align 8, !tbaa !209
   %.not12 = icmp eq ptr %13, null
   br i1 %.not12, label %23, label %15
 
 15:                                               ; preds = %12, %2
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !209
+  %17 = load ptr, ptr %16, align 8, !tbaa !210
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %19, ptr %20, align 8, !tbaa !210
+  store i32 %19, ptr %20, align 8, !tbaa !211
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 -1, ptr %21, align 4, !tbaa !211
+  store i32 -1, ptr %21, align 4, !tbaa !212
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 -1, ptr %22, align 8, !tbaa !202
+  store i32 -1, ptr %22, align 8, !tbaa !203
   br label %23
 
 23:                                               ; preds = %12, %15
@@ -2603,33 +2603,33 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
   %10 = alloca i32, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !4
-  %13 = load ptr, ptr %1, align 8, !tbaa !194
+  %13 = load ptr, ptr %1, align 8, !tbaa !195
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !200
+  %15 = load i64, ptr %14, align 8, !tbaa !201
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !201
+  %17 = load i64, ptr %16, align 8, !tbaa !202
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %19 = load i32, ptr %18, align 8, !tbaa !212
+  %19 = load i32, ptr %18, align 8, !tbaa !213
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds [4 x ptr], ptr @__const.ff_hw_base_encode_get_pictype_name.picture_type_name, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !209
+  %22 = load ptr, ptr %21, align 8, !tbaa !210
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.4, i64 noundef %15, i64 noundef %17, ptr noundef %22) #9
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %24 = load i32, ptr %23, align 8, !tbaa !109
+  %24 = load i32, ptr %23, align 8, !tbaa !110
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 252
-  %28 = load i32, ptr %27, align 4, !tbaa !109
+  %28 = load i32, ptr %27, align 4, !tbaa !110
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.sink.split, label %30
 
 30:                                               ; preds = %26, %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.6) #9
-  %31 = load i32, ptr %23, align 8, !tbaa !109
+  %31 = load i32, ptr %23, align 8, !tbaa !110
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -2640,28 +2640,28 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %35 = getelementptr inbounds nuw [2 x ptr], ptr %33, i64 0, i64 %indvars.iv
-  %36 = load ptr, ptr %35, align 8, !tbaa !213
+  %36 = load ptr, ptr %35, align 8, !tbaa !214
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load i64, ptr %37, align 8, !tbaa !200
+  %38 = load i64, ptr %37, align 8, !tbaa !201
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %40 = load i64, ptr %39, align 8, !tbaa !201
+  %40 = load i64, ptr %39, align 8, !tbaa !202
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.7, i64 noundef %38, i64 noundef %40) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %23, align 8, !tbaa !109
+  %41 = load i32, ptr %23, align 8, !tbaa !110
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %34, label %._crit_edge, !llvm.loop !214
+  br i1 %43, label %34, label %._crit_edge, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %34, %30
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.8) #9
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 252
-  %45 = load i32, ptr %44, align 4, !tbaa !109
+  %45 = load i32, ptr %44, align 4, !tbaa !110
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %60, label %46
 
 46:                                               ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.9) #9
-  %47 = load i32, ptr %44, align 4, !tbaa !109
+  %47 = load i32, ptr %44, align 4, !tbaa !110
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph467, label %.sink.split
 
@@ -2672,17 +2672,17 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 50:                                               ; preds = %.lr.ph467, %50
   %indvars.iv516 = phi i64 [ 0, %.lr.ph467 ], [ %indvars.iv.next517, %50 ]
   %51 = getelementptr inbounds nuw [2 x ptr], ptr %49, i64 0, i64 %indvars.iv516
-  %52 = load ptr, ptr %51, align 8, !tbaa !213
+  %52 = load ptr, ptr %51, align 8, !tbaa !214
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = load i64, ptr %53, align 8, !tbaa !200
+  %54 = load i64, ptr %53, align 8, !tbaa !201
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %56 = load i64, ptr %55, align 8, !tbaa !201
+  %56 = load i64, ptr %55, align 8, !tbaa !202
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.7, i64 noundef %54, i64 noundef %56) #9
   %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
-  %57 = load i32, ptr %44, align 4, !tbaa !109
+  %57 = load i32, ptr %44, align 4, !tbaa !110
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next517, %58
-  br i1 %59, label %50, label %.sink.split, !llvm.loop !215
+  br i1 %59, label %50, label %.sink.split, !llvm.loop !216
 
 .sink.split:                                      ; preds = %50, %46, %26
   %.str.5.sink = phi ptr [ @.str.5, %26 ], [ @.str.8, %46 ], [ @.str.8, %50 ]
@@ -2691,12 +2691,12 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 
 60:                                               ; preds = %.sink.split, %._crit_edge
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %62 = load i32, ptr %61, align 8, !tbaa !195
+  %62 = load i32, ptr %61, align 8, !tbaa !196
   %.not375 = icmp eq i32 %62, 0
   br i1 %.not375, label %.preheader449, label %66
 
 .preheader449:                                    ; preds = %60
-  %63 = load i32, ptr %23, align 8, !tbaa !109
+  %63 = load i32, ptr %23, align 8, !tbaa !110
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph470, label %.preheader448
 
@@ -2713,11 +2713,11 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 67:                                               ; preds = %76
   %indvars.iv.next520 = add nuw nsw i64 %indvars.iv519, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next520, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader448, label %72, !llvm.loop !216
+  br i1 %exitcond.not, label %.preheader448, label %72, !llvm.loop !217
 
 .preheader448:                                    ; preds = %67, %.preheader449
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 252
-  %69 = load i32, ptr %68, align 4, !tbaa !109
+  %69 = load i32, ptr %68, align 4, !tbaa !110
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %.lr.ph472, label %._crit_edge473
 
@@ -2729,7 +2729,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 72:                                               ; preds = %.lr.ph470, %67
   %indvars.iv519 = phi i64 [ 0, %.lr.ph470 ], [ %indvars.iv.next520, %67 ]
   %73 = getelementptr inbounds nuw [2 x ptr], ptr %65, i64 0, i64 %indvars.iv519
-  %74 = load ptr, ptr %73, align 8, !tbaa !213
+  %74 = load ptr, ptr %73, align 8, !tbaa !214
   %.not412 = icmp eq ptr %74, null
   br i1 %.not412, label %75, label %76
 
@@ -2740,7 +2740,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 88
-  %78 = load i32, ptr %77, align 8, !tbaa !195
+  %78 = load i32, ptr %77, align 8, !tbaa !196
   %.not413 = icmp eq i32 %78, 0
   br i1 %.not413, label %79, label %67
 
@@ -2752,12 +2752,12 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 80:                                               ; preds = %85
   %indvars.iv.next523 = add nuw nsw i64 %indvars.iv522, 1
   %exitcond526.not = icmp eq i64 %indvars.iv.next523, %wide.trip.count525
-  br i1 %exitcond526.not, label %._crit_edge473, label %81, !llvm.loop !217
+  br i1 %exitcond526.not, label %._crit_edge473, label %81, !llvm.loop !218
 
 81:                                               ; preds = %.lr.ph472, %80
   %indvars.iv522 = phi i64 [ 0, %.lr.ph472 ], [ %indvars.iv.next523, %80 ]
   %82 = getelementptr inbounds nuw [2 x ptr], ptr %71, i64 0, i64 %indvars.iv522
-  %83 = load ptr, ptr %82, align 8, !tbaa !213
+  %83 = load ptr, ptr %82, align 8, !tbaa !214
   %.not410 = icmp eq ptr %83, null
   br i1 %.not410, label %84, label %85
 
@@ -2768,7 +2768,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 88
-  %87 = load i32, ptr %86, align 8, !tbaa !195
+  %87 = load i32, ptr %86, align 8, !tbaa !196
   %.not411 = icmp eq i32 %87, 0
   br i1 %.not411, label %88, label %80
 
@@ -2779,29 +2779,29 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 
 ._crit_edge473:                                   ; preds = %80, %.preheader448
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %90 = load i32, ptr %89, align 8, !tbaa !210
+  %90 = load i32, ptr %89, align 8, !tbaa !211
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.17, i32 noundef %90) #9
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %92 = load ptr, ptr %91, align 8, !tbaa !218
+  %92 = load ptr, ptr %91, align 8, !tbaa !219
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !209
+  %94 = load ptr, ptr %93, align 8, !tbaa !210
   %95 = ptrtoint ptr %94 to i64
   %96 = trunc i64 %95 to i32
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 %96, ptr %97, align 4, !tbaa !211
+  store i32 %96, ptr %97, align 4, !tbaa !212
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.18, i32 noundef %96) #9
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 1320
   %99 = load ptr, ptr %98, align 8, !tbaa !78
   %100 = tail call ptr @av_refstruct_pool_get(ptr noundef %99) #9
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr %100, ptr %101, align 8, !tbaa !196
+  store ptr %100, ptr %101, align 8, !tbaa !197
   %.not376 = icmp eq ptr %100, null
   br i1 %.not376, label %.loopexit443, label %102
 
 102:                                              ; preds = %._crit_edge473
-  %103 = load i32, ptr %100, align 4, !tbaa !109
+  %103 = load i32, ptr %100, align 4, !tbaa !110
   %104 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 %103, ptr %104, align 8, !tbaa !202
+  store i32 %103, ptr %104, align 8, !tbaa !203
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.19, i32 noundef %103) #9
   %105 = getelementptr inbounds nuw i8, ptr %12, i64 1192
   %106 = load ptr, ptr %105, align 8, !tbaa !53
@@ -2813,7 +2813,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 109:                                              ; preds = %102
   %110 = tail call noalias ptr @av_malloc(i64 noundef %108) #9
   %111 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store ptr %110, ptr %111, align 8, !tbaa !219
+  store ptr %110, ptr %111, align 8, !tbaa !220
   %.not379 = icmp eq ptr %110, null
   br i1 %.not379, label %.loopexit443, label %112
 
@@ -2840,8 +2840,8 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 122:                                              ; preds = %118, %112
   %123 = phi ptr [ %106, %118 ], [ %115, %112 ]
   %124 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 0, ptr %124, align 8, !tbaa !220
-  %125 = load i32, ptr %18, align 8, !tbaa !212
+  store i32 0, ptr %124, align 8, !tbaa !221
+  %125 = load i32, ptr %18, align 8, !tbaa !213
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %.thread
 
@@ -2861,13 +2861,13 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
   br i1 %136, label %.loopexit443, label %137
 
 137:                                              ; preds = %130
-  %.pr.pre = load i32, ptr %18, align 8, !tbaa !212
+  %.pr.pre = load i32, ptr %18, align 8, !tbaa !213
   %138 = icmp eq i32 %.pr.pre, 0
   br i1 %138, label %.preheader446, label %.thread
 
 .preheader446:                                    ; preds = %127, %137
   %139 = getelementptr inbounds nuw i8, ptr %12, i64 1408
-  %140 = load i32, ptr %139, align 8, !tbaa !221
+  %140 = load i32, ptr %139, align 8, !tbaa !222
   %141 = icmp sgt i32 %140, 0
   br i1 %141, label %.lr.ph475, label %.thread
 
@@ -2880,15 +2880,15 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_issue(ptr noundef %0
 
 146:                                              ; preds = %vaapi_encode_make_misc_param_buffer.exit
   %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
-  %147 = load i32, ptr %139, align 8, !tbaa !221
+  %147 = load i32, ptr %139, align 8, !tbaa !222
   %148 = sext i32 %147 to i64
   %149 = icmp slt i64 %indvars.iv.next528, %148
-  br i1 %149, label %150, label %.thread, !llvm.loop !222
+  br i1 %149, label %150, label %.thread, !llvm.loop !223
 
 150:                                              ; preds = %.lr.ph475, %146
   %indvars.iv527 = phi i64 [ 0, %.lr.ph475 ], [ %indvars.iv.next528, %146 ]
   %151 = getelementptr inbounds nuw [4 x i32], ptr %142, i64 0, i64 %indvars.iv527
-  %152 = load i32, ptr %151, align 4, !tbaa !109
+  %152 = load i32, ptr %151, align 4, !tbaa !110
   %153 = getelementptr inbounds nuw [4 x ptr], ptr %143, i64 0, i64 %indvars.iv527
   %154 = load ptr, ptr %153, align 8, !tbaa !98
   %155 = getelementptr inbounds nuw [4 x i64], ptr %144, i64 0, i64 %indvars.iv527
@@ -2914,7 +2914,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 .thread:                                          ; preds = %146, %.preheader446, %122, %137
   %162 = load ptr, ptr %105, align 8, !tbaa !53
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 72
-  %164 = load ptr, ptr %163, align 8, !tbaa !223
+  %164 = load ptr, ptr %163, align 8, !tbaa !224
   %.not381 = icmp eq ptr %164, null
   br i1 %.not381, label %177, label %165
 
@@ -2929,7 +2929,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 
 169:                                              ; preds = %165
   %170 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %171 = load ptr, ptr %170, align 8, !tbaa !219
+  %171 = load ptr, ptr %170, align 8, !tbaa !220
   %172 = load ptr, ptr %105, align 8, !tbaa !53
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 48
   %174 = load i64, ptr %173, align 8, !tbaa !86
@@ -2955,7 +2955,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   br i1 %184, label %.loopexit443, label %185
 
 185:                                              ; preds = %180, %177
-  %186 = load i32, ptr %18, align 8, !tbaa !212
+  %186 = load i32, ptr %18, align 8, !tbaa !213
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %207
 
@@ -2986,7 +2986,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 200:                                              ; preds = %196
   %201 = load ptr, ptr %105, align 8, !tbaa !53
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 88
-  %203 = load i32, ptr %202, align 8, !tbaa !224
+  %203 = load i32, ptr %202, align 8, !tbaa !225
   %204 = load i64, ptr %7, align 8, !tbaa !92
   %205 = call fastcc i32 @vaapi_encode_make_packed_header(ptr noundef %0, ptr noundef %13, i32 noundef %203, ptr noundef %6, i64 noundef %204)
   %206 = icmp slt i32 %205, 0
@@ -3002,7 +3002,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 
 211:                                              ; preds = %207
   %212 = getelementptr inbounds nuw i8, ptr %.pre550, i64 112
-  %213 = load ptr, ptr %212, align 8, !tbaa !225
+  %213 = load ptr, ptr %212, align 8, !tbaa !226
   %.not386 = icmp eq ptr %213, null
   br i1 %.not386, label %225, label %214
 
@@ -3019,7 +3019,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 218:                                              ; preds = %214
   %219 = load ptr, ptr %105, align 8, !tbaa !53
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 92
-  %221 = load i32, ptr %220, align 4, !tbaa !226
+  %221 = load i32, ptr %220, align 4, !tbaa !227
   %222 = load i64, ptr %7, align 8, !tbaa !92
   %223 = call fastcc i32 @vaapi_encode_make_packed_header(ptr noundef %0, ptr noundef %13, i32 noundef %221, ptr noundef %6, i64 noundef %222)
   %224 = icmp slt i32 %223, 0
@@ -3032,7 +3032,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 225:                                              ; preds = %._crit_edge549, %211, %207
   %226 = phi ptr [ %.pre, %._crit_edge549 ], [ %.pre550, %211 ], [ %.pre550, %207 ]
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 128
-  %228 = load ptr, ptr %227, align 8, !tbaa !227
+  %228 = load ptr, ptr %227, align 8, !tbaa !228
   %.not387 = icmp eq ptr %228, null
   br i1 %.not387, label %246, label %.preheader445
 
@@ -3055,7 +3055,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   br label %.thread421
 
 234:                                              ; preds = %.lr.ph477
-  %235 = load i32, ptr %9, align 4, !tbaa !109
+  %235 = load i32, ptr %9, align 4, !tbaa !110
   %236 = load i64, ptr %8, align 8, !tbaa !92
   %237 = call fastcc i32 @vaapi_encode_make_param_buffer(ptr noundef %0, ptr noundef %13, i32 noundef %235, ptr noundef nonnull %6, i64 noundef %236)
   %238 = icmp slt i32 %237, 0
@@ -3081,10 +3081,10 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
   %241 = load ptr, ptr %105, align 8, !tbaa !53
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 128
-  %243 = load ptr, ptr %242, align 8, !tbaa !227
+  %243 = load ptr, ptr %242, align 8, !tbaa !228
   %244 = call i32 %243(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %240, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %8) #9
   %245 = icmp eq i32 %244, -541478725
-  br i1 %245, label %._crit_edge478, label %.lr.ph477
+  br i1 %245, label %._crit_edge478, label %.lr.ph477, !llvm.loop !229
 
 246:                                              ; preds = %._crit_edge478, %225
   %247 = load i32, ptr %208, align 4, !tbaa !89
@@ -3095,7 +3095,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 249:                                              ; preds = %246
   %250 = load ptr, ptr %105, align 8, !tbaa !53
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 136
-  %252 = load ptr, ptr %251, align 8, !tbaa !228
+  %252 = load ptr, ptr %251, align 8, !tbaa !230
   %.not389 = icmp eq ptr %252, null
   br i1 %.not389, label %270, label %.preheader444
 
@@ -3117,7 +3117,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   br label %.thread429
 
 258:                                              ; preds = %.lr.ph480
-  %259 = load i32, ptr %10, align 4, !tbaa !109
+  %259 = load i32, ptr %10, align 4, !tbaa !110
   %260 = load i64, ptr %7, align 8, !tbaa !92
   %261 = call fastcc i32 @vaapi_encode_make_packed_header(ptr noundef %0, ptr noundef %13, i32 noundef %259, ptr noundef %6, i64 noundef %260)
   %262 = icmp slt i32 %261, 0
@@ -3139,21 +3139,21 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   store i64 8192, ptr %7, align 8, !tbaa !92
   %265 = load ptr, ptr %105, align 8, !tbaa !53
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 136
-  %267 = load ptr, ptr %266, align 8, !tbaa !228
+  %267 = load ptr, ptr %266, align 8, !tbaa !230
   %268 = call i32 %267(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %264, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
   %269 = icmp eq i32 %268, -541478725
-  br i1 %269, label %._crit_edge481, label %.lr.ph480
+  br i1 %269, label %._crit_edge481, label %.lr.ph480, !llvm.loop !231
 
 270:                                              ; preds = %._crit_edge481, %249, %246
   %271 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %272 = load i32, ptr %271, align 8, !tbaa !204
+  %272 = load i32, ptr %271, align 8, !tbaa !205
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %274, label %277
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %12, i64 1592
-  %276 = load i32, ptr %275, align 8, !tbaa !172
-  store i32 %276, ptr %271, align 8, !tbaa !204
+  %276 = load i32, ptr %275, align 8, !tbaa !173
+  store i32 %276, ptr %271, align 8, !tbaa !205
   br label %277
 
 277:                                              ; preds = %274, %270
@@ -3165,19 +3165,19 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   %281 = zext nneg i32 %278 to i64
   %282 = call noalias ptr @av_calloc(i64 noundef %281, i64 noundef 32) #9
   %283 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store ptr %282, ptr %283, align 8, !tbaa !203
+  store ptr %282, ptr %283, align 8, !tbaa !204
   %.not390 = icmp eq ptr %282, null
   br i1 %.not390, label %.loopexit443, label %284
 
 284:                                              ; preds = %280
   %285 = getelementptr inbounds nuw i8, ptr %12, i64 1604
-  %286 = load i32, ptr %285, align 4, !tbaa !170
+  %286 = load i32, ptr %285, align 4, !tbaa !171
   %.not391 = icmp eq i32 %286, 0
   br i1 %.not391, label %291, label %287
 
 287:                                              ; preds = %284
   %288 = getelementptr inbounds nuw i8, ptr %12, i64 1600
-  %289 = load i32, ptr %288, align 8, !tbaa !171
+  %289 = load i32, ptr %288, align 8, !tbaa !172
   %.not392 = icmp eq i32 %289, 0
   br i1 %.not392, label %291, label %290
 
@@ -3190,7 +3190,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   br label %292
 
 292:                                              ; preds = %290, %291, %277
-  %293 = load i32, ptr %271, align 8, !tbaa !204
+  %293 = load i32, ptr %271, align 8, !tbaa !205
   %294 = icmp sgt i32 %293, 0
   br i1 %294, label %.lr.ph484, label %._crit_edge485
 
@@ -3200,18 +3200,18 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 
 296:                                              ; preds = %.lr.ph484, %341
   %indvars.iv530 = phi i64 [ 0, %.lr.ph484 ], [ %indvars.iv.next531, %341 ]
-  %297 = load ptr, ptr %295, align 8, !tbaa !203
+  %297 = load ptr, ptr %295, align 8, !tbaa !204
   %298 = getelementptr inbounds nuw %struct.VAAPIEncodeSlice, ptr %297, i64 %indvars.iv530
   %299 = load ptr, ptr %105, align 8, !tbaa !53
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 56
-  %301 = load i64, ptr %300, align 8, !tbaa !229
+  %301 = load i64, ptr %300, align 8, !tbaa !232
   %.not403 = icmp eq i64 %301, 0
   br i1 %.not403, label %305, label %302
 
 302:                                              ; preds = %296
   %303 = call noalias ptr @av_mallocz(i64 noundef %301) #9
   %304 = getelementptr inbounds nuw i8, ptr %298, i64 24
-  store ptr %303, ptr %304, align 8, !tbaa !230
+  store ptr %303, ptr %304, align 8, !tbaa !233
   %.not404 = icmp eq ptr %303, null
   br i1 %.not404, label %.loopexit443, label %._crit_edge551
 
@@ -3222,7 +3222,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 305:                                              ; preds = %._crit_edge551, %296
   %306 = phi ptr [ %.pre552, %._crit_edge551 ], [ %299, %296 ]
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 80
-  %308 = load ptr, ptr %307, align 8, !tbaa !232
+  %308 = load ptr, ptr %307, align 8, !tbaa !235
   %.not405 = icmp eq ptr %308, null
   br i1 %.not405, label %313, label %309
 
@@ -3248,7 +3248,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 
 316:                                              ; preds = %313
   %317 = getelementptr inbounds nuw i8, ptr %.pre555, i64 120
-  %318 = load ptr, ptr %317, align 8, !tbaa !233
+  %318 = load ptr, ptr %317, align 8, !tbaa !236
   %.not407 = icmp eq ptr %318, null
   br i1 %.not407, label %330, label %319
 
@@ -3265,7 +3265,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 323:                                              ; preds = %319
   %324 = load ptr, ptr %105, align 8, !tbaa !53
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 96
-  %326 = load i32, ptr %325, align 8, !tbaa !234
+  %326 = load i32, ptr %325, align 8, !tbaa !237
   %327 = load i64, ptr %7, align 8, !tbaa !92
   %328 = call fastcc i32 @vaapi_encode_make_packed_header(ptr noundef %0, ptr noundef nonnull %13, i32 noundef %326, ptr noundef %6, i64 noundef %327)
   %329 = icmp slt i32 %328, 0
@@ -3278,49 +3278,49 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 330:                                              ; preds = %._crit_edge553, %316, %313
   %331 = phi ptr [ %.pre554, %._crit_edge553 ], [ %.pre555, %316 ], [ %.pre555, %313 ]
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 80
-  %333 = load ptr, ptr %332, align 8, !tbaa !232
+  %333 = load ptr, ptr %332, align 8, !tbaa !235
   %.not408 = icmp eq ptr %333, null
   br i1 %.not408, label %341, label %334
 
 334:                                              ; preds = %330
   %335 = getelementptr inbounds nuw i8, ptr %298, i64 24
-  %336 = load ptr, ptr %335, align 8, !tbaa !230
+  %336 = load ptr, ptr %335, align 8, !tbaa !233
   %337 = getelementptr inbounds nuw i8, ptr %331, i64 56
-  %338 = load i64, ptr %337, align 8, !tbaa !229
+  %338 = load i64, ptr %337, align 8, !tbaa !232
   %339 = call fastcc i32 @vaapi_encode_make_param_buffer(ptr noundef %0, ptr noundef nonnull %13, i32 noundef 24, ptr noundef %336, i64 noundef %338)
   %340 = icmp slt i32 %339, 0
   br i1 %340, label %.loopexit443, label %341
 
 341:                                              ; preds = %330, %334
   %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
-  %342 = load i32, ptr %271, align 8, !tbaa !204
+  %342 = load i32, ptr %271, align 8, !tbaa !205
   %343 = sext i32 %342 to i64
   %344 = icmp slt i64 %indvars.iv.next531, %343
-  br i1 %344, label %296, label %._crit_edge485, !llvm.loop !235
+  br i1 %344, label %296, label %._crit_edge485, !llvm.loop !238
 
 ._crit_edge485:                                   ; preds = %341, %292
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %346 = load ptr, ptr %345, align 8, !tbaa !206
+  %346 = load ptr, ptr %345, align 8, !tbaa !207
   %347 = call ptr @av_frame_get_side_data(ptr noundef %346, i32 noundef 18) #9
   %.not393 = icmp eq ptr %347, null
   br i1 %.not393, label %418, label %348
 
 348:                                              ; preds = %._crit_edge485
   %349 = getelementptr inbounds nuw i8, ptr %12, i64 1140
-  %350 = load i32, ptr %349, align 4, !tbaa !175
+  %350 = load i32, ptr %349, align 4, !tbaa !176
   %.not394 = icmp eq i32 %350, 0
   br i1 %.not394, label %418, label %351
 
 351:                                              ; preds = %348
   %352 = getelementptr inbounds nuw i8, ptr %347, i64 8
-  %353 = load ptr, ptr %352, align 8, !tbaa !236
-  %354 = load i32, ptr %353, align 4, !tbaa !239
+  %353 = load ptr, ptr %352, align 8, !tbaa !239
+  %354 = load i32, ptr %353, align 4, !tbaa !242
   %.not395 = icmp eq i32 %354, 0
   br i1 %.not395, label %362, label %355
 
 355:                                              ; preds = %351
   %356 = getelementptr inbounds nuw i8, ptr %347, i64 16
-  %357 = load i64, ptr %356, align 8, !tbaa !241
+  %357 = load i64, ptr %356, align 8, !tbaa !244
   %358 = zext i32 %354 to i64
   %359 = urem i64 %357, %358
   %360 = udiv i64 %357, %358
@@ -3335,27 +3335,27 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 363:                                              ; preds = %355
   %364 = trunc i64 %360 to i32
   %365 = getelementptr inbounds nuw i8, ptr %12, i64 1952
-  %366 = load i32, ptr %365, align 8, !tbaa !176
+  %366 = load i32, ptr %365, align 8, !tbaa !177
   %367 = icmp slt i32 %366, %364
   br i1 %367, label %368, label %372
 
 368:                                              ; preds = %363
   %369 = getelementptr inbounds nuw i8, ptr %12, i64 1148
-  %370 = load i32, ptr %369, align 4, !tbaa !242
+  %370 = load i32, ptr %369, align 4, !tbaa !245
   %.not396 = icmp eq i32 %370, 0
   br i1 %.not396, label %371, label %372
 
 371:                                              ; preds = %368
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.29, i32 noundef %364, i32 noundef %366) #9
-  store i32 1, ptr %369, align 4, !tbaa !242
-  %.pre556 = load i32, ptr %365, align 8, !tbaa !176
+  store i32 1, ptr %369, align 4, !tbaa !245
+  %.pre556 = load i32, ptr %365, align 8, !tbaa !177
   br label %372
 
 372:                                              ; preds = %368, %371, %363
   %.0331 = phi i32 [ %364, %363 ], [ %.pre556, %371 ], [ %366, %368 ]
   %373 = sext i32 %.0331 to i64
   %374 = call noalias ptr @av_calloc(i64 noundef %373, i64 noundef 10) #9
-  store ptr %374, ptr %13, align 8, !tbaa !243
+  store ptr %374, ptr %13, align 8, !tbaa !246
   %.not397 = icmp eq ptr %374, null
   br i1 %.not397, label %.loopexit443, label %.preheader442
 
@@ -3370,13 +3370,13 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 
 377:                                              ; preds = %.lr.ph487, %386
   %indvars.iv533 = phi i64 [ 0, %.lr.ph487 ], [ %indvars.iv.next534, %386 ]
-  %378 = load ptr, ptr %352, align 8, !tbaa !236
+  %378 = load ptr, ptr %352, align 8, !tbaa !239
   %379 = trunc nuw nsw i64 %indvars.iv533 to i32
   %380 = mul i32 %354, %379
   %381 = zext i32 %380 to i64
   %382 = getelementptr inbounds nuw i8, ptr %378, i64 %381
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 24
-  %384 = load i32, ptr %383, align 4, !tbaa !244
+  %384 = load i32, ptr %383, align 4, !tbaa !247
   %.not402 = icmp eq i32 %384, 0
   br i1 %.not402, label %385, label %386
 
@@ -3387,51 +3387,51 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 
 386:                                              ; preds = %377
   %387 = getelementptr inbounds nuw i8, ptr %382, i64 20
-  %388 = load i32, ptr %387, align 4, !tbaa !245
-  %389 = load i32, ptr %376, align 4, !tbaa !246
+  %388 = load i32, ptr %387, align 4, !tbaa !248
+  %389 = load i32, ptr %376, align 4, !tbaa !249
   %390 = mul nsw i32 %389, %388
   %391 = sdiv i32 %390, %384
   %392 = getelementptr inbounds nuw i8, ptr %382, i64 4
-  %393 = load i32, ptr %392, align 4, !tbaa !247
+  %393 = load i32, ptr %392, align 4, !tbaa !250
   %394 = getelementptr inbounds nuw i8, ptr %382, i64 12
-  %395 = load i32, ptr %394, align 4, !tbaa !248
+  %395 = load i32, ptr %394, align 4, !tbaa !251
   %396 = getelementptr inbounds nuw i8, ptr %382, i64 8
-  %397 = load i32, ptr %396, align 4, !tbaa !249
+  %397 = load i32, ptr %396, align 4, !tbaa !252
   %398 = getelementptr inbounds nuw i8, ptr %382, i64 16
-  %399 = load i32, ptr %398, align 4, !tbaa !250
+  %399 = load i32, ptr %398, align 4, !tbaa !253
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.31, i32 noundef %393, i32 noundef %395, i32 noundef %397, i32 noundef %399, i32 noundef %391) #9
-  %400 = load ptr, ptr %13, align 8, !tbaa !243
+  %400 = load ptr, ptr %13, align 8, !tbaa !246
   %401 = getelementptr inbounds nuw %struct._VAEncROI, ptr %400, i64 %indvars.iv533
-  %402 = load i32, ptr %394, align 4, !tbaa !248
+  %402 = load i32, ptr %394, align 4, !tbaa !251
   %403 = trunc i32 %402 to i16
-  %404 = load i32, ptr %392, align 4, !tbaa !247
+  %404 = load i32, ptr %392, align 4, !tbaa !250
   %405 = trunc i32 %404 to i16
-  %406 = load i32, ptr %398, align 4, !tbaa !250
+  %406 = load i32, ptr %398, align 4, !tbaa !253
   %407 = sub nsw i32 %406, %402
   %408 = trunc i32 %407 to i16
-  %409 = load i32, ptr %396, align 4, !tbaa !249
+  %409 = load i32, ptr %396, align 4, !tbaa !252
   %410 = sub nsw i32 %409, %404
   %411 = trunc i32 %410 to i16
   %412 = call i32 @llvm.smax.i32(i32 %391, i32 -128)
   %413 = call i32 @llvm.smin.i32(i32 %412, i32 127)
   %.0.i = trunc nsw i32 %413 to i8
-  store i16 %403, ptr %401, align 2, !tbaa !251
+  store i16 %403, ptr %401, align 2, !tbaa !254
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %401, i64 2
-  store i16 %405, ptr %.sroa.23.0..sroa_idx, align 2, !tbaa !251
+  store i16 %405, ptr %.sroa.23.0..sroa_idx, align 2, !tbaa !254
   %.sroa.34.0..sroa_idx = getelementptr inbounds nuw i8, ptr %401, i64 4
-  store i16 %408, ptr %.sroa.34.0..sroa_idx, align 2, !tbaa !251
+  store i16 %408, ptr %.sroa.34.0..sroa_idx, align 2, !tbaa !254
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %401, i64 6
-  store i16 %411, ptr %.sroa.45.0..sroa_idx, align 2, !tbaa !251
+  store i16 %411, ptr %.sroa.45.0..sroa_idx, align 2, !tbaa !254
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %401, i64 8
-  store i8 %.0.i, ptr %.sroa.56.0..sroa_idx, align 2, !tbaa !140
+  store i8 %.0.i, ptr %.sroa.56.0..sroa_idx, align 2, !tbaa !141
   %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %401, i64 9
   store i8 0, ptr %.sroa.67.0..sroa_idx, align 1
   %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 1
   %exitcond537.not = icmp eq i64 %indvars.iv.next534, %wide.trip.count536
-  br i1 %exitcond537.not, label %._crit_edge488.loopexit, label %377, !llvm.loop !253
+  br i1 %exitcond537.not, label %._crit_edge488.loopexit, label %377, !llvm.loop !256
 
 ._crit_edge488.loopexit:                          ; preds = %386
-  %.pre557 = load ptr, ptr %13, align 8, !tbaa !243
+  %.pre557 = load ptr, ptr %13, align 8, !tbaa !246
   br label %._crit_edge488
 
 ._crit_edge488:                                   ; preds = %._crit_edge488.loopexit, %.preheader442
@@ -3465,7 +3465,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   %421 = load ptr, ptr %420, align 8, !tbaa !65
   %422 = getelementptr inbounds nuw i8, ptr %12, i64 1304
   %423 = load i32, ptr %422, align 8, !tbaa !47
-  %424 = load i32, ptr %89, align 8, !tbaa !210
+  %424 = load i32, ptr %89, align 8, !tbaa !211
   %425 = call i32 @vaBeginPicture(ptr noundef %421, i32 noundef %423, i32 noundef %424) #9
   %.not398 = icmp eq i32 %425, 0
   br i1 %.not398, label %428, label %426
@@ -3480,8 +3480,8 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   %430 = load ptr, ptr %429, align 8, !tbaa !65
   %431 = load i32, ptr %422, align 8, !tbaa !47
   %432 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %433 = load ptr, ptr %432, align 8, !tbaa !254
-  %434 = load i32, ptr %124, align 8, !tbaa !220
+  %433 = load ptr, ptr %432, align 8, !tbaa !257
+  %434 = load i32, ptr %124, align 8, !tbaa !221
   %435 = call i32 @vaRenderPicture(ptr noundef %430, i32 noundef %431, ptr noundef %433, i32 noundef %434) #9
   %.not399 = icmp eq i32 %435, 0
   br i1 %.not399, label %438, label %436
@@ -3500,7 +3500,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   br i1 %.not400, label %.preheader440, label %445
 
 .preheader440:                                    ; preds = %438
-  %443 = load i32, ptr %124, align 8, !tbaa !220
+  %443 = load i32, ptr %124, align 8, !tbaa !221
   %444 = icmp sgt i32 %443, 0
   br i1 %444, label %.lr.ph490, label %.loopexit441
 
@@ -3513,27 +3513,27 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   %indvars.iv538 = phi i64 [ %indvars.iv.next539, %458 ], [ 0, %.preheader440 ]
   %447 = load ptr, ptr %419, align 8, !tbaa !52
   %448 = load ptr, ptr %447, align 8, !tbaa !65
-  %449 = load ptr, ptr %432, align 8, !tbaa !254
+  %449 = load ptr, ptr %432, align 8, !tbaa !257
   %450 = getelementptr inbounds nuw i32, ptr %449, i64 %indvars.iv538
-  %451 = load i32, ptr %450, align 4, !tbaa !109
+  %451 = load i32, ptr %450, align 4, !tbaa !110
   %452 = call i32 @vaDestroyBuffer(ptr noundef %448, i32 noundef %451) #9
   %.not401 = icmp eq i32 %452, 0
   br i1 %.not401, label %458, label %453
 
 453:                                              ; preds = %.lr.ph490
-  %454 = load ptr, ptr %432, align 8, !tbaa !254
+  %454 = load ptr, ptr %432, align 8, !tbaa !257
   %455 = getelementptr inbounds nuw i32, ptr %454, i64 %indvars.iv538
-  %456 = load i32, ptr %455, align 4, !tbaa !109
+  %456 = load i32, ptr %455, align 4, !tbaa !110
   %457 = call ptr @vaErrorStr(i32 noundef %452) #9
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.35, i32 noundef %456, i32 noundef %452, ptr noundef %457) #9
   br label %458
 
 458:                                              ; preds = %.lr.ph490, %453
   %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538, 1
-  %459 = load i32, ptr %124, align 8, !tbaa !220
+  %459 = load i32, ptr %124, align 8, !tbaa !221
   %460 = sext i32 %459 to i64
   %461 = icmp slt i64 %indvars.iv.next539, %460
-  br i1 %461, label %.lr.ph490, label %.loopexit441, !llvm.loop !255
+  br i1 %461, label %.lr.ph490, label %.loopexit441, !llvm.loop !258
 
 462:                                              ; preds = %436, %426
   %463 = load ptr, ptr %419, align 8, !tbaa !52
@@ -3545,7 +3545,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
 .loopexit443:                                     ; preds = %vaapi_encode_make_misc_param_buffer.exit, %302, %334, %323, %._crit_edge488, %372, %.thread429, %.thread421, %280, %._crit_edge473, %218, %200, %180, %169, %130, %109, %462, %445, %322, %312, %217, %199, %168
   %.0322 = phi i32 [ %135, %130 ], [ %166, %168 ], [ %175, %169 ], [ %183, %180 ], [ %197, %199 ], [ %205, %200 ], [ %215, %217 ], [ %223, %218 ], [ %310, %312 ], [ %320, %322 ], [ -5, %462 ], [ -5, %445 ], [ 0, %109 ], [ -12, %._crit_edge473 ], [ -12, %280 ], [ %.1.ph, %.thread421 ], [ %.2.ph, %.thread429 ], [ -12, %372 ], [ %416, %._crit_edge488 ], [ -12, %302 ], [ %339, %334 ], [ %328, %323 ], [ %160, %vaapi_encode_make_misc_param_buffer.exit ]
   %467 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %468 = load i32, ptr %467, align 8, !tbaa !220
+  %468 = load i32, ptr %467, align 8, !tbaa !221
   %469 = icmp sgt i32 %468, 0
   br i1 %469, label %.lr.ph493, label %._crit_edge494
 
@@ -3558,38 +3558,38 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   %indvars.iv541 = phi i64 [ 0, %.lr.ph493 ], [ %indvars.iv.next542, %472 ]
   %473 = load ptr, ptr %470, align 8, !tbaa !52
   %474 = load ptr, ptr %473, align 8, !tbaa !65
-  %475 = load ptr, ptr %471, align 8, !tbaa !254
+  %475 = load ptr, ptr %471, align 8, !tbaa !257
   %476 = getelementptr inbounds nuw i32, ptr %475, i64 %indvars.iv541
-  %477 = load i32, ptr %476, align 4, !tbaa !109
+  %477 = load i32, ptr %476, align 4, !tbaa !110
   %478 = call i32 @vaDestroyBuffer(ptr noundef %474, i32 noundef %477) #9
   %indvars.iv.next542 = add nuw nsw i64 %indvars.iv541, 1
-  %479 = load i32, ptr %467, align 8, !tbaa !220
+  %479 = load i32, ptr %467, align 8, !tbaa !221
   %480 = sext i32 %479 to i64
   %481 = icmp slt i64 %indvars.iv.next542, %480
-  br i1 %481, label %472, label %._crit_edge494, !llvm.loop !256
+  br i1 %481, label %472, label %._crit_edge494, !llvm.loop !259
 
 ._crit_edge494:                                   ; preds = %472, %.loopexit443
   %482 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %483 = load ptr, ptr %482, align 8, !tbaa !203
+  %483 = load ptr, ptr %482, align 8, !tbaa !204
   %.not409 = icmp eq ptr %483, null
   br i1 %.not409, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge494
   %484 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %485 = load i32, ptr %484, align 8, !tbaa !204
+  %485 = load i32, ptr %484, align 8, !tbaa !205
   %486 = icmp sgt i32 %485, 0
   br i1 %486, label %.lr.ph496, label %.loopexit
 
 .lr.ph496:                                        ; preds = %.preheader, %.lr.ph496
   %indvars.iv544 = phi i64 [ %indvars.iv.next545, %.lr.ph496 ], [ 0, %.preheader ]
-  %487 = load ptr, ptr %482, align 8, !tbaa !203
+  %487 = load ptr, ptr %482, align 8, !tbaa !204
   %488 = getelementptr inbounds nuw %struct.VAAPIEncodeSlice, ptr %487, i64 %indvars.iv544, i32 5
   call void @av_freep(ptr noundef nonnull %488) #9
   %indvars.iv.next545 = add nuw nsw i64 %indvars.iv544, 1
-  %489 = load i32, ptr %484, align 8, !tbaa !204
+  %489 = load i32, ptr %484, align 8, !tbaa !205
   %490 = sext i32 %489 to i64
   %491 = icmp slt i64 %indvars.iv.next545, %490
-  br i1 %491, label %.lr.ph496, label %.loopexit, !llvm.loop !257
+  br i1 %491, label %.lr.ph496, label %.loopexit, !llvm.loop !260
 
 .loopexit:                                        ; preds = %.lr.ph496, %.preheader, %._crit_edge494
   %492 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -3600,7 +3600,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   call void @av_freep(ptr noundef nonnull %13) #9
   call void @av_refstruct_unref(ptr noundef nonnull %101) #9
   %494 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 -1, ptr %494, align 8, !tbaa !202
+  store i32 -1, ptr %494, align 8, !tbaa !203
   br label %.loopexit441
 
 .loopexit441:                                     ; preds = %458, %.preheader440, %.loopexit
@@ -3615,20 +3615,20 @@ define internal i32 @vaapi_encode_output(ptr noundef %0, ptr noundef %1, ptr nou
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
-  %7 = load ptr, ptr %1, align 8, !tbaa !194
+  %7 = load ptr, ptr %1, align 8, !tbaa !195
   %8 = tail call fastcc i32 @vaapi_encode_wait(ptr noundef %0, ptr noundef nonnull %1)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %83, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %12 = load i32, ptr %11, align 8, !tbaa !258
+  %12 = load i32, ptr %11, align 8, !tbaa !261
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %38, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1960
-  %15 = load ptr, ptr %14, align 8, !tbaa !259
+  %15 = load ptr, ptr %14, align 8, !tbaa !262
   %.not46 = icmp eq ptr %15, null
   br i1 %.not46, label %17, label %16
 
@@ -3639,19 +3639,19 @@ define internal i32 @vaapi_encode_output(ptr noundef %0, ptr noundef %1, ptr nou
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !196
+  %19 = load ptr, ptr %18, align 8, !tbaa !197
   %20 = tail call ptr @av_refstruct_ref(ptr noundef %19) #9
-  store ptr %20, ptr %14, align 8, !tbaa !259
+  store ptr %20, ptr %14, align 8, !tbaa !262
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 1104
-  %22 = load i64, ptr %21, align 8, !tbaa !260
+  %22 = load i64, ptr %21, align 8, !tbaa !263
   %.not47 = icmp eq i64 %22, 0
   br i1 %.not47, label %69, label %23
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 1184
-  %25 = load ptr, ptr %24, align 8, !tbaa !261
+  %25 = load ptr, ptr %24, align 8, !tbaa !264
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load i32, ptr %26, align 8, !tbaa !262
+  %27 = load i32, ptr %26, align 8, !tbaa !265
   %.not48 = icmp eq i32 %27, 0
   br i1 %.not48, label %28, label %80
 
@@ -3661,25 +3661,25 @@ define internal i32 @vaapi_encode_output(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %30, label %80, label %31
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %24, align 8, !tbaa !261
+  %32 = load ptr, ptr %24, align 8, !tbaa !264
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !264
+  %34 = load ptr, ptr %33, align 8, !tbaa !267
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  %36 = load i64, ptr %21, align 8, !tbaa !260
+  %36 = load i64, ptr %21, align 8, !tbaa !263
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 4 %35, i64 %36, i1 false)
-  %37 = load ptr, ptr %24, align 8, !tbaa !261
+  %37 = load ptr, ptr %24, align 8, !tbaa !264
   br label %69
 
 38:                                               ; preds = %10
   %39 = load ptr, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1960
-  %41 = load ptr, ptr %40, align 8, !tbaa !259
+  %41 = load ptr, ptr %40, align 8, !tbaa !262
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %46, label %42
 
 42:                                               ; preds = %38
-  %43 = load i32, ptr %41, align 4, !tbaa !109
+  %43 = load i32, ptr %41, align 4, !tbaa !110
   %44 = tail call fastcc i32 @vaapi_encode_get_coded_buffer_size(ptr noundef nonnull %0, i32 noundef %43)
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %vaapi_encode_get_coded_data.exit, label %46
@@ -3688,7 +3688,7 @@ define internal i32 @vaapi_encode_output(ptr noundef %0, ptr noundef %1, ptr nou
   %.028.i = phi i32 [ undef, %38 ], [ %43, %42 ]
   %.027.i = phi i32 [ 0, %38 ], [ %44, %42 ]
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %48 = load i32, ptr %47, align 8, !tbaa !202
+  %48 = load i32, ptr %47, align 8, !tbaa !203
   %49 = tail call fastcc i32 @vaapi_encode_get_coded_buffer_size(ptr noundef nonnull %0, i32 noundef %48)
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %vaapi_encode_get_coded_data.exit, label %51
@@ -3702,9 +3702,9 @@ define internal i32 @vaapi_encode_output(ptr noundef %0, ptr noundef %1, ptr nou
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !264
-  store ptr %58, ptr %4, align 8, !tbaa !209
-  %59 = load ptr, ptr %40, align 8, !tbaa !259
+  %58 = load ptr, ptr %57, align 8, !tbaa !267
+  store ptr %58, ptr %4, align 8, !tbaa !210
+  %59 = load ptr, ptr %40, align 8, !tbaa !262
   %.not35.i = icmp eq ptr %59, null
   br i1 %.not35.i, label %63, label %60
 
@@ -3714,7 +3714,7 @@ define internal i32 @vaapi_encode_output(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %62, label %vaapi_encode_get_coded_data.exit, label %63
 
 63:                                               ; preds = %60, %56
-  %64 = load i32, ptr %47, align 8, !tbaa !202
+  %64 = load i32, ptr %47, align 8, !tbaa !203
   %65 = call fastcc i32 @vaapi_encode_get_coded_buffer_data(ptr noundef nonnull %0, i32 noundef %64, ptr noundef %4)
   br label %vaapi_encode_get_coded_data.exit
 
@@ -3724,7 +3724,7 @@ vaapi_encode_get_coded_data.exit:                 ; preds = %42, %46, %51, %60, 
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @av_refstruct_unref(ptr noundef nonnull %66) #9
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 -1, ptr %67, align 8, !tbaa !202
+  store i32 -1, ptr %67, align 8, !tbaa !203
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   %68 = icmp slt i32 %.0.i, 0
   br i1 %68, label %80, label %69
@@ -3733,9 +3733,9 @@ vaapi_encode_get_coded_data.exit:                 ; preds = %42, %46, %51, %60, 
   %.037 = phi ptr [ %37, %31 ], [ %2, %17 ], [ %2, %vaapi_encode_get_coded_data.exit ]
   %.1 = phi i32 [ %29, %31 ], [ 0, %17 ], [ 0, %vaapi_encode_get_coded_data.exit ]
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %71 = load i64, ptr %70, align 8, !tbaa !200
+  %71 = load i64, ptr %70, align 8, !tbaa !201
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %73 = load i64, ptr %72, align 8, !tbaa !201
+  %73 = load i64, ptr %72, align 8, !tbaa !202
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.51, i64 noundef %71, i64 noundef %73) #9
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 1192
   %75 = load ptr, ptr %74, align 8, !tbaa !53
@@ -3750,7 +3750,7 @@ vaapi_encode_get_coded_data.exit:                 ; preds = %42, %46, %51, %60, 
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @av_refstruct_unref(ptr noundef nonnull %81) #9
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 -1, ptr %82, align 8, !tbaa !202
+  store i32 -1, ptr %82, align 8, !tbaa !203
   br label %83
 
 83:                                               ; preds = %3, %80
@@ -3772,9 +3772,9 @@ define internal fastcc range(i32 -12, 1) i32 @vaapi_encode_make_param_buffer(ptr
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !254
+  %10 = load ptr, ptr %9, align 8, !tbaa !257
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !220
+  %12 = load i32, ptr %11, align 8, !tbaa !221
   %13 = add nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = tail call ptr @av_realloc_array(ptr noundef %10, i64 noundef 4, i64 noundef %14) #9
@@ -3782,7 +3782,7 @@ define internal fastcc range(i32 -12, 1) i32 @vaapi_encode_make_param_buffer(ptr
   br i1 %.not, label %33, label %16
 
 16:                                               ; preds = %5
-  store ptr %15, ptr %9, align 8, !tbaa !254
+  store ptr %15, ptr %9, align 8, !tbaa !257
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 1312
   %18 = load ptr, ptr %17, align 8, !tbaa !52
   %19 = load ptr, ptr %18, align 8, !tbaa !65
@@ -3799,14 +3799,14 @@ define internal fastcc range(i32 -12, 1) i32 @vaapi_encode_make_param_buffer(ptr
   br label %33
 
 26:                                               ; preds = %16
-  %27 = load i32, ptr %6, align 4, !tbaa !109
-  %28 = load ptr, ptr %9, align 8, !tbaa !254
-  %29 = load i32, ptr %11, align 8, !tbaa !220
+  %27 = load i32, ptr %6, align 4, !tbaa !110
+  %28 = load ptr, ptr %9, align 8, !tbaa !257
+  %29 = load i32, ptr %11, align 8, !tbaa !221
   %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %11, align 8, !tbaa !220
+  store i32 %30, ptr %11, align 8, !tbaa !221
   %31 = sext i32 %29 to i64
   %32 = getelementptr inbounds i32, ptr %28, i64 %31
-  store i32 %27, ptr %32, align 4, !tbaa !109
+  store i32 %27, ptr %32, align 4, !tbaa !110
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.41, i32 noundef %2, i32 noundef %27) #9
   br label %33
 
@@ -3826,18 +3826,18 @@ define internal fastcc range(i32 -12, 1) i32 @vaapi_encode_make_packed_header(pt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8) #9
-  store i32 %2, ptr %8, align 4, !tbaa !265
+  store i32 %2, ptr %8, align 4, !tbaa !268
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = trunc i64 %4 to i32
-  store i32 %12, ptr %11, align 4, !tbaa !267
+  store i32 %12, ptr %11, align 4, !tbaa !270
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 1, ptr %13, align 4, !tbaa !268
+  store i8 1, ptr %13, align 4, !tbaa !271
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %14, i8 0, i64 19, i1 false)
-  %16 = load ptr, ptr %15, align 8, !tbaa !254
+  %16 = load ptr, ptr %15, align 8, !tbaa !257
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !220
+  %18 = load i32, ptr %17, align 8, !tbaa !221
   %19 = add nsw i32 %18, 2
   %20 = sext i32 %19 to i64
   %21 = tail call ptr @av_realloc_array(ptr noundef %16, i64 noundef 4, i64 noundef %20) #9
@@ -3845,7 +3845,7 @@ define internal fastcc range(i32 -12, 1) i32 @vaapi_encode_make_packed_header(pt
   br i1 %.not, label %55, label %22
 
 22:                                               ; preds = %5
-  store ptr %21, ptr %15, align 8, !tbaa !254
+  store ptr %21, ptr %15, align 8, !tbaa !257
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 1312
   %24 = load ptr, ptr %23, align 8, !tbaa !52
   %25 = load ptr, ptr %24, align 8, !tbaa !65
@@ -3861,14 +3861,14 @@ define internal fastcc range(i32 -12, 1) i32 @vaapi_encode_make_packed_header(pt
   br label %55
 
 31:                                               ; preds = %22
-  %32 = load i32, ptr %6, align 4, !tbaa !109
-  %33 = load ptr, ptr %15, align 8, !tbaa !254
-  %34 = load i32, ptr %17, align 8, !tbaa !220
+  %32 = load i32, ptr %6, align 4, !tbaa !110
+  %33 = load ptr, ptr %15, align 8, !tbaa !257
+  %34 = load i32, ptr %17, align 8, !tbaa !221
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %17, align 8, !tbaa !220
+  store i32 %35, ptr %17, align 8, !tbaa !221
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds i32, ptr %33, i64 %36
-  store i32 %32, ptr %37, align 4, !tbaa !109
+  store i32 %32, ptr %37, align 4, !tbaa !110
   %38 = load ptr, ptr %23, align 8, !tbaa !52
   %39 = load ptr, ptr %38, align 8, !tbaa !65
   %40 = load i32, ptr %26, align 8, !tbaa !47
@@ -3885,15 +3885,15 @@ define internal fastcc range(i32 -12, 1) i32 @vaapi_encode_make_packed_header(pt
   br label %55
 
 47:                                               ; preds = %31
-  %48 = load i32, ptr %7, align 4, !tbaa !109
-  %49 = load ptr, ptr %15, align 8, !tbaa !254
-  %50 = load i32, ptr %17, align 8, !tbaa !220
+  %48 = load i32, ptr %7, align 4, !tbaa !110
+  %49 = load ptr, ptr %15, align 8, !tbaa !257
+  %50 = load i32, ptr %17, align 8, !tbaa !221
   %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %17, align 8, !tbaa !220
+  store i32 %51, ptr %17, align 8, !tbaa !221
   %52 = sext i32 %50 to i64
   %53 = getelementptr inbounds i32, ptr %49, i64 %52
-  store i32 %48, ptr %53, align 4, !tbaa !109
-  %54 = load i32, ptr %6, align 4, !tbaa !109
+  store i32 %48, ptr %53, align 4, !tbaa !110
+  %54 = load i32, ptr %6, align 4, !tbaa !110
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.45, i32 noundef %2, i32 noundef %54, i32 noundef %48, i64 noundef %4) #9
   br label %55
 
@@ -3912,7 +3912,7 @@ define internal fastcc void @vaapi_encode_make_tile_slice(ptr noundef %0, ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1600
-  %6 = load i32, ptr %5, align 8, !tbaa !171
+  %6 = load i32, ptr %5, align 8, !tbaa !172
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge41
 
@@ -3924,7 +3924,7 @@ define internal fastcc void @vaapi_encode_make_tile_slice(ptr noundef %0, ptr no
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 1588
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1688
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 1608
-  %15 = load i32, ptr %8, align 4, !tbaa !170
+  %15 = load i32, ptr %8, align 4, !tbaa !171
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.preheader, label %._crit_edge41
 
@@ -3943,41 +3943,41 @@ define internal fastcc void @vaapi_encode_make_tile_slice(ptr noundef %0, ptr no
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = load i32, ptr %5, align 8, !tbaa !171
+  %24 = load i32, ptr %5, align 8, !tbaa !172
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = mul nsw i32 %24, %25
   %27 = add nsw i32 %26, %22
-  %28 = load ptr, ptr %9, align 8, !tbaa !203
+  %28 = load ptr, ptr %9, align 8, !tbaa !204
   %29 = sext i32 %27 to i64
   %30 = getelementptr inbounds %struct.VAAPIEncodeSlice, ptr %28, i64 %29
-  store i32 %27, ptr %30, align 8, !tbaa !269
-  %31 = load i32, ptr %20, align 4, !tbaa !109
+  store i32 %27, ptr %30, align 8, !tbaa !272
+  %31 = load i32, ptr %20, align 4, !tbaa !110
   %32 = getelementptr inbounds nuw [23 x i32], ptr %11, i64 0, i64 %indvars.iv
-  %33 = load i32, ptr %32, align 4, !tbaa !109
-  %34 = load i32, ptr %12, align 4, !tbaa !169
+  %33 = load i32, ptr %32, align 4, !tbaa !110
+  %34 = load i32, ptr %12, align 4, !tbaa !170
   %35 = mul nsw i32 %34, %33
   %36 = add nsw i32 %35, %31
   %37 = getelementptr inbounds %struct.VAAPIEncodeSlice, ptr %28, i64 %29, i32 3
-  store i32 %36, ptr %37, align 4, !tbaa !270
+  store i32 %36, ptr %37, align 4, !tbaa !273
   %38 = getelementptr inbounds nuw [22 x i32], ptr %13, i64 0, i64 %indvars.iv
-  %39 = load i32, ptr %38, align 4, !tbaa !109
-  %40 = load i32, ptr %21, align 4, !tbaa !109
+  %39 = load i32, ptr %38, align 4, !tbaa !110
+  %40 = load i32, ptr %21, align 4, !tbaa !110
   %41 = mul nsw i32 %40, %39
   %42 = getelementptr inbounds %struct.VAAPIEncodeSlice, ptr %28, i64 %29, i32 4
-  store i32 %41, ptr %42, align 8, !tbaa !271
-  %43 = load i32, ptr %20, align 4, !tbaa !109
-  %44 = load i32, ptr %32, align 4, !tbaa !109
-  %45 = load i32, ptr %21, align 4, !tbaa !109
-  %46 = load i32, ptr %38, align 4, !tbaa !109
+  store i32 %41, ptr %42, align 8, !tbaa !274
+  %43 = load i32, ptr %20, align 4, !tbaa !110
+  %44 = load i32, ptr %32, align 4, !tbaa !110
+  %45 = load i32, ptr %21, align 4, !tbaa !110
+  %46 = load i32, ptr %38, align 4, !tbaa !110
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.46, i32 noundef %27, i32 noundef %43, i32 noundef %44, i32 noundef %36, i32 noundef %45, i32 noundef %46, i32 noundef %41) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = load i32, ptr %8, align 4, !tbaa !170
+  %47 = load i32, ptr %8, align 4, !tbaa !171
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %23, label %._crit_edge.loopexit, !llvm.loop !272
+  br i1 %49, label %23, label %._crit_edge.loopexit, !llvm.loop !275
 
 ._crit_edge.loopexit:                             ; preds = %23
-  %.pre = load i32, ptr %5, align 8, !tbaa !171
+  %.pre = load i32, ptr %5, align 8, !tbaa !172
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -3986,7 +3986,7 @@ define internal fastcc void @vaapi_encode_make_tile_slice(ptr noundef %0, ptr no
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %52 = sext i32 %50 to i64
   %53 = icmp slt i64 %indvars.iv.next45, %52
-  br i1 %53, label %.preheader, label %._crit_edge41, !llvm.loop !273
+  br i1 %53, label %.preheader, label %._crit_edge41, !llvm.loop !276
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %2
   ret void
@@ -3997,31 +3997,31 @@ define internal fastcc void @vaapi_encode_make_row_slice(ptr noundef %0, ptr nou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %6 = load i32, ptr %5, align 8, !tbaa !204
+  %6 = load i32, ptr %5, align 8, !tbaa !205
   %7 = icmp sgt i32 %6, 0
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1596
-  %9 = load i32, ptr %8, align 4, !tbaa !173
+  %9 = load i32, ptr %8, align 4, !tbaa !174
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !203
+  %11 = load ptr, ptr %10, align 8, !tbaa !204
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw %struct.VAAPIEncodeSlice, ptr %11, i64 %indvars.iv, i32 2
-  store i32 %9, ptr %13, align 8, !tbaa !275
+  store i32 %9, ptr %13, align 8, !tbaa !278
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !276
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !279
 
 ._crit_edge:                                      ; preds = %12, %2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 1584
-  %15 = load i32, ptr %14, align 8, !tbaa !168
+  %15 = load i32, ptr %14, align 8, !tbaa !169
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1592
-  %17 = load i32, ptr %16, align 8, !tbaa !172
+  %17 = load i32, ptr %16, align 8, !tbaa !173
   %18 = mul nsw i32 %9, %17
   %19 = sub nsw i32 %15, %18
   %20 = icmp sgt i32 %19, 0
@@ -4044,30 +4044,30 @@ define internal fastcc void @vaapi_encode_make_row_slice(ptr noundef %0, ptr nou
   %26 = add nuw nsw i32 %19, 1
   %27 = lshr i32 %26, 1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %29 = load ptr, ptr %28, align 8, !tbaa !203
+  %29 = load ptr, ptr %28, align 8, !tbaa !204
   %wide.trip.count89 = zext nneg i32 %27 to i64
   br label %39
 
 .lr.ph79:                                         ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !203
+  %31 = load ptr, ptr %30, align 8, !tbaa !204
   %wide.trip.count100 = zext nneg i32 %19 to i64
   br label %32
 
 32:                                               ; preds = %.lr.ph79, %32
   %indvars.iv97 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next98, %32 ]
   %33 = getelementptr inbounds nuw %struct.VAAPIEncodeSlice, ptr %31, i64 %indvars.iv97, i32 2
-  %34 = load i32, ptr %33, align 8, !tbaa !275
+  %34 = load i32, ptr %33, align 8, !tbaa !278
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %33, align 8, !tbaa !275
+  store i32 %35, ptr %33, align 8, !tbaa !278
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %.lr.ph82, label %32, !llvm.loop !277
+  br i1 %exitcond101.not, label %.lr.ph82, label %32, !llvm.loop !280
 
 .lr.ph77:                                         ; preds = %39
   %36 = lshr i32 %19, 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !203
+  %38 = load ptr, ptr %37, align 8, !tbaa !204
   %wide.trip.count95 = zext nneg i32 %36 to i64
   br label %47
 
@@ -4078,22 +4078,22 @@ define internal fastcc void @vaapi_encode_make_row_slice(ptr noundef %0, ptr nou
   %42 = add i32 %6, %41
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds %struct.VAAPIEncodeSlice, ptr %29, i64 %43, i32 2
-  %45 = load i32, ptr %44, align 8, !tbaa !275
+  %45 = load i32, ptr %44, align 8, !tbaa !278
   %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %44, align 8, !tbaa !275
+  store i32 %46, ptr %44, align 8, !tbaa !278
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.lr.ph77, label %39, !llvm.loop !278
+  br i1 %exitcond90.not, label %.lr.ph77, label %39, !llvm.loop !281
 
 47:                                               ; preds = %.lr.ph77, %47
   %indvars.iv91 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next92, %47 ]
   %48 = getelementptr inbounds nuw %struct.VAAPIEncodeSlice, ptr %38, i64 %indvars.iv91, i32 2
-  %49 = load i32, ptr %48, align 8, !tbaa !275
+  %49 = load i32, ptr %48, align 8, !tbaa !278
   %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %48, align 8, !tbaa !275
+  store i32 %50, ptr %48, align 8, !tbaa !278
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count95
-  br i1 %exitcond96.not, label %.lr.ph82, label %47, !llvm.loop !279
+  br i1 %exitcond96.not, label %.lr.ph82, label %47, !llvm.loop !282
 
 51:                                               ; preds = %._crit_edge
   %52 = icmp slt i32 %19, 0
@@ -4110,13 +4110,13 @@ define internal fastcc void @vaapi_encode_make_row_slice(ptr noundef %0, ptr nou
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %58 = load ptr, ptr %57, align 8, !tbaa !203
+  %58 = load ptr, ptr %57, align 8, !tbaa !204
   %59 = sext i32 %6 to i64
   %60 = getelementptr %struct.VAAPIEncodeSlice, ptr %58, i64 %59
   %61 = getelementptr i8, ptr %60, i64 -24
-  %62 = load i32, ptr %61, align 8, !tbaa !275
+  %62 = load i32, ptr %61, align 8, !tbaa !278
   %63 = add nsw i32 %62, %19
-  store i32 %63, ptr %61, align 8, !tbaa !275
+  store i32 %63, ptr %61, align 8, !tbaa !278
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %56
@@ -4129,23 +4129,23 @@ define internal fastcc void @vaapi_encode_make_row_slice(ptr noundef %0, ptr nou
 
 66:                                               ; preds = %.lr.ph82, %82
   %indvars.iv102 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next103, %82 ]
-  %67 = load ptr, ptr %64, align 8, !tbaa !203
+  %67 = load ptr, ptr %64, align 8, !tbaa !204
   %68 = getelementptr inbounds nuw %struct.VAAPIEncodeSlice, ptr %67, i64 %indvars.iv102
   %69 = trunc nuw nsw i64 %indvars.iv102 to i32
-  store i32 %69, ptr %68, align 8, !tbaa !269
+  store i32 %69, ptr %68, align 8, !tbaa !272
   %70 = icmp eq i64 %indvars.iv102, 0
   br i1 %70, label %82, label %71
 
 71:                                               ; preds = %66
   %72 = getelementptr i8, ptr %68, i64 -28
-  %73 = load i32, ptr %72, align 4, !tbaa !280
+  %73 = load i32, ptr %72, align 4, !tbaa !283
   %74 = getelementptr i8, ptr %68, i64 -24
-  %75 = load i32, ptr %74, align 8, !tbaa !275
+  %75 = load i32, ptr %74, align 8, !tbaa !278
   %76 = add nsw i32 %75, %73
   %77 = getelementptr i8, ptr %68, i64 -20
-  %78 = load i32, ptr %77, align 4, !tbaa !270
+  %78 = load i32, ptr %77, align 4, !tbaa !273
   %79 = getelementptr i8, ptr %68, i64 -16
-  %80 = load i32, ptr %79, align 8, !tbaa !271
+  %80 = load i32, ptr %79, align 8, !tbaa !274
   %81 = add nsw i32 %80, %78
   br label %82
 
@@ -4153,25 +4153,25 @@ define internal fastcc void @vaapi_encode_make_row_slice(ptr noundef %0, ptr nou
   %.sink105 = phi i32 [ %76, %71 ], [ 0, %66 ]
   %.sink = phi i32 [ %81, %71 ], [ 0, %66 ]
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store i32 %.sink105, ptr %83, align 4, !tbaa !280
+  store i32 %.sink105, ptr %83, align 4, !tbaa !283
   %84 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  store i32 %.sink, ptr %84, align 4, !tbaa !270
+  store i32 %.sink, ptr %84, align 4, !tbaa !273
   %85 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %86 = load i32, ptr %85, align 8, !tbaa !275
-  %87 = load i32, ptr %65, align 4, !tbaa !169
+  %86 = load i32, ptr %85, align 8, !tbaa !278
+  %87 = load i32, ptr %65, align 4, !tbaa !170
   %88 = mul nsw i32 %87, %86
   %89 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i32 %88, ptr %89, align 8, !tbaa !271
+  store i32 %88, ptr %89, align 8, !tbaa !274
   %90 = add i32 %86, -1
   %91 = add i32 %90, %.sink105
   %92 = add i32 %88, -1
   %93 = add i32 %92, %.sink
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.49, i32 noundef %69, i32 noundef %.sink105, i32 noundef %91, i32 noundef %86, i32 noundef %.sink, i32 noundef %93, i32 noundef %88) #9
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %94 = load i32, ptr %5, align 8, !tbaa !204
+  %94 = load i32, ptr %5, align 8, !tbaa !205
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next103, %95
-  br i1 %96, label %66, label %._crit_edge83, !llvm.loop !281
+  br i1 %96, label %66, label %._crit_edge83, !llvm.loop !284
 
 ._crit_edge83:                                    ; preds = %82, %.loopexit
   ret void
@@ -4200,9 +4200,9 @@ declare i32 @vaCreateBuffer(ptr noundef, i32 noundef, i32 noundef, i32 noundef, 
 define internal fastcc range(i32 -5, 1) i32 @vaapi_encode_wait(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = load ptr, ptr %1, align 8, !tbaa !194
+  %5 = load ptr, ptr %1, align 8, !tbaa !195
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %7 = load i32, ptr %6, align 8, !tbaa !195
+  %7 = load i32, ptr %6, align 8, !tbaa !196
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
@@ -4213,17 +4213,17 @@ define internal fastcc range(i32 -5, 1) i32 @vaapi_encode_wait(ptr noundef %0, p
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %11 = load i32, ptr %10, align 4, !tbaa !282
+  %11 = load i32, ptr %10, align 4, !tbaa !285
   %.not26 = icmp eq i32 %11, 0
   br i1 %.not26, label %12, label %37
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !200
+  %14 = load i64, ptr %13, align 8, !tbaa !201
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %16 = load i64, ptr %15, align 8, !tbaa !201
+  %16 = load i64, ptr %15, align 8, !tbaa !202
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !210
+  %18 = load i32, ptr %17, align 8, !tbaa !211
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.53, i64 noundef %14, i64 noundef %16, i32 noundef %18) #9
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 1160
   %20 = load i32, ptr %19, align 8, !tbaa !95
@@ -4235,7 +4235,7 @@ define internal fastcc range(i32 -5, 1) i32 @vaapi_encode_wait(ptr noundef %0, p
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %26 = load i32, ptr %25, align 8, !tbaa !202
+  %26 = load i32, ptr %25, align 8, !tbaa !203
   %27 = tail call i32 @vaSyncBuffer(ptr noundef %23, i32 noundef %26, i64 noundef -1) #9
   %.not29 = icmp eq i32 %27, 0
   br i1 %.not29, label %35, label %28
@@ -4246,7 +4246,7 @@ define internal fastcc range(i32 -5, 1) i32 @vaapi_encode_wait(ptr noundef %0, p
   br label %37
 
 30:                                               ; preds = %12
-  %31 = load i32, ptr %17, align 8, !tbaa !210
+  %31 = load i32, ptr %17, align 8, !tbaa !211
   %32 = tail call i32 @vaSyncSurface(ptr noundef %23, i32 noundef %31) #9
   %.not28 = icmp eq i32 %32, 0
   br i1 %.not28, label %35, label %33
@@ -4259,7 +4259,7 @@ define internal fastcc range(i32 -5, 1) i32 @vaapi_encode_wait(ptr noundef %0, p
 35:                                               ; preds = %30, %24
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @av_frame_free(ptr noundef nonnull %36) #9
-  store i32 1, ptr %10, align 4, !tbaa !282
+  store i32 1, ptr %10, align 4, !tbaa !285
   br label %37
 
 37:                                               ; preds = %9, %35, %33, %28
@@ -4303,12 +4303,12 @@ define internal fastcc i32 @vaapi_encode_get_coded_buffer_size(ptr noundef %0, i
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02029 = phi ptr [ %.020, %.lr.ph ], [ %.02026, %.preheader ]
   %.028 = phi i32 [ %13, %.lr.ph ], [ 0, %.preheader ]
-  %12 = load i32, ptr %.02029, align 8, !tbaa !283
+  %12 = load i32, ptr %.02029, align 8, !tbaa !286
   %13 = add i32 %12, %.028
   %14 = getelementptr inbounds nuw i8, ptr %.02029, i64 24
   %.020 = load ptr, ptr %14, align 8, !tbaa !98
   %.not24 = icmp eq ptr %.020, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !285
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !288
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %13, %.lr.ph ]
@@ -4354,25 +4354,25 @@ define internal fastcc range(i32 -5, 1) i32 @vaapi_encode_get_coded_buffer_data(
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.032 = phi ptr [ %.0, %.lr.ph ], [ %.030, %.preheader ]
-  %13 = load i32, ptr %.032, align 8, !tbaa !283
+  %13 = load i32, ptr %.032, align 8, !tbaa !286
   %14 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !286
+  %15 = load i32, ptr %14, align 8, !tbaa !289
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.58, i32 noundef %13, i32 noundef %15) #9
-  %16 = load ptr, ptr %2, align 8, !tbaa !209
+  %16 = load ptr, ptr %2, align 8, !tbaa !210
   %17 = getelementptr inbounds nuw i8, ptr %.032, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !287
-  %19 = load i32, ptr %.032, align 8, !tbaa !283
+  %18 = load ptr, ptr %17, align 8, !tbaa !290
+  %19 = load i32, ptr %.032, align 8, !tbaa !286
   %20 = zext i32 %19 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %18, i64 %20, i1 false)
-  %21 = load i32, ptr %.032, align 8, !tbaa !283
-  %22 = load ptr, ptr %2, align 8, !tbaa !209
+  %21 = load i32, ptr %.032, align 8, !tbaa !286
+  %22 = load ptr, ptr %2, align 8, !tbaa !210
   %23 = zext i32 %21 to i64
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
-  store ptr %24, ptr %2, align 8, !tbaa !209
+  store ptr %24, ptr %2, align 8, !tbaa !210
   %25 = getelementptr inbounds nuw i8, ptr %.032, i64 24
   %.0 = load ptr, ptr %25, align 8, !tbaa !98
   %.not28 = icmp eq ptr %.0, null
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !288
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !291
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %26 = load ptr, ptr %7, align 8, !tbaa !52
@@ -4420,7 +4420,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal fastcc void @vaapi_encode_add_global_param(ptr captures(none) %.32.val, i32 noundef range(i32 0, 7) %0, ptr noundef %1, i64 noundef range(i64 20, 61) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %.32.val, i64 1408
-  %5 = load i32, ptr %4, align 8, !tbaa !221
+  %5 = load i32, ptr %4, align 8, !tbaa !222
   %6 = icmp slt i32 %5, 4
   br i1 %6, label %8, label %7
 
@@ -4433,9 +4433,9 @@ define internal fastcc void @vaapi_encode_add_global_param(ptr captures(none) %.
   %9 = getelementptr inbounds nuw i8, ptr %.32.val, i64 1328
   %10 = sext i32 %5 to i64
   %11 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %10
-  store i32 %0, ptr %11, align 4, !tbaa !109
+  store i32 %0, ptr %11, align 4, !tbaa !110
   %12 = getelementptr inbounds nuw i8, ptr %.32.val, i64 1344
-  %13 = load i32, ptr %4, align 8, !tbaa !221
+  %13 = load i32, ptr %4, align 8, !tbaa !222
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [4 x ptr], ptr %12, i64 0, i64 %14
   store ptr %1, ptr %15, align 8, !tbaa !98
@@ -4443,7 +4443,7 @@ define internal fastcc void @vaapi_encode_add_global_param(ptr captures(none) %.
   %17 = getelementptr inbounds [4 x i64], ptr %16, i64 0, i64 %14
   store i64 %2, ptr %17, align 8, !tbaa !92
   %18 = add nsw i32 %13, 1
-  store i32 %18, ptr %4, align 8, !tbaa !221
+  store i32 %18, ptr %4, align 8, !tbaa !222
   ret void
 }
 
@@ -4466,7 +4466,7 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_tile_slice_struc
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 1600
-  %10 = load i32, ptr %9, align 8, !tbaa !171
+  %10 = load i32, ptr %9, align 8, !tbaa !172
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %13, label %12
 
@@ -4476,24 +4476,24 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_tile_slice_struc
 
 13:                                               ; preds = %8, %2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 1604
-  %15 = load i32, ptr %14, align 4, !tbaa !170
+  %15 = load i32, ptr %14, align 4, !tbaa !171
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1584
-  %17 = load i32, ptr %16, align 8, !tbaa !168
+  %17 = load i32, ptr %16, align 8, !tbaa !169
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %._crit_edge94, label %19
 
 ._crit_edge94:                                    ; preds = %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 1588
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !169
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !170
   %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %4, i64 1600
-  %.pre96 = load i32, ptr %.phi.trans.insert95, align 8, !tbaa !171
+  %.pre96 = load i32, ptr %.phi.trans.insert95, align 8, !tbaa !172
   br label %25
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1600
-  %21 = load i32, ptr %20, align 8, !tbaa !171
+  %21 = load i32, ptr %20, align 8, !tbaa !172
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 1588
-  %23 = load i32, ptr %22, align 4, !tbaa !169
+  %23 = load i32, ptr %22, align 4, !tbaa !170
   %24 = icmp sgt i32 %21, %23
   br i1 %24, label %25, label %35
 
@@ -4503,17 +4503,17 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_tile_slice_struc
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 1588
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 1600
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.138, i32 noundef %17, i32 noundef %27, i32 noundef %15, i32 noundef %26) #9
-  %30 = load i32, ptr %14, align 4, !tbaa !170
-  %31 = load i32, ptr %16, align 8, !tbaa !168
+  %30 = load i32, ptr %14, align 4, !tbaa !171
+  %31 = load i32, ptr %16, align 8, !tbaa !169
   %. = tail call i32 @llvm.smin.i32(i32 %30, i32 %31)
-  store i32 %., ptr %14, align 4, !tbaa !170
-  %32 = load i32, ptr %29, align 8, !tbaa !171
-  %33 = load i32, ptr %28, align 4, !tbaa !169
+  store i32 %., ptr %14, align 4, !tbaa !171
+  %32 = load i32, ptr %29, align 8, !tbaa !172
+  %33 = load i32, ptr %28, align 4, !tbaa !170
   %34 = tail call i32 @llvm.smin.i32(i32 %32, i32 %33)
-  store i32 %34, ptr %29, align 8, !tbaa !171
+  store i32 %34, ptr %29, align 8, !tbaa !172
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.139, i32 noundef %., i32 noundef %34) #9
-  %.pre97 = load i32, ptr %14, align 4, !tbaa !170
-  %.pre99 = load i32, ptr %29, align 8, !tbaa !171
+  %.pre97 = load i32, ptr %14, align 4, !tbaa !171
+  %.pre99 = load i32, ptr %29, align 8, !tbaa !172
   br label %35
 
 35:                                               ; preds = %25, %19
@@ -4522,7 +4522,7 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_tile_slice_struc
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 1600
   %39 = mul nsw i32 %36, %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %41 = load i32, ptr %40, align 4, !tbaa !167
+  %41 = load i32, ptr %40, align 4, !tbaa !168
   %.not85 = icmp eq i32 %41, %39
   br i1 %.not85, label %43, label %42
 
@@ -4532,8 +4532,8 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_tile_slice_struc
 
 43:                                               ; preds = %42, %35
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 1592
-  store i32 %39, ptr %44, align 8, !tbaa !172
-  %45 = load i32, ptr %38, align 8, !tbaa !171
+  store i32 %39, ptr %44, align 8, !tbaa !173
+  %45 = load i32, ptr %38, align 8, !tbaa !172
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph, label %.preheader
 
@@ -4541,21 +4541,21 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_tile_slice_struc
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 1588
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 1608
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 1776
-  %.pre100 = load i32, ptr %47, align 4, !tbaa !169
-  %.pre101 = load i32, ptr %49, align 4, !tbaa !109
+  %.pre100 = load i32, ptr %47, align 4, !tbaa !170
+  %.pre101 = load i32, ptr %49, align 4, !tbaa !110
   %50 = zext nneg i32 %45 to i64
   br label %56
 
 .preheader:                                       ; preds = %56, %43
-  %51 = load i32, ptr %14, align 4, !tbaa !170
+  %51 = load i32, ptr %14, align 4, !tbaa !171
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %.lr.ph88, label %._crit_edge
 
 .lr.ph88:                                         ; preds = %.preheader
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 1688
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 1860
-  %.pre102 = load i32, ptr %16, align 8, !tbaa !168
-  %.pre103 = load i32, ptr %54, align 4, !tbaa !109
+  %.pre102 = load i32, ptr %16, align 8, !tbaa !169
+  %.pre103 = load i32, ptr %54, align 4, !tbaa !110
   %55 = zext nneg i32 %51 to i64
   br label %69
 
@@ -4571,12 +4571,12 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_tile_slice_struc
   %63 = sdiv i32 %62, %45
   %64 = sub nsw i32 %60, %63
   %65 = getelementptr inbounds nuw [20 x i32], ptr %48, i64 0, i64 %indvars.iv
-  store i32 %64, ptr %65, align 4, !tbaa !109
+  store i32 %64, ptr %65, align 4, !tbaa !110
   %66 = add nsw i32 %57, %64
   %67 = getelementptr inbounds nuw [21 x i32], ptr %49, i64 0, i64 %indvars.iv.next
-  store i32 %66, ptr %67, align 4, !tbaa !109
+  store i32 %66, ptr %67, align 4, !tbaa !110
   %68 = icmp samesign ult i64 %indvars.iv.next, %50
-  br i1 %68, label %56, label %.preheader, !llvm.loop !289
+  br i1 %68, label %56, label %.preheader, !llvm.loop !292
 
 69:                                               ; preds = %.lr.ph88, %69
   %70 = phi i32 [ %.pre103, %.lr.ph88 ], [ %79, %69 ]
@@ -4590,12 +4590,12 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_tile_slice_struc
   %76 = sdiv i32 %75, %51
   %77 = sub nsw i32 %73, %76
   %78 = getelementptr inbounds nuw [22 x i32], ptr %53, i64 0, i64 %indvars.iv91
-  store i32 %77, ptr %78, align 4, !tbaa !109
+  store i32 %77, ptr %78, align 4, !tbaa !110
   %79 = add nsw i32 %70, %77
   %80 = getelementptr inbounds nuw [23 x i32], ptr %54, i64 0, i64 %indvars.iv.next92
-  store i32 %79, ptr %80, align 4, !tbaa !109
+  store i32 %79, ptr %80, align 4, !tbaa !110
   %81 = icmp samesign ult i64 %indvars.iv.next92, %55
-  br i1 %81, label %69, label %._crit_edge, !llvm.loop !290
+  br i1 %81, label %69, label %._crit_edge, !llvm.loop !293
 
 ._crit_edge:                                      ; preds = %69, %.preheader
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.141, i32 noundef %51, i32 noundef %45) #9
@@ -4611,15 +4611,15 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_row_slice_struct
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %6 = load i32, ptr %5, align 4, !tbaa !167
+  %6 = load i32, ptr %5, align 4, !tbaa !168
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1584
-  %8 = load i32, ptr %7, align 8, !tbaa !168
+  %8 = load i32, ptr %7, align 8, !tbaa !169
   %9 = icmp sgt i32 %6, %8
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.142, i32 noundef %8, i32 noundef %6) #9
-  %11 = load i32, ptr %7, align 8, !tbaa !168
+  %11 = load i32, ptr %7, align 8, !tbaa !169
   br label %12
 
 12:                                               ; preds = %2, %10
@@ -4631,10 +4631,10 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_row_slice_struct
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1592
-  store i32 %.032, ptr %16, align 8, !tbaa !172
+  store i32 %.032, ptr %16, align 8, !tbaa !173
   %17 = sdiv i32 %13, %.032
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 1596
-  store i32 %17, ptr %18, align 4, !tbaa !173
+  store i32 %17, ptr %18, align 4, !tbaa !174
   br label %38
 
 19:                                               ; preds = %12
@@ -4652,16 +4652,16 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_row_slice_struct
   %24 = mul nsw i32 %23, %21
   %25 = or disjoint i32 %24, 1
   %.not40 = icmp slt i32 %25, %13
-  br i1 %.not40, label %22, label %26
+  br i1 %.not40, label %22, label %26, !llvm.loop !294
 
 26:                                               ; preds = %22
   %27 = add i32 %.0, -1
   %28 = add i32 %27, %13
   %29 = sdiv i32 %28, %.0
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 1592
-  store i32 %29, ptr %30, align 8, !tbaa !172
+  store i32 %29, ptr %30, align 8, !tbaa !173
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 1596
-  store i32 %.0, ptr %31, align 4, !tbaa !173
+  store i32 %.0, ptr %31, align 4, !tbaa !174
   br label %38
 
 32:                                               ; preds = %19
@@ -4671,9 +4671,9 @@ define internal fastcc range(i32 -22, 1) i32 @vaapi_encode_init_row_slice_struct
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 1592
-  store i32 %13, ptr %35, align 8, !tbaa !172
+  store i32 %13, ptr %35, align 8, !tbaa !173
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 1596
-  store i32 1, ptr %36, align 4, !tbaa !173
+  store i32 1, ptr %36, align 4, !tbaa !174
   br label %38
 
 37:                                               ; preds = %32
@@ -4825,188 +4825,192 @@ attributes #11 = { noreturn nounwind }
 !103 = !{!"AVComponentDescriptor", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16}
 !104 = !{!105, !8, i64 8}
 !105 = !{!"AVPixFmtDescriptor", !14, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !13, i64 16, !8, i64 24, !14, i64 104}
-!106 = distinct !{!106, !107}
+!106 = distinct !{!106, !107, !108}
 !107 = !{!"llvm.loop.mustprogress"}
-!108 = !{!105, !14, i64 0}
-!109 = !{!10, !10, i64 0}
-!110 = !{!55, !38, i64 0}
-!111 = !{!112, !10, i64 0}
-!112 = !{!"VAAPIEncodeProfile", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
-!113 = !{!112, !10, i64 4}
-!114 = !{!112, !10, i64 8}
-!115 = !{!105, !8, i64 9}
-!116 = !{!112, !10, i64 12}
-!117 = !{!105, !8, i64 10}
-!118 = !{!112, !10, i64 16}
-!119 = !{!5, !10, i64 688}
-!120 = !{!112, !10, i64 20}
-!121 = distinct !{!121, !107}
-!122 = !{!28, !38, i64 1224}
-!123 = distinct !{!123, !107}
-!124 = distinct !{!124, !107}
-!125 = distinct !{!125, !107}
-!126 = !{!127, !10, i64 12}
-!127 = !{!"VAAPIEncodeRTFormat", !14, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24}
-!128 = !{!127, !10, i64 16}
-!129 = !{!127, !10, i64 20}
-!130 = !{!127, !10, i64 24}
-!131 = distinct !{!131, !107}
-!132 = !{!133, !10, i64 4}
-!133 = !{!"_VAConfigAttrib", !10, i64 0, !10, i64 4}
-!134 = !{!127, !14, i64 0}
-!135 = !{!127, !10, i64 8}
-!136 = !{!28, !10, i64 1212}
-!137 = !{!138, !10, i64 20}
-!138 = !{!"VAAPIEncodeRCMode", !10, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
-!139 = !{!138, !14, i64 8}
-!140 = !{!8, !8, i64 0}
-!141 = distinct !{!141, !107}
-!142 = !{!28, !10, i64 1208}
-!143 = !{!28, !10, i64 1216}
-!144 = !{!5, !13, i64 56}
-!145 = !{!5, !10, i64 420}
-!146 = !{!5, !13, i64 464}
-!147 = !{!138, !10, i64 24}
-!148 = !{!138, !10, i64 0}
-!149 = !{!5, !10, i64 332}
-!150 = !{!138, !10, i64 28}
-!151 = !{!138, !10, i64 32}
-!152 = !{!55, !10, i64 12}
-!153 = !{!138, !10, i64 36}
-!154 = !{!5, !10, i64 448}
-!155 = !{!5, !10, i64 488}
-!156 = !{!28, !39, i64 1232}
-!157 = !{!28, !10, i64 1240}
-!158 = !{!28, !10, i64 1252}
-!159 = !{!28, !10, i64 1256}
-!160 = !{!5, !10, i64 436}
-!161 = !{!5, !10, i64 440}
-!162 = !{!5, !10, i64 100}
-!163 = !{!5, !10, i64 104}
-!164 = !{!5, !10, i64 88}
-!165 = !{!5, !10, i64 84}
-!166 = !{!29, !10, i64 1128}
-!167 = !{!5, !10, i64 340}
-!168 = !{!28, !10, i64 1584}
-!169 = !{!28, !10, i64 1588}
-!170 = !{!28, !10, i64 1604}
-!171 = !{!28, !10, i64 1600}
-!172 = !{!28, !10, i64 1592}
-!173 = !{!28, !10, i64 1596}
-!174 = !{!28, !10, i64 1220}
-!175 = !{!29, !10, i64 1140}
-!176 = !{!28, !10, i64 1952}
-!177 = !{!29, !21, i64 48}
-!178 = !{!179, !179, i64 0}
-!179 = !{!"p1 _ZTS15AVVAAPIHWConfig", !7, i64 0}
-!180 = !{!181, !10, i64 0}
-!181 = !{!"AVVAAPIHWConfig", !10, i64 0}
-!182 = !{!29, !21, i64 80}
-!183 = !{!184, !14, i64 8}
-!184 = !{!"AVBufferRef", !185, i64 0, !14, i64 8, !13, i64 16}
-!185 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
-!186 = !{!72, !10, i64 60}
-!187 = !{!72, !10, i64 68}
-!188 = !{!72, !10, i64 72}
-!189 = !{!29, !34, i64 1152}
-!190 = !{!29, !33, i64 96}
-!191 = !{!192, !33, i64 16}
-!192 = !{!"FFHWBaseEncodePicture", !7, i64 0, !7, i64 8, !33, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !10, i64 56, !7, i64 64, !21, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !34, i64 96, !34, i64 104, !10, i64 112, !10, i64 116, !8, i64 120, !8, i64 248, !8, i64 256, !33, i64 288, !8, i64 296, !8, i64 304}
-!193 = distinct !{!193, !107}
-!194 = !{!192, !7, i64 0}
-!195 = !{!192, !10, i64 88}
-!196 = !{!197, !24, i64 32}
-!197 = !{!"VAAPIEncodePicture", !198, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !24, i64 24, !24, i64 32, !10, i64 40, !7, i64 48, !10, i64 56, !199, i64 64, !10, i64 72, !8, i64 76, !13, i64 1104}
-!198 = !{!"p1 _ZTS9_VAEncROI", !7, i64 0}
-!199 = !{!"p1 _ZTS16VAAPIEncodeSlice", !7, i64 0}
-!200 = !{!192, !13, i64 24}
-!201 = !{!192, !13, i64 32}
-!202 = !{!197, !10, i64 40}
-!203 = !{!197, !199, i64 64}
-!204 = !{!197, !10, i64 56}
-!205 = distinct !{!205, !107}
-!206 = !{!192, !34, i64 96}
-!207 = !{!55, !13, i64 32}
-!208 = !{!192, !7, i64 8}
-!209 = !{!14, !14, i64 0}
-!210 = !{!197, !10, i64 8}
-!211 = !{!197, !10, i64 12}
-!212 = !{!192, !10, i64 80}
-!213 = !{!33, !33, i64 0}
-!214 = distinct !{!214, !107}
-!215 = distinct !{!215, !107}
-!216 = distinct !{!216, !107}
-!217 = distinct !{!217, !107}
-!218 = !{!192, !34, i64 104}
-!219 = !{!197, !7, i64 48}
-!220 = !{!197, !10, i64 16}
-!221 = !{!28, !10, i64 1408}
-!222 = distinct !{!222, !107}
-!223 = !{!55, !7, i64 72}
-!224 = !{!55, !10, i64 88}
-!225 = !{!55, !7, i64 112}
-!226 = !{!55, !10, i64 92}
-!227 = !{!55, !7, i64 128}
-!228 = !{!55, !7, i64 136}
-!229 = !{!55, !13, i64 56}
-!230 = !{!231, !7, i64 24}
-!231 = !{!"VAAPIEncodeSlice", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !7, i64 24}
-!232 = !{!55, !7, i64 80}
-!233 = !{!55, !7, i64 120}
-!234 = !{!55, !10, i64 96}
-!235 = distinct !{!235, !107}
-!236 = !{!237, !14, i64 8}
-!237 = !{!"AVFrameSideData", !10, i64 0, !14, i64 8, !13, i64 16, !238, i64 24, !21, i64 32}
-!238 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!239 = !{!240, !10, i64 0}
-!240 = !{!"AVRegionOfInterest", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !15, i64 20}
-!241 = !{!237, !13, i64 16}
-!242 = !{!29, !10, i64 1148}
-!243 = !{!197, !198, i64 0}
-!244 = !{!240, !10, i64 24}
-!245 = !{!240, !10, i64 20}
-!246 = !{!28, !10, i64 1956}
-!247 = !{!240, !10, i64 4}
-!248 = !{!240, !10, i64 12}
-!249 = !{!240, !10, i64 8}
-!250 = !{!240, !10, i64 16}
-!251 = !{!252, !252, i64 0}
-!252 = !{!"short", !8, i64 0}
-!253 = distinct !{!253, !107}
-!254 = !{!197, !24, i64 24}
-!255 = distinct !{!255, !107}
-!256 = distinct !{!256, !107}
-!257 = distinct !{!257, !107}
-!258 = !{!197, !10, i64 72}
-!259 = !{!28, !24, i64 1960}
-!260 = !{!197, !13, i64 1104}
-!261 = !{!29, !36, i64 1184}
-!262 = !{!263, !10, i64 32}
-!263 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!264 = !{!263, !14, i64 24}
-!265 = !{!266, !10, i64 0}
-!266 = !{!"_VAEncPackedHeaderParameterBuffer", !10, i64 0, !10, i64 4, !8, i64 8, !8, i64 12}
-!267 = !{!266, !10, i64 4}
-!268 = !{!266, !8, i64 8}
-!269 = !{!231, !10, i64 0}
-!270 = !{!231, !10, i64 12}
-!271 = !{!231, !10, i64 16}
-!272 = distinct !{!272, !107}
-!273 = distinct !{!273, !107, !274}
-!274 = !{!"llvm.loop.unswitch.partial.disable"}
-!275 = !{!231, !10, i64 8}
-!276 = distinct !{!276, !107}
-!277 = distinct !{!277, !107}
-!278 = distinct !{!278, !107}
-!279 = distinct !{!279, !107}
-!280 = !{!231, !10, i64 4}
-!281 = distinct !{!281, !107}
-!282 = !{!192, !10, i64 92}
-!283 = !{!284, !10, i64 0}
-!284 = !{!"_VACodedBufferSegment", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !7, i64 16, !7, i64 24, !8, i64 32}
-!285 = distinct !{!285, !107}
-!286 = !{!284, !10, i64 8}
-!287 = !{!284, !7, i64 16}
-!288 = distinct !{!288, !107}
-!289 = distinct !{!289, !107}
-!290 = distinct !{!290, !107}
+!108 = !{!"llvm.loop.estimated_trip_count"}
+!109 = !{!105, !14, i64 0}
+!110 = !{!10, !10, i64 0}
+!111 = !{!55, !38, i64 0}
+!112 = !{!113, !10, i64 0}
+!113 = !{!"VAAPIEncodeProfile", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
+!114 = !{!113, !10, i64 4}
+!115 = !{!113, !10, i64 8}
+!116 = !{!105, !8, i64 9}
+!117 = !{!113, !10, i64 12}
+!118 = !{!105, !8, i64 10}
+!119 = !{!113, !10, i64 16}
+!120 = !{!5, !10, i64 688}
+!121 = !{!113, !10, i64 20}
+!122 = distinct !{!122, !107, !108}
+!123 = !{!28, !38, i64 1224}
+!124 = distinct !{!124, !107, !108}
+!125 = distinct !{!125, !107, !108}
+!126 = distinct !{!126, !107, !108}
+!127 = !{!128, !10, i64 12}
+!128 = !{!"VAAPIEncodeRTFormat", !14, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24}
+!129 = !{!128, !10, i64 16}
+!130 = !{!128, !10, i64 20}
+!131 = !{!128, !10, i64 24}
+!132 = distinct !{!132, !107, !108}
+!133 = !{!134, !10, i64 4}
+!134 = !{!"_VAConfigAttrib", !10, i64 0, !10, i64 4}
+!135 = !{!128, !14, i64 0}
+!136 = !{!128, !10, i64 8}
+!137 = !{!28, !10, i64 1212}
+!138 = !{!139, !10, i64 20}
+!139 = !{!"VAAPIEncodeRCMode", !10, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
+!140 = !{!139, !14, i64 8}
+!141 = !{!8, !8, i64 0}
+!142 = distinct !{!142, !107, !108}
+!143 = !{!28, !10, i64 1208}
+!144 = !{!28, !10, i64 1216}
+!145 = !{!5, !13, i64 56}
+!146 = !{!5, !10, i64 420}
+!147 = !{!5, !13, i64 464}
+!148 = !{!139, !10, i64 24}
+!149 = !{!139, !10, i64 0}
+!150 = !{!5, !10, i64 332}
+!151 = !{!139, !10, i64 28}
+!152 = !{!139, !10, i64 32}
+!153 = !{!55, !10, i64 12}
+!154 = !{!139, !10, i64 36}
+!155 = !{!5, !10, i64 448}
+!156 = !{!5, !10, i64 488}
+!157 = !{!28, !39, i64 1232}
+!158 = !{!28, !10, i64 1240}
+!159 = !{!28, !10, i64 1252}
+!160 = !{!28, !10, i64 1256}
+!161 = !{!5, !10, i64 436}
+!162 = !{!5, !10, i64 440}
+!163 = !{!5, !10, i64 100}
+!164 = !{!5, !10, i64 104}
+!165 = !{!5, !10, i64 88}
+!166 = !{!5, !10, i64 84}
+!167 = !{!29, !10, i64 1128}
+!168 = !{!5, !10, i64 340}
+!169 = !{!28, !10, i64 1584}
+!170 = !{!28, !10, i64 1588}
+!171 = !{!28, !10, i64 1604}
+!172 = !{!28, !10, i64 1600}
+!173 = !{!28, !10, i64 1592}
+!174 = !{!28, !10, i64 1596}
+!175 = !{!28, !10, i64 1220}
+!176 = !{!29, !10, i64 1140}
+!177 = !{!28, !10, i64 1952}
+!178 = !{!29, !21, i64 48}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"p1 _ZTS15AVVAAPIHWConfig", !7, i64 0}
+!181 = !{!182, !10, i64 0}
+!182 = !{!"AVVAAPIHWConfig", !10, i64 0}
+!183 = !{!29, !21, i64 80}
+!184 = !{!185, !14, i64 8}
+!185 = !{!"AVBufferRef", !186, i64 0, !14, i64 8, !13, i64 16}
+!186 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
+!187 = !{!72, !10, i64 60}
+!188 = !{!72, !10, i64 68}
+!189 = !{!72, !10, i64 72}
+!190 = !{!29, !34, i64 1152}
+!191 = !{!29, !33, i64 96}
+!192 = !{!193, !33, i64 16}
+!193 = !{!"FFHWBaseEncodePicture", !7, i64 0, !7, i64 8, !33, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !10, i64 56, !7, i64 64, !21, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !34, i64 96, !34, i64 104, !10, i64 112, !10, i64 116, !8, i64 120, !8, i64 248, !8, i64 256, !33, i64 288, !8, i64 296, !8, i64 304}
+!194 = distinct !{!194, !107, !108}
+!195 = !{!193, !7, i64 0}
+!196 = !{!193, !10, i64 88}
+!197 = !{!198, !24, i64 32}
+!198 = !{!"VAAPIEncodePicture", !199, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !24, i64 24, !24, i64 32, !10, i64 40, !7, i64 48, !10, i64 56, !200, i64 64, !10, i64 72, !8, i64 76, !13, i64 1104}
+!199 = !{!"p1 _ZTS9_VAEncROI", !7, i64 0}
+!200 = !{!"p1 _ZTS16VAAPIEncodeSlice", !7, i64 0}
+!201 = !{!193, !13, i64 24}
+!202 = !{!193, !13, i64 32}
+!203 = !{!198, !10, i64 40}
+!204 = !{!198, !200, i64 64}
+!205 = !{!198, !10, i64 56}
+!206 = distinct !{!206, !107, !108}
+!207 = !{!193, !34, i64 96}
+!208 = !{!55, !13, i64 32}
+!209 = !{!193, !7, i64 8}
+!210 = !{!14, !14, i64 0}
+!211 = !{!198, !10, i64 8}
+!212 = !{!198, !10, i64 12}
+!213 = !{!193, !10, i64 80}
+!214 = !{!33, !33, i64 0}
+!215 = distinct !{!215, !107, !108}
+!216 = distinct !{!216, !107, !108}
+!217 = distinct !{!217, !107, !108}
+!218 = distinct !{!218, !107, !108}
+!219 = !{!193, !34, i64 104}
+!220 = !{!198, !7, i64 48}
+!221 = !{!198, !10, i64 16}
+!222 = !{!28, !10, i64 1408}
+!223 = distinct !{!223, !107, !108}
+!224 = !{!55, !7, i64 72}
+!225 = !{!55, !10, i64 88}
+!226 = !{!55, !7, i64 112}
+!227 = !{!55, !10, i64 92}
+!228 = !{!55, !7, i64 128}
+!229 = distinct !{!229, !108}
+!230 = !{!55, !7, i64 136}
+!231 = distinct !{!231, !108}
+!232 = !{!55, !13, i64 56}
+!233 = !{!234, !7, i64 24}
+!234 = !{!"VAAPIEncodeSlice", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !7, i64 24}
+!235 = !{!55, !7, i64 80}
+!236 = !{!55, !7, i64 120}
+!237 = !{!55, !10, i64 96}
+!238 = distinct !{!238, !107, !108}
+!239 = !{!240, !14, i64 8}
+!240 = !{!"AVFrameSideData", !10, i64 0, !14, i64 8, !13, i64 16, !241, i64 24, !21, i64 32}
+!241 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!242 = !{!243, !10, i64 0}
+!243 = !{!"AVRegionOfInterest", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !15, i64 20}
+!244 = !{!240, !13, i64 16}
+!245 = !{!29, !10, i64 1148}
+!246 = !{!198, !199, i64 0}
+!247 = !{!243, !10, i64 24}
+!248 = !{!243, !10, i64 20}
+!249 = !{!28, !10, i64 1956}
+!250 = !{!243, !10, i64 4}
+!251 = !{!243, !10, i64 12}
+!252 = !{!243, !10, i64 8}
+!253 = !{!243, !10, i64 16}
+!254 = !{!255, !255, i64 0}
+!255 = !{!"short", !8, i64 0}
+!256 = distinct !{!256, !107, !108}
+!257 = !{!198, !24, i64 24}
+!258 = distinct !{!258, !107, !108}
+!259 = distinct !{!259, !107, !108}
+!260 = distinct !{!260, !107, !108}
+!261 = !{!198, !10, i64 72}
+!262 = !{!28, !24, i64 1960}
+!263 = !{!198, !13, i64 1104}
+!264 = !{!29, !36, i64 1184}
+!265 = !{!266, !10, i64 32}
+!266 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!267 = !{!266, !14, i64 24}
+!268 = !{!269, !10, i64 0}
+!269 = !{!"_VAEncPackedHeaderParameterBuffer", !10, i64 0, !10, i64 4, !8, i64 8, !8, i64 12}
+!270 = !{!269, !10, i64 4}
+!271 = !{!269, !8, i64 8}
+!272 = !{!234, !10, i64 0}
+!273 = !{!234, !10, i64 12}
+!274 = !{!234, !10, i64 16}
+!275 = distinct !{!275, !107, !108}
+!276 = distinct !{!276, !107, !108, !277}
+!277 = !{!"llvm.loop.unswitch.partial.disable"}
+!278 = !{!234, !10, i64 8}
+!279 = distinct !{!279, !107, !108}
+!280 = distinct !{!280, !107, !108}
+!281 = distinct !{!281, !107, !108}
+!282 = distinct !{!282, !107, !108}
+!283 = !{!234, !10, i64 4}
+!284 = distinct !{!284, !107, !108}
+!285 = !{!193, !10, i64 92}
+!286 = !{!287, !10, i64 0}
+!287 = !{!"_VACodedBufferSegment", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !7, i64 16, !7, i64 24, !8, i64 32}
+!288 = distinct !{!288, !107, !108}
+!289 = !{!287, !10, i64 8}
+!290 = !{!287, !7, i64 16}
+!291 = distinct !{!291, !107, !108}
+!292 = distinct !{!292, !107, !108}
+!293 = distinct !{!293, !107, !108}
+!294 = distinct !{!294, !108}

@@ -520,7 +520,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
 
 .backedge:                                        ; preds = %.thread225, %294, %292
   %.2.be = phi i64 [ %.0159, %.thread225 ], [ %.3, %294 ], [ %.3, %292 ]
-  br label %157
+  br label %157, !llvm.loop !10
 
 254:                                              ; preds = %244
   %255 = load ptr, ptr %140, align 8
@@ -718,7 +718,7 @@ ExecProcNode.exit196:                             ; preds = %338, %340
   %354 = load ptr, ptr %337, align 8
   tail call void @tuplesort_puttupleslot(ptr noundef %354, ptr noundef nonnull %342) #8
   %355 = add i64 %.5, 1
-  br label %338
+  br label %338, !llvm.loop !11
 
 356:                                              ; preds = %350
   %357 = load ptr, ptr %336, align 8
@@ -1338,7 +1338,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %105 = add nuw nsw i64 %.086, 1
   %106 = load i64, ptr %54, align 8
   %107 = icmp slt i64 %105, %106
-  br i1 %107, label %61, label %.loopexit, !llvm.loop !9
+  br i1 %107, label %61, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %104, %53, %98
   %108 = phi i64 [ %.pre89, %98 ], [ %55, %53 ], [ %106, %104 ]
@@ -1699,7 +1699,7 @@ slot_getattr.exit30:                              ; preds = %slot_getattr.exit, 
 select.unfold:                                    ; preds = %66, %38
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %67 = icmp slt i64 %indvars.iv, 1
-  br i1 %67, label %.critedge, label %17, !llvm.loop !10
+  br i1 %67, label %.critedge, label %17, !llvm.loop !13
 
 .critedge:                                        ; preds = %select.unfold, %38, %66, %3
   %.lcssa34 = phi i1 [ true, %3 ], [ false, %66 ], [ false, %38 ], [ true, %select.unfold ]
@@ -1751,7 +1751,10 @@ attributes #9 = { cold nounwind }
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}

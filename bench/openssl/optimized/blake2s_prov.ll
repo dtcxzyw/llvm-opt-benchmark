@@ -121,7 +121,7 @@ ossl_blake2s_update.exit:                         ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %20, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false)
-  store i64 64, ptr %19, align 8, !tbaa !17
+  store i64 64, ptr %19, align 8, !tbaa !18
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 64) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
   ret i32 1
@@ -133,7 +133,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @ossl_blake2s_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = sub i64 64, %5
   %7 = icmp ugt i64 %2, %6
   br i1 %7, label %8, label %21
@@ -147,7 +147,7 @@ define noundef i32 @ossl_blake2s_update(ptr noundef captures(none) %0, ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %1, i64 %6, i1 false)
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef 64)
-  store i64 0, ptr %4, align 8, !tbaa !17
+  store i64 0, ptr %4, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %13 = sub i64 %2, %6
   br label %14
@@ -165,7 +165,7 @@ define noundef i32 @ossl_blake2s_update(ptr noundef captures(none) %0, ptr nound
   %19 = sub nuw i64 %.1, %18
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef %.134, i64 noundef %19)
   %20 = getelementptr inbounds nuw i8, ptr %.134, i64 %19
-  %.pre = load i64, ptr %4, align 8, !tbaa !17
+  %.pre = load i64, ptr %4, align 8, !tbaa !18
   br label %21
 
 21:                                               ; preds = %14, %16, %3
@@ -175,9 +175,9 @@ define noundef i32 @ossl_blake2s_update(ptr noundef captures(none) %0, ptr nound
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %.033, i64 %.0, i1 false)
-  %25 = load i64, ptr %4, align 8, !tbaa !17
+  %25 = load i64, ptr %4, align 8, !tbaa !18
   %26 = add i64 %25, %.0
-  store i64 %26, ptr %4, align 8, !tbaa !17
+  store i64 %26, ptr %4, align 8, !tbaa !18
   ret i32 1
 }
 
@@ -1517,13 +1517,13 @@ define internal fastcc void @blake2s_compress(ptr noundef captures(none) %0, ptr
   store i32 %1222, ptr %1217, align 4, !tbaa !10
   %1223 = add nuw nsw i64 %.238, 1
   %exitcond.not = icmp eq i64 %1223, 8
-  br i1 %exitcond.not, label %1224, label %1213, !llvm.loop !18
+  br i1 %exitcond.not, label %1224, label %1213, !llvm.loop !19
 
 1224:                                             ; preds = %1213
   %1225 = getelementptr inbounds nuw i8, ptr %.0, i64 %4
   %1226 = sub i64 %.034, %4
   %.not = icmp eq i64 %1226, 0
-  br i1 %.not, label %1227, label %25, !llvm.loop !19
+  br i1 %.not, label %1227, label %25, !llvm.loop !20
 
 1227:                                             ; preds = %1224
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
@@ -1547,11 +1547,11 @@ define noundef i32 @ossl_blake2s_final(ptr noundef %0, ptr noundef initializes((
   store i32 -1, ptr %11, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %14 = load i64, ptr %13, align 8, !tbaa !17
+  %14 = load i64, ptr %13, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
   %16 = sub i64 64, %14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 0, i64 %16, i1 false)
-  %17 = load i64, ptr %13, align 8, !tbaa !17
+  %17 = load i64, ptr %13, align 8, !tbaa !18
   tail call fastcc void @blake2s_compress(ptr noundef %1, ptr noundef nonnull %12, i64 noundef %17)
   %18 = icmp sgt i32 %8, 0
   br i1 %18, label %.lr.ph.preheader, label %._crit_edge
@@ -1569,7 +1569,7 @@ define noundef i32 @ossl_blake2s_final(ptr noundef %0, ptr noundef initializes((
   store i32 %22, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not = icmp eq ptr %spec.select, %0
@@ -1621,9 +1621,10 @@ attributes #9 = { nounwind }
 !12 = !{!13, !14, i64 120}
 !13 = !{!"blake2s_ctx_st", !5, i64 0, !5, i64 32, !5, i64 40, !5, i64 48, !14, i64 112, !14, i64 120}
 !14 = !{!"long", !5, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!13, !14, i64 112}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!13, !14, i64 112}
+!19 = distinct !{!19, !16, !17}
+!20 = distinct !{!20, !16, !17}
+!21 = distinct !{!21, !16, !17}

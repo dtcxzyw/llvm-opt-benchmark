@@ -277,7 +277,7 @@ define internal i32 @tcp_open(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
   %113 = getelementptr inbounds nuw i8, ptr %.063, i64 24
   %114 = load ptr, ptr %113, align 8, !tbaa !34
   %115 = getelementptr inbounds nuw i8, ptr %.063, i64 16
-  %116 = load i32, ptr %115, align 8, !tbaa !43
+  %116 = load i32, ptr %115, align 8, !tbaa !44
   %117 = call i32 @ff_listen(i32 noundef %110, ptr noundef %114, i32 noundef %116, ptr noundef %0) #12
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %139, label %._crit_edge100
@@ -286,7 +286,7 @@ define internal i32 @tcp_open(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
   %120 = getelementptr inbounds nuw i8, ptr %.063, i64 24
   %121 = load ptr, ptr %120, align 8, !tbaa !34
   %122 = getelementptr inbounds nuw i8, ptr %.063, i64 16
-  %123 = load i32, ptr %122, align 8, !tbaa !43
+  %123 = load i32, ptr %122, align 8, !tbaa !44
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %125 = load i32, ptr %124, align 8, !tbaa !22
   %126 = call i32 @ff_listen_bind(i32 noundef %110, ptr noundef %121, i32 noundef %123, i32 noundef %125, ptr noundef %0) #12
@@ -309,9 +309,9 @@ define internal i32 @tcp_open(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
 ._crit_edge100:                                   ; preds = %129, %128, %112
   %135 = phi i32 [ %126, %128 ], [ %110, %112 ], [ %.pr89.pre, %129 ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %136, align 8, !tbaa !44
+  store i32 1, ptr %136, align 8, !tbaa !45
   %137 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 %135, ptr %137, align 8, !tbaa !45
+  store i32 %135, ptr %137, align 8, !tbaa !46
   %138 = load ptr, ptr %5, align 8, !tbaa !33
   call void @freeaddrinfo(ptr noundef %138) #12
   br label %147
@@ -368,20 +368,20 @@ define internal range(i32 -2147483648, 1) i32 @tcp_accept(ptr noundef %0, ptr no
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !46
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !47
+  %12 = load i32, ptr %11, align 8, !tbaa !48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = tail call i32 @ffurl_alloc(ptr noundef %1, ptr noundef %10, i32 noundef %12, ptr noundef nonnull %13) #12
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %30, label %16
 
 16:                                               ; preds = %8
-  %17 = load ptr, ptr %1, align 8, !tbaa !48
+  %17 = load ptr, ptr %1, align 8, !tbaa !49
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !45
+  %21 = load i32, ptr %20, align 8, !tbaa !46
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %23 = load i32, ptr %22, align 8, !tbaa !22
   %24 = tail call i32 @ff_accept(i32 noundef %21, i32 noundef %23, ptr noundef nonnull %0) #12
@@ -394,7 +394,7 @@ define internal range(i32 -2147483648, 1) i32 @tcp_accept(ptr noundef %0, ptr no
 
 28:                                               ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 %24, ptr %29, align 8, !tbaa !45
+  store i32 %24, ptr %29, align 8, !tbaa !46
   br label %30
 
 30:                                               ; preds = %8, %28, %26
@@ -407,14 +407,14 @@ define internal i32 @tcp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i32, ptr %6, align 8, !tbaa !47
+  %7 = load i32, ptr %6, align 8, !tbaa !48
   %8 = and i32 %7, 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %16
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !45
+  %11 = load i32, ptr %10, align 8, !tbaa !46
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -424,7 +424,7 @@ define internal i32 @tcp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
 
 16:                                               ; preds = %9, %3
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !45
+  %18 = load i32, ptr %17, align 8, !tbaa !46
   %19 = sext i32 %2 to i64
   %20 = tail call i64 @recv(i32 noundef %18, ptr noundef %1, i64 noundef %19, i32 noundef 0) #12
   %21 = trunc i64 %20 to i32
@@ -451,14 +451,14 @@ define internal i32 @tcp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i32, ptr %6, align 8, !tbaa !47
+  %7 = load i32, ptr %6, align 8, !tbaa !48
   %8 = and i32 %7, 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %16
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !45
+  %11 = load i32, ptr %10, align 8, !tbaa !46
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -468,7 +468,7 @@ define internal i32 @tcp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 16:                                               ; preds = %9, %3
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !45
+  %18 = load i32, ptr %17, align 8, !tbaa !46
   %19 = sext i32 %2 to i64
   %20 = tail call i64 @send(i32 noundef %18, ptr noundef %1, i64 noundef %19, i32 noundef 16384) #12
   %21 = trunc i64 %20 to i32
@@ -491,7 +491,7 @@ define internal noundef i32 @tcp_close(ptr noundef readonly captures(none) %0) #
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !45
+  %5 = load i32, ptr %4, align 8, !tbaa !46
   %6 = tail call i32 @close(i32 noundef %5) #12
   ret i32 0
 }
@@ -501,7 +501,7 @@ define internal i32 @tcp_get_file_handle(ptr noundef readonly captures(none) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !45
+  %5 = load i32, ptr %4, align 8, !tbaa !46
   ret i32 %5
 }
 
@@ -515,7 +515,7 @@ define internal i32 @tcp_get_window_size(ptr noundef readonly captures(none) %0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 4, ptr %3, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !45
+  %7 = load i32, ptr %6, align 8, !tbaa !46
   %8 = call i32 @getsockopt(i32 noundef %7, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %13, label %9
@@ -547,7 +547,7 @@ define internal i32 @tcp_shutdown(ptr noundef readonly captures(none) %0, i32 no
   %.lobit = and i32 %6, 1
   %.0 = select i1 %or.cond.not, i32 2, i32 %.lobit
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !45
+  %8 = load i32, ptr %7, align 8, !tbaa !46
   %9 = tail call i32 @shutdown(i32 noundef %8, i32 noundef %.0) #12
   ret i32 %9
 }
@@ -632,14 +632,14 @@ define internal i32 @customize_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %19 = getelementptr inbounds nuw i8, ptr %.03963, i64 40
   %.039 = load ptr, ptr %19, align 8, !tbaa !33
   %.not48 = icmp eq ptr %.039, null
-  br i1 %.not48, label %26, label %.lr.ph, !llvm.loop !50
+  br i1 %.not48, label %26, label %.lr.ph, !llvm.loop !51
 
 .lr.ph:                                           ; preds = %.preheader, %18
   %.03963 = phi ptr [ %.039, %18 ], [ %.03961, %.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %.03963, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %.03963, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !43
+  %23 = load i32, ptr %22, align 8, !tbaa !44
   %24 = call i32 @bind(i32 noundef %1, ptr noundef %21, i32 noundef %23) #12
   %.not49 = icmp eq i32 %24, 0
   br i1 %.not49, label %.thread, label %18
@@ -669,7 +669,7 @@ define internal i32 @customize_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 28:                                               ; preds = %3, %.thread57
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %30 = load i32, ptr %29, align 4, !tbaa !51
+  %30 = load i32, ptr %29, align 4, !tbaa !52
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %32, label %35
 
@@ -684,7 +684,7 @@ define internal i32 @customize_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 35:                                               ; preds = %32, %34, %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load i32, ptr %36, align 8, !tbaa !52
+  %37 = load i32, ptr %36, align 8, !tbaa !53
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %42
 
@@ -714,7 +714,7 @@ define internal i32 @customize_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 49:                                               ; preds = %46, %48, %42
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %51 = load i32, ptr %50, align 8, !tbaa !53
+  %51 = load i32, ptr %50, align 8, !tbaa !54
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %56
 
@@ -837,16 +837,17 @@ attributes #15 = { noreturn nounwind }
 !38 = !{!"in6_addr", !6, i64 0}
 !39 = !{!26, !5, i64 12}
 !40 = !{!26, !28, i64 40}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!26, !5, i64 16}
-!44 = !{!9, !5, i64 40}
-!45 = !{!17, !5, i64 8}
-!46 = !{!9, !13, i64 24}
-!47 = !{!9, !5, i64 32}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS10URLContext", !11, i64 0}
-!50 = distinct !{!50, !42}
-!51 = !{!17, !5, i64 44}
-!52 = !{!17, !5, i64 48}
-!53 = !{!17, !5, i64 56}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!26, !5, i64 16}
+!45 = !{!9, !5, i64 40}
+!46 = !{!17, !5, i64 8}
+!47 = !{!9, !13, i64 24}
+!48 = !{!9, !5, i64 32}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS10URLContext", !11, i64 0}
+!51 = distinct !{!51, !42, !43}
+!52 = !{!17, !5, i64 44}
+!53 = !{!17, !5, i64 48}
+!54 = !{!17, !5, i64 56}

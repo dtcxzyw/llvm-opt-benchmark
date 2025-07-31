@@ -390,7 +390,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %42, %_ZN4lean8optio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 4
   %.not = icmp eq ptr %44, %6
-  br i1 %.not, label %._crit_edge, label %9
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !37
 
 45:                                               ; preds = %42
   %46 = landingpad { ptr, i32 }
@@ -535,3 +535,5 @@ attributes #16 = { nounwind }
 !34 = !{!"_ZTS11lean_object", !12, i64 0, !12, i64 4, !12, i64 6, !12, i64 7}
 !35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !36 = !{!22, !22, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.estimated_trip_count"}

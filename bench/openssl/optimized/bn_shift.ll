@@ -146,7 +146,7 @@ define range(i32 0, 2) i32 @BN_rshift1(ptr noundef %0, ptr noundef %1) local_unn
   %32 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next
   store i64 %31, ptr %32, align 8, !tbaa !12
   %33 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.not36 = icmp eq i32 %26, 0
@@ -234,7 +234,7 @@ define range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonly captu
   %44 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv.next.i
   store i64 %43, ptr %44, align 8, !tbaa !12
   %45 = icmp samesign ugt i64 %indvars.iv.i, 2
-  br i1 %45, label %38, label %._crit_edge.i, !llvm.loop !17
+  br i1 %45, label %38, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %38, %16
   %.048.lcssa.i = phi i64 [ %31, %16 ], [ %40, %38 ]
@@ -346,7 +346,7 @@ define range(i32 0, 2) i32 @bn_lshift_fixed_top(ptr noundef %0, ptr noundef read
   %41 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.next
   store i64 %40, ptr %41, align 8, !tbaa !12
   %42 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %42, label %35, label %._crit_edge, !llvm.loop !17
+  br i1 %42, label %35, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %35, %13
   %.048.lcssa = phi i64 [ %28, %13 ], [ %37, %35 ]
@@ -462,7 +462,7 @@ define range(i32 0, 2) i32 @BN_rshift(ptr noundef %0, ptr noundef readonly captu
   %39 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i
   store i64 %38, ptr %39, align 8, !tbaa !12
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %32, %23
   %.043.lcssa.i = phi i64 [ 0, %23 ], [ %wide.trip.count.i, %32 ]
@@ -545,7 +545,7 @@ define range(i32 0, 2) i32 @bn_rshift_fixed_top(ptr noundef %0, ptr noundef read
   %36 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
   store i64 %35, ptr %36, align 8, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %29, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %29, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %29
   %37 = zext nneg i32 %26 to i64
@@ -595,8 +595,9 @@ attributes #4 = { nounwind }
 !11 = !{!4, !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}

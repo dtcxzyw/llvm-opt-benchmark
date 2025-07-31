@@ -119,13 +119,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %18 = load i8, ptr %17, align 16, !tbaa !19
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %19, ptr %3, align 16, !tbaa !22
+  store i32 %19, ptr %3, align 16, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 10
   %22 = load i8, ptr %21, align 2, !tbaa !19
   %23 = sext i8 %22 to i32
   %24 = add nsw i32 %23, 23
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %24, ptr %20, align 4, !tbaa !22
+  store i32 %24, ptr %20, align 4, !tbaa !23
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %11
@@ -138,14 +138,14 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = sext i8 %29 to i32
   %31 = getelementptr inbounds nuw i32, ptr %25, i64 %.01920.i
-  store i32 %30, ptr %31, align 4, !tbaa !22
+  store i32 %30, ptr %31, align 4, !tbaa !23
   %32 = add nuw nsw i64 %.01920.i, 1
   %exitcond.not.i = icmp eq i64 %32, 8
-  br i1 %exitcond.not.i, label %_ZN5boost3log11v2_mt_posix3aux9format_idILm4EwmEEvPT0_mT1_b.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN5boost3log11v2_mt_posix3aux9format_idILm4EwmEEvPT0_mT1_b.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZN5boost3log11v2_mt_posix3aux9format_idILm4EwmEEvPT0_mT1_b.exit: ; preds = %.lr.ph.i
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 0, ptr %33, align 8, !tbaa !22
+  store i32 0, ptr %33, align 8, !tbaa !23
   %34 = call noundef i64 @wcslen(ptr noundef nonnull %3) #9
   %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i64 noundef %34)
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3) #8
@@ -205,8 +205,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !17 = !{!"_ZTSN5boost3log11v2_mt_posix3aux2idINS2_7processEEE", !8, i64 0}
 !18 = !{!7, !10, i64 24}
 !19 = !{!9, !9, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"wchar_t", !9, i64 0}
-!24 = distinct !{!24, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"wchar_t", !9, i64 0}
+!25 = distinct !{!25, !21, !22}

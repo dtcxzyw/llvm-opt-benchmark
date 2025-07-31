@@ -365,7 +365,7 @@ define dso_local noundef zeroext i1 @ReplicationSlotValidateName(ptr noundef %0,
   %30 = getelementptr inbounds nuw i8, ptr %.052, i64 1
   %31 = load i8, ptr %30, align 1
   %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit.sink.split.sink.split:                  ; preds = %7, %15, %25
   %.sink = phi i32 [ 284, %25 ], [ 270, %15 ], [ 261, %7 ]
@@ -487,7 +487,7 @@ define dso_local void @ReplicationSlotCreate(ptr noundef %0, i1 noundef zeroext 
   %spec.select = select i1 %or.cond.not, ptr %.054, ptr %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %55
   %57 = load ptr, ptr @MainLWLockArray, align 8
@@ -599,7 +599,7 @@ CreateSlotOnDisk.exit:                            ; preds = %98
   %110 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %109, i32 noundef 0) #17
   %111 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   store i8 1, ptr %111, align 1
-  %112 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %spec.select, i8 1, ptr nonnull elementtype(i8) %spec.select) #17, !srcloc !11
+  %112 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %spec.select, i8 1, ptr nonnull elementtype(i8) %spec.select) #17, !srcloc !12
   %.not49 = icmp eq i8 %112, 0
   br i1 %.not49, label %115, label %113
 
@@ -611,7 +611,7 @@ CreateSlotOnDisk.exit:                            ; preds = %98
   %116 = load i32, ptr @MyProcPid, align 4
   %117 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
   store i32 %116, ptr %117, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   store i8 0, ptr %spec.select, align 8
   store ptr %spec.select, ptr @MyReplicationSlot, align 8
   %118 = load ptr, ptr @MainLWLockArray, align 8
@@ -690,7 +690,7 @@ define dso_local ptr @SearchNamedReplicationSlot(ptr noundef readonly captures(n
 20:                                               ; preds = %11, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %20, %16, %7
   %.1 = phi ptr [ null, %7 ], [ %12, %16 ], [ null, %20 ]
@@ -774,7 +774,7 @@ define dso_local void @ReplicationSlotAcquire(ptr noundef %0, i1 noundef zeroext
 20:                                               ; preds = %16, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SearchNamedReplicationSlot.exit.thread, label %11, !llvm.loop !13
+  br i1 %exitcond.not.i, label %SearchNamedReplicationSlot.exit.thread, label %11, !llvm.loop !14
 
 SearchNamedReplicationSlot.exit.thread:           ; preds = %66, %20, %3
   %21 = load ptr, ptr @MainLWLockArray, align 8
@@ -827,7 +827,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %16
   br label %47
 
 47:                                               ; preds = %45, %44
-  %48 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #17, !srcloc !11
+  %48 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #17, !srcloc !12
   %.not30 = icmp eq i8 %48, 0
   br i1 %.not30, label %51, label %49
 
@@ -848,7 +848,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %16
 
 57:                                               ; preds = %55, %51
   %58 = phi i32 [ %56, %55 ], [ %53, %51 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   store i8 0, ptr %12, align 8
   br label %61
 
@@ -877,7 +877,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %16
   %71 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %70, i32 noundef 1) #17
   %72 = load i32, ptr @max_replication_slots, align 4
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph.i, label %SearchNamedReplicationSlot.exit.thread
+  br i1 %73, label %.lr.ph.i, label %SearchNamedReplicationSlot.exit.thread, !llvm.loop !16
 
 74:                                               ; preds = %65
   %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -908,7 +908,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %16
   br label %86
 
 86:                                               ; preds = %85, %81
-  %87 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #17, !srcloc !11
+  %87 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #17, !srcloc !12
   %.not.i = icmp eq i8 %87, 0
   br i1 %.not.i, label %90, label %88
 
@@ -928,7 +928,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %16
   br label %ReplicationSlotSetInactiveSince.exit
 
 ReplicationSlotSetInactiveSince.exit:             ; preds = %90, %94
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
   store i8 0, ptr %12, align 8
   %96 = load i8, ptr @am_walsender, align 1, !range !4, !noundef !5
   %97 = trunc nuw i8 %96 to i1
@@ -1006,7 +1006,7 @@ define dso_local void @ReplicationSlotRelease() local_unnamed_addr #0 {
   br i1 %.not23, label %27, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i8 1, ptr nonnull elementtype(i8) %1) #17, !srcloc !11
+  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i8 1, ptr nonnull elementtype(i8) %1) #17, !srcloc !12
   %.not24 = icmp eq i8 %23, 0
   br i1 %.not24, label %26, label %24
 
@@ -1016,7 +1016,7 @@ define dso_local void @ReplicationSlotRelease() local_unnamed_addr #0 {
 
 26:                                               ; preds = %22, %24
   store i32 0, ptr %20, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
   store i8 0, ptr %1, align 8
   tail call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false)
   br label %27
@@ -1050,7 +1050,7 @@ define dso_local void @ReplicationSlotRelease() local_unnamed_addr #0 {
   br label %ReplicationSlotSetInactiveSince.exit
 
 ReplicationSlotSetInactiveSince.exit:             ; preds = %35, %40
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
   store i8 0, ptr %1, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 224
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %42) #17
@@ -1075,7 +1075,7 @@ ReplicationSlotSetInactiveSince.exit:             ; preds = %35, %40
   br label %ReplicationSlotSetInactiveSince.exit26
 
 ReplicationSlotSetInactiveSince.exit26:           ; preds = %46, %50
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
   store i8 0, ptr %1, align 8
   br label %52
 
@@ -1155,7 +1155,7 @@ define dso_local void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext %0
   br i1 %11, label %12, label %33
 
 12:                                               ; preds = %.lr.ph
-  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #17, !srcloc !11
+  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #17, !srcloc !12
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %16, label %14
 
@@ -1171,7 +1171,7 @@ define dso_local void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext %0
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %22 = load i32, ptr %21, align 8
   %.not29 = icmp eq i32 %22, 0
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !20
   store i8 0, ptr %8, align 8
   br i1 %.not29, label %23, label %33
 
@@ -1213,7 +1213,7 @@ define dso_local void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext %0
   %34 = load i32, ptr @max_replication_slots, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %33, %1
   %.024.lcssa = phi i32 [ 0, %1 ], [ %.125, %33 ]
@@ -1257,7 +1257,7 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
   br i1 %14, label %15, label %28
 
 15:                                               ; preds = %8
-  %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i8 1, ptr nonnull elementtype(i8) %11) #17, !srcloc !11
+  %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i8 1, ptr nonnull elementtype(i8) %11) #17, !srcloc !12
   %.not.us.us = icmp eq i8 %16, 0
   br i1 %.not.us.us, label %19, label %17
 
@@ -1279,7 +1279,7 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
   br i1 %.not14.us.us, label %27, label %.split.us.us
 
 27:                                               ; preds = %24, %19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
   store i8 0, ptr %11, align 8
   %.pre33 = load ptr, ptr @ReplicationSlotCtl, align 8
   %.pre35 = load i32, ptr @max_replication_slots, align 4
@@ -1291,10 +1291,10 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %31 = sext i32 %29 to i64
   %32 = icmp slt i64 %indvars.iv.next29, %31
-  br i1 %32, label %8, label %._crit_edge, !llvm.loop !21
+  br i1 %32, label %8, label %._crit_edge, !llvm.loop !23
 
 .split.us.us:                                     ; preds = %24
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !25
   store i8 0, ptr %11, align 8
   %33 = load ptr, ptr @MainLWLockArray, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4736
@@ -1307,7 +1307,7 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
   %38 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %37, i32 noundef 1) #17
   %39 = load i32, ptr @max_replication_slots, align 4
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph.us, label %._crit_edge, !llvm.loop !24
+  br i1 %40, label %.lr.ph.us, label %._crit_edge, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.split
   %41 = phi i32 [ %64, %.split ], [ %5, %.lr.ph.lr.ph ]
@@ -1325,7 +1325,7 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
   br i1 %48, label %49, label %67
 
 49:                                               ; preds = %42
-  %50 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %45, i8 1, ptr nonnull elementtype(i8) %45) #17, !srcloc !11
+  %50 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %45, i8 1, ptr nonnull elementtype(i8) %45) #17, !srcloc !12
   %.not = icmp eq i8 %50, 0
   br i1 %.not, label %53, label %51
 
@@ -1367,7 +1367,7 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = sext i32 %68 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %42, label %._crit_edge, !llvm.loop !25
+  br i1 %71, label %42, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.split, %67, %.split.us.us, %28, %1
   %72 = load ptr, ptr @MainLWLockArray, align 8
@@ -1407,7 +1407,7 @@ define internal fastcc void @ReplicationSlotDropPtr(ptr noundef %0) unnamed_addr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %19 = load i32, ptr %18, align 4
   %.not.not = icmp eq i32 %19, 0
-  %20 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #17, !srcloc !11
+  %20 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #17, !srcloc !12
   %.not18 = icmp eq i8 %20, 0
   br i1 %.not18, label %23, label %21
 
@@ -1418,7 +1418,7 @@ define internal fastcc void @ReplicationSlotDropPtr(ptr noundef %0) unnamed_addr
 23:                                               ; preds = %17, %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %24, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !28
   store i8 0, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   call void @ConditionVariableBroadcast(ptr noundef nonnull %25) #17
@@ -1594,7 +1594,7 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
   br i1 %.not16, label %55, label %45
 
 45:                                               ; preds = %.thread.thread
-  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %.pre2427, i8 1, ptr nonnull elementtype(i8) %.pre2427) #17, !srcloc !11
+  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %.pre2427, i8 1, ptr nonnull elementtype(i8) %.pre2427) #17, !srcloc !12
   %.not17 = icmp eq i8 %46, 0
   br i1 %.not17, label %50, label %47
 
@@ -1608,7 +1608,7 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
   %52 = load ptr, ptr @MyReplicationSlot, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 202
   store i8 %51, ptr %53, align 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !29
   %54 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %54, align 8
   br label %55
@@ -1627,7 +1627,7 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
   br i1 %.not19, label %70, label %61
 
 61:                                               ; preds = %56
-  %62 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %57, i8 1, ptr nonnull elementtype(i8) %57) #17, !srcloc !11
+  %62 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %57, i8 1, ptr nonnull elementtype(i8) %57) #17, !srcloc !12
   %.not20 = icmp eq i8 %62, 0
   br i1 %.not20, label %.thread22, label %63
 
@@ -1641,7 +1641,7 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
   %67 = load ptr, ptr @MyReplicationSlot, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
   store i8 %66, ptr %68, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !30
   %69 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %69, align 8
   br label %71
@@ -1651,7 +1651,7 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
 
 71:                                               ; preds = %.thread22, %70
   %72 = load ptr, ptr @MyReplicationSlot, align 8
-  %73 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %72, i8 1, ptr elementtype(i8) %72) #17, !srcloc !11
+  %73 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %72, i8 1, ptr elementtype(i8) %72) #17, !srcloc !12
   %.not.i = icmp eq i8 %73, 0
   br i1 %.not.i, label %ReplicationSlotMarkDirty.exit, label %74
 
@@ -1665,7 +1665,7 @@ ReplicationSlotMarkDirty.exit:                    ; preds = %71, %74
   store i8 1, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 9
   store i8 1, ptr %78, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !31
   store i8 0, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #17
   %79 = load ptr, ptr @MyReplicationSlot, align 8
@@ -1684,7 +1684,7 @@ ReplicationSlotMarkDirty.exit:                    ; preds = %71, %74
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReplicationSlotMarkDirty() local_unnamed_addr #0 {
   %1 = load ptr, ptr @MyReplicationSlot, align 8
-  %2 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1, i8 1, ptr elementtype(i8) %1) #17, !srcloc !11
+  %2 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1, i8 1, ptr elementtype(i8) %1) #17, !srcloc !12
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -1698,7 +1698,7 @@ define dso_local void @ReplicationSlotMarkDirty() local_unnamed_addr #0 {
   store i8 1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 1, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !31
   store i8 0, ptr %1, align 8
   ret void
 }
@@ -1726,7 +1726,7 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef nonnull 
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #17
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #17
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #17
-  %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #17, !srcloc !11
+  %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #17, !srcloc !12
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -1740,7 +1740,7 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef nonnull 
   %13 = trunc nuw i8 %12 to i1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %14, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !30
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !32
   store i8 0, ptr %0, align 8
   br i1 %13, label %15, label %99
 
@@ -1775,7 +1775,7 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef nonnull 
   store i32 5, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 184, ptr %32, align 4
-  %33 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #17, !srcloc !11
+  %33 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #17, !srcloc !12
   %.not87 = icmp eq i8 %33, 0
   br i1 %.not87, label %36, label %34
 
@@ -1787,7 +1787,7 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef nonnull 
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %37, ptr noundef nonnull align 8 dereferenceable(184) %38, i64 184, i1 false)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !33
   store i8 0, ptr %0, align 8
   %39 = load ptr, ptr @pg_comp_crc32c, align 8
   %40 = call i32 %39(i32 noundef -1, ptr noundef nonnull %31, i64 noundef 192) #17
@@ -1892,7 +1892,7 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef nonnull 
   %86 = load volatile i32, ptr @CritSectionCount, align 4
   %87 = add i32 %86, -1
   store volatile i32 %87, ptr @CritSectionCount, align 4
-  %88 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #17, !srcloc !11
+  %88 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #17, !srcloc !12
   %.not92 = icmp eq i8 %88, 0
   br i1 %.not92, label %91, label %89
 
@@ -1914,7 +1914,7 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef nonnull 
   %97 = load i64, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 %97, ptr %98, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !32
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !34
   store i8 0, ptr %0, align 8
   call void @LWLockRelease(ptr noundef nonnull %16) #17
   br label %99
@@ -1930,7 +1930,7 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef nonnull 
 define dso_local void @ReplicationSlotPersist() local_unnamed_addr #0 {
   %1 = alloca [1024 x i8], align 16
   %2 = load ptr, ptr @MyReplicationSlot, align 8
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i8 1, ptr elementtype(i8) %2) #17, !srcloc !11
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i8 1, ptr elementtype(i8) %2) #17, !srcloc !12
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -1941,10 +1941,10 @@ define dso_local void @ReplicationSlotPersist() local_unnamed_addr #0 {
 6:                                                ; preds = %0, %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 0, ptr %7, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !35
   store i8 0, ptr %2, align 8
   %8 = load ptr, ptr @MyReplicationSlot, align 8
-  %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %8, i8 1, ptr elementtype(i8) %8) #17, !srcloc !11
+  %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %8, i8 1, ptr elementtype(i8) %8) #17, !srcloc !12
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %ReplicationSlotMarkDirty.exit, label %10
 
@@ -1958,7 +1958,7 @@ ReplicationSlotMarkDirty.exit:                    ; preds = %6, %10
   store i8 1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 9
   store i8 1, ptr %14, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !31
   store i8 0, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #17
   %15 = load ptr, ptr @MyReplicationSlot, align 8
@@ -1998,7 +1998,7 @@ define dso_local void @ReplicationSlotsComputeRequiredLSN() local_unnamed_addr #
   br i1 %10, label %11, label %23
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i8 1, ptr nonnull elementtype(i8) %7) #17, !srcloc !11
+  %12 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i8 1, ptr nonnull elementtype(i8) %7) #17, !srcloc !12
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %15, label %13
 
@@ -2013,7 +2013,7 @@ define dso_local void @ReplicationSlotsComputeRequiredLSN() local_unnamed_addr #
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %20 = load i32, ptr %19, align 8
   %.not17 = icmp ne i32 %20, 0
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !34
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !36
   store i8 0, ptr %7, align 8
   %.not18 = icmp eq i64 %18, 0
   %or.cond19 = or i1 %.not17, %.not18
@@ -2033,7 +2033,7 @@ define dso_local void @ReplicationSlotsComputeRequiredLSN() local_unnamed_addr #
   %25 = load i32, ptr @max_replication_slots, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %23, %0
   %.015.lcssa = phi i64 [ 0, %0 ], [ %.1, %23 ]
@@ -2081,7 +2081,7 @@ define dso_local i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_a
   br i1 %.not, label %30, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %10, i8 1, ptr nonnull elementtype(i8) %10) #17, !srcloc !11
+  %18 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %10, i8 1, ptr nonnull elementtype(i8) %10) #17, !srcloc !12
   %.not20 = icmp eq i8 %18, 0
   br i1 %.not20, label %21, label %19
 
@@ -2096,7 +2096,7 @@ define dso_local i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_a
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %26 = load i32, ptr %25, align 8
   %.not21 = icmp ne i32 %26, 0
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !36
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !38
   store i8 0, ptr %10, align 8
   %27 = icmp eq i64 %24, 0
   %or.cond22 = or i1 %.not21, %27
@@ -2116,7 +2116,7 @@ define dso_local i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_a
   %32 = load i32, ptr @max_replication_slots, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %30, %3
   %.017.lcssa = phi i64 [ 0, %3 ], [ %.1, %30 ]
@@ -2169,7 +2169,7 @@ define dso_local zeroext i1 @ReplicationSlotsCountDBSlots(i32 noundef %0, ptr no
   br i1 %or.cond, label %21, label %34
 
 21:                                               ; preds = %18
-  %22 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %14, i8 1, ptr nonnull elementtype(i8) %14) #17, !srcloc !11
+  %22 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %14, i8 1, ptr nonnull elementtype(i8) %14) #17, !srcloc !12
   %.not19 = icmp eq i8 %22, 0
   br i1 %.not19, label %25, label %23
 
@@ -2193,7 +2193,7 @@ define dso_local zeroext i1 @ReplicationSlotsCountDBSlots(i32 noundef %0, ptr no
   br label %33
 
 33:                                               ; preds = %25, %30
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !38
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !40
   store i8 0, ptr %14, align 8
   %.pre = load ptr, ptr @ReplicationSlotCtl, align 8
   %.pre24 = load i32, ptr @max_replication_slots, align 4
@@ -2205,7 +2205,7 @@ define dso_local zeroext i1 @ReplicationSlotsCountDBSlots(i32 noundef %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = sext i32 %35 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %34, %6
   %39 = load ptr, ptr @MainLWLockArray, align 8
@@ -2257,7 +2257,7 @@ define dso_local void @ReplicationSlotsDropDBSlots(i32 noundef %0) local_unnamed
   br i1 %or.cond, label %19, label %42
 
 19:                                               ; preds = %16
-  %20 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #17, !srcloc !11
+  %20 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #17, !srcloc !12
   %.not22 = icmp eq i8 %20, 0
   br i1 %.not22, label %23, label %21
 
@@ -2272,7 +2272,7 @@ define dso_local void @ReplicationSlotsDropDBSlots(i32 noundef %0) local_unnamed
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !40
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !42
   store i8 0, ptr %12, align 8
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -2286,7 +2286,7 @@ define dso_local void @ReplicationSlotsDropDBSlots(i32 noundef %0) local_unnamed
   store ptr %12, ptr @MyReplicationSlot, align 8
   %33 = load i32, ptr @MyProcPid, align 4
   store i32 %33, ptr %24, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !40
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !42
   store i8 0, ptr %12, align 8
   %34 = load ptr, ptr @MainLWLockArray, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4736
@@ -2304,7 +2304,7 @@ define dso_local void @ReplicationSlotsDropDBSlots(i32 noundef %0) local_unnamed
 42:                                               ; preds = %11, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %32, %42, %.preheader
   %43 = load ptr, ptr @MainLWLockArray, align 8
@@ -2400,7 +2400,7 @@ define dso_local void @ReplicationSlotReserveWal() local_unnamed_addr #0 {
 
 15:                                               ; preds = %11, %13, %7
   %.0 = phi i64 [ %8, %7 ], [ %12, %11 ], [ %14, %13 ]
-  %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i8 1, ptr nonnull elementtype(i8) %1) #17, !srcloc !11
+  %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i8 1, ptr nonnull elementtype(i8) %1) #17, !srcloc !12
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %19, label %17
 
@@ -2410,7 +2410,7 @@ define dso_local void @ReplicationSlotReserveWal() local_unnamed_addr #0 {
 
 19:                                               ; preds = %15, %17
   store i64 %.0, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !42
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !44
   store i8 0, ptr %1, align 8
   tail call void @ReplicationSlotsComputeRequiredLSN()
   %20 = load i64, ptr %3, align 8
@@ -2419,7 +2419,7 @@ define dso_local void @ReplicationSlotReserveWal() local_unnamed_addr #0 {
   %23 = udiv i64 %20, %22
   %24 = tail call i64 @XLogGetLastRemovedSegno() #17
   %25 = icmp ult i64 %24, %23
-  br i1 %25, label %26, label %4
+  br i1 %25, label %26, label %4, !llvm.loop !45
 
 26:                                               ; preds = %19
   %27 = tail call zeroext i1 @RecoveryInProgress() #17
@@ -2516,7 +2516,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   %.072142.i = phi i32 [ 0, %.lr.ph.i ], [ %.375.i, %115 ]
   %.076141.i = phi i1 [ false, %.lr.ph.i ], [ %.278.i, %115 ]
   %.079140.i = phi i1 [ false, %.lr.ph.i ], [ true, %115 ]
-  %39 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %24, i8 1, ptr nonnull elementtype(i8) %24) #17, !srcloc !11
+  %39 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %24, i8 1, ptr nonnull elementtype(i8) %24) #17, !srcloc !12
   %.not.i = icmp eq i8 %39, 0
   br i1 %.not.i, label %42, label %40
 
@@ -2549,7 +2549,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   ]
 
 .thread.thread.i:                                 ; preds = %50
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !43
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !46
   store i8 0, ptr %24, align 8
   br label %InvalidatePossiblyObsoleteSlot.exit
 
@@ -2589,7 +2589,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   br i1 %.not88.i, label %.thread.i, label %.thread108.i
 
 .thread.i:                                        ; preds = %61, %59, %58, %53, %51, %42
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !43
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !46
   store i8 0, ptr %24, align 8
   br i1 %.079140.i, label %63, label %InvalidatePossiblyObsoleteSlot.exit
 
@@ -2618,7 +2618,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   br label %101
 
 72:                                               ; preds = %.thread108.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !44
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !47
   store i8 0, ptr %24, align 8
   call void @ConditionVariablePrepareToSleep(ptr noundef nonnull %35) #17
   %73 = load ptr, ptr @MainLWLockArray, align 8
@@ -2696,13 +2696,13 @@ ReportSlotInvalidation.exit:                      ; preds = %85, %93
   br label %115
 
 101:                                              ; preds = %71, %69
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !44
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !47
   store i8 0, ptr %24, align 8
   %102 = load ptr, ptr @MainLWLockArray, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4736
   call void @LWLockRelease(ptr noundef nonnull %103) #17
   %104 = load ptr, ptr @MyReplicationSlot, align 8
-  %105 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %104, i8 1, ptr elementtype(i8) %104) #17, !srcloc !11
+  %105 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %104, i8 1, ptr elementtype(i8) %104) #17, !srcloc !12
   %.not.i.i = icmp eq i8 %105, 0
   br i1 %.not.i.i, label %ReplicationSlotMarkDirty.exit.i, label %106
 
@@ -2716,7 +2716,7 @@ ReplicationSlotMarkDirty.exit.i:                  ; preds = %106, %101
   store i8 1, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 9
   store i8 1, ptr %110, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !29
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !31
   store i8 0, ptr %104, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #17
   %111 = load ptr, ptr @MyReplicationSlot, align 8
@@ -2752,7 +2752,7 @@ InvalidatePossiblyObsoleteSlot.exit:              ; preds = %.thread.thread.i, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next, %123
-  br i1 %124, label %21, label %._crit_edge, !llvm.loop !45
+  br i1 %124, label %21, label %._crit_edge, !llvm.loop !48
 
 125:                                              ; preds = %63, %._crit_edge.i, %ReplicationSlotMarkDirty.exit.i
   %.4.ph = phi i1 [ %.01560, %63 ], [ %.01560, %._crit_edge.i ], [ true, %ReplicationSlotMarkDirty.exit.i ]
@@ -2830,7 +2830,7 @@ define dso_local void @CheckPointReplicationSlots(i1 noundef zeroext %0) local_u
   br i1 %.not.us, label %41, label %23
 
 23:                                               ; preds = %18
-  %24 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %14, i8 1, ptr nonnull elementtype(i8) %14) #17, !srcloc !11
+  %24 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %14, i8 1, ptr nonnull elementtype(i8) %14) #17, !srcloc !12
   %.not15.us = icmp eq i8 %24, 0
   br i1 %.not15.us, label %27, label %25
 
@@ -2860,7 +2860,7 @@ define dso_local void @CheckPointReplicationSlots(i1 noundef zeroext %0) local_u
   br label %40
 
 40:                                               ; preds = %37, %31, %27
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !46
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !49
   store i8 0, ptr %14, align 8
   br label %41
 
@@ -2877,7 +2877,7 @@ define dso_local void @CheckPointReplicationSlots(i1 noundef zeroext %0) local_u
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %45 = sext i32 %43 to i64
   %46 = icmp slt i64 %indvars.iv.next20, %45
-  br i1 %46, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !47
+  br i1 %46, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %56
   %47 = phi i32 [ %57, %56 ], [ %10, %.lr.ph ]
@@ -2905,7 +2905,7 @@ define dso_local void @CheckPointReplicationSlots(i1 noundef zeroext %0) local_u
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %57 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph.split, label %._crit_edge, !llvm.loop !48
+  br i1 %60, label %.lr.ph.split, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %56, %42, %6
   %61 = load ptr, ptr @MainLWLockArray, align 8
@@ -2960,7 +2960,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %197
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %197, label %sub_112, !llvm.loop !49
+  br i1 %25, label %197, label %sub_112, !llvm.loop !52
 
 sub_112:                                          ; preds = %.tail
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -2972,7 +2972,7 @@ sub_112:                                          ; preds = %.tail
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 21
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %197, label %.tail10.thread, !llvm.loop !49
+  br i1 %30, label %197, label %.tail10.thread, !llvm.loop !52
 
 .tail10.thread:                                   ; preds = %sub_0, %sub_112, %.tail10
   %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1036, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull %21) #17
@@ -2980,7 +2980,7 @@ sub_112:                                          ; preds = %.tail
   switch i32 %32, label %197 [
     i32 3, label %33
     i32 0, label %33
-  ], !llvm.loop !49
+  ], !llvm.loop !52
 
 33:                                               ; preds = %.tail10.thread, %.tail10.thread
   %34 = call zeroext i1 @pg_str_endswith(ptr noundef nonnull %21, ptr noundef nonnull @.str.40) #17
@@ -2992,16 +2992,16 @@ sub_112:                                          ; preds = %.tail
 
 37:                                               ; preds = %35
   %38 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %38, label %39, label %197, !llvm.loop !49
+  br i1 %38, label %39, label %197, !llvm.loop !52
 
 39:                                               ; preds = %37
   %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull %4) #17
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1960, ptr noundef nonnull @__func__.StartupReplicationSlots) #17
-  br label %197, !llvm.loop !49
+  br label %197, !llvm.loop !52
 
 41:                                               ; preds = %35
   call void @fsync_fname(ptr noundef nonnull @.str.30, i1 noundef zeroext true) #17
-  br label %197, !llvm.loop !49
+  br label %197, !llvm.loop !52
 
 42:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1) #17
@@ -3266,7 +3266,7 @@ sub_112:                                          ; preds = %.tail
 171:                                              ; preds = %172
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %172, !llvm.loop !50
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %172, !llvm.loop !53
 
 172:                                              ; preds = %171, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %171 ]
@@ -3323,7 +3323,7 @@ RestoreSlotFromDisk.exit:                         ; preds = %150, %177, %192
   call void @llvm.lifetime.end.p0(i64 1036, ptr nonnull %4) #17
   %198 = call ptr @ReadDir(ptr noundef %9, ptr noundef nonnull @.str.30) #17
   %.not = icmp eq ptr %198, null
-  br i1 %.not, label %._crit_edge, label %sub_0
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %197, %8
   %199 = call i32 @FreeDir(ptr noundef %9) #17
@@ -3371,7 +3371,7 @@ define dso_local range(i32 0, 4) i32 @GetSlotInvalidationCause(ptr noundef reado
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split.loop.exit8, label %2, !llvm.loop !51
+  br i1 %exitcond.not, label %.split.loop.exit8, label %2, !llvm.loop !55
 
 .split.loop.exit:                                 ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3478,7 +3478,7 @@ validate_sync_standby_slots.exit.thread:          ; preds = %8
 42:                                               ; preds = %38, %33
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.i, label %.loopexit.split.us.i, label %33, !llvm.loop !13
+  br i1 %exitcond.not.i.us.i, label %.loopexit.split.us.i, label %33, !llvm.loop !14
 
 SearchNamedReplicationSlot.exit.us.i:             ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 88
@@ -3540,7 +3540,7 @@ validate_sync_standby_slots.exit:                 ; preds = %14, %.split37.us.i
   %69 = add i32 %68, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.split.loopexit, label %63, !llvm.loop !52
+  br i1 %exitcond.not, label %.split.loopexit, label %63, !llvm.loop !56
 
 .split.loopexit:                                  ; preds = %63
   %70 = sext i32 %69 to i64
@@ -3651,7 +3651,7 @@ define dso_local noundef zeroext i1 @SlotExistsInSyncStandbySlots(ptr noundef re
   %12 = getelementptr i8, ptr %11, i64 1
   %13 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %13, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %4, %1
   %.09 = phi i1 [ false, %1 ], [ false, %4 ], [ %8, %9 ], [ %8, %.lr.ph ]
@@ -3718,7 +3718,7 @@ define dso_local noundef zeroext i1 @StandbySlotsHaveCaughtup(i64 noundef %0, i3
 30:                                               ; preds = %26, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %21, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit, label %21, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %30
   %31 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #17
@@ -3735,7 +3735,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %26
   br i1 %35, label %.thread.sink.split.sink.split, label %.thread
 
 36:                                               ; preds = %SearchNamedReplicationSlot.exit
-  %37 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #17, !srcloc !11
+  %37 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #17, !srcloc !12
   %.not95 = icmp eq i8 %37, 0
   br i1 %.not95, label %40, label %38
 
@@ -3752,7 +3752,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %26
   %.not96 = icmp eq i32 %45, 0
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %47 = load i32, ptr %46, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !54
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !58
   store i8 0, ptr %22, align 8
   br i1 %.not96, label %50, label %48
 
@@ -3785,7 +3785,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %26
   %63 = load ptr, ptr @synchronized_standby_slots_config, align 8
   %64 = load i32, ptr %63, align 4
   %65 = icmp slt i32 %59, %64
-  br i1 %65, label %.lr.ph, label %.thread, !llvm.loop !55
+  br i1 %65, label %.lr.ph, label %.thread, !llvm.loop !59
 
 .thread.sink.split.sink.split:                    ; preds = %55, %48, %34, %.loopexit
   %.sink211 = phi i32 [ 50856066, %.loopexit ], [ 50856066, %34 ], [ 325, %48 ], [ 325, %55 ]
@@ -3840,7 +3840,7 @@ define dso_local void @WaitForStandbyConfirmation(i64 noundef %0) local_unnamed_
 11:                                               ; preds = %19, %8
   %12 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %14, label %13, !prof !56
+  br i1 %.not, label %14, label %13, !prof !60
 
 13:                                               ; preds = %11
   tail call void @ProcessInterrupts() #17
@@ -3864,7 +3864,7 @@ define dso_local void @WaitForStandbyConfirmation(i64 noundef %0) local_unnamed_
   %20 = load ptr, ptr @WalSndCtl, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 100
   %22 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %21, i64 noundef 1000, i32 noundef 100663302) #17
-  br label %11
+  br label %11, !llvm.loop !61
 
 23:                                               ; preds = %17
   %24 = tail call zeroext i1 @ConditionVariableCancelSleep() #17
@@ -4042,53 +4042,58 @@ attributes #20 = { nounwind willreturn memory(none) }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{i64 2151297085}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{i64 2704255, i64 2704271}
-!12 = !{i64 2151307668}
-!13 = distinct !{!13, !8}
-!14 = !{i64 2151311401}
-!15 = !{i64 2150898199}
-!16 = !{i64 2151314734}
-!17 = !{i64 2151315002}
-!18 = !{i64 2151327892}
-!19 = distinct !{!19, !8}
-!20 = !{i64 2151316610}
-!21 = distinct !{!21, !8, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = !{i64 2151316475}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !8}
-!26 = !{i64 2151325189}
-!27 = !{i64 2151324256}
-!28 = !{i64 2151324600}
-!29 = !{i64 2151327252}
-!30 = !{i64 2151344391}
-!31 = !{i64 2151345699}
-!32 = !{i64 2151349870}
-!33 = !{i64 2151327547}
-!34 = !{i64 2151328490}
-!35 = distinct !{!35, !8}
-!36 = !{i64 2151328857}
-!37 = distinct !{!37, !8}
-!38 = !{i64 2151329222}
-!39 = distinct !{!39, !8}
-!40 = !{i64 2151329606}
-!41 = distinct !{!41, !8}
-!42 = !{i64 2151335738}
-!43 = !{i64 2151339098}
-!44 = !{i64 2151339237}
-!45 = distinct !{!45, !8}
-!46 = !{i64 2151340719}
-!47 = distinct !{!47, !8, !22}
-!48 = distinct !{!48, !8}
-!49 = distinct !{!49, !8}
-!50 = distinct !{!50, !8}
-!51 = distinct !{!51, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{i64 2704255, i64 2704271}
+!13 = !{i64 2151307668}
+!14 = distinct !{!14, !8, !9}
+!15 = !{i64 2151311401}
+!16 = distinct !{!16, !9}
+!17 = !{i64 2150898199}
+!18 = !{i64 2151314734}
+!19 = !{i64 2151315002}
+!20 = !{i64 2151327892}
+!21 = distinct !{!21, !8, !9}
+!22 = !{i64 2151316610}
+!23 = distinct !{!23, !8, !9, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = !{i64 2151316475}
+!26 = distinct !{!26, !24}
+!27 = distinct !{!27, !8, !9}
+!28 = !{i64 2151325189}
+!29 = !{i64 2151324256}
+!30 = !{i64 2151324600}
+!31 = !{i64 2151327252}
+!32 = !{i64 2151344391}
+!33 = !{i64 2151345699}
+!34 = !{i64 2151349870}
+!35 = !{i64 2151327547}
+!36 = !{i64 2151328490}
+!37 = distinct !{!37, !8, !9}
+!38 = !{i64 2151328857}
+!39 = distinct !{!39, !8, !9}
+!40 = !{i64 2151329222}
+!41 = distinct !{!41, !8, !9}
+!42 = !{i64 2151329606}
+!43 = distinct !{!43, !8, !9}
+!44 = !{i64 2151335738}
+!45 = distinct !{!45, !9}
+!46 = !{i64 2151339098}
+!47 = !{i64 2151339237}
+!48 = distinct !{!48, !8, !9}
+!49 = !{i64 2151340719}
+!50 = distinct !{!50, !8, !9, !24}
+!51 = distinct !{!51, !8, !9}
 !52 = distinct !{!52, !8}
-!53 = distinct !{!53, !8}
-!54 = !{i64 2151376722}
-!55 = distinct !{!55, !8}
-!56 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!53 = distinct !{!53, !8, !9}
+!54 = distinct !{!54, !9}
+!55 = distinct !{!55, !8, !9}
+!56 = distinct !{!56, !8, !9}
+!57 = distinct !{!57, !8, !9}
+!58 = !{i64 2151376722}
+!59 = distinct !{!59, !8, !9}
+!60 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!61 = distinct !{!61, !9}

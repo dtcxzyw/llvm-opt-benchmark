@@ -1116,7 +1116,7 @@ _ZL4gatgPKdiddd.exit:                             ; preds = %135
   %147 = load double, ptr %.ptr149, align 8, !tbaa !87
   %148 = fadd double %146, %147
   %.not.i147 = icmp eq i64 %.018.i.add, 184
-  br i1 %.not.i147, label %_ZL5clensPKdid.exit, label %144, !llvm.loop !91
+  br i1 %.not.i147, label %_ZL5clensPKdid.exit, label %144, !llvm.loop !92
 
 _ZL5clensPKdid.exit:                              ; preds = %144
   %149 = fneg double %74
@@ -1125,7 +1125,7 @@ _ZL5clensPKdid.exit:                              ; preds = %144
   %152 = fadd double %140, %151
   %153 = fmul double %152, %149
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store double %153, ptr %154, align 8, !tbaa !92
+  store double %153, ptr %154, align 8, !tbaa !93
   ret ptr %0
 }
 
@@ -1142,7 +1142,7 @@ define internal { double, double } @_ZL11exact_e_inv5PJ_XYP8PJconsts(double %0, 
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %13 = load double, ptr %12, align 8, !tbaa !92
+  %13 = load double, ptr %12, align 8, !tbaa !93
   %14 = fsub double %1, %13
   %15 = fdiv double %14, %7
   %16 = fmul double %15, 2.000000e+00
@@ -1180,7 +1180,7 @@ define internal { double, double } @_ZL11exact_e_inv5PJ_XYP8PJconsts(double %0, 
   %38 = tail call double @llvm.fmuladd.f64(double %28, double %.04142.i, double %37)
   %39 = tail call double @llvm.fmuladd.f64(double %26, double %.03944.i, double %38)
   %.not.i = icmp eq i64 %.046.i.add, 136
-  br i1 %.not.i, label %_ZL5clenSPKdiddddPdS1_.exit, label %31, !llvm.loop !93
+  br i1 %.not.i, label %_ZL5clenSPKdiddddPdS1_.exit, label %31, !llvm.loop !94
 
 _ZL5clenSPKdiddddPdS1_.exit:                      ; preds = %31
   %40 = fmul double %17, %24
@@ -1308,7 +1308,7 @@ _ZL4gatgPKdiddd.exit:                             ; preds = %11
   %48 = tail call double @llvm.fmuladd.f64(double %38, double %.04142.i, double %47)
   %49 = tail call double @llvm.fmuladd.f64(double %36, double %.03944.i, double %48)
   %.not.i44 = icmp eq i64 %.046.i.add, 184
-  br i1 %.not.i44, label %_ZL5clenSPKdiddddPdS1_.exit, label %41, !llvm.loop !93
+  br i1 %.not.i44, label %_ZL5clenSPKdiddddPdS1_.exit, label %41, !llvm.loop !94
 
 _ZL5clenSPKdiddddPdS1_.exit:                      ; preds = %41
   %50 = fmul double %34, %31
@@ -1328,7 +1328,7 @@ _ZL5clenSPKdiddddPdS1_.exit:                      ; preds = %41
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %63 = load double, ptr %62, align 8, !tbaa !88
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %65 = load double, ptr %64, align 8, !tbaa !92
+  %65 = load double, ptr %64, align 8, !tbaa !93
   %66 = tail call double @llvm.fmuladd.f64(double %63, double %61, double %65)
   %67 = fmul double %54, %63
   br label %70
@@ -1546,8 +1546,9 @@ attributes #13 = { nounwind allocsize(0,1) }
 !86 = !{!"_ZTSN12_GLOBAL__N_113PoderEngsagerE", !16, i64 0, !16, i64 8, !5, i64 16, !5, i64 64, !5, i64 112, !5, i64 160}
 !87 = !{!16, !16, i64 0}
 !88 = !{!86, !16, i64 0}
-!89 = distinct !{!89, !90}
+!89 = distinct !{!89, !90, !91}
 !90 = !{!"llvm.loop.mustprogress"}
-!91 = distinct !{!91, !90}
-!92 = !{!86, !16, i64 8}
-!93 = distinct !{!93, !90}
+!91 = !{!"llvm.loop.estimated_trip_count"}
+!92 = distinct !{!92, !90, !91}
+!93 = !{!86, !16, i64 8}
+!94 = distinct !{!94, !90, !91}

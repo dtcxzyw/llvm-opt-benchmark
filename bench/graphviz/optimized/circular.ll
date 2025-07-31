@@ -405,7 +405,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !49
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.5, i64 noundef %spec.select33) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
@@ -428,7 +428,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !49
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.5, i64 noundef %spec.select) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
@@ -546,7 +546,8 @@ attributes #19 = { cold noreturn nounwind }
 !43 = !{!"p2 _ZTS8Agnode_s", !11, i64 0}
 !44 = !{!45, !32, i64 24}
 !45 = !{!"", !7, i64 0, !6, i64 8, !23, i64 16, !32, i64 24, !7, i64 32}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}

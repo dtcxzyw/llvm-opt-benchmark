@@ -93,21 +93,21 @@ declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @config_props_output(ptr noundef captures(none) initializes((40, 48)) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !47
+  %2 = load ptr, ptr %0, align 8, !tbaa !48
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !48
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = load ptr, ptr %6, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !49
+  %9 = load i32, ptr %8, align 4, !tbaa !50
   %10 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %9) #2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %10, ptr %11, align 4, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %13 = load i32, ptr %12, align 8, !tbaa !50
+  %13 = load i32, ptr %12, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %13, ptr %14, align 8, !tbaa !50
+  store i32 %13, ptr %14, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %16 = load i32, ptr %15, align 4, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -182,9 +182,10 @@ attributes #2 = { nounwind }
 !42 = !{!41, !11, i64 8}
 !43 = !{!11, !11, i64 0}
 !44 = !{!23, !23, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!5, !6, i64 0}
-!48 = !{!20, !24, i64 32}
-!49 = !{!5, !11, i64 36}
-!50 = !{!5, !11, i64 40}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!5, !6, i64 0}
+!49 = !{!20, !24, i64 32}
+!50 = !{!5, !11, i64 36}
+!51 = !{!5, !11, i64 40}

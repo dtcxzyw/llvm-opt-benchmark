@@ -247,7 +247,7 @@ define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80
   %24 = getelementptr inbounds nuw i8, ptr %.078, i64 16
   %25 = add i64 %.06977, -16
   %26 = icmp ugt i64 %25, 15
-  br i1 %26, label %.preheader74, label %._crit_edge, !llvm.loop !27
+  br i1 %26, label %.preheader74, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %23, %.preheader75
   %.069.lcssa = phi i64 [ %3, %.preheader75 ], [ %25, %23 ]
@@ -265,7 +265,7 @@ define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80
   store i8 %31, ptr %29, align 1, !tbaa !12
   %32 = add nuw i64 %.180, 1
   %exitcond82.not = icmp eq i64 %32, %.069.lcssa
-  br i1 %exitcond82.not, label %33, label %.preheader, !llvm.loop !28
+  br i1 %exitcond82.not, label %33, label %.preheader, !llvm.loop !29
 
 33:                                               ; preds = %.preheader
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -274,7 +274,7 @@ define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80
 
 35:                                               ; preds = %._crit_edge, %33
   %36 = shl i64 %3, 3
-  %37 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %36) #7, !srcloc !29
+  %37 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %36) #7, !srcloc !30
   %38 = load i64, ptr %7, align 8, !tbaa !12
   %39 = xor i64 %38, %37
   store i64 %39, ptr %7, align 8, !tbaa !12
@@ -378,7 +378,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef
   %31 = icmp ne i32 %30, 15
   %32 = icmp ne i64 %27, 0
   %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %20, label %._crit_edge, !llvm.loop !30
+  br i1 %33, label %20, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %20
   %34 = and i32 %.15065, 15
@@ -426,7 +426,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef
   store i8 %54, ptr %52, align 1, !tbaa !12
   %55 = add nuw i64 %.05269, 1
   %exitcond.not = icmp eq i64 %55, %.255
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %49, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %49, !llvm.loop !32
 
 .loopexit.loopexit:                               ; preds = %49
   %56 = trunc nuw nsw i64 %.255 to i32
@@ -529,7 +529,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr nou
   %61 = icmp ne i32 %60, 15
   %62 = icmp ne i64 %57, 0
   %63 = select i1 %61, i1 %62, i1 false
-  br i1 %63, label %46, label %._crit_edge, !llvm.loop !32
+  br i1 %63, label %46, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %46
   %64 = and i32 %.1156179, 15
@@ -595,14 +595,14 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr nou
   %92 = getelementptr inbounds nuw i8, ptr %.3190, i64 16
   %93 = add nsw i64 %.0159188, -16
   %.not176 = icmp eq i64 %93, 0
-  br i1 %.not176, label %94, label %.critedge, !llvm.loop !33
+  br i1 %.not176, label %94, label %.critedge, !llvm.loop !34
 
 94:                                               ; preds = %.critedge
   %95 = getelementptr inbounds i8, ptr %.3146189, i64 -3056
   tail call void %13(ptr noundef nonnull %72, ptr noundef nonnull %73, ptr noundef nonnull %95, i64 noundef 3072) #6
   %96 = add nsw i64 %.2151192, -3072
   %97 = icmp ugt i64 %96, 3071
-  br i1 %97, label %.preheader177, label %._crit_edge195, !llvm.loop !34
+  br i1 %97, label %.preheader177, label %._crit_edge195, !llvm.loop !35
 
 ._crit_edge195:                                   ; preds = %94, %69
   %.1161.lcssa = phi i32 [ %41, %69 ], [ %75, %94 ]
@@ -650,7 +650,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr nou
   %118 = getelementptr inbounds nuw i8, ptr %.5204, i64 16
   %119 = add nsw i64 %.4153202, -16
   %120 = icmp ugt i64 %119, 15
-  br i1 %120, label %.critedge256, label %._crit_edge206, !llvm.loop !35
+  br i1 %120, label %.critedge256, label %._crit_edge206, !llvm.loop !36
 
 ._crit_edge206:                                   ; preds = %.critedge256
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -704,7 +704,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr nou
   store i8 %148, ptr %146, align 1, !tbaa !12
   %149 = add i32 %.3158211, 1
   %.not175 = icmp eq i64 %138, 0
-  br i1 %.not175, label %.sink.split, label %137, !llvm.loop !36
+  br i1 %.not175, label %.sink.split, label %137, !llvm.loop !37
 
 .sink.split:                                      ; preds = %137, %125, %._crit_edge, %.preheader178
   %.2157.sink = phi i32 [ %59, %._crit_edge ], [ %43, %.preheader178 ], [ 0, %125 ], [ %149, %137 ]
@@ -803,7 +803,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr nou
   %61 = icmp ne i32 %60, 15
   %62 = icmp ne i64 %57, 0
   %63 = select i1 %61, i1 %62, i1 false
-  br i1 %63, label %46, label %._crit_edge, !llvm.loop !37
+  br i1 %63, label %46, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %46
   %64 = and i32 %.1159181, 15
@@ -870,12 +870,12 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr nou
   %93 = getelementptr inbounds nuw i8, ptr %.3192, i64 16
   %94 = add nsw i64 %.0162190, -16
   %.not179 = icmp eq i64 %94, 0
-  br i1 %.not179, label %95, label %.critedge, !llvm.loop !38
+  br i1 %.not179, label %95, label %.critedge, !llvm.loop !39
 
 95:                                               ; preds = %.critedge
   %96 = add nsw i64 %.2154194, -3072
   %97 = icmp ugt i64 %96, 3071
-  br i1 %97, label %75, label %._crit_edge199, !llvm.loop !39
+  br i1 %97, label %75, label %._crit_edge199, !llvm.loop !40
 
 ._crit_edge199:                                   ; preds = %95, %69
   %.1164.lcssa = phi i32 [ %41, %69 ], [ %76, %95 ]
@@ -926,7 +926,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr nou
   %120 = getelementptr inbounds nuw i8, ptr %.5208, i64 16
   %121 = add nsw i64 %.4156206, -16
   %122 = icmp ugt i64 %121, 15
-  br i1 %122, label %.critedge260, label %.loopexit180, !llvm.loop !40
+  br i1 %122, label %.critedge260, label %.loopexit180, !llvm.loop !41
 
 .loopexit180:                                     ; preds = %.critedge260, %._crit_edge199
   %.3166 = phi i32 [ %.1164.lcssa, %._crit_edge199 ], [ %103, %.critedge260 ]
@@ -972,7 +972,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr nou
   store i8 %144, ptr %145, align 1, !tbaa !12
   %146 = add i32 %.3161215, 1
   %.not178 = icmp eq i64 %135, 0
-  br i1 %.not178, label %.sink.split, label %134, !llvm.loop !41
+  br i1 %.not178, label %.sink.split, label %134, !llvm.loop !42
 
 .sink.split:                                      ; preds = %134, %.loopexit180, %._crit_edge, %.preheader
   %.2160.sink = phi i32 [ %59, %._crit_edge ], [ %43, %.preheader ], [ 0, %.loopexit180 ], [ %146, %134 ]
@@ -1051,7 +1051,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, p
   %42 = icmp ne i32 %41, 15
   %43 = icmp ne i64 %38, 0
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %27, label %._crit_edge, !llvm.loop !42
+  br i1 %44, label %27, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %27
   %45 = and i32 %.1151169, 15
@@ -1137,7 +1137,7 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   %90 = getelementptr inbounds nuw i8, ptr %.3179, i64 3072
   %91 = add i64 %.3148177, -3072
   %92 = icmp ugt i64 %91, 3071
-  br i1 %92, label %80, label %._crit_edge181, !llvm.loop !43
+  br i1 %92, label %80, label %._crit_edge181, !llvm.loop !44
 
 ._crit_edge181:                                   ; preds = %80, %aesni_gcm_enabled.exit.thread
   %.1155.lcssa = phi i32 [ %76, %aesni_gcm_enabled.exit.thread ], [ %81, %80 ]
@@ -1218,7 +1218,7 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   store i8 %135, ptr %133, align 1, !tbaa !12
   %136 = add i32 %.3153186, 1
   %.not166 = icmp eq i64 %125, 0
-  br i1 %.not166, label %.sink.split, label %124, !llvm.loop !44
+  br i1 %.not166, label %.sink.split, label %124, !llvm.loop !45
 
 .sink.split:                                      ; preds = %124, %110, %._crit_edge, %.preheader
   %.2152.sink = phi i32 [ %40, %._crit_edge ], [ %24, %.preheader ], [ 0, %110 ], [ %136, %124 ]
@@ -1299,7 +1299,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, p
   %42 = icmp ne i32 %41, 15
   %43 = icmp ne i64 %38, 0
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %27, label %._crit_edge, !llvm.loop !45
+  br i1 %44, label %27, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %27
   %45 = and i32 %.1155173, 15
@@ -1385,7 +1385,7 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   %90 = getelementptr inbounds nuw i8, ptr %.3183, i64 3072
   %91 = add i64 %.3152181, -3072
   %92 = icmp ugt i64 %91, 3071
-  br i1 %92, label %80, label %._crit_edge185, !llvm.loop !46
+  br i1 %92, label %80, label %._crit_edge185, !llvm.loop !47
 
 ._crit_edge185:                                   ; preds = %80, %aesni_gcm_enabled.exit.thread
   %.1159.lcssa = phi i32 [ %76, %aesni_gcm_enabled.exit.thread ], [ %81, %80 ]
@@ -1466,7 +1466,7 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   store i8 %134, ptr %135, align 1, !tbaa !12
   %136 = add i32 %.3157190, 1
   %.not170 = icmp eq i64 %125, 0
-  br i1 %.not170, label %.sink.split, label %124, !llvm.loop !47
+  br i1 %.not170, label %.sink.split, label %124, !llvm.loop !48
 
 .sink.split:                                      ; preds = %124, %110, %._crit_edge, %.preheader
   %.2156.sink = phi i32 [ %40, %._crit_edge ], [ %24, %.preheader ], [ 0, %110 ], [ %136, %124 ]
@@ -1508,8 +1508,8 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_finish(ptr noundef %0, ptr noun
   br label %20
 
 20:                                               ; preds = %14, %17
-  %21 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %6) #7, !srcloc !48
-  %22 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %9) #7, !srcloc !49
+  %21 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %6) #7, !srcloc !49
+  %22 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %9) #7, !srcloc !50
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load i64, ptr %23, align 8, !tbaa !12
   %25 = xor i64 %24, %21
@@ -1576,8 +1576,8 @@ define hidden void @CRYPTO_gcm128_tag(ptr noundef %0, ptr noundef writeonly capt
 CRYPTO_gcm128_finish.exit:                        ; preds = %12, %15
   %18 = shl i64 %7, 3
   %19 = shl i64 %5, 3
-  %20 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %19) #7, !srcloc !48
-  %21 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %18) #7, !srcloc !49
+  %20 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %19) #7, !srcloc !49
+  %21 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %18) #7, !srcloc !50
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i64, ptr %22, align 8, !tbaa !12
   %24 = xor i64 %23, %20
@@ -1647,28 +1647,29 @@ attributes #7 = { nounwind memory(none) }
 !22 = !{!21, !19, i64 8}
 !23 = !{!7, !11, i64 372}
 !24 = !{!7, !11, i64 368}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = distinct !{!28, !26}
-!29 = !{i64 2148217125}
-!30 = distinct !{!30, !26}
-!31 = distinct !{!31, !26}
-!32 = distinct !{!32, !26}
-!33 = distinct !{!33, !26}
-!34 = distinct !{!34, !26}
-!35 = distinct !{!35, !26}
-!36 = distinct !{!36, !26}
-!37 = distinct !{!37, !26}
-!38 = distinct !{!38, !26}
-!39 = distinct !{!39, !26}
-!40 = distinct !{!40, !26}
-!41 = distinct !{!41, !26}
-!42 = distinct !{!42, !26}
-!43 = distinct !{!43, !26}
-!44 = distinct !{!44, !26}
-!45 = distinct !{!45, !26}
-!46 = distinct !{!46, !26}
-!47 = distinct !{!47, !26}
-!48 = !{i64 2148222589}
-!49 = !{i64 2148222749}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = distinct !{!29, !26, !27}
+!30 = !{i64 2148217125}
+!31 = distinct !{!31, !26, !27}
+!32 = distinct !{!32, !26, !27}
+!33 = distinct !{!33, !26, !27}
+!34 = distinct !{!34, !26, !27}
+!35 = distinct !{!35, !26, !27}
+!36 = distinct !{!36, !26, !27}
+!37 = distinct !{!37, !26, !27}
+!38 = distinct !{!38, !26, !27}
+!39 = distinct !{!39, !26, !27}
+!40 = distinct !{!40, !26, !27}
+!41 = distinct !{!41, !26, !27}
+!42 = distinct !{!42, !26, !27}
+!43 = distinct !{!43, !26, !27}
+!44 = distinct !{!44, !26, !27}
+!45 = distinct !{!45, !26, !27}
+!46 = distinct !{!46, !26, !27}
+!47 = distinct !{!47, !26, !27}
+!48 = distinct !{!48, !26, !27}
+!49 = !{i64 2148222589}
+!50 = !{i64 2148222749}

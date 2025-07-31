@@ -190,7 +190,7 @@ define hidden void @get_rbm_integer(ptr noundef %0, i32 noundef %1, ptr noundef 
   store i32 %47, ptr %2, align 4
   %48 = add nuw nsw i32 %.04952, 1
   %exitcond.not = icmp eq i32 %48, %34
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %37, %33
   %49 = sub nsw i32 1, %6
@@ -411,7 +411,7 @@ rbm_set_info.exit:                                ; preds = %52, %53
   tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %69, ptr noundef %3, ptr noundef null, ptr noundef null)
   %70 = add nuw nsw i32 %.0.i130, 1
   %exitcond.not = icmp eq i32 %70, %59
-  br i1 %exitcond.not, label %dissect_rbm_array.exit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %dissect_rbm_array.exit, label %.lr.ph, !llvm.loop !10
 
 dissect_rbm_array.exit:                           ; preds = %.lr.ph, %rbm_set_info.exit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull @.str.59, i32 noundef %59)
@@ -663,7 +663,7 @@ rbm_set_info.exit121:                             ; preds = %172, %173
   %177 = load i32, ptr %3, align 4
   %178 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %177)
   %.not.i = icmp eq i32 %178, 0
-  br i1 %.not.i, label %dissect_rbm_rubyobject.exit, label %.lr.ph132, !llvm.loop !10
+  br i1 %.not.i, label %dissect_rbm_rubyobject.exit, label %.lr.ph132, !llvm.loop !11
 
 dissect_rbm_rubyobject.exit:                      ; preds = %.lr.ph132, %rbm_set_info.exit121
   %179 = load i32, ptr %3, align 4
@@ -973,7 +973,7 @@ rbm_set_info.exit:                                ; preds = %14, %15
   %40 = add nuw nsw i32 %.039, 1
   %41 = load i32, ptr %6, align 4
   %42 = icmp slt i32 %40, %41
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rbm_set_info.exit
   %.lcssa = phi i32 [ %21, %rbm_set_info.exit ], [ %41, %.lr.ph ]
@@ -1114,9 +1114,10 @@ attributes #5 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

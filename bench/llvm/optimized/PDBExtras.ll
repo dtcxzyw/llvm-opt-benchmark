@@ -8418,7 +8418,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %26, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   %.sroa.08.0 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !52
   %.not = icmp eq ptr %.sroa.08.0, null
-  br i1 %.not, label %._crit_edge, label %7
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -8499,3 +8499,5 @@ attributes #5 = { nounwind }
 !52 = !{!53, !54, i64 0}
 !53 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !54, i64 0}
 !54 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !11, i64 0}
+!55 = distinct !{!55, !56}
+!56 = !{!"llvm.loop.estimated_trip_count"}

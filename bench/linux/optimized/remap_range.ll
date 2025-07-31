@@ -1188,7 +1188,7 @@ define dso_local range(i32 -2147483648, 1) i32 @vfs_dedupe_file_range(ptr nounde
   %108 = getelementptr i8, ptr %60, i64 32
   %109 = icmp samesign ult i32 %107, %48
   %110 = select i1 %106, i1 %109, i1 false
-  br i1 %110, label %.preheader, label %.thread, !llvm.loop !35
+  br i1 %110, label %.preheader, label %.thread, !llvm.loop !36
 
 .thread:                                          ; preds = %105, %35, %32, %46, %41, %38, %26, %25, %19, %15, %11, %2
   %111 = phi i32 [ -22, %25 ], [ -22, %2 ], [ -22, %15 ], [ -22, %11 ], [ -21, %19 ], [ -95, %26 ], [ %39, %38 ], [ -22, %41 ], [ 0, %46 ], [ -22, %32 ], [ -22, %35 ], [ 0, %105 ]
@@ -1312,7 +1312,8 @@ attributes #11 = { nounwind memory(none) }
 !29 = !{i64 2156154338, i64 2156154149, i64 2156154199, i64 2156154245, i64 2156154273}
 !30 = !{i64 2153299181}
 !31 = !{i64 2147945779}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33, !34, !35}
 !33 = !{!"llvm.loop.mustprogress"}
 !34 = !{!"llvm.loop.unroll.disable"}
-!35 = distinct !{!35, !33, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = distinct !{!36, !33, !34, !35}

@@ -140,7 +140,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .backedge:                                        ; preds = %69, %73
   %72 = load i32, ptr %0, align 4, !tbaa !3
   %.not486 = icmp slt i32 %.1366, %72
-  br i1 %.not486, label %.lr.ph, label %.outer416._crit_edge
+  br i1 %.not486, label %.lr.ph, label %.outer416._crit_edge, !llvm.loop !12
 
 73:                                               ; preds = %69
   %74 = sub nsw i32 %.1366, %.0356451
@@ -187,7 +187,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %91, ptr %89, align 8, !tbaa !7
   %indvars.iv.next519 = add nsw i64 %indvars.iv518, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next519, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge456, label %.lr.ph455, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge456, label %.lr.ph455, !llvm.loop !13
 
 ._crit_edge456:                                   ; preds = %.lr.ph455, %86
   %92 = getelementptr inbounds double, ptr %14, i64 %wide.trip.count
@@ -238,7 +238,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %115 = select i1 %113, double %112, double %114
   %116 = fmul double %23, %115
   %117 = fcmp ugt double %107, %116
-  br i1 %117, label %103, label %118, !llvm.loop !12
+  br i1 %117, label %103, label %118, !llvm.loop !14
 
 118:                                              ; preds = %104
   %119 = trunc nsw i64 %indvars.iv523 to i32
@@ -364,7 +364,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %186 = fmul double %.0376458, %165
   %.1362 = select i1 %183, double %185, double %186
   %.not400.not = icmp sgt i64 %indvars.iv528, %132
-  br i1 %.not400.not, label %.lr.ph464, label %._crit_edge465, !llvm.loop !13
+  br i1 %.not400.not, label %.lr.ph464, label %._crit_edge465, !llvm.loop !15
 
 ._crit_edge465:                                   ; preds = %171, %140
   %.0361.lcssa = phi double [ %162, %140 ], [ %.1362, %171 ]
@@ -374,7 +374,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %187, ptr %135, align 8, !tbaa !7
   %188 = fadd double %157, %.0359.lcssa
   store double %188, ptr %133, align 8, !tbaa !7
-  br label %101
+  br label %101, !llvm.loop !16
 
 189:                                              ; preds = %.thread
   %.not403.not = icmp slt i32 %.1370.ph, %.0
@@ -382,7 +382,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .outer414.backedge:                               ; preds = %189, %126
   %.1370.ph.be = phi i32 [ %131, %126 ], [ %134, %189 ]
-  br label %.outer414
+  br label %.outer414, !llvm.loop !16
 
 190:                                              ; preds = %.outer, %._crit_edge476
   %.3 = phi i32 [ %228, %._crit_edge476 ], [ %.3.ph, %.outer ]
@@ -409,7 +409,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %203 = select i1 %201, double %200, double %202
   %204 = fmul double %23, %203
   %205 = fcmp ugt double %195, %204
-  br i1 %205, label %191, label %206, !llvm.loop !14
+  br i1 %205, label %191, label %206, !llvm.loop !17
 
 206:                                              ; preds = %192
   %207 = trunc nsw i64 %indvars.iv531 to i32
@@ -527,7 +527,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %272 = fmul double %.1377469, %251
   %.3364 = select i1 %269, double %271, double %272
   %exitcond539.not = icmp eq i64 %indvars.iv.next535, %219
-  br i1 %exitcond539.not, label %._crit_edge476, label %.lr.ph475, !llvm.loop !15
+  br i1 %exitcond539.not, label %._crit_edge476, label %.lr.ph475, !llvm.loop !18
 
 ._crit_edge476:                                   ; preds = %257, %227
   %.2363.lcssa = phi double [ %249, %227 ], [ %.3364, %257 ]
@@ -537,7 +537,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %273, ptr %223, align 8, !tbaa !7
   %274 = fadd double %244, %.1360.lcssa
   store double %274, ptr %220, align 8, !tbaa !7
-  br label %190
+  br label %190, !llvm.loop !19
 
 275:                                              ; preds = %.thread407
   %.not396.not = icmp sgt i32 %.2371.ph, %.0
@@ -545,7 +545,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .outer.backedge:                                  ; preds = %275, %213
   %.2371.ph.be = phi i32 [ %218, %213 ], [ %221, %275 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !19
 
 .loopexit410:                                     ; preds = %189, %126, %275, %213, %138, %225
   %.2 = phi i32 [ %32, %225 ], [ %32, %138 ], [ %.3, %213 ], [ %.3, %275 ], [ %.1, %126 ], [ %.1, %189 ]
@@ -566,7 +566,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 279:                                              ; preds = %278, %277
   %280 = icmp slt i32 %.2, %32
-  br i1 %280, label %.outer416, label %281
+  br i1 %280, label %.outer416, label %281, !llvm.loop !12
 
 281:                                              ; preds = %279
   %282 = load i32, ptr %0, align 4, !tbaa !3
@@ -593,7 +593,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 289:                                              ; preds = %.lr.ph485, %286
   %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
   %exitcond544.not = icmp eq i64 %indvars.iv.next541, %wide.trip.count543
-  br i1 %exitcond544.not, label %.loopexit, label %.lr.ph485, !llvm.loop !16
+  br i1 %exitcond544.not, label %.loopexit, label %.lr.ph485, !llvm.loop !20
 
 .outer416._crit_edge:                             ; preds = %.outer416, %.backedge
   call void @dlasrt_(ptr noundef nonnull @.str.6, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3) #6
@@ -662,11 +662,15 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !10, !11}

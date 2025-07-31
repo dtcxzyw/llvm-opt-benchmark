@@ -295,7 +295,7 @@ _ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE6removeEv.exit: ; pr
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %19 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %18) #8, !srcloc !10
+  %19 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %18) #8, !srcloc !11
   %20 = icmp eq i64 %19, 1
   br i1 %20, label %21, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
 
@@ -353,7 +353,7 @@ define hidden void @_ZN14JfrTypeManager11on_rotationEv() local_unnamed_addr #0 a
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE7iterateI16InvokeOnRotationEEvRT_.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE7iterateI16InvokeOnRotationEEvRT_.exit, label %.lr.ph.i, !llvm.loop !12
 
 _ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE7iterateI16InvokeOnRotationEEvRT_.exit: ; preds = %.lr.ph.i, %0
   ret void
@@ -488,7 +488,7 @@ define internal fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP
   store ptr %24, ptr %5, align 8
   %25 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr %24, ptr nonnull @_ZL5types) #8, !srcloc !7
   %.not.i = icmp eq ptr %25, %24
-  br i1 %.not.i, label %_ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE3addEPS0_.exit, label %23, !llvm.loop !12
+  br i1 %.not.i, label %_ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE3addEPS0_.exit, label %23, !llvm.loop !13
 
 _ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE3addEPS0_.exit: ; preds = %23, %7, %9
   ret i1 %6
@@ -515,7 +515,7 @@ define hidden void @_ZN14JfrTypeManager18write_static_typesER19JfrCheckpointWrit
   %3 = load ptr, ptr %.07.i, align 8
   tail call void @_ZNK25JfrSerializerRegistration6invokeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(29) %.07.i, ptr noundef nonnull align 8 dereferenceable(73) %0)
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE7iterateI16InvokeSerializerEEvRT_.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE7iterateI16InvokeSerializerEEvRT_.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE7iterateI16InvokeSerializerEEvRT_.exit: ; preds = %.lr.ph.i, %1
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) @_ZN27SerializerRegistrationGuard16_mutex_semaphoreE, i32 noundef 1) #8
@@ -703,7 +703,7 @@ define linkonce_odr hidden void @_ZNK25JfrSerializerRegistration6invokeER19JfrCh
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %44 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %43) #8, !srcloc !10
+  %44 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %43) #8, !srcloc !11
   %45 = icmp eq i64 %44, 1
   br i1 %45, label %46, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
 
@@ -864,9 +864,10 @@ attributes #8 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
 !7 = !{i64 2145412694}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 2145411697}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 2145411697}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

@@ -796,7 +796,7 @@ dissect_cose_signature.exit:                      ; preds = %.lr.ph, %57
   %70 = add nuw i64 %.041, 1
   %71 = load i64, ptr %48, align 8
   %72 = icmp ult i64 %70, %71
-  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %dissect_cose_signature.exit, %45, %dissect_payload.exit
   %73 = load i32, ptr %5, align 4
@@ -1223,7 +1223,7 @@ define internal i32 @dissect_cose_key_set(ptr noundef %0, ptr noundef %1, ptr no
   %36 = add nuw i64 %.023, 1
   %37 = load i64, ptr %19, align 8
   %38 = icmp ult i64 %36, %37
-  br i1 %38, label %22, label %.loopexit, !llvm.loop !9
+  br i1 %38, label %22, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %22, %16, %4
   %39 = load i32, ptr %7, align 4
@@ -1715,7 +1715,7 @@ define internal i32 @dissect_header_crit(ptr noundef %0, ptr noundef %1, ptr nou
   %32 = add nuw i64 %.028, 1
   %33 = load i64, ptr %17, align 8
   %34 = icmp ult i64 %32, %33
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %31, %14, %4
   %35 = load i32, ptr %5, align 4
@@ -2019,7 +2019,7 @@ define internal i32 @dissect_keyparam_keyops(ptr noundef %0, ptr noundef %1, ptr
   %32 = add nuw i64 %.029, 1
   %33 = load i64, ptr %17, align 8
   %34 = icmp ult i64 %32, %33
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %31, %14, %4
   %35 = load i32, ptr %5, align 4
@@ -2239,7 +2239,7 @@ define internal fastcc void @dissect_header_map(ptr noundef %0, ptr noundef %1, 
   %38 = add nuw i64 %.04653, 1
   %39 = load i64, ptr %25, align 8
   %40 = icmp ult i64 %38, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.critedge, %34, %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
@@ -2255,7 +2255,7 @@ define internal fastcc void @dissect_header_map(ptr noundef %0, ptr noundef %1, 
   %45 = add nuw i64 %.055, 1
   %46 = load i64, ptr %42, align 8
   %47 = icmp ult i64 %45, %46
-  br i1 %47, label %.lr.ph57, label %._crit_edge58, !llvm.loop !13
+  br i1 %47, label %.lr.ph57, label %._crit_edge58, !llvm.loop !14
 
 .lr.ph57:                                         ; preds = %41, %44
   %.055 = phi i64 [ %45, %44 ], [ 0, %41 ]
@@ -2864,7 +2864,7 @@ dissect_cose_recipient.exit:                      ; preds = %.lr.ph, %dissect_ci
   %49 = add nuw i64 %.022, 1
   %50 = load i64, ptr %16, align 8
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %dissect_cose_recipient.exit, %13, %4
   %52 = load i32, ptr %3, align 4
@@ -2935,7 +2935,7 @@ define internal fastcc void @dissect_value_cosex509(ptr noundef %0, ptr noundef 
   %20 = add nuw i64 %.025, 1
   %21 = load i64, ptr %18, align 8
   %22 = icmp ult i64 %20, %21
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 23:                                               ; preds = %5
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3098,13 +3098,14 @@ attributes #12 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

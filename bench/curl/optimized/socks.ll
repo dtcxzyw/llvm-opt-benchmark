@@ -1009,7 +1009,7 @@ socksstate.exit472.i.i:                           ; preds = %332, %329
   %377 = getelementptr inbounds nuw i8, ptr %.0, i64 19
   store i8 1, ptr %377, align 1, !tbaa !118
   %378 = getelementptr inbounds nuw i8, ptr %.1360545.i.i, i64 32
-  %379 = load ptr, ptr %378, align 8, !tbaa !131
+  %379 = load ptr, ptr %378, align 8, !tbaa !132
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 4
   br label %381
 
@@ -1023,7 +1023,7 @@ socksstate.exit472.i.i:                           ; preds = %332, %329
   store i8 %383, ptr %385, align 1, !tbaa !118
   %indvars.iv.next594.i.i = add nuw nsw i64 %indvars.iv593.i.i, 1
   %exitcond596.not.i.i = icmp eq i64 %indvars.iv.next594.i.i, 4
-  br i1 %exitcond596.not.i.i, label %386, label %381, !llvm.loop !132
+  br i1 %exitcond596.not.i.i, label %386, label %381, !llvm.loop !133
 
 386:                                              ; preds = %381
   %.not439.i.i = icmp eq ptr %1, null
@@ -1058,7 +1058,7 @@ socksstate.exit472.i.i:                           ; preds = %332, %329
   %402 = getelementptr inbounds nuw i8, ptr %.0, i64 19
   store i8 4, ptr %402, align 1, !tbaa !118
   %403 = getelementptr inbounds nuw i8, ptr %.1360545.i.i, i64 32
-  %404 = load ptr, ptr %403, align 8, !tbaa !131
+  %404 = load ptr, ptr %403, align 8, !tbaa !132
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   br label %406
 
@@ -1072,7 +1072,7 @@ socksstate.exit472.i.i:                           ; preds = %332, %329
   store i8 %408, ptr %410, align 1, !tbaa !118
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %411, label %406, !llvm.loop !133
+  br i1 %exitcond.not.i.i, label %411, label %406, !llvm.loop !134
 
 411:                                              ; preds = %406
   %.not436.i.i = icmp eq ptr %1, null
@@ -1533,7 +1533,7 @@ do_SOCKS5.exit.i:                                 ; preds = %587, %583, %socksst
 
 591:                                              ; preds = %588
   %592 = getelementptr inbounds nuw i8, ptr %93, i64 1411
-  store i8 1, ptr %592, align 1, !tbaa !134
+  store i8 1, ptr %592, align 1, !tbaa !135
   %593 = getelementptr inbounds nuw i8, ptr %93, i64 952
   %594 = load i64, ptr %593, align 8
   %595 = and i64 %594, 1
@@ -1678,7 +1678,7 @@ socksstate.exit.i25.i:                            ; preds = %647, %644
   %669 = getelementptr inbounds nuw i8, ptr %.0, i64 624
   %670 = load ptr, ptr %669, align 8, !tbaa !28
   %671 = getelementptr inbounds nuw i8, ptr %93, i64 372
-  %672 = load i32, ptr %671, align 4, !tbaa !135
+  %672 = load i32, ptr %671, align 4, !tbaa !136
   %673 = tail call ptr @Curl_fetch_addr(ptr noundef %1, ptr noundef %670, i32 noundef %672) #7
   store ptr %673, ptr %7, align 8, !tbaa !112
   %.not.i19.i = icmp eq ptr %673, null
@@ -1741,7 +1741,7 @@ socksstate.exit247.i.i:                           ; preds = %socksstate.exit247.
 
 .preheader.i.i:                                   ; preds = %socksstate.exit247.i.i, %694
   %698 = phi ptr [ %.pr.i20.i, %socksstate.exit247.i.i ], [ %696, %694 ]
-  %.0187286.i.i = load ptr, ptr %698, align 8, !tbaa !136
+  %.0187286.i.i = load ptr, ptr %698, align 8, !tbaa !137
   %.not230287.i.i = icmp eq ptr %.0187286.i.i, null
   br i1 %.not230287.i.i, label %.critedge245.i.i, label %.lr.ph.i21.i
 
@@ -1754,15 +1754,15 @@ socksstate.exit247.i.i:                           ; preds = %socksstate.exit247.
 
 701:                                              ; preds = %.lr.ph.i21.i
   %702 = getelementptr inbounds nuw i8, ptr %.0187288.i.i, i64 40
-  %.0187.i.i = load ptr, ptr %702, align 8, !tbaa !136
+  %.0187.i.i = load ptr, ptr %702, align 8, !tbaa !137
   %.not230.i.i = icmp eq ptr %.0187.i.i, null
-  br i1 %.not230.i.i, label %.critedge245.i.i, label %.lr.ph.i21.i, !llvm.loop !137
+  br i1 %.not230.i.i, label %.critedge245.i.i, label %.lr.ph.i21.i, !llvm.loop !138
 
 .critedge.i22.i:                                  ; preds = %.lr.ph.i21.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #7
   call void @Curl_printable_address(ptr noundef nonnull %.0187288.i.i, ptr noundef nonnull %8, i64 noundef 64) #7
   %703 = getelementptr inbounds nuw i8, ptr %.0187288.i.i, i64 32
-  %704 = load ptr, ptr %703, align 8, !tbaa !131
+  %704 = load ptr, ptr %703, align 8, !tbaa !132
   %705 = getelementptr inbounds nuw i8, ptr %704, i64 4
   %706 = load i8, ptr %705, align 4, !tbaa !118
   %707 = getelementptr inbounds nuw i8, ptr %.0, i64 20
@@ -2175,7 +2175,7 @@ do_SOCKS4.exit.i:                                 ; preds = %892, %871, %850, %8
 
 915:                                              ; preds = %914
   %916 = getelementptr inbounds nuw i8, ptr %1, i64 5288
-  store i32 %.012.i, ptr %916, align 8, !tbaa !138
+  store i32 %.012.i, ptr %916, align 8, !tbaa !139
   br label %socks_proxy_cf_free.exit
 
 connect_SOCKS.exit:                               ; preds = %914
@@ -2238,7 +2238,7 @@ socks_proxy_cf_free.exit:                         ; preds = %2, %8
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !139
+  %14 = load ptr, ptr %13, align 8, !tbaa !140
   tail call void %14(ptr noundef nonnull %11, ptr noundef %1) #7
   ret void
 }
@@ -2257,13 +2257,13 @@ define internal void @socks_cf_get_host(ptr noundef readonly captures(none) %0, 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 184
-  %13 = load ptr, ptr %12, align 8, !tbaa !140
+  %13 = load ptr, ptr %12, align 8, !tbaa !141
   store ptr %13, ptr %2, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 248
-  %15 = load ptr, ptr %14, align 8, !tbaa !141
+  %15 = load ptr, ptr %14, align 8, !tbaa !142
   store ptr %15, ptr %3, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 200
-  %17 = load i32, ptr %16, align 8, !tbaa !142
+  %17 = load i32, ptr %16, align 8, !tbaa !143
   store i32 %17, ptr %4, align 4, !tbaa !119
   br label %24
 
@@ -2272,7 +2272,7 @@ define internal void @socks_cf_get_host(ptr noundef readonly captures(none) %0, 
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !143
+  %23 = load ptr, ptr %22, align 8, !tbaa !144
   tail call void %23(ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #7
   br label %24
 
@@ -2338,7 +2338,7 @@ define hidden i32 @Curl_cf_socks_proxy_insert_after(ptr noundef %0, ptr noundef 
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %3, align 8, !tbaa !144
+  %6 = load ptr, ptr %3, align 8, !tbaa !145
   call void @Curl_conn_cf_insert_after(ptr noundef %0, ptr noundef %6) #7
   br label %7
 
@@ -2536,19 +2536,20 @@ attributes #8 = { nounwind willreturn memory(read) }
 !126 = !{!"Curl_addrinfo", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !19, i64 24, !127, i64 32, !123, i64 40}
 !127 = !{!"p1 _ZTS8sockaddr", !6, i64 0}
 !128 = !{!126, !123, i64 40}
-!129 = distinct !{!129, !130}
+!129 = distinct !{!129, !130, !131}
 !130 = !{!"llvm.loop.mustprogress"}
-!131 = !{!126, !127, i64 32}
-!132 = distinct !{!132, !130}
-!133 = distinct !{!133, !130}
-!134 = !{!30, !7, i64 1411}
-!135 = !{!30, !11, i64 372}
-!136 = !{!123, !123, i64 0}
-!137 = distinct !{!137, !130}
-!138 = !{!59, !11, i64 5288}
-!139 = !{!18, !6, i64 32}
-!140 = !{!30, !19, i64 184}
-!141 = !{!30, !19, i64 248}
-!142 = !{!30, !11, i64 200}
-!143 = !{!18, !6, i64 48}
-!144 = !{!9, !9, i64 0}
+!131 = !{!"llvm.loop.estimated_trip_count"}
+!132 = !{!126, !127, i64 32}
+!133 = distinct !{!133, !130, !131}
+!134 = distinct !{!134, !130, !131}
+!135 = !{!30, !7, i64 1411}
+!136 = !{!30, !11, i64 372}
+!137 = !{!123, !123, i64 0}
+!138 = distinct !{!138, !130, !131}
+!139 = !{!59, !11, i64 5288}
+!140 = !{!18, !6, i64 32}
+!141 = !{!30, !19, i64 184}
+!142 = !{!30, !19, i64 248}
+!143 = !{!30, !11, i64 200}
+!144 = !{!18, !6, i64 48}
+!145 = !{!9, !9, i64 0}

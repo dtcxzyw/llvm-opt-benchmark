@@ -453,7 +453,7 @@ define hidden ptr @SDL_SYS_GetUserFolder(i32 noundef %0) local_unnamed_addr #0 {
 
 .critedge.i.i:                                    ; preds = %61, %61
   %63 = getelementptr inbounds nuw i8, ptr %.088.i.i, i64 1
-  br label %61, !llvm.loop !5
+  br label %61, !llvm.loop !6
 
 64:                                               ; preds = %61
   %65 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull %.088.i.i, ptr noundef nonnull @.str.33, i64 noundef 4) #7
@@ -463,7 +463,7 @@ define hidden ptr @SDL_SYS_GetUserFolder(i32 noundef %0) local_unnamed_addr #0 {
 .backedge.i.i:                                    ; preds = %77, %.preheader.i.i, %84, %71, %67, %64
   %66 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %48)
   %.not112.i.i = icmp eq ptr %66, null
-  br i1 %.not112.i.i, label %.outer._crit_edge.i.i, label %50, !llvm.loop !6
+  br i1 %.not112.i.i, label %.outer._crit_edge.i.i, label %50, !llvm.loop !7
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %.088.i.i, i64 4
@@ -490,24 +490,24 @@ define hidden ptr @SDL_SYS_GetUserFolder(i32 noundef %0) local_unnamed_addr #0 {
     i8 32, label %.critedge2.i.i
     i8 9, label %.critedge2.i.i
     i8 61, label %.preheader.i.i
-  ]
+  ], !llvm.loop !7
 
 .critedge2.i.i:                                   ; preds = %77, %77
   %79 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
-  br label %77, !llvm.loop !7
+  br label %77, !llvm.loop !8
 
-.preheader.i.i:                                   ; preds = %77, %.preheader.i.i.backedge
-  %.1.pn.i.i = phi ptr [ %.2.i.i, %.preheader.i.i.backedge ], [ %.1.i.i, %77 ]
+.preheader.i.i:                                   ; preds = %77, %.critedge4.i.i
+  %.1.pn.i.i = phi ptr [ %.2.i.i, %.critedge4.i.i ], [ %.1.i.i, %77 ]
   %.2.i.i = getelementptr inbounds nuw i8, ptr %.1.pn.i.i, i64 1
   %80 = load i8, ptr %.2.i.i, align 1
   switch i8 %80, label %.backedge.i.i [
-    i8 32, label %.preheader.i.i.backedge
-    i8 9, label %.preheader.i.i.backedge
+    i8 32, label %.critedge4.i.i
+    i8 9, label %.critedge4.i.i
     i8 34, label %81
-  ]
+  ], !llvm.loop !7
 
-.preheader.i.i.backedge:                          ; preds = %.preheader.i.i, %.preheader.i.i
-  br label %.preheader.i.i, !llvm.loop !8
+.critedge4.i.i:                                   ; preds = %.preheader.i.i, %.preheader.i.i
+  br label %.preheader.i.i, !llvm.loop !9
 
 81:                                               ; preds = %.preheader.i.i
   %82 = getelementptr inbounds nuw i8, ptr %.1.pn.i.i, i64 2
@@ -579,13 +579,13 @@ define hidden ptr @SDL_SYS_GetUserFolder(i32 noundef %0) local_unnamed_addr #0 {
   %112 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 1
   %113 = getelementptr inbounds nuw i8, ptr %.087.i.i, i64 1
   store i8 %111, ptr %.087.i.i, align 1
-  br label %104, !llvm.loop !9
+  br label %104, !llvm.loop !10
 
 .critedge6.i.i:                                   ; preds = %104, %104
   store i8 0, ptr %.087.i.i, align 1
   %114 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %48)
   %.not11214.i.i = icmp eq ptr %114, null
-  br i1 %.not11214.i.i, label %.outer._crit_edge.thread29.i.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not11214.i.i, label %.outer._crit_edge.thread29.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 .outer._crit_edge.thread29.i.i:                   ; preds = %.critedge6.i.i
   %115 = call i32 @fclose(ptr noundef nonnull %48)
@@ -695,10 +695,11 @@ attributes #9 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}

@@ -131,7 +131,7 @@ mmbit_get_flat_block.exit84.i556:                 ; preds = %51, %43, %40, %37
 71:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %71
   %72 = and i32 %27, 63
@@ -251,7 +251,7 @@ mmbit_get_flat_block.exit.i547:                   ; preds = %95, %87, %84, %81
   %.127.i283.be = phi i32 [ %137, %134 ], [ %130, %126 ]
   %.124.i284.be = phi i32 [ %narrow33.i288, %134 ], [ 0, %126 ]
   %.1.i285.be = phi i32 [ %135, %134 ], [ %131, %126 ]
-  br label %.backedge1069
+  br label %.backedge1069, !llvm.loop !7
 
 mmbit_iterate.exit30:                             ; preds = %126, %65
   %.011.i29 = phi i32 [ %70, %65 ], [ %130, %126 ]
@@ -576,7 +576,7 @@ mmbit_get_flat_block.exit80.i564:                 ; preds = %287, %279, %276, %2
 316:                                              ; preds = %.lr.ph1156
   %indvars.iv.next1494 = add nuw nsw i64 %indvars.iv1493, 1
   %exitcond1496.not = icmp eq i64 %indvars.iv.next1494, %306
-  br i1 %exitcond1496.not, label %._crit_edge1157, label %.lr.ph1156
+  br i1 %exitcond1496.not, label %._crit_edge1157, label %.lr.ph1156, !llvm.loop !5
 
 ._crit_edge1157:                                  ; preds = %316, %.preheader1067
   %.261.i575.lcssa = phi i32 [ %263, %.preheader1067 ], [ %258, %316 ]
@@ -701,12 +701,12 @@ mmbit_get_flat_block.exit.i579:                   ; preds = %341, %333, %330, %3
   %.127.i303.be = phi i32 [ %385, %382 ], [ %378, %374 ]
   %.124.i304.be = phi i32 [ %narrow33.i308, %382 ], [ 0, %374 ]
   %.1.i305.be = phi i32 [ %383, %382 ], [ %379, %374 ]
-  br label %.backedge1066
+  br label %.backedge1066, !llvm.loop !7
 
 mmbit_iterate.exit25:                             ; preds = %374, %254, %.thread692, %310, %348
   %.011.i24 = phi i32 [ %256, %254 ], [ %315, %310 ], [ %351, %348 ], [ %301, %.thread692 ], [ %378, %374 ]
   %.not48.i = icmp eq i32 %.011.i24, -1
-  br i1 %.not48.i, label %.critedge.i13.loopexit, label %143
+  br i1 %.not48.i, label %.critedge.i13.loopexit, label %143, !llvm.loop !8
 
 .critedge.i13.loopexit:                           ; preds = %mmbit_get_flat_block.exit.i579, %._crit_edge1157, %302, %mmbit_get_flat_block.exit84.i590, %subCastleReportCurrent.exit397, %mmbit_iterate.exit25, %.thread702
   %.pr.pre = load i8, ptr %17, align 1
@@ -812,7 +812,7 @@ mmbit_get_flat_block.exit84.i614:                 ; preds = %416, %408, %405, %4
 436:                                              ; preds = %.lr.ph1166
   %indvars.iv.next1498 = add nuw nsw i64 %indvars.iv1497, 1
   %exitcond1501.not = icmp eq i64 %indvars.iv.next1498, %wide.trip.count1500
-  br i1 %exitcond1501.not, label %._crit_edge1167, label %.lr.ph1166
+  br i1 %exitcond1501.not, label %._crit_edge1167, label %.lr.ph1166, !llvm.loop !5
 
 ._crit_edge1167:                                  ; preds = %436
   %437 = and i32 %392, 63
@@ -932,7 +932,7 @@ mmbit_get_flat_block.exit.i605:                   ; preds = %460, %452, %449, %4
   %.127.i319.be = phi i32 [ %502, %499 ], [ %495, %491 ]
   %.124.i320.be = phi i32 [ %narrow33.i324, %499 ], [ 0, %491 ]
   %.1.i321.be = phi i32 [ %500, %499 ], [ %496, %491 ]
-  br label %.backedge1065
+  br label %.backedge1065, !llvm.loop !7
 
 mmbit_iterate.exit20:                             ; preds = %491, %430
   %.011.i19 = phi i32 [ %435, %430 ], [ %495, %491 ]
@@ -1217,7 +1217,7 @@ mmbit_get_flat_block.exit80.i622:                 ; preds = %629, %621, %618, %6
 658:                                              ; preds = %.lr.ph1170
   %indvars.iv.next1503 = add nuw nsw i64 %indvars.iv1502, 1
   %exitcond1505.not = icmp eq i64 %indvars.iv.next1503, %648
-  br i1 %exitcond1505.not, label %._crit_edge1171, label %.lr.ph1170
+  br i1 %exitcond1505.not, label %._crit_edge1171, label %.lr.ph1170, !llvm.loop !5
 
 ._crit_edge1171:                                  ; preds = %658, %.preheader1064
   %.261.i633.lcssa = phi i32 [ %605, %.preheader1064 ], [ %601, %658 ]
@@ -1342,12 +1342,12 @@ mmbit_get_flat_block.exit.i637:                   ; preds = %683, %675, %672, %6
   %.127.i339.be = phi i32 [ %727, %724 ], [ %720, %716 ]
   %.124.i340.be = phi i32 [ %narrow33.i344, %724 ], [ 0, %716 ]
   %.1.i341.be = phi i32 [ %725, %724 ], [ %721, %716 ]
-  br label %.backedge1063
+  br label %.backedge1063, !llvm.loop !7
 
 mmbit_iterate.exit:                               ; preds = %716, %597, %.thread736, %652, %690
   %.011.i = phi i32 [ %599, %597 ], [ %657, %652 ], [ %693, %690 ], [ %643, %.thread736 ], [ %720, %716 ]
   %.not51.i = icmp eq i32 %.011.i, -1
-  br i1 %.not51.i, label %castleReportCurrent.exit, label %507
+  br i1 %.not51.i, label %castleReportCurrent.exit, label %507, !llvm.loop !9
 
 castleReportCurrent.exit.thread:                  ; preds = %repeatHasMatch.exit.i389.thread688, %repeatHasMatch.exit.i.thread733
   store i8 0, ptr %5, align 8
@@ -1480,7 +1480,7 @@ castleReportCurrent.exit:                         ; preds = %.thread719, %mmbit_
 804:                                              ; preds = %.lr.ph1183
   %805 = getelementptr inbounds nuw i8, ptr %.013.i491181, i64 8
   %.not14.i50 = icmp ult ptr %805, %803
-  br i1 %.not14.i50, label %.lr.ph1183, label %.critedge.i51
+  br i1 %.not14.i50, label %.lr.ph1183, label %.critedge.i51, !llvm.loop !10
 
 .lr.ph1183:                                       ; preds = %.lr.ph1183.preheader, %804
   %.013.i491181 = phi ptr [ %805, %804 ], [ %771, %.lr.ph1183.preheader ]
@@ -1562,7 +1562,7 @@ mmbit_any.exit41:                                 ; preds = %794, %786, %783, %7
 837:                                              ; preds = %.lr.ph1187
   %838 = getelementptr inbounds nuw i8, ptr %.013.i551185, i64 8
   %.not14.i56 = icmp ult ptr %838, %gep1331
-  br i1 %.not14.i56, label %.lr.ph1187, label %.critedge.i57
+  br i1 %.not14.i56, label %.lr.ph1187, label %.critedge.i57, !llvm.loop !10
 
 .lr.ph1187:                                       ; preds = %835, %837
   %.013.i551185 = phi ptr [ %838, %837 ], [ %740, %835 ]
@@ -1630,7 +1630,7 @@ mmbit_any.exit41.thread759:                       ; preds = %.lr.ph1183, %.lr.ph
 865:                                              ; preds = %.lr.ph1206
   %866 = getelementptr inbounds nuw i8, ptr %.042.i1205, i64 1
   %867 = icmp ult ptr %866, %858
-  br i1 %867, label %.lr.ph1206, label %vermicelliExec.exit
+  br i1 %867, label %.lr.ph1206, label %vermicelliExec.exit, !llvm.loop !11
 
 868:                                              ; preds = %855
   %869 = ptrtoint ptr %857 to i64
@@ -1643,7 +1643,7 @@ mmbit_any.exit41.thread759:                       ; preds = %.lr.ph1183, %.lr.ph
   %873 = icmp eq <16 x i8> %860, %872
   %874 = bitcast <16 x i1> %873 to i16
   %.not9.i100 = icmp eq i16 %874, 0
-  br i1 %.not9.i100, label %vermUnalign.exit102.thread, label %vermUnalign.exit102, !prof !5
+  br i1 %.not9.i100, label %vermUnalign.exit102.thread, label %vermUnalign.exit102, !prof !12
 
 vermUnalign.exit102.thread:                       ; preds = %871
   %875 = sub nuw nsw i64 16, %870
@@ -1681,7 +1681,7 @@ vermUnalign.exit102:                              ; preds = %871
   %891 = shufflevector <16 x i1> %887, <16 x i1> %890, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %892 = bitcast <32 x i1> %891 to i32
   %.not39.i.not = icmp eq i32 %892, 0
-  br i1 %.not39.i.not, label %897, label %893, !prof !5
+  br i1 %.not39.i.not, label %897, label %893, !prof !12
 
 893:                                              ; preds = %.lr.ph1201
   %894 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %892, i1 true)
@@ -1693,7 +1693,7 @@ vermUnalign.exit102:                              ; preds = %871
   %898 = getelementptr inbounds nuw i8, ptr %.032.i1199, i64 32
   %899 = getelementptr inbounds nuw i8, ptr %.032.i1199, i64 63
   %900 = icmp ult ptr %899, %881
-  br i1 %900, label %.lr.ph1201, label %.preheader1059
+  br i1 %900, label %.lr.ph1201, label %.preheader1059, !llvm.loop !13
 
 .lr.ph1204:                                       ; preds = %.preheader1059, %908
   %.133.i1203 = phi ptr [ %909, %908 ], [ %.032.i.lcssa, %.preheader1059 ]
@@ -1702,7 +1702,7 @@ vermUnalign.exit102:                              ; preds = %871
   %902 = icmp eq <16 x i8> %860, %901
   %903 = bitcast <16 x i1> %902 to i16
   %.not37.i.not = icmp eq i16 %903, 0
-  br i1 %.not37.i.not, label %908, label %904, !prof !5
+  br i1 %.not37.i.not, label %908, label %904, !prof !12
 
 904:                                              ; preds = %.lr.ph1204
   %905 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %903, i1 true)
@@ -1714,7 +1714,7 @@ vermUnalign.exit102:                              ; preds = %871
   %909 = getelementptr inbounds nuw i8, ptr %.133.i1203, i64 16
   %910 = getelementptr inbounds nuw i8, ptr %.133.i1203, i64 31
   %911 = icmp ult ptr %910, %881
-  br i1 %911, label %.lr.ph1204, label %vermSearchAligned.exit.thread
+  br i1 %911, label %.lr.ph1204, label %vermSearchAligned.exit.thread, !llvm.loop !14
 
 vermSearchAligned.exit.thread:                    ; preds = %908, %.preheader1059
   %912 = getelementptr inbounds i8, ptr %858, i64 -16
@@ -1722,7 +1722,7 @@ vermSearchAligned.exit.thread:                    ; preds = %908, %.preheader105
   %914 = icmp eq <16 x i8> %860, %913
   %915 = bitcast <16 x i1> %914 to i16
   %.not9.i = icmp eq i16 %915, 0
-  br i1 %.not9.i, label %vermUnalign.exit, label %916, !prof !5
+  br i1 %.not9.i, label %vermUnalign.exit, label %916, !prof !12
 
 916:                                              ; preds = %vermSearchAligned.exit.thread
   %917 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %915, i1 true)
@@ -1764,7 +1764,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph1206, %865, %
 931:                                              ; preds = %.lr.ph1195
   %932 = getelementptr inbounds nuw i8, ptr %.042.i1171194, i64 1
   %933 = icmp ult ptr %932, %925
-  br i1 %933, label %.lr.ph1195, label %nvermicelliExec.exit
+  br i1 %933, label %.lr.ph1195, label %nvermicelliExec.exit, !llvm.loop !15
 
 934:                                              ; preds = %922
   %935 = ptrtoint ptr %924 to i64
@@ -1777,7 +1777,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph1206, %865, %
   %939 = icmp eq <16 x i8> %927, %938
   %940 = bitcast <16 x i1> %939 to i16
   %.not9.i54.i = icmp eq i16 %940, -1
-  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !5
+  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !12
 
 vermUnalign.exit56.i.thread:                      ; preds = %937
   %941 = sub nuw nsw i64 16, %936
@@ -1816,7 +1816,7 @@ vermUnalign.exit56.i:                             ; preds = %937
   %958 = shufflevector <16 x i1> %954, <16 x i1> %957, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %959 = bitcast <32 x i1> %958 to i32
   %.not39.i.i.not = icmp eq i32 %959, -1
-  br i1 %.not39.i.i.not, label %965, label %960, !prof !5
+  br i1 %.not39.i.i.not, label %965, label %960, !prof !12
 
 960:                                              ; preds = %.lr.ph1190
   %961 = xor i32 %959, -1
@@ -1829,7 +1829,7 @@ vermUnalign.exit56.i:                             ; preds = %937
   %966 = getelementptr inbounds nuw i8, ptr %.032.i.i1188, i64 32
   %967 = getelementptr inbounds nuw i8, ptr %.032.i.i1188, i64 63
   %968 = icmp ult ptr %967, %948
-  br i1 %968, label %.lr.ph1190, label %.preheader1061
+  br i1 %968, label %.lr.ph1190, label %.preheader1061, !llvm.loop !13
 
 .lr.ph1193:                                       ; preds = %.preheader1061, %977
   %.133.i.i1192 = phi ptr [ %978, %977 ], [ %.032.i.i.lcssa, %.preheader1061 ]
@@ -1838,7 +1838,7 @@ vermUnalign.exit56.i:                             ; preds = %937
   %970 = icmp eq <16 x i8> %927, %969
   %971 = bitcast <16 x i1> %970 to i16
   %.not37.i.i.not = icmp eq i16 %971, -1
-  br i1 %.not37.i.i.not, label %977, label %972, !prof !5
+  br i1 %.not37.i.i.not, label %977, label %972, !prof !12
 
 972:                                              ; preds = %.lr.ph1193
   %973 = xor i16 %971, -1
@@ -1851,7 +1851,7 @@ vermUnalign.exit56.i:                             ; preds = %937
   %978 = getelementptr inbounds nuw i8, ptr %.133.i.i1192, i64 16
   %979 = getelementptr inbounds nuw i8, ptr %.133.i.i1192, i64 31
   %980 = icmp ult ptr %979, %948
-  br i1 %980, label %.lr.ph1193, label %vermSearchAligned.exit.i.thread
+  br i1 %980, label %.lr.ph1193, label %vermSearchAligned.exit.i.thread, !llvm.loop !14
 
 vermSearchAligned.exit.i.thread:                  ; preds = %977, %.preheader1061
   %981 = getelementptr inbounds i8, ptr %925, i64 -16
@@ -1859,7 +1859,7 @@ vermSearchAligned.exit.i.thread:                  ; preds = %977, %.preheader106
   %983 = icmp eq <16 x i8> %927, %982
   %984 = bitcast <16 x i1> %983 to i16
   %.not9.i.i = icmp eq i16 %984, -1
-  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %985, !prof !5
+  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %985, !prof !12
 
 985:                                              ; preds = %vermSearchAligned.exit.i.thread
   %986 = xor i16 %984, -1
@@ -2045,7 +2045,7 @@ mmbit_get_flat_block.exit84.i535:                 ; preds = %1056, %1048, %1045,
 1076:                                             ; preds = %.lr.ph1212
   %indvars.iv.next1507 = add nuw nsw i64 %indvars.iv1506, 1
   %exitcond1510.not = icmp eq i64 %indvars.iv.next1507, %wide.trip.count1509
-  br i1 %exitcond1510.not, label %._crit_edge1213, label %.lr.ph1212
+  br i1 %exitcond1510.not, label %._crit_edge1213, label %.lr.ph1212, !llvm.loop !5
 
 ._crit_edge1213:                                  ; preds = %1076
   %1077 = and i32 %1032, 63
@@ -2165,7 +2165,7 @@ mmbit_get_flat_block.exit.i526:                   ; preds = %1100, %1092, %1089,
   %.127.i247.be = phi i32 [ %1142, %1139 ], [ %1135, %1131 ]
   %.124.i248.be = phi i32 [ %narrow33.i252, %1139 ], [ 0, %1131 ]
   %.1.i249.be = phi i32 [ %1140, %1139 ], [ %1136, %1131 ]
-  br label %.backedge1057
+  br label %.backedge1057, !llvm.loop !7
 
 mmbit_iterate.exit62.i:                           ; preds = %1131, %1070
   %.011.i61.i = phi i32 [ %1075, %1070 ], [ %1135, %1131 ]
@@ -2443,7 +2443,7 @@ subCastleNextMatch.exit.thread814:                ; preds = %1189, %subCastleNex
   %1309 = zext i8 %1308 to i32
   %1310 = and i32 %1307, %1309
   %.not.not.i161 = icmp eq i32 %1310, 0
-  br i1 %.not.not.i161, label %1311, label %.thread818, !prof !5
+  br i1 %.not.not.i161, label %1311, label %.thread818, !prof !12
 
 1311:                                             ; preds = %1293
   %1312 = getelementptr inbounds nuw i8, ptr %1298, i64 %1302
@@ -2476,12 +2476,12 @@ subCastleNextMatch.exit.thread814:                ; preds = %1189, %subCastleNex
   %1333 = shl nuw i64 1, %1332
   store i64 %1333, ptr %1329, align 1
   %.not33.i166 = icmp eq i32 %1316, %1291
-  br i1 %.not33.i166, label %set_matching.exit, label %.lr.ph1226
+  br i1 %.not33.i166, label %set_matching.exit, label %.lr.ph1226, !llvm.loop !16
 
 .thread818:                                       ; preds = %1293
   %indvars.iv.next1515 = add nuw nsw i64 %indvars.iv1514, 1
   %.not.i163 = icmp eq i64 %indvars.iv1514, %1292
-  br i1 %.not.i163, label %set_matching.exit, label %1293
+  br i1 %.not.i163, label %set_matching.exit, label %1293, !llvm.loop !17
 
 1334:                                             ; preds = %1271
   %1335 = icmp ult i64 %.0.i.i118816, %.06651242
@@ -2554,7 +2554,7 @@ mmbit_clear.exit.i122.thread:                     ; preds = %1336, %mmbit_clear.
   %1378 = zext i8 %1377 to i32
   %1379 = and i32 %1376, %1378
   %.not.not.i169 = icmp eq i32 %1379, 0
-  br i1 %.not.not.i169, label %1380, label %.thread821, !prof !5
+  br i1 %.not.not.i169, label %1380, label %.thread821, !prof !12
 
 1380:                                             ; preds = %1362
   %1381 = getelementptr inbounds nuw i8, ptr %1367, i64 %1371
@@ -2587,12 +2587,12 @@ mmbit_clear.exit.i122.thread:                     ; preds = %1336, %mmbit_clear.
   %1402 = shl nuw i64 1, %1401
   store i64 %1402, ptr %1398, align 1
   %.not33.i174 = icmp eq i32 %1385, %1360
-  br i1 %.not33.i174, label %set_matching.exit, label %.lr.ph1220
+  br i1 %.not33.i174, label %set_matching.exit, label %.lr.ph1220, !llvm.loop !16
 
 .thread821:                                       ; preds = %1362
   %indvars.iv.next1512 = add nuw nsw i64 %indvars.iv1511, 1
   %.not.i171 = icmp eq i64 %indvars.iv1511, %1361
-  br i1 %.not.i171, label %set_matching.exit, label %1362
+  br i1 %.not.i171, label %set_matching.exit, label %1362, !llvm.loop !17
 
 set_matching.exit:                                ; preds = %.thread821, %.lr.ph1220, %.thread818, %.lr.ph1226, %.lr.ph1955, %1380, %1311, %1224, %mmbit_clear.exit.i122.thread, %1276, %1214, %.thread817, %subCastleNextMatch.exit.thread814, %1334
   %.3668 = phi i64 [ %.06651242, %subCastleNextMatch.exit.thread814 ], [ %.06651242, %1334 ], [ %.06651242, %.thread817 ], [ %.06651242, %1214 ], [ %.06651242, %1276 ], [ %.0.i.i118816, %mmbit_clear.exit.i122.thread ], [ %.06651242, %1224 ], [ %.06651242, %1311 ], [ %.0.i.i118816, %1380 ], [ %.06651242, %.lr.ph1955 ], [ %.06651242, %.lr.ph1226 ], [ %.06651242, %.thread818 ], [ %.0.i.i118816, %.lr.ph1220 ], [ %.0.i.i118816, %.thread821 ]
@@ -2771,7 +2771,7 @@ mmbit_get_flat_block.exit80.i485:                 ; preds = %1469, %1461, %1458,
 1498:                                             ; preds = %.lr.ph1234
   %indvars.iv.next1521 = add nuw nsw i64 %indvars.iv1520, 1
   %exitcond1523.not = icmp eq i64 %indvars.iv.next1521, %1488
-  br i1 %exitcond1523.not, label %._crit_edge1235, label %.lr.ph1234
+  br i1 %exitcond1523.not, label %._crit_edge1235, label %.lr.ph1234, !llvm.loop !5
 
 ._crit_edge1235:                                  ; preds = %1498, %.preheader1049
   %.261.i496.lcssa = phi i32 [ %1445, %.preheader1049 ], [ %1440, %1498 ]
@@ -2896,12 +2896,12 @@ mmbit_get_flat_block.exit.i500:                   ; preds = %1523, %1515, %1512,
   %.127.i267.be = phi i32 [ %1567, %1564 ], [ %1560, %1556 ]
   %.124.i268.be = phi i32 [ %narrow33.i272, %1564 ], [ 0, %1556 ]
   %.1.i269.be = phi i32 [ %1565, %1564 ], [ %1561, %1556 ]
-  br label %.backedge1048
+  br label %.backedge1048, !llvm.loop !7
 
 mmbit_iterate.exit.i:                             ; preds = %1556, %1436, %.thread824, %1492, %1530
   %.011.i.i = phi i32 [ %1438, %1436 ], [ %1497, %1492 ], [ %1533, %1530 ], [ %1483, %.thread824 ], [ %1560, %1556 ]
   %.not54.i = icmp eq i32 %.011.i.i, -1
-  br i1 %.not54.i, label %._crit_edge1246.loopexit, label %1145
+  br i1 %.not54.i, label %._crit_edge1246.loopexit, label %1145, !llvm.loop !18
 
 ._crit_edge1246.loopexit:                         ; preds = %mmbit_get_flat_block.exit.i500, %._crit_edge1235, %1484, %mmbit_get_flat_block.exit84.i511, %set_matching.exit, %mmbit_iterate.exit.i, %.thread834
   %.pr844.pre = load i8, ptr %749, align 1
@@ -3006,7 +3006,7 @@ mmbit_get_flat_block.exit84.i477:                 ; preds = %1595, %1587, %1584,
 1615:                                             ; preds = %.lr.ph1250
   %indvars.iv.next1525 = add nuw nsw i64 %indvars.iv1524, 1
   %exitcond1528.not = icmp eq i64 %indvars.iv.next1525, %wide.trip.count1527
-  br i1 %exitcond1528.not, label %._crit_edge1251, label %.lr.ph1250
+  br i1 %exitcond1528.not, label %._crit_edge1251, label %.lr.ph1250, !llvm.loop !5
 
 ._crit_edge1251:                                  ; preds = %1615
   %1616 = and i32 %1571, 63
@@ -3126,7 +3126,7 @@ mmbit_get_flat_block.exit.i468:                   ; preds = %1639, %1631, %1628,
   %.127.i211.be = phi i32 [ %1681, %1678 ], [ %1674, %1670 ]
   %.124.i212.be = phi i32 [ %narrow33.i216, %1678 ], [ 0, %1670 ]
   %.1.i213.be = phi i32 [ %1679, %1678 ], [ %1675, %1670 ]
-  br label %.backedge1056
+  br label %.backedge1056, !llvm.loop !7
 
 mmbit_iterate.exit26.i:                           ; preds = %1670, %1609
   %.011.i25.i = phi i32 [ %1614, %1609 ], [ %1674, %1670 ]
@@ -3362,7 +3362,7 @@ subCastleNextMatch.exit.i.thread867:              ; preds = %1707, %subCastleNex
   %1827 = zext i8 %1826 to i32
   %1828 = and i32 %1825, %1827
   %.not.not.i = icmp eq i32 %1828, 0
-  br i1 %.not.not.i, label %1829, label %.thread871, !prof !5
+  br i1 %.not.not.i, label %1829, label %.thread871, !prof !12
 
 1829:                                             ; preds = %1811
   %1830 = getelementptr inbounds nuw i8, ptr %1816, i64 %1820
@@ -3395,12 +3395,12 @@ subCastleNextMatch.exit.i.thread867:              ; preds = %1707, %subCastleNex
   %1851 = shl nuw i64 1, %1850
   store i64 %1851, ptr %1847, align 1
   %.not33.i = icmp eq i32 %1834, %1809
-  br i1 %.not33.i, label %set_matching.exit.i, label %.lr.ph1264
+  br i1 %.not33.i, label %set_matching.exit.i, label %.lr.ph1264, !llvm.loop !16
 
 .thread871:                                       ; preds = %1811
   %indvars.iv.next1533 = add nuw nsw i64 %indvars.iv1532, 1
   %.not.i150 = icmp eq i64 %indvars.iv1532, %1810
-  br i1 %.not.i150, label %set_matching.exit.i, label %1811
+  br i1 %.not.i150, label %set_matching.exit.i, label %1811, !llvm.loop !17
 
 1852:                                             ; preds = %1790
   %1853 = icmp ult i64 %.0.i.i.i869, %.46691280
@@ -3472,7 +3472,7 @@ mmbit_clear.exit.i.i:                             ; preds = %1861, %1857, %1854
   %1897 = zext i8 %1896 to i32
   %1898 = and i32 %1895, %1897
   %.not.not.i153 = icmp eq i32 %1898, 0
-  br i1 %.not.not.i153, label %1899, label %.thread874, !prof !5
+  br i1 %.not.not.i153, label %1899, label %.thread874, !prof !12
 
 1899:                                             ; preds = %1881
   %1900 = getelementptr inbounds nuw i8, ptr %1886, i64 %1890
@@ -3505,12 +3505,12 @@ mmbit_clear.exit.i.i:                             ; preds = %1861, %1857, %1854
   %1921 = shl nuw i64 1, %1920
   store i64 %1921, ptr %1917, align 1
   %.not33.i158 = icmp eq i32 %1904, %1879
-  br i1 %.not33.i158, label %set_matching.exit.i, label %.lr.ph1258
+  br i1 %.not33.i158, label %set_matching.exit.i, label %.lr.ph1258, !llvm.loop !16
 
 .thread874:                                       ; preds = %1881
   %indvars.iv.next1530 = add nuw nsw i64 %indvars.iv1529, 1
   %.not.i155 = icmp eq i64 %indvars.iv1529, %1880
-  br i1 %.not.i155, label %set_matching.exit.i, label %1881
+  br i1 %.not.i155, label %set_matching.exit.i, label %1881, !llvm.loop !17
 
 set_matching.exit.i:                              ; preds = %.thread874, %.lr.ph1258, %.thread871, %.lr.ph1264, %.lr.ph1960, %1899, %1829, %1743, %1864, %1794, %1733, %.thread870, %1852, %subCastleNextMatch.exit.i.thread867
   %.5 = phi i64 [ %.46691280, %subCastleNextMatch.exit.i.thread867 ], [ %.46691280, %1852 ], [ %.46691280, %.thread870 ], [ %.46691280, %1733 ], [ %.46691280, %1794 ], [ %.0.i.i.i869, %1864 ], [ %.46691280, %1743 ], [ %.46691280, %1829 ], [ %.0.i.i.i869, %1899 ], [ %.46691280, %.lr.ph1960 ], [ %.46691280, %.lr.ph1264 ], [ %.46691280, %.thread871 ], [ %.0.i.i.i869, %.lr.ph1258 ], [ %.0.i.i.i869, %.thread874 ]
@@ -3688,7 +3688,7 @@ mmbit_get_flat_block.exit80.i427:                 ; preds = %1987, %1979, %1976,
 2016:                                             ; preds = %.lr.ph1272
   %indvars.iv.next1539 = add nuw nsw i64 %indvars.iv1538, 1
   %exitcond1541.not = icmp eq i64 %indvars.iv.next1539, %2006
-  br i1 %exitcond1541.not, label %._crit_edge1273, label %.lr.ph1272
+  br i1 %exitcond1541.not, label %._crit_edge1273, label %.lr.ph1272, !llvm.loop !5
 
 ._crit_edge1273:                                  ; preds = %2016, %.preheader1043
   %.261.i438.lcssa = phi i32 [ %1963, %.preheader1043 ], [ %1959, %2016 ]
@@ -3813,12 +3813,12 @@ mmbit_get_flat_block.exit.i442:                   ; preds = %2041, %2033, %2030,
   %.127.i231.be = phi i32 [ %2085, %2082 ], [ %2078, %2074 ]
   %.124.i232.be = phi i32 [ %narrow33.i236, %2082 ], [ 0, %2074 ]
   %.1.i233.be = phi i32 [ %2083, %2082 ], [ %2079, %2074 ]
-  br label %.backedge1042
+  br label %.backedge1042, !llvm.loop !7
 
 mmbit_iterate.exit.i129:                          ; preds = %2074, %1955, %.thread877, %2010, %2048
   %.011.i.i130 = phi i32 [ %1957, %1955 ], [ %2015, %2010 ], [ %2051, %2048 ], [ %2001, %.thread877 ], [ %2078, %2074 ]
   %.not.i125 = icmp eq i32 %.011.i.i130, -1
-  br i1 %.not.i125, label %subCastleMatchLoop.exitthread-pre-split, label %1684
+  br i1 %.not.i125, label %subCastleMatchLoop.exitthread-pre-split, label %1684, !llvm.loop !19
 
 subCastleMatchLoop.exitthread-pre-split:          ; preds = %.thread855, %mmbit_iterate.exit.i129, %mmbit_get_flat_block.exit84.i453, %2002, %._crit_edge1273, %mmbit_get_flat_block.exit.i442, %.thread887, %._crit_edge1246, %mmbit_iterate.exit26.i, %mmbit_get_flat_block.exit84.i477, %._crit_edge1251, %mmbit_get_flat_block.exit.i468
   %.2667.ph = phi i64 [ %.1666848, %mmbit_get_flat_block.exit.i468 ], [ %.1666848, %._crit_edge1251 ], [ %.1666848, %mmbit_get_flat_block.exit84.i477 ], [ %.1666848, %mmbit_iterate.exit26.i ], [ %.0665.lcssa, %._crit_edge1246 ], [ %.5, %.thread887 ], [ %.5, %mmbit_get_flat_block.exit.i442 ], [ %.5, %._crit_edge1273 ], [ %.5, %2002 ], [ %.5, %mmbit_get_flat_block.exit84.i453 ], [ %.5, %mmbit_iterate.exit.i129 ], [ %.1666848, %.thread855 ]
@@ -3887,7 +3887,7 @@ subCastleMatchLoop.exit:                          ; preds = %set_matching.exit.i
 2113:                                             ; preds = %.lr.ph1289
   %2114 = getelementptr inbounds nuw i8, ptr %.013.i1287, i64 8
   %.not14.i46 = icmp ult ptr %2114, %gep1307
-  br i1 %.not14.i46, label %.lr.ph1289, label %.critedge.i47
+  br i1 %.not14.i46, label %.lr.ph1289, label %.critedge.i47, !llvm.loop !10
 
 .lr.ph1289:                                       ; preds = %2111, %2113
   %.013.i1287 = phi ptr [ %2114, %2113 ], [ %1011, %2111 ]
@@ -3988,7 +3988,7 @@ mmbit_get_flat_block.exit84.i419:                 ; preds = %2136, %2130, %2127,
 2154:                                             ; preds = %.lr.ph1292
   %indvars.iv.next1543 = add nuw nsw i64 %indvars.iv1542, 1
   %exitcond1546.not = icmp eq i64 %indvars.iv.next1543, %wide.trip.count1545
-  br i1 %exitcond1546.not, label %._crit_edge1293, label %.lr.ph1292
+  br i1 %exitcond1546.not, label %._crit_edge1293, label %.lr.ph1292, !llvm.loop !5
 
 ._crit_edge1293:                                  ; preds = %2154
   %2155 = and i32 %2086, 63
@@ -4109,7 +4109,7 @@ mmbit_get_flat_block.exit.i410:                   ; preds = %2178, %2170, %2167,
   %.127.i.be = phi i32 [ %2221, %2218 ], [ %2214, %2210 ]
   %.124.i.be = phi i32 [ %narrow33.i, %2218 ], [ 0, %2210 ]
   %.1.i189.be = phi i32 [ %2219, %2218 ], [ %2215, %2210 ]
-  br label %.backedge1055
+  br label %.backedge1055, !llvm.loop !7
 
 mmbit_iterate.exit24.i:                           ; preds = %2210, %2148
   %.011.i23.i = phi i32 [ %2153, %2148 ], [ %2214, %2210 ]
@@ -4304,7 +4304,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %2292, %2284, %2281,
 2321:                                             ; preds = %.lr.ph1296
   %indvars.iv.next1548 = add nuw nsw i64 %indvars.iv1547, 1
   %exitcond1550.not = icmp eq i64 %indvars.iv.next1548, %2311
-  br i1 %exitcond1550.not, label %._crit_edge1297, label %.lr.ph1296
+  br i1 %exitcond1550.not, label %._crit_edge1297, label %.lr.ph1296, !llvm.loop !5
 
 ._crit_edge1297:                                  ; preds = %2321, %.preheader
   %.261.i.lcssa = phi i32 [ %2268, %.preheader ], [ %2264, %2321 ]
@@ -4429,12 +4429,12 @@ mmbit_get_flat_block.exit.i:                      ; preds = %2346, %2338, %2335,
   %.127.i195.be = phi i32 [ %2390, %2387 ], [ %2383, %2379 ]
   %.124.i196.be = phi i32 [ %narrow33.i200, %2387 ], [ 0, %2379 ]
   %.1.i197.be = phi i32 [ %2388, %2387 ], [ %2384, %2379 ]
-  br label %.backedge1041
+  br label %.backedge1041, !llvm.loop !7
 
 mmbit_iterate.exit.i136:                          ; preds = %2379, %2260, %.thread918, %2315, %2353
   %.011.i.i137 = phi i32 [ %2262, %2260 ], [ %2320, %2315 ], [ %2356, %2353 ], [ %2306, %.thread918 ], [ %2383, %2379 ]
   %.not.i132 = icmp eq i32 %.011.i.i137, -1
-  br i1 %.not.i132, label %.loopexit, label %.lr.ph1305
+  br i1 %.not.i132, label %.loopexit, label %.lr.ph1305, !llvm.loop !20
 
 .thread939:                                       ; preds = %.thread845, %.loopexit, %mmbit_any.exit.i, %subCastleMatchLoop.exit, %castleScan.exit.thread
   br i1 %.not114.i795, label %mmbit_any.exit.thread, label %2391
@@ -4594,7 +4594,7 @@ mmbit_any.exit.thread:                            ; preds = %mmbit_clear.exit35,
   %2492 = zext i8 %2491 to i32
   %2493 = and i32 %2490, %2492
   %.not.not.i56.i = icmp eq i32 %2493, 0
-  br i1 %.not.not.i56.i, label %2494, label %.thread954, !prof !5
+  br i1 %.not.not.i56.i, label %2494, label %.thread954, !prof !12
 
 2494:                                             ; preds = %2476
   %2495 = getelementptr inbounds nuw i8, ptr %2481, i64 %2485
@@ -4627,12 +4627,12 @@ mmbit_any.exit.thread:                            ; preds = %mmbit_clear.exit35,
   %2516 = shl nuw i64 1, %2515
   store i64 %2516, ptr %2512, align 1
   %.not33.i61.i = icmp eq i32 %2499, %2473
-  br i1 %.not33.i61.i, label %.thread963, label %.lr.ph1329
+  br i1 %.not33.i61.i, label %.thread963, label %.lr.ph1329, !llvm.loop !16
 
 .thread954:                                       ; preds = %2476
   %indvars.iv.next1555 = add nuw nsw i64 %indvars.iv1554, 1
   %.not.i58.i185 = icmp eq i64 %indvars.iv1554, %2475
-  br i1 %.not.i58.i185, label %mmbit_set_i.exit.i.thread959, label %2476
+  br i1 %.not.i58.i185, label %mmbit_set_i.exit.i.thread959, label %2476, !llvm.loop !17
 
 mmbit_set_i.exit.i:                               ; preds = %2456
   %2517 = lshr i32 %2453, 3
@@ -4760,7 +4760,7 @@ mmbit_set_i.exit.i.thread959:                     ; preds = %.thread954, %mmbit_
   %2585 = zext i8 %2584 to i32
   %2586 = and i32 %2583, %2585
   %.not.not.i.i179 = icmp eq i32 %2586, 0
-  br i1 %.not.not.i.i179, label %2587, label %.thread967, !prof !5
+  br i1 %.not.not.i.i179, label %2587, label %.thread967, !prof !12
 
 2587:                                             ; preds = %2569
   %2588 = getelementptr inbounds nuw i8, ptr %2574, i64 %2578
@@ -4793,12 +4793,12 @@ mmbit_set_i.exit.i.thread959:                     ; preds = %.thread954, %mmbit_
   %2609 = shl nuw i64 1, %2608
   store i64 %2609, ptr %2605, align 1
   %.not33.i.i = icmp eq i32 %2592, %2567
-  br i1 %.not33.i.i, label %.split.i, label %.lr.ph1323
+  br i1 %.not33.i.i, label %.split.i, label %.lr.ph1323, !llvm.loop !16
 
 .thread967:                                       ; preds = %2569
   %indvars.iv.next1552 = add nuw nsw i64 %indvars.iv1551, 1
   %.not.i54.i = icmp eq i64 %indvars.iv1551, %2568
-  br i1 %.not.i54.i, label %partial_store_u32.exit.thread973, label %2569
+  br i1 %.not.i54.i, label %partial_store_u32.exit.thread973, label %2569, !llvm.loop !17
 
 partial_store_u32.exit:                           ; preds = %2556
   %2610 = lshr i32 %2431, 3
@@ -4937,7 +4937,7 @@ repeatLastTop.exit:                               ; preds = %partial_store_u32.e
   store i32 %storemerge, ptr %729, align 8
   %2650 = load i32, ptr %731, align 4
   %2651 = icmp ult i32 %storemerge, %2650
-  br i1 %2651, label %765, label %._crit_edge1341
+  br i1 %2651, label %765, label %._crit_edge1341, !llvm.loop !21
 
 ._crit_edge1341:                                  ; preds = %2648, %734
   %2652 = getelementptr inbounds nuw i8, ptr %0, i64 73
@@ -5019,7 +5019,7 @@ mmbit_get_flat_block.exit77:                      ; preds = %2669, %2672, %2675,
 2693:                                             ; preds = %.lr.ph1345
   %2694 = getelementptr inbounds nuw i8, ptr %.013.i611343, i64 8
   %.not14.i62 = icmp ult ptr %2694, %2692
-  br i1 %.not14.i62, label %.lr.ph1345, label %mmbit_any_precise.exit10
+  br i1 %.not14.i62, label %.lr.ph1345, label %mmbit_any_precise.exit10, !llvm.loop !10
 
 .lr.ph1345:                                       ; preds = %.lr.ph1345.preheader, %2693
   %.013.i611343 = phi ptr [ %2694, %2693 ], [ %2659, %.lr.ph1345.preheader ]
@@ -5084,7 +5084,7 @@ mmbit_get_flat_block.exit77:                      ; preds = %2669, %2672, %2675,
   %.127.i355.be = phi i32 [ %2728, %2725 ], [ %2721, %2717 ]
   %.124.i356.be = phi i32 [ %narrow33.i360, %2725 ], [ 0, %2717 ]
   %.1.i357.be = phi i32 [ %2726, %2725 ], [ %2722, %2717 ]
-  br label %.backedge1039
+  br label %.backedge1039, !llvm.loop !7
 
 mmbit_iterate_big.exit369:                        ; preds = %2717
   %.not1796 = icmp eq i32 %2721, -1
@@ -5163,7 +5163,7 @@ mmbit_get_flat_block.exit:                        ; preds = %2738, %2741, %2744,
 2763:                                             ; preds = %.lr.ph1349
   %2764 = getelementptr inbounds nuw i8, ptr %.013.i671347, i64 8
   %.not14.i68 = icmp ult ptr %2764, %2762
-  br i1 %.not14.i68, label %.lr.ph1349, label %.critedge.i69
+  br i1 %.not14.i68, label %.lr.ph1349, label %.critedge.i69, !llvm.loop !10
 
 .lr.ph1349:                                       ; preds = %.lr.ph1349.preheader, %2763
   %.013.i671347 = phi ptr [ %2764, %2763 ], [ %740, %.lr.ph1349.preheader ]
@@ -5233,7 +5233,7 @@ mmbit_get_flat_block.exit:                        ; preds = %2738, %2741, %2744,
   %.127.i371.be = phi i32 [ %2800, %2797 ], [ %2793, %2789 ]
   %.124.i372.be = phi i32 [ %narrow33.i376, %2797 ], [ 0, %2789 ]
   %.1.i373.be = phi i32 [ %2798, %2797 ], [ %2794, %2789 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 mmbit_iterate_big.exit385:                        ; preds = %2789, %.thread1001
   %.021.i377 = phi i32 [ -1, %.thread1001 ], [ %2793, %2789 ]
@@ -5366,7 +5366,7 @@ mmbit_get_flat_block.exit84.i434:                 ; preds = %51, %43, %40, %37
 71:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %71
   %72 = and i32 %27, 63
@@ -5486,7 +5486,7 @@ mmbit_get_flat_block.exit.i425:                   ; preds = %95, %87, %84, %81
   %.127.i218.be = phi i32 [ %137, %134 ], [ %130, %126 ]
   %.124.i219.be = phi i32 [ %narrow33.i223, %134 ], [ 0, %126 ]
   %.1.i220.be = phi i32 [ %135, %134 ], [ %131, %126 ]
-  br label %.backedge899
+  br label %.backedge899, !llvm.loop !7
 
 mmbit_iterate.exit31:                             ; preds = %126, %65
   %.011.i30 = phi i32 [ %70, %65 ], [ %130, %126 ]
@@ -5811,7 +5811,7 @@ mmbit_get_flat_block.exit80.i442:                 ; preds = %287, %279, %276, %2
 316:                                              ; preds = %.lr.ph968
   %indvars.iv.next1230 = add nuw nsw i64 %indvars.iv1229, 1
   %exitcond1232.not = icmp eq i64 %indvars.iv.next1230, %306
-  br i1 %exitcond1232.not, label %._crit_edge969, label %.lr.ph968
+  br i1 %exitcond1232.not, label %._crit_edge969, label %.lr.ph968, !llvm.loop !5
 
 ._crit_edge969:                                   ; preds = %316, %.preheader897
   %.261.i453.lcssa = phi i32 [ %263, %.preheader897 ], [ %258, %316 ]
@@ -5936,12 +5936,12 @@ mmbit_get_flat_block.exit.i457:                   ; preds = %341, %333, %330, %3
   %.127.i238.be = phi i32 [ %385, %382 ], [ %378, %374 ]
   %.124.i239.be = phi i32 [ %narrow33.i243, %382 ], [ 0, %374 ]
   %.1.i240.be = phi i32 [ %383, %382 ], [ %379, %374 ]
-  br label %.backedge896
+  br label %.backedge896, !llvm.loop !7
 
 mmbit_iterate.exit26:                             ; preds = %374, %254, %.thread582, %310, %348
   %.011.i25 = phi i32 [ %256, %254 ], [ %315, %310 ], [ %351, %348 ], [ %301, %.thread582 ], [ %378, %374 ]
   %.not48.i = icmp eq i32 %.011.i25, -1
-  br i1 %.not48.i, label %.critedge.i14.loopexit, label %143
+  br i1 %.not48.i, label %.critedge.i14.loopexit, label %143, !llvm.loop !8
 
 .critedge.i14.loopexit:                           ; preds = %mmbit_get_flat_block.exit.i457, %._crit_edge969, %302, %mmbit_get_flat_block.exit84.i468, %subCastleReportCurrent.exit332, %mmbit_iterate.exit26, %.thread592
   %.pr.pre = load i8, ptr %17, align 1
@@ -6047,7 +6047,7 @@ mmbit_get_flat_block.exit84.i492:                 ; preds = %416, %408, %405, %4
 436:                                              ; preds = %.lr.ph978
   %indvars.iv.next1234 = add nuw nsw i64 %indvars.iv1233, 1
   %exitcond1237.not = icmp eq i64 %indvars.iv.next1234, %wide.trip.count1236
-  br i1 %exitcond1237.not, label %._crit_edge979, label %.lr.ph978
+  br i1 %exitcond1237.not, label %._crit_edge979, label %.lr.ph978, !llvm.loop !5
 
 ._crit_edge979:                                   ; preds = %436
   %437 = and i32 %392, 63
@@ -6167,7 +6167,7 @@ mmbit_get_flat_block.exit.i483:                   ; preds = %460, %452, %449, %4
   %.127.i254.be = phi i32 [ %502, %499 ], [ %495, %491 ]
   %.124.i255.be = phi i32 [ %narrow33.i259, %499 ], [ 0, %491 ]
   %.1.i256.be = phi i32 [ %500, %499 ], [ %496, %491 ]
-  br label %.backedge895
+  br label %.backedge895, !llvm.loop !7
 
 mmbit_iterate.exit21:                             ; preds = %491, %430
   %.011.i20 = phi i32 [ %435, %430 ], [ %495, %491 ]
@@ -6452,7 +6452,7 @@ mmbit_get_flat_block.exit80.i500:                 ; preds = %629, %621, %618, %6
 658:                                              ; preds = %.lr.ph982
   %indvars.iv.next1239 = add nuw nsw i64 %indvars.iv1238, 1
   %exitcond1241.not = icmp eq i64 %indvars.iv.next1239, %648
-  br i1 %exitcond1241.not, label %._crit_edge983, label %.lr.ph982
+  br i1 %exitcond1241.not, label %._crit_edge983, label %.lr.ph982, !llvm.loop !5
 
 ._crit_edge983:                                   ; preds = %658, %.preheader894
   %.261.i511.lcssa = phi i32 [ %605, %.preheader894 ], [ %601, %658 ]
@@ -6577,12 +6577,12 @@ mmbit_get_flat_block.exit.i515:                   ; preds = %683, %675, %672, %6
   %.127.i274.be = phi i32 [ %727, %724 ], [ %720, %716 ]
   %.124.i275.be = phi i32 [ %narrow33.i279, %724 ], [ 0, %716 ]
   %.1.i276.be = phi i32 [ %725, %724 ], [ %721, %716 ]
-  br label %.backedge893
+  br label %.backedge893, !llvm.loop !7
 
 mmbit_iterate.exit:                               ; preds = %716, %597, %.thread626, %652, %690
   %.011.i = phi i32 [ %599, %597 ], [ %657, %652 ], [ %693, %690 ], [ %643, %.thread626 ], [ %720, %716 ]
   %.not51.i = icmp eq i32 %.011.i, -1
-  br i1 %.not51.i, label %castleReportCurrent.exit, label %507
+  br i1 %.not51.i, label %castleReportCurrent.exit, label %507, !llvm.loop !9
 
 castleReportCurrent.exit.thread:                  ; preds = %repeatHasMatch.exit.i324.thread578, %repeatHasMatch.exit.i.thread623
   store i8 0, ptr %5, align 8
@@ -6713,7 +6713,7 @@ castleReportCurrent.exit:                         ; preds = %.thread609, %mmbit_
 802:                                              ; preds = %.lr.ph995
   %803 = getelementptr inbounds nuw i8, ptr %.013.i993, i64 8
   %.not14.i46 = icmp ult ptr %803, %801
-  br i1 %.not14.i46, label %.lr.ph995, label %.critedge.i47
+  br i1 %.not14.i46, label %.lr.ph995, label %.critedge.i47, !llvm.loop !10
 
 .lr.ph995:                                        ; preds = %.lr.ph995.preheader, %802
   %.013.i993 = phi ptr [ %803, %802 ], [ %769, %.lr.ph995.preheader ]
@@ -6795,7 +6795,7 @@ mmbit_any.exit42:                                 ; preds = %792, %784, %781, %7
 835:                                              ; preds = %.lr.ph999
   %836 = getelementptr inbounds nuw i8, ptr %.013.i49997, i64 8
   %.not14.i50 = icmp ult ptr %836, %gep1101
-  br i1 %.not14.i50, label %.lr.ph999, label %.critedge.i51
+  br i1 %.not14.i50, label %.lr.ph999, label %.critedge.i51, !llvm.loop !10
 
 .lr.ph999:                                        ; preds = %833, %835
   %.013.i49997 = phi ptr [ %836, %835 ], [ %740, %833 ]
@@ -6863,7 +6863,7 @@ mmbit_any.exit42.thread649:                       ; preds = %.lr.ph995, %.lr.ph9
 863:                                              ; preds = %.lr.ph1018
   %864 = getelementptr inbounds nuw i8, ptr %.042.i881017, i64 1
   %865 = icmp ult ptr %864, %856
-  br i1 %865, label %.lr.ph1018, label %vermicelliExec.exit
+  br i1 %865, label %.lr.ph1018, label %vermicelliExec.exit, !llvm.loop !11
 
 866:                                              ; preds = %853
   %867 = ptrtoint ptr %855 to i64
@@ -6876,7 +6876,7 @@ mmbit_any.exit42.thread649:                       ; preds = %.lr.ph995, %.lr.ph9
   %871 = icmp eq <16 x i8> %858, %870
   %872 = bitcast <16 x i1> %871 to i16
   %.not9.i91 = icmp eq i16 %872, 0
-  br i1 %.not9.i91, label %vermUnalign.exit93.thread, label %vermUnalign.exit93, !prof !5
+  br i1 %.not9.i91, label %vermUnalign.exit93.thread, label %vermUnalign.exit93, !prof !12
 
 vermUnalign.exit93.thread:                        ; preds = %869
   %873 = sub nuw nsw i64 16, %868
@@ -6914,7 +6914,7 @@ vermUnalign.exit93:                               ; preds = %869
   %889 = shufflevector <16 x i1> %885, <16 x i1> %888, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %890 = bitcast <32 x i1> %889 to i32
   %.not39.i.not = icmp eq i32 %890, 0
-  br i1 %.not39.i.not, label %895, label %891, !prof !5
+  br i1 %.not39.i.not, label %895, label %891, !prof !12
 
 891:                                              ; preds = %.lr.ph1013
   %892 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %890, i1 true)
@@ -6926,7 +6926,7 @@ vermUnalign.exit93:                               ; preds = %869
   %896 = getelementptr inbounds nuw i8, ptr %.032.i1011, i64 32
   %897 = getelementptr inbounds nuw i8, ptr %.032.i1011, i64 63
   %898 = icmp ult ptr %897, %879
-  br i1 %898, label %.lr.ph1013, label %.preheader889
+  br i1 %898, label %.lr.ph1013, label %.preheader889, !llvm.loop !13
 
 .lr.ph1016:                                       ; preds = %.preheader889, %906
   %.133.i1015 = phi ptr [ %907, %906 ], [ %.032.i.lcssa, %.preheader889 ]
@@ -6935,7 +6935,7 @@ vermUnalign.exit93:                               ; preds = %869
   %900 = icmp eq <16 x i8> %858, %899
   %901 = bitcast <16 x i1> %900 to i16
   %.not37.i.not = icmp eq i16 %901, 0
-  br i1 %.not37.i.not, label %906, label %902, !prof !5
+  br i1 %.not37.i.not, label %906, label %902, !prof !12
 
 902:                                              ; preds = %.lr.ph1016
   %903 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %901, i1 true)
@@ -6947,7 +6947,7 @@ vermUnalign.exit93:                               ; preds = %869
   %907 = getelementptr inbounds nuw i8, ptr %.133.i1015, i64 16
   %908 = getelementptr inbounds nuw i8, ptr %.133.i1015, i64 31
   %909 = icmp ult ptr %908, %879
-  br i1 %909, label %.lr.ph1016, label %vermSearchAligned.exit.thread
+  br i1 %909, label %.lr.ph1016, label %vermSearchAligned.exit.thread, !llvm.loop !14
 
 vermSearchAligned.exit.thread:                    ; preds = %906, %.preheader889
   %910 = getelementptr inbounds i8, ptr %856, i64 -16
@@ -6955,7 +6955,7 @@ vermSearchAligned.exit.thread:                    ; preds = %906, %.preheader889
   %912 = icmp eq <16 x i8> %858, %911
   %913 = bitcast <16 x i1> %912 to i16
   %.not9.i = icmp eq i16 %913, 0
-  br i1 %.not9.i, label %vermUnalign.exit, label %914, !prof !5
+  br i1 %.not9.i, label %vermUnalign.exit, label %914, !prof !12
 
 914:                                              ; preds = %vermSearchAligned.exit.thread
   %915 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %913, i1 true)
@@ -6997,7 +6997,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph1018, %863, %
 929:                                              ; preds = %.lr.ph1007
   %930 = getelementptr inbounds nuw i8, ptr %.042.i1071006, i64 1
   %931 = icmp ult ptr %930, %923
-  br i1 %931, label %.lr.ph1007, label %nvermicelliExec.exit
+  br i1 %931, label %.lr.ph1007, label %nvermicelliExec.exit, !llvm.loop !15
 
 932:                                              ; preds = %920
   %933 = ptrtoint ptr %922 to i64
@@ -7010,7 +7010,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph1018, %863, %
   %937 = icmp eq <16 x i8> %925, %936
   %938 = bitcast <16 x i1> %937 to i16
   %.not9.i54.i = icmp eq i16 %938, -1
-  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !5
+  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !12
 
 vermUnalign.exit56.i.thread:                      ; preds = %935
   %939 = sub nuw nsw i64 16, %934
@@ -7049,7 +7049,7 @@ vermUnalign.exit56.i:                             ; preds = %935
   %956 = shufflevector <16 x i1> %952, <16 x i1> %955, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %957 = bitcast <32 x i1> %956 to i32
   %.not39.i.i.not = icmp eq i32 %957, -1
-  br i1 %.not39.i.i.not, label %963, label %958, !prof !5
+  br i1 %.not39.i.i.not, label %963, label %958, !prof !12
 
 958:                                              ; preds = %.lr.ph1002
   %959 = xor i32 %957, -1
@@ -7062,7 +7062,7 @@ vermUnalign.exit56.i:                             ; preds = %935
   %964 = getelementptr inbounds nuw i8, ptr %.032.i.i1000, i64 32
   %965 = getelementptr inbounds nuw i8, ptr %.032.i.i1000, i64 63
   %966 = icmp ult ptr %965, %946
-  br i1 %966, label %.lr.ph1002, label %.preheader891
+  br i1 %966, label %.lr.ph1002, label %.preheader891, !llvm.loop !13
 
 .lr.ph1005:                                       ; preds = %.preheader891, %975
   %.133.i.i1004 = phi ptr [ %976, %975 ], [ %.032.i.i.lcssa, %.preheader891 ]
@@ -7071,7 +7071,7 @@ vermUnalign.exit56.i:                             ; preds = %935
   %968 = icmp eq <16 x i8> %925, %967
   %969 = bitcast <16 x i1> %968 to i16
   %.not37.i.i.not = icmp eq i16 %969, -1
-  br i1 %.not37.i.i.not, label %975, label %970, !prof !5
+  br i1 %.not37.i.i.not, label %975, label %970, !prof !12
 
 970:                                              ; preds = %.lr.ph1005
   %971 = xor i16 %969, -1
@@ -7084,7 +7084,7 @@ vermUnalign.exit56.i:                             ; preds = %935
   %976 = getelementptr inbounds nuw i8, ptr %.133.i.i1004, i64 16
   %977 = getelementptr inbounds nuw i8, ptr %.133.i.i1004, i64 31
   %978 = icmp ult ptr %977, %946
-  br i1 %978, label %.lr.ph1005, label %vermSearchAligned.exit.i.thread
+  br i1 %978, label %.lr.ph1005, label %vermSearchAligned.exit.i.thread, !llvm.loop !14
 
 vermSearchAligned.exit.i.thread:                  ; preds = %975, %.preheader891
   %979 = getelementptr inbounds i8, ptr %923, i64 -16
@@ -7092,7 +7092,7 @@ vermSearchAligned.exit.i.thread:                  ; preds = %975, %.preheader891
   %981 = icmp eq <16 x i8> %925, %980
   %982 = bitcast <16 x i1> %981 to i16
   %.not9.i.i = icmp eq i16 %982, -1
-  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %983, !prof !5
+  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %983, !prof !12
 
 983:                                              ; preds = %vermSearchAligned.exit.i.thread
   %984 = xor i16 %982, -1
@@ -7244,7 +7244,7 @@ mmbit_get_flat_block.exit84.i413:                 ; preds = %1042, %1034, %1031,
 1062:                                             ; preds = %.lr.ph1024
   %indvars.iv.next1243 = add nuw nsw i64 %indvars.iv1242, 1
   %exitcond1246.not = icmp eq i64 %indvars.iv.next1243, %wide.trip.count1245
-  br i1 %exitcond1246.not, label %._crit_edge1025, label %.lr.ph1024
+  br i1 %exitcond1246.not, label %._crit_edge1025, label %.lr.ph1024, !llvm.loop !5
 
 ._crit_edge1025:                                  ; preds = %1062
   %1063 = and i32 %1018, 63
@@ -7364,7 +7364,7 @@ mmbit_get_flat_block.exit.i404:                   ; preds = %1086, %1078, %1075,
   %.127.i.be = phi i32 [ %1128, %1125 ], [ %1121, %1117 ]
   %.124.i.be = phi i32 [ %narrow33.i, %1125 ], [ 0, %1117 ]
   %.1.i161.be = phi i32 [ %1126, %1125 ], [ %1122, %1117 ]
-  br label %.backedge887
+  br label %.backedge887, !llvm.loop !7
 
 mmbit_iterate.exit62.i:                           ; preds = %1117, %1056
   %.011.i61.i = phi i32 [ %1061, %1056 ], [ %1121, %1117 ]
@@ -7871,7 +7871,7 @@ mmbit_get_flat_block.exit80.i363:                 ; preds = %1394, %1386, %1383,
 1423:                                             ; preds = %.lr.ph1040
   %indvars.iv.next1254 = add nuw nsw i64 %indvars.iv1253, 1
   %exitcond1256.not = icmp eq i64 %indvars.iv.next1254, %1413
-  br i1 %exitcond1256.not, label %._crit_edge1041, label %.lr.ph1040
+  br i1 %exitcond1256.not, label %._crit_edge1041, label %.lr.ph1040, !llvm.loop !5
 
 ._crit_edge1041:                                  ; preds = %1423, %.preheader884
   %.261.i374.lcssa = phi i32 [ %1370, %.preheader884 ], [ %1365, %1423 ]
@@ -7996,12 +7996,12 @@ mmbit_get_flat_block.exit.i378:                   ; preds = %1448, %1440, %1437,
   %.127.i202.be = phi i32 [ %1492, %1489 ], [ %1485, %1481 ]
   %.124.i203.be = phi i32 [ %narrow33.i207, %1489 ], [ 0, %1481 ]
   %.1.i204.be = phi i32 [ %1490, %1489 ], [ %1486, %1481 ]
-  br label %.backedge883
+  br label %.backedge883, !llvm.loop !7
 
 mmbit_iterate.exit57.i:                           ; preds = %1481, %1361, %.thread709, %1417, %1455
   %.011.i56.i = phi i32 [ %1363, %1361 ], [ %1422, %1417 ], [ %1458, %1455 ], [ %1408, %.thread709 ], [ %1485, %1481 ]
   %.not45.i = icmp eq i32 %.011.i56.i, -1
-  br i1 %.not45.i, label %._crit_edge1052.loopexit, label %1130
+  br i1 %.not45.i, label %._crit_edge1052.loopexit, label %1130, !llvm.loop !22
 
 ._crit_edge1052.loopexit:                         ; preds = %mmbit_get_flat_block.exit.i378, %._crit_edge1041, %1409, %mmbit_get_flat_block.exit84.i389, %subCastleFindMatch.exit110, %mmbit_iterate.exit57.i, %.thread719
   %.pr729.pre = load i8, ptr %749, align 1
@@ -8108,7 +8108,7 @@ mmbit_get_flat_block.exit84.i355:                 ; preds = %1520, %1512, %1509,
 1540:                                             ; preds = %.lr.ph1057
   %indvars.iv.next1258 = add nuw nsw i64 %indvars.iv1257, 1
   %exitcond1261.not = icmp eq i64 %indvars.iv.next1258, %wide.trip.count1260
-  br i1 %exitcond1261.not, label %._crit_edge1058, label %.lr.ph1057
+  br i1 %exitcond1261.not, label %._crit_edge1058, label %.lr.ph1057, !llvm.loop !5
 
 ._crit_edge1058:                                  ; preds = %1540
   %1541 = and i32 %1496, 63
@@ -8228,7 +8228,7 @@ mmbit_get_flat_block.exit.i346:                   ; preds = %1564, %1556, %1553,
   %.127.i166.be = phi i32 [ %1606, %1603 ], [ %1599, %1595 ]
   %.124.i167.be = phi i32 [ %narrow33.i171, %1603 ], [ 0, %1595 ]
   %.1.i168.be = phi i32 [ %1604, %1603 ], [ %1600, %1595 ]
-  br label %.backedge886
+  br label %.backedge886, !llvm.loop !7
 
 mmbit_iterate.exit52.i:                           ; preds = %1595, %1534
   %.011.i51.i = phi i32 [ %1539, %1534 ], [ %1599, %1595 ]
@@ -8701,7 +8701,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %1851, %1843, %1840,
 1880:                                             ; preds = %.lr.ph1073
   %indvars.iv.next1269 = add nuw nsw i64 %indvars.iv1268, 1
   %exitcond1271.not = icmp eq i64 %indvars.iv.next1269, %1870
-  br i1 %exitcond1271.not, label %._crit_edge1074, label %.lr.ph1073
+  br i1 %exitcond1271.not, label %._crit_edge1074, label %.lr.ph1073, !llvm.loop !5
 
 ._crit_edge1074:                                  ; preds = %1880, %.preheader
   %.261.i.lcssa = phi i32 [ %1827, %.preheader ], [ %1823, %1880 ]
@@ -8826,12 +8826,12 @@ mmbit_get_flat_block.exit.i:                      ; preds = %1905, %1897, %1894,
   %.127.i182.be = phi i32 [ %1949, %1946 ], [ %1942, %1938 ]
   %.124.i183.be = phi i32 [ %narrow33.i187, %1946 ], [ 0, %1938 ]
   %.1.i184.be = phi i32 [ %1947, %1946 ], [ %1943, %1938 ]
-  br label %.backedge881
+  br label %.backedge881, !llvm.loop !7
 
 mmbit_iterate.exit.i:                             ; preds = %1938, %1819, %.thread759, %1874, %1912
   %.011.i.i = phi i32 [ %1821, %1819 ], [ %1879, %1874 ], [ %1915, %1912 ], [ %1865, %.thread759 ], [ %1942, %1938 ]
   %.not47.i = icmp eq i32 %.011.i.i, -1
-  br i1 %.not47.i, label %castleFindMatch.exit, label %1608
+  br i1 %.not47.i, label %castleFindMatch.exit, label %1608, !llvm.loop !23
 
 castleFindMatch.exit:                             ; preds = %.thread742, %mmbit_get_flat_block.exit.i, %._crit_edge1074, %1866, %mmbit_get_flat_block.exit84.i, %subCastleFindMatch.exit, %mmbit_iterate.exit.i, %.thread769, %mmbit_get_flat_block.exit.i346, %._crit_edge1058, %mmbit_get_flat_block.exit84.i355, %.thread730, %mmbit_iterate.exit52.i, %._crit_edge1052
   %.7 = phi i64 [ %.3.lcssa, %._crit_edge1052 ], [ %.4735, %mmbit_iterate.exit52.i ], [ %.4735, %.thread730 ], [ %.4735, %mmbit_get_flat_block.exit84.i355 ], [ %.4735, %._crit_edge1058 ], [ %.4735, %mmbit_get_flat_block.exit.i346 ], [ %.9, %.thread769 ], [ %.9, %mmbit_iterate.exit.i ], [ %.9, %subCastleFindMatch.exit ], [ %.9, %mmbit_get_flat_block.exit84.i ], [ %.9, %1866 ], [ %.9, %._crit_edge1074 ], [ %.9, %mmbit_get_flat_block.exit.i ], [ %.4735, %.thread742 ]
@@ -9013,7 +9013,7 @@ mmbit_any.exit.thread:                            ; preds = %mmbit_clear.exit36,
   %2060 = zext i8 %2059 to i32
   %2061 = and i32 %2058, %2060
   %.not.not.i56.i = icmp eq i32 %2061, 0
-  br i1 %.not.not.i56.i, label %2062, label %.thread797, !prof !5
+  br i1 %.not.not.i56.i, label %2062, label %.thread797, !prof !12
 
 2062:                                             ; preds = %2044
   %2063 = getelementptr inbounds nuw i8, ptr %2049, i64 %2053
@@ -9046,12 +9046,12 @@ mmbit_any.exit.thread:                            ; preds = %mmbit_clear.exit36,
   %2084 = shl nuw i64 1, %2083
   store i64 %2084, ptr %2080, align 1
   %.not33.i61.i = icmp eq i32 %2067, %2041
-  br i1 %.not33.i61.i, label %.thread806, label %.lr.ph1099
+  br i1 %.not33.i61.i, label %.thread806, label %.lr.ph1099, !llvm.loop !16
 
 .thread797:                                       ; preds = %2044
   %indvars.iv.next1276 = add nuw nsw i64 %indvars.iv1275, 1
   %.not.i58.i157 = icmp eq i64 %indvars.iv1275, %2043
-  br i1 %.not.i58.i157, label %mmbit_set_i.exit.i.thread802, label %2044
+  br i1 %.not.i58.i157, label %mmbit_set_i.exit.i.thread802, label %2044, !llvm.loop !17
 
 mmbit_set_i.exit.i:                               ; preds = %2024
   %2085 = lshr i32 %2021, 3
@@ -9179,7 +9179,7 @@ mmbit_set_i.exit.i.thread802:                     ; preds = %.thread797, %mmbit_
   %2153 = zext i8 %2152 to i32
   %2154 = and i32 %2151, %2153
   %.not.not.i.i = icmp eq i32 %2154, 0
-  br i1 %.not.not.i.i, label %2155, label %.thread810, !prof !5
+  br i1 %.not.not.i.i, label %2155, label %.thread810, !prof !12
 
 2155:                                             ; preds = %2137
   %2156 = getelementptr inbounds nuw i8, ptr %2142, i64 %2146
@@ -9212,12 +9212,12 @@ mmbit_set_i.exit.i.thread802:                     ; preds = %.thread797, %mmbit_
   %2177 = shl nuw i64 1, %2176
   store i64 %2177, ptr %2173, align 1
   %.not33.i.i = icmp eq i32 %2160, %2135
-  br i1 %.not33.i.i, label %.split.i, label %.lr.ph1093
+  br i1 %.not33.i.i, label %.split.i, label %.lr.ph1093, !llvm.loop !16
 
 .thread810:                                       ; preds = %2137
   %indvars.iv.next1273 = add nuw nsw i64 %indvars.iv1272, 1
   %.not.i54.i = icmp eq i64 %indvars.iv1272, %2136
-  br i1 %.not.i54.i, label %partial_store_u32.exit.thread816, label %2137
+  br i1 %.not.i54.i, label %partial_store_u32.exit.thread816, label %2137, !llvm.loop !17
 
 partial_store_u32.exit:                           ; preds = %2124
   %2178 = lshr i32 %1999, 3
@@ -9356,7 +9356,7 @@ repeatLastTop.exit:                               ; preds = %partial_store_u32.e
   store i32 %storemerge, ptr %729, align 8
   %2218 = load i32, ptr %731, align 4
   %2219 = icmp ult i32 %storemerge, %2218
-  br i1 %2219, label %763, label %._crit_edge1111
+  br i1 %2219, label %763, label %._crit_edge1111, !llvm.loop !21
 
 ._crit_edge1111:                                  ; preds = %2216, %734
   %2220 = getelementptr inbounds nuw i8, ptr %0, i64 73
@@ -9438,7 +9438,7 @@ mmbit_get_flat_block.exit71:                      ; preds = %2237, %2240, %2243,
 2261:                                             ; preds = %.lr.ph1115
   %2262 = getelementptr inbounds nuw i8, ptr %.013.i551113, i64 8
   %.not14.i56 = icmp ult ptr %2262, %2260
-  br i1 %.not14.i56, label %.lr.ph1115, label %mmbit_any_precise.exit11
+  br i1 %.not14.i56, label %.lr.ph1115, label %mmbit_any_precise.exit11, !llvm.loop !10
 
 .lr.ph1115:                                       ; preds = %.lr.ph1115.preheader, %2261
   %.013.i551113 = phi ptr [ %2262, %2261 ], [ %2227, %.lr.ph1115.preheader ]
@@ -9503,7 +9503,7 @@ mmbit_get_flat_block.exit71:                      ; preds = %2237, %2240, %2243,
   %.127.i290.be = phi i32 [ %2296, %2293 ], [ %2289, %2285 ]
   %.124.i291.be = phi i32 [ %narrow33.i295, %2293 ], [ 0, %2285 ]
   %.1.i292.be = phi i32 [ %2294, %2293 ], [ %2290, %2285 ]
-  br label %.backedge879
+  br label %.backedge879, !llvm.loop !7
 
 mmbit_iterate_big.exit304:                        ; preds = %2285
   %.not1464 = icmp eq i32 %2289, -1
@@ -9583,7 +9583,7 @@ mmbit_get_flat_block.exit:                        ; preds = %2306, %2309, %2312,
 2332:                                             ; preds = %.lr.ph1119
   %2333 = getelementptr inbounds nuw i8, ptr %.013.i611117, i64 8
   %.not14.i62 = icmp ult ptr %2333, %2331
-  br i1 %.not14.i62, label %.lr.ph1119, label %.critedge.i63
+  br i1 %.not14.i62, label %.lr.ph1119, label %.critedge.i63, !llvm.loop !10
 
 .lr.ph1119:                                       ; preds = %.lr.ph1119.preheader, %2332
   %.013.i611117 = phi ptr [ %2333, %2332 ], [ %740, %.lr.ph1119.preheader ]
@@ -9654,7 +9654,7 @@ mmbit_get_flat_block.exit:                        ; preds = %2306, %2309, %2312,
   %.127.i306.be = phi i32 [ %2370, %2367 ], [ %2363, %2359 ]
   %.124.i307.be = phi i32 [ %narrow33.i311, %2367 ], [ 0, %2359 ]
   %.1.i308.be = phi i32 [ %2368, %2367 ], [ %2364, %2359 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 mmbit_iterate_big.exit320:                        ; preds = %2359, %.thread845
   %.021.i312 = phi i32 [ -1, %.thread845 ], [ %2363, %2359 ]
@@ -9738,7 +9738,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecCastle_QR(ptr noundef %0, ptr no
 46:                                               ; preds = %.preheader174.i
   %47 = load i8, ptr %.046.i.i, align 1
   %48 = icmp eq i8 %47, %40
-  br i1 %48, label %rvermicelliExec.exit.i, label %.preheader174.i
+  br i1 %48, label %rvermicelliExec.exit.i, label %.preheader174.i, !llvm.loop !24
 
 49:                                               ; preds = %38
   %50 = ptrtoint ptr %42 to i64
@@ -9752,7 +9752,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecCastle_QR(ptr noundef %0, ptr no
   %55 = icmp eq <16 x i8> %44, %54
   %56 = bitcast <16 x i1> %55 to i16
   %.not9.i65.i = icmp eq i16 %56, 0
-  br i1 %.not9.i65.i, label %63, label %.thread.i, !prof !5
+  br i1 %.not9.i65.i, label %63, label %.thread.i, !prof !12
 
 .thread.i:                                        ; preds = %52
   %57 = zext i16 %56 to i32
@@ -9787,7 +9787,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecCastle_QR(ptr noundef %0, ptr no
   %74 = icmp eq <16 x i8> %44, %73
   %75 = bitcast <16 x i1> %74 to i16
   %.not15.i72.not.i = icmp eq i16 %75, 0
-  br i1 %.not15.i72.not.i, label %69, label %rvermSearchAligned.exit75.i, !prof !5
+  br i1 %.not15.i72.not.i, label %69, label %rvermSearchAligned.exit75.i, !prof !12, !llvm.loop !25
 
 rvermSearchAligned.exit75.i:                      ; preds = %71
   %76 = zext i16 %75 to i32
@@ -9803,7 +9803,7 @@ rvermSearchAligned.exit75.i:                      ; preds = %71
   %84 = icmp eq <16 x i8> %44, %83
   %85 = bitcast <16 x i1> %84 to i16
   %.not9.i61.i = icmp eq i16 %85, 0
-  br i1 %.not9.i61.i, label %rvermUnalign.exit63.i, label %86, !prof !5
+  br i1 %.not9.i61.i, label %rvermUnalign.exit63.i, label %86, !prof !12
 
 86:                                               ; preds = %82
   %87 = zext i16 %85 to i32
@@ -9853,7 +9853,7 @@ rvermicelliExec.exit.i:                           ; preds = %46, %.preheader174.
 109:                                              ; preds = %.preheader175.i
   %110 = load i8, ptr %.046.i87.i, align 1
   %.not62.i.i = icmp eq i8 %110, %103
-  br i1 %.not62.i.i, label %.preheader175.i, label %rnvermicelliExec.exit.i
+  br i1 %.not62.i.i, label %.preheader175.i, label %rnvermicelliExec.exit.i, !llvm.loop !26
 
 111:                                              ; preds = %101
   %112 = ptrtoint ptr %105 to i64
@@ -9867,7 +9867,7 @@ rvermicelliExec.exit.i:                           ; preds = %46, %.preheader174.
   %117 = icmp eq <16 x i8> %107, %116
   %118 = bitcast <16 x i1> %117 to i16
   %.not9.i65.i.i = icmp eq i16 %118, -1
-  br i1 %.not9.i65.i.i, label %126, label %.thread132.i, !prof !5
+  br i1 %.not9.i65.i.i, label %126, label %.thread132.i, !prof !12
 
 .thread132.i:                                     ; preds = %114
   %119 = xor i16 %118, -1
@@ -9903,7 +9903,7 @@ rvermicelliExec.exit.i:                           ; preds = %46, %.preheader174.
   %137 = icmp eq <16 x i8> %107, %136
   %138 = bitcast <16 x i1> %137 to i16
   %.not15.i.i.not.i = icmp eq i16 %138, -1
-  br i1 %.not15.i.i.not.i, label %132, label %rvermSearchAligned.exit.i.i, !prof !5
+  br i1 %.not15.i.i.not.i, label %132, label %rvermSearchAligned.exit.i.i, !prof !12, !llvm.loop !25
 
 rvermSearchAligned.exit.i.i:                      ; preds = %134
   %139 = xor i16 %138, -1
@@ -9920,7 +9920,7 @@ rvermSearchAligned.exit.i.i:                      ; preds = %134
   %148 = icmp eq <16 x i8> %107, %147
   %149 = bitcast <16 x i1> %148 to i16
   %.not9.i.i.i = icmp eq i16 %149, -1
-  br i1 %.not9.i.i.i, label %rvermUnalign.exit.i.i, label %150, !prof !5
+  br i1 %.not9.i.i.i, label %rvermUnalign.exit.i.i, label %150, !prof !12
 
 150:                                              ; preds = %146
   %151 = xor i16 %149, -1
@@ -10032,7 +10032,7 @@ castleRevScan.exit.thread.i:                      ; preds = %180, %166, %rnvermi
 214:                                              ; preds = %.preheader.i
   %215 = load i8, ptr %.046.i52.i, align 1
   %216 = icmp eq i8 %215, %208
-  br i1 %216, label %rvermicelliExec.exit54.i, label %.preheader.i
+  br i1 %216, label %rvermicelliExec.exit54.i, label %.preheader.i, !llvm.loop !24
 
 217:                                              ; preds = %206
   %218 = ptrtoint ptr %210 to i64
@@ -10046,7 +10046,7 @@ castleRevScan.exit.thread.i:                      ; preds = %180, %166, %rnvermi
   %223 = icmp eq <16 x i8> %212, %222
   %224 = bitcast <16 x i1> %223 to i16
   %.not9.i57.i = icmp eq i16 %224, 0
-  br i1 %.not9.i57.i, label %231, label %.thread146.i, !prof !5
+  br i1 %.not9.i57.i, label %231, label %.thread146.i, !prof !12
 
 .thread146.i:                                     ; preds = %220
   %225 = zext i16 %224 to i32
@@ -10081,7 +10081,7 @@ castleRevScan.exit.thread.i:                      ; preds = %180, %166, %rnvermi
   %242 = icmp eq <16 x i8> %212, %241
   %243 = bitcast <16 x i1> %242 to i16
   %.not15.i.not.i = icmp eq i16 %243, 0
-  br i1 %.not15.i.not.i, label %237, label %rvermSearchAligned.exit.i, !prof !5
+  br i1 %.not15.i.not.i, label %237, label %rvermSearchAligned.exit.i, !prof !12, !llvm.loop !25
 
 rvermSearchAligned.exit.i:                        ; preds = %239
   %244 = zext i16 %243 to i32
@@ -10097,7 +10097,7 @@ rvermSearchAligned.exit.i:                        ; preds = %239
   %252 = icmp eq <16 x i8> %212, %251
   %253 = bitcast <16 x i1> %252 to i16
   %.not9.i.i = icmp eq i16 %253, 0
-  br i1 %.not9.i.i, label %rvermUnalign.exit.i, label %254, !prof !5
+  br i1 %.not9.i.i, label %rvermUnalign.exit.i, label %254, !prof !12
 
 254:                                              ; preds = %250
   %255 = zext i16 %253 to i32
@@ -10141,7 +10141,7 @@ rvermicelliExec.exit54.i:                         ; preds = %214, %.preheader.i,
 273:                                              ; preds = %.preheader173.i
   %274 = load i8, ptr %.046.i113.i, align 1
   %.not62.i115.i = icmp eq i8 %274, %267
-  br i1 %.not62.i115.i, label %.preheader173.i, label %rnvermicelliExec.exit116.i
+  br i1 %.not62.i115.i, label %.preheader173.i, label %rnvermicelliExec.exit116.i, !llvm.loop !26
 
 275:                                              ; preds = %265
   %276 = ptrtoint ptr %269 to i64
@@ -10155,7 +10155,7 @@ rvermicelliExec.exit54.i:                         ; preds = %214, %.preheader.i,
   %281 = icmp eq <16 x i8> %271, %280
   %282 = bitcast <16 x i1> %281 to i16
   %.not9.i65.i90.i = icmp eq i16 %282, -1
-  br i1 %.not9.i65.i90.i, label %290, label %.thread157.i, !prof !5
+  br i1 %.not9.i65.i90.i, label %290, label %.thread157.i, !prof !12
 
 .thread157.i:                                     ; preds = %278
   %283 = xor i16 %282, -1
@@ -10191,7 +10191,7 @@ rvermicelliExec.exit54.i:                         ; preds = %214, %.preheader.i,
   %301 = icmp eq <16 x i8> %271, %300
   %302 = bitcast <16 x i1> %301 to i16
   %.not15.i.i108.not.i = icmp eq i16 %302, -1
-  br i1 %.not15.i.i108.not.i, label %296, label %rvermSearchAligned.exit.i101.i, !prof !5
+  br i1 %.not15.i.i108.not.i, label %296, label %rvermSearchAligned.exit.i101.i, !prof !12, !llvm.loop !25
 
 rvermSearchAligned.exit.i101.i:                   ; preds = %298
   %303 = xor i16 %302, -1
@@ -10208,7 +10208,7 @@ rvermSearchAligned.exit.i101.i:                   ; preds = %298
   %312 = icmp eq <16 x i8> %271, %311
   %313 = bitcast <16 x i1> %312 to i16
   %.not9.i.i104.i = icmp eq i16 %313, -1
-  br i1 %.not9.i.i104.i, label %rvermUnalign.exit.i105.i, label %314, !prof !5
+  br i1 %.not9.i.i104.i, label %rvermUnalign.exit.i105.i, label %314, !prof !12
 
 314:                                              ; preds = %310
   %315 = xor i16 %313, -1
@@ -10349,7 +10349,7 @@ clear_repeats.exit:                               ; preds = %mmbit_clear.exit98,
   %384 = getelementptr i8, ptr %20, i64 %.idx.i48
   %385 = load i64, ptr %384, align 8
   %.not42 = icmp sgt i64 %385, %.0.i472
-  br i1 %.not42, label %.preheader769, label %382
+  br i1 %.not42, label %.preheader769, label %382, !llvm.loop !27
 
 .preheader769:                                    ; preds = %382
   store i32 %storemerge, ptr %5, align 8
@@ -10451,7 +10451,7 @@ clear_repeats.exit:                               ; preds = %mmbit_clear.exit98,
   %465 = zext i8 %464 to i32
   %466 = and i32 %463, %465
   %.not.not.i56.i = icmp eq i32 %466, 0
-  br i1 %.not.not.i56.i, label %467, label %.thread, !prof !5
+  br i1 %.not.not.i56.i, label %467, label %.thread, !prof !12
 
 467:                                              ; preds = %449
   %468 = getelementptr inbounds nuw i8, ptr %454, i64 %458
@@ -10484,12 +10484,12 @@ clear_repeats.exit:                               ; preds = %mmbit_clear.exit98,
   %489 = shl nuw i64 1, %488
   store i64 %489, ptr %485, align 1
   %.not33.i61.i = icmp eq i32 %472, %446
-  br i1 %.not33.i61.i, label %.thread489, label %.lr.ph845
+  br i1 %.not33.i61.i, label %.thread489, label %.lr.ph845, !llvm.loop !16
 
 .thread:                                          ; preds = %449
   %indvars.iv.next1063 = add nuw nsw i64 %indvars.iv1062, 1
   %.not.i58.i = icmp eq i64 %indvars.iv1062, %448
-  br i1 %.not.i58.i, label %mmbit_set_i.exit.i.thread486, label %449
+  br i1 %.not.i58.i, label %mmbit_set_i.exit.i.thread486, label %449, !llvm.loop !17
 
 mmbit_set_i.exit.i:                               ; preds = %429
   %490 = lshr i32 %426, 3
@@ -10617,7 +10617,7 @@ mmbit_set_i.exit.i.thread486:                     ; preds = %.thread, %mmbit_set
   %558 = zext i8 %557 to i32
   %559 = and i32 %556, %558
   %.not.not.i.i = icmp eq i32 %559, 0
-  br i1 %.not.not.i.i, label %560, label %.thread493, !prof !5
+  br i1 %.not.not.i.i, label %560, label %.thread493, !prof !12
 
 560:                                              ; preds = %542
   %561 = getelementptr inbounds nuw i8, ptr %547, i64 %551
@@ -10650,12 +10650,12 @@ mmbit_set_i.exit.i.thread486:                     ; preds = %.thread, %mmbit_set
   %582 = shl nuw i64 1, %581
   store i64 %582, ptr %578, align 1
   %.not33.i.i = icmp eq i32 %565, %540
-  br i1 %.not33.i.i, label %.split.i, label %.lr.ph
+  br i1 %.not33.i.i, label %.split.i, label %.lr.ph, !llvm.loop !16
 
 .thread493:                                       ; preds = %542
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not.i54.i = icmp eq i64 %indvars.iv, %541
-  br i1 %.not.i54.i, label %partial_store_u32.exit.thread499, label %542
+  br i1 %.not.i54.i, label %partial_store_u32.exit.thread499, label %542, !llvm.loop !17
 
 partial_store_u32.exit:                           ; preds = %529
   %583 = lshr i32 %404, 3
@@ -10794,7 +10794,7 @@ castleHandleEvent.exit:                           ; preds = %repeatLastTop.exit,
   store i32 %622, ptr %5, align 8
   %623 = load i32, ptr %7, align 4
   %624 = icmp ult i32 %622, %623
-  br i1 %624, label %394, label %._crit_edge
+  br i1 %624, label %394, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %castleHandleEvent.exit, %.preheader769
   %625 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10905,7 +10905,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %663, %655, %652, %6
 683:                                              ; preds = %.lr.ph849
   %indvars.iv.next1066 = add nuw nsw i64 %indvars.iv1065, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1066, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge850, label %.lr.ph849
+  br i1 %exitcond.not, label %._crit_edge850, label %.lr.ph849, !llvm.loop !5
 
 ._crit_edge850:                                   ; preds = %683
   %684 = and i32 %639, 63
@@ -11025,7 +11025,7 @@ mmbit_get_flat_block.exit.i330:                   ; preds = %707, %699, %696, %6
   %.127.i.be = phi i32 [ %749, %746 ], [ %742, %738 ]
   %.124.i.be = phi i32 [ %narrow33.i, %746 ], [ 0, %738 ]
   %.1.i202.be = phi i32 [ %747, %746 ], [ %743, %738 ]
-  br label %.backedge768
+  br label %.backedge768, !llvm.loop !7
 
 mmbit_iterate.exit85:                             ; preds = %738, %677
   %.011.i84 = phi i32 [ %682, %677 ], [ %742, %738 ]
@@ -11516,7 +11516,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %1013, %1005, %1002,
 1042:                                             ; preds = %.lr.ph864
   %indvars.iv.next1075 = add nuw nsw i64 %indvars.iv1074, 1
   %exitcond1077.not = icmp eq i64 %indvars.iv.next1075, %1032
-  br i1 %exitcond1077.not, label %._crit_edge865, label %.lr.ph864
+  br i1 %exitcond1077.not, label %._crit_edge865, label %.lr.ph864, !llvm.loop !5
 
 ._crit_edge865:                                   ; preds = %1042, %.preheader766
   %.261.i338.lcssa = phi i32 [ %989, %.preheader766 ], [ %984, %1042 ]
@@ -11641,12 +11641,12 @@ mmbit_get_flat_block.exit.i342:                   ; preds = %1067, %1059, %1056,
   %.127.i209.be = phi i32 [ %1111, %1108 ], [ %1104, %1100 ]
   %.124.i210.be = phi i32 [ %narrow33.i214, %1108 ], [ 0, %1100 ]
   %.1.i211.be = phi i32 [ %1109, %1108 ], [ %1105, %1100 ]
-  br label %.backedge765
+  br label %.backedge765, !llvm.loop !7
 
 mmbit_iterate.exit80:                             ; preds = %1100, %980, %.thread524, %1036, %1074
   %.011.i79 = phi i32 [ %982, %980 ], [ %1041, %1036 ], [ %1077, %1074 ], [ %1027, %.thread524 ], [ %1104, %1100 ]
   %.not41.i = icmp eq i32 %.011.i79, -1
-  br i1 %.not41.i, label %._crit_edge872.loopexit, label %755
+  br i1 %.not41.i, label %._crit_edge872.loopexit, label %755, !llvm.loop !29
 
 ._crit_edge872.loopexit:                          ; preds = %mmbit_get_flat_block.exit.i342, %._crit_edge865, %1028, %mmbit_get_flat_block.exit84.i351, %subCastleDeactivateStaleSubs.exit136, %mmbit_iterate.exit80, %.thread534
   %.pr544.pre = load i8, ptr %631, align 1
@@ -11828,7 +11828,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %1172, %1175, %1178,
   %1204 = add i64 %.054.i874, -1
   %1205 = and i64 %1204, %.054.i874
   %.not.i167 = icmp eq i64 %1205, 0
-  br i1 %.not.i167, label %._crit_edge907, label %mmbit_mask_index.exit176
+  br i1 %.not.i167, label %._crit_edge907, label %mmbit_mask_index.exit176, !llvm.loop !30
 
 1206:                                             ; preds = %.thread545
   %1207 = load i64, ptr %1115, align 1
@@ -12266,7 +12266,7 @@ mmbit_mask_index.exit.i189.preheader:             ; preds = %.lr.ph895
   %1473 = add i64 %1475, -1
   %1474 = and i64 %1473, %1475
   %.not57.i = icmp eq i64 %1474, 0
-  br i1 %.not57.i, label %mmbit_sparse_iter_next.exit.loopexit762, label %mmbit_mask_index.exit.i189
+  br i1 %.not57.i, label %mmbit_sparse_iter_next.exit.loopexit762, label %mmbit_mask_index.exit.i189, !llvm.loop !31
 
 mmbit_mask_index.exit.i189:                       ; preds = %mmbit_mask_index.exit.i189.preheader, %1472
   %1475 = phi i64 [ %1474, %1472 ], [ %1465, %mmbit_mask_index.exit.i189.preheader ]
@@ -12338,7 +12338,7 @@ mmbit_get_flat_block.exit.i193:                   ; preds = %1493, %1496, %1499,
   %1516 = load i64, ptr %1484, align 8
   %1517 = and i64 %1516, %.0.i191
   %.not.i188.not = icmp eq i64 %1517, 0
-  br i1 %.not.i188.not, label %1472, label %._crit_edge896
+  br i1 %.not.i188.not, label %1472, label %._crit_edge896, !llvm.loop !31
 
 1518:                                             ; preds = %subCastleDeactivateStaleSubs.exit
   %1519 = load i8, ptr %1277, align 1
@@ -12442,7 +12442,7 @@ mmbit_sparse_iter_next.exit.loopexit762:          ; preds = %1472, %.lr.ph895.mm
 mmbit_sparse_iter_next.exit:                      ; preds = %mmbit_mask_index.exit.i.i, %1454, %1468
   %.0.i140 = phi i32 [ %1471, %1468 ], [ %1456, %1454 ], [ %1538, %mmbit_mask_index.exit.i.i ]
   %.not43.i = icmp eq i32 %.0.i140, -1
-  br i1 %.not43.i, label %._crit_edge907, label %1278
+  br i1 %.not43.i, label %._crit_edge907, label %1278, !llvm.loop !32
 
 ._crit_edge907:                                   ; preds = %1203, %1250, %1450, %mmbit_sparse_iter_next.exit, %1565, %mmbit_sparse_iter_next.exit.loopexit762, %1151, %1206, %mmbit_get_flat_block.exit63.i, %mmbit_sparse_iter_begin.exit
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #10
@@ -12528,7 +12528,7 @@ mmbit_get_flat_block.exit:                        ; preds = %1596, %1599, %1602,
 1620:                                             ; preds = %.lr.ph911
   %1621 = getelementptr inbounds nuw i8, ptr %.013.i101909, i64 8
   %.not14.i102 = icmp ult ptr %1621, %1619
-  br i1 %.not14.i102, label %.lr.ph911, label %mmbit_any_precise.exit
+  br i1 %.not14.i102, label %.lr.ph911, label %mmbit_any_precise.exit, !llvm.loop !10
 
 .lr.ph911:                                        ; preds = %.lr.ph911.preheader, %1620
   %.013.i101909 = phi ptr [ %1621, %1620 ], [ %1586, %.lr.ph911.preheader ]
@@ -12593,7 +12593,7 @@ mmbit_get_flat_block.exit:                        ; preds = %1596, %1599, %1602,
   %.127.i313.be = phi i32 [ %1655, %1652 ], [ %1648, %1644 ]
   %.124.i314.be = phi i32 [ %narrow33.i318, %1652 ], [ 0, %1644 ]
   %.1.i315.be = phi i32 [ %1653, %1652 ], [ %1649, %1644 ]
-  br label %.backedge760
+  br label %.backedge760, !llvm.loop !7
 
 mmbit_iterate_big.exit327:                        ; preds = %1644
   %.not1288 = icmp eq i32 %1648, -1
@@ -12672,7 +12672,7 @@ mmbit_get_flat_block.exit111:                     ; preds = %1665, %1668, %1671,
 1689:                                             ; preds = %.lr.ph915
   %1690 = getelementptr inbounds nuw i8, ptr %.013.i913, i64 8
   %.not14.i99 = icmp ult ptr %1690, %1688
-  br i1 %.not14.i99, label %.lr.ph915, label %mmbit_any_precise.exit56
+  br i1 %.not14.i99, label %.lr.ph915, label %mmbit_any_precise.exit56, !llvm.loop !10
 
 .lr.ph915:                                        ; preds = %.lr.ph915.preheader, %1689
   %.013.i913 = phi ptr [ %1690, %1689 ], [ %17, %.lr.ph915.preheader ]
@@ -12737,7 +12737,7 @@ mmbit_get_flat_block.exit111:                     ; preds = %1665, %1668, %1671,
   %.127.i297.be = phi i32 [ %1724, %1721 ], [ %1717, %1713 ]
   %.124.i298.be = phi i32 [ %narrow33.i302, %1721 ], [ 0, %1713 ]
   %.1.i299.be = phi i32 [ %1722, %1721 ], [ %1718, %1713 ]
-  br label %.backedge759
+  br label %.backedge759, !llvm.loop !7
 
 mmbit_iterate_big.exit311:                        ; preds = %1713
   %.not1291 = icmp eq i32 %1717, -1
@@ -12859,7 +12859,7 @@ mmbit_get_flat_block.exit84.i371:                 ; preds = %1759, %1751, %1748,
 1779:                                             ; preds = %.lr.ph918
   %indvars.iv.next1085 = add nuw nsw i64 %indvars.iv1084, 1
   %exitcond1088.not = icmp eq i64 %indvars.iv.next1085, %wide.trip.count1087
-  br i1 %exitcond1088.not, label %._crit_edge919, label %.lr.ph918
+  br i1 %exitcond1088.not, label %._crit_edge919, label %.lr.ph918, !llvm.loop !5
 
 ._crit_edge919:                                   ; preds = %1779
   %1780 = and i32 %1735, 63
@@ -12979,7 +12979,7 @@ mmbit_get_flat_block.exit.i362:                   ; preds = %1803, %1795, %1792,
   %.127.i225.be = phi i32 [ %1845, %1842 ], [ %1838, %1834 ]
   %.124.i226.be = phi i32 [ %narrow33.i230, %1842 ], [ 0, %1834 ]
   %.1.i227.be = phi i32 [ %1843, %1842 ], [ %1839, %1834 ]
-  br label %.backedge758
+  br label %.backedge758, !llvm.loop !7
 
 mmbit_iterate.exit75:                             ; preds = %1834, %1773
   %.011.i74 = phi i32 [ %1778, %1773 ], [ %1838, %1834 ]
@@ -13304,7 +13304,7 @@ mmbit_get_flat_block.exit80.i437:                 ; preds = %1990, %1982, %1979,
 2019:                                             ; preds = %.lr.ph922
   %indvars.iv.next1090 = add nuw nsw i64 %indvars.iv1089, 1
   %exitcond1092.not = icmp eq i64 %indvars.iv.next1090, %2009
-  br i1 %exitcond1092.not, label %._crit_edge923, label %.lr.ph922
+  br i1 %exitcond1092.not, label %._crit_edge923, label %.lr.ph922, !llvm.loop !5
 
 ._crit_edge923:                                   ; preds = %2019, %.preheader756
   %.261.i448.lcssa = phi i32 [ %1966, %.preheader756 ], [ %1961, %2019 ]
@@ -13429,12 +13429,12 @@ mmbit_get_flat_block.exit.i452:                   ; preds = %2044, %2036, %2033,
   %.127.i281.be = phi i32 [ %2088, %2085 ], [ %2081, %2077 ]
   %.124.i282.be = phi i32 [ %narrow33.i286, %2085 ], [ 0, %2077 ]
   %.1.i283.be = phi i32 [ %2086, %2085 ], [ %2082, %2077 ]
-  br label %.backedge755
+  br label %.backedge755, !llvm.loop !7
 
 mmbit_iterate.exit:                               ; preds = %2077, %1957, %.thread641, %2013, %2051
   %.011.i = phi i32 [ %1959, %1957 ], [ %2018, %2013 ], [ %2054, %2051 ], [ %2004, %.thread641 ], [ %2081, %2077 ]
   %.not49.i.not = icmp eq i32 %.011.i, -1
-  br i1 %.not49.i.not, label %subCastleInAccept.exit.loopexit, label %1848
+  br i1 %.not49.i.not, label %subCastleInAccept.exit.loopexit, label %1848, !llvm.loop !33
 
 subCastleInAccept.exit.loopexit:                  ; preds = %mmbit_get_flat_block.exit.i452, %._crit_edge923, %2005, %mmbit_get_flat_block.exit84.i463, %repeatHasMatch.exit147.thread, %mmbit_iterate.exit, %.thread652
   %.pr665.pre = load i8, ptr %1579, align 1
@@ -13542,7 +13542,7 @@ mmbit_get_flat_block.exit84.i392:                 ; preds = %2117, %2109, %2106,
 2137:                                             ; preds = %.lr.ph934
   %indvars.iv.next1094 = add nuw nsw i64 %indvars.iv1093, 1
   %exitcond1097.not = icmp eq i64 %indvars.iv.next1094, %wide.trip.count1096
-  br i1 %exitcond1097.not, label %._crit_edge935, label %.lr.ph934
+  br i1 %exitcond1097.not, label %._crit_edge935, label %.lr.ph934, !llvm.loop !5
 
 ._crit_edge935:                                   ; preds = %2137
   %2138 = and i32 %2093, 63
@@ -13662,7 +13662,7 @@ mmbit_get_flat_block.exit.i383:                   ; preds = %2161, %2153, %2150,
   %.127.i241.be = phi i32 [ %2203, %2200 ], [ %2196, %2192 ]
   %.124.i242.be = phi i32 [ %narrow33.i246, %2200 ], [ 0, %2192 ]
   %.1.i243.be = phi i32 [ %2201, %2200 ], [ %2197, %2192 ]
-  br label %.backedge754
+  br label %.backedge754, !llvm.loop !7
 
 mmbit_iterate.exit70:                             ; preds = %2192, %2131
   %.011.i69 = phi i32 [ %2136, %2131 ], [ %2196, %2192 ]
@@ -13947,7 +13947,7 @@ mmbit_get_flat_block.exit80.i400:                 ; preds = %2324, %2316, %2313,
 2353:                                             ; preds = %.lr.ph938
   %indvars.iv.next1099 = add nuw nsw i64 %indvars.iv1098, 1
   %exitcond1101.not = icmp eq i64 %indvars.iv.next1099, %2343
-  br i1 %exitcond1101.not, label %._crit_edge939, label %.lr.ph938
+  br i1 %exitcond1101.not, label %._crit_edge939, label %.lr.ph938, !llvm.loop !5
 
 ._crit_edge939:                                   ; preds = %2353, %.preheader
   %.261.i411.lcssa = phi i32 [ %2300, %.preheader ], [ %2296, %2353 ]
@@ -14072,12 +14072,12 @@ mmbit_get_flat_block.exit.i415:                   ; preds = %2378, %2370, %2367,
   %.127.i261.be = phi i32 [ %2422, %2419 ], [ %2415, %2411 ]
   %.124.i262.be = phi i32 [ %narrow33.i266, %2419 ], [ 0, %2411 ]
   %.1.i263.be = phi i32 [ %2420, %2419 ], [ %2416, %2411 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 mmbit_iterate.exit65:                             ; preds = %2411, %2292, %.thread695, %2347, %2385
   %.011.i64 = phi i32 [ %2294, %2292 ], [ %2352, %2347 ], [ %2388, %2385 ], [ %2338, %.thread695 ], [ %2415, %2411 ]
   %.not52.i.not = icmp eq i32 %.011.i64, -1
-  br i1 %.not52.i.not, label %castleInAccept.exit, label %.lr.ph947
+  br i1 %.not52.i.not, label %castleInAccept.exit, label %.lr.ph947, !llvm.loop !34
 
 castleInAccept.exit:                              ; preds = %.thread600, %1910, %1874, %1896, %repeatHasMatch.exit147, %.thread674, %mmbit_get_flat_block.exit.i415, %._crit_edge939, %2339, %mmbit_get_flat_block.exit84.i426, %repeatHasMatch.exit145.thread, %mmbit_iterate.exit65, %repeatHasMatch.exit145, %2231, %2209, %2245, %.thread706, %mmbit_get_flat_block.exit.i383, %._crit_edge935, %mmbit_get_flat_block.exit84.i392, %subCastleInAccept.exit.thread666, %mmbit_any_precise.exit.thread597.thread, %mmbit_get_flat_block.exit111, %mmbit_iterate_big.exit311, %mmbit_iterate.exit70, %.critedge, %mmbit_any_precise.exit.thread597, %subCastleInAccept.exit, %mmbit_any_precise.exit56, %3
   %.0 = phi i8 [ 1, %3 ], [ 0, %mmbit_any_precise.exit56 ], [ 1, %mmbit_any_precise.exit.thread597 ], [ 1, %subCastleInAccept.exit ], [ 0, %.critedge ], [ 1, %mmbit_iterate.exit70 ], [ 0, %mmbit_iterate_big.exit311 ], [ 0, %mmbit_get_flat_block.exit111 ], [ 1, %mmbit_any_precise.exit.thread597.thread ], [ 1, %subCastleInAccept.exit.thread666 ], [ 1, %mmbit_get_flat_block.exit84.i392 ], [ 1, %._crit_edge935 ], [ 1, %mmbit_get_flat_block.exit.i383 ], [ 1, %.thread706 ], [ 1, %mmbit_get_flat_block.exit.i415 ], [ 1, %._crit_edge939 ], [ 1, %2339 ], [ 1, %mmbit_get_flat_block.exit84.i426 ], [ 1, %repeatHasMatch.exit145.thread ], [ 1, %mmbit_iterate.exit65 ], [ 2, %repeatHasMatch.exit145 ], [ 2, %2231 ], [ 2, %2209 ], [ 2, %2245 ], [ 1, %.thread674 ], [ 2, %repeatHasMatch.exit147 ], [ 2, %1896 ], [ 2, %1874 ], [ 2, %1910 ], [ 0, %.thread600 ]
@@ -14204,7 +14204,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %47, %39, %36, %33
 67:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %67
   %68 = and i32 %23, 63
@@ -14324,7 +14324,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %91, %83, %80, %77
   %.127.i.be = phi i32 [ %133, %130 ], [ %126, %122 ]
   %.124.i.be = phi i32 [ %narrow33.i, %130 ], [ 0, %122 ]
   %.1.i.be = phi i32 [ %131, %130 ], [ %127, %122 ]
-  br label %.backedge264
+  br label %.backedge264, !llvm.loop !7
 
 mmbit_iterate.exit18:                             ; preds = %122, %61
   %.011.i17 = phi i32 [ %66, %61 ], [ %126, %122 ]
@@ -14649,7 +14649,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %283, %275, %272, %2
 312:                                              ; preds = %.lr.ph274
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond318.not = icmp eq i64 %indvars.iv.next316, %302
-  br i1 %exitcond318.not, label %._crit_edge275, label %.lr.ph274
+  br i1 %exitcond318.not, label %._crit_edge275, label %.lr.ph274, !llvm.loop !5
 
 ._crit_edge275:                                   ; preds = %312, %.preheader262
   %.261.i90.lcssa = phi i32 [ %259, %.preheader262 ], [ %254, %312 ]
@@ -14774,12 +14774,12 @@ mmbit_get_flat_block.exit.i94:                    ; preds = %337, %329, %326, %3
   %.127.i22.be = phi i32 [ %381, %378 ], [ %374, %370 ]
   %.124.i23.be = phi i32 [ %narrow33.i27, %378 ], [ 0, %370 ]
   %.1.i24.be = phi i32 [ %379, %378 ], [ %375, %370 ]
-  br label %.backedge261
+  br label %.backedge261, !llvm.loop !7
 
 mmbit_iterate.exit13:                             ; preds = %370, %250, %.thread188, %306, %344
   %.011.i12 = phi i32 [ %252, %250 ], [ %311, %306 ], [ %347, %344 ], [ %297, %.thread188 ], [ %374, %370 ]
   %.not48.i = icmp eq i32 %.011.i12, -1
-  br i1 %.not48.i, label %.critedge.i.loopexit, label %139
+  br i1 %.not48.i, label %.critedge.i.loopexit, label %139, !llvm.loop !8
 
 .critedge.i.loopexit:                             ; preds = %mmbit_get_flat_block.exit.i94, %._crit_edge275, %298, %mmbit_get_flat_block.exit84.i103, %subCastleReportCurrent.exit82, %mmbit_iterate.exit13, %.thread198
   %.pr.pre = load i8, ptr %13, align 1
@@ -14885,7 +14885,7 @@ mmbit_get_flat_block.exit84.i123:                 ; preds = %412, %404, %401, %3
 432:                                              ; preds = %.lr.ph284
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next320, %wide.trip.count322
-  br i1 %exitcond323.not, label %._crit_edge285, label %.lr.ph284
+  br i1 %exitcond323.not, label %._crit_edge285, label %.lr.ph284, !llvm.loop !5
 
 ._crit_edge285:                                   ; preds = %432
   %433 = and i32 %388, 63
@@ -15005,7 +15005,7 @@ mmbit_get_flat_block.exit.i114:                   ; preds = %456, %448, %445, %4
   %.127.i38.be = phi i32 [ %498, %495 ], [ %491, %487 ]
   %.124.i39.be = phi i32 [ %narrow33.i43, %495 ], [ 0, %487 ]
   %.1.i40.be = phi i32 [ %496, %495 ], [ %492, %487 ]
-  br label %.backedge260
+  br label %.backedge260, !llvm.loop !7
 
 mmbit_iterate.exit8:                              ; preds = %487, %426
   %.011.i7 = phi i32 [ %431, %426 ], [ %491, %487 ]
@@ -15290,7 +15290,7 @@ mmbit_get_flat_block.exit80.i131:                 ; preds = %625, %617, %614, %6
 654:                                              ; preds = %.lr.ph288
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond327.not = icmp eq i64 %indvars.iv.next325, %644
-  br i1 %exitcond327.not, label %._crit_edge289, label %.lr.ph288
+  br i1 %exitcond327.not, label %._crit_edge289, label %.lr.ph288, !llvm.loop !5
 
 ._crit_edge289:                                   ; preds = %654, %.preheader
   %.261.i142.lcssa = phi i32 [ %601, %.preheader ], [ %597, %654 ]
@@ -15415,12 +15415,12 @@ mmbit_get_flat_block.exit.i146:                   ; preds = %679, %671, %668, %6
   %.127.i58.be = phi i32 [ %723, %720 ], [ %716, %712 ]
   %.124.i59.be = phi i32 [ %narrow33.i63, %720 ], [ 0, %712 ]
   %.1.i60.be = phi i32 [ %721, %720 ], [ %717, %712 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 mmbit_iterate.exit:                               ; preds = %712, %593, %.thread232, %648, %686
   %.011.i = phi i32 [ %595, %593 ], [ %653, %648 ], [ %689, %686 ], [ %639, %.thread232 ], [ %716, %712 ]
   %.not51.i = icmp eq i32 %.011.i, -1
-  br i1 %.not51.i, label %castleReportCurrent.exit, label %503
+  br i1 %.not51.i, label %castleReportCurrent.exit, label %503, !llvm.loop !9
 
 castleReportCurrent.exit:                         ; preds = %repeatHasMatch.exit.i74.thread184, %.thread215, %mmbit_get_flat_block.exit.i146, %._crit_edge289, %640, %mmbit_get_flat_block.exit84.i157, %subCastleReportCurrent.exit, %repeatHasMatch.exit.i.thread229, %mmbit_iterate.exit, %.thread242, %mmbit_get_flat_block.exit.i114, %._crit_edge285, %mmbit_get_flat_block.exit84.i123, %.critedge.i.thread, %mmbit_iterate.exit8, %.critedge.i
   ret i8 0
@@ -15544,7 +15544,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %50, %42, %39, %36
 70:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %70
   %71 = and i32 %26, 63
@@ -15664,7 +15664,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %94, %86, %83, %80
   %.127.i.be = phi i32 [ %136, %133 ], [ %129, %125 ]
   %.124.i.be = phi i32 [ %narrow33.i, %133 ], [ 0, %125 ]
   %.1.i.be = phi i32 [ %134, %133 ], [ %130, %125 ]
-  br label %.backedge282
+  br label %.backedge282, !llvm.loop !7
 
 mmbit_iterate.exit19:                             ; preds = %125, %64
   %.011.i18 = phi i32 [ %69, %64 ], [ %129, %125 ]
@@ -15990,7 +15990,7 @@ mmbit_get_flat_block.exit80.i134:                 ; preds = %282, %274, %271, %2
 311:                                              ; preds = %.lr.ph292
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next342, %301
-  br i1 %exitcond344.not, label %._crit_edge293, label %.lr.ph292
+  br i1 %exitcond344.not, label %._crit_edge293, label %.lr.ph292, !llvm.loop !5
 
 ._crit_edge293:                                   ; preds = %311, %.preheader280
   %.261.i145.lcssa = phi i32 [ %258, %.preheader280 ], [ %253, %311 ]
@@ -16115,12 +16115,12 @@ mmbit_get_flat_block.exit.i149:                   ; preds = %336, %328, %325, %3
   %.127.i77.be = phi i32 [ %380, %377 ], [ %373, %369 ]
   %.124.i78.be = phi i32 [ %narrow33.i82, %377 ], [ 0, %369 ]
   %.1.i79.be = phi i32 [ %378, %377 ], [ %374, %369 ]
-  br label %.backedge279
+  br label %.backedge279, !llvm.loop !7
 
 mmbit_iterate.exit:                               ; preds = %369, %249, %.thread193, %305, %343
   %.011.i = phi i32 [ %251, %249 ], [ %310, %305 ], [ %346, %343 ], [ %296, %.thread193 ], [ %373, %369 ]
   %.not49.i.not = icmp eq i32 %.011.i, -1
-  br i1 %.not49.i.not, label %subCastleInAccept.exit.loopexit, label %140
+  br i1 %.not49.i.not, label %subCastleInAccept.exit.loopexit, label %140, !llvm.loop !33
 
 subCastleInAccept.exit.loopexit:                  ; preds = %mmbit_get_flat_block.exit.i149, %._crit_edge293, %297, %mmbit_get_flat_block.exit84.i160, %repeatHasMatch.exit29.thread, %mmbit_iterate.exit, %.thread204
   %.pr.pre = load i8, ptr %16, align 1
@@ -16226,7 +16226,7 @@ mmbit_get_flat_block.exit84.i106:                 ; preds = %411, %403, %400, %3
 431:                                              ; preds = %.lr.ph302
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count348
-  br i1 %exitcond349.not, label %._crit_edge303, label %.lr.ph302
+  br i1 %exitcond349.not, label %._crit_edge303, label %.lr.ph302, !llvm.loop !5
 
 ._crit_edge303:                                   ; preds = %431
   %432 = and i32 %387, 63
@@ -16346,7 +16346,7 @@ mmbit_get_flat_block.exit.i97:                    ; preds = %455, %447, %444, %4
   %.127.i41.be = phi i32 [ %497, %494 ], [ %490, %486 ]
   %.124.i42.be = phi i32 [ %narrow33.i46, %494 ], [ 0, %486 ]
   %.1.i43.be = phi i32 [ %495, %494 ], [ %491, %486 ]
-  br label %.backedge278
+  br label %.backedge278, !llvm.loop !7
 
 mmbit_iterate.exit14:                             ; preds = %486, %425
   %.011.i13 = phi i32 [ %430, %425 ], [ %490, %486 ]
@@ -16632,7 +16632,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %620, %612, %609, %6
 649:                                              ; preds = %.lr.ph306
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next351, %639
-  br i1 %exitcond353.not, label %._crit_edge307, label %.lr.ph306
+  br i1 %exitcond353.not, label %._crit_edge307, label %.lr.ph306, !llvm.loop !5
 
 ._crit_edge307:                                   ; preds = %649, %.preheader
   %.261.i114.lcssa = phi i32 [ %596, %.preheader ], [ %592, %649 ]
@@ -16757,12 +16757,12 @@ mmbit_get_flat_block.exit.i118:                   ; preds = %674, %666, %663, %6
   %.127.i57.be = phi i32 [ %718, %715 ], [ %711, %707 ]
   %.124.i58.be = phi i32 [ %narrow33.i62, %715 ], [ 0, %707 ]
   %.1.i59.be = phi i32 [ %716, %715 ], [ %712, %707 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 mmbit_iterate.exit9:                              ; preds = %707, %588, %.thread246, %643, %681
   %.011.i8 = phi i32 [ %590, %588 ], [ %648, %643 ], [ %684, %681 ], [ %634, %.thread246 ], [ %711, %707 ]
   %.not52.i.not = icmp eq i32 %.011.i8, -1
-  br i1 %.not52.i.not, label %castleInAccept.exit, label %500
+  br i1 %.not52.i.not, label %castleInAccept.exit, label %500, !llvm.loop !34
 
 castleInAccept.exit:                              ; preds = %202, %166, %188, %repeatHasMatch.exit29, %.thread225, %mmbit_get_flat_block.exit.i118, %._crit_edge307, %635, %mmbit_get_flat_block.exit84.i127, %repeatHasMatch.exit.thread, %mmbit_iterate.exit9, %repeatHasMatch.exit, %527, %505, %541, %.thread257, %mmbit_get_flat_block.exit.i97, %._crit_edge303, %mmbit_get_flat_block.exit84.i106, %subCastleInAccept.exit.thread217, %mmbit_iterate.exit14, %subCastleInAccept.exit, %3
   %.043.i = phi i8 [ 0, %3 ], [ 0, %subCastleInAccept.exit ], [ 0, %mmbit_iterate.exit14 ], [ 0, %subCastleInAccept.exit.thread217 ], [ 0, %mmbit_get_flat_block.exit84.i106 ], [ 0, %._crit_edge303 ], [ 0, %mmbit_get_flat_block.exit.i97 ], [ 0, %.thread257 ], [ 0, %mmbit_get_flat_block.exit.i118 ], [ 0, %._crit_edge307 ], [ 0, %635 ], [ 0, %mmbit_get_flat_block.exit84.i127 ], [ 0, %repeatHasMatch.exit.thread ], [ 0, %mmbit_iterate.exit9 ], [ 1, %repeatHasMatch.exit ], [ 1, %527 ], [ 1, %505 ], [ 1, %541 ], [ 0, %.thread225 ], [ 1, %repeatHasMatch.exit29 ], [ 1, %188 ], [ 1, %166 ], [ 1, %202 ]
@@ -16883,7 +16883,7 @@ mmbit_get_flat_block.exit84.i229:                 ; preds = %47, %39, %36, %33
 67:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %67
   %68 = and i32 %23, 63
@@ -17003,7 +17003,7 @@ mmbit_get_flat_block.exit.i220:                   ; preds = %91, %83, %80, %77
   %.127.i137.be = phi i32 [ %133, %130 ], [ %126, %122 ]
   %.124.i138.be = phi i32 [ %narrow33.i142, %130 ], [ 0, %122 ]
   %.1.i139.be = phi i32 [ %131, %130 ], [ %127, %122 ]
-  br label %.backedge337
+  br label %.backedge337, !llvm.loop !7
 
 mmbit_iterate.exit:                               ; preds = %122, %61
   %.011.i = phi i32 [ %66, %61 ], [ %126, %122 ]
@@ -17324,7 +17324,7 @@ mmbit_get_flat_block.exit80.i179:                 ; preds = %278, %270, %267, %2
 307:                                              ; preds = %.lr.ph347
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %exitcond401.not = icmp eq i64 %indvars.iv.next399, %297
-  br i1 %exitcond401.not, label %._crit_edge348, label %.lr.ph347
+  br i1 %exitcond401.not, label %._crit_edge348, label %.lr.ph347, !llvm.loop !5
 
 ._crit_edge348:                                   ; preds = %307, %.preheader335
   %.261.i190.lcssa = phi i32 [ %254, %.preheader335 ], [ %249, %307 ]
@@ -17449,12 +17449,12 @@ mmbit_get_flat_block.exit.i194:                   ; preds = %332, %324, %321, %3
   %.127.i121.be = phi i32 [ %376, %373 ], [ %369, %365 ]
   %.124.i122.be = phi i32 [ %narrow33.i126, %373 ], [ 0, %365 ]
   %.1.i123.be = phi i32 [ %374, %373 ], [ %370, %365 ]
-  br label %.backedge334
+  br label %.backedge334, !llvm.loop !7
 
 mmbit_iterate.exit68:                             ; preds = %365, %245, %.thread258, %301, %339
   %.011.i67 = phi i32 [ %247, %245 ], [ %306, %301 ], [ %342, %339 ], [ %292, %.thread258 ], [ %369, %365 ]
   %.not58 = icmp eq i32 %.011.i67, -1
-  br i1 %.not58, label %.critedge.loopexit, label %137
+  br i1 %.not58, label %.critedge.loopexit, label %137, !llvm.loop !35
 
 .critedge.loopexit:                               ; preds = %mmbit_get_flat_block.exit.i194, %._crit_edge348, %293, %mmbit_get_flat_block.exit84.i205, %repeatHasMatch.exit87.thread, %mmbit_iterate.exit68, %.thread268
   %.pr.pre = load i8, ptr %13, align 1
@@ -17560,7 +17560,7 @@ mmbit_get_flat_block.exit84.i171:                 ; preds = %407, %399, %396, %3
 427:                                              ; preds = %.lr.ph357
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond406.not = icmp eq i64 %indvars.iv.next403, %wide.trip.count405
-  br i1 %exitcond406.not, label %._crit_edge358, label %.lr.ph357
+  br i1 %exitcond406.not, label %._crit_edge358, label %.lr.ph357, !llvm.loop !5
 
 ._crit_edge358:                                   ; preds = %427
   %428 = and i32 %383, 63
@@ -17680,7 +17680,7 @@ mmbit_get_flat_block.exit.i162:                   ; preds = %451, %443, %440, %4
   %.127.i101.be = phi i32 [ %493, %490 ], [ %486, %482 ]
   %.124.i102.be = phi i32 [ %narrow33.i106, %490 ], [ 0, %482 ]
   %.1.i103.be = phi i32 [ %491, %490 ], [ %487, %482 ]
-  br label %.backedge333
+  br label %.backedge333, !llvm.loop !7
 
 mmbit_iterate.exit73:                             ; preds = %482, %421
   %.011.i72 = phi i32 [ %426, %421 ], [ %486, %482 ]
@@ -17961,7 +17961,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %614, %606, %603, %6
 643:                                              ; preds = %.lr.ph361
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond410.not = icmp eq i64 %indvars.iv.next408, %633
-  br i1 %exitcond410.not, label %._crit_edge362, label %.lr.ph361
+  br i1 %exitcond410.not, label %._crit_edge362, label %.lr.ph361, !llvm.loop !5
 
 ._crit_edge362:                                   ; preds = %643, %.preheader
   %.261.i.lcssa = phi i32 [ %590, %.preheader ], [ %586, %643 ]
@@ -18086,12 +18086,12 @@ mmbit_get_flat_block.exit.i:                      ; preds = %668, %660, %657, %6
   %.127.i.be = phi i32 [ %712, %709 ], [ %705, %701 ]
   %.124.i.be = phi i32 [ %narrow33.i, %709 ], [ 0, %701 ]
   %.1.i.be = phi i32 [ %710, %709 ], [ %706, %701 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 mmbit_iterate.exit78:                             ; preds = %701, %582, %.thread305, %637, %675
   %.011.i77 = phi i32 [ %584, %582 ], [ %642, %637 ], [ %678, %675 ], [ %628, %.thread305 ], [ %705, %701 ]
   %.not61 = icmp eq i32 %.011.i77, -1
-  br i1 %.not61, label %subCastleInAccept.exit, label %496
+  br i1 %.not61, label %subCastleInAccept.exit, label %496, !llvm.loop !36
 
 subCastleInAccept.exit:                           ; preds = %198, %160, %184, %repeatHasMatch.exit87, %.thread285, %mmbit_get_flat_block.exit.i, %._crit_edge362, %629, %mmbit_get_flat_block.exit84.i, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %mmbit_iterate.exit78, %521, %496, %535, %.thread315, %mmbit_get_flat_block.exit.i162, %._crit_edge358, %mmbit_get_flat_block.exit84.i171, %.critedge.thread, %mmbit_iterate.exit73, %.critedge
   %.4 = phi i8 [ 0, %.critedge ], [ 0, %mmbit_iterate.exit73 ], [ 0, %.critedge.thread ], [ 0, %mmbit_get_flat_block.exit84.i171 ], [ 0, %._crit_edge358 ], [ 0, %mmbit_get_flat_block.exit.i162 ], [ 0, %.thread315 ], [ 0, %mmbit_get_flat_block.exit.i ], [ 0, %._crit_edge362 ], [ 0, %629 ], [ 0, %mmbit_get_flat_block.exit84.i ], [ 0, %repeatHasMatch.exit.thread ], [ 1, %repeatHasMatch.exit ], [ 0, %mmbit_iterate.exit78 ], [ 1, %521 ], [ 1, %496 ], [ 1, %535 ], [ 0, %.thread285 ], [ 1, %repeatHasMatch.exit87 ], [ 1, %184 ], [ 1, %160 ], [ 1, %198 ]
@@ -18341,7 +18341,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %42, %34, %31, %28
 62:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %62
   %63 = and i32 %18, 63
@@ -18461,7 +18461,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %86, %78, %75, %72
   %.127.i.be = phi i32 [ %128, %125 ], [ %121, %117 ]
   %.124.i.be = phi i32 [ %narrow33.i, %125 ], [ 0, %117 ]
   %.1.i.be = phi i32 [ %126, %125 ], [ %122, %117 ]
-  br label %.backedge269
+  br label %.backedge269, !llvm.loop !7
 
 mmbit_iterate.exit52:                             ; preds = %117, %56
   %.011.i51 = phi i32 [ %61, %56 ], [ %121, %117 ]
@@ -18709,7 +18709,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %236, %228, %225, %2
 265:                                              ; preds = %.lr.ph279
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next323, %255
-  br i1 %exitcond325.not, label %._crit_edge280, label %.lr.ph279
+  br i1 %exitcond325.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !5
 
 ._crit_edge280:                                   ; preds = %265, %.preheader268
   %.261.i110.lcssa = phi i32 [ %212, %.preheader268 ], [ %207, %265 ]
@@ -18834,12 +18834,12 @@ mmbit_get_flat_block.exit.i114:                   ; preds = %290, %282, %279, %2
   %.127.i55.be = phi i32 [ %334, %331 ], [ %327, %323 ]
   %.124.i56.be = phi i32 [ %narrow33.i60, %331 ], [ 0, %323 ]
   %.1.i57.be = phi i32 [ %332, %331 ], [ %328, %323 ]
-  br label %.backedge267
+  br label %.backedge267, !llvm.loop !7
 
 mmbit_iterate.exit47:                             ; preds = %323, %203, %.thread200, %259, %297
   %.011.i46 = phi i32 [ %205, %203 ], [ %264, %259 ], [ %300, %297 ], [ %250, %.thread200 ], [ %327, %323 ]
   %.not35 = icmp eq i32 %.011.i46, -1
-  br i1 %.not35, label %._crit_edge287.loopexit, label %132
+  br i1 %.not35, label %._crit_edge287.loopexit, label %132, !llvm.loop !37
 
 ._crit_edge287.loopexit:                          ; preds = %mmbit_get_flat_block.exit.i114, %._crit_edge280, %251, %mmbit_get_flat_block.exit84.i123, %partial_load_u32.exit, %mmbit_iterate.exit47, %.thread210
   %.pr.pre = load i8, ptr %8, align 1
@@ -18945,7 +18945,7 @@ mmbit_get_flat_block.exit84.i143:                 ; preds = %365, %357, %354, %3
 385:                                              ; preds = %.lr.ph290
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
-  br i1 %exitcond330.not, label %._crit_edge291, label %.lr.ph290
+  br i1 %exitcond330.not, label %._crit_edge291, label %.lr.ph290, !llvm.loop !5
 
 ._crit_edge291:                                   ; preds = %385
   %386 = and i32 %341, 63
@@ -19065,7 +19065,7 @@ mmbit_get_flat_block.exit.i134:                   ; preds = %409, %401, %398, %3
   %.127.i71.be = phi i32 [ %451, %448 ], [ %444, %440 ]
   %.124.i72.be = phi i32 [ %narrow33.i76, %448 ], [ 0, %440 ]
   %.1.i73.be = phi i32 [ %449, %448 ], [ %445, %440 ]
-  br label %.backedge266
+  br label %.backedge266, !llvm.loop !7
 
 mmbit_iterate.exit42:                             ; preds = %440, %379
   %.011.i41 = phi i32 [ %384, %379 ], [ %444, %440 ]
@@ -19273,7 +19273,7 @@ mmbit_get_flat_block.exit80.i151:                 ; preds = %536, %528, %525, %5
 565:                                              ; preds = %.lr.ph294
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next332, %555
-  br i1 %exitcond334.not, label %._crit_edge295, label %.lr.ph294
+  br i1 %exitcond334.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !5
 
 ._crit_edge295:                                   ; preds = %565, %.preheader
   %.261.i162.lcssa = phi i32 [ %512, %.preheader ], [ %508, %565 ]
@@ -19398,12 +19398,12 @@ mmbit_get_flat_block.exit.i166:                   ; preds = %590, %582, %579, %5
   %.127.i91.be = phi i32 [ %634, %631 ], [ %627, %623 ]
   %.124.i92.be = phi i32 [ %narrow33.i96, %631 ], [ 0, %623 ]
   %.1.i93.be = phi i32 [ %632, %631 ], [ %628, %623 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 mmbit_iterate.exit:                               ; preds = %623, %504, %.thread238, %559, %597
   %.011.i = phi i32 [ %506, %504 ], [ %564, %559 ], [ %600, %597 ], [ %550, %.thread238 ], [ %627, %623 ]
   %.not37 = icmp eq i32 %.011.i, -1
-  br i1 %.not37, label %.loopexit, label %454
+  br i1 %.not37, label %.loopexit, label %454, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.thread228, %mmbit_get_flat_block.exit.i166, %._crit_edge295, %551, %mmbit_get_flat_block.exit84.i177, %454, %mmbit_iterate.exit, %.thread248, %mmbit_get_flat_block.exit.i134, %._crit_edge291, %mmbit_get_flat_block.exit84.i143, %.thread220, %mmbit_iterate.exit42, %._crit_edge287
   ret i8 0
@@ -19511,7 +19511,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %39, %31, %28, %25
 59:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %59
   %60 = and i32 %15, 63
@@ -19631,7 +19631,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %83, %75, %72, %69
   %.127.i.be = phi i32 [ %125, %122 ], [ %118, %114 ]
   %.124.i.be = phi i32 [ %narrow33.i, %122 ], [ 0, %114 ]
   %.1.i.be = phi i32 [ %123, %122 ], [ %119, %114 ]
-  br label %.backedge269
+  br label %.backedge269, !llvm.loop !7
 
 mmbit_iterate.exit52:                             ; preds = %114, %53
   %.011.i51 = phi i32 [ %58, %53 ], [ %118, %114 ]
@@ -19876,7 +19876,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %230, %222, %219, %2
 259:                                              ; preds = %.lr.ph279
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next323, %249
-  br i1 %exitcond325.not, label %._crit_edge280, label %.lr.ph279
+  br i1 %exitcond325.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !5
 
 ._crit_edge280:                                   ; preds = %259, %.preheader268
   %.261.i110.lcssa = phi i32 [ %206, %.preheader268 ], [ %201, %259 ]
@@ -20001,12 +20001,12 @@ mmbit_get_flat_block.exit.i114:                   ; preds = %284, %276, %273, %2
   %.127.i55.be = phi i32 [ %328, %325 ], [ %321, %317 ]
   %.124.i56.be = phi i32 [ %narrow33.i60, %325 ], [ 0, %317 ]
   %.1.i57.be = phi i32 [ %326, %325 ], [ %322, %317 ]
-  br label %.backedge267
+  br label %.backedge267, !llvm.loop !7
 
 mmbit_iterate.exit47:                             ; preds = %317, %197, %.thread200, %253, %291
   %.011.i46 = phi i32 [ %199, %197 ], [ %258, %253 ], [ %294, %291 ], [ %244, %.thread200 ], [ %321, %317 ]
   %.not35 = icmp eq i32 %.011.i46, -1
-  br i1 %.not35, label %._crit_edge287.loopexit, label %128
+  br i1 %.not35, label %._crit_edge287.loopexit, label %128, !llvm.loop !39
 
 ._crit_edge287.loopexit:                          ; preds = %mmbit_get_flat_block.exit.i114, %._crit_edge280, %245, %mmbit_get_flat_block.exit84.i123, %partial_load_u32.exit, %mmbit_iterate.exit47, %.thread210
   %.pr.pre = load i8, ptr %7, align 1
@@ -20110,7 +20110,7 @@ mmbit_get_flat_block.exit84.i143:                 ; preds = %357, %349, %346, %3
 377:                                              ; preds = %.lr.ph290
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
-  br i1 %exitcond330.not, label %._crit_edge291, label %.lr.ph290
+  br i1 %exitcond330.not, label %._crit_edge291, label %.lr.ph290, !llvm.loop !5
 
 ._crit_edge291:                                   ; preds = %377
   %378 = and i32 %333, 63
@@ -20230,7 +20230,7 @@ mmbit_get_flat_block.exit.i134:                   ; preds = %401, %393, %390, %3
   %.127.i71.be = phi i32 [ %443, %440 ], [ %436, %432 ]
   %.124.i72.be = phi i32 [ %narrow33.i76, %440 ], [ 0, %432 ]
   %.1.i73.be = phi i32 [ %441, %440 ], [ %437, %432 ]
-  br label %.backedge266
+  br label %.backedge266, !llvm.loop !7
 
 mmbit_iterate.exit42:                             ; preds = %432, %371
   %.011.i41 = phi i32 [ %376, %371 ], [ %436, %432 ]
@@ -20435,7 +20435,7 @@ mmbit_get_flat_block.exit80.i151:                 ; preds = %525, %517, %514, %5
 554:                                              ; preds = %.lr.ph294
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next332, %544
-  br i1 %exitcond334.not, label %._crit_edge295, label %.lr.ph294
+  br i1 %exitcond334.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !5
 
 ._crit_edge295:                                   ; preds = %554, %.preheader
   %.261.i162.lcssa = phi i32 [ %501, %.preheader ], [ %497, %554 ]
@@ -20560,12 +20560,12 @@ mmbit_get_flat_block.exit.i166:                   ; preds = %579, %571, %568, %5
   %.127.i91.be = phi i32 [ %623, %620 ], [ %616, %612 ]
   %.124.i92.be = phi i32 [ %narrow33.i96, %620 ], [ 0, %612 ]
   %.1.i93.be = phi i32 [ %621, %620 ], [ %617, %612 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 mmbit_iterate.exit:                               ; preds = %612, %493, %.thread238, %548, %586
   %.011.i = phi i32 [ %495, %493 ], [ %553, %548 ], [ %589, %586 ], [ %539, %.thread238 ], [ %616, %612 ]
   %.not37 = icmp eq i32 %.011.i, -1
-  br i1 %.not37, label %.loopexit, label %445
+  br i1 %.not37, label %.loopexit, label %445, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.thread228, %mmbit_get_flat_block.exit.i166, %._crit_edge295, %540, %mmbit_get_flat_block.exit84.i177, %445, %mmbit_iterate.exit, %.thread248, %mmbit_get_flat_block.exit.i134, %._crit_edge291, %mmbit_get_flat_block.exit84.i143, %.thread220, %mmbit_iterate.exit42, %._crit_edge287
   ret i8 0
@@ -20672,4 +20672,39 @@ attributes #10 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}

@@ -3497,7 +3497,7 @@ define internal fastcc i32 @dissect_llrp_item_array(ptr noundef %0, ptr noundef 
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %.02528, i32 noundef %5, i32 noundef 0)
   %21 = add i32 %.02528, %5
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %15
   %.026 = phi i32 [ %18, %15 ], [ %11, %.preheader ], [ %21, %.lr.ph ]
@@ -3526,6 +3526,7 @@ attributes #5 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{ptr @dissect_llrp_impinj_message}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

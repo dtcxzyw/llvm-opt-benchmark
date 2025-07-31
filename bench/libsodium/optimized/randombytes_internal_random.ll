@@ -185,7 +185,7 @@ sodium_hrtime.exit:                               ; preds = %0
 .critedge2.backedge.i.i.i:                        ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i
   %30 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #7
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %.lr.ph.i.i.i, label %.critedge.i.i.i
+  br i1 %31, label %.lr.ph.i.i.i, label %.critedge.i.i.i, !llvm.loop !7
 
 .critedge.i.i.i:                                  ; preds = %.critedge2.backedge.i.i.i, %24
   %.lcssa.i.i.i = phi i32 [ %27, %24 ], [ %30, %.critedge2.backedge.i.i.i ]
@@ -248,7 +248,7 @@ randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
   %54 = phi ptr [ %.pre19.i.i, %51 ], [ %37, %48 ]
   %.1.i.i = phi ptr [ %52, %51 ], [ %.09.i.i, %48 ]
   %.not12.i.i = icmp eq ptr %54, null
-  br i1 %.not12.i.i, label %55, label %36, !llvm.loop !6
+  br i1 %.not12.i.i, label %55, label %36, !llvm.loop !8
 
 55:                                               ; preds = %53
   store i32 5, ptr %17, align 4
@@ -331,7 +331,7 @@ randombytes_internal_random_stir_if_needed.exit:  ; preds = %7, %8
   store i8 %20, ptr %18, align 1
   %21 = add nuw nsw i64 %.04, 1
   %exitcond.not = icmp eq i64 %21, 8
-  br i1 %exitcond.not, label %22, label %15, !llvm.loop !7
+  br i1 %exitcond.not, label %22, label %15, !llvm.loop !9
 
 22:                                               ; preds = %15
   %23 = load i32, ptr @global.4, align 4
@@ -435,7 +435,9 @@ attributes #13 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

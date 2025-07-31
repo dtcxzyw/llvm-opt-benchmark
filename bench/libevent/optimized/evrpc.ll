@@ -108,7 +108,7 @@ define void @evrpc_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @event_mm_free_(ptr noundef nonnull %14) #12
   %23 = load ptr, ptr %4, align 8
   %.not23 = icmp eq ptr %23, null
-  br i1 %.not23, label %.preheader37, label %13, !llvm.loop !5
+  br i1 %.not23, label %.preheader37, label %13, !llvm.loop !6
 
 .preheader36:                                     ; preds = %.preheader37, %evrpc_remove_hook.exit
   %24 = phi ptr [ %35, %evrpc_remove_hook.exit ], [ %12, %.preheader37 ]
@@ -128,7 +128,7 @@ thread-pre-split:                                 ; preds = %27
   %28 = icmp eq ptr %.0.i.i44, %24
   %29 = load ptr, ptr %.0.i.i44, align 8
   %.not15.i.i = icmp eq ptr %29, null
-  br i1 %28, label %30, label %thread-pre-split, !llvm.loop !6
+  br i1 %28, label %30, label %thread-pre-split, !llvm.loop !7
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 8
@@ -145,7 +145,7 @@ thread-pre-split:                                 ; preds = %27
 evrpc_remove_hook.exit:                           ; preds = %thread-pre-split, %30
   %35 = phi ptr [ %.pre, %30 ], [ %24, %thread-pre-split ]
   %.not24 = icmp eq ptr %35, null
-  br i1 %.not24, label %.preheader35, label %.preheader36, !llvm.loop !7
+  br i1 %.not24, label %.preheader35, label %.preheader36, !llvm.loop !8
 
 .preheader:                                       ; preds = %.preheader35, %evrpc_remove_hook.exit33
   %36 = phi ptr [ %45, %evrpc_remove_hook.exit33 ], [ %26, %.preheader35 ]
@@ -159,7 +159,7 @@ thread-pre-split34:                               ; preds = %37
   %38 = icmp eq ptr %.0.i.i2846, %36
   %39 = load ptr, ptr %.0.i.i2846, align 8
   %.not15.i.i30 = icmp eq ptr %39, null
-  br i1 %38, label %40, label %thread-pre-split34, !llvm.loop !6
+  br i1 %38, label %40, label %thread-pre-split34, !llvm.loop !7
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i2846, i64 8
@@ -176,7 +176,7 @@ thread-pre-split34:                               ; preds = %37
 evrpc_remove_hook.exit33:                         ; preds = %thread-pre-split34, %40
   %45 = phi ptr [ %.pre50, %40 ], [ %36, %thread-pre-split34 ]
   %.not25 = icmp eq ptr %45, null
-  br i1 %.not25, label %._crit_edge, label %.preheader, !llvm.loop !8
+  br i1 %.not25, label %._crit_edge, label %.preheader, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %evrpc_remove_hook.exit33, %.preheader35
   tail call void @event_mm_free_(ptr noundef nonnull %0) #12
@@ -199,7 +199,7 @@ define range(i32 -1, 1) i32 @evrpc_unregister_rpc(ptr noundef captures(none) %0,
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #13
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %4, !llvm.loop !9
+  br i1 %9, label %10, label %4, !llvm.loop !10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %.019, i64 16
@@ -282,7 +282,7 @@ define range(i32 0, 2) i32 @evrpc_remove_hook(ptr noundef captures(none) %0, i32
 
 9:                                                ; preds = %8
   %10 = icmp eq ptr %.0.i, %2
-  br i1 %10, label %11, label %8, !llvm.loop !6
+  br i1 %10, label %11, label %8, !llvm.loop !7
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %.0.i, align 8
@@ -599,7 +599,7 @@ define hidden void @evrpc_reqstate_free_(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @event_mm_free_(ptr noundef nonnull %8) #12
   %21 = load ptr, ptr %4, align 8
   %.not13.i.i = icmp eq ptr %21, null
-  br i1 %.not13.i.i, label %evrpc_hook_context_free_.exit, label %7, !llvm.loop !10
+  br i1 %.not13.i.i, label %evrpc_hook_context_free_.exit, label %7, !llvm.loop !11
 
 evrpc_hook_context_free_.exit:                    ; preds = %15, %.preheader.i.i
   tail call void @event_mm_free_(ptr noundef nonnull %4) #12
@@ -913,7 +913,7 @@ define void @evrpc_pool_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @evrpc_request_wrapper_free(ptr noundef nonnull %9)
   %19 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.preheader60, label %8, !llvm.loop !11
+  br i1 %.not, label %.preheader60, label %8, !llvm.loop !12
 
 .preheader59:                                     ; preds = %31, %.preheader60
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -948,7 +948,7 @@ define void @evrpc_pool_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @event_mm_free_(ptr noundef nonnull %24) #12
   %33 = load ptr, ptr %5, align 8
   %.not41 = icmp eq ptr %33, null
-  br i1 %.not41, label %.preheader59, label %23, !llvm.loop !12
+  br i1 %.not41, label %.preheader59, label %23, !llvm.loop !13
 
 .preheader58:                                     ; preds = %43, %.preheader59
   %34 = load ptr, ptr %0, align 8
@@ -978,7 +978,7 @@ define void @evrpc_pool_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @evhttp_connection_free(ptr noundef nonnull %36) #12
   %45 = load ptr, ptr %20, align 8
   %.not42 = icmp eq ptr %45, null
-  br i1 %.not42, label %.preheader58, label %35, !llvm.loop !13
+  br i1 %.not42, label %.preheader58, label %35, !llvm.loop !14
 
 .preheader57:                                     ; preds = %.preheader58, %evrpc_remove_hook.exit
   %46 = phi ptr [ %57, %evrpc_remove_hook.exit ], [ %34, %.preheader58 ]
@@ -998,7 +998,7 @@ thread-pre-split:                                 ; preds = %49
   %50 = icmp eq ptr %.0.i.i68, %46
   %51 = load ptr, ptr %.0.i.i68, align 8
   %.not15.i.i = icmp eq ptr %51, null
-  br i1 %50, label %52, label %thread-pre-split, !llvm.loop !6
+  br i1 %50, label %52, label %thread-pre-split, !llvm.loop !7
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i68, i64 8
@@ -1015,7 +1015,7 @@ thread-pre-split:                                 ; preds = %49
 evrpc_remove_hook.exit:                           ; preds = %thread-pre-split, %52
   %57 = phi ptr [ %.pre, %52 ], [ %46, %thread-pre-split ]
   %.not43 = icmp eq ptr %57, null
-  br i1 %.not43, label %.preheader56, label %.preheader57, !llvm.loop !14
+  br i1 %.not43, label %.preheader56, label %.preheader57, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader56, %evrpc_remove_hook.exit54
   %58 = phi ptr [ %67, %evrpc_remove_hook.exit54 ], [ %48, %.preheader56 ]
@@ -1029,7 +1029,7 @@ thread-pre-split55:                               ; preds = %59
   %60 = icmp eq ptr %.0.i.i4970, %58
   %61 = load ptr, ptr %.0.i.i4970, align 8
   %.not15.i.i51 = icmp eq ptr %61, null
-  br i1 %60, label %62, label %thread-pre-split55, !llvm.loop !6
+  br i1 %60, label %62, label %thread-pre-split55, !llvm.loop !7
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i4970, i64 8
@@ -1046,7 +1046,7 @@ thread-pre-split55:                               ; preds = %59
 evrpc_remove_hook.exit54:                         ; preds = %thread-pre-split55, %62
   %67 = phi ptr [ %.pre74, %62 ], [ %58, %thread-pre-split55 ]
   %.not44 = icmp eq ptr %67, null
-  br i1 %.not44, label %._crit_edge, label %.preheader, !llvm.loop !15
+  br i1 %.not44, label %._crit_edge, label %.preheader, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %evrpc_remove_hook.exit54, %.preheader56
   tail call void @event_mm_free_(ptr noundef nonnull %0) #12
@@ -1097,7 +1097,7 @@ define internal fastcc void @evrpc_request_wrapper_free(ptr noundef %0) unnamed_
   tail call void @event_mm_free_(ptr noundef nonnull %6) #12
   %19 = load ptr, ptr %2, align 8
   %.not13.i.i = icmp eq ptr %19, null
-  br i1 %.not13.i.i, label %evrpc_hook_context_free_.exit, label %5, !llvm.loop !10
+  br i1 %.not13.i.i, label %evrpc_hook_context_free_.exit, label %5, !llvm.loop !11
 
 evrpc_hook_context_free_.exit:                    ; preds = %13, %.preheader.i.i
   tail call void @event_mm_free_(ptr noundef nonnull %2) #12
@@ -1336,7 +1336,7 @@ define void @evrpc_pool_set_timeout(ptr noundef captures(none) %0, i32 noundef %
   tail call void @evhttp_connection_set_timeout(ptr noundef nonnull %.08, i32 noundef %1) #12
   %.0 = load ptr, ptr %.08, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1359,7 +1359,7 @@ define range(i32 -1, 1) i32 @evrpc_resume_request(ptr noundef captures(none) %0,
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %1
-  br i1 %9, label %10, label %5, !llvm.loop !17
+  br i1 %9, label %10, label %5, !llvm.loop !18
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 24
@@ -1427,7 +1427,7 @@ define noundef i32 @evrpc_make_request(ptr noundef %0) local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 296
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %evrpc_pool_find_connection.exit.i, label %17, !llvm.loop !18
+  br i1 %21, label %evrpc_pool_find_connection.exit.i, label %17, !llvm.loop !19
 
 evrpc_pool_find_connection.exit.i:                ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1610,7 +1610,7 @@ evrpc_hook_context_free_.exit.thread:             ; preds = %7
   tail call void @event_mm_free_(ptr noundef nonnull %27) #12
   %40 = load ptr, ptr %.02839, align 8
   %.not13.i.i = icmp eq ptr %40, null
-  br i1 %.not13.i.i, label %evrpc_hook_context_free_.exit, label %26, !llvm.loop !10
+  br i1 %.not13.i.i, label %evrpc_hook_context_free_.exit, label %26, !llvm.loop !11
 
 evrpc_hook_context_free_.exit:                    ; preds = %34, %.preheader.i.i
   tail call void @event_mm_free_(ptr noundef nonnull %.02839) #12
@@ -1651,7 +1651,7 @@ define range(i32 -1, 1) i32 @evrpc_hook_find_meta(ptr noundef readonly captures(
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #13
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %.preheader, !llvm.loop !19
+  br i1 %11, label %12, label %.preheader, !llvm.loop !20
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 24
@@ -1754,7 +1754,7 @@ define range(i32 -1, 1) i32 @evrpc_send_request_generic(ptr noundef %0, ptr noun
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 296
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %evrpc_pool_find_connection.exit.i.i, label %42, !llvm.loop !18
+  br i1 %46, label %evrpc_pool_find_connection.exit.i.i, label %42, !llvm.loop !19
 
 evrpc_pool_find_connection.exit.i.i:              ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -2194,7 +2194,7 @@ define internal void @evrpc_reply_done_closure(ptr noundef %0, i32 noundef %1) #
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 296
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %evrpc_pool_find_connection.exit.i, label %43, !llvm.loop !18
+  br i1 %47, label %evrpc_pool_find_connection.exit.i, label %43, !llvm.loop !19
 
 evrpc_pool_find_connection.exit.i:                ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -2258,20 +2258,21 @@ attributes #14 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}

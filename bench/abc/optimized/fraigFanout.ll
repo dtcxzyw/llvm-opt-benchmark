@@ -146,7 +146,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef captures(address) %0, ptr noun
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %.029, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !18
+  %20 = load ptr, ptr %19, align 8, !tbaa !19
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, -2
   %23 = inttoptr i64 %22 to ptr
@@ -157,7 +157,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef captures(address) %0, ptr noun
   %26 = and i64 %21, 1
   %27 = xor i64 %26, %4
   %28 = inttoptr i64 %27 to ptr
-  store ptr %28, ptr %19, align 8, !tbaa !18
+  store ptr %28, ptr %19, align 8, !tbaa !19
   br label %29
 
 29:                                               ; preds = %18, %25, %14
@@ -165,7 +165,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef captures(address) %0, ptr noun
   %.in = getelementptr inbounds nuw i8, ptr %.029, i64 %.pre-phi33
   %.0 = load ptr, ptr %.in, align 8, !tbaa !15
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %29, %2
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -203,7 +203,7 @@ define i32 @Fraig_NodeGetFanoutNum(ptr noundef readonly captures(address) %0) lo
   %.in = getelementptr inbounds nuw i8, ptr %.0812, i64 %.in.v
   %.08 = load ptr, ptr %.in, align 8, !tbaa !15
   %.not = icmp eq ptr %.08, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %3, %.lr.ph ]
@@ -236,8 +236,9 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !13 = !{!4, !8, i64 144}
 !14 = !{!4, !8, i64 152}
 !15 = !{!8, !8, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!4, !8, i64 40}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!4, !8, i64 40}
+!20 = distinct !{!20, !17, !18}
+!21 = distinct !{!21, !17, !18}

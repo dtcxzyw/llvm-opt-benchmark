@@ -685,7 +685,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %126 = icmp ne i32 %125, %19
   %127 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @dcp_reassembly_table, ptr noundef %111, i32 noundef 0, ptr noundef %1, i32 noundef %74, ptr noundef null, i32 noundef %.2142174.i.i, i32 noundef %64, i1 noundef zeroext %126)
   %exitcond.not.i.i = icmp eq i32 %125, %115
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph175.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph175.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph175.i.i, %.preheader.i.i
   %.2145.lcssa.i.i = phi ptr [ %.0143179.i.i, %.preheader.i.i ], [ %127, %.lr.ph175.i.i ]
@@ -693,7 +693,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %128 = add i32 %.2142.lcssa.i.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond193.not.i.i = icmp eq i64 %indvars.iv.next.i, %113
-  br i1 %exitcond193.not.i.i, label %._crit_edge184.i.i, label %.lr.ph183.i.i, !llvm.loop !11
+  br i1 %exitcond193.not.i.i, label %._crit_edge184.i.i, label %.lr.ph183.i.i, !llvm.loop !12
 
 ._crit_edge184.i.i:                               ; preds = %._crit_edge.i.i
   tail call void @tvb_free(ptr noundef %111)
@@ -747,12 +747,12 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i8 %148, ptr %152, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %143, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %143, !llvm.loop !13
 
 ._crit_edge.us.i.i.i:                             ; preds = %143
   %153 = add nuw i32 %.01317.us.i.i.i, 1
   %exitcond22.not.i.i.i = icmp eq i32 %153, %19
-  br i1 %exitcond22.not.i.i.i, label %rs_deinterleave.exit.i.i, label %.preheader.us.i.i.i, !llvm.loop !13
+  br i1 %exitcond22.not.i.i.i, label %rs_deinterleave.exit.i.i, label %.preheader.us.i.i.i, !llvm.loop !14
 
 rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.i, %132
   %154 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %138, i32 noundef %134, i32 noundef %134)
@@ -779,14 +779,14 @@ rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.
   %165 = select i1 %164, i64 0, i64 %163
   %166 = icmp ne i64 %165, -1
   tail call void @llvm.assume(i1 %166)
-  %167 = tail call ptr @__memcpy_chk(ptr noundef %160, ptr noundef readonly %162, i64 noundef range(i64 0, 256) %156, i64 noundef %165) #7, !alias.scope !15
+  %167 = tail call ptr @__memcpy_chk(ptr noundef %160, ptr noundef readonly %162, i64 noundef range(i64 0, 256) %156, i64 noundef %165) #7, !alias.scope !16
   %168 = add i32 %.02124.i.i.i, %157
   %169 = add nuw nsw i64 %159, 207
   %170 = getelementptr i8, ptr %160, i64 207
   %171 = zext i32 %168 to i64
   %172 = getelementptr i8, ptr %138, i64 %171
   %173 = tail call i64 @llvm.usub.sat.i64(i64 %140, i64 %169)
-  %174 = tail call ptr @__memcpy_chk(ptr noundef %170, ptr noundef readonly %172, i64 noundef 48, i64 noundef %173) #7, !alias.scope !19
+  %174 = tail call ptr @__memcpy_chk(ptr noundef %170, ptr noundef readonly %172, i64 noundef 48, i64 noundef %173) #7, !alias.scope !20
   %175 = tail call i32 @eras_dec_rs(ptr noundef %160, ptr noundef null, i32 noundef 0)
   %176 = icmp sgt i32 %175, -1
   br i1 %176, label %177, label %rs_correct_data.exit.i.i
@@ -796,7 +796,7 @@ rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.
   %178 = add i32 %.02025.i.i.i, %157
   %179 = add nuw nsw i32 %.02223.i.i.i, 1
   %exitcond.not.i160.i.i = icmp eq i32 %179, %83
-  br i1 %exitcond.not.i160.i.i, label %rs_correct_data.exit.i.i, label %158, !llvm.loop !23
+  br i1 %exitcond.not.i160.i.i, label %rs_correct_data.exit.i.i, label %158, !llvm.loop !24
 
 rs_correct_data.exit.i.i:                         ; preds = %177, %158, %rs_deinterleave.exit.i.i
   %.lcssa.i.i.i = phi i64 [ 1, %rs_deinterleave.exit.i.i ], [ 1, %177 ], [ 0, %158 ]
@@ -912,7 +912,7 @@ define internal i32 @dissect_tpl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %28 = add i32 %22, %.030
   %29 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %13, label %._crit_edge, !llvm.loop !24
+  br i1 %30, label %13, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %13, %4
   %31 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1046,20 +1046,21 @@ attributes #7 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
-!17 = distinct !{!17, !"memcpy.inline"}
-!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
-!19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
-!21 = distinct !{!21, !"memcpy.inline"}
-!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
+!18 = distinct !{!18, !"memcpy.inline"}
+!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
+!22 = distinct !{!22, !"memcpy.inline"}
+!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}

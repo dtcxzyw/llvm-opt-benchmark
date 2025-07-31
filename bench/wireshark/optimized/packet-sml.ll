@@ -1462,7 +1462,7 @@ get_length.exit197.i:                             ; preds = %get_length.exit.i35
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %407, ptr noundef %2, ptr noundef nonnull %40, ptr noundef nonnull %41)
   %420 = add nuw i32 %.0169263.i, 1
   %exitcond.not.i = icmp eq i32 %420, %402
-  br i1 %exitcond.not.i, label %421, label %419, !llvm.loop !10
+  br i1 %exitcond.not.i, label %421, label %419, !llvm.loop !11
 
 421:                                              ; preds = %419
   %422 = load ptr, ptr %34, align 8
@@ -1606,7 +1606,7 @@ get_length.exit209.i:                             ; preds = %483, %478, %464
   call void @proto_item_set_end(ptr noundef %496, ptr noundef %0, i32 noundef %497)
   %498 = add nuw i32 %.1268.i, 1
   %exitcond304.not.i = icmp eq i32 %498, %447
-  br i1 %exitcond304.not.i, label %499, label %464, !llvm.loop !11
+  br i1 %exitcond304.not.i, label %499, label %464, !llvm.loop !12
 
 499:                                              ; preds = %get_length.exit209.i
   %500 = load ptr, ptr %37, align 8
@@ -1900,7 +1900,7 @@ get_length.exit239.i:                             ; preds = %644, %639, %628
   call void @proto_item_set_end(ptr noundef null, ptr noundef %0, i32 noundef %657)
   %658 = add nuw i32 %.0279.i, 1
   %exitcond305.not.i = icmp eq i32 %658, %607
-  br i1 %exitcond305.not.i, label %659, label %624, !llvm.loop !12
+  br i1 %exitcond305.not.i, label %659, label %624, !llvm.loop !13
 
 659:                                              ; preds = %get_length.exit239.i
   %660 = load ptr, ptr %39, align 8
@@ -1912,7 +1912,7 @@ get_length.exit239.i:                             ; preds = %644, %639, %628
   call void @proto_item_set_end(ptr noundef %662, ptr noundef %0, i32 noundef %663)
   %664 = add nuw i32 %.2280.i, 1
   %exitcond306.not.i = icmp eq i32 %664, %526
-  br i1 %exitcond306.not.i, label %665, label %543, !llvm.loop !13
+  br i1 %exitcond306.not.i, label %665, label %543, !llvm.loop !14
 
 665:                                              ; preds = %659
   %666 = load ptr, ptr %35, align 8
@@ -2163,7 +2163,7 @@ get_length.exit118.i:                             ; preds = %756, %751, %get_len
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %766, ptr noundef %2, ptr noundef nonnull %31, ptr noundef nonnull %32)
   %779 = add nuw i32 %.0158.i, 1
   %exitcond.not.i367 = icmp eq i32 %779, %761
-  br i1 %exitcond.not.i367, label %780, label %778, !llvm.loop !14
+  br i1 %exitcond.not.i367, label %780, label %778, !llvm.loop !15
 
 780:                                              ; preds = %778
   %781 = load ptr, ptr %28, align 8
@@ -2337,7 +2337,7 @@ get_length.exit136.i:                             ; preds = %.preheader.i132.i, 
   call void @proto_item_set_end(ptr noundef %870, ptr noundef %0, i32 noundef %871)
   %872 = add nuw i32 %.1171.i, 1
   %exitcond191.not.i = icmp eq i32 %872, %844
-  br i1 %exitcond191.not.i, label %decode_GetProfileListRes.exit, label %861, !llvm.loop !15
+  br i1 %exitcond191.not.i, label %decode_GetProfileListRes.exit, label %861, !llvm.loop !16
 
 decode_GetProfileListRes.exit.thread:             ; preds = %856, %852, %773, %769
   %.sink819 = phi ptr [ %28, %769 ], [ %28, %773 ], [ %29, %852 ], [ %29, %856 ]
@@ -2452,7 +2452,7 @@ get_length.exit.i374:                             ; preds = %898, %893, %877
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %908, ptr noundef %2, ptr noundef nonnull %25, ptr noundef nonnull %26)
   %921 = add nuw i32 %.064.i, 1
   %exitcond.not.i376 = icmp eq i32 %921, %903
-  br i1 %exitcond.not.i376, label %922, label %920, !llvm.loop !16
+  br i1 %exitcond.not.i376, label %922, label %920, !llvm.loop !17
 
 922:                                              ; preds = %920
   %923 = load ptr, ptr %24, align 8
@@ -2642,7 +2642,7 @@ get_length.exit.i384:                             ; preds = %992, %987, %971
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1002, ptr noundef %2, ptr noundef nonnull %22, ptr noundef nonnull %23)
   %1015 = add nuw i32 %.057.i, 1
   %exitcond.not.i386 = icmp eq i32 %1015, %997
-  br i1 %exitcond.not.i386, label %1016, label %1014, !llvm.loop !17
+  br i1 %exitcond.not.i386, label %1016, label %1014, !llvm.loop !18
 
 1016:                                             ; preds = %1014
   %1017 = load ptr, ptr %20, align 8
@@ -2828,7 +2828,7 @@ get_length.exit.i393:                             ; preds = %1082, %1077, %1061
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1092, ptr noundef %2, ptr noundef nonnull %18, ptr noundef nonnull %19)
   %1105 = add nuw i32 %.063.i, 1
   %exitcond.not.i395 = icmp eq i32 %1105, %1087
-  br i1 %exitcond.not.i395, label %1106, label %1104, !llvm.loop !18
+  br i1 %exitcond.not.i395, label %1106, label %1104, !llvm.loop !19
 
 1106:                                             ; preds = %1104
   %1107 = load ptr, ptr %16, align 8
@@ -3202,7 +3202,7 @@ get_length.exit134.i:                             ; preds = %1267, %1262, %get_l
   call void @proto_item_set_end(ptr noundef %1287, ptr noundef %0, i32 noundef %1288)
   %1289 = add nuw i32 %.0181.i, 1
   %exitcond.not.i404 = icmp eq i32 %1289, %1218
-  br i1 %exitcond.not.i404, label %1290, label %1235, !llvm.loop !19
+  br i1 %exitcond.not.i404, label %1290, label %1235, !llvm.loop !20
 
 1290:                                             ; preds = %1286
   %1291 = load ptr, ptr %10, align 8
@@ -3832,7 +3832,7 @@ get_length.exit425:                               ; preds = %1533, %1544, %1549
   %1615 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %storemerge)
   %1616 = icmp eq i8 %1615, 0
   %1617 = add i32 %storemerge323, 1
-  br i1 %1616, label %.preheader, label %1618, !llvm.loop !20
+  br i1 %1616, label %.preheader, label %1618, !llvm.loop !21
 
 1618:                                             ; preds = %.preheader
   store i32 %storemerge323, ptr %53, align 4
@@ -3920,7 +3920,7 @@ get_length.exit425:                               ; preds = %1533, %1544, %1549
   br label %.backedge
 
 .backedge:                                        ; preds = %1671, %1673
-  br label %81, !llvm.loop !21
+  br label %81, !llvm.loop !22
 
 1673:                                             ; preds = %1668
   %1674 = load i32, ptr @hf_sml_new_file_marker, align 4
@@ -4396,7 +4396,7 @@ get_length.exit146:                               ; preds = %128, %142, %147
   call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %157, ptr noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %176 = add nuw i32 %.0172, 1
   %exitcond.not = icmp eq i32 %176, %152
-  br i1 %exitcond.not, label %177, label %175, !llvm.loop !22
+  br i1 %exitcond.not, label %177, label %175, !llvm.loop !23
 
 177:                                              ; preds = %175
   %178 = load ptr, ptr %6, align 8
@@ -4570,7 +4570,7 @@ field_ObjReqEntry.exit:                           ; preds = %240, %251, %256
   store i32 %275, ptr %3, align 4
   %276 = add nuw i32 %.1173, 1
   %exitcond186.not = icmp eq i32 %276, %215
-  br i1 %exitcond186.not, label %277, label %236, !llvm.loop !23
+  br i1 %exitcond186.not, label %277, label %236, !llvm.loop !24
 
 277:                                              ; preds = %field_ObjReqEntry.exit
   %278 = load ptr, ptr %7, align 8
@@ -6419,7 +6419,7 @@ get_length.exit289:                               ; preds = %295, %306, %314
   call void @proto_item_set_end(ptr noundef %345, ptr noundef %0, i32 noundef %346)
   %347 = add nuw i32 %.0295, 1
   %exitcond.not = icmp eq i32 %347, %321
-  br i1 %exitcond.not, label %348, label %333, !llvm.loop !24
+  br i1 %exitcond.not, label %348, label %333, !llvm.loop !25
 
 348:                                              ; preds = %342
   %349 = load ptr, ptr %9, align 8
@@ -8435,20 +8435,21 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}

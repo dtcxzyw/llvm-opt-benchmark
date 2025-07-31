@@ -206,7 +206,7 @@ define void @_ZN7glslang14TPoolAllocatorD2Ev(ptr noundef nonnull align 8 capture
   tail call void @_ZdaPv(ptr noundef nonnull %6) #14
   store ptr %7, ptr %2, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !8
 
 .lr.ph8:                                          ; preds = %.preheader, %.lr.ph8
   %8 = phi ptr [ %9, %.lr.ph8 ], [ %5, %.preheader ]
@@ -214,7 +214,7 @@ define void @_ZN7glslang14TPoolAllocatorD2Ev(ptr noundef nonnull align 8 capture
   tail call void @_ZdaPv(ptr noundef nonnull %8) #14
   store ptr %9, ptr %4, align 8
   %.not5 = icmp eq ptr %9, null
-  br i1 %.not5, label %._crit_edge, label %.lr.ph8, !llvm.loop !8
+  br i1 %.not5, label %._crit_edge, label %.lr.ph8, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph8, %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -290,7 +290,7 @@ define void @_ZN7glslang14TPoolAllocator3popEv(ptr noundef nonnull align 8 captu
 26:                                               ; preds = %22, %23
   store ptr %18, ptr %13, align 8
   %.not = icmp eq ptr %18, %10
-  br i1 %.not, label %._crit_edge.loopexit, label %16, !llvm.loop !9
+  br i1 %.not, label %._crit_edge.loopexit, label %16, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %26
   %.pre = load ptr, ptr %3, align 8
@@ -360,7 +360,7 @@ define void @_ZN7glslang14TPoolAllocator6popAllEv(ptr noundef nonnull align 8 ca
 28:                                               ; preds = %25, %24
   store ptr %20, ptr %7, align 8
   %.not.i = icmp eq ptr %20, %16
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %28
   %.pre.i = load ptr, ptr %3, align 8
@@ -379,7 +379,7 @@ _ZN7glslang14TPoolAllocator3popEv.exit:           ; preds = %9, %._crit_edge.i
   %31 = phi ptr [ %10, %9 ], [ %.pre, %._crit_edge.i ]
   %32 = phi ptr [ %11, %9 ], [ %30, %._crit_edge.i ]
   %.not = icmp eq ptr %32, %31
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN7glslang14TPoolAllocator3popEv.exit, %1
   ret void
@@ -538,9 +538,10 @@ attributes #14 = { builtin nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1023, i32 1}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}

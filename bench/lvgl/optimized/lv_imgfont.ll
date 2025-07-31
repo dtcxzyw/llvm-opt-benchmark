@@ -12,31 +12,31 @@ define nonnull ptr @lv_imgfont_create(i16 noundef zeroext %0, ptr noundef %1, pt
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !3
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %2, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %4, ptr %8, align 8, !tbaa !12
-  store ptr @imgfont_get_glyph_dsc, ptr %4, align 8, !tbaa !13
+  store ptr %4, ptr %8, align 8, !tbaa !14
+  store ptr @imgfont_get_glyph_dsc, ptr %4, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @imgfont_get_glyph_bitmap, ptr %9, align 8, !tbaa !14
+  store ptr @imgfont_get_glyph_bitmap, ptr %9, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, -4
   store i8 %12, ptr %10, align 8
   %13 = zext i16 %0 to i32
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %13, ptr %14, align 8, !tbaa !15
+  store i32 %13, ptr %14, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 0, ptr %15, align 4, !tbaa !16
+  store i32 0, ptr %15, align 4, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 0, ptr %16, align 1, !tbaa !17
+  store i8 0, ptr %16, align 1, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 34
-  store i8 0, ptr %17, align 2, !tbaa !18
+  store i8 0, ptr %17, align 2, !tbaa !20
   ret ptr %4
 }
 
@@ -53,28 +53,28 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   br i1 %.not, label %.preheader, label %7
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !21
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
   %.not23 = icmp eq ptr %9, null
   br i1 %.not23, label %.preheader25, label %10
 
 .preheader25:                                     ; preds = %7, %.preheader25
-  br label %.preheader25
+  br label %.preheader25, !llvm.loop !22
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %12 = load ptr, ptr %11, align 8, !tbaa !3
+  %12 = load ptr, ptr %11, align 8, !tbaa !5
   %13 = icmp eq ptr %12, null
   br i1 %13, label %39, label %14
 
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  store i32 0, ptr %5, align 4, !tbaa !19
+  store i32 0, ptr %5, align 4, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %16 = load ptr, ptr %15, align 8, !tbaa !13
   %17 = call ptr %12(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %5, ptr noundef %16) #4
   %18 = icmp eq ptr %17, null
   br i1 %18, label %38, label %19
@@ -94,20 +94,20 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   %26 = lshr i64 %25, 32
   %27 = trunc i64 %26 to i16
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i16 %27, ptr %28, align 8, !tbaa !20
+  store i16 %27, ptr %28, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %30 = trunc nuw i64 %26 to i32
   store i32 %30, ptr %29, align 2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i16 0, ptr %31, align 2, !tbaa !24
-  %32 = load i32, ptr %5, align 4, !tbaa !19
+  store i16 0, ptr %31, align 2, !tbaa !28
+  %32 = load i32, ptr %5, align 4, !tbaa !23
   %33 = trunc i32 %32 to i16
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 %33, ptr %34, align 8, !tbaa !25
+  store i16 %33, ptr %34, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 25, ptr %35, align 4, !tbaa !26
+  store i32 25, ptr %35, align 4, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %17, ptr %36, align 8, !tbaa !27
+  store ptr %17, ptr %36, align 8, !tbaa !31
   br label %37
 
 37:                                               ; preds = %19, %21
@@ -127,7 +127,7 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal ptr @imgfont_get_glyph_bitmap(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !27
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   ret ptr %4
 }
 
@@ -140,11 +140,11 @@ define void @lv_imgfont_destroy(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !32
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !12
+  %4 = load ptr, ptr %3, align 8, !tbaa !14
   tail call void @lv_free(ptr noundef %4) #4
   ret void
 }
@@ -164,28 +164,33 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !6, i64 64}
-!4 = !{!"", !5, i64 0, !6, i64 64, !6, i64 72}
-!5 = !{!"_lv_font_t", !6, i64 0, !6, i64 8, !6, i64 16, !9, i64 24, !9, i64 28, !7, i64 32, !7, i64 32, !7, i64 33, !7, i64 34, !6, i64 40, !10, i64 48, !6, i64 56}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!"int", !7, i64 0}
-!10 = !{!"p1 _ZTS10_lv_font_t", !6, i64 0}
-!11 = !{!4, !6, i64 72}
-!12 = !{!5, !6, i64 40}
-!13 = !{!5, !6, i64 0}
-!14 = !{!5, !6, i64 8}
-!15 = !{!5, !9, i64 24}
-!16 = !{!5, !9, i64 28}
-!17 = !{!5, !7, i64 33}
-!18 = !{!5, !7, i64 34}
-!19 = !{!9, !9, i64 0}
-!20 = !{!21, !22, i64 8}
-!21 = !{!"", !10, i64 0, !22, i64 8, !22, i64 10, !22, i64 12, !22, i64 14, !22, i64 16, !9, i64 20, !7, i64 24, !7, i64 24, !7, i64 32, !23, i64 40}
-!22 = !{!"short", !7, i64 0}
-!23 = !{!"p1 _ZTS17_lv_cache_entry_t", !6, i64 0}
-!24 = !{!21, !22, i64 14}
-!25 = !{!21, !22, i64 16}
-!26 = !{!21, !9, i64 20}
-!27 = !{!7, !7, i64 0}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!6, !8, i64 64}
+!6 = !{!"", !7, i64 0, !8, i64 64, !8, i64 72}
+!7 = !{!"_lv_font_t", !8, i64 0, !8, i64 8, !8, i64 16, !11, i64 24, !11, i64 28, !9, i64 32, !9, i64 32, !9, i64 33, !9, i64 34, !8, i64 40, !12, i64 48, !8, i64 56}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"int", !9, i64 0}
+!12 = !{!"p1 _ZTS10_lv_font_t", !8, i64 0}
+!13 = !{!6, !8, i64 72}
+!14 = !{!7, !8, i64 40}
+!15 = !{!7, !8, i64 0}
+!16 = !{!7, !8, i64 8}
+!17 = !{!7, !11, i64 24}
+!18 = !{!7, !11, i64 28}
+!19 = !{!7, !9, i64 33}
+!20 = !{!7, !9, i64 34}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = !{!11, !11, i64 0}
+!24 = !{!25, !26, i64 8}
+!25 = !{!"", !12, i64 0, !26, i64 8, !26, i64 10, !26, i64 12, !26, i64 14, !26, i64 16, !11, i64 20, !9, i64 24, !9, i64 24, !9, i64 32, !27, i64 40}
+!26 = !{!"short", !9, i64 0}
+!27 = !{!"p1 _ZTS17_lv_cache_entry_t", !8, i64 0}
+!28 = !{!25, !26, i64 14}
+!29 = !{!25, !26, i64 16}
+!30 = !{!25, !11, i64 20}
+!31 = !{!9, !9, i64 0}
+!32 = distinct !{!32, !4}

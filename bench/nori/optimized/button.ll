@@ -78,7 +78,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %18, %_ZN7nano
   store float 2.550000e+02, ptr %24, align 4
   %25 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i2.i.i = icmp eq i64 %25, 3
-  br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !8
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
@@ -95,7 +95,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIf
   store float %31, ptr %32, align 4
   %33 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i3.i.i = icmp eq i64 %33, 3
-  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i9, label %26, !llvm.loop !8
+  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i9, label %26, !llvm.loop !9
 
 _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i9:             ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -138,7 +138,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i12: ; preds = %35, %_ZN7na
   store float 2.550000e+02, ptr %41, align 4
   %42 = add nuw nsw i64 %.04.i.i.i13, 1
   %exitcond.not.i2.i.i14 = icmp eq i64 %42, 3
-  br i1 %exitcond.not.i2.i.i14, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i15, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i12, !llvm.loop !7
+  br i1 %exitcond.not.i2.i.i14, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i15, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i12, !llvm.loop !8
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i15:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i12
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
@@ -155,7 +155,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i15:          ; preds = %_ZN7nanogui5ArrayIf
   store float %48, ptr %49, align 4
   %50 = add nuw nsw i64 %.06.i.i.i16, 1
   %exitcond.not.i3.i.i17 = icmp eq i64 %50, 3
-  br i1 %exitcond.not.i3.i.i17, label %51, label %43, !llvm.loop !8
+  br i1 %exitcond.not.i3.i.i17, label %51, label %43, !llvm.loop !9
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -451,7 +451,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %60
 .thread:                                          ; preds = %.lr.ph, %_ZNKSt8functionIFvbEEclEb.exit, %45, %49, %53, %57
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.090.0116, i64 8
   %.not102 = icmp eq ptr %64, %42
-  br i1 %.not102, label %.loopexit, label %.lr.ph
+  br i1 %.not102, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .preheader:                                       ; preds = %30, %81
   %.sroa.086.0114 = phi ptr [ %82, %81 ], [ %32, %30 ]
@@ -495,7 +495,7 @@ _ZNKSt8functionIFvbEEclEb.exit65:                 ; preds = %77
 81:                                               ; preds = %_ZNKSt8functionIFvbEEclEb.exit65, %.preheader, %66, %70, %74
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.086.0114, i64 8
   %.not101 = icmp eq ptr %82, %34
-  br i1 %.not101, label %.loopexit, label %.preheader
+  br i1 %.not101, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %81, %.thread, %36, %27
   %83 = load i32, ptr %28, align 4
@@ -562,7 +562,7 @@ _ZNKSt8functionIFvbEEclEb.exit70:                 ; preds = %109
 .thread96:                                        ; preds = %.lr.ph119, %_ZNKSt8functionIFvbEEclEb.exit70, %94, %98, %102, %106
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.082.0118, i64 8
   %.not103 = icmp eq ptr %113, %91
-  br i1 %.not103, label %._crit_edge, label %.lr.ph119
+  br i1 %.not103, label %._crit_edge, label %.lr.ph119, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.thread96, %85
   %114 = call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7nanogui6ButtonE, ptr nonnull @_ZTIN7nanogui11PopupButtonE, i64 0) #12
@@ -1301,7 +1301,11 @@ attributes #14 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

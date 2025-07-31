@@ -170,7 +170,7 @@ define hidden void @jIDColor(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %89 = add nsw i32 %.029.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %build_ycc_rgb_table.exit, label %71, !llvm.loop !8
+  br i1 %exitcond.not.i, label %build_ycc_rgb_table.exit, label %71, !llvm.loop !9
 
 90:                                               ; preds = %49
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -253,7 +253,7 @@ define hidden void @jIDColor(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i72, 1
   %139 = add nsw i32 %.029.i73, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, 256
-  br i1 %exitcond.not.i75, label %build_ycc_rgb_table.exit, label %121, !llvm.loop !8
+  br i1 %exitcond.not.i75, label %build_ycc_rgb_table.exit, label %121, !llvm.loop !9
 
 140:                                              ; preds = %99
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -413,13 +413,13 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %69 = getelementptr inbounds nuw i8, ptr %.04448.us, i64 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %35, !llvm.loop !9
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %35, !llvm.loop !10
 
 ..loopexit_crit_edge.us:                          ; preds = %35
   %70 = add i32 %.050.us, 1
   %71 = getelementptr inbounds nuw i8, ptr %.04249.us, i64 8
   %72 = icmp samesign ugt i32 %.in, 1
-  br i1 %72, label %.lr.ph.us, label %._crit_edge, !llvm.loop !10
+  br i1 %72, label %.lr.ph.us, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph51, %5
   ret void
@@ -463,13 +463,13 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %20 = getelementptr inbounds nuw i8, ptr %.01418.us, i64 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %15, !llvm.loop !12
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %15, !llvm.loop !13
 
 ..loopexit_crit_edge.us:                          ; preds = %15
   %21 = add i32 %.021.us, 1
   %22 = getelementptr inbounds nuw i8, ptr %.01520.us, i64 8
   %23 = icmp samesign ugt i32 %.in, 1
-  br i1 %23, label %.lr.ph.us, label %._crit_edge, !llvm.loop !13
+  br i1 %23, label %.lr.ph.us, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %5
   ret void
@@ -522,18 +522,18 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
   %24 = getelementptr inbounds nuw i8, ptr %.02229.us, i64 %12
   %25 = add i32 %.02130.us, -1
   %.not.us = icmp eq i32 %25, 0
-  br i1 %.not.us, label %._crit_edge.us, label %21, !llvm.loop !14
+  br i1 %.not.us, label %._crit_edge.us, label %21, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge33.us, label %.lr.ph.us, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge33.us, label %.lr.ph.us, !llvm.loop !16
 
 ._crit_edge33.us:                                 ; preds = %._crit_edge.us, %.preheader.us
   %26 = add i32 %.01935.us, 1
   %27 = getelementptr inbounds nuw i8, ptr %.02034.us, i64 8
   %28 = icmp sgt i32 %.in, 1
-  br i1 %28, label %.preheader.us, label %._crit_edge36, !llvm.loop !16
+  br i1 %28, label %.preheader.us, label %._crit_edge36, !llvm.loop !17
 
 ._crit_edge36:                                    ; preds = %._crit_edge33.us, %.preheader.lr.ph, %5
   ret void
@@ -637,13 +637,13 @@ define internal void @ycck_cmyk_convert(ptr noundef readonly captures(none) %0, 
   %76 = getelementptr inbounds nuw i8, ptr %.04959.us, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %39, !llvm.loop !17
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %39, !llvm.loop !18
 
 ..loopexit_crit_edge.us:                          ; preds = %39
   %77 = add i32 %.061.us, 1
   %78 = getelementptr inbounds nuw i8, ptr %.04760.us, i64 8
   %79 = icmp samesign ugt i32 %.in, 1
-  br i1 %79, label %.lr.ph.us, label %._crit_edge, !llvm.loop !18
+  br i1 %79, label %.lr.ph.us, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph62, %5
   ret void
@@ -665,16 +665,17 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !11}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !11}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !11}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !12}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !12}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8, !12}

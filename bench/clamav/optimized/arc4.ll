@@ -19,7 +19,7 @@ define noundef zeroext i1 @arc4_init(ptr noundef captures(address_is_null) %0, p
   store i32 %8, ptr %7, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.preheader, label %.preheader39
+  br i1 %exitcond.not, label %.preheader, label %.preheader39, !llvm.loop !7
 
 .preheader:                                       ; preds = %.preheader39, %.preheader
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader ], [ 0, %.preheader39 ]
@@ -31,7 +31,7 @@ define noundef zeroext i1 @arc4_init(ptr noundef captures(address_is_null) %0, p
   %13 = urem i32 %12, %2
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !7
+  %16 = load i8, ptr %15, align 1, !tbaa !9
   %17 = zext i8 %16 to i32
   %18 = add i32 %11, %17
   %19 = and i32 %18, 255
@@ -43,13 +43,13 @@ define noundef zeroext i1 @arc4_init(ptr noundef captures(address_is_null) %0, p
   store i32 %23, ptr %21, align 4, !tbaa !3
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 256
-  br i1 %exitcond47.not, label %24, label %.preheader
+  br i1 %exitcond47.not, label %24, label %.preheader, !llvm.loop !10
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1025
-  store i8 0, ptr %25, align 1, !tbaa !8
+  store i8 0, ptr %25, align 1, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  store i8 0, ptr %26, align 4, !tbaa !10
+  store i8 0, ptr %26, align 4, !tbaa !13
   br label %27
 
 27:                                               ; preds = %3, %24
@@ -59,9 +59,9 @@ define noundef zeroext i1 @arc4_init(ptr noundef captures(address_is_null) %0, p
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @arc4_apply(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %5 = load i8, ptr %4, align 4, !tbaa !10
+  %5 = load i8, ptr %4, align 4, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1025
-  %7 = load i8, ptr %6, align 1, !tbaa !8
+  %7 = load i8, ptr %6, align 1, !tbaa !11
   %.not27 = icmp eq i32 %2, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -88,18 +88,18 @@ define void @arc4_apply(ptr noundef captures(none) %0, ptr noundef captures(none
   %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %.031, i64 1
-  %24 = load i8, ptr %.031, align 1, !tbaa !7
+  %24 = load i8, ptr %.031, align 1, !tbaa !9
   %25 = trunc i32 %22 to i8
   %26 = xor i8 %24, %25
-  store i8 %26, ptr %.031, align 1, !tbaa !7
+  store i8 %26, ptr %.031, align 1, !tbaa !9
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.026.lcssa = phi i8 [ %7, %3 ], [ %14, %.lr.ph ]
   %.025.lcssa = phi i8 [ %5, %3 ], [ %9, %.lr.ph ]
-  store i8 %.025.lcssa, ptr %4, align 4, !tbaa !10
-  store i8 %.026.lcssa, ptr %6, align 1, !tbaa !8
+  store i8 %.025.lcssa, ptr %4, align 4, !tbaa !13
+  store i8 %.026.lcssa, ptr %6, align 1, !tbaa !11
   ret void
 }
 
@@ -114,7 +114,11 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!5, !5, i64 0}
-!8 = !{!9, !5, i64 1025}
-!9 = !{!"arc4_state", !5, i64 0, !5, i64 1024, !5, i64 1025}
-!10 = !{!9, !5, i64 1024}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!5, !5, i64 0}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !5, i64 1025}
+!12 = !{!"arc4_state", !5, i64 0, !5, i64 1024, !5, i64 1025}
+!13 = !{!12, !5, i64 1024}
+!14 = distinct !{!14, !8}

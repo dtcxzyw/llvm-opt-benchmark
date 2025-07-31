@@ -442,31 +442,31 @@ define linkonce_odr dso_local void @_ZNK14btCapsuleShape7getAabbERK11btTransform
   %19 = fadd float %13, %18
   %20 = getelementptr inbounds float, ptr %5, i64 %16
   store float %19, ptr %20, align 4, !tbaa !19
-  %21 = load float, ptr %1, align 4, !tbaa !19, !noalias !23
+  %21 = load float, ptr %1, align 4, !tbaa !19, !noalias !24
   %22 = tail call noundef float @llvm.fabs.f32(float %21)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %24 = load float, ptr %23, align 4, !tbaa !19, !noalias !23
+  %24 = load float, ptr %23, align 4, !tbaa !19, !noalias !24
   %25 = tail call noundef float @llvm.fabs.f32(float %24)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load float, ptr %26, align 4, !tbaa !19, !noalias !23
+  %27 = load float, ptr %26, align 4, !tbaa !19, !noalias !24
   %28 = tail call noundef float @llvm.fabs.f32(float %27)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load float, ptr %29, align 4, !tbaa !19, !noalias !23
+  %30 = load float, ptr %29, align 4, !tbaa !19, !noalias !24
   %31 = tail call noundef float @llvm.fabs.f32(float %30)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %33 = load float, ptr %32, align 4, !tbaa !19, !noalias !23
+  %33 = load float, ptr %32, align 4, !tbaa !19, !noalias !24
   %34 = tail call noundef float @llvm.fabs.f32(float %33)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load float, ptr %35, align 4, !tbaa !19, !noalias !23
+  %36 = load float, ptr %35, align 4, !tbaa !19, !noalias !24
   %37 = tail call noundef float @llvm.fabs.f32(float %36)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %39 = load float, ptr %38, align 4, !tbaa !19, !noalias !23
+  %39 = load float, ptr %38, align 4, !tbaa !19, !noalias !24
   %40 = tail call noundef float @llvm.fabs.f32(float %39)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %42 = load float, ptr %41, align 4, !tbaa !19, !noalias !23
+  %42 = load float, ptr %41, align 4, !tbaa !19, !noalias !24
   %43 = tail call noundef float @llvm.fabs.f32(float %42)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load float, ptr %44, align 4, !tbaa !19, !noalias !23
+  %45 = load float, ptr %44, align 4, !tbaa !19, !noalias !24
   %46 = tail call noundef float @llvm.fabs.f32(float %45)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.023.0.copyload = load float, ptr %47, align 4
@@ -617,7 +617,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK14btCapsuleShape9serializeEPvP12b
   store float %9, ptr %10, align 4, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i, label %7, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i, label %7, !llvm.loop !27
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -632,19 +632,19 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
   store float %15, ptr %16, align 4, !tbaa !19
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, 4
-  br i1 %exitcond.not.i10.i, label %_ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit, label %13, !llvm.loop !26
+  br i1 %exitcond.not.i10.i, label %_ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit, label %13, !llvm.loop !27
 
 _ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load float, ptr %17, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %18, ptr %19, align 8, !tbaa !27
+  store float %18, ptr %19, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %20, align 4, !tbaa !32
+  store i32 0, ptr %20, align 4, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load i32, ptr %21, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %22, ptr %23, align 8, !tbaa !33
+  store i32 %22, ptr %23, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 0, ptr %24, align 4
   ret ptr @.str.1
@@ -787,17 +787,18 @@ attributes #17 = { noreturn nounwind }
 !18 = !{!"_ZTS14btCapsuleShape", !8, i64 0, !11, i64 72}
 !19 = !{!15, !15, i64 0}
 !20 = !{!12, !12, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
-!25 = distinct !{!25, !"_ZNK11btMatrix3x38absoluteEv"}
-!26 = distinct !{!26, !22}
-!27 = !{!28, !15, i64 48}
-!28 = !{!"_ZTS25btConvexInternalShapeData", !29, i64 0, !31, i64 16, !31, i64 32, !15, i64 48, !11, i64 52}
-!29 = !{!"_ZTS20btCollisionShapeData", !30, i64 0, !11, i64 8, !12, i64 12}
-!30 = !{!"p1 omnipotent char", !13, i64 0}
-!31 = !{!"_ZTS18btVector3FloatData", !12, i64 0}
-!32 = !{!28, !11, i64 52}
-!33 = !{!34, !11, i64 56}
-!34 = !{!"_ZTS18btCapsuleShapeData", !28, i64 0, !11, i64 56, !12, i64 60}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
+!26 = distinct !{!26, !"_ZNK11btMatrix3x38absoluteEv"}
+!27 = distinct !{!27, !22, !23}
+!28 = !{!29, !15, i64 48}
+!29 = !{!"_ZTS25btConvexInternalShapeData", !30, i64 0, !32, i64 16, !32, i64 32, !15, i64 48, !11, i64 52}
+!30 = !{!"_ZTS20btCollisionShapeData", !31, i64 0, !11, i64 8, !12, i64 12}
+!31 = !{!"p1 omnipotent char", !13, i64 0}
+!32 = !{!"_ZTS18btVector3FloatData", !12, i64 0}
+!33 = !{!29, !11, i64 52}
+!34 = !{!35, !11, i64 56}
+!35 = !{!"_ZTS18btCapsuleShapeData", !29, i64 0, !11, i64 56, !12, i64 60}

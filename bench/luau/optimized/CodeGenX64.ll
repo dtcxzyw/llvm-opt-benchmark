@@ -510,7 +510,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit174.i: ; preds = %
   %indvars.iv.next462.i = add nuw nsw i64 %indvars.iv461.i, 1
   %168 = add nuw nsw i32 %165, 16
   %exitcond466.not.i = icmp eq i64 %indvars.iv.next462.i, %wide.trip.count465.i
-  br i1 %exitcond466.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !55
+  br i1 %exitcond466.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !56
 
 169:                                              ; preds = %.preheader.i
   %170 = landingpad { ptr, i32 }
@@ -625,20 +625,20 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit196.i: ; preds = %
 
 213:                                              ; preds = %209
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store ptr null, ptr %7, align 8, !tbaa !56
+  store ptr null, ptr %7, align 8, !tbaa !57
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %215 = load ptr, ptr %6, align 8, !tbaa !57
+  %215 = load ptr, ptr %6, align 8, !tbaa !58
   %216 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %217 = load ptr, ptr %216, align 8, !tbaa !58
+  %217 = load ptr, ptr %216, align 8, !tbaa !59
   %218 = ptrtoint ptr %217 to i64
   %219 = ptrtoint ptr %215 to i64
   %220 = sub i64 %218, %219
   %sext = shl i64 %220, 32
   %221 = ashr exact i64 %sext, 32
   %222 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %223 = load ptr, ptr %222, align 8, !tbaa !57
+  %223 = load ptr, ptr %222, align 8, !tbaa !58
   %224 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %225 = load ptr, ptr %224, align 8, !tbaa !58
+  %225 = load ptr, ptr %224, align 8, !tbaa !59
   %226 = ptrtoint ptr %225 to i64
   %227 = ptrtoint ptr %223 to i64
   %228 = sub i64 %226, %227
@@ -676,14 +676,14 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit196.i: ; preds = %
           to label %244 unwind label %238
 
 244:                                              ; preds = %240
-  %245 = load ptr, ptr %7, align 8, !tbaa !56
+  %245 = load ptr, ptr %7, align 8, !tbaa !57
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 %22
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %246, ptr %247, align 8, !tbaa !59
+  store ptr %246, ptr %247, align 8, !tbaa !60
   %.sroa.9.20.extract.shift = lshr i64 %146, 32
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 %.sroa.9.20.extract.shift
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %248, ptr %249, align 8, !tbaa !79
+  store ptr %248, ptr %249, align 8, !tbaa !80
   br label %250
 
 250:                                              ; preds = %233, %244
@@ -719,7 +719,7 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuilderX64ERNS0_13ModuleHelpersE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(56) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load i8, ptr %3, align 8, !tbaa !80, !range !81, !noundef !82
+  %4 = load i8, ptr %3, align 8, !tbaa !81, !range !82, !noundef !83
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -731,7 +731,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %8)
   tail call void @_ZN4Luau7CodeGen3X6419emitUpdatePcForExitERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %0)
-  %9 = load i8, ptr %3, align 8, !tbaa !80, !range !81, !noundef !82
+  %9 = load i8, ptr %3, align 8, !tbaa !81, !range !82, !noundef !83
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %12
 
@@ -743,7 +743,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %13)
   tail call void @_ZN4Luau7CodeGen3X6419emitClearNativeFlagERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %0)
-  %14 = load i8, ptr %3, align 8, !tbaa !80, !range !81, !noundef !82
+  %14 = load i8, ptr %3, align 8, !tbaa !81, !range !82, !noundef !83
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %17
 
@@ -754,7 +754,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
 17:                                               ; preds = %16, %12
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
   tail call void @_ZN4Luau7CodeGen3X648emitExitERNS1_18AssemblyBuilderX64Eb(ptr noundef nonnull align 8 dereferenceable(252) %0, i1 noundef zeroext true)
-  %18 = load i8, ptr %3, align 8, !tbaa !80, !range !81, !noundef !82
+  %18 = load i8, ptr %3, align 8, !tbaa !81, !range !82, !noundef !83
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %21
 
@@ -766,7 +766,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %22)
   tail call void @_ZN4Luau7CodeGen3X648emitExitERNS1_18AssemblyBuilderX64Eb(ptr noundef nonnull align 8 dereferenceable(252) %0, i1 noundef zeroext false)
-  %23 = load i8, ptr %3, align 8, !tbaa !80, !range !81, !noundef !82
+  %23 = load i8, ptr %3, align 8, !tbaa !81, !range !82, !noundef !83
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %26
 
@@ -778,7 +778,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %27)
   tail call void @_ZN4Luau7CodeGen3X6413emitInterruptERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %0)
-  %28 = load i8, ptr %3, align 8, !tbaa !80, !range !81, !noundef !82
+  %28 = load i8, ptr %3, align 8, !tbaa !81, !range !82, !noundef !83
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %31
 
@@ -918,33 +918,34 @@ attributes #13 = { builtin nounwind }
 !50 = !{!48, !49, i64 8}
 !51 = !{!48, !49, i64 16}
 !52 = !{!7, !7, i64 0}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = distinct !{!55, !54}
-!56 = !{!20, !20, i64 0}
-!57 = !{!19, !20, i64 0}
-!58 = !{!19, !20, i64 8}
-!59 = !{!60, !20, i64 168}
-!60 = !{!"_ZTSN4Luau7CodeGen18BaseCodeGenContextE", !61, i64 8, !72, i64 128, !20, i64 136, !23, i64 144, !6, i64 152, !6, i64 160, !78, i64 168}
-!61 = !{!"_ZTSN4Luau7CodeGen13CodeAllocatorE", !6, i64 0, !6, i64 8, !6, i64 16, !20, i64 24, !20, i64 32, !62, i64 40, !68, i64 64, !23, i64 88, !23, i64 96, !6, i64 104, !6, i64 112}
-!62 = !{!"_ZTSSt6vectorIPhSaIS0_EE", !63, i64 0}
-!63 = !{!"_ZTSSt12_Vector_baseIPhSaIS0_EE", !64, i64 0}
-!64 = !{!"_ZTSNSt12_Vector_baseIPhSaIS0_EE12_Vector_implE", !65, i64 0}
-!65 = !{!"_ZTSNSt12_Vector_baseIPhSaIS0_EE17_Vector_impl_dataE", !66, i64 0, !66, i64 8, !66, i64 16}
-!66 = !{!"p2 omnipotent char", !67, i64 0}
-!67 = !{!"any p2 pointer", !6, i64 0}
-!68 = !{!"_ZTSSt6vectorIPvSaIS0_EE", !69, i64 0}
-!69 = !{!"_ZTSSt12_Vector_baseIPvSaIS0_EE", !70, i64 0}
-!70 = !{!"_ZTSNSt12_Vector_baseIPvSaIS0_EE12_Vector_implE", !71, i64 0}
-!71 = !{!"_ZTSNSt12_Vector_baseIPvSaIS0_EE17_Vector_impl_dataE", !67, i64 0, !67, i64 8, !67, i64 16}
-!72 = !{!"_ZTSSt10unique_ptrIN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_EE", !73, i64 0}
-!73 = !{!"_ZTSSt15__uniq_ptr_dataIN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_ELb1ELb1EE", !74, i64 0}
-!74 = !{!"_ZTSSt15__uniq_ptr_implIN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_EE", !75, i64 0}
-!75 = !{!"_ZTSSt5tupleIJPN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_EEE", !76, i64 0}
-!76 = !{!"_ZTSSt11_Tuple_implILm0EJPN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_EEE", !77, i64 0}
-!77 = !{!"_ZTSSt10_Head_baseILm0EPN4Luau7CodeGen13UnwindBuilderELb0EE", !5, i64 0}
-!78 = !{!"_ZTSN4Luau7CodeGen13NativeContextE", !20, i64 0, !20, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !6, i64 432, !6, i64 440, !6, i64 448, !6, i64 456, !6, i64 464, !6, i64 472, !6, i64 480, !6, i64 488, !6, i64 496, !6, i64 504, !6, i64 512, !6, i64 520, !6, i64 528, !6, i64 536, !6, i64 544, !6, i64 552, !6, i64 560, !7, i64 568}
-!79 = !{!60, !20, i64 176}
-!80 = !{!15, !24, i64 80}
-!81 = !{i8 0, i8 2}
-!82 = !{}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = distinct !{!56, !54, !55}
+!57 = !{!20, !20, i64 0}
+!58 = !{!19, !20, i64 0}
+!59 = !{!19, !20, i64 8}
+!60 = !{!61, !20, i64 168}
+!61 = !{!"_ZTSN4Luau7CodeGen18BaseCodeGenContextE", !62, i64 8, !73, i64 128, !20, i64 136, !23, i64 144, !6, i64 152, !6, i64 160, !79, i64 168}
+!62 = !{!"_ZTSN4Luau7CodeGen13CodeAllocatorE", !6, i64 0, !6, i64 8, !6, i64 16, !20, i64 24, !20, i64 32, !63, i64 40, !69, i64 64, !23, i64 88, !23, i64 96, !6, i64 104, !6, i64 112}
+!63 = !{!"_ZTSSt6vectorIPhSaIS0_EE", !64, i64 0}
+!64 = !{!"_ZTSSt12_Vector_baseIPhSaIS0_EE", !65, i64 0}
+!65 = !{!"_ZTSNSt12_Vector_baseIPhSaIS0_EE12_Vector_implE", !66, i64 0}
+!66 = !{!"_ZTSNSt12_Vector_baseIPhSaIS0_EE17_Vector_impl_dataE", !67, i64 0, !67, i64 8, !67, i64 16}
+!67 = !{!"p2 omnipotent char", !68, i64 0}
+!68 = !{!"any p2 pointer", !6, i64 0}
+!69 = !{!"_ZTSSt6vectorIPvSaIS0_EE", !70, i64 0}
+!70 = !{!"_ZTSSt12_Vector_baseIPvSaIS0_EE", !71, i64 0}
+!71 = !{!"_ZTSNSt12_Vector_baseIPvSaIS0_EE12_Vector_implE", !72, i64 0}
+!72 = !{!"_ZTSNSt12_Vector_baseIPvSaIS0_EE17_Vector_impl_dataE", !68, i64 0, !68, i64 8, !68, i64 16}
+!73 = !{!"_ZTSSt10unique_ptrIN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_EE", !74, i64 0}
+!74 = !{!"_ZTSSt15__uniq_ptr_dataIN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_ELb1ELb1EE", !75, i64 0}
+!75 = !{!"_ZTSSt15__uniq_ptr_implIN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_EE", !76, i64 0}
+!76 = !{!"_ZTSSt5tupleIJPN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_EEE", !77, i64 0}
+!77 = !{!"_ZTSSt11_Tuple_implILm0EJPN4Luau7CodeGen13UnwindBuilderESt14default_deleteIS2_EEE", !78, i64 0}
+!78 = !{!"_ZTSSt10_Head_baseILm0EPN4Luau7CodeGen13UnwindBuilderELb0EE", !5, i64 0}
+!79 = !{!"_ZTSN4Luau7CodeGen13NativeContextE", !20, i64 0, !20, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !6, i64 432, !6, i64 440, !6, i64 448, !6, i64 456, !6, i64 464, !6, i64 472, !6, i64 480, !6, i64 488, !6, i64 496, !6, i64 504, !6, i64 512, !6, i64 520, !6, i64 528, !6, i64 536, !6, i64 544, !6, i64 552, !6, i64 560, !7, i64 568}
+!80 = !{!61, !20, i64 176}
+!81 = !{!15, !24, i64 80}
+!82 = !{i8 0, i8 2}
+!83 = !{}

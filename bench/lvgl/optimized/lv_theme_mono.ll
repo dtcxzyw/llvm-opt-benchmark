@@ -118,14 +118,14 @@ lv_theme_mono_is_inited.exit:                     ; preds = %3
 
 lv_theme_mono_is_inited.exit.i.i.thread:          ; preds = %lv_theme_mono_is_inited.exit
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %0, ptr %9, align 8, !tbaa !23
+  store ptr %0, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr @lv_font_montserrat_14, ptr %10, align 8, !tbaa !24
+  store ptr @lv_font_montserrat_14, ptr %10, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr @lv_font_montserrat_14, ptr %11, align 8, !tbaa !25
+  store ptr @lv_font_montserrat_14, ptr %11, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr @lv_font_montserrat_14, ptr %12, align 8, !tbaa !26
-  store ptr @theme_apply, ptr %4, align 8, !tbaa !27
+  store ptr @lv_font_montserrat_14, ptr %12, align 8, !tbaa !27
+  store ptr @theme_apply, ptr %4, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 104
   br label %23
@@ -137,14 +137,14 @@ lv_theme_mono_is_inited.exit.i.i:                 ; preds = %lv_theme_mono_is_in
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !8, !range !19
   %16 = trunc nuw i8 %.pre to i1
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %0, ptr %17, align 8, !tbaa !23
+  store ptr %0, ptr %17, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr @lv_font_montserrat_14, ptr %18, align 8, !tbaa !24
+  store ptr @lv_font_montserrat_14, ptr %18, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store ptr @lv_font_montserrat_14, ptr %19, align 8, !tbaa !25
+  store ptr @lv_font_montserrat_14, ptr %19, align 8, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store ptr @lv_font_montserrat_14, ptr %20, align 8, !tbaa !26
-  store ptr @theme_apply, ptr %15, align 8, !tbaa !27
+  store ptr @lv_font_montserrat_14, ptr %20, align 8, !tbaa !27
+  store ptr @theme_apply, ptr %15, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 104
   br i1 %16, label %23, label %lv_theme_mono_is_inited.exit.thread.i.i
@@ -663,9 +663,9 @@ lv_theme_mono_is_inited.exit.thread.i167.i:       ; preds = %lv_theme_mono_is_in
 
 style_init_reset.exit168.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i167.i, %198
   tail call void @lv_style_set_radius(ptr noundef nonnull %192, i32 noundef 32767) #3
-  %199 = load ptr, ptr %30, align 8, !tbaa !23
+  %199 = load ptr, ptr %30, align 8, !tbaa !24
   %200 = tail call i32 @lv_display_dpx(ptr noundef %199, i32 noundef 8) #3
-  %201 = load ptr, ptr %30, align 8, !tbaa !23
+  %201 = load ptr, ptr %30, align 8, !tbaa !24
   %202 = tail call i32 @lv_display_dpx(ptr noundef %201, i32 noundef 8) #3
   tail call void @lv_style_set_width(ptr noundef nonnull %192, i32 noundef %200) #3
   tail call void @lv_style_set_height(ptr noundef nonnull %192, i32 noundef %202) #3
@@ -1239,10 +1239,11 @@ attributes #3 = { nounwind }
 !18 = !{!"_Bool", !6, i64 0}
 !19 = !{i8 0, i8 2}
 !20 = !{}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!9, !12, i64 24}
-!24 = !{!9, !14, i64 40}
-!25 = !{!9, !14, i64 48}
-!26 = !{!9, !14, i64 56}
-!27 = !{!9, !5, i64 0}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!9, !12, i64 24}
+!25 = !{!9, !14, i64 40}
+!26 = !{!9, !14, i64 48}
+!27 = !{!9, !14, i64 56}
+!28 = !{!9, !5, i64 0}

@@ -517,7 +517,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
   %106 = add nuw nsw i64 %90, 1
   %107 = and i64 %106, 127
   %108 = icmp samesign ugt i64 %107, 63
-  br i1 %108, label %.thread7, label %83, !prof !6, !llvm.loop !10
+  br i1 %108, label %.thread7, label %83, !prof !6, !llvm.loop !11
 
 .thread7:                                         ; preds = %83, %93, %89
   %.lcssa8 = phi i64 [ %85, %83 ], [ %105, %93 ], [ %85, %89 ]
@@ -709,7 +709,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr noundef readonly captur
 26:                                               ; preds = %19, %13, %10, %4
   %27 = phi ptr [ %25, %19 ], [ %18, %13 ], [ %12, %10 ], [ null, %4 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  store i64 0, ptr %7, align 8, !annotation !11
+  store i64 0, ptr %7, align 8, !annotation !12
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i16, ptr %28, align 8
   switch i16 %29, label %.thread [
@@ -722,7 +722,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr noundef readonly captur
 
 30:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  store i64 0, ptr %6, align 8, !annotation !11
+  store i64 0, ptr %6, align 8, !annotation !12
   %31 = getelementptr i8, ptr %0, i64 -336
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
@@ -809,7 +809,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr noundef readonly captur
 
 83:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store i64 0, ptr %5, align 8, !annotation !11
+  store i64 0, ptr %5, align 8, !annotation !12
   %84 = tail call ptr @skip_spaces(ptr noundef %2) #6
   %85 = call i32 @kstrtoull(ptr noundef %84, i32 noundef 0, ptr noundef nonnull %5) #6
   %86 = icmp eq i32 %85, 0
@@ -825,7 +825,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr noundef readonly captur
   br i1 %91, label %97, label %92
 
 92:                                               ; preds = %89
-  %93 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %90), !range !12
+  %93 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %90), !range !13
   %94 = icmp samesign ult i64 %93, 2
   %95 = icmp ult i64 %90, 1073741825
   %96 = and i1 %95, %94
@@ -930,9 +930,10 @@ attributes #8 = { nounwind memory(read) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 829234}
 !6 = !{!"branch_weights", i32 1, i32 1999}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{!"auto-init"}
-!12 = !{i64 0, i64 65}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = !{!"auto-init"}
+!13 = !{i64 0, i64 65}

@@ -100,11 +100,11 @@ define noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager14EntropyTracker11
 .lr.ph.preheader:                                 ; preds = %2
   %9 = sub i64 %4, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !24, !noalias !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !25, !noalias !26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !28, !noalias !25
+  %13 = load ptr, ptr %12, align 8, !tbaa !29, !noalias !26
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !29, !noalias !25
+  %15 = load ptr, ptr %14, align 8, !tbaa !30, !noalias !26
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load i8, ptr %16, align 8, !tbaa !3
   br label %.lr.ph
@@ -134,12 +134,12 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit: ; p
   %.sroa.12.1 = phi ptr [ %21, %20 ], [ %.sroa.12.021, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit ]
   %.sroa.6.1 = phi ptr [ %22, %20 ], [ %.sroa.6.022, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit ]
   %25 = phi ptr [ %24, %20 ], [ %.sroa.0.023, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit ]
-  %.pn = load i8, ptr %.pn.in, align 1, !tbaa !30
+  %.pn = load i8, ptr %.pn.in, align 1, !tbaa !31
   %26 = xor i8 %.pn, %.0724
   %27 = add nuw i64 %.025, 1
   %28 = getelementptr inbounds i8, ptr %25, i64 -2
   %exitcond.not = icmp eq i64 %27, %9
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %_ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit, %6
   %.08 = phi i8 [ %8, %6 ], [ %26, %_ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit ]
@@ -177,8 +177,8 @@ define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker23RecordPacketEnt
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %18, align 8, !tbaa !29
-  %21 = load ptr, ptr %19, align 8, !tbaa !29
+  %20 = load ptr, ptr %18, align 8, !tbaa !30
+  %21 = load ptr, ptr %19, align 8, !tbaa !30
   %22 = icmp eq ptr %20, %21
   br i1 %22, label %23, label %25
 
@@ -207,18 +207,18 @@ define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker23RecordPacketEnt
   %.sroa.0.0.insert.insert.i = or disjoint i16 %.sroa.0.0.insert.ext.i, 256
   store i16 %.sroa.0.0.insert.insert.i, ptr %5, align 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !34
+  %32 = load ptr, ptr %31, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !35
+  %34 = load ptr, ptr %33, align 8, !tbaa !36
   %35 = getelementptr inbounds i8, ptr %34, i64 -2
   %.not.i.i = icmp eq ptr %32, %35
   br i1 %.not.i.i, label %39, label %36
 
 36:                                               ; preds = %._crit_edge
   store i16 %.sroa.0.0.insert.insert.i, ptr %32, align 1
-  %37 = load ptr, ptr %31, align 8, !tbaa !34
+  %37 = load ptr, ptr %31, align 8, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  store ptr %38, ptr %31, align 8, !tbaa !34
+  store ptr %38, ptr %31, align 8, !tbaa !35
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit
 
 39:                                               ; preds = %._crit_edge
@@ -232,10 +232,10 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit: ; preds = %36, %39
 40:                                               ; preds = %.lr.ph, %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit15
   %.027 = phi i64 [ 0, %.lr.ph ], [ %49, %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit15 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #18
-  store i8 0, ptr %4, align 2, !tbaa !30
-  store i8 0, ptr %28, align 1, !tbaa !36
-  %41 = load ptr, ptr %29, align 8, !tbaa !34
-  %42 = load ptr, ptr %30, align 8, !tbaa !35
+  store i8 0, ptr %4, align 2, !tbaa !31
+  store i8 0, ptr %28, align 1, !tbaa !37
+  %41 = load ptr, ptr %29, align 8, !tbaa !35
+  %42 = load ptr, ptr %30, align 8, !tbaa !36
   %43 = getelementptr inbounds i8, ptr %42, i64 -2
   %.not.i.i14 = icmp eq ptr %41, %43
   br i1 %.not.i.i14, label %48, label %44
@@ -243,9 +243,9 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit: ; preds = %36, %39
 44:                                               ; preds = %40
   %45 = load i16, ptr %4, align 2
   store i16 %45, ptr %41, align 1
-  %46 = load ptr, ptr %29, align 8, !tbaa !34
+  %46 = load ptr, ptr %29, align 8, !tbaa !35
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  store ptr %47, ptr %29, align 8, !tbaa !34
+  store ptr %47, ptr %29, align 8, !tbaa !35
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit15
 
 48:                                               ; preds = %40
@@ -259,16 +259,16 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit15: ; preds = %44, %48
   %51 = xor i64 %50, -1
   %52 = add i64 %1, %51
   %53 = icmp ult i64 %49, %52
-  br i1 %53, label %40, label %._crit_edge, !llvm.loop !37
+  br i1 %53, label %40, label %._crit_edge, !llvm.loop !38
 
 54:                                               ; preds = %.thread, %25
   %55 = sub i64 %1, %7
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !29, !noalias !38
+  %57 = load ptr, ptr %56, align 8, !tbaa !30, !noalias !39
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !28, !noalias !38
+  %59 = load ptr, ptr %58, align 8, !tbaa !29, !noalias !39
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !24, !noalias !38
+  %61 = load ptr, ptr %60, align 8, !tbaa !25, !noalias !39
   %62 = ptrtoint ptr %57 to i64
   %63 = ptrtoint ptr %59 to i64
   %64 = sub i64 %62, %63
@@ -296,7 +296,7 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit15: ; preds = %44, %48
 76:                                               ; preds = %74, %72
   %77 = phi i64 [ %73, %72 ], [ %75, %74 ]
   %78 = getelementptr inbounds ptr, ptr %61, i64 %77
-  %79 = load ptr, ptr %78, align 8, !tbaa !21, !noalias !38
+  %79 = load ptr, ptr %78, align 8, !tbaa !21, !noalias !39
   %80 = shl nsw i64 %77, 8
   %81 = sub nsw i64 %66, %80
   %82 = getelementptr inbounds %"struct.std::pair", ptr %79, i64 %81
@@ -304,11 +304,11 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit15: ; preds = %44, %48
 
 _ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit:         ; preds = %70, %76
   %storemerge.i.i.i.i = phi ptr [ %82, %76 ], [ %71, %70 ]
-  store i8 %2, ptr %storemerge.i.i.i.i, align 1, !tbaa !30
+  store i8 %2, ptr %storemerge.i.i.i.i, align 1, !tbaa !31
   %83 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 1
-  store i8 1, ptr %83, align 1, !tbaa !36
+  store i8 1, ptr %83, align 1, !tbaa !37
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %85 = load ptr, ptr %84, align 8, !tbaa !29
+  %85 = load ptr, ptr %84, align 8, !tbaa !30
   %86 = icmp eq ptr %85, %57
   br i1 %86, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit, label %.lr.ph.i
 
@@ -320,7 +320,7 @@ _ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit:         ; preds = %70, %76
   %89 = phi ptr [ %85, %.lr.ph.i ], [ %107, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ]
   %90 = phi ptr [ %57, %.lr.ph.i ], [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ]
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 1
-  %92 = load i8, ptr %91, align 1, !tbaa !36, !range !41, !noundef !42
+  %92 = load i8, ptr %91, align 1, !tbaa !37, !range !42, !noundef !43
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %94, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit
 
@@ -328,7 +328,7 @@ _ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit:         ; preds = %70, %76
   %95 = load i64, ptr %6, align 8, !tbaa !16
   %96 = add i64 %95, 1
   store i64 %96, ptr %6, align 8, !tbaa !16
-  %97 = load ptr, ptr %87, align 8, !tbaa !43
+  %97 = load ptr, ptr %87, align 8, !tbaa !44
   %98 = getelementptr inbounds i8, ptr %97, i64 -2
   %.not.i.i20 = icmp eq ptr %90, %98
   br i1 %.not.i.i20, label %101, label %99
@@ -338,24 +338,24 @@ _ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit:         ; preds = %70, %76
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 101:                                              ; preds = %94
-  %102 = load ptr, ptr %58, align 8, !tbaa !44
+  %102 = load ptr, ptr %58, align 8, !tbaa !45
   tail call void @_ZdlPv(ptr noundef %102) #17
   %103 = load ptr, ptr %60, align 8, !tbaa !19
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store ptr %104, ptr %60, align 8, !tbaa !24
+  store ptr %104, ptr %60, align 8, !tbaa !25
   %105 = load ptr, ptr %104, align 8, !tbaa !21
-  store ptr %105, ptr %58, align 8, !tbaa !28
+  store ptr %105, ptr %58, align 8, !tbaa !29
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 512
-  store ptr %106, ptr %87, align 8, !tbaa !45
-  %.pre.i = load ptr, ptr %84, align 8, !tbaa !29
+  store ptr %106, ptr %87, align 8, !tbaa !46
+  %.pre.i = load ptr, ptr %84, align 8, !tbaa !30
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i: ; preds = %101, %99
   %107 = phi ptr [ %89, %99 ], [ %.pre.i, %101 ]
   %storemerge.i.i = phi ptr [ %100, %99 ], [ %105, %101 ]
-  store ptr %storemerge.i.i, ptr %56, align 8, !tbaa !46
+  store ptr %storemerge.i.i, ptr %56, align 8, !tbaa !47
   %108 = icmp eq ptr %107, %storemerge.i.i
-  br i1 %108, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit, label %88, !llvm.loop !47
+  br i1 %108, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit, label %88, !llvm.loop !48
 
 _ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit.sink.split: ; preds = %23, %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit
   store i64 %1, ptr %13, align 8, !tbaa !17
@@ -369,8 +369,8 @@ _ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCol
 define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %2, align 8, !tbaa !29
-  %5 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %2, align 8, !tbaa !30
+  %5 = load ptr, ptr %3, align 8, !tbaa !30
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %.critedge, label %.lr.ph
 
@@ -385,7 +385,7 @@ define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGap
   %12 = phi ptr [ %4, %.lr.ph ], [ %30, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit ]
   %13 = phi ptr [ %5, %.lr.ph ], [ %storemerge.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !36, !range !41, !noundef !42
+  %15 = load i8, ptr %14, align 1, !tbaa !37, !range !42, !noundef !43
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %.critedge
 
@@ -393,7 +393,7 @@ define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGap
   %18 = load i64, ptr %7, align 8, !tbaa !16
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !16
-  %20 = load ptr, ptr %8, align 8, !tbaa !43
+  %20 = load ptr, ptr %8, align 8, !tbaa !44
   %21 = getelementptr inbounds i8, ptr %20, i64 -2
   %.not.i = icmp eq ptr %13, %21
   br i1 %.not.i, label %24, label %22
@@ -403,24 +403,24 @@ define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGap
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit
 
 24:                                               ; preds = %17
-  %25 = load ptr, ptr %9, align 8, !tbaa !44
+  %25 = load ptr, ptr %9, align 8, !tbaa !45
   tail call void @_ZdlPv(ptr noundef %25) #17
   %26 = load ptr, ptr %10, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %27, ptr %10, align 8, !tbaa !24
+  store ptr %27, ptr %10, align 8, !tbaa !25
   %28 = load ptr, ptr %27, align 8, !tbaa !21
-  store ptr %28, ptr %9, align 8, !tbaa !28
+  store ptr %28, ptr %9, align 8, !tbaa !29
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 512
-  store ptr %29, ptr %8, align 8, !tbaa !45
-  %.pre = load ptr, ptr %2, align 8, !tbaa !29
+  store ptr %29, ptr %8, align 8, !tbaa !46
+  %.pre = load ptr, ptr %2, align 8, !tbaa !30
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit
 
 _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit: ; preds = %22, %24
   %30 = phi ptr [ %12, %22 ], [ %.pre, %24 ]
   %storemerge.i = phi ptr [ %23, %22 ], [ %28, %24 ]
-  store ptr %storemerge.i, ptr %3, align 8, !tbaa !46
+  store ptr %storemerge.i, ptr %3, align 8, !tbaa !47
   %31 = icmp eq ptr %30, %storemerge.i
-  br i1 %31, label %.critedge, label %11, !llvm.loop !47
+  br i1 %31, label %.critedge, label %11, !llvm.loop !48
 
 .critedge:                                        ; preds = %11, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit, %1
   ret void
@@ -439,7 +439,7 @@ define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCumulativeEn
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre24 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !29, !noalias !48
+  %.pre24 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30, !noalias !49
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -448,8 +448,8 @@ define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCumulativeEn
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %8, align 8, !tbaa !29
-  %14 = load ptr, ptr %9, align 8, !tbaa !29
+  %13 = load ptr, ptr %8, align 8, !tbaa !30
+  %14 = load ptr, ptr %9, align 8, !tbaa !30
   %15 = icmp eq ptr %13, %14
   br i1 %15, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
@@ -462,12 +462,12 @@ define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCumulativeEn
   %17 = phi i64 [ %33, %32 ], [ %5, %.lr.ph ]
   %18 = add nuw i64 %17, 1
   store i64 %18, ptr %4, align 8, !tbaa !16
-  %19 = load ptr, ptr %8, align 8, !tbaa !29
+  %19 = load ptr, ptr %8, align 8, !tbaa !30
   %20 = icmp eq ptr %19, %16
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %.lr.ph.split
-  %22 = load ptr, ptr %10, align 8, !tbaa !43
+  %22 = load ptr, ptr %10, align 8, !tbaa !44
   %23 = getelementptr inbounds i8, ptr %22, i64 -2
   %.not.i3 = icmp eq ptr %16, %23
   br i1 %.not.i3, label %26, label %24
@@ -477,29 +477,29 @@ define void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCumulativeEn
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %11, align 8, !tbaa !44
+  %27 = load ptr, ptr %11, align 8, !tbaa !45
   tail call void @_ZdlPv(ptr noundef %27) #17
   %28 = load ptr, ptr %12, align 8, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %29, ptr %12, align 8, !tbaa !24
+  store ptr %29, ptr %12, align 8, !tbaa !25
   %30 = load ptr, ptr %29, align 8, !tbaa !21
-  store ptr %30, ptr %11, align 8, !tbaa !28
+  store ptr %30, ptr %11, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 512
-  store ptr %31, ptr %10, align 8, !tbaa !45
+  store ptr %31, ptr %10, align 8, !tbaa !46
   %.pre.pre = load i64, ptr %4, align 8, !tbaa !16
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit
 
 _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit: ; preds = %24, %26
   %.pre = phi i64 [ %18, %24 ], [ %.pre.pre, %26 ]
   %storemerge.i = phi ptr [ %25, %24 ], [ %30, %26 ]
-  store ptr %storemerge.i, ptr %9, align 8, !tbaa !46
+  store ptr %storemerge.i, ptr %9, align 8, !tbaa !47
   br label %32
 
 32:                                               ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit, %.lr.ph.split
   %33 = phi i64 [ %.pre, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit ], [ %18, %.lr.ph.split ]
   %34 = phi ptr [ %storemerge.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit ], [ %16, %.lr.ph.split ]
   %35 = icmp ult i64 %33, %1
-  br i1 %35, label %.lr.ph.split, label %._crit_edge, !llvm.loop !51
+  br i1 %35, label %.lr.ph.split, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %32, %.preheader.._crit_edge_crit_edge, %.lr.ph.split.us.preheader
   %36 = phi ptr [ %.pre24, %.preheader.._crit_edge_crit_edge ], [ %14, %.lr.ph.split.us.preheader ], [ %34, %32 ]
@@ -508,15 +508,15 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit: ; preds = %24, %26
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !45, !noalias !48
+  %41 = load ptr, ptr %40, align 8, !tbaa !46, !noalias !49
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !29, !noalias !53
+  %44 = load ptr, ptr %43, align 8, !tbaa !30, !noalias !54
   %.not15 = icmp eq ptr %36, %44
   br i1 %.not15, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit, label %.lr.ph20.preheader
 
 .lr.ph20.preheader:                               ; preds = %._crit_edge
-  %45 = load ptr, ptr %42, align 8, !tbaa !24, !noalias !48
+  %45 = load ptr, ptr %42, align 8, !tbaa !25, !noalias !49
   br label %.lr.ph20
 
 46:                                               ; preds = %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
@@ -528,7 +528,7 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit: ; preds = %24, %26
   %48 = phi ptr [ %66, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %44, %46 ]
   %49 = phi ptr [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %36, %46 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %51 = load i8, ptr %50, align 1, !tbaa !36, !range !41, !noundef !42
+  %51 = load i8, ptr %50, align 1, !tbaa !37, !range !42, !noundef !43
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %53, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit
 
@@ -545,32 +545,32 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit: ; preds = %24, %26
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 59:                                               ; preds = %53
-  %60 = load ptr, ptr %39, align 8, !tbaa !44
+  %60 = load ptr, ptr %39, align 8, !tbaa !45
   tail call void @_ZdlPv(ptr noundef %60) #17
   %61 = load ptr, ptr %42, align 8, !tbaa !19
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %62, ptr %42, align 8, !tbaa !24
+  store ptr %62, ptr %42, align 8, !tbaa !25
   %63 = load ptr, ptr %62, align 8, !tbaa !21
-  store ptr %63, ptr %39, align 8, !tbaa !28
+  store ptr %63, ptr %39, align 8, !tbaa !29
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 512
-  store ptr %64, ptr %40, align 8, !tbaa !45
-  %.pre.i = load ptr, ptr %43, align 8, !tbaa !29
+  store ptr %64, ptr %40, align 8, !tbaa !46
+  %.pre.i = load ptr, ptr %43, align 8, !tbaa !30
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i: ; preds = %59, %57
   %65 = phi ptr [ %47, %57 ], [ %64, %59 ]
   %66 = phi ptr [ %48, %57 ], [ %.pre.i, %59 ]
   %storemerge.i.i = phi ptr [ %58, %57 ], [ %63, %59 ]
-  store ptr %storemerge.i.i, ptr %38, align 8, !tbaa !46
+  store ptr %storemerge.i.i, ptr %38, align 8, !tbaa !47
   %67 = icmp eq ptr %66, %storemerge.i.i
-  br i1 %67, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit, label %.lr.ph.i, !llvm.loop !47
+  br i1 %67, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit, label %.lr.ph.i, !llvm.loop !48
 
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
   %.sroa.13.018 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %45, %.lr.ph20.preheader ]
   %.sroa.10.017 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %41, %.lr.ph20.preheader ]
   %.sroa.07.016 = phi ptr [ %.sroa.07.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %36, %.lr.ph20.preheader ]
   %68 = phi i8 [ %70, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %2, %.lr.ph20.preheader ]
-  %69 = load i8, ptr %.sroa.07.016, align 1, !tbaa !30
+  %69 = load i8, ptr %.sroa.07.016, align 1, !tbaa !31
   %70 = xor i8 %68, %69
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 2
   %72 = icmp eq ptr %71, %.sroa.10.017
@@ -587,7 +587,7 @@ _ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit: ; preds = %.lr.ph20, %73
   %.sroa.10.1 = phi ptr [ %76, %73 ], [ %.sroa.10.017, %.lr.ph20 ]
   %.sroa.13.1 = phi ptr [ %74, %73 ], [ %.sroa.13.018, %.lr.ph20 ]
   %.not = icmp eq ptr %.sroa.07.1, %44
-  br i1 %.not, label %46, label %.lr.ph20, !llvm.loop !56
+  br i1 %.not, label %46, label %.lr.ph20, !llvm.loop !57
 
 _ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit: ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i, %.lr.ph.i, %._crit_edge, %3
   ret void
@@ -595,25 +595,25 @@ _ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCol
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net25QuicReceivedPacketManagerC2EPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 16), ptr %0, align 8, !tbaa !57
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 16), ptr %0, align 8, !tbaa !58
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3net25QuicReceivedPacketManager14EntropyTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 0, ptr %4, align 8, !tbaa !59
+  store i64 0, ptr %4, align 8, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZN3net12QuicAckFrameC1Ev(ptr noundef nonnull align 8 dereferenceable(100) %5)
           to label %6 unwind label %11
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i8 0, ptr %7, align 8, !tbaa !83
+  store i8 0, ptr %7, align 8, !tbaa !84
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %1, ptr %9, align 8, !tbaa !84
-  store i64 0, ptr %5, align 8, !tbaa !85
+  store ptr %1, ptr %9, align 8, !tbaa !85
+  store i64 0, ptr %5, align 8, !tbaa !86
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 217
-  store i8 0, ptr %10, align 1, !tbaa !86
+  store i8 0, ptr %10, align 1, !tbaa !87
   ret void
 
 11:                                               ; preds = %2
@@ -630,7 +630,7 @@ declare void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3net25QuicReceivedPacketManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 16), ptr %0, align 8, !tbaa !57
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 16), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -651,38 +651,38 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net25QuicReceivedPacketManager20RecordPacketReceivedEmRKNS_16QuicPacketHeaderENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %2, i64 %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %6 = load i64, ptr %5, align 8, !tbaa !87
+  %6 = load i64, ptr %5, align 8, !tbaa !88
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %8 = load i8, ptr %7, align 8, !tbaa !83, !range !41, !noundef !42
+  %8 = load i8, ptr %7, align 8, !tbaa !84, !range !42, !noundef !43
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5clearEv.exit, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %12 = load ptr, ptr %11, align 8, !tbaa !97
+  %12 = load ptr, ptr %11, align 8, !tbaa !98
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %14 = load ptr, ptr %13, align 8, !tbaa !98
+  %14 = load ptr, ptr %13, align 8, !tbaa !99
   %.not.i.i = icmp eq ptr %14, %12
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5clearEv.exit, label %15
 
 15:                                               ; preds = %10
-  store ptr %12, ptr %13, align 8, !tbaa !98
+  store ptr %12, ptr %13, align 8, !tbaa !99
   br label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5clearEv.exit
 
 _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5clearEv.exit: ; preds = %15, %10, %4
-  store i8 1, ptr %7, align 8, !tbaa !83
+  store i8 1, ptr %7, align 8, !tbaa !84
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 219
-  %18 = load i8, ptr %17, align 1, !tbaa !99, !range !41, !noundef !42
+  %18 = load i8, ptr %17, align 1, !tbaa !100, !range !42, !noundef !43
   %19 = trunc nuw i8 %18 to i1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br i1 %19, label %21, label %26
 
 21:                                               ; preds = %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5clearEv.exit
-  %22 = load i64, ptr %16, align 8, !tbaa !85
+  %22 = load i64, ptr %16, align 8, !tbaa !86
   %23 = add i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %25 = load i64, ptr %24, align 8, !tbaa !100
+  %25 = load i64, ptr %24, align 8, !tbaa !101
   %.sroa.speculated21 = tail call i64 @llvm.umax.i64(i64 %23, i64 %25)
   tail call void @_ZN3net17PacketNumberQueue3AddEmm(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 noundef %.sroa.speculated21, i64 noundef %6)
   br label %27
@@ -692,41 +692,41 @@ _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5clearEv.exit: ; preds = %15, %10,
   br label %27
 
 27:                                               ; preds = %26, %21
-  %28 = load i64, ptr %16, align 8, !tbaa !85
+  %28 = load i64, ptr %16, align 8, !tbaa !86
   %29 = icmp ugt i64 %28, %6
   br i1 %29, label %30, label %49
 
 30:                                               ; preds = %27
-  %31 = load i8, ptr %17, align 1, !tbaa !99, !range !41, !noundef !42
+  %31 = load i8, ptr %17, align 1, !tbaa !100, !range !42, !noundef !43
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN3net17PacketNumberQueue6RemoveEm(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef %6)
-  %.pre = load i64, ptr %16, align 8, !tbaa !85
+  %.pre = load i64, ptr %16, align 8, !tbaa !86
   br label %35
 
 35:                                               ; preds = %33, %30
   %36 = phi i64 [ %.pre, %33 ], [ %28, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %38 = load ptr, ptr %37, align 8, !tbaa !84
+  %38 = load ptr, ptr %37, align 8, !tbaa !85
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 208
-  %40 = load i64, ptr %39, align 8, !tbaa !101
+  %40 = load i64, ptr %39, align 8, !tbaa !102
   %41 = add i64 %40, 1
-  store i64 %41, ptr %39, align 8, !tbaa !101
+  store i64 %41, ptr %39, align 8, !tbaa !102
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 216
   %43 = sub i64 %36, %6
-  %44 = load i64, ptr %42, align 8, !tbaa !100
+  %44 = load i64, ptr %42, align 8, !tbaa !101
   %.sroa.speculated17 = tail call i64 @llvm.umax.i64(i64 %44, i64 %43)
-  store i64 %.sroa.speculated17, ptr %42, align 8, !tbaa !105
+  store i64 %.sroa.speculated17, ptr %42, align 8, !tbaa !106
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %.sroa.0.0.copyload = load i64, ptr %45, align 8, !tbaa !100
+  %.sroa.0.0.copyload = load i64, ptr %45, align 8, !tbaa !101
   %46 = sub nsw i64 %3, %.sroa.0.0.copyload
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 224
-  %48 = load i64, ptr %47, align 8, !tbaa !100
+  %48 = load i64, ptr %47, align 8, !tbaa !101
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %48, i64 %46)
-  store i64 %.sroa.speculated, ptr %47, align 8, !tbaa !106
+  store i64 %.sroa.speculated, ptr %47, align 8, !tbaa !107
   br label %49
 
 49:                                               ; preds = %35, %27
@@ -735,29 +735,29 @@ _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5clearEv.exit: ; preds = %15, %10,
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
-  store i64 %6, ptr %16, align 8, !tbaa !85
+  store i64 %6, ptr %16, align 8, !tbaa !86
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i64 %3, ptr %53, align 8, !tbaa !100
+  store i64 %3, ptr %53, align 8, !tbaa !101
   br label %54
 
 54:                                               ; preds = %52, %49
-  %55 = load i8, ptr %17, align 1, !tbaa !99, !range !41, !noundef !42
+  %55 = load i8, ptr %17, align 1, !tbaa !100, !range !42, !noundef !43
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 58
-  %60 = load i8, ptr %59, align 2, !tbaa !107
+  %60 = load i8, ptr %59, align 2, !tbaa !108
   tail call void @_ZN3net25QuicReceivedPacketManager14EntropyTracker23RecordPacketEntropyHashEmh(ptr noundef nonnull align 8 dereferenceable(104) %58, i64 noundef %6, i8 noundef zeroext %60)
   br label %61
 
 61:                                               ; preds = %57, %54
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %64 = load ptr, ptr %63, align 8, !tbaa !98
+  %64 = load ptr, ptr %63, align 8, !tbaa !99
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %66 = load ptr, ptr %65, align 8, !tbaa !108
+  %66 = load ptr, ptr %65, align 8, !tbaa !109
   %.not.i.i9 = icmp eq ptr %64, %66
   br i1 %.not.i.i9, label %70, label %67
 
@@ -765,13 +765,13 @@ _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5clearEv.exit: ; preds = %15, %10,
   store i64 %6, ptr %64, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
-  %68 = load ptr, ptr %63, align 8, !tbaa !98
+  %68 = load ptr, ptr %63, align 8, !tbaa !99
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store ptr %69, ptr %63, align 8, !tbaa !98
+  store ptr %69, ptr %63, align 8, !tbaa !99
   br label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE9push_backEOS3_.exit
 
 70:                                               ; preds = %61
-  %71 = load ptr, ptr %62, align 8, !tbaa !97
+  %71 = load ptr, ptr %62, align 8, !tbaa !98
   %72 = ptrtoint ptr %64 to i64
   %73 = ptrtoint ptr %71 to i64
   %74 = sub i64 %72, %73
@@ -803,11 +803,11 @@ _ZNKSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ;
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i.i.i.i ], [ %83, %_ZNKSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %85, %.lr.ph.i.i.i.i.i.i.i ], [ %71, %_ZNKSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !109
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !110
   %85 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %85, %64
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !113
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !114
 
 _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %83, %_ZNKSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %86, %.lr.ph.i.i.i.i.i.i.i ]
@@ -820,10 +820,10 @@ _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit2
   br label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %88, %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
-  store ptr %83, ptr %62, align 8, !tbaa !97
-  store ptr %87, ptr %63, align 8, !tbaa !98
+  store ptr %83, ptr %62, align 8, !tbaa !98
+  store ptr %87, ptr %63, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw %"struct.std::pair.17", ptr %83, i64 %81
-  store ptr %89, ptr %65, align 8, !tbaa !108
+  store ptr %89, ptr %65, align 8, !tbaa !109
   br label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE9push_backEOS3_.exit: ; preds = %67, %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
@@ -842,7 +842,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager9IsMissingEm(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 219
-  %4 = load i8, ptr %3, align 1, !tbaa !99, !range !41, !noundef !42
+  %4 = load i8, ptr %3, align 1, !tbaa !100, !range !42, !noundef !43
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %9
 
@@ -853,7 +853,7 @@ define noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager9IsMissingEm(ptr no
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %11 = load i64, ptr %10, align 8, !tbaa !85
+  %11 = load i64, ptr %10, align 8, !tbaa !86
   %12 = icmp ult i64 %1, %11
   br i1 %12, label %13, label %17
 
@@ -874,7 +874,7 @@ declare noundef zeroext i1 @_ZNK3net17PacketNumberQueue8ContainsEm(ptr noundef n
 define noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager16IsAwaitingPacketEm(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %5 = load i64, ptr %4, align 8, !tbaa !59
+  %5 = load i64, ptr %4, align 8, !tbaa !60
   %6 = tail call noundef zeroext i1 @_ZN3net16IsAwaitingPacketERKNS_12QuicAckFrameEmm(ptr noundef nonnull align 8 dereferenceable(100) %3, i64 noundef %1, i64 noundef %5)
   ret i1 %6
 }
@@ -885,39 +885,39 @@ declare noundef zeroext i1 @_ZN3net16IsAwaitingPacketERKNS_12QuicAckFrameEmm(ptr
 define { i32, ptr } @_ZN3net25QuicReceivedPacketManager18GetUpdatedAckFrameENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(248) initializes((224, 225)) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.net::QuicFrame", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i8 0, ptr %4, align 8, !tbaa !83
+  store i8 0, ptr %4, align 8, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 219
-  %7 = load i8, ptr %6, align 1, !tbaa !99, !range !41, !noundef !42
+  %7 = load i8, ptr %6, align 1, !tbaa !100, !range !42, !noundef !43
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %5, align 8, !tbaa !85
-  %11 = load ptr, ptr %0, align 8, !tbaa !57
+  %10 = load i64, ptr %5, align 8, !tbaa !86
+  %11 = load ptr, ptr %0, align 8, !tbaa !58
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i8 %13(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef %10)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 217
-  store i8 %14, ptr %15, align 1, !tbaa !86
+  store i8 %14, ptr %15, align 1, !tbaa !87
   br label %16
 
 16:                                               ; preds = %9, %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %.sroa.06.0.copyload = load i64, ptr %17, align 8, !tbaa !100
+  %.sroa.06.0.copyload = load i64, ptr %17, align 8, !tbaa !101
   %18 = icmp eq i64 %.sroa.06.0.copyload, 0
   %19 = icmp slt i64 %1, %.sroa.06.0.copyload
   %20 = sub nsw i64 %1, %.sroa.06.0.copyload
   %.sroa.5.0 = select i1 %19, i64 0, i64 %20
   %.sroa.5.0.sink = select i1 %18, i64 9223372036854775807, i64 %.sroa.5.0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %21, align 8, !tbaa !114
+  store i64 0, ptr %21, align 8, !tbaa !115
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %.sroa.5.0.sink, ptr %22, align 8, !tbaa !115
+  store i64 %.sroa.5.0.sink, ptr %22, align 8, !tbaa !116
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %24 = load ptr, ptr %23, align 8, !tbaa !116
+  %24 = load ptr, ptr %23, align 8, !tbaa !117
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.promoted = load ptr, ptr %25, align 8, !tbaa !116
+  %.promoted = load ptr, ptr %25, align 8, !tbaa !117
   %.not1718 = icmp eq ptr %24, %.promoted
   br i1 %.not1718, label %._crit_edge, label %.lr.ph
 
@@ -937,8 +937,8 @@ define { i32, ptr } @_ZN3net25QuicReceivedPacketManager18GetUpdatedAckFrameENS_8
 27:                                               ; preds = %.lr.ph, %54
   %.sroa.011.019 = phi ptr [ %24, %.lr.ph ], [ %.sroa.011.1, %54 ]
   %28 = phi ptr [ %.promoted, %.lr.ph ], [ %55, %54 ]
-  %29 = load i64, ptr %5, align 8, !tbaa !85
-  %30 = load i64, ptr %.sroa.011.019, align 8, !tbaa !117
+  %29 = load i64, ptr %5, align 8, !tbaa !86
+  %30 = load i64, ptr %.sroa.011.019, align 8, !tbaa !118
   %31 = sub i64 %29, %30
   %.not = icmp ult i64 %31, 255
   br i1 %.not, label %52, label %32
@@ -963,21 +963,21 @@ define { i32, ptr } @_ZN3net25QuicReceivedPacketManager18GetUpdatedAckFrameENS_8
   %.012.i.i.i.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i.i.i.i ], [ %41, %37 ]
   %.0811.i.i.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i.i.i ], [ %35, %37 ]
   %.0910.i.i.i.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i.i.i.i ], [ %36, %37 ]
-  %43 = load i64, ptr %.0910.i.i.i.i.i.i.i, align 8, !tbaa !100
-  store i64 %43, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !117
+  %43 = load i64, ptr %.0910.i.i.i.i.i.i.i, align 8, !tbaa !101
+  store i64 %43, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !118
   %44 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  %46 = load i64, ptr %44, align 8, !tbaa !100
-  store i64 %46, ptr %45, align 8, !tbaa !100
+  %46 = load i64, ptr %44, align 8, !tbaa !101
+  store i64 %46, ptr %45, align 8, !tbaa !101
   %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %49 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %50 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %50, label %.lr.ph.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit, !llvm.loop !119
+  br i1 %50, label %.lr.ph.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit, !llvm.loop !120
 
 _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %32, %37
   %51 = getelementptr inbounds i8, ptr %28, i64 -16
-  store ptr %51, ptr %25, align 8, !tbaa !98
+  store ptr %51, ptr %25, align 8, !tbaa !99
   br label %54
 
 52:                                               ; preds = %27
@@ -988,7 +988,7 @@ _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5eraseEN9__gnu_cxx17__normal_itera
   %55 = phi ptr [ %28, %52 ], [ %51, %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit ]
   %.sroa.011.1 = phi ptr [ %53, %52 ], [ %35, %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit ]
   %.not17 = icmp eq ptr %.sroa.011.1, %55
-  br i1 %.not17, label %._crit_edge, label %27, !llvm.loop !120
+  br i1 %.not17, label %._crit_edge, label %27, !llvm.loop !121
 }
 
 declare void @_ZN3net9QuicFrameC1EPNS_12QuicAckFrameE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
@@ -1008,11 +1008,11 @@ define noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager11EntropyHashEm(pt
 .lr.ph.preheader.i:                               ; preds = %2
   %9 = sub i64 %4, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %11 = load ptr, ptr %10, align 8, !tbaa !24, !noalias !121
+  %11 = load ptr, ptr %10, align 8, !tbaa !25, !noalias !122
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !28, !noalias !121
+  %13 = load ptr, ptr %12, align 8, !tbaa !29, !noalias !122
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = load ptr, ptr %14, align 8, !tbaa !29, !noalias !121
+  %15 = load ptr, ptr %14, align 8, !tbaa !30, !noalias !122
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i8, ptr %16, align 8, !tbaa !3
   br label %.lr.ph.i
@@ -1042,12 +1042,12 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit.i: ;
   %.sroa.12.1.i = phi ptr [ %21, %20 ], [ %.sroa.12.021.i, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit.i ]
   %.sroa.6.1.i = phi ptr [ %22, %20 ], [ %.sroa.6.022.i, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit.i ]
   %25 = phi ptr [ %24, %20 ], [ %.sroa.0.023.i, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit.i ]
-  %.pn.i = load i8, ptr %.pn.in.i, align 1, !tbaa !30
+  %.pn.i = load i8, ptr %.pn.in.i, align 1, !tbaa !31
   %26 = xor i8 %.pn.i, %.0724.i
   %27 = add nuw i64 %.025.i, 1
   %28 = getelementptr inbounds i8, ptr %25, i64 -2
   %exitcond.not.i = icmp eq i64 %27, %9
-  br i1 %exitcond.not.i, label %_ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %_ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm.exit, label %.lr.ph.i, !llvm.loop !34
 
 _ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm.exit: ; preds = %_ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit.i, %6
   %.08.i = phi i8 [ %8, %6 ], [ %26, %_ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit.i ]
@@ -1057,7 +1057,7 @@ _ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm.exit: ; preds
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager24DontWaitForPacketsBeforeEm(ptr noundef nonnull align 8 dereferenceable(248) initializes((112, 120)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %1, ptr %3, align 8, !tbaa !59
+  store i64 %1, ptr %3, align 8, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = tail call noundef zeroext i1 @_ZN3net17PacketNumberQueue10RemoveUpToEm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %1)
   ret i1 %5
@@ -1068,35 +1068,35 @@ declare noundef zeroext i1 @_ZN3net17PacketNumberQueue10RemoveUpToEm(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net25QuicReceivedPacketManager33UpdatePacketInformationSentByPeerERKNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !124
+  %4 = load i64, ptr %3, align 8, !tbaa !125
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %6 = load i64, ptr %5, align 8, !tbaa !59
+  %6 = load i64, ptr %5, align 8, !tbaa !60
   %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %2
-  store i64 %4, ptr %5, align 8, !tbaa !59
+  store i64 %4, ptr %5, align 8, !tbaa !60
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %10 = tail call noundef zeroext i1 @_ZN3net17PacketNumberQueue10RemoveUpToEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %4)
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 219
-  %13 = load i8, ptr %12, align 1, !tbaa !99, !range !41, !noundef !42
+  %13 = load i8, ptr %12, align 1, !tbaa !100, !range !42, !noundef !43
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %3, align 8, !tbaa !124
+  %17 = load i64, ptr %3, align 8, !tbaa !125
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %19 = load i8, ptr %18, align 1, !tbaa !126
+  %19 = load i8, ptr %18, align 1, !tbaa !127
   tail call void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCumulativeEntropyUpToEmh(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, i8 noundef zeroext %19)
   br label %20
 
 20:                                               ; preds = %15, %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i8 1, ptr %21, align 8, !tbaa !83
+  store i8 1, ptr %21, align 8, !tbaa !84
   br label %22
 
 22:                                               ; preds = %8, %20, %2
@@ -1106,7 +1106,7 @@ define void @_ZN3net25QuicReceivedPacketManager33UpdatePacketInformationSentByPe
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv(ptr noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 219
-  %3 = load i8, ptr %2, align 1, !tbaa !99, !range !41, !noundef !42
+  %3 = load i8, ptr %2, align 1, !tbaa !100, !range !42, !noundef !43
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br i1 %4, label %6, label %9
@@ -1128,7 +1128,7 @@ define noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17HasMissingPacket
 14:                                               ; preds = %12
   %15 = tail call noundef i64 @_ZNK3net17PacketNumberQueue3MinEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %17 = load i64, ptr %16, align 8, !tbaa !100
+  %17 = load i64, ptr %16, align 8, !tbaa !101
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   %18 = icmp ugt i64 %15, %.sroa.speculated
   br label %19
@@ -1148,7 +1148,7 @@ declare noundef i64 @_ZNK3net17PacketNumberQueue3MinEv(ptr noundef nonnull align
 define noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager20HasNewMissingPacketsEv(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 219
-  %4 = load i8, ptr %3, align 1, !tbaa !99, !range !41, !noundef !42
+  %4 = load i8, ptr %3, align 1, !tbaa !100, !range !42, !noundef !43
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br i1 %5, label %7, label %14
@@ -1158,7 +1158,7 @@ define noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager20HasNewMissingPac
   br i1 %8, label %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit.thread3, label %9
 
 9:                                                ; preds = %7
-  %10 = load i64, ptr %2, align 8, !tbaa !85
+  %10 = load i64, ptr %2, align 8, !tbaa !86
   %11 = tail call noundef i64 @_ZNK3net17PacketNumberQueue3MaxEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
   %12 = sub i64 %10, %11
   %13 = icmp ult i64 %12, 5
@@ -1176,7 +1176,7 @@ define noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager20HasNewMissingPac
 _ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit: ; preds = %17
   %19 = tail call noundef i64 @_ZNK3net17PacketNumberQueue3MinEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %21 = load i64, ptr %20, align 8, !tbaa !100
+  %21 = load i64, ptr %20, align 8, !tbaa !101
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   %22 = icmp ugt i64 %19, %.sroa.speculated.i
   br i1 %22, label %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit.thread, label %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit.thread3
@@ -1200,9 +1200,9 @@ define noundef i64 @_ZNK3net25QuicReceivedPacketManager17NumTrackedPacketsEv(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !25
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -1211,17 +1211,17 @@ define noundef i64 @_ZNK3net25QuicReceivedPacketManager17NumTrackedPacketsEv(ptr
   %.neg.i.i.i = sext i1 %12 to i64
   %13 = add nsw i64 %11, %.neg.i.i.i
   %14 = shl nsw i64 %13, 8
-  %15 = load ptr, ptr %2, align 8, !tbaa !29
+  %15 = load ptr, ptr %2, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = ptrtoint ptr %15 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 1
   %22 = add nsw i64 %14, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !45
-  %25 = load ptr, ptr %3, align 8, !tbaa !29
+  %24 = load ptr, ptr %23, align 8, !tbaa !46
+  %25 = load ptr, ptr %3, align 8, !tbaa !30
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
@@ -1235,14 +1235,14 @@ define void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(pt
   %3 = icmp slt i32 %1, 34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 219
   %5 = zext i1 %3 to i8
-  store i8 %5, ptr %4, align 1, !tbaa !99
+  store i8 %5, ptr %4, align 1, !tbaa !100
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17ack_frame_updatedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = load i8, ptr %2, align 8, !tbaa !83, !range !41, !noundef !42
+  %3 = load i8, ptr %2, align 8, !tbaa !84, !range !42, !noundef !43
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1250,7 +1250,7 @@ define noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17ack_frame_update
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK3net25QuicReceivedPacketManager18GetLargestObservedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load i64, ptr %2, align 8, !tbaa !85
+  %3 = load i64, ptr %2, align 8, !tbaa !86
   ret i64 %3
 }
 
@@ -1262,7 +1262,7 @@ _ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_allocate_mapEm.exit:
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 5)
   %.sroa.speculated = add nuw nsw i64 %4, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !127
+  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !128
   %6 = shl nuw nsw i64 %.sroa.speculated, 3
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #20
   store ptr %7, ptr %0, align 8, !tbaa !18
@@ -1282,7 +1282,7 @@ _ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.l
   store ptr %12, ptr %.011.i, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_create_nodesEPPS1_S5_.exit, !llvm.loop !128
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_create_nodesEPPS1_S5_.exit, !llvm.loop !129
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -1341,27 +1341,27 @@ _ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i: ; pred
 _ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; preds = %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_allocate_nodeEv.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %10, ptr %36, align 8, !tbaa !24
+  store ptr %10, ptr %36, align 8, !tbaa !25
   %37 = load ptr, ptr %10, align 8, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %37, ptr %38, align 8, !tbaa !28
+  store ptr %37, ptr %38, align 8, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 512
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %39, ptr %40, align 8, !tbaa !45
+  store ptr %39, ptr %40, align 8, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = getelementptr inbounds i8, ptr %11, i64 -8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %42, ptr %43, align 8, !tbaa !24
+  store ptr %42, ptr %43, align 8, !tbaa !25
   %44 = load ptr, ptr %42, align 8, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %44, ptr %45, align 8, !tbaa !28
+  store ptr %44, ptr %45, align 8, !tbaa !29
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 512
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %46, ptr %47, align 8, !tbaa !45
-  store ptr %37, ptr %35, align 8, !tbaa !46
+  store ptr %46, ptr %47, align 8, !tbaa !46
+  store ptr %37, ptr %35, align 8, !tbaa !47
   %48 = and i64 %1, 255
   %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %44, i64 %48
-  store ptr %49, ptr %41, align 8, !tbaa !34
+  store ptr %49, ptr %41, align 8, !tbaa !35
   ret void
 
 50:                                               ; preds = %32
@@ -1405,9 +1405,9 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIhbESaIS1_EE16_M_push_back_auxIJS1_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !24
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -1416,17 +1416,17 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIhbESaIS1_EE16_M_push_back_auxIJS1_
   %.neg.i.i = sext i1 %13 to i64
   %14 = add nsw i64 %12, %.neg.i.i
   %15 = shl nsw i64 %14, 8
-  %16 = load ptr, ptr %3, align 8, !tbaa !29
+  %16 = load ptr, ptr %3, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 1
   %23 = add nsw i64 %15, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !45
-  %26 = load ptr, ptr %4, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
+  %26 = load ptr, ptr %4, align 8, !tbaa !30
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -1441,7 +1441,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIhbESaIS1_EE16_M_push_back_auxIJS1_
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !127
+  %36 = load i64, ptr %35, align 8, !tbaa !128
   %37 = load ptr, ptr %0, align 8, !tbaa !18
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
@@ -1460,18 +1460,18 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %
   %45 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !21
-  %47 = load ptr, ptr %3, align 8, !tbaa !34
+  %47 = load ptr, ptr %3, align 8, !tbaa !35
   %48 = load i16, ptr %1, align 1
   store i16 %48, ptr %47, align 1
   %49 = load ptr, ptr %5, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %50, ptr %5, align 8, !tbaa !24
+  store ptr %50, ptr %5, align 8, !tbaa !25
   %51 = load ptr, ptr %50, align 8, !tbaa !21
-  store ptr %51, ptr %17, align 8, !tbaa !28
+  store ptr %51, ptr %17, align 8, !tbaa !29
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 512
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %52, ptr %53, align 8, !tbaa !45
-  store ptr %51, ptr %3, align 8, !tbaa !34
+  store ptr %52, ptr %53, align 8, !tbaa !46
+  store ptr %51, ptr %3, align 8, !tbaa !35
   ret void
 }
 
@@ -1491,7 +1491,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIhbESaIS1_EE17_M_reallocate_mapEmb(
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !127
+  %15 = load i64, ptr %14, align 8, !tbaa !128
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
@@ -1535,7 +1535,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIhbESaIS1_EE17_M_reallocate_mapEmb(
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_allocate_mapEm.exit, !prof !129
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_allocate_mapEm.exit, !prof !130
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -1571,27 +1571,27 @@ _ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit26:    ; preds = %_ZNSt11_Deque_baseI
   %56 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @_ZdlPv(ptr noundef %56) #17
   store ptr %46, ptr %0, align 8, !tbaa !18
-  store i64 %41, ptr %14, align 8, !tbaa !127
+  store i64 %41, ptr %14, align 8, !tbaa !128
   br label %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit:      ; preds = %32, %31, %28, %27, %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit26
   %.0 = phi ptr [ %51, %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
-  store ptr %.0, ptr %6, align 8, !tbaa !24
+  store ptr %.0, ptr %6, align 8, !tbaa !25
   %57 = load ptr, ptr %.0, align 8, !tbaa !21
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %57, ptr %58, align 8, !tbaa !28
+  store ptr %57, ptr %58, align 8, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %59, ptr %60, align 8, !tbaa !45
+  store ptr %59, ptr %60, align 8, !tbaa !46
   %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
-  store ptr %62, ptr %4, align 8, !tbaa !24
+  store ptr %62, ptr %4, align 8, !tbaa !25
   %63 = load ptr, ptr %62, align 8, !tbaa !21
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %63, ptr %64, align 8, !tbaa !28
+  store ptr %63, ptr %64, align 8, !tbaa !29
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 512
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %65, ptr %66, align 8, !tbaa !45
+  store ptr %65, ptr %66, align 8, !tbaa !46
   ret void
 }
 
@@ -1660,111 +1660,112 @@ attributes #21 = { noreturn nounwind }
 !19 = !{!8, !9, i64 40}
 !20 = !{!8, !9, i64 72}
 !21 = !{!15, !15, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!14, !9, i64 24}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNKSt5dequeISt4pairIhbESaIS1_EE6rbeginEv: argument 0"}
-!27 = distinct !{!27, !"_ZNKSt5dequeISt4pairIhbESaIS1_EE6rbeginEv"}
-!28 = !{!14, !15, i64 8}
-!29 = !{!14, !15, i64 0}
-!30 = !{!31, !11, i64 0}
-!31 = !{!"_ZTSSt4pairIhbE", !11, i64 0, !32, i64 1}
-!32 = !{!"bool", !11, i64 0}
-!33 = distinct !{!33, !23}
-!34 = !{!8, !15, i64 48}
-!35 = !{!8, !15, i64 64}
-!36 = !{!31, !32, i64 1}
-!37 = distinct !{!37, !23}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZStplRKSt15_Deque_iteratorISt4pairIhbERS1_PS1_El: argument 0"}
-!40 = distinct !{!40, !"_ZStplRKSt15_Deque_iteratorISt4pairIhbERS1_PS1_El"}
-!41 = !{i8 0, i8 2}
-!42 = !{}
-!43 = !{!8, !15, i64 32}
-!44 = !{!8, !15, i64 24}
-!45 = !{!14, !15, i64 16}
-!46 = !{!8, !15, i64 16}
-!47 = distinct !{!47, !23}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZNSt5dequeISt4pairIhbESaIS1_EE5beginEv: argument 0"}
-!50 = distinct !{!50, !"_ZNSt5dequeISt4pairIhbESaIS1_EE5beginEv"}
-!51 = distinct !{!51, !23, !52}
-!52 = !{!"llvm.loop.unswitch.partial.disable"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNSt5dequeISt4pairIhbESaIS1_EE3endEv: argument 0"}
-!55 = distinct !{!55, !"_ZNSt5dequeISt4pairIhbESaIS1_EE3endEv"}
-!56 = distinct !{!56, !23}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"vtable pointer", !12, i64 0}
-!59 = !{!60, !13, i64 112}
-!60 = !{!"_ZTSN3net25QuicReceivedPacketManagerE", !61, i64 0, !4, i64 8, !13, i64 112, !62, i64 120, !32, i64 224, !81, i64 232, !82, i64 240}
-!61 = !{!"_ZTSN3net42QuicReceivedEntropyHashCalculatorInterfaceE"}
-!62 = !{!"_ZTSN3net12QuicAckFrameE", !13, i64 0, !63, i64 8, !65, i64 24, !70, i64 48, !11, i64 96, !11, i64 97, !32, i64 98, !32, i64 99}
-!63 = !{!"_ZTSN3net8QuicTime5DeltaE", !64, i64 0, !13, i64 8}
-!64 = !{!"_ZTSN4base9TimeDeltaE", !13, i64 0}
-!65 = !{!"_ZTSSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE", !66, i64 0}
-!66 = !{!"_ZTSSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE", !67, i64 0}
-!67 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE12_Vector_implE", !68, i64 0}
-!68 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE17_Vector_impl_dataE", !69, i64 0, !69, i64 8, !69, i64 16}
-!69 = !{!"p1 _ZTSSt4pairImN3net8QuicTimeEE", !10, i64 0}
-!70 = !{!"_ZTSN3net17PacketNumberQueueE", !71, i64 0}
-!71 = !{!"_ZTSN3net11IntervalSetImEE", !72, i64 0}
-!72 = !{!"_ZTSSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !73, i64 0}
-!73 = !{!"_ZTSSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !74, i64 0}
-!74 = !{!"_ZTSNSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE13_Rb_tree_implIS7_Lb1EEE", !75, i64 0, !77, i64 8}
-!75 = !{!"_ZTSSt20_Rb_tree_key_compareIN3net11IntervalSetImE18IntervalComparatorEE", !76, i64 0}
-!76 = !{!"_ZTSN3net11IntervalSetImE18IntervalComparatorE"}
-!77 = !{!"_ZTSSt15_Rb_tree_header", !78, i64 0, !13, i64 32}
-!78 = !{!"_ZTSSt18_Rb_tree_node_base", !79, i64 0, !80, i64 8, !80, i64 16, !80, i64 24}
-!79 = !{!"_ZTSSt14_Rb_tree_color", !11, i64 0}
-!80 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !10, i64 0}
-!81 = !{!"_ZTSN3net8QuicTimeE", !13, i64 0}
-!82 = !{!"p1 _ZTSN3net19QuicConnectionStatsE", !10, i64 0}
-!83 = !{!60, !32, i64 224}
-!84 = !{!60, !82, i64 240}
-!85 = !{!60, !13, i64 120}
-!86 = !{!60, !11, i64 217}
-!87 = !{!88, !13, i64 48}
-!88 = !{!"_ZTSN3net16QuicPacketHeaderE", !89, i64 0, !13, i64 48, !11, i64 56, !32, i64 57, !11, i64 58, !32, i64 59}
-!89 = !{!"_ZTSN3net22QuicPacketPublicHeaderE", !13, i64 0, !90, i64 8, !32, i64 12, !32, i64 13, !32, i64 14, !91, i64 15, !92, i64 16, !96, i64 40}
-!90 = !{!"_ZTSN3net22QuicConnectionIdLengthE", !11, i64 0}
-!91 = !{!"_ZTSN3net22QuicPacketNumberLengthE", !11, i64 0}
-!92 = !{!"_ZTSSt6vectorIN3net11QuicVersionESaIS1_EE", !93, i64 0}
-!93 = !{!"_ZTSSt12_Vector_baseIN3net11QuicVersionESaIS1_EE", !94, i64 0}
-!94 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE12_Vector_implE", !95, i64 0}
-!95 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
-!96 = !{!"p1 _ZTSSt5arrayIcLm32EE", !10, i64 0}
-!97 = !{!68, !69, i64 0}
-!98 = !{!68, !69, i64 8}
-!99 = !{!60, !32, i64 219}
-!100 = !{!13, !13, i64 0}
-!101 = !{!102, !13, i64 208}
-!102 = !{!"_ZTSN3net19QuicConnectionStatsE", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !103, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !104, i64 232, !81, i64 240}
-!103 = !{!"_ZTSN3net13QuicBandwidthE", !13, i64 0}
-!104 = !{!"int", !11, i64 0}
-!105 = !{!102, !13, i64 216}
-!106 = !{!102, !13, i64 224}
-!107 = !{!88, !11, i64 58}
-!108 = !{!68, !69, i64 16}
-!109 = !{!110, !112}
-!110 = distinct !{!110, !111, !"_ZSt19__relocate_object_aISt4pairImN3net8QuicTimeEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!111 = distinct !{!111, !"_ZSt19__relocate_object_aISt4pairImN3net8QuicTimeEES3_SaIS3_EEvPT_PT0_RT1_"}
-!112 = distinct !{!112, !111, !"_ZSt19__relocate_object_aISt4pairImN3net8QuicTimeEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!113 = distinct !{!113, !23}
-!114 = !{!64, !13, i64 0}
-!115 = !{!63, !13, i64 8}
-!116 = !{!69, !69, i64 0}
-!117 = !{!118, !13, i64 0}
-!118 = !{!"_ZTSSt4pairImN3net8QuicTimeEE", !13, i64 0, !81, i64 8}
-!119 = distinct !{!119, !23}
-!120 = distinct !{!120, !23}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZNKSt5dequeISt4pairIhbESaIS1_EE6rbeginEv: argument 0"}
-!123 = distinct !{!123, !"_ZNKSt5dequeISt4pairIhbESaIS1_EE6rbeginEv"}
-!124 = !{!125, !13, i64 8}
-!125 = !{!"_ZTSN3net20QuicStopWaitingFrameE", !11, i64 0, !11, i64 1, !13, i64 8}
-!126 = !{!125, !11, i64 1}
-!127 = !{!8, !13, i64 8}
-!128 = distinct !{!128, !23}
-!129 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!14, !9, i64 24}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZNKSt5dequeISt4pairIhbESaIS1_EE6rbeginEv: argument 0"}
+!28 = distinct !{!28, !"_ZNKSt5dequeISt4pairIhbESaIS1_EE6rbeginEv"}
+!29 = !{!14, !15, i64 8}
+!30 = !{!14, !15, i64 0}
+!31 = !{!32, !11, i64 0}
+!32 = !{!"_ZTSSt4pairIhbE", !11, i64 0, !33, i64 1}
+!33 = !{!"bool", !11, i64 0}
+!34 = distinct !{!34, !23, !24}
+!35 = !{!8, !15, i64 48}
+!36 = !{!8, !15, i64 64}
+!37 = !{!32, !33, i64 1}
+!38 = distinct !{!38, !23, !24}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZStplRKSt15_Deque_iteratorISt4pairIhbERS1_PS1_El: argument 0"}
+!41 = distinct !{!41, !"_ZStplRKSt15_Deque_iteratorISt4pairIhbERS1_PS1_El"}
+!42 = !{i8 0, i8 2}
+!43 = !{}
+!44 = !{!8, !15, i64 32}
+!45 = !{!8, !15, i64 24}
+!46 = !{!14, !15, i64 16}
+!47 = !{!8, !15, i64 16}
+!48 = distinct !{!48, !23, !24}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNSt5dequeISt4pairIhbESaIS1_EE5beginEv: argument 0"}
+!51 = distinct !{!51, !"_ZNSt5dequeISt4pairIhbESaIS1_EE5beginEv"}
+!52 = distinct !{!52, !23, !24, !53}
+!53 = !{!"llvm.loop.unswitch.partial.disable"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZNSt5dequeISt4pairIhbESaIS1_EE3endEv: argument 0"}
+!56 = distinct !{!56, !"_ZNSt5dequeISt4pairIhbESaIS1_EE3endEv"}
+!57 = distinct !{!57, !23, !24}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"vtable pointer", !12, i64 0}
+!60 = !{!61, !13, i64 112}
+!61 = !{!"_ZTSN3net25QuicReceivedPacketManagerE", !62, i64 0, !4, i64 8, !13, i64 112, !63, i64 120, !33, i64 224, !82, i64 232, !83, i64 240}
+!62 = !{!"_ZTSN3net42QuicReceivedEntropyHashCalculatorInterfaceE"}
+!63 = !{!"_ZTSN3net12QuicAckFrameE", !13, i64 0, !64, i64 8, !66, i64 24, !71, i64 48, !11, i64 96, !11, i64 97, !33, i64 98, !33, i64 99}
+!64 = !{!"_ZTSN3net8QuicTime5DeltaE", !65, i64 0, !13, i64 8}
+!65 = !{!"_ZTSN4base9TimeDeltaE", !13, i64 0}
+!66 = !{!"_ZTSSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE", !67, i64 0}
+!67 = !{!"_ZTSSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE", !68, i64 0}
+!68 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE12_Vector_implE", !69, i64 0}
+!69 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE17_Vector_impl_dataE", !70, i64 0, !70, i64 8, !70, i64 16}
+!70 = !{!"p1 _ZTSSt4pairImN3net8QuicTimeEE", !10, i64 0}
+!71 = !{!"_ZTSN3net17PacketNumberQueueE", !72, i64 0}
+!72 = !{!"_ZTSN3net11IntervalSetImEE", !73, i64 0}
+!73 = !{!"_ZTSSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !74, i64 0}
+!74 = !{!"_ZTSSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !75, i64 0}
+!75 = !{!"_ZTSNSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE13_Rb_tree_implIS7_Lb1EEE", !76, i64 0, !78, i64 8}
+!76 = !{!"_ZTSSt20_Rb_tree_key_compareIN3net11IntervalSetImE18IntervalComparatorEE", !77, i64 0}
+!77 = !{!"_ZTSN3net11IntervalSetImE18IntervalComparatorE"}
+!78 = !{!"_ZTSSt15_Rb_tree_header", !79, i64 0, !13, i64 32}
+!79 = !{!"_ZTSSt18_Rb_tree_node_base", !80, i64 0, !81, i64 8, !81, i64 16, !81, i64 24}
+!80 = !{!"_ZTSSt14_Rb_tree_color", !11, i64 0}
+!81 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !10, i64 0}
+!82 = !{!"_ZTSN3net8QuicTimeE", !13, i64 0}
+!83 = !{!"p1 _ZTSN3net19QuicConnectionStatsE", !10, i64 0}
+!84 = !{!61, !33, i64 224}
+!85 = !{!61, !83, i64 240}
+!86 = !{!61, !13, i64 120}
+!87 = !{!61, !11, i64 217}
+!88 = !{!89, !13, i64 48}
+!89 = !{!"_ZTSN3net16QuicPacketHeaderE", !90, i64 0, !13, i64 48, !11, i64 56, !33, i64 57, !11, i64 58, !33, i64 59}
+!90 = !{!"_ZTSN3net22QuicPacketPublicHeaderE", !13, i64 0, !91, i64 8, !33, i64 12, !33, i64 13, !33, i64 14, !92, i64 15, !93, i64 16, !97, i64 40}
+!91 = !{!"_ZTSN3net22QuicConnectionIdLengthE", !11, i64 0}
+!92 = !{!"_ZTSN3net22QuicPacketNumberLengthE", !11, i64 0}
+!93 = !{!"_ZTSSt6vectorIN3net11QuicVersionESaIS1_EE", !94, i64 0}
+!94 = !{!"_ZTSSt12_Vector_baseIN3net11QuicVersionESaIS1_EE", !95, i64 0}
+!95 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE12_Vector_implE", !96, i64 0}
+!96 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
+!97 = !{!"p1 _ZTSSt5arrayIcLm32EE", !10, i64 0}
+!98 = !{!69, !70, i64 0}
+!99 = !{!69, !70, i64 8}
+!100 = !{!61, !33, i64 219}
+!101 = !{!13, !13, i64 0}
+!102 = !{!103, !13, i64 208}
+!103 = !{!"_ZTSN3net19QuicConnectionStatsE", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !104, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !105, i64 232, !82, i64 240}
+!104 = !{!"_ZTSN3net13QuicBandwidthE", !13, i64 0}
+!105 = !{!"int", !11, i64 0}
+!106 = !{!103, !13, i64 216}
+!107 = !{!103, !13, i64 224}
+!108 = !{!89, !11, i64 58}
+!109 = !{!69, !70, i64 16}
+!110 = !{!111, !113}
+!111 = distinct !{!111, !112, !"_ZSt19__relocate_object_aISt4pairImN3net8QuicTimeEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!112 = distinct !{!112, !"_ZSt19__relocate_object_aISt4pairImN3net8QuicTimeEES3_SaIS3_EEvPT_PT0_RT1_"}
+!113 = distinct !{!113, !112, !"_ZSt19__relocate_object_aISt4pairImN3net8QuicTimeEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!114 = distinct !{!114, !23, !24}
+!115 = !{!65, !13, i64 0}
+!116 = !{!64, !13, i64 8}
+!117 = !{!70, !70, i64 0}
+!118 = !{!119, !13, i64 0}
+!119 = !{!"_ZTSSt4pairImN3net8QuicTimeEE", !13, i64 0, !82, i64 8}
+!120 = distinct !{!120, !23, !24}
+!121 = distinct !{!121, !23, !24}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZNKSt5dequeISt4pairIhbESaIS1_EE6rbeginEv: argument 0"}
+!124 = distinct !{!124, !"_ZNKSt5dequeISt4pairIhbESaIS1_EE6rbeginEv"}
+!125 = !{!126, !13, i64 8}
+!126 = !{!"_ZTSN3net20QuicStopWaitingFrameE", !11, i64 0, !11, i64 1, !13, i64 8}
+!127 = !{!126, !11, i64 1}
+!128 = !{!8, !13, i64 8}
+!129 = distinct !{!129, !23, !24}
+!130 = !{!"branch_weights", !"expected", i32 1, i32 2000}

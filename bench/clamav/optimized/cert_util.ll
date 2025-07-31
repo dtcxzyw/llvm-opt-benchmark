@@ -77,7 +77,7 @@ define void @cert_store_unload_int() local_unnamed_addr #1 {
   %11 = add nuw i64 %.013.i, 1
   %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !15
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %14 = phi ptr [ %4, %.preheader.i ], [ %9, %.lr.ph.i ]
@@ -107,7 +107,7 @@ cert_store_free_cert_list_int.exit:               ; preds = %3, %._crit_edge.i
   %22 = add nuw i64 %.013.i5, 1
   %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !15
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %.lr.ph.i4, label %._crit_edge.i6
+  br i1 %24, label %.lr.ph.i4, label %._crit_edge.i6, !llvm.loop !18
 
 ._crit_edge.i6:                                   ; preds = %.lr.ph.i4, %.preheader.i2
   %25 = phi ptr [ %15, %.preheader.i2 ], [ %20, %.lr.ph.i4 ]
@@ -151,7 +151,7 @@ define void @cert_store_free_cert_list_int(ptr noundef captures(address_is_null)
   %11 = add nuw i64 %.013, 1
   %12 = load i64, ptr %4, align 8, !tbaa !15
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %14 = phi ptr [ %3, %.preheader ], [ %9, %.lr.ph ]
@@ -182,7 +182,7 @@ define void @cert_store_unload() local_unnamed_addr #1 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @__errno_location() #16
-  store i32 %1, ptr %3, align 4, !tbaa !18
+  store i32 %1, ptr %3, align 4, !tbaa !20
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str) #15
   br label %4
 
@@ -194,7 +194,7 @@ define void @cert_store_unload() local_unnamed_addr #1 {
 
 6:                                                ; preds = %4
   %7 = tail call ptr @__errno_location() #16
-  store i32 %5, ptr %7, align 4, !tbaa !18
+  store i32 %5, ptr %7, align 4, !tbaa !20
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.1) #15
   br label %8
 
@@ -223,7 +223,7 @@ define range(i32 0, 21) i32 @x509_get_cert_name(ptr noundef %0, ptr noundef writ
   br i1 %or.cond, label %27, label %6
 
 6:                                                ; preds = %2
-  store ptr null, ptr %1, align 8, !tbaa !20
+  store ptr null, ptr %1, align 8, !tbaa !22
   %7 = tail call ptr @BIO_s_mem() #15
   %8 = tail call ptr @BIO_new(ptr noundef %7) #15
   %.not = icmp eq ptr %8, null
@@ -241,8 +241,8 @@ define range(i32 0, 21) i32 @x509_get_cert_name(ptr noundef %0, ptr noundef writ
 
 14:                                               ; preds = %9
   %15 = call i64 @BIO_ctrl(ptr noundef nonnull %8, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %3) #15
-  %16 = load ptr, ptr %3, align 8, !tbaa !22
-  %17 = load i64, ptr %16, align 8, !tbaa !24
+  %16 = load ptr, ptr %3, align 8, !tbaa !24
+  %17 = load i64, ptr %16, align 8, !tbaa !26
   %18 = add i64 %17, 1
   %19 = call noalias ptr @malloc(i64 noundef %18) #17
   %.not21 = icmp eq ptr %19, null
@@ -254,11 +254,11 @@ define range(i32 0, 21) i32 @x509_get_cert_name(ptr noundef %0, ptr noundef writ
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %23, i64 %17, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %17
-  store i8 0, ptr %24, align 1, !tbaa !27
-  store ptr %19, ptr %1, align 8, !tbaa !20
+  store i8 0, ptr %24, align 1, !tbaa !29
+  store ptr %19, ptr %1, align 8, !tbaa !22
   br label %25
 
 25:                                               ; preds = %13, %21, %20
@@ -296,7 +296,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  store i64 358400, ptr %4, align 8, !tbaa !28
+  store i64 358400, ptr %4, align 8, !tbaa !30
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -304,19 +304,19 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
 
 9:                                                ; preds = %3
   %10 = tail call noalias dereferenceable_or_null(358401) ptr @calloc(i64 noundef 1, i64 noundef 358401) #18
-  store ptr %10, ptr %0, align 8, !tbaa !20
+  store ptr %10, ptr %0, align 8, !tbaa !22
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.sink.split, label %12
 
 12:                                               ; preds = %9
-  store i32 0, ptr %1, align 4, !tbaa !18
+  store i32 0, ptr %1, align 4, !tbaa !20
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_cert_store) #15
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %12
   %15 = tail call ptr @__errno_location() #16
-  store i32 %13, ptr %15, align 4, !tbaa !18
+  store i32 %13, ptr %15, align 4, !tbaa !20
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str) #15
   br label %16
 
@@ -326,7 +326,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
   br i1 %18, label %.preheader74, label %.loopexit
 
 .preheader74:                                     ; preds = %16
-  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !29
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !31
   %.not85 = icmp eq i64 %19, 0
   br i1 %.not85, label %.preheader, label %.lr.ph
 
@@ -337,7 +337,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %25
   %20 = phi i64 [ %27, %25 ], [ 0, %.lr.ph ]
   %.04878.us = phi i32 [ %26, %25 ], [ 0, %.lr.ph ]
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8, !tbaa !30
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8, !tbaa !32
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = call fastcc i32 @_x509_to_pem_append(ptr noundef %23, ptr noundef %0, ptr noundef %1, ptr noundef %4)
@@ -347,13 +347,13 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
 25:                                               ; preds = %.lr.ph.split.us
   %26 = add i32 %.04878.us, 1
   %27 = zext i32 %26 to i64
-  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !29
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !31
   %29 = icmp ugt i64 %28, %27
-  br i1 %29, label %.lr.ph.split.us, label %.preheader, !llvm.loop !31
+  br i1 %29, label %.lr.ph.split.us, label %.preheader, !llvm.loop !33
 
 .preheader:                                       ; preds = %46, %25, %.preheader74
   %.0.lcssa = phi i1 [ true, %.preheader74 ], [ true, %25 ], [ %spec.select, %46 ]
-  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !33
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !35
   %.not88 = icmp eq i64 %30, 0
   br i1 %.not88, label %._crit_edge, label %.lr.ph82
 
@@ -364,7 +364,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
 .lr.ph82.split.us:                                ; preds = %.lr.ph82, %36
   %31 = phi i64 [ %38, %36 ], [ 0, %.lr.ph82 ]
   %.14980.us = phi i32 [ %37, %36 ], [ 0, %.lr.ph82 ]
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !34
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !36
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !16
   %35 = call fastcc i32 @_x509_to_pem_append(ptr noundef %34, ptr noundef %0, ptr noundef %1, ptr noundef %4)
@@ -374,15 +374,15 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
 36:                                               ; preds = %.lr.ph82.split.us
   %37 = add i32 %.14980.us, 1
   %38 = zext i32 %37 to i64
-  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !33
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !35
   %40 = icmp ugt i64 %39, %38
-  br i1 %40, label %.lr.ph82.split.us, label %._crit_edge, !llvm.loop !35
+  br i1 %40, label %.lr.ph82.split.us, label %._crit_edge, !llvm.loop !37
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %41 = phi i64 [ %55, %46 ], [ 0, %.lr.ph ]
   %.079 = phi i1 [ %spec.select, %46 ], [ true, %.lr.ph ]
   %.04878 = phi i32 [ %54, %46 ], [ 0, %.lr.ph ]
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8, !tbaa !30
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8, !tbaa !32
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !16
   %45 = call fastcc i32 @_x509_to_pem_append(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef %4)
@@ -391,8 +391,8 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
 
 46:                                               ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  store i32 0, ptr %5, align 4, !tbaa !18
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8, !tbaa !30
+  store i32 0, ptr %5, align 4, !tbaa !20
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8, !tbaa !32
   %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %41
   %49 = load ptr, ptr %48, align 8, !tbaa !16
   %50 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %49, ptr noundef %2, ptr noundef %5)
@@ -404,15 +404,15 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   %54 = add i32 %.04878, 1
   %55 = zext i32 %54 to i64
-  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !29
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !31
   %57 = icmp ugt i64 %56, %55
-  br i1 %57, label %.lr.ph.split, label %.preheader
+  br i1 %57, label %.lr.ph.split, label %.preheader, !llvm.loop !38
 
 .lr.ph82.split:                                   ; preds = %.lr.ph82, %63
   %58 = phi i64 [ %72, %63 ], [ 0, %.lr.ph82 ]
   %.381 = phi i1 [ %spec.select69, %63 ], [ %.0.lcssa, %.lr.ph82 ]
   %.14980 = phi i32 [ %71, %63 ], [ 0, %.lr.ph82 ]
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !34
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !36
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %58
   %61 = load ptr, ptr %60, align 8, !tbaa !16
   %62 = call fastcc i32 @_x509_to_pem_append(ptr noundef %61, ptr noundef %0, ptr noundef %1, ptr noundef %4)
@@ -421,8 +421,8 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
 
 63:                                               ; preds = %.lr.ph82.split
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
-  store i32 0, ptr %6, align 4, !tbaa !18
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !34
+  store i32 0, ptr %6, align 4, !tbaa !20
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !36
   %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !tbaa !16
   %67 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %66, ptr noundef %2, ptr noundef %6)
@@ -434,9 +434,9 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
   %71 = add i32 %.14980, 1
   %72 = zext i32 %71 to i64
-  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !33
+  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !35
   %74 = icmp ugt i64 %73, %72
-  br i1 %74, label %.lr.ph82.split, label %._crit_edge
+  br i1 %74, label %.lr.ph82.split, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %63, %36, %.preheader
   %.3.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.0.lcssa, %36 ], [ %spec.select69, %63 ]
@@ -445,7 +445,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
   br i1 %or.cond3, label %76, label %80
 
 76:                                               ; preds = %._crit_edge
-  %77 = load ptr, ptr %0, align 8, !tbaa !20
+  %77 = load ptr, ptr %0, align 8, !tbaa !22
   %.not61 = icmp eq ptr %77, null
   br i1 %.not61, label %80, label %78
 
@@ -466,7 +466,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
 
 82:                                               ; preds = %.loopexit
   %83 = tail call ptr @__errno_location() #16
-  store i32 %81, ptr %83, align 4, !tbaa !18
+  store i32 %81, ptr %83, align 4, !tbaa !20
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %3, %82
@@ -484,13 +484,13 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
   br i1 %or.cond5, label %87, label %90
 
 87:                                               ; preds = %84
-  %88 = load ptr, ptr %0, align 8, !tbaa !20
+  %88 = load ptr, ptr %0, align 8, !tbaa !22
   %.not68 = icmp eq ptr %88, null
   br i1 %.not68, label %90, label %89
 
 89:                                               ; preds = %87
   tail call void @free(ptr noundef nonnull %88) #15
-  store ptr null, ptr %0, align 8, !tbaa !20
+  store ptr null, ptr %0, align 8, !tbaa !22
   br label %90
 
 90:                                               ; preds = %89, %87, %84
@@ -508,7 +508,7 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %1, align 8, !tbaa !20
+  %8 = load ptr, ptr %1, align 8, !tbaa !22
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -517,9 +517,9 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
   br label %56
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %2, align 4, !tbaa !18
+  %12 = load i32, ptr %2, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  store ptr null, ptr %5, align 8, !tbaa !20
+  store ptr null, ptr %5, align 8, !tbaa !22
   %13 = tail call ptr @BIO_s_mem() #15
   %14 = tail call ptr @BIO_new(ptr noundef %13) #15
   %.not.i = icmp eq ptr %14, null
@@ -563,17 +563,17 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
 29:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %21, i64 %19, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %19
-  store i8 0, ptr %30, align 1, !tbaa !27
+  store i8 0, ptr %30, align 1, !tbaa !29
   %31 = trunc i64 %19 to i32
   call void @BIO_free_all(ptr noundef nonnull %14) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  %32 = load i64, ptr %3, align 8, !tbaa !28
+  %32 = load i64, ptr %3, align 8, !tbaa !30
   %33 = trunc i64 %32 to i32
   %34 = icmp sgt i32 %31, %33
   br i1 %34, label %35, label %45
 
 35:                                               ; preds = %29
-  %36 = load ptr, ptr %1, align 8, !tbaa !20
+  %36 = load ptr, ptr %1, align 8, !tbaa !22
   %37 = add i32 %12, 1
   %38 = add i32 %37, %31
   %39 = sext i32 %38 to i64
@@ -583,14 +583,14 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
 
 42:                                               ; preds = %35
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.32) #15
-  %43 = load ptr, ptr %1, align 8, !tbaa !20
+  %43 = load ptr, ptr %1, align 8, !tbaa !22
   call void @free(ptr noundef %43) #15
-  store ptr null, ptr %1, align 8, !tbaa !20
-  store i32 0, ptr %2, align 4, !tbaa !18
+  store ptr null, ptr %1, align 8, !tbaa !22
+  store i32 0, ptr %2, align 4, !tbaa !20
   br label %56
 
 44:                                               ; preds = %35
-  store ptr %40, ptr %1, align 8, !tbaa !20
+  store ptr %40, ptr %1, align 8, !tbaa !22
   %.pre42 = shl i64 %19, 32
   %.pre43 = ashr exact i64 %.pre42, 32
   br label %48
@@ -599,23 +599,23 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
   %sext = shl i64 %19, 32
   %46 = ashr exact i64 %sext, 32
   %47 = sub i64 %32, %46
-  %.pre = load ptr, ptr %1, align 8, !tbaa !20
+  %.pre = load ptr, ptr %1, align 8, !tbaa !22
   br label %48
 
 48:                                               ; preds = %45, %44
   %.pre-phi = phi i64 [ %46, %45 ], [ %.pre43, %44 ]
   %49 = phi ptr [ %.pre, %45 ], [ %40, %44 ]
   %storemerge = phi i64 [ %47, %45 ], [ 0, %44 ]
-  store i64 %storemerge, ptr %3, align 8, !tbaa !28
+  store i64 %storemerge, ptr %3, align 8, !tbaa !30
   %50 = sext i32 %12 to i64
   %51 = getelementptr inbounds i8, ptr %49, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull align 1 %26, i64 %.pre-phi, i1 false)
   %52 = add nsw i32 %12, %31
-  store i32 %52, ptr %2, align 4, !tbaa !18
-  %53 = load ptr, ptr %1, align 8, !tbaa !20
+  store i32 %52, ptr %2, align 4, !tbaa !20
+  %53 = load ptr, ptr %1, align 8, !tbaa !22
   %54 = sext i32 %52 to i64
   %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  store i8 0, ptr %55, align 1, !tbaa !27
+  store i8 0, ptr %55, align 1, !tbaa !29
   br label %56
 
 56:                                               ; preds = %48, %42, %28, %10
@@ -665,17 +665,17 @@ define internal fastcc range(i32 0, 21) i32 @x509_cert_name_cmp(ptr noundef %0, 
 
 22:                                               ; preds = %16
   %23 = call i64 @BIO_ctrl(ptr noundef nonnull %10, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %5) #15
-  %24 = load ptr, ptr %4, align 8, !tbaa !22
+  %24 = load ptr, ptr %4, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !26
-  %27 = load ptr, ptr %5, align 8, !tbaa !22
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %27 = load ptr, ptr %5, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !26
-  %30 = load i64, ptr %24, align 8, !tbaa !24
-  %31 = load i64, ptr %27, align 8, !tbaa !24
+  %29 = load ptr, ptr %28, align 8, !tbaa !28
+  %30 = load i64, ptr %24, align 8, !tbaa !26
+  %31 = load i64, ptr %27, align 8, !tbaa !26
   %. = call i64 @llvm.umin.i64(i64 %30, i64 %31)
   %32 = call i32 @strncmp(ptr noundef %26, ptr noundef %29, i64 noundef %.) #20
-  store i32 %32, ptr %2, align 4, !tbaa !18
+  store i32 %32, ptr %2, align 4, !tbaa !20
   br label %35
 
 33:                                               ; preds = %8
@@ -718,7 +718,7 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly capt
 .preheader:                                       ; preds = %6, %28
   %.sroa.9.033 = phi i64 [ %.sroa.9.1, %28 ], [ 0, %6 ]
   %.02332 = phi i64 [ %29, %28 ], [ 0, %6 ]
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !29
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !31
   %.not37 = icmp eq i64 %9, 0
   br i1 %.not37, label %.critedge, label %.lr.ph
 
@@ -730,16 +730,16 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly capt
   %.031 = phi i1 [ false, %.lr.ph ], [ %spec.select, %11 ]
   %.02230 = phi i64 [ 0, %.lr.ph ], [ %18, %11 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !16
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8, !tbaa !30
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8, !tbaa !32
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.02230
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = tail call i32 @X509_cmp(ptr noundef %12, ptr noundef %15) #15
   %17 = icmp eq i32 %16, 0
   %spec.select = select i1 %17, i1 true, i1 %.031
   %18 = add nuw i64 %.02230, 1
-  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !29
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8, !tbaa !31
   %20 = icmp ult i64 %18, %19
-  br i1 %20, label %11, label %._crit_edge
+  br i1 %20, label %11, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %11
   br i1 %spec.select, label %28, label %.critedge
@@ -765,7 +765,7 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly capt
   %.sroa.9.1 = phi i64 [ %27, %26 ], [ %.sroa.9.033, %25 ], [ %.sroa.9.033, %._crit_edge ]
   %29 = add nuw i64 %.02332, 1
   %exitcond.not = icmp eq i64 %29, %1
-  br i1 %exitcond.not, label %._crit_edge34, label %.preheader
+  br i1 %exitcond.not, label %._crit_edge34, label %.preheader, !llvm.loop !41
 
 ._crit_edge34:                                    ; preds = %28
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !14
@@ -789,7 +789,7 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly capt
   %37 = add nuw i64 %.013.i, 1
   %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !15
   %39 = icmp ult i64 %37, %38
-  br i1 %39, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %39, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %40 = phi ptr [ %30, %.preheader.i ], [ %35, %.lr.ph.i ]
@@ -797,8 +797,8 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly capt
   br label %cert_store_free_cert_list_int.exit
 
 cert_store_free_cert_list_int.exit:               ; preds = %._crit_edge34, %._crit_edge.i
-  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !34
-  store i64 %.sroa.9.1, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !33
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !36
+  store i64 %.sroa.9.1, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !35
   br label %41
 
 41:                                               ; preds = %cert_store_free_cert_list_int.exit, %8, %5
@@ -818,7 +818,7 @@ define range(i32 0, 9) i32 @cert_store_set_trusted(ptr noundef readonly captures
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__errno_location() #16
-  store i32 %3, ptr %5, align 4, !tbaa !18
+  store i32 %3, ptr %5, align 4, !tbaa !20
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str) #15
   br label %6
 
@@ -839,7 +839,7 @@ define range(i32 0, 9) i32 @cert_store_set_trusted(ptr noundef readonly captures
 
 13:                                               ; preds = %11
   %14 = tail call ptr @__errno_location() #16
-  store i32 %12, ptr %14, align 4, !tbaa !18
+  store i32 %12, ptr %14, align 4, !tbaa !20
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.1) #15
   br label %15
 
@@ -855,7 +855,7 @@ define i64 @cert_store_remove_trusted() local_unnamed_addr #1 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @__errno_location() #16
-  store i32 %1, ptr %3, align 4, !tbaa !18
+  store i32 %1, ptr %3, align 4, !tbaa !20
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str) #15
   br label %4
 
@@ -865,7 +865,7 @@ define i64 @cert_store_remove_trusted() local_unnamed_addr #1 {
   br i1 %6, label %7, label %cert_store_free_cert_list_int.exit
 
 7:                                                ; preds = %4
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !33
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !35
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !14
   %.not12.i = icmp eq ptr %9, null
   br i1 %.not12.i, label %cert_store_free_cert_list_int.exit, label %.preheader.i
@@ -886,7 +886,7 @@ define i64 @cert_store_remove_trusted() local_unnamed_addr #1 {
   %15 = add nuw i64 %.013.i, 1
   %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !15
   %17 = icmp ult i64 %15, %16
-  br i1 %17, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %17, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %18 = phi ptr [ %9, %.preheader.i ], [ %13, %.lr.ph.i ]
@@ -902,7 +902,7 @@ cert_store_free_cert_list_int.exit:               ; preds = %._crit_edge.i, %7, 
 
 20:                                               ; preds = %cert_store_free_cert_list_int.exit
   %21 = tail call ptr @__errno_location() #16
-  store i32 %19, ptr %21, align 4, !tbaa !18
+  store i32 %19, ptr %21, align 4, !tbaa !20
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.1) #15
   br label %22
 
@@ -938,7 +938,7 @@ define void @cert_fill_X509_store(ptr noundef %0, ptr noundef readonly captures(
 
 13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  store ptr null, ptr %4, align 8, !tbaa !20
+  store ptr null, ptr %4, align 8, !tbaa !22
   %14 = load ptr, ptr %8, align 8, !tbaa !16
   %15 = call i32 @x509_get_cert_name(ptr noundef %14, ptr noundef nonnull %4)
   %16 = call i64 @ERR_get_error() #15
@@ -951,7 +951,7 @@ define void @cert_fill_X509_store(ptr noundef %0, ptr noundef readonly captures(
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %13
-  %21 = load ptr, ptr %4, align 8, !tbaa !20
+  %21 = load ptr, ptr %4, align 8, !tbaa !22
   %.not26 = icmp eq ptr %21, null
   %22 = select i1 %.not26, ptr @.str.11, ptr %21
   call void (i32, ptr, ...) @mprintf(i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %22) #15
@@ -959,7 +959,7 @@ define void @cert_fill_X509_store(ptr noundef %0, ptr noundef readonly captures(
 
 23:                                               ; preds = %13
   %24 = call ptr @ERR_error_string(i64 noundef %16, ptr noundef null) #15
-  %25 = load ptr, ptr %4, align 8, !tbaa !20
+  %25 = load ptr, ptr %4, align 8, !tbaa !22
   %.not25 = icmp eq ptr %25, null
   %26 = select i1 %.not25, ptr @.str.11, ptr %25
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef %24, i64 noundef %16, ptr noundef nonnull %26) #15
@@ -981,7 +981,7 @@ define void @cert_fill_X509_store(ptr noundef %0, ptr noundef readonly captures(
 31:                                               ; preds = %11, %30, %10
   %32 = add nuw i64 %.028, 1
   %exitcond.not = icmp eq i64 %32, %2
-  br i1 %exitcond.not, label %.loopexit, label %.preheader
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !42
 
 .loopexit:                                        ; preds = %31, %3
   ret void
@@ -1006,7 +1006,7 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
 
 6:                                                ; preds = %4
   %7 = tail call ptr @__errno_location() #16
-  store i32 %5, ptr %7, align 4, !tbaa !18
+  store i32 %5, ptr %7, align 4, !tbaa !20
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str) #15
   br label %8
 
@@ -1020,8 +1020,8 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
   br label %31
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !34
-  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !33
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !36
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !35
   tail call void @cert_fill_X509_store(ptr noundef nonnull %0, ptr noundef %13, i64 noundef %14)
   %.not25 = icmp eq ptr %1, null
   br i1 %.not25, label %31, label %15
@@ -1033,7 +1033,7 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
 
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  store ptr null, ptr %3, align 8, !tbaa !20
+  store ptr null, ptr %3, align 8, !tbaa !22
   %18 = tail call i64 @ERR_get_error() #15
   %19 = call i32 @x509_get_cert_name(ptr noundef nonnull %1, ptr noundef nonnull %3)
   %20 = and i64 %18, 2147483648
@@ -1042,7 +1042,7 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
   %.0.v.i = select i1 %.not.i, i32 8388607, i32 2147483647
   %.0.i = and i32 %.0.v.i, %21
   %22 = icmp eq i32 %.0.i, 101
-  %23 = load ptr, ptr %3, align 8, !tbaa !20
+  %23 = load ptr, ptr %3, align 8, !tbaa !22
   %.not28 = icmp eq ptr %23, null
   %24 = select i1 %.not28, ptr @.str.11, ptr %23
   br i1 %22, label %25, label %26
@@ -1078,7 +1078,7 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
 
 33:                                               ; preds = %31
   %34 = tail call ptr @__errno_location() #16
-  store i32 %32, ptr %34, align 4, !tbaa !18
+  store i32 %32, ptr %34, align 4, !tbaa !20
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.1) #15
   br label %35
 
@@ -1257,21 +1257,28 @@ attributes #20 = { nounwind willreturn memory(read) }
 !15 = !{!8, !11, i64 8}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 _ZTS7x509_st", !10, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !5, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
 !20 = !{!21, !21, i64 0}
-!21 = !{!"p1 omnipotent char", !10, i64 0}
+!21 = !{!"int", !5, i64 0}
 !22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS10buf_mem_st", !10, i64 0}
-!24 = !{!25, !11, i64 0}
-!25 = !{!"buf_mem_st", !11, i64 0, !21, i64 8, !11, i64 16, !11, i64 24}
-!26 = !{!25, !21, i64 8}
-!27 = !{!5, !5, i64 0}
-!28 = !{!11, !11, i64 0}
-!29 = !{!4, !11, i64 56}
-!30 = !{!4, !9, i64 48}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = !{!4, !11, i64 72}
-!34 = !{!4, !9, i64 64}
-!35 = distinct !{!35, !32}
+!23 = !{!"p1 omnipotent char", !10, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS10buf_mem_st", !10, i64 0}
+!26 = !{!27, !11, i64 0}
+!27 = !{!"buf_mem_st", !11, i64 0, !23, i64 8, !11, i64 16, !11, i64 24}
+!28 = !{!27, !23, i64 8}
+!29 = !{!5, !5, i64 0}
+!30 = !{!11, !11, i64 0}
+!31 = !{!4, !11, i64 56}
+!32 = !{!4, !9, i64 48}
+!33 = distinct !{!33, !19, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = !{!4, !11, i64 72}
+!36 = !{!4, !9, i64 64}
+!37 = distinct !{!37, !19, !34}
+!38 = distinct !{!38, !19}
+!39 = distinct !{!39, !19}
+!40 = distinct !{!40, !19}
+!41 = distinct !{!41, !19}
+!42 = distinct !{!42, !19}

@@ -195,9 +195,9 @@ SDL_GetTrackedAllocationSize.exit.thread:         ; preds = %2
   br i1 %8, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
-  tail call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  tail call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   %9 = tail call zeroext i1 @SDL_CompareAndSwapAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0, i32 noundef 1) #4
-  br i1 %9, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %9, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -224,7 +224,7 @@ SDL_GetTrackedAllocationSize.exit.thread:         ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %.0712.i.i, i64 272
   %.07.i.i = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %.07.i.i, null
-  br i1 %.not.i.i, label %SDL_GetTrackedAllocation.exit.thread.i, label %.lr.ph14.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %SDL_GetTrackedAllocation.exit.thread.i, label %.lr.ph14.i.i, !llvm.loop !9
 
 SDL_GetTrackedAllocation.exit.thread.i:           ; preds = %17, %._crit_edge.i.i
   %19 = call i32 @SDL_SetAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0) #4
@@ -407,7 +407,7 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !10
 
 .loopexit:                                        ; preds = %48, %47
   %.276115 = phi ptr [ %.276132, %47 ], [ %46, %48 ]
@@ -418,7 +418,7 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   %53 = getelementptr inbounds nuw i8, ptr %.071141, i64 272
   %.071 = load ptr, ptr %53, align 8
   %.not96 = icmp eq ptr %.071, null
-  br i1 %.not96, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not96, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %17
   %.175.lcssa = phi ptr [ %.074145, %17 ], [ %.276115, %.loopexit ]
@@ -427,7 +427,7 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   %.1.lcssa = phi i64 [ %.066149, %17 ], [ %51, %.loopexit ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next160, 256
-  br i1 %exitcond162.not, label %54, label %17, !llvm.loop !10
+  br i1 %exitcond162.not, label %54, label %17, !llvm.loop !12
 
 54:                                               ; preds = %._crit_edge
   %55 = uitofp i64 %.1.lcssa to double
@@ -519,9 +519,9 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   br i1 %15, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
-  call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   %16 = call zeroext i1 @SDL_CompareAndSwapAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0, i32 noundef 1) #4
-  br i1 %16, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %16, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -548,7 +548,7 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   %25 = getelementptr inbounds nuw i8, ptr %.0712.i.i, i64 272
   %.07.i.i = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %.07.i.i, null
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph14.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph14.i.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %24, %._crit_edge.i.i
   %26 = call i32 @SDL_SetAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0) #4
@@ -562,9 +562,9 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   br i1 %29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
   %30 = call zeroext i1 @SDL_CompareAndSwapAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0, i32 noundef 1) #4
-  br i1 %30, label %._crit_edge, label %.lr.ph
+  br i1 %30, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   store ptr %0, ptr %28, align 8
@@ -613,7 +613,7 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   call void @llvm.lifetime.end.p0(i64 236, ptr nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
-  br i1 %51, label %52, label %36
+  br i1 %51, label %52, label %36, !llvm.loop !15
 
 52:                                               ; preds = %50, %36
   call void @llvm.lifetime.end.p0(i64 968, ptr nonnull %8) #4
@@ -668,9 +668,9 @@ define internal fastcc void @SDL_UntrackAllocation(ptr noundef nonnull %0) unnam
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
+  call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !16
   %8 = call zeroext i1 @SDL_CompareAndSwapAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0, i32 noundef 1) #4
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %9 = zext nneg i32 %6 to i64
@@ -687,7 +687,7 @@ define internal fastcc void @SDL_UntrackAllocation(ptr noundef nonnull %0) unnam
 .lr.ph21:                                         ; preds = %.lr.ph30
   %13 = load ptr, ptr %.0, align 8
   %14 = icmp eq ptr %0, %13
-  br i1 %14, label %.lr.ph21._crit_edge, label %.lr.ph30, !llvm.loop !13
+  br i1 %14, label %.lr.ph21._crit_edge, label %.lr.ph30, !llvm.loop !18
 
 .lr.ph21._crit_edge:                              ; preds = %.lr.ph21, %.lr.ph21.preheader
   %.019.lcssa = phi ptr [ %.016, %.lr.ph21.preheader ], [ %.0, %.lr.ph21 ]
@@ -716,7 +716,7 @@ define internal fastcc void @SDL_UntrackAllocation(ptr noundef nonnull %0) unnam
   %22 = getelementptr inbounds nuw i8, ptr %.01929, i64 272
   %.0 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge22, label %.lr.ph21, !llvm.loop !13
+  br i1 %.not, label %._crit_edge22, label %.lr.ph21, !llvm.loop !18
 
 ._crit_edge22:                                    ; preds = %.lr.ph30, %._crit_edge
   %23 = load i32, ptr @s_unknown_frees, align 4
@@ -741,13 +741,18 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i64 2151071154}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = !{i64 2151071638}
-!12 = !{i64 2151073623}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i64 2151071154}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = !{i64 2151071638}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = !{i64 2151073623}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !5, !6}

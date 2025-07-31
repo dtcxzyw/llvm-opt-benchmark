@@ -749,7 +749,7 @@ switch.lookup:                                    ; preds = %proto_item_set_gene
   %212 = add i32 %.2232, %203
   %213 = add nuw i32 %.1211230, 1
   %exitcond.not = icmp eq i32 %213, %indvars.iv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %201, %70, %100, %103, %106, %109, %161, %83, %78, %97, %92, %123, %114, %131, %136, %139, %158, %155, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
@@ -860,6 +860,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

@@ -82,7 +82,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
   %.1263 = phi i32 [ %540, %539 ], [ %65, %71 ]
   %.1 = phi i32 [ %.8, %539 ], [ -2, %71 ]
   %7 = getelementptr inbounds nuw i8, ptr %.1289, i64 1
-  br label %8
+  br label %8, !llvm.loop !4
 
 8:                                                ; preds = %6, %2
   %.0296 = phi ptr [ %4, %2 ], [ %.1297, %6 ]
@@ -422,7 +422,7 @@ make_elist.exit323:                               ; preds = %115, %116
   %155 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i.i
   %156 = load ptr, ptr %155, align 16
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 39
-  br i1 %exitcond.i.i, label %157, label %150, !llvm.loop !4
+  br i1 %exitcond.i.i, label %157, label %150, !llvm.loop !6
 
 157:                                              ; preds = %154
   call void @expr_yyerror_more(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.2) #11
@@ -639,7 +639,7 @@ make_uop.exit:                                    ; preds = %163, %164
   %300 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i.i325
   %301 = load ptr, ptr %300, align 16
   %exitcond.i.i326 = icmp eq i64 %indvars.iv.next.i.i325, 39
-  br i1 %exitcond.i.i326, label %302, label %295, !llvm.loop !4
+  br i1 %exitcond.i.i326, label %302, label %295, !llvm.loop !6
 
 302:                                              ; preds = %299
   call void @expr_yyerror_more(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.2) #11
@@ -712,7 +712,7 @@ make_uop.exit328:                                 ; preds = %308, %309
   %337 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i.i330
   %338 = load ptr, ptr %337, align 16
   %exitcond.i.i331 = icmp eq i64 %indvars.iv.next.i.i330, 39
-  br i1 %exitcond.i.i331, label %339, label %332, !llvm.loop !4
+  br i1 %exitcond.i.i331, label %339, label %332, !llvm.loop !6
 
 339:                                              ; preds = %336
   call void @expr_yyerror_more(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.2) #11
@@ -751,7 +751,7 @@ make_uop.exit333:                                 ; preds = %345, %346
 354:                                              ; preds = %79
   %355 = getelementptr inbounds i8, ptr %.2278, i64 -16
   %356 = load ptr, ptr %355, align 8
-  %357 = load i8, ptr %.2278, align 8, !range !6, !noundef !7
+  %357 = load i8, ptr %.2278, align 8, !range !8, !noundef !9
   %358 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %358, align 8
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
@@ -765,7 +765,7 @@ make_uop.exit333:                                 ; preds = %345, %346
 363:                                              ; preds = %79
   %364 = getelementptr inbounds i8, ptr %.2278, i64 -24
   %365 = load ptr, ptr %364, align 8
-  %366 = load i8, ptr %.2278, align 8, !range !6, !noundef !7
+  %366 = load i8, ptr %.2278, align 8, !range !8, !noundef !9
   %367 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %367, align 8
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
@@ -787,7 +787,7 @@ make_uop.exit333:                                 ; preds = %345, %346
   %376 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i.i335
   %377 = load ptr, ptr %376, align 16
   %exitcond.i.i336 = icmp eq i64 %indvars.iv.next.i.i335, 39
-  br i1 %exitcond.i.i336, label %378, label %371, !llvm.loop !4
+  br i1 %exitcond.i.i336, label %378, label %371, !llvm.loop !6
 
 378:                                              ; preds = %375
   call void @expr_yyerror_more(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.2) #11
@@ -834,7 +834,7 @@ make_uop.exit338:                                 ; preds = %384, %385
   br label %514
 
 398:                                              ; preds = %79
-  %399 = load i8, ptr %.2278, align 8, !range !6, !noundef !7
+  %399 = load i8, ptr %.2278, align 8, !range !8, !noundef !9
   %400 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %400, align 8
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 8
@@ -1040,7 +1040,7 @@ make_elist.exit346:                               ; preds = %482, %483
   %509 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i
   %510 = load ptr, ptr %509, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 39
-  br i1 %exitcond.i, label %511, label %504, !llvm.loop !4
+  br i1 %exitcond.i, label %511, label %504, !llvm.loop !6
 
 511:                                              ; preds = %508
   call void @expr_yyerror_more(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef %503) #11
@@ -1154,7 +1154,7 @@ define internal fastcc ptr @make_op(ptr noundef %0, ptr noundef %1, ptr noundef 
   %10 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i
   %11 = load ptr, ptr %10, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 39
-  br i1 %exitcond.i, label %12, label %5, !llvm.loop !4
+  br i1 %exitcond.i, label %12, label %5, !llvm.loop !6
 
 12:                                               ; preds = %9
   tail call void @expr_yyerror_more(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %1) #11
@@ -1227,7 +1227,7 @@ define internal fastcc ptr @make_func(ptr noundef %0, i32 noundef %1, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %.059.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not7.i = icmp eq ptr %8, null
-  br i1 %.not7.i, label %elist_length.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not7.i, label %elist_length.exit, label %.lr.ph.i, !llvm.loop !10
 
 elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ 0, %3 ], [ %6, %.lr.ph.i ]
@@ -1419,7 +1419,7 @@ define internal fastcc ptr @make_case(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i
   %10 = load ptr, ptr %9, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 39
-  br i1 %exitcond.i, label %11, label %4, !llvm.loop !4
+  br i1 %exitcond.i, label %11, label %4, !llvm.loop !6
 
 11:                                               ; preds = %8
   tail call void @expr_yyerror_more(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.42) #11
@@ -1501,7 +1501,9 @@ attributes #11 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !7, !5}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7, !5}

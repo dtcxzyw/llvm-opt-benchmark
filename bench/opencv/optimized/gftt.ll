@@ -2060,7 +2060,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %29, %25, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit
   %208 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %209 = load i32, ptr %208, align 8, !tbaa !98
+  %209 = load i32, ptr %208, align 8, !tbaa !99
   %.not.i = icmp eq i32 %209, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %210
 
@@ -2263,7 +2263,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !98
+  %3 = load i32, ptr %2, align 8, !tbaa !99
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -2300,7 +2300,7 @@ define linkonce_odr void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_append
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !101
+  %12 = load ptr, ptr %11, align 8, !tbaa !102
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = sdiv exact i64 %14, 28
@@ -2315,23 +2315,23 @@ define linkonce_odr void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_append
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.013.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i ], [ %1, %3 ]
-  store float 0.000000e+00, ptr %.013.i.i.i, align 4, !tbaa !102
+  store float 0.000000e+00, ptr %.013.i.i.i, align 4, !tbaa !103
   %19 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 4
-  store float 0.000000e+00, ptr %19, align 4, !tbaa !104
+  store float 0.000000e+00, ptr %19, align 4, !tbaa !105
   %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !105
+  store float 0.000000e+00, ptr %20, align 4, !tbaa !106
   %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 12
-  store float -1.000000e+00, ptr %21, align 4, !tbaa !107
+  store float -1.000000e+00, ptr %21, align 4, !tbaa !108
   %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 16
-  store float 0.000000e+00, ptr %22, align 4, !tbaa !108
+  store float 0.000000e+00, ptr %22, align 4, !tbaa !109
   %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 20
-  store i32 0, ptr %23, align 4, !tbaa !109
+  store i32 0, ptr %23, align 4, !tbaa !110
   %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 24
-  store i32 -1, ptr %24, align 4, !tbaa !110
+  store i32 -1, ptr %24, align 4, !tbaa !111
   %25 = add i64 %.01012.i.i.i, -1
   %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 28
   %.not.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !112
 
 _ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i
   store ptr %26, ptr %4, align 8, !tbaa !68
@@ -2357,23 +2357,23 @@ _ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %27
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
   %.013.i.i.i31 = phi ptr [ %42, %.lr.ph.i.i.i30 ], [ %34, %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %41, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit ]
-  store float 0.000000e+00, ptr %.013.i.i.i31, align 4, !tbaa !102
+  store float 0.000000e+00, ptr %.013.i.i.i31, align 4, !tbaa !103
   %35 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 4
-  store float 0.000000e+00, ptr %35, align 4, !tbaa !104
+  store float 0.000000e+00, ptr %35, align 4, !tbaa !105
   %36 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 8
-  store float 0.000000e+00, ptr %36, align 4, !tbaa !105
+  store float 0.000000e+00, ptr %36, align 4, !tbaa !106
   %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 12
-  store float -1.000000e+00, ptr %37, align 4, !tbaa !107
+  store float -1.000000e+00, ptr %37, align 4, !tbaa !108
   %38 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 16
-  store float 0.000000e+00, ptr %38, align 4, !tbaa !108
+  store float 0.000000e+00, ptr %38, align 4, !tbaa !109
   %39 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 20
-  store i32 0, ptr %39, align 4, !tbaa !109
+  store i32 0, ptr %39, align 4, !tbaa !110
   %40 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 24
-  store i32 -1, ptr %40, align 4, !tbaa !110
+  store i32 -1, ptr %40, align 4, !tbaa !111
   %41 = add i64 %.01012.i.i.i32, -1
   %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 28
   %.not.i.i.i33 = icmp eq i64 %41, 0
-  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !111
+  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !112
 
 _ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i30
   %.not10.i.i.i.i = icmp eq ptr %6, %5
@@ -2382,11 +2382,11 @@ _ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35: ;
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %33, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
   %.0911.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(28) %.0911.i.i.i.i, i64 28, i1 false), !tbaa.struct !112, !alias.scope !113
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(28) %.0911.i.i.i.i, i64 28, i1 false), !tbaa.struct !113, !alias.scope !114
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 28
   %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 28
   %.not.i.i.i.i = icmp eq ptr %43, %5
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !117
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !118
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35
   %.not.i37 = icmp eq ptr %6, null
@@ -2401,7 +2401,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds 
   %46 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %34, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !68
   %47 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %33, i64 %31
-  store ptr %47, ptr %11, align 8, !tbaa !101
+  store ptr %47, ptr %11, align 8, !tbaa !102
   br label %48
 
 48:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38, %2
@@ -2557,25 +2557,26 @@ attributes #24 = { noreturn nounwind }
 !93 = !{!91, !92, i64 0}
 !94 = !{!95, !95, i64 0}
 !95 = !{!"float", !11, i64 0}
-!96 = distinct !{!96, !97}
+!96 = distinct !{!96, !97, !98}
 !97 = !{!"llvm.loop.mustprogress"}
-!98 = !{!99, !10, i64 8}
-!99 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !100, i64 0, !10, i64 8}
-!100 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !31, i64 0}
-!101 = !{!66, !67, i64 16}
-!102 = !{!103, !95, i64 0}
-!103 = !{!"_ZTSN2cv6Point_IfEE", !95, i64 0, !95, i64 4}
-!104 = !{!103, !95, i64 4}
-!105 = !{!106, !95, i64 8}
-!106 = !{!"_ZTSN2cv8KeyPointE", !103, i64 0, !95, i64 8, !95, i64 12, !95, i64 16, !10, i64 20, !10, i64 24}
-!107 = !{!106, !95, i64 12}
-!108 = !{!106, !95, i64 16}
-!109 = !{!106, !10, i64 20}
-!110 = !{!106, !10, i64 24}
-!111 = distinct !{!111, !97}
-!112 = !{i64 0, i64 4, !94, i64 4, i64 4, !94, i64 8, i64 4, !94, i64 12, i64 4, !94, i64 16, i64 4, !94, i64 20, i64 4, !59, i64 24, i64 4, !59}
-!113 = !{!114, !116}
-!114 = distinct !{!114, !115, !"_ZSt19__relocate_object_aIN2cv8KeyPointES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!115 = distinct !{!115, !"_ZSt19__relocate_object_aIN2cv8KeyPointES1_SaIS1_EEvPT_PT0_RT1_"}
-!116 = distinct !{!116, !115, !"_ZSt19__relocate_object_aIN2cv8KeyPointES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!117 = distinct !{!117, !97}
+!98 = !{!"llvm.loop.estimated_trip_count"}
+!99 = !{!100, !10, i64 8}
+!100 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !101, i64 0, !10, i64 8}
+!101 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !31, i64 0}
+!102 = !{!66, !67, i64 16}
+!103 = !{!104, !95, i64 0}
+!104 = !{!"_ZTSN2cv6Point_IfEE", !95, i64 0, !95, i64 4}
+!105 = !{!104, !95, i64 4}
+!106 = !{!107, !95, i64 8}
+!107 = !{!"_ZTSN2cv8KeyPointE", !104, i64 0, !95, i64 8, !95, i64 12, !95, i64 16, !10, i64 20, !10, i64 24}
+!108 = !{!107, !95, i64 12}
+!109 = !{!107, !95, i64 16}
+!110 = !{!107, !10, i64 20}
+!111 = !{!107, !10, i64 24}
+!112 = distinct !{!112, !97, !98}
+!113 = !{i64 0, i64 4, !94, i64 4, i64 4, !94, i64 8, i64 4, !94, i64 12, i64 4, !94, i64 16, i64 4, !94, i64 20, i64 4, !59, i64 24, i64 4, !59}
+!114 = !{!115, !117}
+!115 = distinct !{!115, !116, !"_ZSt19__relocate_object_aIN2cv8KeyPointES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!116 = distinct !{!116, !"_ZSt19__relocate_object_aIN2cv8KeyPointES1_SaIS1_EEvPT_PT0_RT1_"}
+!117 = distinct !{!117, !116, !"_ZSt19__relocate_object_aIN2cv8KeyPointES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!118 = distinct !{!118, !97, !98}

@@ -243,7 +243,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %45 = add i32 %44, %38
   %46 = add nuw nsw i64 %37, 1
   %47 = icmp eq i64 %46, %35
-  br i1 %47, label %.loopexit, label %36, !llvm.loop !8
+  br i1 %47, label %.loopexit, label %36, !llvm.loop !9
 
 48:                                               ; preds = %27
   br label %49
@@ -317,7 +317,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %88 = call i32 @acpi_ut_short_divide(i64 noundef %87, i32 noundef 10, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %89 = add nuw nsw i32 %86, 1
   %90 = icmp eq i32 %89, %84
-  br i1 %90, label %91, label %85, !llvm.loop !9
+  br i1 %90, label %91, label %85, !llvm.loop !10
 
 91:                                               ; preds = %85
   %92 = load i32, ptr %5, align 4
@@ -339,7 +339,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %103 = phi i32 [ %83, %91 ], [ %101, %96 ]
   %104 = add nsw i32 %84, -1
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %81, !llvm.loop !10
+  br i1 %105, label %106, label %81, !llvm.loop !11
 
 106:                                              ; preds = %102
   %107 = icmp eq i32 %103, 0
@@ -361,7 +361,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %113 = load i32, ptr %65, align 8
   %114 = zext i32 %113 to i64
   %115 = icmp samesign ult i64 %112, %114
-  br i1 %115, label %.split.us, label %.split8.us, !llvm.loop !11
+  br i1 %115, label %.split.us, label %.split8.us, !llvm.loop !12
 
 .split.us10:                                      ; preds = %68, %.thread4.i.loopexit.us
   %116 = phi i64 [ %137, %.thread4.i.loopexit.us ], [ 0, %68 ]
@@ -395,7 +395,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   store i8 %131, ptr %132, align 1
   %133 = add nuw nsw i64 %127, 1
   %134 = icmp eq i64 %133, 2
-  br i1 %134, label %.thread4.i.loopexit.us, label %126, !llvm.loop !13
+  br i1 %134, label %.thread4.i.loopexit.us, label %126, !llvm.loop !14
 
 .thread4.i.loopexit.us:                           ; preds = %126
   %135 = getelementptr i8, ptr %121, i64 2
@@ -407,7 +407,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %138 = load i32, ptr %65, align 8
   %139 = zext i32 %138 to i64
   %140 = icmp samesign ult i64 %137, %139
-  br i1 %140, label %.split.us10, label %.split8.us, !llvm.loop !14
+  br i1 %140, label %.split.us10, label %.split8.us, !llvm.loop !15
 
 .split:                                           ; preds = %68
   br i1 %55, label %acpi_ex_convert_to_ascii.exit.us17, label %acpi_ex_convert_to_ascii.exit
@@ -425,7 +425,7 @@ acpi_ex_convert_to_ascii.exit.us17:               ; preds = %.split, %acpi_ex_co
   %147 = load i32, ptr %65, align 8
   %148 = zext i32 %147 to i64
   %149 = icmp samesign ult i64 %146, %148
-  br i1 %149, label %acpi_ex_convert_to_ascii.exit.us17, label %.split8.us, !llvm.loop !15
+  br i1 %149, label %acpi_ex_convert_to_ascii.exit.us17, label %.split8.us, !llvm.loop !16
 
 acpi_ex_convert_to_ascii.exit:                    ; preds = %.split, %acpi_ex_convert_to_ascii.exit
   %150 = phi i64 [ %153, %acpi_ex_convert_to_ascii.exit ], [ 0, %.split ]
@@ -436,7 +436,7 @@ acpi_ex_convert_to_ascii.exit:                    ; preds = %.split, %acpi_ex_co
   %154 = load i32, ptr %65, align 8
   %155 = zext i32 %154 to i64
   %156 = icmp samesign ult i64 %153, %155
-  br i1 %156, label %acpi_ex_convert_to_ascii.exit, label %.split8.us, !llvm.loop !16
+  br i1 %156, label %acpi_ex_convert_to_ascii.exit, label %.split8.us, !llvm.loop !17
 
 .split8.us:                                       ; preds = %.thread4.i.loopexit.us, %.thread4.i.us, %acpi_ex_convert_to_ascii.exit, %acpi_ex_convert_to_ascii.exit.us17
   %.us-phi = phi ptr [ %145, %acpi_ex_convert_to_ascii.exit.us17 ], [ %152, %acpi_ex_convert_to_ascii.exit ], [ %111, %.thread4.i.us ], [ %136, %.thread4.i.loopexit.us ]
@@ -503,7 +503,7 @@ define internal fastcc i32 @acpi_ex_convert_to_ascii(i64 noundef %0, i16 noundef
   %20 = call i32 @acpi_ut_short_divide(i64 noundef %19, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %21 = add nuw i32 %18, 1
   %22 = icmp eq i32 %21, %16
-  br i1 %22, label %23, label %17, !llvm.loop !9
+  br i1 %22, label %23, label %17, !llvm.loop !10
 
 23:                                               ; preds = %17
   %24 = load i32, ptr %6, align 4
@@ -525,7 +525,7 @@ define internal fastcc i32 @acpi_ex_convert_to_ascii(i64 noundef %0, i16 noundef
   %35 = phi i32 [ %14, %23 ], [ %33, %28 ]
   %36 = add nsw i32 %15, -1
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %53, label %12, !llvm.loop !10
+  br i1 %37, label %53, label %12, !llvm.loop !11
 
 38:                                               ; preds = %4
   %39 = icmp eq i8 %3, 0
@@ -547,7 +547,7 @@ define internal fastcc i32 @acpi_ex_convert_to_ascii(i64 noundef %0, i16 noundef
   store i8 %49, ptr %50, align 1
   %51 = add nuw nsw i64 %45, 1
   %52 = icmp eq i64 %51, %43
-  br i1 %52, label %.thread4, label %44, !llvm.loop !13
+  br i1 %52, label %.thread4, label %44, !llvm.loop !14
 
 53:                                               ; preds = %34
   %54 = icmp eq i32 %35, 0
@@ -739,7 +739,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   br label %acpi_ex_convert_to_integer.exit.thread
 
 acpi_ex_convert_to_integer.exit:                  ; preds = %17
-  %95 = tail call i32 @acpi_ex_convert_to_string(ptr noundef %1, ptr noundef %2, i32 noundef 2), !range !17
+  %95 = tail call i32 @acpi_ex_convert_to_string(ptr noundef %1, ptr noundef %2, i32 noundef 2), !range !18
   %96 = icmp eq i32 %95, 8
   br i1 %96, label %acpi_ex_convert_to_integer.exit.thread5, label %acpi_ex_convert_to_integer.exit.thread
 
@@ -787,16 +787,17 @@ attributes #6 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7, !12}
-!15 = distinct !{!15, !6, !7, !12}
-!16 = distinct !{!16, !6, !7}
-!17 = !{i32 0, i32 4098}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8, !13}
+!16 = distinct !{!16, !6, !7, !8, !13}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = !{i32 0, i32 4098}

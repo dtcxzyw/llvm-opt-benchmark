@@ -166,8 +166,8 @@ define dso_local void @_ZN4llvm7remarks11StringTable3addENS_9StringRefE(ptr dead
 16:                                               ; preds = %11, %4
   %17 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %19 = load i32, ptr %17, align 4, !tbaa !51
-  store i32 %19, ptr %0, align 8, !tbaa !52
+  %19 = load i32, ptr %17, align 4, !tbaa !52
+  store i32 %19, ptr %0, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %20, align 8, !tbaa !35
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -195,29 +195,29 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !37, !noalias !55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !55
-  store ptr %.sroa.0.0.copyload.i, ptr %9, align 8, !noalias !55
+  %12 = load i32, ptr %11, align 4, !tbaa !37, !noalias !56
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !56
+  store ptr %.sroa.0.0.copyload.i, ptr %9, align 8, !noalias !56
   %.sroa.07.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i, align 8, !noalias !55
+  store i64 %.sroa.2.0.copyload.i, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i, align 8, !noalias !56
   %.sroa.2.0..sroa_idx8.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %12, ptr %.sroa.2.0..sroa_idx8.i.i, align 8, !noalias !55
-  %13 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #10, !noalias !55
-  %14 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i), !noalias !55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !55
+  store i32 %12, ptr %.sroa.2.0..sroa_idx8.i.i, align 8, !noalias !56
+  %13 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #10, !noalias !56
+  %14 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i), !noalias !56
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !56
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %14, 0
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %14, 1
   %15 = trunc i8 %.fca.1.extract.i.i to i1
-  %.pre.i.i = load ptr, ptr %.fca.0.extract.i.i, align 8, !tbaa !41, !noalias !55
-  %.pre15.i.i = load i64, ptr %.pre.i.i, align 8, !tbaa !43, !noalias !55
+  %.pre.i.i = load ptr, ptr %.fca.0.extract.i.i, align 8, !tbaa !41, !noalias !56
+  %.pre15.i.i = load i64, ptr %.pre.i.i, align 8, !tbaa !43, !noalias !56
   br i1 %15, label %16, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit"
 
 16:                                               ; preds = %2
   %17 = add i64 %.pre15.i.i, 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %19 = load i64, ptr %18, align 8, !tbaa !27, !noalias !55
+  %19 = load i64, ptr %18, align 8, !tbaa !27, !noalias !56
   %20 = add i64 %17, %19
-  store i64 %20, ptr %18, align 8, !tbaa !27, !noalias !55
+  store i64 %20, ptr %18, align 8, !tbaa !27, !noalias !56
   br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit"
 
 "_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit": ; preds = %2, %16
@@ -228,29 +228,29 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.0.0.copyload.i23 = load ptr, ptr %22, align 8, !tbaa !35
   %.sroa.2.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i25 = load i64, ptr %.sroa.2.0..sroa_idx.i24, align 8, !tbaa !36
-  %23 = load i32, ptr %11, align 4, !tbaa !37, !noalias !58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !58
-  store ptr %.sroa.0.0.copyload.i23, ptr %8, align 8, !noalias !58
+  %23 = load i32, ptr %11, align 4, !tbaa !37, !noalias !59
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !59
+  store ptr %.sroa.0.0.copyload.i23, ptr %8, align 8, !noalias !59
   %.sroa.07.sroa.2.0..sroa_idx.i.i26 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.2.0.copyload.i25, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i26, align 8, !noalias !58
+  store i64 %.sroa.2.0.copyload.i25, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i26, align 8, !noalias !59
   %.sroa.2.0..sroa_idx8.i.i27 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %23, ptr %.sroa.2.0..sroa_idx8.i.i27, align 8, !noalias !58
-  %24 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i23, i64 %.sroa.2.0.copyload.i25) #10, !noalias !58
-  %25 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i23, i64 %.sroa.2.0.copyload.i25, i32 noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i27), !noalias !58
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !58
+  store i32 %23, ptr %.sroa.2.0..sroa_idx8.i.i27, align 8, !noalias !59
+  %24 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i23, i64 %.sroa.2.0.copyload.i25) #10, !noalias !59
+  %25 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i23, i64 %.sroa.2.0.copyload.i25, i32 noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i27), !noalias !59
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !59
   %.fca.0.extract.i.i28 = extractvalue { ptr, i8 } %25, 0
   %.fca.1.extract.i.i29 = extractvalue { ptr, i8 } %25, 1
   %26 = trunc i8 %.fca.1.extract.i.i29 to i1
-  %.pre.i.i30 = load ptr, ptr %.fca.0.extract.i.i28, align 8, !tbaa !41, !noalias !58
-  %.pre15.i.i31 = load i64, ptr %.pre.i.i30, align 8, !tbaa !43, !noalias !58
+  %.pre.i.i30 = load ptr, ptr %.fca.0.extract.i.i28, align 8, !tbaa !41, !noalias !59
+  %.pre15.i.i31 = load i64, ptr %.pre.i.i30, align 8, !tbaa !43, !noalias !59
   br i1 %26, label %27, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit32"
 
 27:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit"
   %28 = add i64 %.pre15.i.i31, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %30 = load i64, ptr %29, align 8, !tbaa !27, !noalias !58
+  %30 = load i64, ptr %29, align 8, !tbaa !27, !noalias !59
   %31 = add i64 %28, %30
-  store i64 %31, ptr %29, align 8, !tbaa !27, !noalias !58
+  store i64 %31, ptr %29, align 8, !tbaa !27, !noalias !59
   br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit32"
 
 "_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit32": ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit", %27
@@ -261,29 +261,29 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.0.0.copyload.i33 = load ptr, ptr %33, align 8, !tbaa !35
   %.sroa.2.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.2.0.copyload.i35 = load i64, ptr %.sroa.2.0..sroa_idx.i34, align 8, !tbaa !36
-  %34 = load i32, ptr %11, align 4, !tbaa !37, !noalias !61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !61
-  store ptr %.sroa.0.0.copyload.i33, ptr %7, align 8, !noalias !61
+  %34 = load i32, ptr %11, align 4, !tbaa !37, !noalias !62
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !62
+  store ptr %.sroa.0.0.copyload.i33, ptr %7, align 8, !noalias !62
   %.sroa.07.sroa.2.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload.i35, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i36, align 8, !noalias !61
+  store i64 %.sroa.2.0.copyload.i35, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i36, align 8, !noalias !62
   %.sroa.2.0..sroa_idx8.i.i37 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %34, ptr %.sroa.2.0..sroa_idx8.i.i37, align 8, !noalias !61
-  %35 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i33, i64 %.sroa.2.0.copyload.i35) #10, !noalias !61
-  %36 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i33, i64 %.sroa.2.0.copyload.i35, i32 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i37), !noalias !61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !61
+  store i32 %34, ptr %.sroa.2.0..sroa_idx8.i.i37, align 8, !noalias !62
+  %35 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i33, i64 %.sroa.2.0.copyload.i35) #10, !noalias !62
+  %36 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i33, i64 %.sroa.2.0.copyload.i35, i32 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i37), !noalias !62
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !62
   %.fca.0.extract.i.i38 = extractvalue { ptr, i8 } %36, 0
   %.fca.1.extract.i.i39 = extractvalue { ptr, i8 } %36, 1
   %37 = trunc i8 %.fca.1.extract.i.i39 to i1
-  %.pre.i.i40 = load ptr, ptr %.fca.0.extract.i.i38, align 8, !tbaa !41, !noalias !61
-  %.pre15.i.i41 = load i64, ptr %.pre.i.i40, align 8, !tbaa !43, !noalias !61
+  %.pre.i.i40 = load ptr, ptr %.fca.0.extract.i.i38, align 8, !tbaa !41, !noalias !62
+  %.pre15.i.i41 = load i64, ptr %.pre.i.i40, align 8, !tbaa !43, !noalias !62
   br i1 %37, label %38, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit42"
 
 38:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit32"
   %39 = add i64 %.pre15.i.i41, 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %41 = load i64, ptr %40, align 8, !tbaa !27, !noalias !61
+  %41 = load i64, ptr %40, align 8, !tbaa !27, !noalias !62
   %42 = add i64 %39, %41
-  store i64 %42, ptr %40, align 8, !tbaa !27, !noalias !61
+  store i64 %42, ptr %40, align 8, !tbaa !27, !noalias !62
   br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit42"
 
 "_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit42": ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit32", %38
@@ -292,7 +292,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store i64 %.pre15.i.i41, ptr %.sroa.2.0..sroa_idx.i34, align 8, !tbaa !36
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %46 = load i8, ptr %45, align 8, !tbaa !64, !range !67, !noundef !68
+  %46 = load i8, ptr %45, align 8, !tbaa !65, !range !68, !noundef !69
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %59
 
@@ -300,29 +300,29 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.0.0.copyload.i43 = load ptr, ptr %44, align 8, !tbaa !35
   %.sroa.2.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.2.0.copyload.i45 = load i64, ptr %.sroa.2.0..sroa_idx.i44, align 8, !tbaa !36
-  %49 = load i32, ptr %11, align 4, !tbaa !37, !noalias !69
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !69
-  store ptr %.sroa.0.0.copyload.i43, ptr %6, align 8, !noalias !69
+  %49 = load i32, ptr %11, align 4, !tbaa !37, !noalias !70
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !70
+  store ptr %.sroa.0.0.copyload.i43, ptr %6, align 8, !noalias !70
   %.sroa.07.sroa.2.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i45, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i46, align 8, !noalias !69
+  store i64 %.sroa.2.0.copyload.i45, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i46, align 8, !noalias !70
   %.sroa.2.0..sroa_idx8.i.i47 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %49, ptr %.sroa.2.0..sroa_idx8.i.i47, align 8, !noalias !69
-  %50 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i43, i64 %.sroa.2.0.copyload.i45) #10, !noalias !69
-  %51 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i43, i64 %.sroa.2.0.copyload.i45, i32 noundef %50, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i47), !noalias !69
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !69
+  store i32 %49, ptr %.sroa.2.0..sroa_idx8.i.i47, align 8, !noalias !70
+  %50 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i43, i64 %.sroa.2.0.copyload.i45) #10, !noalias !70
+  %51 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i43, i64 %.sroa.2.0.copyload.i45, i32 noundef %50, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i47), !noalias !70
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !70
   %.fca.0.extract.i.i48 = extractvalue { ptr, i8 } %51, 0
   %.fca.1.extract.i.i49 = extractvalue { ptr, i8 } %51, 1
   %52 = trunc i8 %.fca.1.extract.i.i49 to i1
-  %.pre.i.i50 = load ptr, ptr %.fca.0.extract.i.i48, align 8, !tbaa !41, !noalias !69
-  %.pre15.i.i51 = load i64, ptr %.pre.i.i50, align 8, !tbaa !43, !noalias !69
+  %.pre.i.i50 = load ptr, ptr %.fca.0.extract.i.i48, align 8, !tbaa !41, !noalias !70
+  %.pre15.i.i51 = load i64, ptr %.pre.i.i50, align 8, !tbaa !43, !noalias !70
   br i1 %52, label %53, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit52"
 
 53:                                               ; preds = %48
   %54 = add i64 %.pre15.i.i51, 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %56 = load i64, ptr %55, align 8, !tbaa !27, !noalias !69
+  %56 = load i64, ptr %55, align 8, !tbaa !27, !noalias !70
   %57 = add i64 %54, %56
-  store i64 %57, ptr %55, align 8, !tbaa !27, !noalias !69
+  store i64 %57, ptr %55, align 8, !tbaa !27, !noalias !70
   br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit52"
 
 "_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit52": ; preds = %48, %53
@@ -360,26 +360,26 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.0.0.copyload.i53 = load ptr, ptr %.084, align 8, !tbaa !35
   %.sroa.2.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %.084, i64 8
   %.sroa.2.0.copyload.i55 = load i64, ptr %.sroa.2.0..sroa_idx.i54, align 8, !tbaa !36
-  %68 = load i32, ptr %11, align 4, !tbaa !37, !noalias !72
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !72
-  store ptr %.sroa.0.0.copyload.i53, ptr %5, align 8, !noalias !72
-  store i64 %.sroa.2.0.copyload.i55, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i56, align 8, !noalias !72
-  store i32 %68, ptr %.sroa.2.0..sroa_idx8.i.i57, align 8, !noalias !72
-  %69 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i53, i64 %.sroa.2.0.copyload.i55) #10, !noalias !72
-  %70 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i53, i64 %.sroa.2.0.copyload.i55, i32 noundef %69, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i57), !noalias !72
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !72
+  %68 = load i32, ptr %11, align 4, !tbaa !37, !noalias !73
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !73
+  store ptr %.sroa.0.0.copyload.i53, ptr %5, align 8, !noalias !73
+  store i64 %.sroa.2.0.copyload.i55, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i56, align 8, !noalias !73
+  store i32 %68, ptr %.sroa.2.0..sroa_idx8.i.i57, align 8, !noalias !73
+  %69 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i53, i64 %.sroa.2.0.copyload.i55) #10, !noalias !73
+  %70 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i53, i64 %.sroa.2.0.copyload.i55, i32 noundef %69, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i57), !noalias !73
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !73
   %.fca.0.extract.i.i58 = extractvalue { ptr, i8 } %70, 0
   %.fca.1.extract.i.i59 = extractvalue { ptr, i8 } %70, 1
   %71 = trunc i8 %.fca.1.extract.i.i59 to i1
-  %.pre.i.i60 = load ptr, ptr %.fca.0.extract.i.i58, align 8, !tbaa !41, !noalias !72
-  %.pre15.i.i61 = load i64, ptr %.pre.i.i60, align 8, !tbaa !43, !noalias !72
+  %.pre.i.i60 = load ptr, ptr %.fca.0.extract.i.i58, align 8, !tbaa !41, !noalias !73
+  %.pre15.i.i61 = load i64, ptr %.pre.i.i60, align 8, !tbaa !43, !noalias !73
   br i1 %71, label %72, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62"
 
 72:                                               ; preds = %67
   %73 = add i64 %.pre15.i.i61, 1
-  %74 = load i64, ptr %66, align 8, !tbaa !27, !noalias !72
+  %74 = load i64, ptr %66, align 8, !tbaa !27, !noalias !73
   %75 = add i64 %73, %74
-  store i64 %75, ptr %66, align 8, !tbaa !27, !noalias !72
+  store i64 %75, ptr %66, align 8, !tbaa !27, !noalias !73
   br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62"
 
 "_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62": ; preds = %67, %72
@@ -390,26 +390,26 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.0.0.copyload.i63 = load ptr, ptr %77, align 8, !tbaa !35
   %.sroa.2.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %.084, i64 24
   %.sroa.2.0.copyload.i65 = load i64, ptr %.sroa.2.0..sroa_idx.i64, align 8, !tbaa !36
-  %78 = load i32, ptr %11, align 4, !tbaa !37, !noalias !75
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !75
-  store ptr %.sroa.0.0.copyload.i63, ptr %4, align 8, !noalias !75
-  store i64 %.sroa.2.0.copyload.i65, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i66, align 8, !noalias !75
-  store i32 %78, ptr %.sroa.2.0..sroa_idx8.i.i67, align 8, !noalias !75
-  %79 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i63, i64 %.sroa.2.0.copyload.i65) #10, !noalias !75
-  %80 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i63, i64 %.sroa.2.0.copyload.i65, i32 noundef %79, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i67), !noalias !75
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !75
+  %78 = load i32, ptr %11, align 4, !tbaa !37, !noalias !76
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !76
+  store ptr %.sroa.0.0.copyload.i63, ptr %4, align 8, !noalias !76
+  store i64 %.sroa.2.0.copyload.i65, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i66, align 8, !noalias !76
+  store i32 %78, ptr %.sroa.2.0..sroa_idx8.i.i67, align 8, !noalias !76
+  %79 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i63, i64 %.sroa.2.0.copyload.i65) #10, !noalias !76
+  %80 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i63, i64 %.sroa.2.0.copyload.i65, i32 noundef %79, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i67), !noalias !76
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !76
   %.fca.0.extract.i.i68 = extractvalue { ptr, i8 } %80, 0
   %.fca.1.extract.i.i69 = extractvalue { ptr, i8 } %80, 1
   %81 = trunc i8 %.fca.1.extract.i.i69 to i1
-  %.pre.i.i70 = load ptr, ptr %.fca.0.extract.i.i68, align 8, !tbaa !41, !noalias !75
-  %.pre15.i.i71 = load i64, ptr %.pre.i.i70, align 8, !tbaa !43, !noalias !75
+  %.pre.i.i70 = load ptr, ptr %.fca.0.extract.i.i68, align 8, !tbaa !41, !noalias !76
+  %.pre15.i.i71 = load i64, ptr %.pre.i.i70, align 8, !tbaa !43, !noalias !76
   br i1 %81, label %82, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit72"
 
 82:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62"
   %83 = add i64 %.pre15.i.i71, 1
-  %84 = load i64, ptr %66, align 8, !tbaa !27, !noalias !75
+  %84 = load i64, ptr %66, align 8, !tbaa !27, !noalias !76
   %85 = add i64 %83, %84
-  store i64 %85, ptr %66, align 8, !tbaa !27, !noalias !75
+  store i64 %85, ptr %66, align 8, !tbaa !27, !noalias !76
   br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit72"
 
 "_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit72": ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62", %82
@@ -418,7 +418,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store i64 %.pre15.i.i71, ptr %.sroa.2.0..sroa_idx.i64, align 8, !tbaa !36
   %87 = getelementptr inbounds nuw i8, ptr %.084, i64 32
   %88 = getelementptr inbounds nuw i8, ptr %.084, i64 56
-  %89 = load i8, ptr %88, align 8, !tbaa !64, !range !67, !noundef !68
+  %89 = load i8, ptr %88, align 8, !tbaa !65, !range !68, !noundef !69
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %101
 
@@ -426,26 +426,26 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.0.0.copyload.i73 = load ptr, ptr %87, align 8, !tbaa !35
   %.sroa.2.0..sroa_idx.i74 = getelementptr inbounds nuw i8, ptr %.084, i64 40
   %.sroa.2.0.copyload.i75 = load i64, ptr %.sroa.2.0..sroa_idx.i74, align 8, !tbaa !36
-  %92 = load i32, ptr %11, align 4, !tbaa !37, !noalias !78
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !78
-  store ptr %.sroa.0.0.copyload.i73, ptr %3, align 8, !noalias !78
-  store i64 %.sroa.2.0.copyload.i75, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i76, align 8, !noalias !78
-  store i32 %92, ptr %.sroa.2.0..sroa_idx8.i.i77, align 8, !noalias !78
-  %93 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i73, i64 %.sroa.2.0.copyload.i75) #10, !noalias !78
-  %94 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i73, i64 %.sroa.2.0.copyload.i75, i32 noundef %93, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i77), !noalias !78
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !78
+  %92 = load i32, ptr %11, align 4, !tbaa !37, !noalias !79
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !79
+  store ptr %.sroa.0.0.copyload.i73, ptr %3, align 8, !noalias !79
+  store i64 %.sroa.2.0.copyload.i75, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i76, align 8, !noalias !79
+  store i32 %92, ptr %.sroa.2.0..sroa_idx8.i.i77, align 8, !noalias !79
+  %93 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i73, i64 %.sroa.2.0.copyload.i75) #10, !noalias !79
+  %94 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i73, i64 %.sroa.2.0.copyload.i75, i32 noundef %93, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i77), !noalias !79
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !79
   %.fca.0.extract.i.i78 = extractvalue { ptr, i8 } %94, 0
   %.fca.1.extract.i.i79 = extractvalue { ptr, i8 } %94, 1
   %95 = trunc i8 %.fca.1.extract.i.i79 to i1
-  %.pre.i.i80 = load ptr, ptr %.fca.0.extract.i.i78, align 8, !tbaa !41, !noalias !78
-  %.pre15.i.i81 = load i64, ptr %.pre.i.i80, align 8, !tbaa !43, !noalias !78
+  %.pre.i.i80 = load ptr, ptr %.fca.0.extract.i.i78, align 8, !tbaa !41, !noalias !79
+  %.pre15.i.i81 = load i64, ptr %.pre.i.i80, align 8, !tbaa !43, !noalias !79
   br i1 %95, label %96, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit82"
 
 96:                                               ; preds = %91
   %97 = add i64 %.pre15.i.i81, 1
-  %98 = load i64, ptr %66, align 8, !tbaa !27, !noalias !78
+  %98 = load i64, ptr %66, align 8, !tbaa !27, !noalias !79
   %99 = add i64 %97, %98
-  store i64 %99, ptr %66, align 8, !tbaa !27, !noalias !78
+  store i64 %99, ptr %66, align 8, !tbaa !27, !noalias !79
   br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit82"
 
 "_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit82": ; preds = %91, %96
@@ -457,22 +457,22 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
 101:                                              ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit82", %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit72"
   %102 = getelementptr inbounds nuw i8, ptr %.084, i64 64
   %.not = icmp eq ptr %102, %65
-  br i1 %.not, label %._crit_edge, label %67
+  br i1 %.not, label %._crit_edge, label %67, !llvm.loop !82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm7remarks11StringTable9serializeERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !37, !noalias !81
+  %4 = load i32, ptr %3, align 4, !tbaa !37, !noalias !83
   %.not.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %2
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 4
-  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #11, !noalias !81
+  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #11, !noalias !83
   %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %7, i64 %5
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 0, i64 %6, i1 false), !noalias !81
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 0, i64 %6, i1 false), !noalias !83
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %7, i64 %6
   %9 = ptrtoint ptr %8 to i64
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i
@@ -481,15 +481,15 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i: ; preds = %2, %.lr.ph.pr
   %.sroa.010.0 = phi ptr [ %7, %.lr.ph.preheader.i.i.i.i.i.i ], [ null, %2 ]
   %.sink.i.i = phi i64 [ %9, %.lr.ph.preheader.i.i.i.i.i.i ], [ 0, %2 ]
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i ], [ null, %2 ]
-  %10 = load ptr, ptr %0, align 8, !tbaa !84, !noalias !81
+  %10 = load ptr, ptr %0, align 8, !tbaa !86, !noalias !83
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !85, !noalias !81
+  %12 = load i32, ptr %11, align 8, !tbaa !87, !noalias !83
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %_ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i, %.critedge.i.i.i.i.i
   %.sroa.0.0.i.i = phi ptr [ %15, %.critedge.i.i.i.i.i ], [ %10, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i ]
-  %14 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !41, !noalias !81
+  %14 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !41, !noalias !83
   %magicptr.i.i.i.i.i = ptrtoint ptr %14 to i64
   switch i64 %magicptr.i.i.i.i.i, label %_ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit.i [
     i64 0, label %.critedge.i.i.i.i.i
@@ -498,7 +498,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i: ; preds = %2, %.lr.ph.pr
 
 .critedge.i.i.i.i.i:                              ; preds = %.preheader.i.i.i.i, %.preheader.i.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
-  br label %.preheader.i.i.i.i, !llvm.loop !86
+  br label %.preheader.i.i.i.i, !llvm.loop !88
 
 _ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit.i: ; preds = %.preheader.i.i.i.i, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i
   %.sroa.0.1.i.i = phi ptr [ %10, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i ], [ %.sroa.0.0.i.i, %.preheader.i.i.i.i ]
@@ -508,31 +508,31 @@ _ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm409
   br i1 %.not10.i, label %_ZNK4llvm7remarks11StringTable9serializeEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit.i
-  %.pre.i = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !41, !noalias !81
+  %.pre.i = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !41, !noalias !83
   br label %18
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.i: ; preds = %.critedge.i.i.i
   %.not.i = icmp eq ptr %storemerge.i.i, %17
-  br i1 %.not.i, label %_ZNK4llvm7remarks11StringTable9serializeEv.exit, label %18
+  br i1 %.not.i, label %_ZNK4llvm7remarks11StringTable9serializeEv.exit, label %18, !llvm.loop !89
 
 18:                                               ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.i, %.lr.ph.i
   %19 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %26, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.i ]
   %.sroa.06.011.i = phi ptr [ %.sroa.0.1.i.i, %.lr.ph.i ], [ %storemerge.i.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.i ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i64, ptr %19, align 8, !tbaa !43, !noalias !81
+  %21 = load i64, ptr %19, align 8, !tbaa !43, !noalias !83
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !87, !noalias !81
+  %23 = load i32, ptr %22, align 8, !tbaa !90, !noalias !83
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.sroa.010.0, i64 %24
-  store ptr %20, ptr %25, align 8, !tbaa !35, !noalias !81
+  store ptr %20, ptr %25, align 8, !tbaa !35, !noalias !83
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 %21, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !36, !noalias !81
+  store i64 %21, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !36, !noalias !83
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.backedge, %18
   %.pn.i.i = phi ptr [ %.sroa.06.011.i, %18 ], [ %storemerge.i.i, %.critedge.i.i.i.backedge ]
   %storemerge.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
-  %26 = load ptr, ptr %storemerge.i.i, align 8, !tbaa !41, !noalias !81
+  %26 = load ptr, ptr %storemerge.i.i, align 8, !tbaa !41, !noalias !83
   %magicptr.i.i.i = ptrtoint ptr %26 to i64
   switch i64 %magicptr.i.i.i, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.i [
     i64 0, label %.critedge.i.i.i.backedge
@@ -540,7 +540,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryI
   ]
 
 .critedge.i.i.i.backedge:                         ; preds = %.critedge.i.i.i, %.critedge.i.i.i
-  br label %.critedge.i.i.i, !llvm.loop !86
+  br label %.critedge.i.i.i, !llvm.loop !88
 
 _ZNK4llvm7remarks11StringTable9serializeEv.exit:  ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.i, %_ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit.i
   %.not12 = icmp eq ptr %.sroa.010.0, %.0.lcssa.i.i.i.i.i.i
@@ -569,8 +569,8 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit:  ; preds = %._crit_edge, %29
   %.sroa.01.0.copyload = load ptr, ptr %.sroa.07.013, align 8, !tbaa !35
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !36
-  %33 = load ptr, ptr %27, align 8, !tbaa !89
-  %34 = load ptr, ptr %28, align 8, !tbaa !93
+  %33 = load ptr, ptr %27, align 8, !tbaa !92
+  %34 = load ptr, ptr %28, align 8, !tbaa !96
   %35 = ptrtoint ptr %33 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
@@ -587,16 +587,16 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit:  ; preds = %._crit_edge, %29
 
 42:                                               ; preds = %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %.sroa.01.0.copyload, i64 %.sroa.4.0.copyload, i1 false)
-  %43 = load ptr, ptr %28, align 8, !tbaa !93
+  %43 = load ptr, ptr %28, align 8, !tbaa !96
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.sroa.4.0.copyload
-  store ptr %44, ptr %28, align 8, !tbaa !93
+  store ptr %44, ptr %28, align 8, !tbaa !96
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %39, %41, %42
   %45 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 0) #10
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 16
   %.not = icmp eq ptr %46, %.0.lcssa.i.i.i.i.i.i
-  br i1 %.not, label %._crit_edge, label %32
+  br i1 %.not, label %._crit_edge, label %32, !llvm.loop !97
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -614,7 +614,7 @@ _ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = 
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 4
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #11
-  store ptr %7, ptr %0, align 8, !tbaa !94
+  store ptr %7, ptr %0, align 8, !tbaa !98
   %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %7, i64 %5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 0, i64 %6, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %7, i64 %6
@@ -626,11 +626,11 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt12_Vector_
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink.i, ptr %11, align 8, !tbaa !97
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %10, align 8, !tbaa !98
-  %12 = load ptr, ptr %1, align 8, !tbaa !84
+  store ptr %.sink.i, ptr %11, align 8, !tbaa !101
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %10, align 8, !tbaa !102
+  %12 = load ptr, ptr %1, align 8, !tbaa !86
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !85
+  %14 = load i32, ptr %13, align 8, !tbaa !87
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit, label %.preheader.i.i.i
 
@@ -645,7 +645,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt12_Vector_
 
 .critedge.i.i.i.i:                                ; preds = %.preheader.i.i.i, %.preheader.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
-  br label %.preheader.i.i.i, !llvm.loop !86
+  br label %.preheader.i.i.i, !llvm.loop !88
 
 _ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit: ; preds = %.preheader.i.i.i, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit
   %.sroa.0.1.i = phi ptr [ %12, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
@@ -660,7 +660,7 @@ _ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm409
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit: ; preds = %.critedge.i.i
   %.not = icmp eq ptr %storemerge.i, %19
-  br i1 %.not, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, label %20
+  br i1 %.not, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, label %20, !llvm.loop !89
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit, %_ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit
   ret void
@@ -671,7 +671,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryI
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %21, align 8, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !87
+  %25 = load i32, ptr %24, align 8, !tbaa !90
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %9, i64 %26
   store ptr %22, ptr %27, align 8, !tbaa !35
@@ -690,7 +690,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryI
   ]
 
 .critedge.i.i.backedge:                           ; preds = %.critedge.i.i, %.critedge.i.i
-  br label %.critedge.i.i, !llvm.loop !86
+  br label %.critedge.i.i, !llvm.loop !88
 }
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #2
@@ -700,7 +700,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr %1, i64 %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 comdat align 2 {
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #10
-  %7 = load ptr, ptr %0, align 8, !tbaa !84
+  %7 = load ptr, ptr %0, align 8, !tbaa !86
   %8 = zext i32 %6 to i64
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !41
@@ -722,38 +722,38 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocato
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 8
   %.pre = load ptr, ptr %12, align 8, !tbaa !41
-  br label %.preheader.i.i, !llvm.loop !99
+  br label %.preheader.i.i, !llvm.loop !103
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !100
+  %15 = load i32, ptr %14, align 8, !tbaa !104
   %16 = add i32 %15, -1
-  store i32 %16, ptr %14, align 8, !tbaa !100
+  store i32 %16, ptr %14, align 8, !tbaa !104
   br label %17
 
 17:                                               ; preds = %5, %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = add i64 %2, 17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %21 = load i64, ptr %20, align 8, !tbaa !101
+  %21 = load i64, ptr %20, align 8, !tbaa !105
   %22 = add i64 %21, %19
-  store i64 %22, ptr %20, align 8, !tbaa !101
-  %23 = load ptr, ptr %18, align 8, !tbaa !102
+  store i64 %22, ptr %20, align 8, !tbaa !105
+  %23 = load ptr, ptr %18, align 8, !tbaa !106
   %24 = ptrtoint ptr %23 to i64
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, %19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !103
+  %29 = load ptr, ptr %28, align 8, !tbaa !107
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i = icmp ule i64 %27, %30
   %31 = icmp ne ptr %23, null
   %32 = and i1 %31, %.not.i.i.i.i
-  br i1 %32, label %33, label %36, !prof !104
+  br i1 %32, label %33, label %36, !prof !108
 
 33:                                               ; preds = %17
   %34 = inttoptr i64 %27 to ptr
-  store ptr %34, ptr %18, align 8, !tbaa !102
+  store ptr %34, ptr %18, align 8, !tbaa !106
   %35 = inttoptr i64 %26 to ptr
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i
 
@@ -773,18 +773,18 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 _ZN4llvm14StringMapEntryIjE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJjEEEPS1_NS_9StringRefERT_DpOT0_.exit: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i, %39
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %2
-  store i8 0, ptr %40, align 1, !tbaa !105
+  store i8 0, ptr %40, align 1, !tbaa !109
   store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !43
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  %42 = load i32, ptr %4, align 4, !tbaa !51
-  store i32 %42, ptr %41, align 8, !tbaa !87
+  %42 = load i32, ptr %4, align 4, !tbaa !52
+  store i32 %42, ptr %41, align 8, !tbaa !90
   store ptr %.0.i.i.i.i, ptr %9, align 8, !tbaa !41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !37
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !37
   %46 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #10
-  %47 = load ptr, ptr %0, align 8, !tbaa !84
+  %47 = load ptr, ptr %0, align 8, !tbaa !86
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
   br label %.preheader.i.i24
@@ -800,7 +800,7 @@ _ZN4llvm14StringMapEntryIjE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocato
 
 .critedge.i.i.i26:                                ; preds = %.preheader.i.i24, %.preheader.i.i24
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i24, !llvm.loop !99
+  br label %.preheader.i.i24, !llvm.loop !103
 
 _ZN4llvm17StringMapIteratorIjEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i24, %.preheader.i.i
   %.sroa.031.0.pn = phi ptr [ %.sroa.031.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i24 ]
@@ -833,7 +833,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %.not.i.i.not.i = icmp ult i32 %14, %16
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !104
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !108
 
 17:                                               ; preds = %10
   %18 = zext i32 %14 to i64
@@ -874,7 +874,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !13
   %.not.i.i.not.i.i = icmp ult i32 %40, %42
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !104
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !108
 
 43:                                               ; preds = %32
   %44 = zext i32 %40 to i64
@@ -896,13 +896,13 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   store i32 %53, ptr %34, align 8, !tbaa !12
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !103
+  store ptr %54, ptr %55, align 8, !tbaa !107
   %56 = add i64 %7, %51
   %57 = sub i64 0, %6
   %58 = and i64 %56, %57
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %2
-  store ptr %60, ptr %0, align 8, !tbaa !102
+  store ptr %60, ptr %0, align 8, !tbaa !106
   br label %61
 
 61:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
@@ -994,60 +994,64 @@ attributes #12 = { builtin nounwind }
 !46 = !{!"p1 _ZTSN4llvm13ErrorInfoBaseE", !6, i64 0}
 !47 = !{!48, !48, i64 0}
 !48 = !{!"vtable pointer", !8, i64 0}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!9, !9, i64 0}
-!52 = !{!53, !9, i64 0}
-!53 = !{!"_ZTSSt4pairIjN4llvm9StringRefEE", !9, i64 0, !54, i64 8}
-!54 = !{!"_ZTSN4llvm9StringRefE", !16, i64 0, !26, i64 8}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
-!57 = distinct !{!57, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
-!60 = distinct !{!60, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
-!63 = distinct !{!63, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
-!64 = !{!65, !66, i64 24}
-!65 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm7remarks14RemarkLocationEE", !7, i64 0, !66, i64 24}
-!66 = !{!"bool", !7, i64 0}
-!67 = !{i8 0, i8 2}
-!68 = !{}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
-!71 = distinct !{!71, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
-!74 = distinct !{!74, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
-!77 = distinct !{!77, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
-!80 = distinct !{!80, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZNK4llvm7remarks11StringTable9serializeEv: argument 0"}
-!83 = distinct !{!83, !"_ZNK4llvm7remarks11StringTable9serializeEv"}
-!84 = !{!4, !5, i64 0}
-!85 = !{!4, !9, i64 8}
-!86 = distinct !{!86, !50}
-!87 = !{!88, !9, i64 8}
-!88 = !{!"_ZTSN4llvm21StringMapEntryStorageIjEE", !44, i64 0, !9, i64 8}
-!89 = !{!90, !16, i64 24}
-!90 = !{!"_ZTSN4llvm11raw_ostreamE", !91, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !66, i64 40, !92, i64 44}
-!91 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !7, i64 0}
-!92 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
-!93 = !{!90, !16, i64 32}
-!94 = !{!95, !96, i64 0}
-!95 = !{!"_ZTSNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE17_Vector_impl_dataE", !96, i64 0, !96, i64 8, !96, i64 16}
-!96 = !{!"p1 _ZTSN4llvm9StringRefE", !6, i64 0}
-!97 = !{!95, !96, i64 16}
-!98 = !{!95, !96, i64 8}
-!99 = distinct !{!99, !50}
-!100 = !{!4, !9, i64 16}
-!101 = !{!15, !26, i64 80}
-!102 = !{!15, !16, i64 0}
-!103 = !{!15, !16, i64 8}
-!104 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!105 = !{!7, !7, i64 0}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = !{!9, !9, i64 0}
+!53 = !{!54, !9, i64 0}
+!54 = !{!"_ZTSSt4pairIjN4llvm9StringRefEE", !9, i64 0, !55, i64 8}
+!55 = !{!"_ZTSN4llvm9StringRefE", !16, i64 0, !26, i64 8}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
+!58 = distinct !{!58, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
+!61 = distinct !{!61, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
+!64 = distinct !{!64, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
+!65 = !{!66, !67, i64 24}
+!66 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm7remarks14RemarkLocationEE", !7, i64 0, !67, i64 24}
+!67 = !{!"bool", !7, i64 0}
+!68 = !{i8 0, i8 2}
+!69 = !{}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
+!72 = distinct !{!72, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
+!75 = distinct !{!75, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
+!78 = distinct !{!78, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE: argument 0"}
+!81 = distinct !{!81, !"_ZN4llvm7remarks11StringTable3addENS_9StringRefE"}
+!82 = distinct !{!82, !51}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZNK4llvm7remarks11StringTable9serializeEv: argument 0"}
+!85 = distinct !{!85, !"_ZNK4llvm7remarks11StringTable9serializeEv"}
+!86 = !{!4, !5, i64 0}
+!87 = !{!4, !9, i64 8}
+!88 = distinct !{!88, !50, !51}
+!89 = distinct !{!89, !51}
+!90 = !{!91, !9, i64 8}
+!91 = !{!"_ZTSN4llvm21StringMapEntryStorageIjEE", !44, i64 0, !9, i64 8}
+!92 = !{!93, !16, i64 24}
+!93 = !{!"_ZTSN4llvm11raw_ostreamE", !94, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !67, i64 40, !95, i64 44}
+!94 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !7, i64 0}
+!95 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
+!96 = !{!93, !16, i64 32}
+!97 = distinct !{!97, !51}
+!98 = !{!99, !100, i64 0}
+!99 = !{!"_ZTSNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE17_Vector_impl_dataE", !100, i64 0, !100, i64 8, !100, i64 16}
+!100 = !{!"p1 _ZTSN4llvm9StringRefE", !6, i64 0}
+!101 = !{!99, !100, i64 16}
+!102 = !{!99, !100, i64 8}
+!103 = distinct !{!103, !50, !51}
+!104 = !{!4, !9, i64 16}
+!105 = !{!15, !26, i64 80}
+!106 = !{!15, !16, i64 0}
+!107 = !{!15, !16, i64 8}
+!108 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!109 = !{!7, !7, i64 0}

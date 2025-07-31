@@ -285,7 +285,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   store i64 %.033, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %45, %slot_getallattrs.exit
   %.0.lcssa = phi i32 [ 0, %slot_getallattrs.exit ], [ %.1, %45 ]
@@ -318,7 +318,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   tail call void @pfree(ptr noundef %63) #4
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge41, label %59, !llvm.loop !9
+  br i1 %exitcond47.not, label %._crit_edge41, label %59, !llvm.loop !10
 
 ._crit_edge41:                                    ; preds = %59, %._crit_edge
   ret i1 true
@@ -375,7 +375,8 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

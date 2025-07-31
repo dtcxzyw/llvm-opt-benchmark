@@ -120,7 +120,7 @@ define dso_local void @PHP_GOSTUpdate(ptr noundef %0, ptr noundef readonly captu
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next31.i, 8
-  br i1 %exitcond.not.i, label %GostTransform.exit, label %38
+  br i1 %exitcond.not.i, label %GostTransform.exit, label %38, !llvm.loop !14
 
 GostTransform.exit:                               ; preds = %38
   call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %5)
@@ -172,14 +172,14 @@ GostTransform.exit:                               ; preds = %38
   %indvars.iv.next31.i52 = add nuw nsw i64 %indvars.iv30.i49, 1
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i50, 4
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next31.i52, 8
-  br i1 %exitcond.not.i54, label %GostTransform.exit55, label %66
+  br i1 %exitcond.not.i54, label %GostTransform.exit55, label %66, !llvm.loop !14
 
 GostTransform.exit55:                             ; preds = %66
   call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
   %90 = add i64 %64, 32
   %.not47 = icmp ugt i64 %90, %2
-  br i1 %.not47, label %._crit_edge, label %.lr.ph
+  br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %GostTransform.exit55, %62
   %.1.lcssa = phi i64 [ %.0, %62 ], [ %64, %GostTransform.exit55 ]
@@ -258,7 +258,7 @@ define dso_local void @PHP_GOSTFinal(ptr noundef writeonly captures(none) %0, pt
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next31.i, 8
-  br i1 %exitcond.not.i, label %GostTransform.exit, label %9
+  br i1 %exitcond.not.i, label %GostTransform.exit, label %9, !llvm.loop !14
 
 GostTransform.exit:                               ; preds = %9
   call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %3)
@@ -301,7 +301,7 @@ GostTransform.exit:                               ; preds = %9
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next30, 8
-  br i1 %exitcond.not, label %54, label %37
+  br i1 %exitcond.not, label %54, label %37, !llvm.loop !17
 
 54:                                               ; preds = %37
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 120) #8
@@ -1232,7 +1232,7 @@ define internal fastcc void @Gost(ptr noundef captures(none) %0, ptr noundef non
   %854 = xor i32 %.sroa.63.0604, %.sroa.98.0602
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %855 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %855, label %9, label %.thread
+  br i1 %855, label %9, label %.thread, !llvm.loop !18
 
 .thread:                                          ; preds = %9, %850
   %856 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1542,7 +1542,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #7
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_gost_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = icmp eq i64 %1, 2
   br i1 %6, label %7, label %.thread
 
@@ -1591,13 +1591,18 @@ attributes #8 = { nounwind }
 !11 = !{!"int", !6, i64 0}
 !12 = !{!5, !6, i64 72}
 !13 = !{!6, !6, i64 0}
-!14 = !{!15, !9, i64 8}
-!15 = !{!"_php_hashcontext_object", !16, i64 0, !9, i64 8, !17, i64 16, !18, i64 24, !19, i64 32}
-!16 = !{!"p1 _ZTS13_php_hash_ops", !9, i64 0}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!"p1 omnipotent char", !9, i64 0}
-!19 = !{!"_zend_object", !20, i64 0, !11, i64 8, !11, i64 12, !21, i64 16, !22, i64 24, !23, i64 32, !6, i64 40}
-!20 = !{!"_zend_refcounted_h", !11, i64 0, !6, i64 4}
-!21 = !{!"p1 _ZTS17_zend_class_entry", !9, i64 0}
-!22 = !{!"p1 _ZTS21_zend_object_handlers", !9, i64 0}
-!23 = !{!"p1 _ZTS11_zend_array", !9, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = !{!20, !9, i64 8}
+!20 = !{!"_php_hashcontext_object", !21, i64 0, !9, i64 8, !22, i64 16, !23, i64 24, !24, i64 32}
+!21 = !{!"p1 _ZTS13_php_hash_ops", !9, i64 0}
+!22 = !{!"long", !6, i64 0}
+!23 = !{!"p1 omnipotent char", !9, i64 0}
+!24 = !{!"_zend_object", !25, i64 0, !11, i64 8, !11, i64 12, !26, i64 16, !27, i64 24, !28, i64 32, !6, i64 40}
+!25 = !{!"_zend_refcounted_h", !11, i64 0, !6, i64 4}
+!26 = !{!"p1 _ZTS17_zend_class_entry", !9, i64 0}
+!27 = !{!"p1 _ZTS21_zend_object_handlers", !9, i64 0}
+!28 = !{!"p1 _ZTS11_zend_array", !9, i64 0}

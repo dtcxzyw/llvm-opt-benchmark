@@ -753,11 +753,11 @@ define void @Gia_ManResubTest4() local_unnamed_addr #0 {
   %2 = alloca [3 x i32], align 4
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %4, align 4, !tbaa !33
-  store i32 100, ptr %3, align 8, !tbaa !34
+  store i32 0, ptr %4, align 4, !tbaa !34
+  store i32 100, ptr %3, align 8, !tbaa !35
   %5 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #11
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %5, ptr %6, align 8, !tbaa !35
+  store ptr %5, ptr %6, align 8, !tbaa !36
   br label %7
 
 7:                                                ; preds = %0, %72
@@ -791,8 +791,8 @@ define void @Gia_ManResubTest4() local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw [6 x i32], ptr @s_Truths5, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !29
   %22 = and i32 %21, %15
-  %23 = load i32, ptr %4, align 4, !tbaa !33
-  %24 = load i32, ptr %3, align 8, !tbaa !34
+  %23 = load i32, ptr %4, align 4, !tbaa !34
+  %24 = load i32, ptr %3, align 8, !tbaa !35
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %26, label %Vec_IntPush.exit
 
@@ -830,22 +830,22 @@ define void @Gia_ManResubTest4() local_unnamed_addr #0 {
 Vec_IntPush.exit.sink.split:                      ; preds = %37, %39, %29, %31
   %.sink127 = phi ptr [ %30, %29 ], [ %32, %31 ], [ %38, %37 ], [ %40, %39 ]
   %.sink = phi i32 [ 16, %29 ], [ 16, %31 ], [ %34, %37 ], [ %34, %39 ]
-  store ptr %.sink127, ptr %6, align 8, !tbaa !35
-  store i32 %.sink, ptr %3, align 8, !tbaa !34
+  store ptr %.sink127, ptr %6, align 8, !tbaa !36
+  store i32 %.sink, ptr %3, align 8, !tbaa !35
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %18
   %41 = phi ptr [ %.pre.i70116, %18 ], [ %.sink127, %Vec_IntPush.exit.sink.split ]
   %42 = phi ptr [ %17, %18 ], [ %.sink127, %Vec_IntPush.exit.sink.split ]
   %43 = add nsw i32 %23, 1
-  store i32 %43, ptr %4, align 4, !tbaa !33
+  store i32 %43, ptr %4, align 4, !tbaa !34
   %44 = sext i32 %23 to i64
   %45 = getelementptr inbounds i32, ptr %42, i64 %44
   store i32 %22, ptr %45, align 4, !tbaa !29
   %46 = xor i32 %21, -1
   %47 = and i32 %15, %46
-  %48 = load i32, ptr %4, align 4, !tbaa !33
-  %49 = load i32, ptr %3, align 8, !tbaa !34
+  %48 = load i32, ptr %4, align 4, !tbaa !34
+  %49 = load i32, ptr %3, align 8, !tbaa !35
   %50 = icmp eq i32 %48, %49
   br i1 %50, label %51, label %Vec_IntPush.exit74
 
@@ -883,14 +883,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 Vec_IntPush.exit74.sink.split:                    ; preds = %62, %64, %54, %56
   %.sink129 = phi ptr [ %55, %54 ], [ %57, %56 ], [ %63, %62 ], [ %65, %64 ]
   %.sink128 = phi i32 [ 16, %54 ], [ 16, %56 ], [ %59, %62 ], [ %59, %64 ]
-  store ptr %.sink129, ptr %6, align 8, !tbaa !35
-  store i32 %.sink128, ptr %3, align 8, !tbaa !34
+  store ptr %.sink129, ptr %6, align 8, !tbaa !36
+  store i32 %.sink128, ptr %3, align 8, !tbaa !35
   br label %Vec_IntPush.exit74
 
 Vec_IntPush.exit74:                               ; preds = %Vec_IntPush.exit74.sink.split, %Vec_IntPush.exit
   %.pre.i70118 = phi ptr [ %41, %Vec_IntPush.exit ], [ %.sink129, %Vec_IntPush.exit74.sink.split ]
   %66 = add nsw i32 %48, 1
-  store i32 %66, ptr %4, align 4, !tbaa !33
+  store i32 %66, ptr %4, align 4, !tbaa !34
   %67 = sext i32 %48 to i64
   %68 = getelementptr inbounds i32, ptr %.pre.i70118, i64 %67
   store i32 %47, ptr %68, align 4, !tbaa !29
@@ -901,18 +901,18 @@ Vec_IntPush.exit74:                               ; preds = %Vec_IntPush.exit74.
   %.pre.i113 = phi ptr [ %17, %16 ], [ %.pre.i70118, %Vec_IntPush.exit74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %71, label %16, !llvm.loop !36
+  br i1 %exitcond.not, label %71, label %16, !llvm.loop !37
 
 71:                                               ; preds = %69
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next91, 3
-  br i1 %exitcond93.not, label %72, label %11, !llvm.loop !37
+  br i1 %exitcond93.not, label %72, label %11, !llvm.loop !38
 
 72:                                               ; preds = %71
-  br i1 %8, label %7, label %73, !llvm.loop !38
+  br i1 %8, label %7, label %73, !llvm.loop !39
 
 73:                                               ; preds = %72
-  %.val = load i32, ptr %4, align 4, !tbaa !33
+  %.val = load i32, ptr %4, align 4, !tbaa !34
   %74 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val)
   %.not88 = icmp eq i32 %.val, 31
   br i1 %.not88, label %._crit_edge87, label %.lr.ph86
@@ -988,7 +988,7 @@ Vec_IntPush.exit74:                               ; preds = %Vec_IntPush.exit74.
   %.1 = phi i32 [ %110, %107 ], [ %.06079, %.lr.ph ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond100.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond100.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %113
   %.pre = load i32, ptr %1, align 16, !tbaa !29
@@ -1051,7 +1051,7 @@ Vec_IntPush.exit74:                               ; preds = %Vec_IntPush.exit74.
 150:                                              ; preds = %145, %149
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 3
-  br i1 %exitcond104.not, label %151, label %145, !llvm.loop !40
+  br i1 %exitcond104.not, label %151, label %145, !llvm.loop !41
 
 151:                                              ; preds = %150
   %152 = add nsw i32 %.06282, 1
@@ -1063,7 +1063,7 @@ Vec_IntPush.exit74:                               ; preds = %Vec_IntPush.exit74.
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %1) #10
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %._crit_edge87, label %85, !llvm.loop !41
+  br i1 %exitcond109.not, label %._crit_edge87, label %85, !llvm.loop !42
 
 ._crit_edge87:                                    ; preds = %153, %73
   %.062.lcssa = phi i32 [ 0, %73 ], [ %.163, %153 ]
@@ -1147,14 +1147,15 @@ attributes #12 = { nounwind allocsize(1) }
 !28 = !{!"p1 _ZTS10Vec_Str_t_", !5, i64 0}
 !29 = !{!11, !11, i64 0}
 !30 = !{!9, !11, i64 24}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!14, !11, i64 4}
-!34 = !{!14, !11, i64 0}
-!35 = !{!14, !12, i64 8}
-!36 = distinct !{!36, !32}
-!37 = distinct !{!37, !32}
-!38 = distinct !{!38, !32}
-!39 = distinct !{!39, !32}
-!40 = distinct !{!40, !32}
-!41 = distinct !{!41, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!14, !11, i64 4}
+!35 = !{!14, !11, i64 0}
+!36 = !{!14, !12, i64 8}
+!37 = distinct !{!37, !32, !33}
+!38 = distinct !{!38, !32, !33}
+!39 = distinct !{!39, !32, !33}
+!40 = distinct !{!40, !32, !33}
+!41 = distinct !{!41, !32, !33}
+!42 = distinct !{!42, !32, !33}

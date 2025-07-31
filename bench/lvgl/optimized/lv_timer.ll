@@ -213,21 +213,21 @@ lv_timer_exec.exit.thread:                        ; preds = %.lr.ph, %48, %49, %
   %.1 = phi i32 [ %.04159, %.lr.ph60 ], [ %spec.select, %60 ]
   %66 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 216), ptr noundef nonnull %.04258) #8
   %.not47 = icmp eq ptr %66, null
-  br i1 %.not47, label %._crit_edge, label %.lr.ph60, !llvm.loop !48
+  br i1 %.not47, label %._crit_edge, label %.lr.ph60, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %65, %.critedge
   %.041.lcssa = phi i32 [ -1, %.critedge ], [ %.1, %65 ]
   %67 = tail call i32 @lv_tick_elaps(i32 noundef %7) #8
-  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 256), align 8, !tbaa !49
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 256), align 8, !tbaa !50
   %69 = add i32 %68, %67
-  store i32 %69, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 256), align 8, !tbaa !49
-  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 260), align 4, !tbaa !50
+  store i32 %69, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 256), align 8, !tbaa !50
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 260), align 4, !tbaa !51
   %71 = tail call i32 @lv_tick_elaps(i32 noundef %70) #8
   %72 = icmp ugt i32 %71, 499
   br i1 %72, label %73, label %83
 
 73:                                               ; preds = %._crit_edge
-  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 256), align 8, !tbaa !49
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 256), align 8, !tbaa !50
   %75 = mul i32 %74, 100
   %76 = udiv i32 %75, %71
   %77 = trunc i32 %76 to i8
@@ -235,14 +235,14 @@ lv_timer_exec.exit.thread:                        ; preds = %.lr.ph, %48, %49, %
   %79 = icmp samesign ugt i32 %78, 100
   %80 = sub i8 100, %77
   %81 = select i1 %79, i8 0, i8 %80
-  store i8 %81, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 241), align 1, !tbaa !51
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 256), align 8, !tbaa !49
+  store i8 %81, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 241), align 1, !tbaa !52
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 256), align 8, !tbaa !50
   %82 = tail call i32 @lv_tick_get() #8
-  store i32 %82, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 260), align 4, !tbaa !50
+  store i32 %82, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 260), align 4, !tbaa !51
   br label %83
 
 83:                                               ; preds = %73, %._crit_edge
-  store i32 %.041.lcssa, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 244), align 4, !tbaa !52
+  store i32 %.041.lcssa, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 244), align 4, !tbaa !53
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %83
@@ -265,16 +265,16 @@ declare i32 @lv_tick_elaps(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_timer_periodic_handler() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 252), align 4, !tbaa !53
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 252), align 4, !tbaa !54
   %2 = tail call i32 @lv_tick_elaps(i32 noundef %1) #8
-  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 244), align 4, !tbaa !52
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 244), align 4, !tbaa !53
   %.not = icmp ult i32 %2, %3
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %0
   %5 = tail call i32 @lv_timer_handler()
   %6 = tail call i32 @lv_tick_get() #8
-  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 252), align 4, !tbaa !53
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 252), align 4, !tbaa !54
   br label %7
 
 7:                                                ; preds = %4, %0
@@ -288,7 +288,7 @@ define nonnull ptr @lv_timer_create_basic() local_unnamed_addr #0 {
   br i1 %.not.i, label %.preheader.i, label %2
 
 .preheader.i:                                     ; preds = %0, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !55
 
 2:                                                ; preds = %0
   store i32 500, ptr %1, align 8, !tbaa !42
@@ -304,11 +304,11 @@ define nonnull ptr @lv_timer_create_basic() local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %8, ptr %9, align 4, !tbaa !40
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %10, align 8, !tbaa !54
+  store ptr null, ptr %10, align 8, !tbaa !56
   %11 = load i8, ptr %5, align 4
   %12 = or i8 %11, 2
   store i8 %12, ptr %5, align 4
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 243), align 1, !tbaa !55
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 243), align 1, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 244), align 4, !tbaa !30
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 272), align 8, !tbaa !31
   %.not.i.i = icmp eq ptr %13, null
@@ -330,7 +330,7 @@ define nonnull ptr @lv_timer_create(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !55
 
 5:                                                ; preds = %3
   store i32 %1, ptr %4, align 8, !tbaa !42
@@ -346,11 +346,11 @@ define nonnull ptr @lv_timer_create(ptr noundef %0, i32 noundef %1, ptr noundef 
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %11, ptr %12, align 4, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %2, ptr %13, align 8, !tbaa !54
+  store ptr %2, ptr %13, align 8, !tbaa !56
   %14 = load i8, ptr %8, align 4
   %15 = or i8 %14, 2
   store i8 %15, ptr %8, align 4
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 243), align 1, !tbaa !55
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 243), align 1, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 244), align 4, !tbaa !30
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 272), align 8, !tbaa !31
   %.not.i = icmp eq ptr %16, null
@@ -373,7 +373,7 @@ define void @lv_timer_set_cb(ptr noundef writeonly captures(address_is_null) %0,
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !58
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -399,7 +399,7 @@ define void @lv_timer_pause(ptr noundef captures(address_is_null) %0) local_unna
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !59
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -415,7 +415,7 @@ define void @lv_timer_resume(ptr noundef captures(address_is_null) %0) local_unn
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !60
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -442,7 +442,7 @@ define void @lv_timer_set_period(ptr noundef writeonly captures(address_is_null)
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !61
 
 3:                                                ; preds = %2
   store i32 %1, ptr %0, align 8, !tbaa !42
@@ -455,7 +455,7 @@ define void @lv_timer_ready(ptr noundef captures(address_is_null) %0) local_unna
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !62
 
 2:                                                ; preds = %1
   %3 = tail call i32 @lv_tick_get() #8
@@ -473,7 +473,7 @@ define void @lv_timer_set_repeat_count(ptr noundef writeonly captures(address_is
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !63
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -487,7 +487,7 @@ define void @lv_timer_set_auto_delete(ptr noundef captures(address_is_null) %0, 
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !64
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -505,11 +505,11 @@ define void @lv_timer_set_user_data(ptr noundef writeonly captures(address_is_nu
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !65
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %4, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !56
   ret void
 }
 
@@ -519,7 +519,7 @@ define void @lv_timer_reset(ptr noundef writeonly captures(address_is_null) %0) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !66
 
 2:                                                ; preds = %1
   %3 = tail call i32 @lv_tick_get() #8
@@ -550,7 +550,7 @@ declare void @lv_ll_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 256) i32 @lv_timer_get_idle() local_unnamed_addr #4 {
-  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 241), align 1, !tbaa !56
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 241), align 1, !tbaa !67
   %2 = zext i8 %1 to i32
   ret i32 %2
 }
@@ -581,14 +581,14 @@ define ptr @lv_timer_get_next(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_timer_handler_run_in_period(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @lv_timer_handler_run_in_period.last_tick, align 4, !tbaa !57
+  %2 = load i32, ptr @lv_timer_handler_run_in_period.last_tick, align 4, !tbaa !68
   %3 = tail call i32 @lv_tick_elaps(i32 noundef %2) #8
   %.not = icmp ult i32 %3, %0
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @lv_tick_get() #8
-  store i32 %5, ptr @lv_timer_handler_run_in_period.last_tick, align 4, !tbaa !57
+  store i32 %5, ptr @lv_timer_handler_run_in_period.last_tick, align 4, !tbaa !68
   %6 = tail call i32 @lv_timer_handler()
   br label %7
 
@@ -600,7 +600,7 @@ define i32 @lv_timer_handler_run_in_period(i32 noundef %0) local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @lv_timer_get_user_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
   ret ptr %3
 }
 
@@ -684,15 +684,26 @@ attributes #8 = { nounwind }
 !43 = !{!41, !9, i64 24}
 !44 = !{!41, !11, i64 8}
 !45 = !{!4, !5, i64 242}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47}
-!49 = !{!17, !9, i64 40}
-!50 = !{!17, !9, i64 44}
-!51 = !{!17, !6, i64 25}
-!52 = !{!17, !9, i64 28}
-!53 = !{!17, !9, i64 36}
-!54 = !{!41, !11, i64 16}
-!55 = !{!4, !5, i64 243}
-!56 = !{!4, !6, i64 241}
-!57 = !{!9, !9, i64 0}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !47, !48}
+!50 = !{!17, !9, i64 40}
+!51 = !{!17, !9, i64 44}
+!52 = !{!17, !6, i64 25}
+!53 = !{!17, !9, i64 28}
+!54 = !{!17, !9, i64 36}
+!55 = distinct !{!55, !48}
+!56 = !{!41, !11, i64 16}
+!57 = !{!4, !5, i64 243}
+!58 = distinct !{!58, !48}
+!59 = distinct !{!59, !48}
+!60 = distinct !{!60, !48}
+!61 = distinct !{!61, !48}
+!62 = distinct !{!62, !48}
+!63 = distinct !{!63, !48}
+!64 = distinct !{!64, !48}
+!65 = distinct !{!65, !48}
+!66 = distinct !{!66, !48}
+!67 = !{!4, !6, i64 241}
+!68 = !{!9, !9, i64 0}

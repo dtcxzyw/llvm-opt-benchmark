@@ -79,7 +79,7 @@ skipWhitespace.exit:                              ; preds = %5, %11, %1
   %32 = getelementptr inbounds nuw i8, ptr %.06.i44, i64 1
   %33 = load i8, ptr %32, align 1
   %.not.i47 = icmp eq i8 %33, 0
-  br i1 %.not.i47, label %skipNonWhitespace.exit.thread, label %25, !llvm.loop !8
+  br i1 %.not.i47, label %skipNonWhitespace.exit.thread, label %25, !llvm.loop !9
 
 skipNonWhitespace.exit.thread:                    ; preds = %31
   %34 = add nuw nsw i32 %.03674, 1
@@ -97,7 +97,7 @@ skipNonWhitespace.exit.thread:                    ; preds = %31
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 8192
   %.not4.i51 = icmp eq i16 %41, 0
-  br i1 %.not4.i51, label %.lr.ph.i43, label %42, !llvm.loop !9
+  br i1 %.not4.i51, label %.lr.ph.i43, label %42, !llvm.loop !10
 
 42:                                               ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %.06.i50, i64 1
@@ -180,7 +180,7 @@ skipWhitespace.exit61:                            ; preds = %54, %60, %.lr.ph
   %74 = getelementptr inbounds nuw i8, ptr %.06.i64, i64 1
   %75 = load i8, ptr %74, align 1
   %.not.i67 = icmp eq i8 %75, 0
-  br i1 %.not.i67, label %skipNonWhitespace.exit68, label %67, !llvm.loop !8
+  br i1 %.not.i67, label %skipNonWhitespace.exit68, label %67, !llvm.loop !9
 
 skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhitespace.exit61
   %.0.lcssa.i66 = phi ptr [ %.0.lcssa.i60, %skipWhitespace.exit61 ], [ %.06.i64, %67 ], [ %74, %73 ]
@@ -188,7 +188,7 @@ skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhite
   store i8 0, ptr %.0.lcssa.i66, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %skipNonWhitespace.exit68
   %77 = zext nneg i32 %.137 to i64
@@ -259,7 +259,7 @@ skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhite
 .backedge.i.i:                                    ; preds = %108, %105, %96
   %111 = tail call ptr @readdir64(ptr noundef nonnull %85) #11
   %.not.i.i = icmp eq ptr %111, null
-  br i1 %.not.i.i, label %closeDescriptors.exit.i, label %96, !llvm.loop !11
+  br i1 %.not.i.i, label %closeDescriptors.exit.i, label %96, !llvm.loop !12
 
 closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.preheader.i.i
   %112 = tail call i32 @closedir(ptr noundef nonnull %85)
@@ -269,7 +269,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   %114 = tail call i32 @getpid() #11
   tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef %114) #11
   %115 = tail call i64 @sysconf(i32 noundef 4) #11
-  %116 = load ptr, ptr @gdata, align 8, !nonnull !12, !noundef !12
+  %116 = load ptr, ptr @gdata, align 8, !nonnull !13, !noundef !13
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 17
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, 0
@@ -279,7 +279,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
 
 121:                                              ; preds = %113
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @.str.2) #11
-  %.pr.pre.i = load ptr, ptr @gdata, align 8, !nonnull !12, !noundef !12
+  %.pr.pre.i = load ptr, ptr @gdata, align 8, !nonnull !13, !noundef !13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 17
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %.thread23.i
@@ -327,7 +327,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   %135 = tail call i32 @close(i32 noundef %134) #11
   %136 = add nuw i64 %.020.i, 1
   %exitcond.not.i = icmp eq i64 %136, %115
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i69, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i69, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.lr.ph.i69, %132, %closeDescriptors.exit.i
   %137 = tail call i32 @execvp(ptr noundef %82, ptr noundef nonnull %47) #11
@@ -422,11 +422,12 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}

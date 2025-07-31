@@ -196,7 +196,7 @@ define internal i32 @pg_wchar2single_with_len(ptr noundef readonly captures(none
   store i8 %8, ptr %.0812, align 1
   %10 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %10, %2
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph, %6, %3
   %.08.lcssa = phi ptr [ %1, %3 ], [ %9, %6 ], [ %.0812, %.lr.ph ]
@@ -313,7 +313,7 @@ define internal i32 @pg_eucjp2wchar_with_len(ptr noundef readonly captures(none)
   %41 = getelementptr inbounds nuw i8, ptr %.03540.i, i64 4
   %42 = add i32 %.042.i, 1
   %43 = icmp sgt i32 %40, 0
-  br i1 %43, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit, !llvm.loop !7
+  br i1 %43, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit, !llvm.loop !8
 
 pg_euc2wchar_with_len.exit:                       ; preds = %.lr.ph.i, %39, %3
   %.035.lcssa.i = phi ptr [ %1, %3 ], [ %.03540.i, %.lr.ph.i ], [ %41, %39 ]
@@ -409,7 +409,7 @@ define internal i32 @pg_wchar2euc_with_len(ptr noundef readonly captures(none) %
   %47 = getelementptr inbounds nuw i8, ptr %.03543, i64 4
   %48 = add nsw i32 %.03245, -1
   %49 = icmp sgt i32 %.03245, 1
-  br i1 %49, label %.lr.ph, label %.critedge, !llvm.loop !8
+  br i1 %49, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %45, %3
   %.033.lcssa = phi ptr [ %1, %3 ], [ %.134, %45 ], [ %.03344, %.lr.ph ]
@@ -599,7 +599,7 @@ define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %31 = getelementptr inbounds nuw i8, ptr %.01424, i64 %30
   %32 = sub nsw i32 %.01523, %.013
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph, label %.thread
+  br i1 %33, label %.lr.ph, label %.thread, !llvm.loop !10
 
 .thread:                                          ; preds = %29, %5, %9, %11, %14, %16, %19, %23, %26, %2
   %.014.lcssa = phi ptr [ %0, %2 ], [ %.01424, %26 ], [ %.01424, %23 ], [ %.01424, %19 ], [ %.01424, %16 ], [ %.01424, %14 ], [ %.01424, %11 ], [ %.01424, %9 ], [ %.01424, %5 ], [ %31, %29 ]
@@ -689,7 +689,7 @@ define internal i32 @pg_euccn2wchar_with_len(ptr noundef readonly captures(none)
   %46 = getelementptr inbounds nuw i8, ptr %.03742, i64 4
   %47 = add i32 %.044, 1
   %48 = icmp sgt i32 %45, 0
-  br i1 %48, label %.lr.ph, label %.critedge, !llvm.loop !9
+  br i1 %48, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %44, %3
   %.037.lcssa = phi ptr [ %1, %3 ], [ %46, %44 ], [ %.03742, %.lr.ph ]
@@ -788,7 +788,7 @@ define internal i32 @pg_euckr_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %16 = getelementptr inbounds nuw i8, ptr %.01424, i64 %15
   %17 = sub nsw i32 %.01523, %.013
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph, label %.thread
+  br i1 %18, label %.lr.ph, label %.thread, !llvm.loop !12
 
 .thread:                                          ; preds = %14, %5, %7, %10, %2
   %.014.lcssa = phi ptr [ %0, %2 ], [ %.01424, %10 ], [ %.01424, %7 ], [ %.01424, %5 ], [ %16, %14 ]
@@ -872,7 +872,7 @@ define internal i32 @pg_euckr2wchar_with_len(ptr noundef readonly captures(none)
   %41 = getelementptr inbounds nuw i8, ptr %.03540.i, i64 4
   %42 = add i32 %.042.i, 1
   %43 = icmp sgt i32 %40, 0
-  br i1 %43, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit, !llvm.loop !7
+  br i1 %43, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit, !llvm.loop !8
 
 pg_euc2wchar_with_len.exit:                       ; preds = %.lr.ph.i, %39, %3
   %.035.lcssa.i = phi ptr [ %1, %3 ], [ %.03540.i, %.lr.ph.i ], [ %41, %39 ]
@@ -1008,7 +1008,7 @@ define internal i32 @pg_euctw2wchar_with_len(ptr noundef readonly captures(none)
   %52 = getelementptr inbounds nuw i8, ptr %.03944, i64 4
   %53 = add i32 %.046, 1
   %54 = icmp sgt i32 %51, 0
-  br i1 %54, label %.lr.ph, label %.critedge, !llvm.loop !10
+  br i1 %54, label %.lr.ph, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %.lr.ph, %50, %3
   %.039.lcssa = phi ptr [ %1, %3 ], [ %52, %50 ], [ %.03944, %.lr.ph ]
@@ -1177,7 +1177,7 @@ define internal i32 @pg_euctw_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %29 = getelementptr inbounds nuw i8, ptr %.01424, i64 %28
   %30 = sub nsw i32 %.01523, %.013
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph, label %.thread
+  br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !14
 
 .thread:                                          ; preds = %27, %5, %9, %11, %14, %18, %7, %22, %24, %2
   %.014.lcssa = phi ptr [ %0, %2 ], [ %.01424, %24 ], [ %.01424, %22 ], [ %.01424, %7 ], [ %.01424, %18 ], [ %.01424, %14 ], [ %.01424, %11 ], [ %.01424, %9 ], [ %.01424, %5 ], [ %29, %27 ]
@@ -1302,7 +1302,7 @@ define internal i32 @pg_utf2wchar_with_len(ptr noundef readonly captures(none) %
   %75 = getelementptr inbounds nuw i8, ptr %.04547, i64 4
   %76 = add i32 %.04249, 1
   %77 = icmp sgt i32 %74, 0
-  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !11
+  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %14, %28, %48, %73, %3
   %.045.lcssa = phi ptr [ %1, %3 ], [ %75, %73 ], [ %.04547, %48 ], [ %.04547, %28 ], [ %.04547, %14 ], [ %.04547, %.lr.ph ]
@@ -1409,7 +1409,7 @@ pg_utf_mblen_private.exit:                        ; preds = %49, %unicode_to_utf
   %55 = getelementptr inbounds nuw i8, ptr %.019, i64 4
   %56 = add nsw i32 %.01317, -1
   %57 = icmp sgt i32 %.01317, 1
-  br i1 %57, label %.lr.ph, label %.critedge, !llvm.loop !12
+  br i1 %57, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %pg_utf_mblen_private.exit, %3
   %.014.lcssa = phi ptr [ %1, %3 ], [ %54, %pg_utf_mblen_private.exit ], [ %.01416, %.lr.ph ]
@@ -1533,7 +1533,7 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   %.119.i.i = phi i32 [ %.01821.i.i, %61 ], [ %67, %66 ]
   %.1.i.i = phi i32 [ %62, %61 ], [ %.01722.i.i, %66 ]
   %.not.i.i = icmp slt i32 %.119.i.i, %.1.i.i
-  br i1 %.not.i.i, label %69, label %.preheader.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %69, label %.preheader.i.i, !llvm.loop !17
 
 69:                                               ; preds = %68
   %70 = add nsw i32 %.0.i, -262142
@@ -1569,7 +1569,7 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   %.119.i17.i = phi i32 [ %.01821.i15.i, %78 ], [ %84, %83 ]
   %.1.i18.i = phi i32 [ %79, %78 ], [ %.01722.i14.i, %83 ]
   %.not.i19.i = icmp slt i32 %.119.i17.i, %.1.i18.i
-  br i1 %.not.i19.i, label %ucs_wcwidth.exit, label %.preheader.i13.i, !llvm.loop !13
+  br i1 %.not.i19.i, label %ucs_wcwidth.exit, label %.preheader.i13.i, !llvm.loop !17
 
 ucs_wcwidth.exit:                                 ; preds = %63, %80, %85, %23, %utf8_to_unicode.exit, %47, %49, %52, %69
   %.0.i1 = phi i32 [ 0, %utf8_to_unicode.exit ], [ -1, %49 ], [ -1, %47 ], [ 1, %69 ], [ 1, %52 ], [ -1, %23 ], [ 2, %80 ], [ 1, %85 ], [ 0, %63 ]
@@ -1643,7 +1643,7 @@ define internal i32 @pg_utf8_verifystr(ptr noundef %0, i32 noundef %1) #6 {
   %8 = bitcast <16 x i8> %7 to <2 x i64>
   %9 = or <2 x i64> %.013.i, %8
   %10 = or <2 x i64> %9, %.010.ptr.val.i
-  br i1 %4, label %.preheader53, label %is_valid_ascii.exit, !llvm.loop !14
+  br i1 %4, label %.preheader53, label %is_valid_ascii.exit, !llvm.loop !18
 
 is_valid_ascii.exit:                              ; preds = %.preheader53
   %11 = bitcast <2 x i64> %10 to <16 x i8>
@@ -1668,7 +1668,7 @@ is_valid_ascii.exit:                              ; preds = %.preheader53
   %22 = lshr i32 %20, %21
   %23 = add nsw i32 %.07.i, -1
   %24 = icmp samesign ugt i32 %.07.i, 1
-  br i1 %24, label %14, label %utf8_advance.exit, !llvm.loop !15
+  br i1 %24, label %14, label %utf8_advance.exit, !llvm.loop !19
 
 utf8_advance.exit:                                ; preds = %14
   %25 = and i32 %22, 31
@@ -1679,7 +1679,7 @@ utf8_advance.exit:                                ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %.160, i64 32
   %28 = add i32 %.12859, -32
   %29 = icmp ugt i32 %28, 31
-  br i1 %29, label %.preheader54, label %30, !llvm.loop !16
+  br i1 %29, label %.preheader54, label %30, !llvm.loop !20
 
 30:                                               ; preds = %26
   switch i32 %.142, label %.preheader [
@@ -1709,7 +1709,7 @@ utf8_advance.exit:                                ; preds = %14
   br i1 %or.cond52, label %pg_utf_mblen_private.exit.thread, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %35, %.preheader
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader, !llvm.loop !21
 
 .fold.split:                                      ; preds = %30
   br label %pg_utf_mblen_private.exit.thread
@@ -1763,7 +1763,7 @@ pg_utf_mblen_private.exit.thread:                 ; preds = %35, %30, %.fold.spl
   %63 = getelementptr inbounds nuw i8, ptr %.362, i64 %62
   %64 = sub nsw i32 %.33061, %.025
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.lr.ph, label %.thread
+  br i1 %65, label %.lr.ph, label %.thread, !llvm.loop !22
 
 .thread:                                          ; preds = %61, %45, %57, %59, %pg_utf_mblen_private.exit.thread
   %.3.lcssa = phi ptr [ %.026, %pg_utf_mblen_private.exit.thread ], [ %.362, %59 ], [ %.362, %57 ], [ %.362, %45 ], [ %63, %61 ]
@@ -1907,7 +1907,7 @@ define internal i32 @pg_mule2wchar_with_len(ptr noundef readonly captures(none) 
   %75 = getelementptr inbounds nuw i8, ptr %.05875, i64 4
   %76 = add i32 %.077, 1
   %77 = icmp sgt i32 %74, 0
-  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !18
+  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %.lr.ph, %73, %3
   %.058.lcssa = phi ptr [ %1, %3 ], [ %75, %73 ], [ %.05875, %.lr.ph ]
@@ -2054,7 +2054,7 @@ define internal i32 @pg_wchar2mule_with_len(ptr noundef readonly captures(none) 
   %73 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %74 = add nsw i32 %.07984, -1
   %75 = icmp sgt i32 %.07984, 1
-  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !19
+  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph, %71, %3
   %.080.lcssa = phi ptr [ %1, %3 ], [ %.181, %71 ], [ %.08083, %.lr.ph ]
@@ -2124,7 +2124,7 @@ pg_mule_mblen.exit:                               ; preds = %2, %5, %8
   %13 = getelementptr inbounds nuw i8, ptr %.07, i64 1
   %14 = load i8, ptr %13, align 1
   %.not = icmp sgt i8 %14, -1
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %11, %pg_mule_mblen.exit
   %.0 = phi i32 [ -1, %pg_mule_mblen.exit ], [ %.0.i, %.preheader ], [ -1, %11 ]
@@ -2181,7 +2181,7 @@ pg_mule_mblen.exit.i:                             ; preds = %12, %9, %7
   %17 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %18 = load i8, ptr %17, align 1
   %.not.i = icmp sgt i8 %18, -1
-  br i1 %.not.i, label %.thread, label %.preheader.i, !llvm.loop !20
+  br i1 %.not.i, label %.thread, label %.preheader.i, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader.i, %5
   %.013 = phi i32 [ 1, %5 ], [ %.0.i.i, %.preheader.i ]
@@ -2189,7 +2189,7 @@ pg_mule_mblen.exit.i:                             ; preds = %12, %9, %7
   %20 = getelementptr inbounds nuw i8, ptr %.01427, i64 %19
   %21 = sub i32 %.01526, %.013
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph, label %.thread
+  br i1 %22, label %.lr.ph, label %.thread, !llvm.loop !26
 
 .thread:                                          ; preds = %.loopexit, %5, %pg_mule_mblen.exit.i, %15, %2
   %.01425 = phi ptr [ %0, %2 ], [ %.01427, %15 ], [ %20, %.loopexit ], [ %.01427, %5 ], [ %.01427, %pg_mule_mblen.exit.i ]
@@ -2220,7 +2220,7 @@ define internal i32 @pg_latin12wchar_with_len(ptr noundef readonly captures(none
   store i32 %7, ptr %.0812, align 4
   %10 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %10, %2
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph, %6, %3
   %.08.lcssa = phi ptr [ %1, %3 ], [ %9, %6 ], [ %.0812, %.lr.ph ]
@@ -2386,7 +2386,7 @@ pg_sjis_verifychar.exit.thread19:                 ; preds = %13, %pg_sjis_verify
   %18 = getelementptr inbounds nuw i8, ptr %.01426, i64 %17
   %19 = sub nsw i32 %.01525, %.013
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph, label %.thread
+  br i1 %20, label %.lr.ph, label %.thread, !llvm.loop !28
 
 .thread:                                          ; preds = %pg_sjis_verifychar.exit.thread19, %5, %pg_sjis_verifychar.exit, %10, %13, %2
   %.014.lcssa = phi ptr [ %0, %2 ], [ %.01426, %13 ], [ %.01426, %10 ], [ %.01426, %pg_sjis_verifychar.exit ], [ %.01426, %5 ], [ %18, %pg_sjis_verifychar.exit.thread19 ]
@@ -2444,7 +2444,7 @@ define internal range(i32 -1, 3) i32 @pg_big5_verifychar(ptr noundef readonly ca
   %or.cond = select i1 %7, i1 %10, i1 false
   %11 = icmp eq i8 %9, 0
   %or.cond13 = select i1 %or.cond, i1 true, i1 %11
-  br i1 %or.cond13, label %12, label %.critedge, !llvm.loop !22
+  br i1 %or.cond13, label %12, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %6, %5
   br label %12
@@ -2482,7 +2482,7 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %or.cond.i = select i1 %10, i1 %13, i1 false
   %14 = icmp eq i8 %12, 0
   %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %14
-  br i1 %or.cond13.i, label %..thread_crit_edge, label %15, !llvm.loop !22
+  br i1 %or.cond13.i, label %..thread_crit_edge, label %15, !llvm.loop !29
 
 15:                                               ; preds = %5, %9
   %.013 = phi i32 [ 1, %5 ], [ 2, %9 ]
@@ -2490,10 +2490,10 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %17 = getelementptr inbounds nuw i8, ptr %.01424, i64 %16
   %18 = sub nsw i32 %.01523, %.013
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.thread
+  br i1 %19, label %.lr.ph, label %.thread, !llvm.loop !30
 
 ..thread_crit_edge:                               ; preds = %9
-  br label %.thread, !llvm.loop !22
+  br label %.thread, !llvm.loop !29
 
 .thread:                                          ; preds = %15, %5, %7, %..thread_crit_edge, %2
   %.014.lcssa = phi ptr [ %.01424, %..thread_crit_edge ], [ %0, %2 ], [ %.01424, %7 ], [ %.01424, %5 ], [ %17, %15 ]
@@ -2551,7 +2551,7 @@ define internal range(i32 -1, 3) i32 @pg_gbk_verifychar(ptr noundef readonly cap
   %or.cond = select i1 %7, i1 %10, i1 false
   %11 = icmp eq i8 %9, 0
   %or.cond13 = select i1 %or.cond, i1 true, i1 %11
-  br i1 %or.cond13, label %12, label %.critedge, !llvm.loop !23
+  br i1 %or.cond13, label %12, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %6, %5
   br label %12
@@ -2589,7 +2589,7 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %or.cond.i = select i1 %10, i1 %13, i1 false
   %14 = icmp eq i8 %12, 0
   %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %14
-  br i1 %or.cond13.i, label %..thread_crit_edge, label %15, !llvm.loop !23
+  br i1 %or.cond13.i, label %..thread_crit_edge, label %15, !llvm.loop !31
 
 15:                                               ; preds = %5, %9
   %.013 = phi i32 [ 1, %5 ], [ 2, %9 ]
@@ -2597,10 +2597,10 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %17 = getelementptr inbounds nuw i8, ptr %.01424, i64 %16
   %18 = sub nsw i32 %.01523, %.013
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.thread
+  br i1 %19, label %.lr.ph, label %.thread, !llvm.loop !32
 
 ..thread_crit_edge:                               ; preds = %9
-  br label %.thread, !llvm.loop !23
+  br label %.thread, !llvm.loop !31
 
 .thread:                                          ; preds = %15, %5, %7, %..thread_crit_edge, %2
   %.014.lcssa = phi ptr [ %.01424, %..thread_crit_edge ], [ %0, %2 ], [ %.01424, %7 ], [ %.01424, %5 ], [ %17, %15 ]
@@ -2658,7 +2658,7 @@ define internal range(i32 -1, 3) i32 @pg_uhc_verifychar(ptr noundef readonly cap
   %or.cond = select i1 %7, i1 %10, i1 false
   %11 = icmp eq i8 %9, 0
   %or.cond13 = select i1 %or.cond, i1 true, i1 %11
-  br i1 %or.cond13, label %12, label %.critedge, !llvm.loop !24
+  br i1 %or.cond13, label %12, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %6, %5
   br label %12
@@ -2696,7 +2696,7 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %or.cond.i = select i1 %10, i1 %13, i1 false
   %14 = icmp eq i8 %12, 0
   %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %14
-  br i1 %or.cond13.i, label %..thread_crit_edge, label %15, !llvm.loop !24
+  br i1 %or.cond13.i, label %..thread_crit_edge, label %15, !llvm.loop !33
 
 15:                                               ; preds = %5, %9
   %.013 = phi i32 [ 1, %5 ], [ 2, %9 ]
@@ -2704,10 +2704,10 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %17 = getelementptr inbounds nuw i8, ptr %.01424, i64 %16
   %18 = sub nsw i32 %.01523, %.013
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.thread
+  br i1 %19, label %.lr.ph, label %.thread, !llvm.loop !34
 
 ..thread_crit_edge:                               ; preds = %9
-  br label %.thread, !llvm.loop !24
+  br label %.thread, !llvm.loop !33
 
 .thread:                                          ; preds = %15, %5, %7, %..thread_crit_edge, %2
   %.014.lcssa = phi ptr [ %.01424, %..thread_crit_edge ], [ %0, %2 ], [ %.01424, %7 ], [ %.01424, %5 ], [ %17, %15 ]
@@ -2896,7 +2896,7 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %29 = getelementptr inbounds nuw i8, ptr %.01426, i64 %28
   %30 = sub nsw i32 %.01524, %.013
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph, label %.thread
+  br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !35
 
 .thread:                                          ; preds = %27, %5, %.thread.i, %.thread.i, %22, %18, %14, %13, %13, %23, %2
   %.014.lcssa = phi ptr [ %0, %2 ], [ %.01426, %23 ], [ %.01426, %13 ], [ %.01426, %13 ], [ %.01426, %14 ], [ %.01426, %18 ], [ %.01426, %22 ], [ %.01426, %.thread.i ], [ %.01426, %.thread.i ], [ %.01426, %5 ], [ %29, %27 ]
@@ -2985,7 +2985,7 @@ pg_johab_mblen.exit:                              ; preds = %2, %3, %4
   %11 = load i8, ptr %10, align 1
   %12 = add i8 %11, 95
   %or.cond = icmp ult i8 %12, 94
-  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !25
+  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.preheader, %8, %6, %pg_johab_mblen.exit
   %.0 = phi i32 [ -1, %pg_johab_mblen.exit ], [ %.0.i.i, %6 ], [ %.0.i.i, %.preheader ], [ -1, %8 ]
@@ -3026,7 +3026,7 @@ pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
   %12 = load i8, ptr %11, align 1
   %13 = add i8 %12, 95
   %or.cond.i = icmp ult i8 %13, 94
-  br i1 %or.cond.i, label %.preheader.i, label %.thread, !llvm.loop !25
+  br i1 %or.cond.i, label %.preheader.i, label %.thread, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.preheader.i, %5
   %.013 = phi i32 [ 1, %5 ], [ %spec.select, %.preheader.i ]
@@ -3034,7 +3034,7 @@ pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.01427, i64 %14
   %16 = sub nsw i32 %.01526, %.013
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph, label %.thread
+  br i1 %17, label %.lr.ph, label %.thread, !llvm.loop !37
 
 .thread:                                          ; preds = %.loopexit, %5, %pg_johab_mblen.exit.i, %9, %2
   %.01425 = phi ptr [ %0, %2 ], [ %.01427, %9 ], [ %15, %.loopexit ], [ %.01427, %5 ], [ %.01427, %pg_johab_mblen.exit.i ]
@@ -3194,25 +3194,37 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !6}

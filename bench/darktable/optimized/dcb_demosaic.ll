@@ -71,7 +71,7 @@ define void @_ZN6LibRaw7dcb_verEPA3_f(ptr noundef nonnull readonly align 8 captu
   %46 = add nuw nsw i32 %.02735, 1
   %indvars.iv.next = add nuw i32 %indvars.iv, %5
   %exitcond.not = icmp eq i32 %.02735, %18
-  br i1 %exitcond.not, label %._crit_edge38, label %19, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge38, label %19, !llvm.loop !78
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %2
   ret void
@@ -138,13 +138,13 @@ define void @_ZN6LibRaw7dcb_horEPA3_f(ptr noundef nonnull readonly align 8 captu
   %43 = add nuw nsw i32 %.02025, 2
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 2
   %44 = icmp slt i32 %43, %13
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !78
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %45 = add nuw nsw i32 %.01927, 1
   %indvars.iv.next = add nuw i32 %indvars.iv, %5
   %exitcond.not = icmp eq i32 %.01927, %17
-  br i1 %exitcond.not, label %._crit_edge30, label %18, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge30, label %18, !llvm.loop !80
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %2
   ret void
@@ -270,7 +270,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %91 = add nuw nsw i32 %.0186214, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %92 = icmp slt i32 %91, %11
-  br i1 %92, label %42, label %._crit_edge.loopexit, !llvm.loop !80
+  br i1 %92, label %42, label %._crit_edge.loopexit, !llvm.loop !81
 
 ._crit_edge.loopexit:                             ; preds = %42
   %.pre = load i16, ptr %5, align 4, !tbaa !71
@@ -282,7 +282,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %95 = zext i16 %93 to i32
   %96 = add nsw i32 %95, -1
   %97 = icmp slt i32 %94, %96
-  br i1 %97, label %19, label %.preheader, !llvm.loop !81
+  br i1 %97, label %19, label %.preheader, !llvm.loop !82
 
 98:                                               ; preds = %.lr.ph225, %._crit_edge223
   %99 = phi i16 [ %93, %.lr.ph225 ], [ %185, %._crit_edge223 ]
@@ -383,7 +383,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %182 = zext i16 %181 to i32
   %183 = add nsw i32 %182, -1
   %184 = icmp slt i32 %180, %183
-  br i1 %184, label %121, label %._crit_edge223.loopexit, !llvm.loop !82
+  br i1 %184, label %121, label %._crit_edge223.loopexit, !llvm.loop !83
 
 ._crit_edge223.loopexit:                          ; preds = %121
   %.pre232 = load i16, ptr %5, align 4, !tbaa !71
@@ -396,7 +396,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %188 = zext i16 %185 to i32
   %189 = add nsw i32 %188, -1
   %190 = icmp slt i32 %187, %189
-  br i1 %190, label %98, label %._crit_edge226, !llvm.loop !83
+  br i1 %190, label %98, label %._crit_edge226, !llvm.loop !84
 
 ._crit_edge226:                                   ; preds = %._crit_edge223, %1, %.preheader
   ret void
@@ -515,13 +515,13 @@ define void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull readonly align 8 c
   %84 = add nuw nsw i32 %.0209236, 2
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 2
   %85 = icmp slt i32 %84, %14
-  br i1 %85, label %42, label %._crit_edge, !llvm.loop !84
+  br i1 %85, label %42, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %42, %24
   %86 = add nuw nsw i32 %.0207244, 1
   %indvars.iv.next = add nuw i32 %indvars.iv, %6
   %exitcond.not = icmp eq i32 %86, %10
-  br i1 %exitcond.not, label %.lr.ph265, label %24, !llvm.loop !85
+  br i1 %exitcond.not, label %.lr.ph265, label %24, !llvm.loop !86
 
 87:                                               ; preds = %.lr.ph265, %._crit_edge251
   %indvars.iv271 = phi i32 [ %22, %.lr.ph265 ], [ %indvars.iv.next272, %._crit_edge251 ]
@@ -599,13 +599,13 @@ define void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull readonly align 8 c
   %142 = add nuw nsw i32 %.1210247, 2
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 2
   %143 = icmp slt i32 %142, %20
-  br i1 %143, label %104, label %._crit_edge251, !llvm.loop !86
+  br i1 %143, label %104, label %._crit_edge251, !llvm.loop !87
 
 ._crit_edge251:                                   ; preds = %104, %87
   %144 = add nuw nsw i32 %.1208264, 1
   %indvars.iv.next272 = add nuw i32 %indvars.iv271, %6
   %exitcond276.not = icmp eq i32 %144, %10
-  br i1 %exitcond276.not, label %._crit_edge266, label %87, !llvm.loop !87
+  br i1 %exitcond276.not, label %._crit_edge266, label %87, !llvm.loop !88
 
 ._crit_edge266:                                   ; preds = %._crit_edge251, %2
   ret void
@@ -722,13 +722,13 @@ define void @_ZN6LibRaw10dcb_color3EPA3_f(ptr noundef nonnull readonly align 8 c
   %84 = add nuw nsw i32 %.0201228, 2
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 2
   %85 = icmp slt i32 %84, %14
-  br i1 %85, label %42, label %._crit_edge, !llvm.loop !88
+  br i1 %85, label %42, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %42, %24
   %86 = add nuw nsw i32 %.0199236, 1
   %indvars.iv.next = add nuw i32 %indvars.iv, %6
   %exitcond.not = icmp eq i32 %86, %10
-  br i1 %exitcond.not, label %.lr.ph253, label %24, !llvm.loop !89
+  br i1 %exitcond.not, label %.lr.ph253, label %24, !llvm.loop !90
 
 87:                                               ; preds = %.lr.ph253, %._crit_edge243
   %indvars.iv259 = phi i32 [ %22, %.lr.ph253 ], [ %indvars.iv.next260, %._crit_edge243 ]
@@ -807,13 +807,13 @@ define void @_ZN6LibRaw10dcb_color3EPA3_f(ptr noundef nonnull readonly align 8 c
   %143 = add nuw nsw i32 %.1202239, 2
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 2
   %144 = icmp slt i32 %143, %20
-  br i1 %144, label %104, label %._crit_edge243, !llvm.loop !90
+  br i1 %144, label %104, label %._crit_edge243, !llvm.loop !91
 
 ._crit_edge243:                                   ; preds = %104, %87
   %145 = add nuw nsw i32 %.1200252, 1
   %indvars.iv.next260 = add nuw i32 %indvars.iv259, %6
   %exitcond264.not = icmp eq i32 %145, %10
-  br i1 %exitcond264.not, label %._crit_edge254, label %87, !llvm.loop !91
+  br i1 %exitcond264.not, label %._crit_edge254, label %87, !llvm.loop !92
 
 ._crit_edge254:                                   ; preds = %._crit_edge243, %2
   ret void
@@ -1153,7 +1153,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   store i16 %.sink, ptr %177, align 2, !tbaa !73
   %178 = add nuw nsw i32 %.09051062, 2
   %179 = icmp slt i32 %178, %14
-  br i1 %179, label %46, label %._crit_edge.loopexit, !llvm.loop !92
+  br i1 %179, label %46, label %._crit_edge.loopexit, !llvm.loop !93
 
 ._crit_edge.loopexit:                             ; preds = %162
   %.pre = load i16, ptr %5, align 4, !tbaa !71
@@ -1165,7 +1165,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   %182 = zext i16 %180 to i32
   %183 = add nsw i32 %182, -2
   %184 = icmp slt i32 %181, %183
-  br i1 %184, label %21, label %._crit_edge1112, !llvm.loop !93
+  br i1 %184, label %21, label %._crit_edge1112, !llvm.loop !94
 
 ._crit_edge1112:                                  ; preds = %._crit_edge, %3
   ret void
@@ -1185,7 +1185,7 @@ define void @_ZN6LibRaw18dcb_copy_to_bufferEPA3_f(ptr noundef nonnull readonly a
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !94
+  %11 = load ptr, ptr %10, align 8, !tbaa !95
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %12
 
@@ -1203,7 +1203,7 @@ define void @_ZN6LibRaw18dcb_copy_to_bufferEPA3_f(ptr noundef nonnull readonly a
   store float %19, ptr %20, align 4, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %12, %2
   ret void
@@ -1223,7 +1223,7 @@ define void @_ZN6LibRaw23dcb_restore_from_bufferEPA3_f(ptr noundef nonnull reado
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !94
+  %11 = load ptr, ptr %10, align 8, !tbaa !95
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
@@ -1245,7 +1245,7 @@ define void @_ZN6LibRaw23dcb_restore_from_bufferEPA3_f(ptr noundef nonnull reado
   %24 = zext i16 %23 to i64
   %25 = mul nuw nsw i64 %24, %22
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %26, label %12, label %._crit_edge, !llvm.loop !96
+  br i1 %26, label %12, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %12, %2
   ret void
@@ -1410,7 +1410,7 @@ define void @_ZN6LibRaw6dcb_ppEv(ptr noundef nonnull readonly align 8 captures(n
   %136 = zext i16 %135 to i32
   %137 = add nsw i32 %136, -2
   %138 = icmp slt i32 %134, %137
-  br i1 %138, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !97
+  br i1 %138, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !98
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i16, ptr %5, align 4, !tbaa !71
@@ -1424,7 +1424,7 @@ define void @_ZN6LibRaw6dcb_ppEv(ptr noundef nonnull readonly align 8 captures(n
   %143 = add nsw i32 %142, -2
   %144 = icmp slt i32 %141, %143
   %indvars.iv.next = add nuw i32 %indvars.iv, %4
-  br i1 %144, label %13, label %._crit_edge92, !llvm.loop !98
+  br i1 %144, label %13, label %._crit_edge92, !llvm.loop !99
 
 ._crit_edge92:                                    ; preds = %._crit_edge, %1
   ret void
@@ -1533,7 +1533,7 @@ define void @_ZN6LibRaw11dcb_nyquistEv(ptr noundef nonnull readonly align 8 capt
   store i16 %78, ptr %79, align 2, !tbaa !73
   %80 = add nuw nsw i32 %.08691, 2
   %81 = icmp slt i32 %80, %12
-  br i1 %81, label %35, label %._crit_edge.loopexit, !llvm.loop !99
+  br i1 %81, label %35, label %._crit_edge.loopexit, !llvm.loop !100
 
 ._crit_edge.loopexit:                             ; preds = %35
   %.pre = load i16, ptr %3, align 4, !tbaa !71
@@ -1545,7 +1545,7 @@ define void @_ZN6LibRaw11dcb_nyquistEv(ptr noundef nonnull readonly align 8 capt
   %84 = zext i16 %82 to i32
   %85 = add nsw i32 %84, -2
   %86 = icmp slt i32 %83, %85
-  br i1 %86, label %15, label %._crit_edge96, !llvm.loop !100
+  br i1 %86, label %15, label %._crit_edge96, !llvm.loop !101
 
 ._crit_edge96:                                    ; preds = %._crit_edge, %1
   ret void
@@ -1643,13 +1643,13 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %63 = add nuw nsw i32 %.030973683, 2
   %indvars.iv.next3715 = add nuw nsw i64 %indvars.iv3714, 2
   %64 = icmp slt i32 %63, %20
-  br i1 %64, label %53, label %._crit_edge, !llvm.loop !101
+  br i1 %64, label %53, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %53, %35
   %65 = add nuw nsw i32 %.03685, 1
   %indvars.iv.next = add nuw i32 %indvars.iv, %19
   %exitcond.not = icmp eq i32 %.03685, %23
-  br i1 %exitcond.not, label %.preheader3681, label %35, !llvm.loop !102
+  br i1 %exitcond.not, label %.preheader3681, label %35, !llvm.loop !103
 
 .lr.ph3705:                                       ; preds = %._crit_edge3692
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -1864,13 +1864,13 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %240 = add nuw nsw i32 %.130983688, 2
   %indvars.iv.next3720 = add nuw nsw i64 %indvars.iv3719, 2
   %241 = icmp slt i32 %240, %30
-  br i1 %241, label %92, label %._crit_edge3692, !llvm.loop !103
+  br i1 %241, label %92, label %._crit_edge3692, !llvm.loop !104
 
 ._crit_edge3692:                                  ; preds = %92, %75
   %242 = add nuw nsw i32 %.13695, 1
   %indvars.iv.next3718 = add nuw i32 %indvars.iv3717, %29
   %exitcond3722.not = icmp eq i32 %242, %24
-  br i1 %exitcond3722.not, label %.lr.ph3705, label %75, !llvm.loop !104
+  br i1 %exitcond3722.not, label %.lr.ph3705, label %75, !llvm.loop !105
 
 .preheader:                                       ; preds = %._crit_edge3703, %.preheader3681
   %.pr = load i16, ptr %7, align 4, !tbaa !71
@@ -2037,19 +2037,19 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %380 = getelementptr inbounds nuw [2 x float], ptr %265, i64 0, i64 %272
   store float %379, ptr %380, align 4, !tbaa !74
   %381 = sub nuw nsw i32 1, %.131023699
-  br i1 %271, label %270, label %382, !llvm.loop !105
+  br i1 %271, label %270, label %382, !llvm.loop !106
 
 382:                                              ; preds = %270
   %383 = add nuw nsw i32 %.230993701, 2
   %indvars.iv.next3726 = add nuw nsw i64 %indvars.iv3725, 2
   %384 = icmp slt i32 %383, %70
-  br i1 %384, label %.preheader3679, label %._crit_edge3703, !llvm.loop !106
+  br i1 %384, label %.preheader3679, label %._crit_edge3703, !llvm.loop !107
 
 ._crit_edge3703:                                  ; preds = %382, %246
   %385 = add nuw nsw i32 %.23704, 1
   %indvars.iv.next3724 = add nuw i32 %indvars.iv3723, %69
   %exitcond3728.not = icmp eq i32 %385, %24
-  br i1 %exitcond3728.not, label %.preheader, label %246, !llvm.loop !107
+  br i1 %exitcond3728.not, label %.preheader, label %246, !llvm.loop !108
 
 386:                                              ; preds = %.lr.ph3712, %._crit_edge3710
   %387 = phi i16 [ %.pr, %.lr.ph3712 ], [ %918, %._crit_edge3710 ]
@@ -3091,7 +3091,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %915 = zext i16 %914 to i32
   %916 = add nsw i32 %915, -6
   %917 = icmp slt i32 %913, %916
-  br i1 %917, label %395, label %._crit_edge3710.loopexit, !llvm.loop !108
+  br i1 %917, label %395, label %._crit_edge3710.loopexit, !llvm.loop !109
 
 ._crit_edge3710.loopexit:                         ; preds = %.thread3755
   %.pre3732 = load i16, ptr %7, align 4, !tbaa !71
@@ -3104,7 +3104,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %921 = zext i16 %918 to i32
   %922 = add nsw i32 %921, -6
   %923 = icmp slt i32 %920, %922
-  br i1 %923, label %386, label %._crit_edge3713, !llvm.loop !109
+  br i1 %923, label %386, label %._crit_edge3713, !llvm.loop !110
 
 ._crit_edge3713:                                  ; preds = %._crit_edge3710, %1, %.preheader
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %12)
@@ -3206,7 +3206,7 @@ define void @_ZN6LibRaw7dcb_mapEv(ptr noundef nonnull readonly align 8 captures(
   %60 = zext i16 %59 to i32
   %61 = add nsw i32 %60, -1
   %62 = icmp slt i32 %58, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !110
+  br i1 %62, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !111
 
 ._crit_edge.loopexit:                             ; preds = %56
   %.pre62 = load i16, ptr %3, align 4, !tbaa !71
@@ -3219,7 +3219,7 @@ define void @_ZN6LibRaw7dcb_mapEv(ptr noundef nonnull readonly align 8 captures(
   %66 = zext i16 %63 to i32
   %67 = add nsw i32 %66, -1
   %68 = icmp slt i32 %65, %67
-  br i1 %68, label %10, label %._crit_edge60, !llvm.loop !111
+  br i1 %68, label %10, label %._crit_edge60, !llvm.loop !112
 
 ._crit_edge60:                                    ; preds = %._crit_edge, %1
   ret void
@@ -3340,7 +3340,7 @@ define void @_ZN6LibRaw14dcb_correctionEv(ptr noundef nonnull readonly align 8 c
   store i16 %93, ptr %94, align 2, !tbaa !73
   %95 = add nuw nsw i32 %.03334, 2
   %96 = icmp slt i32 %95, %12
-  br i1 %96, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !112
+  br i1 %96, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !113
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i16, ptr %3, align 4, !tbaa !71
@@ -3352,7 +3352,7 @@ define void @_ZN6LibRaw14dcb_correctionEv(ptr noundef nonnull readonly align 8 c
   %99 = zext i16 %97 to i32
   %100 = add nsw i32 %99, -2
   %101 = icmp slt i32 %98, %100
-  br i1 %101, label %16, label %._crit_edge39, !llvm.loop !113
+  br i1 %101, label %16, label %._crit_edge39, !llvm.loop !114
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %1
   ret void
@@ -3536,7 +3536,7 @@ define void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull readonly align 8 
   store i16 %142, ptr %143, align 2, !tbaa !73
   %144 = add nuw nsw i32 %.0115121, 2
   %145 = icmp slt i32 %144, %12
-  br i1 %145, label %36, label %._crit_edge.loopexit, !llvm.loop !114
+  br i1 %145, label %36, label %._crit_edge.loopexit, !llvm.loop !115
 
 ._crit_edge.loopexit:                             ; preds = %141
   %.pre131 = load i16, ptr %3, align 4, !tbaa !71
@@ -3548,7 +3548,7 @@ define void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull readonly align 8 
   %148 = zext i16 %146 to i32
   %149 = add nsw i32 %148, -4
   %150 = icmp slt i32 %147, %149
-  br i1 %150, label %16, label %._crit_edge126, !llvm.loop !115
+  br i1 %150, label %16, label %._crit_edge126, !llvm.loop !116
 
 ._crit_edge126:                                   ; preds = %._crit_edge, %1
   ret void
@@ -4328,7 +4328,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   store i16 %451, ptr %452, align 2, !tbaa !73
   %453 = add nuw nsw i32 %.015051804, 2
   %454 = icmp slt i32 %453, %13
-  br i1 %454, label %39, label %._crit_edge.loopexit, !llvm.loop !116
+  br i1 %454, label %39, label %._crit_edge.loopexit, !llvm.loop !117
 
 ._crit_edge.loopexit:                             ; preds = %449
   %.pre1817 = load i16, ptr %4, align 4, !tbaa !71
@@ -4340,7 +4340,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   %457 = zext i16 %455 to i32
   %458 = add nsw i32 %457, -4
   %459 = icmp slt i32 %456, %458
-  br i1 %459, label %18, label %._crit_edge1813, !llvm.loop !117
+  br i1 %459, label %18, label %._crit_edge1813, !llvm.loop !118
 
 ._crit_edge1813:                                  ; preds = %._crit_edge, %1
   ret void
@@ -4360,7 +4360,7 @@ define void @_ZN6LibRaw10rgb_to_lchEPA3_d(ptr noundef nonnull readonly align 8 c
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !94
+  %11 = load ptr, ptr %10, align 8, !tbaa !95
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %12
 
@@ -4379,12 +4379,12 @@ define void @_ZN6LibRaw10rgb_to_lchEPA3_d(ptr noundef nonnull readonly align 8 c
   %23 = add nuw nsw i32 %19, %22
   %24 = uitofp nneg i32 %23 to double
   %25 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv
-  store double %24, ptr %25, align 8, !tbaa !118
+  store double %24, ptr %25, align 8, !tbaa !119
   %26 = sub nsw i32 %15, %18
   %27 = sitofp i32 %26 to double
   %28 = fmul reassoc nsz arcp contract afn double %27, 0x3FFBB67AE875ED0F
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store double %28, ptr %29, align 8, !tbaa !118
+  store double %28, ptr %29, align 8, !tbaa !119
   %30 = uitofp i16 %21 to double
   %31 = fmul reassoc nsz arcp contract afn double %30, 2.000000e+00
   %32 = uitofp i16 %14 to double
@@ -4392,10 +4392,10 @@ define void @_ZN6LibRaw10rgb_to_lchEPA3_d(ptr noundef nonnull readonly align 8 c
   %34 = fadd reassoc nsz arcp contract afn double %32, %33
   %35 = fsub reassoc nsz arcp contract afn double %31, %34
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store double %35, ptr %36, align 8, !tbaa !118
+  store double %35, ptr %36, align 8, !tbaa !119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %12, %2
   ret void
@@ -4415,20 +4415,20 @@ define void @_ZN6LibRaw10lch_to_rgbEPA3_d(ptr noundef nonnull readonly align 8 c
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !94
+  %11 = load ptr, ptr %10, align 8, !tbaa !95
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv
-  %14 = load double, ptr %13, align 8, !tbaa !118
+  %14 = load double, ptr %13, align 8, !tbaa !119
   %15 = fmul reassoc nsz arcp contract afn double %14, 0x3FD5555555555555
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %17 = load double, ptr %16, align 8, !tbaa !118
+  %17 = load double, ptr %16, align 8, !tbaa !119
   %.neg = fmul reassoc nsz arcp contract afn double %17, 0xBFC5555555555555
   %18 = fadd reassoc nsz arcp contract afn double %.neg, %15
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %20 = load double, ptr %19, align 8, !tbaa !118
+  %20 = load double, ptr %19, align 8, !tbaa !119
   %21 = fmul reassoc nsz arcp contract afn double %20, 0x3FD279A745935AE9
   %22 = fadd reassoc nsz arcp contract afn double %18, %21
   %23 = fptosi double %22 to i32
@@ -4459,7 +4459,7 @@ define void @_ZN6LibRaw10lch_to_rgbEPA3_d(ptr noundef nonnull readonly align 8 c
   %44 = zext i16 %43 to i64
   %45 = mul nuw nsw i64 %44, %42
   %46 = icmp samesign ult i64 %indvars.iv.next, %45
-  br i1 %46, label %12, label %._crit_edge, !llvm.loop !120
+  br i1 %46, label %12, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %12, %2
   ret void
@@ -4497,7 +4497,7 @@ define void @_ZN6LibRaw15fbdd_correctionEv(ptr noundef nonnull align 8 dereferen
   %indvars.iv = phi i64 [ %15, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread988 ]
   %.0868981 = phi i32 [ 2, %.lr.ph.preheader ], [ %48, %.thread988 ]
   %16 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.0867983, i32 noundef %.0868981)
-  %17 = load ptr, ptr %2, align 8, !tbaa !94
+  %17 = load ptr, ptr %2, align 8, !tbaa !95
   %18 = getelementptr [4 x i16], ptr %17, i64 %indvars.iv
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = sext i32 %16 to i64
@@ -4562,7 +4562,7 @@ define void @_ZN6LibRaw15fbdd_correctionEv(ptr noundef nonnull align 8 dereferen
   %50 = zext i16 %49 to i32
   %51 = add nsw i32 %50, -2
   %52 = icmp slt i32 %48, %51
-  br i1 %52, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !121
+  br i1 %52, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !122
 
 ._crit_edge.loopexit:                             ; preds = %.thread988
   %.pre = load i16, ptr %4, align 4, !tbaa !71
@@ -4575,7 +4575,7 @@ define void @_ZN6LibRaw15fbdd_correctionEv(ptr noundef nonnull align 8 dereferen
   %56 = zext i16 %53 to i32
   %57 = add nsw i32 %56, -2
   %58 = icmp slt i32 %55, %57
-  br i1 %58, label %.lr.ph985, label %._crit_edge986, !llvm.loop !122
+  br i1 %58, label %.lr.ph985, label %._crit_edge986, !llvm.loop !123
 
 ._crit_edge986:                                   ; preds = %._crit_edge, %1
   ret void
@@ -4617,9 +4617,9 @@ define void @_ZN6LibRaw16fbdd_correction2EPA3_d(ptr noundef nonnull readonly ali
   %18 = add nuw nsw i64 %indvars.iv, %16
   %19 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load double, ptr %20, align 8, !tbaa !118
+  %21 = load double, ptr %20, align 8, !tbaa !119
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %23 = load double, ptr %22, align 8, !tbaa !118
+  %23 = load double, ptr %22, align 8, !tbaa !119
   %24 = fmul reassoc nsz arcp contract afn double %23, %21
   %25 = fcmp reassoc nsz arcp contract afn une double %24, 0.000000e+00
   br i1 %25, label %26, label %106
@@ -4627,15 +4627,15 @@ define void @_ZN6LibRaw16fbdd_correction2EPA3_d(ptr noundef nonnull readonly ali
 26:                                               ; preds = %17
   %gep = getelementptr inbounds nuw [3 x double], ptr %invariant.gep, i64 %18
   %27 = getelementptr inbounds nuw i8, ptr %gep, i64 8
-  %28 = load double, ptr %27, align 8, !tbaa !118
+  %28 = load double, ptr %27, align 8, !tbaa !119
   %29 = sub nuw nsw i64 %18, %14
   %30 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load double, ptr %31, align 8, !tbaa !118
+  %32 = load double, ptr %31, align 8, !tbaa !119
   %33 = getelementptr i8, ptr %19, i64 -40
-  %34 = load double, ptr %33, align 8, !tbaa !118
+  %34 = load double, ptr %33, align 8, !tbaa !119
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %36 = load double, ptr %35, align 8, !tbaa !118
+  %36 = load double, ptr %35, align 8, !tbaa !119
   %37 = fcmp reassoc nsz arcp contract afn ogt double %32, %28
   %..us = select reassoc nsz arcp contract afn i1 %37, double %32, double %28
   %38 = fcmp reassoc nsz arcp contract afn ogt double %36, %..us
@@ -4685,13 +4685,13 @@ define void @_ZN6LibRaw16fbdd_correction2EPA3_d(ptr noundef nonnull readonly ali
   %58 = fsub reassoc nsz arcp contract afn double %56, %57
   %59 = fmul reassoc nsz arcp contract afn double %58, 5.000000e-01
   %60 = getelementptr inbounds nuw i8, ptr %gep, i64 16
-  %61 = load double, ptr %60, align 8, !tbaa !118
+  %61 = load double, ptr %60, align 8, !tbaa !119
   %62 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %63 = load double, ptr %62, align 8, !tbaa !118
+  %63 = load double, ptr %62, align 8, !tbaa !119
   %64 = getelementptr i8, ptr %19, i64 -32
-  %65 = load double, ptr %64, align 8, !tbaa !118
+  %65 = load double, ptr %64, align 8, !tbaa !119
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %67 = load double, ptr %66, align 8, !tbaa !118
+  %67 = load double, ptr %66, align 8, !tbaa !119
   %68 = fcmp reassoc nsz arcp contract afn ogt double %63, %61
   %.339.us = select reassoc nsz arcp contract afn i1 %68, double %63, double %61
   %69 = fcmp reassoc nsz arcp contract afn ogt double %67, %.339.us
@@ -4753,24 +4753,24 @@ define void @_ZN6LibRaw16fbdd_correction2EPA3_d(ptr noundef nonnull readonly ali
 
 100:                                              ; preds = %84
   %101 = fadd reassoc nsz arcp contract afn double %21, %23
-  %102 = load double, ptr %19, align 8, !tbaa !118
+  %102 = load double, ptr %19, align 8, !tbaa !119
   %103 = fsub reassoc nsz arcp contract afn double %59, %101
   %104 = fadd reassoc nsz arcp contract afn double %103, %90
   %105 = fadd reassoc nsz arcp contract afn double %104, %102
-  store double %105, ptr %19, align 8, !tbaa !118
-  store double %59, ptr %20, align 8, !tbaa !118
-  store double %90, ptr %22, align 8, !tbaa !118
+  store double %105, ptr %19, align 8, !tbaa !119
+  store double %59, ptr %20, align 8, !tbaa !119
+  store double %90, ptr %22, align 8, !tbaa !119
   br label %106
 
 106:                                              ; preds = %100, %84, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !124
 
 ._crit_edge.us:                                   ; preds = %106
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
-  br i1 %exitcond371.not, label %._crit_edge364, label %.preheader.us, !llvm.loop !124
+  br i1 %exitcond371.not, label %._crit_edge364, label %.preheader.us, !llvm.loop !125
 
 ._crit_edge364:                                   ; preds = %._crit_edge.us, %2
   ret void
@@ -5498,7 +5498,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   store i16 %spec.select1938, ptr %229, align 2, !tbaa !73
   %442 = add nuw nsw i32 %.016641957, 2
   %443 = icmp slt i32 %442, %15
-  br i1 %443, label %45, label %._crit_edge.loopexit, !llvm.loop !126
+  br i1 %443, label %45, label %._crit_edge.loopexit, !llvm.loop !127
 
 ._crit_edge.loopexit:                             ; preds = %.thread1994
   %.pre = load i16, ptr %4, align 4, !tbaa !71
@@ -5510,7 +5510,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   %446 = zext i16 %444 to i32
   %447 = add nsw i32 %446, -5
   %448 = icmp slt i32 %445, %447
-  br i1 %448, label %22, label %._crit_edge1983, !llvm.loop !127
+  br i1 %448, label %22, label %._crit_edge1983, !llvm.loop !128
 
 ._crit_edge1983:                                  ; preds = %._crit_edge, %1
   ret void
@@ -5522,7 +5522,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6LibRaw4fbddEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %4 = load i32, ptr %3, align 4, !tbaa !128
+  %4 = load i32, ptr %3, align 4, !tbaa !129
   %.not = icmp ne i32 %4, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %6 = load i32, ptr %5, align 8
@@ -5558,7 +5558,7 @@ define void @_ZN6LibRaw4fbddEi(ptr noundef nonnull align 8 dereferenceable(76768
 
 .lr.ph.i:                                         ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !94
+  %24 = load ptr, ptr %23, align 8, !tbaa !95
   %wide.trip.count.i = zext nneg i32 %22 to i64
   br label %25
 
@@ -5577,12 +5577,12 @@ define void @_ZN6LibRaw4fbddEi(ptr noundef nonnull align 8 dereferenceable(76768
   %36 = add nuw nsw i32 %32, %35
   %37 = uitofp nneg i32 %36 to double
   %38 = getelementptr inbounds nuw [3 x double], ptr %15, i64 %indvars.iv.i
-  store double %37, ptr %38, align 8, !tbaa !118
+  store double %37, ptr %38, align 8, !tbaa !119
   %39 = sub nsw i32 %28, %31
   %40 = sitofp i32 %39 to double
   %41 = fmul reassoc nsz arcp contract afn double %40, 0x3FFBB67AE875ED0F
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store double %41, ptr %42, align 8, !tbaa !118
+  store double %41, ptr %42, align 8, !tbaa !119
   %43 = uitofp i16 %34 to double
   %44 = fmul reassoc nsz arcp contract afn double %43, 2.000000e+00
   %45 = uitofp i16 %27 to double
@@ -5590,10 +5590,10 @@ define void @_ZN6LibRaw4fbddEi(ptr noundef nonnull align 8 dereferenceable(76768
   %47 = fadd reassoc nsz arcp contract afn double %45, %46
   %48 = fsub reassoc nsz arcp contract afn double %44, %47
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store double %48, ptr %49, align 8, !tbaa !118
+  store double %48, ptr %49, align 8, !tbaa !119
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6LibRaw10rgb_to_lchEPA3_d.exit, label %25, !llvm.loop !119
+  br i1 %exitcond.not.i, label %_ZN6LibRaw10rgb_to_lchEPA3_d.exit, label %25, !llvm.loop !120
 
 _ZN6LibRaw10rgb_to_lchEPA3_d.exit:                ; preds = %25, %17
   tail call void @_ZN6LibRaw16fbdd_correction2EPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %15)
@@ -5608,20 +5608,20 @@ _ZN6LibRaw10rgb_to_lchEPA3_d.exit:                ; preds = %25, %17
 
 .lr.ph.i9:                                        ; preds = %_ZN6LibRaw10rgb_to_lchEPA3_d.exit
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !94
+  %56 = load ptr, ptr %55, align 8, !tbaa !95
   br label %57
 
 57:                                               ; preds = %57, %.lr.ph.i9
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.i9 ], [ %indvars.iv.next.i11, %57 ]
   %58 = getelementptr inbounds nuw [3 x double], ptr %15, i64 %indvars.iv.i10
-  %59 = load double, ptr %58, align 8, !tbaa !118
+  %59 = load double, ptr %58, align 8, !tbaa !119
   %60 = fmul reassoc nsz arcp contract afn double %59, 0x3FD5555555555555
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %62 = load double, ptr %61, align 8, !tbaa !118
+  %62 = load double, ptr %61, align 8, !tbaa !119
   %.neg.i = fmul reassoc nsz arcp contract afn double %62, 0x3FC5555555555555
   %63 = fsub reassoc nsz arcp contract afn double %60, %.neg.i
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %65 = load double, ptr %64, align 8, !tbaa !118
+  %65 = load double, ptr %64, align 8, !tbaa !119
   %66 = fmul reassoc nsz arcp contract afn double %65, 0x3FD279A745935AE9
   %67 = fadd reassoc nsz arcp contract afn double %63, %66
   %68 = fptosi double %67 to i32
@@ -5652,7 +5652,7 @@ _ZN6LibRaw10rgb_to_lchEPA3_d.exit:                ; preds = %25, %17
   %89 = zext i16 %88 to i64
   %90 = mul nuw nsw i64 %89, %87
   %91 = icmp samesign ult i64 %indvars.iv.next.i11, %90
-  br i1 %91, label %57, label %_ZN6LibRaw10lch_to_rgbEPA3_d.exit, !llvm.loop !120
+  br i1 %91, label %57, label %_ZN6LibRaw10lch_to_rgbEPA3_d.exit, !llvm.loop !121
 
 _ZN6LibRaw10lch_to_rgbEPA3_d.exit:                ; preds = %57, %7, %_ZN6LibRaw10rgb_to_lchEPA3_d.exit
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %15)
@@ -5738,13 +5738,13 @@ define void @_ZN6LibRaw3dcbEii(ptr noundef nonnull align 8 dereferenceable(76768
   %56 = add nuw nsw i32 %.02025.i, 2
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 2
   %57 = icmp slt i32 %56, %26
-  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !78
+  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !79
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %31
   %58 = add nuw nsw i32 %.01927.i, 1
   %indvars.iv.next.i = add nuw i32 %indvars.iv.i, %19
   %exitcond.not.i = icmp eq i32 %.01927.i, %30
-  br i1 %exitcond.not.i, label %_ZN6LibRaw7dcb_horEPA3_f.exit, label %31, !llvm.loop !79
+  br i1 %exitcond.not.i, label %_ZN6LibRaw7dcb_horEPA3_f.exit, label %31, !llvm.loop !80
 
 _ZN6LibRaw7dcb_horEPA3_f.exit:                    ; preds = %._crit_edge.i, %3
   tail call void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %11)
@@ -5812,7 +5812,7 @@ _ZN6LibRaw7dcb_horEPA3_f.exit:                    ; preds = %._crit_edge.i, %3
   %100 = add nuw nsw i32 %.02735.i, 1
   %indvars.iv.next.i17 = add nuw i32 %indvars.iv.i15, %60
   %exitcond.not.i18 = icmp eq i32 %.02735.i, %72
-  br i1 %exitcond.not.i18, label %_ZN6LibRaw7dcb_verEPA3_f.exit, label %73, !llvm.loop !77
+  br i1 %exitcond.not.i18, label %_ZN6LibRaw7dcb_verEPA3_f.exit, label %73, !llvm.loop !78
 
 _ZN6LibRaw7dcb_verEPA3_f.exit:                    ; preds = %._crit_edge.i16, %_ZN6LibRaw7dcb_horEPA3_f.exit
   tail call void @_ZN6LibRaw10dcb_color3EPA3_f(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %17)
@@ -5828,7 +5828,7 @@ _ZN6LibRaw7dcb_verEPA3_f.exit:                    ; preds = %._crit_edge.i16, %_
 
 .lr.ph.i21:                                       ; preds = %_ZN6LibRaw7dcb_verEPA3_f.exit
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !94
+  %107 = load ptr, ptr %106, align 8, !tbaa !95
   %wide.trip.count.i = zext nneg i32 %105 to i64
   br label %108
 
@@ -5846,7 +5846,7 @@ _ZN6LibRaw7dcb_verEPA3_f.exit:                    ; preds = %._crit_edge.i16, %_
   store float %115, ptr %116, align 4, !tbaa !74
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i
-  br i1 %exitcond.not.i24, label %_ZN6LibRaw18dcb_copy_to_bufferEPA3_f.exit, label %108, !llvm.loop !95
+  br i1 %exitcond.not.i24, label %_ZN6LibRaw18dcb_copy_to_bufferEPA3_f.exit, label %108, !llvm.loop !96
 
 _ZN6LibRaw18dcb_copy_to_bufferEPA3_f.exit:        ; preds = %108, %_ZN6LibRaw7dcb_verEPA3_f.exit
   %.not126 = icmp slt i32 %1, 1
@@ -5946,7 +5946,7 @@ _ZN6LibRaw18dcb_copy_to_bufferEPA3_f.exit:        ; preds = %108, %_ZN6LibRaw7dc
   %173 = zext i16 %172 to i32
   %174 = add nsw i32 %173, -1
   %175 = icmp slt i32 %171, %174
-  br i1 %175, label %.lr.ph.i28, label %._crit_edge.loopexit.i, !llvm.loop !110
+  br i1 %175, label %.lr.ph.i28, label %._crit_edge.loopexit.i, !llvm.loop !111
 
 ._crit_edge.loopexit.i:                           ; preds = %169
   %.pre62.i = load i16, ptr %7, align 4, !tbaa !71
@@ -5959,13 +5959,13 @@ _ZN6LibRaw18dcb_copy_to_bufferEPA3_f.exit:        ; preds = %108, %_ZN6LibRaw7dc
   %179 = zext i16 %176 to i32
   %180 = add nsw i32 %179, -1
   %181 = icmp slt i32 %178, %180
-  br i1 %181, label %124, label %_ZN6LibRaw7dcb_mapEv.exit, !llvm.loop !111
+  br i1 %181, label %124, label %_ZN6LibRaw7dcb_mapEv.exit, !llvm.loop !112
 
 _ZN6LibRaw7dcb_mapEv.exit:                        ; preds = %._crit_edge.i26, %118
   tail call void @_ZN6LibRaw14dcb_correctionEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %182 = add nuw i32 %.0127, 1
   %exitcond.not = icmp eq i32 %.0127, %1
-  br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %_ZN6LibRaw7dcb_mapEv.exit, %_ZN6LibRaw18dcb_copy_to_bufferEPA3_f.exit
   tail call void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -6056,7 +6056,7 @@ _ZN6LibRaw7dcb_mapEv.exit:                        ; preds = %._crit_edge.i26, %1
   %238 = zext i16 %237 to i32
   %239 = add nsw i32 %238, -1
   %240 = icmp slt i32 %236, %239
-  br i1 %240, label %.lr.ph.i37, label %._crit_edge.loopexit.i44, !llvm.loop !110
+  br i1 %240, label %.lr.ph.i37, label %._crit_edge.loopexit.i44, !llvm.loop !111
 
 ._crit_edge.loopexit.i44:                         ; preds = %234
   %.pre62.i45 = load i16, ptr %7, align 4, !tbaa !71
@@ -6069,7 +6069,7 @@ _ZN6LibRaw7dcb_mapEv.exit:                        ; preds = %._crit_edge.i26, %1
   %244 = zext i16 %241 to i32
   %245 = add nsw i32 %244, -1
   %246 = icmp slt i32 %243, %245
-  br i1 %246, label %189, label %_ZN6LibRaw7dcb_mapEv.exit47, !llvm.loop !111
+  br i1 %246, label %189, label %_ZN6LibRaw7dcb_mapEv.exit47, !llvm.loop !112
 
 _ZN6LibRaw7dcb_mapEv.exit47:                      ; preds = %._crit_edge.i33, %._crit_edge
   tail call void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -6159,7 +6159,7 @@ _ZN6LibRaw7dcb_mapEv.exit47:                      ; preds = %._crit_edge.i33, %.
   %302 = zext i16 %301 to i32
   %303 = add nsw i32 %302, -1
   %304 = icmp slt i32 %300, %303
-  br i1 %304, label %.lr.ph.i54, label %._crit_edge.loopexit.i61, !llvm.loop !110
+  br i1 %304, label %.lr.ph.i54, label %._crit_edge.loopexit.i61, !llvm.loop !111
 
 ._crit_edge.loopexit.i61:                         ; preds = %298
   %.pre62.i62 = load i16, ptr %7, align 4, !tbaa !71
@@ -6172,7 +6172,7 @@ _ZN6LibRaw7dcb_mapEv.exit47:                      ; preds = %._crit_edge.i33, %.
   %308 = zext i16 %305 to i32
   %309 = add nsw i32 %308, -1
   %310 = icmp slt i32 %307, %309
-  br i1 %310, label %253, label %_ZN6LibRaw7dcb_mapEv.exit64, !llvm.loop !111
+  br i1 %310, label %253, label %_ZN6LibRaw7dcb_mapEv.exit64, !llvm.loop !112
 
 _ZN6LibRaw7dcb_mapEv.exit64:                      ; preds = %._crit_edge.i50, %_ZN6LibRaw7dcb_mapEv.exit47
   tail call void @_ZN6LibRaw14dcb_correctionEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -6262,7 +6262,7 @@ _ZN6LibRaw7dcb_mapEv.exit64:                      ; preds = %._crit_edge.i50, %_
   %366 = zext i16 %365 to i32
   %367 = add nsw i32 %366, -1
   %368 = icmp slt i32 %364, %367
-  br i1 %368, label %.lr.ph.i71, label %._crit_edge.loopexit.i78, !llvm.loop !110
+  br i1 %368, label %.lr.ph.i71, label %._crit_edge.loopexit.i78, !llvm.loop !111
 
 ._crit_edge.loopexit.i78:                         ; preds = %362
   %.pre62.i79 = load i16, ptr %7, align 4, !tbaa !71
@@ -6275,7 +6275,7 @@ _ZN6LibRaw7dcb_mapEv.exit64:                      ; preds = %._crit_edge.i50, %_
   %372 = zext i16 %369 to i32
   %373 = add nsw i32 %372, -1
   %374 = icmp slt i32 %371, %373
-  br i1 %374, label %317, label %_ZN6LibRaw7dcb_mapEv.exit81, !llvm.loop !111
+  br i1 %374, label %317, label %_ZN6LibRaw7dcb_mapEv.exit81, !llvm.loop !112
 
 _ZN6LibRaw7dcb_mapEv.exit81:                      ; preds = %._crit_edge.i67, %_ZN6LibRaw7dcb_mapEv.exit64
   tail call void @_ZN6LibRaw14dcb_correctionEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -6365,7 +6365,7 @@ _ZN6LibRaw7dcb_mapEv.exit81:                      ; preds = %._crit_edge.i67, %_
   %430 = zext i16 %429 to i32
   %431 = add nsw i32 %430, -1
   %432 = icmp slt i32 %428, %431
-  br i1 %432, label %.lr.ph.i88, label %._crit_edge.loopexit.i95, !llvm.loop !110
+  br i1 %432, label %.lr.ph.i88, label %._crit_edge.loopexit.i95, !llvm.loop !111
 
 ._crit_edge.loopexit.i95:                         ; preds = %426
   %.pre62.i96 = load i16, ptr %7, align 4, !tbaa !71
@@ -6378,7 +6378,7 @@ _ZN6LibRaw7dcb_mapEv.exit81:                      ; preds = %._crit_edge.i67, %_
   %436 = zext i16 %433 to i32
   %437 = add nsw i32 %436, -1
   %438 = icmp slt i32 %435, %437
-  br i1 %438, label %381, label %_ZN6LibRaw7dcb_mapEv.exit98, !llvm.loop !111
+  br i1 %438, label %381, label %_ZN6LibRaw7dcb_mapEv.exit98, !llvm.loop !112
 
 _ZN6LibRaw7dcb_mapEv.exit98:                      ; preds = %._crit_edge.i84, %_ZN6LibRaw7dcb_mapEv.exit81
   tail call void @_ZN6LibRaw14dcb_correctionEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -6472,7 +6472,7 @@ _ZN6LibRaw7dcb_mapEv.exit98._ZN6LibRaw7dcb_mapEv.exit115_crit_edge: ; preds = %_
   %493 = zext i16 %492 to i32
   %494 = add nsw i32 %493, -1
   %495 = icmp slt i32 %491, %494
-  br i1 %495, label %.lr.ph.i105, label %._crit_edge.loopexit.i112, !llvm.loop !110
+  br i1 %495, label %.lr.ph.i105, label %._crit_edge.loopexit.i112, !llvm.loop !111
 
 ._crit_edge.loopexit.i112:                        ; preds = %489
   %.pre62.i113 = load i16, ptr %7, align 4, !tbaa !71
@@ -6485,7 +6485,7 @@ _ZN6LibRaw7dcb_mapEv.exit98._ZN6LibRaw7dcb_mapEv.exit115_crit_edge: ; preds = %_
   %499 = zext i16 %496 to i32
   %500 = add nsw i32 %499, -1
   %501 = icmp slt i32 %498, %500
-  br i1 %501, label %444, label %_ZN6LibRaw7dcb_mapEv.exit115, !llvm.loop !111
+  br i1 %501, label %444, label %_ZN6LibRaw7dcb_mapEv.exit115, !llvm.loop !112
 
 _ZN6LibRaw7dcb_mapEv.exit115:                     ; preds = %._crit_edge.i101, %_ZN6LibRaw7dcb_mapEv.exit98._ZN6LibRaw7dcb_mapEv.exit115_crit_edge
   %.pre-phi = phi i32 [ %.pre133, %_ZN6LibRaw7dcb_mapEv.exit98._ZN6LibRaw7dcb_mapEv.exit115_crit_edge ], [ %499, %._crit_edge.i101 ]
@@ -6497,7 +6497,7 @@ _ZN6LibRaw7dcb_mapEv.exit115:                     ; preds = %._crit_edge.i101, %
 
 .lr.ph.i117:                                      ; preds = %_ZN6LibRaw7dcb_mapEv.exit115
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %506 = load ptr, ptr %505, align 8, !tbaa !94
+  %506 = load ptr, ptr %505, align 8, !tbaa !95
   br label %507
 
 507:                                              ; preds = %507, %.lr.ph.i117
@@ -6519,7 +6519,7 @@ _ZN6LibRaw7dcb_mapEv.exit115:                     ; preds = %._crit_edge.i101, %
   %519 = zext i16 %518 to i64
   %520 = mul nuw nsw i64 %519, %517
   %521 = icmp samesign ult i64 %indvars.iv.next.i119, %520
-  br i1 %521, label %507, label %_ZN6LibRaw23dcb_restore_from_bufferEPA3_f.exit, !llvm.loop !96
+  br i1 %521, label %507, label %_ZN6LibRaw23dcb_restore_from_bufferEPA3_f.exit, !llvm.loop !97
 
 _ZN6LibRaw23dcb_restore_from_bufferEPA3_f.exit:   ; preds = %507, %_ZN6LibRaw7dcb_mapEv.exit115
   tail call void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -6640,58 +6640,59 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !72 = !{!7, !15, i64 544}
 !73 = !{!14, !14, i64 0}
 !74 = !{!20, !20, i64 0}
-!75 = distinct !{!75, !76}
+!75 = distinct !{!75, !76, !77}
 !76 = !{!"llvm.loop.mustprogress"}
-!77 = distinct !{!77, !76}
-!78 = distinct !{!78, !76}
-!79 = distinct !{!79, !76}
-!80 = distinct !{!80, !76}
-!81 = distinct !{!81, !76}
-!82 = distinct !{!82, !76}
-!83 = distinct !{!83, !76}
-!84 = distinct !{!84, !76}
-!85 = distinct !{!85, !76}
-!86 = distinct !{!86, !76}
-!87 = distinct !{!87, !76}
-!88 = distinct !{!88, !76}
-!89 = distinct !{!89, !76}
-!90 = distinct !{!90, !76}
-!91 = distinct !{!91, !76}
-!92 = distinct !{!92, !76}
-!93 = distinct !{!93, !76}
-!94 = !{!7, !9, i64 8}
-!95 = distinct !{!95, !76}
-!96 = distinct !{!96, !76}
-!97 = distinct !{!97, !76}
-!98 = distinct !{!98, !76}
-!99 = distinct !{!99, !76}
-!100 = distinct !{!100, !76}
-!101 = distinct !{!101, !76}
-!102 = distinct !{!102, !76}
-!103 = distinct !{!103, !76}
-!104 = distinct !{!104, !76}
-!105 = distinct !{!105, !76}
-!106 = distinct !{!106, !76}
-!107 = distinct !{!107, !76}
-!108 = distinct !{!108, !76}
-!109 = distinct !{!109, !76}
-!110 = distinct !{!110, !76}
-!111 = distinct !{!111, !76}
-!112 = distinct !{!112, !76}
-!113 = distinct !{!113, !76}
-!114 = distinct !{!114, !76}
-!115 = distinct !{!115, !76}
-!116 = distinct !{!116, !76}
-!117 = distinct !{!117, !76}
-!118 = !{!16, !16, i64 0}
-!119 = distinct !{!119, !76}
-!120 = distinct !{!120, !76}
-!121 = distinct !{!121, !76}
-!122 = distinct !{!122, !76}
-!123 = distinct !{!123, !76}
-!124 = distinct !{!124, !76, !125}
-!125 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!126 = distinct !{!126, !76}
-!127 = distinct !{!127, !76}
-!128 = !{!7, !15, i64 540}
-!129 = distinct !{!129, !76}
+!77 = !{!"llvm.loop.estimated_trip_count"}
+!78 = distinct !{!78, !76, !77}
+!79 = distinct !{!79, !76, !77}
+!80 = distinct !{!80, !76, !77}
+!81 = distinct !{!81, !76, !77}
+!82 = distinct !{!82, !76, !77}
+!83 = distinct !{!83, !76, !77}
+!84 = distinct !{!84, !76, !77}
+!85 = distinct !{!85, !76, !77}
+!86 = distinct !{!86, !76, !77}
+!87 = distinct !{!87, !76, !77}
+!88 = distinct !{!88, !76, !77}
+!89 = distinct !{!89, !76, !77}
+!90 = distinct !{!90, !76, !77}
+!91 = distinct !{!91, !76, !77}
+!92 = distinct !{!92, !76, !77}
+!93 = distinct !{!93, !76, !77}
+!94 = distinct !{!94, !76, !77}
+!95 = !{!7, !9, i64 8}
+!96 = distinct !{!96, !76, !77}
+!97 = distinct !{!97, !76, !77}
+!98 = distinct !{!98, !76, !77}
+!99 = distinct !{!99, !76, !77}
+!100 = distinct !{!100, !76, !77}
+!101 = distinct !{!101, !76, !77}
+!102 = distinct !{!102, !76, !77}
+!103 = distinct !{!103, !76, !77}
+!104 = distinct !{!104, !76, !77}
+!105 = distinct !{!105, !76, !77}
+!106 = distinct !{!106, !76, !77}
+!107 = distinct !{!107, !76, !77}
+!108 = distinct !{!108, !76, !77}
+!109 = distinct !{!109, !76, !77}
+!110 = distinct !{!110, !76, !77}
+!111 = distinct !{!111, !76, !77}
+!112 = distinct !{!112, !76, !77}
+!113 = distinct !{!113, !76, !77}
+!114 = distinct !{!114, !76, !77}
+!115 = distinct !{!115, !76, !77}
+!116 = distinct !{!116, !76, !77}
+!117 = distinct !{!117, !76, !77}
+!118 = distinct !{!118, !76, !77}
+!119 = !{!16, !16, i64 0}
+!120 = distinct !{!120, !76, !77}
+!121 = distinct !{!121, !76, !77}
+!122 = distinct !{!122, !76, !77}
+!123 = distinct !{!123, !76, !77}
+!124 = distinct !{!124, !76, !77}
+!125 = distinct !{!125, !76, !77, !126}
+!126 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!127 = distinct !{!127, !76, !77}
+!128 = distinct !{!128, !76, !77}
+!129 = !{!7, !15, i64 540}
+!130 = distinct !{!130, !76, !77}

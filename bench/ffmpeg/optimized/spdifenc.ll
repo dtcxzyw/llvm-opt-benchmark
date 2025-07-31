@@ -1033,11 +1033,11 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
 .critedge.thread:                                 ; preds = %77, %.critedge
   %78 = getelementptr inbounds [3 x %struct.anon], ptr @mat_codes, i64 0, i64 %.phi.trans.insert
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !69
+  %80 = load i32, ptr %79, align 4, !tbaa !70
   %81 = zext i32 %74 to i64
   %82 = getelementptr inbounds nuw i8, ptr %.0125, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !70
+  %84 = load ptr, ptr %83, align 8, !tbaa !71
   %85 = sext i32 %80 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr align 1 %84, i64 %85, i1 false)
   %86 = load i32, ptr %65, align 8, !tbaa !54
@@ -1104,11 +1104,11 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   store i32 %116, ptr %65, align 8, !tbaa !54
   %117 = sub nsw i32 %.3, %.3.
   %.not161 = icmp eq i32 %117, 0
-  br i1 %.not161, label %118, label %73
+  br i1 %.not161, label %118, label %73, !llvm.loop !72
 
 118:                                              ; preds = %107, %105
   %119 = phi i32 [ %116, %107 ], [ %106, %105 ]
-  br i1 %133, label %120, label %.outer, !llvm.loop !71
+  br i1 %133, label %120, label %.outer, !llvm.loop !72
 
 120:                                              ; preds = %118
   %121 = sext i32 %.2140 to i64
@@ -1125,7 +1125,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   store i32 %129, ptr %65, align 8, !tbaa !54
   %130 = getelementptr inbounds i8, ptr %.0135.ph.ph, i64 %127
   %131 = sub nsw i32 %.0145.ph, %.0145.
-  br label %.outer.outer, !llvm.loop !71
+  br label %.outer.outer, !llvm.loop !72
 
 .outer.outer:                                     ; preds = %120, %.preheader
   %.ph = phi i32 [ %129, %120 ], [ %66, %.preheader ]
@@ -1303,8 +1303,9 @@ attributes #7 = { nounwind }
 !64 = !{!38, !39, i64 100}
 !65 = !{!66, !13, i64 0}
 !66 = !{!"", !13, i64 0, !13, i64 4, !18, i64 8}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!66, !13, i64 4}
-!70 = !{!66, !18, i64 8}
-!71 = distinct !{!71, !68}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = !{!66, !13, i64 4}
+!71 = !{!66, !18, i64 8}
+!72 = distinct !{!72, !69}

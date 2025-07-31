@@ -208,7 +208,7 @@ for.body30:                                       ; preds = %for.cond28.preheade
   store double %5, ptr %add.ptr.i80, align 8, !tbaa !18
   %indvars.iv.next200 = add nsw i64 %indvars.iv199, -1
   %cmp29 = icmp samesign ugt i64 %indvars.iv199, 1
-  br i1 %cmp29, label %for.body30, label %for.body45, !llvm.loop !22
+  br i1 %cmp29, label %for.body30, label %for.body45, !llvm.loop !23
 
 for.body45:                                       ; preds = %for.body30, %for.body45
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %for.body45 ], [ 198, %for.body30 ]
@@ -224,7 +224,7 @@ for.body45:                                       ; preds = %for.body30, %for.bo
   store double %sub53, ptr %add.ptr.i84, align 8, !tbaa !18
   %indvars.iv.next204 = add nsw i64 %indvars.iv203, -2
   %cmp44 = icmp samesign ugt i64 %indvars.iv203, 65
-  br i1 %cmp44, label %for.body45, label %for.body62, !llvm.loop !23
+  br i1 %cmp44, label %for.body45, label %for.body62, !llvm.loop !24
 
 for.body62:                                       ; preds = %for.body45, %for.inc103
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %for.inc103 ], [ 198, %for.body45 ]
@@ -265,7 +265,7 @@ if.then66:                                        ; preds = %for.body62
 for.inc103:                                       ; preds = %for.body62, %if.then66
   %indvars.iv.next208 = add nsw i64 %indvars.iv207, -1
   %cmp61 = icmp samesign ugt i64 %indvars.iv207, 100
-  br i1 %cmp61, label %for.body62, label %for.end105, !llvm.loop !24
+  br i1 %cmp61, label %for.body62, label %for.end105, !llvm.loop !25
 
 for.end105:                                       ; preds = %for.inc103
   %and.i = and i32 %s.0187, 1
@@ -300,7 +300,7 @@ if.end141:                                        ; preds = %for.body111.prehead
   %dec144 = sext i1 %cmp142.not to i32
   %t.1 = add nsw i32 %t.0188, %dec144
   %cmp27.not = icmp eq i32 %t.1, 0
-  br i1 %cmp27.not, label %for.cond146.preheader, label %for.cond28.preheader, !llvm.loop !25
+  br i1 %cmp27.not, label %for.cond146.preheader, label %for.cond28.preheader, !llvm.loop !26
 
 for.body160.lr.ph:                                ; preds = %for.body148
   %invariant.gep192 = getelementptr i8, ptr %2, i64 -296
@@ -314,7 +314,7 @@ for.body148:                                      ; preds = %for.cond146.prehead
   store double %21, ptr %gep, align 8, !tbaa !18
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next218, 37
-  br i1 %exitcond220.not, label %for.body160.lr.ph, label %for.body148, !llvm.loop !26
+  br i1 %exitcond220.not, label %for.body160.lr.ph, label %for.body148, !llvm.loop !27
 
 for.body160:                                      ; preds = %for.body160.lr.ph, %for.body160
   %indvars.iv222 = phi i64 [ 37, %for.body160.lr.ph ], [ %indvars.iv.next223, %for.body160 ]
@@ -324,7 +324,7 @@ for.body160:                                      ; preds = %for.body160.lr.ph, 
   store double %22, ptr %gep193, align 8, !tbaa !18
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next223, 100
-  br i1 %exitcond225.not, label %_ZNSt6vectorIdSaIdEED2Ev.exit135, label %for.body160, !llvm.loop !27
+  br i1 %exitcond225.not, label %_ZNSt6vectorIdSaIdEED2Ev.exit135, label %for.body160, !llvm.loop !28
 
 _ZNSt6vectorIdSaIdEED2Ev.exit135:                 ; preds = %for.body160
   tail call void @_ZdlPvm(ptr noundef nonnull %call5.i.i.i.i2.i.i70, i64 noundef 1592) #10
@@ -360,7 +360,7 @@ for.body:                                         ; preds = %entry, %for.body
   store double %2, ptr %add.ptr.i26, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !29
 
 for.cond18.preheader.loopexit:                    ; preds = %for.body6
   %3 = zext nneg i32 %n to i64
@@ -386,7 +386,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
   store double %sub.i, ptr %add.ptr.i29, align 8, !tbaa !18
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond66.not, label %for.cond18.preheader.loopexit, label %for.body6, !llvm.loop !29
+  br i1 %exitcond66.not, label %for.cond18.preheader.loopexit, label %for.body6, !llvm.loop !30
 
 for.body37.lr.ph:                                 ; preds = %for.body20
   %invariant.gep60 = getelementptr i8, ptr %0, i64 -296
@@ -410,7 +410,7 @@ for.body20:                                       ; preds = %for.cond18.preheade
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next70, 37
-  br i1 %exitcond74.not, label %for.body37.lr.ph, label %for.body20, !llvm.loop !30
+  br i1 %exitcond74.not, label %for.body37.lr.ph, label %for.body20, !llvm.loop !31
 
 for.body37:                                       ; preds = %for.body37.lr.ph, %for.body37
   %indvars.iv79 = phi i64 [ 37, %for.body37.lr.ph ], [ %indvars.iv.next80, %for.body37 ]
@@ -428,7 +428,7 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next80, 100
-  br i1 %exitcond84.not, label %for.end52, label %for.body37, !llvm.loop !31
+  br i1 %exitcond84.not, label %for.end52, label %for.body37, !llvm.loop !32
 
 for.end52:                                        ; preds = %for.body37
   ret void
@@ -455,7 +455,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store double %2, ptr %add.ptr.i26.i, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 100
-  br i1 %exitcond.not.i, label %for.cond4.preheader.i, label %for.body.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %for.cond4.preheader.i, label %for.body.i, !llvm.loop !29
 
 for.body6.i:                                      ; preds = %for.body6.i, %for.cond4.preheader.i
   %indvars.iv63.i = phi i64 [ 100, %for.cond4.preheader.i ], [ %indvars.iv.next64.i, %for.body6.i ]
@@ -471,7 +471,7 @@ for.body6.i:                                      ; preds = %for.body6.i, %for.c
   store double %sub.i.i, ptr %add.ptr.i29.i, align 8, !tbaa !18
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 1009
-  br i1 %exitcond66.not.i, label %for.body20.i, label %for.body6.i, !llvm.loop !29
+  br i1 %exitcond66.not.i, label %for.body20.i, label %for.body6.i, !llvm.loop !30
 
 for.body37.lr.ph.i:                               ; preds = %for.body20.i
   %invariant.gep60.i = getelementptr i8, ptr %0, i64 -296
@@ -493,7 +493,7 @@ for.body20.i:                                     ; preds = %for.body6.i, %for.b
   store double %sub.i35.i, ptr %add.ptr.i36.i, align 8, !tbaa !18
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next70.i, 37
-  br i1 %exitcond74.not.i, label %for.body37.lr.ph.i, label %for.body20.i, !llvm.loop !30
+  br i1 %exitcond74.not.i, label %for.body37.lr.ph.i, label %for.body20.i, !llvm.loop !31
 
 for.body37.i:                                     ; preds = %for.body37.i, %for.body37.lr.ph.i
   %indvars.iv79.i = phi i64 [ 37, %for.body37.lr.ph.i ], [ %indvars.iv.next80.i, %for.body37.i ]
@@ -511,7 +511,7 @@ for.body37.i:                                     ; preds = %for.body37.i, %for.
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next80.i, 100
-  br i1 %exitcond84.not.i, label %_ZNK8QuantLib15KnuthUniformRng10ranf_arrayERSt6vectorIdSaIdEEi.exit, label %for.body37.i, !llvm.loop !31
+  br i1 %exitcond84.not.i, label %_ZNK8QuantLib15KnuthUniformRng10ranf_arrayERSt6vectorIdSaIdEEi.exit, label %for.body37.i, !llvm.loop !32
 
 _ZNK8QuantLib15KnuthUniformRng10ranf_arrayERSt6vectorIdSaIdEEi.exit: ; preds = %for.body37.i
   %ranf_arr_ptr = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -579,15 +579,16 @@ attributes #10 = { builtin nounwind }
 !17 = !{!"branch_weights", i32 1, i32 1048575}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"double", !6, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
-!27 = distinct !{!27, !21}
-!28 = distinct !{!28, !21}
-!29 = distinct !{!29, !21}
-!30 = distinct !{!30, !21}
-!31 = distinct !{!31, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = distinct !{!24, !21, !22}
+!25 = distinct !{!25, !21, !22}
+!26 = distinct !{!26, !21, !22}
+!27 = distinct !{!27, !21, !22}
+!28 = distinct !{!28, !21, !22}
+!29 = distinct !{!29, !21, !22}
+!30 = distinct !{!30, !21, !22}
+!31 = distinct !{!31, !21, !22}
+!32 = distinct !{!32, !21, !22}

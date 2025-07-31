@@ -293,7 +293,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   br i1 %.not134, label %.preheader, label %170
 
 .preheader:                                       ; preds = %166, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !63
 
 170:                                              ; preds = %166
   call void @lv_memset(ptr noundef nonnull %169, i8 noundef zeroext -1, i64 noundef %168) #6
@@ -335,7 +335,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   %184 = getelementptr inbounds nuw i8, ptr %.0119158, i64 %178
   %185 = add nuw nsw i32 %.0124157, 1
   %exitcond.not = icmp eq i32 %185, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %179, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %179, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %183, %170
   %186 = trunc i32 %81 to i16
@@ -388,7 +388,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   %214 = load i32, ptr %14, align 4, !tbaa !30
   %215 = load i32, ptr %198, align 4, !tbaa !32
   %216 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %10, ptr noundef %102, i32 noundef %214, i32 noundef %215, i32 noundef %100) #6
-  store i32 %216, ptr %202, align 8, !tbaa !65
+  store i32 %216, ptr %202, align 8, !tbaa !67
   %217 = load i8, ptr %163, align 1
   %218 = and i8 %217, 1
   %.not137 = icmp eq i8 %218, 0
@@ -409,7 +409,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
 
 225:                                              ; preds = %223
   call void @lv_memset(ptr noundef %102, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %101) #6
-  store i32 2, ptr %202, align 8, !tbaa !65
+  store i32 2, ptr %202, align 8, !tbaa !67
   br label %226
 
 226:                                              ; preds = %225, %223
@@ -457,7 +457,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   store i8 %255, ptr %247, align 1, !tbaa !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_circle.exit, label %.lr.ph.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %add_circle.exit, label %.lr.ph.i, !llvm.loop !68
 
 add_circle.exit:                                  ; preds = %.lr.ph.i, %226, %228
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
@@ -481,7 +481,7 @@ add_circle.exit:                                  ; preds = %.lr.ph.i, %226, %22
 
 262:                                              ; preds = %260
   call void @lv_memset(ptr noundef %102, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %101) #6
-  store i32 2, ptr %202, align 8, !tbaa !65
+  store i32 2, ptr %202, align 8, !tbaa !67
   br label %263
 
 263:                                              ; preds = %262, %260
@@ -529,7 +529,7 @@ add_circle.exit:                                  ; preds = %.lr.ph.i, %226, %22
   store i8 %292, ptr %284, align 1, !tbaa !27
   %indvars.iv.next.i153 = add nuw nsw i64 %indvars.iv.i152, 1
   %exitcond.not.i154 = icmp eq i64 %indvars.iv.next.i153, %wide.trip.count.i150
-  br i1 %exitcond.not.i154, label %add_circle.exit155, label %.lr.ph.i151, !llvm.loop !66
+  br i1 %exitcond.not.i154, label %add_circle.exit155, label %.lr.ph.i151, !llvm.loop !68
 
 add_circle.exit155:                               ; preds = %.lr.ph.i151, %263, %265
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
@@ -574,10 +574,10 @@ add_circle.exit155:                               ; preds = %.lr.ph.i151, %263, 
   store i8 %320, ptr %312, align 1, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond169.not, label %._crit_edge162.loopexit, label %.lr.ph161, !llvm.loop !67
+  br i1 %exitcond169.not, label %._crit_edge162.loopexit, label %.lr.ph161, !llvm.loop !69
 
 ._crit_edge162.loopexit:                          ; preds = %.lr.ph161
-  %.pre175 = load i32, ptr %202, align 8, !tbaa !65
+  %.pre175 = load i32, ptr %202, align 8, !tbaa !67
   br label %._crit_edge162
 
 ._crit_edge162:                                   ; preds = %._crit_edge162.loopexit, %296
@@ -586,7 +586,7 @@ add_circle.exit155:                               ; preds = %.lr.ph.i151, %263, 
   br i1 %322, label %323, label %324
 
 323:                                              ; preds = %._crit_edge162
-  store i32 2, ptr %202, align 8, !tbaa !65
+  store i32 2, ptr %202, align 8, !tbaa !67
   br label %324
 
 324:                                              ; preds = %._crit_edge162, %323, %293
@@ -599,7 +599,7 @@ add_circle.exit155:                               ; preds = %.lr.ph.i151, %263, 
   store i32 %328, ptr %200, align 4, !tbaa !34
   %329 = add nuw nsw i32 %.1125163, 1
   %exitcond170.not = icmp eq i32 %329, %99
-  br i1 %exitcond170.not, label %._crit_edge166, label %213, !llvm.loop !68
+  br i1 %exitcond170.not, label %._crit_edge166, label %213, !llvm.loop !70
 
 ._crit_edge166:                                   ; preds = %324, %197
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %11) #6
@@ -853,8 +853,10 @@ attributes #6 = { nounwind }
 !61 = !{!39, !10, i64 16}
 !62 = !{!39, !10, i64 20}
 !63 = distinct !{!63, !64}
-!64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!39, !10, i64 48}
-!66 = distinct !{!66, !64}
-!67 = distinct !{!67, !64}
-!68 = distinct !{!68, !64}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = distinct !{!65, !66, !64}
+!66 = !{!"llvm.loop.mustprogress"}
+!67 = !{!39, !10, i64 48}
+!68 = distinct !{!68, !66, !64}
+!69 = distinct !{!69, !66, !64}
+!70 = distinct !{!70, !66, !64}

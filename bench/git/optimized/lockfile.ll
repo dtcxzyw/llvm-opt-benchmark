@@ -125,7 +125,7 @@ define dso_local i32 @hold_lock_file_for_update_timeout_mode(ptr noundef capture
   %.228.i = add nuw nsw i32 %.02647.i, %33
   %34 = tail call fastcc i32 @lock_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4)
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %lock_file_timeout.exit.thread, label %16
+  br i1 %35, label %lock_file_timeout.exit.thread, label %16, !llvm.loop !13
 
 lock_file_timeout.exit:                           ; preds = %5
   %36 = tail call fastcc i32 @lock_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4)
@@ -196,12 +196,12 @@ define dso_local ptr @get_locked_file_path(ptr noundef readonly captures(none) %
   %2 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.lock_file.filename, i64 24, i1 false)
-  %3 = load ptr, ptr %0, align 8, !tbaa !13
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
   %4 = tail call ptr @get_tempfile_path(ptr noundef %3) #11
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
   call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !16
+  %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = icmp ult i64 %7, 6
   br i1 %8, label %15, label %9
 
@@ -220,7 +220,7 @@ define dso_local ptr @get_locked_file_path(ptr noundef readonly captures(none) %
 
 16:                                               ; preds = %9
   %17 = add i64 %7, -5
-  %18 = load i64, ptr %2, align 8, !tbaa !17
+  %18 = load i64, ptr %2, align 8, !tbaa !19
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %18, i64 1)
   %19 = icmp ugt i64 %17, %spec.select.i
   br i1 %19, label %20, label %21
@@ -230,13 +230,13 @@ define dso_local ptr @get_locked_file_path(ptr noundef readonly captures(none) %
   unreachable
 
 21:                                               ; preds = %16
-  store i64 %17, ptr %6, align 8, !tbaa !16
+  store i64 %17, ptr %6, align 8, !tbaa !18
   %.not9.i = icmp eq ptr %11, @strbuf_slopbuf
   br i1 %.not9.i, label %strbuf_setlen.exit, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 %17
-  store i8 0, ptr %23, align 1, !tbaa !18
+  store i8 0, ptr %23, align 1, !tbaa !20
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %21, %22
@@ -303,29 +303,29 @@ define internal fastcc i32 @lock_file(ptr noundef captures(none) %0, ptr noundef
 11:                                               ; preds = %strbuf_setlen.exit.i, %8
   %12 = phi i32 [ 4, %8 ], [ %40, %strbuf_setlen.exit.i ]
   %13 = load ptr, ptr %9, align 8, !tbaa !8
-  %14 = load i64, ptr %10, align 8, !tbaa !16
+  %14 = load i64, ptr %10, align 8, !tbaa !18
   %15 = call i32 @strbuf_readlink(ptr noundef nonnull @resolve_symlink.link, ptr noundef %13, i64 noundef %14) #11
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %41, label %17
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @resolve_symlink.link, i64 16), align 8, !tbaa !8
-  %.val.i = load i8, ptr %18, align 1, !tbaa !18
+  %.val.i = load i8, ptr %18, align 1, !tbaa !20
   %.not9.i = icmp eq i8 %.val.i, 47
   br i1 %.not9.i, label %19, label %22
 
 19:                                               ; preds = %17
-  store i64 0, ptr %10, align 8, !tbaa !16
+  store i64 0, ptr %10, align 8, !tbaa !18
   %20 = load ptr, ptr %9, align 8, !tbaa !8
   %.not9.i.i = icmp eq ptr %20, @strbuf_slopbuf
   br i1 %.not9.i.i, label %strbuf_setlen.exit.i, label %21
 
 21:                                               ; preds = %19
-  store i8 0, ptr %20, align 1, !tbaa !18
+  store i8 0, ptr %20, align 1, !tbaa !20
   br label %strbuf_setlen.exit.i
 
 22:                                               ; preds = %17
-  %23 = load i64, ptr %10, align 8, !tbaa !16
+  %23 = load i64, ptr %10, align 8, !tbaa !18
   %24 = and i64 %23, 4294967295
   %.not14.i.i = icmp eq i64 %24, 0
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !8
@@ -340,14 +340,14 @@ define internal fastcc i32 @lock_file(ptr noundef captures(none) %0, ptr noundef
 26:                                               ; preds = %29, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %29 ]
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
-  %27 = load i8, ptr %gep.i.i, align 1, !tbaa !18
+  %27 = load i8, ptr %gep.i.i, align 1, !tbaa !20
   %28 = icmp eq i8 %27, 47
   br i1 %28, label %29, label %.critedge.i.i
 
 29:                                               ; preds = %26
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 0
-  br i1 %.not.i.i, label %.critedge2.thread.i.i, label %26, !llvm.loop !19
+  br i1 %.not.i.i, label %.critedge2.thread.i.i, label %26, !llvm.loop !21
 
 .critedge.i.i:                                    ; preds = %26
   %.not1218.i.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -361,20 +361,20 @@ define internal fastcc i32 @lock_file(ptr noundef captures(none) %0, ptr noundef
 31:                                               ; preds = %33, %.lr.ph20.i.i
   %indvars.iv27.i.i = phi i64 [ %30, %.lr.ph20.i.i ], [ %indvars.iv.next28.i.i, %33 ]
   %gep25.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv27.i.i
-  %32 = load i8, ptr %gep25.i.i, align 1, !tbaa !18
+  %32 = load i8, ptr %gep25.i.i, align 1, !tbaa !20
   %.not13.i.i = icmp eq i8 %32, 47
   br i1 %.not13.i.i, label %.critedge2.i.i, label %33
 
 33:                                               ; preds = %31
   %indvars.iv.next28.i.i = add nsw i64 %indvars.iv27.i.i, -1
   %.not12.i.i = icmp eq i64 %indvars.iv.next28.i.i, 0
-  br i1 %.not12.i.i, label %.critedge2.i.i, label %31, !llvm.loop !21
+  br i1 %.not12.i.i, label %.critedge2.i.i, label %31, !llvm.loop !23
 
 .critedge2.i.i:                                   ; preds = %33, %31
   %.1.lcssa.ph.i.i = phi i64 [ %indvars.iv27.i.i, %31 ], [ 0, %33 ]
   %sext30.i.i = shl i64 %.1.lcssa.ph.i.i, 32
   %34 = ashr exact i64 %sext30.i.i, 32
-  %35 = load i64, ptr %5, align 8, !tbaa !17
+  %35 = load i64, ptr %5, align 8, !tbaa !19
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %35, i64 1)
   %36 = icmp ult i64 %spec.select.i.i.i, %34
   br i1 %36, label %37, label %.critedge2.thread.i.i
@@ -385,29 +385,29 @@ define internal fastcc i32 @lock_file(ptr noundef captures(none) %0, ptr noundef
 
 .critedge2.thread.i.i:                            ; preds = %29, %.critedge2.i.i, %.critedge.i.i, %22
   %.1.lcssa35.i.i = phi i64 [ %34, %.critedge2.i.i ], [ 0, %.critedge.i.i ], [ 0, %22 ], [ 0, %29 ]
-  store i64 %.1.lcssa35.i.i, ptr %10, align 8, !tbaa !16
+  store i64 %.1.lcssa35.i.i, ptr %10, align 8, !tbaa !18
   %.not9.i.i.i = icmp eq ptr %.pre.i, @strbuf_slopbuf
   br i1 %.not9.i.i.i, label %strbuf_setlen.exit.i, label %38
 
 38:                                               ; preds = %.critedge2.thread.i.i
   %39 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.1.lcssa35.i.i
-  store i8 0, ptr %39, align 1, !tbaa !18
+  store i8 0, ptr %39, align 1, !tbaa !20
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %38, %.critedge2.thread.i.i, %21, %19
   call void @strbuf_addbuf(ptr noundef nonnull %5, ptr noundef nonnull @resolve_symlink.link) #11
   %40 = add nsw i32 %12, -1
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %41, label %11, !llvm.loop !22
+  br i1 %.not.i, label %41, label %11, !llvm.loop !24
 
 41:                                               ; preds = %strbuf_setlen.exit.i, %11
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @resolve_symlink.link, i64 8), align 8, !tbaa !16
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @resolve_symlink.link, i64 8), align 8, !tbaa !18
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @resolve_symlink.link, i64 16), align 8, !tbaa !8
   %.not9.i7.i = icmp eq ptr %42, @strbuf_slopbuf
   br i1 %.not9.i7.i, label %resolve_symlink.exit, label %43
 
 43:                                               ; preds = %41
-  store i8 0, ptr %42, align 1, !tbaa !18
+  store i8 0, ptr %42, align 1, !tbaa !20
   br label %resolve_symlink.exit
 
 resolve_symlink.exit:                             ; preds = %43, %41, %4
@@ -415,15 +415,15 @@ resolve_symlink.exit:                             ; preds = %43, %41, %4
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !8
   %46 = call ptr @create_tempfile_mode(ptr noundef %45, i32 noundef %3) #11
-  store ptr %46, ptr %0, align 8, !tbaa !13
+  store ptr %46, ptr %0, align 8, !tbaa !15
   call void @strbuf_release(ptr noundef nonnull %5) #11
-  %47 = load ptr, ptr %0, align 8, !tbaa !13
+  %47 = load ptr, ptr %0, align 8, !tbaa !15
   %.not5 = icmp eq ptr %47, null
   br i1 %.not5, label %51, label %48
 
 48:                                               ; preds = %resolve_symlink.exit
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %50 = load volatile i32, ptr %49, align 8, !tbaa !23
+  %50 = load volatile i32, ptr %49, align 8, !tbaa !25
   br label %51
 
 51:                                               ; preds = %resolve_symlink.exit, %48
@@ -497,18 +497,20 @@ attributes #15 = { nounwind willreturn memory(read) }
 !10 = !{!"long", !6, i64 0}
 !11 = !{!"p1 omnipotent char", !12, i64 0}
 !12 = !{!"any pointer", !6, i64 0}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"lock_file", !15, i64 0}
-!15 = !{!"p1 _ZTS8tempfile", !12, i64 0}
-!16 = !{!9, !10, i64 8}
-!17 = !{!9, !10, i64 0}
-!18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = !{!24, !5, i64 16}
-!24 = !{!"tempfile", !25, i64 0, !5, i64 16, !27, i64 24, !5, i64 32, !9, i64 40, !11, i64 64}
-!25 = !{!"volatile_list_head", !26, i64 0, !26, i64 8}
-!26 = !{!"p1 _ZTS18volatile_list_head", !12, i64 0}
-!27 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"lock_file", !17, i64 0}
+!17 = !{!"p1 _ZTS8tempfile", !12, i64 0}
+!18 = !{!9, !10, i64 8}
+!19 = !{!9, !10, i64 0}
+!20 = !{!6, !6, i64 0}
+!21 = distinct !{!21, !22, !14}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{!23, !22, !14}
+!24 = distinct !{!24, !22, !14}
+!25 = !{!26, !5, i64 16}
+!26 = !{!"tempfile", !27, i64 0, !5, i64 16, !29, i64 24, !5, i64 32, !9, i64 40, !11, i64 64}
+!27 = !{!"volatile_list_head", !28, i64 0, !28, i64 8}
+!28 = !{!"p1 _ZTS18volatile_list_head", !12, i64 0}
+!29 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}

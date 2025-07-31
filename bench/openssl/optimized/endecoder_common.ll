@@ -50,7 +50,7 @@ define ptr @ossl_prov_get_keymgmt_free(ptr noundef readonly captures(none) %0) l
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  br label %2, !llvm.loop !12
+  br label %2, !llvm.loop !13
 
 .loopexit:                                        ; preds = %2, %4
   %.05 = phi ptr [ %.0.val, %4 ], [ null, %2 ]
@@ -76,7 +76,7 @@ define ptr @ossl_prov_get_keymgmt_import(ptr noundef readonly captures(none) %0)
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  br label %2, !llvm.loop !13
+  br label %2, !llvm.loop !14
 
 .loopexit:                                        ; preds = %2, %4
   %.05 = phi ptr [ %.0.val, %4 ], [ null, %2 ]
@@ -102,7 +102,7 @@ define ptr @ossl_prov_get_keymgmt_export(ptr noundef readonly captures(none) %0)
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  br label %2, !llvm.loop !14
+  br label %2, !llvm.loop !15
 
 .loopexit:                                        ; preds = %2, %4
   %.05 = phi ptr [ %.0.val, %4 ], [ null, %2 ]
@@ -149,7 +149,7 @@ ossl_prov_get_keymgmt_new.exit:                   ; preds = %5, %7
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %.0.i21, i64 16
-  br label %11, !llvm.loop !12
+  br label %11, !llvm.loop !13
 
 ossl_prov_get_keymgmt_free.exit:                  ; preds = %11, %13
   %.05.i23 = phi ptr [ %.0.val.i22, %13 ], [ null, %11 ]
@@ -165,7 +165,7 @@ ossl_prov_get_keymgmt_free.exit:                  ; preds = %11, %13
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 16
-  br label %17, !llvm.loop !13
+  br label %17, !llvm.loop !14
 
 ossl_prov_get_keymgmt_import.exit:                ; preds = %17
   %21 = getelementptr i8, ptr %.0.i24, i64 8
@@ -216,7 +216,7 @@ define void @ossl_prov_free_key(ptr noundef readonly captures(none) %0, ptr noun
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  br label %3, !llvm.loop !12
+  br label %3, !llvm.loop !13
 
 ossl_prov_get_keymgmt_free.exit:                  ; preds = %3
   %7 = getelementptr i8, ptr %.0.i, i64 8
@@ -236,7 +236,7 @@ ossl_prov_get_keymgmt_free.exit.thread:           ; preds = %3, %8, %ossl_prov_g
 define range(i32 0, 2) i32 @ossl_read_der(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr null, ptr %5, align 8, !tbaa !15
+  store ptr null, ptr %5, align 8, !tbaa !16
   %6 = tail call ptr @ossl_bio_new_from_core_bio(ptr noundef %0, ptr noundef %1) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %19, label %8
@@ -248,12 +248,12 @@ define range(i32 0, 2) i32 @ossl_read_der(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %10, label %12, label %17
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr %5, align 8, !tbaa !15
+  %13 = load ptr, ptr %5, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !17
-  store ptr %15, ptr %2, align 8, !tbaa !21
-  %16 = load i64, ptr %13, align 8, !tbaa !22
-  store i64 %16, ptr %3, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !18
+  store ptr %15, ptr %2, align 8, !tbaa !22
+  %16 = load i64, ptr %13, align 8, !tbaa !23
+  store i64 %16, ptr %3, align 8, !tbaa !24
   call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 100) #4
   br label %17
 
@@ -293,17 +293,18 @@ attributes #4 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"any pointer", !6, i64 0}
 !9 = !{!4, !8, i64 8}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS10buf_mem_st", !8, i64 0}
-!17 = !{!18, !20, i64 8}
-!18 = !{!"buf_mem_st", !19, i64 0, !20, i64 8, !19, i64 16, !19, i64 24}
-!19 = !{!"long", !6, i64 0}
-!20 = !{!"p1 omnipotent char", !8, i64 0}
-!21 = !{!20, !20, i64 0}
-!22 = !{!18, !19, i64 0}
-!23 = !{!19, !19, i64 0}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS10buf_mem_st", !8, i64 0}
+!18 = !{!19, !21, i64 8}
+!19 = !{!"buf_mem_st", !20, i64 0, !21, i64 8, !20, i64 16, !20, i64 24}
+!20 = !{!"long", !6, i64 0}
+!21 = !{!"p1 omnipotent char", !8, i64 0}
+!22 = !{!21, !21, i64 0}
+!23 = !{!19, !20, i64 0}
+!24 = !{!20, !20, i64 0}

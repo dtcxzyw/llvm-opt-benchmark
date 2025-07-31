@@ -27,7 +27,7 @@ land.rhs:                                         ; preds = %do.body
   %call1 = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %0, 4
-  br i1 %cmp2, label %do.body, label %if.then
+  br i1 %cmp2, label %do.body, label %if.then, !llvm.loop !5
 
 if.then:                                          ; preds = %land.rhs
   %sub = sub nsw i32 0, %0
@@ -64,7 +64,7 @@ land.rhs:                                         ; preds = %do.body
   %call4 = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call4, align 4
   %cmp5 = icmp eq i32 %0, 4
-  br i1 %cmp5, label %do.body, label %if.then7
+  br i1 %cmp5, label %do.body, label %if.then7, !llvm.loop !7
 
 if.then7:                                         ; preds = %land.rhs
   %sub = sub nsw i32 0, %0
@@ -266,7 +266,7 @@ land.rhs:                                         ; preds = %do.body
   %call8 = tail call ptr @__errno_location() #9
   %2 = load i32, ptr %call8, align 4
   %cmp9 = icmp eq i32 %2, 4
-  br i1 %cmp9, label %do.body, label %if.then11
+  br i1 %cmp9, label %do.body, label %if.then11, !llvm.loop !8
 
 if.then11:                                        ; preds = %land.rhs
   %sub = sub nsw i32 0, %2
@@ -275,7 +275,7 @@ if.then11:                                        ; preds = %land.rhs
 do.body14:                                        ; preds = %do.body, %do.body14
   %3 = cmpxchg ptr @termios_spinlock, i32 0, i32 1 seq_cst seq_cst, align 4
   %4 = extractvalue { i32, i1 } %3, 1
-  br i1 %4, label %do.end16, label %do.body14
+  br i1 %4, label %do.end16, label %do.body14, !llvm.loop !9
 
 do.end16:                                         ; preds = %do.body14
   %5 = load i32, ptr @orig_termios_fd, align 4
@@ -337,7 +337,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #9
   %10 = load i32, ptr %call1.i, align 4
   %cmp2.i = icmp eq i32 %10, 4
-  br i1 %cmp2.i, label %do.body.i, label %uv__tcsetattr.exit
+  br i1 %cmp2.i, label %do.body.i, label %uv__tcsetattr.exit, !llvm.loop !5
 
 uv__tcsetattr.exit:                               ; preds = %land.rhs.i
   %sub.i = sub nsw i32 0, %10
@@ -376,7 +376,7 @@ land.rhs:                                         ; preds = %do.body
   %call1 = tail call ptr @__errno_location() #9
   %1 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %1, 4
-  br i1 %cmp2, label %do.body, label %if.then
+  br i1 %cmp2, label %do.body, label %if.then, !llvm.loop !10
 
 if.then:                                          ; preds = %land.rhs
   %sub = sub nsw i32 0, %1
@@ -431,7 +431,7 @@ do.body.i:                                        ; preds = %if.end, %land.rhs.i
 land.rhs.i:                                       ; preds = %do.body.i
   %3 = load i32, ptr %call, align 4
   %cmp2.i = icmp eq i32 %3, 4
-  br i1 %cmp2.i, label %do.body.i, label %if.then.i
+  br i1 %cmp2.i, label %do.body.i, label %if.then.i, !llvm.loop !5
 
 if.then.i:                                        ; preds = %land.rhs.i
   %sub.i = sub nsw i32 0, %3
@@ -490,3 +490,9 @@ attributes #9 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

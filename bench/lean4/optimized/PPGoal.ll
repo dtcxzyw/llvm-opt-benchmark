@@ -583,7 +583,7 @@ lean_alloc_ctor.exit55:                           ; preds = %lean_alloc_ctor.exi
   store ptr %.sink90, ptr %98, align 8, !tbaa !4
   %99 = getelementptr inbounds nuw i8, ptr %.sink95, i64 16
   store ptr %.sink, ptr %99, align 8, !tbaa !4
-  br label %6
+  br label %6, !llvm.loop !14
 }
 
 declare ptr @l_Lean_Name_toString(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
@@ -11630,7 +11630,7 @@ lean_dec.exit193:                                 ; preds = %84, %83, %81, %lean
   br i1 %85, label %90, label %141
 
 90:                                               ; preds = %lean_dec.exit193
-  br i1 %.not.i272, label %101, label %91, !prof !14
+  br i1 %.not.i272, label %101, label %91, !prof !16
 
 91:                                               ; preds = %90
   %92 = lshr i64 %36, 1
@@ -11677,7 +11677,7 @@ lean_dec.exit192:                                 ; preds = %95, %99, %108, %107
   %113 = ptrtoint ptr %.0.i165300 to i64
   %114 = and i64 %113, 1
   %.not322 = icmp eq i64 %114, 0
-  br i1 %.not322, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !14
+  br i1 %.not322, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !16
 
 lean_nat_lt.exit:                                 ; preds = %lean_dec.exit192
   %.not323 = icmp ult ptr %.0.i165300, %112
@@ -11830,7 +11830,7 @@ lean_inc.exit:                                    ; preds = %157, %156, %154, %l
   br label %lean_dec.exit183
 
 lean_dec.exit183:                                 ; preds = %166, %165, %163, %lean_inc.exit
-  br i1 %.not.i272, label %177, label %167, !prof !14
+  br i1 %.not.i272, label %177, label %167, !prof !16
 
 167:                                              ; preds = %lean_dec.exit183
   %168 = lshr i64 %36, 1
@@ -11877,7 +11877,7 @@ lean_dec.exit182:                                 ; preds = %171, %175, %184, %1
   %189 = ptrtoint ptr %.0.i304 to i64
   %190 = and i64 %189, 1
   %.not319 = icmp eq i64 %190, 0
-  br i1 %.not319, label %lean_nat_lt.exit254.thread, label %lean_nat_lt.exit254, !prof !14
+  br i1 %.not319, label %lean_nat_lt.exit254.thread, label %lean_nat_lt.exit254, !prof !16
 
 lean_nat_lt.exit254:                              ; preds = %lean_dec.exit182
   %.not320 = icmp ult ptr %.0.i304, %188
@@ -11999,7 +11999,7 @@ lean_usize_to_nat.exit293:                        ; preds = %224, %228
   %234 = ptrtoint ptr %.0.i292 to i64
   %235 = and i64 %234, 1
   %.not = icmp eq i64 %235, 0
-  br i1 %.not, label %lean_nat_lt.exit257.thread, label %lean_nat_lt.exit257, !prof !14
+  br i1 %.not, label %lean_nat_lt.exit257.thread, label %lean_nat_lt.exit257, !prof !16
 
 lean_nat_lt.exit257:                              ; preds = %lean_usize_to_nat.exit293
   %.not311 = icmp ult ptr %.0.i292, %233
@@ -22402,7 +22402,7 @@ define ptr @l_Lean_PersistentArray_foldlM___at_Lean_Meta_ppGoal___spec__2(ptr no
   %13 = ptrtoint ptr %6 to i64
   %14 = and i64 %13, 1
   %.not406 = icmp eq i64 %14, 0
-  br i1 %.not406, label %lean_nat_eq.exit, label %15, !prof !14
+  br i1 %.not406, label %lean_nat_eq.exit, label %15, !prof !16
 
 15:                                               ; preds = %12
   %16 = icmp eq ptr %6, inttoptr (i64 1 to ptr)
@@ -22419,7 +22419,7 @@ lean_nat_eq.exit:                                 ; preds = %12
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %14, %22
   %brmerge.not.not = icmp eq i64 %23, 0
-  br i1 %brmerge.not.not, label %lean_nat_le.exit, label %lean_nat_le.exit.thread, !prof !15
+  br i1 %brmerge.not.not, label %lean_nat_le.exit, label %lean_nat_le.exit.thread, !prof !17
 
 lean_nat_le.exit:                                 ; preds = %18
   %24 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %21, ptr noundef %6) #5
@@ -22681,7 +22681,7 @@ lean_nat_sub.exit:                                ; preds = %109, %115, %.crited
   %128 = ptrtoint ptr %.1.i to i64
   %129 = and i64 %128, 1
   %.not415 = icmp eq i64 %129, 0
-  br i1 %.not415, label %lean_nat_lt.exit337.thread, label %lean_nat_lt.exit337, !prof !14
+  br i1 %.not415, label %lean_nat_lt.exit337.thread, label %lean_nat_lt.exit337, !prof !16
 
 lean_nat_lt.exit337:                              ; preds = %lean_nat_sub.exit
   %.not416 = icmp ult ptr %.1.i, %127
@@ -28069,9 +28069,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit168
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store ptr @l_Lean_Meta_ppGoal___lambda__1___boxed, ptr %186, align 8, !tbaa !4
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 16
-  store i16 12, ptr %187, align 8, !tbaa !16
+  store i16 12, ptr %187, align 8, !tbaa !18
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 18
-  store i16 7, ptr %188, align 2, !tbaa !16
+  store i16 7, ptr %188, align 2, !tbaa !18
   %189 = getelementptr inbounds nuw i8, ptr %182, i64 24
   store ptr %162, ptr %189, align 8, !tbaa !4
   %190 = getelementptr inbounds nuw i8, ptr %182, i64 32
@@ -28601,9 +28601,9 @@ lean_alloc_closure.exit257:                       ; preds = %lean_inc.exit
   %399 = getelementptr inbounds nuw i8, ptr %395, i64 8
   store ptr @l_Lean_Meta_ppGoal___lambda__1___boxed, ptr %399, align 8, !tbaa !4
   %400 = getelementptr inbounds nuw i8, ptr %395, i64 16
-  store i16 12, ptr %400, align 8, !tbaa !16
+  store i16 12, ptr %400, align 8, !tbaa !18
   %401 = getelementptr inbounds nuw i8, ptr %395, i64 18
-  store i16 7, ptr %401, align 2, !tbaa !16
+  store i16 7, ptr %401, align 2, !tbaa !18
   %402 = getelementptr inbounds nuw i8, ptr %395, i64 24
   store ptr %375, ptr %402, align 8, !tbaa !4
   %403 = getelementptr inbounds nuw i8, ptr %395, i64 32
@@ -32700,9 +32700,9 @@ _init_l_List_foldl___at_Lean_Meta_ppGoal_pushPending___spec__2___closed__1.exit:
   %170 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store ptr @l_List_foldl___at_Lean_Meta_ppGoal_pushPending___spec__2___lambda__1___boxed, ptr %170, align 8, !tbaa !4
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  store i16 1, ptr %171, align 8, !tbaa !16
+  store i16 1, ptr %171, align 8, !tbaa !18
   %172 = getelementptr inbounds nuw i8, ptr %166, i64 18
-  store i16 0, ptr %172, align 2, !tbaa !16
+  store i16 0, ptr %172, align 2, !tbaa !18
   store ptr %166, ptr @l_List_foldl___at_Lean_Meta_ppGoal_pushPending___spec__2___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %166) #5
   %173 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.14, i64 noundef 1, i64 noundef 1) #5
@@ -32972,7 +32972,9 @@ attributes #6 = { noreturn nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !6, i64 0}
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = !{!"branch_weights", i32 4001, i32 4000000}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!"branch_weights", i32 4001, i32 4000000}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !6, i64 0}

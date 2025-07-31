@@ -341,7 +341,7 @@ define internal void @imx_i2c_recv(ptr noundef readonly captures(none) %0, i8 no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %114, label %76, !llvm.loop !8
+  br i1 %exitcond.not, label %114, label %76, !llvm.loop !9
 
 76:                                               ; preds = %.preheader, %74
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %74 ]
@@ -471,6 +471,7 @@ attributes #5 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

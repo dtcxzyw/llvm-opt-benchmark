@@ -197,7 +197,7 @@ define hidden { i32, i32 } @_ZN8xml5ever9tokenizer5qname17QualNameTokenizer3run1
 
 .preheader:                                       ; preds = %1, %.preheader
   %10 = tail call noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4step17h88e05007f22e22d1E.llvm.3862583096090210288(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
-  br i1 %10, label %.preheader, label %.loopexit
+  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -221,7 +221,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4step17h88e05007f22e22d1E.llvm.3862583096090210288(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8, !range !22, !noundef !5
+  %3 = load i8, ptr %2, align 8, !range !24, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   switch i8 %3, label %default.unreachable2 [
@@ -234,46 +234,46 @@ default.unreachable2:                             ; preds = %1
   unreachable
 
 6:                                                ; preds = %1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %7 = load i64, ptr %4, align 8, !alias.scope !23, !noundef !5
-  %8 = load i64, ptr %5, align 8, !alias.scope !23, !noundef !5
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  %7 = load i64, ptr %4, align 8, !alias.scope !25, !noundef !5
+  %8 = load i64, ptr %5, align 8, !alias.scope !25, !noundef !5
   %9 = icmp ult i64 %7, %8
-  br i1 %9, label %10, label %16, !prof !26
+  br i1 %9, label %10, label %16, !prof !28
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !23, !nonnull !5, !align !27, !noundef !5
+  %12 = load ptr, ptr %11, align 8, !alias.scope !25, !nonnull !5, !align !29, !noundef !5
   %13 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %7
-  %14 = load i8, ptr %13, align 1, !noalias !23, !noundef !5
+  %14 = load i8, ptr %13, align 1, !noalias !25, !noundef !5
   %15 = icmp eq i8 %14, 58
   br i1 %15, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit, label %17
 
 16:                                               ; preds = %6
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %7, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.3.llvm.3862583096090210288) #10, !noalias !23
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %7, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.3.llvm.3862583096090210288) #10, !noalias !25
   unreachable
 
 17:                                               ; preds = %10
-  store i8 1, ptr %2, align 8, !alias.scope !23
+  store i8 1, ptr %2, align 8, !alias.scope !25
   %18 = add nuw i64 %7, 1
   %19 = icmp ult i64 %18, %8
   br i1 %19, label %20, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit
 
 20:                                               ; preds = %17
-  store i64 %18, ptr %4, align 8, !alias.scope !28
+  store i64 %18, ptr %4, align 8, !alias.scope !30
   br label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit
 
 21:                                               ; preds = %1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %22 = load i64, ptr %4, align 8, !alias.scope !31, !noundef !5
-  %23 = load i64, ptr %5, align 8, !alias.scope !31, !noundef !5
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  %22 = load i64, ptr %4, align 8, !alias.scope !33, !noundef !5
+  %23 = load i64, ptr %5, align 8, !alias.scope !33, !noundef !5
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %25, label %33, !prof !26
+  br i1 %24, label %25, label %33, !prof !28
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8, !alias.scope !31, !nonnull !5, !align !27, !noundef !5
+  %27 = load ptr, ptr %26, align 8, !alias.scope !33, !nonnull !5, !align !29, !noundef !5
   %28 = getelementptr inbounds [0 x i8], ptr %27, i64 0, i64 %22
-  %29 = load i8, ptr %28, align 1, !noalias !31, !noundef !5
+  %29 = load i8, ptr %28, align 1, !noalias !33, !noundef !5
   %30 = icmp eq i8 %29, 58
   %31 = add nuw i64 %22, 1
   %32 = icmp ult i64 %31, %23
@@ -281,45 +281,45 @@ default.unreachable2:                             ; preds = %1
   br i1 %or.cond.i, label %34, label %37
 
 33:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %22, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.4) #10, !noalias !31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %22, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.4) #10, !noalias !33
   unreachable
 
 34:                                               ; preds = %25
   %35 = trunc i64 %22 to i32
-  store i32 1, ptr %0, align 8, !alias.scope !31
+  store i32 1, ptr %0, align 8, !alias.scope !33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %35, ptr %36, align 4, !alias.scope !31
-  store i8 2, ptr %2, align 8, !alias.scope !31
+  store i32 %35, ptr %36, align 4, !alias.scope !33
+  store i8 2, ptr %2, align 8, !alias.scope !33
   br label %37
 
 37:                                               ; preds = %34, %25
   br i1 %32, label %38, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit
 
 38:                                               ; preds = %37
-  store i64 %31, ptr %4, align 8, !alias.scope !34
+  store i64 %31, ptr %4, align 8, !alias.scope !36
   br label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit
 
 39:                                               ; preds = %1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %40 = load i64, ptr %4, align 8, !alias.scope !37, !noundef !5
-  %41 = load i64, ptr %5, align 8, !alias.scope !37, !noundef !5
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  %40 = load i64, ptr %4, align 8, !alias.scope !39, !noundef !5
+  %41 = load i64, ptr %5, align 8, !alias.scope !39, !noundef !5
   %42 = icmp ult i64 %40, %41
-  br i1 %42, label %43, label %49, !prof !26
+  br i1 %42, label %43, label %49, !prof !28
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8, !alias.scope !37, !nonnull !5, !align !27, !noundef !5
+  %45 = load ptr, ptr %44, align 8, !alias.scope !39, !nonnull !5, !align !29, !noundef !5
   %46 = getelementptr inbounds [0 x i8], ptr %45, i64 0, i64 %40
-  %47 = load i8, ptr %46, align 1, !noalias !37, !noundef !5
+  %47 = load i8, ptr %46, align 1, !noalias !39, !noundef !5
   %48 = icmp eq i8 %47, 58
   br i1 %48, label %50, label %51
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %40, i64 noundef %41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.5.llvm.3862583096090210288) #10, !noalias !37
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %40, i64 noundef %41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.5.llvm.3862583096090210288) #10, !noalias !39
   unreachable
 
 50:                                               ; preds = %43
-  store i32 0, ptr %0, align 8, !alias.scope !37
+  store i32 0, ptr %0, align 8, !alias.scope !39
   br label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit
 
 51:                                               ; preds = %43
@@ -328,7 +328,7 @@ default.unreachable2:                             ; preds = %1
   br i1 %53, label %54, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit
 
 54:                                               ; preds = %51
-  store i64 %52, ptr %4, align 8, !alias.scope !40
+  store i64 %52, ptr %4, align 8, !alias.scope !42
   br label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit
 
 _ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit: ; preds = %54, %51, %50, %38, %37, %20, %17, %10
@@ -343,11 +343,11 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp ult i64 %3, %5
-  br i1 %6, label %7, label %13, !prof !26
+  br i1 %6, label %7, label %13, !prof !28
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !27, !noundef !5
+  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !29, !noundef !5
   %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %3
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 58
@@ -365,7 +365,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   br i1 %17, label %18, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit
 
 18:                                               ; preds = %14
-  store i64 %16, ptr %2, align 8, !alias.scope !43
+  store i64 %16, ptr %2, align 8, !alias.scope !45
   br label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit
 
 _ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit: ; preds = %18, %14, %7
@@ -380,11 +380,11 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp ult i64 %3, %5
-  br i1 %6, label %7, label %15, !prof !26
+  br i1 %6, label %7, label %15, !prof !28
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !27, !noundef !5
+  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !29, !noundef !5
   %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %3
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 58
@@ -410,7 +410,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   br i1 %14, label %21, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit
 
 21:                                               ; preds = %20
-  store i64 %13, ptr %2, align 8, !alias.scope !46
+  store i64 %13, ptr %2, align 8, !alias.scope !48
   br label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit
 
 _ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit: ; preds = %20, %21
@@ -424,11 +424,11 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp ult i64 %3, %5
-  br i1 %6, label %7, label %13, !prof !26
+  br i1 %6, label %7, label %13, !prof !28
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !27, !noundef !5
+  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !29, !noundef !5
   %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %3
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 58
@@ -448,7 +448,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   br i1 %17, label %18, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit
 
 18:                                               ; preds = %15
-  store i64 %16, ptr %2, align 8, !alias.scope !49
+  store i64 %16, ptr %2, align 8, !alias.scope !51
   br label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit
 
 _ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit: ; preds = %18, %15, %14
@@ -526,33 +526,35 @@ attributes #10 = { noreturn }
 !19 = !{!20}
 !20 = distinct !{!20, !18, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a2297e37f3b8a3aE: argument 0"}
 !21 = !{i32 0, i32 2}
-!22 = !{i8 0, i8 3}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288: argument 0"}
-!25 = distinct !{!25, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288"}
-!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!27 = !{i64 1}
-!28 = !{!29, !24}
-!29 = distinct !{!29, !30, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
-!30 = distinct !{!30, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer10do_in_name17hb272f2fd87ff30d3E.llvm.3862583096090210288: argument 0"}
-!33 = distinct !{!33, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer10do_in_name17hb272f2fd87ff30d3E.llvm.3862583096090210288"}
-!34 = !{!35, !32}
-!35 = distinct !{!35, !36, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
-!36 = distinct !{!36, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_after_colon17haaafe4172d05bf32E.llvm.3862583096090210288: argument 0"}
-!39 = distinct !{!39, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_after_colon17haaafe4172d05bf32E.llvm.3862583096090210288"}
-!40 = !{!41, !38}
-!41 = distinct !{!41, !42, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
-!42 = distinct !{!42, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
-!45 = distinct !{!45, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
-!48 = distinct !{!48, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
-!51 = distinct !{!51, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{i8 0, i8 3}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288: argument 0"}
+!27 = distinct !{!27, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288"}
+!28 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!29 = !{i64 1}
+!30 = !{!31, !26}
+!31 = distinct !{!31, !32, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
+!32 = distinct !{!32, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer10do_in_name17hb272f2fd87ff30d3E.llvm.3862583096090210288: argument 0"}
+!35 = distinct !{!35, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer10do_in_name17hb272f2fd87ff30d3E.llvm.3862583096090210288"}
+!36 = !{!37, !34}
+!37 = distinct !{!37, !38, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
+!38 = distinct !{!38, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_after_colon17haaafe4172d05bf32E.llvm.3862583096090210288: argument 0"}
+!41 = distinct !{!41, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_after_colon17haaafe4172d05bf32E.llvm.3862583096090210288"}
+!42 = !{!43, !40}
+!43 = distinct !{!43, !44, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
+!44 = distinct !{!44, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
+!47 = distinct !{!47, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
+!50 = distinct !{!50, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288: argument 0"}
+!53 = distinct !{!53, !"_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288"}

@@ -894,7 +894,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit29: ; preds = %94, %
   %124 = load i32, ptr %84, align 8
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next, %125
-  br i1 %126, label %102, label %.loopexit, !llvm.loop !10
+  br i1 %126, label %102, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %102, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit29
   %127 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 32, ptr noundef nonnull %21) #14
@@ -1340,9 +1340,9 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfrom
 74:                                               ; preds = %74, %70
   %.0.i.i.i.i.i.i.i = phi i32 [ %76, %74 ], [ %73, %70 ]
   %75 = or i32 %.0.i.i.i.i.i.i.i, 64
-  %76 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %75, i32 %.0.i.i.i.i.i.i.i, ptr nonnull align 4 dereferenceable(4) %72) #14, !srcloc !11
+  %76 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %75, i32 %.0.i.i.i.i.i.i.i, ptr nonnull align 4 dereferenceable(4) %72) #14, !srcloc !12
   %.not.i.i.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i.i, %76
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN6Method31set_guaranteed_monitor_matchingEv.exit, label %74, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN6Method31set_guaranteed_monitor_matchingEv.exit, label %74, !llvm.loop !13
 
 _ZN6Method31set_guaranteed_monitor_matchingEv.exit: ; preds = %74
   store i8 1, ptr %5, align 1
@@ -1542,19 +1542,19 @@ define hidden void @_ZN8ciMethod15liveness_at_bciEi(ptr dead_on_unwind noalias w
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %24 = load ptr, ptr %23, align 8, !noalias !13
+  %24 = load ptr, ptr %23, align 8, !noalias !14
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %_ZN8ciMethod19raw_liveness_at_bciEi.exit
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %7, align 8, !noalias !13
-  %28 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef %27) #14, !noalias !13
+  %27 = load ptr, ptr %7, align 8, !noalias !14
+  %28 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef %27) #14, !noalias !14
   %29 = icmp ne ptr %28, null
   tail call void @llvm.assume(i1 %29)
-  tail call void @_ZN14MethodLivenessC1EP5ArenaP8ciMethod(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(160) %1) #14, !noalias !13
-  store ptr %28, ptr %23, align 8, !noalias !13
-  tail call void @_ZN14MethodLiveness16compute_livenessEv(ptr noundef nonnull align 8 dereferenceable(80) %28) #14, !noalias !13
-  %.pre.i = load ptr, ptr %23, align 8, !noalias !13
+  tail call void @_ZN14MethodLivenessC1EP5ArenaP8ciMethod(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(160) %1) #14, !noalias !14
+  store ptr %28, ptr %23, align 8, !noalias !14
+  tail call void @_ZN14MethodLiveness16compute_livenessEv(ptr noundef nonnull align 8 dereferenceable(80) %28) #14, !noalias !14
+  %.pre.i = load ptr, ptr %23, align 8, !noalias !14
   br label %_ZN8ciMethod19raw_liveness_at_bciEi.exit
 
 _ZN8ciMethod19raw_liveness_at_bciEi.exit:         ; preds = %22, %26
@@ -1701,7 +1701,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfrom
 73:                                               ; preds = %51, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %73, %_ZN12methodHandleC2EP6ThreadP6Method.exit
   call void @_ZN17InterpreterOopMapD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
@@ -1905,7 +1905,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %spec.select = add nuw nsw i32 %.04664, %75
   %76 = add nuw i32 %.04863, 1
   %exitcond.not = icmp eq i32 %76, %65
-  br i1 %exitcond.not, label %.lr.ph69, label %68, !llvm.loop !17
+  br i1 %exitcond.not, label %.lr.ph69, label %68, !llvm.loop !18
 
 .lr.ph69:                                         ; preds = %68
   %77 = icmp eq i32 %spec.select, 1
@@ -1965,7 +1965,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %110 = getelementptr inbounds nuw [3 x i32], ptr %18, i64 0, i64 %indvars.iv.i
   store i32 %104, ptr %110, align 4
   %111 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %111, label %102, label %.critedge.i, !llvm.loop !18
+  br i1 %111, label %102, label %.critedge.i, !llvm.loop !19
 
 .critedge.loopexit.split.loop.exit17.i:           ; preds = %102
   %112 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1991,7 +1991,7 @@ _ZN13ciCallProfile12add_receiverEP7ciKlassi.exit: ; preds = %118, %.critedge.i, 
   %.143 = phi i32 [ %.04267, %83 ], [ %98, %.critedge.i ], [ %98, %118 ]
   %120 = add nuw i32 %.04466, 1
   %exitcond75.not = icmp eq i32 %120, %65
-  br i1 %exitcond75.not, label %._crit_edge70, label %83, !llvm.loop !19
+  br i1 %exitcond75.not, label %._crit_edge70, label %83, !llvm.loop !20
 
 ._crit_edge70:                                    ; preds = %_ZN13ciCallProfile12add_receiverEP7ciKlassi.exit
   %121 = icmp ne i32 %spec.select, 0
@@ -2238,7 +2238,7 @@ define hidden void @_ZN13ciCallProfile12add_receiverEP7ciKlassi(ptr noundef nonn
   %17 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 %11, ptr %17, align 4
   %18 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %18, label %9, label %.critedge, !llvm.loop !18
+  br i1 %18, label %9, label %.critedge, !llvm.loop !19
 
 .critedge.loopexit.split.loop.exit17:             ; preds = %9
   %19 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6697,7 +6697,7 @@ _ZL17basic_types_matchP6ciTypeS0_.exit:           ; preds = %92
 _ZL17basic_types_matchP6ciTypeS0_.exit.thread:    ; preds = %92, %_ZL17basic_types_matchP6ciTypeS0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %92, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %92, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZL17basic_types_matchP6ciTypeS0_.exit.thread, %84
   %105 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -6984,7 +6984,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !21
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !22
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7000,7 +7000,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !22
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !23
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -7219,18 +7219,19 @@ attributes #15 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392998}
 !7 = !{i64 2145392468}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{i64 2145411161}
-!12 = distinct !{!12, !9}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN8ciMethod19raw_liveness_at_bciEi: argument 0"}
-!15 = distinct !{!15, !"_ZN8ciMethod19raw_liveness_at_bciEi"}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{i64 2145411161}
+!13 = distinct !{!13, !9, !10}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN8ciMethod19raw_liveness_at_bciEi: argument 0"}
+!16 = distinct !{!16, !"_ZN8ciMethod19raw_liveness_at_bciEi"}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}

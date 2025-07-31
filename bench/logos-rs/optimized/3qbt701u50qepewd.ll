@@ -296,7 +296,7 @@ default.unreachable:                              ; preds = %29
 
 .backedge:                                        ; preds = %.invoke, %106, %106, %46, %46, %71
   %.be = phi i8 [ 1, %46 ], [ 2, %71 ], [ 1, %106 ], [ 1, %46 ], [ 1, %106 ], [ 1, %.invoke ]
-  br label %29
+  br label %29, !llvm.loop !3
 
 49:                                               ; preds = %36
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -658,3 +658,5 @@ attributes #6 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

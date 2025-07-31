@@ -356,7 +356,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumVideoDrivers_RE
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %21 = getelementptr inbounds nuw [8 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv.next19
   %.not = icmp eq i64 %indvars.iv.next19, 7
-  br i1 %.not, label %6, label %.preheader, !llvm.loop !5
+  br i1 %.not, label %6, label %.preheader, !llvm.loop !6
 
 22:                                               ; preds = %0, %6
   %.012 = phi i32 [ %7, %6 ], [ %1, %0 ]
@@ -422,7 +422,7 @@ define hidden ptr @SDL_GetVideoDriver_REAL(i32 noundef %0) local_unnamed_addr #0
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %24 = getelementptr inbounds nuw [8 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv.next19.i
   %.not.i = icmp eq i64 %indvars.iv.next19.i, 7
-  br i1 %.not.i, label %9, label %.preheader.i, !llvm.loop !5
+  br i1 %.not.i, label %9, label %.preheader.i, !llvm.loop !6
 
 SDL_GetNumVideoDrivers_REAL.exit:                 ; preds = %3, %9
   %.012.i = phi i32 [ %10, %9 ], [ %4, %3 ]
@@ -528,7 +528,7 @@ select.unfold.preheader:                          ; preds = %select.unfold
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %47 ]
   %31 = phi ptr [ @Wayland_preferred_bootstrap, %28 ], [ %49, %47 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %33 = load i8, ptr %32, align 8, !range !6, !noundef !7
+  %33 = load i8, ptr %32, align 8, !range !7, !noundef !8
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %47, label %35
 
@@ -556,7 +556,7 @@ select.unfold.preheader:                          ; preds = %select.unfold
   %48 = getelementptr inbounds nuw [8 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv.next
   %49 = load ptr, ptr %48, align 8
   %.not69 = icmp eq i64 %indvars.iv.next, 7
-  br i1 %.not69, label %select.unfold, label %30, !llvm.loop !8
+  br i1 %.not69, label %select.unfold, label %30, !llvm.loop !9
 
 select.unfold:                                    ; preds = %47, %43
   %.1.lcssa = phi i64 [ %indvars.iv, %43 ], [ 7, %47 ]
@@ -584,7 +584,7 @@ select.unfold:                                    ; preds = %47, %43
 57:                                               ; preds = %51
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %.not62 = icmp eq i64 %indvars.iv.next142, 7
-  br i1 %.not62, label %.critedge.thread, label %51, !llvm.loop !9
+  br i1 %.not62, label %.critedge.thread, label %51, !llvm.loop !10
 
 .critedge:                                        ; preds = %select.unfold.preheader, %select.unfold, %select.unfold.preheader.preheader
   %.046.lcssa = phi ptr [ null, %select.unfold.preheader.preheader ], [ %.248, %select.unfold ], [ %.248, %select.unfold.preheader ]
@@ -701,7 +701,7 @@ define hidden void @SDL_VideoQuit() local_unnamed_addr #0 {
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 786
-  %8 = load i8, ptr %7, align 2, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 2, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %SDL_EnableScreenSaver_REAL.exit
 
@@ -734,7 +734,7 @@ SDL_EnableScreenSaver_REAL.exit:                  ; preds = %4, %6, %13, %15
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 832
   %23 = load ptr, ptr %22, align 8
   %.not4 = icmp eq ptr %23, null
-  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %SDL_EnableScreenSaver_REAL.exit
   %.lcssa = phi ptr [ %17, %SDL_EnableScreenSaver_REAL.exit ], [ %21, %.lr.ph ]
@@ -762,7 +762,7 @@ SDL_EnableScreenSaver_REAL.exit:                  ; preds = %4, %6, %13, %15
   %35 = load i32, ptr %34, align 8
   tail call void @SDL_DelVideoDisplay(i32 noundef %35, i1 noundef zeroext false)
   %.not5 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not5, label %._crit_edge12.loopexit, label %.lr.ph11, !llvm.loop !11
+  br i1 %.not5, label %._crit_edge12.loopexit, label %.lr.ph11, !llvm.loop !12
 
 ._crit_edge12.loopexit:                           ; preds = %.lr.ph11
   %.pre = load ptr, ptr @_this, align 8
@@ -918,7 +918,7 @@ define hidden zeroext i1 @SDL_DisableScreenSaver_REAL() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 786
-  %6 = load i8, ptr %5, align 2, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 2, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %15, label %8
 
@@ -1083,7 +1083,7 @@ define hidden void @SDL_UpdateDesktopBounds() local_unnamed_addr #0 {
   store i32 %20, ptr %21, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetDisplays_REAL.exit, label %17, !llvm.loop !12
+  br i1 %exitcond.not.i, label %SDL_GetDisplays_REAL.exit, label %17, !llvm.loop !13
 
 SDL_GetDisplays_REAL.exit:                        ; preds = %17, %13
   %.015.lcssa.i = phi i64 [ 0, %13 ], [ %wide.trip.count.i, %17 ]
@@ -1122,7 +1122,7 @@ SDL_GetDisplays_REAL.exit:                        ; preds = %17, %13
   %32 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next
   %33 = load i32, ptr %32, align 4
   %.not8 = icmp eq i32 %33, 0
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 SDL_GetDisplays_REAL.exit.thread:                 ; preds = %6, %4, %._crit_edge
   %34 = load ptr, ptr @_this, align 8
@@ -1193,7 +1193,7 @@ define hidden noalias ptr @SDL_GetDisplays_REAL(ptr noundef writeonly captures(a
   store i32 %22, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %19, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %19, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %19
   %24 = zext nneg i32 %.pre26 to i64
@@ -1250,7 +1250,7 @@ define hidden zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %0, ptr noundef 
 16:                                               ; preds = %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %11, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %11, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %16, %.preheader.i.i
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -1339,7 +1339,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %34, %36
 55:                                               ; preds = %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %50, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %50, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %55, %.preheader.i
   %56 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -1553,7 +1553,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %56, %65
   %81 = load i32, ptr %74, align 4
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %78, label %._crit_edge, !llvm.loop !15
+  br i1 %83, label %78, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %78, %SDL_FinalizeDisplayMode.exit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -1599,7 +1599,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %56, %65
 107:                                              ; preds = %102
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %102, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %102, !llvm.loop !15
 
 ._crit_edge.i.i.i:                                ; preds = %107, %.preheader.i.i.i
   %108 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -1684,7 +1684,7 @@ define hidden i32 @SDL_GetDisplayProperties_REAL(i32 noundef %0) local_unnamed_a
 15:                                               ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %15, %.preheader.i.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -1731,7 +1731,7 @@ define hidden void @SDL_OnDisplayAdded(ptr noundef readnone captures(none) %0) l
   %4 = getelementptr inbounds nuw i8, ptr %.05, i64 416
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1785,7 +1785,7 @@ define internal fastcc void @SDL_CheckWindowDisplayChanged(ptr noundef %0) unnam
 23:                                               ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %18, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %18, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %23, %.preheader.i
   %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -1849,7 +1849,7 @@ SDL_GetDisplayIndex.exit:                         ; preds = %16, %._crit_edge.i,
 51:                                               ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %32, !llvm.loop !17
+  br i1 %exitcond.not, label %.thread, label %32, !llvm.loop !18
 
 .thread:                                          ; preds = %51, %SDL_GetDisplayIndex.exit, %38, %50
   %52 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %0, i32 noundef 531, i32 noundef %6, i32 noundef 0) #19
@@ -1898,7 +1898,7 @@ define hidden void @SDL_DelVideoDisplay(i32 noundef %0, i1 noundef zeroext %1) l
 16:                                               ; preds = %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %11, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %11, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %16, %.preheader.i
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -1943,7 +1943,7 @@ SDL_GetDisplayIndex.exit:                         ; preds = %11
   %37 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %36, i64 %indvars.iv.next.i18, i32 8
   store ptr null, ptr %37, align 8
   %.not.i19 = icmp eq i64 %indvars.iv.next.i18, 0
-  br i1 %.not.i19, label %SDL_ResetFullscreenDisplayModes.exit, label %32, !llvm.loop !18
+  br i1 %.not.i19, label %SDL_ResetFullscreenDisplayModes.exit, label %32, !llvm.loop !19
 
 SDL_ResetFullscreenDisplayModes.exit:             ; preds = %32, %23
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -2027,7 +2027,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @SDL_GetDisplayIndex(i32 no
 15:                                               ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %15, %.preheader
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2067,7 +2067,7 @@ define hidden void @SDL_ResetFullscreenDisplayModes(ptr noundef %0) local_unname
   %11 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %10, i64 %indvars.iv.next, i32 8
   store ptr null, ptr %11, align 8
   %.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %6, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2117,7 +2117,7 @@ define hidden ptr @SDL_GetVideoDisplay(i32 noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %10, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %10, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %15, %.preheader.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2168,7 +2168,7 @@ define hidden ptr @SDL_GetVideoDisplayForWindow(ptr noundef %0) local_unnamed_ad
 16:                                               ; preds = %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %11, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %11, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %16, %.preheader.i.i
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2330,7 +2330,7 @@ define hidden ptr @SDL_GetDisplayDriverData(i32 noundef %0) local_unnamed_addr #
 15:                                               ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %15, %.preheader.i.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2387,7 +2387,7 @@ define hidden ptr @SDL_GetDisplayDriverDataForWindow(ptr noundef %0) local_unnam
 16:                                               ; preds = %11
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %11, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %11, !llvm.loop !15
 
 ._crit_edge.i.i.i:                                ; preds = %16, %.preheader.i.i.i
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2445,7 +2445,7 @@ define hidden ptr @SDL_GetDisplayName_REAL(i32 noundef %0) local_unnamed_addr #0
 15:                                               ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %15, %.preheader.i.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2501,7 +2501,7 @@ define hidden zeroext i1 @SDL_GetDisplayUsableBounds_REAL(i32 noundef %0, ptr no
 16:                                               ; preds = %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %11, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %11, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %16, %.preheader.i.i
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2594,7 +2594,7 @@ define hidden i32 @SDL_GetNaturalDisplayOrientation_REAL(i32 noundef %0) local_u
 15:                                               ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %15, %.preheader.i.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2651,7 +2651,7 @@ define hidden i32 @SDL_GetCurrentDisplayOrientation_REAL(i32 noundef %0) local_u
 15:                                               ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %15, %.preheader.i.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2707,7 +2707,7 @@ define hidden void @SDL_SetDisplayContentScale(ptr noundef %0, float noundef %1)
   %15 = getelementptr inbounds nuw i8, ptr %.013, i64 416
   %.0 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %14, %6, %2
   ret void
@@ -2759,7 +2759,7 @@ define internal fastcc void @SDL_CheckWindowDisplayScaleChanged(ptr noundef %0) 
 23:                                               ; preds = %18
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %18, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %18, !llvm.loop !15
 
 ._crit_edge.i.i.i:                                ; preds = %23, %.preheader.i.i.i
   %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -2831,7 +2831,7 @@ define hidden float @SDL_GetDisplayContentScale_REAL(i32 noundef %0) local_unnam
 15:                                               ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %15, %.preheader.i.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -3002,7 +3002,7 @@ define hidden void @SDL_SetDisplayHDRProperties(ptr noundef captures(none) %0, p
   %38 = getelementptr inbounds nuw i8, ptr %.026, i64 416
   %.0 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %37, %29, %.thread22, %25
   ret void
@@ -3080,7 +3080,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %18, %27
 41:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
@@ -3136,7 +3136,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %18, %27
   %66 = phi ptr [ %60, %59 ], [ %64, %63 ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge45, label %59, !llvm.loop !22
+  br i1 %exitcond51.not, label %._crit_edge45, label %59, !llvm.loop !23
 
 ._crit_edge45:                                    ; preds = %65, %55
   call void @SDL_free_REAL(ptr noundef nonnull %54) #19
@@ -3329,7 +3329,7 @@ define hidden ptr @SDL_GetFullscreenDisplayModes_REAL(i32 noundef %0, ptr nounde
 16:                                               ; preds = %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %11, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %11, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %16, %.preheader.i.i
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -3404,7 +3404,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %23, %27, %31
   store ptr %.038, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %48 = zext nneg i32 %33 to i64
@@ -3467,7 +3467,7 @@ define hidden zeroext i1 @SDL_GetClosestFullscreenDisplayMode_REAL(i32 noundef %
 21:                                               ; preds = %16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %SDL_GetVideoDisplay.exit.thread, label %16, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %SDL_GetVideoDisplay.exit.thread, label %16, !llvm.loop !15
 
 SDL_GetVideoDisplay.exit.thread:                  ; preds = %21, %.preheader.i.i, %9
   %.str.11.sink = phi ptr [ @.str.1, %9 ], [ @.str.11, %.preheader.i.i ], [ @.str.11, %21 ]
@@ -3599,7 +3599,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %35, %42
   %96 = load i32, ptr %36, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next, %97
-  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %95, %.lr.ph
   %.046.lcssa = phi ptr [ %.147, %95 ], [ %.04665, %.lr.ph ]
@@ -3624,7 +3624,7 @@ declare float @SDL_fabsf_REAL(float noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SetDesktopDisplayMode(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %4 = load i8, ptr %3, align 4, !range !6, !noundef !7
+  %4 = load i8, ptr %3, align 4, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %DisplayModeChanged.exit.thread18, label %6
 
@@ -3803,7 +3803,7 @@ define hidden ptr @SDL_GetDesktopDisplayMode_REAL(i32 noundef %0) local_unnamed_
 15:                                               ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %15, %.preheader.i.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -3948,7 +3948,7 @@ define hidden ptr @SDL_GetCurrentDisplayMode_REAL(i32 noundef %0) local_unnamed_
 15:                                               ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %10, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %15, %.preheader.i.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -4150,7 +4150,7 @@ define hidden void @SDL_RelativeToGlobalForWindow(ptr noundef readonly captures(
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 786432
   %.not20 = icmp eq i64 %18, 0
-  br i1 %.not20, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %.not20, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.preheader, %9, %5
   %.015 = phi i32 [ %2, %5 ], [ %.116, %.preheader ], [ %15, %9 ]
@@ -4202,7 +4202,7 @@ define hidden void @SDL_GlobalToRelativeForWindow(ptr noundef readonly captures(
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 786432
   %.not20 = icmp eq i64 %18, 0
-  br i1 %.not20, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %.not20, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %9, %5
   %.015 = phi i32 [ %2, %5 ], [ %.116, %.preheader ], [ %15, %9 ]
@@ -4342,7 +4342,7 @@ define internal fastcc i32 @GetDisplayForRect(i32 noundef %0, i32 noundef %1, i3
   %54 = load i32, ptr %53, align 8
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %19, label %._crit_edge, !llvm.loop !27
+  br i1 %56, label %19, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %51
   %57 = icmp eq i32 %.222.ph, 0
@@ -4444,7 +4444,7 @@ define hidden i32 @SDL_GetDisplayForWindowPosition(ptr noundef %0) local_unnamed
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 786432
   %.not20.i = icmp eq i64 %32, 0
-  br i1 %.not20.i, label %SDL_RelativeToGlobalForWindow.exit, label %.preheader.i, !llvm.loop !25
+  br i1 %.not20.i, label %SDL_RelativeToGlobalForWindow.exit, label %.preheader.i, !llvm.loop !26
 
 SDL_RelativeToGlobalForWindow.exit:               ; preds = %.preheader.i, %23, %15
   %.015.i = phi i32 [ %19, %15 ], [ %29, %23 ], [ %.116.i, %.preheader.i ]
@@ -4529,7 +4529,7 @@ define hidden ptr @SDL_GetVideoDisplayForFullscreenWindow(ptr noundef %0) local_
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 267
-  %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %14 = load i8, ptr %13, align 1, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   %.in.v = select i1 %15, i64 136, i64 24
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
@@ -4538,7 +4538,7 @@ define hidden ptr @SDL_GetVideoDisplayForFullscreenWindow(ptr noundef %0) local_
   %.in26 = getelementptr inbounds nuw i8, ptr %0, i64 %.in26.v
   %17 = load i32, ptr %.in26, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %19 = load i8, ptr %18, align 4, !range !6, !noundef !7
+  %19 = load i8, ptr %18, align 4, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   %.in27.v = select i1 %20, i64 144, i64 32
   %.in27 = getelementptr inbounds nuw i8, ptr %0, i64 %.in27.v
@@ -4605,7 +4605,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %9, %32, %30, %12
 50:                                               ; preds = %45
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %45, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %45, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %50, %.preheader.i.i
   %51 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -4853,7 +4853,7 @@ SDL_GetWindowFullscreenMode_REAL.exit:            ; preds = %38
 58:                                               ; preds = %53
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %53, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %53, !llvm.loop !15
 
 ._crit_edge.i.i.i:                                ; preds = %58, %.preheader.i.i.i
   %59 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -4919,7 +4919,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
 86:                                               ; preds = %81
   %indvars.iv.next.i.i.i43 = add nuw nsw i64 %indvars.iv.i.i.i42, 1
   %exitcond.not.i.i.i44 = icmp eq i64 %indvars.iv.next.i.i.i43, %wide.trip.count.i.i.i41
-  br i1 %exitcond.not.i.i.i44, label %._crit_edge.i.i.i36, label %81, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i44, label %._crit_edge.i.i.i36, label %81, !llvm.loop !15
 
 ._crit_edge.i.i.i36:                              ; preds = %86, %.preheader.i.i.i35
   %87 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -5026,12 +5026,12 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 18:                                               ; preds = %14
   store i8 0, ptr %6, align 1
   store i8 0, ptr %7, align 1
-  %19 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %19 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %.preheader, label %21
 
 21:                                               ; preds = %18
-  %22 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %22 = load i8, ptr %9, align 1, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
   %.not136 = icmp eq i32 %.tr242291, 0
   %or.cond377 = or i1 %.not136, %23
@@ -5067,7 +5067,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 38:                                               ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread180, label %32, !llvm.loop !28
+  br i1 %exitcond.not, label %.thread180, label %32, !llvm.loop !29
 
 .thread:                                          ; preds = %32
   %39 = trunc nuw nsw i64 %indvars.iv to i32
@@ -5150,7 +5150,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   %68 = load i32, ptr %67, align 8
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next331, %69
-  br i1 %70, label %.lr.ph287, label %.thread206._crit_edge, !llvm.loop !29
+  br i1 %70, label %.lr.ph287, label %.thread206._crit_edge, !llvm.loop !30
 
 .thread206._crit_edge:                            ; preds = %.thread206, %.thread206.preheader
   br i1 %.not136343, label %127, label %71
@@ -5168,7 +5168,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br label %76
 
 76:                                               ; preds = %74, %71
-  %77 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %77 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %78 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 100
   store i8 %77, ptr %78, align 4
   %79 = tail call zeroext i1 @SDL_SetDisplayModeForDisplay(ptr noundef nonnull %.1125165211.ph, ptr noundef %.0123218.ph)
@@ -5408,7 +5408,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br i1 %.not154, label %.thread192, label %176
 
 176:                                              ; preds = %.thread195
-  %177 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %177 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %178 = trunc nuw i8 %177 to i1
   br i1 %178, label %179, label %.thread192
 
@@ -5538,7 +5538,7 @@ define hidden zeroext i1 @SDL_MinimizeWindow_REAL(ptr noundef %0) local_unnamed_
 
 27:                                               ; preds = %21
   tail call void %18(ptr noundef nonnull %16, ptr noundef nonnull %0) #19
-  %28 = load i8, ptr @syncHint, align 1, !range !6, !noundef !7
+  %28 = load i8, ptr @syncHint, align 1, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %SDL_SyncIfRequired.exit
 
@@ -5672,7 +5672,7 @@ define internal fastcc void @SDL_RestoreMousePosition(ptr noundef %0) unnamed_ad
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 191
-  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %10 = call i32 @SDL_GetMouseState_REAL(ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   store i8 1, ptr %8, align 1
   %11 = load float, ptr %2, align 4
@@ -5751,7 +5751,7 @@ define hidden zeroext i1 @SDL_SetWindowFullscreenMode_REAL(ptr noundef %0, ptr n
 
 30:                                               ; preds = %25
   %31 = tail call zeroext i1 @SDL_UpdateFullscreenMode(ptr noundef nonnull %0, i32 noundef 2, i1 noundef zeroext true)
-  %32 = load i8, ptr @syncHint, align 1, !range !6, !noundef !7
+  %32 = load i8, ptr @syncHint, align 1, !range !7, !noundef !8
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %SDL_SyncIfRequired.exit
 
@@ -5918,7 +5918,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %41, %50
 71:                                               ; preds = %66
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %SDL_GetVideoDisplay.exit.thread.sink.split, label %66, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %SDL_GetVideoDisplay.exit.thread.sink.split, label %66, !llvm.loop !15
 
 SDL_GetVideoDisplay.exit:                         ; preds = %66
   %72 = and i64 %indvars.iv.i.i, 4294967295
@@ -5958,7 +5958,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %75, %82
   %88 = load i32, ptr %76, align 4
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %91, label %.preheader, !llvm.loop !30
+  br i1 %90, label %91, label %.preheader, !llvm.loop !31
 
 91:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
@@ -5992,7 +5992,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %75, %82
 102:                                              ; preds = %103
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
-  br i1 %exitcond.not, label %SDL_GetVideoDisplay.exit.thread, label %103, !llvm.loop !31
+  br i1 %exitcond.not, label %SDL_GetVideoDisplay.exit.thread, label %103, !llvm.loop !32
 
 103:                                              ; preds = %.lr.ph35, %102
   %indvars.iv41 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next42, %102 ]
@@ -6014,7 +6014,7 @@ SDL_GetVideoDisplay.exit.thread:                  ; preds = %102, %103, %SDL_Get
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_SyncIfRequired(ptr noundef %0) unnamed_addr #0 {
-  %2 = load i8, ptr @syncHint, align 1, !range !6, !noundef !7
+  %2 = load i8, ptr @syncHint, align 1, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %SDL_SyncWindow_REAL.exit
 
@@ -6122,7 +6122,7 @@ define hidden i32 @SDL_GetWindowPixelFormat_REAL(ptr noundef %0) local_unnamed_a
 24:                                               ; preds = %19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %19, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %19, !llvm.loop !15
 
 ._crit_edge.i.i.i:                                ; preds = %24, %.preheader.i.i.i
   %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #19
@@ -6204,7 +6204,7 @@ IsAcceptingDragAndDrop.exit:                      ; preds = %5, %7
   %14 = getelementptr inbounds nuw i8, ptr %.08, i64 416
   %.0 = load ptr, ptr %14, align 8
   %.not5 = icmp eq ptr %.0, null
-  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph, %IsAcceptingDragAndDrop.exit, %2, %0
   ret void
@@ -6241,7 +6241,7 @@ define hidden noalias ptr @SDL_GetWindows_REAL(ptr noundef writeonly captures(ad
   %10 = getelementptr inbounds nuw i8, ptr %.02338, i64 416
   %.023 = load ptr, ptr %10, align 8
   %.not32 = icmp eq ptr %.023, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.020.lcssa = phi i32 [ 0, %7 ], [ %9, %.lr.ph ]
@@ -6267,7 +6267,7 @@ define hidden noalias ptr @SDL_GetWindows_REAL(ptr noundef writeonly captures(ad
   %20 = getelementptr inbounds nuw i8, ptr %.12442, i64 416
   %.124 = load ptr, ptr %20, align 8
   %.not34 = icmp eq ptr %.124, null
-  br i1 %.not34, label %._crit_edge45.loopexit.split.loop.exit51, label %.lr.ph44, !llvm.loop !34
+  br i1 %.not34, label %._crit_edge45.loopexit.split.loop.exit51, label %.lr.ph44, !llvm.loop !35
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next, %19 ]
@@ -6316,7 +6316,7 @@ define hidden noundef ptr @SDL_CreateWindowWithProperties_REAL(i32 noundef %0) l
   %.016.i = phi i64 [ %10, %1 ], [ %.1.i, %24 ]
   %12 = getelementptr inbounds nuw [18 x %struct.anon.1], ptr @SDL_WindowFlagProperties, i64 0, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
+  %14 = load i8, ptr %13, align 8, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   %16 = load ptr, ptr %12, align 8
   br i1 %15, label %17, label %19
@@ -6339,7 +6339,7 @@ define hidden noundef ptr @SDL_CreateWindowWithProperties_REAL(i32 noundef %0) l
   %.1.i = phi i64 [ %.016.i, %17 ], [ %.016.i, %19 ], [ %23, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond.not.i, label %SDL_GetWindowFlagProperties.exit, label %11, !llvm.loop !35
+  br i1 %exitcond.not.i, label %SDL_GetWindowFlagProperties.exit, label %11, !llvm.loop !36
 
 SDL_GetWindowFlagProperties.exit:                 ; preds = %24
   %.fr = freeze i64 %5
@@ -6499,7 +6499,7 @@ switch.early.test:                                ; preds = %67
 90:                                               ; preds = %85
   %indvars.iv.next.i180 = add nuw nsw i64 %indvars.iv.i179, 1
   %exitcond.not.i181 = icmp eq i64 %indvars.iv.next.i180, %wide.trip.count.i
-  br i1 %exitcond.not.i181, label %.thread.sink.split, label %85, !llvm.loop !14
+  br i1 %exitcond.not.i181, label %.thread.sink.split, label %85, !llvm.loop !15
 
 .thread.sink.split:                               ; preds = %90, %.preheader.i, %.thread185
   %.str.1.sink = phi ptr [ @.str.1, %.thread185 ], [ @.str.11, %.preheader.i ], [ @.str.11, %90 ]
@@ -7119,7 +7119,7 @@ define hidden void @SDL_DestroyWindow_REAL(ptr noundef %0) local_unnamed_addr #0
   tail call void @SDL_DestroyWindow_REAL(ptr noundef nonnull %13)
   %14 = load ptr, ptr %11, align 8
   %.not52 = icmp eq ptr %14, null
-  br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %15 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %0, i32 noundef 537, i32 noundef 0, i32 noundef 0) #19
@@ -7204,7 +7204,7 @@ define hidden void @SDL_DestroyWindow_REAL(ptr noundef %0) local_unnamed_addr #0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %46, label %._crit_edge73, !llvm.loop !37
+  br i1 %58, label %46, label %._crit_edge73, !llvm.loop !38
 
 59:                                               ; preds = %._crit_edge73
   %60 = tail call zeroext i1 @SDL_SetKeyboardFocus(ptr noundef null) #19
@@ -7267,7 +7267,7 @@ define hidden void @SDL_DestroyWindow_REAL(ptr noundef %0) local_unnamed_addr #0
 87:                                               ; preds = %81, %78
   %88 = load ptr, ptr @_this, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 784
-  %90 = load i8, ptr %89, align 8, !range !6, !noundef !7
+  %90 = load i8, ptr %89, align 8, !range !7, !noundef !8
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %SDL_DestroyWindowSurface_REAL.exit
 
@@ -7852,7 +7852,7 @@ define hidden zeroext i1 @SDL_RecreateWindow(ptr noundef %0, i64 noundef %1) loc
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 266
-  %47 = load i8, ptr %46, align 2, !range !6, !noundef !7
+  %47 = load i8, ptr %46, align 2, !range !7, !noundef !8
   %48 = tail call zeroext i1 @SDL_HideWindow_REAL(ptr noundef nonnull %0)
   store i8 %47, ptr %46, align 2
   br label %49
@@ -7895,7 +7895,7 @@ define hidden zeroext i1 @SDL_RecreateWindow(ptr noundef %0, i64 noundef %1) loc
 66:                                               ; preds = %60, %57
   %67 = load ptr, ptr @_this, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 784
-  %69 = load i8, ptr %68, align 8, !range !6, !noundef !7
+  %69 = load i8, ptr %68, align 8, !range !7, !noundef !8
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %SDL_DestroyWindowSurface_REAL.exit
 
@@ -8444,7 +8444,7 @@ define hidden noundef zeroext i1 @SDL_HideWindow_REAL(ptr noundef %0) local_unna
   %23 = getelementptr inbounds nuw i8, ptr %.01624, i64 448
   %.016 = load ptr, ptr %23, align 8
   %.not19 = icmp eq ptr %.016, null
-  br i1 %.not19, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not19, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %20
   %.pre = load i64, ptr %10, align 8
@@ -8521,7 +8521,7 @@ define hidden noundef zeroext i1 @SDL_DestroyWindowSurface_REAL(ptr noundef %0) 
 18:                                               ; preds = %12, %9
   %19 = load ptr, ptr @_this, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 784
-  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
+  %21 = load i8, ptr %20, align 8, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %27
 
@@ -8682,7 +8682,7 @@ define hidden noundef ptr @SDL_GetWindowFromID_REAL(i32 noundef %0) local_unname
   %9 = getelementptr inbounds nuw i8, ptr %.015, i64 416
   %.0 = load ptr, ptr %9, align 8
   %.not10 = icmp eq ptr %.0, null
-  br i1 %.not10, label %.loopexit11.sink.split, label %.lr.ph, !llvm.loop !39
+  br i1 %.not10, label %.loopexit11.sink.split, label %.lr.ph, !llvm.loop !40
 
 .loopexit11.sink.split:                           ; preds = %8, %3, %4, %1
   %.str.43.sink = phi ptr [ @.str.1, %1 ], [ @.str.43, %4 ], [ @.str.43, %3 ], [ @.str.43, %8 ]
@@ -8863,7 +8863,7 @@ define hidden zeroext i1 @SDL_SetWindowPosition_REAL(ptr noundef %0, i32 noundef
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %14 = load i8, ptr %13, align 4, !range !6, !noundef !7
+  %14 = load i8, ptr %13, align 4, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   %.in.v = select i1 %15, i64 144, i64 112
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
@@ -8945,7 +8945,7 @@ define hidden zeroext i1 @SDL_SetWindowPosition_REAL(ptr noundef %0, i32 noundef
 51:                                               ; preds = %46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetDisplayIndex.exit.thread.sink.split, label %46, !llvm.loop !14
+  br i1 %exitcond.not.i, label %SDL_GetDisplayIndex.exit.thread.sink.split, label %46, !llvm.loop !15
 
 SDL_GetDisplayIndex.exit.thread.sink.split:       ; preds = %51, %.preheader.i, %.thread
   %.str.1.sink = phi ptr [ @.str.1, %.thread ], [ @.str.11, %.preheader.i ], [ @.str.11, %51 ]
@@ -9046,7 +9046,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %46, %60, %58
   br i1 %100, label %101, label %SDL_SyncIfRequired.exit
 
 101:                                              ; preds = %99
-  %102 = load i8, ptr @syncHint, align 1, !range !6, !noundef !7
+  %102 = load i8, ptr @syncHint, align 1, !range !7, !noundef !8
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %104, label %SDL_SyncIfRequired.exit
 
@@ -9169,7 +9169,7 @@ define hidden noundef zeroext i1 @SDL_GetWindowPosition_REAL(ptr noundef %0, ptr
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 267
-  %35 = load i8, ptr %34, align 1, !range !6, !noundef !7
+  %35 = load i8, ptr %34, align 1, !range !7, !noundef !8
   %36 = trunc nuw i8 %35 to i1
   br label %37
 
@@ -9483,7 +9483,7 @@ define hidden zeroext i1 @SDL_SetWindowSize_REAL(ptr noundef %0, i32 noundef %1,
 
 59:                                               ; preds = %40
   tail call void %58(ptr noundef nonnull %56, ptr noundef nonnull %0) #19
-  %60 = load i8, ptr @syncHint, align 1, !range !6, !noundef !7
+  %60 = load i8, ptr @syncHint, align 1, !range !7, !noundef !8
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %SDL_SyncIfRequired.exit
 
@@ -9746,7 +9746,7 @@ define hidden zeroext i1 @SDL_SetWindowMinimumSize_REAL(ptr noundef %0, i32 noun
   %37 = phi i32 [ %.pre52, %35 ], [ %2, %29 ]
   %38 = phi i32 [ %.pre, %35 ], [ %1, %29 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %40 = load i8, ptr %39, align 4, !range !6, !noundef !7
+  %40 = load i8, ptr %39, align 4, !range !7, !noundef !8
   %41 = trunc nuw i8 %40 to i1
   %.in.v = select i1 %41, i64 144, i64 128
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
@@ -9890,7 +9890,7 @@ define hidden zeroext i1 @SDL_SetWindowMaximumSize_REAL(ptr noundef %0, i32 noun
   %39 = phi i32 [ %.pre49, %37 ], [ %2, %31 ]
   %40 = phi i32 [ %.pre, %37 ], [ %1, %31 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %42 = load i8, ptr %41, align 4, !range !6, !noundef !7
+  %42 = load i8, ptr %41, align 4, !range !7, !noundef !8
   %43 = trunc nuw i8 %42 to i1
   %.in.v = select i1 %43, i64 144, i64 128
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
@@ -10024,7 +10024,7 @@ define hidden noundef zeroext i1 @SDL_ShowWindow_REAL(ptr noundef %0) local_unna
 .lr.ph:                                           ; preds = %29, %39
   %.028 = phi ptr [ %.0, %39 ], [ %.026, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %.028, i64 266
-  %33 = load i8, ptr %32, align 2, !range !6, !noundef !7
+  %33 = load i8, ptr %32, align 2, !range !7, !noundef !8
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %39, label %35
 
@@ -10041,7 +10041,7 @@ define hidden noundef zeroext i1 @SDL_ShowWindow_REAL(ptr noundef %0) local_unna
   %41 = getelementptr inbounds nuw i8, ptr %.028, i64 448
   %.0 = load ptr, ptr %41, align 8
   %.not24 = icmp eq ptr %.0, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !41
 
 .loopexit:                                        ; preds = %35, %39, %29, %9, %20, %7, %3
   %.017 = phi i1 [ true, %20 ], [ false, %7 ], [ false, %3 ], [ true, %9 ], [ true, %29 ], [ true, %39 ], [ true, %35 ]
@@ -10218,7 +10218,7 @@ define hidden zeroext i1 @SDL_RestoreWindow_REAL(ptr noundef %0) local_unnamed_a
 
 27:                                               ; preds = %21
   tail call void %18(ptr noundef nonnull %16, ptr noundef nonnull %0) #19
-  %28 = load i8, ptr @syncHint, align 1, !range !6, !noundef !7
+  %28 = load i8, ptr @syncHint, align 1, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %SDL_SyncIfRequired.exit
 
@@ -10325,7 +10325,7 @@ define hidden noundef zeroext i1 @SDL_SetWindowFullscreen_REAL(ptr noundef %0, i
   br label %SDL_SyncIfRequired.exit
 
 33:                                               ; preds = %28, %.thread
-  %34 = load i8, ptr @syncHint, align 1, !range !6, !noundef !7
+  %34 = load i8, ptr @syncHint, align 1, !range !7, !noundef !8
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %SDL_SyncIfRequired.exit
 
@@ -10451,7 +10451,7 @@ define hidden ptr @SDL_GetWindowSurface_REAL(ptr noundef %0) local_unnamed_addr 
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %17 = load i8, ptr %16, align 8, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 8, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %92, label %19
 
@@ -10483,13 +10483,13 @@ define hidden ptr @SDL_GetWindowSurface_REAL(ptr noundef %0) local_unnamed_addr 
   %28 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %29 = load ptr, ptr @_this, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 784
-  %31 = load i8, ptr %30, align 8, !range !6, !noundef !7
+  %31 = load i8, ptr %30, align 8, !range !7, !noundef !8
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %.critedge.i, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 785
-  %35 = load i8, ptr %34, align 1, !range !6, !noundef !7
+  %35 = load i8, ptr %34, align 1, !range !7, !noundef !8
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %ShouldAttemptTextureFramebuffer.exit.thread.i, label %37
 
@@ -10773,7 +10773,7 @@ define hidden zeroext i1 @SDL_UpdateWindowSurface_REAL(ptr noundef %0) local_unn
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %24 = load i8, ptr %23, align 8, !range !6, !noundef !7
+  %24 = load i8, ptr %23, align 8, !range !7, !noundef !8
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %28, label %26
 
@@ -10814,7 +10814,7 @@ define hidden zeroext i1 @SDL_UpdateWindowSurfaceRects_REAL(ptr noundef %0, ptr 
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %13 = load i8, ptr %12, align 8, !range !6, !noundef !7
+  %13 = load i8, ptr %12, align 8, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %17, label %15
 
@@ -11040,13 +11040,13 @@ define hidden zeroext i1 @SDL_ShouldRelinquishPopupFocus(ptr noundef readonly ca
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.01316, i64 265
-  %16 = load i8, ptr %15, align 1, !range !6, !noundef !7
+  %16 = load i8, ptr %15, align 1, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %.critedge2, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.01316, i64 271
-  %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
+  %20 = load i8, ptr %19, align 1, !range !7, !noundef !8
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %.critedge2, label %.critedge
 
@@ -11061,7 +11061,7 @@ define hidden zeroext i1 @SDL_ShouldRelinquishPopupFocus(ptr noundef readonly ca
   %.1 = select i1 %24, i8 1, i8 %26
   %27 = and i64 %.pre, 786432
   %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !42
 
 .critedge:                                        ; preds = %18, %.critedge2, %2
   %.013.lcssa = phi ptr [ %4, %2 ], [ %23, %.critedge2 ], [ %.01316, %18 ]
@@ -11083,7 +11083,7 @@ define hidden zeroext i1 @SDL_ShouldFocusPopup(ptr noundef readonly captures(add
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 786432
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %2, !llvm.loop !42
+  br i1 %.not, label %6, label %2, !llvm.loop !43
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.013, i64 400
@@ -11096,7 +11096,7 @@ define hidden zeroext i1 @SDL_ShouldFocusPopup(ptr noundef readonly captures(add
   %9 = icmp eq ptr %.0, %0
   %or.cond = or i1 %.not14.not, %9
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 424
-  br i1 %or.cond, label %11, label %8, !llvm.loop !43
+  br i1 %or.cond, label %11, label %8, !llvm.loop !44
 
 11:                                               ; preds = %8
   ret i1 %.not14.not
@@ -11163,7 +11163,7 @@ define hidden void @SDL_UpdateWindowGrab(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = tail call ptr @SDL_GetMouse() #19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 185
-  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 1, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   %.pre = load i64, ptr %2, align 8
   %10 = and i64 %.pre, 256
@@ -12067,7 +12067,7 @@ define hidden void @SDL_OnWindowDisplayChanged(ptr noundef %0) local_unnamed_add
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 269
-  %5 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %5 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %46
 
@@ -12363,7 +12363,7 @@ define hidden void @SDL_OnWindowFocusGained(ptr noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 185
-  %5 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %5 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %8
 
@@ -12387,7 +12387,7 @@ define hidden void @SDL_OnWindowFocusLost(ptr noundef %0) local_unnamed_addr #0 
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 271
-  %7 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread, label %9
 
@@ -12408,7 +12408,7 @@ define hidden void @SDL_OnWindowFocusLost(ptr noundef %0) local_unnamed_addr #0 
 
 16:                                               ; preds = %13, %11, %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %18 = load i8, ptr %17, align 1, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread
 
@@ -12443,7 +12443,7 @@ define hidden ptr @SDL_GetToplevelForKeyboardFocus() local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.1, i64 424
   %3 = load ptr, ptr %2, align 8
   %.not7 = icmp eq ptr %3, null
-  br i1 %.not7, label %.loopexit, label %.preheader, !llvm.loop !44
+  br i1 %.not7, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.preheader, %0
   %.0 = phi ptr [ null, %0 ], [ %.1, %.preheader ]
@@ -12525,7 +12525,7 @@ define hidden void @SDL_RemoveWindowRenderer(ptr noundef captures(none) %0, ptr 
 24:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !46
 
 .loopexit:                                        ; preds = %24, %2, %23
   ret void
@@ -12612,7 +12612,7 @@ SDL_GL_GetCurrentContext_REAL.exit:               ; preds = %11, %13
 
 33:                                               ; preds = %18
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 1360
-  %35 = load i8, ptr %34, align 8, !range !6, !noundef !7
+  %35 = load i8, ptr %34, align 8, !range !7, !noundef !8
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %39, label %37
 
@@ -12656,7 +12656,7 @@ define hidden zeroext i1 @SDL_ScreenSaverEnabled_REAL() local_unnamed_addr #4 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 786
-  %4 = load i8, ptr %3, align 2, !range !6, !noundef !7
+  %4 = load i8, ptr %3, align 2, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = xor i1 %5, true
   br label %7
@@ -12678,7 +12678,7 @@ define hidden zeroext i1 @SDL_EnableScreenSaver_REAL() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 786
-  %6 = load i8, ptr %5, align 2, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 2, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %15
 
@@ -12926,7 +12926,7 @@ SDL_GL_GetProcAddress_REAL.exit58:                ; preds = %55
   %70 = add nuw nsw i32 %.03363, 1
   %71 = load i32, ptr %2, align 4
   %72 = icmp slt i32 %70, %71
-  br i1 %72, label %.lr.ph, label %SDL_GL_GetProcAddress_REAL.exit58.thread, !llvm.loop !46
+  br i1 %72, label %.lr.ph, label %SDL_GL_GetProcAddress_REAL.exit58.thread, !llvm.loop !47
 
 .lr.ph:                                           ; preds = %66, %69
   %.03363 = phi i32 [ %70, %69 ], [ 0, %66 ]
@@ -12973,7 +12973,7 @@ isAtLeastGL3.exit.thread:                         ; preds = %28, %isAtLeastGL3.e
 87:                                               ; preds = %85, %81
   %88 = tail call ptr @SDL_strstr_REAL(ptr noundef nonnull %79, ptr noundef nonnull %0) #19
   %.not46 = icmp eq ptr %88, null
-  br i1 %.not46, label %SDL_GL_GetProcAddress_REAL.exit.thread, label %.lr.ph67
+  br i1 %.not46, label %SDL_GL_GetProcAddress_REAL.exit.thread, label %.lr.ph67, !llvm.loop !48
 
 SDL_GL_GetProcAddress_REAL.exit.thread:           ; preds = %85, %85, %87, %.preheader, %24, %22, %14, %isAtLeastGL3.exit.thread, %SDL_GL_GetProcAddress_REAL.exit, %9, %1, %4, %SDL_GL_GetProcAddress_REAL.exit58.thread
   %.0 = phi i1 [ %.1, %SDL_GL_GetProcAddress_REAL.exit58.thread ], [ false, %4 ], [ false, %1 ], [ false, %9 ], [ false, %SDL_GL_GetProcAddress_REAL.exit ], [ false, %isAtLeastGL3.exit.thread ], [ false, %14 ], [ false, %22 ], [ false, %24 ], [ false, %.preheader ], [ true, %85 ], [ true, %85 ], [ false, %87 ]
@@ -14330,7 +14330,7 @@ SDL_ScreenKeyboardShown_REAL.exit.thread:         ; preds = %SDL_ScreenKeyboardS
 
 46:                                               ; preds = %SDL_ScreenKeyboardShown_REAL.exit.thread, %45, %SDL_ScreenKeyboardShown_REAL.exit, %AutoShowingScreenKeyboard.exit
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %48 = load i8, ptr %47, align 8, !range !6, !noundef !7
+  %48 = load i8, ptr %47, align 8, !range !7, !noundef !8
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %57, label %50
 
@@ -14410,7 +14410,7 @@ define hidden zeroext i1 @SDL_TextInputActive_REAL(ptr noundef %0) local_unnamed
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 8, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   br label %13
 
@@ -14439,7 +14439,7 @@ define hidden noundef zeroext i1 @SDL_StopTextInput_REAL(ptr noundef %0) local_u
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 8, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %20
 
@@ -14885,7 +14885,7 @@ select.unfold.preheader:                          ; preds = %59, %select.unfold
   %91 = getelementptr inbounds nuw [8 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv.next
   %92 = load ptr, ptr %91, align 8
   %.not123 = icmp eq i64 %indvars.iv.next, 7
-  br i1 %.not123, label %select.unfold, label %74, !llvm.loop !47
+  br i1 %.not123, label %select.unfold, label %74, !llvm.loop !49
 
 select.unfold:                                    ; preds = %90, %86
   %.280 = phi i8 [ %spec.select129, %86 ], [ 0, %90 ]
@@ -14912,7 +14912,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
 101:                                              ; preds = %94, %99
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %.not118 = icmp eq i64 %indvars.iv.next153, 7
-  br i1 %.not118, label %.thread142, label %94, !llvm.loop !48
+  br i1 %.not118, label %.thread142, label %94, !llvm.loop !50
 
 split:                                            ; preds = %select.unfold.preheader
   br i1 %63, label %.thread140, label %.thread142
@@ -15264,7 +15264,7 @@ define hidden void @SDL_OnApplicationWillEnterBackground_REAL() local_unnamed_ad
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 416
   %.0 = load ptr, ptr %5, align 8
   %.not4 = icmp eq ptr %.0, null
-  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %6 = tail call zeroext i1 @SDL_SetKeyboardFocus(ptr noundef null) #19
@@ -15307,7 +15307,7 @@ define hidden void @SDL_OnApplicationDidEnterForeground_REAL() local_unnamed_add
   %6 = getelementptr inbounds nuw i8, ptr %.08, i64 416
   %.0 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %.0, null
-  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !50
+  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %0
   ret void
@@ -15895,7 +15895,7 @@ select.unfold:                                    ; preds = %34, %27, %25, %30, 
   %.1152 = phi ptr [ %.0151275, %47 ], [ %50, %49 ]
   %52 = call ptr @SDL_strchr_REAL(ptr noundef %.1152, i32 noundef 44) #19
   %.not189 = icmp eq ptr %52, null
-  br i1 %.not189, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not189, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %51, %.preheader
   %.0151.lcssa = phi ptr [ %42, %.preheader ], [ %.1152, %51 ]
@@ -15940,7 +15940,7 @@ select.unfold:                                    ; preds = %34, %27, %25, %30, 
 select.unfold243:                                 ; preds = %63, %61, %.lr.ph277
   %65 = add nuw nsw i32 %.0135276, 1
   %exitcond.not = icmp eq i32 %65, %58
-  br i1 %exitcond.not, label %._crit_edge278, label %.lr.ph277, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge278, label %.lr.ph277, !llvm.loop !54
 
 ._crit_edge278:                                   ; preds = %select.unfold243, %.thread233
   %66 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.164) #19
@@ -16063,7 +16063,7 @@ switch.edge:                                      ; preds = %94
   %105 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.next
   %106 = load i32, ptr %105, align 4
   %.not199 = icmp eq i32 %106, 0
-  br i1 %.not199, label %.loopexit, label %87, !llvm.loop !53
+  br i1 %.not199, label %.loopexit, label %87, !llvm.loop !55
 
 .loopexit:                                        ; preds = %104, %81, %103
   %107 = phi i32 [ 0, %81 ], [ %88, %103 ], [ %84, %104 ]
@@ -16425,54 +16425,56 @@ attributes #21 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4}
-!34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4}
-!36 = distinct !{!36, !4}
-!37 = distinct !{!37, !4}
-!38 = distinct !{!38, !4}
-!39 = distinct !{!39, !4}
-!40 = distinct !{!40, !4}
-!41 = distinct !{!41, !4}
-!42 = distinct !{!42, !4}
-!43 = distinct !{!43, !4}
-!44 = distinct !{!44, !4}
-!45 = distinct !{!45, !4}
-!46 = distinct !{!46, !4}
-!47 = distinct !{!47, !4}
-!48 = distinct !{!48, !4}
-!49 = distinct !{!49, !4}
-!50 = distinct !{!50, !4}
-!51 = distinct !{!51, !4}
-!52 = distinct !{!52, !4}
-!53 = distinct !{!53, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !4, !5}
+!24 = distinct !{!24, !4, !5}
+!25 = distinct !{!25, !4, !5}
+!26 = distinct !{!26, !4, !5}
+!27 = distinct !{!27, !4, !5}
+!28 = distinct !{!28, !4, !5}
+!29 = distinct !{!29, !4, !5}
+!30 = distinct !{!30, !4, !5}
+!31 = distinct !{!31, !4, !5}
+!32 = distinct !{!32, !4, !5}
+!33 = distinct !{!33, !4, !5}
+!34 = distinct !{!34, !4, !5}
+!35 = distinct !{!35, !4, !5}
+!36 = distinct !{!36, !4, !5}
+!37 = distinct !{!37, !4, !5}
+!38 = distinct !{!38, !4, !5}
+!39 = distinct !{!39, !4, !5}
+!40 = distinct !{!40, !4, !5}
+!41 = distinct !{!41, !4, !5}
+!42 = distinct !{!42, !4, !5}
+!43 = distinct !{!43, !4, !5}
+!44 = distinct !{!44, !4, !5}
+!45 = distinct !{!45, !4, !5}
+!46 = distinct !{!46, !4, !5}
+!47 = distinct !{!47, !4, !5}
+!48 = distinct !{!48, !5}
+!49 = distinct !{!49, !4, !5}
+!50 = distinct !{!50, !4, !5}
+!51 = distinct !{!51, !4, !5}
+!52 = distinct !{!52, !4, !5}
+!53 = distinct !{!53, !4, !5}
+!54 = distinct !{!54, !4, !5}
+!55 = distinct !{!55, !4, !5}

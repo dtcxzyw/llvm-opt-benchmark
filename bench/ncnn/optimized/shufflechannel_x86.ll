@@ -312,13 +312,13 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.0259953 = phi ptr [ %165, %.lr.ph ], [ %141, %.lr.ph.preheader ]
   %.0260952 = phi ptr [ %166, %.lr.ph ], [ %138, %.lr.ph.preheader ]
   %.0261951 = phi i32 [ %167, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %157 = load <4 x float>, ptr %.0254956, align 1, !tbaa !60
-  %158 = load <4 x float>, ptr %.0257955, align 1, !tbaa !60
-  %159 = load <4 x float>, ptr %.0258954, align 1, !tbaa !60
+  %157 = load <4 x float>, ptr %.0254956, align 1, !tbaa !61
+  %158 = load <4 x float>, ptr %.0257955, align 1, !tbaa !61
+  %159 = load <4 x float>, ptr %.0258954, align 1, !tbaa !61
   %160 = shufflevector <4 x float> %157, <4 x float> %158, <4 x i32> <i32 0, i32 6, i32 1, i32 7>
   %161 = shufflevector <4 x float> %157, <4 x float> %159, <4 x i32> <i32 2, i32 4, i32 3, i32 5>
-  store <4 x float> %160, ptr %.0259953, align 1, !tbaa !60
-  store <4 x float> %161, ptr %.0260952, align 1, !tbaa !60
+  store <4 x float> %160, ptr %.0259953, align 1, !tbaa !61
+  store <4 x float> %161, ptr %.0260952, align 1, !tbaa !61
   %162 = getelementptr inbounds nuw i8, ptr %.0254956, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %.0257955, i64 16
   %164 = getelementptr inbounds nuw i8, ptr %.0258954, i64 16
@@ -326,23 +326,23 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnn3MatD2Ev.ex
   %166 = getelementptr inbounds nuw i8, ptr %.0260952, i64 16
   %167 = add nuw nsw i32 %.0261951, 1
   %exitcond.not = icmp eq i32 %167, %25
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 .lr.ph962:                                        ; preds = %.lr.ph962.preheader, %.lr.ph962
   %.0262961 = phi ptr [ %171, %.lr.ph962 ], [ %130, %.lr.ph962.preheader ]
   %.0273960 = phi ptr [ %172, %.lr.ph962 ], [ %122, %.lr.ph962.preheader ]
   %.0274959 = phi ptr [ %173, %.lr.ph962 ], [ %127, %.lr.ph962.preheader ]
   %.0275958 = phi i32 [ %174, %.lr.ph962 ], [ 0, %.lr.ph962.preheader ]
-  %168 = load <4 x float>, ptr %.0262961, align 1, !tbaa !60
-  %169 = load <4 x float>, ptr %.0273960, align 1, !tbaa !60
+  %168 = load <4 x float>, ptr %.0262961, align 1, !tbaa !61
+  %169 = load <4 x float>, ptr %.0273960, align 1, !tbaa !61
   %170 = shufflevector <4 x float> %168, <4 x float> %169, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %170, ptr %.0274959, align 1, !tbaa !60
+  store <4 x float> %170, ptr %.0274959, align 1, !tbaa !61
   %171 = getelementptr inbounds nuw i8, ptr %.0262961, i64 16
   %172 = getelementptr inbounds nuw i8, ptr %.0273960, i64 16
   %173 = getelementptr inbounds nuw i8, ptr %.0274959, i64 16
   %174 = add nuw nsw i32 %.0275958, 1
   %exitcond998.not = icmp eq i32 %174, %25
-  br i1 %exitcond998.not, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph962, !llvm.loop !62
+  br i1 %exitcond998.not, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph962, !llvm.loop !63
 
 175:                                              ; preds = %90
   %176 = icmp sle i32 %37, 4
@@ -352,9 +352,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 177:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !tbaa.struct !64
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %179 = load ptr, ptr %178, align 8, !tbaa !67
+  %179 = load ptr, ptr %178, align 8, !tbaa !68
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %179, ptr %180, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #14
@@ -598,22 +598,22 @@ _ZN4ncnn3MatD2Ev.exit329:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %277, label %.lr.ph968.preheader, label %._crit_edge969
 
 .lr.ph968.preheader:                              ; preds = %_ZN4ncnn3MatD2Ev.exit329
-  %279 = load ptr, ptr %2, align 8, !tbaa !38, !noalias !68
-  %280 = load i64, ptr %266, align 8, !tbaa !41, !noalias !68
+  %279 = load ptr, ptr %2, align 8, !tbaa !38, !noalias !69
+  %280 = load i64, ptr %266, align 8, !tbaa !41, !noalias !69
   %281 = shl nuw nsw i64 %indvars.iv1000, 1
   %282 = or disjoint i64 %281, 1
   %283 = mul i64 %280, %282
-  %284 = load i64, ptr %276, align 8, !tbaa !13, !noalias !68
+  %284 = load i64, ptr %276, align 8, !tbaa !13, !noalias !69
   %285 = mul i64 %283, %284
   %286 = getelementptr inbounds nuw i8, ptr %279, i64 %285
   %287 = mul i64 %280, %281
   %288 = mul i64 %287, %284
   %289 = getelementptr inbounds nuw i8, ptr %279, i64 %288
-  %290 = load ptr, ptr %1, align 8, !tbaa !38, !noalias !71
-  %291 = load i64, ptr %275, align 8, !tbaa !41, !noalias !71
+  %290 = load ptr, ptr %1, align 8, !tbaa !38, !noalias !72
+  %291 = load i64, ptr %275, align 8, !tbaa !41, !noalias !72
   %292 = add nuw nsw i64 %indvars.iv1000, %278
   %293 = mul i64 %291, %292
-  %294 = load i64, ptr %10, align 8, !tbaa !13, !noalias !71
+  %294 = load i64, ptr %10, align 8, !tbaa !13, !noalias !72
   %295 = mul i64 %293, %294
   %296 = getelementptr inbounds nuw i8, ptr %290, i64 %295
   %297 = mul i64 %291, %indvars.iv1000
@@ -624,7 +624,7 @@ _ZN4ncnn3MatD2Ev.exit329:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 ._crit_edge969:                                   ; preds = %.lr.ph968, %_ZN4ncnn3MatD2Ev.exit329
   %indvars.iv.next1001 = add nuw nsw i64 %indvars.iv1000, 1
   %exitcond1004.not = icmp eq i64 %indvars.iv.next1001, %278
-  br i1 %exitcond1004.not, label %_ZN4ncnn3MataSERKS0_.exit, label %_ZN4ncnn3MatD2Ev.exit329, !llvm.loop !74
+  br i1 %exitcond1004.not, label %_ZN4ncnn3MataSERKS0_.exit, label %_ZN4ncnn3MatD2Ev.exit329, !llvm.loop !75
 
 .lr.ph968:                                        ; preds = %.lr.ph968.preheader, %.lr.ph968
   %.0277967 = phi ptr [ %304, %.lr.ph968 ], [ %299, %.lr.ph968.preheader ]
@@ -632,19 +632,19 @@ _ZN4ncnn3MatD2Ev.exit329:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.0279965 = phi ptr [ %306, %.lr.ph968 ], [ %289, %.lr.ph968.preheader ]
   %.0280964 = phi ptr [ %307, %.lr.ph968 ], [ %286, %.lr.ph968.preheader ]
   %.0281963 = phi i32 [ %308, %.lr.ph968 ], [ 0, %.lr.ph968.preheader ]
-  %300 = load <4 x float>, ptr %.0277967, align 1, !tbaa !60
-  %301 = load <4 x float>, ptr %.0278966, align 1, !tbaa !60
+  %300 = load <4 x float>, ptr %.0277967, align 1, !tbaa !61
+  %301 = load <4 x float>, ptr %.0278966, align 1, !tbaa !61
   %302 = shufflevector <4 x float> %300, <4 x float> %301, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %303 = shufflevector <4 x float> %300, <4 x float> %301, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %302, ptr %.0279965, align 1, !tbaa !60
-  store <4 x float> %303, ptr %.0280964, align 1, !tbaa !60
+  store <4 x float> %302, ptr %.0279965, align 1, !tbaa !61
+  store <4 x float> %303, ptr %.0280964, align 1, !tbaa !61
   %304 = getelementptr inbounds nuw i8, ptr %.0277967, i64 16
   %305 = getelementptr inbounds nuw i8, ptr %.0278966, i64 16
   %306 = getelementptr inbounds nuw i8, ptr %.0279965, i64 16
   %307 = getelementptr inbounds nuw i8, ptr %.0280964, i64 16
   %308 = add nuw nsw i32 %.0281963, 1
   %exitcond999.not = icmp eq i32 %308, %25
-  br i1 %exitcond999.not, label %._crit_edge969, label %.lr.ph968, !llvm.loop !75
+  br i1 %exitcond999.not, label %._crit_edge969, label %.lr.ph968, !llvm.loop !76
 
 309:                                              ; preds = %273
   switch i32 %37, label %431 [
@@ -685,12 +685,12 @@ _ZN4ncnn3MatD2Ev.exit333:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %323, label %.lr.ph990.preheader, label %._crit_edge991
 
 .lr.ph990.preheader:                              ; preds = %_ZN4ncnn3MatD2Ev.exit333
-  %326 = load ptr, ptr %2, align 8, !tbaa !38, !noalias !76
-  %327 = load i64, ptr %266, align 8, !tbaa !41, !noalias !76
+  %326 = load ptr, ptr %2, align 8, !tbaa !38, !noalias !77
+  %327 = load i64, ptr %266, align 8, !tbaa !41, !noalias !77
   %328 = mul nuw nsw i64 %indvars.iv1012, 3
   %329 = add nuw nsw i64 %328, 2
   %330 = mul i64 %327, %329
-  %331 = load i64, ptr %322, align 8, !tbaa !13, !noalias !76
+  %331 = load i64, ptr %322, align 8, !tbaa !13, !noalias !77
   %332 = mul i64 %330, %331
   %333 = getelementptr inbounds nuw i8, ptr %326, i64 %332
   %334 = add nuw nsw i64 %328, 1
@@ -700,11 +700,11 @@ _ZN4ncnn3MatD2Ev.exit333:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %338 = mul i64 %327, %328
   %339 = mul i64 %338, %331
   %340 = getelementptr inbounds nuw i8, ptr %326, i64 %339
-  %341 = load ptr, ptr %1, align 8, !tbaa !38, !noalias !79
-  %342 = load i64, ptr %320, align 8, !tbaa !41, !noalias !79
+  %341 = load ptr, ptr %1, align 8, !tbaa !38, !noalias !80
+  %342 = load i64, ptr %320, align 8, !tbaa !41, !noalias !80
   %343 = add nuw nsw i64 %indvars.iv1012, %325
   %344 = mul i64 %342, %343
-  %345 = load i64, ptr %10, align 8, !tbaa !13, !noalias !79
+  %345 = load i64, ptr %10, align 8, !tbaa !13, !noalias !80
   %346 = mul i64 %344, %345
   %347 = getelementptr inbounds nuw i8, ptr %341, i64 %346
   %348 = add nuw nsw i64 %indvars.iv1012, %324
@@ -719,7 +719,7 @@ _ZN4ncnn3MatD2Ev.exit333:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 ._crit_edge991:                                   ; preds = %.lr.ph990, %_ZN4ncnn3MatD2Ev.exit333
   %indvars.iv.next1013 = add nuw nsw i64 %indvars.iv1012, 1
   %exitcond1016.not = icmp eq i64 %indvars.iv.next1013, %324
-  br i1 %exitcond1016.not, label %_ZN4ncnn3MataSERKS0_.exit, label %_ZN4ncnn3MatD2Ev.exit333, !llvm.loop !82
+  br i1 %exitcond1016.not, label %_ZN4ncnn3MataSERKS0_.exit, label %_ZN4ncnn3MatD2Ev.exit333, !llvm.loop !83
 
 .lr.ph990:                                        ; preds = %.lr.ph990.preheader, %.lr.ph990
   %.0283989 = phi ptr [ %366, %.lr.ph990 ], [ %354, %.lr.ph990.preheader ]
@@ -729,9 +729,9 @@ _ZN4ncnn3MatD2Ev.exit333:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.0287985 = phi ptr [ %369, %.lr.ph990 ], [ %340, %.lr.ph990.preheader ]
   %.0288984 = phi ptr [ %368, %.lr.ph990 ], [ %347, %.lr.ph990.preheader ]
   %.0289983 = phi ptr [ %367, %.lr.ph990 ], [ %351, %.lr.ph990.preheader ]
-  %355 = load <4 x float>, ptr %.0283989, align 1, !tbaa !60
-  %356 = load <4 x float>, ptr %.0289983, align 1, !tbaa !60
-  %357 = load <4 x float>, ptr %.0288984, align 1, !tbaa !60
+  %355 = load <4 x float>, ptr %.0283989, align 1, !tbaa !61
+  %356 = load <4 x float>, ptr %.0289983, align 1, !tbaa !61
+  %357 = load <4 x float>, ptr %.0288984, align 1, !tbaa !61
   %358 = shufflevector <4 x float> %355, <4 x float> %356, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
   %359 = shufflevector <4 x float> %355, <4 x float> %356, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
   %360 = shufflevector <4 x float> %356, <4 x float> %357, <4 x i32> <i32 poison, i32 poison, i32 1, i32 5>
@@ -740,9 +740,9 @@ _ZN4ncnn3MatD2Ev.exit333:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %363 = shufflevector <4 x float> %358, <4 x float> %362, <4 x i32> <i32 0, i32 1, i32 6, i32 4>
   %364 = shufflevector <4 x float> %360, <4 x float> %359, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %365 = shufflevector <4 x float> %362, <4 x float> %361, <4 x i32> <i32 3, i32 1, i32 6, i32 7>
-  store <4 x float> %363, ptr %.0287985, align 1, !tbaa !60
-  store <4 x float> %364, ptr %.0286986, align 1, !tbaa !60
-  store <4 x float> %365, ptr %.0285987, align 1, !tbaa !60
+  store <4 x float> %363, ptr %.0287985, align 1, !tbaa !61
+  store <4 x float> %364, ptr %.0286986, align 1, !tbaa !61
+  store <4 x float> %365, ptr %.0285987, align 1, !tbaa !61
   %366 = getelementptr inbounds nuw i8, ptr %.0283989, i64 16
   %367 = getelementptr inbounds nuw i8, ptr %.0289983, i64 16
   %368 = getelementptr inbounds nuw i8, ptr %.0288984, i64 16
@@ -751,19 +751,19 @@ _ZN4ncnn3MatD2Ev.exit333:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %371 = getelementptr inbounds nuw i8, ptr %.0285987, i64 16
   %372 = add nuw nsw i32 %.0284988, 1
   %exitcond1011.not = icmp eq i32 %372, %25
-  br i1 %exitcond1011.not, label %._crit_edge991, label %.lr.ph990, !llvm.loop !83
+  br i1 %exitcond1011.not, label %._crit_edge991, label %.lr.ph990, !llvm.loop !84
 
 _ZN4ncnn3MatD2Ev.exit339:                         ; preds = %_ZN4ncnn3MatD2Ev.exit339.lr.ph, %._crit_edge981
   %indvars.iv1006 = phi i64 [ 0, %_ZN4ncnn3MatD2Ev.exit339.lr.ph ], [ %indvars.iv.next1007, %._crit_edge981 ]
   br i1 %315, label %.lr.ph980.preheader, label %._crit_edge981
 
 .lr.ph980.preheader:                              ; preds = %_ZN4ncnn3MatD2Ev.exit339
-  %373 = load ptr, ptr %2, align 8, !tbaa !38, !noalias !84
-  %374 = load i64, ptr %266, align 8, !tbaa !41, !noalias !84
+  %373 = load ptr, ptr %2, align 8, !tbaa !38, !noalias !85
+  %374 = load i64, ptr %266, align 8, !tbaa !41, !noalias !85
   %375 = shl nsw i64 %indvars.iv1006, 2
   %376 = or disjoint i64 %375, 3
   %377 = mul i64 %374, %376
-  %378 = load i64, ptr %314, align 8, !tbaa !13, !noalias !84
+  %378 = load i64, ptr %314, align 8, !tbaa !13, !noalias !85
   %379 = mul i64 %377, %378
   %380 = getelementptr inbounds nuw i8, ptr %373, i64 %379
   %381 = or disjoint i64 %375, 2
@@ -777,11 +777,11 @@ _ZN4ncnn3MatD2Ev.exit339:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %389 = mul i64 %374, %375
   %390 = mul i64 %389, %378
   %391 = getelementptr inbounds nuw i8, ptr %373, i64 %390
-  %392 = load ptr, ptr %1, align 8, !tbaa !38, !noalias !87
-  %393 = load i64, ptr %311, align 8, !tbaa !41, !noalias !87
+  %392 = load ptr, ptr %1, align 8, !tbaa !38, !noalias !88
+  %393 = load i64, ptr %311, align 8, !tbaa !41, !noalias !88
   %394 = add nuw nsw i64 %indvars.iv1006, %318
   %395 = mul i64 %393, %394
-  %396 = load i64, ptr %10, align 8, !tbaa !13, !noalias !87
+  %396 = load i64, ptr %10, align 8, !tbaa !13, !noalias !88
   %397 = mul i64 %395, %396
   %398 = getelementptr inbounds nuw i8, ptr %392, i64 %397
   %399 = add nuw nsw i64 %indvars.iv1006, %317
@@ -800,7 +800,7 @@ _ZN4ncnn3MatD2Ev.exit339:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 ._crit_edge981:                                   ; preds = %.lr.ph980, %_ZN4ncnn3MatD2Ev.exit339
   %indvars.iv.next1007 = add nuw nsw i64 %indvars.iv1006, 1
   %exitcond1010.not = icmp eq i64 %indvars.iv.next1007, %316
-  br i1 %exitcond1010.not, label %_ZN4ncnn3MataSERKS0_.exit, label %_ZN4ncnn3MatD2Ev.exit339, !llvm.loop !90
+  br i1 %exitcond1010.not, label %_ZN4ncnn3MataSERKS0_.exit, label %_ZN4ncnn3MatD2Ev.exit339, !llvm.loop !91
 
 .lr.ph980:                                        ; preds = %.lr.ph980.preheader, %.lr.ph980
   %.0263979 = phi i32 [ %430, %.lr.ph980 ], [ 0, %.lr.ph980.preheader ]
@@ -812,10 +812,10 @@ _ZN4ncnn3MatD2Ev.exit339:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.0269973 = phi ptr [ %424, %.lr.ph980 ], [ %402, %.lr.ph980.preheader ]
   %.0270972 = phi ptr [ %423, %.lr.ph980 ], [ %406, %.lr.ph980.preheader ]
   %.0271971 = phi ptr [ %422, %.lr.ph980 ], [ %409, %.lr.ph980.preheader ]
-  %410 = load <4 x float>, ptr %.0271971, align 1, !tbaa !60
-  %411 = load <4 x float>, ptr %.0270972, align 1, !tbaa !60
-  %412 = load <4 x float>, ptr %.0269973, align 1, !tbaa !60
-  %413 = load <4 x float>, ptr %.0268974, align 1, !tbaa !60
+  %410 = load <4 x float>, ptr %.0271971, align 1, !tbaa !61
+  %411 = load <4 x float>, ptr %.0270972, align 1, !tbaa !61
+  %412 = load <4 x float>, ptr %.0269973, align 1, !tbaa !61
+  %413 = load <4 x float>, ptr %.0268974, align 1, !tbaa !61
   %414 = shufflevector <4 x float> %410, <4 x float> %412, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %415 = shufflevector <4 x float> %410, <4 x float> %412, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %416 = shufflevector <4 x float> %411, <4 x float> %413, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -824,10 +824,10 @@ _ZN4ncnn3MatD2Ev.exit339:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %419 = shufflevector <4 x float> %414, <4 x float> %416, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %420 = shufflevector <4 x float> %415, <4 x float> %417, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %421 = shufflevector <4 x float> %415, <4 x float> %417, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %418, ptr %.0267975, align 1, !tbaa !60
-  store <4 x float> %419, ptr %.0266976, align 1, !tbaa !60
-  store <4 x float> %420, ptr %.0265977, align 1, !tbaa !60
-  store <4 x float> %421, ptr %.0264978, align 1, !tbaa !60
+  store <4 x float> %418, ptr %.0267975, align 1, !tbaa !61
+  store <4 x float> %419, ptr %.0266976, align 1, !tbaa !61
+  store <4 x float> %420, ptr %.0265977, align 1, !tbaa !61
+  store <4 x float> %421, ptr %.0264978, align 1, !tbaa !61
   %422 = getelementptr inbounds nuw i8, ptr %.0271971, i64 16
   %423 = getelementptr inbounds nuw i8, ptr %.0270972, i64 16
   %424 = getelementptr inbounds nuw i8, ptr %.0269973, i64 16
@@ -838,7 +838,7 @@ _ZN4ncnn3MatD2Ev.exit339:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %429 = getelementptr inbounds nuw i8, ptr %.0264978, i64 16
   %430 = add nuw nsw i32 %.0263979, 1
   %exitcond1005.not = icmp eq i32 %430, %25
-  br i1 %exitcond1005.not, label %._crit_edge981, label %.lr.ph980, !llvm.loop !91
+  br i1 %exitcond1005.not, label %._crit_edge981, label %.lr.ph980, !llvm.loop !92
 
 431:                                              ; preds = %309, %88
   %432 = tail call noundef i32 @_ZNK4ncnn14ShuffleChannel7forwardERKNS_3MatERS1_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -858,7 +858,7 @@ define hidden void @_ZN4ncnn18ShuffleChannel_x86C2Ev(ptr noundef nonnull align 8
   tail call void @_ZN4ncnn14ShuffleChannelC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn18ShuffleChannel_x86E, i64 16), ptr %0, align 8, !tbaa !39
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 1, ptr %2, align 1, !tbaa !92
+  store i8 1, ptr %2, align 1, !tbaa !93
   ret void
 }
 
@@ -987,38 +987,39 @@ attributes #17 = { noreturn nounwind }
 !55 = !{!56}
 !56 = distinct !{!56, !57, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
 !57 = distinct !{!57, !"_ZNK4ncnn3Mat7channelEi"}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!7, !7, i64 0}
-!61 = distinct !{!61, !59}
-!62 = distinct !{!62, !59}
-!63 = !{i64 0, i64 1, !64, i64 4, i64 4, !65, i64 8, i64 8, !66, i64 16, i64 8, !66, i64 24, i64 4, !65, i64 28, i64 1, !64, i64 29, i64 1, !64, i64 30, i64 1, !64, i64 31, i64 1, !64, i64 32, i64 1, !64, i64 33, i64 1, !64, i64 34, i64 1, !64, i64 35, i64 1, !64, i64 36, i64 1, !64, i64 37, i64 1, !64, i64 38, i64 1, !64, i64 39, i64 1, !64, i64 40, i64 1, !64, i64 41, i64 1, !64, i64 42, i64 1, !64, i64 43, i64 1, !64, i64 44, i64 1, !64, i64 45, i64 1, !64, i64 46, i64 1, !64, i64 47, i64 1, !64, i64 48, i64 4, !65, i64 52, i64 1, !64, i64 53, i64 1, !64, i64 54, i64 1, !64, i64 55, i64 1, !64, i64 56, i64 1, !64, i64 57, i64 1, !64, i64 58, i64 1, !64, i64 59, i64 1, !64, i64 60, i64 1, !64, i64 61, i64 1, !64, i64 62, i64 1, !64, i64 63, i64 1, !64}
-!64 = !{!22, !22, i64 0}
-!65 = !{!11, !11, i64 0}
-!66 = !{!12, !12, i64 0}
-!67 = !{!45, !12, i64 16}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!70 = distinct !{!70, !"_ZN4ncnn3Mat7channelEi"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!73 = distinct !{!73, !"_ZNK4ncnn3Mat7channelEi"}
-!74 = distinct !{!74, !59}
-!75 = distinct !{!75, !59}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!78 = distinct !{!78, !"_ZN4ncnn3Mat7channelEi"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!81 = distinct !{!81, !"_ZNK4ncnn3Mat7channelEi"}
-!82 = distinct !{!82, !59}
-!83 = distinct !{!83, !59}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!86 = distinct !{!86, !"_ZN4ncnn3Mat7channelEi"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!89 = distinct !{!89, !"_ZNK4ncnn3Mat7channelEi"}
-!90 = distinct !{!90, !59}
-!91 = distinct !{!91, !59}
-!92 = !{!21, !22, i64 11}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!7, !7, i64 0}
+!62 = distinct !{!62, !59, !60}
+!63 = distinct !{!63, !59, !60}
+!64 = !{i64 0, i64 1, !65, i64 4, i64 4, !66, i64 8, i64 8, !67, i64 16, i64 8, !67, i64 24, i64 4, !66, i64 28, i64 1, !65, i64 29, i64 1, !65, i64 30, i64 1, !65, i64 31, i64 1, !65, i64 32, i64 1, !65, i64 33, i64 1, !65, i64 34, i64 1, !65, i64 35, i64 1, !65, i64 36, i64 1, !65, i64 37, i64 1, !65, i64 38, i64 1, !65, i64 39, i64 1, !65, i64 40, i64 1, !65, i64 41, i64 1, !65, i64 42, i64 1, !65, i64 43, i64 1, !65, i64 44, i64 1, !65, i64 45, i64 1, !65, i64 46, i64 1, !65, i64 47, i64 1, !65, i64 48, i64 4, !66, i64 52, i64 1, !65, i64 53, i64 1, !65, i64 54, i64 1, !65, i64 55, i64 1, !65, i64 56, i64 1, !65, i64 57, i64 1, !65, i64 58, i64 1, !65, i64 59, i64 1, !65, i64 60, i64 1, !65, i64 61, i64 1, !65, i64 62, i64 1, !65, i64 63, i64 1, !65}
+!65 = !{!22, !22, i64 0}
+!66 = !{!11, !11, i64 0}
+!67 = !{!12, !12, i64 0}
+!68 = !{!45, !12, i64 16}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!71 = distinct !{!71, !"_ZN4ncnn3Mat7channelEi"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!74 = distinct !{!74, !"_ZNK4ncnn3Mat7channelEi"}
+!75 = distinct !{!75, !59, !60}
+!76 = distinct !{!76, !59, !60}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!79 = distinct !{!79, !"_ZN4ncnn3Mat7channelEi"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!82 = distinct !{!82, !"_ZNK4ncnn3Mat7channelEi"}
+!83 = distinct !{!83, !59, !60}
+!84 = distinct !{!84, !59, !60}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!87 = distinct !{!87, !"_ZN4ncnn3Mat7channelEi"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!90 = distinct !{!90, !"_ZNK4ncnn3Mat7channelEi"}
+!91 = distinct !{!91, !59, !60}
+!92 = distinct !{!92, !59, !60}
+!93 = !{!21, !22, i64 11}

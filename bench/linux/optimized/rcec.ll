@@ -110,7 +110,7 @@ define internal noundef i32 @link_rcec_helper(ptr noundef captures(none) %0, ptr
   %26 = phi i64 [ %42, %37 ], [ 0, %23 ]
   %27 = and i64 %26, 4294967295
   %28 = icmp samesign ugt i64 %27, 31
-  br i1 %28, label %.thread, label %29, !prof !8
+  br i1 %28, label %.thread, label %29, !prof !9
 
 29:                                               ; preds = %25
   %30 = shl nsw i64 -1, %27
@@ -119,7 +119,7 @@ define internal noundef i32 @link_rcec_helper(ptr noundef captures(none) %0, ptr
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %31) #7, !srcloc !9
+  %34 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %31) #7, !srcloc !10
   %35 = trunc i64 %34 to i32
   %36 = icmp ult i32 %35, 32
   br i1 %36, label %37, label %.thread
@@ -130,7 +130,7 @@ define internal noundef i32 @link_rcec_helper(ptr noundef captures(none) %0, ptr
   %40 = and i32 %39, 31
   %41 = icmp eq i32 %40, %35
   %42 = add nuw nsw i64 %34, 1
-  br i1 %41, label %.loopexit, label %25, !llvm.loop !10
+  br i1 %41, label %.loopexit, label %25, !llvm.loop !11
 
 .loopexit:                                        ; preds = %37, %8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -202,7 +202,7 @@ define dso_local void @pcie_walk_rcec(ptr noundef %0, ptr noundef %1, ptr nounde
 39:                                               ; preds = %38, %32, %25
   %40 = add nuw nsw i32 %26, 1
   %41 = icmp eq i32 %26, %24
-  br i1 %41, label %.loopexit, label %25, !llvm.loop !5
+  br i1 %41, label %.loopexit, label %25, !llvm.loop !12
 
 .loopexit:                                        ; preds = %39, %8, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
@@ -243,7 +243,7 @@ define internal noundef i32 @walk_rcec_helper(ptr noundef %0, ptr noundef readon
   %26 = phi i64 [ %42, %37 ], [ 0, %23 ]
   %27 = and i64 %26, 4294967295
   %28 = icmp samesign ugt i64 %27, 31
-  br i1 %28, label %.thread, label %29, !prof !8
+  br i1 %28, label %.thread, label %29, !prof !9
 
 29:                                               ; preds = %25
   %30 = shl nsw i64 -1, %27
@@ -252,7 +252,7 @@ define internal noundef i32 @walk_rcec_helper(ptr noundef %0, ptr noundef readon
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %31) #7, !srcloc !9
+  %34 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %31) #7, !srcloc !10
   %35 = trunc i64 %34 to i32
   %36 = icmp ult i32 %35, 32
   br i1 %36, label %37, label %.thread
@@ -263,7 +263,7 @@ define internal noundef i32 @walk_rcec_helper(ptr noundef %0, ptr noundef readon
   %40 = and i32 %39, 31
   %41 = icmp eq i32 %40, %35
   %42 = add nuw nsw i64 %34, 1
-  br i1 %41, label %.loopexit, label %25, !llvm.loop !10
+  br i1 %41, label %.loopexit, label %25, !llvm.loop !13
 
 .loopexit:                                        ; preds = %37, %7
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -302,8 +302,8 @@ define dso_local void @pci_rcec_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %15, label %36, label %16
 
 16:                                               ; preds = %12
-  store i32 0, ptr %2, align 4, !annotation !11
-  store i32 0, ptr %3, align 4, !annotation !11
+  store i32 0, ptr %2, align 4, !annotation !14
+  store i32 0, ptr %3, align 4, !annotation !14
   %17 = add nuw nsw i32 %10, 4
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = tail call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %18) #6
@@ -383,10 +383,13 @@ attributes #8 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"branch_weights", i32 1, i32 2000}
-!9 = !{i64 296109}
-!10 = distinct !{!10, !6, !7}
-!11 = !{!"auto-init"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", i32 1, i32 2000}
+!10 = !{i64 296109}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = !{!"auto-init"}

@@ -72,14 +72,14 @@ define internal i32 @dpx_parse(ptr noundef captures(none) initializes((40, 44)) 
 
 30:                                               ; preds = %6
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %32 = load i32, ptr %31, align 8, !tbaa !25
+  %32 = load i32, ptr %31, align 8, !tbaa !26
   %.not66 = icmp eq i32 %32, 0
   br i1 %.not66, label %35, label %33
 
 33:                                               ; preds = %30
   %. = tail call i32 @llvm.umin.i32(i32 %32, i32 %5)
   %34 = sub i32 %32, %.
-  store i32 %34, ptr %31, align 8, !tbaa !25
+  store i32 %34, ptr %31, align 8, !tbaa !26
   %.not67.not = icmp ugt i32 %32, %5
   br i1 %.not67.not, label %.loopexit, label %35
 
@@ -122,7 +122,7 @@ define internal i32 @dpx_parse(ptr noundef captures(none) initializes((40, 44)) 
   %54 = tail call i32 @llvm.bswap.i32(i32 %48)
   %spec.select69 = select i1 %.not68, i32 %54, i32 %48
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i32 %spec.select69, ptr %55, align 4, !tbaa !26
+  store i32 %spec.select69, ptr %55, align 4, !tbaa !27
   %56 = icmp ult i32 %spec.select69, 1665
   br i1 %56, label %57, label %58
 
@@ -141,7 +141,7 @@ define internal i32 @dpx_parse(ptr noundef captures(none) initializes((40, 44)) 
   %63 = add i32 %reass.sub, -19
   %64 = add i32 %63, %spec.select69
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i32 %64, ptr %65, align 8, !tbaa !25
+  store i32 %64, ptr %65, align 8, !tbaa !26
   br label %.loopexit
 
 66:                                               ; preds = %.lr.ph82.split
@@ -163,7 +163,7 @@ define internal i32 @dpx_parse(ptr noundef captures(none) initializes((40, 44)) 
   %indvars.iv.next99 = add nsw i64 %indvars.iv98, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next99 to i32
   %exitcond101.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond101.not, label %.loopexit, label %.lr.ph82.split, !llvm.loop !27
+  br i1 %exitcond101.not, label %.loopexit, label %.lr.ph82.split, !llvm.loop !28
 
 .loopexit:                                        ; preds = %71, %35, %58, %.split86.us, %62, %33, %57
   %.156 = phi i32 [ %spec.select, %33 ], [ %spec.select, %57 ], [ %spec.select, %62 ], [ %70, %.split86.us ], [ %spec.select, %58 ], [ %spec.select, %35 ], [ %spec.select, %71 ]
@@ -228,8 +228,9 @@ attributes #3 = { nounwind }
 !20 = !{!7, !7, i64 0}
 !21 = !{!16, !10, i64 60}
 !22 = !{!16, !10, i64 48}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!16, !10, i64 56}
-!26 = !{!16, !10, i64 52}
-!27 = distinct !{!27, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!16, !10, i64 56}
+!27 = !{!16, !10, i64 52}
+!28 = distinct !{!28, !24, !25}

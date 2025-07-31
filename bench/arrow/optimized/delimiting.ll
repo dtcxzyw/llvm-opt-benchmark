@@ -2573,7 +2573,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7:    ; preds = %13, %17
 17:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7
   %18 = add i64 %.0710.i.i, 1
   %exitcond.not.i.i9 = icmp eq i64 %18, %4
-  br i1 %exitcond.not.i.i9, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7, !llvm.loop !179
+  br i1 %exitcond.not.i.i9, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7, !llvm.loop !180
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7
   %19 = icmp eq i64 %.0710.i.i, -1
@@ -2585,7 +2585,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thre
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread: ; preds = %10, %7, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit
   %storemerge = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ %4, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread ], [ %.0710.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ -1, %7 ], [ -1, %10 ]
   store i64 %storemerge, ptr %6, align 8, !tbaa !24
-  store ptr null, ptr %0, align 8, !tbaa !42, !alias.scope !180
+  store ptr null, ptr %0, align 8, !tbaa !42, !alias.scope !181
   ret void
 }
 
@@ -2606,7 +2606,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %5, %8
 
 8:                                                ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %.not17.i.i = icmp eq i64 %.1.i.i, 0
-  br i1 %.not17.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !183
+  br i1 %.not17.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !184
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %9 = icmp ult i64 %.1.i.i, %2
@@ -2624,7 +2624,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7:    ; preds = %_ZNKSt17basic_strin
 12:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7
   %13 = add i64 %.0710.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %13, %2
-  br i1 %exitcond.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7, !llvm.loop !179
+  br i1 %exitcond.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7, !llvm.loop !180
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i7
   %14 = icmp eq i64 %.0710.i.i, -1
@@ -2636,7 +2636,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thre
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEPKcm.exit.thread: ; preds = %8, %5, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread
   %storemerge = phi i64 [ %2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread ], [ %.0710.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ -1, %5 ], [ -1, %8 ]
   store i64 %storemerge, ptr %4, align 8, !tbaa !24
-  store ptr null, ptr %0, align 8, !tbaa !42, !alias.scope !184
+  store ptr null, ptr %0, align 8, !tbaa !42, !alias.scope !185
   ret void
 }
 
@@ -2713,14 +2713,14 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i25:   ; preds = %26, %30
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i25, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i25
   %.not = icmp eq i64 %.01116.i.i26, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !187
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !188
 
 ._crit_edge:                                      ; preds = %12, %26, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29, %.lr.ph._crit_edge, %30, %9, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit
   %.116 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ 0, %9 ], [ %25, %30 ], [ %25, %26 ], [ %25, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29 ], [ %smax, %.lr.ph._crit_edge ], [ 0, %12 ]
   %.114 = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ -1, %9 ], [ %.1, %30 ], [ %.1, %.lr.ph._crit_edge ], [ %.1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29 ], [ %.1, %26 ], [ -1, %12 ]
   store i64 %.114, ptr %7, align 8, !tbaa !24
   store i64 %.116, ptr %8, align 8, !tbaa !24
-  store ptr null, ptr %0, align 8, !tbaa !42, !alias.scope !188
+  store ptr null, ptr %0, align 8, !tbaa !42, !alias.scope !189
   ret void
 }
 
@@ -2993,17 +2993,18 @@ attributes #24 = { builtin nounwind }
 !174 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !175, i64 0, !25, i64 8, !9, i64 16}
 !175 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !32, i64 0}
 !176 = !{!174, !25, i64 8}
-!177 = distinct !{!177, !178}
+!177 = distinct !{!177, !178, !179}
 !178 = !{!"llvm.loop.mustprogress"}
-!179 = distinct !{!179, !178}
-!180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZN5arrow6Status2OKEv: argument 0"}
-!182 = distinct !{!182, !"_ZN5arrow6Status2OKEv"}
-!183 = distinct !{!183, !178}
-!184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZN5arrow6Status2OKEv: argument 0"}
-!186 = distinct !{!186, !"_ZN5arrow6Status2OKEv"}
-!187 = distinct !{!187, !178}
-!188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZN5arrow6Status2OKEv: argument 0"}
-!190 = distinct !{!190, !"_ZN5arrow6Status2OKEv"}
+!179 = !{!"llvm.loop.estimated_trip_count"}
+!180 = distinct !{!180, !178, !179}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"_ZN5arrow6Status2OKEv: argument 0"}
+!183 = distinct !{!183, !"_ZN5arrow6Status2OKEv"}
+!184 = distinct !{!184, !178, !179}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN5arrow6Status2OKEv: argument 0"}
+!187 = distinct !{!187, !"_ZN5arrow6Status2OKEv"}
+!188 = distinct !{!188, !178, !179}
+!189 = !{!190}
+!190 = distinct !{!190, !191, !"_ZN5arrow6Status2OKEv: argument 0"}
+!191 = distinct !{!191, !"_ZN5arrow6Status2OKEv"}

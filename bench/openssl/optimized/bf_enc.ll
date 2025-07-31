@@ -1328,7 +1328,7 @@ define void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef 
   store i8 %245, ptr %244, align 1, !tbaa !7
   %.1 = add nsw i64 %.1274, -8
   %247 = icmp samesign ugt i64 %.1274, 7
-  br i1 %247, label %184, label %._crit_edge277, !llvm.loop !10
+  br i1 %247, label %184, label %._crit_edge277, !llvm.loop !11
 
 ._crit_edge277:                                   ; preds = %184, %182
   %.1248.lcssa = phi ptr [ %1, %182 ], [ %246, %184 ]
@@ -1499,6 +1499,7 @@ attributes #3 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

@@ -352,7 +352,7 @@ ffc_validate_LN.exit:                             ; preds = %57, %47, %40, %34
 161:                                              ; preds = %159
   %162 = load ptr, ptr %76, align 8, !tbaa !16
   %163 = icmp eq ptr %.3288, %162
-  br i1 %163, label %164, label %144
+  br i1 %163, label %164, label %144, !llvm.loop !21
 
 164:                                              ; preds = %161
   store i32 1, ptr %6, align 4, !tbaa !3
@@ -425,7 +425,7 @@ ffc_validate_LN.exit:                             ; preds = %57, %47, %40, %34
 
 193:                                              ; preds = %192
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %195 = load i32, ptr %194, align 8, !tbaa !21
+  %195 = load i32, ptr %194, align 8, !tbaa !23
   %.not268 = icmp eq i32 %195, -1
   br i1 %.not268, label %205, label %196
 
@@ -526,7 +526,7 @@ ffc_validate_LN.exit:                             ; preds = %57, %47, %40, %34
 236:                                              ; preds = %233
   %237 = load i32, ptr %11, align 4, !tbaa !3
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 %237, ptr %238, align 4, !tbaa !22
+  store i32 %237, ptr %238, align 4, !tbaa !24
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %173, %210, %236
@@ -645,12 +645,12 @@ define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef non
   br label %33
 
 33:                                               ; preds = %32, %31
-  %34 = load i8, ptr %.037, align 1, !tbaa !23
+  %34 = load i8, ptr %.037, align 1, !tbaa !25
   %35 = or i8 %34, -128
-  store i8 %35, ptr %.037, align 1, !tbaa !23
-  %36 = load i8, ptr %26, align 1, !tbaa !23
+  store i8 %35, ptr %.037, align 1, !tbaa !25
+  %36 = load i8, ptr %26, align 1, !tbaa !25
   %37 = or i8 %36, 1
-  store i8 %37, ptr %26, align 1, !tbaa !23
+  store i8 %37, ptr %26, align 1, !tbaa !25
   %38 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
   %.not46.us = icmp eq ptr %38, null
   br i1 %.not46.us, label %.loopexit, label %39
@@ -682,12 +682,12 @@ define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef non
 
 49:                                               ; preds = %47
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %24, i1 false)
-  %50 = load i8, ptr %.037, align 1, !tbaa !23
+  %50 = load i8, ptr %.037, align 1, !tbaa !25
   %51 = or i8 %50, -128
-  store i8 %51, ptr %.037, align 1, !tbaa !23
-  %52 = load i8, ptr %26, align 1, !tbaa !23
+  store i8 %51, ptr %.037, align 1, !tbaa !25
+  %52 = load i8, ptr %26, align 1, !tbaa !25
   %53 = or i8 %52, 1
-  store i8 %53, ptr %26, align 1, !tbaa !23
+  store i8 %53, ptr %26, align 1, !tbaa !25
   %54 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
   %.not46.us54 = icmp eq ptr %54, null
   br i1 %.not46.us54, label %.loopexit, label %55
@@ -699,7 +699,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef non
 
 58:                                               ; preds = %55
   %.not47.us55 = icmp eq i32 %56, 0
-  br i1 %.not47.us55, label %.preheader.split.split.split.us, label %.loopexit, !llvm.loop !24
+  br i1 %.not47.us55, label %.preheader.split.split.split.us, label %.loopexit, !llvm.loop !26
 
 .preheader.split.split.split:                     ; preds = %.preheader.split.split, %75
   %.1 = phi i32 [ %59, %75 ], [ %12, %.preheader.split.split ]
@@ -719,12 +719,12 @@ define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef non
   br i1 %.not45, label %.loopexit, label %66
 
 66:                                               ; preds = %64
-  %67 = load i8, ptr %.037, align 1, !tbaa !23
+  %67 = load i8, ptr %.037, align 1, !tbaa !25
   %68 = or i8 %67, -128
-  store i8 %68, ptr %.037, align 1, !tbaa !23
-  %69 = load i8, ptr %26, align 1, !tbaa !23
+  store i8 %68, ptr %.037, align 1, !tbaa !25
+  %69 = load i8, ptr %26, align 1, !tbaa !25
   %70 = or i8 %69, 1
-  store i8 %70, ptr %26, align 1, !tbaa !23
+  store i8 %70, ptr %26, align 1, !tbaa !25
   %71 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
   %.not46 = icmp eq ptr %71, null
   br i1 %.not46, label %.loopexit, label %72
@@ -736,7 +736,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef non
 
 75:                                               ; preds = %72
   %.not47 = icmp eq i32 %73, 0
-  br i1 %.not47, label %.preheader.split.split.split, label %.loopexit
+  br i1 %.not47, label %.preheader.split.split.split, label %.loopexit, !llvm.loop !28
 
 .split.us:                                        ; preds = %39
   %76 = load i32, ptr %8, align 4, !tbaa !3
@@ -811,7 +811,7 @@ define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef nonnull %0, 
 33:                                               ; preds = %51
   %34 = add nuw i32 %.07096, 1
   %exitcond.not = icmp eq i32 %.07096, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %32, %33
   %.07096 = phi i32 [ %34, %33 ], [ 0, %32 ]
@@ -826,11 +826,11 @@ define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef nonnull %0, 
 38:                                               ; preds = %35
   %39 = add nsw i64 %indvars.iv, -1
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 %39
-  %41 = load i8, ptr %40, align 1, !tbaa !23
+  %41 = load i8, ptr %40, align 1, !tbaa !25
   %42 = add i8 %41, 1
-  store i8 %42, ptr %40, align 1, !tbaa !23
+  store i8 %42, ptr %40, align 1, !tbaa !25
   %.not87 = icmp eq i8 %42, 0
-  br i1 %.not87, label %35, label %43, !llvm.loop !28
+  br i1 %.not87, label %35, label %43, !llvm.loop !31
 
 43:                                               ; preds = %38, %35
   %44 = call i32 @EVP_Digest(ptr noundef nonnull %4, i64 noundef %5, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %1, ptr noundef null) #5
@@ -910,7 +910,7 @@ define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef nonnull %0, 
 75:                                               ; preds = %67, %74
   %76 = add nuw i32 %.06998, 1
   %exitcond107.not = icmp eq i32 %.06998, %2
-  br i1 %exitcond107.not, label %._crit_edge100, label %29, !llvm.loop !29
+  br i1 %exitcond107.not, label %._crit_edge100, label %29, !llvm.loop !32
 
 ._crit_edge100:                                   ; preds = %75, %.preheader
   %77 = load i32, ptr %11, align 4, !tbaa !3
@@ -957,16 +957,16 @@ define internal fastcc range(i32 0, 2) i32 @generate_canonical_g(ptr noundef non
 20:                                               ; preds = %40
   %21 = add nuw nsw i32 %.02736, 1
   %exitcond.not = icmp eq i32 %21, 65536
-  br i1 %exitcond.not, label %44, label %22, !llvm.loop !30
+  br i1 %exitcond.not, label %44, label %22, !llvm.loop !33
 
 22:                                               ; preds = %.preheader, %20
   %.02736 = phi i32 [ 1, %.preheader ], [ %21, %20 ]
-  store i8 %17, ptr %11, align 16, !tbaa !23
+  store i8 %17, ptr %11, align 16, !tbaa !25
   %23 = lshr i32 %.02736, 8
   %24 = trunc nuw i32 %23 to i8
-  store i8 %24, ptr %18, align 1, !tbaa !23
+  store i8 %24, ptr %18, align 1, !tbaa !25
   %25 = trunc i32 %.02736 to i8
-  store i8 %25, ptr %19, align 2, !tbaa !23
+  store i8 %25, ptr %19, align 2, !tbaa !25
   %26 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %15, ptr noundef nonnull %2, ptr noundef null) #5
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %44, label %27
@@ -1050,7 +1050,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_unverifiable_g(ptr noundef 
   %20 = add nuw nsw i32 %.020, 1
   %21 = tail call i32 @BN_mod_exp_mont(ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %4, ptr noundef nonnull %0, ptr noundef nonnull %1) #5
   %.not16 = icmp eq i32 %21, 0
-  br i1 %.not16, label %.loopexit, label %.lr.ph
+  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 22:                                               ; preds = %.lr.ph
   store i32 %.020, ptr %7, align 4, !tbaa !3
@@ -1334,11 +1334,11 @@ default_mdname.exit:                              ; preds = %27
 126:                                              ; preds = %123
   %127 = add nsw i64 %indvars.iv.i, -1
   %128 = getelementptr inbounds nuw i8, ptr %12, i64 %127
-  %129 = load i8, ptr %128, align 1, !tbaa !23
+  %129 = load i8, ptr %128, align 1, !tbaa !25
   %130 = add i8 %129, 1
-  store i8 %130, ptr %128, align 1, !tbaa !23
+  store i8 %130, ptr %128, align 1, !tbaa !25
   %.not47.i = icmp eq i8 %130, 0
-  br i1 %.not47.i, label %123, label %131, !llvm.loop !31
+  br i1 %.not47.i, label %123, label %131, !llvm.loop !35
 
 131:                                              ; preds = %126, %123
   %132 = call i32 @EVP_Digest(ptr noundef nonnull %11, i64 noundef range(i64 0, 2305843009213693952) %45, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %36, ptr noundef null) #5
@@ -1356,22 +1356,22 @@ default_mdname.exit:                              ; preds = %27
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv4.i = phi i64 [ %indvars.iv.next5.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %135 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %indvars.iv4.i
-  %136 = load i8, ptr %135, align 1, !tbaa !23
+  %136 = load i8, ptr %135, align 1, !tbaa !25
   %137 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv4.i
-  %138 = load i8, ptr %137, align 1, !tbaa !23
+  %138 = load i8, ptr %137, align 1, !tbaa !25
   %139 = xor i8 %138, %136
-  store i8 %139, ptr %137, align 1, !tbaa !23
+  store i8 %139, ptr %137, align 1, !tbaa !25
   %indvars.iv.next5.i = add nuw nsw i64 %indvars.iv4.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next5.i, %45
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %140 = load i8, ptr %10, align 16, !tbaa !23
+  %140 = load i8, ptr %10, align 16, !tbaa !25
   %141 = or i8 %140, -128
-  store i8 %141, ptr %10, align 16, !tbaa !23
-  %142 = load i8, ptr %104, align 1, !tbaa !23
+  store i8 %141, ptr %10, align 16, !tbaa !25
+  %142 = load i8, ptr %104, align 1, !tbaa !25
   %143 = or i8 %142, 1
-  store i8 %143, ptr %104, align 1, !tbaa !23
+  store i8 %143, ptr %104, align 1, !tbaa !25
   %144 = call ptr @BN_bin2bn(ptr noundef nonnull %10, i32 noundef %101, ptr noundef %65) #5
   %.not50.i = icmp eq ptr %144, null
   br i1 %.not50.i, label %227, label %145
@@ -1383,7 +1383,7 @@ default_mdname.exit:                              ; preds = %27
 
 148:                                              ; preds = %145
   %.not51.i = icmp eq i32 %146, 0
-  br i1 %.not51.i, label %115, label %.thread249
+  br i1 %.not51.i, label %115, label %.thread249, !llvm.loop !37
 
 149:                                              ; preds = %145
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
@@ -1417,7 +1417,7 @@ default_mdname.exit:                              ; preds = %27
 
 161:                                              ; preds = %158
   %162 = icmp eq i32 %159, -1
-  br i1 %162, label %.thread227, label %113
+  br i1 %162, label %.thread227, label %113, !llvm.loop !38
 
 163:                                              ; preds = %158
   %164 = call i32 @BN_GENCB_call(ptr noundef %7, i32 noundef 2, i32 noundef 1) #5
@@ -1561,7 +1561,7 @@ default_mdname.exit:                              ; preds = %27
 222:                                              ; preds = %219
   %223 = load i32, ptr %14, align 4, !tbaa !3
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 %223, ptr %224, align 4, !tbaa !22
+  store i32 %223, ptr %224, align 4, !tbaa !24
   br label %225
 
 225:                                              ; preds = %195, %222, %173
@@ -1696,15 +1696,21 @@ attributes #5 = { nounwind }
 !18 = !{!8, !9, i64 8}
 !19 = !{!8, !4, i64 48}
 !20 = !{!8, !9, i64 16}
-!21 = !{!8, !4, i64 56}
-!22 = !{!8, !4, i64 60}
-!23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = distinct !{!29, !27}
-!30 = distinct !{!30, !27}
-!31 = distinct !{!31, !27}
-!32 = distinct !{!32, !27}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!8, !4, i64 56}
+!24 = !{!8, !4, i64 60}
+!25 = !{!5, !5, i64 0}
+!26 = distinct !{!26, !22, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !22}
+!29 = distinct !{!29, !30, !22}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = distinct !{!31, !30, !22}
+!32 = distinct !{!32, !30, !22}
+!33 = distinct !{!33, !30, !22}
+!34 = distinct !{!34, !22}
+!35 = distinct !{!35, !30, !22}
+!36 = distinct !{!36, !30, !22}
+!37 = distinct !{!37, !22}
+!38 = distinct !{!38, !22}

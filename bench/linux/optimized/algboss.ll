@@ -132,7 +132,7 @@ define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr readnone captures(
 
 48:                                               ; preds = %47, %47, %38
   %49 = getelementptr i8, ptr %39, i64 1
-  br label %38, !llvm.loop !11
+  br label %38, !llvm.loop !12
 
 50:                                               ; preds = %.preheader, %50
   %51 = phi ptr [ %52, %50 ], [ %56, %.preheader ]
@@ -142,7 +142,7 @@ define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr readnone captures(
     i8 0, label %.loopexit
     i8 40, label %54
     i8 41, label %58
-  ], !llvm.loop !12
+  ], !llvm.loop !13
 
 54:                                               ; preds = %50
   %55 = add i32 %57, 1
@@ -160,7 +160,7 @@ define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr readnone captures(
 
 .preheader.backedge:                              ; preds = %58, %54
   %.be = phi i32 [ %59, %58 ], [ %55, %54 ]
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader, !llvm.loop !14
 
 .thread:                                          ; preds = %58
   %61 = getelementptr i8, ptr %51, i64 2
@@ -193,7 +193,7 @@ define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr readnone captures(
   switch i8 %76, label %.loopexit [
     i8 41, label %77
     i8 44, label %34
-  ]
+  ], !llvm.loop !15
 
 77:                                               ; preds = %75
   %78 = and i64 %72, 4294967295
@@ -262,9 +262,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @crypto_alg_get(ptr noundef returned %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 1, ptr nonnull elementtype(i32) %2) #8, !srcloc !13
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 1, ptr nonnull elementtype(i32) %2) #8, !srcloc !16
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %9, label %5, !prof !14
+  br i1 %4, label %9, label %5, !prof !17
 
 5:                                                ; preds = %1
   %6 = add i32 %3, 1
@@ -302,7 +302,7 @@ define internal noundef i32 @cryptomgr_probe(ptr noundef %0) #5 align 16 {
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %7
-  %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !15
+  %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !18
   %13 = inttoptr i64 %12 to ptr
   %14 = load volatile i64, ptr %13, align 8
   %15 = and i64 %14, 131072
@@ -313,7 +313,7 @@ define internal noundef i32 @cryptomgr_probe(ptr noundef %0) #5 align 16 {
   %18 = load volatile i64, ptr %13, align 8
   %19 = and i64 %18, 4
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %7, label %.critedge, !llvm.loop !16
+  br i1 %20, label %7, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %11, %17, %7
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -339,7 +339,7 @@ declare dso_local i32 @wake_up_process(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @crypto_alg_put(ptr noundef %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #8, !srcloc !17
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #8, !srcloc !20
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %8, label %5
 
@@ -352,7 +352,7 @@ define internal fastcc void @crypto_alg_put(ptr noundef %0) unnamed_addr #4 alig
   br label %.thread
 
 8:                                                ; preds = %1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -413,14 +413,17 @@ attributes #11 = { noreturn nounwind }
 !5 = !{!"branch_weights", i32 2000, i32 1}
 !6 = !{i64 2156659076, i64 2156658885, i64 2156658937, i64 2156658983, i64 2156659011}
 !7 = !{i64 2156659150, i64 2156659179, i64 2156659225, i64 2156659283, i64 2156659337, i64 2156659391, i64 2156659446, i64 2156659477}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !10}
-!13 = !{i64 2147798957, i64 2147798996, i64 2147799017, i64 2147799054, i64 2147799077, i64 2147799086}
-!14 = !{!"branch_weights", i32 1, i32 2000}
-!15 = !{i64 2148581657}
-!16 = distinct !{!16, !9, !10}
-!17 = !{i64 2147801146, i64 2147801185, i64 2147801206, i64 2147801243, i64 2147801266, i64 2147801275}
-!18 = !{i64 2149899169}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !11}
+!16 = !{i64 2147798957, i64 2147798996, i64 2147799017, i64 2147799054, i64 2147799077, i64 2147799086}
+!17 = !{!"branch_weights", i32 1, i32 2000}
+!18 = !{i64 2148581657}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = !{i64 2147801146, i64 2147801185, i64 2147801206, i64 2147801243, i64 2147801266, i64 2147801275}
+!21 = !{i64 2149899169}

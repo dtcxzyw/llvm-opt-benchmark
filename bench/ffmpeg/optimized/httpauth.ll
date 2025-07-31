@@ -597,7 +597,7 @@ define internal void @update_md5_strings(ptr noundef nonnull %0, ...) unnamed_ad
 19:                                               ; preds = %16
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #9
   call void @av_md5_update(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef %20) #8
-  br label %5
+  br label %5, !llvm.loop !17
 
 21:                                               ; preds = %16
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -650,3 +650,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !14 = !{!"any pointer", !7, i64 0}
 !15 = !{!6, !6, i64 0}
 !16 = !{!9, !6, i64 652}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}

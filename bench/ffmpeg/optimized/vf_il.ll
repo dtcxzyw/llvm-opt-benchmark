@@ -148,9 +148,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %73 = getelementptr inbounds [8 x i32], ptr %27, i64 0, i64 %63
   %74 = load i32, ptr %73, align 4, !tbaa !37
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %76 = load i32, ptr %75, align 8, !tbaa !48
+  %76 = load i32, ptr %75, align 8, !tbaa !49
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %78 = load i32, ptr %77, align 4, !tbaa !49
+  %78 = load i32, ptr %77, align 4, !tbaa !50
   tail call fastcc void @interleave(ptr noundef %65, ptr noundef %67, i32 noundef %69, i32 noundef %70, i32 noundef %72, i32 noundef %74, i32 noundef %76, i32 noundef %78)
   br label %79
 
@@ -171,21 +171,21 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !50
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %7) #4
-  %9 = load i32, ptr %6, align 4, !tbaa !50
+  %9 = load i32, ptr %6, align 4, !tbaa !51
   %10 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %9) #4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %10, ptr %11, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !51
+  %13 = load i64, ptr %12, align 8, !tbaa !52
   %14 = trunc i64 %13 to i32
   %15 = lshr i32 %14, 7
   %16 = and i32 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %16, ptr %17, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %19 = load i32, ptr %6, align 4, !tbaa !50
+  %19 = load i32, ptr %6, align 4, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8, !tbaa !34
   %22 = tail call i32 @av_image_fill_linesizes(ptr noundef nonnull %18, i32 noundef %19, i32 noundef %21) #4
@@ -197,7 +197,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %26 = load i32, ptr %25, align 4, !tbaa !35
   %27 = sub nsw i32 0, %26
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %29 = load i8, ptr %28, align 2, !tbaa !54
+  %29 = load i8, ptr %28, align 2, !tbaa !55
   %30 = zext nneg i8 %29 to i32
   %31 = ashr i32 %27, %30
   %32 = sub nsw i32 0, %31
@@ -285,7 +285,7 @@ define internal fastcc void @interleave(ptr noundef writeonly captures(none) %0,
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %43, i64 %24, i1 false)
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.loopexit, label %29, !llvm.loop !55
+  br i1 %exitcond85.not, label %.loopexit, label %29, !llvm.loop !56
 
 44:                                               ; preds = %.lr.ph70, %44
   %indvars.iv76 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next77, %44 ]
@@ -309,7 +309,7 @@ define internal fastcc void @interleave(ptr noundef writeonly captures(none) %0,
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 1 %60, i64 %19, i1 false)
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %.loopexit, label %44, !llvm.loop !56
+  br i1 %exitcond80.not, label %.loopexit, label %44, !llvm.loop !57
 
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
@@ -331,7 +331,7 @@ define internal fastcc void @interleave(ptr noundef writeonly captures(none) %0,
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %75, i64 %12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !58
 
 .loopexit:                                        ; preds = %61, %44, %29, %.preheader66, %.preheader64, %.preheader, %8
   ret void
@@ -408,15 +408,16 @@ attributes #4 = { nounwind }
 !43 = !{!39, !13, i64 52}
 !44 = !{!39, !13, i64 12}
 !45 = !{!39, !13, i64 24}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!39, !13, i64 16}
-!49 = !{!39, !13, i64 28}
-!50 = !{!10, !13, i64 36}
-!51 = !{!52, !53, i64 16}
-!52 = !{!"AVPixFmtDescriptor", !25, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !53, i64 16, !7, i64 24, !25, i64 104}
-!53 = !{!"long", !7, i64 0}
-!54 = !{!52, !7, i64 10}
-!55 = distinct !{!55, !47}
-!56 = distinct !{!56, !47}
-!57 = distinct !{!57, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!39, !13, i64 16}
+!50 = !{!39, !13, i64 28}
+!51 = !{!10, !13, i64 36}
+!52 = !{!53, !54, i64 16}
+!53 = !{!"AVPixFmtDescriptor", !25, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !54, i64 16, !7, i64 24, !25, i64 104}
+!54 = !{!"long", !7, i64 0}
+!55 = !{!53, !7, i64 10}
+!56 = distinct !{!56, !47, !48}
+!57 = distinct !{!57, !47, !48}
+!58 = distinct !{!58, !47, !48}

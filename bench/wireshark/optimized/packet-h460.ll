@@ -1082,7 +1082,7 @@ define internal noundef i32 @dissect_h460_name(ptr readnone captures(none) %0, p
   %35 = getelementptr i8, ptr %.033.i, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %find_ftr.exit.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %find_ftr.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 find_ftr.exit:                                    ; preds = %16, %21, %26, %31
   %.not17 = icmp eq ptr %.033.i, null
@@ -1229,7 +1229,7 @@ define hidden void @proto_reg_handoff_h460() local_unnamed_addr #0 {
   %45 = getelementptr i8, ptr %.042, i64 80
   %46 = load ptr, ptr %45, align 8
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %43, %0
   ret void
@@ -2142,7 +2142,8 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

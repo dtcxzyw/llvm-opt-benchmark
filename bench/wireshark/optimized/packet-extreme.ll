@@ -978,7 +978,7 @@ dissect_esl_tlv.exit:                             ; preds = %.lr.ph.i, %273
 dissect_link_tlv.exit:                            ; preds = %406, %385, %409, %368, %345, %dissect_esl_tlv.exit, %229, %194, %dissect_vlan_tlv.exit, %84, %70
   %420 = add nuw nsw i32 %.0150, %56
   %.not172 = icmp samesign ult i32 %420, %21
-  br i1 %.not172, label %46, label %.loopexit, !llvm.loop !8
+  br i1 %.not172, label %46, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %dissect_link_tlv.exit, %dissect_link_tlv.exit.thread, %35, %59, %49
   %421 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1117,6 +1117,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

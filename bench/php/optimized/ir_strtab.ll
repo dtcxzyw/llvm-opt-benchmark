@@ -83,7 +83,7 @@ define hidden i32 @ir_strtab_find(ptr noundef readonly captures(none) %0, ptr no
   %9 = getelementptr inbounds nuw i8, ptr %.089.i, i64 1
   %10 = add nuw nsw i64 %.0710.i, 1
   %exitcond.not.i = icmp eq i64 %10, %4
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %11 = or i32 %8, 268435456
@@ -97,7 +97,7 @@ ir_str_hash.exit:                                 ; preds = %3, %._crit_edge.loo
   %15 = or i32 %14, %.0.lcssa.i
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i32, ptr %12, i64 %16
-  %.01820 = load i32, ptr %17, align 4, !tbaa !19
+  %.01820 = load i32, ptr %17, align 4, !tbaa !21
   %.not21 = icmp eq i32 %.01820, -1
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
@@ -105,33 +105,33 @@ ir_str_hash.exit:                                 ; preds = %3, %._crit_edge.loo
   %.01822 = phi i32 [ %.018, %33 ], [ %.01820, %ir_str_hash.exit ]
   %18 = zext i32 %.01822 to i64
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 %18
-  %20 = load i32, ptr %19, align 8, !tbaa !20
+  %20 = load i32, ptr %19, align 8, !tbaa !22
   %21 = icmp eq i32 %20, %.0.lcssa.i
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %24 = load i32, ptr %23, align 4, !tbaa !22
+  %24 = load i32, ptr %23, align 4, !tbaa !24
   %25 = icmp eq i32 %24, %2
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
+  %28 = load ptr, ptr %27, align 8, !tbaa !25
   %bcmp = tail call i32 @bcmp(ptr %28, ptr %1, i64 %4)
   %29 = icmp eq i32 %bcmp, 0
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %32 = load i32, ptr %31, align 4, !tbaa !24
+  %32 = load i32, ptr %31, align 4, !tbaa !26
   br label %.loopexit
 
 33:                                               ; preds = %26, %22, %.lr.ph
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.018 = load i32, ptr %34, align 4, !tbaa !19
+  %.018 = load i32, ptr %34, align 4, !tbaa !21
   %.not = icmp eq i32 %.018, -1
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %33, %ir_str_hash.exit, %30
   %.0 = phi i32 [ %32, %30 ], [ 0, %ir_str_hash.exit ], [ 0, %33 ]
@@ -155,7 +155,7 @@ define hidden i32 @ir_strtab_lookup(ptr noundef captures(none) %0, ptr noundef %
   %10 = getelementptr inbounds nuw i8, ptr %.089.i, i64 1
   %11 = add nuw nsw i64 %.0710.i, 1
   %exitcond.not.i = icmp eq i64 %11, %5
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %12 = or i32 %9, 268435456
@@ -169,7 +169,7 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %16 = or i32 %15, %.0.lcssa.i
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %13, i64 %17
-  %.068 = load i32, ptr %18, align 4, !tbaa !19
+  %.068 = load i32, ptr %18, align 4, !tbaa !21
   %.not69 = icmp eq i32 %.068, -1
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
@@ -177,33 +177,33 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %.070 = phi i32 [ %.0, %34 ], [ %.068, %ir_str_hash.exit ]
   %19 = zext i32 %.070 to i64
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 %19
-  %21 = load i32, ptr %20, align 8, !tbaa !20
+  %21 = load i32, ptr %20, align 8, !tbaa !22
   %22 = icmp eq i32 %21, %.0.lcssa.i
   br i1 %22, label %23, label %34
 
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !22
+  %25 = load i32, ptr %24, align 4, !tbaa !24
   %26 = icmp eq i32 %25, %2
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
   %bcmp = tail call i32 @bcmp(ptr %29, ptr %1, i64 %5)
   %30 = icmp eq i32 %bcmp, 0
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  %33 = load i32, ptr %32, align 4, !tbaa !24
+  %33 = load i32, ptr %32, align 4, !tbaa !26
   br label %86
 
 34:                                               ; preds = %27, %23, %.lr.ph
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.0 = load i32, ptr %35, align 4, !tbaa !19
+  %.0 = load i32, ptr %35, align 4, !tbaa !21
   %.not = icmp eq i32 %.0, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %34, %ir_str_hash.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -211,7 +211,7 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %.not65 = icmp ult i32 %37, %39
-  br i1 %.not65, label %42, label %40, !prof !25
+  br i1 %.not65, label %42, label %40, !prof !29
 
 40:                                               ; preds = %._crit_edge
   tail call fastcc void @ir_strtab_resize(ptr noundef nonnull %0)
@@ -233,7 +233,7 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %50 = sub i32 %47, %49
   %51 = add i32 %2, 1
   %52 = icmp ult i32 %50, %51
-  br i1 %52, label %53, label %54, !prof !26
+  br i1 %52, label %53, label %54, !prof !30
 
 53:                                               ; preds = %45
   tail call fastcc void @ir_strtab_grow_buf(ptr noundef nonnull %0, i32 noundef %51)
@@ -272,21 +272,21 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %75 = add i32 %74, 1
   store i32 %75, ptr %36, align 8, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %.061, i64 %72
-  store i32 %.0.lcssa.i, ptr %76, align 8, !tbaa !20
+  store i32 %.0.lcssa.i, ptr %76, align 8, !tbaa !22
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  store i32 %2, ptr %77, align 4, !tbaa !22
+  store i32 %2, ptr %77, align 4, !tbaa !24
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store ptr %.063, ptr %78, align 8, !tbaa !23
+  store ptr %.063, ptr %78, align 8, !tbaa !25
   %79 = load i32, ptr %14, align 8, !tbaa !11
   %80 = or i32 %79, %.0.lcssa.i
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i32, ptr %.061, i64 %81
-  %83 = load i32, ptr %82, align 4, !tbaa !19
+  %83 = load i32, ptr %82, align 4, !tbaa !21
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store i32 %83, ptr %84, align 8, !tbaa !27
-  store i32 %71, ptr %82, align 4, !tbaa !19
+  store i32 %83, ptr %84, align 8, !tbaa !31
+  store i32 %71, ptr %82, align 4, !tbaa !21
   %85 = getelementptr inbounds nuw i8, ptr %76, i64 20
-  store i32 %3, ptr %85, align 4, !tbaa !24
+  store i32 %3, ptr %85, align 4, !tbaa !26
   br label %86
 
 86:                                               ; preds = %69, %31
@@ -344,20 +344,20 @@ define internal fastcc void @ir_strtab_resize(ptr noundef captures(none) %0) unn
   %.0101 = phi i32 [ 0, %1 ], [ %45, %37 ]
   %.0100 = phi i32 [ %35, %1 ], [ %47, %37 ]
   %.0 = phi ptr [ %36, %1 ], [ %46, %37 ]
-  %38 = load i32, ptr %.0, align 8, !tbaa !20
+  %38 = load i32, ptr %.0, align 8, !tbaa !22
   %39 = load i32, ptr %2, align 8, !tbaa !11
   %40 = or i32 %39, %38
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %36, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !19
+  %43 = load i32, ptr %42, align 4, !tbaa !21
   %44 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store i32 %43, ptr %44, align 8, !tbaa !27
-  store i32 %.0101, ptr %42, align 4, !tbaa !19
+  store i32 %43, ptr %44, align 8, !tbaa !31
+  store i32 %.0101, ptr %42, align 4, !tbaa !21
   %45 = add i32 %.0101, 24
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %47 = add i32 %.0100, -1
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %48, label %37
+  br i1 %.not, label %48, label %37, !llvm.loop !32
 
 48:                                               ; preds = %37
   ret void
@@ -379,7 +379,7 @@ define internal fastcc void @ir_strtab_grow_buf(ptr noundef captures(none) %0, i
   %11 = shl i32 %10, 1
   %12 = sub i32 %11, %7
   %13 = icmp ult i32 %12, %8
-  br i1 %13, label %9, label %14, !prof !26
+  br i1 %13, label %9, label %14, !prof !30, !llvm.loop !33
 
 14:                                               ; preds = %9
   store i32 %11, ptr %5, align 8, !tbaa !16
@@ -406,13 +406,13 @@ define internal fastcc void @ir_strtab_grow_buf(ptr noundef captures(none) %0, i
   %.025 = phi i32 [ %28, %.lr.ph ], [ %22, %.lr.ph.preheader ]
   %.01824 = phi ptr [ %27, %.lr.ph ], [ %23, %.lr.ph.preheader ]
   %24 = getelementptr inbounds nuw i8, ptr %.01824, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !23
+  %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds i8, ptr %25, i64 %20
-  store ptr %26, ptr %24, align 8, !tbaa !23
+  store ptr %26, ptr %24, align 8, !tbaa !25
   %27 = getelementptr inbounds nuw i8, ptr %.01824, i64 24
   %28 = add i32 %.025, -1
   %.not21 = icmp eq i32 %28, 0
-  br i1 %.not21, label %.loopexit, label %.lr.ph
+  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %14
   ret void
@@ -438,7 +438,7 @@ define hidden noundef i32 @ir_strtab_update(ptr noundef readonly captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %.089.i, i64 1
   %11 = add nuw nsw i64 %.0710.i, 1
   %exitcond.not.i = icmp eq i64 %11, %5
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %12 = or i32 %9, 268435456
@@ -452,7 +452,7 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %16 = or i32 %15, %.0.lcssa.i
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %13, i64 %17
-  %.01921 = load i32, ptr %18, align 4, !tbaa !19
+  %.01921 = load i32, ptr %18, align 4, !tbaa !21
   %.not22 = icmp eq i32 %.01921, -1
   br i1 %.not22, label %.loopexit, label %.lr.ph
 
@@ -460,33 +460,33 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %.01923 = phi i32 [ %.019, %33 ], [ %.01921, %ir_str_hash.exit ]
   %19 = zext i32 %.01923 to i64
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 %19
-  %21 = load i32, ptr %20, align 8, !tbaa !20
+  %21 = load i32, ptr %20, align 8, !tbaa !22
   %22 = icmp eq i32 %21, %.0.lcssa.i
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !22
+  %25 = load i32, ptr %24, align 4, !tbaa !24
   %26 = icmp eq i32 %25, %2
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
   %bcmp = tail call i32 @bcmp(ptr %29, ptr %1, i64 %5)
   %30 = icmp eq i32 %bcmp, 0
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  store i32 %3, ptr %32, align 4, !tbaa !24
+  store i32 %3, ptr %32, align 4, !tbaa !26
   br label %.loopexit
 
 33:                                               ; preds = %27, %23, %.lr.ph
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.019 = load i32, ptr %34, align 4, !tbaa !19
+  %.019 = load i32, ptr %34, align 4, !tbaa !21
   %.not = icmp eq i32 %.019, -1
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit:                                        ; preds = %33, %ir_str_hash.exit, %31
   %.0 = phi i32 [ %3, %31 ], [ 0, %ir_str_hash.exit ], [ 0, %33 ]
@@ -498,7 +498,7 @@ define hidden ptr @ir_strtab_str(ptr noundef readonly captures(none) %0, i32 nou
   %3 = load ptr, ptr %0, align 8, !tbaa !4
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct._ir_strtab_bucket, ptr %3, i64 %4, i32 2
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
   ret ptr %6
 }
 
@@ -508,11 +508,11 @@ define hidden ptr @ir_strtab_strl(ptr noundef readonly captures(none) %0, i32 no
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct._ir_strtab_bucket, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !22
+  %8 = load i32, ptr %7, align 4, !tbaa !24
   %9 = zext i32 %8 to i64
-  store i64 %9, ptr %2, align 8, !tbaa !28
+  store i64 %9, ptr %2, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
   ret ptr %11
 }
 
@@ -555,17 +555,17 @@ define hidden void @ir_strtab_apply(ptr noundef readonly captures(none) %0, ptr 
   %5 = load ptr, ptr %0, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw %struct._ir_strtab_bucket, ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !22
+  %10 = load i32, ptr %9, align 4, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !24
+  %12 = load i32, ptr %11, align 4, !tbaa !26
   tail call void %1(ptr noundef %8, i32 noundef %10, i32 noundef %12) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %3, align 8, !tbaa !13
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -613,14 +613,24 @@ attributes #13 = { nounwind allocsize(1) }
 !16 = !{!5, !9, i64 32}
 !17 = !{!5, !9, i64 36}
 !18 = !{!7, !7, i64 0}
-!19 = !{!9, !9, i64 0}
-!20 = !{!21, !9, i64 0}
-!21 = !{!"_ir_strtab_bucket", !9, i64 0, !9, i64 4, !10, i64 8, !9, i64 16, !9, i64 20}
-!22 = !{!21, !9, i64 4}
-!23 = !{!21, !10, i64 8}
-!24 = !{!21, !9, i64 20}
-!25 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!26 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!27 = !{!21, !9, i64 16}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"long", !7, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!9, !9, i64 0}
+!22 = !{!23, !9, i64 0}
+!23 = !{!"_ir_strtab_bucket", !9, i64 0, !9, i64 4, !10, i64 8, !9, i64 16, !9, i64 20}
+!24 = !{!23, !9, i64 4}
+!25 = !{!23, !10, i64 8}
+!26 = !{!23, !9, i64 20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!30 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!31 = !{!23, !9, i64 16}
+!32 = distinct !{!32, !20}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.estimated_trip_count", i32 1}
+!35 = distinct !{!35, !20}
+!36 = distinct !{!36, !20}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"long", !7, i64 0}
+!39 = distinct !{!39, !20}

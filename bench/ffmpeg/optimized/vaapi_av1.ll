@@ -757,7 +757,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   store i8 %486, ptr %487, align 1, !tbaa !79
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond499.not = icmp eq i64 %indvars.iv.next497, 7
-  br i1 %exitcond499.not, label %.preheader466, label %484, !llvm.loop !180
+  br i1 %exitcond499.not, label %.preheader466, label %484, !llvm.loop !181
 
 .preheader465:                                    ; preds = %495
   %488 = getelementptr inbounds nuw i8, ptr %11, i64 740
@@ -780,7 +780,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   store i8 %497, ptr %498, align 1, !tbaa !79
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %exitcond503.not = icmp eq i64 %indvars.iv.next501, 8
-  br i1 %exitcond503.not, label %.preheader465, label %495, !llvm.loop !181
+  br i1 %exitcond503.not, label %.preheader465, label %495, !llvm.loop !182
 
 .lr.ph:                                           ; preds = %.preheader465
   %499 = getelementptr inbounds nuw i8, ptr %11, i64 744
@@ -823,7 +823,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   %523 = shl nuw i32 1, %522
   %524 = sext i32 %523 to i64
   %525 = icmp slt i64 %indvars.iv.next508, %524
-  br i1 %525, label %506, label %.preheader463, !llvm.loop !182
+  br i1 %525, label %506, label %.preheader463, !llvm.loop !183
 
 .preheader462:                                    ; preds = %529, %.preheader463
   %526 = load i16, ptr %236, align 4, !tbaa !128
@@ -846,7 +846,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   %534 = load i16, ptr %233, align 2, !tbaa !127
   %535 = zext i16 %534 to i64
   %536 = icmp samesign ult i64 %indvars.iv.next511, %535
-  br i1 %536, label %529, label %.preheader462, !llvm.loop !183
+  br i1 %536, label %529, label %.preheader462, !llvm.loop !184
 
 .preheader461:                                    ; preds = %540, %.preheader462
   %537 = getelementptr inbounds nuw i8, ptr %7, i64 4048
@@ -865,7 +865,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   %545 = load i16, ptr %236, align 4, !tbaa !128
   %546 = zext i16 %545 to i64
   %547 = icmp samesign ult i64 %indvars.iv.next514, %546
-  br i1 %547, label %540, label %.preheader461, !llvm.loop !184
+  br i1 %547, label %540, label %.preheader461, !llvm.loop !185
 
 .preheader460:                                    ; preds = %562
   %548 = getelementptr inbounds nuw i8, ptr %11, i64 517
@@ -880,11 +880,11 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   %554 = add nsw i64 %indvars.iv521, -1
   %555 = getelementptr inbounds nuw [7 x %struct._VAWarpedMotionParamsAV1], ptr %.sroa.167.0..sroa_idx, i64 0, i64 %554
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 36
-  store i8 %553, ptr %556, align 8, !tbaa !185
+  store i8 %553, ptr %556, align 8, !tbaa !186
   %557 = getelementptr inbounds nuw [8 x i8], ptr %538, i64 0, i64 %indvars.iv521
   %558 = load i8, ptr %557, align 1, !tbaa !79
   %559 = zext i8 %558 to i32
-  store i32 %559, ptr %555, align 4, !tbaa !187
+  store i32 %559, ptr %555, align 4, !tbaa !188
   %560 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %539, i64 0, i64 %indvars.iv521
   %561 = getelementptr inbounds nuw i8, ptr %555, i64 4
   br label %563
@@ -892,7 +892,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 562:                                              ; preds = %563
   %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
   %exitcond524.not = icmp eq i64 %indvars.iv.next522, 8
-  br i1 %exitcond524.not, label %.preheader460, label %551, !llvm.loop !188
+  br i1 %exitcond524.not, label %.preheader460, label %551, !llvm.loop !189
 
 563:                                              ; preds = %551, %563
   %indvars.iv517 = phi i64 [ 0, %551 ], [ %indvars.iv.next518, %563 ]
@@ -902,7 +902,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   store i32 %565, ptr %566, align 4, !tbaa !173
   %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
   %exitcond520.not = icmp eq i64 %indvars.iv.next518, 6
-  br i1 %exitcond520.not, label %562, label %563, !llvm.loop !189
+  br i1 %exitcond520.not, label %562, label %563, !llvm.loop !190
 
 .preheader459:                                    ; preds = %.preheader460, %576
   %indvars.iv529 = phi i64 [ 0, %.preheader460 ], [ %indvars.iv.next530, %576 ]
@@ -929,7 +929,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 576:                                              ; preds = %602
   %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 1
   %exitcond532.not = icmp eq i64 %indvars.iv.next530, 8
-  br i1 %exitcond532.not, label %571, label %.preheader459, !llvm.loop !190
+  br i1 %exitcond532.not, label %571, label %.preheader459, !llvm.loop !191
 
 577:                                              ; preds = %.preheader459, %602
   %indvars.iv525 = phi i64 [ 0, %.preheader459 ], [ %indvars.iv.next526, %602 ]
@@ -974,7 +974,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   store i16 %.sink551, ptr %603, align 2, !tbaa !174
   %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
   %exitcond528.not = icmp eq i64 %indvars.iv.next526, 8
-  br i1 %exitcond528.not, label %576, label %577, !llvm.loop !191
+  br i1 %exitcond528.not, label %576, label %577, !llvm.loop !192
 
 .preheader457:                                    ; preds = %608, %.preheader458
   %604 = load i8, ptr %217, align 2, !tbaa !119
@@ -1001,7 +1001,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   %615 = load i8, ptr %215, align 2, !tbaa !118
   %616 = zext i8 %615 to i64
   %617 = icmp samesign ult i64 %indvars.iv.next534, %616
-  br i1 %617, label %608, label %.preheader457, !llvm.loop !192
+  br i1 %617, label %608, label %.preheader457, !llvm.loop !193
 
 .preheader456:                                    ; preds = %622, %.preheader457
   %618 = load i8, ptr %219, align 1, !tbaa !120
@@ -1028,7 +1028,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   %629 = load i8, ptr %217, align 2, !tbaa !119
   %630 = zext i8 %629 to i64
   %631 = icmp samesign ult i64 %indvars.iv.next537, %630
-  br i1 %631, label %622, label %.preheader456, !llvm.loop !193
+  br i1 %631, label %622, label %.preheader456, !llvm.loop !194
 
 .preheader455:                                    ; preds = %634, %.preheader456
   %632 = getelementptr inbounds nuw i8, ptr %7, i64 4338
@@ -1049,7 +1049,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   %641 = load i8, ptr %219, align 1, !tbaa !120
   %642 = zext i8 %641 to i64
   %643 = icmp samesign ult i64 %indvars.iv.next540, %642
-  br i1 %643, label %634, label %.preheader455, !llvm.loop !194
+  br i1 %643, label %634, label %.preheader455, !llvm.loop !195
 
 .preheader:                                       ; preds = %648
   %644 = getelementptr inbounds nuw i8, ptr %7, i64 4362
@@ -1067,7 +1067,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   store i8 %651, ptr %652, align 1, !tbaa !79
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %exitcond545.not = icmp eq i64 %indvars.iv.next543, 24
-  br i1 %exitcond545.not, label %.preheader, label %648, !llvm.loop !195
+  br i1 %exitcond545.not, label %.preheader, label %648, !llvm.loop !196
 
 653:                                              ; preds = %.preheader, %653
   %indvars.iv546 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next547, %653 ]
@@ -1083,7 +1083,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   store i8 %660, ptr %661, align 1, !tbaa !79
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %exitcond549.not = icmp eq i64 %indvars.iv.next547, 25
-  br i1 %exitcond549.not, label %.loopexit, label %653, !llvm.loop !196
+  br i1 %exitcond549.not, label %.loopexit, label %653, !llvm.loop !197
 
 .loopexit:                                        ; preds = %653, %571
   %662 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull %5, i64 noundef 1160) #6
@@ -1112,35 +1112,35 @@ define internal i32 @vaapi_av1_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 404
-  %13 = load i16, ptr %12, align 4, !tbaa !197
+  %13 = load i16, ptr %12, align 4, !tbaa !198
   %14 = zext i16 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 402
-  %16 = load i16, ptr %15, align 2, !tbaa !198
+  %16 = load i16, ptr %15, align 2, !tbaa !199
   %17 = zext i16 %16 to i32
   %18 = sub nsw i32 %14, %17
   %19 = add nsw i32 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 208
-  %21 = load i32, ptr %20, align 8, !tbaa !199
+  %21 = load i32, ptr %20, align 8, !tbaa !200
   %.not = icmp sgt i32 %21, %18
   br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %24 = load ptr, ptr %23, align 8, !tbaa !200
+  %24 = load ptr, ptr %23, align 8, !tbaa !201
   %25 = sext i32 %19 to i64
   %26 = tail call ptr @av_realloc_array(ptr noundef %24, i64 noundef %25, i64 noundef 40) #6
   %.not49 = icmp eq ptr %26, null
   br i1 %.not49, label %27, label %.thread
 
 .thread:                                          ; preds = %22
-  store ptr %26, ptr %23, align 8, !tbaa !200
-  store i32 %19, ptr %20, align 8, !tbaa !199
-  %.pre = load i16, ptr %15, align 2, !tbaa !198
-  %.pre58 = load i16, ptr %12, align 4, !tbaa !197
+  store ptr %26, ptr %23, align 8, !tbaa !201
+  store i32 %19, ptr %20, align 8, !tbaa !200
+  %.pre = load i16, ptr %15, align 2, !tbaa !199
+  %.pre58 = load i16, ptr %12, align 4, !tbaa !198
   br label %28
 
 27:                                               ; preds = %22
-  store i32 0, ptr %20, align 8, !tbaa !199
+  store i32 0, ptr %20, align 8, !tbaa !200
   br label %56
 
 28:                                               ; preds = %.thread, %3
@@ -1157,7 +1157,7 @@ define internal i32 @vaapi_av1_decode_slice(ptr noundef %0, ptr noundef %1, i32 
 
 ._crit_edge:                                      ; preds = %38, %28
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %35 = load ptr, ptr %34, align 8, !tbaa !200
+  %35 = load ptr, ptr %34, align 8, !tbaa !201
   %36 = zext i32 %2 to i64
   %37 = tail call i32 @ff_vaapi_decode_make_slice_buffer(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %35, i32 noundef %19, i64 noundef 40, ptr noundef %1, i64 noundef %36) #6
   %.not51 = icmp eq i32 %37, 0
@@ -1166,20 +1166,20 @@ define internal i32 @vaapi_av1_decode_slice(ptr noundef %0, ptr noundef %1, i32 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %39 = phi i16 [ %29, %.lr.ph ], [ %54, %38 ]
-  %40 = load ptr, ptr %31, align 8, !tbaa !200
-  %41 = load i16, ptr %15, align 2, !tbaa !198
+  %40 = load ptr, ptr %31, align 8, !tbaa !201
+  %41 = load i16, ptr %15, align 2, !tbaa !199
   %42 = zext i16 %41 to i64
   %43 = sub nsw i64 %indvars.iv, %42
   %44 = getelementptr inbounds %struct._VASliceParameterBufferAV1, ptr %40, i64 %43
-  %45 = load ptr, ptr %32, align 8, !tbaa !201
+  %45 = load ptr, ptr %32, align 8, !tbaa !202
   %46 = getelementptr inbounds nuw %struct.TileGroupInfo, ptr %45, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !202
-  %49 = load i32, ptr %46, align 4, !tbaa !204
+  %48 = load i32, ptr %47, align 4, !tbaa !203
+  %49 = load i32, ptr %46, align 4, !tbaa !205
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %51 = load i16, ptr %50, align 4, !tbaa !205
+  %51 = load i16, ptr %50, align 4, !tbaa !206
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 10
-  %53 = load i16, ptr %52, align 2, !tbaa !206
+  %53 = load i16, ptr %52, align 2, !tbaa !207
   store i32 %48, ptr %44, align 4, !tbaa !173
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %49, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !173
@@ -1196,10 +1196,10 @@ define internal i32 @vaapi_av1_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8.0..sroa_idx, i8 0, i64 20, i1 false)
-  %54 = load i16, ptr %12, align 4, !tbaa !197
+  %54 = load i16, ptr %12, align 4, !tbaa !198
   %55 = zext i16 %54 to i64
   %.not50.not = icmp samesign ult i64 %indvars.iv, %55
-  br i1 %.not50.not, label %38, label %._crit_edge, !llvm.loop !207
+  br i1 %.not50.not, label %38, label %._crit_edge, !llvm.loop !208
 
 56:                                               ; preds = %27, %._crit_edge
   %.1 = phi i32 [ %37, %._crit_edge ], [ -12, %27 ]
@@ -1260,7 +1260,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_end_frame(ptr noundef %
 
 .preheader.split.us:                              ; preds = %.preheader, %46
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %46 ], [ 0, %.preheader ]
-  %28 = load i8, ptr %23, align 1, !tbaa !208
+  %28 = load i8, ptr %23, align 1, !tbaa !209
   %29 = zext i8 %28 to i32
   %30 = trunc nuw nsw i64 %indvars.iv40 to i32
   %31 = shl nuw nsw i32 1, %30
@@ -1296,11 +1296,11 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_end_frame(ptr noundef %
 46:                                               ; preds = %44, %.preheader.split.us
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43 = icmp eq i64 %indvars.iv.next41, 8
-  br i1 %exitcond43, label %.loopexit, label %.preheader.split.us, !llvm.loop !209
+  br i1 %exitcond43, label %.loopexit, label %.preheader.split.us, !llvm.loop !210
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %60
   %indvars.iv = phi i64 [ 0, %.preheader.split.preheader ], [ %indvars.iv.next, %60 ]
-  %47 = load i8, ptr %26, align 1, !tbaa !208
+  %47 = load i8, ptr %26, align 1, !tbaa !209
   %48 = zext i8 %47 to i32
   %49 = trunc nuw nsw i64 %indvars.iv to i32
   %50 = shl nuw nsw i32 1, %49
@@ -1328,7 +1328,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_end_frame(ptr noundef %
 60:                                               ; preds = %.preheader.split, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %.loopexit, label %.preheader.split, !llvm.loop !211
+  br i1 %exitcond, label %.loopexit, label %.preheader.split, !llvm.loop !212
 
 .loopexit:                                        ; preds = %46, %39, %60, %.thread, %15
   %.031 = phi i32 [ %18, %15 ], [ %20, %.thread ], [ 0, %60 ], [ %42, %39 ], [ 0, %46 ]
@@ -1364,7 +1364,7 @@ define internal i32 @vaapi_av1_decode_init(ptr noundef %0) #1 {
   store i32 0, ptr %13, align 8, !tbaa !175
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %.critedge, label %9, !llvm.loop !212
+  br i1 %exitcond, label %.critedge, label %9, !llvm.loop !213
 
 .critedge:                                        ; preds = %12
   %14 = tail call i32 @ff_vaapi_decode_init(ptr noundef %0) #6
@@ -1398,7 +1398,7 @@ define internal i32 @vaapi_av1_decode_uninit(ptr noundef %0) #1 {
   tail call void @av_frame_free(ptr noundef nonnull %12) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %8, label %11, !llvm.loop !213
+  br i1 %exitcond.not, label %8, label %11, !llvm.loop !214
 }
 
 declare i32 @ff_vaapi_common_frame_params(ptr noundef, ptr noundef) #2
@@ -1631,39 +1631,40 @@ attributes #6 = { nounwind }
 !175 = !{!176, !10, i64 8}
 !176 = !{!"VAAPIAV1FrameRef", !58, i64 0, !10, i64 8}
 !177 = !{!176, !58, i64 0}
-!178 = distinct !{!178, !179}
+!178 = distinct !{!178, !179, !180}
 !179 = !{!"llvm.loop.mustprogress"}
-!180 = distinct !{!180, !179}
-!181 = distinct !{!181, !179}
-!182 = distinct !{!182, !179}
-!183 = distinct !{!183, !179}
-!184 = distinct !{!184, !179}
-!185 = !{!186, !8, i64 36}
-!186 = !{!"_VAWarpedMotionParamsAV1", !10, i64 0, !8, i64 4, !8, i64 36, !8, i64 40}
-!187 = !{!186, !10, i64 0}
-!188 = distinct !{!188, !179}
-!189 = distinct !{!189, !179}
-!190 = distinct !{!190, !179}
-!191 = distinct !{!191, !179}
-!192 = distinct !{!192, !179}
-!193 = distinct !{!193, !179}
-!194 = distinct !{!194, !179}
-!195 = distinct !{!195, !179}
-!196 = distinct !{!196, !179}
-!197 = !{!28, !43, i64 404}
-!198 = !{!28, !43, i64 402}
-!199 = !{!69, !10, i64 208}
-!200 = !{!69, !77, i64 216}
-!201 = !{!28, !37, i64 128}
-!202 = !{!203, !10, i64 4}
-!203 = !{!"TileGroupInfo", !10, i64 0, !10, i64 4, !43, i64 8, !43, i64 10}
-!204 = !{!203, !10, i64 0}
-!205 = !{!203, !43, i64 8}
-!206 = !{!203, !43, i64 10}
-!207 = distinct !{!207, !179}
-!208 = !{!102, !8, i64 177}
-!209 = distinct !{!209, !179, !210}
-!210 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!211 = distinct !{!211, !179}
-!212 = distinct !{!212, !179}
-!213 = distinct !{!213, !179}
+!180 = !{!"llvm.loop.estimated_trip_count"}
+!181 = distinct !{!181, !179, !180}
+!182 = distinct !{!182, !179, !180}
+!183 = distinct !{!183, !179, !180}
+!184 = distinct !{!184, !179, !180}
+!185 = distinct !{!185, !179, !180}
+!186 = !{!187, !8, i64 36}
+!187 = !{!"_VAWarpedMotionParamsAV1", !10, i64 0, !8, i64 4, !8, i64 36, !8, i64 40}
+!188 = !{!187, !10, i64 0}
+!189 = distinct !{!189, !179, !180}
+!190 = distinct !{!190, !179, !180}
+!191 = distinct !{!191, !179, !180}
+!192 = distinct !{!192, !179, !180}
+!193 = distinct !{!193, !179, !180}
+!194 = distinct !{!194, !179, !180}
+!195 = distinct !{!195, !179, !180}
+!196 = distinct !{!196, !179, !180}
+!197 = distinct !{!197, !179, !180}
+!198 = !{!28, !43, i64 404}
+!199 = !{!28, !43, i64 402}
+!200 = !{!69, !10, i64 208}
+!201 = !{!69, !77, i64 216}
+!202 = !{!28, !37, i64 128}
+!203 = !{!204, !10, i64 4}
+!204 = !{!"TileGroupInfo", !10, i64 0, !10, i64 4, !43, i64 8, !43, i64 10}
+!205 = !{!204, !10, i64 0}
+!206 = !{!204, !43, i64 8}
+!207 = !{!204, !43, i64 10}
+!208 = distinct !{!208, !179, !180}
+!209 = !{!102, !8, i64 177}
+!210 = distinct !{!210, !179, !180, !211}
+!211 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!212 = distinct !{!212, !179, !180}
+!213 = distinct !{!213, !179, !180}
+!214 = distinct !{!214, !179, !180}

@@ -625,21 +625,21 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_wrap_init2(ptr noundef wri
 13:                                               ; preds = %4
   %14 = mul i64 %2, 48
   %15 = tail call ptr @nghttp2_mem_malloc(ptr noundef %3, i64 noundef %14) #10
-  store ptr %15, ptr %5, align 8, !tbaa !31
+  store ptr %15, ptr %5, align 8, !tbaa !32
   %16 = icmp eq ptr %15, null
   br i1 %16, label %nghttp2_bufs_wrap_init.exit, label %.preheader
 
 .preheader:                                       ; preds = %13, %nghttp2_buf_wrap_init.exit
   %.037 = phi ptr [ %17, %nghttp2_buf_wrap_init.exit ], [ %5, %13 ]
   %.03236 = phi i64 [ %29, %nghttp2_buf_wrap_init.exit ], [ 0, %13 ]
-  %.0..0..0..0.33 = load ptr, ptr %5, align 8, !tbaa !31
+  %.0..0..0..0.33 = load ptr, ptr %5, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %.0..0..0..0.33, i64 %.03236
   store ptr null, ptr %17, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = getelementptr inbounds nuw %struct.nghttp2_vec, ptr %1, i64 %.03236
-  %20 = load ptr, ptr %19, align 8, !tbaa !32
+  %20 = load ptr, ptr %19, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !34
+  %22 = load i64, ptr %21, align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %20, ptr %23, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -658,17 +658,17 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_wrap_init2(ptr noundef wri
   br label %nghttp2_buf_wrap_init.exit
 
 nghttp2_buf_wrap_init.exit:                       ; preds = %.preheader, %27
-  store ptr %17, ptr %.037, align 8, !tbaa !31
+  store ptr %17, ptr %.037, align 8, !tbaa !32
   %29 = add nuw i64 %.03236, 1
   %exitcond.not = icmp eq i64 %29, %2
-  br i1 %exitcond.not, label %30, label %.preheader, !llvm.loop !35
+  br i1 %exitcond.not, label %30, label %.preheader, !llvm.loop !36
 
 30:                                               ; preds = %nghttp2_buf_wrap_init.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %31, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %32, align 8, !tbaa !18
-  %.0..0..0..0.34 = load ptr, ptr %5, align 8, !tbaa !31
+  %.0..0..0..0.34 = load ptr, ptr %5, align 8, !tbaa !32
   br label %nghttp2_bufs_wrap_init.exit.sink.split
 
 nghttp2_bufs_wrap_init.exit.sink.split:           ; preds = %30, %10
@@ -716,7 +716,7 @@ define dso_local void @nghttp2_bufs_wrap_free(ptr noundef readonly captures(addr
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @nghttp2_bufs_seek_last_present(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.07 = load ptr, ptr %2, align 8, !tbaa !31
+  %.07 = load ptr, ptr %2, align 8, !tbaa !32
   %.not8 = icmp eq ptr %.07, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -731,9 +731,9 @@ define dso_local void @nghttp2_bufs_seek_last_present(ptr noundef captures(none)
 
 8:                                                ; preds = %.lr.ph
   store ptr %.09, ptr %2, align 8, !tbaa !20
-  %.0 = load ptr, ptr %.09, align 8, !tbaa !31
+  %.0 = load ptr, ptr %.09, align 8, !tbaa !32
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %1
   ret void
@@ -741,7 +741,7 @@ define dso_local void @nghttp2_bufs_seek_last_present(ptr noundef captures(none)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @nghttp2_bufs_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %.067 = load ptr, ptr %0, align 8, !tbaa !31
+  %.067 = load ptr, ptr %0, align 8, !tbaa !32
   %.not8 = icmp eq ptr %.067, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -756,9 +756,9 @@ define dso_local i64 @nghttp2_bufs_len(ptr noundef readonly captures(none) %0) l
   %7 = ptrtoint ptr %5 to i64
   %8 = add i64 %.09, %6
   %9 = sub i64 %8, %7
-  %.06 = load ptr, ptr %.0610, align 8, !tbaa !31
+  %.06 = load ptr, ptr %.0610, align 8, !tbaa !32
   %.not = icmp eq ptr %.06, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %9, %.lr.ph ]
@@ -788,7 +788,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr noundef captures(n
 11:                                               ; preds = %.outer.split
   %12 = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %0)
   %.not26 = icmp eq i32 %12, 0
-  br i1 %.not26, label %.outer.split, label %.split, !llvm.loop !38
+  br i1 %.not26, label %.outer.split, label %.split, !llvm.loop !39
 
 .outer:                                           ; preds = %.outer.split
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -801,7 +801,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr noundef captures(n
   %18 = getelementptr inbounds nuw i8, ptr %.0.ph54, i64 %..022
   %19 = sub i64 %.022.ph53, %..022
   %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %.split, label %.outer.split.preheader, !llvm.loop !38
+  br i1 %.not, label %.split, label %.outer.split.preheader, !llvm.loop !39
 
 .split:                                           ; preds = %.outer, %11, %3
   %.021.split = phi i32 [ 0, %3 ], [ %12, %11 ], [ 0, %.outer ]
@@ -931,7 +931,7 @@ bufs_ensure_addb.exit.thread:                     ; preds = %bufs_ensure_addb.ex
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %13, ptr %12, align 8, !tbaa !23
-  store i8 %1, ptr %10, align 1, !tbaa !39
+  store i8 %1, ptr %10, align 1, !tbaa !40
   br label %14
 
 14:                                               ; preds = %bufs_ensure_addb.exit, %bufs_ensure_addb.exit.thread
@@ -963,7 +963,7 @@ bufs_ensure_addb.exit.bufs_ensure_addb.exit.thread_crit_edge: ; preds = %bufs_en
 
 bufs_ensure_addb.exit.thread:                     ; preds = %bufs_ensure_addb.exit.bufs_ensure_addb.exit.thread_crit_edge, %2
   %10 = phi ptr [ %.pre8, %bufs_ensure_addb.exit.bufs_ensure_addb.exit.thread_crit_edge ], [ %8, %2 ]
-  store i8 %1, ptr %10, align 1, !tbaa !39
+  store i8 %1, ptr %10, align 1, !tbaa !40
   br label %11
 
 11:                                               ; preds = %bufs_ensure_addb.exit, %bufs_ensure_addb.exit.thread
@@ -999,9 +999,9 @@ bufs_ensure_addb.exit.thread:                     ; preds = %bufs_ensure_addb.ex
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %13, ptr %12, align 8, !tbaa !23
-  %14 = load i8, ptr %10, align 1, !tbaa !39
+  %14 = load i8, ptr %10, align 1, !tbaa !40
   %15 = or i8 %14, %1
-  store i8 %15, ptr %10, align 1, !tbaa !39
+  store i8 %15, ptr %10, align 1, !tbaa !40
   br label %16
 
 16:                                               ; preds = %bufs_ensure_addb.exit, %bufs_ensure_addb.exit.thread
@@ -1033,9 +1033,9 @@ bufs_ensure_addb.exit.bufs_ensure_addb.exit.thread_crit_edge: ; preds = %bufs_en
 
 bufs_ensure_addb.exit.thread:                     ; preds = %bufs_ensure_addb.exit.bufs_ensure_addb.exit.thread_crit_edge, %2
   %10 = phi ptr [ %.pre8, %bufs_ensure_addb.exit.bufs_ensure_addb.exit.thread_crit_edge ], [ %8, %2 ]
-  %11 = load i8, ptr %10, align 1, !tbaa !39
+  %11 = load i8, ptr %10, align 1, !tbaa !40
   %12 = or i8 %11, %1
-  store i8 %12, ptr %10, align 1, !tbaa !39
+  store i8 %12, ptr %10, align 1, !tbaa !40
   br label %13
 
 13:                                               ; preds = %bufs_ensure_addb.exit, %bufs_ensure_addb.exit.thread
@@ -1045,7 +1045,7 @@ bufs_ensure_addb.exit.thread:                     ; preds = %bufs_ensure_addb.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @nghttp2_bufs_remove(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
-  %.02226 = load ptr, ptr %0, align 8, !tbaa !31
+  %.02226 = load ptr, ptr %0, align 8, !tbaa !32
   %.not27 = icmp eq ptr %.02226, null
   br i1 %.not27, label %._crit_edge.thread, label %.lr.ph
 
@@ -1060,9 +1060,9 @@ define dso_local i64 @nghttp2_bufs_remove(ptr noundef readonly captures(none) %0
   %8 = ptrtoint ptr %6 to i64
   %9 = add i64 %.02328, %7
   %10 = sub i64 %9, %8
-  %.022 = load ptr, ptr %.02229, align 8, !tbaa !31
+  %.022 = load ptr, ptr %.02229, align 8, !tbaa !32
   %.not = icmp eq ptr %.022, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = icmp eq i64 %10, 0
@@ -1076,7 +1076,7 @@ define dso_local i64 @nghttp2_bufs_remove(ptr noundef readonly captures(none) %0
   br i1 %16, label %._crit_edge.thread, label %nghttp2_buf_wrap_init.exit.preheader
 
 nghttp2_buf_wrap_init.exit.preheader:             ; preds = %12
-  %.130 = load ptr, ptr %0, align 8, !tbaa !31
+  %.130 = load ptr, ptr %0, align 8, !tbaa !32
   %.not2531 = icmp eq ptr %.130, null
   br i1 %.not2531, label %nghttp2_buf_wrap_init.exit._crit_edge, label %nghttp2_buf_wrap_init.exit
 
@@ -1091,12 +1091,12 @@ nghttp2_buf_wrap_init.exit:                       ; preds = %nghttp2_buf_wrap_in
   %22 = ptrtoint ptr %18 to i64
   %23 = sub i64 %21, %22
   %24 = tail call ptr @nghttp2_cpymem(ptr noundef %.sroa.6.032, ptr noundef %18, i64 noundef %23) #10
-  %.1 = load ptr, ptr %.133, align 8, !tbaa !31
+  %.1 = load ptr, ptr %.133, align 8, !tbaa !32
   %.not25 = icmp eq ptr %.1, null
-  br i1 %.not25, label %nghttp2_buf_wrap_init.exit._crit_edge, label %nghttp2_buf_wrap_init.exit, !llvm.loop !41
+  br i1 %.not25, label %nghttp2_buf_wrap_init.exit._crit_edge, label %nghttp2_buf_wrap_init.exit, !llvm.loop !42
 
 nghttp2_buf_wrap_init.exit._crit_edge:            ; preds = %nghttp2_buf_wrap_init.exit, %nghttp2_buf_wrap_init.exit.preheader
-  store ptr %15, ptr %1, align 8, !tbaa !42
+  store ptr %15, ptr %1, align 8, !tbaa !43
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %12, %._crit_edge, %nghttp2_buf_wrap_init.exit._crit_edge
@@ -1106,7 +1106,7 @@ nghttp2_buf_wrap_init.exit._crit_edge:            ; preds = %nghttp2_buf_wrap_in
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @nghttp2_bufs_remove_copy(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
-  %.067.i = load ptr, ptr %0, align 8, !tbaa !31
+  %.067.i = load ptr, ptr %0, align 8, !tbaa !32
   %.not8.i = icmp eq ptr %.067.i, null
   br i1 %.not8.i, label %._crit_edge, label %.lr.ph.i
 
@@ -1121,9 +1121,9 @@ define dso_local i64 @nghttp2_bufs_remove_copy(ptr noundef readonly captures(non
   %8 = ptrtoint ptr %6 to i64
   %9 = add i64 %.09.i, %7
   %10 = sub i64 %9, %8
-  %.06.i = load ptr, ptr %.0610.i, align 8, !tbaa !31
+  %.06.i = load ptr, ptr %.0610.i, align 8, !tbaa !32
   %.not.i = icmp eq ptr %.06.i, null
-  br i1 %.not.i, label %.lr.ph, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %.lr.ph, label %.lr.ph.i, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
   %.017 = phi ptr [ %.0, %.lr.ph ], [ %.067.i, %.lr.ph.i ]
@@ -1136,9 +1136,9 @@ define dso_local i64 @nghttp2_bufs_remove_copy(ptr noundef readonly captures(non
   %16 = ptrtoint ptr %12 to i64
   %17 = sub i64 %15, %16
   %18 = tail call ptr @nghttp2_cpymem(ptr noundef %.sroa.6.016, ptr noundef %12, i64 noundef %17) #10
-  %.0 = load ptr, ptr %.017, align 8, !tbaa !31
+  %.0 = load ptr, ptr %.017, align 8, !tbaa !32
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa.i1319 = phi i64 [ 0, %2 ], [ %10, %.lr.ph ]
@@ -1155,7 +1155,7 @@ define dso_local void @nghttp2_bufs_reset(ptr noundef captures(none) %0) local_u
 5:                                                ; preds = %6, %1
   %.022.in = phi ptr [ %0, %1 ], [ %.022, %6 ]
   %.0 = phi i64 [ %3, %1 ], [ %14, %6 ]
-  %.022 = load ptr, ptr %.022.in, align 8, !tbaa !31
+  %.022 = load ptr, ptr %.022.in, align 8, !tbaa !32
   %.not = icmp eq ptr %.022, null
   br i1 %.not, label %.critedge, label %6
 
@@ -1172,7 +1172,7 @@ define dso_local void @nghttp2_bufs_reset(ptr noundef captures(none) %0) local_u
   store ptr %13, ptr %10, align 8, !tbaa !23
   %14 = add i64 %.0, -1
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %5, !llvm.loop !44
+  br i1 %15, label %16, label %5, !llvm.loop !45
 
 16:                                               ; preds = %6
   %17 = load ptr, ptr %.022, align 8, !tbaa !28
@@ -1194,7 +1194,7 @@ define dso_local void @nghttp2_bufs_reset(ptr noundef captures(none) %0) local_u
   store ptr null, ptr %22, align 8, !tbaa !10
   tail call void @nghttp2_mem_free(ptr noundef %21, ptr noundef nonnull %.127) #10
   %.not24 = icmp eq ptr %20, null
-  br i1 %.not24, label %._crit_edge.loopexit, label %19, !llvm.loop !45
+  br i1 %.not24, label %._crit_edge.loopexit, label %19, !llvm.loop !46
 
 ._crit_edge.loopexit:                             ; preds = %19
   %.pre = load i64, ptr %2, align 8, !tbaa !27
@@ -1293,20 +1293,21 @@ attributes #10 = { nounwind }
 !26 = !{!15, !17, i64 32}
 !27 = !{!15, !17, i64 48}
 !28 = !{!22, !16, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!16, !16, i64 0}
-!32 = !{!33, !6, i64 0}
-!33 = !{!"", !6, i64 0, !17, i64 8}
-!34 = !{!33, !17, i64 8}
-!35 = distinct !{!35, !30}
-!36 = distinct !{!36, !30}
-!37 = distinct !{!37, !30}
-!38 = distinct !{!38, !30}
-!39 = !{!8, !8, i64 0}
-!40 = distinct !{!40, !30}
-!41 = distinct !{!41, !30}
-!42 = !{!6, !6, i64 0}
-!43 = distinct !{!43, !30}
-!44 = distinct !{!44, !30}
-!45 = distinct !{!45, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!16, !16, i64 0}
+!33 = !{!34, !6, i64 0}
+!34 = !{!"", !6, i64 0, !17, i64 8}
+!35 = !{!34, !17, i64 8}
+!36 = distinct !{!36, !30, !31}
+!37 = distinct !{!37, !30, !31}
+!38 = distinct !{!38, !30, !31}
+!39 = distinct !{!39, !30, !31}
+!40 = !{!8, !8, i64 0}
+!41 = distinct !{!41, !30, !31}
+!42 = distinct !{!42, !30, !31}
+!43 = !{!6, !6, i64 0}
+!44 = distinct !{!44, !30, !31}
+!45 = distinct !{!45, !30, !31}
+!46 = distinct !{!46, !30, !31}

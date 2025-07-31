@@ -536,13 +536,13 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %22, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %37 = load ptr, ptr %36, align 8, !tbaa !55
-  store ptr %37, ptr %16, align 8, !tbaa !55
-  store ptr %35, ptr %36, align 8, !tbaa !55
+  %37 = load ptr, ptr %36, align 8, !tbaa !56
+  store ptr %37, ptr %16, align 8, !tbaa !56
+  store ptr %35, ptr %36, align 8, !tbaa !56
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %39 = load ptr, ptr %38, align 8, !tbaa !55
-  store ptr %39, ptr %17, align 8, !tbaa !55
-  store ptr %34, ptr %38, align 8, !tbaa !55
+  %39 = load ptr, ptr %38, align 8, !tbaa !56
+  store ptr %39, ptr %17, align 8, !tbaa !56
+  store ptr %34, ptr %38, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEEaSERKS1_.exit, label %40
 
@@ -1014,6 +1014,7 @@ attributes #20 = { noreturn nounwind }
 !50 = !{!5, !6, i64 0}
 !51 = !{!5, !6, i64 4}
 !52 = !{!6, !6, i64 0}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!16, !16, i64 0}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!16, !16, i64 0}

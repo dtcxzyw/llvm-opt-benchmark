@@ -349,7 +349,7 @@ define i32 @Agi_ManSuppSize_rec(ptr noundef readonly captures(none) %0, i32 noun
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !44
-  %9 = load i32, ptr %4, align 8, !tbaa !47
+  %9 = load i32, ptr %4, align 8, !tbaa !48
   %10 = icmp eq i32 %8, %9
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -382,7 +382,7 @@ tailrecurse:                                      ; preds = %12
   %25 = load ptr, ptr %3, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i32, ptr %25, i64 %sum.shift.i
   %27 = load i32, ptr %26, align 4, !tbaa !44
-  %28 = load i32, ptr %4, align 8, !tbaa !47
+  %28 = load i32, ptr %4, align 8, !tbaa !48
   %29 = icmp eq i32 %27, %28
   br i1 %29, label %._crit_edge.loopexit, label %12
 
@@ -400,9 +400,9 @@ tailrecurse:                                      ; preds = %12
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Agi_ManSuppSizeOne(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !47
+  %4 = load i32, ptr %3, align 8, !tbaa !48
   %5 = add i32 %4, 1
-  store i32 %5, ptr %3, align 8, !tbaa !47
+  store i32 %5, ptr %3, align 8, !tbaa !48
   %6 = tail call i32 @Agi_ManSuppSize_rec(ptr noundef %0, i32 noundef %1)
   ret i32 %6
 }
@@ -417,10 +417,10 @@ define noundef i32 @Agi_ManSuppSizeTest(ptr noundef captures(none) %0) local_unn
   br i1 %5, label %Abc_Clock.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8, !tbaa !48
+  %7 = load i64, ptr %3, align 8, !tbaa !49
   %.neg16 = mul i64 %7, -1000000
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !50
+  %9 = load i64, ptr %8, align 8, !tbaa !51
   %.neg = sdiv i64 %9, -1000
   %.neg17 = add i64 %.neg, %.neg16
   br label %Abc_Clock.exit
@@ -449,9 +449,9 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %14
-  %19 = load i32, ptr %13, align 8, !tbaa !47
+  %19 = load i32, ptr %13, align 8, !tbaa !48
   %20 = add i32 %19, 1
-  store i32 %20, ptr %13, align 8, !tbaa !47
+  store i32 %20, ptr %13, align 8, !tbaa !48
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = call i32 @Agi_ManSuppSize_rec(ptr noundef nonnull %0, i32 noundef %21)
   %23 = icmp slt i32 %22, 17
@@ -466,7 +466,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %.val to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %14, label %._crit_edge, !llvm.loop !51
+  br i1 %28, label %14, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %26, %Abc_Clock.exit
   %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %26 ]
@@ -479,10 +479,10 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %32, label %Abc_Clock.exit15, label %33
 
 33:                                               ; preds = %._crit_edge
-  %34 = load i64, ptr %2, align 8, !tbaa !48
+  %34 = load i64, ptr %2, align 8, !tbaa !49
   %35 = mul nsw i64 %34, 1000000
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !50
+  %37 = load i64, ptr %36, align 8, !tbaa !51
   %38 = sdiv i64 %37, 1000
   %39 = add nsw i64 %38, %35
   br label %Abc_Clock.exit15
@@ -578,7 +578,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #17
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !52
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !53
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #17
@@ -586,7 +586,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !52, !noalias !54
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !53, !noalias !55
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #17
   br label %17
 
@@ -689,15 +689,16 @@ attributes #20 = { nounwind willreturn memory(read) }
 !42 = !{!10, !9, i64 0}
 !43 = !{!10, !11, i64 8}
 !44 = !{!9, !9, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!4, !9, i64 32}
-!48 = !{!49, !16, i64 0}
-!49 = !{!"timespec", !16, i64 0, !16, i64 8}
-!50 = !{!49, !16, i64 8}
-!51 = distinct !{!51, !46}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"vprintf: argument 0"}
-!56 = distinct !{!56, !"vprintf"}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!4, !9, i64 32}
+!49 = !{!50, !16, i64 0}
+!50 = !{!"timespec", !16, i64 0, !16, i64 8}
+!51 = !{!50, !16, i64 8}
+!52 = distinct !{!52, !46, !47}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"vprintf: argument 0"}
+!57 = distinct !{!57, !"vprintf"}

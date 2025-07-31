@@ -241,7 +241,7 @@ define internal void @byte3_read(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %17, ptr %20, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %21 = icmp samesign ult i64 %indvars.iv, 117
-  br i1 %21, label %3, label %22, !llvm.loop !53
+  br i1 %21, label %3, label %22, !llvm.loop !54
 
 22:                                               ; preds = %3
   ret void
@@ -276,7 +276,7 @@ define internal void @byte4_read(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %22, ptr %23, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %24 = icmp samesign ult i64 %indvars.iv, 116
-  br i1 %24, label %3, label %25, !llvm.loop !54
+  br i1 %24, label %3, label %25, !llvm.loop !55
 
 25:                                               ; preds = %3
   ret void
@@ -362,7 +362,8 @@ attributes #6 = { nounwind willreturn memory(none) }
 !48 = !{!36, !10, i64 36}
 !49 = !{!36, !22, i64 72}
 !50 = !{!10, !10, i64 0}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = distinct !{!53, !52}
-!54 = distinct !{!54, !52}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = distinct !{!54, !52, !53}
+!55 = distinct !{!55, !52, !53}

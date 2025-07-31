@@ -157,7 +157,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !7
+  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit, %30
   %82 = load ptr, ptr %12, align 8
@@ -172,7 +172,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %88 = add nsw i32 %.03944, 1
   %89 = load i32, ptr %15, align 4
   %.not.not = icmp slt i32 %.03944, %89
-  br i1 %.not.not, label %30, label %._crit_edge47
+  br i1 %.not.not, label %30, label %._crit_edge47, !llvm.loop !10
 
 ._crit_edge47:                                    ; preds = %._crit_edge, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %22)
@@ -194,7 +194,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare !callback !9 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
+declare !callback !11 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
@@ -438,7 +438,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %124 = load i32, ptr %123, align 4
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next, %125
-  br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit91, %42
   %127 = load ptr, ptr %18, align 8
@@ -471,7 +471,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %145 = add nsw i32 %.07594, 1
   %146 = load i32, ptr %23, align 4
   %.not.not = icmp slt i32 %.07594, %146
-  br i1 %.not.not, label %42, label %._crit_edge97
+  br i1 %.not.not, label %42, label %._crit_edge97, !llvm.loop !14
 
 ._crit_edge97:                                    ; preds = %._crit_edge, %28
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %30)
@@ -852,7 +852,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %196 = load i32, ptr %195, align 4
   %197 = sext i32 %196 to i64
   %198 = icmp slt i64 %indvars.iv.next, %197
-  br i1 %198, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %198, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit166, %60
   %199 = load ptr, ptr %27, align 8
@@ -912,7 +912,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %235 = add nsw i32 %.0129169, 1
   %236 = load i32, ptr %35, align 4
   %.not.not = icmp slt i32 %.0129169, %236
-  br i1 %.not.not, label %60, label %._crit_edge172
+  br i1 %.not.not, label %60, label %._crit_edge172, !llvm.loop !16
 
 ._crit_edge172:                                   ; preds = %._crit_edge, %40
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %42)
@@ -944,11 +944,15 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6, !8}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = !{!10}
-!10 = !{i64 2, i64 -1, i64 -1, i1 true}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7, !9}
+!9 = !{!"llvm.loop.unswitch.partial.disable"}
+!10 = distinct !{!10, !7}
+!11 = !{!12}
+!12 = !{i64 2, i64 -1, i64 -1, i1 true}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !7}

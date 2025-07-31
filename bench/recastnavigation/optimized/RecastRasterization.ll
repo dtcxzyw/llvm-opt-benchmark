@@ -210,7 +210,7 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   %.158 = phi ptr [ %.05671, %55 ], [ null, %89 ], [ %.05770, %87 ]
   %.1 = phi ptr [ %57, %55 ], [ %85, %89 ], [ %85, %87 ]
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %92, %.lr.ph
   %.057.lcssa = phi ptr [ %.158, %92 ], [ %.05770, %.lr.ph ]
@@ -493,7 +493,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %.1104 = select i1 %121, float %119, float %.0103166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %122, label %117, !llvm.loop !7
+  br i1 %exitcond.not, label %122, label %117, !llvm.loop !8
 
 122:                                              ; preds = %117
   %123 = load float, ptr %5, align 4
@@ -553,7 +553,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %151 = select i1 %150, float %.097169, float %147
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %152, label %146, !llvm.loop !8
+  br i1 %exitcond193.not, label %152, label %146, !llvm.loop !9
 
 152:                                              ; preds = %146
   %153 = load float, ptr %66, align 4
@@ -589,14 +589,14 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
 175:                                              ; preds = %158, %152, %135
   %176 = add i32 %.0101174, 1
   %exitcond194.not = icmp eq i32 %.0101174, %133
-  br i1 %exitcond194.not, label %.loopexit, label %135, !llvm.loop !9
+  br i1 %exitcond194.not, label %.loopexit, label %135, !llvm.loop !10
 
 .loopexit:                                        ; preds = %175, %131, %122, %106
   %.1158 = phi ptr [ %.0157178, %106 ], [ %.0157178, %122 ], [ %.0157178, %131 ], [ %.2173, %175 ]
   %.1155 = phi ptr [ %.0154180, %106 ], [ %.0154180, %122 ], [ %.0154180, %131 ], [ %.2159172, %175 ]
   %177 = add i32 %.0100181, 1
   %exitcond195.not = icmp eq i32 %.0100181, %93
-  br i1 %exitcond195.not, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread, label %106, !llvm.loop !10
+  br i1 %exitcond195.not, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread, label %106, !llvm.loop !11
 
 _ZL13overlapBoundsPKfS0_S0_S0_.exit.thread:       ; preds = %.loopexit, %158, %76, %11, %54, %61, %65, %69, %_ZL13overlapBoundsPKfS0_S0_S0_.exit
   %.0 = phi i1 [ true, %_ZL13overlapBoundsPKfS0_S0_S0_.exit ], [ true, %69 ], [ true, %65 ], [ true, %61 ], [ true, %54 ], [ true, %11 ], [ true, %76 ], [ false, %158 ], [ true, %.loopexit ]
@@ -649,7 +649,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
 30:                                               ; preds = %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !12
 
 31:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
@@ -783,7 +783,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
 30:                                               ; preds = %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !13
 
 31:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
@@ -917,7 +917,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
 28:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !14
 
 29:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
@@ -1039,7 +1039,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
   store float %17, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph97.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.lr.ph97.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph97.preheader:                               ; preds = %.lr.ph
   %19 = add nsw i32 %1, -1
@@ -1195,7 +1195,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %118 = trunc nuw nsw i64 %indvars.iv101 to i32
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !15
+  br i1 %exitcond105.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !16
 
 ._crit_edge98:                                    ; preds = %117, %13
   %.086.lcssa = phi i32 [ 0, %13 ], [ %.187, %117 ]
@@ -1253,15 +1253,16 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}

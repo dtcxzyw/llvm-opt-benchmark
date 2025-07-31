@@ -1337,12 +1337,12 @@ _ZN3std4sync4once4Once9call_once17h5bc0384b9b2a0e5dE.exit: ; preds = %2, %10
   %61 = add i16 %.sroa.06.0.i23.i.i, -1
   %62 = and i16 %61, %.sroa.06.0.i23.i.i
   %63 = icmp eq i16 %62, 0
-  br i1 %63, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %63, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !107
 
 64:                                               ; preds = %._crit_edge.i.i
   %65 = add i64 %.sroa.9.0.i.i.i, 16
   %66 = add i64 %.sroa.01.0.i.i.i, %65
-  br label %45
+  br label %45, !llvm.loop !109
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb7ff3ce8cd4a4243E.exit": ; preds = %._crit_edge.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h2b7d46d5b103ae04E.exit.i.i", %_ZN3std4sync4once4Once9call_once17h5bc0384b9b2a0e5dE.exit
   %.sroa.0.0.i = phi i1 [ false, %_ZN3std4sync4once4Once9call_once17h5bc0384b9b2a0e5dE.exit ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h2b7d46d5b103ae04E.exit.i.i" ], [ false, %._crit_edge.i.i ]
@@ -1536,3 +1536,6 @@ attributes #15 = { cold noreturn nounwind }
 !104 = distinct !{!104, !105, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h771f03d5a7ace545E: argument 0"}
 !105 = distinct !{!105, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h771f03d5a7ace545E"}
 !106 = distinct !{!106, !105, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h771f03d5a7ace545E: argument 1"}
+!107 = distinct !{!107, !108}
+!108 = !{!"llvm.loop.estimated_trip_count"}
+!109 = distinct !{!109, !108}

@@ -1095,7 +1095,7 @@ define internal fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef 
 
 30:                                               ; preds = %27, %26
   %31 = getelementptr [1 x ptr], ptr %22, i64 0, i64 %.021.i157
-  %32 = load ptr, ptr %31, align 8, !tbaa !16
+  %32 = load ptr, ptr %31, align 8, !tbaa !17
   %33 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %32, i32 noundef %23)
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %common.ret211, label %24
@@ -1168,7 +1168,7 @@ define internal fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef 
   br label %57
 
 55:                                               ; preds = %39
-  %56 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !18
+  %56 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %56, ptr noundef nonnull @.str.19) #3
   br label %common.ret211
 
@@ -1226,7 +1226,7 @@ define internal fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef 
   br i1 %87, label %switch.lookup, label %88
 
 88:                                               ; preds = %84
-  %89 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !18
+  %89 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %89, ptr noundef nonnull @.str.24) #3
   br label %common.ret211
 
@@ -1281,7 +1281,7 @@ switch.lookup:                                    ; preds = %84
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !9
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !20
+  %118 = load ptr, ptr %117, align 8, !tbaa !21
   %119 = icmp eq ptr %118, null
   br i1 %119, label %122, label %120
 
@@ -1291,7 +1291,7 @@ switch.lookup:                                    ; preds = %84
 
 122:                                              ; preds = %120, %114
   %123 = phi i64 [ %121, %120 ], [ 0, %114 ]
-  %124 = load ptr, ptr %116, align 8, !tbaa !23
+  %124 = load ptr, ptr %116, align 8, !tbaa !24
   %125 = icmp eq ptr %124, null
   br i1 %125, label %128, label %126
 
@@ -1419,7 +1419,7 @@ switch.lookup:                                    ; preds = %84
   %197 = load ptr, ptr %186, align 8, !tbaa !9
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %199 = getelementptr [1 x ptr], ptr %198, i64 0, i64 %.022.i153
-  %200 = load ptr, ptr %199, align 8, !tbaa !16
+  %200 = load ptr, ptr %199, align 8, !tbaa !17
   %.not.i75 = icmp eq ptr %200, null
   br i1 %.not.i75, label %214, label %201
 
@@ -1437,7 +1437,7 @@ switch.lookup:                                    ; preds = %84
   %208 = load ptr, ptr %187, align 8, !tbaa !9
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = getelementptr [1 x ptr], ptr %209, i64 0, i64 %.022.i153
-  %211 = load ptr, ptr %210, align 8, !tbaa !16
+  %211 = load ptr, ptr %210, align 8, !tbaa !17
   %212 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %211, i32 noundef 1)
   %213 = icmp eq i32 %212, -1
   br i1 %213, label %common.ret211, label %224
@@ -1451,7 +1451,7 @@ switch.lookup:                                    ; preds = %84
   %218 = load ptr, ptr %187, align 8, !tbaa !9
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %220 = getelementptr [1 x ptr], ptr %219, i64 0, i64 %.022.i153
-  %221 = load ptr, ptr %220, align 8, !tbaa !16
+  %221 = load ptr, ptr %220, align 8, !tbaa !17
   %222 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %221, i32 noundef 6)
   %223 = icmp eq i32 %222, -1
   br i1 %223, label %common.ret211, label %224
@@ -1459,7 +1459,7 @@ switch.lookup:                                    ; preds = %84
 224:                                              ; preds = %217, %207
   %225 = add nuw nsw i64 %.022.i153, 1
   %exitcond174.not = icmp eq i64 %225, %191
-  br i1 %exitcond174.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !24
+  br i1 %exitcond174.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !25
 
 ._crit_edge156:                                   ; preds = %224, %185, %190
   %226 = tail call i32 @PyUnicodeWriter_WriteChar(ptr noundef nonnull %0, i32 noundef 125) #3
@@ -1484,7 +1484,7 @@ switch.lookup:                                    ; preds = %84
 237:                                              ; preds = %242
   %238 = add nuw nsw i64 %.012.i76149, 1
   %exitcond173.not = icmp eq i64 %238, %235
-  br i1 %exitcond173.not, label %._crit_edge152, label %.lr.ph151, !llvm.loop !25
+  br i1 %exitcond173.not, label %._crit_edge152, label %.lr.ph151, !llvm.loop !26
 
 .lr.ph151:                                        ; preds = %234, %237
   %.012.i76149 = phi i64 [ %238, %237 ], [ 0, %234 ]
@@ -1500,7 +1500,7 @@ switch.lookup:                                    ; preds = %84
   %243 = load ptr, ptr %231, align 8, !tbaa !9
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %245 = getelementptr [1 x ptr], ptr %244, i64 0, i64 %.012.i76149
-  %246 = load ptr, ptr %245, align 8, !tbaa !16
+  %246 = load ptr, ptr %245, align 8, !tbaa !17
   %247 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %246, i32 noundef 1)
   %248 = icmp eq i32 %247, -1
   br i1 %248, label %common.ret211, label %237
@@ -1727,18 +1727,18 @@ switch.lookup:                                    ; preds = %84
 382:                                              ; preds = %393
   %383 = add nuw nsw i64 %.021.i86146, 1
   %exitcond172.not = icmp eq i64 %383, %375
-  br i1 %exitcond172.not, label %._crit_edge148, label %384, !llvm.loop !26
+  br i1 %exitcond172.not, label %._crit_edge148, label %384, !llvm.loop !27
 
 384:                                              ; preds = %.lr.ph147, %382
   %.021.i86146 = phi i64 [ 0, %.lr.ph147 ], [ %383, %382 ]
   %385 = getelementptr [1 x i32], ptr %380, i64 0, i64 %.021.i86146
-  %386 = load i32, ptr %385, align 4, !tbaa !27
+  %386 = load i32, ptr %385, align 4, !tbaa !28
   %switch.tableidx201 = add i32 %386, -1
   %387 = icmp ult i32 %switch.tableidx201, 10
   br i1 %387, label %switch.lookup200, label %388
 
 388:                                              ; preds = %384
-  %389 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !18
+  %389 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %389, ptr noundef nonnull @.str.50) #3
   br label %common.ret211
 
@@ -1752,7 +1752,7 @@ switch.lookup200:                                 ; preds = %384
 
 393:                                              ; preds = %switch.lookup200
   %394 = getelementptr [1 x ptr], ptr %381, i64 0, i64 %.021.i86146
-  %395 = load ptr, ptr %394, align 8, !tbaa !16
+  %395 = load ptr, ptr %394, align 8, !tbaa !17
   %396 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %395, i32 noundef 6)
   %397 = icmp eq i32 %396, -1
   br i1 %397, label %common.ret211, label %382
@@ -1805,7 +1805,7 @@ switch.lookup200:                                 ; preds = %384
 
 424:                                              ; preds = %420
   %425 = getelementptr inbounds nuw i8, ptr %409, i64 16
-  %426 = load ptr, ptr %425, align 8, !tbaa !16
+  %426 = load ptr, ptr %425, align 8, !tbaa !17
   %427 = load i32, ptr %426, align 8, !tbaa !4
   %428 = icmp eq i32 %427, 12
   br i1 %428, label %429, label %.thread180
@@ -1834,7 +1834,7 @@ switch.lookup200:                                 ; preds = %384
 437:                                              ; preds = %444
   %438 = add nuw nsw i64 %.032.i139, 1
   %exitcond170.not = icmp eq i64 %438, %414
-  br i1 %exitcond170.not, label %.preheader123, label %.lr.ph141, !llvm.loop !28
+  br i1 %exitcond170.not, label %.preheader123, label %.lr.ph141, !llvm.loop !29
 
 .preheader123:                                    ; preds = %437, %.preheader125
   %439 = phi i1 [ true, %.preheader125 ], [ false, %437 ]
@@ -1855,7 +1855,7 @@ switch.lookup200:                                 ; preds = %384
   %445 = load ptr, ptr %408, align 8, !tbaa !9
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %447 = getelementptr [1 x ptr], ptr %446, i64 0, i64 %.032.i139
-  %448 = load ptr, ptr %447, align 8, !tbaa !16
+  %448 = load ptr, ptr %447, align 8, !tbaa !17
   %449 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %448, i32 noundef 1)
   %450 = icmp eq i32 %449, -1
   br i1 %450, label %common.ret211, label %437
@@ -1863,7 +1863,7 @@ switch.lookup200:                                 ; preds = %384
 451:                                              ; preds = %append_ast_keyword.exit
   %452 = add nuw nsw i64 %.133.i142, 1
   %exitcond171.not = icmp eq i64 %452, %421
-  br i1 %exitcond171.not, label %._crit_edge145, label %.lr.ph144, !llvm.loop !29
+  br i1 %exitcond171.not, label %._crit_edge145, label %.lr.ph144, !llvm.loop !30
 
 .lr.ph144:                                        ; preds = %.preheader123, %451
   %.1.i143 = phi i1 [ false, %451 ], [ %439, %.preheader123 ]
@@ -1879,8 +1879,8 @@ switch.lookup200:                                 ; preds = %384
   %457 = load ptr, ptr %415, align 8, !tbaa !9
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %459 = getelementptr [1 x ptr], ptr %458, i64 0, i64 %.133.i142
-  %460 = load ptr, ptr %459, align 8, !tbaa !30
-  %461 = load ptr, ptr %460, align 8, !tbaa !32
+  %460 = load ptr, ptr %459, align 8, !tbaa !31
+  %461 = load ptr, ptr %460, align 8, !tbaa !33
   %462 = icmp eq ptr %461, null
   br i1 %462, label %463, label %466
 
@@ -1901,7 +1901,7 @@ switch.lookup200:                                 ; preds = %384
 
 append_ast_keyword.exit:                          ; preds = %469, %463
   %472 = getelementptr inbounds nuw i8, ptr %460, i64 8
-  %473 = load ptr, ptr %472, align 8, !tbaa !34
+  %473 = load ptr, ptr %472, align 8, !tbaa !35
   %474 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %473, i32 noundef 1)
   %475 = icmp eq i32 %474, -1
   br i1 %475, label %common.ret211, label %451
@@ -1963,12 +1963,12 @@ append_ast_keyword.exit:                          ; preds = %469, %463
 502:                                              ; preds = %append_fstring_element.exit.i
   %503 = add nuw nsw i64 %.0.i108136, 1
   %exitcond169.not = icmp eq i64 %503, %500
-  br i1 %exitcond169.not, label %build_fstring_body.exit, label %504, !llvm.loop !35
+  br i1 %exitcond169.not, label %build_fstring_body.exit, label %504, !llvm.loop !36
 
 504:                                              ; preds = %.lr.ph138, %502
   %.0.i108136 = phi i64 [ 0, %.lr.ph138 ], [ %503, %502 ]
   %505 = getelementptr [1 x ptr], ptr %501, i64 0, i64 %.0.i108136
-  %506 = load ptr, ptr %505, align 8, !tbaa !16
+  %506 = load ptr, ptr %505, align 8, !tbaa !17
   %507 = load i32, ptr %506, align 8, !tbaa !4
   switch i32 %507, label %append_fstring_element.exit.i.thread [
     i32 20, label %508
@@ -1991,7 +1991,7 @@ append_ast_keyword.exit:                          ; preds = %469, %463
   br label %append_fstring_element.exit.i
 
 append_fstring_element.exit.i.thread:             ; preds = %504
-  %516 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !18
+  %516 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %516, ptr noundef nonnull @.str.53) #3
   br label %.loopexit
 
@@ -2056,7 +2056,7 @@ build_fstring_body.exit:                          ; preds = %502, %497, %499
   %540 = getelementptr inbounds nuw i8, ptr %533, i64 8
   %541 = load ptr, ptr %540, align 8, !tbaa !9
   %542 = getelementptr i8, ptr %541, i64 8
-  %.val.i = load ptr, ptr %542, align 8, !tbaa !36
+  %.val.i = load ptr, ptr %542, align 8, !tbaa !37
   %.not116 = icmp eq ptr %.val.i, @PyLong_Type
   br i1 %.not116, label %.split.i, label %.split11.i
 
@@ -2187,7 +2187,7 @@ common.ret211:                                    ; preds = %.loopexit, %492, %6
 612:                                              ; preds = %617
   %613 = add nuw nsw i64 %.012.i99131, 1
   %exitcond168.not = icmp eq i64 %613, %610
-  br i1 %exitcond168.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !39
+  br i1 %exitcond168.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !40
 
 .lr.ph133:                                        ; preds = %609, %612
   %.012.i99131 = phi i64 [ %613, %612 ], [ 0, %609 ]
@@ -2203,7 +2203,7 @@ common.ret211:                                    ; preds = %.loopexit, %492, %6
   %618 = load ptr, ptr %606, align 8, !tbaa !9
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 16
   %620 = getelementptr [1 x ptr], ptr %619, i64 0, i64 %.012.i99131
-  %621 = load ptr, ptr %620, align 8, !tbaa !16
+  %621 = load ptr, ptr %620, align 8, !tbaa !17
   %622 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %621, i32 noundef 1)
   %623 = icmp eq i32 %622, -1
   br i1 %623, label %common.ret211, label %612
@@ -2243,7 +2243,7 @@ common.ret211:                                    ; preds = %.loopexit, %492, %6
 639:                                              ; preds = %644
   %640 = add nuw nsw i64 %.018.i102130, 1
   %exitcond.not = icmp eq i64 %640, %630
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 .lr.ph:                                           ; preds = %637, %639
   %.018.i102130 = phi i64 [ %640, %639 ], [ 0, %637 ]
@@ -2259,7 +2259,7 @@ common.ret211:                                    ; preds = %.loopexit, %492, %6
   %645 = load ptr, ptr %626, align 8, !tbaa !9
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 16
   %647 = getelementptr [1 x ptr], ptr %646, i64 0, i64 %.018.i102130
-  %648 = load ptr, ptr %647, align 8, !tbaa !16
+  %648 = load ptr, ptr %647, align 8, !tbaa !17
   %649 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %648, i32 noundef 1)
   %650 = icmp eq i32 %649, -1
   br i1 %650, label %common.ret211, label %639
@@ -2324,7 +2324,7 @@ common.ret211:                                    ; preds = %.loopexit, %492, %6
   br label %common.ret211
 
 681:                                              ; preds = %3
-  %682 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !18
+  %682 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %682, ptr noundef nonnull @.str.1) #3
   br label %common.ret211
 }
@@ -2364,12 +2364,12 @@ define internal fastcc i32 @append_ast_genexp(ptr noundef nonnull %0, ptr nounde
 18:                                               ; preds = %20
   %19 = add nuw nsw i64 %.08.i7, 1
   %exitcond.not = icmp eq i64 %19, %15
-  br i1 %exitcond.not, label %append_ast_comprehensions.exit, label %20, !llvm.loop !41
+  br i1 %exitcond.not, label %append_ast_comprehensions.exit, label %20, !llvm.loop !42
 
 20:                                               ; preds = %.lr.ph, %18
   %.08.i7 = phi i64 [ 0, %.lr.ph ], [ %19, %18 ]
   %21 = getelementptr [1 x ptr], ptr %17, i64 0, i64 %.08.i7
-  %22 = load ptr, ptr %21, align 8, !tbaa !42
+  %22 = load ptr, ptr %21, align 8, !tbaa !43
   %23 = tail call fastcc i32 @append_ast_comprehension(ptr noundef nonnull %0, ptr noundef %22)
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %append_ast_comprehensions.exit.thread, label %18
@@ -2388,13 +2388,13 @@ declare i32 @PyUnicodeWriter_WriteStr(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @append_ast_constant(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %3, align 8, !tbaa !36
+  %.val = load ptr, ptr %3, align 8, !tbaa !37
   %.not = icmp eq ptr %.val, @PyTuple_Type
   br i1 %.not, label %4, label %26
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 16
-  %.val19 = load i64, ptr %5, align 8, !tbaa !44
+  %.val19 = load i64, ptr %5, align 8, !tbaa !45
   %6 = tail call i32 @PyUnicodeWriter_WriteChar(ptr noundef nonnull %0, i32 noundef 40) #3
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %.loopexit, label %.preheader
@@ -2410,7 +2410,7 @@ define internal fastcc i32 @append_ast_constant(ptr noundef nonnull %0, ptr noun
 10:                                               ; preds = %16
   %11 = add nuw nsw i64 %.01821, 1
   %exitcond.not = icmp eq i64 %11, %.val19
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !47
 
 12:                                               ; preds = %.lr.ph, %10
   %.01821 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
@@ -2424,7 +2424,7 @@ define internal fastcc i32 @append_ast_constant(ptr noundef nonnull %0, ptr noun
 
 16:                                               ; preds = %13, %12
   %17 = getelementptr [1 x ptr], ptr %9, i64 0, i64 %.01821
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
   %19 = tail call fastcc i32 @append_ast_constant(ptr noundef %0, ptr noundef %18)
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.loopexit, label %10
@@ -2475,12 +2475,12 @@ define internal fastcc i32 @append_joinedstr(ptr noundef nonnull %0, ptr noundef
 13:                                               ; preds = %append_fstring_element.exit
   %14 = add nuw nsw i64 %.0.i21, 1
   %exitcond.not = icmp eq i64 %14, %11
-  br i1 %exitcond.not, label %build_fstring_body.exit, label %15, !llvm.loop !35
+  br i1 %exitcond.not, label %build_fstring_body.exit, label %15, !llvm.loop !36
 
 15:                                               ; preds = %.lr.ph, %13
   %.0.i21 = phi i64 [ 0, %.lr.ph ], [ %14, %13 ]
   %16 = getelementptr [1 x ptr], ptr %12, i64 0, i64 %.0.i21
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = load i32, ptr %17, align 8, !tbaa !4
   switch i32 %18, label %append_fstring_element.exit.thread [
     i32 20, label %19
@@ -2503,7 +2503,7 @@ define internal fastcc i32 @append_joinedstr(ptr noundef nonnull %0, ptr noundef
   br label %append_fstring_element.exit
 
 append_fstring_element.exit.thread:               ; preds = %15
-  %27 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !18
+  %27 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.53) #3
   br label %.loopexit
 
@@ -2658,7 +2658,7 @@ Py_DECREF.exit28:                                 ; preds = %32, %33, %36
   br label %45
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !18
+  %44 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %44, ptr noundef nonnull @.str.59) #3
   br label %Py_DECREF.exit
 
@@ -2703,7 +2703,7 @@ Py_DECREF.exit28:                                 ; preds = %32, %33, %36
   br label %append_fstring_element.exit
 
 append_fstring_element.exit.thread:               ; preds = %54
-  %65 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !18
+  %65 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %65, ptr noundef nonnull @.str.53) #3
   br label %Py_DECREF.exit
 
@@ -2725,7 +2725,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef range(i32 -1, 1) i32 @append_ast_args(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !23
+  %3 = load ptr, ptr %1, align 8, !tbaa !24
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
@@ -2736,7 +2736,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @append_ast_args(ptr noundef
 7:                                                ; preds = %2, %5
   %8 = phi i64 [ %6, %5 ], [ 0, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
 
@@ -2747,7 +2747,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @append_ast_args(ptr noundef
 14:                                               ; preds = %7, %12
   %15 = phi i64 [ %13, %12 ], [ 0, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !47
+  %17 = load ptr, ptr %16, align 8, !tbaa !48
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
 
@@ -2776,18 +2776,18 @@ define internal fastcc noundef range(i32 -1, 1) i32 @append_ast_args(ptr noundef
   br i1 %29, label %30, label %48
 
 30:                                               ; preds = %28
-  %31 = load ptr, ptr %1, align 8, !tbaa !23
+  %31 = load ptr, ptr %1, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = getelementptr [1 x ptr], ptr %32, i64 0, i64 %.076115
-  %34 = load ptr, ptr %33, align 8, !tbaa !48
-  %35 = load ptr, ptr %34, align 8, !tbaa !49
+  %34 = load ptr, ptr %33, align 8, !tbaa !49
+  %35 = load ptr, ptr %34, align 8, !tbaa !50
   %36 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %0, ptr noundef %35) #3
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %append_ast_arg.exit.thread, label %38
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !51
+  %40 = load ptr, ptr %39, align 8, !tbaa !52
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %append_ast_arg.exit, label %41
 
@@ -2797,25 +2797,25 @@ define internal fastcc noundef range(i32 -1, 1) i32 @append_ast_args(ptr noundef
   br i1 %43, label %append_ast_arg.exit.thread, label %44
 
 44:                                               ; preds = %41
-  %45 = load ptr, ptr %39, align 8, !tbaa !51
+  %45 = load ptr, ptr %39, align 8, !tbaa !52
   %46 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %45, i32 noundef 1)
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %append_ast_arg.exit.thread, label %append_ast_arg.exit
 
 48:                                               ; preds = %28
-  %49 = load ptr, ptr %9, align 8, !tbaa !20
+  %49 = load ptr, ptr %9, align 8, !tbaa !21
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = sub i64 %.076115, %8
   %52 = getelementptr [1 x ptr], ptr %50, i64 0, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !48
-  %54 = load ptr, ptr %53, align 8, !tbaa !49
+  %53 = load ptr, ptr %52, align 8, !tbaa !49
+  %54 = load ptr, ptr %53, align 8, !tbaa !50
   %55 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %0, ptr noundef %54) #3
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %append_ast_arg.exit.thread, label %57
 
 57:                                               ; preds = %48
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !51
+  %59 = load ptr, ptr %58, align 8, !tbaa !52
   %.not.i99 = icmp eq ptr %59, null
   br i1 %.not.i99, label %append_ast_arg.exit, label %60
 
@@ -2825,7 +2825,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @append_ast_args(ptr noundef
   br i1 %62, label %append_ast_arg.exit.thread, label %63
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr %58, align 8, !tbaa !51
+  %64 = load ptr, ptr %58, align 8, !tbaa !52
   %65 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %64, i32 noundef 1)
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %append_ast_arg.exit.thread, label %append_ast_arg.exit
@@ -2842,10 +2842,10 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
   br i1 %72, label %append_ast_arg.exit.thread, label %73
 
 73:                                               ; preds = %70
-  %74 = load ptr, ptr %16, align 8, !tbaa !47
+  %74 = load ptr, ptr %16, align 8, !tbaa !48
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = getelementptr [1 x ptr], ptr %75, i64 0, i64 %68
-  %77 = load ptr, ptr %76, align 8, !tbaa !16
+  %77 = load ptr, ptr %76, align 8, !tbaa !17
   %78 = tail call fastcc i32 @append_ast_expr(ptr noundef %0, ptr noundef %77, i32 noundef 1)
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %append_ast_arg.exit.thread, label %80
@@ -2862,18 +2862,18 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
 
 86:                                               ; preds = %80, %83
   %exitcond.not = icmp eq i64 %81, %23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %86, %21
   %.073.lcssa = phi i8 [ 1, %21 ], [ 0, %86 ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !53
+  %88 = load ptr, ptr %87, align 8, !tbaa !54
   %.not = icmp eq ptr %88, null
   br i1 %.not, label %89, label %96
 
 89:                                               ; preds = %._crit_edge
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %91 = load ptr, ptr %90, align 8, !tbaa !54
+  %91 = load ptr, ptr %90, align 8, !tbaa !55
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.critedge, label %93
 
@@ -2897,19 +2897,19 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
   br i1 %103, label %append_ast_arg.exit.thread, label %104
 
 104:                                              ; preds = %101
-  %105 = load ptr, ptr %87, align 8, !tbaa !53
+  %105 = load ptr, ptr %87, align 8, !tbaa !54
   %.not92 = icmp eq ptr %105, null
   br i1 %.not92, label %.critedge, label %106
 
 106:                                              ; preds = %104
-  %107 = load ptr, ptr %105, align 8, !tbaa !49
+  %107 = load ptr, ptr %105, align 8, !tbaa !50
   %108 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %0, ptr noundef %107) #3
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %append_ast_arg.exit.thread, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !51
+  %112 = load ptr, ptr %111, align 8, !tbaa !52
   %.not.i102 = icmp eq ptr %112, null
   br i1 %.not.i102, label %.critedge, label %113
 
@@ -2919,7 +2919,7 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
   br i1 %115, label %append_ast_arg.exit.thread, label %116
 
 116:                                              ; preds = %113
-  %117 = load ptr, ptr %111, align 8, !tbaa !51
+  %117 = load ptr, ptr %111, align 8, !tbaa !52
   %118 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %117, i32 noundef 1)
   %119 = icmp eq i32 %118, -1
   br i1 %119, label %append_ast_arg.exit.thread, label %.critedge
@@ -2927,7 +2927,7 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
 .critedge:                                        ; preds = %116, %110, %89, %104, %93
   %.174 = phi i8 [ 0, %104 ], [ %.073.lcssa, %93 ], [ %.073.lcssa, %89 ], [ 0, %110 ], [ 0, %116 ]
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %121 = load ptr, ptr %120, align 8, !tbaa !54
+  %121 = load ptr, ptr %120, align 8, !tbaa !55
   %122 = icmp eq ptr %121, null
   br i1 %122, label %125, label %123
 
@@ -2938,7 +2938,7 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
 125:                                              ; preds = %.critedge, %123
   %126 = phi i64 [ %124, %123 ], [ 0, %.critedge ]
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %128 = load ptr, ptr %127, align 8, !tbaa !55
+  %128 = load ptr, ptr %127, align 8, !tbaa !56
   %129 = icmp eq ptr %128, null
   br i1 %129, label %132, label %130
 
@@ -2963,18 +2963,18 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
   br i1 %138, label %append_ast_arg.exit.thread, label %139
 
 139:                                              ; preds = %136, %.lr.ph120
-  %140 = load ptr, ptr %120, align 8, !tbaa !54
+  %140 = load ptr, ptr %120, align 8, !tbaa !55
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = getelementptr [1 x ptr], ptr %141, i64 0, i64 %.177117
-  %143 = load ptr, ptr %142, align 8, !tbaa !48
-  %144 = load ptr, ptr %143, align 8, !tbaa !49
+  %143 = load ptr, ptr %142, align 8, !tbaa !49
+  %144 = load ptr, ptr %143, align 8, !tbaa !50
   %145 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %0, ptr noundef %144) #3
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %append_ast_arg.exit.thread, label %147
 
 147:                                              ; preds = %139
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %149 = load ptr, ptr %148, align 8, !tbaa !51
+  %149 = load ptr, ptr %148, align 8, !tbaa !52
   %.not.i105 = icmp eq ptr %149, null
   br i1 %.not.i105, label %append_ast_arg.exit107, label %150
 
@@ -2984,7 +2984,7 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
   br i1 %152, label %append_ast_arg.exit.thread, label %153
 
 153:                                              ; preds = %150
-  %154 = load ptr, ptr %148, align 8, !tbaa !51
+  %154 = load ptr, ptr %148, align 8, !tbaa !52
   %155 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %154, i32 noundef 1)
   %156 = icmp eq i32 %155, -1
   br i1 %156, label %append_ast_arg.exit.thread, label %append_ast_arg.exit107
@@ -2996,10 +2996,10 @@ append_ast_arg.exit107:                           ; preds = %153, %147
   br i1 %159, label %160, label %.critedge98
 
 160:                                              ; preds = %append_ast_arg.exit107
-  %161 = load ptr, ptr %127, align 8, !tbaa !55
+  %161 = load ptr, ptr %127, align 8, !tbaa !56
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %163 = getelementptr [1 x ptr], ptr %162, i64 0, i64 %158
-  %164 = load ptr, ptr %163, align 8, !tbaa !16
+  %164 = load ptr, ptr %163, align 8, !tbaa !17
   %.not94 = icmp eq ptr %164, null
   br i1 %.not94, label %.critedge98, label %165
 
@@ -3016,17 +3016,17 @@ append_ast_arg.exit107:                           ; preds = %153, %147
 .critedge98:                                      ; preds = %160, %168, %append_ast_arg.exit107
   %171 = add nuw nsw i64 %.177117, 1
   %exitcond124.not = icmp eq i64 %171, %126
-  br i1 %exitcond124.not, label %._crit_edge121.thread, label %.lr.ph120, !llvm.loop !56
+  br i1 %exitcond124.not, label %._crit_edge121.thread, label %.lr.ph120, !llvm.loop !57
 
 ._crit_edge121:                                   ; preds = %132
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %173 = load ptr, ptr %172, align 8, !tbaa !57
+  %173 = load ptr, ptr %172, align 8, !tbaa !58
   %.not93 = icmp eq ptr %173, null
   br i1 %.not93, label %append_ast_arg.exit.thread, label %176
 
 ._crit_edge121.thread:                            ; preds = %.critedge98
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %175 = load ptr, ptr %174, align 8, !tbaa !57
+  %175 = load ptr, ptr %174, align 8, !tbaa !58
   %.not93126 = icmp eq ptr %175, null
   br i1 %.not93126, label %append_ast_arg.exit.thread, label %.thread
 
@@ -3046,15 +3046,15 @@ append_ast_arg.exit107:                           ; preds = %153, %147
   br i1 %183, label %append_ast_arg.exit.thread, label %184
 
 184:                                              ; preds = %180
-  %185 = load ptr, ptr %181, align 8, !tbaa !57
-  %186 = load ptr, ptr %185, align 8, !tbaa !49
+  %185 = load ptr, ptr %181, align 8, !tbaa !58
+  %186 = load ptr, ptr %185, align 8, !tbaa !50
   %187 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %0, ptr noundef %186) #3
   %188 = icmp slt i32 %187, 0
   br i1 %188, label %append_ast_arg.exit131.thread, label %189
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %191 = load ptr, ptr %190, align 8, !tbaa !51
+  %191 = load ptr, ptr %190, align 8, !tbaa !52
   %.not.i130 = icmp eq ptr %191, null
   br i1 %.not.i130, label %append_ast_arg.exit.thread, label %192
 
@@ -3064,7 +3064,7 @@ append_ast_arg.exit107:                           ; preds = %153, %147
   br i1 %194, label %append_ast_arg.exit131.thread, label %195
 
 195:                                              ; preds = %192
-  %196 = load ptr, ptr %190, align 8, !tbaa !51
+  %196 = load ptr, ptr %190, align 8, !tbaa !52
   %197 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %196, i32 noundef 1)
   %198 = icmp eq i32 %197, -1
   br i1 %198, label %append_ast_arg.exit131.thread, label %append_ast_arg.exit.thread
@@ -3093,12 +3093,12 @@ define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehensions(ptr nound
 8:                                                ; preds = %.lr.ph
   %9 = add nuw nsw i64 %.0810, 1
   %exitcond.not = icmp eq i64 %9, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %4, %8
   %.0810 = phi i64 [ %9, %8 ], [ 0, %4 ]
   %10 = getelementptr [1 x ptr], ptr %6, i64 0, i64 %.0810
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
   %12 = tail call fastcc i32 @append_ast_comprehension(ptr noundef %0, ptr noundef %11)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %._crit_edge, label %8
@@ -3111,7 +3111,7 @@ define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehensions(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehension(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !58
+  %4 = load i32, ptr %3, align 8, !tbaa !59
   %.not = icmp eq i32 %4, 0
   %5 = select i1 %.not, ptr @.str.35, ptr @.str.34
   %6 = tail call i32 @PyUnicodeWriter_WriteUTF8(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef -1) #3
@@ -3119,7 +3119,7 @@ define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehension(ptr nounde
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %1, align 8, !tbaa !60
+  %9 = load ptr, ptr %1, align 8, !tbaa !61
   %10 = tail call fastcc i32 @append_ast_expr(ptr noundef %0, ptr noundef %9, i32 noundef 0)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %.loopexit, label %12
@@ -3131,14 +3131,14 @@ define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehension(ptr nounde
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !61
+  %17 = load ptr, ptr %16, align 8, !tbaa !62
   %18 = tail call fastcc i32 @append_ast_expr(ptr noundef %0, ptr noundef %17, i32 noundef 2)
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !62
+  %22 = load ptr, ptr %21, align 8, !tbaa !63
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit, label %24
 
@@ -3150,7 +3150,7 @@ define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehension(ptr nounde
 27:                                               ; preds = %31
   %28 = add nuw nsw i64 %.01618, 1
   %exitcond.not = icmp eq i64 %28, %25
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
 
 .lr.ph:                                           ; preds = %24, %27
   %.01618 = phi i64 [ %28, %27 ], [ 0, %24 ]
@@ -3159,10 +3159,10 @@ define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehension(ptr nounde
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = load ptr, ptr %21, align 8, !tbaa !62
+  %32 = load ptr, ptr %21, align 8, !tbaa !63
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = getelementptr [1 x ptr], ptr %33, i64 0, i64 %.01618
-  %35 = load ptr, ptr %34, align 8, !tbaa !16
+  %35 = load ptr, ptr %34, align 8, !tbaa !17
   %36 = tail call fastcc i32 @append_ast_expr(ptr noundef %0, ptr noundef %35, i32 noundef 2)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %.loopexit, label %27
@@ -3182,13 +3182,13 @@ define internal fastcc i32 @append_repr(ptr noundef nonnull %0, ptr noundef %1) 
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val25 = load ptr, ptr %5, align 8, !tbaa !36
+  %.val25 = load ptr, ptr %5, align 8, !tbaa !37
   %.not27 = icmp eq ptr %.val25, @PyFloat_Type
   br i1 %.not27, label %6, label %10
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %1, i64 16
-  %.val26 = load double, ptr %7, align 8, !tbaa !64
+  %.val26 = load double, ptr %7, align 8, !tbaa !65
   %8 = tail call double @llvm.fabs.f64(double %.val26) #5
   %9 = fcmp oeq double %8, 0x7FF0000000000000
   br i1 %9, label %11, label %18
@@ -3320,56 +3320,57 @@ attributes #5 = { memory(none) }
 !11 = !{!"", !12, i64 0, !13, i64 8, !7, i64 16}
 !12 = !{!"long", !7, i64 0}
 !13 = !{!"any pointer", !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS5_expr", !13, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS7_object", !13, i64 0}
-!20 = !{!21, !13, i64 8}
-!21 = !{!"_arguments", !13, i64 0, !13, i64 8, !22, i64 16, !13, i64 24, !13, i64 32, !22, i64 40, !13, i64 48}
-!22 = !{!"p1 _ZTS4_arg", !13, i64 0}
-!23 = !{!21, !13, i64 0}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !15}
-!26 = distinct !{!26, !15}
-!27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !15}
-!29 = distinct !{!29, !15}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTS8_keyword", !13, i64 0}
-!32 = !{!33, !19, i64 0}
-!33 = !{!"_keyword", !19, i64 0, !17, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28}
-!34 = !{!33, !17, i64 8}
-!35 = distinct !{!35, !15}
-!36 = !{!37, !38, i64 8}
-!37 = !{!"_object", !7, i64 0, !38, i64 8}
-!38 = !{!"p1 _ZTS11_typeobject", !13, i64 0}
-!39 = distinct !{!39, !15}
-!40 = distinct !{!40, !15}
-!41 = distinct !{!41, !15}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 _ZTS14_comprehension", !13, i64 0}
-!44 = !{!45, !12, i64 16}
-!45 = !{!"", !37, i64 0, !12, i64 16}
-!46 = distinct !{!46, !15}
-!47 = !{!21, !13, i64 48}
-!48 = !{!22, !22, i64 0}
-!49 = !{!50, !19, i64 0}
-!50 = !{!"_arg", !19, i64 0, !17, i64 8, !19, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36}
-!51 = !{!50, !17, i64 8}
-!52 = distinct !{!52, !15}
-!53 = !{!21, !22, i64 16}
-!54 = !{!21, !13, i64 24}
-!55 = !{!21, !13, i64 32}
-!56 = distinct !{!56, !15}
-!57 = !{!21, !22, i64 40}
-!58 = !{!59, !6, i64 24}
-!59 = !{!"_comprehension", !17, i64 0, !17, i64 8, !13, i64 16, !6, i64 24}
-!60 = !{!59, !17, i64 0}
-!61 = !{!59, !17, i64 8}
-!62 = !{!59, !13, i64 16}
-!63 = distinct !{!63, !15}
-!64 = !{!65, !66, i64 16}
-!65 = !{!"", !37, i64 0, !66, i64 16}
-!66 = !{!"double", !7, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS5_expr", !13, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS7_object", !13, i64 0}
+!21 = !{!22, !13, i64 8}
+!22 = !{!"_arguments", !13, i64 0, !13, i64 8, !23, i64 16, !13, i64 24, !13, i64 32, !23, i64 40, !13, i64 48}
+!23 = !{!"p1 _ZTS4_arg", !13, i64 0}
+!24 = !{!22, !13, i64 0}
+!25 = distinct !{!25, !15, !16}
+!26 = distinct !{!26, !15, !16}
+!27 = distinct !{!27, !15, !16}
+!28 = !{!6, !6, i64 0}
+!29 = distinct !{!29, !15, !16}
+!30 = distinct !{!30, !15, !16}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS8_keyword", !13, i64 0}
+!33 = !{!34, !20, i64 0}
+!34 = !{!"_keyword", !20, i64 0, !18, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28}
+!35 = !{!34, !18, i64 8}
+!36 = distinct !{!36, !15, !16}
+!37 = !{!38, !39, i64 8}
+!38 = !{!"_object", !7, i64 0, !39, i64 8}
+!39 = !{!"p1 _ZTS11_typeobject", !13, i64 0}
+!40 = distinct !{!40, !15, !16}
+!41 = distinct !{!41, !15, !16}
+!42 = distinct !{!42, !15, !16}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS14_comprehension", !13, i64 0}
+!45 = !{!46, !12, i64 16}
+!46 = !{!"", !38, i64 0, !12, i64 16}
+!47 = distinct !{!47, !15, !16}
+!48 = !{!22, !13, i64 48}
+!49 = !{!23, !23, i64 0}
+!50 = !{!51, !20, i64 0}
+!51 = !{!"_arg", !20, i64 0, !18, i64 8, !20, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36}
+!52 = !{!51, !18, i64 8}
+!53 = distinct !{!53, !15, !16}
+!54 = !{!22, !23, i64 16}
+!55 = !{!22, !13, i64 24}
+!56 = !{!22, !13, i64 32}
+!57 = distinct !{!57, !15, !16}
+!58 = !{!22, !23, i64 40}
+!59 = !{!60, !6, i64 24}
+!60 = !{!"_comprehension", !18, i64 0, !18, i64 8, !13, i64 16, !6, i64 24}
+!61 = !{!60, !18, i64 0}
+!62 = !{!60, !18, i64 8}
+!63 = !{!60, !13, i64 16}
+!64 = distinct !{!64, !15, !16}
+!65 = !{!66, !67, i64 16}
+!66 = !{!"", !38, i64 0, !67, i64 16}
+!67 = !{!"double", !7, i64 0}

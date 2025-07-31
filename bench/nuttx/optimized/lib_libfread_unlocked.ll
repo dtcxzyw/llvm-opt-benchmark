@@ -194,7 +194,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   %.4104 = phi i64 [ %78, %76 ], [ %.3103126, %90 ]
   %.3 = phi ptr [ %77, %76 ], [ %.2127, %90 ]
   %.not115 = icmp eq i64 %.4104, 0
-  br i1 %.not115, label %.thread133, label %47, !llvm.loop !8
+  br i1 %.not115, label %.thread133, label %47, !llvm.loop !9
 
 94:                                               ; preds = %.lr.ph153, %106
   %.4152 = phi ptr [ %.095.lcssa, %.lr.ph153 ], [ %107, %106 ]
@@ -229,7 +229,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   %107 = getelementptr inbounds nuw i8, ptr %.4152, i64 %.298
   %108 = sub i64 %.5151, %.298
   %.not112 = icmp eq i64 %108, 0
-  br i1 %.not112, label %.thread133, label %94, !llvm.loop !9
+  br i1 %.not112, label %.thread133, label %94, !llvm.loop !10
 
 109:                                              ; preds = %46
   %110 = icmp eq i64 %.0100.lcssa, 0
@@ -293,7 +293,8 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

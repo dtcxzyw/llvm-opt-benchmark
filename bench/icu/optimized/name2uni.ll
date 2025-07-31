@@ -988,7 +988,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit119:     ; preds = %137, %131, %130
   %.3 = phi i32 [ %.4, %155 ], [ %.075145, %118 ]
   %.173 = phi i32 [ %.274, %155 ], [ %.072.ph154, %118 ]
   %156 = icmp slt i32 %.3, %.173
-  br i1 %156, label %.lr.ph, label %.outer._crit_edge
+  br i1 %156, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !31
 
 157:                                              ; preds = %97
   %158 = invoke noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %39, i32 noundef %45)
@@ -1183,5 +1183,5 @@ attributes #16 = { noreturn nounwind }
 !29 = !{!30, !30, i64 0}
 !30 = !{!"char16_t", !7, i64 0}
 !31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.mustprogress"}
+!32 = !{!"llvm.loop.estimated_trip_count"}
 !33 = !{!26, !9, i64 4}

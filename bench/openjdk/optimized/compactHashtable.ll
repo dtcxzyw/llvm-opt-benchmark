@@ -198,7 +198,7 @@ _ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit: ; preds = %12, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %6, label %._crit_edge, !llvm.loop !8
+  br i1 %20, label %6, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %17, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -261,7 +261,7 @@ define hidden void @_ZN22CompactHashtableWriter3addEjj(ptr noundef nonnull align
 16:                                               ; preds = %17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %17, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %17, !llvm.loop !10
 
 17:                                               ; preds = %16, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
@@ -355,7 +355,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   %.1 = phi i32 [ %13, %12 ], [ %18, %16 ], [ %.015, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %19
   %.not = icmp ult i32 %.1, 1073741824
@@ -511,7 +511,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   store i32 %.sroa.2.0.extract.trunc, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %39, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.thread, label %39, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %34
   %53 = icmp eq i32 %16, 0
@@ -541,7 +541,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   %64 = load i32, ptr %3, align 4
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next45, %65
-  br i1 %66, label %12, label %._crit_edge38.loopexit, !llvm.loop !12
+  br i1 %66, label %12, label %._crit_edge38.loopexit, !llvm.loop !13
 
 ._crit_edge38.loopexit:                           ; preds = %59
   %67 = or i32 %.1, -1073741824
@@ -982,7 +982,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %9, %17
   store ptr %26, ptr %5, align 8
   %27 = load i8, ptr %25, align 1
   %28 = icmp eq i8 %27, %1
-  br i1 %28, label %29, label %9, !llvm.loop !13
+  br i1 %28, label %29, label %9, !llvm.loop !14
 
 29:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
   ret void
@@ -1425,7 +1425,7 @@ define linkonce_odr hidden void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef 
 48:                                               ; preds = %18, %24, %38
   %.1 = phi i64 [ %22, %24 ], [ %22, %18 ], [ %.01520, %38 ]
   %exitcond.not = icmp eq ptr %15, %9
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %14, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %14, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %48
   %.pre = load ptr, ptr %8, align 8
@@ -1503,7 +1503,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.1 = add i32 %32, %26
   %33 = add nuw nsw i32 %.01519, 1
   %exitcond.not = icmp eq i32 %33, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %switch.lookup, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
   %.016.lcssa = phi i32 [ 0, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit ], [ %.1, %switch.lookup ]
@@ -1634,7 +1634,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.1.i = add i8 %59, %switch.load
   %60 = add nuw nsw i32 %.01519.i, 1
   %exitcond.not.i = icmp eq i32 %60, 2
-  br i1 %exitcond.not.i, label %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN17HashtableTextDump8unescapeEPKcS1_i.exit:     ; preds = %switch.lookup
   %61 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
@@ -1683,7 +1683,7 @@ _ZN17HashtableTextDump8unescapeEPKcS1_i.exit:     ; preds = %switch.lookup
   %82 = icmp sgt i32 %.02732, 1
   %83 = icmp ult ptr %.1, %12
   %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %19, label %._crit_edge, !llvm.loop !16
+  br i1 %84, label %19, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %80, %3
   %.0.lcssa = phi ptr [ %10, %3 ], [ %.1, %80 ]
@@ -1808,7 +1808,7 @@ define hidden void @_ZN17HashtableTextDump8put_utf8EP12outputStreamPKci(ptr noun
 18:                                               ; preds = %9, %10, %11, %12, %16, %15
   %19 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %20 = icmp ult ptr %19, %5
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %18, %3
   ret void
@@ -1948,7 +1948,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN22CompactHasht
   store i64 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -2037,7 +2037,7 @@ _ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit: ; preds = 
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %23, label %.preheader16, !llvm.loop !19
+  br i1 %30, label %23, label %.preheader16, !llvm.loop !20
 
 31:                                               ; preds = %.preheader16
   %32 = load i64, ptr %4, align 8
@@ -2102,17 +2102,18 @@ attributes #16 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

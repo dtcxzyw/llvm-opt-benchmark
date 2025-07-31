@@ -561,14 +561,14 @@ define ptr @color_palettes_get(ptr noundef readonly captures(none) %0) local_unn
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds nuw [265 x [2 x ptr]], ptr @color_palettes, i64 0, i64 %indvars.iv
-  %5 = load ptr, ptr %4, align 16, !tbaa !5
+  %5 = load ptr, ptr %4, align 16, !tbaa !6
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !5
+  %10 = load ptr, ptr %9, align 8, !tbaa !6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %8
@@ -615,14 +615,14 @@ define noundef zeroext i1 @knownColorScheme(ptr noundef readonly captures(none) 
 .preheader:                                       ; preds = %10, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 0, %10 ]
   %14 = getelementptr inbounds nuw [265 x [2 x ptr]], ptr @color_palettes, i64 0, i64 %indvars.iv.i.i
-  %15 = load ptr, ptr %14, align 16, !tbaa !5
+  %15 = load ptr, ptr %14, align 16, !tbaa !6
   %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #5
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %color_palettes_Q.exit, label %13
 
 color_palettes_Q.exit:                            ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !5
+  %19 = load ptr, ptr %18, align 8, !tbaa !6
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %color_palettes_Q.exit.thread, label %22
 
@@ -655,10 +655,11 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !6, i64 0}
-!6 = !{!"p1 omnipotent char", !7, i64 0}
-!7 = !{!"any pointer", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}

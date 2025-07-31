@@ -195,7 +195,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
 .critedge74:                                      ; preds = %18, %22
   %.2 = load ptr, ptr %.282, align 8
   %.not68 = icmp eq ptr %.2, null
-  br i1 %.not68, label %.critedge2, label %18, !llvm.loop !6
+  br i1 %.not68, label %.critedge2, label %18, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.critedge74, %.preheader76
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
@@ -395,7 +395,7 @@ define dso_local nonnull ptr @find_rendezvous_variable(ptr noundef %0) local_unn
 10:                                               ; preds = %6, %1
   %11 = phi ptr [ %9, %6 ], [ %4, %1 ]
   %12 = call ptr @hash_search(ptr noundef %11, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #16
-  %13 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %13 = load i8, ptr %2, align 1, !range !8, !noundef !9
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %17, label %15
 
@@ -429,7 +429,7 @@ define dso_local i64 @EstimateLibraryStateSpace() local_unnamed_addr #0 {
   %4 = tail call i64 @add_size(i64 noundef %.07, i64 noundef %3) #16
   %.04 = load ptr, ptr %.048, align 8
   %.not = icmp eq ptr %.04, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.0.lcssa = phi i64 [ 1, %0 ], [ %4, %.lr.ph ]
@@ -458,7 +458,7 @@ define dso_local void @SerializeLibraryState(i64 noundef %0, ptr noundef %1) loc
   %7 = getelementptr inbounds nuw i8, ptr %.01013, i64 %5
   %.09 = load ptr, ptr %.0915, align 8
   %.not = icmp eq ptr %.09, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.010.lcssa = phi ptr [ %1, %2 ], [ %7, %.lr.ph ]
@@ -483,7 +483,7 @@ define dso_local void @RestoreLibraryState(ptr noundef %0) local_unnamed_addr #0
   %6 = getelementptr i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -889,11 +889,12 @@ attributes #20 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

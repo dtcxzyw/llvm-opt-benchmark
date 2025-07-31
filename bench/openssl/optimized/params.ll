@@ -106,7 +106,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_modified(ptr noundef readonly captures(ad
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i64, ptr %3, align 8, !tbaa !13
+  %4 = load i64, ptr %3, align 8, !tbaa !14
   %5 = icmp ne i64 %4, -1
   %6 = zext i1 %5 to i32
   br label %7
@@ -130,10 +130,10 @@ define void @OSSL_PARAM_set_all_unmodified(ptr noundef captures(address_is_null)
   %.06 = phi ptr [ %3, %.lr.ph ], [ %0, %.preheader ]
   %3 = getelementptr inbounds nuw i8, ptr %.06, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %.06, i64 32
-  store i64 -1, ptr %4, align 8, !tbaa !13
+  store i64 -1, ptr %4, align 8, !tbaa !14
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   %.not4 = icmp eq ptr %5, null
-  br i1 %.not4, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not4, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   ret void
@@ -160,7 +160,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -172,7 +172,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   switch i32 %13, label %57 [
     i32 1, label %14
     i32 2, label %27
@@ -181,26 +181,26 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !17
+  %16 = load i64, ptr %15, align 8, !tbaa !18
   switch i64 %16, label %25 [
     i64 4, label %17
     i64 8, label %19
   ]
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %8, align 4, !tbaa !18
-  store i32 %18, ptr %1, align 4, !tbaa !18
+  %18 = load i32, ptr %8, align 4, !tbaa !19
+  store i32 %18, ptr %1, align 4, !tbaa !19
   br label %58
 
 19:                                               ; preds = %14
-  %20 = load i64, ptr %8, align 8, !tbaa !19
+  %20 = load i64, ptr %8, align 8, !tbaa !20
   %21 = add i64 %20, 2147483648
   %or.cond3 = icmp ult i64 %21, 4294967296
   br i1 %or.cond3, label %22, label %24
 
 22:                                               ; preds = %19
   %23 = trunc nsw i64 %20 to i32
-  store i32 %23, ptr %1, align 4, !tbaa !18
+  store i32 %23, ptr %1, align 4, !tbaa !19
   br label %58
 
 24:                                               ; preds = %19
@@ -215,19 +215,19 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
 
 27:                                               ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !17
+  %29 = load i64, ptr %28, align 8, !tbaa !18
   switch i64 %29, label %41 [
     i64 4, label %30
     i64 8, label %35
   ]
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr %8, align 4, !tbaa !18
+  %31 = load i32, ptr %8, align 4, !tbaa !19
   %32 = icmp sgt i32 %31, -1
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
-  store i32 %31, ptr %1, align 4, !tbaa !18
+  store i32 %31, ptr %1, align 4, !tbaa !19
   br label %58
 
 34:                                               ; preds = %30
@@ -237,13 +237,13 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
   br label %58
 
 35:                                               ; preds = %27
-  %36 = load i64, ptr %8, align 8, !tbaa !19
+  %36 = load i64, ptr %8, align 8, !tbaa !20
   %37 = icmp ult i64 %36, 2147483648
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
   %39 = trunc nuw nsw i64 %36 to i32
-  store i32 %39, ptr %1, align 4, !tbaa !18
+  store i32 %39, ptr %1, align 4, !tbaa !19
   br label %58
 
 40:                                               ; preds = %35
@@ -258,12 +258,12 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
 
 43:                                               ; preds = %11
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load i64, ptr %44, align 8, !tbaa !17
+  %45 = load i64, ptr %44, align 8, !tbaa !18
   %cond = icmp eq i64 %45, 8
   br i1 %cond, label %46, label %56
 
 46:                                               ; preds = %43
-  %47 = load double, ptr %8, align 8, !tbaa !20
+  %47 = load double, ptr %8, align 8, !tbaa !21
   %48 = fcmp oge double %47, 0xC1E0000000000000
   %49 = fcmp ole double %47, 0x41DFFFFFFFC00000
   %or.cond5 = and i1 %48, %49
@@ -276,7 +276,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %50
-  store i32 %51, ptr %1, align 4, !tbaa !18
+  store i32 %51, ptr %1, align 4, !tbaa !19
   br label %58
 
 55:                                               ; preds = %50, %46
@@ -311,7 +311,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int(ptr noundef captures(address_is_n
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca i32, align 4
-  store i32 %1, ptr %3, align 4, !tbaa !18
+  store i32 %1, ptr %3, align 4, !tbaa !19
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -323,35 +323,35 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef captures(address_is
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %7, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %23
 
 11:                                               ; preds = %6
-  store i64 4, ptr %7, align 8, !tbaa !13
+  store i64 4, ptr %7, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
   %14 = icmp eq ptr %13, null
   br i1 %14, label %51, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !17
+  %17 = load i64, ptr %16, align 8, !tbaa !18
   switch i64 %17, label %21 [
     i64 4, label %18
     i64 8, label %19
   ]
 
 18:                                               ; preds = %15
-  store i32 %1, ptr %13, align 4, !tbaa !18
+  store i32 %1, ptr %13, align 4, !tbaa !19
   br label %51
 
 19:                                               ; preds = %15
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   %20 = sext i32 %1 to i64
-  store i64 %20, ptr %13, align 8, !tbaa !19
+  store i64 %20, ptr %13, align 8, !tbaa !20
   br label %51
 
 21:                                               ; preds = %15
@@ -365,28 +365,28 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef captures(address_is
   br i1 %or.cond, label %26, label %38
 
 26:                                               ; preds = %23
-  store i64 4, ptr %7, align 8, !tbaa !13
+  store i64 4, ptr %7, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !15
+  %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = icmp eq ptr %28, null
   br i1 %29, label %51, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load i64, ptr %31, align 8, !tbaa !17
+  %32 = load i64, ptr %31, align 8, !tbaa !18
   switch i64 %32, label %36 [
     i64 4, label %33
     i64 8, label %34
   ]
 
 33:                                               ; preds = %30
-  store i32 %1, ptr %28, align 4, !tbaa !18
+  store i32 %1, ptr %28, align 4, !tbaa !19
   br label %51
 
 34:                                               ; preds = %30
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   %35 = zext nneg i32 %1 to i64
-  store i64 %35, ptr %28, align 8, !tbaa !19
+  store i64 %35, ptr %28, align 8, !tbaa !20
   br label %51
 
 36:                                               ; preds = %30
@@ -398,21 +398,21 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef captures(address_is
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %38
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !15
+  %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = icmp eq ptr %42, null
   br i1 %43, label %51, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = load i64, ptr %45, align 8, !tbaa !17
+  %46 = load i64, ptr %45, align 8, !tbaa !18
   %cond = icmp eq i64 %46, 8
   br i1 %cond, label %47, label %49
 
 47:                                               ; preds = %44
   %48 = sitofp i32 %1 to double
-  store double %48, ptr %42, align 8, !tbaa !20
+  store double %48, ptr %42, align 8, !tbaa !21
   br label %51
 
 49:                                               ; preds = %44
@@ -434,15 +434,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef captures(address_is
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_int(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !22
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !16, !alias.scope !22
+  store i32 1, ptr %4, align 8, !tbaa !17, !alias.scope !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !22
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 4, ptr %6, align 8, !tbaa !17, !alias.scope !22
+  store i64 4, ptr %6, align 8, !tbaa !18, !alias.scope !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !22
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !23
   ret void
 }
 
@@ -467,7 +467,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -479,7 +479,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   switch i32 %13, label %59 [
     i32 2, label %14
     i32 1, label %27
@@ -488,25 +488,25 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !17
+  %16 = load i64, ptr %15, align 8, !tbaa !18
   switch i64 %16, label %25 [
     i64 4, label %17
     i64 8, label %19
   ]
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %8, align 4, !tbaa !18
-  store i32 %18, ptr %1, align 4, !tbaa !18
+  %18 = load i32, ptr %8, align 4, !tbaa !19
+  store i32 %18, ptr %1, align 4, !tbaa !19
   br label %60
 
 19:                                               ; preds = %14
-  %20 = load i64, ptr %8, align 8, !tbaa !19
+  %20 = load i64, ptr %8, align 8, !tbaa !20
   %21 = icmp ult i64 %20, 4294967296
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
   %23 = trunc nuw i64 %20 to i32
-  store i32 %23, ptr %1, align 4, !tbaa !18
+  store i32 %23, ptr %1, align 4, !tbaa !19
   br label %60
 
 24:                                               ; preds = %19
@@ -521,19 +521,19 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
 
 27:                                               ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !17
+  %29 = load i64, ptr %28, align 8, !tbaa !18
   switch i64 %29, label %43 [
     i64 4, label %30
     i64 8, label %35
   ]
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr %8, align 4, !tbaa !18
+  %31 = load i32, ptr %8, align 4, !tbaa !19
   %32 = icmp sgt i32 %31, -1
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
-  store i32 %31, ptr %1, align 4, !tbaa !18
+  store i32 %31, ptr %1, align 4, !tbaa !19
   br label %60
 
 34:                                               ; preds = %30
@@ -543,13 +543,13 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
   br label %60
 
 35:                                               ; preds = %27
-  %36 = load i64, ptr %8, align 8, !tbaa !19
+  %36 = load i64, ptr %8, align 8, !tbaa !20
   %or.cond3 = icmp ult i64 %36, 4294967296
   br i1 %or.cond3, label %37, label %39
 
 37:                                               ; preds = %35
   %38 = trunc nuw i64 %36 to i32
-  store i32 %38, ptr %1, align 4, !tbaa !18
+  store i32 %38, ptr %1, align 4, !tbaa !19
   br label %60
 
 39:                                               ; preds = %35
@@ -573,12 +573,12 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
 
 45:                                               ; preds = %11
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = load i64, ptr %46, align 8, !tbaa !17
+  %47 = load i64, ptr %46, align 8, !tbaa !18
   %cond = icmp eq i64 %47, 8
   br i1 %cond, label %48, label %58
 
 48:                                               ; preds = %45
-  %49 = load double, ptr %8, align 8, !tbaa !20
+  %49 = load double, ptr %8, align 8, !tbaa !21
   %50 = fcmp oge double %49, 0.000000e+00
   %51 = fcmp ole double %49, 0x41EFFFFFFFE00000
   %or.cond5 = and i1 %50, %51
@@ -591,7 +591,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %52
-  store i32 %53, ptr %1, align 4, !tbaa !18
+  store i32 %53, ptr %1, align 4, !tbaa !19
   br label %60
 
 57:                                               ; preds = %52, %48
@@ -626,7 +626,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint(ptr noundef captures(address_is_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca i32, align 4
-  store i32 %1, ptr %3, align 4, !tbaa !18
+  store i32 %1, ptr %3, align 4, !tbaa !19
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -638,9 +638,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %7, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   switch i32 %9, label %48 [
     i32 2, label %10
     i32 1, label %22
@@ -648,28 +648,28 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
   ]
 
 10:                                               ; preds = %6
-  store i64 4, ptr %7, align 8, !tbaa !13
+  store i64 4, ptr %7, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !15
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = icmp eq ptr %12, null
   br i1 %13, label %49, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !17
+  %16 = load i64, ptr %15, align 8, !tbaa !18
   switch i64 %16, label %20 [
     i64 4, label %17
     i64 8, label %18
   ]
 
 17:                                               ; preds = %14
-  store i32 %1, ptr %12, align 4, !tbaa !18
+  store i32 %1, ptr %12, align 4, !tbaa !19
   br label %49
 
 18:                                               ; preds = %14
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   %19 = zext i32 %1 to i64
-  store i64 %19, ptr %12, align 8, !tbaa !19
+  store i64 %19, ptr %12, align 8, !tbaa !20
   br label %49
 
 20:                                               ; preds = %14
@@ -677,15 +677,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
   br label %49
 
 22:                                               ; preds = %6
-  store i64 4, ptr %7, align 8, !tbaa !13
+  store i64 4, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !15
+  %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = icmp eq ptr %24, null
   br i1 %25, label %49, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load i64, ptr %27, align 8, !tbaa !17
+  %28 = load i64, ptr %27, align 8, !tbaa !18
   switch i64 %28, label %35 [
     i64 4, label %29
     i64 8, label %33
@@ -696,7 +696,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
-  store i32 %1, ptr %24, align 4, !tbaa !18
+  store i32 %1, ptr %24, align 4, !tbaa !19
   br label %49
 
 32:                                               ; preds = %29
@@ -706,9 +706,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
   br label %49
 
 33:                                               ; preds = %26
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   %34 = zext i32 %1 to i64
-  store i64 %34, ptr %24, align 8, !tbaa !19
+  store i64 %34, ptr %24, align 8, !tbaa !20
   br label %49
 
 35:                                               ; preds = %26
@@ -717,24 +717,24 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
 
 37:                                               ; preds = %6
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !15
+  %39 = load ptr, ptr %38, align 8, !tbaa !16
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %37
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   br label %49
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %44 = load i64, ptr %43, align 8, !tbaa !17
+  %44 = load i64, ptr %43, align 8, !tbaa !18
   %cond = icmp eq i64 %44, 8
   br i1 %cond, label %45, label %47
 
 45:                                               ; preds = %42
   %46 = uitofp i32 %1 to double
-  store double %46, ptr %39, align 8, !tbaa !20
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store double %46, ptr %39, align 8, !tbaa !21
+  store i64 8, ptr %7, align 8, !tbaa !14
   br label %49
 
 47:                                               ; preds = %42
@@ -756,15 +756,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_uint(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !25
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %4, align 8, !tbaa !16, !alias.scope !25
+  store i32 2, ptr %4, align 8, !tbaa !17, !alias.scope !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !25
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 4, ptr %6, align 8, !tbaa !17, !alias.scope !25
+  store i64 4, ptr %6, align 8, !tbaa !18, !alias.scope !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !25
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !26
   ret void
 }
 
@@ -789,7 +789,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -801,7 +801,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   switch i32 %13, label %51 [
     i32 1, label %14
     i32 2, label %24
@@ -810,21 +810,21 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !17
+  %16 = load i64, ptr %15, align 8, !tbaa !18
   switch i64 %16, label %22 [
     i64 4, label %17
     i64 8, label %20
   ]
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %8, align 4, !tbaa !18
+  %18 = load i32, ptr %8, align 4, !tbaa !19
   %19 = sext i32 %18 to i64
-  store i64 %19, ptr %1, align 8, !tbaa !19
+  store i64 %19, ptr %1, align 8, !tbaa !20
   br label %52
 
 20:                                               ; preds = %14
-  %21 = load i64, ptr %8, align 8, !tbaa !19
-  store i64 %21, ptr %1, align 8, !tbaa !19
+  %21 = load i64, ptr %8, align 8, !tbaa !20
+  store i64 %21, ptr %1, align 8, !tbaa !20
   br label %52
 
 22:                                               ; preds = %14
@@ -833,25 +833,25 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load i64, ptr %25, align 8, !tbaa !17
+  %26 = load i64, ptr %25, align 8, !tbaa !18
   switch i64 %26, label %35 [
     i64 4, label %27
     i64 8, label %30
   ]
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr %8, align 4, !tbaa !18
+  %28 = load i32, ptr %8, align 4, !tbaa !19
   %29 = zext i32 %28 to i64
-  store i64 %29, ptr %1, align 8, !tbaa !19
+  store i64 %29, ptr %1, align 8, !tbaa !20
   br label %52
 
 30:                                               ; preds = %24
-  %31 = load i64, ptr %8, align 8, !tbaa !19
+  %31 = load i64, ptr %8, align 8, !tbaa !20
   %32 = icmp sgt i64 %31, -1
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
-  store i64 %31, ptr %1, align 8, !tbaa !19
+  store i64 %31, ptr %1, align 8, !tbaa !20
   br label %52
 
 34:                                               ; preds = %30
@@ -866,12 +866,12 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
 
 37:                                               ; preds = %11
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load i64, ptr %38, align 8, !tbaa !17
+  %39 = load i64, ptr %38, align 8, !tbaa !18
   %cond = icmp eq i64 %39, 8
   br i1 %cond, label %40, label %50
 
 40:                                               ; preds = %37
-  %41 = load double, ptr %8, align 8, !tbaa !20
+  %41 = load double, ptr %8, align 8, !tbaa !21
   %42 = fcmp oge double %41, 0xC3E0000000000000
   %43 = fcmp olt double %41, 0x43E0000000000000
   %or.cond3 = and i1 %42, %43
@@ -884,7 +884,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %44
-  store i64 %45, ptr %1, align 8, !tbaa !19
+  store i64 %45, ptr %1, align 8, !tbaa !20
   br label %52
 
 49:                                               ; preds = %44, %40
@@ -919,7 +919,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_long(ptr noundef captures(address_is_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = alloca i64, align 8
-  store i64 %1, ptr %3, align 8, !tbaa !19
+  store i64 %1, ptr %3, align 8, !tbaa !20
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -931,25 +931,25 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %7, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   br label %64
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !17
+  %18 = load i64, ptr %17, align 8, !tbaa !18
   switch i64 %18, label %25 [
     i64 4, label %19
     i64 8, label %24
@@ -961,9 +961,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br i1 %or.cond, label %21, label %23
 
 21:                                               ; preds = %19
-  store i64 4, ptr %7, align 8, !tbaa !13
+  store i64 4, ptr %7, align 8, !tbaa !14
   %22 = trunc nsw i64 %1 to i32
-  store i32 %22, ptr %13, align 4, !tbaa !18
+  store i32 %22, ptr %13, align 4, !tbaa !19
   br label %64
 
 23:                                               ; preds = %19
@@ -973,8 +973,8 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br label %64
 
 24:                                               ; preds = %16
-  store i64 8, ptr %7, align 8, !tbaa !13
-  store i64 %1, ptr %13, align 8, !tbaa !19
+  store i64 8, ptr %7, align 8, !tbaa !14
+  store i64 %1, ptr %13, align 8, !tbaa !20
   br label %64
 
 25:                                               ; preds = %16
@@ -989,17 +989,17 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !15
+  %32 = load ptr, ptr %31, align 8, !tbaa !16
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %30
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   br label %64
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !17
+  %37 = load i64, ptr %36, align 8, !tbaa !18
   switch i64 %37, label %44 [
     i64 4, label %38
     i64 8, label %43
@@ -1010,9 +1010,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %38
-  store i64 4, ptr %7, align 8, !tbaa !13
+  store i64 4, ptr %7, align 8, !tbaa !14
   %41 = trunc nuw i64 %1 to i32
-  store i32 %41, ptr %32, align 4, !tbaa !18
+  store i32 %41, ptr %32, align 4, !tbaa !19
   br label %64
 
 42:                                               ; preds = %38
@@ -1022,8 +1022,8 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br label %64
 
 43:                                               ; preds = %35
-  store i64 8, ptr %7, align 8, !tbaa !13
-  store i64 %1, ptr %32, align 8, !tbaa !19
+  store i64 8, ptr %7, align 8, !tbaa !14
+  store i64 %1, ptr %32, align 8, !tbaa !20
   br label %64
 
 44:                                               ; preds = %35
@@ -1036,17 +1036,17 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !15
+  %50 = load ptr, ptr %49, align 8, !tbaa !16
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %48
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   br label %64
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %55 = load i64, ptr %54, align 8, !tbaa !17
+  %55 = load i64, ptr %54, align 8, !tbaa !18
   %cond = icmp eq i64 %55, 8
   br i1 %cond, label %56, label %62
 
@@ -1056,9 +1056,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   %60 = sitofp i64 %1 to double
-  store double %60, ptr %50, align 8, !tbaa !20
+  store double %60, ptr %50, align 8, !tbaa !21
   br label %64
 
 61:                                               ; preds = %56
@@ -1086,15 +1086,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_long(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !28
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !16, !alias.scope !28
+  store i32 1, ptr %4, align 8, !tbaa !17, !alias.scope !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !28
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 8, ptr %6, align 8, !tbaa !17, !alias.scope !28
+  store i64 8, ptr %6, align 8, !tbaa !18, !alias.scope !29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !28
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !29
   ret void
 }
 
@@ -1119,7 +1119,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -1131,7 +1131,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   switch i32 %13, label %54 [
     i32 2, label %14
     i32 1, label %24
@@ -1140,21 +1140,21 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !17
+  %16 = load i64, ptr %15, align 8, !tbaa !18
   switch i64 %16, label %22 [
     i64 4, label %17
     i64 8, label %20
   ]
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %8, align 4, !tbaa !18
+  %18 = load i32, ptr %8, align 4, !tbaa !19
   %19 = zext i32 %18 to i64
-  store i64 %19, ptr %1, align 8, !tbaa !19
+  store i64 %19, ptr %1, align 8, !tbaa !20
   br label %55
 
 20:                                               ; preds = %14
-  %21 = load i64, ptr %8, align 8, !tbaa !19
-  store i64 %21, ptr %1, align 8, !tbaa !19
+  %21 = load i64, ptr %8, align 8, !tbaa !20
+  store i64 %21, ptr %1, align 8, !tbaa !20
   br label %55
 
 22:                                               ; preds = %14
@@ -1163,20 +1163,20 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load i64, ptr %25, align 8, !tbaa !17
+  %26 = load i64, ptr %25, align 8, !tbaa !18
   switch i64 %26, label %38 [
     i64 4, label %27
     i64 8, label %33
   ]
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr %8, align 4, !tbaa !18
+  %28 = load i32, ptr %8, align 4, !tbaa !19
   %29 = icmp sgt i32 %28, -1
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
   %31 = zext nneg i32 %28 to i64
-  store i64 %31, ptr %1, align 8, !tbaa !19
+  store i64 %31, ptr %1, align 8, !tbaa !20
   br label %55
 
 32:                                               ; preds = %27
@@ -1186,12 +1186,12 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
   br label %55
 
 33:                                               ; preds = %24
-  %34 = load i64, ptr %8, align 8, !tbaa !19
+  %34 = load i64, ptr %8, align 8, !tbaa !20
   %35 = icmp sgt i64 %34, -1
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %33
-  store i64 %34, ptr %1, align 8, !tbaa !19
+  store i64 %34, ptr %1, align 8, !tbaa !20
   br label %55
 
 37:                                               ; preds = %33
@@ -1206,12 +1206,12 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
 
 40:                                               ; preds = %11
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load i64, ptr %41, align 8, !tbaa !17
+  %42 = load i64, ptr %41, align 8, !tbaa !18
   %cond = icmp eq i64 %42, 8
   br i1 %cond, label %43, label %53
 
 43:                                               ; preds = %40
-  %44 = load double, ptr %8, align 8, !tbaa !20
+  %44 = load double, ptr %8, align 8, !tbaa !21
   %45 = fcmp oge double %44, 0.000000e+00
   %46 = fcmp olt double %44, 0x43F0000000000000
   %or.cond3 = and i1 %45, %46
@@ -1224,7 +1224,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %47
-  store i64 %48, ptr %1, align 8, !tbaa !19
+  store i64 %48, ptr %1, align 8, !tbaa !20
   br label %55
 
 52:                                               ; preds = %47, %43
@@ -1259,7 +1259,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_ulong(ptr noundef captures(address_is
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = alloca i64, align 8
-  store i64 %1, ptr %3, align 8, !tbaa !19
+  store i64 %1, ptr %3, align 8, !tbaa !20
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1271,9 +1271,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %7, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   switch i32 %9, label %56 [
     i32 2, label %10
     i32 1, label %26
@@ -1282,17 +1282,17 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !15
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   br label %57
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !17
+  %17 = load i64, ptr %16, align 8, !tbaa !18
   switch i64 %17, label %24 [
     i64 4, label %18
     i64 8, label %23
@@ -1303,9 +1303,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  store i64 4, ptr %7, align 8, !tbaa !13
+  store i64 4, ptr %7, align 8, !tbaa !14
   %21 = trunc nuw i64 %1 to i32
-  store i32 %21, ptr %12, align 4, !tbaa !18
+  store i32 %21, ptr %12, align 4, !tbaa !19
   br label %57
 
 22:                                               ; preds = %18
@@ -1315,8 +1315,8 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br label %57
 
 23:                                               ; preds = %15
-  store i64 8, ptr %7, align 8, !tbaa !13
-  store i64 %1, ptr %12, align 8, !tbaa !19
+  store i64 8, ptr %7, align 8, !tbaa !14
+  store i64 %1, ptr %12, align 8, !tbaa !20
   br label %57
 
 24:                                               ; preds = %15
@@ -1325,17 +1325,17 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
 
 26:                                               ; preds = %6
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !15
+  %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %26
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   br label %57
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !17
+  %33 = load i64, ptr %32, align 8, !tbaa !18
   switch i64 %33, label %43 [
     i64 4, label %34
     i64 8, label %39
@@ -1346,9 +1346,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
-  store i64 4, ptr %7, align 8, !tbaa !13
+  store i64 4, ptr %7, align 8, !tbaa !14
   %37 = trunc nuw nsw i64 %1 to i32
-  store i32 %37, ptr %28, align 4, !tbaa !18
+  store i32 %37, ptr %28, align 4, !tbaa !19
   br label %57
 
 38:                                               ; preds = %34
@@ -1362,8 +1362,8 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %39
-  store i64 8, ptr %7, align 8, !tbaa !13
-  store i64 %1, ptr %28, align 8, !tbaa !19
+  store i64 8, ptr %7, align 8, !tbaa !14
+  store i64 %1, ptr %28, align 8, !tbaa !20
   br label %57
 
 42:                                               ; preds = %39
@@ -1378,7 +1378,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
 
 45:                                               ; preds = %6
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = load i64, ptr %46, align 8, !tbaa !17
+  %47 = load i64, ptr %46, align 8, !tbaa !18
   %cond = icmp eq i64 %47, 8
   br i1 %cond, label %48, label %55
 
@@ -1387,11 +1387,11 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %48
-  store i64 8, ptr %7, align 8, !tbaa !13
+  store i64 8, ptr %7, align 8, !tbaa !14
   %51 = uitofp nneg i64 %1 to double
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !15
-  store double %51, ptr %53, align 8, !tbaa !20
+  %53 = load ptr, ptr %52, align 8, !tbaa !16
+  store double %51, ptr %53, align 8, !tbaa !21
   br label %57
 
 54:                                               ; preds = %48
@@ -1419,15 +1419,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_ulong(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !31
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %4, align 8, !tbaa !16, !alias.scope !31
+  store i32 2, ptr %4, align 8, !tbaa !17, !alias.scope !32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !31
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 8, ptr %6, align 8, !tbaa !17, !alias.scope !31
+  store i64 8, ptr %6, align 8, !tbaa !18, !alias.scope !32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !31
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !32
   ret void
 }
 
@@ -1443,7 +1443,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, i64 noundef range(i64 4, 9) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
@@ -1455,7 +1455,7 @@ define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr noundef nonnull 
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !16
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   switch i32 %10, label %49 [
     i32 1, label %11
     i32 2, label %32
@@ -1463,10 +1463,10 @@ define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr noundef nonnull 
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !17
+  %13 = load i64, ptr %12, align 8, !tbaa !18
   %14 = getelementptr i8, ptr %5, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -1
-  %16 = load i8, ptr %15, align 1, !tbaa !34
+  %16 = load i8, ptr %15, align 1, !tbaa !35
   %.lobit.i = ashr i8 %16, 7
   %17 = icmp ult i64 %13, %2
   br i1 %17, label %18, label %21
@@ -1487,18 +1487,18 @@ define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr noundef nonnull 
 24:                                               ; preds = %.lr.ph.i.i.i
   %25 = add nuw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, %22
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !35
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i:                                     ; preds = %21, %24
   %.07.i.i.i = phi i64 [ %25, %24 ], [ 0, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.07.i.i.i
-  %27 = load i8, ptr %26, align 1, !tbaa !34
+  %27 = load i8, ptr %26, align 1, !tbaa !35
   %.not.i.i.i = icmp eq i8 %27, %.lobit.i
   br i1 %.not.i.i.i, label %24, label %check_sign_bytes.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %24, %21
   %28 = getelementptr i8, ptr %23, i64 -1
-  %29 = load i8, ptr %28, align 1, !tbaa !34
+  %29 = load i8, ptr %28, align 1, !tbaa !35
   %30 = xor i8 %29, %.lobit.i
   %.not28.i.i = icmp sgt i8 %30, -1
   br i1 %.not28.i.i, label %31, label %check_sign_bytes.exit.i.i
@@ -1515,7 +1515,7 @@ check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loo
 
 32:                                               ; preds = %8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = load i64, ptr %33, align 8, !tbaa !17
+  %34 = load i64, ptr %33, align 8, !tbaa !18
   %35 = icmp ult i64 %34, %2
   br i1 %35, label %36, label %39
 
@@ -1535,18 +1535,18 @@ check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loo
 42:                                               ; preds = %.lr.ph.i.i.i14
   %43 = add nuw i64 %.07.i.i.i15, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %43, %40
-  br i1 %exitcond.not.i.i.i19, label %.loopexit.i.i20, label %.lr.ph.i.i.i14, !llvm.loop !35
+  br i1 %exitcond.not.i.i.i19, label %.loopexit.i.i20, label %.lr.ph.i.i.i14, !llvm.loop !36
 
 .lr.ph.i.i.i14:                                   ; preds = %39, %42
   %.07.i.i.i15 = phi i64 [ %43, %42 ], [ 0, %39 ]
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.07.i.i.i15
-  %45 = load i8, ptr %44, align 1, !tbaa !34
+  %45 = load i8, ptr %44, align 1, !tbaa !35
   %.not.i.i.i16 = icmp eq i8 %45, 0
   br i1 %.not.i.i.i16, label %42, label %check_sign_bytes.exit.i.i17
 
 .loopexit.i.i20:                                  ; preds = %42, %39
   %46 = getelementptr i8, ptr %41, i64 -1
-  %47 = load i8, ptr %46, align 1, !tbaa !34
+  %47 = load i8, ptr %46, align 1, !tbaa !35
   %.not28.i.i21 = icmp sgt i8 %47, -1
   br i1 %.not28.i.i21, label %48, label %check_sign_bytes.exit.i.i17
 
@@ -1577,13 +1577,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @general_set_int(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 4, 9) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %signed_from_signed.exit.thread, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   switch i32 %9, label %30 [
     i32 1, label %10
     i32 2, label %signed_from_signed.exit
@@ -1591,10 +1591,10 @@ define internal fastcc range(i32 0, 2) i32 @general_set_int(ptr noundef nonnull 
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !17
+  %12 = load i64, ptr %11, align 8, !tbaa !18
   %13 = getelementptr i8, ptr %1, i64 %2
   %14 = getelementptr i8, ptr %13, i64 -1
-  %15 = load i8, ptr %14, align 1, !tbaa !34
+  %15 = load i8, ptr %14, align 1, !tbaa !35
   %.lobit.i = ashr i8 %15, 7
   %16 = icmp ult i64 %2, %12
   br i1 %16, label %17, label %20
@@ -1614,18 +1614,18 @@ define internal fastcc range(i32 0, 2) i32 @general_set_int(ptr noundef nonnull 
 23:                                               ; preds = %.lr.ph.i.i.i
   %24 = add nuw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %24, %21
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !35
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i:                                     ; preds = %20, %23
   %.07.i.i.i = phi i64 [ %24, %23 ], [ 0, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.07.i.i.i
-  %26 = load i8, ptr %25, align 1, !tbaa !34
+  %26 = load i8, ptr %25, align 1, !tbaa !35
   %.not.i.i.i = icmp eq i8 %26, %.lobit.i
   br i1 %.not.i.i.i, label %23, label %check_sign_bytes.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %23, %20
   %27 = getelementptr i8, ptr %22, i64 -1
-  %28 = load i8, ptr %27, align 1, !tbaa !34
+  %28 = load i8, ptr %27, align 1, !tbaa !35
   %29 = xor i8 %28, %.lobit.i
   %.not28.i.i = icmp sgt i8 %29, -1
   br i1 %.not28.i.i, label %signed_from_signed.exit.thread25.sink.split, label %check_sign_bytes.exit.i.i
@@ -1644,7 +1644,7 @@ check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loo
 
 signed_from_signed.exit:                          ; preds = %7
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load i64, ptr %31, align 8, !tbaa !17
+  %32 = load i64, ptr %31, align 8, !tbaa !18
   %33 = tail call fastcc i32 @unsigned_from_signed(ptr noundef %5, i64 noundef %32, ptr noundef %1, i64 noundef %2)
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %signed_from_signed.exit.thread, label %signed_from_signed.exit.thread25
@@ -1656,35 +1656,35 @@ signed_from_signed.exit.thread25.sink.split:      ; preds = %.loopexit.i.i, %17
 
 signed_from_signed.exit.thread25:                 ; preds = %signed_from_signed.exit.thread25.sink.split, %signed_from_signed.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !17
+  %35 = load i64, ptr %34, align 8, !tbaa !18
   br label %signed_from_signed.exit.thread
 
 signed_from_signed.exit.thread:                   ; preds = %signed_from_signed.exit.thread25, %signed_from_signed.exit, %30, %check_sign_bytes.exit.i.i, %3
   %.sink29 = phi i64 [ %2, %3 ], [ %35, %signed_from_signed.exit.thread25 ], [ %2, %signed_from_signed.exit ], [ %2, %30 ], [ %2, %check_sign_bytes.exit.i.i ]
   %.018 = phi i32 [ 1, %3 ], [ 1, %signed_from_signed.exit.thread25 ], [ 0, %signed_from_signed.exit ], [ 0, %30 ], [ 0, %check_sign_bytes.exit.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink29, ptr %36, align 8, !tbaa !13
+  store i64 %.sink29, ptr %36, align 8, !tbaa !14
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_int32(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !36
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !37
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !16, !alias.scope !36
+  store i32 1, ptr %4, align 8, !tbaa !17, !alias.scope !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !36
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 4, ptr %6, align 8, !tbaa !17, !alias.scope !36
+  store i64 4, ptr %6, align 8, !tbaa !18, !alias.scope !37
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !36
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !37
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, i64 noundef range(i64 4, 9) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
@@ -1696,7 +1696,7 @@ define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr noundef nonnull
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !16
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   switch i32 %10, label %29 [
     i32 1, label %11
     i32 2, label %15
@@ -1704,13 +1704,13 @@ define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr noundef nonnull
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !17
+  %13 = load i64, ptr %12, align 8, !tbaa !18
   %14 = tail call fastcc i32 @unsigned_from_signed(ptr noundef %1, i64 noundef %2, ptr noundef %5, i64 noundef %13)
   br label %unsigned_from_unsigned.exit
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !17
+  %17 = load i64, ptr %16, align 8, !tbaa !18
   %18 = icmp ult i64 %17, %2
   br i1 %18, label %19, label %22
 
@@ -1730,12 +1730,12 @@ define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr noundef nonnull
 25:                                               ; preds = %.lr.ph.i.i.i
   %26 = add nuw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %26, %23
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !35
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i:                                     ; preds = %22, %25
   %.07.i.i.i = phi i64 [ %26, %25 ], [ 0, %22 ]
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.07.i.i.i
-  %28 = load i8, ptr %27, align 1, !tbaa !34
+  %28 = load i8, ptr %27, align 1, !tbaa !35
   %.not.i.i.i = icmp eq i8 %28, 0
   br i1 %.not.i.i.i, label %25, label %check_sign_bytes.exit.i.i
 
@@ -1763,13 +1763,13 @@ unsigned_from_unsigned.exit:                      ; preds = %check_sign_bytes.ex
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @general_set_uint(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 4, 9) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %signed_from_unsigned.exit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   switch i32 %9, label %34 [
     i32 1, label %10
     i32 2, label %23
@@ -1777,7 +1777,7 @@ define internal fastcc range(i32 0, 2) i32 @general_set_uint(ptr noundef nonnull
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !17
+  %12 = load i64, ptr %11, align 8, !tbaa !18
   %13 = icmp ult i64 %2, %12
   br i1 %13, label %.loopexit.i.i28.sink.split, label %14
 
@@ -1790,18 +1790,18 @@ define internal fastcc range(i32 0, 2) i32 @general_set_uint(ptr noundef nonnull
 17:                                               ; preds = %.lr.ph.i.i.i
   %18 = add nuw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %18, %15
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !35
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i:                                     ; preds = %14, %17
   %.07.i.i.i = phi i64 [ %18, %17 ], [ 0, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.07.i.i.i
-  %20 = load i8, ptr %19, align 1, !tbaa !34
+  %20 = load i8, ptr %19, align 1, !tbaa !35
   %.not.i.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i.i, label %17, label %check_sign_bytes.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %17, %14
   %21 = getelementptr i8, ptr %16, i64 -1
-  %22 = load i8, ptr %21, align 1, !tbaa !34
+  %22 = load i8, ptr %21, align 1, !tbaa !35
   %.not28.i.i = icmp sgt i8 %22, -1
   br i1 %.not28.i.i, label %.loopexit.i.i28, label %check_sign_bytes.exit.i.i
 
@@ -1813,7 +1813,7 @@ check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loo
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i64, ptr %24, align 8, !tbaa !17
+  %25 = load i64, ptr %24, align 8, !tbaa !18
   %26 = icmp ult i64 %2, %25
   br i1 %26, label %.loopexit.i.i28.sink.split, label %27
 
@@ -1826,12 +1826,12 @@ check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loo
 30:                                               ; preds = %.lr.ph.i.i.i22
   %31 = add nuw i64 %.07.i.i.i23, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %31, %28
-  br i1 %exitcond.not.i.i.i27, label %.loopexit.i.i28, label %.lr.ph.i.i.i22, !llvm.loop !35
+  br i1 %exitcond.not.i.i.i27, label %.loopexit.i.i28, label %.lr.ph.i.i.i22, !llvm.loop !36
 
 .lr.ph.i.i.i22:                                   ; preds = %27, %30
   %.07.i.i.i23 = phi i64 [ %31, %30 ], [ 0, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.07.i.i.i23
-  %33 = load i8, ptr %32, align 1, !tbaa !34
+  %33 = load i8, ptr %32, align 1, !tbaa !35
   %.not.i.i.i24 = icmp eq i8 %33, 0
   br i1 %.not.i.i.i24, label %30, label %check_sign_bytes.exit.i.i25
 
@@ -1858,56 +1858,56 @@ check_sign_bytes.exit.i.i25:                      ; preds = %.lr.ph.i.i.i22
   %.sink = phi i64 [ %12, %.loopexit.i.i ], [ %25, %27 ], [ %2, %.loopexit.i.i28.sink.split ], [ %25, %30 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %.sink, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load i64, ptr %37, align 8, !tbaa !17
+  %38 = load i64, ptr %37, align 8, !tbaa !18
   br label %signed_from_unsigned.exit
 
 signed_from_unsigned.exit:                        ; preds = %.loopexit.i.i28, %check_sign_bytes.exit.i.i25, %check_sign_bytes.exit.i.i, %34, %3
   %.sink33 = phi i64 [ %2, %3 ], [ %38, %.loopexit.i.i28 ], [ %2, %34 ], [ %2, %check_sign_bytes.exit.i.i ], [ %2, %check_sign_bytes.exit.i.i25 ]
   %.018 = phi i32 [ 1, %3 ], [ 1, %.loopexit.i.i28 ], [ 0, %34 ], [ 0, %check_sign_bytes.exit.i.i ], [ 0, %check_sign_bytes.exit.i.i25 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink33, ptr %39, align 8, !tbaa !13
+  store i64 %.sink33, ptr %39, align 8, !tbaa !14
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_uint32(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !39
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %4, align 8, !tbaa !16, !alias.scope !39
+  store i32 2, ptr %4, align 8, !tbaa !17, !alias.scope !40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !39
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 4, ptr %6, align 8, !tbaa !17, !alias.scope !39
+  store i64 4, ptr %6, align 8, !tbaa !18, !alias.scope !40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !39
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !40
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_int64(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !42
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !43
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !16, !alias.scope !42
+  store i32 1, ptr %4, align 8, !tbaa !17, !alias.scope !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !42
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 8, ptr %6, align 8, !tbaa !17, !alias.scope !42
+  store i64 8, ptr %6, align 8, !tbaa !18, !alias.scope !43
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !42
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !43
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_uint64(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !45
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !46
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %4, align 8, !tbaa !16, !alias.scope !45
+  store i32 2, ptr %4, align 8, !tbaa !17, !alias.scope !46
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !45
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !46
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 8, ptr %6, align 8, !tbaa !17, !alias.scope !45
+  store i64 8, ptr %6, align 8, !tbaa !18, !alias.scope !46
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !45
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !46
   ret void
 }
 
@@ -1925,15 +1925,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_size_t(ptr noundef captures(address_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !48
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !49
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %4, align 8, !tbaa !16, !alias.scope !48
+  store i32 2, ptr %4, align 8, !tbaa !17, !alias.scope !49
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !48
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !49
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 8, ptr %6, align 8, !tbaa !17, !alias.scope !48
+  store i64 8, ptr %6, align 8, !tbaa !18, !alias.scope !49
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !48
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !49
   ret void
 }
 
@@ -1951,15 +1951,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_time_t(ptr noundef captures(address_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_time_t(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !51
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !16, !alias.scope !51
+  store i32 1, ptr %4, align 8, !tbaa !17, !alias.scope !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !51
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !52
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 8, ptr %6, align 8, !tbaa !17, !alias.scope !51
+  store i64 8, ptr %6, align 8, !tbaa !18, !alias.scope !52
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !51
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !52
   ret void
 }
 
@@ -1972,7 +1972,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(addr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -1984,7 +1984,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(addr
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !16
+  %12 = load i32, ptr %11, align 8, !tbaa !17
   switch i32 %12, label %.thread [
     i32 2, label %13
     i32 1, label %19
@@ -1992,17 +1992,17 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(addr
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !17
+  %15 = load i64, ptr %14, align 8, !tbaa !18
   %16 = trunc i64 %15 to i32
-  %17 = load ptr, ptr %1, align 8, !tbaa !54
+  %17 = load ptr, ptr %1, align 8, !tbaa !55
   %18 = tail call ptr @BN_native2bn(ptr noundef nonnull %7, i32 noundef %16, ptr noundef %17) #13
   br label %25
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !17
+  %21 = load i64, ptr %20, align 8, !tbaa !18
   %22 = trunc i64 %21 to i32
-  %23 = load ptr, ptr %1, align 8, !tbaa !54
+  %23 = load ptr, ptr %1, align 8, !tbaa !55
   %24 = tail call ptr @BN_signed_native2bn(ptr noundef nonnull %7, i32 noundef %22, ptr noundef %23) #13
   br label %25
 
@@ -2024,7 +2024,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(addr
   br label %29
 
 28:                                               ; preds = %25
-  store ptr %.0, ptr %1, align 8, !tbaa !54
+  store ptr %.0, ptr %1, align 8, !tbaa !55
   br label %29
 
 29:                                               ; preds = %28, %27, %9
@@ -2049,7 +2049,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_nu
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %6, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !14
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %9
 
@@ -2061,7 +2061,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_nu
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !16
+  %11 = load i32, ptr %10, align 8, !tbaa !17
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %13, label %16
 
@@ -2081,23 +2081,23 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_nu
   %18 = add nsw i32 %17, 7
   %19 = sdiv i32 %18, 8
   %20 = sext i32 %19 to i64
-  %21 = load i32, ptr %10, align 8, !tbaa !16
+  %21 = load i32, ptr %10, align 8, !tbaa !17
   %22 = icmp eq i32 %21, 1
   %23 = zext i1 %22 to i64
   %spec.select = add nsw i64 %20, %23
   %.1 = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %16
-  store i64 %.1, ptr %6, align 8, !tbaa !13
+  store i64 %.1, ptr %6, align 8, !tbaa !14
   br label %46
 
 28:                                               ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load i64, ptr %29, align 8, !tbaa !17
+  %30 = load i64, ptr %29, align 8, !tbaa !18
   %.not31 = icmp ult i64 %30, %.1
   br i1 %.not31, label %45, label %31
 
@@ -2138,12 +2138,12 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_nu
   br label %46
 
 43:                                               ; preds = %37, %32
-  %44 = load i64, ptr %29, align 8, !tbaa !17
-  store i64 %44, ptr %6, align 8, !tbaa !13
+  %44 = load i64, ptr %29, align 8, !tbaa !18
+  store i64 %44, ptr %6, align 8, !tbaa !14
   br label %46
 
 45:                                               ; preds = %28
-  store i64 %.1, ptr %6, align 8, !tbaa !13
+  store i64 %.1, ptr %6, align 8, !tbaa !14
   tail call void @ERR_new() #13
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1165, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #13
@@ -2164,15 +2164,15 @@ declare i32 @BN_signed_bn2native(ptr noundef, ptr noundef, i32 noundef) local_un
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_BN(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !56
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !57
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %5, align 8, !tbaa !16, !alias.scope !56
+  store i32 2, ptr %5, align 8, !tbaa !17, !alias.scope !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %6, align 8, !tbaa !15, !alias.scope !56
+  store ptr %2, ptr %6, align 8, !tbaa !16, !alias.scope !57
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %3, ptr %7, align 8, !tbaa !17, !alias.scope !56
+  store i64 %3, ptr %7, align 8, !tbaa !18, !alias.scope !57
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %8, align 8, !tbaa !13, !alias.scope !56
+  store i64 -1, ptr %8, align 8, !tbaa !14, !alias.scope !57
   ret void
 }
 
@@ -2185,7 +2185,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -2197,7 +2197,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !16
+  %12 = load i32, ptr %11, align 8, !tbaa !17
   switch i32 %12, label %44 [
     i32 3, label %13
     i32 2, label %19
@@ -2206,13 +2206,13 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !17
+  %15 = load i64, ptr %14, align 8, !tbaa !18
   %cond = icmp eq i64 %15, 8
   br i1 %cond, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = load double, ptr %7, align 8, !tbaa !20
-  store double %17, ptr %1, align 8, !tbaa !20
+  %17 = load double, ptr %7, align 8, !tbaa !21
+  store double %17, ptr %1, align 8, !tbaa !21
   br label %45
 
 18:                                               ; preds = %13
@@ -2223,26 +2223,26 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !17
+  %21 = load i64, ptr %20, align 8, !tbaa !18
   switch i64 %21, label %44 [
     i64 4, label %22
     i64 8, label %25
   ]
 
 22:                                               ; preds = %19
-  %23 = load i32, ptr %7, align 4, !tbaa !18
+  %23 = load i32, ptr %7, align 4, !tbaa !19
   %24 = uitofp i32 %23 to double
-  store double %24, ptr %1, align 8, !tbaa !20
+  store double %24, ptr %1, align 8, !tbaa !21
   br label %45
 
 25:                                               ; preds = %19
-  %26 = load i64, ptr %7, align 8, !tbaa !19
+  %26 = load i64, ptr %7, align 8, !tbaa !20
   %27 = icmp ult i64 %26, 9007199254740992
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
   %29 = uitofp nneg i64 %26 to double
-  store double %29, ptr %1, align 8, !tbaa !20
+  store double %29, ptr %1, align 8, !tbaa !21
   br label %45
 
 30:                                               ; preds = %25
@@ -2253,27 +2253,27 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
 
 31:                                               ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !17
+  %33 = load i64, ptr %32, align 8, !tbaa !18
   switch i64 %33, label %44 [
     i64 4, label %34
     i64 8, label %37
   ]
 
 34:                                               ; preds = %31
-  %35 = load i32, ptr %7, align 4, !tbaa !18
+  %35 = load i32, ptr %7, align 4, !tbaa !19
   %36 = sitofp i32 %35 to double
-  store double %36, ptr %1, align 8, !tbaa !20
+  store double %36, ptr %1, align 8, !tbaa !21
   br label %45
 
 37:                                               ; preds = %31
-  %38 = load i64, ptr %7, align 8, !tbaa !19
+  %38 = load i64, ptr %7, align 8, !tbaa !20
   %39 = tail call i64 @llvm.abs.i64(i64 %38, i1 true)
   %40 = icmp samesign ult i64 %39, 9007199254740992
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %37
   %42 = sitofp i64 %38 to double
-  store double %42, ptr %1, align 8, !tbaa !20
+  store double %42, ptr %1, align 8, !tbaa !21
   br label %45
 
 43:                                               ; preds = %37
@@ -2306,9 +2306,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %6, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !16
+  %8 = load i32, ptr %7, align 8, !tbaa !17
   switch i32 %8, label %67 [
     i32 3, label %9
     i32 2, label %19
@@ -2317,23 +2317,23 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !15
+  %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
-  store i64 8, ptr %6, align 8, !tbaa !13
+  store i64 8, ptr %6, align 8, !tbaa !14
   br label %68
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !17
+  %16 = load i64, ptr %15, align 8, !tbaa !18
   %cond = icmp eq i64 %16, 8
   br i1 %cond, label %17, label %18
 
 17:                                               ; preds = %14
-  store i64 8, ptr %6, align 8, !tbaa !13
-  store double %1, ptr %11, align 8, !tbaa !20
+  store i64 8, ptr %6, align 8, !tbaa !14
+  store double %1, ptr %11, align 8, !tbaa !21
   br label %68
 
 18:                                               ; preds = %14
@@ -2344,12 +2344,12 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !15
+  %21 = load ptr, ptr %20, align 8, !tbaa !16
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
-  store i64 8, ptr %6, align 8, !tbaa !13
+  store i64 8, ptr %6, align 8, !tbaa !14
   br label %68
 
 24:                                               ; preds = %19
@@ -2366,7 +2366,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load i64, ptr %30, align 8, !tbaa !17
+  %31 = load i64, ptr %30, align 8, !tbaa !18
   switch i64 %31, label %67 [
     i64 4, label %32
     i64 8, label %38
@@ -2379,9 +2379,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br i1 %or.cond, label %35, label %37
 
 35:                                               ; preds = %32
-  store i64 4, ptr %6, align 8, !tbaa !13
+  store i64 4, ptr %6, align 8, !tbaa !14
   %36 = fptoui double %1 to i32
-  store i32 %36, ptr %21, align 4, !tbaa !18
+  store i32 %36, ptr %21, align 4, !tbaa !19
   br label %68
 
 37:                                               ; preds = %32
@@ -2397,8 +2397,8 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br i1 %or.cond3, label %41, label %42
 
 41:                                               ; preds = %38
-  store i64 8, ptr %6, align 8, !tbaa !13
-  store i64 %25, ptr %21, align 8, !tbaa !19
+  store i64 8, ptr %6, align 8, !tbaa !14
+  store i64 %25, ptr %21, align 8, !tbaa !20
   br label %68
 
 42:                                               ; preds = %38
@@ -2409,12 +2409,12 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
 
 43:                                               ; preds = %5
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !15
+  %45 = load ptr, ptr %44, align 8, !tbaa !16
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %43
-  store i64 8, ptr %6, align 8, !tbaa !13
+  store i64 8, ptr %6, align 8, !tbaa !14
   br label %68
 
 48:                                               ; preds = %43
@@ -2431,7 +2431,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %55 = load i64, ptr %54, align 8, !tbaa !17
+  %55 = load i64, ptr %54, align 8, !tbaa !18
   switch i64 %55, label %67 [
     i64 4, label %56
     i64 8, label %62
@@ -2444,9 +2444,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br i1 %or.cond5, label %59, label %61
 
 59:                                               ; preds = %56
-  store i64 4, ptr %6, align 8, !tbaa !13
+  store i64 4, ptr %6, align 8, !tbaa !14
   %60 = fptosi double %1 to i32
-  store i32 %60, ptr %45, align 4, !tbaa !18
+  store i32 %60, ptr %45, align 4, !tbaa !19
   br label %68
 
 61:                                               ; preds = %56
@@ -2462,8 +2462,8 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br i1 %or.cond7, label %65, label %66
 
 65:                                               ; preds = %62
-  store i64 8, ptr %6, align 8, !tbaa !13
-  store i64 %49, ptr %45, align 8, !tbaa !19
+  store i64 8, ptr %6, align 8, !tbaa !14
+  store i64 %49, ptr %45, align 8, !tbaa !20
   br label %68
 
 66:                                               ; preds = %62
@@ -2485,36 +2485,36 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_double(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !59
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !60
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %4, align 8, !tbaa !16, !alias.scope !59
+  store i32 3, ptr %4, align 8, !tbaa !17, !alias.scope !60
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !15, !alias.scope !59
+  store ptr %2, ptr %5, align 8, !tbaa !16, !alias.scope !60
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 8, ptr %6, align 8, !tbaa !17, !alias.scope !59
+  store i64 8, ptr %6, align 8, !tbaa !18, !alias.scope !60
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %7, align 8, !tbaa !13, !alias.scope !59
+  store i64 -1, ptr %7, align 8, !tbaa !14, !alias.scope !60
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
-  store i64 %2, ptr %4, align 8, !tbaa !19
+  store i64 %2, ptr %4, align 8, !tbaa !20
   %5 = call fastcc i32 @get_string_internal(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef null, i32 noundef 4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %3
-  %10 = load i64, ptr %4, align 8, !tbaa !19
+  %10 = load i64, ptr %4, align 8, !tbaa !20
   %.not = icmp ult i64 %7, %10
   br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
   %14 = tail call i64 @OPENSSL_strnlen(ptr noundef %13, i64 noundef %7) #13
   br label %15
 
@@ -2530,9 +2530,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string(ptr noundef readonly capt
   br label %20
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr %1, align 8, !tbaa !62
+  %18 = load ptr, ptr %1, align 8, !tbaa !63
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.0
-  store i8 0, ptr %19, align 1, !tbaa !34
+  store i8 0, ptr %19, align 1, !tbaa !35
   br label %20
 
 20:                                               ; preds = %3, %17, %16
@@ -2557,7 +2557,7 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !16
+  %12 = load i32, ptr %11, align 8, !tbaa !17
   %.not = icmp eq i32 %12, %4
   br i1 %.not, label %14, label %13
 
@@ -2569,7 +2569,7 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !17
+  %16 = load i64, ptr %15, align 8, !tbaa !18
   %17 = icmp eq i32 %4, 4
   %18 = icmp eq i64 %16, 0
   %19 = select i1 %17, i1 true, i1 %18
@@ -2578,12 +2578,12 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br i1 %7, label %23, label %22
 
 22:                                               ; preds = %14
-  store i64 %16, ptr %3, align 8, !tbaa !19
+  store i64 %16, ptr %3, align 8, !tbaa !20
   br label %23
 
 23:                                               ; preds = %22, %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
@@ -2597,12 +2597,12 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br i1 %6, label %.critedge, label %29
 
 29:                                               ; preds = %28
-  %30 = load ptr, ptr %1, align 8, !tbaa !63
+  %30 = load ptr, ptr %1, align 8, !tbaa !64
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29
-  %.pre = load i64, ptr %2, align 8, !tbaa !19
+  %.pre = load i64, ptr %2, align 8, !tbaa !20
   br label %35
 
 32:                                               ; preds = %29
@@ -2611,8 +2611,8 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br i1 %.not38, label %.critedge, label %34
 
 34:                                               ; preds = %32
-  store ptr %33, ptr %1, align 8, !tbaa !63
-  store i64 %21, ptr %2, align 8, !tbaa !19
+  store ptr %33, ptr %1, align 8, !tbaa !64
+  store i64 %21, ptr %2, align 8, !tbaa !20
   br label %35
 
 35:                                               ; preds = %._crit_edge, %34
@@ -2628,7 +2628,7 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br label %.critedge
 
 40:                                               ; preds = %35
-  %41 = load ptr, ptr %24, align 8, !tbaa !15
+  %41 = load ptr, ptr %24, align 8, !tbaa !16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %41, i64 %16, i1 false)
   br label %.critedge
 
@@ -2642,7 +2642,7 @@ declare i64 @OPENSSL_strnlen(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca i64, align 8
-  store i64 %2, ptr %5, align 8, !tbaa !19
+  store i64 %2, ptr %5, align 8, !tbaa !20
   %6 = call fastcc i32 @get_string_internal(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %3, i32 noundef 5)
   ret i32 %6
 }
@@ -2662,7 +2662,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_string(ptr noundef captures(addr
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %7, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !14
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %9 = tail call fastcc i32 @set_string_internal(ptr noundef %0, ptr noundef %1, i64 noundef %8, i32 noundef 4)
   br label %10
@@ -2675,7 +2675,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_string(ptr noundef captures(addr
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2, i32 noundef range(i32 4, 6) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !16
+  %6 = load i32, ptr %5, align 8, !tbaa !17
   %.not = icmp eq i32 %6, %3
   br i1 %.not, label %8, label %7
 
@@ -2687,15 +2687,15 @@ define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr noundef nonn
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %9, align 8, !tbaa !13
+  store i64 %2, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !15
+  %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = icmp eq ptr %11, null
   br i1 %12, label %26, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !17
+  %15 = load i64, ptr %14, align 8, !tbaa !18
   %16 = icmp ult i64 %15, %2
   br i1 %16, label %17, label %18
 
@@ -2711,14 +2711,14 @@ define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr noundef nonn
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %14, align 8, !tbaa !17
+  %21 = load i64, ptr %14, align 8, !tbaa !18
   %22 = icmp ugt i64 %21, %2
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %10, align 8, !tbaa !15
+  %24 = load ptr, ptr %10, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %2
-  store i8 0, ptr %25, align 1, !tbaa !34
+  store i8 0, ptr %25, align 1, !tbaa !35
   br label %26
 
 26:                                               ; preds = %18, %20, %23, %8, %17, %7
@@ -2744,9 +2744,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_string(ptr noundef captures(add
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %8, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !16
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   %.not.i = icmp eq i32 %10, 5
   br i1 %.not.i, label %12, label %11
 
@@ -2757,15 +2757,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_string(ptr noundef captures(add
   br label %set_string_internal.exit
 
 12:                                               ; preds = %7
-  store i64 %2, ptr %8, align 8, !tbaa !13
+  store i64 %2, ptr %8, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !15
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = icmp eq ptr %14, null
   br i1 %15, label %set_string_internal.exit, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !17
+  %18 = load i64, ptr %17, align 8, !tbaa !18
   %19 = icmp ult i64 %18, %2
   br i1 %19, label %20, label %21
 
@@ -2797,29 +2797,29 @@ define void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %7, %4
   %.0 = phi i64 [ %8, %7 ], [ %3, %4 ]
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !64
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !65
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %10, align 8, !tbaa !16, !alias.scope !64
+  store i32 4, ptr %10, align 8, !tbaa !17, !alias.scope !65
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %11, align 8, !tbaa !15, !alias.scope !64
+  store ptr %2, ptr %11, align 8, !tbaa !16, !alias.scope !65
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0, ptr %12, align 8, !tbaa !17, !alias.scope !64
+  store i64 %.0, ptr %12, align 8, !tbaa !18, !alias.scope !65
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %13, align 8, !tbaa !13, !alias.scope !64
+  store i64 -1, ptr %13, align 8, !tbaa !14, !alias.scope !65
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !67
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !68
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %5, align 8, !tbaa !16, !alias.scope !67
+  store i32 5, ptr %5, align 8, !tbaa !17, !alias.scope !68
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %6, align 8, !tbaa !15, !alias.scope !67
+  store ptr %2, ptr %6, align 8, !tbaa !16, !alias.scope !68
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %3, ptr %7, align 8, !tbaa !17, !alias.scope !67
+  store i64 %3, ptr %7, align 8, !tbaa !18, !alias.scope !68
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %8, align 8, !tbaa !13, !alias.scope !67
+  store i64 -1, ptr %8, align 8, !tbaa !14, !alias.scope !68
   ret void
 }
 
@@ -2838,7 +2838,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef readonly capture
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !16
+  %8 = load i32, ptr %7, align 8, !tbaa !17
   %.not.i = icmp eq i32 %8, 6
   br i1 %.not.i, label %10, label %9
 
@@ -2850,9 +2850,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef readonly capture
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !15
-  %13 = load ptr, ptr %12, align 8, !tbaa !63
-  store ptr %13, ptr %1, align 8, !tbaa !63
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
+  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  store ptr %13, ptr %1, align 8, !tbaa !64
   br label %get_ptr_internal.exit
 
 get_ptr_internal.exit:                            ; preds = %5, %9, %10
@@ -2875,7 +2875,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_ptr(ptr noundef readonly captur
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   %.not.i = icmp eq i32 %9, 7
   br i1 %.not.i, label %11, label %10
 
@@ -2891,15 +2891,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_ptr(ptr noundef readonly captur
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !17
-  store i64 %14, ptr %2, align 8, !tbaa !19
+  %14 = load i64, ptr %13, align 8, !tbaa !18
+  store i64 %14, ptr %2, align 8, !tbaa !20
   br label %15
 
 15:                                               ; preds = %12, %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !15
-  %18 = load ptr, ptr %17, align 8, !tbaa !63
-  store ptr %18, ptr %1, align 8, !tbaa !63
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %18 = load ptr, ptr %17, align 8, !tbaa !64
+  store ptr %18, ptr %1, align 8, !tbaa !64
   br label %get_ptr_internal.exit
 
 get_ptr_internal.exit:                            ; preds = %6, %10, %15
@@ -2920,10 +2920,10 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef captures(address
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %6, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !14
   %7 = icmp eq ptr %1, null
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   %.not.i = icmp eq i32 %9, 6
   br i1 %7, label %.split6, label %.split
 
@@ -2938,12 +2938,12 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef captures(address
 
 11:                                               ; preds = %.split6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
   %.not8.i = icmp eq ptr %13, null
   br i1 %.not8.i, label %set_ptr_internal.exit, label %14
 
 14:                                               ; preds = %11
-  store ptr null, ptr %13, align 8, !tbaa !63
+  store ptr null, ptr %13, align 8, !tbaa !64
   br label %set_ptr_internal.exit
 
 .split:                                           ; preds = %5
@@ -2957,14 +2957,14 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef captures(address
 
 16:                                               ; preds = %.split
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
-  store i64 %17, ptr %6, align 8, !tbaa !13
+  store i64 %17, ptr %6, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !15
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
   %.not8.i11 = icmp eq ptr %19, null
   br i1 %.not8.i11, label %set_ptr_internal.exit, label %20
 
 20:                                               ; preds = %16
-  store ptr %1, ptr %19, align 8, !tbaa !63
+  store ptr %1, ptr %19, align 8, !tbaa !64
   br label %set_ptr_internal.exit
 
 set_ptr_internal.exit:                            ; preds = %20, %16, %15, %14, %11, %10, %4
@@ -2985,9 +2985,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_ptr(ptr noundef captures(addres
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %7, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
   %.not.i = icmp eq i32 %9, 7
   br i1 %.not.i, label %11, label %10
 
@@ -2998,14 +2998,14 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_ptr(ptr noundef captures(addres
   br label %set_ptr_internal.exit
 
 11:                                               ; preds = %6
-  store i64 %2, ptr %7, align 8, !tbaa !13
+  store i64 %2, ptr %7, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
   %.not8.i = icmp eq ptr %13, null
   br i1 %.not8.i, label %set_ptr_internal.exit, label %14
 
 14:                                               ; preds = %11
-  store ptr %1, ptr %13, align 8, !tbaa !63
+  store ptr %1, ptr %13, align 8, !tbaa !64
   br label %set_ptr_internal.exit
 
 set_ptr_internal.exit:                            ; preds = %14, %11, %10, %5
@@ -3015,29 +3015,29 @@ set_ptr_internal.exit:                            ; preds = %14, %11, %10, %5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_utf8_ptr(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !70
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 6, ptr %5, align 8, !tbaa !16, !alias.scope !70
+  store i32 6, ptr %5, align 8, !tbaa !17, !alias.scope !71
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %6, align 8, !tbaa !15, !alias.scope !70
+  store ptr %2, ptr %6, align 8, !tbaa !16, !alias.scope !71
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %3, ptr %7, align 8, !tbaa !17, !alias.scope !70
+  store i64 %3, ptr %7, align 8, !tbaa !18, !alias.scope !71
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %8, align 8, !tbaa !13, !alias.scope !70
+  store i64 -1, ptr %8, align 8, !tbaa !14, !alias.scope !71
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind noalias writable writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 {
-  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !73
+  store ptr %1, ptr %0, align 8, !tbaa !3, !alias.scope !74
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 7, ptr %5, align 8, !tbaa !16, !alias.scope !73
+  store i32 7, ptr %5, align 8, !tbaa !17, !alias.scope !74
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %6, align 8, !tbaa !15, !alias.scope !73
+  store ptr %2, ptr %6, align 8, !tbaa !16, !alias.scope !74
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %3, ptr %7, align 8, !tbaa !17, !alias.scope !73
+  store i64 %3, ptr %7, align 8, !tbaa !18, !alias.scope !74
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %8, align 8, !tbaa !13, !alias.scope !73
+  store i64 -1, ptr %8, align 8, !tbaa !14, !alias.scope !74
   ret void
 }
 
@@ -3076,41 +3076,41 @@ OSSL_PARAM_locate_const.exit.thread:              ; preds = %14, %4, %.preheader
 
 17:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
-  store ptr null, ptr %6, align 8, !tbaa !63
+  store ptr null, ptr %6, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
-  store i64 0, ptr %7, align 8, !tbaa !19
+  store i64 0, ptr %7, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !15
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %25, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !17
+  %22 = load i64, ptr %21, align 8, !tbaa !18
   %.not11 = icmp eq i64 %22, 0
   br i1 %.not11, label %25, label %23
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store i64 0, ptr %5, align 8, !tbaa !19
+  store i64 0, ptr %5, align 8, !tbaa !20
   %24 = call fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef nonnull readonly %.0913.i.i, ptr noundef nonnull %6, ptr noundef %5, ptr noundef nonnull %7, i32 noundef 5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not12 = icmp eq i32 %24, 0
   br i1 %.not12, label %30, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23
-  %.pre = load ptr, ptr %6, align 8, !tbaa !63
-  %.pre16 = load i64, ptr %7, align 8, !tbaa !19
+  %.pre = load ptr, ptr %6, align 8, !tbaa !64
+  %.pre16 = load i64, ptr %7, align 8, !tbaa !20
   br label %25
 
 25:                                               ; preds = %._crit_edge, %20, %17
   %26 = phi i64 [ %.pre16, %._crit_edge ], [ 0, %20 ], [ 0, %17 ]
   %27 = phi ptr [ %.pre, %._crit_edge ], [ null, %20 ], [ null, %17 ]
-  %28 = load ptr, ptr %2, align 8, !tbaa !62
-  %29 = load i64, ptr %3, align 8, !tbaa !19
+  %28 = load ptr, ptr %2, align 8, !tbaa !63
+  %29 = load i64, ptr %3, align 8, !tbaa !20
   call void @CRYPTO_clear_free(ptr noundef %28, i64 noundef %29, ptr noundef nonnull @.str, i32 noundef 1573) #13
-  store ptr %27, ptr %2, align 8, !tbaa !62
-  store i64 %26, ptr %3, align 8, !tbaa !19
+  store ptr %27, ptr %2, align 8, !tbaa !63
+  store i64 %26, ptr %3, align 8, !tbaa !20
   br label %30
 
 30:                                               ; preds = %OSSL_PARAM_locate_const.exit.thread, %23, %25
@@ -3154,7 +3154,7 @@ OSSL_PARAM_locate_const.exit.thread:              ; preds = %13, %5, %.preheader
 
 16:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
-  store i64 0, ptr %6, align 8, !tbaa !19
+  store i64 0, ptr %6, align 8, !tbaa !20
   %17 = call fastcc i32 @setbuf_fromparams(ptr noundef %.0913.i.i, ptr noundef nonnull %1, ptr noundef null, ptr noundef %6)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %37, label %18
@@ -3186,18 +3186,18 @@ OSSL_PARAM_locate_const.exit.thread:              ; preds = %13, %5, %.preheader
   br i1 %.not24, label %31, label %33
 
 31:                                               ; preds = %29
-  %32 = load i64, ptr %6, align 8, !tbaa !19
+  %32 = load i64, ptr %6, align 8, !tbaa !20
   call void @CRYPTO_clear_free(ptr noundef nonnull %27, i64 noundef %32, ptr noundef nonnull @.str, i32 noundef 1643) #13
   br label %37
 
 33:                                               ; preds = %29, %23
   %.0 = phi ptr [ %24, %23 ], [ %27, %29 ]
-  %34 = load ptr, ptr %2, align 8, !tbaa !62
-  %35 = load i64, ptr %3, align 8, !tbaa !19
+  %34 = load ptr, ptr %2, align 8, !tbaa !63
+  %35 = load i64, ptr %3, align 8, !tbaa !20
   call void @CRYPTO_clear_free(ptr noundef %34, i64 noundef %35, ptr noundef nonnull @.str, i32 noundef 1648) #13
-  store ptr %.0, ptr %2, align 8, !tbaa !62
-  %36 = load i64, ptr %6, align 8, !tbaa !19
-  store i64 %36, ptr %3, align 8, !tbaa !19
+  store ptr %.0, ptr %2, align 8, !tbaa !63
+  %36 = load i64, ptr %6, align 8, !tbaa !20
+  store i64 %36, ptr %3, align 8, !tbaa !20
   br label %37
 
 37:                                               ; preds = %OSSL_PARAM_locate_const.exit.thread, %26, %23, %18, %16, %33, %31
@@ -3219,7 +3219,7 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
   br i1 %.not18, label %43, label %12
 
 9:                                                ; preds = %4
-  %10 = load i64, ptr %3, align 8, !tbaa !19
+  %10 = load i64, ptr %3, align 8, !tbaa !20
   %11 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %10, i64 noundef 0) #13
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %43, label %12
@@ -3227,7 +3227,7 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
 12:                                               ; preds = %9, %7
   %.not26 = icmp eq ptr %1, null
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !16
+  %14 = load i32, ptr %13, align 8, !tbaa !17
   %.not22.us = icmp eq i32 %14, 5
   br i1 %.not26, label %.split.us, label %.split.preheader
 
@@ -3239,13 +3239,13 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
 
 15:                                               ; preds = %.split.us
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !15
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
   %.not23.us = icmp eq ptr %17, null
   br i1 %.not23.us, label %.split29.us, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !17
+  %20 = load i64, ptr %19, align 8, !tbaa !18
   %.not24.us = icmp eq i64 %20, 0
   br i1 %.not24.us, label %.split29.us, label %21
 
@@ -3256,20 +3256,20 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
 
 .split.loopexit:                                  ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !16
+  %24 = load i32, ptr %23, align 8, !tbaa !17
   %.not22 = icmp eq i32 %24, 5
-  br i1 %.not22, label %.lr.ph, label %.loopexit, !llvm.loop !76
+  br i1 %.not22, label %.lr.ph, label %.loopexit, !llvm.loop !77
 
 .lr.ph:                                           ; preds = %.split.preheader, %.split.loopexit
   %.0142737 = phi ptr [ %.0913.i.i, %.split.loopexit ], [ %0, %.split.preheader ]
   %25 = getelementptr inbounds nuw i8, ptr %.0142737, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
+  %26 = load ptr, ptr %25, align 8, !tbaa !16
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %.preheader.i.i, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %.0142737, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !17
+  %29 = load i64, ptr %28, align 8, !tbaa !18
   %.not24 = icmp eq i64 %29, 0
   br i1 %.not24, label %.preheader.i.i, label %30
 
@@ -3354,7 +3354,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef readonly 
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !16
+  %12 = load i32, ptr %11, align 8, !tbaa !17
   %.not.i = icmp eq i32 %12, 4
   br i1 %.not.i, label %14, label %13
 
@@ -3366,8 +3366,8 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef readonly 
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !15
-  store ptr %16, ptr %1, align 8, !tbaa !63
+  %16 = load ptr, ptr %15, align 8, !tbaa !16
+  store ptr %16, ptr %1, align 8, !tbaa !64
   br label %get_string_ptr_internal.exit
 
 get_string_ptr_internal.exit:                     ; preds = %14, %13, %9, %2
@@ -3401,7 +3401,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef readonly
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   %.not.i = icmp eq i32 %13, 5
   br i1 %.not.i, label %15, label %14
 
@@ -3417,14 +3417,14 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef readonly
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !17
-  store i64 %18, ptr %2, align 8, !tbaa !19
+  %18 = load i64, ptr %17, align 8, !tbaa !18
+  store i64 %18, ptr %2, align 8, !tbaa !20
   br label %19
 
 19:                                               ; preds = %16, %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !15
-  store ptr %21, ptr %1, align 8, !tbaa !63
+  %21 = load ptr, ptr %20, align 8, !tbaa !16
+  store ptr %21, ptr %1, align 8, !tbaa !64
   br label %get_string_ptr_internal.exit
 
 get_string_ptr_internal.exit:                     ; preds = %19, %14, %10, %3
@@ -3439,7 +3439,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define internal fastcc range(i32 0, 2) i32 @unsigned_from_signed(ptr noundef nonnull writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2, i64 noundef %3) unnamed_addr #4 {
   %5 = getelementptr i8, ptr %2, i64 %3
   %6 = getelementptr i8, ptr %5, i64 -1
-  %7 = load i8, ptr %6, align 1, !tbaa !34
+  %7 = load i8, ptr %6, align 1, !tbaa !35
   %.not = icmp sgt i8 %7, -1
   br i1 %.not, label %9, label %8
 
@@ -3469,12 +3469,12 @@ define internal fastcc range(i32 0, 2) i32 @unsigned_from_signed(ptr noundef non
 17:                                               ; preds = %.lr.ph.i.i
   %18 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %18, %15
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !35
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !36
 
 .lr.ph.i.i:                                       ; preds = %14, %17
   %.07.i.i = phi i64 [ %18, %17 ], [ 0, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.07.i.i
-  %20 = load i8, ptr %19, align 1, !tbaa !34
+  %20 = load i8, ptr %19, align 1, !tbaa !35
   %.not.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i, label %17, label %check_sign_bytes.exit.i
 
@@ -3539,69 +3539,70 @@ attributes #13 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
 !10 = !{!"long", !7, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!4, !10, i64 32}
-!14 = distinct !{!14, !12}
-!15 = !{!4, !6, i64 16}
-!16 = !{!4, !9, i64 8}
-!17 = !{!4, !10, i64 24}
-!18 = !{!9, !9, i64 0}
-!19 = !{!10, !10, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"double", !7, i64 0}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"ossl_param_construct: argument 0"}
-!24 = distinct !{!24, !"ossl_param_construct"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"ossl_param_construct: argument 0"}
-!27 = distinct !{!27, !"ossl_param_construct"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"ossl_param_construct: argument 0"}
-!30 = distinct !{!30, !"ossl_param_construct"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"ossl_param_construct: argument 0"}
-!33 = distinct !{!33, !"ossl_param_construct"}
-!34 = !{!7, !7, i64 0}
-!35 = distinct !{!35, !12}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"ossl_param_construct: argument 0"}
-!38 = distinct !{!38, !"ossl_param_construct"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"ossl_param_construct: argument 0"}
-!41 = distinct !{!41, !"ossl_param_construct"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"ossl_param_construct: argument 0"}
-!44 = distinct !{!44, !"ossl_param_construct"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"ossl_param_construct: argument 0"}
-!47 = distinct !{!47, !"ossl_param_construct"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"ossl_param_construct: argument 0"}
-!50 = distinct !{!50, !"ossl_param_construct"}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"ossl_param_construct: argument 0"}
-!53 = distinct !{!53, !"ossl_param_construct"}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"ossl_param_construct: argument 0"}
-!58 = distinct !{!58, !"ossl_param_construct"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"ossl_param_construct: argument 0"}
-!61 = distinct !{!61, !"ossl_param_construct"}
-!62 = !{!5, !5, i64 0}
-!63 = !{!6, !6, i64 0}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"ossl_param_construct: argument 0"}
-!66 = distinct !{!66, !"ossl_param_construct"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"ossl_param_construct: argument 0"}
-!69 = distinct !{!69, !"ossl_param_construct"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"ossl_param_construct: argument 0"}
-!72 = distinct !{!72, !"ossl_param_construct"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"ossl_param_construct: argument 0"}
-!75 = distinct !{!75, !"ossl_param_construct"}
-!76 = distinct !{!76, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!4, !10, i64 32}
+!15 = distinct !{!15, !12, !13}
+!16 = !{!4, !6, i64 16}
+!17 = !{!4, !9, i64 8}
+!18 = !{!4, !10, i64 24}
+!19 = !{!9, !9, i64 0}
+!20 = !{!10, !10, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"double", !7, i64 0}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"ossl_param_construct: argument 0"}
+!25 = distinct !{!25, !"ossl_param_construct"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"ossl_param_construct: argument 0"}
+!28 = distinct !{!28, !"ossl_param_construct"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"ossl_param_construct: argument 0"}
+!31 = distinct !{!31, !"ossl_param_construct"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"ossl_param_construct: argument 0"}
+!34 = distinct !{!34, !"ossl_param_construct"}
+!35 = !{!7, !7, i64 0}
+!36 = distinct !{!36, !12, !13}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"ossl_param_construct: argument 0"}
+!39 = distinct !{!39, !"ossl_param_construct"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"ossl_param_construct: argument 0"}
+!42 = distinct !{!42, !"ossl_param_construct"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"ossl_param_construct: argument 0"}
+!45 = distinct !{!45, !"ossl_param_construct"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"ossl_param_construct: argument 0"}
+!48 = distinct !{!48, !"ossl_param_construct"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"ossl_param_construct: argument 0"}
+!51 = distinct !{!51, !"ossl_param_construct"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"ossl_param_construct: argument 0"}
+!54 = distinct !{!54, !"ossl_param_construct"}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"ossl_param_construct: argument 0"}
+!59 = distinct !{!59, !"ossl_param_construct"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"ossl_param_construct: argument 0"}
+!62 = distinct !{!62, !"ossl_param_construct"}
+!63 = !{!5, !5, i64 0}
+!64 = !{!6, !6, i64 0}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"ossl_param_construct: argument 0"}
+!67 = distinct !{!67, !"ossl_param_construct"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"ossl_param_construct: argument 0"}
+!70 = distinct !{!70, !"ossl_param_construct"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"ossl_param_construct: argument 0"}
+!73 = distinct !{!73, !"ossl_param_construct"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"ossl_param_construct: argument 0"}
+!76 = distinct !{!76, !"ossl_param_construct"}
+!77 = distinct !{!77, !12, !13}

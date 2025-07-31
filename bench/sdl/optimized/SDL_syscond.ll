@@ -150,7 +150,7 @@ define hidden zeroext i1 @SDL_WaitConditionTimeoutNS(ptr noundef %0, ptr noundef
   switch i32 %35, label %.loopexit [
     i32 4, label %34
     i32 110, label %.loopexit.loopexit
-  ]
+  ], !llvm.loop !3
 
 .loopexit.loopexit:                               ; preds = %34
   br label %.loopexit
@@ -183,3 +183,5 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

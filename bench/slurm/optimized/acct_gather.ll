@@ -319,7 +319,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) lo
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %28, %25
-  br label %.lr.ph.split, !llvm.loop !11
+  br label %.lr.ph.split, !llvm.loop !12
 
 .outer58._crit_edge:                              ; preds = %.split.us
   %.not4991 = icmp eq i32 %10, 0
@@ -384,7 +384,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) lo
   br label %.lr.ph77.split.backedge
 
 .lr.ph77.split.backedge:                          ; preds = %50, %47
-  br label %.lr.ph77.split, !llvm.loop !12
+  br label %.lr.ph77.split, !llvm.loop !13
 
 .outer._crit_edge:                                ; preds = %.split80.us, %.outer58._crit_edge
   %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @conf_mutex) #9
@@ -554,7 +554,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) loc
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %46, %43
-  br label %.lr.ph, !llvm.loop !13
+  br label %.lr.ph, !llvm.loop !14
 
 .outer63._crit_edge:                              ; preds = %.split77.us
   %47 = load i32, ptr %2, align 4
@@ -688,7 +688,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) loc
   br label %.lr.ph105.backedge
 
 .lr.ph105.backedge:                               ; preds = %95, %92
-  br label %.lr.ph105, !llvm.loop !14
+  br label %.lr.ph105, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.split111.us, %.outer63._crit_edge
   %96 = load ptr, ptr @acct_gather_options_buf, align 8
@@ -1177,10 +1177,11 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}

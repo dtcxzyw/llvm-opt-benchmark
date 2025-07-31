@@ -954,13 +954,13 @@ define internal noundef zeroext i1 @GLES2_SupportsBlendMode(ptr noundef readonly
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %14 = load i8, ptr %13, align 2, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 2, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %20, label %GetBlendFunc.exit
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %18 = load i8, ptr %17, align 2, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 2, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %GetBlendFunc.exit
 
@@ -992,7 +992,7 @@ define internal zeroext i1 @GLES2_CreateTexture(ptr noundef readonly captures(no
 13:                                               ; preds = %8, %3
   %.val.i = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %15 = load i8, ptr %14, align 8, !range !5, !noundef !6
+  %15 = load i8, ptr %14, align 8, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %.preheader.i.i, label %GLES2_ActivateRenderer.exit
 
@@ -1004,7 +1004,7 @@ define internal zeroext i1 @GLES2_CreateTexture(ptr noundef readonly captures(no
   %19 = load ptr, ptr %17, align 8
   %20 = tail call i32 %19() #10
   %.not.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %18, !llvm.loop !7
+  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %18, !llvm.loop !8
 
 GLES2_ActivateRenderer.exit:                      ; preds = %18, %8, %13
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 608
@@ -1027,7 +1027,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %18, %8, %13
 
 24:                                               ; preds = %GLES2_ActivateRenderer.exit
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %26 = load i8, ptr %25, align 1, !range !5, !noundef !6
+  %26 = load i8, ptr %25, align 1, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %30, label %28
 
@@ -1169,7 +1169,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %18, %8, %13
 .critedge:                                        ; preds = %95, %36
   %.val = load ptr, ptr %4, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %100 = load i8, ptr %99, align 8, !range !5, !noundef !6
+  %100 = load i8, ptr %99, align 8, !range !6, !noundef !7
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %.preheader.i, label %GL_CheckAllErrors.exit
 
@@ -1202,7 +1202,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %112 = load ptr, ptr %102, align 8
   %113 = tail call i32 %112() #10
   %.not.i188 = icmp eq i32 %113, 0
-  br i1 %.not.i188, label %GL_CheckAllErrors.exit, label %.lr.ph.i
+  br i1 %.not.i188, label %GL_CheckAllErrors.exit, label %.lr.ph.i, !llvm.loop !9
 
 GL_CheckAllErrors.exit:                           ; preds = %110, %.critedge, %.preheader.i
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1221,7 +1221,7 @@ GL_CheckAllErrors.exit:                           ; preds = %110, %.critedge, %.
   %124 = fdiv float 1.000000e+00, %121
   %125 = getelementptr inbounds nuw i8, ptr %35, i64 60
   store float %124, ptr %125, align 4
-  %126 = load i8, ptr %46, align 4, !range !5, !noundef !6
+  %126 = load i8, ptr %46, align 4, !range !6, !noundef !7
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %128, label %225
 
@@ -1243,7 +1243,7 @@ GL_CheckAllErrors.exit:                           ; preds = %110, %.critedge, %.
   tail call void %135(i32 noundef 1, ptr noundef nonnull %52) #10
   %.val179 = load ptr, ptr %4, align 8
   %136 = getelementptr inbounds nuw i8, ptr %.val179, i64 8
-  %137 = load i8, ptr %136, align 8, !range !5, !noundef !6
+  %137 = load i8, ptr %136, align 8, !range !6, !noundef !7
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %.preheader.i190, label %GL_CheckAllErrors.exit197.thread
 
@@ -1272,7 +1272,7 @@ switch.lookup317:                                 ; preds = %.lr.ph.i192
   %147 = load ptr, ptr %139, align 8
   %148 = tail call i32 %147() #10
   %.not.i196 = icmp eq i32 %148, 0
-  br i1 %.not.i196, label %GL_CheckAllErrors.exit197, label %.lr.ph.i192
+  br i1 %.not.i196, label %GL_CheckAllErrors.exit197, label %.lr.ph.i192, !llvm.loop !9
 
 GL_CheckAllErrors.exit197.thread:                 ; preds = %.preheader.i190, %133, %131
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1314,7 +1314,7 @@ GL_CheckAllErrors.exit197.thread:                 ; preds = %.preheader.i190, %1
   tail call void %174(i32 noundef 1, ptr noundef nonnull %51) #10
   %.val180 = load ptr, ptr %4, align 8
   %175 = getelementptr inbounds nuw i8, ptr %.val180, i64 8
-  %176 = load i8, ptr %175, align 8, !range !5, !noundef !6
+  %176 = load i8, ptr %175, align 8, !range !6, !noundef !7
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %.preheader.i199, label %GL_CheckAllErrors.exit206.thread
 
@@ -1343,7 +1343,7 @@ switch.lookup321:                                 ; preds = %.lr.ph.i201
   %186 = load ptr, ptr %178, align 8
   %187 = tail call i32 %186() #10
   %.not.i205 = icmp eq i32 %187, 0
-  br i1 %.not.i205, label %GL_CheckAllErrors.exit197, label %.lr.ph.i201
+  br i1 %.not.i205, label %GL_CheckAllErrors.exit197, label %.lr.ph.i201, !llvm.loop !9
 
 GL_CheckAllErrors.exit206.thread:                 ; preds = %.preheader.i199, %172, %170
   %188 = load ptr, ptr %149, align 8
@@ -1363,7 +1363,7 @@ GL_CheckAllErrors.exit206.thread:                 ; preds = %.preheader.i199, %1
   tail call void %192(i32 noundef %193, i32 noundef 0, i32 noundef %.0162266, i32 noundef %196, i32 noundef %199, i32 noundef 0, i32 noundef %.0162266, i32 noundef %.0161267, ptr noundef null) #10
   %.val181 = load ptr, ptr %4, align 8
   %200 = getelementptr inbounds nuw i8, ptr %.val181, i64 8
-  %201 = load i8, ptr %200, align 8, !range !5, !noundef !6
+  %201 = load i8, ptr %200, align 8, !range !6, !noundef !7
   %202 = trunc nuw i8 %201 to i1
   br i1 %202, label %.preheader.i208, label %213
 
@@ -1392,7 +1392,7 @@ switch.lookup325:                                 ; preds = %.lr.ph.i210
   %211 = load ptr, ptr %203, align 8
   %212 = tail call i32 %211() #10
   %.not.i214 = icmp eq i32 %212, 0
-  br i1 %.not.i214, label %GL_CheckAllErrors.exit197, label %.lr.ph.i210
+  br i1 %.not.i214, label %GL_CheckAllErrors.exit197, label %.lr.ph.i210, !llvm.loop !9
 
 213:                                              ; preds = %GL_CheckAllErrors.exit206.thread, %.preheader.i208
   %214 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
@@ -1412,7 +1412,7 @@ switch.lookup325:                                 ; preds = %.lr.ph.i210
   br label %GL_CheckAllErrors.exit197
 
 225:                                              ; preds = %GL_CheckAllErrors.exit
-  %226 = load i8, ptr %50, align 1, !range !5, !noundef !6
+  %226 = load i8, ptr %50, align 1, !range !6, !noundef !7
   %227 = trunc nuw i8 %226 to i1
   br i1 %227, label %228, label %289
 
@@ -1434,7 +1434,7 @@ switch.lookup325:                                 ; preds = %.lr.ph.i210
   tail call void %235(i32 noundef 1, ptr noundef nonnull %51) #10
   %.val182 = load ptr, ptr %4, align 8
   %236 = getelementptr inbounds nuw i8, ptr %.val182, i64 8
-  %237 = load i8, ptr %236, align 8, !range !5, !noundef !6
+  %237 = load i8, ptr %236, align 8, !range !6, !noundef !7
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %.preheader.i217, label %GL_CheckAllErrors.exit224.thread
 
@@ -1463,7 +1463,7 @@ switch.lookup329:                                 ; preds = %.lr.ph.i219
   %247 = load ptr, ptr %239, align 8
   %248 = tail call i32 %247() #10
   %.not.i223 = icmp eq i32 %248, 0
-  br i1 %.not.i223, label %GL_CheckAllErrors.exit197, label %.lr.ph.i219
+  br i1 %.not.i223, label %GL_CheckAllErrors.exit197, label %.lr.ph.i219, !llvm.loop !9
 
 GL_CheckAllErrors.exit224.thread:                 ; preds = %.preheader.i217, %233, %231
   %249 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1486,7 +1486,7 @@ GL_CheckAllErrors.exit224.thread:                 ; preds = %.preheader.i217, %2
   tail call void %256(i32 noundef %257, i32 noundef 0, i32 noundef 6410, i32 noundef %260, i32 noundef %263, i32 noundef 0, i32 noundef 6410, i32 noundef 5121, ptr noundef null) #10
   %.val183 = load ptr, ptr %4, align 8
   %264 = getelementptr inbounds nuw i8, ptr %.val183, i64 8
-  %265 = load i8, ptr %264, align 8, !range !5, !noundef !6
+  %265 = load i8, ptr %264, align 8, !range !6, !noundef !7
   %266 = trunc nuw i8 %265 to i1
   br i1 %266, label %.preheader.i226, label %277
 
@@ -1515,7 +1515,7 @@ switch.lookup333:                                 ; preds = %.lr.ph.i228
   %275 = load ptr, ptr %267, align 8
   %276 = tail call i32 %275() #10
   %.not.i232 = icmp eq i32 %276, 0
-  br i1 %.not.i232, label %GL_CheckAllErrors.exit197, label %.lr.ph.i228
+  br i1 %.not.i232, label %GL_CheckAllErrors.exit197, label %.lr.ph.i228, !llvm.loop !9
 
 277:                                              ; preds = %GL_CheckAllErrors.exit224.thread, %.preheader.i226
   %278 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
@@ -1552,7 +1552,7 @@ switch.lookup333:                                 ; preds = %.lr.ph.i228
   tail call void %296(i32 noundef 1, ptr noundef nonnull %35) #10
   %.val184 = load ptr, ptr %4, align 8
   %297 = getelementptr inbounds nuw i8, ptr %.val184, i64 8
-  %298 = load i8, ptr %297, align 8, !range !5, !noundef !6
+  %298 = load i8, ptr %297, align 8, !range !6, !noundef !7
   %299 = trunc nuw i8 %298 to i1
   br i1 %299, label %.preheader.i235, label %GL_CheckAllErrors.exit242.thread
 
@@ -1581,7 +1581,7 @@ switch.lookup337:                                 ; preds = %.lr.ph.i237
   %308 = load ptr, ptr %300, align 8
   %309 = tail call i32 %308() #10
   %.not.i241 = icmp eq i32 %309, 0
-  br i1 %.not.i241, label %GL_CheckAllErrors.exit197, label %.lr.ph.i237
+  br i1 %.not.i241, label %GL_CheckAllErrors.exit197, label %.lr.ph.i237, !llvm.loop !9
 
 GL_CheckAllErrors.exit242.thread:                 ; preds = %.preheader.i235, %294, %292
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -1607,7 +1607,7 @@ GL_CheckAllErrors.exit242.thread:                 ; preds = %.preheader.i235, %2
   tail call void %320(i32 noundef %321, i32 noundef 0, i32 noundef %.0162266, i32 noundef %322, i32 noundef %323, i32 noundef 0, i32 noundef %.0162266, i32 noundef %.0161267, ptr noundef null) #10
   %.val185 = load ptr, ptr %4, align 8
   %324 = getelementptr inbounds nuw i8, ptr %.val185, i64 8
-  %325 = load i8, ptr %324, align 8, !range !5, !noundef !6
+  %325 = load i8, ptr %324, align 8, !range !6, !noundef !7
   %326 = trunc nuw i8 %325 to i1
   br i1 %326, label %.preheader.i244, label %GL_CheckAllErrors.exit251.thread
 
@@ -1636,7 +1636,7 @@ switch.lookup341:                                 ; preds = %.lr.ph.i246
   %335 = load ptr, ptr %327, align 8
   %336 = tail call i32 %335() #10
   %.not.i250 = icmp eq i32 %336, 0
-  br i1 %.not.i250, label %GL_CheckAllErrors.exit197, label %.lr.ph.i246
+  br i1 %.not.i250, label %GL_CheckAllErrors.exit197, label %.lr.ph.i246, !llvm.loop !9
 
 GL_CheckAllErrors.exit251.thread:                 ; preds = %.preheader.i244, %318, %GL_CheckAllErrors.exit242.thread
   %337 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
@@ -1676,7 +1676,7 @@ GL_CheckAllErrors.exit251.thread:                 ; preds = %.preheader.i244, %3
   %356 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
   %.0.i253 = load ptr, ptr %356, align 8
   %.not.i254 = icmp eq ptr %.0.i253, null
-  br i1 %.not.i254, label %.critedge22.i, label %.lr.ph.i252, !llvm.loop !8
+  br i1 %.not.i254, label %.critedge22.i, label %.lr.ph.i252, !llvm.loop !10
 
 .critedge22.i:                                    ; preds = %.critedge2.i, %347
   %357 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 24) #10
@@ -1699,7 +1699,7 @@ GLES2_GetFBO.exit:                                ; preds = %353, %GL_CheckAllEr
   store ptr %.sink, ptr %364, align 8
   %.val186 = load ptr, ptr %4, align 8
   %365 = getelementptr inbounds nuw i8, ptr %.val186, i64 8
-  %366 = load i8, ptr %365, align 8, !range !5, !noundef !6
+  %366 = load i8, ptr %365, align 8, !range !6, !noundef !7
   %367 = trunc nuw i8 %366 to i1
   br i1 %367, label %.preheader.i256, label %GL_CheckAllErrors.exit197
 
@@ -1732,7 +1732,7 @@ switch.lookup345:                                 ; preds = %.lr.ph.i258
   %378 = load ptr, ptr %368, align 8
   %379 = tail call i32 %378() #10
   %.not.i262 = icmp eq i32 %379, 0
-  br i1 %.not.i262, label %GL_CheckAllErrors.exit197, label %.lr.ph.i258
+  br i1 %.not.i262, label %GL_CheckAllErrors.exit197, label %.lr.ph.i258, !llvm.loop !9
 
 GL_CheckAllErrors.exit197:                        ; preds = %245, %273, %145, %184, %209, %306, %333, %376, %.preheader.i256, %GLES2_GetFBO.exit, %98, %.thread, %287, %223, %33, %28
   %.0163 = phi i1 [ %29, %28 ], [ %34, %33 ], [ %224, %223 ], [ %288, %287 ], [ false, %98 ], [ false, %.thread ], [ true, %GLES2_GetFBO.exit ], [ true, %.preheader.i256 ], [ false, %376 ], [ false, %333 ], [ false, %306 ], [ false, %209 ], [ false, %184 ], [ false, %145 ], [ false, %273 ], [ false, %245 ]
@@ -1761,7 +1761,7 @@ define internal noundef zeroext i1 @GLES2_UpdateTexture(ptr noundef readonly cap
 17:                                               ; preds = %12, %5
   %.val.i = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %19 = load i8, ptr %18, align 8, !range !5, !noundef !6
+  %19 = load i8, ptr %18, align 8, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %.preheader.i.i, label %GLES2_ActivateRenderer.exit
 
@@ -1773,7 +1773,7 @@ define internal noundef zeroext i1 @GLES2_UpdateTexture(ptr noundef readonly cap
   %23 = load ptr, ptr %21, align 8
   %24 = tail call i32 %23() #10
   %.not.i.i = icmp eq i32 %24, 0
-  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %22, !llvm.loop !7
+  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %22, !llvm.loop !8
 
 GLES2_ActivateRenderer.exit:                      ; preds = %22, %12, %17
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1872,7 +1872,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %22, %12, %17
   %74 = getelementptr inbounds i8, ptr %.04052.i, i64 %65
   %75 = add nuw nsw i32 %.054.i, 1
   %exitcond.not.i = icmp eq i32 %75, %44
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 312
@@ -1883,7 +1883,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %22, %12, %17
 
 GLES2_TexSubImage2D.exit:                         ; preds = %56, %.thread.i, %68, %._crit_edge.i
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %79 = load i8, ptr %78, align 4, !range !5, !noundef !6
+  %79 = load i8, ptr %78, align 4, !range !6, !noundef !7
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %166
 
@@ -1954,7 +1954,7 @@ GLES2_TexSubImage2D.exit:                         ; preds = %56, %.thread.i, %68
   %120 = getelementptr inbounds i8, ptr %.04052.i96, i64 %111
   %121 = add nuw nsw i32 %.054.i94, 1
   %exitcond.not.i97 = icmp eq i32 %121, %102
-  br i1 %exitcond.not.i97, label %._crit_edge.i91, label %.lr.ph.i93, !llvm.loop !9
+  br i1 %exitcond.not.i97, label %._crit_edge.i91, label %.lr.ph.i93, !llvm.loop !11
 
 ._crit_edge.i91:                                  ; preds = %.lr.ph.i93, %.preheader.i90
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 312
@@ -2030,7 +2030,7 @@ GLES2_TexSubImage2D.exit99:                       ; preds = %81, %.thread.i98, %
   %162 = getelementptr inbounds i8, ptr %.04052.i110, i64 %153
   %163 = add nuw nsw i32 %.054.i108, 1
   %exitcond.not.i111 = icmp eq i32 %163, %146
-  br i1 %exitcond.not.i111, label %._crit_edge.i105, label %.lr.ph.i107, !llvm.loop !9
+  br i1 %exitcond.not.i111, label %._crit_edge.i105, label %.lr.ph.i107, !llvm.loop !11
 
 ._crit_edge.i105:                                 ; preds = %.lr.ph.i107, %.preheader.i104
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 312
@@ -2041,7 +2041,7 @@ GLES2_TexSubImage2D.exit99:                       ; preds = %81, %.thread.i98, %
 
 166:                                              ; preds = %GLES2_TexSubImage2D.exit
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 37
-  %168 = load i8, ptr %167, align 1, !range !5, !noundef !6
+  %168 = load i8, ptr %167, align 1, !range !6, !noundef !7
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %GLES2_TexSubImage2D.exit113
 
@@ -2109,7 +2109,7 @@ GLES2_TexSubImage2D.exit99:                       ; preds = %81, %.thread.i98, %
   %207 = getelementptr inbounds i8, ptr %.04052.i124, i64 %198
   %208 = add nuw nsw i32 %.054.i122, 1
   %exitcond.not.i125 = icmp eq i32 %208, %189
-  br i1 %exitcond.not.i125, label %._crit_edge.i119, label %.lr.ph.i121, !llvm.loop !9
+  br i1 %exitcond.not.i125, label %._crit_edge.i119, label %.lr.ph.i121, !llvm.loop !11
 
 ._crit_edge.i119:                                 ; preds = %.lr.ph.i121, %.preheader.i118
   %209 = getelementptr inbounds nuw i8, ptr %7, i64 312
@@ -2121,7 +2121,7 @@ GLES2_TexSubImage2D.exit99:                       ; preds = %81, %.thread.i98, %
 GLES2_TexSubImage2D.exit113:                      ; preds = %._crit_edge.i119, %201, %.thread.i126, %170, %._crit_edge.i105, %156, %.thread.i112, %GLES2_TexSubImage2D.exit99, %166
   %.val = load ptr, ptr %6, align 8
   %211 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %212 = load i8, ptr %211, align 8, !range !5, !noundef !6
+  %212 = load i8, ptr %211, align 8, !range !6, !noundef !7
   %213 = trunc nuw i8 %212 to i1
   br i1 %213, label %.preheader.i129, label %GL_CheckAllErrors.exit
 
@@ -2150,7 +2150,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i130
   %222 = load ptr, ptr %214, align 8
   %223 = tail call i32 %222() #10
   %.not.i131 = icmp eq i32 %223, 0
-  br i1 %.not.i131, label %GL_CheckAllErrors.exit, label %.lr.ph.i130
+  br i1 %.not.i131, label %GL_CheckAllErrors.exit, label %.lr.ph.i130, !llvm.loop !9
 
 GL_CheckAllErrors.exit:                           ; preds = %220, %.preheader.i129, %GLES2_TexSubImage2D.exit113, %GLES2_ActivateRenderer.exit, %28
   %.0 = phi i1 [ true, %28 ], [ true, %GLES2_ActivateRenderer.exit ], [ true, %GLES2_TexSubImage2D.exit113 ], [ true, %.preheader.i129 ], [ false, %220 ]
@@ -2179,7 +2179,7 @@ define internal noundef zeroext i1 @GLES2_UpdateTextureYUV(ptr noundef readonly 
 21:                                               ; preds = %16, %9
   %.val.i = load ptr, ptr %10, align 8
   %22 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
+  %23 = load i8, ptr %22, align 8, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %.preheader.i.i, label %GLES2_ActivateRenderer.exit
 
@@ -2191,7 +2191,7 @@ define internal noundef zeroext i1 @GLES2_UpdateTextureYUV(ptr noundef readonly 
   %27 = load ptr, ptr %25, align 8
   %28 = tail call i32 %27() #10
   %.not.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %26, !llvm.loop !7
+  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %26, !llvm.loop !8
 
 GLES2_ActivateRenderer.exit:                      ; preds = %26, %16, %21
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2270,7 +2270,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %26, %16, %21
   %73 = getelementptr inbounds i8, ptr %.04052.i, i64 %64
   %74 = add nuw nsw i32 %.054.i, 1
   %exitcond.not.i = icmp eq i32 %74, %55
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 312
@@ -2337,7 +2337,7 @@ GLES2_TexSubImage2D.exit:                         ; preds = %36, %.thread.i, %67
   %107 = getelementptr inbounds i8, ptr %.04052.i56, i64 %98
   %108 = add nuw nsw i32 %.054.i54, 1
   %exitcond.not.i57 = icmp eq i32 %108, %91
-  br i1 %exitcond.not.i57, label %._crit_edge.i51, label %.lr.ph.i53, !llvm.loop !9
+  br i1 %exitcond.not.i57, label %._crit_edge.i51, label %.lr.ph.i53, !llvm.loop !11
 
 ._crit_edge.i51:                                  ; preds = %.lr.ph.i53, %.preheader.i50
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 312
@@ -2395,7 +2395,7 @@ GLES2_TexSubImage2D.exit59:                       ; preds = %GLES2_TexSubImage2D
   %134 = getelementptr inbounds i8, ptr %.04052.i69, i64 %125
   %135 = add nuw nsw i32 %.054.i67, 1
   %exitcond.not.i70 = icmp eq i32 %135, %118
-  br i1 %exitcond.not.i70, label %._crit_edge.i64, label %.lr.ph.i66, !llvm.loop !9
+  br i1 %exitcond.not.i70, label %._crit_edge.i64, label %.lr.ph.i66, !llvm.loop !11
 
 ._crit_edge.i64:                                  ; preds = %.lr.ph.i66, %.preheader.i63
   %136 = getelementptr inbounds nuw i8, ptr %11, i64 312
@@ -2407,7 +2407,7 @@ GLES2_TexSubImage2D.exit59:                       ; preds = %GLES2_TexSubImage2D
 GLES2_TexSubImage2D.exit72:                       ; preds = %GLES2_TexSubImage2D.exit59, %.thread.i71, %128, %._crit_edge.i64
   %.val = load ptr, ptr %10, align 8
   %138 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %139 = load i8, ptr %138, align 8, !range !5, !noundef !6
+  %139 = load i8, ptr %138, align 8, !range !6, !noundef !7
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %.preheader.i74, label %GL_CheckAllErrors.exit
 
@@ -2436,7 +2436,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i75
   %149 = load ptr, ptr %141, align 8
   %150 = tail call i32 %149() #10
   %.not.i76 = icmp eq i32 %150, 0
-  br i1 %.not.i76, label %GL_CheckAllErrors.exit, label %.lr.ph.i75
+  br i1 %.not.i76, label %GL_CheckAllErrors.exit, label %.lr.ph.i75, !llvm.loop !9
 
 GL_CheckAllErrors.exit:                           ; preds = %147, %.preheader.i74, %GLES2_TexSubImage2D.exit72, %GLES2_ActivateRenderer.exit, %32
   %.0 = phi i1 [ true, %32 ], [ true, %GLES2_ActivateRenderer.exit ], [ true, %GLES2_TexSubImage2D.exit72 ], [ true, %.preheader.i74 ], [ false, %147 ]
@@ -2465,7 +2465,7 @@ define internal noundef zeroext i1 @GLES2_UpdateTextureNV(ptr noundef readonly c
 19:                                               ; preds = %14, %7
   %.val.i = load ptr, ptr %8, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %.preheader.i.i, label %GLES2_ActivateRenderer.exit
 
@@ -2477,7 +2477,7 @@ define internal noundef zeroext i1 @GLES2_UpdateTextureNV(ptr noundef readonly c
   %25 = load ptr, ptr %23, align 8
   %26 = tail call i32 %25() #10
   %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %24, !llvm.loop !7
+  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %24, !llvm.loop !8
 
 GLES2_ActivateRenderer.exit:                      ; preds = %24, %14, %19
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2553,7 +2553,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %24, %14, %19
   %68 = getelementptr inbounds i8, ptr %.04052.i, i64 %59
   %69 = add nuw nsw i32 %.054.i, 1
   %exitcond.not.i = icmp eq i32 %69, %53
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 312
@@ -2613,7 +2613,7 @@ GLES2_TexSubImage2D.exit:                         ; preds = %34, %.thread.i, %62
   %97 = getelementptr inbounds i8, ptr %.04052.i41, i64 %88
   %98 = add nuw nsw i32 %.054.i39, 1
   %exitcond.not.i42 = icmp eq i32 %98, %79
-  br i1 %exitcond.not.i42, label %._crit_edge.i36, label %.lr.ph.i38, !llvm.loop !9
+  br i1 %exitcond.not.i42, label %._crit_edge.i36, label %.lr.ph.i38, !llvm.loop !11
 
 ._crit_edge.i36:                                  ; preds = %.lr.ph.i38, %.preheader.i35
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 312
@@ -2625,7 +2625,7 @@ GLES2_TexSubImage2D.exit:                         ; preds = %34, %.thread.i, %62
 GLES2_TexSubImage2D.exit44:                       ; preds = %GLES2_TexSubImage2D.exit, %.thread.i43, %91, %._crit_edge.i36
   %.val = load ptr, ptr %8, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %102 = load i8, ptr %101, align 8, !range !5, !noundef !6
+  %102 = load i8, ptr %101, align 8, !range !6, !noundef !7
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %.preheader.i46, label %GL_CheckAllErrors.exit
 
@@ -2654,7 +2654,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i47
   %112 = load ptr, ptr %104, align 8
   %113 = tail call i32 %112() #10
   %.not.i48 = icmp eq i32 %113, 0
-  br i1 %.not.i48, label %GL_CheckAllErrors.exit, label %.lr.ph.i47
+  br i1 %.not.i48, label %GL_CheckAllErrors.exit, label %.lr.ph.i47, !llvm.loop !9
 
 GL_CheckAllErrors.exit:                           ; preds = %110, %.preheader.i46, %GLES2_TexSubImage2D.exit44, %GLES2_ActivateRenderer.exit, %30
   %.0 = phi i1 [ true, %30 ], [ true, %GLES2_ActivateRenderer.exit ], [ true, %GLES2_TexSubImage2D.exit44 ], [ true, %.preheader.i46 ], [ false, %110 ]
@@ -2859,7 +2859,7 @@ define internal noundef zeroext i1 @GLES2_QueueDrawPoints(ptr noundef %0, ptr no
   %34 = getelementptr inbounds nuw i8, ptr %.03643, i64 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %11
   ret i1 %.not41
@@ -2961,7 +2961,7 @@ define internal noundef zeroext i1 @GLES2_QueueDrawLines(ptr noundef %0, ptr nou
   store float %.sroa.15.0.copyload, ptr %.sroa.15.0..sroa_idx28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %11
   ret i1 %.not72
@@ -3084,7 +3084,7 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   %72 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 32
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %exitcond150.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ 0, %.lr.ph ]
@@ -3160,7 +3160,7 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   %110 = getelementptr inbounds nuw i8, ptr %.0120136, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count149
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !16
 
 111:                                              ; preds = %23
   %112 = mul nsw i64 %28, 24
@@ -3240,7 +3240,7 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   %144 = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 24
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
-  br i1 %exitcond160.not, label %.critedge, label %.lr.ph140.split.us, !llvm.loop !15
+  br i1 %exitcond160.not, label %.critedge, label %.lr.ph140.split.us, !llvm.loop !17
 
 .lr.ph140.split:                                  ; preds = %.lr.ph140, %157
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %157 ], [ 0, %.lr.ph140 ]
@@ -3306,7 +3306,7 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   %174 = getelementptr inbounds nuw i8, ptr %.0119138, i64 24
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count159
-  br i1 %exitcond155.not, label %.critedge, label %.lr.ph140.split, !llvm.loop !16
+  br i1 %exitcond155.not, label %.critedge, label %.lr.ph140.split, !llvm.loop !18
 
 .critedge:                                        ; preds = %85, %47, %157, %127, %.preheader134, %.preheader, %111, %31
   %.1 = phi i1 [ false, %31 ], [ false, %111 ], [ true, %.preheader ], [ true, %.preheader134 ], [ true, %127 ], [ true, %157 ], [ true, %47 ], [ true, %85 ]
@@ -3349,7 +3349,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
 24:                                               ; preds = %19, %15
   %.val.i = load ptr, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %.preheader.i.i, label %.loopexit
 
@@ -3361,7 +3361,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   %30 = load ptr, ptr %28, align 8
   %31 = tail call i32 %30() #10
   %.not.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i.i, label %.loopexit, label %29, !llvm.loop !7
+  br i1 %.not.i.i, label %.loopexit, label %29, !llvm.loop !8
 
 .loopexit:                                        ; preds = %29, %24
   %32 = load ptr, ptr %9, align 8
@@ -3453,8 +3453,8 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
 71:                                               ; preds = %65
   %72 = getelementptr inbounds nuw i8, ptr %.0142254, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %.0142254, i64 12
-  %74 = load i8, ptr %58, align 1, !range !5, !noundef !6
-  %75 = load i8, ptr %72, align 8, !range !5, !noundef !6
+  %74 = load i8, ptr %58, align 1, !range !6, !noundef !7
+  %75 = load i8, ptr %72, align 8, !range !6, !noundef !7
   %.not180 = icmp eq i8 %74, %75
   br i1 %.not180, label %77, label %76
 
@@ -3489,7 +3489,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   %91 = fmul float %85, %90
   %92 = getelementptr inbounds nuw i8, ptr %.0142254, i64 32
   %93 = load float, ptr %92, align 4
-  %94 = load i8, ptr %52, align 4, !range !5, !noundef !6
+  %94 = load i8, ptr %52, align 4, !range !6, !noundef !7
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %108, label %96
 
@@ -3524,19 +3524,19 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   br label %110
 
 110:                                              ; preds = %108, %105
-  %111 = load i8, ptr %58, align 1, !range !5, !noundef !6
+  %111 = load i8, ptr %58, align 1, !range !6, !noundef !7
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %116, label %113
 
 113:                                              ; preds = %110
-  %114 = load i8, ptr %59, align 4, !range !5, !noundef !6
+  %114 = load i8, ptr %59, align 4, !range !6, !noundef !7
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %113, %110
   %117 = load ptr, ptr %60, align 8
   call void %117(i32 noundef 3089) #10
-  %118 = load i8, ptr %58, align 1, !range !5, !noundef !6
+  %118 = load i8, ptr %58, align 1, !range !6, !noundef !7
   store i8 %118, ptr %59, align 4
   br label %119
 
@@ -3577,7 +3577,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
 .lr.ph241:                                        ; preds = %140
   %134 = load i32, ptr %.0160, align 8
   %.not184 = icmp eq i32 %134, 6
-  br i1 %.not184, label %.lr.ph285, label %.thread
+  br i1 %.not184, label %.lr.ph285, label %.thread, !llvm.loop !19
 
 .lr.ph285:                                        ; preds = %.lr.ph241.preheader, %.lr.ph241
   %.0157238284 = phi ptr [ %.0160240282, %.lr.ph241 ], [ %.0142254, %.lr.ph241.preheader ]
@@ -3599,11 +3599,14 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   %.0160.in = getelementptr inbounds nuw i8, ptr %.0160240282, i64 80
   %.0160 = load ptr, ptr %.0160.in, align 8
   %.not183 = icmp eq ptr %.0160, null
-  br i1 %.not183, label %.thread, label %.lr.ph241
+  br i1 %.not183, label %..thread.loopexit_crit_edge293, label %.lr.ph241, !llvm.loop !19
 
-.thread:                                          ; preds = %137, %.lr.ph285, %.lr.ph241, %140, %.lr.ph241.preheader, %130
-  %.0157.lcssa = phi ptr [ %.0142254, %130 ], [ %.0142254, %.lr.ph241.preheader ], [ %.0160240282, %140 ], [ %.0160240282, %.lr.ph241 ], [ %.0157238284, %.lr.ph285 ], [ %.0157238284, %137 ]
-  %.0154.lcssa = phi i64 [ %125, %130 ], [ %125, %.lr.ph241.preheader ], [ %141, %140 ], [ %141, %.lr.ph241 ], [ %.0154239283, %.lr.ph285 ], [ %.0154239283, %137 ]
+..thread.loopexit_crit_edge293:                   ; preds = %140
+  br label %.thread, !llvm.loop !19
+
+.thread:                                          ; preds = %137, %.lr.ph285, %.lr.ph241, %.lr.ph241.preheader, %..thread.loopexit_crit_edge293, %130
+  %.0157.lcssa = phi ptr [ %.0142254, %130 ], [ %.0160240282, %..thread.loopexit_crit_edge293 ], [ %.0142254, %.lr.ph241.preheader ], [ %.0160240282, %.lr.ph241 ], [ %.0157238284, %.lr.ph285 ], [ %.0157238284, %137 ]
+  %.0154.lcssa = phi i64 [ %125, %130 ], [ %141, %..thread.loopexit_crit_edge293 ], [ %125, %.lr.ph241.preheader ], [ %141, %.lr.ph241 ], [ %.0154239283, %.lr.ph285 ], [ %.0154239283, %137 ]
   %142 = load ptr, ptr %51, align 8
   %143 = trunc i64 %.0154.lcssa to i32
   call void %142(i32 noundef 1, i32 noundef 0, i32 noundef %143) #10
@@ -3635,7 +3638,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
 .lr.ph:                                           ; preds = %173
   %158 = load i32, ptr %.0147, align 8
   %.not172 = icmp eq i32 %158, %66
-  br i1 %.not172, label %.lr.ph262, label %.thread202
+  br i1 %.not172, label %.lr.ph262, label %.thread202, !llvm.loop !20
 
 .lr.ph262:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.0149213261 = phi ptr [ %.0147215259, %.lr.ph ], [ %.0142254, %.lr.ph.preheader ]
@@ -3677,11 +3680,14 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   %.0147.in = getelementptr inbounds nuw i8, ptr %.0147215259, i64 80
   %.0147 = load ptr, ptr %.0147.in, align 8
   %.not171 = icmp eq ptr %.0147, null
-  br i1 %.not171, label %.thread202, label %.lr.ph
+  br i1 %.not171, label %..thread202.loopexit_crit_edge278, label %.lr.ph, !llvm.loop !20
 
-.thread202:                                       ; preds = %.lr.ph262, %161, %164, %167, %170, %.lr.ph, %173, %.lr.ph.preheader, %144
-  %.0149.lcssa = phi ptr [ %.0142254, %144 ], [ %.0142254, %.lr.ph.preheader ], [ %.0147215259, %173 ], [ %.0147215259, %.lr.ph ], [ %.0149213261, %170 ], [ %.0149213261, %167 ], [ %.0149213261, %164 ], [ %.0149213261, %161 ], [ %.0149213261, %.lr.ph262 ]
-  %.0144.lcssa = phi i64 [ %156, %144 ], [ %156, %.lr.ph.preheader ], [ %176, %173 ], [ %176, %.lr.ph ], [ %.0144214260, %170 ], [ %.0144214260, %167 ], [ %.0144214260, %164 ], [ %.0144214260, %161 ], [ %.0144214260, %.lr.ph262 ]
+..thread202.loopexit_crit_edge278:                ; preds = %173
+  br label %.thread202, !llvm.loop !20
+
+.thread202:                                       ; preds = %.lr.ph262, %161, %164, %167, %170, %.lr.ph, %.lr.ph.preheader, %..thread202.loopexit_crit_edge278, %144
+  %.0149.lcssa = phi ptr [ %.0142254, %144 ], [ %.0147215259, %..thread202.loopexit_crit_edge278 ], [ %.0142254, %.lr.ph.preheader ], [ %.0147215259, %.lr.ph ], [ %.0149213261, %170 ], [ %.0149213261, %167 ], [ %.0149213261, %164 ], [ %.0149213261, %161 ], [ %.0149213261, %.lr.ph262 ]
+  %.0144.lcssa = phi i64 [ %156, %144 ], [ %176, %..thread202.loopexit_crit_edge278 ], [ %156, %.lr.ph.preheader ], [ %176, %.lr.ph ], [ %.0144214260, %170 ], [ %.0144214260, %167 ], [ %.0144214260, %164 ], [ %.0144214260, %161 ], [ %.0144214260, %.lr.ph262 ]
   %.not178 = icmp eq ptr %146, null
   br i1 %.not178, label %355, label %177
 
@@ -3817,7 +3823,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
 
 215:                                              ; preds = %211
   %216 = getelementptr inbounds nuw i8, ptr %179, i64 36
-  %217 = load i8, ptr %216, align 4, !range !5, !noundef !6
+  %217 = load i8, ptr %216, align 4, !range !6, !noundef !7
   %218 = trunc nuw i8 %217 to i1
   br i1 %218, label %219, label %233
 
@@ -3843,7 +3849,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
 
 233:                                              ; preds = %215
   %234 = getelementptr inbounds nuw i8, ptr %179, i64 37
-  %235 = load i8, ptr %234, align 1, !range !5, !noundef !6
+  %235 = load i8, ptr %234, align 1, !range !6, !noundef !7
   %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %237, label %246
 
@@ -3885,7 +3891,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
 
 256:                                              ; preds = %252
   %257 = getelementptr inbounds nuw i8, ptr %179, i64 36
-  %258 = load i8, ptr %257, align 4, !range !5, !noundef !6
+  %258 = load i8, ptr %257, align 4, !range !6, !noundef !7
   %259 = trunc nuw i8 %258 to i1
   br i1 %259, label %260, label %276
 
@@ -3927,7 +3933,7 @@ SetTextureScaleMode.exit108.i:                    ; preds = %SetTextureScaleMode
 
 276:                                              ; preds = %256
   %277 = getelementptr inbounds nuw i8, ptr %179, i64 37
-  %278 = load i8, ptr %277, align 1, !range !5, !noundef !6
+  %278 = load i8, ptr %277, align 1, !range !6, !noundef !7
   %279 = trunc nuw i8 %278 to i1
   br i1 %279, label %280, label %291
 
@@ -4010,7 +4016,7 @@ SetTextureScaleMode.exit112.thread.i:             ; preds = %switch.lookup310, %
 
 310:                                              ; preds = %306, %302
   %311 = getelementptr inbounds nuw i8, ptr %179, i64 36
-  %312 = load i8, ptr %311, align 4, !range !5, !noundef !6
+  %312 = load i8, ptr %311, align 4, !range !6, !noundef !7
   %313 = trunc nuw i8 %312 to i1
   br i1 %313, label %314, label %330
 
@@ -4048,7 +4054,7 @@ SetTextureScaleMode.exit112.thread.i:             ; preds = %switch.lookup310, %
 
 330:                                              ; preds = %310
   %331 = getelementptr inbounds nuw i8, ptr %179, i64 37
-  %332 = load i8, ptr %331, align 1, !range !5, !noundef !6
+  %332 = load i8, ptr %331, align 1, !range !6, !noundef !7
   %333 = trunc nuw i8 %332 to i1
   br i1 %333, label %334, label %344
 
@@ -4119,12 +4125,12 @@ SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode
   %361 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %362 = load ptr, ptr %361, align 8
   %.not170 = icmp eq ptr %362, null
-  br i1 %.not170, label %._crit_edge, label %65, !llvm.loop !17
+  br i1 %.not170, label %._crit_edge, label %65, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %SetCopyState.exit.thread, %50
   %.val = load ptr, ptr %7, align 8
   %363 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %364 = load i8, ptr %363, align 8, !range !5, !noundef !6
+  %364 = load i8, ptr %363, align 8, !range !6, !noundef !7
   %365 = trunc nuw i8 %364 to i1
   br i1 %365, label %.preheader.i, label %GLES2_ActivateRenderer.exit
 
@@ -4157,7 +4163,7 @@ switch.lookup313:                                 ; preds = %.lr.ph.i
   %376 = load ptr, ptr %366, align 8
   %377 = call i32 %376() #10
   %.not.i194 = icmp eq i32 %377, 0
-  br i1 %.not.i194, label %GLES2_ActivateRenderer.exit, label %.lr.ph.i
+  br i1 %.not.i194, label %GLES2_ActivateRenderer.exit, label %.lr.ph.i, !llvm.loop !9
 
 GLES2_ActivateRenderer.exit:                      ; preds = %374, %.preheader.i, %._crit_edge, %19
   %.0 = phi i1 [ false, %19 ], [ true, %._crit_edge ], [ true, %.preheader.i ], [ false, %374 ]
@@ -4224,7 +4230,7 @@ define internal ptr @GLES2_RenderReadPixels(ptr noundef %0, ptr noundef readonly
   call void %31(i32 noundef %32, i32 noundef %.0, i32 noundef %33, i32 noundef %29, i32 noundef 6408, i32 noundef 5121, ptr noundef %35) #10
   %.val = load ptr, ptr %5, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %37 = load i8, ptr %36, align 8, !range !5, !noundef !6
+  %37 = load i8, ptr %36, align 8, !range !6, !noundef !7
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %.preheader.i, label %49
 
@@ -4253,7 +4259,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %47 = load ptr, ptr %39, align 8
   %48 = call i32 %47() #10
   %.not.i = icmp eq i32 %48, 0
-  br i1 %.not.i, label %GL_CheckAllErrors.exit, label %.lr.ph.i
+  br i1 %.not.i, label %GL_CheckAllErrors.exit, label %.lr.ph.i, !llvm.loop !9
 
 GL_CheckAllErrors.exit:                           ; preds = %45
   call void @SDL_DestroySurface_REAL(ptr noundef nonnull %17) #10
@@ -4303,7 +4309,7 @@ define internal void @GLES2_DestroyTexture(ptr noundef readonly captures(none) %
 14:                                               ; preds = %9, %2
   %.val.i = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %16 = load i8, ptr %15, align 8, !range !5, !noundef !6
+  %16 = load i8, ptr %15, align 8, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %.preheader.i.i, label %GLES2_ActivateRenderer.exit
 
@@ -4315,7 +4321,7 @@ define internal void @GLES2_DestroyTexture(ptr noundef readonly captures(none) %
   %20 = load ptr, ptr %18, align 8
   %21 = tail call i32 %20() #10
   %.not.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %19, !llvm.loop !7
+  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %19, !llvm.loop !8
 
 GLES2_ActivateRenderer.exit:                      ; preds = %19, %9, %14
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 608
@@ -4348,7 +4354,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %19, %9, %14
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %36 = load i8, ptr %35, align 4, !range !5, !noundef !6
+  %36 = load i8, ptr %35, align 4, !range !6, !noundef !7
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %41, label %38
 
@@ -4430,7 +4436,7 @@ define internal void @GLES2_DestroyRenderer(ptr noundef readonly captures(none) 
 12:                                               ; preds = %7, %4
   %.val.i = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %14 = load i8, ptr %13, align 8, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %.preheader.i.i, label %GLES2_ActivateRenderer.exit
 
@@ -4442,7 +4448,7 @@ define internal void @GLES2_DestroyRenderer(ptr noundef readonly captures(none) 
   %18 = load ptr, ptr %16, align 8
   %19 = tail call i32 %18() #10
   %.not.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %17, !llvm.loop !7
+  br i1 %.not.i.i, label %GLES2_ActivateRenderer.exit, label %17, !llvm.loop !8
 
 GLES2_ActivateRenderer.exit:                      ; preds = %17, %7, %12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 484
@@ -4464,7 +4470,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %17, %7, %12
 27:                                               ; preds = %25, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %28, label %22, !llvm.loop !18
+  br i1 %exitcond.not, label %28, label %22, !llvm.loop !22
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 560
@@ -4485,7 +4491,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %17, %7, %12
   %36 = load ptr, ptr %35, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.02739) #10
   %.not31 = icmp eq ptr %36, null
-  br i1 %.not31, label %._crit_edge, label %32, !llvm.loop !19
+  br i1 %.not31, label %._crit_edge, label %32, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %32, %28
   %37 = load ptr, ptr %3, align 8
@@ -4511,7 +4517,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %17, %7, %12
   tail call void %45(i32 noundef 1, ptr noundef nonnull %46) #10
   %.val = load ptr, ptr %2, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %48 = load i8, ptr %47, align 8, !range !5, !noundef !6
+  %48 = load i8, ptr %47, align 8, !range !6, !noundef !7
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %.preheader.i, label %GL_CheckAllErrors.exit
 
@@ -4544,14 +4550,14 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %60 = load ptr, ptr %50, align 8
   %61 = tail call i32 %60() #10
   %.not.i36 = icmp eq i32 %61, 0
-  br i1 %.not.i36, label %GL_CheckAllErrors.exit, label %.lr.ph.i
+  br i1 %.not.i36, label %GL_CheckAllErrors.exit, label %.lr.ph.i, !llvm.loop !9
 
 GL_CheckAllErrors.exit:                           ; preds = %58, %41, %.preheader.i
   %62 = load ptr, ptr %38, align 8
   tail call void @SDL_free_REAL(ptr noundef %62) #10
   store ptr %44, ptr %38, align 8
   %.not33 = icmp eq ptr %44, null
-  br i1 %.not33, label %._crit_edge42.loopexit, label %41, !llvm.loop !20
+  br i1 %.not33, label %._crit_edge42.loopexit, label %41, !llvm.loop !24
 
 ._crit_edge42.loopexit:                           ; preds = %GL_CheckAllErrors.exit
   %.pre = load ptr, ptr %3, align 8
@@ -4651,7 +4657,7 @@ define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) 
   %28 = load i32, ptr %4, align 4
   %.not46.us = icmp eq i32 %28, 0
   %29 = select i1 %17, i1 %.not46.us, i1 false
-  br i1 %29, label %16, label %._crit_edge, !llvm.loop !21
+  br i1 %29, label %16, label %._crit_edge, !llvm.loop !25
 
 30:                                               ; preds = %3
   %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.98) #10
@@ -4673,7 +4679,7 @@ define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) 
   %39 = load i32, ptr %4, align 4
   %.not46 = icmp eq i32 %39, 0
   %40 = select i1 %32, i1 %.not46, i1 false
-  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !22
+  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %21
   %.042.lcssa = phi i32 [ %24, %21 ], [ %35, %.lr.ph.split ]
@@ -4734,7 +4740,7 @@ define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @GL_CheckAllErrors(ptr noundef %0, ptr readonly captures(none) %.696.val, i32 noundef range(i32 1542, 2290) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %.696.val, i64 8
-  %5 = load i8, ptr %4, align 8, !range !5, !noundef !6
+  %5 = load i8, ptr %4, align 8, !range !6, !noundef !7
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %.preheader, label %.loopexit
 
@@ -4777,7 +4783,7 @@ switch.lookup:                                    ; preds = %15
   %20 = load ptr, ptr %7, align 8
   %21 = tail call i32 %20() #10
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %18, %.preheader, %3
   ret void
@@ -4845,7 +4851,7 @@ define internal fastcc noundef zeroext i1 @SetDrawState(ptr noundef %0, ptr noun
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %53
 
@@ -4915,13 +4921,13 @@ define internal fastcc noundef zeroext i1 @SetDrawState(ptr noundef %0, ptr noun
 
 53:                                               ; preds = %52, %4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 628
-  %55 = load i8, ptr %54, align 4, !range !5, !noundef !6
+  %55 = load i8, ptr %54, align 4, !range !6, !noundef !7
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 629
-  %59 = load i8, ptr %58, align 1, !range !5, !noundef !6
+  %59 = load i8, ptr %58, align 1, !range !6, !noundef !7
   %60 = trunc nuw i8 %59 to i1
   %.142 = select i1 %60, i64 152, i64 128
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 %.142
@@ -4932,13 +4938,13 @@ define internal fastcc noundef zeroext i1 @SetDrawState(ptr noundef %0, ptr noun
 
 63:                                               ; preds = %57, %53
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 629
-  %65 = load i8, ptr %64, align 1, !range !5, !noundef !6
+  %65 = load i8, ptr %64, align 1, !range !6, !noundef !7
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %103
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 630
-  %69 = load i8, ptr %68, align 2, !range !5, !noundef !6
+  %69 = load i8, ptr %68, align 2, !range !6, !noundef !7
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %103
 
@@ -4989,14 +4995,14 @@ define internal fastcc noundef zeroext i1 @SetDrawState(ptr noundef %0, ptr noun
 
 103:                                              ; preds = %98, %67, %63
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 649
-  %105 = load i8, ptr %104, align 1, !range !5, !noundef !6
+  %105 = load i8, ptr %104, align 1, !range !6, !noundef !7
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %112, label %107
 
 107:                                              ; preds = %103
   %108 = icmp ne ptr %7, null
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %110 = load i8, ptr %109, align 8, !range !5, !noundef !6
+  %110 = load i8, ptr %109, align 8, !range !6, !noundef !7
   %111 = zext i1 %108 to i8
   %.not110 = icmp eq i8 %110, %111
   br i1 %.not110, label %116, label %112
@@ -5354,7 +5360,7 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   %77 = getelementptr inbounds nuw i8, ptr %.092117.i, i64 120
   %.092.i = load ptr, ptr %77, align 8
   %.not.i = icmp eq ptr %.092.i, null
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !27
 
 78:                                               ; preds = %72
   %.not111.i = icmp eq ptr %.092115.i, %.092117.i
@@ -5452,7 +5458,7 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   store i32 %120, ptr %121, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %122, label %115, !llvm.loop !24
+  br i1 %exitcond.not.i, label %122, label %115, !llvm.loop !28
 
 122:                                              ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -5737,25 +5743,29 @@ attributes #11 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4, !13}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4, !13}
-!22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5, !15}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !4, !5}
+!24 = distinct !{!24, !4, !5}
+!25 = distinct !{!25, !4, !5, !15}
+!26 = distinct !{!26, !4, !5}
+!27 = distinct !{!27, !4, !5}
+!28 = distinct !{!28, !4, !5}

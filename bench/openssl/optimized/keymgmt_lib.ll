@@ -344,7 +344,7 @@ define ptr @evp_keymgmt_util_export_to_provider(ptr noundef captures(none) %0, p
 
 evp_keymgmt_util_find_operation_cache.exit:       ; preds = %48, %56
   %63 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !49
+  %64 = load ptr, ptr %63, align 8, !tbaa !50
   %65 = load ptr, ptr %27, align 8, !tbaa !40
   %66 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %65) #5
   br label %134
@@ -354,7 +354,7 @@ evp_keymgmt_util_find_operation_cache.exit.thread: ; preds = %61, %36, %30
   %68 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %67) #5
   %69 = load ptr, ptr %11, align 8, !tbaa !32
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 224
-  %71 = load ptr, ptr %70, align 8, !tbaa !50
+  %71 = load ptr, ptr %70, align 8, !tbaa !51
   %72 = icmp eq ptr %71, null
   br i1 %72, label %134, label %73
 
@@ -362,7 +362,7 @@ evp_keymgmt_util_find_operation_cache.exit.thread: ; preds = %61, %36, %30
   %74 = tail call ptr @EVP_KEYMGMT_get0_name(ptr noundef nonnull %1) #5
   %75 = tail call i32 @EVP_KEYMGMT_is_a(ptr noundef nonnull %69, ptr noundef %74) #5
   %.not57 = icmp eq i32 %75, 0
-  br i1 %.not57, label %134, label %evp_keymgmt_util_export.exit, !prof !51
+  br i1 %.not57, label %134, label %evp_keymgmt_util_export.exit, !prof !52
 
 evp_keymgmt_util_export.exit:                     ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -431,7 +431,7 @@ evp_keymgmt_util_export.exit:                     ; preds = %73
 
 evp_keymgmt_util_find_operation_cache.exit69:     ; preds = %106, %98
   %113 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !49
+  %114 = load ptr, ptr %113, align 8, !tbaa !50
   %.not61 = icmp eq ptr %114, null
   br i1 %.not61, label %evp_keymgmt_util_find_operation_cache.exit69.thread, label %115
 
@@ -579,7 +579,7 @@ define range(i32 0, 2) i32 @evp_keymgmt_util_cache_keydata(ptr noundef captures(
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %2, ptr %16, align 8, !tbaa !49
+  store ptr %2, ptr %16, align 8, !tbaa !50
   store ptr %1, ptr %13, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %3, ptr %17, align 8, !tbaa !44
@@ -611,7 +611,7 @@ define range(i32 0, 2) i32 @evp_keymgmt_util_cache_keydata(ptr noundef captures(
 define internal void @op_cache_free(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !46
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !49
+  %4 = load ptr, ptr %3, align 8, !tbaa !50
   tail call void @evp_keymgmt_freedata(ptr noundef %2, ptr noundef %4) #5
   %5 = load ptr, ptr %0, align 8, !tbaa !46
   tail call void @EVP_KEYMGMT_free(ptr noundef %5) #5
@@ -746,7 +746,7 @@ define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %0, ptr
 
 .thread:                                          ; preds = %19, %22
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 192
-  %24 = load ptr, ptr %23, align 8, !tbaa !52
+  %24 = load ptr, ptr %23, align 8, !tbaa !53
   %.not84 = icmp eq ptr %24, null
   br i1 %.not84, label %29, label %25
 
@@ -770,7 +770,7 @@ define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %0, ptr
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 192
-  %32 = load ptr, ptr %31, align 8, !tbaa !52
+  %32 = load ptr, ptr %31, align 8, !tbaa !53
   %.not88 = icmp eq ptr %32, null
   br i1 %.not88, label %36, label %33
 
@@ -852,7 +852,7 @@ define range(i32 0, 2) i32 @evp_keymgmt_util_copy(ptr noundef %0, ptr noundef re
 .thread:                                          ; preds = %14, %19
   %.03649 = phi ptr [ %6, %19 ], [ %17, %14 ]
   %21 = getelementptr inbounds nuw i8, ptr %.03649, i64 248
-  %22 = load ptr, ptr %21, align 8, !tbaa !53
+  %22 = load ptr, ptr %21, align 8, !tbaa !54
   %23 = icmp ne ptr %22, null
   %24 = icmp eq ptr %8, null
   %or.cond = select i1 %23, i1 %24, i1 false
@@ -997,7 +997,7 @@ define range(i32 -2, 3) i32 @evp_keymgmt_util_get_deflt_digest_name(ptr noundef 
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %17 = load i64, ptr %16, align 8, !tbaa !54
+  %17 = load i64, ptr %16, align 8, !tbaa !55
   br label %23
 
 18:                                               ; preds = %13
@@ -1007,7 +1007,7 @@ define range(i32 -2, 3) i32 @evp_keymgmt_util_get_deflt_digest_name(ptr noundef 
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %22 = load i64, ptr %21, align 16, !tbaa !54
+  %22 = load i64, ptr %21, align 16, !tbaa !55
   br label %23
 
 23:                                               ; preds = %15, %20
@@ -1043,7 +1043,7 @@ define ptr @evp_keymgmt_util_query_operation_name(ptr noundef %0, i32 noundef %1
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %5 = load ptr, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %.not8 = icmp eq ptr %5, null
   br i1 %.not8, label %.thread, label %6
 
@@ -1131,12 +1131,13 @@ attributes #5 = { nounwind }
 !44 = !{!45, !9, i64 16}
 !45 = !{!"", !5, i64 0, !6, i64 8, !9, i64 16}
 !46 = !{!45, !5, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!45, !6, i64 8}
-!50 = !{!37, !6, i64 224}
-!51 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!52 = !{!37, !6, i64 192}
-!53 = !{!37, !6, i64 248}
-!54 = !{!12, !14, i64 32}
-!55 = !{!37, !6, i64 168}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!45, !6, i64 8}
+!51 = !{!37, !6, i64 224}
+!52 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!53 = !{!37, !6, i64 192}
+!54 = !{!37, !6, i64 248}
+!55 = !{!12, !14, i64 32}
+!56 = !{!37, !6, i64 168}

@@ -320,7 +320,7 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   %.138 = phi ptr [ %10, %12 ], [ %10, %21 ], [ %.037, %24 ]
   %.136 = phi i64 [ %13, %12 ], [ %23, %21 ], [ %25, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.138, i64 1
-  br label %7, !llvm.loop !6
+  br label %7, !llvm.loop !7
 
 28:                                               ; preds = %7
   %29 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #21
@@ -378,7 +378,7 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   %.2 = phi ptr [ %48, %44 ], [ %50, %49 ], [ %scevgep, %.loopexit.loopexit ]
   %.1 = phi ptr [ %40, %44 ], [ %.0, %49 ], [ %40, %.loopexit.loopexit ]
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %37, !llvm.loop !7
+  br label %37, !llvm.loop !8
 
 52:                                               ; preds = %37
   store i8 0, ptr %.033, align 1
@@ -459,7 +459,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit: ; preds = %5
   br i1 %.old.b3, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread11
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9: ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit, %8
-  tail call void asm sideeffect "int $$3", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
+  tail call void asm sideeffect "int $$3", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread11
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread11: ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread, %8, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit
@@ -478,10 +478,10 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchDebuggerIs
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "movq %rdi, $0;\0Amovq %rsi, $1;\0Amovq %rdx, $2;\0Amovq %rcx, $3;\0A", "=*m,=*m,=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #18, !srcloc !9
+  call void asm sideeffect "movq %rdi, $0;\0Amovq %rsi, $1;\0Amovq %rdx, $2;\0Amovq %rcx, $3;\0A", "=*m,=*m,=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #18, !srcloc !10
   %7 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix acquire, align 8
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit, !prof !10
+  br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit, !prof !11
 
 9:                                                ; preds = %0
   %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix) #18
@@ -503,7 +503,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchDebuggerIs
   resume { ptr, i32 } %14
 
 _ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit: ; preds = %0, %9, %12
-  call void asm sideeffect "movq $0, %rdi;\0Amovq $1, %rsi;\0Amovq $2, %rdx;\0Amovq $3, %rcx;\0A", "*m,*m,*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #18, !srcloc !11
+  call void asm sideeffect "movq $0, %rdi;\0Amovq $1, %rsi;\0Amovq $2, %rdx;\0Amovq $3, %rcx;\0A", "*m,*m,*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #18, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -554,7 +554,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i: ; preds = %19, 
   %35 = tail call ptr @__errno_location() #19
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 4
-  br i1 %37, label %.preheader.i, label %.critedge.i, !llvm.loop !12
+  br i1 %37, label %.preheader.i, label %.critedge.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %34, %.preheader.i
   %38 = call i64 (i32, ...) @ptrace(i32 noundef 17, i32 noundef %15, i32 noundef 0, i32 noundef 18) #18
@@ -570,7 +570,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i: ; preds = %19, 
   %42 = tail call ptr @__errno_location() #19
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 4
-  br i1 %44, label %.preheader9.i, label %.critedge2.i, !llvm.loop !13
+  br i1 %44, label %.preheader9.i, label %.critedge2.i, !llvm.loop !14
 
 .critedge2.i:                                     ; preds = %41, %.preheader9.i
   %45 = load i32, ptr %2, align 4
@@ -783,13 +783,14 @@ attributes #22 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{i64 17349}
-!9 = !{i64 3198, i64 3231, i64 3263, i64 3295}
-!10 = !{!"branch_weights", i32 1, i32 1048575}
-!11 = !{i64 3632, i64 3665, i64 3697, i64 3729}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{i64 17349}
+!10 = !{i64 3198, i64 3231, i64 3263, i64 3295}
+!11 = !{!"branch_weights", i32 1, i32 1048575}
+!12 = !{i64 3632, i64 3665, i64 3697, i64 3729}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

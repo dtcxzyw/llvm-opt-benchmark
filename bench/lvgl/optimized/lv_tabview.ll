@@ -45,11 +45,11 @@ define internal void @lv_tabview_event(ptr readnone captures(none) %0, ptr nound
   br i1 %.not.i, label %.preheader.i, label %lv_tabview_get_tab_active.exit
 
 .preheader.i:                                     ; preds = %8, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !16
 
 lv_tabview_get_tab_active.exit:                   ; preds = %8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %10 = load i32, ptr %9, align 8, !tbaa !16
+  %10 = load i32, ptr %9, align 8, !tbaa !18
   tail call void @lv_tabview_set_active(ptr noundef nonnull %6, i32 noundef %10, i1 noundef zeroext false)
   br label %11
 
@@ -80,7 +80,7 @@ define ptr @lv_tabview_add_tab(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 3:                                                ; preds = %2
   %4 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 1) #5
@@ -110,7 +110,7 @@ define ptr @lv_tabview_add_tab(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %17 = tail call i32 @lv_obj_get_child_count(ptr noundef %4) #5
   %18 = add i32 %17, -1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load i32, ptr %19, align 8, !tbaa !16
+  %20 = load i32, ptr %19, align 8, !tbaa !18
   %21 = icmp eq i32 %18, %20
   br i1 %21, label %22, label %23
 
@@ -174,11 +174,11 @@ define void @lv_tabview_set_active(ptr noundef %0, i32 noundef %1, i1 noundef ze
   br i1 %.not, label %.preheader, label %lv_tabview_get_tab_count.exit
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !20
 
 lv_tabview_get_tab_count.exit:                    ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %1, ptr %4, align 8, !tbaa !16
+  store i32 %1, ptr %4, align 8, !tbaa !18
   %5 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 1) #5
   %6 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 0) #5
   %7 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 0) #5
@@ -241,7 +241,7 @@ lv_tabview_get_tab_count.exit:                    ; preds = %3
   %35 = add i32 %.04152, 1
   %36 = tail call ptr @lv_obj_get_child_by_type(ptr noundef %6, i32 noundef %35, ptr noundef nonnull @lv_button_class) #5
   %.not48 = icmp eq ptr %36, null
-  br i1 %.not48, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not48, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %lv_tabview_get_tab_count.exit
   ret void
@@ -253,7 +253,7 @@ define void @lv_tabview_rename_tab(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !23
 
 4:                                                ; preds = %3
   %5 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 0) #5
@@ -271,7 +271,7 @@ define i32 @lv_tabview_get_tab_count(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !24
 
 2:                                                ; preds = %1
   %3 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 0) #5
@@ -297,7 +297,7 @@ define void @lv_tabview_set_tab_bar_position(ptr noundef %0, i32 noundef %1) loc
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !25
 
 3:                                                ; preds = %2
   switch i32 %1, label %10 [
@@ -395,7 +395,7 @@ define void @lv_tabview_set_tab_bar_size(ptr noundef %0, i32 noundef %1) local_u
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !26
 
 3:                                                ; preds = %2
   %4 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 0) #5
@@ -423,11 +423,11 @@ define i32 @lv_tabview_get_tab_active(ptr noundef readonly captures(address_is_n
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !16
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load i32, ptr %3, align 8, !tbaa !16
+  %4 = load i32, ptr %3, align 8, !tbaa !18
   ret i32 %4
 }
 
@@ -453,11 +453,11 @@ define internal void @cont_scroll_end_event_cb(ptr noundef %0) #0 {
   br i1 %.not.i, label %.preheader.i, label %lv_tabview_get_tab_active.exit
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !16
 
 lv_tabview_get_tab_active.exit:                   ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %8 = load i32, ptr %7, align 8, !tbaa !16
+  %8 = load i32, ptr %7, align 8, !tbaa !18
   tail call void @lv_tabview_set_active(ptr noundef nonnull %5, i32 noundef %8, i1 noundef zeroext false)
   br label %39
 
@@ -468,7 +468,7 @@ lv_tabview_get_tab_active.exit:                   ; preds = %6
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !19
+  %13 = load i32, ptr %12, align 8, !tbaa !27
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %39, label %15
 
@@ -487,7 +487,7 @@ lv_tabview_get_tab_active.exit:                   ; preds = %6
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 4294967295
   %24 = icmp eq i64 %23, 1
-  %25 = load i32, ptr %2, align 4, !tbaa !31
+  %25 = load i32, ptr %2, align 4, !tbaa !39
   %.neg.neg = sdiv i32 %20, 2
   %26 = sub i32 0, %25
   %.neg35.pn.p = select i1 %24, i32 %26, i32 %25
@@ -498,7 +498,7 @@ lv_tabview_get_tab_active.exit:                   ; preds = %6
 27:                                               ; preds = %15
   %28 = call i32 @lv_obj_get_content_height(ptr noundef %3) #5
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !32
+  %30 = load i32, ptr %29, align 4, !tbaa !40
   %31 = sdiv i32 %28, 2
   %32 = add nsw i32 %30, %31
   %33 = sdiv i32 %32, %28
@@ -508,7 +508,7 @@ lv_tabview_get_tab_active.exit40:                 ; preds = %19, %27
   %.1 = phi i32 [ %.031, %19 ], [ %33, %27 ]
   %spec.store.select = call i32 @llvm.smax.i32(i32 %.1, i32 0)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %35 = load i32, ptr %34, align 8, !tbaa !16
+  %35 = load i32, ptr %34, align 8, !tbaa !18
   %.not36.not = icmp eq i32 %spec.store.select, %35
   %36 = call ptr @lv_indev_active() #5
   %.not37 = icmp ne ptr %36, null
@@ -577,20 +577,28 @@ attributes #5 = { nounwind }
 !13 = !{!"", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
 !14 = !{!"int", !8, i64 0}
 !15 = !{!"short", !8, i64 0}
-!16 = !{!4, !14, i64 64}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !14, i64 16}
-!20 = !{!"_lv_indev_t", !14, i64 0, !7, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !8, i64 28, !8, i64 28, !8, i64 28, !8, i64 28, !8, i64 28, !14, i64 32, !14, i64 36, !7, i64 40, !7, i64 48, !21, i64 56, !22, i64 64, !8, i64 72, !8, i64 73, !8, i64 74, !8, i64 75, !15, i64 76, !15, i64 78, !14, i64 80, !23, i64 88, !24, i64 232, !10, i64 240, !25, i64 248, !7, i64 256, !26, i64 264, !30, i64 296, !14, i64 304, !7, i64 312}
-!21 = !{!"p1 _ZTS13_lv_display_t", !7, i64 0}
-!22 = !{!"p1 _ZTS11_lv_timer_t", !7, i64 0}
-!23 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !13, i64 96, !24, i64 112, !14, i64 120, !8, i64 124, !24, i64 128, !14, i64 136, !8, i64 140, !8, i64 140, !8, i64 141, !8, i64 141, !8, i64 141}
-!24 = !{!"", !14, i64 0, !14, i64 4}
-!25 = !{!"p1 _ZTS11_lv_group_t", !7, i64 0}
-!26 = !{!"", !27, i64 0, !8, i64 24, !8, i64 24}
-!27 = !{!"_lv_array_t", !28, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !29, i64 20}
-!28 = !{!"p1 omnipotent char", !7, i64 0}
-!29 = !{!"_Bool", !8, i64 0}
-!30 = !{!"p1 _ZTS10_lv_anim_t", !7, i64 0}
-!31 = !{!24, !14, i64 0}
-!32 = !{!24, !14, i64 4}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!4, !14, i64 64}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !22, !17}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = !{!28, !14, i64 16}
+!28 = !{!"_lv_indev_t", !14, i64 0, !7, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !8, i64 28, !8, i64 28, !8, i64 28, !8, i64 28, !8, i64 28, !14, i64 32, !14, i64 36, !7, i64 40, !7, i64 48, !29, i64 56, !30, i64 64, !8, i64 72, !8, i64 73, !8, i64 74, !8, i64 75, !15, i64 76, !15, i64 78, !14, i64 80, !31, i64 88, !32, i64 232, !10, i64 240, !33, i64 248, !7, i64 256, !34, i64 264, !38, i64 296, !14, i64 304, !7, i64 312}
+!29 = !{!"p1 _ZTS13_lv_display_t", !7, i64 0}
+!30 = !{!"p1 _ZTS11_lv_timer_t", !7, i64 0}
+!31 = !{!"", !32, i64 0, !32, i64 8, !32, i64 16, !32, i64 24, !32, i64 32, !32, i64 40, !32, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !13, i64 96, !32, i64 112, !14, i64 120, !8, i64 124, !32, i64 128, !14, i64 136, !8, i64 140, !8, i64 140, !8, i64 141, !8, i64 141, !8, i64 141}
+!32 = !{!"", !14, i64 0, !14, i64 4}
+!33 = !{!"p1 _ZTS11_lv_group_t", !7, i64 0}
+!34 = !{!"", !35, i64 0, !8, i64 24, !8, i64 24}
+!35 = !{!"_lv_array_t", !36, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !37, i64 20}
+!36 = !{!"p1 omnipotent char", !7, i64 0}
+!37 = !{!"_Bool", !8, i64 0}
+!38 = !{!"p1 _ZTS10_lv_anim_t", !7, i64 0}
+!39 = !{!32, !14, i64 0}
+!40 = !{!32, !14, i64 4}

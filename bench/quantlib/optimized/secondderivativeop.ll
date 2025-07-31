@@ -345,7 +345,7 @@ _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i, %for.
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, %if.end
   %42 = phi i64 [ %.pre, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit ], [ %inc.i, %if.end ]
   %cmp.i.not = icmp eq i64 %42, %4
-  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body
+  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body, !llvm.loop !51
 
 ehcleanup67:                                      ; preds = %lpad24, %lpad35, %lpad19
   %.pn.pn = phi { ptr, i32 } [ %31, %lpad19 ], [ %33, %lpad35 ], [ %32, %lpad24 ]
@@ -512,7 +512,7 @@ define linkonce_odr void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnu
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18TripleBandLinearOpE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !50
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !52
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev.exit, label %if.then.i.i
 
@@ -749,6 +749,8 @@ attributes #20 = { noreturn nounwind }
 !45 = !{!46, !46, i64 0}
 !46 = !{!"double", !9, i64 0}
 !47 = !{!23, !8, i64 8}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!10, !8, i64 0}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = distinct !{!51, !50}
+!52 = !{!10, !8, i64 0}

@@ -63,7 +63,7 @@ define i32 @HIST_count_simple(ptr noundef captures(none) %0, ptr noundef capture
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !6
   %18 = icmp ult ptr %12, %5
-  br i1 %18, label %.lr.ph, label %.preheader, !llvm.loop !10
+  br i1 %18, label %.lr.ph, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader
   %.027 = phi i32 [ %22, %.preheader ], [ %6, %.lr.ph ]
@@ -72,7 +72,7 @@ define i32 @HIST_count_simple(ptr noundef captures(none) %0, ptr noundef capture
   %21 = load i32, ptr %20, align 4, !tbaa !6
   %.not = icmp eq i32 %21, 0
   %22 = add i32 %.027, -1
-  br i1 %.not, label %.preheader, label %23, !llvm.loop !11
+  br i1 %.not, label %.preheader, label %23, !llvm.loop !12
 
 23:                                               ; preds = %.preheader
   store i32 %.027, ptr %1, align 4, !tbaa !6
@@ -86,7 +86,7 @@ define i32 @HIST_count_simple(ptr noundef captures(none) %0, ptr noundef capture
   %spec.select = tail call i32 @llvm.umax.i32(i32 %26, i32 %.02634)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not31.not = icmp samesign ult i64 %indvars.iv, %19
-  br i1 %.not31.not, label %24, label %.loopexit, !llvm.loop !12
+  br i1 %.not31.not, label %24, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %24, %11
   %.028 = phi i32 [ 0, %11 ], [ %spec.select, %24 ]
@@ -125,7 +125,7 @@ define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4, !tbaa !6
   %22 = icmp ult ptr %16, %9
-  br i1 %22, label %.lr.ph.i, label %.preheader.i, !llvm.loop !10
+  br i1 %22, label %.lr.ph.i, label %.preheader.i, !llvm.loop !11
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
   %.027.i = phi i32 [ %26, %.preheader.i ], [ %10, %.lr.ph.i ]
@@ -134,7 +134,7 @@ define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(
   %25 = load i32, ptr %24, align 4, !tbaa !6
   %.not.i = icmp eq i32 %25, 0
   %26 = add i32 %.027.i, -1
-  br i1 %.not.i, label %.preheader.i, label %27, !llvm.loop !11
+  br i1 %.not.i, label %.preheader.i, label %27, !llvm.loop !12
 
 27:                                               ; preds = %.preheader.i
   store i32 %.027.i, ptr %1, align 4, !tbaa !6
@@ -148,7 +148,7 @@ define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %30, i32 %.02634.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.i, %23
-  br i1 %exitcond.not, label %HIST_count_simple.exit.loopexit, label %28, !llvm.loop !12
+  br i1 %exitcond.not, label %HIST_count_simple.exit.loopexit, label %28, !llvm.loop !13
 
 HIST_count_simple.exit.loopexit:                  ; preds = %28
   %31 = zext i32 %spec.select.i to i64
@@ -324,7 +324,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   store i32 %110, ptr %108, align 4, !tbaa !6
   %.098 = getelementptr inbounds nuw i8, ptr %.pn113, i64 20
   %111 = icmp ult ptr %.098, %17
-  br i1 %111, label %.lr.ph, label %.preheader111, !llvm.loop !13
+  br i1 %111, label %.lr.ph, label %.preheader111, !llvm.loop !14
 
 .lr.ph117:                                        ; preds = %.preheader111, %.lr.ph117
   %.199116 = phi ptr [ %112, %.lr.ph117 ], [ %.pn.lcssa, %.preheader111 ]
@@ -336,7 +336,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %117 = add i32 %116, 1
   store i32 %117, ptr %115, align 4, !tbaa !6
   %118 = icmp ult ptr %112, %7
-  br i1 %118, label %.lr.ph117, label %.preheader110.preheader, !llvm.loop !14
+  br i1 %118, label %.lr.ph117, label %.preheader110.preheader, !llvm.loop !15
 
 .preheader110.preheader:                          ; preds = %.lr.ph117, %.preheader111
   br label %.preheader110
@@ -359,7 +359,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %spec.select = tail call i32 @llvm.umax.i32(i32 %129, i32 %.0100118)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.preheader, label %.preheader110, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader, label %.preheader110, !llvm.loop !16
 
 .preheader:                                       ; preds = %.preheader110, %.preheader
   %.0 = phi i32 [ %133, %.preheader ], [ 255, %.preheader110 ]
@@ -368,7 +368,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %132 = load i32, ptr %131, align 4, !tbaa !6
   %.not103 = icmp eq i32 %132, 0
   %133 = add i32 %.0, -1
-  br i1 %.not103, label %.preheader, label %134, !llvm.loop !16
+  br i1 %.not103, label %.preheader, label %134, !llvm.loop !17
 
 134:                                              ; preds = %.preheader
   %.not104 = icmp eq i32 %4, 0
@@ -435,7 +435,7 @@ define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4, !tbaa !6
   %28 = icmp ult ptr %22, %19
-  br i1 %28, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !10
+  br i1 %28, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !11
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.027.i.i = phi i32 [ %32, %.preheader.i.i ], [ 255, %.lr.ph.i.i ]
@@ -444,7 +444,7 @@ define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none
   %31 = load i32, ptr %30, align 4, !tbaa !6
   %.not.i.i = icmp eq i32 %31, 0
   %32 = add i32 %.027.i.i, -1
-  br i1 %.not.i.i, label %.preheader.i.i, label %33, !llvm.loop !11
+  br i1 %.not.i.i, label %.preheader.i.i, label %33, !llvm.loop !12
 
 33:                                               ; preds = %.preheader.i.i
   store i32 %.027.i.i, ptr %1, align 4, !tbaa !6
@@ -458,7 +458,7 @@ define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %36, i32 %.02634.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %29
-  br i1 %exitcond.not.i, label %HIST_count_simple.exit.loopexit.i, label %34, !llvm.loop !12
+  br i1 %exitcond.not.i, label %HIST_count_simple.exit.loopexit.i, label %34, !llvm.loop !13
 
 HIST_count_simple.exit.loopexit.i:                ; preds = %34
   %37 = zext i32 %spec.select.i.i to i64
@@ -504,7 +504,7 @@ define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none)
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !6
   %21 = icmp ult ptr %15, %8
-  br i1 %21, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !10
+  br i1 %21, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !11
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.027.i.i = phi i32 [ %25, %.preheader.i.i ], [ %9, %.lr.ph.i.i ]
@@ -513,7 +513,7 @@ define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none)
   %24 = load i32, ptr %23, align 4, !tbaa !6
   %.not.i.i = icmp eq i32 %24, 0
   %25 = add i32 %.027.i.i, -1
-  br i1 %.not.i.i, label %.preheader.i.i, label %26, !llvm.loop !11
+  br i1 %.not.i.i, label %.preheader.i.i, label %26, !llvm.loop !12
 
 26:                                               ; preds = %.preheader.i.i
   store i32 %.027.i.i, ptr %1, align 4, !tbaa !6
@@ -527,7 +527,7 @@ define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none)
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %29, i32 %.02634.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %22
-  br i1 %exitcond.not.i, label %HIST_count_simple.exit.loopexit.i, label %27, !llvm.loop !12
+  br i1 %exitcond.not.i, label %HIST_count_simple.exit.loopexit.i, label %27, !llvm.loop !13
 
 HIST_count_simple.exit.loopexit.i:                ; preds = %27
   %30 = zext i32 %spec.select.i.i to i64
@@ -580,7 +580,7 @@ define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %0,
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4, !tbaa !6
   %22 = icmp ult ptr %16, %13
-  br i1 %22, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %22, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !11
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.027.i.i.i = phi i32 [ %26, %.preheader.i.i.i ], [ 255, %.lr.ph.i.i.i ]
@@ -589,7 +589,7 @@ define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %0,
   %25 = load i32, ptr %24, align 4, !tbaa !6
   %.not.i.i.i = icmp eq i32 %25, 0
   %26 = add i32 %.027.i.i.i, -1
-  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %27, !llvm.loop !11
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %27, !llvm.loop !12
 
 27:                                               ; preds = %.preheader.i.i.i
   store i32 %.027.i.i.i, ptr %1, align 4, !tbaa !6
@@ -603,7 +603,7 @@ define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %0,
   %spec.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %30, i32 %.02634.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.i.i.i, %23
-  br i1 %exitcond.not.i.i, label %HIST_count_simple.exit.loopexit.i.i, label %28, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %HIST_count_simple.exit.loopexit.i.i, label %28, !llvm.loop !13
 
 HIST_count_simple.exit.loopexit.i.i:              ; preds = %28
   %31 = zext i32 %spec.select.i.i.i to i64
@@ -643,12 +643,13 @@ attributes #6 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

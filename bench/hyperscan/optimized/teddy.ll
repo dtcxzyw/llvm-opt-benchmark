@@ -311,7 +311,7 @@ vectoredLoad256.exit:                             ; preds = %121, %119, %112, %1
   %.1.i592 = phi i64 [ %185, %180 ], [ %.012.i1153, %177 ]
   %187 = add nuw nsw i64 %.0.i5891154, 1
   %exitcond.not = icmp eq i64 %187, 8
-  br i1 %exitcond.not, label %lv_u64a_ce.exit, label %177
+  br i1 %exitcond.not, label %lv_u64a_ce.exit, label %177, !llvm.loop !8
 
 lv_u64a_ce.exit:                                  ; preds = %186
   %188 = ptrtoint ptr %169 to i64
@@ -414,7 +414,7 @@ getConfVal.exit426:                               ; preds = %171, %lv_u64a_ce.ex
   %249 = load i8, ptr %248, align 2
   %250 = getelementptr inbounds nuw i8, ptr %.044.i583, i64 32
   %.not50.i585 = icmp eq i8 %249, 0
-  br i1 %.not50.i585, label %251, label %216
+  br i1 %.not50.i585, label %251, label %216, !llvm.loop !10
 
 251:                                              ; preds = %247
   store ptr null, ptr %214, align 16
@@ -430,7 +430,7 @@ confWithBit.exit588:                              ; preds = %getConfVal.exit426,
   %.33996 = phi i32 [ %.32995, %154 ], [ %.32995, %162 ], [ %.1511114, %confWithBit.exit588 ]
   %.34 = phi i64 [ %.33, %154 ], [ %.33, %162 ], [ %.188, %confWithBit.exit588 ]
   %.not26.i = icmp eq i64 %157, 0
-  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %154, !prof !5
+  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %154, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit:                        ; preds = %252
   %253 = icmp eq i64 %.34, 0
@@ -517,7 +517,7 @@ do_confWithBit_teddy.exit:                        ; preds = %252
   %.1.i597 = phi i64 [ %294, %289 ], [ %.012.i5931157, %286 ]
   %296 = add nuw nsw i64 %.0.i5941158, 1
   %exitcond1291.not = icmp eq i64 %296, 8
-  br i1 %exitcond1291.not, label %lv_u64a_ce.exit598, label %286
+  br i1 %exitcond1291.not, label %lv_u64a_ce.exit598, label %286, !llvm.loop !8
 
 lv_u64a_ce.exit598:                               ; preds = %295
   %297 = ptrtoint ptr %278 to i64
@@ -620,7 +620,7 @@ getConfVal.exit422:                               ; preds = %280, %lv_u64a_ce.ex
   %358 = load i8, ptr %357, align 2
   %359 = getelementptr inbounds nuw i8, ptr %.044.i576, i64 32
   %.not50.i578 = icmp eq i8 %358, 0
-  br i1 %.not50.i578, label %360, label %325
+  br i1 %.not50.i578, label %360, label %325, !llvm.loop !10
 
 360:                                              ; preds = %356
   store ptr null, ptr %323, align 16
@@ -636,7 +636,7 @@ confWithBit.exit581:                              ; preds = %getConfVal.exit422,
   %.35998 = phi i32 [ %.34997, %261 ], [ %.34997, %271 ], [ %.1481111, %confWithBit.exit581 ]
   %.36 = phi i64 [ %.35, %261 ], [ %.35, %271 ], [ %.185, %confWithBit.exit581 ]
   %.not26.i251 = icmp eq i64 %264, 0
-  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %261, !prof !5
+  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %261, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit252:                     ; preds = %361
   %362 = icmp eq i64 %.36, 0
@@ -723,7 +723,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %361
   %.1.i603 = phi i64 [ %403, %398 ], [ %.012.i5991161, %395 ]
   %405 = add nuw nsw i64 %.0.i6001162, 1
   %exitcond1292.not = icmp eq i64 %405, 8
-  br i1 %exitcond1292.not, label %lv_u64a_ce.exit604, label %395
+  br i1 %exitcond1292.not, label %lv_u64a_ce.exit604, label %395, !llvm.loop !8
 
 lv_u64a_ce.exit604:                               ; preds = %404
   %406 = ptrtoint ptr %387 to i64
@@ -826,7 +826,7 @@ getConfVal.exit418:                               ; preds = %389, %lv_u64a_ce.ex
   %467 = load i8, ptr %466, align 2
   %468 = getelementptr inbounds nuw i8, ptr %.044.i569, i64 32
   %.not50.i571 = icmp eq i8 %467, 0
-  br i1 %.not50.i571, label %469, label %434
+  br i1 %.not50.i571, label %469, label %434, !llvm.loop !10
 
 469:                                              ; preds = %465
   store ptr null, ptr %432, align 16
@@ -842,7 +842,7 @@ confWithBit.exit574:                              ; preds = %getConfVal.exit418,
   %.371000 = phi i32 [ %.36999, %370 ], [ %.36999, %380 ], [ %.1451108, %confWithBit.exit574 ]
   %.38 = phi i64 [ %.37, %370 ], [ %.37, %380 ], [ %.182, %confWithBit.exit574 ]
   %.not26.i255 = icmp eq i64 %373, 0
-  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %370, !prof !5
+  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %370, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit256:                     ; preds = %470
   %471 = icmp eq i64 %.38, 0
@@ -929,7 +929,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %470
   %.1.i609 = phi i64 [ %512, %507 ], [ %.012.i6051165, %504 ]
   %514 = add nuw nsw i64 %.0.i6061166, 1
   %exitcond1293.not = icmp eq i64 %514, 8
-  br i1 %exitcond1293.not, label %lv_u64a_ce.exit610, label %504
+  br i1 %exitcond1293.not, label %lv_u64a_ce.exit610, label %504, !llvm.loop !8
 
 lv_u64a_ce.exit610:                               ; preds = %513
   %515 = ptrtoint ptr %496 to i64
@@ -1032,7 +1032,7 @@ getConfVal.exit414:                               ; preds = %498, %lv_u64a_ce.ex
   %576 = load i8, ptr %575, align 2
   %577 = getelementptr inbounds nuw i8, ptr %.044.i562, i64 32
   %.not50.i564 = icmp eq i8 %576, 0
-  br i1 %.not50.i564, label %578, label %543
+  br i1 %.not50.i564, label %578, label %543, !llvm.loop !10
 
 578:                                              ; preds = %574
   store ptr null, ptr %541, align 16
@@ -1048,7 +1048,7 @@ confWithBit.exit567:                              ; preds = %getConfVal.exit414,
   %.391002 = phi i32 [ %.381001, %479 ], [ %.381001, %489 ], [ %.1421105, %confWithBit.exit567 ]
   %.40 = phi i64 [ %.39, %479 ], [ %.39, %489 ], [ %.179, %confWithBit.exit567 ]
   %.not26.i259 = icmp eq i64 %482, 0
-  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %479, !prof !5
+  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %479, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit260:                     ; preds = %579
   %580 = icmp eq i64 %.40, 0
@@ -1176,7 +1176,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %579
   %.1.i615 = phi i64 [ %652, %647 ], [ %.012.i6111169, %644 ]
   %654 = add nuw nsw i64 %.0.i6121170, 1
   %exitcond1294.not = icmp eq i64 %654, 8
-  br i1 %exitcond1294.not, label %lv_u64a_ce.exit616, label %644
+  br i1 %exitcond1294.not, label %lv_u64a_ce.exit616, label %644, !llvm.loop !8
 
 lv_u64a_ce.exit616:                               ; preds = %653
   %655 = ptrtoint ptr %636 to i64
@@ -1279,7 +1279,7 @@ getConfVal.exit410:                               ; preds = %638, %lv_u64a_ce.ex
   %716 = load i8, ptr %715, align 2
   %717 = getelementptr inbounds nuw i8, ptr %.044.i555, i64 32
   %.not50.i557 = icmp eq i8 %716, 0
-  br i1 %.not50.i557, label %718, label %683
+  br i1 %.not50.i557, label %718, label %683, !llvm.loop !10
 
 718:                                              ; preds = %714
   store ptr null, ptr %681, align 16
@@ -1295,7 +1295,7 @@ confWithBit.exit560:                              ; preds = %getConfVal.exit410,
   %.411004 = phi i32 [ %.401003, %621 ], [ %.401003, %629 ], [ %.1391102, %confWithBit.exit560 ]
   %.42 = phi i64 [ %.41, %621 ], [ %.41, %629 ], [ %.176, %confWithBit.exit560 ]
   %.not26.i263 = icmp eq i64 %624, 0
-  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %621, !prof !5
+  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %621, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit264:                     ; preds = %719
   %720 = icmp eq i64 %.42, 0
@@ -1383,7 +1383,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %719
   %.1.i621 = phi i64 [ %762, %757 ], [ %.012.i6171173, %754 ]
   %764 = add nuw nsw i64 %.0.i6181174, 1
   %exitcond1295.not = icmp eq i64 %764, 8
-  br i1 %exitcond1295.not, label %lv_u64a_ce.exit622, label %754
+  br i1 %exitcond1295.not, label %lv_u64a_ce.exit622, label %754, !llvm.loop !8
 
 lv_u64a_ce.exit622:                               ; preds = %763
   %765 = ptrtoint ptr %746 to i64
@@ -1486,7 +1486,7 @@ getConfVal.exit406:                               ; preds = %748, %lv_u64a_ce.ex
   %826 = load i8, ptr %825, align 2
   %827 = getelementptr inbounds nuw i8, ptr %.044.i548, i64 32
   %.not50.i550 = icmp eq i8 %826, 0
-  br i1 %.not50.i550, label %828, label %793
+  br i1 %.not50.i550, label %828, label %793, !llvm.loop !10
 
 828:                                              ; preds = %824
   store ptr null, ptr %791, align 16
@@ -1502,7 +1502,7 @@ confWithBit.exit553:                              ; preds = %getConfVal.exit406,
   %.431006 = phi i32 [ %.421005, %729 ], [ %.421005, %739 ], [ %.1361099, %confWithBit.exit553 ]
   %.44 = phi i64 [ %.43, %729 ], [ %.43, %739 ], [ %.173, %confWithBit.exit553 ]
   %.not26.i267 = icmp eq i64 %732, 0
-  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %729, !prof !5
+  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %729, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit268:                     ; preds = %829
   %830 = icmp eq i64 %.44, 0
@@ -1590,7 +1590,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %829
   %.1.i627 = phi i64 [ %872, %867 ], [ %.012.i6231177, %864 ]
   %874 = add nuw nsw i64 %.0.i6241178, 1
   %exitcond1296.not = icmp eq i64 %874, 8
-  br i1 %exitcond1296.not, label %lv_u64a_ce.exit628, label %864
+  br i1 %exitcond1296.not, label %lv_u64a_ce.exit628, label %864, !llvm.loop !8
 
 lv_u64a_ce.exit628:                               ; preds = %873
   %875 = ptrtoint ptr %856 to i64
@@ -1693,7 +1693,7 @@ getConfVal.exit402:                               ; preds = %858, %lv_u64a_ce.ex
   %936 = load i8, ptr %935, align 2
   %937 = getelementptr inbounds nuw i8, ptr %.044.i541, i64 32
   %.not50.i543 = icmp eq i8 %936, 0
-  br i1 %.not50.i543, label %938, label %903
+  br i1 %.not50.i543, label %938, label %903, !llvm.loop !10
 
 938:                                              ; preds = %934
   store ptr null, ptr %901, align 16
@@ -1709,7 +1709,7 @@ confWithBit.exit546:                              ; preds = %getConfVal.exit402,
   %.451008 = phi i32 [ %.441007, %839 ], [ %.441007, %849 ], [ %.1331096, %confWithBit.exit546 ]
   %.46 = phi i64 [ %.45, %839 ], [ %.45, %849 ], [ %.170, %confWithBit.exit546 ]
   %.not26.i271 = icmp eq i64 %842, 0
-  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %839, !prof !5
+  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %839, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit272:                     ; preds = %939
   %940 = icmp eq i64 %.46, 0
@@ -1797,7 +1797,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %939
   %.1.i633 = phi i64 [ %982, %977 ], [ %.012.i6291181, %974 ]
   %984 = add nuw nsw i64 %.0.i6301182, 1
   %exitcond1297.not = icmp eq i64 %984, 8
-  br i1 %exitcond1297.not, label %lv_u64a_ce.exit634, label %974
+  br i1 %exitcond1297.not, label %lv_u64a_ce.exit634, label %974, !llvm.loop !8
 
 lv_u64a_ce.exit634:                               ; preds = %983
   %985 = ptrtoint ptr %966 to i64
@@ -1900,7 +1900,7 @@ getConfVal.exit398:                               ; preds = %968, %lv_u64a_ce.ex
   %1046 = load i8, ptr %1045, align 2
   %1047 = getelementptr inbounds nuw i8, ptr %.044.i534, i64 32
   %.not50.i536 = icmp eq i8 %1046, 0
-  br i1 %.not50.i536, label %1048, label %1013
+  br i1 %.not50.i536, label %1048, label %1013, !llvm.loop !10
 
 1048:                                             ; preds = %1044
   store ptr null, ptr %1011, align 16
@@ -1916,7 +1916,7 @@ confWithBit.exit539:                              ; preds = %getConfVal.exit398,
   %.471010 = phi i32 [ %.461009, %949 ], [ %.461009, %959 ], [ %.1301093, %confWithBit.exit539 ]
   %.48 = phi i64 [ %.47, %949 ], [ %.47, %959 ], [ %.167, %confWithBit.exit539 ]
   %.not26.i275 = icmp eq i64 %952, 0
-  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %949, !prof !5
+  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %949, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit276:                     ; preds = %1049
   %1050 = icmp eq i64 %.48, 0
@@ -2043,7 +2043,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %1049
   %or.cond.i = select i1 %.not383.i, i1 %.not384.i, i1 false
   %.not385.i = icmp eq i64 %1125, %1088
   %or.cond422.i = select i1 %or.cond.i, i1 %.not385.i, i1 false
-  br i1 %or.cond422.i, label %1113, label %.thread1117.preheader
+  br i1 %or.cond422.i, label %1113, label %.thread1117.preheader, !llvm.loop !13
 
 .thread1117.preheader:                            ; preds = %1122, %1117, %1113
   br label %.thread1117
@@ -2060,7 +2060,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %1049
   %1133 = getelementptr inbounds nuw i8, ptr %1062, i64 %1131
   %1134 = load i64, ptr %1133, align 8
   %.not386.i = icmp eq i64 %1134, %1088
-  br i1 %.not386.i, label %.thread1117, label %split
+  br i1 %.not386.i, label %.thread1117, label %split, !llvm.loop !14
 
 split:                                            ; preds = %1132, %.thread1117
   %1135 = icmp ugt i64 %1066, %1131
@@ -2078,7 +2078,7 @@ split:                                            ; preds = %1132, %.thread1117
   %1140 = add i32 %.3.i1185, 1
   %1141 = zext i32 %1140 to i64
   %1142 = icmp ugt i64 %1066, %1141
-  br i1 %1142, label %.lr.ph1187, label %._crit_edge1188
+  br i1 %1142, label %.lr.ph1187, label %._crit_edge1188, !llvm.loop !15
 
 ._crit_edge1188:                                  ; preds = %1139, %.lr.ph1187, %split
   %.3.i.lcssa = phi i32 [ %.2.i, %split ], [ %.3.i1185, %.lr.ph1187 ], [ %1140, %1139 ]
@@ -2217,7 +2217,7 @@ split:                                            ; preds = %1132, %.thread1117
   %.102 = phi i64 [ %1206, %1202 ], [ %1212, %1208 ], [ %1200, %1196 ], [ %1194, %1190 ], [ %.981203, %1187 ]
   %indvars.iv.next1303 = add nuw nsw i64 %indvars.iv1302, 4
   %1213 = icmp samesign ult i64 %indvars.iv.next1303, %1173
-  br i1 %1213, label %1184, label %.critedge.i
+  br i1 %1213, label %1184, label %.critedge.i, !llvm.loop !16
 
 1214:                                             ; preds = %.lr.ph1199, %1287
   %indvars.iv1299 = phi i64 [ 0, %.lr.ph1199 ], [ %indvars.iv.next1300, %1287 ]
@@ -2348,7 +2348,7 @@ split:                                            ; preds = %1132, %.thread1117
   %.97 = phi i64 [ %.96, %1278 ], [ %1286, %1281 ]
   %indvars.iv.next1300 = add nuw nsw i64 %indvars.iv1299, 4
   %1288 = icmp samesign ult i64 %indvars.iv.next1300, %1167
-  br i1 %1288, label %1214, label %.critedge.i
+  br i1 %1288, label %1214, label %.critedge.i, !llvm.loop !17
 
 1289:                                             ; preds = %.lr.ph1193, %1343
   %indvars.iv = phi i64 [ 0, %.lr.ph1193 ], [ %indvars.iv.next, %1343 ]
@@ -2448,7 +2448,7 @@ split:                                            ; preds = %1132, %.thread1117
   %.88 = phi i64 [ %.87, %1334 ], [ %1342, %1337 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %1344 = icmp samesign ult i64 %indvars.iv.next, %1159
-  br i1 %1344, label %1289, label %.critedge.i
+  br i1 %1344, label %1289, label %.critedge.i, !llvm.loop !18
 
 1345:                                             ; preds = %.lr.ph1223, %._crit_edge1219
   %indvars.iv1311 = phi i64 [ 0, %.lr.ph1223 ], [ %indvars.iv.next1312, %._crit_edge1219 ]
@@ -2554,7 +2554,7 @@ split:                                            ; preds = %1132, %.thread1117
   %indvars.iv.next1306 = add nuw nsw i64 %indvars.iv1305, 1
   %1398 = zext i16 %1397 to i64
   %1399 = icmp samesign ult i64 %indvars.iv.next1306, %1398
-  br i1 %1399, label %1387, label %._crit_edge1213
+  br i1 %1399, label %1387, label %._crit_edge1213, !llvm.loop !19
 
 1400:                                             ; preds = %._crit_edge1213
   %1401 = trunc nuw i64 %indvars.iv1311 to i32
@@ -2625,7 +2625,7 @@ split:                                            ; preds = %1132, %.thread1117
   %.113.lcssa = phi i64 [ %.112, %1433 ], [ %.114, %1449 ]
   %indvars.iv.next1312 = add nuw nsw i64 %indvars.iv1311, 2
   %1439 = icmp samesign ult i64 %indvars.iv.next1312, %1183
-  br i1 %1439, label %1345, label %.critedge.i
+  br i1 %1439, label %1345, label %.critedge.i, !llvm.loop !20
 
 1440:                                             ; preds = %.lr.ph1218, %1449
   %1441 = phi i16 [ %1434, %.lr.ph1218 ], [ %1450, %1449 ]
@@ -2650,7 +2650,7 @@ split:                                            ; preds = %1132, %.thread1117
   %indvars.iv.next1309 = add nuw nsw i64 %indvars.iv1308, 1
   %1451 = zext i16 %1450 to i64
   %1452 = icmp samesign ult i64 %indvars.iv.next1309, %1451
-  br i1 %1452, label %1440, label %._crit_edge1219
+  br i1 %1452, label %1440, label %._crit_edge1219, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %1343, %1289, %1287, %1214, %.thread1366, %1184, %._crit_edge1219, %1345, %.preheader1146, %.preheader1144, %.preheader1142, %.preheader, %1148, %1144
   %.82 = phi i64 [ %.121247, %1144 ], [ %.121247, %1148 ], [ %.121247, %.preheader ], [ %.121247, %.preheader1142 ], [ %.121247, %.preheader1144 ], [ %.121247, %.preheader1146 ], [ %.113.lcssa, %._crit_edge1219 ], [ %.1031221, %1345 ], [ %.102, %.thread1366 ], [ %.981203, %1184 ], [ %.97, %1287 ], [ %.891197, %1214 ], [ %.88, %1343 ], [ %.811191, %1289 ]
@@ -2847,7 +2847,7 @@ floodDetect.exit:                                 ; preds = %1098, %1105, %.crit
   %1575 = load i8, ptr %1574, align 2
   %1576 = getelementptr inbounds nuw i8, ptr %.044.i527, i64 32
   %.not50.i529 = icmp eq i8 %1575, 0
-  br i1 %.not50.i529, label %1577, label %1542
+  br i1 %.not50.i529, label %1577, label %1542, !llvm.loop !10
 
 1577:                                             ; preds = %1573
   store ptr null, ptr %1540, align 16
@@ -2863,7 +2863,7 @@ confWithBit.exit532:                              ; preds = %1515, %1577
   %.491012 = phi i32 [ %.481011, %1501 ], [ %.481011, %1509 ], [ %.1271090, %confWithBit.exit532 ]
   %.50 = phi i64 [ %.49, %1501 ], [ %.49, %1509 ], [ %.164, %confWithBit.exit532 ]
   %.not26.i279 = icmp eq i64 %1504, 0
-  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %1501, !prof !5
+  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %1501, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit280:                     ; preds = %1578
   %1579 = icmp eq i64 %.50, 0
@@ -3001,7 +3001,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %1578
   %1660 = load i8, ptr %1659, align 2
   %1661 = getelementptr inbounds nuw i8, ptr %.044.i520, i64 32
   %.not50.i522 = icmp eq i8 %1660, 0
-  br i1 %.not50.i522, label %1662, label %1627
+  br i1 %.not50.i522, label %1662, label %1627, !llvm.loop !10
 
 1662:                                             ; preds = %1658
   store ptr null, ptr %1625, align 16
@@ -3017,7 +3017,7 @@ confWithBit.exit525:                              ; preds = %1600, %1662
   %.511014 = phi i32 [ %.501013, %1584 ], [ %.501013, %1594 ], [ %.1241087, %confWithBit.exit525 ]
   %.52 = phi i64 [ %.51, %1584 ], [ %.51, %1594 ], [ %.161, %confWithBit.exit525 ]
   %.not26.i283 = icmp eq i64 %1587, 0
-  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %1584, !prof !5
+  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %1584, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit284:                     ; preds = %1663
   %1664 = icmp eq i64 %.52, 0
@@ -3155,7 +3155,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %1663
   %1745 = load i8, ptr %1744, align 2
   %1746 = getelementptr inbounds nuw i8, ptr %.044.i513, i64 32
   %.not50.i515 = icmp eq i8 %1745, 0
-  br i1 %.not50.i515, label %1747, label %1712
+  br i1 %.not50.i515, label %1747, label %1712, !llvm.loop !10
 
 1747:                                             ; preds = %1743
   store ptr null, ptr %1710, align 16
@@ -3171,7 +3171,7 @@ confWithBit.exit518:                              ; preds = %1685, %1747
   %.531016 = phi i32 [ %.521015, %1669 ], [ %.521015, %1679 ], [ %.1211084, %confWithBit.exit518 ]
   %.54 = phi i64 [ %.53, %1669 ], [ %.53, %1679 ], [ %.158, %confWithBit.exit518 ]
   %.not26.i287 = icmp eq i64 %1672, 0
-  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %1669, !prof !5
+  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %1669, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit288:                     ; preds = %1748
   %1749 = icmp eq i64 %.54, 0
@@ -3309,7 +3309,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %1748
   %1830 = load i8, ptr %1829, align 2
   %1831 = getelementptr inbounds nuw i8, ptr %.044.i506, i64 32
   %.not50.i508 = icmp eq i8 %1830, 0
-  br i1 %.not50.i508, label %1832, label %1797
+  br i1 %.not50.i508, label %1832, label %1797, !llvm.loop !10
 
 1832:                                             ; preds = %1828
   store ptr null, ptr %1795, align 16
@@ -3325,7 +3325,7 @@ confWithBit.exit511:                              ; preds = %1770, %1832
   %.551018 = phi i32 [ %.541017, %1754 ], [ %.541017, %1764 ], [ %.1181081, %confWithBit.exit511 ]
   %.56 = phi i64 [ %.55, %1754 ], [ %.55, %1764 ], [ %.155, %confWithBit.exit511 ]
   %.not26.i291 = icmp eq i64 %1757, 0
-  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1754, !prof !5
+  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1754, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit292:                     ; preds = %1833
   %1834 = icmp eq i64 %.56, 0
@@ -3499,7 +3499,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1833
   %1945 = load i8, ptr %1944, align 2
   %1946 = getelementptr inbounds nuw i8, ptr %.044.i499, i64 32
   %.not50.i501 = icmp eq i8 %1945, 0
-  br i1 %.not50.i501, label %1947, label %1912
+  br i1 %.not50.i501, label %1947, label %1912, !llvm.loop !10
 
 1947:                                             ; preds = %1943
   store ptr null, ptr %1910, align 16
@@ -3515,7 +3515,7 @@ confWithBit.exit504:                              ; preds = %1885, %1947
   %.571020 = phi i32 [ %.561019, %1869 ], [ %.561019, %1879 ], [ %.1151078, %confWithBit.exit504 ]
   %.58 = phi i64 [ %.57, %1869 ], [ %.57, %1879 ], [ %.152, %confWithBit.exit504 ]
   %.not26.i295 = icmp eq i64 %1872, 0
-  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1869, !prof !5
+  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1869, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit296:                     ; preds = %1948
   %1949 = icmp eq i64 %.58, 0
@@ -3653,7 +3653,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1948
   %2030 = load i8, ptr %2029, align 2
   %2031 = getelementptr inbounds nuw i8, ptr %.044.i492, i64 32
   %.not50.i494 = icmp eq i8 %2030, 0
-  br i1 %.not50.i494, label %2032, label %1997
+  br i1 %.not50.i494, label %2032, label %1997, !llvm.loop !10
 
 2032:                                             ; preds = %2028
   store ptr null, ptr %1995, align 16
@@ -3669,7 +3669,7 @@ confWithBit.exit497:                              ; preds = %1970, %2032
   %.591022 = phi i32 [ %.581021, %1954 ], [ %.581021, %1964 ], [ %.1121075, %confWithBit.exit497 ]
   %.60 = phi i64 [ %.59, %1954 ], [ %.59, %1964 ], [ %.149, %confWithBit.exit497 ]
   %.not26.i299 = icmp eq i64 %1957, 0
-  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1954, !prof !5
+  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1954, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit300:                     ; preds = %2033
   %2034 = icmp eq i64 %.60, 0
@@ -3807,7 +3807,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %2033
   %2115 = load i8, ptr %2114, align 2
   %2116 = getelementptr inbounds nuw i8, ptr %.044.i485, i64 32
   %.not50.i487 = icmp eq i8 %2115, 0
-  br i1 %.not50.i487, label %2117, label %2082
+  br i1 %.not50.i487, label %2117, label %2082, !llvm.loop !10
 
 2117:                                             ; preds = %2113
   store ptr null, ptr %2080, align 16
@@ -3823,7 +3823,7 @@ confWithBit.exit490:                              ; preds = %2055, %2117
   %.611024 = phi i32 [ %.601023, %2039 ], [ %.601023, %2049 ], [ %.1091072, %confWithBit.exit490 ]
   %.62 = phi i64 [ %.61, %2039 ], [ %.61, %2049 ], [ %.146, %confWithBit.exit490 ]
   %.not26.i303 = icmp eq i64 %2042, 0
-  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %2039, !prof !5
+  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %2039, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit304:                     ; preds = %2118
   %2119 = icmp eq i64 %.62, 0
@@ -3961,7 +3961,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %2118
   %2200 = load i8, ptr %2199, align 2
   %2201 = getelementptr inbounds nuw i8, ptr %.044.i478, i64 32
   %.not50.i480 = icmp eq i8 %2200, 0
-  br i1 %.not50.i480, label %2202, label %2167
+  br i1 %.not50.i480, label %2202, label %2167, !llvm.loop !10
 
 2202:                                             ; preds = %2198
   store ptr null, ptr %2165, align 16
@@ -3977,7 +3977,7 @@ confWithBit.exit483:                              ; preds = %2140, %2202
   %.631026 = phi i32 [ %.621025, %2124 ], [ %.621025, %2134 ], [ %.1061069, %confWithBit.exit483 ]
   %.64 = phi i64 [ %.63, %2124 ], [ %.63, %2134 ], [ %.143, %confWithBit.exit483 ]
   %.not26.i307 = icmp eq i64 %2127, 0
-  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %2124, !prof !5
+  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %2124, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit308:                     ; preds = %2203
   %2204 = icmp eq i64 %.64, 0
@@ -3989,7 +3989,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %2203
   %2205 = getelementptr inbounds nuw i8, ptr %.3958, i64 64
   %2206 = getelementptr inbounds nuw i8, ptr %.3958, i64 128
   %.not197 = icmp ugt ptr %2206, %33
-  br i1 %.not197, label %._crit_edge1251, label %1058
+  br i1 %.not197, label %._crit_edge1251, label %1058, !llvm.loop !22
 
 ._crit_edge1251:                                  ; preds = %.critedge228, %.critedge224
   %.12975.lcssa = phi i32 [ %.6969, %.critedge224 ], [ %.22985, %.critedge228 ]
@@ -4165,7 +4165,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %2203
   %2319 = load i8, ptr %2318, align 2
   %2320 = getelementptr inbounds nuw i8, ptr %.044.i471, i64 32
   %.not50.i473 = icmp eq i8 %2319, 0
-  br i1 %.not50.i473, label %2321, label %2286
+  br i1 %.not50.i473, label %2321, label %2286, !llvm.loop !10
 
 2321:                                             ; preds = %2317
   store ptr null, ptr %2284, align 16
@@ -4181,7 +4181,7 @@ confWithBit.exit476:                              ; preds = %2259, %2321
   %.651028 = phi i32 [ %.641027, %2245 ], [ %.641027, %2253 ], [ %.1031066, %confWithBit.exit476 ]
   %.66 = phi i64 [ %.65, %2245 ], [ %.65, %2253 ], [ %.140, %confWithBit.exit476 ]
   %.not26.i311 = icmp eq i64 %2248, 0
-  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %2245, !prof !5
+  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %2245, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit312:                     ; preds = %2322
   %2323 = icmp eq i64 %.66, 0
@@ -4322,7 +4322,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %2322
   %2407 = load i8, ptr %2406, align 2
   %2408 = getelementptr inbounds nuw i8, ptr %.044.i464, i64 32
   %.not50.i466 = icmp eq i8 %2407, 0
-  br i1 %.not50.i466, label %2409, label %2374
+  br i1 %.not50.i466, label %2409, label %2374, !llvm.loop !10
 
 2409:                                             ; preds = %2405
   store ptr null, ptr %2372, align 16
@@ -4338,7 +4338,7 @@ confWithBit.exit469:                              ; preds = %2347, %2409
   %.671030 = phi i32 [ %.661029, %2331 ], [ %.661029, %2341 ], [ %.1001063, %confWithBit.exit469 ]
   %.68 = phi i64 [ %.67, %2331 ], [ %.67, %2341 ], [ %.137, %confWithBit.exit469 ]
   %.not26.i315 = icmp eq i64 %2334, 0
-  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %2331, !prof !5
+  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %2331, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit316:                     ; preds = %2410
   %2411 = icmp eq i64 %.68, 0
@@ -4479,7 +4479,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %2410
   %2495 = load i8, ptr %2494, align 2
   %2496 = getelementptr inbounds nuw i8, ptr %.044.i457, i64 32
   %.not50.i459 = icmp eq i8 %2495, 0
-  br i1 %.not50.i459, label %2497, label %2462
+  br i1 %.not50.i459, label %2497, label %2462, !llvm.loop !10
 
 2497:                                             ; preds = %2493
   store ptr null, ptr %2460, align 16
@@ -4495,7 +4495,7 @@ confWithBit.exit462:                              ; preds = %2435, %2497
   %.691032 = phi i32 [ %.681031, %2419 ], [ %.681031, %2429 ], [ %.971060, %confWithBit.exit462 ]
   %.70 = phi i64 [ %.69, %2419 ], [ %.69, %2429 ], [ %.134, %confWithBit.exit462 ]
   %.not26.i319 = icmp eq i64 %2422, 0
-  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %2419, !prof !5
+  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %2419, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit320:                     ; preds = %2498
   %2499 = icmp eq i64 %.70, 0
@@ -4636,7 +4636,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %2498
   %2583 = load i8, ptr %2582, align 2
   %2584 = getelementptr inbounds nuw i8, ptr %.044.i450, i64 32
   %.not50.i452 = icmp eq i8 %2583, 0
-  br i1 %.not50.i452, label %2585, label %2550
+  br i1 %.not50.i452, label %2585, label %2550, !llvm.loop !10
 
 2585:                                             ; preds = %2581
   store ptr null, ptr %2548, align 16
@@ -4652,7 +4652,7 @@ confWithBit.exit455:                              ; preds = %2523, %2585
   %.711034 = phi i32 [ %.701033, %2507 ], [ %.701033, %2517 ], [ %.941057, %confWithBit.exit455 ]
   %.72 = phi i64 [ %.71, %2507 ], [ %.71, %2517 ], [ %.131, %confWithBit.exit455 ]
   %.not26.i323 = icmp eq i64 %2510, 0
-  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %2507, !prof !5
+  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %2507, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit324:                     ; preds = %2586
   %2587 = icmp eq i64 %.72, 0
@@ -4872,7 +4872,7 @@ vectoredLoad256.exit247:                          ; preds = %2629, %2627, %2620,
   %.1.i639 = phi i64 [ %2692, %2687 ], [ %.012.i6351264, %2684 ]
   %2694 = add nuw nsw i64 %.0.i6361265, 1
   %exitcond1314.not = icmp eq i64 %2694, 8
-  br i1 %exitcond1314.not, label %lv_u64a_ce.exit640, label %2684
+  br i1 %exitcond1314.not, label %lv_u64a_ce.exit640, label %2684, !llvm.loop !8
 
 lv_u64a_ce.exit640:                               ; preds = %2693
   %2695 = ptrtoint ptr %2676 to i64
@@ -4975,7 +4975,7 @@ getConfVal.exit358:                               ; preds = %2678, %lv_u64a_ce.e
   %2756 = load i8, ptr %2755, align 2
   %2757 = getelementptr inbounds nuw i8, ptr %.044.i443, i64 32
   %.not50.i445 = icmp eq i8 %2756, 0
-  br i1 %.not50.i445, label %2758, label %2723
+  br i1 %.not50.i445, label %2758, label %2723, !llvm.loop !10
 
 2758:                                             ; preds = %2754
   store ptr null, ptr %2721, align 16
@@ -4991,7 +4991,7 @@ confWithBit.exit448:                              ; preds = %getConfVal.exit358,
   %.731036 = phi i32 [ %.721035, %2661 ], [ %.721035, %2669 ], [ %.911054, %confWithBit.exit448 ]
   %.74 = phi i64 [ %.73, %2661 ], [ %.73, %2669 ], [ %.128, %confWithBit.exit448 ]
   %.not26.i327 = icmp eq i64 %2664, 0
-  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %2661, !prof !5
+  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %2661, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit328:                     ; preds = %2759
   %2760 = icmp eq i64 %.74, 0
@@ -5077,7 +5077,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %2759
   %.1.i645 = phi i64 [ %2800, %2795 ], [ %.012.i6411268, %2792 ]
   %2802 = add nuw nsw i64 %.0.i6421269, 1
   %exitcond1315.not = icmp eq i64 %2802, 8
-  br i1 %exitcond1315.not, label %lv_u64a_ce.exit646, label %2792
+  br i1 %exitcond1315.not, label %lv_u64a_ce.exit646, label %2792, !llvm.loop !8
 
 lv_u64a_ce.exit646:                               ; preds = %2801
   %2803 = ptrtoint ptr %2784 to i64
@@ -5180,7 +5180,7 @@ getConfVal.exit354:                               ; preds = %2786, %lv_u64a_ce.e
   %2864 = load i8, ptr %2863, align 2
   %2865 = getelementptr inbounds nuw i8, ptr %.044.i436, i64 32
   %.not50.i438 = icmp eq i8 %2864, 0
-  br i1 %.not50.i438, label %2866, label %2831
+  br i1 %.not50.i438, label %2866, label %2831, !llvm.loop !10
 
 2866:                                             ; preds = %2862
   store ptr null, ptr %2829, align 16
@@ -5196,7 +5196,7 @@ confWithBit.exit441:                              ; preds = %getConfVal.exit354,
   %.751038 = phi i32 [ %.741037, %2767 ], [ %.741037, %2777 ], [ %.881051, %confWithBit.exit441 ]
   %.76 = phi i64 [ %.75, %2767 ], [ %.75, %2777 ], [ %.125, %confWithBit.exit441 ]
   %.not26.i331 = icmp eq i64 %2770, 0
-  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %2767, !prof !5
+  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %2767, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit332:                     ; preds = %2867
   %2868 = icmp eq i64 %.76, 0
@@ -5282,7 +5282,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %2867
   %.1.i651 = phi i64 [ %2908, %2903 ], [ %.012.i6471272, %2900 ]
   %2910 = add nuw nsw i64 %.0.i6481273, 1
   %exitcond1316.not = icmp eq i64 %2910, 8
-  br i1 %exitcond1316.not, label %lv_u64a_ce.exit652, label %2900
+  br i1 %exitcond1316.not, label %lv_u64a_ce.exit652, label %2900, !llvm.loop !8
 
 lv_u64a_ce.exit652:                               ; preds = %2909
   %2911 = ptrtoint ptr %2892 to i64
@@ -5385,7 +5385,7 @@ getConfVal.exit350:                               ; preds = %2894, %lv_u64a_ce.e
   %2972 = load i8, ptr %2971, align 2
   %2973 = getelementptr inbounds nuw i8, ptr %.044.i429, i64 32
   %.not50.i431 = icmp eq i8 %2972, 0
-  br i1 %.not50.i431, label %2974, label %2939
+  br i1 %.not50.i431, label %2974, label %2939, !llvm.loop !10
 
 2974:                                             ; preds = %2970
   store ptr null, ptr %2937, align 16
@@ -5401,7 +5401,7 @@ confWithBit.exit434:                              ; preds = %getConfVal.exit350,
   %.771040 = phi i32 [ %.761039, %2875 ], [ %.761039, %2885 ], [ %.851048, %confWithBit.exit434 ]
   %.78 = phi i64 [ %.77, %2875 ], [ %.77, %2885 ], [ %.122, %confWithBit.exit434 ]
   %.not26.i335 = icmp eq i64 %2878, 0
-  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %2875, !prof !5
+  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %2875, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit336:                     ; preds = %2975
   %2976 = icmp eq i64 %.78, 0
@@ -5487,7 +5487,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %2975
   %.1.i657 = phi i64 [ %3016, %3011 ], [ %.012.i6531276, %3008 ]
   %3018 = add nuw nsw i64 %.0.i6541277, 1
   %exitcond1317.not = icmp eq i64 %3018, 8
-  br i1 %exitcond1317.not, label %lv_u64a_ce.exit658, label %3008
+  br i1 %exitcond1317.not, label %lv_u64a_ce.exit658, label %3008, !llvm.loop !8
 
 lv_u64a_ce.exit658:                               ; preds = %3017
   %3019 = ptrtoint ptr %3000 to i64
@@ -5590,7 +5590,7 @@ getConfVal.exit:                                  ; preds = %3002, %lv_u64a_ce.e
   %3080 = load i8, ptr %3079, align 2
   %3081 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
   %.not50.i = icmp eq i8 %3080, 0
-  br i1 %.not50.i, label %3082, label %3047
+  br i1 %.not50.i, label %3082, label %3047, !llvm.loop !10
 
 3082:                                             ; preds = %3078
   store ptr null, ptr %3045, align 16
@@ -5606,7 +5606,7 @@ confWithBit.exit:                                 ; preds = %getConfVal.exit, %3
   %.791042 = phi i32 [ %.781041, %2983 ], [ %.781041, %2993 ], [ %.821045, %confWithBit.exit ]
   %.80 = phi i64 [ %.79, %2983 ], [ %.79, %2993 ], [ %.119, %confWithBit.exit ]
   %.not26.i339 = icmp eq i64 %2986, 0
-  br i1 %.not26.i339, label %do_confWithBit_teddy.exit340, label %2983, !prof !5
+  br i1 %.not26.i339, label %do_confWithBit_teddy.exit340, label %2983, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit340:                     ; preds = %3083
   %3084 = icmp eq i64 %.80, 0
@@ -5931,7 +5931,7 @@ vectoredLoad256.exit241:                          ; preds = %121, %119, %112, %1
   %.1.i651 = phi i64 [ %185, %180 ], [ %.012.i6471147, %177 ]
   %187 = add nuw nsw i64 %.0.i6481148, 1
   %exitcond.not = icmp eq i64 %187, 8
-  br i1 %exitcond.not, label %lv_u64a_ce.exit652, label %177
+  br i1 %exitcond.not, label %lv_u64a_ce.exit652, label %177, !llvm.loop !8
 
 lv_u64a_ce.exit652:                               ; preds = %186
   %188 = ptrtoint ptr %169 to i64
@@ -6034,7 +6034,7 @@ getConfVal.exit:                                  ; preds = %171, %lv_u64a_ce.ex
   %249 = load i8, ptr %248, align 2
   %250 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
   %.not50.i = icmp eq i8 %249, 0
-  br i1 %.not50.i, label %251, label %216
+  br i1 %.not50.i, label %251, label %216, !llvm.loop !10
 
 251:                                              ; preds = %247
   store ptr null, ptr %214, align 16
@@ -6050,7 +6050,7 @@ confWithBit.exit:                                 ; preds = %getConfVal.exit, %2
   %.791036 = phi i32 [ %.781035, %154 ], [ %.781035, %162 ], [ %.821039, %confWithBit.exit ]
   %.80 = phi i64 [ %.79, %154 ], [ %.79, %162 ], [ %.119, %confWithBit.exit ]
   %.not26.i333 = icmp eq i64 %157, 0
-  br i1 %.not26.i333, label %do_confWithBit_teddy.exit334, label %154, !prof !5
+  br i1 %.not26.i333, label %do_confWithBit_teddy.exit334, label %154, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit334:                     ; preds = %252
   %253 = icmp eq i64 %.80, 0
@@ -6137,7 +6137,7 @@ do_confWithBit_teddy.exit334:                     ; preds = %252
   %.1.i645 = phi i64 [ %294, %289 ], [ %.012.i6411151, %286 ]
   %296 = add nuw nsw i64 %.0.i6421152, 1
   %exitcond1285.not = icmp eq i64 %296, 8
-  br i1 %exitcond1285.not, label %lv_u64a_ce.exit646, label %286
+  br i1 %exitcond1285.not, label %lv_u64a_ce.exit646, label %286, !llvm.loop !8
 
 lv_u64a_ce.exit646:                               ; preds = %295
   %297 = ptrtoint ptr %278 to i64
@@ -6240,7 +6240,7 @@ getConfVal.exit344:                               ; preds = %280, %lv_u64a_ce.ex
   %358 = load i8, ptr %357, align 2
   %359 = getelementptr inbounds nuw i8, ptr %.044.i423, i64 32
   %.not50.i425 = icmp eq i8 %358, 0
-  br i1 %.not50.i425, label %360, label %325
+  br i1 %.not50.i425, label %360, label %325, !llvm.loop !10
 
 360:                                              ; preds = %356
   store ptr null, ptr %323, align 16
@@ -6256,7 +6256,7 @@ confWithBit.exit428:                              ; preds = %getConfVal.exit344,
   %.771034 = phi i32 [ %.761033, %261 ], [ %.761033, %271 ], [ %.851042, %confWithBit.exit428 ]
   %.78 = phi i64 [ %.77, %261 ], [ %.77, %271 ], [ %.122, %confWithBit.exit428 ]
   %.not26.i329 = icmp eq i64 %264, 0
-  br i1 %.not26.i329, label %do_confWithBit_teddy.exit330, label %261, !prof !5
+  br i1 %.not26.i329, label %do_confWithBit_teddy.exit330, label %261, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit330:                     ; preds = %361
   %362 = icmp eq i64 %.78, 0
@@ -6343,7 +6343,7 @@ do_confWithBit_teddy.exit330:                     ; preds = %361
   %.1.i639 = phi i64 [ %403, %398 ], [ %.012.i6351155, %395 ]
   %405 = add nuw nsw i64 %.0.i6361156, 1
   %exitcond1286.not = icmp eq i64 %405, 8
-  br i1 %exitcond1286.not, label %lv_u64a_ce.exit640, label %395
+  br i1 %exitcond1286.not, label %lv_u64a_ce.exit640, label %395, !llvm.loop !8
 
 lv_u64a_ce.exit640:                               ; preds = %404
   %406 = ptrtoint ptr %387 to i64
@@ -6446,7 +6446,7 @@ getConfVal.exit348:                               ; preds = %389, %lv_u64a_ce.ex
   %467 = load i8, ptr %466, align 2
   %468 = getelementptr inbounds nuw i8, ptr %.044.i430, i64 32
   %.not50.i432 = icmp eq i8 %467, 0
-  br i1 %.not50.i432, label %469, label %434
+  br i1 %.not50.i432, label %469, label %434, !llvm.loop !10
 
 469:                                              ; preds = %465
   store ptr null, ptr %432, align 16
@@ -6462,7 +6462,7 @@ confWithBit.exit435:                              ; preds = %getConfVal.exit348,
   %.751032 = phi i32 [ %.741031, %370 ], [ %.741031, %380 ], [ %.881045, %confWithBit.exit435 ]
   %.76 = phi i64 [ %.75, %370 ], [ %.75, %380 ], [ %.125, %confWithBit.exit435 ]
   %.not26.i325 = icmp eq i64 %373, 0
-  br i1 %.not26.i325, label %do_confWithBit_teddy.exit326, label %370, !prof !5
+  br i1 %.not26.i325, label %do_confWithBit_teddy.exit326, label %370, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit326:                     ; preds = %470
   %471 = icmp eq i64 %.76, 0
@@ -6549,7 +6549,7 @@ do_confWithBit_teddy.exit326:                     ; preds = %470
   %.1.i633 = phi i64 [ %512, %507 ], [ %.012.i6291159, %504 ]
   %514 = add nuw nsw i64 %.0.i6301160, 1
   %exitcond1287.not = icmp eq i64 %514, 8
-  br i1 %exitcond1287.not, label %lv_u64a_ce.exit634, label %504
+  br i1 %exitcond1287.not, label %lv_u64a_ce.exit634, label %504, !llvm.loop !8
 
 lv_u64a_ce.exit634:                               ; preds = %513
   %515 = ptrtoint ptr %496 to i64
@@ -6652,7 +6652,7 @@ getConfVal.exit352:                               ; preds = %498, %lv_u64a_ce.ex
   %576 = load i8, ptr %575, align 2
   %577 = getelementptr inbounds nuw i8, ptr %.044.i437, i64 32
   %.not50.i439 = icmp eq i8 %576, 0
-  br i1 %.not50.i439, label %578, label %543
+  br i1 %.not50.i439, label %578, label %543, !llvm.loop !10
 
 578:                                              ; preds = %574
   store ptr null, ptr %541, align 16
@@ -6668,7 +6668,7 @@ confWithBit.exit442:                              ; preds = %getConfVal.exit352,
   %.731030 = phi i32 [ %.721029, %479 ], [ %.721029, %489 ], [ %.911048, %confWithBit.exit442 ]
   %.74 = phi i64 [ %.73, %479 ], [ %.73, %489 ], [ %.128, %confWithBit.exit442 ]
   %.not26.i321 = icmp eq i64 %482, 0
-  br i1 %.not26.i321, label %do_confWithBit_teddy.exit322, label %479, !prof !5
+  br i1 %.not26.i321, label %do_confWithBit_teddy.exit322, label %479, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit322:                     ; preds = %579
   %580 = icmp eq i64 %.74, 0
@@ -6796,7 +6796,7 @@ do_confWithBit_teddy.exit322:                     ; preds = %579
   %.1.i627 = phi i64 [ %652, %647 ], [ %.012.i6231163, %644 ]
   %654 = add nuw nsw i64 %.0.i6241164, 1
   %exitcond1288.not = icmp eq i64 %654, 8
-  br i1 %exitcond1288.not, label %lv_u64a_ce.exit628, label %644
+  br i1 %exitcond1288.not, label %lv_u64a_ce.exit628, label %644, !llvm.loop !8
 
 lv_u64a_ce.exit628:                               ; preds = %653
   %655 = ptrtoint ptr %636 to i64
@@ -6899,7 +6899,7 @@ getConfVal.exit356:                               ; preds = %638, %lv_u64a_ce.ex
   %716 = load i8, ptr %715, align 2
   %717 = getelementptr inbounds nuw i8, ptr %.044.i444, i64 32
   %.not50.i446 = icmp eq i8 %716, 0
-  br i1 %.not50.i446, label %718, label %683
+  br i1 %.not50.i446, label %718, label %683, !llvm.loop !10
 
 718:                                              ; preds = %714
   store ptr null, ptr %681, align 16
@@ -6915,7 +6915,7 @@ confWithBit.exit449:                              ; preds = %getConfVal.exit356,
   %.711028 = phi i32 [ %.701027, %621 ], [ %.701027, %629 ], [ %.941051, %confWithBit.exit449 ]
   %.72 = phi i64 [ %.71, %621 ], [ %.71, %629 ], [ %.131, %confWithBit.exit449 ]
   %.not26.i317 = icmp eq i64 %624, 0
-  br i1 %.not26.i317, label %do_confWithBit_teddy.exit318, label %621, !prof !5
+  br i1 %.not26.i317, label %do_confWithBit_teddy.exit318, label %621, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit318:                     ; preds = %719
   %720 = icmp eq i64 %.72, 0
@@ -7003,7 +7003,7 @@ do_confWithBit_teddy.exit318:                     ; preds = %719
   %.1.i621 = phi i64 [ %762, %757 ], [ %.012.i6171167, %754 ]
   %764 = add nuw nsw i64 %.0.i6181168, 1
   %exitcond1289.not = icmp eq i64 %764, 8
-  br i1 %exitcond1289.not, label %lv_u64a_ce.exit622, label %754
+  br i1 %exitcond1289.not, label %lv_u64a_ce.exit622, label %754, !llvm.loop !8
 
 lv_u64a_ce.exit622:                               ; preds = %763
   %765 = ptrtoint ptr %746 to i64
@@ -7106,7 +7106,7 @@ getConfVal.exit360:                               ; preds = %748, %lv_u64a_ce.ex
   %826 = load i8, ptr %825, align 2
   %827 = getelementptr inbounds nuw i8, ptr %.044.i451, i64 32
   %.not50.i453 = icmp eq i8 %826, 0
-  br i1 %.not50.i453, label %828, label %793
+  br i1 %.not50.i453, label %828, label %793, !llvm.loop !10
 
 828:                                              ; preds = %824
   store ptr null, ptr %791, align 16
@@ -7122,7 +7122,7 @@ confWithBit.exit456:                              ; preds = %getConfVal.exit360,
   %.691026 = phi i32 [ %.681025, %729 ], [ %.681025, %739 ], [ %.971054, %confWithBit.exit456 ]
   %.70 = phi i64 [ %.69, %729 ], [ %.69, %739 ], [ %.134, %confWithBit.exit456 ]
   %.not26.i313 = icmp eq i64 %732, 0
-  br i1 %.not26.i313, label %do_confWithBit_teddy.exit314, label %729, !prof !5
+  br i1 %.not26.i313, label %do_confWithBit_teddy.exit314, label %729, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit314:                     ; preds = %829
   %830 = icmp eq i64 %.70, 0
@@ -7210,7 +7210,7 @@ do_confWithBit_teddy.exit314:                     ; preds = %829
   %.1.i615 = phi i64 [ %872, %867 ], [ %.012.i6111171, %864 ]
   %874 = add nuw nsw i64 %.0.i6121172, 1
   %exitcond1290.not = icmp eq i64 %874, 8
-  br i1 %exitcond1290.not, label %lv_u64a_ce.exit616, label %864
+  br i1 %exitcond1290.not, label %lv_u64a_ce.exit616, label %864, !llvm.loop !8
 
 lv_u64a_ce.exit616:                               ; preds = %873
   %875 = ptrtoint ptr %856 to i64
@@ -7313,7 +7313,7 @@ getConfVal.exit364:                               ; preds = %858, %lv_u64a_ce.ex
   %936 = load i8, ptr %935, align 2
   %937 = getelementptr inbounds nuw i8, ptr %.044.i458, i64 32
   %.not50.i460 = icmp eq i8 %936, 0
-  br i1 %.not50.i460, label %938, label %903
+  br i1 %.not50.i460, label %938, label %903, !llvm.loop !10
 
 938:                                              ; preds = %934
   store ptr null, ptr %901, align 16
@@ -7329,7 +7329,7 @@ confWithBit.exit463:                              ; preds = %getConfVal.exit364,
   %.671024 = phi i32 [ %.661023, %839 ], [ %.661023, %849 ], [ %.1001057, %confWithBit.exit463 ]
   %.68 = phi i64 [ %.67, %839 ], [ %.67, %849 ], [ %.137, %confWithBit.exit463 ]
   %.not26.i309 = icmp eq i64 %842, 0
-  br i1 %.not26.i309, label %do_confWithBit_teddy.exit310, label %839, !prof !5
+  br i1 %.not26.i309, label %do_confWithBit_teddy.exit310, label %839, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit310:                     ; preds = %939
   %940 = icmp eq i64 %.68, 0
@@ -7417,7 +7417,7 @@ do_confWithBit_teddy.exit310:                     ; preds = %939
   %.1.i609 = phi i64 [ %982, %977 ], [ %.012.i6051175, %974 ]
   %984 = add nuw nsw i64 %.0.i6061176, 1
   %exitcond1291.not = icmp eq i64 %984, 8
-  br i1 %exitcond1291.not, label %lv_u64a_ce.exit610, label %974
+  br i1 %exitcond1291.not, label %lv_u64a_ce.exit610, label %974, !llvm.loop !8
 
 lv_u64a_ce.exit610:                               ; preds = %983
   %985 = ptrtoint ptr %966 to i64
@@ -7520,7 +7520,7 @@ getConfVal.exit368:                               ; preds = %968, %lv_u64a_ce.ex
   %1046 = load i8, ptr %1045, align 2
   %1047 = getelementptr inbounds nuw i8, ptr %.044.i465, i64 32
   %.not50.i467 = icmp eq i8 %1046, 0
-  br i1 %.not50.i467, label %1048, label %1013
+  br i1 %.not50.i467, label %1048, label %1013, !llvm.loop !10
 
 1048:                                             ; preds = %1044
   store ptr null, ptr %1011, align 16
@@ -7536,7 +7536,7 @@ confWithBit.exit470:                              ; preds = %getConfVal.exit368,
   %.651022 = phi i32 [ %.641021, %949 ], [ %.641021, %959 ], [ %.1031060, %confWithBit.exit470 ]
   %.66 = phi i64 [ %.65, %949 ], [ %.65, %959 ], [ %.140, %confWithBit.exit470 ]
   %.not26.i305 = icmp eq i64 %952, 0
-  br i1 %.not26.i305, label %do_confWithBit_teddy.exit306, label %949, !prof !5
+  br i1 %.not26.i305, label %do_confWithBit_teddy.exit306, label %949, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit306:                     ; preds = %1049
   %1050 = icmp eq i64 %.66, 0
@@ -7663,7 +7663,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1049
   %or.cond.i = select i1 %.not383.i, i1 %.not384.i, i1 false
   %.not385.i = icmp eq i64 %1125, %1088
   %or.cond422.i = select i1 %or.cond.i, i1 %.not385.i, i1 false
-  br i1 %or.cond422.i, label %1113, label %.thread1111.preheader
+  br i1 %or.cond422.i, label %1113, label %.thread1111.preheader, !llvm.loop !13
 
 .thread1111.preheader:                            ; preds = %1122, %1117, %1113
   br label %.thread1111
@@ -7680,7 +7680,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1049
   %1133 = getelementptr inbounds nuw i8, ptr %1062, i64 %1131
   %1134 = load i64, ptr %1133, align 8
   %.not386.i = icmp eq i64 %1134, %1088
-  br i1 %.not386.i, label %.thread1111, label %split
+  br i1 %.not386.i, label %.thread1111, label %split, !llvm.loop !14
 
 split:                                            ; preds = %1132, %.thread1111
   %1135 = icmp ugt i64 %1066, %1131
@@ -7698,7 +7698,7 @@ split:                                            ; preds = %1132, %.thread1111
   %1140 = add i32 %.3.i1179, 1
   %1141 = zext i32 %1140 to i64
   %1142 = icmp ugt i64 %1066, %1141
-  br i1 %1142, label %.lr.ph1181, label %._crit_edge1182
+  br i1 %1142, label %.lr.ph1181, label %._crit_edge1182, !llvm.loop !15
 
 ._crit_edge1182:                                  ; preds = %1139, %.lr.ph1181, %split
   %.3.i.lcssa = phi i32 [ %.2.i, %split ], [ %.3.i1179, %.lr.ph1181 ], [ %1140, %1139 ]
@@ -7837,7 +7837,7 @@ split:                                            ; preds = %1132, %.thread1111
   %.102 = phi i64 [ %1206, %1202 ], [ %1212, %1208 ], [ %1200, %1196 ], [ %1194, %1190 ], [ %.981197, %1187 ]
   %indvars.iv.next1297 = add nuw nsw i64 %indvars.iv1296, 4
   %1213 = icmp samesign ult i64 %indvars.iv.next1297, %1173
-  br i1 %1213, label %1184, label %.critedge.i
+  br i1 %1213, label %1184, label %.critedge.i, !llvm.loop !16
 
 1214:                                             ; preds = %.lr.ph1193, %1287
   %indvars.iv1293 = phi i64 [ 0, %.lr.ph1193 ], [ %indvars.iv.next1294, %1287 ]
@@ -7968,7 +7968,7 @@ split:                                            ; preds = %1132, %.thread1111
   %.97 = phi i64 [ %.96, %1278 ], [ %1286, %1281 ]
   %indvars.iv.next1294 = add nuw nsw i64 %indvars.iv1293, 4
   %1288 = icmp samesign ult i64 %indvars.iv.next1294, %1167
-  br i1 %1288, label %1214, label %.critedge.i
+  br i1 %1288, label %1214, label %.critedge.i, !llvm.loop !17
 
 1289:                                             ; preds = %.lr.ph1187, %1343
   %indvars.iv = phi i64 [ 0, %.lr.ph1187 ], [ %indvars.iv.next, %1343 ]
@@ -8068,7 +8068,7 @@ split:                                            ; preds = %1132, %.thread1111
   %.88 = phi i64 [ %.87, %1334 ], [ %1342, %1337 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %1344 = icmp samesign ult i64 %indvars.iv.next, %1159
-  br i1 %1344, label %1289, label %.critedge.i
+  br i1 %1344, label %1289, label %.critedge.i, !llvm.loop !18
 
 1345:                                             ; preds = %.lr.ph1217, %._crit_edge1213
   %indvars.iv1305 = phi i64 [ 0, %.lr.ph1217 ], [ %indvars.iv.next1306, %._crit_edge1213 ]
@@ -8174,7 +8174,7 @@ split:                                            ; preds = %1132, %.thread1111
   %indvars.iv.next1300 = add nuw nsw i64 %indvars.iv1299, 1
   %1398 = zext i16 %1397 to i64
   %1399 = icmp samesign ult i64 %indvars.iv.next1300, %1398
-  br i1 %1399, label %1387, label %._crit_edge1207
+  br i1 %1399, label %1387, label %._crit_edge1207, !llvm.loop !19
 
 1400:                                             ; preds = %._crit_edge1207
   %1401 = trunc nuw i64 %indvars.iv1305 to i32
@@ -8245,7 +8245,7 @@ split:                                            ; preds = %1132, %.thread1111
   %.113.lcssa = phi i64 [ %.112, %1433 ], [ %.114, %1449 ]
   %indvars.iv.next1306 = add nuw nsw i64 %indvars.iv1305, 2
   %1439 = icmp samesign ult i64 %indvars.iv.next1306, %1183
-  br i1 %1439, label %1345, label %.critedge.i
+  br i1 %1439, label %1345, label %.critedge.i, !llvm.loop !20
 
 1440:                                             ; preds = %.lr.ph1212, %1449
   %1441 = phi i16 [ %1434, %.lr.ph1212 ], [ %1450, %1449 ]
@@ -8270,7 +8270,7 @@ split:                                            ; preds = %1132, %.thread1111
   %indvars.iv.next1303 = add nuw nsw i64 %indvars.iv1302, 1
   %1451 = zext i16 %1450 to i64
   %1452 = icmp samesign ult i64 %indvars.iv.next1303, %1451
-  br i1 %1452, label %1440, label %._crit_edge1213
+  br i1 %1452, label %1440, label %._crit_edge1213, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %1343, %1289, %1287, %1214, %.thread1360, %1184, %._crit_edge1213, %1345, %.preheader1140, %.preheader1138, %.preheader1136, %.preheader, %1148, %1144
   %.82 = phi i64 [ %.121241, %1144 ], [ %.121241, %1148 ], [ %.121241, %.preheader ], [ %.121241, %.preheader1136 ], [ %.121241, %.preheader1138 ], [ %.121241, %.preheader1140 ], [ %.113.lcssa, %._crit_edge1213 ], [ %.1031215, %1345 ], [ %.102, %.thread1360 ], [ %.981197, %1184 ], [ %.97, %1287 ], [ %.891191, %1214 ], [ %.88, %1343 ], [ %.811185, %1289 ]
@@ -8467,7 +8467,7 @@ floodDetect.exit:                                 ; preds = %1098, %1105, %.crit
   %1575 = load i8, ptr %1574, align 2
   %1576 = getelementptr inbounds nuw i8, ptr %.044.i472, i64 32
   %.not50.i474 = icmp eq i8 %1575, 0
-  br i1 %.not50.i474, label %1577, label %1542
+  br i1 %.not50.i474, label %1577, label %1542, !llvm.loop !10
 
 1577:                                             ; preds = %1573
   store ptr null, ptr %1540, align 16
@@ -8483,7 +8483,7 @@ confWithBit.exit477:                              ; preds = %1515, %1577
   %.631020 = phi i32 [ %.621019, %1501 ], [ %.621019, %1509 ], [ %.1061063, %confWithBit.exit477 ]
   %.64 = phi i64 [ %.63, %1501 ], [ %.63, %1509 ], [ %.143, %confWithBit.exit477 ]
   %.not26.i301 = icmp eq i64 %1504, 0
-  br i1 %.not26.i301, label %do_confWithBit_teddy.exit302, label %1501, !prof !5
+  br i1 %.not26.i301, label %do_confWithBit_teddy.exit302, label %1501, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit302:                     ; preds = %1578
   %1579 = icmp eq i64 %.64, 0
@@ -8621,7 +8621,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1578
   %1660 = load i8, ptr %1659, align 2
   %1661 = getelementptr inbounds nuw i8, ptr %.044.i479, i64 32
   %.not50.i481 = icmp eq i8 %1660, 0
-  br i1 %.not50.i481, label %1662, label %1627
+  br i1 %.not50.i481, label %1662, label %1627, !llvm.loop !10
 
 1662:                                             ; preds = %1658
   store ptr null, ptr %1625, align 16
@@ -8637,7 +8637,7 @@ confWithBit.exit484:                              ; preds = %1600, %1662
   %.611018 = phi i32 [ %.601017, %1584 ], [ %.601017, %1594 ], [ %.1091066, %confWithBit.exit484 ]
   %.62 = phi i64 [ %.61, %1584 ], [ %.61, %1594 ], [ %.146, %confWithBit.exit484 ]
   %.not26.i297 = icmp eq i64 %1587, 0
-  br i1 %.not26.i297, label %do_confWithBit_teddy.exit298, label %1584, !prof !5
+  br i1 %.not26.i297, label %do_confWithBit_teddy.exit298, label %1584, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit298:                     ; preds = %1663
   %1664 = icmp eq i64 %.62, 0
@@ -8775,7 +8775,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1663
   %1745 = load i8, ptr %1744, align 2
   %1746 = getelementptr inbounds nuw i8, ptr %.044.i486, i64 32
   %.not50.i488 = icmp eq i8 %1745, 0
-  br i1 %.not50.i488, label %1747, label %1712
+  br i1 %.not50.i488, label %1747, label %1712, !llvm.loop !10
 
 1747:                                             ; preds = %1743
   store ptr null, ptr %1710, align 16
@@ -8791,7 +8791,7 @@ confWithBit.exit491:                              ; preds = %1685, %1747
   %.591016 = phi i32 [ %.581015, %1669 ], [ %.581015, %1679 ], [ %.1121069, %confWithBit.exit491 ]
   %.60 = phi i64 [ %.59, %1669 ], [ %.59, %1679 ], [ %.149, %confWithBit.exit491 ]
   %.not26.i293 = icmp eq i64 %1672, 0
-  br i1 %.not26.i293, label %do_confWithBit_teddy.exit294, label %1669, !prof !5
+  br i1 %.not26.i293, label %do_confWithBit_teddy.exit294, label %1669, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit294:                     ; preds = %1748
   %1749 = icmp eq i64 %.60, 0
@@ -8929,7 +8929,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1748
   %1830 = load i8, ptr %1829, align 2
   %1831 = getelementptr inbounds nuw i8, ptr %.044.i493, i64 32
   %.not50.i495 = icmp eq i8 %1830, 0
-  br i1 %.not50.i495, label %1832, label %1797
+  br i1 %.not50.i495, label %1832, label %1797, !llvm.loop !10
 
 1832:                                             ; preds = %1828
   store ptr null, ptr %1795, align 16
@@ -8945,7 +8945,7 @@ confWithBit.exit498:                              ; preds = %1770, %1832
   %.571014 = phi i32 [ %.561013, %1754 ], [ %.561013, %1764 ], [ %.1151072, %confWithBit.exit498 ]
   %.58 = phi i64 [ %.57, %1754 ], [ %.57, %1764 ], [ %.152, %confWithBit.exit498 ]
   %.not26.i289 = icmp eq i64 %1757, 0
-  br i1 %.not26.i289, label %do_confWithBit_teddy.exit290, label %1754, !prof !5
+  br i1 %.not26.i289, label %do_confWithBit_teddy.exit290, label %1754, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit290:                     ; preds = %1833
   %1834 = icmp eq i64 %.58, 0
@@ -9119,7 +9119,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %1833
   %1945 = load i8, ptr %1944, align 2
   %1946 = getelementptr inbounds nuw i8, ptr %.044.i500, i64 32
   %.not50.i502 = icmp eq i8 %1945, 0
-  br i1 %.not50.i502, label %1947, label %1912
+  br i1 %.not50.i502, label %1947, label %1912, !llvm.loop !10
 
 1947:                                             ; preds = %1943
   store ptr null, ptr %1910, align 16
@@ -9135,7 +9135,7 @@ confWithBit.exit505:                              ; preds = %1885, %1947
   %.551012 = phi i32 [ %.541011, %1869 ], [ %.541011, %1879 ], [ %.1181075, %confWithBit.exit505 ]
   %.56 = phi i64 [ %.55, %1869 ], [ %.55, %1879 ], [ %.155, %confWithBit.exit505 ]
   %.not26.i285 = icmp eq i64 %1872, 0
-  br i1 %.not26.i285, label %do_confWithBit_teddy.exit286, label %1869, !prof !5
+  br i1 %.not26.i285, label %do_confWithBit_teddy.exit286, label %1869, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit286:                     ; preds = %1948
   %1949 = icmp eq i64 %.56, 0
@@ -9273,7 +9273,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %1948
   %2030 = load i8, ptr %2029, align 2
   %2031 = getelementptr inbounds nuw i8, ptr %.044.i507, i64 32
   %.not50.i509 = icmp eq i8 %2030, 0
-  br i1 %.not50.i509, label %2032, label %1997
+  br i1 %.not50.i509, label %2032, label %1997, !llvm.loop !10
 
 2032:                                             ; preds = %2028
   store ptr null, ptr %1995, align 16
@@ -9289,7 +9289,7 @@ confWithBit.exit512:                              ; preds = %1970, %2032
   %.531010 = phi i32 [ %.521009, %1954 ], [ %.521009, %1964 ], [ %.1211078, %confWithBit.exit512 ]
   %.54 = phi i64 [ %.53, %1954 ], [ %.53, %1964 ], [ %.158, %confWithBit.exit512 ]
   %.not26.i281 = icmp eq i64 %1957, 0
-  br i1 %.not26.i281, label %do_confWithBit_teddy.exit282, label %1954, !prof !5
+  br i1 %.not26.i281, label %do_confWithBit_teddy.exit282, label %1954, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit282:                     ; preds = %2033
   %2034 = icmp eq i64 %.54, 0
@@ -9427,7 +9427,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2033
   %2115 = load i8, ptr %2114, align 2
   %2116 = getelementptr inbounds nuw i8, ptr %.044.i514, i64 32
   %.not50.i516 = icmp eq i8 %2115, 0
-  br i1 %.not50.i516, label %2117, label %2082
+  br i1 %.not50.i516, label %2117, label %2082, !llvm.loop !10
 
 2117:                                             ; preds = %2113
   store ptr null, ptr %2080, align 16
@@ -9443,7 +9443,7 @@ confWithBit.exit519:                              ; preds = %2055, %2117
   %.511008 = phi i32 [ %.501007, %2039 ], [ %.501007, %2049 ], [ %.1241081, %confWithBit.exit519 ]
   %.52 = phi i64 [ %.51, %2039 ], [ %.51, %2049 ], [ %.161, %confWithBit.exit519 ]
   %.not26.i277 = icmp eq i64 %2042, 0
-  br i1 %.not26.i277, label %do_confWithBit_teddy.exit278, label %2039, !prof !5
+  br i1 %.not26.i277, label %do_confWithBit_teddy.exit278, label %2039, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit278:                     ; preds = %2118
   %2119 = icmp eq i64 %.52, 0
@@ -9581,7 +9581,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2118
   %2200 = load i8, ptr %2199, align 2
   %2201 = getelementptr inbounds nuw i8, ptr %.044.i521, i64 32
   %.not50.i523 = icmp eq i8 %2200, 0
-  br i1 %.not50.i523, label %2202, label %2167
+  br i1 %.not50.i523, label %2202, label %2167, !llvm.loop !10
 
 2202:                                             ; preds = %2198
   store ptr null, ptr %2165, align 16
@@ -9597,7 +9597,7 @@ confWithBit.exit526:                              ; preds = %2140, %2202
   %.491006 = phi i32 [ %.481005, %2124 ], [ %.481005, %2134 ], [ %.1271084, %confWithBit.exit526 ]
   %.50 = phi i64 [ %.49, %2124 ], [ %.49, %2134 ], [ %.164, %confWithBit.exit526 ]
   %.not26.i273 = icmp eq i64 %2127, 0
-  br i1 %.not26.i273, label %do_confWithBit_teddy.exit274, label %2124, !prof !5
+  br i1 %.not26.i273, label %do_confWithBit_teddy.exit274, label %2124, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit274:                     ; preds = %2203
   %2204 = icmp eq i64 %.50, 0
@@ -9609,7 +9609,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2203
   %2205 = getelementptr inbounds nuw i8, ptr %.3952, i64 64
   %2206 = getelementptr inbounds nuw i8, ptr %.3952, i64 128
   %.not197 = icmp ugt ptr %2206, %33
-  br i1 %.not197, label %._crit_edge1245, label %1058
+  br i1 %.not197, label %._crit_edge1245, label %1058, !llvm.loop !23
 
 ._crit_edge1245:                                  ; preds = %.critedge228, %.critedge224
   %.12969.lcssa = phi i32 [ %.6963, %.critedge224 ], [ %.22979, %.critedge228 ]
@@ -9785,7 +9785,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2203
   %2319 = load i8, ptr %2318, align 2
   %2320 = getelementptr inbounds nuw i8, ptr %.044.i528, i64 32
   %.not50.i530 = icmp eq i8 %2319, 0
-  br i1 %.not50.i530, label %2321, label %2286
+  br i1 %.not50.i530, label %2321, label %2286, !llvm.loop !10
 
 2321:                                             ; preds = %2317
   store ptr null, ptr %2284, align 16
@@ -9801,7 +9801,7 @@ confWithBit.exit533:                              ; preds = %2259, %2321
   %.471004 = phi i32 [ %.461003, %2245 ], [ %.461003, %2253 ], [ %.1301087, %confWithBit.exit533 ]
   %.48 = phi i64 [ %.47, %2245 ], [ %.47, %2253 ], [ %.167, %confWithBit.exit533 ]
   %.not26.i269 = icmp eq i64 %2248, 0
-  br i1 %.not26.i269, label %do_confWithBit_teddy.exit270, label %2245, !prof !5
+  br i1 %.not26.i269, label %do_confWithBit_teddy.exit270, label %2245, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit270:                     ; preds = %2322
   %2323 = icmp eq i64 %.48, 0
@@ -9942,7 +9942,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2322
   %2407 = load i8, ptr %2406, align 2
   %2408 = getelementptr inbounds nuw i8, ptr %.044.i535, i64 32
   %.not50.i537 = icmp eq i8 %2407, 0
-  br i1 %.not50.i537, label %2409, label %2374
+  br i1 %.not50.i537, label %2409, label %2374, !llvm.loop !10
 
 2409:                                             ; preds = %2405
   store ptr null, ptr %2372, align 16
@@ -9958,7 +9958,7 @@ confWithBit.exit540:                              ; preds = %2347, %2409
   %.451002 = phi i32 [ %.441001, %2331 ], [ %.441001, %2341 ], [ %.1331090, %confWithBit.exit540 ]
   %.46 = phi i64 [ %.45, %2331 ], [ %.45, %2341 ], [ %.170, %confWithBit.exit540 ]
   %.not26.i265 = icmp eq i64 %2334, 0
-  br i1 %.not26.i265, label %do_confWithBit_teddy.exit266, label %2331, !prof !5
+  br i1 %.not26.i265, label %do_confWithBit_teddy.exit266, label %2331, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit266:                     ; preds = %2410
   %2411 = icmp eq i64 %.46, 0
@@ -10099,7 +10099,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2410
   %2495 = load i8, ptr %2494, align 2
   %2496 = getelementptr inbounds nuw i8, ptr %.044.i542, i64 32
   %.not50.i544 = icmp eq i8 %2495, 0
-  br i1 %.not50.i544, label %2497, label %2462
+  br i1 %.not50.i544, label %2497, label %2462, !llvm.loop !10
 
 2497:                                             ; preds = %2493
   store ptr null, ptr %2460, align 16
@@ -10115,7 +10115,7 @@ confWithBit.exit547:                              ; preds = %2435, %2497
   %.431000 = phi i32 [ %.42999, %2419 ], [ %.42999, %2429 ], [ %.1361093, %confWithBit.exit547 ]
   %.44 = phi i64 [ %.43, %2419 ], [ %.43, %2429 ], [ %.173, %confWithBit.exit547 ]
   %.not26.i261 = icmp eq i64 %2422, 0
-  br i1 %.not26.i261, label %do_confWithBit_teddy.exit262, label %2419, !prof !5
+  br i1 %.not26.i261, label %do_confWithBit_teddy.exit262, label %2419, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit262:                     ; preds = %2498
   %2499 = icmp eq i64 %.44, 0
@@ -10256,7 +10256,7 @@ do_confWithBit_teddy.exit262:                     ; preds = %2498
   %2583 = load i8, ptr %2582, align 2
   %2584 = getelementptr inbounds nuw i8, ptr %.044.i549, i64 32
   %.not50.i551 = icmp eq i8 %2583, 0
-  br i1 %.not50.i551, label %2585, label %2550
+  br i1 %.not50.i551, label %2585, label %2550, !llvm.loop !10
 
 2585:                                             ; preds = %2581
   store ptr null, ptr %2548, align 16
@@ -10272,7 +10272,7 @@ confWithBit.exit554:                              ; preds = %2523, %2585
   %.41998 = phi i32 [ %.40997, %2507 ], [ %.40997, %2517 ], [ %.1391096, %confWithBit.exit554 ]
   %.42 = phi i64 [ %.41, %2507 ], [ %.41, %2517 ], [ %.176, %confWithBit.exit554 ]
   %.not26.i257 = icmp eq i64 %2510, 0
-  br i1 %.not26.i257, label %do_confWithBit_teddy.exit258, label %2507, !prof !5
+  br i1 %.not26.i257, label %do_confWithBit_teddy.exit258, label %2507, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit258:                     ; preds = %2586
   %2587 = icmp eq i64 %.42, 0
@@ -10492,7 +10492,7 @@ vectoredLoad256.exit:                             ; preds = %2629, %2627, %2620,
   %.1.i603 = phi i64 [ %2692, %2687 ], [ %.012.i5991258, %2684 ]
   %2694 = add nuw nsw i64 %.0.i6001259, 1
   %exitcond1308.not = icmp eq i64 %2694, 8
-  br i1 %exitcond1308.not, label %lv_u64a_ce.exit604, label %2684
+  br i1 %exitcond1308.not, label %lv_u64a_ce.exit604, label %2684, !llvm.loop !8
 
 lv_u64a_ce.exit604:                               ; preds = %2693
   %2695 = ptrtoint ptr %2676 to i64
@@ -10595,7 +10595,7 @@ getConfVal.exit408:                               ; preds = %2678, %lv_u64a_ce.e
   %2756 = load i8, ptr %2755, align 2
   %2757 = getelementptr inbounds nuw i8, ptr %.044.i556, i64 32
   %.not50.i558 = icmp eq i8 %2756, 0
-  br i1 %.not50.i558, label %2758, label %2723
+  br i1 %.not50.i558, label %2758, label %2723, !llvm.loop !10
 
 2758:                                             ; preds = %2754
   store ptr null, ptr %2721, align 16
@@ -10611,7 +10611,7 @@ confWithBit.exit561:                              ; preds = %getConfVal.exit408,
   %.39996 = phi i32 [ %.38995, %2661 ], [ %.38995, %2669 ], [ %.1421099, %confWithBit.exit561 ]
   %.40 = phi i64 [ %.39, %2661 ], [ %.39, %2669 ], [ %.179, %confWithBit.exit561 ]
   %.not26.i253 = icmp eq i64 %2664, 0
-  br i1 %.not26.i253, label %do_confWithBit_teddy.exit254, label %2661, !prof !5
+  br i1 %.not26.i253, label %do_confWithBit_teddy.exit254, label %2661, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit254:                     ; preds = %2759
   %2760 = icmp eq i64 %.40, 0
@@ -10697,7 +10697,7 @@ do_confWithBit_teddy.exit254:                     ; preds = %2759
   %.1.i597 = phi i64 [ %2800, %2795 ], [ %.012.i5931262, %2792 ]
   %2802 = add nuw nsw i64 %.0.i5941263, 1
   %exitcond1309.not = icmp eq i64 %2802, 8
-  br i1 %exitcond1309.not, label %lv_u64a_ce.exit598, label %2792
+  br i1 %exitcond1309.not, label %lv_u64a_ce.exit598, label %2792, !llvm.loop !8
 
 lv_u64a_ce.exit598:                               ; preds = %2801
   %2803 = ptrtoint ptr %2784 to i64
@@ -10800,7 +10800,7 @@ getConfVal.exit412:                               ; preds = %2786, %lv_u64a_ce.e
   %2864 = load i8, ptr %2863, align 2
   %2865 = getelementptr inbounds nuw i8, ptr %.044.i563, i64 32
   %.not50.i565 = icmp eq i8 %2864, 0
-  br i1 %.not50.i565, label %2866, label %2831
+  br i1 %.not50.i565, label %2866, label %2831, !llvm.loop !10
 
 2866:                                             ; preds = %2862
   store ptr null, ptr %2829, align 16
@@ -10816,7 +10816,7 @@ confWithBit.exit568:                              ; preds = %getConfVal.exit412,
   %.37994 = phi i32 [ %.36993, %2767 ], [ %.36993, %2777 ], [ %.1451102, %confWithBit.exit568 ]
   %.38 = phi i64 [ %.37, %2767 ], [ %.37, %2777 ], [ %.182, %confWithBit.exit568 ]
   %.not26.i249 = icmp eq i64 %2770, 0
-  br i1 %.not26.i249, label %do_confWithBit_teddy.exit250, label %2767, !prof !5
+  br i1 %.not26.i249, label %do_confWithBit_teddy.exit250, label %2767, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit250:                     ; preds = %2867
   %2868 = icmp eq i64 %.38, 0
@@ -10902,7 +10902,7 @@ do_confWithBit_teddy.exit250:                     ; preds = %2867
   %.1.i591 = phi i64 [ %2908, %2903 ], [ %.012.i5871266, %2900 ]
   %2910 = add nuw nsw i64 %.0.i5881267, 1
   %exitcond1310.not = icmp eq i64 %2910, 8
-  br i1 %exitcond1310.not, label %lv_u64a_ce.exit592, label %2900
+  br i1 %exitcond1310.not, label %lv_u64a_ce.exit592, label %2900, !llvm.loop !8
 
 lv_u64a_ce.exit592:                               ; preds = %2909
   %2911 = ptrtoint ptr %2892 to i64
@@ -11005,7 +11005,7 @@ getConfVal.exit416:                               ; preds = %2894, %lv_u64a_ce.e
   %2972 = load i8, ptr %2971, align 2
   %2973 = getelementptr inbounds nuw i8, ptr %.044.i570, i64 32
   %.not50.i572 = icmp eq i8 %2972, 0
-  br i1 %.not50.i572, label %2974, label %2939
+  br i1 %.not50.i572, label %2974, label %2939, !llvm.loop !10
 
 2974:                                             ; preds = %2970
   store ptr null, ptr %2937, align 16
@@ -11021,7 +11021,7 @@ confWithBit.exit575:                              ; preds = %getConfVal.exit416,
   %.35992 = phi i32 [ %.34991, %2875 ], [ %.34991, %2885 ], [ %.1481105, %confWithBit.exit575 ]
   %.36 = phi i64 [ %.35, %2875 ], [ %.35, %2885 ], [ %.185, %confWithBit.exit575 ]
   %.not26.i245 = icmp eq i64 %2878, 0
-  br i1 %.not26.i245, label %do_confWithBit_teddy.exit246, label %2875, !prof !5
+  br i1 %.not26.i245, label %do_confWithBit_teddy.exit246, label %2875, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit246:                     ; preds = %2975
   %2976 = icmp eq i64 %.36, 0
@@ -11107,7 +11107,7 @@ do_confWithBit_teddy.exit246:                     ; preds = %2975
   %.1.i586 = phi i64 [ %3016, %3011 ], [ %.012.i1270, %3008 ]
   %3018 = add nuw nsw i64 %.0.i5831271, 1
   %exitcond1311.not = icmp eq i64 %3018, 8
-  br i1 %exitcond1311.not, label %lv_u64a_ce.exit, label %3008
+  br i1 %exitcond1311.not, label %lv_u64a_ce.exit, label %3008, !llvm.loop !8
 
 lv_u64a_ce.exit:                                  ; preds = %3017
   %3019 = ptrtoint ptr %3000 to i64
@@ -11210,7 +11210,7 @@ getConfVal.exit420:                               ; preds = %3002, %lv_u64a_ce.e
   %3080 = load i8, ptr %3079, align 2
   %3081 = getelementptr inbounds nuw i8, ptr %.044.i577, i64 32
   %.not50.i579 = icmp eq i8 %3080, 0
-  br i1 %.not50.i579, label %3082, label %3047
+  br i1 %.not50.i579, label %3082, label %3047, !llvm.loop !10
 
 3082:                                             ; preds = %3078
   store ptr null, ptr %3045, align 16
@@ -11226,7 +11226,7 @@ confWithBit.exit582:                              ; preds = %getConfVal.exit420,
   %.33990 = phi i32 [ %.32989, %2983 ], [ %.32989, %2993 ], [ %.1511108, %confWithBit.exit582 ]
   %.34 = phi i64 [ %.33, %2983 ], [ %.33, %2993 ], [ %.188, %confWithBit.exit582 ]
   %.not26.i = icmp eq i64 %2986, 0
-  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %2983, !prof !5
+  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %2983, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit:                        ; preds = %3083
   %3084 = icmp eq i64 %.34, 0
@@ -11573,7 +11573,7 @@ vectoredLoad256.exit243:                          ; preds = %136, %134, %127, %1
   %.1.i653 = phi i64 [ %207, %202 ], [ %.012.i6491159, %199 ]
   %209 = add nuw nsw i64 %.0.i6501160, 1
   %exitcond.not = icmp eq i64 %209, 8
-  br i1 %exitcond.not, label %lv_u64a_ce.exit654, label %199
+  br i1 %exitcond.not, label %lv_u64a_ce.exit654, label %199, !llvm.loop !8
 
 lv_u64a_ce.exit654:                               ; preds = %208
   %210 = ptrtoint ptr %191 to i64
@@ -11676,7 +11676,7 @@ getConfVal.exit:                                  ; preds = %193, %lv_u64a_ce.ex
   %271 = load i8, ptr %270, align 2
   %272 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
   %.not50.i = icmp eq i8 %271, 0
-  br i1 %.not50.i, label %273, label %238
+  br i1 %.not50.i, label %273, label %238, !llvm.loop !10
 
 273:                                              ; preds = %269
   store ptr null, ptr %236, align 16
@@ -11692,7 +11692,7 @@ confWithBit.exit:                                 ; preds = %getConfVal.exit, %2
   %.791048 = phi i32 [ %.781047, %176 ], [ %.781047, %184 ], [ %.821051, %confWithBit.exit ]
   %.80 = phi i64 [ %.79, %176 ], [ %.79, %184 ], [ %.119, %confWithBit.exit ]
   %.not26.i335 = icmp eq i64 %179, 0
-  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %176, !prof !5
+  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %176, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit336:                     ; preds = %274
   %275 = icmp eq i64 %.80, 0
@@ -11779,7 +11779,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %274
   %.1.i647 = phi i64 [ %316, %311 ], [ %.012.i6431163, %308 ]
   %318 = add nuw nsw i64 %.0.i6441164, 1
   %exitcond1298.not = icmp eq i64 %318, 8
-  br i1 %exitcond1298.not, label %lv_u64a_ce.exit648, label %308
+  br i1 %exitcond1298.not, label %lv_u64a_ce.exit648, label %308, !llvm.loop !8
 
 lv_u64a_ce.exit648:                               ; preds = %317
   %319 = ptrtoint ptr %300 to i64
@@ -11882,7 +11882,7 @@ getConfVal.exit346:                               ; preds = %302, %lv_u64a_ce.ex
   %380 = load i8, ptr %379, align 2
   %381 = getelementptr inbounds nuw i8, ptr %.044.i425, i64 32
   %.not50.i427 = icmp eq i8 %380, 0
-  br i1 %.not50.i427, label %382, label %347
+  br i1 %.not50.i427, label %382, label %347, !llvm.loop !10
 
 382:                                              ; preds = %378
   store ptr null, ptr %345, align 16
@@ -11898,7 +11898,7 @@ confWithBit.exit430:                              ; preds = %getConfVal.exit346,
   %.771046 = phi i32 [ %.761045, %283 ], [ %.761045, %293 ], [ %.851054, %confWithBit.exit430 ]
   %.78 = phi i64 [ %.77, %283 ], [ %.77, %293 ], [ %.122, %confWithBit.exit430 ]
   %.not26.i331 = icmp eq i64 %286, 0
-  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %283, !prof !5
+  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %283, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit332:                     ; preds = %383
   %384 = icmp eq i64 %.78, 0
@@ -11985,7 +11985,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %383
   %.1.i641 = phi i64 [ %425, %420 ], [ %.012.i6371167, %417 ]
   %427 = add nuw nsw i64 %.0.i6381168, 1
   %exitcond1299.not = icmp eq i64 %427, 8
-  br i1 %exitcond1299.not, label %lv_u64a_ce.exit642, label %417
+  br i1 %exitcond1299.not, label %lv_u64a_ce.exit642, label %417, !llvm.loop !8
 
 lv_u64a_ce.exit642:                               ; preds = %426
   %428 = ptrtoint ptr %409 to i64
@@ -12088,7 +12088,7 @@ getConfVal.exit350:                               ; preds = %411, %lv_u64a_ce.ex
   %489 = load i8, ptr %488, align 2
   %490 = getelementptr inbounds nuw i8, ptr %.044.i432, i64 32
   %.not50.i434 = icmp eq i8 %489, 0
-  br i1 %.not50.i434, label %491, label %456
+  br i1 %.not50.i434, label %491, label %456, !llvm.loop !10
 
 491:                                              ; preds = %487
   store ptr null, ptr %454, align 16
@@ -12104,7 +12104,7 @@ confWithBit.exit437:                              ; preds = %getConfVal.exit350,
   %.751044 = phi i32 [ %.741043, %392 ], [ %.741043, %402 ], [ %.881057, %confWithBit.exit437 ]
   %.76 = phi i64 [ %.75, %392 ], [ %.75, %402 ], [ %.125, %confWithBit.exit437 ]
   %.not26.i327 = icmp eq i64 %395, 0
-  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %392, !prof !5
+  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %392, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit328:                     ; preds = %492
   %493 = icmp eq i64 %.76, 0
@@ -12191,7 +12191,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %492
   %.1.i635 = phi i64 [ %534, %529 ], [ %.012.i6311171, %526 ]
   %536 = add nuw nsw i64 %.0.i6321172, 1
   %exitcond1300.not = icmp eq i64 %536, 8
-  br i1 %exitcond1300.not, label %lv_u64a_ce.exit636, label %526
+  br i1 %exitcond1300.not, label %lv_u64a_ce.exit636, label %526, !llvm.loop !8
 
 lv_u64a_ce.exit636:                               ; preds = %535
   %537 = ptrtoint ptr %518 to i64
@@ -12294,7 +12294,7 @@ getConfVal.exit354:                               ; preds = %520, %lv_u64a_ce.ex
   %598 = load i8, ptr %597, align 2
   %599 = getelementptr inbounds nuw i8, ptr %.044.i439, i64 32
   %.not50.i441 = icmp eq i8 %598, 0
-  br i1 %.not50.i441, label %600, label %565
+  br i1 %.not50.i441, label %600, label %565, !llvm.loop !10
 
 600:                                              ; preds = %596
   store ptr null, ptr %563, align 16
@@ -12310,7 +12310,7 @@ confWithBit.exit444:                              ; preds = %getConfVal.exit354,
   %.731042 = phi i32 [ %.721041, %501 ], [ %.721041, %511 ], [ %.911060, %confWithBit.exit444 ]
   %.74 = phi i64 [ %.73, %501 ], [ %.73, %511 ], [ %.128, %confWithBit.exit444 ]
   %.not26.i323 = icmp eq i64 %504, 0
-  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %501, !prof !5
+  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %501, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit324:                     ; preds = %601
   %602 = icmp eq i64 %.74, 0
@@ -12445,7 +12445,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %601
   %.1.i629 = phi i64 [ %681, %676 ], [ %.012.i6251175, %673 ]
   %683 = add nuw nsw i64 %.0.i6261176, 1
   %exitcond1301.not = icmp eq i64 %683, 8
-  br i1 %exitcond1301.not, label %lv_u64a_ce.exit630, label %673
+  br i1 %exitcond1301.not, label %lv_u64a_ce.exit630, label %673, !llvm.loop !8
 
 lv_u64a_ce.exit630:                               ; preds = %682
   %684 = ptrtoint ptr %665 to i64
@@ -12548,7 +12548,7 @@ getConfVal.exit358:                               ; preds = %667, %lv_u64a_ce.ex
   %745 = load i8, ptr %744, align 2
   %746 = getelementptr inbounds nuw i8, ptr %.044.i446, i64 32
   %.not50.i448 = icmp eq i8 %745, 0
-  br i1 %.not50.i448, label %747, label %712
+  br i1 %.not50.i448, label %747, label %712, !llvm.loop !10
 
 747:                                              ; preds = %743
   store ptr null, ptr %710, align 16
@@ -12564,7 +12564,7 @@ confWithBit.exit451:                              ; preds = %getConfVal.exit358,
   %.711040 = phi i32 [ %.701039, %650 ], [ %.701039, %658 ], [ %.941063, %confWithBit.exit451 ]
   %.72 = phi i64 [ %.71, %650 ], [ %.71, %658 ], [ %.131, %confWithBit.exit451 ]
   %.not26.i319 = icmp eq i64 %653, 0
-  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %650, !prof !5
+  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %650, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit320:                     ; preds = %748
   %749 = icmp eq i64 %.72, 0
@@ -12652,7 +12652,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %748
   %.1.i623 = phi i64 [ %791, %786 ], [ %.012.i6191179, %783 ]
   %793 = add nuw nsw i64 %.0.i6201180, 1
   %exitcond1302.not = icmp eq i64 %793, 8
-  br i1 %exitcond1302.not, label %lv_u64a_ce.exit624, label %783
+  br i1 %exitcond1302.not, label %lv_u64a_ce.exit624, label %783, !llvm.loop !8
 
 lv_u64a_ce.exit624:                               ; preds = %792
   %794 = ptrtoint ptr %775 to i64
@@ -12755,7 +12755,7 @@ getConfVal.exit362:                               ; preds = %777, %lv_u64a_ce.ex
   %855 = load i8, ptr %854, align 2
   %856 = getelementptr inbounds nuw i8, ptr %.044.i453, i64 32
   %.not50.i455 = icmp eq i8 %855, 0
-  br i1 %.not50.i455, label %857, label %822
+  br i1 %.not50.i455, label %857, label %822, !llvm.loop !10
 
 857:                                              ; preds = %853
   store ptr null, ptr %820, align 16
@@ -12771,7 +12771,7 @@ confWithBit.exit458:                              ; preds = %getConfVal.exit362,
   %.691038 = phi i32 [ %.681037, %758 ], [ %.681037, %768 ], [ %.971066, %confWithBit.exit458 ]
   %.70 = phi i64 [ %.69, %758 ], [ %.69, %768 ], [ %.134, %confWithBit.exit458 ]
   %.not26.i315 = icmp eq i64 %761, 0
-  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %758, !prof !5
+  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %758, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit316:                     ; preds = %858
   %859 = icmp eq i64 %.70, 0
@@ -12859,7 +12859,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %858
   %.1.i617 = phi i64 [ %901, %896 ], [ %.012.i6131183, %893 ]
   %903 = add nuw nsw i64 %.0.i6141184, 1
   %exitcond1303.not = icmp eq i64 %903, 8
-  br i1 %exitcond1303.not, label %lv_u64a_ce.exit618, label %893
+  br i1 %exitcond1303.not, label %lv_u64a_ce.exit618, label %893, !llvm.loop !8
 
 lv_u64a_ce.exit618:                               ; preds = %902
   %904 = ptrtoint ptr %885 to i64
@@ -12962,7 +12962,7 @@ getConfVal.exit366:                               ; preds = %887, %lv_u64a_ce.ex
   %965 = load i8, ptr %964, align 2
   %966 = getelementptr inbounds nuw i8, ptr %.044.i460, i64 32
   %.not50.i462 = icmp eq i8 %965, 0
-  br i1 %.not50.i462, label %967, label %932
+  br i1 %.not50.i462, label %967, label %932, !llvm.loop !10
 
 967:                                              ; preds = %963
   store ptr null, ptr %930, align 16
@@ -12978,7 +12978,7 @@ confWithBit.exit465:                              ; preds = %getConfVal.exit366,
   %.671036 = phi i32 [ %.661035, %868 ], [ %.661035, %878 ], [ %.1001069, %confWithBit.exit465 ]
   %.68 = phi i64 [ %.67, %868 ], [ %.67, %878 ], [ %.137, %confWithBit.exit465 ]
   %.not26.i311 = icmp eq i64 %871, 0
-  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %868, !prof !5
+  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %868, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit312:                     ; preds = %968
   %969 = icmp eq i64 %.68, 0
@@ -13066,7 +13066,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %968
   %.1.i611 = phi i64 [ %1011, %1006 ], [ %.012.i6071187, %1003 ]
   %1013 = add nuw nsw i64 %.0.i6081188, 1
   %exitcond1304.not = icmp eq i64 %1013, 8
-  br i1 %exitcond1304.not, label %lv_u64a_ce.exit612, label %1003
+  br i1 %exitcond1304.not, label %lv_u64a_ce.exit612, label %1003, !llvm.loop !8
 
 lv_u64a_ce.exit612:                               ; preds = %1012
   %1014 = ptrtoint ptr %995 to i64
@@ -13169,7 +13169,7 @@ getConfVal.exit370:                               ; preds = %997, %lv_u64a_ce.ex
   %1075 = load i8, ptr %1074, align 2
   %1076 = getelementptr inbounds nuw i8, ptr %.044.i467, i64 32
   %.not50.i469 = icmp eq i8 %1075, 0
-  br i1 %.not50.i469, label %1077, label %1042
+  br i1 %.not50.i469, label %1077, label %1042, !llvm.loop !10
 
 1077:                                             ; preds = %1073
   store ptr null, ptr %1040, align 16
@@ -13185,7 +13185,7 @@ confWithBit.exit472:                              ; preds = %getConfVal.exit370,
   %.651034 = phi i32 [ %.641033, %978 ], [ %.641033, %988 ], [ %.1031072, %confWithBit.exit472 ]
   %.66 = phi i64 [ %.65, %978 ], [ %.65, %988 ], [ %.140, %confWithBit.exit472 ]
   %.not26.i307 = icmp eq i64 %981, 0
-  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %978, !prof !5
+  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %978, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit308:                     ; preds = %1078
   %1079 = icmp eq i64 %.66, 0
@@ -13314,7 +13314,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1078
   %or.cond.i = select i1 %.not383.i, i1 %.not384.i, i1 false
   %.not385.i = icmp eq i64 %1156, %1119
   %or.cond422.i = select i1 %or.cond.i, i1 %.not385.i, i1 false
-  br i1 %or.cond422.i, label %1144, label %.thread1123.preheader
+  br i1 %or.cond422.i, label %1144, label %.thread1123.preheader, !llvm.loop !13
 
 .thread1123.preheader:                            ; preds = %1153, %1148, %1144
   br label %.thread1123
@@ -13331,7 +13331,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1078
   %1164 = getelementptr inbounds nuw i8, ptr %1093, i64 %1162
   %1165 = load i64, ptr %1164, align 8
   %.not386.i = icmp eq i64 %1165, %1119
-  br i1 %.not386.i, label %.thread1123, label %split
+  br i1 %.not386.i, label %.thread1123, label %split, !llvm.loop !14
 
 split:                                            ; preds = %1163, %.thread1123
   %1166 = icmp ugt i64 %1097, %1162
@@ -13349,7 +13349,7 @@ split:                                            ; preds = %1163, %.thread1123
   %1171 = add i32 %.3.i1191, 1
   %1172 = zext i32 %1171 to i64
   %1173 = icmp ugt i64 %1097, %1172
-  br i1 %1173, label %.lr.ph1193, label %._crit_edge1194
+  br i1 %1173, label %.lr.ph1193, label %._crit_edge1194, !llvm.loop !15
 
 ._crit_edge1194:                                  ; preds = %1170, %.lr.ph1193, %split
   %.3.i.lcssa = phi i32 [ %.2.i, %split ], [ %.3.i1191, %.lr.ph1193 ], [ %1171, %1170 ]
@@ -13488,7 +13488,7 @@ split:                                            ; preds = %1163, %.thread1123
   %.102 = phi i64 [ %1237, %1233 ], [ %1243, %1239 ], [ %1231, %1227 ], [ %1225, %1221 ], [ %.981209, %1218 ]
   %indvars.iv.next1310 = add nuw nsw i64 %indvars.iv1309, 4
   %1244 = icmp samesign ult i64 %indvars.iv.next1310, %1204
-  br i1 %1244, label %1215, label %.critedge.i
+  br i1 %1244, label %1215, label %.critedge.i, !llvm.loop !16
 
 1245:                                             ; preds = %.lr.ph1205, %1318
   %indvars.iv1306 = phi i64 [ 0, %.lr.ph1205 ], [ %indvars.iv.next1307, %1318 ]
@@ -13619,7 +13619,7 @@ split:                                            ; preds = %1163, %.thread1123
   %.97 = phi i64 [ %.96, %1309 ], [ %1317, %1312 ]
   %indvars.iv.next1307 = add nuw nsw i64 %indvars.iv1306, 4
   %1319 = icmp samesign ult i64 %indvars.iv.next1307, %1198
-  br i1 %1319, label %1245, label %.critedge.i
+  br i1 %1319, label %1245, label %.critedge.i, !llvm.loop !17
 
 1320:                                             ; preds = %.lr.ph1199, %1374
   %indvars.iv = phi i64 [ 0, %.lr.ph1199 ], [ %indvars.iv.next, %1374 ]
@@ -13719,7 +13719,7 @@ split:                                            ; preds = %1163, %.thread1123
   %.88 = phi i64 [ %.87, %1365 ], [ %1373, %1368 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %1375 = icmp samesign ult i64 %indvars.iv.next, %1190
-  br i1 %1375, label %1320, label %.critedge.i
+  br i1 %1375, label %1320, label %.critedge.i, !llvm.loop !18
 
 1376:                                             ; preds = %.lr.ph1229, %._crit_edge1225
   %indvars.iv1318 = phi i64 [ 0, %.lr.ph1229 ], [ %indvars.iv.next1319, %._crit_edge1225 ]
@@ -13825,7 +13825,7 @@ split:                                            ; preds = %1163, %.thread1123
   %indvars.iv.next1313 = add nuw nsw i64 %indvars.iv1312, 1
   %1429 = zext i16 %1428 to i64
   %1430 = icmp samesign ult i64 %indvars.iv.next1313, %1429
-  br i1 %1430, label %1418, label %._crit_edge1219
+  br i1 %1430, label %1418, label %._crit_edge1219, !llvm.loop !19
 
 1431:                                             ; preds = %._crit_edge1219
   %1432 = trunc nuw i64 %indvars.iv1318 to i32
@@ -13896,7 +13896,7 @@ split:                                            ; preds = %1163, %.thread1123
   %.113.lcssa = phi i64 [ %.112, %1464 ], [ %.114, %1480 ]
   %indvars.iv.next1319 = add nuw nsw i64 %indvars.iv1318, 2
   %1470 = icmp samesign ult i64 %indvars.iv.next1319, %1214
-  br i1 %1470, label %1376, label %.critedge.i
+  br i1 %1470, label %1376, label %.critedge.i, !llvm.loop !20
 
 1471:                                             ; preds = %.lr.ph1224, %1480
   %1472 = phi i16 [ %1465, %.lr.ph1224 ], [ %1481, %1480 ]
@@ -13921,7 +13921,7 @@ split:                                            ; preds = %1163, %.thread1123
   %indvars.iv.next1316 = add nuw nsw i64 %indvars.iv1315, 1
   %1482 = zext i16 %1481 to i64
   %1483 = icmp samesign ult i64 %indvars.iv.next1316, %1482
-  br i1 %1483, label %1471, label %._crit_edge1225
+  br i1 %1483, label %1471, label %._crit_edge1225, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %1374, %1320, %1318, %1245, %.thread1374, %1215, %._crit_edge1225, %1376, %.preheader1152, %.preheader1150, %.preheader1148, %.preheader, %1179, %1175
   %.82 = phi i64 [ %.121253, %1175 ], [ %.121253, %1179 ], [ %.121253, %.preheader ], [ %.121253, %.preheader1148 ], [ %.121253, %.preheader1150 ], [ %.121253, %.preheader1152 ], [ %.113.lcssa, %._crit_edge1225 ], [ %.1031227, %1376 ], [ %.102, %.thread1374 ], [ %.981209, %1215 ], [ %.97, %1318 ], [ %.891203, %1245 ], [ %.88, %1374 ], [ %.811197, %1320 ]
@@ -14123,7 +14123,7 @@ floodDetect.exit:                                 ; preds = %1129, %1136, %.crit
   %1611 = load i8, ptr %1610, align 2
   %1612 = getelementptr inbounds nuw i8, ptr %.044.i474, i64 32
   %.not50.i476 = icmp eq i8 %1611, 0
-  br i1 %.not50.i476, label %1613, label %1578
+  br i1 %.not50.i476, label %1613, label %1578, !llvm.loop !10
 
 1613:                                             ; preds = %1609
   store ptr null, ptr %1576, align 16
@@ -14139,7 +14139,7 @@ confWithBit.exit479:                              ; preds = %1551, %1613
   %.631032 = phi i32 [ %.621031, %1537 ], [ %.621031, %1545 ], [ %.1061075, %confWithBit.exit479 ]
   %.64 = phi i64 [ %.63, %1537 ], [ %.63, %1545 ], [ %.143, %confWithBit.exit479 ]
   %.not26.i303 = icmp eq i64 %1540, 0
-  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %1537, !prof !5
+  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %1537, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit304:                     ; preds = %1614
   %1615 = icmp eq i64 %.64, 0
@@ -14277,7 +14277,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1614
   %1696 = load i8, ptr %1695, align 2
   %1697 = getelementptr inbounds nuw i8, ptr %.044.i481, i64 32
   %.not50.i483 = icmp eq i8 %1696, 0
-  br i1 %.not50.i483, label %1698, label %1663
+  br i1 %.not50.i483, label %1698, label %1663, !llvm.loop !10
 
 1698:                                             ; preds = %1694
   store ptr null, ptr %1661, align 16
@@ -14293,7 +14293,7 @@ confWithBit.exit486:                              ; preds = %1636, %1698
   %.611030 = phi i32 [ %.601029, %1620 ], [ %.601029, %1630 ], [ %.1091078, %confWithBit.exit486 ]
   %.62 = phi i64 [ %.61, %1620 ], [ %.61, %1630 ], [ %.146, %confWithBit.exit486 ]
   %.not26.i299 = icmp eq i64 %1623, 0
-  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1620, !prof !5
+  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1620, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit300:                     ; preds = %1699
   %1700 = icmp eq i64 %.62, 0
@@ -14431,7 +14431,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1699
   %1781 = load i8, ptr %1780, align 2
   %1782 = getelementptr inbounds nuw i8, ptr %.044.i488, i64 32
   %.not50.i490 = icmp eq i8 %1781, 0
-  br i1 %.not50.i490, label %1783, label %1748
+  br i1 %.not50.i490, label %1783, label %1748, !llvm.loop !10
 
 1783:                                             ; preds = %1779
   store ptr null, ptr %1746, align 16
@@ -14447,7 +14447,7 @@ confWithBit.exit493:                              ; preds = %1721, %1783
   %.591028 = phi i32 [ %.581027, %1705 ], [ %.581027, %1715 ], [ %.1121081, %confWithBit.exit493 ]
   %.60 = phi i64 [ %.59, %1705 ], [ %.59, %1715 ], [ %.149, %confWithBit.exit493 ]
   %.not26.i295 = icmp eq i64 %1708, 0
-  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1705, !prof !5
+  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1705, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit296:                     ; preds = %1784
   %1785 = icmp eq i64 %.60, 0
@@ -14585,7 +14585,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1784
   %1866 = load i8, ptr %1865, align 2
   %1867 = getelementptr inbounds nuw i8, ptr %.044.i495, i64 32
   %.not50.i497 = icmp eq i8 %1866, 0
-  br i1 %.not50.i497, label %1868, label %1833
+  br i1 %.not50.i497, label %1868, label %1833, !llvm.loop !10
 
 1868:                                             ; preds = %1864
   store ptr null, ptr %1831, align 16
@@ -14601,7 +14601,7 @@ confWithBit.exit500:                              ; preds = %1806, %1868
   %.571026 = phi i32 [ %.561025, %1790 ], [ %.561025, %1800 ], [ %.1151084, %confWithBit.exit500 ]
   %.58 = phi i64 [ %.57, %1790 ], [ %.57, %1800 ], [ %.152, %confWithBit.exit500 ]
   %.not26.i291 = icmp eq i64 %1793, 0
-  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1790, !prof !5
+  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1790, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit292:                     ; preds = %1869
   %1870 = icmp eq i64 %.58, 0
@@ -14780,7 +14780,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1869
   %1986 = load i8, ptr %1985, align 2
   %1987 = getelementptr inbounds nuw i8, ptr %.044.i502, i64 32
   %.not50.i504 = icmp eq i8 %1986, 0
-  br i1 %.not50.i504, label %1988, label %1953
+  br i1 %.not50.i504, label %1988, label %1953, !llvm.loop !10
 
 1988:                                             ; preds = %1984
   store ptr null, ptr %1951, align 16
@@ -14796,7 +14796,7 @@ confWithBit.exit507:                              ; preds = %1926, %1988
   %.551024 = phi i32 [ %.541023, %1910 ], [ %.541023, %1920 ], [ %.1181087, %confWithBit.exit507 ]
   %.56 = phi i64 [ %.55, %1910 ], [ %.55, %1920 ], [ %.155, %confWithBit.exit507 ]
   %.not26.i287 = icmp eq i64 %1913, 0
-  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %1910, !prof !5
+  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %1910, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit288:                     ; preds = %1989
   %1990 = icmp eq i64 %.56, 0
@@ -14934,7 +14934,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %1989
   %2071 = load i8, ptr %2070, align 2
   %2072 = getelementptr inbounds nuw i8, ptr %.044.i509, i64 32
   %.not50.i511 = icmp eq i8 %2071, 0
-  br i1 %.not50.i511, label %2073, label %2038
+  br i1 %.not50.i511, label %2073, label %2038, !llvm.loop !10
 
 2073:                                             ; preds = %2069
   store ptr null, ptr %2036, align 16
@@ -14950,7 +14950,7 @@ confWithBit.exit514:                              ; preds = %2011, %2073
   %.531022 = phi i32 [ %.521021, %1995 ], [ %.521021, %2005 ], [ %.1211090, %confWithBit.exit514 ]
   %.54 = phi i64 [ %.53, %1995 ], [ %.53, %2005 ], [ %.158, %confWithBit.exit514 ]
   %.not26.i283 = icmp eq i64 %1998, 0
-  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %1995, !prof !5
+  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %1995, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit284:                     ; preds = %2074
   %2075 = icmp eq i64 %.54, 0
@@ -15088,7 +15088,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2074
   %2156 = load i8, ptr %2155, align 2
   %2157 = getelementptr inbounds nuw i8, ptr %.044.i516, i64 32
   %.not50.i518 = icmp eq i8 %2156, 0
-  br i1 %.not50.i518, label %2158, label %2123
+  br i1 %.not50.i518, label %2158, label %2123, !llvm.loop !10
 
 2158:                                             ; preds = %2154
   store ptr null, ptr %2121, align 16
@@ -15104,7 +15104,7 @@ confWithBit.exit521:                              ; preds = %2096, %2158
   %.511020 = phi i32 [ %.501019, %2080 ], [ %.501019, %2090 ], [ %.1241093, %confWithBit.exit521 ]
   %.52 = phi i64 [ %.51, %2080 ], [ %.51, %2090 ], [ %.161, %confWithBit.exit521 ]
   %.not26.i279 = icmp eq i64 %2083, 0
-  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %2080, !prof !5
+  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %2080, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit280:                     ; preds = %2159
   %2160 = icmp eq i64 %.52, 0
@@ -15242,7 +15242,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2159
   %2241 = load i8, ptr %2240, align 2
   %2242 = getelementptr inbounds nuw i8, ptr %.044.i523, i64 32
   %.not50.i525 = icmp eq i8 %2241, 0
-  br i1 %.not50.i525, label %2243, label %2208
+  br i1 %.not50.i525, label %2243, label %2208, !llvm.loop !10
 
 2243:                                             ; preds = %2239
   store ptr null, ptr %2206, align 16
@@ -15258,7 +15258,7 @@ confWithBit.exit528:                              ; preds = %2181, %2243
   %.491018 = phi i32 [ %.481017, %2165 ], [ %.481017, %2175 ], [ %.1271096, %confWithBit.exit528 ]
   %.50 = phi i64 [ %.49, %2165 ], [ %.49, %2175 ], [ %.164, %confWithBit.exit528 ]
   %.not26.i275 = icmp eq i64 %2168, 0
-  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %2165, !prof !5
+  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %2165, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit276:                     ; preds = %2244
   %2245 = icmp eq i64 %.50, 0
@@ -15270,7 +15270,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2244
   %2246 = getelementptr inbounds nuw i8, ptr %.3964, i64 64
   %2247 = getelementptr inbounds nuw i8, ptr %.3964, i64 128
   %.not199 = icmp ugt ptr %2247, %33
-  br i1 %.not199, label %._crit_edge1257, label %1089
+  br i1 %.not199, label %._crit_edge1257, label %1089, !llvm.loop !24
 
 ._crit_edge1257:                                  ; preds = %.critedge230, %.critedge226
   %.12981.lcssa = phi i32 [ %.6975, %.critedge226 ], [ %.22991, %.critedge230 ]
@@ -15453,7 +15453,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2244
   %2367 = load i8, ptr %2366, align 2
   %2368 = getelementptr inbounds nuw i8, ptr %.044.i530, i64 32
   %.not50.i532 = icmp eq i8 %2367, 0
-  br i1 %.not50.i532, label %2369, label %2334
+  br i1 %.not50.i532, label %2369, label %2334, !llvm.loop !10
 
 2369:                                             ; preds = %2365
   store ptr null, ptr %2332, align 16
@@ -15469,7 +15469,7 @@ confWithBit.exit535:                              ; preds = %2307, %2369
   %.471016 = phi i32 [ %.461015, %2293 ], [ %.461015, %2301 ], [ %.1301099, %confWithBit.exit535 ]
   %.48 = phi i64 [ %.47, %2293 ], [ %.47, %2301 ], [ %.167, %confWithBit.exit535 ]
   %.not26.i271 = icmp eq i64 %2296, 0
-  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %2293, !prof !5
+  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %2293, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit272:                     ; preds = %2370
   %2371 = icmp eq i64 %.48, 0
@@ -15610,7 +15610,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2370
   %2455 = load i8, ptr %2454, align 2
   %2456 = getelementptr inbounds nuw i8, ptr %.044.i537, i64 32
   %.not50.i539 = icmp eq i8 %2455, 0
-  br i1 %.not50.i539, label %2457, label %2422
+  br i1 %.not50.i539, label %2457, label %2422, !llvm.loop !10
 
 2457:                                             ; preds = %2453
   store ptr null, ptr %2420, align 16
@@ -15626,7 +15626,7 @@ confWithBit.exit542:                              ; preds = %2395, %2457
   %.451014 = phi i32 [ %.441013, %2379 ], [ %.441013, %2389 ], [ %.1331102, %confWithBit.exit542 ]
   %.46 = phi i64 [ %.45, %2379 ], [ %.45, %2389 ], [ %.170, %confWithBit.exit542 ]
   %.not26.i267 = icmp eq i64 %2382, 0
-  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %2379, !prof !5
+  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %2379, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit268:                     ; preds = %2458
   %2459 = icmp eq i64 %.46, 0
@@ -15767,7 +15767,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2458
   %2543 = load i8, ptr %2542, align 2
   %2544 = getelementptr inbounds nuw i8, ptr %.044.i544, i64 32
   %.not50.i546 = icmp eq i8 %2543, 0
-  br i1 %.not50.i546, label %2545, label %2510
+  br i1 %.not50.i546, label %2545, label %2510, !llvm.loop !10
 
 2545:                                             ; preds = %2541
   store ptr null, ptr %2508, align 16
@@ -15783,7 +15783,7 @@ confWithBit.exit549:                              ; preds = %2483, %2545
   %.431012 = phi i32 [ %.421011, %2467 ], [ %.421011, %2477 ], [ %.1361105, %confWithBit.exit549 ]
   %.44 = phi i64 [ %.43, %2467 ], [ %.43, %2477 ], [ %.173, %confWithBit.exit549 ]
   %.not26.i263 = icmp eq i64 %2470, 0
-  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %2467, !prof !5
+  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %2467, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit264:                     ; preds = %2546
   %2547 = icmp eq i64 %.44, 0
@@ -15924,7 +15924,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2546
   %2631 = load i8, ptr %2630, align 2
   %2632 = getelementptr inbounds nuw i8, ptr %.044.i551, i64 32
   %.not50.i553 = icmp eq i8 %2631, 0
-  br i1 %.not50.i553, label %2633, label %2598
+  br i1 %.not50.i553, label %2633, label %2598, !llvm.loop !10
 
 2633:                                             ; preds = %2629
   store ptr null, ptr %2596, align 16
@@ -15940,7 +15940,7 @@ confWithBit.exit556:                              ; preds = %2571, %2633
   %.411010 = phi i32 [ %.401009, %2555 ], [ %.401009, %2565 ], [ %.1391108, %confWithBit.exit556 ]
   %.42 = phi i64 [ %.41, %2555 ], [ %.41, %2565 ], [ %.176, %confWithBit.exit556 ]
   %.not26.i259 = icmp eq i64 %2558, 0
-  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %2555, !prof !5
+  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %2555, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit260:                     ; preds = %2634
   %2635 = icmp eq i64 %.42, 0
@@ -16167,7 +16167,7 @@ vectoredLoad256.exit:                             ; preds = %2677, %2675, %2668,
   %.1.i605 = phi i64 [ %2747, %2742 ], [ %.012.i6011270, %2739 ]
   %2749 = add nuw nsw i64 %.0.i6021271, 1
   %exitcond1321.not = icmp eq i64 %2749, 8
-  br i1 %exitcond1321.not, label %lv_u64a_ce.exit606, label %2739
+  br i1 %exitcond1321.not, label %lv_u64a_ce.exit606, label %2739, !llvm.loop !8
 
 lv_u64a_ce.exit606:                               ; preds = %2748
   %2750 = ptrtoint ptr %2731 to i64
@@ -16270,7 +16270,7 @@ getConfVal.exit410:                               ; preds = %2733, %lv_u64a_ce.e
   %2811 = load i8, ptr %2810, align 2
   %2812 = getelementptr inbounds nuw i8, ptr %.044.i558, i64 32
   %.not50.i560 = icmp eq i8 %2811, 0
-  br i1 %.not50.i560, label %2813, label %2778
+  br i1 %.not50.i560, label %2813, label %2778, !llvm.loop !10
 
 2813:                                             ; preds = %2809
   store ptr null, ptr %2776, align 16
@@ -16286,7 +16286,7 @@ confWithBit.exit563:                              ; preds = %getConfVal.exit410,
   %.391008 = phi i32 [ %.381007, %2716 ], [ %.381007, %2724 ], [ %.1421111, %confWithBit.exit563 ]
   %.40 = phi i64 [ %.39, %2716 ], [ %.39, %2724 ], [ %.179, %confWithBit.exit563 ]
   %.not26.i255 = icmp eq i64 %2719, 0
-  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %2716, !prof !5
+  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %2716, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit256:                     ; preds = %2814
   %2815 = icmp eq i64 %.40, 0
@@ -16372,7 +16372,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %2814
   %.1.i599 = phi i64 [ %2855, %2850 ], [ %.012.i5951274, %2847 ]
   %2857 = add nuw nsw i64 %.0.i5961275, 1
   %exitcond1322.not = icmp eq i64 %2857, 8
-  br i1 %exitcond1322.not, label %lv_u64a_ce.exit600, label %2847
+  br i1 %exitcond1322.not, label %lv_u64a_ce.exit600, label %2847, !llvm.loop !8
 
 lv_u64a_ce.exit600:                               ; preds = %2856
   %2858 = ptrtoint ptr %2839 to i64
@@ -16475,7 +16475,7 @@ getConfVal.exit414:                               ; preds = %2841, %lv_u64a_ce.e
   %2919 = load i8, ptr %2918, align 2
   %2920 = getelementptr inbounds nuw i8, ptr %.044.i565, i64 32
   %.not50.i567 = icmp eq i8 %2919, 0
-  br i1 %.not50.i567, label %2921, label %2886
+  br i1 %.not50.i567, label %2921, label %2886, !llvm.loop !10
 
 2921:                                             ; preds = %2917
   store ptr null, ptr %2884, align 16
@@ -16491,7 +16491,7 @@ confWithBit.exit570:                              ; preds = %getConfVal.exit414,
   %.371006 = phi i32 [ %.361005, %2822 ], [ %.361005, %2832 ], [ %.1451114, %confWithBit.exit570 ]
   %.38 = phi i64 [ %.37, %2822 ], [ %.37, %2832 ], [ %.182, %confWithBit.exit570 ]
   %.not26.i251 = icmp eq i64 %2825, 0
-  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %2822, !prof !5
+  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %2822, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit252:                     ; preds = %2922
   %2923 = icmp eq i64 %.38, 0
@@ -16577,7 +16577,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %2922
   %.1.i593 = phi i64 [ %2963, %2958 ], [ %.012.i5891278, %2955 ]
   %2965 = add nuw nsw i64 %.0.i5901279, 1
   %exitcond1323.not = icmp eq i64 %2965, 8
-  br i1 %exitcond1323.not, label %lv_u64a_ce.exit594, label %2955
+  br i1 %exitcond1323.not, label %lv_u64a_ce.exit594, label %2955, !llvm.loop !8
 
 lv_u64a_ce.exit594:                               ; preds = %2964
   %2966 = ptrtoint ptr %2947 to i64
@@ -16680,7 +16680,7 @@ getConfVal.exit418:                               ; preds = %2949, %lv_u64a_ce.e
   %3027 = load i8, ptr %3026, align 2
   %3028 = getelementptr inbounds nuw i8, ptr %.044.i572, i64 32
   %.not50.i574 = icmp eq i8 %3027, 0
-  br i1 %.not50.i574, label %3029, label %2994
+  br i1 %.not50.i574, label %3029, label %2994, !llvm.loop !10
 
 3029:                                             ; preds = %3025
   store ptr null, ptr %2992, align 16
@@ -16696,7 +16696,7 @@ confWithBit.exit577:                              ; preds = %getConfVal.exit418,
   %.351004 = phi i32 [ %.341003, %2930 ], [ %.341003, %2940 ], [ %.1481117, %confWithBit.exit577 ]
   %.36 = phi i64 [ %.35, %2930 ], [ %.35, %2940 ], [ %.185, %confWithBit.exit577 ]
   %.not26.i247 = icmp eq i64 %2933, 0
-  br i1 %.not26.i247, label %do_confWithBit_teddy.exit248, label %2930, !prof !5
+  br i1 %.not26.i247, label %do_confWithBit_teddy.exit248, label %2930, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit248:                     ; preds = %3030
   %3031 = icmp eq i64 %.36, 0
@@ -16782,7 +16782,7 @@ do_confWithBit_teddy.exit248:                     ; preds = %3030
   %.1.i588 = phi i64 [ %3071, %3066 ], [ %.012.i1282, %3063 ]
   %3073 = add nuw nsw i64 %.0.i5851283, 1
   %exitcond1324.not = icmp eq i64 %3073, 8
-  br i1 %exitcond1324.not, label %lv_u64a_ce.exit, label %3063
+  br i1 %exitcond1324.not, label %lv_u64a_ce.exit, label %3063, !llvm.loop !8
 
 lv_u64a_ce.exit:                                  ; preds = %3072
   %3074 = ptrtoint ptr %3055 to i64
@@ -16885,7 +16885,7 @@ getConfVal.exit422:                               ; preds = %3057, %lv_u64a_ce.e
   %3135 = load i8, ptr %3134, align 2
   %3136 = getelementptr inbounds nuw i8, ptr %.044.i579, i64 32
   %.not50.i581 = icmp eq i8 %3135, 0
-  br i1 %.not50.i581, label %3137, label %3102
+  br i1 %.not50.i581, label %3137, label %3102, !llvm.loop !10
 
 3137:                                             ; preds = %3133
   store ptr null, ptr %3100, align 16
@@ -16901,7 +16901,7 @@ confWithBit.exit584:                              ; preds = %getConfVal.exit422,
   %.331002 = phi i32 [ %.321001, %3038 ], [ %.321001, %3048 ], [ %.1511120, %confWithBit.exit584 ]
   %.34 = phi i64 [ %.33, %3038 ], [ %.33, %3048 ], [ %.188, %confWithBit.exit584 ]
   %.not26.i = icmp eq i64 %3041, 0
-  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3038, !prof !5
+  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3038, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit:                        ; preds = %3138
   %3139 = icmp eq i64 %.34, 0
@@ -17248,7 +17248,7 @@ vectoredLoad256.exit243:                          ; preds = %136, %134, %127, %1
   %.1.i653 = phi i64 [ %207, %202 ], [ %.012.i6491159, %199 ]
   %209 = add nuw nsw i64 %.0.i6501160, 1
   %exitcond.not = icmp eq i64 %209, 8
-  br i1 %exitcond.not, label %lv_u64a_ce.exit654, label %199
+  br i1 %exitcond.not, label %lv_u64a_ce.exit654, label %199, !llvm.loop !8
 
 lv_u64a_ce.exit654:                               ; preds = %208
   %210 = ptrtoint ptr %191 to i64
@@ -17351,7 +17351,7 @@ getConfVal.exit:                                  ; preds = %193, %lv_u64a_ce.ex
   %271 = load i8, ptr %270, align 2
   %272 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
   %.not50.i = icmp eq i8 %271, 0
-  br i1 %.not50.i, label %273, label %238
+  br i1 %.not50.i, label %273, label %238, !llvm.loop !10
 
 273:                                              ; preds = %269
   store ptr null, ptr %236, align 16
@@ -17367,7 +17367,7 @@ confWithBit.exit:                                 ; preds = %getConfVal.exit, %2
   %.791048 = phi i32 [ %.781047, %176 ], [ %.781047, %184 ], [ %.821051, %confWithBit.exit ]
   %.80 = phi i64 [ %.79, %176 ], [ %.79, %184 ], [ %.119, %confWithBit.exit ]
   %.not26.i335 = icmp eq i64 %179, 0
-  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %176, !prof !5
+  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %176, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit336:                     ; preds = %274
   %275 = icmp eq i64 %.80, 0
@@ -17454,7 +17454,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %274
   %.1.i647 = phi i64 [ %316, %311 ], [ %.012.i6431163, %308 ]
   %318 = add nuw nsw i64 %.0.i6441164, 1
   %exitcond1298.not = icmp eq i64 %318, 8
-  br i1 %exitcond1298.not, label %lv_u64a_ce.exit648, label %308
+  br i1 %exitcond1298.not, label %lv_u64a_ce.exit648, label %308, !llvm.loop !8
 
 lv_u64a_ce.exit648:                               ; preds = %317
   %319 = ptrtoint ptr %300 to i64
@@ -17557,7 +17557,7 @@ getConfVal.exit346:                               ; preds = %302, %lv_u64a_ce.ex
   %380 = load i8, ptr %379, align 2
   %381 = getelementptr inbounds nuw i8, ptr %.044.i425, i64 32
   %.not50.i427 = icmp eq i8 %380, 0
-  br i1 %.not50.i427, label %382, label %347
+  br i1 %.not50.i427, label %382, label %347, !llvm.loop !10
 
 382:                                              ; preds = %378
   store ptr null, ptr %345, align 16
@@ -17573,7 +17573,7 @@ confWithBit.exit430:                              ; preds = %getConfVal.exit346,
   %.771046 = phi i32 [ %.761045, %283 ], [ %.761045, %293 ], [ %.851054, %confWithBit.exit430 ]
   %.78 = phi i64 [ %.77, %283 ], [ %.77, %293 ], [ %.122, %confWithBit.exit430 ]
   %.not26.i331 = icmp eq i64 %286, 0
-  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %283, !prof !5
+  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %283, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit332:                     ; preds = %383
   %384 = icmp eq i64 %.78, 0
@@ -17660,7 +17660,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %383
   %.1.i641 = phi i64 [ %425, %420 ], [ %.012.i6371167, %417 ]
   %427 = add nuw nsw i64 %.0.i6381168, 1
   %exitcond1299.not = icmp eq i64 %427, 8
-  br i1 %exitcond1299.not, label %lv_u64a_ce.exit642, label %417
+  br i1 %exitcond1299.not, label %lv_u64a_ce.exit642, label %417, !llvm.loop !8
 
 lv_u64a_ce.exit642:                               ; preds = %426
   %428 = ptrtoint ptr %409 to i64
@@ -17763,7 +17763,7 @@ getConfVal.exit350:                               ; preds = %411, %lv_u64a_ce.ex
   %489 = load i8, ptr %488, align 2
   %490 = getelementptr inbounds nuw i8, ptr %.044.i432, i64 32
   %.not50.i434 = icmp eq i8 %489, 0
-  br i1 %.not50.i434, label %491, label %456
+  br i1 %.not50.i434, label %491, label %456, !llvm.loop !10
 
 491:                                              ; preds = %487
   store ptr null, ptr %454, align 16
@@ -17779,7 +17779,7 @@ confWithBit.exit437:                              ; preds = %getConfVal.exit350,
   %.751044 = phi i32 [ %.741043, %392 ], [ %.741043, %402 ], [ %.881057, %confWithBit.exit437 ]
   %.76 = phi i64 [ %.75, %392 ], [ %.75, %402 ], [ %.125, %confWithBit.exit437 ]
   %.not26.i327 = icmp eq i64 %395, 0
-  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %392, !prof !5
+  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %392, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit328:                     ; preds = %492
   %493 = icmp eq i64 %.76, 0
@@ -17866,7 +17866,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %492
   %.1.i635 = phi i64 [ %534, %529 ], [ %.012.i6311171, %526 ]
   %536 = add nuw nsw i64 %.0.i6321172, 1
   %exitcond1300.not = icmp eq i64 %536, 8
-  br i1 %exitcond1300.not, label %lv_u64a_ce.exit636, label %526
+  br i1 %exitcond1300.not, label %lv_u64a_ce.exit636, label %526, !llvm.loop !8
 
 lv_u64a_ce.exit636:                               ; preds = %535
   %537 = ptrtoint ptr %518 to i64
@@ -17969,7 +17969,7 @@ getConfVal.exit354:                               ; preds = %520, %lv_u64a_ce.ex
   %598 = load i8, ptr %597, align 2
   %599 = getelementptr inbounds nuw i8, ptr %.044.i439, i64 32
   %.not50.i441 = icmp eq i8 %598, 0
-  br i1 %.not50.i441, label %600, label %565
+  br i1 %.not50.i441, label %600, label %565, !llvm.loop !10
 
 600:                                              ; preds = %596
   store ptr null, ptr %563, align 16
@@ -17985,7 +17985,7 @@ confWithBit.exit444:                              ; preds = %getConfVal.exit354,
   %.731042 = phi i32 [ %.721041, %501 ], [ %.721041, %511 ], [ %.911060, %confWithBit.exit444 ]
   %.74 = phi i64 [ %.73, %501 ], [ %.73, %511 ], [ %.128, %confWithBit.exit444 ]
   %.not26.i323 = icmp eq i64 %504, 0
-  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %501, !prof !5
+  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %501, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit324:                     ; preds = %601
   %602 = icmp eq i64 %.74, 0
@@ -18120,7 +18120,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %601
   %.1.i629 = phi i64 [ %681, %676 ], [ %.012.i6251175, %673 ]
   %683 = add nuw nsw i64 %.0.i6261176, 1
   %exitcond1301.not = icmp eq i64 %683, 8
-  br i1 %exitcond1301.not, label %lv_u64a_ce.exit630, label %673
+  br i1 %exitcond1301.not, label %lv_u64a_ce.exit630, label %673, !llvm.loop !8
 
 lv_u64a_ce.exit630:                               ; preds = %682
   %684 = ptrtoint ptr %665 to i64
@@ -18223,7 +18223,7 @@ getConfVal.exit358:                               ; preds = %667, %lv_u64a_ce.ex
   %745 = load i8, ptr %744, align 2
   %746 = getelementptr inbounds nuw i8, ptr %.044.i446, i64 32
   %.not50.i448 = icmp eq i8 %745, 0
-  br i1 %.not50.i448, label %747, label %712
+  br i1 %.not50.i448, label %747, label %712, !llvm.loop !10
 
 747:                                              ; preds = %743
   store ptr null, ptr %710, align 16
@@ -18239,7 +18239,7 @@ confWithBit.exit451:                              ; preds = %getConfVal.exit358,
   %.711040 = phi i32 [ %.701039, %650 ], [ %.701039, %658 ], [ %.941063, %confWithBit.exit451 ]
   %.72 = phi i64 [ %.71, %650 ], [ %.71, %658 ], [ %.131, %confWithBit.exit451 ]
   %.not26.i319 = icmp eq i64 %653, 0
-  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %650, !prof !5
+  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %650, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit320:                     ; preds = %748
   %749 = icmp eq i64 %.72, 0
@@ -18327,7 +18327,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %748
   %.1.i623 = phi i64 [ %791, %786 ], [ %.012.i6191179, %783 ]
   %793 = add nuw nsw i64 %.0.i6201180, 1
   %exitcond1302.not = icmp eq i64 %793, 8
-  br i1 %exitcond1302.not, label %lv_u64a_ce.exit624, label %783
+  br i1 %exitcond1302.not, label %lv_u64a_ce.exit624, label %783, !llvm.loop !8
 
 lv_u64a_ce.exit624:                               ; preds = %792
   %794 = ptrtoint ptr %775 to i64
@@ -18430,7 +18430,7 @@ getConfVal.exit362:                               ; preds = %777, %lv_u64a_ce.ex
   %855 = load i8, ptr %854, align 2
   %856 = getelementptr inbounds nuw i8, ptr %.044.i453, i64 32
   %.not50.i455 = icmp eq i8 %855, 0
-  br i1 %.not50.i455, label %857, label %822
+  br i1 %.not50.i455, label %857, label %822, !llvm.loop !10
 
 857:                                              ; preds = %853
   store ptr null, ptr %820, align 16
@@ -18446,7 +18446,7 @@ confWithBit.exit458:                              ; preds = %getConfVal.exit362,
   %.691038 = phi i32 [ %.681037, %758 ], [ %.681037, %768 ], [ %.971066, %confWithBit.exit458 ]
   %.70 = phi i64 [ %.69, %758 ], [ %.69, %768 ], [ %.134, %confWithBit.exit458 ]
   %.not26.i315 = icmp eq i64 %761, 0
-  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %758, !prof !5
+  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %758, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit316:                     ; preds = %858
   %859 = icmp eq i64 %.70, 0
@@ -18534,7 +18534,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %858
   %.1.i617 = phi i64 [ %901, %896 ], [ %.012.i6131183, %893 ]
   %903 = add nuw nsw i64 %.0.i6141184, 1
   %exitcond1303.not = icmp eq i64 %903, 8
-  br i1 %exitcond1303.not, label %lv_u64a_ce.exit618, label %893
+  br i1 %exitcond1303.not, label %lv_u64a_ce.exit618, label %893, !llvm.loop !8
 
 lv_u64a_ce.exit618:                               ; preds = %902
   %904 = ptrtoint ptr %885 to i64
@@ -18637,7 +18637,7 @@ getConfVal.exit366:                               ; preds = %887, %lv_u64a_ce.ex
   %965 = load i8, ptr %964, align 2
   %966 = getelementptr inbounds nuw i8, ptr %.044.i460, i64 32
   %.not50.i462 = icmp eq i8 %965, 0
-  br i1 %.not50.i462, label %967, label %932
+  br i1 %.not50.i462, label %967, label %932, !llvm.loop !10
 
 967:                                              ; preds = %963
   store ptr null, ptr %930, align 16
@@ -18653,7 +18653,7 @@ confWithBit.exit465:                              ; preds = %getConfVal.exit366,
   %.671036 = phi i32 [ %.661035, %868 ], [ %.661035, %878 ], [ %.1001069, %confWithBit.exit465 ]
   %.68 = phi i64 [ %.67, %868 ], [ %.67, %878 ], [ %.137, %confWithBit.exit465 ]
   %.not26.i311 = icmp eq i64 %871, 0
-  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %868, !prof !5
+  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %868, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit312:                     ; preds = %968
   %969 = icmp eq i64 %.68, 0
@@ -18741,7 +18741,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %968
   %.1.i611 = phi i64 [ %1011, %1006 ], [ %.012.i6071187, %1003 ]
   %1013 = add nuw nsw i64 %.0.i6081188, 1
   %exitcond1304.not = icmp eq i64 %1013, 8
-  br i1 %exitcond1304.not, label %lv_u64a_ce.exit612, label %1003
+  br i1 %exitcond1304.not, label %lv_u64a_ce.exit612, label %1003, !llvm.loop !8
 
 lv_u64a_ce.exit612:                               ; preds = %1012
   %1014 = ptrtoint ptr %995 to i64
@@ -18844,7 +18844,7 @@ getConfVal.exit370:                               ; preds = %997, %lv_u64a_ce.ex
   %1075 = load i8, ptr %1074, align 2
   %1076 = getelementptr inbounds nuw i8, ptr %.044.i467, i64 32
   %.not50.i469 = icmp eq i8 %1075, 0
-  br i1 %.not50.i469, label %1077, label %1042
+  br i1 %.not50.i469, label %1077, label %1042, !llvm.loop !10
 
 1077:                                             ; preds = %1073
   store ptr null, ptr %1040, align 16
@@ -18860,7 +18860,7 @@ confWithBit.exit472:                              ; preds = %getConfVal.exit370,
   %.651034 = phi i32 [ %.641033, %978 ], [ %.641033, %988 ], [ %.1031072, %confWithBit.exit472 ]
   %.66 = phi i64 [ %.65, %978 ], [ %.65, %988 ], [ %.140, %confWithBit.exit472 ]
   %.not26.i307 = icmp eq i64 %981, 0
-  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %978, !prof !5
+  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %978, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit308:                     ; preds = %1078
   %1079 = icmp eq i64 %.66, 0
@@ -18989,7 +18989,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1078
   %or.cond.i = select i1 %.not383.i, i1 %.not384.i, i1 false
   %.not385.i = icmp eq i64 %1156, %1119
   %or.cond422.i = select i1 %or.cond.i, i1 %.not385.i, i1 false
-  br i1 %or.cond422.i, label %1144, label %.thread1123.preheader
+  br i1 %or.cond422.i, label %1144, label %.thread1123.preheader, !llvm.loop !13
 
 .thread1123.preheader:                            ; preds = %1153, %1148, %1144
   br label %.thread1123
@@ -19006,7 +19006,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1078
   %1164 = getelementptr inbounds nuw i8, ptr %1093, i64 %1162
   %1165 = load i64, ptr %1164, align 8
   %.not386.i = icmp eq i64 %1165, %1119
-  br i1 %.not386.i, label %.thread1123, label %split
+  br i1 %.not386.i, label %.thread1123, label %split, !llvm.loop !14
 
 split:                                            ; preds = %1163, %.thread1123
   %1166 = icmp ugt i64 %1097, %1162
@@ -19024,7 +19024,7 @@ split:                                            ; preds = %1163, %.thread1123
   %1171 = add i32 %.3.i1191, 1
   %1172 = zext i32 %1171 to i64
   %1173 = icmp ugt i64 %1097, %1172
-  br i1 %1173, label %.lr.ph1193, label %._crit_edge1194
+  br i1 %1173, label %.lr.ph1193, label %._crit_edge1194, !llvm.loop !15
 
 ._crit_edge1194:                                  ; preds = %1170, %.lr.ph1193, %split
   %.3.i.lcssa = phi i32 [ %.2.i, %split ], [ %.3.i1191, %.lr.ph1193 ], [ %1171, %1170 ]
@@ -19163,7 +19163,7 @@ split:                                            ; preds = %1163, %.thread1123
   %.102 = phi i64 [ %1237, %1233 ], [ %1243, %1239 ], [ %1231, %1227 ], [ %1225, %1221 ], [ %.981209, %1218 ]
   %indvars.iv.next1310 = add nuw nsw i64 %indvars.iv1309, 4
   %1244 = icmp samesign ult i64 %indvars.iv.next1310, %1204
-  br i1 %1244, label %1215, label %.critedge.i
+  br i1 %1244, label %1215, label %.critedge.i, !llvm.loop !16
 
 1245:                                             ; preds = %.lr.ph1205, %1318
   %indvars.iv1306 = phi i64 [ 0, %.lr.ph1205 ], [ %indvars.iv.next1307, %1318 ]
@@ -19294,7 +19294,7 @@ split:                                            ; preds = %1163, %.thread1123
   %.97 = phi i64 [ %.96, %1309 ], [ %1317, %1312 ]
   %indvars.iv.next1307 = add nuw nsw i64 %indvars.iv1306, 4
   %1319 = icmp samesign ult i64 %indvars.iv.next1307, %1198
-  br i1 %1319, label %1245, label %.critedge.i
+  br i1 %1319, label %1245, label %.critedge.i, !llvm.loop !17
 
 1320:                                             ; preds = %.lr.ph1199, %1374
   %indvars.iv = phi i64 [ 0, %.lr.ph1199 ], [ %indvars.iv.next, %1374 ]
@@ -19394,7 +19394,7 @@ split:                                            ; preds = %1163, %.thread1123
   %.88 = phi i64 [ %.87, %1365 ], [ %1373, %1368 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %1375 = icmp samesign ult i64 %indvars.iv.next, %1190
-  br i1 %1375, label %1320, label %.critedge.i
+  br i1 %1375, label %1320, label %.critedge.i, !llvm.loop !18
 
 1376:                                             ; preds = %.lr.ph1229, %._crit_edge1225
   %indvars.iv1318 = phi i64 [ 0, %.lr.ph1229 ], [ %indvars.iv.next1319, %._crit_edge1225 ]
@@ -19500,7 +19500,7 @@ split:                                            ; preds = %1163, %.thread1123
   %indvars.iv.next1313 = add nuw nsw i64 %indvars.iv1312, 1
   %1429 = zext i16 %1428 to i64
   %1430 = icmp samesign ult i64 %indvars.iv.next1313, %1429
-  br i1 %1430, label %1418, label %._crit_edge1219
+  br i1 %1430, label %1418, label %._crit_edge1219, !llvm.loop !19
 
 1431:                                             ; preds = %._crit_edge1219
   %1432 = trunc nuw i64 %indvars.iv1318 to i32
@@ -19571,7 +19571,7 @@ split:                                            ; preds = %1163, %.thread1123
   %.113.lcssa = phi i64 [ %.112, %1464 ], [ %.114, %1480 ]
   %indvars.iv.next1319 = add nuw nsw i64 %indvars.iv1318, 2
   %1470 = icmp samesign ult i64 %indvars.iv.next1319, %1214
-  br i1 %1470, label %1376, label %.critedge.i
+  br i1 %1470, label %1376, label %.critedge.i, !llvm.loop !20
 
 1471:                                             ; preds = %.lr.ph1224, %1480
   %1472 = phi i16 [ %1465, %.lr.ph1224 ], [ %1481, %1480 ]
@@ -19596,7 +19596,7 @@ split:                                            ; preds = %1163, %.thread1123
   %indvars.iv.next1316 = add nuw nsw i64 %indvars.iv1315, 1
   %1482 = zext i16 %1481 to i64
   %1483 = icmp samesign ult i64 %indvars.iv.next1316, %1482
-  br i1 %1483, label %1471, label %._crit_edge1225
+  br i1 %1483, label %1471, label %._crit_edge1225, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %1374, %1320, %1318, %1245, %.thread1374, %1215, %._crit_edge1225, %1376, %.preheader1152, %.preheader1150, %.preheader1148, %.preheader, %1179, %1175
   %.82 = phi i64 [ %.121253, %1175 ], [ %.121253, %1179 ], [ %.121253, %.preheader ], [ %.121253, %.preheader1148 ], [ %.121253, %.preheader1150 ], [ %.121253, %.preheader1152 ], [ %.113.lcssa, %._crit_edge1225 ], [ %.1031227, %1376 ], [ %.102, %.thread1374 ], [ %.981209, %1215 ], [ %.97, %1318 ], [ %.891203, %1245 ], [ %.88, %1374 ], [ %.811197, %1320 ]
@@ -19798,7 +19798,7 @@ floodDetect.exit:                                 ; preds = %1129, %1136, %.crit
   %1611 = load i8, ptr %1610, align 2
   %1612 = getelementptr inbounds nuw i8, ptr %.044.i474, i64 32
   %.not50.i476 = icmp eq i8 %1611, 0
-  br i1 %.not50.i476, label %1613, label %1578
+  br i1 %.not50.i476, label %1613, label %1578, !llvm.loop !10
 
 1613:                                             ; preds = %1609
   store ptr null, ptr %1576, align 16
@@ -19814,7 +19814,7 @@ confWithBit.exit479:                              ; preds = %1551, %1613
   %.631032 = phi i32 [ %.621031, %1537 ], [ %.621031, %1545 ], [ %.1061075, %confWithBit.exit479 ]
   %.64 = phi i64 [ %.63, %1537 ], [ %.63, %1545 ], [ %.143, %confWithBit.exit479 ]
   %.not26.i303 = icmp eq i64 %1540, 0
-  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %1537, !prof !5
+  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %1537, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit304:                     ; preds = %1614
   %1615 = icmp eq i64 %.64, 0
@@ -19952,7 +19952,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1614
   %1696 = load i8, ptr %1695, align 2
   %1697 = getelementptr inbounds nuw i8, ptr %.044.i481, i64 32
   %.not50.i483 = icmp eq i8 %1696, 0
-  br i1 %.not50.i483, label %1698, label %1663
+  br i1 %.not50.i483, label %1698, label %1663, !llvm.loop !10
 
 1698:                                             ; preds = %1694
   store ptr null, ptr %1661, align 16
@@ -19968,7 +19968,7 @@ confWithBit.exit486:                              ; preds = %1636, %1698
   %.611030 = phi i32 [ %.601029, %1620 ], [ %.601029, %1630 ], [ %.1091078, %confWithBit.exit486 ]
   %.62 = phi i64 [ %.61, %1620 ], [ %.61, %1630 ], [ %.146, %confWithBit.exit486 ]
   %.not26.i299 = icmp eq i64 %1623, 0
-  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1620, !prof !5
+  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1620, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit300:                     ; preds = %1699
   %1700 = icmp eq i64 %.62, 0
@@ -20106,7 +20106,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1699
   %1781 = load i8, ptr %1780, align 2
   %1782 = getelementptr inbounds nuw i8, ptr %.044.i488, i64 32
   %.not50.i490 = icmp eq i8 %1781, 0
-  br i1 %.not50.i490, label %1783, label %1748
+  br i1 %.not50.i490, label %1783, label %1748, !llvm.loop !10
 
 1783:                                             ; preds = %1779
   store ptr null, ptr %1746, align 16
@@ -20122,7 +20122,7 @@ confWithBit.exit493:                              ; preds = %1721, %1783
   %.591028 = phi i32 [ %.581027, %1705 ], [ %.581027, %1715 ], [ %.1121081, %confWithBit.exit493 ]
   %.60 = phi i64 [ %.59, %1705 ], [ %.59, %1715 ], [ %.149, %confWithBit.exit493 ]
   %.not26.i295 = icmp eq i64 %1708, 0
-  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1705, !prof !5
+  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1705, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit296:                     ; preds = %1784
   %1785 = icmp eq i64 %.60, 0
@@ -20260,7 +20260,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1784
   %1866 = load i8, ptr %1865, align 2
   %1867 = getelementptr inbounds nuw i8, ptr %.044.i495, i64 32
   %.not50.i497 = icmp eq i8 %1866, 0
-  br i1 %.not50.i497, label %1868, label %1833
+  br i1 %.not50.i497, label %1868, label %1833, !llvm.loop !10
 
 1868:                                             ; preds = %1864
   store ptr null, ptr %1831, align 16
@@ -20276,7 +20276,7 @@ confWithBit.exit500:                              ; preds = %1806, %1868
   %.571026 = phi i32 [ %.561025, %1790 ], [ %.561025, %1800 ], [ %.1151084, %confWithBit.exit500 ]
   %.58 = phi i64 [ %.57, %1790 ], [ %.57, %1800 ], [ %.152, %confWithBit.exit500 ]
   %.not26.i291 = icmp eq i64 %1793, 0
-  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1790, !prof !5
+  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1790, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit292:                     ; preds = %1869
   %1870 = icmp eq i64 %.58, 0
@@ -20455,7 +20455,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1869
   %1986 = load i8, ptr %1985, align 2
   %1987 = getelementptr inbounds nuw i8, ptr %.044.i502, i64 32
   %.not50.i504 = icmp eq i8 %1986, 0
-  br i1 %.not50.i504, label %1988, label %1953
+  br i1 %.not50.i504, label %1988, label %1953, !llvm.loop !10
 
 1988:                                             ; preds = %1984
   store ptr null, ptr %1951, align 16
@@ -20471,7 +20471,7 @@ confWithBit.exit507:                              ; preds = %1926, %1988
   %.551024 = phi i32 [ %.541023, %1910 ], [ %.541023, %1920 ], [ %.1181087, %confWithBit.exit507 ]
   %.56 = phi i64 [ %.55, %1910 ], [ %.55, %1920 ], [ %.155, %confWithBit.exit507 ]
   %.not26.i287 = icmp eq i64 %1913, 0
-  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %1910, !prof !5
+  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %1910, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit288:                     ; preds = %1989
   %1990 = icmp eq i64 %.56, 0
@@ -20609,7 +20609,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %1989
   %2071 = load i8, ptr %2070, align 2
   %2072 = getelementptr inbounds nuw i8, ptr %.044.i509, i64 32
   %.not50.i511 = icmp eq i8 %2071, 0
-  br i1 %.not50.i511, label %2073, label %2038
+  br i1 %.not50.i511, label %2073, label %2038, !llvm.loop !10
 
 2073:                                             ; preds = %2069
   store ptr null, ptr %2036, align 16
@@ -20625,7 +20625,7 @@ confWithBit.exit514:                              ; preds = %2011, %2073
   %.531022 = phi i32 [ %.521021, %1995 ], [ %.521021, %2005 ], [ %.1211090, %confWithBit.exit514 ]
   %.54 = phi i64 [ %.53, %1995 ], [ %.53, %2005 ], [ %.158, %confWithBit.exit514 ]
   %.not26.i283 = icmp eq i64 %1998, 0
-  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %1995, !prof !5
+  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %1995, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit284:                     ; preds = %2074
   %2075 = icmp eq i64 %.54, 0
@@ -20763,7 +20763,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2074
   %2156 = load i8, ptr %2155, align 2
   %2157 = getelementptr inbounds nuw i8, ptr %.044.i516, i64 32
   %.not50.i518 = icmp eq i8 %2156, 0
-  br i1 %.not50.i518, label %2158, label %2123
+  br i1 %.not50.i518, label %2158, label %2123, !llvm.loop !10
 
 2158:                                             ; preds = %2154
   store ptr null, ptr %2121, align 16
@@ -20779,7 +20779,7 @@ confWithBit.exit521:                              ; preds = %2096, %2158
   %.511020 = phi i32 [ %.501019, %2080 ], [ %.501019, %2090 ], [ %.1241093, %confWithBit.exit521 ]
   %.52 = phi i64 [ %.51, %2080 ], [ %.51, %2090 ], [ %.161, %confWithBit.exit521 ]
   %.not26.i279 = icmp eq i64 %2083, 0
-  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %2080, !prof !5
+  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %2080, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit280:                     ; preds = %2159
   %2160 = icmp eq i64 %.52, 0
@@ -20917,7 +20917,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2159
   %2241 = load i8, ptr %2240, align 2
   %2242 = getelementptr inbounds nuw i8, ptr %.044.i523, i64 32
   %.not50.i525 = icmp eq i8 %2241, 0
-  br i1 %.not50.i525, label %2243, label %2208
+  br i1 %.not50.i525, label %2243, label %2208, !llvm.loop !10
 
 2243:                                             ; preds = %2239
   store ptr null, ptr %2206, align 16
@@ -20933,7 +20933,7 @@ confWithBit.exit528:                              ; preds = %2181, %2243
   %.491018 = phi i32 [ %.481017, %2165 ], [ %.481017, %2175 ], [ %.1271096, %confWithBit.exit528 ]
   %.50 = phi i64 [ %.49, %2165 ], [ %.49, %2175 ], [ %.164, %confWithBit.exit528 ]
   %.not26.i275 = icmp eq i64 %2168, 0
-  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %2165, !prof !5
+  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %2165, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit276:                     ; preds = %2244
   %2245 = icmp eq i64 %.50, 0
@@ -20945,7 +20945,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2244
   %2246 = getelementptr inbounds nuw i8, ptr %.3964, i64 64
   %2247 = getelementptr inbounds nuw i8, ptr %.3964, i64 128
   %.not199 = icmp ugt ptr %2247, %33
-  br i1 %.not199, label %._crit_edge1257, label %1089
+  br i1 %.not199, label %._crit_edge1257, label %1089, !llvm.loop !25
 
 ._crit_edge1257:                                  ; preds = %.critedge230, %.critedge226
   %.12981.lcssa = phi i32 [ %.6975, %.critedge226 ], [ %.22991, %.critedge230 ]
@@ -21128,7 +21128,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2244
   %2367 = load i8, ptr %2366, align 2
   %2368 = getelementptr inbounds nuw i8, ptr %.044.i530, i64 32
   %.not50.i532 = icmp eq i8 %2367, 0
-  br i1 %.not50.i532, label %2369, label %2334
+  br i1 %.not50.i532, label %2369, label %2334, !llvm.loop !10
 
 2369:                                             ; preds = %2365
   store ptr null, ptr %2332, align 16
@@ -21144,7 +21144,7 @@ confWithBit.exit535:                              ; preds = %2307, %2369
   %.471016 = phi i32 [ %.461015, %2293 ], [ %.461015, %2301 ], [ %.1301099, %confWithBit.exit535 ]
   %.48 = phi i64 [ %.47, %2293 ], [ %.47, %2301 ], [ %.167, %confWithBit.exit535 ]
   %.not26.i271 = icmp eq i64 %2296, 0
-  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %2293, !prof !5
+  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %2293, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit272:                     ; preds = %2370
   %2371 = icmp eq i64 %.48, 0
@@ -21285,7 +21285,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2370
   %2455 = load i8, ptr %2454, align 2
   %2456 = getelementptr inbounds nuw i8, ptr %.044.i537, i64 32
   %.not50.i539 = icmp eq i8 %2455, 0
-  br i1 %.not50.i539, label %2457, label %2422
+  br i1 %.not50.i539, label %2457, label %2422, !llvm.loop !10
 
 2457:                                             ; preds = %2453
   store ptr null, ptr %2420, align 16
@@ -21301,7 +21301,7 @@ confWithBit.exit542:                              ; preds = %2395, %2457
   %.451014 = phi i32 [ %.441013, %2379 ], [ %.441013, %2389 ], [ %.1331102, %confWithBit.exit542 ]
   %.46 = phi i64 [ %.45, %2379 ], [ %.45, %2389 ], [ %.170, %confWithBit.exit542 ]
   %.not26.i267 = icmp eq i64 %2382, 0
-  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %2379, !prof !5
+  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %2379, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit268:                     ; preds = %2458
   %2459 = icmp eq i64 %.46, 0
@@ -21442,7 +21442,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2458
   %2543 = load i8, ptr %2542, align 2
   %2544 = getelementptr inbounds nuw i8, ptr %.044.i544, i64 32
   %.not50.i546 = icmp eq i8 %2543, 0
-  br i1 %.not50.i546, label %2545, label %2510
+  br i1 %.not50.i546, label %2545, label %2510, !llvm.loop !10
 
 2545:                                             ; preds = %2541
   store ptr null, ptr %2508, align 16
@@ -21458,7 +21458,7 @@ confWithBit.exit549:                              ; preds = %2483, %2545
   %.431012 = phi i32 [ %.421011, %2467 ], [ %.421011, %2477 ], [ %.1361105, %confWithBit.exit549 ]
   %.44 = phi i64 [ %.43, %2467 ], [ %.43, %2477 ], [ %.173, %confWithBit.exit549 ]
   %.not26.i263 = icmp eq i64 %2470, 0
-  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %2467, !prof !5
+  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %2467, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit264:                     ; preds = %2546
   %2547 = icmp eq i64 %.44, 0
@@ -21599,7 +21599,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2546
   %2631 = load i8, ptr %2630, align 2
   %2632 = getelementptr inbounds nuw i8, ptr %.044.i551, i64 32
   %.not50.i553 = icmp eq i8 %2631, 0
-  br i1 %.not50.i553, label %2633, label %2598
+  br i1 %.not50.i553, label %2633, label %2598, !llvm.loop !10
 
 2633:                                             ; preds = %2629
   store ptr null, ptr %2596, align 16
@@ -21615,7 +21615,7 @@ confWithBit.exit556:                              ; preds = %2571, %2633
   %.411010 = phi i32 [ %.401009, %2555 ], [ %.401009, %2565 ], [ %.1391108, %confWithBit.exit556 ]
   %.42 = phi i64 [ %.41, %2555 ], [ %.41, %2565 ], [ %.176, %confWithBit.exit556 ]
   %.not26.i259 = icmp eq i64 %2558, 0
-  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %2555, !prof !5
+  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %2555, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit260:                     ; preds = %2634
   %2635 = icmp eq i64 %.42, 0
@@ -21842,7 +21842,7 @@ vectoredLoad256.exit:                             ; preds = %2677, %2675, %2668,
   %.1.i605 = phi i64 [ %2747, %2742 ], [ %.012.i6011270, %2739 ]
   %2749 = add nuw nsw i64 %.0.i6021271, 1
   %exitcond1321.not = icmp eq i64 %2749, 8
-  br i1 %exitcond1321.not, label %lv_u64a_ce.exit606, label %2739
+  br i1 %exitcond1321.not, label %lv_u64a_ce.exit606, label %2739, !llvm.loop !8
 
 lv_u64a_ce.exit606:                               ; preds = %2748
   %2750 = ptrtoint ptr %2731 to i64
@@ -21945,7 +21945,7 @@ getConfVal.exit410:                               ; preds = %2733, %lv_u64a_ce.e
   %2811 = load i8, ptr %2810, align 2
   %2812 = getelementptr inbounds nuw i8, ptr %.044.i558, i64 32
   %.not50.i560 = icmp eq i8 %2811, 0
-  br i1 %.not50.i560, label %2813, label %2778
+  br i1 %.not50.i560, label %2813, label %2778, !llvm.loop !10
 
 2813:                                             ; preds = %2809
   store ptr null, ptr %2776, align 16
@@ -21961,7 +21961,7 @@ confWithBit.exit563:                              ; preds = %getConfVal.exit410,
   %.391008 = phi i32 [ %.381007, %2716 ], [ %.381007, %2724 ], [ %.1421111, %confWithBit.exit563 ]
   %.40 = phi i64 [ %.39, %2716 ], [ %.39, %2724 ], [ %.179, %confWithBit.exit563 ]
   %.not26.i255 = icmp eq i64 %2719, 0
-  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %2716, !prof !5
+  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %2716, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit256:                     ; preds = %2814
   %2815 = icmp eq i64 %.40, 0
@@ -22047,7 +22047,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %2814
   %.1.i599 = phi i64 [ %2855, %2850 ], [ %.012.i5951274, %2847 ]
   %2857 = add nuw nsw i64 %.0.i5961275, 1
   %exitcond1322.not = icmp eq i64 %2857, 8
-  br i1 %exitcond1322.not, label %lv_u64a_ce.exit600, label %2847
+  br i1 %exitcond1322.not, label %lv_u64a_ce.exit600, label %2847, !llvm.loop !8
 
 lv_u64a_ce.exit600:                               ; preds = %2856
   %2858 = ptrtoint ptr %2839 to i64
@@ -22150,7 +22150,7 @@ getConfVal.exit414:                               ; preds = %2841, %lv_u64a_ce.e
   %2919 = load i8, ptr %2918, align 2
   %2920 = getelementptr inbounds nuw i8, ptr %.044.i565, i64 32
   %.not50.i567 = icmp eq i8 %2919, 0
-  br i1 %.not50.i567, label %2921, label %2886
+  br i1 %.not50.i567, label %2921, label %2886, !llvm.loop !10
 
 2921:                                             ; preds = %2917
   store ptr null, ptr %2884, align 16
@@ -22166,7 +22166,7 @@ confWithBit.exit570:                              ; preds = %getConfVal.exit414,
   %.371006 = phi i32 [ %.361005, %2822 ], [ %.361005, %2832 ], [ %.1451114, %confWithBit.exit570 ]
   %.38 = phi i64 [ %.37, %2822 ], [ %.37, %2832 ], [ %.182, %confWithBit.exit570 ]
   %.not26.i251 = icmp eq i64 %2825, 0
-  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %2822, !prof !5
+  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %2822, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit252:                     ; preds = %2922
   %2923 = icmp eq i64 %.38, 0
@@ -22252,7 +22252,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %2922
   %.1.i593 = phi i64 [ %2963, %2958 ], [ %.012.i5891278, %2955 ]
   %2965 = add nuw nsw i64 %.0.i5901279, 1
   %exitcond1323.not = icmp eq i64 %2965, 8
-  br i1 %exitcond1323.not, label %lv_u64a_ce.exit594, label %2955
+  br i1 %exitcond1323.not, label %lv_u64a_ce.exit594, label %2955, !llvm.loop !8
 
 lv_u64a_ce.exit594:                               ; preds = %2964
   %2966 = ptrtoint ptr %2947 to i64
@@ -22355,7 +22355,7 @@ getConfVal.exit418:                               ; preds = %2949, %lv_u64a_ce.e
   %3027 = load i8, ptr %3026, align 2
   %3028 = getelementptr inbounds nuw i8, ptr %.044.i572, i64 32
   %.not50.i574 = icmp eq i8 %3027, 0
-  br i1 %.not50.i574, label %3029, label %2994
+  br i1 %.not50.i574, label %3029, label %2994, !llvm.loop !10
 
 3029:                                             ; preds = %3025
   store ptr null, ptr %2992, align 16
@@ -22371,7 +22371,7 @@ confWithBit.exit577:                              ; preds = %getConfVal.exit418,
   %.351004 = phi i32 [ %.341003, %2930 ], [ %.341003, %2940 ], [ %.1481117, %confWithBit.exit577 ]
   %.36 = phi i64 [ %.35, %2930 ], [ %.35, %2940 ], [ %.185, %confWithBit.exit577 ]
   %.not26.i247 = icmp eq i64 %2933, 0
-  br i1 %.not26.i247, label %do_confWithBit_teddy.exit248, label %2930, !prof !5
+  br i1 %.not26.i247, label %do_confWithBit_teddy.exit248, label %2930, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit248:                     ; preds = %3030
   %3031 = icmp eq i64 %.36, 0
@@ -22457,7 +22457,7 @@ do_confWithBit_teddy.exit248:                     ; preds = %3030
   %.1.i588 = phi i64 [ %3071, %3066 ], [ %.012.i1282, %3063 ]
   %3073 = add nuw nsw i64 %.0.i5851283, 1
   %exitcond1324.not = icmp eq i64 %3073, 8
-  br i1 %exitcond1324.not, label %lv_u64a_ce.exit, label %3063
+  br i1 %exitcond1324.not, label %lv_u64a_ce.exit, label %3063, !llvm.loop !8
 
 lv_u64a_ce.exit:                                  ; preds = %3072
   %3074 = ptrtoint ptr %3055 to i64
@@ -22560,7 +22560,7 @@ getConfVal.exit422:                               ; preds = %3057, %lv_u64a_ce.e
   %3135 = load i8, ptr %3134, align 2
   %3136 = getelementptr inbounds nuw i8, ptr %.044.i579, i64 32
   %.not50.i581 = icmp eq i8 %3135, 0
-  br i1 %.not50.i581, label %3137, label %3102
+  br i1 %.not50.i581, label %3137, label %3102, !llvm.loop !10
 
 3137:                                             ; preds = %3133
   store ptr null, ptr %3100, align 16
@@ -22576,7 +22576,7 @@ confWithBit.exit584:                              ; preds = %getConfVal.exit422,
   %.331002 = phi i32 [ %.321001, %3038 ], [ %.321001, %3048 ], [ %.1511120, %confWithBit.exit584 ]
   %.34 = phi i64 [ %.33, %3038 ], [ %.33, %3048 ], [ %.188, %confWithBit.exit584 ]
   %.not26.i = icmp eq i64 %3041, 0
-  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3038, !prof !5
+  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3038, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit:                        ; preds = %3138
   %3139 = icmp eq i64 %.34, 0
@@ -22936,7 +22936,7 @@ vectoredLoad256.exit245:                          ; preds = %141, %139, %132, %1
   %.1.i655 = phi i64 [ %219, %214 ], [ %.012.i6511171, %211 ]
   %221 = add nuw nsw i64 %.0.i6521172, 1
   %exitcond.not = icmp eq i64 %221, 8
-  br i1 %exitcond.not, label %lv_u64a_ce.exit656, label %211
+  br i1 %exitcond.not, label %lv_u64a_ce.exit656, label %211, !llvm.loop !8
 
 lv_u64a_ce.exit656:                               ; preds = %220
   %222 = ptrtoint ptr %203 to i64
@@ -23039,7 +23039,7 @@ getConfVal.exit:                                  ; preds = %205, %lv_u64a_ce.ex
   %283 = load i8, ptr %282, align 2
   %284 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
   %.not50.i = icmp eq i8 %283, 0
-  br i1 %.not50.i, label %285, label %250
+  br i1 %.not50.i, label %285, label %250, !llvm.loop !10
 
 285:                                              ; preds = %281
   store ptr null, ptr %248, align 16
@@ -23055,7 +23055,7 @@ confWithBit.exit:                                 ; preds = %getConfVal.exit, %2
   %.791060 = phi i32 [ %.781059, %188 ], [ %.781059, %196 ], [ %.821063, %confWithBit.exit ]
   %.80 = phi i64 [ %.79, %188 ], [ %.79, %196 ], [ %.119, %confWithBit.exit ]
   %.not26.i337 = icmp eq i64 %191, 0
-  br i1 %.not26.i337, label %do_confWithBit_teddy.exit338, label %188, !prof !5
+  br i1 %.not26.i337, label %do_confWithBit_teddy.exit338, label %188, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit338:                     ; preds = %286
   %287 = icmp eq i64 %.80, 0
@@ -23142,7 +23142,7 @@ do_confWithBit_teddy.exit338:                     ; preds = %286
   %.1.i649 = phi i64 [ %328, %323 ], [ %.012.i6451175, %320 ]
   %330 = add nuw nsw i64 %.0.i6461176, 1
   %exitcond1310.not = icmp eq i64 %330, 8
-  br i1 %exitcond1310.not, label %lv_u64a_ce.exit650, label %320
+  br i1 %exitcond1310.not, label %lv_u64a_ce.exit650, label %320, !llvm.loop !8
 
 lv_u64a_ce.exit650:                               ; preds = %329
   %331 = ptrtoint ptr %312 to i64
@@ -23245,7 +23245,7 @@ getConfVal.exit348:                               ; preds = %314, %lv_u64a_ce.ex
   %392 = load i8, ptr %391, align 2
   %393 = getelementptr inbounds nuw i8, ptr %.044.i427, i64 32
   %.not50.i429 = icmp eq i8 %392, 0
-  br i1 %.not50.i429, label %394, label %359
+  br i1 %.not50.i429, label %394, label %359, !llvm.loop !10
 
 394:                                              ; preds = %390
   store ptr null, ptr %357, align 16
@@ -23261,7 +23261,7 @@ confWithBit.exit432:                              ; preds = %getConfVal.exit348,
   %.771058 = phi i32 [ %.761057, %295 ], [ %.761057, %305 ], [ %.851066, %confWithBit.exit432 ]
   %.78 = phi i64 [ %.77, %295 ], [ %.77, %305 ], [ %.122, %confWithBit.exit432 ]
   %.not26.i333 = icmp eq i64 %298, 0
-  br i1 %.not26.i333, label %do_confWithBit_teddy.exit334, label %295, !prof !5
+  br i1 %.not26.i333, label %do_confWithBit_teddy.exit334, label %295, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit334:                     ; preds = %395
   %396 = icmp eq i64 %.78, 0
@@ -23348,7 +23348,7 @@ do_confWithBit_teddy.exit334:                     ; preds = %395
   %.1.i643 = phi i64 [ %437, %432 ], [ %.012.i6391179, %429 ]
   %439 = add nuw nsw i64 %.0.i6401180, 1
   %exitcond1311.not = icmp eq i64 %439, 8
-  br i1 %exitcond1311.not, label %lv_u64a_ce.exit644, label %429
+  br i1 %exitcond1311.not, label %lv_u64a_ce.exit644, label %429, !llvm.loop !8
 
 lv_u64a_ce.exit644:                               ; preds = %438
   %440 = ptrtoint ptr %421 to i64
@@ -23451,7 +23451,7 @@ getConfVal.exit352:                               ; preds = %423, %lv_u64a_ce.ex
   %501 = load i8, ptr %500, align 2
   %502 = getelementptr inbounds nuw i8, ptr %.044.i434, i64 32
   %.not50.i436 = icmp eq i8 %501, 0
-  br i1 %.not50.i436, label %503, label %468
+  br i1 %.not50.i436, label %503, label %468, !llvm.loop !10
 
 503:                                              ; preds = %499
   store ptr null, ptr %466, align 16
@@ -23467,7 +23467,7 @@ confWithBit.exit439:                              ; preds = %getConfVal.exit352,
   %.751056 = phi i32 [ %.741055, %404 ], [ %.741055, %414 ], [ %.881069, %confWithBit.exit439 ]
   %.76 = phi i64 [ %.75, %404 ], [ %.75, %414 ], [ %.125, %confWithBit.exit439 ]
   %.not26.i329 = icmp eq i64 %407, 0
-  br i1 %.not26.i329, label %do_confWithBit_teddy.exit330, label %404, !prof !5
+  br i1 %.not26.i329, label %do_confWithBit_teddy.exit330, label %404, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit330:                     ; preds = %504
   %505 = icmp eq i64 %.76, 0
@@ -23554,7 +23554,7 @@ do_confWithBit_teddy.exit330:                     ; preds = %504
   %.1.i637 = phi i64 [ %546, %541 ], [ %.012.i6331183, %538 ]
   %548 = add nuw nsw i64 %.0.i6341184, 1
   %exitcond1312.not = icmp eq i64 %548, 8
-  br i1 %exitcond1312.not, label %lv_u64a_ce.exit638, label %538
+  br i1 %exitcond1312.not, label %lv_u64a_ce.exit638, label %538, !llvm.loop !8
 
 lv_u64a_ce.exit638:                               ; preds = %547
   %549 = ptrtoint ptr %530 to i64
@@ -23657,7 +23657,7 @@ getConfVal.exit356:                               ; preds = %532, %lv_u64a_ce.ex
   %610 = load i8, ptr %609, align 2
   %611 = getelementptr inbounds nuw i8, ptr %.044.i441, i64 32
   %.not50.i443 = icmp eq i8 %610, 0
-  br i1 %.not50.i443, label %612, label %577
+  br i1 %.not50.i443, label %612, label %577, !llvm.loop !10
 
 612:                                              ; preds = %608
   store ptr null, ptr %575, align 16
@@ -23673,7 +23673,7 @@ confWithBit.exit446:                              ; preds = %getConfVal.exit356,
   %.731054 = phi i32 [ %.721053, %513 ], [ %.721053, %523 ], [ %.911072, %confWithBit.exit446 ]
   %.74 = phi i64 [ %.73, %513 ], [ %.73, %523 ], [ %.128, %confWithBit.exit446 ]
   %.not26.i325 = icmp eq i64 %516, 0
-  br i1 %.not26.i325, label %do_confWithBit_teddy.exit326, label %513, !prof !5
+  br i1 %.not26.i325, label %do_confWithBit_teddy.exit326, label %513, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit326:                     ; preds = %613
   %614 = icmp eq i64 %.74, 0
@@ -23815,7 +23815,7 @@ do_confWithBit_teddy.exit326:                     ; preds = %613
   %.1.i631 = phi i64 [ %700, %695 ], [ %.012.i6271187, %692 ]
   %702 = add nuw nsw i64 %.0.i6281188, 1
   %exitcond1313.not = icmp eq i64 %702, 8
-  br i1 %exitcond1313.not, label %lv_u64a_ce.exit632, label %692
+  br i1 %exitcond1313.not, label %lv_u64a_ce.exit632, label %692, !llvm.loop !8
 
 lv_u64a_ce.exit632:                               ; preds = %701
   %703 = ptrtoint ptr %684 to i64
@@ -23918,7 +23918,7 @@ getConfVal.exit360:                               ; preds = %686, %lv_u64a_ce.ex
   %764 = load i8, ptr %763, align 2
   %765 = getelementptr inbounds nuw i8, ptr %.044.i448, i64 32
   %.not50.i450 = icmp eq i8 %764, 0
-  br i1 %.not50.i450, label %766, label %731
+  br i1 %.not50.i450, label %766, label %731, !llvm.loop !10
 
 766:                                              ; preds = %762
   store ptr null, ptr %729, align 16
@@ -23934,7 +23934,7 @@ confWithBit.exit453:                              ; preds = %getConfVal.exit360,
   %.711052 = phi i32 [ %.701051, %669 ], [ %.701051, %677 ], [ %.941075, %confWithBit.exit453 ]
   %.72 = phi i64 [ %.71, %669 ], [ %.71, %677 ], [ %.131, %confWithBit.exit453 ]
   %.not26.i321 = icmp eq i64 %672, 0
-  br i1 %.not26.i321, label %do_confWithBit_teddy.exit322, label %669, !prof !5
+  br i1 %.not26.i321, label %do_confWithBit_teddy.exit322, label %669, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit322:                     ; preds = %767
   %768 = icmp eq i64 %.72, 0
@@ -24022,7 +24022,7 @@ do_confWithBit_teddy.exit322:                     ; preds = %767
   %.1.i625 = phi i64 [ %810, %805 ], [ %.012.i6211191, %802 ]
   %812 = add nuw nsw i64 %.0.i6221192, 1
   %exitcond1314.not = icmp eq i64 %812, 8
-  br i1 %exitcond1314.not, label %lv_u64a_ce.exit626, label %802
+  br i1 %exitcond1314.not, label %lv_u64a_ce.exit626, label %802, !llvm.loop !8
 
 lv_u64a_ce.exit626:                               ; preds = %811
   %813 = ptrtoint ptr %794 to i64
@@ -24125,7 +24125,7 @@ getConfVal.exit364:                               ; preds = %796, %lv_u64a_ce.ex
   %874 = load i8, ptr %873, align 2
   %875 = getelementptr inbounds nuw i8, ptr %.044.i455, i64 32
   %.not50.i457 = icmp eq i8 %874, 0
-  br i1 %.not50.i457, label %876, label %841
+  br i1 %.not50.i457, label %876, label %841, !llvm.loop !10
 
 876:                                              ; preds = %872
   store ptr null, ptr %839, align 16
@@ -24141,7 +24141,7 @@ confWithBit.exit460:                              ; preds = %getConfVal.exit364,
   %.691050 = phi i32 [ %.681049, %777 ], [ %.681049, %787 ], [ %.971078, %confWithBit.exit460 ]
   %.70 = phi i64 [ %.69, %777 ], [ %.69, %787 ], [ %.134, %confWithBit.exit460 ]
   %.not26.i317 = icmp eq i64 %780, 0
-  br i1 %.not26.i317, label %do_confWithBit_teddy.exit318, label %777, !prof !5
+  br i1 %.not26.i317, label %do_confWithBit_teddy.exit318, label %777, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit318:                     ; preds = %877
   %878 = icmp eq i64 %.70, 0
@@ -24229,7 +24229,7 @@ do_confWithBit_teddy.exit318:                     ; preds = %877
   %.1.i619 = phi i64 [ %920, %915 ], [ %.012.i6151195, %912 ]
   %922 = add nuw nsw i64 %.0.i6161196, 1
   %exitcond1315.not = icmp eq i64 %922, 8
-  br i1 %exitcond1315.not, label %lv_u64a_ce.exit620, label %912
+  br i1 %exitcond1315.not, label %lv_u64a_ce.exit620, label %912, !llvm.loop !8
 
 lv_u64a_ce.exit620:                               ; preds = %921
   %923 = ptrtoint ptr %904 to i64
@@ -24332,7 +24332,7 @@ getConfVal.exit368:                               ; preds = %906, %lv_u64a_ce.ex
   %984 = load i8, ptr %983, align 2
   %985 = getelementptr inbounds nuw i8, ptr %.044.i462, i64 32
   %.not50.i464 = icmp eq i8 %984, 0
-  br i1 %.not50.i464, label %986, label %951
+  br i1 %.not50.i464, label %986, label %951, !llvm.loop !10
 
 986:                                              ; preds = %982
   store ptr null, ptr %949, align 16
@@ -24348,7 +24348,7 @@ confWithBit.exit467:                              ; preds = %getConfVal.exit368,
   %.671048 = phi i32 [ %.661047, %887 ], [ %.661047, %897 ], [ %.1001081, %confWithBit.exit467 ]
   %.68 = phi i64 [ %.67, %887 ], [ %.67, %897 ], [ %.137, %confWithBit.exit467 ]
   %.not26.i313 = icmp eq i64 %890, 0
-  br i1 %.not26.i313, label %do_confWithBit_teddy.exit314, label %887, !prof !5
+  br i1 %.not26.i313, label %do_confWithBit_teddy.exit314, label %887, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit314:                     ; preds = %987
   %988 = icmp eq i64 %.68, 0
@@ -24436,7 +24436,7 @@ do_confWithBit_teddy.exit314:                     ; preds = %987
   %.1.i613 = phi i64 [ %1030, %1025 ], [ %.012.i6091199, %1022 ]
   %1032 = add nuw nsw i64 %.0.i6101200, 1
   %exitcond1316.not = icmp eq i64 %1032, 8
-  br i1 %exitcond1316.not, label %lv_u64a_ce.exit614, label %1022
+  br i1 %exitcond1316.not, label %lv_u64a_ce.exit614, label %1022, !llvm.loop !8
 
 lv_u64a_ce.exit614:                               ; preds = %1031
   %1033 = ptrtoint ptr %1014 to i64
@@ -24539,7 +24539,7 @@ getConfVal.exit372:                               ; preds = %1016, %lv_u64a_ce.e
   %1094 = load i8, ptr %1093, align 2
   %1095 = getelementptr inbounds nuw i8, ptr %.044.i469, i64 32
   %.not50.i471 = icmp eq i8 %1094, 0
-  br i1 %.not50.i471, label %1096, label %1061
+  br i1 %.not50.i471, label %1096, label %1061, !llvm.loop !10
 
 1096:                                             ; preds = %1092
   store ptr null, ptr %1059, align 16
@@ -24555,7 +24555,7 @@ confWithBit.exit474:                              ; preds = %getConfVal.exit372,
   %.651046 = phi i32 [ %.641045, %997 ], [ %.641045, %1007 ], [ %.1031084, %confWithBit.exit474 ]
   %.66 = phi i64 [ %.65, %997 ], [ %.65, %1007 ], [ %.140, %confWithBit.exit474 ]
   %.not26.i309 = icmp eq i64 %1000, 0
-  br i1 %.not26.i309, label %do_confWithBit_teddy.exit310, label %997, !prof !5
+  br i1 %.not26.i309, label %do_confWithBit_teddy.exit310, label %997, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit310:                     ; preds = %1097
   %1098 = icmp eq i64 %.66, 0
@@ -24686,7 +24686,7 @@ do_confWithBit_teddy.exit310:                     ; preds = %1097
   %or.cond.i = select i1 %.not383.i, i1 %.not384.i, i1 false
   %.not385.i = icmp eq i64 %1177, %1140
   %or.cond422.i = select i1 %or.cond.i, i1 %.not385.i, i1 false
-  br i1 %or.cond422.i, label %1165, label %.thread1135.preheader
+  br i1 %or.cond422.i, label %1165, label %.thread1135.preheader, !llvm.loop !13
 
 .thread1135.preheader:                            ; preds = %1174, %1169, %1165
   br label %.thread1135
@@ -24703,7 +24703,7 @@ do_confWithBit_teddy.exit310:                     ; preds = %1097
   %1185 = getelementptr inbounds nuw i8, ptr %1114, i64 %1183
   %1186 = load i64, ptr %1185, align 8
   %.not386.i = icmp eq i64 %1186, %1140
-  br i1 %.not386.i, label %.thread1135, label %split
+  br i1 %.not386.i, label %.thread1135, label %split, !llvm.loop !14
 
 split:                                            ; preds = %1184, %.thread1135
   %1187 = icmp ugt i64 %1118, %1183
@@ -24721,7 +24721,7 @@ split:                                            ; preds = %1184, %.thread1135
   %1192 = add i32 %.3.i1203, 1
   %1193 = zext i32 %1192 to i64
   %1194 = icmp ugt i64 %1118, %1193
-  br i1 %1194, label %.lr.ph1205, label %._crit_edge1206
+  br i1 %1194, label %.lr.ph1205, label %._crit_edge1206, !llvm.loop !15
 
 ._crit_edge1206:                                  ; preds = %1191, %.lr.ph1205, %split
   %.3.i.lcssa = phi i32 [ %.2.i, %split ], [ %.3.i1203, %.lr.ph1205 ], [ %1192, %1191 ]
@@ -24860,7 +24860,7 @@ split:                                            ; preds = %1184, %.thread1135
   %.102 = phi i64 [ %1258, %1254 ], [ %1264, %1260 ], [ %1252, %1248 ], [ %1246, %1242 ], [ %.981221, %1239 ]
   %indvars.iv.next1322 = add nuw nsw i64 %indvars.iv1321, 4
   %1265 = icmp samesign ult i64 %indvars.iv.next1322, %1225
-  br i1 %1265, label %1236, label %.critedge.i
+  br i1 %1265, label %1236, label %.critedge.i, !llvm.loop !16
 
 1266:                                             ; preds = %.lr.ph1217, %1339
   %indvars.iv1318 = phi i64 [ 0, %.lr.ph1217 ], [ %indvars.iv.next1319, %1339 ]
@@ -24991,7 +24991,7 @@ split:                                            ; preds = %1184, %.thread1135
   %.97 = phi i64 [ %.96, %1330 ], [ %1338, %1333 ]
   %indvars.iv.next1319 = add nuw nsw i64 %indvars.iv1318, 4
   %1340 = icmp samesign ult i64 %indvars.iv.next1319, %1219
-  br i1 %1340, label %1266, label %.critedge.i
+  br i1 %1340, label %1266, label %.critedge.i, !llvm.loop !17
 
 1341:                                             ; preds = %.lr.ph1211, %1395
   %indvars.iv = phi i64 [ 0, %.lr.ph1211 ], [ %indvars.iv.next, %1395 ]
@@ -25091,7 +25091,7 @@ split:                                            ; preds = %1184, %.thread1135
   %.88 = phi i64 [ %.87, %1386 ], [ %1394, %1389 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %1396 = icmp samesign ult i64 %indvars.iv.next, %1211
-  br i1 %1396, label %1341, label %.critedge.i
+  br i1 %1396, label %1341, label %.critedge.i, !llvm.loop !18
 
 1397:                                             ; preds = %.lr.ph1241, %._crit_edge1237
   %indvars.iv1330 = phi i64 [ 0, %.lr.ph1241 ], [ %indvars.iv.next1331, %._crit_edge1237 ]
@@ -25197,7 +25197,7 @@ split:                                            ; preds = %1184, %.thread1135
   %indvars.iv.next1325 = add nuw nsw i64 %indvars.iv1324, 1
   %1450 = zext i16 %1449 to i64
   %1451 = icmp samesign ult i64 %indvars.iv.next1325, %1450
-  br i1 %1451, label %1439, label %._crit_edge1231
+  br i1 %1451, label %1439, label %._crit_edge1231, !llvm.loop !19
 
 1452:                                             ; preds = %._crit_edge1231
   %1453 = trunc nuw i64 %indvars.iv1330 to i32
@@ -25268,7 +25268,7 @@ split:                                            ; preds = %1184, %.thread1135
   %.113.lcssa = phi i64 [ %.112, %1485 ], [ %.114, %1501 ]
   %indvars.iv.next1331 = add nuw nsw i64 %indvars.iv1330, 2
   %1491 = icmp samesign ult i64 %indvars.iv.next1331, %1235
-  br i1 %1491, label %1397, label %.critedge.i
+  br i1 %1491, label %1397, label %.critedge.i, !llvm.loop !20
 
 1492:                                             ; preds = %.lr.ph1236, %1501
   %1493 = phi i16 [ %1486, %.lr.ph1236 ], [ %1502, %1501 ]
@@ -25293,7 +25293,7 @@ split:                                            ; preds = %1184, %.thread1135
   %indvars.iv.next1328 = add nuw nsw i64 %indvars.iv1327, 1
   %1503 = zext i16 %1502 to i64
   %1504 = icmp samesign ult i64 %indvars.iv.next1328, %1503
-  br i1 %1504, label %1492, label %._crit_edge1237
+  br i1 %1504, label %1492, label %._crit_edge1237, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %1395, %1341, %1339, %1266, %.thread1386, %1236, %._crit_edge1237, %1397, %.preheader1164, %.preheader1162, %.preheader1160, %.preheader, %1200, %1196
   %.82 = phi i64 [ %.121265, %1196 ], [ %.121265, %1200 ], [ %.121265, %.preheader ], [ %.121265, %.preheader1160 ], [ %.121265, %.preheader1162 ], [ %.121265, %.preheader1164 ], [ %.113.lcssa, %._crit_edge1237 ], [ %.1031239, %1397 ], [ %.102, %.thread1386 ], [ %.981221, %1236 ], [ %.97, %1339 ], [ %.891215, %1266 ], [ %.88, %1395 ], [ %.811209, %1341 ]
@@ -25500,7 +25500,7 @@ floodDetect.exit:                                 ; preds = %1150, %1157, %.crit
   %1637 = load i8, ptr %1636, align 2
   %1638 = getelementptr inbounds nuw i8, ptr %.044.i476, i64 32
   %.not50.i478 = icmp eq i8 %1637, 0
-  br i1 %.not50.i478, label %1639, label %1604
+  br i1 %.not50.i478, label %1639, label %1604, !llvm.loop !10
 
 1639:                                             ; preds = %1635
   store ptr null, ptr %1602, align 16
@@ -25516,7 +25516,7 @@ confWithBit.exit481:                              ; preds = %1577, %1639
   %.631044 = phi i32 [ %.621043, %1563 ], [ %.621043, %1571 ], [ %.1061087, %confWithBit.exit481 ]
   %.64 = phi i64 [ %.63, %1563 ], [ %.63, %1571 ], [ %.143, %confWithBit.exit481 ]
   %.not26.i305 = icmp eq i64 %1566, 0
-  br i1 %.not26.i305, label %do_confWithBit_teddy.exit306, label %1563, !prof !5
+  br i1 %.not26.i305, label %do_confWithBit_teddy.exit306, label %1563, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit306:                     ; preds = %1640
   %1641 = icmp eq i64 %.64, 0
@@ -25654,7 +25654,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1640
   %1722 = load i8, ptr %1721, align 2
   %1723 = getelementptr inbounds nuw i8, ptr %.044.i483, i64 32
   %.not50.i485 = icmp eq i8 %1722, 0
-  br i1 %.not50.i485, label %1724, label %1689
+  br i1 %.not50.i485, label %1724, label %1689, !llvm.loop !10
 
 1724:                                             ; preds = %1720
   store ptr null, ptr %1687, align 16
@@ -25670,7 +25670,7 @@ confWithBit.exit488:                              ; preds = %1662, %1724
   %.611042 = phi i32 [ %.601041, %1646 ], [ %.601041, %1656 ], [ %.1091090, %confWithBit.exit488 ]
   %.62 = phi i64 [ %.61, %1646 ], [ %.61, %1656 ], [ %.146, %confWithBit.exit488 ]
   %.not26.i301 = icmp eq i64 %1649, 0
-  br i1 %.not26.i301, label %do_confWithBit_teddy.exit302, label %1646, !prof !5
+  br i1 %.not26.i301, label %do_confWithBit_teddy.exit302, label %1646, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit302:                     ; preds = %1725
   %1726 = icmp eq i64 %.62, 0
@@ -25808,7 +25808,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1725
   %1807 = load i8, ptr %1806, align 2
   %1808 = getelementptr inbounds nuw i8, ptr %.044.i490, i64 32
   %.not50.i492 = icmp eq i8 %1807, 0
-  br i1 %.not50.i492, label %1809, label %1774
+  br i1 %.not50.i492, label %1809, label %1774, !llvm.loop !10
 
 1809:                                             ; preds = %1805
   store ptr null, ptr %1772, align 16
@@ -25824,7 +25824,7 @@ confWithBit.exit495:                              ; preds = %1747, %1809
   %.591040 = phi i32 [ %.581039, %1731 ], [ %.581039, %1741 ], [ %.1121093, %confWithBit.exit495 ]
   %.60 = phi i64 [ %.59, %1731 ], [ %.59, %1741 ], [ %.149, %confWithBit.exit495 ]
   %.not26.i297 = icmp eq i64 %1734, 0
-  br i1 %.not26.i297, label %do_confWithBit_teddy.exit298, label %1731, !prof !5
+  br i1 %.not26.i297, label %do_confWithBit_teddy.exit298, label %1731, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit298:                     ; preds = %1810
   %1811 = icmp eq i64 %.60, 0
@@ -25962,7 +25962,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1810
   %1892 = load i8, ptr %1891, align 2
   %1893 = getelementptr inbounds nuw i8, ptr %.044.i497, i64 32
   %.not50.i499 = icmp eq i8 %1892, 0
-  br i1 %.not50.i499, label %1894, label %1859
+  br i1 %.not50.i499, label %1894, label %1859, !llvm.loop !10
 
 1894:                                             ; preds = %1890
   store ptr null, ptr %1857, align 16
@@ -25978,7 +25978,7 @@ confWithBit.exit502:                              ; preds = %1832, %1894
   %.571038 = phi i32 [ %.561037, %1816 ], [ %.561037, %1826 ], [ %.1151096, %confWithBit.exit502 ]
   %.58 = phi i64 [ %.57, %1816 ], [ %.57, %1826 ], [ %.152, %confWithBit.exit502 ]
   %.not26.i293 = icmp eq i64 %1819, 0
-  br i1 %.not26.i293, label %do_confWithBit_teddy.exit294, label %1816, !prof !5
+  br i1 %.not26.i293, label %do_confWithBit_teddy.exit294, label %1816, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit294:                     ; preds = %1895
   %1896 = icmp eq i64 %.58, 0
@@ -26162,7 +26162,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1895
   %2017 = load i8, ptr %2016, align 2
   %2018 = getelementptr inbounds nuw i8, ptr %.044.i504, i64 32
   %.not50.i506 = icmp eq i8 %2017, 0
-  br i1 %.not50.i506, label %2019, label %1984
+  br i1 %.not50.i506, label %2019, label %1984, !llvm.loop !10
 
 2019:                                             ; preds = %2015
   store ptr null, ptr %1982, align 16
@@ -26178,7 +26178,7 @@ confWithBit.exit509:                              ; preds = %1957, %2019
   %.551036 = phi i32 [ %.541035, %1941 ], [ %.541035, %1951 ], [ %.1181099, %confWithBit.exit509 ]
   %.56 = phi i64 [ %.55, %1941 ], [ %.55, %1951 ], [ %.155, %confWithBit.exit509 ]
   %.not26.i289 = icmp eq i64 %1944, 0
-  br i1 %.not26.i289, label %do_confWithBit_teddy.exit290, label %1941, !prof !5
+  br i1 %.not26.i289, label %do_confWithBit_teddy.exit290, label %1941, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit290:                     ; preds = %2020
   %2021 = icmp eq i64 %.56, 0
@@ -26316,7 +26316,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2020
   %2102 = load i8, ptr %2101, align 2
   %2103 = getelementptr inbounds nuw i8, ptr %.044.i511, i64 32
   %.not50.i513 = icmp eq i8 %2102, 0
-  br i1 %.not50.i513, label %2104, label %2069
+  br i1 %.not50.i513, label %2104, label %2069, !llvm.loop !10
 
 2104:                                             ; preds = %2100
   store ptr null, ptr %2067, align 16
@@ -26332,7 +26332,7 @@ confWithBit.exit516:                              ; preds = %2042, %2104
   %.531034 = phi i32 [ %.521033, %2026 ], [ %.521033, %2036 ], [ %.1211102, %confWithBit.exit516 ]
   %.54 = phi i64 [ %.53, %2026 ], [ %.53, %2036 ], [ %.158, %confWithBit.exit516 ]
   %.not26.i285 = icmp eq i64 %2029, 0
-  br i1 %.not26.i285, label %do_confWithBit_teddy.exit286, label %2026, !prof !5
+  br i1 %.not26.i285, label %do_confWithBit_teddy.exit286, label %2026, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit286:                     ; preds = %2105
   %2106 = icmp eq i64 %.54, 0
@@ -26470,7 +26470,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2105
   %2187 = load i8, ptr %2186, align 2
   %2188 = getelementptr inbounds nuw i8, ptr %.044.i518, i64 32
   %.not50.i520 = icmp eq i8 %2187, 0
-  br i1 %.not50.i520, label %2189, label %2154
+  br i1 %.not50.i520, label %2189, label %2154, !llvm.loop !10
 
 2189:                                             ; preds = %2185
   store ptr null, ptr %2152, align 16
@@ -26486,7 +26486,7 @@ confWithBit.exit523:                              ; preds = %2127, %2189
   %.511032 = phi i32 [ %.501031, %2111 ], [ %.501031, %2121 ], [ %.1241105, %confWithBit.exit523 ]
   %.52 = phi i64 [ %.51, %2111 ], [ %.51, %2121 ], [ %.161, %confWithBit.exit523 ]
   %.not26.i281 = icmp eq i64 %2114, 0
-  br i1 %.not26.i281, label %do_confWithBit_teddy.exit282, label %2111, !prof !5
+  br i1 %.not26.i281, label %do_confWithBit_teddy.exit282, label %2111, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit282:                     ; preds = %2190
   %2191 = icmp eq i64 %.52, 0
@@ -26624,7 +26624,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2190
   %2272 = load i8, ptr %2271, align 2
   %2273 = getelementptr inbounds nuw i8, ptr %.044.i525, i64 32
   %.not50.i527 = icmp eq i8 %2272, 0
-  br i1 %.not50.i527, label %2274, label %2239
+  br i1 %.not50.i527, label %2274, label %2239, !llvm.loop !10
 
 2274:                                             ; preds = %2270
   store ptr null, ptr %2237, align 16
@@ -26640,7 +26640,7 @@ confWithBit.exit530:                              ; preds = %2212, %2274
   %.491030 = phi i32 [ %.481029, %2196 ], [ %.481029, %2206 ], [ %.1271108, %confWithBit.exit530 ]
   %.50 = phi i64 [ %.49, %2196 ], [ %.49, %2206 ], [ %.164, %confWithBit.exit530 ]
   %.not26.i277 = icmp eq i64 %2199, 0
-  br i1 %.not26.i277, label %do_confWithBit_teddy.exit278, label %2196, !prof !5
+  br i1 %.not26.i277, label %do_confWithBit_teddy.exit278, label %2196, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit278:                     ; preds = %2275
   %2276 = icmp eq i64 %.50, 0
@@ -26652,7 +26652,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2275
   %2277 = getelementptr inbounds nuw i8, ptr %.3976, i64 64
   %2278 = getelementptr inbounds nuw i8, ptr %.3976, i64 128
   %.not201 = icmp ugt ptr %2278, %33
-  br i1 %.not201, label %._crit_edge1269, label %1110
+  br i1 %.not201, label %._crit_edge1269, label %1110, !llvm.loop !26
 
 ._crit_edge1269:                                  ; preds = %.critedge232, %.critedge228
   %.12993.lcssa = phi i32 [ %.6987, %.critedge228 ], [ %.221003, %.critedge232 ]
@@ -26842,7 +26842,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2275
   %2405 = load i8, ptr %2404, align 2
   %2406 = getelementptr inbounds nuw i8, ptr %.044.i532, i64 32
   %.not50.i534 = icmp eq i8 %2405, 0
-  br i1 %.not50.i534, label %2407, label %2372
+  br i1 %.not50.i534, label %2407, label %2372, !llvm.loop !10
 
 2407:                                             ; preds = %2403
   store ptr null, ptr %2370, align 16
@@ -26858,7 +26858,7 @@ confWithBit.exit537:                              ; preds = %2345, %2407
   %.471028 = phi i32 [ %.461027, %2331 ], [ %.461027, %2339 ], [ %.1301111, %confWithBit.exit537 ]
   %.48 = phi i64 [ %.47, %2331 ], [ %.47, %2339 ], [ %.167, %confWithBit.exit537 ]
   %.not26.i273 = icmp eq i64 %2334, 0
-  br i1 %.not26.i273, label %do_confWithBit_teddy.exit274, label %2331, !prof !5
+  br i1 %.not26.i273, label %do_confWithBit_teddy.exit274, label %2331, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit274:                     ; preds = %2408
   %2409 = icmp eq i64 %.48, 0
@@ -26999,7 +26999,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2408
   %2493 = load i8, ptr %2492, align 2
   %2494 = getelementptr inbounds nuw i8, ptr %.044.i539, i64 32
   %.not50.i541 = icmp eq i8 %2493, 0
-  br i1 %.not50.i541, label %2495, label %2460
+  br i1 %.not50.i541, label %2495, label %2460, !llvm.loop !10
 
 2495:                                             ; preds = %2491
   store ptr null, ptr %2458, align 16
@@ -27015,7 +27015,7 @@ confWithBit.exit544:                              ; preds = %2433, %2495
   %.451026 = phi i32 [ %.441025, %2417 ], [ %.441025, %2427 ], [ %.1331114, %confWithBit.exit544 ]
   %.46 = phi i64 [ %.45, %2417 ], [ %.45, %2427 ], [ %.170, %confWithBit.exit544 ]
   %.not26.i269 = icmp eq i64 %2420, 0
-  br i1 %.not26.i269, label %do_confWithBit_teddy.exit270, label %2417, !prof !5
+  br i1 %.not26.i269, label %do_confWithBit_teddy.exit270, label %2417, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit270:                     ; preds = %2496
   %2497 = icmp eq i64 %.46, 0
@@ -27156,7 +27156,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2496
   %2581 = load i8, ptr %2580, align 2
   %2582 = getelementptr inbounds nuw i8, ptr %.044.i546, i64 32
   %.not50.i548 = icmp eq i8 %2581, 0
-  br i1 %.not50.i548, label %2583, label %2548
+  br i1 %.not50.i548, label %2583, label %2548, !llvm.loop !10
 
 2583:                                             ; preds = %2579
   store ptr null, ptr %2546, align 16
@@ -27172,7 +27172,7 @@ confWithBit.exit551:                              ; preds = %2521, %2583
   %.431024 = phi i32 [ %.421023, %2505 ], [ %.421023, %2515 ], [ %.1361117, %confWithBit.exit551 ]
   %.44 = phi i64 [ %.43, %2505 ], [ %.43, %2515 ], [ %.173, %confWithBit.exit551 ]
   %.not26.i265 = icmp eq i64 %2508, 0
-  br i1 %.not26.i265, label %do_confWithBit_teddy.exit266, label %2505, !prof !5
+  br i1 %.not26.i265, label %do_confWithBit_teddy.exit266, label %2505, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit266:                     ; preds = %2584
   %2585 = icmp eq i64 %.44, 0
@@ -27313,7 +27313,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2584
   %2669 = load i8, ptr %2668, align 2
   %2670 = getelementptr inbounds nuw i8, ptr %.044.i553, i64 32
   %.not50.i555 = icmp eq i8 %2669, 0
-  br i1 %.not50.i555, label %2671, label %2636
+  br i1 %.not50.i555, label %2671, label %2636, !llvm.loop !10
 
 2671:                                             ; preds = %2667
   store ptr null, ptr %2634, align 16
@@ -27329,7 +27329,7 @@ confWithBit.exit558:                              ; preds = %2609, %2671
   %.411022 = phi i32 [ %.401021, %2593 ], [ %.401021, %2603 ], [ %.1391120, %confWithBit.exit558 ]
   %.42 = phi i64 [ %.41, %2593 ], [ %.41, %2603 ], [ %.176, %confWithBit.exit558 ]
   %.not26.i261 = icmp eq i64 %2596, 0
-  br i1 %.not26.i261, label %do_confWithBit_teddy.exit262, label %2593, !prof !5
+  br i1 %.not26.i261, label %do_confWithBit_teddy.exit262, label %2593, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit262:                     ; preds = %2672
   %2673 = icmp eq i64 %.42, 0
@@ -27563,7 +27563,7 @@ vectoredLoad256.exit:                             ; preds = %2715, %2713, %2706,
   %.1.i607 = phi i64 [ %2792, %2787 ], [ %.012.i6031282, %2784 ]
   %2794 = add nuw nsw i64 %.0.i6041283, 1
   %exitcond1333.not = icmp eq i64 %2794, 8
-  br i1 %exitcond1333.not, label %lv_u64a_ce.exit608, label %2784
+  br i1 %exitcond1333.not, label %lv_u64a_ce.exit608, label %2784, !llvm.loop !8
 
 lv_u64a_ce.exit608:                               ; preds = %2793
   %2795 = ptrtoint ptr %2776 to i64
@@ -27666,7 +27666,7 @@ getConfVal.exit412:                               ; preds = %2778, %lv_u64a_ce.e
   %2856 = load i8, ptr %2855, align 2
   %2857 = getelementptr inbounds nuw i8, ptr %.044.i560, i64 32
   %.not50.i562 = icmp eq i8 %2856, 0
-  br i1 %.not50.i562, label %2858, label %2823
+  br i1 %.not50.i562, label %2858, label %2823, !llvm.loop !10
 
 2858:                                             ; preds = %2854
   store ptr null, ptr %2821, align 16
@@ -27682,7 +27682,7 @@ confWithBit.exit565:                              ; preds = %getConfVal.exit412,
   %.391020 = phi i32 [ %.381019, %2761 ], [ %.381019, %2769 ], [ %.1421123, %confWithBit.exit565 ]
   %.40 = phi i64 [ %.39, %2761 ], [ %.39, %2769 ], [ %.179, %confWithBit.exit565 ]
   %.not26.i257 = icmp eq i64 %2764, 0
-  br i1 %.not26.i257, label %do_confWithBit_teddy.exit258, label %2761, !prof !5
+  br i1 %.not26.i257, label %do_confWithBit_teddy.exit258, label %2761, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit258:                     ; preds = %2859
   %2860 = icmp eq i64 %.40, 0
@@ -27768,7 +27768,7 @@ do_confWithBit_teddy.exit258:                     ; preds = %2859
   %.1.i601 = phi i64 [ %2900, %2895 ], [ %.012.i5971286, %2892 ]
   %2902 = add nuw nsw i64 %.0.i5981287, 1
   %exitcond1334.not = icmp eq i64 %2902, 8
-  br i1 %exitcond1334.not, label %lv_u64a_ce.exit602, label %2892
+  br i1 %exitcond1334.not, label %lv_u64a_ce.exit602, label %2892, !llvm.loop !8
 
 lv_u64a_ce.exit602:                               ; preds = %2901
   %2903 = ptrtoint ptr %2884 to i64
@@ -27871,7 +27871,7 @@ getConfVal.exit416:                               ; preds = %2886, %lv_u64a_ce.e
   %2964 = load i8, ptr %2963, align 2
   %2965 = getelementptr inbounds nuw i8, ptr %.044.i567, i64 32
   %.not50.i569 = icmp eq i8 %2964, 0
-  br i1 %.not50.i569, label %2966, label %2931
+  br i1 %.not50.i569, label %2966, label %2931, !llvm.loop !10
 
 2966:                                             ; preds = %2962
   store ptr null, ptr %2929, align 16
@@ -27887,7 +27887,7 @@ confWithBit.exit572:                              ; preds = %getConfVal.exit416,
   %.371018 = phi i32 [ %.361017, %2867 ], [ %.361017, %2877 ], [ %.1451126, %confWithBit.exit572 ]
   %.38 = phi i64 [ %.37, %2867 ], [ %.37, %2877 ], [ %.182, %confWithBit.exit572 ]
   %.not26.i253 = icmp eq i64 %2870, 0
-  br i1 %.not26.i253, label %do_confWithBit_teddy.exit254, label %2867, !prof !5
+  br i1 %.not26.i253, label %do_confWithBit_teddy.exit254, label %2867, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit254:                     ; preds = %2967
   %2968 = icmp eq i64 %.38, 0
@@ -27973,7 +27973,7 @@ do_confWithBit_teddy.exit254:                     ; preds = %2967
   %.1.i595 = phi i64 [ %3008, %3003 ], [ %.012.i5911290, %3000 ]
   %3010 = add nuw nsw i64 %.0.i5921291, 1
   %exitcond1335.not = icmp eq i64 %3010, 8
-  br i1 %exitcond1335.not, label %lv_u64a_ce.exit596, label %3000
+  br i1 %exitcond1335.not, label %lv_u64a_ce.exit596, label %3000, !llvm.loop !8
 
 lv_u64a_ce.exit596:                               ; preds = %3009
   %3011 = ptrtoint ptr %2992 to i64
@@ -28076,7 +28076,7 @@ getConfVal.exit420:                               ; preds = %2994, %lv_u64a_ce.e
   %3072 = load i8, ptr %3071, align 2
   %3073 = getelementptr inbounds nuw i8, ptr %.044.i574, i64 32
   %.not50.i576 = icmp eq i8 %3072, 0
-  br i1 %.not50.i576, label %3074, label %3039
+  br i1 %.not50.i576, label %3074, label %3039, !llvm.loop !10
 
 3074:                                             ; preds = %3070
   store ptr null, ptr %3037, align 16
@@ -28092,7 +28092,7 @@ confWithBit.exit579:                              ; preds = %getConfVal.exit420,
   %.351016 = phi i32 [ %.341015, %2975 ], [ %.341015, %2985 ], [ %.1481129, %confWithBit.exit579 ]
   %.36 = phi i64 [ %.35, %2975 ], [ %.35, %2985 ], [ %.185, %confWithBit.exit579 ]
   %.not26.i249 = icmp eq i64 %2978, 0
-  br i1 %.not26.i249, label %do_confWithBit_teddy.exit250, label %2975, !prof !5
+  br i1 %.not26.i249, label %do_confWithBit_teddy.exit250, label %2975, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit250:                     ; preds = %3075
   %3076 = icmp eq i64 %.36, 0
@@ -28178,7 +28178,7 @@ do_confWithBit_teddy.exit250:                     ; preds = %3075
   %.1.i590 = phi i64 [ %3116, %3111 ], [ %.012.i1294, %3108 ]
   %3118 = add nuw nsw i64 %.0.i5871295, 1
   %exitcond1336.not = icmp eq i64 %3118, 8
-  br i1 %exitcond1336.not, label %lv_u64a_ce.exit, label %3108
+  br i1 %exitcond1336.not, label %lv_u64a_ce.exit, label %3108, !llvm.loop !8
 
 lv_u64a_ce.exit:                                  ; preds = %3117
   %3119 = ptrtoint ptr %3100 to i64
@@ -28281,7 +28281,7 @@ getConfVal.exit424:                               ; preds = %3102, %lv_u64a_ce.e
   %3180 = load i8, ptr %3179, align 2
   %3181 = getelementptr inbounds nuw i8, ptr %.044.i581, i64 32
   %.not50.i583 = icmp eq i8 %3180, 0
-  br i1 %.not50.i583, label %3182, label %3147
+  br i1 %.not50.i583, label %3182, label %3147, !llvm.loop !10
 
 3182:                                             ; preds = %3178
   store ptr null, ptr %3145, align 16
@@ -28297,7 +28297,7 @@ confWithBit.exit586:                              ; preds = %getConfVal.exit424,
   %.331014 = phi i32 [ %.321013, %3083 ], [ %.321013, %3093 ], [ %.1511132, %confWithBit.exit586 ]
   %.34 = phi i64 [ %.33, %3083 ], [ %.33, %3093 ], [ %.188, %confWithBit.exit586 ]
   %.not26.i = icmp eq i64 %3086, 0
-  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3083, !prof !5
+  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3083, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit:                        ; preds = %3183
   %3184 = icmp eq i64 %.34, 0
@@ -28657,7 +28657,7 @@ vectoredLoad256.exit245:                          ; preds = %141, %139, %132, %1
   %.1.i655 = phi i64 [ %219, %214 ], [ %.012.i6511171, %211 ]
   %221 = add nuw nsw i64 %.0.i6521172, 1
   %exitcond.not = icmp eq i64 %221, 8
-  br i1 %exitcond.not, label %lv_u64a_ce.exit656, label %211
+  br i1 %exitcond.not, label %lv_u64a_ce.exit656, label %211, !llvm.loop !8
 
 lv_u64a_ce.exit656:                               ; preds = %220
   %222 = ptrtoint ptr %203 to i64
@@ -28760,7 +28760,7 @@ getConfVal.exit:                                  ; preds = %205, %lv_u64a_ce.ex
   %283 = load i8, ptr %282, align 2
   %284 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
   %.not50.i = icmp eq i8 %283, 0
-  br i1 %.not50.i, label %285, label %250
+  br i1 %.not50.i, label %285, label %250, !llvm.loop !10
 
 285:                                              ; preds = %281
   store ptr null, ptr %248, align 16
@@ -28776,7 +28776,7 @@ confWithBit.exit:                                 ; preds = %getConfVal.exit, %2
   %.791060 = phi i32 [ %.781059, %188 ], [ %.781059, %196 ], [ %.821063, %confWithBit.exit ]
   %.80 = phi i64 [ %.79, %188 ], [ %.79, %196 ], [ %.119, %confWithBit.exit ]
   %.not26.i337 = icmp eq i64 %191, 0
-  br i1 %.not26.i337, label %do_confWithBit_teddy.exit338, label %188, !prof !5
+  br i1 %.not26.i337, label %do_confWithBit_teddy.exit338, label %188, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit338:                     ; preds = %286
   %287 = icmp eq i64 %.80, 0
@@ -28863,7 +28863,7 @@ do_confWithBit_teddy.exit338:                     ; preds = %286
   %.1.i649 = phi i64 [ %328, %323 ], [ %.012.i6451175, %320 ]
   %330 = add nuw nsw i64 %.0.i6461176, 1
   %exitcond1310.not = icmp eq i64 %330, 8
-  br i1 %exitcond1310.not, label %lv_u64a_ce.exit650, label %320
+  br i1 %exitcond1310.not, label %lv_u64a_ce.exit650, label %320, !llvm.loop !8
 
 lv_u64a_ce.exit650:                               ; preds = %329
   %331 = ptrtoint ptr %312 to i64
@@ -28966,7 +28966,7 @@ getConfVal.exit348:                               ; preds = %314, %lv_u64a_ce.ex
   %392 = load i8, ptr %391, align 2
   %393 = getelementptr inbounds nuw i8, ptr %.044.i427, i64 32
   %.not50.i429 = icmp eq i8 %392, 0
-  br i1 %.not50.i429, label %394, label %359
+  br i1 %.not50.i429, label %394, label %359, !llvm.loop !10
 
 394:                                              ; preds = %390
   store ptr null, ptr %357, align 16
@@ -28982,7 +28982,7 @@ confWithBit.exit432:                              ; preds = %getConfVal.exit348,
   %.771058 = phi i32 [ %.761057, %295 ], [ %.761057, %305 ], [ %.851066, %confWithBit.exit432 ]
   %.78 = phi i64 [ %.77, %295 ], [ %.77, %305 ], [ %.122, %confWithBit.exit432 ]
   %.not26.i333 = icmp eq i64 %298, 0
-  br i1 %.not26.i333, label %do_confWithBit_teddy.exit334, label %295, !prof !5
+  br i1 %.not26.i333, label %do_confWithBit_teddy.exit334, label %295, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit334:                     ; preds = %395
   %396 = icmp eq i64 %.78, 0
@@ -29069,7 +29069,7 @@ do_confWithBit_teddy.exit334:                     ; preds = %395
   %.1.i643 = phi i64 [ %437, %432 ], [ %.012.i6391179, %429 ]
   %439 = add nuw nsw i64 %.0.i6401180, 1
   %exitcond1311.not = icmp eq i64 %439, 8
-  br i1 %exitcond1311.not, label %lv_u64a_ce.exit644, label %429
+  br i1 %exitcond1311.not, label %lv_u64a_ce.exit644, label %429, !llvm.loop !8
 
 lv_u64a_ce.exit644:                               ; preds = %438
   %440 = ptrtoint ptr %421 to i64
@@ -29172,7 +29172,7 @@ getConfVal.exit352:                               ; preds = %423, %lv_u64a_ce.ex
   %501 = load i8, ptr %500, align 2
   %502 = getelementptr inbounds nuw i8, ptr %.044.i434, i64 32
   %.not50.i436 = icmp eq i8 %501, 0
-  br i1 %.not50.i436, label %503, label %468
+  br i1 %.not50.i436, label %503, label %468, !llvm.loop !10
 
 503:                                              ; preds = %499
   store ptr null, ptr %466, align 16
@@ -29188,7 +29188,7 @@ confWithBit.exit439:                              ; preds = %getConfVal.exit352,
   %.751056 = phi i32 [ %.741055, %404 ], [ %.741055, %414 ], [ %.881069, %confWithBit.exit439 ]
   %.76 = phi i64 [ %.75, %404 ], [ %.75, %414 ], [ %.125, %confWithBit.exit439 ]
   %.not26.i329 = icmp eq i64 %407, 0
-  br i1 %.not26.i329, label %do_confWithBit_teddy.exit330, label %404, !prof !5
+  br i1 %.not26.i329, label %do_confWithBit_teddy.exit330, label %404, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit330:                     ; preds = %504
   %505 = icmp eq i64 %.76, 0
@@ -29275,7 +29275,7 @@ do_confWithBit_teddy.exit330:                     ; preds = %504
   %.1.i637 = phi i64 [ %546, %541 ], [ %.012.i6331183, %538 ]
   %548 = add nuw nsw i64 %.0.i6341184, 1
   %exitcond1312.not = icmp eq i64 %548, 8
-  br i1 %exitcond1312.not, label %lv_u64a_ce.exit638, label %538
+  br i1 %exitcond1312.not, label %lv_u64a_ce.exit638, label %538, !llvm.loop !8
 
 lv_u64a_ce.exit638:                               ; preds = %547
   %549 = ptrtoint ptr %530 to i64
@@ -29378,7 +29378,7 @@ getConfVal.exit356:                               ; preds = %532, %lv_u64a_ce.ex
   %610 = load i8, ptr %609, align 2
   %611 = getelementptr inbounds nuw i8, ptr %.044.i441, i64 32
   %.not50.i443 = icmp eq i8 %610, 0
-  br i1 %.not50.i443, label %612, label %577
+  br i1 %.not50.i443, label %612, label %577, !llvm.loop !10
 
 612:                                              ; preds = %608
   store ptr null, ptr %575, align 16
@@ -29394,7 +29394,7 @@ confWithBit.exit446:                              ; preds = %getConfVal.exit356,
   %.731054 = phi i32 [ %.721053, %513 ], [ %.721053, %523 ], [ %.911072, %confWithBit.exit446 ]
   %.74 = phi i64 [ %.73, %513 ], [ %.73, %523 ], [ %.128, %confWithBit.exit446 ]
   %.not26.i325 = icmp eq i64 %516, 0
-  br i1 %.not26.i325, label %do_confWithBit_teddy.exit326, label %513, !prof !5
+  br i1 %.not26.i325, label %do_confWithBit_teddy.exit326, label %513, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit326:                     ; preds = %613
   %614 = icmp eq i64 %.74, 0
@@ -29536,7 +29536,7 @@ do_confWithBit_teddy.exit326:                     ; preds = %613
   %.1.i631 = phi i64 [ %700, %695 ], [ %.012.i6271187, %692 ]
   %702 = add nuw nsw i64 %.0.i6281188, 1
   %exitcond1313.not = icmp eq i64 %702, 8
-  br i1 %exitcond1313.not, label %lv_u64a_ce.exit632, label %692
+  br i1 %exitcond1313.not, label %lv_u64a_ce.exit632, label %692, !llvm.loop !8
 
 lv_u64a_ce.exit632:                               ; preds = %701
   %703 = ptrtoint ptr %684 to i64
@@ -29639,7 +29639,7 @@ getConfVal.exit360:                               ; preds = %686, %lv_u64a_ce.ex
   %764 = load i8, ptr %763, align 2
   %765 = getelementptr inbounds nuw i8, ptr %.044.i448, i64 32
   %.not50.i450 = icmp eq i8 %764, 0
-  br i1 %.not50.i450, label %766, label %731
+  br i1 %.not50.i450, label %766, label %731, !llvm.loop !10
 
 766:                                              ; preds = %762
   store ptr null, ptr %729, align 16
@@ -29655,7 +29655,7 @@ confWithBit.exit453:                              ; preds = %getConfVal.exit360,
   %.711052 = phi i32 [ %.701051, %669 ], [ %.701051, %677 ], [ %.941075, %confWithBit.exit453 ]
   %.72 = phi i64 [ %.71, %669 ], [ %.71, %677 ], [ %.131, %confWithBit.exit453 ]
   %.not26.i321 = icmp eq i64 %672, 0
-  br i1 %.not26.i321, label %do_confWithBit_teddy.exit322, label %669, !prof !5
+  br i1 %.not26.i321, label %do_confWithBit_teddy.exit322, label %669, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit322:                     ; preds = %767
   %768 = icmp eq i64 %.72, 0
@@ -29743,7 +29743,7 @@ do_confWithBit_teddy.exit322:                     ; preds = %767
   %.1.i625 = phi i64 [ %810, %805 ], [ %.012.i6211191, %802 ]
   %812 = add nuw nsw i64 %.0.i6221192, 1
   %exitcond1314.not = icmp eq i64 %812, 8
-  br i1 %exitcond1314.not, label %lv_u64a_ce.exit626, label %802
+  br i1 %exitcond1314.not, label %lv_u64a_ce.exit626, label %802, !llvm.loop !8
 
 lv_u64a_ce.exit626:                               ; preds = %811
   %813 = ptrtoint ptr %794 to i64
@@ -29846,7 +29846,7 @@ getConfVal.exit364:                               ; preds = %796, %lv_u64a_ce.ex
   %874 = load i8, ptr %873, align 2
   %875 = getelementptr inbounds nuw i8, ptr %.044.i455, i64 32
   %.not50.i457 = icmp eq i8 %874, 0
-  br i1 %.not50.i457, label %876, label %841
+  br i1 %.not50.i457, label %876, label %841, !llvm.loop !10
 
 876:                                              ; preds = %872
   store ptr null, ptr %839, align 16
@@ -29862,7 +29862,7 @@ confWithBit.exit460:                              ; preds = %getConfVal.exit364,
   %.691050 = phi i32 [ %.681049, %777 ], [ %.681049, %787 ], [ %.971078, %confWithBit.exit460 ]
   %.70 = phi i64 [ %.69, %777 ], [ %.69, %787 ], [ %.134, %confWithBit.exit460 ]
   %.not26.i317 = icmp eq i64 %780, 0
-  br i1 %.not26.i317, label %do_confWithBit_teddy.exit318, label %777, !prof !5
+  br i1 %.not26.i317, label %do_confWithBit_teddy.exit318, label %777, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit318:                     ; preds = %877
   %878 = icmp eq i64 %.70, 0
@@ -29950,7 +29950,7 @@ do_confWithBit_teddy.exit318:                     ; preds = %877
   %.1.i619 = phi i64 [ %920, %915 ], [ %.012.i6151195, %912 ]
   %922 = add nuw nsw i64 %.0.i6161196, 1
   %exitcond1315.not = icmp eq i64 %922, 8
-  br i1 %exitcond1315.not, label %lv_u64a_ce.exit620, label %912
+  br i1 %exitcond1315.not, label %lv_u64a_ce.exit620, label %912, !llvm.loop !8
 
 lv_u64a_ce.exit620:                               ; preds = %921
   %923 = ptrtoint ptr %904 to i64
@@ -30053,7 +30053,7 @@ getConfVal.exit368:                               ; preds = %906, %lv_u64a_ce.ex
   %984 = load i8, ptr %983, align 2
   %985 = getelementptr inbounds nuw i8, ptr %.044.i462, i64 32
   %.not50.i464 = icmp eq i8 %984, 0
-  br i1 %.not50.i464, label %986, label %951
+  br i1 %.not50.i464, label %986, label %951, !llvm.loop !10
 
 986:                                              ; preds = %982
   store ptr null, ptr %949, align 16
@@ -30069,7 +30069,7 @@ confWithBit.exit467:                              ; preds = %getConfVal.exit368,
   %.671048 = phi i32 [ %.661047, %887 ], [ %.661047, %897 ], [ %.1001081, %confWithBit.exit467 ]
   %.68 = phi i64 [ %.67, %887 ], [ %.67, %897 ], [ %.137, %confWithBit.exit467 ]
   %.not26.i313 = icmp eq i64 %890, 0
-  br i1 %.not26.i313, label %do_confWithBit_teddy.exit314, label %887, !prof !5
+  br i1 %.not26.i313, label %do_confWithBit_teddy.exit314, label %887, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit314:                     ; preds = %987
   %988 = icmp eq i64 %.68, 0
@@ -30157,7 +30157,7 @@ do_confWithBit_teddy.exit314:                     ; preds = %987
   %.1.i613 = phi i64 [ %1030, %1025 ], [ %.012.i6091199, %1022 ]
   %1032 = add nuw nsw i64 %.0.i6101200, 1
   %exitcond1316.not = icmp eq i64 %1032, 8
-  br i1 %exitcond1316.not, label %lv_u64a_ce.exit614, label %1022
+  br i1 %exitcond1316.not, label %lv_u64a_ce.exit614, label %1022, !llvm.loop !8
 
 lv_u64a_ce.exit614:                               ; preds = %1031
   %1033 = ptrtoint ptr %1014 to i64
@@ -30260,7 +30260,7 @@ getConfVal.exit372:                               ; preds = %1016, %lv_u64a_ce.e
   %1094 = load i8, ptr %1093, align 2
   %1095 = getelementptr inbounds nuw i8, ptr %.044.i469, i64 32
   %.not50.i471 = icmp eq i8 %1094, 0
-  br i1 %.not50.i471, label %1096, label %1061
+  br i1 %.not50.i471, label %1096, label %1061, !llvm.loop !10
 
 1096:                                             ; preds = %1092
   store ptr null, ptr %1059, align 16
@@ -30276,7 +30276,7 @@ confWithBit.exit474:                              ; preds = %getConfVal.exit372,
   %.651046 = phi i32 [ %.641045, %997 ], [ %.641045, %1007 ], [ %.1031084, %confWithBit.exit474 ]
   %.66 = phi i64 [ %.65, %997 ], [ %.65, %1007 ], [ %.140, %confWithBit.exit474 ]
   %.not26.i309 = icmp eq i64 %1000, 0
-  br i1 %.not26.i309, label %do_confWithBit_teddy.exit310, label %997, !prof !5
+  br i1 %.not26.i309, label %do_confWithBit_teddy.exit310, label %997, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit310:                     ; preds = %1097
   %1098 = icmp eq i64 %.66, 0
@@ -30407,7 +30407,7 @@ do_confWithBit_teddy.exit310:                     ; preds = %1097
   %or.cond.i = select i1 %.not383.i, i1 %.not384.i, i1 false
   %.not385.i = icmp eq i64 %1177, %1140
   %or.cond422.i = select i1 %or.cond.i, i1 %.not385.i, i1 false
-  br i1 %or.cond422.i, label %1165, label %.thread1135.preheader
+  br i1 %or.cond422.i, label %1165, label %.thread1135.preheader, !llvm.loop !13
 
 .thread1135.preheader:                            ; preds = %1174, %1169, %1165
   br label %.thread1135
@@ -30424,7 +30424,7 @@ do_confWithBit_teddy.exit310:                     ; preds = %1097
   %1185 = getelementptr inbounds nuw i8, ptr %1114, i64 %1183
   %1186 = load i64, ptr %1185, align 8
   %.not386.i = icmp eq i64 %1186, %1140
-  br i1 %.not386.i, label %.thread1135, label %split
+  br i1 %.not386.i, label %.thread1135, label %split, !llvm.loop !14
 
 split:                                            ; preds = %1184, %.thread1135
   %1187 = icmp ugt i64 %1118, %1183
@@ -30442,7 +30442,7 @@ split:                                            ; preds = %1184, %.thread1135
   %1192 = add i32 %.3.i1203, 1
   %1193 = zext i32 %1192 to i64
   %1194 = icmp ugt i64 %1118, %1193
-  br i1 %1194, label %.lr.ph1205, label %._crit_edge1206
+  br i1 %1194, label %.lr.ph1205, label %._crit_edge1206, !llvm.loop !15
 
 ._crit_edge1206:                                  ; preds = %1191, %.lr.ph1205, %split
   %.3.i.lcssa = phi i32 [ %.2.i, %split ], [ %.3.i1203, %.lr.ph1205 ], [ %1192, %1191 ]
@@ -30581,7 +30581,7 @@ split:                                            ; preds = %1184, %.thread1135
   %.102 = phi i64 [ %1258, %1254 ], [ %1264, %1260 ], [ %1252, %1248 ], [ %1246, %1242 ], [ %.981221, %1239 ]
   %indvars.iv.next1322 = add nuw nsw i64 %indvars.iv1321, 4
   %1265 = icmp samesign ult i64 %indvars.iv.next1322, %1225
-  br i1 %1265, label %1236, label %.critedge.i
+  br i1 %1265, label %1236, label %.critedge.i, !llvm.loop !16
 
 1266:                                             ; preds = %.lr.ph1217, %1339
   %indvars.iv1318 = phi i64 [ 0, %.lr.ph1217 ], [ %indvars.iv.next1319, %1339 ]
@@ -30712,7 +30712,7 @@ split:                                            ; preds = %1184, %.thread1135
   %.97 = phi i64 [ %.96, %1330 ], [ %1338, %1333 ]
   %indvars.iv.next1319 = add nuw nsw i64 %indvars.iv1318, 4
   %1340 = icmp samesign ult i64 %indvars.iv.next1319, %1219
-  br i1 %1340, label %1266, label %.critedge.i
+  br i1 %1340, label %1266, label %.critedge.i, !llvm.loop !17
 
 1341:                                             ; preds = %.lr.ph1211, %1395
   %indvars.iv = phi i64 [ 0, %.lr.ph1211 ], [ %indvars.iv.next, %1395 ]
@@ -30812,7 +30812,7 @@ split:                                            ; preds = %1184, %.thread1135
   %.88 = phi i64 [ %.87, %1386 ], [ %1394, %1389 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %1396 = icmp samesign ult i64 %indvars.iv.next, %1211
-  br i1 %1396, label %1341, label %.critedge.i
+  br i1 %1396, label %1341, label %.critedge.i, !llvm.loop !18
 
 1397:                                             ; preds = %.lr.ph1241, %._crit_edge1237
   %indvars.iv1330 = phi i64 [ 0, %.lr.ph1241 ], [ %indvars.iv.next1331, %._crit_edge1237 ]
@@ -30918,7 +30918,7 @@ split:                                            ; preds = %1184, %.thread1135
   %indvars.iv.next1325 = add nuw nsw i64 %indvars.iv1324, 1
   %1450 = zext i16 %1449 to i64
   %1451 = icmp samesign ult i64 %indvars.iv.next1325, %1450
-  br i1 %1451, label %1439, label %._crit_edge1231
+  br i1 %1451, label %1439, label %._crit_edge1231, !llvm.loop !19
 
 1452:                                             ; preds = %._crit_edge1231
   %1453 = trunc nuw i64 %indvars.iv1330 to i32
@@ -30989,7 +30989,7 @@ split:                                            ; preds = %1184, %.thread1135
   %.113.lcssa = phi i64 [ %.112, %1485 ], [ %.114, %1501 ]
   %indvars.iv.next1331 = add nuw nsw i64 %indvars.iv1330, 2
   %1491 = icmp samesign ult i64 %indvars.iv.next1331, %1235
-  br i1 %1491, label %1397, label %.critedge.i
+  br i1 %1491, label %1397, label %.critedge.i, !llvm.loop !20
 
 1492:                                             ; preds = %.lr.ph1236, %1501
   %1493 = phi i16 [ %1486, %.lr.ph1236 ], [ %1502, %1501 ]
@@ -31014,7 +31014,7 @@ split:                                            ; preds = %1184, %.thread1135
   %indvars.iv.next1328 = add nuw nsw i64 %indvars.iv1327, 1
   %1503 = zext i16 %1502 to i64
   %1504 = icmp samesign ult i64 %indvars.iv.next1328, %1503
-  br i1 %1504, label %1492, label %._crit_edge1237
+  br i1 %1504, label %1492, label %._crit_edge1237, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %1395, %1341, %1339, %1266, %.thread1386, %1236, %._crit_edge1237, %1397, %.preheader1164, %.preheader1162, %.preheader1160, %.preheader, %1200, %1196
   %.82 = phi i64 [ %.121265, %1196 ], [ %.121265, %1200 ], [ %.121265, %.preheader ], [ %.121265, %.preheader1160 ], [ %.121265, %.preheader1162 ], [ %.121265, %.preheader1164 ], [ %.113.lcssa, %._crit_edge1237 ], [ %.1031239, %1397 ], [ %.102, %.thread1386 ], [ %.981221, %1236 ], [ %.97, %1339 ], [ %.891215, %1266 ], [ %.88, %1395 ], [ %.811209, %1341 ]
@@ -31221,7 +31221,7 @@ floodDetect.exit:                                 ; preds = %1150, %1157, %.crit
   %1637 = load i8, ptr %1636, align 2
   %1638 = getelementptr inbounds nuw i8, ptr %.044.i476, i64 32
   %.not50.i478 = icmp eq i8 %1637, 0
-  br i1 %.not50.i478, label %1639, label %1604
+  br i1 %.not50.i478, label %1639, label %1604, !llvm.loop !10
 
 1639:                                             ; preds = %1635
   store ptr null, ptr %1602, align 16
@@ -31237,7 +31237,7 @@ confWithBit.exit481:                              ; preds = %1577, %1639
   %.631044 = phi i32 [ %.621043, %1563 ], [ %.621043, %1571 ], [ %.1061087, %confWithBit.exit481 ]
   %.64 = phi i64 [ %.63, %1563 ], [ %.63, %1571 ], [ %.143, %confWithBit.exit481 ]
   %.not26.i305 = icmp eq i64 %1566, 0
-  br i1 %.not26.i305, label %do_confWithBit_teddy.exit306, label %1563, !prof !5
+  br i1 %.not26.i305, label %do_confWithBit_teddy.exit306, label %1563, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit306:                     ; preds = %1640
   %1641 = icmp eq i64 %.64, 0
@@ -31375,7 +31375,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1640
   %1722 = load i8, ptr %1721, align 2
   %1723 = getelementptr inbounds nuw i8, ptr %.044.i483, i64 32
   %.not50.i485 = icmp eq i8 %1722, 0
-  br i1 %.not50.i485, label %1724, label %1689
+  br i1 %.not50.i485, label %1724, label %1689, !llvm.loop !10
 
 1724:                                             ; preds = %1720
   store ptr null, ptr %1687, align 16
@@ -31391,7 +31391,7 @@ confWithBit.exit488:                              ; preds = %1662, %1724
   %.611042 = phi i32 [ %.601041, %1646 ], [ %.601041, %1656 ], [ %.1091090, %confWithBit.exit488 ]
   %.62 = phi i64 [ %.61, %1646 ], [ %.61, %1656 ], [ %.146, %confWithBit.exit488 ]
   %.not26.i301 = icmp eq i64 %1649, 0
-  br i1 %.not26.i301, label %do_confWithBit_teddy.exit302, label %1646, !prof !5
+  br i1 %.not26.i301, label %do_confWithBit_teddy.exit302, label %1646, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit302:                     ; preds = %1725
   %1726 = icmp eq i64 %.62, 0
@@ -31529,7 +31529,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1725
   %1807 = load i8, ptr %1806, align 2
   %1808 = getelementptr inbounds nuw i8, ptr %.044.i490, i64 32
   %.not50.i492 = icmp eq i8 %1807, 0
-  br i1 %.not50.i492, label %1809, label %1774
+  br i1 %.not50.i492, label %1809, label %1774, !llvm.loop !10
 
 1809:                                             ; preds = %1805
   store ptr null, ptr %1772, align 16
@@ -31545,7 +31545,7 @@ confWithBit.exit495:                              ; preds = %1747, %1809
   %.591040 = phi i32 [ %.581039, %1731 ], [ %.581039, %1741 ], [ %.1121093, %confWithBit.exit495 ]
   %.60 = phi i64 [ %.59, %1731 ], [ %.59, %1741 ], [ %.149, %confWithBit.exit495 ]
   %.not26.i297 = icmp eq i64 %1734, 0
-  br i1 %.not26.i297, label %do_confWithBit_teddy.exit298, label %1731, !prof !5
+  br i1 %.not26.i297, label %do_confWithBit_teddy.exit298, label %1731, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit298:                     ; preds = %1810
   %1811 = icmp eq i64 %.60, 0
@@ -31683,7 +31683,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1810
   %1892 = load i8, ptr %1891, align 2
   %1893 = getelementptr inbounds nuw i8, ptr %.044.i497, i64 32
   %.not50.i499 = icmp eq i8 %1892, 0
-  br i1 %.not50.i499, label %1894, label %1859
+  br i1 %.not50.i499, label %1894, label %1859, !llvm.loop !10
 
 1894:                                             ; preds = %1890
   store ptr null, ptr %1857, align 16
@@ -31699,7 +31699,7 @@ confWithBit.exit502:                              ; preds = %1832, %1894
   %.571038 = phi i32 [ %.561037, %1816 ], [ %.561037, %1826 ], [ %.1151096, %confWithBit.exit502 ]
   %.58 = phi i64 [ %.57, %1816 ], [ %.57, %1826 ], [ %.152, %confWithBit.exit502 ]
   %.not26.i293 = icmp eq i64 %1819, 0
-  br i1 %.not26.i293, label %do_confWithBit_teddy.exit294, label %1816, !prof !5
+  br i1 %.not26.i293, label %do_confWithBit_teddy.exit294, label %1816, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit294:                     ; preds = %1895
   %1896 = icmp eq i64 %.58, 0
@@ -31883,7 +31883,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1895
   %2017 = load i8, ptr %2016, align 2
   %2018 = getelementptr inbounds nuw i8, ptr %.044.i504, i64 32
   %.not50.i506 = icmp eq i8 %2017, 0
-  br i1 %.not50.i506, label %2019, label %1984
+  br i1 %.not50.i506, label %2019, label %1984, !llvm.loop !10
 
 2019:                                             ; preds = %2015
   store ptr null, ptr %1982, align 16
@@ -31899,7 +31899,7 @@ confWithBit.exit509:                              ; preds = %1957, %2019
   %.551036 = phi i32 [ %.541035, %1941 ], [ %.541035, %1951 ], [ %.1181099, %confWithBit.exit509 ]
   %.56 = phi i64 [ %.55, %1941 ], [ %.55, %1951 ], [ %.155, %confWithBit.exit509 ]
   %.not26.i289 = icmp eq i64 %1944, 0
-  br i1 %.not26.i289, label %do_confWithBit_teddy.exit290, label %1941, !prof !5
+  br i1 %.not26.i289, label %do_confWithBit_teddy.exit290, label %1941, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit290:                     ; preds = %2020
   %2021 = icmp eq i64 %.56, 0
@@ -32037,7 +32037,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2020
   %2102 = load i8, ptr %2101, align 2
   %2103 = getelementptr inbounds nuw i8, ptr %.044.i511, i64 32
   %.not50.i513 = icmp eq i8 %2102, 0
-  br i1 %.not50.i513, label %2104, label %2069
+  br i1 %.not50.i513, label %2104, label %2069, !llvm.loop !10
 
 2104:                                             ; preds = %2100
   store ptr null, ptr %2067, align 16
@@ -32053,7 +32053,7 @@ confWithBit.exit516:                              ; preds = %2042, %2104
   %.531034 = phi i32 [ %.521033, %2026 ], [ %.521033, %2036 ], [ %.1211102, %confWithBit.exit516 ]
   %.54 = phi i64 [ %.53, %2026 ], [ %.53, %2036 ], [ %.158, %confWithBit.exit516 ]
   %.not26.i285 = icmp eq i64 %2029, 0
-  br i1 %.not26.i285, label %do_confWithBit_teddy.exit286, label %2026, !prof !5
+  br i1 %.not26.i285, label %do_confWithBit_teddy.exit286, label %2026, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit286:                     ; preds = %2105
   %2106 = icmp eq i64 %.54, 0
@@ -32191,7 +32191,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2105
   %2187 = load i8, ptr %2186, align 2
   %2188 = getelementptr inbounds nuw i8, ptr %.044.i518, i64 32
   %.not50.i520 = icmp eq i8 %2187, 0
-  br i1 %.not50.i520, label %2189, label %2154
+  br i1 %.not50.i520, label %2189, label %2154, !llvm.loop !10
 
 2189:                                             ; preds = %2185
   store ptr null, ptr %2152, align 16
@@ -32207,7 +32207,7 @@ confWithBit.exit523:                              ; preds = %2127, %2189
   %.511032 = phi i32 [ %.501031, %2111 ], [ %.501031, %2121 ], [ %.1241105, %confWithBit.exit523 ]
   %.52 = phi i64 [ %.51, %2111 ], [ %.51, %2121 ], [ %.161, %confWithBit.exit523 ]
   %.not26.i281 = icmp eq i64 %2114, 0
-  br i1 %.not26.i281, label %do_confWithBit_teddy.exit282, label %2111, !prof !5
+  br i1 %.not26.i281, label %do_confWithBit_teddy.exit282, label %2111, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit282:                     ; preds = %2190
   %2191 = icmp eq i64 %.52, 0
@@ -32345,7 +32345,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2190
   %2272 = load i8, ptr %2271, align 2
   %2273 = getelementptr inbounds nuw i8, ptr %.044.i525, i64 32
   %.not50.i527 = icmp eq i8 %2272, 0
-  br i1 %.not50.i527, label %2274, label %2239
+  br i1 %.not50.i527, label %2274, label %2239, !llvm.loop !10
 
 2274:                                             ; preds = %2270
   store ptr null, ptr %2237, align 16
@@ -32361,7 +32361,7 @@ confWithBit.exit530:                              ; preds = %2212, %2274
   %.491030 = phi i32 [ %.481029, %2196 ], [ %.481029, %2206 ], [ %.1271108, %confWithBit.exit530 ]
   %.50 = phi i64 [ %.49, %2196 ], [ %.49, %2206 ], [ %.164, %confWithBit.exit530 ]
   %.not26.i277 = icmp eq i64 %2199, 0
-  br i1 %.not26.i277, label %do_confWithBit_teddy.exit278, label %2196, !prof !5
+  br i1 %.not26.i277, label %do_confWithBit_teddy.exit278, label %2196, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit278:                     ; preds = %2275
   %2276 = icmp eq i64 %.50, 0
@@ -32373,7 +32373,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2275
   %2277 = getelementptr inbounds nuw i8, ptr %.3976, i64 64
   %2278 = getelementptr inbounds nuw i8, ptr %.3976, i64 128
   %.not201 = icmp ugt ptr %2278, %33
-  br i1 %.not201, label %._crit_edge1269, label %1110
+  br i1 %.not201, label %._crit_edge1269, label %1110, !llvm.loop !27
 
 ._crit_edge1269:                                  ; preds = %.critedge232, %.critedge228
   %.12993.lcssa = phi i32 [ %.6987, %.critedge228 ], [ %.221003, %.critedge232 ]
@@ -32563,7 +32563,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2275
   %2405 = load i8, ptr %2404, align 2
   %2406 = getelementptr inbounds nuw i8, ptr %.044.i532, i64 32
   %.not50.i534 = icmp eq i8 %2405, 0
-  br i1 %.not50.i534, label %2407, label %2372
+  br i1 %.not50.i534, label %2407, label %2372, !llvm.loop !10
 
 2407:                                             ; preds = %2403
   store ptr null, ptr %2370, align 16
@@ -32579,7 +32579,7 @@ confWithBit.exit537:                              ; preds = %2345, %2407
   %.471028 = phi i32 [ %.461027, %2331 ], [ %.461027, %2339 ], [ %.1301111, %confWithBit.exit537 ]
   %.48 = phi i64 [ %.47, %2331 ], [ %.47, %2339 ], [ %.167, %confWithBit.exit537 ]
   %.not26.i273 = icmp eq i64 %2334, 0
-  br i1 %.not26.i273, label %do_confWithBit_teddy.exit274, label %2331, !prof !5
+  br i1 %.not26.i273, label %do_confWithBit_teddy.exit274, label %2331, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit274:                     ; preds = %2408
   %2409 = icmp eq i64 %.48, 0
@@ -32720,7 +32720,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2408
   %2493 = load i8, ptr %2492, align 2
   %2494 = getelementptr inbounds nuw i8, ptr %.044.i539, i64 32
   %.not50.i541 = icmp eq i8 %2493, 0
-  br i1 %.not50.i541, label %2495, label %2460
+  br i1 %.not50.i541, label %2495, label %2460, !llvm.loop !10
 
 2495:                                             ; preds = %2491
   store ptr null, ptr %2458, align 16
@@ -32736,7 +32736,7 @@ confWithBit.exit544:                              ; preds = %2433, %2495
   %.451026 = phi i32 [ %.441025, %2417 ], [ %.441025, %2427 ], [ %.1331114, %confWithBit.exit544 ]
   %.46 = phi i64 [ %.45, %2417 ], [ %.45, %2427 ], [ %.170, %confWithBit.exit544 ]
   %.not26.i269 = icmp eq i64 %2420, 0
-  br i1 %.not26.i269, label %do_confWithBit_teddy.exit270, label %2417, !prof !5
+  br i1 %.not26.i269, label %do_confWithBit_teddy.exit270, label %2417, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit270:                     ; preds = %2496
   %2497 = icmp eq i64 %.46, 0
@@ -32877,7 +32877,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2496
   %2581 = load i8, ptr %2580, align 2
   %2582 = getelementptr inbounds nuw i8, ptr %.044.i546, i64 32
   %.not50.i548 = icmp eq i8 %2581, 0
-  br i1 %.not50.i548, label %2583, label %2548
+  br i1 %.not50.i548, label %2583, label %2548, !llvm.loop !10
 
 2583:                                             ; preds = %2579
   store ptr null, ptr %2546, align 16
@@ -32893,7 +32893,7 @@ confWithBit.exit551:                              ; preds = %2521, %2583
   %.431024 = phi i32 [ %.421023, %2505 ], [ %.421023, %2515 ], [ %.1361117, %confWithBit.exit551 ]
   %.44 = phi i64 [ %.43, %2505 ], [ %.43, %2515 ], [ %.173, %confWithBit.exit551 ]
   %.not26.i265 = icmp eq i64 %2508, 0
-  br i1 %.not26.i265, label %do_confWithBit_teddy.exit266, label %2505, !prof !5
+  br i1 %.not26.i265, label %do_confWithBit_teddy.exit266, label %2505, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit266:                     ; preds = %2584
   %2585 = icmp eq i64 %.44, 0
@@ -33034,7 +33034,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2584
   %2669 = load i8, ptr %2668, align 2
   %2670 = getelementptr inbounds nuw i8, ptr %.044.i553, i64 32
   %.not50.i555 = icmp eq i8 %2669, 0
-  br i1 %.not50.i555, label %2671, label %2636
+  br i1 %.not50.i555, label %2671, label %2636, !llvm.loop !10
 
 2671:                                             ; preds = %2667
   store ptr null, ptr %2634, align 16
@@ -33050,7 +33050,7 @@ confWithBit.exit558:                              ; preds = %2609, %2671
   %.411022 = phi i32 [ %.401021, %2593 ], [ %.401021, %2603 ], [ %.1391120, %confWithBit.exit558 ]
   %.42 = phi i64 [ %.41, %2593 ], [ %.41, %2603 ], [ %.176, %confWithBit.exit558 ]
   %.not26.i261 = icmp eq i64 %2596, 0
-  br i1 %.not26.i261, label %do_confWithBit_teddy.exit262, label %2593, !prof !5
+  br i1 %.not26.i261, label %do_confWithBit_teddy.exit262, label %2593, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit262:                     ; preds = %2672
   %2673 = icmp eq i64 %.42, 0
@@ -33284,7 +33284,7 @@ vectoredLoad256.exit:                             ; preds = %2715, %2713, %2706,
   %.1.i607 = phi i64 [ %2792, %2787 ], [ %.012.i6031282, %2784 ]
   %2794 = add nuw nsw i64 %.0.i6041283, 1
   %exitcond1333.not = icmp eq i64 %2794, 8
-  br i1 %exitcond1333.not, label %lv_u64a_ce.exit608, label %2784
+  br i1 %exitcond1333.not, label %lv_u64a_ce.exit608, label %2784, !llvm.loop !8
 
 lv_u64a_ce.exit608:                               ; preds = %2793
   %2795 = ptrtoint ptr %2776 to i64
@@ -33387,7 +33387,7 @@ getConfVal.exit412:                               ; preds = %2778, %lv_u64a_ce.e
   %2856 = load i8, ptr %2855, align 2
   %2857 = getelementptr inbounds nuw i8, ptr %.044.i560, i64 32
   %.not50.i562 = icmp eq i8 %2856, 0
-  br i1 %.not50.i562, label %2858, label %2823
+  br i1 %.not50.i562, label %2858, label %2823, !llvm.loop !10
 
 2858:                                             ; preds = %2854
   store ptr null, ptr %2821, align 16
@@ -33403,7 +33403,7 @@ confWithBit.exit565:                              ; preds = %getConfVal.exit412,
   %.391020 = phi i32 [ %.381019, %2761 ], [ %.381019, %2769 ], [ %.1421123, %confWithBit.exit565 ]
   %.40 = phi i64 [ %.39, %2761 ], [ %.39, %2769 ], [ %.179, %confWithBit.exit565 ]
   %.not26.i257 = icmp eq i64 %2764, 0
-  br i1 %.not26.i257, label %do_confWithBit_teddy.exit258, label %2761, !prof !5
+  br i1 %.not26.i257, label %do_confWithBit_teddy.exit258, label %2761, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit258:                     ; preds = %2859
   %2860 = icmp eq i64 %.40, 0
@@ -33489,7 +33489,7 @@ do_confWithBit_teddy.exit258:                     ; preds = %2859
   %.1.i601 = phi i64 [ %2900, %2895 ], [ %.012.i5971286, %2892 ]
   %2902 = add nuw nsw i64 %.0.i5981287, 1
   %exitcond1334.not = icmp eq i64 %2902, 8
-  br i1 %exitcond1334.not, label %lv_u64a_ce.exit602, label %2892
+  br i1 %exitcond1334.not, label %lv_u64a_ce.exit602, label %2892, !llvm.loop !8
 
 lv_u64a_ce.exit602:                               ; preds = %2901
   %2903 = ptrtoint ptr %2884 to i64
@@ -33592,7 +33592,7 @@ getConfVal.exit416:                               ; preds = %2886, %lv_u64a_ce.e
   %2964 = load i8, ptr %2963, align 2
   %2965 = getelementptr inbounds nuw i8, ptr %.044.i567, i64 32
   %.not50.i569 = icmp eq i8 %2964, 0
-  br i1 %.not50.i569, label %2966, label %2931
+  br i1 %.not50.i569, label %2966, label %2931, !llvm.loop !10
 
 2966:                                             ; preds = %2962
   store ptr null, ptr %2929, align 16
@@ -33608,7 +33608,7 @@ confWithBit.exit572:                              ; preds = %getConfVal.exit416,
   %.371018 = phi i32 [ %.361017, %2867 ], [ %.361017, %2877 ], [ %.1451126, %confWithBit.exit572 ]
   %.38 = phi i64 [ %.37, %2867 ], [ %.37, %2877 ], [ %.182, %confWithBit.exit572 ]
   %.not26.i253 = icmp eq i64 %2870, 0
-  br i1 %.not26.i253, label %do_confWithBit_teddy.exit254, label %2867, !prof !5
+  br i1 %.not26.i253, label %do_confWithBit_teddy.exit254, label %2867, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit254:                     ; preds = %2967
   %2968 = icmp eq i64 %.38, 0
@@ -33694,7 +33694,7 @@ do_confWithBit_teddy.exit254:                     ; preds = %2967
   %.1.i595 = phi i64 [ %3008, %3003 ], [ %.012.i5911290, %3000 ]
   %3010 = add nuw nsw i64 %.0.i5921291, 1
   %exitcond1335.not = icmp eq i64 %3010, 8
-  br i1 %exitcond1335.not, label %lv_u64a_ce.exit596, label %3000
+  br i1 %exitcond1335.not, label %lv_u64a_ce.exit596, label %3000, !llvm.loop !8
 
 lv_u64a_ce.exit596:                               ; preds = %3009
   %3011 = ptrtoint ptr %2992 to i64
@@ -33797,7 +33797,7 @@ getConfVal.exit420:                               ; preds = %2994, %lv_u64a_ce.e
   %3072 = load i8, ptr %3071, align 2
   %3073 = getelementptr inbounds nuw i8, ptr %.044.i574, i64 32
   %.not50.i576 = icmp eq i8 %3072, 0
-  br i1 %.not50.i576, label %3074, label %3039
+  br i1 %.not50.i576, label %3074, label %3039, !llvm.loop !10
 
 3074:                                             ; preds = %3070
   store ptr null, ptr %3037, align 16
@@ -33813,7 +33813,7 @@ confWithBit.exit579:                              ; preds = %getConfVal.exit420,
   %.351016 = phi i32 [ %.341015, %2975 ], [ %.341015, %2985 ], [ %.1481129, %confWithBit.exit579 ]
   %.36 = phi i64 [ %.35, %2975 ], [ %.35, %2985 ], [ %.185, %confWithBit.exit579 ]
   %.not26.i249 = icmp eq i64 %2978, 0
-  br i1 %.not26.i249, label %do_confWithBit_teddy.exit250, label %2975, !prof !5
+  br i1 %.not26.i249, label %do_confWithBit_teddy.exit250, label %2975, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit250:                     ; preds = %3075
   %3076 = icmp eq i64 %.36, 0
@@ -33899,7 +33899,7 @@ do_confWithBit_teddy.exit250:                     ; preds = %3075
   %.1.i590 = phi i64 [ %3116, %3111 ], [ %.012.i1294, %3108 ]
   %3118 = add nuw nsw i64 %.0.i5871295, 1
   %exitcond1336.not = icmp eq i64 %3118, 8
-  br i1 %exitcond1336.not, label %lv_u64a_ce.exit, label %3108
+  br i1 %exitcond1336.not, label %lv_u64a_ce.exit, label %3108, !llvm.loop !8
 
 lv_u64a_ce.exit:                                  ; preds = %3117
   %3119 = ptrtoint ptr %3100 to i64
@@ -34002,7 +34002,7 @@ getConfVal.exit424:                               ; preds = %3102, %lv_u64a_ce.e
   %3180 = load i8, ptr %3179, align 2
   %3181 = getelementptr inbounds nuw i8, ptr %.044.i581, i64 32
   %.not50.i583 = icmp eq i8 %3180, 0
-  br i1 %.not50.i583, label %3182, label %3147
+  br i1 %.not50.i583, label %3182, label %3147, !llvm.loop !10
 
 3182:                                             ; preds = %3178
   store ptr null, ptr %3145, align 16
@@ -34018,7 +34018,7 @@ confWithBit.exit586:                              ; preds = %getConfVal.exit424,
   %.331014 = phi i32 [ %.321013, %3083 ], [ %.321013, %3093 ], [ %.1511132, %confWithBit.exit586 ]
   %.34 = phi i64 [ %.33, %3083 ], [ %.33, %3093 ], [ %.188, %confWithBit.exit586 ]
   %.not26.i = icmp eq i64 %3086, 0
-  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3083, !prof !5
+  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3083, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit:                        ; preds = %3183
   %3184 = icmp eq i64 %.34, 0
@@ -34391,7 +34391,7 @@ vectoredLoad256.exit247:                          ; preds = %147, %145, %138, %1
   %.1.i657 = phi i64 [ %232, %227 ], [ %.012.i6531183, %224 ]
   %234 = add nuw nsw i64 %.0.i6541184, 1
   %exitcond.not = icmp eq i64 %234, 8
-  br i1 %exitcond.not, label %lv_u64a_ce.exit658, label %224
+  br i1 %exitcond.not, label %lv_u64a_ce.exit658, label %224, !llvm.loop !8
 
 lv_u64a_ce.exit658:                               ; preds = %233
   %235 = ptrtoint ptr %216 to i64
@@ -34494,7 +34494,7 @@ getConfVal.exit:                                  ; preds = %218, %lv_u64a_ce.ex
   %296 = load i8, ptr %295, align 2
   %297 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
   %.not50.i = icmp eq i8 %296, 0
-  br i1 %.not50.i, label %298, label %263
+  br i1 %.not50.i, label %298, label %263, !llvm.loop !10
 
 298:                                              ; preds = %294
   store ptr null, ptr %261, align 16
@@ -34510,7 +34510,7 @@ confWithBit.exit:                                 ; preds = %getConfVal.exit, %2
   %.791072 = phi i32 [ %.781071, %201 ], [ %.781071, %209 ], [ %.821075, %confWithBit.exit ]
   %.80 = phi i64 [ %.79, %201 ], [ %.79, %209 ], [ %.119, %confWithBit.exit ]
   %.not26.i339 = icmp eq i64 %204, 0
-  br i1 %.not26.i339, label %do_confWithBit_teddy.exit340, label %201, !prof !5
+  br i1 %.not26.i339, label %do_confWithBit_teddy.exit340, label %201, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit340:                     ; preds = %299
   %300 = icmp eq i64 %.80, 0
@@ -34597,7 +34597,7 @@ do_confWithBit_teddy.exit340:                     ; preds = %299
   %.1.i651 = phi i64 [ %341, %336 ], [ %.012.i6471187, %333 ]
   %343 = add nuw nsw i64 %.0.i6481188, 1
   %exitcond1322.not = icmp eq i64 %343, 8
-  br i1 %exitcond1322.not, label %lv_u64a_ce.exit652, label %333
+  br i1 %exitcond1322.not, label %lv_u64a_ce.exit652, label %333, !llvm.loop !8
 
 lv_u64a_ce.exit652:                               ; preds = %342
   %344 = ptrtoint ptr %325 to i64
@@ -34700,7 +34700,7 @@ getConfVal.exit350:                               ; preds = %327, %lv_u64a_ce.ex
   %405 = load i8, ptr %404, align 2
   %406 = getelementptr inbounds nuw i8, ptr %.044.i429, i64 32
   %.not50.i431 = icmp eq i8 %405, 0
-  br i1 %.not50.i431, label %407, label %372
+  br i1 %.not50.i431, label %407, label %372, !llvm.loop !10
 
 407:                                              ; preds = %403
   store ptr null, ptr %370, align 16
@@ -34716,7 +34716,7 @@ confWithBit.exit434:                              ; preds = %getConfVal.exit350,
   %.771070 = phi i32 [ %.761069, %308 ], [ %.761069, %318 ], [ %.851078, %confWithBit.exit434 ]
   %.78 = phi i64 [ %.77, %308 ], [ %.77, %318 ], [ %.122, %confWithBit.exit434 ]
   %.not26.i335 = icmp eq i64 %311, 0
-  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %308, !prof !5
+  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %308, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit336:                     ; preds = %408
   %409 = icmp eq i64 %.78, 0
@@ -34803,7 +34803,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %408
   %.1.i645 = phi i64 [ %450, %445 ], [ %.012.i6411191, %442 ]
   %452 = add nuw nsw i64 %.0.i6421192, 1
   %exitcond1323.not = icmp eq i64 %452, 8
-  br i1 %exitcond1323.not, label %lv_u64a_ce.exit646, label %442
+  br i1 %exitcond1323.not, label %lv_u64a_ce.exit646, label %442, !llvm.loop !8
 
 lv_u64a_ce.exit646:                               ; preds = %451
   %453 = ptrtoint ptr %434 to i64
@@ -34906,7 +34906,7 @@ getConfVal.exit354:                               ; preds = %436, %lv_u64a_ce.ex
   %514 = load i8, ptr %513, align 2
   %515 = getelementptr inbounds nuw i8, ptr %.044.i436, i64 32
   %.not50.i438 = icmp eq i8 %514, 0
-  br i1 %.not50.i438, label %516, label %481
+  br i1 %.not50.i438, label %516, label %481, !llvm.loop !10
 
 516:                                              ; preds = %512
   store ptr null, ptr %479, align 16
@@ -34922,7 +34922,7 @@ confWithBit.exit441:                              ; preds = %getConfVal.exit354,
   %.751068 = phi i32 [ %.741067, %417 ], [ %.741067, %427 ], [ %.881081, %confWithBit.exit441 ]
   %.76 = phi i64 [ %.75, %417 ], [ %.75, %427 ], [ %.125, %confWithBit.exit441 ]
   %.not26.i331 = icmp eq i64 %420, 0
-  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %417, !prof !5
+  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %417, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit332:                     ; preds = %517
   %518 = icmp eq i64 %.76, 0
@@ -35009,7 +35009,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %517
   %.1.i639 = phi i64 [ %559, %554 ], [ %.012.i6351195, %551 ]
   %561 = add nuw nsw i64 %.0.i6361196, 1
   %exitcond1324.not = icmp eq i64 %561, 8
-  br i1 %exitcond1324.not, label %lv_u64a_ce.exit640, label %551
+  br i1 %exitcond1324.not, label %lv_u64a_ce.exit640, label %551, !llvm.loop !8
 
 lv_u64a_ce.exit640:                               ; preds = %560
   %562 = ptrtoint ptr %543 to i64
@@ -35112,7 +35112,7 @@ getConfVal.exit358:                               ; preds = %545, %lv_u64a_ce.ex
   %623 = load i8, ptr %622, align 2
   %624 = getelementptr inbounds nuw i8, ptr %.044.i443, i64 32
   %.not50.i445 = icmp eq i8 %623, 0
-  br i1 %.not50.i445, label %625, label %590
+  br i1 %.not50.i445, label %625, label %590, !llvm.loop !10
 
 625:                                              ; preds = %621
   store ptr null, ptr %588, align 16
@@ -35128,7 +35128,7 @@ confWithBit.exit448:                              ; preds = %getConfVal.exit358,
   %.731066 = phi i32 [ %.721065, %526 ], [ %.721065, %536 ], [ %.911084, %confWithBit.exit448 ]
   %.74 = phi i64 [ %.73, %526 ], [ %.73, %536 ], [ %.128, %confWithBit.exit448 ]
   %.not26.i327 = icmp eq i64 %529, 0
-  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %526, !prof !5
+  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %526, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit328:                     ; preds = %626
   %627 = icmp eq i64 %.74, 0
@@ -35277,7 +35277,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %626
   %.1.i633 = phi i64 [ %720, %715 ], [ %.012.i6291199, %712 ]
   %722 = add nuw nsw i64 %.0.i6301200, 1
   %exitcond1325.not = icmp eq i64 %722, 8
-  br i1 %exitcond1325.not, label %lv_u64a_ce.exit634, label %712
+  br i1 %exitcond1325.not, label %lv_u64a_ce.exit634, label %712, !llvm.loop !8
 
 lv_u64a_ce.exit634:                               ; preds = %721
   %723 = ptrtoint ptr %704 to i64
@@ -35380,7 +35380,7 @@ getConfVal.exit362:                               ; preds = %706, %lv_u64a_ce.ex
   %784 = load i8, ptr %783, align 2
   %785 = getelementptr inbounds nuw i8, ptr %.044.i450, i64 32
   %.not50.i452 = icmp eq i8 %784, 0
-  br i1 %.not50.i452, label %786, label %751
+  br i1 %.not50.i452, label %786, label %751, !llvm.loop !10
 
 786:                                              ; preds = %782
   store ptr null, ptr %749, align 16
@@ -35396,7 +35396,7 @@ confWithBit.exit455:                              ; preds = %getConfVal.exit362,
   %.711064 = phi i32 [ %.701063, %689 ], [ %.701063, %697 ], [ %.941087, %confWithBit.exit455 ]
   %.72 = phi i64 [ %.71, %689 ], [ %.71, %697 ], [ %.131, %confWithBit.exit455 ]
   %.not26.i323 = icmp eq i64 %692, 0
-  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %689, !prof !5
+  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %689, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit324:                     ; preds = %787
   %788 = icmp eq i64 %.72, 0
@@ -35484,7 +35484,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %787
   %.1.i627 = phi i64 [ %830, %825 ], [ %.012.i6231203, %822 ]
   %832 = add nuw nsw i64 %.0.i6241204, 1
   %exitcond1326.not = icmp eq i64 %832, 8
-  br i1 %exitcond1326.not, label %lv_u64a_ce.exit628, label %822
+  br i1 %exitcond1326.not, label %lv_u64a_ce.exit628, label %822, !llvm.loop !8
 
 lv_u64a_ce.exit628:                               ; preds = %831
   %833 = ptrtoint ptr %814 to i64
@@ -35587,7 +35587,7 @@ getConfVal.exit366:                               ; preds = %816, %lv_u64a_ce.ex
   %894 = load i8, ptr %893, align 2
   %895 = getelementptr inbounds nuw i8, ptr %.044.i457, i64 32
   %.not50.i459 = icmp eq i8 %894, 0
-  br i1 %.not50.i459, label %896, label %861
+  br i1 %.not50.i459, label %896, label %861, !llvm.loop !10
 
 896:                                              ; preds = %892
   store ptr null, ptr %859, align 16
@@ -35603,7 +35603,7 @@ confWithBit.exit462:                              ; preds = %getConfVal.exit366,
   %.691062 = phi i32 [ %.681061, %797 ], [ %.681061, %807 ], [ %.971090, %confWithBit.exit462 ]
   %.70 = phi i64 [ %.69, %797 ], [ %.69, %807 ], [ %.134, %confWithBit.exit462 ]
   %.not26.i319 = icmp eq i64 %800, 0
-  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %797, !prof !5
+  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %797, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit320:                     ; preds = %897
   %898 = icmp eq i64 %.70, 0
@@ -35691,7 +35691,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %897
   %.1.i621 = phi i64 [ %940, %935 ], [ %.012.i6171207, %932 ]
   %942 = add nuw nsw i64 %.0.i6181208, 1
   %exitcond1327.not = icmp eq i64 %942, 8
-  br i1 %exitcond1327.not, label %lv_u64a_ce.exit622, label %932
+  br i1 %exitcond1327.not, label %lv_u64a_ce.exit622, label %932, !llvm.loop !8
 
 lv_u64a_ce.exit622:                               ; preds = %941
   %943 = ptrtoint ptr %924 to i64
@@ -35794,7 +35794,7 @@ getConfVal.exit370:                               ; preds = %926, %lv_u64a_ce.ex
   %1004 = load i8, ptr %1003, align 2
   %1005 = getelementptr inbounds nuw i8, ptr %.044.i464, i64 32
   %.not50.i466 = icmp eq i8 %1004, 0
-  br i1 %.not50.i466, label %1006, label %971
+  br i1 %.not50.i466, label %1006, label %971, !llvm.loop !10
 
 1006:                                             ; preds = %1002
   store ptr null, ptr %969, align 16
@@ -35810,7 +35810,7 @@ confWithBit.exit469:                              ; preds = %getConfVal.exit370,
   %.671060 = phi i32 [ %.661059, %907 ], [ %.661059, %917 ], [ %.1001093, %confWithBit.exit469 ]
   %.68 = phi i64 [ %.67, %907 ], [ %.67, %917 ], [ %.137, %confWithBit.exit469 ]
   %.not26.i315 = icmp eq i64 %910, 0
-  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %907, !prof !5
+  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %907, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit316:                     ; preds = %1007
   %1008 = icmp eq i64 %.68, 0
@@ -35898,7 +35898,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %1007
   %.1.i615 = phi i64 [ %1050, %1045 ], [ %.012.i6111211, %1042 ]
   %1052 = add nuw nsw i64 %.0.i6121212, 1
   %exitcond1328.not = icmp eq i64 %1052, 8
-  br i1 %exitcond1328.not, label %lv_u64a_ce.exit616, label %1042
+  br i1 %exitcond1328.not, label %lv_u64a_ce.exit616, label %1042, !llvm.loop !8
 
 lv_u64a_ce.exit616:                               ; preds = %1051
   %1053 = ptrtoint ptr %1034 to i64
@@ -36001,7 +36001,7 @@ getConfVal.exit374:                               ; preds = %1036, %lv_u64a_ce.e
   %1114 = load i8, ptr %1113, align 2
   %1115 = getelementptr inbounds nuw i8, ptr %.044.i471, i64 32
   %.not50.i473 = icmp eq i8 %1114, 0
-  br i1 %.not50.i473, label %1116, label %1081
+  br i1 %.not50.i473, label %1116, label %1081, !llvm.loop !10
 
 1116:                                             ; preds = %1112
   store ptr null, ptr %1079, align 16
@@ -36017,7 +36017,7 @@ confWithBit.exit476:                              ; preds = %getConfVal.exit374,
   %.651058 = phi i32 [ %.641057, %1017 ], [ %.641057, %1027 ], [ %.1031096, %confWithBit.exit476 ]
   %.66 = phi i64 [ %.65, %1017 ], [ %.65, %1027 ], [ %.140, %confWithBit.exit476 ]
   %.not26.i311 = icmp eq i64 %1020, 0
-  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %1017, !prof !5
+  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %1017, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit312:                     ; preds = %1117
   %1118 = icmp eq i64 %.66, 0
@@ -36150,7 +36150,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %1117
   %or.cond.i = select i1 %.not383.i, i1 %.not384.i, i1 false
   %.not385.i = icmp eq i64 %1199, %1162
   %or.cond422.i = select i1 %or.cond.i, i1 %.not385.i, i1 false
-  br i1 %or.cond422.i, label %1187, label %.thread1147.preheader
+  br i1 %or.cond422.i, label %1187, label %.thread1147.preheader, !llvm.loop !13
 
 .thread1147.preheader:                            ; preds = %1196, %1191, %1187
   br label %.thread1147
@@ -36167,7 +36167,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %1117
   %1207 = getelementptr inbounds nuw i8, ptr %1136, i64 %1205
   %1208 = load i64, ptr %1207, align 8
   %.not386.i = icmp eq i64 %1208, %1162
-  br i1 %.not386.i, label %.thread1147, label %split
+  br i1 %.not386.i, label %.thread1147, label %split, !llvm.loop !14
 
 split:                                            ; preds = %1206, %.thread1147
   %1209 = icmp ugt i64 %1140, %1205
@@ -36185,7 +36185,7 @@ split:                                            ; preds = %1206, %.thread1147
   %1214 = add i32 %.3.i1215, 1
   %1215 = zext i32 %1214 to i64
   %1216 = icmp ugt i64 %1140, %1215
-  br i1 %1216, label %.lr.ph1217, label %._crit_edge1218
+  br i1 %1216, label %.lr.ph1217, label %._crit_edge1218, !llvm.loop !15
 
 ._crit_edge1218:                                  ; preds = %1213, %.lr.ph1217, %split
   %.3.i.lcssa = phi i32 [ %.2.i, %split ], [ %.3.i1215, %.lr.ph1217 ], [ %1214, %1213 ]
@@ -36324,7 +36324,7 @@ split:                                            ; preds = %1206, %.thread1147
   %.102 = phi i64 [ %1280, %1276 ], [ %1286, %1282 ], [ %1274, %1270 ], [ %1268, %1264 ], [ %.981233, %1261 ]
   %indvars.iv.next1334 = add nuw nsw i64 %indvars.iv1333, 4
   %1287 = icmp samesign ult i64 %indvars.iv.next1334, %1247
-  br i1 %1287, label %1258, label %.critedge.i
+  br i1 %1287, label %1258, label %.critedge.i, !llvm.loop !16
 
 1288:                                             ; preds = %.lr.ph1229, %1361
   %indvars.iv1330 = phi i64 [ 0, %.lr.ph1229 ], [ %indvars.iv.next1331, %1361 ]
@@ -36455,7 +36455,7 @@ split:                                            ; preds = %1206, %.thread1147
   %.97 = phi i64 [ %.96, %1352 ], [ %1360, %1355 ]
   %indvars.iv.next1331 = add nuw nsw i64 %indvars.iv1330, 4
   %1362 = icmp samesign ult i64 %indvars.iv.next1331, %1241
-  br i1 %1362, label %1288, label %.critedge.i
+  br i1 %1362, label %1288, label %.critedge.i, !llvm.loop !17
 
 1363:                                             ; preds = %.lr.ph1223, %1417
   %indvars.iv = phi i64 [ 0, %.lr.ph1223 ], [ %indvars.iv.next, %1417 ]
@@ -36555,7 +36555,7 @@ split:                                            ; preds = %1206, %.thread1147
   %.88 = phi i64 [ %.87, %1408 ], [ %1416, %1411 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %1418 = icmp samesign ult i64 %indvars.iv.next, %1233
-  br i1 %1418, label %1363, label %.critedge.i
+  br i1 %1418, label %1363, label %.critedge.i, !llvm.loop !18
 
 1419:                                             ; preds = %.lr.ph1253, %._crit_edge1249
   %indvars.iv1342 = phi i64 [ 0, %.lr.ph1253 ], [ %indvars.iv.next1343, %._crit_edge1249 ]
@@ -36661,7 +36661,7 @@ split:                                            ; preds = %1206, %.thread1147
   %indvars.iv.next1337 = add nuw nsw i64 %indvars.iv1336, 1
   %1472 = zext i16 %1471 to i64
   %1473 = icmp samesign ult i64 %indvars.iv.next1337, %1472
-  br i1 %1473, label %1461, label %._crit_edge1243
+  br i1 %1473, label %1461, label %._crit_edge1243, !llvm.loop !19
 
 1474:                                             ; preds = %._crit_edge1243
   %1475 = trunc nuw i64 %indvars.iv1342 to i32
@@ -36732,7 +36732,7 @@ split:                                            ; preds = %1206, %.thread1147
   %.113.lcssa = phi i64 [ %.112, %1507 ], [ %.114, %1523 ]
   %indvars.iv.next1343 = add nuw nsw i64 %indvars.iv1342, 2
   %1513 = icmp samesign ult i64 %indvars.iv.next1343, %1257
-  br i1 %1513, label %1419, label %.critedge.i
+  br i1 %1513, label %1419, label %.critedge.i, !llvm.loop !20
 
 1514:                                             ; preds = %.lr.ph1248, %1523
   %1515 = phi i16 [ %1508, %.lr.ph1248 ], [ %1524, %1523 ]
@@ -36757,7 +36757,7 @@ split:                                            ; preds = %1206, %.thread1147
   %indvars.iv.next1340 = add nuw nsw i64 %indvars.iv1339, 1
   %1525 = zext i16 %1524 to i64
   %1526 = icmp samesign ult i64 %indvars.iv.next1340, %1525
-  br i1 %1526, label %1514, label %._crit_edge1249
+  br i1 %1526, label %1514, label %._crit_edge1249, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %1417, %1363, %1361, %1288, %.thread1398, %1258, %._crit_edge1249, %1419, %.preheader1176, %.preheader1174, %.preheader1172, %.preheader, %1222, %1218
   %.82 = phi i64 [ %.121277, %1218 ], [ %.121277, %1222 ], [ %.121277, %.preheader ], [ %.121277, %.preheader1172 ], [ %.121277, %.preheader1174 ], [ %.121277, %.preheader1176 ], [ %.113.lcssa, %._crit_edge1249 ], [ %.1031251, %1419 ], [ %.102, %.thread1398 ], [ %.981233, %1258 ], [ %.97, %1361 ], [ %.891227, %1288 ], [ %.88, %1417 ], [ %.811221, %1363 ]
@@ -36969,7 +36969,7 @@ floodDetect.exit:                                 ; preds = %1172, %1179, %.crit
   %1664 = load i8, ptr %1663, align 2
   %1665 = getelementptr inbounds nuw i8, ptr %.044.i478, i64 32
   %.not50.i480 = icmp eq i8 %1664, 0
-  br i1 %.not50.i480, label %1666, label %1631
+  br i1 %.not50.i480, label %1666, label %1631, !llvm.loop !10
 
 1666:                                             ; preds = %1662
   store ptr null, ptr %1629, align 16
@@ -36985,7 +36985,7 @@ confWithBit.exit483:                              ; preds = %1604, %1666
   %.631056 = phi i32 [ %.621055, %1590 ], [ %.621055, %1598 ], [ %.1061099, %confWithBit.exit483 ]
   %.64 = phi i64 [ %.63, %1590 ], [ %.63, %1598 ], [ %.143, %confWithBit.exit483 ]
   %.not26.i307 = icmp eq i64 %1593, 0
-  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %1590, !prof !5
+  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %1590, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit308:                     ; preds = %1667
   %1668 = icmp eq i64 %.64, 0
@@ -37123,7 +37123,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1667
   %1749 = load i8, ptr %1748, align 2
   %1750 = getelementptr inbounds nuw i8, ptr %.044.i485, i64 32
   %.not50.i487 = icmp eq i8 %1749, 0
-  br i1 %.not50.i487, label %1751, label %1716
+  br i1 %.not50.i487, label %1751, label %1716, !llvm.loop !10
 
 1751:                                             ; preds = %1747
   store ptr null, ptr %1714, align 16
@@ -37139,7 +37139,7 @@ confWithBit.exit490:                              ; preds = %1689, %1751
   %.611054 = phi i32 [ %.601053, %1673 ], [ %.601053, %1683 ], [ %.1091102, %confWithBit.exit490 ]
   %.62 = phi i64 [ %.61, %1673 ], [ %.61, %1683 ], [ %.146, %confWithBit.exit490 ]
   %.not26.i303 = icmp eq i64 %1676, 0
-  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %1673, !prof !5
+  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %1673, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit304:                     ; preds = %1752
   %1753 = icmp eq i64 %.62, 0
@@ -37277,7 +37277,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1752
   %1834 = load i8, ptr %1833, align 2
   %1835 = getelementptr inbounds nuw i8, ptr %.044.i492, i64 32
   %.not50.i494 = icmp eq i8 %1834, 0
-  br i1 %.not50.i494, label %1836, label %1801
+  br i1 %.not50.i494, label %1836, label %1801, !llvm.loop !10
 
 1836:                                             ; preds = %1832
   store ptr null, ptr %1799, align 16
@@ -37293,7 +37293,7 @@ confWithBit.exit497:                              ; preds = %1774, %1836
   %.591052 = phi i32 [ %.581051, %1758 ], [ %.581051, %1768 ], [ %.1121105, %confWithBit.exit497 ]
   %.60 = phi i64 [ %.59, %1758 ], [ %.59, %1768 ], [ %.149, %confWithBit.exit497 ]
   %.not26.i299 = icmp eq i64 %1761, 0
-  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1758, !prof !5
+  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1758, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit300:                     ; preds = %1837
   %1838 = icmp eq i64 %.60, 0
@@ -37431,7 +37431,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1837
   %1919 = load i8, ptr %1918, align 2
   %1920 = getelementptr inbounds nuw i8, ptr %.044.i499, i64 32
   %.not50.i501 = icmp eq i8 %1919, 0
-  br i1 %.not50.i501, label %1921, label %1886
+  br i1 %.not50.i501, label %1921, label %1886, !llvm.loop !10
 
 1921:                                             ; preds = %1917
   store ptr null, ptr %1884, align 16
@@ -37447,7 +37447,7 @@ confWithBit.exit504:                              ; preds = %1859, %1921
   %.571050 = phi i32 [ %.561049, %1843 ], [ %.561049, %1853 ], [ %.1151108, %confWithBit.exit504 ]
   %.58 = phi i64 [ %.57, %1843 ], [ %.57, %1853 ], [ %.152, %confWithBit.exit504 ]
   %.not26.i295 = icmp eq i64 %1846, 0
-  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1843, !prof !5
+  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1843, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit296:                     ; preds = %1922
   %1923 = icmp eq i64 %.58, 0
@@ -37636,7 +37636,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1922
   %2049 = load i8, ptr %2048, align 2
   %2050 = getelementptr inbounds nuw i8, ptr %.044.i506, i64 32
   %.not50.i508 = icmp eq i8 %2049, 0
-  br i1 %.not50.i508, label %2051, label %2016
+  br i1 %.not50.i508, label %2051, label %2016, !llvm.loop !10
 
 2051:                                             ; preds = %2047
   store ptr null, ptr %2014, align 16
@@ -37652,7 +37652,7 @@ confWithBit.exit511:                              ; preds = %1989, %2051
   %.551048 = phi i32 [ %.541047, %1973 ], [ %.541047, %1983 ], [ %.1181111, %confWithBit.exit511 ]
   %.56 = phi i64 [ %.55, %1973 ], [ %.55, %1983 ], [ %.155, %confWithBit.exit511 ]
   %.not26.i291 = icmp eq i64 %1976, 0
-  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1973, !prof !5
+  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1973, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit292:                     ; preds = %2052
   %2053 = icmp eq i64 %.56, 0
@@ -37790,7 +37790,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2052
   %2134 = load i8, ptr %2133, align 2
   %2135 = getelementptr inbounds nuw i8, ptr %.044.i513, i64 32
   %.not50.i515 = icmp eq i8 %2134, 0
-  br i1 %.not50.i515, label %2136, label %2101
+  br i1 %.not50.i515, label %2136, label %2101, !llvm.loop !10
 
 2136:                                             ; preds = %2132
   store ptr null, ptr %2099, align 16
@@ -37806,7 +37806,7 @@ confWithBit.exit518:                              ; preds = %2074, %2136
   %.531046 = phi i32 [ %.521045, %2058 ], [ %.521045, %2068 ], [ %.1211114, %confWithBit.exit518 ]
   %.54 = phi i64 [ %.53, %2058 ], [ %.53, %2068 ], [ %.158, %confWithBit.exit518 ]
   %.not26.i287 = icmp eq i64 %2061, 0
-  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %2058, !prof !5
+  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %2058, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit288:                     ; preds = %2137
   %2138 = icmp eq i64 %.54, 0
@@ -37944,7 +37944,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2137
   %2219 = load i8, ptr %2218, align 2
   %2220 = getelementptr inbounds nuw i8, ptr %.044.i520, i64 32
   %.not50.i522 = icmp eq i8 %2219, 0
-  br i1 %.not50.i522, label %2221, label %2186
+  br i1 %.not50.i522, label %2221, label %2186, !llvm.loop !10
 
 2221:                                             ; preds = %2217
   store ptr null, ptr %2184, align 16
@@ -37960,7 +37960,7 @@ confWithBit.exit525:                              ; preds = %2159, %2221
   %.511044 = phi i32 [ %.501043, %2143 ], [ %.501043, %2153 ], [ %.1241117, %confWithBit.exit525 ]
   %.52 = phi i64 [ %.51, %2143 ], [ %.51, %2153 ], [ %.161, %confWithBit.exit525 ]
   %.not26.i283 = icmp eq i64 %2146, 0
-  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %2143, !prof !5
+  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %2143, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit284:                     ; preds = %2222
   %2223 = icmp eq i64 %.52, 0
@@ -38098,7 +38098,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2222
   %2304 = load i8, ptr %2303, align 2
   %2305 = getelementptr inbounds nuw i8, ptr %.044.i527, i64 32
   %.not50.i529 = icmp eq i8 %2304, 0
-  br i1 %.not50.i529, label %2306, label %2271
+  br i1 %.not50.i529, label %2306, label %2271, !llvm.loop !10
 
 2306:                                             ; preds = %2302
   store ptr null, ptr %2269, align 16
@@ -38114,7 +38114,7 @@ confWithBit.exit532:                              ; preds = %2244, %2306
   %.491042 = phi i32 [ %.481041, %2228 ], [ %.481041, %2238 ], [ %.1271120, %confWithBit.exit532 ]
   %.50 = phi i64 [ %.49, %2228 ], [ %.49, %2238 ], [ %.164, %confWithBit.exit532 ]
   %.not26.i279 = icmp eq i64 %2231, 0
-  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %2228, !prof !5
+  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %2228, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit280:                     ; preds = %2307
   %2308 = icmp eq i64 %.50, 0
@@ -38126,7 +38126,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2307
   %2309 = getelementptr inbounds nuw i8, ptr %.3988, i64 64
   %2310 = getelementptr inbounds nuw i8, ptr %.3988, i64 128
   %.not203 = icmp ugt ptr %2310, %33
-  br i1 %.not203, label %._crit_edge1281, label %1132
+  br i1 %.not203, label %._crit_edge1281, label %1132, !llvm.loop !28
 
 ._crit_edge1281:                                  ; preds = %.critedge234, %.critedge230
   %.121005.lcssa = phi i32 [ %.6999, %.critedge230 ], [ %.221015, %.critedge234 ]
@@ -38323,7 +38323,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2307
   %2444 = load i8, ptr %2443, align 2
   %2445 = getelementptr inbounds nuw i8, ptr %.044.i534, i64 32
   %.not50.i536 = icmp eq i8 %2444, 0
-  br i1 %.not50.i536, label %2446, label %2411
+  br i1 %.not50.i536, label %2446, label %2411, !llvm.loop !10
 
 2446:                                             ; preds = %2442
   store ptr null, ptr %2409, align 16
@@ -38339,7 +38339,7 @@ confWithBit.exit539:                              ; preds = %2384, %2446
   %.471040 = phi i32 [ %.461039, %2370 ], [ %.461039, %2378 ], [ %.1301123, %confWithBit.exit539 ]
   %.48 = phi i64 [ %.47, %2370 ], [ %.47, %2378 ], [ %.167, %confWithBit.exit539 ]
   %.not26.i275 = icmp eq i64 %2373, 0
-  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %2370, !prof !5
+  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %2370, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit276:                     ; preds = %2447
   %2448 = icmp eq i64 %.48, 0
@@ -38480,7 +38480,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2447
   %2532 = load i8, ptr %2531, align 2
   %2533 = getelementptr inbounds nuw i8, ptr %.044.i541, i64 32
   %.not50.i543 = icmp eq i8 %2532, 0
-  br i1 %.not50.i543, label %2534, label %2499
+  br i1 %.not50.i543, label %2534, label %2499, !llvm.loop !10
 
 2534:                                             ; preds = %2530
   store ptr null, ptr %2497, align 16
@@ -38496,7 +38496,7 @@ confWithBit.exit546:                              ; preds = %2472, %2534
   %.451038 = phi i32 [ %.441037, %2456 ], [ %.441037, %2466 ], [ %.1331126, %confWithBit.exit546 ]
   %.46 = phi i64 [ %.45, %2456 ], [ %.45, %2466 ], [ %.170, %confWithBit.exit546 ]
   %.not26.i271 = icmp eq i64 %2459, 0
-  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %2456, !prof !5
+  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %2456, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit272:                     ; preds = %2535
   %2536 = icmp eq i64 %.46, 0
@@ -38637,7 +38637,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2535
   %2620 = load i8, ptr %2619, align 2
   %2621 = getelementptr inbounds nuw i8, ptr %.044.i548, i64 32
   %.not50.i550 = icmp eq i8 %2620, 0
-  br i1 %.not50.i550, label %2622, label %2587
+  br i1 %.not50.i550, label %2622, label %2587, !llvm.loop !10
 
 2622:                                             ; preds = %2618
   store ptr null, ptr %2585, align 16
@@ -38653,7 +38653,7 @@ confWithBit.exit553:                              ; preds = %2560, %2622
   %.431036 = phi i32 [ %.421035, %2544 ], [ %.421035, %2554 ], [ %.1361129, %confWithBit.exit553 ]
   %.44 = phi i64 [ %.43, %2544 ], [ %.43, %2554 ], [ %.173, %confWithBit.exit553 ]
   %.not26.i267 = icmp eq i64 %2547, 0
-  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %2544, !prof !5
+  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %2544, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit268:                     ; preds = %2623
   %2624 = icmp eq i64 %.44, 0
@@ -38794,7 +38794,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2623
   %2708 = load i8, ptr %2707, align 2
   %2709 = getelementptr inbounds nuw i8, ptr %.044.i555, i64 32
   %.not50.i557 = icmp eq i8 %2708, 0
-  br i1 %.not50.i557, label %2710, label %2675
+  br i1 %.not50.i557, label %2710, label %2675, !llvm.loop !10
 
 2710:                                             ; preds = %2706
   store ptr null, ptr %2673, align 16
@@ -38810,7 +38810,7 @@ confWithBit.exit560:                              ; preds = %2648, %2710
   %.411034 = phi i32 [ %.401033, %2632 ], [ %.401033, %2642 ], [ %.1391132, %confWithBit.exit560 ]
   %.42 = phi i64 [ %.41, %2632 ], [ %.41, %2642 ], [ %.176, %confWithBit.exit560 ]
   %.not26.i263 = icmp eq i64 %2635, 0
-  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %2632, !prof !5
+  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %2632, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit264:                     ; preds = %2711
   %2712 = icmp eq i64 %.42, 0
@@ -39051,7 +39051,7 @@ vectoredLoad256.exit:                             ; preds = %2754, %2752, %2745,
   %.1.i609 = phi i64 [ %2838, %2833 ], [ %.012.i6051294, %2830 ]
   %2840 = add nuw nsw i64 %.0.i6061295, 1
   %exitcond1345.not = icmp eq i64 %2840, 8
-  br i1 %exitcond1345.not, label %lv_u64a_ce.exit610, label %2830
+  br i1 %exitcond1345.not, label %lv_u64a_ce.exit610, label %2830, !llvm.loop !8
 
 lv_u64a_ce.exit610:                               ; preds = %2839
   %2841 = ptrtoint ptr %2822 to i64
@@ -39154,7 +39154,7 @@ getConfVal.exit414:                               ; preds = %2824, %lv_u64a_ce.e
   %2902 = load i8, ptr %2901, align 2
   %2903 = getelementptr inbounds nuw i8, ptr %.044.i562, i64 32
   %.not50.i564 = icmp eq i8 %2902, 0
-  br i1 %.not50.i564, label %2904, label %2869
+  br i1 %.not50.i564, label %2904, label %2869, !llvm.loop !10
 
 2904:                                             ; preds = %2900
   store ptr null, ptr %2867, align 16
@@ -39170,7 +39170,7 @@ confWithBit.exit567:                              ; preds = %getConfVal.exit414,
   %.391032 = phi i32 [ %.381031, %2807 ], [ %.381031, %2815 ], [ %.1421135, %confWithBit.exit567 ]
   %.40 = phi i64 [ %.39, %2807 ], [ %.39, %2815 ], [ %.179, %confWithBit.exit567 ]
   %.not26.i259 = icmp eq i64 %2810, 0
-  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %2807, !prof !5
+  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %2807, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit260:                     ; preds = %2905
   %2906 = icmp eq i64 %.40, 0
@@ -39256,7 +39256,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %2905
   %.1.i603 = phi i64 [ %2946, %2941 ], [ %.012.i5991298, %2938 ]
   %2948 = add nuw nsw i64 %.0.i6001299, 1
   %exitcond1346.not = icmp eq i64 %2948, 8
-  br i1 %exitcond1346.not, label %lv_u64a_ce.exit604, label %2938
+  br i1 %exitcond1346.not, label %lv_u64a_ce.exit604, label %2938, !llvm.loop !8
 
 lv_u64a_ce.exit604:                               ; preds = %2947
   %2949 = ptrtoint ptr %2930 to i64
@@ -39359,7 +39359,7 @@ getConfVal.exit418:                               ; preds = %2932, %lv_u64a_ce.e
   %3010 = load i8, ptr %3009, align 2
   %3011 = getelementptr inbounds nuw i8, ptr %.044.i569, i64 32
   %.not50.i571 = icmp eq i8 %3010, 0
-  br i1 %.not50.i571, label %3012, label %2977
+  br i1 %.not50.i571, label %3012, label %2977, !llvm.loop !10
 
 3012:                                             ; preds = %3008
   store ptr null, ptr %2975, align 16
@@ -39375,7 +39375,7 @@ confWithBit.exit574:                              ; preds = %getConfVal.exit418,
   %.371030 = phi i32 [ %.361029, %2913 ], [ %.361029, %2923 ], [ %.1451138, %confWithBit.exit574 ]
   %.38 = phi i64 [ %.37, %2913 ], [ %.37, %2923 ], [ %.182, %confWithBit.exit574 ]
   %.not26.i255 = icmp eq i64 %2916, 0
-  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %2913, !prof !5
+  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %2913, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit256:                     ; preds = %3013
   %3014 = icmp eq i64 %.38, 0
@@ -39461,7 +39461,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %3013
   %.1.i597 = phi i64 [ %3054, %3049 ], [ %.012.i5931302, %3046 ]
   %3056 = add nuw nsw i64 %.0.i5941303, 1
   %exitcond1347.not = icmp eq i64 %3056, 8
-  br i1 %exitcond1347.not, label %lv_u64a_ce.exit598, label %3046
+  br i1 %exitcond1347.not, label %lv_u64a_ce.exit598, label %3046, !llvm.loop !8
 
 lv_u64a_ce.exit598:                               ; preds = %3055
   %3057 = ptrtoint ptr %3038 to i64
@@ -39564,7 +39564,7 @@ getConfVal.exit422:                               ; preds = %3040, %lv_u64a_ce.e
   %3118 = load i8, ptr %3117, align 2
   %3119 = getelementptr inbounds nuw i8, ptr %.044.i576, i64 32
   %.not50.i578 = icmp eq i8 %3118, 0
-  br i1 %.not50.i578, label %3120, label %3085
+  br i1 %.not50.i578, label %3120, label %3085, !llvm.loop !10
 
 3120:                                             ; preds = %3116
   store ptr null, ptr %3083, align 16
@@ -39580,7 +39580,7 @@ confWithBit.exit581:                              ; preds = %getConfVal.exit422,
   %.351028 = phi i32 [ %.341027, %3021 ], [ %.341027, %3031 ], [ %.1481141, %confWithBit.exit581 ]
   %.36 = phi i64 [ %.35, %3021 ], [ %.35, %3031 ], [ %.185, %confWithBit.exit581 ]
   %.not26.i251 = icmp eq i64 %3024, 0
-  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %3021, !prof !5
+  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %3021, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit252:                     ; preds = %3121
   %3122 = icmp eq i64 %.36, 0
@@ -39666,7 +39666,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %3121
   %.1.i592 = phi i64 [ %3162, %3157 ], [ %.012.i1306, %3154 ]
   %3164 = add nuw nsw i64 %.0.i5891307, 1
   %exitcond1348.not = icmp eq i64 %3164, 8
-  br i1 %exitcond1348.not, label %lv_u64a_ce.exit, label %3154
+  br i1 %exitcond1348.not, label %lv_u64a_ce.exit, label %3154, !llvm.loop !8
 
 lv_u64a_ce.exit:                                  ; preds = %3163
   %3165 = ptrtoint ptr %3146 to i64
@@ -39769,7 +39769,7 @@ getConfVal.exit426:                               ; preds = %3148, %lv_u64a_ce.e
   %3226 = load i8, ptr %3225, align 2
   %3227 = getelementptr inbounds nuw i8, ptr %.044.i583, i64 32
   %.not50.i585 = icmp eq i8 %3226, 0
-  br i1 %.not50.i585, label %3228, label %3193
+  br i1 %.not50.i585, label %3228, label %3193, !llvm.loop !10
 
 3228:                                             ; preds = %3224
   store ptr null, ptr %3191, align 16
@@ -39785,7 +39785,7 @@ confWithBit.exit588:                              ; preds = %getConfVal.exit426,
   %.331026 = phi i32 [ %.321025, %3129 ], [ %.321025, %3139 ], [ %.1511144, %confWithBit.exit588 ]
   %.34 = phi i64 [ %.33, %3129 ], [ %.33, %3139 ], [ %.188, %confWithBit.exit588 ]
   %.not26.i = icmp eq i64 %3132, 0
-  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3129, !prof !5
+  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3129, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit:                        ; preds = %3229
   %3230 = icmp eq i64 %.34, 0
@@ -40158,7 +40158,7 @@ vectoredLoad256.exit247:                          ; preds = %147, %145, %138, %1
   %.1.i657 = phi i64 [ %232, %227 ], [ %.012.i6531183, %224 ]
   %234 = add nuw nsw i64 %.0.i6541184, 1
   %exitcond.not = icmp eq i64 %234, 8
-  br i1 %exitcond.not, label %lv_u64a_ce.exit658, label %224
+  br i1 %exitcond.not, label %lv_u64a_ce.exit658, label %224, !llvm.loop !8
 
 lv_u64a_ce.exit658:                               ; preds = %233
   %235 = ptrtoint ptr %216 to i64
@@ -40261,7 +40261,7 @@ getConfVal.exit:                                  ; preds = %218, %lv_u64a_ce.ex
   %296 = load i8, ptr %295, align 2
   %297 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
   %.not50.i = icmp eq i8 %296, 0
-  br i1 %.not50.i, label %298, label %263
+  br i1 %.not50.i, label %298, label %263, !llvm.loop !10
 
 298:                                              ; preds = %294
   store ptr null, ptr %261, align 16
@@ -40277,7 +40277,7 @@ confWithBit.exit:                                 ; preds = %getConfVal.exit, %2
   %.791072 = phi i32 [ %.781071, %201 ], [ %.781071, %209 ], [ %.821075, %confWithBit.exit ]
   %.80 = phi i64 [ %.79, %201 ], [ %.79, %209 ], [ %.119, %confWithBit.exit ]
   %.not26.i339 = icmp eq i64 %204, 0
-  br i1 %.not26.i339, label %do_confWithBit_teddy.exit340, label %201, !prof !5
+  br i1 %.not26.i339, label %do_confWithBit_teddy.exit340, label %201, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit340:                     ; preds = %299
   %300 = icmp eq i64 %.80, 0
@@ -40364,7 +40364,7 @@ do_confWithBit_teddy.exit340:                     ; preds = %299
   %.1.i651 = phi i64 [ %341, %336 ], [ %.012.i6471187, %333 ]
   %343 = add nuw nsw i64 %.0.i6481188, 1
   %exitcond1322.not = icmp eq i64 %343, 8
-  br i1 %exitcond1322.not, label %lv_u64a_ce.exit652, label %333
+  br i1 %exitcond1322.not, label %lv_u64a_ce.exit652, label %333, !llvm.loop !8
 
 lv_u64a_ce.exit652:                               ; preds = %342
   %344 = ptrtoint ptr %325 to i64
@@ -40467,7 +40467,7 @@ getConfVal.exit350:                               ; preds = %327, %lv_u64a_ce.ex
   %405 = load i8, ptr %404, align 2
   %406 = getelementptr inbounds nuw i8, ptr %.044.i429, i64 32
   %.not50.i431 = icmp eq i8 %405, 0
-  br i1 %.not50.i431, label %407, label %372
+  br i1 %.not50.i431, label %407, label %372, !llvm.loop !10
 
 407:                                              ; preds = %403
   store ptr null, ptr %370, align 16
@@ -40483,7 +40483,7 @@ confWithBit.exit434:                              ; preds = %getConfVal.exit350,
   %.771070 = phi i32 [ %.761069, %308 ], [ %.761069, %318 ], [ %.851078, %confWithBit.exit434 ]
   %.78 = phi i64 [ %.77, %308 ], [ %.77, %318 ], [ %.122, %confWithBit.exit434 ]
   %.not26.i335 = icmp eq i64 %311, 0
-  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %308, !prof !5
+  br i1 %.not26.i335, label %do_confWithBit_teddy.exit336, label %308, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit336:                     ; preds = %408
   %409 = icmp eq i64 %.78, 0
@@ -40570,7 +40570,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %408
   %.1.i645 = phi i64 [ %450, %445 ], [ %.012.i6411191, %442 ]
   %452 = add nuw nsw i64 %.0.i6421192, 1
   %exitcond1323.not = icmp eq i64 %452, 8
-  br i1 %exitcond1323.not, label %lv_u64a_ce.exit646, label %442
+  br i1 %exitcond1323.not, label %lv_u64a_ce.exit646, label %442, !llvm.loop !8
 
 lv_u64a_ce.exit646:                               ; preds = %451
   %453 = ptrtoint ptr %434 to i64
@@ -40673,7 +40673,7 @@ getConfVal.exit354:                               ; preds = %436, %lv_u64a_ce.ex
   %514 = load i8, ptr %513, align 2
   %515 = getelementptr inbounds nuw i8, ptr %.044.i436, i64 32
   %.not50.i438 = icmp eq i8 %514, 0
-  br i1 %.not50.i438, label %516, label %481
+  br i1 %.not50.i438, label %516, label %481, !llvm.loop !10
 
 516:                                              ; preds = %512
   store ptr null, ptr %479, align 16
@@ -40689,7 +40689,7 @@ confWithBit.exit441:                              ; preds = %getConfVal.exit354,
   %.751068 = phi i32 [ %.741067, %417 ], [ %.741067, %427 ], [ %.881081, %confWithBit.exit441 ]
   %.76 = phi i64 [ %.75, %417 ], [ %.75, %427 ], [ %.125, %confWithBit.exit441 ]
   %.not26.i331 = icmp eq i64 %420, 0
-  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %417, !prof !5
+  br i1 %.not26.i331, label %do_confWithBit_teddy.exit332, label %417, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit332:                     ; preds = %517
   %518 = icmp eq i64 %.76, 0
@@ -40776,7 +40776,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %517
   %.1.i639 = phi i64 [ %559, %554 ], [ %.012.i6351195, %551 ]
   %561 = add nuw nsw i64 %.0.i6361196, 1
   %exitcond1324.not = icmp eq i64 %561, 8
-  br i1 %exitcond1324.not, label %lv_u64a_ce.exit640, label %551
+  br i1 %exitcond1324.not, label %lv_u64a_ce.exit640, label %551, !llvm.loop !8
 
 lv_u64a_ce.exit640:                               ; preds = %560
   %562 = ptrtoint ptr %543 to i64
@@ -40879,7 +40879,7 @@ getConfVal.exit358:                               ; preds = %545, %lv_u64a_ce.ex
   %623 = load i8, ptr %622, align 2
   %624 = getelementptr inbounds nuw i8, ptr %.044.i443, i64 32
   %.not50.i445 = icmp eq i8 %623, 0
-  br i1 %.not50.i445, label %625, label %590
+  br i1 %.not50.i445, label %625, label %590, !llvm.loop !10
 
 625:                                              ; preds = %621
   store ptr null, ptr %588, align 16
@@ -40895,7 +40895,7 @@ confWithBit.exit448:                              ; preds = %getConfVal.exit358,
   %.731066 = phi i32 [ %.721065, %526 ], [ %.721065, %536 ], [ %.911084, %confWithBit.exit448 ]
   %.74 = phi i64 [ %.73, %526 ], [ %.73, %536 ], [ %.128, %confWithBit.exit448 ]
   %.not26.i327 = icmp eq i64 %529, 0
-  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %526, !prof !5
+  br i1 %.not26.i327, label %do_confWithBit_teddy.exit328, label %526, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit328:                     ; preds = %626
   %627 = icmp eq i64 %.74, 0
@@ -41044,7 +41044,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %626
   %.1.i633 = phi i64 [ %720, %715 ], [ %.012.i6291199, %712 ]
   %722 = add nuw nsw i64 %.0.i6301200, 1
   %exitcond1325.not = icmp eq i64 %722, 8
-  br i1 %exitcond1325.not, label %lv_u64a_ce.exit634, label %712
+  br i1 %exitcond1325.not, label %lv_u64a_ce.exit634, label %712, !llvm.loop !8
 
 lv_u64a_ce.exit634:                               ; preds = %721
   %723 = ptrtoint ptr %704 to i64
@@ -41147,7 +41147,7 @@ getConfVal.exit362:                               ; preds = %706, %lv_u64a_ce.ex
   %784 = load i8, ptr %783, align 2
   %785 = getelementptr inbounds nuw i8, ptr %.044.i450, i64 32
   %.not50.i452 = icmp eq i8 %784, 0
-  br i1 %.not50.i452, label %786, label %751
+  br i1 %.not50.i452, label %786, label %751, !llvm.loop !10
 
 786:                                              ; preds = %782
   store ptr null, ptr %749, align 16
@@ -41163,7 +41163,7 @@ confWithBit.exit455:                              ; preds = %getConfVal.exit362,
   %.711064 = phi i32 [ %.701063, %689 ], [ %.701063, %697 ], [ %.941087, %confWithBit.exit455 ]
   %.72 = phi i64 [ %.71, %689 ], [ %.71, %697 ], [ %.131, %confWithBit.exit455 ]
   %.not26.i323 = icmp eq i64 %692, 0
-  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %689, !prof !5
+  br i1 %.not26.i323, label %do_confWithBit_teddy.exit324, label %689, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit324:                     ; preds = %787
   %788 = icmp eq i64 %.72, 0
@@ -41251,7 +41251,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %787
   %.1.i627 = phi i64 [ %830, %825 ], [ %.012.i6231203, %822 ]
   %832 = add nuw nsw i64 %.0.i6241204, 1
   %exitcond1326.not = icmp eq i64 %832, 8
-  br i1 %exitcond1326.not, label %lv_u64a_ce.exit628, label %822
+  br i1 %exitcond1326.not, label %lv_u64a_ce.exit628, label %822, !llvm.loop !8
 
 lv_u64a_ce.exit628:                               ; preds = %831
   %833 = ptrtoint ptr %814 to i64
@@ -41354,7 +41354,7 @@ getConfVal.exit366:                               ; preds = %816, %lv_u64a_ce.ex
   %894 = load i8, ptr %893, align 2
   %895 = getelementptr inbounds nuw i8, ptr %.044.i457, i64 32
   %.not50.i459 = icmp eq i8 %894, 0
-  br i1 %.not50.i459, label %896, label %861
+  br i1 %.not50.i459, label %896, label %861, !llvm.loop !10
 
 896:                                              ; preds = %892
   store ptr null, ptr %859, align 16
@@ -41370,7 +41370,7 @@ confWithBit.exit462:                              ; preds = %getConfVal.exit366,
   %.691062 = phi i32 [ %.681061, %797 ], [ %.681061, %807 ], [ %.971090, %confWithBit.exit462 ]
   %.70 = phi i64 [ %.69, %797 ], [ %.69, %807 ], [ %.134, %confWithBit.exit462 ]
   %.not26.i319 = icmp eq i64 %800, 0
-  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %797, !prof !5
+  br i1 %.not26.i319, label %do_confWithBit_teddy.exit320, label %797, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit320:                     ; preds = %897
   %898 = icmp eq i64 %.70, 0
@@ -41458,7 +41458,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %897
   %.1.i621 = phi i64 [ %940, %935 ], [ %.012.i6171207, %932 ]
   %942 = add nuw nsw i64 %.0.i6181208, 1
   %exitcond1327.not = icmp eq i64 %942, 8
-  br i1 %exitcond1327.not, label %lv_u64a_ce.exit622, label %932
+  br i1 %exitcond1327.not, label %lv_u64a_ce.exit622, label %932, !llvm.loop !8
 
 lv_u64a_ce.exit622:                               ; preds = %941
   %943 = ptrtoint ptr %924 to i64
@@ -41561,7 +41561,7 @@ getConfVal.exit370:                               ; preds = %926, %lv_u64a_ce.ex
   %1004 = load i8, ptr %1003, align 2
   %1005 = getelementptr inbounds nuw i8, ptr %.044.i464, i64 32
   %.not50.i466 = icmp eq i8 %1004, 0
-  br i1 %.not50.i466, label %1006, label %971
+  br i1 %.not50.i466, label %1006, label %971, !llvm.loop !10
 
 1006:                                             ; preds = %1002
   store ptr null, ptr %969, align 16
@@ -41577,7 +41577,7 @@ confWithBit.exit469:                              ; preds = %getConfVal.exit370,
   %.671060 = phi i32 [ %.661059, %907 ], [ %.661059, %917 ], [ %.1001093, %confWithBit.exit469 ]
   %.68 = phi i64 [ %.67, %907 ], [ %.67, %917 ], [ %.137, %confWithBit.exit469 ]
   %.not26.i315 = icmp eq i64 %910, 0
-  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %907, !prof !5
+  br i1 %.not26.i315, label %do_confWithBit_teddy.exit316, label %907, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit316:                     ; preds = %1007
   %1008 = icmp eq i64 %.68, 0
@@ -41665,7 +41665,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %1007
   %.1.i615 = phi i64 [ %1050, %1045 ], [ %.012.i6111211, %1042 ]
   %1052 = add nuw nsw i64 %.0.i6121212, 1
   %exitcond1328.not = icmp eq i64 %1052, 8
-  br i1 %exitcond1328.not, label %lv_u64a_ce.exit616, label %1042
+  br i1 %exitcond1328.not, label %lv_u64a_ce.exit616, label %1042, !llvm.loop !8
 
 lv_u64a_ce.exit616:                               ; preds = %1051
   %1053 = ptrtoint ptr %1034 to i64
@@ -41768,7 +41768,7 @@ getConfVal.exit374:                               ; preds = %1036, %lv_u64a_ce.e
   %1114 = load i8, ptr %1113, align 2
   %1115 = getelementptr inbounds nuw i8, ptr %.044.i471, i64 32
   %.not50.i473 = icmp eq i8 %1114, 0
-  br i1 %.not50.i473, label %1116, label %1081
+  br i1 %.not50.i473, label %1116, label %1081, !llvm.loop !10
 
 1116:                                             ; preds = %1112
   store ptr null, ptr %1079, align 16
@@ -41784,7 +41784,7 @@ confWithBit.exit476:                              ; preds = %getConfVal.exit374,
   %.651058 = phi i32 [ %.641057, %1017 ], [ %.641057, %1027 ], [ %.1031096, %confWithBit.exit476 ]
   %.66 = phi i64 [ %.65, %1017 ], [ %.65, %1027 ], [ %.140, %confWithBit.exit476 ]
   %.not26.i311 = icmp eq i64 %1020, 0
-  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %1017, !prof !5
+  br i1 %.not26.i311, label %do_confWithBit_teddy.exit312, label %1017, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit312:                     ; preds = %1117
   %1118 = icmp eq i64 %.66, 0
@@ -41917,7 +41917,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %1117
   %or.cond.i = select i1 %.not383.i, i1 %.not384.i, i1 false
   %.not385.i = icmp eq i64 %1199, %1162
   %or.cond422.i = select i1 %or.cond.i, i1 %.not385.i, i1 false
-  br i1 %or.cond422.i, label %1187, label %.thread1147.preheader
+  br i1 %or.cond422.i, label %1187, label %.thread1147.preheader, !llvm.loop !13
 
 .thread1147.preheader:                            ; preds = %1196, %1191, %1187
   br label %.thread1147
@@ -41934,7 +41934,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %1117
   %1207 = getelementptr inbounds nuw i8, ptr %1136, i64 %1205
   %1208 = load i64, ptr %1207, align 8
   %.not386.i = icmp eq i64 %1208, %1162
-  br i1 %.not386.i, label %.thread1147, label %split
+  br i1 %.not386.i, label %.thread1147, label %split, !llvm.loop !14
 
 split:                                            ; preds = %1206, %.thread1147
   %1209 = icmp ugt i64 %1140, %1205
@@ -41952,7 +41952,7 @@ split:                                            ; preds = %1206, %.thread1147
   %1214 = add i32 %.3.i1215, 1
   %1215 = zext i32 %1214 to i64
   %1216 = icmp ugt i64 %1140, %1215
-  br i1 %1216, label %.lr.ph1217, label %._crit_edge1218
+  br i1 %1216, label %.lr.ph1217, label %._crit_edge1218, !llvm.loop !15
 
 ._crit_edge1218:                                  ; preds = %1213, %.lr.ph1217, %split
   %.3.i.lcssa = phi i32 [ %.2.i, %split ], [ %.3.i1215, %.lr.ph1217 ], [ %1214, %1213 ]
@@ -42091,7 +42091,7 @@ split:                                            ; preds = %1206, %.thread1147
   %.102 = phi i64 [ %1280, %1276 ], [ %1286, %1282 ], [ %1274, %1270 ], [ %1268, %1264 ], [ %.981233, %1261 ]
   %indvars.iv.next1334 = add nuw nsw i64 %indvars.iv1333, 4
   %1287 = icmp samesign ult i64 %indvars.iv.next1334, %1247
-  br i1 %1287, label %1258, label %.critedge.i
+  br i1 %1287, label %1258, label %.critedge.i, !llvm.loop !16
 
 1288:                                             ; preds = %.lr.ph1229, %1361
   %indvars.iv1330 = phi i64 [ 0, %.lr.ph1229 ], [ %indvars.iv.next1331, %1361 ]
@@ -42222,7 +42222,7 @@ split:                                            ; preds = %1206, %.thread1147
   %.97 = phi i64 [ %.96, %1352 ], [ %1360, %1355 ]
   %indvars.iv.next1331 = add nuw nsw i64 %indvars.iv1330, 4
   %1362 = icmp samesign ult i64 %indvars.iv.next1331, %1241
-  br i1 %1362, label %1288, label %.critedge.i
+  br i1 %1362, label %1288, label %.critedge.i, !llvm.loop !17
 
 1363:                                             ; preds = %.lr.ph1223, %1417
   %indvars.iv = phi i64 [ 0, %.lr.ph1223 ], [ %indvars.iv.next, %1417 ]
@@ -42322,7 +42322,7 @@ split:                                            ; preds = %1206, %.thread1147
   %.88 = phi i64 [ %.87, %1408 ], [ %1416, %1411 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %1418 = icmp samesign ult i64 %indvars.iv.next, %1233
-  br i1 %1418, label %1363, label %.critedge.i
+  br i1 %1418, label %1363, label %.critedge.i, !llvm.loop !18
 
 1419:                                             ; preds = %.lr.ph1253, %._crit_edge1249
   %indvars.iv1342 = phi i64 [ 0, %.lr.ph1253 ], [ %indvars.iv.next1343, %._crit_edge1249 ]
@@ -42428,7 +42428,7 @@ split:                                            ; preds = %1206, %.thread1147
   %indvars.iv.next1337 = add nuw nsw i64 %indvars.iv1336, 1
   %1472 = zext i16 %1471 to i64
   %1473 = icmp samesign ult i64 %indvars.iv.next1337, %1472
-  br i1 %1473, label %1461, label %._crit_edge1243
+  br i1 %1473, label %1461, label %._crit_edge1243, !llvm.loop !19
 
 1474:                                             ; preds = %._crit_edge1243
   %1475 = trunc nuw i64 %indvars.iv1342 to i32
@@ -42499,7 +42499,7 @@ split:                                            ; preds = %1206, %.thread1147
   %.113.lcssa = phi i64 [ %.112, %1507 ], [ %.114, %1523 ]
   %indvars.iv.next1343 = add nuw nsw i64 %indvars.iv1342, 2
   %1513 = icmp samesign ult i64 %indvars.iv.next1343, %1257
-  br i1 %1513, label %1419, label %.critedge.i
+  br i1 %1513, label %1419, label %.critedge.i, !llvm.loop !20
 
 1514:                                             ; preds = %.lr.ph1248, %1523
   %1515 = phi i16 [ %1508, %.lr.ph1248 ], [ %1524, %1523 ]
@@ -42524,7 +42524,7 @@ split:                                            ; preds = %1206, %.thread1147
   %indvars.iv.next1340 = add nuw nsw i64 %indvars.iv1339, 1
   %1525 = zext i16 %1524 to i64
   %1526 = icmp samesign ult i64 %indvars.iv.next1340, %1525
-  br i1 %1526, label %1514, label %._crit_edge1249
+  br i1 %1526, label %1514, label %._crit_edge1249, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %1417, %1363, %1361, %1288, %.thread1398, %1258, %._crit_edge1249, %1419, %.preheader1176, %.preheader1174, %.preheader1172, %.preheader, %1222, %1218
   %.82 = phi i64 [ %.121277, %1218 ], [ %.121277, %1222 ], [ %.121277, %.preheader ], [ %.121277, %.preheader1172 ], [ %.121277, %.preheader1174 ], [ %.121277, %.preheader1176 ], [ %.113.lcssa, %._crit_edge1249 ], [ %.1031251, %1419 ], [ %.102, %.thread1398 ], [ %.981233, %1258 ], [ %.97, %1361 ], [ %.891227, %1288 ], [ %.88, %1417 ], [ %.811221, %1363 ]
@@ -42736,7 +42736,7 @@ floodDetect.exit:                                 ; preds = %1172, %1179, %.crit
   %1664 = load i8, ptr %1663, align 2
   %1665 = getelementptr inbounds nuw i8, ptr %.044.i478, i64 32
   %.not50.i480 = icmp eq i8 %1664, 0
-  br i1 %.not50.i480, label %1666, label %1631
+  br i1 %.not50.i480, label %1666, label %1631, !llvm.loop !10
 
 1666:                                             ; preds = %1662
   store ptr null, ptr %1629, align 16
@@ -42752,7 +42752,7 @@ confWithBit.exit483:                              ; preds = %1604, %1666
   %.631056 = phi i32 [ %.621055, %1590 ], [ %.621055, %1598 ], [ %.1061099, %confWithBit.exit483 ]
   %.64 = phi i64 [ %.63, %1590 ], [ %.63, %1598 ], [ %.143, %confWithBit.exit483 ]
   %.not26.i307 = icmp eq i64 %1593, 0
-  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %1590, !prof !5
+  br i1 %.not26.i307, label %do_confWithBit_teddy.exit308, label %1590, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit308:                     ; preds = %1667
   %1668 = icmp eq i64 %.64, 0
@@ -42890,7 +42890,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1667
   %1749 = load i8, ptr %1748, align 2
   %1750 = getelementptr inbounds nuw i8, ptr %.044.i485, i64 32
   %.not50.i487 = icmp eq i8 %1749, 0
-  br i1 %.not50.i487, label %1751, label %1716
+  br i1 %.not50.i487, label %1751, label %1716, !llvm.loop !10
 
 1751:                                             ; preds = %1747
   store ptr null, ptr %1714, align 16
@@ -42906,7 +42906,7 @@ confWithBit.exit490:                              ; preds = %1689, %1751
   %.611054 = phi i32 [ %.601053, %1673 ], [ %.601053, %1683 ], [ %.1091102, %confWithBit.exit490 ]
   %.62 = phi i64 [ %.61, %1673 ], [ %.61, %1683 ], [ %.146, %confWithBit.exit490 ]
   %.not26.i303 = icmp eq i64 %1676, 0
-  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %1673, !prof !5
+  br i1 %.not26.i303, label %do_confWithBit_teddy.exit304, label %1673, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit304:                     ; preds = %1752
   %1753 = icmp eq i64 %.62, 0
@@ -43044,7 +43044,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1752
   %1834 = load i8, ptr %1833, align 2
   %1835 = getelementptr inbounds nuw i8, ptr %.044.i492, i64 32
   %.not50.i494 = icmp eq i8 %1834, 0
-  br i1 %.not50.i494, label %1836, label %1801
+  br i1 %.not50.i494, label %1836, label %1801, !llvm.loop !10
 
 1836:                                             ; preds = %1832
   store ptr null, ptr %1799, align 16
@@ -43060,7 +43060,7 @@ confWithBit.exit497:                              ; preds = %1774, %1836
   %.591052 = phi i32 [ %.581051, %1758 ], [ %.581051, %1768 ], [ %.1121105, %confWithBit.exit497 ]
   %.60 = phi i64 [ %.59, %1758 ], [ %.59, %1768 ], [ %.149, %confWithBit.exit497 ]
   %.not26.i299 = icmp eq i64 %1761, 0
-  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1758, !prof !5
+  br i1 %.not26.i299, label %do_confWithBit_teddy.exit300, label %1758, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit300:                     ; preds = %1837
   %1838 = icmp eq i64 %.60, 0
@@ -43198,7 +43198,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1837
   %1919 = load i8, ptr %1918, align 2
   %1920 = getelementptr inbounds nuw i8, ptr %.044.i499, i64 32
   %.not50.i501 = icmp eq i8 %1919, 0
-  br i1 %.not50.i501, label %1921, label %1886
+  br i1 %.not50.i501, label %1921, label %1886, !llvm.loop !10
 
 1921:                                             ; preds = %1917
   store ptr null, ptr %1884, align 16
@@ -43214,7 +43214,7 @@ confWithBit.exit504:                              ; preds = %1859, %1921
   %.571050 = phi i32 [ %.561049, %1843 ], [ %.561049, %1853 ], [ %.1151108, %confWithBit.exit504 ]
   %.58 = phi i64 [ %.57, %1843 ], [ %.57, %1853 ], [ %.152, %confWithBit.exit504 ]
   %.not26.i295 = icmp eq i64 %1846, 0
-  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1843, !prof !5
+  br i1 %.not26.i295, label %do_confWithBit_teddy.exit296, label %1843, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit296:                     ; preds = %1922
   %1923 = icmp eq i64 %.58, 0
@@ -43403,7 +43403,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1922
   %2049 = load i8, ptr %2048, align 2
   %2050 = getelementptr inbounds nuw i8, ptr %.044.i506, i64 32
   %.not50.i508 = icmp eq i8 %2049, 0
-  br i1 %.not50.i508, label %2051, label %2016
+  br i1 %.not50.i508, label %2051, label %2016, !llvm.loop !10
 
 2051:                                             ; preds = %2047
   store ptr null, ptr %2014, align 16
@@ -43419,7 +43419,7 @@ confWithBit.exit511:                              ; preds = %1989, %2051
   %.551048 = phi i32 [ %.541047, %1973 ], [ %.541047, %1983 ], [ %.1181111, %confWithBit.exit511 ]
   %.56 = phi i64 [ %.55, %1973 ], [ %.55, %1983 ], [ %.155, %confWithBit.exit511 ]
   %.not26.i291 = icmp eq i64 %1976, 0
-  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1973, !prof !5
+  br i1 %.not26.i291, label %do_confWithBit_teddy.exit292, label %1973, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit292:                     ; preds = %2052
   %2053 = icmp eq i64 %.56, 0
@@ -43557,7 +43557,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2052
   %2134 = load i8, ptr %2133, align 2
   %2135 = getelementptr inbounds nuw i8, ptr %.044.i513, i64 32
   %.not50.i515 = icmp eq i8 %2134, 0
-  br i1 %.not50.i515, label %2136, label %2101
+  br i1 %.not50.i515, label %2136, label %2101, !llvm.loop !10
 
 2136:                                             ; preds = %2132
   store ptr null, ptr %2099, align 16
@@ -43573,7 +43573,7 @@ confWithBit.exit518:                              ; preds = %2074, %2136
   %.531046 = phi i32 [ %.521045, %2058 ], [ %.521045, %2068 ], [ %.1211114, %confWithBit.exit518 ]
   %.54 = phi i64 [ %.53, %2058 ], [ %.53, %2068 ], [ %.158, %confWithBit.exit518 ]
   %.not26.i287 = icmp eq i64 %2061, 0
-  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %2058, !prof !5
+  br i1 %.not26.i287, label %do_confWithBit_teddy.exit288, label %2058, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit288:                     ; preds = %2137
   %2138 = icmp eq i64 %.54, 0
@@ -43711,7 +43711,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2137
   %2219 = load i8, ptr %2218, align 2
   %2220 = getelementptr inbounds nuw i8, ptr %.044.i520, i64 32
   %.not50.i522 = icmp eq i8 %2219, 0
-  br i1 %.not50.i522, label %2221, label %2186
+  br i1 %.not50.i522, label %2221, label %2186, !llvm.loop !10
 
 2221:                                             ; preds = %2217
   store ptr null, ptr %2184, align 16
@@ -43727,7 +43727,7 @@ confWithBit.exit525:                              ; preds = %2159, %2221
   %.511044 = phi i32 [ %.501043, %2143 ], [ %.501043, %2153 ], [ %.1241117, %confWithBit.exit525 ]
   %.52 = phi i64 [ %.51, %2143 ], [ %.51, %2153 ], [ %.161, %confWithBit.exit525 ]
   %.not26.i283 = icmp eq i64 %2146, 0
-  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %2143, !prof !5
+  br i1 %.not26.i283, label %do_confWithBit_teddy.exit284, label %2143, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit284:                     ; preds = %2222
   %2223 = icmp eq i64 %.52, 0
@@ -43865,7 +43865,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2222
   %2304 = load i8, ptr %2303, align 2
   %2305 = getelementptr inbounds nuw i8, ptr %.044.i527, i64 32
   %.not50.i529 = icmp eq i8 %2304, 0
-  br i1 %.not50.i529, label %2306, label %2271
+  br i1 %.not50.i529, label %2306, label %2271, !llvm.loop !10
 
 2306:                                             ; preds = %2302
   store ptr null, ptr %2269, align 16
@@ -43881,7 +43881,7 @@ confWithBit.exit532:                              ; preds = %2244, %2306
   %.491042 = phi i32 [ %.481041, %2228 ], [ %.481041, %2238 ], [ %.1271120, %confWithBit.exit532 ]
   %.50 = phi i64 [ %.49, %2228 ], [ %.49, %2238 ], [ %.164, %confWithBit.exit532 ]
   %.not26.i279 = icmp eq i64 %2231, 0
-  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %2228, !prof !5
+  br i1 %.not26.i279, label %do_confWithBit_teddy.exit280, label %2228, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit280:                     ; preds = %2307
   %2308 = icmp eq i64 %.50, 0
@@ -43893,7 +43893,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2307
   %2309 = getelementptr inbounds nuw i8, ptr %.3988, i64 64
   %2310 = getelementptr inbounds nuw i8, ptr %.3988, i64 128
   %.not203 = icmp ugt ptr %2310, %33
-  br i1 %.not203, label %._crit_edge1281, label %1132
+  br i1 %.not203, label %._crit_edge1281, label %1132, !llvm.loop !29
 
 ._crit_edge1281:                                  ; preds = %.critedge234, %.critedge230
   %.121005.lcssa = phi i32 [ %.6999, %.critedge230 ], [ %.221015, %.critedge234 ]
@@ -44090,7 +44090,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2307
   %2444 = load i8, ptr %2443, align 2
   %2445 = getelementptr inbounds nuw i8, ptr %.044.i534, i64 32
   %.not50.i536 = icmp eq i8 %2444, 0
-  br i1 %.not50.i536, label %2446, label %2411
+  br i1 %.not50.i536, label %2446, label %2411, !llvm.loop !10
 
 2446:                                             ; preds = %2442
   store ptr null, ptr %2409, align 16
@@ -44106,7 +44106,7 @@ confWithBit.exit539:                              ; preds = %2384, %2446
   %.471040 = phi i32 [ %.461039, %2370 ], [ %.461039, %2378 ], [ %.1301123, %confWithBit.exit539 ]
   %.48 = phi i64 [ %.47, %2370 ], [ %.47, %2378 ], [ %.167, %confWithBit.exit539 ]
   %.not26.i275 = icmp eq i64 %2373, 0
-  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %2370, !prof !5
+  br i1 %.not26.i275, label %do_confWithBit_teddy.exit276, label %2370, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit276:                     ; preds = %2447
   %2448 = icmp eq i64 %.48, 0
@@ -44247,7 +44247,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2447
   %2532 = load i8, ptr %2531, align 2
   %2533 = getelementptr inbounds nuw i8, ptr %.044.i541, i64 32
   %.not50.i543 = icmp eq i8 %2532, 0
-  br i1 %.not50.i543, label %2534, label %2499
+  br i1 %.not50.i543, label %2534, label %2499, !llvm.loop !10
 
 2534:                                             ; preds = %2530
   store ptr null, ptr %2497, align 16
@@ -44263,7 +44263,7 @@ confWithBit.exit546:                              ; preds = %2472, %2534
   %.451038 = phi i32 [ %.441037, %2456 ], [ %.441037, %2466 ], [ %.1331126, %confWithBit.exit546 ]
   %.46 = phi i64 [ %.45, %2456 ], [ %.45, %2466 ], [ %.170, %confWithBit.exit546 ]
   %.not26.i271 = icmp eq i64 %2459, 0
-  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %2456, !prof !5
+  br i1 %.not26.i271, label %do_confWithBit_teddy.exit272, label %2456, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit272:                     ; preds = %2535
   %2536 = icmp eq i64 %.46, 0
@@ -44404,7 +44404,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2535
   %2620 = load i8, ptr %2619, align 2
   %2621 = getelementptr inbounds nuw i8, ptr %.044.i548, i64 32
   %.not50.i550 = icmp eq i8 %2620, 0
-  br i1 %.not50.i550, label %2622, label %2587
+  br i1 %.not50.i550, label %2622, label %2587, !llvm.loop !10
 
 2622:                                             ; preds = %2618
   store ptr null, ptr %2585, align 16
@@ -44420,7 +44420,7 @@ confWithBit.exit553:                              ; preds = %2560, %2622
   %.431036 = phi i32 [ %.421035, %2544 ], [ %.421035, %2554 ], [ %.1361129, %confWithBit.exit553 ]
   %.44 = phi i64 [ %.43, %2544 ], [ %.43, %2554 ], [ %.173, %confWithBit.exit553 ]
   %.not26.i267 = icmp eq i64 %2547, 0
-  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %2544, !prof !5
+  br i1 %.not26.i267, label %do_confWithBit_teddy.exit268, label %2544, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit268:                     ; preds = %2623
   %2624 = icmp eq i64 %.44, 0
@@ -44561,7 +44561,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2623
   %2708 = load i8, ptr %2707, align 2
   %2709 = getelementptr inbounds nuw i8, ptr %.044.i555, i64 32
   %.not50.i557 = icmp eq i8 %2708, 0
-  br i1 %.not50.i557, label %2710, label %2675
+  br i1 %.not50.i557, label %2710, label %2675, !llvm.loop !10
 
 2710:                                             ; preds = %2706
   store ptr null, ptr %2673, align 16
@@ -44577,7 +44577,7 @@ confWithBit.exit560:                              ; preds = %2648, %2710
   %.411034 = phi i32 [ %.401033, %2632 ], [ %.401033, %2642 ], [ %.1391132, %confWithBit.exit560 ]
   %.42 = phi i64 [ %.41, %2632 ], [ %.41, %2642 ], [ %.176, %confWithBit.exit560 ]
   %.not26.i263 = icmp eq i64 %2635, 0
-  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %2632, !prof !5
+  br i1 %.not26.i263, label %do_confWithBit_teddy.exit264, label %2632, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit264:                     ; preds = %2711
   %2712 = icmp eq i64 %.42, 0
@@ -44818,7 +44818,7 @@ vectoredLoad256.exit:                             ; preds = %2754, %2752, %2745,
   %.1.i609 = phi i64 [ %2838, %2833 ], [ %.012.i6051294, %2830 ]
   %2840 = add nuw nsw i64 %.0.i6061295, 1
   %exitcond1345.not = icmp eq i64 %2840, 8
-  br i1 %exitcond1345.not, label %lv_u64a_ce.exit610, label %2830
+  br i1 %exitcond1345.not, label %lv_u64a_ce.exit610, label %2830, !llvm.loop !8
 
 lv_u64a_ce.exit610:                               ; preds = %2839
   %2841 = ptrtoint ptr %2822 to i64
@@ -44921,7 +44921,7 @@ getConfVal.exit414:                               ; preds = %2824, %lv_u64a_ce.e
   %2902 = load i8, ptr %2901, align 2
   %2903 = getelementptr inbounds nuw i8, ptr %.044.i562, i64 32
   %.not50.i564 = icmp eq i8 %2902, 0
-  br i1 %.not50.i564, label %2904, label %2869
+  br i1 %.not50.i564, label %2904, label %2869, !llvm.loop !10
 
 2904:                                             ; preds = %2900
   store ptr null, ptr %2867, align 16
@@ -44937,7 +44937,7 @@ confWithBit.exit567:                              ; preds = %getConfVal.exit414,
   %.391032 = phi i32 [ %.381031, %2807 ], [ %.381031, %2815 ], [ %.1421135, %confWithBit.exit567 ]
   %.40 = phi i64 [ %.39, %2807 ], [ %.39, %2815 ], [ %.179, %confWithBit.exit567 ]
   %.not26.i259 = icmp eq i64 %2810, 0
-  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %2807, !prof !5
+  br i1 %.not26.i259, label %do_confWithBit_teddy.exit260, label %2807, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit260:                     ; preds = %2905
   %2906 = icmp eq i64 %.40, 0
@@ -45023,7 +45023,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %2905
   %.1.i603 = phi i64 [ %2946, %2941 ], [ %.012.i5991298, %2938 ]
   %2948 = add nuw nsw i64 %.0.i6001299, 1
   %exitcond1346.not = icmp eq i64 %2948, 8
-  br i1 %exitcond1346.not, label %lv_u64a_ce.exit604, label %2938
+  br i1 %exitcond1346.not, label %lv_u64a_ce.exit604, label %2938, !llvm.loop !8
 
 lv_u64a_ce.exit604:                               ; preds = %2947
   %2949 = ptrtoint ptr %2930 to i64
@@ -45126,7 +45126,7 @@ getConfVal.exit418:                               ; preds = %2932, %lv_u64a_ce.e
   %3010 = load i8, ptr %3009, align 2
   %3011 = getelementptr inbounds nuw i8, ptr %.044.i569, i64 32
   %.not50.i571 = icmp eq i8 %3010, 0
-  br i1 %.not50.i571, label %3012, label %2977
+  br i1 %.not50.i571, label %3012, label %2977, !llvm.loop !10
 
 3012:                                             ; preds = %3008
   store ptr null, ptr %2975, align 16
@@ -45142,7 +45142,7 @@ confWithBit.exit574:                              ; preds = %getConfVal.exit418,
   %.371030 = phi i32 [ %.361029, %2913 ], [ %.361029, %2923 ], [ %.1451138, %confWithBit.exit574 ]
   %.38 = phi i64 [ %.37, %2913 ], [ %.37, %2923 ], [ %.182, %confWithBit.exit574 ]
   %.not26.i255 = icmp eq i64 %2916, 0
-  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %2913, !prof !5
+  br i1 %.not26.i255, label %do_confWithBit_teddy.exit256, label %2913, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit256:                     ; preds = %3013
   %3014 = icmp eq i64 %.38, 0
@@ -45228,7 +45228,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %3013
   %.1.i597 = phi i64 [ %3054, %3049 ], [ %.012.i5931302, %3046 ]
   %3056 = add nuw nsw i64 %.0.i5941303, 1
   %exitcond1347.not = icmp eq i64 %3056, 8
-  br i1 %exitcond1347.not, label %lv_u64a_ce.exit598, label %3046
+  br i1 %exitcond1347.not, label %lv_u64a_ce.exit598, label %3046, !llvm.loop !8
 
 lv_u64a_ce.exit598:                               ; preds = %3055
   %3057 = ptrtoint ptr %3038 to i64
@@ -45331,7 +45331,7 @@ getConfVal.exit422:                               ; preds = %3040, %lv_u64a_ce.e
   %3118 = load i8, ptr %3117, align 2
   %3119 = getelementptr inbounds nuw i8, ptr %.044.i576, i64 32
   %.not50.i578 = icmp eq i8 %3118, 0
-  br i1 %.not50.i578, label %3120, label %3085
+  br i1 %.not50.i578, label %3120, label %3085, !llvm.loop !10
 
 3120:                                             ; preds = %3116
   store ptr null, ptr %3083, align 16
@@ -45347,7 +45347,7 @@ confWithBit.exit581:                              ; preds = %getConfVal.exit422,
   %.351028 = phi i32 [ %.341027, %3021 ], [ %.341027, %3031 ], [ %.1481141, %confWithBit.exit581 ]
   %.36 = phi i64 [ %.35, %3021 ], [ %.35, %3031 ], [ %.185, %confWithBit.exit581 ]
   %.not26.i251 = icmp eq i64 %3024, 0
-  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %3021, !prof !5
+  br i1 %.not26.i251, label %do_confWithBit_teddy.exit252, label %3021, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit252:                     ; preds = %3121
   %3122 = icmp eq i64 %.36, 0
@@ -45433,7 +45433,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %3121
   %.1.i592 = phi i64 [ %3162, %3157 ], [ %.012.i1306, %3154 ]
   %3164 = add nuw nsw i64 %.0.i5891307, 1
   %exitcond1348.not = icmp eq i64 %3164, 8
-  br i1 %exitcond1348.not, label %lv_u64a_ce.exit, label %3154
+  br i1 %exitcond1348.not, label %lv_u64a_ce.exit, label %3154, !llvm.loop !8
 
 lv_u64a_ce.exit:                                  ; preds = %3163
   %3165 = ptrtoint ptr %3146 to i64
@@ -45536,7 +45536,7 @@ getConfVal.exit426:                               ; preds = %3148, %lv_u64a_ce.e
   %3226 = load i8, ptr %3225, align 2
   %3227 = getelementptr inbounds nuw i8, ptr %.044.i583, i64 32
   %.not50.i585 = icmp eq i8 %3226, 0
-  br i1 %.not50.i585, label %3228, label %3193
+  br i1 %.not50.i585, label %3228, label %3193, !llvm.loop !10
 
 3228:                                             ; preds = %3224
   store ptr null, ptr %3191, align 16
@@ -45552,7 +45552,7 @@ confWithBit.exit588:                              ; preds = %getConfVal.exit426,
   %.331026 = phi i32 [ %.321025, %3129 ], [ %.321025, %3139 ], [ %.1511144, %confWithBit.exit588 ]
   %.34 = phi i64 [ %.33, %3129 ], [ %.33, %3139 ], [ %.188, %confWithBit.exit588 ]
   %.not26.i = icmp eq i64 %3132, 0
-  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3129, !prof !5
+  br i1 %.not26.i, label %do_confWithBit_teddy.exit, label %3129, !prof !5, !llvm.loop !11
 
 do_confWithBit_teddy.exit:                        ; preds = %3229
   %3230 = icmp eq i64 %.34, 0
@@ -45600,3 +45600,25 @@ attributes #7 = { nounwind memory(none) }
 !5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !6 = !{i64 4604649, i64 4604679}
 !7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count", i32 1}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}

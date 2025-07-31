@@ -240,7 +240,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire12LocationTypeESaIS2_EED2Ev.exit.i.i:
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit.i: ; preds = %56, %._crit_edge.i
   %.sroa.0160.0.add.i = add nuw nsw i64 %.sroa.0160.0.idx244.i, 4
   %.not210.i = icmp eq i64 %.sroa.0160.0.add.i, 8
-  br i1 %.not210.i, label %108, label %47
+  br i1 %.not210.i, label %108, label %47, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %207, %.lr.ph264.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -335,11 +335,11 @@ _ZNKSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12_M_check_lenEmPKc.exit.i.i:
 .lr.ph.i.i.i.i.i:                                 ; preds = %81, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i ], [ %79, %81 ]
   %.0911.i.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i.i ], [ %67, %81 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i.i.i, i64 40, i1 false), !alias.scope !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i.i.i, i64 40, i1 false), !alias.scope !7
   %82 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 40
   %83 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i = icmp eq ptr %82, %61
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %81
   %.0.lcssa.i.i.i.i.i = phi ptr [ %79, %81 ], [ %83, %.lr.ph.i.i.i.i.i ]
@@ -390,7 +390,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJRNS1_4CardERKS
   %100 = phi ptr [ %84, %.noexc62.i ], [ %65, %.noexc.i ]
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.0156.0243.i, i64 20
   %.not211.i = icmp eq ptr %101, %54
-  br i1 %.not211.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %.not211.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !13
 
 .loopexit230.i:                                   ; preds = %_ZNKSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %63
   %lpad.loopexit232.i = landingpad { ptr, i32 }
@@ -419,12 +419,12 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJRNS1_4CardERKS
 108:                                              ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit.i
   %.sroa.0164.0.add.i = add nuw nsw i64 %.sroa.0164.0.idx245.i, 4
   %.not209.i = icmp eq i64 %.sroa.0164.0.add.i, 44
-  br i1 %.not209.i, label %109, label %.preheader235.i
+  br i1 %.not209.i, label %109, label %.preheader235.i, !llvm.loop !14
 
 109:                                              ; preds = %108
   %.sroa.0168.0.add.i = add nuw nsw i64 %.sroa.0168.0.idx247.i, 4
   %.not.i = icmp eq i64 %.sroa.0168.0.add.i, 16
-  br i1 %.not.i, label %.preheader227.i, label %.preheader236.i
+  br i1 %.not.i, label %.preheader227.i, label %.preheader236.i, !llvm.loop !15
 
 .preheader227.i:                                  ; preds = %109, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEERS2_DpOT_.exit.i
   %.sroa.0152.0.idx249.i = phi i64 [ %.sroa.0152.0.add.i, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEERS2_DpOT_.exit.i ], [ 0, %109 ]
@@ -454,7 +454,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJRNS1_4CardERKS
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEERS2_DpOT_.exit.i: ; preds = %116, %.noexc67.i
   %.sroa.0152.0.add.i = add nuw nsw i64 %.sroa.0152.0.idx249.i, 4
   %.not203.i = icmp eq i64 %.sroa.0152.0.add.i, 16
-  br i1 %.not203.i, label %.preheader223.i, label %.preheader227.i
+  br i1 %.not203.i, label %.preheader223.i, label %.preheader227.i, !llvm.loop !16
 
 .preheader223.i:                                  ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEERS2_DpOT_.exit.i, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEERS2_DpOT_.exit.i
   %.sroa.0148.0.idx251.i = phi i64 [ %.sroa.0148.0.add.i, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEERS2_DpOT_.exit.i ], [ 0, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEERS2_DpOT_.exit.i ]
@@ -485,7 +485,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeE
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEERS2_DpOT_.exit.i: ; preds = %123, %.noexc71.i
   %.sroa.0148.0.add.i = add nuw nsw i64 %.sroa.0148.0.idx251.i, 4
   %.not204.i = icmp eq i64 %.sroa.0148.0.add.i, 16
-  br i1 %.not204.i, label %.preheader220.i, label %.preheader223.i
+  br i1 %.not204.i, label %.preheader220.i, label %.preheader223.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEERS2_DpOT_.exit77.i
   %124 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -520,7 +520,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeE
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEERS2_DpOT_.exit77.i: ; preds = %132, %.noexc75.i
   %.sroa.0144.0.add.i = add nuw nsw i64 %.sroa.0144.0.idx253.i, 4
   %.not205.i = icmp eq i64 %.sroa.0144.0.add.i, 16
-  br i1 %.not205.i, label %.preheader.i, label %.preheader220.i
+  br i1 %.not205.i, label %.preheader.i, label %.preheader220.i, !llvm.loop !18
 
 133:                                              ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit79.i, %.preheader.i
   %.sroa.0140.0.idx260.i = phi i64 [ 0, %.preheader.i ], [ %.sroa.0140.0.add.i, %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit79.i ]
@@ -563,7 +563,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJNS1_8RankTypeE
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit79.i: ; preds = %140, %._crit_edge259.i
   %.sroa.0140.0.add.i = add nuw nsw i64 %.sroa.0140.0.idx260.i, 4
   %.not206.i = icmp eq i64 %.sroa.0140.0.add.i, 16
-  br i1 %.not206.i, label %192, label %133
+  br i1 %.not206.i, label %192, label %133, !llvm.loop !19
 
 .lr.ph258.i:                                      ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJRNS1_4CardERKS6_EEERS2_DpOT_.exit84.i, %.lr.ph258.preheader.i
   %145 = phi ptr [ %184, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJRNS1_4CardERKS6_EEERS2_DpOT_.exit84.i ], [ %.pre272.i, %.lr.ph258.preheader.i ]
@@ -628,11 +628,11 @@ _ZNKSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12_M_check_lenEmPKc.exit.i109
 .lr.ph.i.i.i.i113.i:                              ; preds = %165, %.lr.ph.i.i.i.i113.i
   %.012.i.i.i.i114.i = phi ptr [ %167, %.lr.ph.i.i.i.i113.i ], [ %163, %165 ]
   %.0911.i.i.i.i115.i = phi ptr [ %166, %.lr.ph.i.i.i.i113.i ], [ %151, %165 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i.i114.i, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i.i115.i, i64 40, i1 false), !alias.scope !11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i.i114.i, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i.i115.i, i64 40, i1 false), !alias.scope !20
   %166 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i115.i, i64 40
   %167 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i114.i, i64 40
   %.not.i.i.i.i116.i = icmp eq ptr %166, %145
-  br i1 %.not.i.i.i.i116.i, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i124.i, label %.lr.ph.i.i.i.i113.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i116.i, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i124.i, label %.lr.ph.i.i.i.i113.i, !llvm.loop !11
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i124.i: ; preds = %.lr.ph.i.i.i.i113.i, %165
   %.0.lcssa.i.i.i.i118.i = phi ptr [ %163, %165 ], [ %167, %.lr.ph.i.i.i.i113.i ]
@@ -683,7 +683,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJRNS1_4CardERKS
   %184 = phi ptr [ %168, %.noexc83.i ], [ %149, %.noexc82.i ]
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.0136.0256.i, i64 20
   %.not208.i = icmp eq ptr %185, %138
-  br i1 %.not208.i, label %._crit_edge259.loopexit.i, label %.lr.ph258.i
+  br i1 %.not208.i, label %._crit_edge259.loopexit.i, label %.lr.ph258.i, !llvm.loop !24
 
 .loopexit212.i:                                   ; preds = %_ZNKSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12_M_check_lenEmPKc.exit.i109.i, %147
   %lpad.loopexit214.i = landingpad { ptr, i32 }
@@ -833,7 +833,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #21
   %235 = getelementptr inbounds nuw i8, ptr %.sroa.0132.0262.i, i64 40
   %.not207.i = icmp eq ptr %235, %194
-  br i1 %.not207.i, label %._crit_edge265.loopexit.i, label %.lr.ph264.i
+  br i1 %.not207.i, label %._crit_edge265.loopexit.i, label %.lr.ph264.i, !llvm.loop !25
 
 236:                                              ; preds = %233, %231
   %.pn48.i = phi { ptr, i32 } [ %234, %233 ], [ %232, %231 ]
@@ -1420,11 +1420,11 @@ _ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8Ra
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %9, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEEvRS3_PT_DpOT0_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i, i64 40, i1 false), !alias.scope !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i, i64 40, i1 false), !alias.scope !26
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %29, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEEvRS3_PT_DpOT0_.exit ], [ %30, %.lr.ph.i.i.i ]
@@ -1435,11 +1435,11 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i30
   %.012.i.i.i31 = phi ptr [ %33, %.lr.ph.i.i.i30 ], [ %31, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i32 = phi ptr [ %32, %.lr.ph.i.i.i30 ], [ %1, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i31, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i32, i64 40, i1 false), !alias.scope !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i31, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i32, i64 40, i1 false), !alias.scope !30
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i32, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq ptr %32, %8
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !9
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !11
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; preds = %.lr.ph.i.i.i30, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %31, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %33, %.lr.ph.i.i.i30 ]
@@ -1535,11 +1535,11 @@ _ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8Ra
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %9, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEEvRS3_PT_DpOT0_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i, i64 40, i1 false), !alias.scope !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i, i64 40, i1 false), !alias.scope !34
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %29, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEEvRS3_PT_DpOT0_.exit ], [ %30, %.lr.ph.i.i.i ]
@@ -1550,11 +1550,11 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i30
   %.012.i.i.i31 = phi ptr [ %33, %.lr.ph.i.i.i30 ], [ %31, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i32 = phi ptr [ %32, %.lr.ph.i.i.i30 ], [ %1, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i31, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i32, i64 40, i1 false), !alias.scope !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.012.i.i.i31, ptr noundef nonnull align 4 dereferenceable(40) %.0911.i.i.i32, i64 40, i1 false), !alias.scope !38
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i32, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq ptr %32, %8
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !9
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !11
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; preds = %.lr.ph.i.i.i30, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %31, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %33, %.lr.ph.i.i.i30 ]
@@ -1916,29 +1916,40 @@ attributes #22 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6, !8}
-!6 = distinct !{!6, !7, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!7 = distinct !{!7, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
-!8 = distinct !{!8, !7, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!13 = distinct !{!13, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
-!14 = distinct !{!14, !13, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!17 = distinct !{!17, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
-!18 = distinct !{!18, !17, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
-!22 = distinct !{!22, !21, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!23 = !{!24, !26}
-!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!25 = distinct !{!25, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
-!26 = distinct !{!26, !25, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!29 = distinct !{!29, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
-!30 = distinct !{!30, !29, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !10}
+!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
+!10 = distinct !{!10, !9, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!11 = distinct !{!11, !12, !6}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!22 = distinct !{!22, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
+!23 = distinct !{!23, !22, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!28 = distinct !{!28, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
+!29 = distinct !{!29, !28, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!32 = distinct !{!32, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
+!33 = distinct !{!33, !32, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!36 = distinct !{!36, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
+!37 = distinct !{!37, !36, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!40 = distinct !{!40, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_"}
+!41 = distinct !{!41, !40, !"_ZSt19__relocate_object_aIN10open_spiel9solitaire4MoveES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}

@@ -52,7 +52,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %.1346 = phi i32 [ %68, %72 ], [ %768, %765 ], [ %764, %761 ]
   %.1 = phi i32 [ -2, %72 ], [ %.7, %765 ], [ %.7, %761 ]
   %10 = getelementptr inbounds nuw i8, ptr %.1361, i64 1
-  br label %11
+  br label %11, !llvm.loop !4
 
 11:                                               ; preds = %9, %3
   %.0372 = phi ptr [ %6, %3 ], [ %.1373, %9 ]
@@ -312,7 +312,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %89 = load ptr, ptr %.2374, align 8
   store ptr %89, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %.2374, i64 -16
-  %91 = load i8, ptr %90, align 8, !range !4, !noundef !5
+  %91 = load i8, ptr %90, align 8, !range !6, !noundef !7
   %92 = load ptr, ptr %0, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i8 %91, ptr %93, align 8
@@ -354,7 +354,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %109 = call ptr @palloc(i64 noundef 40) #6
   %110 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %110, 0
-  br i1 %.not.i.i, label %makeItemString.exit, label %111, !prof !6
+  br i1 %.not.i.i, label %makeItemString.exit, label %111, !prof !8
 
 111:                                              ; preds = %108
   call void @ProcessInterrupts() #6
@@ -377,7 +377,7 @@ makeItemString.exit:                              ; preds = %108, %111
   %119 = call ptr @palloc(i64 noundef 40) #6
   %120 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i414 = icmp eq i32 %120, 0
-  br i1 %.not.i.i414, label %makeItemString.exit415, label %121, !prof !6
+  br i1 %.not.i.i414, label %makeItemString.exit415, label %121, !prof !8
 
 121:                                              ; preds = %118
   call void @ProcessInterrupts() #6
@@ -393,7 +393,7 @@ makeItemString.exit415:                           ; preds = %118, %121
   %124 = call ptr @palloc(i64 noundef 40) #6
   %125 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i416 = icmp eq i32 %125, 0
-  br i1 %.not.i.i416, label %makeItemBool.exit, label %126, !prof !6
+  br i1 %.not.i.i416, label %makeItemBool.exit, label %126, !prof !8
 
 126:                                              ; preds = %123
   call void @ProcessInterrupts() #6
@@ -411,7 +411,7 @@ makeItemBool.exit:                                ; preds = %123, %126
   %130 = call ptr @palloc(i64 noundef 40) #6
   %131 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i417 = icmp eq i32 %131, 0
-  br i1 %.not.i.i417, label %makeItemBool.exit418, label %132, !prof !6
+  br i1 %.not.i.i417, label %makeItemBool.exit418, label %132, !prof !8
 
 132:                                              ; preds = %129
   call void @ProcessInterrupts() #6
@@ -429,7 +429,7 @@ makeItemBool.exit418:                             ; preds = %129, %132
   %136 = call ptr @palloc(i64 noundef 40) #6
   %137 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i419 = icmp eq i32 %137, 0
-  br i1 %.not.i.i419, label %makeItemNumeric.exit, label %138, !prof !6
+  br i1 %.not.i.i419, label %makeItemNumeric.exit, label %138, !prof !8
 
 138:                                              ; preds = %135
   call void @ProcessInterrupts() #6
@@ -452,7 +452,7 @@ makeItemNumeric.exit:                             ; preds = %135, %138
   %147 = call ptr @palloc(i64 noundef 40) #6
   %148 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i420 = icmp eq i32 %148, 0
-  br i1 %.not.i.i420, label %makeItemNumeric.exit421, label %149, !prof !6
+  br i1 %.not.i.i420, label %makeItemNumeric.exit421, label %149, !prof !8
 
 149:                                              ; preds = %146
   call void @ProcessInterrupts() #6
@@ -475,7 +475,7 @@ makeItemNumeric.exit421:                          ; preds = %146, %149
   %158 = call ptr @palloc(i64 noundef 40) #6
   %159 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i422 = icmp eq i32 %159, 0
-  br i1 %.not.i.i422, label %makeItemVariable.exit, label %160, !prof !6
+  br i1 %.not.i.i422, label %makeItemVariable.exit, label %160, !prof !8
 
 160:                                              ; preds = %157
   call void @ProcessInterrupts() #6
@@ -547,7 +547,7 @@ makeItemVariable.exit:                            ; preds = %157, %160
   %191 = call ptr @palloc(i64 noundef 40) #6
   %192 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i = icmp eq i32 %192, 0
-  br i1 %.not.i15.i, label %makeItemUnary.exit, label %193, !prof !6
+  br i1 %.not.i15.i, label %makeItemUnary.exit, label %193, !prof !8
 
 193:                                              ; preds = %188
   call void @ProcessInterrupts() #6
@@ -574,7 +574,7 @@ makeItemUnary.exit:                               ; preds = %188, %193
   %204 = call ptr @palloc(i64 noundef 40) #6
   %205 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i423 = icmp eq i32 %205, 0
-  br i1 %.not.i.i423, label %makeItemBinary.exit, label %206, !prof !6
+  br i1 %.not.i.i423, label %makeItemBinary.exit, label %206, !prof !8
 
 206:                                              ; preds = %198
   call void @ProcessInterrupts() #6
@@ -597,7 +597,7 @@ makeItemBinary.exit:                              ; preds = %198, %206
   %214 = call ptr @palloc(i64 noundef 40) #6
   %215 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i424 = icmp eq i32 %215, 0
-  br i1 %.not.i.i424, label %makeItemBinary.exit425, label %216, !prof !6
+  br i1 %.not.i.i424, label %makeItemBinary.exit425, label %216, !prof !8
 
 216:                                              ; preds = %210
   call void @ProcessInterrupts() #6
@@ -620,7 +620,7 @@ makeItemBinary.exit425:                           ; preds = %210, %216
   %224 = call ptr @palloc(i64 noundef 40) #6
   %225 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i426 = icmp eq i32 %225, 0
-  br i1 %.not.i.i426, label %makeItemBinary.exit427, label %226, !prof !6
+  br i1 %.not.i.i426, label %makeItemBinary.exit427, label %226, !prof !8
 
 226:                                              ; preds = %220
   call void @ProcessInterrupts() #6
@@ -641,7 +641,7 @@ makeItemBinary.exit427:                           ; preds = %220, %226
   %232 = call ptr @palloc(i64 noundef 40) #6
   %233 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i428 = icmp eq i32 %233, 0
-  br i1 %.not.i15.i428, label %makeItemUnary.exit429, label %234, !prof !6
+  br i1 %.not.i15.i428, label %makeItemUnary.exit429, label %234, !prof !8
 
 234:                                              ; preds = %230
   call void @ProcessInterrupts() #6
@@ -661,7 +661,7 @@ makeItemUnary.exit429:                            ; preds = %230, %234
   %240 = call ptr @palloc(i64 noundef 40) #6
   %241 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i430 = icmp eq i32 %241, 0
-  br i1 %.not.i15.i430, label %makeItemUnary.exit431, label %242, !prof !6
+  br i1 %.not.i15.i430, label %makeItemUnary.exit431, label %242, !prof !8
 
 242:                                              ; preds = %237
   call void @ProcessInterrupts() #6
@@ -682,7 +682,7 @@ makeItemUnary.exit431:                            ; preds = %237, %242
   %249 = call ptr @palloc(i64 noundef 40) #6
   %250 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i432 = icmp eq i32 %250, 0
-  br i1 %.not.i.i432, label %makeItemBinary.exit433, label %251, !prof !6
+  br i1 %.not.i.i432, label %makeItemBinary.exit433, label %251, !prof !8
 
 251:                                              ; preds = %245
   call void @ProcessInterrupts() #6
@@ -721,7 +721,7 @@ makeItemBinary.exit433:                           ; preds = %245, %251
   %267 = call ptr @palloc(i64 noundef 40) #6
   %268 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i434 = icmp eq i32 %268, 0
-  br i1 %.not.i.i434, label %makeItemString.exit435, label %269, !prof !6
+  br i1 %.not.i.i434, label %makeItemString.exit435, label %269, !prof !8
 
 269:                                              ; preds = %266
   call void @ProcessInterrupts() #6
@@ -744,7 +744,7 @@ makeItemString.exit435:                           ; preds = %266, %269
   %277 = call ptr @palloc(i64 noundef 40) #6
   %278 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i436 = icmp eq i32 %278, 0
-  br i1 %.not.i.i436, label %makeItemVariable.exit437, label %279, !prof !6
+  br i1 %.not.i.i436, label %makeItemVariable.exit437, label %279, !prof !8
 
 279:                                              ; preds = %276
   call void @ProcessInterrupts() #6
@@ -771,7 +771,7 @@ makeItemVariable.exit437:                         ; preds = %276, %279
   %289 = call ptr @palloc(i64 noundef 40) #6
   %290 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %290, 0
-  br i1 %.not.i, label %makeItemType.exit, label %291, !prof !6
+  br i1 %.not.i, label %makeItemType.exit, label %291, !prof !8
 
 291:                                              ; preds = %288
   call void @ProcessInterrupts() #6
@@ -787,7 +787,7 @@ makeItemType.exit:                                ; preds = %288, %291
   %294 = call ptr @palloc(i64 noundef 40) #6
   %295 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i438 = icmp eq i32 %295, 0
-  br i1 %.not.i438, label %makeItemType.exit439, label %296, !prof !6
+  br i1 %.not.i438, label %makeItemType.exit439, label %296, !prof !8
 
 296:                                              ; preds = %293
   call void @ProcessInterrupts() #6
@@ -803,7 +803,7 @@ makeItemType.exit439:                             ; preds = %293, %296
   %299 = call ptr @palloc(i64 noundef 40) #6
   %300 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i440 = icmp eq i32 %300, 0
-  br i1 %.not.i440, label %makeItemType.exit441, label %301, !prof !6
+  br i1 %.not.i440, label %makeItemType.exit441, label %301, !prof !8
 
 301:                                              ; preds = %298
   call void @ProcessInterrupts() #6
@@ -856,7 +856,7 @@ makeItemType.exit441:                             ; preds = %298, %301
   %328 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %329 = load ptr, ptr %328, align 8
   %.not.i442 = icmp eq ptr %329, null
-  br i1 %.not.i442, label %.preheader.i, label %.preheader21.i, !llvm.loop !7
+  br i1 %.not.i442, label %.preheader.i, label %.preheader21.i, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %.preheader21.i
   %330 = icmp sgt i32 %326, 1
@@ -874,7 +874,7 @@ makeItemType.exit441:                             ; preds = %298, %301
   %335 = load i32, ptr %325, align 4
   %336 = sext i32 %335 to i64
   %337 = icmp slt i64 %indvars.iv.next.i, %336
-  br i1 %337, label %.lr.ph.i, label %makeItemList.exit, !llvm.loop !9
+  br i1 %337, label %.lr.ph.i, label %makeItemList.exit, !llvm.loop !11
 
 338:                                              ; preds = %79
   %339 = getelementptr inbounds i8, ptr %.2374, i64 -16
@@ -897,7 +897,7 @@ makeItemType.exit441:                             ; preds = %298, %301
   %349 = call ptr @palloc(i64 noundef 40) #6
   %350 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i443 = icmp eq i32 %350, 0
-  br i1 %.not.i15.i443, label %makeItemType.exit16.i, label %351, !prof !6
+  br i1 %.not.i15.i443, label %makeItemType.exit16.i, label %351, !prof !8
 
 351:                                              ; preds = %348
   call void @ProcessInterrupts() #6
@@ -923,7 +923,7 @@ makeItemType.exit16.i:                            ; preds = %351, %348
   %361 = call ptr @palloc(i64 noundef 40) #6
   %362 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i446 = icmp eq i32 %362, 0
-  br i1 %.not.i.i446, label %makeItemBinary.exit447, label %363, !prof !6
+  br i1 %.not.i.i446, label %makeItemBinary.exit447, label %363, !prof !8
 
 363:                                              ; preds = %357
   call void @ProcessInterrupts() #6
@@ -946,7 +946,7 @@ makeItemBinary.exit447:                           ; preds = %357, %363
   %371 = call ptr @palloc(i64 noundef 40) #6
   %372 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i448 = icmp eq i32 %372, 0
-  br i1 %.not.i.i448, label %makeItemBinary.exit449, label %373, !prof !6
+  br i1 %.not.i.i448, label %makeItemBinary.exit449, label %373, !prof !8
 
 373:                                              ; preds = %367
   call void @ProcessInterrupts() #6
@@ -969,7 +969,7 @@ makeItemBinary.exit449:                           ; preds = %367, %373
   %381 = call ptr @palloc(i64 noundef 40) #6
   %382 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i450 = icmp eq i32 %382, 0
-  br i1 %.not.i.i450, label %makeItemBinary.exit451, label %383, !prof !6
+  br i1 %.not.i.i450, label %makeItemBinary.exit451, label %383, !prof !8
 
 383:                                              ; preds = %377
   call void @ProcessInterrupts() #6
@@ -992,7 +992,7 @@ makeItemBinary.exit451:                           ; preds = %377, %383
   %391 = call ptr @palloc(i64 noundef 40) #6
   %392 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i452 = icmp eq i32 %392, 0
-  br i1 %.not.i.i452, label %makeItemBinary.exit453, label %393, !prof !6
+  br i1 %.not.i.i452, label %makeItemBinary.exit453, label %393, !prof !8
 
 393:                                              ; preds = %387
   call void @ProcessInterrupts() #6
@@ -1015,7 +1015,7 @@ makeItemBinary.exit453:                           ; preds = %387, %393
   %401 = call ptr @palloc(i64 noundef 40) #6
   %402 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i454 = icmp eq i32 %402, 0
-  br i1 %.not.i.i454, label %makeItemBinary.exit455, label %403, !prof !6
+  br i1 %.not.i.i454, label %makeItemBinary.exit455, label %403, !prof !8
 
 403:                                              ; preds = %397
   call void @ProcessInterrupts() #6
@@ -1036,7 +1036,7 @@ makeItemBinary.exit455:                           ; preds = %397, %403
   %409 = call ptr @palloc(i64 noundef 40) #6
   %410 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i456 = icmp eq i32 %410, 0
-  br i1 %.not.i.i456, label %makeItemBinary.exit457, label %411, !prof !6
+  br i1 %.not.i.i456, label %makeItemBinary.exit457, label %411, !prof !8
 
 411:                                              ; preds = %407
   call void @ProcessInterrupts() #6
@@ -1059,7 +1059,7 @@ makeItemBinary.exit457:                           ; preds = %407, %411
   %419 = call ptr @palloc(i64 noundef 40) #6
   %420 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i458 = icmp eq i32 %420, 0
-  br i1 %.not.i.i458, label %makeItemBinary.exit459, label %421, !prof !6
+  br i1 %.not.i.i458, label %makeItemBinary.exit459, label %421, !prof !8
 
 421:                                              ; preds = %415
   call void @ProcessInterrupts() #6
@@ -1091,7 +1091,7 @@ makeItemBinary.exit459:                           ; preds = %415, %421
   %434 = call ptr @palloc(i64 noundef 40) #6
   %435 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i460 = icmp eq i32 %435, 0
-  br i1 %.not.i460, label %makeItemType.exit461, label %436, !prof !6
+  br i1 %.not.i460, label %makeItemType.exit461, label %436, !prof !8
 
 436:                                              ; preds = %433
   call void @ProcessInterrupts() #6
@@ -1109,7 +1109,7 @@ makeItemType.exit461:                             ; preds = %433, %436
   %441 = call ptr @palloc(i64 noundef 40) #6
   %442 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i462 = icmp eq i32 %442, 0
-  br i1 %.not.i.i462, label %makeItemType.exit.i, label %443, !prof !6
+  br i1 %.not.i.i462, label %makeItemType.exit.i, label %443, !prof !8
 
 443:                                              ; preds = %438
   call void @ProcessInterrupts() #6
@@ -1186,7 +1186,7 @@ list_length.exit.i:                               ; preds = %makeItemType.exit.i
   %481 = call ptr @palloc(i64 noundef 40) #6
   %482 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i465 = icmp eq i32 %482, 0
-  br i1 %.not.i.i465, label %makeAny.exit, label %483, !prof !6
+  br i1 %.not.i.i465, label %makeAny.exit, label %483, !prof !8
 
 483:                                              ; preds = %480
   call void @ProcessInterrupts() #6
@@ -1208,7 +1208,7 @@ makeAny.exit:                                     ; preds = %480, %483
   %490 = call ptr @palloc(i64 noundef 40) #6
   %491 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i467 = icmp eq i32 %491, 0
-  br i1 %.not.i.i467, label %makeAny.exit469, label %492, !prof !6
+  br i1 %.not.i.i467, label %makeAny.exit469, label %492, !prof !8
 
 492:                                              ; preds = %487
   call void @ProcessInterrupts() #6
@@ -1233,7 +1233,7 @@ makeAny.exit469:                                  ; preds = %487, %492
   %502 = call ptr @palloc(i64 noundef 40) #6
   %503 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i470 = icmp eq i32 %503, 0
-  br i1 %.not.i.i470, label %makeAny.exit472, label %504, !prof !6
+  br i1 %.not.i.i470, label %makeAny.exit472, label %504, !prof !8
 
 504:                                              ; preds = %497
   call void @ProcessInterrupts() #6
@@ -1259,7 +1259,7 @@ makeAny.exit472:                                  ; preds = %497, %504
   %513 = call ptr @palloc(i64 noundef 40) #6
   %514 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i473 = icmp eq i32 %514, 0
-  br i1 %.not.i473, label %makeItemType.exit474, label %515, !prof !6
+  br i1 %.not.i473, label %makeItemType.exit474, label %515, !prof !8
 
 515:                                              ; preds = %512
   call void @ProcessInterrupts() #6
@@ -1285,7 +1285,7 @@ makeItemType.exit474:                             ; preds = %512, %515
   %524 = call ptr @palloc(i64 noundef 40) #6
   %525 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i475 = icmp eq i32 %525, 0
-  br i1 %.not.i475, label %makeItemType.exit476, label %526, !prof !6
+  br i1 %.not.i475, label %makeItemType.exit476, label %526, !prof !8
 
 526:                                              ; preds = %521
   call void @ProcessInterrupts() #6
@@ -1303,7 +1303,7 @@ makeItemType.exit476:                             ; preds = %521, %526
   %531 = call ptr @palloc(i64 noundef 40) #6
   %532 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i477 = icmp eq i32 %532, 0
-  br i1 %.not.i15.i477, label %makeItemUnary.exit480, label %533, !prof !6
+  br i1 %.not.i15.i477, label %makeItemUnary.exit480, label %533, !prof !8
 
 533:                                              ; preds = %528
   call void @ProcessInterrupts() #6
@@ -1336,7 +1336,7 @@ list_length.exit.thread:                          ; preds = %list_length.exit, %
   %541 = call ptr @palloc(i64 noundef 40) #6
   %542 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i482 = icmp eq i32 %542, 0
-  br i1 %.not.i.i482, label %makeItemBinary.exit484, label %543, !prof !6
+  br i1 %.not.i.i482, label %makeItemBinary.exit484, label %543, !prof !8
 
 543:                                              ; preds = %list_length.exit.thread
   call void @ProcessInterrupts() #6
@@ -1355,7 +1355,7 @@ makeItemBinary.exit484:                           ; preds = %list_length.exit.th
   %548 = call ptr @palloc(i64 noundef 40) #6
   %549 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i487 = icmp eq i32 %549, 0
-  br i1 %.not.i.i487, label %makeItemBinary.exit489, label %550, !prof !6
+  br i1 %.not.i.i487, label %makeItemBinary.exit489, label %550, !prof !8
 
 550:                                              ; preds = %545
   call void @ProcessInterrupts() #6
@@ -1380,7 +1380,7 @@ makeItemBinary.exit489:                           ; preds = %545, %550
   %559 = call ptr @palloc(i64 noundef 40) #6
   %560 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i492 = icmp eq i32 %560, 0
-  br i1 %.not.i.i492, label %makeItemBinary.exit494, label %561, !prof !6
+  br i1 %.not.i.i492, label %makeItemBinary.exit494, label %561, !prof !8
 
 561:                                              ; preds = %554
   call void @ProcessInterrupts() #6
@@ -1413,7 +1413,7 @@ makeItemBinary.exit494:                           ; preds = %554, %561
   %574 = call ptr @palloc(i64 noundef 40) #6
   %575 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i495 = icmp eq i32 %575, 0
-  br i1 %.not.i15.i495, label %makeItemUnary.exit498, label %576, !prof !6
+  br i1 %.not.i15.i495, label %makeItemUnary.exit498, label %576, !prof !8
 
 576:                                              ; preds = %571
   call void @ProcessInterrupts() #6
@@ -1433,7 +1433,7 @@ makeItemUnary.exit498:                            ; preds = %571, %576
   %582 = call ptr @palloc(i64 noundef 40) #6
   %583 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i499 = icmp eq i32 %583, 0
-  br i1 %.not.i15.i499, label %makeItemUnary.exit502, label %584, !prof !6
+  br i1 %.not.i15.i499, label %makeItemUnary.exit502, label %584, !prof !8
 
 584:                                              ; preds = %579
   call void @ProcessInterrupts() #6
@@ -1453,7 +1453,7 @@ makeItemUnary.exit502:                            ; preds = %579, %584
   %590 = call ptr @palloc(i64 noundef 40) #6
   %591 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i503 = icmp eq i32 %591, 0
-  br i1 %.not.i15.i503, label %makeItemUnary.exit506, label %592, !prof !6
+  br i1 %.not.i15.i503, label %makeItemUnary.exit506, label %592, !prof !8
 
 592:                                              ; preds = %587
   call void @ProcessInterrupts() #6
@@ -1473,7 +1473,7 @@ makeItemUnary.exit506:                            ; preds = %587, %592
   %598 = call ptr @palloc(i64 noundef 40) #6
   %599 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i507 = icmp eq i32 %599, 0
-  br i1 %.not.i15.i507, label %makeItemUnary.exit510, label %600, !prof !6
+  br i1 %.not.i15.i507, label %makeItemUnary.exit510, label %600, !prof !8
 
 600:                                              ; preds = %595
   call void @ProcessInterrupts() #6
@@ -1493,7 +1493,7 @@ makeItemUnary.exit510:                            ; preds = %595, %600
   %606 = call ptr @palloc(i64 noundef 40) #6
   %607 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i511 = icmp eq i32 %607, 0
-  br i1 %.not.i15.i511, label %makeItemUnary.exit514, label %608, !prof !6
+  br i1 %.not.i15.i511, label %makeItemUnary.exit514, label %608, !prof !8
 
 608:                                              ; preds = %603
   call void @ProcessInterrupts() #6
@@ -1511,7 +1511,7 @@ makeItemUnary.exit514:                            ; preds = %603, %608
   %612 = call ptr @palloc(i64 noundef 40) #6
   %613 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i515 = icmp eq i32 %613, 0
-  br i1 %.not.i.i515, label %makeItemNumeric.exit517, label %614, !prof !6
+  br i1 %.not.i.i515, label %makeItemNumeric.exit517, label %614, !prof !8
 
 614:                                              ; preds = %611
   call void @ProcessInterrupts() #6
@@ -1534,7 +1534,7 @@ makeItemNumeric.exit517:                          ; preds = %611, %614
   %623 = call ptr @palloc(i64 noundef 40) #6
   %624 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i518 = icmp eq i32 %624, 0
-  br i1 %.not.i.i518, label %makeItemNumeric.exit520, label %625, !prof !6
+  br i1 %.not.i.i518, label %makeItemNumeric.exit520, label %625, !prof !8
 
 625:                                              ; preds = %622
   call void @ProcessInterrupts() #6
@@ -1564,7 +1564,7 @@ makeItemNumeric.exit520:                          ; preds = %622, %625
   %638 = call ptr @palloc(i64 noundef 40) #6
   %639 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i521 = icmp eq i32 %639, 0
-  br i1 %.not.i15.i521, label %makeItemType.exit16.i522, label %640, !prof !6
+  br i1 %.not.i15.i521, label %makeItemType.exit16.i522, label %640, !prof !8
 
 640:                                              ; preds = %637
   call void @ProcessInterrupts() #6
@@ -1582,7 +1582,7 @@ makeItemType.exit16.i522:                         ; preds = %640, %637
   %644 = call ptr @palloc(i64 noundef 40) #6
   %645 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i526 = icmp eq i32 %645, 0
-  br i1 %.not.i.i526, label %makeItemNumeric.exit528, label %646, !prof !6
+  br i1 %.not.i.i526, label %makeItemNumeric.exit528, label %646, !prof !8
 
 646:                                              ; preds = %643
   call void @ProcessInterrupts() #6
@@ -1625,7 +1625,7 @@ makeItemNumeric.exit528:                          ; preds = %643, %646
   %667 = call ptr @palloc(i64 noundef 40) #6
   %668 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i529 = icmp eq i32 %668, 0
-  br i1 %.not.i.i529, label %makeItemNumeric.exit531, label %669, !prof !6
+  br i1 %.not.i.i529, label %makeItemNumeric.exit531, label %669, !prof !8
 
 669:                                              ; preds = %666
   call void @ProcessInterrupts() #6
@@ -1652,7 +1652,7 @@ makeItemNumeric.exit531:                          ; preds = %666, %669
   %680 = call ptr @palloc(i64 noundef 40) #6
   %681 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i532 = icmp eq i32 %681, 0
-  br i1 %.not.i.i532, label %makeItemString.exit534, label %682, !prof !6
+  br i1 %.not.i.i532, label %makeItemString.exit534, label %682, !prof !8
 
 682:                                              ; preds = %679
   call void @ProcessInterrupts() #6
@@ -1679,7 +1679,7 @@ makeItemString.exit534:                           ; preds = %679, %682
   %692 = call ptr @palloc(i64 noundef 40) #6
   %693 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i.i = icmp eq i32 %693, 0
-  br i1 %.not.i.i.i, label %makeItemKey.exit, label %694, !prof !6
+  br i1 %.not.i.i.i, label %makeItemKey.exit, label %694, !prof !8
 
 694:                                              ; preds = %691
   call void @ProcessInterrupts() #6
@@ -1906,7 +1906,7 @@ define internal fastcc ptr @makeItemUnary(i32 noundef range(i32 6, 54) %0, ptr n
   %16 = tail call ptr @palloc(i64 noundef 40) #6
   %17 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %makeItemType.exit, label %18, !prof !6
+  br i1 %.not.i, label %makeItemType.exit, label %18, !prof !8
 
 18:                                               ; preds = %15
   tail call void @ProcessInterrupts() #6
@@ -1928,7 +1928,7 @@ makeItemType.exit:                                ; preds = %15, %18
   %27 = tail call ptr @palloc(i64 noundef 40) #6
   %28 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15 = icmp eq i32 %28, 0
-  br i1 %.not.i15, label %makeItemType.exit16, label %29, !prof !6
+  br i1 %.not.i15, label %makeItemType.exit16, label %29, !prof !8
 
 29:                                               ; preds = %26
   tail call void @ProcessInterrupts() #6
@@ -1959,7 +1959,7 @@ define internal fastcc noundef zeroext i1 @makeItemLikeRegex(ptr noundef %0, ptr
   %8 = tail call ptr @palloc(i64 noundef 40) #6
   %9 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %makeItemType.exit, label %10, !prof !6
+  br i1 %.not.i, label %makeItemType.exit, label %10, !prof !8
 
 10:                                               ; preds = %5
   tail call void @ProcessInterrupts() #6
@@ -2225,9 +2225,11 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = !{}
-!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!9 = distinct !{!9, !10, !5}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !5}

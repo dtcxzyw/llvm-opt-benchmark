@@ -452,7 +452,7 @@ hsl2rgb.exit:                                     ; preds = %99, %hue2rgb.exit38
   store float %168, ptr %169, align 4, !tbaa !84
   %170 = add nuw nsw i64 %.094123, 1
   %exitcond127.not = icmp eq i64 %170, 4
-  br i1 %exitcond127.not, label %154, label %156
+  br i1 %exitcond127.not, label %154, label %156, !llvm.loop !90
 
 171:                                              ; preds = %rgb2hsl.exit
   %172 = fcmp reassoc nsz arcp contract afn ogt float %96, %39
@@ -577,7 +577,7 @@ hsl2rgb.exit112:                                  ; preds = %174, %hue2rgb.exit3
 229:                                              ; preds = %242
   %230 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %.val102 = load <4 x float>, ptr %10, align 16, !tbaa !85
-  store <4 x float> %.val102, ptr %230, align 16, !tbaa !85, !alias.scope !90, !nontemporal !89
+  store <4 x float> %.val102, ptr %230, align 16, !tbaa !85, !alias.scope !92, !nontemporal !89
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #21
   br label %248
@@ -607,18 +607,18 @@ hsl2rgb.exit112:                                  ; preds = %174, %hue2rgb.exit3
   store float %243, ptr %244, align 4, !tbaa !84
   %245 = add nuw nsw i64 %.0120, 1
   %exitcond.not = icmp eq i64 %245, 4
-  br i1 %exitcond.not, label %229, label %231
+  br i1 %exitcond.not, label %229, label %231, !llvm.loop !95
 
 246:                                              ; preds = %171
   %247 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %.val103 = load <4 x float>, ptr %85, align 16, !tbaa !85
-  store <4 x float> %.val103, ptr %247, align 16, !tbaa !85, !alias.scope !93, !nontemporal !89
+  store <4 x float> %.val103, ptr %247, align 16, !tbaa !85, !alias.scope !96, !nontemporal !89
   br label %248
 
 248:                                              ; preds = %229, %246, %154
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %249 = icmp samesign ult i64 %indvars.iv.next, %84
-  br i1 %249, label %rgb2hsl.exit, label %._crit_edge
+  br i1 %249, label %rgb2hsl.exit, label %._crit_edge, !llvm.loop !99
 
 250:                                              ; preds = %6, %._crit_edge
   ret void
@@ -639,8 +639,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 define void @init_global(ptr noundef writeonly captures(none) initializes((520, 528)) %0) local_unnamed_addr #7 {
   %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store ptr %2, ptr %3, align 8, !tbaa !96
-  store i32 -1, ptr %2, align 4, !tbaa !97
+  store ptr %2, ptr %3, align 8, !tbaa !100
+  store i32 -1, ptr %2, align 4, !tbaa !101
   ret void
 }
 
@@ -650,9 +650,9 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @cleanup_global(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !100
   tail call void @free(ptr noundef %3) #21
-  store ptr null, ptr %2, align 8, !tbaa !96
+  store ptr null, ptr %2, align 8, !tbaa !100
   ret void
 }
 
@@ -662,34 +662,34 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 ; Function Attrs: nounwind uwtable
 define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %5 = load ptr, ptr %4, align 8, !tbaa !99
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %7 = load ptr, ptr %6, align 16, !tbaa !108
+  %7 = load ptr, ptr %6, align 16, !tbaa !112
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !109
+  %9 = load ptr, ptr %8, align 8, !tbaa !113
   %10 = icmp eq ptr %1, %9
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !111
+  %13 = load ptr, ptr %12, align 8, !tbaa !115
   %14 = icmp eq ptr %1, %13
   br i1 %14, label %15, label %85
 
 15:                                               ; preds = %11, %3
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !112
+  %17 = load ptr, ptr %16, align 8, !tbaa !116
   %18 = load float, ptr %5, align 4, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %20 = load float, ptr %19, align 4, !tbaa !56
   tail call fastcc void @update_colorpicker_color(ptr noundef %17, float noundef %18, float noundef %20)
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !111
+  %22 = load ptr, ptr %21, align 8, !tbaa !115
   %23 = icmp eq ptr %1, %22
   br i1 %23, label %24, label %164
 
 24:                                               ; preds = %15
-  %25 = load ptr, ptr %7, align 8, !tbaa !113
+  %25 = load ptr, ptr %7, align 8, !tbaa !117
   %26 = load float, ptr %5, align 4, !tbaa !53
   %27 = fcmp reassoc nsz arcp contract afn une float %26, -1.000000e+00
   br i1 %27, label %28, label %update_balance_slider_colors.exit
@@ -753,7 +753,7 @@ update_balance_slider_colors.exit:                ; preds = %24, %hsl2rgb.exit.i
   %54 = tail call i64 @gtk_widget_get_type() #23
   %55 = tail call ptr @g_type_check_instance_cast(ptr noundef %25, i64 noundef %54) #21
   tail call void @gtk_widget_queue_draw(ptr noundef %55) #21
-  %56 = load ptr, ptr %8, align 8, !tbaa !109
+  %56 = load ptr, ptr %8, align 8, !tbaa !113
   %57 = load float, ptr %5, align 4, !tbaa !53
   %58 = fmul reassoc nsz arcp contract afn float %57, 6.000000e+00
   %59 = fcmp reassoc nsz arcp contract afn olt float %58, 4.000000e+00
@@ -807,37 +807,37 @@ hue2rgb.exit36.i.i33:                             ; preds = %71, %69, %hue2rgb.e
 update_saturation_slider_end_color.exit:          ; preds = %hue2rgb.exit36.i.i33, %77, %79
   %.0.i37.i.i37 = phi nsz float [ %82, %79 ], [ 1.000000e+00, %77 ], [ %75, %hue2rgb.exit36.i.i33 ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %56, float noundef 1.000000e+00, float noundef %.0.i.i.i32, float noundef %.0.i35.i.i34, float noundef %.0.i37.i.i37) #21
-  %83 = load ptr, ptr %8, align 8, !tbaa !109
+  %83 = load ptr, ptr %8, align 8, !tbaa !113
   %84 = tail call ptr @g_type_check_instance_cast(ptr noundef %83, i64 noundef %54) #21
   br label %.sink.split
 
 85:                                               ; preds = %11
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %87 = load ptr, ptr %86, align 8, !tbaa !114
+  %87 = load ptr, ptr %86, align 8, !tbaa !118
   %88 = icmp eq ptr %1, %87
   br i1 %88, label %93, label %89
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %91 = load ptr, ptr %90, align 8, !tbaa !115
+  %91 = load ptr, ptr %90, align 8, !tbaa !119
   %92 = icmp eq ptr %1, %91
   br i1 %92, label %93, label %164
 
 93:                                               ; preds = %89, %85
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !116
+  %95 = load ptr, ptr %94, align 8, !tbaa !120
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %97 = load float, ptr %96, align 4, !tbaa !57
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %99 = load float, ptr %98, align 4, !tbaa !58
   tail call fastcc void @update_colorpicker_color(ptr noundef %95, float noundef %97, float noundef %99)
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %101 = load ptr, ptr %100, align 8, !tbaa !115
+  %101 = load ptr, ptr %100, align 8, !tbaa !119
   %102 = icmp eq ptr %1, %101
   br i1 %102, label %103, label %164
 
 103:                                              ; preds = %93
-  %104 = load ptr, ptr %7, align 8, !tbaa !113
+  %104 = load ptr, ptr %7, align 8, !tbaa !117
   %105 = load float, ptr %96, align 4, !tbaa !57
   %106 = fcmp reassoc nsz arcp contract afn une float %105, -1.000000e+00
   br i1 %106, label %107, label %update_balance_slider_colors.exit38
@@ -901,7 +901,7 @@ update_balance_slider_colors.exit38:              ; preds = %103, %hsl2rgb.exit1
   %133 = tail call i64 @gtk_widget_get_type() #23
   %134 = tail call ptr @g_type_check_instance_cast(ptr noundef %104, i64 noundef %133) #21
   tail call void @gtk_widget_queue_draw(ptr noundef %134) #21
-  %135 = load ptr, ptr %86, align 8, !tbaa !114
+  %135 = load ptr, ptr %86, align 8, !tbaa !118
   %136 = load float, ptr %96, align 4, !tbaa !57
   %137 = fmul reassoc nsz arcp contract afn float %136, 6.000000e+00
   %138 = fcmp reassoc nsz arcp contract afn olt float %137, 4.000000e+00
@@ -955,7 +955,7 @@ hue2rgb.exit36.i.i42:                             ; preds = %150, %148, %hue2rgb
 update_saturation_slider_end_color.exit47:        ; preds = %hue2rgb.exit36.i.i42, %156, %158
   %.0.i37.i.i46 = phi nsz float [ %161, %158 ], [ 1.000000e+00, %156 ], [ %154, %hue2rgb.exit36.i.i42 ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %135, float noundef 1.000000e+00, float noundef %.0.i.i.i41, float noundef %.0.i35.i.i43, float noundef %.0.i37.i.i46) #21
-  %162 = load ptr, ptr %86, align 8, !tbaa !114
+  %162 = load ptr, ptr %86, align 8, !tbaa !118
   %163 = tail call ptr @g_type_check_instance_cast(ptr noundef %162, i64 noundef %133) #21
   br label %.sink.split
 
@@ -1054,15 +1054,15 @@ hsl2rgb.exit:                                     ; preds = %39, %42, %44, %3
   %.sroa.0.0 = phi nsz float [ 5.000000e-01, %3 ], [ %.0.i.i, %39 ], [ %.0.i.i, %44 ], [ %.0.i.i, %42 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
   %50 = fpext reassoc nsz arcp contract afn float %.sroa.0.0 to double
-  store double %50, ptr %4, align 8, !tbaa !117
+  store double %50, ptr %4, align 8, !tbaa !121
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %52 = fpext reassoc nsz arcp contract afn float %.sroa.5.0 to double
-  store double %52, ptr %51, align 8, !tbaa !119
+  store double %52, ptr %51, align 8, !tbaa !123
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %54 = fpext reassoc nsz arcp contract afn float %.sroa.8.0 to double
-  store double %54, ptr %53, align 8, !tbaa !120
+  store double %54, ptr %53, align 8, !tbaa !124
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store double 1.000000e+00, ptr %55, align 8, !tbaa !121
+  store double 1.000000e+00, ptr %55, align 8, !tbaa !125
   %56 = tail call i64 @gtk_color_chooser_get_type() #23
   %57 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %56) #21
   call void @gtk_color_chooser_set_rgba(ptr noundef %57, ptr noundef nonnull %4) #21
@@ -1206,9 +1206,9 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #12
 ; Function Attrs: nounwind uwtable
 define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %5 = load ptr, ptr %4, align 16, !tbaa !108
+  %5 = load ptr, ptr %4, align 16, !tbaa !112
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %7 = load ptr, ptr %6, align 8, !tbaa !99
+  %7 = load ptr, ptr %6, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %9 = load float, ptr %8, align 4, !tbaa !84
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 516
@@ -1292,45 +1292,45 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
 rgb2hsl.exit:                                     ; preds = %54, %56, %58
   %.0.i = phi nsz float [ %55, %54 ], [ %59, %58 ], [ %52, %56 ]
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %61 = load ptr, ptr %60, align 8, !tbaa !115
+  %61 = load ptr, ptr %60, align 8, !tbaa !119
   %62 = icmp eq ptr %1, %61
   br i1 %62, label %81, label %122
 
 rgb2hsl.exit.thread:                              ; preds = %3
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %64 = load ptr, ptr %63, align 8, !tbaa !115
+  %64 = load ptr, ptr %63, align 8, !tbaa !119
   %65 = icmp eq ptr %1, %64
   br i1 %65, label %.thread, label %.thread65
 
 .thread65:                                        ; preds = %rgb2hsl.exit.thread
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !111
+  %68 = load ptr, ptr %67, align 8, !tbaa !115
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %70 = load ptr, ptr %69, align 8, !tbaa !109
+  %70 = load ptr, ptr %69, align 8, !tbaa !113
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !112
-  %73 = load ptr, ptr %5, align 8, !tbaa !113
+  %72 = load ptr, ptr %71, align 8, !tbaa !116
+  %73 = load ptr, ptr %5, align 8, !tbaa !117
   br label %132
 
 .thread:                                          ; preds = %rgb2hsl.exit.thread
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %77 = load ptr, ptr %76, align 8, !tbaa !114
+  %77 = load ptr, ptr %76, align 8, !tbaa !118
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !116
-  %80 = load ptr, ptr %5, align 8, !tbaa !113
+  %79 = load ptr, ptr %78, align 8, !tbaa !120
+  %80 = load ptr, ptr %5, align 8, !tbaa !117
   br label %90
 
 81:                                               ; preds = %rgb2hsl.exit
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %85 = load ptr, ptr %84, align 8, !tbaa !114
+  %85 = load ptr, ptr %84, align 8, !tbaa !118
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %87 = load ptr, ptr %86, align 8, !tbaa !116
-  %88 = load ptr, ptr %5, align 8, !tbaa !113
+  %87 = load ptr, ptr %86, align 8, !tbaa !120
+  %88 = load ptr, ptr %5, align 8, !tbaa !117
   %89 = fcmp reassoc nsz arcp contract afn une float %.0.i, -1.000000e+00
   br i1 %89, label %90, label %update_balance_slider_colors.exit
 
@@ -1400,12 +1400,12 @@ hsl2rgb.exit15.i:                                 ; preds = %118, %116, %hue2rgb
 122:                                              ; preds = %rgb2hsl.exit
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %125 = load ptr, ptr %124, align 8, !tbaa !111
+  %125 = load ptr, ptr %124, align 8, !tbaa !115
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %127 = load ptr, ptr %126, align 8, !tbaa !109
+  %127 = load ptr, ptr %126, align 8, !tbaa !113
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %129 = load ptr, ptr %128, align 8, !tbaa !112
-  %130 = load ptr, ptr %5, align 8, !tbaa !113
+  %129 = load ptr, ptr %128, align 8, !tbaa !116
+  %130 = load ptr, ptr %5, align 8, !tbaa !117
   %131 = fcmp reassoc nsz arcp contract afn une float %.0.i, -1.000000e+00
   br i1 %131, label %132, label %update_balance_slider_colors.exit
 
@@ -1499,11 +1499,11 @@ update_balance_slider_colors.exit:                ; preds = %hsl2rgb.exit.i, %12
 174:                                              ; preds = %169, %update_balance_slider_colors.exit
   store float %.0.i57, ptr %.030, align 4, !tbaa !84
   store float %.047.i53, ptr %.029, align 4, !tbaa !84
-  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !122
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 96
-  %177 = load i32, ptr %176, align 8, !tbaa !123
+  %177 = load i32, ptr %176, align 8, !tbaa !127
   %178 = add nsw i32 %177, 1
-  store i32 %178, ptr %176, align 8, !tbaa !123
+  store i32 %178, ptr %176, align 8, !tbaa !127
   tail call void @dt_bauhaus_slider_set(ptr noundef %.027, float noundef %.0.i57) #21
   tail call void @dt_bauhaus_slider_set(ptr noundef %.028, float noundef %.047.i53) #21
   tail call fastcc void @update_colorpicker_color(ptr noundef %.0, float noundef %.0.i57, float noundef %.047.i53)
@@ -1559,16 +1559,16 @@ hue2rgb.exit36.i.i36:                             ; preds = %192, %190, %hue2rgb
 update_saturation_slider_end_color.exit:          ; preds = %hue2rgb.exit36.i.i36, %198, %200
   %.0.i37.i.i40 = phi nsz float [ %203, %200 ], [ 1.000000e+00, %198 ], [ %196, %hue2rgb.exit36.i.i36 ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %.028, float noundef 1.000000e+00, float noundef %.0.i.i.i35, float noundef %.0.i35.i.i37, float noundef %.0.i37.i.i40) #21
-  %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !122
+  %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 96
-  %206 = load i32, ptr %205, align 8, !tbaa !123
+  %206 = load i32, ptr %205, align 8, !tbaa !127
   %207 = add nsw i32 %206, -1
-  store i32 %207, ptr %205, align 8, !tbaa !123
-  %208 = load ptr, ptr %5, align 8, !tbaa !113
+  store i32 %207, ptr %205, align 8, !tbaa !127
+  %208 = load ptr, ptr %5, align 8, !tbaa !117
   %209 = tail call i64 @gtk_widget_get_type() #23
   %210 = tail call ptr @g_type_check_instance_cast(ptr noundef %208, i64 noundef %209) #21
   tail call void @gtk_widget_queue_draw(ptr noundef %210) #21
-  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !128
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !132
   tail call void @dt_dev_add_history_item(ptr noundef %211, ptr noundef nonnull %0, i32 noundef 1) #21
   br label %212
 
@@ -1635,51 +1635,51 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 ; Function Attrs: nounwind uwtable
 define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %3 = load ptr, ptr %2, align 16, !tbaa !108
+  %3 = load ptr, ptr %2, align 16, !tbaa !112
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %5 = load ptr, ptr %4, align 8, !tbaa !99
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !111
+  %7 = load ptr, ptr %6, align 8, !tbaa !115
   %8 = load float, ptr %5, align 4, !tbaa !53
   tail call void @dt_bauhaus_slider_set(ptr noundef %7, float noundef %8) #21
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !109
+  %10 = load ptr, ptr %9, align 8, !tbaa !113
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !56
   tail call void @dt_bauhaus_slider_set(ptr noundef %10, float noundef %12) #21
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !115
+  %14 = load ptr, ptr %13, align 8, !tbaa !119
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load float, ptr %15, align 4, !tbaa !57
   tail call void @dt_bauhaus_slider_set(ptr noundef %14, float noundef %16) #21
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !114
+  %18 = load ptr, ptr %17, align 8, !tbaa !118
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %20 = load float, ptr %19, align 4, !tbaa !58
   tail call void @dt_bauhaus_slider_set(ptr noundef %18, float noundef %20) #21
-  %21 = load ptr, ptr %3, align 8, !tbaa !113
+  %21 = load ptr, ptr %3, align 8, !tbaa !117
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load float, ptr %22, align 4, !tbaa !59
   tail call void @dt_bauhaus_slider_set(ptr noundef %21, float noundef %23) #21
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !129
+  %25 = load ptr, ptr %24, align 8, !tbaa !133
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %27 = load float, ptr %26, align 4, !tbaa !60
   tail call void @dt_bauhaus_slider_set(ptr noundef %25, float noundef %27) #21
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !112
+  %29 = load ptr, ptr %28, align 8, !tbaa !116
   %30 = tail call i64 @gtk_widget_get_type() #23
   %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %30) #21
   %32 = load float, ptr %5, align 4, !tbaa !53
   %33 = load float, ptr %11, align 4, !tbaa !56
   tail call fastcc void @update_colorpicker_color(ptr noundef %31, float noundef %32, float noundef %33)
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !116
+  %35 = load ptr, ptr %34, align 8, !tbaa !120
   %36 = tail call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %30) #21
   %37 = load float, ptr %15, align 4, !tbaa !57
   %38 = load float, ptr %19, align 4, !tbaa !58
   tail call fastcc void @update_colorpicker_color(ptr noundef %36, float noundef %37, float noundef %38)
-  %39 = load ptr, ptr %9, align 8, !tbaa !109
+  %39 = load ptr, ptr %9, align 8, !tbaa !113
   %40 = load float, ptr %5, align 4, !tbaa !53
   %41 = fmul reassoc nsz arcp contract afn float %40, 6.000000e+00
   %42 = fcmp reassoc nsz arcp contract afn olt float %41, 4.000000e+00
@@ -1733,7 +1733,7 @@ hue2rgb.exit36.i.i:                               ; preds = %54, %52, %hue2rgb.e
 update_saturation_slider_end_color.exit:          ; preds = %hue2rgb.exit36.i.i, %60, %62
   %.0.i37.i.i = phi nsz float [ %65, %62 ], [ 1.000000e+00, %60 ], [ %58, %hue2rgb.exit36.i.i ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %39, float noundef 1.000000e+00, float noundef %.0.i.i.i, float noundef %.0.i35.i.i, float noundef %.0.i37.i.i) #21
-  %66 = load ptr, ptr %17, align 8, !tbaa !114
+  %66 = load ptr, ptr %17, align 8, !tbaa !118
   %67 = load float, ptr %15, align 4, !tbaa !57
   %68 = fmul reassoc nsz arcp contract afn float %67, 6.000000e+00
   %69 = fcmp reassoc nsz arcp contract afn olt float %68, 4.000000e+00
@@ -1787,7 +1787,7 @@ hue2rgb.exit36.i.i30:                             ; preds = %81, %79, %hue2rgb.e
 update_saturation_slider_end_color.exit34:        ; preds = %hue2rgb.exit36.i.i30, %87, %89
   %.0.i37.i.i33 = phi nsz float [ %92, %89 ], [ 1.000000e+00, %87 ], [ %85, %hue2rgb.exit36.i.i30 ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %66, float noundef 1.000000e+00, float noundef %.0.i.i.i29, float noundef %.0.i35.i.i31, float noundef %.0.i37.i.i33) #21
-  %93 = load ptr, ptr %3, align 8, !tbaa !113
+  %93 = load ptr, ptr %3, align 8, !tbaa !117
   %94 = load float, ptr %5, align 4, !tbaa !53
   %95 = load float, ptr %15, align 4, !tbaa !57
   tail call fastcc void @update_balance_slider_colors(ptr noundef %93, float noundef %94, float noundef %95)
@@ -1808,55 +1808,55 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
 
 _iop_gui_alloc.exit:                              ; preds = %1, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store ptr %4, ptr %6, align 16, !tbaa !108
-  store i32 8, ptr %2, align 8, !tbaa !130
+  store ptr %4, ptr %6, align 16, !tbaa !112
+  store i32 8, ptr %2, align 8, !tbaa !134
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %0, ptr %8, align 8, !tbaa !132
+  store ptr %0, ptr %8, align 8, !tbaa !136
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @.str.10, ptr %9, align 8, !tbaa !133
+  store ptr @.str.10, ptr %9, align 8, !tbaa !137
   %10 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  store ptr %10, ptr %11, align 16, !tbaa !134
+  store ptr %10, ptr %11, align 16, !tbaa !138
   %12 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %2, ptr noundef nonnull @.str.11) #21
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %12, ptr %13, align 8, !tbaa !111
+  store ptr %12, ptr %13, align 8, !tbaa !115
   call void @dt_bauhaus_slider_set_factor(ptr noundef %12, float noundef 3.600000e+02) #21
-  %14 = load ptr, ptr %13, align 8, !tbaa !111
+  %14 = load ptr, ptr %13, align 8, !tbaa !115
   call void @dt_bauhaus_slider_set_format(ptr noundef %14, ptr noundef nonnull @.str.12) #21
   %15 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #21
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %15, ptr %16, align 8, !tbaa !109
-  store i32 8, ptr %3, align 8, !tbaa !130
+  store ptr %15, ptr %16, align 8, !tbaa !113
+  store i32 8, ptr %3, align 8, !tbaa !134
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %18, align 8, !tbaa !132
+  store ptr %0, ptr %18, align 8, !tbaa !136
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @.str.14, ptr %19, align 8, !tbaa !133
+  store ptr @.str.14, ptr %19, align 8, !tbaa !137
   %20 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #21
-  store ptr %20, ptr %11, align 16, !tbaa !134
+  store ptr %20, ptr %11, align 16, !tbaa !138
   %21 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %3, ptr noundef nonnull @.str.15) #21
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %21, ptr %22, align 8, !tbaa !115
+  store ptr %21, ptr %22, align 8, !tbaa !119
   call void @dt_bauhaus_slider_set_factor(ptr noundef %21, float noundef 3.600000e+02) #21
-  %23 = load ptr, ptr %22, align 8, !tbaa !115
+  %23 = load ptr, ptr %22, align 8, !tbaa !119
   call void @dt_bauhaus_slider_set_format(ptr noundef %23, ptr noundef nonnull @.str.12) #21
   %24 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %3, ptr noundef nonnull @.str.16) #21
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr %24, ptr %25, align 8, !tbaa !114
+  store ptr %24, ptr %25, align 8, !tbaa !118
   %26 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #21
-  store ptr %26, ptr %11, align 16, !tbaa !134
-  %27 = load ptr, ptr %13, align 8, !tbaa !111
-  %28 = load ptr, ptr %16, align 8, !tbaa !109
+  store ptr %26, ptr %11, align 16, !tbaa !138
+  %27 = load ptr, ptr %13, align 8, !tbaa !115
+  %28 = load ptr, ptr %16, align 8, !tbaa !113
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @gui_init_section(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %10, ptr noundef %27, ptr noundef %28, ptr noundef nonnull %29)
-  %30 = load ptr, ptr %22, align 8, !tbaa !115
-  %31 = load ptr, ptr %25, align 8, !tbaa !114
+  %30 = load ptr, ptr %22, align 8, !tbaa !119
+  %31 = load ptr, ptr %25, align 8, !tbaa !118
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call fastcc void @gui_init_section(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef %20, ptr noundef %30, ptr noundef %31, ptr noundef nonnull %32)
-  %33 = load ptr, ptr %11, align 16, !tbaa !134
+  %33 = load ptr, ptr %11, align 16, !tbaa !138
   %34 = tail call i64 @gtk_box_get_type() #23
   %35 = call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %34) #21
   %36 = call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.19, i64 noundef 8) #21
@@ -1870,26 +1870,26 @@ _iop_gui_alloc.exit:                              ; preds = %1, %5
   call void @dt_gui_add_class(ptr noundef %37, ptr noundef nonnull @.str.29) #21
   call void @gtk_box_pack_start(ptr noundef %35, ptr noundef %37, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
   %41 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.20) #21
-  store ptr %41, ptr %4, align 8, !tbaa !113
+  store ptr %41, ptr %4, align 8, !tbaa !117
   call void @dt_bauhaus_slider_set_feedback(ptr noundef %41, i32 noundef 0) #21
-  %42 = load ptr, ptr %4, align 8, !tbaa !113
+  %42 = load ptr, ptr %4, align 8, !tbaa !117
   call void @dt_bauhaus_slider_set_digits(ptr noundef %42, i32 noundef 4) #21
-  %43 = load ptr, ptr %4, align 8, !tbaa !113
+  %43 = load ptr, ptr %4, align 8, !tbaa !117
   call void @dt_bauhaus_slider_set_factor(ptr noundef %43, float noundef -1.000000e+02) #21
-  %44 = load ptr, ptr %4, align 8, !tbaa !113
+  %44 = load ptr, ptr %4, align 8, !tbaa !117
   call void @dt_bauhaus_slider_set_offset(ptr noundef %44, float noundef 1.000000e+02) #21
-  %45 = load ptr, ptr %4, align 8, !tbaa !113
+  %45 = load ptr, ptr %4, align 8, !tbaa !117
   call void @dt_bauhaus_slider_set_stop(ptr noundef %45, float noundef 0.000000e+00, float noundef 5.000000e-01, float noundef 5.000000e-01, float noundef 5.000000e-01) #21
-  %46 = load ptr, ptr %4, align 8, !tbaa !113
+  %46 = load ptr, ptr %4, align 8, !tbaa !117
   call void @dt_bauhaus_slider_set_stop(ptr noundef %46, float noundef 1.000000e+00, float noundef 5.000000e-01, float noundef 5.000000e-01, float noundef 5.000000e-01) #21
-  %47 = load ptr, ptr %4, align 8, !tbaa !113
+  %47 = load ptr, ptr %4, align 8, !tbaa !117
   %48 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #21
   call void @gtk_widget_set_tooltip_text(ptr noundef %47, ptr noundef %48) #21
   %49 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.22) #21
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %49, ptr %50, align 8, !tbaa !129
+  store ptr %49, ptr %50, align 8, !tbaa !133
   call void @dt_bauhaus_slider_set_format(ptr noundef %49, ptr noundef nonnull @.str.23) #21
-  %51 = load ptr, ptr %50, align 8, !tbaa !129
+  %51 = load ptr, ptr %50, align 8, !tbaa !133
   %52 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #21
   call void @gtk_widget_set_tooltip_text(ptr noundef %51, ptr noundef %52) #21
   ret void
@@ -1918,7 +1918,7 @@ define internal fastcc void @gui_init_section(ptr noundef %0, ptr noundef %1, pt
   tail call void @gtk_label_set_ellipsize(ptr noundef %11, i32 noundef 3) #21
   tail call void @dt_gui_add_class(ptr noundef %8, ptr noundef nonnull @.str.29) #21
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %13 = load ptr, ptr %12, align 16, !tbaa !134
+  %13 = load ptr, ptr %12, align 16, !tbaa !138
   %14 = tail call i64 @gtk_box_get_type() #23
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %14) #21
   tail call void @gtk_box_pack_start(ptr noundef %15, ptr noundef %8, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
@@ -1938,25 +1938,25 @@ define internal fastcc void @gui_init_section(ptr noundef %0, ptr noundef %1, pt
   %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #21
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %4, ptr noundef %18) #21
   %19 = tail call ptr @gtk_color_button_new() #21
-  store ptr %19, ptr %5, align 8, !tbaa !135
+  store ptr %19, ptr %5, align 8, !tbaa !139
   %20 = tail call i64 @gtk_color_chooser_get_type() #23
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #21
   tail call void @gtk_color_chooser_set_use_alpha(ptr noundef %21, i32 noundef 0) #21
-  %22 = load ptr, ptr %5, align 8, !tbaa !135
+  %22 = load ptr, ptr %5, align 8, !tbaa !139
   %23 = tail call i64 @gtk_color_button_get_type() #23
   %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %22, i64 noundef %23) #21
   %25 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #21
   tail call void @gtk_color_button_set_title(ptr noundef %24, ptr noundef %25) #21
-  %26 = load ptr, ptr %5, align 8, !tbaa !135
+  %26 = load ptr, ptr %5, align 8, !tbaa !139
   %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef 80) #21
   %28 = tail call i64 @g_signal_connect_data(ptr noundef %27, ptr noundef nonnull @.str.28, ptr noundef nonnull @colorpick_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
   %29 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #21
   %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %14) #21
   tail call void @gtk_box_pack_start(ptr noundef %30, ptr noundef %2, i32 noundef 1, i32 noundef 1, i32 noundef 0) #21
   %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %14) #21
-  %32 = load ptr, ptr %5, align 8, !tbaa !135
+  %32 = load ptr, ptr %5, align 8, !tbaa !139
   tail call void @gtk_box_pack_end(ptr noundef %31, ptr noundef %32, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
-  %33 = load ptr, ptr %12, align 16, !tbaa !134
+  %33 = load ptr, ptr %12, align 16, !tbaa !138
   %34 = tail call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %14) #21
   tail call void @gtk_box_pack_start(ptr noundef %34, ptr noundef %29, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
   ret void
@@ -1991,7 +1991,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #18 {
-  %3 = load i32, ptr @introspection, align 8, !tbaa !136
+  %3 = load i32, ptr @introspection, align 8, !tbaa !140
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
@@ -2007,7 +2007,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   store ptr %0, ptr %7, align 8, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %6, label %.preheader
+  br i1 %exitcond.not, label %6, label %.preheader, !llvm.loop !143
 
 8:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
@@ -2142,26 +2142,26 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal void @colorpick_callback(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca %struct._GdkRGBA, align 8
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !122
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %6 = load i32, ptr %5, align 8, !tbaa !123
+  %6 = load i32, ptr %5, align 8, !tbaa !127
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %140
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 704
-  %9 = load ptr, ptr %8, align 16, !tbaa !108
+  %9 = load ptr, ptr %8, align 16, !tbaa !112
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
   %10 = tail call i64 @gtk_color_chooser_get_type() #23
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %10) #21
   call void @gtk_color_chooser_get_rgba(ptr noundef %11, ptr noundef nonnull %3) #21
-  %12 = load double, ptr %3, align 8, !tbaa !117
+  %12 = load double, ptr %3, align 8, !tbaa !121
   %13 = fptrunc reassoc nsz arcp contract afn double %12 to float
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = load double, ptr %14, align 8, !tbaa !119
+  %15 = load double, ptr %14, align 8, !tbaa !123
   %16 = fptrunc reassoc nsz arcp contract afn double %15 to float
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load double, ptr %17, align 8, !tbaa !120
+  %18 = load double, ptr %17, align 8, !tbaa !124
   %19 = fptrunc reassoc nsz arcp contract afn double %18 to float
   %20 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %16, float %19)
   %21 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %13, float %20)
@@ -2243,19 +2243,19 @@ rgb2hsl.exit:                                     ; preds = %7, %60, %62, %64
   %66 = tail call i64 @gtk_widget_get_type() #23
   %67 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %66) #21
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !112
+  %69 = load ptr, ptr %68, align 8, !tbaa !116
   %70 = icmp eq ptr %67, %69
   %71 = fcmp reassoc nsz arcp contract afn une float %.0.i, -1.000000e+00
   br i1 %70, label %72, label %104
 
 72:                                               ; preds = %rgb2hsl.exit
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %74 = load ptr, ptr %73, align 8, !tbaa !111
+  %74 = load ptr, ptr %73, align 8, !tbaa !115
   call void @dt_bauhaus_slider_set(ptr noundef %74, float noundef %.0.i) #21
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %76 = load ptr, ptr %75, align 8, !tbaa !109
+  %76 = load ptr, ptr %75, align 8, !tbaa !113
   call void @dt_bauhaus_slider_set(ptr noundef %76, float noundef %.047.i) #21
-  %77 = load ptr, ptr %9, align 8, !tbaa !113
+  %77 = load ptr, ptr %9, align 8, !tbaa !117
   br i1 %71, label %78, label %update_balance_slider_colors.exit
 
 78:                                               ; preds = %72
@@ -2315,12 +2315,12 @@ hsl2rgb.exit.i:                                   ; preds = %100, %98, %hue2rgb.
 
 104:                                              ; preds = %rgb2hsl.exit
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %106 = load ptr, ptr %105, align 8, !tbaa !115
+  %106 = load ptr, ptr %105, align 8, !tbaa !119
   call void @dt_bauhaus_slider_set(ptr noundef %106, float noundef %.0.i) #21
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %108 = load ptr, ptr %107, align 8, !tbaa !114
+  %108 = load ptr, ptr %107, align 8, !tbaa !118
   call void @dt_bauhaus_slider_set(ptr noundef %108, float noundef %.047.i) #21
-  %109 = load ptr, ptr %9, align 8, !tbaa !113
+  %109 = load ptr, ptr %9, align 8, !tbaa !117
   br i1 %71, label %110, label %update_balance_slider_colors.exit
 
 110:                                              ; preds = %104
@@ -2382,10 +2382,10 @@ update_balance_slider_colors.exit:                ; preds = %hsl2rgb.exit15.i, %
   %.sink20 = phi ptr [ %77, %72 ], [ %77, %hsl2rgb.exit.i ], [ %109, %104 ], [ %109, %hsl2rgb.exit15.i ]
   %136 = call ptr @g_type_check_instance_cast(ptr noundef %.sink20, i64 noundef %66) #21
   call void @gtk_widget_queue_draw(ptr noundef %136) #21
-  %137 = load ptr, ptr %9, align 8, !tbaa !113
+  %137 = load ptr, ptr %9, align 8, !tbaa !117
   %138 = call ptr @g_type_check_instance_cast(ptr noundef %137, i64 noundef %66) #21
   call void @gtk_widget_queue_draw(ptr noundef %138) #21
-  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !128
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !132
   call void @dt_dev_add_history_item(ptr noundef %139, ptr noundef nonnull %1, i32 noundef 1) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
   br label %140
@@ -2530,52 +2530,57 @@ attributes #25 = { nounwind willreturn memory(read) }
 !87 = distinct !{!87, !88, !"copy_pixel_nontemporal: argument 0"}
 !88 = distinct !{!88, !"copy_pixel_nontemporal"}
 !89 = !{i32 1}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"copy_pixel_nontemporal: argument 0"}
-!92 = distinct !{!92, !"copy_pixel_nontemporal"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"copy_pixel_nontemporal: argument 0"}
-!95 = distinct !{!95, !"copy_pixel_nontemporal"}
-!96 = !{!49, !13, i64 520}
-!97 = !{!98, !9, i64 0}
-!98 = !{!"dt_iop_splittoning_global_data_t", !9, i64 0}
-!99 = !{!100, !13, i64 680}
-!100 = !{!"dt_iop_module_t", !9, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !13, i64 312, !13, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !13, i64 376, !13, i64 384, !13, i64 392, !13, i64 400, !13, i64 408, !13, i64 416, !13, i64 424, !13, i64 432, !13, i64 440, !52, i64 448, !10, i64 456, !9, i64 476, !9, i64 480, !9, i64 484, !9, i64 488, !9, i64 492, !9, i64 496, !9, i64 500, !10, i64 512, !10, i64 528, !10, i64 544, !10, i64 560, !10, i64 576, !10, i64 592, !45, i64 608, !67, i64 616, !10, i64 640, !9, i64 656, !9, i64 660, !16, i64 664, !9, i64 672, !9, i64 676, !13, i64 680, !13, i64 688, !9, i64 696, !13, i64 704, !37, i64 712, !13, i64 752, !101, i64 760, !101, i64 768, !13, i64 776, !102, i64 784, !105, i64 816, !105, i64 824, !105, i64 832, !105, i64 840, !105, i64 848, !105, i64 856, !105, i64 864, !9, i64 872, !105, i64 880, !105, i64 888, !105, i64 896, !106, i64 904, !106, i64 912, !105, i64 920, !105, i64 928, !9, i64 936, !107, i64 944, !9, i64 952, !10, i64 956, !9, i64 1084, !105, i64 1088, !13, i64 1096, !9, i64 1104}
-!101 = !{!"p1 _ZTS25dt_develop_blend_params_t", !13, i64 0}
-!102 = !{!"", !103, i64 0, !104, i64 16}
-!103 = !{!"", !73, i64 0, !73, i64 8}
-!104 = !{!"", !63, i64 0, !9, i64 8}
-!105 = !{!"p1 _ZTS10_GtkWidget", !13, i64 0}
-!106 = !{!"p1 _ZTS7_GSList", !13, i64 0}
-!107 = !{!"p1 _ZTS18dt_iop_module_so_t", !13, i64 0}
-!108 = !{!100, !13, i64 704}
-!109 = !{!110, !105, i64 40}
-!110 = !{!"dt_iop_splittoning_gui_data_t", !105, i64 0, !105, i64 8, !105, i64 16, !105, i64 24, !105, i64 32, !105, i64 40, !105, i64 48, !105, i64 56}
-!111 = !{!110, !105, i64 32}
-!112 = !{!110, !105, i64 16}
-!113 = !{!110, !105, i64 0}
-!114 = !{!110, !105, i64 56}
-!115 = !{!110, !105, i64 48}
-!116 = !{!110, !105, i64 24}
-!117 = !{!118, !40, i64 0}
-!118 = !{!"_GdkRGBA", !40, i64 0, !40, i64 8, !40, i64 16, !40, i64 24}
-!119 = !{!118, !40, i64 8}
-!120 = !{!118, !40, i64 16}
-!121 = !{!118, !40, i64 24}
-!122 = !{!7, !21, i64 104}
-!123 = !{!124, !9, i64 96}
-!124 = !{!"dt_gui_gtk_t", !125, i64 0, !126, i64 8, !127, i64 56, !9, i64 80, !38, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !40, i64 1376, !40, i64 1384, !40, i64 1392, !40, i64 1400, !105, i64 1408, !40, i64 1416, !40, i64 1424, !40, i64 1432, !40, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !37, i64 5568}
-!125 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
-!126 = !{!"dt_gui_widgets_t", !105, i64 0, !105, i64 8, !105, i64 16, !105, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
-!127 = !{!"dt_gui_scrollbars_t", !105, i64 0, !105, i64 8, !9, i64 16}
-!128 = !{!7, !16, i64 64}
-!129 = !{!110, !105, i64 8}
-!130 = !{!131, !9, i64 0}
-!131 = !{!"dt_iop_module_section_t", !9, i64 0, !63, i64 8, !38, i64 16}
-!132 = !{!131, !63, i64 8}
-!133 = !{!131, !38, i64 16}
-!134 = !{!100, !105, i64 816}
-!135 = !{!105, !105, i64 0}
-!136 = !{!137, !9, i64 0}
-!137 = !{!"dt_introspection_t", !9, i64 0, !9, i64 4, !38, i64 8, !44, i64 16, !138, i64 24, !44, i64 32, !44, i64 40, !73, i64 48}
-!138 = !{!"p1 _ZTS24dt_introspection_field_t", !13, i64 0}
+!90 = distinct !{!90, !91}
+!91 = !{!"llvm.loop.estimated_trip_count"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"copy_pixel_nontemporal: argument 0"}
+!94 = distinct !{!94, !"copy_pixel_nontemporal"}
+!95 = distinct !{!95, !91}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"copy_pixel_nontemporal: argument 0"}
+!98 = distinct !{!98, !"copy_pixel_nontemporal"}
+!99 = distinct !{!99, !91}
+!100 = !{!49, !13, i64 520}
+!101 = !{!102, !9, i64 0}
+!102 = !{!"dt_iop_splittoning_global_data_t", !9, i64 0}
+!103 = !{!104, !13, i64 680}
+!104 = !{!"dt_iop_module_t", !9, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !13, i64 312, !13, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !13, i64 376, !13, i64 384, !13, i64 392, !13, i64 400, !13, i64 408, !13, i64 416, !13, i64 424, !13, i64 432, !13, i64 440, !52, i64 448, !10, i64 456, !9, i64 476, !9, i64 480, !9, i64 484, !9, i64 488, !9, i64 492, !9, i64 496, !9, i64 500, !10, i64 512, !10, i64 528, !10, i64 544, !10, i64 560, !10, i64 576, !10, i64 592, !45, i64 608, !67, i64 616, !10, i64 640, !9, i64 656, !9, i64 660, !16, i64 664, !9, i64 672, !9, i64 676, !13, i64 680, !13, i64 688, !9, i64 696, !13, i64 704, !37, i64 712, !13, i64 752, !105, i64 760, !105, i64 768, !13, i64 776, !106, i64 784, !109, i64 816, !109, i64 824, !109, i64 832, !109, i64 840, !109, i64 848, !109, i64 856, !109, i64 864, !9, i64 872, !109, i64 880, !109, i64 888, !109, i64 896, !110, i64 904, !110, i64 912, !109, i64 920, !109, i64 928, !9, i64 936, !111, i64 944, !9, i64 952, !10, i64 956, !9, i64 1084, !109, i64 1088, !13, i64 1096, !9, i64 1104}
+!105 = !{!"p1 _ZTS25dt_develop_blend_params_t", !13, i64 0}
+!106 = !{!"", !107, i64 0, !108, i64 16}
+!107 = !{!"", !73, i64 0, !73, i64 8}
+!108 = !{!"", !63, i64 0, !9, i64 8}
+!109 = !{!"p1 _ZTS10_GtkWidget", !13, i64 0}
+!110 = !{!"p1 _ZTS7_GSList", !13, i64 0}
+!111 = !{!"p1 _ZTS18dt_iop_module_so_t", !13, i64 0}
+!112 = !{!104, !13, i64 704}
+!113 = !{!114, !109, i64 40}
+!114 = !{!"dt_iop_splittoning_gui_data_t", !109, i64 0, !109, i64 8, !109, i64 16, !109, i64 24, !109, i64 32, !109, i64 40, !109, i64 48, !109, i64 56}
+!115 = !{!114, !109, i64 32}
+!116 = !{!114, !109, i64 16}
+!117 = !{!114, !109, i64 0}
+!118 = !{!114, !109, i64 56}
+!119 = !{!114, !109, i64 48}
+!120 = !{!114, !109, i64 24}
+!121 = !{!122, !40, i64 0}
+!122 = !{!"_GdkRGBA", !40, i64 0, !40, i64 8, !40, i64 16, !40, i64 24}
+!123 = !{!122, !40, i64 8}
+!124 = !{!122, !40, i64 16}
+!125 = !{!122, !40, i64 24}
+!126 = !{!7, !21, i64 104}
+!127 = !{!128, !9, i64 96}
+!128 = !{!"dt_gui_gtk_t", !129, i64 0, !130, i64 8, !131, i64 56, !9, i64 80, !38, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !40, i64 1376, !40, i64 1384, !40, i64 1392, !40, i64 1400, !109, i64 1408, !40, i64 1416, !40, i64 1424, !40, i64 1432, !40, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !37, i64 5568}
+!129 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
+!130 = !{!"dt_gui_widgets_t", !109, i64 0, !109, i64 8, !109, i64 16, !109, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
+!131 = !{!"dt_gui_scrollbars_t", !109, i64 0, !109, i64 8, !9, i64 16}
+!132 = !{!7, !16, i64 64}
+!133 = !{!114, !109, i64 8}
+!134 = !{!135, !9, i64 0}
+!135 = !{!"dt_iop_module_section_t", !9, i64 0, !63, i64 8, !38, i64 16}
+!136 = !{!135, !63, i64 8}
+!137 = !{!135, !38, i64 16}
+!138 = !{!104, !109, i64 816}
+!139 = !{!109, !109, i64 0}
+!140 = !{!141, !9, i64 0}
+!141 = !{!"dt_introspection_t", !9, i64 0, !9, i64 4, !38, i64 8, !44, i64 16, !142, i64 24, !44, i64 32, !44, i64 40, !73, i64 48}
+!142 = !{!"p1 _ZTS24dt_introspection_field_t", !13, i64 0}
+!143 = distinct !{!143, !91}

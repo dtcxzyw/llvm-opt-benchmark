@@ -518,7 +518,7 @@ connectToAddr.exit:                               ; preds = %96, %.connectToAddr
   %99 = icmp eq i32 %.02249, 0
   %100 = icmp slt i32 %98, 0
   %101 = select i1 %99, i1 %100, i1 false
-  br i1 %101, label %.preheader, label %._crit_edge, !llvm.loop !8
+  br i1 %101, label %.preheader, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge.thread:                               ; preds = %26, %.preheader.lr.ph
   %.ph = phi ptr [ null, %.preheader.lr.ph ], [ %.pre53, %26 ]
@@ -607,7 +607,7 @@ define internal range(i32 0, 203) i32 @socketTransport_startListening(ptr readno
   %27 = getelementptr inbounds nuw i8, ptr %.051, i64 40
   %.0 = load ptr, ptr %27, align 8
   %.not28 = icmp eq ptr %.0, null
-  br i1 %.not28, label %.loopexit48, label %.lr.ph, !llvm.loop !10
+  br i1 %.not28, label %.loopexit48, label %.lr.ph, !llvm.loop !11
 
 .loopexit48:                                      ; preds = %26, %.lr.ph, %21
   %.019 = phi ptr [ null, %21 ], [ null, %26 ], [ %.051, %.lr.ph ]
@@ -688,7 +688,7 @@ isEqualIPv6Addr.exit36:                           ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %.156, i64 40
   %.1 = load ptr, ptr %49, align 8
   %.not31 = icmp eq ptr %.1, null
-  br i1 %.not31, label %.loopexit, label %44, !llvm.loop !11
+  br i1 %.not31, label %.loopexit, label %44, !llvm.loop !12
 
 .loopexit:                                        ; preds = %48, %isEqualIPv6Addr.exit36, %.preheader, %isEqualIPv6Addr.exit.thread, %isEqualIPv6Addr.exit, %.loopexit48
   %.2 = phi ptr [ %spec.select, %.loopexit48 ], [ %spec.select, %isEqualIPv6Addr.exit ], [ %spec.select, %isEqualIPv6Addr.exit.thread ], [ %spec.select, %.preheader ], [ %spec.select, %48 ], [ %.156, %isEqualIPv6Addr.exit36 ]
@@ -1021,7 +1021,7 @@ setLastError.exit:                                ; preds = %35, %39
 65:                                               ; preds = %67
   %66 = add nuw nsw i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %66, 16
-  br i1 %exitcond.not.i.i, label %isPeerAllowed.exit, label %67, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %isPeerAllowed.exit, label %67, !llvm.loop !13
 
 67:                                               ; preds = %65, %.lr.ph.i
   %.09.i.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %65 ]
@@ -1038,7 +1038,7 @@ setLastError.exit:                                ; preds = %35, %39
 75:                                               ; preds = %67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %76, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %76, label %.lr.ph.i, !llvm.loop !14
 
 isPeerAllowed.exit:                               ; preds = %65
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -1111,7 +1111,7 @@ thread-pre-split:                                 ; preds = %isPeerAllowed.exit,
   %109 = load i32, ptr @socketFD, align 4
   %110 = call i32 @dbgsysSocketClose(i32 noundef %109) #13
   store i32 -1, ptr @socketFD, align 4
-  br i1 %15, label %111, label %16, !llvm.loop !14
+  br i1 %15, label %111, label %16, !llvm.loop !15
 
 111:                                              ; preds = %104
   %112 = call i64 (...) @dbgsysCurrentTimeMillis() #13
@@ -1128,7 +1128,7 @@ thread-pre-split34:                               ; preds = %103, %111
   %.1.ph = phi i64 [ %113, %111 ], [ %.017.ph, %103 ]
   %.pr35 = load i32, ptr @socketFD, align 4
   %116 = icmp slt i32 %.pr35, 0
-  br i1 %116, label %.outer, label %.loopexit, !llvm.loop !14
+  br i1 %116, label %.outer, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %thread-pre-split34, %52, %.critedge, %115, %setLastError.exit
   %.0 = phi i32 [ 203, %setLastError.exit ], [ 202, %115 ], [ 202, %.critedge ], [ 202, %52 ], [ 0, %thread-pre-split34 ]
@@ -1220,7 +1220,7 @@ setLastError.exit:                                ; preds = %12, %16
 28:                                               ; preds = %26
   %29 = add nuw nsw i32 %24, %.01316.i
   %30 = icmp slt i32 %29, 4
-  br i1 %30, label %.lr.ph.i, label %recv_fully.exit, !llvm.loop !15
+  br i1 %30, label %.lr.ph.i, label %recv_fully.exit, !llvm.loop !16
 
 recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
   %.0.i47 = phi i32 [ %29, %28 ], [ %.01316.i, %26 ], [ %24, %.lr.ph.i ]
@@ -1263,7 +1263,7 @@ recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
 46:                                               ; preds = %44
   %47 = add nuw nsw i32 %42, %.01316.i49
   %48 = icmp slt i32 %47, 4
-  br i1 %48, label %.lr.ph.i48, label %recv_fully.exit51, !llvm.loop !15
+  br i1 %48, label %.lr.ph.i48, label %recv_fully.exit51, !llvm.loop !16
 
 49:                                               ; preds = %44
   %50 = icmp eq i32 %.01316.i49, 0
@@ -1302,7 +1302,7 @@ recv_fully.exit51:                                ; preds = %46
 64:                                               ; preds = %62
   %65 = add nuw nsw i32 %60, %.01316.i53
   %66 = icmp slt i32 %65, 1
-  br i1 %66, label %.lr.ph.i52, label %recv_fully.exit55, !llvm.loop !15
+  br i1 %66, label %.lr.ph.i52, label %recv_fully.exit55, !llvm.loop !16
 
 67:                                               ; preds = %62
   %68 = icmp eq i32 %.01316.i53, 0
@@ -1343,7 +1343,7 @@ recv_fully.exit55:                                ; preds = %64
 82:                                               ; preds = %80
   %83 = add nuw nsw i32 %78, %.01316.i57
   %84 = icmp slt i32 %83, 1
-  br i1 %84, label %.lr.ph.i56, label %recv_fully.exit59, !llvm.loop !15
+  br i1 %84, label %.lr.ph.i56, label %recv_fully.exit59, !llvm.loop !16
 
 recv_fully.exit59:                                ; preds = %82
   %85 = icmp eq i32 %83, 1
@@ -1382,7 +1382,7 @@ recv_fully.exit59:                                ; preds = %82
 99:                                               ; preds = %97
   %100 = add nuw nsw i32 %95, %.01316.i61
   %101 = icmp slt i32 %100, 1
-  br i1 %101, label %.lr.ph.i60, label %recv_fully.exit63, !llvm.loop !15
+  br i1 %101, label %.lr.ph.i60, label %recv_fully.exit63, !llvm.loop !16
 
 102:                                              ; preds = %97
   %103 = icmp eq i32 %.01316.i61, 0
@@ -1418,7 +1418,7 @@ recv_fully.exit63:                                ; preds = %99
 115:                                              ; preds = %113
   %116 = add nuw nsw i32 %111, %.01316.i65
   %117 = icmp slt i32 %116, 1
-  br i1 %117, label %.lr.ph.i64, label %recv_fully.exit67, !llvm.loop !15
+  br i1 %117, label %.lr.ph.i64, label %recv_fully.exit67, !llvm.loop !16
 
 118:                                              ; preds = %113
   %119 = icmp eq i32 %.01316.i65, 0
@@ -1626,7 +1626,7 @@ setLastError.exit31:                              ; preds = %29, %33
 72:                                               ; preds = %70
   %73 = add nuw nsw i32 %68, %.01316.i
   %74 = icmp slt i32 %73, %19
-  br i1 %74, label %.lr.ph.i, label %send_fully.exit, !llvm.loop !16
+  br i1 %74, label %.lr.ph.i, label %send_fully.exit, !llvm.loop !17
 
 send_fully.exit:                                  ; preds = %.lr.ph.i, %70, %72
   %.0.i32 = phi i32 [ %73, %72 ], [ %.01316.i, %70 ], [ %68, %.lr.ph.i ]
@@ -1655,7 +1655,7 @@ send_fully.exit:                                  ; preds = %.lr.ph.i, %70, %72
 83:                                               ; preds = %.lr.ph.i33
   %84 = add nuw nsw i32 %82, %.01316.i34
   %85 = icmp slt i32 %84, 1011
-  br i1 %85, label %.lr.ph.i33, label %send_fully.exit36, !llvm.loop !16
+  br i1 %85, label %.lr.ph.i33, label %send_fully.exit36, !llvm.loop !17
 
 send_fully.exit36:                                ; preds = %83
   %.not25 = icmp eq i32 %84, 1011
@@ -1688,7 +1688,7 @@ send_fully.exit36.thread:                         ; preds = %.lr.ph.i33, %send_f
 97:                                               ; preds = %95
   %98 = add nuw nsw i32 %93, %.01316.i39
   %99 = icmp slt i32 %98, %88
-  br i1 %99, label %.lr.ph.i38, label %send_fully.exit40, !llvm.loop !16
+  br i1 %99, label %.lr.ph.i38, label %send_fully.exit40, !llvm.loop !17
 
 send_fully.exit40:                                ; preds = %.lr.ph.i38, %95, %97
   %.0.i37.ph = phi i32 [ %93, %.lr.ph.i38 ], [ %.01316.i39, %95 ], [ %98, %97 ]
@@ -1988,7 +1988,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %124 = getelementptr inbounds nuw i8, ptr %.024.i.i.i, i64 1
   %125 = load i8, ptr %124, align 1
   %.not27.i.i.i = icmp eq i8 %125, 0
-  br i1 %.not27.i.i.i, label %126, label %115, !llvm.loop !17
+  br i1 %.not27.i.i.i, label %126, label %115, !llvm.loop !18
 
 126:                                              ; preds = %123
   %127 = add nsw i32 %121, 96
@@ -2027,7 +2027,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %139 = add nsw i32 %.229.i.i.i, -8
   %.not38.i.i.i = icmp eq i32 %.229.i.i.i, 8
-  br i1 %.not38.i.i.i, label %parseAllowedMask.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not38.i.i.i, label %parseAllowedMask.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !19
 
 parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i, %129
   %140 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111
@@ -2071,7 +2071,7 @@ parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i
   store i8 %160, ptr %158, align 1
   %161 = add nuw nsw i64 %.053.i.i, 1
   %exitcond64.not.i.i = icmp eq i64 %161, 16
-  br i1 %exitcond64.not.i.i, label %.loopexit.i.i, label %155, !llvm.loop !19
+  br i1 %exitcond64.not.i.i, label %.loopexit.i.i, label %155, !llvm.loop !20
 
 162:                                              ; preds = %109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %112, i8 -1, i64 16, i1 false)
@@ -2081,7 +2081,7 @@ parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i
   %163 = add nsw i32 %110, 1
   store i32 %163, ptr @_peers_cnt, align 4
   %.not30.i.i = icmp eq ptr %.024.i.i, null
-  br i1 %.not30.i.i, label %parseAllowedPeers.exit.thread42, label %71, !llvm.loop !20
+  br i1 %.not30.i.i, label %parseAllowedPeers.exit.thread42, label %71, !llvm.loop !21
 
 parseAllowedPeers.exit.thread42:                  ; preds = %.loopexit.i.i
   %164 = load ptr, ptr @callback, align 8
@@ -2541,7 +2541,7 @@ define internal fastcc range(i32 0, 203) i32 @handshake(i32 noundef %0, i64 noun
 22:                                               ; preds = %20
   %23 = add nuw nsw i32 %18, %.01316.i.us
   %24 = icmp slt i32 %23, %13
-  br i1 %24, label %.lr.ph.i.us, label %recv_fully.exit.thread.us, !llvm.loop !15
+  br i1 %24, label %.lr.ph.i.us, label %recv_fully.exit.thread.us, !llvm.loop !16
 
 recv_fully.exit.us:                               ; preds = %20
   %25 = icmp eq i32 %.01316.i.us, 0
@@ -2551,7 +2551,7 @@ recv_fully.exit.thread.us:                        ; preds = %22, %recv_fully.exi
   %.0.i3447.us = phi i32 [ %.01316.i.us, %recv_fully.exit.us ], [ %23, %22 ]
   %26 = add nuw nsw i32 %.0.i3447.us, %.02959.us
   %27 = icmp slt i32 %26, 14
-  br i1 %27, label %.split.us, label %.split63.us, !llvm.loop !21
+  br i1 %27, label %.split.us, label %.split63.us, !llvm.loop !22
 
 .split:                                           ; preds = %2, %recv_fully.exit.thread
   %.02959 = phi i32 [ %67, %recv_fully.exit.thread ], [ 0, %2 ]
@@ -2606,7 +2606,7 @@ setLastError.exit:                                ; preds = %37, %41
 51:                                               ; preds = %49
   %52 = add nuw nsw i32 %47, %.01316.i
   %53 = icmp slt i32 %52, %30
-  br i1 %53, label %.lr.ph.i, label %recv_fully.exit.thread, !llvm.loop !15
+  br i1 %53, label %.lr.ph.i, label %recv_fully.exit.thread, !llvm.loop !16
 
 recv_fully.exit:                                  ; preds = %49
   %54 = icmp eq i32 %.01316.i, 0
@@ -2649,7 +2649,7 @@ recv_fully.exit.thread:                           ; preds = %51, %recv_fully.exi
   %.0.i3447 = phi i32 [ %.01316.i, %recv_fully.exit ], [ %52, %51 ]
   %67 = add nuw nsw i32 %.0.i3447, %.02959
   %68 = icmp slt i32 %67, 14
-  br i1 %68, label %.split, label %.split63.us, !llvm.loop !23
+  br i1 %68, label %.split, label %.split63.us, !llvm.loop !24
 
 .split63.us:                                      ; preds = %recv_fully.exit.thread, %recv_fully.exit.thread.us
   %.us-phi = phi i32 [ %26, %recv_fully.exit.thread.us ], [ %67, %recv_fully.exit.thread ]
@@ -2713,7 +2713,7 @@ setLastError.exit42:                              ; preds = %83, %90
 98:                                               ; preds = %.lr.ph.i43
   %99 = add nuw nsw i32 %97, %.01316.i44
   %100 = icmp slt i32 %99, 14
-  br i1 %100, label %.lr.ph.i43, label %send_fully.exit, !llvm.loop !16
+  br i1 %100, label %.lr.ph.i43, label %send_fully.exit, !llvm.loop !17
 
 send_fully.exit:                                  ; preds = %98
   %.not33 = icmp eq i32 %99, 14
@@ -2792,7 +2792,7 @@ define internal fastcc i32 @recv_fully(i32 noundef %0, ptr noundef nonnull %1, i
 13:                                               ; preds = %11
   %14 = add nuw nsw i32 %9, %.01316
   %15 = icmp slt i32 %14, %2
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %13, %3
   %.0 = phi i32 [ 0, %3 ], [ %14, %13 ], [ %.01316, %11 ], [ %9, %.lr.ph ]
@@ -2877,21 +2877,22 @@ attributes #15 = { cold nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.partial.disable"}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !7, !8}

@@ -176,7 +176,7 @@ define hidden void @proto_init_opcua() #4 {
   call fastcc void @opcua_keylog_process_line(ptr noundef nonnull %1, ptr noundef nonnull %2)
   %8 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef nonnull %5)
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %9 = call i32 @fclose(ptr noundef nonnull %5)
@@ -339,7 +339,7 @@ define internal void @opcua_secrets_block_callback(ptr noundef %0, i32 noundef %
   call fastcc void @opcua_keylog_process_line(ptr noundef nonnull %3, ptr noundef nonnull %.04.i)
   %13 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.75, ptr noundef nonnull %4) #11
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %opcua_keylog_process_lines.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %opcua_keylog_process_lines.exit, label %.lr.ph.i, !llvm.loop !10
 
 opcua_keylog_process_lines.exit:                  ; preds = %.lr.ph.i, %9
   call void @ua_keysets_sort()
@@ -393,7 +393,7 @@ define internal fastcc void @opcua_keylog_process_line(ptr noundef captures(none
   %12 = icmp ne ptr %11, null
   %13 = icmp samesign ult i64 %indvars.iv, 3
   %14 = select i1 %12, i1 %13, i1 false
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %15 = icmp eq i64 %indvars.iv.next, 4
@@ -862,7 +862,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
 .thread:                                          ; preds = %138, %141
   %.0191223 = phi ptr [ %142, %141 ], [ %139, %138 ]
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %146 = load i8, ptr %145, align 8, !range !11, !noundef !12
+  %146 = load i8, ptr %145, align 8, !range !12, !noundef !13
   store i8 1, ptr %145, align 8
   %147 = icmp eq ptr %.0191223, null
   %148 = icmp ne i8 %58, 70
@@ -901,7 +901,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   %.1188.ph = phi i1 [ true, %141 ], [ %.not205, %160 ]
   %.1184.ph.not = phi i1 [ false, %141 ], [ %.not205, %160 ]
   %.4.ph = phi ptr [ %.3169, %141 ], [ %.6, %160 ]
-  %162 = load i8, ptr %8, align 1, !range !11, !noundef !12
+  %162 = load i8, ptr %8, align 1, !range !12, !noundef !13
   %163 = trunc nuw i8 %162 to i1
   %or.cond7.not = or i1 %.1184.ph.not, %163
   br i1 %or.cond7.not, label %.thread229, label %164
@@ -979,7 +979,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
 
 .thread229:                                       ; preds = %46, %185, %191, %189, %161
   %.1167239 = phi ptr [ %.4.ph, %185 ], [ %.4.ph, %191 ], [ %.4.ph, %189 ], [ %.4.ph, %161 ], [ %0, %46 ]
-  %195 = load i8, ptr %8, align 1, !range !11, !noundef !12
+  %195 = load i8, ptr %8, align 1, !range !12, !noundef !13
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %.sink.split, label %197
 
@@ -1192,10 +1192,11 @@ attributes #12 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}

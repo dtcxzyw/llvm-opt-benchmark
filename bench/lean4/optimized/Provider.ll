@@ -17018,7 +17018,7 @@ lean_inc.exit215:                                 ; preds = %36, %35, %33, %lean
 
 lean_dec.exit268:                                 ; preds = %43, %42, %40, %lean_inc.exit215
   %44 = tail call ptr @l_Lean_Elab_PartialContextInfo_mergeIntoOuter_x3f(ptr noundef %18, ptr noundef %.0202) #6
-  br label %7
+  br label %7, !llvm.loop !21
 
 45:                                               ; preds = %lean_obj_tag.exit
   %46 = ptrtoint ptr %.0202 to i64
@@ -31264,3 +31264,5 @@ attributes #7 = { noreturn nounwind }
 !18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !19 = !{!"branch_weights", i32 4000000, i32 4001}
 !20 = !{!"branch_weights", !"expected", i32 2146812833, i32 670815}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}

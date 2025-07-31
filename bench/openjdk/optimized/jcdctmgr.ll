@@ -185,7 +185,7 @@ define internal void @start_pass_fdctmgr(ptr noundef %0) #0 {
   store i32 %67, ptr %68, align 4
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 64
-  br i1 %exitcond99.not, label %.loopexit, label %58, !llvm.loop !8
+  br i1 %exitcond99.not, label %.loopexit, label %58, !llvm.loop !9
 
 69:                                               ; preds = %29
   %70 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %.pre-phi
@@ -231,12 +231,12 @@ define internal void @start_pass_fdctmgr(ptr noundef %0) #0 {
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %94, label %82, !llvm.loop !9
+  br i1 %exitcond.not, label %94, label %82, !llvm.loop !10
 
 94:                                               ; preds = %82
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 8
-  br i1 %exitcond95.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond95.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 95:                                               ; preds = %29
   %96 = load ptr, ptr %0, align 8
@@ -252,7 +252,7 @@ define internal void @start_pass_fdctmgr(ptr noundef %0) #0 {
   %101 = getelementptr inbounds nuw i8, ptr %.07383, i64 96
   %102 = load i32, ptr %2, align 4
   %103 = icmp slt i32 %100, %102
-  br i1 %103, label %14, label %._crit_edge, !llvm.loop !11
+  br i1 %103, label %14, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void
@@ -341,7 +341,7 @@ define internal void @forward_DCT(ptr noundef readonly captures(none) %0, ptr no
   store i32 %63, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %65, label %22, !llvm.loop !12
+  br i1 %exitcond.not, label %65, label %22, !llvm.loop !13
 
 65:                                               ; preds = %22
   call void %12(ptr noundef nonnull %8) #3
@@ -388,13 +388,13 @@ define internal void @forward_DCT(ptr noundef readonly captures(none) %0, ptr no
   store i16 %85, ptr %86, align 2
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 64
-  br i1 %exitcond78.not, label %87, label %67, !llvm.loop !13
+  br i1 %exitcond78.not, label %87, label %67, !llvm.loop !14
 
 87:                                               ; preds = %84
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %88 = add i32 %.05672, 8
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
-  br i1 %exitcond82.not, label %._crit_edge, label %.preheader, !llvm.loop !14
+  br i1 %exitcond82.not, label %._crit_edge, label %.preheader, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %87, %7
   ret void
@@ -495,7 +495,7 @@ define internal void @forward_DCT_float(ptr noundef readonly captures(none) %0, 
   store float %71, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %73, label %22, !llvm.loop !15
+  br i1 %exitcond.not, label %73, label %22, !llvm.loop !16
 
 73:                                               ; preds = %22
   call void %12(ptr noundef nonnull %8) #3
@@ -517,13 +517,13 @@ define internal void @forward_DCT_float(ptr noundef readonly captures(none) %0, 
   store i16 %84, ptr %85, align 2
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 64
-  br i1 %exitcond54.not, label %86, label %75, !llvm.loop !16
+  br i1 %exitcond54.not, label %86, label %75, !llvm.loop !17
 
 86:                                               ; preds = %75
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %87 = add i32 %.04149, 8
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
-  br i1 %exitcond58.not, label %._crit_edge, label %.preheader, !llvm.loop !17
+  br i1 %exitcond58.not, label %._crit_edge, label %.preheader, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %86, %7
   ret void
@@ -547,15 +547,16 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

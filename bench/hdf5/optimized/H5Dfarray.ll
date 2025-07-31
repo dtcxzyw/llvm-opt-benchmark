@@ -1561,7 +1561,7 @@ define internal noundef i32 @H5D__farray_encode(ptr noundef %0, ptr noundef read
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %16 = add i64 %.08, -1
   %.old1.not = icmp eq i64 %16, 0
-  br i1 %.old1.not, label %.loopexit, label %.preheader
+  br i1 %.old1.not, label %.loopexit, label %.preheader, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -1571,7 +1571,7 @@ define internal noundef i32 @H5D__farray_encode(ptr noundef %0, ptr noundef read
 define internal noundef i32 @H5D__farray_decode(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store ptr %0, ptr %5, align 8, !tbaa !79
+  store ptr %0, ptr %5, align 8, !tbaa !81
   %6 = load i8, ptr @H5D_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1590,7 +1590,7 @@ define internal noundef i32 @H5D__farray_decode(ptr noundef %0, ptr noundef %1, 
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %15 = add i64 %.09, -1
   %.old1.not = icmp eq i64 %15, 0
-  br i1 %.old1.not, label %.loopexit, label %.preheader
+  br i1 %.old1.not, label %.loopexit, label %.preheader, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.preheader, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
@@ -1641,9 +1641,9 @@ define internal ptr @H5D__farray_crt_dbg_context(ptr noundef %0, i64 noundef %1)
 
 14:                                               ; preds = %11
   %15 = call i32 @H5O_loc_reset(ptr noundef nonnull %3) #12
-  store ptr %0, ptr %3, align 8, !tbaa !81
+  store ptr %0, ptr %3, align 8, !tbaa !84
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %1, ptr %16, align 8, !tbaa !83
+  store i64 %1, ptr %16, align 8, !tbaa !86
   %17 = call i32 @H5O_open(ptr noundef nonnull %3) #12
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %40, label %19
@@ -1754,7 +1754,7 @@ define internal noundef i32 @H5D__farray_filt_fill(ptr noundef %0, i64 noundef %
 define internal noundef i32 @H5D__farray_filt_encode(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store ptr %0, ptr %5, align 8, !tbaa !79
+  store ptr %0, ptr %5, align 8, !tbaa !81
   %6 = load i8, ptr @H5D_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1775,7 +1775,7 @@ define internal noundef i32 @H5D__farray_filt_encode(ptr noundef %0, ptr noundef
   %15 = load i64, ptr %3, align 8, !tbaa !74
   %16 = load i64, ptr %.023, align 8, !tbaa !49
   call void @H5F_addr_encode_len(i64 noundef %15, ptr noundef nonnull %5, i64 noundef %16) #12
-  %17 = load ptr, ptr %5, align 8, !tbaa !79
+  %17 = load ptr, ptr %5, align 8, !tbaa !81
   %18 = load i64, ptr %13, align 8, !tbaa !76
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -1796,49 +1796,49 @@ define internal noundef i32 @H5D__farray_filt_encode(ptr noundef %0, ptr noundef
   %24 = lshr i32 %.02228, 8
   %25 = load i64, ptr %13, align 8, !tbaa !76
   %26 = icmp ult i64 %23, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !84
+  br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !87
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %5, align 8, !tbaa !79
+  %.pre = load ptr, ptr %5, align 8, !tbaa !81
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
   %27 = phi ptr [ %17, %14 ], [ %.pre, %._crit_edge.loopexit ]
   %.lcssa = phi i64 [ 0, %14 ], [ %25, %._crit_edge.loopexit ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %.lcssa
-  store ptr %28, ptr %5, align 8, !tbaa !79
+  store ptr %28, ptr %5, align 8, !tbaa !81
   %29 = getelementptr inbounds nuw i8, ptr %.023, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !54
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr %28, align 1, !tbaa !17
-  %32 = load ptr, ptr %5, align 8, !tbaa !79
+  %32 = load ptr, ptr %5, align 8, !tbaa !81
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store ptr %33, ptr %5, align 8, !tbaa !79
+  store ptr %33, ptr %5, align 8, !tbaa !81
   %34 = load i32, ptr %29, align 4, !tbaa !54
   %35 = lshr i32 %34, 8
   %36 = trunc i32 %35 to i8
   store i8 %36, ptr %33, align 1, !tbaa !17
-  %37 = load ptr, ptr %5, align 8, !tbaa !79
+  %37 = load ptr, ptr %5, align 8, !tbaa !81
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  store ptr %38, ptr %5, align 8, !tbaa !79
+  store ptr %38, ptr %5, align 8, !tbaa !81
   %39 = load i32, ptr %29, align 4, !tbaa !54
   %40 = lshr i32 %39, 16
   %41 = trunc i32 %40 to i8
   store i8 %41, ptr %38, align 1, !tbaa !17
-  %42 = load ptr, ptr %5, align 8, !tbaa !79
+  %42 = load ptr, ptr %5, align 8, !tbaa !81
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store ptr %43, ptr %5, align 8, !tbaa !79
+  store ptr %43, ptr %5, align 8, !tbaa !81
   %44 = load i32, ptr %29, align 4, !tbaa !54
   %45 = lshr i32 %44, 24
   %46 = trunc nuw i32 %45 to i8
   store i8 %46, ptr %43, align 1, !tbaa !17
-  %47 = load ptr, ptr %5, align 8, !tbaa !79
+  %47 = load ptr, ptr %5, align 8, !tbaa !81
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  store ptr %48, ptr %5, align 8, !tbaa !79
+  store ptr %48, ptr %5, align 8, !tbaa !81
   %49 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %50 = add i64 %.024, -1
   %.old1.not = icmp eq i64 %50, 0
-  br i1 %.old1.not, label %.loopexit, label %14
+  br i1 %.old1.not, label %.loopexit, label %14, !llvm.loop !89
 
 .loopexit:                                        ; preds = %._crit_edge, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
@@ -1849,7 +1849,7 @@ define internal noundef i32 @H5D__farray_filt_encode(ptr noundef %0, ptr noundef
 define internal noundef i32 @H5D__farray_filt_decode(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store ptr %0, ptr %5, align 8, !tbaa !79
+  store ptr %0, ptr %5, align 8, !tbaa !81
   %6 = load i8, ptr @H5D_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1872,7 +1872,7 @@ define internal noundef i32 @H5D__farray_filt_decode(ptr noundef %0, ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   store i32 0, ptr %16, align 8, !tbaa !52
   %17 = load i64, ptr %13, align 8, !tbaa !76
-  %18 = load ptr, ptr %5, align 8, !tbaa !79
+  %18 = load ptr, ptr %5, align 8, !tbaa !81
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %17
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1883,50 +1883,50 @@ define internal noundef i32 @H5D__farray_filt_decode(ptr noundef %0, ptr noundef
   %21 = phi ptr [ %23, %.lr.ph ], [ %19, %14 ]
   %22 = shl i32 %20, 8
   %23 = getelementptr inbounds i8, ptr %21, i64 -1
-  store ptr %23, ptr %5, align 8, !tbaa !79
+  store ptr %23, ptr %5, align 8, !tbaa !81
   %24 = load i8, ptr %23, align 1, !tbaa !17
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %22, %25
   store i32 %26, ptr %16, align 8, !tbaa !52
   %27 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %27, %17
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %28 = phi ptr [ %19, %14 ], [ %23, %.lr.ph ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %17
-  store ptr %29, ptr %5, align 8, !tbaa !79
+  store ptr %29, ptr %5, align 8, !tbaa !81
   %30 = load i8, ptr %29, align 1, !tbaa !17
   %31 = zext i8 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %.021, i64 12
   store i32 %31, ptr %32, align 4, !tbaa !54
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %33, ptr %5, align 8, !tbaa !79
+  store ptr %33, ptr %5, align 8, !tbaa !81
   %34 = load i8, ptr %33, align 1, !tbaa !17
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 8
   %37 = or disjoint i32 %36, %31
   store i32 %37, ptr %32, align 4, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  store ptr %38, ptr %5, align 8, !tbaa !79
+  store ptr %38, ptr %5, align 8, !tbaa !81
   %39 = load i8, ptr %38, align 1, !tbaa !17
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 16
   %42 = or disjoint i32 %41, %37
   store i32 %42, ptr %32, align 4, !tbaa !54
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 3
-  store ptr %43, ptr %5, align 8, !tbaa !79
+  store ptr %43, ptr %5, align 8, !tbaa !81
   %44 = load i8, ptr %43, align 1, !tbaa !17
   %45 = zext i8 %44 to i32
   %46 = shl nuw i32 %45, 24
   %47 = or disjoint i32 %46, %42
   store i32 %47, ptr %32, align 4, !tbaa !54
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store ptr %48, ptr %5, align 8, !tbaa !79
+  store ptr %48, ptr %5, align 8, !tbaa !81
   %49 = getelementptr inbounds nuw i8, ptr %.021, i64 16
   %50 = add i64 %.022, -1
   %.old1.not = icmp eq i64 %50, 0
-  br i1 %.old1.not, label %.loopexit, label %14
+  br i1 %.old1.not, label %.loopexit, label %14, !llvm.loop !91
 
 .loopexit:                                        ; preds = %._crit_edge, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
@@ -2018,13 +2018,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__farray_idx_depend(ptr noundef 
 9:                                                ; preds = %1
   %10 = call i32 @H5O_loc_reset(ptr noundef nonnull %2) #12
   %11 = load ptr, ptr %0, align 8, !tbaa !31
-  store ptr %11, ptr %2, align 8, !tbaa !81
+  store ptr %11, ptr %2, align 8, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %15, ptr %16, align 8, !tbaa !83
+  store i64 %15, ptr %16, align 8, !tbaa !86
   %17 = call ptr @H5O_protect(ptr noundef nonnull %2, i32 noundef 128, i1 noundef zeroext true) #12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %36, label %19
@@ -2130,12 +2130,12 @@ define internal i32 @H5D__farray_idx_iterate_cb(i64 %0, ptr noundef readonly cap
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %20 = load i32, ptr %19, align 4, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 292
-  store i32 %20, ptr %21, align 4, !tbaa !87
+  store i32 %20, ptr %21, align 4, !tbaa !92
   br label %22
 
 22:                                               ; preds = %10, %15
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  store i64 %14, ptr %23, align 8, !tbaa !88
+  store i64 %14, ptr %23, align 8, !tbaa !93
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.not = icmp eq i64 %14, -1
   br i1 %.not, label %36, label %25
@@ -2184,7 +2184,7 @@ define internal i32 @H5D__farray_idx_iterate_cb(i64 %0, ptr noundef readonly cap
   store i64 0, ptr %45, align 8, !tbaa !39
   %51 = add nsw i32 %.031, -1
   %52 = icmp sgt i32 %.031, 0
-  br i1 %52, label %43, label %.loopexit, !llvm.loop !89
+  br i1 %52, label %43, label %.loopexit, !llvm.loop !94
 
 .loopexit:                                        ; preds = %43, %50, %36, %3
   %.027 = phi i32 [ 0, %3 ], [ %.1, %36 ], [ %.1, %50 ], [ %.1, %43 ]
@@ -2205,9 +2205,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_delete_cb(ptr noundef read
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %11 = load i64, ptr %10, align 8, !tbaa !90
+  %11 = load i64, ptr %10, align 8, !tbaa !95
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %13 = load i32, ptr %12, align 8, !tbaa !91
+  %13 = load i32, ptr %12, align 8, !tbaa !96
   %14 = zext i32 %13 to i64
   %15 = tail call i32 @H5MF_xfree(ptr noundef %1, i32 noundef 3, i64 noundef %11, i64 noundef %14) #12
   %16 = icmp slt i32 %15, 0
@@ -2326,16 +2326,21 @@ attributes #12 = { nounwind }
 !76 = !{!75, !23, i64 8}
 !77 = !{!13, !13, i64 0}
 !78 = !{!"branch_weights", i32 2000, i32 2002}
-!79 = !{!80, !80, i64 0}
-!80 = !{!"p1 omnipotent char", !13, i64 0}
-!81 = !{!82, !12, i64 0}
-!82 = !{!"H5O_loc_t", !12, i64 0, !23, i64 8, !4, i64 16}
-!83 = !{!82, !23, i64 8}
-!84 = distinct !{!84, !85}
-!85 = !{!"llvm.loop.mustprogress"}
-!86 = distinct !{!86, !85}
-!87 = !{!64, !22, i64 292}
-!88 = !{!64, !23, i64 296}
-!89 = distinct !{!89, !85}
-!90 = !{!65, !23, i64 272}
-!91 = !{!65, !22, i64 264}
+!79 = distinct !{!79, !80}
+!80 = !{!"llvm.loop.estimated_trip_count"}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 omnipotent char", !13, i64 0}
+!83 = distinct !{!83, !80}
+!84 = !{!85, !12, i64 0}
+!85 = !{!"H5O_loc_t", !12, i64 0, !23, i64 8, !4, i64 16}
+!86 = !{!85, !23, i64 8}
+!87 = distinct !{!87, !88, !80}
+!88 = !{!"llvm.loop.mustprogress"}
+!89 = distinct !{!89, !80}
+!90 = distinct !{!90, !88, !80}
+!91 = distinct !{!91, !80}
+!92 = !{!64, !22, i64 292}
+!93 = !{!64, !23, i64 296}
+!94 = distinct !{!94, !88, !80}
+!95 = !{!65, !23, i64 272}
+!96 = !{!65, !22, i64 264}

@@ -166,7 +166,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %._cri
   %.lcssa1730 = phi i1 [ %13, %._crit_edge ], [ %.lcssa1729, %._crit_edge.thread ]
   %.lcssa1828 = phi i1 [ %11, %._crit_edge ], [ %.lcssa1827, %._crit_edge.thread ]
   store volatile i32 6, ptr %4, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %24 = load volatile i64, ptr %5, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
@@ -228,7 +228,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13Monit
   br i1 %.not16, label %.backedge, label %44
 
 .backedge:                                        ; preds = %42, %41
-  br label %8, !llvm.loop !10
+  br label %8, !llvm.loop !11
 
 44:                                               ; preds = %42, %39
   ret void
@@ -516,7 +516,8 @@ attributes #4 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145392998}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2145392998}
+!11 = distinct !{!11, !8, !9}

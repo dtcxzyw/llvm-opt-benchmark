@@ -1201,7 +1201,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20: ; preds = %49, %
   %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %64)
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 4
-  br i1 %exitcond27.not, label %42, label %61, !llvm.loop !75
+  br i1 %exitcond27.not, label %42, label %61, !llvm.loop !76
 }
 
 declare noundef ptr @_ZN19OpenColorIO_v2_5dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef) local_unnamed_addr #4
@@ -1404,9 +1404,9 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev31ExponentWithLinearTransformImplEPFvPNS0_27ExponentWithLinearTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %4, align 8, !tbaa !78
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -1431,7 +1431,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev31Expon
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev31ExponentWithLinearTransformImplEPFvPNS0_27ExponentWithLinearTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !79
+  %4 = load ptr, ptr %3, align 8, !tbaa !80
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev27ExponentWithLinearTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -1575,11 +1575,12 @@ attributes #26 = { builtin nounwind }
 !70 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !6, i64 0}
 !71 = !{!"_ZTSSt6locale", !72, i64 0}
 !72 = !{!"p1 _ZTSNSt6locale5_ImplE", !6, i64 0}
-!73 = distinct !{!73, !74}
+!73 = distinct !{!73, !74, !75}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = distinct !{!75, !74}
-!76 = !{!6, !6, i64 0}
-!77 = !{!78, !22, i64 24}
-!78 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev31ExponentWithLinearTransformImplEPFvPNS0_27ExponentWithLinearTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
-!79 = !{!80, !42, i64 8}
-!80 = !{!"_ZTSSt9type_info", !42, i64 8}
+!75 = !{!"llvm.loop.estimated_trip_count"}
+!76 = distinct !{!76, !74, !75}
+!77 = !{!6, !6, i64 0}
+!78 = !{!79, !22, i64 24}
+!79 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev31ExponentWithLinearTransformImplEPFvPNS0_27ExponentWithLinearTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
+!80 = !{!81, !42, i64 8}
+!81 = !{!"_ZTSSt9type_info", !42, i64 8}

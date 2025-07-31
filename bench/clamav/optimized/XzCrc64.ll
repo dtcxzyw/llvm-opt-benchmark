@@ -23,14 +23,14 @@ define void @Crc64GenerateTable() local_unnamed_addr #0 {
   %7 = xor i64 %6, %3
   %8 = add nuw nsw i32 %.012, 1
   %exitcond.not = icmp eq i32 %8, 8
-  br i1 %exitcond.not, label %9, label %2
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !3
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw [256 x i64], ptr @g_Crc64Table, i64 0, i64 %indvars.iv
-  store i64 %7, ptr %10, align 8, !tbaa !3
+  store i64 %7, ptr %10, align 8, !tbaa !5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond15.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond15.not, label %11, label %1
+  br i1 %exitcond15.not, label %11, label %1, !llvm.loop !9
 
 11:                                               ; preds = %9
   ret void
@@ -45,18 +45,18 @@ define i64 @Crc64Update(i64 noundef %0, ptr noundef readonly captures(none) %1, 
   %.012 = phi ptr [ %11, %.lr.ph ], [ %1, %3 ]
   %.0711 = phi i64 [ %10, %.lr.ph ], [ %2, %3 ]
   %.0810 = phi i64 [ %9, %.lr.ph ], [ %0, %3 ]
-  %4 = load i8, ptr %.012, align 1, !tbaa !7
+  %4 = load i8, ptr %.012, align 1, !tbaa !10
   %.08.tr = trunc i64 %.0810 to i8
   %.narrow = xor i8 %4, %.08.tr
   %5 = zext i8 %.narrow to i64
   %6 = getelementptr inbounds nuw [256 x i64], ptr @g_Crc64Table, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8, !tbaa !3
+  %7 = load i64, ptr %6, align 8, !tbaa !5
   %8 = lshr i64 %.0810, 8
   %9 = xor i64 %7, %8
   %10 = add i64 %.0711, -1
   %11 = getelementptr inbounds nuw i8, ptr %.012, i64 1
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.08.lcssa = phi i64 [ %0, %3 ], [ %9, %.lr.ph ]
@@ -72,18 +72,18 @@ define i64 @Crc64Calc(ptr noundef readonly captures(none) %0, i64 noundef %1) lo
   %.012.i = phi ptr [ %10, %.lr.ph.i ], [ %0, %2 ]
   %.0711.i = phi i64 [ %9, %.lr.ph.i ], [ %1, %2 ]
   %.0810.i = phi i64 [ %8, %.lr.ph.i ], [ -1, %2 ]
-  %3 = load i8, ptr %.012.i, align 1, !tbaa !7
+  %3 = load i8, ptr %.012.i, align 1, !tbaa !10
   %.08.tr.i = trunc i64 %.0810.i to i8
   %.narrow.i = xor i8 %3, %.08.tr.i
   %4 = zext i8 %.narrow.i to i64
   %5 = getelementptr inbounds nuw [256 x i64], ptr @g_Crc64Table, i64 0, i64 %4
-  %6 = load i64, ptr %5, align 8, !tbaa !3
+  %6 = load i64, ptr %5, align 8, !tbaa !5
   %7 = lshr i64 %.0810.i, 8
   %8 = xor i64 %6, %7
   %9 = add i64 %.0711.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %Crc64Update.exit.loopexit, label %.lr.ph.i
+  br i1 %.not.i, label %Crc64Update.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 Crc64Update.exit.loopexit:                        ; preds = %.lr.ph.i
   %11 = xor i64 %8, -1
@@ -102,8 +102,12 @@ attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !4, i64 0}
-!4 = !{!"long long", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!5, !5, i64 0}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"long long", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !4}
+!10 = !{!7, !7, i64 0}
+!11 = distinct !{!11, !4}

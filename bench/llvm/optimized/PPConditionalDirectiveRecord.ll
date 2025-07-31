@@ -190,7 +190,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRec
   %.sroa.012.1.i.i = select i1 %39, ptr %.sroa.012.013.i.i, ptr %40
   %.1.i.i = select i1 %39, i64 %37, i64 %42
   %43 = icmp sgt i64 %.1.i.i, 0
-  br i1 %43, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEENS2_14SourceLocationENS4_4CompEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !32
+  br i1 %43, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEENS2_14SourceLocationENS4_4CompEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !33
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEENS2_14SourceLocationENS4_4CompEET_SD_SD_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i
   %.pre24 = load ptr, ptr %10, align 8, !tbaa !28
@@ -308,21 +308,21 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit: ; preds =
 _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
   %.not.i = icmp eq ptr %9, %11
   br i1 %.not.i, label %15, label %12
 
 12:                                               ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread
   store i64 %1, ptr %9, align 4
-  %13 = load ptr, ptr %8, align 8, !tbaa !33
+  %13 = load ptr, ptr %8, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %14, ptr %8, align 8, !tbaa !33
+  store ptr %14, ptr %8, align 8, !tbaa !34
   br label %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE9push_backERKS2_.exit
 
 15:                                               ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread
-  %16 = load ptr, ptr %7, align 8, !tbaa !35
+  %16 = load ptr, ptr %7, align 8, !tbaa !36
   %17 = ptrtoint ptr %9 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
@@ -352,14 +352,14 @@ _ZNKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE12
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %28, %_ZNKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i ], [ %16, %_ZNKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %30 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !39, !noalias !36
-  store i64 %30, ptr %.012.i.i.i.i.i, align 4, !alias.scope !36, !noalias !39
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  %30 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !40, !noalias !37
+  store i64 %30, ptr %.012.i.i.i.i.i, align 4, !alias.scope !37, !noalias !40
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %31, %9
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !42
 
 _ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %28, %_ZNKSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %32, %.lr.ph.i.i.i.i.i ]
@@ -372,10 +372,10 @@ _ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE11_
   br label %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  store ptr %28, ptr %7, align 8, !tbaa !35
-  store ptr %33, ptr %8, align 8, !tbaa !33
+  store ptr %28, ptr %7, align 8, !tbaa !36
+  store ptr %33, ptr %8, align 8, !tbaa !34
   %35 = getelementptr inbounds nuw %"class.clang::PPConditionalDirectiveRecord::CondDirectiveLoc", ptr %28, i64 %26
-  store ptr %35, ptr %10, align 8, !tbaa !34
+  store ptr %35, ptr %10, align 8, !tbaa !35
   br label %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %12
@@ -401,7 +401,7 @@ define dso_local void @_ZN5clang28PPConditionalDirectiveRecord2IfENS_14SourceLoc
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4, !tbaa !13
   %.not.i.i.not.i = icmp ult i32 %12, %14
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, label %15, !prof !42
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, label %15, !prof !43
 
 15:                                               ; preds = %4
   %16 = zext i32 %12 to i64
@@ -442,7 +442,7 @@ define dso_local void @_ZN5clang28PPConditionalDirectiveRecord5IfdefENS_14Source
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4, !tbaa !13
   %.not.i.i.not.i = icmp ult i32 %12, %14
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, label %15, !prof !42
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, label %15, !prof !43
 
 15:                                               ; preds = %4
   %16 = zext i32 %12 to i64
@@ -483,7 +483,7 @@ define dso_local void @_ZN5clang28PPConditionalDirectiveRecord6IfndefENS_14Sourc
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4, !tbaa !13
   %.not.i.i.not.i = icmp ult i32 %12, %14
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, label %15, !prof !42
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, label %15, !prof !43
 
 15:                                               ; preds = %4
   %16 = zext i32 %12 to i64
@@ -673,9 +673,9 @@ define dso_local void @_ZN5clang28PPConditionalDirectiveRecord5EndifENS_14Source
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK5clang28PPConditionalDirectiveRecord14getTotalMemoryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val = load ptr, ptr %2, align 8, !tbaa !35
+  %.val = load ptr, ptr %2, align 8, !tbaa !36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.val1 = load ptr, ptr %3, align 8, !tbaa !34
+  %.val1 = load ptr, ptr %3, align 8, !tbaa !35
   %4 = ptrtoint ptr %.val1 to i64
   %5 = ptrtoint ptr %.val to i64
   %6 = sub i64 %4, %5
@@ -686,13 +686,13 @@ define dso_local noundef i64 @_ZNK5clang28PPConditionalDirectiveRecord14getTotal
 define linkonce_odr hidden void @_ZN5clang28PPConditionalDirectiveRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang28PPConditionalDirectiveRecordE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !34
+  %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -719,13 +719,13 @@ _ZN4llvm11SmallVectorIN5clang14SourceLocationELj6EED2Ev.exit: ; preds = %_ZNSt6v
 define linkonce_odr hidden void @_ZN5clang28PPConditionalDirectiveRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang28PPConditionalDirectiveRecordE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !34
+  %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1008,16 +1008,17 @@ attributes #17 = { builtin nounwind }
 !27 = !{!"p1 _ZTSN5clang28PPConditionalDirectiveRecord16CondDirectiveLocE", !8, i64 0}
 !28 = !{!27, !27, i64 0}
 !29 = !{!12, !12, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
-!33 = !{!26, !27, i64 8}
-!34 = !{!26, !27, i64 16}
-!35 = !{!26, !27, i64 0}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZSt19__relocate_object_aIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!38 = distinct !{!38, !"_ZSt19__relocate_object_aIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocES2_SaIS2_EEvPT_PT0_RT1_"}
-!39 = !{!40}
-!40 = distinct !{!40, !38, !"_ZSt19__relocate_object_aIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!41 = distinct !{!41, !31}
-!42 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !31, !32}
+!34 = !{!26, !27, i64 8}
+!35 = !{!26, !27, i64 16}
+!36 = !{!26, !27, i64 0}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocES2_SaIS2_EEvPT_PT0_RT1_"}
+!40 = !{!41}
+!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!42 = distinct !{!42, !31, !32}
+!43 = !{!"branch_weights", !"expected", i32 2000, i32 1}

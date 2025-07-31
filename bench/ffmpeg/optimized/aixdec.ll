@@ -123,9 +123,9 @@ define internal range(i32 -1094995529, 1) i32 @aix_read_header(ptr noundef %0) #
 57:                                               ; preds = %53
   %58 = load ptr, ptr %2, align 8, !tbaa !12
   %59 = tail call i64 @avio_skip(ptr noundef %58, i64 noundef 8) #3
-  %60 = load ptr, ptr %49, align 8, !tbaa !42
+  %60 = load ptr, ptr %49, align 8, !tbaa !43
   %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
-  %62 = load ptr, ptr %61, align 8, !tbaa !43
+  %62 = load ptr, ptr %61, align 8, !tbaa !44
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !27
   %65 = load ptr, ptr %2, align 8, !tbaa !12
@@ -133,7 +133,7 @@ define internal range(i32 -1094995529, 1) i32 @aix_read_header(ptr noundef %0) #
   %67 = tail call i32 @ff_get_extradata(ptr noundef nonnull %0, ptr noundef %64, ptr noundef %65, i32 noundef %66) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond60.not, label %.critedge, label %50, !llvm.loop !45
+  br i1 %exitcond60.not, label %.critedge, label %50, !llvm.loop !46
 
 .critedge:                                        ; preds = %26, %57, %53, %50, %16, %13, %1
   %.0 = phi i32 [ -1094995529, %1 ], [ -1094995529, %13 ], [ -1094995529, %16 ], [ 0, %57 ], [ -1094995529, %53 ], [ -1094995529, %50 ], [ -12, %26 ]
@@ -163,7 +163,7 @@ define internal i32 @aix_read_packet(ptr noundef readonly captures(none) %0, ptr
   %16 = zext i32 %12 to i64
   %17 = tail call i64 @avio_skip(ptr noundef %15, i64 noundef %16) #3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %19 = load i32, ptr %18, align 4, !tbaa !46
+  %19 = load i32, ptr %18, align 4, !tbaa !47
   %.not53 = icmp eq i32 %19, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
@@ -183,9 +183,9 @@ define internal i32 @aix_read_packet(ptr noundef readonly captures(none) %0, ptr
   %28 = zext i32 %26 to i64
   %29 = tail call i64 @avio_skip(ptr noundef %27, i64 noundef %28) #3
   %30 = add nuw nsw i32 %.052, 1
-  %31 = load i32, ptr %18, align 4, !tbaa !46
+  %31 = load i32, ptr %18, align 4, !tbaa !47
   %32 = icmp ult i32 %30, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %22, %14
   %33 = load ptr, ptr %3, align 8, !tbaa !12
@@ -211,7 +211,7 @@ define internal i32 @aix_read_packet(ptr noundef readonly captures(none) %0, ptr
   %44 = load ptr, ptr %3, align 8, !tbaa !12
   %45 = tail call i32 @avio_r8(ptr noundef %44) #3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %47 = load i32, ptr %46, align 4, !tbaa !46
+  %47 = load i32, ptr %46, align 4, !tbaa !47
   %.not48 = icmp eq i32 %45, %47
   %.not49 = icmp ult i32 %43, %47
   %or.cond = select i1 %.not48, i1 %.not49, i1 false
@@ -235,12 +235,12 @@ define internal i32 @aix_read_packet(ptr noundef readonly captures(none) %0, ptr
 59:                                               ; preds = %48
   %60 = tail call i32 @av_get_packet(ptr noundef %54, ptr noundef %1, i32 noundef %55) #3
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %43, ptr %61, align 4, !tbaa !48
+  store i32 %43, ptr %61, align 4, !tbaa !49
   %62 = zext i32 %50 to i64
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %62, ptr %63, align 8, !tbaa !49
+  store i64 %62, ptr %63, align 8, !tbaa !50
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %.042, ptr %64, align 8, !tbaa !50
+  store i64 %.042, ptr %64, align 8, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %41, %39, %2, %59, %56
@@ -317,14 +317,15 @@ attributes #3 = { nounwind }
 !37 = !{!35, !10, i64 4}
 !38 = !{!35, !10, i64 152}
 !39 = !{!35, !10, i64 132}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!13, !18, i64 48}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!45 = distinct !{!45, !41}
-!46 = !{!13, !10, i64 44}
-!47 = distinct !{!47, !41}
-!48 = !{!31, !10, i64 36}
-!49 = !{!31, !22, i64 64}
-!50 = !{!31, !22, i64 72}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!13, !18, i64 48}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!46 = distinct !{!46, !41, !42}
+!47 = !{!13, !10, i64 44}
+!48 = distinct !{!48, !41, !42}
+!49 = !{!31, !10, i64 36}
+!50 = !{!31, !22, i64 64}
+!51 = !{!31, !22, i64 72}

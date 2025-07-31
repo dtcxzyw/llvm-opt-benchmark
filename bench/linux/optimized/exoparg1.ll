@@ -255,7 +255,7 @@ define dso_local i32 @acpi_ex_opcode_1A_1T_1R(ptr noundef %0) local_unnamed_addr
   %45 = icmp ne i64 %43, 0
   %46 = icmp samesign ult i32 %41, 63
   %47 = select i1 %45, i1 %46, i1 false
-  br i1 %47, label %.preheader24, label %48, !llvm.loop !9
+  br i1 %47, label %.preheader24, label %48, !llvm.loop !10
 
 48:                                               ; preds = %.preheader24
   store i32 %44, ptr %4, align 4
@@ -312,7 +312,7 @@ define dso_local i32 @acpi_ex_opcode_1A_1T_1R(ptr noundef %0) local_unnamed_addr
   %79 = icmp samesign ult i32 %78, %60
   %80 = icmp ugt i64 %67, 15
   %81 = and i1 %79, %80
-  br i1 %81, label %.preheader25, label %.loopexit, !llvm.loop !10
+  br i1 %81, label %.preheader25, label %.loopexit, !llvm.loop !11
 
 82:                                               ; preds = %12
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -359,7 +359,7 @@ define dso_local i32 @acpi_ex_opcode_1A_1T_1R(ptr noundef %0) local_unnamed_addr
   %112 = load i64, ptr %5, align 8
   %113 = icmp ne i64 %112, 0
   %114 = select i1 %111, i1 %113, i1 false
-  br i1 %114, label %.preheader26, label %.loopexit27, !llvm.loop !11
+  br i1 %114, label %.preheader26, label %.loopexit27, !llvm.loop !12
 
 .loopexit27:                                      ; preds = %.preheader26, %88
   %115 = phi ptr [ %10, %88 ], [ %104, %.preheader26 ]
@@ -1029,9 +1029,10 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}

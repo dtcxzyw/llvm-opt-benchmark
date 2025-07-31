@@ -58,7 +58,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 21:                                               ; preds = %13
   %22 = add nuw nsw i64 %5, 1
   %23 = icmp eq i64 %22, 28
-  br i1 %23, label %24, label %.preheader7, !llvm.loop !8
+  br i1 %23, label %24, label %.preheader7, !llvm.loop !9
 
 24:                                               ; preds = %21
   %25 = getelementptr [256 x i8], ptr @length_code, i64 0, i64 %17
@@ -86,12 +86,12 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i8 %33, ptr %40, align 1
   %41 = add nuw nsw i32 %36, 1
   %42 = icmp eq i32 %41, %34
-  br i1 %42, label %43, label %35, !llvm.loop !9
+  br i1 %42, label %43, label %35, !llvm.loop !10
 
 43:                                               ; preds = %35
   %44 = add nuw nsw i64 %27, 1
   %45 = icmp eq i64 %44, 16
-  br i1 %45, label %46, label %26, !llvm.loop !10
+  br i1 %45, label %46, label %26, !llvm.loop !11
 
 46:                                               ; preds = %43
   %47 = ashr i32 %38, 7
@@ -129,13 +129,13 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i8 %61, ptr %68, align 1
   %69 = add nuw nsw i32 %63, 1
   %70 = icmp eq i32 %69, %60
-  br i1 %70, label %.loopexit, label %62, !llvm.loop !11
+  br i1 %70, label %.loopexit, label %62, !llvm.loop !12
 
 .loopexit:                                        ; preds = %62, %50
   %71 = phi i32 [ %52, %50 ], [ %65, %62 ]
   %72 = add nuw nsw i64 %51, 1
   %73 = icmp eq i64 %72, 30
-  br i1 %73, label %48, label %50, !llvm.loop !12
+  br i1 %73, label %48, label %50, !llvm.loop !13
 
 74:                                               ; preds = %76
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 18
@@ -147,7 +147,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %79 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %77, i32 1
   store i16 8, ptr %79, align 2
   %80 = icmp eq i64 %78, 144
-  br i1 %80, label %74, label %76, !llvm.loop !13
+  br i1 %80, label %74, label %76, !llvm.loop !14
 
 81:                                               ; preds = %83
   store i16 112, ptr %75, align 2
@@ -160,7 +160,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %86 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %84, i32 1
   store i16 9, ptr %86, align 2
   %87 = icmp eq i64 %85, 256
-  br i1 %87, label %81, label %83, !llvm.loop !14
+  br i1 %87, label %81, label %83, !llvm.loop !15
 
 88:                                               ; preds = %89
   store i16 24, ptr %82, align 2
@@ -172,7 +172,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %92 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %90, i32 1
   store i16 7, ptr %92, align 2
   %93 = icmp eq i64 %91, 280
-  br i1 %93, label %88, label %89, !llvm.loop !15
+  br i1 %93, label %88, label %89, !llvm.loop !16
 
 94:                                               ; preds = %94, %88
   %95 = phi i64 [ 280, %88 ], [ %96, %94 ]
@@ -180,12 +180,12 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %97 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %95, i32 1
   store i16 8, ptr %97, align 2
   %98 = icmp eq i64 %96, 288
-  br i1 %98, label %99, label %94, !llvm.loop !16
+  br i1 %98, label %99, label %94, !llvm.loop !17
 
 99:                                               ; preds = %94
   store i16 152, ptr %49, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !18
   %100 = getelementptr i8, ptr %3, i64 -2
   br label %105
 
@@ -206,7 +206,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i16 %111, ptr %112, align 2
   %113 = add nuw nsw i64 %106, 1
   %114 = icmp eq i64 %113, 16
-  br i1 %114, label %101, label %105, !llvm.loop !18
+  br i1 %114, label %101, label %105, !llvm.loop !19
 
 115:                                              ; preds = %145, %101
   %116 = phi i64 [ 0, %101 ], [ %146, %145 ]
@@ -247,7 +247,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 145:                                              ; preds = %121, %115
   %146 = add nuw nsw i64 %116, 1
   %147 = icmp eq i64 %146, 288
-  br i1 %147, label %148, label %115, !llvm.loop !19
+  br i1 %147, label %148, label %115, !llvm.loop !20
 
 148:                                              ; preds = %145
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
@@ -265,7 +265,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i16 %156, ptr %151, align 4
   %157 = add nuw nsw i64 %150, 1
   %158 = icmp eq i64 %157, 30
-  br i1 %158, label %159, label %149, !llvm.loop !20
+  br i1 %158, label %159, label %149, !llvm.loop !21
 
 159:                                              ; preds = %149
   store i1 true, ptr @tr_static_init.static_init_done, align 4
@@ -304,7 +304,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i16 0, ptr %176, align 4
   %177 = add nuw nsw i64 %175, 1
   %178 = icmp eq i64 %177, 286
-  br i1 %178, label %.preheader6, label %174, !llvm.loop !21
+  br i1 %178, label %.preheader6, label %174, !llvm.loop !22
 
 .preheader6:                                      ; preds = %174, %.preheader6
   %179 = phi i64 [ %181, %.preheader6 ], [ 0, %174 ]
@@ -312,7 +312,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i16 0, ptr %180, align 4
   %181 = add nuw nsw i64 %179, 1
   %182 = icmp eq i64 %181, 30
-  br i1 %182, label %.preheader, label %.preheader6, !llvm.loop !22
+  br i1 %182, label %.preheader, label %.preheader6, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader6, %.preheader
   %183 = phi i64 [ %185, %.preheader ], [ 0, %.preheader6 ]
@@ -320,7 +320,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i16 0, ptr %184, align 4
   %185 = add nuw nsw i64 %183, 1
   %186 = icmp eq i64 %185, 19
-  br i1 %186, label %187, label %.preheader, !llvm.loop !23
+  br i1 %186, label %187, label %.preheader, !llvm.loop !24
 
 187:                                              ; preds = %.preheader
   %188 = getelementptr i8, ptr %0, i64 1212
@@ -942,7 +942,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %20 = zext i16 %19 to i32
   %21 = add i32 %16, %20
   %22 = icmp eq i64 %17, 7
-  br i1 %22, label %.preheader28, label %14, !llvm.loop !24
+  br i1 %22, label %.preheader28, label %14, !llvm.loop !25
 
 .preheader28:                                     ; preds = %14, %.preheader28
   %23 = phi i64 [ %25, %.preheader28 ], [ 7, %14 ]
@@ -953,7 +953,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %28 = zext i16 %27 to i32
   %29 = add i32 %24, %28
   %30 = icmp eq i64 %25, 128
-  br i1 %30, label %.preheader, label %.preheader28, !llvm.loop !25
+  br i1 %30, label %.preheader, label %.preheader28, !llvm.loop !26
 
 .preheader:                                       ; preds = %.preheader28, %.preheader
   %31 = phi i64 [ %33, %.preheader ], [ 128, %.preheader28 ]
@@ -964,7 +964,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %36 = zext i16 %35 to i32
   %37 = add i32 %32, %36
   %38 = icmp eq i64 %33, 256
-  br i1 %38, label %39, label %.preheader, !llvm.loop !26
+  br i1 %38, label %39, label %.preheader, !llvm.loop !27
 
 39:                                               ; preds = %.preheader
   %40 = lshr i32 %29, 2
@@ -1089,7 +1089,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %117 = phi i32 [ %70, %67 ], [ 138, %109 ], [ %112, %111 ]
   %118 = phi i32 [ %69, %67 ], [ 3, %109 ], [ %113, %111 ]
   %119 = icmp eq i64 %74, %66
-  br i1 %119, label %.loopexit27, label %67, !llvm.loop !27
+  br i1 %119, label %.loopexit27, label %67, !llvm.loop !28
 
 .loopexit27:                                      ; preds = %114, %43
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 2480
@@ -1203,7 +1203,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %191 = phi i32 [ %144, %141 ], [ 138, %183 ], [ %186, %185 ]
   %192 = phi i32 [ %143, %141 ], [ 3, %183 ], [ %187, %185 ]
   %193 = icmp eq i64 %148, %140
-  br i1 %193, label %.loopexit26, label %141, !llvm.loop !27
+  br i1 %193, label %.loopexit26, label %141, !llvm.loop !29
 
 .loopexit26:                                      ; preds = %188, %.loopexit27
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 2928
@@ -1226,7 +1226,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 205:                                              ; preds = %196
   %206 = add nsw i32 %197, -1
   %207 = icmp ugt i32 %197, 3
-  br i1 %207, label %196, label %208, !llvm.loop !28
+  br i1 %207, label %196, label %208, !llvm.loop !30
 
 208:                                              ; preds = %205, %196
   %209 = phi i32 [ %197, %196 ], [ 2, %205 ]
@@ -1586,7 +1586,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   store i32 %464, ptr %236, align 4
   %465 = add nuw nsw i64 %429, 1
   %466 = icmp eq i64 %465, %424
-  br i1 %466, label %.loopexit, label %426, !llvm.loop !29
+  br i1 %466, label %.loopexit, label %426, !llvm.loop !31
 
 .loopexit:                                        ; preds = %462, %419
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -1617,7 +1617,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   store i16 0, ptr %481, align 4
   %482 = add nuw nsw i64 %480, 1
   %483 = icmp eq i64 %482, 286
-  br i1 %483, label %477, label %479, !llvm.loop !21
+  br i1 %483, label %477, label %479, !llvm.loop !32
 
 484:                                              ; preds = %486
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 2724
@@ -1629,7 +1629,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   store i16 0, ptr %488, align 4
   %489 = add nuw nsw i64 %487, 1
   %490 = icmp eq i64 %489, 30
-  br i1 %490, label %484, label %486, !llvm.loop !22
+  br i1 %490, label %484, label %486, !llvm.loop !33
 
 491:                                              ; preds = %491, %484
   %492 = phi i64 [ 0, %484 ], [ %494, %491 ]
@@ -1637,7 +1637,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   store i16 0, ptr %493, align 4
   %494 = add nuw nsw i64 %492, 1
   %495 = icmp eq i64 %494, 19
-  br i1 %495, label %496, label %491, !llvm.loop !23
+  br i1 %495, label %496, label %491, !llvm.loop !34
 
 496:                                              ; preds = %491
   %497 = getelementptr i8, ptr %0, i64 1212
@@ -1786,7 +1786,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %42 = phi i32 [ %37, %32 ], [ %28, %39 ]
   %43 = add nuw nsw i64 %27, 1
   %44 = icmp eq i64 %43, %16
-  br i1 %44, label %17, label %26, !llvm.loop !30
+  br i1 %44, label %17, label %26, !llvm.loop !35
 
 45:                                               ; preds = %66, %.thread
   %46 = phi i32 [ %20, %.thread ], [ %67, %66 ]
@@ -1822,7 +1822,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 66:                                               ; preds = %60, %45
   %67 = load i32, ptr %10, align 4
   %68 = icmp slt i32 %67, 2
-  br i1 %68, label %45, label %.loopexit57, !llvm.loop !31
+  br i1 %68, label %45, label %.loopexit57, !llvm.loop !36
 
 .loopexit57:                                      ; preds = %66, %17
   %69 = phi i32 [ %42, %17 ], [ %50, %66 ]
@@ -1939,7 +1939,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %141 = shl i32 %123, 1
   %142 = load i32, ptr %10, align 4
   %143 = icmp sgt i32 %141, %142
-  br i1 %143, label %.loopexit54, label %93, !llvm.loop !32
+  br i1 %143, label %.loopexit54, label %93, !llvm.loop !37
 
 .loopexit54:                                      ; preds = %138, %133, %122, %81
   %144 = phi i32 [ %87, %81 ], [ %96, %122 ], [ %96, %133 ], [ %123, %138 ]
@@ -1948,7 +1948,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   store i32 %84, ptr %146, align 4
   %147 = add nsw i64 %82, -1
   %148 = icmp sgt i64 %82, 1
-  br i1 %148, label %81, label %.loopexit56.loopexit, !llvm.loop !33
+  br i1 %148, label %81, label %.loopexit56.loopexit, !llvm.loop !38
 
 149:                                              ; preds = %.loopexit51, %.loopexit56
   %150 = phi i32 [ %300, %.loopexit51 ], [ %.pre, %.loopexit56 ]
@@ -2042,7 +2042,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %210 = shl i32 %192, 1
   %211 = load i32, ptr %10, align 4
   %212 = icmp sgt i32 %210, %211
-  br i1 %212, label %.loopexit52.loopexit, label %162, !llvm.loop !32
+  br i1 %212, label %.loopexit52.loopexit, label %162, !llvm.loop !39
 
 .loopexit52.loopexit:                             ; preds = %191, %202, %207
   %.ph66 = phi i32 [ %192, %207 ], [ %165, %202 ], [ %165, %191 ]
@@ -2168,7 +2168,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %294 = shl i32 %276, 1
   %295 = load i32, ptr %10, align 4
   %296 = icmp sgt i32 %294, %295
-  br i1 %296, label %.loopexit51.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %296, label %.loopexit51.loopexit, label %.preheader, !llvm.loop !40
 
 .loopexit51.loopexit:                             ; preds = %275, %286, %291
   %.ph = phi i32 [ %276, %291 ], [ %249, %286 ], [ %249, %275 ]
@@ -2181,7 +2181,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   store i32 %151, ptr %299, align 4
   %300 = load i32, ptr %10, align 4
   %301 = icmp sgt i32 %300, 1
-  br i1 %301, label %149, label %302, !llvm.loop !34
+  br i1 %301, label %149, label %302, !llvm.loop !41
 
 302:                                              ; preds = %.loopexit51
   %303 = load i32, ptr %79, align 4
@@ -2289,7 +2289,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %383 = add nsw i64 %334, 1
   %384 = and i64 %383, 4294967295
   %385 = icmp eq i64 %384, 573
-  br i1 %385, label %386, label %333, !llvm.loop !35
+  br i1 %385, label %386, label %333, !llvm.loop !42
 
 386:                                              ; preds = %382
   %387 = icmp eq i32 %350, 0
@@ -2311,7 +2311,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %397 = getelementptr [16 x i16], ptr %318, i64 0, i64 %396
   %398 = load i16, ptr %397, align 2
   %399 = icmp eq i16 %398, 0
-  br i1 %399, label %393, label %400, !llvm.loop !36
+  br i1 %399, label %393, label %400, !llvm.loop !43
 
 400:                                              ; preds = %393
   %401 = getelementptr [16 x i16], ptr %318, i64 0, i64 %396
@@ -2327,7 +2327,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   store i16 %408, ptr %390, align 2
   %409 = add i32 %392, -2
   %410 = icmp sgt i32 %409, 0
-  br i1 %410, label %391, label %411, !llvm.loop !37
+  br i1 %410, label %391, label %411, !llvm.loop !44
 
 411:                                              ; preds = %400
   %412 = icmp eq i32 %317, 0
@@ -2359,7 +2359,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %429 = getelementptr [573 x i32], ptr %78, i64 0, i64 %428
   %430 = load i32, ptr %429, align 4
   %431 = icmp sgt i32 %430, %309
-  br i1 %431, label %425, label %432, !llvm.loop !38
+  br i1 %431, label %425, label %432, !llvm.loop !45
 
 432:                                              ; preds = %425
   %433 = sext i32 %430 to i64
@@ -2385,17 +2385,17 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 447:                                              ; preds = %439, %432
   %448 = add nsw i32 %423, -1
   %449 = icmp eq i32 %448, 0
-  br i1 %449, label %.loopexit50, label %422, !llvm.loop !38
+  br i1 %449, label %.loopexit50, label %422, !llvm.loop !46
 
 .loopexit50:                                      ; preds = %447, %.preheader91
   %450 = phi i32 [ %414, %.preheader91 ], [ %427, %447 ]
   %451 = add i32 %413, -1
   %452 = icmp eq i32 %451, 0
-  br i1 %452, label %.thread49, label %.preheader91, !llvm.loop !39
+  br i1 %452, label %.thread49, label %.preheader91, !llvm.loop !47
 
 .thread49:                                        ; preds = %.loopexit50, %302, %411, %386
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !18
   %453 = getelementptr i8, ptr %0, i64 2950
   br label %463
 
@@ -2423,7 +2423,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   store i16 %469, ptr %470, align 2
   %471 = add nuw nsw i64 %464, 1
   %472 = icmp eq i64 %471, 16
-  br i1 %472, label %454, label %463, !llvm.loop !18
+  br i1 %472, label %454, label %463, !llvm.loop !48
 
 473:                                              ; preds = %503, %456
   %474 = phi i64 [ 0, %456 ], [ %504, %503 ]
@@ -2464,7 +2464,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 503:                                              ; preds = %479, %473
   %504 = add nuw nsw i64 %474, 1
   %505 = icmp eq i64 %504, %462
-  br i1 %505, label %.loopexit, label %473, !llvm.loop !19
+  br i1 %505, label %.loopexit, label %473, !llvm.loop !49
 
 .loopexit:                                        ; preds = %503, %454
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
@@ -2795,7 +2795,7 @@ define internal fastcc void @compress_block(ptr noundef captures(none) %0, ptr n
   %235 = load i32, ptr %4, align 4
   %236 = zext i32 %235 to i64
   %237 = icmp samesign ult i64 %21, %236
-  br i1 %237, label %14, label %.loopexit, !llvm.loop !40
+  br i1 %237, label %14, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %232, %..loopexit_crit_edge
   %238 = phi i16 [ %.pre13, %..loopexit_crit_edge ], [ %233, %232 ]
@@ -2956,7 +2956,7 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr noundef captures(none) %
   %77 = add i64 %76, %68
   %78 = add nuw nsw i64 %67, 1
   %79 = icmp eq i64 %78, 30
-  br i1 %79, label %80, label %66, !llvm.loop !41
+  br i1 %79, label %80, label %66, !llvm.loop !51
 
 80:                                               ; preds = %66
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 5912
@@ -3099,7 +3099,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr noundef readonly capt
   store i32 %84, ptr %13, align 4
   %85 = add i32 %49, -1
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.loopexit, label %47, !llvm.loop !42
+  br i1 %86, label %.loopexit, label %47, !llvm.loop !52
 
 87:                                               ; preds = %41
   %88 = icmp eq i32 %29, 0
@@ -3468,7 +3468,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr noundef readonly capt
   %348 = phi i32 [ %37, %26 ], [ 0, %.loopexit ], [ 0, %342 ]
   %349 = phi i32 [ %28, %26 ], [ %29, %.loopexit ], [ %29, %342 ]
   %350 = icmp eq i64 %33, %25
-  br i1 %350, label %.loopexit17, label %26, !llvm.loop !43
+  br i1 %350, label %.loopexit17, label %26, !llvm.loop !53
 
 .loopexit17:                                      ; preds = %345, %3
   ret void
@@ -3504,42 +3504,52 @@ attributes #9 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = !{!"auto-init"}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
-!36 = distinct !{!36, !6, !7}
-!37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7}
-!39 = distinct !{!39, !6, !7}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}
-!42 = distinct !{!42, !6, !7}
-!43 = distinct !{!43, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = !{!"auto-init"}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !6, !7, !8}
+!30 = distinct !{!30, !6, !7, !8}
+!31 = distinct !{!31, !6, !7, !8}
+!32 = distinct !{!32, !6, !7, !8}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}
+!38 = distinct !{!38, !6, !7, !8}
+!39 = distinct !{!39, !6, !7, !8}
+!40 = distinct !{!40, !6, !7, !8}
+!41 = distinct !{!41, !6, !7, !8}
+!42 = distinct !{!42, !6, !7, !8}
+!43 = distinct !{!43, !6, !7, !8}
+!44 = distinct !{!44, !6, !7, !8}
+!45 = distinct !{!45, !6, !7, !8}
+!46 = distinct !{!46, !6, !7, !8}
+!47 = distinct !{!47, !6, !7, !8}
+!48 = distinct !{!48, !6, !7, !8}
+!49 = distinct !{!49, !6, !7, !8}
+!50 = distinct !{!50, !6, !7, !8}
+!51 = distinct !{!51, !6, !7, !8}
+!52 = distinct !{!52, !6, !7, !8}
+!53 = distinct !{!53, !6, !7, !8}

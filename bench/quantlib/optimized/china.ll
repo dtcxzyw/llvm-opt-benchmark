@@ -2585,7 +2585,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
   %cond.in.i.i = getelementptr inbounds nuw i8, ptr %__x.020.i.i, i64 %cond.in.v.i.i
   %__x.0.i.i = load ptr, ptr %cond.in.i.i, align 8, !tbaa !22
   %cmp.not.i.i = icmp eq ptr %__x.0.i.i, null
-  br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !37
+  br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !38
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i6, label %if.end12.i.i
@@ -2637,7 +2637,7 @@ _ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_inse
   %.pr = phi i64 [ %.pr16, %if.end12.i.i ], [ %inc.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.not.i, label %invoke.cont5, label %for.body.i, !llvm.loop !38
+  br i1 %cmp.not.i, label %invoke.cont5, label %for.body.i, !llvm.loop !39
 
 invoke.cont5:                                     ; preds = %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_insert_unique_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_.exit.i, %invoke.cont
   ret void
@@ -3035,12 +3035,12 @@ unreachable.i.i:                                  ; preds = %lpad.i.i
 
 cond.true.i.i:                                    ; preds = %entry
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !39
+  store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !40
   %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i.i, align 4, !tbaa !42
+  store i32 1, ptr %weak_count_.i.i.i.i, align 4, !tbaa !43
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China7SseImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %call.i.i, align 8, !tbaa !16
   %ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  store ptr null, ptr %ptr.i.i.i, align 8, !tbaa !43
+  store ptr null, ptr %ptr.i.i.i, align 8, !tbaa !44
   %del.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %storage_.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 48
@@ -3060,7 +3060,7 @@ cond.true.i.i:                                    ; preds = %entry
   %_M_node_count.i.i.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 128
   store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib5China7SseImplE, i64 16), ptr %storage_.i, align 8, !tbaa !16
-  store i8 1, ptr %del.i.i.i, align 8, !tbaa !47
+  store i8 1, ptr %del.i.i.i, align 8, !tbaa !48
   store ptr %storage_.i, ptr %agg.result, align 8, !tbaa !28
   %pn.i8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i.i, ptr %pn.i8, align 8, !tbaa !21
@@ -3111,7 +3111,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China7SseImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !16
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !48, !noundef !49
+  %0 = load i8, ptr %del, align 8, !tbaa !48, !range !49, !noundef !50
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib5China7SseImplEED2Ev.exit
 
@@ -3146,7 +3146,7 @@ terminate.lpad.i.i2.i.i.i:                        ; preds = %_ZNSt3setIN8QuantLi
   unreachable
 
 _ZN8QuantLib8Calendar4ImplD2Ev.exit.i.i:          ; preds = %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i.i
-  store i8 0, ptr %del, align 8, !tbaa !47
+  store i8 0, ptr %del, align 8, !tbaa !48
   br label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib5China7SseImplEED2Ev.exit
 
 _ZN5boost6detail13sp_ms_deleterIN8QuantLib5China7SseImplEED2Ev.exit: ; preds = %entry, %_ZN8QuantLib8Calendar4ImplD2Ev.exit.i.i
@@ -3158,7 +3158,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China7SseImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !16
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !47, !range !48, !noundef !49
+  %0 = load i8, ptr %del.i, align 8, !tbaa !48, !range !49, !noundef !50
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China7SseImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -3201,7 +3201,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China7SseImplENS0_13sp_ms_delet
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China7SseImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !48, !noundef !49
+  %0 = load i8, ptr %del, align 8, !tbaa !48, !range !49, !noundef !50
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib5China7SseImplEEclEPS4_.exit
 
@@ -3236,7 +3236,7 @@ terminate.lpad.i.i2.i.i.i:                        ; preds = %_ZNSt3setIN8QuantLi
   unreachable
 
 _ZN8QuantLib8Calendar4ImplD2Ev.exit.i.i:          ; preds = %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i.i
-  store i8 0, ptr %del, align 8, !tbaa !47
+  store i8 0, ptr %del, align 8, !tbaa !48
   br label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib5China7SseImplEEclEPS4_.exit
 
 _ZN5boost6detail13sp_ms_deleterIN8QuantLib5China7SseImplEEclEPS4_.exit: ; preds = %entry, %_ZN8QuantLib8Calendar4ImplD2Ev.exit.i.i
@@ -3257,7 +3257,7 @@ entry:
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China7SseImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #8 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !50
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !51
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib5China7SseImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -3336,13 +3336,13 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
   %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
-  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !52
+  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !53
   tail call void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
-  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !53
+  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !54
   tail call void @_ZdlPvm(ptr noundef nonnull %__x.addr.05, i64 noundef 40) #23
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !54
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !55
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -3399,12 +3399,12 @@ unreachable.i:                                    ; preds = %lpad.i
 
 _ZN5boost6detail12shared_countC2IN8QuantLib5China7SseImplEEEPT_.exit: ; preds = %entry
   %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !39
+  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !40
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !42
+  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !43
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib5China7SseImplEEE, i64 16), ptr %call.i, align 8, !tbaa !16
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %p, ptr %px_.i.i, align 8, !tbaa !55
+  store ptr %p, ptr %px_.i.i, align 8, !tbaa !56
   %6 = load ptr, ptr %pn, align 8, !tbaa !21
   store ptr %call.i, ptr %pn, align 8, !tbaa !21
   %cmp.not.i = icmp eq ptr %6, null
@@ -3501,7 +3501,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib5China7SseImplEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !55
+  %0 = load ptr, ptr %px_, align 8, !tbaa !56
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib5China7SseImplEEEvPT_.exit, label %delete.notnull.i
 
@@ -3596,12 +3596,12 @@ unreachable.i:                                    ; preds = %lpad.i
 
 _ZN5boost6detail12shared_countC2IN8QuantLib5China6IbImplEEEPT_.exit: ; preds = %entry
   %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !39
+  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !40
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !42
+  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !43
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib5China6IbImplEEE, i64 16), ptr %call.i, align 8, !tbaa !16
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %p, ptr %px_.i.i, align 8, !tbaa !57
+  store ptr %p, ptr %px_.i.i, align 8, !tbaa !58
   %6 = load ptr, ptr %pn, align 8, !tbaa !21
   store ptr %call.i, ptr %pn, align 8, !tbaa !21
   %cmp.not.i = icmp eq ptr %6, null
@@ -3743,7 +3743,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib5China6IbImplEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !57
+  %0 = load ptr, ptr %px_, align 8, !tbaa !58
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib5China6IbImplEEEvPT_.exit, label %delete.notnull.i
 
@@ -3915,27 +3915,28 @@ attributes #26 = { nounwind willreturn memory(read) }
 !32 = !{!33, !11, i64 0}
 !33 = !{!"_ZTSN8QuantLib4DateE", !11, i64 0}
 !34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = distinct !{!38, !36}
-!39 = !{!40, !41, i64 8}
-!40 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !41, i64 8, !41, i64 12}
-!41 = !{!"int", !8, i64 0}
-!42 = !{!40, !41, i64 12}
-!43 = !{!44, !10, i64 16}
-!44 = !{!"_ZTSN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China7SseImplENS0_13sp_ms_deleterIS4_EEEE", !40, i64 0, !10, i64 16, !45, i64 24}
-!45 = !{!"_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib5China7SseImplEEE", !46, i64 0, !8, i64 8}
-!46 = !{!"bool", !8, i64 0}
-!47 = !{!45, !46, i64 0}
-!48 = !{i8 0, i8 2}
-!49 = !{}
-!50 = !{!51, !10, i64 8}
-!51 = !{!"_ZTSSt9type_info", !10, i64 8}
-!52 = !{!6, !10, i64 24}
-!53 = !{!6, !10, i64 16}
-!54 = distinct !{!54, !36}
-!55 = !{!56, !10, i64 16}
-!56 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib5China7SseImplEEE", !40, i64 0, !10, i64 16}
-!57 = !{!58, !10, i64 16}
-!58 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib5China6IbImplEEE", !40, i64 0, !10, i64 16}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}
+!39 = distinct !{!39, !36, !37}
+!40 = !{!41, !42, i64 8}
+!41 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !42, i64 8, !42, i64 12}
+!42 = !{!"int", !8, i64 0}
+!43 = !{!41, !42, i64 12}
+!44 = !{!45, !10, i64 16}
+!45 = !{!"_ZTSN5boost6detail18sp_counted_impl_pdIPN8QuantLib5China7SseImplENS0_13sp_ms_deleterIS4_EEEE", !41, i64 0, !10, i64 16, !46, i64 24}
+!46 = !{!"_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib5China7SseImplEEE", !47, i64 0, !8, i64 8}
+!47 = !{!"bool", !8, i64 0}
+!48 = !{!46, !47, i64 0}
+!49 = !{i8 0, i8 2}
+!50 = !{}
+!51 = !{!52, !10, i64 8}
+!52 = !{!"_ZTSSt9type_info", !10, i64 8}
+!53 = !{!6, !10, i64 24}
+!54 = !{!6, !10, i64 16}
+!55 = distinct !{!55, !36, !37}
+!56 = !{!57, !10, i64 16}
+!57 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib5China7SseImplEEE", !41, i64 0, !10, i64 16}
+!58 = !{!59, !10, i64 16}
+!59 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib5China6IbImplEEE", !41, i64 0, !10, i64 16}

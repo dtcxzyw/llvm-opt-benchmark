@@ -112,7 +112,7 @@ sqlda_compat_total_size.exit:                     ; preds = %sqlda_compat_empty_
   %56 = load i16, ptr %21, align 8
   %57 = sext i16 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %sqlda_compat_total_size.exit
   ret ptr %21
@@ -534,7 +534,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   %233 = load i16, ptr %6, align 8
   %234 = sext i16 %233 to i64
   %235 = icmp slt i64 %indvars.iv.next, %234
-  br i1 %235, label %25, label %.loopexit, !llvm.loop !6
+  br i1 %235, label %25, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %232, %sqlda_compat_empty_size.exit, %5
   ret void
@@ -619,7 +619,7 @@ sqlda_native_total_size.exit:                     ; preds = %4, %11
   %40 = load i16, ptr %19, align 2
   %41 = sext i16 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %28, label %.loopexit, !llvm.loop !7
+  br i1 %42, label %28, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %28, %14, %sqlda_native_total_size.exit
   ret ptr %13
@@ -948,7 +948,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   %182 = load i16, ptr %10, align 2
   %183 = sext i16 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next, %183
-  br i1 %184, label %18, label %.loopexit, !llvm.loop !8
+  br i1 %184, label %18, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %181, %8, %5
   ret void
@@ -1142,7 +1142,7 @@ define internal fastcc i64 @sqlda_common_total_size(ptr noundef %0, i32 noundef 
   %.069 = phi i64 [ %96, %88 ], [ %13, %9 ], [ %18, %14 ], [ %23, %19 ], [ %28, %24 ], [ %30, %29 ], [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %50, %52 ], [ %.1, %72 ], [ %50, %46 ], [ %77, %73 ], [ %82, %78 ], [ %87, %83 ]
   %98 = add nuw nsw i32 %.072, 1
   %exitcond.not = icmp eq i32 %98, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %97, %4
   %.070.lcssa = phi i64 [ %3, %4 ], [ %.069, %97 ]
@@ -1163,10 +1163,11 @@ attributes #7 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}

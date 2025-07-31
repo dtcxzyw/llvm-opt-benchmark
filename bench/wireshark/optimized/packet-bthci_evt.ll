@@ -3859,7 +3859,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #9
   %.not970 = icmp eq ptr %486, null
-  br i1 %.not970, label %._crit_edge, label %432, !llvm.loop !10
+  br i1 %.not970, label %._crit_edge, label %432, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.thread1053
   %.not971 = icmp eq ptr %.us-phi, null
@@ -4735,7 +4735,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_inquire_result(ptr noundef
   %29 = add i32 %13, 8
   %30 = add nuw i8 %.03637, 1
   %exitcond.not = icmp eq i8 %30, %5
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %9, %4
   %.0.lcssa = phi i32 [ 3, %4 ], [ %29, %9 ]
@@ -6994,7 +6994,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
   %564 = add nuw nsw i32 %.22624, 3
   %565 = add nuw nsw i32 %.025142623, 1
   %exitcond2645.not = icmp eq i32 %565, %561
-  br i1 %exitcond2645.not, label %send_hci_summary_status_tap.exit, label %.lr.ph2626, !llvm.loop !12
+  br i1 %exitcond2645.not, label %send_hci_summary_status_tap.exit, label %.lr.ph2626, !llvm.loop !13
 
 566:                                              ; preds = %.critedge2588
   %567 = load i32, ptr @hf_bthci_evt_status, align 4
@@ -7556,7 +7556,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
   %928 = add i32 %.32614, 1
   %929 = add nuw nsw i32 %925, 1
   %930 = icmp samesign ult i32 %929, %921
-  br i1 %930, label %.lr.ph2616, label %._crit_edge2617, !llvm.loop !13
+  br i1 %930, label %.lr.ph2616, label %._crit_edge2617, !llvm.loop !14
 
 ._crit_edge2617:                                  ; preds = %.lr.ph2616, %913
   %.3.lcssa = phi i32 [ 7, %913 ], [ %928, %.lr.ph2616 ]
@@ -7587,7 +7587,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
   %950 = tail call ptr @proto_tree_add_item(ptr noundef %945, i32 noundef %949, ptr noundef %0, i32 noundef %948, i32 noundef 2, i32 noundef -2147483648)
   %951 = add i32 %.42619, 4
   %952 = icmp samesign ult i32 %942, %936
-  br i1 %952, label %.lr.ph2621, label %send_hci_summary_status_tap.exit, !llvm.loop !14
+  br i1 %952, label %.lr.ph2621, label %send_hci_summary_status_tap.exit, !llvm.loop !15
 
 953:                                              ; preds = %.critedge2588
   %954 = load i32, ptr @hf_bthci_evt_status, align 4
@@ -7772,7 +7772,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
   %1091 = add i16 %.025292594, %1090
   %1092 = add i32 %.52595, 2
   %1093 = icmp samesign ult i32 %1083, %1073
-  br i1 %1093, label %.lr.ph2596, label %._crit_edge, !llvm.loop !15
+  br i1 %1093, label %.lr.ph2596, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph2596, %1065
   %.02529.lcssa = phi i16 [ 0, %1065 ], [ %1091, %.lr.ph2596 ]
@@ -7823,7 +7823,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
   %1120 = add nuw nsw i32 %1100, 1
   %1121 = and i32 %1120, 65535
   %1122 = icmp samesign ult i32 %1121, %1095
-  br i1 %1122, label %.lr.ph2604, label %._crit_edge2605, !llvm.loop !16
+  br i1 %1122, label %.lr.ph2604, label %._crit_edge2605, !llvm.loop !17
 
 ._crit_edge2605:                                  ; preds = %1116, %._crit_edge
   %.6.lcssa = phi i32 [ %.5.lcssa, %._crit_edge ], [ %1119, %1116 ]
@@ -7870,7 +7870,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
   %1147 = add nuw nsw i32 %1127, 1
   %1148 = and i32 %1147, 65535
   %1149 = icmp samesign ult i32 %1148, %1095
-  br i1 %1149, label %.lr.ph2612, label %send_hci_summary_status_tap.exit, !llvm.loop !17
+  br i1 %1149, label %.lr.ph2612, label %send_hci_summary_status_tap.exit, !llvm.loop !18
 
 1150:                                             ; preds = %.critedge2588
   %1151 = load i32, ptr @hf_bthci_evt_status, align 4
@@ -8414,7 +8414,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
   %1553 = add nuw nsw i32 %.82593, 2
   %1554 = add nuw nsw i32 %.125152592, 1
   %exitcond.not = icmp eq i32 %1554, %1550
-  br i1 %exitcond.not, label %send_hci_summary_status_tap.exit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %send_hci_summary_status_tap.exit, label %.lr.ph, !llvm.loop !19
 
 1555:                                             ; preds = %.critedge2588
   %1556 = load i32, ptr @hf_bthci_evt_status, align 4
@@ -9082,7 +9082,7 @@ define internal fastcc range(i32 3, 0) i32 @dissect_bthci_evt_number_of_complete
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648)
   %12 = add nuw nsw i32 %.0152, 4
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.015.lcssa = phi i32 [ 3, %2 ], [ %12, %.lr.ph ]
@@ -9234,7 +9234,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_return_link_keys(ptr nound
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 16, i32 noundef 0)
   %17 = add i32 %14, 16
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %9, %4
   %.017.lcssa = phi i32 [ 3, %4 ], [ %17, %9 ]
@@ -9570,7 +9570,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_inquire_result_with_rssi(p
   %32 = add i32 %16, 8
   %33 = add nuw i8 %.03840, 1
   %exitcond.not = icmp eq i8 %33, %6
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %10, %5
   %.0.lcssa = phi i32 [ 3, %5 ], [ %32, %10 ]
@@ -10083,7 +10083,7 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
   %107 = add nuw nsw i32 %.041, 1
   %108 = add nuw nsw i32 %107, %47
   %109 = icmp samesign ult i32 %108, %24
-  br i1 %109, label %44, label %.loopexit, !llvm.loop !22
+  br i1 %109, label %44, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %44, %106, %20, %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
@@ -10563,7 +10563,7 @@ define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr nounde
   %172 = add i32 %.2, 1
   %173 = add nuw i8 %.017121789, 1
   %exitcond1809.not = icmp eq i8 %173, %137
-  br i1 %exitcond1809.not, label %add_opcode.exit, label %142, !llvm.loop !23
+  br i1 %exitcond1809.not, label %add_opcode.exit, label %142, !llvm.loop !24
 
 174:                                              ; preds = %61
   %175 = load i32, ptr @hf_bthci_evt_status, align 4
@@ -10878,7 +10878,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %244, %264
   %385 = add nuw nsw i32 %361, 1
   %386 = add i8 %.017131784, -1
   %.not1734 = icmp eq i8 %386, 0
-  br i1 %.not1734, label %add_opcode.exit, label %359, !llvm.loop !24
+  br i1 %.not1734, label %add_opcode.exit, label %359, !llvm.loop !25
 
 387:                                              ; preds = %61
   %388 = load i32, ptr @hf_bthci_evt_status, align 4
@@ -11009,7 +11009,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %244, %264
   %.6 = phi i32 [ %471, %460 ], [ %459, %447 ]
   %473 = add nuw i8 %.017151777, 1
   %exitcond1808.not = icmp eq i8 %473, %398
-  br i1 %exitcond1808.not, label %add_opcode.exit, label %403, !llvm.loop !25
+  br i1 %exitcond1808.not, label %add_opcode.exit, label %403, !llvm.loop !26
 
 474:                                              ; preds = %61, %61
   %475 = load i32, ptr @hf_bthci_evt_status, align 4
@@ -11633,7 +11633,7 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   %900 = add nuw nsw i32 %.81773, 2
   %901 = add i8 %.017171772, -1
   %.not1731 = icmp eq i8 %901, 0
-  br i1 %.not1731, label %add_opcode.exit, label %.lr.ph1775, !llvm.loop !26
+  br i1 %.not1731, label %add_opcode.exit, label %.lr.ph1775, !llvm.loop !27
 
 902:                                              ; preds = %61, %61
   %903 = load i32, ptr @hf_bthci_evt_big_handle, align 4
@@ -11711,7 +11711,7 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   %952 = add nuw nsw i32 %.91767, 2
   %953 = add i8 %.017181766, -1
   %.not1730 = icmp eq i8 %953, 0
-  br i1 %.not1730, label %add_opcode.exit, label %.lr.ph1769, !llvm.loop !27
+  br i1 %.not1730, label %add_opcode.exit, label %.lr.ph1769, !llvm.loop !28
 
 954:                                              ; preds = %61
   %955 = load i32, ptr @hf_bthci_evt_status, align 4
@@ -11917,7 +11917,7 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   %.11 = phi i32 [ %1107, %1096 ], [ %1095, %1091 ]
   %1109 = add nuw nsw i32 %.017161760, 1
   %exitcond1807.not = icmp eq i32 %1109, %1057
-  br i1 %exitcond1807.not, label %add_opcode.exit, label %1060, !llvm.loop !28
+  br i1 %exitcond1807.not, label %add_opcode.exit, label %1060, !llvm.loop !29
 
 1110:                                             ; preds = %61
   %1111 = load i32, ptr @hf_bthci_evt_status, align 4
@@ -12319,7 +12319,7 @@ dissect_bthci_evt_cs_result_steps.exit:           ; preds = %1342, %1361, %1369,
   %.0.i = phi i32 [ %1345, %1342 ], [ %1372, %1369 ], [ %1367, %1361 ], [ %1374, %1373 ], [ %1375, %.thread.i ], [ %1380, %1376 ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %dissect_bthci_evt_cs_result_steps.exit, %.thread
   %.13.lcssa = phi i32 [ %1295, %.thread ], [ %.0.i, %dissect_bthci_evt_cs_result_steps.exit ]
@@ -12720,7 +12720,7 @@ define internal fastcc range(i32 5, 0) i32 @dissect_bthci_evt_number_of_complete
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   %17 = add nuw nsw i32 %.0232, 6
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.023.lcssa = phi i32 [ 5, %2 ], [ %17, %.lr.ph ]
@@ -13378,7 +13378,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_iq_sample_list(ptr noundef %
   %29 = add nuw nsw i32 %.136, 2
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !32
 
 .loopexit:                                        ; preds = %15, %3
   %.0 = phi i32 [ %7, %3 ], [ %29, %15 ]
@@ -13489,7 +13489,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_cs_mode2_step(ptr noundef 
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %24, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
   %.028 = add i32 %.028.in3, 5
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.028.lcssa = phi i32 [ %.0281, %4 ], [ %.028, %.lr.ph ]
@@ -13522,28 +13522,29 @@ attributes #11 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}

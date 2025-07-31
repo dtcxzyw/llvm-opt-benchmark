@@ -5276,7 +5276,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %57,
   store ptr null, ptr %62, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_ZN10Block_ListC2Ev.exit, label %60, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_ZN10Block_ListC2Ev.exit, label %60, !llvm.loop !9
 
 _ZN10Block_ListC2Ev.exit:                         ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -5335,7 +5335,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %73, %83
   %87 = load i32, ptr %24, align 8
   %88 = zext i32 %87 to i64
   %89 = icmp samesign ult i64 %indvars.iv.next, %88
-  br i1 %89, label %73, label %.preheader, !llvm.loop !9
+  br i1 %89, label %73, label %.preheader, !llvm.loop !10
 
 90:                                               ; preds = %.lr.ph155, %_ZNK7RegMask11is_NotEmptyEv.exit.thread
   %91 = phi i32 [ %.pre172, %.lr.ph155 ], [ %441, %_ZNK7RegMask11is_NotEmptyEv.exit.thread ]
@@ -5396,13 +5396,13 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %73, %83
   %124 = add i32 %.012.i, 1
   %125 = load i32, ptr %67, align 4
   %.not.i = icmp ugt i32 %124, %125
-  br i1 %.not.i, label %_ZN7RegMask2ORERKS_.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %_ZN7RegMask2ORERKS_.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %105
   %126 = phi i32 [ %spec.store.select134, %105 ], [ %125, %.lr.ph.i ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %105, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %105, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN7RegMask2ORERKS_.exit, %90
   %127 = phi i32 [ 0, %90 ], [ %126, %_ZN7RegMask2ORERKS_.exit ]
@@ -5557,7 +5557,7 @@ _ZN17BarrierSetC2State4liveEPK4Node.exit:         ; preds = %_ZN10Node_Array3map
   %211 = add i32 %.012.i92, 1
   %212 = load i32, ptr %198, align 4
   %.not.i93 = icmp ugt i32 %211, %212
-  br i1 %.not.i93, label %_ZN7RegMask2ORERKS_.exit94, label %.lr.ph.i91, !llvm.loop !10
+  br i1 %.not.i93, label %_ZN7RegMask2ORERKS_.exit94, label %.lr.ph.i91, !llvm.loop !11
 
 _ZN7RegMask2ORERKS_.exit94:                       ; preds = %.lr.ph.i91, %147, %152, %203, %_ZNK5Block8get_nodeEj.exit
   %213 = load ptr, ptr %71, align 8
@@ -5686,7 +5686,7 @@ _ZN7RegMask6InsertEi.exit95:                      ; preds = %283
   %295 = load i32, ptr %250, align 8
   %296 = zext i32 %295 to i64
   %297 = icmp samesign ult i64 %indvars.iv.next164, %296
-  br i1 %297, label %254, label %._crit_edge145, !llvm.loop !12
+  br i1 %297, label %254, label %._crit_edge145, !llvm.loop !13
 
 ._crit_edge145:                                   ; preds = %294, %249
   %298 = load ptr, ptr %44, align 8
@@ -5812,12 +5812,12 @@ _ZN17BarrierSetC2State4liveEPK4Node.exit104:      ; preds = %_ZN10Node_Array3map
   %365 = add i32 %.012.i107, 1
   %366 = load i32, ptr %352, align 4
   %.not.i108 = icmp ugt i32 %365, %366
-  br i1 %.not.i108, label %_ZN7RegMask2ORERKS_.exit109, label %.lr.ph.i106, !llvm.loop !10
+  br i1 %.not.i108, label %_ZN7RegMask2ORERKS_.exit109, label %.lr.ph.i106, !llvm.loop !11
 
 _ZN7RegMask2ORERKS_.exit109:                      ; preds = %.lr.ph.i106, %302, %307, %357, %._crit_edge145
   %indvars.iv.next167 = add nsw i64 %indvars.iv166, -1
   %367 = icmp sgt i64 %indvars.iv166, 0
-  br i1 %367, label %134, label %._crit_edge150.loopexit, !llvm.loop !13
+  br i1 %367, label %134, label %._crit_edge150.loopexit, !llvm.loop !14
 
 ._crit_edge150.loopexit:                          ; preds = %_ZN7RegMask2ORERKS_.exit109
   %.pre173 = load i32, ptr %67, align 4
@@ -5847,7 +5847,7 @@ _ZN7RegMask2ORERKS_.exit109:                      ; preds = %.lr.ph.i106, %302, 
   store i64 %382, ptr %380, align 8
   %383 = add i32 %.010.i, 1
   %.not.i111 = icmp ugt i32 %383, %371
-  br i1 %.not.i111, label %_ZN7RegMask8SUBTRACTERKS_.exit.loopexit, label %.lr.ph.i110, !llvm.loop !14
+  br i1 %.not.i111, label %_ZN7RegMask8SUBTRACTERKS_.exit.loopexit, label %.lr.ph.i110, !llvm.loop !15
 
 _ZN7RegMask8SUBTRACTERKS_.exit.loopexit:          ; preds = %.lr.ph.i110
   %.pre174 = load i32, ptr %66, align 8
@@ -5869,7 +5869,7 @@ _ZN7RegMask8SUBTRACTERKS_.exit:                   ; preds = %_ZN7RegMask8SUBTRAC
   %389 = or i64 %388, %.057.i
   %390 = add i32 %.08.i, 1
   %.not.i113 = icmp ugt i32 %390, %384
-  br i1 %.not.i113, label %_ZNK7RegMask11is_NotEmptyEv.exit, label %.lr.ph.i112, !llvm.loop !15
+  br i1 %.not.i113, label %_ZNK7RegMask11is_NotEmptyEv.exit, label %.lr.ph.i112, !llvm.loop !16
 
 _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i112
   %.not138 = icmp eq i64 %389, 0
@@ -5909,7 +5909,7 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i112
   %406 = add i32 %.012.i116, 1
   %407 = load i32, ptr %369, align 4
   %.not.i117 = icmp ugt i32 %406, %407
-  br i1 %.not.i117, label %_ZN7RegMask2ORERKS_.exit118, label %.lr.ph.i115, !llvm.loop !10
+  br i1 %.not.i117, label %_ZN7RegMask2ORERKS_.exit118, label %.lr.ph.i115, !llvm.loop !11
 
 _ZN7RegMask2ORERKS_.exit118:                      ; preds = %.lr.ph.i115, %398
   %408 = getelementptr inbounds nuw i8, ptr %96, i64 24
@@ -5963,12 +5963,12 @@ _ZN10Block_List4pushEP5Block.exit122:             ; preds = %.lr.ph153, %430
   %438 = load i32, ptr %437, align 8
   %439 = zext i32 %438 to i64
   %440 = icmp samesign ult i64 %indvars.iv.next170, %439
-  br i1 %440, label %.lr.ph153, label %_ZNK7RegMask11is_NotEmptyEv.exit.thread, !llvm.loop !16
+  br i1 %440, label %.lr.ph153, label %_ZNK7RegMask11is_NotEmptyEv.exit.thread, !llvm.loop !17
 
 _ZNK7RegMask11is_NotEmptyEv.exit.thread:          ; preds = %_ZN10Block_List4pushEP5Block.exit122, %_ZN7RegMask2ORERKS_.exit118, %_ZN7RegMask8SUBTRACTERKS_.exit, %_ZNK7RegMask11is_NotEmptyEv.exit
   %441 = load i32, ptr %63, align 8
   %.not = icmp eq i32 %441, 0
-  br i1 %.not, label %._crit_edge156, label %90, !llvm.loop !17
+  br i1 %.not, label %._crit_edge156, label %90, !llvm.loop !18
 
 ._crit_edge156:                                   ; preds = %_ZNK7RegMask11is_NotEmptyEv.exit.thread, %_ZN10Block_ListC2Ev.exit, %.preheader
   %442 = load ptr, ptr %9, align 8
@@ -6361,15 +6361,16 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

@@ -371,7 +371,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage1
   store i16 %90, ptr %gep65.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %81
-  br i1 %exitcond.not.i, label %88, label %89, !llvm.loop !6
+  br i1 %exitcond.not.i, label %88, label %89, !llvm.loop !7
 
 .preheader.us.i:                                  ; preds = %88, %.preheader41.us.i
   %indvars.iv54.i = phi i64 [ 0, %.preheader41.us.i ], [ %indvars.iv.next55.i, %88 ]
@@ -388,7 +388,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage1
 ._crit_edge.us.i:                                 ; preds = %88
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
-  br i1 %exitcond63.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii.exit, label %.preheader41.us.i, !llvm.loop !7
+  br i1 %exitcond63.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii.exit, label %.preheader41.us.i, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii.exit: ; preds = %._crit_edge.us.i, %70
   br i1 %37, label %97, label %98
@@ -438,7 +438,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half
   store float %117, ptr %118, align 4
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i157, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, %wide.trip.count.i156
-  br i1 %exitcond.not.i159, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i159, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit, label %.lr.ph.i, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %10, align 8
@@ -572,7 +572,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge: ; preds = %_ZNSt6vectorI
   store float %176, ptr %177, align 4
   %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i167, 1
   %exitcond.not.i169 = icmp eq i64 %indvars.iv.next.i168, %wide.trip.count.i165
-  br i1 %exitcond.not.i169, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170.loopexit, label %.lr.ph.i166, !llvm.loop !9
+  br i1 %exitcond.not.i169, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170.loopexit, label %.lr.ph.i166, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170.loopexit: ; preds = %.lr.ph.i166
   %.pre212 = load ptr, ptr %9, align 8
@@ -705,7 +705,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
   store float %219, ptr %220, align 4
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i176, 1
   %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, %wide.trip.count.i174
-  br i1 %exitcond.not.i178, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit, label %.lr.ph.i175, !llvm.loop !10
+  br i1 %exitcond.not.i178, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit, label %.lr.ph.i175, !llvm.loop !11
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split: ; preds = %.thread192, %..thread204_crit_edge, %201
   %.sink250 = phi i32 [ %.pre214, %201 ], [ %.pre217, %..thread204_crit_edge ], [ %.pre218, %.thread192 ]
@@ -825,11 +825,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %23 = getelementptr inbounds nuw i8, ptr %.079.i, i64 2
   %24 = getelementptr inbounds nuw i8, ptr %.010.i, i64 2
   %.not.i = icmp eq ptr %23, %15
-  br i1 %.not.i, label %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 _ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit.loopexit, %.lr.ph, %4
   ret void
@@ -1023,7 +1023,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %.1190 = select i1 %.not225, float %66, float %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph248.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph248.preheader, label %.lr.ph, !llvm.loop !14
 
 .lr.ph250.preheader:                              ; preds = %.lr.ph248
   %invariant.gep371 = getelementptr i8, ptr %52, i64 4
@@ -1041,7 +1041,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   store float %70, ptr %gep383, align 4
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
-  br i1 %exitcond317.not, label %.lr.ph250.preheader, label %.lr.ph248, !llvm.loop !14
+  br i1 %exitcond317.not, label %.lr.ph250.preheader, label %.lr.ph248, !llvm.loop !15
 
 .lr.ph250:                                        ; preds = %.lr.ph250.preheader, %.lr.ph250
   %indvars.iv318 = phi i64 [ 0, %.lr.ph250.preheader ], [ %indvars.iv.next319, %.lr.ph250 ]
@@ -1052,7 +1052,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   store float %71, ptr %gep, align 4
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count321
-  br i1 %exitcond322.not, label %._crit_edge, label %.lr.ph250, !llvm.loop !15
+  br i1 %exitcond322.not, label %._crit_edge, label %.lr.ph250, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph250, %48
   %73 = shl i32 %47, 1
@@ -1108,7 +1108,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %.3 = select i1 %.not224, float %98, float %99
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %exitcond327.not = icmp eq i64 %indvars.iv.next324, %wide.trip.count326
-  br i1 %exitcond327.not, label %.lr.ph259.preheader, label %.lr.ph255, !llvm.loop !16
+  br i1 %exitcond327.not, label %.lr.ph259.preheader, label %.lr.ph255, !llvm.loop !17
 
 .lr.ph263.preheader:                              ; preds = %.lr.ph259
   %invariant.gep260374 = getelementptr i8, ptr %84, i64 4
@@ -1126,7 +1126,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   store float %103, ptr %gep390, align 4
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %exitcond332.not = icmp eq i64 %indvars.iv.next329, %wide.trip.count331
-  br i1 %exitcond332.not, label %.lr.ph263.preheader, label %.lr.ph259, !llvm.loop !17
+  br i1 %exitcond332.not, label %.lr.ph263.preheader, label %.lr.ph259, !llvm.loop !18
 
 .lr.ph263:                                        ; preds = %.lr.ph263.preheader, %.lr.ph263
   %indvars.iv333 = phi i64 [ 0, %.lr.ph263.preheader ], [ %indvars.iv.next334, %.lr.ph263 ]
@@ -1137,7 +1137,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   store float %104, ptr %106, align 4
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %exitcond337.not = icmp eq i64 %indvars.iv.next334, %wide.trip.count336
-  br i1 %exitcond337.not, label %._crit_edge264, label %.lr.ph263, !llvm.loop !18
+  br i1 %exitcond337.not, label %._crit_edge264, label %.lr.ph263, !llvm.loop !19
 
 ._crit_edge264:                                   ; preds = %.lr.ph263, %80
   %107 = shl i32 %.fr, 1
@@ -1182,7 +1182,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 ._crit_edge274.us:                                ; preds = %._crit_edge272.us.us, %.preheader238.us
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
   %exitcond360.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count359
-  br i1 %exitcond360.not, label %.preheader235, label %.preheader238.us, !llvm.loop !19
+  br i1 %exitcond360.not, label %.preheader235, label %.preheader238.us, !llvm.loop !20
 
 .preheader237.us.us:                              ; preds = %.preheader237.us.us.preheader, %._crit_edge272.us.us
   %indvars.iv351 = phi i64 [ 0, %.preheader237.us.us.preheader ], [ %indvars.iv.next352, %._crit_edge272.us.us ]
@@ -1235,7 +1235,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %.1195.us.us = phi float [ %.0194266.us.us, %138 ], [ %149, %142 ]
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %exitcond342.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count341
-  br i1 %exitcond342.not, label %._crit_edge269.us.us, label %138, !llvm.loop !20
+  br i1 %exitcond342.not, label %._crit_edge269.us.us, label %138, !llvm.loop !21
 
 .preheader236.us275.us:                           ; preds = %.preheader236.us275.us.preheader, %._crit_edge269.us.us
   %indvars.iv343 = phi i64 [ 0, %.preheader236.us275.us.preheader ], [ %indvars.iv.next344, %._crit_edge269.us.us ]
@@ -1247,12 +1247,12 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   store float %.1195.us.us, ptr %152, align 4
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next344, %118
-  br i1 %exitcond347.not, label %._crit_edge272.us.us, label %.preheader236.us275.us, !llvm.loop !21
+  br i1 %exitcond347.not, label %._crit_edge272.us.us, label %.preheader236.us275.us, !llvm.loop !22
 
 ._crit_edge272.us.us:                             ; preds = %._crit_edge269.us.us, %.preheader236.us.us.us.preheader
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %exitcond355.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count354
-  br i1 %exitcond355.not, label %._crit_edge274.us, label %.preheader237.us.us, !llvm.loop !22
+  br i1 %exitcond355.not, label %._crit_edge274.us, label %.preheader237.us.us, !llvm.loop !23
 
 .preheader235:                                    ; preds = %._crit_edge274.us, %.preheader238.lr.ph, %._crit_edge264
   %153 = icmp sgt i32 %21, 0
@@ -1286,7 +1286,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %168 = phi i32 [ %186, %.preheader233.us299 ], [ %193, %._crit_edge288.us ]
   %169 = add nuw nsw i32 %.0187292.us300, 1
   %exitcond367.not = icmp eq i32 %169, %17
-  br i1 %exitcond367.not, label %._crit_edge294.us, label %.preheader233.us299, !llvm.loop !23
+  br i1 %exitcond367.not, label %._crit_edge294.us, label %.preheader233.us299, !llvm.loop !24
 
 170:                                              ; preds = %.preheader.us297, %183
   %indvars.iv361 = phi i64 [ 0, %.preheader.us297 ], [ %indvars.iv.next362, %183 ]
@@ -1315,7 +1315,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %.1.us = phi float [ %.0185285.us, %170 ], [ %182, %174 ]
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next362, %wide.trip.count365
-  br i1 %exitcond366.not, label %._crit_edge288.us, label %170, !llvm.loop !25
+  br i1 %exitcond366.not, label %._crit_edge288.us, label %170, !llvm.loop !26
 
 .preheader.us297:                                 ; preds = %.preheader.lr.ph.us, %._crit_edge288.us
   %184 = phi i32 [ %186, %.preheader.lr.ph.us ], [ %193, %._crit_edge288.us ]
@@ -1339,7 +1339,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %192 = add nuw nsw i32 %.0186290.us298, 1
   %193 = load i32, ptr %9, align 4
   %194 = icmp slt i32 %192, %193
-  br i1 %194, label %.preheader.us297, label %._crit_edge291.split.us302, !llvm.loop !26
+  br i1 %194, label %.preheader.us297, label %._crit_edge291.split.us302, !llvm.loop !27
 
 .preheader.lr.ph.us:                              ; preds = %.preheader233.us299
   %reass.add228.us = add i32 %165, %.0187292.us300
@@ -1358,7 +1358,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %197 = phi i32 [ %195, %.preheader233.us299.us ], [ %204, %.preheader.us.us.us ]
   %198 = add nuw nsw i32 %.0187292.us300.us, 1
   %exitcond368.not = icmp eq i32 %198, %17
-  br i1 %exitcond368.not, label %._crit_edge294.us, label %.preheader233.us299.us, !llvm.loop !27
+  br i1 %exitcond368.not, label %._crit_edge294.us, label %.preheader233.us299.us, !llvm.loop !28
 
 .preheader.lr.ph.us.us:                           ; preds = %.preheader233.us299.us
   %reass.add228.us.us = add i32 %165, %.0187292.us300.us
@@ -1375,7 +1375,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %203 = add nuw nsw i32 %.0186290.us.us.us, 1
   %204 = load i32, ptr %9, align 4
   %205 = icmp slt i32 %203, %204
-  br i1 %205, label %.preheader.us.us.us, label %._crit_edge291.split.us.us.us, !llvm.loop !28
+  br i1 %205, label %.preheader.us.us.us, label %._crit_edge291.split.us.us.us, !llvm.loop !29
 
 ._crit_edge294.us:                                ; preds = %._crit_edge291.split.us302, %._crit_edge291.split.us.us.us, %.preheader234.us
   %206 = phi i32 [ %156, %.preheader234.us ], [ %197, %._crit_edge291.split.us.us.us ], [ %167, %._crit_edge291.split.us302 ]
@@ -1383,7 +1383,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %208 = phi i32 [ %158, %.preheader234.us ], [ %197, %._crit_edge291.split.us.us.us ], [ %168, %._crit_edge291.split.us302 ]
   %209 = add nuw nsw i32 %.0188295.us, 1
   %exitcond369.not = icmp eq i32 %209, %21
-  br i1 %exitcond369.not, label %._crit_edge296, label %.preheader234.us, !llvm.loop !29
+  br i1 %exitcond369.not, label %._crit_edge296, label %.preheader234.us, !llvm.loop !30
 
 ._crit_edge296:                                   ; preds = %._crit_edge294.us, %.preheader235
   tail call void @free(ptr noundef %84) #24
@@ -1578,7 +1578,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfaSEf.exit: ; preds = %16, %24
   store i16 %.sink.i.i, ptr %13, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfaSEf.exit, %.preheader, %5
   ret void
@@ -2358,7 +2358,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, %2
   ret void
@@ -2544,31 +2544,32 @@ attributes #29 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5, !8}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5, !8}
-!23 = distinct !{!23, !5, !24}
-!24 = !{!"llvm.loop.unswitch.partial.disable"}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5, !24, !8}
-!28 = distinct !{!28, !5, !8}
-!29 = distinct !{!29, !5, !8}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6, !9}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6, !9}
+!24 = distinct !{!24, !5, !6, !25}
+!25 = !{!"llvm.loop.unswitch.partial.disable"}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6, !25, !9}
+!29 = distinct !{!29, !5, !6, !9}
+!30 = distinct !{!30, !5, !6, !9}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}

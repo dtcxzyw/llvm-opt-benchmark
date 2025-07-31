@@ -842,7 +842,7 @@ cairogen_set_penstyle.exit:                       ; preds = %11, %12, %13
   tail call void @cairo_curve_to(ptr noundef %8, double noundef %23, double noundef %26, double noundef %28, double noundef %31, double noundef %33, double noundef %36) #20
   %37 = add i64 %.039, 3
   %38 = icmp ult i64 %37, %2
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !76
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 39:                                               ; preds = %._crit_edge
   tail call fastcc void @cairo_gradient_fill(ptr noundef %8, ptr noundef nonnull %6, i32 noundef %3, ptr noundef nonnull %1, i64 noundef %2)
@@ -939,7 +939,7 @@ cairogen_set_penstyle.exit:                       ; preds = %10, %11, %12
   tail call void @cairo_line_to(ptr noundef %7, double noundef %29, double noundef %32) #20
   %33 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %33, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 }
 
 declare void @cairo_save(ptr noundef) local_unnamed_addr #1
@@ -1303,7 +1303,7 @@ declare void @cairo_set_matrix(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc void @cairo_gradient_fill(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca [2 x %struct.pointf_s], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %8 = load i32, ptr %7, align 8, !tbaa !78
+  %8 = load i32, ptr %7, align 8, !tbaa !79
   %9 = sitofp i32 %8 to double
   %10 = fmul double %9, 0x400921FB54442D18
   %11 = fdiv double %10, 1.800000e+02
@@ -1329,7 +1329,7 @@ define internal fastcc void @cairo_gradient_fill(ptr noundef %0, ptr noundef rea
   %24 = load double, ptr %23, align 16, !tbaa !62
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %26 = load double, ptr %25, align 8, !tbaa !64
-  %27 = load i32, ptr %7, align 8, !tbaa !78
+  %27 = load i32, ptr %7, align 8, !tbaa !79
   %28 = icmp eq i32 %27, 0
   %29 = load double, ptr %6, align 16, !tbaa !62
   br i1 %28, label %30, label %33
@@ -1359,7 +1359,7 @@ define internal fastcc void @cairo_gradient_fill(ptr noundef %0, ptr noundef rea
 44:                                               ; preds = %41, %13
   %.0 = phi ptr [ %21, %13 ], [ %43, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %46 = load double, ptr %45, align 8, !tbaa !79
+  %46 = load double, ptr %45, align 8, !tbaa !80
   %47 = fcmp ogt double %46, 0.000000e+00
   br i1 %47, label %48, label %59
 
@@ -1374,7 +1374,7 @@ define internal fastcc void @cairo_gradient_fill(ptr noundef %0, ptr noundef rea
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %57 = load double, ptr %56, align 8, !tbaa !38
   call void @cairo_pattern_add_color_stop_rgba(ptr noundef %.0, double noundef %49, double noundef %51, double noundef %53, double noundef %55, double noundef %57) #20
-  %58 = load double, ptr %45, align 8, !tbaa !79
+  %58 = load double, ptr %45, align 8, !tbaa !80
   br label %68
 
 59:                                               ; preds = %44
@@ -1547,9 +1547,10 @@ attributes #26 = { nounwind allocsize(0,1) }
 !71 = !{!66, !6, i64 8}
 !72 = !{!58, !13, i64 168}
 !73 = !{!58, !24, i64 176}
-!74 = distinct !{!74, !75}
+!74 = distinct !{!74, !75, !76}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = distinct !{!76, !75}
-!77 = distinct !{!77, !75}
-!78 = !{!58, !13, i64 152}
-!79 = !{!58, !24, i64 160}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = distinct !{!77, !75, !76}
+!78 = distinct !{!78, !75, !76}
+!79 = !{!58, !13, i64 152}
+!80 = !{!58, !24, i64 160}

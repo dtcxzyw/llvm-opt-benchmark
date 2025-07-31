@@ -180,5 +180,6 @@ attributes #9 = { cold }
 !10 = !{!"long", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.estimated_trip_count"}

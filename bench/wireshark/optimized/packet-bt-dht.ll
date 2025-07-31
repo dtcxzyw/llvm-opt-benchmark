@@ -539,7 +539,7 @@ dissect_bt_dht_error.exit:                        ; preds = %56, %64, %67
   %134 = add i32 %133, %97
   %135 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %134)
   %.not.i74 = icmp eq i8 %135, 101
-  br i1 %.not.i74, label %._crit_edge.i, label %.lr.ph.i72, !llvm.loop !8
+  br i1 %.not.i74, label %._crit_edge.i, label %.lr.ph.i72, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %132, %76
   %storemerge.lcssa.i = phi i32 [ %81, %76 ], [ %134, %132 ]
@@ -901,7 +901,7 @@ sub_0151:                                         ; preds = %sub_0147, %249
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
   %299 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0100)
   %300 = icmp sgt i32 %299, 0
-  br i1 %300, label %32, label %._crit_edge, !llvm.loop !9
+  br i1 %300, label %32, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %298, %32, %26
   %.058.lcssa = phi i32 [ %27, %26 ], [ %.058175, %32 ], [ %.0100, %298 ]
@@ -1081,11 +1081,11 @@ define internal fastcc noundef i32 @dissect_bencoded_list(ptr noundef %0, ptr no
 29:                                               ; preds = %27, %25, %23, %21
   %.149 = phi i32 [ %28, %27 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ]
   %.not51 = icmp ugt i32 %.149, %.048
-  br i1 %.not51, label %.critedge, label %30
+  br i1 %.not51, label %.critedge, label %30, !llvm.loop !11
 
 30:                                               ; preds = %29
   %31 = tail call ptr @proto_tree_add_expert(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_int_string, ptr noundef %0, i32 noundef %.149, i32 noundef -1)
-  br label %39, !llvm.loop !10
+  br label %39, !llvm.loop !12
 
 32:                                               ; preds = %19, %.critedge
   %33 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.048)
@@ -1136,7 +1136,7 @@ define internal fastcc noundef i32 @dissect_bencoded_int(ptr noundef %0, ptr nou
   %17 = add i32 %.03342, 1
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %17)
   %.not37 = icmp eq i8 %18, 101
-  br i1 %.not37, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not37, label %.critedge, label %.lr.ph, !llvm.loop !13
 
 .critedge:                                        ; preds = %16, %11
   %.033.lcssa = phi i32 [ %12, %11 ], [ %17, %16 ]
@@ -1238,7 +1238,7 @@ define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef rea
   store i32 %48, ptr %7, align 4
   %49 = add i32 %.123.us, 38
   %.not.us = icmp ult i32 %48, 38
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.024 = phi i32 [ %50, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1271,7 +1271,7 @@ define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef rea
   store i32 %70, ptr %7, align 4
   %71 = add i32 %.123, 26
   %.not = icmp ult i32 %70, 26
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %21
   %.lcssa = phi i32 [ %.pr, %21 ], [ %48, %.lr.ph.split.us ], [ %70, %.lr.ph.split ]
@@ -1372,12 +1372,14 @@ attributes #7 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7, !8}

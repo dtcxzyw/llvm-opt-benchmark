@@ -299,7 +299,7 @@ define internal i32 @do_alphamerge(ptr noundef %0) #0 {
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 108
   %66 = load i32, ptr %65, align 4, !tbaa !53
   %67 = icmp slt i32 %64, %66
-  br i1 %67, label %.lr.ph38.split, label %.loopexit, !llvm.loop !60
+  br i1 %67, label %.lr.ph38.split, label %.loopexit, !llvm.loop !61
 
 68:                                               ; preds = %24
   %69 = getelementptr inbounds nuw i8, ptr %27, i64 76
@@ -422,7 +422,8 @@ attributes #7 = { nounwind }
 !55 = !{!11, !11, i64 0}
 !56 = !{!15, !15, i64 0}
 !57 = !{!8, !8, i64 0}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = distinct !{!60, !59, !61}
-!61 = !{!"llvm.loop.unswitch.partial.disable"}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = distinct !{!61, !59, !60, !62}
+!62 = !{!"llvm.loop.unswitch.partial.disable"}

@@ -22239,7 +22239,7 @@ lean_alloc_ctor.exit572:                          ; preds = %728
 .backedge:                                        ; preds = %733, %799, %778, %lean_alloc_ctor.exit491, %lean_alloc_ctor.exit493, %lean_alloc_ctor.exit492, %lean_alloc_ctor.exit469, %195, %lean_dec.exit391, %lean_alloc_ctor.exit525, %lean_alloc_ctor.exit527, %lean_alloc_ctor.exit523
   %.0335.be = phi ptr [ %.0335, %lean_alloc_ctor.exit491 ], [ %.0335, %lean_alloc_ctor.exit493 ], [ %.0335, %lean_alloc_ctor.exit492 ], [ %.0335, %lean_alloc_ctor.exit469 ], [ %.0335, %195 ], [ %.0335, %lean_dec.exit391 ], [ %474, %lean_alloc_ctor.exit523 ], [ %515, %lean_alloc_ctor.exit525 ], [ %532, %lean_alloc_ctor.exit527 ], [ %.0344, %733 ], [ %.0333, %778 ], [ %.0, %799 ]
   %.0334.be = phi ptr [ %80, %lean_alloc_ctor.exit491 ], [ %80, %lean_alloc_ctor.exit493 ], [ %80, %lean_alloc_ctor.exit492 ], [ %80, %lean_alloc_ctor.exit469 ], [ %80, %195 ], [ %80, %lean_dec.exit391 ], [ %80, %lean_alloc_ctor.exit523 ], [ %80, %lean_alloc_ctor.exit525 ], [ %80, %lean_alloc_ctor.exit527 ], [ %542, %733 ], [ %542, %778 ], [ %542, %799 ]
-  br label %24
+  br label %24, !llvm.loop !20
 
 736:                                              ; preds = %lean_dec_ref.exit444
   br i1 %.not579, label %737, label %lean_dec.exit377
@@ -24318,7 +24318,7 @@ lean_alloc_ctor.exit548:                          ; preds = %698
 .backedge:                                        ; preds = %703, %769, %748, %lean_alloc_ctor.exit473, %lean_alloc_ctor.exit475, %lean_alloc_ctor.exit474, %lean_alloc_ctor.exit454, %180, %lean_dec.exit382, %lean_alloc_ctor.exit504, %lean_alloc_ctor.exit506, %lean_alloc_ctor.exit502
   %.0330.be = phi ptr [ %.0330, %lean_alloc_ctor.exit473 ], [ %.0330, %lean_alloc_ctor.exit475 ], [ %.0330, %lean_alloc_ctor.exit474 ], [ %.0330, %lean_alloc_ctor.exit454 ], [ %.0330, %180 ], [ %.0330, %lean_dec.exit382 ], [ %449, %lean_alloc_ctor.exit502 ], [ %490, %lean_alloc_ctor.exit504 ], [ %507, %lean_alloc_ctor.exit506 ], [ %.0339, %703 ], [ %.0328, %748 ], [ %.0, %769 ]
   %.0329.be = phi ptr [ %70, %lean_alloc_ctor.exit473 ], [ %70, %lean_alloc_ctor.exit475 ], [ %70, %lean_alloc_ctor.exit474 ], [ %70, %lean_alloc_ctor.exit454 ], [ %70, %180 ], [ %70, %lean_dec.exit382 ], [ %70, %lean_alloc_ctor.exit502 ], [ %70, %lean_alloc_ctor.exit504 ], [ %70, %lean_alloc_ctor.exit506 ], [ %517, %703 ], [ %517, %748 ], [ %517, %769 ]
-  br label %21
+  br label %21, !llvm.loop !22
 
 706:                                              ; preds = %lean_dec_ref.exit432
   br i1 %.not555, label %707, label %lean_dec.exit368
@@ -28149,7 +28149,7 @@ lean_inc.exit150:                                 ; preds = %131, %130, %128, %l
 lean_inc.exit:                                    ; preds = %143, %142, %140, %lean_inc.exit150
   %144 = and i64 %43, %52
   %brmerge.not.not = icmp eq i64 %144, 0
-  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %145, !prof !20
+  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %145, !prof !23
 
 145:                                              ; preds = %lean_inc.exit
   %146 = icmp eq ptr %41, %51
@@ -32272,7 +32272,7 @@ define ptr @l_Lean_Compiler_LCNF_Simp_shouldInlineLocal(ptr noundef readonly cap
 23:                                               ; preds = %22, %19
   %24 = phi i32 [ %.pr, %22 ], [ %20, %19 ]
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !21
+  br i1 %25, label %26, label %28, !prof !24
 
 26:                                               ; preds = %23
   %27 = add nsw i32 %24, -1
@@ -43593,5 +43593,8 @@ attributes #6 = { noreturn nounwind }
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"double", !7, i64 0}
-!20 = !{!"branch_weights", i32 4001, i32 4000000}
-!21 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !21}
+!23 = !{!"branch_weights", i32 4001, i32 4000000}
+!24 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}

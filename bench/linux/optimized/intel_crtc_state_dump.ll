@@ -180,12 +180,12 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 .thread:                                          ; preds = %36, %50
   %56 = phi i32 [ %52, %50 ], [ %30, %36 ]
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %59, label %58, !prof !11
+  br i1 %57, label %59, label %58, !prof !12
 
 58:                                               ; preds = %.thread
-  call void asm sideeffect "589: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 589b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 589) #6, !srcloc !12
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.46, i32 118, i32 2307, i64 12) #6, !srcloc !13
-  call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_end\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #6, !srcloc !14
+  call void asm sideeffect "589: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 589b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 589) #6, !srcloc !13
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.46, i32 118, i32 2307, i64 12) #6, !srcloc !14
+  call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_end\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #6, !srcloc !15
   br label %59
 
 59:                                               ; preds = %58, %.thread
@@ -1392,7 +1392,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.38, i32 noundef %871, i32 noundef %875, i32 noundef %879) #6
   %880 = add nuw nsw i64 %867, 1
   %881 = icmp eq i64 %880, 3
-  br i1 %881, label %.loopexit32, label %.split.us, !llvm.loop !15
+  br i1 %881, label %.loopexit32, label %.split.us, !llvm.loop !16
 
 .split:                                           ; preds = %864, %.split
   %882 = phi i64 [ %896, %.split ], [ 0, %864 ]
@@ -1412,7 +1412,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %883, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.38, i32 noundef %887, i32 noundef %891, i32 noundef %895) #6
   %896 = add nuw nsw i64 %882, 1
   %897 = icmp eq i64 %896, 3
-  br i1 %897, label %.loopexit32, label %.split, !llvm.loop !17
+  br i1 %897, label %.loopexit32, label %.split, !llvm.loop !18
 
 898:                                              ; preds = %859
   %899 = and i64 %861, 2097152
@@ -1441,7 +1441,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.39, i32 noundef %908, i32 noundef %912, i32 noundef %916) #6
   %917 = add nuw nsw i64 %904, 1
   %918 = icmp eq i64 %917, 3
-  br i1 %918, label %.loopexit32, label %.split34.us, !llvm.loop !18
+  br i1 %918, label %.loopexit32, label %.split34.us, !llvm.loop !19
 
 .split34:                                         ; preds = %901, %.split34
   %919 = phi i64 [ %933, %.split34 ], [ 0, %901 ]
@@ -1461,7 +1461,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %920, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.39, i32 noundef %924, i32 noundef %928, i32 noundef %932) #6
   %933 = add nuw nsw i64 %919, 1
   %934 = icmp eq i64 %933, 3
-  br i1 %934, label %.loopexit32, label %.split34, !llvm.loop !17
+  br i1 %934, label %.loopexit32, label %.split34, !llvm.loop !20
 
 .loopexit32:                                      ; preds = %.split, %.split.us, %.split34, %.split34.us, %898, %857, %11
   %935 = icmp eq ptr %1, null
@@ -1632,7 +1632,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %1062 = load i32, ptr %1061, align 8
   %1063 = sext i32 %1062 to i64
   %1064 = icmp slt i64 %1059, %1063
-  br i1 %1064, label %945, label %.loopexit, !llvm.loop !19
+  br i1 %1064, label %945, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %1058, %936, %.loopexit32
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
@@ -1714,7 +1714,7 @@ define internal fastcc void @ilk_dump_csc(ptr noundef readonly captures(address_
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef %1, i32 noundef %24, i32 noundef %28, i32 noundef %32) #6
   %33 = add nuw nsw i64 %20, 1
   %34 = icmp eq i64 %33, 3
-  br i1 %34, label %.split3.us, label %.split.us, !llvm.loop !20
+  br i1 %34, label %.split3.us, label %.split.us, !llvm.loop !22
 
 .split:                                           ; preds = %8, %.split
   %35 = phi i64 [ %49, %.split ], [ 0, %8 ]
@@ -1734,7 +1734,7 @@ define internal fastcc void @ilk_dump_csc(ptr noundef readonly captures(address_
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %36, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef %1, i32 noundef %40, i32 noundef %44, i32 noundef %48) #6
   %49 = add nuw nsw i64 %35, 1
   %50 = icmp eq i64 %49, 3
-  br i1 %50, label %.split3.us.thread, label %.split, !llvm.loop !21
+  br i1 %50, label %.split3.us.thread, label %.split, !llvm.loop !23
 
 .split3.us:                                       ; preds = %.split.us
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2632
@@ -1800,17 +1800,19 @@ attributes #6 = { nounwind }
 !5 = !{!"auto-init"}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"branch_weights", i32 2000, i32 1}
-!12 = !{i64 2160359700, i64 2160359509, i64 2160359561, i64 2160359607, i64 2160359635}
-!13 = !{i64 2160359774, i64 2160359803, i64 2160359849, i64 2160359907, i64 2160359961, i64 2160360015, i64 2160360070, i64 2160360101, i64 2160360409, i64 2160360415, i64 2160360462, i64 2160360485, i64 2160360511}
-!14 = !{i64 2160360996, i64 2160360807, i64 2160360857, i64 2160360903, i64 2160360931}
-!15 = distinct !{!15, !9, !10, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10, !16}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10, !16}
-!21 = distinct !{!21, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!"branch_weights", i32 2000, i32 1}
+!13 = !{i64 2160359700, i64 2160359509, i64 2160359561, i64 2160359607, i64 2160359635}
+!14 = !{i64 2160359774, i64 2160359803, i64 2160359849, i64 2160359907, i64 2160359961, i64 2160360015, i64 2160360070, i64 2160360101, i64 2160360409, i64 2160360415, i64 2160360462, i64 2160360485, i64 2160360511}
+!15 = !{i64 2160360996, i64 2160360807, i64 2160360857, i64 2160360903, i64 2160360931}
+!16 = distinct !{!16, !9, !10, !11, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11, !17}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11, !17}
+!23 = distinct !{!23, !9, !10, !11}

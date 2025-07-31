@@ -214,7 +214,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ptp_open(ptr noundef captures(no
   br label %31
 
 13:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %9, i8 -1, i64 256, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 4104
   store i32 0, ptr %14, align 8
@@ -322,23 +322,23 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
   %11 = alloca %struct.timespec64, align 8
   %12 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 968
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, i8 0, i64 80, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, i8 0, i64 80, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  store i32 0, ptr %9, align 4, !annotation !8
+  store i32 0, ptr %9, align 4, !annotation !9
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %10, i8 0, i64 96, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %10, i8 0, i64 96, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -784,7 +784,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
   store i32 %289, ptr %9, align 4
   %290 = load i32, ptr %237, align 8
   %291 = icmp ult i32 %289, %290
-  br i1 %291, label %265, label %.loopexit, !llvm.loop !9
+  br i1 %291, label %265, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %272, %257
   %292 = call i64 @_copy_to_user(ptr noundef %236, ptr noundef %237, i64 noundef 1216) #9
@@ -861,7 +861,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
   store i32 %336, ptr %9, align 4
   %337 = load i32, ptr %297, align 8
   %338 = icmp ult i32 %336, %337
-  br i1 %338, label %312, label %.loopexit27, !llvm.loop !10
+  br i1 %338, label %312, label %.loopexit27, !llvm.loop !11
 
 .loopexit27:                                      ; preds = %329, %305
   %339 = phi ptr [ %306, %305 ], [ %334, %329 ]
@@ -927,7 +927,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
 383:                                              ; preds = %377
   %384 = zext i32 %379 to i64
   %385 = sext i32 %381 to i64
-  %386 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %385, i64 %384) #9, !srcloc !11
+  %386 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %385, i64 %384) #9, !srcloc !12
   %387 = getelementptr inbounds nuw i8, ptr %12, i64 1024
   %388 = call i32 @mutex_lock_interruptible(ptr noundef nonnull %387) #9
   %389 = icmp eq i32 %388, 0
@@ -996,7 +996,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
 435:                                              ; preds = %429
   %436 = zext i32 %431 to i64
   %437 = sext i32 %433 to i64
-  %438 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %437, i64 %436) #9, !srcloc !11
+  %438 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %437, i64 %436) #9, !srcloc !12
   %439 = getelementptr inbounds nuw i8, ptr %12, i64 1024
   %440 = call i32 @mutex_lock_interruptible(ptr noundef nonnull %439) #9
   %441 = icmp eq i32 %440, 0
@@ -1009,7 +1009,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
   %446 = load i32, ptr %445, align 4
   %447 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %448 = load i32, ptr %447, align 4
-  %449 = call i32 @ptp_set_pinfunc(ptr noundef %12, i32 noundef %444, i32 noundef %446, i32 noundef %448), !range !12
+  %449 = call i32 @ptp_set_pinfunc(ptr noundef %12, i32 noundef %444, i32 noundef %446, i32 noundef %448), !range !13
   call void @mutex_unlock(ptr noundef nonnull %439) #9
   br label %.thread
 
@@ -1034,7 +1034,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
   %461 = getelementptr inbounds nuw i8, ptr %16, i64 4128
   %462 = load ptr, ptr %461, align 8
   %463 = zext nneg i32 %458 to i64
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %462, i64 %463) #9, !srcloc !13
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %462, i64 %463) #9, !srcloc !14
   br label %.thread
 
 .thread:                                          ; preds = %326, %265, %146, %153, %131, %138, %116, %108, %460, %457, %453, %450, %442, %429, %404, %400, %390, %377, %352, %348, %.loopexit27, %302, %299, %.loopexit, %253, %249, %245, %242, %239, %231, %202, %199, %195, %189, %175, %161, %102, %97, %86, %64, %58, %53, %3
@@ -1152,7 +1152,7 @@ define dso_local range(i64 -512, 961) i64 @ptp_read(ptr noundef readonly capture
 
 30:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !9
   call void @init_wait_entry(ptr noundef nonnull %5, i32 noundef 0) #9
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 1056
   %32 = call i64 @prepare_to_wait_event(ptr noundef nonnull %31, ptr noundef nonnull %5, i32 noundef 1) #9
@@ -1230,7 +1230,7 @@ define dso_local range(i64 -512, 961) i64 @ptp_read(ptr noundef readonly capture
   store volatile i32 %74, ptr %23, align 8
   %75 = add nuw nsw i64 %69, 1
   %76 = icmp eq i64 %75, %66
-  br i1 %76, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %76, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %56
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %57, i64 noundef %58) #9
@@ -1296,13 +1296,14 @@ attributes #11 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{i64 258073}
-!12 = !{i32 -95, i32 1}
-!13 = !{i64 2148470490, i64 2148470529, i64 2148470550, i64 2148470587, i64 2148470610, i64 2148470480}
-!14 = distinct !{!14, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"auto-init"}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = !{i64 258073}
+!13 = !{i32 -95, i32 1}
+!14 = !{i64 2148470490, i64 2148470529, i64 2148470550, i64 2148470587, i64 2148470610, i64 2148470480}
+!15 = distinct !{!15, !6, !7, !8}

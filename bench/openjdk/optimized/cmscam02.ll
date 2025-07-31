@@ -196,14 +196,14 @@ ChromaticAdaptation.exit:                         ; preds = %82
   %104 = getelementptr inbounds nuw [3 x double], ptr %101, i64 0, i64 %indvars.iv.i61
   %105 = load double, ptr %104, align 8
   %106 = fcmp olt double %105, 0.000000e+00
-  %107 = load double, ptr %57, align 8, !noalias !11
+  %107 = load double, ptr %57, align 8, !noalias !12
   br i1 %106, label %108, label %117
 
 108:                                              ; preds = %103
   %109 = fneg double %107
   %110 = fmul double %105, %109
   %111 = fdiv double %110, 1.000000e+02
-  %112 = tail call double @pow(double noundef %111, double noundef 4.200000e-01) #8, !noalias !11
+  %112 = tail call double @pow(double noundef %111, double noundef 4.200000e-01) #8, !noalias !12
   %113 = fmul double %112, 4.000000e+02
   %114 = fadd double %112, 2.713000e+01
   %115 = fdiv double %113, %114
@@ -213,7 +213,7 @@ ChromaticAdaptation.exit:                         ; preds = %82
 117:                                              ; preds = %103
   %118 = fmul double %105, %107
   %119 = fdiv double %118, 1.000000e+02
-  %120 = tail call double @pow(double noundef %119, double noundef 4.200000e-01) #8, !noalias !11
+  %120 = tail call double @pow(double noundef %119, double noundef 4.200000e-01) #8, !noalias !12
   %121 = fmul double %120, 4.000000e+02
   %122 = fadd double %120, 2.713000e+01
   %123 = fdiv double %121, %122
@@ -226,7 +226,7 @@ ChromaticAdaptation.exit:                         ; preds = %82
   store double %.sink.i, ptr %126, align 8
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 3
-  br i1 %exitcond.not.i63, label %NonlinearCompression.exit, label %103, !llvm.loop !14
+  br i1 %exitcond.not.i63, label %NonlinearCompression.exit, label %103, !llvm.loop !15
 
 NonlinearCompression.exit:                        ; preds = %125
   %127 = load double, ptr %102, align 8
@@ -238,7 +238,7 @@ NonlinearCompression.exit:                        ; preds = %125
   %133 = fdiv double %132, 2.000000e+01
   %134 = fadd double %130, %133
   %135 = fadd double %134, -3.050000e-01
-  %136 = load double, ptr %44, align 8, !noalias !11
+  %136 = load double, ptr %44, align 8, !noalias !12
   %137 = fmul double %136, %135
   %138 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store double %137, ptr %138, align 8
@@ -318,9 +318,9 @@ define hidden void @cmsCIECAM02Forward(ptr noundef readonly captures(none) %0, p
   %.sroa.17.sroa.11.0..sroa.17.0..sroa_idx148.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 216
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx, i8 0, i64 216, i1 false)
-  %21 = load double, ptr %20, align 8, !noalias !15
+  %21 = load double, ptr %20, align 8, !noalias !16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %23 = load double, ptr %22, align 8, !noalias !15
+  %23 = load double, ptr %22, align 8, !noalias !16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = fsub double 1.000000e+00, %23
   br label %26
@@ -328,14 +328,14 @@ define hidden void @cmsCIECAM02Forward(ptr noundef readonly captures(none) %0, p
 26:                                               ; preds = %26, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %26 ]
   %27 = getelementptr inbounds nuw [3 x double], ptr %24, i64 0, i64 %indvars.iv.i
-  %28 = load double, ptr %27, align 8, !noalias !15
+  %28 = load double, ptr %27, align 8, !noalias !16
   %29 = fdiv double %23, %28
   %30 = tail call double @llvm.fmuladd.f64(double %21, double %29, double %25)
   %31 = getelementptr inbounds nuw [3 x double], ptr %.sroa.14.0..sroa_idx64, i64 0, i64 %indvars.iv.i
-  %32 = load double, ptr %31, align 8, !noalias !15
+  %32 = load double, ptr %31, align 8, !noalias !16
   %33 = fmul double %32, %30
   %34 = getelementptr inbounds nuw [3 x double], ptr %.sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx, i64 0, i64 %indvars.iv.i
-  store double %33, ptr %34, align 8, !noalias !15
+  store double %33, ptr %34, align 8, !noalias !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %ChromaticAdaptation.exit, label %26, !llvm.loop !9
@@ -412,16 +412,16 @@ ChromaticAdaptation.exit:                         ; preds = %26
 45:                                               ; preds = %67, %ChromaticAdaptation.exit
   %indvars.iv.i10 = phi i64 [ 0, %ChromaticAdaptation.exit ], [ %indvars.iv.next.i11, %67 ]
   %46 = getelementptr inbounds nuw [3 x double], ptr %.sroa.14.sroa.15.sroa.15.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, i64 0, i64 %indvars.iv.i10
-  %47 = load double, ptr %46, align 8, !noalias !18
+  %47 = load double, ptr %46, align 8, !noalias !19
   %48 = fcmp olt double %47, 0.000000e+00
-  %49 = load double, ptr %44, align 8, !noalias !18
+  %49 = load double, ptr %44, align 8, !noalias !19
   br i1 %48, label %50, label %59
 
 50:                                               ; preds = %45
   %51 = fneg double %49
   %52 = fmul double %47, %51
   %53 = fdiv double %52, 1.000000e+02
-  %54 = tail call double @pow(double noundef %53, double noundef 4.200000e-01) #8, !noalias !18
+  %54 = tail call double @pow(double noundef %53, double noundef 4.200000e-01) #8, !noalias !19
   %55 = fmul double %54, 4.000000e+02
   %56 = fadd double %54, 2.713000e+01
   %57 = fdiv double %55, %56
@@ -431,7 +431,7 @@ ChromaticAdaptation.exit:                         ; preds = %26
 59:                                               ; preds = %45
   %60 = fmul double %47, %49
   %61 = fdiv double %60, 1.000000e+02
-  %62 = tail call double @pow(double noundef %61, double noundef 4.200000e-01) #8, !noalias !18
+  %62 = tail call double @pow(double noundef %61, double noundef 4.200000e-01) #8, !noalias !19
   %63 = fmul double %62, 4.000000e+02
   %64 = fadd double %62, 2.713000e+01
   %65 = fdiv double %63, %64
@@ -441,17 +441,17 @@ ChromaticAdaptation.exit:                         ; preds = %26
 67:                                               ; preds = %59, %50
   %.sink.i = phi double [ %58, %50 ], [ %66, %59 ]
   %68 = getelementptr inbounds nuw [3 x double], ptr %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, i64 0, i64 %indvars.iv.i10
-  store double %.sink.i, ptr %68, align 8, !noalias !18
+  store double %.sink.i, ptr %68, align 8, !noalias !19
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 3
-  br i1 %exitcond.not.i12, label %NonlinearCompression.exit, label %45, !llvm.loop !14
+  br i1 %exitcond.not.i12, label %NonlinearCompression.exit, label %45, !llvm.loop !15
 
 NonlinearCompression.exit:                        ; preds = %67
-  %69 = load double, ptr %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, align 8, !noalias !18
-  %70 = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.11.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8, !noalias !18
-  %71 = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8, !noalias !18
+  %69 = load double, ptr %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, align 8, !noalias !19
+  %70 = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.11.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8, !noalias !19
+  %71 = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8, !noalias !19
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %73 = load double, ptr %72, align 8, !noalias !18
+  %73 = load double, ptr %72, align 8, !noalias !19
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4)
   %74 = fmul double %70, 1.200000e+01
   %75 = fdiv double %74, 1.100000e+01
@@ -485,7 +485,7 @@ NonlinearCompression.exit:                        ; preds = %67
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %91
-  %94 = tail call double @atan(double noundef %90) #8, !noalias !21
+  %94 = tail call double @atan(double noundef %90) #8, !noalias !22
   %95 = fmul double %94, 0x404CA5DC1A53B118
   br label %ComputeCorrelates.exit
 
@@ -494,12 +494,12 @@ NonlinearCompression.exit:                        ; preds = %67
   br i1 %97, label %ComputeCorrelates.exit, label %98
 
 98:                                               ; preds = %96
-  %99 = tail call double @atan(double noundef %90) #8, !noalias !21
+  %99 = tail call double @atan(double noundef %90) #8, !noalias !22
   %100 = tail call double @llvm.fmuladd.f64(double %99, double 0x404CA5DC1A53B118, double 3.600000e+02)
   br label %ComputeCorrelates.exit
 
 101:                                              ; preds = %88
-  %102 = tail call double @atan(double noundef %90) #8, !noalias !21
+  %102 = tail call double @atan(double noundef %90) #8, !noalias !22
   %103 = tail call double @llvm.fmuladd.f64(double %102, double 0x404CA5DC1A53B118, double 1.800000e+02)
   br label %ComputeCorrelates.exit
 
@@ -511,56 +511,56 @@ ComputeCorrelates.exit:                           ; preds = %96, %85, %83, %101,
   %107 = fadd double %106, -3.050000e-01
   %108 = fmul double %73, %107
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %110 = load double, ptr %109, align 8, !noalias !21
+  %110 = load double, ptr %109, align 8, !noalias !22
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %112 = load double, ptr %111, align 8, !noalias !21
+  %112 = load double, ptr %111, align 8, !noalias !22
   %113 = tail call double @llvm.fmuladd.f64(double %.sroa.31301.0, double 0x3F91DF46A25CA311, double 2.000000e+00)
-  %114 = tail call double @cos(double noundef %113) #8, !noalias !21
+  %114 = tail call double @cos(double noundef %113) #8, !noalias !22
   %115 = fmul double %110, 0x408E0C4EC4EC4EC5
   %116 = fmul double %115, %112
   %117 = fadd double %114, 3.800000e+00
   %118 = fmul double %116, %117
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %120 = load double, ptr %119, align 8, !noalias !21
+  %120 = load double, ptr %119, align 8, !noalias !22
   %121 = fdiv double %108, %120
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %123 = load double, ptr %122, align 8, !noalias !21
+  %123 = load double, ptr %122, align 8, !noalias !22
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %125 = load double, ptr %124, align 8, !noalias !21
+  %125 = load double, ptr %124, align 8, !noalias !22
   %126 = fmul double %123, %125
-  %127 = tail call double @pow(double noundef %121, double noundef %126) #8, !noalias !21
+  %127 = tail call double @pow(double noundef %121, double noundef %126) #8, !noalias !22
   %128 = fmul double %127, 1.000000e+02
-  %129 = load double, ptr %122, align 8, !noalias !21
+  %129 = load double, ptr %122, align 8, !noalias !22
   %130 = fdiv double 4.000000e+00, %129
   %131 = fdiv double %128, 1.000000e+02
-  %132 = tail call double @pow(double noundef %131, double noundef 5.000000e-01) #8, !noalias !21
+  %132 = tail call double @pow(double noundef %131, double noundef 5.000000e-01) #8, !noalias !22
   %133 = fmul double %130, %132
-  %134 = load double, ptr %119, align 8, !noalias !21
+  %134 = load double, ptr %119, align 8, !noalias !22
   %135 = fadd double %134, 4.000000e+00
   %136 = fmul double %133, %135
-  %137 = load double, ptr %44, align 8, !noalias !21
-  %138 = tail call double @pow(double noundef %137, double noundef 2.500000e-01) #8, !noalias !21
+  %137 = load double, ptr %44, align 8, !noalias !22
+  %138 = tail call double @pow(double noundef %137, double noundef 2.500000e-01) #8, !noalias !22
   %139 = fmul double %136, %138
   %140 = fmul double %81, %81
   %141 = tail call double @llvm.fmuladd.f64(double %78, double %78, double %140)
-  %142 = tail call double @pow(double noundef %141, double noundef 5.000000e-01) #8, !noalias !21
+  %142 = tail call double @pow(double noundef %141, double noundef 5.000000e-01) #8, !noalias !22
   %143 = fmul double %118, %142
   %144 = tail call double @llvm.fmuladd.f64(double %71, double 1.050000e+00, double %79)
   %145 = fdiv double %143, %144
-  %146 = tail call double @pow(double noundef %145, double noundef 9.000000e-01) #8, !noalias !21
-  %147 = tail call double @pow(double noundef %131, double noundef 5.000000e-01) #8, !noalias !21
+  %146 = tail call double @pow(double noundef %145, double noundef 9.000000e-01) #8, !noalias !22
+  %147 = tail call double @pow(double noundef %131, double noundef 5.000000e-01) #8, !noalias !22
   %148 = fmul double %146, %147
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %150 = load double, ptr %149, align 8, !noalias !21
-  %151 = tail call double @pow(double noundef 2.900000e-01, double noundef %150) #8, !noalias !21
+  %150 = load double, ptr %149, align 8, !noalias !22
+  %151 = tail call double @pow(double noundef 2.900000e-01, double noundef %150) #8, !noalias !22
   %152 = fsub double 1.640000e+00, %151
-  %153 = tail call double @pow(double noundef %152, double noundef 7.300000e-01) #8, !noalias !21
+  %153 = tail call double @pow(double noundef %152, double noundef 7.300000e-01) #8, !noalias !22
   %154 = fmul double %148, %153
-  %155 = load double, ptr %44, align 8, !noalias !21
-  %156 = tail call double @pow(double noundef %155, double noundef 2.500000e-01) #8, !noalias !21
+  %155 = load double, ptr %44, align 8, !noalias !22
+  %156 = tail call double @pow(double noundef %155, double noundef 2.500000e-01) #8, !noalias !22
   %157 = fmul double %154, %156
   %158 = fdiv double %157, %139
-  %159 = tail call double @pow(double noundef %158, double noundef 5.000000e-01) #8, !noalias !21
+  %159 = tail call double @pow(double noundef %158, double noundef 5.000000e-01) #8, !noalias !22
   store double %128, ptr %2, align 8
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %154, ptr %160, align 8
@@ -588,62 +588,62 @@ define hidden void @cmsCIECAM02Reverse(ptr noundef readonly captures(none) %0, p
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fdiv double %6, 1.000000e+02
-  %12 = tail call double @pow(double noundef %11, double noundef 5.000000e-01) #8, !noalias !24
+  %12 = tail call double @pow(double noundef %11, double noundef 5.000000e-01) #8, !noalias !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %14 = load double, ptr %13, align 8, !noalias !24
-  %15 = tail call double @pow(double noundef 2.900000e-01, double noundef %14) #8, !noalias !24
+  %14 = load double, ptr %13, align 8, !noalias !25
+  %15 = tail call double @pow(double noundef 2.900000e-01, double noundef %14) #8, !noalias !25
   %16 = fsub double 1.640000e+00, %15
-  %17 = tail call double @pow(double noundef %16, double noundef 7.300000e-01) #8, !noalias !24
+  %17 = tail call double @pow(double noundef %16, double noundef 7.300000e-01) #8, !noalias !25
   %18 = fmul double %12, %17
   %19 = fdiv double %8, %18
-  %20 = tail call double @pow(double noundef %19, double noundef 0x3FF1C71C71C71C72) #8, !noalias !24
+  %20 = tail call double @pow(double noundef %19, double noundef 0x3FF1C71C71C71C72) #8, !noalias !25
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %22 = load double, ptr %21, align 8, !noalias !24
+  %22 = load double, ptr %21, align 8, !noalias !25
   %23 = fmul double %22, 0x408E0C4EC4EC4EC5
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %25 = load double, ptr %24, align 8, !noalias !24
+  %25 = load double, ptr %24, align 8, !noalias !25
   %26 = fmul double %23, %25
   %27 = tail call double @llvm.fmuladd.f64(double %10, double 0x3F91DF46A25CA311, double 2.000000e+00)
-  %28 = tail call double @cos(double noundef %27) #8, !noalias !24
+  %28 = tail call double @cos(double noundef %27) #8, !noalias !25
   %29 = fadd double %28, 3.800000e+00
   %30 = fmul double %26, %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %32 = load double, ptr %31, align 8, !noalias !24
+  %32 = load double, ptr %31, align 8, !noalias !25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %34 = load double, ptr %33, align 8, !noalias !24
+  %34 = load double, ptr %33, align 8, !noalias !25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %36 = load double, ptr %35, align 8, !noalias !24
+  %36 = load double, ptr %35, align 8, !noalias !25
   %37 = fmul double %34, %36
   %38 = fdiv double 1.000000e+00, %37
-  %39 = tail call double @pow(double noundef %11, double noundef %38) #8, !noalias !24
+  %39 = tail call double @pow(double noundef %11, double noundef %38) #8, !noalias !25
   %40 = fmul double %32, %39
   %41 = fdiv double %30, %20
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %43 = load double, ptr %42, align 8, !noalias !24
+  %43 = load double, ptr %42, align 8, !noalias !25
   %44 = fdiv double %40, %43
   %45 = fadd double %44, 3.050000e-01
   %46 = fmul double %10, 0x3F91DF46A25CA311
-  %47 = tail call double @sin(double noundef %46) #8, !noalias !24
+  %47 = tail call double @sin(double noundef %46) #8, !noalias !25
   %48 = tail call double @llvm.fabs.f64(double %47)
-  %49 = tail call double @cos(double noundef %46) #8, !noalias !24
+  %49 = tail call double @cos(double noundef %46) #8, !noalias !25
   %50 = tail call double @llvm.fabs.f64(double %49)
   %51 = fcmp ult double %48, %50
   br i1 %51, label %68, label %52
 
 52:                                               ; preds = %3
-  %53 = tail call double @sin(double noundef %46) #8, !noalias !24
+  %53 = tail call double @sin(double noundef %46) #8, !noalias !25
   %54 = fdiv double %41, %53
   %55 = fmul double %45, 3.050000e+00
   %56 = fmul double %55, 0x3FD4FBCDA3AC10C9
-  %57 = tail call double @cos(double noundef %46) #8, !noalias !24
-  %58 = tail call double @sin(double noundef %46) #8, !noalias !24
+  %57 = tail call double @cos(double noundef %46) #8, !noalias !25
+  %58 = tail call double @sin(double noundef %46) #8, !noalias !25
   %59 = fdiv double %57, %58
   %60 = tail call double @llvm.fmuladd.f64(double %59, double 0x3FDE9BD37A6F4DE9, double %54)
   %61 = fadd double %60, 0xBF93B4D2EE4D002F
   %62 = fadd double %61, 0x4012DC0DDE0FB12D
   %63 = fdiv double %56, %62
-  %64 = tail call double @cos(double noundef %46) #8, !noalias !24
-  %65 = tail call double @sin(double noundef %46) #8, !noalias !24
+  %64 = tail call double @cos(double noundef %46) #8, !noalias !25
+  %65 = tail call double @sin(double noundef %46) #8, !noalias !25
   %66 = fdiv double %64, %65
   %67 = fmul double %66, %63
   br label %InverseCorrelates.exit
@@ -653,13 +653,13 @@ define hidden void @cmsCIECAM02Reverse(ptr noundef readonly captures(none) %0, p
   %70 = fmul double %45, 3.050000e+00
   %71 = fmul double %70, 0x3FD4FBCDA3AC10C9
   %72 = fadd double %69, 0x3FDE9BD37A6F4DE9
-  %73 = tail call double @sin(double noundef %46) #8, !noalias !24
-  %74 = tail call double @cos(double noundef %46) #8, !noalias !24
+  %73 = tail call double @sin(double noundef %46) #8, !noalias !25
+  %74 = tail call double @cos(double noundef %46) #8, !noalias !25
   %75 = fdiv double %73, %74
   %76 = tail call double @llvm.fmuladd.f64(double %75, double 0x4012C8590B21642D, double %72)
   %77 = fdiv double %71, %76
-  %78 = tail call double @sin(double noundef %46) #8, !noalias !24
-  %79 = tail call double @cos(double noundef %46) #8, !noalias !24
+  %78 = tail call double @sin(double noundef %46) #8, !noalias !25
+  %79 = tail call double @cos(double noundef %46) #8, !noalias !25
   %80 = fdiv double %78, %79
   %81 = fmul double %77, %80
   br label %InverseCorrelates.exit
@@ -714,10 +714,10 @@ InverseCorrelates.exit:                           ; preds = %52, %68
 92:                                               ; preds = %92, %InverseCorrelates.exit
   %indvars.iv.i = phi i64 [ 0, %InverseCorrelates.exit ], [ %indvars.iv.next.i, %92 ]
   %93 = getelementptr inbounds nuw [3 x double], ptr %.sroa.14.sroa.11.0..sroa.14.0..sroa_idx63.sroa_idx, i64 0, i64 %indvars.iv.i
-  %94 = load double, ptr %93, align 8, !noalias !27
+  %94 = load double, ptr %93, align 8, !noalias !28
   %95 = fadd double %94, -1.000000e-01
   %96 = fcmp olt double %95, 0.000000e+00
-  %97 = load double, ptr %91, align 8, !noalias !27
+  %97 = load double, ptr %91, align 8, !noalias !28
   %98 = fdiv double 1.000000e+02, %97
   %99 = fneg double %98
   %100 = select i1 %96, double %99, double %98
@@ -725,13 +725,13 @@ InverseCorrelates.exit:                           ; preds = %52, %68
   %102 = fmul double %101, 2.713000e+01
   %103 = fsub double 4.000000e+02, %101
   %104 = fdiv double %102, %103
-  %105 = tail call double @pow(double noundef %104, double noundef 0x40030C30C30C30C3) #8, !noalias !27
+  %105 = tail call double @pow(double noundef %104, double noundef 0x40030C30C30C30C3) #8, !noalias !28
   %106 = fmul double %105, %100
   %107 = getelementptr inbounds nuw [3 x double], ptr %.sroa.14.sroa.0.sroa.17.0..sroa.14.0..sroa_idx63.sroa_idx, i64 0, i64 %indvars.iv.i
-  store double %106, ptr %107, align 8, !noalias !27
+  store double %106, ptr %107, align 8, !noalias !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %InverseNonlinearity.exit, label %92, !llvm.loop !30
+  br i1 %exitcond.not.i, label %InverseNonlinearity.exit, label %92, !llvm.loop !31
 
 InverseNonlinearity.exit:                         ; preds = %92
   %.sroa.4175.sroa.0.sroa.5.0.copyload = load double, ptr %.sroa.14.sroa.0.sroa.17.0..sroa.14.0..sroa_idx63.sroa_idx, align 8
@@ -799,9 +799,9 @@ InverseNonlinearity.exit:                         ; preds = %92
   %.sroa.17.0..sroa_idx149 = getelementptr inbounds nuw i8, ptr %4, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17.0..sroa_idx149, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17, i64 56, i1 false)
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %118 = load double, ptr %117, align 8, !noalias !31
+  %118 = load double, ptr %117, align 8, !noalias !32
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %120 = load double, ptr %119, align 8, !noalias !31
+  %120 = load double, ptr %119, align 8, !noalias !32
   %121 = fmul double %118, %120
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %123
@@ -809,18 +809,18 @@ InverseNonlinearity.exit:                         ; preds = %92
 123:                                              ; preds = %123, %InverseNonlinearity.exit
   %indvars.iv.i10 = phi i64 [ 0, %InverseNonlinearity.exit ], [ %indvars.iv.next.i11, %123 ]
   %124 = getelementptr inbounds nuw [3 x double], ptr %.sroa.14.sroa.0.sroa.11.0..sroa.14.0..sroa_idx65.sroa_idx, i64 0, i64 %indvars.iv.i10
-  %125 = load double, ptr %124, align 8, !noalias !31
+  %125 = load double, ptr %124, align 8, !noalias !32
   %126 = getelementptr inbounds nuw [3 x double], ptr %122, i64 0, i64 %indvars.iv.i10
-  %127 = load double, ptr %126, align 8, !noalias !31
+  %127 = load double, ptr %126, align 8, !noalias !32
   %128 = fdiv double %121, %127
   %129 = fadd double %128, 1.000000e+00
   %130 = fsub double %129, %120
   %131 = fdiv double %125, %130
   %132 = getelementptr inbounds nuw [3 x double], ptr %.sroa.14.0..sroa_idx65, i64 0, i64 %indvars.iv.i10
-  store double %131, ptr %132, align 8, !noalias !31
+  store double %131, ptr %132, align 8, !noalias !32
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 3
-  br i1 %exitcond.not.i12, label %InverseChromaticAdaptation.exit, label %123, !llvm.loop !34
+  br i1 %exitcond.not.i12, label %InverseChromaticAdaptation.exit, label %123, !llvm.loop !35
 
 InverseChromaticAdaptation.exit:                  ; preds = %123
   %.sroa.14.sroa.0.sroa.0.sroa.13.0..sroa.14.0..sroa_idx65.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -894,29 +894,30 @@ attributes #8 = { nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"ChromaticAdaptation: argument 0"}
 !8 = distinct !{!8, !"ChromaticAdaptation"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"NonlinearCompression: argument 0"}
-!13 = distinct !{!13, !"NonlinearCompression"}
-!14 = distinct !{!14, !10}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"ChromaticAdaptation: argument 0"}
-!17 = distinct !{!17, !"ChromaticAdaptation"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"NonlinearCompression: argument 0"}
-!20 = distinct !{!20, !"NonlinearCompression"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"ComputeCorrelates: argument 0"}
-!23 = distinct !{!23, !"ComputeCorrelates"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"InverseCorrelates: argument 0"}
-!26 = distinct !{!26, !"InverseCorrelates"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"InverseNonlinearity: argument 0"}
-!29 = distinct !{!29, !"InverseNonlinearity"}
-!30 = distinct !{!30, !10}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"InverseChromaticAdaptation: argument 0"}
-!33 = distinct !{!33, !"InverseChromaticAdaptation"}
-!34 = distinct !{!34, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"NonlinearCompression: argument 0"}
+!14 = distinct !{!14, !"NonlinearCompression"}
+!15 = distinct !{!15, !10, !11}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"ChromaticAdaptation: argument 0"}
+!18 = distinct !{!18, !"ChromaticAdaptation"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"NonlinearCompression: argument 0"}
+!21 = distinct !{!21, !"NonlinearCompression"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"ComputeCorrelates: argument 0"}
+!24 = distinct !{!24, !"ComputeCorrelates"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"InverseCorrelates: argument 0"}
+!27 = distinct !{!27, !"InverseCorrelates"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"InverseNonlinearity: argument 0"}
+!30 = distinct !{!30, !"InverseNonlinearity"}
+!31 = distinct !{!31, !10, !11}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"InverseChromaticAdaptation: argument 0"}
+!34 = distinct !{!34, !"InverseChromaticAdaptation"}
+!35 = distinct !{!35, !10, !11}

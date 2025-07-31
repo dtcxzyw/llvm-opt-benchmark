@@ -152,22 +152,22 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.1.lcssa = phi ptr [ %.06169, %.preheader ], [ %.2, %63 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.1.lcssa, i8 0, i64 %33, i1 false)
   %67 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %33
-  %68 = load i32, ptr %35, align 8, !tbaa !39
+  %68 = load i32, ptr %35, align 8, !tbaa !40
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i8, ptr %.05470, i64 %69
-  %71 = load i32, ptr %34, align 8, !tbaa !39
+  %71 = load i32, ptr %34, align 8, !tbaa !40
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %.05371, i64 %72
-  %74 = load i32, ptr %36, align 4, !tbaa !39
+  %74 = load i32, ptr %36, align 4, !tbaa !40
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %.05272, i64 %75
   %77 = add nuw nsw i32 %.04673, 1
   %78 = load i32, ptr %16, align 4, !tbaa !30
   %79 = icmp slt i32 %77, %78
-  br i1 %79, label %.preheader, label %._crit_edge74, !llvm.loop !40
+  br i1 %79, label %.preheader, label %._crit_edge74, !llvm.loop !41
 
 ._crit_edge74:                                    ; preds = %._crit_edge, %23
-  store i32 1, ptr %3, align 4, !tbaa !39
+  store i32 1, ptr %3, align 4, !tbaa !40
   br label %80
 
 80:                                               ; preds = %4, %._crit_edge74
@@ -236,7 +236,8 @@ attributes #7 = { nounwind willreturn memory(none) }
 !34 = !{!35, !35, i64 0}
 !35 = !{!"short", !8, i64 0}
 !36 = !{!8, !8, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!10, !10, i64 0}
-!40 = distinct !{!40, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!10, !10, i64 0}
+!41 = distinct !{!41, !38, !39}

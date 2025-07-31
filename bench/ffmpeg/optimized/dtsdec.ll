@@ -233,7 +233,7 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   %spec.select93 = select i1 %122, i32 %123, i32 %.076121
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next127, 64
-  br i1 %exitcond.not, label %124, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %124, label %.preheader, !llvm.loop !20
 
 124:                                              ; preds = %.preheader
   %125 = zext nneg i32 %spec.select93 to i64
@@ -330,6 +330,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !14 = !{!"DCACoreFrameHeader", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !15, i64 4, !8, i64 6, !8, i64 7, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 12, !8, i64 13, !8, i64 14, !8, i64 15, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !8, i64 24}
 !15 = !{!"short", !8, i64 0}
 !16 = !{!10, !10, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}

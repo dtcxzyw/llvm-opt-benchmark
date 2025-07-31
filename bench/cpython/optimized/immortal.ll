@@ -68,7 +68,7 @@ define internal noundef nonnull ptr @test_immortal_builtins(ptr readnone capture
 verify_immortality.exit:                          ; preds = %2, %3
   %.04 = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr [4 x ptr], ptr @__const.test_immortal_builtins.objects, i64 0, i64 %.04
-  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %.not.i = icmp sgt i32 %8, -1
   br i1 %.not.i, label %9, label %3
@@ -85,7 +85,7 @@ define internal noundef nonnull ptr @test_immortal_small_ints(ptr readnone captu
 3:                                                ; preds = %verify_immortality.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !12
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ -5, %2 ], [ %indvars.iv.next, %3 ]
@@ -100,7 +100,7 @@ define internal noundef nonnull ptr @test_immortal_small_ints(ptr readnone captu
 
 verify_immortality.exit:                          ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !12
+  %9 = load i64, ptr %8, align 8, !tbaa !13
   %10 = and i64 %9, 4
   %.not16 = icmp eq i64 %10, 0
   br i1 %.not16, label %11, label %3
@@ -124,7 +124,7 @@ verify_immortality.exit:                          ; preds = %4
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !12
+  %17 = load i64, ptr %16, align 8, !tbaa !13
   %18 = and i64 %17, 4
   %.not14 = icmp eq i64 %18, 0
   br i1 %.not14, label %20, label %19
@@ -151,7 +151,7 @@ verify_immortality.exit:                          ; preds = %4
 Py_DECREF.exit:                                   ; preds = %20, %22, %25
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 261
-  br i1 %exitcond24.not, label %12, label %.preheader, !llvm.loop !18
+  br i1 %exitcond24.not, label %12, label %.preheader, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -182,16 +182,17 @@ attributes #4 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"p1 _ZTS7_object", !10, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
-!11 = distinct !{!11, !7}
-!12 = !{!13, !17, i64 16}
-!13 = !{!"_longobject", !14, i64 0, !16, i64 16}
-!14 = !{!"_object", !4, i64 0, !15, i64 8}
-!15 = !{!"p1 _ZTS11_typeobject", !10, i64 0}
-!16 = !{!"_PyLongValue", !17, i64 0, !4, i64 8}
-!17 = !{!"long", !4, i64 0}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS7_object", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = distinct !{!12, !7, !8}
+!13 = !{!14, !18, i64 16}
+!14 = !{!"_longobject", !15, i64 0, !17, i64 16}
+!15 = !{!"_object", !4, i64 0, !16, i64 8}
+!16 = !{!"p1 _ZTS11_typeobject", !11, i64 0}
+!17 = !{!"_PyLongValue", !18, i64 0, !4, i64 8}
+!18 = !{!"long", !4, i64 0}
+!19 = distinct !{!19, !7, !8}

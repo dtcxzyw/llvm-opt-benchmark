@@ -640,12 +640,12 @@ _llite_path.exit.thread36:                        ; preds = %1, %_llite_path.exi
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 19
   %31 = call i32 @slurm_xstrcmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.23) #11
   %.not26 = icmp eq i32 %31, 0
-  br i1 %.not26, label %90, label %32, !llvm.loop !11
+  br i1 %.not26, label %90, label %32, !llvm.loop !12
 
 32:                                               ; preds = %.lr.ph45
   %33 = call i32 @slurm_xstrcmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.24) #11
   %.not27 = icmp eq i32 %33, 0
-  br i1 %.not27, label %90, label %34, !llvm.loop !11
+  br i1 %.not27, label %90, label %34, !llvm.loop !12
 
 34:                                               ; preds = %32
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i39, ptr noundef nonnull %30) #11
@@ -668,7 +668,7 @@ _llite_path.exit.thread36:                        ; preds = %1, %_llite_path.exi
   %43 = load ptr, ptr %3, align 8
   %44 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__._read_lustre_counters, ptr noundef %43) #11
   call void @slurm_xfree(ptr noundef nonnull %3) #11
-  br label %90, !llvm.loop !11
+  br label %90, !llvm.loop !12
 
 45:                                               ; preds = %39
   call void @slurm_xfree(ptr noundef nonnull %3) #11
@@ -719,7 +719,7 @@ _llite_path.exit.thread36:                        ; preds = %1, %_llite_path.exi
   %.not29 = icmp eq ptr %65, null
   %or.cond = select i1 %.119, i1 %.1, i1 false
   %or.cond33 = select i1 %.not29, i1 true, i1 %or.cond
-  br i1 %or.cond33, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %or.cond33, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %64, %45
   %66 = call i32 @fclose(ptr noundef nonnull %41)
@@ -768,7 +768,7 @@ _llite_path.exit.thread36:                        ; preds = %1, %_llite_path.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   %91 = call ptr @readdir(ptr noundef nonnull %24) #11
   %.not25 = icmp eq ptr %91, null
-  br i1 %.not25, label %._crit_edge46, label %.lr.ph45
+  br i1 %.not25, label %._crit_edge46, label %.lr.ph45, !llvm.loop !14
 
 ._crit_edge46:                                    ; preds = %90, %.preheader
   %92 = call i32 @closedir(ptr noundef nonnull %24)
@@ -862,8 +862,10 @@ attributes #14 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
 !12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !11}

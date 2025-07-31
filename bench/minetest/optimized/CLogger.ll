@@ -262,7 +262,7 @@ for.body.i.i.epil:                                ; preds = %_ZN3irr4core6string
   %indvars.iv.next.i.i.epil = add nuw nsw i64 %indvars.iv.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
   %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, %xtraiter
-  br i1 %epil.iter.cmp.not, label %_ZN3irr4core6stringIcEC2IcEEPKT_.exit, label %for.body.i.i.epil, !llvm.loop !29
+  br i1 %epil.iter.cmp.not, label %_ZN3irr4core6stringIcEC2IcEEPKT_.exit, label %for.body.i.i.epil, !llvm.loop !30
 
 _ZN3irr4core6stringIcEC2IcEEPKT_.exit:            ; preds = %for.body.i.i.epil, %_ZN3irr4core6stringIcEC2IcEEPKT_.exit.loopexit.unr-lcssa, %if.end.i.i, %_ZN3irr4core6stringIcE5clearEb.exit.i.i
   %16 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !23
@@ -462,7 +462,8 @@ attributes #18 = { noreturn nounwind }
 !24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !22, i64 0, !25, i64 8, !10, i64 16}
 !25 = !{!"long", !10, i64 0}
 !26 = !{!24, !11, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.unroll.disable"}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !31, !29}
+!31 = !{!"llvm.loop.unroll.disable"}

@@ -172,7 +172,7 @@ define hidden void @_ZN16ArchivePtrMarker21initialize_rw_ro_mapsEP11CHeapBitMapS
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = icmp ult i64 %55, %58
-  br i1 %59, label %.lr.ph18, label %._crit_edge, !llvm.loop !8
+  br i1 %59, label %.lr.ph18, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph18, %.preheader
   ret void
@@ -311,7 +311,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   %30 = getelementptr inbounds nuw i64, ptr %19, i64 %27
   %31 = load i64, ptr %30, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %32, !llvm.loop !9
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %32, !llvm.loop !10
 
 32:                                               ; preds = %29
   %33 = shl i64 %27, 6
@@ -337,7 +337,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %34, %17
   %42 = add nuw i64 %.0.i.i.i.i.i, 1
   %43 = icmp ult i64 %42, %14
   %or.cond = select i1 %41, i1 %43, i1 false
-  br i1 %or.cond, label %17, label %_ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit, !llvm.loop !10
+  br i1 %or.cond, label %17, label %_ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit, !llvm.loop !11
 
 _ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit: ; preds = %34, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, %38, %.preheader.i.i.i, %2
   %44 = load i64, ptr %12, align 8
@@ -969,7 +969,7 @@ _ZN15ClassListWriterC2Ev.exit:                    ; preds = %17, %31
   %54 = load i32, ptr %45, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %49, label %._crit_edge, !llvm.loop !11
+  br i1 %56, label %49, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %49, %44
   %57 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
@@ -1229,9 +1229,10 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

@@ -636,13 +636,13 @@ dissect_scsi_smc_element.exit.i:                  ; preds = %215, %214, %207, %1
   %218 = add i32 %spec.select.i, %.01626.i
   %219 = sub i32 %.01725.i, %spec.select.i
   %.not.i = icmp eq i32 %219, 0
-  br i1 %.not.i, label %dissect_scsi_smc_elements.exit, label %75, !llvm.loop !8
+  br i1 %.not.i, label %dissect_scsi_smc_elements.exit, label %75, !llvm.loop !9
 
 dissect_scsi_smc_elements.exit:                   ; preds = %75, %dissect_scsi_smc_element.exit.i, %66
   %220 = add i32 %spec.select, %71
   %221 = sub i32 %72, %spec.select
   %.not105 = icmp eq i32 %221, 0
-  br i1 %.not105, label %.loopexit, label %46, !llvm.loop !9
+  br i1 %.not105, label %.loopexit, label %46, !llvm.loop !10
 
 .loopexit:                                        ; preds = %51, %46, %dissect_scsi_smc_elements.exit, %60, %34, %10, %33, %8
   ret void
@@ -889,7 +889,8 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

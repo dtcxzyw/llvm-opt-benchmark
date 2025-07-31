@@ -54,7 +54,7 @@ define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr noundef captures(none) %0, 
   %23 = call ptr @memchr(ptr noundef %.025, i32 noundef 10, i64 noundef %17) #7
   %.not.not = icmp eq ptr %23, null
   %24 = getelementptr i8, ptr %23, i64 1
-  br i1 %.not.not, label %.critedge, label %15
+  br i1 %.not.not, label %.critedge, label %15, !llvm.loop !6
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %0, align 8
@@ -323,3 +323,5 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

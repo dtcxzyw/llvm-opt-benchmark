@@ -219,7 +219,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   store ptr @agp_current_version, ptr %0, align 8
   %50 = load ptr, ptr %11, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 25
-  %52 = load i8, ptr %51, align 1, !range !10, !noundef !11
+  %52 = load i8, ptr %51, align 1, !range !11, !noundef !12
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %73, label %54
 
@@ -295,7 +295,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %101, ptr noundef nonnull %96) #11
   %102 = load ptr, ptr %11, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 25
-  %104 = load i8, ptr %103, align 1, !range !10, !noundef !11
+  %104 = load i8, ptr %103, align 1, !range !11, !noundef !12
   %105 = icmp eq i8 %104, 0
   br i1 %105, label %114, label %106
 
@@ -442,7 +442,7 @@ define dso_local void @agp_remove_bridge(ptr noundef %0) #1 align 16 {
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 25
-  %24 = load i8, ptr %23, align 1, !range !10, !noundef !11
+  %24 = load i8, ptr %23, align 1, !range !11, !noundef !12
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %32, label %26
 
@@ -552,8 +552,9 @@ attributes #12 = { nounwind allocsize(0) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2148815567, i64 2148815606, i64 2148815627, i64 2148815664, i64 2148815687, i64 2148815557}
 !6 = !{i64 2148815930, i64 2148815969, i64 2148815990, i64 2148816027, i64 2148816050, i64 2148815920}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i8 0, i8 2}
+!12 = !{}

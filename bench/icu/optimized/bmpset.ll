@@ -69,7 +69,7 @@ define void @_ZN6icu_776BMPSetC2EPKii(ptr noundef nonnull align 8 captures(none)
   %25 = add nsw i32 %..020.i, %.021..i
   %26 = ashr i32 %25, 1
   %27 = icmp eq i32 %26, %.021..i
-  br i1 %27, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit, label %.lr.ph.i
+  br i1 %27, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZNK6icu_776BMPSet13findCodePointEiii.exit:       ; preds = %.lr.ph.i, %3, %12, %13
   %.019.i = phi i32 [ 0, %3 ], [ %9, %13 ], [ %9, %12 ], [ %..020.i, %.lr.ph.i ]
@@ -123,7 +123,7 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit:       ; preds = %.lr.ph.i, %3, %12, 
   %53 = add nsw i32 %..020.i15, %.021..i14
   %54 = ashr i32 %53, 1
   %55 = icmp eq i32 %54, %.021..i14
-  br i1 %55, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit16, label %.lr.ph.i11
+  br i1 %55, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit16, label %.lr.ph.i11, !llvm.loop !14
 
 _ZNK6icu_776BMPSet13findCodePointEiii.exit16:     ; preds = %.lr.ph.i11, %29, %39, %40, %.preheader.i10
   %.019.i8 = phi i32 [ %30, %29 ], [ %33, %40 ], [ %33, %39 ], [ %33, %.preheader.i10 ], [ %..020.i15, %.lr.ph.i11 ]
@@ -131,7 +131,7 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit16:     ; preds = %.lr.ph.i11, %29, %3
   store i32 %.019.i8, ptr %56, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %57, label %29, !llvm.loop !14
+  br i1 %exitcond.not, label %57, label %29, !llvm.loop !16
 
 57:                                               ; preds = %_ZNK6icu_776BMPSet13findCodePointEiii.exit16
   %58 = load i32, ptr %5, align 8, !tbaa !12
@@ -179,16 +179,16 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit16:     ; preds = %.lr.ph.i11, %29, %3
   %83 = add nsw i32 %..020.i.i, %.021..i.i
   %84 = ashr i32 %83, 1
   %85 = icmp eq i32 %84, %.021..i.i
-  br i1 %85, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i
+  br i1 %85, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %57, %69, %70, %.preheader.i.i
   %.019.i.i = phi i32 [ %62, %57 ], [ %64, %70 ], [ %64, %69 ], [ %64, %.preheader.i.i ], [ %..020.i.i, %.lr.ph.i.i ]
   %86 = trunc i32 %.019.i.i to i8
   %87 = and i8 %86, 1
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i8 %87, ptr %88, align 8, !tbaa !16
+  store i8 %87, ptr %88, align 8, !tbaa !18
   tail call void @_ZN6icu_776BMPSet8initBitsEv(ptr noundef nonnull align 8 dereferenceable(868) %0)
-  %89 = load i8, ptr %88, align 8, !tbaa !16
+  %89 = load i8, ptr %88, align 8, !tbaa !18
   %.not.i17 = icmp eq i8 %89, 0
   br i1 %.not.i17, label %.preheader.i18, label %.preheader21.i
 
@@ -200,7 +200,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %57, %6
   store i32 %92, ptr %90, align 4, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.preheader20.i, label %.preheader21.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.preheader20.i, label %.preheader21.i, !llvm.loop !19
 
 .preheader20.i:                                   ; preds = %.preheader21.i, %.preheader20.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.preheader20.i ], [ 0, %.preheader21.i ]
@@ -210,7 +210,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %57, %6
   store i32 %95, ptr %93, align 4, !tbaa !13
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next29.i, 32
-  br i1 %exitcond31.not.i, label %.preheader18.i, label %.preheader20.i, !llvm.loop !18
+  br i1 %exitcond31.not.i, label %.preheader18.i, label %.preheader20.i, !llvm.loop !20
 
 .preheader18.i:                                   ; preds = %.preheader20.i, %.preheader18.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %.preheader18.i ], [ 32, %.preheader20.i ]
@@ -221,7 +221,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %57, %6
   store i32 %99, ptr %96, align 4, !tbaa !13
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next33.i, 64
-  br i1 %exitcond35.not.i, label %_ZN6icu_776BMPSet15overrideIllegalEv.exit, label %.preheader18.i, !llvm.loop !19
+  br i1 %exitcond35.not.i, label %_ZN6icu_776BMPSet15overrideIllegalEv.exit, label %.preheader18.i, !llvm.loop !21
 
 .preheader.i18:                                   ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %.preheader.i18
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %.preheader.i18 ], [ 32, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
@@ -231,7 +231,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %57, %6
   store i32 %102, ptr %100, align 4, !tbaa !13
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 64
-  br i1 %exitcond39.not.i, label %_ZN6icu_776BMPSet15overrideIllegalEv.exit, label %.preheader.i18, !llvm.loop !20
+  br i1 %exitcond39.not.i, label %_ZN6icu_776BMPSet15overrideIllegalEv.exit, label %.preheader.i18, !llvm.loop !22
 
 _ZN6icu_776BMPSet15overrideIllegalEv.exit:        ; preds = %.preheader18.i, %.preheader.i18
   ret void
@@ -281,7 +281,7 @@ define noundef i32 @_ZNK6icu_776BMPSet13findCodePointEiii(ptr noundef nonnull re
   %25 = add nsw i32 %..020, %.021.
   %26 = ashr i32 %25, 1
   %27 = icmp eq i32 %26, %.021.
-  br i1 %27, label %.thread, label %.lr.ph
+  br i1 %27, label %.thread, label %.lr.ph, !llvm.loop !14
 
 .thread:                                          ; preds = %.lr.ph, %.preheader, %11, %12, %4
   %.019 = phi i32 [ %2, %4 ], [ %3, %12 ], [ %3, %11 ], [ %3, %.preheader ], [ %..020, %.lr.ph ]
@@ -329,7 +329,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_776BMPSet12containsSlowEiii(ptr
   %25 = add nsw i32 %..020.i, %.021..i
   %26 = ashr i32 %25, 1
   %27 = icmp eq i32 %26, %.021..i
-  br i1 %27, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit, label %.lr.ph.i
+  br i1 %27, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZNK6icu_776BMPSet13findCodePointEiii.exit:       ; preds = %.lr.ph.i, %4, %11, %12, %.preheader.i
   %.019.i = phi i32 [ %2, %4 ], [ %3, %12 ], [ %3, %11 ], [ %3, %.preheader.i ], [ %..020.i, %.lr.ph.i ]
@@ -380,14 +380,14 @@ define void @_ZN6icu_776BMPSet8initBitsEv(ptr noundef nonnull align 8 captures(n
   %24 = tail call i32 @llvm.umin.i32(i32 %22, i32 %23)
   %umin = zext i32 %24 to i64
   %25 = add nuw nsw i64 %umin, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep136, i8 1, i64 %25, i1 false), !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep136, i8 1, i64 %25, i1 false), !tbaa !23
   %26 = icmp slt i32 %.055, 257
-  br i1 %26, label %4, label %.preheader.preheader._crit_edge, !llvm.loop !22
+  br i1 %26, label %4, label %.preheader.preheader._crit_edge, !llvm.loop !24
 
 .preheader.preheader._crit_edge:                  ; preds = %.preheader.preheader
   %.pre = load ptr, ptr %2, align 8, !tbaa !6
   %.pre139 = load i32, ptr %3, align 8, !tbaa !12
-  br label %split, !llvm.loop !22
+  br label %split, !llvm.loop !24
 
 split:                                            ; preds = %17, %.preheader.preheader._crit_edge
   %27 = phi i32 [ %.pre139, %.preheader.preheader._crit_edge ], [ %10, %17 ]
@@ -406,7 +406,7 @@ split:                                            ; preds = %17, %.preheader.pre
   %34 = getelementptr inbounds nuw i32, ptr %28, i64 %31
   %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = icmp sgt i32 %35, 128
-  br i1 %36, label %.thread.split.loop.exit154, label %30, !llvm.loop !23
+  br i1 %36, label %.thread.split.loop.exit154, label %30, !llvm.loop !25
 
 .thread.split.loop.exit:                          ; preds = %30
   %indvars138.le = trunc i64 %indvars.iv to i32
@@ -474,7 +474,7 @@ split:                                            ; preds = %17, %.preheader.pre
   %64 = or i32 %63, %48
   store i32 %64, ptr %62, align 4, !tbaa !13
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count70.i
-  br i1 %exitcond71.not.i, label %_ZN6icu_77L12set32x64BitsEPjii.exit, label %.lr.ph55.i, !llvm.loop !24
+  br i1 %exitcond71.not.i, label %_ZN6icu_77L12set32x64BitsEPjii.exit, label %.lr.ph55.i, !llvm.loop !26
 
 65:                                               ; preds = %56
   %.not.i = icmp eq i32 %47, 0
@@ -492,7 +492,7 @@ split:                                            ; preds = %17, %.preheader.pre
   %69 = or i32 %68, %48
   store i32 %69, ptr %67, align 4, !tbaa !13
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %70, label %.preheader51.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %70, label %.preheader51.i, !llvm.loop !27
 
 70:                                               ; preds = %.preheader51.i
   %71 = add nsw i32 %46, 1
@@ -520,7 +520,7 @@ split:                                            ; preds = %17, %.preheader.pre
   store i32 %81, ptr %79, align 4, !tbaa !13
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 64
-  br i1 %exitcond62.not.i, label %.loopexit50.i, label %78, !llvm.loop !26
+  br i1 %exitcond62.not.i, label %.loopexit50.i, label %78, !llvm.loop !28
 
 .loopexit50.i:                                    ; preds = %78, %72
   %82 = icmp eq i32 %57, 32
@@ -541,7 +541,7 @@ split:                                            ; preds = %17, %.preheader.pre
   store i32 %87, ptr %85, align 4, !tbaa !13
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count.i
-  br i1 %exitcond66.not.i, label %_ZN6icu_77L12set32x64BitsEPjii.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond66.not.i, label %_ZN6icu_77L12set32x64BitsEPjii.exit, label %.lr.ph.i, !llvm.loop !29
 
 _ZN6icu_77L12set32x64BitsEPjii.exit:              ; preds = %.lr.ph.i, %.lr.ph55.i, %51, %.preheader.i, %.loopexit50.i
   %88 = icmp sgt i32 %.257119, 2048
@@ -567,7 +567,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit:              ; preds = %.lr.ph.i, %.lr.ph55
   %.358 = phi i32 [ %100, %96 ], [ 1114112, %89 ]
   %.5 = phi i32 [ %97, %96 ], [ %90, %89 ]
   %102 = icmp slt i32 %93, 2048
-  br i1 %102, label %44, label %_ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge, !llvm.loop !28
+  br i1 %102, label %44, label %_ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge, !llvm.loop !30
 
 _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
   %.257.lcssa = phi i32 [ %.156109, %.thread ], [ %.358, %101 ]
@@ -664,7 +664,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
   %146 = or i32 %145, %130
   store i32 %146, ptr %144, align 4, !tbaa !13
   %exitcond71.not.i105 = icmp eq i64 %indvars.iv.next68.i104, %wide.trip.count70.i101
-  br i1 %exitcond71.not.i105, label %_ZN6icu_77L12set32x64BitsEPjii.exit106, label %.lr.ph55.i102, !llvm.loop !24
+  br i1 %exitcond71.not.i105, label %_ZN6icu_77L12set32x64BitsEPjii.exit106, label %.lr.ph55.i102, !llvm.loop !26
 
 147:                                              ; preds = %138
   %.not.i78 = icmp eq i32 %129, 0
@@ -682,7 +682,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
   %151 = or i32 %150, %130
   store i32 %151, ptr %149, align 4, !tbaa !13
   %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, 64
-  br i1 %exitcond.not.i83, label %152, label %.preheader51.i80, !llvm.loop !25
+  br i1 %exitcond.not.i83, label %152, label %.preheader51.i80, !llvm.loop !27
 
 152:                                              ; preds = %.preheader51.i80
   %153 = add nsw i32 %128, 1
@@ -708,7 +708,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
   store i32 %161, ptr %159, align 4, !tbaa !13
   %indvars.iv.next60.i97 = add nuw nsw i64 %indvars.iv59.i96, 1
   %exitcond62.not.i98 = icmp eq i64 %indvars.iv.next60.i97, 64
-  br i1 %exitcond62.not.i98, label %.loopexit50.i85, label %158, !llvm.loop !26
+  br i1 %exitcond62.not.i98, label %.loopexit50.i85, label %158, !llvm.loop !28
 
 .loopexit50.i85:                                  ; preds = %158, %154
   %162 = shl nuw nsw i32 1, %139
@@ -727,7 +727,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
   store i32 %165, ptr %163, align 4, !tbaa !13
   %indvars.iv.next64.i91 = add nuw nsw i64 %indvars.iv63.i90, 1
   %exitcond66.not.i92 = icmp eq i64 %indvars.iv.next64.i91, %wide.trip.count.i88
-  br i1 %exitcond66.not.i92, label %_ZN6icu_77L12set32x64BitsEPjii.exit106, label %.lr.ph.i89, !llvm.loop !27
+  br i1 %exitcond66.not.i92, label %_ZN6icu_77L12set32x64BitsEPjii.exit106, label %.lr.ph.i89, !llvm.loop !29
 
 _ZN6icu_77L12set32x64BitsEPjii.exit106:           ; preds = %.lr.ph.i89, %.lr.ph55.i102, %.loopexit50.i85, %.preheader.i99, %133, %122
   %166 = and i32 %spec.store.select1, 63
@@ -773,7 +773,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit106:           ; preds = %.lr.ph.i89, %.lr.ph
   %.661 = phi i32 [ %190, %186 ], [ 1114112, %179 ]
   %.7 = phi i32 [ %187, %186 ], [ %180, %179 ]
   %192 = icmp slt i32 %183, 65536
-  br i1 %192, label %105, label %._crit_edge132, !llvm.loop !29
+  br i1 %192, label %105, label %._crit_edge132, !llvm.loop !31
 
 ._crit_edge132:                                   ; preds = %191, %177, %_ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge
   ret void
@@ -782,7 +782,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit106:           ; preds = %.lr.ph.i89, %.lr.ph
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN6icu_776BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 captures(none) dereferenceable(868) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %3 = load i8, ptr %2, align 8, !tbaa !16
+  %3 = load i8, ptr %2, align 8, !tbaa !18
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %.preheader, label %.preheader21
 
@@ -806,7 +806,7 @@ define void @_ZN6icu_776BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 ca
   store i32 %10, ptr %8, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.preheader20, label %7, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader20, label %7, !llvm.loop !19
 
 11:                                               ; preds = %.preheader20, %11
   %indvars.iv28 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next29, %11 ]
@@ -816,7 +816,7 @@ define void @_ZN6icu_776BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 ca
   store i32 %14, ptr %12, align 4, !tbaa !13
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 32
-  br i1 %exitcond31.not, label %.preheader18, label %11, !llvm.loop !18
+  br i1 %exitcond31.not, label %.preheader18, label %11, !llvm.loop !20
 
 .preheader18:                                     ; preds = %11, %.preheader18
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.preheader18 ], [ 32, %11 ]
@@ -827,7 +827,7 @@ define void @_ZN6icu_776BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 ca
   store i32 %18, ptr %15, align 4, !tbaa !13
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 64
-  br i1 %exitcond35.not, label %.loopexit, label %.preheader18, !llvm.loop !19
+  br i1 %exitcond35.not, label %.loopexit, label %.preheader18, !llvm.loop !21
 
 19:                                               ; preds = %.preheader, %19
   %indvars.iv36 = phi i64 [ 32, %.preheader ], [ %indvars.iv.next37, %19 ]
@@ -837,7 +837,7 @@ define void @_ZN6icu_776BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 ca
   store i32 %22, ptr %20, align 4, !tbaa !13
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 64
-  br i1 %exitcond39.not, label %.loopexit, label %19, !llvm.loop !20
+  br i1 %exitcond39.not, label %.loopexit, label %19, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader18, %19
   ret void
@@ -848,8 +848,8 @@ define void @_ZN6icu_776BMPSetC2ERKS0_PKii(ptr noundef nonnull writeonly align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_776BMPSetE, i64 16), ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %7 = load i8, ptr %6, align 8, !tbaa !16
-  store i8 %7, ptr %5, align 8, !tbaa !16
+  %7 = load i8, ptr %6, align 8, !tbaa !18
+  store i8 %7, ptr %5, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store ptr %2, ptr %8, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -896,7 +896,7 @@ define noundef signext i8 @_ZNK6icu_776BMPSet8containsEi(ptr noundef nonnull rea
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1, !tbaa !21
+  %8 = load i8, ptr %7, align 1, !tbaa !23
   br label %103
 
 9:                                                ; preds = %2
@@ -987,7 +987,7 @@ define noundef signext i8 @_ZNK6icu_776BMPSet8containsEi(ptr noundef nonnull rea
   %66 = add nsw i32 %..020.i.i, %.021..i.i
   %67 = ashr i32 %66, 1
   %68 = icmp eq i32 %67, %.021..i.i
-  br i1 %68, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i
+  br i1 %68, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %37, %52, %53, %.preheader.i.i
   %.019.i.i = phi i32 [ %41, %37 ], [ %45, %53 ], [ %45, %52 ], [ %45, %.preheader.i.i ], [ %..020.i.i, %.lr.ph.i.i ]
@@ -1043,7 +1043,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %37, %5
   %98 = add nsw i32 %..020.i.i32, %.021..i.i31
   %99 = ashr i32 %98, 1
   %100 = icmp eq i32 %99, %.021..i.i31
-  br i1 %100, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit33, label %.lr.ph.i.i28
+  br i1 %100, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit33, label %.lr.ph.i.i28, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit33:      ; preds = %.lr.ph.i.i28, %73, %84, %85, %.preheader.i.i27
   %.019.i.i25 = phi i32 [ %75, %73 ], [ %77, %85 ], [ %77, %84 ], [ %77, %.preheader.i.i27 ], [ %..020.i.i32, %.lr.ph.i.i28 ]
@@ -1096,7 +1096,7 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
 
 .preheader151:                                    ; preds = %4, %135
   %.0 = phi ptr [ %136, %135 ], [ %1, %4 ]
-  %35 = load i16, ptr %.0, align 2, !tbaa !30
+  %35 = load i16, ptr %.0, align 2, !tbaa !32
   %36 = zext i16 %35 to i32
   %37 = icmp ult i16 %35, 256
   br i1 %37, label %38, label %42
@@ -1104,7 +1104,7 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
 38:                                               ; preds = %.preheader151
   %39 = zext nneg i16 %35 to i64
   %40 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %39
-  %41 = load i8, ptr %40, align 1, !tbaa !21
+  %41 = load i8, ptr %40, align 1, !tbaa !23
   %.not92 = icmp eq i8 %41, 0
   br i1 %.not92, label %.thread, label %135
 
@@ -1188,7 +1188,7 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
   %91 = add nsw i32 %..020.i.i, %.021..i.i
   %92 = ashr i32 %91, 1
   %93 = icmp eq i32 %92, %.021..i.i
-  br i1 %93, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i
+  br i1 %93, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %67, %79, %80, %.preheader.i.i
   %.019.i.i = phi i32 [ %70, %67 ], [ %74, %80 ], [ %74, %79 ], [ %74, %.preheader.i.i ], [ %..020.i.i, %.lr.ph.i.i ]
@@ -1206,7 +1206,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %67, %7
   br i1 %99, label %103, label %100
 
 100:                                              ; preds = %97
-  %101 = load i16, ptr %98, align 2, !tbaa !30
+  %101 = load i16, ptr %98, align 2, !tbaa !32
   %102 = add i16 %101, 8192
   %or.cond5 = icmp ult i16 %102, -1024
   br i1 %or.cond5, label %103, label %117
@@ -1237,7 +1237,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %67, %7
   %113 = add nsw i32 %..020.i.i103, %.021..i.i102
   %114 = ashr i32 %113, 1
   %115 = icmp eq i32 %114, %.021..i.i102
-  br i1 %115, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit104, label %.lr.ph.i.i99
+  br i1 %115, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit104, label %.lr.ph.i.i99, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit104:     ; preds = %.lr.ph.i.i99, %106, %103
   %.019.i.i96 = phi i32 [ %.mux, %103 ], [ %24, %106 ], [ %..020.i.i103, %.lr.ph.i.i99 ]
@@ -1275,7 +1275,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit104:     ; preds = %.lr.ph.i.i99, %106,
   %131 = add nsw i32 %..020.i.i113, %.021..i.i112
   %132 = ashr i32 %131, 1
   %133 = icmp eq i32 %132, %.021..i.i112
-  br i1 %133, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit114, label %.lr.ph.i.i109
+  br i1 %133, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit114, label %.lr.ph.i.i109, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit114:     ; preds = %.lr.ph.i.i109, %124, %117
   %.019.i.i106 = phi i32 [ %.mux158, %117 ], [ %10, %124 ], [ %..020.i.i113, %.lr.ph.i.i109 ]
@@ -1287,11 +1287,11 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit114:     ; preds = %.lr.ph.i.i109, %124
   %.1 = phi ptr [ %.0, %38 ], [ %.0, %44 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit104 ], [ %98, %_ZNK6icu_776BMPSet12containsSlowEiii.exit114 ], [ %.0, %65 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
   %136 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %137 = icmp ult ptr %136, %2
-  br i1 %137, label %.preheader151, label %.thread, !llvm.loop !32
+  br i1 %137, label %.preheader151, label %.thread, !llvm.loop !34
 
 .preheader:                                       ; preds = %4, %236
   %.3 = phi ptr [ %237, %236 ], [ %1, %4 ]
-  %138 = load i16, ptr %.3, align 2, !tbaa !30
+  %138 = load i16, ptr %.3, align 2, !tbaa !32
   %139 = zext i16 %138 to i32
   %140 = icmp ult i16 %138, 256
   br i1 %140, label %141, label %145
@@ -1299,7 +1299,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit114:     ; preds = %.lr.ph.i.i109, %124
 141:                                              ; preds = %.preheader
   %142 = zext nneg i16 %138 to i64
   %143 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %142
-  %144 = load i8, ptr %143, align 1, !tbaa !21
+  %144 = load i8, ptr %143, align 1, !tbaa !23
   %.not88 = icmp eq i8 %144, 0
   br i1 %.not88, label %236, label %.thread
 
@@ -1383,7 +1383,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit114:     ; preds = %.lr.ph.i.i109, %124
   %192 = add nsw i32 %..020.i.i123, %.021..i.i122
   %193 = ashr i32 %192, 1
   %194 = icmp eq i32 %193, %.021..i.i122
-  br i1 %194, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit124, label %.lr.ph.i.i119
+  br i1 %194, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit124, label %.lr.ph.i.i119, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit124:     ; preds = %.lr.ph.i.i119, %168, %180, %181, %.preheader.i.i118
   %.019.i.i116 = phi i32 [ %171, %168 ], [ %175, %181 ], [ %175, %180 ], [ %175, %.preheader.i.i118 ], [ %..020.i.i123, %.lr.ph.i.i119 ]
@@ -1401,7 +1401,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit124:     ; preds = %.lr.ph.i.i119, %168
   br i1 %200, label %204, label %201
 
 201:                                              ; preds = %198
-  %202 = load i16, ptr %199, align 2, !tbaa !30
+  %202 = load i16, ptr %199, align 2, !tbaa !32
   %203 = add i16 %202, 8192
   %or.cond11 = icmp ult i16 %203, -1024
   br i1 %or.cond11, label %204, label %218
@@ -1432,7 +1432,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit124:     ; preds = %.lr.ph.i.i119, %168
   %214 = add nsw i32 %..020.i.i133, %.021..i.i132
   %215 = ashr i32 %214, 1
   %216 = icmp eq i32 %215, %.021..i.i132
-  br i1 %216, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit134, label %.lr.ph.i.i129
+  br i1 %216, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit134, label %.lr.ph.i.i129, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit134:     ; preds = %.lr.ph.i.i129, %207, %204
   %.019.i.i126 = phi i32 [ %.mux161, %204 ], [ %24, %207 ], [ %..020.i.i133, %.lr.ph.i.i129 ]
@@ -1470,7 +1470,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit134:     ; preds = %.lr.ph.i.i129, %207
   %232 = add nsw i32 %..020.i.i143, %.021..i.i142
   %233 = ashr i32 %232, 1
   %234 = icmp eq i32 %233, %.021..i.i142
-  br i1 %234, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit144, label %.lr.ph.i.i139
+  br i1 %234, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit144, label %.lr.ph.i.i139, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit144:     ; preds = %.lr.ph.i.i139, %225, %218
   %.019.i.i136 = phi i32 [ %.mux164, %218 ], [ %10, %225 ], [ %..020.i.i143, %.lr.ph.i.i139 ]
@@ -1482,7 +1482,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit144:     ; preds = %.lr.ph.i.i139, %225
   %.4 = phi ptr [ %.3, %141 ], [ %.3, %147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit134 ], [ %199, %_ZNK6icu_776BMPSet12containsSlowEiii.exit144 ], [ %.3, %167 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit124 ]
   %237 = getelementptr inbounds nuw i8, ptr %.4, i64 2
   %238 = icmp ult ptr %237, %2
-  br i1 %238, label %.preheader, label %.thread, !llvm.loop !33
+  br i1 %238, label %.preheader, label %.thread, !llvm.loop !35
 
 .thread:                                          ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %65, %135, %38, %44, %_ZNK6icu_776BMPSet12containsSlowEiii.exit104, %_ZNK6icu_776BMPSet12containsSlowEiii.exit114, %_ZNK6icu_776BMPSet12containsSlowEiii.exit124, %167, %236, %141, %147, %_ZNK6icu_776BMPSet12containsSlowEiii.exit134, %_ZNK6icu_776BMPSet12containsSlowEiii.exit144
   %.2 = phi ptr [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit124 ], [ %.3, %167 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit144 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit134 ], [ %.3, %147 ], [ %237, %236 ], [ %.3, %141 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ], [ %.0, %65 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit114 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit104 ], [ %.0, %44 ], [ %.0, %38 ], [ %136, %135 ]
@@ -1530,7 +1530,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
 .preheader155:                                    ; preds = %4, %135
   %.072 = phi ptr [ %.1, %135 ], [ %2, %4 ]
   %35 = getelementptr inbounds i8, ptr %.072, i64 -2
-  %36 = load i16, ptr %35, align 2, !tbaa !30
+  %36 = load i16, ptr %35, align 2, !tbaa !32
   %37 = zext i16 %36 to i32
   %38 = icmp ult i16 %36, 256
   br i1 %38, label %39, label %43
@@ -1538,7 +1538,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
 39:                                               ; preds = %.preheader155
   %40 = zext nneg i16 %36 to i64
   %41 = getelementptr inbounds nuw [256 x i8], ptr %34, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !21
+  %42 = load i8, ptr %41, align 1, !tbaa !23
   %.not94 = icmp eq i8 %42, 0
   br i1 %.not94, label %.loopexit, label %135
 
@@ -1622,7 +1622,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
   %92 = add nsw i32 %..020.i.i, %.021..i.i
   %93 = ashr i32 %92, 1
   %94 = icmp eq i32 %93, %.021..i.i
-  br i1 %94, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i
+  br i1 %94, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %68, %80, %81, %.preheader.i.i
   %.019.i.i = phi i32 [ %71, %68 ], [ %75, %81 ], [ %75, %80 ], [ %75, %.preheader.i.i ], [ %..020.i.i, %.lr.ph.i.i ]
@@ -1638,7 +1638,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %68, %8
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds i8, ptr %.072, i64 -4
-  %101 = load i16, ptr %100, align 2, !tbaa !30
+  %101 = load i16, ptr %100, align 2, !tbaa !32
   %102 = add i16 %101, 9216
   %or.cond5 = icmp ult i16 %102, -1024
   br i1 %or.cond5, label %103, label %117
@@ -1669,7 +1669,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %68, %8
   %113 = add nsw i32 %..020.i.i107, %.021..i.i106
   %114 = ashr i32 %113, 1
   %115 = icmp eq i32 %114, %.021..i.i106
-  br i1 %115, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit108, label %.lr.ph.i.i103
+  br i1 %115, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit108, label %.lr.ph.i.i103, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit108:     ; preds = %.lr.ph.i.i103, %106, %103
   %.019.i.i100 = phi i32 [ %.mux, %103 ], [ %22, %106 ], [ %..020.i.i107, %.lr.ph.i.i103 ]
@@ -1707,7 +1707,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit108:     ; preds = %.lr.ph.i.i103, %106
   %131 = add nsw i32 %..020.i.i117, %.021..i.i116
   %132 = ashr i32 %131, 1
   %133 = icmp eq i32 %132, %.021..i.i116
-  br i1 %133, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit118, label %.lr.ph.i.i113
+  br i1 %133, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit118, label %.lr.ph.i.i113, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit118:     ; preds = %.lr.ph.i.i113, %124, %117
   %.019.i.i110 = phi i32 [ %.mux165, %117 ], [ %8, %124 ], [ %..020.i.i117, %.lr.ph.i.i113 ]
@@ -1718,12 +1718,12 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit118:     ; preds = %.lr.ph.i.i113, %124
 135:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %66, %_ZNK6icu_776BMPSet12containsSlowEiii.exit118, %45, %_ZNK6icu_776BMPSet12containsSlowEiii.exit108, %39
   %.1 = phi ptr [ %35, %39 ], [ %35, %45 ], [ %35, %_ZNK6icu_776BMPSet12containsSlowEiii.exit108 ], [ %100, %_ZNK6icu_776BMPSet12containsSlowEiii.exit118 ], [ %35, %66 ], [ %35, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
   %136 = icmp eq ptr %1, %.1
-  br i1 %136, label %.loopexit, label %.preheader155, !llvm.loop !34
+  br i1 %136, label %.loopexit, label %.preheader155, !llvm.loop !36
 
 .preheader:                                       ; preds = %4, %235
   %.3 = phi ptr [ %.4, %235 ], [ %2, %4 ]
   %137 = getelementptr inbounds i8, ptr %.3, i64 -2
-  %138 = load i16, ptr %137, align 2, !tbaa !30
+  %138 = load i16, ptr %137, align 2, !tbaa !32
   %139 = zext i16 %138 to i32
   %140 = icmp ult i16 %138, 256
   br i1 %140, label %141, label %145
@@ -1731,7 +1731,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit118:     ; preds = %.lr.ph.i.i113, %124
 141:                                              ; preds = %.preheader
   %142 = zext nneg i16 %138 to i64
   %143 = getelementptr inbounds nuw [256 x i8], ptr %34, i64 0, i64 %142
-  %144 = load i8, ptr %143, align 1, !tbaa !21
+  %144 = load i8, ptr %143, align 1, !tbaa !23
   %.not90 = icmp eq i8 %144, 0
   br i1 %.not90, label %235, label %.loopexit
 
@@ -1815,7 +1815,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit118:     ; preds = %.lr.ph.i.i113, %124
   %192 = add nsw i32 %..020.i.i127, %.021..i.i126
   %193 = ashr i32 %192, 1
   %194 = icmp eq i32 %193, %.021..i.i126
-  br i1 %194, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit128, label %.lr.ph.i.i123
+  br i1 %194, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit128, label %.lr.ph.i.i123, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit128:     ; preds = %.lr.ph.i.i123, %168, %180, %181, %.preheader.i.i122
   %.019.i.i120 = phi i32 [ %171, %168 ], [ %175, %181 ], [ %175, %180 ], [ %175, %.preheader.i.i122 ], [ %..020.i.i127, %.lr.ph.i.i123 ]
@@ -1831,7 +1831,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit128:     ; preds = %.lr.ph.i.i123, %168
 
 199:                                              ; preds = %196
   %200 = getelementptr inbounds i8, ptr %.3, i64 -4
-  %201 = load i16, ptr %200, align 2, !tbaa !30
+  %201 = load i16, ptr %200, align 2, !tbaa !32
   %202 = add i16 %201, 9216
   %or.cond11 = icmp ult i16 %202, -1024
   br i1 %or.cond11, label %203, label %217
@@ -1862,7 +1862,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit128:     ; preds = %.lr.ph.i.i123, %168
   %213 = add nsw i32 %..020.i.i137, %.021..i.i136
   %214 = ashr i32 %213, 1
   %215 = icmp eq i32 %214, %.021..i.i136
-  br i1 %215, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit138, label %.lr.ph.i.i133
+  br i1 %215, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit138, label %.lr.ph.i.i133, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit138:     ; preds = %.lr.ph.i.i133, %206, %203
   %.019.i.i130 = phi i32 [ %.mux168, %203 ], [ %22, %206 ], [ %..020.i.i137, %.lr.ph.i.i133 ]
@@ -1900,7 +1900,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit138:     ; preds = %.lr.ph.i.i133, %206
   %231 = add nsw i32 %..020.i.i147, %.021..i.i146
   %232 = ashr i32 %231, 1
   %233 = icmp eq i32 %232, %.021..i.i146
-  br i1 %233, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit148, label %.lr.ph.i.i143
+  br i1 %233, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit148, label %.lr.ph.i.i143, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit148:     ; preds = %.lr.ph.i.i143, %224, %217
   %.019.i.i140 = phi i32 [ %.mux171, %217 ], [ %8, %224 ], [ %..020.i.i147, %.lr.ph.i.i143 ]
@@ -1911,7 +1911,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit148:     ; preds = %.lr.ph.i.i143, %224
 235:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit128, %167, %_ZNK6icu_776BMPSet12containsSlowEiii.exit148, %147, %_ZNK6icu_776BMPSet12containsSlowEiii.exit138, %141
   %.4 = phi ptr [ %137, %141 ], [ %137, %147 ], [ %137, %_ZNK6icu_776BMPSet12containsSlowEiii.exit138 ], [ %200, %_ZNK6icu_776BMPSet12containsSlowEiii.exit148 ], [ %137, %167 ], [ %137, %_ZNK6icu_776BMPSet12containsSlowEiii.exit128 ]
   %236 = icmp eq ptr %1, %.4
-  br i1 %236, label %.loopexit, label %.preheader, !llvm.loop !35
+  br i1 %236, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %135, %_ZNK6icu_776BMPSet12containsSlowEiii.exit118, %_ZNK6icu_776BMPSet12containsSlowEiii.exit108, %45, %39, %66, %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %235, %_ZNK6icu_776BMPSet12containsSlowEiii.exit148, %_ZNK6icu_776BMPSet12containsSlowEiii.exit138, %147, %141, %167, %_ZNK6icu_776BMPSet12containsSlowEiii.exit128
   %.0 = phi ptr [ %1, %235 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit128 ], [ %.3, %167 ], [ %.3, %141 ], [ %.3, %147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit138 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit148 ], [ %1, %135 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ], [ %.072, %66 ], [ %.072, %39 ], [ %.072, %45 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit108 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit118 ]
@@ -1922,7 +1922,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit148:     ; preds = %.lr.ph.i.i143, %224
 define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(868) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr i8, ptr %1, i64 %5
-  %7 = load i8, ptr %1, align 1, !tbaa !21
+  %7 = load i8, ptr %1, align 1, !tbaa !23
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %33
 
@@ -1936,7 +1936,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   %.1115 = phi ptr [ %15, %17 ], [ %1, %9 ]
   %11 = zext nneg i8 %.0126 to i64
   %12 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 1, !tbaa !21
+  %13 = load i8, ptr %12, align 1, !tbaa !23
   %.not149 = icmp eq i8 %13, 0
   br i1 %.not149, label %.thread166, label %14
 
@@ -1946,16 +1946,16 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   br i1 %16, label %.thread166, label %17
 
 17:                                               ; preds = %14
-  %18 = load i8, ptr %15, align 1, !tbaa !21
+  %18 = load i8, ptr %15, align 1, !tbaa !23
   %19 = icmp sgt i8 %18, -1
-  br i1 %19, label %.preheader180, label %.loopexit179, !llvm.loop !36
+  br i1 %19, label %.preheader180, label %.loopexit179, !llvm.loop !38
 
 .preheader176:                                    ; preds = %9, %26
   %.1127 = phi i8 [ %27, %26 ], [ %7, %9 ]
   %.4118 = phi ptr [ %24, %26 ], [ %1, %9 ]
   %20 = zext nneg i8 %.1127 to i64
   %21 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !21
+  %22 = load i8, ptr %21, align 1, !tbaa !23
   %.not148 = icmp eq i8 %22, 0
   br i1 %.not148, label %23, label %.thread166
 
@@ -1965,9 +1965,9 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   br i1 %25, label %.thread166, label %26
 
 26:                                               ; preds = %23
-  %27 = load i8, ptr %24, align 1, !tbaa !21
+  %27 = load i8, ptr %24, align 1, !tbaa !23
   %28 = icmp sgt i8 %27, -1
-  br i1 %28, label %.preheader176, label %.loopexit179, !llvm.loop !37
+  br i1 %28, label %.preheader176, label %.loopexit179, !llvm.loop !39
 
 .loopexit179:                                     ; preds = %17, %26
   %.3117 = phi ptr [ %24, %26 ], [ %15, %17 ]
@@ -1983,7 +1983,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   %.not150 = icmp ne i32 %3, 0
   %spec.store.select = zext i1 %.not150 to i32
   %34 = getelementptr inbounds i8, ptr %6, i64 -1
-  %35 = load i8, ptr %34, align 1, !tbaa !21
+  %35 = load i8, ptr %34, align 1, !tbaa !23
   %36 = icmp slt i8 %35, 0
   br i1 %36, label %37, label %.thread
 
@@ -1997,13 +1997,13 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds i8, ptr %6, i64 -2
-  %43 = load i8, ptr %42, align 1, !tbaa !21
+  %43 = load i8, ptr %42, align 1, !tbaa !23
   %44 = icmp ugt i8 %43, -33
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %47 = load i8, ptr %46, align 8, !tbaa !16
+  %47 = load i8, ptr %46, align 8, !tbaa !18
   %48 = sext i8 %47 to i32
   %.not153 = icmp eq i32 %48, %spec.store.select
   %spec.select = select i1 %.not153, ptr %6, ptr %42
@@ -2017,13 +2017,13 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %6, i64 -3
-  %53 = load i8, ptr %52, align 1, !tbaa !21
+  %53 = load i8, ptr %52, align 1, !tbaa !23
   %54 = icmp ugt i8 %53, -17
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %57 = load i8, ptr %56, align 8, !tbaa !16
+  %57 = load i8, ptr %56, align 8, !tbaa !18
   %58 = sext i8 %57 to i32
   %.not152 = icmp eq i32 %58, %spec.store.select
   %spec.select161 = select i1 %.not152, ptr %6, ptr %52
@@ -2031,7 +2031,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
 
 59:                                               ; preds = %37
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %61 = load i8, ptr %60, align 8, !tbaa !16
+  %61 = load i8, ptr %60, align 8, !tbaa !18
   %62 = sext i8 %61 to i32
   %.not151 = icmp eq i32 %62, %spec.store.select
   %spec.select162 = select i1 %.not151, ptr %6, ptr %34
@@ -2056,7 +2056,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
 
 72:                                               ; preds = %.lr.ph, %.backedge
   %.6120189 = phi ptr [ %.0114, %.lr.ph ], [ %.6120.be, %.backedge ]
-  %73 = load i8, ptr %.6120189, align 1, !tbaa !21
+  %73 = load i8, ptr %.6120189, align 1, !tbaa !23
   %74 = icmp sgt i8 %73, -1
   br i1 %74, label %75, label %.loopexit
 
@@ -2068,7 +2068,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   %.8 = phi ptr [ %80, %82 ], [ %.6120189, %75 ]
   %76 = zext nneg i8 %.4130 to i64
   %77 = getelementptr inbounds nuw [256 x i8], ptr %64, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1, !tbaa !21
+  %78 = load i8, ptr %77, align 1, !tbaa !23
   %.not155 = icmp eq i8 %78, 0
   br i1 %.not155, label %.thread166, label %79
 
@@ -2078,16 +2078,16 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   br i1 %81, label %.thread166, label %82
 
 82:                                               ; preds = %79
-  %83 = load i8, ptr %80, align 1, !tbaa !21
+  %83 = load i8, ptr %80, align 1, !tbaa !23
   %84 = icmp sgt i8 %83, -1
-  br i1 %84, label %.preheader, label %.loopexit, !llvm.loop !38
+  br i1 %84, label %.preheader, label %.loopexit, !llvm.loop !40
 
 .preheader170:                                    ; preds = %75, %91
   %.5131 = phi i8 [ %92, %91 ], [ %73, %75 ]
   %.9 = phi ptr [ %89, %91 ], [ %.6120189, %75 ]
   %85 = zext nneg i8 %.5131 to i64
   %86 = getelementptr inbounds nuw [256 x i8], ptr %64, i64 0, i64 %85
-  %87 = load i8, ptr %86, align 1, !tbaa !21
+  %87 = load i8, ptr %86, align 1, !tbaa !23
   %.not154 = icmp eq i8 %87, 0
   br i1 %.not154, label %88, label %.thread166
 
@@ -2097,9 +2097,9 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   br i1 %90, label %.thread166, label %91
 
 91:                                               ; preds = %88
-  %92 = load i8, ptr %89, align 1, !tbaa !21
+  %92 = load i8, ptr %89, align 1, !tbaa !23
   %93 = icmp sgt i8 %92, -1
-  br i1 %93, label %.preheader170, label %.loopexit, !llvm.loop !39
+  br i1 %93, label %.preheader170, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %91, %82, %72
   %.3129 = phi i8 [ %73, %72 ], [ %83, %82 ], [ %92, %91 ]
@@ -2111,7 +2111,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
 
 97:                                               ; preds = %.loopexit
   %98 = icmp samesign ult i8 %.3129, -16
-  %99 = load i8, ptr %94, align 1, !tbaa !21
+  %99 = load i8, ptr %94, align 1, !tbaa !23
   %100 = xor i8 %99, -128
   %101 = zext i8 %100 to i32
   %102 = icmp ult i8 %100, 64
@@ -2122,7 +2122,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
 
 104:                                              ; preds = %103
   %105 = getelementptr inbounds nuw i8, ptr %.7, i64 2
-  %106 = load i8, ptr %105, align 1, !tbaa !21
+  %106 = load i8, ptr %105, align 1, !tbaa !23
   %107 = xor i8 %106, -128
   %108 = zext i8 %107 to i32
   %109 = icmp ult i8 %107, 64
@@ -2193,7 +2193,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   %151 = add nsw i32 %..020.i.i, %.021..i.i
   %152 = ashr i32 %151, 1
   %153 = icmp eq i32 %152, %.021..i.i
-  br i1 %153, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i
+  br i1 %153, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %120, %137, %138, %.preheader.i.i
   %.019.i.i = phi i32 [ %127, %120 ], [ %131, %138 ], [ %131, %137 ], [ %131, %.preheader.i.i ], [ %..020.i.i, %.lr.ph.i.i ]
@@ -2210,7 +2210,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %120, %
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds nuw i8, ptr %.7, i64 2
-  %161 = load i8, ptr %160, align 1, !tbaa !21
+  %161 = load i8, ptr %160, align 1, !tbaa !23
   %162 = xor i8 %161, -128
   %163 = zext i8 %162 to i32
   %164 = icmp ult i8 %162, 64
@@ -2218,7 +2218,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %120, %
 
 165:                                              ; preds = %159
   %166 = getelementptr inbounds nuw i8, ptr %.7, i64 3
-  %167 = load i8, ptr %166, align 1, !tbaa !21
+  %167 = load i8, ptr %166, align 1, !tbaa !23
   %168 = xor i8 %167, -128
   %169 = icmp ult i8 %168, 64
   br i1 %169, label %170, label %207
@@ -2243,7 +2243,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %120, %
   br label %186
 
 184:                                              ; preds = %170
-  %185 = load i8, ptr %66, align 8, !tbaa !16
+  %185 = load i8, ptr %66, align 8, !tbaa !18
   br label %186
 
 186:                                              ; preds = %184, %176
@@ -2258,7 +2258,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %120, %
   br i1 %191, label %192, label %207
 
 192:                                              ; preds = %190
-  %193 = load i8, ptr %94, align 1, !tbaa !21
+  %193 = load i8, ptr %94, align 1, !tbaa !23
   %194 = xor i8 %193, -128
   %195 = icmp ult i8 %194, 64
   br i1 %195, label %196, label %207
@@ -2280,10 +2280,10 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %120, %
 .backedge:                                        ; preds = %204, %186, %207, %156
   %.6120.be = phi ptr [ %157, %156 ], [ %94, %207 ], [ %189, %186 ], [ %205, %204 ]
   %206 = icmp ult ptr %.6120.be, %.0132
-  br i1 %206, label %72, label %.thread166, !llvm.loop !40
+  br i1 %206, label %72, label %.thread166, !llvm.loop !42
 
 207:                                              ; preds = %190, %192, %104, %103, %165, %159, %158
-  %208 = load i8, ptr %66, align 8, !tbaa !16
+  %208 = load i8, ptr %66, align 8, !tbaa !18
   %209 = sext i8 %208 to i32
   %.not158 = icmp eq i32 %209, %spec.store.select
   br i1 %.not158, label %.backedge, label %.thread166
@@ -2313,14 +2313,14 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
   store i32 %15, ptr %5, align 4, !tbaa !13
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %1, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !21
+  %18 = load i8, ptr %17, align 1, !tbaa !23
   %19 = icmp sgt i8 %18, -1
   br i1 %19, label %20, label %.loopexit73
 
 20:                                               ; preds = %13
   %21 = zext nneg i8 %18 to i64
   %22 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !21
+  %23 = load i8, ptr %22, align 1, !tbaa !23
   %.not48140 = icmp eq i8 %23, 0
   br i1 %.not, label %.preheader.preheader, label %.preheader74.preheader
 
@@ -2333,9 +2333,9 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
 .preheader:                                       ; preds = %29
   %24 = zext nneg i8 %32 to i64
   %25 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !21
+  %26 = load i8, ptr %25, align 1, !tbaa !23
   %.not48 = icmp eq i8 %26, 0
-  br i1 %.not48, label %.preheader._crit_edge, label %.lr.ph142, !llvm.loop !41
+  br i1 %.not48, label %.preheader._crit_edge, label %.lr.ph142, !llvm.loop !43
 
 .preheader._crit_edge:                            ; preds = %.preheader
   %27 = add nsw i32 %30, 1
@@ -2351,16 +2351,16 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
   %30 = trunc nsw i64 %indvars.iv.next100 to i32
   store i32 %30, ptr %5, align 4, !tbaa !13
   %31 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next100
-  %32 = load i8, ptr %31, align 1, !tbaa !21
+  %32 = load i8, ptr %31, align 1, !tbaa !23
   %33 = icmp sgt i8 %32, -1
-  br i1 %33, label %.preheader, label %.loopexit73, !llvm.loop !41
+  br i1 %33, label %.preheader, label %.loopexit73, !llvm.loop !43
 
 .preheader74:                                     ; preds = %39
   %34 = zext nneg i8 %42 to i64
   %35 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !21
+  %36 = load i8, ptr %35, align 1, !tbaa !23
   %.not47 = icmp eq i8 %36, 0
-  br i1 %.not47, label %.lr.ph, label %.preheader74._crit_edge, !llvm.loop !42
+  br i1 %.not47, label %.lr.ph, label %.preheader74._crit_edge, !llvm.loop !44
 
 .preheader74._crit_edge:                          ; preds = %.preheader74
   %37 = add nsw i32 %40, 1
@@ -2376,9 +2376,9 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
   %40 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %40, ptr %5, align 4, !tbaa !13
   %41 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
-  %42 = load i8, ptr %41, align 1, !tbaa !21
+  %42 = load i8, ptr %41, align 1, !tbaa !23
   %43 = icmp sgt i8 %42, -1
-  br i1 %43, label %.preheader74, label %.loopexit73, !llvm.loop !42
+  br i1 %43, label %.preheader74, label %.loopexit73, !llvm.loop !44
 
 .loopexit73:                                      ; preds = %39, %29, %13
   %44 = phi i32 [ %15, %13 ], [ %30, %29 ], [ %40, %39 ]
@@ -2465,7 +2465,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
   %97 = add nsw i32 %..020.i.i, %.021..i.i
   %98 = ashr i32 %97, 1
   %99 = icmp eq i32 %98, %.021..i.i
-  br i1 %99, label %.loopexit, label %.lr.ph.i.i
+  br i1 %99, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !14
 
 100:                                              ; preds = %57
   %101 = load i32, ptr %7, align 4, !tbaa !13
@@ -2508,7 +2508,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
   %122 = add nsw i32 %..020.i.i69, %.021..i.i68
   %123 = ashr i32 %122, 1
   %124 = icmp eq i32 %123, %.021..i.i68
-  br i1 %124, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit70, label %.lr.ph.i.i65
+  br i1 %124, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit70, label %.lr.ph.i.i65, !llvm.loop !14
 
 _ZNK6icu_776BMPSet12containsSlowEiii.exit70:      ; preds = %.lr.ph.i.i65, %100, %108, %109, %.preheader.i.i64
   %.019.i.i62 = phi i32 [ %101, %100 ], [ %102, %109 ], [ %102, %108 ], [ %102, %.preheader.i.i64 ], [ %..020.i.i69, %.lr.ph.i.i65 ]
@@ -2525,7 +2525,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit70:      ; preds = %.lr.ph.i.i65, %100,
 129:                                              ; preds = %69, %_ZNK6icu_776BMPSet12containsSlowEiii.exit70, %48, %.loopexit
   %130 = load i32, ptr %5, align 4, !tbaa !13
   %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %13, label %.loopexit72, !llvm.loop !43
+  br i1 %131, label %13, label %.loopexit72, !llvm.loop !45
 
 .loopexit77.split.loop.exit:                      ; preds = %.loopexit
   %132 = add nsw i32 %44, 1
@@ -2591,32 +2591,34 @@ attributes #13 = { nounwind }
 !12 = !{!7, !11, i64 864}
 !13 = !{!11, !11, i64 0}
 !14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!7, !8, i64 264}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = !{!8, !8, i64 0}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !15}
-!26 = distinct !{!26, !15}
-!27 = distinct !{!27, !15}
-!28 = distinct !{!28, !15}
-!29 = distinct !{!29, !15}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"char16_t", !8, i64 0}
-!32 = distinct !{!32, !15}
-!33 = distinct !{!33, !15}
-!34 = distinct !{!34, !15}
-!35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}
-!37 = distinct !{!37, !15}
-!38 = distinct !{!38, !15}
-!39 = distinct !{!39, !15}
-!40 = distinct !{!40, !15}
-!41 = distinct !{!41, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !17, !15}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!7, !8, i64 264}
+!19 = distinct !{!19, !17, !15}
+!20 = distinct !{!20, !17, !15}
+!21 = distinct !{!21, !17, !15}
+!22 = distinct !{!22, !17, !15}
+!23 = !{!8, !8, i64 0}
+!24 = distinct !{!24, !17, !15}
+!25 = distinct !{!25, !17, !15}
+!26 = distinct !{!26, !17, !15}
+!27 = distinct !{!27, !17, !15}
+!28 = distinct !{!28, !17, !15}
+!29 = distinct !{!29, !17, !15}
+!30 = distinct !{!30, !17, !15}
+!31 = distinct !{!31, !17, !15}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"char16_t", !8, i64 0}
+!34 = distinct !{!34, !17, !15}
+!35 = distinct !{!35, !17, !15}
+!36 = distinct !{!36, !17, !15}
+!37 = distinct !{!37, !17, !15}
+!38 = distinct !{!38, !17, !15}
+!39 = distinct !{!39, !17, !15}
+!40 = distinct !{!40, !17, !15}
+!41 = distinct !{!41, !17, !15}
 !42 = distinct !{!42, !15}
-!43 = distinct !{!43, !15}
+!43 = distinct !{!43, !17, !15}
+!44 = distinct !{!44, !17, !15}
+!45 = distinct !{!45, !17, !15}

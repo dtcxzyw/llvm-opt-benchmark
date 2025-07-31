@@ -446,7 +446,7 @@ _parse_range.exit.thread:                         ; preds = %194
 .critedge:                                        ; preds = %209, %209
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 1
   %.pre = load i8, ptr %212, align 1
-  br label %209, !llvm.loop !11
+  br label %209, !llvm.loop !12
 
 213:                                              ; preds = %209, %209
   %214 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.cronspec_to_bitstring) #8
@@ -521,7 +521,7 @@ _parse_range.exit.thread:                         ; preds = %194
 .critedge2:                                       ; preds = %240, %240
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 1
   %.pre252 = load i8, ptr %243, align 1
-  br label %240, !llvm.loop !12
+  br label %240, !llvm.loop !13
 
 244:                                              ; preds = %240, %240
   %245 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.cronspec_to_bitstring) #8
@@ -583,7 +583,7 @@ _parse_range.exit.thread:                         ; preds = %194
 .critedge4:                                       ; preds = %265, %265
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 1
   %.pre253 = load i8, ptr %268, align 1
-  br label %265, !llvm.loop !13
+  br label %265, !llvm.loop !14
 
 269:                                              ; preds = %265, %265
   %270 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.cronspec_to_bitstring) #8
@@ -728,7 +728,7 @@ _parse_range.exit.thread:                         ; preds = %194
 .critedge6:                                       ; preds = %327, %327
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 1
   %.pre254 = load i8, ptr %330, align 1
-  br label %327, !llvm.loop !14
+  br label %327, !llvm.loop !15
 
 331:                                              ; preds = %327, %327
   %332 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.cronspec_to_bitstring) #8
@@ -868,7 +868,7 @@ _parse_range.exit.thread:                         ; preds = %194
 .critedge8:                                       ; preds = %390, %390
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 1
   %.pre256 = load i8, ptr %393, align 1
-  br label %390, !llvm.loop !15
+  br label %390, !llvm.loop !16
 
 394:                                              ; preds = %390
   %395 = tail call ptr @xstrdup(ptr noundef nonnull %392) #8
@@ -998,7 +998,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_step(ptr noundef %0, i32 no
   %29 = sext i32 %28 to i64
   %30 = tail call i64 @bit_size(ptr noundef %21) #8
   %31 = icmp sgt i64 %30, %29
-  br i1 %31, label %26, label %._crit_edge, !llvm.loop !16
+  br i1 %31, label %26, label %._crit_edge, !llvm.loop !17
 
 32:                                               ; preds = %._crit_edge
   call void @slurm_bit_free(ptr noundef nonnull %5) #8
@@ -1069,11 +1069,11 @@ define dso_local ptr @convert_file_to_line_array(ptr noundef %0, ptr noundef wri
   %18 = zext nneg i32 %10 to i64
   %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
   store ptr %9, ptr %19, align 8
-  br label %.outer, !llvm.loop !17
+  br label %.outer, !llvm.loop !18
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %6, !llvm.loop !17
+  br label %6, !llvm.loop !18
 
 .loopexit:                                        ; preds = %8, %6
   %.114 = phi i32 [ %.013.ph, %6 ], [ %10, %8 ]
@@ -1117,7 +1117,7 @@ define dso_local ptr @next_line(ptr noundef %0, i32 noundef %1, ptr noundef capt
   %16 = icmp ult ptr %.0, %12
   %17 = select i1 %15, i1 %16, i1 false
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %17, label %13, label %19, !llvm.loop !18
+  br i1 %17, label %13, label %19, !llvm.loop !19
 
 19:                                               ; preds = %13
   %20 = ptrtoint ptr %.0 to i64
@@ -1149,7 +1149,7 @@ define dso_local ptr @get_argument(ptr noundef captures(none) %0) local_unnamed_
 
 .critedge:                                        ; preds = %3, %3
   %5 = getelementptr inbounds nuw i8, ptr %.020, i64 1
-  br label %3, !llvm.loop !19
+  br label %3, !llvm.loop !20
 
 .preheader:                                       ; preds = %3, %7
   %6 = phi i8 [ %.pr, %7 ], [ %4, %3 ]
@@ -1163,7 +1163,7 @@ define dso_local ptr @get_argument(ptr noundef captures(none) %0) local_unnamed_
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.pr = load i8, ptr %8, align 1
-  br label %.preheader, !llvm.loop !20
+  br label %.preheader, !llvm.loop !21
 
 .critedge2:                                       ; preds = %.preheader, %.preheader, %.preheader
   store ptr %.0, ptr %0, align 8
@@ -1214,7 +1214,7 @@ define dso_local range(i32 -1, 1) i32 @parse_scron_line(ptr noundef %0, i32 noun
 
 .critedge.i:                                      ; preds = %7, %7
   %9 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
-  br label %7, !llvm.loop !19
+  br label %7, !llvm.loop !20
 
 .preheader.i:                                     ; preds = %7, %11
   %10 = phi i8 [ %.pr.i, %11 ], [ %8, %7 ]
@@ -1228,7 +1228,7 @@ define dso_local range(i32 -1, 1) i32 @parse_scron_line(ptr noundef %0, i32 noun
 11:                                               ; preds = %.preheader.i
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %.pr.i = load i8, ptr %12, align 1
-  br label %.preheader.i, !llvm.loop !20
+  br label %.preheader.i, !llvm.loop !21
 
 .critedge2.i:                                     ; preds = %.preheader.i, %.preheader.i, %.preheader.i
   %13 = ptrtoint ptr %.0.i to i64
@@ -1247,7 +1247,7 @@ define dso_local range(i32 -1, 1) i32 @parse_scron_line(ptr noundef %0, i32 noun
   %19 = load ptr, ptr %4, align 8
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   store ptr %16, ptr %20, align 8
-  br label %6, !llvm.loop !21
+  br label %6, !llvm.loop !22
 
 get_argument.exit.thread:                         ; preds = %.critedge2.i, %7
   %.040 = trunc i64 %indvars.iv to i32
@@ -1272,7 +1272,7 @@ get_argument.exit.thread:                         ; preds = %.critedge2.i, %7
   %29 = load ptr, ptr @optarg, align 8
   %30 = call i32 @slurm_process_option(ptr noundef nonnull @opt, i32 noundef %27, ptr noundef %29, i1 noundef zeroext false, i1 noundef zeroext false) #8
   %.not7.i = icmp eq i32 %30, 0
-  br i1 %.not7.i, label %25, label %31, !llvm.loop !22
+  br i1 %.not7.i, label %25, label %31, !llvm.loop !23
 
 31:                                               ; preds = %28
   call void @slurm_option_table_destroy(ptr noundef %24) #8
@@ -1310,7 +1310,7 @@ _set_options.exit:                                ; preds = %31, %34
   call void @slurm_xfree(ptr noundef nonnull %43) #8
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !23
+  br i1 %exitcond49.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !24
 
 .lr.ph.preheader:                                 ; preds = %_set_options.exit
   %wide.trip.count = and i64 %indvars.iv, 4294967295
@@ -1323,7 +1323,7 @@ _set_options.exit:                                ; preds = %31, %34
   call void @slurm_xfree(ptr noundef nonnull %45) #8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge35, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge35, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge35:                                    ; preds = %.lr.ph, %.lr.ph34, %get_argument.exit.thread
   %.017 = phi i32 [ 0, %get_argument.exit.thread ], [ -1, %.lr.ph34 ], [ 0, %.lr.ph ]
@@ -1381,20 +1381,21 @@ attributes #10 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}

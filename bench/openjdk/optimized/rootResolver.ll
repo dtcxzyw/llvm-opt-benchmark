@@ -233,7 +233,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure20do_oop_storage_ro
 _ZN10OopStorage5Block7iterateINS_5OopFnI22ReferenceLocateClosureEEEEbT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %18
   %29 = add nuw i64 %.0911.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %29, %16
-  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit, label %18, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit, label %18, !llvm.loop !9
 
 _ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit: ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnI22ReferenceLocateClosureEEEEbT_.exit.i.i.i, %8
   %30 = load i8, ptr %7, align 8
@@ -241,7 +241,7 @@ _ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit: ; preds = %_ZN10Oop
   %32 = add nuw nsw i32 %.sroa.010.015, 1
   %.not = icmp eq i32 %32, 5
   %or.cond = select i1 %31, i1 true, i1 %.not
-  br i1 %or.cond, label %33, label %8
+  br i1 %or.cond, label %33, label %8, !llvm.loop !10
 
 33:                                               ; preds = %_ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit
   ret i1 %31
@@ -335,7 +335,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr nou
 _ZN10OopStorage5Block7iterateINS_5OopFnI22ReferenceLocateClosureEEEEbT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %30
   %41 = add nuw i64 %.0911.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %41, %28
-  br i1 %exitcond.not.i.i.i.i, label %_ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit.i, label %30, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i.i, label %_ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit.i, label %30, !llvm.loop !9
 
 _ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit.i: ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnI22ReferenceLocateClosureEEEEbT_.exit.i.i.i.i, %20
   %42 = load i8, ptr %19, align 8
@@ -343,7 +343,7 @@ _ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit.i: ; preds = %_ZN10O
   %44 = add nuw nsw i32 %.sroa.010.015.i, 1
   %.not.i = icmp eq i32 %44, 5
   %or.cond.i = select i1 %43, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %_ZN22ReferenceToRootClosure20do_oop_storage_rootsEv.exit, label %20
+  br i1 %or.cond.i, label %_ZN22ReferenceToRootClosure20do_oop_storage_rootsEv.exit, label %20, !llvm.loop !10
 
 _ZN22ReferenceToRootClosure20do_oop_storage_rootsEv.exit: ; preds = %_ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
@@ -490,7 +490,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure20do_thread_s
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #8
   %57 = icmp slt i32 %51, %56
-  br i1 %57, label %25, label %.loopexit, !llvm.loop !9
+  br i1 %57, label %25, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %44, %50, %12, %10
   %.0 = phi i1 [ true, %10 ], [ false, %12 ], [ true, %44 ], [ false, %50 ]
@@ -575,12 +575,12 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %30
 
 45:                                               ; preds = %38
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(5041) %5, ptr noundef nonnull %20)
-  %46 = load i8, ptr %21, align 1, !noalias !10
+  %46 = load i8, ptr %21, align 1, !noalias !12
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr %22, align 8, !noalias !10
+  %49 = load ptr, ptr %22, align 8, !noalias !12
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK11RegisterMap7in_contEv.exit.i.i
 
@@ -590,7 +590,7 @@ _ZNK11RegisterMap7in_contEv.exit.i.i:             ; preds = %48
   br i1 %.not.i.i, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i.i, %48
-  %52 = load ptr, ptr %23, align 8, !noalias !10
+  %52 = load ptr, ptr %23, align 8, !noalias !12
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(56) %3) #8
   br label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
@@ -603,7 +603,7 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %38, %_ZNK5frame6sen
   %53 = phi i8 [ %43, %38 ], [ %.pre, %_ZNK5frame6senderEP11RegisterMap.exit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   %54 = trunc i8 %53 to i1
-  br i1 %54, label %_ZN16StackFrameStream7is_doneEv.exit.thread, label %24, !llvm.loop !13
+  br i1 %54, label %_ZN16StackFrameStream7is_doneEv.exit.thread, label %24, !llvm.loop !15
 
 _ZN16StackFrameStream7is_doneEv.exit.thread:      ; preds = %_ZN16StackFrameStream4nextEv.exit, %14, %2
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -637,7 +637,7 @@ _ZN16StackFrameStream7is_doneEv.exit.thread:      ; preds = %_ZN16StackFrameStre
   %70 = load i32, ptr %62, align 4
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %66, label %.loopexit.loopexit, !llvm.loop !14
+  br i1 %72, label %66, label %.loopexit.loopexit, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %66
   %.pre21 = load i8, ptr %55, align 8
@@ -772,7 +772,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_r
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #8
   %57 = icmp slt i32 %51, %56
-  br i1 %57, label %25, label %.loopexit7, !llvm.loop !9
+  br i1 %57, label %25, label %.loopexit7, !llvm.loop !11
 
 .loopexit:                                        ; preds = %44, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -861,7 +861,7 @@ define hidden void @_ZN12RootResolver7resolveER12RootCallback(ptr noundef nonnul
 10:                                               ; preds = %8
   %11 = call noundef ptr @_ZN28JfrJavaThreadIteratorAdapter4nextEv(ptr noundef nonnull align 8 dereferenceable(73) %7) #8
   %12 = call noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_rootsEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef %11)
-  br i1 %12, label %_ZN28ReferenceToThreadRootClosureC2ER12RootCallback.exit, label %8, !llvm.loop !15
+  br i1 %12, label %_ZN28ReferenceToThreadRootClosureC2ER12RootCallback.exit, label %8, !llvm.loop !17
 
 _ZN28ReferenceToThreadRootClosureC2ER12RootCallback.exit: ; preds = %8, %10
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %7) #8
@@ -1470,13 +1470,15 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!12 = distinct !{!12, !"_ZNK5frame6senderEP11RegisterMap"}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!14 = distinct !{!14, !"_ZNK5frame6senderEP11RegisterMap"}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

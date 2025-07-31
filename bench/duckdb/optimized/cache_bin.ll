@@ -52,7 +52,7 @@ define void @duckdb_je_cache_bin_info_compute_alloc(ptr noundef readonly capture
   %14 = add i64 %13, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -87,17 +87,17 @@ define void @duckdb_je_cache_bin_init(ptr noundef writeonly captures(none) initi
   %10 = add i64 %5, %9
   store i64 %10, ptr %3, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
-  store ptr %11, ptr %0, align 8, !tbaa !12
+  store ptr %11, ptr %0, align 8, !tbaa !14
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %13, ptr %14, align 8, !tbaa !16
+  store i16 %13, ptr %14, align 8, !tbaa !18
   %15 = ptrtoint ptr %6 to i64
   %16 = trunc i64 %15 to i16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %16, ptr %17, align 2, !tbaa !17
+  store i16 %16, ptr %17, align 2, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %13, ptr %18, align 4, !tbaa !18
+  store i16 %13, ptr %18, align 4, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %7, ptr %19, align 2, !tbaa !3
   ret void
@@ -105,13 +105,13 @@ define void @duckdb_je_cache_bin_init(ptr noundef writeonly captures(none) initi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cache_bin_init_disabled(ptr noundef writeonly captures(none) initializes((0, 8), (16, 24)) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
-  store ptr @duckdb_je_disabled_bin, ptr %0, align 8, !tbaa !12
+  store ptr @duckdb_je_disabled_bin, ptr %0, align 8, !tbaa !14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 ptrtoint (ptr @duckdb_je_disabled_bin to i16), ptr %3, align 8, !tbaa !16
+  store i16 ptrtoint (ptr @duckdb_je_disabled_bin to i16), ptr %3, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 ptrtoint (ptr @duckdb_je_disabled_bin to i16), ptr %4, align 2, !tbaa !17
+  store i16 ptrtoint (ptr @duckdb_je_disabled_bin to i16), ptr %4, align 2, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 ptrtoint (ptr @duckdb_je_disabled_bin to i16), ptr %5, align 4, !tbaa !18
+  store i16 ptrtoint (ptr @duckdb_je_disabled_bin to i16), ptr %5, align 4, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %1, ptr %6, align 2, !tbaa !3
   ret void
@@ -136,10 +136,12 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !9 = !{!"int", !6, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !6, i64 0}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"cache_bin_s", !14, i64 0, !15, i64 8, !5, i64 16, !5, i64 18, !5, i64 20, !4, i64 22}
-!14 = !{!"any pointer", !6, i64 0}
-!15 = !{!"cache_bin_stats_s", !11, i64 0}
-!16 = !{!13, !5, i64 16}
-!17 = !{!13, !5, i64 18}
-!18 = !{!13, !5, i64 20}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"cache_bin_s", !16, i64 0, !17, i64 8, !5, i64 16, !5, i64 18, !5, i64 20, !4, i64 22}
+!16 = !{!"any pointer", !6, i64 0}
+!17 = !{!"cache_bin_stats_s", !11, i64 0}
+!18 = !{!15, !5, i64 16}
+!19 = !{!15, !5, i64 18}
+!20 = !{!15, !5, i64 20}

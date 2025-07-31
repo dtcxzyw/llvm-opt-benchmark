@@ -403,7 +403,7 @@ define dso_local ptr @curlx_dyn_take(ptr noundef captures(none) initializes((16,
   %3 = load ptr, ptr %0, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !12
-  store i64 %5, ptr %1, align 8, !tbaa !17
+  store i64 %5, ptr %1, align 8, !tbaa !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret ptr %3
 }
@@ -492,6 +492,7 @@ attributes #18 = { nounwind willreturn memory(read) }
 !12 = !{!5, !10, i64 8}
 !13 = !{!8, !8, i64 0}
 !14 = !{!5, !10, i64 16}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!10, !10, i64 0}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!10, !10, i64 0}

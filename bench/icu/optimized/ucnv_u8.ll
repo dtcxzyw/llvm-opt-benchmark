@@ -234,7 +234,7 @@ define void @ucnv_fromUnicode_UTF8_77(ptr noundef captures(none) %0, ptr noundef
 .loopexit:                                        ; preds = %113, %.preheader, %45, %43, %100, %29
   %.392 = phi ptr [ %31, %29 ], [ %44, %43 ], [ %38, %45 ], [ %102, %100 ], [ %.6, %.preheader ], [ %.9, %113 ]
   %.3 = phi ptr [ %25, %29 ], [ %25, %43 ], [ %25, %45 ], [ %.5, %100 ], [ %.5, %.preheader ], [ %.5, %113 ]
-  br label %20, !llvm.loop !31
+  br label %20, !llvm.loop !32
 
 115:                                              ; preds = %67, %66, %20
   %.291 = phi ptr [ %.190, %20 ], [ %.089, %66 ], [ %.089, %67 ]
@@ -274,7 +274,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -316,7 +316,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
 31:                                               ; preds = %26
   %32 = add nsw i32 %.1114, 1
   %33 = getelementptr inbounds nuw i8, ptr %.1123, i64 4
-  store i32 %.1114, ptr %.1123, align 4, !tbaa !33
+  store i32 %.1114, ptr %.1123, align 4, !tbaa !34
   %34 = trunc nuw nsw i16 %28 to i8
   %35 = getelementptr inbounds nuw i8, ptr %.1129, i64 1
   store i8 %34, ptr %.1129, align 1, !tbaa !25
@@ -328,7 +328,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %.1123, i64 4
-  store i32 %.1114, ptr %.1123, align 4, !tbaa !33
+  store i32 %.1114, ptr %.1123, align 4, !tbaa !34
   %40 = lshr i16 %28, 6
   %41 = trunc nuw nsw i16 %40 to i8
   %42 = or disjoint i8 %41, -64
@@ -340,7 +340,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
 45:                                               ; preds = %38
   %46 = add nsw i32 %.1114, 1
   %47 = getelementptr inbounds nuw i8, ptr %.1123, i64 8
-  store i32 %.1114, ptr %39, align 4, !tbaa !33
+  store i32 %.1114, ptr %39, align 4, !tbaa !34
   %48 = trunc i16 %28 to i8
   %49 = and i8 %48, 63
   %50 = or disjoint i8 %49, -128
@@ -472,16 +472,16 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
   %115 = add nuw nsw i32 %.0110, 1
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %.6134, i64 %116
-  store i32 %.5118, ptr %.6, align 4, !tbaa !33
+  store i32 %.5118, ptr %.6, align 4, !tbaa !34
   %118 = getelementptr inbounds nuw i8, ptr %.6, i64 4
-  store i32 %.5118, ptr %118, align 4, !tbaa !33
+  store i32 %.5118, ptr %118, align 4, !tbaa !34
   %119 = getelementptr inbounds nuw i8, ptr %.6, i64 8
-  store i32 %.5118, ptr %119, align 4, !tbaa !33
+  store i32 %.5118, ptr %119, align 4, !tbaa !34
   br i1 %86, label %120, label %122
 
 120:                                              ; preds = %114
   %121 = getelementptr inbounds nuw i8, ptr %.6, i64 12
-  store i32 %.5118, ptr %121, align 4, !tbaa !33
+  store i32 %.5118, ptr %121, align 4, !tbaa !34
   br label %122
 
 122:                                              ; preds = %120, %114
@@ -497,7 +497,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
 
 126:                                              ; preds = %124
   %127 = getelementptr inbounds nuw i8, ptr %.8154, i64 4
-  store i32 %.5118, ptr %.8154, align 4, !tbaa !33
+  store i32 %.5118, ptr %.8154, align 4, !tbaa !34
   %128 = load i8, ptr %.0121155, align 1, !tbaa !25
   %129 = getelementptr inbounds nuw i8, ptr %.8136153, i64 1
   store i8 %128, ptr %.8136153, align 1, !tbaa !25
@@ -519,14 +519,14 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
   %.9 = phi ptr [ %127, %126 ], [ %.8154, %130 ]
   %137 = getelementptr inbounds nuw i8, ptr %.0121155, i64 1
   %.not147 = icmp ugt ptr %137, %111
-  br i1 %.not147, label %.loopexit, label %124, !llvm.loop !34
+  br i1 %.not147, label %.loopexit, label %124, !llvm.loop !35
 
 .loopexit:                                        ; preds = %136, %.preheader, %52, %45, %122, %31
   %.3131 = phi ptr [ %35, %31 ], [ %51, %45 ], [ %43, %52 ], [ %117, %122 ], [ %.6134, %.preheader ], [ %.9137, %136 ]
   %.3125 = phi ptr [ %33, %31 ], [ %47, %45 ], [ %39, %52 ], [ %123, %122 ], [ %.6, %.preheader ], [ %.9, %136 ]
   %.2115 = phi i32 [ %32, %31 ], [ %46, %45 ], [ %.1114, %52 ], [ %.1112, %122 ], [ %.1112, %.preheader ], [ %.1112, %136 ]
   %.3 = phi ptr [ %27, %31 ], [ %27, %45 ], [ %27, %52 ], [ %.5, %122 ], [ %.5, %.preheader ], [ %.5, %136 ]
-  br label %22, !llvm.loop !35
+  br label %22, !llvm.loop !36
 
 138:                                              ; preds = %79, %78, %22
   %.2130 = phi ptr [ %.1129, %22 ], [ %.0128, %78 ], [ %.0128, %79 ]
@@ -549,7 +549,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
 144:                                              ; preds = %143, %140, %138
   store ptr %.2130, ptr %12, align 8, !tbaa !15
   store ptr %.2, ptr %6, align 8, !tbaa !13
-  store ptr %.2124, ptr %8, align 8, !tbaa !32
+  store ptr %.2124, ptr %8, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
   ret void
 }
@@ -557,22 +557,22 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL19ucnv_toUnicode_UTF8P23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !40
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !41
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 65
   %14 = getelementptr i8, ptr %4, i64 48
   %.val = load ptr, ptr %14, align 8, !tbaa !17
   %.val.fr = freeze ptr %.val
   %15 = icmp eq ptr %.val.fr, @_CESU8Data_77
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %17 = load i8, ptr %16, align 8, !tbaa !42
+  %17 = load i8, ptr %16, align 8, !tbaa !43
   %18 = icmp sgt i8 %17, 0
   %19 = icmp ult ptr %8, %12
   %or.cond109 = select i1 %18, i1 %19, i1 false
@@ -581,11 +581,11 @@ define internal void @_ZL19ucnv_toUnicode_UTF8P23UConverterToUnicodeArgsP10UErro
 20:                                               ; preds = %2
   %21 = zext nneg i8 %17 to i32
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  %23 = load i32, ptr %22, align 4, !tbaa !43
-  store i8 0, ptr %16, align 8, !tbaa !42
+  %23 = load i32, ptr %22, align 4, !tbaa !44
+  store i8 0, ptr %16, align 8, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %25 = load i32, ptr %24, align 8, !tbaa !44
-  store i32 0, ptr %24, align 8, !tbaa !44
+  %25 = load i32, ptr %24, align 8, !tbaa !45
+  store i32 0, ptr %24, align 8, !tbaa !45
   br label %47
 
 26:                                               ; preds = %.preheader, %34
@@ -606,7 +606,7 @@ define internal void @_ZL19ucnv_toUnicode_UTF8P23UConverterToUnicodeArgsP10UErro
   %35 = zext nneg i8 %32 to i16
   %36 = getelementptr inbounds nuw i8, ptr %.196, i64 2
   store i16 %35, ptr %.196, align 2, !tbaa !23
-  br label %26, !llvm.loop !45
+  br label %26, !llvm.loop !46
 
 37:                                               ; preds = %30
   %38 = zext i8 %32 to i32
@@ -667,7 +667,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %62 = trunc nuw i64 %indvars.iv.next231 to i32
   %63 = icmp sgt i32 %.0.fr, %62
-  br i1 %63, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !46
+  br i1 %63, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !47
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %64 = icmp eq i32 %.0.fr, 3
@@ -724,7 +724,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us137:    ; preds = %67
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %91 = trunc nuw i64 %indvars.iv.next228 to i32
   %92 = icmp slt i32 %91, 3
-  br i1 %92, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !48
+  br i1 %92, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !49
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %15, label %.lr.ph.split.split.split, label %.lr.ph.split.split.split.us
@@ -767,7 +767,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us165:    ; preds = %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %114 = trunc nuw i64 %indvars.iv.next to i32
   %115 = icmp sgt i32 %.0.fr, %114
-  br i1 %115, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !49
+  br i1 %115, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !50
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %138
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %138 ], [ %65, %.lr.ph.split.split ]
@@ -819,18 +819,18 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %117
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %142 = trunc nuw i64 %indvars.iv.next225 to i32
   %143 = icmp sgt i32 %.0.fr, %142
-  br i1 %143, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !50
+  br i1 %143, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !51
 
 .split.us:                                        ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.3117.us, %.lr.ph.split.us ], [ %.3117.us136, %.lr.ph.split.split.us ], [ %.3117, %.lr.ph.split.split.split ], [ %.3117.us164, %.lr.ph.split.split.split.us ]
   %.us-phi126 = phi i32 [ %.192118.us, %.lr.ph.split.us ], [ %.192118.us135, %.lr.ph.split.split.us ], [ %.192118, %.lr.ph.split.split.split ], [ %.192118.us163, %.lr.ph.split.split.split.us ]
   %.us-phi127.in = phi i64 [ %indvars.iv230, %.lr.ph.split.us ], [ %indvars.iv227, %.lr.ph.split.split.us ], [ %indvars.iv224, %.lr.ph.split.split.split ], [ %indvars.iv, %.lr.ph.split.split.split.us ]
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i32 %.us-phi126, ptr %144, align 8, !tbaa !44
+  store i32 %.us-phi126, ptr %144, align 8, !tbaa !45
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  store i32 %.0.fr, ptr %145, align 4, !tbaa !43
+  store i32 %.0.fr, ptr %145, align 4, !tbaa !44
   %146 = trunc i64 %.us-phi127.in to i8
-  store i8 %146, ptr %16, align 8, !tbaa !42
+  store i8 %146, ptr %16, align 8, !tbaa !43
   br label %.loopexit
 
 ._crit_edge.loopexit241.split.loop.exit:          ; preds = %83
@@ -862,7 +862,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %117
 153:                                              ; preds = %._crit_edge
   %154 = sext i32 %.0.fr to i64
   %155 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %154
-  %156 = load i32, ptr %155, align 4, !tbaa !33
+  %156 = load i32, ptr %155, align 4, !tbaa !34
   %157 = sub i32 %.192.lcssa, %156
   %158 = icmp ult i32 %157, 65536
   br i1 %158, label %159, label %162
@@ -871,7 +871,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %117
   %160 = trunc nuw i32 %157 to i16
   %161 = getelementptr inbounds nuw i8, ptr %.095, i64 2
   store i16 %160, ptr %.095, align 2, !tbaa !23
-  br label %.preheader, !llvm.loop !45
+  br label %.preheader, !llvm.loop !46
 
 .preheader:                                       ; preds = %2, %171, %159
   %.196.ph = phi ptr [ %172, %171 ], [ %161, %159 ], [ %8, %2 ]
@@ -893,19 +893,19 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %117
 171:                                              ; preds = %162
   %172 = getelementptr inbounds nuw i8, ptr %.095, i64 4
   store i16 %169, ptr %166, align 2, !tbaa !23
-  br label %.preheader, !llvm.loop !45
+  br label %.preheader, !llvm.loop !46
 
 173:                                              ; preds = %162
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i16 %169, ptr %174, align 8, !tbaa !23
   %175 = getelementptr inbounds nuw i8, ptr %4, i64 93
-  store i8 1, ptr %175, align 1, !tbaa !51
+  store i8 1, ptr %175, align 1, !tbaa !52
   store i32 15, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 
 176:                                              ; preds = %._crit_edge
   %177 = trunc i32 %.1.lcssa to i8
-  store i8 %177, ptr %16, align 8, !tbaa !42
+  store i8 %177, ptr %16, align 8, !tbaa !43
   store i32 12, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 
@@ -927,32 +927,32 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %117
   br label %183
 
 183:                                              ; preds = %182, %179, %.loopexit
-  store ptr %.398, ptr %7, align 8, !tbaa !39
-  store ptr %.4, ptr %5, align 8, !tbaa !38
+  store ptr %.398, ptr %7, align 8, !tbaa !40
+  store ptr %.4, ptr %5, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL33ucnv_toUnicode_UTF8_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !52
+  %10 = load ptr, ptr %9, align 8, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !40
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !41
+  %14 = load ptr, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 65
   %16 = getelementptr i8, ptr %4, i64 48
   %.val = load ptr, ptr %16, align 8, !tbaa !17
   %.val.fr = freeze ptr %.val
   %17 = icmp eq ptr %.val.fr, @_CESU8Data_77
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %19 = load i8, ptr %18, align 8, !tbaa !42
+  %19 = load i8, ptr %18, align 8, !tbaa !43
   %20 = icmp sgt i8 %19, 0
   %21 = icmp ult ptr %8, %14
   %or.cond130 = select i1 %20, i1 %21, i1 false
@@ -961,11 +961,11 @@ define internal void @_ZL33ucnv_toUnicode_UTF8_OFFSETS_LOGICP23UConverterToUnico
 22:                                               ; preds = %2
   %23 = zext nneg i8 %19 to i32
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  %25 = load i32, ptr %24, align 4, !tbaa !43
-  store i8 0, ptr %18, align 8, !tbaa !42
+  %25 = load i32, ptr %24, align 4, !tbaa !44
+  store i8 0, ptr %18, align 8, !tbaa !43
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %27 = load i32, ptr %26, align 8, !tbaa !44
-  store i32 0, ptr %26, align 8, !tbaa !44
+  %27 = load i32, ptr %26, align 8, !tbaa !45
+  store i32 0, ptr %26, align 8, !tbaa !45
   br label %51
 
 28:                                               ; preds = %.preheader, %36
@@ -990,8 +990,8 @@ define internal void @_ZL33ucnv_toUnicode_UTF8_OFFSETS_LOGICP23UConverterToUnico
   store i16 %37, ptr %.1109, align 2, !tbaa !23
   %39 = add nsw i32 %.1119, 1
   %40 = getelementptr inbounds nuw i8, ptr %.1114, i64 4
-  store i32 %.1119, ptr %.1114, align 4, !tbaa !33
-  br label %28, !llvm.loop !53
+  store i32 %.1119, ptr %.1114, align 4, !tbaa !34
+  br label %28, !llvm.loop !54
 
 41:                                               ; preds = %32
   %42 = zext i8 %34 to i32
@@ -1054,7 +1054,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %66 = trunc nuw i64 %indvars.iv.next252 to i32
   %67 = icmp sgt i32 %.0.fr, %66
-  br i1 %67, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !54
+  br i1 %67, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !55
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %68 = icmp eq i32 %.0.fr, 3
@@ -1111,7 +1111,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us158:    ; preds = %71
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %95 = trunc nuw i64 %indvars.iv.next249 to i32
   %96 = icmp slt i32 %95, 3
-  br i1 %96, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !55
+  br i1 %96, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !56
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %17, label %.lr.ph.split.split.split, label %.lr.ph.split.split.split.us
@@ -1154,7 +1154,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us186:    ; preds = %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %118 = trunc nuw i64 %indvars.iv.next to i32
   %119 = icmp sgt i32 %.0.fr, %118
-  br i1 %119, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !56
+  br i1 %119, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !57
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %142
   %indvars.iv245 = phi i64 [ %indvars.iv.next246, %142 ], [ %69, %.lr.ph.split.split ]
@@ -1206,18 +1206,18 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %146 = trunc nuw i64 %indvars.iv.next246 to i32
   %147 = icmp sgt i32 %.0.fr, %146
-  br i1 %147, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !57
+  br i1 %147, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !58
 
 .split.us:                                        ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.3138.us, %.lr.ph.split.us ], [ %.3138.us157, %.lr.ph.split.split.us ], [ %.3138, %.lr.ph.split.split.split ], [ %.3138.us185, %.lr.ph.split.split.split.us ]
   %.us-phi147 = phi i32 [ %.1105139.us, %.lr.ph.split.us ], [ %.1105139.us156, %.lr.ph.split.split.us ], [ %.1105139, %.lr.ph.split.split.split ], [ %.1105139.us184, %.lr.ph.split.split.split.us ]
   %.us-phi148.in = phi i64 [ %indvars.iv251, %.lr.ph.split.us ], [ %indvars.iv248, %.lr.ph.split.split.us ], [ %indvars.iv245, %.lr.ph.split.split.split ], [ %indvars.iv, %.lr.ph.split.split.split.us ]
   %148 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i32 %.us-phi147, ptr %148, align 8, !tbaa !44
+  store i32 %.us-phi147, ptr %148, align 8, !tbaa !45
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  store i32 %.0.fr, ptr %149, align 4, !tbaa !43
+  store i32 %.0.fr, ptr %149, align 4, !tbaa !44
   %150 = trunc i64 %.us-phi148.in to i8
-  store i8 %150, ptr %18, align 8, !tbaa !42
+  store i8 %150, ptr %18, align 8, !tbaa !43
   br label %.loopexit
 
 ._crit_edge.loopexit262.split.loop.exit:          ; preds = %87
@@ -1249,7 +1249,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
 157:                                              ; preds = %._crit_edge
   %158 = sext i32 %.0.fr to i64
   %159 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %158
-  %160 = load i32, ptr %159, align 4, !tbaa !33
+  %160 = load i32, ptr %159, align 4, !tbaa !34
   %161 = sub i32 %.1105.lcssa, %160
   %162 = icmp ult i32 %161, 65536
   br i1 %162, label %163, label %167
@@ -1259,7 +1259,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   %165 = getelementptr inbounds nuw i8, ptr %.0108, i64 2
   store i16 %164, ptr %.0108, align 2, !tbaa !23
   %166 = getelementptr inbounds nuw i8, ptr %.0113, i64 4
-  store i32 %.0118, ptr %.0113, align 4, !tbaa !33
+  store i32 %.0118, ptr %.0113, align 4, !tbaa !34
   br label %183
 
 167:                                              ; preds = %157
@@ -1269,7 +1269,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   %171 = getelementptr inbounds nuw i8, ptr %.0108, i64 2
   store i16 %170, ptr %.0108, align 2, !tbaa !23
   %172 = getelementptr inbounds nuw i8, ptr %.0113, i64 4
-  store i32 %.0118, ptr %.0113, align 4, !tbaa !33
+  store i32 %.0118, ptr %.0113, align 4, !tbaa !34
   %173 = trunc i32 %161 to i16
   %174 = and i16 %173, 1023
   %175 = or disjoint i16 %174, -9216
@@ -1280,14 +1280,14 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   %178 = getelementptr inbounds nuw i8, ptr %.0108, i64 4
   store i16 %175, ptr %171, align 2, !tbaa !23
   %179 = getelementptr inbounds nuw i8, ptr %.0113, i64 8
-  store i32 %.0118, ptr %172, align 4, !tbaa !33
+  store i32 %.0118, ptr %172, align 4, !tbaa !34
   br label %183
 
 180:                                              ; preds = %167
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i16 %175, ptr %181, align 8, !tbaa !23
   %182 = getelementptr inbounds nuw i8, ptr %4, i64 93
-  store i8 1, ptr %182, align 1, !tbaa !51
+  store i8 1, ptr %182, align 1, !tbaa !52
   store i32 15, ptr %1, align 4, !tbaa !27
   br label %183
 
@@ -1295,7 +1295,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   %.4117 = phi ptr [ %166, %163 ], [ %179, %177 ], [ %172, %180 ]
   %.4112 = phi ptr [ %165, %163 ], [ %178, %177 ], [ %171, %180 ]
   %184 = add nsw i32 %.0.fr, %.0118
-  br label %.preheader, !llvm.loop !53
+  br label %.preheader, !llvm.loop !54
 
 .preheader:                                       ; preds = %2, %183
   %.1119.ph = phi i32 [ %184, %183 ], [ 0, %2 ]
@@ -1306,7 +1306,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
 
 185:                                              ; preds = %._crit_edge
   %186 = trunc i32 %.1.lcssa to i8
-  store i8 %186, ptr %18, align 8, !tbaa !42
+  store i8 %186, ptr %18, align 8, !tbaa !43
   store i32 12, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 
@@ -1329,20 +1329,20 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   br label %192
 
 192:                                              ; preds = %191, %188, %.loopexit
-  store ptr %.3111, ptr %7, align 8, !tbaa !39
-  store ptr %.4, ptr %5, align 8, !tbaa !38
-  store ptr %.3116, ptr %9, align 8, !tbaa !52
+  store ptr %.3111, ptr %7, align 8, !tbaa !40
+  store ptr %.4, ptr %5, align 8, !tbaa !39
+  store ptr %.3116, ptr %9, align 8, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -63438848, 4456448) i32 @_ZL22ucnv_getNextUChar_UTF8P23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
   %.not = icmp ult ptr %6, %8
   br i1 %.not, label %10, label %9
 
@@ -1358,7 +1358,7 @@ define internal noundef range(i32 -63438848, 4456448) i32 @_ZL22ucnv_getNextUCha
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  store ptr %11, ptr %5, align 8, !tbaa !38
+  store ptr %11, ptr %5, align 8, !tbaa !39
   br label %154
 
 16:                                               ; preds = %10
@@ -1383,16 +1383,16 @@ define internal noundef range(i32 -63438848, 4456448) i32 @_ZL22ucnv_getNextUCha
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 65
   store i8 %12, ptr %29, align 1, !tbaa !25
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i8 1, ptr %30, align 8, !tbaa !42
+  store i8 1, ptr %30, align 8, !tbaa !43
   store i32 12, ptr %1, align 4, !tbaa !27
-  store ptr %11, ptr %5, align 8, !tbaa !38
+  store ptr %11, ptr %5, align 8, !tbaa !39
   br label %154
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 65
   store i8 %12, ptr %32, align 1, !tbaa !25
   store i32 11, ptr %1, align 4, !tbaa !27
-  %33 = load ptr, ptr %7, align 8, !tbaa !40
+  %33 = load ptr, ptr %7, align 8, !tbaa !41
   %34 = icmp ult ptr %11, %33
   br i1 %34, label %.lr.ph, label %.loopexit
 
@@ -1418,9 +1418,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph, %43
   %46 = getelementptr inbounds [7 x i8], ptr %32, i64 0, i64 %45
   store i8 %41, ptr %46, align 1, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %.090131.us, i64 1
-  %48 = load ptr, ptr %7, align 8, !tbaa !40
+  %48 = load ptr, ptr %7, align 8, !tbaa !41
   %49 = icmp ult ptr %47, %48
-  br i1 %49, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.loopexit, !llvm.loop !58
+  br i1 %49, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.loopexit, !llvm.loop !59
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %50 = xor i1 %20, %22
@@ -1452,9 +1452,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us138:    ; preds = %.lr.ph.split.split.
   %63 = getelementptr inbounds [7 x i8], ptr %32, i64 0, i64 %62
   store i8 %51, ptr %63, align 1, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %.090131.us136, i64 1
-  %65 = load ptr, ptr %7, align 8, !tbaa !40
+  %65 = load ptr, ptr %7, align 8, !tbaa !41
   %66 = icmp ult ptr %64, %65
-  br i1 %66, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !59
+  br i1 %66, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !60
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %77
   %.090131 = phi ptr [ %81, %77 ], [ %11, %.lr.ph.split ]
@@ -1488,16 +1488,16 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   %80 = getelementptr inbounds [7 x i8], ptr %32, i64 0, i64 %79
   store i8 %67, ptr %80, align 1, !tbaa !25
   %81 = getelementptr inbounds nuw i8, ptr %.090131, i64 1
-  %82 = load ptr, ptr %7, align 8, !tbaa !40
+  %82 = load ptr, ptr %7, align 8, !tbaa !41
   %83 = icmp ult ptr %81, %82
-  br i1 %83, label %.lr.ph.split.split, label %.loopexit
+  br i1 %83, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %77, %60, %43, %31, %.thread108
   %.095127 = phi i8 [ %.us-phi, %.thread108 ], [ 1, %31 ], [ %44, %43 ], [ %61, %60 ], [ %78, %77 ]
   %.090125 = phi ptr [ %.us-phi133, %.thread108 ], [ %11, %31 ], [ %47, %43 ], [ %64, %60 ], [ %81, %77 ]
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i8 %.095127, ptr %84, align 8, !tbaa !42
-  store ptr %.090125, ptr %5, align 8, !tbaa !38
+  store i8 %.095127, ptr %84, align 8, !tbaa !43
+  store ptr %.090125, ptr %5, align 8, !tbaa !39
   br label %154
 
 85:                                               ; preds = %19
@@ -1529,7 +1529,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store ptr %103, ptr %5, align 8, !tbaa !38
+  store ptr %103, ptr %5, align 8, !tbaa !39
   %104 = add nuw nsw i32 %86, %94
   %105 = shl nuw nsw i32 %104, 6
   %106 = zext i8 %100 to i32
@@ -1543,7 +1543,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store ptr %112, ptr %5, align 8, !tbaa !38
+  store ptr %112, ptr %5, align 8, !tbaa !39
   %113 = zext i8 %87 to i32
   %114 = add nsw i32 %86, -12416
   %115 = add nsw i32 %114, %113
@@ -1576,7 +1576,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
 
 134:                                              ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store ptr %135, ptr %5, align 8, !tbaa !38
+  store ptr %135, ptr %5, align 8, !tbaa !39
   %136 = add nuw nsw i32 %86, %117
   %137 = zext i8 %128 to i32
   %138 = shl nuw nsw i32 %136, 12
@@ -1589,7 +1589,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
 
 .thread113:                                       ; preds = %116, %126, %130, %109, %88, %98
   %.5 = phi ptr [ %11, %88 ], [ %99, %98 ], [ %11, %109 ], [ %11, %116 ], [ %127, %126 ], [ %131, %130 ]
-  store ptr %.5, ptr %5, align 8, !tbaa !38
+  store ptr %.5, ptr %5, align 8, !tbaa !39
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 65
   br label %145
 
@@ -1603,11 +1603,11 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   store i8 %147, ptr %149, align 1, !tbaa !25
   %150 = add i8 %.398128, 1
   %151 = icmp ult ptr %146, %.5
-  br i1 %151, label %145, label %152, !llvm.loop !60
+  br i1 %151, label %145, label %152, !llvm.loop !62
 
 152:                                              ; preds = %145
   %153 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i8 %150, ptr %153, align 8, !tbaa !42
+  store i8 %150, ptr %153, align 8, !tbaa !43
   store i32 12, ptr %1, align 4, !tbaa !27
   br label %154
 
@@ -1621,11 +1621,11 @@ declare void @ucnv_getNonSurrogateUnicodeSet_77(ptr noundef, ptr noundef, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1635,16 +1635,16 @@ define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConv
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %19 = load i8, ptr %18, align 8, !tbaa !42
+  %19 = load i8, ptr %18, align 8, !tbaa !43
   %20 = icmp sgt i8 %19, 0
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %23 = load i32, ptr %22, align 4, !tbaa !43
+  %23 = load i32, ptr %22, align 4, !tbaa !44
   %24 = trunc i32 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %26 = load i32, ptr %25, align 8, !tbaa !44
+  %26 = load i32, ptr %25, align 8, !tbaa !45
   br label %27
 
 27:                                               ; preds = %3, %21
@@ -1781,8 +1781,8 @@ define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConv
 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 0, ptr %101, align 8, !tbaa !44
-  store i8 0, ptr %18, align 8, !tbaa !42
+  store i32 0, ptr %101, align 8, !tbaa !45
+  store i8 0, ptr %18, align 8, !tbaa !43
   br label %.thread259
 
 .lr.ph:                                           ; preds = %.preheader261, %.backedge
@@ -1806,7 +1806,7 @@ define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConv
   %.1195.be = phi ptr [ %102, %106 ], [ %130, %129 ], [ %140, %139 ]
   %108 = add nsw i32 %.3203295, %.sink
   %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !61
+  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 110:                                              ; preds = %.lr.ph
   %111 = icmp samesign ugt i8 %103, -33
@@ -1915,7 +1915,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph310.split.us
   %161 = zext i8 %155 to i32
   %162 = add nsw i32 %160, %161
   %163 = icmp slt i8 %159, %.1218.fr
-  br i1 %163, label %.lr.ph310.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !62
+  br i1 %163, label %.lr.ph310.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !64
 
 .lr.ph310.split:                                  ; preds = %.lr.ph310, %189
   %.2309 = phi ptr [ %190, %189 ], [ %.0194, %.lr.ph310 ]
@@ -1970,7 +1970,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %168, %172, %180
   %193 = zext i8 %166 to i32
   %194 = add nsw i32 %192, %193
   %195 = icmp slt i8 %191, %.1218.fr
-  br i1 %195, label %.lr.ph310.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !63
+  br i1 %195, label %.lr.ph310.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !65
 
 .split.us:                                        ; preds = %.lr.ph310.split, %.lr.ph310.split.us
   %.us-phi = phi i8 [ %.2221307.us, %.lr.ph310.split.us ], [ %.2221307, %.lr.ph310.split ]
@@ -1997,16 +1997,16 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %168, %172, %180
   %205 = getelementptr inbounds [7 x i8], ptr %201, i64 0, i64 %indvars.iv
   store i8 %204, ptr %205, align 1, !tbaa !25
   %206 = icmp samesign ult i64 %indvars.iv.next, %196
-  br i1 %206, label %202, label %._crit_edge331, !llvm.loop !64
+  br i1 %206, label %202, label %._crit_edge331, !llvm.loop !66
 
 ._crit_edge331:                                   ; preds = %202, %.split.us
   %.3.lcssa = phi ptr [ %199, %.split.us ], [ %203, %202 ]
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 %.us-phi319, ptr %207, align 8, !tbaa !44
-  store i8 %.us-phi, ptr %18, align 8, !tbaa !42
+  store i32 %.us-phi319, ptr %207, align 8, !tbaa !45
+  store i8 %.us-phi, ptr %18, align 8, !tbaa !43
   %208 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  store i32 %197, ptr %208, align 4, !tbaa !43
-  store ptr %.3.lcssa, ptr %6, align 8, !tbaa !38
+  store i32 %197, ptr %208, align 4, !tbaa !44
+  store ptr %.3.lcssa, ptr %6, align 8, !tbaa !39
   store ptr %.0196, ptr %10, align 8, !tbaa !15
   br label %313
 
@@ -2056,12 +2056,12 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
   %225 = getelementptr inbounds nuw [7 x i8], ptr %219, i64 0, i64 %indvars.iv400
   store i8 %224, ptr %225, align 1, !tbaa !25
   %226 = icmp slt i64 %indvars.iv.next401, %221
-  br i1 %226, label %222, label %._crit_edge337, !llvm.loop !65
+  br i1 %226, label %222, label %._crit_edge337, !llvm.loop !67
 
 ._crit_edge337:                                   ; preds = %222, %214
   %.4.lcssa = phi ptr [ %217, %214 ], [ %223, %222 ]
-  store i8 %.2221.lcssa306, ptr %18, align 8, !tbaa !42
-  store ptr %.4.lcssa, ptr %6, align 8, !tbaa !38
+  store i8 %.2221.lcssa306, ptr %18, align 8, !tbaa !43
+  store ptr %.4.lcssa, ptr %6, align 8, !tbaa !39
   store ptr %.0196, ptr %10, align 8, !tbaa !15
   store i32 12, ptr %2, align 4, !tbaa !27
   br label %313
@@ -2075,7 +2075,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
   store i8 %229, ptr %.2198339, align 1, !tbaa !25
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next404, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge342, label %227, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge342, label %227, !llvm.loop !68
 
 ._crit_edge342:                                   ; preds = %227, %.preheader
   %.2198.lcssa = phi ptr [ %.0196, %.preheader ], [ %230, %227 ]
@@ -2097,13 +2097,13 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
   store i8 %236, ptr %.3199345, align 1, !tbaa !25
   %238 = add nuw nsw i8 %.1347, 1
   %239 = icmp slt i8 %238, %.1218.fr
-  br i1 %239, label %.lr.ph349, label %._crit_edge350, !llvm.loop !67
+  br i1 %239, label %.lr.ph349, label %._crit_edge350, !llvm.loop !69
 
 ._crit_edge350:                                   ; preds = %.lr.ph349, %._crit_edge342
   %.3199.lcssa = phi ptr [ %.2198.lcssa, %._crit_edge342 ], [ %237, %.lr.ph349 ]
   %.5.lcssa = phi ptr [ %233, %._crit_edge342 ], [ %235, %.lr.ph349 ]
   %240 = sub nsw i32 %.2202, %211
-  br label %.preheader261, !llvm.loop !61
+  br label %.preheader261, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader261
   %.1197.lcssa = phi ptr [ %.1197.ph, %.preheader261 ], [ %.1197.be, %.backedge ]
@@ -2167,11 +2167,11 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
   %.lcssa269 = phi i8 [ 1, %.preheader260 ], [ %306, %302 ]
   %.lcssa = phi ptr [ %268, %.preheader260 ], [ %309, %302 ]
   %272 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 %.3216.lcssa, ptr %272, align 8, !tbaa !44
-  store i8 %.lcssa269, ptr %18, align 8, !tbaa !42
+  store i32 %.3216.lcssa, ptr %272, align 8, !tbaa !45
+  store i8 %.lcssa269, ptr %18, align 8, !tbaa !43
   %273 = zext nneg i8 %262 to i32
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  store i32 %273, ptr %274, align 4, !tbaa !43
+  store i32 %273, ptr %274, align 4, !tbaa !44
   br label %312
 
 275:                                              ; preds = %.lr.ph300, %302
@@ -2218,7 +2218,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit258:       ; preds = %280, %284, %292
   br i1 %.not250, label %301, label %302
 
 301:                                              ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit258
-  store i8 %277, ptr %18, align 8, !tbaa !42
+  store i8 %277, ptr %18, align 8, !tbaa !43
   store i32 12, ptr %2, align 4, !tbaa !27
   br label %312
 
@@ -2232,7 +2232,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit258:       ; preds = %280, %284, %292
   store i8 %278, ptr %308, align 1, !tbaa !25
   %309 = getelementptr inbounds nuw i8, ptr %276, i64 1
   %310 = icmp eq ptr %309, %9
-  br i1 %310, label %._crit_edge301, label %275, !llvm.loop !68
+  br i1 %310, label %._crit_edge301, label %275, !llvm.loop !71
 
 311:                                              ; preds = %261
   store i32 -127, ptr %2, align 4, !tbaa !27
@@ -2240,7 +2240,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit258:       ; preds = %280, %284, %292
 
 312:                                              ; preds = %247, %._crit_edge301, %301, %311, %._crit_edge
   %.6 = phi ptr [ %.1195.lcssa, %247 ], [ %.lcssa, %._crit_edge301 ], [ %276, %301 ], [ %.1195.lcssa, %311 ], [ %.1195.lcssa, %._crit_edge ]
-  store ptr %.6, ptr %6, align 8, !tbaa !38
+  store ptr %.6, ptr %6, align 8, !tbaa !39
   store ptr %.1197.lcssa, ptr %10, align 8, !tbaa !15
   br label %313
 
@@ -2290,43 +2290,46 @@ attributes #4 = { nounwind }
 !26 = !{!18, !6, i64 91}
 !27 = !{!28, !28, i64 0}
 !28 = !{!"_ZTS10UErrorCode", !6, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
-!32 = !{!4, !12, i64 48}
-!33 = !{!20, !20, i64 0}
-!34 = distinct !{!34, !30}
-!35 = distinct !{!35, !30}
-!36 = !{!37, !8, i64 8}
-!37 = !{!"_ZTS23UConverterToUnicodeArgs", !5, i64 0, !6, i64 2, !8, i64 8, !11, i64 16, !11, i64 24, !10, i64 32, !10, i64 40, !12, i64 48}
-!38 = !{!37, !11, i64 16}
-!39 = !{!37, !10, i64 32}
-!40 = !{!37, !11, i64 24}
-!41 = !{!37, !10, i64 40}
-!42 = !{!18, !6, i64 64}
-!43 = !{!18, !20, i64 76}
-!44 = !{!18, !20, i64 72}
-!45 = distinct !{!45, !30}
-!46 = distinct !{!46, !30, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !30, !47}
-!49 = distinct !{!49, !30, !47}
-!50 = distinct !{!50, !30}
-!51 = !{!18, !6, i64 93}
-!52 = !{!37, !12, i64 48}
-!53 = distinct !{!53, !30}
-!54 = distinct !{!54, !30, !47}
-!55 = distinct !{!55, !30, !47}
-!56 = distinct !{!56, !30, !47}
-!57 = distinct !{!57, !30}
-!58 = distinct !{!58, !47}
-!59 = distinct !{!59, !47}
-!60 = distinct !{!60, !30}
-!61 = distinct !{!61, !30}
-!62 = distinct !{!62, !30, !47}
-!63 = distinct !{!63, !30}
-!64 = distinct !{!64, !30}
-!65 = distinct !{!65, !30}
-!66 = distinct !{!66, !30}
-!67 = distinct !{!67, !30}
-!68 = distinct !{!68, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = distinct !{!32, !30}
+!33 = !{!4, !12, i64 48}
+!34 = !{!20, !20, i64 0}
+!35 = distinct !{!35, !30, !31}
+!36 = distinct !{!36, !30}
+!37 = !{!38, !8, i64 8}
+!38 = !{!"_ZTS23UConverterToUnicodeArgs", !5, i64 0, !6, i64 2, !8, i64 8, !11, i64 16, !11, i64 24, !10, i64 32, !10, i64 40, !12, i64 48}
+!39 = !{!38, !11, i64 16}
+!40 = !{!38, !10, i64 32}
+!41 = !{!38, !11, i64 24}
+!42 = !{!38, !10, i64 40}
+!43 = !{!18, !6, i64 64}
+!44 = !{!18, !20, i64 76}
+!45 = !{!18, !20, i64 72}
+!46 = distinct !{!46, !30}
+!47 = distinct !{!47, !30, !31, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !30, !31, !48}
+!50 = distinct !{!50, !30, !31, !48}
+!51 = distinct !{!51, !30, !31}
+!52 = !{!18, !6, i64 93}
+!53 = !{!38, !12, i64 48}
+!54 = distinct !{!54, !30}
+!55 = distinct !{!55, !30, !31, !48}
+!56 = distinct !{!56, !30, !31, !48}
+!57 = distinct !{!57, !30, !31, !48}
+!58 = distinct !{!58, !30, !31}
+!59 = distinct !{!59, !31, !48}
+!60 = distinct !{!60, !31, !48}
+!61 = distinct !{!61, !31}
+!62 = distinct !{!62, !30, !31}
+!63 = distinct !{!63, !30, !31}
+!64 = distinct !{!64, !30, !31, !48}
+!65 = distinct !{!65, !30, !31}
+!66 = distinct !{!66, !30, !31}
+!67 = distinct !{!67, !30, !31}
+!68 = distinct !{!68, !30, !31}
+!69 = distinct !{!69, !30, !31}
+!70 = distinct !{!70, !30}
+!71 = distinct !{!71, !30, !31}

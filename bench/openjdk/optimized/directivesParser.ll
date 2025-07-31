@@ -1119,7 +1119,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr i8, ptr %27, i64 %.unpack
   %29 = getelementptr i8, ptr %28, i64 -1
-  %30 = load ptr, ptr %29, align 8, !nosanitize !8
+  %30 = load ptr, ptr %29, align 8, !nosanitize !9
   br label %33
 
 31:                                               ; preds = %23
@@ -1155,7 +1155,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   %46 = load ptr, ptr %43, align 8
   %47 = getelementptr i8, ptr %46, i64 %.unpack
   %48 = getelementptr i8, ptr %47, i64 -1
-  %49 = load ptr, ptr %48, align 8, !nosanitize !8
+  %49 = load ptr, ptr %48, align 8, !nosanitize !9
   br label %52
 
 50:                                               ; preds = %42
@@ -1188,7 +1188,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   %62 = load ptr, ptr %59, align 8
   %63 = getelementptr i8, ptr %62, i64 %.unpack
   %64 = getelementptr i8, ptr %63, i64 -1
-  %65 = load ptr, ptr %64, align 8, !nosanitize !8
+  %65 = load ptr, ptr %64, align 8, !nosanitize !9
   br label %68
 
 66:                                               ; preds = %57
@@ -1212,7 +1212,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   %75 = load ptr, ptr %72, align 8
   %76 = getelementptr i8, ptr %75, i64 %.unpack
   %77 = getelementptr i8, ptr %76, i64 -1
-  %78 = load ptr, ptr %77, align 8, !nosanitize !8
+  %78 = load ptr, ptr %77, align 8, !nosanitize !9
   br label %81
 
 79:                                               ; preds = %70
@@ -1237,7 +1237,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   %89 = load ptr, ptr %86, align 8
   %90 = getelementptr i8, ptr %89, i64 %.unpack
   %91 = getelementptr i8, ptr %90, i64 -1
-  %92 = load ptr, ptr %91, align 8, !nosanitize !8
+  %92 = load ptr, ptr %91, align 8, !nosanitize !9
   br label %95
 
 93:                                               ; preds = %83
@@ -1281,7 +1281,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   %113 = load ptr, ptr %110, align 8
   %114 = getelementptr i8, ptr %113, i64 %.unpack
   %115 = getelementptr i8, ptr %114, i64 -1
-  %116 = load ptr, ptr %115, align 8, !nosanitize !8
+  %116 = load ptr, ptr %115, align 8, !nosanitize !9
   br label %119
 
 117:                                              ; preds = %108
@@ -1390,7 +1390,7 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit.thread:   ; preds = %_ZN25ControlIntrins
   %163 = load ptr, ptr %160, align 8
   %164 = getelementptr i8, ptr %163, i64 %.unpack
   %165 = getelementptr i8, ptr %164, i64 -1
-  %166 = load ptr, ptr %165, align 8, !nosanitize !8
+  %166 = load ptr, ptr %165, align 8, !nosanitize !9
   br label %169
 
 167:                                              ; preds = %.critedge
@@ -1454,7 +1454,7 @@ define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr nound
   %24 = load i8, ptr %0, align 8
   %25 = trunc i8 %24 to i1
   %or.cond = select i1 %.not, i1 %25, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !9
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2119,7 +2119,8 @@ attributes #19 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{}
+!10 = distinct !{!10, !7, !8}

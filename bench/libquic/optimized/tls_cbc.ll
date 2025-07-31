@@ -60,7 +60,7 @@ define hidden range(i32 -1, 2) i32 @EVP_tls_cbc_remove_padding(ptr noundef write
   %.neg = xor i32 %13, -1
   %.neg35 = select i1 %.not, i32 %.neg, i32 0
   %33 = add i32 %.neg35, %2
-  store i32 %33, ptr %0, align 4, !tbaa !11
+  store i32 %33, ptr %0, align 4, !tbaa !12
   %34 = select i1 %.not, i32 1, i32 -1
   br label %35
 
@@ -184,7 +184,7 @@ define hidden void @EVP_tls_cbc_copy_mac(ptr noundef writeonly captures(none) %0
   %66 = select i1 %isneg74, i32 %56, i32 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !14
 
 .lr.ph80:                                         ; preds = %.preheader, %.lr.ph80
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.lr.ph80 ], [ 0, %.preheader ]
@@ -208,7 +208,7 @@ define hidden void @EVP_tls_cbc_copy_mac(ptr noundef writeonly captures(none) %0
   %isneg73 = icmp slt i32 %80, 0
   %81 = select i1 %isneg73, i32 %71, i32 0
   %exitcond88.not = icmp eq i64 %indvars.iv.next83, %37
-  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph80, !llvm.loop !14
+  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph80, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph80, %.preheader
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
@@ -274,7 +274,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   br label %26
 
 25:                                               ; preds = %9
-  store i64 0, ptr %2, align 8, !tbaa !15
+  store i64 0, ptr %2, align 8, !tbaa !16
   br label %157
 
 26:                                               ; preds = %23, %21, %19
@@ -297,7 +297,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   store i8 %32, ptr %30, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %27
-  br i1 %exitcond.not, label %33, label %29, !llvm.loop !17
+  br i1 %exitcond.not, label %33, label %29, !llvm.loop !18
 
 33:                                               ; preds = %29
   %34 = add i64 %6, 13
@@ -323,7 +323,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %.0124 = call i32 @llvm.usub.sat.i32(i32 %41, i32 6)
   %53 = add i32 %45, %.0123
   %54 = shl i32 %53, 3
-  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %12) #9, !callees !18
+  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %12) #9, !callees !19
   %55 = add nsw i32 %.0118, -4
   %56 = zext nneg i32 %55 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %11, i8 0, i64 %56, i1 false)
@@ -357,7 +357,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %76 = add nsw i32 %.0123, -13
   %77 = zext nneg i32 %76 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %75, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %77, i1 false)
-  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %13) #9, !callees !18
+  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %13) #9, !callees !19
   %78 = lshr i32 %.0125, %40
   %invariant.gep = getelementptr i8, ptr %4, i64 -13
   %79 = icmp samesign ugt i32 %78, 1
@@ -373,10 +373,10 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %81 = mul i32 %.0123, %80
   %82 = zext i32 %81 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %82
-  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %gep) #9, !callees !18
+  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %gep) #9, !callees !19
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %74, %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %14, i8 0, i64 64, i1 false)
@@ -459,11 +459,11 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   store i8 %.1, ptr %132, align 1, !tbaa !6
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %27
-  br i1 %exitcond152.not, label %133, label %101, !llvm.loop !20
+  br i1 %exitcond152.not, label %133, label %101, !llvm.loop !21
 
 133:                                              ; preds = %131
-  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %17) #9, !callees !18
-  call void %.0114(ptr noundef nonnull %10, ptr noundef nonnull %17) #9, !callees !21
+  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %17) #9, !callees !19
+  call void %.0114(ptr noundef nonnull %10, ptr noundef nonnull %17) #9, !callees !22
   br label %134
 
 134:                                              ; preds = %133, %134
@@ -477,13 +477,13 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   store i8 %140, ptr %138, align 1, !tbaa !6
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %42
-  br i1 %exitcond157.not, label %141, label %134, !llvm.loop !22
+  br i1 %exitcond157.not, label %141, label %134, !llvm.loop !23
 
 141:                                              ; preds = %134
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %17) #9
   %142 = add nuw nsw i32 %.2140, 1
   %.not130.not = icmp samesign ult i32 %.2140, %83
-  br i1 %.not130.not, label %87, label %143, !llvm.loop !23
+  br i1 %.not130.not, label %87, label %143, !llvm.loop !24
 
 143:                                              ; preds = %141
   call void @EVP_MD_CTX_init(ptr noundef nonnull %16) #9
@@ -503,15 +503,15 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   store i8 %149, ptr %147, align 1, !tbaa !6
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %27
-  br i1 %exitcond162.not, label %150, label %.preheader, !llvm.loop !24
+  br i1 %exitcond162.not, label %150, label %.preheader, !llvm.loop !25
 
 150:                                              ; preds = %.preheader
   %151 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %12, i64 noundef %27) #9
   %152 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %14, i64 noundef %42) #9
   %153 = call i32 @EVP_DigestFinal(ptr noundef nonnull %16, ptr noundef %1, ptr noundef nonnull %15) #9
-  %154 = load i32, ptr %15, align 4, !tbaa !11
+  %154 = load i32, ptr %15, align 4, !tbaa !12
   %155 = zext i32 %154 to i64
-  store i64 %155, ptr %2, align 8, !tbaa !15
+  store i64 %155, ptr %2, align 8, !tbaa !16
   %156 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %16) #9
   br label %157
 
@@ -644,28 +644,28 @@ define internal void @tls1_sha256_final_raw(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %.01415 = phi ptr [ %1, %2 ], [ %19, %3 ]
   %4 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 4, !tbaa !11
+  %5 = load i32, ptr %4, align 4, !tbaa !12
   %6 = lshr i32 %5, 24
   %7 = trunc nuw i32 %6 to i8
   %8 = getelementptr inbounds nuw i8, ptr %.01415, i64 1
   store i8 %7, ptr %.01415, align 1, !tbaa !6
-  %9 = load i32, ptr %4, align 4, !tbaa !11
+  %9 = load i32, ptr %4, align 4, !tbaa !12
   %10 = lshr i32 %9, 16
   %11 = trunc i32 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %.01415, i64 2
   store i8 %11, ptr %8, align 1, !tbaa !6
-  %13 = load i32, ptr %4, align 4, !tbaa !11
+  %13 = load i32, ptr %4, align 4, !tbaa !12
   %14 = lshr i32 %13, 8
   %15 = trunc i32 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %.01415, i64 3
   store i8 %15, ptr %12, align 1, !tbaa !6
-  %17 = load i32, ptr %4, align 4, !tbaa !11
+  %17 = load i32, ptr %4, align 4, !tbaa !12
   %18 = trunc i32 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %.01415, i64 4
   store i8 %18, ptr %16, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %20, label %3, !llvm.loop !25
+  br i1 %exitcond.not, label %20, label %3, !llvm.loop !26
 
 20:                                               ; preds = %3
   ret void
@@ -683,48 +683,48 @@ define internal void @tls1_sha512_final_raw(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %.02627 = phi ptr [ %1, %2 ], [ %35, %3 ]
   %4 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv
-  %5 = load i64, ptr %4, align 8, !tbaa !15
+  %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = lshr i64 %5, 56
   %7 = trunc nuw i64 %6 to i8
   %8 = getelementptr inbounds nuw i8, ptr %.02627, i64 1
   store i8 %7, ptr %.02627, align 1, !tbaa !6
-  %9 = load i64, ptr %4, align 8, !tbaa !15
+  %9 = load i64, ptr %4, align 8, !tbaa !16
   %10 = lshr i64 %9, 48
   %11 = trunc i64 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %.02627, i64 2
   store i8 %11, ptr %8, align 1, !tbaa !6
-  %13 = load i64, ptr %4, align 8, !tbaa !15
+  %13 = load i64, ptr %4, align 8, !tbaa !16
   %14 = lshr i64 %13, 40
   %15 = trunc i64 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %.02627, i64 3
   store i8 %15, ptr %12, align 1, !tbaa !6
-  %17 = load i64, ptr %4, align 8, !tbaa !15
+  %17 = load i64, ptr %4, align 8, !tbaa !16
   %18 = lshr i64 %17, 32
   %19 = trunc i64 %18 to i8
   %20 = getelementptr inbounds nuw i8, ptr %.02627, i64 4
   store i8 %19, ptr %16, align 1, !tbaa !6
-  %21 = load i64, ptr %4, align 8, !tbaa !15
+  %21 = load i64, ptr %4, align 8, !tbaa !16
   %22 = lshr i64 %21, 24
   %23 = trunc i64 %22 to i8
   %24 = getelementptr inbounds nuw i8, ptr %.02627, i64 5
   store i8 %23, ptr %20, align 1, !tbaa !6
-  %25 = load i64, ptr %4, align 8, !tbaa !15
+  %25 = load i64, ptr %4, align 8, !tbaa !16
   %26 = lshr i64 %25, 16
   %27 = trunc i64 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %.02627, i64 6
   store i8 %27, ptr %24, align 1, !tbaa !6
-  %29 = load i64, ptr %4, align 8, !tbaa !15
+  %29 = load i64, ptr %4, align 8, !tbaa !16
   %30 = lshr i64 %29, 8
   %31 = trunc i64 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %.02627, i64 7
   store i8 %31, ptr %28, align 1, !tbaa !6
-  %33 = load i64, ptr %4, align 8, !tbaa !15
+  %33 = load i64, ptr %4, align 8, !tbaa !16
   %34 = trunc i64 %33 to i8
   %35 = getelementptr inbounds nuw i8, ptr %.02627, i64 8
   store i8 %34, ptr %32, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %36, label %3, !llvm.loop !26
+  br i1 %exitcond.not, label %36, label %3, !llvm.loop !27
 
 36:                                               ; preds = %3
   ret void
@@ -779,21 +779,22 @@ attributes #9 = { nounwind }
 !6 = !{!7, !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !7, i64 0}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !7, i64 0}
-!17 = distinct !{!17, !10}
-!18 = !{ptr @SHA1_Transform, ptr @SHA256_Transform, ptr @SHA512_Transform}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = !{ptr @tls1_sha1_final_raw, ptr @tls1_sha256_final_raw, ptr @tls1_sha512_final_raw}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !7, i64 0}
+!18 = distinct !{!18, !10, !11}
+!19 = !{ptr @SHA1_Transform, ptr @SHA256_Transform, ptr @SHA512_Transform}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = !{ptr @tls1_sha1_final_raw, ptr @tls1_sha256_final_raw, ptr @tls1_sha512_final_raw}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}

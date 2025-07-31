@@ -292,25 +292,25 @@ define dso_local void @uv_pipe_connect(ptr noundef %0, ptr noundef %1, ptr nound
 32:                                               ; preds = %26, %.thread, %10, %24
   %.0 = phi i32 [ %11, %10 ], [ %25, %24 ], [ 0, %.thread ], [ %28, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  store i32 %.0, ptr %33, align 8, !tbaa !29
+  store i32 %.0, ptr %33, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store ptr %0, ptr %34, align 8, !tbaa !30
+  store ptr %0, ptr %34, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %35, align 8, !tbaa !31
+  store i32 2, ptr %35, align 8, !tbaa !32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !34
+  %39 = load i32, ptr %38, align 8, !tbaa !35
   %40 = add i32 %39, 1
-  store i32 %40, ptr %38, align 8, !tbaa !34
+  store i32 %40, ptr %38, align 8, !tbaa !35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %1, ptr %41, align 8, !tbaa !35
+  store ptr %1, ptr %41, align 8, !tbaa !36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %3, ptr %42, align 8, !tbaa !36
+  store ptr %3, ptr %42, align 8, !tbaa !37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %43, ptr %43, align 8, !tbaa !37
+  store ptr %43, ptr %43, align 8, !tbaa !38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %43, ptr %44, align 8, !tbaa !37
+  store ptr %43, ptr %44, align 8, !tbaa !38
   %.not34 = icmp eq i32 %.0, 0
   br i1 %.not34, label %47, label %45
 
@@ -341,12 +341,12 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getsockname(ptr noundef 
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  store i64 0, ptr %2, align 8, !tbaa !38
+  store i64 0, ptr %2, align 8, !tbaa !39
   br label %uv__pipe_getsockpeername.exit
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %11 = load i8, ptr %10, align 2, !tbaa !34
+  %11 = load i8, ptr %10, align 2, !tbaa !35
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %17
 
@@ -363,26 +363,26 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getsockname(ptr noundef 
 19:                                               ; preds = %17, %13
   %storemerge.in.i = phi i64 [ %18, %17 ], [ %16, %13 ]
   %20 = and i64 %storemerge.in.i, 4294967295
-  %21 = load i64, ptr %2, align 8, !tbaa !38
+  %21 = load i64, ptr %2, align 8, !tbaa !39
   %.not.i = icmp ult i64 %20, %21
   br i1 %.not.i, label %25, label %22
 
 22:                                               ; preds = %19
   %23 = add i64 %storemerge.in.i, 1
   %24 = and i64 %23, 4294967295
-  store i64 %24, ptr %2, align 8, !tbaa !38
+  store i64 %24, ptr %2, align 8, !tbaa !39
   br label %uv__pipe_getsockpeername.exit
 
 25:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 2 %10, i64 %20, i1 false)
-  store i64 %20, ptr %2, align 8, !tbaa !38
-  %26 = load i8, ptr %1, align 1, !tbaa !34
+  store i64 %20, ptr %2, align 8, !tbaa !39
+  %26 = load i8, ptr %1, align 1, !tbaa !35
   %.not13.i = icmp eq i8 %26, 0
   br i1 %.not13.i, label %uv__pipe_getsockpeername.exit, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %20
-  store i8 0, ptr %28, align 1, !tbaa !34
+  store i8 0, ptr %28, align 1, !tbaa !35
   br label %uv__pipe_getsockpeername.exit
 
 uv__pipe_getsockpeername.exit:                    ; preds = %8, %22, %25, %27
@@ -408,12 +408,12 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getpeername(ptr noundef 
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  store i64 0, ptr %2, align 8, !tbaa !38
+  store i64 0, ptr %2, align 8, !tbaa !39
   br label %uv__pipe_getsockpeername.exit
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %11 = load i8, ptr %10, align 2, !tbaa !34
+  %11 = load i8, ptr %10, align 2, !tbaa !35
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %17
 
@@ -430,26 +430,26 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getpeername(ptr noundef 
 19:                                               ; preds = %17, %13
   %storemerge.in.i = phi i64 [ %18, %17 ], [ %16, %13 ]
   %20 = and i64 %storemerge.in.i, 4294967295
-  %21 = load i64, ptr %2, align 8, !tbaa !38
+  %21 = load i64, ptr %2, align 8, !tbaa !39
   %.not.i = icmp ult i64 %20, %21
   br i1 %.not.i, label %25, label %22
 
 22:                                               ; preds = %19
   %23 = add i64 %storemerge.in.i, 1
   %24 = and i64 %23, 4294967295
-  store i64 %24, ptr %2, align 8, !tbaa !38
+  store i64 %24, ptr %2, align 8, !tbaa !39
   br label %uv__pipe_getsockpeername.exit
 
 25:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 2 %10, i64 %20, i1 false)
-  store i64 %20, ptr %2, align 8, !tbaa !38
-  %26 = load i8, ptr %1, align 1, !tbaa !34
+  store i64 %20, ptr %2, align 8, !tbaa !39
+  %26 = load i8, ptr %1, align 1, !tbaa !35
   %.not13.i = icmp eq i8 %26, 0
   br i1 %.not13.i, label %uv__pipe_getsockpeername.exit, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %20
-  store i8 0, ptr %28, align 1, !tbaa !34
+  store i8 0, ptr %28, align 1, !tbaa !35
   br label %uv__pipe_getsockpeername.exit
 
 uv__pipe_getsockpeername.exit:                    ; preds = %8, %22, %25, %27
@@ -476,19 +476,19 @@ define dso_local i32 @uv_pipe_pending_count(ptr noundef readonly captures(none) 
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %6 = load i32, ptr %5, align 4, !tbaa !39
+  %6 = load i32, ptr %5, align 4, !tbaa !40
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %10 = load ptr, ptr %9, align 8, !tbaa !40
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !41
+  %14 = load i32, ptr %13, align 4, !tbaa !42
   %15 = add i32 %14, 1
   br label %16
 
@@ -506,7 +506,7 @@ define dso_local i32 @uv_pipe_pending_type(ptr noundef readonly captures(none) %
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %6 = load i32, ptr %5, align 4, !tbaa !39
+  %6 = load i32, ptr %5, align 4, !tbaa !40
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %10, label %8
 
@@ -554,7 +554,7 @@ define dso_local i32 @uv_pipe_chmod(ptr noundef %0, i32 noundef %1) local_unname
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %20 = load i8, ptr %19, align 2, !tbaa !34
+  %20 = load i8, ptr %19, align 2, !tbaa !35
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %26
 
@@ -599,7 +599,7 @@ uv_pipe_getsockname.exit:                         ; preds = %15
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %38 = load i8, ptr %37, align 2, !tbaa !34
+  %38 = load i8, ptr %37, align 2, !tbaa !35
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %40, label %44
 
@@ -621,13 +621,13 @@ uv_pipe_getsockname.exit:                         ; preds = %15
 
 48:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 2 %37, i64 %47, i1 false)
-  %49 = load i8, ptr %31, align 1, !tbaa !34
+  %49 = load i8, ptr %31, align 1, !tbaa !35
   %.not13.i.i42 = icmp eq i8 %49, 0
   br i1 %.not13.i.i42, label %53, label %50
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 %47
-  store i8 0, ptr %51, align 1, !tbaa !34
+  store i8 0, ptr %51, align 1, !tbaa !35
   br label %53
 
 52:                                               ; preds = %46, %33
@@ -659,7 +659,7 @@ uv_pipe_getsockname.exit:                         ; preds = %15
   %62 = or disjoint i32 %spec.select, 146
   %.1 = select i1 %.not37, i32 %spec.select, i32 %62
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %64 = load i32, ptr %63, align 8, !tbaa !43
+  %64 = load i32, ptr %63, align 8, !tbaa !44
   %65 = and i32 %64, %.1
   %66 = icmp eq i32 %65, %.1
   br i1 %66, label %67, label %68
@@ -835,22 +835,23 @@ attributes #13 = { nounwind willreturn memory(read) }
 !24 = !{!5, !6, i64 224}
 !25 = !{!5, !6, i64 136}
 !26 = !{!5, !9, i64 8}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!5, !10, i64 232}
-!30 = !{!5, !13, i64 120}
-!31 = !{!32, !10, i64 8}
-!32 = !{!"uv_connect_s", !6, i64 0, !10, i64 8, !7, i64 16, !6, i64 64, !33, i64 72, !7, i64 80}
-!33 = !{!"p1 _ZTS11uv_stream_s", !6, i64 0}
-!34 = !{!7, !7, i64 0}
-!35 = !{!32, !33, i64 72}
-!36 = !{!32, !6, i64 64}
-!37 = !{!6, !6, i64 0}
-!38 = !{!12, !12, i64 0}
-!39 = !{!5, !10, i64 236}
-!40 = !{!5, !6, i64 240}
-!41 = !{!42, !10, i64 4}
-!42 = !{!"uv__stream_queued_fds_s", !10, i64 0, !10, i64 4, !7, i64 8}
-!43 = !{!44, !10, i64 24}
-!44 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !45, i64 72, !45, i64 88, !45, i64 104, !7, i64 120}
-!45 = !{!"timespec", !12, i64 0, !12, i64 8}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!5, !10, i64 232}
+!31 = !{!5, !13, i64 120}
+!32 = !{!33, !10, i64 8}
+!33 = !{!"uv_connect_s", !6, i64 0, !10, i64 8, !7, i64 16, !6, i64 64, !34, i64 72, !7, i64 80}
+!34 = !{!"p1 _ZTS11uv_stream_s", !6, i64 0}
+!35 = !{!7, !7, i64 0}
+!36 = !{!33, !34, i64 72}
+!37 = !{!33, !6, i64 64}
+!38 = !{!6, !6, i64 0}
+!39 = !{!12, !12, i64 0}
+!40 = !{!5, !10, i64 236}
+!41 = !{!5, !6, i64 240}
+!42 = !{!43, !10, i64 4}
+!43 = !{!"uv__stream_queued_fds_s", !10, i64 0, !10, i64 4, !7, i64 8}
+!44 = !{!45, !10, i64 24}
+!45 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !46, i64 72, !46, i64 88, !46, i64 104, !7, i64 120}
+!46 = !{!"timespec", !12, i64 0, !12, i64 8}

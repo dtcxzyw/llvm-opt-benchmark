@@ -646,7 +646,7 @@ define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_open0(ptr noundef %0, p
   %11 = tail call ptr @__errno_location() #12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %7, label %.critedge, !llvm.loop !8
+  br i1 %13, label %7, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %10
   %14 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %12) #11
@@ -688,7 +688,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_openat0(ptr noundef %0, ptr nou
   %15 = tail call ptr @__errno_location() #12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 4
-  br i1 %17, label %.preheader, label %.critedge, !llvm.loop !9
+  br i1 %17, label %.preheader, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %14
   %18 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %16) #11
@@ -754,7 +754,7 @@ define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_read0(ptr noundef %0, p
   %12 = tail call ptr @__errno_location() #12
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
-  br i1 %14, label %8, label %.critedge, !llvm.loop !10
+  br i1 %14, label %8, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %11
   %15 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %13) #11
@@ -795,7 +795,7 @@ define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_write0(ptr noundef %0, 
   %12 = tail call ptr @__errno_location() #12
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
-  br i1 %14, label %8, label %.critedge, !llvm.loop !11
+  br i1 %14, label %8, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %11
   %15 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %13) #11
@@ -831,7 +831,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr nound
   br i1 %.not, label %.preheader, label %.preheader15
 
 .preheader15:                                     ; preds = %4, %11
-  %9 = load ptr, ptr @my_statx_func, align 8, !noalias !12
+  %9 = load ptr, ptr @my_statx_func, align 8, !noalias !13
   %10 = call i32 %9(i32 noundef -100, ptr noundef %7, i32 noundef 0, i32 noundef 4095, ptr noundef nonnull %6) #11
   switch i32 %10, label %.preheader15..critedge_crit_edge [
     i32 -1, label %11
@@ -846,7 +846,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr nound
   %12 = tail call ptr @__errno_location() #12
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
-  br i1 %14, label %.preheader15, label %.critedge, !llvm.loop !16
+  br i1 %14, label %.preheader15, label %.critedge, !llvm.loop !17
 
 15:                                               ; preds = %.preheader15
   call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef %6, ptr noundef %3)
@@ -872,7 +872,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr nound
   %19 = tail call ptr @__errno_location() #12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %.preheader, label %.critedge2, !llvm.loop !17
+  br i1 %21, label %.preheader, label %.critedge2, !llvm.loop !18
 
 22:                                               ; preds = %.preheader
   call fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef %5, ptr noundef %3)
@@ -1132,7 +1132,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lstat0(ptr noundef %0, ptr nou
   br i1 %.not, label %.preheader, label %.preheader19
 
 .preheader19:                                     ; preds = %4, %11
-  %9 = load ptr, ptr @my_statx_func, align 8, !noalias !18
+  %9 = load ptr, ptr @my_statx_func, align 8, !noalias !19
   %10 = call i32 %9(i32 noundef -100, ptr noundef %7, i32 noundef 256, i32 noundef 4095, ptr noundef nonnull %6) #11
   switch i32 %10, label %.preheader19..critedge_crit_edge [
     i32 -1, label %11
@@ -1147,7 +1147,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lstat0(ptr noundef %0, ptr nou
   %12 = tail call ptr @__errno_location() #12
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
-  br i1 %14, label %.preheader19, label %.critedge, !llvm.loop !22
+  br i1 %14, label %.preheader19, label %.critedge, !llvm.loop !23
 
 15:                                               ; preds = %.preheader19
   call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef %6, ptr noundef %3)
@@ -1176,7 +1176,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lstat0(ptr noundef %0, ptr nou
   %26 = tail call ptr @__errno_location() #12
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 4
-  br i1 %28, label %.preheader, label %.critedge2, !llvm.loop !23
+  br i1 %28, label %.preheader, label %.critedge2, !llvm.loop !24
 
 .critedge2:                                       ; preds = %25
   %29 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %27) #11
@@ -1210,7 +1210,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstat0(ptr noundef %0, ptr nou
   br i1 %.not, label %.preheader, label %.preheader18
 
 .preheader18:                                     ; preds = %4, %10
-  %8 = load ptr, ptr @my_statx_func, align 8, !noalias !24
+  %8 = load ptr, ptr @my_statx_func, align 8, !noalias !25
   %9 = call i32 %8(i32 noundef %2, ptr noundef nonnull @.str.41, i32 noundef 4096, i32 noundef 4095, ptr noundef nonnull %6) #11
   switch i32 %9, label %.preheader18..critedge_crit_edge [
     i32 -1, label %10
@@ -1225,7 +1225,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstat0(ptr noundef %0, ptr nou
   %11 = tail call ptr @__errno_location() #12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %.preheader18, label %.critedge, !llvm.loop !28
+  br i1 %13, label %.preheader18, label %.critedge, !llvm.loop !29
 
 14:                                               ; preds = %.preheader18
   call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef %6, ptr noundef %3)
@@ -1254,7 +1254,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstat0(ptr noundef %0, ptr nou
   %25 = tail call ptr @__errno_location() #12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 4
-  br i1 %27, label %.preheader, label %.critedge2, !llvm.loop !29
+  br i1 %27, label %.preheader, label %.critedge2, !llvm.loop !30
 
 .critedge2:                                       ; preds = %24
   %28 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %26) #11
@@ -1293,7 +1293,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr n
   br label %13
 
 13:                                               ; preds = %16, %11
-  %14 = load ptr, ptr @my_statx_func, align 8, !noalias !30
+  %14 = load ptr, ptr @my_statx_func, align 8, !noalias !31
   %15 = call i32 %14(i32 noundef %2, ptr noundef %9, i32 noundef range(i32 0, 4097) %12, i32 noundef 4095, ptr noundef nonnull %8) #11
   switch i32 %15, label %..critedge_crit_edge [
     i32 -1, label %16
@@ -1308,7 +1308,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr n
   %17 = tail call ptr @__errno_location() #12
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %13, label %.critedge, !llvm.loop !34
+  br i1 %19, label %13, label %.critedge, !llvm.loop !35
 
 20:                                               ; preds = %13
   call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef %8, ptr noundef %5)
@@ -1347,7 +1347,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr n
   %36 = tail call ptr @__errno_location() #12
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 4
-  br i1 %38, label %.preheader, label %.critedge2, !llvm.loop !35
+  br i1 %38, label %.preheader, label %.critedge2, !llvm.loop !36
 
 .critedge2:                                       ; preds = %35
   %39 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %37) #11
@@ -1383,7 +1383,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_chmod0(ptr noundef %0, ptr nou
   %10 = tail call ptr @__errno_location() #12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %6, label %.critedge, !llvm.loop !36
+  br i1 %12, label %6, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %9
   %13 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %11) #11
@@ -1417,7 +1417,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fchmod0(ptr noundef %0, ptr no
   %9 = tail call ptr @__errno_location() #12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %5, label %.critedge, !llvm.loop !37
+  br i1 %11, label %5, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %8
   %12 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %10) #11
@@ -1452,7 +1452,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_chown0(ptr noundef %0, ptr nou
   %11 = tail call ptr @__errno_location() #12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %7, label %.critedge, !llvm.loop !38
+  br i1 %13, label %7, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %10
   %14 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %12) #11
@@ -1487,7 +1487,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lchown0(ptr noundef %0, ptr no
   %11 = tail call ptr @__errno_location() #12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %7, label %.critedge, !llvm.loop !39
+  br i1 %13, label %7, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %10
   %14 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %12) #11
@@ -1521,7 +1521,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fchown0(ptr noundef %0, ptr no
   %10 = tail call ptr @__errno_location() #12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %6, label %.critedge, !llvm.loop !40
+  br i1 %12, label %6, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %9
   %13 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %11) #11
@@ -1568,7 +1568,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_utimes0(ptr noundef %0, ptr no
   %19 = tail call ptr @__errno_location() #12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %15, label %.critedge, !llvm.loop !41
+  br i1 %21, label %15, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %18
   %22 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %20) #11
@@ -1621,7 +1621,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_futimes0(ptr noundef %0, ptr n
   %21 = tail call ptr @__errno_location() #12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %.preheader, label %.critedge, !llvm.loop !42
+  br i1 %23, label %.preheader, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %20
   %24 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %22) #11
@@ -1671,7 +1671,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_futimens0(ptr noundef %0, ptr 
   %21 = tail call ptr @__errno_location() #12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %.preheader, label %.critedge, !llvm.loop !43
+  br i1 %23, label %.preheader, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %20
   %24 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %22) #11
@@ -1722,7 +1722,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lutimes0(ptr noundef %0, ptr n
   %22 = tail call ptr @__errno_location() #12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 4
-  br i1 %24, label %.preheader, label %.critedge, !llvm.loop !44
+  br i1 %24, label %.preheader, label %.critedge, !llvm.loop !45
 
 .critedge:                                        ; preds = %21
   %25 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %23) #11
@@ -1961,7 +1961,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_link0(ptr noundef %0, ptr noun
   %11 = tail call ptr @__errno_location() #12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %7, label %.critedge, !llvm.loop !45
+  br i1 %13, label %7, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %10
   %14 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %12) #11
@@ -2266,7 +2266,7 @@ define range(i32 5, 4) i32 @Java_sun_nio_fs_UnixNativeDispatcher_access0(ptr nou
   %10 = tail call ptr @__errno_location() #12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %6, label %.critedge4, !llvm.loop !46
+  br i1 %12, label %6, label %.critedge4, !llvm.loop !47
 
 .critedge4:                                       ; preds = %9, %6
   %13 = phi i32 [ 0, %6 ], [ %11, %9 ]
@@ -2291,7 +2291,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_statvfs0(ptr noundef %0, ptr n
   %11 = tail call ptr @__errno_location() #12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %7, label %.critedge, !llvm.loop !47
+  br i1 %13, label %7, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %10
   %14 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %12) #11
@@ -2357,7 +2357,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_mknod0(ptr noundef %0, ptr nou
   %11 = tail call ptr @__errno_location() #12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %7, label %.critedge, !llvm.loop !48
+  br i1 %13, label %7, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %10
   %14 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %12) #11
@@ -2410,7 +2410,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getpwuid(ptr noundef %0, ptr no
 20:                                               ; preds = %17
   %21 = load i32, ptr %16, align 4
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %17, label %.critedge.thread, !llvm.loop !49
+  br i1 %22, label %17, label %.critedge.thread, !llvm.loop !50
 
 .critedge:                                        ; preds = %17
   %23 = icmp ne i32 %18, 0
@@ -2531,7 +2531,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getgrgid(ptr noundef %0, ptr no
 20:                                               ; preds = %17
   %21 = load i32, ptr %14, align 4
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %17, label %.critedge.thread, !llvm.loop !50
+  br i1 %22, label %17, label %.critedge.thread, !llvm.loop !51
 
 .critedge:                                        ; preds = %17
   %23 = icmp ne i32 %18, 0
@@ -2608,7 +2608,7 @@ throwUnixException.exit:                          ; preds = %.critedge.thread
   store ptr null, ptr %5, align 8
   %54 = call noalias ptr @malloc(i64 noundef %indvars.iv.next) #14
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %._crit_edge, label %15, !llvm.loop !51
+  br i1 %55, label %._crit_edge, label %15, !llvm.loop !52
 
 56:                                               ; preds = %throwUnixException.exit.thread, %._crit_edge
   %.0 = phi ptr [ null, %._crit_edge ], [ %.1.ph, %throwUnixException.exit.thread ]
@@ -2650,7 +2650,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getpwnam0(ptr noundef %0, ptr n
 21:                                               ; preds = %18
   %22 = load i32, ptr %17, align 4
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %18, label %.critedge.thread, !llvm.loop !52
+  br i1 %23, label %18, label %.critedge.thread, !llvm.loop !53
 
 .critedge:                                        ; preds = %18
   %24 = icmp ne i32 %19, 0
@@ -2749,7 +2749,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getgrnam0(ptr noundef %0, ptr n
 21:                                               ; preds = %18
   %22 = load i32, ptr %15, align 4
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %18, label %.critedge.thread, !llvm.loop !53
+  br i1 %23, label %18, label %.critedge.thread, !llvm.loop !54
 
 .critedge:                                        ; preds = %18
   %24 = icmp ne i32 %19, 0
@@ -2811,7 +2811,7 @@ throwUnixException.exit:                          ; preds = %.critedge.thread
   store ptr null, ptr %5, align 8
   %44 = call noalias ptr @malloc(i64 noundef %indvars.iv.next) #14
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %._crit_edge, label %16, !llvm.loop !54
+  br i1 %45, label %._crit_edge, label %16, !llvm.loop !55
 
 46:                                               ; preds = %throwUnixException.exit.thread, %._crit_edge
   %.0 = phi i32 [ -1, %._crit_edge ], [ %.1.ph, %throwUnixException.exit.thread ]
@@ -2971,52 +2971,53 @@ attributes #14 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"statx_wrapper: argument 0"}
-!14 = distinct !{!14, !"statx_wrapper"}
-!15 = distinct !{!15, !14, !"statx_wrapper: argument 1"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"statx_wrapper: argument 0"}
-!20 = distinct !{!20, !"statx_wrapper"}
-!21 = distinct !{!21, !20, !"statx_wrapper: argument 1"}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"statx_wrapper: argument 0"}
-!26 = distinct !{!26, !"statx_wrapper"}
-!27 = distinct !{!27, !26, !"statx_wrapper: argument 1"}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = !{!31, !33}
-!31 = distinct !{!31, !32, !"statx_wrapper: argument 0"}
-!32 = distinct !{!32, !"statx_wrapper"}
-!33 = distinct !{!33, !32, !"statx_wrapper: argument 1"}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"statx_wrapper: argument 0"}
+!15 = distinct !{!15, !"statx_wrapper"}
+!16 = distinct !{!16, !15, !"statx_wrapper: argument 1"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"statx_wrapper: argument 0"}
+!21 = distinct !{!21, !"statx_wrapper"}
+!22 = distinct !{!22, !21, !"statx_wrapper: argument 1"}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"statx_wrapper: argument 0"}
+!27 = distinct !{!27, !"statx_wrapper"}
+!28 = distinct !{!28, !27, !"statx_wrapper: argument 1"}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"statx_wrapper: argument 0"}
+!33 = distinct !{!33, !"statx_wrapper"}
+!34 = distinct !{!34, !33, !"statx_wrapper: argument 1"}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}

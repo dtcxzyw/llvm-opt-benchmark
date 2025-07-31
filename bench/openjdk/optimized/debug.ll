@@ -3119,7 +3119,7 @@ define hidden noundef zeroext i1 @_Z26handle_assert_poison_faultPKvS0_(ptr nound
 
 9:                                                ; preds = %8
   %10 = tail call noundef i64 @_ZN2os17current_thread_idEv() #16
-  %11 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 0, ptr nonnull @_ZL18g_asserting_thread) #16, !srcloc !9
+  %11 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 0, ptr nonnull @_ZL18g_asserting_thread) #16, !srcloc !10
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %14
 
@@ -3297,6 +3297,7 @@ attributes #18 = { cold nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411161}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145412694}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2145412694}

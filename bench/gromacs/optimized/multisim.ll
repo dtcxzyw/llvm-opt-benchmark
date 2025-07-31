@@ -421,7 +421,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !48
+  %12 = load ptr, ptr %11, align 8, !tbaa !49
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -529,13 +529,13 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN14gmx_multisim_tC2EiiP10tmpi_comm_S1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #15 align 2 {
-  store i32 %1, ptr %0, align 8, !tbaa !49
+  store i32 %1, ptr %0, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %6, align 4, !tbaa !52
+  store i32 %2, ptr %6, align 4, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %7, align 8, !tbaa !53
+  store ptr %3, ptr %7, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %8, align 8, !tbaa !54
+  store ptr %4, ptr %8, align 8, !tbaa !55
   ret void
 }
 
@@ -547,8 +547,8 @@ define void @_ZN14gmx_multisim_tD2Ev(ptr nonnull readnone align 8 captures(none)
 ; Function Attrs: mustprogress uwtable
 define void @_Z12gmx_sumd_simiPdPK14gmx_multisim_t(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !53
-  %6 = load ptr, ptr @TMPI_DOUBLE, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %6 = load ptr, ptr @TMPI_DOUBLE, align 8, !tbaa !56
   %7 = tail call noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %1, i32 noundef %0, ptr noundef %6, i32 noundef 2, ptr noundef %5)
   ret void
 }
@@ -558,26 +558,26 @@ declare noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_co
 ; Function Attrs: mustprogress uwtable
 define void @_Z12gmx_sumf_simiPfPK14gmx_multisim_t(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !53
-  %6 = load ptr, ptr @TMPI_FLOAT, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %6 = load ptr, ptr @TMPI_FLOAT, align 8, !tbaa !56
   %7 = tail call noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %1, i32 noundef %0, ptr noundef %6, i32 noundef 2, ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z12gmx_sumi_simiPiPK14gmx_multisim_t(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr @TMPI_INT, align 8, !tbaa !55
+  %4 = load ptr, ptr @TMPI_INT, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !53
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = tail call noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %1, i32 noundef %0, ptr noundef %4, i32 noundef 2, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z13gmx_sumli_simiPlPK14gmx_multisim_t(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr @TMPI_INT64_T, align 8, !tbaa !55
+  %4 = load ptr, ptr @TMPI_INT64_T, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !53
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = tail call noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %1, i32 noundef %0, ptr noundef %4, i32 noundef 2, ptr noundef %6)
   ret void
 }
@@ -589,7 +589,7 @@ define void @_Z28gatherIntFromMultiSimulationPK14gmx_multisim_ti(ptr dead_on_unw
   br i1 %.not, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, label %4
 
 4:                                                ; preds = %3
-  %5 = load i32, ptr %1, align 8, !tbaa !49
+  %5 = load i32, ptr %1, align 8, !tbaa !50
   %.not14 = icmp ne i32 %5, 0
   tail call void @llvm.assume(i1 %.not14)
   %6 = sext i32 %5 to i64
@@ -597,29 +597,29 @@ define void @_Z28gatherIntFromMultiSimulationPK14gmx_multisim_ti(ptr dead_on_unw
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge13 unwind label %16
 
 ._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge13:  ; preds = %4
-  %.pre = load ptr, ptr %0, align 8, !tbaa !57
+  %.pre = load ptr, ptr %0, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !52
+  %8 = load i32, ptr %7, align 4, !tbaa !53
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds nuw i32, ptr %.pre, i64 %9
   store i32 %2, ptr %10, align 4, !tbaa !11
-  %11 = load i32, ptr %1, align 8, !tbaa !49
-  %12 = load ptr, ptr @TMPI_INT, align 8, !tbaa !55
+  %11 = load i32, ptr %1, align 8, !tbaa !50
+  %12 = load ptr, ptr @TMPI_INT, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = invoke noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef nonnull %.pre, i32 noundef %11, ptr noundef %12, i32 noundef 2, ptr noundef %14)
           to label %_Z12gmx_sumi_simiPiPK14gmx_multisim_t.exit unwind label %16
 
 16:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge13, %4
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %0, align 8, !tbaa !57
+  %18 = load ptr, ptr %0, align 8, !tbaa !58
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !60
+  %21 = load ptr, ptr %20, align 8, !tbaa !61
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
@@ -638,9 +638,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %25, align 4, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store ptr %25, ptr %0, align 8, !tbaa !57
-  store ptr %28, ptr %27, align 8, !tbaa !61
-  store ptr %28, ptr %26, align 8, !tbaa !60
+  store ptr %25, ptr %0, align 8, !tbaa !58
+  store ptr %28, ptr %27, align 8, !tbaa !62
+  store ptr %28, ptr %26, align 8, !tbaa !61
   br label %_Z12gmx_sumi_simiPiPK14gmx_multisim_t.exit
 
 _Z12gmx_sumi_simiPiPK14gmx_multisim_t.exit:       ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge13
@@ -654,14 +654,14 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !61
-  %6 = load ptr, ptr %0, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %6 = load ptr, ptr %0, align 8, !tbaa !58
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !60
+  %12 = load ptr, ptr %11, align 8, !tbaa !61
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 2
@@ -690,7 +690,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %25, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
-  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !61
+  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !62
   br label %44
 
 26:                                               ; preds = %3
@@ -737,11 +737,11 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %40
-  store ptr %32, ptr %0, align 8, !tbaa !57
+  store ptr %32, ptr %0, align 8, !tbaa !58
   %42 = getelementptr inbounds nuw i32, ptr %33, i64 %1
-  store ptr %42, ptr %4, align 8, !tbaa !61
+  store ptr %42, ptr %4, align 8, !tbaa !62
   %43 = getelementptr inbounds nuw i32, ptr %32, i64 %30
-  store ptr %43, ptr %11, align 8, !tbaa !60
+  store ptr %43, ptr %11, align 8, !tbaa !61
   br label %44
 
 44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36, %2
@@ -787,20 +787,20 @@ define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef ca
   br label %56
 
 17:                                               ; preds = %11
-  %18 = load i32, ptr %1, align 8, !tbaa !49
+  %18 = load i32, ptr %1, align 8, !tbaa !50
   %19 = sext i32 %18 to i64
   %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 258, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 4)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !52
+  %22 = load i32, ptr %21, align 4, !tbaa !53
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i32, ptr %20, i64 %23
   store i32 %2, ptr %24, align 4, !tbaa !11
-  %25 = load i32, ptr %1, align 8, !tbaa !49
-  %26 = load ptr, ptr @TMPI_INT, align 8, !tbaa !55
+  %25 = load i32, ptr %1, align 8, !tbaa !50
+  %26 = load ptr, ptr @TMPI_INT, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !53
+  %28 = load ptr, ptr %27, align 8, !tbaa !54
   %29 = tail call noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %20, i32 noundef %25, ptr noundef %26, i32 noundef 2, ptr noundef %28)
-  %30 = load i32, ptr %1, align 8, !tbaa !49
+  %30 = load i32, ptr %1, align 8, !tbaa !50
   %31 = icmp sgt i32 %30, 1
   br i1 %31, label %.lr.ph.preheader, label %.critedge
 
@@ -826,7 +826,7 @@ define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef ca
 .lr.ph.backedge:                                  ; preds = %32, %.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %32 ], [ %indvars.iv.next53, %.thread ]
   %.03546.be = phi i1 [ %37, %32 ], [ false, %.thread ]
-  br label %.lr.ph, !llvm.loop !62
+  br label %.lr.ph, !llvm.loop !63
 
 .thread:                                          ; preds = %.lr.ph
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv, 1
@@ -848,7 +848,7 @@ define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef ca
 
 40:                                               ; preds = %._crit_edge.thread
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %3) #22
-  %42 = load i32, ptr %1, align 8, !tbaa !49
+  %42 = load i32, ptr %1, align 8, !tbaa !50
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph49, label %.loopexit
 
@@ -859,15 +859,15 @@ define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef ca
   %46 = trunc nuw nsw i64 %indvars.iv50 to i32
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %46, i32 noundef %45) #22
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %48 = load i32, ptr %1, align 8, !tbaa !49
+  %48 = load i32, ptr %1, align 8, !tbaa !50
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next51, %49
-  br i1 %50, label %.lr.ph49, label %.loopexit, !llvm.loop !63
+  br i1 %50, label %.lr.ph49, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph49, %40, %._crit_edge.thread
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 1 dereferenceable(131) @.str.1, i8 noundef zeroext 2)
-  %51 = load i32, ptr %1, align 8, !tbaa !49
+  %51 = load i32, ptr %1, align 8, !tbaa !50
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 285, ptr noundef nonnull @.str.12, i32 noundef %51) #23
           to label %52 unwind label %53
 
@@ -957,7 +957,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6f
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %19, align 8, !tbaa !64
+  %26 = load ptr, ptr %19, align 8, !tbaa !65
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %27
 
@@ -966,7 +966,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6f
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %24, %27
-  store ptr null, ptr %19, align 8, !tbaa !64
+  store ptr null, ptr %19, align 8, !tbaa !65
   br label %28
 
 28:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %22
@@ -994,7 +994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
@@ -1003,7 +1003,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
-  store ptr null, ptr %2, align 8, !tbaa !64
+  store ptr null, ptr %2, align 8, !tbaa !65
   %5 = load ptr, ptr %0, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %5, %6
@@ -1071,20 +1071,20 @@ define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef 
   br label %58
 
 18:                                               ; preds = %12
-  %19 = load i32, ptr %1, align 8, !tbaa !49
+  %19 = load i32, ptr %1, align 8, !tbaa !50
   %20 = sext i32 %19 to i64
   %21 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 307, i64 noundef range(i64 -2147483648, 2147483648) %20, i64 noundef 8)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !52
+  %23 = load i32, ptr %22, align 4, !tbaa !53
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i64, ptr %21, i64 %24
   store i64 %2, ptr %25, align 8, !tbaa !30
-  %26 = load i32, ptr %1, align 8, !tbaa !49
-  %27 = load ptr, ptr @TMPI_INT64_T, align 8, !tbaa !55
+  %26 = load i32, ptr %1, align 8, !tbaa !50
+  %27 = load ptr, ptr @TMPI_INT64_T, align 8, !tbaa !56
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !53
+  %29 = load ptr, ptr %28, align 8, !tbaa !54
   %30 = tail call noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %21, i32 noundef %26, ptr noundef %27, i32 noundef 2, ptr noundef %29)
-  %31 = load i32, ptr %1, align 8, !tbaa !49
+  %31 = load i32, ptr %1, align 8, !tbaa !50
   %32 = icmp sgt i32 %31, 1
   br i1 %32, label %.lr.ph.preheader, label %.critedge
 
@@ -1110,7 +1110,7 @@ define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef 
 .lr.ph.backedge:                                  ; preds = %33, %.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %33 ], [ %indvars.iv.next53, %.thread ]
   %.03546.be = phi i1 [ %38, %33 ], [ false, %.thread ]
-  br label %.lr.ph, !llvm.loop !66
+  br label %.lr.ph, !llvm.loop !67
 
 .thread:                                          ; preds = %.lr.ph
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv, 1
@@ -1132,7 +1132,7 @@ define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef 
 
 41:                                               ; preds = %._crit_edge.thread
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %3) #22
-  %43 = load i32, ptr %1, align 8, !tbaa !49
+  %43 = load i32, ptr %1, align 8, !tbaa !50
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph49, label %.loopexit
 
@@ -1146,15 +1146,15 @@ define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef 
   %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %48, i64 noundef %47) #22
   call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %7) #22
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %50 = load i32, ptr %1, align 8, !tbaa !49
+  %50 = load i32, ptr %1, align 8, !tbaa !50
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next51, %51
-  br i1 %52, label %.lr.ph49, label %.loopexit, !llvm.loop !67
+  br i1 %52, label %.lr.ph49, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.lr.ph49, %41, %._crit_edge.thread
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #22
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(131) @.str.1, i8 noundef zeroext 2)
-  %53 = load i32, ptr %1, align 8, !tbaa !49
+  %53 = load i32, ptr %1, align 8, !tbaa !50
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 339, ptr noundef nonnull @.str.12, i32 noundef %53) #23
           to label %54 unwind label %55
 
@@ -1206,7 +1206,7 @@ define noundef zeroext i1 @_Z9isMainSimPK14gmx_multisim_t(ptr noundef readonly c
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !52
+  %4 = load i32, ptr %3, align 4, !tbaa !53
   %5 = icmp eq i32 %4, 0
   br label %6
 
@@ -1225,7 +1225,7 @@ define noundef zeroext i1 @_Z17isMainSimMainRankPK14gmx_multisim_tb(ptr noundef 
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !52
+  %6 = load i32, ptr %5, align 4, !tbaa !53
   %7 = icmp eq i32 %6, 0
   br label %_Z9isMainSimPK14gmx_multisim_t.exit
 
@@ -1244,7 +1244,7 @@ define void @_Z24logInitialMultisimStatusPK14gmx_multisim_tPK9t_commrecRKN3gmx8M
   br i1 %11, label %37, label %12
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr %2, align 8, !tbaa !68
+  %13 = load ptr, ptr %2, align 8, !tbaa !69
   %14 = icmp eq ptr %13, null
   br i1 %14, label %37, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
@@ -1257,7 +1257,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %17, align 8, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 0, ptr %18, align 8, !tbaa !71
+  store i8 0, ptr %18, align 8, !tbaa !72
   %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull @.str.17, i64 noundef 99)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit unwind label %29
 
@@ -1322,13 +1322,13 @@ _ZN3gmx14LogEntryWriterD2Ev.exit17:               ; preds = %_ZNKSt7__cxx1112bas
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %43 = load i32, ptr %42, align 4, !tbaa !74
+  %43 = load i32, ptr %42, align 4, !tbaa !75
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %47 = load i32, ptr %46, align 8, !tbaa !91
+  %47 = load i32, ptr %46, align 8, !tbaa !92
   %48 = icmp sgt i32 %47, 1
   br i1 %48, label %53, label %49
 
@@ -1350,12 +1350,12 @@ _ZN3gmx14LogEntryWriterD2Ev.exit17:               ; preds = %_ZNKSt7__cxx1112bas
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !92
+  %55 = load ptr, ptr %54, align 8, !tbaa !93
   call void @_Z11gmx_barrierP10tmpi_comm_(ptr noundef %55)
   br label %81
 
 56:                                               ; preds = %40
-  %57 = load ptr, ptr %2, align 8, !tbaa !68
+  %57 = load ptr, ptr %2, align 8, !tbaa !69
   %58 = icmp eq ptr %57, null
   br i1 %58, label %81, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i18
 
@@ -1368,7 +1368,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i18: ; pre
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %61, align 8, !tbaa !35
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 0, ptr %62, align 8, !tbaa !71
+  store i8 0, ptr %62, align 8, !tbaa !72
   %63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull @.str.19, i64 noundef 96)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit21 unwind label %73
 
@@ -1441,20 +1441,20 @@ define internal fastcc noundef zeroext i1 @_ZL26multisim_int_all_are_equalPK14gm
   unreachable
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !49
+  %5 = load i32, ptr %0, align 8, !tbaa !50
   %6 = sext i32 %5 to i64
   %7 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 398, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !52
+  %9 = load i32, ptr %8, align 4, !tbaa !53
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i64, ptr %7, i64 %10
   store i64 %1, ptr %11, align 8, !tbaa !30
-  %12 = load i32, ptr %0, align 8, !tbaa !49
-  %13 = load ptr, ptr @TMPI_INT64_T, align 8, !tbaa !55
+  %12 = load i32, ptr %0, align 8, !tbaa !50
+  %13 = load ptr, ptr @TMPI_INT64_T, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !53
+  %15 = load ptr, ptr %14, align 8, !tbaa !54
   %16 = tail call noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %7, i32 noundef %12, ptr noundef %13, i32 noundef 2, ptr noundef %15)
-  %17 = load i32, ptr %0, align 8, !tbaa !49
+  %17 = load i32, ptr %0, align 8, !tbaa !50
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1470,7 +1470,7 @@ define internal fastcc noundef zeroext i1 @_ZL26multisim_int_all_are_equalPK14gm
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not12, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !93
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.lcssa = phi i1 [ true, %4 ], [ %.not12, %.lr.ph ]
@@ -1569,51 +1569,52 @@ attributes #25 = { builtin nounwind }
 !43 = !{!41, !42, i64 8}
 !44 = !{!45, !9, i64 0}
 !45 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !9, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!41, !42, i64 16}
-!49 = !{!50, !12, i64 0}
-!50 = !{!"_ZTS14gmx_multisim_t", !12, i64 0, !12, i64 4, !51, i64 8, !51, i64 16}
-!51 = !{!"p1 _ZTS10tmpi_comm_", !9, i64 0}
-!52 = !{!50, !12, i64 4}
-!53 = !{!50, !51, i64 8}
-!54 = !{!50, !51, i64 16}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 _ZTS14tmpi_datatype_", !9, i64 0}
-!57 = !{!58, !59, i64 0}
-!58 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !59, i64 0, !59, i64 8, !59, i64 16}
-!59 = !{!"p1 int", !9, i64 0}
-!60 = !{!58, !59, i64 16}
-!61 = !{!58, !59, i64 8}
-!62 = distinct !{!62, !47}
-!63 = distinct !{!63, !47}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !9, i64 0}
-!66 = distinct !{!66, !47}
-!67 = distinct !{!67, !47}
-!68 = !{!69, !70, i64 0}
-!69 = !{!"_ZTSN3gmx14LogLevelHelperE", !70, i64 0}
-!70 = !{!"p1 _ZTSN3gmx10ILogTargetE", !9, i64 0}
-!71 = !{!72, !73, i64 32}
-!72 = !{!"_ZTSN3gmx8LogEntryE", !33, i64 0, !73, i64 32}
-!73 = !{!"bool", !10, i64 0}
-!74 = !{!75, !12, i64 60}
-!75 = !{!"_ZTS9t_commrec", !73, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !51, i64 24, !51, i64 32, !12, i64 40, !51, i64 48, !12, i64 56, !12, i64 60, !76, i64 64, !77, i64 96, !84, i64 104, !83, i64 112, !90, i64 120, !12, i64 128}
-!76 = !{!"_ZTS14gmx_nodecomm_t", !73, i64 0, !51, i64 8, !12, i64 16, !51, i64 24}
-!77 = !{!"_ZTSSt10unique_ptrI12gmx_domdec_tSt14default_deleteIS0_EE", !78, i64 0}
-!78 = !{!"_ZTSSt15__uniq_ptr_dataI12gmx_domdec_tSt14default_deleteIS0_ELb1ELb1EE", !79, i64 0}
-!79 = !{!"_ZTSSt15__uniq_ptr_implI12gmx_domdec_tSt14default_deleteIS0_EE", !80, i64 0}
-!80 = !{!"_ZTSSt5tupleIJP12gmx_domdec_tSt14default_deleteIS0_EEE", !81, i64 0}
-!81 = !{!"_ZTSSt11_Tuple_implILm0EJP12gmx_domdec_tSt14default_deleteIS0_EEE", !82, i64 0}
-!82 = !{!"_ZTSSt10_Head_baseILm0EP12gmx_domdec_tLb0EE", !83, i64 0}
-!83 = !{!"p1 _ZTS12gmx_domdec_t", !9, i64 0}
-!84 = !{!"_ZTSSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EE", !85, i64 0}
-!85 = !{!"_ZTSSt15__uniq_ptr_dataI16gmxNvshmemHandleSt14default_deleteIS0_ELb1ELb1EE", !86, i64 0}
-!86 = !{!"_ZTSSt15__uniq_ptr_implI16gmxNvshmemHandleSt14default_deleteIS0_EE", !87, i64 0}
-!87 = !{!"_ZTSSt5tupleIJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !88, i64 0}
-!88 = !{!"_ZTSSt11_Tuple_implILm0EJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !89, i64 0}
-!89 = !{!"_ZTSSt10_Head_baseILm0EP16gmxNvshmemHandleLb0EE", !90, i64 0}
-!90 = !{!"p1 _ZTS16gmxNvshmemHandle", !9, i64 0}
-!91 = !{!75, !12, i64 56}
-!92 = !{!75, !51, i64 32}
-!93 = distinct !{!93, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!41, !42, i64 16}
+!50 = !{!51, !12, i64 0}
+!51 = !{!"_ZTS14gmx_multisim_t", !12, i64 0, !12, i64 4, !52, i64 8, !52, i64 16}
+!52 = !{!"p1 _ZTS10tmpi_comm_", !9, i64 0}
+!53 = !{!51, !12, i64 4}
+!54 = !{!51, !52, i64 8}
+!55 = !{!51, !52, i64 16}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS14tmpi_datatype_", !9, i64 0}
+!58 = !{!59, !60, i64 0}
+!59 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !60, i64 0, !60, i64 8, !60, i64 16}
+!60 = !{!"p1 int", !9, i64 0}
+!61 = !{!59, !60, i64 16}
+!62 = !{!59, !60, i64 8}
+!63 = distinct !{!63, !47, !48}
+!64 = distinct !{!64, !47, !48}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !9, i64 0}
+!67 = distinct !{!67, !47, !48}
+!68 = distinct !{!68, !47, !48}
+!69 = !{!70, !71, i64 0}
+!70 = !{!"_ZTSN3gmx14LogLevelHelperE", !71, i64 0}
+!71 = !{!"p1 _ZTSN3gmx10ILogTargetE", !9, i64 0}
+!72 = !{!73, !74, i64 32}
+!73 = !{!"_ZTSN3gmx8LogEntryE", !33, i64 0, !74, i64 32}
+!74 = !{!"bool", !10, i64 0}
+!75 = !{!76, !12, i64 60}
+!76 = !{!"_ZTS9t_commrec", !74, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !52, i64 24, !52, i64 32, !12, i64 40, !52, i64 48, !12, i64 56, !12, i64 60, !77, i64 64, !78, i64 96, !85, i64 104, !84, i64 112, !91, i64 120, !12, i64 128}
+!77 = !{!"_ZTS14gmx_nodecomm_t", !74, i64 0, !52, i64 8, !12, i64 16, !52, i64 24}
+!78 = !{!"_ZTSSt10unique_ptrI12gmx_domdec_tSt14default_deleteIS0_EE", !79, i64 0}
+!79 = !{!"_ZTSSt15__uniq_ptr_dataI12gmx_domdec_tSt14default_deleteIS0_ELb1ELb1EE", !80, i64 0}
+!80 = !{!"_ZTSSt15__uniq_ptr_implI12gmx_domdec_tSt14default_deleteIS0_EE", !81, i64 0}
+!81 = !{!"_ZTSSt5tupleIJP12gmx_domdec_tSt14default_deleteIS0_EEE", !82, i64 0}
+!82 = !{!"_ZTSSt11_Tuple_implILm0EJP12gmx_domdec_tSt14default_deleteIS0_EEE", !83, i64 0}
+!83 = !{!"_ZTSSt10_Head_baseILm0EP12gmx_domdec_tLb0EE", !84, i64 0}
+!84 = !{!"p1 _ZTS12gmx_domdec_t", !9, i64 0}
+!85 = !{!"_ZTSSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EE", !86, i64 0}
+!86 = !{!"_ZTSSt15__uniq_ptr_dataI16gmxNvshmemHandleSt14default_deleteIS0_ELb1ELb1EE", !87, i64 0}
+!87 = !{!"_ZTSSt15__uniq_ptr_implI16gmxNvshmemHandleSt14default_deleteIS0_EE", !88, i64 0}
+!88 = !{!"_ZTSSt5tupleIJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !89, i64 0}
+!89 = !{!"_ZTSSt11_Tuple_implILm0EJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !90, i64 0}
+!90 = !{!"_ZTSSt10_Head_baseILm0EP16gmxNvshmemHandleLb0EE", !91, i64 0}
+!91 = !{!"p1 _ZTS16gmxNvshmemHandle", !9, i64 0}
+!92 = !{!76, !12, i64 56}
+!93 = !{!76, !52, i64 32}
+!94 = distinct !{!94, !47, !48}

@@ -246,13 +246,13 @@ define dso_local range(i32 0, 3) i32 @verify_main(i32 noundef %0, ptr noundef %1
 
 12:                                               ; preds = %10, %71, %.thread
   %.3 = phi ptr [ %.4108, %.thread ], [ null, %71 ], [ %.181, %10 ]
-  %13 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %13 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %14 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.106, ptr noundef %9) #3
   br label %select.unfold
 
 15:                                               ; preds = %10
   call void @opt_help(ptr noundef nonnull @verify_options) #3
-  %16 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %16 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %17 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.107) #3
   %18 = call i32 @X509_PURPOSE_get_count() #3
   %19 = icmp sgt i32 %18, 0
@@ -261,17 +261,17 @@ define dso_local range(i32 0, 3) i32 @verify_main(i32 noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %.059145 = phi i32 [ %25, %.lr.ph ], [ 0, %15 ]
   %20 = call ptr @X509_PURPOSE_get0(i32 noundef %.059145) #3
-  %21 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %21 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %22 = call ptr @X509_PURPOSE_get0_sname(ptr noundef %20) #3
   %23 = call ptr @X509_PURPOSE_get0_name(ptr noundef %20) #3
   %24 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %21, ptr noundef nonnull @.str.108, ptr noundef %22, ptr noundef %23) #3
   %25 = add nuw nsw i32 %.059145, 1
   %26 = call i32 @X509_PURPOSE_get_count() #3
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %28 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %28 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %29 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.109) #3
   %30 = call i32 @X509_VERIFY_PARAM_get_count() #3
   %31 = icmp sgt i32 %30, 0
@@ -280,13 +280,13 @@ define dso_local range(i32 0, 3) i32 @verify_main(i32 noundef %0, ptr noundef %1
 .lr.ph148:                                        ; preds = %._crit_edge, %.lr.ph148
   %.160146 = phi i32 [ %36, %.lr.ph148 ], [ 0, %._crit_edge ]
   %32 = call ptr @X509_VERIFY_PARAM_get0(i32 noundef %.160146) #3
-  %33 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %33 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %34 = call ptr @X509_VERIFY_PARAM_get0_name(ptr noundef %32) #3
   %35 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef nonnull @.str.110, ptr noundef %34) #3
   %36 = add nuw nsw i32 %.160146, 1
   %37 = call i32 @X509_VERIFY_PARAM_get_count() #3
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph148, label %select.unfold, !llvm.loop !16
+  br i1 %38, label %.lr.ph148, label %select.unfold, !llvm.loop !17
 
 39:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
   %40 = call i32 @opt_verify(i32 noundef %11, ptr noundef nonnull %6) #3
@@ -395,7 +395,7 @@ define dso_local range(i32 0, 3) i32 @verify_main(i32 noundef %0, ptr noundef %1
   br i1 %or.cond3, label %86, label %89
 
 86:                                               ; preds = %82
-  %87 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %87 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %88 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %87, ptr noundef nonnull @.str.114, ptr noundef %9) #3
   br label %select.unfold
 
@@ -442,7 +442,7 @@ define dso_local range(i32 0, 3) i32 @verify_main(i32 noundef %0, ptr noundef %1
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.157150 = phi i32 [ 0, %.preheader.preheader ], [ %spec.select105, %.preheader ]
   %104 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
-  %105 = load ptr, ptr %104, align 8, !tbaa !17
+  %105 = load ptr, ptr %104, align 8, !tbaa !18
   %106 = load ptr, ptr %3, align 8, !tbaa !4
   %107 = load ptr, ptr %4, align 8, !tbaa !4
   %108 = load ptr, ptr %5, align 8, !tbaa !9
@@ -451,7 +451,7 @@ define dso_local range(i32 0, 3) i32 @verify_main(i32 noundef %0, ptr noundef %1
   %spec.select105 = select i1 %.not94.not, i32 -1, i32 %.157150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %select.unfold, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %select.unfold, label %.preheader, !llvm.loop !20
 
 select.unfold:                                    ; preds = %76, %67, %62, %58, %55, %52, %39, %.lr.ph148, %.preheader, %._crit_edge, %99, %89, %2, %86, %12
   %.083 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %86 ], [ null, %89 ], [ %90, %99 ], [ null, %._crit_edge ], [ %90, %.preheader ], [ null, %.lr.ph148 ], [ null, %39 ], [ null, %52 ], [ null, %55 ], [ null, %58 ], [ null, %62 ], [ null, %67 ], [ null, %76 ]
@@ -545,16 +545,16 @@ define internal noundef i32 @cb(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %.not20, label %13, label %6
 
 6:                                                ; preds = %5
-  %7 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %7 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %8 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %4) #3
   %9 = tail call i64 @get_nameopt() #3
   %10 = tail call i32 @X509_NAME_print_ex(ptr noundef %7, ptr noundef %8, i32 noundef 0, i64 noundef %9) #3
-  %11 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %11 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %11, ptr noundef nonnull @.str.124) #3
   br label %13
 
 13:                                               ; preds = %6, %5
-  %14 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %14 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %15 = tail call ptr @X509_STORE_CTX_get0_parent_ctx(ptr noundef %1) #3
   %.not21 = icmp eq ptr %15, null
   %16 = select i1 %.not21, ptr @.str.128, ptr @.str.127
@@ -649,7 +649,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %0, ptr no
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %17 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.116, ptr noundef %13) #3
   br label %.sink.split
 
@@ -657,7 +657,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %0, ptr no
   %19 = add nuw nsw i32 %.25875, 1
   %20 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %6) #3
   %21 = icmp slt i32 %19, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.critedge, %.preheader, %10
   %.157 = phi i32 [ 0, %10 ], [ 0, %.preheader ], [ %19, %.critedge ]
@@ -666,7 +666,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %0, ptr no
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %.loopexit
-  %25 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %25 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %26 = icmp eq ptr %1, null
   %27 = select i1 %26, ptr @.str.118, ptr %1
   %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.117, ptr noundef nonnull %27) #3
@@ -680,7 +680,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %0, ptr no
 
 32:                                               ; preds = %29
   tail call void @X509_STORE_CTX_free(ptr noundef nonnull %22) #3
-  %33 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %33 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %34 = icmp eq ptr %1, null
   %35 = select i1 %34, ptr @.str.118, ptr %1
   %36 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef nonnull @.str.119, ptr noundef nonnull %35) #3
@@ -713,7 +713,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %0, ptr no
   br i1 %46, label %47, label %76
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr @bio_out, align 8, !tbaa !13
+  %48 = load ptr, ptr @bio_out, align 8, !tbaa !14
   %49 = icmp eq ptr %1, null
   %50 = select i1 %49, ptr @.str.118, ptr %1
   %51 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %48, ptr noundef nonnull @.str.120, ptr noundef nonnull %50) #3
@@ -723,7 +723,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %0, ptr no
 52:                                               ; preds = %47
   %53 = tail call ptr @X509_STORE_CTX_get1_chain(ptr noundef nonnull %22) #3
   %54 = tail call i32 @X509_STORE_CTX_get_num_untrusted(ptr noundef nonnull %22) #3
-  %55 = load ptr, ptr @bio_out, align 8, !tbaa !13
+  %55 = load ptr, ptr @bio_out, align 8, !tbaa !14
   %56 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %55, ptr noundef nonnull @.str.121) #3
   %57 = tail call i32 @OPENSSL_sk_num(ptr noundef %53) #3
   %58 = icmp sgt i32 %57, 0
@@ -732,9 +732,9 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %0, ptr no
 .lr.ph77:                                         ; preds = %52, %70
   %.05476 = phi i32 [ %73, %70 ], [ 0, %52 ]
   %59 = tail call ptr @OPENSSL_sk_value(ptr noundef %53, i32 noundef %.05476) #3
-  %60 = load ptr, ptr @bio_out, align 8, !tbaa !13
+  %60 = load ptr, ptr @bio_out, align 8, !tbaa !14
   %61 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %60, ptr noundef nonnull @.str.122, i32 noundef %.05476) #3
-  %62 = load ptr, ptr @stdout, align 8, !tbaa !21
+  %62 = load ptr, ptr @stdout, align 8, !tbaa !22
   %63 = tail call ptr @X509_get_subject_name(ptr noundef %59) #3
   %64 = tail call i64 @get_nameopt() #3
   %65 = tail call i32 @X509_NAME_print_ex_fp(ptr noundef %62, ptr noundef %63, i32 noundef 0, i64 noundef %64) #3
@@ -742,24 +742,24 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %0, ptr no
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %.lr.ph77
-  %68 = load ptr, ptr @bio_out, align 8, !tbaa !13
+  %68 = load ptr, ptr @bio_out, align 8, !tbaa !14
   %69 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %68, ptr noundef nonnull @.str.123) #3
   br label %70
 
 70:                                               ; preds = %67, %.lr.ph77
-  %71 = load ptr, ptr @bio_out, align 8, !tbaa !13
+  %71 = load ptr, ptr @bio_out, align 8, !tbaa !14
   %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %71, ptr noundef nonnull @.str.124) #3
   %73 = add nuw nsw i32 %.05476, 1
   %74 = tail call i32 @OPENSSL_sk_num(ptr noundef %53) #3
   %75 = icmp slt i32 %73, %74
-  br i1 %75, label %.lr.ph77, label %._crit_edge, !llvm.loop !23
+  br i1 %75, label %.lr.ph77, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %70, %52
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %53) #3
   br label %81
 
 76:                                               ; preds = %44, %41
-  %77 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %77 = load ptr, ptr @bio_err, align 8, !tbaa !14
   %78 = icmp eq ptr %1, null
   %79 = select i1 %78, ptr @.str.118, ptr %1
   %80 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.125, ptr noundef nonnull %79) #3
@@ -778,7 +778,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %0, ptr no
 
 .sink.split:                                      ; preds = %82, %7, %16
   %.2.ph = phi i32 [ 0, %16 ], [ %.059, %82 ], [ 0, %7 ]
-  %84 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %84 = load ptr, ptr @bio_err, align 8, !tbaa !14
   tail call void @ERR_print_errors(ptr noundef %84) #3
   br label %85
 
@@ -870,16 +870,17 @@ attributes #3 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 _ZTS17stack_st_X509_CRL", !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 omnipotent char", !6, i64 0}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!23 = distinct !{!23, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 omnipotent char", !6, i64 0}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!24 = distinct !{!24, !12, !13}

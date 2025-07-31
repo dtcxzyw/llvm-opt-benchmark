@@ -92,7 +92,7 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr noundef rea
   store i64 %27, ptr %32, align 8, !tbaa !16
   %33 = add nuw i64 %.01314.i, 1
   %exitcond.not.i = icmp eq i64 %33, %spec.select
-  br i1 %exitcond.not.i, label %34, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %34, label %.lr.ph.i, !llvm.loop !27
 
 34:                                               ; preds = %30
   %35 = icmp ugt i64 %spec.select, 4
@@ -285,7 +285,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %130 = add i64 %.047.us.i, 4
   %131 = or disjoint i64 %130, 3
   %132 = icmp ult i64 %131, %spec.select
-  br i1 %132, label %.lr.ph.split.us.i, label %looks_ucs32.exit, !llvm.loop !27
+  br i1 %132, label %.lr.ph.split.us.i, label %looks_ucs32.exit, !llvm.loop !29
 
 .lr.ph.split.i:                                   ; preds = %.thread56.i, %163
   %133 = phi i64 [ %155, %163 ], [ 0, %.thread56.i ]
@@ -333,7 +333,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %164 = add i64 %.047.i, 4
   %165 = or disjoint i64 %164, 3
   %166 = icmp ult i64 %165, %spec.select
-  br i1 %166, label %.lr.ph.split.i, label %.loopexit191
+  br i1 %166, label %.lr.ph.split.i, label %.loopexit191, !llvm.loop !31
 
 looks_ucs32.exit:                                 ; preds = %129, %101
   store ptr @.str.10, ptr %4, align 8, !tbaa !14
@@ -387,7 +387,7 @@ looks_ucs32.exit:                                 ; preds = %129, %101
   store i64 %174, ptr %182, align 8, !tbaa !16
   %183 = add nuw i64 %.01517.i, 1
   %exitcond.not.i152 = icmp eq i64 %183, %spec.select
-  br i1 %exitcond.not.i152, label %184, label %.lr.ph.i150
+  br i1 %exitcond.not.i152, label %184, label %.lr.ph.i150, !llvm.loop !32
 
 184:                                              ; preds = %179
   store ptr @.str.18, ptr %4, align 8, !tbaa !14
@@ -419,7 +419,7 @@ looks_latin1.exit:                                ; preds = %.lr.ph.i150
   store i64 %187, ptr %196, align 8, !tbaa !16
   %197 = add nuw i64 %.01820.i, 1
   %exitcond.not.i156 = icmp eq i64 %197, %spec.select
-  br i1 %exitcond.not.i156, label %198, label %.lr.ph.i154
+  br i1 %exitcond.not.i156, label %198, label %.lr.ph.i154, !llvm.loop !33
 
 198:                                              ; preds = %193
   store ptr @.str.20, ptr %4, align 8, !tbaa !14
@@ -446,7 +446,7 @@ looks_extended.exit:                              ; preds = %.lr.ph.i154
   store i8 %206, ptr %207, align 1, !tbaa !26
   %208 = add nuw i64 %.06.i, 1
   %exitcond.not.i159 = icmp eq i64 %208, %spec.select
-  br i1 %exitcond.not.i159, label %from_ebcdic.exit, label %.lr.ph.i158
+  br i1 %exitcond.not.i159, label %from_ebcdic.exit, label %.lr.ph.i158, !llvm.loop !34
 
 from_ebcdic.exit:                                 ; preds = %.lr.ph.i158
   %209 = load ptr, ptr %spec.store.select, align 8, !tbaa !24
@@ -471,7 +471,7 @@ from_ebcdic.exit:                                 ; preds = %.lr.ph.i158
   store i64 %212, ptr %218, align 8, !tbaa !16
   %219 = add nuw i64 %.01314.i162, 1
   %exitcond.not.i165 = icmp eq i64 %219, %spec.select
-  br i1 %exitcond.not.i165, label %220, label %.lr.ph.i161
+  br i1 %exitcond.not.i165, label %220, label %.lr.ph.i161, !llvm.loop !27
 
 220:                                              ; preds = %215
   store ptr @.str.22, ptr %4, align 8, !tbaa !14
@@ -502,7 +502,7 @@ looks_ascii.exit166:                              ; preds = %.lr.ph.i161
   store i64 %223, ptr %231, align 8, !tbaa !16
   %232 = add nuw i64 %.01517.i169, 1
   %exitcond.not.i172 = icmp eq i64 %232, %spec.select
-  br i1 %exitcond.not.i172, label %233, label %.lr.ph.i168
+  br i1 %exitcond.not.i172, label %233, label %.lr.ph.i168, !llvm.loop !32
 
 233:                                              ; preds = %228
   store ptr @.str.24, ptr %4, align 8, !tbaa !14
@@ -640,12 +640,12 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   br i1 %51, label %54, label %._crit_edge
 
 54:                                               ; preds = %50
-  %55 = load i8, ptr %24, align 2, !tbaa !29
+  %55 = load i8, ptr %24, align 2, !tbaa !35
   %56 = icmp ult i8 %53, %55
   br i1 %56, label %.thread, label %57
 
 57:                                               ; preds = %54
-  %58 = load i8, ptr %43, align 1, !tbaa !31
+  %58 = load i8, ptr %43, align 1, !tbaa !37
   %59 = icmp ugt i8 %53, %58
   br i1 %59, label %.thread, label %._crit_edge
 
@@ -664,7 +664,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   %67 = or disjoint i64 %64, %66
   %68 = add nuw nsw i32 %.082116, 1
   %exitcond.not = icmp eq i32 %68, %.071
-  br i1 %exitcond.not, label %69, label %48
+  br i1 %exitcond.not, label %69, label %48, !llvm.loop !38
 
 69:                                               ; preds = %63
   br i1 %.not, label %.thread98, label %.thread98.sink.split
@@ -687,7 +687,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   %.370 = phi i64 [ %.067121, %11 ], [ %47, %69 ], [ %.370.ph, %.thread98.sink.split ]
   %73 = add i64 %.370, 1
   %74 = icmp ult i64 %73, %1
-  br i1 %74, label %.lr.ph, label %.loopexit
+  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.thread98, %48
   %.076115 = phi i32 [ %.076119, %48 ], [ %.379, %.thread98 ]
@@ -802,7 +802,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %49 = add i64 %.04761.us, 2
   %50 = or disjoint i64 %49, 1
   %51 = icmp ult i64 %50, %1
-  br i1 %51, label %.lr.ph.split.us, label %.critedge, !llvm.loop !32
+  br i1 %51, label %.lr.ph.split.us, label %.critedge, !llvm.loop !40
 
 .lr.ph.split:                                     ; preds = %.thread, %80
   %52 = phi i64 [ %83, %80 ], [ 3, %.thread ]
@@ -867,7 +867,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %82 = add i64 %.04761, 2
   %83 = or disjoint i64 %82, 1
   %84 = icmp ult i64 %83, %1
-  br i1 %84, label %.lr.ph.split, label %.critedge
+  br i1 %84, label %.lr.ph.split, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %80, %._crit_edge, %73, %64, %.lr.ph.split, %47, %._crit_edge76, %40, %31, %.lr.ph.split.us, %.thread, %16, %6, %8, %12, %4
   %.051 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ 1, %16 ], [ 2, %.thread ], [ 1, %47 ], [ 0, %._crit_edge76 ], [ 0, %40 ], [ 0, %31 ], [ 0, %.lr.ph.split.us ], [ 2, %80 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %64 ], [ 0, %.lr.ph.split ]
@@ -926,8 +926,17 @@ attributes #9 = { nounwind allocsize(0) }
 !25 = !{!"p1 long", !12, i64 0}
 !26 = !{!7, !7, i64 0}
 !27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = !{!30, !7, i64 0}
-!30 = !{!"accept_range", !7, i64 0, !7, i64 1}
-!31 = !{!30, !7, i64 1}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !28, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !28}
 !32 = distinct !{!32, !28}
+!33 = distinct !{!33, !28}
+!34 = distinct !{!34, !28}
+!35 = !{!36, !7, i64 0}
+!36 = !{!"accept_range", !7, i64 0, !7, i64 1}
+!37 = !{!36, !7, i64 1}
+!38 = distinct !{!38, !28}
+!39 = distinct !{!39, !28}
+!40 = distinct !{!40, !28, !30}
+!41 = distinct !{!41, !28}

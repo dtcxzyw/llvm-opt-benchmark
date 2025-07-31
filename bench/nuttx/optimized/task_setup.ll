@@ -70,7 +70,7 @@ define internal fastcc range(i32 -12, 1) i32 @nxthread_setup_scheduler(ptr nound
   br i1 %.not.i.i, label %58, label %30
 
 30:                                               ; preds = %26
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   br label %58
 
 ._crit_edge.i:                                    ; preds = %15, %9
@@ -88,7 +88,7 @@ define internal fastcc range(i32 -12, 1) i32 @nxthread_setup_scheduler(ptr nound
   br i1 %.not.i25.i, label %nxtask_assign_pid.exit, label %39
 
 39:                                               ; preds = %37
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   br label %nxtask_assign_pid.exit
 
 40:                                               ; preds = %._crit_edge.i
@@ -117,12 +117,12 @@ define internal fastcc range(i32 -12, 1) i32 @nxthread_setup_scheduler(ptr nound
   %55 = sdiv i32 %54, 2
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next.i, %56
-  br i1 %57, label %.lr.ph33.i, label %._crit_edge34.i, !llvm.loop !11
+  br i1 %57, label %.lr.ph33.i, label %._crit_edge34.i, !llvm.loop !12
 
 ._crit_edge34.i:                                  ; preds = %.lr.ph33.i, %40
   store ptr %35, ptr @g_pidhash, align 8
   call void @free(ptr noundef %.pre.i)
-  br label %9
+  br label %9, !llvm.loop !13
 
 58:                                               ; preds = %26, %30
   %59 = trunc i32 %1 to i8
@@ -254,7 +254,7 @@ define range(i32 -36, 1) i32 @nxtask_setup_arguments(ptr noundef %0, ptr noundef
   store i8 %12, ptr %.0911.i, align 1
   %14 = add nuw nsw i32 %.0812.i, 1
   %exitcond.not.i = icmp eq i32 %14, 31
-  br i1 %exitcond.not.i, label %nxtask_setup_name.exit, label %5, !llvm.loop !12
+  br i1 %exitcond.not.i, label %nxtask_setup_name.exit, label %5, !llvm.loop !14
 
 nxtask_setup_name.exit:                           ; preds = %5, %8
   %.09.lcssa.i = phi ptr [ %.0911.i, %5 ], [ %13, %8 ]
@@ -287,7 +287,7 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
 26:                                               ; preds = %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 257
-  br i1 %exitcond.i, label %nxtask_setup_stackargs.exit, label %18, !llvm.loop !13
+  br i1 %exitcond.i, label %nxtask_setup_stackargs.exit, label %18, !llvm.loop !15
 
 .loopexit.loopexit.i:                             ; preds = %18
   %27 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -338,7 +338,7 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   %49 = getelementptr inbounds i8, ptr %.05162.i, i64 %48
   %50 = sub i64 %.263.i, %48
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count.i
-  br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %34
   %.pre-phi.i = phi i64 [ 0, %34 ], [ %wide.trip.count.i, %.lr.ph.i ]
@@ -419,10 +419,12 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 660922, i64 660940}
 !7 = !{i64 661541}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 661662}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 661662}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

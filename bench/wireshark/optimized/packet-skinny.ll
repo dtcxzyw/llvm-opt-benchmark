@@ -3771,7 +3771,7 @@ define internal void @handle_CapabilitiesResMessage(ptr noundef %0, ptr noundef 
 78:                                               ; preds = %33, %45, %65, %57, %37, %77
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %21, 18
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %78, %13, %10
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -4345,7 +4345,7 @@ define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr readn
 53:                                               ; preds = %52, %39
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %38, 6
-  br i1 %exitcond.not, label %.loopexit326, label %.preheader325, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit326, label %.preheader325, !llvm.loop !12
 
 .loopexit326:                                     ; preds = %53, %30, %27
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -4426,7 +4426,7 @@ define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr readn
 99:                                               ; preds = %95, %98
   %100 = add nuw nsw i32 %.0289328, 1
   %exitcond334.not = icmp eq i32 %100, 5
-  br i1 %exitcond334.not, label %101, label %93, !llvm.loop !12
+  br i1 %exitcond334.not, label %101, label %93, !llvm.loop !13
 
 101:                                              ; preds = %99
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -4454,7 +4454,7 @@ define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr readn
 113:                                              ; preds = %112, %103
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond335.not = icmp eq i32 %80, 4
-  br i1 %exitcond335.not, label %.loopexit324, label %.preheader323, !llvm.loop !13
+  br i1 %exitcond335.not, label %.loopexit324, label %.preheader323, !llvm.loop !14
 
 .loopexit324:                                     ; preds = %113, %72, %69
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -4582,7 +4582,7 @@ define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr readn
 186:                                              ; preds = %141, %153, %173, %165, %145, %185
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond336.not = icmp eq i32 %129, 18
-  br i1 %exitcond336.not, label %.loopexit322, label %.preheader321, !llvm.loop !14
+  br i1 %exitcond336.not, label %.loopexit322, label %.preheader321, !llvm.loop !15
 
 .loopexit322:                                     ; preds = %186, %121, %118
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -4683,7 +4683,7 @@ define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr readn
 247:                                              ; preds = %246, %231
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond337.not = icmp eq i32 %230, 4
-  br i1 %exitcond337.not, label %.loopexit318, label %.preheader317, !llvm.loop !15
+  br i1 %exitcond337.not, label %.loopexit318, label %.preheader317, !llvm.loop !16
 
 .loopexit318:                                     ; preds = %247, %222, %219
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -4813,7 +4813,7 @@ define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr readn
 343:                                              ; preds = %250, %251, %333, %260, %342
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond338.not = icmp eq i32 %202, 10
-  br i1 %exitcond338.not, label %.loopexit320, label %.preheader319, !llvm.loop !16
+  br i1 %exitcond338.not, label %.loopexit320, label %.preheader319, !llvm.loop !17
 
 .loopexit320:                                     ; preds = %343, %194, %191
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -4870,7 +4870,7 @@ define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr readn
 372:                                              ; preds = %371, %360
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond339.not = icmp eq i32 %359, 5
-  br i1 %exitcond339.not, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %exitcond339.not, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %372, %351, %348
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -5168,7 +5168,7 @@ define internal void @handle_AuditConferenceResMessage(ptr noundef %0, ptr nound
 42:                                               ; preds = %41, %24
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %23, 32
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %42, %15, %12
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -5225,7 +5225,7 @@ define internal void @handle_AuditParticipantResMessage(ptr noundef %0, ptr noun
 28:                                               ; preds = %24, %27
   %29 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %29, 256
-  br i1 %exitcond.not, label %30, label %22, !llvm.loop !19
+  br i1 %exitcond.not, label %30, label %22, !llvm.loop !20
 
 30:                                               ; preds = %28
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -5404,7 +5404,7 @@ define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr nounde
 53:                                               ; preds = %52, %39
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %38, 6
-  br i1 %exitcond.not, label %.loopexit343, label %.preheader342, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit343, label %.preheader342, !llvm.loop !21
 
 .loopexit343:                                     ; preds = %53, %30, %27
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -5485,7 +5485,7 @@ define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr nounde
 99:                                               ; preds = %95, %98
   %100 = add nuw nsw i32 %.0306345, 1
   %exitcond351.not = icmp eq i32 %100, 5
-  br i1 %exitcond351.not, label %101, label %93, !llvm.loop !21
+  br i1 %exitcond351.not, label %101, label %93, !llvm.loop !22
 
 101:                                              ; preds = %99
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -5513,7 +5513,7 @@ define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr nounde
 113:                                              ; preds = %112, %103
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond352.not = icmp eq i32 %80, 4
-  br i1 %exitcond352.not, label %.loopexit341, label %.preheader340, !llvm.loop !22
+  br i1 %exitcond352.not, label %.loopexit341, label %.preheader340, !llvm.loop !23
 
 .loopexit341:                                     ; preds = %113, %72, %69
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -5641,7 +5641,7 @@ define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr nounde
 186:                                              ; preds = %141, %153, %173, %165, %145, %185
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond353.not = icmp eq i32 %129, 18
-  br i1 %exitcond353.not, label %.loopexit339, label %.preheader338, !llvm.loop !23
+  br i1 %exitcond353.not, label %.loopexit339, label %.preheader338, !llvm.loop !24
 
 .loopexit339:                                     ; preds = %186, %121, %118
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -5742,7 +5742,7 @@ define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr nounde
 247:                                              ; preds = %246, %231
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond354.not = icmp eq i32 %230, 4
-  br i1 %exitcond354.not, label %.loopexit335, label %.preheader334, !llvm.loop !24
+  br i1 %exitcond354.not, label %.loopexit335, label %.preheader334, !llvm.loop !25
 
 .loopexit335:                                     ; preds = %247, %222, %219
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -5897,7 +5897,7 @@ define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr nounde
 360:                                              ; preds = %250, %251, %333, %350, %260, %359
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond355.not = icmp eq i32 %202, 10
-  br i1 %exitcond355.not, label %.loopexit337, label %.preheader336, !llvm.loop !25
+  br i1 %exitcond355.not, label %.loopexit337, label %.preheader336, !llvm.loop !26
 
 .loopexit337:                                     ; preds = %360, %194, %191
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -5954,7 +5954,7 @@ define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr nounde
 389:                                              ; preds = %388, %377
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond356.not = icmp eq i32 %376, 5
-  br i1 %exitcond356.not, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %exitcond356.not, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %389, %368, %365
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -6032,7 +6032,7 @@ define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr nounde
   %51 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef -2147483648)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %40, 6
-  br i1 %exitcond.not, label %.loopexit330, label %.preheader329, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit330, label %.preheader329, !llvm.loop !28
 
 .loopexit330:                                     ; preds = %.preheader329, %32, %29
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -6099,7 +6099,7 @@ define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr nounde
   %90 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %89, i32 noundef 4, i32 noundef -2147483648)
   %91 = add nuw i32 %.0293332, 1
   %exitcond339.not = icmp eq i32 %91, %82
-  br i1 %exitcond339.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond339.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %86
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -6121,7 +6121,7 @@ define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr nounde
   %102 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef -2147483648)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond340.not = icmp eq i32 %78, 4
-  br i1 %exitcond340.not, label %.loopexit328, label %.preheader327, !llvm.loop !29
+  br i1 %exitcond340.not, label %.loopexit328, label %.preheader327, !llvm.loop !30
 
 .loopexit328:                                     ; preds = %94, %70, %67
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -6241,7 +6241,7 @@ define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr nounde
 172:                                              ; preds = %132, %152, %160, %140, %128
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond341.not = icmp eq i32 %118, 18
-  br i1 %exitcond341.not, label %.loopexit326, label %.preheader325, !llvm.loop !30
+  br i1 %exitcond341.not, label %.loopexit326, label %.preheader325, !llvm.loop !31
 
 .loopexit326:                                     ; preds = %172, %110, %107
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -6331,7 +6331,7 @@ define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr nounde
   %229 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef -2147483648)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond342.not = icmp eq i32 %216, 4
-  br i1 %exitcond342.not, label %.loopexit322, label %.preheader321, !llvm.loop !31
+  br i1 %exitcond342.not, label %.loopexit322, label %.preheader321, !llvm.loop !32
 
 .loopexit322:                                     ; preds = %.preheader321, %208, %205
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -6494,7 +6494,7 @@ define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr nounde
 349:                                              ; preds = %346, %343
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond343.not = icmp eq i32 %190, 10
-  br i1 %exitcond343.not, label %.loopexit324, label %188, !llvm.loop !32
+  br i1 %exitcond343.not, label %.loopexit324, label %188, !llvm.loop !33
 
 .loopexit324:                                     ; preds = %349, %180, %177
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -6542,7 +6542,7 @@ define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr nounde
   %376 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %375, i32 noundef 4, i32 noundef -2147483648)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond344.not = icmp eq i32 %365, 5
-  br i1 %exitcond344.not, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %exitcond344.not, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader, %357, %354
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -7283,7 +7283,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
 125:                                              ; preds = %121, %124
   %126 = add nuw nsw i32 %.0117121, 1
   %exitcond.not = icmp eq i32 %126, 16
-  br i1 %exitcond.not, label %127, label %119, !llvm.loop !34
+  br i1 %exitcond.not, label %127, label %119, !llvm.loop !35
 
 127:                                              ; preds = %125
   call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -7320,7 +7320,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
 141:                                              ; preds = %137, %140
   %142 = add nuw nsw i32 %.0122, 1
   %exitcond123.not = icmp eq i32 %142, 16
-  br i1 %exitcond123.not, label %143, label %135, !llvm.loop !35
+  br i1 %exitcond123.not, label %143, label %135, !llvm.loop !36
 
 143:                                              ; preds = %141
   call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -7751,7 +7751,7 @@ define internal void @handle_ButtonTemplateResMessage(ptr noundef %0, ptr nounde
 36:                                               ; preds = %35, %28
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %27, 42
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %36, %19, %16
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -7807,7 +7807,7 @@ define internal void @handle_ServerResMessage(ptr noundef %0, ptr noundef %1, pt
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 48, i32 noundef 0)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %10, 5
-  br i1 %exitcond.not, label %14, label %8, !llvm.loop !37
+  br i1 %exitcond.not, label %14, label %8, !llvm.loop !38
 
 14:                                               ; preds = %8
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -7821,7 +7821,7 @@ define internal void @handle_ServerResMessage(ptr noundef %0, ptr noundef %1, pt
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648)
   %20 = add nuw nsw i32 %.03538, 1
   %exitcond41.not = icmp eq i32 %20, 5
-  br i1 %exitcond41.not, label %21, label %17, !llvm.loop !38
+  br i1 %exitcond41.not, label %21, label %17, !llvm.loop !39
 
 21:                                               ; preds = %17
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -7839,7 +7839,7 @@ define internal void @handle_ServerResMessage(ptr noundef %0, ptr noundef %1, pt
   %29 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond43.not = icmp eq i32 %26, 5
-  br i1 %exitcond43.not, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %exitcond43.not, label %.loopexit, label %.preheader, !llvm.loop !40
 
 .thread:                                          ; preds = %21, %.thread
   %.039 = phi i32 [ %31, %.thread ], [ 0, %21 ]
@@ -7851,7 +7851,7 @@ define internal void @handle_ServerResMessage(ptr noundef %0, ptr noundef %1, pt
   tail call fastcc void @dissect_skinny_ipv4or6(ptr noundef %0, i32 noundef %33, i32 noundef %34)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond42.not = icmp eq i32 %31, 5
-  br i1 %exitcond42.not, label %.loopexit, label %.thread, !llvm.loop !40
+  br i1 %exitcond42.not, label %.loopexit, label %.thread, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.thread, %.preheader
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -8324,7 +8324,7 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
 88:                                               ; preds = %84, %87
   %89 = add nuw nsw i32 %.0124131, 1
   %exitcond.not = icmp eq i32 %89, 16
-  br i1 %exitcond.not, label %90, label %82, !llvm.loop !41
+  br i1 %exitcond.not, label %90, label %82, !llvm.loop !42
 
 90:                                               ; preds = %88
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -8361,7 +8361,7 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
 104:                                              ; preds = %100, %103
   %105 = add nuw nsw i32 %.0132, 1
   %exitcond133.not = icmp eq i32 %105, 16
-  br i1 %exitcond133.not, label %106, label %98, !llvm.loop !42
+  br i1 %exitcond133.not, label %106, label %98, !llvm.loop !43
 
 106:                                              ; preds = %104
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -8639,7 +8639,7 @@ define internal void @handle_SoftKeyTemplateResMessage(ptr noundef %0, ptr nound
 35:                                               ; preds = %34, %28
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %27, 32
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !44
 
 .loopexit:                                        ; preds = %35, %19, %16
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -8707,7 +8707,7 @@ define internal void @handle_SoftKeySetResMessage(ptr noundef %0, ptr noundef %1
   %35 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef -2147483648)
   %36 = add nuw nsw i32 %.04044, 1
   %exitcond.not = icmp eq i32 %36, 16
-  br i1 %exitcond.not, label %37, label %33, !llvm.loop !44
+  br i1 %exitcond.not, label %37, label %33, !llvm.loop !45
 
 37:                                               ; preds = %33
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -8721,7 +8721,7 @@ define internal void @handle_SoftKeySetResMessage(ptr noundef %0, ptr noundef %1
   %42 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef -2147483648)
   %43 = add nuw nsw i32 %.045, 1
   %exitcond47.not = icmp eq i32 %43, 16
-  br i1 %exitcond47.not, label %44, label %40, !llvm.loop !45
+  br i1 %exitcond47.not, label %44, label %40, !llvm.loop !46
 
 44:                                               ; preds = %40
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -8734,7 +8734,7 @@ define internal void @handle_SoftKeySetResMessage(ptr noundef %0, ptr noundef %1
 46:                                               ; preds = %45, %44
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond48.not = icmp eq i32 %27, 16
-  br i1 %exitcond48.not, label %.loopexit, label %.preheader, !llvm.loop !46
+  br i1 %exitcond48.not, label %.loopexit, label %.preheader, !llvm.loop !47
 
 .loopexit:                                        ; preds = %46, %19, %16
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -9183,7 +9183,7 @@ define internal void @handle_StartAnnouncementMessage(ptr noundef %0, ptr readno
   %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %8, 32
-  br i1 %exitcond.not, label %16, label %6, !llvm.loop !47
+  br i1 %exitcond.not, label %16, label %6, !llvm.loop !48
 
 16:                                               ; preds = %6
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -9201,7 +9201,7 @@ define internal void @handle_StartAnnouncementMessage(ptr noundef %0, ptr readno
   %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef -2147483648)
   %26 = add nuw nsw i32 %.020, 1
   %exitcond21.not = icmp eq i32 %26, 16
-  br i1 %exitcond21.not, label %27, label %23, !llvm.loop !48
+  br i1 %exitcond21.not, label %27, label %23, !llvm.loop !49
 
 27:                                               ; preds = %23
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -9553,7 +9553,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
 121:                                              ; preds = %120, %113
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %112, 5
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !50
 
 .loopexit:                                        ; preds = %121, %104, %101
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -9767,7 +9767,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
 273:                                              ; preds = %269, %272
   %274 = add nuw nsw i32 %.0213222, 1
   %exitcond224.not = icmp eq i32 %274, 16
-  br i1 %exitcond224.not, label %275, label %267, !llvm.loop !50
+  br i1 %exitcond224.not, label %275, label %267, !llvm.loop !51
 
 275:                                              ; preds = %273
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -9804,7 +9804,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
 289:                                              ; preds = %285, %288
   %290 = add nuw nsw i32 %.0223, 1
   %exitcond225.not = icmp eq i32 %290, 16
-  br i1 %exitcond225.not, label %291, label %283, !llvm.loop !51
+  br i1 %exitcond225.not, label %291, label %283, !llvm.loop !52
 
 291:                                              ; preds = %289
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -10062,7 +10062,7 @@ define internal void @handle_StartMultiMediaTransmissionMessage(ptr noundef %0, 
 112:                                              ; preds = %111, %104
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %103, 5
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !53
 
 .loopexit:                                        ; preds = %112, %95, %92
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -10276,7 +10276,7 @@ define internal void @handle_StartMultiMediaTransmissionMessage(ptr noundef %0, 
 264:                                              ; preds = %260, %263
   %265 = add nuw nsw i32 %.0196204, 1
   %exitcond206.not = icmp eq i32 %265, 16
-  br i1 %exitcond206.not, label %266, label %258, !llvm.loop !53
+  br i1 %exitcond206.not, label %266, label %258, !llvm.loop !54
 
 266:                                              ; preds = %264
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -10313,7 +10313,7 @@ define internal void @handle_StartMultiMediaTransmissionMessage(ptr noundef %0, 
 280:                                              ; preds = %276, %279
   %281 = add nuw nsw i32 %.0205, 1
   %exitcond207.not = icmp eq i32 %281, 16
-  br i1 %exitcond207.not, label %282, label %274, !llvm.loop !54
+  br i1 %exitcond207.not, label %282, label %274, !llvm.loop !55
 
 282:                                              ; preds = %280
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -10516,7 +10516,7 @@ define internal void @handle_MiscellaneousCommandMessage(ptr noundef %0, ptr rea
 99:                                               ; preds = %98, %91
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %90, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !55
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %99, %82, %79
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -12450,7 +12450,7 @@ define internal void @handle_CallCountRespMessage(ptr noundef %0, ptr noundef %1
 34:                                               ; preds = %33, %26
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %exitcond.not = icmp eq i32 %25, 42
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %34, %17, %14
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -12939,7 +12939,7 @@ define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr nou
   %.pre-phi = phi i32 [ %.pre, %41 ], [ %31, %44 ], [ %31, %43 ]
   %.155 = phi i1 [ true, %41 ], [ %.05466, %44 ], [ %.05466, %43 ]
   %46 = icmp slt i32 %.pre-phi, %.057
-  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !57
+  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %.lr.ph, %45
   %.054.lcssa = phi i1 [ %.155, %45 ], [ %.05466, %.lr.ph ]
@@ -13014,53 +13014,54 @@ attributes #9 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
-!39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
-!41 = distinct !{!41, !9}
-!42 = distinct !{!42, !9}
-!43 = distinct !{!43, !9}
-!44 = distinct !{!44, !9}
-!45 = distinct !{!45, !9}
-!46 = distinct !{!46, !9}
-!47 = distinct !{!47, !9}
-!48 = distinct !{!48, !9}
-!49 = distinct !{!49, !9}
-!50 = distinct !{!50, !9}
-!51 = distinct !{!51, !9}
-!52 = distinct !{!52, !9}
-!53 = distinct !{!53, !9}
-!54 = distinct !{!54, !9}
-!55 = distinct !{!55, !9}
-!56 = distinct !{!56, !9}
-!57 = distinct !{!57, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = distinct !{!40, !9, !10}
+!41 = distinct !{!41, !9, !10}
+!42 = distinct !{!42, !9, !10}
+!43 = distinct !{!43, !9, !10}
+!44 = distinct !{!44, !9, !10}
+!45 = distinct !{!45, !9, !10}
+!46 = distinct !{!46, !9, !10}
+!47 = distinct !{!47, !9, !10}
+!48 = distinct !{!48, !9, !10}
+!49 = distinct !{!49, !9, !10}
+!50 = distinct !{!50, !9, !10}
+!51 = distinct !{!51, !9, !10}
+!52 = distinct !{!52, !9, !10}
+!53 = distinct !{!53, !9, !10}
+!54 = distinct !{!54, !9, !10}
+!55 = distinct !{!55, !9, !10}
+!56 = distinct !{!56, !9, !10}
+!57 = distinct !{!57, !9, !10}
+!58 = distinct !{!58, !9, !10}

@@ -469,7 +469,7 @@ malloc_mutex_lock.exit:                           ; preds = %28, %34
   %.1 = phi i32 [ %.03243, %.lr.ph45 ], [ %.03243, %16 ], [ %50, %malloc_mutex_lock.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !36
 
 ._crit_edge46:                                    ; preds = %malloc_mutex_lock.exit, %52, %._crit_edge
   %54 = tail call fastcc zeroext i1 @background_thread_create_locked(ptr noundef %0, i32 noundef 0)
@@ -497,7 +497,7 @@ malloc_mutex_lock.exit:                           ; preds = %28, %34
 60:                                               ; preds = %58, %.lr.ph48
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %.loopexit, label %.lr.ph48, !llvm.loop !36
+  br i1 %exitcond57.not, label %.loopexit, label %.lr.ph48, !llvm.loop !37
 
 .loopexit:                                        ; preds = %60, %._crit_edge46
   ret i1 %54
@@ -538,7 +538,7 @@ define hidden noundef zeroext i1 @je_background_threads_disable(ptr noundef %0) 
 10:                                               ; preds = %8, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %10, %4, %1
   ret i1 %3
@@ -605,7 +605,7 @@ malloc_mutex_lock.exit:                           ; preds = %15, %21
   store atomic i8 0, ptr %31 monotonic, align 1
   %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  %33 = load i64, ptr %1, align 8, !tbaa !38
+  %33 = load i64, ptr %1, align 8, !tbaa !39
   %34 = call i32 @pthread_join(i64 noundef %33, ptr noundef nonnull %3) #12
   %.not = icmp ne i32 %34, 0
   br i1 %.not, label %41, label %45
@@ -716,7 +716,7 @@ define hidden void @je_background_thread_prefork1(ptr noundef %0) local_unnamed_
   %7 = zext i32 %6 to i64
   %8 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %9 = icmp ugt i64 %8, %7
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -739,7 +739,7 @@ define hidden void @je_background_thread_postfork_parent(ptr noundef %0) local_u
   %7 = zext i32 %6 to i64
   %8 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %9 = icmp ugt i64 %8, %7
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 }
 
 declare void @je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -766,7 +766,7 @@ define hidden void @je_background_thread_postfork_child(ptr noundef %0) local_un
   %9 = zext i32 %8 to i64
   %10 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %11 = icmp ugt i64 %10, %9
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 12:                                               ; preds = %._crit_edge
   %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 64)) #12
@@ -860,7 +860,7 @@ malloc_mutex_lock.exit25:                         ; preds = %30, %36
   %50 = zext i32 %49 to i64
   %51 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %52 = icmp ugt i64 %51, %50
-  br i1 %52, label %.lr.ph29, label %._crit_edge30, !llvm.loop !42
+  br i1 %52, label %.lr.ph29, label %._crit_edge30, !llvm.loop !43
 
 53:                                               ; preds = %._crit_edge, %._crit_edge30
   ret void
@@ -908,14 +908,14 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   %16 = load i64, ptr @je_n_background_threads, align 8, !tbaa !17
-  store i64 %16, ptr %1, align 8, !tbaa !43
+  store i64 %16, ptr %1, align 8, !tbaa !44
   %17 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %.not38 = icmp eq i64 %17, 0
   br i1 %.not38, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %18, align 8, !tbaa !45
+  store i64 0, ptr %18, align 8, !tbaa !46
   br label %97
 
 .lr.ph:                                           ; preds = %13
@@ -929,7 +929,7 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
 
 ._crit_edge:                                      ; preds = %91
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.1, ptr %25, align 8, !tbaa !45
+  store i64 %.1, ptr %25, align 8, !tbaa !46
   %.not = icmp eq i64 %.1, 0
   br i1 %.not, label %97, label %96
 
@@ -976,7 +976,7 @@ malloc_mutex_trylock.exit:                        ; preds = %26
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 192
-  %49 = load i64, ptr %48, align 8, !tbaa !46
+  %49 = load i64, ptr %48, align 8, !tbaa !47
   %50 = add i64 %49, %.02736
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 200
   tail call void @je_nstime_add(ptr noundef nonnull %14, ptr noundef nonnull %51) #12
@@ -1000,35 +1000,35 @@ malloc_mutex_trylock.exit:                        ; preds = %26
 
 60:                                               ; preds = %59, %55
   %61 = getelementptr inbounds nuw i8, ptr %29, i64 72
-  %62 = load i64, ptr %61, align 8, !tbaa !47
-  %63 = load i64, ptr %20, align 8, !tbaa !47
+  %62 = load i64, ptr %61, align 8, !tbaa !48
+  %63 = load i64, ptr %20, align 8, !tbaa !48
   %64 = icmp ugt i64 %62, %63
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %60
-  store i64 %62, ptr %20, align 8, !tbaa !47
+  store i64 %62, ptr %20, align 8, !tbaa !48
   br label %66
 
 66:                                               ; preds = %65, %60
   %67 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %68 = load i64, ptr %67, align 8, !tbaa !48
-  %69 = load i64, ptr %21, align 8, !tbaa !48
+  %68 = load i64, ptr %67, align 8, !tbaa !49
+  %69 = load i64, ptr %21, align 8, !tbaa !49
   %70 = icmp ugt i64 %68, %69
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %66
-  store i64 %68, ptr %21, align 8, !tbaa !48
+  store i64 %68, ptr %21, align 8, !tbaa !49
   br label %72
 
 72:                                               ; preds = %71, %66
   %73 = getelementptr inbounds nuw i8, ptr %29, i64 88
-  %74 = load i32, ptr %73, align 8, !tbaa !49
-  %75 = load i32, ptr %22, align 8, !tbaa !49
+  %74 = load i32, ptr %73, align 8, !tbaa !50
+  %75 = load i32, ptr %22, align 8, !tbaa !50
   %76 = icmp ugt i32 %74, %75
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %72
-  store i32 %74, ptr %22, align 8, !tbaa !49
+  store i32 %74, ptr %22, align 8, !tbaa !50
   br label %78
 
 78:                                               ; preds = %77, %72
@@ -1065,7 +1065,7 @@ malloc_mutex_prof_max_update.exit:                ; preds = %88, %84, %44
   %93 = zext i32 %92 to i64
   %94 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %95 = icmp ugt i64 %94, %93
-  br i1 %95, label %26, label %._crit_edge, !llvm.loop !50
+  br i1 %95, label %26, label %._crit_edge, !llvm.loop !51
 
 96:                                               ; preds = %._crit_edge
   tail call void @je_nstime_idivide(ptr noundef nonnull %14, i64 noundef %.1) #12
@@ -1216,7 +1216,7 @@ malloc_mutex_lock.exit:                           ; preds = %26, %32
   %44 = zext i32 %43 to i64
   %45 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %.not22 = icmp ugt i64 %45, %44
-  br i1 %.not22, label %.lr.ph, label %.loopexit, !llvm.loop !51
+  br i1 %.not22, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %malloc_mutex_lock.exit, %.preheader, %9, %atomic_store_b.exit
   %.0 = phi i1 [ true, %atomic_store_b.exit ], [ true, %9 ], [ false, %.preheader ], [ true, %.lr.ph ], [ true, %20 ], [ false, %malloc_mutex_lock.exit ]
@@ -1244,7 +1244,7 @@ define internal fastcc i32 @background_thread_create_signals_masked(ptr noundef 
   br i1 %.not, label %7, label %15
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr @pthread_create_fptr, align 8, !tbaa !4, !noalias !52
+  %8 = load ptr, ptr @pthread_create_fptr, align 8, !tbaa !4, !noalias !53
   %9 = call i32 %8(ptr noundef %0, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef %1) #12
   %10 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #12
   %.not12 = icmp eq i32 %10, 0
@@ -1274,7 +1274,7 @@ define internal noalias noundef ptr @background_thread_entry(ptr noundef %0) #0 
   %4 = trunc i64 %3 to i32
   %5 = tail call i64 @pthread_self() #14
   %6 = tail call i32 @pthread_setname_np(i64 noundef %5, ptr noundef nonnull @.str.4) #12
-  %7 = load i32, ptr @je_opt_percpu_arena, align 4, !tbaa !56
+  %7 = load i32, ptr @je_opt_percpu_arena, align 4, !tbaa !57
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %19, label %8
 
@@ -1305,7 +1305,7 @@ set_current_thread_affinity.exit:                 ; preds = %8, %10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 832
   %22 = load i8, ptr %21, align 8, !tbaa !25
   %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %tsd_fetch_impl.exit, label %23, !prof !57
+  br i1 %.not.i, label %tsd_fetch_impl.exit, label %23, !prof !58
 
 23:                                               ; preds = %19
   %24 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %20, i1 noundef zeroext true) #12
@@ -1369,7 +1369,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %38, %32
   switch i32 %48, label %51 [
     i32 0, label %background_work.exit
     i32 2, label %background_thread_pause_check.exit.i
-  ], !prof !58
+  ], !prof !59
 
 background_thread_pause_check.exit.i:             ; preds = %.backedge.i
   store atomic i8 0, ptr %46 monotonic, align 1
@@ -1385,7 +1385,7 @@ background_thread_pause_check.exit.i:             ; preds = %.backedge.i
   br label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %51, %background_thread_pause_check.exit.i
-  br label %.backedge.i, !llvm.loop !59
+  br label %.backedge.i, !llvm.loop !60
 
 background_work.exit:                             ; preds = %.backedge.i, %47
   store atomic i8 0, ptr %42 release, align 1
@@ -1438,7 +1438,7 @@ define internal fastcc void @background_thread0_work(ptr noundef %0) unnamed_add
   %9 = add i32 %.040, 1
   %10 = zext i32 %9 to i64
   %11 = icmp ugt i64 %2, %10
-  br i1 %11, label %.lr.ph, label %.preheader35, !llvm.loop !60
+  br i1 %11, label %.lr.ph, label %.preheader35, !llvm.loop !61
 
 .backedge:                                        ; preds = %.backedge.backedge, %.outer
   %12 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
@@ -1447,7 +1447,7 @@ define internal fastcc void @background_thread0_work(ptr noundef %0) unnamed_add
   switch i32 %14, label %22 [
     i32 0, label %.preheader
     i32 2, label %background_thread_pause_check.exit
-  ], !prof !58
+  ], !prof !59
 
 .preheader:                                       ; preds = %.backedge
   %15 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
@@ -1469,7 +1469,7 @@ background_thread_pause_check.exit:               ; preds = %.backedge
 22:                                               ; preds = %.backedge
   %23 = load i64, ptr @je_n_background_threads, align 8, !tbaa !17
   %24 = icmp eq i64 %23, %86
-  br i1 %24, label %check_background_thread_creation.exit.thread, label %25, !prof !57
+  br i1 %24, label %check_background_thread_creation.exit.thread, label %25, !prof !58
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 160
@@ -1585,7 +1585,7 @@ post_reentrancy.exit.i:                           ; preds = %69, %pre_reentrancy
   %79 = add i32 %.02939.i, 1
   %80 = zext i32 %79 to i64
   %81 = icmp ugt i64 %78, %80
-  br i1 %81, label %.lr.ph.i, label %check_background_thread_creation.exit.thread33, !llvm.loop !61
+  br i1 %81, label %.lr.ph.i, label %check_background_thread_creation.exit.thread33, !llvm.loop !62
 
 check_background_thread_creation.exit.thread33:   ; preds = %77, %25
   %82 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
@@ -1599,7 +1599,7 @@ check_background_thread_creation.exit:            ; preds = %71, %73
   %84 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
   tail call fastcc void @malloc_mutex_lock(ptr noundef nonnull %0, ptr noundef nonnull %85)
-  br label %.outer, !llvm.loop !62
+  br label %.outer, !llvm.loop !63
 
 .outer:                                           ; preds = %.preheader35, %check_background_thread_creation.exit
   %.028.ph = phi i32 [ 1, %.preheader35 ], [ %.129, %check_background_thread_creation.exit ]
@@ -1612,7 +1612,7 @@ check_background_thread_creation.exit.thread:     ; preds = %22, %check_backgrou
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %check_background_thread_creation.exit.thread, %background_thread_pause_check.exit
-  br label %.backedge, !llvm.loop !62
+  br label %.backedge, !llvm.loop !63
 
 .lr.ph43:                                         ; preds = %.preheader, %119
   %88 = phi i64 [ %121, %119 ], [ 1, %.preheader ]
@@ -1683,7 +1683,7 @@ malloc_mutex_lock.exit:                           ; preds = %101, %107
   %121 = zext i32 %120 to i64
   %122 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %123 = icmp ugt i64 %122, %121
-  br i1 %123, label %.lr.ph43, label %._crit_edge.loopexit, !llvm.loop !63
+  br i1 %123, label %.lr.ph43, label %._crit_edge.loopexit, !llvm.loop !64
 
 ._crit_edge.loopexit:                             ; preds = %119
   %.pre = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
@@ -1739,22 +1739,22 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   %24 = trunc i64 %23 to i32
   %25 = add i32 %.02326.us, %24
   %26 = icmp ult i32 %25, %10
-  br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !64
+  br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %71, %22, %3
   %.022.lcssa = phi i64 [ -1, %3 ], [ %.1.us, %22 ], [ %.1, %71 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %28 = load i64, ptr %27, align 8, !tbaa !46
+  %28 = load i64, ptr %27, align 8, !tbaa !47
   %29 = add i64 %28, 1
-  store i64 %29, ptr %27, align 8, !tbaa !46
+  store i64 %29, ptr %27, align 8, !tbaa !47
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  store i64 0, ptr %30, align 8, !tbaa !66
+  store i64 0, ptr %30, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %31 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  %32 = load i64, ptr %4, align 8, !tbaa !67
+  %32 = load i64, ptr %4, align 8, !tbaa !68
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !69
+  %34 = load i64, ptr %33, align 8, !tbaa !70
   %35 = mul nsw i64 %34, 1000
   call void @je_nstime_init2(ptr noundef nonnull %5, i64 noundef %32, i64 noundef %35) #12
   %36 = icmp eq i64 %.022.lcssa, -1
@@ -1785,10 +1785,10 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   call void @je_nstime_iadd(ptr noundef nonnull %7, i64 noundef %43) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
   %48 = call i64 @je_nstime_sec(ptr noundef nonnull %7) #12
-  store i64 %48, ptr %8, align 8, !tbaa !70
+  store i64 %48, ptr %8, align 8, !tbaa !71
   %49 = call i64 @je_nstime_nsec(ptr noundef nonnull %7) #12
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %49, ptr %50, align 8, !tbaa !72
+  store i64 %49, ptr %50, align 8, !tbaa !73
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %53 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %51, ptr noundef nonnull %52, ptr noundef nonnull %8) #12
@@ -1800,8 +1800,8 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
 54:                                               ; preds = %42, %37
   %55 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  %56 = load i64, ptr %4, align 8, !tbaa !67
-  %57 = load i64, ptr %33, align 8, !tbaa !69
+  %56 = load i64, ptr %4, align 8, !tbaa !68
+  %57 = load i64, ptr %33, align 8, !tbaa !70
   %58 = mul nsw i64 %57, 1000
   call void @je_nstime_init2(ptr noundef nonnull %9, i64 noundef %56, i64 noundef %58) #12
   %59 = call i32 @je_nstime_compare(ptr noundef nonnull %9, ptr noundef nonnull %5) #12
@@ -1847,7 +1847,7 @@ background_thread_sleep.exit:                     ; preds = %54, %61
   %73 = trunc i64 %72 to i32
   %74 = add i32 %.02326, %73
   %75 = icmp ult i32 %74, %10
-  br i1 %75, label %.lr.ph.split, label %._crit_edge, !llvm.loop !73
+  br i1 %75, label %.lr.ph.split, label %._crit_edge, !llvm.loop !74
 }
 
 declare void @je_nstime_init(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -1954,44 +1954,45 @@ attributes #14 = { nounwind willreturn memory(none) }
 !30 = !{!24, !24, i64 0}
 !31 = !{i8 0, i8 2}
 !32 = !{}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34}
-!36 = distinct !{!36, !34}
-!37 = distinct !{!37, !34}
-!38 = !{!21, !11, i64 0}
-!39 = distinct !{!39, !34}
-!40 = distinct !{!40, !34}
-!41 = distinct !{!41, !34}
-!42 = distinct !{!42, !34}
-!43 = !{!44, !11, i64 0}
-!44 = !{!"background_thread_stats_s", !11, i64 0, !11, i64 8, !10, i64 16, !9, i64 24}
-!45 = !{!44, !11, i64 8}
-!46 = !{!21, !11, i64 192}
-!47 = !{!9, !11, i64 16}
-!48 = !{!9, !11, i64 24}
-!49 = !{!9, !12, i64 32}
-!50 = distinct !{!50, !34}
-!51 = distinct !{!51, !34}
-!52 = !{!53, !55}
-!53 = distinct !{!53, !54, !"je_pthread_create_wrapper: argument 0"}
-!54 = distinct !{!54, !"je_pthread_create_wrapper"}
-!55 = distinct !{!55, !54, !"je_pthread_create_wrapper: argument 1"}
-!56 = !{!12, !12, i64 0}
-!57 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!58 = !{!"branch_weights", i32 2000, i32 2001, i32 1}
-!59 = distinct !{!59, !34}
-!60 = distinct !{!60, !34}
-!61 = distinct !{!61, !34}
-!62 = distinct !{!62, !34}
-!63 = distinct !{!63, !34}
-!64 = distinct !{!64, !34, !65}
-!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!66 = !{!21, !11, i64 184}
-!67 = !{!68, !11, i64 0}
-!68 = !{!"timeval", !11, i64 0, !11, i64 8}
-!69 = !{!68, !11, i64 8}
-!70 = !{!71, !11, i64 0}
-!71 = !{!"timespec", !11, i64 0, !11, i64 8}
-!72 = !{!71, !11, i64 8}
-!73 = distinct !{!73, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = distinct !{!36, !34, !35}
+!37 = distinct !{!37, !34, !35}
+!38 = distinct !{!38, !34, !35}
+!39 = !{!21, !11, i64 0}
+!40 = distinct !{!40, !34, !35}
+!41 = distinct !{!41, !34, !35}
+!42 = distinct !{!42, !34, !35}
+!43 = distinct !{!43, !34, !35}
+!44 = !{!45, !11, i64 0}
+!45 = !{!"background_thread_stats_s", !11, i64 0, !11, i64 8, !10, i64 16, !9, i64 24}
+!46 = !{!45, !11, i64 8}
+!47 = !{!21, !11, i64 192}
+!48 = !{!9, !11, i64 16}
+!49 = !{!9, !11, i64 24}
+!50 = !{!9, !12, i64 32}
+!51 = distinct !{!51, !34, !35}
+!52 = distinct !{!52, !34, !35}
+!53 = !{!54, !56}
+!54 = distinct !{!54, !55, !"je_pthread_create_wrapper: argument 0"}
+!55 = distinct !{!55, !"je_pthread_create_wrapper"}
+!56 = distinct !{!56, !55, !"je_pthread_create_wrapper: argument 1"}
+!57 = !{!12, !12, i64 0}
+!58 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!59 = !{!"branch_weights", i32 2000, i32 2001, i32 1}
+!60 = distinct !{!60, !34, !35}
+!61 = distinct !{!61, !34, !35}
+!62 = distinct !{!62, !34, !35}
+!63 = distinct !{!63, !34, !35}
+!64 = distinct !{!64, !34, !35}
+!65 = distinct !{!65, !34, !35, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = !{!21, !11, i64 184}
+!68 = !{!69, !11, i64 0}
+!69 = !{!"timeval", !11, i64 0, !11, i64 8}
+!70 = !{!69, !11, i64 8}
+!71 = !{!72, !11, i64 0}
+!72 = !{!"timespec", !11, i64 0, !11, i64 8}
+!73 = !{!72, !11, i64 8}
+!74 = distinct !{!74, !34, !35}

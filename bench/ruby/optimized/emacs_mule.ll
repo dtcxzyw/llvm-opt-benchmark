@@ -274,7 +274,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noundef %2)
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4) #4 {
-  %6 = load ptr, ptr %1, align 8, !tbaa !18
+  %6 = load ptr, ptr %1, align 8, !tbaa !19
   %7 = load i8, ptr %6, align 1, !tbaa !6
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %15
@@ -284,7 +284,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_case_fold(i32 %0, p
   %11 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !6
   store i8 %12, ptr %3, align 1, !tbaa !6
-  %13 = load ptr, ptr %1, align 8, !tbaa !18
+  %13 = load ptr, ptr %1, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   br label %70
 
@@ -374,10 +374,10 @@ mbc_enc_len.exit:                                 ; preds = %50, %37, %24
   store i8 %64, ptr %.01820, align 1, !tbaa !6
   %66 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %66, %.0.i28
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %1, align 8, !tbaa !18
+  %.pre = load ptr, ptr %1, align 8, !tbaa !19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %52, %48, %35, %22, %._crit_edge.loopexit, %mbc_enc_len.exit
@@ -390,7 +390,7 @@ mbc_enc_len.exit:                                 ; preds = %50, %37, %24
 70:                                               ; preds = %._crit_edge, %9
   %storemerge = phi ptr [ %69, %._crit_edge ], [ %14, %9 ]
   %.017 = phi i32 [ %.0.i27, %._crit_edge ], [ 1, %9 ]
-  store ptr %storemerge, ptr %1, align 8, !tbaa !18
+  store ptr %storemerge, ptr %1, align 8, !tbaa !19
   ret i32 %.017
 }
 
@@ -408,7 +408,7 @@ define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
   %7 = getelementptr inbounds nuw [0 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %6
-  %8 = load i16, ptr %7, align 2, !tbaa !20
+  %8 = load i16, ptr %7, align 2, !tbaa !21
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1
   %11 = and i32 %10, 1
@@ -439,7 +439,7 @@ define internal noundef ptr @left_adjust_char_head(ptr noundef readnone captures
   %7 = icmp ugt ptr %.0, %0
   %8 = and i1 %7, %6
   %9 = getelementptr inbounds i8, ptr %.0, i64 -1
-  br i1 %8, label %.preheader, label %.loopexit, !llvm.loop !22
+  br i1 %8, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %4
   %.010 = phi ptr [ %1, %4 ], [ %.0, %.preheader ]
@@ -478,10 +478,11 @@ attributes #6 = { nounwind }
 !13 = !{!"any pointer", !7, i64 0}
 !14 = !{!"p1 omnipotent char", !13, i64 0}
 !15 = !{!12, !10, i64 20}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!14, !14, i64 0}
-!19 = distinct !{!19, !17}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"short", !7, i64 0}
-!22 = distinct !{!22, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!14, !14, i64 0}
+!20 = distinct !{!20, !17, !18}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !7, i64 0}
+!23 = distinct !{!23, !17, !18}

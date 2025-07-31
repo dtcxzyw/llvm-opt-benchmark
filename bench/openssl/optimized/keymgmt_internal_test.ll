@@ -620,7 +620,7 @@ define internal fastcc range(i32 0, 2) i32 @test_pass_rsa(ptr noundef readonly c
   %170 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 265, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef %169, i32 noundef 1) #3
   call void @EVP_PKEY_free(ptr noundef %.1) #3
   %.not104 = icmp eq i32 %170, 0
-  br i1 %.not104, label %.loopexit, label %.preheader106
+  br i1 %.not104, label %.loopexit, label %.preheader106, !llvm.loop !25
 
 .loopexit.split.loop.exit121:                     ; preds = %162
   %171 = zext i1 %163 to i32
@@ -1036,5 +1036,7 @@ attributes #3 = { nounwind }
 !19 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"long", !7, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !24}

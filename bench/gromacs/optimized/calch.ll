@@ -78,7 +78,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   br i1 %exitcond.not, label %29, label %16, !llvm.loop !8
 
 29:                                               ; preds = %16
-  %30 = tail call noundef float @sqrtf(float noundef %28) #13, !tbaa !10
+  %30 = tail call noundef float @sqrtf(float noundef %28) #13, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %32 = load float, ptr %31, align 4, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -118,10 +118,10 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %59 = fadd float %.0211245, %58
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next272, 3
-  br i1 %exitcond274.not, label %60, label %52, !llvm.loop !12
+  br i1 %exitcond274.not, label %60, label %52, !llvm.loop !13
 
 60:                                               ; preds = %52
-  %61 = tail call noundef float @sqrtf(float noundef %59) #13, !tbaa !10
+  %61 = tail call noundef float @sqrtf(float noundef %59) #13, !tbaa !11
   br label %62
 
 62:                                               ; preds = %60, %62
@@ -132,7 +132,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   store float %65, ptr %63, align 4, !tbaa !4
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next276, 3
-  br i1 %exitcond278.not, label %66, label %62, !llvm.loop !13
+  br i1 %exitcond278.not, label %66, label %62, !llvm.loop !14
 
 66:                                               ; preds = %62
   %67 = load float, ptr %47, align 4, !tbaa !4
@@ -206,11 +206,11 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %105 = fadd float %.0213257, %104
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond318.not = icmp eq i64 %indvars.iv.next316, 3
-  br i1 %exitcond318.not, label %106, label %91, !llvm.loop !14
+  br i1 %exitcond318.not, label %106, label %91, !llvm.loop !15
 
 106:                                              ; preds = %91
-  %107 = tail call noundef float @sqrtf(float noundef %103) #13, !tbaa !10
-  %108 = tail call noundef float @sqrtf(float noundef %105) #13, !tbaa !10
+  %107 = tail call noundef float @sqrtf(float noundef %103) #13, !tbaa !11
+  %108 = tail call noundef float @sqrtf(float noundef %105) #13, !tbaa !11
   br label %109
 
 109:                                              ; preds = %106, %109
@@ -229,10 +229,10 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %119 = fadd float %.1212260, %118
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next320, 3
-  br i1 %exitcond322.not, label %120, label %109, !llvm.loop !15
+  br i1 %exitcond322.not, label %120, label %109, !llvm.loop !16
 
 120:                                              ; preds = %109
-  %121 = tail call noundef float @sqrtf(float noundef %119) #13, !tbaa !10
+  %121 = tail call noundef float @sqrtf(float noundef %119) #13, !tbaa !11
   %122 = fpext float %121 to double
   br label %123
 
@@ -252,7 +252,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   store float %133, ptr %134, align 4, !tbaa !4
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %exitcond326.not = icmp eq i64 %indvars.iv.next324, 3
-  br i1 %exitcond326.not, label %.loopexit, label %123, !llvm.loop !16
+  br i1 %exitcond326.not, label %.loopexit, label %123, !llvm.loop !17
 
 .preheader:                                       ; preds = %66, %.preheader
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.preheader ], [ 0, %66 ]
@@ -272,7 +272,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   store float %146, ptr %147, align 4, !tbaa !4
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next312, 3
-  br i1 %exitcond314.not, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %exitcond314.not, label %.loopexit, label %.preheader, !llvm.loop !18
 
 148:                                              ; preds = %.preheader236, %148
   %indvars.iv307 = phi i64 [ 0, %.preheader236 ], [ %indvars.iv.next308, %148 ]
@@ -299,7 +299,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   store float %166, ptr %167, align 4, !tbaa !4
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond310.not = icmp eq i64 %indvars.iv.next308, 3
-  br i1 %exitcond310.not, label %.loopexit, label %148, !llvm.loop !18
+  br i1 %exitcond310.not, label %.loopexit, label %148, !llvm.loop !19
 
 168:                                              ; preds = %.preheader238, %208
   %indvars.iv303 = phi i64 [ 0, %.preheader238 ], [ %indvars.iv.next304, %208 ]
@@ -356,7 +356,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
 208:                                              ; preds = %168, %194, %197, %200
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next304, 3
-  br i1 %exitcond306.not, label %.loopexit, label %168, !llvm.loop !19
+  br i1 %exitcond306.not, label %.loopexit, label %168, !llvm.loop !20
 
 209:                                              ; preds = %4, %66
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #13
@@ -383,7 +383,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   store float %225, ptr %226, align 4, !tbaa !4
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %exitcond298.not = icmp eq i64 %indvars.iv.next296, 3
-  br i1 %exitcond298.not, label %227, label %213, !llvm.loop !20
+  br i1 %exitcond298.not, label %227, label %213, !llvm.loop !21
 
 227:                                              ; preds = %213
   %228 = load float, ptr %8, align 4, !tbaa !4
@@ -414,7 +414,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   store float %247, ptr %248, align 4, !tbaa !4
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %exitcond302.not = icmp eq i64 %indvars.iv.next300, 3
-  br i1 %exitcond302.not, label %249, label %237, !llvm.loop !21
+  br i1 %exitcond302.not, label %249, label %237, !llvm.loop !22
 
 249:                                              ; preds = %237
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
@@ -444,7 +444,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   store float %264, ptr %265, align 4, !tbaa !4
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 3
-  br i1 %exitcond290.not, label %266, label %253, !llvm.loop !22
+  br i1 %exitcond290.not, label %266, label %253, !llvm.loop !23
 
 266:                                              ; preds = %253
   %267 = load float, ptr %9, align 4, !tbaa !4
@@ -529,7 +529,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   store float %335, ptr %336, align 4, !tbaa !4
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next292, 3
-  br i1 %exitcond294.not, label %337, label %313, !llvm.loop !23
+  br i1 %exitcond294.not, label %337, label %313, !llvm.loop !24
 
 337:                                              ; preds = %313
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #13
@@ -537,7 +537,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   br label %.loopexit
 
 338:                                              ; preds = %4, %66
-  %339 = load i32, ptr %3, align 4, !tbaa !10
+  %339 = load i32, ptr %3, align 4, !tbaa !11
   %340 = sext i32 %339 to i64
   %341 = getelementptr inbounds [6 x [3 x double]], ptr @__const._ZL17gen_waterhydrogeniPA3_fS0_Pi.matrix1, i64 0, i64 %340
   %342 = getelementptr inbounds [6 x [3 x double]], ptr @__const._ZL17gen_waterhydrogeniPA3_fS0_Pi.matrix2, i64 0, i64 %340
@@ -550,7 +550,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %346 = load float, ptr %345, align 4, !tbaa !4
   %347 = fpext float %346 to double
   %348 = getelementptr inbounds nuw [3 x double], ptr %341, i64 0, i64 %indvars.iv.i
-  %349 = load double, ptr %348, align 8, !tbaa !24
+  %349 = load double, ptr %348, align 8, !tbaa !25
   %350 = fadd double %349, %347
   %351 = fptrunc double %350 to float
   %352 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv.i
@@ -558,23 +558,23 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %353 = load float, ptr %345, align 4, !tbaa !4
   %354 = fpext float %353 to double
   %355 = getelementptr inbounds nuw [3 x double], ptr %342, i64 0, i64 %indvars.iv.i
-  %356 = load double, ptr %355, align 8, !tbaa !24
+  %356 = load double, ptr %355, align 8, !tbaa !25
   %357 = fadd double %356, %354
   %358 = fptrunc double %357 to float
   %359 = getelementptr inbounds nuw [3 x float], ptr %343, i64 0, i64 %indvars.iv.i
   store float %358, ptr %359, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit, label %344, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit, label %344, !llvm.loop !27
 
 _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit:           ; preds = %344
   %360 = add nsw i32 %339, 1
   %361 = srem i32 %360, 6
-  store i32 %361, ptr %3, align 4, !tbaa !10
+  store i32 %361, ptr %3, align 4, !tbaa !11
   br label %.loopexit
 
 362:                                              ; preds = %4
-  %363 = load i32, ptr %3, align 4, !tbaa !10
+  %363 = load i32, ptr %3, align 4, !tbaa !11
   %364 = sext i32 %363 to i64
   %365 = getelementptr inbounds [6 x [3 x double]], ptr @__const._ZL17gen_waterhydrogeniPA3_fS0_Pi.matrix1, i64 0, i64 %364
   %366 = getelementptr inbounds [6 x [3 x double]], ptr @__const._ZL17gen_waterhydrogeniPA3_fS0_Pi.matrix2, i64 0, i64 %364
@@ -587,7 +587,7 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit:           ; preds = %344
   %370 = load float, ptr %369, align 4, !tbaa !4
   %371 = fpext float %370 to double
   %372 = getelementptr inbounds nuw [3 x double], ptr %365, i64 0, i64 %indvars.iv.i218
-  %373 = load double, ptr %372, align 8, !tbaa !24
+  %373 = load double, ptr %372, align 8, !tbaa !25
   %374 = fadd double %373, %371
   %375 = fptrunc double %374 to float
   %376 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv.i218
@@ -595,14 +595,14 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit:           ; preds = %344
   %377 = load float, ptr %369, align 4, !tbaa !4
   %378 = fpext float %377 to double
   %379 = getelementptr inbounds nuw [3 x double], ptr %366, i64 0, i64 %indvars.iv.i218
-  %380 = load double, ptr %379, align 8, !tbaa !24
+  %380 = load double, ptr %379, align 8, !tbaa !25
   %381 = fadd double %380, %378
   %382 = fptrunc double %381 to float
   %383 = getelementptr inbounds nuw [3 x float], ptr %367, i64 0, i64 %indvars.iv.i218
   store float %382, ptr %383, align 4, !tbaa !4
   %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i218, 1
   %exitcond.not.i220 = icmp eq i64 %indvars.iv.next.i219, 3
-  br i1 %exitcond.not.i220, label %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit221, label %368, !llvm.loop !26
+  br i1 %exitcond.not.i220, label %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit221, label %368, !llvm.loop !27
 
 _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit221:        ; preds = %368
   %384 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -618,11 +618,11 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit221:        ; preds = %368
   store float %390, ptr %391, align 4, !tbaa !4
   %392 = add nsw i32 %363, 1
   %393 = srem i32 %392, 6
-  store i32 %393, ptr %3, align 4, !tbaa !10
+  store i32 %393, ptr %3, align 4, !tbaa !11
   br label %.loopexit
 
 394:                                              ; preds = %4
-  %395 = load i32, ptr %3, align 4, !tbaa !10
+  %395 = load i32, ptr %3, align 4, !tbaa !11
   %396 = sext i32 %395 to i64
   %397 = getelementptr inbounds [6 x [3 x double]], ptr @__const._ZL17gen_waterhydrogeniPA3_fS0_Pi.matrix1, i64 0, i64 %396
   %398 = getelementptr inbounds [6 x [3 x double]], ptr @__const._ZL17gen_waterhydrogeniPA3_fS0_Pi.matrix2, i64 0, i64 %396
@@ -635,7 +635,7 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit221:        ; preds = %368
   %402 = load float, ptr %401, align 4, !tbaa !4
   %403 = fpext float %402 to double
   %404 = getelementptr inbounds nuw [3 x double], ptr %397, i64 0, i64 %indvars.iv.i222
-  %405 = load double, ptr %404, align 8, !tbaa !24
+  %405 = load double, ptr %404, align 8, !tbaa !25
   %406 = fadd double %405, %403
   %407 = fptrunc double %406 to float
   %408 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv.i222
@@ -643,14 +643,14 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit221:        ; preds = %368
   %409 = load float, ptr %401, align 4, !tbaa !4
   %410 = fpext float %409 to double
   %411 = getelementptr inbounds nuw [3 x double], ptr %398, i64 0, i64 %indvars.iv.i222
-  %412 = load double, ptr %411, align 8, !tbaa !24
+  %412 = load double, ptr %411, align 8, !tbaa !25
   %413 = fadd double %412, %410
   %414 = fptrunc double %413 to float
   %415 = getelementptr inbounds nuw [3 x float], ptr %399, i64 0, i64 %indvars.iv.i222
   store float %414, ptr %415, align 4, !tbaa !4
   %indvars.iv.next.i223 = add nuw nsw i64 %indvars.iv.i222, 1
   %exitcond.not.i224 = icmp eq i64 %indvars.iv.next.i223, 3
-  br i1 %exitcond.not.i224, label %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225, label %400, !llvm.loop !26
+  br i1 %exitcond.not.i224, label %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225, label %400, !llvm.loop !27
 
 _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225:        ; preds = %400
   %416 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -675,7 +675,7 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225:        ; preds = %400
   store float %428, ptr %429, align 4, !tbaa !4
   %430 = add nsw i32 %395, 1
   %431 = srem i32 %430, 6
-  store i32 %431, ptr %3, align 4, !tbaa !10
+  store i32 %431, ptr %3, align 4, !tbaa !11
   br label %.loopexit
 
 432:                                              ; preds = %.preheader240, %432
@@ -703,7 +703,7 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225:        ; preds = %400
   store float %450, ptr %451, align 4, !tbaa !4
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next284, 3
-  br i1 %exitcond286.not, label %.loopexit, label %432, !llvm.loop !27
+  br i1 %exitcond286.not, label %.loopexit, label %432, !llvm.loop !28
 
 452:                                              ; preds = %66
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #13
@@ -735,7 +735,7 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225:        ; preds = %400
   store float %472, ptr %473, align 4, !tbaa !4
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next280, 3
-  br i1 %exitcond282.not, label %474, label %454, !llvm.loop !28
+  br i1 %exitcond282.not, label %474, label %454, !llvm.loop !29
 
 474:                                              ; preds = %454
   %475 = load float, ptr %453, align 4, !tbaa !4
@@ -835,17 +835,17 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
   %4 = alloca i64, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(129) %1) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !29
+  store ptr %6, ptr %0, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store i64 %5, ptr %4, align 8, !tbaa !33
+  store i64 %5, ptr %4, align 8, !tbaa !34
   %7 = icmp ugt i64 %5, 15
   br i1 %7, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %3
   %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %8, ptr %0, align 8, !tbaa !35
-  %9 = load i64, ptr %4, align 8, !tbaa !33
-  store i64 %9, ptr %6, align 8, !tbaa !37
+  store ptr %8, ptr %0, align 8, !tbaa !36
+  %9 = load i64, ptr %4, align 8, !tbaa !34
+  store i64 %9, ptr %6, align 8, !tbaa !38
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %3
@@ -856,8 +856,8 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
   ]
 
 11:                                               ; preds = %._crit_edge.i.i.i.i
-  %12 = load i8, ptr %1, align 1, !tbaa !37
-  store i8 %12, ptr %10, align 1, !tbaa !37
+  %12 = load i8, ptr %1, align 1, !tbaa !38
+  store i8 %12, ptr %10, align 1, !tbaa !38
   br label %14
 
 13:                                               ; preds = %._crit_edge.i.i.i.i
@@ -865,12 +865,12 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
   br label %14
 
 14:                                               ; preds = %13, %11, %._crit_edge.i.i.i.i
-  %15 = load i64, ptr %4, align 8, !tbaa !33
+  %15 = load i64, ptr %4, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %15, ptr %16, align 8, !tbaa !38
-  %17 = load ptr, ptr %0, align 8, !tbaa !35
+  store i64 %15, ptr %16, align 8, !tbaa !39
+  %17 = load ptr, ptr %0, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %15
-  store i8 0, ptr %18, align 1, !tbaa !37
+  store i8 0, ptr %18, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
@@ -891,7 +891,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %19, align 8, !tbaa !39
+  %26 = load ptr, ptr %19, align 8, !tbaa !40
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %27
 
@@ -900,23 +900,23 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %24, %27
-  store ptr null, ptr %19, align 8, !tbaa !39
+  store ptr null, ptr %19, align 8, !tbaa !40
   br label %28
 
 28:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %22
   %.pn = phi { ptr, i32 } [ %25, %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit ], [ %23, %22 ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !35
+  %29 = load ptr, ptr %0, align 8, !tbaa !36
   %30 = icmp eq ptr %29, %6
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %28
-  %31 = load i64, ptr %16, align 8, !tbaa !38
+  %31 = load i64, ptr %16, align 8, !tbaa !39
   %32 = icmp ult i64 %31, 16
   call void @llvm.assume(i1 %32)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %28
-  %33 = load i64, ptr %6, align 8, !tbaa !37
+  %33 = load i64, ptr %6, align 8, !tbaa !38
   %34 = add i64 %33, 1
   call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -930,7 +930,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
@@ -939,21 +939,21 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
-  store ptr null, ptr %2, align 8, !tbaa !39
-  %5 = load ptr, ptr %0, align 8, !tbaa !35
+  store ptr null, ptr %2, align 8, !tbaa !40
+  %5 = load ptr, ptr %0, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !38
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = icmp ult i64 %9, 16
   tail call void @llvm.assume(i1 %10)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
-  %11 = load i64, ptr %6, align 8, !tbaa !37
+  %11 = load i64, ptr %6, align 8, !tbaa !38
   %12 = add i64 %11, 1
   tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %12) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1016,36 +1016,37 @@ attributes #15 = { builtin nounwind }
 !5 = !{!"float", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !6, i64 0}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"double", !6, i64 0}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !31, i64 0}
-!31 = !{!"p1 omnipotent char", !32, i64 0}
-!32 = !{!"any pointer", !6, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"long", !6, i64 0}
-!35 = !{!36, !31, i64 0}
-!36 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !30, i64 0, !34, i64 8, !6, i64 16}
-!37 = !{!6, !6, i64 0}
-!38 = !{!36, !34, i64 8}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !32, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !6, i64 0}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"double", !6, i64 0}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !32, i64 0}
+!32 = !{!"p1 omnipotent char", !33, i64 0}
+!33 = !{!"any pointer", !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"long", !6, i64 0}
+!36 = !{!37, !32, i64 0}
+!37 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !31, i64 0, !35, i64 8, !6, i64 16}
+!38 = !{!6, !6, i64 0}
+!39 = !{!37, !35, i64 8}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !33, i64 0}

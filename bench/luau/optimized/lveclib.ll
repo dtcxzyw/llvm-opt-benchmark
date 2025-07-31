@@ -437,7 +437,7 @@ define internal noundef i32 @_ZL10vector_minP9lua_State(ptr noundef %0) #0 {
   %.sroa.10.1 = select i1 %17, float %16, float %.sroa.10.026
   %18 = add nuw i32 %.025, 1
   %exitcond.not = icmp eq i32 %.025, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -492,14 +492,14 @@ define internal noundef i32 @_ZL12vector_indexP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = tail call noundef ptr @_Z16luaL_checkvectorP9lua_Statei(ptr noundef %0, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store i64 0, ptr %2, align 8, !tbaa !19
+  store i64 0, ptr %2, align 8, !tbaa !20
   %4 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %2)
-  %5 = load i64, ptr %2, align 8, !tbaa !19
+  %5 = load i64, ptr %2, align 8, !tbaa !20
   %6 = icmp eq i64 %5, 1
   br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %1
-  %8 = load i8, ptr %4, align 1, !tbaa !21
+  %8 = load i8, ptr %4, align 1, !tbaa !22
   %9 = or i8 %8, 32
   %10 = sext i8 %9 to i32
   %11 = add nsw i32 %10, -120
@@ -530,11 +530,11 @@ declare void @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_lveclib.cpp() #5 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag22LuauVector2ConstructorE, align 8, !tbaa !4
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag22LuauVector2ConstructorE, i64 1), align 1, !tbaa !22
-  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag22LuauVector2ConstructorE, i64 8), align 8, !tbaa !23
-  %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !24
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag22LuauVector2ConstructorE, i64 16), align 8, !tbaa !25
-  store ptr @_ZN5FFlag22LuauVector2ConstructorE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !24
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag22LuauVector2ConstructorE, i64 1), align 1, !tbaa !23
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag22LuauVector2ConstructorE, i64 8), align 8, !tbaa !24
+  %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !25
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag22LuauVector2ConstructorE, i64 16), align 8, !tbaa !26
+  store ptr @_ZN5FFlag22LuauVector2ConstructorE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !25
   ret void
 }
 
@@ -565,13 +565,14 @@ attributes #7 = { nounwind }
 !13 = !{}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"float", !7, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !7, i64 0}
-!21 = !{!7, !7, i64 0}
-!22 = !{!5, !6, i64 1}
-!23 = !{!5, !9, i64 8}
-!24 = !{!11, !11, i64 0}
-!25 = !{!5, !11, i64 16}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!7, !7, i64 0}
+!23 = !{!5, !6, i64 1}
+!24 = !{!5, !9, i64 8}
+!25 = !{!11, !11, i64 0}
+!26 = !{!5, !11, i64 16}

@@ -501,7 +501,7 @@ define hidden void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_code
   %75 = load ptr, ptr %45, align 8
   %76 = getelementptr inbounds nuw [256 x i8], ptr %75, i64 0, i64 %74
   store i8 %22, ptr %76, align 1
-  br label %46
+  br label %46, !llvm.loop !7
 
 .thread:                                          ; preds = %48, %62, %.thread26
   %.pn25 = phi { ptr, i32 } [ %.pn29, %.thread26 ], [ %49, %48 ], [ %63, %62 ]
@@ -641,3 +641,5 @@ attributes #10 = { cold noreturn nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_fork28_$u7b$$u7b$closure$u7d$$u7d$17h9abf1501f17427c7E: argument 0"}
 !6 = distinct !{!6, !"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_fork28_$u7b$$u7b$closure$u7d$$u7d$17h9abf1501f17427c7E"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}

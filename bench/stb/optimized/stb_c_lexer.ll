@@ -66,9 +66,9 @@ define void @stb_c_lexer_get_location(ptr noundef readonly captures(none) %0, pt
 ._crit_edge:                                      ; preds = %23, %3
   %.015.lcssa = phi i32 [ 1, %3 ], [ %.116, %23 ]
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %23 ]
-  store i32 %.015.lcssa, ptr %2, align 4, !tbaa !19
+  store i32 %.015.lcssa, ptr %2, align 4, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %.0.lcssa, ptr %28, align 4, !tbaa !21
+  store i32 %.0.lcssa, ptr %28, align 4, !tbaa !22
   ret void
 }
 
@@ -82,11 +82,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 define noundef i32 @stb__clex_token(ptr noundef writeonly captures(none) initializes((16, 24), (40, 64)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %5, ptr %6, align 8, !tbaa !22
+  store i64 %5, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %7, align 8, !tbaa !23
+  store ptr %2, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %3, ptr %8, align 8, !tbaa !24
+  store ptr %3, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !13
@@ -96,7 +96,7 @@ define noundef i32 @stb__clex_token(ptr noundef writeonly captures(none) initial
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @stb__clex_eof(ptr noundef writeonly captures(none) initializes((56, 64)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 256, ptr %2, align 8, !tbaa !22
+  store i64 256, ptr %2, align 8, !tbaa !23
   ret i32 0
 }
 
@@ -136,7 +136,7 @@ define noundef ptr @stb__strchr(ptr noundef readonly captures(ret: address, prov
   %8 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   %9 = load i8, ptr %8, align 1, !tbaa !16
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %2
   %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ %.058, %.lr.ph ]
@@ -149,11 +149,11 @@ define noundef i32 @stb__clex_parse_suffixes(ptr noundef writeonly captures(none
   %sext = shl i64 %1, 32
   %7 = ashr exact i64 %sext, 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %7, ptr %8, align 8, !tbaa !22
+  store i64 %7, ptr %8, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %9, align 8, !tbaa !23
+  store ptr %2, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %6, ptr %10, align 8, !tbaa !24
+  store ptr %6, ptr %10, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %11, align 8, !tbaa !13
   ret i32 1
@@ -167,7 +167,7 @@ define range(i32 -1, 256) i32 @stb__clex_parse_char(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store ptr %6, ptr %1, align 8, !tbaa !26
+  store ptr %6, ptr %1, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !16
   switch i8 %8, label %17 [
@@ -210,7 +210,7 @@ define range(i32 -1, 256) i32 @stb__clex_parse_char(ptr noundef %0, ptr noundef 
 
 17:                                               ; preds = %5, %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store ptr %18, ptr %1, align 8, !tbaa !26
+  store ptr %18, ptr %1, align 8, !tbaa !27
   %19 = load i8, ptr %0, align 1, !tbaa !16
   %20 = zext i8 %19 to i32
   br label %21
@@ -246,7 +246,7 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %17 = call i32 @stb__clex_parse_char(ptr noundef nonnull %.03850, ptr noundef nonnull %4)
   %18 = icmp sgt i32 %17, -1
-  %19 = load ptr, ptr %4, align 8, !tbaa !26
+  %19 = load ptr, ptr %4, align 8, !tbaa !27
   br i1 %18, label %.thread, label %21
 
 .thread:                                          ; preds = %16
@@ -256,11 +256,11 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 257, ptr %22, align 8, !tbaa !22
+  store i64 257, ptr %22, align 8, !tbaa !23
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %23, align 8, !tbaa !23
+  store ptr %1, ptr %23, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %19, ptr %24, align 8, !tbaa !24
+  store ptr %19, ptr %24, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !13
@@ -280,11 +280,11 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 257, ptr %33, align 8, !tbaa !22
+  store i64 257, ptr %33, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %34, align 8, !tbaa !23
+  store ptr %1, ptr %34, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.341, ptr %35, align 8, !tbaa !24
+  store ptr %.341, ptr %35, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %.341, i64 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %36, ptr %37, align 8, !tbaa !13
@@ -294,7 +294,7 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
   store i8 %.033, ptr %.03651, align 1, !tbaa !16
   %39 = load i8, ptr %.341, align 1, !tbaa !16
   %.not = icmp eq i8 %39, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %38, %3
   %.038.lcssa = phi ptr [ %5, %3 ], [ %.341, %38 ]
@@ -302,20 +302,20 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
   store i8 0, ptr %.036.lcssa, align 1, !tbaa !16
   %40 = load ptr, ptr %7, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %40, ptr %41, align 8, !tbaa !28
+  store ptr %40, ptr %41, align 8, !tbaa !29
   %42 = ptrtoint ptr %.036.lcssa to i64
   %43 = ptrtoint ptr %40 to i64
   %44 = sub i64 %42, %43
   %45 = trunc i64 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %45, ptr %46, align 8, !tbaa !29
+  store i32 %45, ptr %46, align 8, !tbaa !30
   %47 = sext i32 %2 to i64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %47, ptr %48, align 8, !tbaa !22
+  store i64 %47, ptr %48, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %49, align 8, !tbaa !23
+  store ptr %1, ptr %49, align 8, !tbaa !24
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.038.lcssa, ptr %50, align 8, !tbaa !24
+  store ptr %.038.lcssa, ptr %50, align 8, !tbaa !25
   %51 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %51, ptr %52, align 8, !tbaa !13
@@ -336,7 +336,7 @@ define range(i32 0, 2) i32 @stb_c_lexer_get_token(ptr noundef %0) local_unnamed_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !13
-  store ptr %9, ptr %3, align 8, !tbaa !26
+  store ptr %9, ptr %3, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = ptrtoint ptr %11 to i64
@@ -365,7 +365,7 @@ define range(i32 0, 2) i32 @stb_c_lexer_get_token(ptr noundef %0) local_unnamed_
 stb__clex_iswhite.exit.thread:                    ; preds = %14, %14, %14, %14, %14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %.not = icmp eq ptr %17, %11
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !31
 
 .critedge:                                        ; preds = %14
   store ptr %15, ptr %3, align 8
@@ -421,17 +421,17 @@ stb__clex_iswhite.exit.thread:                    ; preds = %14, %14, %14, %14, 
 24:                                               ; preds = %.lr.ph267
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %.not195 = icmp eq ptr %25, %11
-  br i1 %.not195, label %.backedge222, label %.lr.ph267, !llvm.loop !31
+  br i1 %.not195, label %.backedge222, label %.lr.ph267, !llvm.loop !32
 
 .backedge222:                                     ; preds = %.lr.ph249, %.lr.ph249, %41, %.lr.ph267, %.lr.ph267, %24, %.preheader, %.preheader221, %37
   %.lcssa265.sink = phi ptr [ %38, %37 ], [ %15, %.preheader221 ], [ %15, %.preheader ], [ %22, %.lr.ph267 ], [ %22, %.lr.ph267 ], [ %scevgep314, %24 ], [ %39, %.lr.ph249 ], [ %39, %.lr.ph249 ], [ %scevgep314, %41 ]
   store ptr %.lcssa265.sink, ptr %3, align 8
   %.not243 = icmp eq ptr %.lcssa265.sink, %11
-  br i1 %.not243, label %._crit_edge, label %.lr.ph
+  br i1 %.not243, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  store ptr %27, ptr %3, align 8, !tbaa !26
+  store ptr %27, ptr %3, align 8, !tbaa !27
   %.not191255 = icmp eq ptr %27, %11
   br i1 %.not191255, label %.thread210, label %.lr.ph258
 
@@ -449,19 +449,19 @@ stb__clex_iswhite.exit.thread:                    ; preds = %14, %14, %14, %14, 
 
 .critedge7:                                       ; preds = %.lr.ph258, %29
   %32 = getelementptr inbounds nuw i8, ptr %storemerge190256, i64 1
-  store ptr %32, ptr %3, align 8, !tbaa !26
+  store ptr %32, ptr %3, align 8, !tbaa !27
   %.not191 = icmp eq ptr %32, %11
-  br i1 %.not191, label %.thread210, label %.lr.ph258, !llvm.loop !32
+  br i1 %.not191, label %.thread210, label %.lr.ph258, !llvm.loop !34
 
 .thread210:                                       ; preds = %26, %.critedge7
   %storemerge190.lcssa = phi ptr [ %32, %.critedge7 ], [ %27, %26 ]
   %33 = getelementptr inbounds i8, ptr %storemerge190.lcssa, i64 -1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 257, ptr %34, align 8, !tbaa !22
+  store i64 257, ptr %34, align 8, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %35, align 8, !tbaa !23
+  store ptr %15, ptr %35, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %33, ptr %36, align 8, !tbaa !24
+  store ptr %33, ptr %36, align 8, !tbaa !25
   store ptr %storemerge190.lcssa, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
@@ -484,11 +484,11 @@ stb__clex_iswhite.exit.thread:                    ; preds = %14, %14, %14, %14, 
 41:                                               ; preds = %.lr.ph249
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %.not187 = icmp eq ptr %42, %11
-  br i1 %.not187, label %.backedge222, label %.lr.ph249, !llvm.loop !33
+  br i1 %.not187, label %.backedge222, label %.lr.ph249, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.backedge222, %stb__clex_iswhite.exit.thread, %1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 256, ptr %43, align 8, !tbaa !22
+  store i64 256, ptr %43, align 8, !tbaa !23
   br label %stb__clex_parse_string.exit
 
 44:                                               ; preds = %.critedge
@@ -513,7 +513,7 @@ switch.early.test:                                ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %51, ptr %52, align 8, !tbaa !28
+  store ptr %51, ptr %52, align 8, !tbaa !29
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load i32, ptr %53, align 8, !tbaa !15
   %.not186284 = icmp sgt i32 %54, 1
@@ -527,11 +527,11 @@ switch.early.test:                                ; preds = %46
   %.0112.lcssa = phi i64 [ 0, %49 ], [ %55, %._crit_edge288.loopexit ]
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 %.0112.lcssa
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 257, ptr %57, align 8, !tbaa !22
+  store i64 257, ptr %57, align 8, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %58, align 8, !tbaa !23
+  store ptr %15, ptr %58, align 8, !tbaa !24
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %56, ptr %59, align 8, !tbaa !24
+  store ptr %56, ptr %59, align 8, !tbaa !25
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %60, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -541,7 +541,7 @@ switch.early.test:                                ; preds = %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %.backedge ], [ 1, %49 ]
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv320
   %62 = load i8, ptr %61, align 1, !tbaa !16
-  %63 = load ptr, ptr %52, align 8, !tbaa !28
+  %63 = load ptr, ptr %52, align 8, !tbaa !29
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv320
   store i8 %62, ptr %64, align 1, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
@@ -569,34 +569,34 @@ switch.early.test291:                             ; preds = %.lr.ph287
   %72 = sext i32 %71 to i64
   %.not186 = icmp slt i64 %indvars.iv.next, %72
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  br i1 %.not186, label %.lr.ph287, label %._crit_edge288.loopexit, !llvm.loop !34
+  br i1 %.not186, label %.lr.ph287, label %._crit_edge288.loopexit, !llvm.loop !36
 
 73:                                               ; preds = %switch.early.test291
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   %75 = trunc nuw nsw i64 %indvars.iv to i32
-  %76 = load ptr, ptr %52, align 8, !tbaa !28
+  %76 = load ptr, ptr %52, align 8, !tbaa !29
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv
   store i8 0, ptr %77, align 1, !tbaa !16
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %75, ptr %78, align 8, !tbaa !29
+  store i32 %75, ptr %78, align 8, !tbaa !30
   %79 = getelementptr inbounds i8, ptr %74, i64 -1
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 260, ptr %80, align 8, !tbaa !22
+  store i64 260, ptr %80, align 8, !tbaa !23
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %81, align 8, !tbaa !23
+  store ptr %15, ptr %81, align 8, !tbaa !24
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %79, ptr %82, align 8, !tbaa !24
+  store ptr %79, ptr %82, align 8, !tbaa !25
   store ptr %74, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
 83:                                               ; preds = %switch.early.test, %234, %211, %138, %124, %105, %91, %232, %209, %.thread, %201, %190, %192, %180, %182, %170, %172, %160, %162, %150, %152, %136, %122, %103, %89
   %84 = zext nneg i8 %18 to i64
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %84, ptr %85, align 8, !tbaa !22
+  store i64 %84, ptr %85, align 8, !tbaa !23
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %86, align 8, !tbaa !23
+  store ptr %15, ptr %86, align 8, !tbaa !24
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %15, ptr %87, align 8, !tbaa !24
+  store ptr %15, ptr %87, align 8, !tbaa !25
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %88, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -615,22 +615,22 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 272, ptr %94, align 8, !tbaa !22
+  store i64 272, ptr %94, align 8, !tbaa !23
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %95, align 8, !tbaa !23
+  store ptr %15, ptr %95, align 8, !tbaa !24
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %90, ptr %96, align 8, !tbaa !24
+  store ptr %90, ptr %96, align 8, !tbaa !25
   %97 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %97, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
 98:                                               ; preds = %91
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 274, ptr %99, align 8, !tbaa !22
+  store i64 274, ptr %99, align 8, !tbaa !23
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %100, align 8, !tbaa !23
+  store ptr %15, ptr %100, align 8, !tbaa !24
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %90, ptr %101, align 8, !tbaa !24
+  store ptr %90, ptr %101, align 8, !tbaa !25
   %102 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %102, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -650,33 +650,33 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 273, ptr %108, align 8, !tbaa !22
+  store i64 273, ptr %108, align 8, !tbaa !23
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %109, align 8, !tbaa !23
+  store ptr %15, ptr %109, align 8, !tbaa !24
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %104, ptr %110, align 8, !tbaa !24
+  store ptr %104, ptr %110, align 8, !tbaa !25
   %111 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %111, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
 112:                                              ; preds = %105
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 275, ptr %113, align 8, !tbaa !22
+  store i64 275, ptr %113, align 8, !tbaa !23
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %114, align 8, !tbaa !23
+  store ptr %15, ptr %114, align 8, !tbaa !24
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %104, ptr %115, align 8, !tbaa !24
+  store ptr %104, ptr %115, align 8, !tbaa !25
   %116 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %116, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
 117:                                              ; preds = %105
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 282, ptr %118, align 8, !tbaa !22
+  store i64 282, ptr %118, align 8, !tbaa !23
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %119, align 8, !tbaa !23
+  store ptr %15, ptr %119, align 8, !tbaa !24
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %104, ptr %120, align 8, !tbaa !24
+  store ptr %104, ptr %120, align 8, !tbaa !25
   %121 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %121, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -695,22 +695,22 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 126:                                              ; preds = %124
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 268, ptr %127, align 8, !tbaa !22
+  store i64 268, ptr %127, align 8, !tbaa !23
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %128, align 8, !tbaa !23
+  store ptr %15, ptr %128, align 8, !tbaa !24
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %123, ptr %129, align 8, !tbaa !24
+  store ptr %123, ptr %129, align 8, !tbaa !25
   %130 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %130, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
 131:                                              ; preds = %124
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 279, ptr %132, align 8, !tbaa !22
+  store i64 279, ptr %132, align 8, !tbaa !23
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %133, align 8, !tbaa !23
+  store ptr %15, ptr %133, align 8, !tbaa !24
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %123, ptr %134, align 8, !tbaa !24
+  store ptr %123, ptr %134, align 8, !tbaa !25
   %135 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %135, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -729,22 +729,22 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 269, ptr %141, align 8, !tbaa !22
+  store i64 269, ptr %141, align 8, !tbaa !23
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %142, align 8, !tbaa !23
+  store ptr %15, ptr %142, align 8, !tbaa !24
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %137, ptr %143, align 8, !tbaa !24
+  store ptr %137, ptr %143, align 8, !tbaa !25
   %144 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %144, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
 145:                                              ; preds = %138
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 280, ptr %146, align 8, !tbaa !22
+  store i64 280, ptr %146, align 8, !tbaa !23
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %147, align 8, !tbaa !23
+  store ptr %15, ptr %147, align 8, !tbaa !24
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %137, ptr %148, align 8, !tbaa !24
+  store ptr %137, ptr %148, align 8, !tbaa !25
   %149 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %149, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -761,11 +761,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 155:                                              ; preds = %152
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 264, ptr %156, align 8, !tbaa !22
+  store i64 264, ptr %156, align 8, !tbaa !23
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %157, align 8, !tbaa !23
+  store ptr %15, ptr %157, align 8, !tbaa !24
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %151, ptr %158, align 8, !tbaa !24
+  store ptr %151, ptr %158, align 8, !tbaa !25
   %159 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %159, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -782,11 +782,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 265, ptr %166, align 8, !tbaa !22
+  store i64 265, ptr %166, align 8, !tbaa !23
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %167, align 8, !tbaa !23
+  store ptr %15, ptr %167, align 8, !tbaa !24
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %161, ptr %168, align 8, !tbaa !24
+  store ptr %161, ptr %168, align 8, !tbaa !25
   %169 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %169, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -803,11 +803,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 175:                                              ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 281, ptr %176, align 8, !tbaa !22
+  store i64 281, ptr %176, align 8, !tbaa !23
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %177, align 8, !tbaa !23
+  store ptr %15, ptr %177, align 8, !tbaa !24
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %171, ptr %178, align 8, !tbaa !24
+  store ptr %171, ptr %178, align 8, !tbaa !25
   %179 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %179, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -824,11 +824,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 185:                                              ; preds = %182
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 278, ptr %186, align 8, !tbaa !22
+  store i64 278, ptr %186, align 8, !tbaa !23
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %187, align 8, !tbaa !23
+  store ptr %15, ptr %187, align 8, !tbaa !24
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %181, ptr %188, align 8, !tbaa !24
+  store ptr %181, ptr %188, align 8, !tbaa !25
   %189 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %189, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -845,11 +845,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 195:                                              ; preds = %192
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 276, ptr %196, align 8, !tbaa !22
+  store i64 276, ptr %196, align 8, !tbaa !23
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %197, align 8, !tbaa !23
+  store ptr %15, ptr %197, align 8, !tbaa !24
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %191, ptr %198, align 8, !tbaa !24
+  store ptr %191, ptr %198, align 8, !tbaa !25
   %199 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %199, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -866,11 +866,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 204:                                              ; preds = %201
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 277, ptr %205, align 8, !tbaa !22
+  store i64 277, ptr %205, align 8, !tbaa !23
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %206, align 8, !tbaa !23
+  store ptr %15, ptr %206, align 8, !tbaa !24
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %200, ptr %207, align 8, !tbaa !24
+  store ptr %200, ptr %207, align 8, !tbaa !25
   %208 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %208, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -889,11 +889,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 213:                                              ; preds = %211
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 266, ptr %214, align 8, !tbaa !22
+  store i64 266, ptr %214, align 8, !tbaa !23
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %215, align 8, !tbaa !23
+  store ptr %15, ptr %215, align 8, !tbaa !24
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %210, ptr %216, align 8, !tbaa !24
+  store ptr %210, ptr %216, align 8, !tbaa !25
   %217 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %217, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -910,22 +910,22 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 223:                                              ; preds = %220
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 284, ptr %224, align 8, !tbaa !22
+  store i64 284, ptr %224, align 8, !tbaa !23
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %225, align 8, !tbaa !23
+  store ptr %15, ptr %225, align 8, !tbaa !24
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %219, ptr %226, align 8, !tbaa !24
+  store ptr %219, ptr %226, align 8, !tbaa !25
   %227 = getelementptr inbounds nuw i8, ptr %15, i64 3
   store ptr %227, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
 228:                                              ; preds = %220, %218
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 270, ptr %229, align 8, !tbaa !22
+  store i64 270, ptr %229, align 8, !tbaa !23
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %230, align 8, !tbaa !23
+  store ptr %15, ptr %230, align 8, !tbaa !24
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %210, ptr %231, align 8, !tbaa !24
+  store ptr %210, ptr %231, align 8, !tbaa !25
   store ptr %219, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
@@ -943,11 +943,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 236:                                              ; preds = %234
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 267, ptr %237, align 8, !tbaa !22
+  store i64 267, ptr %237, align 8, !tbaa !23
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %238, align 8, !tbaa !23
+  store ptr %15, ptr %238, align 8, !tbaa !24
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %233, ptr %239, align 8, !tbaa !24
+  store ptr %233, ptr %239, align 8, !tbaa !25
   %240 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %240, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -964,22 +964,22 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 246:                                              ; preds = %243
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 285, ptr %247, align 8, !tbaa !22
+  store i64 285, ptr %247, align 8, !tbaa !23
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %248, align 8, !tbaa !23
+  store ptr %15, ptr %248, align 8, !tbaa !24
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %242, ptr %249, align 8, !tbaa !24
+  store ptr %242, ptr %249, align 8, !tbaa !25
   %250 = getelementptr inbounds nuw i8, ptr %15, i64 3
   store ptr %250, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
 251:                                              ; preds = %243, %241
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 271, ptr %252, align 8, !tbaa !22
+  store i64 271, ptr %252, align 8, !tbaa !23
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %253, align 8, !tbaa !23
+  store ptr %15, ptr %253, align 8, !tbaa !24
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %233, ptr %254, align 8, !tbaa !24
+  store ptr %233, ptr %254, align 8, !tbaa !25
   store ptr %242, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
@@ -1006,7 +1006,7 @@ switch.early.test291:                             ; preds = %.lr.ph287
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   %267 = call i32 @stb__clex_parse_char(ptr noundef nonnull %.03850.i, ptr noundef nonnull %2)
   %268 = icmp sgt i32 %267, -1
-  %269 = load ptr, ptr %2, align 8, !tbaa !26
+  %269 = load ptr, ptr %2, align 8, !tbaa !27
   br i1 %268, label %.thread.i, label %271
 
 .thread.i:                                        ; preds = %266
@@ -1016,11 +1016,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 271:                                              ; preds = %266
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 257, ptr %272, align 8, !tbaa !22
+  store i64 257, ptr %272, align 8, !tbaa !23
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %273, align 8, !tbaa !23
+  store ptr %15, ptr %273, align 8, !tbaa !24
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %269, ptr %274, align 8, !tbaa !24
+  store ptr %269, ptr %274, align 8, !tbaa !25
   %275 = getelementptr inbounds nuw i8, ptr %269, i64 1
   store ptr %275, ptr %8, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
@@ -1039,11 +1039,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 281:                                              ; preds = %278
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 257, ptr %282, align 8, !tbaa !22
+  store i64 257, ptr %282, align 8, !tbaa !23
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %283, align 8, !tbaa !23
+  store ptr %15, ptr %283, align 8, !tbaa !24
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.341.i, ptr %284, align 8, !tbaa !24
+  store ptr %.341.i, ptr %284, align 8, !tbaa !25
   %285 = getelementptr inbounds nuw i8, ptr %.341.i, i64 1
   store ptr %285, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -1052,7 +1052,7 @@ switch.early.test291:                             ; preds = %.lr.ph287
   store i8 %.033.i, ptr %.03651.i, align 1, !tbaa !16
   %287 = load i8, ptr %.341.i, align 1, !tbaa !16
   %.not.i = icmp eq i8 %287, 34
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %286, %255
   %.038.lcssa.i = phi ptr [ %256, %255 ], [ %.341.i, %286 ]
@@ -1060,19 +1060,19 @@ switch.early.test291:                             ; preds = %.lr.ph287
   store i8 0, ptr %.036.lcssa.i, align 1, !tbaa !16
   %288 = load ptr, ptr %257, align 8, !tbaa !14
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %288, ptr %289, align 8, !tbaa !28
+  store ptr %288, ptr %289, align 8, !tbaa !29
   %290 = ptrtoint ptr %.036.lcssa.i to i64
   %291 = ptrtoint ptr %288 to i64
   %292 = sub i64 %290, %291
   %293 = trunc i64 %292 to i32
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %293, ptr %294, align 8, !tbaa !29
+  store i32 %293, ptr %294, align 8, !tbaa !30
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 261, ptr %295, align 8, !tbaa !22
+  store i64 261, ptr %295, align 8, !tbaa !23
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %296, align 8, !tbaa !23
+  store ptr %15, ptr %296, align 8, !tbaa !24
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.038.lcssa.i, ptr %297, align 8, !tbaa !24
+  store ptr %.038.lcssa.i, ptr %297, align 8, !tbaa !25
   %298 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 1
   store ptr %298, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -1082,22 +1082,22 @@ switch.early.test291:                             ; preds = %.lr.ph287
   %301 = call i32 @stb__clex_parse_char(ptr noundef nonnull %300, ptr noundef nonnull %3)
   %302 = sext i32 %301 to i64
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %302, ptr %303, align 8, !tbaa !35
+  store i64 %302, ptr %303, align 8, !tbaa !37
   %304 = icmp slt i32 %301, 0
   br i1 %304, label %305, label %309
 
 305:                                              ; preds = %299
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 257, ptr %306, align 8, !tbaa !22
+  store i64 257, ptr %306, align 8, !tbaa !23
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %307, align 8, !tbaa !23
+  store ptr %15, ptr %307, align 8, !tbaa !24
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %15, ptr %308, align 8, !tbaa !24
+  store ptr %15, ptr %308, align 8, !tbaa !25
   store ptr %300, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
 
 309:                                              ; preds = %299
-  %310 = load ptr, ptr %3, align 8, !tbaa !26
+  %310 = load ptr, ptr %3, align 8, !tbaa !27
   %311 = load ptr, ptr %10, align 8, !tbaa !12
   %312 = icmp eq ptr %310, %311
   br i1 %312, label %315, label %313
@@ -1109,11 +1109,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 315:                                              ; preds = %313, %309
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 257, ptr %316, align 8, !tbaa !22
+  store i64 257, ptr %316, align 8, !tbaa !23
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %317, align 8, !tbaa !23
+  store ptr %15, ptr %317, align 8, !tbaa !24
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %310, ptr %318, align 8, !tbaa !24
+  store ptr %310, ptr %318, align 8, !tbaa !25
   %319 = getelementptr inbounds nuw i8, ptr %310, i64 1
   store ptr %319, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -1121,11 +1121,11 @@ switch.early.test291:                             ; preds = %.lr.ph287
 320:                                              ; preds = %313
   %321 = getelementptr inbounds nuw i8, ptr %310, i64 1
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 263, ptr %322, align 8, !tbaa !22
+  store i64 263, ptr %322, align 8, !tbaa !23
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %323, align 8, !tbaa !23
+  store ptr %15, ptr %323, align 8, !tbaa !24
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %321, ptr %324, align 8, !tbaa !24
+  store ptr %321, ptr %324, align 8, !tbaa !25
   %325 = getelementptr inbounds nuw i8, ptr %310, i64 2
   store ptr %325, ptr %8, align 8, !tbaa !13
   br label %stb__clex_parse_string.exit
@@ -1146,8 +1146,8 @@ switch.early.test291:                             ; preds = %.lr.ph287
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %331 = call i64 @strtol(ptr noundef nonnull %15, ptr noundef nonnull %4, i32 noundef 16) #9
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %331, ptr %332, align 8, !tbaa !35
-  %333 = load ptr, ptr %4, align 8, !tbaa !26
+  store i64 %331, ptr %332, align 8, !tbaa !37
+  %333 = load ptr, ptr %4, align 8, !tbaa !27
   %334 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %335 = icmp eq ptr %333, %334
   %.sink325 = select i1 %335, i64 257, i64 258
@@ -1156,18 +1156,18 @@ switch.early.test291:                             ; preds = %.lr.ph287
   %.pn = select i1 %335, ptr %15, ptr %333
   %.sink = getelementptr inbounds i8, ptr %.pn, i64 -1
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %.sink325, ptr %336, align 8, !tbaa !22
+  store i64 %.sink325, ptr %336, align 8, !tbaa !23
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.lcssa302.lcssa.sink, ptr %337, align 8, !tbaa !23
+  store ptr %.lcssa302.lcssa.sink, ptr %337, align 8, !tbaa !24
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sink, ptr %338, align 8, !tbaa !24
+  store ptr %.sink, ptr %338, align 8, !tbaa !25
   store ptr %.pn, ptr %8, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   br label %stb__clex_parse_string.exit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %328, %326
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store ptr %15, ptr %5, align 8, !tbaa !26
+  store ptr %15, ptr %5, align 8, !tbaa !27
   %.not169279 = icmp eq ptr %15, %11
   br i1 %.not169279, label %.critedge13.thread, label %.lr.ph282
 
@@ -1180,9 +1180,9 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 341:                                              ; preds = %.lr.ph282
   %342 = getelementptr inbounds nuw i8, ptr %storemerge280, i64 1
-  store ptr %342, ptr %5, align 8, !tbaa !26
+  store ptr %342, ptr %5, align 8, !tbaa !27
   %.not169 = icmp eq ptr %342, %11
-  br i1 %.not169, label %.critedge13.thread, label %.lr.ph282, !llvm.loop !36
+  br i1 %.not169, label %.critedge13.thread, label %.lr.ph282, !llvm.loop !38
 
 .critedge13:                                      ; preds = %.lr.ph282
   switch i8 %339, label %.critedge13.thread [
@@ -1194,15 +1194,15 @@ switch.early.test291:                             ; preds = %.lr.ph287
 .critedge207:                                     ; preds = %.critedge13, %.critedge13, %.critedge13
   %343 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %5) #9
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %343, ptr %344, align 8, !tbaa !37
-  %345 = load ptr, ptr %5, align 8, !tbaa !26
+  store double %343, ptr %344, align 8, !tbaa !39
+  %345 = load ptr, ptr %5, align 8, !tbaa !27
   %346 = getelementptr inbounds i8, ptr %345, i64 -1
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 259, ptr %347, align 8, !tbaa !22
+  store i64 259, ptr %347, align 8, !tbaa !23
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %348, align 8, !tbaa !23
+  store ptr %15, ptr %348, align 8, !tbaa !24
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %346, ptr %349, align 8, !tbaa !24
+  store ptr %346, ptr %349, align 8, !tbaa !25
   store ptr %345, ptr %8, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   br label %stb__clex_parse_string.exit
@@ -1218,28 +1218,28 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 355:                                              ; preds = %.critedge13.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store ptr %15, ptr %6, align 8, !tbaa !26
+  store ptr %15, ptr %6, align 8, !tbaa !27
   %356 = call i64 @strtol(ptr noundef nonnull %15, ptr noundef nonnull %6, i32 noundef 8) #9
-  store i64 %356, ptr %351, align 8, !tbaa !35
-  %357 = load ptr, ptr %6, align 8, !tbaa !26
+  store i64 %356, ptr %351, align 8, !tbaa !37
+  %357 = load ptr, ptr %6, align 8, !tbaa !27
   %358 = getelementptr inbounds i8, ptr %357, i64 -1
-  store i64 258, ptr %352, align 8, !tbaa !22
-  store ptr %15, ptr %353, align 8, !tbaa !23
-  store ptr %358, ptr %354, align 8, !tbaa !24
+  store i64 258, ptr %352, align 8, !tbaa !23
+  store ptr %15, ptr %353, align 8, !tbaa !24
+  store ptr %358, ptr %354, align 8, !tbaa !25
   store ptr %357, ptr %8, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   br label %stb__clex_parse_string.exit
 
 359:                                              ; preds = %.critedge13.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  store ptr %15, ptr %7, align 8, !tbaa !26
+  store ptr %15, ptr %7, align 8, !tbaa !27
   %360 = call i64 @strtol(ptr noundef nonnull %15, ptr noundef nonnull %7, i32 noundef 10) #9
-  store i64 %360, ptr %351, align 8, !tbaa !35
-  %361 = load ptr, ptr %7, align 8, !tbaa !26
+  store i64 %360, ptr %351, align 8, !tbaa !37
+  %361 = load ptr, ptr %7, align 8, !tbaa !27
   %362 = getelementptr inbounds i8, ptr %361, i64 -1
-  store i64 258, ptr %352, align 8, !tbaa !22
-  store ptr %15, ptr %353, align 8, !tbaa !23
-  store ptr %362, ptr %354, align 8, !tbaa !24
+  store i64 258, ptr %352, align 8, !tbaa !23
+  store ptr %15, ptr %353, align 8, !tbaa !24
+  store ptr %362, ptr %354, align 8, !tbaa !25
   store ptr %361, ptr %8, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   br label %stb__clex_parse_string.exit
@@ -1286,24 +1286,26 @@ attributes #9 = { nounwind }
 !14 = !{!4, !5, i64 24}
 !15 = !{!4, !9, i64 32}
 !16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !9, i64 0}
-!20 = !{!"", !9, i64 0, !9, i64 4}
-!21 = !{!20, !9, i64 4}
-!22 = !{!4, !10, i64 56}
-!23 = !{!4, !5, i64 40}
-!24 = !{!4, !5, i64 48}
-!25 = distinct !{!25, !18}
-!26 = !{!5, !5, i64 0}
-!27 = distinct !{!27, !18}
-!28 = !{!4, !5, i64 80}
-!29 = !{!4, !9, i64 88}
-!30 = distinct !{!30, !18}
-!31 = distinct !{!31, !18}
-!32 = distinct !{!32, !18}
-!33 = distinct !{!33, !18}
-!34 = distinct !{!34, !18}
-!35 = !{!4, !10, i64 72}
-!36 = distinct !{!36, !18}
-!37 = !{!4, !11, i64 64}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !9, i64 0}
+!21 = !{!"", !9, i64 0, !9, i64 4}
+!22 = !{!21, !9, i64 4}
+!23 = !{!4, !10, i64 56}
+!24 = !{!4, !5, i64 40}
+!25 = !{!4, !5, i64 48}
+!26 = distinct !{!26, !18, !19}
+!27 = !{!5, !5, i64 0}
+!28 = distinct !{!28, !18, !19}
+!29 = !{!4, !5, i64 80}
+!30 = !{!4, !9, i64 88}
+!31 = distinct !{!31, !18, !19}
+!32 = distinct !{!32, !18, !19}
+!33 = distinct !{!33, !19}
+!34 = distinct !{!34, !18, !19}
+!35 = distinct !{!35, !18, !19}
+!36 = distinct !{!36, !19}
+!37 = !{!4, !10, i64 72}
+!38 = distinct !{!38, !18, !19}
+!39 = !{!4, !11, i64 64}

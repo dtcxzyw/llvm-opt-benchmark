@@ -218,7 +218,7 @@ uriEqualsAuthorityA.exit.thread.i:                ; preds = %uriEqualsAuthorityA
 
 .lr.ph:                                           ; preds = %.lr.ph152.i, %uriAppendSegmentA.exit.i
   %93 = phi ptr [ %106, %uriAppendSegmentA.exit.i ], [ %92, %.lr.ph152.i ]
-  %94 = load ptr, ptr %.013, align 8, !tbaa !28
+  %94 = load ptr, ptr %.013, align 8, !tbaa !29
   %95 = tail call ptr %94(ptr noundef nonnull %.013, i64 noundef 32) #4
   %96 = icmp eq ptr %95, null
   br i1 %96, label %uriRemoveBaseUriImplA.exit, label %97
@@ -229,7 +229,7 @@ uriEqualsAuthorityA.exit.thread.i:                ; preds = %uriEqualsAuthorityA
   store ptr %87, ptr %95, align 8, !tbaa !22
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %88, ptr %99, align 8, !tbaa !24
-  %100 = load ptr, ptr %89, align 8, !tbaa !30
+  %100 = load ptr, ptr %89, align 8, !tbaa !31
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %103
 
@@ -243,7 +243,7 @@ uriEqualsAuthorityA.exit.thread.i:                ; preds = %uriEqualsAuthorityA
   br label %uriAppendSegmentA.exit.i
 
 uriAppendSegmentA.exit.i:                         ; preds = %103, %102
-  store ptr %95, ptr %89, align 8, !tbaa !30
+  store ptr %95, ptr %89, align 8, !tbaa !31
   %105 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %106 = load ptr, ptr %105, align 8, !tbaa !25
   %.not98.i = icmp eq ptr %106, null
@@ -277,16 +277,16 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
 115:                                              ; preds = %.lr.ph158.i
   %116 = getelementptr inbounds nuw i8, ptr %.0157.i, i64 1
   %exitcond.not.i = icmp eq ptr %116, %114
-  br i1 %exitcond.not.i, label %.critedge113.i, label %.lr.ph158.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %.critedge113.i, label %.lr.ph158.i, !llvm.loop !32
 
 .lr.ph158.i:                                      ; preds = %112, %115
   %.0157.i = phi ptr [ %116, %115 ], [ %.pre29, %112 ]
-  %117 = load i8, ptr %.0157.i, align 1, !tbaa !32
+  %117 = load i8, ptr %.0157.i, align 1, !tbaa !33
   %118 = icmp eq i8 %117, 58
   br i1 %118, label %119, label %115
 
 119:                                              ; preds = %.lr.ph158.i
-  %120 = load ptr, ptr %.013, align 8, !tbaa !28
+  %120 = load ptr, ptr %.013, align 8, !tbaa !29
   %121 = tail call ptr %120(ptr noundef nonnull %.013, i64 noundef 32) #4
   %122 = icmp eq ptr %121, null
   br i1 %122, label %uriRemoveBaseUriImplA.exit, label %123
@@ -297,7 +297,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   store ptr %107, ptr %121, align 8, !tbaa !22
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %108, ptr %125, align 8, !tbaa !24
-  %126 = load ptr, ptr %109, align 8, !tbaa !30
+  %126 = load ptr, ptr %109, align 8, !tbaa !31
   %127 = icmp eq ptr %126, null
   br i1 %127, label %128, label %129
 
@@ -315,7 +315,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   br i1 %131, label %132, label %.critedge115.i
 
 132:                                              ; preds = %.critedge113.i
-  %133 = load ptr, ptr %.013, align 8, !tbaa !28
+  %133 = load ptr, ptr %.013, align 8, !tbaa !29
   %134 = tail call ptr %133(ptr noundef nonnull %.013, i64 noundef 32) #4
   %135 = icmp eq ptr %134, null
   br i1 %135, label %uriRemoveBaseUriImplA.exit, label %136
@@ -326,7 +326,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   store ptr %107, ptr %134, align 8, !tbaa !22
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %108, ptr %138, align 8, !tbaa !24
-  %139 = load ptr, ptr %109, align 8, !tbaa !30
+  %139 = load ptr, ptr %109, align 8, !tbaa !31
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %142
 
@@ -341,7 +341,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
 
 .critedge115.sink.split.i:                        ; preds = %142, %141, %129, %128
   %.sink.i = phi ptr [ %121, %128 ], [ %121, %129 ], [ %134, %141 ], [ %134, %142 ]
-  store ptr %.sink.i, ptr %109, align 8, !tbaa !30
+  store ptr %.sink.i, ptr %109, align 8, !tbaa !31
   %.pre = load ptr, ptr %.186161.i, align 8, !tbaa !22
   br label %.critedge115.i
 
@@ -349,7 +349,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   %144 = phi ptr [ %.pre, %.critedge115.sink.split.i ], [ %.pre29, %.critedge113.i ], [ %.pre29, %111 ]
   %145 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !24
-  %147 = load ptr, ptr %.013, align 8, !tbaa !28
+  %147 = load ptr, ptr %.013, align 8, !tbaa !29
   %148 = tail call ptr %147(ptr noundef nonnull %.013, i64 noundef 32) #4
   %149 = icmp eq ptr %148, null
   br i1 %149, label %uriRemoveBaseUriImplA.exit, label %150
@@ -360,7 +360,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   store ptr %144, ptr %148, align 8, !tbaa !22
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store ptr %146, ptr %152, align 8, !tbaa !24
-  %153 = load ptr, ptr %109, align 8, !tbaa !30
+  %153 = load ptr, ptr %109, align 8, !tbaa !31
   %154 = icmp eq ptr %153, null
   br i1 %154, label %155, label %156
 
@@ -374,11 +374,11 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   br label %158
 
 158:                                              ; preds = %156, %155
-  store ptr %148, ptr %109, align 8, !tbaa !30
+  store ptr %148, ptr %109, align 8, !tbaa !31
   %159 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !25
   %.not99.i = icmp eq ptr %160, null
-  br i1 %.not99.i, label %.loopexit.i, label %111, !llvm.loop !33
+  br i1 %.not99.i, label %.loopexit.i, label %111, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %158, %.critedge5.i, %59, %53, %24
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -432,12 +432,12 @@ define range(i32 0, 11) i32 @uriRemoveBaseUriMmW(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond.i, label %uriRemoveBaseUriImplW.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %2, align 8, !tbaa !34
+  %15 = load ptr, ptr %2, align 8, !tbaa !35
   %16 = icmp eq ptr %15, null
   br i1 %16, label %uriRemoveBaseUriImplW.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %1, align 8, !tbaa !34
+  %18 = load ptr, ptr %1, align 8, !tbaa !35
   %19 = icmp eq ptr %18, null
   br i1 %19, label %uriRemoveBaseUriImplW.exit, label %20
 
@@ -447,7 +447,7 @@ define range(i32 0, 11) i32 @uriRemoveBaseUriMmW(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %26, label %22
 
 22:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !41
   %23 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
   %.not108.i = icmp eq i32 %23, 0
   br i1 %.not108.i, label %uriRemoveBaseUriImplW.exit, label %24
@@ -459,13 +459,13 @@ define range(i32 0, 11) i32 @uriRemoveBaseUriMmW(ptr noundef %0, ptr noundef %1,
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !43
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %33, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !42
+  %31 = load ptr, ptr %30, align 8, !tbaa !43
   %.not25.i.i = icmp eq ptr %31, null
   br i1 %.not25.i.i, label %uriEqualsAuthorityW.exit.thread.i, label %32
 
@@ -475,13 +475,13 @@ define range(i32 0, 11) i32 @uriRemoveBaseUriMmW(ptr noundef %0, ptr noundef %1,
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %35 = load ptr, ptr %34, align 8, !tbaa !43
+  %35 = load ptr, ptr %34, align 8, !tbaa !44
   %.not18.i.i = icmp eq ptr %35, null
   br i1 %.not18.i.i, label %40, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %38 = load ptr, ptr %37, align 8, !tbaa !43
+  %38 = load ptr, ptr %37, align 8, !tbaa !44
   %.not23.i.i = icmp eq ptr %38, null
   br i1 %.not23.i.i, label %uriEqualsAuthorityW.exit.thread.i, label %39
 
@@ -491,13 +491,13 @@ define range(i32 0, 11) i32 @uriRemoveBaseUriMmW(ptr noundef %0, ptr noundef %1,
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %42 = load ptr, ptr %41, align 8, !tbaa !44
+  %42 = load ptr, ptr %41, align 8, !tbaa !45
   %.not19.i.i = icmp eq ptr %42, null
   br i1 %.not19.i.i, label %48, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %45 = load ptr, ptr %44, align 8, !tbaa !44
+  %45 = load ptr, ptr %44, align 8, !tbaa !45
   %.not21.i.i = icmp eq ptr %45, null
   br i1 %.not21.i.i, label %uriEqualsAuthorityW.exit.thread.i, label %46
 
@@ -537,18 +537,18 @@ uriEqualsAuthorityW.exit.thread.i:                ; preds = %uriEqualsAuthorityW
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 1, ptr %60, align 8, !tbaa !45
+  store i32 1, ptr %60, align 8, !tbaa !46
   %61 = tail call i32 @uriFixAmbiguityW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
   %.not107.i = icmp eq i32 %61, 0
   br i1 %.not107.i, label %uriRemoveBaseUriImplW.exit, label %.loopexit.i
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %64 = load ptr, ptr %63, align 8, !tbaa !46
+  %64 = load ptr, ptr %63, align 8, !tbaa !47
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %66 = load ptr, ptr %65, align 8, !tbaa !46
+  %66 = load ptr, ptr %65, align 8, !tbaa !47
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 0, ptr %67, align 8, !tbaa !45
+  store i32 0, ptr %67, align 8, !tbaa !46
   %68 = icmp ne ptr %64, null
   %69 = icmp ne ptr %66, null
   %or.cond3140.i = select i1 %68, i1 %69, i1 false
@@ -562,23 +562,23 @@ uriEqualsAuthorityW.exit.thread.i:                ; preds = %uriEqualsAuthorityW
   br i1 %.not96.i, label %71, label %.lr.ph152.i
 
 71:                                               ; preds = %.lr.ph.i
-  %72 = load ptr, ptr %.085141.i, align 8, !tbaa !47
+  %72 = load ptr, ptr %.085141.i, align 8, !tbaa !48
   %73 = getelementptr inbounds nuw i8, ptr %.085141.i, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !49
+  %74 = load ptr, ptr %73, align 8, !tbaa !50
   %75 = icmp eq ptr %72, %74
   %76 = getelementptr inbounds nuw i8, ptr %.085141.i, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !50
+  %77 = load ptr, ptr %76, align 8, !tbaa !51
   br i1 %75, label %78, label %..critedge111_crit_edge.i
 
 ..critedge111_crit_edge.i:                        ; preds = %71
   %.phi.trans.insert165.i = getelementptr inbounds nuw i8, ptr %.083142.i, i64 16
-  %.pre166.i = load ptr, ptr %.phi.trans.insert165.i, align 8, !tbaa !50
+  %.pre166.i = load ptr, ptr %.phi.trans.insert165.i, align 8, !tbaa !51
   br label %.critedge111.i
 
 78:                                               ; preds = %71
   %79 = icmp eq ptr %77, null
   %80 = getelementptr inbounds nuw i8, ptr %.083142.i, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !50
+  %81 = load ptr, ptr %80, align 8, !tbaa !51
   %82 = icmp ne ptr %81, null
   %83 = xor i1 %79, %82
   br i1 %83, label %.critedge111.i, label %.lr.ph152.i
@@ -588,7 +588,7 @@ uriEqualsAuthorityW.exit.thread.i:                ; preds = %uriEqualsAuthorityW
   %85 = icmp ne ptr %77, null
   %86 = icmp ne ptr %84, null
   %or.cond3.i = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond3.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !51
+  br i1 %or.cond3.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !52
 
 .critedge.i:                                      ; preds = %.critedge111.i, %62
   %.085.lcssa.i = phi ptr [ %64, %62 ], [ %77, %.critedge111.i ]
@@ -604,40 +604,40 @@ uriEqualsAuthorityW.exit.thread.i:                ; preds = %uriEqualsAuthorityW
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %91 = getelementptr inbounds nuw i8, ptr %.083.lcssa172.i, i64 16
-  %92 = load ptr, ptr %91, align 8, !tbaa !50
+  %92 = load ptr, ptr %91, align 8, !tbaa !51
   %.not98.i24 = icmp eq ptr %92, null
   br i1 %.not98.i24, label %.critedge5.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph152.i, %uriAppendSegmentW.exit.i
   %93 = phi ptr [ %106, %uriAppendSegmentW.exit.i ], [ %92, %.lr.ph152.i ]
-  %94 = load ptr, ptr %.013, align 8, !tbaa !28
+  %94 = load ptr, ptr %.013, align 8, !tbaa !29
   %95 = tail call ptr %94(ptr noundef nonnull %.013, i64 noundef 32) #4
   %96 = icmp eq ptr %95, null
   br i1 %96, label %uriRemoveBaseUriImplW.exit, label %97
 
 97:                                               ; preds = %.lr.ph
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store ptr null, ptr %98, align 8, !tbaa !50
-  store ptr %87, ptr %95, align 8, !tbaa !47
+  store ptr null, ptr %98, align 8, !tbaa !51
+  store ptr %87, ptr %95, align 8, !tbaa !48
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %88, ptr %99, align 8, !tbaa !49
-  %100 = load ptr, ptr %89, align 8, !tbaa !52
+  store ptr %88, ptr %99, align 8, !tbaa !50
+  %100 = load ptr, ptr %89, align 8, !tbaa !53
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %97
-  store ptr %95, ptr %90, align 8, !tbaa !46
+  store ptr %95, ptr %90, align 8, !tbaa !47
   br label %uriAppendSegmentW.exit.i
 
 103:                                              ; preds = %97
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store ptr %95, ptr %104, align 8, !tbaa !50
+  store ptr %95, ptr %104, align 8, !tbaa !51
   br label %uriAppendSegmentW.exit.i
 
 uriAppendSegmentW.exit.i:                         ; preds = %103, %102
-  store ptr %95, ptr %89, align 8, !tbaa !52
+  store ptr %95, ptr %89, align 8, !tbaa !53
   %105 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !50
+  %106 = load ptr, ptr %105, align 8, !tbaa !51
   %.not98.i = icmp eq ptr %106, null
   br i1 %.not98.i, label %.critedge5.i, label %.lr.ph
 
@@ -657,49 +657,49 @@ uriAppendSegmentW.exit.i:                         ; preds = %103, %102
 111:                                              ; preds = %158, %.lr.ph163.i
   %.182162.i = phi i1 [ %.lcssa138.i, %.lr.ph163.i ], [ false, %158 ]
   %.186161.i = phi ptr [ %.085.lcssa171.i, %.lr.ph163.i ], [ %160, %158 ]
-  %.pre29 = load ptr, ptr %.186161.i, align 8, !tbaa !47
+  %.pre29 = load ptr, ptr %.186161.i, align 8, !tbaa !48
   br i1 %.182162.i, label %112, label %.critedge115.i
 
 112:                                              ; preds = %111
   %113 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !49
+  %114 = load ptr, ptr %113, align 8, !tbaa !50
   %.not101156.i = icmp ult ptr %.pre29, %114
   br i1 %.not101156.i, label %.lr.ph158.i, label %.critedge113.i
 
 115:                                              ; preds = %.lr.ph158.i
   %116 = getelementptr inbounds nuw i8, ptr %.0157.i, i64 4
   %.not101.i = icmp ult ptr %116, %114
-  br i1 %.not101.i, label %.lr.ph158.i, label %.critedge113.i, !llvm.loop !53
+  br i1 %.not101.i, label %.lr.ph158.i, label %.critedge113.i, !llvm.loop !54
 
 .lr.ph158.i:                                      ; preds = %112, %115
   %.0157.i = phi ptr [ %116, %115 ], [ %.pre29, %112 ]
-  %117 = load i32, ptr %.0157.i, align 4, !tbaa !54
+  %117 = load i32, ptr %.0157.i, align 4, !tbaa !55
   %118 = icmp eq i32 %117, 58
   br i1 %118, label %119, label %115
 
 119:                                              ; preds = %.lr.ph158.i
-  %120 = load ptr, ptr %.013, align 8, !tbaa !28
+  %120 = load ptr, ptr %.013, align 8, !tbaa !29
   %121 = tail call ptr %120(ptr noundef nonnull %.013, i64 noundef 32) #4
   %122 = icmp eq ptr %121, null
   br i1 %122, label %uriRemoveBaseUriImplW.exit, label %123
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store ptr null, ptr %124, align 8, !tbaa !50
-  store ptr %107, ptr %121, align 8, !tbaa !47
+  store ptr null, ptr %124, align 8, !tbaa !51
+  store ptr %107, ptr %121, align 8, !tbaa !48
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store ptr %108, ptr %125, align 8, !tbaa !49
-  %126 = load ptr, ptr %109, align 8, !tbaa !52
+  store ptr %108, ptr %125, align 8, !tbaa !50
+  %126 = load ptr, ptr %109, align 8, !tbaa !53
   %127 = icmp eq ptr %126, null
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %123
-  store ptr %121, ptr %110, align 8, !tbaa !46
+  store ptr %121, ptr %110, align 8, !tbaa !47
   br label %.critedge115.sink.split.i
 
 129:                                              ; preds = %123
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store ptr %121, ptr %130, align 8, !tbaa !50
+  store ptr %121, ptr %130, align 8, !tbaa !51
   br label %.critedge115.sink.split.i
 
 .critedge113.i:                                   ; preds = %115, %112
@@ -707,78 +707,78 @@ uriAppendSegmentW.exit.i:                         ; preds = %103, %102
   br i1 %131, label %132, label %.critedge115.i
 
 132:                                              ; preds = %.critedge113.i
-  %133 = load ptr, ptr %.013, align 8, !tbaa !28
+  %133 = load ptr, ptr %.013, align 8, !tbaa !29
   %134 = tail call ptr %133(ptr noundef nonnull %.013, i64 noundef 32) #4
   %135 = icmp eq ptr %134, null
   br i1 %135, label %uriRemoveBaseUriImplW.exit, label %136
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  store ptr null, ptr %137, align 8, !tbaa !50
-  store ptr %107, ptr %134, align 8, !tbaa !47
+  store ptr null, ptr %137, align 8, !tbaa !51
+  store ptr %107, ptr %134, align 8, !tbaa !48
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  store ptr %108, ptr %138, align 8, !tbaa !49
-  %139 = load ptr, ptr %109, align 8, !tbaa !52
+  store ptr %108, ptr %138, align 8, !tbaa !50
+  %139 = load ptr, ptr %109, align 8, !tbaa !53
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %136
-  store ptr %134, ptr %110, align 8, !tbaa !46
+  store ptr %134, ptr %110, align 8, !tbaa !47
   br label %.critedge115.sink.split.i
 
 142:                                              ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store ptr %134, ptr %143, align 8, !tbaa !50
+  store ptr %134, ptr %143, align 8, !tbaa !51
   br label %.critedge115.sink.split.i
 
 .critedge115.sink.split.i:                        ; preds = %142, %141, %129, %128
   %.sink.i = phi ptr [ %121, %128 ], [ %121, %129 ], [ %134, %141 ], [ %134, %142 ]
-  store ptr %.sink.i, ptr %109, align 8, !tbaa !52
-  %.pre = load ptr, ptr %.186161.i, align 8, !tbaa !47
+  store ptr %.sink.i, ptr %109, align 8, !tbaa !53
+  %.pre = load ptr, ptr %.186161.i, align 8, !tbaa !48
   br label %.critedge115.i
 
 .critedge115.i:                                   ; preds = %.critedge115.sink.split.i, %.critedge113.i, %111
   %144 = phi ptr [ %.pre, %.critedge115.sink.split.i ], [ %.pre29, %.critedge113.i ], [ %.pre29, %111 ]
   %145 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 8
-  %146 = load ptr, ptr %145, align 8, !tbaa !49
-  %147 = load ptr, ptr %.013, align 8, !tbaa !28
+  %146 = load ptr, ptr %145, align 8, !tbaa !50
+  %147 = load ptr, ptr %.013, align 8, !tbaa !29
   %148 = tail call ptr %147(ptr noundef nonnull %.013, i64 noundef 32) #4
   %149 = icmp eq ptr %148, null
   br i1 %149, label %uriRemoveBaseUriImplW.exit, label %150
 
 150:                                              ; preds = %.critedge115.i
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  store ptr null, ptr %151, align 8, !tbaa !50
-  store ptr %144, ptr %148, align 8, !tbaa !47
+  store ptr null, ptr %151, align 8, !tbaa !51
+  store ptr %144, ptr %148, align 8, !tbaa !48
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  store ptr %146, ptr %152, align 8, !tbaa !49
-  %153 = load ptr, ptr %109, align 8, !tbaa !52
+  store ptr %146, ptr %152, align 8, !tbaa !50
+  %153 = load ptr, ptr %109, align 8, !tbaa !53
   %154 = icmp eq ptr %153, null
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %150
-  store ptr %148, ptr %110, align 8, !tbaa !46
+  store ptr %148, ptr %110, align 8, !tbaa !47
   br label %158
 
 156:                                              ; preds = %150
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  store ptr %148, ptr %157, align 8, !tbaa !50
+  store ptr %148, ptr %157, align 8, !tbaa !51
   br label %158
 
 158:                                              ; preds = %156, %155
-  store ptr %148, ptr %109, align 8, !tbaa !52
+  store ptr %148, ptr %109, align 8, !tbaa !53
   %159 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 16
-  %160 = load ptr, ptr %159, align 8, !tbaa !50
+  %160 = load ptr, ptr %159, align 8, !tbaa !51
   %.not99.i = icmp eq ptr %160, null
-  br i1 %.not99.i, label %.loopexit.i, label %111, !llvm.loop !55
+  br i1 %.not99.i, label %.loopexit.i, label %111, !llvm.loop !56
 
 .loopexit.i:                                      ; preds = %158, %.critedge5.i, %59, %53, %24
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull align 8 dereferenceable(16) %162, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull align 8 dereferenceable(16) %162, i64 16, i1 false), !tbaa.struct !41
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %164, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %164, i64 16, i1 false), !tbaa.struct !41
   br label %uriRemoveBaseUriImplW.exit.thread
 
 uriRemoveBaseUriImplW.exit:                       ; preds = %.lr.ph, %.critedge115.i, %132, %119, %59, %57, %53, %uriEqualsAuthorityW.exit.thread.i, %24, %22, %17, %14, %11
@@ -853,33 +853,34 @@ attributes #4 = { nounwind }
 !23 = !{!"UriPathSegmentStructA", !5, i64 0, !13, i64 16, !7, i64 24}
 !24 = !{!23, !6, i64 8}
 !25 = !{!23, !13, i64 16}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!29, !7, i64 0}
-!29 = !{!"UriMemoryManagerStruct", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40}
-!30 = !{!4, !13, i64 104}
-!31 = distinct !{!31, !27}
-!32 = !{!8, !8, i64 0}
-!33 = distinct !{!33, !27}
-!34 = !{!35, !37, i64 0}
-!35 = !{!"UriUriStructW", !36, i64 0, !36, i64 16, !36, i64 32, !38, i64 48, !36, i64 80, !39, i64 96, !39, i64 104, !36, i64 112, !36, i64 128, !14, i64 144, !14, i64 148, !7, i64 152}
-!36 = !{!"UriTextRangeStructW", !37, i64 0, !37, i64 8}
-!37 = !{!"p1 int", !7, i64 0}
-!38 = !{!"UriHostDataStructW", !11, i64 0, !12, i64 8, !36, i64 16}
-!39 = !{!"p1 _ZTS21UriPathSegmentStructW", !7, i64 0}
-!40 = !{i64 0, i64 8, !41, i64 8, i64 8, !41}
-!41 = !{!37, !37, i64 0}
-!42 = !{!35, !11, i64 48}
-!43 = !{!35, !12, i64 56}
-!44 = !{!35, !37, i64 64}
-!45 = !{!35, !14, i64 144}
-!46 = !{!35, !39, i64 96}
-!47 = !{!48, !37, i64 0}
-!48 = !{!"UriPathSegmentStructW", !36, i64 0, !39, i64 16, !7, i64 24}
-!49 = !{!48, !37, i64 8}
-!50 = !{!48, !39, i64 16}
-!51 = distinct !{!51, !27}
-!52 = !{!35, !39, i64 104}
-!53 = distinct !{!53, !27}
-!54 = !{!14, !14, i64 0}
-!55 = distinct !{!55, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!30, !7, i64 0}
+!30 = !{!"UriMemoryManagerStruct", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40}
+!31 = !{!4, !13, i64 104}
+!32 = distinct !{!32, !27, !28}
+!33 = !{!8, !8, i64 0}
+!34 = distinct !{!34, !27, !28}
+!35 = !{!36, !38, i64 0}
+!36 = !{!"UriUriStructW", !37, i64 0, !37, i64 16, !37, i64 32, !39, i64 48, !37, i64 80, !40, i64 96, !40, i64 104, !37, i64 112, !37, i64 128, !14, i64 144, !14, i64 148, !7, i64 152}
+!37 = !{!"UriTextRangeStructW", !38, i64 0, !38, i64 8}
+!38 = !{!"p1 int", !7, i64 0}
+!39 = !{!"UriHostDataStructW", !11, i64 0, !12, i64 8, !37, i64 16}
+!40 = !{!"p1 _ZTS21UriPathSegmentStructW", !7, i64 0}
+!41 = !{i64 0, i64 8, !42, i64 8, i64 8, !42}
+!42 = !{!38, !38, i64 0}
+!43 = !{!36, !11, i64 48}
+!44 = !{!36, !12, i64 56}
+!45 = !{!36, !38, i64 64}
+!46 = !{!36, !14, i64 144}
+!47 = !{!36, !40, i64 96}
+!48 = !{!49, !38, i64 0}
+!49 = !{!"UriPathSegmentStructW", !37, i64 0, !40, i64 16, !7, i64 24}
+!50 = !{!49, !38, i64 8}
+!51 = !{!49, !40, i64 16}
+!52 = distinct !{!52, !27, !28}
+!53 = !{!36, !40, i64 104}
+!54 = distinct !{!54, !27, !28}
+!55 = !{!14, !14, i64 0}
+!56 = distinct !{!56, !27, !28}

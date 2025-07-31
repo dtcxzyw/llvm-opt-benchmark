@@ -666,7 +666,7 @@ define internal i32 @dissect_hartip_tcp(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not9, label %16, label %12
 
 12:                                               ; preds = %8
-  %13 = load i8, ptr @hartip_desegment, align 1, !range !8, !noundef !9
+  %13 = load i8, ptr @hartip_desegment, align 1, !range !9, !noundef !10
   %14 = trunc nuw i8 %13 to i1
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %14, i32 noundef 8, ptr noundef nonnull @get_dissect_hartip_len, ptr noundef nonnull @dissect_hartip_pdu, ptr noundef %3)
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -949,7 +949,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
 120:                                              ; preds = %.lr.ph.i
   %121 = add nuw nsw i32 %.0109210.i, 1
   %exitcond.not.i = icmp eq i32 %121, %84
-  br i1 %exitcond.not.i, label %._crit_edge.thread216.i.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.thread216.i.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not126.i = icmp eq i32 %.0109210.i, 0
@@ -1615,7 +1615,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %532 = icmp slt i32 %531, %495
   %533 = icmp sgt i32 %.1.i.i.i, 3
   %or.cond72.i.i.i = select i1 %532, i1 %533, i1 false
-  br i1 %or.cond72.i.i.i, label %.lr.ph.i.i.i, label %dissect_parse_hart_cmds.exit.i, !llvm.loop !11
+  br i1 %or.cond72.i.i.i, label %.lr.ph.i.i.i, label %dissect_parse_hart_cmds.exit.i, !llvm.loop !12
 
 534:                                              ; preds = %190
   %535 = tail call fastcc i32 @dissect_cmd203(ptr noundef %86, ptr noundef %0, i32 noundef %.6.i, i32 noundef range(i32 1, 2147483647) %191)
@@ -2047,13 +2047,13 @@ define internal fastcc noundef range(i32 6, 25) i32 @dissect_packAscii(ptr nound
   store i8 %52, ptr %53, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond52.not, label %54, label %43, !llvm.loop !12
+  br i1 %exitcond52.not, label %54, label %43, !llvm.loop !13
 
 54:                                               ; preds = %45
   %55 = trunc nsw i64 %indvars.iv.next50 to i32
   %56 = add nuw nsw i16 %.04146, 1
   %exitcond55.not = icmp eq i16 %56, %16
-  br i1 %exitcond55.not, label %._crit_edge, label %20, !llvm.loop !13
+  br i1 %exitcond55.not, label %._crit_edge, label %20, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %54
   %sext = shl i64 %indvars.iv.next50, 32
@@ -2294,11 +2294,12 @@ attributes #8 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

@@ -65,19 +65,19 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !9
   %.not = icmp eq i32 %3, 28
   br i1 %.not, label %4, label %.thread
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr %0, align 8, !tbaa !14
+  %5 = load i32, ptr %0, align 8, !tbaa !15
   %6 = and i32 %5, 3
   %.not27 = icmp eq i32 %6, 0
   br i1 %.not27, label %7, label %.thread
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !15
+  %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = icmp sgt i32 %5, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -108,29 +108,29 @@ define range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr noundef captures(
   %20 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %21 = add nuw nsw i32 %.02431, 4
   %22 = icmp slt i32 %21, %5
-  br i1 %22, label %.lr.ph, label %.preheader, !llvm.loop !16
+  br i1 %22, label %.lr.ph, label %.preheader, !llvm.loop !17
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph35 ], [ 3, %.preheader ]
   %.134 = phi ptr [ %26, %.lr.ph35 ], [ %9, %.preheader ]
-  %23 = load ptr, ptr %8, align 8, !tbaa !15
+  %23 = load ptr, ptr %8, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %.134, i64 1
   store i8 %25, ptr %.134, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %27 = load i32, ptr %0, align 8, !tbaa !14
+  %27 = load i32, ptr %0, align 8, !tbaa !15
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph35, label %._crit_edge, !llvm.loop !17
+  br i1 %29, label %.lr.ph35, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %7, %.preheader
   %.1.lcssa = phi ptr [ %9, %.preheader ], [ %9, %7 ], [ %26, %.lr.ph35 ]
   store i8 0, ptr %.1.lcssa, align 1, !tbaa !3
-  %30 = load i32, ptr %0, align 8, !tbaa !14
+  %30 = load i32, ptr %0, align 8, !tbaa !15
   %31 = sdiv i32 %30, 4
-  store i32 %31, ptr %0, align 8, !tbaa !14
-  %32 = load ptr, ptr %8, align 8, !tbaa !15
+  store i32 %31, ptr %0, align 8, !tbaa !15
+  %32 = load ptr, ptr %8, align 8, !tbaa !16
   %33 = icmp eq ptr %32, null
   br i1 %33, label %ASN1_PRINTABLE_type.exit, label %34
 
@@ -174,7 +174,7 @@ define range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr noundef captures(
 
 ASN1_PRINTABLE_type.exit:                         ; preds = %._crit_edge, %39, %._crit_edge.i
   %.011.i = phi i32 [ 19, %._crit_edge ], [ 19, %39 ], [ %spec.select27.i, %._crit_edge.i ]
-  store i32 %.011.i, ptr %2, align 4, !tbaa !8
+  store i32 %.011.i, ptr %2, align 4, !tbaa !9
   br label %.thread
 
 .thread:                                          ; preds = %16, %13, %.lr.ph, %4, %1, %ASN1_PRINTABLE_type.exit
@@ -191,8 +191,8 @@ define range(i32 0, 2) i32 @ASN1_STRING_print(ptr noundef %0, ptr noundef readon
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %8 = load i32, ptr %1, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %8 = load i32, ptr %1, align 8, !tbaa !15
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge.thread
 
@@ -232,7 +232,7 @@ switch.early.test:                                ; preds = %14
   br i1 %23, label %.loopexit, label %._crit_edge36
 
 ._crit_edge36:                                    ; preds = %21
-  %.pre = load i32, ptr %1, align 8, !tbaa !14
+  %.pre = load i32, ptr %1, align 8, !tbaa !15
   br label %24
 
 24:                                               ; preds = %._crit_edge36, %16
@@ -241,7 +241,7 @@ switch.early.test:                                ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %24
   %28 = icmp sgt i32 %.1, 0
@@ -278,16 +278,17 @@ attributes #5 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !10, i64 4}
-!9 = !{!"asn1_string_st", !10, i64 0, !10, i64 4, !11, i64 8, !13, i64 16}
-!10 = !{!"int", !4, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !4, i64 0}
-!13 = !{!"long", !4, i64 0}
-!14 = !{!9, !10, i64 0}
-!15 = !{!9, !11, i64 8}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !11, i64 4}
+!10 = !{!"asn1_string_st", !11, i64 0, !11, i64 4, !12, i64 8, !14, i64 16}
+!11 = !{!"int", !4, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !4, i64 0}
+!14 = !{!"long", !4, i64 0}
+!15 = !{!10, !11, i64 0}
+!16 = !{!10, !12, i64 8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

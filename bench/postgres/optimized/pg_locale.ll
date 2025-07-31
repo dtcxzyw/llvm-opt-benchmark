@@ -770,7 +770,7 @@ define dso_local void @cache_locale_time() local_unnamed_addr #0 {
   %40 = getelementptr inbounds nuw i8, ptr %.15271, i64 160
   %41 = add nuw nsw i32 %.173, 1
   %exitcond79.not = icmp eq i32 %41, 12
-  br i1 %exitcond79.not, label %42, label %33, !llvm.loop !6
+  br i1 %exitcond79.not, label %42, label %33, !llvm.loop !7
 
 42:                                               ; preds = %33
   %43 = call ptr @setlocale(i32 noundef 2, ptr noundef %15) #20
@@ -856,7 +856,7 @@ cache_single_string.exit61:                       ; preds = %74, %75
   %76 = getelementptr inbounds nuw i8, ptr %.25374, i64 160
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond81.not, label %77, label %54, !llvm.loop !7
+  br i1 %exitcond81.not, label %77, label %54, !llvm.loop !8
 
 77:                                               ; preds = %cache_single_string.exit61
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_abbrev_days, i64 56), align 8
@@ -918,7 +918,7 @@ cache_single_string.exit67:                       ; preds = %98, %99
   %100 = getelementptr inbounds nuw i8, ptr %.35476, i64 160
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 12
-  br i1 %exitcond85.not, label %101, label %78, !llvm.loop !8
+  br i1 %exitcond85.not, label %101, label %78, !llvm.loop !9
 
 101:                                              ; preds = %cache_single_string.exit67
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_abbrev_months, i64 96), align 16
@@ -1094,7 +1094,7 @@ define dso_local ptr @pg_newlocale_from_collation(i32 noundef %0) local_unnamed_
   %39 = getelementptr i8, ptr %27, i64 12
   %.pre.i = load i32, ptr %36, align 8
   %40 = icmp ult i32 %.pre.i, %.pre83.i
-  br i1 %40, label %113, label %._crit_edge48, !prof !9
+  br i1 %40, label %113, label %._crit_edge48, !prof !10
 
 ._crit_edge48:                                    ; preds = %26
   %.pre = load i64, ptr %27, align 8
@@ -1108,7 +1108,7 @@ define dso_local ptr @pg_newlocale_from_collation(i32 noundef %0) local_unnamed_
 42:                                               ; preds = %._crit_edge48, %.loopexit.loopexit.i.i
   %43 = phi i64 [ %.pre, %._crit_edge48 ], [ %41, %.loopexit.loopexit.i.i ]
   %44 = icmp eq i64 %43, 4294967296
-  br i1 %44, label %45, label %48, !prof !10
+  br i1 %44, label %45, label %48, !prof !11
 
 45:                                               ; preds = %42
   %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
@@ -1129,7 +1129,7 @@ define dso_local ptr @pg_newlocale_from_collation(i32 noundef %0) local_unnamed_
   %.0.i.i.i13 = select i1 %53, i64 %51, i64 %56
   %57 = mul i64 %.0.i.i.i13, 24
   %58 = icmp ugt i64 %57, 9223372036854775806
-  br i1 %58, label %59, label %collation_cache_compute_size.exit.i, !prof !10
+  br i1 %58, label %59, label %collation_cache_compute_size.exit.i, !prof !11
 
 59:                                               ; preds = %48
   %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
@@ -1151,7 +1151,7 @@ collation_cache_compute_size.exit.i:              ; preds = %48
   %.0.i.i.i.i = select i1 %65, i64 %.0.i.i.i13, i64 %68
   %69 = mul i64 %.0.i.i.i.i, 24
   %70 = icmp ugt i64 %69, 9223372036854775806
-  br i1 %70, label %71, label %collation_cache_update_parameters.exit.i, !prof !10
+  br i1 %70, label %71, label %collation_cache_update_parameters.exit.i, !prof !11
 
 71:                                               ; preds = %collation_cache_compute_size.exit.i
   %72 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
@@ -1194,7 +1194,7 @@ collation_cache_update_parameters.exit.i:         ; preds = %collation_cache_com
   %89 = add i32 %.064.i, 1
   %90 = zext i32 %89 to i64
   %91 = icmp ugt i64 %43, %90
-  br i1 %91, label %.lr.ph.i16, label %.lr.ph71.i.preheader, !llvm.loop !11
+  br i1 %91, label %.lr.ph.i16, label %.lr.ph71.i.preheader, !llvm.loop !12
 
 .lr.ph71.i.preheader:                             ; preds = %88, %84, %.lr.ph.i16
   %.05169.i.ph = phi i32 [ %.064.i, %.lr.ph.i16 ], [ %.064.i, %84 ], [ 0, %88 ]
@@ -1225,7 +1225,7 @@ collation_cache_update_parameters.exit.i:         ; preds = %collation_cache_com
   %103 = load i8, ptr %102, align 4
   %104 = icmp eq i8 %103, 0
   %105 = add i32 %.048.i, 1
-  br i1 %104, label %106, label %99
+  br i1 %104, label %106, label %99, !llvm.loop !13
 
 106:                                              ; preds = %99
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
@@ -1239,7 +1239,7 @@ collation_cache_update_parameters.exit.i:         ; preds = %collation_cache_com
   %110 = add i32 %.170.i, 1
   %111 = zext i32 %110 to i64
   %112 = icmp ugt i64 %43, %111
-  br i1 %112, label %.lr.ph71.i, label %collation_cache_grow.exit, !llvm.loop !12
+  br i1 %112, label %.lr.ph71.i, label %collation_cache_grow.exit, !llvm.loop !14
 
 collation_cache_grow.exit:                        ; preds = %107, %collation_cache_update_parameters.exit.i
   tail call void @pfree(ptr noundef %50) #20
@@ -1315,7 +1315,7 @@ collation_cache_distance.exit.i.i:                ; preds = %133, %131
   %.079.i36.i = phi i32 [ %146, %.preheader113.i.i ], [ 0, %.preheader113.i.preheader.i ]
   %146 = add i32 %.079.i36.i, 1
   %147 = icmp sgt i32 %146, 150
-  br i1 %147, label %148, label %.preheader113.i.i, !prof !10
+  br i1 %147, label %148, label %.preheader113.i.i, !prof !11
 
 148:                                              ; preds = %.lr.ph37.i
   %149 = load i32, ptr %36, align 8
@@ -1353,7 +1353,7 @@ collation_cache_distance.exit.i.i:                ; preds = %133, %131
   %164 = getelementptr inbounds nuw %struct.collation_cache_entry, ptr %114, i64 %163
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.285142.i.i, ptr noundef nonnull align 8 dereferenceable(24) %164, i64 24, i1 false)
   %.not94.i.i = icmp eq i32 %162, %.077.i30.i
-  br i1 %.not94.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not94.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %165 = load i32, ptr %36, align 8
@@ -1368,7 +1368,7 @@ collation_cache_distance.exit.i.i:                ; preds = %133, %131
   %168 = add i32 %.077.i30.i, 1
   %169 = add i32 %.089.i29.i, 1
   %170 = icmp ugt i32 %169, 25
-  br i1 %170, label %171, label %178, !prof !10
+  br i1 %170, label %171, label %178, !prof !11
 
 171:                                              ; preds = %167
   %172 = load i32, ptr %36, align 8
@@ -1458,7 +1458,7 @@ collation_cache_insert.exit:                      ; preds = %128
   %214 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i8 0, ptr %214, align 4
   %215 = call i64 @SysCacheGetAttr(i32 noundef 16, ptr noundef nonnull %190, i16 noundef signext 12, ptr noundef nonnull %2) #20
-  %216 = load i8, ptr %2, align 1, !range !14, !noundef !15
+  %216 = load i8, ptr %2, align 1, !range !16, !noundef !17
   %217 = trunc nuw i8 %216 to i1
   br i1 %217, label %create_pg_locale.exit, label %218
 
@@ -1759,7 +1759,7 @@ define dso_local zeroext i1 @pg_strxfrm_enabled(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i8, ptr %4, align 8, !range !14, !noundef !15
+  %5 = load i8, ptr %4, align 8, !range !16, !noundef !17
   %6 = trunc nuw i8 %5 to i1
   ret i1 %6
 }
@@ -1943,7 +1943,7 @@ define dso_local noundef ptr @icu_language_tag(ptr noundef %0, i32 noundef %1) l
   %or.cond = or i1 %13, %14
   %15 = icmp ne i64 %8, 1073741823
   %or.cond3 = and i1 %15, %or.cond
-  br i1 %or.cond3, label %.lr.ph, label %._crit_edge
+  br i1 %or.cond3, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.027.lcssa = phi ptr [ %4, %2 ], [ %9, %.lr.ph ]
@@ -1994,7 +1994,7 @@ define dso_local void @icu_validate_locale(ptr noundef %0) local_unnamed_addr #0
   br i1 %6, label %48, label %7
 
 7:                                                ; preds = %1
-  %8 = load i8, ptr @IsBinaryUpgrade, align 1, !range !14, !noundef !15
+  %8 = load i8, ptr @IsBinaryUpgrade, align 1, !range !16, !noundef !17
   %9 = trunc nuw i8 %8 to i1
   %10 = tail call i32 @llvm.umin.i32(i32 %5, i32 19)
   %spec.store.select = select i1 %9, i32 %10, i32 %5
@@ -2061,7 +2061,7 @@ define dso_local void @icu_validate_locale(ptr noundef %0) local_unnamed_addr #0
   %.03741.be = add nuw nsw i32 %.0374144, 1
   %39 = call i32 @uloc_countAvailable_70() #20
   %40 = icmp slt i32 %.03741.be, %39
-  br i1 %40, label %.lr.ph45, label %.critedge, !llvm.loop !16
+  br i1 %40, label %.lr.ph45, label %.critedge, !llvm.loop !19
 
 41:                                               ; preds = %.lr.ph45
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #20
@@ -2184,16 +2184,19 @@ attributes #25 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !5, !6}

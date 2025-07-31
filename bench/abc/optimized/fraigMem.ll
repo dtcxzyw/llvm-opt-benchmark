@@ -127,7 +127,7 @@ define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) loca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !22
+  %5 = load i32, ptr %4, align 4, !tbaa !23
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %49
 
@@ -170,7 +170,7 @@ define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) loca
   %30 = sext i32 %29 to i64
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #10
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %31, ptr %32, align 8, !tbaa !23
+  store ptr %31, ptr %32, align 8, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %34 = load i32, ptr %33, align 4, !tbaa !15
   %35 = add nsw i32 %34, %29
@@ -189,7 +189,7 @@ define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) loca
   store ptr %39, ptr %.03944, align 8, !tbaa !19
   %40 = add nuw nsw i32 %.045, 1
   %exitcond.not = icmp eq i32 %40, %28
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %38, %25
   %.039.lcssa = phi ptr [ %31, %25 ], [ %39, %38 ]
@@ -202,9 +202,9 @@ define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) loca
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds ptr, ptr %42, i64 %45
   store ptr %31, ptr %46, align 8, !tbaa !19
-  %47 = load i32, ptr %4, align 4, !tbaa !22
+  %47 = load i32, ptr %4, align 4, !tbaa !23
   %48 = add nsw i32 %47, %28
-  store i32 %48, ptr %4, align 4, !tbaa !22
+  store i32 %48, ptr %4, align 4, !tbaa !23
   %.pre = load i32, ptr %2, align 8, !tbaa !17
   br label %49
 
@@ -223,9 +223,9 @@ define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) loca
 
 55:                                               ; preds = %54, %49
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !23
+  %57 = load ptr, ptr %56, align 8, !tbaa !24
   %58 = load ptr, ptr %57, align 8, !tbaa !19
-  store ptr %58, ptr %56, align 8, !tbaa !23
+  store ptr %58, ptr %56, align 8, !tbaa !24
   ret ptr %57
 }
 
@@ -239,9 +239,9 @@ define void @Fraig_MemFixedEntryRecycle(ptr noundef captures(none) %0, ptr nound
   %5 = add nsw i32 %4, -1
   store i32 %5, ptr %3, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   store ptr %7, ptr %1, align 8, !tbaa !19
-  store ptr %1, ptr %6, align 8, !tbaa !23
+  store ptr %1, ptr %6, align 8, !tbaa !24
   ret void
 }
 
@@ -277,7 +277,7 @@ define void @Fraig_MemFixedRestart(ptr noundef captures(none) %0) local_unnamed_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %13, %1
   %18 = phi ptr [ %.pre, %1 ], [ %15, %13 ]
@@ -300,21 +300,21 @@ define void @Fraig_MemFixedRestart(ptr noundef captures(none) %0) local_unnamed_
   store ptr %25, ptr %.033, align 8, !tbaa !19
   %26 = add nuw nsw i32 %.132, 1
   %exitcond.not = icmp eq i32 %26, %21
-  br i1 %exitcond.not, label %._crit_edge36, label %24, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge36, label %24, !llvm.loop !27
 
 ._crit_edge36:                                    ; preds = %24, %._crit_edge
   %.0.lcssa = phi ptr [ %19, %._crit_edge ], [ %25, %24 ]
   store ptr null, ptr %.0.lcssa, align 8, !tbaa !19
   %27 = load ptr, ptr %18, align 8, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %27, ptr %28, align 8, !tbaa !23
+  store ptr %27, ptr %28, align 8, !tbaa !24
   %29 = mul nsw i32 %.pre41, %21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %29, ptr %30, align 4, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %31, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %21, ptr %32, align 4, !tbaa !22
+  store i32 %21, ptr %32, align 4, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %33, align 8, !tbaa !17
   ret void
@@ -369,10 +369,11 @@ attributes #12 = { nounwind allocsize(1) }
 !17 = !{!4, !5, i64 8}
 !18 = !{!4, !5, i64 12}
 !19 = !{!8, !8, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!4, !5, i64 4}
-!23 = !{!4, !8, i64 16}
-!24 = distinct !{!24, !21}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!4, !5, i64 4}
+!24 = !{!4, !8, i64 16}
+!25 = distinct !{!25, !21, !22}
+!26 = distinct !{!26, !21, !22}
+!27 = distinct !{!27, !21, !22}

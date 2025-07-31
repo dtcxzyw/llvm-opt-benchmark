@@ -2663,15 +2663,15 @@ define void @_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_(ptr noundef nonn
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !67, !noalias !79
+  %13 = load ptr, ptr %12, align 8, !tbaa !67, !noalias !80
   %.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i, label %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit, label %14
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !3, !noalias !79
+  %16 = load i32, ptr %15, align 8, !tbaa !3, !noalias !80
   %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %15, align 8, !tbaa !3, !noalias !79
+  store i32 %17, ptr %15, align 8, !tbaa !3, !noalias !80
   br label %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit
 
 _ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit:          ; preds = %3, %14
@@ -2707,7 +2707,7 @@ _ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit: ; preds = %23, %28
   %38 = tail call double @pow(double noundef %7, double noundef %37) #19, !tbaa !75
   %39 = fcmp olt double %38, %35
   %.sroa.speculated.i = select i1 %39, double %38, double %35
-  store double %.sroa.speculated.i, ptr %1, align 8, !tbaa !82
+  store double %.sroa.speculated.i, ptr %1, align 8, !tbaa !83
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = load double, ptr %40, align 8, !tbaa !76
   %42 = fcmp olt double %32, %9
@@ -2720,13 +2720,13 @@ _ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit: ; preds = %23, %28
   %.sroa.speculated2.i = select i1 %47, double %41, double %.sroa.speculated.i
   %48 = fcmp olt double %.sroa.speculated2.i, %46
   %.sroa.speculated.i12 = select i1 %48, double %46, double %.sroa.speculated2.i
-  store double %.sroa.speculated.i12, ptr %1, align 8, !tbaa !82
+  store double %.sroa.speculated.i12, ptr %1, align 8, !tbaa !83
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %50 = load double, ptr %49, align 8, !tbaa !58
   %51 = fsub double 1.000000e+00, %.sroa.speculated.i12
   %52 = fcmp olt double %50, %51
   %.sroa.speculated.i13 = select i1 %52, double %51, double %50
-  store double %.sroa.speculated.i13, ptr %2, align 8, !tbaa !82
+  store double %.sroa.speculated.i13, ptr %2, align 8, !tbaa !83
   ret void
 
 53:                                               ; preds = %_ZNK5Ipopt8IpoptNLP11NLP_scalingEv.exit
@@ -3108,7 +3108,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i8 0, ptr %41, align 1, !tbaa !41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %3, ptr %42, align 8, !tbaa !83
+  store i32 %3, ptr %42, align 8, !tbaa !84
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %44, ptr %43, align 8, !tbaa !35
@@ -3469,11 +3469,12 @@ attributes #22 = { noreturn nounwind }
 !74 = !{!15, !27, i64 80}
 !75 = !{!5, !5, i64 0}
 !76 = !{!15, !27, i64 112}
-!77 = distinct !{!77, !78}
+!77 = distinct !{!77, !78, !79}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZNK5Ipopt8IpoptNLP11NLP_scalingEv: argument 0"}
-!81 = distinct !{!81, !"_ZNK5Ipopt8IpoptNLP11NLP_scalingEv"}
-!82 = !{!27, !27, i64 0}
-!83 = !{!84, !5, i64 72}
-!84 = !{!"_ZTSN5Ipopt14IpoptExceptionE", !39, i64 8, !39, i64 40, !5, i64 72, !39, i64 80}
+!79 = !{!"llvm.loop.estimated_trip_count"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZNK5Ipopt8IpoptNLP11NLP_scalingEv: argument 0"}
+!82 = distinct !{!82, !"_ZNK5Ipopt8IpoptNLP11NLP_scalingEv"}
+!83 = !{!27, !27, i64 0}
+!84 = !{!85, !5, i64 72}
+!85 = !{!"_ZTSN5Ipopt14IpoptExceptionE", !39, i64 8, !39, i64 40, !5, i64 72, !39, i64 80}

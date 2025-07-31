@@ -370,7 +370,7 @@ define dso_local void @delete_object_files(ptr noundef readonly captures(none) %
   %5 = tail call zeroext i1 @file_delete_file(ptr noundef %4) #20
   %6 = add nuw i64 %.04, 1
   %exitcond.not = icmp eq i64 %6, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -461,7 +461,7 @@ define dso_local void @compiler_parse() local_unnamed_addr #0 {
   %.1 = phi i1 [ %.01322, %26 ], [ %spec.select, %33 ], [ %spec.select, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %37, %15, %17
   %.013.lcssa = phi i1 [ false, %17 ], [ false, %15 ], [ %.1, %37 ]
@@ -784,7 +784,7 @@ define dso_local void @compiler_compile() local_unnamed_addr #0 {
 117:                                              ; preds = %114
   %118 = add nsw i64 %.017.i249, -1
   %.not.i251 = icmp eq i64 %118, 0
-  br i1 %.not.i251, label %._crit_edge.i252, label %114, !llvm.loop !11
+  br i1 %.not.i251, label %._crit_edge.i252, label %114, !llvm.loop !12
 
 ._crit_edge.i252:                                 ; preds = %117, %114, %106
   %.0.lcssa.i253 = phi i64 [ 0, %106 ], [ 0, %117 ], [ %.017.i249, %114 ]
@@ -994,7 +994,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i255, %
   store ptr %188, ptr %192, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit308.preheader, label %.preheader307, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit308.preheader, label %.preheader307, !llvm.loop !13
 
 .loopexit308.preheader:                           ; preds = %.preheader307, %178
   br label %.loopexit308
@@ -1065,7 +1065,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i255, %
   store ptr %196, ptr %225, align 8
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next322, %179
-  br i1 %exitcond325.not, label %226, label %.loopexit308, !llvm.loop !13
+  br i1 %exitcond325.not, label %226, label %.loopexit308, !llvm.loop !14
 
 226:                                              ; preds = %220
   %227 = load i8, ptr @debug_log, align 1
@@ -1129,7 +1129,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i255, %
 255:                                              ; preds = %247, %253
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next327, %179
-  br i1 %exitcond331.not, label %256, label %247, !llvm.loop !14
+  br i1 %exitcond331.not, label %256, label %247, !llvm.loop !15
 
 256:                                              ; preds = %255
   %257 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 168), align 8
@@ -1211,7 +1211,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i255, %
   %289 = tail call zeroext i1 @file_delete_file(ptr noundef %288) #20
   %290 = add nuw nsw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %290, %181
-  br i1 %exitcond.not.i, label %delete_object_files.exit, label %.lr.ph.i277, !llvm.loop !9
+  br i1 %exitcond.not.i, label %delete_object_files.exit, label %.lr.ph.i277, !llvm.loop !10
 
 291:                                              ; preds = %283
   tail call fastcc void @compiler_print_bench()
@@ -1239,7 +1239,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i255, %
   %300 = tail call zeroext i1 @file_delete_file(ptr noundef %299) #20
   %301 = add nuw nsw i64 %.04.i281, 1
   %exitcond.not.i282 = icmp eq i64 %301, %181
-  br i1 %exitcond.not.i282, label %delete_object_files.exit, label %.lr.ph.i280, !llvm.loop !9
+  br i1 %exitcond.not.i282, label %delete_object_files.exit, label %.lr.ph.i280, !llvm.loop !10
 
 delete_object_files.exit:                         ; preds = %.lr.ph.i280, %.lr.ph.i277, %297, %.thread303, %296
   %302 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 152), align 8
@@ -1262,7 +1262,7 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i280, %.lr.p
   %310 = getelementptr inbounds nuw i8, ptr %.0183313, i64 2
   %311 = load i8, ptr %310, align 1
   %312 = icmp eq i8 %311, 46
-  br i1 %312, label %.lr.ph, label %.critedge, !llvm.loop !15
+  br i1 %312, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %309, %.preheader
   %.0183.lcssa = phi ptr [ %.1191, %.preheader ], [ %310, %309 ], [ %.0183313, %.lr.ph ]
@@ -1310,7 +1310,7 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i280, %.lr.p
   %334 = add i32 %.1, 1
   %335 = zext i32 %334 to i64
   %336 = icmp ugt i64 %316, %335
-  br i1 %336, label %.lr.ph317, label %.loopexit, !llvm.loop !16
+  br i1 %336, label %.lr.ph317, label %.loopexit, !llvm.loop !17
 
 337:                                              ; preds = %.critedge
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.28) #20
@@ -1403,7 +1403,7 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i280, %.lr.p
   %376 = tail call zeroext i1 @file_delete_file(ptr noundef %375) #20
   %377 = add nuw nsw i64 %.04.i287, 1
   %exitcond.not.i288 = icmp eq i64 %377, %181
-  br i1 %exitcond.not.i288, label %delete_object_files.exit290, label %.lr.ph.i286, !llvm.loop !9
+  br i1 %exitcond.not.i288, label %delete_object_files.exit290, label %.lr.ph.i286, !llvm.loop !10
 
 delete_object_files.exit290:                      ; preds = %.lr.ph.i286, %373
   %378 = tail call double @bench_mark() #20
@@ -1453,7 +1453,7 @@ delete_object_files.exit290:                      ; preds = %.lr.ph.i286, %373
   %394 = tail call zeroext i1 @file_delete_file(ptr noundef %393) #20
   %395 = add nuw nsw i64 %.04.i293, 1
   %exitcond.not.i294 = icmp eq i64 %395, %181
-  br i1 %exitcond.not.i294, label %delete_object_files.exit296, label %.lr.ph.i292, !llvm.loop !9
+  br i1 %exitcond.not.i294, label %delete_object_files.exit296, label %.lr.ph.i292, !llvm.loop !10
 
 delete_object_files.exit296:                      ; preds = %.lr.ph.i292, %391
   %396 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %.1197)
@@ -1769,7 +1769,7 @@ define dso_local void @vendor_fetch(ptr noundef readonly captures(none) %0) loca
   %.1 = phi i32 [ %.02533, %18 ], [ %17, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %20
   %21 = icmp eq i32 %.1, 0
@@ -1841,7 +1841,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   %.1 = phi i32 [ %.07192, %9 ], [ %13, %12 ], [ %.07192, %9 ], [ %.07192, %.preheader89 ]
   %16 = add nuw nsw i32 %.07291, 1
   %exitcond.not = icmp eq i32 %16, 189
-  br i1 %exitcond.not, label %.loopexit90, label %.preheader89, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit90, label %.preheader89, !llvm.loop !19
 
 .loopexit90:                                      ; preds = %15, %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 41419
@@ -1879,7 +1879,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   %.175 = phi i32 [ %.07493, %.preheader87 ], [ %.07493, %21 ], [ %.07493, %24 ], [ %28, %27 ], [ %.07493, %21 ]
   %31 = add nuw nsw i32 %.07394, 1
   %exitcond104.not = icmp eq i32 %31, 189
-  br i1 %exitcond104.not, label %.loopexit88, label %.preheader87, !llvm.loop !19
+  br i1 %exitcond104.not, label %.loopexit88, label %.preheader87, !llvm.loop !20
 
 .loopexit88:                                      ; preds = %30, %.loopexit90
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 41417
@@ -1895,7 +1895,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   %37 = trunc nuw nsw i64 %indvars.iv.next to i32
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %37, ptr noundef %36)
   %exitcond106.not = icmp eq i64 %indvars.iv.next, 41
-  br i1 %exitcond106.not, label %.loopexit86, label %.preheader85, !llvm.loop !20
+  br i1 %exitcond106.not, label %.loopexit86, label %.preheader85, !llvm.loop !21
 
 .loopexit86:                                      ; preds = %.preheader85, %.loopexit88
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 41418
@@ -1911,7 +1911,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   %44 = trunc nuw nsw i64 %indvars.iv.next108 to i32
   %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %44, ptr noundef %43)
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 100
-  br i1 %exitcond110.not, label %46, label %.preheader84, !llvm.loop !21
+  br i1 %exitcond110.not, label %46, label %.preheader84, !llvm.loop !22
 
 46:                                               ; preds = %.preheader84
   %47 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.55)
@@ -1925,7 +1925,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   %51 = trunc nuw nsw i64 %indvars.iv.next112 to i32
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %51, ptr noundef %50)
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 13
-  br i1 %exitcond114.not, label %.loopexit83, label %48, !llvm.loop !22
+  br i1 %exitcond114.not, label %.loopexit83, label %48, !llvm.loop !23
 
 .loopexit83:                                      ; preds = %48, %.loopexit86
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 41420
@@ -1941,7 +1941,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   %58 = trunc nuw nsw i64 %indvars.iv.next116 to i32
   %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, i32 noundef %58, ptr noundef %57)
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 22
-  br i1 %exitcond118.not, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %exitcond118.not, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit83
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 41421
@@ -1970,7 +1970,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   %72 = trunc nuw nsw i64 %indvars.iv.next120 to i32
   %73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %72, i32 noundef 35, ptr noundef %69, ptr noundef %71)
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
-  br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %63
   %putchar = tail call i32 @putchar(i32 10)
@@ -1994,7 +1994,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   %82 = trunc nuw nsw i64 %indvars.iv.next124 to i32
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %82, i32 noundef 35, ptr noundef %79, ptr noundef %81)
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !25
+  br i1 %exitcond127.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !26
 
 ._crit_edge103:                                   ; preds = %.lr.ph102, %._crit_edge
   %putchar79 = tail call i32 @putchar(i32 10)
@@ -2129,7 +2129,7 @@ define dso_local void @compile() local_unnamed_addr #0 {
   %48 = call ptr @execute_cmd(ptr noundef nonnull %45, i1 noundef zeroext false) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %43, !llvm.loop !26
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %43, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %43, %.thread.i, %39
   %.0264348.i = phi ptr [ %34, %.thread.i ], [ %34, %39 ], [ %.02642.i164, %43 ]
@@ -2168,7 +2168,7 @@ execute_scripts.exit:                             ; preds = %21, %23, %._crit_ed
   %58 = call ptr @htable_set(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_context, i64 128), ptr noundef %57, ptr noundef %57) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph.preheader.i.i, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.lr.ph.preheader.i.i, label %.lr.ph, !llvm.loop !28
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph, %execute_scripts.exit, %52
   %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 308), align 4
@@ -2483,7 +2483,7 @@ setup_bool_define.exit133:                        ; preds = %switch.lookup
   %203 = call ptr @token_type_to_string(i32 noundef %202) #20
   %204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.143, ptr noundef %203)
   %205 = icmp eq i32 %202, 189
-  br i1 %205, label %206, label %199, !llvm.loop !28
+  br i1 %205, label %206, label %199, !llvm.loop !29
 
 206:                                              ; preds = %201, %199
   %putchar.i = call i32 @putchar(i32 10)
@@ -2492,7 +2492,7 @@ setup_bool_define.exit133:                        ; preds = %switch.lookup
 207:                                              ; preds = %206, %192
   %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i137, 1
   %exitcond.not.i139 = icmp eq i64 %indvars.iv.next.i138, %wide.trip.count.i136
-  br i1 %exitcond.not.i139, label %._crit_edge.i140, label %185, !llvm.loop !29
+  br i1 %exitcond.not.i139, label %._crit_edge.i140, label %185, !llvm.loop !30
 
 ._crit_edge.i140:                                 ; preds = %207, %180, %178
   call void @exit_compiler(i32 noundef -1000) #21
@@ -2686,7 +2686,7 @@ define internal fastcc ptr @target_expand_source_names(ptr noundef readonly capt
 89:                                               ; preds = %86, %85, %75, %45, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %89
   %.pre = load ptr, ptr %5, align 8
@@ -2728,7 +2728,7 @@ define internal fastcc void @setup_int_define(ptr noundef %0, i64 noundef range(
   %11 = mul i32 %10, 16777619
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %fnv1a.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %fnv1a.exit, label %.lr.ph.i, !llvm.loop !32
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   %.06.lcssa.i = phi i32 [ -2128831035, %3 ], [ %11, %.lr.ph.i ]
@@ -2765,7 +2765,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
 26:                                               ; preds = %23, %17
   %.1.in.i = phi ptr [ %22, %17 ], [ %24, %23 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %13
+  br label %13, !llvm.loop !33
 
 type_flatten.exit:                                ; preds = %13
   %27 = call ptr @expr_new_const_int(i64 0, ptr noundef nonnull %15, i64 noundef %1) #20
@@ -2829,7 +2829,7 @@ define dso_local void @global_context_add_link(ptr noundef %0) local_unnamed_add
 6:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
@@ -2929,7 +2929,7 @@ define dso_local zeroext i16 @global_context_register_section(ptr noundef %0) lo
   %8 = mul i32 %7, 16777619
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %scratch_buffer_interned.exit, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %exitcond.not.i.i, label %scratch_buffer_interned.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 scratch_buffer_interned.exit:                     ; preds = %.lr.ph.i.i, %1
   %.06.lcssa.i.i = phi i32 [ -2128831035, %1 ], [ %8, %.lr.ph.i.i ]
@@ -2959,7 +2959,7 @@ scratch_buffer_interned.exit:                     ; preds = %.lr.ph.i.i, %1
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit48, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit48, label %.lr.ph, !llvm.loop !35
 
 .loopexit48:                                      ; preds = %17, %11
   %18 = getelementptr inbounds i8, ptr %10, i64 -8
@@ -3058,7 +3058,7 @@ define dso_local ptr @scratch_buffer_interned() local_unnamed_addr #0 {
   %7 = mul i32 %6, 16777619
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %fnv1a.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %fnv1a.exit, label %.lr.ph.i, !llvm.loop !32
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %0
   %.06.lcssa.i = phi i32 [ -2128831035, %0 ], [ %7, %.lr.ph.i ]
@@ -3350,13 +3350,13 @@ thread-pre-split:                                 ; preds = %18, %.lr.ph
   %16 = call { ptr, i64 } @slice_next_token(ptr noundef nonnull %4, i8 noundef signext 59) #20
   %17 = extractvalue { ptr, i64 } %16, 1
   %.not11 = icmp eq i64 %17, 0
-  br i1 %.not11, label %thread-pre-split, label %18, !llvm.loop !34
+  br i1 %.not11, label %thread-pre-split, label %18, !llvm.loop !36
 
 18:                                               ; preds = %.lr.ph
   %19 = extractvalue { ptr, i64 } %16, 0
   call void @scratch_buffer_append_char(i8 noundef signext 32) #20
   call void @scratch_buffer_append_len(ptr noundef %19, i64 noundef %17) #20
-  br label %thread-pre-split, !llvm.loop !34
+  br label %thread-pre-split, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %thread-pre-split, %10
   call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.104) #20
@@ -3422,7 +3422,7 @@ define dso_local range(i32 2, -2147483648) i32 @find_padding_length(ptr noundef 
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.013, i32 %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %8 = add nuw nsw i32 %spec.select, 2
@@ -3513,32 +3513,34 @@ attributes #23 = { cold noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9}
+!37 = distinct !{!37, !8, !9}

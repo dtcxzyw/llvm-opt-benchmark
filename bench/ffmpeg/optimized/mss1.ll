@@ -201,21 +201,21 @@ define internal i32 @mss1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %99 = and i32 %98, 1
   %100 = or disjoint i32 %99, %81
   store i32 %100, ptr %30, align 8, !tbaa !51
-  br label %60
+  br label %60, !llvm.loop !60
 
 arith_get_bit.exit:                               ; preds = %67
   %101 = zext i1 %54 to i32
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 1100
-  store i32 %101, ptr %102, align 4, !tbaa !60
+  store i32 %101, ptr %102, align 4, !tbaa !62
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 1112
   br i1 %54, label %104, label %362
 
 104:                                              ; preds = %arith_get_bit.exit
-  store i32 0, ptr %103, align 8, !tbaa !61
+  store i32 0, ptr %103, align 8, !tbaa !63
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 1136
   call void @ff_mss12_slicecontext_reset(ptr noundef nonnull %105) #7
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 1096
-  %107 = load i32, ptr %106, align 8, !tbaa !62
+  %107 = load i32, ptr %106, align 8, !tbaa !64
   %.not.i = icmp eq i32 %107, 0
   br i1 %.not.i, label %decode_pal.exit, label %108
 
@@ -309,7 +309,7 @@ arith_get_bit.exit:                               ; preds = %67
   %165 = and i32 %164, 1
   %166 = or disjoint i32 %165, %147
   store i32 %166, ptr %30, align 8, !tbaa !51
-  br label %125
+  br label %125, !llvm.loop !60
 
 arith_get_number.exit:                            ; preds = %133
   %167 = icmp sgt i32 %115, 0
@@ -422,7 +422,7 @@ arith_get_number.exit:                            ; preds = %133
   %234 = and i32 %233, 1
   %235 = or disjoint i32 %234, %216
   store i32 %235, ptr %30, align 8, !tbaa !51
-  br label %195
+  br label %195, !llvm.loop !60
 
 arith_get_bits.exit61:                            ; preds = %202
   %236 = sub nsw i32 %198, %197
@@ -512,7 +512,7 @@ arith_get_bits.exit61:                            ; preds = %202
   %291 = and i32 %290, 1
   %292 = or disjoint i32 %291, %273
   store i32 %292, ptr %30, align 8, !tbaa !51
-  br label %251
+  br label %251, !llvm.loop !60
 
 arith_get_bits.exit54:                            ; preds = %259
   %293 = sub nsw i32 %255, %254
@@ -604,7 +604,7 @@ arith_get_bits.exit54:                            ; preds = %259
   %348 = and i32 %347, 1
   %349 = or disjoint i32 %348, %330
   store i32 %349, ptr %30, align 8, !tbaa !51
-  br label %308
+  br label %308, !llvm.loop !60
 
 arith_get_bits.exit:                              ; preds = %316
   %350 = shl i32 %185, 16
@@ -616,41 +616,41 @@ arith_get_bits.exit:                              ; preds = %316
   store i32 %354, ptr %.017.i, align 4, !tbaa !56
   %356 = add nuw nsw i32 %.01416.i, 1
   %exitcond.not.i = icmp eq i32 %356, %115
-  br i1 %exitcond.not.i, label %decode_pal.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %decode_pal.exit, label %.lr.ph.i, !llvm.loop !65
 
 decode_pal.exit:                                  ; preds = %arith_get_bits.exit, %104, %arith_get_number.exit
   %357 = load ptr, ptr %35, align 8, !tbaa !36
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 276
-  %359 = load i32, ptr %358, align 4, !tbaa !65
+  %359 = load i32, ptr %358, align 4, !tbaa !67
   %360 = or i32 %359, 2
-  store i32 %360, ptr %358, align 4, !tbaa !65
+  store i32 %360, ptr %358, align 4, !tbaa !67
   %361 = getelementptr inbounds nuw i8, ptr %357, i64 120
-  store i32 1, ptr %361, align 8, !tbaa !70
+  store i32 1, ptr %361, align 8, !tbaa !72
   %.pre = load i32, ptr %44, align 4, !tbaa !57
   br label %369
 
 362:                                              ; preds = %arith_get_bit.exit
-  %363 = load i32, ptr %103, align 8, !tbaa !61
+  %363 = load i32, ptr %103, align 8, !tbaa !63
   %.not39 = icmp eq i32 %363, 0
   br i1 %.not39, label %364, label %386
 
 364:                                              ; preds = %362
   %365 = getelementptr inbounds nuw i8, ptr %40, i64 276
-  %366 = load i32, ptr %365, align 4, !tbaa !65
+  %366 = load i32, ptr %365, align 4, !tbaa !67
   %367 = and i32 %366, -3
-  store i32 %367, ptr %365, align 4, !tbaa !65
+  store i32 %367, ptr %365, align 4, !tbaa !67
   %368 = getelementptr inbounds nuw i8, ptr %40, i64 120
-  store i32 2, ptr %368, align 8, !tbaa !70
+  store i32 2, ptr %368, align 8, !tbaa !72
   br label %369
 
 369:                                              ; preds = %364, %decode_pal.exit
   %370 = phi i32 [ %45, %364 ], [ %.pre, %decode_pal.exit ]
   %371 = getelementptr inbounds nuw i8, ptr %8, i64 1136
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %373 = load i32, ptr %372, align 8, !tbaa !71
+  %373 = load i32, ptr %372, align 8, !tbaa !73
   %374 = call i32 @ff_mss12_decode_rect(ptr noundef nonnull %371, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0, i32 noundef %373, i32 noundef %370) #7
   %375 = getelementptr inbounds nuw i8, ptr %8, i64 1112
-  store i32 %374, ptr %375, align 8, !tbaa !61
+  store i32 %374, ptr %375, align 8, !tbaa !63
   %.not40 = icmp eq i32 %374, 0
   br i1 %.not40, label %376, label %386
 
@@ -719,7 +719,7 @@ define internal range(i32 0, 256) i32 @arith_get_model_sym(ptr noundef captures(
   %9 = load i32, ptr %8, align 8, !tbaa !51
   %reass.sub = sub i32 %9, %5
   %10 = add i32 %reass.sub, 1
-  %11 = load i16, ptr %1, align 2, !tbaa !72
+  %11 = load i16, ptr %1, align 2, !tbaa !74
   %12 = sext i16 %11 to i32
   %13 = mul nsw i32 %10, %12
   %14 = add nsw i32 %13, -1
@@ -729,17 +729,17 @@ define internal range(i32 0, 256) i32 @arith_get_model_sym(ptr noundef captures(
 16:                                               ; preds = %16, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 1, %2 ]
   %17 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i
-  %18 = load i16, ptr %17, align 2, !tbaa !72
+  %18 = load i16, ptr %17, align 2, !tbaa !74
   %19 = sext i16 %18 to i32
   %20 = icmp slt i32 %15, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %20, label %16, label %arith_get_prob.exit, !llvm.loop !74
+  br i1 %20, label %16, label %arith_get_prob.exit, !llvm.loop !76
 
 arith_get_prob.exit:                              ; preds = %16
   %21 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = getelementptr i8, ptr %21, i64 -2
-  %24 = load i16, ptr %23, align 2, !tbaa !72
+  %24 = load i16, ptr %23, align 2, !tbaa !74
   %25 = sext i16 %24 to i32
   %26 = mul nsw i32 %7, %25
   %27 = sdiv i32 %26, %12
@@ -840,7 +840,7 @@ arith_get_prob.exit:                              ; preds = %16
   %86 = and i32 %85, 1
   %87 = or disjoint i32 %86, %62
   store i32 %87, ptr %8, align 8, !tbaa !51
-  br label %39
+  br label %39, !llvm.loop !60
 
 arith_normalise.exit:                             ; preds = %45
   %88 = zext i8 %36 to i32
@@ -947,7 +947,7 @@ define internal i32 @arith_get_number(ptr noundef captures(none) %0, i32 noundef
   %68 = and i32 %67, 1
   %69 = or disjoint i32 %68, %44
   store i32 %69, ptr %8, align 8, !tbaa !51
-  br label %23
+  br label %23, !llvm.loop !60
 
 arith_normalise.exit:                             ; preds = %30
   ret i32 %13
@@ -1036,18 +1036,20 @@ attributes #7 = { nounwind }
 !57 = !{!5, !10, i64 116}
 !58 = !{!29, !14, i64 1032}
 !59 = !{!29, !13, i64 1048}
-!60 = !{!29, !10, i64 1100}
-!61 = !{!29, !10, i64 1112}
-!62 = !{!29, !10, i64 1096}
-!63 = distinct !{!63, !64}
-!64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!66, !10, i64 276}
-!66 = !{!"AVFrame", !8, i64 0, !8, i64 64, !67, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !68, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !69, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!67 = !{!"p2 omnipotent char", !26, i64 0}
-!68 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!69 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!70 = !{!66, !10, i64 120}
-!71 = !{!5, !10, i64 112}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"short", !8, i64 0}
-!74 = distinct !{!74, !64}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!29, !10, i64 1100}
+!63 = !{!29, !10, i64 1112}
+!64 = !{!29, !10, i64 1096}
+!65 = distinct !{!65, !66, !61}
+!66 = !{!"llvm.loop.mustprogress"}
+!67 = !{!68, !10, i64 276}
+!68 = !{!"AVFrame", !8, i64 0, !8, i64 64, !69, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !70, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !71, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!69 = !{!"p2 omnipotent char", !26, i64 0}
+!70 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!71 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!72 = !{!68, !10, i64 120}
+!73 = !{!5, !10, i64 112}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"short", !8, i64 0}
+!76 = distinct !{!76, !66, !61}

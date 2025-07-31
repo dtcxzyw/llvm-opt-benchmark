@@ -3055,7 +3055,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_environment.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 112
-  store ptr %env, ptr %m_environment.i, align 8, !tbaa !151
+  store ptr %env, ptr %m_environment.i, align 8, !tbaa !152
   ret void
 }
 
@@ -3078,7 +3078,7 @@ init.end:                                         ; preds = %init.check, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !152
+  %0 = load ptr, ptr %this, align 8, !tbaa !153
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit
 
@@ -3090,7 +3090,7 @@ _ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit: ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit, %entry
-  store ptr null, ptr %this, align 8, !tbaa !152
+  store ptr null, ptr %this, align 8, !tbaa !153
   ret void
 }
 
@@ -3387,7 +3387,7 @@ if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZL19accessDeniedStringsB5cxx11
-  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i
+  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i, !llvm.loop !154
 
 eh.resume.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
@@ -3593,7 +3593,9 @@ attributes #25 = { noreturn nounwind }
 !146 = !{!"_ZTSSt10_Head_baseILm0EP13ModChannelMgrLb0EE", !7, i64 0}
 !147 = !{!"_ZTS8MeshGrid", !79, i64 0}
 !148 = !{!126, !7, i64 0}
-!149 = distinct !{!149, !150}
+!149 = distinct !{!149, !150, !151}
 !150 = !{!"llvm.loop.mustprogress"}
-!151 = !{!18, !7, i64 112}
-!152 = !{!7, !7, i64 0}
+!151 = !{!"llvm.loop.estimated_trip_count"}
+!152 = !{!18, !7, i64 112}
+!153 = !{!7, !7, i64 0}
+!154 = distinct !{!154, !151}

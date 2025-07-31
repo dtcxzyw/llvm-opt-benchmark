@@ -454,7 +454,7 @@ decode_display_parameters.exit:                   ; preds = %172, %174, %176
   %210 = tail call double @llvm.fmuladd.f64(double %206, double %209, double %.089.i.i)
   %211 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %211, 10
-  br i1 %exitcond.not.i.i, label %decode_fraction.exit.i, label %203, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %decode_fraction.exit.i, label %203, !llvm.loop !6
 
 decode_fraction.exit.i:                           ; preds = %203
   %212 = getelementptr inbounds nuw i8, ptr %2, i64 136
@@ -477,7 +477,7 @@ decode_fraction.exit.i:                           ; preds = %203
   %224 = tail call double @llvm.fmuladd.f64(double %220, double %223, double %.089.i25.i)
   %225 = add nuw nsw i32 %.010.i24.i, 1
   %exitcond.not.i26.i = icmp eq i32 %225, 10
-  br i1 %exitcond.not.i26.i, label %decode_fraction.exit27.i, label %217, !llvm.loop !5
+  br i1 %exitcond.not.i26.i, label %decode_fraction.exit27.i, label %217, !llvm.loop !6
 
 decode_fraction.exit27.i:                         ; preds = %217
   %226 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -505,7 +505,7 @@ decode_fraction.exit27.i:                         ; preds = %217
   %243 = tail call double @llvm.fmuladd.f64(double %239, double %242, double %.089.i29.i)
   %244 = add nuw nsw i32 %.010.i28.i, 1
   %exitcond.not.i30.i = icmp eq i32 %244, 10
-  br i1 %exitcond.not.i30.i, label %decode_fraction.exit31.i, label %236, !llvm.loop !5
+  br i1 %exitcond.not.i30.i, label %decode_fraction.exit31.i, label %236, !llvm.loop !6
 
 decode_fraction.exit31.i:                         ; preds = %236
   %245 = getelementptr inbounds nuw i8, ptr %2, i64 152
@@ -532,7 +532,7 @@ decode_fraction.exit31.i:                         ; preds = %236
   %261 = tail call double @llvm.fmuladd.f64(double %257, double %260, double %.089.i33.i)
   %262 = add nuw nsw i32 %.010.i32.i, 1
   %exitcond.not.i34.i = icmp eq i32 %262, 10
-  br i1 %exitcond.not.i34.i, label %decode_fraction.exit35.i, label %254, !llvm.loop !5
+  br i1 %exitcond.not.i34.i, label %decode_fraction.exit35.i, label %254, !llvm.loop !6
 
 decode_fraction.exit35.i:                         ; preds = %254
   %263 = getelementptr inbounds nuw i8, ptr %2, i64 160
@@ -560,7 +560,7 @@ decode_fraction.exit35.i:                         ; preds = %254
   %280 = tail call double @llvm.fmuladd.f64(double %276, double %279, double %.089.i37.i)
   %281 = add nuw nsw i32 %.010.i36.i, 1
   %exitcond.not.i38.i = icmp eq i32 %281, 10
-  br i1 %exitcond.not.i38.i, label %decode_fraction.exit39.i, label %273, !llvm.loop !5
+  br i1 %exitcond.not.i38.i, label %decode_fraction.exit39.i, label %273, !llvm.loop !6
 
 decode_fraction.exit39.i:                         ; preds = %273
   %282 = getelementptr inbounds nuw i8, ptr %2, i64 168
@@ -588,7 +588,7 @@ decode_fraction.exit39.i:                         ; preds = %273
   %299 = tail call double @llvm.fmuladd.f64(double %295, double %298, double %.089.i41.i)
   %300 = add nuw nsw i32 %.010.i40.i, 1
   %exitcond.not.i42.i = icmp eq i32 %300, 10
-  br i1 %exitcond.not.i42.i, label %decode_fraction.exit43.i, label %292, !llvm.loop !5
+  br i1 %exitcond.not.i42.i, label %decode_fraction.exit43.i, label %292, !llvm.loop !6
 
 decode_fraction.exit43.i:                         ; preds = %292
   %301 = getelementptr inbounds nuw i8, ptr %2, i64 176
@@ -616,7 +616,7 @@ decode_fraction.exit43.i:                         ; preds = %292
   %318 = tail call double @llvm.fmuladd.f64(double %314, double %317, double %.089.i45.i)
   %319 = add nuw nsw i32 %.010.i44.i, 1
   %exitcond.not.i46.i = icmp eq i32 %319, 10
-  br i1 %exitcond.not.i46.i, label %decode_fraction.exit47.i, label %311, !llvm.loop !5
+  br i1 %exitcond.not.i46.i, label %decode_fraction.exit47.i, label %311, !llvm.loop !6
 
 decode_fraction.exit47.i:                         ; preds = %311
   %320 = getelementptr inbounds nuw i8, ptr %2, i64 184
@@ -643,7 +643,7 @@ decode_fraction.exit47.i:                         ; preds = %311
   %336 = tail call double @llvm.fmuladd.f64(double %332, double %335, double %.089.i49.i)
   %337 = add nuw nsw i32 %.010.i48.i, 1
   %exitcond.not.i50.i = icmp eq i32 %337, 10
-  br i1 %exitcond.not.i50.i, label %decode_color_characteristics.exit, label %329, !llvm.loop !5
+  br i1 %exitcond.not.i50.i, label %decode_color_characteristics.exit, label %329, !llvm.loop !6
 
 decode_color_characteristics.exit:                ; preds = %329
   %338 = getelementptr inbounds nuw i8, ptr %2, i64 192
@@ -688,12 +688,12 @@ decode_color_characteristics.exit:                ; preds = %329
   %.2.i = phi i32 [ %352, %351 ], [ %.117.i, %347 ], [ %.117.i, %343 ]
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 8
-  br i1 %exitcond.not.i24, label %356, label %343, !llvm.loop !6
+  br i1 %exitcond.not.i24, label %356, label %343, !llvm.loop !7
 
 356:                                              ; preds = %355
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 3
-  br i1 %exitcond24.not.i, label %decode_established_timings.exit, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond24.not.i, label %decode_established_timings.exit, label %.preheader.i, !llvm.loop !8
 
 decode_established_timings.exit:                  ; preds = %356
   %357 = getelementptr inbounds nuw i8, ptr %2, i64 488
@@ -765,7 +765,7 @@ default.unreachable:                              ; preds = %367
 390:                                              ; preds = %384, %358
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 8
-  br i1 %exitcond.not.i27, label %decode_standard_timings.exit, label %358, !llvm.loop !8
+  br i1 %exitcond.not.i27, label %decode_standard_timings.exit, label %358, !llvm.loop !9
 
 decode_standard_timings.exit:                     ; preds = %390
   %invariant.gep.i28 = getelementptr inbounds nuw i8, ptr %0, i64 55
@@ -823,7 +823,7 @@ decode_standard_timings.exit:                     ; preds = %390
   store i8 %storemerge.i.i.i, ptr %.01114.i.i.i, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 13
-  br i1 %exitcond.not.i.i.i, label %decode_display_descriptor.exit.i, label %409, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %decode_display_descriptor.exit.i, label %409, !llvm.loop !10
 
 414:                                              ; preds = %404
   %415 = getelementptr inbounds nuw i8, ptr %397, i64 59
@@ -848,7 +848,7 @@ decode_standard_timings.exit:                     ; preds = %390
   store i8 %storemerge.i9.i.i, ptr %.01114.i8.i.i, align 1
   %indvars.iv.next.i11.i.i = add nuw nsw i64 %indvars.iv.i7.i.i, 1
   %exitcond.not.i12.i.i = icmp eq i64 %indvars.iv.next.i11.i.i, 13
-  br i1 %exitcond.not.i12.i.i, label %decode_display_descriptor.exit.i, label %416, !llvm.loop !9
+  br i1 %exitcond.not.i12.i.i, label %decode_display_descriptor.exit.i, label %416, !llvm.loop !10
 
 421:                                              ; preds = %404
   %422 = getelementptr inbounds nuw i8, ptr %397, i64 59
@@ -873,7 +873,7 @@ decode_standard_timings.exit:                     ; preds = %390
   store i8 %storemerge.i16.i.i, ptr %.01114.i15.i.i, align 1
   %indvars.iv.next.i18.i.i = add nuw nsw i64 %indvars.iv.i14.i.i, 1
   %exitcond.not.i19.i.i = icmp eq i64 %indvars.iv.next.i18.i.i, 13
-  br i1 %exitcond.not.i19.i.i, label %decode_display_descriptor.exit.i, label %423, !llvm.loop !9
+  br i1 %exitcond.not.i19.i.i, label %decode_display_descriptor.exit.i, label %423, !llvm.loop !10
 
 decode_lf_string.exit.sink.split.i.i:             ; preds = %423, %416, %409
   %.01114.i15.lcssa.sink.i.i = phi ptr [ %.01114.i.i.i, %409 ], [ %.01114.i8.i.i, %416 ], [ %.01114.i15.i.i, %423 ]
@@ -1058,7 +1058,7 @@ decode_display_descriptor.exit.i:                 ; preds = %427, %420, %413, %d
   %.1.i = phi i32 [ %429, %decode_detailed_timing.exit.i ], [ %.01523.i, %404 ], [ %.01523.i, %decode_lf_string.exit.sink.split.i.i ], [ %.01523.i, %413 ], [ %.01523.i, %420 ], [ %.01523.i, %427 ]
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 4
-  br i1 %exitcond.not.i32, label %decode_descriptors.exit, label %395, !llvm.loop !10
+  br i1 %exitcond.not.i32, label %decode_descriptors.exit, label %395, !llvm.loop !11
 
 decode_descriptors.exit:                          ; preds = %decode_display_descriptor.exit.i
   %563 = getelementptr inbounds nuw i8, ptr %2, i64 584
@@ -1370,7 +1370,7 @@ switch.lookup175:                                 ; preds = %66
   %184 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %181, i32 noundef %183, i32 noundef %178)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %185, label %175, !llvm.loop !11
+  br i1 %exitcond.not, label %185, label %175, !llvm.loop !12
 
 185:                                              ; preds = %175, %180
   %puts132 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
@@ -1392,7 +1392,7 @@ switch.lookup175:                                 ; preds = %66
   %196 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %193, i32 noundef %195, i32 noundef %190)
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next169, 8
-  br i1 %exitcond171.not, label %197, label %187, !llvm.loop !12
+  br i1 %exitcond171.not, label %197, label %187, !llvm.loop !13
 
 197:                                              ; preds = %187, %192
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -1520,7 +1520,7 @@ switch.lookup178:                                 ; preds = %208
   %281 = load i32, ptr %198, align 8
   %282 = sext i32 %281 to i64
   %283 = icmp slt i64 %indvars.iv.next173, %282
-  br i1 %283, label %202, label %._crit_edge, !llvm.loop !13
+  br i1 %283, label %202, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %278, %197
   %puts133 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
@@ -1565,14 +1565,15 @@ attributes #9 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}

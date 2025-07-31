@@ -297,7 +297,7 @@ define hidden range(i32 -8064, 1) i32 @mbedtls_pkcs12_derivation(ptr noundef wri
   %36 = getelementptr inbounds nuw i8, ptr %.018.i, i64 %35
   %37 = sub i64 %.0.i, %35
   %.old2.not.i = icmp eq i64 %37, 0
-  br i1 %.old2.not.i, label %pkcs12_fill_buffer.exit, label %.preheader.i
+  br i1 %.old2.not.i, label %pkcs12_fill_buffer.exit, label %.preheader.i, !llvm.loop !20
 
 pkcs12_fill_buffer.exit:                          ; preds = %.preheader.i, %25
   br i1 %27, label %.preheader.i95, label %pkcs12_fill_buffer.exit99
@@ -310,7 +310,7 @@ pkcs12_fill_buffer.exit:                          ; preds = %.preheader.i, %25
   %39 = getelementptr inbounds nuw i8, ptr %.018.i96, i64 %38
   %40 = sub i64 %.0.i97, %38
   %.old2.not.i98 = icmp eq i64 %40, 0
-  br i1 %.old2.not.i98, label %pkcs12_fill_buffer.exit99, label %.preheader.i95
+  br i1 %.old2.not.i98, label %pkcs12_fill_buffer.exit99, label %.preheader.i95, !llvm.loop !20
 
 pkcs12_fill_buffer.exit99:                        ; preds = %.preheader.i95, %pkcs12_fill_buffer.exit
   %.not125 = icmp eq i64 %1, 0
@@ -371,7 +371,7 @@ pkcs12_fill_buffer.exit99:                        ; preds = %.preheader.i95, %pk
 59:                                               ; preds = %.lr.ph.i
   %60 = add nuw i64 %.02141.i, 1
   %exitcond.not.i = icmp eq i64 %60, %41
-  br i1 %exitcond.not.i, label %.loopexit118, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.loopexit118, label %.lr.ph.i, !llvm.loop !21
 
 .lr.ph.i:                                         ; preds = %.preheader.i102, %59
   %.02141.i = phi i64 [ %60, %59 ], [ 1, %.preheader.i102 ]
@@ -404,7 +404,7 @@ calculate_hashes.exit.thread113:                  ; preds = %47, %49, %52, %55, 
   %68 = getelementptr inbounds nuw i8, ptr %.018.i105, i64 %67
   %69 = sub i64 %.0.i106, %67
   %.old2.not.i107 = icmp eq i64 %69, 0
-  br i1 %.old2.not.i107, label %pkcs12_fill_buffer.exit109.preheader, label %.preheader.i104
+  br i1 %.old2.not.i107, label %pkcs12_fill_buffer.exit109.preheader, label %.preheader.i104, !llvm.loop !20
 
 pkcs12_fill_buffer.exit109.preheader:             ; preds = %.preheader.i104, %66
   br label %pkcs12_fill_buffer.exit109
@@ -421,7 +421,7 @@ pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.
   %74 = add i8 %73, 1
   store i8 %74, ptr %72, align 1, !tbaa !16
   %.not91 = icmp eq i8 %74, 0
-  br i1 %.not91, label %pkcs12_fill_buffer.exit109, label %75, !llvm.loop !20
+  br i1 %.not91, label %pkcs12_fill_buffer.exit109, label %75, !llvm.loop !22
 
 75:                                               ; preds = %70, %pkcs12_fill_buffer.exit109
   br i1 %29, label %.preheader116, label %.loopexit117
@@ -442,7 +442,7 @@ pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.
   %86 = trunc i16 %84 to i8
   store i8 %86, ptr %77, align 1, !tbaa !16
   %.not92 = icmp eq i64 %76, 0
-  br i1 %.not92, label %.loopexit117, label %.preheader116, !llvm.loop !21
+  br i1 %.not92, label %.loopexit117, label %.preheader116, !llvm.loop !23
 
 .loopexit117:                                     ; preds = %.preheader116, %75
   br i1 %27, label %.preheader, label %.loopexit
@@ -463,7 +463,7 @@ pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.
   %97 = trunc i16 %95 to i8
   store i8 %97, ptr %88, align 1, !tbaa !16
   %.not93 = icmp eq i64 %87, 0
-  br i1 %.not93, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %.not93, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit117
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #6
@@ -551,9 +551,11 @@ attributes #6 = { nounwind }
 !14 = !{!10, !8, i64 0}
 !15 = !{!11, !11, i64 0}
 !16 = !{!5, !5, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}

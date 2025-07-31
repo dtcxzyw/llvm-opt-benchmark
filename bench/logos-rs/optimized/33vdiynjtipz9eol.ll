@@ -49,7 +49,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h75bf5d9970c77168E(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %16 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %16, 4
-  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !3
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2e6c3c6fe9d0c6cE.exit": ; preds = %._crit_edge.i, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -276,7 +276,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5b5e847beca3d7c0E.exit2: ; p
 
 37:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  br label %10
+  br label %10, !llvm.loop !5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -325,7 +325,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h75bf5d9970c77168E(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %17 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %17, 4
-  br i1 %.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1072,3 +1072,6 @@ attributes #7 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}

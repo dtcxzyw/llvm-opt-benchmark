@@ -298,7 +298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit192: ; preds 
   %122 = sub nuw i64 %11, %.0146.ph606
   %spec.select.i.i191 = call noundef i64 @llvm.umin.i64(i64 %122, i64 8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0146.ph606, i64 noundef %spec.select.i.i191)
-  br label %327, !llvm.loop !5
+  br label %327, !llvm.loop !6
 
 123:                                              ; preds = %120
   switch i8 %95, label %.thread307 [
@@ -435,7 +435,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i209:        ; preds = %162, %160, %152
   %183 = add nuw nsw i64 %.0157413, 1
   %184 = getelementptr inbounds nuw i8, ptr %.0156414, i64 4
   %exitcond481.not = icmp eq i64 %183, %127
-  br i1 %exitcond481.not, label %._crit_edge417, label %.lr.ph416, !llvm.loop !6
+  br i1 %exitcond481.not, label %._crit_edge417, label %.lr.ph416, !llvm.loop !7
 
 185:                                              ; preds = %._crit_edge417
   %186 = getelementptr inbounds nuw i16, ptr %129, i64 %127
@@ -712,7 +712,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i265:        ; preds = %283, %281, %273
   %310 = add nuw nsw i64 %.0154409, 1
   %311 = getelementptr inbounds nuw i8, ptr %.0155408, i64 8
   %exitcond479.not = icmp eq i64 %310, %202
-  br i1 %exitcond479.not, label %._crit_edge412, label %.lr.ph411, !llvm.loop !7
+  br i1 %exitcond479.not, label %._crit_edge412, label %.lr.ph411, !llvm.loop !8
 
 312:                                              ; preds = %._crit_edge412
   %313 = getelementptr inbounds nuw i8, ptr %204, i64 %203
@@ -728,7 +728,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i265:        ; preds = %283, %281, %273
 .noexc:                                           ; preds = %.lr.ph.i273
   %316 = getelementptr inbounds nuw i8, ptr %.057.i275, i64 4
   %.not.i276 = icmp eq ptr %316, %313
-  br i1 %.not.i276, label %_ZN4utf88utf32to8IPhPKjEET_T0_S5_S4_.exit277, label %.lr.ph.i273, !llvm.loop !8
+  br i1 %.not.i276, label %_ZN4utf88utf32to8IPhPKjEET_T0_S5_S4_.exit277, label %.lr.ph.i273, !llvm.loop !9
 
 _ZN4utf88utf32to8IPhPKjEET_T0_S5_S4_.exit277:     ; preds = %.noexc
   %reass.sub = sub i64 %.0153.lcssa, %.0146.ph606
@@ -780,7 +780,7 @@ _ZNSt10unique_ptrIA_tSt14default_deleteIS0_EED2Ev.exit224: ; preds = %_ZNSt10uni
   %.pre-phi = phi i64 [ %7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKcm.exit ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %7, %10 ], [ %7, %98 ], [ %7, %93 ], [ %7, %89 ], [ %7, %88 ], [ %7, %123 ]
   %329 = load i64, ptr %3, align 8
   %.not431.not = icmp ult i64 %.pre-phi, %329
-  br i1 %.not431.not, label %.lr.ph420, label %.critedge, !llvm.loop !5
+  br i1 %.not431.not, label %.lr.ph420, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.thread307, %_ZN6Assimp17HexOctetToDecimalEPKc.exit, %327, %97, %._crit_edge, %124, %199, %117, %1
   %330 = phi i1 [ true, %1 ], [ false, %117 ], [ true, %327 ], [ false, %97 ], [ false, %._crit_edge ], [ false, %124 ], [ false, %199 ], [ false, %_ZN6Assimp17HexOctetToDecimalEPKc.exit ], [ true, %.thread307 ]
@@ -868,7 +868,7 @@ define linkonce_odr hidden noundef ptr @_ZN4utf88utf16to8IPKtPhEET0_T_S5_S4_(ptr
   %.1 = phi ptr [ %14, %13 ], [ %4, %.lr.ph ]
   %28 = tail call noundef ptr @_ZN4utf86appendIPhEET_jS2_(i32 noundef %.016, ptr noundef %.01728)
   %.not = icmp eq ptr %.1, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %27, %3
   %.017.lcssa = phi ptr [ %2, %3 ], [ %28, %27 ]
@@ -1038,10 +1038,12 @@ attributes #14 = { builtin nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
 !6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !4, !5}

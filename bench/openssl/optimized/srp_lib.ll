@@ -703,7 +703,7 @@ define noundef ptr @SRP_get_default_gN(ptr noundef readonly captures(address_is_
 7:                                                ; preds = %.preheader
   %8 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %8, 7
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %7, %.preheader, %1
   %.06 = phi ptr [ @knowngN, %1 ], [ null, %7 ], [ %3, %.preheader ]
@@ -741,6 +741,7 @@ attributes #6 = { nounwind willreturn memory(read) }
 !9 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
 !10 = !{!4, !9, i64 16}
 !11 = !{!4, !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}

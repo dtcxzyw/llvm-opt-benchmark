@@ -271,7 +271,7 @@ zval_get_long.exit:                               ; preds = %19, %17
   store i8 %.sink.i.i.i, ptr %81, align 1, !tbaa !8
   %82 = add nuw nsw i64 %.02128.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %82, 22
-  br i1 %exitcond.not.i.i.i, label %83, label %68
+  br i1 %exitcond.not.i.i.i, label %83, label %68, !llvm.loop !17
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %53, i64 4
@@ -499,7 +499,7 @@ zend_string_free.exit:                            ; preds = %22, %21, %15, %2, %
 define internal zeroext i1 @php_password_bcrypt_needs_rehash(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  store i64 12, ptr %3, align 8, !tbaa !17
+  store i64 12, ptr %3, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %6 = icmp eq i64 %5, 60
@@ -549,7 +549,7 @@ php_password_bcrypt_valid.exit:                   ; preds = %11
 
 zval_get_long.exit:                               ; preds = %28, %26, %20, %18
   %.0 = phi i64 [ 12, %20 ], [ 12, %18 ], [ %27, %26 ], [ %29, %28 ]
-  %30 = load i64, ptr %3, align 8, !tbaa !17
+  %30 = load i64, ptr %3, align 8, !tbaa !19
   %31 = icmp ne i64 %30, %.0
   br label %php_password_bcrypt_valid.exit.thread
 
@@ -563,7 +563,7 @@ php_password_bcrypt_valid.exit.thread:            ; preds = %2, %7, %11, %php_pa
 define internal range(i32 -1, 1) i32 @php_password_bcrypt_get_info(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  store i64 12, ptr %3, align 8, !tbaa !17
+  store i64 12, ptr %3, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %6 = icmp eq i64 %5, 60
@@ -589,7 +589,7 @@ php_password_bcrypt_valid.exit:                   ; preds = %11
 
 18:                                               ; preds = %php_password_bcrypt_valid.exit
   %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str.17, ptr noundef nonnull %3) #12
-  %20 = load i64, ptr %3, align 8, !tbaa !17
+  %20 = load i64, ptr %3, align 8, !tbaa !19
   call void @add_assoc_long_ex(ptr noundef %0, ptr noundef nonnull @.str.9, i64 noundef 4, i64 noundef %20) #12
   br label %php_password_bcrypt_valid.exit.thread
 
@@ -822,7 +822,7 @@ zend_string_release.exit:                         ; preds = %php_password_algo_f
 
 38:                                               ; preds = %zend_string_release.exit
   %39 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !18
+  %40 = load ptr, ptr %39, align 8, !tbaa !20
   %.not16 = icmp eq ptr %40, null
   br i1 %.not16, label %43, label %41
 
@@ -847,7 +847,7 @@ define hidden void @zif_password_get_info(ptr noundef %0, ptr noundef %1) local_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !8
   %cond = icmp eq i32 %6, 1
-  br i1 %cond, label %7, label %.thread92, !prof !21
+  br i1 %cond, label %7, label %.thread92, !prof !23
 
 .thread92:                                        ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #12
@@ -862,13 +862,13 @@ define hidden void @zif_password_get_info(ptr noundef %0, ptr noundef %1) local_
 
 .thread120:                                       ; preds = %7
   %12 = load ptr, ptr %8, align 8, !tbaa !8
-  store ptr %12, ptr %3, align 8, !tbaa !22
+  store ptr %12, ptr %3, align 8, !tbaa !24
   br label %.critedge
 
 zend_parse_arg_str_ex.exit:                       ; preds = %7
   %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #12
   %cond.fr82 = freeze i1 %13
-  br i1 %cond.fr82, label %.critedge, label %14, !prof !24
+  br i1 %cond.fr82, label %.critedge, label %14, !prof !26
 
 14:                                               ; preds = %zend_parse_arg_str_ex.exit, %.thread92
   %.0101 = phi i32 [ 0, %.thread92 ], [ 1, %zend_parse_arg_str_ex.exit ]
@@ -887,7 +887,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %7
   store ptr %17, ptr %4, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 775, ptr %18, align 8, !tbaa !8
-  %19 = load ptr, ptr %3, align 8, !tbaa !22
+  %19 = load ptr, ptr %3, align 8, !tbaa !24
   %.not.i73 = icmp eq ptr %19, null
   br i1 %.not.i73, label %zend_string_release.exit72, label %20
 
@@ -938,12 +938,12 @@ php_password_algo_find.exit:                      ; preds = %39
 
 43:                                               ; preds = %php_password_algo_find.exit
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %45 = load ptr, ptr %44, align 8, !tbaa !18
+  %45 = load ptr, ptr %44, align 8, !tbaa !20
   %.not65 = icmp eq ptr %45, null
   br i1 %.not65, label %60, label %46
 
 46:                                               ; preds = %43
-  %47 = load ptr, ptr %3, align 8, !tbaa !22
+  %47 = load ptr, ptr %3, align 8, !tbaa !24
   %48 = call zeroext i1 %45(ptr noundef %47) #12
   br i1 %48, label %60, label %.thread112
 
@@ -982,7 +982,7 @@ zend_string_release.exit72:                       ; preds = %24, %.critedge, %20
   br label %98
 
 60:                                               ; preds = %46, %43
-  %61 = load ptr, ptr %3, align 8, !tbaa !22
+  %61 = load ptr, ptr %3, align 8, !tbaa !24
   %.not.i77 = icmp eq ptr %61, null
   br i1 %.not.i77, label %php_password_algo_extract_ident.exit81, label %62
 
@@ -1049,15 +1049,15 @@ php_password_algo_extract_ident.exit81:           ; preds = %60, %62, %66, %zend
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %php_password_algo_extract_ident.exit81, %82, %89, %90
-  %91 = load ptr, ptr %42, align 8, !tbaa !25
+  %91 = load ptr, ptr %42, align 8, !tbaa !27
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i64 noundef 8, ptr noundef %91) #12
   %92 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %93 = load ptr, ptr %92, align 8, !tbaa !26
+  %93 = load ptr, ptr %92, align 8, !tbaa !28
   %.not67 = icmp eq ptr %93, null
   br i1 %.not67, label %97, label %94
 
 94:                                               ; preds = %zend_string_release.exit
-  %95 = load ptr, ptr %3, align 8, !tbaa !22
+  %95 = load ptr, ptr %3, align 8, !tbaa !24
   %96 = call i32 %93(ptr noundef nonnull %4, ptr noundef %95) #12
   br label %97
 
@@ -1088,12 +1088,12 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr noundef writeo
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store i64 0, ptr %5, align 8, !tbaa !17
+  store i64 0, ptr %5, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !8
   %8 = and i32 %7, -2
   %or.cond.not = icmp eq i32 %8, 2
-  br i1 %or.cond.not, label %10, label %9, !prof !21
+  br i1 %or.cond.not, label %10, label %9, !prof !23
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 3) #12
@@ -1108,12 +1108,12 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr noundef writeo
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %10
   %15 = load ptr, ptr %11, align 8, !tbaa !8
-  store ptr %15, ptr %3, align 8, !tbaa !22
+  store ptr %15, ptr %3, align 8, !tbaa !24
   br label %17
 
 zend_parse_arg_str_ex.exit:                       ; preds = %10
   %16 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %11, ptr noundef nonnull %3, i32 noundef 1) #12
-  br i1 %16, label %17, label %.thread, !prof !24
+  br i1 %16, label %17, label %.thread, !prof !26
 
 17:                                               ; preds = %zend_parse_arg_str_ex.exit.thread, %zend_parse_arg_str_ex.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1123,31 +1123,31 @@ zend_parse_arg_str_ex.exit:                       ; preds = %10
     i8 6, label %21
     i8 4, label %23
     i8 1, label %25
-  ], !prof !27
+  ], !prof !29
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %18, align 8, !tbaa !8
-  store ptr %22, ptr %4, align 8, !tbaa !22
+  store ptr %22, ptr %4, align 8, !tbaa !24
   br label %zend_parse_arg_str_or_long.exit.thread
 
 23:                                               ; preds = %17
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !24
   %24 = load i64, ptr %18, align 8, !tbaa !8
-  store i64 %24, ptr %5, align 8, !tbaa !17
+  store i64 %24, ptr %5, align 8, !tbaa !19
   br label %zend_parse_arg_str_or_long.exit.thread
 
 25:                                               ; preds = %17
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !24
   br label %zend_parse_arg_str_or_long.exit.thread
 
 zend_parse_arg_str_or_long.exit:                  ; preds = %17
   %26 = call zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 2) #12
-  br i1 %26, label %zend_parse_arg_str_or_long.exit.thread, label %.thread, !prof !24
+  br i1 %26, label %zend_parse_arg_str_or_long.exit.thread, label %.thread, !prof !26
 
 zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend_parse_arg_str_or_long.exit
   %.28084 = phi i1 [ false, %zend_parse_arg_str_or_long.exit ], [ true, %25 ], [ false, %23 ], [ false, %21 ]
   %27 = icmp eq i32 %7, 2
-  br i1 %27, label %.critedge, label %28, !prof !28
+  br i1 %27, label %.critedge, label %28, !prof !30
 
 28:                                               ; preds = %zend_parse_arg_str_or_long.exit.thread
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1170,8 +1170,8 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend
 
 .critedge:                                        ; preds = %.thread96, %zend_parse_arg_str_or_long.exit.thread
   %.1 = phi ptr [ null, %zend_parse_arg_str_or_long.exit.thread ], [ %33, %.thread96 ]
-  %34 = load ptr, ptr %4, align 8, !tbaa !22
-  %35 = load i64, ptr %5, align 8, !tbaa !17
+  %34 = load ptr, ptr %4, align 8, !tbaa !24
+  %35 = load i64, ptr %5, align 8, !tbaa !19
   %36 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %34, i64 noundef %35, i1 noundef zeroext %.28084)
   %.not72 = icmp eq ptr %36, null
   br i1 %.not72, label %37, label %39
@@ -1182,7 +1182,7 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend
   br label %51
 
 39:                                               ; preds = %.critedge
-  %40 = load ptr, ptr %3, align 8, !tbaa !22
+  %40 = load ptr, ptr %3, align 8, !tbaa !24
   %41 = call ptr @php_password_algo_identify_ex(ptr noundef %40, ptr noundef null)
   %.not73 = icmp eq ptr %41, %36
   br i1 %.not73, label %44, label %42
@@ -1194,8 +1194,8 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !29
-  %47 = load ptr, ptr %3, align 8, !tbaa !22
+  %46 = load ptr, ptr %45, align 8, !tbaa !31
+  %47 = load ptr, ptr %3, align 8, !tbaa !24
   %48 = call zeroext i1 %46(ptr noundef %47, ptr noundef %.1) #12
   %49 = select i1 %48, i32 3, i32 2
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1369,7 +1369,7 @@ define hidden void @zif_password_verify(ptr noundef %0, ptr noundef writeonly ca
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !8
   %.not = icmp eq i32 %6, 2
-  br i1 %.not, label %8, label %7, !prof !21
+  br i1 %.not, label %8, label %7, !prof !23
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #12
@@ -1384,12 +1384,12 @@ define hidden void @zif_password_verify(ptr noundef %0, ptr noundef writeonly ca
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %8
   %13 = load ptr, ptr %9, align 8, !tbaa !8
-  store ptr %13, ptr %3, align 8, !tbaa !22
+  store ptr %13, ptr %3, align 8, !tbaa !24
   br label %15
 
 zend_parse_arg_str_ex.exit:                       ; preds = %8
   %14 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 1) #12
-  br i1 %14, label %15, label %.thread74, !prof !24
+  br i1 %14, label %15, label %.thread74, !prof !26
 
 15:                                               ; preds = %zend_parse_arg_str_ex.exit.thread, %zend_parse_arg_str_ex.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1400,16 +1400,16 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
 
 .thread84:                                        ; preds = %15
   %20 = load ptr, ptr %16, align 8, !tbaa !8
-  store ptr %20, ptr %4, align 8, !tbaa !22
+  store ptr %20, ptr %4, align 8, !tbaa !24
   br label %.critedge
 
 zend_parse_arg_str_ex.exit62:                     ; preds = %15
   %21 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 2) #12
   %cond.fr64 = freeze i1 %21
-  br i1 %cond.fr64, label %zend_parse_arg_str_ex.exit62..critedge_crit_edge, label %.thread74, !prof !24
+  br i1 %cond.fr64, label %zend_parse_arg_str_ex.exit62..critedge_crit_edge, label %.thread74, !prof !26
 
 zend_parse_arg_str_ex.exit62..critedge_crit_edge: ; preds = %zend_parse_arg_str_ex.exit62
-  %.pre = load ptr, ptr %4, align 8, !tbaa !22
+  %.pre = load ptr, ptr %4, align 8, !tbaa !24
   br label %.critedge
 
 .thread74:                                        ; preds = %zend_parse_arg_str_ex.exit62, %zend_parse_arg_str_ex.exit, %7
@@ -1428,13 +1428,13 @@ zend_parse_arg_str_ex.exit62..critedge_crit_edge: ; preds = %zend_parse_arg_str_
 
 24:                                               ; preds = %.critedge
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
   %.not58 = icmp eq ptr %26, null
   br i1 %.not58, label %32, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %3, align 8, !tbaa !22
-  %29 = load ptr, ptr %4, align 8, !tbaa !22
+  %28 = load ptr, ptr %3, align 8, !tbaa !24
+  %29 = load ptr, ptr %4, align 8, !tbaa !24
   %30 = call zeroext i1 %26(ptr noundef %28, ptr noundef %29) #12
   %31 = select i1 %30, i32 3, i32 2
   br label %32
@@ -1459,12 +1459,12 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr noundef writeonly capt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store i64 0, ptr %5, align 8, !tbaa !17
+  store i64 0, ptr %5, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !8
   %8 = and i32 %7, -2
   %or.cond.not = icmp eq i32 %8, 2
-  br i1 %or.cond.not, label %10, label %9, !prof !21
+  br i1 %or.cond.not, label %10, label %9, !prof !23
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 3) #12
@@ -1479,12 +1479,12 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr noundef writeonly capt
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %10
   %15 = load ptr, ptr %11, align 8, !tbaa !8
-  store ptr %15, ptr %3, align 8, !tbaa !22
+  store ptr %15, ptr %3, align 8, !tbaa !24
   br label %17
 
 zend_parse_arg_str_ex.exit:                       ; preds = %10
   %16 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %11, ptr noundef nonnull %3, i32 noundef 1) #12
-  br i1 %16, label %17, label %.thread, !prof !24
+  br i1 %16, label %17, label %.thread, !prof !26
 
 17:                                               ; preds = %zend_parse_arg_str_ex.exit.thread, %zend_parse_arg_str_ex.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1494,31 +1494,31 @@ zend_parse_arg_str_ex.exit:                       ; preds = %10
     i8 6, label %21
     i8 4, label %23
     i8 1, label %25
-  ], !prof !27
+  ], !prof !29
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %18, align 8, !tbaa !8
-  store ptr %22, ptr %4, align 8, !tbaa !22
+  store ptr %22, ptr %4, align 8, !tbaa !24
   br label %zend_parse_arg_str_or_long.exit.thread
 
 23:                                               ; preds = %17
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !24
   %24 = load i64, ptr %18, align 8, !tbaa !8
-  store i64 %24, ptr %5, align 8, !tbaa !17
+  store i64 %24, ptr %5, align 8, !tbaa !19
   br label %zend_parse_arg_str_or_long.exit.thread
 
 25:                                               ; preds = %17
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !24
   br label %zend_parse_arg_str_or_long.exit.thread
 
 zend_parse_arg_str_or_long.exit:                  ; preds = %17
   %26 = call zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 2) #12
-  br i1 %26, label %zend_parse_arg_str_or_long.exit.thread, label %.thread, !prof !24
+  br i1 %26, label %zend_parse_arg_str_or_long.exit.thread, label %.thread, !prof !26
 
 zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend_parse_arg_str_or_long.exit
   %.28387 = phi i1 [ false, %zend_parse_arg_str_or_long.exit ], [ true, %25 ], [ false, %23 ], [ false, %21 ]
   %27 = icmp eq i32 %7, 2
-  br i1 %27, label %.critedge, label %28, !prof !28
+  br i1 %27, label %.critedge, label %28, !prof !30
 
 28:                                               ; preds = %zend_parse_arg_str_or_long.exit.thread
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1541,35 +1541,35 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend
 
 .critedge:                                        ; preds = %.thread99, %zend_parse_arg_str_or_long.exit.thread
   %.1 = phi ptr [ null, %zend_parse_arg_str_or_long.exit.thread ], [ %33, %.thread99 ]
-  %34 = load ptr, ptr %4, align 8, !tbaa !22
-  %35 = load i64, ptr %5, align 8, !tbaa !17
+  %34 = load ptr, ptr %4, align 8, !tbaa !24
+  %35 = load i64, ptr %5, align 8, !tbaa !19
   %36 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %34, i64 noundef %35, i1 noundef zeroext %.28387)
   %.not73 = icmp eq ptr %36, null
   br i1 %.not73, label %37, label %40
 
 37:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.6) #12
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !31
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !33
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %53
 
 40:                                               ; preds = %.critedge
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !61
-  %43 = load ptr, ptr %3, align 8, !tbaa !22
+  %42 = load ptr, ptr %41, align 8, !tbaa !63
+  %43 = load ptr, ptr %3, align 8, !tbaa !24
   %44 = call ptr %42(ptr noundef %43, ptr noundef %.1) #12
   %.not74 = icmp eq ptr %44, null
   br i1 %.not74, label %45, label %51
 
 45:                                               ; preds = %40
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !31
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !33
   %.not75 = icmp eq ptr %46, null
   br i1 %.not75, label %47, label %49
 
 47:                                               ; preds = %45
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7) #12
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !31
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !33
   %48 = icmp ne ptr %.pre, null
   br label %49
 
@@ -1612,7 +1612,7 @@ define hidden void @zif_password_algos(ptr noundef readonly captures(none) %0, p
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %8, align 8, !tbaa !8
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_password_algos, i64 16), align 8, !tbaa !8
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_password_algos, i64 24), align 8, !tbaa !62
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_password_algos, i64 24), align 8, !tbaa !64
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 5
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
@@ -1628,11 +1628,11 @@ define hidden void @zif_password_algos(ptr noundef readonly captures(none) %0, p
   %15 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %16 = load i8, ptr %15, align 8, !tbaa !8
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %28, label %18, !prof !28
+  br i1 %17, label %28, label %18, !prof !30
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %.020, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !63
+  %20 = load ptr, ptr %19, align 8, !tbaa !65
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !8
   %23 = and i32 %22, 64
@@ -1652,7 +1652,7 @@ zend_string_copy.exit:                            ; preds = %18, %24
 28:                                               ; preds = %.lr.ph, %zend_string_copy.exit
   %29 = getelementptr inbounds nuw i8, ptr %.020, i64 32
   %.not18 = icmp eq ptr %29, %12
-  br i1 %.not18, label %.loopexit, label %.lr.ph
+  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %28, %6, %5
   ret void
@@ -1759,51 +1759,54 @@ attributes #13 = { nounwind allocsize(0) }
 !14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !15 = !{!11, !12, i64 0}
 !16 = !{!10, !13, i64 8}
-!17 = !{!13, !13, i64 0}
-!18 = !{!19, !5, i64 40}
-!19 = !{!"_php_password_algo", !20, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
-!20 = !{!"p1 omnipotent char", !5, i64 0}
-!21 = !{!"branch_weights", i32 4000000, i32 4001}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS12_zend_string", !5, i64 0}
-!24 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!25 = !{!19, !20, i64 0}
-!26 = !{!19, !5, i64 32}
-!27 = !{!"branch_weights", i32 0, i32 -290966296, i32 2001000, i32 1000}
-!28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!29 = !{!19, !5, i64 24}
-!30 = !{!19, !5, i64 16}
-!31 = !{!32, !49, i64 960}
-!32 = !{!"_zend_executor_globals", !33, i64 0, !33, i64 16, !6, i64 32, !34, i64 288, !34, i64 296, !35, i64 304, !35, i64 360, !36, i64 416, !12, i64 424, !37, i64 428, !33, i64 432, !12, i64 448, !38, i64 456, !38, i64 464, !38, i64 472, !39, i64 480, !39, i64 488, !40, i64 496, !13, i64 504, !41, i64 512, !42, i64 520, !12, i64 528, !41, i64 536, !12, i64 544, !13, i64 552, !12, i64 560, !12, i64 564, !12, i64 568, !37, i64 572, !37, i64 573, !43, i64 574, !43, i64 575, !38, i64 576, !13, i64 584, !5, i64 592, !5, i64 600, !35, i64 608, !35, i64 664, !12, i64 720, !37, i64 724, !33, i64 728, !33, i64 744, !44, i64 760, !44, i64 784, !44, i64 808, !42, i64 832, !12, i64 840, !12, i64 844, !13, i64 848, !38, i64 856, !38, i64 864, !45, i64 872, !46, i64 880, !48, i64 904, !49, i64 960, !49, i64 968, !50, i64 976, !6, i64 984, !51, i64 1080, !37, i64 1088, !6, i64 1089, !13, i64 1096, !12, i64 1104, !12, i64 1108, !52, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !53, i64 1640, !35, i64 1672, !13, i64 1728, !54, i64 1736, !55, i64 1760, !55, i64 1768, !56, i64 1776, !13, i64 1784, !37, i64 1792, !12, i64 1796, !57, i64 1800, !23, i64 1808, !13, i64 1816, !58, i64 1824, !13, i64 1840, !13, i64 1848, !59, i64 1856, !6, i64 1936}
-!33 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
-!34 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
-!35 = !{!"_zend_array", !11, i64 0, !6, i64 8, !12, i64 12, !6, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !13, i64 40, !5, i64 48}
-!36 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
-!37 = !{!"_Bool", !6, i64 0}
-!38 = !{!"p1 _ZTS11_zend_array", !5, i64 0}
-!39 = !{!"p1 _ZTS12_zval_struct", !5, i64 0}
-!40 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
-!41 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
-!42 = !{!"p1 _ZTS17_zend_class_entry", !5, i64 0}
-!43 = !{!"zend_atomic_bool_s", !6, i64 0}
-!44 = !{!"_zend_stack", !12, i64 0, !12, i64 4, !12, i64 8, !5, i64 16}
-!45 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
-!46 = !{!"_zend_objects_store", !47, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!47 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
-!48 = !{!"_zend_lazy_objects_store", !35, i64 0}
-!49 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
-!50 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
-!51 = !{!"p1 _ZTS18_zend_module_entry", !5, i64 0}
-!52 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
-!53 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !12, i64 20, !12, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
-!54 = !{!"", !39, i64 0, !39, i64 8, !39, i64 16}
-!55 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
-!56 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
-!57 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
-!58 = !{!"_zend_call_stack", !5, i64 0, !13, i64 8}
-!59 = !{!"_zend_strtod_state", !6, i64 0, !60, i64 64, !20, i64 72}
-!60 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
-!61 = !{!19, !5, i64 8}
-!62 = !{!35, !12, i64 24}
-!63 = !{!64, !23, i64 24}
-!64 = !{!"_Bucket", !33, i64 0, !13, i64 16, !23, i64 24}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!13, !13, i64 0}
+!20 = !{!21, !5, i64 40}
+!21 = !{!"_php_password_algo", !22, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
+!22 = !{!"p1 omnipotent char", !5, i64 0}
+!23 = !{!"branch_weights", i32 4000000, i32 4001}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS12_zend_string", !5, i64 0}
+!26 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!27 = !{!21, !22, i64 0}
+!28 = !{!21, !5, i64 32}
+!29 = !{!"branch_weights", i32 0, i32 -290966296, i32 2001000, i32 1000}
+!30 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!31 = !{!21, !5, i64 24}
+!32 = !{!21, !5, i64 16}
+!33 = !{!34, !51, i64 960}
+!34 = !{!"_zend_executor_globals", !35, i64 0, !35, i64 16, !6, i64 32, !36, i64 288, !36, i64 296, !37, i64 304, !37, i64 360, !38, i64 416, !12, i64 424, !39, i64 428, !35, i64 432, !12, i64 448, !40, i64 456, !40, i64 464, !40, i64 472, !41, i64 480, !41, i64 488, !42, i64 496, !13, i64 504, !43, i64 512, !44, i64 520, !12, i64 528, !43, i64 536, !12, i64 544, !13, i64 552, !12, i64 560, !12, i64 564, !12, i64 568, !39, i64 572, !39, i64 573, !45, i64 574, !45, i64 575, !40, i64 576, !13, i64 584, !5, i64 592, !5, i64 600, !37, i64 608, !37, i64 664, !12, i64 720, !39, i64 724, !35, i64 728, !35, i64 744, !46, i64 760, !46, i64 784, !46, i64 808, !44, i64 832, !12, i64 840, !12, i64 844, !13, i64 848, !40, i64 856, !40, i64 864, !47, i64 872, !48, i64 880, !50, i64 904, !51, i64 960, !51, i64 968, !52, i64 976, !6, i64 984, !53, i64 1080, !39, i64 1088, !6, i64 1089, !13, i64 1096, !12, i64 1104, !12, i64 1108, !54, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !55, i64 1640, !37, i64 1672, !13, i64 1728, !56, i64 1736, !57, i64 1760, !57, i64 1768, !58, i64 1776, !13, i64 1784, !39, i64 1792, !12, i64 1796, !59, i64 1800, !25, i64 1808, !13, i64 1816, !60, i64 1824, !13, i64 1840, !13, i64 1848, !61, i64 1856, !6, i64 1936}
+!35 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
+!36 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
+!37 = !{!"_zend_array", !11, i64 0, !6, i64 8, !12, i64 12, !6, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !13, i64 40, !5, i64 48}
+!38 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
+!39 = !{!"_Bool", !6, i64 0}
+!40 = !{!"p1 _ZTS11_zend_array", !5, i64 0}
+!41 = !{!"p1 _ZTS12_zval_struct", !5, i64 0}
+!42 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
+!43 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
+!44 = !{!"p1 _ZTS17_zend_class_entry", !5, i64 0}
+!45 = !{!"zend_atomic_bool_s", !6, i64 0}
+!46 = !{!"_zend_stack", !12, i64 0, !12, i64 4, !12, i64 8, !5, i64 16}
+!47 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
+!48 = !{!"_zend_objects_store", !49, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
+!49 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
+!50 = !{!"_zend_lazy_objects_store", !37, i64 0}
+!51 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
+!52 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
+!53 = !{!"p1 _ZTS18_zend_module_entry", !5, i64 0}
+!54 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
+!55 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !12, i64 20, !12, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
+!56 = !{!"", !41, i64 0, !41, i64 8, !41, i64 16}
+!57 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
+!58 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
+!59 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
+!60 = !{!"_zend_call_stack", !5, i64 0, !13, i64 8}
+!61 = !{!"_zend_strtod_state", !6, i64 0, !62, i64 64, !22, i64 72}
+!62 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
+!63 = !{!21, !5, i64 8}
+!64 = !{!37, !12, i64 24}
+!65 = !{!66, !25, i64 24}
+!66 = !{!"_Bucket", !35, i64 0, !13, i64 16, !25, i64 24}
+!67 = distinct !{!67, !18}

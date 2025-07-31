@@ -407,7 +407,7 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   %127 = getelementptr inbounds i32, ptr %.0142, i64 %126
   %128 = add nuw nsw i32 %.0102141, 1
   %129 = icmp slt i32 %128, %123
-  br i1 %129, label %.preheader, label %.loopexit, !llvm.loop !43
+  br i1 %129, label %.preheader, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %106, %DecodeWebP.exit, %104
   br i1 %102, label %130, label %.thread126
@@ -427,9 +427,9 @@ DecodeWebP.exit:                                  ; preds = %94, %98
 
 133:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
-  store ptr %0, ptr %6, align 8, !tbaa !45
+  store ptr %0, ptr %6, align 8, !tbaa !46
   %134 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %1, ptr %134, align 8, !tbaa !47
+  store i64 %1, ptr %134, align 8, !tbaa !48
   %135 = call ptr @WebPDemuxInternal(ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, i32 noundef 263) #7
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #7
   %136 = icmp eq ptr %135, null
@@ -448,9 +448,9 @@ DecodeWebP.exit:                                  ; preds = %94, %98
 
 142:                                              ; preds = %140
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !48
+  %144 = load ptr, ptr %143, align 8, !tbaa !49
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %146 = load i64, ptr %145, align 8, !tbaa !50
+  %146 = load i64, ptr %145, align 8, !tbaa !51
   %147 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %148 = call i32 @MetadataCopy(ptr noundef %144, i64 noundef %146, ptr noundef nonnull %147) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
@@ -468,9 +468,9 @@ DecodeWebP.exit:                                  ; preds = %94, %98
 
 153:                                              ; preds = %151
   %154 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !48
+  %155 = load ptr, ptr %154, align 8, !tbaa !49
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %157 = load i64, ptr %156, align 8, !tbaa !50
+  %157 = load i64, ptr %156, align 8, !tbaa !51
   %158 = call i32 @MetadataCopy(ptr noundef %155, i64 noundef %157, ptr noundef nonnull %4) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
   br label %159
@@ -487,9 +487,9 @@ DecodeWebP.exit:                                  ; preds = %94, %98
 
 163:                                              ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !48
+  %165 = load ptr, ptr %164, align 8, !tbaa !49
   %166 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %167 = load i64, ptr %166, align 8, !tbaa !50
+  %167 = load i64, ptr %166, align 8, !tbaa !51
   %168 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %169 = call i32 @MetadataCopy(ptr noundef %165, i64 noundef %167, ptr noundef nonnull %168) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
@@ -603,13 +603,14 @@ attributes #8 = { cold }
 !38 = !{!21, !16, i64 40}
 !39 = !{!17, !16, i64 12}
 !40 = !{!16, !16, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42, !44}
-!44 = !{!"llvm.loop.unswitch.partial.disable"}
-!45 = !{!46, !10, i64 0}
-!46 = !{!"WebPData", !10, i64 0, !12, i64 8}
-!47 = !{!46, !12, i64 8}
-!48 = !{!49, !10, i64 8}
-!49 = !{!"WebPChunkIterator", !16, i64 0, !16, i64 4, !46, i64 8, !7, i64 24, !6, i64 48}
-!50 = !{!49, !12, i64 16}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = distinct !{!44, !42, !43, !45}
+!45 = !{!"llvm.loop.unswitch.partial.disable"}
+!46 = !{!47, !10, i64 0}
+!47 = !{!"WebPData", !10, i64 0, !12, i64 8}
+!48 = !{!47, !12, i64 8}
+!49 = !{!50, !10, i64 8}
+!50 = !{!"WebPChunkIterator", !16, i64 0, !16, i64 4, !47, i64 8, !7, i64 24, !6, i64 48}
+!51 = !{!50, !12, i64 16}

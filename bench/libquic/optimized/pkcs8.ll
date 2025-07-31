@@ -93,13 +93,13 @@ define internal fastcc range(i32 0, 2) i32 @pass_to_pass_raw(i32 noundef %0, ptr
 17:                                               ; preds = %16, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %16 ]
   %18 = getelementptr inbounds nuw [4 x %struct.pbe_suite], ptr @kBuiltinPBE, i64 0, i64 %indvars.iv.i
-  %19 = load i32, ptr %18, align 8, !tbaa !23
+  %19 = load i32, ptr %18, align 8, !tbaa !24
   %20 = icmp eq i32 %19, %0
   br i1 %20, label %get_pbe_suite.exit, label %16
 
 get_pbe_suite.exit:                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %22 = load i32, ptr %21, align 8, !tbaa !26
+  %22 = load i32, ptr %21, align 8, !tbaa !27
   %23 = and i32 %22, 1
   %.not25 = icmp eq i32 %23, 0
   br i1 %.not25, label %get_pbe_suite.exit.thread, label %24
@@ -123,21 +123,21 @@ get_pbe_suite.exit:                               ; preds = %17
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.026.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %.026.i
-  store i8 0, ptr %32, align 1, !tbaa !27
+  store i8 0, ptr %32, align 1, !tbaa !28
   %33 = lshr exact i64 %.026.i, 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !27
+  %35 = load i8, ptr %34, align 1, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i8 %35, ptr %36, align 1, !tbaa !27
+  store i8 %35, ptr %36, align 1, !tbaa !28
   %37 = add nuw i64 %.026.i, 2
   %38 = icmp ult i64 %37, %26
-  br i1 %38, label %.lr.ph.i, label %ascii_to_ucs2.exit, !llvm.loop !28
+  br i1 %38, label %.lr.ph.i, label %ascii_to_ucs2.exit, !llvm.loop !29
 
 ascii_to_ucs2.exit:                               ; preds = %.lr.ph.i, %.preheader.i
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 %26
-  store i8 0, ptr %39, align 1, !tbaa !27
+  store i8 0, ptr %39, align 1, !tbaa !28
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store i8 0, ptr %40, align 1, !tbaa !27
+  store i8 0, ptr %40, align 1, !tbaa !28
   store i64 %27, ptr %4, align 8, !tbaa !11
   store ptr %30, ptr %3, align 8, !tbaa !6
   br label %47
@@ -175,10 +175,10 @@ define hidden ptr @PKCS8_decrypt_pbe(ptr noundef readonly captures(none) %0, ptr
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
-  %.val = load i32, ptr %9, align 8, !tbaa !30
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %.val = load i32, ptr %9, align 8, !tbaa !31
   %10 = getelementptr i8, ptr %9, i64 8
-  %.val3 = load ptr, ptr %10, align 8, !tbaa !32
+  %.val3 = load ptr, ptr %10, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
@@ -294,7 +294,7 @@ define hidden ptr @PKCS8_encrypt_pbe(i32 noundef %0, ptr noundef %1, ptr noundef
   tail call void @X509_ALGOR_free(ptr noundef %24) #12
   store ptr %.0, ptr %11, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !29
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
   tail call void @ASN1_STRING_free(ptr noundef %26) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
   store ptr null, ptr %9, align 8, !tbaa !6
@@ -333,20 +333,20 @@ define hidden ptr @PKCS8_encrypt_pbe(i32 noundef %0, ptr noundef %1, ptr noundef
 pkcs12_item_i2d_encrypt.exit:                     ; preds = %34
   %40 = load i64, ptr %10, align 8, !tbaa !11
   %41 = trunc i64 %40 to i32
-  store i32 %41, ptr %27, align 8, !tbaa !30
+  store i32 %41, ptr %27, align 8, !tbaa !31
   %42 = load ptr, ptr %9, align 8, !tbaa !6
   call void @OPENSSL_cleanse(ptr noundef %42, i64 noundef %35) #12
   %43 = load ptr, ptr %9, align 8, !tbaa !6
   call void @free(ptr noundef %43) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  store ptr %27, ptr %25, align 8, !tbaa !29
+  store ptr %27, ptr %25, align 8, !tbaa !30
   br label %46
 
 44:                                               ; preds = %29, %38, %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  store ptr null, ptr %25, align 8, !tbaa !29
+  store ptr null, ptr %25, align 8, !tbaa !30
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 592) #12
   br label %45
 
@@ -563,7 +563,7 @@ define hidden range(i32 0, 2) i32 @PKCS12_get_key_and_certs(ptr noundef %0, ptr 
   br label %35
 
 35:                                               ; preds = %32, %30
-  store ptr null, ptr %0, align 8, !tbaa !33
+  store ptr null, ptr %0, align 8, !tbaa !34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %36 = call i32 @CBS_get_asn1(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 48) #12
   %.not34 = icmp eq i32 %36, 0
@@ -652,9 +652,9 @@ define hidden range(i32 0, 2) i32 @PKCS12_get_key_and_certs(ptr noundef %0, ptr 
   br label %128
 
 67:                                               ; preds = %64
-  store ptr %0, ptr %15, align 8, !tbaa !35
+  store ptr %0, ptr %15, align 8, !tbaa !36
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %1, ptr %68, align 8, !tbaa !39
+  store ptr %1, ptr %68, align 8, !tbaa !40
   %.not43 = icmp eq ptr %3, null
   br i1 %.not43, label %.split28, label %ascii_to_ucs2.exit
 
@@ -666,9 +666,9 @@ define hidden range(i32 0, 2) i32 @PKCS12_get_key_and_certs(ptr noundef %0, ptr 
 ascii_to_ucs2.exit.thread59:                      ; preds = %.split28
   %71 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i8 0, ptr %69, align 1, !tbaa !27
+  store i8 0, ptr %69, align 1, !tbaa !28
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 1
-  store i8 0, ptr %73, align 1, !tbaa !27
+  store i8 0, ptr %73, align 1, !tbaa !28
   store i64 2, ptr %71, align 8, !tbaa !11
   store ptr %69, ptr %72, align 8, !tbaa !6
   br label %78
@@ -758,8 +758,8 @@ ascii_to_ucs2.exit.thread:                        ; preds = %.split28, %ascii_to
   br label %.thread
 
 106:                                              ; preds = %102
-  %107 = load ptr, ptr %80, align 8, !tbaa !40
-  %108 = load i64, ptr %79, align 8, !tbaa !41
+  %107 = load ptr, ptr %80, align 8, !tbaa !41
+  %108 = load i64, ptr %79, align 8, !tbaa !42
   %109 = call ptr @CBS_data(ptr noundef nonnull %19) #12
   %110 = call i64 @CBS_len(ptr noundef nonnull %19) #12
   %111 = load i64, ptr %21, align 8, !tbaa !11
@@ -778,7 +778,7 @@ ascii_to_ucs2.exit.thread:                        ; preds = %.split28, %ascii_to
   br i1 %120, label %.thread, label %121
 
 121:                                              ; preds = %115
-  %122 = load i32, ptr %24, align 4, !tbaa !42
+  %122 = load i32, ptr %24, align 4, !tbaa !43
   %123 = zext i32 %122 to i64
   %124 = call i32 @CBS_mem_equal(ptr noundef nonnull %20, ptr noundef nonnull %23, i64 noundef %123) #12
   %.not52 = icmp eq i32 %124, 0
@@ -820,16 +820,16 @@ ascii_to_ucs2.exit.thread:                        ; preds = %.split28, %ascii_to
   %.not54 = phi i1 [ true, %41 ], [ true, %45 ], [ true, %52 ], [ true, %63 ], [ true, %ascii_to_ucs2.exit.thread ], [ true, %66 ], [ true, %60 ], [ true, %55 ], [ true, %48 ], [ %.not53, %126 ], [ true, %.thread ]
   %.026 = phi i32 [ 0, %41 ], [ 0, %45 ], [ 0, %52 ], [ 0, %63 ], [ 0, %ascii_to_ucs2.exit.thread ], [ 0, %66 ], [ 0, %60 ], [ 0, %55 ], [ 0, %48 ], [ %spec.select56, %126 ], [ 0, %.thread ]
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %130 = load ptr, ptr %129, align 8, !tbaa !40
+  %130 = load ptr, ptr %129, align 8, !tbaa !41
   call void @free(ptr noundef %130) #12
   %131 = load ptr, ptr %5, align 8, !tbaa !6
   call void @free(ptr noundef %131) #12
   br i1 %.not54, label %132, label %.loopexit
 
 132:                                              ; preds = %128
-  %133 = load ptr, ptr %0, align 8, !tbaa !33
+  %133 = load ptr, ptr %0, align 8, !tbaa !34
   call void @EVP_PKEY_free(ptr noundef %133) #12
-  store ptr null, ptr %0, align 8, !tbaa !33
+  store ptr null, ptr %0, align 8, !tbaa !34
   %134 = call i64 @sk_num(ptr noundef %1) #12
   %135 = icmp ugt i64 %134, %25
   br i1 %135, label %.lr.ph, label %.loopexit
@@ -839,7 +839,7 @@ ascii_to_ucs2.exit.thread:                        ; preds = %.split28, %ascii_to
   call void @X509_free(ptr noundef %136) #12
   %137 = call i64 @sk_num(ptr noundef %1) #12
   %138 = icmp ugt i64 %137, %25
-  br i1 %138, label %.lr.ph, label %.loopexit, !llvm.loop !43
+  br i1 %138, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph, %132, %128, %27
   %.0 = phi i32 [ 0, %27 ], [ %.026, %128 ], [ %.026, %132 ], [ %.026, %.lr.ph ]
@@ -891,21 +891,21 @@ define internal fastcc range(i32 0, 2) i32 @ascii_to_ucs2(ptr noundef readonly c
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.026 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.026
-  store i8 0, ptr %11, align 1, !tbaa !27
+  store i8 0, ptr %11, align 1, !tbaa !28
   %12 = lshr exact i64 %.026, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !27
+  %14 = load i8, ptr %13, align 1, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 %14, ptr %15, align 1, !tbaa !27
+  store i8 %14, ptr %15, align 1, !tbaa !28
   %16 = add nuw i64 %.026, 2
   %17 = icmp ult i64 %16, %5
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 %5
-  store i8 0, ptr %18, align 1, !tbaa !27
+  store i8 0, ptr %18, align 1, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  store i8 0, ptr %19, align 1, !tbaa !27
+  store i8 0, ptr %19, align 1, !tbaa !28
   store i64 %6, ptr %3, align 8, !tbaa !11
   store ptr %9, ptr %2, align 8, !tbaa !6
   br label %20
@@ -991,23 +991,23 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   %.093134 = phi i64 [ %44, %.lr.ph ], [ 0, %.preheader133 ]
   %40 = urem i64 %.093134, %3
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !27
+  %42 = load i8, ptr %41, align 1, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 %.093134
-  store i8 %42, ptr %43, align 1, !tbaa !27
+  store i8 %42, ptr %43, align 1, !tbaa !28
   %44 = add nuw i64 %.093134, 1
   %45 = icmp ult i64 %44, %29
-  br i1 %45, label %.lr.ph, label %.preheader132, !llvm.loop !44
+  br i1 %45, label %.lr.ph, label %.preheader132, !llvm.loop !45
 
 .lr.ph136:                                        ; preds = %.preheader132, %.lr.ph136
   %.194135 = phi i64 [ %49, %.lr.ph136 ], [ 0, %.preheader132 ]
   %46 = urem i64 %.194135, %1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !27
+  %48 = load i8, ptr %47, align 1, !tbaa !28
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.194135
-  store i8 %48, ptr %gep, align 1, !tbaa !27
+  store i8 %48, ptr %gep, align 1, !tbaa !28
   %49 = add nuw i64 %.194135, 1
   %50 = icmp ult i64 %49, %31
-  br i1 %50, label %.lr.ph136, label %._crit_edge, !llvm.loop !45
+  br i1 %50, label %.lr.ph136, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph136, %.preheader132
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #12
@@ -1049,7 +1049,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
 58:                                               ; preds = %65
   %59 = add nuw nsw i32 %.091137, 1
   %exitcond.not = icmp eq i32 %59, %51
-  br i1 %exitcond.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !47
 
 .lr.ph138:                                        ; preds = %.preheader130, %58
   %.091137 = phi i32 [ %59, %58 ], [ 1, %.preheader130 ]
@@ -1058,7 +1058,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   br i1 %.not119, label %.loopexit.sink.split, label %61
 
 61:                                               ; preds = %.lr.ph138
-  %62 = load i32, ptr %13, align 4, !tbaa !42
+  %62 = load i32, ptr %13, align 4, !tbaa !43
   %63 = zext i32 %62 to i64
   %64 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %63) #12
   %.not120 = icmp eq i32 %64, 0
@@ -1070,7 +1070,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   br i1 %.not121, label %.loopexit.sink.split, label %58
 
 ._crit_edge139:                                   ; preds = %58, %.preheader130
-  %67 = load i32, ptr %13, align 4, !tbaa !42
+  %67 = load i32, ptr %13, align 4, !tbaa !43
   %68 = zext i32 %67 to i64
   %69 = call i64 @llvm.umin.i64(i64 %.097150163, i64 %68)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0100149164, ptr nonnull align 16 %12, i64 %69, i1 false)
@@ -1095,35 +1095,35 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   %.0143.us = phi i64 [ %.0141, %.preheader.us ], [ %.0.us, %75 ]
   %.089142.us = phi i32 [ 1, %.preheader.us ], [ %85, %75 ]
   %76 = getelementptr i8, ptr %74, i64 %.0143.us
-  %77 = load i8, ptr %76, align 1, !tbaa !27
+  %77 = load i8, ptr %76, align 1, !tbaa !28
   %78 = zext i8 %77 to i32
   %79 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %.0143.us
-  %80 = load i8, ptr %79, align 1, !tbaa !27
+  %80 = load i8, ptr %79, align 1, !tbaa !28
   %81 = zext i8 %80 to i32
   %82 = add nuw nsw i32 %.089142.us, %78
   %83 = add nuw nsw i32 %82, %81
   %84 = trunc i32 %83 to i8
-  store i8 %84, ptr %76, align 1, !tbaa !27
+  store i8 %84, ptr %76, align 1, !tbaa !28
   %85 = lshr i32 %83, 8
   %.0.us = add i64 %.0143.us, -1
   %86 = icmp ult i64 %.0.us, %.fr
-  br i1 %86, label %75, label %._crit_edge145.us, !llvm.loop !47
+  br i1 %86, label %75, label %._crit_edge145.us, !llvm.loop !48
 
 ._crit_edge145.us:                                ; preds = %75
   %87 = add i64 %.396146.us, %.fr
   %88 = icmp ult i64 %87, %32
-  br i1 %88, label %.preheader.us, label %._crit_edge147, !llvm.loop !48
+  br i1 %88, label %.preheader.us, label %._crit_edge147, !llvm.loop !49
 
 89:                                               ; preds = %73, %89
   %.295140 = phi i64 [ 0, %73 ], [ %94, %89 ]
   %90 = urem i64 %.295140, %68
   %91 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 0, i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !27
+  %92 = load i8, ptr %91, align 1, !tbaa !28
   %93 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %.295140
-  store i8 %92, ptr %93, align 1, !tbaa !27
+  store i8 %92, ptr %93, align 1, !tbaa !28
   %94 = add nuw i64 %.295140, 1
   %exitcond159.not = icmp eq i64 %94, %.fr
-  br i1 %exitcond159.not, label %.preheader129, label %89, !llvm.loop !50
+  br i1 %exitcond159.not, label %.preheader129, label %89, !llvm.loop !51
 
 ._crit_edge147:                                   ; preds = %._crit_edge145.us, %.preheader129
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #12
@@ -1382,8 +1382,8 @@ PKCS12_handle_content_info.exit.thread23:         ; preds = %56
   br label %99
 
 89:                                               ; preds = %83
-  %90 = load ptr, ptr %44, align 8, !tbaa !40
-  %91 = load i64, ptr %45, align 8, !tbaa !41
+  %90 = load ptr, ptr %44, align 8, !tbaa !41
+  %91 = load i64, ptr %45, align 8, !tbaa !42
   %92 = call ptr @CBS_data(ptr noundef nonnull %13) #12
   %93 = call i64 @CBS_len(ptr noundef nonnull %13) #12
   %94 = call fastcc i32 @pbe_crypt(ptr noundef nonnull %81, ptr noundef %90, i64 noundef %91, ptr noundef %92, i64 noundef %93, ptr noundef %15, ptr noundef %16, i32 noundef 0)
@@ -1434,8 +1434,8 @@ PKCS12_handle_content_info.exit.thread23:         ; preds = %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #12
   %107 = call ptr @CBS_data(ptr noundef nonnull %5) #12
   store ptr %107, ptr %18, align 8, !tbaa !6
-  %108 = load ptr, ptr %2, align 8, !tbaa !35
-  %109 = load ptr, ptr %108, align 8, !tbaa !33
+  %108 = load ptr, ptr %2, align 8, !tbaa !36
+  %109 = load ptr, ptr %108, align 8, !tbaa !34
   %.not58.i = icmp eq ptr %109, null
   br i1 %.not58.i, label %111, label %110
 
@@ -1476,8 +1476,8 @@ PKCS12_handle_content_info.exit.thread23:         ; preds = %56
   br label %136
 
 126:                                              ; preds = %120
-  %127 = load ptr, ptr %44, align 8, !tbaa !40
-  %128 = load i64, ptr %45, align 8, !tbaa !41
+  %127 = load ptr, ptr %44, align 8, !tbaa !41
+  %128 = load i64, ptr %45, align 8, !tbaa !42
   %129 = call ptr @PKCS8_decrypt_pbe(ptr noundef nonnull %117, ptr noundef %127, i64 noundef %128)
   call void @X509_SIG_free(ptr noundef nonnull %117) #12
   %130 = icmp eq ptr %129, null
@@ -1485,10 +1485,10 @@ PKCS12_handle_content_info.exit.thread23:         ; preds = %56
 
 131:                                              ; preds = %126
   %132 = call ptr @EVP_PKCS82PKEY(ptr noundef nonnull %129)
-  %133 = load ptr, ptr %2, align 8, !tbaa !35
-  store ptr %132, ptr %133, align 8, !tbaa !33
+  %133 = load ptr, ptr %2, align 8, !tbaa !36
+  store ptr %132, ptr %133, align 8, !tbaa !34
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %129) #12
-  %134 = load ptr, ptr %2, align 8, !tbaa !35
+  %134 = load ptr, ptr %2, align 8, !tbaa !36
   %.fr31 = freeze ptr %134
   %135 = icmp ne ptr %.fr31, null
   %..i = zext i1 %135 to i32
@@ -1568,7 +1568,7 @@ PKCS12_handle_content_info.exit.thread23:         ; preds = %56
   br label %.thread
 
 164:                                              ; preds = %158
-  %165 = load ptr, ptr %43, align 8, !tbaa !39
+  %165 = load ptr, ptr %43, align 8, !tbaa !40
   %166 = call i64 @sk_push(ptr noundef %165, ptr noundef nonnull %156) #12
   %167 = icmp eq i64 %166, 0
   br i1 %167, label %168, label %169
@@ -1613,7 +1613,7 @@ PKCS12_handle_content_info.exit:                  ; preds = %99, %105, %136, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #12
   %173 = call i64 @CBS_len(ptr noundef nonnull %26) #12
   %.not14 = icmp eq i64 %173, 0
-  br i1 %.not14, label %.loopexit, label %48
+  br i1 %.not14, label %.loopexit, label %48, !llvm.loop !52
 
 .loopexit:                                        ; preds = %172, %.preheader, %.thread28, %47
   %.08 = phi i32 [ 0, %47 ], [ 0, %.thread28 ], [ 1, %.preheader ], [ 1, %172 ]
@@ -1646,7 +1646,7 @@ define hidden noundef ptr @d2i_PKCS12(ptr noundef captures(address_is_null) %0, 
 
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @malloc(i64 noundef %2) #14
-  store ptr %6, ptr %4, align 8, !tbaa !51
+  store ptr %6, ptr %4, align 8, !tbaa !53
   %.not20 = icmp eq ptr %6, null
   br i1 %.not20, label %7, label %8
 
@@ -1658,25 +1658,25 @@ define hidden noundef ptr @d2i_PKCS12(ptr noundef captures(address_is_null) %0, 
   %9 = load ptr, ptr %1, align 8, !tbaa !6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %9, i64 %2, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %2, ptr %10, align 8, !tbaa !53
+  store i64 %2, ptr %10, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %2
   store ptr %11, ptr %1, align 8, !tbaa !6
   %.not21 = icmp eq ptr %0, null
   br i1 %.not21, label %17, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr %0, align 8, !tbaa !54
+  %13 = load ptr, ptr %0, align 8, !tbaa !56
   %14 = icmp eq ptr %13, null
   br i1 %14, label %PKCS12_free.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %13, align 8, !tbaa !51
+  %16 = load ptr, ptr %13, align 8, !tbaa !53
   tail call void @free(ptr noundef %16) #12
   tail call void @free(ptr noundef nonnull %13) #12
   br label %PKCS12_free.exit
 
 PKCS12_free.exit:                                 ; preds = %12, %15
-  store ptr %4, ptr %0, align 8, !tbaa !54
+  store ptr %4, ptr %0, align 8, !tbaa !56
   br label %17
 
 17:                                               ; preds = %8, %PKCS12_free.exit, %3, %7
@@ -1696,7 +1696,7 @@ define hidden void @PKCS12_free(ptr noundef captures(address_is_null) %0) local_
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !51
+  %4 = load ptr, ptr %0, align 8, !tbaa !53
   tail call void @free(ptr noundef %4) #12
   tail call void @free(ptr noundef nonnull %0) #12
   br label %5
@@ -1718,8 +1718,8 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
 
 .preheader:                                       ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !56
-  %10 = load i64, ptr %3, align 8, !tbaa !58
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
+  %10 = load i64, ptr %3, align 8, !tbaa !60
   %11 = trunc i64 %10 to i32
   %12 = tail call i32 @BIO_read(ptr noundef %0, ptr noundef %9, i32 noundef %11) #12
   %13 = icmp slt i32 %12, 0
@@ -1738,7 +1738,7 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
 17:                                               ; preds = %.lr.ph
   %18 = zext nneg i32 %15 to i64
   %19 = add i64 %.02646, %18
-  %20 = load i64, ptr %3, align 8, !tbaa !58
+  %20 = load i64, ptr %3, align 8, !tbaa !60
   %21 = icmp ult i64 %19, %20
   br i1 %21, label %28, label %22
 
@@ -1753,12 +1753,12 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
   br i1 %27, label %d2i_PKCS12.exit, label %._crit_edge50
 
 ._crit_edge50:                                    ; preds = %24
-  %.pre = load i64, ptr %3, align 8, !tbaa !58
+  %.pre = load i64, ptr %3, align 8, !tbaa !60
   br label %28
 
 28:                                               ; preds = %._crit_edge50, %17
   %29 = phi i64 [ %.pre, %._crit_edge50 ], [ %20, %17 ]
-  %30 = load ptr, ptr %8, align 8, !tbaa !56
+  %30 = load ptr, ptr %8, align 8, !tbaa !58
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %19
   %32 = sub i64 %29, %19
   %33 = trunc i64 %32 to i32
@@ -1768,14 +1768,14 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
   %.02645 = phi i64 [ %19, %._crit_edge ], [ %.02646, %.lr.ph ]
-  %36 = load ptr, ptr %8, align 8, !tbaa !56
+  %36 = load ptr, ptr %8, align 8, !tbaa !58
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %d2i_PKCS12.exit, label %38
 
 38:                                               ; preds = %.thread
   %39 = tail call noalias ptr @malloc(i64 noundef %.02645) #14
-  store ptr %39, ptr %37, align 8, !tbaa !51
+  store ptr %39, ptr %37, align 8, !tbaa !53
   %.not20.i = icmp eq ptr %39, null
   br i1 %.not20.i, label %40, label %41
 
@@ -1786,23 +1786,23 @@ define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(a
 41:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %36, i64 %.02645, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 %.02645, ptr %42, align 8, !tbaa !53
+  store i64 %.02645, ptr %42, align 8, !tbaa !55
   %.not21.i = icmp eq ptr %1, null
   br i1 %.not21.i, label %d2i_PKCS12.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr %1, align 8, !tbaa !54
+  %44 = load ptr, ptr %1, align 8, !tbaa !56
   %45 = icmp eq ptr %44, null
   br i1 %45, label %PKCS12_free.exit.i, label %46
 
 46:                                               ; preds = %43
-  %47 = load ptr, ptr %44, align 8, !tbaa !51
+  %47 = load ptr, ptr %44, align 8, !tbaa !53
   tail call void @free(ptr noundef %47) #12
   tail call void @free(ptr noundef nonnull %44) #12
   br label %PKCS12_free.exit.i
 
 PKCS12_free.exit.i:                               ; preds = %46, %43
-  store ptr %37, ptr %1, align 8, !tbaa !54
+  store ptr %37, ptr %1, align 8, !tbaa !56
   br label %d2i_PKCS12.exit
 
 d2i_PKCS12.exit:                                  ; preds = %24, %22, %.preheader, %._crit_edge, %PKCS12_free.exit.i, %41, %40, %.thread, %5
@@ -1851,7 +1851,7 @@ define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(no
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %4, align 8, !tbaa !59
+  %8 = load ptr, ptr %4, align 8, !tbaa !61
   %.not27.not = icmp eq ptr %8, null
   br i1 %.not27.not, label %.thread, label %12
 
@@ -1867,9 +1867,9 @@ define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(no
 12:                                               ; preds = %.thread, %7
   %.not27.not33 = phi i1 [ false, %7 ], [ true, %.thread ]
   %.1 = phi ptr [ %8, %7 ], [ %9, %.thread ]
-  %13 = load ptr, ptr %0, align 8, !tbaa !51
+  %13 = load ptr, ptr %0, align 8, !tbaa !53
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !53
+  %15 = load i64, ptr %14, align 8, !tbaa !55
   call void @CBS_init(ptr noundef nonnull %6, ptr noundef %13, i64 noundef %15) #12
   %16 = call i32 @PKCS12_get_key_and_certs(ptr noundef %2, ptr noundef nonnull %.1, ptr noundef nonnull %6, ptr noundef %1)
   %.not28 = icmp eq i32 %16, 0
@@ -1883,21 +1883,21 @@ define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(no
   br label %26
 
 19:                                               ; preds = %12
-  store ptr null, ptr %3, align 8, !tbaa !60
+  store ptr null, ptr %3, align 8, !tbaa !62
   %20 = call i64 @sk_num(ptr noundef nonnull %.1) #12
   %.not30 = icmp eq i64 %20, 0
   br i1 %.not30, label %23, label %21
 
 21:                                               ; preds = %19
   %22 = call ptr @sk_shift(ptr noundef nonnull %.1) #12
-  store ptr %22, ptr %3, align 8, !tbaa !60
+  store ptr %22, ptr %3, align 8, !tbaa !62
   br label %23
 
 23:                                               ; preds = %21, %19
   br i1 %.not, label %25, label %24
 
 24:                                               ; preds = %23
-  store ptr %.1, ptr %4, align 8, !tbaa !59
+  store ptr %.1, ptr %4, align 8, !tbaa !61
   br label %26
 
 25:                                               ; preds = %23
@@ -1936,7 +1936,7 @@ define hidden range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captur
 9:                                                ; preds = %8
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds i8, ptr %1, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !27
+  %12 = load i8, ptr %11, align 1, !tbaa !28
   %.not11 = icmp eq i8 %12, 0
   br i1 %.not11, label %13, label %22
 
@@ -1947,9 +1947,9 @@ define hidden range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captur
 
 15:                                               ; preds = %8, %13, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  store ptr null, ptr %4, align 8, !tbaa !33
+  store ptr null, ptr %4, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store ptr null, ptr %5, align 8, !tbaa !60
+  store ptr null, ptr %5, align 8, !tbaa !62
   %16 = call i32 @PKCS12_parse(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null)
   %.not14 = icmp eq i32 %16, 0
   br i1 %.not14, label %17, label %18
@@ -1959,9 +1959,9 @@ define hidden range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captur
   br label %21
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr %4, align 8, !tbaa !33
+  %19 = load ptr, ptr %4, align 8, !tbaa !34
   call void @EVP_PKEY_free(ptr noundef %19) #12
-  %20 = load ptr, ptr %5, align 8, !tbaa !60
+  %20 = load ptr, ptr %5, align 8, !tbaa !62
   call void @X509_free(ptr noundef %20) #12
   br label %21
 
@@ -1999,13 +1999,13 @@ define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %0, ptr noundef readonly ca
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr %3, align 8, !tbaa !62
+  %13 = load i32, ptr %3, align 8, !tbaa !64
   %.not = icmp eq i32 %13, 16
   br i1 %.not, label %14, label %18
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
 
@@ -2015,9 +2015,9 @@ define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %0, ptr noundef readonly ca
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
+  %21 = load ptr, ptr %20, align 8, !tbaa !33
   store ptr %21, ptr %8, align 8, !tbaa !6
-  %22 = load i32, ptr %16, align 8, !tbaa !30
+  %22 = load i32, ptr %16, align 8, !tbaa !31
   %23 = sext i32 %22 to i64
   %24 = call ptr @d2i_PBEPARAM(ptr noundef null, ptr noundef nonnull %8, i64 noundef %23) #12
   %25 = icmp eq ptr %24, null
@@ -2029,7 +2029,7 @@ define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %0, ptr noundef readonly ca
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !64
+  %29 = load ptr, ptr %28, align 8, !tbaa !66
   %.not36 = icmp eq ptr %29, null
   br i1 %.not36, label %33, label %30
 
@@ -2040,10 +2040,10 @@ define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %0, ptr noundef readonly ca
 
 33:                                               ; preds = %27, %30
   %.031 = phi i32 [ %32, %30 ], [ 1, %27 ]
-  %34 = load ptr, ptr %24, align 8, !tbaa !66
+  %34 = load ptr, ptr %24, align 8, !tbaa !68
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !32
-  %37 = load i32, ptr %34, align 8, !tbaa !30
+  %36 = load ptr, ptr %35, align 8, !tbaa !33
+  %37 = load i32, ptr %34, align 8, !tbaa !31
   %38 = sext i32 %37 to i64
   %39 = call i32 @EVP_CIPHER_key_length(ptr noundef %4) #12
   %40 = zext i32 %39 to i64
@@ -2111,7 +2111,7 @@ define internal fastcc range(i32 0, 2) i32 @pbe_crypt(ptr noundef readonly captu
   call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %11) #12
   %12 = load ptr, ptr %0, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !67
+  %14 = load ptr, ptr %13, align 8, !tbaa !69
   %15 = call i32 @OBJ_obj2nid(ptr noundef %12) #12
   br label %17
 
@@ -2123,7 +2123,7 @@ define internal fastcc range(i32 0, 2) i32 @pbe_crypt(ptr noundef readonly captu
 17:                                               ; preds = %16, %8
   %indvars.iv.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i.i, %16 ]
   %18 = getelementptr inbounds nuw [4 x %struct.pbe_suite], ptr @kBuiltinPBE, i64 0, i64 %indvars.iv.i.i
-  %19 = load i32, ptr %18, align 8, !tbaa !23
+  %19 = load i32, ptr %18, align 8, !tbaa !24
   %20 = icmp eq i32 %19, %15
   br i1 %20, label %get_pbe_suite.exit.i, label %16
 
@@ -2148,7 +2148,7 @@ define internal fastcc range(i32 0, 2) i32 @pbe_crypt(ptr noundef readonly captu
 
 get_pbe_suite.exit.i:                             ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !68
+  %27 = load ptr, ptr %26, align 8, !tbaa !70
   %28 = icmp eq ptr %27, null
   br i1 %28, label %32, label %29
 
@@ -2164,7 +2164,7 @@ get_pbe_suite.exit.i:                             ; preds = %17
 32:                                               ; preds = %29, %get_pbe_suite.exit.i
   %.019.i = phi ptr [ %30, %29 ], [ null, %get_pbe_suite.exit.i ]
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !69
+  %34 = load ptr, ptr %33, align 8, !tbaa !71
   %35 = icmp eq ptr %34, null
   br i1 %35, label %39, label %36
 
@@ -2180,7 +2180,7 @@ get_pbe_suite.exit.i:                             ; preds = %17
 39:                                               ; preds = %36, %32
   %.018.i = phi ptr [ %37, %36 ], [ null, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !70
+  %41 = load ptr, ptr %40, align 8, !tbaa !72
   %42 = call i32 %41(ptr noundef nonnull %11, ptr noundef %1, i64 noundef %2, ptr noundef %14, ptr noundef %.019.i, ptr noundef %.018.i, i32 noundef range(i32 0, 2) %7) #12
   %.not27.i = icmp eq i32 %42, 0
   br i1 %.not27.i, label %43, label %pbe_cipher_init.exit
@@ -2225,7 +2225,7 @@ pbe_cipher_init.exit:                             ; preds = %39
   br label %69
 
 58:                                               ; preds = %54
-  %59 = load i32, ptr %10, align 4, !tbaa !42
+  %59 = load i32, ptr %10, align 4, !tbaa !43
   %60 = sext i32 %59 to i64
   store i64 %60, ptr %6, align 8, !tbaa !11
   %61 = getelementptr inbounds i8, ptr %51, i64 %60
@@ -2239,7 +2239,7 @@ pbe_cipher_init.exit:                             ; preds = %39
   br label %69
 
 64:                                               ; preds = %58
-  %65 = load i32, ptr %10, align 4, !tbaa !42
+  %65 = load i32, ptr %10, align 4, !tbaa !43
   %66 = sext i32 %65 to i64
   %67 = load i64, ptr %6, align 8, !tbaa !11
   %68 = add i64 %67, %66
@@ -2348,53 +2348,55 @@ attributes #14 = { nounwind allocsize(0) }
 !18 = !{!"X509_algor_st", !19, i64 0, !20, i64 8}
 !19 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
 !20 = !{!"p1 _ZTS12asn1_type_st", !8, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"pbe_suite", !25, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !25, i64 32}
-!25 = !{!"int", !9, i64 0}
-!26 = !{!24, !25, i64 32}
-!27 = !{!9, !9, i64 0}
-!28 = distinct !{!28, !22}
-!29 = !{!14, !16, i64 8}
-!30 = !{!31, !25, i64 0}
-!31 = !{!"asn1_string_st", !25, i64 0, !25, i64 4, !7, i64 8, !12, i64 16}
-!32 = !{!31, !7, i64 8}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
-!35 = !{!36, !37, i64 0}
-!36 = !{!"pkcs12_context", !37, i64 0, !38, i64 8, !7, i64 16, !12, i64 24}
-!37 = !{!"p2 _ZTS11evp_pkey_st", !8, i64 0}
-!38 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
-!39 = !{!36, !38, i64 8}
-!40 = !{!36, !7, i64 16}
-!41 = !{!36, !12, i64 24}
-!42 = !{!25, !25, i64 0}
-!43 = distinct !{!43, !22}
-!44 = distinct !{!44, !22}
-!45 = distinct !{!45, !22}
-!46 = distinct !{!46, !22}
-!47 = distinct !{!47, !22}
-!48 = distinct !{!48, !22, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = distinct !{!50, !22}
-!51 = !{!52, !7, i64 0}
-!52 = !{!"pkcs12_st", !7, i64 0, !12, i64 8}
-!53 = !{!52, !12, i64 8}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS9pkcs12_st", !8, i64 0}
-!56 = !{!57, !7, i64 8}
-!57 = !{!"buf_mem_st", !12, i64 0, !7, i64 8, !12, i64 16}
-!58 = !{!57, !12, i64 0}
-!59 = !{!38, !38, i64 0}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"p1 _ZTS7x509_st", !8, i64 0}
-!62 = !{!63, !25, i64 0}
-!63 = !{!"asn1_type_st", !25, i64 0, !9, i64 8}
-!64 = !{!65, !16, i64 8}
-!65 = !{!"PBEPARAM_st", !16, i64 0, !16, i64 8}
-!66 = !{!65, !16, i64 0}
-!67 = !{!18, !20, i64 8}
-!68 = !{!24, !8, i64 8}
-!69 = !{!24, !8, i64 16}
-!70 = !{!24, !8, i64 24}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"pbe_suite", !26, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !26, i64 32}
+!26 = !{!"int", !9, i64 0}
+!27 = !{!25, !26, i64 32}
+!28 = !{!9, !9, i64 0}
+!29 = distinct !{!29, !22, !23}
+!30 = !{!14, !16, i64 8}
+!31 = !{!32, !26, i64 0}
+!32 = !{!"asn1_string_st", !26, i64 0, !26, i64 4, !7, i64 8, !12, i64 16}
+!33 = !{!32, !7, i64 8}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!36 = !{!37, !38, i64 0}
+!37 = !{!"pkcs12_context", !38, i64 0, !39, i64 8, !7, i64 16, !12, i64 24}
+!38 = !{!"p2 _ZTS11evp_pkey_st", !8, i64 0}
+!39 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
+!40 = !{!37, !39, i64 8}
+!41 = !{!37, !7, i64 16}
+!42 = !{!37, !12, i64 24}
+!43 = !{!26, !26, i64 0}
+!44 = distinct !{!44, !22, !23}
+!45 = distinct !{!45, !22, !23}
+!46 = distinct !{!46, !22, !23}
+!47 = distinct !{!47, !22, !23}
+!48 = distinct !{!48, !22, !23}
+!49 = distinct !{!49, !22, !23, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !22, !23}
+!52 = distinct !{!52, !23}
+!53 = !{!54, !7, i64 0}
+!54 = !{!"pkcs12_st", !7, i64 0, !12, i64 8}
+!55 = !{!54, !12, i64 8}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS9pkcs12_st", !8, i64 0}
+!58 = !{!59, !7, i64 8}
+!59 = !{!"buf_mem_st", !12, i64 0, !7, i64 8, !12, i64 16}
+!60 = !{!59, !12, i64 0}
+!61 = !{!39, !39, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS7x509_st", !8, i64 0}
+!64 = !{!65, !26, i64 0}
+!65 = !{!"asn1_type_st", !26, i64 0, !9, i64 8}
+!66 = !{!67, !16, i64 8}
+!67 = !{!"PBEPARAM_st", !16, i64 0, !16, i64 8}
+!68 = !{!67, !16, i64 0}
+!69 = !{!18, !20, i64 8}
+!70 = !{!25, !8, i64 8}
+!71 = !{!25, !8, i64 16}
+!72 = !{!25, !8, i64 24}

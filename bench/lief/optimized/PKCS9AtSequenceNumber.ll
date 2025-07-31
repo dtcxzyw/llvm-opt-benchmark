@@ -83,15 +83,15 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %17, %15, %11, %7, %
   %.0.i.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %21 = zext i32 %.0.i.i to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %22, ptr %0, align 8, !tbaa !18, !alias.scope !13
+  store ptr %22, ptr %0, align 8, !tbaa !19, !alias.scope !13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21, i8 noundef signext 0) #6
-  %23 = load ptr, ptr %0, align 8, !tbaa !22, !alias.scope !13
+  %23 = load ptr, ptr %0, align 8, !tbaa !23, !alias.scope !13
   %24 = icmp ugt i32 %4, 99
   br i1 %24, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !25, !alias.scope !13
+  %26 = load i64, ptr %25, align 8, !tbaa !26, !alias.scope !13
   %27 = trunc i64 %26 to i32
   %28 = add i32 %27, -1
   br label %.lr.ph.i2.i
@@ -105,20 +105,20 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %17, %15, %11, %7, %
   %32 = or disjoint i32 %30, 1
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !26, !noalias !13
+  %35 = load i8, ptr %34, align 1, !tbaa !27, !noalias !13
   %36 = zext i32 %.01819.i.i to i64
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 %36
-  store i8 %35, ptr %37, align 1, !tbaa !26
+  store i8 %35, ptr %37, align 1, !tbaa !27
   %38 = zext nneg i32 %30 to i64
   %39 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %38
-  %40 = load i8, ptr %39, align 2, !tbaa !26, !noalias !13
+  %40 = load i8, ptr %39, align 2, !tbaa !27, !noalias !13
   %41 = add i32 %.01819.i.i, -1
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 %42
-  store i8 %40, ptr %43, align 1, !tbaa !26
+  store i8 %40, ptr %43, align 1, !tbaa !27
   %44 = add i32 %.01819.i.i, -2
   %45 = icmp ugt i32 %.020.i.i, 9999
-  br i1 %45, label %.lr.ph.i2.i, label %._crit_edge.i.i, !llvm.loop !27
+  br i1 %45, label %.lr.ph.i2.i, label %._crit_edge.i.i, !llvm.loop !28
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i2.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %.0.lcssa.i.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %31, %.lr.ph.i2.i ]
@@ -130,12 +130,12 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %17, %15, %11, %7, %
   %49 = or disjoint i32 %48, 1
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %50
-  %52 = load i8, ptr %51, align 1, !tbaa !26, !noalias !13
+  %52 = load i8, ptr %51, align 1, !tbaa !27, !noalias !13
   %53 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store i8 %52, ptr %53, align 1, !tbaa !26
+  store i8 %52, ptr %53, align 1, !tbaa !27
   %54 = zext nneg i32 %48 to i64
   %55 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 2, !tbaa !26, !noalias !13
+  %56 = load i8, ptr %55, align 2, !tbaa !27, !noalias !13
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 57:                                               ; preds = %._crit_edge.i.i
@@ -145,7 +145,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %17, %15, %11, %7, %
 
 _ZNSt7__cxx119to_stringEj.exit:                   ; preds = %47, %57
   %storemerge.i.i = phi i8 [ %59, %57 ], [ %56, %47 ]
-  store i8 %storemerge.i.i, ptr %23, align 1, !tbaa !26
+  store i8 %storemerge.i.i, ptr %23, align 1, !tbaa !27
   ret void
 }
 
@@ -176,21 +176,21 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber5cloneEv(ptr
   tail call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !28
-  store i32 %6, ptr %4, align 8, !tbaa !28
+  %6 = load i32, ptr %5, align 8, !tbaa !29
+  store i32 %6, ptr %4, align 8, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4LIEF2PE21PKCS9AtSequenceNumberE, i64 16), ptr %3, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !6
   store i32 %9, ptr %7, align 4, !tbaa !6
-  store ptr %3, ptr %0, align 8, !tbaa !29
+  store ptr %3, ptr %0, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4LIEF2PE9Attribute4typeEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !28
+  %3 = load i32, ptr %2, align 8, !tbaa !29
   ret i32 %3
 }
 
@@ -235,18 +235,19 @@ attributes #8 = { builtin nounwind allocsize(0) }
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZNSt7__cxx119to_stringEj: argument 0"}
 !15 = distinct !{!15, !"_ZNSt7__cxx119to_stringEj"}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !20, i64 0}
-!20 = !{!"p1 omnipotent char", !21, i64 0}
-!21 = !{!"any pointer", !11, i64 0}
-!22 = !{!23, !20, i64 0}
-!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !19, i64 0, !24, i64 8, !11, i64 16}
-!24 = !{!"long", !11, i64 0}
-!25 = !{!23, !24, i64 8}
-!26 = !{!11, !11, i64 0}
-!27 = distinct !{!27, !17}
-!28 = !{!8, !10, i64 8}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTSN4LIEF2PE9AttributeE", !21, i64 0}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !21, i64 0}
+!21 = !{!"p1 omnipotent char", !22, i64 0}
+!22 = !{!"any pointer", !11, i64 0}
+!23 = !{!24, !21, i64 0}
+!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !20, i64 0, !25, i64 8, !11, i64 16}
+!25 = !{!"long", !11, i64 0}
+!26 = !{!24, !25, i64 8}
+!27 = !{!11, !11, i64 0}
+!28 = distinct !{!28, !17, !18}
+!29 = !{!8, !10, i64 8}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSN4LIEF2PE9AttributeE", !22, i64 0}

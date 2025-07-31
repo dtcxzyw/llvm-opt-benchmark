@@ -1081,12 +1081,12 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710Normalizer13nextNormalizeE
 
 58:                                               ; preds = %49
   %59 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %43)
-          to label %30 unwind label %.loopexit
+          to label %30 unwind label %.loopexit, !llvm.loop !36
 
 .thread:                                          ; preds = %36, %50
   %60 = load ptr, ptr %12, align 8, !tbaa !19
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  %62 = load i32, ptr %61, align 4, !tbaa !36
+  %62 = load i32, ptr %61, align 4, !tbaa !38
   store i32 %62, ptr %9, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   store i32 0, ptr %3, align 4, !tbaa !24
@@ -1275,7 +1275,7 @@ _ZN6icu_7713UnicodeString6insertEii.exit:         ; preds = %39
 
 46:                                               ; preds = %_ZN6icu_7713UnicodeString6insertEii.exit
   %.not10 = icmp eq i8 %45, 0
-  br i1 %.not10, label %26, label %51
+  br i1 %.not10, label %26, label %51, !llvm.loop !41
 
 47:                                               ; preds = %26
   %48 = landingpad { ptr, i32 }
@@ -1290,7 +1290,7 @@ _ZN6icu_7713UnicodeString6insertEii.exit:         ; preds = %39
 51:                                               ; preds = %46, %32
   %52 = load ptr, ptr %12, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  %54 = load i32, ptr %53, align 4, !tbaa !36
+  %54 = load i32, ptr %53, align 4, !tbaa !38
   store i32 %54, ptr %9, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   store i32 0, ptr %3, align 4, !tbaa !24
@@ -1386,7 +1386,7 @@ define void @_ZN6icu_7710Normalizer12setIndexOnlyEi(ptr noundef nonnull align 8 
   %8 = tail call noundef zeroext i16 %7(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %1)
   %9 = load ptr, ptr %3, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !36
+  %11 = load i32, ptr %10, align 4, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %11, ptr %12, align 4, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1501,7 +1501,7 @@ define noundef i32 @_ZNK6icu_7710Normalizer8getIndexEv(ptr noundef nonnull reado
   %12 = icmp slt i32 %3, %11
   %.0.in.v = select i1 %12, i64 40, i64 44
   %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.v
-  %.0 = load i32, ptr %.0.in, align 4, !tbaa !39
+  %.0 = load i32, ptr %.0.in, align 4, !tbaa !42
   ret i32 %.0
 }
 
@@ -1510,7 +1510,7 @@ define noundef i32 @_ZNK6icu_7710Normalizer10startIndexEv(ptr noundef nonnull re
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !40
+  %5 = load i32, ptr %4, align 8, !tbaa !43
   ret i32 %5
 }
 
@@ -1519,7 +1519,7 @@ define noundef i32 @_ZNK6icu_7710Normalizer8endIndexEv(ptr noundef nonnull reado
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !41
+  %5 = load i32, ptr %4, align 4, !tbaa !44
   ret i32 %5
 }
 
@@ -1833,9 +1833,12 @@ attributes #10 = { nounwind }
 !33 = !{!34, !32, i64 0}
 !34 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !32, i64 0}
 !35 = !{i64 2148941100}
-!36 = !{!37, !14, i64 12}
-!37 = !{!"_ZTSN6icu_7717CharacterIteratorE", !38, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20}
-!38 = !{!"_ZTSN6icu_7724ForwardCharacterIteratorE", !8, i64 0}
-!39 = !{!14, !14, i64 0}
-!40 = !{!37, !14, i64 16}
-!41 = !{!37, !14, i64 20}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !14, i64 12}
+!39 = !{!"_ZTSN6icu_7717CharacterIteratorE", !40, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20}
+!40 = !{!"_ZTSN6icu_7724ForwardCharacterIteratorE", !8, i64 0}
+!41 = distinct !{!41, !37}
+!42 = !{!14, !14, i64 0}
+!43 = !{!39, !14, i64 16}
+!44 = !{!39, !14, i64 20}

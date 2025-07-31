@@ -854,7 +854,7 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %.1.i = phi i32 [ 0, %88 ], [ %77, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph45.i:                                       ; preds = %.lr.ph45.i, %.preheader.i
   %indvars.iv47.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next48.i, %.lr.ph45.i ]
@@ -868,7 +868,7 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   store i8 %94, ptr %95, align 1
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count.i
-  br i1 %exitcond51.not.i, label %solaredge_decrypt.exit, label %.lr.ph45.i, !llvm.loop !11
+  br i1 %exitcond51.not.i, label %solaredge_decrypt.exit, label %.lr.ph45.i, !llvm.loop !12
 
 solaredge_decrypt.exit:                           ; preds = %.lr.ph45.i, %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
@@ -1310,7 +1310,7 @@ tailrecurse.i:                                    ; preds = %376, %104
   store i8 %404, ptr %402, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %405, label %399, !llvm.loop !12
+  br i1 %exitcond.not, label %405, label %399, !llvm.loop !13
 
 405:                                              ; preds = %399
   %406 = load i32, ptr @proto_solaredge, align 4
@@ -1356,10 +1356,10 @@ dissect_solaredge_devicedata.exit:                ; preds = %374, %378, %416, %3
   %rev.i = call i16 @llvm.bswap.i16(i16 %35)
   store i16 %rev.i, ptr %6, align 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  %424 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %38) #9, !srcloc !13
+  %424 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %38) #9, !srcloc !14
   store i32 %424, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  %425 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %41) #9, !srcloc !14
+  %425 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %41) #9, !srcloc !15
   store i32 %425, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #8
   %rev35.i = call i16 @llvm.bswap.i16(i16 %44)
@@ -1498,10 +1498,11 @@ attributes #9 = { nounwind memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = !{i64 2151217104}
-!14 = !{i64 2151217847}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{i64 2151217104}
+!15 = !{i64 2151217847}

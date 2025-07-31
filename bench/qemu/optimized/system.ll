@@ -774,7 +774,7 @@ define internal void @gdb_chr_event(ptr noundef captures(none) %0, i32 noundef %
   %11 = load i32, ptr %3, align 8
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %7, label %._crit_edge, !llvm.loop !11
+  br i1 %13, label %7, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %7, %.preheader
   %14 = tail call ptr @gdb_first_attached_cpu() #16
@@ -1121,7 +1121,7 @@ define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr noundef readonly
 
 5:                                                ; preds = %1
   %6 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !13
   %.not45.not = icmp eq i64 %6, 0
   br i1 %.not45.not, label %._crit_edge, label %.lr.ph
 
@@ -1139,9 +1139,9 @@ define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr noundef readonly
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.02546, i64 560
   %15 = load atomic i64, ptr %14 monotonic, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !14
   %.not.not = icmp eq i64 %15, 0
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph, %5
   %.not.lcssa = phi i1 [ false, %5 ], [ %12, %.lr.ph ], [ %12, %13 ]
@@ -1151,7 +1151,7 @@ define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr noundef readonly
 
 17:                                               ; preds = %._crit_edge
   %18 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !16
   %.not3651 = icmp eq i64 %18, 0
   br i1 %.not3651, label %.critedge, label %.lr.ph56
 
@@ -1267,9 +1267,9 @@ trace_gdbstub_op_continue_cpu.exit:               ; preds = %44, %46, %48, %54, 
   %.3 = phi i32 [ -1, %60 ], [ %.253, %21 ], [ %.253, %21 ], [ %.253, %trace_gdbstub_op_stepping.exit ], [ %.253, %trace_gdbstub_op_continue_cpu.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %.12654, i64 560
   %63 = load atomic i64, ptr %62 monotonic, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !17
   %.not36 = icmp eq i64 %63, 0
-  br i1 %.not36, label %._crit_edge57, label %21, !llvm.loop !17
+  br i1 %.not36, label %._crit_edge57, label %21, !llvm.loop !18
 
 ._crit_edge57:                                    ; preds = %61
   %64 = icmp eq i32 %.332, 0
@@ -1613,12 +1613,13 @@ attributes #18 = { noreturn nounwind }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = !{!"auto-init"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{i64 2152769293}
-!13 = !{i64 2152773506}
-!14 = distinct !{!14, !10}
-!15 = !{i64 2152778058}
-!16 = !{i64 2152782271}
-!17 = distinct !{!17, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = !{i64 2152769293}
+!14 = !{i64 2152773506}
+!15 = distinct !{!15, !10, !11}
+!16 = !{i64 2152778058}
+!17 = !{i64 2152782271}
+!18 = distinct !{!18, !10, !11}

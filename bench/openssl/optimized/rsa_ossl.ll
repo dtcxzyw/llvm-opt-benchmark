@@ -1071,7 +1071,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %.0300422 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
   %45 = load ptr, ptr %40, align 8, !tbaa !43
   %46 = tail call ptr @OPENSSL_sk_value(ptr noundef %45, i32 noundef %.0300422) #9
-  %47 = load ptr, ptr %46, align 8, !tbaa !46
+  %47 = load ptr, ptr %46, align 8, !tbaa !47
   tail call void @BN_with_flags(ptr noundef nonnull %25, ptr noundef %47, i32 noundef 4) #9
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %49 = load ptr, ptr %31, align 8, !tbaa !26
@@ -1124,26 +1124,26 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %77 = load ptr, ptr %76, align 8, !tbaa !48
+  %77 = load ptr, ptr %76, align 8, !tbaa !49
   %78 = tail call i32 @bn_from_mont_fixed_top(ptr noundef %8, ptr noundef %1, ptr noundef %77, ptr noundef %3) #9
   %.not347 = icmp eq i32 %78, 0
   br i1 %.not347, label %.thread, label %79
 
 79:                                               ; preds = %75
-  %80 = load ptr, ptr %76, align 8, !tbaa !48
+  %80 = load ptr, ptr %76, align 8, !tbaa !49
   %81 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %8, ptr noundef %8, ptr noundef %80, ptr noundef %3) #9
   %.not348 = icmp eq i32 %81, 0
   br i1 %.not348, label %.thread, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %84 = load ptr, ptr %83, align 8, !tbaa !49
+  %84 = load ptr, ptr %83, align 8, !tbaa !50
   %85 = tail call i32 @bn_from_mont_fixed_top(ptr noundef %6, ptr noundef %1, ptr noundef %84, ptr noundef %3) #9
   %.not349 = icmp eq i32 %85, 0
   br i1 %.not349, label %.thread, label %86
 
 86:                                               ; preds = %82
-  %87 = load ptr, ptr %83, align 8, !tbaa !49
+  %87 = load ptr, ptr %83, align 8, !tbaa !50
   %88 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %6, ptr noundef %6, ptr noundef %87, ptr noundef %3) #9
   %.not350 = icmp eq i32 %88, 0
   br i1 %.not350, label %.thread, label %89
@@ -1153,12 +1153,12 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %91 = load ptr, ptr %90, align 8, !tbaa !39
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %93 = load ptr, ptr %92, align 8, !tbaa !37
-  %94 = load ptr, ptr %76, align 8, !tbaa !48
+  %94 = load ptr, ptr %76, align 8, !tbaa !49
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %96 = load ptr, ptr %95, align 8, !tbaa !38
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %98 = load ptr, ptr %97, align 8, !tbaa !36
-  %99 = load ptr, ptr %83, align 8, !tbaa !49
+  %99 = load ptr, ptr %83, align 8, !tbaa !50
   %100 = tail call i32 @BN_mod_exp_mont_consttime_x2(ptr noundef %8, ptr noundef %8, ptr noundef %91, ptr noundef %93, ptr noundef %94, ptr noundef %6, ptr noundef %6, ptr noundef %96, ptr noundef %98, ptr noundef %99, ptr noundef %3) #9
   %.not351 = icmp eq i32 %100, 0
   br i1 %.not351, label %.thread, label %101
@@ -1170,7 +1170,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   br i1 %.not352, label %.thread, label %104
 
 104:                                              ; preds = %101
-  %105 = load ptr, ptr %83, align 8, !tbaa !49
+  %105 = load ptr, ptr %83, align 8, !tbaa !50
   %106 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %6, ptr noundef %6, ptr noundef %105, ptr noundef %3) #9
   %.not353 = icmp eq i32 %106, 0
   br i1 %.not353, label %.thread, label %107
@@ -1178,7 +1178,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %109 = load ptr, ptr %108, align 8, !tbaa !40
-  %110 = load ptr, ptr %83, align 8, !tbaa !49
+  %110 = load ptr, ptr %83, align 8, !tbaa !50
   %111 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %6, ptr noundef %6, ptr noundef %109, ptr noundef %110, ptr noundef %3) #9
   %.not354 = icmp eq i32 %111, 0
   br i1 %.not354, label %.thread, label %112
@@ -1232,7 +1232,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %137 = load ptr, ptr %136, align 8, !tbaa !28
   %138 = load ptr, ptr %123, align 8, !tbaa !37
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %140 = load ptr, ptr %139, align 8, !tbaa !48
+  %140 = load ptr, ptr %139, align 8, !tbaa !49
   %141 = tail call i32 %137(ptr noundef %8, ptr noundef %6, ptr noundef nonnull %128, ptr noundef %138, ptr noundef %3, ptr noundef %140) #9
   %.not326 = icmp eq i32 %141, 0
   br i1 %.not326, label %142, label %143
@@ -1265,7 +1265,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %155 = load ptr, ptr %154, align 8, !tbaa !28
   %156 = load ptr, ptr %144, align 8, !tbaa !36
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %158 = load ptr, ptr %157, align 8, !tbaa !49
+  %158 = load ptr, ptr %157, align 8, !tbaa !50
   %159 = tail call i32 %155(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %148, ptr noundef %156, ptr noundef %3, ptr noundef %158) #9
   %.not328 = icmp eq i32 %159, 0
   tail call void @BN_free(ptr noundef nonnull %148) #9
@@ -1296,13 +1296,13 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 169:                                              ; preds = %184
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond430.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond430.not, label %._crit_edge425, label %170, !llvm.loop !50
+  br i1 %exitcond430.not, label %._crit_edge425, label %170, !llvm.loop !51
 
 170:                                              ; preds = %.lr.ph424, %169
   %indvars.iv = phi i64 [ 0, %.lr.ph424 ], [ %indvars.iv.next, %169 ]
   %171 = tail call ptr @BN_CTX_get(ptr noundef %3) #9
   %172 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  store ptr %171, ptr %172, align 8, !tbaa !51
+  store ptr %171, ptr %172, align 8, !tbaa !52
   %173 = icmp eq ptr %171, null
   br i1 %173, label %174, label %175
 
@@ -1317,9 +1317,9 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %178 = tail call ptr @OPENSSL_sk_value(ptr noundef %176, i32 noundef %177) #9
   tail call void @BN_with_flags(ptr noundef %164, ptr noundef %1, i32 noundef 4) #9
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %180 = load ptr, ptr %179, align 8, !tbaa !52
+  %180 = load ptr, ptr %179, align 8, !tbaa !53
   tail call void @BN_with_flags(ptr noundef %163, ptr noundef %180, i32 noundef 4) #9
-  %181 = load ptr, ptr %178, align 8, !tbaa !46
+  %181 = load ptr, ptr %178, align 8, !tbaa !47
   %182 = tail call i32 @BN_div(ptr noundef null, ptr noundef %6, ptr noundef %164, ptr noundef %181, ptr noundef %3) #9
   %.not329 = icmp eq i32 %182, 0
   br i1 %.not329, label %183, label %184
@@ -1333,9 +1333,9 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %185 = load ptr, ptr %134, align 8, !tbaa !27
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 48
   %187 = load ptr, ptr %186, align 8, !tbaa !28
-  %188 = load ptr, ptr %178, align 8, !tbaa !46
+  %188 = load ptr, ptr %178, align 8, !tbaa !47
   %189 = getelementptr inbounds nuw i8, ptr %178, i64 32
-  %190 = load ptr, ptr %189, align 8, !tbaa !53
+  %190 = load ptr, ptr %189, align 8, !tbaa !54
   %191 = tail call i32 %187(ptr noundef nonnull %171, ptr noundef %6, ptr noundef %163, ptr noundef %188, ptr noundef %3, ptr noundef %190) #9
   %.not330 = icmp eq i32 %191, 0
   br i1 %.not330, label %192, label %169
@@ -1424,7 +1424,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 225:                                              ; preds = %254
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count434
-  br i1 %exitcond435.not, label %._crit_edge428, label %226, !llvm.loop !54
+  br i1 %exitcond435.not, label %._crit_edge428, label %226, !llvm.loop !55
 
 226:                                              ; preds = %.lr.ph427, %225
   %indvars.iv431 = phi i64 [ 0, %.lr.ph427 ], [ %indvars.iv.next432, %225 ]
@@ -1432,7 +1432,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %228 = trunc nuw nsw i64 %indvars.iv431 to i32
   %229 = tail call ptr @OPENSSL_sk_value(ptr noundef %227, i32 noundef %228) #9
   %230 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv431
-  %231 = load ptr, ptr %230, align 8, !tbaa !51
+  %231 = load ptr, ptr %230, align 8, !tbaa !52
   %232 = tail call i32 @BN_sub(ptr noundef %6, ptr noundef %231, ptr noundef %0) #9
   %.not340 = icmp eq i32 %232, 0
   br i1 %.not340, label %233, label %234
@@ -1443,7 +1443,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 
 234:                                              ; preds = %226
   %235 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !55
+  %236 = load ptr, ptr %235, align 8, !tbaa !56
   %237 = tail call i32 @BN_mul(ptr noundef %7, ptr noundef %6, ptr noundef %236, ptr noundef %3) #9
   %.not341 = icmp eq i32 %237, 0
   br i1 %.not341, label %238, label %239
@@ -1454,7 +1454,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 
 239:                                              ; preds = %234
   tail call void @BN_with_flags(ptr noundef nonnull %222, ptr noundef %7, i32 noundef 4) #9
-  %240 = load ptr, ptr %229, align 8, !tbaa !46
+  %240 = load ptr, ptr %229, align 8, !tbaa !47
   %241 = tail call i32 @BN_div(ptr noundef null, ptr noundef %6, ptr noundef nonnull %222, ptr noundef %240, ptr noundef %3) #9
   %.not342 = icmp eq i32 %241, 0
   br i1 %.not342, label %242, label %243
@@ -1469,7 +1469,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   br i1 %.not343, label %249, label %245
 
 245:                                              ; preds = %243
-  %246 = load ptr, ptr %229, align 8, !tbaa !46
+  %246 = load ptr, ptr %229, align 8, !tbaa !47
   %247 = tail call i32 @BN_add(ptr noundef %6, ptr noundef %6, ptr noundef %246) #9
   %.not344 = icmp eq i32 %247, 0
   br i1 %.not344, label %248, label %249
@@ -1480,7 +1480,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 
 249:                                              ; preds = %245, %243
   %250 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  %251 = load ptr, ptr %250, align 8, !tbaa !56
+  %251 = load ptr, ptr %250, align 8, !tbaa !57
   %252 = tail call i32 @BN_mul(ptr noundef %6, ptr noundef %6, ptr noundef %251, ptr noundef %3) #9
   %.not345 = icmp eq i32 %252, 0
   br i1 %.not345, label %253, label %254
@@ -1633,23 +1633,23 @@ define internal noundef i32 @rsa_ossl_finish(ptr noundef readonly captures(none)
   %6 = load ptr, ptr %2, align 8, !tbaa !43
   %7 = tail call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %.08) #9
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !53
+  %9 = load ptr, ptr %8, align 8, !tbaa !54
   tail call void @BN_MONT_CTX_free(ptr noundef %9) #9
   %10 = add nuw nsw i32 %.08, 1
   %11 = load ptr, ptr %2, align 8, !tbaa !43
   %12 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #9
   %13 = icmp slt i32 %10, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   tail call void @BN_MONT_CTX_free(ptr noundef %15) #9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
+  %17 = load ptr, ptr %16, align 8, !tbaa !50
   tail call void @BN_MONT_CTX_free(ptr noundef %17) #9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %19 = load ptr, ptr %18, align 8, !tbaa !48
+  %19 = load ptr, ptr %18, align 8, !tbaa !49
   tail call void @BN_MONT_CTX_free(ptr noundef %19) #9
   ret i32 1
 }
@@ -1721,7 +1721,7 @@ define internal fastcc ptr @rsa_get_blinding(ptr noundef %0, ptr noundef nonnull
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !58
+  %9 = load ptr, ptr %8, align 8, !tbaa !59
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %.thread
 
@@ -1734,13 +1734,13 @@ define internal fastcc ptr @rsa_get_blinding(ptr noundef %0, ptr noundef nonnull
   br i1 %.not26, label %42, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %8, align 8, !tbaa !58
+  %17 = load ptr, ptr %8, align 8, !tbaa !59
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
   %20 = tail call ptr @RSA_setup_blinding(ptr noundef nonnull %0, ptr noundef nonnull %2) #9
-  store ptr %20, ptr %8, align 8, !tbaa !58
+  store ptr %20, ptr %8, align 8, !tbaa !59
   %21 = icmp eq ptr %20, null
   br i1 %21, label %39, label %.thread
 
@@ -1757,7 +1757,7 @@ define internal fastcc ptr @rsa_get_blinding(ptr noundef %0, ptr noundef nonnull
 25:                                               ; preds = %.thread
   store i32 0, ptr %1, align 4, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %27 = load ptr, ptr %26, align 8, !tbaa !59
+  %27 = load ptr, ptr %26, align 8, !tbaa !60
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %39
 
@@ -1770,13 +1770,13 @@ define internal fastcc ptr @rsa_get_blinding(ptr noundef %0, ptr noundef nonnull
   br i1 %.not28, label %42, label %34
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %26, align 8, !tbaa !59
+  %35 = load ptr, ptr %26, align 8, !tbaa !60
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
   %38 = tail call ptr @RSA_setup_blinding(ptr noundef nonnull %0, ptr noundef nonnull %2) #9
-  store ptr %38, ptr %26, align 8, !tbaa !59
+  store ptr %38, ptr %26, align 8, !tbaa !60
   br label %39
 
 39:                                               ; preds = %25, %37, %34, %24, %19
@@ -2103,19 +2103,20 @@ attributes #9 = { nounwind }
 !41 = !{!29, !5, i64 40}
 !42 = !{!9, !13, i64 56}
 !43 = !{!9, !17, i64 136}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!47, !13, i64 0}
-!47 = !{!"rsa_prime_info_st", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !21, i64 32}
-!48 = !{!9, !21, i64 184}
-!49 = !{!9, !21, i64 176}
-!50 = distinct !{!50, !45}
-!51 = !{!13, !13, i64 0}
-!52 = !{!47, !13, i64 8}
-!53 = !{!47, !21, i64 32}
-!54 = distinct !{!54, !45}
-!55 = !{!47, !13, i64 16}
-!56 = !{!47, !13, i64 24}
-!57 = distinct !{!57, !45}
-!58 = !{!9, !22, i64 192}
-!59 = !{!9, !22, i64 200}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!48, !13, i64 0}
+!48 = !{!"rsa_prime_info_st", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !21, i64 32}
+!49 = !{!9, !21, i64 184}
+!50 = !{!9, !21, i64 176}
+!51 = distinct !{!51, !45, !46}
+!52 = !{!13, !13, i64 0}
+!53 = !{!48, !13, i64 8}
+!54 = !{!48, !21, i64 32}
+!55 = distinct !{!55, !45, !46}
+!56 = !{!48, !13, i64 16}
+!57 = !{!48, !13, i64 24}
+!58 = distinct !{!58, !45, !46}
+!59 = !{!9, !22, i64 192}
+!60 = !{!9, !22, i64 200}

@@ -874,7 +874,7 @@ define internal fastcc void @poly1305_blocks(ptr noundef captures(none) %0, ptr 
   %237 = getelementptr inbounds nuw i8, ptr %.0304, i64 64
   %238 = add i64 %.0292303, -64
   %239 = icmp ugt i64 %238, 63
-  br i1 %239, label %70, label %240, !llvm.loop !20
+  br i1 %239, label %70, label %240, !llvm.loop !21
 
 240:                                              ; preds = %70
   store <2 x i64> %231, ptr %4, align 16, !tbaa !10
@@ -1628,6 +1628,7 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !15 = !{!14, !7, i64 376}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !8, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}

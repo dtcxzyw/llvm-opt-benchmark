@@ -2239,40 +2239,40 @@ define linkonce_odr void @_ZNK7QString3argIJRPcS2_EEENSt9enable_ifIXaagesZT_Li2E
   %spec.select.i.i = select i1 %.not.i.i, ptr @_ZN7QString6_emptyE, ptr %11
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19, !noalias !11
-  %14 = load ptr, ptr %2, align 8, !noalias !11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19, !noalias !11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19, !noalias !12
+  %14 = load ptr, ptr %2, align 8, !noalias !12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19, !noalias !12
   %.not.i.i3 = icmp eq ptr %14, null
   br i1 %.not.i.i3, label %_ZN7QStringC2EPKc.exit, label %.split.i.i
 
 .split.i.i:                                       ; preds = %4
-  %15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #19, !noalias !11
+  %15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #19, !noalias !12
   br label %_ZN7QStringC2EPKc.exit
 
 _ZN7QStringC2EPKc.exit:                           ; preds = %4, %.split.i.i
   %.sink5.i.i = phi i64 [ %15, %.split.i.i ], [ 0, %4 ]
-  call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, i64 %.sink5.i.i, ptr %14), !noalias !11
-  %16 = load ptr, ptr %6, align 8, !noalias !11
+  call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, i64 %.sink5.i.i, ptr %14), !noalias !12
+  %16 = load ptr, ptr %6, align 8, !noalias !12
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !11
+  %18 = load ptr, ptr %17, align 8, !noalias !12
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %20 = load i64, ptr %19, align 8, !noalias !11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19, !noalias !11
+  %20 = load i64, ptr %19, align 8, !noalias !12
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19, !noalias !12
   %.not.i.i.i = icmp eq ptr %18, null
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr @_ZN7QString6_emptyE, ptr %18
-  store i8 2, ptr %8, align 8, !alias.scope !14, !noalias !11
+  store i8 2, ptr %8, align 8, !alias.scope !15, !noalias !12
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %20, ptr %21, align 8, !alias.scope !14, !noalias !11
+  store i64 %20, ptr %21, align 8, !alias.scope !15, !noalias !12
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !14, !noalias !11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19, !noalias !11
-  %22 = load ptr, ptr %3, align 8, !noalias !11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19, !noalias !11
+  store ptr %spec.select.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !15, !noalias !12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19, !noalias !12
+  %22 = load ptr, ptr %3, align 8, !noalias !12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19, !noalias !12
   %.not.i.i4 = icmp eq ptr %22, null
   br i1 %.not.i.i4, label %_ZN7QStringD2Ev.exit.i, label %.split.i.i5
 
 .split.i.i5:                                      ; preds = %_ZN7QStringC2EPKc.exit
-  %23 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #19, !noalias !11
+  %23 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #19, !noalias !12
   br label %_ZN7QStringD2Ev.exit.i
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %.split.i.i5, %_ZN7QStringC2EPKc.exit
@@ -2281,25 +2281,25 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %.split.i.i5, %_ZN7Q
           to label %24 unwind label %33
 
 24:                                               ; preds = %_ZN7QStringD2Ev.exit.i
-  %25 = load ptr, ptr %5, align 8, !noalias !11
+  %25 = load ptr, ptr %5, align 8, !noalias !12
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %27 = load ptr, ptr %26, align 8, !noalias !11
+  %27 = load ptr, ptr %26, align 8, !noalias !12
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %29 = load i64, ptr %28, align 8, !noalias !11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19, !noalias !11
+  %29 = load i64, ptr %28, align 8, !noalias !12
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19, !noalias !12
   %.not.i.i.i8 = icmp eq ptr %27, null
   %spec.select.i.i.i9 = select i1 %.not.i.i.i8, ptr @_ZN7QString6_emptyE, ptr %27
-  store i8 2, ptr %9, align 8, !alias.scope !17, !noalias !11
+  store i8 2, ptr %9, align 8, !alias.scope !18, !noalias !12
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %29, ptr %30, align 8, !alias.scope !17, !noalias !11
+  store i64 %29, ptr %30, align 8, !alias.scope !18, !noalias !12
   %.sroa.2.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %spec.select.i.i.i9, ptr %.sroa.2.0..sroa_idx.i.i10, align 8, !alias.scope !17, !noalias !11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #19, !noalias !20
-  store ptr %8, ptr %7, align 16, !noalias !20
+  store ptr %spec.select.i.i.i9, ptr %.sroa.2.0..sroa_idx.i.i10, align 8, !alias.scope !18, !noalias !12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #19, !noalias !21
+  store ptr %8, ptr %7, align 16, !noalias !21
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %9, ptr %31, align 8, !noalias !20
+  store ptr %9, ptr %31, align 8, !noalias !21
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr null, ptr %32, align 16, !noalias !20
+  store ptr null, ptr %32, align 16, !noalias !21
   invoke void @_ZN9QtPrivate12argToQStringE11QStringViewmPPKNS_7ArgBaseE(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, i64 %13, ptr nonnull %spec.select.i.i, i64 noundef 2, ptr noundef nonnull %7)
           to label %_ZNK11QStringView3argIJRPcS2_EEE7QStringDpOT_.exit unwind label %35
 
@@ -2325,7 +2325,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %35
 
 _ZN7QStringD2Ev.exit:                             ; preds = %38, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %35, %33
   %.pn.i = phi { ptr, i32 } [ %34, %33 ], [ %36, %35 ], [ %36, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ %36, %38 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19, !noalias !11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19, !noalias !12
   %.not.i.i.i13 = icmp eq ptr %16, null
   br i1 %.not.i.i.i13, label %_ZN7QStringD2Ev.exit16, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i14
 
@@ -2339,11 +2339,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i14:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit16
 
 _ZN7QStringD2Ev.exit16:                           ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i14, %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19, !noalias !11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19, !noalias !12
   resume { ptr, i32 } %.pn.i
 
 _ZNK11QStringView3argIJRPcS2_EEE7QStringDpOT_.exit: ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #19, !noalias !20
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #19, !noalias !21
   %.not.i.i.i17 = icmp eq ptr %25, null
   br i1 %.not.i.i.i17, label %_ZN7QStringD2Ev.exit20, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18
 
@@ -2357,7 +2357,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18:    ; preds = %_ZNK11QStringView3a
   br label %_ZN7QStringD2Ev.exit20
 
 _ZN7QStringD2Ev.exit20:                           ; preds = %_ZNK11QStringView3argIJRPcS2_EEE7QStringDpOT_.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18, %42
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19, !noalias !11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19, !noalias !12
   %.not.i.i.i21 = icmp eq ptr %16, null
   br i1 %.not.i.i.i21, label %_ZN7QStringD2Ev.exit24, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i22
 
@@ -2371,7 +2371,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i22:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit24
 
 _ZN7QStringD2Ev.exit24:                           ; preds = %_ZN7QStringD2Ev.exit20, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i22, %44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19, !noalias !11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19, !noalias !12
   ret void
 }
 
@@ -2679,7 +2679,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM19WiresharkMainWindowFvvEN
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !23
+  %17 = load ptr, ptr %16, align 8, !nosanitize !24
   br label %_ZN9QtPrivate15FunctionPointerIM19WiresharkMainWindowFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -2760,18 +2760,19 @@ attributes #23 = { cold }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP7QScreenEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_: argument 0"}
 !8 = distinct !{!8, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP7QScreenEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK11QStringView3argIJRPcS2_EEE7QStringDpOT_: argument 0"}
-!13 = distinct !{!13, !"_ZNK11QStringView3argIJRPcS2_EEE7QStringDpOT_"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN9QtPrivate16qStringLikeToArgERK7QString: argument 0"}
-!16 = distinct !{!16, !"_ZN9QtPrivate16qStringLikeToArgERK7QString"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN9QtPrivate16qStringLikeToArgERK7QString: argument 0"}
-!19 = distinct !{!19, !"_ZN9QtPrivate16qStringLikeToArgERK7QString"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN9QtPrivate20argToQStringDispatchI11QStringViewJNS_14QStringViewArgES2_EEE7QStringT_DpRKT0_: argument 0"}
-!22 = distinct !{!22, !"_ZN9QtPrivate20argToQStringDispatchI11QStringViewJNS_14QStringViewArgES2_EEE7QStringT_DpRKT0_"}
-!23 = !{}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK11QStringView3argIJRPcS2_EEE7QStringDpOT_: argument 0"}
+!14 = distinct !{!14, !"_ZNK11QStringView3argIJRPcS2_EEE7QStringDpOT_"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN9QtPrivate16qStringLikeToArgERK7QString: argument 0"}
+!17 = distinct !{!17, !"_ZN9QtPrivate16qStringLikeToArgERK7QString"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZN9QtPrivate16qStringLikeToArgERK7QString: argument 0"}
+!20 = distinct !{!20, !"_ZN9QtPrivate16qStringLikeToArgERK7QString"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN9QtPrivate20argToQStringDispatchI11QStringViewJNS_14QStringViewArgES2_EEE7QStringT_DpRKT0_: argument 0"}
+!23 = distinct !{!23, !"_ZN9QtPrivate20argToQStringDispatchI11QStringViewJNS_14QStringViewArgES2_EEE7QStringT_DpRKT0_"}
+!24 = !{}

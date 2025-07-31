@@ -271,7 +271,7 @@ define hidden noundef ptr @_ZN13ObjectSampler7acquireEv() local_unnamed_addr #0 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ObjectSampler7releaseEv() local_unnamed_addr #0 align 2 {
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store volatile i32 0, ptr @_ZL5_lock, align 4
   ret void
@@ -297,61 +297,61 @@ _ZL13get_thread_idP10JavaThreadPb.exit:           ; preds = %8
   br i1 %13, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZL13get_thread_idP10JavaThreadPb.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   br i1 %11, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = tail call noundef ptr @_ZNK10JavaThread7vthreadEv(ptr noundef nonnull align 8 dereferenceable(1800) %2) #11, !noalias !11
+  %16 = tail call noundef ptr @_ZNK10JavaThread7vthreadEv(ptr noundef nonnull align 8 dereferenceable(1800) %2) #11, !noalias !12
   call void @_ZN20JfrCheckpointManager18create_thread_blobEP10JavaThreadmP7oopDesc(ptr dead_on_unwind nonnull writable sret(%class.RefCountHandle) align 8 %5, ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %12, ptr noundef %16) #11
   br label %_ZL15get_thread_blobP10JavaThreadmb.exit
 
 17:                                               ; preds = %14
-  %18 = tail call noundef zeroext i1 @_ZNK14JfrThreadLocal15has_thread_blobEv(ptr noundef nonnull align 8 dereferenceable(195) %9) #11, !noalias !11
+  %18 = tail call noundef zeroext i1 @_ZNK14JfrThreadLocal15has_thread_blobEv(ptr noundef nonnull align 8 dereferenceable(195) %9) #11, !noalias !12
   br i1 %18, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i, label %19
 
 19:                                               ; preds = %17
-  call void @_ZN20JfrCheckpointManager18create_thread_blobEP10JavaThreadmP7oopDesc(ptr dead_on_unwind nonnull writable sret(%class.RefCountHandle) align 8 %4, ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %12, ptr noundef null) #11, !noalias !11
-  call void @_ZN14JfrThreadLocal15set_thread_blobERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE(ptr noundef nonnull align 8 dereferenceable(195) %9, ptr noundef nonnull align 8 dereferenceable(8) %4) #11, !noalias !11
-  %20 = load ptr, ptr %4, align 8, !noalias !11
+  call void @_ZN20JfrCheckpointManager18create_thread_blobEP10JavaThreadmP7oopDesc(ptr dead_on_unwind nonnull writable sret(%class.RefCountHandle) align 8 %4, ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %12, ptr noundef null) #11, !noalias !12
+  call void @_ZN14JfrThreadLocal15set_thread_blobERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE(ptr noundef nonnull align 8 dereferenceable(195) %9, ptr noundef nonnull align 8 dereferenceable(8) %4) #11, !noalias !12
+  %20 = load ptr, ptr %4, align 8, !noalias !12
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %22) #11, !noalias !11, !srcloc !14
+  %23 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %22) #11, !noalias !12, !srcloc !15
   %24 = icmp eq i64 %23, 1
   br i1 %24, label %25, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
 
 25:                                               ; preds = %21
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !11, !srcloc !6
-  %26 = load ptr, ptr %20, align 8, !noalias !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !12, !srcloc !6
+  %26 = load ptr, ptr %20, align 8, !noalias !12
   %27 = icmp eq ptr %26, null
   br i1 %27, label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i, label %28
 
 28:                                               ; preds = %25
-  call void @_ZN7JfrBlobD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %26) #11, !noalias !11
-  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %26, i64 noundef 32) #11, !noalias !11
+  call void @_ZN7JfrBlobD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %26) #11, !noalias !12
+  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %26, i64 noundef 32) #11, !noalias !12
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i: ; preds = %28, %25
-  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef 16) #11, !noalias !11
+  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef 16) #11, !noalias !12
   br label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
 
 _ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i: ; preds = %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i, %21
-  store ptr null, ptr %4, align 8, !noalias !11
+  store ptr null, ptr %4, align 8, !noalias !12
   br label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i
 
 _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i: ; preds = %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i, %19, %17
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK14JfrThreadLocal11thread_blobEv(ptr noundef nonnull align 8 dereferenceable(195) %9) #11, !noalias !11
-  %30 = load ptr, ptr %29, align 8, !noalias !11
-  store ptr %30, ptr %5, align 8, !alias.scope !11
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK14JfrThreadLocal11thread_blobEv(ptr noundef nonnull align 8 dereferenceable(195) %9) #11, !noalias !12
+  %30 = load ptr, ptr %29, align 8, !noalias !12
+  store ptr %30, ptr %5, align 8, !alias.scope !12
   %.not.i9.i = icmp eq ptr %30, null
   br i1 %.not.i9.i, label %_ZL15get_thread_blobP10JavaThreadmb.exit, label %31
 
 31:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %32) #11, !noalias !11, !srcloc !14
+  %33 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %32) #11, !noalias !12, !srcloc !15
   br label %_ZL15get_thread_blobP10JavaThreadmb.exit
 
 _ZL15get_thread_blobP10JavaThreadmb.exit:         ; preds = %15, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i, %31
@@ -381,7 +381,7 @@ _ZN16RecordStackTraceC2EP10JavaThread.exit:       ; preds = %_ZL15get_thread_blo
 41:                                               ; preds = %_ZN16RecordStackTraceC2EP10JavaThread.exit
   %42 = load ptr, ptr @_ZL9_instance, align 8
   call void @_ZN13ObjectSampler3addEPP12HeapWordImplmmbRK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef %0, i64 noundef %1, i64 noundef %12, i1 noundef zeroext %11, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %2)
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store volatile i32 0, ptr @_ZL5_lock, align 4
   br label %_ZN10JfrTryLockD2Ev.exit
@@ -403,7 +403,7 @@ _ZN16RecordStackTraceD2Ev.exit:                   ; preds = %_ZN10JfrTryLockD2Ev
 
 47:                                               ; preds = %_ZN16RecordStackTraceD2Ev.exit
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %48) #11, !srcloc !14
+  %49 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %48) #11, !srcloc !15
   %50 = icmp eq i64 %49, 1
   br i1 %50, label %51, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
 
@@ -519,7 +519,7 @@ _ZL23signal_unresolved_entryv.exit:               ; preds = %40, %43
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %54 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %53) #11, !srcloc !14
+  %54 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %53) #11, !srcloc !15
   %.pr.i = load ptr, ptr %48, align 8
   br label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i
 
@@ -531,7 +531,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4
 
 56:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %58 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %57) #11, !srcloc !14
+  %58 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %57) #11, !srcloc !15
   %59 = icmp eq i64 %58, 1
   br i1 %59, label %60, label %_ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit
 
@@ -632,7 +632,7 @@ _ZN13ObjectSampler11remove_deadEP12ObjectSample.exit: ; preds = %7, %10
 
 20:                                               ; preds = %_ZN13ObjectSampler11remove_deadEP12ObjectSample.exit, %.lr.ph
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %20, %1
   ret void
@@ -949,11 +949,12 @@ attributes #11 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
 !7 = !{i64 2145411161}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 2145392998}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZL15get_thread_blobP10JavaThreadmb: argument 0"}
-!13 = distinct !{!13, !"_ZL15get_thread_blobP10JavaThreadmb"}
-!14 = !{i64 2145411697}
-!15 = distinct !{!15, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 2145392998}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZL15get_thread_blobP10JavaThreadmb: argument 0"}
+!14 = distinct !{!14, !"_ZL15get_thread_blobP10JavaThreadmb"}
+!15 = !{i64 2145411697}
+!16 = distinct !{!16, !9, !10}

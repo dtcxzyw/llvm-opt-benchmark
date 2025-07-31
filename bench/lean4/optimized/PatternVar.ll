@@ -10065,7 +10065,7 @@ lean_dec.exit:                                    ; preds = %68, %67, %65, %lean
 
 l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit.backedge: ; preds = %lean_dec.exit, %72
   %.0.be = phi ptr [ %71, %lean_dec.exit ], [ %73, %72 ]
-  br label %l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit
+  br label %l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit, !llvm.loop !16
 
 72:                                               ; preds = %lean_dec.exit
   %73 = tail call ptr @l_Lean_RBNode_setBlack___rarg(ptr noundef %71) #6
@@ -10257,7 +10257,7 @@ lean_dec.exit:                                    ; preds = %67, %66, %64, %lean
 
 l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit.backedge: ; preds = %lean_dec.exit, %71
   %.0.be = phi ptr [ %70, %lean_dec.exit ], [ %72, %71 ]
-  br label %l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit
+  br label %l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit, !llvm.loop !18
 
 71:                                               ; preds = %lean_dec.exit
   %72 = tail call ptr @l_Lean_RBNode_setBlack___rarg(ptr noundef %70) #6
@@ -10403,7 +10403,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %21
   %.027.be = phi ptr [ %.0, %21 ], [ %48, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !19
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #2
@@ -10595,7 +10595,7 @@ lean_dec.exit:                                    ; preds = %68, %67, %65, %lean
 
 l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit.backedge: ; preds = %lean_dec.exit, %72
   %.0.be = phi ptr [ %71, %lean_dec.exit ], [ %73, %72 ]
-  br label %l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit
+  br label %l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit, !llvm.loop !20
 
 72:                                               ; preds = %lean_dec.exit
   %73 = tail call ptr @l_Lean_RBNode_setBlack___rarg(ptr noundef %71) #6
@@ -10787,7 +10787,7 @@ lean_dec.exit:                                    ; preds = %67, %66, %64, %lean
 
 l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit.backedge: ; preds = %lean_dec.exit, %71
   %.0.be = phi ptr [ %70, %lean_dec.exit ], [ %72, %71 ]
-  br label %l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit
+  br label %l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1.exit, !llvm.loop !21
 
 71:                                               ; preds = %lean_dec.exit
   %72 = tail call ptr @l_Lean_RBNode_setBlack___rarg(ptr noundef %70) #6
@@ -11804,9 +11804,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_throwError___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !16
+  store i16 9, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -11833,10 +11833,10 @@ lean_alloc_small_object.exit:                     ; preds = %3
   store ptr %0, ptr %11, align 8, !tbaa !11
   %12 = trunc nuw nsw i32 %1 to i16
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 %12, ptr %13, align 8, !tbaa !16
+  store i16 %12, ptr %13, align 8, !tbaa !22
   %14 = trunc nuw nsw i32 %2 to i16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 %14, ptr %15, align 2, !tbaa !16
+  store i16 %14, ptr %15, align 2, !tbaa !22
   ret ptr %6
 }
 
@@ -12219,7 +12219,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit37
   %.032.be = phi ptr [ %.0, %lean_inc.exit37 ], [ %70, %lean_alloc_ctor.exit ]
-  br label %6
+  br label %6, !llvm.loop !24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12441,9 +12441,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_throwError___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__3___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !16
+  store i16 9, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -12840,9 +12840,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_throwError___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__4___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !16
+  store i16 9, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -13259,7 +13259,7 @@ lean_nat_le.exit.thread:                          ; preds = %62
 
 67:                                               ; preds = %lean_nat_le.exit
   %68 = tail call ptr @l_Array_qsort_sort___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__5(ptr noundef %0, ptr noundef %44, ptr noundef %.035, ptr noundef %34, ptr nonnull poison, ptr nonnull poison)
-  br i1 %.not88, label %80, label %69, !prof !18
+  br i1 %.not88, label %80, label %69, !prof !25
 
 69:                                               ; preds = %67, %.thread69
   %70 = phi ptr [ %66, %.thread69 ], [ %68, %67 ]
@@ -13571,9 +13571,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_throwError___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__6___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !16
+  store i16 9, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -13970,9 +13970,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_throwError___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__7___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !16
+  store i16 9, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -19184,9 +19184,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__13___rarg___boxed, ptr %8, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 14, ptr %9, align 8, !tbaa !16
+  store i16 14, ptr %9, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !16
+  store i16 0, ptr %10, align 2, !tbaa !22
   ret ptr %4
 }
 
@@ -20831,9 +20831,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_PersistentHashMap_foldlMAux_traverse___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__14___rarg___boxed, ptr %8, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 15, ptr %9, align 8, !tbaa !16
+  store i16 15, ptr %9, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !16
+  store i16 0, ptr %10, align 2, !tbaa !22
   ret ptr %4
 }
 
@@ -20909,9 +20909,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_PersistentHashMap_foldlMAux___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__12___rarg, ptr %8, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 12, ptr %9, align 8, !tbaa !16
+  store i16 12, ptr %9, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !16
+  store i16 0, ptr %10, align 2, !tbaa !22
   ret ptr %4
 }
 
@@ -20945,9 +20945,9 @@ lean_alloc_closure.exit:                          ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @l_Lean_PersistentHashMap_forM___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__10___lambda__1___boxed, ptr %16, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i16 13, ptr %17, align 8, !tbaa !16
+  store i16 13, ptr %17, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 18
-  store i16 1, ptr %18, align 2, !tbaa !16
+  store i16 1, ptr %18, align 2, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %1, ptr %19, align 8, !tbaa !11
   %20 = tail call ptr @l_Lean_PersistentHashMap_foldlMAux___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__12___rarg(ptr noundef nonnull %12, ptr noundef %0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
@@ -22607,9 +22607,9 @@ l_Lean_PersistentHashMap_forM___at___private_Lean_Elab_PatternVar_0__Lean_Elab_T
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr @l_Lean_PersistentHashMap_forM___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__10___lambda__1___boxed, ptr %70, align 8, !tbaa !11
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store i16 13, ptr %71, align 8, !tbaa !16
+  store i16 13, ptr %71, align 8, !tbaa !22
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 18
-  store i16 1, ptr %72, align 2, !tbaa !16
+  store i16 1, ptr %72, align 2, !tbaa !22
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store ptr %1, ptr %73, align 8, !tbaa !11
   %74 = tail call ptr @l_Lean_PersistentHashMap_foldlMAux___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__12___rarg(ptr noundef nonnull %66, ptr noundef %48, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
@@ -23515,9 +23515,9 @@ l_Lean_PersistentHashMap_forM___at___private_Lean_Elab_PatternVar_0__Lean_Elab_T
   %395 = getelementptr inbounds nuw i8, ptr %391, i64 8
   store ptr @l_Lean_PersistentHashMap_forM___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__10___lambda__1___boxed, ptr %395, align 8, !tbaa !11
   %396 = getelementptr inbounds nuw i8, ptr %391, i64 16
-  store i16 13, ptr %396, align 8, !tbaa !16
+  store i16 13, ptr %396, align 8, !tbaa !22
   %397 = getelementptr inbounds nuw i8, ptr %391, i64 18
-  store i16 1, ptr %397, align 2, !tbaa !16
+  store i16 1, ptr %397, align 2, !tbaa !22
   %398 = getelementptr inbounds nuw i8, ptr %391, i64 24
   store ptr %1, ptr %398, align 8, !tbaa !11
   %399 = tail call ptr @l_Lean_PersistentHashMap_foldlMAux___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__12___rarg(ptr noundef nonnull %391, ptr noundef %373, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %356, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %339)
@@ -25006,9 +25006,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit378
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___rarg___lambda__3___boxed, ptr %97, align 8, !tbaa !11
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store i16 13, ptr %98, align 8, !tbaa !16
+  store i16 13, ptr %98, align 8, !tbaa !22
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 18
-  store i16 2, ptr %99, align 2, !tbaa !16
+  store i16 2, ptr %99, align 2, !tbaa !22
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 24
   store ptr %62, ptr %100, align 8, !tbaa !11
   %101 = getelementptr inbounds nuw i8, ptr %93, i64 32
@@ -27642,9 +27642,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !16
+  store i16 9, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -28667,9 +28667,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_throwError___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwInvalidPattern___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !16
+  store i16 9, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -28872,9 +28872,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwInvalidPattern___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 8, ptr %7, align 8, !tbaa !16
+  store i16 8, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -29466,9 +29466,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwInvalidNamedArgs___rarg, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 4, ptr %8, align 8, !tbaa !16
+  store i16 4, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !16
+  store i16 0, ptr %9, align 2, !tbaa !22
   ret ptr %3
 }
 
@@ -29749,9 +29749,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_throwError___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwWrongArgCount___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !16
+  store i16 9, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -29996,7 +29996,7 @@ lean_array_uget.exit:                             ; preds = %6, %13, %15, %16
 27:                                               ; preds = %26, %23
   %28 = phi i32 [ %.pr, %26 ], [ %24, %23 ]
   %29 = icmp sgt i32 %28, 1
-  br i1 %29, label %30, label %32, !prof !19
+  br i1 %29, label %30, label %32, !prof !26
 
 30:                                               ; preds = %27
   %31 = add nsw i32 %28, -1
@@ -31246,9 +31246,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwWrongArgCount___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 10, ptr %7, align 8, !tbaa !16
+  store i16 10, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -33757,7 +33757,7 @@ lean_dec.exit:                                    ; preds = %65, %64, %62, %lean
   %74 = icmp ne i64 %73, 0
   %75 = icmp ne i64 %16, 0
   %or.cond = select i1 %74, i1 %75, i1 false
-  br i1 %or.cond, label %76, label %.critedge.i31, !prof !20
+  br i1 %or.cond, label %76, label %.critedge.i31, !prof !27
 
 76:                                               ; preds = %67
   %77 = icmp ule ptr %71, %14
@@ -43712,9 +43712,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit1297
   %1016 = getelementptr inbounds nuw i8, ptr %1012, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect___lambda__14___boxed, ptr %1016, align 8, !tbaa !11
   %1017 = getelementptr inbounds nuw i8, ptr %1012, i64 16
-  store i16 10, ptr %1017, align 8, !tbaa !16
+  store i16 10, ptr %1017, align 8, !tbaa !22
   %1018 = getelementptr inbounds nuw i8, ptr %1012, i64 18
-  store i16 7, ptr %1018, align 2, !tbaa !16
+  store i16 7, ptr %1018, align 2, !tbaa !22
   %1019 = getelementptr inbounds nuw i8, ptr %1012, i64 24
   store ptr %1002, ptr %1019, align 8, !tbaa !11
   %1020 = getelementptr inbounds nuw i8, ptr %1012, i64 32
@@ -43773,9 +43773,9 @@ lean_alloc_closure.exit1755:                      ; preds = %lean_dec.exit1296
   %1041 = getelementptr inbounds nuw i8, ptr %1037, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect_processCtorApp___boxed, ptr %1041, align 8, !tbaa !11
   %1042 = getelementptr inbounds nuw i8, ptr %1037, i64 16
-  store i16 9, ptr %1042, align 8, !tbaa !16
+  store i16 9, ptr %1042, align 8, !tbaa !22
   %1043 = getelementptr inbounds nuw i8, ptr %1037, i64 18
-  store i16 6, ptr %1043, align 2, !tbaa !16
+  store i16 6, ptr %1043, align 2, !tbaa !22
   %1044 = getelementptr inbounds nuw i8, ptr %1037, i64 24
   store ptr %0, ptr %1044, align 8, !tbaa !11
   %1045 = getelementptr inbounds nuw i8, ptr %1037, i64 32
@@ -43832,9 +43832,9 @@ lean_alloc_closure.exit1756:                      ; preds = %lean_dec.exit1295
   %1065 = getelementptr inbounds nuw i8, ptr %1061, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect_processId, ptr %1065, align 8, !tbaa !11
   %1066 = getelementptr inbounds nuw i8, ptr %1061, i64 16
-  store i16 9, ptr %1066, align 8, !tbaa !16
+  store i16 9, ptr %1066, align 8, !tbaa !22
   %1067 = getelementptr inbounds nuw i8, ptr %1061, i64 18
-  store i16 6, ptr %1067, align 2, !tbaa !16
+  store i16 6, ptr %1067, align 2, !tbaa !22
   %1068 = getelementptr inbounds nuw i8, ptr %1061, i64 24
   store ptr %0, ptr %1068, align 8, !tbaa !11
   %1069 = getelementptr inbounds nuw i8, ptr %1061, i64 32
@@ -46672,9 +46672,9 @@ lean_alloc_closure.exit1803:                      ; preds = %lean_dec.exit1211
   %2227 = getelementptr inbounds nuw i8, ptr %2223, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect___lambda__14___boxed, ptr %2227, align 8, !tbaa !11
   %2228 = getelementptr inbounds nuw i8, ptr %2223, i64 16
-  store i16 10, ptr %2228, align 8, !tbaa !16
+  store i16 10, ptr %2228, align 8, !tbaa !22
   %2229 = getelementptr inbounds nuw i8, ptr %2223, i64 18
-  store i16 7, ptr %2229, align 2, !tbaa !16
+  store i16 7, ptr %2229, align 2, !tbaa !22
   %2230 = getelementptr inbounds nuw i8, ptr %2223, i64 24
   store ptr %2213, ptr %2230, align 8, !tbaa !11
   %2231 = getelementptr inbounds nuw i8, ptr %2223, i64 32
@@ -46733,9 +46733,9 @@ lean_alloc_closure.exit1804:                      ; preds = %lean_dec.exit1210
   %2252 = getelementptr inbounds nuw i8, ptr %2248, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect_processCtorApp___boxed, ptr %2252, align 8, !tbaa !11
   %2253 = getelementptr inbounds nuw i8, ptr %2248, i64 16
-  store i16 9, ptr %2253, align 8, !tbaa !16
+  store i16 9, ptr %2253, align 8, !tbaa !22
   %2254 = getelementptr inbounds nuw i8, ptr %2248, i64 18
-  store i16 6, ptr %2254, align 2, !tbaa !16
+  store i16 6, ptr %2254, align 2, !tbaa !22
   %2255 = getelementptr inbounds nuw i8, ptr %2248, i64 24
   store ptr %0, ptr %2255, align 8, !tbaa !11
   %2256 = getelementptr inbounds nuw i8, ptr %2248, i64 32
@@ -46792,9 +46792,9 @@ lean_alloc_closure.exit1805:                      ; preds = %lean_dec.exit
   %2276 = getelementptr inbounds nuw i8, ptr %2272, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect_processId, ptr %2276, align 8, !tbaa !11
   %2277 = getelementptr inbounds nuw i8, ptr %2272, i64 16
-  store i16 9, ptr %2277, align 8, !tbaa !16
+  store i16 9, ptr %2277, align 8, !tbaa !22
   %2278 = getelementptr inbounds nuw i8, ptr %2272, i64 18
-  store i16 6, ptr %2278, align 2, !tbaa !16
+  store i16 6, ptr %2278, align 2, !tbaa !22
   %2279 = getelementptr inbounds nuw i8, ptr %2272, i64 24
   store ptr %0, ptr %2279, align 8, !tbaa !11
   %2280 = getelementptr inbounds nuw i8, ptr %2272, i64 32
@@ -54477,9 +54477,9 @@ lean_alloc_closure.exit:                          ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @l_Lean_Meta_forallTelescopeReducing___at_Lean_Elab_Term_CollectPatternVars_collect_processCtorAppCore___spec__4___rarg___lambda__1, ptr %16, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i16 11, ptr %17, align 8, !tbaa !16
+  store i16 11, ptr %17, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 18
-  store i16 4, ptr %18, align 2, !tbaa !16
+  store i16 4, ptr %18, align 2, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %1, ptr %19, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -54723,9 +54723,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_forallTelescopeReducing___at_Lean_Elab_Term_CollectPatternVars_collect_processCtorAppCore___spec__4___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 11, ptr %7, align 8, !tbaa !16
+  store i16 11, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !22
   ret ptr %2
 }
 
@@ -59802,9 +59802,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit453
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect_processCtorAppContext___lambda__1___boxed, ptr %78, align 8, !tbaa !11
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i16 2, ptr %79, align 8, !tbaa !16
+  store i16 2, ptr %79, align 8, !tbaa !22
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 18
-  store i16 1, ptr %80, align 2, !tbaa !16
+  store i16 1, ptr %80, align 2, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store ptr %40, ptr %81, align 8, !tbaa !11
   %82 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -66054,7 +66054,7 @@ lean_inc.exit195:                                 ; preds = %lean_dec.exit180
   %269 = getelementptr i8, ptr %256, i64 8
   %.val278340 = load i64, ptr %269, align 8, !tbaa !4
   %270 = icmp sgt i32 %268, 1
-  br i1 %270, label %271, label %273, !prof !19
+  br i1 %270, label %271, label %273, !prof !26
 
 271:                                              ; preds = %267
   %272 = add nsw i32 %268, -1
@@ -68949,7 +68949,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Term_CollectPatternVars_col
   %.val.i = phi i32 [ %14, %13 ], [ %.val.i.pr, %17 ]
   %19 = load ptr, ptr @l_Array_anyMUnsafe_any___at_Lean_Elab_Term_CollectPatternVars_collect___spec__4___closed__2, align 8, !tbaa !11
   %20 = icmp sgt i32 %.val.i, 0
-  br i1 %20, label %21, label %23, !prof !19
+  br i1 %20, label %21, label %23, !prof !26
 
 21:                                               ; preds = %18
   %22 = add nuw i32 %.val.i, 1
@@ -86616,7 +86616,7 @@ lean_dec.exit331:                                 ; preds = %90, %89, %87, %80
 92:                                               ; preds = %lean_dec.exit331
   %93 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !11
-  %95 = load double, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !21
+  %95 = load double, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !28
   %96 = load ptr, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwWrongArgCount___rarg___lambda__2___closed__7, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %97 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -86638,9 +86638,9 @@ lean_alloc_ctor.exit:                             ; preds = %92
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store ptr %96, ptr %103, align 8, !tbaa !11
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store double %95, ptr %104, align 8, !tbaa !21
+  store double %95, ptr %104, align 8, !tbaa !28
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  store double %95, ptr %105, align 8, !tbaa !21
+  store double %95, ptr %105, align 8, !tbaa !28
   %106 = load ptr, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___rarg___lambda__4___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %107 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -86844,7 +86844,7 @@ lean_inc.exit358:                                 ; preds = %174, %173, %171, %1
   br label %lean_dec.exit328
 
 lean_dec.exit328:                                 ; preds = %181, %180, %178, %lean_inc.exit358
-  %182 = load double, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !21
+  %182 = load double, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !28
   %183 = load ptr, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwWrongArgCount___rarg___lambda__2___closed__7, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %184 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -86866,9 +86866,9 @@ lean_alloc_ctor.exit425:                          ; preds = %lean_dec.exit328
   %190 = getelementptr inbounds nuw i8, ptr %184, i64 16
   store ptr %183, ptr %190, align 8, !tbaa !11
   %191 = getelementptr inbounds nuw i8, ptr %184, i64 24
-  store double %182, ptr %191, align 8, !tbaa !21
+  store double %182, ptr %191, align 8, !tbaa !28
   %192 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  store double %182, ptr %192, align 8, !tbaa !21
+  store double %182, ptr %192, align 8, !tbaa !28
   %193 = load ptr, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___rarg___lambda__4___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %194 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -87378,7 +87378,7 @@ lean_ctor_release.exit468:                        ; preds = %365, %372, %374, %3
 
 lean_dec_ref.exit388:                             ; preds = %381, %380, %378, %lean_ctor_release.exit468
   %.0321 = phi ptr [ %56, %lean_ctor_release.exit468 ], [ inttoptr (i64 1 to ptr), %378 ], [ inttoptr (i64 1 to ptr), %380 ], [ inttoptr (i64 1 to ptr), %381 ]
-  %382 = load double, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !21
+  %382 = load double, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !28
   %383 = load ptr, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwWrongArgCount___rarg___lambda__2___closed__7, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %384 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -87400,9 +87400,9 @@ lean_alloc_ctor.exit470:                          ; preds = %lean_dec_ref.exit38
   %390 = getelementptr inbounds nuw i8, ptr %384, i64 16
   store ptr %383, ptr %390, align 8, !tbaa !11
   %391 = getelementptr inbounds nuw i8, ptr %384, i64 24
-  store double %382, ptr %391, align 8, !tbaa !21
+  store double %382, ptr %391, align 8, !tbaa !28
   %392 = getelementptr inbounds nuw i8, ptr %384, i64 32
-  store double %382, ptr %392, align 8, !tbaa !21
+  store double %382, ptr %392, align 8, !tbaa !28
   %393 = load ptr, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___rarg___lambda__4___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %394 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -88239,7 +88239,7 @@ lean_ctor_release.exit546:                        ; preds = %690, %697, %699, %7
 
 lean_dec_ref.exit382:                             ; preds = %706, %705, %703, %lean_ctor_release.exit546
   %.0326 = phi ptr [ %56, %lean_ctor_release.exit546 ], [ inttoptr (i64 1 to ptr), %703 ], [ inttoptr (i64 1 to ptr), %705 ], [ inttoptr (i64 1 to ptr), %706 ]
-  %707 = load double, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !21
+  %707 = load double, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !28
   %708 = load ptr, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwWrongArgCount___rarg___lambda__2___closed__7, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %709 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -88261,9 +88261,9 @@ lean_alloc_ctor.exit548:                          ; preds = %lean_dec_ref.exit38
   %715 = getelementptr inbounds nuw i8, ptr %709, i64 16
   store ptr %708, ptr %715, align 8, !tbaa !11
   %716 = getelementptr inbounds nuw i8, ptr %709, i64 24
-  store double %707, ptr %716, align 8, !tbaa !21
+  store double %707, ptr %716, align 8, !tbaa !28
   %717 = getelementptr inbounds nuw i8, ptr %709, i64 32
-  store double %707, ptr %717, align 8, !tbaa !21
+  store double %707, ptr %717, align 8, !tbaa !28
   %718 = load ptr, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___rarg___lambda__4___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %719 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -92572,9 +92572,9 @@ lean_alloc_closure.exit:                          ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_expandMacros, ptr %14, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 4, ptr %15, align 8, !tbaa !16
+  store i16 4, ptr %15, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 2, ptr %16, align 2, !tbaa !16
+  store i16 2, ptr %16, align 2, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -93947,7 +93947,7 @@ lean_inc.exit:                                    ; preds = %171, %170, %168, %l
 
 lean_dec.exit61.backedge:                         ; preds = %lean_inc.exit, %177, %179, %180, %lean_inc.exit68, %133, %135, %136
   %.be = phi ptr [ %119, %136 ], [ %119, %135 ], [ %119, %133 ], [ %119, %lean_inc.exit68 ], [ %163, %180 ], [ %163, %179 ], [ %163, %177 ], [ %163, %lean_inc.exit ]
-  br label %lean_dec.exit61
+  br label %lean_dec.exit61, !llvm.loop !30
 
 174:                                              ; preds = %lean_inc.exit
   %175 = load i32, ptr %161, align 4, !tbaa !8
@@ -94570,9 +94570,9 @@ lean_alloc_closure.exit:                          ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Term_getPatternsVars___spec__5___rarg, ptr %12, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i16 1, ptr %13, align 8, !tbaa !16
+  store i16 1, ptr %13, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  store i16 0, ptr %14, align 2, !tbaa !16
+  store i16 0, ptr %14, align 2, !tbaa !22
   ret ptr %8
 }
 
@@ -96018,9 +96018,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit513
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr @l_Lean_Elab_liftMacroM___at_Lean_Elab_Term_getPatternsVars___spec__1___lambda__1___boxed, ptr %127, align 8, !tbaa !11
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store i16 4, ptr %128, align 8, !tbaa !16
+  store i16 4, ptr %128, align 8, !tbaa !22
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 18
-  store i16 1, ptr %129, align 2, !tbaa !16
+  store i16 1, ptr %129, align 2, !tbaa !22
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store ptr %41, ptr %130, align 8, !tbaa !11
   br i1 %.not866, label %131, label %lean_inc.exit512
@@ -96060,9 +96060,9 @@ lean_alloc_closure.exit635:                       ; preds = %lean_inc.exit512
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store ptr @l_ReaderT_pure___at_Lean_Elab_liftMacroM___spec__2___rarg___boxed, ptr %141, align 8, !tbaa !11
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  store i16 3, ptr %142, align 8, !tbaa !16
+  store i16 3, ptr %142, align 8, !tbaa !22
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 18
-  store i16 1, ptr %143, align 2, !tbaa !16
+  store i16 1, ptr %143, align 2, !tbaa !22
   %144 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store ptr %88, ptr %144, align 8, !tbaa !11
   br i1 %.not862, label %145, label %lean_inc.exit511
@@ -96102,9 +96102,9 @@ lean_alloc_closure.exit639:                       ; preds = %lean_inc.exit511
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr @l_Lean_Elab_liftMacroM___at_Lean_Elab_Term_getPatternsVars___spec__1___lambda__2___boxed, ptr %155, align 8, !tbaa !11
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store i16 4, ptr %156, align 8, !tbaa !16
+  store i16 4, ptr %156, align 8, !tbaa !22
   %157 = getelementptr inbounds nuw i8, ptr %151, i64 18
-  store i16 1, ptr %157, align 2, !tbaa !16
+  store i16 1, ptr %157, align 2, !tbaa !22
   %158 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store ptr %41, ptr %158, align 8, !tbaa !11
   br i1 %.not867, label %159, label %lean_inc.exit510
@@ -96186,9 +96186,9 @@ lean_alloc_closure.exit649:                       ; preds = %lean_inc.exit508
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store ptr @l_Lean_Elab_liftMacroM___at_Lean_Elab_Term_getPatternsVars___spec__1___lambda__3___boxed, ptr %181, align 8, !tbaa !11
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 16
-  store i16 6, ptr %182, align 8, !tbaa !16
+  store i16 6, ptr %182, align 8, !tbaa !22
   %183 = getelementptr inbounds nuw i8, ptr %177, i64 18
-  store i16 3, ptr %183, align 2, !tbaa !16
+  store i16 3, ptr %183, align 2, !tbaa !22
   %184 = getelementptr inbounds nuw i8, ptr %177, i64 24
   store ptr %41, ptr %184, align 8, !tbaa !11
   %185 = getelementptr inbounds nuw i8, ptr %177, i64 32
@@ -96232,9 +96232,9 @@ lean_alloc_closure.exit653:                       ; preds = %lean_inc.exit507
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store ptr @l_Lean_Elab_liftMacroM___at_Lean_Elab_Term_getPatternsVars___spec__1___lambda__4___boxed, ptr %197, align 8, !tbaa !11
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 16
-  store i16 6, ptr %198, align 8, !tbaa !16
+  store i16 6, ptr %198, align 8, !tbaa !22
   %199 = getelementptr inbounds nuw i8, ptr %193, i64 18
-  store i16 3, ptr %199, align 2, !tbaa !16
+  store i16 3, ptr %199, align 2, !tbaa !22
   %200 = getelementptr inbounds nuw i8, ptr %193, i64 24
   store ptr %41, ptr %200, align 8, !tbaa !11
   %201 = getelementptr inbounds nuw i8, ptr %193, i64 32
@@ -99602,9 +99602,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_array_uget.exi
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr @l_Lean_expandMacros, ptr %119, align 8, !tbaa !11
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  store i16 4, ptr %120, align 8, !tbaa !16
+  store i16 4, ptr %120, align 8, !tbaa !22
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 18
-  store i16 2, ptr %121, align 2, !tbaa !16
+  store i16 2, ptr %121, align 2, !tbaa !22
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 24
   store ptr %105, ptr %122, align 8, !tbaa !11
   %123 = getelementptr inbounds nuw i8, ptr %115, i64 32
@@ -101530,9 +101530,9 @@ l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Term_getPatternsVars___spec__5
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Term_getPatternsVars___spec__5___rarg, ptr %12, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i16 1, ptr %13, align 8, !tbaa !16
+  store i16 1, ptr %13, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  store i16 0, ptr %14, align 2, !tbaa !16
+  store i16 0, ptr %14, align 2, !tbaa !22
   %15 = ptrtoint ptr %6 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
@@ -102389,9 +102389,9 @@ _init_l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_thro
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___lambda__1___boxed, ptr %64, align 8, !tbaa !11
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i16 1, ptr %65, align 8, !tbaa !16
+  store i16 1, ptr %65, align 8, !tbaa !22
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 18
-  store i16 0, ptr %66, align 2, !tbaa !16
+  store i16 0, ptr %66, align 2, !tbaa !22
   store ptr %60, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___closed__3, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %60) #6
   %67 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.1, i64 noundef 5, i64 noundef 5) #6
@@ -102417,9 +102417,9 @@ _init_l_Array_qsort_sort___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_C
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr @l_Array_qsort_sort___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__5___lambda__1___boxed, ptr %74, align 8, !tbaa !11
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i16 2, ptr %75, align 8, !tbaa !16
+  store i16 2, ptr %75, align 8, !tbaa !22
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 18
-  store i16 0, ptr %76, align 2, !tbaa !16
+  store i16 0, ptr %76, align 2, !tbaa !22
   store ptr %70, ptr @l_Array_qsort_sort___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected___spec__5___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %70) #6
   %77 = load ptr, ptr @l_Lean_matchPatternAttr, align 8, !tbaa !11
@@ -102757,9 +102757,9 @@ _init_l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_thro
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwWrongArgCount___rarg___lambda__1___boxed, ptr %206, align 8, !tbaa !11
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  store i16 10, ptr %207, align 8, !tbaa !16
+  store i16 10, ptr %207, align 8, !tbaa !22
   %208 = getelementptr inbounds nuw i8, ptr %202, i64 18
-  store i16 0, ptr %208, align 2, !tbaa !16
+  store i16 0, ptr %208, align 2, !tbaa !22
   store ptr %202, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwWrongArgCount___rarg___lambda__2___closed__9, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %202) #6
   %209 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.18, i64 noundef 10, i64 noundef 10) #6
@@ -103052,9 +103052,9 @@ _init_l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_same
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 8
   store ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_samePatternsVariables___lambda__1___boxed, ptr %320, align 8, !tbaa !11
   %321 = getelementptr inbounds nuw i8, ptr %316, i64 16
-  store i16 1, ptr %321, align 8, !tbaa !16
+  store i16 1, ptr %321, align 8, !tbaa !22
   %322 = getelementptr inbounds nuw i8, ptr %316, i64 18
-  store i16 0, ptr %322, align 2, !tbaa !16
+  store i16 0, ptr %322, align 2, !tbaa !22
   store ptr %316, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_samePatternsVariables___closed__2, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %316) #6
   %323 = load ptr, ptr @l___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_samePatternsVariables___closed__2, align 8, !tbaa !11
@@ -103158,9 +103158,9 @@ _init_l_Lean_Elab_Term_CollectPatternVars_collect_processCtorAppCore___lambda__2
   %370 = getelementptr inbounds nuw i8, ptr %366, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect_processCtorAppCore___lambda__1___boxed, ptr %370, align 8, !tbaa !11
   %371 = getelementptr inbounds nuw i8, ptr %366, i64 16
-  store i16 10, ptr %371, align 8, !tbaa !16
+  store i16 10, ptr %371, align 8, !tbaa !22
   %372 = getelementptr inbounds nuw i8, ptr %366, i64 18
-  store i16 0, ptr %372, align 2, !tbaa !16
+  store i16 0, ptr %372, align 2, !tbaa !22
   store ptr %366, ptr @l_Lean_Elab_Term_CollectPatternVars_collect_processCtorAppCore___lambda__2___closed__2, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %366) #6
   %373 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.46, i64 noundef 5, i64 noundef 5) #6
@@ -103193,9 +103193,9 @@ _init_l_Lean_Elab_Term_CollectPatternVars_collect_processCtorAppContext___closed
   %383 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect_processCtorAppContext, ptr %383, align 8, !tbaa !11
   %384 = getelementptr inbounds nuw i8, ptr %379, i64 16
-  store i16 9, ptr %384, align 8, !tbaa !16
+  store i16 9, ptr %384, align 8, !tbaa !22
   %385 = getelementptr inbounds nuw i8, ptr %379, i64 18
-  store i16 0, ptr %385, align 2, !tbaa !16
+  store i16 0, ptr %385, align 2, !tbaa !22
   store ptr %379, ptr @l_Lean_Elab_Term_CollectPatternVars_collect_processCtorAppContext___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %379) #6
   %386 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.48, i64 noundef 4, i64 noundef 4) #6
@@ -103451,9 +103451,9 @@ _init_l_Lean_Elab_Term_CollectPatternVars_collect___lambda__14___closed__1.exit:
   %502 = getelementptr inbounds nuw i8, ptr %498, i64 8
   store ptr @l_Lean_Elab_Term_CollectPatternVars_collect, ptr %502, align 8, !tbaa !11
   %503 = getelementptr inbounds nuw i8, ptr %498, i64 16
-  store i16 9, ptr %503, align 8, !tbaa !16
+  store i16 9, ptr %503, align 8, !tbaa !22
   %504 = getelementptr inbounds nuw i8, ptr %498, i64 18
-  store i16 0, ptr %504, align 2, !tbaa !16
+  store i16 0, ptr %504, align 2, !tbaa !22
   store ptr %498, ptr @l_Lean_Elab_Term_CollectPatternVars_collect___lambda__14___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %498) #6
   %505 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.71, i64 noundef 3, i64 noundef 3) #6
@@ -103582,7 +103582,7 @@ _init_l_Lean_Elab_Term_CollectPatternVars_collect___lambda__14___closed__1.exit:
   store ptr %575, ptr @l_Lean_Elab_Term_CollectPatternVars_collect___closed__27, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %575) #6
   %576 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
-  store double %576, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !21
+  store double %576, ptr @l_Lean_addTrace___at_Lean_Elab_Term_CollectPatternVars_main___spec__2___closed__1, align 8, !tbaa !28
   %577 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.84, i64 noundef 4, i64 noundef 4) #6
   store ptr %577, ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_CollectPatternVars_main___spec__3___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %577) #6
@@ -103648,9 +103648,9 @@ _init_l_Lean_Elab_Term_getPatternVars___closed__1.exit: ; preds = %_init_l_Lean_
   %603 = getelementptr inbounds nuw i8, ptr %599, i64 8
   store ptr @l_Lean_Elab_Term_getPatternVars___lambda__1___boxed, ptr %603, align 8, !tbaa !11
   %604 = getelementptr inbounds nuw i8, ptr %599, i64 16
-  store i16 1, ptr %604, align 8, !tbaa !16
+  store i16 1, ptr %604, align 8, !tbaa !22
   %605 = getelementptr inbounds nuw i8, ptr %599, i64 18
-  store i16 0, ptr %605, align 2, !tbaa !16
+  store i16 0, ptr %605, align 2, !tbaa !22
   store ptr %599, ptr @l_Lean_Elab_Term_getPatternVars___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %599) #6
   %606 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.88, i64 noundef 7, i64 noundef 7) #6
@@ -103848,10 +103848,18 @@ attributes #7 = { noreturn nounwind }
 !13 = !{!6, !6, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
-!18 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
-!19 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!20 = !{!"branch_weights", i32 4000000, i32 4001}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"double", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"short", !6, i64 0}
+!24 = distinct !{!24, !17}
+!25 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
+!26 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!27 = !{!"branch_weights", i32 4000000, i32 4001}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"double", !6, i64 0}
+!30 = distinct !{!30, !17}

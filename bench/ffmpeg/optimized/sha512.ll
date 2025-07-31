@@ -156,7 +156,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %15 = load i64, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8, !tbaa !9
-  %18 = load i64, ptr %1, align 1, !tbaa !13
+  %18 = load i64, ptr %1, align 1, !tbaa !14
   %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
   %20 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 50)
   %21 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 46)
@@ -183,7 +183,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %42 = add i64 %41, %37
   %43 = add i64 %42, %31
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %45 = load i64, ptr %44, align 1, !tbaa !13
+  %45 = load i64, ptr %44, align 1, !tbaa !14
   %46 = tail call noundef i64 @llvm.bswap.i64(i64 %45)
   %47 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 50)
   %48 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 46)
@@ -210,7 +210,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %69 = add i64 %64, %68
   %70 = add i64 %69, %58
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i64, ptr %71, align 1, !tbaa !13
+  %72 = load i64, ptr %71, align 1, !tbaa !14
   %73 = tail call noundef i64 @llvm.bswap.i64(i64 %72)
   %74 = tail call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 50)
   %75 = tail call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 46)
@@ -237,7 +237,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %96 = add i64 %91, %95
   %97 = add i64 %96, %85
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %99 = load i64, ptr %98, align 1, !tbaa !13
+  %99 = load i64, ptr %98, align 1, !tbaa !14
   %100 = tail call noundef i64 @llvm.bswap.i64(i64 %99)
   %101 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 50)
   %102 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 46)
@@ -264,7 +264,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %123 = add i64 %118, %122
   %124 = add i64 %123, %112
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %126 = load i64, ptr %125, align 1, !tbaa !13
+  %126 = load i64, ptr %125, align 1, !tbaa !14
   %127 = tail call noundef i64 @llvm.bswap.i64(i64 %126)
   %128 = tail call i64 @llvm.fshl.i64(i64 %113, i64 %113, i64 50)
   %129 = tail call i64 @llvm.fshl.i64(i64 %113, i64 %113, i64 46)
@@ -291,7 +291,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %150 = add i64 %145, %149
   %151 = add i64 %150, %139
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %153 = load i64, ptr %152, align 1, !tbaa !13
+  %153 = load i64, ptr %152, align 1, !tbaa !14
   %154 = tail call noundef i64 @llvm.bswap.i64(i64 %153)
   %155 = tail call i64 @llvm.fshl.i64(i64 %140, i64 %140, i64 50)
   %156 = tail call i64 @llvm.fshl.i64(i64 %140, i64 %140, i64 46)
@@ -318,7 +318,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %177 = add i64 %172, %176
   %178 = add i64 %177, %166
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %180 = load i64, ptr %179, align 1, !tbaa !13
+  %180 = load i64, ptr %179, align 1, !tbaa !14
   %181 = tail call noundef i64 @llvm.bswap.i64(i64 %180)
   %182 = tail call i64 @llvm.fshl.i64(i64 %167, i64 %167, i64 50)
   %183 = tail call i64 @llvm.fshl.i64(i64 %167, i64 %167, i64 46)
@@ -345,7 +345,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %204 = add i64 %199, %203
   %205 = add i64 %204, %193
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %207 = load i64, ptr %206, align 1, !tbaa !13
+  %207 = load i64, ptr %206, align 1, !tbaa !14
   %208 = tail call noundef i64 @llvm.bswap.i64(i64 %207)
   %209 = tail call i64 @llvm.fshl.i64(i64 %194, i64 %194, i64 50)
   %210 = tail call i64 @llvm.fshl.i64(i64 %194, i64 %194, i64 46)
@@ -372,7 +372,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %231 = add i64 %226, %230
   %232 = add i64 %231, %220
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %234 = load i64, ptr %233, align 1, !tbaa !13
+  %234 = load i64, ptr %233, align 1, !tbaa !14
   %235 = tail call noundef i64 @llvm.bswap.i64(i64 %234)
   %236 = tail call i64 @llvm.fshl.i64(i64 %221, i64 %221, i64 50)
   %237 = tail call i64 @llvm.fshl.i64(i64 %221, i64 %221, i64 46)
@@ -399,7 +399,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %258 = add i64 %253, %257
   %259 = add i64 %258, %247
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %261 = load i64, ptr %260, align 1, !tbaa !13
+  %261 = load i64, ptr %260, align 1, !tbaa !14
   %262 = tail call noundef i64 @llvm.bswap.i64(i64 %261)
   %263 = tail call i64 @llvm.fshl.i64(i64 %248, i64 %248, i64 50)
   %264 = tail call i64 @llvm.fshl.i64(i64 %248, i64 %248, i64 46)
@@ -426,7 +426,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %285 = add i64 %280, %284
   %286 = add i64 %285, %274
   %287 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %288 = load i64, ptr %287, align 1, !tbaa !13
+  %288 = load i64, ptr %287, align 1, !tbaa !14
   %289 = tail call noundef i64 @llvm.bswap.i64(i64 %288)
   %290 = tail call i64 @llvm.fshl.i64(i64 %275, i64 %275, i64 50)
   %291 = tail call i64 @llvm.fshl.i64(i64 %275, i64 %275, i64 46)
@@ -453,7 +453,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %312 = add i64 %307, %311
   %313 = add i64 %312, %301
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %315 = load i64, ptr %314, align 1, !tbaa !13
+  %315 = load i64, ptr %314, align 1, !tbaa !14
   %316 = tail call noundef i64 @llvm.bswap.i64(i64 %315)
   %317 = tail call i64 @llvm.fshl.i64(i64 %302, i64 %302, i64 50)
   %318 = tail call i64 @llvm.fshl.i64(i64 %302, i64 %302, i64 46)
@@ -480,7 +480,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %339 = add i64 %334, %338
   %340 = add i64 %339, %328
   %341 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %342 = load i64, ptr %341, align 1, !tbaa !13
+  %342 = load i64, ptr %341, align 1, !tbaa !14
   %343 = tail call noundef i64 @llvm.bswap.i64(i64 %342)
   %344 = tail call i64 @llvm.fshl.i64(i64 %329, i64 %329, i64 50)
   %345 = tail call i64 @llvm.fshl.i64(i64 %329, i64 %329, i64 46)
@@ -507,7 +507,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %366 = add i64 %361, %365
   %367 = add i64 %366, %355
   %368 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %369 = load i64, ptr %368, align 1, !tbaa !13
+  %369 = load i64, ptr %368, align 1, !tbaa !14
   %370 = tail call noundef i64 @llvm.bswap.i64(i64 %369)
   %371 = tail call i64 @llvm.fshl.i64(i64 %356, i64 %356, i64 50)
   %372 = tail call i64 @llvm.fshl.i64(i64 %356, i64 %356, i64 46)
@@ -534,7 +534,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %393 = add i64 %388, %392
   %394 = add i64 %393, %382
   %395 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %396 = load i64, ptr %395, align 1, !tbaa !13
+  %396 = load i64, ptr %395, align 1, !tbaa !14
   %397 = tail call noundef i64 @llvm.bswap.i64(i64 %396)
   %398 = tail call i64 @llvm.fshl.i64(i64 %383, i64 %383, i64 50)
   %399 = tail call i64 @llvm.fshl.i64(i64 %383, i64 %383, i64 46)
@@ -561,7 +561,7 @@ define internal fastcc void @sha512_transform(ptr noundef captures(none) %0, ptr
   %420 = add i64 %415, %419
   %421 = add i64 %420, %409
   %422 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %423 = load i64, ptr %422, align 1, !tbaa !13
+  %423 = load i64, ptr %422, align 1, !tbaa !14
   %424 = tail call noundef i64 @llvm.bswap.i64(i64 %423)
   %425 = tail call i64 @llvm.fshl.i64(i64 %410, i64 %410, i64 50)
   %426 = tail call i64 @llvm.fshl.i64(i64 %410, i64 %410, i64 46)
@@ -3047,7 +3047,7 @@ av_sha512_update.exit20:                          ; preds = %28, %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %.0.i19, i64 %.026.i18, i1 false)
   %33 = and i64 %30, 127
   %.not = icmp eq i64 %33, 112
-  br i1 %.not, label %av_sha512_update.exit28, label %22, !llvm.loop !14
+  br i1 %.not, label %av_sha512_update.exit28, label %22, !llvm.loop !15
 
 av_sha512_update.exit28:                          ; preds = %av_sha512_update.exit20, %av_sha512_update.exit
   %.lcssa37 = phi i64 [ %16, %av_sha512_update.exit ], [ %30, %av_sha512_update.exit20 ]
@@ -3095,12 +3095,12 @@ av_sha512_update.exit36:                          ; preds = %39, %av_sha512_upda
   %54 = tail call noundef i64 @llvm.bswap.i64(i64 %53)
   %55 = shl nuw nsw i64 %storemerge40, 3
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 %55
-  store i64 %54, ptr %56, align 1, !tbaa !13
+  store i64 %54, ptr %56, align 1, !tbaa !14
   %57 = add nuw nsw i64 %storemerge40, 1
   %58 = load i8, ptr %0, align 8, !tbaa !4
   %59 = zext i8 %58 to i64
   %60 = icmp samesign ult i64 %57, %59
-  br i1 %60, label %51, label %._crit_edge, !llvm.loop !15
+  br i1 %60, label %51, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %51
   %61 = and i8 %58, 1
@@ -3116,7 +3116,7 @@ av_sha512_update.exit36:                          ; preds = %39, %av_sha512_upda
   %69 = tail call i32 @llvm.bswap.i32(i32 %68)
   %70 = shl nuw nsw i64 %57, 3
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 %70
-  store i32 %69, ptr %71, align 1, !tbaa !13
+  store i32 %69, ptr %71, align 1, !tbaa !14
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %av_sha512_update.exit36, %63, %._crit_edge
@@ -3159,8 +3159,9 @@ attributes #8 = { nounwind }
 !8 = !{!"long", !6, i64 0}
 !9 = !{!8, !8, i64 0}
 !10 = !{!5, !8, i64 8}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!6, !6, i64 0}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}

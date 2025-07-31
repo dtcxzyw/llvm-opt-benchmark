@@ -1153,7 +1153,7 @@ _ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit: ; 
   %20 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.not = icmp eq ptr %20, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 22:                                               ; preds = %18
   %23 = landingpad { ptr, i32 }
@@ -1301,6 +1301,7 @@ attributes #20 = { noreturn }
 !25 = !{!"p1 _ZTSN4cvc58internal12NodeTemplateILb1EEE", !6, i64 0}
 !26 = !{!24, !25, i64 16}
 !27 = !{!24, !25, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}

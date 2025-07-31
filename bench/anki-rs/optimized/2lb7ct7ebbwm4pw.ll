@@ -597,7 +597,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc67b5401bcbf6e
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1775fbae45b0b460E"(ptr nonnull sret({ ptr, [9 x i64] }) align 8 %5, ptr align 8 %1)
   %18 = load ptr, ptr %5, align 8, !noundef !3
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !6
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -957,3 +957,5 @@ attributes #16 = { cold noreturn nounwind }
 !3 = !{}
 !4 = !{i64 0, i64 2}
 !5 = !{i64 8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

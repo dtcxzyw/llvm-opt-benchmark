@@ -147,7 +147,7 @@ declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @TS_X509_ALGOR_print_bio(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !5
+  %3 = load ptr, ptr %1, align 8, !tbaa !6
   %4 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %6
@@ -168,8 +168,8 @@ declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @TS_MSG_IMPRINT_print_bio(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !12
-  %4 = load ptr, ptr %3, align 8, !tbaa !5
+  %3 = load ptr, ptr %1, align 8, !tbaa !13
+  %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call i32 @OBJ_obj2nid(ptr noundef %4) #4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %TS_X509_ALGOR_print_bio.exit, label %7
@@ -183,7 +183,7 @@ TS_X509_ALGOR_print_bio.exit:                     ; preds = %2, %7
   %10 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %9) #4
   %11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.11) #4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !16
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %13) #4
   %15 = tail call i32 @ASN1_STRING_length(ptr noundef %13) #4
   %16 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef %14, i32 noundef %15, i32 noundef 4) #4
@@ -208,17 +208,18 @@ attributes #5 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !7, i64 0}
-!6 = !{!"X509_algor_st", !7, i64 0, !11, i64 8}
-!7 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!"p1 _ZTS12asn1_type_st", !8, i64 0}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"TS_msg_imprint_st", !14, i64 0, !15, i64 8}
-!14 = !{!"p1 _ZTS13X509_algor_st", !8, i64 0}
-!15 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
-!16 = !{!13, !15, i64 8}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"X509_algor_st", !8, i64 0, !12, i64 8}
+!8 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"TS_msg_imprint_st", !15, i64 0, !16, i64 8}
+!15 = !{!"p1 _ZTS13X509_algor_st", !9, i64 0}
+!16 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
+!17 = !{!14, !16, i64 8}

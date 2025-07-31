@@ -85,18 +85,18 @@ define internal range(i32 -2147483648, 1) i32 @y41p_encode_frame(ptr noundef %0,
   br i1 %30, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph62.split
-  %31 = load ptr, ptr %21, align 8, !tbaa !35
-  %32 = load i32, ptr %22, align 8, !tbaa !36
+  %31 = load ptr, ptr %21, align 8, !tbaa !36
+  %32 = load i32, ptr %22, align 8, !tbaa !37
   %33 = mul nsw i32 %32, %.04861
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
-  %36 = load ptr, ptr %19, align 8, !tbaa !35
-  %37 = load i32, ptr %20, align 4, !tbaa !36
+  %36 = load ptr, ptr %19, align 8, !tbaa !36
+  %37 = load i32, ptr %20, align 4, !tbaa !37
   %38 = mul nsw i32 %37, %.04861
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %36, i64 %39
-  %41 = load ptr, ptr %2, align 8, !tbaa !35
-  %42 = load i32, ptr %18, align 8, !tbaa !36
+  %41 = load ptr, ptr %2, align 8, !tbaa !36
+  %42 = load i32, ptr %18, align 8, !tbaa !37
   %43 = mul nsw i32 %42, %.04861
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
@@ -109,60 +109,60 @@ define internal range(i32 -2147483648, 1) i32 @y41p_encode_frame(ptr noundef %0,
   %.05155 = phi ptr [ %79, %.lr.ph ], [ %45, %.lr.ph.preheader ]
   %.154 = phi ptr [ %81, %.lr.ph ], [ %.05260, %.lr.ph.preheader ]
   %46 = getelementptr inbounds nuw i8, ptr %.05056, i64 1
-  %47 = load i8, ptr %.05056, align 1, !tbaa !37
+  %47 = load i8, ptr %.05056, align 1, !tbaa !38
   %48 = getelementptr inbounds nuw i8, ptr %.154, i64 1
-  store i8 %47, ptr %.154, align 1, !tbaa !37
+  store i8 %47, ptr %.154, align 1, !tbaa !38
   %49 = getelementptr inbounds nuw i8, ptr %.05155, i64 1
-  %50 = load i8, ptr %.05155, align 1, !tbaa !37
+  %50 = load i8, ptr %.05155, align 1, !tbaa !38
   %51 = getelementptr inbounds nuw i8, ptr %.154, i64 2
-  store i8 %50, ptr %48, align 1, !tbaa !37
+  store i8 %50, ptr %48, align 1, !tbaa !38
   %52 = getelementptr inbounds nuw i8, ptr %.04957, i64 1
-  %53 = load i8, ptr %.04957, align 1, !tbaa !37
+  %53 = load i8, ptr %.04957, align 1, !tbaa !38
   %54 = getelementptr inbounds nuw i8, ptr %.154, i64 3
-  store i8 %53, ptr %51, align 1, !tbaa !37
+  store i8 %53, ptr %51, align 1, !tbaa !38
   %55 = getelementptr inbounds nuw i8, ptr %.05155, i64 2
-  %56 = load i8, ptr %49, align 1, !tbaa !37
+  %56 = load i8, ptr %49, align 1, !tbaa !38
   %57 = getelementptr inbounds nuw i8, ptr %.154, i64 4
-  store i8 %56, ptr %54, align 1, !tbaa !37
+  store i8 %56, ptr %54, align 1, !tbaa !38
   %58 = getelementptr inbounds nuw i8, ptr %.05056, i64 2
-  %59 = load i8, ptr %46, align 1, !tbaa !37
+  %59 = load i8, ptr %46, align 1, !tbaa !38
   %60 = getelementptr inbounds nuw i8, ptr %.154, i64 5
-  store i8 %59, ptr %57, align 1, !tbaa !37
+  store i8 %59, ptr %57, align 1, !tbaa !38
   %61 = getelementptr inbounds nuw i8, ptr %.05155, i64 3
-  %62 = load i8, ptr %55, align 1, !tbaa !37
+  %62 = load i8, ptr %55, align 1, !tbaa !38
   %63 = getelementptr inbounds nuw i8, ptr %.154, i64 6
-  store i8 %62, ptr %60, align 1, !tbaa !37
+  store i8 %62, ptr %60, align 1, !tbaa !38
   %64 = getelementptr inbounds nuw i8, ptr %.04957, i64 2
-  %65 = load i8, ptr %52, align 1, !tbaa !37
+  %65 = load i8, ptr %52, align 1, !tbaa !38
   %66 = getelementptr inbounds nuw i8, ptr %.154, i64 7
-  store i8 %65, ptr %63, align 1, !tbaa !37
+  store i8 %65, ptr %63, align 1, !tbaa !38
   %67 = getelementptr inbounds nuw i8, ptr %.05155, i64 4
-  %68 = load i8, ptr %61, align 1, !tbaa !37
+  %68 = load i8, ptr %61, align 1, !tbaa !38
   %69 = getelementptr inbounds nuw i8, ptr %.154, i64 8
-  store i8 %68, ptr %66, align 1, !tbaa !37
+  store i8 %68, ptr %66, align 1, !tbaa !38
   %70 = getelementptr inbounds nuw i8, ptr %.05155, i64 5
-  %71 = load i8, ptr %67, align 1, !tbaa !37
+  %71 = load i8, ptr %67, align 1, !tbaa !38
   %72 = getelementptr inbounds nuw i8, ptr %.154, i64 9
-  store i8 %71, ptr %69, align 1, !tbaa !37
+  store i8 %71, ptr %69, align 1, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %.05155, i64 6
-  %74 = load i8, ptr %70, align 1, !tbaa !37
+  %74 = load i8, ptr %70, align 1, !tbaa !38
   %75 = getelementptr inbounds nuw i8, ptr %.154, i64 10
-  store i8 %74, ptr %72, align 1, !tbaa !37
+  store i8 %74, ptr %72, align 1, !tbaa !38
   %76 = getelementptr inbounds nuw i8, ptr %.05155, i64 7
-  %77 = load i8, ptr %73, align 1, !tbaa !37
+  %77 = load i8, ptr %73, align 1, !tbaa !38
   %78 = getelementptr inbounds nuw i8, ptr %.154, i64 11
-  store i8 %77, ptr %75, align 1, !tbaa !37
+  store i8 %77, ptr %75, align 1, !tbaa !38
   %79 = getelementptr inbounds nuw i8, ptr %.05155, i64 8
-  %80 = load i8, ptr %76, align 1, !tbaa !37
+  %80 = load i8, ptr %76, align 1, !tbaa !38
   %81 = getelementptr inbounds nuw i8, ptr %.154, i64 12
-  store i8 %80, ptr %78, align 1, !tbaa !37
+  store i8 %80, ptr %78, align 1, !tbaa !38
   %82 = add nuw nsw i32 %.04758, 8
   %83 = load i32, ptr %5, align 8, !tbaa !4
   %84 = icmp slt i32 %82, %83
-  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !38
+  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph62, %15
-  store i32 1, ptr %3, align 4, !tbaa !36
+  store i32 1, ptr %3, align 4, !tbaa !37
   br label %85
 
 85:                                               ; preds = %4, %._crit_edge
@@ -215,10 +215,11 @@ attributes #3 = { nounwind }
 !29 = !{!5, !10, i64 116}
 !30 = !{!31, !14, i64 24}
 !31 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33, !34, !35}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.unswitch.partial.disable"}
-!35 = !{!14, !14, i64 0}
-!36 = !{!10, !10, i64 0}
-!37 = !{!8, !8, i64 0}
-!38 = distinct !{!38, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!"llvm.loop.unswitch.partial.disable"}
+!36 = !{!14, !14, i64 0}
+!37 = !{!10, !10, i64 0}
+!38 = !{!8, !8, i64 0}
+!39 = distinct !{!39, !33, !34}

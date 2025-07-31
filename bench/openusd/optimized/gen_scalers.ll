@@ -124,7 +124,7 @@ define hidden void @aom_vertical_band_5_4_scale_c(ptr noundef readonly captures(
   %54 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   %55 = getelementptr inbounds nuw i8, ptr %.03031, i64 1
   %56 = icmp ult ptr %55, %7
-  br i1 %56, label %20, label %._crit_edge, !llvm.loop !6
+  br i1 %56, label %20, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %20, %5
   ret void
@@ -173,7 +173,7 @@ define hidden void @aom_horizontal_line_5_3_scale_c(ptr noundef readonly capture
   %34 = getelementptr inbounds nuw i8, ptr %.020, i64 5
   %35 = getelementptr inbounds nuw i8, ptr %.01819, i64 3
   %36 = icmp ult ptr %34, %6
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -235,7 +235,7 @@ define hidden void @aom_vertical_band_5_3_scale_c(ptr noundef readonly captures(
   %46 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   %47 = getelementptr inbounds nuw i8, ptr %.02627, i64 1
   %48 = icmp ult ptr %47, %7
-  br i1 %48, label %18, label %._crit_edge, !llvm.loop !8
+  br i1 %48, label %18, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %18, %5
   ret void
@@ -256,7 +256,7 @@ define hidden void @aom_horizontal_line_2_1_scale_c(ptr noundef readonly capture
   %8 = getelementptr inbounds nuw i8, ptr %.09, i64 2
   %9 = getelementptr inbounds nuw i8, ptr %.078, i64 1
   %10 = icmp ult ptr %8, %6
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -307,7 +307,7 @@ define hidden void @aom_vertical_band_2_1_scale_i_c(ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %26 = getelementptr inbounds nuw i8, ptr %.01415, i64 1
   %27 = icmp ult ptr %26, %7
-  br i1 %27, label %11, label %._crit_edge, !llvm.loop !10
+  br i1 %27, label %11, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %11, %5
   ret void
@@ -323,10 +323,11 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}

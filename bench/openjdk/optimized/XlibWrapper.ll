@@ -139,7 +139,7 @@ define hidden noalias noundef ptr @stringArrayToNative(ptr noundef %0, ptr nound
   %.444 = phi i32 [ %.242, %30 ], [ %.04064, %.lr.ph ]
   %35 = add nuw nsw i32 %.03965, 1
   %exitcond.not = icmp eq i32 %35, %7
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %30, %.thread
   %.141.ph = phi i32 [ %.04064, %.thread ], [ %.242, %30 ]
@@ -1295,7 +1295,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsKanaKeyboard(pt
   %spec.select = add nuw nsw i32 %.014, %25
   %26 = add nuw nsw i32 %.0913, 1
   %exitcond.not = icmp eq i32 %26, %19
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %27 = icmp samesign ugt i32 %spec.select, 10
@@ -2048,7 +2048,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XNextSecondaryLoo
   %19 = zext i32 %13 to i64
   call void (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i64 noundef %19) #14
   %.b = load i1, ptr @exitSecondaryLoop, align 4
-  br i1 %.b, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %.b, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10, %4
   %.08 = phi i8 [ 0, %4 ], [ 0, %10 ], [ 1, %.lr.ph ]
@@ -2266,7 +2266,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
   %112 = load i32, ptr %7, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next, %113
-  br i1 %114, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %114, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit.sink.split.sink.split:                  ; preds = %.lr.ph, %76
   %115 = load ptr, ptr %0, align 8
@@ -2536,9 +2536,10 @@ attributes #18 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

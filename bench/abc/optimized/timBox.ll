@@ -161,7 +161,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %83, ptr %82, align 4, !tbaa !30
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge, label %75, !llvm.loop !33
+  br i1 %exitcond57.not, label %._crit_edge, label %75, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %75, %.preheader
   ret void
@@ -175,7 +175,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Tim_ManBoxForCi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !34
+  %4 = load i32, ptr %3, align 8, !tbaa !35
   %.not = icmp slt i32 %1, %4
   br i1 %.not, label %5, label %11
 
@@ -195,7 +195,7 @@ define i32 @Tim_ManBoxForCi(ptr noundef readonly captures(none) %0, i32 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Tim_ManBoxForCo(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %4 = load i32, ptr %3, align 4, !tbaa !35
+  %4 = load i32, ptr %3, align 4, !tbaa !36
   %.not = icmp slt i32 %1, %4
   br i1 %.not, label %5, label %11
 
@@ -334,7 +334,7 @@ define ptr @Tim_ManBoxDelayTable(ptr noundef readonly captures(none) %0, i32 nou
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8, !tbaa !15
   %14 = zext nneg i32 %8 to i64
@@ -369,7 +369,7 @@ define i32 @Tim_ManBoxCopy(ptr noundef readonly captures(none) %0, i32 noundef %
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !37
+  %8 = load i32, ptr %7, align 4, !tbaa !38
   ret i32 %8
 }
 
@@ -382,7 +382,7 @@ define void @Tim_ManBoxSetCopy(ptr noundef readonly captures(none) %0, i32 nound
   %6 = getelementptr inbounds ptr, ptr %.val.val, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %2, ptr %8, align 4, !tbaa !37
+  store i32 %2, ptr %8, align 4, !tbaa !38
   ret void
 }
 
@@ -426,7 +426,7 @@ define range(i32 -2147483648, 2147483646) i32 @Tim_ManBoxFindFromCiNum(ptr nound
 22:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !38
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !39
 
 .critedge:                                        ; preds = %22, %.preheader, %2, %19
   %.011 = phi i32 [ %21, %19 ], [ -1, %2 ], [ -2, %.preheader ], [ -2, %22 ]
@@ -485,11 +485,12 @@ attributes #9 = { nounwind allocsize(1) }
 !28 = !{!"Tim_Obj_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !29, i64 16, !29, i64 20}
 !29 = !{!"float", !7, i64 0}
 !30 = !{!28, !10, i64 12}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32}
-!34 = !{!4, !10, i64 32}
-!35 = !{!4, !10, i64 36}
-!36 = !{!4, !5, i64 8}
-!37 = !{!18, !10, i64 20}
-!38 = distinct !{!38, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !32, !33}
+!35 = !{!4, !10, i64 32}
+!36 = !{!4, !10, i64 36}
+!37 = !{!4, !5, i64 8}
+!38 = !{!18, !10, i64 20}
+!39 = distinct !{!39, !32, !33}

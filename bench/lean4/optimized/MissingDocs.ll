@@ -20404,7 +20404,7 @@ lean_nat_eq.exit:                                 ; preds = %14
   br i1 %23, label %24, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %lean_nat_eq.exit, %21
-  br label %.backedge
+  br label %.backedge, !llvm.loop !19
 
 24:                                               ; preds = %21, %lean_nat_eq.exit, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %lean_nat_eq.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %21 ]
@@ -20890,7 +20890,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !21
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -21236,7 +21236,7 @@ lean_array_uset.exit106:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit106, %lean_array_uset.exit
   %.068.be = phi ptr [ %20, %lean_array_uset.exit ], [ %66, %lean_array_uset.exit106 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i103, %lean_array_uset.exit106 ]
-  br label %3
+  br label %3, !llvm.loop !22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -21255,7 +21255,7 @@ lean_dec.exit29:                                  ; preds = %lean_dec.exit29.bac
   %8 = ptrtoint ptr %.022 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit31, label %10, !prof !19
+  br i1 %.not, label %lean_dec.exit31, label %10, !prof !23
 
 10:                                               ; preds = %lean_dec.exit29
   %11 = icmp ult ptr %.022, %7
@@ -21378,7 +21378,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %44, %lean_array_fge
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %54, %56, %57
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !4
   %58 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Linter_MissingDocs_checkDecl___spec__6___at_Lean_Linter_MissingDocs_checkDecl___spec__7(ptr noundef %.026, ptr noundef %34)
-  br i1 %.not, label %68, label %59, !prof !19
+  br i1 %.not, label %68, label %59, !prof !23
 
 59:                                               ; preds = %lean_array_fset.exit
   %60 = add nuw i64 %31, 1
@@ -21912,13 +21912,13 @@ lean_nat_eq.exit.i:                               ; preds = %100
   br i1 %109, label %212, label %lean_array_uget.exit.backedge
 
 lean_array_uget.exit.backedge:                    ; preds = %lean_nat_eq.exit.i, %107
-  br label %lean_array_uget.exit
+  br label %lean_array_uget.exit, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit: ; preds = %lean_obj_tag.exit.i
   %110 = ptrtoint ptr %63 to i64
   %111 = and i64 %110, 1
   %.not302 = icmp eq i64 %111, 0
-  br i1 %.not302, label %122, label %112, !prof !19
+  br i1 %.not302, label %122, label %112, !prof !23
 
 112:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit
   %113 = lshr i64 %110, 1
@@ -22017,7 +22017,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %152 = ptrtoint ptr %.0.i152283 to i64
   %153 = and i64 %152, 1
   %.not303 = icmp eq i64 %153, 0
-  br i1 %.not303, label %.critedge.i144, label %154, !prof !19
+  br i1 %.not303, label %.critedge.i144, label %154, !prof !23
 
 154:                                              ; preds = %lean_array_uset.exit
   %155 = lshr i64 %152, 1
@@ -22050,7 +22050,7 @@ lean_nat_mul.exit149:                             ; preds = %154, %160, %164, %.
   %167 = ptrtoint ptr %.2.i145 to i64
   %168 = and i64 %167, 1
   %.not.i234 = icmp eq i64 %168, 0
-  br i1 %.not.i234, label %173, label %lean_nat_div.exit.thread, !prof !19
+  br i1 %.not.i234, label %173, label %lean_nat_div.exit.thread, !prof !23
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit149
   %169 = udiv i64 %167, 6
@@ -22088,7 +22088,7 @@ lean_dec.exit165:                                 ; preds = %180, %179, %177, %l
   %185 = ptrtoint ptr %.1.i235285 to i64
   %186 = and i64 %185, 1
   %.not304 = icmp eq i64 %186, 0
-  br i1 %.not304, label %187, label %lean_dec.exit164.thread, !prof !19
+  br i1 %.not304, label %187, label %lean_dec.exit164.thread, !prof !23
 
 lean_dec.exit164.thread:                          ; preds = %lean_dec.exit165
   %.not308 = icmp ugt ptr %.1.i235285, %184
@@ -22360,10 +22360,10 @@ lean_nat_eq.exit.i258:                            ; preds = %286
   br i1 %295, label %408, label %lean_array_uget.exit250.backedge
 
 lean_array_uget.exit250.backedge:                 ; preds = %lean_nat_eq.exit.i258, %293
-  br label %lean_array_uget.exit250
+  br label %lean_array_uget.exit250, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit260: ; preds = %lean_obj_tag.exit.i253
-  br i1 %.not296, label %306, label %296, !prof !19
+  br i1 %.not296, label %306, label %296, !prof !23
 
 296:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit260
   %297 = lshr i64 %236, 1
@@ -22462,7 +22462,7 @@ lean_array_uset.exit269:                          ; preds = %lean_ensure_exclusi
   %336 = ptrtoint ptr %.0.i289 to i64
   %337 = and i64 %336, 1
   %.not299 = icmp eq i64 %337, 0
-  br i1 %.not299, label %.critedge.i, label %338, !prof !19
+  br i1 %.not299, label %.critedge.i, label %338, !prof !23
 
 338:                                              ; preds = %lean_array_uset.exit269
   %339 = lshr i64 %336, 1
@@ -22495,7 +22495,7 @@ lean_nat_mul.exit:                                ; preds = %338, %344, %348, %.
   %351 = ptrtoint ptr %.2.i to i64
   %352 = and i64 %351, 1
   %.not.i270 = icmp eq i64 %352, 0
-  br i1 %.not.i270, label %357, label %lean_nat_div.exit273.thread, !prof !19
+  br i1 %.not.i270, label %357, label %lean_nat_div.exit273.thread, !prof !23
 
 lean_nat_div.exit273.thread:                      ; preds = %lean_nat_mul.exit
   %353 = udiv i64 %351, 6
@@ -22533,7 +22533,7 @@ lean_dec.exit157:                                 ; preds = %364, %363, %361, %l
   %369 = ptrtoint ptr %.1.i271291 to i64
   %370 = and i64 %369, 1
   %.not300 = icmp eq i64 %370, 0
-  br i1 %.not300, label %371, label %lean_dec.exit156.thread, !prof !19
+  br i1 %.not300, label %371, label %lean_dec.exit156.thread, !prof !23
 
 lean_dec.exit156.thread:                          ; preds = %lean_dec.exit157
   %.not307 = icmp ugt ptr %.1.i271291, %368
@@ -22891,7 +22891,7 @@ lean_array_get.exit:                              ; preds = %lean_dec.exit.i, %5
   br label %lean_dec.exit82
 
 lean_dec.exit82:                                  ; preds = %66, %65, %63, %lean_array_get.exit
-  br i1 %.not.i123, label %77, label %67, !prof !19
+  br i1 %.not.i123, label %77, label %67, !prof !23
 
 67:                                               ; preds = %lean_dec.exit82
   %68 = lshr i64 %27, 1
@@ -22938,7 +22938,7 @@ lean_dec.exit81:                                  ; preds = %71, %75, %84, %83, 
   %89 = ptrtoint ptr %.0.i146 to i64
   %90 = and i64 %89, 1
   %.not155 = icmp eq i64 %90, 0
-  br i1 %.not155, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !19
+  br i1 %.not155, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !23
 
 lean_nat_lt.exit:                                 ; preds = %lean_dec.exit81
   %.not156 = icmp ult ptr %.0.i146, %88
@@ -23080,7 +23080,7 @@ lean_usize_to_nat.exit135:                        ; preds = %134, %138
   %144 = ptrtoint ptr %.0.i134 to i64
   %145 = and i64 %144, 1
   %.not = icmp eq i64 %145, 0
-  br i1 %.not, label %lean_nat_lt.exit113.thread, label %lean_nat_lt.exit113, !prof !19
+  br i1 %.not, label %lean_nat_lt.exit113.thread, label %lean_nat_lt.exit113, !prof !23
 
 lean_nat_lt.exit113:                              ; preds = %lean_usize_to_nat.exit135
   %.not152 = icmp ult ptr %.0.i134, %143
@@ -23186,7 +23186,7 @@ define ptr @l_Lean_PersistentArray_foldlM___at_Lean_Linter_MissingDocs_checkDecl
   %4 = ptrtoint ptr %2 to i64
   %5 = and i64 %4, 1
   %.not173 = icmp eq i64 %5, 0
-  br i1 %.not173, label %lean_nat_eq.exit, label %6, !prof !19
+  br i1 %.not173, label %lean_nat_eq.exit, label %6, !prof !23
 
 6:                                                ; preds = %3
   %7 = icmp eq ptr %2, inttoptr (i64 1 to ptr)
@@ -23315,7 +23315,7 @@ lean_nat_sub.exit:                                ; preds = %48, %54, %.critedge
   %67 = ptrtoint ptr %.1.i to i64
   %68 = and i64 %67, 1
   %.not176 = icmp eq i64 %68, 0
-  br i1 %.not176, label %lean_nat_lt.exit118.thread, label %lean_nat_lt.exit118, !prof !19
+  br i1 %.not176, label %lean_nat_lt.exit118.thread, label %lean_nat_lt.exit118, !prof !23
 
 lean_nat_lt.exit118:                              ; preds = %lean_nat_sub.exit
   %.not177 = icmp ult ptr %.1.i, %66
@@ -23909,7 +23909,7 @@ lean_nat_eq.exit.i:                               ; preds = %170
   br i1 %179, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit, label %lean_array_uget.exit161.backedge
 
 lean_array_uget.exit161.backedge:                 ; preds = %lean_nat_eq.exit.i, %177
-  br label %lean_array_uget.exit161
+  br label %lean_array_uget.exit161, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit: ; preds = %lean_obj_tag.exit.i, %177, %lean_nat_eq.exit.i
   br i1 %.not.i158, label %180, label %lean_dec.exit103
@@ -24822,7 +24822,7 @@ lean_nat_eq.exit.i:                               ; preds = %276
   br i1 %285, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit, label %lean_array_uget.exit253.backedge
 
 lean_array_uget.exit253.backedge:                 ; preds = %lean_nat_eq.exit.i, %283
-  br label %lean_array_uget.exit253
+  br label %lean_array_uget.exit253, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit: ; preds = %lean_obj_tag.exit.i, %283, %lean_nat_eq.exit.i
   br i1 %.not.i250, label %286, label %lean_dec.exit155
@@ -27357,7 +27357,7 @@ lean_nat_eq.exit.i:                               ; preds = %14
   br i1 %23, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %21
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Linter_MissingDocs_checkDecl___spec__3.exit: ; preds = %lean_obj_tag.exit.i, %21, %lean_nat_eq.exit.i
   %.1.i = phi i64 [ 3, %lean_nat_eq.exit.i ], [ 1, %lean_obj_tag.exit.i ], [ 3, %21 ]
@@ -37013,4 +37013,8 @@ attributes #6 = { noreturn nounwind }
 !16 = !{!6, !6, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !18 = !{!"branch_weights", i32 4001, i32 4000000}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}

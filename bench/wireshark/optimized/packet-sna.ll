@@ -1207,7 +1207,7 @@ define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %61 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %60)
   %62 = add i32 %.2.i, 1
   %.not176.i = icmp eq i8 %61, -1
-  br i1 %.not176.i, label %63, label %.preheader183.i, !llvm.loop !8
+  br i1 %.not176.i, label %63, label %.preheader183.i, !llvm.loop !9
 
 63:                                               ; preds = %.preheader183.i
   %64 = load i32, ptr @hf_sna_nlp_anr, align 4
@@ -1418,7 +1418,7 @@ define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 177:                                              ; preds = %172, %168
   %178 = add i32 %170, %.030.i.i.i
   %179 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %155, i32 noundef %178)
-  br i1 %179, label %.lr.ph.i.i.i, label %dissect_optional_0d.exit.i.i, !llvm.loop !9
+  br i1 %179, label %.lr.ph.i.i.i, label %dissect_optional_0d.exit.i.i, !llvm.loop !10
 
 180:                                              ; preds = %154
   %181 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %155, i32 noundef 2)
@@ -1572,7 +1572,7 @@ dissect_optional_0e.exit.i.i:                     ; preds = %196, %180
   %285 = add i32 %.0103113.i.i.i, %284
   %286 = add nsw i32 %.0114.i.i.i, -1
   %.not.i80.i.i = icmp eq i32 %286, 0
-  br i1 %.not.i80.i.i, label %dissect_optional_0d.exit.i.i, label %.lr.ph.i79.i.i, !llvm.loop !10
+  br i1 %.not.i80.i.i, label %dissect_optional_0d.exit.i.i, label %.lr.ph.i79.i.i, !llvm.loop !11
 
 .loopexit.sink.split.i.i.i:                       ; preds = %.lr.ph.i79.i.i, %257, %222
   %.0103113.lcssa.sink.i.i.i = phi i32 [ 4, %222 ], [ %258, %257 ], [ %.0103113.i.i.i, %.lr.ph.i79.i.i ]
@@ -1620,7 +1620,7 @@ dissect_optional_0e.exit.i.i:                     ; preds = %196, %180
 dissect_optional_0d.exit.i.i:                     ; preds = %283, %177, %.lr.ph.i.i.i, %312, %.sink.split.i.i.i, %308, %302, %.loopexit.sink.split.i.i.i, %264, %217, %214, %208, %205, %201, %dissect_optional_0e.exit.i.i, %157, %156
   %314 = add i32 %.pre-phi194.i, %.07584.i.i
   %315 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %126, i32 noundef %314)
-  br i1 %315, label %128, label %dissect_optional.exit.i, !llvm.loop !11
+  br i1 %315, label %128, label %dissect_optional.exit.i, !llvm.loop !12
 
 dissect_optional.exit.i:                          ; preds = %dissect_optional_0d.exit.i.i, %135, %123, %120
   %316 = add i32 %.pre.i, %.1166.i
@@ -1713,7 +1713,7 @@ dissect_optional.exit.i:                          ; preds = %dissect_optional_0d
 
 367:                                              ; preds = %362, %361
   %.2.i.i = phi i32 [ %366, %362 ], [ %.140.i.i, %361 ]
-  br i1 %.not.i179.i, label %368, label %340, !llvm.loop !12
+  br i1 %.not.i179.i, label %368, label %340, !llvm.loop !13
 
 368:                                              ; preds = %367
   tail call void @proto_item_set_len(ptr noundef %345, i32 noundef %.2.i.i)
@@ -2065,7 +2065,7 @@ dissect_fid0_1.exit:                              ; preds = %17, %18
   %107 = load i32, ptr @hf_sna_th_snf, align 4
   %108 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %107, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %109 = icmp eq i8 %64, 3
-  %110 = load i8, ptr @sna_defragment, align 1, !range !13
+  %110 = load i8, ptr @sna_defragment, align 1, !range !14
   %111 = trunc nuw i8 %110 to i1
   %or.cond.i = select i1 %109, i1 true, i1 %111
   br i1 %or.cond.i, label %114, label %112
@@ -2516,7 +2516,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   %61 = add nuw nsw i32 %53, %48
   %62 = and i32 %61, 65535
   %63 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %9, i32 noundef %62)
-  br i1 %63, label %.lr.ph.split.us, label %dissect_control_05hpr.exit, !llvm.loop !14
+  br i1 %63, label %.lr.ph.split.us, label %dissect_control_05hpr.exit, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %77
   %64 = phi i32 [ %79, %77 ], [ 4, %.lr.ph ]
@@ -2544,7 +2544,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   %78 = add nuw nsw i32 %70, %64
   %79 = and i32 %78, 65535
   %80 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %9, i32 noundef %79)
-  br i1 %80, label %.lr.ph.split, label %dissect_control_05hpr.exit, !llvm.loop !16
+  br i1 %80, label %.lr.ph.split, label %dissect_control_05hpr.exit, !llvm.loop !17
 
 81:                                               ; preds = %39
   br i1 %.not.i103, label %dissect_control_05hpr.exit, label %82
@@ -2679,7 +2679,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   tail call fastcc void @dissect_sna_control(ptr noundef %41, i32 noundef %.013.i, i32 noundef %48, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1)
   %49 = add i32 %48, %.013.i
   %50 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %41, i32 noundef %49)
-  br i1 %50, label %.lr.ph.i, label %dissect_xid2.exit, !llvm.loop !17
+  br i1 %50, label %.lr.ph.i, label %dissect_xid2.exit, !llvm.loop !18
 
 51:                                               ; preds = %15
   %52 = add nsw i32 %6, -6
@@ -2724,7 +2724,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   tail call fastcc void @dissect_sna_control(ptr noundef %53, i32 noundef %.034.i, i32 noundef %86, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1)
   %87 = add i32 %86, %.034.i
   %88 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %53, i32 noundef %87)
-  br i1 %88, label %.lr.ph.i50, label %dissect_xid2.exit, !llvm.loop !18
+  br i1 %88, label %.lr.ph.i50, label %dissect_xid2.exit, !llvm.loop !19
 
 89:                                               ; preds = %15
   %90 = add nsw i32 %6, -6
@@ -2779,16 +2779,17 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{i8 0, i8 2}
-!14 = distinct !{!14, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i8 0, i8 2}
+!15 = distinct !{!15, !7, !8, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

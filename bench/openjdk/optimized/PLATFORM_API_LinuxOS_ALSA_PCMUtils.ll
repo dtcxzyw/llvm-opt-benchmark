@@ -287,7 +287,7 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly captures(address_is_nu
   %144 = call i32 @snd_ctl_pcm_next_device(ptr noundef %143, ptr noundef nonnull %4) #5
   %145 = load i32, ptr %4, align 4
   %146 = icmp slt i32 %145, 0
-  br i1 %146, label %.loopexit54.split, label %.lr.ph115, !llvm.loop !8
+  br i1 %146, label %.loopexit54.split, label %.lr.ph115, !llvm.loop !9
 
 .loopexit54.split:                                ; preds = %.loopexit, %.lr.ph, %.split, %103
   %.331 = phi i32 [ %.12969, %103 ], [ %.12969, %.split ], [ %142, %.lr.ph ], [ %.533, %.loopexit ]
@@ -300,7 +300,7 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly captures(address_is_nu
   %.230 = phi i32 [ %.12969, %99 ], [ %.331, %.loopexit54.split ]
   %.3 = phi i32 [ %.270, %99 ], [ %.4, %.loopexit54.split ]
   %.not49 = icmp eq i32 %.3, 0
-  br i1 %.not49, label %._crit_edge, label %.lr.ph71.split, !llvm.loop !9
+  br i1 %.not49, label %._crit_edge, label %.lr.ph71.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %149, %.lr.ph71.split, %62, %.lr.ph71.split.us.split, %40
   %.129.lcssa = phi i32 [ 1, %40 ], [ %.028.ph95, %.lr.ph71.split.us.split ], [ %.230.us, %62 ], [ %.12969, %.lr.ph71.split ], [ %.230, %149 ]
@@ -668,7 +668,8 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

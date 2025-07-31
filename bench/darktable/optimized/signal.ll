@@ -137,7 +137,7 @@ define noalias noundef ptr @dt_control_signal_init() local_unnamed_addr #0 {
 30:                                               ; preds = %14, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 47
-  br i1 %exitcond.not, label %13, label %14
+  br i1 %exitcond.not, label %13, label %14, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -169,27 +169,27 @@ define noundef i32 @_async_com_callback(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @g_mutex_lock(ptr noundef nonnull %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !37
+  %7 = load i32, ptr %6, align 8, !tbaa !39
   tail call void @g_signal_emitv(ptr noundef %5, i32 noundef %7, i32 noundef 0, ptr noundef null) #11
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %9
 
 9:                                                ; preds = %9, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
-  %10 = load ptr, ptr %4, align 8, !tbaa !34
+  %10 = load ptr, ptr %4, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw %struct._GValue, ptr %10, i64 %indvars.iv.i
   tail call void @g_value_unset(ptr noundef %11) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = load i32, ptr %8, align 4, !tbaa !38
+  %12 = load i32, ptr %8, align 4, !tbaa !40
   %13 = zext i32 %12 to i64
   %.not.not.i = icmp samesign ult i64 %indvars.iv.i, %13
-  br i1 %.not.not.i, label %9, label %_signal_raise.exit
+  br i1 %.not.not.i, label %9, label %_signal_raise.exit, !llvm.loop !41
 
 _signal_raise.exit:                               ; preds = %9
-  %14 = load ptr, ptr %4, align 8, !tbaa !34
+  %14 = load ptr, ptr %4, align 8, !tbaa !36
   tail call void @free(ptr noundef %14) #11
   tail call void @free(ptr noundef nonnull %4) #11
   tail call void @g_cond_signal(ptr noundef nonnull %0) #11
@@ -201,29 +201,29 @@ declare void @g_mutex_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_signal_raise(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !34
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !37
+  %4 = load i32, ptr %3, align 8, !tbaa !39
   tail call void @g_signal_emitv(ptr noundef %2, i32 noundef %4, i32 noundef 0, ptr noundef null) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %8
 
 6:                                                ; preds = %8
-  %7 = load ptr, ptr %0, align 8, !tbaa !34
+  %7 = load ptr, ptr %0, align 8, !tbaa !36
   tail call void @free(ptr noundef %7) #11
   tail call void @free(ptr noundef nonnull %0) #11
   ret i32 0
 
 8:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %9 = load ptr, ptr %0, align 8, !tbaa !34
+  %9 = load ptr, ptr %0, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw %struct._GValue, ptr %9, i64 %indvars.iv
   tail call void @g_value_unset(ptr noundef %10) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i32, ptr %5, align 4, !tbaa !38
+  %11 = load i32, ptr %5, align 4, !tbaa !40
   %12 = zext i32 %11 to i64
   %.not.not = icmp samesign ult i64 %indvars.iv, %12
-  br i1 %.not.not, label %8, label %6
+  br i1 %.not.not, label %8, label %6, !llvm.loop !41
 }
 
 declare void @g_cond_signal(ptr noundef) local_unnamed_addr #4
@@ -310,7 +310,7 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 
 40:                                               ; preds = %37, %32
   %41 = phi ptr [ %35, %32 ], [ %38, %37 ]
-  %42 = load i32, ptr %41, align 4, !tbaa !39
+  %42 = load i32, ptr %41, align 4, !tbaa !42
   call void @g_value_set_uint(ptr noundef nonnull %27, i32 noundef %42) #11
   br label %76
 
@@ -335,7 +335,7 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 
 54:                                               ; preds = %51, %46
   %55 = phi ptr [ %49, %46 ], [ %52, %51 ]
-  %56 = load ptr, ptr %55, align 8, !tbaa !40
+  %56 = load ptr, ptr %55, align 8, !tbaa !43
   call void @g_value_set_string(ptr noundef nonnull %27, ptr noundef %56) #11
   br label %76
 
@@ -360,7 +360,7 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 
 68:                                               ; preds = %65, %60
   %69 = phi ptr [ %63, %60 ], [ %66, %65 ]
-  %70 = load ptr, ptr %69, align 8, !tbaa !41
+  %70 = load ptr, ptr %69, align 8, !tbaa !44
   call void @g_value_set_pointer(ptr noundef nonnull %27, ptr noundef %70) #11
   br label %76
 
@@ -383,26 +383,26 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
   call void @g_value_unset(ptr noundef nonnull %75) #11
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count74
-  br i1 %exitcond75.not, label %.critedge, label %74
+  br i1 %exitcond75.not, label %.critedge, label %74, !llvm.loop !45
 
 76:                                               ; preds = %68, %54, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   %indvars.iv.next72 = add nuw i32 %indvars.iv71, 1
-  br i1 %exitcond.not, label %.critedge59, label %25
+  br i1 %exitcond.not, label %.critedge59, label %25, !llvm.loop !46
 
 .critedge59:                                      ; preds = %76, %17
   call void @llvm.va_end.p0(ptr nonnull %3)
-  store ptr %15, ptr %9, align 8, !tbaa !34
+  store ptr %15, ptr %9, align 8, !tbaa !36
   %77 = load ptr, ptr %8, align 8, !tbaa !24
   %78 = load i64, ptr @_signal_type, align 8, !tbaa !20
   %79 = call i32 @g_signal_lookup(ptr noundef %77, i64 noundef %78) #11
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %79, ptr %80, align 8, !tbaa !37
+  store i32 %79, ptr %80, align 8, !tbaa !39
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %12, ptr %81, align 4, !tbaa !38
+  store i32 %12, ptr %81, align 4, !tbaa !40
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %83 = load i32, ptr %82, align 8, !tbaa !42
+  %83 = load i32, ptr %82, align 8, !tbaa !47
   %.not56 = icmp eq i32 %83, 0
   br i1 %.not56, label %84, label %85
 
@@ -411,9 +411,9 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
   br label %100
 
 85:                                               ; preds = %.critedge59
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !43
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !48
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 888
-  %88 = load i64, ptr %87, align 8, !tbaa !79
+  %88 = load i64, ptr %87, align 8, !tbaa !84
   %89 = tail call i64 @pthread_self() #13
   %.not60 = icmp eq i64 %88, %89
   br i1 %.not60, label %90, label %97
@@ -424,17 +424,17 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 
 91:                                               ; preds = %91, %90
   %indvars.iv.i = phi i64 [ 0, %90 ], [ %indvars.iv.next.i, %91 ]
-  %92 = load ptr, ptr %9, align 8, !tbaa !34
+  %92 = load ptr, ptr %9, align 8, !tbaa !36
   %93 = getelementptr inbounds nuw %struct._GValue, ptr %92, i64 %indvars.iv.i
   call void @g_value_unset(ptr noundef %93) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %94 = load i32, ptr %81, align 4, !tbaa !38
+  %94 = load i32, ptr %81, align 4, !tbaa !40
   %95 = zext i32 %94 to i64
   %.not.not.i = icmp samesign ult i64 %indvars.iv.i, %95
-  br i1 %.not.not.i, label %91, label %_signal_raise.exit
+  br i1 %.not.not.i, label %91, label %_signal_raise.exit, !llvm.loop !41
 
 _signal_raise.exit:                               ; preds = %91
-  %96 = load ptr, ptr %9, align 8, !tbaa !34
+  %96 = load ptr, ptr %9, align 8, !tbaa !36
   call void @free(ptr noundef %96) #11
   call void @free(ptr noundef nonnull %9) #11
   br label %100
@@ -446,7 +446,7 @@ _signal_raise.exit:                               ; preds = %91
   call void @g_cond_init(ptr noundef nonnull %4) #11
   call void @g_mutex_lock(ptr noundef nonnull %98) #11
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %9, ptr %99, align 8, !tbaa !31
+  store ptr %9, ptr %99, align 8, !tbaa !33
   call void @g_main_context_invoke_full(ptr noundef null, i32 noundef 100, ptr noundef nonnull @_async_com_callback, ptr noundef nonnull %4, ptr noundef null) #11
   call void @g_cond_wait(ptr noundef nonnull %4, ptr noundef nonnull %98) #11
   call void @g_mutex_unlock(ptr noundef nonnull %98) #11
@@ -664,66 +664,71 @@ attributes #13 = { nounwind willreturn memory(none) }
 !28 = !{!25, !13, i64 40}
 !29 = !{!25, !26, i64 48}
 !30 = !{!25, !12, i64 56}
-!31 = !{!32, !12, i64 24}
-!32 = !{!"async_com_data", !33, i64 0, !9, i64 16, !12, i64 24}
-!33 = !{!"_GCond", !12, i64 0, !9, i64 8}
-!34 = !{!35, !36, i64 0}
-!35 = !{!"_signal_param_t", !36, i64 0, !13, i64 8, !13, i64 12}
-!36 = !{!"p1 _ZTS7_GValue", !12, i64 0}
-!37 = !{!35, !13, i64 8}
-!38 = !{!35, !13, i64 12}
-!39 = !{!13, !13, i64 0}
-!40 = !{!11, !11, i64 0}
-!41 = !{!12, !12, i64 0}
-!42 = !{!25, !13, i64 64}
-!43 = !{!44, !52, i64 88}
-!44 = !{!"darktable_t", !45, i64 0, !13, i64 4, !13, i64 8, !46, i64 16, !46, i64 24, !46, i64 32, !46, i64 40, !47, i64 48, !48, i64 56, !49, i64 64, !50, i64 72, !51, i64 80, !52, i64 88, !53, i64 96, !54, i64 104, !55, i64 112, !56, i64 120, !57, i64 128, !58, i64 136, !59, i64 144, !60, i64 152, !61, i64 160, !62, i64 168, !63, i64 176, !64, i64 184, !65, i64 192, !66, i64 200, !67, i64 208, !68, i64 216, !69, i64 224, !9, i64 232, !70, i64 2792, !70, i64 2832, !70, i64 2872, !70, i64 2912, !70, i64 2952, !11, i64 2992, !11, i64 3000, !11, i64 3008, !11, i64 3016, !11, i64 3024, !11, i64 3032, !11, i64 3040, !11, i64 3048, !11, i64 3056, !11, i64 3064, !11, i64 3072, !11, i64 3080, !11, i64 3088, !71, i64 3096, !46, i64 3104, !72, i64 3112, !46, i64 3120, !13, i64 3128, !9, i64 3132, !13, i64 3320, !13, i64 3324, !73, i64 3328, !74, i64 3336, !75, i64 3344, !77, i64 3384, !78, i64 3416}
-!45 = !{!"dt_codepath_t", !13, i64 0}
-!46 = !{!"p1 _ZTS6_GList", !12, i64 0}
-!47 = !{!"p1 _ZTS11_JsonParser", !12, i64 0}
-!48 = !{!"p1 _ZTS9dt_conf_t", !12, i64 0}
-!49 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
-!50 = !{!"p1 _ZTS8dt_lib_t", !12, i64 0}
-!51 = !{!"p1 _ZTS17dt_view_manager_t", !12, i64 0}
-!52 = !{!"p1 _ZTS12dt_control_t", !12, i64 0}
-!53 = !{!"p1 _ZTS19dt_control_signal_t", !12, i64 0}
-!54 = !{!"p1 _ZTS12dt_gui_gtk_t", !12, i64 0}
-!55 = !{!"p1 _ZTS17dt_mipmap_cache_t", !12, i64 0}
-!56 = !{!"p1 _ZTS16dt_image_cache_t", !12, i64 0}
-!57 = !{!"p1 _ZTS12dt_bauhaus_t", !12, i64 0}
-!58 = !{!"p1 _ZTS13dt_database_t", !12, i64 0}
-!59 = !{!"p1 _ZTS14dt_pwstorage_t", !12, i64 0}
-!60 = !{!"p1 _ZTS11dt_camctl_t", !12, i64 0}
-!61 = !{!"p1 _ZTS15dt_collection_t", !12, i64 0}
-!62 = !{!"p1 _ZTS14dt_selection_t", !12, i64 0}
-!63 = !{!"p1 _ZTS11dt_points_t", !12, i64 0}
-!64 = !{!"p1 _ZTS12dt_imageio_t", !12, i64 0}
-!65 = !{!"p1 _ZTS11dt_opencl_t", !12, i64 0}
-!66 = !{!"p1 _ZTS9dt_dbus_t", !12, i64 0}
-!67 = !{!"p1 _ZTS9dt_undo_t", !12, i64 0}
-!68 = !{!"p1 _ZTS16dt_colorspaces_t", !12, i64 0}
-!69 = !{!"p1 _ZTS9dt_l10n_t", !12, i64 0}
-!70 = !{!"dt_pthread_mutex_t", !9, i64 0}
-!71 = !{!"", !13, i64 0}
-!72 = !{!"double", !9, i64 0}
-!73 = !{!"p1 _ZTS10_GTimeZone", !12, i64 0}
-!74 = !{!"p1 _ZTS10_GDateTime", !12, i64 0}
-!75 = !{!"dt_sys_resources_t", !8, i64 0, !8, i64 8, !76, i64 16, !76, i64 24, !13, i64 32}
-!76 = !{!"p1 int", !12, i64 0}
-!77 = !{!"dt_backthumb_t", !72, i64 0, !72, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28}
-!78 = !{!"dt_gimp_t", !13, i64 0, !11, i64 8, !11, i64 16, !13, i64 24, !13, i64 28}
-!79 = !{!80, !8, i64 888}
-!80 = !{!"dt_control_t", !13, i64 0, !81, i64 8, !82, i64 16, !82, i64 64, !82, i64 112, !82, i64 160, !82, i64 208, !82, i64 256, !82, i64 304, !82, i64 352, !82, i64 400, !82, i64 448, !82, i64 496, !81, i64 544, !83, i64 552, !84, i64 560, !13, i64 568, !85, i64 576, !13, i64 584, !13, i64 588, !86, i64 592, !87, i64 600, !9, i64 608, !13, i64 864, !72, i64 872, !13, i64 880, !13, i64 884, !8, i64 888, !13, i64 896, !13, i64 900, !13, i64 904, !72, i64 912, !72, i64 920, !13, i64 928, !13, i64 932, !13, i64 936, !13, i64 940, !13, i64 944, !13, i64 948, !9, i64 952, !13, i64 8952, !13, i64 8956, !70, i64 8960, !13, i64 9000, !13, i64 9004, !9, i64 9008, !13, i64 9608, !13, i64 9612, !70, i64 9616, !70, i64 9656, !70, i64 9696, !72, i64 9736, !9, i64 9744, !13, i64 9748, !13, i64 9752, !70, i64 9760, !70, i64 9800, !9, i64 9840, !13, i64 9888, !26, i64 9896, !8, i64 9904, !8, i64 9912, !88, i64 9920, !9, i64 9928, !9, i64 9968, !70, i64 10008, !9, i64 10048, !9, i64 10072, !9, i64 10080, !89, i64 10104, !92, i64 10224}
-!81 = !{!"p1 _ZTS11dt_action_t", !12, i64 0}
-!82 = !{!"dt_action_t", !13, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !81, i64 32, !81, i64 40}
-!83 = !{!"p1 _ZTS11_GHashTable", !12, i64 0}
-!84 = !{!"p1 _ZTS10_GSequence", !12, i64 0}
-!85 = !{!"p1 _ZTS10_GtkWidget", !12, i64 0}
-!86 = !{!"p1 _ZTS10_GPtrArray", !12, i64 0}
-!87 = !{!"p1 _ZTS7_GSList", !12, i64 0}
-!88 = !{!"p2 _ZTS9_dt_job_t", !12, i64 0}
-!89 = !{!"", !46, i64 0, !8, i64 8, !8, i64 16, !72, i64 24, !70, i64 32, !90, i64 72}
-!90 = !{!"", !91, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40}
-!91 = !{!"p1 _ZTS15dt_lib_module_t", !12, i64 0}
-!92 = !{!"", !93, i64 0}
-!93 = !{!"", !91, i64 0, !12, i64 8}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!34, !12, i64 24}
+!34 = !{!"async_com_data", !35, i64 0, !9, i64 16, !12, i64 24}
+!35 = !{!"_GCond", !12, i64 0, !9, i64 8}
+!36 = !{!37, !38, i64 0}
+!37 = !{!"_signal_param_t", !38, i64 0, !13, i64 8, !13, i64 12}
+!38 = !{!"p1 _ZTS7_GValue", !12, i64 0}
+!39 = !{!37, !13, i64 8}
+!40 = !{!37, !13, i64 12}
+!41 = distinct !{!41, !32}
+!42 = !{!13, !13, i64 0}
+!43 = !{!11, !11, i64 0}
+!44 = !{!12, !12, i64 0}
+!45 = distinct !{!45, !32}
+!46 = distinct !{!46, !32}
+!47 = !{!25, !13, i64 64}
+!48 = !{!49, !57, i64 88}
+!49 = !{!"darktable_t", !50, i64 0, !13, i64 4, !13, i64 8, !51, i64 16, !51, i64 24, !51, i64 32, !51, i64 40, !52, i64 48, !53, i64 56, !54, i64 64, !55, i64 72, !56, i64 80, !57, i64 88, !58, i64 96, !59, i64 104, !60, i64 112, !61, i64 120, !62, i64 128, !63, i64 136, !64, i64 144, !65, i64 152, !66, i64 160, !67, i64 168, !68, i64 176, !69, i64 184, !70, i64 192, !71, i64 200, !72, i64 208, !73, i64 216, !74, i64 224, !9, i64 232, !75, i64 2792, !75, i64 2832, !75, i64 2872, !75, i64 2912, !75, i64 2952, !11, i64 2992, !11, i64 3000, !11, i64 3008, !11, i64 3016, !11, i64 3024, !11, i64 3032, !11, i64 3040, !11, i64 3048, !11, i64 3056, !11, i64 3064, !11, i64 3072, !11, i64 3080, !11, i64 3088, !76, i64 3096, !51, i64 3104, !77, i64 3112, !51, i64 3120, !13, i64 3128, !9, i64 3132, !13, i64 3320, !13, i64 3324, !78, i64 3328, !79, i64 3336, !80, i64 3344, !82, i64 3384, !83, i64 3416}
+!50 = !{!"dt_codepath_t", !13, i64 0}
+!51 = !{!"p1 _ZTS6_GList", !12, i64 0}
+!52 = !{!"p1 _ZTS11_JsonParser", !12, i64 0}
+!53 = !{!"p1 _ZTS9dt_conf_t", !12, i64 0}
+!54 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
+!55 = !{!"p1 _ZTS8dt_lib_t", !12, i64 0}
+!56 = !{!"p1 _ZTS17dt_view_manager_t", !12, i64 0}
+!57 = !{!"p1 _ZTS12dt_control_t", !12, i64 0}
+!58 = !{!"p1 _ZTS19dt_control_signal_t", !12, i64 0}
+!59 = !{!"p1 _ZTS12dt_gui_gtk_t", !12, i64 0}
+!60 = !{!"p1 _ZTS17dt_mipmap_cache_t", !12, i64 0}
+!61 = !{!"p1 _ZTS16dt_image_cache_t", !12, i64 0}
+!62 = !{!"p1 _ZTS12dt_bauhaus_t", !12, i64 0}
+!63 = !{!"p1 _ZTS13dt_database_t", !12, i64 0}
+!64 = !{!"p1 _ZTS14dt_pwstorage_t", !12, i64 0}
+!65 = !{!"p1 _ZTS11dt_camctl_t", !12, i64 0}
+!66 = !{!"p1 _ZTS15dt_collection_t", !12, i64 0}
+!67 = !{!"p1 _ZTS14dt_selection_t", !12, i64 0}
+!68 = !{!"p1 _ZTS11dt_points_t", !12, i64 0}
+!69 = !{!"p1 _ZTS12dt_imageio_t", !12, i64 0}
+!70 = !{!"p1 _ZTS11dt_opencl_t", !12, i64 0}
+!71 = !{!"p1 _ZTS9dt_dbus_t", !12, i64 0}
+!72 = !{!"p1 _ZTS9dt_undo_t", !12, i64 0}
+!73 = !{!"p1 _ZTS16dt_colorspaces_t", !12, i64 0}
+!74 = !{!"p1 _ZTS9dt_l10n_t", !12, i64 0}
+!75 = !{!"dt_pthread_mutex_t", !9, i64 0}
+!76 = !{!"", !13, i64 0}
+!77 = !{!"double", !9, i64 0}
+!78 = !{!"p1 _ZTS10_GTimeZone", !12, i64 0}
+!79 = !{!"p1 _ZTS10_GDateTime", !12, i64 0}
+!80 = !{!"dt_sys_resources_t", !8, i64 0, !8, i64 8, !81, i64 16, !81, i64 24, !13, i64 32}
+!81 = !{!"p1 int", !12, i64 0}
+!82 = !{!"dt_backthumb_t", !77, i64 0, !77, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28}
+!83 = !{!"dt_gimp_t", !13, i64 0, !11, i64 8, !11, i64 16, !13, i64 24, !13, i64 28}
+!84 = !{!85, !8, i64 888}
+!85 = !{!"dt_control_t", !13, i64 0, !86, i64 8, !87, i64 16, !87, i64 64, !87, i64 112, !87, i64 160, !87, i64 208, !87, i64 256, !87, i64 304, !87, i64 352, !87, i64 400, !87, i64 448, !87, i64 496, !86, i64 544, !88, i64 552, !89, i64 560, !13, i64 568, !90, i64 576, !13, i64 584, !13, i64 588, !91, i64 592, !92, i64 600, !9, i64 608, !13, i64 864, !77, i64 872, !13, i64 880, !13, i64 884, !8, i64 888, !13, i64 896, !13, i64 900, !13, i64 904, !77, i64 912, !77, i64 920, !13, i64 928, !13, i64 932, !13, i64 936, !13, i64 940, !13, i64 944, !13, i64 948, !9, i64 952, !13, i64 8952, !13, i64 8956, !75, i64 8960, !13, i64 9000, !13, i64 9004, !9, i64 9008, !13, i64 9608, !13, i64 9612, !75, i64 9616, !75, i64 9656, !75, i64 9696, !77, i64 9736, !9, i64 9744, !13, i64 9748, !13, i64 9752, !75, i64 9760, !75, i64 9800, !9, i64 9840, !13, i64 9888, !26, i64 9896, !8, i64 9904, !8, i64 9912, !93, i64 9920, !9, i64 9928, !9, i64 9968, !75, i64 10008, !9, i64 10048, !9, i64 10072, !9, i64 10080, !94, i64 10104, !97, i64 10224}
+!86 = !{!"p1 _ZTS11dt_action_t", !12, i64 0}
+!87 = !{!"dt_action_t", !13, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !86, i64 32, !86, i64 40}
+!88 = !{!"p1 _ZTS11_GHashTable", !12, i64 0}
+!89 = !{!"p1 _ZTS10_GSequence", !12, i64 0}
+!90 = !{!"p1 _ZTS10_GtkWidget", !12, i64 0}
+!91 = !{!"p1 _ZTS10_GPtrArray", !12, i64 0}
+!92 = !{!"p1 _ZTS7_GSList", !12, i64 0}
+!93 = !{!"p2 _ZTS9_dt_job_t", !12, i64 0}
+!94 = !{!"", !51, i64 0, !8, i64 8, !8, i64 16, !77, i64 24, !75, i64 32, !95, i64 72}
+!95 = !{!"", !96, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40}
+!96 = !{!"p1 _ZTS15dt_lib_module_t", !12, i64 0}
+!97 = !{!"", !98, i64 0}
+!98 = !{!"", !96, i64 0, !12, i64 8}

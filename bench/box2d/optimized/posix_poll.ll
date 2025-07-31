@@ -37,15 +37,15 @@ define hidden range(i32 0, 2) i32 @_glfwPollPOSIX(ptr noundef %0, i64 noundef %1
 
 .split:                                           ; preds = %3, %39
   %16 = call i64 @_glfwPlatformGetTimerValue() #4
-  %17 = load double, ptr %2, align 8, !tbaa !9
+  %17 = load double, ptr %2, align 8, !tbaa !10
   %18 = fptosi double %17 to i64
   %19 = sitofp i64 %18 to double
   %20 = fsub double %17, %19
   %21 = fmul double %20, 1.000000e+09
   %22 = fptosi double %21 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #4
-  store i64 %18, ptr %4, align 8, !tbaa !11
-  store i64 %22, ptr %5, align 8, !tbaa !14
+  store i64 %18, ptr %4, align 8, !tbaa !12
+  store i64 %22, ptr %5, align 8, !tbaa !15
   %23 = call i32 @ppoll(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4, ptr noundef null) #4
   %.fr = freeze i32 %23
   %24 = tail call ptr @__errno_location() #5
@@ -56,9 +56,9 @@ define hidden range(i32 0, 2) i32 @_glfwPollPOSIX(ptr noundef %0, i64 noundef %1
   %29 = call i64 @_glfwPlatformGetTimerFrequency() #4
   %30 = uitofp i64 %29 to double
   %31 = fdiv double %28, %30
-  %32 = load double, ptr %2, align 8, !tbaa !9
+  %32 = load double, ptr %2, align 8, !tbaa !10
   %33 = fsub double %32, %31
-  store double %33, ptr %2, align 8, !tbaa !9
+  store double %33, ptr %2, align 8, !tbaa !10
   %34 = icmp sgt i32 %.fr, 0
   br i1 %34, label %.thread, label %35
 
@@ -83,7 +83,7 @@ switch.early.test:                                ; preds = %35
 
 39:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
-  br label %.split
+  br label %.split, !llvm.loop !16
 
 .thread38:                                        ; preds = %13, %10, %.split.us, %.thread
   %.2 = phi i32 [ %.1.ph, %.thread ], [ 1, %.split.us ], [ 0, %10 ], [ 1, %13 ]
@@ -123,11 +123,13 @@ attributes #5 = { nounwind willreturn memory(none) }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"double", !5, i64 0}
-!11 = !{!12, !13, i64 0}
-!12 = !{!"timespec", !13, i64 0, !13, i64 8}
-!13 = !{!"long", !5, i64 0}
-!14 = !{!12, !13, i64 8}
+!7 = distinct !{!7, !8, !9}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"double", !5, i64 0}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"timespec", !14, i64 0, !14, i64 8}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!13, !14, i64 8}
+!16 = distinct !{!16, !8}

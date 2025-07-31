@@ -137,7 +137,7 @@ define dso_local range(i32 -9, 576) i32 @form_request_by_name(ptr noundef readon
 21:                                               ; preds = %.critedge
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 57
-  br i1 %exitcond35.not, label %.loopexit, label %.critedge, !llvm.loop !16
+  br i1 %exitcond35.not, label %.loopexit, label %.critedge, !llvm.loop !17
 
 .loopexit:                                        ; preds = %21, %1
   %22 = tail call ptr @__errno_location() #6
@@ -191,6 +191,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !11 = !{!6, !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 int", !10, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}

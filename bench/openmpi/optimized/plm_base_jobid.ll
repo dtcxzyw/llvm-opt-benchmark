@@ -250,5 +250,6 @@ attributes #9 = { nounwind }
 !32 = !{!"p1 _ZTS14prte_job_map_t", !5, i64 0}
 !33 = !{!"", !16, i64 0, !15, i64 120, !21, i64 392}
 !34 = !{!9, !10, i64 8}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
+!37 = !{!"llvm.loop.estimated_trip_count"}

@@ -105,9 +105,9 @@ builtin_lookup.exit:                              ; preds = %bin4feature.exit11.
 builtin_lookup.exit.thread:                       ; preds = %bin4feature.exit.i, %builtin_lookup.exit
   %.09.lcssa.i15 = phi ptr [ %16, %builtin_lookup.exit ], [ %10, %bin4feature.exit.i ]
   %.013.i.pn = phi ptr [ %.013.i, %builtin_lookup.exit ], [ %6, %bin4feature.exit.i ]
-  %22 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !19
+  %22 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1328
-  %24 = load ptr, ptr %23, align 8, !tbaa !21
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
   %.not10 = icmp eq ptr %24, null
   br i1 %.not10, label %26, label %25
 
@@ -117,12 +117,12 @@ builtin_lookup.exit.thread:                       ; preds = %bin4feature.exit.i,
 
 26:                                               ; preds = %builtin_lookup.exit.thread
   %.014.in = getelementptr inbounds nuw i8, ptr %.013.i.pn, i64 16
-  %.014 = load i64, ptr %.014.in, align 8, !tbaa !44
-  store ptr %1, ptr %23, align 8, !tbaa !21
+  %.014 = load i64, ptr %.014.in, align 8, !tbaa !45
+  store ptr %1, ptr %23, align 8, !tbaa !22
   %27 = tail call ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i15, i64 noundef %.014) #8
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
-  store ptr null, ptr %23, align 8, !tbaa !21
+  store ptr null, ptr %23, align 8, !tbaa !22
   %29 = tail call i64 @rb_iseq_eval(ptr noundef nonnull %27) #8
   ret void
 }
@@ -185,31 +185,32 @@ attributes #8 = { nounwind }
 !14 = !{!"any pointer", !9, i64 0}
 !15 = !{!"long", !9, i64 0}
 !16 = !{!12, !13, i64 8}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS12rb_vm_struct", !14, i64 0}
-!21 = !{!22, !41, i64 1328}
-!22 = !{!"rb_vm_struct", !15, i64 0, !23, i64 8, !14, i64 472, !32, i64 480, !24, i64 488, !8, i64 504, !8, i64 508, !8, i64 508, !8, i64 508, !8, i64 508, !15, i64 512, !33, i64 520, !9, i64 528, !15, i64 568, !15, i64 576, !15, i64 584, !15, i64 592, !15, i64 600, !15, i64 608, !15, i64 616, !15, i64 624, !15, i64 632, !34, i64 640, !34, i64 648, !34, i64 656, !35, i64 664, !36, i64 1184, !8, i64 1192, !24, i64 1200, !9, i64 1216, !15, i64 1256, !15, i64 1264, !15, i64 1272, !15, i64 1280, !8, i64 1288, !37, i64 1296, !40, i64 1312, !34, i64 1320, !41, i64 1328, !34, i64 1336, !42, i64 1344, !34, i64 1352, !34, i64 1360, !42, i64 1368, !15, i64 1376, !9, i64 1384, !43, i64 9568}
-!23 = !{!"", !24, i64 0, !8, i64 16, !8, i64 20, !27, i64 24, !28, i64 32, !29, i64 40, !31, i64 152}
-!24 = !{!"ccan_list_head", !25, i64 0}
-!25 = !{!"ccan_list_node", !26, i64 0, !26, i64 8}
-!26 = !{!"p1 _ZTS14ccan_list_node", !14, i64 0}
-!27 = !{!"p1 _ZTS16rb_ractor_struct", !14, i64 0}
-!28 = !{!"p1 _ZTS16rb_thread_struct", !14, i64 0}
-!29 = !{!"", !9, i64 0, !27, i64 40, !8, i64 48, !9, i64 56, !30, i64 104}
-!30 = !{!"_Bool", !9, i64 0}
-!31 = !{!"", !9, i64 0, !27, i64 40, !30, i64 48, !9, i64 56, !8, i64 104, !8, i64 108, !8, i64 112, !8, i64 116, !24, i64 120, !8, i64 136, !24, i64 144, !24, i64 160, !24, i64 176, !30, i64 192, !9, i64 200, !9, i64 248, !30, i64 296, !8, i64 300, !8, i64 304}
-!32 = !{!"long long", !9, i64 0}
-!33 = !{!"p1 _ZTS18global_object_list", !14, i64 0}
-!34 = !{!"p1 _ZTS8st_table", !14, i64 0}
-!35 = !{!"", !9, i64 0}
-!36 = !{!"p1 _ZTS22rb_postponed_job_queue", !14, i64 0}
-!37 = !{!"", !38, i64 0, !39, i64 8}
-!38 = !{!"p1 _ZTS11rb_objspace", !14, i64 0}
-!39 = !{!"p1 _ZTS24gc_mark_func_data_struct", !14, i64 0}
-!40 = !{!"p1 _ZTS15rb_at_exit_list", !14, i64 0}
-!41 = !{!"p1 _ZTS19rb_builtin_function", !14, i64 0}
-!42 = !{!"p1 _ZTS11rb_id_table", !14, i64 0}
-!43 = !{!"", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24}
-!44 = !{!12, !15, i64 16}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS12rb_vm_struct", !14, i64 0}
+!22 = !{!23, !42, i64 1328}
+!23 = !{!"rb_vm_struct", !15, i64 0, !24, i64 8, !14, i64 472, !33, i64 480, !25, i64 488, !8, i64 504, !8, i64 508, !8, i64 508, !8, i64 508, !8, i64 508, !15, i64 512, !34, i64 520, !9, i64 528, !15, i64 568, !15, i64 576, !15, i64 584, !15, i64 592, !15, i64 600, !15, i64 608, !15, i64 616, !15, i64 624, !15, i64 632, !35, i64 640, !35, i64 648, !35, i64 656, !36, i64 664, !37, i64 1184, !8, i64 1192, !25, i64 1200, !9, i64 1216, !15, i64 1256, !15, i64 1264, !15, i64 1272, !15, i64 1280, !8, i64 1288, !38, i64 1296, !41, i64 1312, !35, i64 1320, !42, i64 1328, !35, i64 1336, !43, i64 1344, !35, i64 1352, !35, i64 1360, !43, i64 1368, !15, i64 1376, !9, i64 1384, !44, i64 9568}
+!24 = !{!"", !25, i64 0, !8, i64 16, !8, i64 20, !28, i64 24, !29, i64 32, !30, i64 40, !32, i64 152}
+!25 = !{!"ccan_list_head", !26, i64 0}
+!26 = !{!"ccan_list_node", !27, i64 0, !27, i64 8}
+!27 = !{!"p1 _ZTS14ccan_list_node", !14, i64 0}
+!28 = !{!"p1 _ZTS16rb_ractor_struct", !14, i64 0}
+!29 = !{!"p1 _ZTS16rb_thread_struct", !14, i64 0}
+!30 = !{!"", !9, i64 0, !28, i64 40, !8, i64 48, !9, i64 56, !31, i64 104}
+!31 = !{!"_Bool", !9, i64 0}
+!32 = !{!"", !9, i64 0, !28, i64 40, !31, i64 48, !9, i64 56, !8, i64 104, !8, i64 108, !8, i64 112, !8, i64 116, !25, i64 120, !8, i64 136, !25, i64 144, !25, i64 160, !25, i64 176, !31, i64 192, !9, i64 200, !9, i64 248, !31, i64 296, !8, i64 300, !8, i64 304}
+!33 = !{!"long long", !9, i64 0}
+!34 = !{!"p1 _ZTS18global_object_list", !14, i64 0}
+!35 = !{!"p1 _ZTS8st_table", !14, i64 0}
+!36 = !{!"", !9, i64 0}
+!37 = !{!"p1 _ZTS22rb_postponed_job_queue", !14, i64 0}
+!38 = !{!"", !39, i64 0, !40, i64 8}
+!39 = !{!"p1 _ZTS11rb_objspace", !14, i64 0}
+!40 = !{!"p1 _ZTS24gc_mark_func_data_struct", !14, i64 0}
+!41 = !{!"p1 _ZTS15rb_at_exit_list", !14, i64 0}
+!42 = !{!"p1 _ZTS19rb_builtin_function", !14, i64 0}
+!43 = !{!"p1 _ZTS11rb_id_table", !14, i64 0}
+!44 = !{!"", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24}
+!45 = !{!12, !15, i64 16}

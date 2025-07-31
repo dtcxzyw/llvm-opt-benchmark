@@ -64,7 +64,7 @@ define dso_local zeroext i8 @acpi_ut_generate_checksum(ptr noundef readonly capt
   %10 = load i8, ptr %8, align 1
   %11 = add i8 %10, %7
   %12 = icmp eq ptr %9, %5
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !5
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %3
   %13 = phi i8 [ 0, %3 ], [ %11, %.preheader ]
@@ -92,7 +92,7 @@ define dso_local noundef i32 @acpi_ut_verify_cdat_checksum(ptr noundef captures(
   %12 = load i8, ptr %10, align 1
   %13 = add i8 %12, %9
   %14 = icmp eq ptr %11, %7
-  br i1 %14, label %15, label %.preheader, !llvm.loop !5
+  br i1 %14, label %15, label %.preheader, !llvm.loop !10
 
 15:                                               ; preds = %.preheader
   %16 = sub i8 %5, %13
@@ -126,7 +126,7 @@ define dso_local zeroext i8 @acpi_ut_checksum(ptr noundef readonly captures(addr
   %9 = load i8, ptr %7, align 1
   %10 = add i8 %9, %6
   %11 = icmp eq ptr %8, %4
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !5
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %2
   %12 = phi i8 [ 0, %2 ], [ %10, %.preheader ]
@@ -145,6 +145,10 @@ attributes #3 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}

@@ -1104,8 +1104,8 @@ _ZNSt10_HashtableIPN5ceres8internal13ResidualBlockES3_SaIS3_ENSt8__detail9_Ident
   %.sink12.i = phi ptr [ %23, %24 ], [ %27, %26 ]
   store ptr null, ptr %.sink12.i, align 8, !tbaa !200
   %29 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
-  %30 = load ptr, ptr %22, align 8, !tbaa !203
-  store ptr %30, ptr %29, align 8, !tbaa !203
+  %30 = load ptr, ptr %22, align 8, !tbaa !204
+  store ptr %30, ptr %29, align 8, !tbaa !204
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink12.i, ptr %31, align 8, !tbaa !194
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1113,7 +1113,7 @@ _ZNSt10_HashtableIPN5ceres8internal13ResidualBlockES3_SaIS3_ENSt8__detail9_Ident
   %34 = ptrtoint ptr %30 to i64
   %35 = urem i64 %34, %33
   %36 = getelementptr inbounds nuw ptr, ptr %18, i64 %35
-  store ptr %31, ptr %36, align 8, !tbaa !205
+  store ptr %31, ptr %36, align 8, !tbaa !206
   %.02837 = load ptr, ptr %20, align 8, !tbaa !200
   %.not3038 = icmp eq ptr %.02837, null
   br i1 %.not3038, label %.loopexit, label %.lr.ph.preheader
@@ -1144,18 +1144,18 @@ _ZNSt10_HashtableIPN5ceres8internal13ResidualBlockES3_SaIS3_ENSt8__detail9_Ident
   %.sink12.i34 = phi ptr [ %37, %39 ], [ %42, %41 ]
   store ptr null, ptr %.sink12.i34, align 8, !tbaa !200
   %45 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 8
-  %46 = load ptr, ptr %38, align 8, !tbaa !203
-  store ptr %46, ptr %45, align 8, !tbaa !203
+  %46 = load ptr, ptr %38, align 8, !tbaa !204
+  store ptr %46, ptr %45, align 8, !tbaa !204
   store ptr %.sink12.i34, ptr %.02639, align 8, !tbaa !200
   %47 = ptrtoint ptr %46 to i64
   %48 = urem i64 %47, %33
   %49 = getelementptr inbounds nuw ptr, ptr %18, i64 %48
-  %50 = load ptr, ptr %49, align 8, !tbaa !205
+  %50 = load ptr, ptr %49, align 8, !tbaa !206
   %.not32 = icmp eq ptr %50, null
   br i1 %.not32, label %51, label %56
 
 51:                                               ; preds = %43
-  store ptr %.02639, ptr %49, align 8, !tbaa !205
+  store ptr %.02639, ptr %49, align 8, !tbaa !206
   br label %56
 
 52:                                               ; preds = %26
@@ -1171,7 +1171,7 @@ _ZNSt10_HashtableIPN5ceres8internal13ResidualBlockES3_SaIS3_ENSt8__detail9_Ident
 56:                                               ; preds = %51, %43
   %.028 = load ptr, ptr %.02840, align 8, !tbaa !200
   %.not30 = icmp eq ptr %.028, null
-  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !206
+  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !207
 
 57:                                               ; preds = %54, %52
   %.pn = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
@@ -1333,7 +1333,7 @@ _ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN5ceres8internal9EvaluatorES
   store i32 1, ptr %9, align 4, !tbaa !173
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN5ceres8internal9EvaluatorESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !tbaa !174
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %3, ptr %10, align 8, !tbaa !207
+  store ptr %3, ptr %10, align 8, !tbaa !208
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !176
   %.not.i.i = icmp eq i8 %11, 0
   br i1 %.not.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.thread
@@ -1513,7 +1513,7 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN5ceres8internal9Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN5ceres8internal9EvaluatorESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !209
+  %3 = load ptr, ptr %2, align 8, !tbaa !210
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZNKSt14default_deleteIN5ceres8internal9EvaluatorEEclEPS2_.exit, label %5
 
@@ -1538,7 +1538,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN5ceres8internal9EvaluatorESt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN5ceres8internal9EvaluatorESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !211
+  %4 = load ptr, ptr %3, align 8, !tbaa !212
   %5 = icmp eq ptr %4, @_ZTSSt14default_deleteIN5ceres8internal9EvaluatorEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -1804,15 +1804,16 @@ attributes #25 = { builtin allocsize(0) }
 !198 = !{!"p1 _ZTSNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN5ceres8internal13ResidualBlockELb0EEEEEE", !9, i64 0}
 !199 = !{!198, !198, i64 0}
 !200 = !{!30, !31, i64 0}
-!201 = distinct !{!201, !202}
+!201 = distinct !{!201, !202, !203}
 !202 = !{!"llvm.loop.mustprogress"}
-!203 = !{!204, !204, i64 0}
-!204 = !{!"p1 _ZTSN5ceres8internal13ResidualBlockE", !9, i64 0}
-!205 = !{!31, !31, i64 0}
-!206 = distinct !{!206, !202}
-!207 = !{!208, !62, i64 0}
-!208 = !{!"_ZTSNSt19_Sp_counted_deleterIPN5ceres8internal9EvaluatorESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplE", !62, i64 0}
-!209 = !{!210, !62, i64 16}
-!210 = !{!"_ZTSSt19_Sp_counted_deleterIPN5ceres8internal9EvaluatorESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE", !172, i64 0, !208, i64 16}
-!211 = !{!212, !8, i64 8}
-!212 = !{!"_ZTSSt9type_info", !8, i64 8}
+!203 = !{!"llvm.loop.estimated_trip_count"}
+!204 = !{!205, !205, i64 0}
+!205 = !{!"p1 _ZTSN5ceres8internal13ResidualBlockE", !9, i64 0}
+!206 = !{!31, !31, i64 0}
+!207 = distinct !{!207, !202, !203}
+!208 = !{!209, !62, i64 0}
+!209 = !{!"_ZTSNSt19_Sp_counted_deleterIPN5ceres8internal9EvaluatorESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplE", !62, i64 0}
+!210 = !{!211, !62, i64 16}
+!211 = !{!"_ZTSSt19_Sp_counted_deleterIPN5ceres8internal9EvaluatorESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE", !172, i64 0, !209, i64 16}
+!212 = !{!213, !8, i64 8}
+!213 = !{!"_ZTSSt9type_info", !8, i64 8}

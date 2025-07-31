@@ -134,7 +134,7 @@ _ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream6UnreadEv.exit27: ; p
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %_ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream6UnreadEv.exit27, %entry
-  store i64 0, ptr %agg.result, align 8, !alias.scope !6
+  store i64 0, ptr %agg.result, align 8, !alias.scope !7
   br label %return
 
 return:                                           ; preds = %while.end, %if.then
@@ -264,7 +264,7 @@ _ZNSt20back_insert_iteratorISt6vectorIcSaIcEEEaSERKc.exit.i.i.i.i.i.i: ; preds =
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.05.i.i.i.i.i.i, i64 1
   %dec.i.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.06.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN4absl12lts_202308026c_copyISt17basic_string_viewIcSt11char_traitsIcEESt20back_insert_iteratorISt6vectorIcSaIcEEEEET0_RKT_SB_.exit, !llvm.loop !9
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN4absl12lts_202308026c_copyISt17basic_string_viewIcSt11char_traitsIcEESt20back_insert_iteratorISt6vectorIcSaIcEEEEET0_RKT_SB_.exit, !llvm.loop !10
 
 _ZN4absl12lts_202308026c_copyISt17basic_string_viewIcSt11char_traitsIcEESt20back_insert_iteratorISt6vectorIcSaIcEEEEET0_RKT_SB_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIcSaIcEEEaSERKc.exit.i.i.i.i.i.i, %_ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream9RawBufferEmm.exit
   store i8 1, ptr %using_buf_, align 8
@@ -380,7 +380,7 @@ _ZNSt20back_insert_iteratorISt6vectorIcSaIcEEEaSERKc.exit.i.i.i.i.i.i13: ; preds
   %incdec.ptr.i.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %__first.addr.05.i.i.i.i.i.i9, i64 1
   %dec.i.i.i.i.i.i15 = add nsw i64 %__n.06.i.i.i.i.i.i8, -1
   %cmp.i.i.i.i.i.i16 = icmp sgt i64 %__n.06.i.i.i.i.i.i8, 1
-  br i1 %cmp.i.i.i.i.i.i16, label %for.body.i.i.i.i.i.i7, label %return, !llvm.loop !9
+  br i1 %cmp.i.i.i.i.i.i16, label %for.body.i.i.i.i.i.i7, label %return, !llvm.loop !10
 
 if.else:                                          ; preds = %if.end13
   %cursor_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -735,7 +735,7 @@ if.then.i98:                                      ; preds = %if.then.i.i.i89
   br i1 %cmp.i.i101, label %while.cond.backedge, label %lor.lhs.false.i.i102
 
 while.cond.backedge:                              ; preds = %if.then.i98, %lor.lhs.false.i.i102, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i122
-  br label %while.cond, !llvm.loop !10
+  br label %while.cond, !llvm.loop !11
 
 lor.lhs.false.i.i102:                             ; preds = %if.then.i98.thread, %if.then.i98
   %49 = load i8, ptr %using_buf_.i.i, align 8
@@ -1116,10 +1116,11 @@ attributes #19 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
-!8 = distinct !{!8, !"_ZN4absl12lts_202308028OkStatusEv"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
+!9 = distinct !{!9, !"_ZN4absl12lts_202308028OkStatusEv"}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}

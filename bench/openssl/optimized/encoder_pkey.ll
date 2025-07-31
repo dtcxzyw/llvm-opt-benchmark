@@ -298,9 +298,9 @@ ossl_encoder_ctx_setup_for_pkey.exit.thread38:    ; preds = %42
   br i1 %.not55.i, label %ossl_encoder_ctx_setup_for_pkey.exit, label %97
 
 97:                                               ; preds = %95
-  store ptr %0, ptr %43, align 8, !tbaa !49
+  store ptr %0, ptr %43, align 8, !tbaa !50
   %98 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 %1, ptr %98, align 8, !tbaa !53
+  store i32 %1, ptr %98, align 8, !tbaa !54
   br label %ossl_encoder_ctx_setup_for_pkey.exit.thread
 
 99:                                               ; preds = %.loopexit.i
@@ -333,7 +333,7 @@ ossl_encoder_ctx_setup_for_pkey.exit.thread:      ; preds = %ossl_encoder_ctx_se
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %105 = load i32, ptr %104, align 8, !tbaa !54
+  %105 = load i32, ptr %104, align 8, !tbaa !55
   store i32 %105, ptr %9, align 4, !tbaa !9
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.4, ptr noundef nonnull %9) #5
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -468,7 +468,7 @@ define internal void @collect_encoder(ptr noundef %0, ptr noundef captures(none)
   %27 = load ptr, ptr %19, align 8, !tbaa !46
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !9
-  %30 = load i32, ptr %20, align 8, !tbaa !55
+  %30 = load i32, ptr %20, align 8, !tbaa !56
   %.not37 = icmp eq i32 %29, %30
   br i1 %.not37, label %37, label %51
 
@@ -481,13 +481,13 @@ define internal void @collect_encoder(ptr noundef %0, ptr noundef captures(none)
   br i1 %36, label %51, label %37
 
 37:                                               ; preds = %26, %31
-  %38 = load ptr, ptr %21, align 8, !tbaa !60
+  %38 = load ptr, ptr %21, align 8, !tbaa !61
   %.not33 = icmp eq ptr %38, null
   br i1 %.not33, label %43, label %39
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %22, align 8, !tbaa !45
-  %41 = load i32, ptr %40, align 8, !tbaa !61
+  %41 = load i32, ptr %40, align 8, !tbaa !62
   %42 = tail call i32 %38(ptr noundef %15, i32 noundef %41) #5
   %.not34 = icmp eq i32 %42, 0
   br i1 %.not34, label %51, label %43
@@ -498,7 +498,7 @@ define internal void @collect_encoder(ptr noundef %0, ptr noundef captures(none)
   br i1 %.not35, label %48, label %45
 
 45:                                               ; preds = %43
-  %46 = load ptr, ptr %23, align 8, !tbaa !62
+  %46 = load ptr, ptr %23, align 8, !tbaa !63
   %47 = icmp eq ptr %46, null
   br i1 %47, label %51, label %48
 
@@ -518,7 +518,7 @@ define internal void @collect_encoder(ptr noundef %0, ptr noundef captures(none)
 
 .backedge.backedge:                               ; preds = %51, %48
   %indvars.iv.be = phi i64 [ %indvars.iv.next.old, %51 ], [ %indvars.iv.next, %48 ]
-  br label %.backedge, !llvm.loop !63
+  br label %.backedge, !llvm.loop !64
 
 .loopexit:                                        ; preds = %48, %51, %14, %5
   store i32 0, ptr %3, align 4, !tbaa !43
@@ -537,13 +537,13 @@ declare i32 @OSSL_ENCODER_CTX_set_construct(ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal ptr @encoder_construct_pkey(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !64
+  %4 = load ptr, ptr %3, align 8, !tbaa !65
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %2
   %7 = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef %0) #5
-  %8 = load ptr, ptr %1, align 8, !tbaa !49
+  %8 = load ptr, ptr %1, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %11 = tail call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %10) #5
@@ -553,12 +553,12 @@ define internal ptr @encoder_construct_pkey(ptr noundef %0, ptr noundef %1) #0 {
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !53
+  %15 = load i32, ptr %14, align 8, !tbaa !54
   %16 = shl i32 %15, 1
   %17 = and i32 %16, 2
   %spec.select = or i32 %17, %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %0, ptr %18, align 8, !tbaa !65
+  store ptr %0, ptr %18, align 8, !tbaa !66
   %19 = load ptr, ptr %9, align 8, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !15
@@ -577,7 +577,7 @@ define internal ptr @encoder_construct_pkey(ptr noundef %0, ptr noundef %1) #0 {
 .critedge.sink.split:                             ; preds = %25, %23
   %.sink.in = phi ptr [ %24, %23 ], [ %26, %25 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !11
-  store ptr %.sink, ptr %3, align 8, !tbaa !64
+  store ptr %.sink, ptr %3, align 8, !tbaa !65
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %2, %13
@@ -592,22 +592,22 @@ declare i32 @OSSL_ENCODER_CTX_set_cleanup(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal void @encoder_destruct_pkey(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !66
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef nonnull %3) #5
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %6, align 8, !tbaa !67
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !67
+  %9 = load ptr, ptr %8, align 8, !tbaa !68
   tail call void %7(ptr noundef %9) #5
   br label %10
 
 10:                                               ; preds = %4, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %11, align 8, !tbaa !67
+  store ptr null, ptr %11, align 8, !tbaa !68
   ret void
 }
 
@@ -628,16 +628,16 @@ declare i32 @evp_keymgmt_export(ptr noundef, ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @encoder_import_cb(ptr noundef %0, ptr noundef captures(none) initializes((32, 40)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %4 = load ptr, ptr %3, align 8, !tbaa !66
   %5 = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef %4) #5
   %6 = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder_ctx(ptr noundef %4) #5
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %8 = load ptr, ptr %7, align 8, !tbaa !62
+  %8 = load ptr, ptr %7, align 8, !tbaa !63
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !53
+  %10 = load i32, ptr %9, align 8, !tbaa !54
   %11 = tail call ptr %8(ptr noundef %6, i32 noundef %10, ptr noundef %0) #5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %11, ptr %12, align 8, !tbaa !67
+  store ptr %11, ptr %12, align 8, !tbaa !68
   %13 = icmp ne ptr %11, null
   %14 = zext i1 %13 to i32
   ret i32 %14
@@ -701,24 +701,25 @@ attributes #5 = { nounwind }
 !44 = !{!32, !34, i64 32}
 !45 = !{!32, !35, i64 40}
 !46 = !{!32, !33, i64 8}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"construct_data_st", !51, i64 0, !10, i64 8, !52, i64 16, !6, i64 24, !6, i64 32}
-!51 = !{!"p1 _ZTS11evp_pkey_st", !6, i64 0}
-!52 = !{!"p1 _ZTS24ossl_encoder_instance_st", !6, i64 0}
-!53 = !{!50, !10, i64 8}
-!54 = !{!16, !10, i64 72}
-!55 = !{!56, !10, i64 8}
-!56 = !{!"ossl_encoder_st", !57, i64 0, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120}
-!57 = !{!"ossl_endecode_base_st", !34, i64 0, !10, i64 8, !5, i64 16, !58, i64 24, !59, i64 32, !19, i64 40}
-!58 = !{!"p1 _ZTS17ossl_algorithm_st", !6, i64 0}
-!59 = !{!"p1 _ZTS21ossl_property_list_st", !6, i64 0}
-!60 = !{!56, !6, i64 96}
-!61 = !{!37, !10, i64 0}
-!62 = !{!56, !6, i64 112}
-!63 = distinct !{!63, !48}
-!64 = !{!50, !6, i64 24}
-!65 = !{!50, !52, i64 16}
-!66 = !{!56, !6, i64 120}
-!67 = !{!50, !6, i64 32}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"construct_data_st", !52, i64 0, !10, i64 8, !53, i64 16, !6, i64 24, !6, i64 32}
+!52 = !{!"p1 _ZTS11evp_pkey_st", !6, i64 0}
+!53 = !{!"p1 _ZTS24ossl_encoder_instance_st", !6, i64 0}
+!54 = !{!51, !10, i64 8}
+!55 = !{!16, !10, i64 72}
+!56 = !{!57, !10, i64 8}
+!57 = !{!"ossl_encoder_st", !58, i64 0, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120}
+!58 = !{!"ossl_endecode_base_st", !34, i64 0, !10, i64 8, !5, i64 16, !59, i64 24, !60, i64 32, !19, i64 40}
+!59 = !{!"p1 _ZTS17ossl_algorithm_st", !6, i64 0}
+!60 = !{!"p1 _ZTS21ossl_property_list_st", !6, i64 0}
+!61 = !{!57, !6, i64 96}
+!62 = !{!37, !10, i64 0}
+!63 = !{!57, !6, i64 112}
+!64 = distinct !{!64, !48, !49}
+!65 = !{!51, !6, i64 24}
+!66 = !{!51, !53, i64 16}
+!67 = !{!57, !6, i64 120}
+!68 = !{!51, !6, i64 32}

@@ -1465,7 +1465,7 @@ define internal range(i32 -1, 60) i32 @element1(ptr noundef captures(none) %0, i
 17:                                               ; preds = %5
   store ptr @element2, ptr %0, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %18, align 8, !tbaa !20
+  store i32 1, ptr %18, align 8, !tbaa !21
   br label %common.exit
 
 19:                                               ; preds = %5
@@ -1511,7 +1511,7 @@ define internal range(i32 -1, 60) i32 @element2(ptr noundef captures(none) %0, i
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %15, align 8, !tbaa !20
+  store i32 2, ptr %15, align 8, !tbaa !21
   br label %common.exit.sink.split
 
 16:                                               ; preds = %5
@@ -1601,9 +1601,9 @@ define internal range(i32 -1, 60) i32 @element6(ptr noundef captures(none) %0, i
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !20
+  %8 = load i32, ptr %7, align 8, !tbaa !21
   %9 = add i32 %8, 1
-  store i32 %9, ptr %7, align 8, !tbaa !20
+  store i32 %9, ptr %7, align 8, !tbaa !21
   br label %common.exit
 
 10:                                               ; preds = %5, %5
@@ -1653,9 +1653,9 @@ define internal range(i32 -1, 60) i32 @element7(ptr noundef captures(none) %0, i
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !20
+  %8 = load i32, ptr %7, align 8, !tbaa !21
   %9 = add i32 %8, -1
-  store i32 %9, ptr %7, align 8, !tbaa !20
+  store i32 %9, ptr %7, align 8, !tbaa !21
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %common.exit
 
@@ -1667,9 +1667,9 @@ define internal range(i32 -1, 60) i32 @element7(ptr noundef captures(none) %0, i
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !20
+  %15 = load i32, ptr %14, align 8, !tbaa !21
   %16 = add i32 %15, -1
-  store i32 %16, ptr %14, align 8, !tbaa !20
+  store i32 %16, ptr %14, align 8, !tbaa !21
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %common.exit
 
@@ -1681,9 +1681,9 @@ define internal range(i32 -1, 60) i32 @element7(ptr noundef captures(none) %0, i
 
 20:                                               ; preds = %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !20
+  %22 = load i32, ptr %21, align 8, !tbaa !21
   %23 = add i32 %22, -1
-  store i32 %23, ptr %21, align 8, !tbaa !20
+  store i32 %23, ptr %21, align 8, !tbaa !21
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %common.exit
 
@@ -1695,9 +1695,9 @@ define internal range(i32 -1, 60) i32 @element7(ptr noundef captures(none) %0, i
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !20
+  %29 = load i32, ptr %28, align 8, !tbaa !21
   %30 = add i32 %29, -1
-  store i32 %30, ptr %28, align 8, !tbaa !20
+  store i32 %30, ptr %28, align 8, !tbaa !21
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %common.exit
 
@@ -1991,6 +1991,7 @@ attributes #5 = { nounwind }
 !15 = !{!4, !8, i64 12}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 omnipotent char", !5, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!4, !8, i64 8}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!4, !8, i64 8}

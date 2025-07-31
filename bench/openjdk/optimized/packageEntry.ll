@@ -608,7 +608,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %46, %44, %11
 
 _ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit: ; preds = %66, %61, %70
   %71 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %71, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %71, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit, %_ZN12ResourceMarkD2Ev.exit, %8, %5, %1
   ret void
@@ -771,12 +771,12 @@ _ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP12PackageEntryED2Ev.exit.i: 
   store i32 %59, ptr %3, align 8
   %60 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP12PackageEntryED2Ev.exit.i, %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 109
-  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN17PackageEntryTableD1EvE24PackageEntryTableDeleterEEvPSC_.exit, label %4, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN17PackageEntryTableD1EvE24PackageEntryTableDeleterEEvPSC_.exit, label %4, !llvm.loop !11
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN17PackageEntryTableD1EvE24PackageEntryTableDeleterEEvPSC_.exit: ; preds = %._crit_edge.i, %._crit_edge.i.i
   %.0.idx11.i.i = phi i64 [ %.0.add.i.i, %._crit_edge.i.i ], [ 0, %._crit_edge.i ]
@@ -801,12 +801,12 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleB
 _ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP12PackageEntryED2Ev.exit.i.i: ; preds = %66, %.lr.ph.i.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0810.i.i) #13
   %.not.i.i2 = icmp eq ptr %63, null
-  br i1 %.not.i.i2, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i2, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %_ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EEP12PackageEntryED2Ev.exit.i.i, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN17PackageEntryTableD1EvE24PackageEntryTableDeleterEEvPSC_.exit
   %.0.add.i.i = add nuw nsw i64 %.0.idx11.i.i, 8
   %67 = icmp samesign ult i64 %.0.idx11.i.i, 864
-  br i1 %67, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN17PackageEntryTableD1EvE24PackageEntryTableDeleterEEvPSC_.exit, label %_ZN17ResourceHashtableI16SymbolHandleBaseILb0EEP12PackageEntryLj109ELN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit, !llvm.loop !12
+  br i1 %67, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE6unlinkIZN17PackageEntryTableD1EvE24PackageEntryTableDeleterEEvPSC_.exit, label %_ZN17ResourceHashtableI16SymbolHandleBaseILb0EEP12PackageEntryLj109ELN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit, !llvm.loop !13
 
 _ZN17ResourceHashtableI16SymbolHandleBaseILb0EEP12PackageEntryLj109ELN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit: ; preds = %._crit_edge.i.i
   ret void
@@ -864,7 +864,7 @@ define hidden noundef ptr @_ZNK12PackageEntry23allocate_archived_entryEv(ptr nou
   %29 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj557EPK12PackageEntryPS1_ES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE11lookup_nodeEjRKS3_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj557EPK12PackageEntryPS1_ES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE11lookup_nodeEjRKS3_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj557EPK12PackageEntryPS1_ES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE11lookup_nodeEjRKS3_.exit.i: ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
@@ -936,7 +936,7 @@ define hidden noundef ptr @_ZN12PackageEntry18get_archived_entryEPS_(ptr noundef
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj557EPK12PackageEntryPS1_ES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE3getERKS3_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj557EPK12PackageEntryPS1_ES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE3getERKS3_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !14
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1037,7 +1037,7 @@ define hidden void @_ZN17PackageEntryTable15iterate_symbolsEP16MetaspaceClosure(
   %12 = add nsw i32 %.116.i.i, -1
   %.011.i.i = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %12, %.lr.ph.i.i ]
@@ -1045,7 +1045,7 @@ define hidden void @_ZN17PackageEntryTable15iterate_symbolsEP16MetaspaceClosure(
   %13 = icmp sgt i32 %.1.lcssa.i.i, 0
   %14 = icmp samesign ult i64 %.0.idx19.i.i, 864
   %or.cond.i.i = select i1 %13, i1 %14, i1 false
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable15iterate_symbolsEP16MetaspaceClosureE3$_0EEvSC_.exit", !llvm.loop !15
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable15iterate_symbolsEP16MetaspaceClosureE3$_0EEvSC_.exit", !llvm.loop !16
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable15iterate_symbolsEP16MetaspaceClosureE3$_0EEvSC_.exit": ; preds = %._crit_edge.i.i, %2
   ret void
@@ -1084,7 +1084,7 @@ define hidden noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(p
   %10 = add nsw i32 %.116.i.i, -1
   %.011.i.i = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.3 = phi i32 [ %.035, %.preheader.i.i ], [ %spec.select, %.lr.ph.i.i ]
@@ -1093,7 +1093,7 @@ define hidden noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(p
   %11 = icmp sgt i32 %.1.lcssa.i.i, 0
   %12 = icmp samesign ult i64 %.0.idx19.i.i, 864
   %or.cond.i.i = select i1 %11, i1 %12, i1 false
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_0EEvSC_.exit", !llvm.loop !17
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_0EEvSC_.exit", !llvm.loop !18
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_0EEvSC_.exit": ; preds = %._crit_edge.i.i, %1
   %.4 = phi i32 [ 0, %1 ], [ %.3, %._crit_edge.i.i ]
@@ -1149,7 +1149,7 @@ define hidden noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(p
   %35 = add nsw i32 %.116.i.i17, -1
   %.011.i.i19 = load ptr, ptr %34, align 8
   %.not.i.i20 = icmp eq ptr %.011.i.i19, null
-  br i1 %.not.i.i20, label %._crit_edge.i.i21, label %.lr.ph.i.i15, !llvm.loop !18
+  br i1 %.not.i.i20, label %._crit_edge.i.i21, label %.lr.ph.i.i15, !llvm.loop !19
 
 ._crit_edge.i.i21:                                ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i", %.preheader.i.i9
   %.8 = phi i32 [ %.5, %.preheader.i.i9 ], [ %.7, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i" ]
@@ -1158,7 +1158,7 @@ define hidden noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(p
   %36 = icmp sgt i32 %.1.lcssa.i.i22, 0
   %37 = icmp samesign ult i64 %.0.idx19.i.i10, 864
   %or.cond.i.i24 = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond.i.i24, label %.preheader.i.i9, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit", !llvm.loop !19
+  br i1 %or.cond.i.i24, label %.preheader.i.i9, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit", !llvm.loop !20
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit": ; preds = %._crit_edge.i.i21
   %38 = icmp sgt i32 %.8, 1
@@ -1188,7 +1188,7 @@ define hidden noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(p
   tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull %44) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.93743
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %43, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_0EEvSC_.exit", %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25allocate_archived_entriesEvE3$_1EEvSC_.exit.thread"
   ret ptr %20
@@ -1267,7 +1267,7 @@ _ZN9QuickSort10find_pivotIP12PackageEntryPFiS2_S2_EEEmPT_mT0_.exit: ; preds = %2
   %38 = tail call noundef i32 %2(ptr noundef %37, ptr noundef %33) #13
   %39 = icmp slt i32 %38, 0
   %40 = add i64 %.1.i, 1
-  br i1 %39, label %35, label %.preheader.i.preheader, !llvm.loop !21
+  br i1 %39, label %35, label %.preheader.i.preheader, !llvm.loop !22
 
 .preheader.i.preheader:                           ; preds = %35
   %41 = getelementptr inbounds ptr, ptr %.tr23, i64 %.1.i
@@ -1280,7 +1280,7 @@ _ZN9QuickSort10find_pivotIP12PackageEntryPFiS2_S2_EEEmPT_mT0_.exit: ; preds = %2
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef i32 %2(ptr noundef %43, ptr noundef %33) #13
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.preheader.i, label %46, !llvm.loop !22
+  br i1 %45, label %.preheader.i, label %46, !llvm.loop !23
 
 46:                                               ; preds = %.preheader.i
   %47 = icmp ult i64 %.1.i, %.121.i
@@ -1292,7 +1292,7 @@ _ZN9QuickSort10find_pivotIP12PackageEntryPFiS2_S2_EEEmPT_mT0_.exit: ; preds = %2
   %51 = load ptr, ptr %49, align 8
   store ptr %51, ptr %41, align 8
   store ptr %50, ptr %49, align 8
-  br label %34, !llvm.loop !23
+  br label %34, !llvm.loop !24
 
 _ZN9QuickSort9partitionIP12PackageEntryPFiS2_S2_EEEmPT_mmT0_.exit: ; preds = %46
   tail call void @_ZN9QuickSort4sortIP12PackageEntryPFiS2_S2_EEEvPT_mT0_(ptr noundef nonnull %.tr23, i64 noundef %.121.in.i, ptr noundef %2)
@@ -1353,7 +1353,7 @@ define hidden void @_ZN17PackageEntryTable21init_archived_entriesEP5ArrayIP12Pac
   %20 = load i32, ptr %1, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %6, label %._crit_edge, !llvm.loop !24
+  br i1 %22, label %6, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %6, %2
   ret void
@@ -1430,7 +1430,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:      ; preds = %7, %14
   %45 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   %46 = load ptr, ptr %45, align 8
   %.not.i.i5 = icmp eq ptr %46, null
-  br i1 %.not.i.i5, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i5, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !26
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.i: ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
@@ -1471,7 +1471,7 @@ _ZN16SymbolHandleBaseILb0EED2Ev.exit:             ; preds = %_ZN21ResourceHashta
   %57 = load i32, ptr %1, align 8
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %7, label %._crit_edge, !llvm.loop !26
+  br i1 %59, label %7, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZN16SymbolHandleBaseILb0EED2Ev.exit, %2
   ret void
@@ -1539,7 +1539,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:
   %40 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not.i.i6 = icmp eq ptr %41, null
-  br i1 %.not.i.i6, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i6, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !26
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.i: ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
@@ -1642,7 +1642,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not.i.i9 = icmp eq ptr %42, null
-  br i1 %.not.i.i9, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i9, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !26
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.thread.i.loopexit: ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -1792,7 +1792,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit.i:    ; preds = %5, %_ZN11MutexLocke
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i, label %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i, label %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread.i, label %.lr.ph.i.i.i.i, !llvm.loop !26
 
 _ZN16SymbolHandleBaseILb0EED2Ev.exit.thread.i:    ; preds = %36, %_ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit.i
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #13
@@ -1868,7 +1868,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:      ; preds = %2, %3
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i, label %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !26
 
 _ZN16SymbolHandleBaseILb0EED2Ev.exit.thread:      ; preds = %34, %_ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #13
@@ -1940,7 +1940,7 @@ define hidden void @_ZN17PackageEntryTable24verify_javabase_packagesEP13Growable
 22:                                               ; preds = %23
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit.i.i.i.i, label %23, !llvm.loop !27
+  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit.i.i.i.i, label %23, !llvm.loop !28
 
 23:                                               ; preds = %22, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %22 ]
@@ -1988,7 +1988,7 @@ define hidden void @_ZN17PackageEntryTable24verify_javabase_packagesEP13Growable
   %45 = add nsw i32 %.116.i.i, -1
   %.011.i.i = load ptr, ptr %44, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable24verify_javabase_packagesEP13GrowableArrayIP6SymbolEE3$_0EEvSC_ENKUlRS2_RS4_E_clESO_SP_.exit.i.i", %.preheader.i.i
   %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %45, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable24verify_javabase_packagesEP13GrowableArrayIP6SymbolEE3$_0EEvSC_ENKUlRS2_RS4_E_clESO_SP_.exit.i.i" ]
@@ -1996,7 +1996,7 @@ define hidden void @_ZN17PackageEntryTable24verify_javabase_packagesEP13Growable
   %46 = icmp sgt i32 %.1.lcssa.i.i, 0
   %47 = icmp samesign ult i64 %.0.idx19.i.i, 864
   %or.cond.i.i = select i1 %46, i1 %47, i1 false
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable24verify_javabase_packagesEP13GrowableArrayIP6SymbolEE3$_0EEvSC_.exit", !llvm.loop !29
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable24verify_javabase_packagesEP13GrowableArrayIP6SymbolEE3$_0EEvSC_.exit", !llvm.loop !30
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable24verify_javabase_packagesEP13GrowableArrayIP6SymbolEE3$_0EEvSC_.exit": ; preds = %._crit_edge.i.i, %2
   ret void
@@ -2041,7 +2041,7 @@ define hidden void @_ZN12PackageEntry18package_exports_doEP13ModuleClosure(ptr n
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %23) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %2
   ret void
@@ -2345,14 +2345,14 @@ _ZN12ResourceMarkD2Ev.exit.i.i.i:                 ; preds = %72, %70, %42
 
 _ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit.i.i.i: ; preds = %138, %136, %107, %105, %102, %96, %92, %87
   %139 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %139, label %.lr.ph.i.i.i, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25purge_all_package_exportsEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i", !llvm.loop !8
+  br i1 %139, label %.lr.ph.i.i.i, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25purge_all_package_exportsEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i", !llvm.loop !9
 
 "_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25purge_all_package_exportsEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i": ; preds = %_ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit.i.i.i, %_ZN12ResourceMarkD2Ev.exit.i.i.i, %39, %_ZNK12PackageEntry16is_qual_exportedEv.exit.thread.i.i.i.i, %30, %_ZN12PackageEntry24delete_qualified_exportsEv.exit.i.i.i.i
   %140 = getelementptr inbounds nuw i8, ptr %.01127.i.i, i64 24
   %141 = add nsw i32 %.126.i.i, -1
   %.011.i.i = load ptr, ptr %140, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !32
 
 ._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25purge_all_package_exportsEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i", %.preheader.i.i
   %.1.lcssa.i.i = phi i32 [ %.01228.i.i, %.preheader.i.i ], [ %141, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25purge_all_package_exportsEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i" ]
@@ -2360,7 +2360,7 @@ _ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit.i.i.i: ; preds = %138, %
   %142 = icmp sgt i32 %.1.lcssa.i.i, 0
   %143 = icmp samesign ult i64 %.0.idx29.i.i, 864
   %or.cond.i.i = select i1 %142, i1 %143, i1 false
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25purge_all_package_exportsEvE3$_0EEvSC_.exit", !llvm.loop !32
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25purge_all_package_exportsEvE3$_0EEvSC_.exit", !llvm.loop !33
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable25purge_all_package_exportsEvE3$_0EEvSC_.exit": ; preds = %._crit_edge.i.i, %1
   ret void
@@ -2391,7 +2391,7 @@ define hidden void @_ZN17PackageEntryTable11packages_doEPFvP12PackageEntryE(ptr 
   %8 = add nsw i32 %.116.i.i, -1
   %.011.i.i = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !33
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !34
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %8, %.lr.ph.i.i ]
@@ -2399,7 +2399,7 @@ define hidden void @_ZN17PackageEntryTable11packages_doEPFvP12PackageEntryE(ptr 
   %9 = icmp sgt i32 %.1.lcssa.i.i, 0
   %10 = icmp samesign ult i64 %.0.idx19.i.i, 864
   %or.cond.i.i = select i1 %9, i1 %10, i1 false
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable11packages_doEPFvS4_EE3$_0EEvSC_.exit", !llvm.loop !34
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable11packages_doEPFvS4_EE3$_0EEvSC_.exit", !llvm.loop !35
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable11packages_doEPFvS4_EE3$_0EEvSC_.exit": ; preds = %._crit_edge.i.i, %2
   ret void
@@ -2525,7 +2525,7 @@ _ZN13GrowableArrayIP12PackageEntryE8allocateEv.exit.i.i.i: ; preds = %38, %34, %
   %51 = load i32, ptr %2, align 8
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next.i.i.i, %52
-  br i1 %53, label %.lr.ph.i.i.i, label %.preheader16.loopexit.i.i.i, !llvm.loop !35
+  br i1 %53, label %.lr.ph.i.i.i, label %.preheader16.loopexit.i.i.i, !llvm.loop !36
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph19.i.i.i, %.preheader16.i.i.i
   %54 = load ptr, ptr %5, align 8
@@ -2540,7 +2540,7 @@ _ZN13GrowableArrayIP12PackageEntryE8allocateEv.exit.i.i.i: ; preds = %38, %34, %
   %56 = load i32, ptr %4, align 4
   %57 = trunc nuw i64 %indvars.iv.next22.i.i.i to i32
   %58 = icmp sgt i32 %56, %57
-  br i1 %58, label %.lr.ph19.i.i.i, label %.preheader.i.i.i, !llvm.loop !36
+  br i1 %58, label %.lr.ph19.i.i.i, label %.preheader.i.i.i, !llvm.loop !37
 
 59:                                               ; preds = %.preheader.i.i.i
   %60 = load i64, ptr %6, align 8
@@ -2573,7 +2573,7 @@ _ZN26GrowableArrayWithAllocatorIP12PackageEntry13GrowableArrayIS1_EE6appendERKS1
   %70 = add nsw i32 %.116.i.i, -1
   %.011.i.i = load ptr, ptr %69, align 8
   %.not.i.i2 = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i2, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !37
+  br i1 %.not.i.i2, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !38
 
 ._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable19get_system_packagesEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i", %.preheader.i.i
   %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %70, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable19get_system_packagesEvE3$_0EEvSC_ENKUlRS2_RS4_E_clESJ_SK_.exit.i.i" ]
@@ -2581,7 +2581,7 @@ _ZN26GrowableArrayWithAllocatorIP12PackageEntry13GrowableArrayIS1_EE6appendERKS1
   %71 = icmp sgt i32 %.1.lcssa.i.i, 0
   %72 = icmp samesign ult i64 %.0.idx19.i.i, 864
   %or.cond.i.i = select i1 %71, i1 %72, i1 false
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable19get_system_packagesEvE3$_0EEvSC_.exit", !llvm.loop !38
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable19get_system_packagesEvE3$_0EEvSC_.exit", !llvm.loop !39
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable19get_system_packagesEvE3$_0EEvSC_.exit": ; preds = %._crit_edge.i.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %73
@@ -2682,7 +2682,7 @@ _ZN12PackageEntry5printEP12outputStream.exit.i.i: ; preds = %44, %42
   %46 = add nsw i32 %.116.i.i, -1
   %.011.i.i = load ptr, ptr %45, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !39
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !40
 
 ._crit_edge.i.i:                                  ; preds = %_ZN12PackageEntry5printEP12outputStream.exit.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %46, %_ZN12PackageEntry5printEP12outputStream.exit.i.i ]
@@ -2690,7 +2690,7 @@ _ZN12PackageEntry5printEP12outputStream.exit.i.i: ; preds = %44, %42
   %47 = icmp sgt i32 %.1.lcssa.i.i, 0
   %48 = icmp samesign ult i64 %.0.idx19.i.i, 864
   %or.cond.i.i = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable5printEP12outputStreamE3$_0EEvSC_.exit", !llvm.loop !40
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable5printEP12outputStreamE3$_0EEvSC_.exit", !llvm.loop !41
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP12PackageEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11iterate_allIZN17PackageEntryTable5printEP12outputStreamE3$_0EEvSC_.exit": ; preds = %._crit_edge.i.i, %2
   ret void
@@ -2907,7 +2907,7 @@ _ZN13GrowableArrayIP11ModuleEntryE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !41
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !42
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2923,7 +2923,7 @@ _ZN13GrowableArrayIP11ModuleEntryE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !42
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !43
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3011,7 +3011,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry1
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !44
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3170,41 +3170,42 @@ attributes #13 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}

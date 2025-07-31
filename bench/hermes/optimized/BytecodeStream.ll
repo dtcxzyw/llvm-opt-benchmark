@@ -271,7 +271,7 @@ for.body:                                         ; preds = %_ZN6hermes3hbc18Byt
   call void @_ZN6hermes3hbc18BytecodeSerializer21serializeFunctionInfoERNS0_16BytecodeFunctionE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(104) %39)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0128, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %38
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit
   call void @_ZN6hermes3hbc18BytecodeSerializer18serializeDebugInfoERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %BM)
@@ -387,7 +387,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i: ; preds = %if
   store i64 %add.i.i.i.i, ptr %loc_.i.i, align 8
   %inc.i.i = add nuw nsw i32 %i.05.i.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i.i, %conv6.i.i
-  br i1 %exitcond.not.i, label %_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit, label %for.body.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit, label %for.body.i.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i, %entry, %for.body.us.i.preheader.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
@@ -436,7 +436,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i29: ; preds = %
   store i64 %add.i.i.i.i30, ptr %loc_.i.i, align 8
   %inc.i.i31 = add nuw nsw i32 %i.05.i.i24, 1
   %exitcond.not.i32 = icmp eq i32 %inc.i.i31, %conv6.i.i20
-  br i1 %exitcond.not.i32, label %_ZN6hermes3hbc18BytecodeSerializer24visitFunctionSourceTableEv.exit, label %for.body.i.i23, !llvm.loop !4
+  br i1 %exitcond.not.i32, label %_ZN6hermes3hbc18BytecodeSerializer24visitFunctionSourceTableEv.exit, label %for.body.i.i23, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer24visitFunctionSourceTableEv.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i29, %_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit, %for.body.us.i.preheader.i34
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i15)
@@ -494,19 +494,19 @@ if.then9:                                         ; preds = %if.then
   %conv = trunc i64 %6 to i32
   store ptr %4, ptr %ref.tmp, align 8
   store i64 %sub.ptr.sub.i.i.i, ptr %key.sroa.2.0.ref.tmp.sroa_idx, align 8
-  store i32 %conv, ptr %second.i.i, align 8, !alias.scope !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !10
-  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !10
-  %7 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !10
+  store i32 %conv, ptr %second.i.i, align 8, !alias.scope !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !12
+  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !12
+  %7 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !12
   br i1 %call.i.i.i, label %if.then14, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE.exit.thread
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE.exit.thread: ; preds = %if.then9
-  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef %7), !noalias !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, i64 16, i1 false), !noalias !10
+  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef %7), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, i64 16, i1 false), !noalias !12
   %second.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i, i64 16
-  %8 = load i32, ptr %second.i.i, align 8, !noalias !10
-  store i32 %8, ptr %second.i.i3.i.i, align 4, !noalias !10
+  %8 = load i32, ptr %second.i.i, align 8, !noalias !12
+  store i32 %8, ptr %second.i.i3.i.i, align 4, !noalias !12
   %.pre = load i8, ptr %isLayout_, align 8
   br label %if.end26
 
@@ -608,7 +608,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_21, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.then40, %for.body.us.i.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -684,7 +684,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit: ; preds = %while.
   %add.i.i = add i64 %46, 1
   store i64 %add.i.i, ptr %loc_21, align 8
   %tobool55.not = icmp eq i64 %dec, 0
-  br i1 %tobool55.not, label %while.end, label %while.body, !llvm.loop !15
+  br i1 %tobool55.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit, %if.then47.while.end_crit_edge, %while.body.lr.ph.split.us
   %47 = phi i64 [ %.pre73, %if.then47.while.end_crit_edge ], [ %43, %while.body.lr.ph.split.us ], [ %add.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit ]
@@ -727,7 +727,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i44: ; preds = %if
   store i64 %add.i.i.i45, ptr %loc_21, align 8
   %inc.i46 = add nuw nsw i32 %i.05.i39, 1
   %exitcond68.not = icmp eq i32 %inc.i46, %conv6.i35
-  br i1 %exitcond68.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit55, label %for.body.i38, !llvm.loop !4
+  br i1 %exitcond68.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit55, label %for.body.i38, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit55:  ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i44, %while.end, %for.body.us.i48.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i30)
@@ -736,7 +736,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit55:  ; preds = %_ZN6hermes3hbc18Byt
 for.inc:                                          ; preds = %if.then14, %if.end44, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit55, %if.else
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.067, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
+  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !18
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre74 = load ptr, ptr %bcMap, align 8
@@ -823,7 +823,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit.loopexit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit.loopexit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit.loopexit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
   %.pre = load i8, ptr %isLayout_, align 8
@@ -906,7 +906,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -1078,7 +1078,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.ex
   store i64 %add.i.i45, ptr %loc_.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.058, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !16
+  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !19
 
 for.end.loopexit:                                 ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit
   %.pre65 = load i8, ptr %isLayout_.i.i19, align 8
@@ -1184,7 +1184,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.ex
   store i64 %add.i.i, ptr %loc_.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.06, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit, %entry
   ret void
@@ -1434,7 +1434,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -1488,7 +1488,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13: ; preds = %_ZN6
   store i64 %add.i.i12, ptr %loc_.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.025, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %13
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %21 = phi i64 [ %11, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ], [ %add.i.i12, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13 ]
@@ -1567,7 +1567,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -1656,7 +1656,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end, %for.body.us.i.preheader
   %13 = phi i64 [ %2, %if.end ], [ %8, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -1748,16 +1748,16 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer21serializeObjectBufferERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %BM) local_unnamed_addr #0 align 2 {
 entry:
   %objKeyBuffer_.i = getelementptr inbounds nuw i8, ptr %BM, i64 384
-  %0 = load ptr, ptr %objKeyBuffer_.i, align 8, !noalias !17
+  %0 = load ptr, ptr %objKeyBuffer_.i, align 8, !noalias !22
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 392
-  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !17
+  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !22
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %objValBuffer_.i = getelementptr inbounds nuw i8, ptr %BM, i64 408
-  %2 = load ptr, ptr %objValBuffer_.i, align 8, !noalias !17
+  %2 = load ptr, ptr %objValBuffer_.i, align 8, !noalias !22
   %_M_finish.i.i2.i = getelementptr inbounds nuw i8, ptr %BM, i64 416
-  %3 = load ptr, ptr %_M_finish.i.i2.i, align 8, !noalias !17
+  %3 = load ptr, ptr %_M_finish.i.i2.i, align 8, !noalias !22
   %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i3.i, %sub.ptr.rhs.cast.i.i4.i
@@ -1862,7 +1862,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end, %for.body.us.i.preheader
   %15 = phi i64 [ %4, %if.end ], [ %10, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -1942,7 +1942,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -1997,7 +1997,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.ex
   store i64 %add.i.i.i9, ptr %loc_.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.06.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %13
-  br i1 %cmp.i.not.i, label %_ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModuleE.exit, label %for.body.i4
+  br i1 %cmp.i.not.i, label %_ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModuleE.exit, label %for.body.i4, !llvm.loop !20
 
 _ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModuleE.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit.i, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %header.i)
@@ -2053,7 +2053,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -2135,7 +2135,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -2218,7 +2218,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -2289,7 +2289,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvR
   %add = add i32 %overflowCount.013, %conv
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.012, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %14
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %overflowCount.0.lcssa = phi i32 [ 0, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ], [ %add, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit ]
@@ -2347,7 +2347,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -2412,7 +2412,7 @@ for.inc:                                          ; preds = %_ZN6hermes3hbc21Sma
   %21 = phi i32 [ %14, %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit ], [ %add.i, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.027, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %13
-  br i1 %cmp.not, label %for.end.loopexit, label %for.body
+  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !26
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre28.pre = load ptr, ptr %overflow, align 8
@@ -2500,7 +2500,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -2582,7 +2582,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -2664,7 +2664,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -2672,9 +2672,9 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %objKeyBuffer_.i = getelementptr inbounds nuw i8, ptr %12, i64 384
-  %13 = load ptr, ptr %objKeyBuffer_.i, align 8, !noalias !20
+  %13 = load ptr, ptr %objKeyBuffer_.i, align 8, !noalias !27
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 392
-  %14 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !20
+  %14 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !27
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -2746,7 +2746,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -2754,9 +2754,9 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %objValBuffer_.i = getelementptr inbounds nuw i8, ptr %12, i64 408
-  %13 = load ptr, ptr %objValBuffer_.i, align 8, !noalias !23
+  %13 = load ptr, ptr %objValBuffer_.i, align 8, !noalias !30
   %_M_finish.i.i2.i = getelementptr inbounds nuw i8, ptr %12, i64 416
-  %14 = load ptr, ptr %_M_finish.i.i2.i, align 8, !noalias !23
+  %14 = load ptr, ptr %_M_finish.i.i2.i, align 8, !noalias !30
   %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i3.i, %sub.ptr.rhs.cast.i.i4.i
@@ -2828,7 +2828,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -2910,7 +2910,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -2992,7 +2992,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -3074,7 +3074,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
@@ -3156,7 +3156,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -3214,7 +3214,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   store i64 %add.i.i.i, ptr %loc_.i, align 8
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not = icmp eq i32 %inc.i, %conv6.i
-  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -3297,7 +3297,7 @@ _ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us: ; preds = %_Z
   %spec.select.us = select i1 %or.cond.not.us, ptr %add.ptr.us, ptr %FoundTombstone.0.us
   %inc.us = add i32 %ProbeAmt.0.us, 1
   %add.us = add i32 %BucketNo.0.us, %ProbeAmt.0.us
-  br label %while.body.us, !llvm.loop !26
+  br label %while.body.us, !llvm.loop !33
 
 if.end.split:                                     ; preds = %if.end
   br i1 %cmp18.i, label %while.body.us52, label %if.end.split.split
@@ -3341,7 +3341,7 @@ _ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us70: ; preds = %
   %spec.select.us74 = select i1 %or.cond.not.us73, ptr %add.ptr.us58, ptr %FoundTombstone.0.us55
   %inc.us75 = add i32 %ProbeAmt.0.us53, 1
   %add.us76 = add i32 %BucketNo.0.us56, %ProbeAmt.0.us53
-  br label %while.body.us52, !llvm.loop !28
+  br label %while.body.us52, !llvm.loop !35
 
 if.end.split.split:                               ; preds = %if.end.split
   br i1 %cmp7.i, label %while.body.us85, label %while.body
@@ -3382,7 +3382,7 @@ _ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us105: ; preds = 
   %spec.select.us109 = select i1 %or.cond.not.us108, ptr %add.ptr.us91, ptr %FoundTombstone.0.us88
   %inc.us110 = add i32 %ProbeAmt.0.us86, 1
   %add.us111 = add i32 %BucketNo.0.us89, %ProbeAmt.0.us86
-  br label %while.body.us85, !llvm.loop !29
+  br label %while.body.us85, !llvm.loop !36
 
 while.body:                                       ; preds = %if.end.split.split, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42
   %ProbeAmt.0 = phi i32 [ %inc, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42 ], [ 1, %if.end.split.split ]
@@ -3424,7 +3424,7 @@ _ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42: ; preds = %_ZN4l
   %spec.select = select i1 %or.cond.not, ptr %add.ptr, ptr %FoundTombstone.0
   %inc = add i32 %ProbeAmt.0, 1
   %add = add i32 %BucketNo.0, %ProbeAmt.0
-  br label %while.body, !llvm.loop !30
+  br label %while.body, !llvm.loop !37
 
 return:                                           ; preds = %if.end.i.i.i, %if.end.i.i.i.us100, %while.body.us85, %while.body.us52, %if.then.i.us62, %if.end.i.i.i.us67, %if.then.i.us, %if.then13.i.us, %if.end19.i.us, %entry, %if.then15
   %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us, %if.then13.i.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us58, %if.end.i.i.i.us67 ], [ %add.ptr.us58, %if.then.i.us62 ], [ %add.ptr.us58, %while.body.us52 ], [ %add.ptr.us91, %while.body.us85 ], [ %add.ptr.us91, %if.end.i.i.i.us100 ], [ %add.ptr, %if.end.i.i.i ]
@@ -3438,7 +3438,7 @@ define linkonce_odr hidden i64 @_ZN4llvh7hashing6detail23hash_combine_range_impl
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4llvh7hashing6detail18get_execution_seedEv.exit, !prof !31
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4llvh7hashing6detail18get_execution_seedEv.exit, !prof !38
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed) #12
@@ -3493,19 +3493,19 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   %mul6.i14.i = mul i64 %xor5.i13.i, -7070675565921424023
   %add2.i.i = add i64 %cond.i.i, %3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %first, i64 8
-  %result.0.copyload.i.i.i = load i64, ptr %add.ptr.i.i, align 1, !noalias !32
+  %result.0.copyload.i.i.i = load i64, ptr %add.ptr.i.i, align 1, !noalias !39
   %add3.i.i = add i64 %add2.i.i, %result.0.copyload.i.i.i
   %cond.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add3.i.i, i64 %add3.i.i, i64 27)
   %mul.i15.i = mul i64 %cond.i.i.i, -5435081209227447693
   %add7.i.i = mul i64 %3, -5435081209227447692
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %first, i64 48
-  %result.0.copyload.i6.i.i = load i64, ptr %add.ptr8.i.i, align 1, !noalias !32
+  %result.0.copyload.i6.i.i = load i64, ptr %add.ptr8.i.i, align 1, !noalias !39
   %add10.i.i = add i64 %result.0.copyload.i6.i.i, %add7.i.i
   %cond.i7.i.i = tail call i64 @llvm.fshl.i64(i64 %add10.i.i, i64 %add10.i.i, i64 22)
   %mul12.i.i = mul i64 %cond.i7.i.i, -5435081209227447693
   %xor.i16.i = xor i64 %mul.i15.i, %mul6.i14.i
   %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %first, i64 40
-  %result.0.copyload.i8.i.i = load i64, ptr %add.ptr16.i.i, align 1, !noalias !32
+  %result.0.copyload.i8.i.i = load i64, ptr %add.ptr16.i.i, align 1, !noalias !39
   %add18.i.i = add i64 %result.0.copyload.i8.i.i, %cond.i.i
   %add20.i.i = add i64 %add18.i.i, %mul12.i.i
   %add21.i.i = add i64 %mul6.i.i, %xor.i6.i
@@ -3513,15 +3513,15 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   %mul23.i.i = mul i64 %cond.i9.i.i, -5435081209227447693
   %mul26.i.i = mul i64 %3, -7894485801551159383
   %add30.i.i = add i64 %xor.i16.i, %xor.i6.i
-  %result.0.copyload.i.i.i.i = load i64, ptr %first, align 1, !noalias !32
+  %result.0.copyload.i.i.i.i = load i64, ptr %first, align 1, !noalias !39
   %add.i.i.i = add i64 %result.0.copyload.i.i.i.i, %mul26.i.i
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %first, i64 24
-  %result.0.copyload.i12.i.i.i = load i64, ptr %add.ptr.i.i.i, align 1, !noalias !32
+  %result.0.copyload.i12.i.i.i = load i64, ptr %add.ptr.i.i.i, align 1, !noalias !39
   %add2.i.i.i = add i64 %add30.i.i, %add.i.i.i
   %add3.i.i.i = add i64 %add2.i.i.i, %result.0.copyload.i12.i.i.i
   %cond.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add3.i.i.i, i64 %add3.i.i.i, i64 43)
   %add.ptr7.i.i.i = getelementptr inbounds nuw i8, ptr %first, i64 16
-  %result.0.copyload.i14.i.i.i = load i64, ptr %add.ptr7.i.i.i, align 1, !noalias !32
+  %result.0.copyload.i14.i.i.i = load i64, ptr %add.ptr7.i.i.i, align 1, !noalias !39
   %add9.i.i.i = add i64 %add.i.i.i, %result.0.copyload.i.i.i
   %add10.i.i.i = add i64 %add9.i.i.i, %result.0.copyload.i14.i.i.i
   %cond.i15.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add10.i.i.i, i64 %add10.i.i.i, i64 20)
@@ -3531,10 +3531,10 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   %add36.i.i = add i64 %mul6.i14.i, %mul23.i.i
   %add41.i.i = add i64 %add20.i.i, %result.0.copyload.i14.i.i.i
   %add.ptr43.i.i = getelementptr inbounds nuw i8, ptr %first, i64 32
-  %result.0.copyload.i.i11.i.i = load i64, ptr %add.ptr43.i.i, align 1, !noalias !32
+  %result.0.copyload.i.i11.i.i = load i64, ptr %add.ptr43.i.i, align 1, !noalias !39
   %add.i12.i.i = add i64 %add36.i.i, %result.0.copyload.i.i11.i.i
   %add.ptr.i13.i.i = getelementptr inbounds nuw i8, ptr %first, i64 56
-  %result.0.copyload.i12.i14.i.i = load i64, ptr %add.ptr.i13.i.i, align 1, !noalias !32
+  %result.0.copyload.i12.i14.i.i = load i64, ptr %add.ptr.i13.i.i, align 1, !noalias !39
   %add2.i15.i.i = add i64 %add41.i.i, %add.i12.i.i
   %add3.i16.i.i = add i64 %add2.i15.i.i, %result.0.copyload.i12.i14.i.i
   %cond.i.i17.i.i = tail call i64 @llvm.fshl.i64(i64 %add3.i16.i.i, i64 %add3.i16.i.i, i64 43)
@@ -3617,7 +3617,7 @@ while.body:                                       ; preds = %while.body.preheade
   %add14.i27.i = add i64 %add10.i23.i, %result.0.copyload.i12.i14.i
   %s_begin.0 = getelementptr inbounds nuw i8, ptr %s_begin.0135, i64 64
   %cmp4.not = icmp eq ptr %s_begin.0, %add.ptr
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !35
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !42
 
 while.end:                                        ; preds = %while.body, %if.end
   %state.sroa.56.0.lcssa = phi i64 [ %add13.i26.i.i, %if.end ], [ %add13.i26.i, %while.body ]
@@ -4050,7 +4050,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %B.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !36
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !43
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
@@ -4074,7 +4074,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !36
+  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !43
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i: ; preds = %for.body.i.i, %if.end
   %cmp.not27.i = icmp eq i32 %0, 0
@@ -4104,7 +4104,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit.i
   %incdec.ptr.i6 = getelementptr inbounds nuw i8, ptr %B.028.i, i64 24
   %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
-  br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit.i, !llvm.loop !37
+  br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit.i, !llvm.loop !44
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit: ; preds = %if.end.i5, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i
   call void @_ZdlPv(ptr noundef nonnull %1) #12
@@ -4158,37 +4158,44 @@ attributes #13 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.unswitch.partial.disable"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt9make_pairIRN4llvh8ArrayRefIhEEjESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: %agg.result"}
-!9 = distinct !{!9, !"_ZSt9make_pairIRN4llvh8ArrayRefIhEEjESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbEOS3_DpOT_: %agg.result"}
-!12 = distinct !{!12, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbEOS3_DpOT_"}
-!13 = distinct !{!13, !14, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE: %agg.result"}
-!14 = distinct !{!14, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE"}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !6}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv: %agg.result"}
-!19 = distinct !{!19, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv: %agg.result"}
-!22 = distinct !{!22, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv: %agg.result"}
-!25 = distinct !{!25, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv"}
-!26 = distinct !{!26, !5, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !5, !27}
-!29 = distinct !{!29, !5, !27}
-!30 = distinct !{!30, !5}
-!31 = !{!"branch_weights", i32 1, i32 1048575}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN4llvh7hashing6detail10hash_state6createEPKcm: %agg.result"}
-!34 = distinct !{!34, !"_ZN4llvh7hashing6detail10hash_state6createEPKcm"}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !7, !5, !8}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZSt9make_pairIRN4llvh8ArrayRefIhEEjESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: %agg.result"}
+!11 = distinct !{!11, !"_ZSt9make_pairIRN4llvh8ArrayRefIhEEjESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbEOS3_DpOT_: %agg.result"}
+!14 = distinct !{!14, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbEOS3_DpOT_"}
+!15 = distinct !{!15, !16, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE: %agg.result"}
+!16 = distinct !{!16, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE"}
+!17 = distinct !{!17, !7, !5, !8}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5, !8}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv: %agg.result"}
+!24 = distinct !{!24, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv"}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv: %agg.result"}
+!29 = distinct !{!29, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv: %agg.result"}
+!32 = distinct !{!32, !"_ZNK6hermes3hbc14BytecodeModule15getObjectBufferEv"}
+!33 = distinct !{!33, !7, !5, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !7, !5, !34}
+!36 = distinct !{!36, !7, !5, !34}
+!37 = distinct !{!37, !7, !5}
+!38 = !{!"branch_weights", i32 1, i32 1048575}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN4llvh7hashing6detail10hash_state6createEPKcm: %agg.result"}
+!41 = distinct !{!41, !"_ZN4llvh7hashing6detail10hash_state6createEPKcm"}
+!42 = distinct !{!42, !7, !5}
+!43 = distinct !{!43, !7, !5}
+!44 = distinct !{!44, !7, !5}

@@ -1738,7 +1738,7 @@ get_database_name.exit.thread:                    ; preds = %587, %get_database_
   %.03033.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.1.i.i, %776 ]
   %693 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %693, 0
-  br i1 %.not.i.i, label %695, label %694, !prof !8
+  br i1 %.not.i.i, label %695, label %694, !prof !9
 
 694:                                              ; preds = %692
   call void @ProcessInterrupts() #16
@@ -1898,7 +1898,7 @@ ScanSourceDatabasePgClassTuple.exit.thread.i.i.i: ; preds = %763, %749, %746, %7
   %.1.i.i.i = phi ptr [ %.037.i.i.i, %726 ], [ %.037.i.i.i, %732 ], [ %774, %763 ], [ %.037.i.i.i, %746 ], [ %.037.i.i.i, %749 ], [ %.037.i.i.i, %738 ]
   %775 = add i16 %.02336.i.i.i, 1
   %.not.i.i.i = icmp ugt i16 %775, %721
-  br i1 %.not.i.i.i, label %ScanSourceDatabasePgClassPage.exit.i.i, label %726, !llvm.loop !9
+  br i1 %.not.i.i.i, label %ScanSourceDatabasePgClassPage.exit.i.i, label %726, !llvm.loop !10
 
 ScanSourceDatabasePgClassPage.exit.i.i:           ; preds = %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i, %715
   %.0.lcssa.i.i.i = phi ptr [ %.03033.i.i, %715 ], [ %.1.i.i.i, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
@@ -1910,7 +1910,7 @@ ScanSourceDatabasePgClassPage.exit.i.i:           ; preds = %ScanSourceDatabaseP
   call void @UnlockReleaseBuffer(i32 noundef %696) #16
   %777 = add nuw i32 %.034.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %777, %684
-  br i1 %exitcond.not.i.i, label %ScanSourceDatabasePgClass.exit.i, label %692, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %ScanSourceDatabasePgClass.exit.i, label %692, !llvm.loop !11
 
 ScanSourceDatabasePgClass.exit.i:                 ; preds = %776, %678
   %.030.lcssa.i.i = phi ptr [ null, %678 ], [ %.1.i.i, %776 ]
@@ -2005,23 +2005,23 @@ CreateDatabaseUsingWalLog.exit:                   ; preds = %.lr.ph48.i, %ScanSo
   %815 = load i32, ptr %814, align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #16
   %816 = icmp eq i32 %815, 1664
-  br i1 %816, label %831, label %817, !llvm.loop !11
+  br i1 %816, label %831, label %817, !llvm.loop !12
 
 817:                                              ; preds = %808
   %818 = call ptr @GetDatabasePath(i32 noundef %663, i32 noundef %815) #16
   %819 = call i32 @stat(ptr noundef %818, ptr noundef nonnull %3) #16
   %820 = icmp slt i32 %819, 0
-  br i1 %820, label %.sink.split.i, label %821, !llvm.loop !11
+  br i1 %820, label %.sink.split.i, label %821, !llvm.loop !12
 
 821:                                              ; preds = %817
   %822 = load i32, ptr %804, align 8
   %823 = and i32 %822, 61440
   %824 = icmp eq i32 %823, 16384
-  br i1 %824, label %825, label %.sink.split.i, !llvm.loop !11
+  br i1 %824, label %825, label %.sink.split.i, !llvm.loop !12
 
 825:                                              ; preds = %821
   %826 = call zeroext i1 @directory_is_empty(ptr noundef %818) #16
-  br i1 %826, label %.sink.split.i, label %827, !llvm.loop !11
+  br i1 %826, label %.sink.split.i, label %827, !llvm.loop !12
 
 827:                                              ; preds = %825
   %828 = icmp eq i32 %815, %677
@@ -2049,7 +2049,7 @@ CreateDatabaseUsingWalLog.exit:                   ; preds = %.lr.ph48.i, %ScanSo
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #16
   %832 = call ptr @heap_getnext(ptr noundef %802, i32 noundef 1) #16
   %.not.i488 = icmp eq ptr %832, null
-  br i1 %.not.i488, label %._crit_edge.i, label %808
+  br i1 %.not.i488, label %._crit_edge.i, label %808, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %831, %800
   %833 = load ptr, ptr %802, align 8
@@ -2420,7 +2420,7 @@ define internal fastcc noundef zeroext i1 @get_db_info(ptr noundef %0, i32 nound
 114:                                              ; preds = %26, %113
   call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %32, i16 noundef zeroext 0, i32 noundef %1) #16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #16
-  br label %22
+  br label %22, !llvm.loop !14
 
 115:                                              ; preds = %25, %.thread
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #16
@@ -2694,7 +2694,7 @@ define internal fastcc noundef zeroext i1 @check_db_file_conflict(i32 noundef %0
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #16
   %13 = icmp eq i32 %12, 1664
-  br i1 %13, label %19, label %14, !llvm.loop !12
+  br i1 %13, label %19, label %14, !llvm.loop !15
 
 14:                                               ; preds = %.lr.ph
   %15 = tail call ptr @GetDatabasePath(i32 noundef %0, i32 noundef %12) #16
@@ -2707,7 +2707,7 @@ define internal fastcc noundef zeroext i1 @check_db_file_conflict(i32 noundef %0
 .backedge:                                        ; preds = %14, %19
   %18 = tail call ptr @heap_getnext(ptr noundef %4, i32 noundef 1) #16
   %.not.not = icmp eq ptr %18, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 19:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #16
@@ -3069,19 +3069,19 @@ define internal fastcc void @remove_dbtablespaces(i32 noundef %0) unnamed_addr #
   %15 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #16
   %16 = icmp eq i32 %15, 1664
-  br i1 %16, label %33, label %17, !llvm.loop !13
+  br i1 %16, label %33, label %17, !llvm.loop !17
 
 17:                                               ; preds = %8
   %18 = tail call ptr @GetDatabasePath(i32 noundef %0, i32 noundef %15) #16
   %19 = call i32 @lstat(ptr noundef %18, ptr noundef nonnull %2) #16
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %.sink.split, label %21, !llvm.loop !13
+  br i1 %20, label %.sink.split, label %21, !llvm.loop !17
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %7, align 8
   %23 = and i32 %22, 61440
   %24 = icmp eq i32 %23, 16384
-  br i1 %24, label %25, label %.sink.split, !llvm.loop !13
+  br i1 %24, label %25, label %.sink.split, !llvm.loop !17
 
 25:                                               ; preds = %21
   %26 = tail call zeroext i1 @rmtree(ptr noundef %18, i1 noundef zeroext true) #16
@@ -3110,7 +3110,7 @@ define internal fastcc void @remove_dbtablespaces(i32 noundef %0) unnamed_addr #
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #16
   %34 = tail call ptr @heap_getnext(ptr noundef %5, i32 noundef 1) #16
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %8
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %33
   %.not.i = icmp eq ptr %.1, null
@@ -3155,7 +3155,7 @@ list_length.exit.thread:                          ; preds = %1, %._crit_edge, %l
   %55 = load i32, ptr %35, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %50, label %.critedge, !llvm.loop !14
+  br i1 %57, label %50, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %50, %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -3887,7 +3887,7 @@ sub_163:                                          ; preds = %.tail
 73:                                               ; preds = %.tail61, %.tail
   %74 = call ptr @ReadDir(ptr noundef nonnull %60, ptr noundef %58) #16
   %.not57 = icmp eq ptr %74, null
-  br i1 %.not57, label %._crit_edge, label %sub_0, !llvm.loop !15
+  br i1 %.not57, label %._crit_edge, label %sub_0, !llvm.loop !20
 
 .tail61.thread:                                   ; preds = %sub_0, %sub_163, %.tail61
   %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -4781,7 +4781,7 @@ define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_
   %94 = load i32, ptr %79, align 4
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %83, label %._crit_edge, !llvm.loop !16
+  br i1 %96, label %83, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %93, %73
   %97 = load i32, ptr @standbyState, align 4
@@ -5170,14 +5170,19 @@ attributes #21 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

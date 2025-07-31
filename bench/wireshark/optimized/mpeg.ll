@@ -83,7 +83,7 @@ define hidden range(i32 -1, 2) i32 @mpeg_open(ptr noundef captures(none) %0, ptr
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.03742, i64 16
-  %34 = load i8, ptr %33, align 8, !range !8, !noundef !9
+  %34 = load i8, ptr %33, align 8, !range !9, !noundef !10
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i8 %34, ptr %35, align 8
   br label %.loopexit
@@ -181,7 +181,7 @@ define internal fastcc noundef zeroext i1 @mpeg_read_packet(ptr captures(none) %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef align 8 dereferenceable(16) %.96.val, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %.96.val, i64 24
-  %16 = load i8, ptr %15, align 8, !range !8, !noundef !9
+  %16 = load i8, ptr %15, align 8, !range !9, !noundef !10
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %92
 
@@ -197,7 +197,7 @@ define internal fastcc noundef zeroext i1 @mpeg_read_packet(ptr captures(none) %
 
 23:                                               ; preds = %20
   %24 = load i32, ptr %12, align 4
-  %25 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %24) #9, !srcloc !10
+  %25 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %24) #9, !srcloc !11
   store i32 %25, ptr %12, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
   store i32 %25, ptr %13, align 4
@@ -277,7 +277,7 @@ define internal fastcc noundef zeroext i1 @mpeg_read_packet(ptr captures(none) %
 
 71:                                               ; preds = %68
   %72 = load i32, ptr %12, align 4
-  %73 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #9, !srcloc !11
+  %73 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #9, !srcloc !12
   store i32 %73, ptr %12, align 4
   %74 = call i32 @decode_synchsafe_int(i32 noundef %73)
   %75 = add i32 %74, 10
@@ -314,7 +314,7 @@ define internal fastcc noundef zeroext i1 @mpeg_read_packet(ptr captures(none) %
 87:                                               ; preds = %84, %.lr.ph.i.i
   %88 = add i32 %.01521.i.i, 1
   %.not.i.i = icmp eq i32 %81, -1
-  br i1 %.not.i.i, label %mpeg_resync.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %mpeg_resync.exit.i, label %.lr.ph.i.i, !llvm.loop !13
 
 mpeg_resync.exit.i:                               ; preds = %87, %84, %.thread.i.i, %76
   %.015.lcssa.i.i = phi i32 [ 0, %76 ], [ %83, %.thread.i.i ], [ %.01521.i.i, %84 ], [ %88, %87 ]
@@ -348,7 +348,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 
 98:                                               ; preds = %95
   %99 = load i32, ptr %6, align 4
-  %100 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %99) #9, !srcloc !13
+  %100 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %99) #9, !srcloc !14
   store i32 %100, ptr %6, align 4
   %.mask.i = and i32 %100, -256
   %101 = icmp eq i32 %.mask.i, 256
@@ -372,7 +372,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 
 107:                                              ; preds = %102
   %108 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 2, ptr noundef %3, ptr noundef %4)
-  br i1 %108, label %93, label %mpeg_read_pes_packet.exit
+  br i1 %108, label %93, label %mpeg_read_pes_packet.exit, !llvm.loop !15
 
 .loopexit2.i:                                     ; preds = %98, %103
   %109 = call i64 @file_tell(ptr noundef %0)
@@ -404,11 +404,11 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 
 119:                                              ; preds = %117
   %120 = load i32, ptr %8, align 4
-  %121 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %120) #9, !srcloc !14
+  %121 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %120) #9, !srcloc !16
   %122 = zext i32 %121 to i64
   %123 = shl nuw i64 %122, 32
   %124 = load i32, ptr %9, align 4
-  %125 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %124) #9, !srcloc !15
+  %125 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %124) #9, !srcloc !17
   %126 = zext i32 %125 to i64
   %127 = or disjoint i64 %123, %126
   %.mask99.i = and i64 %122, 3221225472
@@ -606,13 +606,15 @@ attributes #9 = { nounwind memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = !{i64 2149947457}
-!11 = !{i64 2149949680}
-!12 = distinct !{!12, !7}
-!13 = !{i64 2149950358}
-!14 = !{i64 2149951209}
-!15 = !{i64 2149951899}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = !{i64 2149947457}
+!12 = !{i64 2149949680}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i64 2149950358}
+!15 = distinct !{!15, !8}
+!16 = !{i64 2149951209}
+!17 = !{i64 2149951899}

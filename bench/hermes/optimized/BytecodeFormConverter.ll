@@ -198,7 +198,7 @@ memptr.end.i:                                     ; preds = %memptr.nonvirtual.i
   call void %13(ptr noundef nonnull align 8 dereferenceable(288) %9) #14
   %__begin0.0.add.i = add nuw nsw i64 %__begin0.0.idx8.i, 16
   %cmp.not.i = icmp eq i64 %__begin0.0.add.i, 96
-  br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit, label %for.body.i
+  br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit, label %for.body.i, !llvm.loop !8
 
 _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit: ; preds = %memptr.end.i
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %conv, align 8
@@ -218,12 +218,12 @@ if.else:                                          ; preds = %if.end
   %fields_.i11 = getelementptr inbounds nuw i8, ptr %conv4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %fields_.i11, ptr noundef nonnull readonly align 8 dereferenceable(264) %fields, i64 264, i1 false)
   %bcProvider_.i12 = getelementptr inbounds nuw i8, ptr %conv4, i64 280
-  %call.i.i13 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes6BufferE, i64 16), ptr %call.i.i13, align 8, !noalias !8
+  %call.i.i13 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes6BufferE, i64 16), ptr %call.i.i13, align 8, !noalias !10
   %data_.i.i.i14 = getelementptr inbounds nuw i8, ptr %call.i.i13, i64 8
-  store ptr %buffer.coerce0, ptr %data_.i.i.i14, align 8, !noalias !8
+  store ptr %buffer.coerce0, ptr %data_.i.i.i14, align 8, !noalias !10
   %size_.i.i.i15 = getelementptr inbounds nuw i8, ptr %call.i.i13, i64 16
-  store i64 %buffer.coerce1, ptr %size_.i.i.i15, align 8, !noalias !8
+  store i64 %buffer.coerce1, ptr %size_.i.i.i15, align 8, !noalias !10
   store ptr %call.i.i13, ptr %agg.tmp.i9, align 8
   call void @_ZN6hermes3hbc20BCProviderFromBuffer26createBCProviderFromBufferB5cxx11ESt10unique_ptrIKNS_6BufferESt14default_deleteIS4_EENS0_12BytecodeFormE(ptr nonnull sret(%"struct.std::pair") align 8 %res.i8, ptr noundef nonnull %agg.tmp.i9, i32 noundef range(i32 0, 2) %cond)
   %15 = load ptr, ptr %agg.tmp.i9, align 8
@@ -299,7 +299,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %incdec.ptr2.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.010.i.i.i, i64 16
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.012.i.i.i, i64 -16
   %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %for.body.i33, !llvm.loop !11
+  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %for.body.i33, !llvm.loop !13
 
 for.body.i33:                                     ; preds = %while.body.i.i.i, %memptr.end.i43
   %__begin0.0.idx8.i34 = phi i64 [ %__begin0.0.add.i44, %memptr.end.i43 ], [ 0, %while.body.i.i.i ]
@@ -328,7 +328,7 @@ memptr.end.i43:                                   ; preds = %memptr.nonvirtual.i
   call void %28(ptr noundef nonnull align 8 dereferenceable(288) %24) #14
   %__begin0.0.add.i44 = add nuw nsw i64 %__begin0.0.idx8.i34, 16
   %cmp.not.i45 = icmp eq i64 %__begin0.0.add.i44, 96
-  br i1 %cmp.not.i45, label %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit, label %for.body.i33
+  br i1 %cmp.not.i45, label %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit, label %for.body.i33, !llvm.loop !15
 
 _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit: ; preds = %memptr.end.i43
   %agg.tmp.sroa.0.0.copyload.i46 = load ptr, ptr %conv4, align 8
@@ -762,7 +762,7 @@ sw.epilog:                                        ; preds = %while.body, %sw.bb2
   %idx.ext28 = zext i8 %call26 to i64
   %add.ptr29 = getelementptr inbounds nuw i8, ptr %cursor.048, i64 %idx.ext28
   %cmp9 = icmp ult ptr %add.ptr29, %add.ptr
-  br i1 %cmp9, label %while.body, label %for.inc.loopexit, !llvm.loop !13
+  br i1 %cmp9, label %while.body, label %for.inc.loopexit, !llvm.loop !16
 
 for.inc.loopexit:                                 ; preds = %sw.epilog
   %.pre = load ptr, ptr %bcProvider_, align 8
@@ -780,7 +780,7 @@ for.inc:                                          ; preds = %for.inc.loopexit, %
   %20 = load i32, ptr %functionCount_.i, align 4
   %21 = zext i32 %20 to i64
   %cmp = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -826,7 +826,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %overflowOffsetAdj.sroa.0.1 = phi i32 [ %overflowOffsetAdj.sroa.0.06, %for.body ], [ %5, %if.then ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -857,7 +857,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i120 %bf.set, ptr %__begin2.07, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -889,7 +889,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i32 %bf.set, ptr %__begin2.07, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -915,7 +915,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i32 %conv4.i, ptr %__begin2.07, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1070,7 +1070,7 @@ sw.epilog:                                        ; preds = %while.body, %sw.bb2
   %idx.ext28 = zext i8 %call26 to i64
   %add.ptr29 = getelementptr inbounds nuw i8, ptr %cursor.052, i64 %idx.ext28
   %cmp9 = icmp ult ptr %add.ptr29, %add.ptr
-  br i1 %cmp9, label %while.body, label %for.inc.loopexit, !llvm.loop !15
+  br i1 %cmp9, label %while.body, label %for.inc.loopexit, !llvm.loop !22
 
 for.inc.loopexit:                                 ; preds = %sw.epilog
   %.pre = load ptr, ptr %bcProvider_, align 8
@@ -1088,7 +1088,7 @@ for.inc:                                          ; preds = %for.inc.loopexit, %
   %20 = load i32, ptr %functionCount_.i, align 4
   %21 = zext i32 %20 to i64
   %cmp = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -1134,7 +1134,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %overflowOffsetAdj.sroa.0.1 = phi i32 [ %overflowOffsetAdj.sroa.0.06, %for.body ], [ %add.i.i, %if.then ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -1165,7 +1165,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i120 %bf.set, ptr %__begin2.07, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1196,7 +1196,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i32 %bf.set, ptr %__begin2.07, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1222,7 +1222,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i32 %add.i, ptr %__begin2.07, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1263,12 +1263,23 @@ attributes #17 = { builtin nounwind }
 !5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN6hermes6BufferEJPhmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !6 = distinct !{!6, !"_ZSt11make_uniqueIN6hermes6BufferEJPhmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = !{}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN6hermes6BufferEJPhmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!10 = distinct !{!10, !"_ZSt11make_uniqueIN6hermes6BufferEJPhmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN6hermes6BufferEJPhmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!12 = distinct !{!12, !"_ZSt11make_uniqueIN6hermes6BufferEJPhmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!13 = distinct !{!13, !14, !9}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !14, !9}
+!17 = distinct !{!17, !14, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !14, !9}
+!23 = distinct !{!23, !14, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}

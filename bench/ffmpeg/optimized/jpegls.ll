@@ -31,7 +31,7 @@ define void @ff_jpegls_init_state(ptr noundef captures(none) initializes((5896, 
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 5888
-  store i32 %storemerge, ptr %17, align 4, !tbaa !14
+  store i32 %storemerge, ptr %17, align 4, !tbaa !15
   %.not.i = icmp ult i32 %8, 65536
   %18 = lshr i32 %8, 16
   %spec.select.i = select i1 %.not.i, i32 %8, i32 %18
@@ -43,19 +43,19 @@ define void @ff_jpegls_init_state(ptr noundef captures(none) initializes((5896, 
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %20
   %21 = zext nneg i32 %.110.i to i64
   %22 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !15
+  %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %.1.i, %24
   %26 = tail call i32 @llvm.umax.i32(i32 %25, i32 1)
   %spec.select = add nuw nsw i32 %26, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 5884
-  store i32 %spec.select, ptr %27, align 4, !tbaa !16
+  store i32 %spec.select, ptr %27, align 4, !tbaa !17
   %28 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 8)
   %29 = add nuw nsw i32 %28, %spec.select
   %30 = shl nuw nsw i32 %29, 1
   %31 = sub nsw i32 %30, %storemerge
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 5876
-  store i32 %31, ptr %32, align 4, !tbaa !17
+  store i32 %31, ptr %32, align 4, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4408
   br label %35
@@ -67,12 +67,12 @@ define void @ff_jpegls_init_state(ptr noundef captures(none) initializes((5896, 
   %38 = ashr i32 %37, 6
   %spec.select28 = tail call i32 @llvm.smax.i32(i32 %38, i32 2)
   %39 = getelementptr inbounds nuw [367 x i32], ptr %33, i64 0, i64 %indvars.iv
-  store i32 %spec.select28, ptr %39, align 4, !tbaa !18
+  store i32 %spec.select28, ptr %39, align 4, !tbaa !19
   %40 = getelementptr inbounds nuw [367 x i32], ptr %34, i64 0, i64 %indvars.iv
-  store i32 1, ptr %40, align 4, !tbaa !18
+  store i32 1, ptr %40, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 367
-  br i1 %exitcond.not, label %41, label %35, !llvm.loop !19
+  br i1 %exitcond.not, label %41, label %35, !llvm.loop !20
 
 41:                                               ; preds = %35
   ret void
@@ -89,7 +89,7 @@ define void @ff_jpegls_reset_coding_parameters(ptr noundef captures(none) %0, i3
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 5884
-  %9 = load i32, ptr %8, align 4, !tbaa !16
+  %9 = load i32, ptr %8, align 4, !tbaa !17
   %notmask = shl nsw i32 -1, %9
   %10 = xor i32 %notmask, -1
   store i32 %10, ptr %3, align 4, !tbaa !10
@@ -105,7 +105,7 @@ define void @ff_jpegls_reset_coding_parameters(ptr noundef captures(none) %0, i3
   %16 = add nuw nsw i32 %12, 128
   %17 = lshr i32 %16, 8
   %18 = select i1 %15, i32 16, i32 %17
-  %19 = load i32, ptr %0, align 4, !tbaa !20
+  %19 = load i32, ptr %0, align 4, !tbaa !21
   %20 = icmp eq i32 %19, 0
   %or.cond3 = or i1 %6, %20
   br i1 %or.cond3, label %21, label %30
@@ -120,13 +120,13 @@ define void @ff_jpegls_reset_coding_parameters(ptr noundef captures(none) %0, i3
   %28 = icmp sgt i32 %26, %12
   %29 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483645, -2147483648) %26, i32 %27)
   %.0.i = select i1 %28, i32 %27, i32 %29
-  store i32 %.0.i, ptr %0, align 4, !tbaa !20
+  store i32 %.0.i, ptr %0, align 4, !tbaa !21
   br label %30
 
 30:                                               ; preds = %14, %21
   %31 = phi i32 [ %19, %14 ], [ %.0.i, %21 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !21
+  %33 = load i32, ptr %32, align 4, !tbaa !22
   %34 = icmp eq i32 %33, 0
   %or.cond5 = or i1 %6, %34
   br i1 %or.cond5, label %35, label %44
@@ -141,13 +141,13 @@ define void @ff_jpegls_reset_coding_parameters(ptr noundef captures(none) %0, i3
   %42 = icmp sgt i32 %41, %12
   %43 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483645, -2147483648) %41, i32 %31)
   %.0.i78 = select i1 %42, i32 %31, i32 %43
-  store i32 %.0.i78, ptr %32, align 4, !tbaa !21
+  store i32 %.0.i78, ptr %32, align 4, !tbaa !22
   br label %44
 
 44:                                               ; preds = %30, %35
   %45 = phi i32 [ %33, %30 ], [ %.0.i78, %35 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load i32, ptr %46, align 4, !tbaa !22
+  %47 = load i32, ptr %46, align 4, !tbaa !23
   %48 = icmp eq i32 %47, 0
   %or.cond7 = or i1 %6, %48
   br i1 %or.cond7, label %49, label %98
@@ -162,13 +162,13 @@ define void @ff_jpegls_reset_coding_parameters(ptr noundef captures(none) %0, i3
   %56 = icmp sgt i32 %55, %12
   %57 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483645, -2147483648) %55, i32 %45)
   %.0.i79 = select i1 %56, i32 %45, i32 %57
-  store i32 %.0.i79, ptr %46, align 4, !tbaa !22
+  store i32 %.0.i79, ptr %46, align 4, !tbaa !23
   br label %98
 
 58:                                               ; preds = %11
   %59 = add nsw i32 %12, 1
   %60 = sdiv i32 256, %59
-  %61 = load i32, ptr %0, align 4, !tbaa !20
+  %61 = load i32, ptr %0, align 4, !tbaa !21
   %62 = icmp eq i32 %61, 0
   %or.cond9 = or i1 %6, %62
   br i1 %or.cond9, label %63, label %72
@@ -186,13 +186,13 @@ define void @ff_jpegls_reset_coding_parameters(ptr noundef captures(none) %0, i3
   %70 = icmp sgt i32 %spec.select, %12
   %71 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483645, -2147483648) %spec.select, i32 %69)
   %.0.i80 = select i1 %70, i32 %69, i32 %71
-  store i32 %.0.i80, ptr %0, align 4, !tbaa !20
+  store i32 %.0.i80, ptr %0, align 4, !tbaa !21
   br label %72
 
 72:                                               ; preds = %58, %63
   %73 = phi i32 [ %61, %58 ], [ %.0.i80, %63 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !21
+  %75 = load i32, ptr %74, align 4, !tbaa !22
   %76 = icmp eq i32 %75, 0
   %or.cond11 = or i1 %6, %76
   br i1 %or.cond11, label %77, label %85
@@ -209,13 +209,13 @@ define void @ff_jpegls_reset_coding_parameters(ptr noundef captures(none) %0, i3
   %83 = icmp sgt i32 %spec.select76, %12
   %84 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483645, -2147483648) %spec.select76, i32 %73)
   %.0.i81 = select i1 %83, i32 %73, i32 %84
-  store i32 %.0.i81, ptr %74, align 4, !tbaa !21
+  store i32 %.0.i81, ptr %74, align 4, !tbaa !22
   br label %85
 
 85:                                               ; preds = %72, %77
   %86 = phi i32 [ %75, %72 ], [ %.0.i81, %77 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %88 = load i32, ptr %87, align 4, !tbaa !22
+  %88 = load i32, ptr %87, align 4, !tbaa !23
   %89 = icmp eq i32 %88, 0
   %or.cond13 = or i1 %6, %89
   br i1 %or.cond13, label %90, label %98
@@ -232,18 +232,18 @@ define void @ff_jpegls_reset_coding_parameters(ptr noundef captures(none) %0, i3
   %96 = icmp sgt i32 %spec.select77, %12
   %97 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483645, -2147483648) %spec.select77, i32 %86)
   %.0.i82 = select i1 %96, i32 %86, i32 %97
-  store i32 %.0.i82, ptr %87, align 4, !tbaa !22
+  store i32 %.0.i82, ptr %87, align 4, !tbaa !23
   br label %98
 
 98:                                               ; preds = %90, %85, %49, %44
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 5880
-  %100 = load i32, ptr %99, align 4, !tbaa !23
+  %100 = load i32, ptr %99, align 4, !tbaa !24
   %101 = icmp eq i32 %100, 0
   %or.cond15 = or i1 %6, %101
   br i1 %or.cond15, label %102, label %103
 
 102:                                              ; preds = %98
-  store i32 64, ptr %99, align 4, !tbaa !23
+  store i32 64, ptr %99, align 4, !tbaa !24
   br label %103
 
 103:                                              ; preds = %102, %98
@@ -274,15 +274,16 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = !{!5, !6, i64 5904}
 !10 = !{!5, !6, i64 5892}
 !11 = !{!5, !6, i64 5896}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!5, !6, i64 5888}
-!15 = !{!7, !7, i64 0}
-!16 = !{!5, !6, i64 5884}
-!17 = !{!5, !6, i64 5876}
-!18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !13}
-!20 = !{!5, !6, i64 0}
-!21 = !{!5, !6, i64 4}
-!22 = !{!5, !6, i64 8}
-!23 = !{!5, !6, i64 5880}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!5, !6, i64 5888}
+!16 = !{!7, !7, i64 0}
+!17 = !{!5, !6, i64 5884}
+!18 = !{!5, !6, i64 5876}
+!19 = !{!6, !6, i64 0}
+!20 = distinct !{!20, !13, !14}
+!21 = !{!5, !6, i64 0}
+!22 = !{!5, !6, i64 4}
+!23 = !{!5, !6, i64 8}
+!24 = !{!5, !6, i64 5880}

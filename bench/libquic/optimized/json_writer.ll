@@ -692,7 +692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit87: ; pred
   %.135 = phi i1 [ %spec.select, %285 ], [ %.034133, %241 ]
   %289 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0131, i64 8
   %.not = icmp eq ptr %289, %236
-  br i1 %.not, label %._crit_edge136, label %.lr.ph135
+  br i1 %.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !42
 
 290:                                              ; preds = %._crit_edge136
   %291 = load ptr, ptr %188, align 8, !tbaa !16
@@ -824,18 +824,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit97: ; preds
 
 355:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #11
-  store ptr null, ptr %13, align 8, !tbaa !42
+  store ptr null, ptr %13, align 8, !tbaa !44
   %356 = load ptr, ptr %1, align 8, !tbaa !20
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 96
   %358 = load ptr, ptr %357, align 8
   %359 = call noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #11
-  %360 = load ptr, ptr %13, align 8, !tbaa !42
+  %360 = load ptr, ptr %13, align 8, !tbaa !44
   call void @_ZN4base15DictionaryValue8IteratorC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(64) %360)
   %361 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %362 = load ptr, ptr %14, align 8, !tbaa !44
+  %362 = load ptr, ptr %14, align 8, !tbaa !46
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 24
-  %364 = load ptr, ptr %361, align 8, !tbaa !48
+  %364 = load ptr, ptr %361, align 8, !tbaa !50
   %365 = icmp eq ptr %364, %363
   br i1 %365, label %._crit_edge, label %.lr.ph
 
@@ -957,7 +957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit104: ; pred
 
 _ZN4base10JSONWriter10IndentLineEm.exit:          ; preds = %414, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #11
-  %419 = load ptr, ptr %361, align 8, !tbaa !48
+  %419 = load ptr, ptr %361, align 8, !tbaa !50
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 32
   %421 = load ptr, ptr %420, align 8, !tbaa !11
   store ptr %421, ptr %15, align 8, !tbaa !31
@@ -1056,7 +1056,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit113: ; pre
   br label %479
 
 467:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit113, %440
-  %468 = load ptr, ptr %361, align 8, !tbaa !48
+  %468 = load ptr, ptr %361, align 8, !tbaa !50
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 64
   %470 = load ptr, ptr %469, align 8, !tbaa !40
   %471 = invoke noundef zeroext i1 @_ZN4base10JSONWriter15BuildJSONStringERKNS_5ValueEm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %470, i64 noundef %369)
@@ -1064,8 +1064,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit113: ; pre
 
 472:                                              ; preds = %467
   %spec.select50 = select i1 %471, i1 %.0129, i1 false
-  %.pre = load ptr, ptr %361, align 8, !tbaa !48
-  %.pre138 = load ptr, ptr %14, align 8, !tbaa !44
+  %.pre = load ptr, ptr %361, align 8, !tbaa !50
+  %.pre138 = load ptr, ptr %14, align 8, !tbaa !46
   br label %473
 
 473:                                              ; preds = %377, %472
@@ -1074,10 +1074,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit113: ; pre
   %.128 = phi i1 [ %.027128, %377 ], [ true, %472 ]
   %.1 = phi i1 [ %.0129, %377 ], [ %spec.select50, %472 ]
   %476 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %475) #14
-  store ptr %476, ptr %361, align 8, !tbaa !48
+  store ptr %476, ptr %361, align 8, !tbaa !50
   %477 = getelementptr inbounds nuw i8, ptr %474, i64 24
   %478 = icmp eq ptr %476, %477
-  br i1 %478, label %._crit_edge, label %372, !llvm.loop !49
+  br i1 %478, label %._crit_edge, label %372, !llvm.loop !51
 
 479:                                              ; preds = %.loopexit, %.loopexit.split-lp, %465
   %.pn = phi { ptr, i32 } [ %466, %465 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1300,12 +1300,14 @@ attributes #14 = { nounwind willreturn memory(read) }
 !39 = !{!17, !18, i64 0}
 !40 = !{!41, !41, i64 0}
 !41 = !{!"p1 _ZTSN4base5ValueE", !7, i64 0}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 _ZTSN4base15DictionaryValueE", !7, i64 0}
-!44 = !{!45, !43, i64 0}
-!45 = !{!"_ZTSN4base15DictionaryValue8IteratorE", !43, i64 0, !46, i64 8}
-!46 = !{!"_ZTSSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4base5ValueESt14default_deleteISA_EEEE", !47, i64 0}
-!47 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !7, i64 0}
-!48 = !{!46, !47, i64 0}
-!49 = distinct !{!49, !50}
-!50 = !{!"llvm.loop.mustprogress"}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSN4base15DictionaryValueE", !7, i64 0}
+!46 = !{!47, !45, i64 0}
+!47 = !{!"_ZTSN4base15DictionaryValue8IteratorE", !45, i64 0, !48, i64 8}
+!48 = !{!"_ZTSSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4base5ValueESt14default_deleteISA_EEEE", !49, i64 0}
+!49 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !7, i64 0}
+!50 = !{!48, !49, i64 0}
+!51 = distinct !{!51, !52, !43}
+!52 = !{!"llvm.loop.mustprogress"}

@@ -110,7 +110,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   store i32 %50, ptr %48, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i10, label %38, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.preheader.i10, label %38, !llvm.loop !7
 
 .preheader.i10:                                   ; preds = %38, %62
   %indvars.iv155.i = phi i64 [ %indvars.iv.next156.i, %62 ], [ 0, %38 ]
@@ -149,7 +149,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %.sroa.0.1.i = phi i32 [ -1, %59 ], [ -1, %58 ], [ %spec.select102.i, %55 ]
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next156.i, 8
-  br i1 %exitcond158.not.i, label %63, label %.preheader.i10, !llvm.loop !7
+  br i1 %exitcond158.not.i, label %63, label %.preheader.i10, !llvm.loop !8
 
 63:                                               ; preds = %62
   %.not.i11 = icmp eq i32 %.sroa.0.1.i, -1
@@ -225,7 +225,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %.286.us.i = phi ptr [ %91, %90 ], [ %.084126.us.i, %88 ], [ %87, %.thread.us.i ]
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %exitcond162.not.i = icmp eq i64 %indvars.iv.next160.i, 8
-  br i1 %exitcond162.not.i, label %.loopexit.i12, label %.split.us.i, !llvm.loop !8
+  br i1 %exitcond162.not.i, label %.loopexit.i12, label %.split.us.i, !llvm.loop !9
 
 .split.i:                                         ; preds = %67
   %93 = icmp eq i32 %.sroa.16.3.fr.i, 6
@@ -276,7 +276,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %.286.us136.i = phi ptr [ %109, %108 ], [ %.084126.us129.i, %107 ], [ %106, %.thread.us134.i ]
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
   %exitcond170.not.i = icmp eq i64 %indvars.iv.next168.i, 8
-  br i1 %exitcond170.not.i, label %.loopexit.i12, label %.split.split.us.i, !llvm.loop !10
+  br i1 %exitcond170.not.i, label %.loopexit.i12, label %.split.split.us.i, !llvm.loop !11
 
 .split.split.i:                                   ; preds = %156, %.split.split.preheader.i
   %indvars.iv163.i = phi i64 [ 0, %.split.split.preheader.i ], [ %indvars.iv.next164.i, %156 ]
@@ -383,7 +383,7 @@ decoct.exit.i:                                    ; preds = %.lr.ph.i
   %.286.i = phi ptr [ %115, %114 ], [ %.084126.i, %113 ], [ %155, %.thread.i ]
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %exitcond166.not.i = icmp eq i64 %indvars.iv.next164.i, 8
-  br i1 %exitcond166.not.i, label %.loopexit.i12, label %.split.split.i, !llvm.loop !11
+  br i1 %exitcond166.not.i, label %.loopexit.i12, label %.split.split.i, !llvm.loop !12
 
 .loopexit.i12:                                    ; preds = %92, %156, %110, %148
   %.185.i = phi ptr [ %150, %148 ], [ %.286.us136.i, %110 ], [ %.286.i, %156 ], [ %.286.us.i, %92 ]
@@ -480,11 +480,12 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !5, !9}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5, !6, !10}
+!12 = distinct !{!12, !5, !6}

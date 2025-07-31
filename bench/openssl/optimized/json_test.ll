@@ -684,7 +684,7 @@ helper_ensure.exit333.i:                          ; preds = %129, %127, %119, %1
 .backedge:                                        ; preds = %131, %.thread363.i, %.thread358.i, %.thread353.i, %.thread348.i, %.thread343.i, %.thread.i, %helper_set_flags.exit.i
   %.0265.i.be = phi i64 [ %18, %helper_set_flags.exit.i ], [ %132, %131 ], [ %24, %.thread.i ], [ %53, %.thread343.i ], [ %70, %.thread348.i ], [ %86, %.thread353.i ], [ %101, %.thread358.i ], [ %116, %.thread363.i ]
   %.0264.i.be = phi i32 [ %.0264.i, %helper_set_flags.exit.i ], [ %133, %131 ], [ %.0264.i, %.thread.i ], [ %.0264.i, %.thread343.i ], [ %.0264.i, %.thread348.i ], [ %.0264.i, %.thread353.i ], [ %.0264.i, %.thread358.i ], [ %.0264.i, %.thread363.i ]
-  br label %15
+  br label %15, !llvm.loop !26
 
 136:                                              ; preds = %15
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.1, i32 noundef 646, ptr noundef nonnull @.str.7) #6
@@ -758,12 +758,12 @@ helper_ensure.exit338.i:                          ; preds = %149, %147, %139, %1
 169:                                              ; preds = %163
   %170 = load ptr, ptr %2, align 8, !tbaa !13
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %172 = load ptr, ptr %171, align 8, !tbaa !26
-  %173 = load i64, ptr %170, align 8, !tbaa !28
+  %172 = load ptr, ptr %171, align 8, !tbaa !28
+  %173 = load i64, ptr %170, align 8, !tbaa !30
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %175 = load ptr, ptr %174, align 8, !tbaa !29
+  %175 = load ptr, ptr %174, align 8, !tbaa !31
   %176 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %177 = load i64, ptr %176, align 8, !tbaa !30
+  %177 = load i64, ptr %176, align 8, !tbaa !32
   %178 = icmp eq i64 %177, -1
   br i1 %178, label %179, label %181
 
@@ -803,7 +803,7 @@ run_script.exit:                                  ; preds = %185, %189
   %spec.select = select i1 %.not, i32 0, i32 %.047
   %191 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %191, 50
-  br i1 %exitcond.not, label %192, label %6, !llvm.loop !31
+  br i1 %exitcond.not, label %192, label %6, !llvm.loop !33
 
 192:                                              ; preds = %run_script.exit
   ret i32 %spec.select
@@ -1162,10 +1162,12 @@ attributes #7 = { nounwind willreturn memory(read) }
 !23 = !{!"p1 _ZTS6bio_st", !5, i64 0}
 !24 = !{!19, !21, i64 88}
 !25 = !{!19, !21, i64 92}
-!26 = !{!27, !10, i64 8}
-!27 = !{!"buf_mem_st", !12, i64 0, !10, i64 8, !12, i64 16, !12, i64 24}
-!28 = !{!27, !12, i64 0}
-!29 = !{!9, !10, i64 32}
-!30 = !{!9, !12, i64 40}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.mustprogress"}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!29, !10, i64 8}
+!29 = !{!"buf_mem_st", !12, i64 0, !10, i64 8, !12, i64 16, !12, i64 24}
+!30 = !{!29, !12, i64 0}
+!31 = !{!9, !10, i64 32}
+!32 = !{!9, !12, i64 40}
+!33 = distinct !{!33, !34, !27}
+!34 = !{!"llvm.loop.mustprogress"}

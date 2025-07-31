@@ -415,5 +415,6 @@ attributes #16 = { cold nounwind }
 !23 = !{!24, !22, i64 0}
 !24 = !{!"_ZTS7timeval", !22, i64 0, !22, i64 8}
 !25 = !{!24, !22, i64 8}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
+!28 = !{!"llvm.loop.estimated_trip_count"}

@@ -1450,13 +1450,13 @@ for.inc:                                          ; preds = %if.end150, %if.then
   %minDistance.3 = phi double [ %mul181, %if.then175 ], [ %minDistance.2220, %if.end150 ]
   %inc = add nuw nsw i32 %step.0218, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %for.inc183, label %for.body113, !llvm.loop !7
+  br i1 %exitcond.not, label %for.inc183, label %for.body113, !llvm.loop !8
 
 for.inc183:                                       ; preds = %for.inc, %for.body113
   %minDistance.2.lcssa = phi double [ %minDistance.3, %for.inc ], [ %minDistance.2220, %for.body113 ]
   %inc184 = add nuw nsw i32 %i.0221, 1
   %exitcond223.not = icmp eq i32 %inc184, 5
-  br i1 %exitcond223.not, label %for.end185, label %for.body, !llvm.loop !8
+  br i1 %exitcond223.not, label %for.end185, label %for.body, !llvm.loop !9
 
 for.end185:                                       ; preds = %for.inc183
   %27 = load double, ptr %param, align 8
@@ -1696,7 +1696,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %cmp68 = icmp samesign ult i64 %indvars.iv.next, %7
   %cmp69 = icmp slt i32 %total.2, 2
   %13 = select i1 %cmp68, i1 %cmp69, i1 false
-  br i1 %13, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %13, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %if.end67
   %nextDY.1.lcssa = phi i32 [ %nextDY.0, %if.end67 ], [ %nextDY.2, %for.inc ]
@@ -1973,7 +1973,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %cmp127 = icmp samesign ult i64 %indvars.iv.next, %11
   %cmp128 = icmp slt i32 %total.2, 3
   %19 = select i1 %cmp127, i1 %cmp128, i1 false
-  br i1 %19, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %19, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %if.end126
   %nextDY.1.lcssa = phi i32 [ %nextDY.0, %if.end126 ], [ %nextDY.2, %for.inc ]
@@ -2559,7 +2559,7 @@ if.then13.i71:                                    ; preds = %if.end10.i69
 for.inc:                                          ; preds = %if.then13.i71, %if.end10.i69, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit35
   %call59 = call noundef i32 @_ZN7msdfgen14solveQuadraticEPdddd(ptr noundef nonnull %params, double noundef %sub3.i61, double noundef %mul1.i, double noundef %sub3.i)
@@ -2624,7 +2624,7 @@ if.then13.i83:                                    ; preds = %if.end10.i81
 for.inc79:                                        ; preds = %if.then13.i83, %if.end10.i81, %for.body63
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %for.end81, label %for.body63, !llvm.loop !12
+  br i1 %exitcond97.not, label %for.end81, label %for.body63, !llvm.loop !13
 
 for.end81:                                        ; preds = %for.inc79, %for.end
   ret void
@@ -3638,11 +3638,12 @@ attributes #18 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}

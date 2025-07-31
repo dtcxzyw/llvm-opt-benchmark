@@ -269,7 +269,7 @@ dissect_vdp_fi_macvid.exit.i:                     ; preds = %.lr.ph.i.i, %59
 dissect_vdp_org_specific_tlv.exit:                ; preds = %dissect_vdp_fi_macvid.exit.i, %33
   %.pre-phi = phi i32 [ %.pre, %dissect_vdp_fi_macvid.exit.i ], [ %58, %33 ]
   %92 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 1)
-  br i1 %92, label %.lr.ph, label %.critedge, !llvm.loop !8
+  br i1 %92, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %dissect_vdp_org_specific_tlv.exit, %4, %76, %75, %85
   %93 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -333,6 +333,7 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

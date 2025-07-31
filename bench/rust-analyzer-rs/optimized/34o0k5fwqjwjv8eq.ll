@@ -29,7 +29,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.021.i = select i1 %.not.i, i64 %.02024.i, i64 %7
   %11 = sub i64 %.021.i, %.022.i
   %12 = icmp ult i64 %.022.i, %.021.i
-  br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hfa164752e28a31f7E.llvm.8288705794032622223.exit"
+  br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hfa164752e28a31f7E.llvm.8288705794032622223.exit", !llvm.loop !11
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hfa164752e28a31f7E.llvm.8288705794032622223.exit": ; preds = %5, %3
   %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %5 ]
@@ -40,12 +40,12 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17he503551352c9eb7bE"(ptr noalias noundef nonnull readonly align 4 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %4 = load i32, ptr %2, align 4, !noalias !14, !noundef !9
+  %4 = load i32, ptr %2, align 4, !noalias !16, !noundef !9
   br label %5
 
 5:                                                ; preds = %5, %.lr.ph.i
@@ -57,14 +57,14 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %8 = icmp ult i64 %7, %1
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds i32, ptr %0, i64 %7
-  %.val23.i = load i32, ptr %9, align 4, !alias.scope !11, !noalias !16, !noundef !9
+  %.val23.i = load i32, ptr %9, align 4, !alias.scope !13, !noalias !18, !noundef !9
   %switch.selectcmp.i.not.i.not.i = icmp ugt i32 %.val23.i, %4
   %10 = add nuw i64 %7, 1
   %.022.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %.01925.i, i64 %10
   %.021.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %7, i64 %.02024.i
   %11 = sub i64 %.021.i, %.022.i
   %12 = icmp ult i64 %.022.i, %.021.i
-  br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223.exit"
+  br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223.exit", !llvm.loop !19
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223.exit": ; preds = %5, %3
   %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %5 ]
@@ -75,13 +75,13 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17he7499da977b349feE"(ptr noalias noundef nonnull readonly align 4 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %5 = load i32, ptr %4, align 4, !noalias !20, !noundef !9
+  %5 = load i32, ptr %4, align 4, !noalias !23, !noundef !9
   br label %6
 
 6:                                                ; preds = %6, %.lr.ph.i
@@ -93,14 +93,14 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %9 = icmp ult i64 %8, %1
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds i32, ptr %0, i64 %8
-  %.val23.i = load i32, ptr %10, align 4, !alias.scope !17, !noalias !22, !noundef !9
+  %.val23.i = load i32, ptr %10, align 4, !alias.scope !20, !noalias !25, !noundef !9
   %switch.selectcmp.i.not.i.not.i = icmp ugt i32 %.val23.i, %5
   %11 = add nuw i64 %8, 1
   %.022.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %.01925.i, i64 %11
   %.021.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %8, i64 %.02024.i
   %12 = sub i64 %.021.i, %.022.i
   %13 = icmp ult i64 %.022.i, %.021.i
-  br i1 %13, label %6, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223.exit"
+  br i1 %13, label %6, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223.exit", !llvm.loop !26
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223.exit": ; preds = %6, %3
   %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %6 ]
@@ -115,7 +115,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.val.i = load ptr, ptr %2, align 8, !nonnull !9, !align !23, !noundef !9
+  %.val.i = load ptr, ptr %2, align 8, !nonnull !9, !align !27, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %5 = load i32, ptr %4, align 4, !noundef !9
   br label %8
@@ -143,7 +143,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.021 = select i1 %switch.selectcmp.i.not.i.not, i64 %10, i64 %.02024
   %14 = sub i64 %.021, %.022
   %15 = icmp ult i64 %.022, %.021
-  br i1 %15, label %8, label %._crit_edge
+  br i1 %15, label %8, label %._crit_edge, !llvm.loop !26
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
@@ -152,7 +152,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.val.i = load ptr, ptr %2, align 8, !nonnull !9, !align !23, !noundef !9
+  %.val.i = load ptr, ptr %2, align 8, !nonnull !9, !align !27, !noundef !9
   %4 = load i32, ptr %.val.i, align 4, !noundef !9
   br label %7
 
@@ -179,7 +179,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.021 = select i1 %switch.selectcmp.i.not.i.not, i64 %9, i64 %.02024
   %13 = sub i64 %.021, %.022
   %14 = icmp ult i64 %.022, %.021
-  br i1 %14, label %7, label %._crit_edge
+  br i1 %14, label %7, label %._crit_edge, !llvm.loop !19
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
@@ -188,7 +188,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.val.i = load ptr, ptr %2, align 8, !nonnull !9, !align !23, !noundef !9
+  %.val.i = load ptr, ptr %2, align 8, !nonnull !9, !align !27, !noundef !9
   %4 = load i32, ptr %.val.i, align 4, !noundef !9
   br label %7
 
@@ -215,7 +215,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.021 = select i1 %.not, i64 %.02024, i64 %9
   %13 = sub i64 %.021, %.022
   %14 = icmp ult i64 %.022, %.021
-  br i1 %14, label %7, label %._crit_edge
+  br i1 %14, label %7, label %._crit_edge, !llvm.loop !11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -247,16 +247,20 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !8 = distinct !{!8, !6, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hfa164752e28a31f7E.llvm.8288705794032622223: argument 1"}
 !9 = !{}
 !10 = !{!8}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223: argument 0"}
-!13 = distinct !{!13, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223"}
-!14 = !{!12, !15}
-!15 = distinct !{!15, !13, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223: argument 1"}
-!16 = !{!15}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223: argument 0"}
-!19 = distinct !{!19, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223"}
-!20 = !{!18, !21}
-!21 = distinct !{!21, !19, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223: argument 1"}
-!22 = !{!21}
-!23 = !{i64 4}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223: argument 0"}
+!15 = distinct !{!15, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223"}
+!16 = !{!14, !17}
+!17 = distinct !{!17, !15, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5dac38da3918e6dfE.llvm.8288705794032622223: argument 1"}
+!18 = !{!17}
+!19 = distinct !{!19, !12}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223: argument 0"}
+!22 = distinct !{!22, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223"}
+!23 = !{!21, !24}
+!24 = distinct !{!24, !22, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223: argument 1"}
+!25 = !{!24}
+!26 = distinct !{!26, !12}
+!27 = !{i64 4}

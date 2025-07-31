@@ -1642,7 +1642,7 @@ declare void @OSSL_CMP_ITAV_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_genm_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
   %4 = tail call fastcc ptr @gen_new(ptr noundef %0, ptr noundef %3, i32 noundef 21, i32 noundef 119)
   ret ptr %4
 }
@@ -1707,13 +1707,13 @@ define ptr @ossl_cmp_error_new(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !22
-  %17 = load ptr, ptr %16, align 8, !tbaa !92
+  %17 = load ptr, ptr %16, align 8, !tbaa !93
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %17) #7
   %18 = tail call ptr @OSSL_CMP_PKISI_dup(ptr noundef nonnull %1) #7
   %19 = load ptr, ptr %13, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !22
-  store ptr %18, ptr %21, align 8, !tbaa !92
+  store ptr %18, ptr %21, align 8, !tbaa !93
   %22 = icmp eq ptr %18, null
   br i1 %22, label %67, label %23
 
@@ -1723,14 +1723,14 @@ define ptr @ossl_cmp_error_new(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %24, ptr %28, align 8, !tbaa !94
+  store ptr %24, ptr %28, align 8, !tbaa !95
   %29 = icmp eq ptr %24, null
   br i1 %29, label %67, label %30
 
 30:                                               ; preds = %23
   %31 = load ptr, ptr %26, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !94
+  %33 = load ptr, ptr %32, align 8, !tbaa !95
   %34 = tail call i32 @ASN1_INTEGER_set_int64(ptr noundef %33, i64 noundef %2) #7
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %67, label %35
@@ -1765,7 +1765,7 @@ define ptr @ossl_cmp_error_new(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %45, ptr %51, align 8, !tbaa !95
+  store ptr %45, ptr %51, align 8, !tbaa !96
   br i1 %41, label %52, label %56
 
 52:                                               ; preds = %47
@@ -1837,9 +1837,9 @@ define range(i32 0, 2) i32 @ossl_cmp_certstatus_set0_certHash(ptr noundef captur
   br i1 %.not, label %5, label %3, !prof !18
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !96
+  %4 = load ptr, ptr %0, align 8, !tbaa !97
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %4) #7
-  store ptr %1, ptr %0, align 8, !tbaa !96
+  store ptr %1, ptr %0, align 8, !tbaa !97
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -1860,12 +1860,12 @@ define ptr @ossl_cmp_certConf_new(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %9 = load ptr, ptr %8, align 8, !tbaa !99
+  %9 = load ptr, ptr %8, align 8, !tbaa !100
   %.not38 = icmp ne ptr %9, null
   %10 = add i32 %1, 1
   %11 = icmp ult i32 %10, 2
   %or.cond = and i1 %11, %.not38
-  br i1 %or.cond, label %12, label %.critedge, !prof !100
+  br i1 %or.cond, label %12, label %.critedge, !prof !101
 
 12:                                               ; preds = %7
   %13 = icmp ugt i32 %2, 134217727
@@ -1902,7 +1902,7 @@ define ptr @ossl_cmp_certConf_new(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !101
+  %31 = load ptr, ptr %30, align 8, !tbaa !102
   %32 = sext i32 %1 to i64
   %33 = tail call i32 @ASN1_INTEGER_set(ptr noundef %31, i64 noundef %32) #7
   %.not39 = icmp eq i32 %33, 0
@@ -1910,14 +1910,14 @@ define ptr @ossl_cmp_certConf_new(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr null, ptr %35, align 8, !tbaa !102
-  %36 = load ptr, ptr %8, align 8, !tbaa !99
+  store ptr null, ptr %35, align 8, !tbaa !103
+  %36 = load ptr, ptr %8, align 8, !tbaa !100
   %37 = call ptr @X509_digest_sig(ptr noundef %36, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %38 = icmp eq ptr %37, null
   br i1 %38, label %62, label %39
 
 39:                                               ; preds = %34
-  %40 = load i32, ptr %6, align 4, !tbaa !103
+  %40 = load i32, ptr %6, align 4, !tbaa !104
   %.not40 = icmp eq i32 %40, 0
   br i1 %.not40, label %49, label %41
 
@@ -1929,21 +1929,21 @@ define ptr @ossl_cmp_certConf_new(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 44:                                               ; preds = %41
   %45 = call ptr @X509_ALGOR_new() #7
-  store ptr %45, ptr %35, align 8, !tbaa !102
+  store ptr %45, ptr %35, align 8, !tbaa !103
   %46 = icmp eq ptr %45, null
   br i1 %46, label %62, label %47
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr %5, align 8, !tbaa !104
+  %48 = load ptr, ptr %5, align 8, !tbaa !105
   call void @X509_ALGOR_set_md(ptr noundef nonnull %45, ptr noundef %48) #7
   br label %49
 
 49:                                               ; preds = %39, %47
-  %50 = load ptr, ptr %5, align 8, !tbaa !104
+  %50 = load ptr, ptr %5, align 8, !tbaa !105
   call void @EVP_MD_free(ptr noundef %50) #7
-  %51 = load ptr, ptr %19, align 8, !tbaa !96
+  %51 = load ptr, ptr %19, align 8, !tbaa !97
   call void @ASN1_OCTET_STRING_free(ptr noundef %51) #7
-  store ptr %37, ptr %19, align 8, !tbaa !96
+  store ptr %37, ptr %19, align 8, !tbaa !97
   %.not43 = icmp eq i32 %2, 0
   br i1 %.not43, label %54, label %52
 
@@ -1962,7 +1962,7 @@ define ptr @ossl_cmp_certConf_new(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %57, ptr %60, align 8, !tbaa !105
+  store ptr %57, ptr %60, align 8, !tbaa !106
   %61 = call i32 @ossl_cmp_msg_protect(ptr noundef nonnull %0, ptr noundef nonnull %16) #7
   %.not44 = icmp eq i32 %61, 0
   br i1 %.not44, label %62, label %.critedge
@@ -2016,7 +2016,7 @@ define ptr @ossl_cmp_pollReq_new(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %8, label %21, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %7, align 8, !tbaa !106
+  %10 = load ptr, ptr %7, align 8, !tbaa !107
   %11 = sext i32 %1 to i64
   %12 = tail call i32 @ASN1_INTEGER_set(ptr noundef %10, i64 noundef %11) #7
   %.not15 = icmp eq i32 %12, 0
@@ -2080,7 +2080,7 @@ define ptr @ossl_cmp_pollRep_new(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   br i1 %.not15, label %26, label %16
 
 16:                                               ; preds = %10
-  %17 = load ptr, ptr %8, align 8, !tbaa !108
+  %17 = load ptr, ptr %8, align 8, !tbaa !109
   %18 = sext i32 %1 to i64
   %19 = tail call i32 @ASN1_INTEGER_set(ptr noundef %17, i64 noundef %18) #7
   %.not16 = icmp eq i32 %19, 0
@@ -2088,7 +2088,7 @@ define ptr @ossl_cmp_pollRep_new(ptr noundef %0, i32 noundef %1, i64 noundef %2)
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !110
+  %22 = load ptr, ptr %21, align 8, !tbaa !111
   %23 = tail call i32 @ASN1_INTEGER_set_int64(ptr noundef %22, i64 noundef %2) #7
   %.not17 = icmp eq i32 %23, 0
   br i1 %.not17, label %26, label %24
@@ -2179,7 +2179,7 @@ define ptr @ossl_cmp_pollrepcontent_get0_pollrep(ptr noundef %0, i32 noundef %1)
 .lr.ph.split:                                     ; preds = %.lr.ph, %11
   %.019 = phi i32 [ %12, %11 ], [ 0, %.lr.ph ]
   %7 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.019) #7
-  %8 = load ptr, ptr %7, align 8, !tbaa !108
+  %8 = load ptr, ptr %7, align 8, !tbaa !109
   %9 = tail call i32 @ossl_cmp_asn1_get_int(ptr noundef %8) #7
   %10 = icmp slt i32 %9, -1
   br i1 %10, label %suitable_rid.exit.thread, label %suitable_rid.exit
@@ -2198,7 +2198,7 @@ suitable_rid.exit:                                ; preds = %.lr.ph.split
   %12 = add nuw nsw i32 %.019, 1
   %13 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
   %14 = icmp slt i32 %12, %13
-  br i1 %14, label %.lr.ph.split, label %._crit_edge, !llvm.loop !111
+  br i1 %14, label %.lr.ph.split, label %._crit_edge, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %11, %.preheader
   tail call void @ERR_new() #7
@@ -2260,7 +2260,7 @@ suitable_rid.exit:                                ; preds = %.lr.ph.split
   %18 = load ptr, ptr %4, align 8, !tbaa !71
   %19 = tail call i32 @OPENSSL_sk_num(ptr noundef %18) #7
   %20 = icmp slt i32 %17, %19
-  br i1 %20, label %.lr.ph.split, label %._crit_edge, !llvm.loop !112
+  br i1 %20, label %.lr.ph.split, label %._crit_edge, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   tail call void @ERR_new() #7
@@ -2315,15 +2315,15 @@ define ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %0, ptr noundef readonly
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %19 = load ptr, ptr %18, align 8, !tbaa !113
+  %19 = load ptr, ptr %18, align 8, !tbaa !114
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %21 = load ptr, ptr %20, align 8, !tbaa !114
+  %21 = load ptr, ptr %20, align 8, !tbaa !115
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %23 = load ptr, ptr %22, align 8, !tbaa !77
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %25 = load ptr, ptr %24, align 8, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %27 = load ptr, ptr %26, align 8, !tbaa !115
+  %27 = load ptr, ptr %26, align 8, !tbaa !116
   %28 = load ptr, ptr %0, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !38
@@ -2343,7 +2343,7 @@ define ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %0, ptr noundef readonly
 
 35:                                               ; preds = %14
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %64, label %36, !prof !116
+  br i1 %.not, label %64, label %36, !prof !117
 
 36:                                               ; preds = %.thread45, %35
   %37 = load ptr, ptr %5, align 8, !tbaa !62
@@ -2445,7 +2445,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_MSG_update_transactionID(ptr noundef %0, pt
 9:                                                ; preds = %6
   %10 = load ptr, ptr %1, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !117
+  %12 = load ptr, ptr %11, align 8, !tbaa !118
   %13 = icmp eq ptr %12, null
   br i1 %13, label %18, label %14
 
@@ -2482,7 +2482,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_MSG_update_recipNonce(ptr noundef %0, ptr n
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %11 = load ptr, ptr %10, align 8, !tbaa !120
+  %11 = load ptr, ptr %10, align 8, !tbaa !121
   %12 = icmp eq ptr %11, null
   br i1 %12, label %25, label %13
 
@@ -2495,7 +2495,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_MSG_update_recipNonce(ptr noundef %0, ptr n
 16:                                               ; preds = %13
   %17 = load ptr, ptr %1, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !117
+  %19 = load ptr, ptr %18, align 8, !tbaa !118
   %20 = icmp eq ptr %19, null
   br i1 %20, label %25, label %21
 
@@ -2559,7 +2559,7 @@ define ptr @OSSL_CMP_MSG_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %34
 
 20:                                               ; preds = %14, %10
-  store ptr %9, ptr %4, align 8, !tbaa !121
+  store ptr %9, ptr %4, align 8, !tbaa !122
   %21 = tail call ptr @BIO_new_file(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #7
   %22 = icmp eq ptr %21, null
   br i1 %22, label %28, label %d2i_OSSL_CMP_MSG_bio.exit
@@ -2573,19 +2573,19 @@ d2i_OSSL_CMP_MSG_bio.exit:                        ; preds = %20
   br i1 %27, label %d2i_OSSL_CMP_MSG_bio.exit._crit_edge, label %31
 
 d2i_OSSL_CMP_MSG_bio.exit._crit_edge:             ; preds = %d2i_OSSL_CMP_MSG_bio.exit
-  %.pre = load ptr, ptr %4, align 8, !tbaa !121
+  %.pre = load ptr, ptr %4, align 8, !tbaa !122
   br label %28
 
 28:                                               ; preds = %d2i_OSSL_CMP_MSG_bio.exit._crit_edge, %20
   %29 = phi ptr [ %.pre, %d2i_OSSL_CMP_MSG_bio.exit._crit_edge ], [ %9, %20 ]
   %30 = call ptr @OSSL_CMP_MSG_it() #7
   call void @ASN1_item_free(ptr noundef %29, ptr noundef %30) #7
-  store ptr null, ptr %4, align 8, !tbaa !121
+  store ptr null, ptr %4, align 8, !tbaa !122
   br label %31
 
 31:                                               ; preds = %28, %d2i_OSSL_CMP_MSG_bio.exit
   %32 = call i32 @BIO_free(ptr noundef %21) #7
-  %33 = load ptr, ptr %4, align 8, !tbaa !121
+  %33 = load ptr, ptr %4, align 8, !tbaa !122
   br label %34
 
 34:                                               ; preds = %31, %19, %6
@@ -2602,7 +2602,7 @@ define ptr @d2i_OSSL_CMP_MSG_bio(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %1, align 8, !tbaa !121
+  %4 = load ptr, ptr %1, align 8, !tbaa !122
   %.not11 = icmp eq ptr %4, null
   br i1 %.not11, label %10, label %5
 
@@ -2663,7 +2663,7 @@ define ptr @d2i_OSSL_CMP_MSG(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %0, align 8, !tbaa !121
+  %5 = load ptr, ptr %0, align 8, !tbaa !122
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %11, label %6
 
@@ -2716,7 +2716,7 @@ OSSL_CMP_MSG_get_bodytype.exit:                   ; preds = %2
 7:                                                ; preds = %OSSL_CMP_MSG_get_bodytype.exit
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !22
-  %10 = load ptr, ptr %9, align 8, !tbaa !92
+  %10 = load ptr, ptr %9, align 8, !tbaa !93
   %11 = tail call i32 @ossl_cmp_pkisi_get_status(ptr noundef %10) #7
   %12 = icmp eq i32 %11, 3
   %13 = zext i1 %12 to i32
@@ -2863,37 +2863,38 @@ attributes #7 = { nounwind }
 !86 = !{!"p1 _ZTS25stack_st_OSSL_CRMF_CERTID", !6, i64 0}
 !87 = !{!"p1 _ZTS17stack_st_X509_CRL", !6, i64 0}
 !88 = !{!84, !86, i64 8}
-!89 = distinct !{!89, !90}
+!89 = distinct !{!89, !90, !91}
 !90 = !{!"llvm.loop.mustprogress"}
-!91 = !{!24, !32, i64 456}
-!92 = !{!93, !59, i64 0}
-!93 = !{!"ossl_cmp_errormsgcontent_st", !59, i64 0, !10, i64 8, !37, i64 16}
-!94 = !{!93, !10, i64 8}
-!95 = !{!93, !37, i64 16}
-!96 = !{!97, !10, i64 0}
-!97 = !{!"ossl_cmp_certstatus_st", !10, i64 0, !10, i64 8, !59, i64 16, !98, i64 24}
-!98 = !{!"p1 _ZTS13X509_algor_st", !6, i64 0}
-!99 = !{!24, !27, i64 488}
-!100 = !{!"branch_weights", i32 2000, i32 2002}
-!101 = !{!97, !10, i64 8}
-!102 = !{!97, !98, i64 24}
-!103 = !{!21, !21, i64 0}
-!104 = !{!31, !31, i64 0}
-!105 = !{!97, !59, i64 16}
-!106 = !{!107, !10, i64 0}
-!107 = !{!"ossl_cmp_pollreq_st", !10, i64 0}
-!108 = !{!109, !10, i64 0}
-!109 = !{!"ossl_cmp_pollrep_st", !10, i64 0, !10, i64 8, !37, i64 16}
-!110 = !{!109, !10, i64 8}
-!111 = distinct !{!111, !90}
-!112 = distinct !{!112, !90}
-!113 = !{!24, !29, i64 168}
-!114 = !{!24, !11, i64 176}
-!115 = !{!24, !10, i64 232}
-!116 = !{!"branch_weights", !"expected", i32 1492426, i32 2145991222}
-!117 = !{!118, !98, i64 32}
-!118 = !{!"ossl_cmp_pkiheader_st", !10, i64 0, !119, i64 8, !119, i64 16, !10, i64 24, !98, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !37, i64 80, !32, i64 88}
-!119 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
-!120 = !{!24, !10, i64 296}
-!121 = !{!122, !122, i64 0}
-!122 = !{!"p1 _ZTS15ossl_cmp_msg_st", !6, i64 0}
+!91 = !{!"llvm.loop.estimated_trip_count"}
+!92 = !{!24, !32, i64 456}
+!93 = !{!94, !59, i64 0}
+!94 = !{!"ossl_cmp_errormsgcontent_st", !59, i64 0, !10, i64 8, !37, i64 16}
+!95 = !{!94, !10, i64 8}
+!96 = !{!94, !37, i64 16}
+!97 = !{!98, !10, i64 0}
+!98 = !{!"ossl_cmp_certstatus_st", !10, i64 0, !10, i64 8, !59, i64 16, !99, i64 24}
+!99 = !{!"p1 _ZTS13X509_algor_st", !6, i64 0}
+!100 = !{!24, !27, i64 488}
+!101 = !{!"branch_weights", i32 2000, i32 2002}
+!102 = !{!98, !10, i64 8}
+!103 = !{!98, !99, i64 24}
+!104 = !{!21, !21, i64 0}
+!105 = !{!31, !31, i64 0}
+!106 = !{!98, !59, i64 16}
+!107 = !{!108, !10, i64 0}
+!108 = !{!"ossl_cmp_pollreq_st", !10, i64 0}
+!109 = !{!110, !10, i64 0}
+!110 = !{!"ossl_cmp_pollrep_st", !10, i64 0, !10, i64 8, !37, i64 16}
+!111 = !{!110, !10, i64 8}
+!112 = distinct !{!112, !90, !91}
+!113 = distinct !{!113, !90, !91}
+!114 = !{!24, !29, i64 168}
+!115 = !{!24, !11, i64 176}
+!116 = !{!24, !10, i64 232}
+!117 = !{!"branch_weights", !"expected", i32 1492426, i32 2145991222}
+!118 = !{!119, !99, i64 32}
+!119 = !{!"ossl_cmp_pkiheader_st", !10, i64 0, !120, i64 8, !120, i64 16, !10, i64 24, !99, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !37, i64 80, !32, i64 88}
+!120 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
+!121 = !{!24, !10, i64 296}
+!122 = !{!123, !123, i64 0}
+!123 = !{!"p1 _ZTS15ossl_cmp_msg_st", !6, i64 0}

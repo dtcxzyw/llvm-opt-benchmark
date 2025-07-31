@@ -660,7 +660,7 @@ dissect_xra_tlv_cw_info.exit.i:                   ; preds = %76, %62
   %133 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %132, ptr noundef %117, i32 noundef %125, i32 noundef %126, i32 noundef 0)
   %134 = add nuw nsw i32 %125, %126
   %135 = icmp ult i32 %134, %116
-  br i1 %135, label %.lr.ph.i133.i, label %dissect_xra_tlv_burst_info.exit.i, !llvm.loop !8
+  br i1 %135, label %.lr.ph.i133.i, label %dissect_xra_tlv_burst_info.exit.i, !llvm.loop !9
 
 dissect_xra_tlv_burst_info.exit.i:                ; preds = %131, %115
   %136 = call i32 @tvb_captured_length(ptr noundef %117)
@@ -699,7 +699,7 @@ switch.lookup80:                                  ; preds = %.lr.ph.i137.i
   %153 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %152, ptr noundef %139, i32 noundef %147, i32 noundef %148, i32 noundef 0)
   %154 = add nuw nsw i32 %147, %148
   %155 = icmp ult i32 %154, %138
-  br i1 %155, label %.lr.ph.i137.i, label %dissect_xra_tlv_ms_info.exit.i, !llvm.loop !9
+  br i1 %155, label %.lr.ph.i137.i, label %dissect_xra_tlv_ms_info.exit.i, !llvm.loop !10
 
 dissect_xra_tlv_ms_info.exit.i:                   ; preds = %151, %137
   %156 = call i32 @tvb_captured_length(ptr noundef %139)
@@ -772,7 +772,7 @@ dissect_xra_tlv_ms_info.exit.i:                   ; preds = %151, %137
   %.pre-phi.i = phi i32 [ %200, %198 ], [ %196, %194 ], [ %192, %190 ], [ %188, %177 ], [ %175, %173 ], [ %171, %169 ], [ %167, %165 ], [ %163, %161 ], [ %159, %157 ], [ %138, %dissect_xra_tlv_ms_info.exit.i ], [ %116, %dissect_xra_tlv_burst_info.exit.i ], [ %113, %111 ], [ %109, %107 ], [ %105, %103 ], [ %101, %99 ], [ %97, %92 ], [ %88, %86 ], [ %84, %82 ], [ %63, %dissect_xra_tlv_cw_info.exit.i ], [ %60, %58 ], [ %56, %54 ], [ %52, %50 ], [ %48, %46 ], [ %44, %42 ]
   %203 = add nuw nsw i32 %.pre-phi.i, %41
   %204 = icmp ult i32 %203, %34
-  br i1 %204, label %.lr.ph.i, label %dissect_xra_tlv.exit, !llvm.loop !10
+  br i1 %204, label %.lr.ph.i, label %dissect_xra_tlv.exit, !llvm.loop !11
 
 dissect_xra_tlv.exit:                             ; preds = %202, %4
   %205 = call i32 @tvb_captured_length(ptr noundef %31)
@@ -870,7 +870,7 @@ dissect_xra_tlv.exit:                             ; preds = %202, %4
   %247 = add i32 %.0365.i, %246
   %248 = call i32 @tvb_reported_length_remaining(ptr noundef %216, i32 noundef %247)
   %249 = icmp sgt i32 %248, 0
-  br i1 %249, label %.lr.ph.i73, label %.sink.split
+  br i1 %249, label %.lr.ph.i73, label %.sink.split, !llvm.loop !12
 
 250:                                              ; preds = %208
   %251 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %24)
@@ -911,7 +911,7 @@ dissect_xra_tlv.exit:                             ; preds = %202, %4
   %282 = add i32 %.01.i75, 3
   %283 = call i32 @tvb_captured_length_remaining(ptr noundef %251, i32 noundef %282)
   %284 = icmp sgt i32 %283, 3
-  br i1 %284, label %.lr.ph.i74, label %dissect_ncp.exit, !llvm.loop !11
+  br i1 %284, label %.lr.ph.i74, label %dissect_ncp.exit, !llvm.loop !13
 
 dissect_ncp.exit:                                 ; preds = %.lr.ph.i74, %250
   %.0.lcssa.i = phi i32 [ 0, %250 ], [ %282, %.lr.ph.i74 ]
@@ -1149,7 +1149,7 @@ define internal fastcc void @dissect_message_block(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %53 = load i32, ptr @hf_plc_mb_mc_pspf_present, align 4
   %54 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %13, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
-  %55 = load i8, ptr %6, align 1, !range !12, !noundef !13
+  %55 = load i8, ptr %6, align 1, !range !14, !noundef !15
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %dissect_message_channel_mb.exit
 
@@ -1176,7 +1176,7 @@ define internal fastcc void @dissect_message_block(ptr noundef %0, ptr noundef %
 
 70:                                               ; preds = %66
   %71 = add nsw i32 %.032.i, 1
-  br label %93, !llvm.loop !14
+  br label %93, !llvm.loop !16
 
 72:                                               ; preds = %66
   %73 = add nsw i32 %.032.i, 2
@@ -1215,7 +1215,7 @@ define internal fastcc void @dissect_message_block(ptr noundef %0, ptr noundef %
   %.1.i = phi i32 [ %71, %70 ], [ %92, %90 ]
   %94 = add i32 %.1.i, 6
   %95 = icmp ult i32 %94, %61
-  br i1 %95, label %66, label %dissect_message_channel_mb.exit
+  br i1 %95, label %66, label %dissect_message_channel_mb.exit, !llvm.loop !17
 
 dissect_message_channel_mb.exit:                  ; preds = %93, %50, %57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
@@ -1274,12 +1274,15 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !8}

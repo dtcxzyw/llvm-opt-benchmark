@@ -456,7 +456,7 @@ sub_1:                                            ; preds = %sub_0
   %.083 = select i1 %191, ptr @.str.20, ptr %190
   %.0 = select i1 %191, i32 4, i32 %195
   %196 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  %197 = load i8, ptr %196, align 1, !tbaa !46
+  %197 = load i8, ptr %196, align 1, !tbaa !47
   %.not99 = icmp eq i8 %197, 0
   %.082 = select i1 %.not99, ptr @.str.20, ptr %196
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %13, ptr noundef nonnull @.str.21, ptr noundef nonnull %.082, i32 noundef %.0, ptr noundef nonnull %.083) #10
@@ -491,9 +491,9 @@ sub_1:                                            ; preds = %sub_0
   %216 = or disjoint i8 %211, %215
   store i8 %216, ptr %16, align 4
   %217 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %218 = load ptr, ptr %217, align 8, !tbaa !47
+  %218 = load ptr, ptr %217, align 8, !tbaa !48
   %219 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %220 = load ptr, ptr %219, align 8, !tbaa !47
+  %220 = load ptr, ptr %219, align 8, !tbaa !48
   %221 = call i32 @show_range_diff(ptr noundef %218, ptr noundef %220, ptr noundef nonnull %8) #10
   call void @strvec_clear(ptr noundef nonnull %6) #10
   call void @strvec_clear(ptr noundef nonnull %7) #10
@@ -543,7 +543,7 @@ declare void @usage_msg_optf(ptr noundef, ptr noundef, ptr noundef, ...) local_u
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #6 {
-  %2 = load i8, ptr %0, align 1, !tbaa !46
+  %2 = load i8, ptr %0, align 1, !tbaa !47
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -653,8 +653,9 @@ attributes #12 = { nounwind willreturn memory(read) }
 !41 = !{!"strvec", !33, i64 0, !18, i64 8, !18, i64 16}
 !42 = !{!41, !33, i64 0}
 !43 = !{!17, !17, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!7, !7, i64 0}
-!47 = !{!48, !17, i64 16}
-!48 = !{!"strbuf", !18, i64 0, !18, i64 8, !17, i64 16}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!7, !7, i64 0}
+!48 = !{!49, !17, i64 16}
+!49 = !{!"strbuf", !18, i64 0, !18, i64 8, !17, i64 16}

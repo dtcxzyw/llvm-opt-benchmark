@@ -298,7 +298,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pnpacpi_parse_resource_option_dat
   br label %11
 
 11:                                               ; preds = %10, %1
-  store i64 0, ptr %7, align 8, !annotation !8
+  store i64 0, ptr %7, align 8, !annotation !9
   store ptr %0, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8
@@ -1196,7 +1196,7 @@ default.unreachable:                              ; preds = %85
   %370 = getelementptr i8, ptr %19, i64 68
   %371 = add nuw nsw i32 %20, 1
   %372 = icmp eq i32 %371, %7
-  br i1 %372, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %372, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %365, %364, %13
   %373 = phi i32 [ -22, %364 ], [ 0, %13 ], [ 0, %365 ]
@@ -1360,7 +1360,7 @@ define internal fastcc void @pnpacpi_parse_irq_option(ptr noundef %0, i32 nounde
 
 16:                                               ; preds = %10
   %17 = zext i8 %14 to i64
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %17) #11, !srcloc !10
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %17) #11, !srcloc !11
   %.pre = load i8, ptr %5, align 1
   br label %18
 
@@ -1369,7 +1369,7 @@ define internal fastcc void @pnpacpi_parse_irq_option(ptr noundef %0, i32 nounde
   %20 = add nuw nsw i64 %12, 1
   %21 = zext i8 %19 to i64
   %22 = icmp samesign ult i64 %20, %21
-  br i1 %22, label %10, label %.loopexit, !llvm.loop !11
+  br i1 %22, label %10, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %18, %3
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -1410,7 +1410,7 @@ define internal fastcc void @pnpacpi_parse_dma_option(ptr noundef %0, i32 nounde
   %18 = or i8 %12, %17
   %19 = add nuw nsw i64 %11, 1
   %20 = icmp eq i64 %19, %9
-  br i1 %20, label %.loopexit, label %10, !llvm.loop !12
+  br i1 %20, label %.loopexit, label %10, !llvm.loop !13
 
 .loopexit:                                        ; preds = %10, %3
   %21 = phi i8 [ 0, %3 ], [ %18, %10 ]
@@ -1510,7 +1510,7 @@ define internal fastcc void @pnpacpi_parse_fixed_mem32_option(ptr noundef %0, i3
 define internal fastcc void @pnpacpi_parse_address_option(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #4 section ".init.text" align 16 {
   %4 = alloca %struct.acpi_resource_address64, align 1
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %4, i8 0, i64 60, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %4, i8 0, i64 60, i1 false), !annotation !9
   %5 = call i32 @acpi_resource_to_address64(ptr noundef %2, ptr noundef nonnull %4) #11
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7
@@ -1612,7 +1612,7 @@ define internal fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %0, i32 no
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %13 to i64
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %18) #11, !srcloc !10
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %18) #11, !srcloc !11
   br label %20
 
 19:                                               ; preds = %15
@@ -1624,7 +1624,7 @@ define internal fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %0, i32 no
   %22 = load i8, ptr %5, align 1
   %23 = zext i8 %22 to i64
   %24 = icmp samesign ult i64 %21, %23
-  br i1 %24, label %10, label %.loopexit, !llvm.loop !13
+  br i1 %24, label %10, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %20, %3
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -1685,12 +1685,13 @@ attributes #13 = { nounwind allocsize(0) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = distinct !{!9, !6, !7}
-!10 = !{i64 2147810583}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"auto-init"}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = !{i64 2147810583}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}

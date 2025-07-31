@@ -395,7 +395,7 @@ _addto_name_char_list.exit:                       ; preds = %56, %58
   %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.36, ptr noundef nonnull %116) #18
   %119 = call ptr @list_next(ptr noundef %114) #14
   %.not43 = icmp eq ptr %119, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %111
   call void @list_iterator_destroy(ptr noundef %114) #14
@@ -466,7 +466,7 @@ thread-pre-split.thread:                          ; preds = %109, %thread-pre-sp
   %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.36, ptr noundef nonnull %147) #18
   %150 = call ptr @list_next(ptr noundef %143) #14
   %.not50 = icmp eq ptr %150, null
-  br i1 %.not50, label %._crit_edge87, label %.lr.ph86, !llvm.loop !12
+  br i1 %.not50, label %._crit_edge87, label %.lr.ph86, !llvm.loop !13
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %142
   call void @list_iterator_destroy(ptr noundef %143) #14
@@ -520,7 +520,7 @@ thread-pre-split63:                               ; preds = %140
   %169 = call ptr @list_next(ptr noundef %159) #14
   store ptr %169, ptr @working_cluster_rec, align 8
   %.not.i61 = icmp eq ptr %169, null
-  br i1 %.not.i61, label %_multi_cluster.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i61, label %_multi_cluster.exit, label %.lr.ph.i, !llvm.loop !14
 
 _multi_cluster.exit:                              ; preds = %163, %158
   %.07.lcssa.i = phi i32 [ 0, %158 ], [ %spec.select.i, %163 ]
@@ -621,7 +621,7 @@ define internal fastcc void @_help_format_msg() unnamed_addr #9 {
   %8 = getelementptr inbounds nuw [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next, i32 1
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %5, %0
   %putchar = tail call i32 @putchar(i32 10)
@@ -822,7 +822,7 @@ define internal range(i32 0, 2) i32 @_addto_name_char_list_internal(ptr noundef 
   br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %3
-  %13 = load i8, ptr %2, align 1, !range !15, !noundef !16
+  %13 = load i8, ptr %2, align 1, !range !16, !noundef !17
   %14 = trunc nuw i8 %13 to i1
   %15 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #14
   %16 = trunc i64 %15 to i32
@@ -935,12 +935,13 @@ attributes #19 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{i8 0, i8 2}
-!16 = !{}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = !{i8 0, i8 2}
+!17 = !{}

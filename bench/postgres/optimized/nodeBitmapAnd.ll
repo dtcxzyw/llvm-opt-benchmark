@@ -210,7 +210,7 @@ define dso_local void @ExecEndBitmapAnd(ptr noundef readonly captures(none) %0) 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %10, %1
   ret void
@@ -258,7 +258,7 @@ define dso_local void @ExecReScanBitmapAnd(ptr noundef readonly captures(none) %
   %19 = load i32, ptr %2, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %7, label %._crit_edge, !llvm.loop !7
+  br i1 %21, label %7, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %18, %1
   ret void
@@ -285,7 +285,8 @@ attributes #6 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

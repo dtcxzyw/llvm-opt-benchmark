@@ -71,7 +71,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h6ad6783d6ece380fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fcaecaa26619c02e893727c019016e36.0.llvm.5959762672328116492)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  br i1 %9, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -87,7 +87,7 @@ define hidden void @"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Arc
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 1, ptr %3, align 1
   %9 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %10 = load i64, ptr %9, align 8, !noalias !9, !noundef !3
+  %10 = load i64, ptr %9, align 8, !noalias !11, !noundef !3
   %11 = lshr i64 %10, 1
   %12 = icmp ult i64 %10, 18
   br i1 %12, label %34, label %13
@@ -104,7 +104,7 @@ define hidden void @"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Arc
   %22 = and i32 %21, -256
   %23 = or disjoint i32 %20, %22
   %24 = or disjoint i32 %23, 128
-  store i32 %24, ptr %8, align 4, !noalias !12
+  store i32 %24, ptr %8, align 4, !noalias !14
   %25 = sub i64 %18, %17
   %26 = icmp ugt i64 %17, %18
   br i1 %26, label %30, label %27
@@ -114,7 +114,7 @@ define hidden void @"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Arc
   br i1 %28, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE.exit.i.i, label %29
 
 29:                                               ; preds = %30, %27
-  tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17hb89d84474c92e564E"() #11, !noalias !12
+  tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17hb89d84474c92e564E"() #11, !noalias !14
   unreachable
 
 30:                                               ; preds = %13
@@ -124,13 +124,13 @@ define hidden void @"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Arc
 _ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE.exit.i.i: ; preds = %30, %27
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = trunc i64 %25 to i32
-  store i32 %33, ptr %32, align 4, !noalias !12
+  store i32 %33, ptr %32, align 4, !noalias !14
   br label %"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492.exit"
 
 34:                                               ; preds = %7
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 -1, ptr %8, align 1, !noalias !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %35, i64 %11, i1 false), !noalias !9
+  store i64 -1, ptr %8, align 1, !noalias !14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %35, i64 %11, i1 false), !noalias !11
   br label %"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492.exit"
 
 "_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492.exit": ; preds = %34, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE.exit.i.i, %6
@@ -152,24 +152,24 @@ define hidden void @"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Arc
   %11 = ptrtoint ptr %10 to i64
   store i8 1, ptr %3, align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %13 = load i64, ptr %12, align 8, !alias.scope !15, !noundef !3
-  store i64 %13, ptr %10, align 8, !noalias !15
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %13 = load i64, ptr %12, align 8, !alias.scope !17, !noundef !3
+  store i64 %13, ptr %10, align 8, !noalias !17
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %trunc.i.i = trunc nuw i32 %1 to i1
   br i1 %trunc.i.i, label %16, label %15
 
 15:                                               ; preds = %8
-  store i8 0, ptr %14, align 1, !noalias !21
+  store i8 0, ptr %14, align 1, !noalias !23
   br label %"_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h5a9e4555840f1f1fE.exit"
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i8 1, ptr %14, align 1, !noalias !21
-  %19 = load ptr, ptr %17, align 8, !alias.scope !21, !nonnull !3, !noundef !3
-  %20 = load i64, ptr %19, align 8, !noalias !22, !noundef !3
+  store i8 1, ptr %14, align 1, !noalias !23
+  %19 = load ptr, ptr %17, align 8, !alias.scope !23, !nonnull !3, !noundef !3
+  %20 = load i64, ptr %19, align 8, !noalias !24, !noundef !3
   %21 = lshr i64 %20, 1
   %22 = icmp ult i64 %20, 18
   br i1 %22, label %46, label %23
@@ -189,7 +189,7 @@ define hidden void @"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Arc
   %34 = and i32 %33, -256
   %35 = or disjoint i32 %32, %34
   %36 = or disjoint i32 %35, 128
-  store i32 %36, ptr %18, align 4, !noalias !25
+  store i32 %36, ptr %18, align 4, !noalias !27
   %37 = sub i64 %30, %29
   %38 = icmp ugt i64 %29, %30
   br i1 %38, label %42, label %39
@@ -199,7 +199,7 @@ define hidden void @"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Arc
   br i1 %40, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE.exit.i.i.i.i, label %41
 
 41:                                               ; preds = %42, %39
-  tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17hb89d84474c92e564E"() #11, !noalias !25
+  tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17hb89d84474c92e564E"() #11, !noalias !27
   unreachable
 
 42:                                               ; preds = %23
@@ -209,13 +209,13 @@ define hidden void @"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Arc
 _ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE.exit.i.i.i.i: ; preds = %42, %39
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = trunc i64 %37 to i32
-  store i32 %45, ptr %44, align 4, !noalias !25
+  store i32 %45, ptr %44, align 4, !noalias !27
   br label %"_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h5a9e4555840f1f1fE.exit"
 
 46:                                               ; preds = %16
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 -1, ptr %18, align 1, !noalias !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %47, i64 %21, i1 false), !noalias !22
+  store i64 -1, ptr %18, align 1, !noalias !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %47, i64 %21, i1 false), !noalias !24
   br label %"_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h5a9e4555840f1f1fE.exit"
 
 "_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h5a9e4555840f1f1fE.exit": ; preds = %46, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE.exit.i.i.i.i, %15, %7
@@ -314,7 +314,7 @@ define hidden void @"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits
   %14 = and i32 %13, -256
   %15 = or disjoint i32 %12, %14
   %16 = or disjoint i32 %15, 128
-  store i32 %16, ptr %2, align 4, !noalias !28
+  store i32 %16, ptr %2, align 4, !noalias !30
   %17 = sub i64 %10, %3
   %18 = icmp ugt i64 %3, %10
   br i1 %18, label %22, label %19
@@ -324,7 +324,7 @@ define hidden void @"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits
   br i1 %20, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE.exit.i, label %21
 
 21:                                               ; preds = %22, %19
-  tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17hb89d84474c92e564E"() #11, !noalias !28
+  tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17hb89d84474c92e564E"() #11, !noalias !30
   unreachable
 
 22:                                               ; preds = %9
@@ -334,12 +334,12 @@ define hidden void @"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits
 _ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE.exit.i: ; preds = %22, %19
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %25 = trunc i64 %17 to i32
-  store i32 %25, ptr %24, align 4, !noalias !28
+  store i32 %25, ptr %24, align 4, !noalias !30
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492.exit
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 -1, ptr %2, align 1, !noalias !28
+  store i64 -1, ptr %2, align 1, !noalias !30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %27, i64 %7, i1 false)
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492.exit
 
@@ -516,25 +516,27 @@ attributes #11 = { noreturn }
 !6 = distinct !{!6, !7, !"_ZN64_$LT$core..alloc..layout..Layout$u20$as$u20$core..fmt..Debug$GT$3fmt17h5e8b5b3d2f9a2be3E: argument 0"}
 !7 = distinct !{!7, !"_ZN64_$LT$core..alloc..layout..Layout$u20$as$u20$core..fmt..Debug$GT$3fmt17h5e8b5b3d2f9a2be3E"}
 !8 = distinct !{!8, !7, !"_ZN64_$LT$core..alloc..layout..Layout$u20$as$u20$core..fmt..Debug$GT$3fmt17h5e8b5b3d2f9a2be3E: argument 1"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492: argument 0"}
-!11 = distinct !{!11, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492"}
-!12 = !{!13, !10}
-!13 = distinct !{!13, !14, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492: argument 0"}
-!14 = distinct !{!14, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h5a9e4555840f1f1fE: argument 0"}
-!17 = distinct !{!17, !"_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h5a9e4555840f1f1fE"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h14e431bad8da0b3aE: argument 0"}
-!20 = distinct !{!20, !"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h14e431bad8da0b3aE"}
-!21 = !{!19, !16}
-!22 = !{!23, !19, !16}
-!23 = distinct !{!23, !24, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492: argument 0"}
-!24 = distinct !{!24, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492"}
-!25 = !{!26, !23, !19, !16}
-!26 = distinct !{!26, !27, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492: argument 0"}
-!27 = distinct !{!27, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492: argument 0"}
-!30 = distinct !{!30, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492: argument 0"}
+!13 = distinct !{!13, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492"}
+!14 = !{!15, !12}
+!15 = distinct !{!15, !16, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492: argument 0"}
+!16 = distinct !{!16, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h5a9e4555840f1f1fE: argument 0"}
+!19 = distinct !{!19, !"_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h5a9e4555840f1f1fE"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h14e431bad8da0b3aE: argument 0"}
+!22 = distinct !{!22, !"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h14e431bad8da0b3aE"}
+!23 = !{!21, !18}
+!24 = !{!25, !21, !18}
+!25 = distinct !{!25, !26, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492: argument 0"}
+!26 = distinct !{!26, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492"}
+!27 = !{!28, !25, !21, !18}
+!28 = distinct !{!28, !29, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492: argument 0"}
+!29 = distinct !{!29, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492: argument 0"}
+!32 = distinct !{!32, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492"}

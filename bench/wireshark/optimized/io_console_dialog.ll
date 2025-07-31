@@ -2176,23 +2176,23 @@ _ZN7QStringD2Ev.exit114:                          ; preds = %198, %_ZN17QArrayDa
   %205 = load ptr, ptr %204, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store i64 ptrtoint (ptr @_ZN9QTextEdit11textChangedEv to i64), ptr %2, align 8, !noalias !23
+  store i64 ptrtoint (ptr @_ZN9QTextEdit11textChangedEv to i64), ptr %2, align 8, !noalias !24
   %.fca.1.gep12.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !23
-  store i64 ptrtoint (ptr @_ZN15IOConsoleDialog16clearSuccessHintEv to i64), ptr %3, align 8, !noalias !23
+  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !24
+  store i64 ptrtoint (ptr @_ZN15IOConsoleDialog16clearSuccessHintEv to i64), ptr %3, align 8, !noalias !24
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !23
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !24
   %206 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #19
           to label %.noexc115 unwind label %187
 
 .noexc115:                                        ; preds = %_ZN7QStringD2Ev.exit114
-  store i32 1, ptr %206, align 4, !noalias !23
+  store i32 1, ptr %206, align 4, !noalias !24
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM15IOConsoleDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %207, align 8, !noalias !23
+  store ptr @_ZN9QtPrivate11QSlotObjectIM15IOConsoleDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %207, align 8, !noalias !24
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  store i64 ptrtoint (ptr @_ZN15IOConsoleDialog16clearSuccessHintEv to i64), ptr %208, align 8, !noalias !23
+  store i64 ptrtoint (ptr @_ZN15IOConsoleDialog16clearSuccessHintEv to i64), ptr %208, align 8, !noalias !24
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %206, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !23
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !24
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %20, ptr noundef %205, ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3, ptr noundef %206, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN9QTextEdit16staticMetaObjectE)
           to label %209 unwind label %187
 
@@ -2841,7 +2841,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !26
+  %17 = load ptr, ptr %16, align 8, !nosanitize !27
   br label %_ZN9QtPrivate15FunctionPointerIM7QDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -3476,7 +3476,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 8
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !27
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !28
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3518,7 +3518,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 8
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !28
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !29
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -3846,7 +3846,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15IOConsoleDialogFvvENS_4L
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !26
+  %17 = load ptr, ptr %16, align 8, !nosanitize !27
   br label %_ZN9QtPrivate15FunctionPointerIM15IOConsoleDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -3940,11 +3940,12 @@ attributes #24 = { cold noreturn }
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
 !20 = distinct !{!20, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN7QObject7connectIM9QTextEditFvvEM15IOConsoleDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
-!25 = distinct !{!25, !"_ZN7QObject7connectIM9QTextEditFvvEM15IOConsoleDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!26 = !{}
-!27 = distinct !{!27, !22}
-!28 = distinct !{!28, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN7QObject7connectIM9QTextEditFvvEM15IOConsoleDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
+!26 = distinct !{!26, !"_ZN7QObject7connectIM9QTextEditFvvEM15IOConsoleDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
+!27 = !{}
+!28 = distinct !{!28, !22, !23}
+!29 = distinct !{!29, !22, !23}

@@ -459,7 +459,7 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.3 = select i1 %317, double %316, double %.2499560
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %319, label %304, !llvm.loop !11
+  br i1 %exitcond.not, label %319, label %304, !llvm.loop !12
 
 319:                                              ; preds = %304
   %320 = fcmp olt double %.3, %.
@@ -867,6 +867,7 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}

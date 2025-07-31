@@ -202,5 +202,6 @@ attributes #6 = { nounwind willreturn memory(none) }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.estimated_trip_count"}

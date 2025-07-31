@@ -4589,7 +4589,7 @@ define internal fastcc range(i32 0, 44) i32 @protocol2num(ptr noundef nonnull %0
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 148
-  %18 = load i32, ptr %17, align 4, !tbaa !225
+  %18 = load i32, ptr %17, align 4, !tbaa !226
   %19 = load i32, ptr %1, align 4, !tbaa !18
   %20 = or i32 %19, %18
   store i32 %20, ptr %1, align 4, !tbaa !18
@@ -4597,7 +4597,7 @@ define internal fastcc range(i32 0, 44) i32 @protocol2num(ptr noundef nonnull %0
 
 21:                                               ; preds = %16, %12
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  br i1 %.not29, label %.critedge, label %.preheader
+  br i1 %.not29, label %.critedge, label %.preheader, !llvm.loop !228
 
 .critedge:                                        ; preds = %21
   %23 = load i32, ptr %1, align 4, !tbaa !18
@@ -4880,7 +4880,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !220 = !{!21, !4, i64 704}
 !221 = !{!21, !4, i64 720}
 !222 = !{!21, !44, i64 3192}
-!223 = distinct !{!223, !224}
+!223 = distinct !{!223, !224, !225}
 !224 = !{!"llvm.loop.mustprogress"}
-!225 = !{!226, !14, i64 148}
-!226 = !{!"Curl_handler", !8, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !14, i64 144, !14, i64 148, !14, i64 152, !14, i64 156}
+!225 = !{!"llvm.loop.estimated_trip_count"}
+!226 = !{!227, !14, i64 148}
+!227 = !{!"Curl_handler", !8, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !14, i64 144, !14, i64 148, !14, i64 152, !14, i64 156}
+!228 = distinct !{!228, !225}

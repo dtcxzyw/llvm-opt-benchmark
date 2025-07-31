@@ -731,7 +731,7 @@ X509_NAME_cmp.exit.thread:                        ; preds = %27, %24, %17, %X509
   %35 = add nuw i64 %.010, 1
   %36 = tail call i64 @sk_num(ptr noundef %0) #8
   %37 = icmp ult i64 %35, %36
-  br i1 %37, label %7, label %._crit_edge, !llvm.loop !61
+  br i1 %37, label %7, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %X509_NAME_cmp.exit, %X509_NAME_cmp.exit.thread, %2
   %.08 = phi ptr [ null, %2 ], [ null, %X509_NAME_cmp.exit.thread ], [ %8, %X509_NAME_cmp.exit ]
@@ -750,7 +750,7 @@ define hidden ptr @X509_get_pubkey(ptr noundef readonly captures(address_is_null
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !62
+  %8 = load ptr, ptr %7, align 8, !tbaa !63
   %9 = tail call ptr @X509_PUBKEY_get(ptr noundef %8) #8
   br label %10
 
@@ -769,9 +769,9 @@ define hidden ptr @X509_get0_pubkey_bitstr(ptr noundef readonly captures(address
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   br label %8
 
 8:                                                ; preds = %1, %2
@@ -791,7 +791,7 @@ define hidden range(i32 0, 2) i32 @X509_check_private_key(ptr noundef readonly c
 
 X509_get_pubkey.exit:                             ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !62
+  %8 = load ptr, ptr %7, align 8, !tbaa !63
   %9 = tail call ptr @X509_PUBKEY_get(ptr noundef %8) #8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.thread35, label %10
@@ -860,7 +860,7 @@ define hidden range(i32 0, 62) i32 @X509_chain_check_suiteb(ptr noundef writeonl
   %.044 = phi ptr [ %9, %8 ], [ %1, %6 ]
   %.038 = phi i64 [ 1, %8 ], [ 0, %6 ]
   %11 = load ptr, ptr %.044, align 8, !tbaa !6
-  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = tail call i64 @ASN1_INTEGER_get(ptr noundef %12) #8
   %.not50 = icmp eq i64 %13, 2
   br i1 %.not50, label %14, label %.thread.thread
@@ -872,20 +872,20 @@ define hidden range(i32 0, 62) i32 @X509_chain_check_suiteb(ptr noundef writeonl
 
 X509_get_pubkey.exit:                             ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !62
+  %18 = load ptr, ptr %17, align 8, !tbaa !63
   %19 = tail call ptr @X509_PUBKEY_get(ptr noundef %18) #8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %.thread.thread, label %20
 
 20:                                               ; preds = %X509_get_pubkey.exit
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !67
+  %22 = load i32, ptr %21, align 4, !tbaa !68
   %23 = icmp eq i32 %22, 408
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !70
+  %26 = load ptr, ptr %25, align 8, !tbaa !71
   %27 = tail call ptr @EC_KEY_get0_group(ptr noundef %26) #8
   %.not20.i = icmp eq ptr %27, null
   br i1 %.not20.i, label %.thread, label %28
@@ -925,7 +925,7 @@ check_suite_b.exit:                               ; preds = %34, %32
   %38 = tail call i32 @X509_get_signature_nid(ptr noundef nonnull %.145163) #8
   %39 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %.2164) #8
   %40 = load ptr, ptr %39, align 8, !tbaa !6
-  %41 = load ptr, ptr %40, align 8, !tbaa !66
+  %41 = load ptr, ptr %40, align 8, !tbaa !67
   %42 = tail call i64 @ASN1_INTEGER_get(ptr noundef %41) #8
   %.not52 = icmp eq i64 %42, 2
   br i1 %.not52, label %43, label %.thread
@@ -938,20 +938,20 @@ check_suite_b.exit:                               ; preds = %34, %32
 
 X509_get_pubkey.exit61:                           ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %47 = load ptr, ptr %46, align 8, !tbaa !62
+  %47 = load ptr, ptr %46, align 8, !tbaa !63
   %48 = tail call ptr @X509_PUBKEY_get(ptr noundef %47) #8
   %.not.i62 = icmp eq ptr %48, null
   br i1 %.not.i62, label %.thread.thread, label %49
 
 49:                                               ; preds = %X509_get_pubkey.exit61
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !67
+  %51 = load i32, ptr %50, align 4, !tbaa !68
   %52 = icmp eq i32 %51, 408
   br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !70
+  %55 = load ptr, ptr %54, align 8, !tbaa !71
   %56 = tail call ptr @EC_KEY_get0_group(ptr noundef %55) #8
   %.not20.i64 = icmp eq ptr %56, null
   br i1 %.not20.i64, label %.thread, label %57
@@ -994,7 +994,7 @@ check_suite_b.exit67:                             ; preds = %65, %62
   %67 = add nuw i64 %.2164, 1
   %68 = tail call i64 @sk_num(ptr noundef %2) #8
   %69 = icmp ult i64 %67, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !71
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %check_suite_b.exit67, %check_suite_b.exit
   %.181.lcssa = phi i64 [ %.3, %check_suite_b.exit ], [ %.5, %check_suite_b.exit67 ]
@@ -1003,13 +1003,13 @@ check_suite_b.exit67:                             ; preds = %65, %62
   %.1.lcssa = phi ptr [ %19, %check_suite_b.exit ], [ %48, %check_suite_b.exit67 ]
   %70 = tail call i32 @X509_get_signature_nid(ptr noundef nonnull %.145.lcssa) #8
   %71 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 4
-  %72 = load i32, ptr %71, align 4, !tbaa !67
+  %72 = load i32, ptr %71, align 4, !tbaa !68
   %73 = icmp eq i32 %72, 408
   br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %._crit_edge
   %75 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !70
+  %76 = load ptr, ptr %75, align 8, !tbaa !71
   %77 = tail call ptr @EC_KEY_get0_group(ptr noundef %76) #8
   %.not20.i70 = icmp eq ptr %77, null
   br i1 %.not20.i70, label %.thread, label %78
@@ -1075,7 +1075,7 @@ check_suite_b.exit67:                             ; preds = %65, %62
   %94 = sext i1 %or.cond3 to i64
   %spec.select = add i64 %.139107119190, %94
   %95 = trunc i64 %spec.select to i32
-  store i32 %95, ptr %0, align 4, !tbaa !72
+  store i32 %95, ptr %0, align 4, !tbaa !73
   br label %96
 
 96:                                               ; preds = %86, %92, %.thread.thread, %4
@@ -1096,21 +1096,21 @@ define hidden range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly c
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !73
-  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %9 = load ptr, ptr %8, align 8, !tbaa !75
   %10 = tail call i32 @OBJ_obj2nid(ptr noundef %9) #8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %check_suite_b.exit, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !67
+  %13 = load i32, ptr %12, align 4, !tbaa !68
   %14 = icmp eq i32 %13, 408
   br i1 %14, label %15, label %check_suite_b.exit
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !70
+  %17 = load ptr, ptr %16, align 8, !tbaa !71
   %18 = tail call ptr @EC_KEY_get0_group(ptr noundef %17) #8
   %.not20.i = icmp eq ptr %18, null
   br i1 %.not20.i, label %check_suite_b.exit, label %19
@@ -1168,7 +1168,7 @@ define hidden noundef ptr @X509_chain_up_ref(ptr noundef %0) local_unnamed_addr 
   %6 = add nuw i64 %.06, 1
   %7 = tail call i64 @sk_num(ptr noundef %2) #8
   %8 = icmp ult i64 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !78
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %2
@@ -1257,23 +1257,24 @@ attributes #9 = { nounwind willreturn memory(read) }
 !56 = !{!26, !14, i64 96}
 !57 = !{!26, !18, i64 88}
 !58 = !{!26, !15, i64 80}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = distinct !{!61, !60}
-!62 = !{!26, !29, i64 48}
-!63 = !{!64, !13, i64 8}
-!64 = !{!"X509_pubkey_st", !12, i64 0, !13, i64 8, !65, i64 16}
-!65 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!66 = !{!26, !13, i64 0}
-!67 = !{!68, !14, i64 4}
-!68 = !{!"evp_pkey_st", !14, i64 0, !14, i64 4, !10, i64 8, !69, i64 16}
-!69 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !9, i64 0}
-!70 = !{!10, !10, i64 0}
-!71 = distinct !{!71, !60}
-!72 = !{!14, !14, i64 0}
-!73 = !{!50, !12, i64 8}
-!74 = !{!75, !76, i64 0}
-!75 = !{!"X509_algor_st", !76, i64 0, !77, i64 8}
-!76 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
-!77 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
-!78 = distinct !{!78, !60}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = distinct !{!62, !60, !61}
+!63 = !{!26, !29, i64 48}
+!64 = !{!65, !13, i64 8}
+!65 = !{!"X509_pubkey_st", !12, i64 0, !13, i64 8, !66, i64 16}
+!66 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!67 = !{!26, !13, i64 0}
+!68 = !{!69, !14, i64 4}
+!69 = !{!"evp_pkey_st", !14, i64 0, !14, i64 4, !10, i64 8, !70, i64 16}
+!70 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !9, i64 0}
+!71 = !{!10, !10, i64 0}
+!72 = distinct !{!72, !60, !61}
+!73 = !{!14, !14, i64 0}
+!74 = !{!50, !12, i64 8}
+!75 = !{!76, !77, i64 0}
+!76 = !{!"X509_algor_st", !77, i64 0, !78, i64 8}
+!77 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!78 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
+!79 = distinct !{!79, !60, !61}

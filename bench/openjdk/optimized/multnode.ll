@@ -111,7 +111,7 @@ define hidden noundef ptr @_ZNK9MultiNode16proj_out_or_nullEjb(ptr noundef nonnu
 24:                                               ; preds = %.lr.ph, %15, %19
   %25 = getelementptr inbounds nuw i8, ptr %.01013, i64 8
   %26 = icmp ult ptr %25, %9
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %19, %24, %3
   %.0 = phi ptr [ null, %3 ], [ null, %24 ], [ %10, %19 ]
@@ -604,7 +604,7 @@ define hidden noundef ptr @_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimizatio
   %25 = add nuw nsw i32 %.01721, 1
   %exitcond.not = icmp eq i32 %25, 10
   %or.cond25 = select i1 %.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond25, label %.loopexit, label %3, !llvm.loop !9
+  br i1 %or.cond25, label %.loopexit, label %3, !llvm.loop !10
 
 .loopexit:                                        ; preds = %21, %3, %13, %20
   %.0 = phi ptr [ null, %20 ], [ %4, %13 ], [ null, %3 ], [ null, %21 ]
@@ -705,7 +705,7 @@ _ZNK8ProjNode13other_if_projEv.exit:              ; preds = %27, %51
   %55 = add nuw nsw i32 %.01721.i, 1
   %exitcond.not.i = icmp eq i32 %55, 10
   %or.cond25.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond25.i, label %_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit, label %_ZNK8ProjNode13other_if_projEv.exit, !llvm.loop !9
+  br i1 %or.cond25.i, label %_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit, label %_ZNK8ProjNode13other_if_projEv.exit, !llvm.loop !10
 
 _ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit: ; preds = %51, %_ZNK8ProjNode13other_if_projEv.exit, %50, %43, %2, %10
   %.0 = phi ptr [ null, %10 ], [ null, %2 ], [ null, %50 ], [ %34, %43 ], [ null, %_ZNK8ProjNode13other_if_projEv.exit ], [ null, %51 ]
@@ -815,7 +815,8 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

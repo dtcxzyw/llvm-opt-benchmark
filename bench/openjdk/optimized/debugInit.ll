@@ -867,7 +867,7 @@ get_tok.exit247.i:                                ; preds = %.lr.ph.i241.i, %.lr
 
 317:                                              ; preds = %316, %314
   %318 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  br label %314, !llvm.loop !8
+  br label %314, !llvm.loop !9
 
 319:                                              ; preds = %314
   %320 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
@@ -1360,7 +1360,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   %507 = load ptr, ptr %6, align 8
   %508 = load i8, ptr %507, align 1
   %.not113.i = icmp eq i8 %508, 0
-  br i1 %.not113.i, label %._crit_edge.i, label %.lr.ph.i.preheader.i, !llvm.loop !9
+  br i1 %.not113.i, label %._crit_edge.i, label %.lr.ph.i.preheader.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %506, %109
   %509 = load ptr, ptr @logfile, align 8
@@ -2217,7 +2217,7 @@ define hidden void @debugInit_waitInitComplete() local_unnamed_addr #0 {
   %2 = load ptr, ptr @initMonitor, align 8
   tail call void @debugMonitorWait(ptr noundef %2) #17
   %.b = load i1, ptr @initComplete, align 1
-  br i1 %.b, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.b, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %3 = load ptr, ptr @initMonitor, align 8
@@ -3188,8 +3188,9 @@ attributes #20 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

@@ -2318,7 +2318,7 @@ define internal void @post_update_spdu_signal_value_names_cb() #0 {
 55:                                               ; preds = %52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %52, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.critedge.i, label %52, !llvm.loop !11
 
 56:                                               ; preds = %52
   %57 = and i64 %indvars.iv.i, 4294967295
@@ -2360,7 +2360,7 @@ define internal void @post_update_spdu_signal_value_names_cb() #0 {
 74:                                               ; preds = %71
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
   %exitcond118.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count117.i
-  br i1 %exitcond118.not.i, label %.critedge3.i, label %71, !llvm.loop !11
+  br i1 %exitcond118.not.i, label %.critedge3.i, label %71, !llvm.loop !12
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -2381,7 +2381,7 @@ define internal void @post_update_spdu_signal_value_names_cb() #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #16
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %wide.trip.count122.i
-  br i1 %exitcond123.not.i, label %post_update_spdu_signal_value_names_read_in_data.exit, label %.lr.ph105.i, !llvm.loop !12
+  br i1 %exitcond123.not.i, label %post_update_spdu_signal_value_names_read_in_data.exit, label %.lr.ph105.i, !llvm.loop !13
 
 post_update_spdu_signal_value_names_read_in_data.exit: ; preds = %.critedge3.i, %4
   call void @post_update_spdu_signal_list_cb()
@@ -3558,7 +3558,7 @@ create_hf_entry.exit257.i:                        ; preds = %260
 293:                                              ; preds = %create_hf_entry.exit257.i, %260, %59, %53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %27, label %29, !llvm.loop !13
+  br i1 %exitcond.not.i, label %27, label %29, !llvm.loop !14
 
 294:                                              ; preds = %27
   %295 = load i32, ptr @proto_signal_pdu, align 4
@@ -3737,7 +3737,7 @@ define internal void @post_update_spdu_someip_mapping_cb() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not7.i = icmp eq ptr %17, null
-  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   tail call void @g_list_free(ptr noundef %11)
@@ -3777,7 +3777,7 @@ register_signal_pdu_someip.exit:                  ; preds = %._crit_edge, %8, %.
   %42 = load i32, ptr @spdu_someip_mapping_num, align 4
   %43 = zext i32 %42 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -3881,7 +3881,7 @@ define internal void @post_update_spdu_can_mapping_cb() #0 {
   %18 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not9.i = icmp eq ptr %19, null
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %11
   tail call void @g_list_free(ptr noundef %12)
@@ -3910,7 +3910,7 @@ register_signal_pdu_can.exit:                     ; preds = %._crit_edge, %8, %.
   %33 = load i32, ptr @spdu_can_mapping_num, align 4
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4015,7 +4015,7 @@ define internal void @post_update_spdu_flexray_mapping_cb() #0 {
   %23 = load i32, ptr @spdu_flexray_mapping_num, align 4
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4121,7 +4121,7 @@ define internal void @post_update_spdu_lin_mapping_cb() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not7.i = icmp eq ptr %17, null
-  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   tail call void @g_list_free(ptr noundef %11)
@@ -4148,7 +4148,7 @@ register_signal_pdu_lin.exit:                     ; preds = %._crit_edge, %8, %.
   %30 = load i32, ptr @spdu_lin_mapping_num, align 4
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4225,7 +4225,7 @@ define internal void @post_update_spdu_pdu_transport_mapping_cb() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not7.i = icmp eq ptr %17, null
-  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   tail call void @g_list_free(ptr noundef %11)
@@ -4247,7 +4247,7 @@ register_signal_pdu_pdu_transport.exit:           ; preds = %._crit_edge, %8, %.
   %25 = load i32, ptr @spdu_pdu_transport_mapping_num, align 4
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4324,7 +4324,7 @@ define internal void @post_update_spdu_ipdum_mapping_cb() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not7.i = icmp eq ptr %17, null
-  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   tail call void @g_list_free(ptr noundef %11)
@@ -4346,7 +4346,7 @@ register_signal_pdu_ipdum.exit:                   ; preds = %._crit_edge, %8, %.
   %25 = load i32, ptr @spdu_ipdum_mapping_num, align 4
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4451,7 +4451,7 @@ define internal void @post_update_spdu_dlt_mapping_cb() #0 {
   %21 = load i32, ptr @spdu_dlt_mapping_num, align 4
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4583,7 +4583,7 @@ define internal void @post_update_spdu_uds_mapping_cb() #0 {
   %44 = load i32, ptr @spdu_uds_mapping_num, align 4
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ult i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4674,7 +4674,7 @@ define internal void @post_update_spdu_isobus_mapping_cb() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not7.i = icmp eq ptr %17, null
-  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   tail call void @g_list_free(ptr noundef %11)
@@ -4703,7 +4703,7 @@ register_signal_pdu_isobus.exit:                  ; preds = %._crit_edge, %8, %.
   %31 = load i32, ptr @spdu_isobus_mapping_num, align 4
   %32 = zext i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -5403,7 +5403,7 @@ define internal void @destroy_notify_signal_value_names(ptr noundef captures(non
   %21 = load i32, ptr %2, align 4
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %6, label %._crit_edge, !llvm.loop !29
+  br i1 %23, label %6, label %._crit_edge, !llvm.loop !30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -5454,7 +5454,7 @@ define internal fastcc void @deregister_user_data_hfarray(ptr noundef captures(a
 15:                                               ; preds = %.lr.ph, %11, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge39.critedge:                           ; preds = %.preheader
   %16 = load i32, ptr @proto_signal_pdu, align 4
@@ -5483,7 +5483,7 @@ define internal fastcc void @deregister_user_data_hfarray(ptr noundef captures(a
 20:                                               ; preds = %.lr.ph38, %19
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !31
+  br i1 %exitcond47.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !32
 
 21:                                               ; preds = %5, %._crit_edge39, %2
   ret void
@@ -5991,7 +5991,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
   %167 = or i64 %165, %166
   %168 = add nsw i32 %.05664.us.i.i, -1
   %.not.us.not.i.i = icmp sgt i32 %.05664.us.i.i, %.083131
-  br i1 %.not.us.not.i.i, label %.lr.ph.split.us.i.i, label %dissect_shifted_and_shortened_uint.exit.i, !llvm.loop !32
+  br i1 %.not.us.not.i.i, label %.lr.ph.split.us.i.i, label %dissect_shifted_and_shortened_uint.exit.i, !llvm.loop !33
 
 .preheader.i.i:                                   ; preds = %149
   br i1 %.not6066.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph69.i.i
@@ -6025,7 +6025,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
   %181 = zext i8 %.149.us.i.i to i64
   %182 = or i64 %180, %181
   %183 = add nsw i32 %.15767.us.i.i, 1
-  br i1 %175, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph69.split.us.i.i, !llvm.loop !34
+  br i1 %175, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph69.split.us.i.i, !llvm.loop !35
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %194
   %.05465.i.i = phi i64 [ %.155.i.i, %194 ], [ 0, %.lr.ph.i.i ]
@@ -6051,7 +6051,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
   %.155.i.i = phi i64 [ %193, %184 ], [ %.05465.i.i, %.lr.ph.split.i.i ]
   %195 = add nsw i32 %.05664.i.i, -1
   %.not.not.i.i = icmp sgt i32 %.05664.i.i, %.083131
-  br i1 %.not.not.i.i, label %.lr.ph.split.i.i, label %dissect_shifted_and_shortened_uint.exit.i, !llvm.loop !35
+  br i1 %.not.not.i.i, label %.lr.ph.split.i.i, label %dissect_shifted_and_shortened_uint.exit.i, !llvm.loop !36
 
 .lr.ph69.split.i.i:                               ; preds = %.lr.ph69.split.i.preheader.i, %.lr.ph69.split.i.i
   %.15767.i310.i = phi i32 [ %202, %.lr.ph69.split.i.i ], [ %.083131, %.lr.ph69.split.i.preheader.i ]
@@ -6128,7 +6128,7 @@ dissect_shifted_and_shortened_uint.exit.i:        ; preds = %194, %.lr.ph.split.
   %.2266.i = phi ptr [ %225, %223 ], [ %.1265312.i, %220 ], [ %.1265312.i, %217 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %217, !llvm.loop !36
+  br i1 %exitcond.not.i, label %.loopexit.i, label %217, !llvm.loop !37
 
 .loopexit.i:                                      ; preds = %226, %.preheader.i, %205
   %.0264.i = phi ptr [ null, %205 ], [ null, %.preheader.i ], [ %.2266.i, %226 ]
@@ -6547,7 +6547,7 @@ dissect_spdu_payload_signal.exit:                 ; preds = %132, %442
   %454 = add nuw i32 %.0132, 1
   %455 = load i32, ptr %70, align 4
   %456 = icmp ult i32 %454, %455
-  br i1 %456, label %76, label %.critedge, !llvm.loop !37
+  br i1 %456, label %76, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %447
   %457 = add nsw i32 %449, 1
@@ -6696,33 +6696,34 @@ attributes #20 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !9, !33}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !9, !10, !34}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}

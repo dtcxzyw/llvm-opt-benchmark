@@ -67,7 +67,7 @@ define hidden i32 @file_ascmagic(ptr noundef %0, ptr noundef readonly captures(n
 17:                                               ; preds = %.lr.ph.i
   %18 = add i64 %.04.i, -1
   %19 = icmp ugt i64 %18, 1
-  br i1 %19, label %.lr.ph.i, label %trim_nuls.exit.thread
+  br i1 %19, label %.lr.ph.i, label %trim_nuls.exit.thread, !llvm.loop !23
 
 trim_nuls.exit.thread:                            ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -137,7 +137,7 @@ define hidden i32 @file_ascmagic_with_encoding(ptr noundef %0, ptr noundef %1, p
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %12 = load i64, ptr %11, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %14 = load i32, ptr %13, align 4, !tbaa !23
+  %14 = load i32, ptr %13, align 4, !tbaa !25
   %15 = and i32 %14, 1040
   %invariant.gep.i = getelementptr i8, ptr %10, i64 -1
   %16 = icmp ugt i64 %12, 1
@@ -153,7 +153,7 @@ define hidden i32 @file_ascmagic_with_encoding(ptr noundef %0, ptr noundef %1, p
 19:                                               ; preds = %.lr.ph.i
   %20 = add i64 %.04.i, -1
   %21 = icmp ugt i64 %20, 1
-  br i1 %21, label %.lr.ph.i, label %.thread234
+  br i1 %21, label %.lr.ph.i, label %.thread234, !llvm.loop !23
 
 trim_nuls.exit:                                   ; preds = %.lr.ph.i
   %.not = icmp ne i64 %3, 0
@@ -337,10 +337,10 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
   %.1.i = phi ptr [ %42, %40 ], [ %125, %120 ]
   %127 = add nuw i64 %.06372.i, 1
   %exitcond.not.i = icmp eq i64 %127, %3
-  br i1 %exitcond.not.i, label %encode_utf8.exit, label %32
+  br i1 %exitcond.not.i, label %encode_utf8.exit, label %32, !llvm.loop !32
 
 encode_utf8.exit:                                 ; preds = %126
-  %128 = load i32, ptr %1, align 8, !tbaa !30
+  %128 = load i32, ptr %1, align 8, !tbaa !33
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %130 = ptrtoint ptr %.1.i to i64
   %131 = ptrtoint ptr %26 to i64
@@ -350,7 +350,7 @@ encode_utf8.exit:                                 ; preds = %126
   %.not247 = icmp eq i32 %133, 0
   %. = select i1 %.not247, i32 -1, i32 %133
   call void @buffer_fini(ptr noundef nonnull %8) #7
-  %134 = load i32, ptr %13, align 4, !tbaa !23
+  %134 = load i32, ptr %13, align 4, !tbaa !25
   %135 = and i32 %134, 16779264
   %.not210 = icmp eq i32 %135, 0
   br i1 %.not210, label %138, label %.thread239
@@ -423,7 +423,7 @@ encode_utf8.exit:                                 ; preds = %126
   %.1193 = select i1 %156, i32 1, i32 %.0192251
   %157 = add nuw i64 %.0196249, 1
   %exitcond.not = icmp eq i64 %157, %3
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %148
   %158 = icmp eq i32 %.1195, 0
@@ -457,7 +457,7 @@ encode_utf8.exit:                                 ; preds = %126
   br i1 %.not220, label %175, label %167
 
 167:                                              ; preds = %166
-  %168 = load i32, ptr %13, align 4, !tbaa !23
+  %168 = load i32, ptr %13, align 4, !tbaa !25
   %169 = and i32 %168, 32
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %encode_utf8.exit.thread, label %171
@@ -724,11 +724,15 @@ attributes #9 = { nounwind willreturn memory(read) }
 !20 = !{!"stat", !10, i64 0, !10, i64 8, !10, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !21, i64 72, !21, i64 88, !21, i64 104, !7, i64 120}
 !21 = !{!"timespec", !10, i64 0, !10, i64 8}
 !22 = !{!19, !10, i64 160}
-!23 = !{!24, !15, i64 68}
-!24 = !{!"magic_set", !7, i64 0, !25, i64 16, !27, i64 32, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72, !12, i64 80, !10, i64 88, !15, i64 96, !28, i64 100, !29, i64 104, !7, i64 136, !28, i64 264, !28, i64 266, !28, i64 268, !28, i64 270, !28, i64 272, !28, i64 274, !28, i64 276, !10, i64 280, !10, i64 288, !10, i64 296}
-!25 = !{!"cont", !10, i64 0, !26, i64 8}
-!26 = !{!"p1 _ZTS10level_info", !6, i64 0}
-!27 = !{!"out", !12, i64 0, !10, i64 8, !12, i64 16}
-!28 = !{!"short", !7, i64 0}
-!29 = !{!"", !12, i64 0, !10, i64 8, !10, i64 16, !10, i64 24}
-!30 = !{!19, !15, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !15, i64 68}
+!26 = !{!"magic_set", !7, i64 0, !27, i64 16, !29, i64 32, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72, !12, i64 80, !10, i64 88, !15, i64 96, !30, i64 100, !31, i64 104, !7, i64 136, !30, i64 264, !30, i64 266, !30, i64 268, !30, i64 270, !30, i64 272, !30, i64 274, !30, i64 276, !10, i64 280, !10, i64 288, !10, i64 296}
+!27 = !{!"cont", !10, i64 0, !28, i64 8}
+!28 = !{!"p1 _ZTS10level_info", !6, i64 0}
+!29 = !{!"out", !12, i64 0, !10, i64 8, !12, i64 16}
+!30 = !{!"short", !7, i64 0}
+!31 = !{!"", !12, i64 0, !10, i64 8, !10, i64 16, !10, i64 24}
+!32 = distinct !{!32, !24}
+!33 = !{!19, !15, i64 0}
+!34 = distinct !{!34, !24}

@@ -127,19 +127,19 @@ define internal range(i32 -2147483648, 1) i32 @data_open(ptr noundef %0, ptr nou
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %49, ptr %56, align 8, !tbaa !18
-  store ptr %49, ptr %6, align 8, !tbaa !20
+  store ptr %49, ptr %56, align 8, !tbaa !19
+  store ptr %49, ptr %6, align 8, !tbaa !21
   %57 = zext nneg i32 %52 to i64
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %57, ptr %58, align 8, !tbaa !21
+  store i64 %57, ptr %58, align 8, !tbaa !22
   br label %.thread
 
 59:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %60 = phi i64 [ %12, %._crit_edge.thread ], [ %40, %._crit_edge ]
   %61 = phi ptr [ %11, %._crit_edge.thread ], [ %39, %._crit_edge ]
-  store ptr %61, ptr %6, align 8, !tbaa !20
+  store ptr %61, ptr %6, align 8, !tbaa !21
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %60, ptr %62, align 8, !tbaa !21
+  store i64 %60, ptr %62, align 8, !tbaa !22
   br label %.thread
 
 .thread:                                          ; preds = %41, %48, %54, %59, %55, %27, %15
@@ -152,9 +152,9 @@ define internal i32 @data_read(ptr noundef readonly captures(none) %0, ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %6, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !21
+  %9 = load i64, ptr %8, align 8, !tbaa !22
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %10, label %20
 
@@ -163,14 +163,14 @@ define internal i32 @data_read(ptr noundef readonly captures(none) %0, ptr nound
   %12 = sub nuw i64 %9, %7
   %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 %11)
   %14 = trunc i64 %13 to i32
-  %15 = load ptr, ptr %5, align 8, !tbaa !20
+  %15 = load ptr, ptr %5, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %7
   %sext = shl i64 %13, 32
   %17 = ashr exact i64 %sext, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %16, i64 %17, i1 false)
-  %18 = load i64, ptr %6, align 8, !tbaa !22
+  %18 = load i64, ptr %6, align 8, !tbaa !23
   %19 = add i64 %18, %17
-  store i64 %19, ptr %6, align 8, !tbaa !22
+  store i64 %19, ptr %6, align 8, !tbaa !23
   br label %20
 
 20:                                               ; preds = %3, %10
@@ -243,10 +243,11 @@ attributes #7 = { nounwind willreturn memory(read) }
 !13 = !{!"int", !7, i64 0}
 !14 = !{!"AVIOInterruptCB", !6, i64 0, !6, i64 8}
 !15 = !{!"long", !7, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !6, i64 8}
-!19 = !{!"", !5, i64 0, !6, i64 8, !15, i64 16, !15, i64 24}
-!20 = !{!19, !5, i64 0}
-!21 = !{!19, !15, i64 16}
-!22 = !{!19, !15, i64 24}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !6, i64 8}
+!20 = !{!"", !5, i64 0, !6, i64 8, !15, i64 16, !15, i64 24}
+!21 = !{!20, !5, i64 0}
+!22 = !{!20, !15, i64 16}
+!23 = !{!20, !15, i64 24}

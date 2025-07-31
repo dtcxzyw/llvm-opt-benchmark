@@ -951,43 +951,43 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 
 _ZNK5draco7VectorDIfLi3EEmiERKS1_.exit:           ; preds = %267
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #19
-  call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, i8 0, i64 12, i1 false), !tbaa !100, !alias.scope !136
+  call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, i8 0, i64 12, i1 false), !tbaa !100, !alias.scope !137
   br label %274
 
 274:                                              ; preds = %274, %_ZNK5draco7VectorDIfLi3EEmiERKS1_.exit
   %indvars.iv.i82 = phi i64 [ 0, %_ZNK5draco7VectorDIfLi3EEmiERKS1_.exit ], [ %indvars.iv.next.i83, %274 ]
   %275 = getelementptr inbounds nuw [3 x float], ptr %209, i64 0, i64 %indvars.iv.i82
-  %276 = load float, ptr %275, align 4, !tbaa !100, !noalias !136
+  %276 = load float, ptr %275, align 4, !tbaa !100, !noalias !137
   %277 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv.i82
-  %278 = load float, ptr %277, align 4, !tbaa !100, !noalias !136
+  %278 = load float, ptr %277, align 4, !tbaa !100, !noalias !137
   %279 = fsub float %276, %278
   %280 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i82
-  store float %279, ptr %280, align 4, !tbaa !100, !alias.scope !136
+  store float %279, ptr %280, align 4, !tbaa !100, !alias.scope !137
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, 3
   br i1 %exitcond.not.i84, label %281, label %274, !llvm.loop !134
 
 281:                                              ; preds = %274
-  call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  %282 = load float, ptr %210, align 4, !tbaa !100, !noalias !139
-  %283 = load float, ptr %211, align 4, !tbaa !100, !noalias !139
-  %284 = load float, ptr %212, align 4, !tbaa !100, !noalias !139
-  %285 = load float, ptr %213, align 4, !tbaa !100, !noalias !139
+  call void @llvm.experimental.noalias.scope.decl(metadata !140)
+  %282 = load float, ptr %210, align 4, !tbaa !100, !noalias !140
+  %283 = load float, ptr %211, align 4, !tbaa !100, !noalias !140
+  %284 = load float, ptr %212, align 4, !tbaa !100, !noalias !140
+  %285 = load float, ptr %213, align 4, !tbaa !100, !noalias !140
   %286 = fneg float %285
   %287 = fmul float %284, %286
   %288 = call float @llvm.fmuladd.f32(float %282, float %283, float %287)
-  store float %288, ptr %14, align 4, !tbaa !100, !alias.scope !139
-  %289 = load float, ptr %16, align 4, !tbaa !100, !noalias !139
-  %290 = load float, ptr %15, align 4, !tbaa !100, !noalias !139
+  store float %288, ptr %14, align 4, !tbaa !100, !alias.scope !140
+  %289 = load float, ptr %16, align 4, !tbaa !100, !noalias !140
+  %290 = load float, ptr %15, align 4, !tbaa !100, !noalias !140
   %291 = fneg float %283
   %292 = fmul float %290, %291
   %293 = call float @llvm.fmuladd.f32(float %284, float %289, float %292)
-  store float %293, ptr %214, align 4, !tbaa !100, !alias.scope !139
+  store float %293, ptr %214, align 4, !tbaa !100, !alias.scope !140
   %294 = fneg float %289
   %295 = fmul float %282, %294
   %296 = call float @llvm.fmuladd.f32(float %290, float %285, float %295)
-  store float %296, ptr %215, align 4, !tbaa !100, !alias.scope !139
+  store float %296, ptr %215, align 4, !tbaa !100, !alias.scope !140
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #19
   br label %297
@@ -1000,7 +1000,7 @@ _ZNK5draco7VectorDIfLi3EEmiERKS1_.exit:           ; preds = %267
   %300 = call float @llvm.fmuladd.f32(float %299, float %299, float %.078.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit.i, label %297, !llvm.loop !142
+  br i1 %exitcond.not.i.i.i, label %_ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit.i, label %297, !llvm.loop !143
 
 _ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit.i:  ; preds = %297
   %301 = call noundef float @sqrtf(float noundef %300) #19, !tbaa !79
@@ -1015,7 +1015,7 @@ _ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit.i:  ; preds = %297
   store float %305, ptr %303, align 4, !tbaa !100
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, 3
-  br i1 %exitcond.not.i88, label %_ZN5draco7VectorDIfLi3EE9NormalizeEv.exit, label %.preheader.i, !llvm.loop !143
+  br i1 %exitcond.not.i88, label %_ZN5draco7VectorDIfLi3EE9NormalizeEv.exit, label %.preheader.i, !llvm.loop !144
 
 _ZN5draco7VectorDIfLi3EE9NormalizeEv.exit:        ; preds = %.preheader.i, %_ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit.i
   %306 = load ptr, ptr %1, align 8, !tbaa !29
@@ -1125,7 +1125,7 @@ _ZSt7advanceIPKhmEvRT_T0_.exit.i:                 ; preds = %363
   %371 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i.i, i64 1
   %372 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i, -1
   %373 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i, 1
-  br i1 %373, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit.i, !llvm.loop !144
+  br i1 %373, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit.i, !llvm.loop !145
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %357, align 8, !tbaa !32
@@ -1203,7 +1203,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %393, %_ZSt22__
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit94:      ; preds = %344, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %356, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %319, label %334, !llvm.loop !145
+  br i1 %exitcond.not, label %319, label %334, !llvm.loop !146
 
 .loopexit:                                        ; preds = %384
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1230,7 +1230,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit92:      ; preds = %319, %324
   %404 = sdiv exact i64 %403, 12
   %405 = and i64 %404, 4294967295
   %406 = icmp samesign ult i64 %indvars.iv.next123, %405
-  br i1 %406, label %218, label %._crit_edge, !llvm.loop !146
+  br i1 %406, label %218, label %._crit_edge, !llvm.loop !147
 
 407:                                              ; preds = %.loopexit, %.loopexit.split-lp, %332
   %.pn42 = phi { ptr, i32 } [ %333, %332 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1240,13 +1240,13 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit92:      ; preds = %319, %324
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit99
 
 ._crit_edge:                                      ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit92, %198
-  store i32 0, ptr %0, align 8, !tbaa !23, !alias.scope !147
+  store i32 0, ptr %0, align 8, !tbaa !23, !alias.scope !148
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %409, ptr %408, align 8, !tbaa !14, !alias.scope !147
+  store ptr %409, ptr %408, align 8, !tbaa !14, !alias.scope !148
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %410, align 8, !tbaa !22, !alias.scope !147
-  store i8 0, ptr %409, align 8, !tbaa !21, !alias.scope !147
+  store i64 0, ptr %410, align 8, !tbaa !22, !alias.scope !148
+  store i8 0, ptr %409, align 8, !tbaa !21, !alias.scope !148
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #19
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
@@ -1312,7 +1312,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %438 = getelementptr inbounds i8, ptr %7, i64 %437
   store ptr %435, ptr %438, align 8, !tbaa !33
   %439 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %439, align 8, !tbaa !150
+  store i64 0, ptr %439, align 8, !tbaa !151
   %440 = getelementptr inbounds nuw i8, ptr %7, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %440) #19
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %7) #19
@@ -1426,7 +1426,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %32 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 1
   %33 = add nsw i64 %.012.i.i.i.i.i, -1
   %34 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !144
+  br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !145
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %35 = getelementptr inbounds i8, ptr %2, i64 %18
@@ -1445,7 +1445,7 @@ _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %42 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %43 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
-  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !144
+  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !145
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %.pre = load ptr, ptr %11, align 8, !tbaa !32
@@ -1481,7 +1481,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %53 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i60, i64 1
   %54 = add nsw i64 %.012.i.i.i.i.i59, -1
   %55 = icmp samesign ugt i64 %.012.i.i.i.i.i59, 1
-  br i1 %55, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !144
+  br i1 %55, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !145
 
 56:                                               ; preds = %5
   %57 = load ptr, ptr %0, align 8, !tbaa !30
@@ -1772,21 +1772,22 @@ attributes #22 = { builtin allocsize(0) }
 !131 = !{!132}
 !132 = distinct !{!132, !133, !"_ZNK5draco7VectorDIfLi3EEmiERKS1_: argument 0"}
 !133 = distinct !{!133, !"_ZNK5draco7VectorDIfLi3EEmiERKS1_"}
-!134 = distinct !{!134, !135}
+!134 = distinct !{!134, !135, !136}
 !135 = !{!"llvm.loop.mustprogress"}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZNK5draco7VectorDIfLi3EEmiERKS1_: argument 0"}
-!138 = distinct !{!138, !"_ZNK5draco7VectorDIfLi3EEmiERKS1_"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZN5draco12CrossProductIfEENS_7VectorDIT_Li3EEERKS3_S5_: argument 0"}
-!141 = distinct !{!141, !"_ZN5draco12CrossProductIfEENS_7VectorDIT_Li3EEERKS3_S5_"}
-!142 = distinct !{!142, !135}
-!143 = distinct !{!143, !135}
-!144 = distinct !{!144, !135}
-!145 = distinct !{!145, !135}
-!146 = distinct !{!146, !135}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZN5draco8OkStatusEv: argument 0"}
-!149 = distinct !{!149, !"_ZN5draco8OkStatusEv"}
-!150 = !{!151, !18, i64 8}
-!151 = !{!"_ZTSSi", !18, i64 8}
+!136 = !{!"llvm.loop.estimated_trip_count"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"_ZNK5draco7VectorDIfLi3EEmiERKS1_: argument 0"}
+!139 = distinct !{!139, !"_ZNK5draco7VectorDIfLi3EEmiERKS1_"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN5draco12CrossProductIfEENS_7VectorDIT_Li3EEERKS3_S5_: argument 0"}
+!142 = distinct !{!142, !"_ZN5draco12CrossProductIfEENS_7VectorDIT_Li3EEERKS3_S5_"}
+!143 = distinct !{!143, !135, !136}
+!144 = distinct !{!144, !135, !136}
+!145 = distinct !{!145, !135, !136}
+!146 = distinct !{!146, !135, !136}
+!147 = distinct !{!147, !135, !136}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZN5draco8OkStatusEv: argument 0"}
+!150 = distinct !{!150, !"_ZN5draco8OkStatusEv"}
+!151 = !{!152, !18, i64 8}
+!152 = !{!"_ZTSSi", !18, i64 8}

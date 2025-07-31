@@ -90,7 +90,7 @@ define hidden void @_ZN9metaspace28PrintCLDMetaspaceInfoClosureC2EP12outputStrea
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 48
   %19 = icmp eq i64 %.add.i.i, 720
-  br i1 %19, label %_ZN9metaspace10ArenaStatsC2Ev.exit.i, label %17
+  br i1 %19, label %_ZN9metaspace10ArenaStatsC2Ev.exit.i, label %17, !llvm.loop !6
 
 _ZN9metaspace10ArenaStatsC2Ev.exit.i:             ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -106,7 +106,7 @@ _ZN9metaspace10ArenaStatsC2Ev.exit.i:             ; preds = %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 40, i1 false)
   %.add.i3.i = add nuw nsw i64 %.idx.i1.i, 48
   %24 = icmp eq i64 %.add.i3.i, 720
-  br i1 %24, label %_ZN9metaspace9ClmsStatsC2Ev.exit, label %22
+  br i1 %24, label %_ZN9metaspace9ClmsStatsC2Ev.exit, label %22, !llvm.loop !6
 
 _ZN9metaspace9ClmsStatsC2Ev.exit:                 ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1512
@@ -126,7 +126,7 @@ _ZN9metaspace9ClmsStatsC2Ev.exit:                 ; preds = %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
   %.add.i.i9 = add nuw nsw i64 %.idx.i.i7, 48
   %29 = icmp eq i64 %.add.i.i9, 720
-  br i1 %29, label %_ZN9metaspace10ArenaStatsC2Ev.exit.i10, label %27
+  br i1 %29, label %_ZN9metaspace10ArenaStatsC2Ev.exit.i10, label %27, !llvm.loop !6
 
 _ZN9metaspace10ArenaStatsC2Ev.exit.i10:           ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %.ptr, i64 720
@@ -142,14 +142,14 @@ _ZN9metaspace10ArenaStatsC2Ev.exit.i10:           ; preds = %27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, i8 0, i64 40, i1 false)
   %.add.i3.i13 = add nuw nsw i64 %.idx.i1.i11, 48
   %34 = icmp eq i64 %.add.i3.i13, 720
-  br i1 %34, label %_ZN9metaspace9ClmsStatsC2Ev.exit14, label %32
+  br i1 %34, label %_ZN9metaspace9ClmsStatsC2Ev.exit14, label %32, !llvm.loop !6
 
 _ZN9metaspace9ClmsStatsC2Ev.exit14:               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %.ptr, i64 1456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   %.add = add nuw nsw i64 %.idx, 1472
   %36 = icmp eq i64 %.add, 7448
-  br i1 %36, label %37, label %26
+  br i1 %36, label %37, label %26, !llvm.loop !8
 
 37:                                               ; preds = %_ZN9metaspace9ClmsStatsC2Ev.exit14
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1528
@@ -200,7 +200,7 @@ define hidden void @_ZN9metaspace28PrintCLDMetaspaceInfoClosure6do_cldEP15ClassL
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 48
   %22 = icmp eq i64 %.add.i.i, 720
-  br i1 %22, label %_ZN9metaspace10ArenaStatsC2Ev.exit.i, label %.preheader
+  br i1 %22, label %_ZN9metaspace10ArenaStatsC2Ev.exit.i, label %.preheader, !llvm.loop !6
 
 _ZN9metaspace10ArenaStatsC2Ev.exit.i:             ; preds = %.preheader
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 720
@@ -216,7 +216,7 @@ _ZN9metaspace10ArenaStatsC2Ev.exit.i:             ; preds = %.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, i8 0, i64 40, i1 false)
   %.add.i3.i = add nuw nsw i64 %.idx.i1.i, 48
   %27 = icmp eq i64 %.add.i3.i, 720
-  br i1 %27, label %_ZN9metaspace9ClmsStatsC2Ev.exit, label %25
+  br i1 %27, label %_ZN9metaspace9ClmsStatsC2Ev.exit, label %25, !llvm.loop !6
 
 _ZN9metaspace9ClmsStatsC2Ev.exit:                 ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 1456
@@ -600,3 +600,6 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}

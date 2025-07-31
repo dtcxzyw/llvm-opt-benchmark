@@ -27,7 +27,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pnm(ptr noundef %0, ptr noundef read
   %12 = icmp ugt ptr %.048, %1
   %13 = and i1 %12, %11
   %14 = getelementptr inbounds i8, ptr %.048, i64 -1
-  br i1 %13, label %9, label %15
+  br i1 %13, label %9, label %15, !llvm.loop !9
 
 15:                                               ; preds = %9
   %16 = tail call i32 @strcasecmp(ptr noundef nonnull %.048, ptr noundef nonnull @.str) #12
@@ -74,21 +74,21 @@ define range(i32 0, 9) i32 @dt_imageio_open_pnm(ptr noundef %0, ptr noundef read
 
 33:                                               ; preds = %31
   %34 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %34, align 4, !tbaa !9
+  store i32 0, ptr %34, align 4, !tbaa !11
   %35 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 0) #13
   %36 = trunc i64 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1372
-  store i32 %36, ptr %37, align 4, !tbaa !11
+  store i32 %36, ptr %37, align 4, !tbaa !13
   %38 = call i64 @strtol(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 0) #13
   %39 = trunc i64 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1376
-  store i32 %39, ptr %40, align 16, !tbaa !27
-  %41 = load i32, ptr %34, align 4, !tbaa !9
+  store i32 %39, ptr %40, align 16, !tbaa !29
+  %41 = load i32, ptr %34, align 4, !tbaa !11
   %.not57 = icmp eq i32 %41, 0
   br i1 %.not57, label %42, label %.thread
 
 42:                                               ; preds = %33
-  %43 = load i32, ptr %37, align 4, !tbaa !11
+  %43 = load i32, ptr %37, align 4, !tbaa !13
   %44 = icmp slt i32 %43, 1
   %45 = icmp slt i32 %39, 1
   %or.cond59 = select i1 %44, i1 true, i1 %45
@@ -96,9 +96,9 @@ define range(i32 0, 9) i32 @dt_imageio_open_pnm(ptr noundef %0, ptr noundef read
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1488
-  store i32 4, ptr %47, align 16, !tbaa !28
+  store i32 4, ptr %47, align 16, !tbaa !30
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1492
-  store i32 1, ptr %48, align 4, !tbaa !29
+  store i32 1, ptr %48, align 4, !tbaa !31
   %49 = call ptr @dt_mipmap_cache_alloc(ptr noundef %2, ptr noundef nonnull %0) #13
   %.not58 = icmp eq ptr %49, null
   br i1 %.not58, label %.thread, label %50
@@ -136,16 +136,16 @@ define range(i32 0, 9) i32 @dt_imageio_open_pnm(ptr noundef %0, ptr noundef read
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  store i32 2, ptr %63, align 16, !tbaa !30
+  store i32 2, ptr %63, align 16, !tbaa !32
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  store i32 0, ptr %64, align 8, !tbaa !31
+  store i32 0, ptr %64, align 8, !tbaa !33
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  %66 = load i32, ptr %65, align 4, !tbaa !32
+  %66 = load i32, ptr %65, align 4, !tbaa !34
   %67 = and i32 %66, -131297
   %68 = or disjoint i32 %67, 32
-  store i32 %68, ptr %65, align 4, !tbaa !32
+  store i32 %68, ptr %65, align 4, !tbaa !34
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 10, ptr %69, align 16, !tbaa !33
+  store i32 10, ptr %69, align 16, !tbaa !35
   br label %70
 
 70:                                               ; preds = %.thread, %62, %59
@@ -186,7 +186,7 @@ declare ptr @dt_mipmap_cache_alloc(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 8) i32 @_read_pbm(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1372
-  %5 = load i32, ptr %4, align 4, !tbaa !11
+  %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = add nsw i32 %5, 7
   %7 = sdiv i32 %6, 8
   %8 = sext i32 %7 to i64
@@ -196,7 +196,7 @@ define internal fastcc range(i32 0, 8) i32 @_read_pbm(ptr noundef readonly captu
 
 .preheader40:                                     ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1376
-  %11 = load i32, ptr %10, align 16, !tbaa !27
+  %11 = load i32, ptr %10, align 16, !tbaa !29
   %.not54 = icmp eq i32 %11, 0
   br i1 %.not54, label %._crit_edge49, label %.lr.ph48
 
@@ -237,35 +237,35 @@ define internal fastcc range(i32 0, 8) i32 @_read_pbm(ptr noundef readonly captu
   %.2.lcssa.us = phi ptr [ %28, %22 ], [ %.241.us, %18 ]
   %21 = add nuw i64 %.03345.us, 1
   %exitcond58.not = icmp eq i64 %21, %umax
-  br i1 %exitcond58.not, label %._crit_edge.us, label %13
+  br i1 %exitcond58.not, label %._crit_edge.us, label %13, !llvm.loop !36
 
 22:                                               ; preds = %18
   %23 = lshr i8 %.03242.us, 7
   %24 = uitofp nneg i8 %23 to float
   %25 = getelementptr inbounds nuw i8, ptr %.241.us, i64 8
-  store float %24, ptr %25, align 4, !tbaa !34
+  store float %24, ptr %25, align 4, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %.241.us, i64 4
-  store float %24, ptr %26, align 4, !tbaa !34
-  store float %24, ptr %.241.us, align 4, !tbaa !34
+  store float %24, ptr %26, align 4, !tbaa !37
+  store float %24, ptr %.241.us, align 4, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %.241.us, i64 12
-  store float 0.000000e+00, ptr %27, align 4, !tbaa !34
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %.241.us, i64 16
   %29 = shl i8 %.03242.us, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.critedge.us, label %18
+  br i1 %exitcond.not, label %.critedge.us, label %18, !llvm.loop !38
 
 .preheader.us:                                    ; preds = %.lr.ph48.split.us
-  %30 = load i32, ptr %4, align 4, !tbaa !11
+  %30 = load i32, ptr %4, align 4, !tbaa !13
   %31 = sext i32 %30 to i64
   br label %13
 
 ._crit_edge.us:                                   ; preds = %.critedge.us
   %32 = add nuw i64 %.03447.us, 1
-  %33 = load i32, ptr %10, align 16, !tbaa !27
+  %33 = load i32, ptr %10, align 16, !tbaa !29
   %34 = sext i32 %33 to i64
   %35 = icmp ult i64 %32, %34
-  br i1 %35, label %.lr.ph48.split.us, label %._crit_edge49, !llvm.loop !35
+  br i1 %35, label %.lr.ph48.split.us, label %._crit_edge49, !llvm.loop !39
 
 .lr.ph48.split:                                   ; preds = %.lr.ph48, %.preheader
   %.03447 = phi i64 [ %37, %.preheader ], [ 0, %.lr.ph48 ]
@@ -275,10 +275,10 @@ define internal fastcc range(i32 0, 8) i32 @_read_pbm(ptr noundef readonly captu
 
 .preheader:                                       ; preds = %.lr.ph48.split
   %37 = add nuw i64 %.03447, 1
-  %38 = load i32, ptr %10, align 16, !tbaa !27
+  %38 = load i32, ptr %10, align 16, !tbaa !29
   %39 = sext i32 %38 to i64
   %40 = icmp ult i64 %37, %39
-  br i1 %40, label %.lr.ph48.split, label %._crit_edge49
+  br i1 %40, label %.lr.ph48.split, label %._crit_edge49, !llvm.loop !41
 
 ._crit_edge49:                                    ; preds = %._crit_edge.us, %.lr.ph48.split.us, %.preheader, %.lr.ph48.split, %.preheader40
   %.036 = phi i32 [ 0, %.preheader40 ], [ 7, %.lr.ph48.split ], [ 0, %.preheader ], [ 7, %.lr.ph48.split.us ], [ 0, %._crit_edge.us ]
@@ -308,7 +308,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
 10:                                               ; preds = %6
   %11 = icmp samesign ult i32 %8, 256
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1372
-  %13 = load i32, ptr %12, align 4, !tbaa !11
+  %13 = load i32, ptr %12, align 4, !tbaa !13
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   br i1 %11, label %16, label %39
@@ -319,7 +319,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
   br i1 %.not71, label %.sink.split, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %16
-  %18 = load i32, ptr %15, align 16, !tbaa !27
+  %18 = load i32, ptr %15, align 16, !tbaa !29
   %.not114 = icmp eq i32 %18, 0
   br i1 %.not114, label %.sink.split, label %.lr.ph110.preheader
 
@@ -334,7 +334,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
   %.06297108 = phi ptr [ %.163.lcssa, %._crit_edge94 ], [ %2, %.lr.ph110.preheader ]
   %22 = sext i32 %21 to i64
   %23 = call i64 @fread(ptr noundef nonnull %17, i64 noundef 1, i64 noundef %22, ptr noundef nonnull %1)
-  %24 = load i32, ptr %12, align 4, !tbaa !11
+  %24 = load i32, ptr %12, align 4, !tbaa !13
   %25 = sext i32 %24 to i64
   %.not72 = icmp eq i64 %23, %25
   br i1 %.not72, label %.preheader, label %.sink.split
@@ -346,7 +346,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
 ._crit_edge94:                                    ; preds = %.lr.ph93, %.preheader
   %.163.lcssa = phi ptr [ %.06297108, %.preheader ], [ %37, %.lr.ph93 ]
   %26 = add nuw i64 %.06596109, 1
-  %27 = load i32, ptr %15, align 16, !tbaa !27
+  %27 = load i32, ptr %15, align 16, !tbaa !29
   %28 = sext i32 %27 to i64
   %29 = icmp ult i64 %26, %28
   br i1 %29, label %.lr.ph110, label %.sink.split
@@ -359,16 +359,16 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
   %32 = uitofp i8 %31 to float
   %33 = fmul reassoc nsz arcp contract afn float %32, %20
   %34 = getelementptr inbounds nuw i8, ptr %.16392, i64 8
-  store float %33, ptr %34, align 4, !tbaa !34
+  store float %33, ptr %34, align 4, !tbaa !37
   %35 = getelementptr inbounds nuw i8, ptr %.16392, i64 4
-  store float %33, ptr %35, align 4, !tbaa !34
-  store float %33, ptr %.16392, align 4, !tbaa !34
+  store float %33, ptr %35, align 4, !tbaa !37
+  store float %33, ptr %.16392, align 4, !tbaa !37
   %36 = getelementptr inbounds nuw i8, ptr %.16392, i64 12
-  store float 0.000000e+00, ptr %36, align 4, !tbaa !34
+  store float 0.000000e+00, ptr %36, align 4, !tbaa !37
   %37 = getelementptr inbounds nuw i8, ptr %.16392, i64 16
   %38 = add nuw i64 %.06491, 1
   %exitcond117.not = icmp eq i64 %38, %23
-  br i1 %exitcond117.not, label %._crit_edge94, label %.lr.ph93
+  br i1 %exitcond117.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !42
 
 39:                                               ; preds = %10
   %40 = call noalias ptr @calloc(i64 noundef %14, i64 noundef 2) #15
@@ -376,7 +376,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
   br i1 %.not69, label %.sink.split, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %39
-  %41 = load i32, ptr %15, align 16, !tbaa !27
+  %41 = load i32, ptr %15, align 16, !tbaa !29
   %.not112 = icmp eq i32 %41, 0
   br i1 %.not112, label %.sink.split, label %.lr.ph89.preheader
 
@@ -391,7 +391,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
   %.0597787 = phi i64 [ %49, %._crit_edge ], [ 0, %.lr.ph89.preheader ]
   %45 = sext i32 %44 to i64
   %46 = call i64 @fread(ptr noundef nonnull %40, i64 noundef 2, i64 noundef %45, ptr noundef nonnull %1)
-  %47 = load i32, ptr %12, align 4, !tbaa !11
+  %47 = load i32, ptr %12, align 4, !tbaa !13
   %48 = sext i32 %47 to i64
   %.not70 = icmp eq i64 %46, %48
   br i1 %.not70, label %.preheader73, label %.sink.split
@@ -403,7 +403,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader73
   %.161.lcssa = phi ptr [ %.0607688, %.preheader73 ], [ %60, %.lr.ph ]
   %49 = add nuw i64 %.0597787, 1
-  %50 = load i32, ptr %15, align 16, !tbaa !27
+  %50 = load i32, ptr %15, align 16, !tbaa !29
   %51 = sext i32 %50 to i64
   %52 = icmp ult i64 %49, %51
   br i1 %52, label %.lr.ph89, label %.sink.split
@@ -412,21 +412,21 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
   %.05875 = phi i64 [ %61, %.lr.ph ], [ 0, %.preheader73 ]
   %.16174 = phi ptr [ %60, %.lr.ph ], [ %.0607688, %.preheader73 ]
   %53 = getelementptr inbounds nuw i16, ptr %40, i64 %.05875
-  %54 = load i16, ptr %53, align 2, !tbaa !37
+  %54 = load i16, ptr %53, align 2, !tbaa !43
   %rev = call i16 @llvm.bswap.i16(i16 %54)
   %55 = uitofp i16 %rev to float
   %56 = fmul reassoc nsz arcp contract afn float %55, %43
   %57 = getelementptr inbounds nuw i8, ptr %.16174, i64 8
-  store float %56, ptr %57, align 4, !tbaa !34
+  store float %56, ptr %57, align 4, !tbaa !37
   %58 = getelementptr inbounds nuw i8, ptr %.16174, i64 4
-  store float %56, ptr %58, align 4, !tbaa !34
-  store float %56, ptr %.16174, align 4, !tbaa !34
+  store float %56, ptr %58, align 4, !tbaa !37
+  store float %56, ptr %.16174, align 4, !tbaa !37
   %59 = getelementptr inbounds nuw i8, ptr %.16174, i64 12
-  store float 0.000000e+00, ptr %59, align 4, !tbaa !34
+  store float 0.000000e+00, ptr %59, align 4, !tbaa !37
   %60 = getelementptr inbounds nuw i8, ptr %.16174, i64 16
   %61 = add nuw i64 %.05875, 1
   %exitcond.not = icmp eq i64 %61, %46
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 .sink.split:                                      ; preds = %.lr.ph89, %._crit_edge, %.lr.ph110, %._crit_edge94, %39, %.lr.ph79, %16, %.lr.ph99
   %.sink = phi ptr [ %17, %.lr.ph99 ], [ %17, %16 ], [ %40, %.lr.ph79 ], [ %40, %39 ], [ %17, %._crit_edge94 ], [ %17, %.lr.ph110 ], [ %40, %._crit_edge ], [ %40, %.lr.ph89 ]
@@ -458,7 +458,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
 10:                                               ; preds = %6
   %11 = icmp samesign ult i32 %8, 256
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1372
-  %13 = load i32, ptr %12, align 4, !tbaa !11
+  %13 = load i32, ptr %12, align 4, !tbaa !13
   %14 = sext i32 %13 to i64
   %15 = mul nsw i64 %14, 3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -470,7 +470,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
   br i1 %.not75, label %.sink.split, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %17
-  %19 = load i32, ptr %16, align 16, !tbaa !27
+  %19 = load i32, ptr %16, align 16, !tbaa !29
   %.not122 = icmp eq i32 %19, 0
   br i1 %.not122, label %.sink.split, label %.lr.ph118.preheader
 
@@ -485,7 +485,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
   %.064105116 = phi ptr [ %.165.lcssa, %._crit_edge102 ], [ %2, %.lr.ph118.preheader ]
   %23 = sext i32 %22 to i64
   %24 = call i64 @fread(ptr noundef nonnull %18, i64 noundef 3, i64 noundef %23, ptr noundef nonnull %1)
-  %25 = load i32, ptr %12, align 4, !tbaa !11
+  %25 = load i32, ptr %12, align 4, !tbaa !13
   %26 = sext i32 %25 to i64
   %.not76 = icmp eq i64 %24, %26
   br i1 %.not76, label %.preheader77, label %.sink.split
@@ -504,17 +504,17 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
 ._crit_edge102:                                   ; preds = %33, %.preheader77
   %.165.lcssa = phi ptr [ %.064105116, %.preheader77 ], [ %34, %33 ]
   %29 = add nuw i64 %.069104117, 1
-  %30 = load i32, ptr %16, align 16, !tbaa !27
+  %30 = load i32, ptr %16, align 16, !tbaa !29
   %31 = sext i32 %30 to i64
   %32 = icmp ult i64 %29, %31
   br i1 %32, label %.lr.ph118, label %.sink.split
 
 33:                                               ; preds = %36
   %34 = getelementptr inbounds nuw i8, ptr %.26699, i64 8
-  store float 0.000000e+00, ptr %41, align 4, !tbaa !34
+  store float 0.000000e+00, ptr %41, align 4, !tbaa !37
   %35 = add nuw i64 %.068100, 1
   %exitcond133.not = icmp eq i64 %35, %24
-  br i1 %exitcond133.not, label %._crit_edge102, label %.preheader
+  br i1 %exitcond133.not, label %._crit_edge102, label %.preheader, !llvm.loop !45
 
 36:                                               ; preds = %.preheader, %36
   %indvars.iv129 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next130, %36 ]
@@ -524,10 +524,10 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
   %39 = uitofp i8 %38 to float
   %40 = fmul reassoc nsz arcp contract afn float %39, %21
   %41 = getelementptr inbounds nuw i8, ptr %.26699, i64 4
-  store float %40, ptr %.26699, align 4, !tbaa !34
+  store float %40, ptr %.26699, align 4, !tbaa !37
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next130, 3
-  br i1 %exitcond132.not, label %33, label %36
+  br i1 %exitcond132.not, label %33, label %36, !llvm.loop !46
 
 42:                                               ; preds = %10
   %43 = call noalias ptr @calloc(i64 noundef %15, i64 noundef 2) #15
@@ -535,7 +535,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
   br i1 %.not73, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42
-  %44 = load i32, ptr %16, align 16, !tbaa !27
+  %44 = load i32, ptr %16, align 16, !tbaa !29
   %.not120 = icmp eq i32 %44, 0
   br i1 %.not120, label %.sink.split, label %.lr.ph96.preheader
 
@@ -550,7 +550,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
   %.0608594 = phi i64 [ %53, %._crit_edge ], [ 0, %.lr.ph96.preheader ]
   %48 = sext i32 %47 to i64
   %49 = call i64 @fread(ptr noundef nonnull %43, i64 noundef 6, i64 noundef %48, ptr noundef nonnull %1)
-  %50 = load i32, ptr %12, align 4, !tbaa !11
+  %50 = load i32, ptr %12, align 4, !tbaa !13
   %51 = sext i32 %50 to i64
   %.not74 = icmp eq i64 %49, %51
   br i1 %.not74, label %.preheader79, label %.sink.split
@@ -569,31 +569,31 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
 ._crit_edge:                                      ; preds = %57, %.preheader79
   %.162.lcssa = phi ptr [ %.0618495, %.preheader79 ], [ %58, %57 ]
   %53 = add nuw i64 %.0608594, 1
-  %54 = load i32, ptr %16, align 16, !tbaa !27
+  %54 = load i32, ptr %16, align 16, !tbaa !29
   %55 = sext i32 %54 to i64
   %56 = icmp ult i64 %53, %55
   br i1 %56, label %.lr.ph96, label %.sink.split
 
 57:                                               ; preds = %60
   %58 = getelementptr inbounds nuw i8, ptr %.26380, i64 8
-  store float 0.000000e+00, ptr %65, align 4, !tbaa !34
+  store float 0.000000e+00, ptr %65, align 4, !tbaa !37
   %59 = add nuw i64 %.05983, 1
   %exitcond128.not = icmp eq i64 %59, %49
-  br i1 %exitcond128.not, label %._crit_edge, label %.preheader78
+  br i1 %exitcond128.not, label %._crit_edge, label %.preheader78, !llvm.loop !47
 
 60:                                               ; preds = %.preheader78, %60
   %indvars.iv = phi i64 [ 0, %.preheader78 ], [ %indvars.iv.next, %60 ]
   %.26380 = phi ptr [ %.16282, %.preheader78 ], [ %65, %60 ]
   %61 = getelementptr i16, ptr %52, i64 %indvars.iv
-  %62 = load i16, ptr %61, align 2, !tbaa !37
+  %62 = load i16, ptr %61, align 2, !tbaa !43
   %rev = call i16 @llvm.bswap.i16(i16 %62)
   %63 = uitofp i16 %rev to float
   %64 = fmul reassoc nsz arcp contract afn float %63, %46
   %65 = getelementptr inbounds nuw i8, ptr %.26380, i64 4
-  store float %64, ptr %.26380, align 4, !tbaa !34
+  store float %64, ptr %.26380, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %57, label %60
+  br i1 %exitcond.not, label %57, label %60, !llvm.loop !48
 
 .sink.split:                                      ; preds = %.lr.ph96, %._crit_edge, %.lr.ph118, %._crit_edge102, %42, %.lr.ph, %17, %.lr.ph107
   %.sink = phi ptr [ %18, %.lr.ph107 ], [ %18, %17 ], [ %43, %.lr.ph ], [ %43, %42 ], [ %18, %._crit_edge102 ], [ %18, %.lr.ph118 ], [ %43, %._crit_edge ], [ %43, %.lr.ph96 ]
@@ -659,32 +659,43 @@ attributes #15 = { nounwind allocsize(0,1) }
 !6 = !{!7, !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"int", !7, i64 0}
-!11 = !{!12, !10, i64 1372}
-!12 = !{!"dt_image_t", !10, i64 0, !10, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !7, i64 36, !7, i64 100, !7, i64 164, !7, i64 292, !7, i64 356, !7, i64 420, !7, i64 484, !14, i64 552, !10, i64 560, !7, i64 564, !7, i64 792, !7, i64 856, !7, i64 920, !7, i64 984, !10, i64 1112, !7, i64 1116, !10, i64 1372, !10, i64 1376, !10, i64 1380, !10, i64 1384, !10, i64 1388, !10, i64 1392, !10, i64 1396, !10, i64 1400, !10, i64 1404, !10, i64 1408, !13, i64 1412, !10, i64 1416, !10, i64 1420, !10, i64 1424, !10, i64 1428, !10, i64 1432, !10, i64 1436, !14, i64 1440, !14, i64 1448, !14, i64 1456, !14, i64 1464, !10, i64 1472, !15, i64 1488, !7, i64 1616, !19, i64 1656, !10, i64 1664, !10, i64 1668, !21, i64 1672, !22, i64 1680, !24, i64 1704, !17, i64 1716, !7, i64 1718, !10, i64 1728, !10, i64 1732, !13, i64 1736, !13, i64 1740, !7, i64 1744, !7, i64 1760, !7, i64 1808, !25, i64 1824, !26, i64 1832, !10, i64 1840, !10, i64 1844}
-!13 = !{!"float", !7, i64 0}
-!14 = !{!"long", !7, i64 0}
-!15 = !{!"dt_iop_buffer_dsc_t", !10, i64 0, !10, i64 4, !10, i64 8, !7, i64 12, !16, i64 48, !18, i64 64, !7, i64 96, !10, i64 112}
-!16 = !{!"", !17, i64 0, !17, i64 2}
-!17 = !{!"short", !7, i64 0}
-!18 = !{!"", !10, i64 0, !7, i64 16}
-!19 = !{!"p1 omnipotent char", !20, i64 0}
-!20 = !{!"any pointer", !7, i64 0}
-!21 = !{!"dt_image_raw_parameters_t", !10, i64 0, !10, i64 3}
-!22 = !{!"dt_image_geoloc_t", !23, i64 0, !23, i64 8, !23, i64 16}
-!23 = !{!"double", !7, i64 0}
-!24 = !{!"_color_harmony_t", !10, i64 0, !10, i64 4, !10, i64 8}
-!25 = !{!"p1 _ZTS6_GList", !20, i64 0}
-!26 = !{!"p1 _ZTS16dt_cache_entry_t", !20, i64 0}
-!27 = !{!12, !10, i64 1376}
-!28 = !{!12, !10, i64 1488}
-!29 = !{!12, !10, i64 1492}
-!30 = !{!12, !10, i64 1600}
-!31 = !{!12, !10, i64 1496}
-!32 = !{!12, !10, i64 1420}
-!33 = !{!12, !10, i64 1472}
-!34 = !{!13, !13, i64 0}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = !{!17, !17, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !12, i64 1372}
+!14 = !{!"dt_image_t", !12, i64 0, !12, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !7, i64 36, !7, i64 100, !7, i64 164, !7, i64 292, !7, i64 356, !7, i64 420, !7, i64 484, !16, i64 552, !12, i64 560, !7, i64 564, !7, i64 792, !7, i64 856, !7, i64 920, !7, i64 984, !12, i64 1112, !7, i64 1116, !12, i64 1372, !12, i64 1376, !12, i64 1380, !12, i64 1384, !12, i64 1388, !12, i64 1392, !12, i64 1396, !12, i64 1400, !12, i64 1404, !12, i64 1408, !15, i64 1412, !12, i64 1416, !12, i64 1420, !12, i64 1424, !12, i64 1428, !12, i64 1432, !12, i64 1436, !16, i64 1440, !16, i64 1448, !16, i64 1456, !16, i64 1464, !12, i64 1472, !17, i64 1488, !7, i64 1616, !21, i64 1656, !12, i64 1664, !12, i64 1668, !23, i64 1672, !24, i64 1680, !26, i64 1704, !19, i64 1716, !7, i64 1718, !12, i64 1728, !12, i64 1732, !15, i64 1736, !15, i64 1740, !7, i64 1744, !7, i64 1760, !7, i64 1808, !27, i64 1824, !28, i64 1832, !12, i64 1840, !12, i64 1844}
+!15 = !{!"float", !7, i64 0}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!"dt_iop_buffer_dsc_t", !12, i64 0, !12, i64 4, !12, i64 8, !7, i64 12, !18, i64 48, !20, i64 64, !7, i64 96, !12, i64 112}
+!18 = !{!"", !19, i64 0, !19, i64 2}
+!19 = !{!"short", !7, i64 0}
+!20 = !{!"", !12, i64 0, !7, i64 16}
+!21 = !{!"p1 omnipotent char", !22, i64 0}
+!22 = !{!"any pointer", !7, i64 0}
+!23 = !{!"dt_image_raw_parameters_t", !12, i64 0, !12, i64 3}
+!24 = !{!"dt_image_geoloc_t", !25, i64 0, !25, i64 8, !25, i64 16}
+!25 = !{!"double", !7, i64 0}
+!26 = !{!"_color_harmony_t", !12, i64 0, !12, i64 4, !12, i64 8}
+!27 = !{!"p1 _ZTS6_GList", !22, i64 0}
+!28 = !{!"p1 _ZTS16dt_cache_entry_t", !22, i64 0}
+!29 = !{!14, !12, i64 1376}
+!30 = !{!14, !12, i64 1488}
+!31 = !{!14, !12, i64 1492}
+!32 = !{!14, !12, i64 1600}
+!33 = !{!14, !12, i64 1496}
+!34 = !{!14, !12, i64 1420}
+!35 = !{!14, !12, i64 1472}
+!36 = distinct !{!36, !10}
+!37 = !{!15, !15, i64 0}
+!38 = distinct !{!38, !10}
+!39 = distinct !{!39, !10, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !10}
+!42 = distinct !{!42, !10}
+!43 = !{!19, !19, i64 0}
+!44 = distinct !{!44, !10}
+!45 = distinct !{!45, !10}
+!46 = distinct !{!46, !10}
+!47 = distinct !{!47, !10}
+!48 = distinct !{!48, !10}

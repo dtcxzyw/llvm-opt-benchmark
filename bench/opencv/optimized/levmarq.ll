@@ -1217,7 +1217,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %.lr.ph, %_ZN2cv3Mat
   store double %345, ptr %343, align 8, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %_ZN2cv3Mat2atIdEERT_i.exit, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %_ZN2cv3Mat2atIdEERT_i.exit, !llvm.loop !78
 
 346:                                              ; preds = %299
   %347 = landingpad { ptr, i32 }
@@ -1474,7 +1474,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %.lr.ph, %_ZN2cv3Mat
   %.sroa.speculated = select i1 %418, double %417, double %.0291327
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond363.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count362
-  br i1 %exitcond363.not, label %._crit_edge331, label %412, !llvm.loop !78
+  br i1 %exitcond363.not, label %._crit_edge331, label %412, !llvm.loop !79
 
 419:                                              ; preds = %394
   %420 = landingpad { ptr, i32 }
@@ -2090,8 +2090,9 @@ attributes #19 = { noreturn }
 !71 = !{!54, !60, i64 72}
 !72 = !{!65, !65, i64 0}
 !73 = !{!31, !31, i64 0}
-!74 = distinct !{!74, !75, !76}
+!74 = distinct !{!74, !75, !76, !77}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!77 = distinct !{!77, !75}
-!78 = distinct !{!78, !75}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!78 = distinct !{!78, !75, !76}
+!79 = distinct !{!79, !75, !76}

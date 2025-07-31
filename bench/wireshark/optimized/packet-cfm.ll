@@ -1560,7 +1560,7 @@ dissect_cfm_raps.exit:                            ; preds = %458, %468
   %501 = add i32 %.010.i.i, 3
   %502 = add i32 %501, %500
   %503 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %502, i32 noundef 1)
-  br i1 %503, label %.lr.ph.i.i, label %find_end_tlv.exit.i
+  br i1 %503, label %.lr.ph.i.i, label %find_end_tlv.exit.i, !llvm.loop !6
 
 find_end_tlv.exit.i:                              ; preds = %497, %494, %.lr.ph.i.i, %473
   %.1.i.i = phi i32 [ 0, %473 ], [ 0, %497 ], [ 0, %494 ], [ %.010.i.i, %.lr.ph.i.i ]
@@ -1825,7 +1825,7 @@ dissect_cfm_dmr.exit:                             ; preds = %628, %654
   %687 = add i32 %.010.i.i477, 3
   %688 = add i32 %687, %686
   %689 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %688, i32 noundef 1)
-  br i1 %689, label %.lr.ph.i.i476, label %find_end_tlv.exit.i473
+  br i1 %689, label %.lr.ph.i.i476, label %find_end_tlv.exit.i473, !llvm.loop !6
 
 find_end_tlv.exit.i473:                           ; preds = %683, %680, %.lr.ph.i.i476, %659
   %.1.i.i474 = phi i32 [ 0, %659 ], [ 0, %683 ], [ 0, %680 ], [ %.010.i.i477, %.lr.ph.i.i476 ]
@@ -1888,7 +1888,7 @@ dissect_cfm_exm.exit:                             ; preds = %find_end_tlv.exit.i
   %726 = add i32 %.010.i.i483, 3
   %727 = add i32 %726, %725
   %728 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %727, i32 noundef 1)
-  br i1 %728, label %.lr.ph.i.i482, label %find_end_tlv.exit.i479
+  br i1 %728, label %.lr.ph.i.i482, label %find_end_tlv.exit.i479, !llvm.loop !6
 
 find_end_tlv.exit.i479:                           ; preds = %722, %719, %.lr.ph.i.i482, %698
   %.1.i.i480 = phi i32 [ 0, %698 ], [ 0, %722 ], [ 0, %719 ], [ %.010.i.i483, %.lr.ph.i.i482 ]
@@ -1951,7 +1951,7 @@ dissect_cfm_exr.exit:                             ; preds = %find_end_tlv.exit.i
   %765 = add i32 %.010.i.i489, 3
   %766 = add i32 %765, %764
   %767 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %766, i32 noundef 1)
-  br i1 %767, label %.lr.ph.i.i488, label %find_end_tlv.exit.i485
+  br i1 %767, label %.lr.ph.i.i488, label %find_end_tlv.exit.i485, !llvm.loop !6
 
 find_end_tlv.exit.i485:                           ; preds = %761, %758, %.lr.ph.i.i488, %737
   %.1.i.i486 = phi i32 [ 0, %737 ], [ 0, %761 ], [ 0, %758 ], [ %.010.i.i489, %.lr.ph.i.i488 ]
@@ -2014,7 +2014,7 @@ dissect_cfm_vsm.exit:                             ; preds = %find_end_tlv.exit.i
   %804 = add i32 %.010.i.i495, 3
   %805 = add i32 %804, %803
   %806 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %805, i32 noundef 1)
-  br i1 %806, label %.lr.ph.i.i494, label %find_end_tlv.exit.i491
+  br i1 %806, label %.lr.ph.i.i494, label %find_end_tlv.exit.i491, !llvm.loop !6
 
 find_end_tlv.exit.i491:                           ; preds = %800, %797, %.lr.ph.i.i494, %776
   %.1.i.i492 = phi i32 [ 0, %776 ], [ 0, %800 ], [ 0, %797 ], [ %.010.i.i495, %.lr.ph.i.i494 ]
@@ -2647,7 +2647,7 @@ sender_id_tlv_chassis_id.exit:                    ; preds = %1068, %1072, %1076,
 1165:                                             ; preds = %1156, %1152
   %1166 = add nuw nsw i64 %.023.i, 1
   %exitcond.not.i = icmp eq i64 %1166, 8
-  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %1144, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %1144, !llvm.loop !8
 
 .loopexit.loopexit.i:                             ; preds = %1165
   %.pre.i = zext i8 %1140 to i32
@@ -3342,4 +3342,6 @@ attributes #5 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}

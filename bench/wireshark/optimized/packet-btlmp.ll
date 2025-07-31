@@ -987,7 +987,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %11, label %16, !llvm.loop !8
+  br i1 %exitcond.not, label %11, label %16, !llvm.loop !9
 
 20:                                               ; preds = %11
   %21 = and i8 %13, 3
@@ -1193,7 +1193,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %111, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next902 = add nuw nsw i64 %indvars.iv901, 1
   %exitcond904.not = icmp eq i64 %indvars.iv.next902, 5
-  br i1 %exitcond904.not, label %96, label %.preheader, !llvm.loop !9
+  br i1 %exitcond904.not, label %96, label %.preheader, !llvm.loop !10
 
 113:                                              ; preds = %31, %31
   %114 = load i32, ptr @hf_param_futureuse1, align 4
@@ -1208,7 +1208,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %119 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %118, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next894 = add nuw nsw i64 %indvars.iv893, 1
   %exitcond896.not = icmp eq i64 %indvars.iv.next894, 6
-  br i1 %exitcond896.not, label %.loopexit, label %.preheader753, !llvm.loop !10
+  br i1 %exitcond896.not, label %.loopexit, label %.preheader753, !llvm.loop !11
 
 120:                                              ; preds = %31, %31
   %121 = load i32, ptr @hf_param_versnr, align 4
@@ -1233,7 +1233,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %135 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %134, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next862 = add nuw nsw i64 %indvars.iv861, 1
   %exitcond864.not = icmp eq i64 %indvars.iv.next862, 9
-  br i1 %exitcond864.not, label %130, label %132, !llvm.loop !11
+  br i1 %exitcond864.not, label %130, label %132, !llvm.loop !12
 
 136:                                              ; preds = %138
   %137 = add nuw nsw i32 %.0720, 2
@@ -1246,7 +1246,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %141 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %140, ptr noundef %0, i32 noundef %131, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next866 = add nuw nsw i64 %indvars.iv865, 1
   %exitcond868.not = icmp eq i64 %indvars.iv.next866, 9
-  br i1 %exitcond868.not, label %136, label %138, !llvm.loop !12
+  br i1 %exitcond868.not, label %136, label %138, !llvm.loop !13
 
 142:                                              ; preds = %144
   %143 = add nuw nsw i32 %.0720, 3
@@ -1259,7 +1259,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %147 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %146, ptr noundef %0, i32 noundef %137, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next870 = add nuw nsw i64 %indvars.iv869, 1
   %exitcond872.not = icmp eq i64 %indvars.iv.next870, 7
-  br i1 %exitcond872.not, label %142, label %144, !llvm.loop !13
+  br i1 %exitcond872.not, label %142, label %144, !llvm.loop !14
 
 148:                                              ; preds = %150
   %149 = or disjoint i32 %.0720, 4
@@ -1272,7 +1272,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %153 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %152, ptr noundef %0, i32 noundef %143, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
   %exitcond876.not = icmp eq i64 %indvars.iv.next874, 9
-  br i1 %exitcond876.not, label %148, label %150, !llvm.loop !14
+  br i1 %exitcond876.not, label %148, label %150, !llvm.loop !15
 
 154:                                              ; preds = %156
   %155 = add nuw nsw i32 %.0720, 5
@@ -1285,7 +1285,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %159 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %158, ptr noundef %0, i32 noundef %149, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next878 = add nuw nsw i64 %indvars.iv877, 1
   %exitcond880.not = icmp eq i64 %indvars.iv.next878, 9
-  br i1 %exitcond880.not, label %154, label %156, !llvm.loop !15
+  br i1 %exitcond880.not, label %154, label %156, !llvm.loop !16
 
 160:                                              ; preds = %162
   %161 = add nuw nsw i32 %.0720, 6
@@ -1298,7 +1298,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %164, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next882 = add nuw nsw i64 %indvars.iv881, 1
   %exitcond884.not = icmp eq i64 %indvars.iv.next882, 9
-  br i1 %exitcond884.not, label %160, label %162, !llvm.loop !16
+  br i1 %exitcond884.not, label %160, label %162, !llvm.loop !17
 
 166:                                              ; preds = %168
   %167 = add nuw nsw i32 %.0720, 7
@@ -1311,7 +1311,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %171 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %170, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
   %exitcond888.not = icmp eq i64 %indvars.iv.next886, 9
-  br i1 %exitcond888.not, label %166, label %168, !llvm.loop !17
+  br i1 %exitcond888.not, label %166, label %168, !llvm.loop !18
 
 172:                                              ; preds = %174
   %173 = or disjoint i32 %.0720, 8
@@ -1324,7 +1324,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %177 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %176, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 1
   %exitcond892.not = icmp eq i64 %indvars.iv.next890, 6
-  br i1 %exitcond892.not, label %172, label %174, !llvm.loop !18
+  br i1 %exitcond892.not, label %172, label %174, !llvm.loop !19
 
 178:                                              ; preds = %31, %31
   %179 = load i32, ptr @hf_param_pollinterval, align 4
@@ -1364,7 +1364,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %206 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %205, ptr noundef %0, i32 noundef %188, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next858 = add nuw nsw i64 %indvars.iv857, 1
   %exitcond860.not = icmp eq i64 %indvars.iv.next858, 5
-  br i1 %exitcond860.not, label %189, label %203, !llvm.loop !19
+  br i1 %exitcond860.not, label %189, label %203, !llvm.loop !20
 
 207:                                              ; preds = %31
   %208 = load i32, ptr @hf_param_scohandle, align 4
@@ -1465,7 +1465,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %indvars.iv.next842 = add nuw nsw i64 %indvars.iv841, 1
   %283 = add nuw nsw i32 %.2774, 1
   %exitcond844.not = icmp eq i64 %indvars.iv.next842, 10
-  br i1 %exitcond844.not, label %.loopexit, label %279, !llvm.loop !20
+  br i1 %exitcond844.not, label %.loopexit, label %279, !llvm.loop !21
 
 284:                                              ; preds = %31
   %285 = load i32, ptr @hf_param_encapsulatedmajor, align 4
@@ -1557,7 +1557,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %347 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %346, ptr noundef %0, i32 noundef %341, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
   %exitcond812.not = icmp eq i64 %indvars.iv.next810, 9
-  br i1 %exitcond812.not, label %343, label %.preheader758, !llvm.loop !21
+  br i1 %exitcond812.not, label %343, label %.preheader758, !llvm.loop !22
 
 348:                                              ; preds = %350
   %349 = or disjoint i32 %.0720, 4
@@ -1570,7 +1570,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %353 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %352, ptr noundef %0, i32 noundef %344, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
   %exitcond816.not = icmp eq i64 %indvars.iv.next814, 9
-  br i1 %exitcond816.not, label %348, label %350, !llvm.loop !22
+  br i1 %exitcond816.not, label %348, label %350, !llvm.loop !23
 
 354:                                              ; preds = %356
   %355 = add nuw nsw i32 %.0720, 5
@@ -1583,7 +1583,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %359 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %358, ptr noundef %0, i32 noundef %349, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next818 = add nuw nsw i64 %indvars.iv817, 1
   %exitcond820.not = icmp eq i64 %indvars.iv.next818, 7
-  br i1 %exitcond820.not, label %354, label %356, !llvm.loop !23
+  br i1 %exitcond820.not, label %354, label %356, !llvm.loop !24
 
 360:                                              ; preds = %362
   %361 = add nuw nsw i32 %.0720, 6
@@ -1596,7 +1596,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %365 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %364, ptr noundef %0, i32 noundef %355, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
   %exitcond824.not = icmp eq i64 %indvars.iv.next822, 9
-  br i1 %exitcond824.not, label %360, label %362, !llvm.loop !24
+  br i1 %exitcond824.not, label %360, label %362, !llvm.loop !25
 
 366:                                              ; preds = %368
   %367 = add nuw nsw i32 %.0720, 7
@@ -1609,7 +1609,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %371 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %370, ptr noundef %0, i32 noundef %361, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next826 = add nuw nsw i64 %indvars.iv825, 1
   %exitcond828.not = icmp eq i64 %indvars.iv.next826, 9
-  br i1 %exitcond828.not, label %366, label %368, !llvm.loop !25
+  br i1 %exitcond828.not, label %366, label %368, !llvm.loop !26
 
 372:                                              ; preds = %374
   %373 = or disjoint i32 %.0720, 8
@@ -1622,7 +1622,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %377 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %376, ptr noundef %0, i32 noundef %367, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next830 = add nuw nsw i64 %indvars.iv829, 1
   %exitcond832.not = icmp eq i64 %indvars.iv.next830, 9
-  br i1 %exitcond832.not, label %372, label %374, !llvm.loop !26
+  br i1 %exitcond832.not, label %372, label %374, !llvm.loop !27
 
 378:                                              ; preds = %380
   %379 = add nuw nsw i32 %.0720, 9
@@ -1635,7 +1635,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %383 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %382, ptr noundef %0, i32 noundef %373, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next834 = add nuw nsw i64 %indvars.iv833, 1
   %exitcond836.not = icmp eq i64 %indvars.iv.next834, 9
-  br i1 %exitcond836.not, label %378, label %380, !llvm.loop !27
+  br i1 %exitcond836.not, label %378, label %380, !llvm.loop !28
 
 384:                                              ; preds = %386
   %385 = add nuw nsw i32 %.0720, 10
@@ -1648,7 +1648,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %389 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %388, ptr noundef %0, i32 noundef %379, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next838 = add nuw nsw i64 %indvars.iv837, 1
   %exitcond840.not = icmp eq i64 %indvars.iv.next838, 6
-  br i1 %exitcond840.not, label %384, label %386, !llvm.loop !28
+  br i1 %exitcond840.not, label %384, label %386, !llvm.loop !29
 
 390:                                              ; preds = %.preheader759
   %391 = add nuw nsw i32 %.0720, 3
@@ -1661,7 +1661,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %394 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %393, ptr noundef %0, i32 noundef %341, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next806 = add nuw nsw i64 %indvars.iv805, 1
   %exitcond808.not = icmp eq i64 %indvars.iv.next806, 6
-  br i1 %exitcond808.not, label %390, label %.preheader759, !llvm.loop !29
+  br i1 %exitcond808.not, label %390, label %.preheader759, !llvm.loop !30
 
 395:                                              ; preds = %.preheader760
   %396 = add nuw nsw i32 %.0720, 3
@@ -1674,7 +1674,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %399 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %398, ptr noundef %0, i32 noundef %341, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
   %exitcond800.not = icmp eq i64 %indvars.iv.next798, 9
-  br i1 %exitcond800.not, label %395, label %.preheader760, !llvm.loop !30
+  br i1 %exitcond800.not, label %395, label %.preheader760, !llvm.loop !31
 
 400:                                              ; preds = %402
   %401 = or disjoint i32 %.0720, 4
@@ -1687,7 +1687,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %405 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %404, ptr noundef %0, i32 noundef %396, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next802 = add nuw nsw i64 %indvars.iv801, 1
   %exitcond804.not = icmp eq i64 %indvars.iv.next802, 6
-  br i1 %exitcond804.not, label %400, label %402, !llvm.loop !31
+  br i1 %exitcond804.not, label %400, label %402, !llvm.loop !32
 
 406:                                              ; preds = %31
   %407 = load i32, ptr @hf_param_clkadjid, align 4
@@ -1787,7 +1787,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %488 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %487, ptr noundef %0, i32 noundef %457, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next794 = add nuw nsw i64 %indvars.iv793, 1
   %exitcond796.not = icmp eq i64 %indvars.iv.next794, 5
-  br i1 %exitcond796.not, label %458, label %485, !llvm.loop !32
+  br i1 %exitcond796.not, label %458, label %485, !llvm.loop !33
 
 489:                                              ; preds = %31
   %490 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0720)
@@ -1826,7 +1826,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 511:                                              ; preds = %512
   %indvars.iv.next854 = add nuw nsw i64 %indvars.iv853, 1
   %exitcond856.not = icmp eq i64 %indvars.iv.next854, 10
-  br i1 %exitcond856.not, label %510, label %.preheader754, !llvm.loop !33
+  br i1 %exitcond856.not, label %510, label %.preheader754, !llvm.loop !34
 
 512:                                              ; preds = %.preheader754, %512
   %indvars.iv849 = phi i64 [ 0, %.preheader754 ], [ %indvars.iv.next850, %512 ]
@@ -1835,7 +1835,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %515 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %514, ptr noundef %0, i32 noundef %509, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next850 = add nuw nsw i64 %indvars.iv849, 1
   %exitcond852.not = icmp eq i64 %indvars.iv.next850, 4
-  br i1 %exitcond852.not, label %511, label %512, !llvm.loop !34
+  br i1 %exitcond852.not, label %511, label %512, !llvm.loop !35
 
 516:                                              ; preds = %31, %31
   %517 = load i32, ptr @hf_param_maxsniffsubrate, align 4
@@ -1884,7 +1884,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %548 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %547, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next846 = add nuw nsw i64 %indvars.iv845, 1
   %exitcond848.not = icmp eq i64 %indvars.iv.next846, 5
-  br i1 %exitcond848.not, label %544, label %.preheader756, !llvm.loop !35
+  br i1 %exitcond848.not, label %544, label %.preheader756, !llvm.loop !36
 
 549:                                              ; preds = %31
   %550 = load i32, ptr @hf_param_samupdatemode, align 4
@@ -1933,7 +1933,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %584 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %583, ptr noundef %0, i32 noundef %572, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next898 = add nuw nsw i64 %indvars.iv897, 1
   %exitcond900.not = icmp eq i64 %indvars.iv.next898, 5
-  br i1 %exitcond900.not, label %573, label %581, !llvm.loop !36
+  br i1 %exitcond900.not, label %573, label %581, !llvm.loop !37
 
 .loopexit:                                        ; preds = %279, %.preheader753, %31, %384, %390, %400, %335, %32, %573, %556, %549, %544, %540, %536, %526, %516, %510, %497, %489, %458, %439, %429, %425, %406, %321, %310, %306, %302, %298, %294, %284, %268, %243, %239, %232, %225, %218, %214, %207, %189, %178, %172, %120, %113, %96, %89, %85, %81, %77, %73, %69, %65, %61, %57, %50, %46, %41
   %.1 = phi i32 [ %.0720, %31 ], [ %38, %32 ], [ %45, %41 ], [ %49, %46 ], [ %56, %50 ], [ %535, %526 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %76, %73 ], [ %80, %77 ], [ %84, %81 ], [ %88, %85 ], [ %95, %89 ], [ %109, %96 ], [ %525, %516 ], [ %116, %113 ], [ %580, %573 ], [ %568, %556 ], [ %555, %549 ], [ %129, %120 ], [ %173, %172 ], [ %184, %178 ], [ %202, %189 ], [ %213, %207 ], [ %217, %214 ], [ %narrow752, %510 ], [ %224, %218 ], [ %545, %544 ], [ %543, %540 ], [ %539, %536 ], [ %231, %225 ], [ %238, %232 ], [ %242, %239 ], [ %506, %497 ], [ %267, %243 ], [ %496, %489 ], [ %271, %268 ], [ %293, %284 ], [ %297, %294 ], [ %301, %298 ], [ %305, %302 ], [ %309, %306 ], [ %320, %310 ], [ %334, %321 ], [ %341, %335 ], [ %385, %384 ], [ %391, %390 ], [ %401, %400 ], [ %424, %406 ], [ %428, %425 ], [ %438, %429 ], [ %442, %439 ], [ %484, %458 ], [ %.0720, %.preheader753 ], [ %283, %279 ]
@@ -1998,34 +1998,35 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}

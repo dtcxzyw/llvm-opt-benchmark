@@ -146,7 +146,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   store ptr %0, ptr %7, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %6, label %.preheader
+  br i1 %exitcond.not, label %6, label %.preheader, !llvm.loop !38
 
 8:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
@@ -233,3 +233,5 @@ attributes #15 = { nounwind willreturn memory(read) }
 !35 = !{!"p1 omnipotent char", !12, i64 0}
 !36 = !{!"p1 _ZTS24dt_introspection_field_t", !12, i64 0}
 !37 = !{!9, !9, i64 0}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.estimated_trip_count"}

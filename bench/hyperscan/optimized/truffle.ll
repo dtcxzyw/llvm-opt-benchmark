@@ -121,7 +121,7 @@ firstMatch.exit49:                                ; preds = %63, %77
   %.0.i48 = phi ptr [ %81, %77 ], [ null, %63 ]
   %.not46 = icmp eq ptr %.0.i48, null
   %82 = getelementptr inbounds nuw i8, ptr %.038, i64 32
-  br i1 %.not46, label %61, label %.loopexit
+  br i1 %.not46, label %61, label %.loopexit, !llvm.loop !6
 
 83:                                               ; preds = %61
   %84 = load <4 x i64>, ptr %60, align 1
@@ -273,7 +273,7 @@ lastMatch.exit45:                                 ; preds = %66, %61
   %79 = icmp eq <32 x i8> %78, zeroinitializer
   %80 = bitcast <32 x i1> %79 to i32
   %.not.i43 = icmp eq i32 %80, -1
-  br i1 %.not.i43, label %lastMatch.exit45, label %lastMatch.exit45.thread, !prof !5
+  br i1 %.not.i43, label %lastMatch.exit45, label %lastMatch.exit45.thread, !prof !5, !llvm.loop !8
 
 lastMatch.exit45.thread:                          ; preds = %66
   %81 = xor i32 %80, -1
@@ -347,3 +347,6 @@ attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}

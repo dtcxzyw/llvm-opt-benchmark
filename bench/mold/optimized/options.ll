@@ -262,19 +262,19 @@ define internal fastcc void @mi_option_init(ptr noundef captures(none) %0) unnam
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %93, label %11
 
 11:                                               ; preds = %8
   call void @_mi_strlcpy(ptr noundef nonnull %3, ptr noundef nonnull @.str.50, i64 noundef 65) #16
-  %12 = load ptr, ptr %9, align 8, !tbaa !19
+  %12 = load ptr, ptr %9, align 8, !tbaa !20
   call void @_mi_strlcat(ptr noundef nonnull %3, ptr noundef %12, i64 noundef 65) #16
   %13 = call zeroext i1 @_mi_getenv(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 65) #16
   br i1 %13, label %14, label %93
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %9, align 8, !tbaa !19
+  %15 = load ptr, ptr %9, align 8, !tbaa !20
   %16 = load ptr, ptr %5, align 8, !tbaa !16
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.51, ptr noundef %15, ptr noundef %16) #17
   br label %17
@@ -300,7 +300,7 @@ define internal fastcc void @mi_option_init(ptr noundef captures(none) %0) unnam
   store i8 %24, ptr %25, align 1, !tbaa !3
   %26 = add nuw i64 %.03342, 1
   %exitcond.not = icmp eq i64 %26, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 27:                                               ; preds = %._crit_edge
   %28 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.52, ptr noundef nonnull dereferenceable(1) %3) #19
@@ -326,22 +326,22 @@ define internal fastcc void @mi_option_init(ptr noundef captures(none) %0) unnam
 
 35:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  store ptr %3, ptr %4, align 8, !tbaa !21
+  store ptr %3, ptr %4, align 8, !tbaa !22
   %36 = call i64 @strtol(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 10) #16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !22
+  %38 = load i32, ptr %37, align 4, !tbaa !23
   switch i32 %38, label %._crit_edge44 [
     i32 23, label %39
     i32 9, label %39
   ]
 
 ._crit_edge44:                                    ; preds = %35
-  %.pre = load ptr, ptr %4, align 8, !tbaa !21
+  %.pre = load ptr, ptr %4, align 8, !tbaa !22
   br label %66
 
 39:                                               ; preds = %35, %35
   %40 = call i64 @llvm.smax.i64(i64 %36, i64 0)
-  %41 = load ptr, ptr %4, align 8, !tbaa !21
+  %41 = load ptr, ptr %4, align 8, !tbaa !22
   %42 = load i8, ptr %41, align 1, !tbaa !3
   switch i8 %42, label %52 [
     i8 75, label %thread-pre-split
@@ -374,7 +374,7 @@ thread-pre-split:                                 ; preds = %39, %46, %49, %43
   %.0.ph = phi i64 [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %40, %39 ]
   %.0.shrunk.ph = phi i1 [ %50, %49 ], [ %47, %46 ], [ %44, %43 ], [ false, %39 ]
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store ptr %55, ptr %4, align 8, !tbaa !21
+  store ptr %55, ptr %4, align 8, !tbaa !22
   %.pr = load i8, ptr %55, align 1, !tbaa !3
   br label %56
 
@@ -397,7 +397,7 @@ thread-pre-split:                                 ; preds = %39, %46, %49, %43
 .thread41.sink.split:                             ; preds = %56, %59
   %.sink45 = phi i64 [ 2, %59 ], [ 1, %56 ]
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 %.sink45
-  store ptr %63, ptr %4, align 8, !tbaa !21
+  store ptr %63, ptr %4, align 8, !tbaa !22
   br label %.thread41
 
 .thread41:                                        ; preds = %.thread41.sink.split, %56, %59
@@ -426,7 +426,7 @@ thread-pre-split:                                 ; preds = %39, %46, %49, %43
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 2, ptr %74, align 8, !tbaa !8
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 12
-  %76 = load i32, ptr %75, align 4, !tbaa !22
+  %76 = load i32, ptr %75, align 4, !tbaa !23
   switch i32 %76, label %mi_option_set.exit [
     i32 30, label %77
     i32 31, label %80
@@ -562,7 +562,7 @@ define hidden void @mi_option_set(i32 noundef %0, i64 noundef %1) local_unnamed_
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 2, ptr %6, align 8, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !22
+  %8 = load i32, ptr %7, align 4, !tbaa !23
   switch i32 %8, label %.thread [
     i32 30, label %9
     i32 31, label %12
@@ -648,7 +648,7 @@ define hidden void @mi_option_set_enabled(i32 noundef %0, i1 noundef zeroext %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 2, ptr %7, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !22
+  %9 = load i32, ptr %8, align 4, !tbaa !23
   switch i32 %9, label %mi_option_set.exit [
     i32 30, label %10
     i32 31, label %13
@@ -707,7 +707,7 @@ define hidden void @mi_option_enable(i32 noundef %0) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !22
+  %7 = load i32, ptr %6, align 4, !tbaa !23
   switch i32 %7, label %mi_option_set_enabled.exit [
     i32 30, label %8
     i32 31, label %11
@@ -744,7 +744,7 @@ define hidden void @mi_option_disable(i32 noundef %0) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !22
+  %7 = load i32, ptr %6, align 4, !tbaa !23
   switch i32 %7, label %mi_option_set_enabled.exit [
     i32 30, label %8
     i32 31, label %11
@@ -1243,12 +1243,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @mi_recurse_enter_prim() unnamed_addr #10 {
   %1 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @recurse)
-  %2 = load i8, ptr %1, align 1, !tbaa !23, !range !25, !noundef !26
+  %2 = load i8, ptr %1, align 1, !tbaa !24, !range !26, !noundef !27
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %0
-  store i8 1, ptr %1, align 1, !tbaa !23
+  store i8 1, ptr %1, align 1, !tbaa !24
   br label %5
 
 5:                                                ; preds = %0, %4
@@ -1262,7 +1262,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal fastcc void @mi_recurse_exit_prim() unnamed_addr #12 {
   %1 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @recurse)
-  store i8 0, ptr %1, align 1, !tbaa !23
+  store i8 0, ptr %1, align 1, !tbaa !24
   ret void
 }
 
@@ -1341,13 +1341,14 @@ attributes #19 = { nounwind willreturn memory(read) "no-builtin-malloc" }
 !14 = !{!9, !10, i64 0}
 !15 = !{!10, !10, i64 0}
 !16 = !{!9, !12, i64 16}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!9, !12, i64 24}
-!20 = distinct !{!20, !18}
-!21 = !{!12, !12, i64 0}
-!22 = !{!9, !11, i64 12}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"_Bool", !4, i64 0}
-!25 = !{i8 0, i8 2}
-!26 = !{}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!9, !12, i64 24}
+!21 = distinct !{!21, !18, !19}
+!22 = !{!12, !12, i64 0}
+!23 = !{!9, !11, i64 12}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"_Bool", !4, i64 0}
+!26 = !{i8 0, i8 2}
+!27 = !{}

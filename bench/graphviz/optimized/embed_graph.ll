@@ -151,7 +151,7 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   %64 = load ptr, ptr %53, align 8, !tbaa !15
   %65 = zext nneg i32 %1 to i64
   %66 = shl nuw nsw i64 %65, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %34, ptr align 4 %64, i64 %66, i1 false), !tbaa !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %34, ptr align 4 %64, i64 %66, i1 false), !tbaa !19
   br label %84
 
 .preheader:                                       ; preds = %84
@@ -192,23 +192,23 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   %.2113.us = phi i32 [ 0, %.lr.ph115.us ], [ %.3.us, %75 ]
   %.387111.us = phi i32 [ %.286118.us, %.lr.ph115.us ], [ %.4.us, %75 ]
   %76 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv141
-  %77 = load i32, ptr %76, align 4, !tbaa !18
+  %77 = load i32, ptr %76, align 4, !tbaa !19
   %78 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv141
-  %79 = load i32, ptr %78, align 4, !tbaa !18
+  %79 = load i32, ptr %78, align 4, !tbaa !19
   %..us = tail call i32 @llvm.smin.i32(i32 %77, i32 %79)
-  store i32 %..us, ptr %76, align 4, !tbaa !18
+  store i32 %..us, ptr %76, align 4, !tbaa !19
   %80 = icmp sgt i32 %..us, %.2113.us
   %81 = trunc nuw nsw i64 %indvars.iv141 to i32
   %.4.us = select i1 %80, i32 %81, i32 %.387111.us
   %.3.us = tail call i32 @llvm.smax.i32(i32 %..us, i32 %.2113.us)
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
-  br i1 %exitcond145.not, label %._crit_edge116.us, label %75, !llvm.loop !20
+  br i1 %exitcond145.not, label %._crit_edge116.us, label %75, !llvm.loop !21
 
 ._crit_edge116.us:                                ; preds = %75
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %._crit_edge121, label %.lr.ph120.split.us, !llvm.loop !21
+  br i1 %exitcond150.not, label %._crit_edge121, label %.lr.ph120.split.us, !llvm.loop !22
 
 .lr.ph120.split:                                  ; preds = %.preheader.thread
   %wide.trip.count139 = zext nneg i32 %2 to i64
@@ -221,7 +221,7 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   tail call void @bfs(i32 noundef %63, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %83) #14
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge121.thread, label %.lr.ph120.split.split.us, !llvm.loop !23
+  br i1 %exitcond140.not, label %._crit_edge121.thread, label %.lr.ph120.split.split.us, !llvm.loop !24
 
 ._crit_edge121.thread:                            ; preds = %.lr.ph120.split.split.us
   tail call void @free(ptr noundef %34) #14
@@ -232,14 +232,14 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   %.0108 = phi i32 [ 0, %.lr.ph110 ], [ %spec.select94, %84 ]
   %.084106 = phi i32 [ %63, %.lr.ph110 ], [ %spec.select, %84 ]
   %85 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv126
-  %86 = load i32, ptr %85, align 4, !tbaa !18
+  %86 = load i32, ptr %85, align 4, !tbaa !19
   %87 = icmp sgt i32 %86, %.0108
   %88 = trunc nuw nsw i64 %indvars.iv126 to i32
   %spec.select = select i1 %87, i32 %88, i32 %.084106
   %spec.select94 = tail call i32 @llvm.smax.i32(i32 %86, i32 %.0108)
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %65
-  br i1 %exitcond130.not, label %.preheader, label %84, !llvm.loop !24
+  br i1 %exitcond130.not, label %.preheader, label %84, !llvm.loop !25
 
 .lr.ph120.split.split:                            ; preds = %.lr.ph120.split, %.lr.ph120.split.split
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph120.split.split ], [ 1, %.lr.ph120.split ]
@@ -248,7 +248,7 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   tail call void @dijkstra(i32 noundef %63, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %90) #14
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count139
-  br i1 %exitcond135.not, label %._crit_edge121.thread155, label %.lr.ph120.split.split, !llvm.loop !25
+  br i1 %exitcond135.not, label %._crit_edge121.thread155, label %.lr.ph120.split.split, !llvm.loop !26
 
 ._crit_edge121.thread155:                         ; preds = %.lr.ph120.split.split
   tail call void @free(ptr noundef %34) #14
@@ -303,23 +303,23 @@ define void @center_coordinate(ptr noundef readonly captures(none) %0, i32 nound
 9:                                                ; preds = %.lr.ph25.us, %9
   %indvars.iv37 = phi i64 [ 0, %.lr.ph25.us ], [ %indvars.iv.next38, %9 ]
   %10 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv37
-  %11 = load i32, ptr %10, align 4, !tbaa !18
+  %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = sub nsw i32 %11, %8
-  store i32 %12, ptr %10, align 4, !tbaa !18
+  store i32 %12, ptr %10, align 4, !tbaa !19
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count
-  br i1 %exitcond41.not, label %._crit_edge26.us, label %9, !llvm.loop !26
+  br i1 %exitcond41.not, label %._crit_edge26.us, label %9, !llvm.loop !27
 
 13:                                               ; preds = %.lr.ph.us, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %13 ]
   %.01822.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %17, %13 ]
   %14 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !18
+  %15 = load i32, ptr %14, align 4, !tbaa !19
   %16 = sitofp i32 %15 to double
   %17 = fadd double %.01822.us, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph25.us, label %13, !llvm.loop !27
+  br i1 %exitcond.not, label %.lr.ph25.us, label %13, !llvm.loop !28
 
 .lr.ph.us:                                        ; preds = %._crit_edge26.us, %.preheader.us.preheader
   %indvars.iv42 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next43, %._crit_edge26.us ]
@@ -330,7 +330,7 @@ define void @center_coordinate(ptr noundef readonly captures(none) %0, i32 nound
 ._crit_edge26.us:                                 ; preds = %9
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !28
+  br i1 %exitcond46.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !29
 
 ._crit_edge28:                                    ; preds = %._crit_edge26.us, %.preheader.lr.ph, %3
   ret void
@@ -395,16 +395,17 @@ attributes #15 = { cold noreturn nounwind }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p2 int", !5, i64 0}
 !15 = !{!11, !11, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !6, i64 0}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !17, !22}
-!24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17}
-!27 = distinct !{!27, !17}
-!28 = distinct !{!28, !17, !22}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !6, i64 0}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !17, !18, !23}
+!25 = distinct !{!25, !17, !18}
+!26 = distinct !{!26, !17, !18}
+!27 = distinct !{!27, !17, !18}
+!28 = distinct !{!28, !17, !18}
+!29 = distinct !{!29, !17, !18, !23}

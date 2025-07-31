@@ -960,7 +960,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
@@ -995,7 +995,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   %34 = and i8 %33, 4
   %.not14 = icmp eq i8 %34, 0
   br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %35
@@ -1025,7 +1025,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 49:                                               ; preds = %45
   %50 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #10
   %51 = load volatile i32, ptr %50, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   %52 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %53 = and i32 %52, %51
   %.not.i.i.i13 = icmp eq i32 %53, 0
@@ -1186,7 +1186,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !12
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -1453,7 +1453,7 @@ _ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMap
   %65 = load ptr, ptr %38, align 8
   %66 = load ptr, ptr %5, align 8
   %.not = icmp ult ptr %65, %66
-  br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !12
+  br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %_ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread
   ret void
@@ -1567,7 +1567,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i: ; preds = %
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 4952
   store i8 0, ptr %59, align 8
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI11RegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %4, i1 noundef zeroext false)
-  %60 = load ptr, ptr %56, align 8, !nonnull !13, !noundef !13
+  %60 = load ptr, ptr %56, align 8, !nonnull !14, !noundef !14
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 52
   %62 = load i8, ptr %61, align 4
   %63 = icmp eq i8 %62, 1
@@ -1660,7 +1660,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread: ; preds = %
 _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i18: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit32
   %99 = phi ptr [ %137, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit32 ], [ %97, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread ]
   %100 = phi ptr [ %136, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit32 ], [ %98, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread ]
-  %101 = load ptr, ptr %96, align 8, !nonnull !13, !noundef !13
+  %101 = load ptr, ptr %96, align 8, !nonnull !14, !noundef !14
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 52
   %103 = load i8, ptr %102, align 4
   %104 = icmp eq i8 %103, 1
@@ -1745,7 +1745,7 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exi
   %136 = phi ptr [ %.pre46, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i27 ], [ %118, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.thread.i24 ], [ %.pre45, %132 ]
   %137 = load ptr, ptr %3, align 8
   %.not = icmp ult ptr %136, %137
-  br i1 %.not, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i18, label %.critedge, !llvm.loop !14
+  br i1 %.not, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i18, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit32, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread
   ret void
@@ -3285,7 +3285,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread: ; preds = %
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14handle_deoptedEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %17 = call noundef zeroext i1 @_ZN32OopIterateStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef null)
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EE4nextIK16SmallRegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef null, i1 noundef zeroext false)
-  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !15
+  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %16, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread
   ret void
@@ -3642,7 +3642,7 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exi
   %158 = phi ptr [ %.pre41, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i32 ], [ %139, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.thread.i29 ], [ %.pre40, %154 ]
   %159 = load ptr, ptr %5, align 8
   %.not = icmp ult ptr %158, %159
-  br i1 %.not, label %116, label %.critedge, !llvm.loop !16
+  br i1 %.not, label %116, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit37, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread
   ret void
@@ -4040,7 +4040,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMR
 
 _ZN13Devirtualizer6do_oopI33StackChunkOopIterateFilterClosureI17OopIterateClosureE9narrowOopEEvPT_PT0_.exit: ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread, %125, %124, %119, %118
   call void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 dereferenceable(30) %5) #10
-  br label %76, !llvm.loop !17
+  br label %76, !llvm.loop !18
 
 .loopexit:                                        ; preds = %_ZN12OopMapStream7is_doneEv.exit, %21
   ret void
@@ -4303,7 +4303,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI16SmallRegisterMapEEPv
 
 _ZN13Devirtualizer6do_oopI33StackChunkOopIterateFilterClosureI17OopIterateClosureE9narrowOopEEvPT_PT0_.exit: ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread, %112, %111, %106, %105
   call void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 dereferenceable(30) %5) #10
-  br label %75, !llvm.loop !18
+  br label %75, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_ZN12OopMapStream7is_doneEv.exit, %21
   ret void
@@ -4470,7 +4470,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMR
 
 _ZN13Devirtualizer6do_oopI33StackChunkOopIterateFilterClosureI17OopIterateClosureE9narrowOopEEvPT_PT0_.exit: ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread, %94, %93, %88, %87
   call void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 dereferenceable(30) %4) #10
-  br label %45, !llvm.loop !19
+  br label %45, !llvm.loop !20
 
 98:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit
   ret void
@@ -4608,7 +4608,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %44, %_ZN12OopMapStr
 
 _ZN13Devirtualizer6do_oopI33StackChunkOopIterateFilterClosureI17OopIterateClosureE9narrowOopEEvPT_PT0_.exit: ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread, %76, %75, %70, %69
   call void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 dereferenceable(30) %4) #10
-  br label %44, !llvm.loop !20
+  br label %44, !llvm.loop !21
 
 80:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit
   ret void
@@ -4661,7 +4661,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread: ; preds = %
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14handle_deoptedEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %17 = call noundef zeroext i1 @_ZN22PrintStackChunkClosure8do_frameIL11ChunkFrames1E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef null)
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EE4nextIK16SmallRegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef null, i1 noundef zeroext false)
-  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !21
+  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %16, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread
   ret void
@@ -4929,7 +4929,7 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.thread.i21: ; preds =
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit29
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit29: ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i24, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.thread.i21, %123
-  br i1 %97, label %93, label %.critedge, !llvm.loop !22
+  br i1 %97, label %93, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %93, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit29, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit
   ret void
@@ -5608,18 +5608,19 @@ attributes #11 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411161}
 !7 = !{i64 2145412694}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 2145392468}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = !{}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 2145392468}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}

@@ -66,26 +66,26 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %29 ]
   %35 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
-  %36 = load <16 x float>, ptr %35, align 1, !tbaa !9
+  %36 = load <16 x float>, ptr %35, align 1, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %38 = load <16 x float>, ptr %37, align 1, !tbaa !9
+  %38 = load <16 x float>, ptr %37, align 1, !tbaa !10
   %39 = fmul <16 x float> %31, %36
   %40 = fmul <16 x float> %31, %38
-  store <16 x float> %39, ptr %35, align 1, !tbaa !9
-  store <16 x float> %40, ptr %37, align 1, !tbaa !9
+  store <16 x float> %39, ptr %35, align 1, !tbaa !10
+  store <16 x float> %40, ptr %37, align 1, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 32
   %41 = icmp samesign ugt i64 %32, %indvars.iv.next.i
-  br i1 %41, label %.lr.ph.i, label %.preheader.i, !llvm.loop !10
+  br i1 %41, label %.lr.ph.i, label %.preheader.i, !llvm.loop !11
 
 .lr.ph3.i:                                        ; preds = %.lr.ph3.i.preheader, %.lr.ph3.i
   %indvars.iv5.i = phi i64 [ %indvars.iv.next6.i, %.lr.ph3.i ], [ %indvars.iv5.i.ph, %.lr.ph3.i.preheader ]
   %42 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv5.i
-  %43 = load <16 x float>, ptr %42, align 1, !tbaa !9
+  %43 = load <16 x float>, ptr %42, align 1, !tbaa !10
   %44 = fmul <16 x float> %31, %43
-  store <16 x float> %44, ptr %42, align 1, !tbaa !9
+  store <16 x float> %44, ptr %42, align 1, !tbaa !10
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 16
   %45 = icmp samesign ugt i64 %27, %indvars.iv.next6.i
-  br i1 %45, label %.lr.ph3.i, label %sscal_kernel_16.exit, !llvm.loop !11
+  br i1 %45, label %.lr.ph3.i, label %sscal_kernel_16.exit, !llvm.loop !12
 
 sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.preheader.i, %26
   %.not138 = icmp eq i64 %27, %0
@@ -99,7 +99,7 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   store float %48, ptr %46, align 4, !tbaa !3
   %49 = add nsw i64 %.2134, 1
   %50 = icmp slt i64 %49, %0
-  br i1 %50, label %.lr.ph135, label %.loopexit, !llvm.loop !12
+  br i1 %50, label %.lr.ph135, label %.loopexit, !llvm.loop !13
 
 51:                                               ; preds = %10
   br i1 %.not93, label %82, label %52
@@ -138,7 +138,7 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %64 = add nsw i64 %.3121, %56
   %65 = add nuw nsw i64 %.282120, 2
   %66 = icmp slt i64 %65, %54
-  br i1 %66, label %61, label %.preheader.loopexit, !llvm.loop !13
+  br i1 %66, label %61, label %.preheader.loopexit, !llvm.loop !14
 
 .lr.ph126:                                        ; preds = %.preheader, %.lr.ph126
   %.4125 = phi i64 [ %68, %.lr.ph126 ], [ %.3.lcssa, %.preheader ]
@@ -148,7 +148,7 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %68 = add nsw i64 %.4125, %5
   %69 = add nuw nsw i64 %.383124, 1
   %exitcond145.not = icmp eq i64 %69, %0
-  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph126, !llvm.loop !14
+  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph126, !llvm.loop !15
 
 70:                                               ; preds = %52
   %71 = icmp sgt i64 %0, 7
@@ -176,7 +176,7 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %80 = add nsw i64 %.6119, %5
   %81 = add nuw nsw i64 %.585118, 1
   %exitcond.not = icmp eq i64 %81, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 82:                                               ; preds = %51
   %83 = and i64 %0, -16
@@ -191,7 +191,7 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %88 = add i64 %87, -4
   %89 = and i64 %88, -64
   %90 = add i64 %89, 64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %90, i1 false), !tbaa !9
+  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %90, i1 false), !tbaa !10
   br label %91
 
 91:                                               ; preds = %86, %85
@@ -231,26 +231,26 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
 .lr.ph.i98:                                       ; preds = %98, %.lr.ph.i98
   %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %.lr.ph.i98 ], [ 0, %98 ]
   %104 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i99
-  %105 = load <16 x float>, ptr %104, align 1, !tbaa !9
+  %105 = load <16 x float>, ptr %104, align 1, !tbaa !10
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 64
-  %107 = load <16 x float>, ptr %106, align 1, !tbaa !9
+  %107 = load <16 x float>, ptr %106, align 1, !tbaa !10
   %108 = fmul <16 x float> %100, %105
   %109 = fmul <16 x float> %100, %107
-  store <16 x float> %108, ptr %104, align 1, !tbaa !9
-  store <16 x float> %109, ptr %106, align 1, !tbaa !9
+  store <16 x float> %108, ptr %104, align 1, !tbaa !10
+  store <16 x float> %109, ptr %106, align 1, !tbaa !10
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 32
   %110 = icmp samesign ugt i64 %101, %indvars.iv.next.i100
-  br i1 %110, label %.lr.ph.i98, label %.preheader.i101, !llvm.loop !10
+  br i1 %110, label %.lr.ph.i98, label %.preheader.i101, !llvm.loop !11
 
 .lr.ph3.i104:                                     ; preds = %.lr.ph3.i104.preheader, %.lr.ph3.i104
   %indvars.iv5.i105 = phi i64 [ %indvars.iv.next6.i106, %.lr.ph3.i104 ], [ %indvars.iv5.i105.ph, %.lr.ph3.i104.preheader ]
   %111 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv5.i105
-  %112 = load <16 x float>, ptr %111, align 1, !tbaa !9
+  %112 = load <16 x float>, ptr %111, align 1, !tbaa !10
   %113 = fmul <16 x float> %100, %112
-  store <16 x float> %113, ptr %111, align 1, !tbaa !9
+  store <16 x float> %113, ptr %111, align 1, !tbaa !10
   %indvars.iv.next6.i106 = add nuw nsw i64 %indvars.iv5.i105, 16
   %114 = icmp samesign ugt i64 %83, %indvars.iv.next6.i106
-  br i1 %114, label %.lr.ph3.i104, label %sscal_kernel_16.exit107, !llvm.loop !11
+  br i1 %114, label %.lr.ph3.i104, label %sscal_kernel_16.exit107, !llvm.loop !12
 
 sscal_kernel_16.exit107:                          ; preds = %.lr.ph3.i104, %.preheader.i101, %97
   %.not136 = icmp eq i64 %83, %0
@@ -264,7 +264,7 @@ sscal_kernel_16.exit107:                          ; preds = %.lr.ph3.i104, %.pre
   store float %117, ptr %115, align 4, !tbaa !3
   %118 = add nsw i64 %.8127, 1
   %119 = icmp slt i64 %118, %0
-  br i1 %119, label %.lr.ph128, label %.loopexit, !llvm.loop !16
+  br i1 %119, label %.lr.ph128, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph126, %.lr.ph128, %.lr.ph133, %.lr.ph135, %.lr.ph130.preheader, %75, %.preheader, %sscal_kernel_16.exit107, %91, %19, %sscal_kernel_16.exit
   ret i32 0
@@ -298,7 +298,7 @@ define internal fastcc void @sscal_kernel_inc_8(i64 noundef range(i64 1, -922337
   %16 = getelementptr inbounds i8, ptr %.02, i64 %.idx32
   %17 = add nuw nsw i64 %.0301, 4
   %18 = icmp samesign ult i64 %17, %0
-  br i1 %18, label %4, label %19, !llvm.loop !17
+  br i1 %18, label %4, label %19, !llvm.loop !18
 
 19:                                               ; preds = %4
   ret void
@@ -324,14 +324,15 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!"float", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!5, !5, i64 0}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}

@@ -167,12 +167,12 @@ define dso_local i32 @utf32_to_utf8(i32 noundef %0, ptr noundef writeonly captur
   %41 = or disjoint i8 %40, -128
   store i8 %41, ptr %37, align 1
   %42 = icmp samesign ugt i64 %34, 6
-  br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !8
+  br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !9
 
 43:                                               ; preds = %16
   %44 = getelementptr i8, ptr %17, i64 32
   %45 = icmp eq i32 %18, %15
-  br i1 %45, label %.loopexit, label %16, !llvm.loop !9
+  br i1 %45, label %.loopexit, label %16, !llvm.loop !10
 
 .loopexit:                                        ; preds = %43, %.preheader, %23, %5, %3
   %46 = phi i32 [ 0, %3 ], [ -1, %5 ], [ %19, %23 ], [ %19, %.preheader ], [ -1, %43 ]
@@ -255,7 +255,7 @@ define dso_local i32 @utf8s_to_utf16s(ptr noundef readonly captures(none) %0, i3
   %59 = getelementptr i8, ptr %26, i64 32
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %30, 6
-  br i1 %61, label %.thread, label %24, !llvm.loop !5
+  br i1 %61, label %.thread, label %24, !llvm.loop !11
 
 62:                                               ; preds = %35
   %63 = zext nneg i32 %30 to i64
@@ -314,7 +314,7 @@ define dso_local i32 @utf8s_to_utf16s(ptr noundef readonly captures(none) %0, i3
   %102 = icmp sgt i32 %98, 0
   %103 = icmp sgt i32 %101, 0
   %104 = select i1 %102, i1 %103, i1 false
-  br i1 %104, label %11, label %.loopexit, !llvm.loop !10
+  br i1 %104, label %11, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %96, %67, %11, %5
   %105 = phi ptr [ %3, %5 ], [ %100, %96 ], [ %12, %67 ], [ %12, %11 ]
@@ -376,7 +376,7 @@ define dso_local i32 @utf16s_to_utf8s(ptr noundef readonly captures(none) %0, i3
 
 34:                                               ; preds = %38, %31
   %35 = icmp samesign ugt i32 %18, 1
-  br i1 %35, label %16, label %.loopexit11, !llvm.loop !11
+  br i1 %35, label %16, label %.loopexit11, !llvm.loop !13
 
 36:                                               ; preds = %31
   %37 = icmp samesign ult i32 %18, 2
@@ -452,12 +452,12 @@ define dso_local i32 @utf16s_to_utf8s(ptr noundef readonly captures(none) %0, i3
   %87 = or disjoint i8 %86, -128
   store i8 %87, ptr %83, align 1
   %88 = icmp samesign ugt i64 %80, 6
-  br i1 %88, label %.preheader, label %.loopexit, !llvm.loop !8
+  br i1 %88, label %.preheader, label %.loopexit, !llvm.loop !14
 
 89:                                               ; preds = %62
   %90 = getelementptr i8, ptr %63, i64 32
   %91 = icmp eq i32 %64, %61
-  br i1 %91, label %.loopexit10, label %62, !llvm.loop !9
+  br i1 %91, label %.loopexit10, label %62, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit12, %69
   %.ph = phi i32 [ %65, %69 ], [ 0, %.loopexit12 ], [ %65, %.preheader ]
@@ -481,7 +481,7 @@ define dso_local i32 @utf16s_to_utf8s(ptr noundef readonly captures(none) %0, i3
   %103 = icmp sgt i32 %101, 0
   %104 = icmp sgt i32 %99, 0
   %105 = select i1 %104, i1 %103, i1 false
-  br i1 %105, label %11, label %.loopexit11, !llvm.loop !11
+  br i1 %105, label %11, label %.loopexit11, !llvm.loop !16
 
 .loopexit11:                                      ; preds = %.loopexit10, %36, %34, %16, %5
   %106 = phi ptr [ %3, %5 ], [ %12, %16 ], [ %12, %34 ], [ %12, %36 ], [ %102, %.loopexit10 ]
@@ -511,7 +511,7 @@ define dso_local noundef range(i32 -16, 1) i32 @__register_nls(ptr noundef %0, p
   %11 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit3, label %.preheader, !llvm.loop !12
+  br i1 %13, label %.loopexit3, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %6, %10
   %14 = phi ptr [ %12, %10 ], [ %8, %6 ]
@@ -549,11 +549,11 @@ define dso_local noundef range(i32 -22, 1) i32 @unregister_nls(ptr noundef reado
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %10, !llvm.loop !13
+  br i1 %9, label %.loopexit, label %10, !llvm.loop !18
 
 10:                                               ; preds = %.preheader
   %11 = icmp eq ptr %8, %0
-  br i1 %11, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %11, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit2.loopexit:                              ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -601,7 +601,7 @@ define dso_local ptr @load_nls(ptr noundef %0) #2 align 16 {
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.loopexit, label %.preheader.i, !llvm.loop !14
+  br i1 %18, label %.loopexit, label %.preheader.i, !llvm.loop !20
 
 19:                                               ; preds = %12, %.preheader.i
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -639,7 +639,7 @@ define dso_local ptr @load_nls(ptr noundef %0) #2 align 16 {
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %find_nls.exit, label %.preheader.i1, !llvm.loop !14
+  br i1 %40, label %find_nls.exit, label %.preheader.i1, !llvm.loop !20
 
 41:                                               ; preds = %34, %.preheader.i1
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 48
@@ -704,7 +704,7 @@ define dso_local nonnull ptr @load_nls_default() #2 align 16 {
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %.preheader.i, !llvm.loop !14
+  br i1 %17, label %.loopexit, label %.preheader.i, !llvm.loop !20
 
 18:                                               ; preds = %11, %.preheader.i
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -742,7 +742,7 @@ define dso_local nonnull ptr @load_nls_default() #2 align 16 {
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %find_nls.exit, label %.preheader.i1, !llvm.loop !14
+  br i1 %39, label %find_nls.exit, label %.preheader.i1, !llvm.loop !20
 
 40:                                               ; preds = %33, %.preheader.i1
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 48
@@ -839,13 +839,19 @@ attributes #8 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}

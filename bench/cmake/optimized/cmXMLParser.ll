@@ -1032,13 +1032,13 @@ declare i32 @XML_GetErrorCode(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11cmXMLParser11ReportErrorEiiPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3) unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !58
+  %6 = load ptr, ptr %5, align 8, !tbaa !59
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !60
   tail call void %6(i32 noundef %1, ptr noundef %3, ptr noundef %9)
   br label %44
 
@@ -1240,7 +1240,8 @@ attributes #23 = { noreturn }
 !53 = !{!"p1 short", !11, i64 0}
 !54 = !{!15, !15, i64 0}
 !55 = !{!31, !31, i64 0}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!8, !11, i64 16}
-!59 = !{!8, !11, i64 24}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = !{!8, !11, i64 16}
+!60 = !{!8, !11, i64 24}

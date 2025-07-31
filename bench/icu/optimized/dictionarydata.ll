@@ -281,7 +281,7 @@ _ZN6icu_7710UCharsTrie5firstEi.exit:              ; preds = %60, %63
 74:                                               ; preds = %72
   %75 = load ptr, ptr %13, align 8, !tbaa !18
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 2
-  %77 = load i16, ptr %75, align 2, !tbaa !25
+  %77 = load i16, ptr %75, align 2, !tbaa !26
   %78 = zext i16 %77 to i32
   %.not.i = icmp sgt i16 %77, -1
   br i1 %.not.i, label %97, label %79
@@ -298,17 +298,17 @@ _ZN6icu_7710UCharsTrie5firstEi.exit:              ; preds = %60, %63
 83:                                               ; preds = %82
   %84 = shl nuw nsw i32 %80, 16
   %85 = add nsw i32 %84, -1073741824
-  %86 = load i16, ptr %76, align 2, !tbaa !25
+  %86 = load i16, ptr %76, align 2, !tbaa !26
   %87 = zext i16 %86 to i32
   %88 = or disjoint i32 %85, %87
   br label %_ZNK6icu_7710UCharsTrie8getValueEv.exit
 
 89:                                               ; preds = %82
-  %90 = load i16, ptr %76, align 2, !tbaa !25
+  %90 = load i16, ptr %76, align 2, !tbaa !26
   %91 = zext i16 %90 to i32
   %92 = shl nuw i32 %91, 16
   %93 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %94 = load i16, ptr %93, align 2, !tbaa !25
+  %94 = load i16, ptr %93, align 2, !tbaa !26
   %95 = zext i16 %94 to i32
   %96 = or disjoint i32 %92, %95
   br label %_ZNK6icu_7710UCharsTrie8getValueEv.exit
@@ -330,17 +330,17 @@ _ZN6icu_7710UCharsTrie5firstEi.exit:              ; preds = %60, %63
   %105 = shl nuw nsw i32 %78, 10
   %106 = and i32 %105, 33488896
   %107 = add nsw i32 %106, -16842752
-  %108 = load i16, ptr %76, align 2, !tbaa !25
+  %108 = load i16, ptr %76, align 2, !tbaa !26
   %109 = zext i16 %108 to i32
   %110 = or disjoint i32 %107, %109
   br label %_ZNK6icu_7710UCharsTrie8getValueEv.exit
 
 111:                                              ; preds = %102
-  %112 = load i16, ptr %76, align 2, !tbaa !25
+  %112 = load i16, ptr %76, align 2, !tbaa !26
   %113 = zext i16 %112 to i32
   %114 = shl nuw i32 %113, 16
   %115 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %116 = load i16, ptr %115, align 2, !tbaa !25
+  %116 = load i16, ptr %115, align 2, !tbaa !26
   %117 = zext i16 %116 to i32
   %118 = or disjoint i32 %114, %117
   br label %_ZNK6icu_7710UCharsTrie8getValueEv.exit
@@ -395,7 +395,7 @@ _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %111, %104, %99, %89
 
 136:                                              ; preds = %135
   %137 = invoke i32 @utext_next32_77(ptr noundef %1)
-          to label %.preheader.split unwind label %.loopexit.split, !llvm.loop !27
+          to label %.preheader.split unwind label %.loopexit.split, !llvm.loop !28
 
 .thread:                                          ; preds = %135, %.preheader.split, %131, %133, %.preheader.split.us, %34, %48, %50
   %.us-phi = phi i32 [ %.4.us, %50 ], [ %.044.us, %.preheader.split.us ], [ %.044.us, %34 ], [ %.246.us, %48 ], [ %.4, %135 ], [ %.044, %.preheader.split ], [ %.044, %133 ], [ %.246, %131 ]
@@ -438,7 +438,7 @@ declare void @_ZN6icu_7710UCharsTrieD1Ev(ptr noundef nonnull align 8 dereference
 define void @_ZN6icu_7722BytesDictionaryMatcherD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7722BytesDictionaryMatcherE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   invoke void @udata_close_77(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -463,7 +463,7 @@ define void @_ZN6icu_7722BytesDictionaryMatcherD0Ev(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7722BytesDictionaryMatcher9transformEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !31
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %5 = and i32 %4, 2130706432
   %6 = icmp eq i32 %5, 16777216
   br i1 %6, label %7, label %12
@@ -499,14 +499,14 @@ define noundef i32 @_ZNK6icu_7722BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3
   %9 = alloca %"class.icu_77::BytesTrie", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !32
-  store ptr null, ptr %9, align 8, !tbaa !33
+  %11 = load ptr, ptr %10, align 8, !tbaa !33
+  store ptr null, ptr %9, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !35
+  store ptr %11, ptr %12, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %11, ptr %13, align 8, !tbaa !36
+  store ptr %11, ptr %13, align 8, !tbaa !37
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 -1, ptr %14, align 8, !tbaa !37
+  store i32 -1, ptr %14, align 8, !tbaa !38
   %15 = invoke i64 @utext_getNativeIndex_77(ptr noundef %1)
           to label %16 unwind label %22
 
@@ -546,7 +546,7 @@ define noundef i32 @_ZNK6icu_7722BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3
 
 24:                                               ; preds = %20
   %25 = icmp eq i32 %.041, 0
-  %26 = load i32, ptr %19, align 8, !tbaa !31
+  %26 = load i32, ptr %19, align 8, !tbaa !32
   %27 = and i32 %26, 2130706432
   %28 = icmp eq i32 %27, 16777216
   br i1 %25, label %29, label %39
@@ -572,11 +572,11 @@ define noundef i32 @_ZNK6icu_7722BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3
 
 _ZNK6icu_7722BytesDictionaryMatcher9transformEi.exit: ; preds = %29, %30, %31, %32
   %.0.i = phi i32 [ 254, %31 ], [ %..i, %32 ], [ 255, %30 ], [ %.040, %29 ]
-  store i32 -1, ptr %14, align 8, !tbaa !37
+  store i32 -1, ptr %14, align 8, !tbaa !38
   %35 = lshr i32 %.0.i, 23
   %36 = and i32 %35, 256
   %spec.select.i = add nsw i32 %36, %.0.i
-  %37 = load ptr, ptr %12, align 8, !tbaa !35
+  %37 = load ptr, ptr %12, align 8, !tbaa !36
   %38 = invoke noundef i32 @_ZN6icu_779BytesTrie8nextImplEPKhi(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef %37, i32 noundef %spec.select.i)
           to label %_ZN6icu_779BytesTrie5firstEi.exit unwind label %65
 
@@ -624,9 +624,9 @@ _ZN6icu_779BytesTrie5firstEi.exit:                ; preds = %_ZNK6icu_7722BytesD
   br i1 %.not, label %69, label %56
 
 56:                                               ; preds = %55
-  %57 = load ptr, ptr %13, align 8, !tbaa !36
+  %57 = load ptr, ptr %13, align 8, !tbaa !37
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
-  %59 = load i8, ptr %57, align 1, !tbaa !38
+  %59 = load i8, ptr %57, align 1, !tbaa !39
   %60 = lshr i8 %59, 1
   %61 = zext nneg i8 %60 to i32
   %62 = invoke noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %58, i32 noundef %61)
@@ -686,7 +686,7 @@ _ZNK6icu_779BytesTrie8getValueEv.exit:            ; preds = %56
 
 84:                                               ; preds = %83
   %85 = invoke i32 @utext_next32_77(ptr noundef %1)
-          to label %20 unwind label %.loopexit, !llvm.loop !39
+          to label %20 unwind label %.loopexit, !llvm.loop !40
 
 .thread:                                          ; preds = %81, %79, %20, %83
   %.144 = phi i32 [ %.4, %83 ], [ %.043, %20 ], [ %.043, %81 ], [ %.245, %79 ]
@@ -724,35 +724,35 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   br i1 %8, label %88, label %9
 
 9:                                                ; preds = %5
-  %10 = load i32, ptr %4, align 4, !tbaa !40
+  %10 = load i32, ptr %4, align 4, !tbaa !41
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %12, label %88
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load i8, ptr %13, align 2, !tbaa !38
+  %14 = load i8, ptr %13, align 2, !tbaa !39
   %15 = icmp eq i8 %14, 68
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %17 = load i8, ptr %16, align 1, !tbaa !38
+  %17 = load i8, ptr %16, align 1, !tbaa !39
   %18 = icmp eq i8 %17, 105
   %or.cond = select i1 %15, i1 %18, i1 false
   br i1 %or.cond, label %19, label %._crit_edge
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %21 = load i8, ptr %20, align 2, !tbaa !38
+  %21 = load i8, ptr %20, align 2, !tbaa !39
   %22 = icmp eq i8 %21, 99
   br i1 %22, label %23, label %._crit_edge
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %25 = load i8, ptr %24, align 1, !tbaa !38
+  %25 = load i8, ptr %24, align 1, !tbaa !39
   %26 = icmp eq i8 %25, 116
   br i1 %26, label %27, label %._crit_edge
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %29 = load i8, ptr %28, align 2, !tbaa !38
+  %29 = load i8, ptr %28, align 2, !tbaa !39
   %30 = icmp eq i8 %29, 1
   br i1 %30, label %43, label %._crit_edge
 
@@ -761,16 +761,16 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   %32 = zext i8 %14 to i32
   %33 = zext i8 %31 to i32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %35 = load i8, ptr %34, align 2, !tbaa !38
+  %35 = load i8, ptr %34, align 2, !tbaa !39
   %36 = zext i8 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %38 = load i8, ptr %37, align 1, !tbaa !38
+  %38 = load i8, ptr %37, align 1, !tbaa !39
   %39 = zext i8 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = load i8, ptr %40, align 2, !tbaa !38
+  %41 = load i8, ptr %40, align 2, !tbaa !39
   %42 = zext i8 %41 to i32
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %32, i32 noundef %33, i32 noundef %36, i32 noundef %39, i32 noundef %42)
-  store i32 16, ptr %4, align 4, !tbaa !40
+  store i32 16, ptr %4, align 4, !tbaa !41
   br label %88
 
 43:                                               ; preds = %27
@@ -789,7 +789,7 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 
 53:                                               ; preds = %50
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %51)
-  store i32 8, ptr %4, align 4, !tbaa !40
+  store i32 8, ptr %4, align 4, !tbaa !41
   br label %88
 
 54:                                               ; preds = %50, %43
@@ -805,7 +805,7 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   store i32 %58, ptr %59, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %60, label %55, !llvm.loop !42
+  br i1 %exitcond.not, label %60, label %55, !llvm.loop !43
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -819,7 +819,7 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 
 66:                                               ; preds = %64
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %.075)
-  store i32 8, ptr %4, align 4, !tbaa !40
+  store i32 8, ptr %4, align 4, !tbaa !41
   br label %88
 
 67:                                               ; preds = %64
@@ -833,7 +833,7 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 
 70:                                               ; preds = %68, %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %72 = load ptr, ptr %71, align 8, !tbaa !43
+  %72 = load ptr, ptr %71, align 8, !tbaa !44
   %73 = tail call noundef i32 %72(ptr noundef %0, ptr noundef nonnull %45, i32 noundef 32, ptr noundef %48, ptr noundef nonnull %4)
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %75 = load i32, ptr %74, align 16, !tbaa !21
@@ -847,7 +847,7 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !21
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %81 = load ptr, ptr %80, align 8, !tbaa !45
+  %81 = load ptr, ptr %80, align 8, !tbaa !46
   %82 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %83 = add nsw i32 %79, -32
   %84 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -856,7 +856,7 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 
 .critedge:                                        ; preds = %70
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.3)
-  store i32 16, ptr %4, align 4, !tbaa !40
+  store i32 16, ptr %4, align 4, !tbaa !41
   br label %88
 
 86:                                               ; preds = %70, %77, %60
@@ -925,27 +925,28 @@ attributes #13 = { nounwind }
 !19 = !{!15, !16, i64 24}
 !20 = !{i64 2149926638}
 !21 = !{!16, !16, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23, !24, !25}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"char16_t", !11, i64 0}
-!27 = distinct !{!27, !23}
-!28 = !{!29, !12, i64 24}
-!29 = !{!"_ZTSN6icu_7722BytesDictionaryMatcherE", !8, i64 0, !30, i64 8, !16, i64 16, !12, i64 24}
-!30 = !{!"p1 omnipotent char", !10, i64 0}
-!31 = !{!29, !16, i64 16}
-!32 = !{!29, !30, i64 8}
-!33 = !{!34, !30, i64 0}
-!34 = !{!"_ZTSN6icu_779BytesTrieE", !30, i64 0, !30, i64 8, !30, i64 16, !16, i64 24}
-!35 = !{!34, !30, i64 8}
-!36 = !{!34, !30, i64 16}
-!37 = !{!34, !16, i64 24}
-!38 = !{!11, !11, i64 0}
-!39 = distinct !{!39, !23}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"_ZTS10UErrorCode", !11, i64 0}
-!42 = distinct !{!42, !23}
-!43 = !{!44, !10, i64 56}
-!44 = !{!"_ZTS12UDataSwapper", !11, i64 0, !11, i64 1, !11, i64 2, !11, i64 3, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88}
-!45 = !{!44, !10, i64 48}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"char16_t", !11, i64 0}
+!28 = distinct !{!28, !23, !24}
+!29 = !{!30, !12, i64 24}
+!30 = !{!"_ZTSN6icu_7722BytesDictionaryMatcherE", !8, i64 0, !31, i64 8, !16, i64 16, !12, i64 24}
+!31 = !{!"p1 omnipotent char", !10, i64 0}
+!32 = !{!30, !16, i64 16}
+!33 = !{!30, !31, i64 8}
+!34 = !{!35, !31, i64 0}
+!35 = !{!"_ZTSN6icu_779BytesTrieE", !31, i64 0, !31, i64 8, !31, i64 16, !16, i64 24}
+!36 = !{!35, !31, i64 8}
+!37 = !{!35, !31, i64 16}
+!38 = !{!35, !16, i64 24}
+!39 = !{!11, !11, i64 0}
+!40 = distinct !{!40, !23, !24}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"_ZTS10UErrorCode", !11, i64 0}
+!43 = distinct !{!43, !23, !24}
+!44 = !{!45, !10, i64 56}
+!45 = !{!"_ZTS12UDataSwapper", !11, i64 0, !11, i64 1, !11, i64 2, !11, i64 3, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88}
+!46 = !{!45, !10, i64 48}

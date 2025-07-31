@@ -314,7 +314,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %169, ptr %19, align 4, !tbaa !3
   store i32 %.5655, ptr %17, align 4, !tbaa !3
   call void @dcopy_(ptr noundef nonnull %18, ptr noundef %gep804, ptr noundef nonnull @c__1, ptr noundef %gep800, ptr noundef nonnull @c__1) #5
-  br label %110
+  br label %110, !llvm.loop !9
 
 .thread:                                          ; preds = %177, %182, %108
   %.2652 = phi i32 [ %.0650, %108 ], [ %.5655, %182 ], [ %.5655, %177 ]
@@ -517,7 +517,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store double %320, ptr %gep968, align 8, !tbaa !7
   %indvars.iv.next872 = add nuw nsw i64 %indvars.iv871, 1
   %exitcond875.not = icmp eq i64 %indvars.iv.next872, %wide.trip.count874
-  br i1 %exitcond875.not, label %.loopexit771, label %317, !llvm.loop !9
+  br i1 %exitcond875.not, label %.loopexit771, label %317, !llvm.loop !11
 
 .loopexit771:                                     ; preds = %317, %309, %304
   %321 = phi i32 [ %295, %309 ], [ %.pre893, %304 ], [ %295, %317 ]
@@ -593,7 +593,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store double %362, ptr %gep966, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit772, label %350, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit772, label %350, !llvm.loop !13
 
 .sink.split:                                      ; preds = %.loopexit771, %98
   %.sink988 = phi i64 [ %99, %98 ], [ %322, %.loopexit771 ]
@@ -655,7 +655,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.1651730 = phi i32 [ %.2652, %.loopexit772 ], [ %.1651.ph, %364 ]
   %396 = add i32 %395, %.0636.neg732
   %.pre = load i32, ptr %1, align 4, !tbaa !3
-  br label %37
+  br label %37, !llvm.loop !14
 
 397:                                              ; preds = %43, %46
   %398 = sub i32 0, %39
@@ -719,7 +719,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %430 = load i32, ptr %13, align 4, !tbaa !3
   %431 = sext i32 %430 to i64
   %.not719.not = icmp slt i64 %indvars.iv876, %431
-  br i1 %.not719.not, label %418, label %._crit_edge, !llvm.loop !12
+  br i1 %.not719.not, label %418, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %418, %409
   %432 = icmp sgt i32 %.1647827, 1
@@ -751,7 +751,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %449 = icmp sgt i32 %447, 0
   %450 = icmp slt i32 %447, 2
   %.in717 = select i1 %448, i1 %449, i1 %450
-  br i1 %.in717, label %409, label %._crit_edge830.loopexit, !llvm.loop !13
+  br i1 %.in717, label %409, label %._crit_edge830.loopexit, !llvm.loop !16
 
 ._crit_edge830.loopexit:                          ; preds = %445
   %.pre895 = load i32, ptr %1, align 4, !tbaa !3
@@ -1072,7 +1072,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %652 = getelementptr inbounds double, ptr %31, i64 %651
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %649, ptr noundef nonnull @c__1, ptr noundef %652, ptr noundef nonnull @c__1) #5
   %.pre899 = load i32, ptr %18, align 4, !tbaa !3
-  br label %.preheader
+  br label %.preheader, !llvm.loop !17
 
 653:                                              ; preds = %630
   store i32 %632, ptr %23, align 4, !tbaa !3
@@ -1272,7 +1272,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %794 = fdiv double %793, %792
   store double %794, ptr %gep983, align 8, !tbaa !7
   %exitcond887.not = icmp eq i64 %indvars.iv.next884, %wide.trip.count886
-  br i1 %exitcond887.not, label %.sink.split989, label %791, !llvm.loop !14
+  br i1 %exitcond887.not, label %.sink.split989, label %791, !llvm.loop !18
 
 795:                                              ; preds = %753
   %796 = load i32, ptr %18, align 4, !tbaa !3
@@ -1352,7 +1352,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %indvars.iv.next880 = add nsw i64 %indvars.iv879, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next880 to i32
   %exitcond882.not = icmp eq i32 %828, %lftr.wideiv
-  br i1 %exitcond882.not, label %.loopexit770, label %829, !llvm.loop !15
+  br i1 %exitcond882.not, label %.loopexit770, label %829, !llvm.loop !19
 
 .sink.split989:                                   ; preds = %791, %775, %783, %522
   %.sink = phi i32 [ %531, %522 ], [ %765, %783 ], [ %.pre903, %775 ], [ %765, %791 ]
@@ -1423,7 +1423,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %or.cond943 = select i1 %.not697, i1 %880, i1 false
   %881 = icmp sgt i32 %878, %.pre897.pre
   %or.cond944 = select i1 %or.cond943, i1 true, i1 %881
-  br i1 %or.cond944, label %._crit_edge1014, label %.lr.ph1013
+  br i1 %or.cond944, label %._crit_edge1014, label %.lr.ph1013, !llvm.loop !20
 
 ._crit_edge1014:                                  ; preds = %876, %454
   %.pre897.lcssa = phi i32 [ %455, %454 ], [ %.pre897.pre, %876 ]
@@ -1482,7 +1482,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %905 = load i32, ptr %14, align 4, !tbaa !3
   %906 = sext i32 %905 to i64
   %.not706.not = icmp slt i64 %indvars.iv888, %906
-  br i1 %.not706.not, label %.lr.ph842, label %._crit_edge843.loopexit, !llvm.loop !16
+  br i1 %.not706.not, label %.lr.ph842, label %._crit_edge843.loopexit, !llvm.loop !21
 
 ._crit_edge843.loopexit:                          ; preds = %.lr.ph842
   %.pre904 = load i32, ptr %21, align 4, !tbaa !3
@@ -1524,7 +1524,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %929 = icmp sge i32 %926, %928
   %930 = icmp sle i32 %926, %928
   %.in = select i1 %927, i1 %929, i1 %930
-  br i1 %.in, label %887, label %._crit_edge848.loopexit, !llvm.loop !17
+  br i1 %.in, label %887, label %._crit_edge848.loopexit, !llvm.loop !22
 
 ._crit_edge848.loopexit:                          ; preds = %924
   %.pre906 = load i32, ptr %18, align 4, !tbaa !3
@@ -1603,11 +1603,16 @@ attributes #5 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !12, !10}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12, !10}
 !14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
+!15 = distinct !{!15, !12, !10}
+!16 = distinct !{!16, !12, !10}
 !17 = distinct !{!17, !10}
+!18 = distinct !{!18, !12, !10}
+!19 = distinct !{!19, !12, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !12, !10}
+!22 = distinct !{!22, !12, !10}

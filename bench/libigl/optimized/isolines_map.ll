@@ -119,17 +119,17 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %37 = getelementptr inbounds double, ptr %35, i64 %36
   %38 = mul nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.us.us, %18
   %39 = getelementptr inbounds nuw double, ptr %29, i64 %38
-  %40 = load double, ptr %39, align 8, !tbaa !20
-  store double %40, ptr %37, align 8, !tbaa !20
+  %40 = load double, ptr %39, align 8, !tbaa !21
+  store double %40, ptr %37, align 8, !tbaa !21
   %41 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.us.us, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.us.us = icmp eq i64 %41, %23
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.us.us, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IKS2_Li1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.us.us, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.us.us, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IKS2_Li1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.us.us, !llvm.loop !23
 
 _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IKS2_Li1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.us.us
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, 1
   %42 = add nuw nsw i32 %.02244.us.us, 1
   %exitcond112.not = icmp eq i32 %42, %2
-  br i1 %exitcond112.not, label %._crit_edge.us, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader.us.us, !llvm.loop !23
+  br i1 %exitcond112.not, label %._crit_edge.us, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader.us.us, !llvm.loop !24
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i26.preheader.us.us.preheader: ; preds = %._crit_edge.us
   %sext = shl i64 %indvars.iv.next110, 32
@@ -147,17 +147,17 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IKS2_
   %45 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i27.us.us, %25
   %46 = getelementptr inbounds double, ptr %44, i64 %45
   %47 = getelementptr inbounds nuw double, ptr %1, i64 %.05.i.i.i.i.i.i.i.i.i.i27.us.us
-  %48 = load double, ptr %47, align 8, !tbaa !20
-  store double %48, ptr %46, align 8, !tbaa !20
+  %48 = load double, ptr %47, align 8, !tbaa !21
+  store double %48, ptr %46, align 8, !tbaa !21
   %49 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i27.us.us, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i28.us.us = icmp eq i64 %49, %23
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i28.us.us, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.us.us, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i28.us.us, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.us.us, !llvm.loop !25
 
 _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i26.us.us
   %indvars.iv.next114 = add nsw i64 %indvars.iv113, 1
   %50 = add nuw nsw i32 %.046.us.us, 1
   %exitcond116.not = icmp eq i32 %50, %3
-  br i1 %exitcond116.not, label %.loopexit.us.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.preheader.us.us, !llvm.loop !25
+  br i1 %exitcond116.not, label %.loopexit.us.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.preheader.us.us, !llvm.loop !26
 
 .preheader42.lr.ph.split:                         ; preds = %.preheader42.lr.ph
   br i1 %27, label %._crit_edge52, label %.preheader42.us63
@@ -176,7 +176,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
 ..loopexit_crit_edge.us78:                        ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit.us67.preheader, %..loopexit_crit_edge.us78.loopexit, %.preheader42.us63
   %.3.us70 = phi i32 [ %.02450.us65, %.preheader42.us63 ], [ %51, %..loopexit_crit_edge.us78.loopexit ], [ %52, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit.us67.preheader ]
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, %18
-  br i1 %exitcond105.not, label %._crit_edge52, label %.preheader42.us63, !llvm.loop !26
+  br i1 %exitcond105.not, label %._crit_edge52, label %.preheader42.us63, !llvm.loop !27
 
 .preheader.us71:                                  ; preds = %.preheader42.us63
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.preheader.us.us81.preheader, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit.us67.preheader
@@ -200,17 +200,17 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   %55 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i27.us.us85, %25
   %56 = getelementptr inbounds double, ptr %54, i64 %55
   %57 = getelementptr inbounds nuw double, ptr %1, i64 %.05.i.i.i.i.i.i.i.i.i.i27.us.us85
-  %58 = load double, ptr %57, align 8, !tbaa !20
-  store double %58, ptr %56, align 8, !tbaa !20
+  %58 = load double, ptr %57, align 8, !tbaa !21
+  store double %58, ptr %56, align 8, !tbaa !21
   %59 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i27.us.us85, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i28.us.us86 = icmp eq i64 %59, %23
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i28.us.us86, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us87, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.us.us84, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i28.us.us86, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us87, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.us.us84, !llvm.loop !25
 
 _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us87: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i26.us.us84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %60 = add nuw nsw i32 %.046.us.us82, 1
   %exitcond.not = icmp eq i32 %60, %3
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us78.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.preheader.us.us81, !llvm.loop !25
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us78.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i26.preheader.us.us81, !llvm.loop !26
 
 ._crit_edge52:                                    ; preds = %..loopexit_crit_edge.us78, %.loopexit.us, %.preheader42.lr.ph.split, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   ret void
@@ -227,7 +227,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0E
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !27
+  %8 = load i64, ptr %7, align 8, !tbaa !28
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
@@ -267,7 +267,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i: ; preds = %13
 
 22:                                               ; preds = %.sink.split, %4
   store i64 %2, ptr %5, align 8, !tbaa !4
-  store i64 %3, ptr %7, align 8, !tbaa !27
+  store i64 %3, ptr %7, align 8, !tbaa !28
   ret void
 }
 
@@ -320,14 +320,15 @@ attributes #9 = { nounwind allocsize(0) }
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
 !16 = distinct !{!16, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18, !19, !20}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"double", !8, i64 0}
-!22 = distinct !{!22, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"double", !8, i64 0}
 !23 = distinct !{!23, !18, !19}
-!24 = distinct !{!24, !18}
+!24 = distinct !{!24, !18, !19, !20}
 !25 = distinct !{!25, !18, !19}
-!26 = distinct !{!26, !18, !19}
-!27 = !{!5, !10, i64 16}
+!26 = distinct !{!26, !18, !19, !20}
+!27 = distinct !{!27, !18, !19, !20}
+!28 = !{!5, !10, i64 16}

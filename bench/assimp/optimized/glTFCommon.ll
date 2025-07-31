@@ -97,7 +97,7 @@ define hidden noundef zeroext i1 @_ZN10glTFCommon4Util12ParseDataURIEPKcmRNS0_7D
 35:                                               ; preds = %.lr.ph106
   %36 = add i64 %.3105, 1
   %exitcond116.not = icmp eq i64 %36, %1
-  br i1 %exitcond116.not, label %.critedge4, label %.lr.ph106, !llvm.loop !5
+  br i1 %exitcond116.not, label %.critedge4, label %.lr.ph106, !llvm.loop !6
 
 .critedge4:                                       ; preds = %35, %.lr.ph106, %.lr.ph106, %30
   %.3.lcssa = phi i64 [ %31, %30 ], [ %.3105, %.lr.ph106 ], [ %.3105, %.lr.ph106 ], [ %1, %35 ]
@@ -124,7 +124,7 @@ define hidden noundef zeroext i1 @_ZN10glTFCommon4Util12ParseDataURIEPKcmRNS0_7D
 
 48:                                               ; preds = %43, %46, %40
   %49 = icmp ult i64 %.3.lcssa, %1
-  br i1 %49, label %.lr.ph113, label %.critedge98, !llvm.loop !6
+  br i1 %49, label %.lr.ph113, label %.critedge98, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.lr.ph113
   store i8 0, ptr %27, align 1
@@ -206,7 +206,8 @@ attributes #2 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}

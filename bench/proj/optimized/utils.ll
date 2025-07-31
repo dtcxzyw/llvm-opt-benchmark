@@ -216,7 +216,7 @@ define hidden void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef cap
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = add i8 %24, -48
   %or.cond.i = icmp ult i8 %25, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %_ZL8parseIntRPKc.exit, !llvm.loop !9
+  br i1 %or.cond.i, label %.lr.ph.i, label %_ZL8parseIntRPKc.exit, !llvm.loop !10
 
 _ZL8parseIntRPKc.exit:                            ; preds = %22
   %26 = icmp slt i32 %20, 0
@@ -251,7 +251,7 @@ _ZL8parseIntRPKc.exit:                            ; preds = %22
   %40 = load i8, ptr %39, align 1, !tbaa !4
   %41 = add i8 %40, -48
   %or.cond.i396 = icmp ult i8 %41, 10
-  br i1 %or.cond.i396, label %.lr.ph.i393, label %_ZL8parseIntRPKc.exit397, !llvm.loop !9
+  br i1 %or.cond.i396, label %.lr.ph.i393, label %_ZL8parseIntRPKc.exit397, !llvm.loop !10
 
 _ZL8parseIntRPKc.exit397:                         ; preds = %38
   %42 = icmp slt i32 %36, 0
@@ -685,7 +685,7 @@ _ZL8parseIntRPKc.exit397:                         ; preds = %38
   %175 = load i8, ptr %174, align 1, !tbaa !4
   %176 = add i8 %175, -48
   %or.cond.i404 = icmp ult i8 %176, 10
-  br i1 %or.cond.i404, label %.lr.ph.i401, label %_ZL8parseIntRPKc.exit405, !llvm.loop !9
+  br i1 %or.cond.i404, label %.lr.ph.i401, label %_ZL8parseIntRPKc.exit405, !llvm.loop !10
 
 _ZL8parseIntRPKc.exit405:                         ; preds = %173
   %177 = icmp slt i32 %171, 0
@@ -889,7 +889,7 @@ _ZL8parseIntRPKc.exit405:                         ; preds = %173
   br i1 %.not384, label %.critedge386, label %.critedge386.sink.split
 
 .critedge386.sink.split:                          ; preds = %.lr.ph.i401, %.lr.ph.i, %.lr.ph.i393, %.critedge, %223, %214, %204, %195, %186, %180, %_ZL8parseIntRPKc.exit405, %152, %143, %133, %124, %113, %104, %94, %85, %74, %65, %55, %46, %_ZL8parseIntRPKc.exit397, %_ZL8parseIntRPKc.exit, %27, %3
-  %233 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %233 = load ptr, ptr @stderr, align 8, !tbaa !11
   %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str, ptr noundef nonnull %1) #6
   br label %.critedge386
 
@@ -917,9 +917,10 @@ attributes #6 = { cold nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!13 = !{!"any pointer", !5, i64 0}

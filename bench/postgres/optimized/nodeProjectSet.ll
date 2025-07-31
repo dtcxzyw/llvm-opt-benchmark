@@ -188,7 +188,7 @@ ExecProcNode.exit:                                ; preds = %18, %23
 34:                                               ; preds = %32
   %35 = load ptr, ptr %7, align 8
   tail call void @MemoryContextReset(ptr noundef %35) #2
-  br label %18
+  br label %18, !llvm.loop !7
 
 .loopexit:                                        ; preds = %32, %ExecProcNode.exit, %28, %12
   %.0 = phi ptr [ %13, %12 ], [ %33, %32 ], [ null, %ExecProcNode.exit ], [ null, %28 ]
@@ -330,7 +330,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr noundef captures(none) in
   %49 = load i32, ptr %15, align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next45, %50
-  br i1 %51, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !7
+  br i1 %51, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
@@ -376,7 +376,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr noundef captures(none) in
   %74 = load i32, ptr %15, align 8
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
+  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %73, %48
   %.039.lcssa = phi i1 [ %.1.us, %48 ], [ %.1, %73 ]
@@ -413,7 +413,9 @@ attributes #2 = { nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !8, !9}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8, !11}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !10, !8}

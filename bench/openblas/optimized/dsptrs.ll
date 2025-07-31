@@ -227,7 +227,7 @@ define void @dsptrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.1431 = phi i32 [ %57, %._crit_edge522 ], [ %72, %._crit_edge ]
   %.1 = phi i32 [ %46, %._crit_edge522 ], [ %108, %._crit_edge ]
   %110 = icmp slt i32 %.1431, 1
-  br i1 %110, label %.preheader475, label %.lr.ph482
+  br i1 %110, label %.preheader475, label %.lr.ph482, !llvm.loop !12
 
 111:                                              ; preds = %.lr.ph485, %147
   %.2484 = phi i32 [ 1, %.lr.ph485 ], [ %.3, %147 ]
@@ -295,7 +295,7 @@ define void @dsptrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %148 = add nuw nsw i32 %.2432483, %.sink551
   %149 = load i32, ptr %1, align 4, !tbaa !3
   %150 = icmp sgt i32 %148, %149
-  br i1 %150, label %.loopexit, label %111
+  br i1 %150, label %.loopexit, label %111, !llvm.loop !13
 
 151:                                              ; preds = %.lr.ph502, %257
   %152 = phi i32 [ %20, %.lr.ph502 ], [ %258, %257 ]
@@ -464,7 +464,7 @@ define void @dsptrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %242, ptr %gep550.lver.orig, align 8, !tbaa !7
   %indvars.iv.next512.lver.orig = add nuw nsw i64 %indvars.iv511.lver.orig, 1
   %exitcond515.not.lver.orig = icmp eq i64 %indvars.iv.next512.lver.orig, %wide.trip.count514
-  br i1 %exitcond515.not.lver.orig, label %._crit_edge490, label %.lr.ph489.lver.orig, !llvm.loop !11
+  br i1 %exitcond515.not.lver.orig, label %._crit_edge490, label %.lr.ph489.lver.orig, !llvm.loop !14
 
 .lr.ph489.ph:                                     ; preds = %.lr.ph489.lver.check
   %243 = shl nuw nsw i64 %153, 3
@@ -491,7 +491,7 @@ define void @dsptrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %253, ptr %gep550, align 8, !tbaa !7
   %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
   %exitcond515.not = icmp eq i64 %indvars.iv.next512, %wide.trip.count514
-  br i1 %exitcond515.not, label %._crit_edge490, label %.lr.ph489, !llvm.loop !11
+  br i1 %exitcond515.not, label %._crit_edge490, label %.lr.ph489, !llvm.loop !14
 
 ._crit_edge490:                                   ; preds = %.lr.ph489.lver.orig, %.lr.ph489, %217
   %254 = sub nsw i32 %218, %.4434499
@@ -507,7 +507,7 @@ define void @dsptrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.5 = add nsw i32 %.5.in, 1
   %.4434.neg = sub nsw i32 0, %259
   %260 = icmp sgt i32 %259, %258
-  br i1 %260, label %._crit_edge503, label %151
+  br i1 %260, label %._crit_edge503, label %151, !llvm.loop !15
 
 ._crit_edge503:                                   ; preds = %257
   %261 = icmp slt i32 %258, 1
@@ -629,7 +629,7 @@ define void @dsptrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.7437 = phi i32 [ %298, %297 ], [ %.neg464, %328 ]
   %.7 = phi i32 [ %271, %297 ], [ %330, %328 ]
   %332 = icmp slt i32 %.7437, 1
-  br i1 %332, label %.loopexit, label %268
+  br i1 %332, label %.loopexit, label %268, !llvm.loop !16
 
 .loopexit:                                        ; preds = %147, %331, %.preheader475, %._crit_edge503, %32, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
@@ -679,6 +679,11 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}

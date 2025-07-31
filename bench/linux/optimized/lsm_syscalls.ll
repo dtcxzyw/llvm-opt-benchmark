@@ -287,7 +287,7 @@ define dso_local range(i64 -22, 4294967296) i64 @__ia32_sys_lsm_list_modules(ptr
   %55 = add nuw i32 %40, 1
   %56 = load i32, ptr @lsm_active_cnt, align 4
   %57 = icmp ult i32 %55, %56
-  br i1 %57, label %.preheader, label %.loopexit3.loopexit, !llvm.loop !9
+  br i1 %57, label %.preheader, label %.loopexit3.loopexit, !llvm.loop !13
 
 .loopexit3.loopexit:                              ; preds = %53
   %58 = zext i32 %56 to i64
@@ -330,6 +330,8 @@ attributes #6 = { nounwind }
 !6 = !{i64 2155762968}
 !7 = !{i64 2155765013}
 !8 = !{i64 2155766073}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !10, !11, !12}

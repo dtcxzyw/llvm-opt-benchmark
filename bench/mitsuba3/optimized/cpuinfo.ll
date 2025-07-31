@@ -767,8 +767,8 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %624 = phi ptr [ %638, %635 ], [ %492, %622 ]
   %625 = phi ptr [ %636, %635 ], [ %492, %622 ]
   %626 = phi i8 [ %637, %635 ], [ 0, %622 ]
-  %627 = load i8, ptr %624, align 1, !tbaa !26
-  store i8 0, ptr %624, align 1, !tbaa !26
+  %627 = load i8, ptr %624, align 1, !tbaa !27
+  store i8 0, ptr %624, align 1, !tbaa !27
   switch i8 %627, label %633 [
     i8 0, label %639
     i8 32, label %628
@@ -780,7 +780,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
 
 630:                                              ; preds = %628
   %631 = getelementptr inbounds nuw i8, ptr %624, i64 1
-  %632 = load i8, ptr %631, align 1, !tbaa !26
+  %632 = load i8, ptr %631, align 1, !tbaa !27
   switch i8 %632, label %633 [
     i8 32, label %635
     i8 64, label %635
@@ -788,23 +788,23 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
 
 633:                                              ; preds = %630, %623
   %634 = getelementptr inbounds nuw i8, ptr %625, i64 1
-  store i8 %627, ptr %625, align 1, !tbaa !26
+  store i8 %627, ptr %625, align 1, !tbaa !27
   br label %635
 
 635:                                              ; preds = %633, %630, %630, %628
   %636 = phi ptr [ %625, %628 ], [ %625, %630 ], [ %634, %633 ], [ %625, %630 ]
   %637 = phi i8 [ 64, %628 ], [ %626, %630 ], [ %627, %633 ], [ %626, %630 ]
   %638 = getelementptr inbounds nuw i8, ptr %624, i64 1
-  br label %623, !llvm.loop !27
+  br label %623, !llvm.loop !28
 
 639:                                              ; preds = %623
-  store i8 0, ptr %625, align 1, !tbaa !26
+  store i8 0, ptr %625, align 1, !tbaa !27
   %640 = tail call i64 @sysconf(i32 noundef 84) #6
   %641 = tail call i64 @llvm.smax.i64(i64 %640, i64 1)
   %642 = trunc i64 %641 to i32
   %643 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %642, ptr %643, align 8, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) @_ZN6asmjit9_abi_1_10L13cpuInfoGlobalE, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false), !tbaa.struct !29
+  store i32 %642, ptr %643, align 8, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) @_ZN6asmjit9_abi_1_10L13cpuInfoGlobalE, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false), !tbaa.struct !30
   store i1 true, ptr @_ZN6asmjit9_abi_1_10L18cpuInfoInitializedE, align 4
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #6
   br label %644
@@ -874,12 +874,13 @@ attributes #6 = { nounwind }
 !21 = !{!22, !22, i64 0}
 !22 = !{!"long", !6, i64 0}
 !23 = !{i64 2618}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!6, !6, i64 0}
-!27 = distinct !{!27, !25}
-!28 = !{!4, !10, i64 32}
-!29 = !{i64 0, i64 1, !30, i64 1, i64 1, !31, i64 2, i64 1, !32, i64 3, i64 1, !26, i64 4, i64 4, !19, i64 8, i64 4, !19, i64 12, i64 4, !19, i64 16, i64 4, !19, i64 20, i64 4, !19, i64 24, i64 4, !19, i64 28, i64 4, !19, i64 32, i64 4, !19, i64 36, i64 16, !26, i64 52, i64 64, !26, i64 120, i64 32, !26}
-!30 = !{!5, !5, i64 0}
-!31 = !{!8, !8, i64 0}
-!32 = !{!9, !9, i64 0}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!6, !6, i64 0}
+!28 = distinct !{!28, !25, !26}
+!29 = !{!4, !10, i64 32}
+!30 = !{i64 0, i64 1, !31, i64 1, i64 1, !32, i64 2, i64 1, !33, i64 3, i64 1, !27, i64 4, i64 4, !19, i64 8, i64 4, !19, i64 12, i64 4, !19, i64 16, i64 4, !19, i64 20, i64 4, !19, i64 24, i64 4, !19, i64 28, i64 4, !19, i64 32, i64 4, !19, i64 36, i64 16, !27, i64 52, i64 64, !27, i64 120, i64 32, !27}
+!31 = !{!5, !5, i64 0}
+!32 = !{!8, !8, i64 0}
+!33 = !{!9, !9, i64 0}

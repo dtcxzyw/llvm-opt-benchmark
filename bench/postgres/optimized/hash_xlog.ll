@@ -1382,7 +1382,7 @@ BufferGetPage.exit.i43:                           ; preds = %722, %716
   %754 = sub i64 %753, %733
   %755 = load i64, ptr %15, align 8
   %756 = icmp ult i64 %754, %755
-  br i1 %756, label %.lr.ph.i46, label %._crit_edge.i, !llvm.loop !8
+  br i1 %756, label %.lr.ph.i46, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %750, %730
   %757 = getelementptr inbounds nuw i8, ptr %694, i64 11
@@ -2274,6 +2274,7 @@ attributes #6 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

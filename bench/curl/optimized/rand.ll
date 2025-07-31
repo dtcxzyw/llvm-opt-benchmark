@@ -46,7 +46,7 @@ define hidden i32 @Curl_rand_bytes(ptr noundef %0, ptr noundef writeonly capture
   %14 = sub i64 %.01533, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %13, %3, %.thread
   %.2 = phi i32 [ %6, %.thread ], [ 43, %3 ], [ 0, %13 ]
@@ -109,7 +109,7 @@ define hidden i32 @Curl_rand_hex(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %19 = sub i64 %.01533.i, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %Curl_rand_bytes.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %Curl_rand_bytes.exit, label %.lr.ph.i, !llvm.loop !11
 
 Curl_rand_bytes.exit:                             ; preds = %18
   call void @Curl_hexencode(ptr noundef nonnull %5, i64 noundef %9, ptr noundef %1, i64 noundef %2) #4
@@ -144,7 +144,7 @@ define hidden i32 @Curl_rand_alnum(ptr noundef %0, ptr noundef writeonly capture
 7:                                                ; preds = %5
   %8 = load i32, ptr %4, align 4, !tbaa !3
   %9 = icmp ugt i32 %8, -5
-  br i1 %9, label %5, label %10, !llvm.loop !11
+  br i1 %9, label %5, label %10, !llvm.loop !12
 
 10:                                               ; preds = %7
   %11 = urem i32 %8, 62
@@ -155,7 +155,7 @@ define hidden i32 @Curl_rand_alnum(ptr noundef %0, ptr noundef writeonly capture
   store i8 %14, ptr %.01120, align 1, !tbaa !7
   %.010 = add i64 %.01021, -1
   %.not = icmp eq i64 %.010, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %10, %3
   %.011.lcssa = phi ptr [ %1, %3 ], [ %15, %10 ]
@@ -189,8 +189,9 @@ attributes #4 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

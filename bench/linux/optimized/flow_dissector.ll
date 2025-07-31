@@ -239,11 +239,11 @@ define dso_local void @skb_flow_dissector_init(ptr noundef writeonly captures(no
 .loopexit:                                        ; preds = %22
   %32 = and i64 %23, 1
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.loopexit.thread, label %34, !prof !14
+  br i1 %33, label %.loopexit.thread, label %34, !prof !15
 
 .loopexit.thread:                                 ; preds = %3, %.loopexit
-  tail call void asm sideeffect "941: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 941b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 941) #12, !srcloc !15
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 70, i32 0, i64 12) #12, !srcloc !16
+  tail call void asm sideeffect "941: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 941b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 941) #12, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 70, i32 0, i64 12) #12, !srcloc !17
   unreachable
 
 34:                                               ; preds = %.loopexit
@@ -252,8 +252,8 @@ define dso_local void @skb_flow_dissector_init(ptr noundef writeonly captures(no
   br i1 %36, label %37, label %38, !prof !5
 
 37:                                               ; preds = %34
-  tail call void asm sideeffect "942: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 942b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 942) #12, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 72, i32 0, i64 12) #12, !srcloc !18
+  tail call void asm sideeffect "942: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 942b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 942) #12, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 72, i32 0, i64 12) #12, !srcloc !19
   unreachable
 
 38:                                               ; preds = %34
@@ -311,7 +311,7 @@ define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 no
 
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  store i32 0, ptr %6, align 4, !annotation !19
+  store i32 0, ptr %6, align 4, !annotation !20
   %25 = add i32 %11, %1
   %26 = sub i32 %23, %25
   %27 = icmp slt i32 %26, 4
@@ -351,7 +351,7 @@ define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 no
 define dso_local void @skb_flow_get_icmp_tci(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.icmphdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  store i64 0, ptr %6, align 8, !annotation !19
+  store i64 0, ptr %6, align 8, !annotation !20
   %7 = sub i32 %4, %3
   %8 = icmp slt i32 %7, 8
   br i1 %8, label %9, label %14, !prof !5
@@ -730,7 +730,7 @@ define dso_local i32 @bpf_flow_dissect(ptr noundef %0, ptr noundef %1, i16 nound
   store i32 %5, ptr %12, align 4
   tail call void @migrate_disable() #12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @bpf_stats_enabled_key, i32 2) #12
-          to label %26 [label %13], !srcloc !20
+          to label %26 [label %13], !srcloc !21
 
 13:                                               ; preds = %6
   %14 = tail call i64 @sched_clock() #12
@@ -740,13 +740,13 @@ define dso_local i32 @bpf_flow_dissect(ptr noundef %0, ptr noundef %1, i16 nound
   %18 = tail call i32 %17(ptr noundef %1, ptr noundef nonnull %15) #12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %20) #13, !srcloc !21
+  %21 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %20) #13, !srcloc !22
   %22 = inttoptr i64 %21 to ptr
-  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %22, ptr elementtype(i64) %22) #12, !srcloc !22
+  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %22, ptr elementtype(i64) %22) #12, !srcloc !23
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = tail call i64 @sched_clock() #12
   %25 = sub i64 %24, %14
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 %25, ptr nonnull elementtype(i64) %23) #12, !srcloc !23
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 %25, ptr nonnull elementtype(i64) %23) #12, !srcloc !24
   br label %31
 
 26:                                               ; preds = %6
@@ -882,12 +882,12 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 93:                                               ; preds = %90, %62
   %94 = phi ptr [ %0, %62 ], [ %92, %90 ]
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %.thread, label %96, !prof !14
+  br i1 %95, label %.thread, label %96, !prof !15
 
 .thread:                                          ; preds = %84, %93
-  tail call void asm sideeffect "959: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 959b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 959) #12, !srcloc !24
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1096, i32 2307, i64 12) #12, !srcloc !25
-  tail call void asm sideeffect "960: nop\0A\09.pushsection .discard.instr_end\0A\09.long 960b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 960) #12, !srcloc !26
+  tail call void asm sideeffect "959: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 959b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 959) #12, !srcloc !25
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1096, i32 2307, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "960: nop\0A\09.pushsection .discard.instr_end\0A\09.long 960b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 960) #12, !srcloc !27
   br label %220
 
 96:                                               ; preds = %93
@@ -905,7 +905,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 .thread61:                                        ; preds = %96, %99
   %103 = phi ptr [ %101, %99 ], [ %97, %96 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %26) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %26, i8 0, i64 56, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %26, i8 0, i64 56, i1 false), !annotation !20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #12
   store ptr %26, ptr %27, align 8
   %104 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1207,7 +1207,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 290:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %28) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, i8 0, i64 20, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, i8 0, i64 20, i1 false), !annotation !20
   %291 = sub i32 %65, %284
   %292 = icmp slt i32 %291, 20
   br i1 %292, label %293, label %297, !prof !5
@@ -1311,7 +1311,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 353:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %29, i8 0, i64 40, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %29, i8 0, i64 40, i1 false), !annotation !20
   %354 = sub i32 %65, %284
   %355 = icmp slt i32 %354, 40
   br i1 %355, label %356, label %360, !prof !5
@@ -1415,7 +1415,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 413:                                              ; preds = %282, %282
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #12
-  store i32 0, ptr %30, align 4, !annotation !19
+  store i32 0, ptr %30, align 4, !annotation !20
   %414 = icmp eq i32 %289, 33
   %415 = and i1 %256, %414
   br i1 %415, label %416, label %419
@@ -1546,7 +1546,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 497:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #12
-  store i64 0, ptr %31, align 8, !annotation !19
+  store i64 0, ptr %31, align 8, !annotation !20
   %498 = sub i32 %65, %284
   %499 = icmp slt i32 %498, 8
   br i1 %499, label %500, label %504, !prof !5
@@ -1639,7 +1639,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 549:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, i8 0, i64 16, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, i8 0, i64 16, i1 false), !annotation !20
   %550 = sub i32 %65, %284
   %551 = icmp slt i32 %550, 16
   br i1 %551, label %552, label %556, !prof !5
@@ -1673,7 +1673,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %569 = and i32 %568, 2062
   %570 = icmp eq i32 %569, 2062
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #12
-  store i32 0, ptr %25, align 4, !annotation !19
+  store i32 0, ptr %25, align 4, !annotation !20
   br i1 %570, label %573, label %571, !prof !5
 
 571:                                              ; preds = %564
@@ -1699,7 +1699,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 578:                                              ; preds = %282, %282
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #12
-  store i32 0, ptr %24, align 4, !annotation !19
+  store i32 0, ptr %24, align 4, !annotation !20
   %579 = load i64, ptr %2, align 8
   %580 = and i64 %579, 8192
   %581 = icmp eq i64 %580, 0
@@ -1808,9 +1808,9 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 645:                                              ; preds = %282, %282
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %22, i8 0, i64 20, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %22, i8 0, i64 20, i1 false), !annotation !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #12
-  store i64 0, ptr %23, align 8, !annotation !19
+  store i64 0, ptr %23, align 8, !annotation !20
   %646 = load i64, ptr %2, align 8
   %647 = and i64 %646, 512
   %648 = icmp eq i64 %647, 0
@@ -1929,7 +1929,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 715:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %21, i8 0, i64 24, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %21, i8 0, i64 24, i1 false), !annotation !20
   %716 = sub i32 %65, %284
   %717 = icmp slt i32 %716, 24
   br i1 %717, label %718, label %722, !prof !5
@@ -1978,7 +1978,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 742:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %33) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %33, i8 0, i64 34, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %33, i8 0, i64 34, i1 false), !annotation !20
   %743 = sub i32 %65, %284
   %744 = icmp slt i32 %743, 34
   br i1 %744, label %750, label %745, !prof !5
@@ -2012,7 +2012,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 758:                                              ; preds = %282, %282
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %34) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %34, i8 0, i64 6, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %34, i8 0, i64 6, i1 false), !annotation !20
   %759 = sub i32 %65, %284
   %760 = icmp slt i32 %759, 6
   br i1 %760, label %761, label %765, !prof !5
@@ -2047,7 +2047,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 776:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20) #12
-  store i16 0, ptr %20, align 2, !annotation !19
+  store i16 0, ptr %20, align 2, !annotation !20
   %777 = load i64, ptr %2, align 8
   %778 = and i64 %777, 2147483648
   %779 = icmp eq i64 %778, 0
@@ -2140,7 +2140,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 817:                                              ; preds = %816
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
-  store i32 0, ptr %16, align 4, !annotation !19
+  store i32 0, ptr %16, align 4, !annotation !20
   %818 = sub i32 %65, %813
   %819 = icmp slt i32 %818, 4
   br i1 %819, label %820, label %824, !prof !5
@@ -2209,7 +2209,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 857:                                              ; preds = %.thread212, %848
   %858 = phi i32 [ %847, %.thread212 ], [ %852, %848 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #12
-  store i32 0, ptr %17, align 4, !annotation !19
+  store i32 0, ptr %17, align 4, !annotation !20
   %859 = add i32 %858, %813
   %860 = sub i32 %65, %859
   %861 = icmp slt i32 %860, 4
@@ -2267,7 +2267,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 890:                                              ; preds = %887
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %18) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %18, i8 0, i64 14, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %18, i8 0, i64 14, i1 false), !annotation !20
   %891 = add i32 %888, %813
   %892 = sub i32 %65, %891
   %893 = icmp slt i32 %892, 14
@@ -2301,7 +2301,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 906:                                              ; preds = %881
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #12
-  store i32 0, ptr %19, align 4, !annotation !19
+  store i32 0, ptr %19, align 4, !annotation !20
   %907 = load i16, ptr %828, align 1
   %908 = add nuw nsw i32 %886, 4
   %909 = icmp slt i16 %907, 0
@@ -2374,7 +2374,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 945:                                              ; preds = %811, %811, %811
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %35) #12
-  store i16 0, ptr %35, align 2, !annotation !19
+  store i16 0, ptr %35, align 2, !annotation !20
   %946 = icmp eq i16 %812, -8826
   br i1 %946, label %947, label %.thread135
 
@@ -2417,7 +2417,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 969:                                              ; preds = %811
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #12
-  store i64 0, ptr %36, align 8, !annotation !19
+  store i64 0, ptr %36, align 8, !annotation !20
   %970 = icmp eq i16 %812, -8826
   br i1 %970, label %971, label %.thread139
 
@@ -2491,7 +2491,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 1006:                                             ; preds = %811
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false), !annotation !20
   %1007 = load i64, ptr %2, align 8
   %1008 = and i64 %1007, 1048576
   %1009 = icmp eq i64 %1008, 0
@@ -2547,7 +2547,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %1037 = zext i16 %1036 to i64
   %1038 = getelementptr i8, ptr %3, i64 %1037
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #12
-  store i64 0, ptr %14, align 8, !annotation !19
+  store i64 0, ptr %14, align 8, !annotation !20
   %1039 = sub i32 %65, %813
   %1040 = icmp slt i32 %1039, 8
   br i1 %1040, label %1041, label %1045, !prof !5
@@ -2604,7 +2604,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 1064:                                             ; preds = %811
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
-  store i32 0, ptr %13, align 4, !annotation !19
+  store i32 0, ptr %13, align 4, !annotation !20
   %1065 = load i64, ptr %2, align 8
   %1066 = and i64 %1065, 1073741824
   %1067 = icmp eq i64 %1066, 0
@@ -2644,7 +2644,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 1084:                                             ; preds = %811
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
-  store i64 0, ptr %12, align 8, !annotation !19
+  store i64 0, ptr %12, align 8, !annotation !20
   %1085 = load i64, ptr %2, align 8
   %1086 = and i64 %1085, 4294967296
   %1087 = icmp eq i64 %1086, 0
@@ -2684,7 +2684,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 1104:                                             ; preds = %811
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !annotation !20
   %1105 = load i64, ptr %2, align 8
   %1106 = and i64 %1105, 4294967296
   %1107 = icmp eq i64 %1106, 0
@@ -2785,7 +2785,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 1161:                                             ; preds = %1158
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  store i32 0, ptr %10, align 4, !annotation !19
+  store i32 0, ptr %10, align 4, !annotation !20
   %1162 = add i32 %1152, %1127
   %1163 = sub i32 %1160, %1162
   %1164 = icmp slt i32 %1163, 4
@@ -2838,12 +2838,12 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %.be259 = phi i32 [ %1127, %1178 ], [ %802, %808 ]
   %.be261 = phi i32 [ %1179, %1178 ], [ %809, %808 ]
   %.be262 = phi i8 [ %1128, %1178 ], [ %804, %808 ]
-  br label %282
+  br label %282, !llvm.loop !28
 
 1181:                                             ; preds = %1177
   %1182 = add i32 %814, 1
   %1183 = icmp slt i32 %1182, 16
-  br i1 %1183, label %811, label %.loopexit
+  br i1 %1183, label %811, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %1178, %808, %800, %1181, %1177, %1177, %.thread110
   %1184 = phi i16 [ %1197, %.thread110 ], [ %1126, %1177 ], [ %1126, %1177 ], [ %1126, %1181 ], [ %801, %800 ], [ %801, %808 ], [ %1126, %1178 ]
@@ -2952,11 +2952,11 @@ define dso_local i32 @flow_get_u32_dst(ptr noundef readonly captures(none) %0) #
 define dso_local range(i32 1, 0) i32 @flow_hash_from_keys(ptr noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @__flow_hash_secret_init.___once_key, i1 false) #12
-          to label %7 [label %3], !srcloc !27
+          to label %7 [label %3], !srcloc !30
 
 3:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store i64 0, ptr %2, align 8, !annotation !19
+  store i64 0, ptr %2, align 8, !annotation !20
   %4 = call zeroext i1 @__do_once_start(ptr noundef nonnull @__flow_hash_secret_init.___done, ptr noundef nonnull %2) #12
   br i1 %4, label %5, label %6, !prof !5
 
@@ -3020,7 +3020,7 @@ define dso_local range(i32 1, 0) i32 @flow_hash_from_keys(ptr noundef %0) #0 ali
   store i32 %31, ptr %32, align 4
   %34 = add nuw nsw i64 %29, 1
   %35 = icmp eq i64 %34, 4
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3095,13 +3095,13 @@ define dso_local range(i32 1, 0) i32 @__skb_get_hash_symmetric(ptr noundef %0) #
   %2 = alloca i64, align 8
   %3 = alloca %struct.flow_keys, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !20
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @__flow_hash_secret_init.___once_key, i1 false) #12
-          to label %8 [label %4], !srcloc !27
+          to label %8 [label %4], !srcloc !30
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store i64 0, ptr %2, align 8, !annotation !19
+  store i64 0, ptr %2, align 8, !annotation !20
   %5 = call zeroext i1 @__do_once_start(ptr noundef nonnull @__flow_hash_secret_init.___done, ptr noundef nonnull %2) #12
   br i1 %5, label %6, label %7, !prof !5
 
@@ -3167,7 +3167,7 @@ define dso_local range(i32 1, 0) i32 @__skb_get_hash_symmetric(ptr noundef %0) #
   store i32 %33, ptr %34, align 4
   %36 = add nuw nsw i64 %31, 1
   %37 = icmp eq i64 %36, 4
-  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.preheader, %26
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 36
@@ -3218,13 +3218,13 @@ define dso_local void @__skb_get_hash(ptr noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.flow_keys, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !20
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @__flow_hash_secret_init.___once_key, i1 false) #12
-          to label %8 [label %4], !srcloc !27
+          to label %8 [label %4], !srcloc !30
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store i64 0, ptr %2, align 8, !annotation !19
+  store i64 0, ptr %2, align 8, !annotation !20
   %5 = call zeroext i1 @__do_once_start(ptr noundef nonnull @__flow_hash_secret_init.___done, ptr noundef nonnull %2) #12
   br i1 %5, label %6, label %7, !prof !5
 
@@ -3312,7 +3312,7 @@ define internal fastcc range(i32 1, 0) i32 @___skb_get_hash(ptr noundef %0, ptr 
   store i32 %28, ptr %29, align 4
   %31 = add nuw nsw i64 %26, 1
   %32 = icmp eq i64 %31, 4
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.preheader, %21
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -3361,7 +3361,7 @@ thread-pre-split:                                 ; preds = %14, %20, %.loopexit
 define dso_local range(i32 1, 0) i32 @skb_get_hash_perturb(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.flow_keys, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !20
   %4 = call fastcc i32 @___skb_get_hash(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #12
   ret i32 %4
@@ -3394,7 +3394,7 @@ define dso_local range(i32 0, 65596) i32 @__skb_get_poff(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
-  store i8 0, ptr %5, align 1, !annotation !19
+  store i8 0, ptr %5, align 1, !annotation !20
   %16 = add nuw nsw i32 %7, 12
   %17 = sub i32 %3, %16
   %18 = icmp slt i32 %17, 1
@@ -3475,7 +3475,7 @@ define dso_local range(i32 0, 65596) i32 @skb_get_poff(ptr noundef %0) local_unn
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %10 = load i32, ptr %9, align 4
   %11 = sub i32 %8, %10
-  %12 = call i32 @__skb_get_poff(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %2, i32 noundef %11), !range !29
+  %12 = call i32 @__skb_get_poff(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %2, i32 noundef %11), !range !34
   br label %13
 
 13:                                               ; preds = %4, %1
@@ -3597,22 +3597,27 @@ attributes #13 = { nounwind memory(read) }
 !8 = !{!"branch_weights", i32 2000, i32 1}
 !9 = !{i64 2161256477, i64 2161256286, i64 2161256338, i64 2161256384, i64 2161256412}
 !10 = !{i64 2161256551, i64 2161256580, i64 2161256626, i64 2161256684, i64 2161256738, i64 2161256792, i64 2161256847, i64 2161256878}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12, !13, !14}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"branch_weights", i32 0, i32 -2147483648}
-!15 = !{i64 2161257874, i64 2161257683, i64 2161257735, i64 2161257781, i64 2161257809}
-!16 = !{i64 2161257948, i64 2161257977, i64 2161258023, i64 2161258081, i64 2161258135, i64 2161258189, i64 2161258244, i64 2161258275}
-!17 = !{i64 2161259267, i64 2161259076, i64 2161259128, i64 2161259174, i64 2161259202}
-!18 = !{i64 2161259341, i64 2161259370, i64 2161259416, i64 2161259474, i64 2161259528, i64 2161259582, i64 2161259637, i64 2161259668}
-!19 = !{!"auto-init"}
-!20 = !{i64 1008882, i64 1008926, i64 2148493609, i64 2148493630, i64 2148493656, i64 2148493689, i64 2148493723, i64 2148493747}
-!21 = !{i64 2159089317}
-!22 = !{i64 2155661570}
-!23 = !{i64 2155662280}
-!24 = !{i64 2161332527, i64 2161332336, i64 2161332388, i64 2161332434, i64 2161332462}
-!25 = !{i64 2161332601, i64 2161332630, i64 2161332676, i64 2161332734, i64 2161332788, i64 2161332842, i64 2161332897, i64 2161332928, i64 2161333236, i64 2161333242, i64 2161333289, i64 2161333312, i64 2161333338}
-!26 = !{i64 2161333797, i64 2161333608, i64 2161333658, i64 2161333704, i64 2161333732}
-!27 = !{i64 1009492, i64 1009515, i64 2148494262, i64 2148494283, i64 2148494309, i64 2148494342, i64 2148494376, i64 2148494400}
-!28 = distinct !{!28, !12, !13}
-!29 = !{i32 0, i32 65596}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!"branch_weights", i32 0, i32 -2147483648}
+!16 = !{i64 2161257874, i64 2161257683, i64 2161257735, i64 2161257781, i64 2161257809}
+!17 = !{i64 2161257948, i64 2161257977, i64 2161258023, i64 2161258081, i64 2161258135, i64 2161258189, i64 2161258244, i64 2161258275}
+!18 = !{i64 2161259267, i64 2161259076, i64 2161259128, i64 2161259174, i64 2161259202}
+!19 = !{i64 2161259341, i64 2161259370, i64 2161259416, i64 2161259474, i64 2161259528, i64 2161259582, i64 2161259637, i64 2161259668}
+!20 = !{!"auto-init"}
+!21 = !{i64 1008882, i64 1008926, i64 2148493609, i64 2148493630, i64 2148493656, i64 2148493689, i64 2148493723, i64 2148493747}
+!22 = !{i64 2159089317}
+!23 = !{i64 2155661570}
+!24 = !{i64 2155662280}
+!25 = !{i64 2161332527, i64 2161332336, i64 2161332388, i64 2161332434, i64 2161332462}
+!26 = !{i64 2161332601, i64 2161332630, i64 2161332676, i64 2161332734, i64 2161332788, i64 2161332842, i64 2161332897, i64 2161332928, i64 2161333236, i64 2161333242, i64 2161333289, i64 2161333312, i64 2161333338}
+!27 = !{i64 2161333797, i64 2161333608, i64 2161333658, i64 2161333704, i64 2161333732}
+!28 = distinct !{!28, !14}
+!29 = distinct !{!29, !14}
+!30 = !{i64 1009492, i64 1009515, i64 2148494262, i64 2148494283, i64 2148494309, i64 2148494342, i64 2148494376, i64 2148494400}
+!31 = distinct !{!31, !12, !13, !14}
+!32 = distinct !{!32, !12, !13, !14}
+!33 = distinct !{!33, !12, !13, !14}
+!34 = !{i32 0, i32 65596}

@@ -140,7 +140,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
 
 65:                                               ; preds = %.loopexit
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 56
-  %67 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %66, i32 -1, ptr nonnull elementtype(i32) %66) #4, !srcloc !12
+  %67 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %66, i32 -1, ptr nonnull elementtype(i32) %66) #4, !srcloc !13
   %68 = icmp eq i32 %67, 1
   br i1 %68, label %72, label %69
 
@@ -153,7 +153,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
   br label %.thread13
 
 72:                                               ; preds = %65
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !14
   call void @dma_fence_release(ptr noundef nonnull %66) #4
   br label %.thread13
 
@@ -170,7 +170,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
 75:                                               ; preds = %.thread14, %73
   %.ph16 = phi i32 [ -12, %.thread14 ], [ %.ph, %73 ]
   %76 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %77 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %76, i32 -1, ptr nonnull elementtype(i32) %76) #4, !srcloc !12
+  %77 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %76, i32 -1, ptr nonnull elementtype(i32) %76) #4, !srcloc !13
   %78 = icmp eq i32 %77, 1
   br i1 %78, label %82, label %79
 
@@ -183,7 +183,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
   br label %.thread18
 
 82:                                               ; preds = %75
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !14
   call void @dma_fence_release(ptr noundef nonnull %76) #4
   br label %.thread18
 
@@ -490,8 +490,9 @@ attributes #5 = { nounwind allocsize(2) }
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{!"branch_weights", i32 2000, i32 1}
 !8 = !{!"auto-init"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i64 2148517885, i64 2148517924, i64 2148517945, i64 2148517982, i64 2148518005, i64 2148518014}
-!13 = !{i64 2149931737}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i64 2148517885, i64 2148517924, i64 2148517945, i64 2148517982, i64 2148518005, i64 2148518014}
+!14 = !{i64 2149931737}

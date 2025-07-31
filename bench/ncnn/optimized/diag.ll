@@ -124,7 +124,7 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph.preheader, %
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %52 = load i32, ptr %51, align 4, !tbaa !30
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %54 = load i32, ptr %53, align 8, !tbaa !41
+  %54 = load i32, ptr %53, align 8, !tbaa !42
   %55 = sub nsw i32 %52, %54
   %.sroa.speculated80 = tail call i32 @llvm.smin.i32(i32 %55, i32 0)
   %.sroa.speculated74 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
@@ -212,7 +212,7 @@ _ZNK4ncnn3Mat5emptyEv.exit61:                     ; preds = %68
   store float %95, ptr %96, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %90, !llvm.loop !42
+  br i1 %exitcond.not, label %.critedge, label %90, !llvm.loop !43
 
 .critedge:                                        ; preds = %90, %43, %81, %_ZN4ncnn3Mat4fillEf.exit, %4, %9, %.thread, %_ZNK4ncnn3Mat5emptyEv.exit
   %.2 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ %., %.thread ], [ -100, %9 ], [ 0, %4 ], [ 0, %_ZN4ncnn3Mat4fillEf.exit ], [ 0, %81 ], [ 0, %43 ], [ 0, %90 ]
@@ -226,11 +226,11 @@ declare noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERNS_3MatERKNS_6OptionE(ptr
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4ncnn4DiagC2Ev(ptr noundef nonnull align 8 dereferenceable(212) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn4DiagE, i64 16), ptr %0, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn4DiagE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %2, align 8, !tbaa !45
+  store i8 1, ptr %2, align 8, !tbaa !46
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 0, ptr %3, align 1, !tbaa !46
+  store i8 0, ptr %3, align 1, !tbaa !47
   ret void
 }
 
@@ -308,11 +308,12 @@ attributes #8 = { builtin nounwind }
 !36 = !{!37, !37, i64 0}
 !37 = !{!"float", !8, i64 0}
 !38 = !{!10, !10, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!27, !10, i64 48}
-!42 = distinct !{!42, !40}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"vtable pointer", !9, i64 0}
-!45 = !{!6, !7, i64 8}
-!46 = !{!6, !7, i64 9}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!27, !10, i64 48}
+!43 = distinct !{!43, !40, !41}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"vtable pointer", !9, i64 0}
+!46 = !{!6, !7, i64 8}
+!47 = !{!6, !7, i64 9}

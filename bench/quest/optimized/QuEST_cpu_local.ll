@@ -180,13 +180,13 @@ define double @densmatr_calcTotalProb(ptr noundef readonly byval(%struct.Qureg) 
   %16 = fsub double %15, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %9
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @statevec_calcTotalProb(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !21
+  %3 = load i64, ptr %2, align 8, !tbaa !23
   %4 = icmp sgt i64 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -217,7 +217,7 @@ define double @statevec_calcTotalProb(ptr noundef readonly byval(%struct.Qureg) 
   %23 = fsub double %22, %20
   %24 = add nuw nsw i64 %.02124, 1
   %exitcond.not = icmp eq i64 %24, %3
-  br i1 %exitcond.not, label %._crit_edge, label %9
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %9, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %21, %9 ]
@@ -226,13 +226,13 @@ define double @statevec_calcTotalProb(ptr noundef readonly byval(%struct.Qureg) 
 
 ; Function Attrs: nounwind uwtable
 define void @createQuESTEnv(ptr dead_on_unwind noalias writable sret(%struct.QuESTEnv) align 8 initializes((0, 20)) %0) local_unnamed_addr #0 {
-  store i32 0, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %0, align 8, !tbaa !25
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 1, ptr %2, align 4, !tbaa !25
+  store i32 1, ptr %2, align 4, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %3, align 8, !tbaa !26
+  store ptr null, ptr %3, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %4, align 8, !tbaa !27
+  store i32 0, ptr %4, align 8, !tbaa !30
   tail call void @seedQuESTDefault(ptr noundef nonnull %0) #15
   ret void
 }
@@ -252,7 +252,7 @@ define noundef i32 @syncQuESTSuccess(i32 noundef returned %0) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @destroyQuESTEnv(ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   tail call void @free(ptr noundef %3) #15
   ret void
 }
@@ -265,7 +265,7 @@ define void @reportQuESTEnv(ptr noundef readonly byval(%struct.QuESTEnv) align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts1 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !25
+  %3 = load i32, ptr %2, align 4, !tbaa !28
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %3)
   %puts2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %5 = tail call i32 @omp_get_max_threads()
@@ -457,7 +457,7 @@ declare void @statevec_collapseToKnownProbOutcomeLocal(ptr noundef byval(%struct
 ; Function Attrs: nounwind uwtable
 define void @seedQuEST(ptr noundef captures(none) initializes((16, 20)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
@@ -469,19 +469,19 @@ define void @seedQuEST(ptr noundef captures(none) initializes((16, 20)) %0, ptr 
   %8 = sext i32 %2 to i64
   %9 = shl nsw i64 %8, 3
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #16
-  store ptr %10, ptr %4, align 8, !tbaa !26
+  store ptr %10, ptr %4, align 8, !tbaa !29
   %11 = icmp sgt i32 %2, 0
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %7
   %12 = zext nneg i32 %2 to i64
   %13 = shl nuw nsw i64 %12, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %1, i64 %13, i1 false), !tbaa !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %1, i64 %13, i1 false), !tbaa !31
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %14, align 8, !tbaa !27
+  store i32 %2, ptr %14, align 8, !tbaa !30
   tail call void @init_by_array(ptr noundef %1, i32 noundef %2) #15
   ret void
 }
@@ -520,10 +520,10 @@ define void @densmatr_applyDiagonalOp(ptr noundef byval(%struct.Qureg) align 8 c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
   store ptr %6, ptr %3, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !32
+  %8 = load ptr, ptr %7, align 8, !tbaa !35
   store ptr %8, ptr %4, align 8, !tbaa !17
   tail call void @densmatr_applyDiagonalOpLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %1) #15
   ret void
@@ -597,15 +597,18 @@ attributes #16 = { nounwind allocsize(0) }
 !18 = !{!9, !5, i64 4}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"double", !6, i64 0}
-!21 = !{!9, !10, i64 16}
-!22 = !{!23, !5, i64 0}
-!23 = !{!"QuESTEnv", !5, i64 0, !5, i64 4, !24, i64 8, !5, i64 16, !14, i64 24}
-!24 = !{!"p1 long", !13, i64 0}
-!25 = !{!23, !5, i64 4}
-!26 = !{!23, !24, i64 8}
-!27 = !{!23, !5, i64 16}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"long", !6, i64 0}
-!30 = !{!31, !12, i64 24}
-!31 = !{!"DiagonalOp", !5, i64 0, !10, i64 8, !5, i64 16, !5, i64 20, !12, i64 24, !12, i64 32, !11, i64 40}
-!32 = !{!31, !12, i64 32}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!9, !10, i64 16}
+!24 = distinct !{!24, !22}
+!25 = !{!26, !5, i64 0}
+!26 = !{!"QuESTEnv", !5, i64 0, !5, i64 4, !27, i64 8, !5, i64 16, !14, i64 24}
+!27 = !{!"p1 long", !13, i64 0}
+!28 = !{!26, !5, i64 4}
+!29 = !{!26, !27, i64 8}
+!30 = !{!26, !5, i64 16}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"long", !6, i64 0}
+!33 = !{!34, !12, i64 24}
+!34 = !{!"DiagonalOp", !5, i64 0, !10, i64 8, !5, i64 16, !5, i64 20, !12, i64 24, !12, i64 32, !11, i64 40}
+!35 = !{!34, !12, i64 32}

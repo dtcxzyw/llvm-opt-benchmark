@@ -107,7 +107,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %21
   store float %29, ptr %30, align 4
   %31 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i4.i.i = icmp eq i64 %31, 4
-  br i1 %exitcond.not.i4.i.i, label %32, label %24, !llvm.loop !7
+  br i1 %exitcond.not.i4.i.i, label %32, label %24, !llvm.loop !8
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -148,7 +148,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22:          ; preds = %34
   store float %42, ptr %43, align 4
   %44 = add nuw nsw i64 %.06.i.i.i23, 1
   %exitcond.not.i4.i.i24 = icmp eq i64 %44, 4
-  br i1 %exitcond.not.i4.i.i24, label %45, label %37, !llvm.loop !7
+  br i1 %exitcond.not.i4.i.i24, label %45, label %37, !llvm.loop !8
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1376,17 +1376,17 @@ _ZNKSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEEclES4_S6_m.exit: ; preds = %_ZN
   %228 = call float @nvgText(ptr noundef %1, float noundef %211, float noundef %218, ptr noundef %227, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %229, label %208, !llvm.loop !8
+  br i1 %exitcond.not, label %229, label %208, !llvm.loop !9
 
 229:                                              ; preds = %226
   %230 = add i32 %.045217, 1
   %exitcond239.not = icmp eq i32 %.045217, %170
-  br i1 %exitcond239.not, label %._crit_edge, label %_ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit94.critedge, !llvm.loop !9
+  br i1 %exitcond239.not, label %._crit_edge, label %_ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit94.critedge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %229
   %231 = add i32 %.0228, 1
   %exitcond240.not = icmp eq i32 %.0228, %171
-  br i1 %exitcond240.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond240.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %.preheader.lr.ph, %106, %90
   call void @nvgRestore(ptr noundef %1)
@@ -1551,36 +1551,36 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
   store float %95, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float 1.000000e+00, ptr %97, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 60, i1 false), !alias.scope !11
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 60, i1 false), !alias.scope !12
   br label %98
 
 98:                                               ; preds = %78, %98
   %.06.i42154 = phi i64 [ 0, %78 ], [ %103, %98 ]
   %99 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %.06.i42154
-  %100 = load float, ptr %99, align 4, !noalias !11
+  %100 = load float, ptr %99, align 4, !noalias !12
   %101 = getelementptr inbounds nuw [4 x [4 x float]], ptr %5, i64 0, i64 %.06.i42154
   %102 = getelementptr inbounds nuw [4 x float], ptr %101, i64 0, i64 %.06.i42154
-  store float %100, ptr %102, align 4, !alias.scope !11
+  store float %100, ptr %102, align 4, !alias.scope !12
   %103 = add nuw nsw i64 %.06.i42154, 1
   %.not.i = icmp eq i64 %103, 3
   br i1 %.not.i, label %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit, label %98
 
 _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit: ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  store float 1.000000e+00, ptr %104, align 4, !alias.scope !11
+  store float 1.000000e+00, ptr %104, align 4, !alias.scope !12
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %105, i8 0, i64 44, i1 false), !alias.scope !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %105, i8 0, i64 44, i1 false), !alias.scope !15
   br label %106
 
 106:                                              ; preds = %106, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit
   %.05.i.i = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit ], [ %109, %106 ]
   %107 = getelementptr inbounds nuw [4 x [4 x float]], ptr %9, i64 0, i64 %.05.i.i
   %108 = getelementptr inbounds nuw [4 x float], ptr %107, i64 0, i64 %.05.i.i
-  store float 0.000000e+00, ptr %108, align 4, !alias.scope !14
+  store float 0.000000e+00, ptr %108, align 4, !alias.scope !15
   %109 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %109, 4
-  br i1 %exitcond.not.i.i, label %_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit, label %106, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit, label %106, !llvm.loop !18
 
 _ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit: ; preds = %106
   %.sroa.0.0.extract.trunc = trunc i64 %82 to i32
@@ -1592,24 +1592,24 @@ _ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_f
   %113 = fdiv float 1.000000e+00, %112
   %114 = fdiv float 1.000000e+00, %110
   %115 = fmul float %114, 2.000000e+00
-  store float %115, ptr %9, align 4, !alias.scope !14
+  store float %115, ptr %9, align 4, !alias.scope !15
   %116 = fmul float %113, 2.000000e+00
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store float %116, ptr %117, align 4, !alias.scope !14
+  store float %116, ptr %117, align 4, !alias.scope !15
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store float -1.000000e+00, ptr %118, align 4, !alias.scope !14
+  store float -1.000000e+00, ptr %118, align 4, !alias.scope !15
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store float 1.000000e+00, ptr %120, align 4, !alias.scope !14
+  store float 1.000000e+00, ptr %120, align 4, !alias.scope !15
   %121 = fneg float %110
   %122 = fmul float %114, %121
-  store float %122, ptr %119, align 4, !alias.scope !14
+  store float %122, ptr %119, align 4, !alias.scope !15
   %123 = fneg float %111
   %124 = fmul float %113, %123
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store float %124, ptr %125, align 4, !alias.scope !14
+  store float %124, ptr %125, align 4, !alias.scope !15
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store float -0.000000e+00, ptr %126, align 4, !alias.scope !14
+  store float -0.000000e+00, ptr %126, align 4, !alias.scope !15
   %127 = load float, ptr %27, align 4
   %128 = load float, ptr %30, align 8
   %129 = fptosi float %128 to i32
@@ -1619,28 +1619,28 @@ _ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_f
   store float %130, ptr %131, align 4
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store float 0.000000e+00, ptr %132, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %133, i8 0, i64 60, i1 false), !alias.scope !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %133, i8 0, i64 60, i1 false), !alias.scope !19
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store float 1.000000e+00, ptr %10, align 4, !alias.scope !18
+  store float 1.000000e+00, ptr %10, align 4, !alias.scope !19
   br label %135
 
 135:                                              ; preds = %_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit, %135
   %.07.i155 = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit ], [ %139, %135 ]
   %136 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.07.i155
-  %137 = load float, ptr %136, align 4, !noalias !18
+  %137 = load float, ptr %136, align 4, !noalias !19
   %138 = getelementptr inbounds nuw [4 x float], ptr %134, i64 0, i64 %.07.i155
-  store float %137, ptr %138, align 4, !alias.scope !18
+  store float %137, ptr %138, align 4, !alias.scope !19
   %139 = add nuw nsw i64 %.07.i155, 1
   %140 = getelementptr inbounds nuw [4 x [4 x float]], ptr %10, i64 0, i64 %139
   %141 = getelementptr inbounds nuw [4 x float], ptr %140, i64 0, i64 %139
-  store float 1.000000e+00, ptr %141, align 4, !alias.scope !18
+  store float 1.000000e+00, ptr %141, align 4, !alias.scope !19
   %.not.i43 = icmp eq i64 %139, 3
   br i1 %.not.i43, label %_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit, label %135
 
 _ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit: ; preds = %135
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   br label %.preheader18.i
 
 .preheader18.i:                                   ; preds = %151, %_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit
@@ -1658,25 +1658,25 @@ _ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit: ; preds = %135
   %.020.i = phi i64 [ 0, %.preheader.i ], [ %148, %143 ]
   %.01519.i = phi float [ 0.000000e+00, %.preheader.i ], [ %147, %143 ]
   %gep.i = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep.i, i64 0, i64 %.020.i
-  %144 = load float, ptr %gep.i, align 4, !noalias !21
+  %144 = load float, ptr %gep.i, align 4, !noalias !22
   %145 = getelementptr inbounds nuw [4 x float], ptr %142, i64 0, i64 %.020.i
-  %146 = load float, ptr %145, align 4, !noalias !21
+  %146 = load float, ptr %145, align 4, !noalias !22
   %147 = tail call float @llvm.fmuladd.f32(float %144, float %146, float %.01519.i)
   %148 = add nuw nsw i64 %.020.i, 1
   %exitcond.not.i = icmp eq i64 %148, 4
-  br i1 %exitcond.not.i, label %149, label %143, !llvm.loop !24
+  br i1 %exitcond.not.i, label %149, label %143, !llvm.loop !25
 
 149:                                              ; preds = %143
   %gep22.i = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep21.i, i64 0, i64 %.01623.i
-  store float %147, ptr %gep22.i, align 4, !alias.scope !21
+  store float %147, ptr %gep22.i, align 4, !alias.scope !22
   %150 = add nuw nsw i64 %.01623.i, 1
   %exitcond25.not.i = icmp eq i64 %150, 4
-  br i1 %exitcond25.not.i, label %151, label %.preheader.i, !llvm.loop !25
+  br i1 %exitcond25.not.i, label %151, label %.preheader.i, !llvm.loop !26
 
 151:                                              ; preds = %149
   %152 = add nuw nsw i64 %.01724.i, 1
   %exitcond26.not.i = icmp eq i64 %152, 4
-  br i1 %exitcond26.not.i, label %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit, label %.preheader18.i, !llvm.loop !26
+  br i1 %exitcond26.not.i, label %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit, label %.preheader18.i, !llvm.loop !27
 
 _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit:       ; preds = %151
   store float %89, ptr %13, align 4
@@ -1684,25 +1684,25 @@ _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit:       ; preds = %151
   store float %94, ptr %153, align 4
   %154 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store float 1.000000e+00, ptr %154, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, i8 0, i64 60, i1 false), !alias.scope !27
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, i8 0, i64 60, i1 false), !alias.scope !28
   br label %155
 
 155:                                              ; preds = %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit, %155
   %.06.i44156 = phi i64 [ 0, %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit ], [ %160, %155 ]
   %156 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %.06.i44156
-  %157 = load float, ptr %156, align 4, !noalias !27
+  %157 = load float, ptr %156, align 4, !noalias !28
   %158 = getelementptr inbounds nuw [4 x [4 x float]], ptr %12, i64 0, i64 %.06.i44156
   %159 = getelementptr inbounds nuw [4 x float], ptr %158, i64 0, i64 %.06.i44156
-  store float %157, ptr %159, align 4, !alias.scope !27
+  store float %157, ptr %159, align 4, !alias.scope !28
   %160 = add nuw nsw i64 %.06.i44156, 1
   %.not.i45 = icmp eq i64 %160, 3
   br i1 %.not.i45, label %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit46, label %155
 
 _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit46: ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %12, i64 60
-  store float 1.000000e+00, ptr %161, align 4, !alias.scope !27
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  store float 1.000000e+00, ptr %161, align 4, !alias.scope !28
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   br label %.preheader18.i47
 
 .preheader18.i47:                                 ; preds = %171, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit46
@@ -1720,25 +1720,25 @@ _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit46: ; preds = %155
   %.020.i53 = phi i64 [ 0, %.preheader.i51 ], [ %168, %163 ]
   %.01519.i54 = phi float [ 0.000000e+00, %.preheader.i51 ], [ %167, %163 ]
   %gep.i55 = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep.i49, i64 0, i64 %.020.i53
-  %164 = load float, ptr %gep.i55, align 4, !noalias !30
+  %164 = load float, ptr %gep.i55, align 4, !noalias !31
   %165 = getelementptr inbounds nuw [4 x float], ptr %162, i64 0, i64 %.020.i53
-  %166 = load float, ptr %165, align 4, !noalias !30
+  %166 = load float, ptr %165, align 4, !noalias !31
   %167 = tail call float @llvm.fmuladd.f32(float %164, float %166, float %.01519.i54)
   %168 = add nuw nsw i64 %.020.i53, 1
   %exitcond.not.i56 = icmp eq i64 %168, 4
-  br i1 %exitcond.not.i56, label %169, label %163, !llvm.loop !24
+  br i1 %exitcond.not.i56, label %169, label %163, !llvm.loop !25
 
 169:                                              ; preds = %163
   %gep22.i57 = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep21.i50, i64 0, i64 %.01623.i52
-  store float %167, ptr %gep22.i57, align 4, !alias.scope !30
+  store float %167, ptr %gep22.i57, align 4, !alias.scope !31
   %170 = add nuw nsw i64 %.01623.i52, 1
   %exitcond25.not.i58 = icmp eq i64 %170, 4
-  br i1 %exitcond25.not.i58, label %171, label %.preheader.i51, !llvm.loop !25
+  br i1 %exitcond25.not.i58, label %171, label %.preheader.i51, !llvm.loop !26
 
 171:                                              ; preds = %169
   %172 = add nuw nsw i64 %.01724.i48, 1
   %exitcond26.not.i59 = icmp eq i64 %172, 4
-  br i1 %exitcond26.not.i59, label %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit60, label %.preheader18.i47, !llvm.loop !26
+  br i1 %exitcond26.not.i59, label %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit60, label %.preheader18.i47, !llvm.loop !27
 
 _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit60:     ; preds = %171
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2050,7 +2050,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   %22 = getelementptr inbounds nuw i8, ptr %.068.i, i64 1
   %23 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %.not.i = icmp eq ptr %22, %2
-  br i1 %.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsIPKhEEvPcT_S9_.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsIPKhEEvPcT_S9_.exit, label %.lr.ph.i, !llvm.loop !34
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsIPKhEEvPcT_S9_.exit: ; preds = %.lr.ph.i, %20
   store ptr null, ptr %5, align 8
@@ -2233,32 +2233,33 @@ attributes #23 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE: argument 0"}
-!13 = distinct !{!13, !"_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff: argument 0"}
-!16 = distinct !{!16, !"_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff"}
-!17 = distinct !{!17, !6}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE: argument 0"}
-!20 = distinct !{!20, !"_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_: argument 0"}
-!23 = distinct !{!23, !"_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_"}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE: argument 0"}
-!29 = distinct !{!29, !"_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_: argument 0"}
-!32 = distinct !{!32, !"_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_"}
-!33 = distinct !{!33, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE: argument 0"}
+!14 = distinct !{!14, !"_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff: argument 0"}
+!17 = distinct !{!17, !"_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff"}
+!18 = distinct !{!18, !6, !7}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE: argument 0"}
+!21 = distinct !{!21, !"_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_: argument 0"}
+!24 = distinct !{!24, !"_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_"}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE: argument 0"}
+!30 = distinct !{!30, !"_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_: argument 0"}
+!33 = distinct !{!33, !"_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_"}
+!34 = distinct !{!34, !6, !7}

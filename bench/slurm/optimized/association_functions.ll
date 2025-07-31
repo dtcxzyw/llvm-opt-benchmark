@@ -341,7 +341,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr noundef captur
 
 124:                                              ; preds = %122, %119
   %125 = phi ptr [ %123, %122 ], [ %121, %119 ]
-  %126 = load i8, ptr @user_case_norm, align 1, !range !11, !noundef !12
+  %126 = load i8, ptr @user_case_norm, align 1, !range !12, !noundef !13
   %127 = trunc nuw i8 %126 to i1
   %128 = tail call i32 @slurm_addto_char_list_with_case(ptr noundef %125, ptr noundef %2, i1 noundef zeroext %127) #9
   %.not95 = icmp ne i32 %128, 0
@@ -1115,7 +1115,7 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
   ]
 
 16:                                               ; preds = %13
-  %17 = load i8, ptr @tree_display, align 1, !range !11, !noundef !12
+  %17 = load i8, ptr @tree_display, align 1, !range !12, !noundef !13
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %31
 
@@ -1843,7 +1843,7 @@ define dso_local i32 @sacctmgr_list_assoc(i32 noundef %0, ptr noundef %1) local_
 122:                                              ; preds = %120, %.lr.ph.i
   %123 = call ptr @list_next(ptr noundef %116) #9
   %.not132.i = icmp eq ptr %123, null
-  br i1 %.not132.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not132.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %122, %109
   call void @list_iterator_destroy(ptr noundef %116) #9
@@ -1889,13 +1889,13 @@ define dso_local i32 @sacctmgr_list_assoc(i32 noundef %0, ptr noundef %1) local_
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %_set_cond.exit, label %30, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_set_cond.exit, label %30, !llvm.loop !15
 
 _set_cond.exit:                                   ; preds = %145, %27
   %.0113.lcssa.i = phi i32 [ %.0125, %27 ], [ %0, %145 ]
   %146 = add nsw i32 %.0113.lcssa.i, 1
   %147 = icmp slt i32 %146, %0
-  br i1 %147, label %11, label %._crit_edge, !llvm.loop !15
+  br i1 %147, label %11, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %2
   %148 = load i32, ptr @exit_code, align 4
@@ -2100,14 +2100,14 @@ _set_cond.exit:                                   ; preds = %145, %27
   %227 = add nuw nsw i32 %.0128, 1
   %228 = call ptr @list_next(ptr noundef %207) #9
   %.not110 = icmp eq ptr %228, null
-  br i1 %.not110, label %._crit_edge131, label %.lr.ph130, !llvm.loop !16
+  br i1 %.not110, label %._crit_edge131, label %.lr.ph130, !llvm.loop !17
 
 ._crit_edge131:                                   ; preds = %.lr.ph130, %223
   call void @list_iterator_reset(ptr noundef %207) #9
   %putchar = call i32 @putchar(i32 10)
   %229 = call ptr @list_next(ptr noundef %206) #9
   %.not104 = icmp eq ptr %229, null
-  br i1 %.not104, label %._crit_edge137, label %.lr.ph136, !llvm.loop !17
+  br i1 %.not104, label %._crit_edge137, label %.lr.ph136, !llvm.loop !18
 
 ._crit_edge137:                                   ; preds = %._crit_edge131
   %.not105 = icmp eq ptr %.1, null
@@ -2212,13 +2212,14 @@ attributes #12 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}

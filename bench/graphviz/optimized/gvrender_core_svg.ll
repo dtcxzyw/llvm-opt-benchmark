@@ -1084,7 +1084,7 @@ define internal void @svg_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   store i8 %..i, ptr %5, align 1, !tbaa !46
   %33 = add nuw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %33, %2
-  br i1 %exitcond.not.i, label %svg_bzptarray.exit, label %.lr.ph.i, !llvm.loop !106
+  br i1 %exitcond.not.i, label %svg_bzptarray.exit, label %.lr.ph.i, !llvm.loop !107
 
 svg_bzptarray.exit:                               ; preds = %.lr.ph.i, %23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
@@ -1124,7 +1124,7 @@ define internal void @svg_polyline(ptr noundef %0, ptr noundef readonly captures
 
 16:                                               ; preds = %.lr.ph, %14
   %exitcond.not = icmp eq i64 %13, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1208,13 +1208,13 @@ declare void @abort() local_unnamed_addr #6
 define internal fastcc i32 @svg_gradstyle(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [2 x %struct.pointf_s], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
-  %5 = load i32, ptr @svg_gradstyle.gradId, align 4, !tbaa !108
+  %5 = load i32, ptr @svg_gradstyle.gradId, align 4, !tbaa !109
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr @svg_gradstyle.gradId, align 4, !tbaa !108
+  store i32 %6, ptr @svg_gradstyle.gradId, align 4, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %10 = load i32, ptr %9, align 8, !tbaa !109
+  %10 = load i32, ptr %9, align 8, !tbaa !110
   %11 = sitofp i32 %10 to double
   %12 = fmul double %11, 0x400921FB54442D18
   %13 = fdiv double %12, 1.800000e+02
@@ -1250,13 +1250,13 @@ define internal fastcc i32 @svg_gradstyle(ptr noundef %0, ptr noundef %1, i64 no
   call void @gvprintdouble(ptr noundef nonnull %0, double noundef %31) #11
   %32 = call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.93) #11
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %34 = load double, ptr %33, align 8, !tbaa !110
+  %34 = load double, ptr %33, align 8, !tbaa !111
   %35 = fcmp ogt double %34, 0.000000e+00
   %36 = fadd double %34, -1.000000e-03
   %37 = select i1 %35, double %36, double 0.000000e+00
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call fastcc void @svg_print_stop(ptr noundef nonnull %0, double noundef %37, ptr noundef nonnull byval(%struct.color_s) align 8 %38)
-  %39 = load double, ptr %33, align 8, !tbaa !110
+  %39 = load double, ptr %33, align 8, !tbaa !111
   %40 = fcmp ogt double %39, 0.000000e+00
   %41 = select i1 %40, double %39, double 1.000000e+00
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 112
@@ -1268,13 +1268,13 @@ define internal fastcc i32 @svg_gradstyle(ptr noundef %0, ptr noundef %1, i64 no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @svg_rgradstyle(ptr noundef %0) unnamed_addr #0 {
-  %2 = load i32, ptr @svg_rgradstyle.rgradId, align 4, !tbaa !108
+  %2 = load i32, ptr @svg_rgradstyle.rgradId, align 4, !tbaa !109
   %3 = add nsw i32 %2, 1
-  store i32 %3, ptr @svg_rgradstyle.rgradId, align 4, !tbaa !108
+  store i32 %3, ptr @svg_rgradstyle.rgradId, align 4, !tbaa !109
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %7 = load i32, ptr %6, align 8, !tbaa !109
+  %7 = load i32, ptr %6, align 8, !tbaa !110
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %21, label %9
 
@@ -1282,11 +1282,11 @@ define internal fastcc i32 @svg_rgradstyle(ptr noundef %0) unnamed_addr #0 {
   %10 = sitofp i32 %7 to double
   %11 = fmul double %10, 0x400921FB54442D18
   %12 = fdiv double %11, 1.800000e+02
-  %13 = tail call double @cos(double noundef %12) #11, !tbaa !108
+  %13 = tail call double @cos(double noundef %12) #11, !tbaa !109
   %14 = fadd double %13, 1.000000e+00
   %15 = fmul double %14, 5.000000e+01
   %16 = tail call double @llvm.round.f64(double %15)
-  %17 = tail call double @sin(double noundef %12) #11, !tbaa !108
+  %17 = tail call double @sin(double noundef %12) #11, !tbaa !109
   %18 = fsub double 1.000000e+00, %17
   %19 = fmul double %18, 5.000000e+01
   %20 = tail call double @llvm.round.f64(double %19)
@@ -1363,7 +1363,7 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call fastcc void @svg_print_paint(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.color_s) align 8 %24)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %26 = load i32, ptr %25, align 8, !tbaa !111
+  %26 = load i32, ptr %25, align 8, !tbaa !112
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %36
 
@@ -1390,7 +1390,7 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call fastcc void @svg_print_paint(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.color_s) align 8 %38)
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %40 = load double, ptr %39, align 8, !tbaa !112
+  %40 = load double, ptr %39, align 8, !tbaa !113
   %41 = fadd double %40, -1.000000e+00
   %42 = tail call double @llvm.fabs.f64(double %41)
   %43 = fcmp olt double %42, 5.000000e-03
@@ -1398,13 +1398,13 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
 
 44:                                               ; preds = %36
   %45 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.114) #11
-  %46 = load double, ptr %39, align 8, !tbaa !112
+  %46 = load double, ptr %39, align 8, !tbaa !113
   tail call void @gvprintdouble(ptr noundef nonnull %0, double noundef %46) #11
   br label %47
 
 47:                                               ; preds = %44, %36
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %49 = load i32, ptr %48, align 8, !tbaa !113
+  %49 = load i32, ptr %48, align 8, !tbaa !114
   switch i32 %49, label %51 [
     i32 1, label %.sink.split
     i32 2, label %50
@@ -1563,7 +1563,7 @@ declare double @sin(double noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @svg_print_paint(ptr noundef %0, ptr noundef readonly byval(%struct.color_s) align 8 captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !114
+  %4 = load i32, ptr %3, align 8, !tbaa !115
   switch i32 %4, label %27 [
     i32 4, label %5
     i32 1, label %12
@@ -1742,14 +1742,15 @@ attributes #14 = { noreturn nounwind }
 !101 = !{!71, !12, i64 0}
 !102 = !{!23, !24, i64 0}
 !103 = !{!23, !24, i64 8}
-!104 = distinct !{!104, !105}
+!104 = distinct !{!104, !105, !106}
 !105 = !{!"llvm.loop.mustprogress"}
-!106 = distinct !{!106, !105}
-!107 = distinct !{!107, !105}
-!108 = !{!13, !13, i64 0}
-!109 = !{!60, !13, i64 152}
-!110 = !{!60, !24, i64 160}
-!111 = !{!60, !13, i64 104}
-!112 = !{!60, !24, i64 176}
-!113 = !{!60, !13, i64 168}
-!114 = !{!45, !13, i64 32}
+!106 = !{!"llvm.loop.estimated_trip_count"}
+!107 = distinct !{!107, !105, !106}
+!108 = distinct !{!108, !105, !106}
+!109 = !{!13, !13, i64 0}
+!110 = !{!60, !13, i64 152}
+!111 = !{!60, !24, i64 160}
+!112 = !{!60, !13, i64 104}
+!113 = !{!60, !24, i64 176}
+!114 = !{!60, !13, i64 168}
+!115 = !{!45, !13, i64 32}

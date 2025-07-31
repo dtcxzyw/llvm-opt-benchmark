@@ -110,14 +110,14 @@ define hidden i32 @lxb_html_tree_insertion_mode_in_body_text_append(ptr noundef 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.01825, i64 1
   %.not21 = icmp eq ptr %15, %13
-  br i1 %.not21, label %.loopexit, label %.lr.ph
+  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %9, %14
   %.01825 = phi ptr [ %15, %14 ], [ %10, %9 ]
-  %16 = load i8, ptr %.01825, align 1, !tbaa !31
+  %16 = load i8, ptr %.01825, align 1, !tbaa !33
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !31
+  %19 = load i8, ptr %18, align 1, !tbaa !33
   %.not22 = icmp eq i8 %19, 2
   br i1 %.not22, label %14, label %20
 
@@ -148,7 +148,7 @@ declare i32 @lxb_html_tree_insert_character_for_data(ptr noundef, ptr noundef, p
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @lxb_html_tree_insertion_mode_in_body(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %4 = load i32, ptr %3, align 8, !tbaa !32
+  %4 = load i32, ptr %3, align 8, !tbaa !34
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -241,30 +241,30 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_in_body(ptr noundef %0, p
 18:                                               ; preds = %14
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 0, i64 noundef 0) #6
   %19 = getelementptr i8, ptr %0, i64 32
-  %.val.i = load ptr, ptr %19, align 8, !tbaa !33
+  %.val.i = load ptr, ptr %19, align 8, !tbaa !35
   %20 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !34
+  %21 = load i64, ptr %20, align 8, !tbaa !36
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %lxb_html_tree_current_node.exit.i, label %23
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr %.val.i, align 8, !tbaa !36
+  %24 = load ptr, ptr %.val.i, align 8, !tbaa !38
   %25 = getelementptr ptr, ptr %24, i64 %21
   %26 = getelementptr i8, ptr %25, i64 -8
-  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %27 = load ptr, ptr %26, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit.i
 
 lxb_html_tree_current_node.exit.i:                ; preds = %23, %18
   %.0.i.i = phi ptr [ %27, %23 ], [ null, %18 ]
   %28 = load i64, ptr %6, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !38
+  %30 = load i64, ptr %29, align 8, !tbaa !40
   %31 = icmp eq i64 %30, %28
   br i1 %31, label %lxb_html_tree_node_is.exit.i, label %lxb_html_tree_node_is.exit.thread.i
 
 lxb_html_tree_node_is.exit.i:                     ; preds = %lxb_html_tree_current_node.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !42
+  %33 = load i64, ptr %32, align 8, !tbaa !44
   %34 = icmp eq i64 %33, 2
   br i1 %34, label %35, label %lxb_html_tree_node_is.exit.thread.i
 
@@ -306,30 +306,30 @@ lxb_html_tree_node_is.exit.thread.i:              ; preds = %lxb_html_tree_node_
 46:                                               ; preds = %42
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 0, i64 noundef 0) #6
   %47 = getelementptr i8, ptr %0, i64 32
-  %.val.i108 = load ptr, ptr %47, align 8, !tbaa !33
+  %.val.i108 = load ptr, ptr %47, align 8, !tbaa !35
   %48 = getelementptr inbounds nuw i8, ptr %.val.i108, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !34
+  %49 = load i64, ptr %48, align 8, !tbaa !36
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %lxb_html_tree_current_node.exit.i109, label %51
 
 51:                                               ; preds = %46
-  %52 = load ptr, ptr %.val.i108, align 8, !tbaa !36
+  %52 = load ptr, ptr %.val.i108, align 8, !tbaa !38
   %53 = getelementptr ptr, ptr %52, i64 %49
   %54 = getelementptr i8, ptr %53, i64 -8
-  %55 = load ptr, ptr %54, align 8, !tbaa !37
+  %55 = load ptr, ptr %54, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit.i109
 
 lxb_html_tree_current_node.exit.i109:             ; preds = %51, %46
   %.0.i.i110 = phi ptr [ %55, %51 ], [ null, %46 ]
   %56 = load i64, ptr %6, align 8, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i110, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !38
+  %58 = load i64, ptr %57, align 8, !tbaa !40
   %59 = icmp eq i64 %58, %56
   br i1 %59, label %lxb_html_tree_node_is.exit.i112, label %lxb_html_tree_node_is.exit.thread.i111
 
 lxb_html_tree_node_is.exit.i112:                  ; preds = %lxb_html_tree_current_node.exit.i109
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i110, i64 24
-  %61 = load i64, ptr %60, align 8, !tbaa !42
+  %61 = load i64, ptr %60, align 8, !tbaa !44
   %62 = icmp eq i64 %61, 2
   br i1 %62, label %63, label %lxb_html_tree_node_is.exit.thread.i111
 
@@ -364,30 +364,30 @@ lxb_html_tree_node_is.exit.thread.i111:           ; preds = %lxb_html_tree_node_
 74:                                               ; preds = %70
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 0, i64 noundef 0) #6
   %75 = getelementptr i8, ptr %0, i64 32
-  %.val.i113 = load ptr, ptr %75, align 8, !tbaa !33
+  %.val.i113 = load ptr, ptr %75, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %.val.i113, i64 16
-  %77 = load i64, ptr %76, align 8, !tbaa !34
+  %77 = load i64, ptr %76, align 8, !tbaa !36
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %lxb_html_tree_current_node.exit.i114, label %79
 
 79:                                               ; preds = %74
-  %80 = load ptr, ptr %.val.i113, align 8, !tbaa !36
+  %80 = load ptr, ptr %.val.i113, align 8, !tbaa !38
   %81 = getelementptr ptr, ptr %80, i64 %77
   %82 = getelementptr i8, ptr %81, i64 -8
-  %83 = load ptr, ptr %82, align 8, !tbaa !37
+  %83 = load ptr, ptr %82, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit.i114
 
 lxb_html_tree_current_node.exit.i114:             ; preds = %79, %74
   %.0.i.i115 = phi ptr [ %83, %79 ], [ null, %74 ]
   %84 = load i64, ptr %6, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i115, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !38
+  %86 = load i64, ptr %85, align 8, !tbaa !40
   %87 = icmp eq i64 %86, %84
   br i1 %87, label %lxb_html_tree_node_is.exit.i118, label %lxb_html_tree_node_is.exit.thread.i116
 
 lxb_html_tree_node_is.exit.i118:                  ; preds = %lxb_html_tree_current_node.exit.i114
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i115, i64 24
-  %89 = load i64, ptr %88, align 8, !tbaa !42
+  %89 = load i64, ptr %88, align 8, !tbaa !44
   %90 = icmp eq i64 %89, 2
   br i1 %90, label %91, label %lxb_html_tree_node_is.exit.thread.i116
 
@@ -404,7 +404,7 @@ lxb_html_tree_node_is.exit.thread.i116:           ; preds = %lxb_html_tree_node_
 
 93:                                               ; preds = %8
   %94 = and i32 %4, -2
-  store i32 %94, ptr %3, align 8, !tbaa !32
+  store i32 %94, ptr %3, align 8, !tbaa !34
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
   %96 = tail call fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_abeikw(ptr noundef %0, ptr noundef nonnull %1)
@@ -591,24 +591,24 @@ lxb_html_tree_node_is.exit.thread.i116:           ; preds = %lxb_html_tree_node_
 
 lxb_html_tree_current_node.exit.i122:             ; preds = %125, %123
   %126 = getelementptr i8, ptr %0, i64 32
-  %.val.i123 = load ptr, ptr %126, align 8, !tbaa !33
+  %.val.i123 = load ptr, ptr %126, align 8, !tbaa !35
   %127 = getelementptr inbounds nuw i8, ptr %.val.i123, i64 16
-  %128 = load i64, ptr %127, align 8, !tbaa !34
+  %128 = load i64, ptr %127, align 8, !tbaa !36
   %129 = icmp ne i64 %128, 0
   tail call void @llvm.assume(i1 %129)
-  %130 = load ptr, ptr %.val.i123, align 8, !tbaa !36
+  %130 = load ptr, ptr %.val.i123, align 8, !tbaa !38
   %131 = getelementptr ptr, ptr %130, i64 %128
   %132 = getelementptr i8, ptr %131, i64 -8
-  %133 = load ptr, ptr %132, align 8, !tbaa !37
+  %133 = load ptr, ptr %132, align 8, !tbaa !39
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = load i64, ptr %134, align 8, !tbaa !38
+  %135 = load i64, ptr %134, align 8, !tbaa !40
   %.off.i = add i64 %135, -91
   %switch.i = icmp ult i64 %.off.i, 6
   br i1 %switch.i, label %136, label %138
 
 136:                                              ; preds = %lxb_html_tree_current_node.exit.i122
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 22) #6
-  %.val15.i = load ptr, ptr %126, align 8, !tbaa !33
+  %.val15.i = load ptr, ptr %126, align 8, !tbaa !35
   %137 = tail call ptr @lexbor_array_pop(ptr noundef %.val15.i) #6
   br label %138
 
@@ -828,8 +828,8 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_form_closed(pt
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !43
-  store ptr null, ptr %6, align 8, !tbaa !43
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  store ptr null, ptr %6, align 8, !tbaa !45
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -849,17 +849,17 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_form_closed(pt
 14:                                               ; preds = %10
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0) #6
   %15 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %15, align 8, !tbaa !33
+  %.val = load ptr, ptr %15, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !34
+  %17 = load i64, ptr %16, align 8, !tbaa !36
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %.critedge, label %lxb_html_tree_current_node.exit
 
 lxb_html_tree_current_node.exit:                  ; preds = %14
-  %19 = load ptr, ptr %.val, align 8, !tbaa !36
+  %19 = load ptr, ptr %.val, align 8, !tbaa !38
   %20 = getelementptr ptr, ptr %19, i64 %17
   %21 = getelementptr i8, ptr %20, i64 -8
-  %22 = load ptr, ptr %21, align 8, !tbaa !37
+  %22 = load ptr, ptr %21, align 8, !tbaa !39
   %23 = icmp eq ptr %22, %11
   br i1 %23, label %24, label %.critedge
 
@@ -883,29 +883,29 @@ lxb_html_tree_current_node.exit:                  ; preds = %14
 29:                                               ; preds = %25
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 0, i64 noundef 0) #6
   %30 = getelementptr i8, ptr %0, i64 32
-  %.val32 = load ptr, ptr %30, align 8, !tbaa !33
+  %.val32 = load ptr, ptr %30, align 8, !tbaa !35
   %31 = getelementptr inbounds nuw i8, ptr %.val32, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !34
+  %32 = load i64, ptr %31, align 8, !tbaa !36
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %lxb_html_tree_current_node.exit34, label %34
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %.val32, align 8, !tbaa !36
+  %35 = load ptr, ptr %.val32, align 8, !tbaa !38
   %36 = getelementptr ptr, ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -8
-  %38 = load ptr, ptr %37, align 8, !tbaa !37
+  %38 = load ptr, ptr %37, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit34
 
 lxb_html_tree_current_node.exit34:                ; preds = %29, %34
   %.0.i33 = phi ptr [ %38, %34 ], [ null, %29 ]
   %39 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !38
+  %40 = load i64, ptr %39, align 8, !tbaa !40
   %41 = icmp eq i64 %40, 87
   br i1 %41, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
 lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit34
   %42 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 24
-  %43 = load i64, ptr %42, align 8, !tbaa !42
+  %43 = load i64, ptr %42, align 8, !tbaa !44
   %44 = icmp eq i64 %43, 2
   br i1 %44, label %45, label %lxb_html_tree_node_is.exit.thread
 
@@ -971,29 +971,29 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_li_closed(ptr 
 6:                                                ; preds = %2
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 113, i64 noundef 2) #6
   %7 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %7, align 8, !tbaa !33
+  %.val = load ptr, ptr %7, align 8, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !34
+  %9 = load i64, ptr %8, align 8, !tbaa !36
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %lxb_html_tree_current_node.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %.val, align 8, !tbaa !36
+  %12 = load ptr, ptr %.val, align 8, !tbaa !38
   %13 = getelementptr ptr, ptr %12, i64 %9
   %14 = getelementptr i8, ptr %13, i64 -8
-  %15 = load ptr, ptr %14, align 8, !tbaa !37
+  %15 = load ptr, ptr %14, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit
 
 lxb_html_tree_current_node.exit:                  ; preds = %6, %11
   %.0.i = phi ptr [ %15, %11 ], [ null, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !38
+  %17 = load i64, ptr %16, align 8, !tbaa !40
   %18 = icmp eq i64 %17, 113
   br i1 %18, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
 lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !42
+  %20 = load i64, ptr %19, align 8, !tbaa !44
   %21 = icmp eq i64 %20, 2
   br i1 %21, label %22, label %lxb_html_tree_node_is.exit.thread
 
@@ -1025,30 +1025,30 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_dd_dt_closed(p
   %9 = load i64, ptr %3, align 8, !tbaa !18
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef %9, i64 noundef 2) #6
   %10 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %10, align 8, !tbaa !33
+  %.val = load ptr, ptr %10, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !34
+  %12 = load i64, ptr %11, align 8, !tbaa !36
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %lxb_html_tree_current_node.exit, label %14
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %.val, align 8, !tbaa !36
+  %15 = load ptr, ptr %.val, align 8, !tbaa !38
   %16 = getelementptr ptr, ptr %15, i64 %12
   %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = load ptr, ptr %17, align 8, !tbaa !37
+  %18 = load ptr, ptr %17, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit
 
 lxb_html_tree_current_node.exit:                  ; preds = %8, %14
   %.0.i = phi ptr [ %18, %14 ], [ null, %8 ]
   %19 = load i64, ptr %3, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !38
+  %21 = load i64, ptr %20, align 8, !tbaa !40
   %22 = icmp eq i64 %21, %19
   br i1 %22, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
 lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !42
+  %24 = load i64, ptr %23, align 8, !tbaa !44
   %25 = icmp eq i64 %24, 2
   br i1 %25, label %26, label %lxb_html_tree_node_is.exit.thread
 
@@ -1069,10 +1069,10 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !34
+  %7 = load i64, ptr %6, align 8, !tbaa !36
   %.not32 = icmp eq i64 %7, 0
   br i1 %.not32, label %.loopexit, label %.lr.ph
 
@@ -1085,12 +1085,12 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_
   %.033 = phi i64 [ %7, %.lr.ph ], [ %11, %lxb_html_tag_is_category.exit.backedge ]
   %11 = add i64 %.033, -1
   %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !44
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !38
+  %15 = load i64, ptr %14, align 8, !tbaa !40
   %16 = icmp eq i64 %15, %9
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !42
+  %18 = load i64, ptr %17, align 8, !tbaa !44
   %19 = icmp eq i64 %18, 2
   %or.cond = select i1 %16, i1 %19, i1 false
   br i1 %or.cond, label %20, label %lxb_html_tree_node_is.exit.thread
@@ -1098,18 +1098,18 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw ptr, ptr %5, i64 %11
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef %9, i64 noundef 2) #6
-  %22 = load ptr, ptr %21, align 8, !tbaa !44
-  %.val = load ptr, ptr %3, align 8, !tbaa !33
+  %22 = load ptr, ptr %21, align 8, !tbaa !46
+  %.val = load ptr, ptr %3, align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !34
+  %24 = load i64, ptr %23, align 8, !tbaa !36
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %lxb_html_tree_current_node.exit, label %26
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr %.val, align 8, !tbaa !36
+  %27 = load ptr, ptr %.val, align 8, !tbaa !38
   %28 = getelementptr ptr, ptr %27, i64 %24
   %29 = getelementptr i8, ptr %28, i64 -8
-  %30 = load ptr, ptr %29, align 8, !tbaa !37
+  %30 = load ptr, ptr %29, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit
 
 lxb_html_tree_current_node.exit:                  ; preds = %20, %26
@@ -1119,7 +1119,7 @@ lxb_html_tree_current_node.exit:                  ; preds = %20, %26
 
 31:                                               ; preds = %lxb_html_tree_current_node.exit
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 22) #6
-  %.pre36 = load ptr, ptr %21, align 8, !tbaa !44
+  %.pre36 = load ptr, ptr %21, align 8, !tbaa !46
   br label %32
 
 32:                                               ; preds = %31, %lxb_html_tree_current_node.exit
@@ -1136,14 +1136,14 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %10
 36:                                               ; preds = %lxb_html_tree_node_is.exit.thread
   %37 = getelementptr inbounds nuw [196 x [8 x i32]], ptr @lxb_html_tag_res_cats, i64 0, i64 %15
   %38 = getelementptr inbounds nuw [8 x i32], ptr %37, i64 0, i64 %18
-  %39 = load i32, ptr %38, align 4, !tbaa !45
+  %39 = load i32, ptr %38, align 4, !tbaa !47
   %40 = and i32 %39, 2
   %.not27 = icmp eq i32 %40, 0
   br i1 %.not27, label %lxb_html_tag_is_category.exit.backedge, label %41
 
 lxb_html_tag_is_category.exit.backedge:           ; preds = %36, %lxb_html_tree_node_is.exit.thread
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %.loopexit, label %10
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !48
 
 41:                                               ; preds = %36
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 1) #6
@@ -1158,24 +1158,24 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_text(ptr
   %3 = alloca %struct.lexbor_str_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %5 = load i64, ptr %4, align 8, !tbaa !46
+  %5 = load i64, ptr %4, align 8, !tbaa !49
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2) #6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %10 = load ptr, ptr %9, align 8, !tbaa !48
+  %10 = load ptr, ptr %9, align 8, !tbaa !51
   %11 = call i32 @lxb_html_token_make_text_drop_null(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %10) #6
   br label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !47
+  %14 = load ptr, ptr %13, align 8, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 192
-  %16 = load ptr, ptr %15, align 8, !tbaa !48
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = call i32 @lxb_html_token_make_text(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %16) #6
   br label %18
 
@@ -1198,9 +1198,9 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_text(ptr
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !47
+  %28 = load ptr, ptr %27, align 8, !tbaa !50
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 192
-  %30 = load ptr, ptr %29, align 8, !tbaa !48
+  %30 = load ptr, ptr %29, align 8, !tbaa !51
   %31 = call ptr @lexbor_str_destroy(ptr noundef nonnull %3, ptr noundef %30, i1 noundef zeroext false) #6
   br label %51
 
@@ -1226,14 +1226,14 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_text(ptr
 42:                                               ; preds = %.lr.ph.i
   %43 = getelementptr inbounds nuw i8, ptr %.01825.i, i64 1
   %.not21.i = icmp eq ptr %43, %41
-  br i1 %.not21.i, label %lxb_html_tree_insertion_mode_in_body_text_append.exit, label %.lr.ph.i
+  br i1 %.not21.i, label %lxb_html_tree_insertion_mode_in_body_text_append.exit, label %.lr.ph.i, !llvm.loop !31
 
 .lr.ph.i:                                         ; preds = %38, %42
   %.01825.i = phi ptr [ %43, %42 ], [ %39, %38 ]
-  %44 = load i8, ptr %.01825.i, align 1, !tbaa !31
+  %44 = load i8, ptr %.01825.i, align 1, !tbaa !33
   %45 = zext i8 %44 to i64
   %46 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %45
-  %47 = load i8, ptr %46, align 1, !tbaa !31
+  %47 = load i8, ptr %46, align 1, !tbaa !33
   %.not22.i = icmp eq i8 %47, 2
   br i1 %.not22.i, label %42, label %48
 
@@ -1283,15 +1283,15 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_html(ptr
 
 lxb_html_tree_open_elements_first.exit:           ; preds = %2
   %4 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %4, align 8, !tbaa !33
+  %.val = load ptr, ptr %4, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !34
+  %6 = load i64, ptr %5, align 8, !tbaa !36
   %.not.i.not.i = icmp ne i64 %6, 0
   tail call void @llvm.assume(i1 %.not.i.not.i)
-  %7 = load ptr, ptr %.val, align 8, !tbaa !36
-  %8 = load ptr, ptr %7, align 8, !tbaa !37
+  %7 = load ptr, ptr %.val, align 8, !tbaa !38
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !61
+  %10 = load i64, ptr %9, align 8, !tbaa !64
   %11 = tail call i32 @lxb_html_tree_append_attributes(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %1, i64 noundef %10) #6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %11, ptr %12, align 8, !tbaa !22
@@ -1311,22 +1311,22 @@ lxb_html_tree_open_elements_first.exit:           ; preds = %2
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_body(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   %3 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %3, align 8, !tbaa !33
+  %.val = load ptr, ptr %3, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !34
+  %5 = load i64, ptr %4, align 8, !tbaa !36
   %.not.i.i = icmp ugt i64 %5, 1
   br i1 %.not.i.i, label %lxb_html_tree_open_elements_get.exit, label %lxb_html_tree_open_elements_get.exit.thread
 
 lxb_html_tree_open_elements_get.exit:             ; preds = %2
-  %6 = load ptr, ptr %.val, align 8, !tbaa !36
+  %6 = load ptr, ptr %.val, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !37
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
   %9 = icmp eq ptr %8, null
   br i1 %9, label %lxb_html_tree_open_elements_get.exit.thread, label %10
 
 10:                                               ; preds = %lxb_html_tree_open_elements_get.exit
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !38
+  %12 = load i64, ptr %11, align 8, !tbaa !40
   %.not = icmp eq i64 %12, 31
   br i1 %.not, label %13, label %lxb_html_tree_open_elements_get.exit.thread
 
@@ -1339,7 +1339,7 @@ lxb_html_tree_open_elements_get.exit:             ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store i8 0, ptr %16, align 1, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !42
+  %18 = load i64, ptr %17, align 8, !tbaa !44
   %19 = tail call i32 @lxb_html_tree_append_attributes(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %1, i64 noundef %18) #6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %19, ptr %20, align 8, !tbaa !22
@@ -1359,22 +1359,22 @@ lxb_html_tree_open_elements_get.exit.thread:      ; preds = %2, %15, %13, %lxb_h
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_frameset(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   %3 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %3, align 8, !tbaa !33
+  %.val = load ptr, ptr %3, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !34
+  %5 = load i64, ptr %4, align 8, !tbaa !36
   %.not.i.i = icmp ugt i64 %5, 1
   br i1 %.not.i.i, label %lxb_html_tree_open_elements_get.exit, label %lxb_html_tree_open_elements_get.exit.thread
 
 lxb_html_tree_open_elements_get.exit:             ; preds = %2
-  %6 = load ptr, ptr %.val, align 8, !tbaa !36
+  %6 = load ptr, ptr %.val, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !37
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
   %9 = icmp eq ptr %8, null
   br i1 %9, label %lxb_html_tree_open_elements_get.exit.thread, label %10
 
 10:                                               ; preds = %lxb_html_tree_open_elements_get.exit
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !38
+  %12 = load i64, ptr %11, align 8, !tbaa !40
   %.not = icmp eq i64 %12, 31
   br i1 %.not, label %13, label %lxb_html_tree_open_elements_get.exit.thread
 
@@ -1386,15 +1386,15 @@ lxb_html_tree_open_elements_get.exit:             ; preds = %2
 
 17:                                               ; preds = %13
   tail call void @lxb_html_tree_node_delete_deep(ptr noundef nonnull %0, ptr noundef nonnull %8) #6
-  %.val19 = load ptr, ptr %3, align 8, !tbaa !33
+  %.val19 = load ptr, ptr %3, align 8, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %.val19, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !34
+  %19 = load i64, ptr %18, align 8, !tbaa !36
   %.not.i.i20.not = icmp eq i64 %19, 0
   br i1 %.not.i.i20.not, label %lxb_html_tree_open_elements_get.exit22, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %.val19, align 8, !tbaa !36
-  %22 = load ptr, ptr %21, align 8, !tbaa !37
+  %21 = load ptr, ptr %.val19, align 8, !tbaa !38
+  %22 = load ptr, ptr %21, align 8, !tbaa !39
   br label %lxb_html_tree_open_elements_get.exit22
 
 lxb_html_tree_open_elements_get.exit22:           ; preds = %17, %20
@@ -1423,9 +1423,9 @@ lxb_html_tree_open_elements_get.exit.thread:      ; preds = %2, %13, %lxb_html_t
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_eof(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !64
+  %4 = load ptr, ptr %3, align 8, !tbaa !67
   %5 = getelementptr i8, ptr %4, i64 16
-  %.val = load i64, ptr %5, align 8, !tbaa !65
+  %.val = load i64, ptr %5, align 8, !tbaa !68
   %.not = icmp eq i64 %.val, 0
   br i1 %.not, label %8, label %6
 
@@ -1497,7 +1497,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_pre_list
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_form(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = tail call ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef %0, i64 noundef 179, i64 noundef 2, ptr noundef null) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %6 = icmp ne ptr %5, null
   %7 = icmp eq ptr %3, null
   %or.cond = select i1 %6, i1 %7, i1 false
@@ -1531,7 +1531,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_form(ptr
   br i1 %7, label %19, label %20
 
 19:                                               ; preds = %18
-  store ptr %13, ptr %4, align 8, !tbaa !43
+  store ptr %13, ptr %4, align 8, !tbaa !45
   br label %20
 
 20:                                               ; preds = %18, %19, %15, %8
@@ -1542,10 +1542,10 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_form(ptr
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_li(ptr noundef initializes((81, 82)) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !34
+  %7 = load i64, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store i8 0, ptr %8, align 1, !tbaa !25
   %.not40 = icmp eq i64 %7, 0
@@ -1554,41 +1554,41 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_li(ptr n
 .lr.ph.preheader:                                 ; preds = %2
   %9 = add i64 %7, -1
   %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !38
+  %13 = load i64, ptr %12, align 8, !tbaa !40
   %14 = icmp eq i64 %13, 113
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !42
+  %16 = load i64, ptr %15, align 8, !tbaa !44
   %17 = icmp eq i64 %16, 2
   %or.cond4546 = select i1 %14, i1 %17, i1 false
   br i1 %or.cond4546, label %.lr.ph._crit_edge, label %lxb_html_tree_node_is.exit.thread
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph.backedge, %.lr.ph.preheader
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 113, i64 noundef 2) #6
-  %.val = load ptr, ptr %3, align 8, !tbaa !33
+  %.val = load ptr, ptr %3, align 8, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !34
+  %19 = load i64, ptr %18, align 8, !tbaa !36
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %lxb_html_tree_current_node.exit, label %21
 
 21:                                               ; preds = %.lr.ph._crit_edge
-  %22 = load ptr, ptr %.val, align 8, !tbaa !36
+  %22 = load ptr, ptr %.val, align 8, !tbaa !38
   %23 = getelementptr ptr, ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -8
-  %25 = load ptr, ptr %24, align 8, !tbaa !37
+  %25 = load ptr, ptr %24, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit
 
 lxb_html_tree_current_node.exit:                  ; preds = %.lr.ph._crit_edge, %21
   %.0.i = phi ptr [ %25, %21 ], [ null, %.lr.ph._crit_edge ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !38
+  %27 = load i64, ptr %26, align 8, !tbaa !40
   %28 = icmp eq i64 %27, 113
   br i1 %28, label %lxb_html_tree_node_is.exit31, label %lxb_html_tree_node_is.exit31.thread
 
 lxb_html_tree_node_is.exit31:                     ; preds = %lxb_html_tree_current_node.exit
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %30 = load i64, ptr %29, align 8, !tbaa !42
+  %30 = load i64, ptr %29, align 8, !tbaa !44
   %31 = icmp eq i64 %30, 2
   br i1 %31, label %32, label %lxb_html_tree_node_is.exit31.thread
 
@@ -1612,7 +1612,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %.lr.ph.preheader, %
 lxb_html_tag_is_category.exit:                    ; preds = %lxb_html_tree_node_is.exit.thread
   %38 = getelementptr inbounds nuw [196 x [8 x i32]], ptr @lxb_html_tag_res_cats, i64 0, i64 %34
   %39 = getelementptr inbounds nuw [8 x i32], ptr %38, i64 0, i64 %33
-  %40 = load i32, ptr %39, align 4, !tbaa !45
+  %40 = load i32, ptr %39, align 4, !tbaa !47
   %41 = and i32 %40, 2
   %.not39 = icmp eq i32 %41, 0
   br i1 %.not39, label %lxb_html_tag_is_category.exit.thread, label %42
@@ -1650,15 +1650,15 @@ lxb_html_tag_is_category.exit.thread:             ; preds = %lxb_html_tree_node_
 .lr.ph.backedge:                                  ; preds = %lxb_html_tag_is_category.exit.thread, %lxb_html_tree_node_is.exit35, %lxb_html_tree_node_is.exit34, %lxb_html_tree_node_is.exit33
   %46 = add i64 %35, -1
   %47 = getelementptr inbounds nuw ptr, ptr %5, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !37
+  %48 = load ptr, ptr %47, align 8, !tbaa !39
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !38
+  %50 = load i64, ptr %49, align 8, !tbaa !40
   %51 = icmp eq i64 %50, 113
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %53 = load i64, ptr %52, align 8, !tbaa !42
+  %53 = load i64, ptr %52, align 8, !tbaa !44
   %54 = icmp eq i64 %53, 2
   %or.cond45 = select i1 %51, i1 %54, i1 false
-  br i1 %or.cond45, label %.lr.ph._crit_edge, label %lxb_html_tree_node_is.exit.thread
+  br i1 %or.cond45, label %.lr.ph._crit_edge, label %lxb_html_tree_node_is.exit.thread, !llvm.loop !70
 
 lxb_html_tree_node_is.exit35.thread:              ; preds = %lxb_html_tag_is_category.exit.thread, %lxb_html_tree_node_is.exit35, %lxb_html_tree_node_is.exit33, %lxb_html_tree_node_is.exit34, %42, %2, %32
   %55 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
@@ -1688,10 +1688,10 @@ lxb_html_tree_node_is.exit35.thread:              ; preds = %lxb_html_tag_is_cat
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_dd_dt(ptr noundef initializes((81, 82)) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !34
+  %7 = load i64, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store i8 0, ptr %8, align 1, !tbaa !25
   %.not53 = icmp eq i64 %7, 0
@@ -1701,11 +1701,11 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_dd_dt(pt
   %.054 = phi i64 [ %9, %.lr.ph.backedge ], [ %7, %2 ]
   %9 = add i64 %.054, -1
   %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !38
+  %13 = load i64, ptr %12, align 8, !tbaa !40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !42
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !44
   switch i64 %13, label %lxb_html_tree_node_is.exit40.thread [
     i64 44, label %lxb_html_tree_node_is.exit
     i64 53, label %lxb_html_tree_node_is.exit40
@@ -1717,29 +1717,29 @@ lxb_html_tree_node_is.exit:                       ; preds = %.lr.ph
 
 15:                                               ; preds = %lxb_html_tree_node_is.exit
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 44, i64 noundef 2) #6
-  %.val = load ptr, ptr %3, align 8, !tbaa !33
+  %.val = load ptr, ptr %3, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !34
+  %17 = load i64, ptr %16, align 8, !tbaa !36
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %lxb_html_tree_current_node.exit, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %.val, align 8, !tbaa !36
+  %20 = load ptr, ptr %.val, align 8, !tbaa !38
   %21 = getelementptr ptr, ptr %20, i64 %17
   %22 = getelementptr i8, ptr %21, i64 -8
-  %23 = load ptr, ptr %22, align 8, !tbaa !37
+  %23 = load ptr, ptr %22, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit
 
 lxb_html_tree_current_node.exit:                  ; preds = %15, %19
   %.0.i = phi ptr [ %23, %19 ], [ null, %15 ]
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !38
+  %25 = load i64, ptr %24, align 8, !tbaa !40
   %26 = icmp eq i64 %25, 44
   br i1 %26, label %lxb_html_tree_node_is.exit39, label %lxb_html_tree_node_is.exit47.thread.sink.split.sink.split
 
 lxb_html_tree_node_is.exit39:                     ; preds = %lxb_html_tree_current_node.exit
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %28 = load i64, ptr %27, align 8, !tbaa !42
+  %28 = load i64, ptr %27, align 8, !tbaa !44
   %29 = icmp eq i64 %28, 2
   br i1 %29, label %lxb_html_tree_node_is.exit47.thread.sink.split, label %lxb_html_tree_node_is.exit47.thread.sink.split.sink.split
 
@@ -1749,29 +1749,29 @@ lxb_html_tree_node_is.exit40:                     ; preds = %.lr.ph
 
 31:                                               ; preds = %lxb_html_tree_node_is.exit40
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 53, i64 noundef 2) #6
-  %.val38 = load ptr, ptr %3, align 8, !tbaa !33
+  %.val38 = load ptr, ptr %3, align 8, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %.val38, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !34
+  %33 = load i64, ptr %32, align 8, !tbaa !36
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %lxb_html_tree_current_node.exit42, label %35
 
 35:                                               ; preds = %31
-  %36 = load ptr, ptr %.val38, align 8, !tbaa !36
+  %36 = load ptr, ptr %.val38, align 8, !tbaa !38
   %37 = getelementptr ptr, ptr %36, i64 %33
   %38 = getelementptr i8, ptr %37, i64 -8
-  %39 = load ptr, ptr %38, align 8, !tbaa !37
+  %39 = load ptr, ptr %38, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit42
 
 lxb_html_tree_current_node.exit42:                ; preds = %31, %35
   %.0.i41 = phi ptr [ %39, %35 ], [ null, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %.0.i41, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !38
+  %41 = load i64, ptr %40, align 8, !tbaa !40
   %42 = icmp eq i64 %41, 53
   br i1 %42, label %lxb_html_tree_node_is.exit43, label %lxb_html_tree_node_is.exit47.thread.sink.split.sink.split
 
 lxb_html_tree_node_is.exit43:                     ; preds = %lxb_html_tree_current_node.exit42
   %43 = getelementptr inbounds nuw i8, ptr %.0.i41, i64 24
-  %44 = load i64, ptr %43, align 8, !tbaa !42
+  %44 = load i64, ptr %43, align 8, !tbaa !44
   %45 = icmp eq i64 %44, 2
   br i1 %45, label %lxb_html_tree_node_is.exit47.thread.sink.split, label %lxb_html_tree_node_is.exit47.thread.sink.split.sink.split
 
@@ -1784,7 +1784,7 @@ lxb_html_tree_node_is.exit40.thread:              ; preds = %.lr.ph, %lxb_html_t
 lxb_html_tag_is_category.exit:                    ; preds = %lxb_html_tree_node_is.exit40.thread
   %48 = getelementptr inbounds nuw [196 x [8 x i32]], ptr @lxb_html_tag_res_cats, i64 0, i64 %13
   %49 = getelementptr inbounds nuw [8 x i32], ptr %48, i64 0, i64 %.pre
-  %50 = load i32, ptr %49, align 4, !tbaa !45
+  %50 = load i32, ptr %49, align 4, !tbaa !47
   %51 = and i32 %50, 2
   %.not52 = icmp eq i32 %51, 0
   br i1 %.not52, label %lxb_html_tag_is_category.exit.thread, label %52
@@ -1820,7 +1820,7 @@ lxb_html_tag_is_category.exit.thread:             ; preds = %lxb_html_tree_node_
   br i1 %.not.old.old.old, label %lxb_html_tree_node_is.exit47.thread, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %lxb_html_tag_is_category.exit.thread, %lxb_html_tree_node_is.exit47, %lxb_html_tree_node_is.exit46, %lxb_html_tree_node_is.exit45
-  br label %.lr.ph
+  br label %.lr.ph, !llvm.loop !71
 
 lxb_html_tree_node_is.exit47.thread.sink.split.sink.split: ; preds = %lxb_html_tree_node_is.exit43, %lxb_html_tree_current_node.exit42, %lxb_html_tree_node_is.exit39, %lxb_html_tree_current_node.exit
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 22) #6
@@ -1878,8 +1878,8 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_plaintex
   br label %13
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %0, align 8, !tbaa !67
-  store ptr @lxb_html_tokenizer_state_plaintext_before, ptr %12, align 8, !tbaa !68
+  %12 = load ptr, ptr %0, align 8, !tbaa !72
+  store ptr @lxb_html_tokenizer_state_plaintext_before, ptr %12, align 8, !tbaa !73
   br label %13
 
 13:                                               ; preds = %11, %8
@@ -2066,7 +2066,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_amo(ptr 
 
 12:                                               ; preds = %7
   %13 = getelementptr i8, ptr %0, i64 40
-  %.val = load ptr, ptr %13, align 8, !tbaa !71
+  %.val = load ptr, ptr %13, align 8, !tbaa !76
   %14 = tail call ptr @lxb_html_tree_active_formatting_marker() #6
   %15 = tail call i32 @lexbor_array_push(ptr noundef %.val, ptr noundef %14) #6
   store i32 %15, ptr %4, align 8, !tbaa !22
@@ -2090,9 +2090,9 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_amo(ptr 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_table(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %6 = load i32, ptr %5, align 8, !tbaa !72
+  %6 = load i32, ptr %5, align 8, !tbaa !77
   %.not = icmp eq i32 %6, 1
   br i1 %.not, label %10, label %7
 
@@ -2152,10 +2152,10 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_abeikw(p
 
 12:                                               ; preds = %7
   %13 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %13, align 8, !tbaa !33
+  %.val = load ptr, ptr %13, align 8, !tbaa !35
   %14 = tail call ptr @lexbor_array_pop(ptr noundef %.val) #6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %16 = load i32, ptr %15, align 8, !tbaa !32
+  %16 = load i32, ptr %15, align 8, !tbaa !34
   %17 = and i32 %16, 2
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %lxb_html_tree_acknowledge_token_self_closing.exit, label %19
@@ -2217,10 +2217,10 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_input(pt
 
 12:                                               ; preds = %7
   %13 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %13, align 8, !tbaa !33
+  %.val = load ptr, ptr %13, align 8, !tbaa !35
   %14 = tail call ptr @lexbor_array_pop(ptr noundef %.val) #6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %16 = load i32, ptr %15, align 8, !tbaa !32
+  %16 = load i32, ptr %15, align 8, !tbaa !34
   %17 = and i32 %16, 2
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %lxb_html_tree_acknowledge_token_self_closing.exit, label %19
@@ -2255,7 +2255,7 @@ lxb_html_tree_acknowledge_token_self_closing.exit: ; preds = %12, %19, %19, %19,
 
 23:                                               ; preds = %lxb_html_tree_acknowledge_token_self_closing.exit
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 120
-  %25 = load ptr, ptr %24, align 8, !tbaa !73
+  %25 = load ptr, ptr %24, align 8, !tbaa !78
   %26 = icmp eq ptr %25, null
   br i1 %26, label %33, label %27
 
@@ -2299,10 +2299,10 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_pst(ptr 
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %9, align 8, !tbaa !33
+  %.val = load ptr, ptr %9, align 8, !tbaa !35
   %10 = tail call ptr @lexbor_array_pop(ptr noundef %.val) #6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %12 = load i32, ptr %11, align 8, !tbaa !32
+  %12 = load i32, ptr %11, align 8, !tbaa !34
   %13 = and i32 %12, 2
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %lxb_html_tree_acknowledge_token_self_closing.exit, label %15
@@ -2358,10 +2358,10 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_hr(ptr n
 
 11:                                               ; preds = %5
   %12 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %12, align 8, !tbaa !33
+  %.val = load ptr, ptr %12, align 8, !tbaa !35
   %13 = tail call ptr @lexbor_array_pop(ptr noundef %.val) #6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %15 = load i32, ptr %14, align 8, !tbaa !32
+  %15 = load i32, ptr %14, align 8, !tbaa !34
   %16 = and i32 %15, 2
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %lxb_html_tree_acknowledge_token_self_closing.exit, label %18
@@ -2412,10 +2412,10 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_textarea
   br label %15
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %0, align 8, !tbaa !67
+  %9 = load ptr, ptr %0, align 8, !tbaa !72
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store i64 180, ptr %10, align 8, !tbaa !75
-  store ptr @lxb_html_tokenizer_state_rcdata_before, ptr %9, align 8, !tbaa !68
+  store i64 180, ptr %10, align 8, !tbaa !80
+  store ptr @lxb_html_tokenizer_state_rcdata_before, ptr %9, align 8, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store i8 0, ptr %11, align 1, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2506,9 +2506,9 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_noembed(
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_noscript(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 250
-  %6 = load i8, ptr %5, align 2, !tbaa !76, !range !26, !noundef !27
+  %6 = load i8, ptr %5, align 2, !tbaa !81, !range !26, !noundef !27
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %15
 
@@ -2595,29 +2595,29 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_select(p
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_optopt(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %3, align 8, !tbaa !33
+  %.val = load ptr, ptr %3, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !34
+  %5 = load i64, ptr %4, align 8, !tbaa !36
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %lxb_html_tree_current_node.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %.val, align 8, !tbaa !36
+  %8 = load ptr, ptr %.val, align 8, !tbaa !38
   %9 = getelementptr ptr, ptr %8, i64 %5
   %10 = getelementptr i8, ptr %9, i64 -8
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit
 
 lxb_html_tree_current_node.exit:                  ; preds = %2, %7
   %.0.i = phi ptr [ %11, %7 ], [ null, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !38
+  %13 = load i64, ptr %12, align 8, !tbaa !40
   %14 = icmp eq i64 %13, 143
   br i1 %14, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
 lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !42
+  %16 = load i64, ptr %15, align 8, !tbaa !44
   %17 = icmp eq i64 %16, 2
   br i1 %17, label %18, label %lxb_html_tree_node_is.exit.thread
 
@@ -2662,29 +2662,29 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_rbrtc(pt
 
 5:                                                ; preds = %4, %2
   %6 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %6, align 8, !tbaa !33
+  %.val = load ptr, ptr %6, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !34
+  %8 = load i64, ptr %7, align 8, !tbaa !36
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %lxb_html_tree_current_node.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %.val, align 8, !tbaa !36
+  %11 = load ptr, ptr %.val, align 8, !tbaa !38
   %12 = getelementptr ptr, ptr %11, i64 %8
   %13 = getelementptr i8, ptr %12, i64 -8
-  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %14 = load ptr, ptr %13, align 8, !tbaa !39
   br label %lxb_html_tree_current_node.exit
 
 lxb_html_tree_current_node.exit:                  ; preds = %5, %10
   %.0.i = phi ptr [ %14, %10 ], [ null, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !38
+  %16 = load i64, ptr %15, align 8, !tbaa !40
   %17 = icmp eq i64 %16, 158
   br i1 %17, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
 lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !42
+  %19 = load i64, ptr %18, align 8, !tbaa !44
   %20 = icmp eq i64 %19, 2
   br i1 %20, label %21, label %lxb_html_tree_node_is.exit.thread
 
@@ -2720,9 +2720,9 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_rprt(ptr
 
 lxb_html_tree_current_node.exit:                  ; preds = %4, %2
   %5 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %5, align 8, !tbaa !33
+  %.val = load ptr, ptr %5, align 8, !tbaa !35
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !34
+  %7 = load i64, ptr %6, align 8, !tbaa !36
   %8 = icmp ne i64 %7, 0
   tail call void @llvm.assume(i1 %8)
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 23) #6
@@ -2755,10 +2755,10 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_math(ptr
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @lxb_html_tree_adjust_attributes_mathml, ptr %8, align 8, !tbaa !77
+  store ptr @lxb_html_tree_adjust_attributes_mathml, ptr %8, align 8, !tbaa !82
   %9 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 3) #6
   %10 = icmp eq ptr %9, null
-  store ptr null, ptr %8, align 8, !tbaa !77
+  store ptr null, ptr %8, align 8, !tbaa !82
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
@@ -2768,16 +2768,16 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_math(ptr
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %15 = load i32, ptr %14, align 8, !tbaa !32
+  %15 = load i32, ptr %14, align 8, !tbaa !34
   %16 = and i32 %15, 2
   %.not17 = icmp eq i32 %16, 0
   br i1 %.not17, label %lxb_html_tree_acknowledge_token_self_closing.exit, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %18, align 8, !tbaa !33
+  %.val = load ptr, ptr %18, align 8, !tbaa !35
   %19 = tail call ptr @lexbor_array_pop(ptr noundef %.val) #6
-  %20 = load i32, ptr %14, align 8, !tbaa !32
+  %20 = load i32, ptr %14, align 8, !tbaa !34
   %21 = and i32 %20, 2
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %lxb_html_tree_acknowledge_token_self_closing.exit, label %23
@@ -2824,10 +2824,10 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_svg(ptr 
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @lxb_html_tree_adjust_attributes_svg, ptr %8, align 8, !tbaa !77
+  store ptr @lxb_html_tree_adjust_attributes_svg, ptr %8, align 8, !tbaa !82
   %9 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 4) #6
   %10 = icmp eq ptr %9, null
-  store ptr null, ptr %8, align 8, !tbaa !77
+  store ptr null, ptr %8, align 8, !tbaa !82
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
@@ -2837,16 +2837,16 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_svg(ptr 
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %15 = load i32, ptr %14, align 8, !tbaa !32
+  %15 = load i32, ptr %14, align 8, !tbaa !34
   %16 = and i32 %15, 2
   %.not17 = icmp eq i32 %16, 0
   br i1 %.not17, label %lxb_html_tree_acknowledge_token_self_closing.exit, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %18, align 8, !tbaa !33
+  %.val = load ptr, ptr %18, align 8, !tbaa !35
   %19 = tail call ptr @lexbor_array_pop(ptr noundef %.val) #6
-  %20 = load i32, ptr %14, align 8, !tbaa !32
+  %20 = load i32, ptr %14, align 8, !tbaa !34
   %21 = and i32 %20, 2
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %lxb_html_tree_acknowledge_token_self_closing.exit, label %23
@@ -3046,50 +3046,55 @@ attributes #6 = { nounwind }
 !28 = !{!29, !20, i64 0}
 !29 = !{!"", !20, i64 0, !16, i64 8}
 !30 = !{!29, !16, i64 8}
-!31 = !{!8, !8, i64 0}
-!32 = !{!19, !15, i64 88}
-!33 = !{!5, !7, i64 32}
-!34 = !{!35, !16, i64 16}
-!35 = !{!"", !7, i64 0, !16, i64 8, !16, i64 16}
-!36 = !{!35, !7, i64 0}
-!37 = !{!7, !7, i64 0}
-!38 = !{!39, !16, i64 8}
-!39 = !{!"lxb_dom_node", !40, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !41, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !7, i64 80, !15, i64 88, !16, i64 96}
-!40 = !{!"lxb_dom_event_target", !7, i64 0}
-!41 = !{!"p1 _ZTS16lxb_dom_document", !7, i64 0}
-!42 = !{!39, !16, i64 24}
-!43 = !{!5, !12, i64 24}
-!44 = !{!11, !11, i64 0}
-!45 = !{!15, !15, i64 0}
-!46 = !{!19, !16, i64 72}
-!47 = !{!5, !10, i64 8}
-!48 = !{!49, !7, i64 192}
-!49 = !{!"lxb_html_document", !50, i64 0, !7, i64 256, !54, i64 264, !55, i64 272, !56, i64 280, !14, i64 344, !7, i64 352, !15, i64 360, !15, i64 364}
-!50 = !{!"lxb_dom_document", !39, i64 0, !15, i64 104, !15, i64 108, !51, i64 112, !52, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192, !53, i64 200, !53, i64 208, !53, i64 216, !53, i64 224, !7, i64 232, !7, i64 240, !14, i64 248, !14, i64 249, !14, i64 250}
-!51 = !{!"p1 _ZTS21lxb_dom_document_type", !7, i64 0}
-!52 = !{!"p1 _ZTS15lxb_dom_element", !7, i64 0}
-!53 = !{!"p1 _ZTS11lexbor_hash", !7, i64 0}
-!54 = !{!"p1 _ZTS21lxb_html_head_element", !7, i64 0}
-!55 = !{!"p1 _ZTS21lxb_html_body_element", !7, i64 0}
-!56 = !{!"", !57, i64 0, !58, i64 8, !59, i64 16, !60, i64 24, !7, i64 32, !7, i64 40, !53, i64 48, !16, i64 56}
-!57 = !{!"p1 _ZTS14lxb_css_memory", !7, i64 0}
-!58 = !{!"p1 _ZTS17lxb_css_selectors", !7, i64 0}
-!59 = !{!"p1 _ZTS14lxb_css_parser", !7, i64 0}
-!60 = !{!"p1 _ZTS10lexbor_avl", !7, i64 0}
-!61 = !{!62, !16, i64 24}
-!62 = !{!"lxb_dom_element", !39, i64 0, !16, i64 104, !16, i64 112, !7, i64 120, !63, i64 128, !63, i64 136, !63, i64 144, !63, i64 152, !15, i64 160}
-!63 = !{!"p1 _ZTS12lxb_dom_attr", !7, i64 0}
-!64 = !{!5, !7, i64 48}
-!65 = !{!66, !16, i64 16}
-!66 = !{!"", !20, i64 0, !16, i64 8, !16, i64 16, !16, i64 24}
-!67 = !{!5, !6, i64 0}
-!68 = !{!69, !7, i64 0}
-!69 = !{!"lxb_html_tokenizer", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !53, i64 32, !53, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !70, i64 96, !20, i64 104, !20, i64 112, !16, i64 120, !20, i64 128, !20, i64 136, !20, i64 144, !20, i64 152, !20, i64 160, !16, i64 168, !16, i64 176, !7, i64 184, !7, i64 192, !16, i64 200, !16, i64 208, !15, i64 216, !15, i64 220, !14, i64 224, !15, i64 228, !15, i64 232, !14, i64 236, !6, i64 240, !16, i64 248}
-!70 = !{!"p1 _ZTS13lxb_html_tree", !7, i64 0}
-!71 = !{!5, !7, i64 40}
-!72 = !{!50, !15, i64 104}
-!73 = !{!74, !7, i64 120}
-!74 = !{!"lxb_dom_attr", !39, i64 0, !16, i64 104, !16, i64 112, !7, i64 120, !52, i64 128, !63, i64 136, !63, i64 144}
-!75 = !{!69, !16, i64 120}
-!76 = !{!49, !14, i64 250}
-!77 = !{!5, !7, i64 104}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!8, !8, i64 0}
+!34 = !{!19, !15, i64 88}
+!35 = !{!5, !7, i64 32}
+!36 = !{!37, !16, i64 16}
+!37 = !{!"", !7, i64 0, !16, i64 8, !16, i64 16}
+!38 = !{!37, !7, i64 0}
+!39 = !{!7, !7, i64 0}
+!40 = !{!41, !16, i64 8}
+!41 = !{!"lxb_dom_node", !42, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !43, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !7, i64 80, !15, i64 88, !16, i64 96}
+!42 = !{!"lxb_dom_event_target", !7, i64 0}
+!43 = !{!"p1 _ZTS16lxb_dom_document", !7, i64 0}
+!44 = !{!41, !16, i64 24}
+!45 = !{!5, !12, i64 24}
+!46 = !{!11, !11, i64 0}
+!47 = !{!15, !15, i64 0}
+!48 = distinct !{!48, !32}
+!49 = !{!19, !16, i64 72}
+!50 = !{!5, !10, i64 8}
+!51 = !{!52, !7, i64 192}
+!52 = !{!"lxb_html_document", !53, i64 0, !7, i64 256, !57, i64 264, !58, i64 272, !59, i64 280, !14, i64 344, !7, i64 352, !15, i64 360, !15, i64 364}
+!53 = !{!"lxb_dom_document", !41, i64 0, !15, i64 104, !15, i64 108, !54, i64 112, !55, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192, !56, i64 200, !56, i64 208, !56, i64 216, !56, i64 224, !7, i64 232, !7, i64 240, !14, i64 248, !14, i64 249, !14, i64 250}
+!54 = !{!"p1 _ZTS21lxb_dom_document_type", !7, i64 0}
+!55 = !{!"p1 _ZTS15lxb_dom_element", !7, i64 0}
+!56 = !{!"p1 _ZTS11lexbor_hash", !7, i64 0}
+!57 = !{!"p1 _ZTS21lxb_html_head_element", !7, i64 0}
+!58 = !{!"p1 _ZTS21lxb_html_body_element", !7, i64 0}
+!59 = !{!"", !60, i64 0, !61, i64 8, !62, i64 16, !63, i64 24, !7, i64 32, !7, i64 40, !56, i64 48, !16, i64 56}
+!60 = !{!"p1 _ZTS14lxb_css_memory", !7, i64 0}
+!61 = !{!"p1 _ZTS17lxb_css_selectors", !7, i64 0}
+!62 = !{!"p1 _ZTS14lxb_css_parser", !7, i64 0}
+!63 = !{!"p1 _ZTS10lexbor_avl", !7, i64 0}
+!64 = !{!65, !16, i64 24}
+!65 = !{!"lxb_dom_element", !41, i64 0, !16, i64 104, !16, i64 112, !7, i64 120, !66, i64 128, !66, i64 136, !66, i64 144, !66, i64 152, !15, i64 160}
+!66 = !{!"p1 _ZTS12lxb_dom_attr", !7, i64 0}
+!67 = !{!5, !7, i64 48}
+!68 = !{!69, !16, i64 16}
+!69 = !{!"", !20, i64 0, !16, i64 8, !16, i64 16, !16, i64 24}
+!70 = distinct !{!70, !32}
+!71 = distinct !{!71, !32}
+!72 = !{!5, !6, i64 0}
+!73 = !{!74, !7, i64 0}
+!74 = !{!"lxb_html_tokenizer", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !56, i64 32, !56, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !75, i64 96, !20, i64 104, !20, i64 112, !16, i64 120, !20, i64 128, !20, i64 136, !20, i64 144, !20, i64 152, !20, i64 160, !16, i64 168, !16, i64 176, !7, i64 184, !7, i64 192, !16, i64 200, !16, i64 208, !15, i64 216, !15, i64 220, !14, i64 224, !15, i64 228, !15, i64 232, !14, i64 236, !6, i64 240, !16, i64 248}
+!75 = !{!"p1 _ZTS13lxb_html_tree", !7, i64 0}
+!76 = !{!5, !7, i64 40}
+!77 = !{!53, !15, i64 104}
+!78 = !{!79, !7, i64 120}
+!79 = !{!"lxb_dom_attr", !41, i64 0, !16, i64 104, !16, i64 112, !7, i64 120, !55, i64 128, !66, i64 136, !66, i64 144}
+!80 = !{!74, !16, i64 120}
+!81 = !{!52, !14, i64 250}
+!82 = !{!5, !7, i64 104}

@@ -3506,9 +3506,9 @@ _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %1, %4, %8
   br i1 %12, label %36, label %13
 
 13:                                               ; preds = %_ZN6google8protobuf8internal12ShutdownData3getEv.exit
-  %14 = load ptr, ptr %11, align 8, !tbaa !101
+  %14 = load ptr, ptr %11, align 8, !tbaa !102
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !101
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   %17 = icmp ne ptr %14, %16
   %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %16, i64 -16
   %18 = icmp ult ptr %14, %.sroa.0.08.i.i.i
@@ -3519,24 +3519,24 @@ _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %1, %4, %8
   %.sroa.0.011.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.0.08.i.i.i, %13 ]
   %.pn10.i.i.i = phi ptr [ %.sroa.0.011.i.i.i, %.lr.ph.i.i.i ], [ %16, %13 ]
   %.sroa.05.09.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %14, %13 ]
-  %19 = load ptr, ptr %.sroa.05.09.i.i.i, align 8, !tbaa !102
-  %20 = load ptr, ptr %.sroa.0.011.i.i.i, align 8, !tbaa !102
-  store ptr %20, ptr %.sroa.05.09.i.i.i, align 8, !tbaa !102
-  store ptr %19, ptr %.sroa.0.011.i.i.i, align 8, !tbaa !102
+  %19 = load ptr, ptr %.sroa.05.09.i.i.i, align 8, !tbaa !103
+  %20 = load ptr, ptr %.sroa.0.011.i.i.i, align 8, !tbaa !103
+  store ptr %20, ptr %.sroa.05.09.i.i.i, align 8, !tbaa !103
+  store ptr %19, ptr %.sroa.0.011.i.i.i, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i, i64 8
   %22 = getelementptr inbounds i8, ptr %.pn10.i.i.i, i64 -8
-  %23 = load ptr, ptr %21, align 8, !tbaa !102
-  %24 = load ptr, ptr %22, align 8, !tbaa !102
-  store ptr %24, ptr %21, align 8, !tbaa !102
-  store ptr %23, ptr %22, align 8, !tbaa !102
+  %23 = load ptr, ptr %21, align 8, !tbaa !103
+  %24 = load ptr, ptr %22, align 8, !tbaa !103
+  store ptr %24, ptr %21, align 8, !tbaa !103
+  store ptr %23, ptr %22, align 8, !tbaa !103
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i, i64 16
   %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.011.i.i.i, i64 -16
   %26 = icmp ult ptr %25, %.sroa.0.0.i.i.i
-  br i1 %26, label %.lr.ph.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.loopexit.i, !llvm.loop !103
+  br i1 %26, label %.lr.ph.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.loopexit.i, !llvm.loop !104
 
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i
-  %.pre.i = load ptr, ptr %11, align 8, !tbaa !101
-  %.pre10.i = load ptr, ptr %15, align 8, !tbaa !101
+  %.pre.i = load ptr, ptr %11, align 8, !tbaa !102
+  %.pre10.i = load ptr, ptr %15, align 8, !tbaa !102
   br label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.i
 
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.i: ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.loopexit.i, %13
@@ -3569,7 +3569,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaI
 31:                                               ; preds = %.lr.ph.i
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 16
   %.not.i2 = icmp eq ptr %32, %27
-  br i1 %.not.i2, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %.not.i2, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !105
 
 33:                                               ; preds = %.lr.ph.i
   %34 = landingpad { ptr, i32 }
@@ -3610,7 +3610,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf11MessageLiteD2Ev(ptr nounde
   br i1 %.not1.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i, label %8, !prof !28
 
 8:                                                ; preds = %.noexc.i
-  %9 = load ptr, ptr %7, align 8, !tbaa !104
+  %9 = load ptr, ptr %7, align 8, !tbaa !106
   br label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
 
 _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %8, %.noexc.i
@@ -3683,8 +3683,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCode
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !106
-  %14 = load ptr, ptr %8, align 8, !tbaa !107
+  %13 = load ptr, ptr %12, align 8, !tbaa !108
+  %14 = load ptr, ptr %8, align 8, !tbaa !109
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -3695,7 +3695,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCode
 19:                                               ; preds = %11
   %20 = zext nneg i32 %9 to i64
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 %20
-  store ptr %21, ptr %8, align 8, !tbaa !107
+  store ptr %21, ptr %8, align 8, !tbaa !109
   br label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit
 
 22:                                               ; preds = %11
@@ -3711,10 +3711,10 @@ define linkonce_odr hidden void @_ZN6google8protobuf24ZeroCopyCodedInputStream6B
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = sub nsw i32 0, %1
-  %6 = load ptr, ptr %4, align 8, !tbaa !107
+  %6 = load ptr, ptr %4, align 8, !tbaa !109
   %7 = sext i32 %5 to i64
   %8 = getelementptr inbounds i8, ptr %6, i64 %7
-  store ptr %8, ptr %4, align 8, !tbaa !107
+  store ptr %8, ptr %4, align 8, !tbaa !109
   ret void
 }
 
@@ -3727,8 +3727,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCode
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !106
-  %9 = load ptr, ptr %4, align 8, !tbaa !107
+  %8 = load ptr, ptr %7, align 8, !tbaa !108
+  %9 = load ptr, ptr %4, align 8, !tbaa !109
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -3739,7 +3739,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCode
 14:                                               ; preds = %6
   %15 = zext nneg i32 %1 to i64
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
-  store ptr %16, ptr %4, align 8, !tbaa !107
+  store ptr %16, ptr %4, align 8, !tbaa !109
   br label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit
 
 17:                                               ; preds = %6
@@ -3822,7 +3822,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMe
   br i1 %.not, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit, label %6, !prof !28
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %5, align 8, !tbaa !104
+  %7 = load ptr, ptr %5, align 8, !tbaa !106
   br label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %6
@@ -3843,9 +3843,9 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %6
   %14 = tail call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, i64 noundef 40, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE)
   %15 = extractvalue { ptr, ptr } %14, 0
   %16 = extractvalue { ptr, ptr } %14, 1
-  store ptr %15, ptr %16, align 8, !tbaa !108
+  store ptr %15, ptr %16, align 8, !tbaa !110
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv, ptr %17, align 8, !tbaa !110
+  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv, ptr %17, align 8, !tbaa !112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -3862,7 +3862,7 @@ _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9Contai
   %23 = or i64 %21, %22
   %24 = or i64 %23, 1
   store i64 %24, ptr %0, align 8, !tbaa !85
-  store ptr %.0.i, ptr %.0.i6, align 8, !tbaa !104
+  store ptr %.0.i, ptr %.0.i6, align 8, !tbaa !106
   %25 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 8
   ret ptr %25
 }
@@ -4045,15 +4045,17 @@ attributes #24 = { noreturn nounwind }
 !96 = distinct !{!96, !97, !"_ZSt19__relocate_object_aISt4pairIPFvPKvES2_ES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !97 = distinct !{!97, !"_ZSt19__relocate_object_aISt4pairIPFvPKvES2_ES5_SaIS5_EEvPT_PT0_RT1_"}
 !98 = distinct !{!98, !97, !"_ZSt19__relocate_object_aISt4pairIPFvPKvES2_ES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!99 = distinct !{!99, !100}
+!99 = distinct !{!99, !100, !101}
 !100 = !{!"llvm.loop.mustprogress"}
-!101 = !{!92, !92, i64 0}
-!102 = !{!11, !11, i64 0}
-!103 = distinct !{!103, !100}
-!104 = !{!105, !17, i64 0}
-!105 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !17, i64 0}
-!106 = !{!51, !10, i64 8}
-!107 = !{!51, !10, i64 0}
-!108 = !{!109, !11, i64 0}
-!109 = !{!"_ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !11, i64 0, !11, i64 8}
-!110 = !{!109, !11, i64 8}
+!101 = !{!"llvm.loop.estimated_trip_count"}
+!102 = !{!92, !92, i64 0}
+!103 = !{!11, !11, i64 0}
+!104 = distinct !{!104, !100, !101}
+!105 = distinct !{!105, !101}
+!106 = !{!107, !17, i64 0}
+!107 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !17, i64 0}
+!108 = !{!51, !10, i64 8}
+!109 = !{!51, !10, i64 0}
+!110 = !{!111, !11, i64 0}
+!111 = !{!"_ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !11, i64 0, !11, i64 8}
+!112 = !{!111, !11, i64 8}

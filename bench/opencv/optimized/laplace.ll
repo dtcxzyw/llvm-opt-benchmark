@@ -1381,7 +1381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256: ; preds = %_Z
 460:                                              ; preds = %457
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22) #12
-  br label %384
+  br label %384, !llvm.loop !56
 
 461:                                              ; preds = %415, %419, %423, %445, %447, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256, %455, %405
   %.pn97.pn = phi { ptr, i32 } [ %406, %405 ], [ %456, %455 ], [ %450, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256 ], [ %448, %447 ], [ %446, %445 ], [ %416, %415 ], [ %420, %419 ], [ %424, %423 ]
@@ -1769,3 +1769,5 @@ attributes #14 = { noreturn }
 !53 = !{!54, !25, i64 0}
 !54 = !{!"_ZTSN2cv11_InputArrayE", !25, i64 0, !7, i64 8, !51, i64 16}
 !55 = !{!54, !7, i64 8}
+!56 = distinct !{!56, !57}
+!57 = !{!"llvm.loop.estimated_trip_count"}

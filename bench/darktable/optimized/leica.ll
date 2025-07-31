@@ -390,22 +390,22 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 381552
-  %12 = load i16, ptr %11, align 8, !tbaa !80
+  %12 = load i16, ptr %11, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #10
   %13 = load ptr, ptr %10, align 8, !tbaa !77
-  %14 = load ptr, ptr %13, align 8, !tbaa !81
+  %14 = load ptr, ptr %13, align 8, !tbaa !82
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %18 = load ptr, ptr %10, align 8, !tbaa !77
-  %19 = load ptr, ptr %18, align 8, !tbaa !81
+  %19 = load ptr, ptr %18, align 8, !tbaa !82
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %9, i64 noundef 1, i64 noundef 10)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %9, ptr noundef nonnull dereferenceable(5) @.str.7, i64 5)
   %.not = icmp eq i32 %bcmp, 0
   %23 = load ptr, ptr %10, align 8, !tbaa !77
-  %24 = load ptr, ptr %23, align 8, !tbaa !81
+  %24 = load ptr, ptr %23, align 8, !tbaa !82
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   br i1 %.not, label %30, label %27
@@ -449,7 +449,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
 .thread:                                          ; preds = %30, %40
   %.1108 = phi i32 [ -3, %40 ], [ %39, %30 ]
   %43 = load ptr, ptr %10, align 8, !tbaa !77
-  %44 = load ptr, ptr %43, align 8, !tbaa !81
+  %44 = load ptr, ptr %43, align 8, !tbaa !82
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %43)
@@ -466,7 +466,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   br i1 %51, label %311, label %52
 
 52:                                               ; preds = %.thread109
-  %53 = load i16, ptr %11, align 8, !tbaa !80
+  %53 = load i16, ptr %11, align 8, !tbaa !81
   %.not87116 = icmp eq i16 %50, 0
   br i1 %.not87116, label %._crit_edge, label %.lr.ph
 
@@ -508,33 +508,33 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
 86:                                               ; preds = %.lr.ph, %_ZN6LibRaw16parseLeicaLensIDEv.exit
   %.in = phi i32 [ %54, %.lr.ph ], [ %87, %_ZN6LibRaw16parseLeicaLensIDEv.exit ]
   %87 = add nsw i32 %.in, -1
-  store i16 %53, ptr %11, align 8, !tbaa !80
+  store i16 %53, ptr %11, align 8, !tbaa !81
   call void @_ZN6LibRaw8tiff_getEjPjS0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %88 = load ptr, ptr %10, align 8, !tbaa !77
-  %89 = load ptr, ptr %88, align 8, !tbaa !81
+  %89 = load ptr, ptr %88, align 8, !tbaa !82
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %88)
-  %93 = load i32, ptr %7, align 4, !tbaa !83
+  %93 = load i32, ptr %7, align 4, !tbaa !84
   %94 = icmp ugt i32 %93, 8
   br i1 %94, label %97, label %.thread111
 
 .thread111:                                       ; preds = %86
-  %95 = load i32, ptr %5, align 4, !tbaa !83
+  %95 = load i32, ptr %5, align 4, !tbaa !84
   %96 = or i32 %95, %55
-  store i32 %96, ptr %5, align 4, !tbaa !83
+  store i32 %96, ptr %5, align 4, !tbaa !84
   br label %105
 
 97:                                               ; preds = %86
   %98 = zext i32 %93 to i64
   %99 = add nsw i64 %92, %98
   %100 = icmp sgt i64 %99, %56
-  br i1 %100, label %_ZN6LibRaw16parseLeicaLensIDEv.exit, label %101, !llvm.loop !84
+  br i1 %100, label %_ZN6LibRaw16parseLeicaLensIDEv.exit, label %101, !llvm.loop !85
 
 101:                                              ; preds = %97
-  %102 = load i32, ptr %5, align 4, !tbaa !83
+  %102 = load i32, ptr %5, align 4, !tbaa !84
   %103 = or i32 %102, %55
-  store i32 %103, ptr %5, align 4, !tbaa !83
+  store i32 %103, ptr %5, align 4, !tbaa !84
   %104 = icmp ugt i32 %93, 104857600
   br i1 %104, label %_ZN6LibRaw16parseLeicaLensIDEv.exit, label %105
 
@@ -591,39 +591,39 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 119:                                              ; preds = %107
-  %120 = load float, ptr %57, align 4, !tbaa !85
+  %120 = load float, ptr %57, align 4, !tbaa !86
   %121 = call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %120)
   %122 = fcmp reassoc nsz arcp contract afn olt float %121, 0x3FC5C28F60000000
   br i1 %122, label %123, label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 123:                                              ; preds = %119
-  %124 = load i32, ptr %6, align 4, !tbaa !83
+  %124 = load i32, ptr %6, align 4, !tbaa !84
   %125 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %124)
   %126 = fptrunc reassoc nsz arcp contract afn double %125 to float
-  store float %126, ptr %57, align 4, !tbaa !85
+  store float %126, ptr %57, align 4, !tbaa !86
   %127 = fpext reassoc nsz arcp contract afn float %126 to double
   %128 = fcmp reassoc nsz arcp contract afn ogt double %127, 1.263000e+02
   br i1 %128, label %129, label %130
 
 129:                                              ; preds = %123
-  store float 0.000000e+00, ptr %57, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %57, align 4, !tbaa !86
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 130:                                              ; preds = %123
-  %131 = load float, ptr %58, align 8, !tbaa !86
+  %131 = load float, ptr %58, align 8, !tbaa !87
   %132 = call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %131)
   %133 = fcmp reassoc nsz arcp contract afn olt float %132, 0x3FC5C28F60000000
   br i1 %133, label %134, label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 134:                                              ; preds = %130
-  store float %126, ptr %58, align 8, !tbaa !86
+  store float %126, ptr %58, align 8, !tbaa !87
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 135:                                              ; preds = %107
-  %136 = load i32, ptr %6, align 4, !tbaa !83
+  %136 = load i32, ptr %6, align 4, !tbaa !84
   %137 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %136)
   %138 = fptrunc reassoc nsz arcp contract afn double %137 to float
-  store float %138, ptr %63, align 8, !tbaa !87
+  store float %138, ptr %63, align 8, !tbaa !88
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 139:                                              ; preds = %105
@@ -635,14 +635,14 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   %141 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %142 = uitofp i16 %141 to float
   %143 = getelementptr inbounds nuw [4 x float], ptr %83, i64 0, i64 %indvars.iv
-  store float %142, ptr %143, align 4, !tbaa !88
+  store float %142, ptr %143, align 4, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %144, label %.preheader, !llvm.loop !89
+  br i1 %exitcond.not, label %144, label %.preheader, !llvm.loop !90
 
 144:                                              ; preds = %.preheader
-  %145 = load float, ptr %84, align 4, !tbaa !88
-  store float %145, ptr %85, align 4, !tbaa !88
+  %145 = load float, ptr %84, align 4, !tbaa !89
+  store float %145, ptr %85, align 4, !tbaa !89
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 146:                                              ; preds = %105
@@ -653,12 +653,12 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
 
 147:                                              ; preds = %146
   %148 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i16 %148, ptr %82, align 2, !tbaa !90
+  store i16 %148, ptr %82, align 2, !tbaa !91
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 149:                                              ; preds = %146
   %150 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i16 %150, ptr %81, align 4, !tbaa !91
+  store i16 %150, ptr %81, align 4, !tbaa !92
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 151:                                              ; preds = %105, %105, %105, %105, %105
@@ -667,12 +667,12 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr %10, align 8, !tbaa !77
-  %155 = load ptr, ptr %154, align 8, !tbaa !81
+  %155 = load ptr, ptr %154, align 8, !tbaa !82
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 56
   %157 = load ptr, ptr %156, align 8
   %158 = call noundef i32 %157(ptr noundef nonnull align 8 dereferenceable(8) %154)
   %159 = load ptr, ptr %10, align 8, !tbaa !77
-  %160 = load ptr, ptr %159, align 8, !tbaa !81
+  %160 = load ptr, ptr %159, align 8, !tbaa !82
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 56
   %162 = load ptr, ptr %161, align 8
   %163 = call noundef i32 %162(ptr noundef nonnull align 8 dereferenceable(8) %159)
@@ -680,7 +680,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   %165 = and i32 %163, 255
   %166 = or disjoint i32 %165, %164
   %167 = trunc i32 %166 to i16
-  store i16 %167, ptr %80, align 8, !tbaa !92
+  store i16 %167, ptr %80, align 8, !tbaa !93
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 168:                                              ; preds = %105, %105
@@ -691,12 +691,12 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
 
 169:                                              ; preds = %168
   %170 = load ptr, ptr %10, align 8, !tbaa !77
-  %171 = load ptr, ptr %170, align 8, !tbaa !81
+  %171 = load ptr, ptr %170, align 8, !tbaa !82
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 56
   %173 = load ptr, ptr %172, align 8
   %174 = call noundef i32 %173(ptr noundef nonnull align 8 dereferenceable(8) %170)
   %175 = load ptr, ptr %10, align 8, !tbaa !77
-  %176 = load ptr, ptr %175, align 8, !tbaa !81
+  %176 = load ptr, ptr %175, align 8, !tbaa !82
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 56
   %178 = load ptr, ptr %177, align 8
   %179 = call noundef i32 %178(ptr noundef nonnull align 8 dereferenceable(8) %175)
@@ -704,7 +704,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   %181 = and i32 %179, 255
   %182 = or disjoint i32 %181, %180
   %183 = trunc i32 %182 to i16
-  store i16 %183, ptr %80, align 8, !tbaa !92
+  store i16 %183, ptr %80, align 8, !tbaa !93
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 184:                                              ; preds = %168
@@ -744,7 +744,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   br i1 %197, label %198, label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 198:                                              ; preds = %196
-  %199 = load float, ptr %57, align 4, !tbaa !85
+  %199 = load float, ptr %57, align 4, !tbaa !86
   %200 = call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %199)
   %201 = fcmp reassoc nsz arcp contract afn olt float %200, 0x3FC5C28F60000000
   br i1 %201, label %202, label %_ZN6LibRaw16parseLeicaLensIDEv.exit
@@ -753,23 +753,23 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   %203 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %204 = uitofp i32 %203 to float
   %205 = fmul reassoc nsz arcp contract afn float %204, 0x3F50624DE0000000
-  store float %205, ptr %57, align 4, !tbaa !85
+  store float %205, ptr %57, align 4, !tbaa !86
   %206 = fpext reassoc nsz arcp contract afn float %205 to double
   %207 = fcmp reassoc nsz arcp contract afn ogt double %206, 1.263000e+02
   br i1 %207, label %208, label %209
 
 208:                                              ; preds = %202
-  store float 0.000000e+00, ptr %57, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %57, align 4, !tbaa !86
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 209:                                              ; preds = %202
-  %210 = load float, ptr %58, align 8, !tbaa !86
+  %210 = load float, ptr %58, align 8, !tbaa !87
   %211 = call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %210)
   %212 = fcmp reassoc nsz arcp contract afn olt float %211, 0x3FC5C28F60000000
   br i1 %212, label %213, label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 213:                                              ; preds = %209
-  store float %205, ptr %58, align 8, !tbaa !86
+  store float %205, ptr %58, align 8, !tbaa !87
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 214:                                              ; preds = %105
@@ -831,7 +831,7 @@ _ZN6LibRaw18parseLeicaLensNameEj.exit101:         ; preds = %227
 
 236:                                              ; preds = %233
   %237 = load ptr, ptr %10, align 8, !tbaa !77
-  %238 = load ptr, ptr %237, align 8, !tbaa !81
+  %238 = load ptr, ptr %237, align 8, !tbaa !82
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 56
   %240 = load ptr, ptr %239, align 8
   %241 = call noundef i32 %240(ptr noundef nonnull align 8 dereferenceable(8) %237)
@@ -842,7 +842,7 @@ _ZN6LibRaw18parseLeicaLensNameEj.exit101:         ; preds = %227
   br i1 %or.cond, label %244, label %._crit_edge119
 
 ._crit_edge119:                                   ; preds = %236
-  %.pre = load i32, ptr %5, align 4, !tbaa !83
+  %.pre = load i32, ptr %5, align 4, !tbaa !84
   br label %248
 
 244:                                              ; preds = %236
@@ -864,7 +864,7 @@ _ZN6LibRaw18parseLeicaLensNameEj.exit101:         ; preds = %227
   br i1 %250, label %251, label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 251:                                              ; preds = %248
-  %252 = load i32, ptr %7, align 4, !tbaa !83
+  %252 = load i32, ptr %7, align 4, !tbaa !84
   %.not.i102 = icmp eq i32 %252, 0
   br i1 %.not.i102, label %253, label %254
 
@@ -929,10 +929,10 @@ _ZN6LibRaw18parseLeicaLensNameEj.exit101:         ; preds = %227
   ]
 
 273:                                              ; preds = %272
-  %274 = load i32, ptr %6, align 4, !tbaa !83
+  %274 = load i32, ptr %6, align 4, !tbaa !84
   %275 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %274)
   %276 = fptrunc reassoc nsz arcp contract afn double %275 to float
-  store float %276, ptr %63, align 8, !tbaa !87
+  store float %276, ptr %63, align 8, !tbaa !88
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 277:                                              ; preds = %272
@@ -959,47 +959,47 @@ _ZN6LibRaw18parseLeicaLensNameEj.exit101:         ; preds = %227
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 288:                                              ; preds = %272
-  %289 = load float, ptr %57, align 4, !tbaa !85
+  %289 = load float, ptr %57, align 4, !tbaa !86
   %290 = call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %289)
   %291 = fcmp reassoc nsz arcp contract afn olt float %290, 0x3FC5C28F60000000
   br i1 %291, label %292, label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 292:                                              ; preds = %288
-  %293 = load i32, ptr %6, align 4, !tbaa !83
+  %293 = load i32, ptr %6, align 4, !tbaa !84
   %294 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %293)
   %295 = fptrunc reassoc nsz arcp contract afn double %294 to float
-  store float %295, ptr %57, align 4, !tbaa !85
+  store float %295, ptr %57, align 4, !tbaa !86
   %296 = fpext reassoc nsz arcp contract afn float %295 to double
   %297 = fcmp reassoc nsz arcp contract afn ogt double %296, 1.263000e+02
   br i1 %297, label %298, label %299
 
 298:                                              ; preds = %292
-  store float 0.000000e+00, ptr %57, align 4, !tbaa !85
+  store float 0.000000e+00, ptr %57, align 4, !tbaa !86
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 299:                                              ; preds = %292
-  %300 = load float, ptr %58, align 8, !tbaa !86
+  %300 = load float, ptr %58, align 8, !tbaa !87
   %301 = call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %300)
   %302 = fcmp reassoc nsz arcp contract afn olt float %301, 0x3FC5C28F60000000
   br i1 %302, label %303, label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 303:                                              ; preds = %299
-  store float %295, ptr %58, align 8, !tbaa !86
+  store float %295, ptr %58, align 8, !tbaa !87
   br label %_ZN6LibRaw16parseLeicaLensIDEv.exit
 
 _ZN6LibRaw16parseLeicaLensIDEv.exit:              ; preds = %.preheader.i, %101, %144, %139, %153, %151, %208, %213, %209, %198, %196, %232, %230, %298, %303, %299, %288, %273, %245, %244, %248, %214, %_ZN6LibRaw18parseLeicaLensNameEj.exit101, %169, %147, %149, %135, %129, %134, %130, %146, %168, %272, %105, %108, %111, %117, %195, %.sink.split.i, %_ZN6LibRaw18parseLeicaLensNameEj.exit101.thread, %253, %259, %260, %267, %277, %280, %286, %119, %107, %97
   %304 = load ptr, ptr %10, align 8, !tbaa !77
-  %305 = load i32, ptr %8, align 4, !tbaa !83
+  %305 = load i32, ptr %8, align 4, !tbaa !84
   %306 = zext i32 %305 to i64
-  %307 = load ptr, ptr %304, align 8, !tbaa !81
+  %307 = load ptr, ptr %304, align 8, !tbaa !82
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 32
   %309 = load ptr, ptr %308, align 8
   %310 = call noundef i32 %309(ptr noundef nonnull align 8 dereferenceable(8) %304, i64 noundef %306, i32 noundef 0)
   %.not87 = icmp eq i32 %87, 0
-  br i1 %.not87, label %._crit_edge, label %86
+  br i1 %.not87, label %._crit_edge, label %86, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %_ZN6LibRaw16parseLeicaLensIDEv.exit, %52
-  store i16 %12, ptr %11, align 8, !tbaa !80
+  store i16 %12, ptr %11, align 8, !tbaa !81
   br label %311
 
 311:                                              ; preds = %.thread109, %._crit_edge
@@ -1121,18 +1121,20 @@ attributes #10 = { nounwind }
 !75 = !{!7, !14, i64 1336}
 !76 = !{!7, !24, i64 1200}
 !77 = !{!7, !60, i64 381416}
-!78 = distinct !{!78, !79}
+!78 = distinct !{!78, !79, !80}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!7, !14, i64 381552}
-!81 = !{!82, !82, i64 0}
-!82 = !{!"vtable pointer", !12, i64 0}
-!83 = !{!15, !15, i64 0}
-!84 = distinct !{!84, !79}
-!85 = !{!7, !20, i64 1492}
-!86 = !{!7, !20, i64 192560}
-!87 = !{!7, !20, i64 4704}
-!88 = !{!20, !20, i64 0}
-!89 = distinct !{!89, !79}
-!90 = !{!7, !14, i64 5002}
-!91 = !{!7, !14, i64 5012}
-!92 = !{!7, !14, i64 5008}
+!80 = !{!"llvm.loop.estimated_trip_count"}
+!81 = !{!7, !14, i64 381552}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"vtable pointer", !12, i64 0}
+!84 = !{!15, !15, i64 0}
+!85 = distinct !{!85, !79}
+!86 = !{!7, !20, i64 1492}
+!87 = !{!7, !20, i64 192560}
+!88 = !{!7, !20, i64 4704}
+!89 = !{!20, !20, i64 0}
+!90 = distinct !{!90, !79, !80}
+!91 = !{!7, !14, i64 5002}
+!92 = !{!7, !14, i64 5012}
+!93 = !{!7, !14, i64 5008}
+!94 = distinct !{!94, !80}

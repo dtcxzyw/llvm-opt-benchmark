@@ -324,7 +324,7 @@ Abc_ObjGlobalBdd.exit77.i:                        ; preds = %145, %142, %Vec_Att
   %.val57.val.i = load i32, ptr %162, align 4, !tbaa !28
   %163 = sext i32 %.val57.val.i to i64
   %164 = icmp slt i64 %indvars.iv.next105.i, %163
-  br i1 %164, label %105, label %.critedge.i, !llvm.loop !48
+  br i1 %164, label %105, label %.critedge.i, !llvm.loop !49
 
 .critedge.i:                                      ; preds = %91, %156, %100, %.preheader.i
   %.152.i = phi i32 [ 0, %100 ], [ 0, %.preheader.i ], [ %161, %156 ], [ %96, %91 ]
@@ -348,7 +348,7 @@ Abc_Clock.exit79.i:                               ; preds = %167, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   %174 = sub i64 %.0.i78.i, %.0.i66.i
   %175 = getelementptr i8, ptr %0, i64 56
-  %.val65.i = load ptr, ptr %175, align 8, !tbaa !49
+  %.val65.i = load ptr, ptr %175, align 8, !tbaa !50
   %176 = getelementptr i8, ptr %.val65.i, i64 4
   %.val65.val.i = load i32, ptr %176, align 4, !tbaa !28
   %177 = getelementptr i8, ptr %0, i64 64
@@ -419,7 +419,7 @@ declare ptr @Extra_UnateComputeFast(ptr noundef, ptr noundef) local_unnamed_addr
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !50
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !51
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
@@ -432,7 +432,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #12
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !51
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !52
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #12
@@ -440,7 +440,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !51, !noalias !53
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !52, !noalias !54
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #12
   br label %17
 
@@ -556,13 +556,14 @@ attributes #15 = { nounwind willreturn memory(read) }
 !43 = !{!"Extra_UnateInfo_t_", !11, i64 0, !11, i64 4, !11, i64 8, !44, i64 16}
 !44 = !{!"p1 _ZTS17Extra_UnateVar_t_", !13, i64 0}
 !45 = !{!43, !11, i64 8}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47}
-!49 = !{!10, !15, i64 56}
-!50 = !{!11, !11, i64 0}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"vprintf: argument 0"}
-!55 = distinct !{!55, !"vprintf"}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !47, !48}
+!50 = !{!10, !15, i64 56}
+!51 = !{!11, !11, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"vprintf: argument 0"}
+!56 = distinct !{!56, !"vprintf"}

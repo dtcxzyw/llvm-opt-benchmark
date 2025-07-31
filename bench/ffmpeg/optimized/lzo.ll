@@ -379,7 +379,7 @@ copy.exit102:                                     ; preds = %.thread.i99, %selec
   %162 = load i8, ptr %159, align 1, !tbaa !8
   %163 = zext i8 %162 to i32
   %164 = icmp ugt i8 %162, 15
-  br i1 %164, label %229, label %165, !llvm.loop !11
+  br i1 %164, label %229, label %165, !llvm.loop !12
 
 165:                                              ; preds = %copy.exit102
   %166 = getelementptr inbounds nuw i8, ptr %159, i64 2
@@ -574,6 +574,7 @@ attributes #6 = { noreturn nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10}

@@ -248,7 +248,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand_range(i32 noundef range(i32 0
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !8
+  %10 = load i32, ptr %9, align 8, !tbaa !9
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
@@ -331,7 +331,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand_range(i32 noundef range(i32 0
 40:                                               ; preds = %37
   %41 = tail call i32 @BN_cmp(ptr noundef nonnull %1, ptr noundef nonnull %2) #5
   %42 = icmp sgt i32 %41, -1
-  br i1 %42, label %25, label %.loopexit, !llvm.loop !13
+  br i1 %42, label %25, label %.loopexit, !llvm.loop !14
 
 43:                                               ; preds = %.preheader58, %48
   %.1 = phi i32 [ %46, %48 ], [ 100, %.preheader58 ]
@@ -353,7 +353,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand_range(i32 noundef range(i32 0
 48:                                               ; preds = %45
   %49 = tail call i32 @BN_cmp(ptr noundef nonnull %1, ptr noundef nonnull %2) #5
   %50 = icmp sgt i32 %49, -1
-  br i1 %50, label %43, label %.loopexit, !llvm.loop !14
+  br i1 %50, label %43, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %48, %43, %40, %35, %30, %25, %17, %47, %39, %13, %7
   %.036 = phi i32 [ 0, %7 ], [ 0, %13 ], [ 0, %47 ], [ 0, %39 ], [ 1, %17 ], [ 1, %40 ], [ 0, %35 ], [ 0, %30 ], [ 0, %25 ], [ 1, %48 ], [ 0, %43 ]
@@ -403,7 +403,7 @@ define range(i32 0, 2) i32 @ossl_bn_priv_rand_range_fixed_top(ptr noundef %0, pt
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !8
+  %9 = load i32, ptr %8, align 8, !tbaa !9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %12
 
@@ -453,7 +453,7 @@ define range(i32 0, 2) i32 @ossl_bn_priv_rand_range_fixed_top(ptr noundef %0, pt
   %25 = tail call i32 @ossl_bn_mask_bits_fixed_top(ptr noundef nonnull %0, i32 noundef %14) #5
   %26 = tail call i32 @BN_ucmp(ptr noundef nonnull %0, ptr noundef nonnull %1) #5
   %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %19, label %.loopexit, !llvm.loop !15
+  br i1 %27, label %19, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %24, %19, %16, %23, %12, %6
   %.016 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 0, %23 ], [ 1, %16 ], [ 1, %24 ], [ 0, %19 ]
@@ -547,7 +547,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #5
   %35 = add nuw nsw i32 %.04870.us, 1
   %exitcond75.not = icmp eq i32 %35, 64
-  br i1 %exitcond75.not, label %.split.us, label %.lr.ph.us, !llvm.loop !16
+  br i1 %exitcond75.not, label %.split.us, label %.lr.ph.us, !llvm.loop !17
 
 36:                                               ; preds = %.lr.ph.us, %51
   %.04969.us = phi i32 [ 1, %.lr.ph.us ], [ %56, %51 ]
@@ -597,7 +597,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   %58 = add i8 %57, 1
   store i8 %58, ptr %10, align 1, !tbaa !3
   %59 = icmp ult i32 %56, %15
-  br i1 %59, label %36, label %._crit_edge.us, !llvm.loop !18
+  br i1 %59, label %36, label %._crit_edge.us, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %51
   %60 = call ptr @BN_bin2bn(ptr noundef nonnull %19, i32 noundef %15, ptr noundef %0) #5
@@ -634,7 +634,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #5
   %69 = add nuw nsw i32 %.04870, 1
   %exitcond.not = icmp eq i32 %69, 64
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !19
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !20
 
 .split.us:                                        ; preds = %68, %34
   call void @ERR_new() #5
@@ -724,17 +724,18 @@ attributes #5 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !12, i64 16}
-!9 = !{!"bignum_st", !10, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20}
-!10 = !{!"p1 long", !11, i64 0}
-!11 = !{!"any pointer", !4, i64 0}
-!12 = !{!"int", !4, i64 0}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !13, i64 16}
+!10 = !{!"bignum_st", !11, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20}
+!11 = !{!"p1 long", !12, i64 0}
+!12 = !{!"any pointer", !4, i64 0}
+!13 = !{!"int", !4, i64 0}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

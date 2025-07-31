@@ -253,7 +253,7 @@ define dso_local void @ext4_htree_free_dir_info(ptr noundef %0) local_unnamed_ad
   %18 = load ptr, ptr %17, align 8
   tail call void @kfree(ptr noundef nonnull %16) #9
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %7, label %15, !llvm.loop !13
+  br i1 %19, label %7, label %15, !llvm.loop !14
 
 .loopexit:                                        ; preds = %7, %1
   store ptr null, ptr %0, align 8
@@ -340,7 +340,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ext4_htree_store_dirent(ptr noun
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %.preheader, !llvm.loop !14
+  br i1 %54, label %55, label %.preheader, !llvm.loop !15
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %29, i64 %51
@@ -379,7 +379,7 @@ define dso_local range(i32 -117, 1) i32 @ext4_check_all_de(ptr noundef %0, ptr n
 .preheader:                                       ; preds = %4, %12
   %8 = phi i32 [ %18, %12 ], [ 0, %4 ]
   %9 = phi ptr [ %17, %12 ], [ %2, %4 ]
-  %10 = tail call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_check_all_de, i32 noundef 655, ptr noundef %0, ptr noundef null, ptr noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %8), !range !15
+  %10 = tail call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_check_all_de, i32 noundef 655, ptr noundef %0, ptr noundef null, ptr noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %8), !range !16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.loopexit, !prof !9
 
@@ -391,7 +391,7 @@ define dso_local range(i32 -117, 1) i32 @ext4_check_all_de(ptr noundef %0, ptr n
   %17 = getelementptr i8, ptr %9, i64 %16
   %18 = add i32 %8, %15
   %19 = icmp ult ptr %17, %6
-  br i1 %19, label %.preheader, label %.loopexit3, !llvm.loop !16
+  br i1 %19, label %.preheader, label %.loopexit3, !llvm.loop !17
 
 .loopexit3:                                       ; preds = %12, %4
   %20 = phi ptr [ %2, %4 ], [ %17, %12 ]
@@ -467,7 +467,7 @@ define internal i64 @ext4_dir_llseek(ptr noundef %0, i64 noundef %1, i32 noundef
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %45
-  %49 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %49 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %50 = inttoptr i64 %49 to ptr
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -591,7 +591,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %61, label %62, label %85
 
 62:                                               ; preds = %59
-  %63 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %63 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %64 = inttoptr i64 %63 to ptr
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 8
@@ -605,7 +605,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %.sink = select i1 %68, i32 %71, i32 %73
   %74 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i32 %.sink, ptr %74, align 8
-  %75 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %75 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %76 = inttoptr i64 %75 to ptr
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i32, ptr %77, align 8
@@ -655,7 +655,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %105, label %106, label %113
 
 106:                                              ; preds = %103
-  %107 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %107 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %108 = inttoptr i64 %107 to ptr
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i32, ptr %109, align 8
@@ -690,7 +690,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %129 = icmp eq ptr %134, null
   %130 = icmp eq ptr %128, null
   %131 = or i1 %129, %130
-  br i1 %131, label %.loopexit60, label %.preheader59, !llvm.loop !10
+  br i1 %131, label %.loopexit60, label %.preheader59, !llvm.loop !19
 
 .preheader59:                                     ; preds = %121, %127
   %132 = phi ptr [ %128, %127 ], [ %124, %121 ]
@@ -704,7 +704,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %138 = load ptr, ptr %137, align 8
   tail call void @kfree(ptr noundef nonnull %136) #9
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %127, label %135, !llvm.loop !13
+  br i1 %139, label %127, label %135, !llvm.loop !20
 
 .loopexit60:                                      ; preds = %127, %121
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
@@ -720,7 +720,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %146, label %147, label %157
 
 147:                                              ; preds = %144
-  %148 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %148 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %149 = inttoptr i64 %148 to ptr
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load i32, ptr %150, align 8
@@ -755,7 +755,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %170, label %171, label %178
 
 171:                                              ; preds = %168
-  %172 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %172 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %173 = inttoptr i64 %172 to ptr
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %175 = load i32, ptr %174, align 8
@@ -799,7 +799,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %198, label %199, label %209
 
 199:                                              ; preds = %196
-  %200 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %200 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %201 = inttoptr i64 %200 to ptr
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load i32, ptr %202, align 8
@@ -866,7 +866,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %249 = getelementptr inbounds nuw i8, ptr %219, i64 32
   %250 = load ptr, ptr %249, align 8
   %251 = icmp eq ptr %250, null
-  br i1 %251, label %254, label %218, !llvm.loop !18
+  br i1 %251, label %254, label %218, !llvm.loop !21
 
 252:                                              ; preds = %243
   %253 = getelementptr inbounds nuw i8, ptr %186, i64 16
@@ -918,7 +918,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %281 = icmp eq ptr %286, null
   %282 = icmp eq ptr %280, null
   %283 = or i1 %281, %282
-  br i1 %283, label %.loopexit58, label %.preheader, !llvm.loop !10
+  br i1 %283, label %.loopexit58, label %.preheader, !llvm.loop !22
 
 .preheader:                                       ; preds = %273, %279
   %284 = phi ptr [ %280, %279 ], [ %276, %273 ]
@@ -932,7 +932,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %290 = load ptr, ptr %289, align 8
   tail call void @kfree(ptr noundef nonnull %288) #9
   %291 = icmp eq ptr %290, null
-  br i1 %291, label %279, label %287, !llvm.loop !13
+  br i1 %291, label %279, label %287, !llvm.loop !23
 
 .loopexit58:                                      ; preds = %279, %273
   store ptr null, ptr %97, align 8
@@ -964,7 +964,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %309, label %310, label %317
 
 310:                                              ; preds = %307
-  %311 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %311 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %312 = inttoptr i64 %311 to ptr
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %314 = load i32, ptr %313, align 8
@@ -1006,7 +1006,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
 336:                                              ; preds = %322
   %337 = getelementptr inbounds nuw i8, ptr %332, i64 64
   %338 = load i64, ptr %337, align 8
-  %339 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %339 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %340 = inttoptr i64 %339 to ptr
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 1800
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %334, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.call_filldir, i32 noundef 531, i64 noundef %338, ptr noundef nonnull %341) #9
@@ -1025,7 +1025,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %349, label %350, label %360
 
 350:                                              ; preds = %347
-  %351 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %351 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %352 = inttoptr i64 %351 to ptr
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %354 = load i32, ptr %353, align 8
@@ -1097,7 +1097,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %402 = getelementptr inbounds nuw i8, ptr %370, i64 32
   %403 = load ptr, ptr %402, align 8
   %404 = icmp eq ptr %403, null
-  br i1 %404, label %.loopexit57, label %369, !llvm.loop !18
+  br i1 %404, label %.loopexit57, label %369, !llvm.loop !24
 
 .loopexit57:                                      ; preds = %401, %336, %254
   %405 = phi i32 [ 0, %254 ], [ %324, %336 ], [ %324, %401 ]
@@ -1117,7 +1117,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %415 = load i32, ptr %414, align 4
   %416 = getelementptr inbounds nuw i8, ptr %97, i64 36
   store i32 %415, ptr %416, align 4
-  br label %261, !llvm.loop !19
+  br label %261, !llvm.loop !25
 
 417:                                              ; preds = %.loopexit57
   %418 = getelementptr inbounds nuw i8, ptr %97, i64 40
@@ -1137,7 +1137,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %427, label %428, label %435
 
 428:                                              ; preds = %425
-  %429 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %429 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %430 = inttoptr i64 %429 to ptr
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %432 = load i32, ptr %431, align 8
@@ -1158,7 +1158,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   store i32 %419, ptr %439, align 8
   %440 = getelementptr inbounds nuw i8, ptr %97, i64 36
   store i32 0, ptr %440, align 4
-  br label %261, !llvm.loop !19
+  br label %261, !llvm.loop !25
 
 .thread94:                                        ; preds = %252, %318
   %441 = load i64, ptr %98, align 8
@@ -1211,7 +1211,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 .thread95:                                        ; preds = %447, %.thread97, %459
   %465 = getelementptr i8, ptr %7, i64 -215
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %465, i32 -17, ptr elementtype(i8) %465) #9, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %465, i32 -17, ptr elementtype(i8) %465) #9, !srcloc !26
   br label %466
 
 466:                                              ; preds = %.thread95, %.thread97, %40, %36, %14
@@ -1251,7 +1251,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %488, label %489, label %.thread37
 
 489:                                              ; preds = %483
-  %490 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !17
+  %490 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !18
   %491 = inttoptr i64 %490 to ptr
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 1936
   %493 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -1278,7 +1278,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 513:                                              ; preds = %.thread42, %489
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !27
   %514 = load volatile i64, ptr %491, align 8
   %515 = and i64 %514, 4
   %516 = icmp eq i64 %515, 0
@@ -1316,7 +1316,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %538 = load i64, ptr %484, align 8
   %539 = add i64 %538, %537
   store i64 %539, ptr %484, align 8
-  br label %.thread42, !llvm.loop !22
+  br label %.thread42, !llvm.loop !28
 
 540:                                              ; preds = %.critedge
   %541 = icmp sgt i32 %531, 0
@@ -1347,7 +1347,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %558 = getelementptr inbounds nuw i8, ptr %557, i64 48
   %559 = load ptr, ptr %558, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #9
-  store i64 0, ptr %512, align 8, !annotation !21
+  store i64 0, ptr %512, align 8, !annotation !27
   store ptr %0, ptr %3, align 8
   store ptr %559, ptr %501, align 8
   store ptr %498, ptr %502, align 8
@@ -1383,7 +1383,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %574 = sub i64 %567, %573
   %575 = add i64 %574, %572
   store i64 %575, ptr %484, align 8
-  br label %.thread42, !llvm.loop !22
+  br label %.thread42, !llvm.loop !28
 
 576:                                              ; preds = %565
   %577 = load volatile i64, ptr %563, align 8
@@ -1406,7 +1406,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %589 = add i64 %587, %588
   store i64 %589, ptr %484, align 8
   call void @__brelse(ptr noundef nonnull %563) #9
-  br label %.thread42, !llvm.loop !22
+  br label %.thread42, !llvm.loop !28
 
 590:                                              ; preds = %580, %576
   %591 = load volatile i64, ptr %563, align 8
@@ -1416,7 +1416,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 594:                                              ; preds = %590
   %595 = getelementptr i8, ptr %563, i64 3
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %595, i32 1, ptr elementtype(i8) %595) #9, !srcloc !23
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %595, i32 1, ptr elementtype(i8) %595) #9, !srcloc !29
   br label %596
 
 596:                                              ; preds = %594, %590
@@ -1454,7 +1454,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %619 = icmp ugt i64 %602, %618
   %620 = icmp ult i32 %617, %526
   %621 = select i1 %619, i1 %620, i1 false
-  br i1 %621, label %.split.us, label %.loopexit53, !llvm.loop !24
+  br i1 %621, label %.split.us, label %.loopexit53, !llvm.loop !30
 
 .split:                                           ; preds = %606
   %622 = load i32, ptr %10, align 4
@@ -1469,7 +1469,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %629 = icmp ugt i64 %602, %628
   %630 = icmp ult i32 %627, %526
   %631 = select i1 %629, i1 %630, i1 false
-  br i1 %631, label %632, label %.loopexit53, !llvm.loop !26
+  br i1 %631, label %632, label %.loopexit53, !llvm.loop !32
 
 632:                                              ; preds = %626, %.split
   %633 = phi i64 [ 0, %.split ], [ %628, %626 ]
@@ -1511,7 +1511,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %658 = zext i32 %679 to i64
   %659 = load i64, ptr %493, align 8
   %660 = icmp ugt i64 %659, %658
-  br i1 %660, label %.lr.ph, label %.critedge149, !llvm.loop !27
+  br i1 %660, label %.lr.ph, label %.critedge149, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %651, %657
   %661 = phi i64 [ %658, %657 ], [ %654, %651 ]
@@ -1520,7 +1520,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %664 = getelementptr i8, ptr %663, i64 %661
   %665 = load i64, ptr %653, align 8
   %666 = trunc i64 %665 to i32
-  %667 = call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_readdir, i32 noundef 260, ptr noundef %7, ptr noundef %0, ptr noundef %664, ptr noundef nonnull %563, ptr noundef %663, i32 noundef %666, i32 noundef %662), !range !15
+  %667 = call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_readdir, i32 noundef 260, ptr noundef %7, ptr noundef %0, ptr noundef %664, ptr noundef nonnull %563, ptr noundef %663, i32 noundef %666, i32 noundef %662), !range !16
   %668 = icmp eq i32 %667, 0
   br i1 %668, label %675, label %.loopexit, !prof !9
 
@@ -1595,10 +1595,10 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   store i64 %717, ptr %484, align 8
   %718 = load i64, ptr %485, align 8
   %719 = icmp slt i64 %717, %718
-  br i1 %719, label %657, label %..loopexit.loopexit_crit_edge129, !llvm.loop !27
+  br i1 %719, label %657, label %..loopexit.loopexit_crit_edge129, !llvm.loop !33
 
 ..loopexit.loopexit_crit_edge129:                 ; preds = %713
-  br label %.critedge148, !llvm.loop !27
+  br label %.critedge148, !llvm.loop !33
 
 .critedge149:                                     ; preds = %651, %657, %.loopexit
   call void @up_read(ptr noundef nonnull %510) #9
@@ -1617,7 +1617,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %723 = load i64, ptr %484, align 8
   %724 = load i64, ptr %485, align 8
   %725 = icmp slt i64 %723, %724
-  br i1 %725, label %513, label %.thread37, !llvm.loop !22
+  br i1 %725, label %513, label %.thread37, !llvm.loop !34
 
 726:                                              ; preds = %560
   %727 = ptrtoint ptr %563 to i64
@@ -1667,7 +1667,7 @@ define internal noundef i32 @ext4_release_dir(ptr readnone captures(none) %0, pt
   %14 = icmp eq ptr %19, null
   %15 = icmp eq ptr %13, null
   %16 = or i1 %14, %15
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .preheader:                                       ; preds = %6, %12
   %17 = phi ptr [ %13, %12 ], [ %9, %6 ]
@@ -1681,7 +1681,7 @@ define internal noundef i32 @ext4_release_dir(ptr readnone captures(none) %0, pt
   %23 = load ptr, ptr %22, align 8
   tail call void @kfree(ptr noundef nonnull %21) #9
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %12, label %20, !llvm.loop !13
+  br i1 %24, label %12, label %20, !llvm.loop !36
 
 .loopexit:                                        ; preds = %12, %6
   store ptr null, ptr %4, align 8
@@ -1790,21 +1790,30 @@ attributes #12 = { nounwind allocsize(2) }
 !7 = !{i64 2156116727, i64 2156116756, i64 2156116802, i64 2156116860, i64 2156116914, i64 2156116968, i64 2156117023, i64 2156117054, i64 2156117362, i64 2156117368, i64 2156117415, i64 2156117438, i64 2156117464}
 !8 = !{i64 2156117912, i64 2156117723, i64 2156117773, i64 2156117819, i64 2156117847}
 !9 = !{!"branch_weights", i32 2000, i32 1}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = !{i32 0, i32 2}
-!16 = distinct !{!16, !11, !12}
-!17 = !{i64 2148140068}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !12}
-!20 = !{i64 2148564046, i64 2148564085, i64 2148564106, i64 2148564143, i64 2148564166, i64 2148564036}
-!21 = !{!"auto-init"}
-!22 = distinct !{!22, !11, !12}
-!23 = !{i64 2148562758, i64 2148562797, i64 2148562818, i64 2148562855, i64 2148562878, i64 2148562748}
-!24 = distinct !{!24, !11, !12, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !11, !12}
-!27 = distinct !{!27, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = distinct !{!15, !11, !12, !13}
+!16 = !{i32 0, i32 2}
+!17 = distinct !{!17, !11, !12, !13}
+!18 = !{i64 2148140068}
+!19 = distinct !{!19, !11, !12, !13}
+!20 = distinct !{!20, !11, !12, !13}
+!21 = distinct !{!21, !11, !12, !13}
+!22 = distinct !{!22, !11, !12, !13}
+!23 = distinct !{!23, !11, !12, !13}
+!24 = distinct !{!24, !11, !12, !13}
+!25 = distinct !{!25, !12}
+!26 = !{i64 2148564046, i64 2148564085, i64 2148564106, i64 2148564143, i64 2148564166, i64 2148564036}
+!27 = !{!"auto-init"}
+!28 = distinct !{!28, !11, !12}
+!29 = !{i64 2148562758, i64 2148562797, i64 2148562818, i64 2148562855, i64 2148562878, i64 2148562748}
+!30 = distinct !{!30, !11, !12, !13, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !11, !12, !13}
+!33 = distinct !{!33, !11, !12, !13}
+!34 = distinct !{!34, !11, !12, !13}
+!35 = distinct !{!35, !11, !12, !13}
+!36 = distinct !{!36, !11, !12, !13}

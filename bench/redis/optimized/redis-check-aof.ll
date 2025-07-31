@@ -555,7 +555,7 @@ define dso_local range(i32 0, 4) i32 @checkSingleAof(ptr noundef %0, ptr noundef
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %28 = load i64, ptr %27, align 8, !tbaa !19
+  %28 = load i64, ptr %27, align 8, !tbaa !20
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %32
 
@@ -642,7 +642,7 @@ define dso_local range(i32 0, 4) i32 @checkSingleAof(ptr noundef %0, ptr noundef
 58:                                               ; preds = %56
   %59 = call i32 @processAnnotations(ptr noundef nonnull %12, ptr noundef %1, i32 noundef %2)
   %.not59 = icmp eq i32 %59, 0
-  br i1 %.not59, label %60, label %._crit_edge
+  br i1 %.not59, label %60, label %._crit_edge, !llvm.loop !23
 
 60:                                               ; preds = %58
   %61 = call i32 @fclose(ptr noundef nonnull %12)
@@ -652,7 +652,7 @@ define dso_local range(i32 0, 4) i32 @checkSingleAof(ptr noundef %0, ptr noundef
   %63 = call i32 @processRESP(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %6)
   %.not58 = icmp eq i32 %63, 0
   %.pre82 = load i32, ptr %6, align 4
-  br i1 %.not58, label %.loopexit, label %._crit_edge.outer
+  br i1 %.not58, label %.loopexit, label %._crit_edge.outer, !llvm.loop !23
 
 64:                                               ; preds = %56
   %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef %0)
@@ -723,7 +723,7 @@ define dso_local range(i32 0, 4) i32 @checkSingleAof(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #16
   %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %0, i64 noundef %28, i64 noundef %77, i64 noundef %.1)
   %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31)
-  %95 = load ptr, ptr @stdin, align 8, !tbaa !22
+  %95 = load ptr, ptr @stdin, align 8, !tbaa !24
   %96 = call ptr @fgets(ptr noundef nonnull %11, i32 noundef 2, ptr noundef %95)
   %97 = icmp eq ptr %96, null
   br i1 %97, label %100, label %98
@@ -828,7 +828,7 @@ define dso_local range(i32 0, 2) i32 @fileIsRDB(ptr noundef %0) local_unnamed_ad
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %20 = load i64, ptr %19, align 8, !tbaa !19
+  %20 = load i64, ptr %19, align 8, !tbaa !20
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %24
 
@@ -901,7 +901,7 @@ define dso_local range(i32 0, 2) i32 @fileIsManifest(ptr noundef %0) local_unnam
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %20 = load i64, ptr %19, align 8, !tbaa !19
+  %20 = load i64, ptr %19, align 8, !tbaa !20
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %24
 
@@ -936,12 +936,12 @@ define dso_local range(i32 0, 2) i32 @fileIsManifest(ptr noundef %0) local_unnam
 33:                                               ; preds = %25
   %34 = load i8, ptr %3, align 16, !tbaa !5
   %35 = icmp eq i8 %34, 35
-  br i1 %35, label %25, label %36
+  br i1 %35, label %25, label %36, !llvm.loop !26
 
 36:                                               ; preds = %33
   %lhsv = load i32, ptr %3, align 16
   %.not = icmp eq i32 %lhsv, 1701603686
-  br i1 %.not, label %.outer, label %.loopexit
+  br i1 %.not, label %.outer, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %36, %28
   %37 = call i32 @fclose(ptr noundef nonnull %4)
@@ -1004,17 +1004,17 @@ define dso_local void @checkMultiPartAof(ptr noundef %0, ptr noundef %1, i32 nou
   %4 = alloca %struct.listIter, align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   %5 = tail call ptr @aofLoadManifestFromFile(ptr noundef %1) #16
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
   %.not = icmp ne ptr %6, null
   %spec.select = zext i1 %.not to i32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
   %.not42 = icmp eq ptr %8, null
   br i1 %.not42, label %14, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %11 = load i64, ptr %10, align 8, !tbaa !28
+  %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = trunc i64 %11 to i32
   %13 = add i32 %12, %spec.select
   br label %14
@@ -1024,7 +1024,7 @@ define dso_local void @checkMultiPartAof(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not, label %15, label %33
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr %6, align 8, !tbaa !31
+  %16 = load ptr, ptr %6, align 8, !tbaa !34
   %17 = tail call ptr @makePath(ptr noundef %0, ptr noundef %16) #16
   %18 = icmp eq i32 %.1, 1
   %19 = zext i1 %18 to i32
@@ -1062,21 +1062,21 @@ default.unreachable53:                            ; preds = %.lr.ph, %15
 
 printAofStyle.exit:                               ; preds = %24, %26, %28, %31
   tail call void @sdsfree(ptr noundef %17) #16
-  %.pre = load ptr, ptr %7, align 8, !tbaa !27
+  %.pre = load ptr, ptr %7, align 8, !tbaa !30
   br label %33
 
 33:                                               ; preds = %printAofStyle.exit, %14
   %34 = phi ptr [ %.pre, %printAofStyle.exit ], [ %8, %14 ]
   %.037 = phi i32 [ 1, %printAofStyle.exit ], [ 0, %14 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %36 = load i64, ptr %35, align 8, !tbaa !28
+  %36 = load i64, ptr %35, align 8, !tbaa !31
   %.not45 = icmp eq i64 %36, 0
   br i1 %.not45, label %59, label %37
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   %puts46 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  %38 = load ptr, ptr %7, align 8, !tbaa !27
+  %38 = load ptr, ptr %7, align 8, !tbaa !30
   call void @listRewind(ptr noundef %38, ptr noundef nonnull %4) #16
   %39 = call ptr @listNext(ptr noundef nonnull %4) #16
   %.not4751 = icmp eq ptr %39, null
@@ -1086,8 +1086,8 @@ printAofStyle.exit:                               ; preds = %24, %26, %28, %31
   %40 = phi ptr [ %58, %printAofStyle.exit49 ], [ %39, %37 ]
   %.13852 = phi i32 [ %45, %printAofStyle.exit49 ], [ %.037, %37 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !33
-  %43 = load ptr, ptr %42, align 8, !tbaa !31
+  %42 = load ptr, ptr %41, align 8, !tbaa !36
+  %43 = load ptr, ptr %42, align 8, !tbaa !34
   %44 = call ptr @makePath(ptr noundef %0, ptr noundef %43) #16
   %45 = add nuw nsw i32 %.13852, 1
   %46 = icmp eq i32 %45, %.1
@@ -1121,7 +1121,7 @@ printAofStyle.exit49:                             ; preds = %49, %51, %53, %56
   call void @sdsfree(ptr noundef %44) #16
   %58 = call ptr @listNext(ptr noundef nonnull %4) #16
   %.not47 = icmp eq ptr %58, null
-  br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %printAofStyle.exit49, %37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
@@ -1372,22 +1372,25 @@ attributes #21 = { noreturn nounwind }
 !14 = !{!"any pointer", !6, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"int", !6, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !9, i64 48}
-!20 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !21, i64 72, !21, i64 88, !21, i64 104, !6, i64 120}
-!21 = !{!"timespec", !9, i64 0, !9, i64 8}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
-!24 = !{!25, !14, i64 0}
-!25 = !{!"", !14, i64 0, !26, i64 8, !26, i64 16, !11, i64 24, !11, i64 32, !16, i64 40}
-!26 = !{!"p1 _ZTS4list", !14, i64 0}
-!27 = !{!25, !26, i64 8}
-!28 = !{!29, !9, i64 40}
-!29 = !{!"list", !30, i64 0, !30, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !9, i64 40}
-!30 = !{!"p1 _ZTS8listNode", !14, i64 0}
-!31 = !{!32, !13, i64 0}
-!32 = !{!"", !13, i64 0, !11, i64 8, !16, i64 16, !11, i64 24, !11, i64 32}
-!33 = !{!34, !14, i64 16}
-!34 = !{!"listNode", !30, i64 0, !30, i64 8, !14, i64 16}
-!35 = distinct !{!35, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !9, i64 48}
+!21 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !22, i64 72, !22, i64 88, !22, i64 104, !6, i64 120}
+!22 = !{!"timespec", !9, i64 0, !9, i64 8}
+!23 = distinct !{!23, !19}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!26 = distinct !{!26, !19}
+!27 = !{!28, !14, i64 0}
+!28 = !{!"", !14, i64 0, !29, i64 8, !29, i64 16, !11, i64 24, !11, i64 32, !16, i64 40}
+!29 = !{!"p1 _ZTS4list", !14, i64 0}
+!30 = !{!28, !29, i64 8}
+!31 = !{!32, !9, i64 40}
+!32 = !{!"list", !33, i64 0, !33, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !9, i64 40}
+!33 = !{!"p1 _ZTS8listNode", !14, i64 0}
+!34 = !{!35, !13, i64 0}
+!35 = !{!"", !13, i64 0, !11, i64 8, !16, i64 16, !11, i64 24, !11, i64 32}
+!36 = !{!37, !14, i64 16}
+!37 = !{!"listNode", !33, i64 0, !33, i64 8, !14, i64 16}
+!38 = distinct !{!38, !18, !19}

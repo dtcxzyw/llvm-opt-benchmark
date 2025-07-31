@@ -350,7 +350,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lan
   store i32 %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4
-  br i1 %exitcond.not, label %8, label %4
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !33
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
@@ -407,7 +407,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lan
   store i32 %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4
-  br i1 %exitcond.not, label %8, label %4
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !35
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
@@ -464,7 +464,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lan
   store i16 %1, ptr %6, align 2
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 8
-  br i1 %exitcond.not, label %8, label %4
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !36
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %3, i64 16, i1 false)
@@ -521,7 +521,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lan
   store i16 %1, ptr %6, align 2
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 8
-  br i1 %exitcond.not, label %8, label %4
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !37
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %3, i64 16, i1 false)
@@ -664,7 +664,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lan
   store float %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4
-  br i1 %exitcond.not, label %8, label %4
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !38
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
@@ -788,9 +788,9 @@ define noundef double @"_ZN66_$LT$u64$u20$as$u20$wasmi_core..simd..ReinterpretAs
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN10wasmi_core4simd11i64x2_splat17h7563a5683a8e4bd7E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #7 {
 "_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17h4340c73a52bcee92E.exit.critedge":
-  store i64 %1, ptr %0, align 1, !alias.scope !33
+  store i64 %1, ptr %0, align 1, !alias.scope !39
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %.sroa.43.0..sroa_idx, align 1, !alias.scope !33
+  store i64 %1, ptr %.sroa.43.0..sroa_idx, align 1, !alias.scope !39
   ret void
 }
 
@@ -805,7 +805,7 @@ define void @_ZN10wasmi_core4simd11i32x4_splat17h07493a47b482a8e7E(ptr dead_on_u
   store i32 %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not.i = icmp eq i64 %7, 4
-  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17h511f554251303602E.exit", label %4
+  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17h511f554251303602E.exit", label %4, !llvm.loop !33
 
 "_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17h511f554251303602E.exit": ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
@@ -823,7 +823,7 @@ define void @_ZN10wasmi_core4simd11i16x8_splat17h67f70acd1ff756a2E(ptr dead_on_u
   store i16 %1, ptr %6, align 2
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not.i = icmp eq i64 %7, 8
-  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17h6ad9de541d956037E.exit", label %4
+  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17h6ad9de541d956037E.exit", label %4, !llvm.loop !36
 
 "_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17h6ad9de541d956037E.exit": ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull readonly align 2 dereferenceable(16) %3, i64 16, i1 false)
@@ -847,7 +847,7 @@ define void @_ZN10wasmi_core4simd11f32x4_splat17h82b5c246f18766d8E(ptr dead_on_u
   store float %1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not.i = icmp eq i64 %7, 4
-  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17haab6102681111b4eE.exit", label %4
+  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17haab6102681111b4eE.exit", label %4, !llvm.loop !38
 
 "_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17haab6102681111b4eE.exit": ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
@@ -857,9 +857,9 @@ define void @_ZN10wasmi_core4simd11f32x4_splat17h82b5c246f18766d8E(ptr dead_on_u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN10wasmi_core4simd11f64x2_splat17h50c0cafee11a3061E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) initializes((0, 16)) %0, double noundef %1) unnamed_addr #7 {
 "_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hce722aae85ae85a8E.exit.critedge":
-  store double %1, ptr %0, align 1, !alias.scope !37
+  store double %1, ptr %0, align 1, !alias.scope !43
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %1, ptr %.sroa.43.0..sroa_idx, align 1, !alias.scope !37
+  store double %1, ptr %.sroa.43.0..sroa_idx, align 1, !alias.scope !43
   ret void
 }
 
@@ -2430,7 +2430,7 @@ define void @_ZN10wasmi_core4simd17v128_load16_splat17hc75e3876642cba9fE(ptr dea
   store i16 %.sroa.53.0.extract.trunc, ptr %14, align 2
   %15 = add nuw nsw i64 %13, 1
   %exitcond.not.i = icmp eq i64 %15, 8
-  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hda5adec649fb69d1E.exit", label %12
+  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hda5adec649fb69d1E.exit", label %12, !llvm.loop !37
 
 "_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hda5adec649fb69d1E.exit": ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -2468,7 +2468,7 @@ define void @_ZN10wasmi_core4simd17v128_load32_splat17hb49b8af8a4baa4fcE(ptr dea
   store i32 %.sroa.6.0.extract.trunc, ptr %14, align 4
   %15 = add nuw nsw i64 %13, 1
   %exitcond.not.i = icmp eq i64 %15, 4
-  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit", label %12
+  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit", label %12, !llvm.loop !35
 
 "_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit": ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -2559,7 +2559,7 @@ define void @_ZN10wasmi_core4simd20v128_load16_splat_at17h826a0b6cecc72db8E(ptr 
   store i16 %.sroa.53.0.extract.trunc, ptr %13, align 2
   %14 = add nuw nsw i64 %12, 1
   %exitcond.not.i = icmp eq i64 %14, 8
-  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hda5adec649fb69d1E.exit", label %11
+  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hda5adec649fb69d1E.exit", label %11, !llvm.loop !37
 
 "_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hda5adec649fb69d1E.exit": ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -2597,7 +2597,7 @@ define void @_ZN10wasmi_core4simd20v128_load32_splat_at17h3ab039a11a86f722E(ptr 
   store i32 %.sroa.6.0.extract.trunc, ptr %13, align 4
   %14 = add nuw nsw i64 %12, 1
   %exitcond.not.i = icmp eq i64 %14, 4
-  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit", label %11
+  br i1 %exitcond.not.i, label %"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit", label %11, !llvm.loop !35
 
 "_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit": ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -3224,38 +3224,38 @@ define void @_ZN10wasmi_core4simd18v128_load32x2_u_at17h80704f3d479cf962E(ptr de
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN10wasmi_core4simd21i8x16_relaxed_swizzle17h14e2e8290401f258E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   br label %5
 
 5:                                                ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h1088fc96d636a183E.exit.i.i.i", %3
   %.sroa.6.06.i.i.i = phi i64 [ 0, %3 ], [ %14, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h1088fc96d636a183E.exit.i.i.i" ]
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.6.06.i.i.i
-  %7 = load i8, ptr %6, align 1, !alias.scope !56, !noalias !57, !noundef !14
+  %7 = load i8, ptr %6, align 1, !alias.scope !62, !noalias !63, !noundef !14
   %8 = icmp ult i8 %7, 16
   br i1 %8, label %9, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h1088fc96d636a183E.exit.i.i.i"
 
 9:                                                ; preds = %5
   %10 = zext nneg i8 %7 to i64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
-  %12 = load i8, ptr %11, align 1, !alias.scope !61, !noalias !62, !noundef !14
+  %12 = load i8, ptr %11, align 1, !alias.scope !67, !noalias !68, !noundef !14
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h1088fc96d636a183E.exit.i.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h1088fc96d636a183E.exit.i.i.i": ; preds = %9, %5
   %.sroa.0.0.i.i.i.i.i = phi i8 [ %12, %9 ], [ 0, %5 ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.6.06.i.i.i
-  store i8 %.sroa.0.0.i.i.i.i.i, ptr %13, align 1, !noalias !63
+  store i8 %.sroa.0.0.i.i.i.i.i, ptr %13, align 1, !noalias !69
   %14 = add nuw nsw i64 %.sroa.6.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %14, 16
   br i1 %exitcond.not.i.i.i, label %_ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE.exit, label %5
 
 _ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE.exit: ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h1088fc96d636a183E.exit.i.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull readonly align 1 dereferenceable(16) %4, i64 16, i1 false), !noalias !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull readonly align 1 dereferenceable(16) %4, i64 16, i1 false), !noalias !70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 }
@@ -3265,16 +3265,16 @@ define void @_ZN10wasmi_core4simd24i8x16_relaxed_laneselect17h3fdf37cea5c086c7E(
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !65
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !71
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !72
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !65
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !65
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !73
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !74
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !65
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !65
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !71
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !77
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !78
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !71
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !71
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !79
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !80
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !71
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !71
   ret void
 }
 
@@ -3283,16 +3283,16 @@ define void @_ZN10wasmi_core4simd24i16x8_relaxed_laneselect17h4a2c21b95362d8edE(
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !75
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !81
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !75
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !83
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !75
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !81
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !81
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !87
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !88
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !81
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !81
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !89
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !90
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !81
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !81
   ret void
 }
 
@@ -3301,16 +3301,16 @@ define void @_ZN10wasmi_core4simd24i32x4_relaxed_laneselect17h7a7624dbf088aa0eE(
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !91
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !85
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !93
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !94
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !85
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !91
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !97
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !98
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !91
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !91
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !99
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !100
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !91
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !91
   ret void
 }
 
@@ -3319,16 +3319,16 @@ define void @_ZN10wasmi_core4simd24i64x2_relaxed_laneselect17h95e3600971d74b45E(
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !95
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !101
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !95
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !103
-  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !104
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !95
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !95
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !101
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !101
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !107
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !108
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !101
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !101
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !109
+  call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !110
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !101
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !101
   ret void
 }
 
@@ -4208,75 +4208,81 @@ attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn mem
 !30 = !{!27, !21, !28, !16}
 !31 = !{i8 0, i8 2}
 !32 = !{i8 0, i8 11}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817hce6f9dd590296d23E: argument 0"}
-!35 = distinct !{!35, !"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817hce6f9dd590296d23E"}
-!36 = distinct !{!36, !35, !"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817hce6f9dd590296d23E: argument 1"}
-!37 = !{!38, !40}
-!38 = distinct !{!38, !39, !"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817he7d8fbe277c69ecdE: argument 0"}
-!39 = distinct !{!39, !"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817he7d8fbe277c69ecdE"}
-!40 = distinct !{!40, !39, !"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817he7d8fbe277c69ecdE: argument 1"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE: argument 1"}
-!43 = distinct !{!43, !"_ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE"}
-!44 = !{!45}
-!45 = distinct !{!45, !43, !"_ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE: argument 2"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN4core5array11try_from_fn17h099085c9b66da842E: argument 1"}
-!48 = distinct !{!48, !"_ZN4core5array11try_from_fn17h099085c9b66da842E"}
-!49 = !{!50}
-!50 = distinct !{!50, !48, !"_ZN4core5array11try_from_fn17h099085c9b66da842E: argument 2"}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN4core5array18try_from_fn_erased17he00f21530e0c3277E: argument 1"}
-!53 = distinct !{!53, !"_ZN4core5array18try_from_fn_erased17he00f21530e0c3277E"}
-!54 = !{!55}
-!55 = distinct !{!55, !53, !"_ZN4core5array18try_from_fn_erased17he00f21530e0c3277E: argument 2"}
-!56 = !{!52, !47, !45}
-!57 = !{!58, !55, !59, !50, !60, !42}
-!58 = distinct !{!58, !53, !"_ZN4core5array18try_from_fn_erased17he00f21530e0c3277E: argument 0"}
-!59 = distinct !{!59, !48, !"_ZN4core5array11try_from_fn17h099085c9b66da842E: argument 0"}
-!60 = distinct !{!60, !43, !"_ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE: argument 0"}
-!61 = !{!55, !50, !42}
-!62 = !{!58, !52, !59, !47, !60, !45}
-!63 = !{!60, !42, !45}
-!64 = !{!42, !45}
-!65 = !{!66, !68, !69, !70}
-!66 = distinct !{!66, !67, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 0"}
-!67 = distinct !{!67, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E"}
-!68 = distinct !{!68, !67, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 1"}
-!69 = distinct !{!69, !67, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 2"}
-!70 = distinct !{!70, !67, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 3"}
-!71 = !{!66, !68, !69}
-!72 = !{!66, !69, !70}
-!73 = !{!66, !68}
-!74 = !{!68, !69, !70}
-!75 = !{!76, !78, !79, !80}
-!76 = distinct !{!76, !77, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 0"}
-!77 = distinct !{!77, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E"}
-!78 = distinct !{!78, !77, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 1"}
-!79 = distinct !{!79, !77, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 2"}
-!80 = distinct !{!80, !77, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 3"}
-!81 = !{!76, !78, !79}
-!82 = !{!76, !79, !80}
-!83 = !{!76, !78}
-!84 = !{!78, !79, !80}
-!85 = !{!86, !88, !89, !90}
-!86 = distinct !{!86, !87, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 0"}
-!87 = distinct !{!87, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E"}
-!88 = distinct !{!88, !87, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 1"}
-!89 = distinct !{!89, !87, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 2"}
-!90 = distinct !{!90, !87, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 3"}
-!91 = !{!86, !88, !89}
-!92 = !{!86, !89, !90}
-!93 = !{!86, !88}
-!94 = !{!88, !89, !90}
-!95 = !{!96, !98, !99, !100}
-!96 = distinct !{!96, !97, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 0"}
-!97 = distinct !{!97, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E"}
-!98 = distinct !{!98, !97, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 1"}
-!99 = distinct !{!99, !97, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 2"}
-!100 = distinct !{!100, !97, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 3"}
-!101 = !{!96, !98, !99}
-!102 = !{!96, !99, !100}
-!103 = !{!96, !98}
-!104 = !{!98, !99, !100}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !34}
+!36 = distinct !{!36, !34}
+!37 = distinct !{!37, !34}
+!38 = distinct !{!38, !34}
+!39 = !{!40, !42}
+!40 = distinct !{!40, !41, !"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817hce6f9dd590296d23E: argument 0"}
+!41 = distinct !{!41, !"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817hce6f9dd590296d23E"}
+!42 = distinct !{!42, !41, !"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817hce6f9dd590296d23E: argument 1"}
+!43 = !{!44, !46}
+!44 = distinct !{!44, !45, !"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817he7d8fbe277c69ecdE: argument 0"}
+!45 = distinct !{!45, !"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817he7d8fbe277c69ecdE"}
+!46 = distinct !{!46, !45, !"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$9into_v12817he7d8fbe277c69ecdE: argument 1"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE: argument 1"}
+!49 = distinct !{!49, !"_ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE"}
+!50 = !{!51}
+!51 = distinct !{!51, !49, !"_ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE: argument 2"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZN4core5array11try_from_fn17h099085c9b66da842E: argument 1"}
+!54 = distinct !{!54, !"_ZN4core5array11try_from_fn17h099085c9b66da842E"}
+!55 = !{!56}
+!56 = distinct !{!56, !54, !"_ZN4core5array11try_from_fn17h099085c9b66da842E: argument 2"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN4core5array18try_from_fn_erased17he00f21530e0c3277E: argument 1"}
+!59 = distinct !{!59, !"_ZN4core5array18try_from_fn_erased17he00f21530e0c3277E"}
+!60 = !{!61}
+!61 = distinct !{!61, !59, !"_ZN4core5array18try_from_fn_erased17he00f21530e0c3277E: argument 2"}
+!62 = !{!58, !53, !51}
+!63 = !{!64, !61, !65, !56, !66, !48}
+!64 = distinct !{!64, !59, !"_ZN4core5array18try_from_fn_erased17he00f21530e0c3277E: argument 0"}
+!65 = distinct !{!65, !54, !"_ZN4core5array11try_from_fn17h099085c9b66da842E: argument 0"}
+!66 = distinct !{!66, !49, !"_ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE: argument 0"}
+!67 = !{!61, !56, !48}
+!68 = !{!64, !58, !65, !53, !66, !51}
+!69 = !{!66, !48, !51}
+!70 = !{!48, !51}
+!71 = !{!72, !74, !75, !76}
+!72 = distinct !{!72, !73, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 0"}
+!73 = distinct !{!73, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E"}
+!74 = distinct !{!74, !73, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 1"}
+!75 = distinct !{!75, !73, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 2"}
+!76 = distinct !{!76, !73, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 3"}
+!77 = !{!72, !74, !75}
+!78 = !{!72, !75, !76}
+!79 = !{!72, !74}
+!80 = !{!74, !75, !76}
+!81 = !{!82, !84, !85, !86}
+!82 = distinct !{!82, !83, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 0"}
+!83 = distinct !{!83, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E"}
+!84 = distinct !{!84, !83, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 1"}
+!85 = distinct !{!85, !83, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 2"}
+!86 = distinct !{!86, !83, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 3"}
+!87 = !{!82, !84, !85}
+!88 = !{!82, !85, !86}
+!89 = !{!82, !84}
+!90 = !{!84, !85, !86}
+!91 = !{!92, !94, !95, !96}
+!92 = distinct !{!92, !93, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 0"}
+!93 = distinct !{!93, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E"}
+!94 = distinct !{!94, !93, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 1"}
+!95 = distinct !{!95, !93, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 2"}
+!96 = distinct !{!96, !93, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 3"}
+!97 = !{!92, !94, !95}
+!98 = !{!92, !95, !96}
+!99 = !{!92, !94}
+!100 = !{!94, !95, !96}
+!101 = !{!102, !104, !105, !106}
+!102 = distinct !{!102, !103, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 0"}
+!103 = distinct !{!103, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E"}
+!104 = distinct !{!104, !103, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 1"}
+!105 = distinct !{!105, !103, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 2"}
+!106 = distinct !{!106, !103, !"_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E: argument 3"}
+!107 = !{!102, !104, !105}
+!108 = !{!102, !105, !106}
+!109 = !{!102, !104}
+!110 = !{!104, !105, !106}

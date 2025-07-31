@@ -20,13 +20,13 @@ define i32 @ff_v4l2_format_avcodec_to_v4l2(i32 noundef %0) local_unnamed_addr #0
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds nuw [39 x %struct.fmt_conversion], ptr @fmt_map, i64 0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !6
+  %6 = load i32, ptr %5, align 4, !tbaa !7
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = load i32, ptr %9, align 4, !tbaa !11
+  %10 = load i32, ptr %9, align 4, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %8
@@ -41,18 +41,18 @@ define i32 @ff_v4l2_format_avfmt_to_v4l2(i32 noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 39
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !13
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds nuw [39 x %struct.fmt_conversion], ptr @fmt_map, i64 0, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 4, !tbaa !13
+  %5 = load i32, ptr %4, align 4, !tbaa !14
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load i32, ptr %8, align 4, !tbaa !11
+  %9 = load i32, ptr %8, align 4, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %7
@@ -68,24 +68,24 @@ define i32 @ff_v4l2_format_v4l2_to_avfmt(i32 noundef %0, i32 noundef %1) local_u
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %14 ]
   %4 = getelementptr inbounds nuw [39 x %struct.fmt_conversion], ptr @fmt_map, i64 0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !6
+  %6 = load i32, ptr %5, align 4, !tbaa !7
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = load i32, ptr %9, align 4, !tbaa !11
+  %10 = load i32, ptr %9, align 4, !tbaa !12
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = load i32, ptr %4, align 4, !tbaa !13
+  %13 = load i32, ptr %4, align 4, !tbaa !14
   br label %.loopexit
 
 14:                                               ; preds = %3, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 39
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !15
 
 .loopexit:                                        ; preds = %14, %12
   %.08 = phi i32 [ %13, %12 ], [ -1, %14 ]
@@ -100,14 +100,15 @@ attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-leg
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !8, i64 4}
-!7 = !{!"fmt_conversion", !8, i64 0, !8, i64 4, !8, i64 8}
-!8 = !{!"int", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!7, !8, i64 8}
-!12 = distinct !{!12, !5}
-!13 = !{!7, !8, i64 0}
-!14 = distinct !{!14, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !9, i64 4}
+!8 = !{!"fmt_conversion", !9, i64 0, !9, i64 4, !9, i64 8}
+!9 = !{!"int", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!8, !9, i64 8}
+!13 = distinct !{!13, !5, !6}
+!14 = !{!8, !9, i64 0}
+!15 = distinct !{!15, !5, !6}

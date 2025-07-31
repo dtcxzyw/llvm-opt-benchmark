@@ -617,9 +617,9 @@ define void @Abc_FrameSetSignalNames(ptr noundef %0) local_unnamed_addr #1 {
 9:                                                ; preds = %13, %.lr.ph.i.i
   %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %13 ]
-  %.val14.i.i = load ptr, ptr %8, align 8, !tbaa !68
+  %.val14.i.i = load ptr, ptr %8, align 8, !tbaa !69
   %10 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
-  %11 = load ptr, ptr %10, align 8, !tbaa !69
+  %11 = load ptr, ptr %10, align 8, !tbaa !70
   %switch.i.i = icmp ult ptr %11, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %13, label %12
 
@@ -633,11 +633,11 @@ define void @Abc_FrameSetSignalNames(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %14 = sext i32 %.val.i.i to i64
   %15 = icmp slt i64 %indvars.iv.next.i.i, %14
-  br i1 %15, label %9, label %Vec_PtrFreeData.exit.i, !llvm.loop !70
+  br i1 %15, label %9, label %Vec_PtrFreeData.exit.i, !llvm.loop !71
 
 Vec_PtrFreeData.exit.i:                           ; preds = %13, %5
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !68
+  %17 = load ptr, ptr %16, align 8, !tbaa !69
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %18
 
@@ -679,7 +679,7 @@ define i32 @Abc_FrameIsBatchMode() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %4 = load i32, ptr %3, align 4, !tbaa !71
+  %4 = load i32, ptr %3, align 4, !tbaa !72
   br label %5
 
 5:                                                ; preds = %0, %2
@@ -695,7 +695,7 @@ define void @Abc_FrameSetBatchMode(i32 noundef %0) local_unnamed_addr #6 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 92
-  store i32 %0, ptr %4, align 4, !tbaa !71
+  store i32 %0, ptr %4, align 4, !tbaa !72
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -710,7 +710,7 @@ define i32 @Abc_FrameIsBridgeMode() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %4 = load i32, ptr %3, align 8, !tbaa !72
+  %4 = load i32, ptr %3, align 8, !tbaa !73
   br label %5
 
 5:                                                ; preds = %0, %2
@@ -726,7 +726,7 @@ define void @Abc_FrameSetBridgeMode() local_unnamed_addr #6 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 1, ptr %3, align 8, !tbaa !72
+  store i32 1, ptr %3, align 8, !tbaa !73
   br label %4
 
 4:                                                ; preds = %2, %0
@@ -737,7 +737,7 @@ define void @Abc_FrameSetBridgeMode() local_unnamed_addr #6 {
 define ptr @Abc_FrameReadDrivingCell() local_unnamed_addr #0 {
   %1 = load ptr, ptr @s_GlobalFrame, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %3 = load ptr, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   ret ptr %3
 }
 
@@ -745,7 +745,7 @@ define ptr @Abc_FrameReadDrivingCell() local_unnamed_addr #0 {
 define float @Abc_FrameReadMaxLoad() local_unnamed_addr #0 {
   %1 = load ptr, ptr @s_GlobalFrame, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %3 = load float, ptr %2, align 8, !tbaa !74
+  %3 = load float, ptr %2, align 8, !tbaa !75
   ret float %3
 }
 
@@ -753,7 +753,7 @@ define float @Abc_FrameReadMaxLoad() local_unnamed_addr #0 {
 define void @Abc_FrameSetDrivingCell(ptr noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -762,7 +762,7 @@ define void @Abc_FrameSetDrivingCell(ptr noundef %0) local_unnamed_addr #3 {
   br label %6
 
 6:                                                ; preds = %1, %5
-  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %0, ptr %3, align 8, !tbaa !74
   ret void
 }
 
@@ -770,14 +770,14 @@ define void @Abc_FrameSetDrivingCell(ptr noundef %0) local_unnamed_addr #3 {
 define void @Abc_FrameSetMaxLoad(float noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 264
-  store float %0, ptr %3, align 8, !tbaa !74
+  store float %0, ptr %3, align 8, !tbaa !75
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Abc_FrameReadArrayMapping(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
   ret ptr %3
 }
 
@@ -785,30 +785,6 @@ define ptr @Abc_FrameReadArrayMapping(ptr noundef readonly captures(none) %0) lo
 define void @Abc_FrameSetArrayMapping(ptr noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 608
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %6, label %5
-
-5:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %4) #20
-  br label %6
-
-6:                                                ; preds = %1, %5
-  store ptr %0, ptr %3, align 8, !tbaa !75
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Abc_FrameReadBoxes(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %3 = load ptr, ptr %2, align 8, !tbaa !76
-  ret ptr %3
-}
-
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Abc_FrameSetBoxes(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load ptr, ptr @s_GlobalFrame, align 8, !tbaa !3
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 616
   %4 = load ptr, ptr %3, align 8, !tbaa !76
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -819,6 +795,30 @@ define void @Abc_FrameSetBoxes(ptr noundef %0) local_unnamed_addr #3 {
 
 6:                                                ; preds = %1, %5
   store ptr %0, ptr %3, align 8, !tbaa !76
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define ptr @Abc_FrameReadBoxes(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind willreturn uwtable
+define void @Abc_FrameSetBoxes(ptr noundef %0) local_unnamed_addr #3 {
+  %2 = load ptr, ptr @s_GlobalFrame, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 616
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %6, label %5
+
+5:                                                ; preds = %1
+  tail call void @free(ptr noundef nonnull %4) #20
+  br label %6
+
+6:                                                ; preds = %1, %5
+  store ptr %0, ptr %3, align 8, !tbaa !77
   ret void
 }
 
@@ -854,30 +854,30 @@ define range(i32 0, 2) i32 @Abc_FrameIsFlagEnabled(ptr noundef %0) local_unnamed
 define noundef ptr @Abc_FrameAllocate() local_unnamed_addr #1 {
   %1 = tail call noalias dereferenceable_or_null(648) ptr @calloc(i64 noundef 1, i64 noundef 648) #21
   %2 = tail call ptr @Abc_UtilsGetVersion(ptr noundef %1) #20
-  store ptr %2, ptr %1, align 8, !tbaa !77
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !78
+  store ptr %2, ptr %1, align 8, !tbaa !78
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !79
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %3, ptr %4, align 8, !tbaa !79
-  %5 = load ptr, ptr @stdout, align 8, !tbaa !78
+  store ptr %3, ptr %4, align 8, !tbaa !80
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !79
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store ptr %5, ptr %6, align 8, !tbaa !80
+  store ptr %5, ptr %6, align 8, !tbaa !81
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store ptr null, ptr %7, align 8, !tbaa !81
+  store ptr null, ptr %7, align 8, !tbaa !82
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 400
   store i32 -1, ptr %8, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 404
   store i32 -1, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i32 1, ptr %10, align 8, !tbaa !82
+  store i32 1, ptr %10, align 8, !tbaa !83
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 0, ptr %11, align 4, !tbaa !71
+  store i32 0, ptr %11, align 4, !tbaa !72
   %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4, !tbaa !25
-  store i32 16, ptr %12, align 8, !tbaa !83
+  store i32 16, ptr %12, align 8, !tbaa !84
   %14 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #22
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !68
+  store ptr %14, ptr %15, align 8, !tbaa !69
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %12, ptr %16, align 8, !tbaa !8
   %calloc.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
@@ -886,12 +886,12 @@ define noundef ptr @Abc_FrameAllocate() local_unnamed_addr #1 {
   %18 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %19, align 4, !tbaa !25
-  store i32 100, ptr %18, align 8, !tbaa !83
+  store i32 100, ptr %18, align 8, !tbaa !84
   %20 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #22
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %20, ptr %21, align 8, !tbaa !68
+  store ptr %20, ptr %21, align 8, !tbaa !69
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  store ptr %18, ptr %22, align 8, !tbaa !84
+  store ptr %18, ptr %22, align 8, !tbaa !85
   ret ptr %1
 }
 
@@ -941,9 +941,9 @@ Vec_IntFree.exit:                                 ; preds = %4, %7
 15:                                               ; preds = %19, %.lr.ph.i.i
   %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %19 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %19 ]
-  %.val14.i.i = load ptr, ptr %14, align 8, !tbaa !68
+  %.val14.i.i = load ptr, ptr %14, align 8, !tbaa !69
   %16 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !69
+  %17 = load ptr, ptr %16, align 8, !tbaa !70
   %switch.i.i = icmp ult ptr %17, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %19, label %18
 
@@ -957,11 +957,11 @@ Vec_IntFree.exit:                                 ; preds = %4, %7
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %20 = sext i32 %.val.i.i to i64
   %21 = icmp slt i64 %indvars.iv.next.i.i, %20
-  br i1 %21, label %15, label %Vec_PtrFreeData.exit.i, !llvm.loop !70
+  br i1 %21, label %15, label %Vec_PtrFreeData.exit.i, !llvm.loop !71
 
 Vec_PtrFreeData.exit.i:                           ; preds = %19, %11
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !68
+  %23 = load ptr, ptr %22, align 8, !tbaa !69
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %24
 
@@ -981,7 +981,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 
 28:                                               ; preds = %25
   %29 = getelementptr i8, ptr %27, i64 4
-  %.val11.i = load i32, ptr %29, align 4, !tbaa !85
+  %.val11.i = load i32, ptr %29, align 4, !tbaa !86
   %30 = icmp sgt i32 %.val11.i, 0
   br i1 %30, label %.lr.ph.i, label %.critedge.i
 
@@ -992,15 +992,15 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 32:                                               ; preds = %39, %.lr.ph.i
   %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i, %39 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
-  %.val8.i = load ptr, ptr %31, align 8, !tbaa !87
+  %.val8.i = load ptr, ptr %31, align 8, !tbaa !88
   %33 = getelementptr inbounds nuw ptr, ptr %.val8.i, i64 %indvars.iv.i
-  %34 = load ptr, ptr %33, align 8, !tbaa !69
+  %34 = load ptr, ptr %33, align 8, !tbaa !70
   %.not.i115 = icmp eq ptr %34, null
   br i1 %.not.i115, label %39, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !68
+  %37 = load ptr, ptr %36, align 8, !tbaa !69
   %.not.i.i116 = icmp eq ptr %37, null
   br i1 %.not.i.i116, label %Vec_PtrFree.exit.i, label %38
 
@@ -1010,7 +1010,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 
 Vec_PtrFree.exit.i:                               ; preds = %38, %35
   tail call void @free(ptr noundef nonnull %34) #20
-  %.val.pre.i = load i32, ptr %29, align 4, !tbaa !85
+  %.val.pre.i = load i32, ptr %29, align 4, !tbaa !86
   br label %39
 
 39:                                               ; preds = %Vec_PtrFree.exit.i, %32
@@ -1018,11 +1018,11 @@ Vec_PtrFree.exit.i:                               ; preds = %38, %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = sext i32 %.val.i to i64
   %41 = icmp slt i64 %indvars.iv.next.i, %40
-  br i1 %41, label %32, label %.critedge.i, !llvm.loop !88
+  br i1 %41, label %32, label %.critedge.i, !llvm.loop !89
 
 .critedge.i:                                      ; preds = %39, %28
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !68
+  %43 = load ptr, ptr %42, align 8, !tbaa !69
   %.not.i9.i = icmp eq ptr %43, null
   br i1 %.not.i9.i, label %Vec_VecFree.exit, label %44
 
@@ -1082,7 +1082,7 @@ Vec_IntFree.exit118:                              ; preds = %48, %51
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !68
+  %65 = load ptr, ptr %64, align 8, !tbaa !69
   %.not.i119 = icmp eq ptr %65, null
   br i1 %.not.i119, label %Vec_PtrFree.exit, label %66
 
@@ -1096,7 +1096,7 @@ Vec_PtrFree.exit:                                 ; preds = %63, %66
 
 67:                                               ; preds = %Vec_PtrFree.exit, %60
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %69 = load ptr, ptr %68, align 8, !tbaa !89
+  %69 = load ptr, ptr %68, align 8, !tbaa !90
   %.not96 = icmp eq ptr %69, null
   br i1 %.not96, label %71, label %70
 
@@ -1106,7 +1106,7 @@ Vec_PtrFree.exit:                                 ; preds = %63, %66
 
 71:                                               ; preds = %70, %67
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %73 = load ptr, ptr %72, align 8, !tbaa !90
+  %73 = load ptr, ptr %72, align 8, !tbaa !91
   %.not97 = icmp eq ptr %73, null
   br i1 %.not97, label %75, label %74
 
@@ -1116,7 +1116,7 @@ Vec_PtrFree.exit:                                 ; preds = %63, %66
 
 75:                                               ; preds = %74, %71
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %77 = load ptr, ptr %76, align 8, !tbaa !91
+  %77 = load ptr, ptr %76, align 8, !tbaa !92
   %.not98 = icmp eq ptr %77, null
   br i1 %.not98, label %79, label %78
 
@@ -1126,7 +1126,7 @@ Vec_PtrFree.exit:                                 ; preds = %63, %66
 
 79:                                               ; preds = %78, %75
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %81 = load ptr, ptr %80, align 8, !tbaa !92
+  %81 = load ptr, ptr %80, align 8, !tbaa !93
   %.not99 = icmp eq ptr %81, null
   br i1 %.not99, label %83, label %82
 
@@ -1156,7 +1156,7 @@ Vec_PtrFree.exit:                                 ; preds = %63, %66
 
 91:                                               ; preds = %90, %87
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %93 = load ptr, ptr %92, align 8, !tbaa !93
+  %93 = load ptr, ptr %92, align 8, !tbaa !94
   %.not102 = icmp eq ptr %93, null
   br i1 %.not102, label %95, label %94
 
@@ -1166,7 +1166,7 @@ Vec_PtrFree.exit:                                 ; preds = %63, %66
 
 95:                                               ; preds = %94, %91
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %97 = load ptr, ptr %96, align 8, !tbaa !84
+  %97 = load ptr, ptr %96, align 8, !tbaa !85
   %.not103 = icmp eq ptr %97, null
   br i1 %.not103, label %113, label %.preheader
 
@@ -1180,15 +1180,15 @@ Vec_PtrFree.exit:                                 ; preds = %63, %66
   %100 = phi ptr [ %106, %105 ], [ %97, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %105 ], [ 0, %.preheader ]
   %101 = getelementptr i8, ptr %100, i64 8
-  %.val114 = load ptr, ptr %101, align 8, !tbaa !68
+  %.val114 = load ptr, ptr %101, align 8, !tbaa !69
   %102 = getelementptr inbounds nuw ptr, ptr %.val114, i64 %indvars.iv
-  %103 = load ptr, ptr %102, align 8, !tbaa !69
+  %103 = load ptr, ptr %102, align 8, !tbaa !70
   %.not113 = icmp eq ptr %103, null
   br i1 %.not113, label %105, label %104
 
 104:                                              ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %103) #20
-  %.pre = load ptr, ptr %96, align 8, !tbaa !84
+  %.pre = load ptr, ptr %96, align 8, !tbaa !85
   br label %105
 
 105:                                              ; preds = %104, %.lr.ph
@@ -1198,12 +1198,12 @@ Vec_PtrFree.exit:                                 ; preds = %63, %66
   %.val = load i32, ptr %107, align 4, !tbaa !25
   %108 = sext i32 %.val to i64
   %109 = icmp slt i64 %indvars.iv.next, %108
-  br i1 %109, label %.lr.ph, label %.critedge, !llvm.loop !94
+  br i1 %109, label %.lr.ph, label %.critedge, !llvm.loop !95
 
 .critedge:                                        ; preds = %105, %.preheader
   %.lcssa150 = phi ptr [ %97, %.preheader ], [ %106, %105 ]
   %110 = getelementptr inbounds nuw i8, ptr %.lcssa150, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !68
+  %111 = load ptr, ptr %110, align 8, !tbaa !69
   %.not.i120 = icmp eq ptr %111, null
   br i1 %.not.i120, label %Vec_PtrFree.exit121, label %112
 
@@ -1242,27 +1242,27 @@ Vec_PtrFree.exit121:                              ; preds = %.critedge, %112
 
 Vec_IntFreeP.exit:                                ; preds = %113, %122
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %125 = load ptr, ptr %124, align 8, !tbaa !95
+  %125 = load ptr, ptr %124, align 8, !tbaa !96
   %126 = icmp eq ptr %125, null
   br i1 %126, label %Vec_PtrFreeP.exit, label %127
 
 127:                                              ; preds = %Vec_IntFreeP.exit
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !68
+  %129 = load ptr, ptr %128, align 8, !tbaa !69
   %.not.i123 = icmp eq ptr %129, null
   br i1 %.not.i123, label %132, label %.thread.i124
 
 .thread.i124:                                     ; preds = %127
   tail call void @free(ptr noundef nonnull %129) #20
-  %130 = load ptr, ptr %124, align 8, !tbaa !95
+  %130 = load ptr, ptr %124, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store ptr null, ptr %131, align 8, !tbaa !68
+  store ptr null, ptr %131, align 8, !tbaa !69
   br label %132
 
 132:                                              ; preds = %.thread.i124, %127
   %133 = phi ptr [ %130, %.thread.i124 ], [ %125, %127 ]
   tail call void @free(ptr noundef nonnull %133) #20
-  store ptr null, ptr %124, align 8, !tbaa !95
+  store ptr null, ptr %124, align 8, !tbaa !96
   br label %Vec_PtrFreeP.exit
 
 Vec_PtrFreeP.exit:                                ; preds = %Vec_IntFreeP.exit, %132
@@ -1284,9 +1284,9 @@ Vec_PtrFreeP.exit:                                ; preds = %Vec_IntFreeP.exit, 
 140:                                              ; preds = %144, %.lr.ph.i.i129
   %.val18.i.i130 = phi i32 [ %.val15.i.i125, %.lr.ph.i.i129 ], [ %.val.i.i135, %144 ]
   %indvars.iv.i.i131 = phi i64 [ 0, %.lr.ph.i.i129 ], [ %indvars.iv.next.i.i136, %144 ]
-  %.val14.i.i132 = load ptr, ptr %139, align 8, !tbaa !68
+  %.val14.i.i132 = load ptr, ptr %139, align 8, !tbaa !69
   %141 = getelementptr inbounds nuw ptr, ptr %.val14.i.i132, i64 %indvars.iv.i.i131
-  %142 = load ptr, ptr %141, align 8, !tbaa !69
+  %142 = load ptr, ptr %141, align 8, !tbaa !70
   %switch.i.i133 = icmp ult ptr %142, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i133, label %144, label %143
 
@@ -1300,11 +1300,11 @@ Vec_PtrFreeP.exit:                                ; preds = %Vec_IntFreeP.exit, 
   %indvars.iv.next.i.i136 = add nuw nsw i64 %indvars.iv.i.i131, 1
   %145 = sext i32 %.val.i.i135 to i64
   %146 = icmp slt i64 %indvars.iv.next.i.i136, %145
-  br i1 %146, label %140, label %Vec_PtrFreeData.exit.i126, !llvm.loop !70
+  br i1 %146, label %140, label %Vec_PtrFreeData.exit.i126, !llvm.loop !71
 
 Vec_PtrFreeData.exit.i126:                        ; preds = %144, %136
   %147 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !68
+  %148 = load ptr, ptr %147, align 8, !tbaa !69
   %.not.i.i127 = icmp eq ptr %148, null
   br i1 %.not.i.i127, label %Vec_PtrFreeFree.exit137, label %149
 
@@ -1329,20 +1329,20 @@ Vec_PtrFreeFree.exit137:                          ; preds = %Vec_PtrFreeData.exi
 
 154:                                              ; preds = %150, %153
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %156 = load ptr, ptr %155, align 8, !tbaa !96
+  %156 = load ptr, ptr %155, align 8, !tbaa !97
   %.not.i138 = icmp eq ptr %156, null
   br i1 %.not.i138, label %Abc_FrameDeleteAllNetworks.exit, label %.lr.ph.i139
 
 .lr.ph.i139:                                      ; preds = %154, %.lr.ph.i139
   %.0.val.sink.i = phi ptr [ %.0.val.i, %.lr.ph.i139 ], [ %156, %154 ]
   %157 = getelementptr i8, ptr %.0.val.sink.i, i64 160
-  %.0.val.i = load ptr, ptr %157, align 8, !tbaa !97
+  %.0.val.i = load ptr, ptr %157, align 8, !tbaa !98
   tail call void @Abc_NtkDelete(ptr noundef nonnull %.0.val.sink.i) #20
   %.not17.i = icmp eq ptr %.0.val.i, null
-  br i1 %.not17.i, label %Abc_FrameDeleteAllNetworks.exit, label %.lr.ph.i139, !llvm.loop !105
+  br i1 %.not17.i, label %Abc_FrameDeleteAllNetworks.exit, label %.lr.ph.i139, !llvm.loop !106
 
 Abc_FrameDeleteAllNetworks.exit:                  ; preds = %.lr.ph.i139, %154
-  store ptr null, ptr %155, align 8, !tbaa !96
+  store ptr null, ptr %155, align 8, !tbaa !97
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @Gia_ManStopP(ptr noundef nonnull %158) #20
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1354,24 +1354,24 @@ Abc_FrameDeleteAllNetworks.exit:                  ; preds = %.lr.ph.i139, %154
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call void @Gia_ManStopP(ptr noundef nonnull %162) #20
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %164 = load ptr, ptr %163, align 8, !tbaa !73
+  %164 = load ptr, ptr %163, align 8, !tbaa !74
   %.not106 = icmp eq ptr %164, null
   br i1 %.not106, label %166, label %165
 
 165:                                              ; preds = %Abc_FrameDeleteAllNetworks.exit
   tail call void @free(ptr noundef nonnull %164) #20
-  store ptr null, ptr %163, align 8, !tbaa !73
+  store ptr null, ptr %163, align 8, !tbaa !74
   br label %166
 
 166:                                              ; preds = %Abc_FrameDeleteAllNetworks.exit, %165
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %168 = load ptr, ptr %167, align 8, !tbaa !106
+  %168 = load ptr, ptr %167, align 8, !tbaa !107
   %.not107 = icmp eq ptr %168, null
   br i1 %.not107, label %170, label %169
 
 169:                                              ; preds = %166
   tail call void @free(ptr noundef nonnull %168) #20
-  store ptr null, ptr %167, align 8, !tbaa !106
+  store ptr null, ptr %167, align 8, !tbaa !107
   br label %170
 
 170:                                              ; preds = %166, %169
@@ -1553,18 +1553,18 @@ Vec_IntFreeP.exit146:                             ; preds = %220, %231
 
 Vec_IntFreeP.exit149:                             ; preds = %Vec_IntFreeP.exit146, %241
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %244 = load ptr, ptr %243, align 8, !tbaa !75
+  %244 = load ptr, ptr %243, align 8, !tbaa !76
   %.not110 = icmp eq ptr %244, null
   br i1 %.not110, label %246, label %245
 
 245:                                              ; preds = %Vec_IntFreeP.exit149
   tail call void @free(ptr noundef nonnull %244) #20
-  store ptr null, ptr %243, align 8, !tbaa !75
+  store ptr null, ptr %243, align 8, !tbaa !76
   br label %246
 
 246:                                              ; preds = %Vec_IntFreeP.exit149, %245
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %248 = load ptr, ptr %247, align 8, !tbaa !76
+  %248 = load ptr, ptr %247, align 8, !tbaa !77
   %.not111 = icmp eq ptr %248, null
   br i1 %.not111, label %250, label %249
 
@@ -1591,20 +1591,20 @@ declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @Abc_FrameDeleteAllNetworks(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.0.val.sink = phi ptr [ %.0.val, %.lr.ph ], [ %3, %1 ]
   %4 = getelementptr i8, ptr %.0.val.sink, i64 160
-  %.0.val = load ptr, ptr %4, align 8, !tbaa !97
+  %.0.val = load ptr, ptr %4, align 8, !tbaa !98
   tail call void @Abc_NtkDelete(ptr noundef nonnull %.0.val.sink) #20
   %.not17 = icmp eq ptr %.0.val, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !105
+  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  store ptr null, ptr %2, align 8, !tbaa !96
+  store ptr null, ptr %2, align 8, !tbaa !97
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @Gia_ManStopP(ptr noundef nonnull %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1676,28 +1676,28 @@ Abc_FrameIsFlagEnabled.exit:                      ; preds = %1, %5, %.tail.i, %9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Abc_FrameReadNtk(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Abc_FrameReadGia(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %3 = load ptr, ptr %2, align 8, !tbaa !107
+  %3 = load ptr, ptr %2, align 8, !tbaa !108
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Abc_FrameReadOut(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8, !tbaa !81
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Abc_FrameReadErr(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %3 = load ptr, ptr %2, align 8, !tbaa !79
+  %3 = load ptr, ptr %2, align 8, !tbaa !80
   ret ptr %3
 }
 
@@ -1734,9 +1734,9 @@ Abc_FrameReadMode.exit:                           ; preds = %2, %6
   %.0.i = phi i32 [ %8, %6 ], [ 0, %2 ]
   %9 = trunc i32 %1 to i8
   %10 = add i8 %9, 48
-  store i8 %10, ptr %3, align 1, !tbaa !108
+  store i8 %10, ptr %3, align 1, !tbaa !109
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 0, ptr %11, align 1, !tbaa !108
+  store i8 0, ptr %11, align 1, !tbaa !109
   call void @Cmd_FlagUpdateValue(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #20
   ret i32 %.0.i
@@ -1745,20 +1745,20 @@ Abc_FrameReadMode.exit:                           ; preds = %2, %6
 ; Function Attrs: nounwind uwtable
 define void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !96
+  %4 = load ptr, ptr %3, align 8, !tbaa !97
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr %4, ptr %7, align 8, !tbaa !97
+  store ptr %4, ptr %7, align 8, !tbaa !98
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = load i32, ptr %8, align 8, !tbaa !82
+  %9 = load i32, ptr %8, align 8, !tbaa !83
   %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 8, !tbaa !82
+  store i32 %10, ptr %8, align 8, !tbaa !83
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  store i32 %10, ptr %11, align 8, !tbaa !109
-  store ptr %1, ptr %3, align 8, !tbaa !96
+  store i32 %10, ptr %11, align 8, !tbaa !110
+  store ptr %1, ptr %3, align 8, !tbaa !97
   %12 = tail call ptr @Cmd_FlagReadByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #20
   %13 = icmp eq ptr %12, null
   br i1 %13, label %17, label %14
@@ -1770,7 +1770,7 @@ define void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %1) local_un
 
 17:                                               ; preds = %6, %14
   %.020 = phi i32 [ %16, %14 ], [ 1, %6 ]
-  %.027 = load ptr, ptr %3, align 8, !tbaa !110
+  %.027 = load ptr, ptr %3, align 8, !tbaa !111
   %.not28 = icmp eq ptr %.027, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -1780,9 +1780,9 @@ define void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %1) local_un
   %.02329 = phi ptr [ %.031, %.lr.ph ], [ null, %17 ]
   %18 = add nuw nsw i32 %.02130, 1
   %19 = getelementptr i8, ptr %.031, i64 160
-  %.0 = load ptr, ptr %19, align 8, !tbaa !110
+  %.0 = load ptr, ptr %19, align 8, !tbaa !111
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %.023.lcssa = phi ptr [ null, %17 ], [ %.031, %.lr.ph ]
@@ -1794,7 +1794,7 @@ define void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %1) local_un
 21:                                               ; preds = %._crit_edge
   tail call void @Abc_NtkDelete(ptr noundef %.023.lcssa) #20
   %22 = getelementptr inbounds nuw i8, ptr %.022.lcssa, i64 160
-  store ptr null, ptr %22, align 8, !tbaa !97
+  store ptr null, ptr %22, align 8, !tbaa !98
   br label %23
 
 23:                                               ; preds = %._crit_edge, %21, %2
@@ -1804,24 +1804,24 @@ define void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %1) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Abc_FrameSwapCurrentAndBackup(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = getelementptr i8, ptr %3, i64 160
-  %.val15 = load ptr, ptr %4, align 8, !tbaa !97
+  %.val15 = load ptr, ptr %4, align 8, !tbaa !98
   %5 = icmp eq ptr %.val15, null
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr i8, ptr %3, i64 168
-  %.val16 = load i32, ptr %7, align 8, !tbaa !109
+  %.val16 = load i32, ptr %7, align 8, !tbaa !110
   %8 = getelementptr i8, ptr %.val15, i64 160
-  %.val = load ptr, ptr %8, align 8, !tbaa !97
+  %.val = load ptr, ptr %8, align 8, !tbaa !98
   %9 = getelementptr i8, ptr %.val15, i64 168
-  %.val17 = load i32, ptr %9, align 8, !tbaa !109
-  store ptr %.val, ptr %4, align 8, !tbaa !97
-  store i32 %.val17, ptr %7, align 8, !tbaa !109
-  store ptr %3, ptr %8, align 8, !tbaa !97
-  store i32 %.val16, ptr %9, align 8, !tbaa !109
-  store ptr %.val15, ptr %2, align 8, !tbaa !96
+  %.val17 = load i32, ptr %9, align 8, !tbaa !110
+  store ptr %.val, ptr %4, align 8, !tbaa !98
+  store i32 %.val17, ptr %7, align 8, !tbaa !110
+  store ptr %3, ptr %8, align 8, !tbaa !98
+  store i32 %.val16, ptr %9, align 8, !tbaa !110
+  store ptr %.val15, ptr %2, align 8, !tbaa !97
   br label %10
 
 10:                                               ; preds = %1, %6
@@ -1835,7 +1835,7 @@ define void @Abc_FrameReplaceCurrentNetwork(ptr noundef captures(none) %0, ptr n
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 48
-  %.val19 = load ptr, ptr %5, align 8, !tbaa !112
+  %.val19 = load ptr, ptr %5, align 8, !tbaa !113
   %6 = getelementptr i8, ptr %.val19, i64 4
   %.val19.val = load i32, ptr %6, align 4, !tbaa !25
   %7 = icmp eq i32 %.val19.val, 0
@@ -1847,7 +1847,7 @@ define void @Abc_FrameReplaceCurrentNetwork(ptr noundef captures(none) %0, ptr n
 
 9:                                                ; preds = %8, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !96
+  %11 = load ptr, ptr %10, align 8, !tbaa !97
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %Abc_FrameIsFlagEnabled.exit.thread, label %12
 
@@ -1871,27 +1871,27 @@ define void @Abc_FrameReplaceCurrentNetwork(ptr noundef captures(none) %0, ptr n
   br i1 %19, label %Abc_FrameIsFlagEnabled.exit, label %Abc_FrameIsFlagEnabled.exit.thread
 
 Abc_FrameIsFlagEnabled.exit:                      ; preds = %.tail.i, %16
-  %20 = load ptr, ptr %10, align 8, !tbaa !96
+  %20 = load ptr, ptr %10, align 8, !tbaa !97
   %21 = getelementptr i8, ptr %20, i64 160
-  %.val = load ptr, ptr %21, align 8, !tbaa !97
+  %.val = load ptr, ptr %21, align 8, !tbaa !98
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr %.val, ptr %22, align 8, !tbaa !97
+  store ptr %.val, ptr %22, align 8, !tbaa !98
   %23 = getelementptr i8, ptr %20, i64 168
-  %.val18 = load i32, ptr %23, align 8, !tbaa !109
+  %.val18 = load i32, ptr %23, align 8, !tbaa !110
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  store i32 %.val18, ptr %24, align 8, !tbaa !109
+  store i32 %.val18, ptr %24, align 8, !tbaa !110
   br label %.sink.split
 
 Abc_FrameIsFlagEnabled.exit.thread:               ; preds = %16, %.tail.i, %12, %9
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr null, ptr %25, align 8, !tbaa !97
+  store ptr null, ptr %25, align 8, !tbaa !98
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load i32, ptr %26, align 8, !tbaa !82
+  %27 = load i32, ptr %26, align 8, !tbaa !83
   %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %26, align 8, !tbaa !82
+  store i32 %28, ptr %26, align 8, !tbaa !83
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  store i32 %28, ptr %29, align 8, !tbaa !109
-  %30 = load ptr, ptr %10, align 8, !tbaa !96
+  store i32 %28, ptr %29, align 8, !tbaa !110
+  %30 = load ptr, ptr %10, align 8, !tbaa !97
   %.not17 = icmp eq ptr %30, null
   br i1 %.not17, label %31, label %.sink.split
 
@@ -1901,7 +1901,7 @@ Abc_FrameIsFlagEnabled.exit.thread:               ; preds = %16, %.tail.i, %12, 
   br label %31
 
 31:                                               ; preds = %.sink.split, %Abc_FrameIsFlagEnabled.exit.thread
-  store ptr %1, ptr %10, align 8, !tbaa !96
+  store ptr %1, ptr %10, align 8, !tbaa !97
   br label %32
 
 32:                                               ; preds = %2, %31
@@ -1912,7 +1912,7 @@ Abc_FrameIsFlagEnabled.exit.thread:               ; preds = %16, %.tail.i, %12, 
 define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unnamed_addr #11 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #20
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !113
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !114
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %26, label %5
 
@@ -1923,7 +1923,7 @@ define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unn
 
 Abc_FrameIsBridgeMode.exit:                       ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %8 = load i32, ptr %7, align 8, !tbaa !72
+  %8 = load i32, ptr %7, align 8, !tbaa !73
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %Abc_FrameIsBridgeMode.exit.thread, label %10
 
@@ -1932,7 +1932,7 @@ Abc_FrameIsBridgeMode.exit.thread:                ; preds = %5, %Abc_FrameIsBrid
   br label %13
 
 10:                                               ; preds = %Abc_FrameIsBridgeMode.exit
-  %11 = load ptr, ptr @stdout, align 8, !tbaa !78
+  %11 = load ptr, ptr @stdout, align 8, !tbaa !79
   %12 = tail call i32 @Gia_ManToBridgeText(ptr noundef %11, i32 noundef 9, ptr noundef nonnull @.str.9) #20
   br label %13
 
@@ -1944,13 +1944,13 @@ Abc_FrameIsBridgeMode.exit.thread:                ; preds = %5, %Abc_FrameIsBrid
 
 Abc_FrameIsBridgeMode.exit11:                     ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %16 = load i32, ptr %15, align 8, !tbaa !72
+  %16 = load i32, ptr %15, align 8, !tbaa !73
   %.not9 = icmp eq i32 %16, 0
   br i1 %.not9, label %Abc_FrameIsBridgeMode.exit11.thread, label %17
 
 17:                                               ; preds = %Abc_FrameIsBridgeMode.exit11
   %18 = call ptr @vnsprintf(ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #20
-  %19 = load ptr, ptr @stdout, align 8, !tbaa !78
+  %19 = load ptr, ptr @stdout, align 8, !tbaa !79
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #23
   %21 = trunc i64 %20 to i32
   %22 = call i32 @Gia_ManToBridgeText(ptr noundef %19, i32 noundef %21, ptr noundef nonnull %18) #20
@@ -1958,7 +1958,7 @@ Abc_FrameIsBridgeMode.exit11:                     ; preds = %13
   br label %25
 
 Abc_FrameIsBridgeMode.exit11.thread:              ; preds = %13, %Abc_FrameIsBridgeMode.exit11
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !78, !noalias !114
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !79, !noalias !115
   %24 = call i32 @vfprintf(ptr noundef %23, ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #20
   br label %25
 
@@ -1974,14 +1974,14 @@ Abc_FrameIsBridgeMode.exit11.thread:              ; preds = %13, %Abc_FrameIsBri
 ; Function Attrs: nounwind uwtable
 define void @Abc_FrameUnmapAllNetworks(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.08 = load ptr, ptr %2, align 8, !tbaa !110
+  %.08 = load ptr, ptr %2, align 8, !tbaa !111
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %6
   %.010 = phi ptr [ %.0, %6 ], [ %.08, %1 ]
   %3 = getelementptr i8, ptr %.010, i64 4
-  %.0.val6 = load i32, ptr %3, align 4, !tbaa !117
+  %.0.val6 = load i32, ptr %3, align 4, !tbaa !118
   %.not7 = icmp eq i32 %.0.val6, 4
   br i1 %.not7, label %4, label %6
 
@@ -1991,9 +1991,9 @@ define void @Abc_FrameUnmapAllNetworks(ptr noundef readonly captures(none) %0) l
 
 6:                                                ; preds = %.lr.ph, %4
   %7 = getelementptr i8, ptr %.010, i64 160
-  %.0 = load ptr, ptr %7, align 8, !tbaa !110
+  %.0 = load ptr, ptr %7, align 8, !tbaa !111
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !118
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -2016,30 +2016,30 @@ define ptr @Abc_FrameGetGlobalFrame() local_unnamed_addr #1 {
 3:                                                ; preds = %0
   %4 = tail call noalias dereferenceable_or_null(648) ptr @calloc(i64 noundef 1, i64 noundef 648) #21
   %5 = tail call ptr @Abc_UtilsGetVersion(ptr noundef %4) #20
-  store ptr %5, ptr %4, align 8, !tbaa !77
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !78
+  store ptr %5, ptr %4, align 8, !tbaa !78
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !79
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store ptr %6, ptr %7, align 8, !tbaa !79
-  %8 = load ptr, ptr @stdout, align 8, !tbaa !78
+  store ptr %6, ptr %7, align 8, !tbaa !80
+  %8 = load ptr, ptr @stdout, align 8, !tbaa !79
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store ptr %8, ptr %9, align 8, !tbaa !80
+  store ptr %8, ptr %9, align 8, !tbaa !81
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store ptr null, ptr %10, align 8, !tbaa !81
+  store ptr null, ptr %10, align 8, !tbaa !82
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 400
   store i32 -1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 404
   store i32 -1, ptr %12, align 4, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i32 1, ptr %13, align 8, !tbaa !82
+  store i32 1, ptr %13, align 8, !tbaa !83
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  store i32 0, ptr %14, align 4, !tbaa !71
+  store i32 0, ptr %14, align 4, !tbaa !72
   %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %16, align 4, !tbaa !25
-  store i32 16, ptr %15, align 8, !tbaa !83
+  store i32 16, ptr %15, align 8, !tbaa !84
   %17 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #22
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %17, ptr %18, align 8, !tbaa !68
+  store ptr %17, ptr %18, align 8, !tbaa !69
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store ptr %15, ptr %19, align 8, !tbaa !8
   %calloc.i.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
@@ -2048,12 +2048,12 @@ define ptr @Abc_FrameGetGlobalFrame() local_unnamed_addr #1 {
   %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 0, ptr %22, align 4, !tbaa !25
-  store i32 100, ptr %21, align 8, !tbaa !83
+  store i32 100, ptr %21, align 8, !tbaa !84
   %23 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #22
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !68
+  store ptr %23, ptr %24, align 8, !tbaa !69
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 408
-  store ptr %21, ptr %25, align 8, !tbaa !84
+  store ptr %21, ptr %25, align 8, !tbaa !85
   store ptr %4, ptr @s_GlobalFrame, align 8, !tbaa !3
   tail call void @Abc_FrameInit(ptr noundef nonnull %4) #20
   %.pre = load ptr, ptr @s_GlobalFrame, align 8, !tbaa !3
@@ -2076,23 +2076,6 @@ define ptr @Abc_FrameReadGlobalFrame() local_unnamed_addr #13 {
 define void @Abc_FrameSetSave1(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @Abc_FrameGetGlobalFrame()
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 440
-  %4 = load ptr, ptr %3, align 8, !tbaa !89
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %6, label %5
-
-5:                                                ; preds = %1
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #20
-  br label %6
-
-6:                                                ; preds = %5, %1
-  store ptr %0, ptr %3, align 8, !tbaa !89
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @Abc_FrameSetSave2(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @Abc_FrameGetGlobalFrame()
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %4 = load ptr, ptr %3, align 8, !tbaa !90
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -2107,13 +2090,30 @@ define void @Abc_FrameSetSave2(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
+define void @Abc_FrameSetSave2(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = tail call ptr @Abc_FrameGetGlobalFrame()
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 448
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %6, label %5
+
+5:                                                ; preds = %1
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #20
+  br label %6
+
+6:                                                ; preds = %5, %1
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
 define ptr @Abc_FrameReadSave1() local_unnamed_addr #1 {
   %1 = tail call ptr @Abc_FrameGetGlobalFrame()
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %3 = load ptr, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = tail call ptr @Abc_FrameGetGlobalFrame()
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 440
-  store ptr null, ptr %5, align 8, !tbaa !89
+  store ptr null, ptr %5, align 8, !tbaa !90
   ret ptr %3
 }
 
@@ -2121,22 +2121,22 @@ define ptr @Abc_FrameReadSave1() local_unnamed_addr #1 {
 define ptr @Abc_FrameReadSave2() local_unnamed_addr #1 {
   %1 = tail call ptr @Abc_FrameGetGlobalFrame()
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !91
   %4 = tail call ptr @Abc_FrameGetGlobalFrame()
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 448
-  store ptr null, ptr %5, align 8, !tbaa !90
+  store ptr null, ptr %5, align 8, !tbaa !91
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !96
+  %4 = load ptr, ptr %3, align 8, !tbaa !97
   %5 = icmp eq ptr %4, null
   br i1 %5, label %34, label %6
 
 6:                                                ; preds = %2
-  %.val14 = load i32, ptr %4, align 8, !tbaa !119
+  %.val14 = load i32, ptr %4, align 8, !tbaa !120
   %7 = icmp ne i32 %.val14, 3
   %8 = icmp slt i32 %1, 0
   %or.cond = or i1 %8, %7
@@ -2144,7 +2144,7 @@ define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr noundef readonly captures
 
 9:                                                ; preds = %6
   %10 = getelementptr i8, ptr %4, i64 48
-  %.val = load ptr, ptr %10, align 8, !tbaa !112
+  %.val = load ptr, ptr %10, align 8, !tbaa !113
   %11 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %11, align 4, !tbaa !25
   %.not11 = icmp slt i32 %1, %.val.val
@@ -2152,21 +2152,21 @@ define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr noundef readonly captures
 
 12:                                               ; preds = %9
   %13 = getelementptr i8, ptr %.val, i64 8
-  %.val15.val = load ptr, ptr %13, align 8, !tbaa !68
+  %.val15.val = load ptr, ptr %13, align 8, !tbaa !69
   %14 = zext nneg i32 %1 to i64
   %15 = getelementptr inbounds nuw ptr, ptr %.val15.val, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !69
-  %.val16 = load ptr, ptr %16, align 8, !tbaa !120
+  %16 = load ptr, ptr %15, align 8, !tbaa !70
+  %.val16 = load ptr, ptr %16, align 8, !tbaa !121
   %17 = getelementptr i8, ptr %16, i64 32
-  %.val17 = load ptr, ptr %17, align 8, !tbaa !123
+  %.val17 = load ptr, ptr %17, align 8, !tbaa !124
   %18 = getelementptr i8, ptr %.val16, i64 32
-  %.val16.val = load ptr, ptr %18, align 8, !tbaa !124
-  %.val17.val = load i32, ptr %.val17, align 4, !tbaa !113
+  %.val16.val = load ptr, ptr %18, align 8, !tbaa !125
+  %.val17.val = load i32, ptr %.val17, align 4, !tbaa !114
   %19 = getelementptr i8, ptr %.val16.val, i64 8
-  %.val16.val.val = load ptr, ptr %19, align 8, !tbaa !68
+  %.val16.val.val = load ptr, ptr %19, align 8, !tbaa !69
   %20 = sext i32 %.val17.val to i64
   %21 = getelementptr inbounds ptr, ptr %.val16.val.val, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !69
+  %22 = load ptr, ptr %21, align 8, !tbaa !70
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
@@ -2192,9 +2192,9 @@ define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr noundef readonly captures
 ; Function Attrs: nofree nounwind uwtable
 define void @Abc_FrameCheckPoConstTest(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = getelementptr i8, ptr %3, i64 48
-  %.val8 = load ptr, ptr %4, align 8, !tbaa !112
+  %.val8 = load ptr, ptr %4, align 8, !tbaa !113
   %5 = getelementptr i8, ptr %.val8, i64 4
   %.val.val9 = load i32, ptr %5, align 4, !tbaa !25
   %6 = icmp sgt i32 %.val.val9, 0
@@ -2204,26 +2204,26 @@ define void @Abc_FrameCheckPoConstTest(ptr noundef readonly captures(none) %0) l
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_FrameCheckPoConst.exit ], [ 0, %1 ]
   %.val11 = phi ptr [ %.val, %Abc_FrameCheckPoConst.exit ], [ %.val8, %1 ]
   %7 = phi ptr [ %31, %Abc_FrameCheckPoConst.exit ], [ %3, %1 ]
-  %.val14.i = load i32, ptr %7, align 8, !tbaa !119
+  %.val14.i = load i32, ptr %7, align 8, !tbaa !120
   %.not = icmp eq i32 %.val14.i, 3
   br i1 %.not, label %8, label %Abc_FrameCheckPoConst.exit
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr i8, ptr %.val11, i64 8
-  %.val7.val = load ptr, ptr %9, align 8, !tbaa !68
+  %.val7.val = load ptr, ptr %9, align 8, !tbaa !69
   %10 = getelementptr inbounds nuw ptr, ptr %.val7.val, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !69
-  %.val16.i = load ptr, ptr %11, align 8, !tbaa !120
+  %11 = load ptr, ptr %10, align 8, !tbaa !70
+  %.val16.i = load ptr, ptr %11, align 8, !tbaa !121
   %12 = getelementptr i8, ptr %11, i64 32
-  %.val17.i = load ptr, ptr %12, align 8, !tbaa !123
+  %.val17.i = load ptr, ptr %12, align 8, !tbaa !124
   %13 = getelementptr i8, ptr %.val16.i, i64 32
-  %.val16.val.i = load ptr, ptr %13, align 8, !tbaa !124
-  %.val17.val.i = load i32, ptr %.val17.i, align 4, !tbaa !113
+  %.val16.val.i = load ptr, ptr %13, align 8, !tbaa !125
+  %.val17.val.i = load i32, ptr %.val17.i, align 4, !tbaa !114
   %14 = getelementptr i8, ptr %.val16.val.i, i64 8
-  %.val16.val.val.i = load ptr, ptr %14, align 8, !tbaa !68
+  %.val16.val.val.i = load ptr, ptr %14, align 8, !tbaa !69
   %15 = sext i32 %.val17.val.i to i64
   %16 = getelementptr inbounds ptr, ptr %.val16.val.val.i, i64 %15
-  %17 = load ptr, ptr %16, align 8, !tbaa !69
+  %17 = load ptr, ptr %16, align 8, !tbaa !70
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
@@ -2246,14 +2246,14 @@ Abc_FrameCheckPoConst.exit:                       ; preds = %.lr.ph, %8, %24
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %29, i32 noundef %.0.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = load ptr, ptr %2, align 8, !tbaa !96
+  %31 = load ptr, ptr %2, align 8, !tbaa !97
   %32 = getelementptr i8, ptr %31, i64 48
-  %.val = load ptr, ptr %32, align 8, !tbaa !112
+  %.val = load ptr, ptr %32, align 8, !tbaa !113
   %33 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %33, align 4, !tbaa !25
   %34 = sext i32 %.val.val to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !125
+  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !126
 
 .critedge:                                        ; preds = %Abc_FrameCheckPoConst.exit, %1
   ret void
@@ -2377,63 +2377,64 @@ attributes #23 = { nounwind willreturn memory(read) }
 !63 = !{!64, !14, i64 0}
 !64 = !{!"Vec_Wec_t_", !14, i64 0, !14, i64 4, !18, i64 8}
 !65 = !{!64, !18, i64 8}
-!66 = distinct !{!66, !67}
+!66 = distinct !{!66, !67, !68}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = !{!26, !5, i64 8}
-!69 = !{!5, !5, i64 0}
-!70 = distinct !{!70, !67}
-!71 = !{!9, !14, i64 92}
-!72 = !{!9, !14, i64 96}
-!73 = !{!9, !10, i64 256}
-!74 = !{!9, !15, i64 264}
-!75 = !{!9, !24, i64 608}
-!76 = !{!9, !24, i64 616}
-!77 = !{!9, !10, i64 0}
-!78 = !{!16, !16, i64 0}
-!79 = !{!9, !16, i64 136}
-!80 = !{!9, !16, i64 128}
-!81 = !{!9, !16, i64 144}
-!82 = !{!9, !14, i64 80}
-!83 = !{!26, !14, i64 0}
-!84 = !{!9, !12, i64 408}
-!85 = !{!86, !14, i64 4}
-!86 = !{!"Vec_Vec_t_", !14, i64 0, !14, i64 4, !5, i64 8}
-!87 = !{!86, !5, i64 8}
-!88 = distinct !{!88, !67}
-!89 = !{!9, !5, i64 440}
-!90 = !{!9, !5, i64 448}
-!91 = !{!9, !5, i64 456}
-!92 = !{!9, !5, i64 464}
-!93 = !{!9, !13, i64 72}
-!94 = distinct !{!94, !67}
-!95 = !{!12, !12, i64 0}
-!96 = !{!9, !13, i64 48}
-!97 = !{!98, !13, i64 160}
-!98 = !{!"Abc_Ntk_t_", !14, i64 0, !14, i64 4, !10, i64 8, !10, i64 16, !99, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !14, i64 140, !14, i64 144, !14, i64 148, !14, i64 152, !13, i64 160, !14, i64 168, !100, i64 176, !13, i64 184, !14, i64 192, !14, i64 196, !14, i64 200, !17, i64 208, !14, i64 216, !60, i64 224, !101, i64 240, !102, i64 248, !5, i64 256, !103, i64 264, !5, i64 272, !15, i64 280, !14, i64 284, !18, i64 288, !12, i64 296, !24, i64 304, !20, i64 312, !12, i64 320, !13, i64 328, !5, i64 336, !5, i64 344, !13, i64 352, !5, i64 360, !5, i64 368, !18, i64 376, !18, i64 384, !10, i64 392, !104, i64 400, !12, i64 408, !18, i64 416, !18, i64 424, !12, i64 432, !18, i64 440, !18, i64 448, !18, i64 456}
-!99 = !{!"p1 _ZTS9Nm_Man_t_", !5, i64 0}
-!100 = !{!"p1 _ZTS10Abc_Des_t_", !5, i64 0}
-!101 = !{!"p1 _ZTS12Mem_Fixed_t_", !5, i64 0}
-!102 = !{!"p1 _ZTS11Mem_Step_t_", !5, i64 0}
-!103 = !{!"p1 _ZTS14Abc_ManTime_t_", !5, i64 0}
-!104 = !{!"p1 float", !5, i64 0}
-!105 = distinct !{!105, !67}
-!106 = !{!9, !20, i64 360}
-!107 = !{!9, !19, i64 288}
-!108 = !{!6, !6, i64 0}
-!109 = !{!98, !14, i64 168}
-!110 = !{!13, !13, i64 0}
-!111 = distinct !{!111, !67}
-!112 = !{!98, !12, i64 48}
-!113 = !{!14, !14, i64 0}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"vprintf: argument 0"}
-!116 = distinct !{!116, !"vprintf"}
-!117 = !{!98, !14, i64 4}
-!118 = distinct !{!118, !67}
-!119 = !{!98, !14, i64 0}
-!120 = !{!121, !13, i64 0}
-!121 = !{!"Abc_Obj_t_", !13, i64 0, !122, i64 8, !14, i64 16, !14, i64 20, !14, i64 20, !14, i64 20, !14, i64 20, !14, i64 20, !14, i64 21, !14, i64 21, !14, i64 21, !14, i64 21, !14, i64 21, !60, i64 24, !60, i64 40, !6, i64 56, !6, i64 64}
-!122 = !{!"p1 _ZTS10Abc_Obj_t_", !5, i64 0}
-!123 = !{!121, !24, i64 32}
-!124 = !{!98, !12, i64 32}
-!125 = distinct !{!125, !67}
+!68 = !{!"llvm.loop.estimated_trip_count"}
+!69 = !{!26, !5, i64 8}
+!70 = !{!5, !5, i64 0}
+!71 = distinct !{!71, !67, !68}
+!72 = !{!9, !14, i64 92}
+!73 = !{!9, !14, i64 96}
+!74 = !{!9, !10, i64 256}
+!75 = !{!9, !15, i64 264}
+!76 = !{!9, !24, i64 608}
+!77 = !{!9, !24, i64 616}
+!78 = !{!9, !10, i64 0}
+!79 = !{!16, !16, i64 0}
+!80 = !{!9, !16, i64 136}
+!81 = !{!9, !16, i64 128}
+!82 = !{!9, !16, i64 144}
+!83 = !{!9, !14, i64 80}
+!84 = !{!26, !14, i64 0}
+!85 = !{!9, !12, i64 408}
+!86 = !{!87, !14, i64 4}
+!87 = !{!"Vec_Vec_t_", !14, i64 0, !14, i64 4, !5, i64 8}
+!88 = !{!87, !5, i64 8}
+!89 = distinct !{!89, !67, !68}
+!90 = !{!9, !5, i64 440}
+!91 = !{!9, !5, i64 448}
+!92 = !{!9, !5, i64 456}
+!93 = !{!9, !5, i64 464}
+!94 = !{!9, !13, i64 72}
+!95 = distinct !{!95, !67, !68}
+!96 = !{!12, !12, i64 0}
+!97 = !{!9, !13, i64 48}
+!98 = !{!99, !13, i64 160}
+!99 = !{!"Abc_Ntk_t_", !14, i64 0, !14, i64 4, !10, i64 8, !10, i64 16, !100, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !14, i64 140, !14, i64 144, !14, i64 148, !14, i64 152, !13, i64 160, !14, i64 168, !101, i64 176, !13, i64 184, !14, i64 192, !14, i64 196, !14, i64 200, !17, i64 208, !14, i64 216, !60, i64 224, !102, i64 240, !103, i64 248, !5, i64 256, !104, i64 264, !5, i64 272, !15, i64 280, !14, i64 284, !18, i64 288, !12, i64 296, !24, i64 304, !20, i64 312, !12, i64 320, !13, i64 328, !5, i64 336, !5, i64 344, !13, i64 352, !5, i64 360, !5, i64 368, !18, i64 376, !18, i64 384, !10, i64 392, !105, i64 400, !12, i64 408, !18, i64 416, !18, i64 424, !12, i64 432, !18, i64 440, !18, i64 448, !18, i64 456}
+!100 = !{!"p1 _ZTS9Nm_Man_t_", !5, i64 0}
+!101 = !{!"p1 _ZTS10Abc_Des_t_", !5, i64 0}
+!102 = !{!"p1 _ZTS12Mem_Fixed_t_", !5, i64 0}
+!103 = !{!"p1 _ZTS11Mem_Step_t_", !5, i64 0}
+!104 = !{!"p1 _ZTS14Abc_ManTime_t_", !5, i64 0}
+!105 = !{!"p1 float", !5, i64 0}
+!106 = distinct !{!106, !67, !68}
+!107 = !{!9, !20, i64 360}
+!108 = !{!9, !19, i64 288}
+!109 = !{!6, !6, i64 0}
+!110 = !{!99, !14, i64 168}
+!111 = !{!13, !13, i64 0}
+!112 = distinct !{!112, !67, !68}
+!113 = !{!99, !12, i64 48}
+!114 = !{!14, !14, i64 0}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"vprintf: argument 0"}
+!117 = distinct !{!117, !"vprintf"}
+!118 = !{!99, !14, i64 4}
+!119 = distinct !{!119, !67, !68}
+!120 = !{!99, !14, i64 0}
+!121 = !{!122, !13, i64 0}
+!122 = !{!"Abc_Obj_t_", !13, i64 0, !123, i64 8, !14, i64 16, !14, i64 20, !14, i64 20, !14, i64 20, !14, i64 20, !14, i64 20, !14, i64 21, !14, i64 21, !14, i64 21, !14, i64 21, !14, i64 21, !60, i64 24, !60, i64 40, !6, i64 56, !6, i64 64}
+!123 = !{!"p1 _ZTS10Abc_Obj_t_", !5, i64 0}
+!124 = !{!122, !24, i64 32}
+!125 = !{!99, !12, i64 32}
+!126 = distinct !{!126, !67, !68}

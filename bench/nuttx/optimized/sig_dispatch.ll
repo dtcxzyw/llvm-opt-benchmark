@@ -588,5 +588,6 @@ attributes #7 = { allocsize(0) }
 !6 = !{i64 306036, i64 306054}
 !7 = !{i64 306655}
 !8 = !{i64 306776}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.estimated_trip_count"}

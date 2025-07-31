@@ -53,7 +53,7 @@ define hidden void @_ZN9vmClasses21metaspace_pointers_doEP16MetaspaceClosure(ptr
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 117
-  br i1 %.not, label %8, label %2
+  br i1 %.not, label %8, label %2, !llvm.loop !6
 
 8:                                                ; preds = %2
   ret void
@@ -192,7 +192,7 @@ define hidden void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15Class
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %24, label %._crit_edge, !llvm.loop !6
+  br i1 %36, label %24, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %33, %17
   tail call void @_ZN13InstanceKlass24restore_unshareable_infoEP15ClassLoaderData6HandleP12PackageEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr %2, ptr noundef null, ptr noundef %3) #5
@@ -224,7 +224,7 @@ define hidden void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %8 = trunc nsw i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %0, %8
-  br i1 %.not, label %._crit_edge, label %9
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !10
 
 9:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -345,7 +345,7 @@ _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i: ; preds = %_ZN9vmClasses
 23:                                               ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26
   %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i23, 1
   %.not.i.i30 = icmp eq i64 %indvars.iv.next.i.i29, 3
-  br i1 %.not.i.i30, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37, label %.lr.ph.i.i22
+  br i1 %.not.i.i30, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37, label %.lr.ph.i.i22, !llvm.loop !10
 
 .lr.ph.i.i22:                                     ; preds = %18, %23
   %indvars.iv.i.i23 = phi i64 [ %indvars.iv.next.i.i29, %23 ], [ 1, %18 ]
@@ -396,7 +396,7 @@ _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26: ; preds = %41, %_ZN9vm
 42:                                               ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i43
   %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i40, 1
   %.not.i.i47 = icmp eq i64 %indvars.iv.next.i.i46, 3
-  br i1 %.not.i.i47, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37, label %.lr.ph.i.i39
+  br i1 %.not.i.i47, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37, label %.lr.ph.i.i39, !llvm.loop !10
 
 .lr.ph.i.i39:                                     ; preds = %15, %42
   %indvars.iv.i.i40 = phi i64 [ %indvars.iv.next.i.i46, %42 ], [ 1, %15 ]
@@ -534,7 +534,7 @@ define linkonce_odr hidden void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %9 = trunc nsw i64 %indvars.iv.next.i to i32
   %.not.i = icmp eq i32 %4, %9
-  br i1 %.not.i, label %._crit_edge.i, label %10
+  br i1 %.not.i, label %._crit_edge.i, label %10, !llvm.loop !10
 
 10:                                               ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %7, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
@@ -636,7 +636,7 @@ define hidden noundef zeroext range(i8 0, 15) i8 @_ZN9vmClasses14box_klass_typeE
 8:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !11
 
 .loopexit:                                        ; preds = %8, %6
   %.05 = phi i8 [ %7, %6 ], [ 12, %8 ]
@@ -747,5 +747,8 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !9, !7}

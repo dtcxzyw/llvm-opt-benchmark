@@ -494,7 +494,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
 51:                                               ; preds = %.critedge3
   %52 = call ptr @PMIx_Argv_split(ptr noundef nonnull %.038.lcssa, i32 noundef 32) #13
   %53 = load ptr, ptr %52, align 8, !tbaa !18
-  %54 = load ptr, ptr @environ, align 8, !tbaa !62
+  %54 = load ptr, ptr @environ, align 8, !tbaa !63
   %55 = call noalias ptr @pmix_path_findv(ptr noundef %53, i32 noundef 1, ptr noundef %54, ptr noundef nonnull %3) #13
   %.not48 = icmp eq ptr %55, null
   br i1 %.not48, label %58, label %56
@@ -514,7 +514,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %60 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next62
   %61 = load ptr, ptr %60, align 8, !tbaa !18
   %.not = icmp eq ptr %61, null
-  br i1 %.not, label %.sink.split, label %.preheader, !llvm.loop !63
+  br i1 %.not, label %.sink.split, label %.preheader, !llvm.loop !64
 
 .sink.split:                                      ; preds = %59, %12, %56
   %.0.ph = phi ptr [ %52, %56 ], [ null, %12 ], [ null, %59 ]
@@ -624,7 +624,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
 32:                                               ; preds = %29
   %33 = load ptr, ptr %30, align 8, !tbaa !18
   %34 = tail call noalias ptr @strdup(ptr noundef %33) #13
-  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_plm_ssh_component, i64 272), align 8, !tbaa !64
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_plm_ssh_component, i64 272), align 8, !tbaa !65
   %35 = load ptr, ptr %30, align 8, !tbaa !18
   %36 = tail call noalias ptr @pmix_basename(ptr noundef %35) #13
   %37 = icmp eq ptr %36, null
@@ -667,7 +667,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
   %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.next
   %57 = load ptr, ptr %56, align 8, !tbaa !18
   %.not27 = icmp eq ptr %57, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 .lr.ph:                                           ; preds = %.preheader, %55
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 1, %.preheader ]
@@ -790,9 +790,10 @@ attributes #15 = { nounwind willreturn memory(none) }
 !57 = !{!"p1 short", !9, i64 0}
 !58 = !{!59, !59, i64 0}
 !59 = !{!"short", !7, i64 0}
-!60 = distinct !{!60, !61}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!14, !14, i64 0}
-!63 = distinct !{!63, !61}
-!64 = !{!4, !13, i64 272}
-!65 = distinct !{!65, !61}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = !{!14, !14, i64 0}
+!64 = distinct !{!64, !61, !62}
+!65 = !{!4, !13, i64 272}
+!66 = distinct !{!66, !61, !62}

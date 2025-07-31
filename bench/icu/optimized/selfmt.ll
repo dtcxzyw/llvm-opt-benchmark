@@ -1021,9 +1021,9 @@ define noundef zeroext i1 @_ZNK6icu_7712SelectFormatneERKNS_6FormatE(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_7712SelectFormat11parseObjectERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((12, 16)) %3) unnamed_addr #12 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !43
+  %6 = load i32, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %6, ptr %7, align 4, !tbaa !45
+  store i32 %6, ptr %7, align 4, !tbaa !46
   ret void
 }
 
@@ -1100,8 +1100,9 @@ attributes #16 = { noreturn nounwind }
 !38 = !{!"p1 char16_t", !6, i64 0}
 !39 = !{i64 2148876984}
 !40 = !{!31, !32, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!44, !9, i64 8}
-!44 = !{!"_ZTSN6icu_7713ParsePositionE", !20, i64 0, !9, i64 8, !9, i64 12}
-!45 = !{!44, !9, i64 12}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!45, !9, i64 8}
+!45 = !{!"_ZTSN6icu_7713ParsePositionE", !20, i64 0, !9, i64 8, !9, i64 12}
+!46 = !{!45, !9, i64 12}

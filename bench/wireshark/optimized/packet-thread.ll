@@ -1079,7 +1079,7 @@ define internal i32 @dissect_thread_nm(ptr noundef %0, ptr noundef %1, ptr nound
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %116, %70, %75, %132, %128, %109, %101, %95, %86, %82, %65, %58, %51, %44, %37, %30
   %.1 = phi i32 [ %135, %132 ], [ %33, %30 ], [ %40, %37 ], [ %47, %44 ], [ %54, %51 ], [ %61, %58 ], [ %68, %65 ], [ %74, %70 ], [ %81, %75 ], [ %85, %82 ], [ %89, %86 ], [ %96, %95 ], [ %104, %101 ], [ %112, %109 ], [ %120, %116 ], [ %131, %128 ], [ %26, %.preheader ], [ %123, %.lr.ph ]
   %136 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.1)
-  br i1 %136, label %.lr.ph219, label %._crit_edge, !llvm.loop !8
+  br i1 %136, label %.lr.ph219, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   %137 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1352,7 +1352,7 @@ define internal i32 @dissect_thread_bl(ptr noundef %0, ptr noundef %1, ptr nound
   %126 = add i32 %.3209, 16
   %127 = add nuw nsw i32 %.0210, 1
   %exitcond.not = icmp eq i32 %127, %123
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %120, %115
   %.2 = phi i32 [ %119, %115 ], [ %26, %120 ], [ %126, %.lr.ph ]
@@ -1368,7 +1368,7 @@ define internal i32 @dissect_thread_bl(ptr noundef %0, ptr noundef %1, ptr nound
 133:                                              ; preds = %70, %75, %129, %.loopexit, %109, %101, %95, %86, %82, %65, %58, %51, %44, %37, %30
   %.1 = phi i32 [ %132, %129 ], [ %33, %30 ], [ %40, %37 ], [ %47, %44 ], [ %54, %51 ], [ %61, %58 ], [ %68, %65 ], [ %74, %70 ], [ %81, %75 ], [ %85, %82 ], [ %89, %86 ], [ %96, %95 ], [ %104, %101 ], [ %112, %109 ], [ %128, %.loopexit ]
   %134 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.1)
-  br i1 %134, label %.lr.ph212, label %._crit_edge, !llvm.loop !10
+  br i1 %134, label %.lr.ph212, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %133, %4
   %135 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1636,7 +1636,7 @@ define internal i32 @dissect_thread_address(ptr noundef %0, ptr noundef %1, ptr 
   %123 = add i32 %.3205, 16
   %124 = add nuw nsw i32 %.0206, 1
   %exitcond.not = icmp eq i32 %124, %115
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %116
   %.2 = phi i32 [ %120, %116 ], [ %26, %.preheader ], [ %123, %.lr.ph ]
@@ -1652,7 +1652,7 @@ define internal i32 @dissect_thread_address(ptr noundef %0, ptr noundef %1, ptr 
 130:                                              ; preds = %70, %75, %126, %.loopexit, %109, %101, %95, %86, %82, %65, %58, %51, %44, %37, %30
   %.1 = phi i32 [ %129, %126 ], [ %33, %30 ], [ %40, %37 ], [ %47, %44 ], [ %54, %51 ], [ %61, %58 ], [ %68, %65 ], [ %74, %70 ], [ %81, %75 ], [ %85, %82 ], [ %89, %86 ], [ %96, %95 ], [ %104, %101 ], [ %112, %109 ], [ %125, %.loopexit ]
   %131 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.1)
-  br i1 %131, label %.lr.ph208, label %._crit_edge, !llvm.loop !12
+  br i1 %131, label %.lr.ph208, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %130, %4
   %132 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1773,7 +1773,7 @@ define internal i32 @dissect_thread_dg(ptr noundef %0, ptr readnone captures(non
   %42 = add i32 %.158, 1
   %43 = add nuw nsw i32 %.059, 1
   %exitcond.not = icmp eq i32 %43, %22
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 44:                                               ; preds = %38
   br label %.loopexit.sink.split
@@ -1788,7 +1788,7 @@ define internal i32 @dissect_thread_dg(ptr noundef %0, ptr readnone captures(non
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %.preheader
   %.2 = phi i32 [ %39, %.preheader ], [ %47, %.loopexit.sink.split ], [ %42, %.lr.ph ]
   %48 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.2)
-  br i1 %48, label %.lr.ph61, label %._crit_edge, !llvm.loop !14
+  br i1 %48, label %.lr.ph61, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   %49 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1871,7 +1871,7 @@ define internal i32 @dissect_thread_mc(ptr noundef %0, ptr noundef %1, ptr nound
   %33 = sub nsw i32 %.04676.i, %31
   %34 = add i8 %.04775.i, 1
   %35 = icmp sgt i32 %33, 0
-  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
+  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %29
   %.not.i = icmp eq i32 %33, 0
@@ -1914,14 +1914,14 @@ define internal i32 @dissect_thread_mc(ptr noundef %0, ptr noundef %1, ptr nound
   %55 = add i32 %.36079.i, 1
   %56 = add nuw nsw i32 %.04881.i, 1
   %exitcond.not.i = icmp eq i32 %56, %40
-  br i1 %exitcond.not.i, label %._crit_edge84.i, label %.lr.ph83.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %._crit_edge84.i, label %.lr.ph83.i, !llvm.loop !17
 
 ._crit_edge84.i:                                  ; preds = %.lr.ph83.i, %.lr.ph90.i
   %.360.lcssa.i = phi i32 [ %39, %.lr.ph90.i ], [ %55, %.lr.ph83.i ]
   %.3.lcssa.i = phi i32 [ %.288.i, %.lr.ph90.i ], [ %54, %.lr.ph83.i ]
   %57 = add nuw nsw i32 %.04989.i, 1
   %exitcond108.not.i = icmp eq i32 %57, %36
-  br i1 %exitcond108.not.i, label %.loopexit.i, label %.lr.ph90.i, !llvm.loop !17
+  br i1 %exitcond108.not.i, label %.loopexit.i, label %.lr.ph90.i, !llvm.loop !18
 
 58:                                               ; preds = %22
   %59 = add i32 %23, %24
@@ -1931,7 +1931,7 @@ define internal i32 @dissect_thread_mc(ptr noundef %0, ptr noundef %1, ptr nound
   %.461.i = phi i32 [ %59, %58 ], [ %23, %.preheader.i ], [ %23, %25 ], [ %.360.lcssa.i, %._crit_edge84.i ]
   %.4.i = phi i32 [ %.05094.i, %58 ], [ 0, %.preheader.i ], [ 0, %25 ], [ %.3.lcssa.i, %._crit_edge84.i ]
   %60 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.461.i)
-  br i1 %60, label %.lr.ph96.i, label %get_chancount.exit, !llvm.loop !18
+  br i1 %60, label %.lr.ph96.i, label %get_chancount.exit, !llvm.loop !19
 
 get_chancount.exit:                               ; preds = %._crit_edge.i, %.loopexit.i, %.lr.ph.i, %4
   %.05074.i = phi i32 [ 65535, %4 ], [ %.05094.i, %.lr.ph.i ], [ %.05094.i, %._crit_edge.i ], [ %.4.i, %.loopexit.i ]
@@ -2325,7 +2325,7 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
   %247 = add i32 %.2851, 1
   %248 = add nuw nsw i32 %.0784850, 1
   %exitcond872.not = icmp eq i32 %248, %77
-  br i1 %exitcond872.not, label %.loopexit, label %.lr.ph852, !llvm.loop !19
+  br i1 %exitcond872.not, label %.loopexit, label %.lr.ph852, !llvm.loop !20
 
 249:                                              ; preds = %93, %93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
@@ -2688,7 +2688,7 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
   %440 = sub nsw i32 %.0779841, %438
   %441 = add i8 %.0780840, 1
   %442 = icmp sgt i32 %440, 0
-  br i1 %442, label %.lr.ph843, label %._crit_edge, !llvm.loop !20
+  br i1 %442, label %.lr.ph843, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %436
   %.not801 = icmp eq i32 %440, 0
@@ -2726,7 +2726,7 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
   %462 = add i32 %458, %460
   %463 = add nuw nsw i32 %.0781846, 1
   %exitcond.not = icmp eq i32 %463, %443
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph848, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph848, !llvm.loop !22
 
 464:                                              ; preds = %93
   %.not800 = icmp eq i16 %.0782, 1
@@ -2805,7 +2805,7 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
   %496 = call ptr @proto_tree_add_item(ptr noundef %494, i32 noundef %495, ptr noundef %0, i32 noundef %.5838, i32 noundef %.05074.i, i32 noundef 0)
   %497 = add i32 %.5838, %.05074.i
   %498 = icmp samesign ult i32 %492, %489
-  br i1 %498, label %.lr.ph, label %.loopexit830, !llvm.loop !22
+  br i1 %498, label %.lr.ph, label %.loopexit830, !llvm.loop !23
 
 499:                                              ; preds = %485, %485, %486
   %500 = load i32, ptr @hf_thread_mc_tlv_energy_list, align 4
@@ -2975,7 +2975,7 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 .loopexit:                                        ; preds = %.lr.ph848, %.lr.ph852, %432, %.preheader827, %.preheader, %.thread, %355, %proto_item_set_generated.exit, %193, %240, %210, %578, %574, %562, %552, %548, %541, %534, %527, %523, %515, %507, %.loopexit830, %481, %474, %467, %428, %421, %416, %350, %342, %334, %326, %318, %310, %303, %296, %289, %284, %275, %270, %188, %181, %173, %166, %160, %147, %140, %133, %126, %118, %111, %106, %93, %93, %93, %93, %93
   %.1 = phi i32 [ %581, %578 ], [ %107, %106 ], [ %114, %111 ], [ %121, %118 ], [ %129, %126 ], [ %136, %133 ], [ %143, %140 ], [ %150, %147 ], [ %161, %160 ], [ %169, %166 ], [ %176, %173 ], [ %184, %181 ], [ %191, %188 ], [ %209, %193 ], [ %239, %210 ], [ %244, %240 ], [ %271, %270 ], [ %278, %275 ], [ %285, %284 ], [ %292, %289 ], [ %299, %296 ], [ %306, %303 ], [ %313, %310 ], [ %321, %318 ], [ %329, %326 ], [ %337, %334 ], [ %345, %342 ], [ %353, %350 ], [ %359, %355 ], [ %388, %proto_item_set_generated.exit ], [ %417, %416 ], [ %424, %421 ], [ %431, %428 ], [ %470, %467 ], [ %477, %474 ], [ %484, %481 ], [ %502, %.loopexit830 ], [ %510, %507 ], [ %518, %515 ], [ %526, %523 ], [ %530, %527 ], [ %537, %534 ], [ %544, %541 ], [ %551, %548 ], [ %555, %552 ], [ %94, %93 ], [ %94, %93 ], [ %94, %93 ], [ %94, %93 ], [ %94, %93 ], [ %565, %562 ], [ %577, %574 ], [ %447, %.thread ], [ %94, %.preheader ], [ %94, %.preheader827 ], [ %94, %432 ], [ %247, %.lr.ph852 ], [ %462, %.lr.ph848 ]
   %582 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.1)
-  br i1 %582, label %65, label %._crit_edge856, !llvm.loop !23
+  br i1 %582, label %65, label %._crit_edge856, !llvm.loop !24
 
 ._crit_edge856:                                   ; preds = %.loopexit, %get_chancount.exit
   %583 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -3151,7 +3151,7 @@ define internal i32 @dissect_thread_ie(ptr noundef %0, ptr readnone captures(non
   %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef %11, ptr noundef %0, i32 noundef %.0, i32 noundef 0, i32 noundef %12, ptr noundef nonnull @dissect_thread_ie.fields, i32 noundef -2147483648)
   %14 = add i32 %.0, %9
   %15 = icmp ult i32 %14, %5
-  br i1 %15, label %6, label %16, !llvm.loop !24
+  br i1 %15, label %6, label %16, !llvm.loop !25
 
 16:                                               ; preds = %6
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -3345,7 +3345,7 @@ define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr noundef readonly cap
   %31 = load ptr, ptr %13, align 8
   %32 = getelementptr i8, ptr %31, i64 3
   store i8 %30, ptr %32, align 1
-  %33 = load i8, ptr @thread_auto_acq_seq_ctr, align 1, !range !25, !noundef !26
+  %33 = load i8, ptr @thread_auto_acq_seq_ctr, align 1, !range !26, !noundef !27
   %34 = trunc nuw i8 %33 to i1
   %.not = xor i1 %34, true
   %.b27 = load i1, ptr @thread_seq_ctr_acqd, align 1
@@ -3602,7 +3602,7 @@ define internal fastcc i32 @dissect_thread_nwd_with_server_decode(ptr noundef %0
   %59 = add i32 %.1349375, 3
   %60 = add nuw nsw i32 %.0353374, 1
   %exitcond385.not = icmp eq i32 %60, %.zext369
-  br i1 %exitcond385.not, label %.loopexit, label %.lr.ph376, !llvm.loop !27
+  br i1 %exitcond385.not, label %.loopexit, label %.lr.ph376, !llvm.loop !28
 
 61:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
@@ -3710,7 +3710,7 @@ define internal fastcc i32 @dissect_thread_nwd_with_server_decode(ptr noundef %0
   %129 = add i32 %.4373, 4
   %130 = add nuw nsw i32 %.0354372, 1
   %exitcond.not = icmp eq i32 %130, %102
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 131:                                              ; preds = %17
   %132 = load i32, ptr @hf_thread_nwd_tlv_6lowpan_id_6co_flag, align 4
@@ -3909,7 +3909,7 @@ default.unreachable:                              ; preds = %214
   %.2350 = phi i32 [ %258, %255 ], [ %44, %40 ], [ %.3, %93 ], [ %100, %96 ], [ %138, %131 ], [ %145, %144 ], [ %227, %218 ], [ %234, %230 ], [ %217, %228 ], [ %241, %237 ], [ %217, %235 ], [ %254, %250 ], [ %248, %242 ], [ %213, %205 ], [ %.6, %203 ], [ %36, %45 ], [ %36, %101 ], [ %59, %.lr.ph376 ], [ %129, %.lr.ph ]
   %.1 = phi i32 [ %.0379, %255 ], [ %.0379, %40 ], [ %.0379, %93 ], [ %.0379, %96 ], [ %.0379, %131 ], [ %.0379, %144 ], [ 1, %218 ], [ 0, %230 ], [ 0, %228 ], [ 2, %237 ], [ 2, %235 ], [ 3, %250 ], [ 3, %242 ], [ %.2, %205 ], [ %.2, %203 ], [ %.0379, %45 ], [ %.0379, %101 ], [ %.0379, %.lr.ph376 ], [ %.0379, %.lr.ph ]
   %259 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.2350)
-  br i1 %259, label %17, label %._crit_edge, !llvm.loop !29
+  br i1 %259, label %17, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   call void @decrement_dissection_depth(ptr noundef %1)
@@ -4022,7 +4022,7 @@ define internal fastcc void @create_thread_temp_keys(ptr noundef nonnull readonl
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %11
-  %16 = load i8, ptr @thread_use_pan_id_in_key, align 1, !range !25, !noundef !26
+  %16 = load i8, ptr @thread_use_pan_id_in_key, align 1, !range !26, !noundef !27
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %25
 
@@ -4152,27 +4152,28 @@ attributes #10 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = !{i8 0, i8 2}
-!26 = !{}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = !{i8 0, i8 2}
+!27 = !{}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}

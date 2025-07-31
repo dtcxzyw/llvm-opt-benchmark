@@ -47,10 +47,10 @@ define void @timer_initialize() local_unnamed_addr #0 {
 define void @timer_deleteall(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !8
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !9
   %3 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   %4 = load volatile ptr, ptr @g_alloctimers, align 8
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -69,7 +69,7 @@ define void @timer_deleteall(i32 noundef %0) local_unnamed_addr #1 {
 
 11:                                               ; preds = %.lr.ph, %9
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %11, %1
   %12 = and i64 %3, 512
@@ -77,7 +77,7 @@ define void @timer_deleteall(i32 noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %up_irq_restore.exit, label %13
 
 13:                                               ; preds = %._crit_edge
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !12
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %._crit_edge, %13
@@ -94,10 +94,10 @@ define noundef ptr @timer_gethandle(ptr noundef readnone captures(address, ret: 
 
 3:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !8
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !9
   %4 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   %5 = load volatile ptr, ptr @g_alloctimers, align 8
   %.not910 = icmp eq ptr %5, null
   br i1 %.not910, label %._crit_edge, label %.lr.ph
@@ -110,7 +110,7 @@ define noundef ptr @timer_gethandle(ptr noundef readnone captures(address, ret: 
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %.0711, align 8
   %.not9 = icmp eq ptr %8, null
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph, %3
   %.1 = phi ptr [ null, %3 ], [ %0, %.lr.ph ], [ null, %7 ]
@@ -119,7 +119,7 @@ define noundef ptr @timer_gethandle(ptr noundef readnone captures(address, ret: 
   br i1 %.not.i, label %up_irq_restore.exit, label %10
 
 10:                                               ; preds = %._crit_edge
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !12
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %10, %._crit_edge, %1
@@ -151,10 +151,11 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 161346, i64 161364}
-!9 = !{i64 161965}
-!10 = distinct !{!10, !7}
-!11 = !{i64 162086}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 161346, i64 161364}
+!10 = !{i64 161965}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 162086}
+!13 = distinct !{!13, !7, !8}

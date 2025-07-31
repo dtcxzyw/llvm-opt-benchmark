@@ -248,7 +248,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %131 = zext nneg i32 %129 to i64
   %132 = getelementptr i8, ptr %65, i64 %131
   %133 = icmp sgt i32 %130, 3
-  br i1 %133, label %.lr.ph78, label %.critedge, !llvm.loop !11
+  br i1 %133, label %.lr.ph78, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.critedge38, %.lr.ph78, %56
   %134 = load ptr, ptr %49, align 8
@@ -305,7 +305,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %172 = load i32, ptr %171, align 4
   %173 = zext i32 %172 to i64
   %174 = icmp samesign ult i64 %169, %173
-  br i1 %174, label %.preheader73, label %.loopexit74, !llvm.loop !12
+  br i1 %174, label %.preheader73, label %.loopexit74, !llvm.loop !13
 
 .preheader71:                                     ; preds = %.loopexit74, %.preheader71
   %175 = phi i64 [ %179, %.preheader71 ], [ 0, %.loopexit74 ]
@@ -319,7 +319,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %182 = load i32, ptr %181, align 8
   %183 = zext i32 %182 to i64
   %184 = icmp samesign ult i64 %179, %183
-  br i1 %184, label %.preheader71, label %.loopexit72, !llvm.loop !13
+  br i1 %184, label %.preheader71, label %.loopexit72, !llvm.loop !14
 
 .loopexit72:                                      ; preds = %.preheader71, %.loopexit74
   %185 = load ptr, ptr %4, align 8
@@ -395,7 +395,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %234 = zext nneg i32 %232 to i64
   %235 = getelementptr i8, ptr %193, i64 %234
   %236 = icmp sgt i32 %233, 3
-  br i1 %236, label %.lr.ph80, label %.critedge40.loopexit, !llvm.loop !14
+  br i1 %236, label %.lr.ph80, label %.critedge40.loopexit, !llvm.loop !15
 
 .critedge40.loopexit:                             ; preds = %.lr.ph80, %230
   %.pre94 = load ptr, ptr %4, align 8
@@ -530,7 +530,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %315 = zext nneg i32 %313 to i64
   %316 = getelementptr i8, ptr %278, i64 %315
   %317 = icmp sgt i32 %314, 3
-  br i1 %317, label %.lr.ph82, label %.critedge44.loopexit, !llvm.loop !15
+  br i1 %317, label %.lr.ph82, label %.critedge44.loopexit, !llvm.loop !16
 
 .critedge44.loopexit:                             ; preds = %.lr.ph82, %309
   %.pre95 = load i16, ptr %257, align 2
@@ -545,7 +545,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %323 = zext nneg i32 %321 to i64
   %324 = getelementptr i8, ptr %257, i64 %323
   %325 = icmp sgt i32 %322, 3
-  br i1 %325, label %.lr.ph84, label %.critedge42, !llvm.loop !16
+  br i1 %325, label %.lr.ph84, label %.critedge42, !llvm.loop !17
 
 .critedge42:                                      ; preds = %.critedge44, %.lr.ph84, %248
   %326 = load ptr, ptr %49, align 8
@@ -604,7 +604,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %366 = load i32, ptr %365, align 4
   %367 = zext i32 %366 to i64
   %368 = icmp samesign ult i64 %363, %367
-  br i1 %368, label %.preheader66, label %.loopexit67, !llvm.loop !17
+  br i1 %368, label %.preheader66, label %.loopexit67, !llvm.loop !18
 
 .preheader:                                       ; preds = %.loopexit67, %.preheader
   %369 = phi i64 [ %374, %.preheader ], [ 0, %.loopexit67 ]
@@ -619,7 +619,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %377 = load i32, ptr %376, align 8
   %378 = zext i32 %377 to i64
   %379 = icmp samesign ult i64 %374, %378
-  br i1 %379, label %.preheader, label %.loopexit65, !llvm.loop !18
+  br i1 %379, label %.preheader, label %.loopexit65, !llvm.loop !19
 
 .loopexit65:                                      ; preds = %.preheader, %.loopexit67
   %380 = load ptr, ptr %4, align 8
@@ -696,7 +696,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %430 = zext nneg i32 %428 to i64
   %431 = getelementptr i8, ptr %388, i64 %430
   %432 = icmp sgt i32 %429, 3
-  br i1 %432, label %.lr.ph86, label %.critedge46, !llvm.loop !19
+  br i1 %432, label %.lr.ph86, label %.critedge46, !llvm.loop !20
 
 .critedge46:                                      ; preds = %426, %.lr.ph86, %.loopexit65, %.critedge40
   %433 = call i32 @cipso_v4_doi_add(ptr noundef nonnull %44, ptr noundef nonnull %3) #8
@@ -810,7 +810,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %497 = zext nneg i32 %495 to i64
   %498 = getelementptr i8, ptr %470, i64 %497
   %499 = icmp sgt i32 %496, 3
-  br i1 %499, label %.lr.ph.i, label %.critedge.i, !llvm.loop !20
+  br i1 %499, label %.lr.ph.i, label %.critedge.i, !llvm.loop !21
 
 500:                                              ; preds = %.critedge.i, %.critedge.thread.i
   %501 = call i32 @cipso_v4_doi_add(ptr noundef nonnull %442, ptr noundef nonnull %3) #8
@@ -924,7 +924,7 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   %565 = zext nneg i32 %563 to i64
   %566 = getelementptr i8, ptr %538, i64 %565
   %567 = icmp sgt i32 %564, 3
-  br i1 %567, label %.lr.ph.i56, label %.critedge.i60, !llvm.loop !20
+  br i1 %567, label %.lr.ph.i56, label %.critedge.i60, !llvm.loop !21
 
 568:                                              ; preds = %.critedge.i60, %.critedge.thread.i52
   %569 = call i32 @cipso_v4_doi_add(ptr noundef nonnull %510, ptr noundef nonnull %3) #8
@@ -937,7 +937,7 @@ netlbl_cipsov4_add_common.exit64:                 ; preds = %552, %512, %568
   br label %.thread
 
 572:                                              ; preds = %.critedge46, %500, %568
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netlabel_mgmt_protocount, ptr nonnull elementtype(i32) @netlabel_mgmt_protocount) #8, !srcloc !21
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netlabel_mgmt_protocount, ptr nonnull elementtype(i32) @netlabel_mgmt_protocount) #8, !srcloc !22
   br label %.thread
 
 .thread:                                          ; preds = %508, %504, %netlbl_cipsov4_add_common.exit64, %440, %436, %netlbl_cipsov4_add_common.exit, %42, %35, %27, %31, %.loopexit, %51, %13, %572, %9, %2
@@ -1001,7 +1001,7 @@ define internal i32 @netlbl_cipsov4_remove(ptr readnone captures(none) %0, ptr n
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %29
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netlabel_mgmt_protocount, ptr nonnull elementtype(i32) @netlabel_mgmt_protocount) #8, !srcloc !22
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netlabel_mgmt_protocount, ptr nonnull elementtype(i32) @netlabel_mgmt_protocount) #8, !srcloc !23
   br label %34
 
 34:                                               ; preds = %33, %29, %13, %2
@@ -1087,7 +1087,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
 52:                                               ; preds = %60
   %53 = add nuw nsw i64 %56, 1
   %54 = icmp eq i64 %53, 5
-  br i1 %54, label %63, label %55, !llvm.loop !23
+  br i1 %54, label %63, label %55, !llvm.loop !24
 
 55:                                               ; preds = %52, %50
   %56 = phi i64 [ 0, %50 ], [ %53, %52 ]
@@ -1200,7 +1200,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
   %130 = load i32, ptr %129, align 4
   %131 = zext i32 %130 to i64
   %132 = icmp samesign ult i64 %128, %131
-  br i1 %132, label %.preheader21, label %.loopexit24, !llvm.loop !24
+  br i1 %132, label %.preheader21, label %.loopexit24, !llvm.loop !25
 
 .loopexit24:                                      ; preds = %126, %83
   %133 = load ptr, ptr %40, align 8
@@ -1292,7 +1292,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
   %195 = load i32, ptr %194, align 4
   %196 = zext i32 %195 to i64
   %197 = icmp samesign ult i64 %193, %196
-  br i1 %197, label %.preheader, label %.loopexit20, !llvm.loop !25
+  br i1 %197, label %.preheader, label %.loopexit20, !llvm.loop !26
 
 .loopexit20:                                      ; preds = %149, %191
   %198 = load ptr, ptr %40, align 8
@@ -1342,7 +1342,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
   %227 = or disjoint i32 %226, 16
   %228 = call ptr @__alloc_skb(i32 noundef %227, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #8
   %229 = icmp eq ptr %228, null
-  br i1 %229, label %.loopexit26, label %19
+  br i1 %229, label %.loopexit26, label %19, !llvm.loop !27
 
 .loopexit25:                                      ; preds = %.loopexit, %74, %39, %34, %26, %60
   %230 = phi i32 [ %61, %60 ], [ %222, %.loopexit ], [ -12, %74 ], [ -12, %39 ], [ %37, %34 ], [ -22, %26 ]
@@ -1499,7 +1499,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(
   %56 = zext nneg i32 %54 to i64
   %57 = getelementptr i8, ptr %29, i64 %56
   %58 = icmp sgt i32 %55, 3
-  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !20
+  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !21
 
 .loopexit:                                        ; preds = %43, %.critedge.thread, %.critedge, %2
   %59 = phi i32 [ -22, %2 ], [ 0, %.critedge ], [ 0, %.critedge.thread ], [ -22, %43 ]
@@ -1653,12 +1653,12 @@ define internal i32 @netlbl_cipsov4_listall_cb(ptr noundef readonly captures(non
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 200
   %45 = load ptr, ptr %44, align 8
   %46 = icmp ugt ptr %45, %41
-  br i1 %46, label %47, label %48, !prof !26
+  br i1 %46, label %47, label %48, !prof !28
 
 47:                                               ; preds = %43
-  call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #8, !srcloc !27
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1062, i32 2305, i64 12) #8, !srcloc !28
-  call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #8, !srcloc !29
+  call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #8, !srcloc !29
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1062, i32 2305, i64 12) #8, !srcloc !30
+  call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #8, !srcloc !31
   %.pre = load ptr, ptr %44, align 8
   br label %48
 
@@ -1705,25 +1705,27 @@ attributes #11 = { nounwind allocsize(0) }
 !5 = !{!"auto-init"}
 !6 = !{i64 2148209573}
 !7 = !{i32 -22, i32 1}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = !{i64 2148710366, i64 2148710405, i64 2148710426, i64 2148710463, i64 2148710486, i64 2148710356}
-!22 = !{i64 2148710729, i64 2148710768, i64 2148710789, i64 2148710826, i64 2148710849, i64 2148710719}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = !{!"branch_weights", i32 1, i32 2000}
-!27 = !{i64 2157242188, i64 2157241997, i64 2157242049, i64 2157242095, i64 2157242123}
-!28 = !{i64 2157242262, i64 2157242291, i64 2157242337, i64 2157242395, i64 2157242449, i64 2157242503, i64 2157242558, i64 2157242589, i64 2157242897, i64 2157242903, i64 2157242950, i64 2157242973, i64 2157242999}
-!29 = !{i64 2157243454, i64 2157243265, i64 2157243315, i64 2157243361, i64 2157243389}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = !{i64 2148710366, i64 2148710405, i64 2148710426, i64 2148710463, i64 2148710486, i64 2148710356}
+!23 = !{i64 2148710729, i64 2148710768, i64 2148710789, i64 2148710826, i64 2148710849, i64 2148710719}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}
+!26 = distinct !{!26, !9, !10, !11}
+!27 = distinct !{!27, !11}
+!28 = !{!"branch_weights", i32 1, i32 2000}
+!29 = !{i64 2157242188, i64 2157241997, i64 2157242049, i64 2157242095, i64 2157242123}
+!30 = !{i64 2157242262, i64 2157242291, i64 2157242337, i64 2157242395, i64 2157242449, i64 2157242503, i64 2157242558, i64 2157242589, i64 2157242897, i64 2157242903, i64 2157242950, i64 2157242973, i64 2157242999}
+!31 = !{i64 2157243454, i64 2157243265, i64 2157243315, i64 2157243361, i64 2157243389}

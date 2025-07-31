@@ -2380,7 +2380,7 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %.1. = select i1 %67, i64 %.1143, i64 %62
   %68 = add nuw nsw i64 %.1., 1
   %69 = icmp samesign ult i64 %68, %..199
-  br i1 %69, label %.lr.ph, label %.preheader134, !llvm.loop !100
+  br i1 %69, label %.lr.ph, label %.preheader134, !llvm.loop !101
 
 .lr.ph148:                                        ; preds = %.preheader134, %90
   %.3147 = phi i64 [ %.5, %90 ], [ %.1.lcssa, %.preheader134 ]
@@ -2463,7 +2463,7 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %108 = add nuw nsw i64 %.5112152, 1
   %109 = load i64, ptr %5, align 8, !tbaa !93
   %110 = icmp slt i64 %108, %109
-  br i1 %110, label %.lr.ph154, label %.loopexit, !llvm.loop !101
+  br i1 %110, label %.lr.ph154, label %.loopexit, !llvm.loop !102
 
 .thread127.loopexit:                              ; preds = %87
   %.pre171 = load i64, ptr %5, align 8, !tbaa !93
@@ -2504,7 +2504,7 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %126 = add nuw nsw i64 %.6113149, 1
   %127 = load i64, ptr %5, align 8, !tbaa !93
   %128 = icmp slt i64 %126, %127
-  br i1 %128, label %.lr.ph151, label %.loopexit, !llvm.loop !102
+  br i1 %128, label %.lr.ph151, label %.loopexit, !llvm.loop !103
 
 .loopexit:                                        ; preds = %90, %123, %105, %.lr.ph156, %.preheader134, %.thread127, %.thread, %.preheader
   %129 = phi i64 [ %29, %.preheader134 ], [ %111, %.thread127 ], [ %93, %.thread ], [ %29, %.preheader ], [ %44, %.lr.ph156 ], [ %109, %105 ], [ %127, %123 ], [ %91, %90 ]
@@ -2514,7 +2514,7 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %133 = add nsw i64 %.096158, 1
   %134 = load i64, ptr %11, align 8, !tbaa !93
   %.not.not = icmp slt i64 %.096158, %134
-  br i1 %.not.not, label %28, label %._crit_edge
+  br i1 %.not.not, label %28, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.loopexit, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -2535,7 +2535,7 @@ declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i
 declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
-declare !callback !103 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #21
+declare !callback !105 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #21
@@ -2694,10 +2694,12 @@ attributes #28 = { noreturn nounwind }
 !95 = !{!25, !25, i64 0}
 !96 = !{!28, !28, i64 0}
 !97 = !{!66, !32, i64 8}
-!98 = distinct !{!98, !99}
+!98 = distinct !{!98, !99, !100}
 !99 = !{!"llvm.loop.mustprogress"}
-!100 = distinct !{!100, !99}
-!101 = distinct !{!101, !99}
-!102 = distinct !{!102, !99}
-!103 = !{!104}
-!104 = !{i64 2, i64 -1, i64 -1, i1 true}
+!100 = !{!"llvm.loop.estimated_trip_count"}
+!101 = distinct !{!101, !99, !100}
+!102 = distinct !{!102, !99, !100}
+!103 = distinct !{!103, !99, !100}
+!104 = distinct !{!104, !100}
+!105 = !{!106}
+!106 = !{i64 2, i64 -1, i64 -1, i1 true}

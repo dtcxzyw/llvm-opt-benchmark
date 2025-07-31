@@ -160,7 +160,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .backedge.backedge:                               ; preds = %47, %63, %73
   %.271.be = phi ptr [ %48, %47 ], [ %64, %63 ], [ %74, %73 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !16
 
 50:                                               ; preds = %43
   %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(20) @.str.3) #5
@@ -178,7 +178,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %.271, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !16
+  %60 = load ptr, ptr %59, align 8, !tbaa !18
   %.not89 = icmp eq ptr %60, null
   br i1 %.not89, label %.loopexit136.loopexit, label %61
 
@@ -199,7 +199,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %.271, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !17
+  %70 = load ptr, ptr %69, align 8, !tbaa !19
   %.not87 = icmp eq ptr %70, null
   br i1 %.not87, label %76, label %71
 
@@ -225,7 +225,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %67, i64 -1
-  store i8 0, ptr %83, align 1, !tbaa !18
+  store i8 0, ptr %83, align 1, !tbaa !20
   %84 = load ptr, ptr %7, align 8, !tbaa !3
   %85 = call i32 @evp_pkey_name2type(ptr noundef %84) #4
   br label %86
@@ -233,11 +233,11 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
 86:                                               ; preds = %76, %79, %82
   %.162 = phi i32 [ %85, %82 ], [ 0, %79 ], [ 0, %76 ]
   %87 = getelementptr inbounds nuw i8, ptr %.271, i64 56
-  store ptr null, ptr %87, align 8, !tbaa !19
+  store ptr null, ptr %87, align 8, !tbaa !21
   %88 = getelementptr inbounds nuw i8, ptr %.271, i64 48
-  store i32 0, ptr %88, align 8, !tbaa !20
+  store i32 0, ptr %88, align 8, !tbaa !22
   %89 = call ptr @X509_PKEY_new() #4
-  store ptr %89, ptr %77, align 8, !tbaa !17
+  store ptr %89, ptr %77, align 8, !tbaa !19
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.loopexit135, label %91
 
@@ -279,7 +279,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %108 = load ptr, ptr %9, align 8, !tbaa !3
   store ptr %108, ptr %10, align 8, !tbaa !3
   %.not96 = icmp eq i32 %.061.ph.ph, 0
-  %109 = load i64, ptr %11, align 8, !tbaa !21
+  %109 = load i64, ptr %11, align 8, !tbaa !23
   br i1 %.not96, label %113, label %110
 
 110:                                              ; preds = %107
@@ -288,7 +288,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %112, label %.thread127.sink.split, label %116
 
 113:                                              ; preds = %107
-  %114 = call ptr %.1.ph.ph(ptr noundef nonnull %.068.ph.ph, ptr noundef nonnull %10, i64 noundef %109) #4, !callees !23
+  %114 = call ptr %.1.ph.ph(ptr noundef nonnull %.068.ph.ph, ptr noundef nonnull %10, i64 noundef %109) #4, !callees !25
   %115 = icmp eq ptr %114, null
   br i1 %115, label %.thread127.sink.split, label %116
 
@@ -315,10 +315,10 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
 
 120:                                              ; preds = %117
   %121 = load ptr, ptr %9, align 8, !tbaa !3
-  store ptr %121, ptr %87, align 8, !tbaa !19
-  %122 = load i64, ptr %11, align 8, !tbaa !21
+  store ptr %121, ptr %87, align 8, !tbaa !21
+  %122 = load i64, ptr %11, align 8, !tbaa !23
   %123 = trunc i64 %122 to i32
-  store i32 %123, ptr %88, align 8, !tbaa !20
+  store i32 %123, ptr %88, align 8, !tbaa !22
   store ptr null, ptr %9, align 8, !tbaa !3
   br label %.loopexit
 
@@ -335,23 +335,23 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %127 = call i32 @ERR_set_mark() #4
   %128 = call i32 @PEM_read_bio(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #4
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %._crit_edge, label %.lr.ph
+  br i1 %129, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 130:                                              ; preds = %28
   %131 = getelementptr inbounds nuw i8, ptr %.170.lcssa, i64 8
-  %132 = load ptr, ptr %131, align 8, !tbaa !16
+  %132 = load ptr, ptr %131, align 8, !tbaa !18
   %.not100 = icmp eq ptr %132, null
   br i1 %.not100, label %133, label %139
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %.170.lcssa, i64 16
-  %135 = load ptr, ptr %134, align 8, !tbaa !17
+  %135 = load ptr, ptr %134, align 8, !tbaa !19
   %.not101 = icmp eq ptr %135, null
   br i1 %.not101, label %136, label %139
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %.170.lcssa, i64 56
-  %138 = load ptr, ptr %137, align 8, !tbaa !19
+  %138 = load ptr, ptr %137, align 8, !tbaa !21
   %.not102 = icmp eq ptr %138, null
   br i1 %.not102, label %.thread130, label %139
 
@@ -384,7 +384,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %144 = add nuw nsw i32 %.064165, 1
   %145 = call i32 @OPENSSL_sk_num(ptr noundef %.065134.ph) #4
   %146 = icmp slt i32 %144, %145
-  br i1 %146, label %.lr.ph166, label %._crit_edge167, !llvm.loop !24
+  br i1 %146, label %.lr.ph166, label %._crit_edge167, !llvm.loop !27
 
 ._crit_edge167:                                   ; preds = %.lr.ph166, %.preheader
   %.not105 = icmp eq ptr %.065134.ph, %1
@@ -512,19 +512,19 @@ define range(i32 0, 2) i32 @PEM_X509_INFO_write_bio(ptr noundef %0, ptr noundef 
 
 21:                                               ; preds = %12, %7
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !17
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
   %.not37 = icmp eq ptr %23, null
   br i1 %.not37, label %51, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %26 = load ptr, ptr %25, align 8, !tbaa !19
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
   %.not38 = icmp eq ptr %26, null
   br i1 %.not38, label %45, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %29 = load i32, ptr %28, align 8, !tbaa !20
+  %29 = load i32, ptr %28, align 8, !tbaa !22
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %45
 
@@ -539,7 +539,7 @@ define range(i32 0, 2) i32 @PEM_X509_INFO_write_bio(ptr noundef %0, ptr noundef 
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !26
+  %35 = load ptr, ptr %34, align 8, !tbaa !29
   %36 = tail call ptr @EVP_CIPHER_get0_name(ptr noundef %35) #4
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %39
@@ -552,7 +552,7 @@ define range(i32 0, 2) i32 @PEM_X509_INFO_write_bio(ptr noundef %0, ptr noundef 
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 0, ptr %8, align 16, !tbaa !18
+  store i8 0, ptr %8, align 16, !tbaa !20
   call void @PEM_proc_type(ptr noundef nonnull %8, i32 noundef 10) #4
   %41 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %2) #4
   call void @PEM_dek_info(ptr noundef nonnull %8, ptr noundef nonnull %36, i32 noundef %41, ptr noundef nonnull %40) #4
@@ -563,7 +563,7 @@ define range(i32 0, 2) i32 @PEM_X509_INFO_write_bio(ptr noundef %0, ptr noundef 
 
 45:                                               ; preds = %27, %24
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !27
+  %47 = load ptr, ptr %46, align 8, !tbaa !30
   %48 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %47) #4
   %49 = tail call i32 @PEM_write_bio_RSAPrivateKey(ptr noundef %0, ptr noundef %48, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #4
   %50 = icmp slt i32 %49, 1
@@ -632,19 +632,22 @@ attributes #5 = { nounwind willreturn memory(read) }
 !13 = !{!"evp_cipher_info_st", !14, i64 0, !6, i64 8}
 !14 = !{!"p1 _ZTS13evp_cipher_st", !5, i64 0}
 !15 = !{!"int", !6, i64 0}
-!16 = !{!9, !11, i64 8}
-!17 = !{!9, !12, i64 16}
-!18 = !{!6, !6, i64 0}
-!19 = !{!9, !4, i64 56}
-!20 = !{!9, !15, i64 48}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"long", !6, i64 0}
-!23 = !{ptr @d2i_AutoPrivateKey, ptr @d2i_X509, ptr @d2i_X509_AUX, ptr @d2i_X509_CRL}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!9, !14, i64 24}
-!27 = !{!28, !31, i64 24}
-!28 = !{!"private_key_st", !15, i64 0, !29, i64 8, !30, i64 16, !31, i64 24, !15, i64 32, !4, i64 40, !15, i64 48, !13, i64 56}
-!29 = !{!"p1 _ZTS13X509_algor_st", !5, i64 0}
-!30 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}
-!31 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!9, !11, i64 8}
+!19 = !{!9, !12, i64 16}
+!20 = !{!6, !6, i64 0}
+!21 = !{!9, !4, i64 56}
+!22 = !{!9, !15, i64 48}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !6, i64 0}
+!25 = !{ptr @d2i_AutoPrivateKey, ptr @d2i_X509, ptr @d2i_X509_AUX, ptr @d2i_X509_CRL}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !28, !17}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!9, !14, i64 24}
+!30 = !{!31, !34, i64 24}
+!31 = !{!"private_key_st", !15, i64 0, !32, i64 8, !33, i64 16, !34, i64 24, !15, i64 32, !4, i64 40, !15, i64 48, !13, i64 56}
+!32 = !{!"p1 _ZTS13X509_algor_st", !5, i64 0}
+!33 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}
+!34 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}

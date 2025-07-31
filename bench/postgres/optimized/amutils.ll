@@ -151,7 +151,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %50
-  %53 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %53 = load i8, ptr %7, align 1, !range !7, !noundef !8
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %57
 
@@ -161,7 +161,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br label %.critedge
 
 57:                                               ; preds = %52
-  %58 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %58 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %59 = zext nneg i8 %58 to i64
   br label %.critedge
 
@@ -187,7 +187,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   %69 = load i8, ptr %68, align 2
   store i8 1, ptr %7, align 1
   %70 = getelementptr inbounds nuw i8, ptr %43, i64 23
-  %71 = load i8, ptr %70, align 1, !range !6, !noundef !7
+  %71 = load i8, ptr %70, align 1, !range !7, !noundef !8
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %80
 
@@ -219,7 +219,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 
 82:                                               ; preds = %81
   %83 = getelementptr inbounds nuw i8, ptr %43, i64 10
-  %84 = load i8, ptr %83, align 2, !range !6, !noundef !7
+  %84 = load i8, ptr %83, align 2, !range !7, !noundef !8
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %test_indoption.exit
 
@@ -247,7 +247,7 @@ test_indoption.exit:                              ; preds = %82, %86
 
 98:                                               ; preds = %97
   %99 = getelementptr inbounds nuw i8, ptr %43, i64 10
-  %100 = load i8, ptr %99, align 2, !range !6, !noundef !7
+  %100 = load i8, ptr %99, align 2, !range !7, !noundef !8
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %test_indoption.exit106
 
@@ -274,7 +274,7 @@ test_indoption.exit106:                           ; preds = %98, %102
 
 113:                                              ; preds = %112
   %114 = getelementptr inbounds nuw i8, ptr %43, i64 10
-  %115 = load i8, ptr %114, align 2, !range !6, !noundef !7
+  %115 = load i8, ptr %114, align 2, !range !7, !noundef !8
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %117, label %test_indoption.exit108
 
@@ -302,7 +302,7 @@ test_indoption.exit108:                           ; preds = %113, %117
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds nuw i8, ptr %43, i64 10
-  %131 = load i8, ptr %130, align 2, !range !6, !noundef !7
+  %131 = load i8, ptr %130, align 2, !range !7, !noundef !8
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %test_indoption.exit110
 
@@ -330,7 +330,7 @@ test_indoption.exit110:                           ; preds = %129, %133
 
 145:                                              ; preds = %144
   %146 = getelementptr inbounds nuw i8, ptr %43, i64 10
-  %147 = load i8, ptr %146, align 2, !range !6, !noundef !7
+  %147 = load i8, ptr %146, align 2, !range !7, !noundef !8
   br label %148
 
 148:                                              ; preds = %144, %145
@@ -344,7 +344,7 @@ test_indoption.exit110:                           ; preds = %129, %133
 
 151:                                              ; preds = %150
   %152 = getelementptr inbounds nuw i8, ptr %43, i64 11
-  %153 = load i8, ptr %152, align 1, !range !6, !noundef !7
+  %153 = load i8, ptr %152, align 1, !range !7, !noundef !8
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %171, label %155
 
@@ -374,7 +374,7 @@ test_indoption.exit110:                           ; preds = %129, %133
 
 164:                                              ; preds = %163
   %165 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %166 = load i8, ptr %165, align 8, !range !6, !noundef !7
+  %166 = load i8, ptr %165, align 8, !range !7, !noundef !8
   store i8 %166, ptr %6, align 1
   store i8 0, ptr %7, align 1
   br label %171
@@ -384,19 +384,19 @@ test_indoption.exit110:                           ; preds = %129, %133
 
 168:                                              ; preds = %167
   %169 = getelementptr inbounds nuw i8, ptr %43, i64 17
-  %170 = load i8, ptr %169, align 1, !range !6, !noundef !7
+  %170 = load i8, ptr %169, align 1, !range !7, !noundef !8
   store i8 %170, ptr %6, align 1
   store i8 0, ptr %7, align 1
   br label %171
 
 171:                                              ; preds = %80, %167, %168, %163, %164, %156, %159, %151, %155, %128, %test_indoption.exit110, %112, %test_indoption.exit108, %97, %test_indoption.exit106, %81, %test_indoption.exit, %148
   call void @ReleaseSysCache(ptr noundef nonnull %63) #3
-  %172 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %172 = load i8, ptr %7, align 1, !range !7, !noundef !8
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %177, label %174
 
 174:                                              ; preds = %171
-  %175 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %175 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %176 = zext nneg i8 %175 to i64
   br label %.critedge
 
@@ -418,7 +418,7 @@ test_indoption.exit110:                           ; preds = %129, %133
 
 181:                                              ; preds = %180
   %182 = getelementptr inbounds nuw i8, ptr %43, i64 19
-  %183 = load i8, ptr %182, align 1, !range !6, !noundef !7
+  %183 = load i8, ptr %182, align 1, !range !7, !noundef !8
   %184 = zext nneg i8 %183 to i64
   br label %.critedge
 
@@ -438,7 +438,7 @@ test_indoption.exit110:                           ; preds = %129, %133
 
 195:                                              ; preds = %180
   %196 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %197 = load i8, ptr %196, align 4, !range !6, !noundef !7
+  %197 = load i8, ptr %196, align 4, !range !7, !noundef !8
   %198 = zext nneg i8 %197 to i64
   br label %.critedge
 
@@ -458,19 +458,19 @@ test_indoption.exit110:                           ; preds = %129, %133
 
 202:                                              ; preds = %201
   %203 = getelementptr inbounds nuw i8, ptr %43, i64 10
-  %204 = load i8, ptr %203, align 2, !range !6, !noundef !7
+  %204 = load i8, ptr %203, align 2, !range !7, !noundef !8
   %205 = zext nneg i8 %204 to i64
   br label %.critedge
 
 206:                                              ; preds = %201
   %207 = getelementptr inbounds nuw i8, ptr %43, i64 13
-  %208 = load i8, ptr %207, align 1, !range !6, !noundef !7
+  %208 = load i8, ptr %207, align 1, !range !7, !noundef !8
   %209 = zext nneg i8 %208 to i64
   br label %.critedge
 
 210:                                              ; preds = %201
   %211 = getelementptr inbounds nuw i8, ptr %43, i64 14
-  %212 = load i8, ptr %211, align 2, !range !6, !noundef !7
+  %212 = load i8, ptr %211, align 2, !range !7, !noundef !8
   %213 = zext nneg i8 %212 to i64
   br label %.critedge
 
@@ -483,7 +483,7 @@ test_indoption.exit110:                           ; preds = %129, %133
 
 219:                                              ; preds = %201
   %220 = getelementptr inbounds nuw i8, ptr %43, i64 23
-  %221 = load i8, ptr %220, align 1, !range !6, !noundef !7
+  %221 = load i8, ptr %220, align 1, !range !7, !noundef !8
   %222 = zext nneg i8 %221 to i64
   br label %.critedge
 
@@ -619,7 +619,8 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}

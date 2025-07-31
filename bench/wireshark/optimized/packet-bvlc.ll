@@ -708,7 +708,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.7344 = phi i32 [ %57, %48 ], [ %47, %44 ]
   %59 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.7344)
   %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph384, label %.critedge2, !llvm.loop !8
+  br i1 %60, label %.lr.ph384, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph384, %58, %.preheader372, %.critedge
   %.3349 = phi i32 [ %.0346, %.critedge ], [ %.0346, %.preheader372 ], [ %.4350381, %.lr.ph384 ], [ %.5351, %58 ]
@@ -769,7 +769,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %91 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %85, i64 noundef %86, i32 noundef 2, i64 noundef %86, ptr noundef nonnull @.str.427, i32 noundef %90)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %92, label %.preheader371, !llvm.loop !9
+  br i1 %exitcond.not, label %92, label %.preheader371, !llvm.loop !10
 
 92:                                               ; preds = %.preheader371
   %93 = load ptr, ptr %68, align 8
@@ -794,7 +794,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %104 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %98, i64 noundef %99, i32 noundef 2, i64 noundef %99, ptr noundef nonnull @.str.427, i32 noundef %103)
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next410, 6
-  br i1 %exitcond412.not, label %105, label %.preheader370, !llvm.loop !10
+  br i1 %exitcond412.not, label %105, label %.preheader370, !llvm.loop !11
 
 105:                                              ; preds = %.preheader370
   %106 = load ptr, ptr %68, align 8
@@ -864,7 +864,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
 143:                                              ; preds = %137, %129
   %144 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4)
   %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %.lr.ph395, label %.critedge4, !llvm.loop !11
+  br i1 %145, label %.lr.ph395, label %.critedge4, !llvm.loop !12
 
 .critedge4:                                       ; preds = %.lr.ph395, %143, %.preheader369, %110
   %.6352 = phi i32 [ %.3349, %110 ], [ %.3349, %.preheader369 ], [ %.7353392, %.lr.ph395 ], [ %.8354, %143 ]
@@ -927,7 +927,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
 178:                                              ; preds = %172, %164
   %179 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.7)
   %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %.lr.ph404, label %.critedge6, !llvm.loop !12
+  br i1 %180, label %.lr.ph404, label %.critedge6, !llvm.loop !13
 
 .critedge6:                                       ; preds = %.lr.ph404, %178, %.preheader, %.critedge4
   %.5 = phi i32 [ %.2335, %.critedge4 ], [ %.2335, %.preheader ], [ %.6402, %.lr.ph404 ], [ %.7, %178 ]
@@ -1187,7 +1187,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0)
   %51 = add nuw nsw i32 %.01373, 10
   %52 = icmp slt i32 %51, %invariant.op7
-  br i1 %52, label %.lr.ph4, label %.loopexit, !llvm.loop !13
+  br i1 %52, label %.lr.ph4, label %.loopexit, !llvm.loop !14
 
 53:                                               ; preds = %32
   %54 = load i32, ptr @hf_bvlc_reg_ttl, align 4
@@ -1222,7 +1222,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 2, i32 noundef 0)
   %74 = add nuw nsw i32 %.12, 10
   %75 = icmp slt i32 %74, %invariant.op
-  br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 76:                                               ; preds = %32
   %77 = load i32, ptr @hf_bvlc_fdt_ip, align 4
@@ -1500,12 +1500,13 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

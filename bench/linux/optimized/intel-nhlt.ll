@@ -182,7 +182,7 @@ define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0
   %70 = zext i32 %69 to i64
   %71 = getelementptr i8, ptr %20, i64 %70
   %72 = icmp ult i8 %68, %65
-  br i1 %72, label %15, label %.loopexit3, !llvm.loop !9
+  br i1 %72, label %15, label %.loopexit3, !llvm.loop !10
 
 .loopexit3:                                       ; preds = %64, %9, %8, %2
   %73 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 0, %9 ], [ %66, %64 ]
@@ -219,7 +219,7 @@ define dso_local noundef zeroext i1 @intel_nhlt_has_endpoint_type(ptr noundef re
   %20 = getelementptr i8, ptr %13, i64 %19
   %21 = add nuw nsw i32 %12, 1
   %22 = icmp eq i32 %21, %7
-  br i1 %22, label %.loopexit, label %11, !llvm.loop !10
+  br i1 %22, label %.loopexit, label %11, !llvm.loop !11
 
 .loopexit:                                        ; preds = %17, %11, %4, %2
   %23 = phi i1 [ false, %2 ], [ false, %4 ], [ %16, %11 ], [ %16, %17 ]
@@ -276,7 +276,7 @@ define dso_local i32 @intel_nhlt_ssp_endpoint_mask(ptr noundef readonly captures
   %36 = getelementptr i8, ptr %17, i64 %35
   %37 = add nuw nsw i32 %15, 1
   %38 = icmp eq i32 %37, %10
-  br i1 %38, label %.loopexit, label %14, !llvm.loop !11
+  br i1 %38, label %.loopexit, label %14, !llvm.loop !12
 
 .loopexit:                                        ; preds = %32, %7, %2
   %39 = phi i32 [ 0, %2 ], [ 0, %7 ], [ %33, %32 ]
@@ -375,7 +375,7 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
   %61 = getelementptr i8, ptr %46, i64 %60
   %62 = add nuw nsw i32 %39, 1
   %63 = icmp eq i32 %62, %34
-  br i1 %63, label %.loopexit, label %38, !llvm.loop !12
+  br i1 %63, label %.loopexit, label %38, !llvm.loop !13
 
 .loopexit:                                        ; preds = %55, %27, %22, %18, %11
   %64 = phi i32 [ %13, %22 ], [ %13, %18 ], [ %13, %11 ], [ %13, %27 ], [ %59, %55 ]
@@ -384,12 +384,12 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
   %67 = getelementptr i8, ptr %14, i64 %66
   %68 = add nuw nsw i32 %12, 1
   %69 = icmp eq i32 %68, %7
-  br i1 %69, label %.loopexit4, label %11, !llvm.loop !13
+  br i1 %69, label %.loopexit4, label %11, !llvm.loop !14
 
 .loopexit4:                                       ; preds = %.loopexit, %4
   %70 = phi i32 [ 0, %4 ], [ %64, %.loopexit ]
   %71 = zext nneg i32 %70 to i64
-  %72 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %71) #9, !srcloc !14
+  %72 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %71) #9, !srcloc !15
   %73 = icmp eq i64 %72, 1
   %74 = select i1 %73, i32 %70, i32 -22
   br label %.critedge
@@ -509,7 +509,7 @@ define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr readnone captures(none) %
   %86 = getelementptr i8, ptr %83, i64 %85
   %87 = add nuw nsw i32 %63, 1
   %88 = icmp eq i32 %87, %58
-  br i1 %88, label %.thread, label %62, !llvm.loop !15
+  br i1 %88, label %.thread, label %62, !llvm.loop !16
 
 89:                                               ; preds = %76
   %90 = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -521,7 +521,7 @@ define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr readnone captures(none) %
   %93 = getelementptr i8, ptr %33, i64 %92
   %94 = add nuw nsw i32 %32, 1
   %95 = icmp eq i32 %94, %24
-  br i1 %95, label %.loopexit, label %31, !llvm.loop !16
+  br i1 %95, label %.loopexit, label %31, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.thread, %89, %20, %10
   %96 = phi ptr [ null, %10 ], [ null, %20 ], [ %90, %89 ], [ null, %.thread ]
@@ -550,14 +550,15 @@ attributes #9 = { nounwind memory(none) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{i64 2148626253, i64 2148626281, i64 2148626287, i64 2148626303, i64 2148626319, i64 2148626346, i64 2148626679, i64 2148625979, i64 2148626685, i64 2148626733, i64 2148626797, i64 2148626861, i64 2148626918, i64 2148626060, i64 2148626085, i64 2148627125, i64 2148627255, i64 2148627186, i64 2148627269, i64 2148626177}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = !{i64 2148626253, i64 2148626281, i64 2148626287, i64 2148626303, i64 2148626319, i64 2148626346, i64 2148626679, i64 2148625979, i64 2148626685, i64 2148626733, i64 2148626797, i64 2148626861, i64 2148626918, i64 2148626060, i64 2148626085, i64 2148627125, i64 2148627255, i64 2148627186, i64 2148627269, i64 2148626177}
+!16 = distinct !{!16, !7, !8, !9}
+!17 = distinct !{!17, !7, !8, !9}

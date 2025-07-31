@@ -460,7 +460,7 @@ define internal i32 @dissect_shicp(ptr noundef %0, ptr noundef %1, ptr noundef %
 132:                                              ; preds = %.lr.ph234, %129, %126, %123, %120, %117, %114, %111, %108, %105, %._crit_edge, %88, %85, %82
   %133 = add nuw nsw i32 %81, %80
   %134 = icmp ult i32 %133, %75
-  br i1 %134, label %.lr.ph234, label %.loopexit, !llvm.loop !8
+  br i1 %134, label %.lr.ph234, label %.loopexit, !llvm.loop !9
 
 135:                                              ; preds = %66
   %136 = icmp ugt i16 %46, 4
@@ -520,7 +520,7 @@ switch.lookup:                                    ; preds = %.lr.ph
 164:                                              ; preds = %.lr.ph, %switch.lookup
   %165 = add nuw nsw i32 %158, %157
   %166 = icmp ult i32 %165, %75
-  br i1 %166, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %166, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 167:                                              ; preds = %66
   %168 = icmp ugt i16 %46, 36
@@ -663,7 +663,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

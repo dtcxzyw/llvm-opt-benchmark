@@ -63,7 +63,7 @@ post.exit:                                        ; preds = %3, %6
 
 .lr.ph:                                           ; preds = %post.exit, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %post.exit ]
-  %12 = load ptr, ptr @threads, align 8, !tbaa !12
+  %12 = load ptr, ptr @threads, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   %14 = tail call i32 @uv_thread_join(ptr noundef %13) #9
   %.not4 = icmp eq i32 %14, 0
@@ -74,7 +74,7 @@ post.exit:                                        ; preds = %3, %6
   unreachable
 
 ._crit_edge:                                      ; preds = %8, %post.exit
-  %16 = load ptr, ptr @threads, align 8, !tbaa !12
+  %16 = load ptr, ptr @threads, align 8, !tbaa !13
   %.not = icmp eq ptr %16, @default_threads
   br i1 %.not, label %18, label %17
 
@@ -85,7 +85,7 @@ post.exit:                                        ; preds = %3, %6
 18:                                               ; preds = %17, %._crit_edge
   tail call void @uv_mutex_destroy(ptr noundef nonnull @mutex) #9
   tail call void @uv_cond_destroy(ptr noundef nonnull @cond) #9
-  store ptr null, ptr @threads, align 8, !tbaa !12
+  store ptr null, ptr @threads, align 8, !tbaa !13
   store i32 0, ptr @nthreads, align 4, !tbaa !4
   br label %19
 
@@ -114,10 +114,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local void @uv__work_submit(ptr noundef %0, ptr noundef initializes((0, 24)) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %0, ptr %6, align 8, !tbaa !14
-  store ptr %3, ptr %1, align 8, !tbaa !17
+  store ptr %0, ptr %6, align 8, !tbaa !15
+  store ptr %3, ptr %1, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %4, ptr %7, align 8, !tbaa !18
+  store ptr %4, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   %9 = icmp eq i32 %2, 2
@@ -188,11 +188,11 @@ define internal void @init_once() #0 {
 
 .thread13.i:                                      ; preds = %10
   store i32 1024, ptr @nthreads, align 4, !tbaa !4
-  store ptr @default_threads, ptr @threads, align 8, !tbaa !12
+  store ptr @default_threads, ptr @threads, align 8, !tbaa !13
   br label %13
 
 .thread12.i:                                      ; preds = %10
-  store ptr @default_threads, ptr @threads, align 8, !tbaa !12
+  store ptr @default_threads, ptr @threads, align 8, !tbaa !13
   %12 = icmp samesign ugt i32 %8, 4
   br i1 %12, label %13, label %19
 
@@ -201,7 +201,7 @@ define internal void @init_once() #0 {
   %15 = shl i64 %14, 3
   %16 = and i64 %15, 16376
   %17 = tail call ptr @uv__malloc(i64 noundef %16) #9
-  store ptr %17, ptr @threads, align 8, !tbaa !12
+  store ptr %17, ptr @threads, align 8, !tbaa !13
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.sink.split.sink.split.i, label %19
 
@@ -211,7 +211,7 @@ define internal void @init_once() #0 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %4
-  store ptr @default_threads, ptr @threads, align 8, !tbaa !12
+  store ptr @default_threads, ptr @threads, align 8, !tbaa !13
   br label %19
 
 19:                                               ; preds = %.sink.split.i, %13, %.thread12.i
@@ -257,7 +257,7 @@ define internal void @init_once() #0 {
   %30 = load i32, ptr @nthreads, align 4, !tbaa !4
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %.preheader.i, !llvm.loop !19
+  br i1 %32, label %.lr.ph.i, label %.preheader.i, !llvm.loop !20
 
 .preheader.i:                                     ; preds = %29
   %33 = icmp eq i32 %30, 0
@@ -265,7 +265,7 @@ define internal void @init_once() #0 {
 
 .lr.ph.i:                                         ; preds = %.preheader14.i, %29
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %.preheader14.i ]
-  %34 = load ptr, ptr @threads, align 8, !tbaa !12
+  %34 = load ptr, ptr @threads, align 8, !tbaa !13
   %35 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv.i
   %36 = call i32 @uv_thread_create(ptr noundef %35, ptr noundef nonnull @worker, ptr noundef nonnull %1) #9
   %.not11.i = icmp eq i32 %36, 0
@@ -281,7 +281,7 @@ define internal void @init_once() #0 {
   %38 = add nuw i32 %.116.i, 1
   %39 = load i32, ptr @nthreads, align 4, !tbaa !4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %.lr.ph17.i, label %init_threads.exit, !llvm.loop !20
+  br i1 %40, label %.lr.ph17.i, label %init_threads.exit, !llvm.loop !21
 
 init_threads.exit:                                ; preds = %.lr.ph17.i, %.preheader14.i, %.preheader.i
   call void @uv_sem_destroy(ptr noundef nonnull %1) #9
@@ -336,15 +336,15 @@ define dso_local void @uv__work_done(ptr noundef %0) local_unnamed_addr #0 {
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %21, ptr %22, align 8, !tbaa !8
   %23 = getelementptr inbounds i8, ptr %17, i64 -24
-  %24 = load ptr, ptr %23, align 8, !tbaa !17
+  %24 = load ptr, ptr %23, align 8, !tbaa !18
   %25 = icmp eq ptr %24, @uv__cancelled
   %26 = select i1 %25, i32 -125, i32 0
   %27 = getelementptr inbounds i8, ptr %17, i64 -16
-  %28 = load ptr, ptr %27, align 8, !tbaa !18
+  %28 = load ptr, ptr %27, align 8, !tbaa !19
   call void %28(ptr noundef nonnull %23, i32 noundef %26) #9
   %29 = load ptr, ptr %2, align 16, !tbaa !8
   %.not = icmp eq ptr %2, %29
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
@@ -368,24 +368,24 @@ define dso_local range(i32 -22, 1) i32 @uv_queue_work(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 7, ptr %7, align 8, !tbaa !22
+  store i32 7, ptr %7, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !24
+  %9 = load i32, ptr %8, align 8, !tbaa !25
   %10 = add i32 %9, 1
-  store i32 %10, ptr %8, align 8, !tbaa !24
+  store i32 %10, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %0, ptr %11, align 8, !tbaa !25
+  store ptr %0, ptr %11, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %2, ptr %12, align 8, !tbaa !26
+  store ptr %2, ptr %12, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %3, ptr %13, align 8, !tbaa !27
+  store ptr %3, ptr %13, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store ptr %0, ptr %15, align 8, !tbaa !14
-  store ptr @uv__queue_work, ptr %14, align 8, !tbaa !17
+  store ptr %0, ptr %15, align 8, !tbaa !15
+  store ptr @uv__queue_work, ptr %14, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr @uv__queue_done, ptr %16, align 8, !tbaa !18
+  store ptr @uv__queue_done, ptr %16, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr %17, align 8, !tbaa !8
@@ -415,7 +415,7 @@ uv__work_submit.exit:                             ; preds = %6, %21
 define internal void @uv__queue_work(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -88
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
-  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %4 = load ptr, ptr %3, align 8, !tbaa !27
   tail call void %4(ptr noundef nonnull %2) #9
   ret void
 }
@@ -423,13 +423,13 @@ define internal void @uv__queue_work(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @uv__queue_done(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
-  %4 = load ptr, ptr %3, align 8, !tbaa !25
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !24
+  %6 = load i32, ptr %5, align 8, !tbaa !25
   %7 = add i32 %6, -1
-  store i32 %7, ptr %5, align 8, !tbaa !24
+  store i32 %7, ptr %5, align 8, !tbaa !25
   %8 = getelementptr inbounds i8, ptr %0, i64 -8
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
 
@@ -445,7 +445,7 @@ define internal void @uv__queue_done(ptr noundef %0, i32 noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -22, 1) i32 @uv_cancel(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !28
+  %3 = load i32, ptr %2, align 8, !tbaa !29
   %switch.tableidx = add i32 %3, -6
   %4 = icmp ult i32 %switch.tableidx, 5
   br i1 %4, label %switch.lookup, label %33
@@ -459,10 +459,10 @@ switch.lookup:                                    ; preds = %1
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load18
-  %.0 = load ptr, ptr %7, align 8, !tbaa !30
+  %.0 = load ptr, ptr %7, align 8, !tbaa !31
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !14
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %11) #9
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -471,7 +471,7 @@ switch.lookup:                                    ; preds = %1
   br i1 %14, label %.critedge.i, label %15
 
 15:                                               ; preds = %switch.lookup
-  %16 = load ptr, ptr %8, align 8, !tbaa !17
+  %16 = load ptr, ptr %8, align 8, !tbaa !18
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %.critedge.i, label %17
 
@@ -483,11 +483,11 @@ switch.lookup:                                    ; preds = %1
   %21 = load ptr, ptr %12, align 8, !tbaa !8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8, !tbaa !8
-  %23 = load ptr, ptr %9, align 8, !tbaa !14
+  %23 = load ptr, ptr %9, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %24) #9
   tail call void @uv_mutex_unlock(ptr noundef nonnull @mutex) #9
-  store ptr @uv__cancelled, ptr %8, align 8, !tbaa !17
+  store ptr @uv__cancelled, ptr %8, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %.0, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %25) #9
   %26 = getelementptr inbounds nuw i8, ptr %.0, i64 120
@@ -502,7 +502,7 @@ switch.lookup:                                    ; preds = %1
   br label %uv__work_cancel.exit
 
 .critedge.i:                                      ; preds = %15, %switch.lookup
-  %31 = load ptr, ptr %9, align 8, !tbaa !14
+  %31 = load ptr, ptr %9, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %32) #9
   br label %uv__work_cancel.exit
@@ -579,7 +579,7 @@ define internal void @worker(ptr noundef %0) #0 {
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.critedge, %49, %67, %31, %33
-  br label %.backedge, !llvm.loop !31
+  br label %.backedge, !llvm.loop !32
 
 .critedge3:                                       ; preds = %4
   %17 = icmp eq ptr %2, @exit_message
@@ -663,14 +663,14 @@ define internal void @worker(ptr noundef %0) #0 {
   %.042 = phi ptr [ %34, %36 ], [ %34, %48 ], [ %34, %45 ], [ %2, %.critedge3.thread ]
   tail call void @uv_mutex_unlock(ptr noundef nonnull @mutex) #9
   %50 = getelementptr inbounds i8, ptr %.042, i64 -24
-  %51 = load ptr, ptr %50, align 8, !tbaa !17
+  %51 = load ptr, ptr %50, align 8, !tbaa !18
   tail call void %51(ptr noundef nonnull %50) #9
   %52 = getelementptr inbounds i8, ptr %.042, i64 -8
-  %53 = load ptr, ptr %52, align 8, !tbaa !14
+  %53 = load ptr, ptr %52, align 8, !tbaa !15
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %54) #9
-  store ptr null, ptr %50, align 8, !tbaa !17
-  %55 = load ptr, ptr %52, align 8, !tbaa !14
+  store ptr null, ptr %50, align 8, !tbaa !18
+  %55 = load ptr, ptr %52, align 8, !tbaa !15
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 120
   store ptr %56, ptr %.042, align 8, !tbaa !8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 128
@@ -678,13 +678,13 @@ define internal void @worker(ptr noundef %0) #0 {
   %59 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   store ptr %58, ptr %59, align 8, !tbaa !8
   store ptr %.042, ptr %58, align 8, !tbaa !8
-  %60 = load ptr, ptr %52, align 8, !tbaa !14
+  %60 = load ptr, ptr %52, align 8, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 128
   store ptr %.042, ptr %61, align 8, !tbaa !8
-  %62 = load ptr, ptr %52, align 8, !tbaa !14
+  %62 = load ptr, ptr %52, align 8, !tbaa !15
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 176
   %64 = tail call i32 @uv_async_send(ptr noundef nonnull %63) #9
-  %65 = load ptr, ptr %52, align 8, !tbaa !14
+  %65 = load ptr, ptr %52, align 8, !tbaa !15
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %66) #9
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
@@ -734,25 +734,26 @@ attributes #10 = { noreturn nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"any pointer", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 long", !9, i64 0}
-!14 = !{!15, !16, i64 16}
-!15 = !{!"uv__work", !9, i64 0, !9, i64 8, !16, i64 16, !6, i64 24}
-!16 = !{!"p1 _ZTS9uv_loop_s", !9, i64 0}
-!17 = !{!15, !9, i64 0}
-!18 = !{!15, !9, i64 8}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = !{!23, !5, i64 8}
-!23 = !{!"uv_work_s", !9, i64 0, !5, i64 8, !6, i64 16, !16, i64 64, !9, i64 72, !9, i64 80, !15, i64 88}
-!24 = !{!6, !6, i64 0}
-!25 = !{!23, !16, i64 64}
-!26 = !{!23, !9, i64 72}
-!27 = !{!23, !9, i64 80}
-!28 = !{!29, !5, i64 8}
-!29 = !{!"uv_req_s", !9, i64 0, !5, i64 8, !6, i64 16}
-!30 = !{!16, !16, i64 0}
-!31 = distinct !{!31, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 long", !9, i64 0}
+!15 = !{!16, !17, i64 16}
+!16 = !{!"uv__work", !9, i64 0, !9, i64 8, !17, i64 16, !6, i64 24}
+!17 = !{!"p1 _ZTS9uv_loop_s", !9, i64 0}
+!18 = !{!16, !9, i64 0}
+!19 = !{!16, !9, i64 8}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = !{!24, !5, i64 8}
+!24 = !{!"uv_work_s", !9, i64 0, !5, i64 8, !6, i64 16, !17, i64 64, !9, i64 72, !9, i64 80, !16, i64 88}
+!25 = !{!6, !6, i64 0}
+!26 = !{!24, !17, i64 64}
+!27 = !{!24, !9, i64 72}
+!28 = !{!24, !9, i64 80}
+!29 = !{!30, !5, i64 8}
+!30 = !{!"uv_req_s", !9, i64 0, !5, i64 8, !6, i64 16}
+!31 = !{!17, !17, i64 0}
+!32 = distinct !{!32, !12}

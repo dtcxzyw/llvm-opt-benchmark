@@ -237,7 +237,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge:                                      ; preds = %93, %.lr.ph242
   %95 = icmp sgt i64 %indvars.iv, 2
-  br i1 %95, label %.lr.ph242, label %96, !llvm.loop !11
+  br i1 %95, label %.lr.ph242, label %96, !llvm.loop !12
 
 96:                                               ; preds = %._crit_edge
   store double 1.000000e+00, ptr %4, align 8, !tbaa !7
@@ -312,14 +312,14 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %gep294 = getelementptr double, ptr %invariant.gep293, i64 %indvars.iv.next279
   store double %129, ptr %gep294, align 8, !tbaa !7
   %130 = icmp sgt i64 %indvars.iv278, 3
-  br i1 %130, label %125, label %._crit_edge256, !llvm.loop !12
+  br i1 %130, label %125, label %._crit_edge256, !llvm.loop !13
 
 ._crit_edge256:                                   ; preds = %125, %.preheader
   %gep258 = getelementptr double, ptr %invariant.gep257, i64 %123
   store double 0.000000e+00, ptr %gep258, align 8, !tbaa !7
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count
-  br i1 %exitcond282.not, label %._crit_edge261, label %.preheader, !llvm.loop !13
+  br i1 %exitcond282.not, label %._crit_edge261, label %.preheader, !llvm.loop !14
 
 ._crit_edge261:                                   ; preds = %._crit_edge256
   %131 = add nsw i32 %80, -1
@@ -389,8 +389,9 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

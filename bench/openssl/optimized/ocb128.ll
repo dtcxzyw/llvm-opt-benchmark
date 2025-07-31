@@ -213,7 +213,7 @@ ocb_double.exit61:                                ; preds = %92
   %101 = load i8, ptr %100, align 1, !tbaa !17
   %102 = xor i8 %101, %99
   store i8 %102, ptr %100, align 1, !tbaa !17
-  store i64 4, ptr %7, align 8, !tbaa !20
+  store i64 4, ptr %7, align 8, !tbaa !21
   br label %103
 
 103:                                              ; preds = %6, %ocb_double.exit61
@@ -268,7 +268,7 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_copy_ctx(ptr noundef writeonly capture
 20:                                               ; preds = %13
   %21 = load ptr, ptr %11, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %23 = load i64, ptr %22, align 8, !tbaa !20
+  %23 = load i64, ptr %22, align 8, !tbaa !21
   %24 = shl i64 %23, 4
   %25 = add i64 %24, 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %21, i64 %25, i1 false)
@@ -341,7 +341,7 @@ define range(i32 -1, 2) i32 @CRYPTO_ocb128_setiv(ptr noundef captures(none) %0, 
   store i8 %36, ptr %37, align 1, !tbaa !17
   %38 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %38, 8
-  br i1 %exitcond.not.i, label %ocb_block_xor.exit, label %31, !llvm.loop !21
+  br i1 %exitcond.not.i, label %ocb_block_xor.exit, label %31, !llvm.loop !22
 
 ocb_block_xor.exit:                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 15
@@ -399,7 +399,7 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_aad(ptr noundef captures(none) %0, ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   %5 = lshr i64 %2, 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %6, align 8, !tbaa !23
   %8 = add i64 %7, %5
   %.05162 = add i64 %7, 1
   %.not63 = icmp ugt i64 %.05162, %8
@@ -432,11 +432,11 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_aad(ptr noundef captures(none) %0, ptr
   %21 = add i32 %.07.i, 1
   %22 = and i64 %.046.i, 2
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %.lr.ph.i, label %ocb_ntz.exit, !llvm.loop !23
+  br i1 %.not.i, label %.lr.ph.i, label %ocb_ntz.exit, !llvm.loop !24
 
 ocb_ntz.exit:                                     ; preds = %.lr.ph.i
   %23 = zext i32 %21 to i64
-  %24 = load i64, ptr %9, align 8, !tbaa !20
+  %24 = load i64, ptr %9, align 8, !tbaa !21
   %.not.i57 = icmp ult i64 %24, %23
   br i1 %.not.i57, label %25, label %ocb_lookup_l.exit
 
@@ -495,10 +495,10 @@ ocb_double.exit.i:                                ; preds = %40
   store i8 %50, ptr %48, align 1, !tbaa !17
   %51 = add nuw i64 %.02835.i, 1
   %exitcond.not.i = icmp eq i64 %51, %23
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i58, !llvm.loop !24
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i58, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %ocb_double.exit.i
-  store i64 %23, ptr %9, align 8, !tbaa !20
+  store i64 %23, ptr %9, align 8, !tbaa !21
   br label %ocb_lookup_l.exit
 
 ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, %._crit_edge.i
@@ -539,7 +539,7 @@ ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, 
   store i64 %74, ptr %17, align 8, !tbaa !17
   %.051 = add i64 %.05166, 1
   %.not = icmp ugt i64 %.051, %8
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %53, %3
   %.049.lcssa = phi ptr [ %1, %3 ], [ %62, %53 ]
@@ -588,7 +588,7 @@ ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, 
   br label %104
 
 104:                                              ; preds = %76, %._crit_edge
-  store i64 %8, ptr %6, align 8, !tbaa !22
+  store i64 %8, ptr %6, align 8, !tbaa !23
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %ocb_lookup_l.exit, %104
@@ -603,7 +603,7 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_encrypt(ptr noundef %0, ptr noundef %1
   %6 = alloca %union.OCB_BLOCK, align 8
   %7 = lshr i64 %3, 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %9 = load i64, ptr %8, align 8, !tbaa !26
+  %9 = load i64, ptr %8, align 8, !tbaa !27
   %10 = add i64 %9, %7
   %.not = icmp ult i64 %3, 16
   br i1 %.not, label %59, label %11
@@ -622,7 +622,7 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_encrypt(ptr noundef %0, ptr noundef %1
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %15 = xor i64 %14, 63
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load i64, ptr %16, align 8, !tbaa !20
+  %17 = load i64, ptr %16, align 8, !tbaa !21
   %.not.i = icmp ugt i64 %15, %17
   br i1 %.not.i, label %18, label %ocb_lookup_l.exit
 
@@ -684,10 +684,10 @@ ocb_double.exit.i:                                ; preds = %37
   store i8 %47, ptr %45, align 1, !tbaa !17
   %48 = add nuw i64 %.02835.i, 1
   %exitcond.not.i = icmp eq i64 %48, %15
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !24
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %ocb_double.exit.i
-  store i64 %15, ptr %16, align 8, !tbaa !20
+  store i64 %15, ptr %16, align 8, !tbaa !21
   br label %ocb_lookup_l.exit
 
 ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit_edge, %._crit_edge.i
@@ -700,7 +700,7 @@ ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit
   %52 = load ptr, ptr %12, align 8, !tbaa !14
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !15
-  %55 = load i64, ptr %8, align 8, !tbaa !26
+  %55 = load i64, ptr %8, align 8, !tbaa !27
   %56 = add i64 %55, 1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -741,11 +741,11 @@ ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit
   %72 = add i32 %.07.i, 1
   %73 = and i64 %.046.i, 2
   %.not.i98 = icmp eq i64 %73, 0
-  br i1 %.not.i98, label %.lr.ph.i97, label %ocb_ntz.exit, !llvm.loop !23
+  br i1 %.not.i98, label %.lr.ph.i97, label %ocb_ntz.exit, !llvm.loop !24
 
 ocb_ntz.exit:                                     ; preds = %.lr.ph.i97
   %74 = zext i32 %72 to i64
-  %75 = load i64, ptr %60, align 8, !tbaa !20
+  %75 = load i64, ptr %60, align 8, !tbaa !21
   %.not.i99 = icmp ult i64 %75, %74
   br i1 %.not.i99, label %76, label %ocb_lookup_l.exit114
 
@@ -804,10 +804,10 @@ ocb_double.exit.i110:                             ; preds = %91
   store i8 %101, ptr %99, align 1, !tbaa !17
   %102 = add nuw i64 %.02835.i105, 1
   %exitcond.not.i112 = icmp eq i64 %102, %74
-  br i1 %exitcond.not.i112, label %._crit_edge.i113, label %.lr.ph.i104, !llvm.loop !24
+  br i1 %exitcond.not.i112, label %._crit_edge.i113, label %.lr.ph.i104, !llvm.loop !25
 
 ._crit_edge.i113:                                 ; preds = %ocb_double.exit.i110
-  store i64 %74, ptr %60, align 8, !tbaa !20
+  store i64 %74, ptr %60, align 8, !tbaa !21
   br label %ocb_lookup_l.exit114
 
 ocb_lookup_l.exit114:                             ; preds = %69, %ocb_ntz.exit, %._crit_edge.i113
@@ -857,7 +857,7 @@ ocb_lookup_l.exit114:                             ; preds = %69, %ocb_ntz.exit, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
   %.084 = add i64 %.084130, 1
   %.not89 = icmp ugt i64 %.084, %10
-  br i1 %.not89, label %.loopexit, label %69, !llvm.loop !27
+  br i1 %.not89, label %.loopexit, label %69, !llvm.loop !28
 
 .loopexit:                                        ; preds = %104, %59, %51
   %.081 = phi ptr [ %2, %51 ], [ %2, %59 ], [ %130, %104 ]
@@ -897,7 +897,7 @@ ocb_lookup_l.exit114:                             ; preds = %69, %ocb_ntz.exit, 
   store i8 %151, ptr %152, align 1, !tbaa !17
   %153 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i115 = icmp eq i64 %153, %131
-  br i1 %exitcond.not.i115, label %ocb_block_xor.exit, label %146, !llvm.loop !21
+  br i1 %exitcond.not.i115, label %ocb_block_xor.exit, label %146, !llvm.loop !22
 
 ocb_block_xor.exit:                               ; preds = %146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -919,7 +919,7 @@ ocb_block_xor.exit:                               ; preds = %146
   br label %164
 
 164:                                              ; preds = %ocb_block_xor.exit, %.loopexit
-  store i64 %10, ptr %8, align 8, !tbaa !26
+  store i64 %10, ptr %8, align 8, !tbaa !27
   br label %.critedge
 
 .critedge95:                                      ; preds = %78, %ocb_lookup_l.exit114
@@ -937,7 +937,7 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_decrypt(ptr noundef %0, ptr noundef %1
   %6 = alloca %union.OCB_BLOCK, align 8
   %7 = lshr i64 %3, 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %9 = load i64, ptr %8, align 8, !tbaa !26
+  %9 = load i64, ptr %8, align 8, !tbaa !27
   %10 = add i64 %9, %7
   %.not = icmp ult i64 %3, 16
   br i1 %.not, label %59, label %11
@@ -956,7 +956,7 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_decrypt(ptr noundef %0, ptr noundef %1
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %15 = xor i64 %14, 63
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load i64, ptr %16, align 8, !tbaa !20
+  %17 = load i64, ptr %16, align 8, !tbaa !21
   %.not.i = icmp ugt i64 %15, %17
   br i1 %.not.i, label %18, label %ocb_lookup_l.exit
 
@@ -1018,10 +1018,10 @@ ocb_double.exit.i:                                ; preds = %37
   store i8 %47, ptr %45, align 1, !tbaa !17
   %48 = add nuw i64 %.02835.i, 1
   %exitcond.not.i = icmp eq i64 %48, %15
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !24
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %ocb_double.exit.i
-  store i64 %15, ptr %16, align 8, !tbaa !20
+  store i64 %15, ptr %16, align 8, !tbaa !21
   br label %ocb_lookup_l.exit
 
 ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit_edge, %._crit_edge.i
@@ -1034,7 +1034,7 @@ ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit
   %52 = load ptr, ptr %12, align 8, !tbaa !14
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !16
-  %55 = load i64, ptr %8, align 8, !tbaa !26
+  %55 = load i64, ptr %8, align 8, !tbaa !27
   %56 = add i64 %55, 1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1082,11 +1082,11 @@ ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit
   %73 = add i32 %.07.i, 1
   %74 = and i64 %.046.i, 2
   %.not.i101 = icmp eq i64 %74, 0
-  br i1 %.not.i101, label %.lr.ph.i100, label %ocb_ntz.exit, !llvm.loop !23
+  br i1 %.not.i101, label %.lr.ph.i100, label %ocb_ntz.exit, !llvm.loop !24
 
 ocb_ntz.exit:                                     ; preds = %.lr.ph.i100
   %75 = zext i32 %73 to i64
-  %76 = load i64, ptr %60, align 8, !tbaa !20
+  %76 = load i64, ptr %60, align 8, !tbaa !21
   %.not.i102 = icmp ult i64 %76, %75
   br i1 %.not.i102, label %77, label %ocb_lookup_l.exit117.thread129
 
@@ -1149,10 +1149,10 @@ ocb_double.exit.i113:                             ; preds = %92
   store i8 %102, ptr %100, align 1, !tbaa !17
   %103 = add nuw i64 %.02835.i108, 1
   %exitcond.not.i115 = icmp eq i64 %103, %75
-  br i1 %exitcond.not.i115, label %ocb_lookup_l.exit117, label %.lr.ph.i107, !llvm.loop !24
+  br i1 %exitcond.not.i115, label %ocb_lookup_l.exit117, label %.lr.ph.i107, !llvm.loop !25
 
 ocb_lookup_l.exit117:                             ; preds = %ocb_double.exit.i113
-  store i64 %75, ptr %60, align 8, !tbaa !20
+  store i64 %75, ptr %60, align 8, !tbaa !21
   %104 = load ptr, ptr %61, align 8, !tbaa !11
   br label %106
 
@@ -1208,7 +1208,7 @@ ocb_lookup_l.exit117.thread129:                   ; preds = %70, %ocb_ntz.exit
   %132 = getelementptr inbounds nuw i8, ptr %.186142, i64 16
   %.089 = add i64 %.089144, 1
   %.not94 = icmp ugt i64 %.089, %10
-  br i1 %.not94, label %.thread127, label %70, !llvm.loop !28
+  br i1 %.not94, label %.thread127, label %70, !llvm.loop !29
 
 133:                                              ; preds = %.thread127, %51
   %.085 = phi ptr [ %2, %51 ], [ %.186.lcssa, %.thread127 ]
@@ -1248,7 +1248,7 @@ ocb_lookup_l.exit117.thread129:                   ; preds = %70, %ocb_ntz.exit
   store i8 %154, ptr %155, align 1, !tbaa !17
   %156 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i118 = icmp eq i64 %156, %134
-  br i1 %exitcond.not.i118, label %ocb_block_xor.exit, label %149, !llvm.loop !21
+  br i1 %exitcond.not.i118, label %ocb_block_xor.exit, label %149, !llvm.loop !22
 
 ocb_block_xor.exit:                               ; preds = %149
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -1270,7 +1270,7 @@ ocb_block_xor.exit:                               ; preds = %149
   br label %167
 
 167:                                              ; preds = %ocb_block_xor.exit, %133
-  store i64 %10, ptr %8, align 8, !tbaa !26
+  store i64 %10, ptr %8, align 8, !tbaa !27
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %.thread131, %.thread128, %ocb_lookup_l.exit, %167
@@ -1438,14 +1438,15 @@ attributes #6 = { nounwind }
 !15 = !{!4, !5, i64 16}
 !16 = !{!4, !5, i64 24}
 !17 = !{!6, !6, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!4, !8, i64 40}
-!21 = distinct !{!21, !19}
-!22 = !{!4, !10, i64 96}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19}
-!26 = !{!4, !10, i64 104}
-!27 = distinct !{!27, !19}
-!28 = distinct !{!28, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!4, !8, i64 40}
+!22 = distinct !{!22, !19, !20}
+!23 = !{!4, !10, i64 96}
+!24 = distinct !{!24, !19, !20}
+!25 = distinct !{!25, !19, !20}
+!26 = distinct !{!26, !19, !20}
+!27 = !{!4, !10, i64 104}
+!28 = distinct !{!28, !19, !20}
+!29 = distinct !{!29, !19, !20}

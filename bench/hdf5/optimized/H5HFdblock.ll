@@ -1212,7 +1212,7 @@ H5VM_log2_gen.exit:                               ; preds = %52, %58, %64, %70, 
   %148 = load i32, ptr %9, align 4, !tbaa !70
   %149 = load i32, ptr %33, align 8, !tbaa !88
   %.not = icmp ult i32 %148, %149
-  br i1 %.not, label %._crit_edge, label %42
+  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %147, %.preheader
   %.045.lcssa = phi ptr [ %31, %.preheader ], [ %121, %147 ]
@@ -1430,3 +1430,5 @@ attributes #6 = { cold nounwind }
 !90 = !{!39, !41, i64 344}
 !91 = !{!92, !11, i64 0}
 !92 = !{!"H5HF_indirect_ent_t", !11, i64 0}
+!93 = distinct !{!93, !94}
+!94 = !{!"llvm.loop.estimated_trip_count"}

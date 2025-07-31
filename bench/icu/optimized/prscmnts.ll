@@ -320,7 +320,7 @@ define dso_local noundef i32 @getText(ptr noundef %0, i32 noundef %1, ptr nounde
   store i16 2, ptr %19, align 8, !tbaa !10
   %.add = add nuw nsw i64 %.idx, 64
   %20 = icmp eq i64 %.add, 1280
-  br i1 %20, label %21, label %18
+  br i1 %20, label %21, label %18, !llvm.loop !16
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 1280
@@ -392,7 +392,7 @@ define dso_local noundef i32 @getText(ptr noundef %0, i32 noundef %1, ptr nounde
 46:                                               ; preds = %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %41, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %41 ]
@@ -414,7 +414,7 @@ define dso_local noundef i32 @getText(ptr noundef %0, i32 noundef %1, ptr nounde
           to label %53 unwind label %60
 
 53:                                               ; preds = %52
-  %54 = load ptr, ptr %2, align 8, !tbaa !18
+  %54 = load ptr, ptr %2, align 8, !tbaa !20
   store ptr %54, ptr %12, align 8, !tbaa !11
   %55 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %12, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %56 unwind label %62
@@ -490,7 +490,7 @@ define dso_local noundef i32 @getText(ptr noundef %0, i32 noundef %1, ptr nounde
   %74 = getelementptr inbounds i8, ptr %73, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %74) #6
   %75 = icmp eq ptr %74, %7
-  br i1 %75, label %76, label %72
+  br i1 %75, label %76, label %72, !llvm.loop !21
 
 76:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %7) #6
@@ -501,7 +501,7 @@ define dso_local noundef i32 @getText(ptr noundef %0, i32 noundef %1, ptr nounde
   %79 = getelementptr inbounds i8, ptr %78, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %79) #6
   %80 = icmp eq ptr %79, %7
-  br i1 %80, label %81, label %77
+  br i1 %80, label %81, label %77, !llvm.loop !22
 
 81:                                               ; preds = %77
   call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %7) #6
@@ -550,7 +550,7 @@ define dso_local noundef i32 @getDescription(ptr noundef %0, i32 noundef %1, ptr
   store i16 2, ptr %16, align 8, !tbaa !10
   %.add = add nuw nsw i64 %.idx, 64
   %17 = icmp eq i64 %.add, 1280
-  br i1 %17, label %18, label %15
+  br i1 %17, label %18, label %15, !llvm.loop !23
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 1280
@@ -621,7 +621,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDs.exit:       ; preds = %37
   br i1 %47, label %48, label %60
 
 48:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfEDs.exit
-  %49 = load ptr, ptr %2, align 8, !tbaa !18
+  %49 = load ptr, ptr %2, align 8, !tbaa !20
   store ptr %49, ptr %9, align 8, !tbaa !11
   %50 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %9, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %51 unwind label %57
@@ -629,7 +629,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDs.exit:       ; preds = %37
 51:                                               ; preds = %48
   %52 = load ptr, ptr %9, align 8, !tbaa !11
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %52) #6, !srcloc !15
-  %53 = load ptr, ptr %2, align 8, !tbaa !18
+  %53 = load ptr, ptr %2, align 8, !tbaa !20
   %54 = invoke i32 @trim(ptr noundef %53, i32 noundef %50, ptr noundef nonnull %4)
           to label %60 unwind label %55
 
@@ -670,7 +670,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDs.exit:       ; preds = %37
   %66 = getelementptr inbounds i8, ptr %65, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %66) #6
   %67 = icmp eq ptr %66, %6
-  br i1 %67, label %68, label %64
+  br i1 %67, label %68, label %64, !llvm.loop !24
 
 68:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #6
@@ -681,7 +681,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDs.exit:       ; preds = %37
   %71 = getelementptr inbounds i8, ptr %70, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %71) #6
   %72 = icmp eq ptr %71, %6
-  br i1 %72, label %73, label %69
+  br i1 %72, label %73, label %69, !llvm.loop !25
 
 73:                                               ; preds = %69
   call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #6
@@ -719,7 +719,7 @@ define dso_local i32 @getCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   store i16 2, ptr %16, align 8, !tbaa !10
   %.add = add nuw nsw i64 %.idx, 64
   %17 = icmp eq i64 %.add, 1280
-  br i1 %17, label %18, label %15
+  br i1 %17, label %18, label %15, !llvm.loop !26
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 1280
@@ -772,7 +772,7 @@ define dso_local i32 @getCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
   %36 = zext i32 %2 to i64
   %37 = getelementptr inbounds nuw [2 x ptr], ptr @patternStrings, i64 0, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !19
+  %38 = load ptr, ptr %37, align 8, !tbaa !27
   invoke void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %38)
           to label %39 unwind label %46
 
@@ -830,7 +830,7 @@ define dso_local i32 @getCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   %spec.select = add nuw nsw i32 %.02354, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 58:                                               ; preds = %54, %.lr.ph
   %59 = landingpad { ptr, i32 }
@@ -839,7 +839,7 @@ define dso_local i32 @getCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br label %63
 
 60:                                               ; preds = %._crit_edge
-  %61 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !30
   %62 = call i64 @fwrite(ptr nonnull @.str.9, i64 46, i64 1, ptr %61) #7
   call void @exit(i32 noundef 16) #8
   unreachable
@@ -888,7 +888,7 @@ define dso_local i32 @getCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   %71 = getelementptr inbounds i8, ptr %70, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %71) #6
   %72 = icmp eq ptr %71, %5
-  br i1 %72, label %73, label %69
+  br i1 %72, label %73, label %69, !llvm.loop !32
 
 73:                                               ; preds = %69
   call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %5) #6
@@ -899,7 +899,7 @@ define dso_local i32 @getCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   %76 = getelementptr inbounds i8, ptr %75, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %76) #6
   %77 = icmp eq ptr %76, %5
-  br i1 %77, label %78, label %74
+  br i1 %77, label %78, label %74, !llvm.loop !33
 
 78:                                               ; preds = %74
   call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %5) #6
@@ -942,7 +942,7 @@ define dso_local noundef i32 @getAt(ptr noundef %0, i32 noundef %1, ptr noundef 
   store i16 2, ptr %21, align 8, !tbaa !10
   %.add = add nuw nsw i64 %.idx, 64
   %22 = icmp eq i64 %.add, 1280
-  br i1 %22, label %23, label %20
+  br i1 %22, label %23, label %20, !llvm.loop !34
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 1280
@@ -995,7 +995,7 @@ define dso_local noundef i32 @getAt(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #6
   %41 = zext i32 %5 to i64
   %42 = getelementptr inbounds nuw [2 x ptr], ptr @patternStrings, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !19
+  %43 = load ptr, ptr %42, align 8, !tbaa !27
   invoke void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %43)
           to label %44 unwind label %50
 
@@ -1055,7 +1055,7 @@ define dso_local noundef i32 @getAt(ptr noundef %0, i32 noundef %1, ptr noundef 
           to label %62 unwind label %69
 
 62:                                               ; preds = %61
-  %63 = load ptr, ptr %2, align 8, !tbaa !18
+  %63 = load ptr, ptr %2, align 8, !tbaa !20
   store ptr %63, ptr %14, align 8, !tbaa !11
   %64 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull %14, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %65 unwind label %71
@@ -1098,7 +1098,7 @@ define dso_local noundef i32 @getAt(ptr noundef %0, i32 noundef %1, ptr noundef 
   %.1 = phi i32 [ %76, %75 ], [ %.02665, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 78:                                               ; preds = %74, %67
   %.pn54.pn = phi { ptr, i32 } [ %.pn54, %74 ], [ %68, %67 ]
@@ -1149,7 +1149,7 @@ define dso_local noundef i32 @getAt(ptr noundef %0, i32 noundef %1, ptr noundef 
   %87 = getelementptr inbounds i8, ptr %86, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %87) #6
   %88 = icmp eq ptr %87, %8
-  br i1 %88, label %89, label %85
+  br i1 %88, label %89, label %85, !llvm.loop !36
 
 89:                                               ; preds = %85
   call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %8) #6
@@ -1160,7 +1160,7 @@ define dso_local noundef i32 @getAt(ptr noundef %0, i32 noundef %1, ptr noundef 
   %92 = getelementptr inbounds i8, ptr %91, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %92) #6
   %93 = icmp eq ptr %92, %8
-  br i1 %93, label %94, label %90
+  br i1 %93, label %94, label %90, !llvm.loop !37
 
 94:                                               ; preds = %90
   call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %8) #6
@@ -1186,7 +1186,7 @@ define dso_local noundef i32 @getTranslate(ptr noundef %0, i32 noundef %1, ptr n
 
 10:                                               ; preds = %8
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  %11 = load ptr, ptr %2, align 8, !tbaa !18
+  %11 = load ptr, ptr %2, align 8, !tbaa !20
   %12 = invoke i32 @trim(ptr noundef %11, i32 noundef %9, ptr noundef %4)
           to label %13 unwind label %14
 
@@ -1228,7 +1228,7 @@ define dso_local noundef i32 @getNote(ptr noundef %0, i32 noundef %1, ptr nounde
 
 10:                                               ; preds = %8
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  %11 = load ptr, ptr %2, align 8, !tbaa !18
+  %11 = load ptr, ptr %2, align 8, !tbaa !20
   %12 = invoke i32 @trim(ptr noundef %11, i32 noundef %9, ptr noundef %4)
           to label %13 unwind label %14
 
@@ -1289,11 +1289,24 @@ attributes #8 = { cold noreturn nounwind }
 !14 = !{!"any pointer", !6, i64 0}
 !15 = !{i64 2149045792}
 !16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!13, !13, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 omnipotent char", !14, i64 0}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !19, !17}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!13, !13, i64 0}
 !21 = distinct !{!21, !17}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
 !24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 omnipotent char", !14, i64 0}
+!29 = distinct !{!29, !19, !17}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!32 = distinct !{!32, !17}
+!33 = distinct !{!33, !17}
+!34 = distinct !{!34, !17}
+!35 = distinct !{!35, !19, !17}
+!36 = distinct !{!36, !17}
+!37 = distinct !{!37, !17}

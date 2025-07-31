@@ -357,7 +357,7 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   store i32 %218, ptr %219, align 4
   %220 = add nuw nsw i64 %213, 1
   %221 = icmp eq i64 %220, 8
-  br i1 %221, label %222, label %212, !llvm.loop !16
+  br i1 %221, label %222, label %212, !llvm.loop !17
 
 222:                                              ; preds = %212
   %223 = load ptr, ptr %18, align 8
@@ -509,7 +509,7 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
   tail call void %51(ptr noundef nonnull %8, i32 %54, i32 noundef %50, i1 noundef zeroext true) #7
   %55 = add nuw nsw i64 %48, 1
   %56 = icmp eq i64 %55, 13
-  br i1 %56, label %57, label %47, !llvm.loop !17
+  br i1 %56, label %57, label %47, !llvm.loop !18
 
 57:                                               ; preds = %47
   %58 = getelementptr inbounds nuw i8, ptr %28, i64 72
@@ -646,7 +646,7 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
   tail call void %153(ptr noundef nonnull %8, i32 %156, i32 noundef %152, i1 noundef zeroext true) #7
   %157 = add nuw nsw i64 %150, 1
   %158 = icmp eq i64 %157, 8
-  br i1 %158, label %159, label %149, !llvm.loop !18
+  br i1 %158, label %159, label %149, !llvm.loop !19
 
 159:                                              ; preds = %149
   %160 = getelementptr inbounds nuw i8, ptr %28, i64 224
@@ -817,7 +817,7 @@ define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %9 = tail call i64 @ktime_get_raw() #7
   %10 = icmp sle i64 %9, %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
   %11 = load ptr, ptr %8, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %7, i32 1245332, i1 noundef zeroext false) #7
   %13 = and i32 %12, %1
@@ -833,7 +833,7 @@ define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr nounde
   %19 = select i1 %18, i64 %17, i64 %16
   %20 = tail call i64 @ktime_get_raw() #7
   %21 = icmp sle i64 %20, %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
   %22 = load ptr, ptr %8, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %7, i32 1245332, i1 noundef zeroext false) #7
   %24 = and i32 %23, %1
@@ -846,20 +846,20 @@ define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr nounde
   %.lcssa = phi i1 [ %14, %3 ], [ %25, %.lr.ph ]
   %27 = zext i32 %.lcssa1 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #7
-          to label %48 [label %28], !srcloc !20
+          to label %48 [label %28], !srcloc !21
 
 28:                                               ; preds = %._crit_edge
-  %29 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !21
+  %29 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !22
   %30 = zext i32 %29 to i64
-  %31 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %30) #7, !srcloc !22
+  %31 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %30) #7, !srcloc !23
   %32 = icmp ult i8 %31, 2
   tail call void @llvm.assume(i1 %32)
   %33 = icmp eq i8 %31, 0
   br i1 %33, label %48, label %34
 
 34:                                               ; preds = %28
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !24
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !25
   %35 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 72), align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %41, label %37
@@ -871,8 +871,8 @@ define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr nounde
   br label %41
 
 41:                                               ; preds = %37, %34
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !25
-  %42 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !26
+  %42 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !27
   %43 = icmp ult i8 %42, 2
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i8 %42, 0
@@ -880,7 +880,7 @@ define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr nounde
 
 45:                                               ; preds = %41
   %46 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %47 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %46) #7, !srcloc !27
+  %47 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %46) #7, !srcloc !28
   tail call void @llvm.write_register.i64(metadata !0, i64 %47)
   br label %48
 
@@ -949,18 +949,19 @@ attributes #9 = { nounwind allocsize(2) }
 !10 = !{i64 2159705740, i64 2159705769, i64 2159705815, i64 2159705873, i64 2159705927, i64 2159705981, i64 2159706036, i64 2159706067, i64 2159706375, i64 2159706381, i64 2159706428, i64 2159706451, i64 2159706477}
 !11 = !{i64 2159706944, i64 2159706755, i64 2159706805, i64 2159706851, i64 2159706879}
 !12 = !{i64 2159707250, i64 2159707061, i64 2159707111, i64 2159707157, i64 2159707185}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = !{i64 2159698745}
-!20 = !{i64 261458, i64 261502, i64 2147757433, i64 2147757454, i64 2147757480, i64 2147757513, i64 2147757547, i64 2147757571}
-!21 = !{i64 2159378613}
-!22 = !{i64 2147888508, i64 2147888582}
-!23 = !{i64 2149115080}
-!24 = !{i64 2159381534}
-!25 = !{i64 2159387741}
-!26 = !{i64 2149123497, i64 2149123590}
-!27 = !{i64 2159387900}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !14, !15, !16}
+!18 = distinct !{!18, !14, !15, !16}
+!19 = distinct !{!19, !14, !15, !16}
+!20 = !{i64 2159698745}
+!21 = !{i64 261458, i64 261502, i64 2147757433, i64 2147757454, i64 2147757480, i64 2147757513, i64 2147757547, i64 2147757571}
+!22 = !{i64 2159378613}
+!23 = !{i64 2147888508, i64 2147888582}
+!24 = !{i64 2149115080}
+!25 = !{i64 2159381534}
+!26 = !{i64 2159387741}
+!27 = !{i64 2149123497, i64 2149123590}
+!28 = !{i64 2159387900}

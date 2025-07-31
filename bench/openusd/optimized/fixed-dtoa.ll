@@ -104,7 +104,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_con
   %indvars.iv.next37.i = add nsw i64 %indvars.iv36.i, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %56 = icmp slt i64 %indvars.iv.next37.i, %indvars.iv.next.i
-  br i1 %56, label %.lr.ph34.i, label %._crit_edge35.loopexit.i, !llvm.loop !6
+  br i1 %56, label %.lr.ph34.i, label %._crit_edge35.loopexit.i, !llvm.loop !7
 
 ._crit_edge35.loopexit.i:                         ; preds = %.lr.ph34.i
   %.pre.i = load i32, ptr %4, align 4
@@ -132,7 +132,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   store i8 %62, ptr %66, align 1
   %67 = udiv i32 %.089.i.i, 10
   %68 = icmp samesign ugt i32 %.0.in10.i.i, 1
-  br i1 %68, label %59, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i, !llvm.loop !7
+  br i1 %68, label %59, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i: ; preds = %59
   %69 = udiv i64 %.094, 10000000
@@ -158,7 +158,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32Fixed
   store i8 %78, ptr %82, align 1
   %83 = udiv i32 %.089.i21.i, 10
   %84 = icmp samesign ugt i32 %.0.in10.i20.i, 1
-  br i1 %84, label %75, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit23.i, !llvm.loop !7
+  br i1 %84, label %75, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit23.i, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit23.i: ; preds = %75
   %85 = trunc nuw nsw i64 %70 to i32
@@ -181,7 +181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32Fixed
   store i8 %91, ptr %95, align 1
   %96 = udiv i32 %.089.i25.i, 10
   %97 = icmp samesign ugt i32 %.0.in10.i24.i, 1
-  br i1 %97, label %88, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64FixedLengthEmNS0_6VectorIcEEPi.exit, !llvm.loop !7
+  br i1 %97, label %88, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64FixedLengthEmNS0_6VectorIcEEPi.exit, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64FixedLengthEmNS0_6VectorIcEEPi.exit: ; preds = %88
   %98 = load i32, ptr %4, align 4
@@ -273,7 +273,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64Fixed
   %indvars.iv.next37.i112 = add nsw i64 %indvars.iv36.i110, 1
   %indvars.iv.next.i113 = add nsw i64 %indvars.iv.i111, -1
   %136 = icmp slt i64 %indvars.iv.next37.i112, %indvars.iv.next.i113
-  br i1 %136, label %.lr.ph34.i109, label %._crit_edge35.loopexit.i114, !llvm.loop !6
+  br i1 %136, label %.lr.ph34.i109, label %._crit_edge35.loopexit.i114, !llvm.loop !7
 
 ._crit_edge35.loopexit.i114:                      ; preds = %.lr.ph34.i109
   %.pre.i115 = load i32, ptr %4, align 4
@@ -325,7 +325,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i120
   %151 = load i8, ptr %150, align 1
   %152 = icmp eq i8 %151, 48
-  br i1 %152, label %.lr.ph, label %.critedge.i, !llvm.loop !8
+  br i1 %152, label %.lr.ph, label %.critedge.i, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i118
   %indvars.iv.next.i120141 = phi i64 [ %indvars.iv.next.i120, %.lr.ph.i118 ], [ %indvars.iv.next.i120139, %.lr.ph.preheader.i ]
@@ -333,7 +333,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   %153 = trunc nuw nsw i64 %indvars.iv.next.i120141 to i32
   store i32 %153, ptr %4, align 4
   %154 = icmp samesign ugt i64 %indvars.iv.i119140, 1
-  br i1 %154, label %.lr.ph.i118, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9TrimZerosENS0_6VectorIcEEPiS3_.exit, !llvm.loop !8
+  br i1 %154, label %.lr.ph.i118, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9TrimZerosENS0_6VectorIcEEPiS3_.exit, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %.lr.ph.i118
   %155 = icmp sgt i64 %indvars.iv.next.i120141, 0
@@ -355,7 +355,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
 159:                                              ; preds = %.lr.ph30.i
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge2.i, label %.lr.ph30.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.critedge2.i, label %.lr.ph30.i, !llvm.loop !10
 
 .critedge2.i:                                     ; preds = %.lr.ph30.i, %159
   %.020.lcssa.in.i = phi i64 [ %indvars.iv.i119.lcssa154, %159 ], [ %indvars.iv39.i, %.lr.ph30.i ]
@@ -383,7 +383,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   %166 = load i32, ptr %4, align 4
   %167 = sext i32 %166 to i64
   %168 = icmp slt i64 %indvars.iv.next43.i, %167
-  br i1 %168, label %.lr.ph35.i, label %._crit_edge.i122, !llvm.loop !10
+  br i1 %168, label %.lr.ph35.i, label %._crit_edge.i122, !llvm.loop !11
 
 ._crit_edge.i122:                                 ; preds = %.lr.ph35.i, %.preheader.i
   %.lcssa.i = phi i32 [ %.lcssa135153, %.preheader.i ], [ %166, %.lr.ph35.i ]
@@ -467,7 +467,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   %indvars.iv.next37.i = add nsw i64 %indvars.iv36.i, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %29 = icmp slt i64 %indvars.iv.next37.i, %indvars.iv.next.i
-  br i1 %29, label %.lr.ph34.i, label %._crit_edge35.loopexit.i, !llvm.loop !6
+  br i1 %29, label %.lr.ph34.i, label %._crit_edge35.loopexit.i, !llvm.loop !7
 
 ._crit_edge35.loopexit.i:                         ; preds = %.lr.ph34.i
   %.pre.i = load i32, ptr %2, align 4
@@ -493,7 +493,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   store i8 %33, ptr %37, align 1
   %38 = udiv i32 %.089.i, 10
   %39 = icmp samesign ugt i32 %.0.in10.i, 1
-  br i1 %39, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit, !llvm.loop !7
+  br i1 %39, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit: ; preds = %30
   %40 = load i32, ptr %2, align 4
@@ -515,7 +515,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32Fixed
   store i8 %45, ptr %49, align 1
   %50 = udiv i32 %.089.i46, 10
   %51 = icmp samesign ugt i32 %.0.in10.i45, 1
-  br i1 %51, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split, !llvm.loop !7
+  br i1 %51, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split, !llvm.loop !8
 
 52:                                               ; preds = %3
   %.not44 = icmp eq i64 %7, 0
@@ -560,7 +560,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32Fixed
   %indvars.iv.next37.i62 = add nsw i64 %indvars.iv36.i60, 1
   %indvars.iv.next.i63 = add nsw i64 %indvars.iv.i61, -1
   %70 = icmp slt i64 %indvars.iv.next37.i62, %indvars.iv.next.i63
-  br i1 %70, label %.lr.ph34.i59, label %._crit_edge35.loopexit.i64, !llvm.loop !6
+  br i1 %70, label %.lr.ph34.i59, label %._crit_edge35.loopexit.i64, !llvm.loop !7
 
 ._crit_edge35.loopexit.i64:                       ; preds = %.lr.ph34.i59
   %.pre.i65 = load i32, ptr %2, align 4
@@ -586,7 +586,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   store i8 %74, ptr %78, align 1
   %79 = udiv i32 %.089.i69, 10
   %80 = icmp samesign ugt i32 %.0.in10.i68, 1
-  br i1 %80, label %71, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split, !llvm.loop !7
+  br i1 %80, label %71, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split, !llvm.loop !8
 
 81:                                               ; preds = %52
   %.not27.i72 = icmp eq i64 %4, 0
@@ -633,7 +633,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   %indvars.iv.next37.i85 = add nsw i64 %indvars.iv36.i83, 1
   %indvars.iv.next.i86 = add nsw i64 %indvars.iv.i84, -1
   %100 = icmp slt i64 %indvars.iv.next37.i85, %indvars.iv.next.i86
-  br i1 %100, label %.lr.ph34.i82, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split, !llvm.loop !6
+  br i1 %100, label %.lr.ph34.i82, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split: ; preds = %42, %71, %.lr.ph34.i82
   %.022.lcssa.i78.sink = phi i32 [ %.022.lcssa.i78, %.lr.ph34.i82 ], [ 7, %71 ], [ 7, %42 ]
@@ -688,7 +688,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   %26 = icmp sge i32 %25, %2
   %27 = icmp eq i64 %24, 0
   %or.cond = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond, label %._crit_edge88, label %.lr.ph87, !llvm.loop !11
+  br i1 %or.cond, label %._crit_edge88, label %.lr.ph87, !llvm.loop !12
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %.preheader
   %.037.lcssa = phi i32 [ %7, %.preheader ], [ %13, %.lr.ph87 ]
@@ -746,7 +746,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   %50 = add i8 %49, 1
   store i8 %50, ptr %gep.i, align 1
   %51 = icmp samesign ugt i64 %indvars.iv.i, 2
-  br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %48, %37
   %52 = load i8, ptr %3, align 1
@@ -829,7 +829,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowe
   store i32 %93, ptr %4, align 4
   %94 = add nuw nsw i32 %.04075, 1
   %exitcond.not = icmp eq i32 %94, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
   %95 = trunc nuw nsw i64 %indvars.iv to i32
@@ -891,7 +891,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowe
   %117 = add i8 %116, 1
   store i8 %117, ptr %gep.i53, align 1
   %118 = icmp samesign ugt i64 %indvars.iv.i50, 2
-  br i1 %118, label %.lr.ph.i49, label %._crit_edge.i47, !llvm.loop !12
+  br i1 %118, label %.lr.ph.i49, label %._crit_edge.i47, !llvm.loop !13
 
 ._crit_edge.i47:                                  ; preds = %115, %104
   %119 = load i8, ptr %3, align 1
@@ -917,13 +917,14 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

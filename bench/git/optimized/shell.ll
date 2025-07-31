@@ -178,7 +178,7 @@ sub_152:                                          ; preds = %sub_051
   br i1 %56, label %57, label %70
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr %3, align 8, !tbaa !14
+  %58 = load ptr, ptr %3, align 8, !tbaa !15
   %59 = load ptr, ptr %58, align 8, !tbaa !4
   %60 = call i64 @strcspn(ptr noundef readonly %59, ptr noundef nonnull @.str.31) #14
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
@@ -188,9 +188,9 @@ sub_152:                                          ; preds = %sub_051
 
 63:                                               ; preds = %57
   %64 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, ptr noundef nonnull %59) #13
-  %65 = load ptr, ptr %3, align 8, !tbaa !14
+  %65 = load ptr, ptr %3, align 8, !tbaa !15
   %66 = call i32 @execv(ptr noundef %64, ptr noundef %65) #13
-  %.pre = load ptr, ptr %3, align 8, !tbaa !14
+  %.pre = load ptr, ptr %3, align 8, !tbaa !15
   br label %67
 
 67:                                               ; preds = %63, %57
@@ -211,7 +211,7 @@ sub_152:                                          ; preds = %sub_051
 .loopexit:                                        ; preds = %45, %48
   %.033 = phi ptr [ %50, %48 ], [ null, %45 ]
   %73 = getelementptr inbounds nuw i8, ptr %.03562, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !16
+  %74 = load ptr, ptr %73, align 8, !tbaa !17
   %75 = tail call i32 %74(ptr noundef nonnull %41, ptr noundef %.033) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   ret i32 %75
@@ -291,24 +291,24 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
   br label %20
 
 .critedge62:                                      ; preds = %55, %85, %84
-  %19 = load ptr, ptr %3, align 8, !tbaa !14
+  %19 = load ptr, ptr %3, align 8, !tbaa !15
   call void @free(ptr noundef %19) #13
   br label %.backedge
 
 20:                                               ; preds = %.backedge, %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !18
   %22 = call i64 @fwrite(ptr nonnull @.str.14, i64 5, i64 1, ptr %21) #16
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !17
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !18
   %24 = call i32 @fflush(ptr noundef %23)
   %25 = call ptr @xmalloc(i64 noundef 4194304) #13
-  %26 = load ptr, ptr @stdin, align 8, !tbaa !17
+  %26 = load ptr, ptr @stdin, align 8, !tbaa !18
   %27 = call ptr @fgets(ptr noundef %25, i32 noundef 4194304, ptr noundef %26)
   %.not44 = icmp eq ptr %27, null
   br i1 %.not44, label %.thread, label %29
 
 .thread:                                          ; preds = %20
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !18
   %fputc = call i32 @fputc(i32 10, ptr %28)
   br label %89
 
@@ -358,7 +358,7 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
   br i1 %51, label %.critedge, label %55
 
 .critedge:                                        ; preds = %48
-  %52 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !18
   %53 = call ptr @split_cmdline_strerror(i32 noundef %50) #13
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.17, ptr noundef nonnull %25, ptr noundef %53) #17
   br label %.backedge
@@ -370,7 +370,7 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
   br label %20
 
 55:                                               ; preds = %48
-  %56 = load ptr, ptr %3, align 8, !tbaa !14
+  %56 = load ptr, ptr %3, align 8, !tbaa !15
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %strcmpload = load i8, ptr %57, align 1
   %.not47 = icmp eq i8 %strcmpload, 0
@@ -407,7 +407,7 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_shell.cmd, i64 120, i1 false)
   %71 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, ptr noundef nonnull %57) #13
-  %72 = load ptr, ptr %3, align 8, !tbaa !14
+  %72 = load ptr, ptr %3, align 8, !tbaa !15
   store ptr %71, ptr %72, align 8, !tbaa !4
   %73 = load i16, ptr %18, align 8
   %74 = or i16 %73, 16
@@ -419,12 +419,12 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
 
 77:                                               ; preds = %70
   %78 = tail call ptr @__errno_location() #18
-  %79 = load i32, ptr %78, align 4, !tbaa !19
+  %79 = load i32, ptr %78, align 4, !tbaa !20
   %80 = icmp eq i32 %79, 2
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %77
-  %82 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %82 = load ptr, ptr @stderr, align 8, !tbaa !18
   %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.23, ptr noundef nonnull %57) #17
   br label %84
 
@@ -434,14 +434,14 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
   br label %.critedge62
 
 85:                                               ; preds = %66
-  %86 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %86 = load ptr, ptr @stderr, align 8, !tbaa !18
   %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.24, ptr noundef nonnull %57) #17
   br label %.critedge62
 
 88:                                               ; preds = %58, %60, %62, %64
   call void @free(ptr noundef nonnull %56) #13
   call void @free(ptr noundef %49) #13
-  br label %89, !llvm.loop !21
+  br label %89, !llvm.loop !22
 
 89:                                               ; preds = %88, %.thread
   call void @free(ptr noundef %25) #13
@@ -544,7 +544,7 @@ define internal i32 @do_generic_cmd(ptr noundef %0, ptr noundef %1) #0 {
   %15 = load i8, ptr %.07.i, align 1, !tbaa !9
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
   %16 = icmp eq i8 %15, %12
-  br i1 %16, label %11, label %skip_prefix.exit, !llvm.loop !22
+  br i1 %16, label %11, label %skip_prefix.exit, !llvm.loop !23
 
 skip_prefix.exit:                                 ; preds = %11, %13
   %.0 = phi ptr [ %0, %13 ], [ %scevgep.i, %11 ]
@@ -617,14 +617,15 @@ attributes #18 = { nounwind willreturn memory(none) }
 !9 = !{!7, !7, i64 0}
 !10 = !{!11, !5, i64 0}
 !11 = !{!"commands", !5, i64 0, !6, i64 8}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p2 omnipotent char", !6, i64 0}
-!16 = !{!11, !6, i64 8}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !7, i64 0}
-!21 = distinct !{!21, !13}
-!22 = distinct !{!22, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p2 omnipotent char", !6, i64 0}
+!17 = !{!11, !6, i64 8}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !7, i64 0}
+!22 = distinct !{!22, !13, !14}
+!23 = distinct !{!23, !13, !14}

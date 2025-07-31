@@ -874,7 +874,7 @@ define void @Aig_ObjDelete(ptr noundef captures(none) %0, ptr noundef %1) local_
   store ptr %30, ptr %31, align 8, !tbaa !27
   %indvars.iv.next19.i = add nsw i64 %indvars.iv18.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrRemove.exit, label %27, !llvm.loop !43
+  br i1 %exitcond.not.i, label %Vec_PtrRemove.exit, label %27, !llvm.loop !44
 
 Vec_PtrRemove.exit:                               ; preds = %27, %24
   %32 = add nsw i32 %12, -1
@@ -906,9 +906,9 @@ Vec_PtrRemove.exit:                               ; preds = %27, %24
   %51 = load ptr, ptr %50, align 8, !tbaa !3
   tail call void @Aig_MmFixedEntryRecycle(ptr noundef %51, ptr noundef %1) #11
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %53 = load i32, ptr %52, align 4, !tbaa !44
+  %53 = load i32, ptr %52, align 4, !tbaa !45
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %52, align 4, !tbaa !44
+  store i32 %54, ptr %52, align 4, !tbaa !45
   ret void
 }
 
@@ -1000,7 +1000,7 @@ tailrecurse:                                      ; preds = %74, %3
   store ptr %46, ptr %47, align 8, !tbaa !27
   %indvars.iv.next19.i.i = add nsw i64 %indvars.iv18.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next19.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_PtrRemove.exit.i, label %43, !llvm.loop !43
+  br i1 %exitcond.not.i.i, label %Vec_PtrRemove.exit.i, label %43, !llvm.loop !44
 
 Vec_PtrRemove.exit.i:                             ; preds = %43, %40
   %48 = add nsw i32 %28, -1
@@ -1028,9 +1028,9 @@ Aig_ObjDelete.exit:                               ; preds = %22, %Vec_PtrRemove.
   store i64 %61, ptr %11, align 8
   %62 = load ptr, ptr %8, align 8, !tbaa !3
   tail call void @Aig_MmFixedEntryRecycle(ptr noundef %62, ptr noundef nonnull %.tr38) #11
-  %63 = load i32, ptr %9, align 4, !tbaa !44
+  %63 = load i32, ptr %9, align 4, !tbaa !45
   %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %9, align 4, !tbaa !44
+  store i32 %64, ptr %9, align 4, !tbaa !45
   br label %65
 
 65:                                               ; preds = %Aig_ObjDelete.exit, %13
@@ -1108,9 +1108,9 @@ define void @Aig_ObjDeletePo(ptr noundef captures(none) %0, ptr noundef %1) loca
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   tail call void @Aig_MmFixedEntryRecycle(ptr noundef %30, ptr noundef %1) #11
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %32 = load i32, ptr %31, align 4, !tbaa !44
+  %32 = load i32, ptr %31, align 4, !tbaa !45
   %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %31, align 4, !tbaa !44
+  store i32 %33, ptr %31, align 4, !tbaa !45
   ret void
 }
 
@@ -1357,7 +1357,7 @@ define void @Aig_ObjPrint(ptr noundef readonly captures(none) %0, ptr noundef %1
   %62 = lshr i32 %61, 6
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %62)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %65 = load ptr, ptr %64, align 8, !tbaa !45
+  %65 = load ptr, ptr %64, align 8, !tbaa !46
   %.not69 = icmp eq ptr %65, null
   br i1 %.not69, label %91, label %66
 
@@ -1365,17 +1365,17 @@ define void @Aig_ObjPrint(ptr noundef readonly captures(none) %0, ptr noundef %1
   %67 = load i32, ptr %14, align 4, !tbaa !24
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds ptr, ptr %65, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !46
+  %70 = load ptr, ptr %69, align 8, !tbaa !47
   %.not70 = icmp eq ptr %70, null
   br i1 %.not70, label %91, label %71
 
 71:                                               ; preds = %66
   %72 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %67)
-  %73 = load ptr, ptr %64, align 8, !tbaa !45
+  %73 = load ptr, ptr %64, align 8, !tbaa !46
   %74 = load i32, ptr %14, align 4, !tbaa !24
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds ptr, ptr %73, i64 %75
-  %.05792 = load ptr, ptr %76, align 8, !tbaa !46
+  %.05792 = load ptr, ptr %76, align 8, !tbaa !47
   %.not7393 = icmp eq ptr %.05792, null
   br i1 %.not7393, label %._crit_edge, label %.lr.ph
 
@@ -1391,13 +1391,13 @@ define void @Aig_ObjPrint(ptr noundef readonly captures(none) %0, ptr noundef %1
   %.not74 = icmp eq i64 %83, 0
   %84 = select i1 %.not74, ptr @.str.7, ptr @.str.6
   %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %78, ptr noundef nonnull %84)
-  %86 = load ptr, ptr %64, align 8, !tbaa !45
+  %86 = load ptr, ptr %64, align 8, !tbaa !46
   %87 = load i32, ptr %77, align 4, !tbaa !24
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds ptr, ptr %86, i64 %88
-  %.057 = load ptr, ptr %89, align 8, !tbaa !46
+  %.057 = load ptr, ptr %89, align 8, !tbaa !47
   %.not73 = icmp eq ptr %.057, null
-  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %71
   %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
@@ -1405,7 +1405,7 @@ define void @Aig_ObjPrint(ptr noundef readonly captures(none) %0, ptr noundef %1
 
 91:                                               ; preds = %66, %60
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %93 = load ptr, ptr %92, align 8, !tbaa !48
+  %93 = load ptr, ptr %92, align 8, !tbaa !49
   %.not71 = icmp eq ptr %93, null
   br i1 %.not71, label %101, label %94
 
@@ -1413,7 +1413,7 @@ define void @Aig_ObjPrint(ptr noundef readonly captures(none) %0, ptr noundef %1
   %95 = load i32, ptr %14, align 4, !tbaa !24
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds ptr, ptr %93, i64 %96
-  %98 = load ptr, ptr %97, align 8, !tbaa !46
+  %98 = load ptr, ptr %97, align 8, !tbaa !47
   %.not72 = icmp eq ptr %98, null
   br i1 %.not72, label %101, label %99
 
@@ -1431,9 +1431,9 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: nounwind uwtable
 define void @Aig_NodeFixBufferFanins(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %5 = load i32, ptr %4, align 4, !tbaa !49
+  %5 = load i32, ptr %4, align 4, !tbaa !50
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 4, !tbaa !49
+  store i32 %6, ptr %4, align 4, !tbaa !50
   %7 = getelementptr i8, ptr %1, i64 24
   %.val17 = load i64, ptr %7, align 8
   %8 = and i64 %.val17, 7
@@ -1549,9 +1549,9 @@ define void @Aig_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   store i64 %49, ptr %33, align 8
   tail call void @Aig_ObjConnect(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %51 = load i32, ptr %50, align 8, !tbaa !50
+  %51 = load i32, ptr %50, align 8, !tbaa !51
   %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %50, align 8, !tbaa !50
+  store i32 %52, ptr %50, align 8, !tbaa !51
   br label %117
 
 53:                                               ; preds = %43
@@ -1618,7 +1618,7 @@ define void @Aig_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   store ptr %87, ptr %88, align 8, !tbaa !27
   %indvars.iv.next19.i.i = add nsw i64 %indvars.iv18.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next19.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_PtrRemove.exit.i, label %84, !llvm.loop !43
+  br i1 %exitcond.not.i.i, label %Vec_PtrRemove.exit.i, label %84, !llvm.loop !44
 
 Vec_PtrRemove.exit.i:                             ; preds = %84, %81
   %89 = add nsw i32 %69, -1
@@ -1649,9 +1649,9 @@ Aig_ObjDelete.exit:                               ; preds = %53, %Vec_PtrRemove.
   %105 = load ptr, ptr %104, align 8, !tbaa !3
   tail call void @Aig_MmFixedEntryRecycle(ptr noundef %105, ptr noundef nonnull %2) #11
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %107 = load i32, ptr %106, align 4, !tbaa !44
+  %107 = load i32, ptr %106, align 4, !tbaa !45
   %108 = add nsw i32 %107, 1
-  store i32 %108, ptr %106, align 4, !tbaa !44
+  store i32 %108, ptr %106, align 4, !tbaa !45
   %109 = load ptr, ptr %62, align 8, !tbaa !33
   %.not54 = icmp eq ptr %109, null
   br i1 %.not54, label %115, label %110
@@ -1762,12 +1762,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %160 = getelementptr inbounds ptr, ptr %156, i64 %159
   store ptr %1, ptr %160, align 8, !tbaa !27
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %162 = load i32, ptr %161, align 8, !tbaa !51
+  %162 = load i32, ptr %161, align 8, !tbaa !52
   %163 = load ptr, ptr %128, align 8, !tbaa !40
   %164 = getelementptr i8, ptr %163, i64 4
   %.val = load i32, ptr %164, align 4, !tbaa !22
   %165 = tail call noundef i32 @llvm.smax.i32(i32 %162, i32 %.val)
-  store i32 %165, ptr %161, align 8, !tbaa !51
+  store i32 %165, ptr %161, align 8, !tbaa !52
   %166 = tail call i32 @Aig_ManPropagateBuffers(ptr noundef nonnull %0, i32 noundef %3)
   br label %167
 
@@ -1842,7 +1842,7 @@ Aig_ObjFanout0.exit:                              ; preds = %.lr.ph.split, %Aig_
   %.010.val = load i64, ptr %29, align 8
   %30 = and i64 %.010.val, 7
   %.not = icmp eq i64 %30, 4
-  br i1 %.not, label %Aig_ObjFanout0.exit, label %._crit_edge, !llvm.loop !52
+  br i1 %.not, label %Aig_ObjFanout0.exit, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %Aig_ObjFanout0.exit, %9
   %.010.lcssa = phi ptr [ %15, %9 ], [ %28, %Aig_ObjFanout0.exit ]
@@ -1860,7 +1860,7 @@ Aig_ObjFanout0.exit:                              ; preds = %.lr.ph.split, %Aig_
   %35 = getelementptr i8, ptr %34, i64 4
   %.val = load i32, ptr %35, align 4, !tbaa !22
   %36 = icmp sgt i32 %.val, 0
-  br i1 %36, label %9, label %.loopexit, !llvm.loop !53
+  br i1 %36, label %9, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %32, %2, %31
   %.017 = phi i32 [ 1000001, %31 ], [ 0, %2 ], [ %33, %32 ]
@@ -1963,16 +1963,17 @@ attributes #14 = { cold noreturn nounwind }
 !38 = !{!37, !12, i64 4}
 !39 = !{!37, !12, i64 0}
 !40 = !{!4, !9, i64 40}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42}
-!44 = !{!4, !12, i64 156}
-!45 = !{!4, !13, i64 248}
-!46 = !{!10, !10, i64 0}
-!47 = distinct !{!47, !42}
-!48 = !{!4, !13, i64 256}
-!49 = !{!4, !12, i64 204}
-!50 = !{!4, !12, i64 200}
-!51 = !{!4, !12, i64 208}
-!52 = distinct !{!52, !42}
-!53 = distinct !{!53, !42}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = distinct !{!44, !42, !43}
+!45 = !{!4, !12, i64 156}
+!46 = !{!4, !13, i64 248}
+!47 = !{!10, !10, i64 0}
+!48 = distinct !{!48, !42, !43}
+!49 = !{!4, !13, i64 256}
+!50 = !{!4, !12, i64 204}
+!51 = !{!4, !12, i64 200}
+!52 = !{!4, !12, i64 208}
+!53 = distinct !{!53, !42, !43}
+!54 = distinct !{!54, !42, !43}

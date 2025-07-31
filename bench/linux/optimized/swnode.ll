@@ -171,11 +171,11 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = add i32 %3, 1
-  br i1 %7, label %9, label %.preheader25, !llvm.loop !8
+  br i1 %7, label %9, label %.preheader25, !llvm.loop !9
 
 9:                                                ; preds = %.preheader25
   %10 = icmp slt i32 %8, 0
-  br i1 %10, label %.thread, label %11, !prof !9
+  br i1 %10, label %.thread, label %11, !prof !10
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %8 to i64
@@ -200,7 +200,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %28 = load i8, ptr %27, align 8, !range !10, !noundef !11
+  %28 = load i8, ptr %27, align 8, !range !11, !noundef !12
   %29 = icmp eq i8 %28, 0
   br i1 %26, label %35, label %30
 
@@ -305,18 +305,18 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %85 = add nsw i64 %82, -1
   %86 = trunc i64 %82 to i32
   %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %81, label %.critedge12, !llvm.loop !12
+  br i1 %87, label %81, label %.critedge12, !llvm.loop !13
 
 88:                                               ; preds = %73, %.preheader21
   %89 = add i32 %67, 1
   %90 = sext i32 %89 to i64
   %.not = icmp ugt i64 %63, %90
   %91 = add i32 %65, 1
-  br i1 %.not, label %.preheader21, label %.loopexit22.loopexit, !llvm.loop !13
+  br i1 %.not, label %.preheader21, label %.loopexit22.loopexit, !llvm.loop !14
 
 .critedge12:                                      ; preds = %81, %76
   %92 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %93 = load i8, ptr %92, align 8, !range !10, !noundef !11
+  %93 = load i8, ptr %92, align 8, !range !11, !noundef !12
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %95, label %.loopexit23
 
@@ -354,7 +354,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %110 = load i8, ptr %109, align 8, !range !10, !noundef !11
+  %110 = load i8, ptr %109, align 8, !range !11, !noundef !12
   %111 = icmp eq i8 %110, 0
   %112 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br i1 %111, label %113, label %115
@@ -376,11 +376,11 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   tail call void @kfree(ptr noundef %121) #12
   %122 = add nuw nsw i64 %119, 1
   %123 = icmp eq i64 %122, %117
-  br i1 %123, label %.thread16, label %.preheader20, !llvm.loop !14
+  br i1 %123, label %.thread16, label %.preheader20, !llvm.loop !15
 
 .thread16:                                        ; preds = %.preheader20, %115, %105
   %124 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %125 = load i8, ptr %124, align 8, !range !10, !noundef !11
+  %125 = load i8, ptr %124, align 8, !range !11, !noundef !12
   %126 = icmp eq i8 %125, 0
   br i1 %126, label %127, label %130
 
@@ -422,7 +422,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %147 = load i8, ptr %146, align 8, !range !10, !noundef !11
+  %147 = load i8, ptr %146, align 8, !range !11, !noundef !12
   %148 = icmp eq i8 %147, 0
   %149 = getelementptr inbounds nuw i8, ptr %137, i64 24
   br i1 %148, label %150, label %152
@@ -444,11 +444,11 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   tail call void @kfree(ptr noundef %158) #12
   %159 = add nuw nsw i64 %156, 1
   %160 = icmp eq i64 %159, %154
-  br i1 %160, label %.thread17, label %.preheader, !llvm.loop !14
+  br i1 %160, label %.thread17, label %.preheader, !llvm.loop !16
 
 .thread17:                                        ; preds = %.preheader, %141, %152, %.preheader19
   %161 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %162 = load i8, ptr %161, align 8, !range !10, !noundef !11
+  %162 = load i8, ptr %161, align 8, !range !11, !noundef !12
   %163 = icmp eq i8 %162, 0
   br i1 %163, label %164, label %167
 
@@ -463,7 +463,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   tail call void @kfree(ptr noundef %168) #12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %169 = icmp sgt i64 %indvars.iv, 0
-  br i1 %169, label %.preheader19, label %.loopexit, !llvm.loop !15
+  br i1 %169, label %.preheader19, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %167, %.loopexit23
   tail call void @kfree(ptr noundef nonnull %14) #12
@@ -473,7 +473,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 .critedge:                                        ; preds = %.loopexit22
   %171 = add nuw nsw i64 %21, 1
   %172 = icmp eq i64 %171, %19
-  br i1 %172, label %.thread, label %20, !llvm.loop !16
+  br i1 %172, label %.thread, label %20, !llvm.loop !18
 
 .thread:                                          ; preds = %.critedge, %9, %.loopexit, %16, %11, %1
   %173 = phi ptr [ %170, %.loopexit ], [ null, %1 ], [ inttoptr (i64 -12 to ptr), %11 ], [ %14, %16 ], [ inttoptr (i64 -12 to ptr), %9 ], [ %14, %.critedge ]
@@ -508,7 +508,7 @@ define dso_local void @property_entries_free(ptr noundef %0) #1 align 16 {
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = load i8, ptr %15, align 8, !range !10, !noundef !11
+  %16 = load i8, ptr %15, align 8, !range !11, !noundef !12
   %17 = icmp eq i8 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %17, label %19, label %21
@@ -530,11 +530,11 @@ define dso_local void @property_entries_free(ptr noundef %0) #1 align 16 {
   tail call void @kfree(ptr noundef %27) #12
   %28 = add nuw nsw i64 %25, 1
   %29 = icmp eq i64 %28, %23
-  br i1 %29, label %.thread, label %.preheader, !llvm.loop !14
+  br i1 %29, label %.thread, label %.preheader, !llvm.loop !19
 
 .thread:                                          ; preds = %.preheader, %10, %21, %.preheader1
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %31 = load i8, ptr %30, align 8, !range !10, !noundef !11
+  %31 = load i8, ptr %30, align 8, !range !11, !noundef !12
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %33, label %36
 
@@ -550,7 +550,7 @@ define dso_local void @property_entries_free(ptr noundef %0) #1 align 16 {
   %38 = getelementptr i8, ptr %6, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.loopexit, label %.preheader1, !llvm.loop !17
+  br i1 %40, label %.loopexit, label %.preheader1, !llvm.loop !20
 
 .loopexit:                                        ; preds = %36, %3
   tail call void @kfree(ptr noundef nonnull %0) #12
@@ -596,7 +596,7 @@ define dso_local ptr @software_node_find_by_name(ptr noundef readnone captures(a
 22:                                               ; preds = %19, %16, %.preheader
   %23 = load ptr, ptr %10, align 8
   %24 = icmp eq ptr %23, %7
-  br i1 %24, label %.thread, label %.preheader, !llvm.loop !18
+  br i1 %24, label %.thread, label %.preheader, !llvm.loop !21
 
 .thread:                                          ; preds = %22, %4
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -644,7 +644,7 @@ define dso_local i32 @software_node_register_node_group(ptr noundef readonly cap
   %9 = getelementptr ptr, ptr %0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit9, label %.preheader11, !llvm.loop !19
+  br i1 %11, label %.loopexit9, label %.preheader11, !llvm.loop !22
 
 .preheader11:                                     ; preds = %3, %6
   %12 = phi ptr [ %10, %6 ], [ %4, %3 ]
@@ -660,7 +660,7 @@ define dso_local i32 @software_node_register_node_group(ptr noundef readonly cap
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = add i32 %16, 1
-  br i1 %20, label %22, label %.preheader10, !llvm.loop !20
+  br i1 %20, label %22, label %.preheader10, !llvm.loop !23
 
 22:                                               ; preds = %.preheader10
   %23 = icmp eq i32 %16, 0
@@ -691,7 +691,7 @@ define dso_local i32 @software_node_register_node_group(ptr noundef readonly cap
   %38 = getelementptr i8, ptr %35, i64 120
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %27
-  br i1 %40, label %41, label %33, !llvm.loop !5
+  br i1 %40, label %41, label %33, !llvm.loop !24
 
 41:                                               ; preds = %37
   %42 = getelementptr i8, ptr %35, i64 -8
@@ -719,7 +719,7 @@ define dso_local i32 @software_node_register_node_group(ptr noundef readonly cap
 
 .thread:                                          ; preds = %.preheader, %52, %48, %.loopexit
   %53 = icmp eq i64 %25, 0
-  br i1 %53, label %.loopexit9, label %.preheader, !llvm.loop !21
+  br i1 %53, label %.loopexit9, label %.preheader, !llvm.loop !25
 
 .loopexit9:                                       ; preds = %6, %.thread, %22, %3, %1
   %54 = phi i32 [ 0, %1 ], [ %14, %22 ], [ 0, %3 ], [ %14, %.thread ], [ 0, %6 ]
@@ -750,7 +750,7 @@ define dso_local i32 @software_node_register(ptr noundef %0) #1 align 16 {
   %14 = getelementptr i8, ptr %11, i64 120
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %3
-  br i1 %16, label %17, label %9, !llvm.loop !5
+  br i1 %16, label %17, label %9, !llvm.loop !26
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %11, i64 -8
@@ -784,7 +784,7 @@ define dso_local i32 @software_node_register(ptr noundef %0) #1 align 16 {
   %33 = getelementptr i8, ptr %30, i64 120
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %0
-  br i1 %35, label %36, label %28, !llvm.loop !5
+  br i1 %35, label %36, label %28, !llvm.loop !27
 
 36:                                               ; preds = %32
   %37 = getelementptr i8, ptr %30, i64 -8
@@ -830,7 +830,7 @@ define dso_local void @software_node_unregister_node_group(ptr noundef readonly 
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = add i32 %3, 1
-  br i1 %7, label %9, label %.preheader7, !llvm.loop !20
+  br i1 %7, label %9, label %.preheader7, !llvm.loop !28
 
 9:                                                ; preds = %.preheader7
   %10 = icmp eq i32 %3, 0
@@ -861,7 +861,7 @@ define dso_local void @software_node_unregister_node_group(ptr noundef readonly 
   %25 = getelementptr i8, ptr %22, i64 120
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %14
-  br i1 %27, label %28, label %20, !llvm.loop !5
+  br i1 %27, label %28, label %20, !llvm.loop !29
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %22, i64 -8
@@ -889,7 +889,7 @@ define dso_local void @software_node_unregister_node_group(ptr noundef readonly 
 
 .thread:                                          ; preds = %.preheader, %39, %35, %.loopexit
   %40 = icmp eq i64 %12, 0
-  br i1 %40, label %.loopexit6, label %.preheader, !llvm.loop !21
+  br i1 %40, label %.loopexit6, label %.preheader, !llvm.loop !30
 
 .loopexit6:                                       ; preds = %.thread, %9, %1
   ret void
@@ -917,7 +917,7 @@ define dso_local void @software_node_unregister(ptr noundef readnone captures(ad
   %12 = getelementptr i8, ptr %9, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %0
-  br i1 %14, label %15, label %7, !llvm.loop !5
+  br i1 %14, label %15, label %7, !llvm.loop !31
 
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %9, i64 -8
@@ -1218,7 +1218,7 @@ define dso_local i32 @device_add_software_node(ptr noundef %0, ptr noundef %1) #
   %36 = getelementptr i8, ptr %32, i64 120
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, %1
-  br i1 %38, label %39, label %30, !llvm.loop !5
+  br i1 %38, label %39, label %30, !llvm.loop !32
 
 39:                                               ; preds = %35
   %40 = getelementptr i8, ptr %32, i64 -8
@@ -1258,7 +1258,7 @@ define dso_local i32 @device_add_software_node(ptr noundef %0, ptr noundef %1) #
   %59 = getelementptr i8, ptr %56, i64 120
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %1
-  br i1 %61, label %62, label %54, !llvm.loop !5
+  br i1 %61, label %62, label %54, !llvm.loop !33
 
 62:                                               ; preds = %58
   %63 = getelementptr i8, ptr %56, i64 -8
@@ -1513,7 +1513,7 @@ define dso_local i32 @device_create_managed_software_node(ptr noundef %0, ptr no
   %15 = getelementptr i8, ptr %11, i64 120
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %2
-  br i1 %17, label %.loopexit, label %9, !llvm.loop !5
+  br i1 %17, label %.loopexit, label %9, !llvm.loop !34
 
 .loopexit:                                        ; preds = %14
   %18 = getelementptr i8, ptr %11, i64 -8
@@ -1700,7 +1700,7 @@ define internal zeroext i1 @software_node_property_present(ptr noundef readonly 
   %25 = getelementptr i8, ptr %21, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %.preheader, !llvm.loop !22
+  br i1 %27, label %28, label %.preheader, !llvm.loop !35
 
 28:                                               ; preds = %24, %.preheader
   %29 = phi ptr [ null, %24 ], [ %21, %.preheader ]
@@ -1758,7 +1758,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly captures(
   %31 = getelementptr i8, ptr %27, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %property_entry_read_int_array.exit, label %.preheader.i, !llvm.loop !22
+  br i1 %33, label %property_entry_read_int_array.exit, label %.preheader.i, !llvm.loop !36
 
 34:                                               ; preds = %.preheader.i
   %35 = icmp eq ptr %27, null
@@ -1776,7 +1776,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly captures(
   br i1 %42, label %property_entry_read_int_array.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %20), !range !23
+  %44 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %20), !range !37
   %45 = icmp samesign ult i64 %44, 2
   %46 = icmp ult i32 %2, 9
   %47 = and i1 %46, %45
@@ -1803,7 +1803,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly captures(
   %59 = getelementptr i8, ptr %55, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread17.i, label %.preheader18.i, !llvm.loop !22
+  br i1 %61, label %.thread17.i, label %.preheader18.i, !llvm.loop !38
 
 62:                                               ; preds = %.preheader18.i
   %63 = icmp eq ptr %55, null
@@ -1817,7 +1817,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly captures(
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %70 = load i8, ptr %69, align 8, !range !10, !noundef !11
+  %70 = load i8, ptr %69, align 8, !range !11, !noundef !12
   %71 = icmp eq i8 %70, 0
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 24
   br i1 %71, label %73, label %.thread15.i
@@ -1892,7 +1892,7 @@ define internal i32 @software_node_read_string_array(ptr noundef readonly captur
   %27 = getelementptr i8, ptr %23, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread16, label %.preheader23, !llvm.loop !22
+  br i1 %29, label %.thread16, label %.preheader23, !llvm.loop !39
 
 30:                                               ; preds = %.preheader23
   %31 = icmp eq ptr %23, null
@@ -1925,7 +1925,7 @@ define internal i32 @software_node_read_string_array(ptr noundef readonly captur
   %48 = getelementptr i8, ptr %44, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread22, label %.preheader, !llvm.loop !22
+  br i1 %50, label %.thread22, label %.preheader, !llvm.loop !40
 
 51:                                               ; preds = %.preheader
   %52 = icmp eq ptr %44, null
@@ -1939,7 +1939,7 @@ define internal i32 @software_node_read_string_array(ptr noundef readonly captur
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %59 = load i8, ptr %58, align 8, !range !10, !noundef !11
+  %59 = load i8, ptr %58, align 8, !range !11, !noundef !12
   %60 = icmp eq i8 %59, 0
   %61 = getelementptr inbounds nuw i8, ptr %44, i64 24
   br i1 %60, label %62, label %.thread20
@@ -2018,7 +2018,7 @@ define internal nonnull ptr @software_node_get_name_prefix(ptr noundef %0) #1 al
   %12 = icmp eq ptr %11, null
   %13 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
   %14 = or i1 %12, %13
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !41
 
 .loopexit:                                        ; preds = %10, %.preheader, %4
   %15 = phi ptr [ %2, %4 ], [ %11, %10 ], [ %6, %.preheader ]
@@ -2167,7 +2167,7 @@ define internal ptr @software_node_get_named_child_node(ptr noundef %0, ptr noun
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %22) #12
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %.preheader, !llvm.loop !25
+  br i1 %24, label %25, label %.preheader, !llvm.loop !42
 
 25:                                               ; preds = %20
   %26 = getelementptr i8, ptr %18, i64 -160
@@ -2221,7 +2221,7 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
   %29 = getelementptr i8, ptr %25, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread20, label %.preheader31, !llvm.loop !22
+  br i1 %31, label %.thread20, label %.preheader31, !llvm.loop !43
 
 32:                                               ; preds = %.preheader31
   %33 = icmp eq ptr %25, null
@@ -2235,7 +2235,7 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %40 = load i8, ptr %39, align 8, !range !10, !noundef !11
+  %40 = load i8, ptr %39, align 8, !range !11, !noundef !12
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %42, label %.thread20
 
@@ -2277,7 +2277,7 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
   %64 = getelementptr i8, ptr %60, i64 120
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %52
-  br i1 %66, label %67, label %58, !llvm.loop !5
+  br i1 %66, label %67, label %58, !llvm.loop !44
 
 67:                                               ; preds = %63
   %68 = getelementptr i8, ptr %60, i64 -8
@@ -2314,7 +2314,7 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
   %87 = getelementptr i8, ptr %83, i64 32
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread28, label %.preheader, !llvm.loop !22
+  br i1 %89, label %.thread28, label %.preheader, !llvm.loop !45
 
 90:                                               ; preds = %.preheader
   %91 = icmp eq ptr %83, null
@@ -2328,7 +2328,7 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %98 = load i8, ptr %97, align 8, !range !10, !noundef !11
+  %98 = load i8, ptr %97, align 8, !range !11, !noundef !12
   %99 = icmp eq i8 %98, 0
   %100 = getelementptr inbounds nuw i8, ptr %83, i64 24
   br i1 %99, label %101, label %.thread26
@@ -2403,7 +2403,7 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
   store i64 %138, ptr %139, align 8
   %140 = add nuw nsw i64 %136, 1
   %141 = icmp eq i64 %140, %134
-  br i1 %141, label %.thread20, label %135, !llvm.loop !26
+  br i1 %141, label %.thread20, label %135, !llvm.loop !46
 
 .thread20:                                        ; preds = %28, %135, %48, %21, %.thread, %.thread22, %125, %.thread30, %113, %.thread28, %67, %42, %38, %34, %32
   %142 = phi i32 [ -2, %32 ], [ -22, %34 ], [ -22, %38 ], [ -2, %42 ], [ -2, %67 ], [ %111, %.thread28 ], [ -22, %113 ], [ 0, %.thread30 ], [ 0, %125 ], [ -2, %.thread22 ], [ -2, %.thread ], [ -2, %21 ], [ -2, %48 ], [ 0, %135 ], [ -2, %28 ]
@@ -2494,7 +2494,7 @@ define internal ptr @software_node_graph_get_next_endpoint(ptr noundef %0, ptr n
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.4, ptr noundef %57) #12
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %.preheader31, !llvm.loop !25
+  br i1 %59, label %60, label %.preheader31, !llvm.loop !47
 
 60:                                               ; preds = %55
   %61 = getelementptr i8, ptr %53, i64 -160
@@ -2602,7 +2602,7 @@ define internal ptr @software_node_graph_get_next_endpoint(ptr noundef %0, ptr n
 113:                                              ; preds = %.thread28, %107
   %114 = tail call fastcc ptr @swnode_graph_find_next_port(ptr noundef %77, ptr noundef nonnull %78)
   %115 = icmp eq ptr %114, null
-  br i1 %115, label %.thread20.thread, label %.preheader, !llvm.loop !27
+  br i1 %115, label %.thread20.thread, label %.preheader, !llvm.loop !48
 
 .thread20.thread:                                 ; preds = %113, %15, %17, %24, %112, %.thread20
   %116 = phi ptr [ %77, %112 ], [ %73, %.thread20 ], [ null, %24 ], [ null, %17 ], [ null, %15 ], [ %77, %113 ]
@@ -2655,7 +2655,7 @@ define internal ptr @software_node_graph_get_remote_endpoint(ptr noundef readonl
   %26 = getelementptr i8, ptr %22, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread, label %.preheader, !llvm.loop !22
+  br i1 %28, label %.thread, label %.preheader, !llvm.loop !49
 
 29:                                               ; preds = %.preheader
   %30 = icmp eq ptr %22, null
@@ -2669,7 +2669,7 @@ define internal ptr @software_node_graph_get_remote_endpoint(ptr noundef readonl
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %37 = load i8, ptr %36, align 8, !range !10, !noundef !11
+  %37 = load i8, ptr %36, align 8, !range !11, !noundef !12
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %.thread
 
@@ -2697,7 +2697,7 @@ define internal ptr @software_node_graph_get_remote_endpoint(ptr noundef readonl
   %53 = getelementptr i8, ptr %50, i64 120
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, %42
-  br i1 %55, label %56, label %48, !llvm.loop !5
+  br i1 %55, label %56, label %48, !llvm.loop !50
 
 56:                                               ; preds = %52
   %57 = getelementptr i8, ptr %50, i64 -8
@@ -2942,7 +2942,7 @@ define internal fastcc ptr @swnode_graph_find_next_port(ptr noundef %0, ptr noun
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @strncmp(ptr noundef %47, ptr noundef nonnull dereferenceable(6) @.str.5, i64 noundef 5) #12
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.loopexit, label %.split, !llvm.loop !28
+  br i1 %49, label %.loopexit, label %.split, !llvm.loop !51
 
 .loopexit:                                        ; preds = %32, %.thread8, %.thread6
   %50 = phi ptr [ null, %.thread6 ], [ null, %32 ], [ %35, %.thread8 ]
@@ -3063,27 +3063,50 @@ attributes #14 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = !{i64 0, i64 65}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !6, !7, !8}
+!30 = distinct !{!30, !6, !7, !8}
+!31 = distinct !{!31, !6, !7, !8}
+!32 = distinct !{!32, !6, !7, !8}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = !{i64 0, i64 65}
+!38 = distinct !{!38, !6, !7, !8}
+!39 = distinct !{!39, !6, !7, !8}
+!40 = distinct !{!40, !6, !7, !8}
+!41 = distinct !{!41, !6, !7, !8}
+!42 = distinct !{!42, !6, !7, !8}
+!43 = distinct !{!43, !6, !7, !8}
+!44 = distinct !{!44, !6, !7, !8}
+!45 = distinct !{!45, !6, !7, !8}
+!46 = distinct !{!46, !6, !7, !8}
+!47 = distinct !{!47, !6, !7, !8}
+!48 = distinct !{!48, !6, !7, !8}
+!49 = distinct !{!49, !6, !7, !8}
+!50 = distinct !{!50, !6, !7, !8}
+!51 = distinct !{!51, !6, !7, !8}

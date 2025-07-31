@@ -742,13 +742,13 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !73
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
   %6 = load ptr, ptr %1, align 8, !tbaa !60
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %10, align 8, !tbaa !75
   %12 = load ptr, ptr %0, align 8, !tbaa !60
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -784,12 +784,12 @@ _ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit, %22
   store ptr %20, ptr %0, align 8, !tbaa !60
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
-  store ptr %23, ptr %10, align 8, !tbaa !74
+  store ptr %23, ptr %10, align 8, !tbaa !75
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !73
+  %26 = load ptr, ptr %25, align 8, !tbaa !74
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %27, %14
   %.not24 = icmp ult i64 %28, %9
@@ -810,9 +810,9 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
 32:                                               ; preds = %31
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %6, i64 %28, i1 false)
   %.pre = load ptr, ptr %1, align 8, !tbaa !60
-  %.pre26 = load ptr, ptr %25, align 8, !tbaa !73
+  %.pre26 = load ptr, ptr %25, align 8, !tbaa !74
   %.pre27 = load ptr, ptr %0, align 8, !tbaa !60
-  %.pre28 = load ptr, ptr %4, align 8, !tbaa !73
+  %.pre28 = load ptr, ptr %4, align 8, !tbaa !74
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
   %.pre32 = sub i64 %.pre29, %.pre30
@@ -838,7 +838,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T
   %41 = load ptr, ptr %0, align 8, !tbaa !60
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %42, ptr %43, align 8, !tbaa !73
+  store ptr %42, ptr %43, align 8, !tbaa !74
   br label %44
 
 44:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, %2
@@ -873,9 +873,9 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev21ExponentTransformImplEPFvPNS0_17ExponentTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -900,7 +900,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev21Expon
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev21ExponentTransformImplEPFvPNS0_17ExponentTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !78
+  %4 = load ptr, ptr %3, align 8, !tbaa !79
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev17ExponentTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -1038,12 +1038,13 @@ attributes #25 = { builtin nounwind }
 !68 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
 !69 = !{!"_ZTSSt6locale", !70, i64 0}
 !70 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
-!71 = distinct !{!71, !72}
+!71 = distinct !{!71, !72, !73}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = !{!51, !52, i64 8}
-!74 = !{!51, !52, i64 16}
-!75 = !{!9, !9, i64 0}
-!76 = !{!77, !22, i64 24}
-!77 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev21ExponentTransformImplEPFvPNS0_17ExponentTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
-!78 = !{!79, !35, i64 8}
-!79 = !{!"_ZTSSt9type_info", !35, i64 8}
+!73 = !{!"llvm.loop.estimated_trip_count"}
+!74 = !{!51, !52, i64 8}
+!75 = !{!51, !52, i64 16}
+!76 = !{!9, !9, i64 0}
+!77 = !{!78, !22, i64 24}
+!78 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev21ExponentTransformImplEPFvPNS0_17ExponentTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
+!79 = !{!80, !35, i64 8}
+!80 = !{!"_ZTSSt9type_info", !35, i64 8}

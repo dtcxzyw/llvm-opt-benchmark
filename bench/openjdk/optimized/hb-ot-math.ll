@@ -692,7 +692,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26
   %.not.i.i.i = icmp ne ptr %.sroa.023.1.i, %69
   %97 = icmp ugt i32 %.sroa.5.045.i, 1
   %98 = select i1 %.not.i.i.i, i1 true, i1 %97
-  br i1 %98, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i, label %_ZNK2OT21MathGlyphConstruction12get_variantsE14hb_direction_tP9hb_font_tjPjP26hb_ot_math_glyph_variant_t.exit
+  br i1 %98, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i, label %_ZNK2OT21MathGlyphConstruction12get_variantsE14hb_direction_tP9hb_font_tjPjP26hb_ot_math_glyph_variant_t.exit, !llvm.loop !7
 
 _ZNK2OT21MathGlyphConstruction12get_variantsE14hb_direction_tP9hb_font_tjPjP26hb_ot_math_glyph_variant_t.exit: ; preds = %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i, %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i, %_ZNK2OT12MathVariants22get_glyph_constructionEj14hb_direction_tP9hb_font_t.exit, %_ZNK10hb_array_tIKN2OT22MathGlyphVariantRecordEE9sub_arrayEjPj.exit.i
   %99 = getelementptr inbounds nuw i8, ptr %.011.i, i64 2
@@ -1336,7 +1336,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %81 = tail call float @llvm.fmuladd.f32(float %61, float %80, float %.04757)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader54, label %.lr.ph.split, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader54, label %.lr.ph.split, !llvm.loop !9
 
 .preheader:                                       ; preds = %86, %.preheader54
   %.150.lcssa = phi i32 [ %.049.lcssa, %.preheader54 ], [ %32, %86 ]
@@ -1377,7 +1377,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %105 = tail call float @llvm.fmuladd.f32(float %95, float %104, float %.164)
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.preheader, label %86, !llvm.loop !9
+  br i1 %exitcond86.not, label %.preheader, label %86, !llvm.loop !11
 
 106:                                              ; preds = %.lr.ph72, %106
   %indvars.iv87 = phi i64 [ %84, %.lr.ph72 ], [ %indvars.iv.next88, %106 ]
@@ -1398,7 +1398,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %119 = tail call float @llvm.fmuladd.f32(float %115, float %118, float %.270)
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %.loopexit, label %106, !llvm.loop !10
+  br i1 %exitcond91.not, label %.loopexit, label %106, !llvm.loop !12
 
 .loopexit:                                        ; preds = %106, %.preheader, %6
   %.0 = phi float [ 0.000000e+00, %6 ], [ %.1.lcssa, %.preheader ], [ %119, %106 ]
@@ -1535,7 +1535,7 @@ _ZNK2OT13VarRegionAxis8evaluateEi.exit.thread:    ; preds = %71, %51, %37, %_ZNK
   %83 = fmul float %.02940, %.0.i36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread, %20
   %.029.lcssa = phi float [ 1.000000e+00, %20 ], [ %83, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread ]
@@ -1813,7 +1813,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT6Layout6Common8Coverage12get_cove
   %.121.i.i.i.i.i = phi i32 [ %33, %32 ], [ %.0202.i.i.i.i.i, %35 ]
   %.1.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i, %32 ], [ %36, %35 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i, %.121.i.i.i.i.i
-  br i1 %.not.not.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE12get_coverageEj.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.not.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE12get_coverageEj.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
 38:                                               ; preds = %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -1874,7 +1874,7 @@ _ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKv
   %.121.i.i.i.i.i.i = phi i32 [ %69, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i ], [ %.0202.i.i.i.i.i.i, %70 ]
   %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.thread.i.i.i.i.i.i ], [ %71, %70 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
-  br i1 %.not.not.i.i.i.i.i.i, label %_ZNK2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE7bsearchIjEERKS5_RKT_SB_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.not.i.i.i.i.i.i, label %_ZNK2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE7bsearchIjEERKS5_RKT_SB_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
 
 73:                                               ; preds = %_ZL14_hb_cmp_methodIjKN2OT6Layout6Common11RangeRecordINS1_10SmallTypesEEEJEEiPKvS8_DpT1_.exit.i.i.i.i.i.i
   %74 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %40, i64 %50
@@ -2078,7 +2078,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT8MathKern9get_valueEiP9hb_font_t(
   %52 = select i1 %49, i32 %50, i32 0
   %.1 = add i32 %52, %.024
   %.not = icmp eq i32 %.120, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %17, !llvm.loop !14
+  br i1 %.not, label %._crit_edge.loopexit, label %17, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %17
   %53 = zext i32 %.1 to i64
@@ -2234,7 +2234,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT8MathKern11get_entriesEjPjP23hb_o
   %89 = load i32, ptr %2, align 4
   %90 = zext i32 %89 to i64
   %91 = icmp samesign ult i64 %indvars.iv.next, %90
-  br i1 %91, label %23, label %.loopexit, !llvm.loop !15
+  br i1 %91, label %23, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge, %17, %5
   ret i32 %16
@@ -2367,7 +2367,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES1_I23hb_
   %.not.i.i = icmp ne ptr %.sroa.026.1, %22
   %83 = icmp ugt i32 %.sroa.5.048, 1
   %84 = select i1 %.not.i.i, i1 true, i1 %83
-  br i1 %84, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit.thread
+  br i1 %84, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit.thread, !llvm.loop !18
 
 _ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit.thread: ; preds = %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit, %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES1_I23hb_ot_math_glyph_part_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit, %_ZNK10hb_array_tIKN2OT19MathGlyphPartRecordEE9sub_arrayEjPj.exit, %7
   %.not15 = icmp eq ptr %6, null
@@ -2510,7 +2510,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj40EE11call_createI9hb_blob_t22hb_table_lazy_
 _ZN16hb_lazy_loader_tIN2OT4MATHE22hb_table_lazy_loader_tIS1_Lj40ELb1EE9hb_face_tLj40E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %30, %31, %33
   %34 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %10, label %.loopexit.split.loop.exit12
+  br i1 %.not, label %10, label %.loopexit.split.loop.exit12, !llvm.loop !19
 
 .loopexit.split.loop.exit12:                      ; preds = %_ZN16hb_lazy_loader_tIN2OT4MATHE22hb_table_lazy_loader_tIS1_Lj40ELb1EE9hb_face_tLj40E9hb_blob_tE10do_destroyEPS5_.exit, %1
   %.lcssa = phi i64 [ %3, %1 ], [ %34, %_ZN16hb_lazy_loader_tIN2OT4MATHE22hb_table_lazy_loader_tIS1_Lj40ELb1EE9hb_face_tLj40E9hb_blob_tE10do_destroyEPS5_.exit ]
@@ -2641,7 +2641,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge25, label %13, !llvm.loop !20
 
 .critedge23:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
@@ -2734,7 +2734,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4MATH8sanitizeEP21hb_sanit
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i, 51
   %or.cond.not.i.i.i.i = select i1 %43, i1 %exitcond.i.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i.i, label %41, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, !llvm.loop !16
+  br i1 %or.cond.not.i.i.i.i, label %41, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, !llvm.loop !21
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %41
   br i1 %43, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
@@ -3445,7 +3445,7 @@ _ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21h
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %110, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.thread36, !llvm.loop !17
+  br i1 %or.cond.not, label %.lr.ph, label %.thread36, !llvm.loop !22
 
 .thread36:                                        ; preds = %.lr.ph, %102, %_ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %.thread, %85, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %13, %2
   %111 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %85 ], [ true, %102 ], [ %110, %.lr.ph ]
@@ -3636,7 +3636,7 @@ _ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21h
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %110, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.thread36, !llvm.loop !18
+  br i1 %or.cond.not, label %.lr.ph, label %.thread36, !llvm.loop !23
 
 .thread36:                                        ; preds = %.lr.ph, %102, %_ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %.thread, %85, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %13, %2
   %111 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %85 ], [ true, %102 ], [ %110, %.lr.ph ]
@@ -3827,7 +3827,7 @@ _ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %110, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.thread36, !llvm.loop !19
+  br i1 %or.cond.not, label %.lr.ph, label %.thread36, !llvm.loop !24
 
 .thread36:                                        ; preds = %.lr.ph, %102, %_ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %.thread, %85, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %13, %2
   %111 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %85 ], [ true, %102 ], [ %110, %.lr.ph ]
@@ -3918,7 +3918,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.i.i.i.i = icmp ne i64 %indvars.iv.i.i.i.i, %58
   %or.cond.not.i.i.i.i = select i1 %61, i1 %exitcond.i.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i.i, label %59, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, !llvm.loop !20
+  br i1 %or.cond.not.i.i.i.i, label %59, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, !llvm.loop !25
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %59
   br i1 %61, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
@@ -3942,7 +3942,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 .thread:                                          ; preds = %19, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.thread16, label %10, !llvm.loop !21
+  br i1 %exitcond, label %.thread16, label %10, !llvm.loop !26
 
 .thread16:                                        ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %10, %.thread
   %.lcssa20 = phi i1 [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %10 ], [ true, %.thread ]
@@ -4313,7 +4313,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %223
 .thread.i:                                        ; preds = %229, %216, %210
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread46, label %201, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.thread46, label %201, !llvm.loop !27
 
 .thread46:                                        ; preds = %.thread.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %223, %201, %184, %.thread54, %175, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37, %.thread, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %13, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit, %2
   %230 = phi i1 [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit ], [ false, %2 ], [ false, %13 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread ], [ false, %.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread ], [ false, %175 ], [ false, %.thread54 ], [ true, %184 ], [ true, %.thread.i ], [ false, %201 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %223 ]
@@ -4511,18 +4511,23 @@ attributes #11 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2152622206}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !8}
+!12 = distinct !{!12, !10, !8}
+!13 = distinct !{!13, !10, !8}
+!14 = distinct !{!14, !10, !8}
+!15 = distinct !{!15, !10, !8}
+!16 = distinct !{!16, !10, !8}
+!17 = distinct !{!17, !10, !8}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
+!21 = distinct !{!21, !10, !8}
+!22 = distinct !{!22, !10, !8}
+!23 = distinct !{!23, !10, !8}
+!24 = distinct !{!24, !10, !8}
+!25 = distinct !{!25, !10, !8}
+!26 = distinct !{!26, !10, !8}
+!27 = distinct !{!27, !10, !8}

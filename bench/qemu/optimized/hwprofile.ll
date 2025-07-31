@@ -159,9 +159,9 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %23, %18, %54, %44, 
   br label %63
 
 63:                                               ; preds = %60, %._crit_edge
-  %64 = load i8, ptr @source, align 1, !range !5, !noundef !6
+  %64 = load i8, ptr @source, align 1, !range !6, !noundef !7
   %65 = trunc nuw i8 %64 to i1
-  %66 = load i8, ptr @pattern, align 1, !range !5
+  %66 = load i8, ptr @pattern, align 1, !range !6
   %67 = trunc nuw i8 %66 to i1
   %or.cond = select i1 %65, i1 %67, i1 false
   br i1 %or.cond, label %68, label %71
@@ -173,7 +173,7 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %23, %18, %54, %44, 
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %73 = load i8, ptr %72, align 8, !range !5, !noundef !6
+  %73 = load i8, ptr %72, align 8, !range !6, !noundef !7
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %78, label %75
 
@@ -247,7 +247,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
 .lr.ph:                                           ; preds = %2, %11
   %.09 = phi i64 [ %13, %11 ], [ 0, %2 ]
   %4 = tail call ptr @qemu_plugin_tb_get_insn(ptr noundef %1, i64 noundef %.09) #7
-  %5 = load i8, ptr @source, align 1, !range !5, !noundef !6
+  %5 = load i8, ptr @source, align 1, !range !6, !noundef !7
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %11
 
@@ -263,7 +263,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   tail call void @qemu_plugin_register_vcpu_mem_cb(ptr noundef %4, ptr noundef nonnull @vcpu_haddr, i32 noundef 0, i32 noundef %12, ptr noundef null) #7
   %13 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %13, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %11, %2
   ret void
@@ -274,9 +274,9 @@ declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str) #7
-  %4 = load i8, ptr @pattern, align 1, !range !5, !noundef !6
+  %4 = load i8, ptr @pattern, align 1, !range !6, !noundef !7
   %5 = trunc nuw i8 %4 to i1
-  %6 = load i8, ptr @source, align 1, !range !5
+  %6 = load i8, ptr @source, align 1, !range !6
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 true, i1 %7
   br i1 %or.cond, label %g_string_append_c_inline.exit, label %8
@@ -360,7 +360,7 @@ g_string_append_c_inline.exit:                    ; preds = %31, %25, %2
 46:                                               ; preds = %42
   %47 = tail call ptr @g_hash_table_get_values(ptr noundef nonnull %45) #7
   %48 = tail call ptr @g_list_sort(ptr noundef %47, ptr noundef nonnull @sort_loc) #7
-  %49 = load i8, ptr @pattern, align 1, !range !5, !noundef !6
+  %49 = load i8, ptr @pattern, align 1, !range !6, !noundef !7
   %50 = trunc nuw i8 %49 to i1
   %51 = select i1 %50, ptr @.str.22, ptr @.str.23
   %52 = load ptr, ptr %43, align 8
@@ -429,7 +429,7 @@ g_string_append_c_inline.exit30:                  ; preds = %78, %84
   %86 = getelementptr inbounds nuw i8, ptr %.02340, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not29 = icmp eq ptr %87, null
-  br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 88:                                               ; preds = %42
   tail call fastcc void @fmt_dev_record(ptr noundef %3, ptr noundef nonnull %43)
@@ -439,7 +439,7 @@ g_string_append_c_inline.exit30:                  ; preds = %78, %84
   %89 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   %90 = load ptr, ptr %89, align 8
   %.not27 = icmp eq ptr %90, null
-  br i1 %.not27, label %._crit_edge, label %42, !llvm.loop !9
+  br i1 %.not27, label %._crit_edge, label %42, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %38
   tail call void @g_list_free(ptr noundef null) #7
@@ -497,9 +497,9 @@ define internal void @vcpu_haddr(i32 noundef %0, i32 noundef %1, i64 noundef %2,
   store ptr %10, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %16, ptr %18, align 8
-  %19 = load i8, ptr @pattern, align 1, !range !5, !noundef !6
+  %19 = load i8, ptr @pattern, align 1, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
-  %21 = load i8, ptr @source, align 1, !range !5
+  %21 = load i8, ptr @source, align 1, !range !6
   %22 = trunc nuw i8 %21 to i1
   %or.cond.i = select i1 %20, i1 true, i1 %22
   br i1 %or.cond.i, label %23, label %new_count.exit
@@ -588,7 +588,7 @@ new_count.exit:                                   ; preds = %15, %23
   br label %inc_count.exit
 
 inc_count.exit:                                   ; preds = %63, %56, %46, %39, %29
-  %70 = load i8, ptr @source, align 1, !range !5, !noundef !6
+  %70 = load i8, ptr @source, align 1, !range !6, !noundef !7
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %76
 
@@ -596,13 +596,13 @@ inc_count.exit:                                   ; preds = %63, %56, %46, %39, 
   %73 = load ptr, ptr @source_pc.0, align 8
   %74 = tail call i64 @qemu_plugin_u64_get(ptr %73, i64 0, i32 noundef %0) #7
   store i64 %74, ptr %5, align 8
-  %.pre = load i8, ptr @source, align 1, !range !5
+  %.pre = load i8, ptr @source, align 1, !range !6
   %75 = trunc nuw i8 %.pre to i1
   br label %76
 
 76:                                               ; preds = %72, %inc_count.exit
   %77 = phi i1 [ %75, %72 ], [ false, %inc_count.exit ]
-  %78 = load i8, ptr @pattern, align 1, !range !5, !noundef !6
+  %78 = load i8, ptr @pattern, align 1, !range !6, !noundef !7
   %79 = trunc nuw i8 %78 to i1
   %or.cond = select i1 %79, i1 true, i1 %77
   br i1 %or.cond, label %80, label %inc_count.exit36
@@ -808,10 +808,11 @@ attributes #10 = { nounwind allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}

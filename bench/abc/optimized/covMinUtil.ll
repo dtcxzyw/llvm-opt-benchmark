@@ -490,9 +490,9 @@ define void @Min_CoverCreate(ptr noundef captures(none) initializes((4, 8)) %0, 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.08 = phi ptr [ %5, %.lr.ph ], [ %1, %3 ]
   tail call void @Min_CubeCreate(ptr noundef nonnull %0, ptr noundef nonnull %.08, i8 noundef signext %2)
-  %5 = load ptr, ptr %.08, align 8, !tbaa !16
+  %5 = load ptr, ptr %.08, align 8, !tbaa !17
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load i32, ptr %4, align 4, !tbaa !7
@@ -601,7 +601,7 @@ define void @Min_CubeWrite(ptr noundef captures(none) %0, ptr noundef readonly c
   %19 = load i32, ptr %3, align 8
   %20 = and i32 %19, 1023
   %21 = icmp samesign ult i32 %18, %20
-  br i1 %21, label %7, label %._crit_edge, !llvm.loop !20
+  br i1 %21, label %7, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %7, %2
   %22 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 3, i64 1, ptr %0)
@@ -650,13 +650,13 @@ define void @Min_CoverWrite(ptr noundef captures(none) %0, ptr noundef readonly 
   %19 = load i32, ptr %3, align 8
   %20 = and i32 %19, 1023
   %21 = icmp samesign ult i32 %18, %20
-  br i1 %21, label %7, label %Min_CubeWrite.exit, !llvm.loop !20
+  br i1 %21, label %7, label %Min_CubeWrite.exit, !llvm.loop !21
 
 Min_CubeWrite.exit:                               ; preds = %7, %.lr.ph
   %22 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 3, i64 1, ptr %0)
-  %23 = load ptr, ptr %.06, align 8, !tbaa !16
+  %23 = load ptr, ptr %.06, align 8, !tbaa !17
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %Min_CubeWrite.exit, %2
   %putchar = tail call i32 @putchar(i32 10)
@@ -668,7 +668,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Min_CoverWriteStore(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr %1, align 8, !tbaa !22
+  %3 = load i32, ptr %1, align 8, !tbaa !23
   %.not16 = icmp slt i32 %3, 0
   br i1 %.not16, label %._crit_edge20, label %.lr.ph19
 
@@ -680,9 +680,9 @@ define void @Min_CoverWriteStore(ptr noundef captures(none) %0, ptr noundef read
 6:                                                ; preds = %.lr.ph19, %._crit_edge
   %7 = phi i32 [ %3, %.lr.ph19 ], [ %37, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next, %._crit_edge ]
-  %8 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %.01113 = load ptr, ptr %9, align 8, !tbaa !27
+  %.01113 = load ptr, ptr %9, align 8, !tbaa !28
   %.not1214 = icmp eq ptr %.01113, null
   br i1 %.not1214, label %._crit_edge, label %.lr.ph.preheader
 
@@ -693,7 +693,7 @@ define void @Min_CoverWriteStore(ptr noundef captures(none) %0, ptr noundef read
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %.01115 = phi ptr [ %.011, %36 ], [ %.01113, %.lr.ph.preheader ]
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %10)
-  %12 = load ptr, ptr %5, align 8, !tbaa !28
+  %12 = load ptr, ptr %5, align 8, !tbaa !29
   %13 = icmp eq ptr %.01115, %12
   br i1 %13, label %14, label %15
 
@@ -734,19 +734,19 @@ define void @Min_CoverWriteStore(ptr noundef captures(none) %0, ptr noundef read
   %32 = load i32, ptr %16, align 8
   %33 = and i32 %32, 1023
   %34 = icmp samesign ult i32 %31, %33
-  br i1 %34, label %20, label %Min_CubeWrite.exit, !llvm.loop !20
+  br i1 %34, label %20, label %Min_CubeWrite.exit, !llvm.loop !21
 
 Min_CubeWrite.exit:                               ; preds = %20, %15
   %35 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 3, i64 1, ptr %0)
   br label %36
 
 36:                                               ; preds = %Min_CubeWrite.exit, %14
-  %.011 = load ptr, ptr %.01115, align 8, !tbaa !27
+  %.011 = load ptr, ptr %.01115, align 8, !tbaa !28
   %.not12 = icmp eq ptr %.011, null
-  br i1 %.not12, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not12, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %36
-  %.pre = load i32, ptr %1, align 8, !tbaa !22
+  %.pre = load i32, ptr %1, align 8, !tbaa !23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
@@ -754,7 +754,7 @@ Min_CubeWrite.exit:                               ; preds = %20, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = sext i32 %37 to i64
   %.not.not = icmp slt i64 %indvars.iv, %38
-  br i1 %.not.not, label %6, label %._crit_edge20, !llvm.loop !30
+  br i1 %.not.not, label %6, label %._crit_edge20, !llvm.loop !31
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %2
   %putchar = tail call i32 @putchar(i32 10)
@@ -794,7 +794,7 @@ define void @Min_CoverWriteFile(ptr noundef readonly captures(address_is_null) %
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %15 = icmp sgt i64 %indvars.iv, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %14, %3
   %16 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.11)
@@ -816,9 +816,9 @@ define void @Min_CoverWriteFile(ptr noundef readonly captures(address_is_null) %
   %.07.i = phi i32 [ %26, %.lr.ph.i ], [ 0, %20 ]
   %.046.i = phi ptr [ %27, %.lr.ph.i ], [ %0, %20 ]
   %26 = add nuw nsw i32 %.07.i, 1
-  %27 = load ptr, ptr %.046.i, align 8, !tbaa !16
+  %27 = load ptr, ptr %.046.i, align 8, !tbaa !17
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %Min_CoverCountCubes.exit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %Min_CoverCountCubes.exit, label %.lr.ph.i, !llvm.loop !33
 
 Min_CoverCountCubes.exit.critedge:                ; preds = %._crit_edge
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.15, i32 noundef 0) #14
@@ -871,13 +871,13 @@ Min_CoverCountCubes.exit:                         ; preds = %.lr.ph.i, %Min_Cove
   %50 = load i32, ptr %34, align 8
   %51 = and i32 %50, 1023
   %52 = icmp samesign ult i32 %49, %51
-  br i1 %52, label %38, label %Min_CubeWrite.exit, !llvm.loop !20
+  br i1 %52, label %38, label %Min_CubeWrite.exit, !llvm.loop !21
 
 Min_CubeWrite.exit:                               ; preds = %38, %.lr.ph36
   %53 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 3, i64 1, ptr %16)
-  %54 = load ptr, ptr %.02434, align 8, !tbaa !16
+  %54 = load ptr, ptr %.02434, align 8, !tbaa !17
   %.not28 = icmp eq ptr %54, null
-  br i1 %.not28, label %._crit_edge37, label %.lr.ph36, !llvm.loop !33
+  br i1 %.not28, label %._crit_edge37, label %.lr.ph36, !llvm.loop !34
 
 ._crit_edge37:                                    ; preds = %Min_CubeWrite.exit, %33
   %55 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr %16)
@@ -918,7 +918,7 @@ define range(i32 0, 2) i32 @Min_CubeCheck(ptr noundef readonly captures(none) %0
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i32 %.06, 1
   %exitcond.not = icmp eq i32 %7, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %1, %6
   %.06 = phi i32 [ %7, %6 ], [ 0, %1 ]
@@ -942,13 +942,13 @@ define range(i32 0, 2) i32 @Min_CubeCheck(ptr noundef readonly captures(none) %0
 define ptr @Min_CoverCollect(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr null, ptr %3, align 8, !tbaa !27
+  store ptr null, ptr %3, align 8, !tbaa !28
   %.not25 = icmp slt i32 %1, 0
   br i1 %.not25, label %._crit_edge30, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = add nuw i32 %1, 1
   %wide.trip.count = zext i32 %6 to i64
   br label %7
@@ -957,62 +957,62 @@ define ptr @Min_CoverCollect(ptr noundef readonly captures(none) %0, i32 noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %._crit_edge ]
   %.01626 = phi ptr [ %3, %.lr.ph29 ], [ %.1.lcssa, %._crit_edge ]
   %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %.not18 = icmp eq ptr %9, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.01424.sink = phi ptr [ %10, %.lr.ph ], [ %9, %7 ]
   %.122 = phi ptr [ %.01424.sink, %.lr.ph ], [ %.01626, %7 ]
-  %10 = load ptr, ptr %.01424.sink, align 8, !tbaa !16
-  store ptr %.01424.sink, ptr %.122, align 8, !tbaa !27
+  %10 = load ptr, ptr %.01424.sink, align 8, !tbaa !17
+  store ptr %.01424.sink, ptr %.122, align 8, !tbaa !28
   %.not20 = icmp eq ptr %10, null
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.1.lcssa = phi ptr [ %.01626, %7 ], [ %.01424.sink, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge30, label %7, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge30, label %7, !llvm.loop !37
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %2
   %.016.lcssa = phi ptr [ %3, %2 ], [ %.1.lcssa, %._crit_edge ]
-  store ptr null, ptr %.016.lcssa, align 8, !tbaa !27
-  %.0..0..0..0. = load ptr, ptr %3, align 8, !tbaa !27
+  store ptr null, ptr %.016.lcssa, align 8, !tbaa !28
+  %.0..0..0..0. = load ptr, ptr %3, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret ptr %.0..0..0..0.
 }
 
 ; Function Attrs: nounwind uwtable
 define void @Min_CoverExpand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !22
+  %3 = load i32, ptr %0, align 8, !tbaa !23
   tail call void @Min_ManClean(ptr noundef nonnull %0, i32 noundef %3) #14
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.promoted = load i32, ptr %6, align 8, !tbaa !37
+  %.promoted = load i32, ptr %6, align 8, !tbaa !38
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph
   %8 = phi i32 [ %.promoted, %.lr.ph ], [ %15, %7 ]
   %.01621 = phi ptr [ %1, %.lr.ph ], [ %.022, %7 ]
-  %.022 = load ptr, ptr %.01621, align 8, !tbaa !16
+  %.022 = load ptr, ptr %.01621, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %.01621, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 22
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !27
-  store ptr %14, ptr %.01621, align 8, !tbaa !16
-  store ptr %.01621, ptr %13, align 8, !tbaa !27
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  store ptr %14, ptr %.01621, align 8, !tbaa !17
+  store ptr %.01621, ptr %13, align 8, !tbaa !28
   %15 = add nsw i32 %8, 1
-  store i32 %15, ptr %6, align 8, !tbaa !37
+  store i32 %15, ptr %6, align 8, !tbaa !38
   %.not19 = icmp eq ptr %.022, null
-  br i1 %.not19, label %._crit_edge, label %7, !llvm.loop !38
+  br i1 %.not19, label %._crit_edge, label %7, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %7, %2
   ret void
@@ -1034,7 +1034,7 @@ define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noun
 
 .lr.ph:                                           ; preds = %.preheader29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %12
 
@@ -1053,7 +1053,7 @@ define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noun
   %16 = and i32 %15, 4095
   %17 = zext nneg i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %12, label %.preheader28, !llvm.loop !40
+  br i1 %18, label %12, label %.preheader28, !llvm.loop !41
 
 .preheader27:                                     ; preds = %.preheader28, %._crit_edge
   %19 = phi i32 [ %10, %.preheader28 ], [ %38, %._crit_edge ]
@@ -1064,7 +1064,7 @@ define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noun
 
 .lr.ph32:                                         ; preds = %.preheader27
   %21 = getelementptr inbounds nuw i8, ptr %.02433, i64 12
-  %22 = load ptr, ptr %11, align 8, !tbaa !39
+  %22 = load ptr, ptr %11, align 8, !tbaa !40
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   br label %27
 
@@ -1074,7 +1074,7 @@ define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %.not39, label %.loopexit, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %.preheader
-  %25 = load ptr, ptr %11, align 8, !tbaa !39
+  %25 = load ptr, ptr %11, align 8, !tbaa !40
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   br label %40
 
@@ -1092,13 +1092,13 @@ define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noun
   %35 = and i32 %34, 4095
   %36 = zext nneg i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next42, %36
-  br i1 %37, label %27, label %._crit_edge, !llvm.loop !41
+  br i1 %37, label %27, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %27, %.preheader27
   %38 = phi i32 [ %19, %.preheader27 ], [ %33, %27 ]
-  %39 = load ptr, ptr %.02433, align 8, !tbaa !16
+  %39 = load ptr, ptr %.02433, align 8, !tbaa !17
   %.not = icmp eq ptr %39, null
-  br i1 %.not, label %.preheader, label %.preheader27, !llvm.loop !42
+  br i1 %.not, label %.preheader, label %.preheader27, !llvm.loop !43
 
 40:                                               ; preds = %.lr.ph36, %40
   %.035 = phi i32 [ 0, %.lr.ph36 ], [ %51, %40 ]
@@ -1116,7 +1116,7 @@ define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noun
   %51 = add nuw nsw i32 %.035, %50
   %52 = add nuw nsw i32 %.234, 1
   %exitcond.not = icmp eq i32 %52, %24
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !44
 
 .loopexit:                                        ; preds = %40, %.preheader, %2
   %.025 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %51, %40 ]
@@ -1174,33 +1174,34 @@ attributes #15 = { nounwind willreturn memory(read) }
 !11 = !{!8, !4, i64 0}
 !12 = !{!8, !9, i64 8}
 !13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"Min_Cube_t_", !18, i64 0, !4, i64 8, !4, i64 9, !4, i64 10, !5, i64 12}
-!18 = !{!"p1 _ZTS11Min_Cube_t_", !10, i64 0}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = distinct !{!21, !15}
-!22 = !{!23, !4, i64 0}
-!23 = !{!"Min_Man_t_", !4, i64 0, !4, i64 4, !24, i64 8, !18, i64 16, !18, i64 24, !5, i64 32, !5, i64 48, !18, i64 64, !18, i64 72, !4, i64 80, !25, i64 88}
-!24 = !{!"p1 _ZTS16Extra_MmFixed_t_", !10, i64 0}
-!25 = !{!"p2 _ZTS11Min_Cube_t_", !10, i64 0}
-!26 = !{!23, !25, i64 88}
-!27 = !{!18, !18, i64 0}
-!28 = !{!23, !18, i64 72}
-!29 = distinct !{!29, !15}
-!30 = distinct !{!30, !15}
-!31 = distinct !{!31, !15}
-!32 = distinct !{!32, !15}
-!33 = distinct !{!33, !15}
-!34 = distinct !{!34, !15}
-!35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}
-!37 = !{!23, !4, i64 80}
-!38 = distinct !{!38, !15}
-!39 = !{!23, !18, i64 64}
-!40 = distinct !{!40, !15}
-!41 = distinct !{!41, !15}
-!42 = distinct !{!42, !15}
-!43 = distinct !{!43, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"Min_Cube_t_", !19, i64 0, !4, i64 8, !4, i64 9, !4, i64 10, !5, i64 12}
+!19 = !{!"p1 _ZTS11Min_Cube_t_", !10, i64 0}
+!20 = distinct !{!20, !15, !16}
+!21 = distinct !{!21, !15, !16}
+!22 = distinct !{!22, !15, !16}
+!23 = !{!24, !4, i64 0}
+!24 = !{!"Min_Man_t_", !4, i64 0, !4, i64 4, !25, i64 8, !19, i64 16, !19, i64 24, !5, i64 32, !5, i64 48, !19, i64 64, !19, i64 72, !4, i64 80, !26, i64 88}
+!25 = !{!"p1 _ZTS16Extra_MmFixed_t_", !10, i64 0}
+!26 = !{!"p2 _ZTS11Min_Cube_t_", !10, i64 0}
+!27 = !{!24, !26, i64 88}
+!28 = !{!19, !19, i64 0}
+!29 = !{!24, !19, i64 72}
+!30 = distinct !{!30, !15, !16}
+!31 = distinct !{!31, !15, !16}
+!32 = distinct !{!32, !15, !16}
+!33 = distinct !{!33, !15, !16}
+!34 = distinct !{!34, !15, !16}
+!35 = distinct !{!35, !15, !16}
+!36 = distinct !{!36, !15, !16}
+!37 = distinct !{!37, !15, !16}
+!38 = !{!24, !4, i64 80}
+!39 = distinct !{!39, !15, !16}
+!40 = !{!24, !19, i64 64}
+!41 = distinct !{!41, !15, !16}
+!42 = distinct !{!42, !15, !16}
+!43 = distinct !{!43, !15, !16}
+!44 = distinct !{!44, !15, !16}

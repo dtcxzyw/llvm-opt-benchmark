@@ -1125,7 +1125,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 .noexc10:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6b45cd41f9a9c43cE.exit.i.i"
   %.not.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i, label %.loopexit11, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit11, label %.lr.ph.i.i, !llvm.loop !3
 
 48:                                               ; preds = %16
   %49 = load i64, ptr %24, align 8
@@ -4120,7 +4120,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12fa37
 .backedge:                                        ; preds = %15, %21
   %20 = phi i64 [ %.pre, %15 ], [ %30, %21 ]
   %.not = icmp eq i64 %20, %0
-  br i1 %.not, label %._crit_edge, label %7
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !5
 
 21:                                               ; preds = %7
   %22 = load ptr, ptr %2, align 8
@@ -4170,7 +4170,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hf8e23f
 
 19:                                               ; preds = %.lr.ph
   %.not = icmp eq i64 %14, %0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4212,7 +4212,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h2b9a66cc6cd054cbE"(p
 
 17:                                               ; preds = %.noexc
   %.not.i = icmp eq i64 %15, %6
-  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12fa372f4f9f2c9eE.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12fa372f4f9f2c9eE.exit", label %.lr.ph.i, !llvm.loop !6
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hf8e23f1530917cb0E.exit": ; preds = %2, %16
   %18 = phi i64 [ 0, %2 ], [ 1, %16 ]
@@ -4248,7 +4248,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h2b9a66cc6cd054cbE"(p
   %30 = phi i64 [ %22, %32 ], [ %29, %27 ]
   %31 = phi i64 [ %36, %32 ], [ %28, %27 ]
   %.not.i4 = icmp eq i64 %31, %6
-  br i1 %.not.i4, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12fa372f4f9f2c9eE.exit", label %.lr.ph.i3
+  br i1 %.not.i4, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12fa372f4f9f2c9eE.exit", label %.lr.ph.i3, !llvm.loop !5
 
 32:                                               ; preds = %.noexc5
   %33 = load ptr, ptr %21, align 8
@@ -7463,7 +7463,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h11b1798776073e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %19, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !7
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -7552,7 +7552,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h19663726fc06a3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !8
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -7641,7 +7641,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h19f022c4cc28f4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(112) %4, i64 112, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !9
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -7730,7 +7730,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h19fb2d9954d7c9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !10
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -7812,7 +7812,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h1a217abfb7d9b0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !11
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -7901,7 +7901,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h263c2d8dfd1ae2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !12
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -7990,7 +7990,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h287aa21a97340c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !13
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -8072,7 +8072,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h29c3fb0d6e4756
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !14
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -8154,7 +8154,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h2b7d2310ac6610
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !15
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -8236,7 +8236,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h451720507c5195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !16
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -8325,7 +8325,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h4ae945537e4518
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !17
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -8409,7 +8409,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h5a0c7fa6cdf384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %24 = add i64 %18, 1
   store i64 %24, ptr %9, align 8
-  br label %11
+  br label %11, !llvm.loop !18
 
 25:                                               ; preds = %34, %21
   %26 = landingpad { ptr, i32 }
@@ -8497,7 +8497,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h622536a6b4a54c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !19
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -8586,7 +8586,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h6866f87fad75f9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !20
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -8668,7 +8668,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h6db692d76c26da
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !21
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -8750,7 +8750,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h74b6a711b2e85e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !22
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -8839,7 +8839,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h78b6e0ddd75a9a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %19, ptr noundef nonnull align 8 dereferenceable(328) %4, i64 328, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !23
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -8928,7 +8928,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h8bf9d1739c379b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !24
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -9001,7 +9001,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h8ced3fce45540c
   store i64 %25, ptr %8, align 8
   %26 = call align 8 ptr @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0cbab5adb5507aeE"(ptr nonnull align 8 %5)
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6b45cd41f9a9c43cE.exit", %3
   ret void
@@ -9061,7 +9061,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h959582f896a631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !25
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -9143,7 +9143,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17ha24e4a1100bd6d
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !26
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -9225,7 +9225,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17ha6a08ca160ae57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !27
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -9307,7 +9307,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17ha6a1e1e75f2828
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !28
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -9391,7 +9391,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17ha80a4242042885
   store i32 %16, ptr %24, align 8
   %25 = add i64 %18, 1
   store i64 %25, ptr %7, align 8
-  br label %9
+  br label %9, !llvm.loop !29
 
 26:                                               ; preds = %35, %21
   %27 = landingpad { ptr, i32 }
@@ -9479,7 +9479,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb9cf902844f572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !30
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -9561,7 +9561,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hbb35fd0b2eb5cf
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !31
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -9644,7 +9644,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hce95563b97787f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %21 = add i64 %14, 1
   store i64 %21, ptr %7, align 8
-  br label %9
+  br label %9, !llvm.loop !32
 
 22:                                               ; preds = %31, %18
   %23 = landingpad { ptr, i32 }
@@ -9733,7 +9733,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hdce2e147911d10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %19, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 352, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !33
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -9822,7 +9822,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he02c22127b7856
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !34
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -9904,7 +9904,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he09deb50eb87cf
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !35
 
 22:                                               ; preds = %24, %17
   %23 = landingpad { ptr, i32 }
@@ -9987,7 +9987,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17heb46a6f89831c9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %14, 1
   store i64 %21, ptr %7, align 8
-  br label %9
+  br label %9, !llvm.loop !36
 
 22:                                               ; preds = %31, %18
   %23 = landingpad { ptr, i32 }
@@ -10068,7 +10068,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hf2190ac097eaec
   call void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha23489ef32a65635E"(ptr nonnull sret([256 x i8]) align 8 %6, ptr nonnull align 8 %7)
   %22 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %22, 41
-  br i1 %.not, label %._crit_edge, label %13
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !37
 
 23:                                               ; preds = %25, %17
   %24 = landingpad { ptr, i32 }
@@ -10144,7 +10144,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hf980b8a7d16573
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %21 = add i64 %14, 1
   store i64 %21, ptr %7, align 8
-  br label %9
+  br label %9, !llvm.loop !38
 
 22:                                               ; preds = %31, %18
   %23 = landingpad { ptr, i32 }
@@ -12413,7 +12413,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   store i64 %25, ptr %8, align 8
   %26 = call align 8 ptr @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0cbab5adb5507aeE"(ptr nonnull align 8 %5)
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h8ced3fce45540c7aE.exit", label %10
+  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h8ced3fce45540c7aE.exit", label %10, !llvm.loop !3
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h8ced3fce45540c7aE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6b45cd41f9a9c43cE.exit.i", %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -14629,3 +14629,39 @@ attributes #16 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = distinct !{!36, !4}
+!37 = distinct !{!37, !4}
+!38 = distinct !{!38, !4}

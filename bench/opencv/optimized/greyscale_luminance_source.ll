@@ -772,7 +772,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit: ; preds = %45
 68:                                               ; preds = %45, %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit
   %69 = phi i32 [ %67, %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit ], [ %.pre, %45 ]
   %storemerge = phi ptr [ %5, %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit ], [ null, %45 ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !36
+  store ptr %storemerge, ptr %0, align 8, !tbaa !37
   %70 = add i32 %69, -1
   store i32 %70, ptr %28, align 8, !tbaa !6
   %71 = icmp eq i32 %70, 0
@@ -825,7 +825,7 @@ define hidden void @_ZNK5zxing24GreyscaleLuminanceSource13getByteMatrixEv(ptr de
   %15 = load i32, ptr %14, align 8, !tbaa !6
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8, !tbaa !6
-  store ptr %4, ptr %0, align 8, !tbaa !39
+  store ptr %4, ptr %0, align 8, !tbaa !40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIcEE, i64 16), ptr %3, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !10
@@ -997,7 +997,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #8 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !42
+  %3 = load i32, ptr %2, align 4, !tbaa !43
   ret i32 %3
 }
 
@@ -1149,12 +1149,13 @@ attributes #15 = { noreturn }
 !31 = !{!30, !24, i64 0}
 !32 = !{!30, !24, i64 16}
 !33 = !{!16, !8, i64 16}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !38, i64 0}
-!37 = !{!"_ZTSN5zxing3RefINS_15LuminanceSourceEEE", !38, i64 0}
-!38 = !{!"p1 _ZTSN5zxing15LuminanceSourceE", !13, i64 0}
-!39 = !{!40, !41, i64 0}
-!40 = !{!"_ZTSN5zxing3RefINS_10ByteMatrixEEE", !41, i64 0}
-!41 = !{!"p1 _ZTSN5zxing10ByteMatrixE", !13, i64 0}
-!42 = !{!21, !8, i64 12}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !39, i64 0}
+!38 = !{!"_ZTSN5zxing3RefINS_15LuminanceSourceEEE", !39, i64 0}
+!39 = !{!"p1 _ZTSN5zxing15LuminanceSourceE", !13, i64 0}
+!40 = !{!41, !42, i64 0}
+!41 = !{!"_ZTSN5zxing3RefINS_10ByteMatrixEEE", !42, i64 0}
+!42 = !{!"p1 _ZTSN5zxing10ByteMatrixE", !13, i64 0}
+!43 = !{!21, !8, i64 12}

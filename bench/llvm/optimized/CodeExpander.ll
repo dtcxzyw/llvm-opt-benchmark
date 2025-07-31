@@ -613,7 +613,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit42thread-pre-split: ; preds = %120, %
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit42:    ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit42thread-pre-split, %_ZN4llvm9StringRef13consume_frontES0_.exit54, %_ZN4llvm11raw_ostreamlsEPKc.exit140, %_ZN4llvm11raw_ostreamlsEc.exit
   %260 = phi i64 [ %.pr, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit42thread-pre-split ], [ %143, %_ZN4llvm9StringRef13consume_frontES0_.exit54 ], [ %259, %_ZN4llvm11raw_ostreamlsEPKc.exit140 ], [ %140, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %261 = icmp eq i64 %260, 0
-  br i1 %261, label %._crit_edge, label %65
+  br i1 %261, label %._crit_edge, label %65, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit42, %75, %77, %78, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
@@ -664,10 +664,10 @@ define linkonce_odr hidden void @_ZNK4llvm9StringMapINSt7__cxx1112basic_stringIc
 13:                                               ; preds = %4
   %14 = load ptr, ptr %1, align 8
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %14, i64 %12
-  %15 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !88
+  %15 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !90
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %0, align 8, !tbaa !90
+  store ptr %17, ptr %0, align 8, !tbaa !92
   %18 = load ptr, ptr %16, align 8, !tbaa !76
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !79
@@ -711,7 +711,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %34, ptr %0, align 8, !tbaa !90
+  store ptr %34, ptr %0, align 8, !tbaa !92
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %35, align 8, !tbaa !79
   store i8 0, ptr %34, align 8, !tbaa !22
@@ -840,6 +840,8 @@ attributes #10 = { builtin nounwind }
 !85 = distinct !{!85, !"_ZNK4llvm5Twine6concatERKS0_"}
 !86 = distinct !{!86, !87, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
 !87 = distinct !{!87, !"_ZN4llvmplERKNS_5TwineES2_"}
-!88 = !{!89, !89, i64 0}
-!89 = !{!"p1 _ZTSN4llvm18StringMapEntryBaseE", !6, i64 0}
-!90 = !{!78, !5, i64 0}
+!88 = distinct !{!88, !89}
+!89 = !{!"llvm.loop.estimated_trip_count"}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTSN4llvm18StringMapEntryBaseE", !6, i64 0}
+!92 = !{!78, !5, i64 0}

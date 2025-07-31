@@ -183,7 +183,7 @@ define internal range(i32 -1094995529, 1) i32 @xmv_read_header(ptr noundef %0) #
 ._crit_edge:                                      ; preds = %78, %.preheader
   %82 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef 0, i32 noundef 1) #7
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %82, ptr %83, align 8, !tbaa !54
+  store i64 %82, ptr %83, align 8, !tbaa !55
   %84 = zext i32 %10 to i64
   %85 = icmp ugt i64 %82, %84
   br i1 %85, label %93, label %86
@@ -192,11 +192,11 @@ define internal range(i32 -1094995529, 1) i32 @xmv_read_header(ptr noundef %0) #
   %87 = trunc nuw i64 %82 to i32
   %88 = sub i32 %10, %87
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %88, ptr %89, align 8, !tbaa !55
+  store i32 %88, ptr %89, align 8, !tbaa !56
   %90 = load i16, ptr %3, align 8, !tbaa !37
   %91 = add i16 %90, 1
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 34
-  store i16 %91, ptr %92, align 2, !tbaa !56
+  store i16 %91, ptr %92, align 2, !tbaa !57
   br label %93
 
 93:                                               ; preds = %._crit_edge, %.critedge, %15, %86
@@ -210,34 +210,34 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i32, ptr %6, align 8, !tbaa !57
+  %7 = load i32, ptr %6, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %9 = load i32, ptr %8, align 4, !tbaa !58
+  %9 = load i32, ptr %8, align 4, !tbaa !59
   %10 = icmp eq i32 %7, %9
   br i1 %10, label %11, label %210
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !59
+  %13 = load i64, ptr %12, align 8, !tbaa !60
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !54
+  %15 = load i64, ptr %14, align 8, !tbaa !55
   %16 = icmp eq i64 %13, %15
   br i1 %16, label %xmv_fetch_new_packet.exit.thread, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !28
-  store i64 %15, ptr %12, align 8, !tbaa !59
+  store i64 %15, ptr %12, align 8, !tbaa !60
   %20 = tail call i64 @avio_seek(ptr noundef %19, i64 noundef %15, i32 noundef 0) #7
-  %21 = load i64, ptr %12, align 8, !tbaa !59
+  %21 = load i64, ptr %12, align 8, !tbaa !60
   %.not.i = icmp eq i64 %20, %21
   br i1 %.not.i, label %22, label %xmv_fetch_new_packet.exit.thread
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !55
+  %24 = load i32, ptr %23, align 8, !tbaa !56
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %24, ptr %25, align 4, !tbaa !60
+  store i32 %24, ptr %25, align 4, !tbaa !61
   %26 = load i16, ptr %5, align 8, !tbaa !37
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -251,7 +251,7 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %34 = tail call i32 @avio_rl32(ptr noundef %33) #7
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 %34, ptr %35, align 8, !tbaa !55
+  store i32 %34, ptr %35, align 8, !tbaa !56
   %36 = call i32 @avio_read(ptr noundef %33, ptr noundef nonnull %3, i32 noundef 8) #7
   %.not.i.i = icmp eq i32 %36, 8
   br i1 %.not.i.i, label %37, label %xmv_process_packet_header.exit.thread.i
@@ -261,17 +261,17 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %39 = and i32 %38, 8388607
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  store i32 %39, ptr %41, align 8, !tbaa !61
+  store i32 %39, ptr %41, align 8, !tbaa !62
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  store i32 0, ptr %42, align 8, !tbaa !57
+  store i32 0, ptr %42, align 8, !tbaa !58
   %43 = lshr i32 %38, 23
   %44 = and i32 %43, 255
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 76
-  store i32 %44, ptr %45, align 4, !tbaa !58
+  store i32 %44, ptr %45, align 4, !tbaa !59
   %sum.shift.i.i = lshr i32 %38, 31
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 80
-  store i32 %sum.shift.i.i, ptr %46, align 8, !tbaa !62
-  %47 = load i32, ptr %40, align 8, !tbaa !63
+  store i32 %sum.shift.i.i, ptr %46, align 8, !tbaa !63
+  %47 = load i32, ptr %40, align 8, !tbaa !64
   %.not127.i.i = icmp eq i32 %47, 0
   br i1 %.not127.i.i, label %48, label %68
 
@@ -283,32 +283,32 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 50:                                               ; preds = %48
   call void @avpriv_set_pts_info(ptr noundef nonnull %49, i32 noundef 32, i32 noundef 1, i32 noundef 1000) #7
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !64
-  store i32 0, ptr %52, align 8, !tbaa !71
+  %52 = load ptr, ptr %51, align 8, !tbaa !65
+  store i32 0, ptr %52, align 8, !tbaa !72
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 18, ptr %53, align 4, !tbaa !74
+  store i32 18, ptr %53, align 4, !tbaa !75
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 1464686130, ptr %54, align 8, !tbaa !75
+  store i32 1464686130, ptr %54, align 8, !tbaa !76
   %55 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %56 = load i32, ptr %55, align 8, !tbaa !30
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  store i32 %56, ptr %57, align 8, !tbaa !76
+  store i32 %56, ptr %57, align 8, !tbaa !77
   %58 = getelementptr inbounds nuw i8, ptr %32, i64 44
   %59 = load i32, ptr %58, align 4, !tbaa !35
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 76
-  store i32 %59, ptr %60, align 4, !tbaa !77
+  store i32 %59, ptr %60, align 4, !tbaa !78
   %61 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %62 = load i32, ptr %61, align 4, !tbaa !36
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  store i64 %63, ptr %64, align 8, !tbaa !78
+  store i64 %63, ptr %64, align 8, !tbaa !79
   %65 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %66 = load i32, ptr %65, align 8, !tbaa !79
+  %66 = load i32, ptr %65, align 8, !tbaa !80
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 52
-  store i32 %66, ptr %67, align 4, !tbaa !80
-  store i32 1, ptr %40, align 8, !tbaa !63
-  %.pre.i.i = load i32, ptr %41, align 8, !tbaa !61
-  %.pre154.i.i = load i32, ptr %45, align 4, !tbaa !58
+  store i32 %66, ptr %67, align 4, !tbaa !81
+  store i32 1, ptr %40, align 8, !tbaa !64
+  %.pre.i.i = load i32, ptr %41, align 8, !tbaa !62
+  %.pre154.i.i = load i32, ptr %45, align 4, !tbaa !59
   br label %68
 
 68:                                               ; preds = %50, %37
@@ -318,19 +318,19 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %72 = zext i16 %71 to i32
   %73 = shl nuw nsw i32 %72, 2
   %74 = sub i32 %70, %73
-  store i32 %74, ptr %41, align 8, !tbaa !61
+  store i32 %74, ptr %41, align 8, !tbaa !62
   %75 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store i16 0, ptr %75, align 8, !tbaa !81
+  store i16 0, ptr %75, align 8, !tbaa !82
   %.not129.i.i = icmp eq i32 %69, 0
   br i1 %.not129.i.i, label %76, label %81
 
 76:                                               ; preds = %68
-  store i32 1, ptr %45, align 4, !tbaa !58
+  store i32 1, ptr %45, align 4, !tbaa !59
   %77 = getelementptr inbounds nuw i8, ptr %32, i64 34
-  %78 = load i16, ptr %77, align 2, !tbaa !56
+  %78 = load i16, ptr %77, align 2, !tbaa !57
   %79 = icmp ugt i16 %78, 1
   %80 = zext i1 %79 to i16
-  store i16 %80, ptr %75, align 8, !tbaa !81
+  store i16 %80, ptr %75, align 8, !tbaa !82
   br label %81
 
 81:                                               ; preds = %76, %68
@@ -351,7 +351,7 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not132.i.i, label %88, label %xmv_process_packet_header.exit.thread.i
 
 88:                                               ; preds = %84
-  %89 = load i32, ptr %86, align 8, !tbaa !82
+  %89 = load i32, ptr %86, align 8, !tbaa !83
   %.not133.i.i = icmp eq i32 %89, 0
   br i1 %.not133.i.i, label %90, label %127
 
@@ -362,58 +362,58 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !64
-  store i32 1, ptr %94, align 8, !tbaa !71
+  %94 = load ptr, ptr %93, align 8, !tbaa !65
+  store i32 1, ptr %94, align 8, !tbaa !72
   %95 = getelementptr inbounds nuw i8, ptr %86, i64 44
   %96 = load i32, ptr %95, align 4, !tbaa !48
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  store i32 %96, ptr %97, align 4, !tbaa !74
+  store i32 %96, ptr %97, align 4, !tbaa !75
   %98 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %99 = load i16, ptr %98, align 8, !tbaa !39
   %100 = zext i16 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i32 %100, ptr %101, align 8, !tbaa !75
+  store i32 %100, ptr %101, align 8, !tbaa !76
   %102 = getelementptr inbounds nuw i8, ptr %86, i64 10
   %103 = load i16, ptr %102, align 2, !tbaa !41
   %104 = zext i16 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %94, i64 132
-  store i32 %104, ptr %105, align 4, !tbaa !83
+  store i32 %104, ptr %105, align 4, !tbaa !84
   %106 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %107 = load i32, ptr %106, align 4, !tbaa !42
   %108 = getelementptr inbounds nuw i8, ptr %94, i64 152
-  store i32 %107, ptr %108, align 8, !tbaa !84
+  store i32 %107, ptr %108, align 8, !tbaa !85
   %109 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %110 = load i16, ptr %109, align 8, !tbaa !43
   %111 = zext i16 %110 to i32
   %112 = getelementptr inbounds nuw i8, ptr %94, i64 56
-  store i32 %111, ptr %112, align 8, !tbaa !85
+  store i32 %111, ptr %112, align 8, !tbaa !86
   %113 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %114 = load i64, ptr %113, align 8, !tbaa !45
   %115 = getelementptr inbounds nuw i8, ptr %94, i64 48
-  store i64 %114, ptr %115, align 8, !tbaa !86
+  store i64 %114, ptr %115, align 8, !tbaa !87
   %116 = mul nuw nsw i32 %104, 36
   %117 = getelementptr inbounds nuw i8, ptr %94, i64 156
-  store i32 %116, ptr %117, align 4, !tbaa !87
+  store i32 %116, ptr %117, align 4, !tbaa !88
   %118 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %119 = load i16, ptr %118, align 8, !tbaa !47
   %120 = zext i16 %119 to i32
   call void @avpriv_set_pts_info(ptr noundef nonnull %91, i32 noundef 32, i32 noundef %120, i32 noundef %107) #7
   %121 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %122 = load i32, ptr %121, align 8, !tbaa !79
+  %122 = load i32, ptr %121, align 8, !tbaa !80
   %123 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i32 %122, ptr %123, align 4, !tbaa !49
   %124 = load i32, ptr %83, align 4, !tbaa !36
   %125 = zext i32 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %91, i64 48
-  store i64 %125, ptr %126, align 8, !tbaa !78
-  store i32 1, ptr %86, align 8, !tbaa !82
+  store i64 %125, ptr %126, align 8, !tbaa !79
+  store i32 1, ptr %86, align 8, !tbaa !83
   br label %127
 
 127:                                              ; preds = %92, %88
   %128 = load i32, ptr %3, align 4, !tbaa !12
   %129 = and i32 %128, 8388607
   %130 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  store i32 %129, ptr %130, align 8, !tbaa !88
+  store i32 %129, ptr %130, align 8, !tbaa !89
   %131 = icmp eq i32 %129, 0
   %132 = icmp ne i64 %indvars.iv.i.i, 0
   %or.cond.i.i = and i1 %132, %131
@@ -424,13 +424,13 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %135 = add nuw nsw i64 %indvars.iv.i.i, 4294967295
   %136 = and i64 %135, 4294967295
   %137 = getelementptr inbounds nuw %struct.XMVAudioPacket, ptr %134, i64 %136, i32 11
-  %138 = load i32, ptr %137, align 8, !tbaa !88
-  store i32 %138, ptr %130, align 8, !tbaa !88
+  %138 = load i32, ptr %137, align 8, !tbaa !89
+  store i32 %138, ptr %130, align 8, !tbaa !89
   br label %139
 
 139:                                              ; preds = %133, %127
   %140 = phi i32 [ %138, %133 ], [ %129, %127 ]
-  %141 = load i32, ptr %45, align 4, !tbaa !58
+  %141 = load i32, ptr %45, align 4, !tbaa !59
   %142 = udiv i32 %140, %141
   %143 = getelementptr inbounds nuw i8, ptr %86, i64 64
   %144 = getelementptr inbounds nuw i8, ptr %86, i64 36
@@ -442,13 +442,13 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %148 = load i16, ptr %32, align 8, !tbaa !37
   %149 = zext i16 %148 to i64
   %150 = icmp samesign ult i64 %indvars.iv.next.i.i, %149
-  br i1 %150, label %84, label %._crit_edge.i.i, !llvm.loop !89
+  br i1 %150, label %84, label %._crit_edge.i.i, !llvm.loop !90
 
 ._crit_edge.i.i:                                  ; preds = %139, %81
   %151 = call i64 @avio_seek(ptr noundef %33, i64 noundef 0, i32 noundef 1) #7
   %152 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  store i64 %151, ptr %152, align 8, !tbaa !90
-  %153 = load i32, ptr %41, align 8, !tbaa !61
+  store i64 %151, ptr %152, align 8, !tbaa !91
+  %153 = load i32, ptr %41, align 8, !tbaa !62
   %154 = load i16, ptr %32, align 8, !tbaa !37
   %.not149.i.i = icmp eq i16 %154, 0
   br i1 %.not149.i.i, label %._crit_edge147.i.i, label %.lr.ph146.i.i
@@ -465,21 +465,21 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %indvars.iv151.i.i = phi i64 [ 0, %.lr.ph146.i.i ], [ %indvars.iv.next152.i.i, %159 ]
   %.0117143.i.i = phi i64 [ %156, %.lr.ph146.i.i ], [ %164, %159 ]
   %160 = getelementptr inbounds nuw %struct.XMVAudioPacket, ptr %158, i64 %indvars.iv151.i.i, i32 12
-  store i64 %.0117143.i.i, ptr %160, align 8, !tbaa !91
+  store i64 %.0117143.i.i, ptr %160, align 8, !tbaa !92
   %161 = getelementptr inbounds nuw %struct.XMVAudioPacket, ptr %158, i64 %indvars.iv151.i.i, i32 11
-  %162 = load i32, ptr %161, align 8, !tbaa !88
+  %162 = load i32, ptr %161, align 8, !tbaa !89
   %163 = zext i32 %162 to i64
   %164 = add i64 %.0117143.i.i, %163
   %indvars.iv.next152.i.i = add nuw nsw i64 %indvars.iv151.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next152.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge147.i.i, label %159, !llvm.loop !92
+  br i1 %exitcond.not.i.i, label %._crit_edge147.i.i, label %159, !llvm.loop !93
 
 ._crit_edge147.i.i:                               ; preds = %159, %._crit_edge.i.i
   %.not130.i.i = icmp eq i32 %153, 0
   br i1 %.not130.i.i, label %xmv_fetch_new_packet.exit, label %165
 
 165:                                              ; preds = %._crit_edge147.i.i
-  %166 = load i32, ptr %46, align 8, !tbaa !62
+  %166 = load i32, ptr %46, align 8, !tbaa !63
   %.not131.i.i = icmp eq i32 %166, 0
   br i1 %.not131.i.i, label %xmv_fetch_new_packet.exit, label %167
 
@@ -495,20 +495,20 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %174 = or disjoint i32 %173, %171
   %175 = call i32 @llvm.bswap.i32(i32 %174)
   store i32 %175, ptr %168, align 1, !tbaa !12
-  %176 = load i32, ptr %41, align 8, !tbaa !61
+  %176 = load i32, ptr %41, align 8, !tbaa !62
   %177 = add i32 %176, -4
-  store i32 %177, ptr %41, align 8, !tbaa !61
-  %178 = load i64, ptr %152, align 8, !tbaa !90
+  store i32 %177, ptr %41, align 8, !tbaa !62
+  %178 = load i64, ptr %152, align 8, !tbaa !91
   %179 = add i64 %178, 4
-  store i64 %179, ptr %152, align 8, !tbaa !90
+  store i64 %179, ptr %152, align 8, !tbaa !91
   %180 = getelementptr inbounds nuw i8, ptr %32, i64 52
-  %181 = load i32, ptr %180, align 4, !tbaa !80
+  %181 = load i32, ptr %180, align 4, !tbaa !81
   %182 = icmp sgt i32 %181, -1
   br i1 %182, label %183, label %xmv_fetch_new_packet.exit
 
 183:                                              ; preds = %167
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %185 = load i32, ptr %184, align 4, !tbaa !93
+  %185 = load i32, ptr %184, align 4, !tbaa !94
   %186 = icmp ult i32 %181, %185
   br i1 %186, label %188, label %187
 
@@ -519,14 +519,14 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 188:                                              ; preds = %183
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %190 = load ptr, ptr %189, align 8, !tbaa !94
+  %190 = load ptr, ptr %189, align 8, !tbaa !95
   %191 = zext nneg i32 %181 to i64
   %192 = getelementptr inbounds nuw ptr, ptr %190, i64 %191
-  %193 = load ptr, ptr %192, align 8, !tbaa !95
+  %193 = load ptr, ptr %192, align 8, !tbaa !96
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
-  %195 = load ptr, ptr %194, align 8, !tbaa !64
+  %195 = load ptr, ptr %194, align 8, !tbaa !65
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
-  %197 = load i32, ptr %196, align 8, !tbaa !97
+  %197 = load i32, ptr %196, align 8, !tbaa !98
   %198 = icmp slt i32 %197, 4
   br i1 %198, label %199, label %.thread139.i.i
 
@@ -536,7 +536,7 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %201, label %xmv_process_packet_header.exit.thread.i, label %..thread139_crit_edge.i.i
 
 ..thread139_crit_edge.i.i:                        ; preds = %199
-  %.pre155.i.i = load ptr, ptr %194, align 8, !tbaa !64
+  %.pre155.i.i = load ptr, ptr %194, align 8, !tbaa !65
   %.pre156.i.i = load i32, ptr %168, align 4
   br label %.thread139.i.i
 
@@ -544,7 +544,7 @@ define internal i32 @xmv_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %202 = phi i32 [ %.pre156.i.i, %..thread139_crit_edge.i.i ], [ %175, %188 ]
   %203 = phi ptr [ %.pre155.i.i, %..thread139_crit_edge.i.i ], [ %195, %188 ]
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
-  %205 = load ptr, ptr %204, align 8, !tbaa !98
+  %205 = load ptr, ptr %204, align 8, !tbaa !99
   store i32 %202, ptr %205, align 1
   br label %xmv_fetch_new_packet.exit
 
@@ -555,16 +555,16 @@ xmv_process_packet_header.exit.thread.i:          ; preds = %90, %84, %199, %48,
 
 xmv_fetch_new_packet.exit:                        ; preds = %._crit_edge147.i.i, %165, %167, %.thread139.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  %206 = load i64, ptr %12, align 8, !tbaa !59
-  %207 = load i32, ptr %25, align 4, !tbaa !60
+  %206 = load i64, ptr %12, align 8, !tbaa !60
+  %207 = load i32, ptr %25, align 4, !tbaa !61
   %208 = zext i32 %207 to i64
   %209 = add i64 %206, %208
-  store i64 %209, ptr %14, align 8, !tbaa !54
+  store i64 %209, ptr %14, align 8, !tbaa !55
   br label %210
 
 210:                                              ; preds = %xmv_fetch_new_packet.exit, %2
   %211 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %212 = load i16, ptr %211, align 8, !tbaa !81
+  %212 = load i16, ptr %211, align 8, !tbaa !82
   %213 = icmp eq i16 %212, 0
   br i1 %213, label %214, label %259
 
@@ -573,9 +573,9 @@ xmv_fetch_new_packet.exit:                        ; preds = %._crit_edge147.i.i,
   %215 = getelementptr i8, ptr %0, i64 32
   %.val26 = load ptr, ptr %215, align 8, !tbaa !28
   %216 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %217 = load i64, ptr %216, align 8, !tbaa !99
+  %217 = load i64, ptr %216, align 8, !tbaa !100
   %218 = call i64 @avio_seek(ptr noundef %.val26, i64 noundef %217, i32 noundef 0) #7
-  %219 = load i64, ptr %216, align 8, !tbaa !99
+  %219 = load i64, ptr %216, align 8, !tbaa !100
   %.not.i29 = icmp eq i64 %218, %219
   br i1 %.not.i29, label %220, label %xmv_fetch_video_packet.exit.thread
 
@@ -587,7 +587,7 @@ xmv_fetch_new_packet.exit:                        ; preds = %._crit_edge147.i.i,
   %225 = lshr i32 %221, 17
   %226 = add nuw nsw i32 %223, 8
   %227 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  %228 = load i32, ptr %227, align 8, !tbaa !100
+  %228 = load i32, ptr %227, align 8, !tbaa !101
   %229 = icmp ugt i32 %226, %228
   br i1 %229, label %xmv_fetch_video_packet.exit.thread, label %230
 
@@ -598,7 +598,7 @@ xmv_fetch_new_packet.exit:                        ; preds = %._crit_edge147.i.i,
 
 .lr.ph.preheader.i:                               ; preds = %230
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %233 = load ptr, ptr %232, align 8, !tbaa !101
+  %233 = load ptr, ptr %232, align 8, !tbaa !102
   %234 = zext nneg i32 %224 to i64
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 %234
   br label %.lr.ph.i
@@ -610,39 +610,39 @@ xmv_fetch_new_packet.exit:                        ; preds = %._crit_edge147.i.i,
   store i32 %237, ptr %.0421.i, align 1, !tbaa !12
   %238 = getelementptr inbounds nuw i8, ptr %.0421.i, i64 4
   %239 = icmp ult ptr %238, %235
-  br i1 %239, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !102
+  br i1 %239, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !103
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr %232, align 8, !tbaa !101
+  %.pre.i = load ptr, ptr %232, align 8, !tbaa !102
   %240 = getelementptr inbounds nuw i8, ptr %.val, i64 52
-  %241 = load i32, ptr %240, align 4, !tbaa !103
+  %241 = load i32, ptr %240, align 4, !tbaa !104
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %241, ptr %242, align 4, !tbaa !104
+  store i32 %241, ptr %242, align 4, !tbaa !105
   %243 = zext nneg i32 %225 to i64
   %244 = getelementptr inbounds nuw i8, ptr %.val, i64 96
-  %245 = load i64, ptr %244, align 8, !tbaa !105
+  %245 = load i64, ptr %244, align 8, !tbaa !106
   %246 = add nsw i64 %245, %243
   %247 = getelementptr inbounds nuw i8, ptr %.val, i64 88
-  store i64 %246, ptr %247, align 8, !tbaa !106
+  store i64 %246, ptr %247, align 8, !tbaa !107
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 0, ptr %248, align 8, !tbaa !107
+  store i64 0, ptr %248, align 8, !tbaa !108
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %246, ptr %249, align 8, !tbaa !108
+  store i64 %246, ptr %249, align 8, !tbaa !109
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 -9223372036854775808, ptr %250, align 8, !tbaa !109
-  store i64 %246, ptr %244, align 8, !tbaa !105
+  store i64 -9223372036854775808, ptr %250, align 8, !tbaa !110
+  store i64 %246, ptr %244, align 8, !tbaa !106
   %251 = load i8, ptr %.pre.i, align 1, !tbaa !12
   %.not47.i = icmp sgt i8 %251, -1
   %252 = zext i1 %.not47.i to i32
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %252, ptr %253, align 8, !tbaa !110
-  %254 = load i32, ptr %227, align 8, !tbaa !100
+  store i32 %252, ptr %253, align 8, !tbaa !111
+  %254 = load i32, ptr %227, align 8, !tbaa !101
   %255 = sub i32 %254, %226
-  store i32 %255, ptr %227, align 8, !tbaa !100
+  store i32 %255, ptr %227, align 8, !tbaa !101
   %256 = zext nneg i32 %226 to i64
-  %257 = load i64, ptr %216, align 8, !tbaa !99
+  %257 = load i64, ptr %216, align 8, !tbaa !100
   %258 = add i64 %257, %256
-  store i64 %258, ptr %216, align 8, !tbaa !99
+  store i64 %258, ptr %216, align 8, !tbaa !100
   br label %xmv_fetch_video_packet.exit.thread39
 
 259:                                              ; preds = %210
@@ -656,18 +656,18 @@ xmv_fetch_new_packet.exit:                        ; preds = %._crit_edge147.i.i,
   %265 = and i64 %261, 4294967295
   %266 = getelementptr inbounds nuw %struct.XMVAudioPacket, ptr %264, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 56
-  %268 = load i64, ptr %267, align 8, !tbaa !91
+  %268 = load i64, ptr %267, align 8, !tbaa !92
   %269 = call i64 @avio_seek(ptr noundef %.val28, i64 noundef %268, i32 noundef 0) #7
-  %270 = load i64, ptr %267, align 8, !tbaa !91
+  %270 = load i64, ptr %267, align 8, !tbaa !92
   %.not.i31 = icmp eq i64 %269, %270
   br i1 %.not.i31, label %271, label %xmv_fetch_video_packet.exit.thread
 
 271:                                              ; preds = %259
   %272 = getelementptr inbounds nuw i8, ptr %.val27, i64 72
-  %273 = load i32, ptr %272, align 8, !tbaa !57
+  %273 = load i32, ptr %272, align 8, !tbaa !58
   %274 = add i32 %273, 1
   %275 = getelementptr inbounds nuw i8, ptr %.val27, i64 76
-  %276 = load i32, ptr %275, align 4, !tbaa !58
+  %276 = load i32, ptr %275, align 4, !tbaa !59
   %277 = icmp ult i32 %274, %276
   br i1 %277, label %278, label %283
 
@@ -675,13 +675,13 @@ xmv_fetch_new_packet.exit:                        ; preds = %._crit_edge147.i.i,
   %279 = getelementptr inbounds nuw i8, ptr %266, i64 64
   %280 = load i32, ptr %279, align 8, !tbaa !50
   %281 = getelementptr inbounds nuw i8, ptr %266, i64 48
-  %282 = load i32, ptr %281, align 8, !tbaa !88
+  %282 = load i32, ptr %281, align 8, !tbaa !89
   %..i = call i32 @llvm.umin.i32(i32 %280, i32 %282)
   br label %286
 
 283:                                              ; preds = %271
   %284 = getelementptr inbounds nuw i8, ptr %266, i64 48
-  %285 = load i32, ptr %284, align 8, !tbaa !88
+  %285 = load i32, ptr %284, align 8, !tbaa !89
   br label %286
 
 286:                                              ; preds = %283, %278
@@ -694,29 +694,29 @@ xmv_fetch_new_packet.exit:                        ; preds = %._crit_edge147.i.i,
   %290 = getelementptr inbounds nuw i8, ptr %266, i64 4
   %291 = load i32, ptr %290, align 4, !tbaa !49
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %291, ptr %292, align 4, !tbaa !104
+  store i32 %291, ptr %292, align 4, !tbaa !105
   %293 = getelementptr inbounds nuw i8, ptr %266, i64 36
   %294 = load i32, ptr %293, align 4, !tbaa !46
   %295 = udiv i32 %.034.i, %294
   %296 = zext i32 %295 to i64
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %296, ptr %297, align 8, !tbaa !107
+  store i64 %296, ptr %297, align 8, !tbaa !108
   %298 = getelementptr inbounds nuw i8, ptr %266, i64 72
   %299 = load i64, ptr %298, align 8, !tbaa !51
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %299, ptr %300, align 8, !tbaa !108
+  store i64 %299, ptr %300, align 8, !tbaa !109
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 -9223372036854775808, ptr %301, align 8, !tbaa !109
+  store i64 -9223372036854775808, ptr %301, align 8, !tbaa !110
   %302 = add i64 %299, %296
   store i64 %302, ptr %298, align 8, !tbaa !51
   %303 = getelementptr inbounds nuw i8, ptr %266, i64 48
-  %304 = load i32, ptr %303, align 8, !tbaa !88
+  %304 = load i32, ptr %303, align 8, !tbaa !89
   %305 = sub i32 %304, %.034.i
-  store i32 %305, ptr %303, align 8, !tbaa !88
+  store i32 %305, ptr %303, align 8, !tbaa !89
   %306 = zext i32 %.034.i to i64
-  %307 = load i64, ptr %267, align 8, !tbaa !91
+  %307 = load i64, ptr %267, align 8, !tbaa !92
   %308 = add i64 %307, %306
-  store i64 %308, ptr %267, align 8, !tbaa !91
+  store i64 %308, ptr %267, align 8, !tbaa !92
   br label %xmv_fetch_video_packet.exit.thread39
 
 xmv_fetch_video_packet.exit:                      ; preds = %286, %230
@@ -726,25 +726,25 @@ xmv_fetch_video_packet.exit:                      ; preds = %286, %230
 
 xmv_fetch_video_packet.exit.thread:               ; preds = %259, %220, %214, %xmv_fetch_video_packet.exit
   %.037 = phi i32 [ %.0, %xmv_fetch_video_packet.exit ], [ -5, %214 ], [ -5, %220 ], [ -5, %259 ]
-  store i16 0, ptr %211, align 8, !tbaa !81
-  %309 = load i32, ptr %8, align 4, !tbaa !58
-  store i32 %309, ptr %6, align 8, !tbaa !57
+  store i16 0, ptr %211, align 8, !tbaa !82
+  %309 = load i32, ptr %8, align 4, !tbaa !59
+  store i32 %309, ptr %6, align 8, !tbaa !58
   br label %xmv_fetch_new_packet.exit.thread
 
 xmv_fetch_video_packet.exit.thread39:             ; preds = %289, %._crit_edge.i, %xmv_fetch_video_packet.exit
-  %310 = load i16, ptr %211, align 8, !tbaa !81
+  %310 = load i16, ptr %211, align 8, !tbaa !82
   %311 = add i16 %310, 1
-  store i16 %311, ptr %211, align 8, !tbaa !81
+  store i16 %311, ptr %211, align 8, !tbaa !82
   %312 = getelementptr inbounds nuw i8, ptr %5, i64 34
-  %313 = load i16, ptr %312, align 2, !tbaa !56
+  %313 = load i16, ptr %312, align 2, !tbaa !57
   %.not25 = icmp ult i16 %311, %313
   br i1 %.not25, label %xmv_fetch_new_packet.exit.thread, label %314
 
 314:                                              ; preds = %xmv_fetch_video_packet.exit.thread39
-  store i16 0, ptr %211, align 8, !tbaa !81
-  %315 = load i32, ptr %6, align 8, !tbaa !57
+  store i16 0, ptr %211, align 8, !tbaa !82
+  %315 = load i32, ptr %6, align 8, !tbaa !58
   %316 = add i32 %315, 1
-  store i32 %316, ptr %6, align 8, !tbaa !57
+  store i32 %316, ptr %6, align 8, !tbaa !58
   br label %xmv_fetch_new_packet.exit.thread
 
 xmv_fetch_new_packet.exit.thread:                 ; preds = %xmv_process_packet_header.exit.thread.i, %22, %17, %11, %xmv_fetch_video_packet.exit.thread39, %314, %xmv_fetch_video_packet.exit.thread
@@ -874,62 +874,63 @@ attributes #8 = { noreturn nounwind }
 !49 = !{!40, !10, i64 4}
 !50 = !{!40, !10, i64 64}
 !51 = !{!40, !23, i64 72}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!31, !23, i64 24}
-!55 = !{!31, !10, i64 8}
-!56 = !{!31, !32, i64 34}
-!57 = !{!31, !10, i64 72}
-!58 = !{!31, !10, i64 76}
-!59 = !{!31, !23, i64 16}
-!60 = !{!31, !10, i64 4}
-!61 = !{!31, !10, i64 56}
-!62 = !{!31, !10, i64 80}
-!63 = !{!31, !10, i64 48}
-!64 = !{!65, !66, i64 16}
-!65 = !{!"AVStream", !15, i64 0, !10, i64 8, !10, i64 12, !66, i64 16, !7, i64 24, !67, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !10, i64 64, !10, i64 68, !67, i64 72, !25, i64 80, !67, i64 88, !68, i64 96, !10, i64 200, !67, i64 204, !10, i64 212}
-!66 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
-!67 = !{!"AVRational", !10, i64 0, !10, i64 4}
-!68 = !{!"AVPacket", !69, i64 0, !23, i64 8, !23, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !70, i64 48, !10, i64 56, !23, i64 64, !23, i64 72, !7, i64 80, !69, i64 88, !67, i64 96}
-!69 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!70 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!71 = !{!72, !10, i64 0}
-!72 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !70, i64 32, !10, i64 40, !10, i64 44, !23, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !67, i64 80, !67, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !73, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
-!73 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
-!74 = !{!72, !10, i64 4}
-!75 = !{!72, !10, i64 8}
-!76 = !{!72, !10, i64 72}
-!77 = !{!72, !10, i64 76}
-!78 = !{!65, !23, i64 48}
-!79 = !{!65, !10, i64 8}
-!80 = !{!31, !10, i64 52}
-!81 = !{!31, !32, i64 32}
-!82 = !{!40, !10, i64 0}
-!83 = !{!72, !10, i64 132}
-!84 = !{!72, !10, i64 152}
-!85 = !{!72, !10, i64 56}
-!86 = !{!72, !23, i64 48}
-!87 = !{!72, !10, i64 156}
-!88 = !{!40, !10, i64 48}
-!89 = distinct !{!89, !53}
-!90 = !{!31, !23, i64 64}
-!91 = !{!40, !23, i64 56}
-!92 = distinct !{!92, !53}
-!93 = !{!14, !10, i64 44}
-!94 = !{!14, !19, i64 48}
-!95 = !{!96, !96, i64 0}
-!96 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!97 = !{!72, !10, i64 24}
-!98 = !{!72, !6, i64 16}
-!99 = !{!33, !23, i64 16}
-!100 = !{!33, !10, i64 8}
-!101 = !{!68, !6, i64 24}
-!102 = distinct !{!102, !53}
-!103 = !{!33, !10, i64 4}
-!104 = !{!68, !10, i64 36}
-!105 = !{!33, !23, i64 48}
-!106 = !{!33, !23, i64 40}
-!107 = !{!68, !23, i64 64}
-!108 = !{!68, !23, i64 8}
-!109 = !{!68, !23, i64 16}
-!110 = !{!68, !10, i64 40}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!31, !23, i64 24}
+!56 = !{!31, !10, i64 8}
+!57 = !{!31, !32, i64 34}
+!58 = !{!31, !10, i64 72}
+!59 = !{!31, !10, i64 76}
+!60 = !{!31, !23, i64 16}
+!61 = !{!31, !10, i64 4}
+!62 = !{!31, !10, i64 56}
+!63 = !{!31, !10, i64 80}
+!64 = !{!31, !10, i64 48}
+!65 = !{!66, !67, i64 16}
+!66 = !{!"AVStream", !15, i64 0, !10, i64 8, !10, i64 12, !67, i64 16, !7, i64 24, !68, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !10, i64 64, !10, i64 68, !68, i64 72, !25, i64 80, !68, i64 88, !69, i64 96, !10, i64 200, !68, i64 204, !10, i64 212}
+!67 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
+!68 = !{!"AVRational", !10, i64 0, !10, i64 4}
+!69 = !{!"AVPacket", !70, i64 0, !23, i64 8, !23, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !71, i64 48, !10, i64 56, !23, i64 64, !23, i64 72, !7, i64 80, !70, i64 88, !68, i64 96}
+!70 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!71 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!72 = !{!73, !10, i64 0}
+!73 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !71, i64 32, !10, i64 40, !10, i64 44, !23, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !68, i64 80, !68, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !74, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
+!74 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
+!75 = !{!73, !10, i64 4}
+!76 = !{!73, !10, i64 8}
+!77 = !{!73, !10, i64 72}
+!78 = !{!73, !10, i64 76}
+!79 = !{!66, !23, i64 48}
+!80 = !{!66, !10, i64 8}
+!81 = !{!31, !10, i64 52}
+!82 = !{!31, !32, i64 32}
+!83 = !{!40, !10, i64 0}
+!84 = !{!73, !10, i64 132}
+!85 = !{!73, !10, i64 152}
+!86 = !{!73, !10, i64 56}
+!87 = !{!73, !23, i64 48}
+!88 = !{!73, !10, i64 156}
+!89 = !{!40, !10, i64 48}
+!90 = distinct !{!90, !53, !54}
+!91 = !{!31, !23, i64 64}
+!92 = !{!40, !23, i64 56}
+!93 = distinct !{!93, !53, !54}
+!94 = !{!14, !10, i64 44}
+!95 = !{!14, !19, i64 48}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!98 = !{!73, !10, i64 24}
+!99 = !{!73, !6, i64 16}
+!100 = !{!33, !23, i64 16}
+!101 = !{!33, !10, i64 8}
+!102 = !{!69, !6, i64 24}
+!103 = distinct !{!103, !53, !54}
+!104 = !{!33, !10, i64 4}
+!105 = !{!69, !10, i64 36}
+!106 = !{!33, !23, i64 48}
+!107 = !{!33, !23, i64 40}
+!108 = !{!69, !23, i64 64}
+!109 = !{!69, !23, i64 8}
+!110 = !{!69, !23, i64 16}
+!111 = !{!69, !10, i64 40}

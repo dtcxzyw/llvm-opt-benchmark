@@ -9560,7 +9560,7 @@ define void @_ZN8Paintbox19refreshBrushPreviewEv(ptr noundef nonnull align 8 cap
   %42 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
   %43 = add nsw i64 %.047.i.i.i.i.i, -1
   %44 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %44, label %26, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !7
+  br i1 %44, label %26, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %41
   %45 = add nsw i64 %.idx5.i.i, %25
@@ -12629,24 +12629,24 @@ define void @_ZN8Paintbox24on_switch_colors_clickedEv(ptr noundef nonnull readon
   %3 = alloca %class.QColor, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(48) %5), !noalias !8
-  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 0, i32 noundef 10), !noalias !8
-  %8 = load ptr, ptr %7, align 8, !noalias !8
+  %6 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(48) %5), !noalias !9
+  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 0, i32 noundef 10), !noalias !9
+  %8 = load ptr, ptr %7, align 8, !noalias !9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i32, ptr %9, align 4, !noalias !8
+  %10 = load i32, ptr %9, align 4, !noalias !9
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %12, ptr noundef nonnull align 4 dereferenceable(10) %11, i64 10, i1 false)
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %15 = load ptr, ptr %14, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %16 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(48) %15), !noalias !11
-  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %16, i32 noundef 0, i32 noundef 10), !noalias !11
-  %18 = load ptr, ptr %17, align 8, !noalias !11
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  %16 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(48) %15), !noalias !12
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %16, i32 noundef 0, i32 noundef 10), !noalias !12
+  %18 = load ptr, ptr %17, align 8, !noalias !12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load i32, ptr %19, align 4, !noalias !11
-  store i32 %20, ptr %2, align 4, !alias.scope !11
+  %20 = load i32, ptr %19, align 4, !noalias !12
+  store i32 %20, ptr %2, align 4, !alias.scope !12
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %21, ptr noundef nonnull align 4 dereferenceable(10) %22, i64 10, i1 false)
@@ -12727,7 +12727,7 @@ define void @_ZN8Paintbox14setClonePixmapER6QImage(ptr noundef nonnull align 8 c
   %43 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
   %44 = add nsw i64 %.047.i.i.i.i.i, -1
   %45 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %45, label %27, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !7
+  br i1 %45, label %27, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %42
   %46 = add nsw i64 %.idx5.i.i, %26
@@ -13215,7 +13215,7 @@ _ZN8Paintbox13getCloneSceneEv.exit:               ; preds = %33
   %68 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
   %69 = add nsw i64 %.047.i.i.i.i.i, -1
   %70 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %70, label %52, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !7
+  br i1 %70, label %52, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %67
   %71 = add nsw i64 %.idx5.i.i, %51
@@ -13660,7 +13660,7 @@ define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align
   %86 = getelementptr i8, ptr %85, i64 3
   store i8 %83, ptr %86, align 1
   %87 = add nuw nsw i32 %.0, 1
-  br label %.preheader, !llvm.loop !14
+  br label %.preheader, !llvm.loop !15
 
 88:                                               ; preds = %5
   %89 = landingpad { ptr, i32 }
@@ -13690,7 +13690,7 @@ define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align
 
 90:                                               ; preds = %36
   %91 = add nuw nsw i32 %.031, 1
-  br label %31, !llvm.loop !15
+  br label %31, !llvm.loop !16
 
 92:                                               ; preds = %33
   %93 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -13876,12 +13876,12 @@ _Z5brush5Brushffff.exit.us:                       ; preds = %67, %53, %33
 80:                                               ; preds = %_Z5brush5Brushffff.exit.us
   %81 = fadd float %.03132.us, 1.000000e+00
   %82 = fcmp olt float %81, %14
-  br i1 %82, label %33, label %._crit_edge.us, !llvm.loop !16
+  br i1 %82, label %33, label %._crit_edge.us, !llvm.loop !17
 
 ._crit_edge.us:                                   ; preds = %80
   %83 = fadd float %.033.us, 1.000000e+00
   %84 = fcmp olt float %83, %12
-  br i1 %84, label %.preheader.us, label %._crit_edge34, !llvm.loop !17
+  br i1 %84, label %.preheader.us, label %._crit_edge34, !llvm.loop !18
 
 .split.us:                                        ; preds = %_Z5brush5Brushffff.exit.us
   %85 = landingpad { ptr, i32 }
@@ -13993,17 +13993,18 @@ attributes #21 = { noreturn nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN10Colorframe8getColorEv: argument 0"}
-!10 = distinct !{!10, !"_ZN10Colorframe8getColorEv"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN10Colorframe8getColorEv: argument 0"}
-!13 = distinct !{!13, !"_ZN10Colorframe8getColorEv"}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN10Colorframe8getColorEv: argument 0"}
+!11 = distinct !{!11, !"_ZN10Colorframe8getColorEv"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN10Colorframe8getColorEv: argument 0"}
+!14 = distinct !{!14, !"_ZN10Colorframe8getColorEv"}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}

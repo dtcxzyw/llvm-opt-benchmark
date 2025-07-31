@@ -2904,23 +2904,23 @@ _ZL19scavenge_roots_workN16ParallelRootType5ValueEj.exit: ; preds = %50, %53, %5
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %80) #13
   %.not.i.i.i.i.i.i = icmp eq i64 %78, %.0810.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI14PSRootsClosureILb0EEEEEEEEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI14PSRootsClosureILb0EEEEEEEEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
 
 _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI14PSRootsClosureILb0EEEEEEEEbT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %70
   %83 = add i64 %.0.i.i.i.i, 1
   %84 = load i64, ptr %62, align 8
   %85 = icmp ult i64 %83, %84
-  br i1 %85, label %70, label %86, !llvm.loop !9
+  br i1 %85, label %70, label %86, !llvm.loop !10
 
 86:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI14PSRootsClosureILb0EEEEEEEEbT_.exit.i.i.i.i
   %87 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull %3) #13
-  br i1 %87, label %68, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI14PSRootsClosureILb0EEEEvPT_.exit.i, !llvm.loop !10
+  br i1 %87, label %68, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI14PSRootsClosureILb0EEEEvPT_.exit.i, !llvm.loop !11
 
 _ZN10OopStorage8ParStateILb0ELb0EE7oops_doI14PSRootsClosureILb0EEEEvPT_.exit.i: ; preds = %86, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %.not.i, label %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI14PSRootsClosureILb0EEEEvPT_.exit, label %63
+  br i1 %.not.i, label %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI14PSRootsClosureILb0EEEEvPT_.exit, label %63, !llvm.loop !12
 
 _ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI14PSRootsClosureILb0EEEEvPT_.exit: ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI14PSRootsClosureILb0EEEEvPT_.exit.i
   call void @_ZN18PSPromotionManager18drain_stacks_depthEb(ptr noundef nonnull align 8 dereferenceable(912) %59, i1 noundef zeroext false) #13
@@ -3045,7 +3045,7 @@ _ZN18PSPromotionManager12stacks_emptyEv.exit.thread: ; preds = %2, %_ZN18PSPromo
 19:                                               ; preds = %.lr.ph.i.i
   %20 = add nuw i32 %.078.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %20, %18
-  br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !13
 
 .lr.ph.i.i:                                       ; preds = %.preheader, %19
   %.078.i.i = phi i32 [ %20, %19 ], [ 0, %.preheader ]
@@ -3064,7 +3064,7 @@ _ZN18PSPromotionManager11steal_depthEiR11ScannerTask.exit: ; preds = %.lr.ph.i.i
   br i1 %23, label %24, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %.loopexit, %_ZN18PSPromotionManager11steal_depthEiR11ScannerTask.exit
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader, !llvm.loop !14
 
 24:                                               ; preds = %.loopexit
   %25 = load volatile i32, ptr %5, align 4
@@ -3370,7 +3370,7 @@ _ZN17PSOldPromotionLAB8allocateEm.exit.thread:    ; preds = %71, %_ZN17PSOldProm
 
 _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i:     ; preds = %105
   %124 = call noundef zeroext i1 @_ZN8PSOldGen19expand_for_allocateEm(ptr noundef nonnull align 8 dereferenceable(128) %103, i64 noundef %.0.i1.i) #13
-  br i1 %124, label %105, label %_ZN17PSOldPromotionLAB8allocateEm.exit61.thread, !llvm.loop !13
+  br i1 %124, label %105, label %_ZN17PSOldPromotionLAB8allocateEm.exit61.thread, !llvm.loop !15
 
 125:                                              ; preds = %111, %122
   %126 = call noundef zeroext i1 @_ZNK13YoungGCTracer42should_report_promotion_outside_plab_eventEv(ptr noundef nonnull align 8 dereferenceable(84) @_ZN10PSScavenge10_gc_tracerE) #13
@@ -3439,7 +3439,7 @@ _ZNK7oopDesc5klassEv.exit19.i:                    ; preds = %141, %131
 
 _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i57:   ; preds = %147
   %166 = call noundef zeroext i1 @_ZN8PSOldGen19expand_for_allocateEm(ptr noundef nonnull align 8 dereferenceable(128) %144, i64 noundef %145) #13
-  br i1 %166, label %147, label %_ZN17PSOldPromotionLAB8allocateEm.exit61.thread, !llvm.loop !13
+  br i1 %166, label %147, label %_ZN17PSOldPromotionLAB8allocateEm.exit61.thread, !llvm.loop !15
 
 167:                                              ; preds = %153, %164
   %168 = load i64, ptr @OldPLABSize, align 8
@@ -3595,7 +3595,7 @@ _ZN4Copy22aligned_disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %_ZN18PS
   %.sroa.0.0.copyload = load i64, ptr %6, align 8
   %243 = ptrtoint ptr %.046 to i64
   %244 = or i64 %243, 3
-  %245 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %244, i64 %.sroa.0.0.copyload, ptr nonnull align 8 dereferenceable(16) %1) #13, !srcloc !14
+  %245 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %244, i64 %.sroa.0.0.copyload, ptr nonnull align 8 dereferenceable(16) %1) #13, !srcloc !16
   %246 = icmp eq i64 %245, %.sroa.0.0.copyload
   %247 = and i64 %245, -4
   %248 = icmp eq i64 %247, 0
@@ -3707,7 +3707,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %301, ptr %311, align 8
   %312 = add i32 %303, 1
   %313 = and i32 %312, 131071
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %313, ptr %302, align 8
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
@@ -3932,7 +3932,7 @@ define linkonce_odr hidden void @_ZN21PSPushContentsClosure6do_oopEPP7oopDesc(pt
   br i1 %.not.i.i, label %_ZN21PSPushContentsClosure11do_oop_workIP7oopDescEEvPT_.exit, label %7
 
 7:                                                ; preds = %2
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %5, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %5, i64 0) #13, !srcloc !18
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %9 = load volatile i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 352
@@ -3950,7 +3950,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %1, ptr %17, align 8
   %18 = add i32 %9, 1
   %19 = and i32 %18, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %19, ptr %8, align 4
   br label %_ZN21PSPushContentsClosure11do_oop_workIP7oopDescEEvPT_.exit
 
@@ -4086,7 +4086,7 @@ define linkonce_odr hidden void @_ZN18PSPromotionManager22claim_or_forward_depth
   %11 = shl i64 %4, %10
   %12 = add i64 %11, %8
   %13 = inttoptr i64 %12 to ptr
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %13, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %13, i64 0) #13, !srcloc !18
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %16 = load volatile i32, ptr %15, align 8
@@ -4105,7 +4105,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %14, ptr %24, align 8
   %25 = add i32 %16, 1
   %26 = and i32 %25, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %26, ptr %15, align 8
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
@@ -4584,7 +4584,7 @@ _ZN17PSOldPromotionLAB8allocateEm.exit.thread:    ; preds = %_ZN19PSYoungPromoti
 
 _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i:     ; preds = %192
   %211 = call noundef zeroext i1 @_ZN8PSOldGen19expand_for_allocateEm(ptr noundef nonnull align 8 dereferenceable(128) %190, i64 noundef %.0.i1.i) #13
-  br i1 %211, label %192, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread, !llvm.loop !13
+  br i1 %211, label %192, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread, !llvm.loop !15
 
 212:                                              ; preds = %198, %209
   %213 = call noundef zeroext i1 @_ZNK13YoungGCTracer42should_report_promotion_outside_plab_eventEv(ptr noundef nonnull align 8 dereferenceable(84) @_ZN10PSScavenge10_gc_tracerE) #13
@@ -4653,7 +4653,7 @@ _ZNK7oopDesc5klassEv.exit19.i90:                  ; preds = %228, %218
 
 _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i94:   ; preds = %234
   %253 = call noundef zeroext i1 @_ZN8PSOldGen19expand_for_allocateEm(ptr noundef nonnull align 8 dereferenceable(128) %231, i64 noundef %232) #13
-  br i1 %253, label %234, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread, !llvm.loop !13
+  br i1 %253, label %234, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread, !llvm.loop !15
 
 254:                                              ; preds = %240, %251
   %255 = load i64, ptr @OldPLABSize, align 8
@@ -4810,7 +4810,7 @@ _ZN4Copy22aligned_disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %_ZN18PS
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
   %331 = ptrtoint ptr %.1 to i64
   %332 = or i64 %331, 3
-  %333 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %332, i64 %.sroa.0.0.copyload, ptr nonnull align 8 dereferenceable(16) %1) #13, !srcloc !14
+  %333 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %332, i64 %.sroa.0.0.copyload, ptr nonnull align 8 dereferenceable(16) %1) #13, !srcloc !16
   %334 = icmp eq i64 %333, %.sroa.0.0.copyload
   %335 = and i64 %333, -4
   %336 = inttoptr i64 %335 to ptr
@@ -4986,7 +4986,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %425, ptr %435, align 8
   %436 = add i32 %427, 1
   %437 = and i32 %436, 131071
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %437, ptr %426, align 8
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
@@ -5476,7 +5476,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %23 = load i32, ptr %9, align 8
   %24 = urem i32 %.0.i.i, %23
   %25 = icmp eq i32 %24, %1
-  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !17
+  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %12
   %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
@@ -5500,7 +5500,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %37 = icmp eq i32 %36, %1
   %38 = icmp eq i32 %36, %.034
   %39 = or i1 %37, %38
-  br i1 %39, label %27, label %40, !llvm.loop !18
+  br i1 %39, label %27, label %40, !llvm.loop !20
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %4, align 8
@@ -5532,9 +5532,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 65:                                               ; preds = %40
   %66 = load volatile i64, ptr %58, align 8
   %.sroa.010.0.extract.trunc.i = trunc i64 %66 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %67 = load volatile i32, ptr %56, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %68 = sub i32 %67, %.sroa.010.0.extract.trunc.i
   %69 = and i32 %68, 131071
   switch i32 %69, label %70 [
@@ -5557,7 +5557,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %.sroa.6.0.extract.shift21.i = add i64 %79, %66
   %.sroa.3.0.insert.ext.i = and i64 %.sroa.6.0.extract.shift21.i, -4294967296
   %.sroa.09.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.ext.i, %.sroa.09.0.insert.ext.i
-  %80 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i, i64 %66, ptr nonnull %58) #13, !srcloc !14
+  %80 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i, i64 %66, ptr nonnull %58) #13, !srcloc !16
   %81 = icmp eq i64 %80, %66
   br i1 %81, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %100
 
@@ -5568,9 +5568,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 83:                                               ; preds = %82
   %84 = load volatile i64, ptr %47, align 8
   %.sroa.010.0.extract.trunc.i42 = trunc i64 %84 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %85 = load volatile i32, ptr %45, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %86 = sub i32 %85, %.sroa.010.0.extract.trunc.i42
   %87 = and i32 %86, 131071
   switch i32 %87, label %88 [
@@ -5593,7 +5593,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %.sroa.6.0.extract.shift21.i45 = add i64 %97, %84
   %.sroa.3.0.insert.ext.i46 = and i64 %.sroa.6.0.extract.shift21.i45, -4294967296
   %.sroa.09.0.insert.insert.i47 = or disjoint i64 %.sroa.3.0.insert.ext.i46, %.sroa.09.0.insert.ext.i44
-  %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i47, i64 %84, ptr nonnull %47) #13, !srcloc !14
+  %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i47, i64 %84, ptr nonnull %47) #13, !srcloc !16
   %99 = icmp eq i64 %98, %84
   br i1 %99, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %100
 
@@ -5620,10 +5620,10 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit:
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 256
   %110 = load volatile i64, ptr %109, align 8
   %.sroa.010.0.extract.trunc.i49 = trunc i64 %110 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 128
   %112 = load volatile i32, ptr %111, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i49
   %114 = and i32 %113, 131071
   switch i32 %114, label %115 [
@@ -5646,7 +5646,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit:
   %.sroa.6.0.extract.shift21.i52 = add i64 %124, %110
   %.sroa.3.0.insert.ext.i53 = and i64 %.sroa.6.0.extract.shift21.i52, -4294967296
   %.sroa.09.0.insert.insert.i54 = or disjoint i64 %.sroa.3.0.insert.ext.i53, %.sroa.09.0.insert.ext.i51
-  %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i54, i64 %110, ptr nonnull %109) #13, !srcloc !14
+  %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i54, i64 %110, ptr nonnull %109) #13, !srcloc !16
   %126 = icmp eq i64 %125, %110
   %127 = select i1 %126, i32 2, i32 1
   br label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
@@ -5966,7 +5966,7 @@ define linkonce_odr hidden void @_ZN30OopOopIterateBackwardsDispatchI21PSPushCon
 
 .loopexit:                                        ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, %20
   %19 = icmp ult ptr %12, %21
-  br i1 %19, label %20, label %._crit_edge, !llvm.loop !19
+  br i1 %19, label %20, label %._crit_edge, !llvm.loop !21
 
 20:                                               ; preds = %.lr.ph26, %.loopexit
   %.02325 = phi ptr [ %16, %.lr.ph26 ], [ %21, %.loopexit ]
@@ -6004,7 +6004,7 @@ define linkonce_odr hidden void @_ZN30OopOopIterateBackwardsDispatchI21PSPushCon
   %39 = shl i64 %32, %38
   %40 = add i64 %39, %36
   %41 = inttoptr i64 %40 to ptr
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 0) #13, !srcloc !18
   %42 = getelementptr inbounds i8, ptr %.024, i64 -3
   %43 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %44 = load volatile i32, ptr %43, align 4
@@ -6023,7 +6023,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %42, ptr %52, align 8
   %53 = add i32 %44, 1
   %54 = and i32 %53, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %54, ptr %43, align 4
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
@@ -6096,7 +6096,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI1
 
 _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i
   %88 = icmp ugt ptr %30, %25
-  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -6128,7 +6128,7 @@ define linkonce_odr hidden void @_ZN30OopOopIterateBackwardsDispatchI21PSPushCon
 
 .loopexit:                                        ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %20
   %19 = icmp ult ptr %12, %21
-  br i1 %19, label %20, label %._crit_edge, !llvm.loop !21
+  br i1 %19, label %20, label %._crit_edge, !llvm.loop !23
 
 20:                                               ; preds = %.lr.ph26, %.loopexit
   %.02325 = phi ptr [ %16, %.lr.ph26 ], [ %21, %.loopexit ]
@@ -6158,7 +6158,7 @@ define linkonce_odr hidden void @_ZN30OopOopIterateBackwardsDispatchI21PSPushCon
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %33
 
 33:                                               ; preds = %.lr.ph
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %31, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %31, i64 0) #13, !srcloc !18
   %34 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %35 = load volatile i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -6176,7 +6176,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %30, ptr %43, align 8
   %44 = add i32 %35, 1
   %45 = and i32 %44, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %45, ptr %34, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -6249,7 +6249,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %79 = icmp ugt ptr %30, %25
-  br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -6307,7 +6307,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_reverseI
 
 .loopexit:                                        ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, %21
   %20 = icmp ult ptr %13, %22
-  br i1 %20, label %21, label %._crit_edge, !llvm.loop !23
+  br i1 %20, label %21, label %._crit_edge, !llvm.loop !25
 
 21:                                               ; preds = %.lr.ph28, %.loopexit
   %.02527 = phi ptr [ %17, %.lr.ph28 ], [ %22, %.loopexit ]
@@ -6345,7 +6345,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_reverseI
   %40 = shl i64 %33, %39
   %41 = add i64 %40, %37
   %42 = inttoptr i64 %41 to ptr
-  call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %42, i64 0) #13, !srcloc !16
+  call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %42, i64 0) #13, !srcloc !18
   %43 = getelementptr inbounds i8, ptr %.026, i64 -3
   %44 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %45 = load volatile i32, ptr %44, align 4
@@ -6364,7 +6364,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %43, ptr %53, align 8
   %54 = add i32 %45, 1
   %55 = and i32 %54, 131071
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %55, ptr %44, align 4
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
@@ -6437,7 +6437,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI1
 
 _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i
   %89 = icmp ugt ptr %31, %26
-  br i1 %89, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %89, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -6694,7 +6694,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 769
   %12 = load volatile i8, ptr %11, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %13 = and i8 %12, 16
   %.not27 = icmp eq i8 %13, 0
   br i1 %.not27, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread, label %14
@@ -6744,7 +6744,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 769
   %47 = load volatile i8, ptr %46, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %48 = and i8 %47, 16
   %.not29 = icmp eq i8 %48, 0
   br i1 %.not29, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread, label %49
@@ -6794,7 +6794,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 769
   %82 = load volatile i8, ptr %81, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %83 = and i8 %82, 4
   %.not31 = icmp eq i8 %83, 0
   br i1 %.not31, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, label %84
@@ -6856,7 +6856,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   %125 = lshr i64 %124, %119
   %126 = trunc i64 %125 to i32
   %127 = select i1 %122, i32 0, i32 %126
-  %128 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %127, i32 %121, ptr nonnull %3) #13, !srcloc !25
+  %128 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %127, i32 %121, ptr nonnull %3) #13, !srcloc !27
   br label %129
 
 129:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
@@ -6875,7 +6875,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
@@ -6910,7 +6910,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %34 = and i8 %33, 4
   %.not14 = icmp eq i8 %34, 0
   br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %35
@@ -6940,7 +6940,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 49:                                               ; preds = %45
   %50 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #13
   %51 = load volatile i32, ptr %50, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %52 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %53 = and i32 %52, %51
   %.not.i.i.i13 = icmp eq i32 %53, 0
@@ -7054,7 +7054,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 769
   %12 = load volatile i8, ptr %11, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %13 = and i8 %12, 16
   %.not27 = icmp eq i8 %13, 0
   br i1 %.not27, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread, label %14
@@ -7104,7 +7104,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 769
   %47 = load volatile i8, ptr %46, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %48 = and i8 %47, 16
   %.not29 = icmp eq i8 %48, 0
   br i1 %.not29, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread, label %49
@@ -7154,7 +7154,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 769
   %82 = load volatile i8, ptr %81, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %83 = and i8 %82, 4
   %.not31 = icmp eq i8 %83, 0
   br i1 %.not31, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, label %84
@@ -7202,7 +7202,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br i1 %or.cond, label %115, label %113
 
 113:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
-  %114 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %112, ptr nonnull %2, ptr nonnull %3) #13, !srcloc !14
+  %114 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %112, ptr nonnull %2, ptr nonnull %3) #13, !srcloc !16
   br label %115
 
 115:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
@@ -7231,7 +7231,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %or.cond.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split7.i.i
 
 .split7.i.i:                                      ; preds = %9
-  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !14
+  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !16
   %13 = icmp eq i64 %12, %5
   br i1 %13, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i
 
@@ -7243,9 +7243,9 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !14
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !16
   %17 = icmp eq i64 %16, %phi.call9.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !28
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i: ; preds = %.split.i.i, %.lr.ph.i.i, %.split7.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -7283,7 +7283,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %39, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split7.i.i.i
 
 .split7.i.i.i:                                    ; preds = %32
-  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %5, ptr nonnull %0) #13, !srcloc !14
+  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %5, ptr nonnull %0) #13, !srcloc !16
   %41 = icmp eq i64 %40, %5
   br i1 %41, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i
 
@@ -7295,9 +7295,9 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !14
+  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !16
   %45 = icmp eq i64 %44, %phi.call9.i.i.i
-  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
 
 _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %32, %30
   %46 = inttoptr i64 %31 to ptr
@@ -7436,7 +7436,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !14
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !16
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -7446,7 +7446,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !28
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !30
 
 _ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -7561,7 +7561,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !14
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !16
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -7569,7 +7569,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !28
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !30
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -7787,7 +7787,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %or.cond.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split7.i.i
 
 .split7.i.i:                                      ; preds = %9
-  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !14
+  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !16
   %13 = icmp eq i64 %12, %5
   br i1 %13, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i
 
@@ -7799,9 +7799,9 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !14
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !16
   %17 = icmp eq i64 %16, %phi.call9.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !28
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i: ; preds = %.split.i.i, %.lr.ph.i.i, %.split7.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -7839,7 +7839,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %39, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split7.i.i.i
 
 .split7.i.i.i:                                    ; preds = %32
-  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %5, ptr nonnull %0) #13, !srcloc !14
+  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %5, ptr nonnull %0) #13, !srcloc !16
   %41 = icmp eq i64 %40, %5
   br i1 %41, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i
 
@@ -7851,9 +7851,9 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !14
+  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !16
   %45 = icmp eq i64 %44, %phi.call9.i.i.i
-  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
 
 _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %32, %30
   %46 = inttoptr i64 %31 to ptr
@@ -7990,7 +7990,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !14
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !16
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -8000,7 +8000,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !28
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !30
 
 _ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -8039,7 +8039,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_reverseI
 
 .loopexit:                                        ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %21
   %20 = icmp ult ptr %13, %22
-  br i1 %20, label %21, label %._crit_edge, !llvm.loop !29
+  br i1 %20, label %21, label %._crit_edge, !llvm.loop !31
 
 21:                                               ; preds = %.lr.ph28, %.loopexit
   %.02527 = phi ptr [ %17, %.lr.ph28 ], [ %22, %.loopexit ]
@@ -8069,7 +8069,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_reverseI
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %34
 
 34:                                               ; preds = %.lr.ph
-  call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %32, i64 0) #13, !srcloc !16
+  call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %32, i64 0) #13, !srcloc !18
   %35 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %36 = load volatile i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -8087,7 +8087,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %31, ptr %44, align 8
   %45 = add i32 %36, 1
   %46 = and i32 %45, 131071
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %46, ptr %35, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -8160,7 +8160,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %80 = icmp ugt ptr %31, %26
-  br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -8203,7 +8203,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN16InstanceRefKlass38oop_oop_iterate_fields_except_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %23
 
 23:                                               ; preds = %14
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %21, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %21, i64 0) #13, !srcloc !18
   %24 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 224
   %25 = load volatile i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 352
@@ -8221,7 +8221,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %19, ptr %33, align 8
   %34 = add i32 %25, 1
   %35 = and i32 %34, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %35, ptr %24, align 4
   br label %_ZN16InstanceRefKlass38oop_oop_iterate_fields_except_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit
 
@@ -8353,7 +8353,7 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDesc21PSPushContentsClosureEEbS2_13Refe
   br i1 %.not.i.i.i.i.i.i, label %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %30
 
 30:                                               ; preds = %_ZN16InstanceRefKlass12try_discoverIP7oopDesc21PSPushContentsClosureEEbS2_13ReferenceTypePT0_.exit.thread
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %28, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %28, i64 0) #13, !srcloc !18
   %31 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 224
   %32 = load volatile i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 352
@@ -8371,7 +8371,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %26, ptr %40, align 8
   %41 = add i32 %32, 1
   %42 = and i32 %41, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %42, ptr %31, align 4
   br label %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit
 
@@ -8454,7 +8454,7 @@ _ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysConta
   br i1 %.not.i.i.i.i.i.i9, label %_ZN16InstanceRefKlass13do_discoveredIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %82
 
 82:                                               ; preds = %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %80, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %80, i64 0) #13, !srcloc !18
   %83 = getelementptr inbounds nuw i8, ptr %.val.i.i8, i64 224
   %84 = load volatile i32, ptr %83, align 4
   %85 = getelementptr inbounds nuw i8, ptr %.val.i.i8, i64 352
@@ -8472,7 +8472,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %79, ptr %92, align 8
   %93 = add i32 %84, 1
   %94 = and i32 %93, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %94, ptr %83, align 4
   br label %_ZN16InstanceRefKlass13do_discoveredIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit
 
@@ -8562,7 +8562,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass22oop_oop_iterate_fieldsIP
   br i1 %.not.i.i.i.i.i.i, label %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %12
 
 12:                                               ; preds = %3
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %10, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %10, i64 0) #13, !srcloc !18
   %13 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 224
   %14 = load volatile i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 352
@@ -8580,7 +8580,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %8, ptr %22, align 8
   %23 = add i32 %14, 1
   %24 = and i32 %23, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %24, ptr %13, align 4
   br label %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit
 
@@ -8663,7 +8663,7 @@ _ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysConta
   br i1 %.not.i.i.i.i.i.i7, label %_ZN16InstanceRefKlass13do_discoveredIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %64
 
 64:                                               ; preds = %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %62, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %62, i64 0) #13, !srcloc !18
   %65 = getelementptr inbounds nuw i8, ptr %.val.i.i6, i64 224
   %66 = load volatile i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %.val.i.i6, i64 352
@@ -8681,7 +8681,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %61, ptr %74, align 8
   %75 = add i32 %66, 1
   %76 = and i32 %75, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %76, ptr %65, align 4
   br label %_ZN16InstanceRefKlass13do_discoveredIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit
 
@@ -8808,7 +8808,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_rever
 
 .loopexit:                                        ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, %20
   %19 = icmp ult ptr %12, %21
-  br i1 %19, label %20, label %._crit_edge, !llvm.loop !31
+  br i1 %19, label %20, label %._crit_edge, !llvm.loop !33
 
 20:                                               ; preds = %.lr.ph28, %.loopexit
   %.02527 = phi ptr [ %16, %.lr.ph28 ], [ %21, %.loopexit ]
@@ -8846,7 +8846,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_rever
   %39 = shl i64 %32, %38
   %40 = add i64 %39, %36
   %41 = inttoptr i64 %40 to ptr
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 0) #13, !srcloc !18
   %42 = getelementptr inbounds i8, ptr %.026, i64 -3
   %43 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %44 = load volatile i32, ptr %43, align 4
@@ -8865,7 +8865,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %42, ptr %52, align 8
   %53 = add i32 %44, 1
   %54 = and i32 %53, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %54, ptr %43, align 4
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
@@ -8938,7 +8938,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI1
 
 _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i
   %88 = icmp ugt ptr %30, %25
-  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.loopexit, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %17, %.loopexit ]
@@ -8963,7 +8963,7 @@ _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds =
   tail call void @_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(912) %.val.i.i, ptr noundef %.08.i)
   %99 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %100 = icmp ult ptr %99, %95
-  br i1 %100, label %98, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_.exit, !llvm.loop !33
+  br i1 %100, label %98, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_.exit, !llvm.loop !35
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_.exit: ; preds = %98, %._crit_edge
   ret void
@@ -8997,7 +8997,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_rever
 
 .loopexit:                                        ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %20
   %19 = icmp ult ptr %12, %21
-  br i1 %19, label %20, label %._crit_edge, !llvm.loop !34
+  br i1 %19, label %20, label %._crit_edge, !llvm.loop !36
 
 20:                                               ; preds = %.lr.ph28, %.loopexit
   %.02527 = phi ptr [ %16, %.lr.ph28 ], [ %21, %.loopexit ]
@@ -9027,7 +9027,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_rever
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %33
 
 33:                                               ; preds = %.lr.ph
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %31, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %31, i64 0) #13, !srcloc !18
   %34 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %35 = load volatile i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -9045,7 +9045,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %30, ptr %43, align 8
   %44 = add i32 %35, 1
   %45 = and i32 %44, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %45, ptr %34, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -9118,7 +9118,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %79 = icmp ugt ptr %30, %25
-  br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   tail call void @_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc21PSPushContentsClosureEEvS2_PT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2)
@@ -9152,7 +9152,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_stati
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %17
 
 17:                                               ; preds = %14
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %15, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %15, i64 0) #13, !srcloc !18
   %18 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %19 = load volatile i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -9170,7 +9170,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %.08, ptr %27, align 8
   %28 = add i32 %19, 1
   %29 = and i32 %28, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %29, ptr %18, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -9244,7 +9244,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %14, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %64 = icmp ult ptr %63, %11
-  br i1 %64, label %14, label %._crit_edge, !llvm.loop !36
+  br i1 %64, label %14, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %3
   ret void
@@ -9298,7 +9298,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
 
 .loopexit:                                        ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, %20
   %19 = icmp ult ptr %12, %21
-  br i1 %19, label %20, label %._crit_edge, !llvm.loop !37
+  br i1 %19, label %20, label %._crit_edge, !llvm.loop !39
 
 20:                                               ; preds = %.lr.ph26, %.loopexit
   %.02325 = phi ptr [ %16, %.lr.ph26 ], [ %21, %.loopexit ]
@@ -9336,7 +9336,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %39 = shl i64 %32, %38
   %40 = add i64 %39, %36
   %41 = inttoptr i64 %40 to ptr
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 0) #13, !srcloc !18
   %42 = getelementptr inbounds i8, ptr %.024, i64 -3
   %43 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %44 = load volatile i32, ptr %43, align 4
@@ -9355,7 +9355,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %42, ptr %52, align 8
   %53 = add i32 %44, 1
   %54 = and i32 %53, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %54, ptr %43, align 4
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
@@ -9428,7 +9428,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI1
 
 _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i
   %88 = icmp ugt ptr %30, %25
-  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !38
+  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -9460,7 +9460,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
 
 .loopexit:                                        ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %20
   %19 = icmp ult ptr %12, %21
-  br i1 %19, label %20, label %._crit_edge, !llvm.loop !39
+  br i1 %19, label %20, label %._crit_edge, !llvm.loop !41
 
 20:                                               ; preds = %.lr.ph26, %.loopexit
   %.02325 = phi ptr [ %16, %.lr.ph26 ], [ %21, %.loopexit ]
@@ -9490,7 +9490,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %33
 
 33:                                               ; preds = %.lr.ph
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %31, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %31, i64 0) #13, !srcloc !18
   %34 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %35 = load volatile i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -9508,7 +9508,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %30, ptr %43, align 8
   %44 = add i32 %35, 1
   %45 = and i32 %44, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %45, ptr %34, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -9581,7 +9581,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %79 = icmp ugt ptr %30, %25
-  br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !40
+  br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -9703,7 +9703,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %56 = getelementptr inbounds nuw i64, ptr %33, i64 %53
   %57 = load i64, ptr %56, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %57, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %58, !llvm.loop !41
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %58, !llvm.loop !43
 
 58:                                               ; preds = %55
   %59 = shl i64 %53, 6
@@ -9732,7 +9732,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %60, %44
   tail call void @_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(912) %.val.i.i.i.i.i.i.i, ptr noundef %69)
   %70 = add nuw i64 %.0.i.i.i.i.i, 1
   %71 = icmp ult i64 %70, %39
-  br i1 %71, label %44, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !42
+  br i1 %71, label %44, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !44
 
 72:                                               ; preds = %3
   %73 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -9966,7 +9966,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_h
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %16
 
 16:                                               ; preds = %3
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %14, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %14, i64 0) #13, !srcloc !18
   %17 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %18 = load volatile i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -9984,7 +9984,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %8, ptr %26, align 8
   %27 = add i32 %18, 1
   %28 = and i32 %27, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %28, ptr %17, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -10063,7 +10063,7 @@ _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; pre
   br i1 %.not.i.i.i.i.i7, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit23, label %64
 
 64:                                               ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %62, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %62, i64 0) #13, !srcloc !18
   %65 = getelementptr inbounds nuw i8, ptr %.val.i6, i64 224
   %66 = load volatile i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %.val.i6, i64 352
@@ -10081,7 +10081,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %12, ptr %74, align 8
   %75 = add i32 %66, 1
   %76 = and i32 %75, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %76, ptr %65, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit23
 
@@ -10162,13 +10162,13 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %6, label %7, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureEEEbPT_mm.exit
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !43
+  %8 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !45
   %9 = ptrtoint ptr %1 to i64
   %10 = sext i32 %8 to i64
   %11 = add nsw i64 %10, %9
   %12 = inttoptr i64 %11 to ptr
-  %13 = load i32, ptr %12, align 4, !noalias !43
-  %14 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !43
+  %13 = load i32, ptr %12, align 4, !noalias !45
+  %14 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !45
   %15 = sext i32 %14 to i64
   %16 = add i64 %15, %9
   %17 = inttoptr i64 %16 to ptr
@@ -10192,7 +10192,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 _ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitEm.exit: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i.i, %52
   %30 = add nuw i64 %.0.i.i.i.i, 1
   %31 = icmp ult i64 %30, %25
-  br i1 %31, label %32, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureEEEbPT_mm.exit, !llvm.loop !46
+  br i1 %31, label %32, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureEEEbPT_mm.exit, !llvm.loop !48
 
 32:                                               ; preds = %_ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitEm.exit, %.lr.ph.i.i
   %.0917.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ %30, %_ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitEm.exit ]
@@ -10219,7 +10219,7 @@ _ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitE
   %44 = getelementptr inbounds nuw i64, ptr %19, i64 %41
   %45 = load i64, ptr %44, align 8
   %.not36.i.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %46, !llvm.loop !41
+  br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %46, !llvm.loop !43
 
 46:                                               ; preds = %43
   %47 = shl i64 %41, 6
@@ -10251,7 +10251,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %48, %32
   br i1 %.not.i.i.i.i.i.i, label %_ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitEm.exit, label %60
 
 60:                                               ; preds = %52
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %58, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %58, i64 0) #13, !srcloc !18
   %61 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 224
   %62 = load volatile i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 352
@@ -10269,7 +10269,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %57, ptr %70, align 8
   %71 = add i32 %62, 1
   %72 = and i32 %71, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %72, ptr %61, align 4
   br label %_ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitEm.exit
 
@@ -10387,7 +10387,7 @@ define linkonce_odr hidden void @_ZN30OopOopIterateBackwardsDispatchI21PSPushCon
   tail call void @_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(912) %.val.i.i.i.i, ptr noundef %.08.i.i.i)
   %23 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 4
   %24 = icmp ult ptr %23, %19
-  br i1 %24, label %22, label %_ZN13ObjArrayKlass23oop_oop_iterate_reverseI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_.exit, !llvm.loop !47
+  br i1 %24, label %22, label %_ZN13ObjArrayKlass23oop_oop_iterate_reverseI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_.exit, !llvm.loop !49
 
 _ZN13ObjArrayKlass23oop_oop_iterate_reverseI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_.exit: ; preds = %22, %3
   ret void
@@ -10435,7 +10435,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsIP7
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %25
 
 25:                                               ; preds = %22
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %23, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %23, i64 0) #13, !srcloc !18
   %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %27 = load volatile i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -10453,7 +10453,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %.08, ptr %35, align 8
   %36 = add i32 %27, 1
   %37 = and i32 %36, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %37, ptr %26, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -10527,7 +10527,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %22, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %72 = icmp ult ptr %71, %19
-  br i1 %72, label %22, label %._crit_edge, !llvm.loop !48
+  br i1 %72, label %22, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %3
   ret void
@@ -10622,7 +10622,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %42 = shl i64 %35, %41
   %43 = add i64 %42, %39
   %44 = inttoptr i64 %43 to ptr
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %44, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %44, i64 0) #13, !srcloc !18
   %45 = getelementptr inbounds nuw i8, ptr %.151, i64 1
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %47 = load volatile i32, ptr %46, align 4
@@ -10641,7 +10641,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %45, ptr %55, align 8
   %56 = add i32 %47, 1
   %57 = and i32 %56, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %57, ptr %46, align 4
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
@@ -10715,12 +10715,12 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI1
 _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i
   %91 = getelementptr inbounds nuw i8, ptr %.151, i64 4
   %92 = icmp ult ptr %91, %.040
-  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, %22
   %93 = getelementptr inbounds nuw i8, ptr %.04152, i64 8
   %94 = icmp ult ptr %93, %18
-  br i1 %94, label %22, label %._crit_edge55, !llvm.loop !50
+  br i1 %94, label %22, label %._crit_edge55, !llvm.loop !52
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %5
   ret void
@@ -10777,7 +10777,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %36
 
 36:                                               ; preds = %.lr.ph
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %34, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %34, i64 0) #13, !srcloc !18
   %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %38 = load volatile i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -10795,7 +10795,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %.150, ptr %46, align 8
   %47 = add i32 %38, 1
   %48 = and i32 %47, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %48, ptr %37, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -10869,12 +10869,12 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %82 = getelementptr inbounds nuw i8, ptr %.150, i64 8
   %83 = icmp ult ptr %82, %.040
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %22
   %84 = getelementptr inbounds nuw i8, ptr %.04151, i64 8
   %85 = icmp ult ptr %84, %18
-  br i1 %85, label %22, label %._crit_edge54, !llvm.loop !52
+  br i1 %85, label %22, label %._crit_edge54, !llvm.loop !54
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %5
   ret void
@@ -10962,7 +10962,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %43 = shl i64 %36, %42
   %44 = add i64 %43, %40
   %45 = inttoptr i64 %44 to ptr
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %45, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %45, i64 0) #13, !srcloc !18
   %46 = getelementptr inbounds nuw i8, ptr %.155, i64 1
   %47 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %48 = load volatile i32, ptr %47, align 4
@@ -10981,7 +10981,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %46, ptr %56, align 8
   %57 = add i32 %48, 1
   %58 = and i32 %57, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %58, ptr %47, align 4
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
@@ -11055,12 +11055,12 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI1
 _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i
   %92 = getelementptr inbounds nuw i8, ptr %.155, i64 4
   %93 = icmp ult ptr %92, %.044
-  br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, %23
   %94 = getelementptr inbounds nuw i8, ptr %.04556, i64 8
   %95 = icmp ult ptr %94, %19
-  br i1 %95, label %23, label %._crit_edge59, !llvm.loop !54
+  br i1 %95, label %23, label %._crit_edge59, !llvm.loop !56
 
 ._crit_edge59:                                    ; preds = %._crit_edge, %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -11279,7 +11279,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %37
 
 37:                                               ; preds = %.lr.ph
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %35, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %35, i64 0) #13, !srcloc !18
   %38 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %39 = load volatile i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -11297,7 +11297,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %.154, ptr %47, align 8
   %48 = add i32 %39, 1
   %49 = and i32 %48, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %49, ptr %38, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -11371,12 +11371,12 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %83 = getelementptr inbounds nuw i8, ptr %.154, i64 8
   %84 = icmp ult ptr %83, %.044
-  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !55
+  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %23
   %85 = getelementptr inbounds nuw i8, ptr %.04555, i64 8
   %86 = icmp ult ptr %85, %19
-  br i1 %86, label %23, label %._crit_edge58, !llvm.loop !56
+  br i1 %86, label %23, label %._crit_edge58, !llvm.loop !58
 
 ._crit_edge58:                                    ; preds = %._crit_edge, %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -11478,7 +11478,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass11do_referentIP7oopDesc21P
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %19
 
 19:                                               ; preds = %15
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %17, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %17, i64 0) #13, !srcloc !18
   %20 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %21 = load volatile i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -11496,7 +11496,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %8, ptr %29, align 8
   %30 = add i32 %21, 1
   %31 = and i32 %30, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %31, ptr %20, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -11596,7 +11596,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass13do_discoveredIP7oopDesc2
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %19
 
 19:                                               ; preds = %15
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %17, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %17, i64 0) #13, !srcloc !18
   %20 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %21 = load volatile i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -11614,7 +11614,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %8, ptr %29, align 8
   %30 = add i32 %21, 1
   %31 = and i32 %30, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %31, ptr %20, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -11770,7 +11770,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %41 = shl i64 %34, %40
   %42 = add i64 %41, %38
   %43 = inttoptr i64 %42 to ptr
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %43, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %43, i64 0) #13, !srcloc !18
   %44 = getelementptr inbounds nuw i8, ptr %.165, i64 1
   %45 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %46 = load volatile i32, ptr %45, align 4
@@ -11789,7 +11789,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %44, ptr %54, align 8
   %55 = add i32 %46, 1
   %56 = and i32 %55, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %56, ptr %45, align 4
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
@@ -11863,12 +11863,12 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI1
 _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i
   %90 = getelementptr inbounds nuw i8, ptr %.165, i64 4
   %91 = icmp ult ptr %90, %.048
-  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, %21
   %92 = getelementptr inbounds nuw i8, ptr %.04966, i64 8
   %93 = icmp ult ptr %92, %18
-  br i1 %93, label %21, label %._crit_edge69, !llvm.loop !58
+  br i1 %93, label %21, label %._crit_edge69, !llvm.loop !60
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %5
   %94 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
@@ -11896,7 +11896,7 @@ _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds =
   tail call void @_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(912) %.val.i.i, ptr noundef %.120.i)
   %107 = getelementptr inbounds nuw i8, ptr %.120.i, i64 4
   %108 = icmp ult ptr %107, %.014.i
-  br i1 %108, label %106, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_9MemRegion.exit, !llvm.loop !59
+  br i1 %108, label %106, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_9MemRegion.exit, !llvm.loop !61
 
 _ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_9MemRegion.exit: ; preds = %106, %._crit_edge69
   ret void
@@ -11953,7 +11953,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %36
 
 36:                                               ; preds = %.lr.ph
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %34, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %34, i64 0) #13, !srcloc !18
   %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %38 = load volatile i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -11971,7 +11971,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %.164, ptr %46, align 8
   %47 = add i32 %38, 1
   %48 = and i32 %47, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %48, ptr %37, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -12045,12 +12045,12 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %82 = getelementptr inbounds nuw i8, ptr %.164, i64 8
   %83 = icmp ult ptr %82, %.048
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !60
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %22
   %84 = getelementptr inbounds nuw i8, ptr %.04965, i64 8
   %85 = icmp ult ptr %84, %18
-  br i1 %85, label %22, label %._crit_edge68, !llvm.loop !61
+  br i1 %85, label %22, label %._crit_edge68, !llvm.loop !63
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %5
   tail call void @_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedIP7oopDesc21PSPushContentsClosureEEvS2_PT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4)
@@ -12088,7 +12088,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass31oop_oop_iterate_stati
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %22
 
 22:                                               ; preds = %19
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %20, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %20, i64 0) #13, !srcloc !18
   %23 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %24 = load volatile i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -12106,7 +12106,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %.120, ptr %32, align 8
   %33 = add i32 %24, 1
   %34 = and i32 %33, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %34, ptr %23, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -12180,7 +12180,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %19, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %.120, i64 8
   %69 = icmp ult ptr %68, %.014
-  br i1 %69, label %19, label %._crit_edge, !llvm.loop !62
+  br i1 %69, label %19, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %5
   ret void
@@ -12267,7 +12267,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %42 = shl i64 %35, %41
   %43 = add i64 %42, %39
   %44 = inttoptr i64 %43 to ptr
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %44, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %44, i64 0) #13, !srcloc !18
   %45 = getelementptr inbounds nuw i8, ptr %.158, i64 1
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %47 = load volatile i32, ptr %46, align 4
@@ -12286,7 +12286,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %45, ptr %55, align 8
   %56 = add i32 %47, 1
   %57 = and i32 %56, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %57, ptr %46, align 4
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
@@ -12360,12 +12360,12 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI1
 _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i
   %91 = getelementptr inbounds nuw i8, ptr %.158, i64 4
   %92 = icmp ult ptr %91, %.044
-  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !63
+  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, %22
   %93 = getelementptr inbounds nuw i8, ptr %.04559, i64 8
   %94 = icmp ult ptr %93, %18
-  br i1 %94, label %22, label %._crit_edge62, !llvm.loop !64
+  br i1 %94, label %22, label %._crit_edge62, !llvm.loop !66
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %5
   ret void
@@ -12422,7 +12422,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %36
 
 36:                                               ; preds = %.lr.ph
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %34, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %34, i64 0) #13, !srcloc !18
   %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %38 = load volatile i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -12440,7 +12440,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %.157, ptr %46, align 8
   %47 = add i32 %38, 1
   %48 = and i32 %47, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %48, ptr %37, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -12514,12 +12514,12 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %82 = getelementptr inbounds nuw i8, ptr %.157, i64 8
   %83 = icmp ult ptr %82, %.044
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %22
   %84 = getelementptr inbounds nuw i8, ptr %.04558, i64 8
   %85 = icmp ult ptr %84, %18
-  br i1 %85, label %22, label %._crit_edge61, !llvm.loop !66
+  br i1 %85, label %22, label %._crit_edge61, !llvm.loop !68
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %5
   ret void
@@ -12705,7 +12705,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   %60 = getelementptr inbounds nuw i64, ptr %32, i64 %57
   %61 = load i64, ptr %60, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %61, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %62, !llvm.loop !41
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %62, !llvm.loop !43
 
 62:                                               ; preds = %59
   %63 = shl i64 %57, 6
@@ -12734,7 +12734,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %64, %48
   tail call void @_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(912) %.val.i.i.i.i.i.i.i, ptr noundef %73)
   %74 = add nuw i64 %.0.i.i.i.i.i, 1
   %75 = icmp ult i64 %74, %43
-  br i1 %75, label %48, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !42
+  br i1 %75, label %48, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !44
 
 76:                                               ; preds = %5
   tail call void @_ZN23InstanceStackChunkKlass26oop_oop_iterate_stack_slowEP17stackChunkOopDescP17OopIterateClosure9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2, ptr %3, i64 %4) #13
@@ -12770,7 +12770,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_h
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %22
 
 22:                                               ; preds = %18
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %20, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %20, i64 0) #13, !srcloc !18
   %23 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %24 = load volatile i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -12788,7 +12788,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %10, ptr %32, align 8
   %33 = add i32 %24, 1
   %34 = and i32 %33, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %34, ptr %23, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -12874,7 +12874,7 @@ _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; pre
   br i1 %.not.i.i.i.i.i10, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit26, label %74
 
 74:                                               ; preds = %70
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %72, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %72, i64 0) #13, !srcloc !18
   %75 = getelementptr inbounds nuw i8, ptr %.val.i9, i64 224
   %76 = load volatile i32, ptr %75, align 4
   %77 = getelementptr inbounds nuw i8, ptr %.val.i9, i64 352
@@ -12892,7 +12892,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %14, ptr %84, align 8
   %85 = add i32 %76, 1
   %86 = and i32 %85, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %86, ptr %75, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit26
 
@@ -13014,7 +13014,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   tail call void @_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(912) %.val.i.i.i, ptr noundef %.121.i.i)
   %28 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 4
   %29 = icmp ult ptr %28, %.0.i7.i
-  br i1 %29, label %27, label %_ZN13ObjArrayKlass23oop_oop_iterate_boundedI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_9MemRegion.exit, !llvm.loop !67
+  br i1 %29, label %27, label %_ZN13ObjArrayKlass23oop_oop_iterate_boundedI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_9MemRegion.exit, !llvm.loop !69
 
 _ZN13ObjArrayKlass23oop_oop_iterate_boundedI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_9MemRegion.exit: ; preds = %27, %5
   ret void
@@ -13066,7 +13066,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_bo
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %29
 
 29:                                               ; preds = %26
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %27, i64 0) #13, !srcloc !16
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %27, i64 0) #13, !srcloc !18
   %30 = getelementptr inbounds nuw i8, ptr %.val.i, i64 224
   %31 = load volatile i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %.val.i, i64 352
@@ -13084,7 +13084,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store ptr %.121, ptr %39, align 8
   %40 = add i32 %31, 1
   %41 = and i32 %40, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 %41, ptr %30, align 4
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
@@ -13158,7 +13158,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %26, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i
   %75 = getelementptr inbounds nuw i8, ptr %.121, i64 8
   %76 = icmp ult ptr %75, %.0
-  br i1 %76, label %26, label %._crit_edge, !llvm.loop !68
+  br i1 %76, label %26, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, %5
   ret void
@@ -13356,17 +13356,17 @@ _ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15Counti
   %51 = add i64 %50, 1
   store i64 %51, ptr %49, align 8
   %.not.i.i.i.i.i = icmp eq i64 %32, %.0810.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !69
+  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !71
 
 _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, %24
   %52 = add i64 %.0.i.i.i, 1
   %53 = load i64, ptr %11, align 8
   %54 = icmp ult i64 %52, %53
-  br i1 %54, label %24, label %55, !llvm.loop !70
+  br i1 %54, label %24, label %55, !llvm.loop !72
 
 55:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEEEEEbT_.exit.i.i.i
   %56 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull %5) #13
-  br i1 %56, label %22, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEvPT_.exit.loopexit, !llvm.loop !71
+  br i1 %56, label %22, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEvPT_.exit.loopexit, !llvm.loop !73
 
 _ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI16PSIsAliveClosure24PSAdjustWeakRootsClosureEEEEvPT_.exit.loopexit: ; preds = %55
   %.pre = load i64, ptr %9, align 8
@@ -13393,7 +13393,7 @@ _ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI16P
   call void @_ZN27WeakProcessorParTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not15 = icmp eq i64 %indvars.iv.next, 15
-  br i1 %.not15, label %65, label %14
+  br i1 %.not15, label %65, label %14, !llvm.loop !74
 
 65:                                               ; preds = %64
   ret void
@@ -13473,69 +13473,72 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{i64 2145412694}
-!15 = !{i64 2145392468}
-!16 = !{i64 3513740}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = !{i64 2145411161}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
-!45 = distinct !{!45, !"_ZNK17stackChunkOopDesc6bitmapEv"}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = !{i64 2145412694}
+!17 = !{i64 2145392468}
+!18 = !{i64 3513740}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = !{i64 2145411161}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
+!47 = distinct !{!47, !"_ZNK17stackChunkOopDesc6bitmapEv"}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = distinct !{!70, !7, !8}
+!71 = distinct !{!71, !7, !8}
+!72 = distinct !{!72, !7, !8}
+!73 = distinct !{!73, !7, !8}
+!74 = distinct !{!74, !8}

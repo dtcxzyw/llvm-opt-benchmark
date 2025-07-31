@@ -9934,7 +9934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 25:                                               ; preds = %.preheader
   %26 = add nuw nsw i32 %.018, 1
   %exitcond19.not = icmp eq i32 %26, 20
-  br i1 %exitcond19.not, label %16, label %.preheader, !llvm.loop !73
+  br i1 %exitcond19.not, label %16, label %.preheader, !llvm.loop !74
 
 27:                                               ; preds = %.preheader
   %28 = landingpad { ptr, i32 }
@@ -9992,32 +9992,32 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTe
   %29 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
   %30 = sext i32 %2 to i64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !36, !noalias !74
+  %32 = load i64, ptr %31, align 8, !tbaa !36, !noalias !75
   %33 = icmp ult i64 %32, %30
   br i1 %33, label %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
 
 34:                                               ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.362, i64 noundef %30, i64 noundef %32) #25, !noalias !74
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.362, i64 noundef %30, i64 noundef %32) #25, !noalias !75
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %5
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %35, ptr %8, align 8, !tbaa !33, !alias.scope !74
-  %36 = load ptr, ptr %1, align 8, !tbaa !66, !noalias !74
+  store ptr %35, ptr %8, align 8, !tbaa !33, !alias.scope !75
+  %36 = load ptr, ptr %1, align 8, !tbaa !66, !noalias !75
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %30
   %38 = sub nuw i64 %32, %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23, !noalias !74
-  store i64 %38, ptr %7, align 8, !tbaa !70, !noalias !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23, !noalias !75
+  store i64 %38, ptr %7, align 8, !tbaa !70, !noalias !75
   %39 = icmp ugt i64 %38, 15
   br i1 %39, label %.noexc10.i.i, label %._crit_edge.i.i.i
 
 .noexc10.i.i:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
   %40 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
-  store ptr %40, ptr %8, align 8, !tbaa !66, !alias.scope !74
-  %41 = load i64, ptr %7, align 8, !tbaa !70, !noalias !74
-  store i64 %41, ptr %35, align 8, !tbaa !38, !alias.scope !74
+  store ptr %40, ptr %8, align 8, !tbaa !66, !alias.scope !75
+  %41 = load i64, ptr %7, align 8, !tbaa !70, !noalias !75
+  store i64 %41, ptr %35, align 8, !tbaa !38, !alias.scope !75
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc10.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
@@ -10037,13 +10037,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds = %._crit_edge.i.i.i, %43, %45
-  %46 = load i64, ptr %7, align 8, !tbaa !70, !noalias !74
+  %46 = load i64, ptr %7, align 8, !tbaa !70, !noalias !75
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %46, ptr %47, align 8, !tbaa !36, !alias.scope !74
-  %48 = load ptr, ptr %8, align 8, !tbaa !66, !alias.scope !74
+  store i64 %46, ptr %47, align 8, !tbaa !36, !alias.scope !75
+  %48 = load ptr, ptr %8, align 8, !tbaa !66, !alias.scope !75
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %46
   store i8 0, ptr %49, align 1, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23, !noalias !74
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23, !noalias !75
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9) #23
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !39
@@ -10291,7 +10291,7 @@ _ZN7testing7MessageD2Ev.exit63:                   ; preds = %_ZNKSt14default_del
 
 133:                                              ; preds = %130
   store i32 %132, ptr %18, align 4, !tbaa !20
-  %134 = load i32, ptr %17, align 4, !tbaa !20, !noalias !77
+  %134 = load i32, ptr %17, align 4, !tbaa !20, !noalias !78
   %135 = icmp eq i32 %134, %132
   br i1 %135, label %136, label %137
 
@@ -10306,7 +10306,7 @@ _ZN7testing7MessageD2Ev.exit63:                   ; preds = %_ZNKSt14default_del
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %136, %137
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #23
-  %138 = load i8, ptr %16, align 8, !tbaa !57, !range !82, !noundef !83
+  %138 = load i8, ptr %16, align 8, !tbaa !57, !range !83, !noundef !84
   %139 = trunc nuw i8 %138 to i1
   br i1 %139, label %169, label %145
 
@@ -10447,7 +10447,7 @@ _ZN7testing15AssertionResultD2Ev.exit82:          ; preds = %169, %_ZNKSt14defau
 
 183:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit82
   store i32 %182, ptr %23, align 4, !tbaa !20
-  %184 = load i32, ptr %22, align 4, !tbaa !20, !noalias !84
+  %184 = load i32, ptr %22, align 4, !tbaa !20, !noalias !85
   %185 = icmp eq i32 %184, %182
   br i1 %185, label %186, label %187
 
@@ -10462,7 +10462,7 @@ _ZN7testing15AssertionResultD2Ev.exit82:          ; preds = %169, %_ZNKSt14defau
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit85: ; preds = %186, %187
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #23
-  %188 = load i8, ptr %21, align 8, !tbaa !57, !range !82, !noundef !83
+  %188 = load i8, ptr %21, align 8, !tbaa !57, !range !83, !noundef !84
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %217, label %193
 
@@ -10599,8 +10599,8 @@ _ZN7testing15AssertionResultD2Ev.exit98:          ; preds = %217, %_ZNKSt14defau
 
 232:                                              ; preds = %230
   %233 = sext i32 %229 to i64
-  call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  %234 = load i64, ptr %47, align 8, !tbaa !36, !noalias !89
+  call void @llvm.experimental.noalias.scope.decl(metadata !90)
+  %234 = load i64, ptr %47, align 8, !tbaa !36, !noalias !90
   %235 = icmp ult i64 %234, %233
   br i1 %235, label %236, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i99
 
@@ -10614,13 +10614,13 @@ _ZN7testing15AssertionResultD2Ev.exit98:          ; preds = %217, %_ZNKSt14defau
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i99: ; preds = %232
   %237 = sext i32 %231 to i64
   %238 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %238, ptr %27, align 8, !tbaa !33, !alias.scope !89
-  %239 = load ptr, ptr %8, align 8, !tbaa !66, !noalias !89
+  store ptr %238, ptr %27, align 8, !tbaa !33, !alias.scope !90
+  %239 = load ptr, ptr %8, align 8, !tbaa !66, !noalias !90
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 %233
   %241 = sub nuw i64 %234, %233
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %237, i64 %241)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23, !noalias !89
-  store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !70, !noalias !89
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23, !noalias !90
+  store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !70, !noalias !90
   %242 = icmp ugt i64 %spec.select.i.i.i, 15
   br i1 %242, label %.noexc10.i.i101, label %._crit_edge.i.i.i100
 
@@ -10629,9 +10629,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i99:
           to label %.noexc103 unwind label %274
 
 .noexc103:                                        ; preds = %.noexc10.i.i101
-  store ptr %243, ptr %27, align 8, !tbaa !66, !alias.scope !89
-  %244 = load i64, ptr %6, align 8, !tbaa !70, !noalias !89
-  store i64 %244, ptr %238, align 8, !tbaa !38, !alias.scope !89
+  store ptr %243, ptr %27, align 8, !tbaa !66, !alias.scope !90
+  %244 = load i64, ptr %6, align 8, !tbaa !70, !noalias !90
+  store i64 %244, ptr %238, align 8, !tbaa !38, !alias.scope !90
   br label %._crit_edge.i.i.i100
 
 ._crit_edge.i.i.i100:                             ; preds = %.noexc103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i99
@@ -10651,20 +10651,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i99:
   br label %249
 
 249:                                              ; preds = %248, %246, %._crit_edge.i.i.i100
-  %250 = load i64, ptr %6, align 8, !tbaa !70, !noalias !89
+  %250 = load i64, ptr %6, align 8, !tbaa !70, !noalias !90
   %251 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 %250, ptr %251, align 8, !tbaa !36, !alias.scope !89
-  %252 = load ptr, ptr %27, align 8, !tbaa !66, !alias.scope !89
+  store i64 %250, ptr %251, align 8, !tbaa !36, !alias.scope !90
+  %252 = load ptr, ptr %27, align 8, !tbaa !66, !alias.scope !90
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 %250
   store i8 0, ptr %253, align 1, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23, !noalias !89
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23, !noalias !90
   %254 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers16PhoneNumberMatch10raw_stringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %11)
           to label %255 unwind label %276
 
 255:                                              ; preds = %249
-  %256 = load i64, ptr %251, align 8, !tbaa !36, !noalias !92
+  %256 = load i64, ptr %251, align 8, !tbaa !36, !noalias !93
   %257 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %258 = load i64, ptr %257, align 8, !tbaa !36, !noalias !92
+  %258 = load i64, ptr %257, align 8, !tbaa !36, !noalias !93
   %259 = icmp eq i64 %256, %258
   br i1 %259, label %260, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
 
@@ -10673,9 +10673,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i99:
   br i1 %261, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i: ; preds = %260
-  %262 = load ptr, ptr %254, align 8, !tbaa !66, !noalias !92
-  %263 = load ptr, ptr %27, align 8, !tbaa !66, !noalias !92
-  %bcmp.i.i.i = call i32 @bcmp(ptr %263, ptr %262, i64 %256), !noalias !92
+  %262 = load ptr, ptr %254, align 8, !tbaa !66, !noalias !93
+  %263 = load ptr, ptr %27, align 8, !tbaa !66, !noalias !93
+  %bcmp.i.i.i = call i32 @bcmp(ptr %263, ptr %262, i64 %256), !noalias !93
   %264 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %264, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
 
@@ -10706,7 +10706,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #23
-  %271 = load i8, ptr %26, align 8, !tbaa !57, !range !82, !noundef !83
+  %271 = load i8, ptr %26, align 8, !tbaa !57, !range !83, !noundef !84
   %272 = trunc nuw i8 %271 to i1
   br i1 %272, label %308, label %284
 
@@ -13067,7 +13067,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTe
           to label %_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers11PhoneNumberES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.exit unwind label %26
 
 _ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers11PhoneNumberES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.exit: ; preds = %20, %21
-  %22 = load i8, ptr %7, align 8, !tbaa !57, !range !82, !noundef !83
+  %22 = load i8, ptr %7, align 8, !tbaa !57, !range !83, !noundef !84
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %52, label %28
 
@@ -13197,9 +13197,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %52, %_ZNKSt14defaul
 
 65:                                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !36, !noalias !97
+  %67 = load i64, ptr %66, align 8, !tbaa !36, !noalias !98
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %69 = load i64, ptr %68, align 8, !tbaa !36, !noalias !97
+  %69 = load i64, ptr %68, align 8, !tbaa !36, !noalias !98
   %70 = icmp eq i64 %67, %69
   br i1 %70, label %71, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
 
@@ -13208,9 +13208,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %52, %_ZNKSt14defaul
   br i1 %72, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i: ; preds = %71
-  %73 = load ptr, ptr %64, align 8, !tbaa !66, !noalias !97
-  %74 = load ptr, ptr %3, align 8, !tbaa !66, !noalias !97
-  %bcmp.i.i.i = call i32 @bcmp(ptr %74, ptr %73, i64 %67), !noalias !97
+  %73 = load ptr, ptr %64, align 8, !tbaa !66, !noalias !98
+  %74 = load ptr, ptr %3, align 8, !tbaa !66, !noalias !98
+  %bcmp.i.i.i = call i32 @bcmp(ptr %74, ptr %73, i64 %67), !noalias !98
   %75 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %75, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
 
@@ -13223,7 +13223,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit unwind label %79
 
 _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
-  %76 = load i8, ptr %10, align 8, !tbaa !57, !range !82, !noundef !83
+  %76 = load i8, ptr %10, align 8, !tbaa !57, !range !83, !noundef !84
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %117, label %81
 
@@ -14654,7 +14654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc104
-  store ptr %58, ptr %8, align 8, !tbaa !102
+  store ptr %58, ptr %8, align 8, !tbaa !103
   %60 = load ptr, ptr %9, align 8, !tbaa !66
   %61 = icmp eq ptr %60, %55
   br i1 %61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i105
@@ -15189,7 +15189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
           to label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit unwind label %.body154
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit: ; preds = %.noexc153
-  store ptr %226, ptr %8, align 8, !tbaa !102
+  store ptr %226, ptr %8, align 8, !tbaa !103
   call void @_ZN4i18n12phonenumbers18PhoneNumberMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(117) %58) #23
   call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef 120) #24
   %228 = load ptr, ptr %24, align 8, !tbaa !66
@@ -15927,7 +15927,7 @@ declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !102
+  %2 = load ptr, ptr %0, align 8, !tbaa !103
   %3 = icmp eq ptr %2, null
   br i1 %3, label %_ZN5boost14checked_deleteIN4i18n12phonenumbers18PhoneNumberMatcherEEEvPT_.exit, label %4
 
@@ -16337,7 +16337,7 @@ _ZN7testing15AssertionResultD2Ev.exit127:         ; preds = %_ZN7testing15Assert
   %178 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %179 = load ptr, ptr %178, align 8
   %180 = select i1 %.not.i.i.i, ptr %179, ptr %177
-  %181 = load i16, ptr %180, align 2, !tbaa !105
+  %181 = load i16, ptr %180, align 2, !tbaa !106
   %182 = zext i16 %181 to i32
   br label %_ZNK6icu_7013UnicodeStringixEi.exit
 
@@ -16353,7 +16353,7 @@ _ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit: ; preds = 
   store ptr null, ptr %185, align 8, !tbaa !65
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #23
-  %186 = load i8, ptr %10, align 8, !tbaa !57, !range !82, !noundef !83
+  %186 = load i8, ptr %10, align 8, !tbaa !57, !range !83, !noundef !84
   %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %229, label %190
 
@@ -16539,7 +16539,7 @@ _ZN7testing15AssertionResultD2Ev.exit144:         ; preds = %229, %_ZNKSt14defau
   %254 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %255 = load ptr, ptr %254, align 8
   %256 = select i1 %.not.i.i.i146, ptr %255, ptr %253
-  %257 = load i16, ptr %256, align 2, !tbaa !105
+  %257 = load i16, ptr %256, align 2, !tbaa !106
   %258 = zext i16 %257 to i32
   br label %_ZNK6icu_7013UnicodeStringixEi.exit147
 
@@ -16555,7 +16555,7 @@ _ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit148: ; preds
   store ptr null, ptr %261, align 8, !tbaa !65
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %17) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #23
-  %262 = load i8, ptr %16, align 8, !tbaa !57, !range !82, !noundef !83
+  %262 = load i8, ptr %16, align 8, !tbaa !57, !range !83, !noundef !84
   %263 = trunc nuw i8 %262 to i1
   br i1 %263, label %306, label %267
 
@@ -17536,7 +17536,7 @@ _ZN7testing15AssertionResultD2Ev.exit250:         ; preds = %_ZN7testing15Assert
   %597 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %598 = load ptr, ptr %597, align 8
   %599 = select i1 %.not.i.i.i252, ptr %598, ptr %596
-  %600 = load i16, ptr %599, align 2, !tbaa !105
+  %600 = load i16, ptr %599, align 2, !tbaa !106
   %601 = zext i16 %600 to i32
   br label %_ZNK6icu_7013UnicodeStringixEi.exit253
 
@@ -17553,7 +17553,7 @@ _ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit254: ; preds
   store ptr null, ptr %605, align 8, !tbaa !65
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %43) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %43) #23
-  %606 = load i8, ptr %42, align 8, !tbaa !57, !range !82, !noundef !83
+  %606 = load i8, ptr %42, align 8, !tbaa !57, !range !83, !noundef !84
   %607 = trunc nuw i8 %606 to i1
   br i1 %607, label %649, label %610
 
@@ -17739,7 +17739,7 @@ _ZN7testing15AssertionResultD2Ev.exit271:         ; preds = %649, %_ZNKSt14defau
   %674 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %675 = load ptr, ptr %674, align 8
   %676 = select i1 %.not.i.i.i273, ptr %675, ptr %673
-  %677 = load i16, ptr %676, align 2, !tbaa !105
+  %677 = load i16, ptr %676, align 2, !tbaa !106
   %678 = zext i16 %677 to i32
   br label %_ZNK6icu_7013UnicodeStringixEi.exit274
 
@@ -17756,7 +17756,7 @@ _ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit275: ; preds
   store ptr null, ptr %682, align 8, !tbaa !65
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %49) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %49) #23
-  %683 = load i8, ptr %48, align 8, !tbaa !57, !range !82, !noundef !83
+  %683 = load i8, ptr %48, align 8, !tbaa !57, !range !83, !noundef !84
   %684 = trunc nuw i8 %683 to i1
   br i1 %684, label %727, label %688
 
@@ -17948,7 +17948,7 @@ _ZN7testing15AssertionResultD2Ev.exit292:         ; preds = %727, %_ZNKSt14defau
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %753, i64 4
   %.sroa.gep314 = getelementptr inbounds nuw i8, ptr %55, i64 14
   %.sroa.sel = select i1 %.not.i.i.i294, ptr %.sroa.gep, ptr %.sroa.gep314
-  %754 = load i16, ptr %.sroa.sel, align 2, !tbaa !105
+  %754 = load i16, ptr %.sroa.sel, align 2, !tbaa !106
   %755 = zext i16 %754 to i32
   br label %_ZNK6icu_7013UnicodeStringixEi.exit295
 
@@ -18667,9 +18667,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_Z
           to label %198 unwind label %310
 
 198:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128
-  %199 = load ptr, ptr %1, align 8, !tbaa !107
+  %199 = load ptr, ptr %1, align 8, !tbaa !108
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %201 = load ptr, ptr %200, align 8, !tbaa !110
+  %201 = load ptr, ptr %200, align 8, !tbaa !111
   %.not4.i.i.i.i = icmp eq ptr %199, %201
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -18716,7 +18716,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %219 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %219, %201
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i, %198
   %.not.i.i.i = icmp eq ptr %199, null
@@ -18724,7 +18724,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 220:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val1.i = load ptr, ptr %221, align 8, !tbaa !112
+  %.val1.i = load ptr, ptr %221, align 8, !tbaa !113
   %222 = ptrtoint ptr %.val1.i to i64
   %223 = ptrtoint ptr %199 to i64
   %224 = sub i64 %222, %223
@@ -19010,9 +19010,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !110
+  %4 = load ptr, ptr %3, align 8, !tbaa !111
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !112
+  %6 = load ptr, ptr %5, align 8, !tbaa !113
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %38, label %7
 
@@ -19079,13 +19079,13 @@ _ZNSt16allocator_traitsISaIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEE9
   store ptr %25, ptr %22, align 8, !tbaa !66
   store i64 0, ptr %33, align 8, !tbaa !36
   store i8 0, ptr %25, align 8, !tbaa !38
-  %36 = load ptr, ptr %3, align 8, !tbaa !110
+  %36 = load ptr, ptr %3, align 8, !tbaa !111
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  store ptr %37, ptr %3, align 8, !tbaa !110
+  store ptr %37, ptr %3, align 8, !tbaa !111
   br label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
 38:                                               ; preds = %2
-  %.val.i.i = load ptr, ptr %0, align 8, !tbaa !107
+  %.val.i.i = load ptr, ptr %0, align 8, !tbaa !108
   %39 = ptrtoint ptr %4 to i64
   %40 = ptrtoint ptr %.val.i.i to i64
   %41 = sub i64 %39, %40
@@ -19186,78 +19186,78 @@ _ZNSt16allocator_traitsISaIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEE9
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i, %_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %112, %_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i ], [ %53, %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i ]
   %.092.i.i.i.i.i = phi ptr [ %111, %_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i ], [ %.val.i.i, %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %83 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 16
-  store ptr %83, ptr %.03.i.i.i.i.i, align 8, !tbaa !33, !alias.scope !113, !noalias !116
-  %84 = load ptr, ptr %.092.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !116, !noalias !113
+  store ptr %83, ptr %.03.i.i.i.i.i, align 8, !tbaa !33, !alias.scope !114, !noalias !117
+  %84 = load ptr, ptr %.092.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !117, !noalias !114
   %85 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 16
   %86 = icmp eq ptr %84, %85
   br i1 %86, label %87, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i
 
 87:                                               ; preds = %.lr.ph.i.i.i.i.i
   %88 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 8
-  %89 = load i64, ptr %88, align 8, !tbaa !36, !alias.scope !116, !noalias !113
+  %89 = load i64, ptr %88, align 8, !tbaa !36, !alias.scope !117, !noalias !114
   %90 = icmp ult i64 %89, 16
   tail call void @llvm.assume(i1 %90)
   %91 = add nuw nsw i64 %89, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %83, ptr noundef nonnull align 8 dereferenceable(1) %85, i64 %91, i1 false), !alias.scope !118
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %83, ptr noundef nonnull align 8 dereferenceable(1) %85, i64 %91, i1 false), !alias.scope !119
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  store ptr %84, ptr %.03.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !113, !noalias !116
-  %92 = load i64, ptr %85, align 8, !tbaa !38, !alias.scope !116, !noalias !113
-  store i64 %92, ptr %83, align 8, !tbaa !38, !alias.scope !113, !noalias !116
+  store ptr %84, ptr %.03.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !114, !noalias !117
+  %92 = load i64, ptr %85, align 8, !tbaa !38, !alias.scope !117, !noalias !114
+  store i64 %92, ptr %83, align 8, !tbaa !38, !alias.scope !114, !noalias !117
   %.phi.trans.insert.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 8
-  %.pre.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !tbaa !36, !alias.scope !116, !noalias !113
+  %.pre.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !tbaa !36, !alias.scope !117, !noalias !114
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i, %87
   %93 = phi i64 [ %.pre.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %89, %87 ]
   %94 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 8
-  store i64 %93, ptr %95, align 8, !tbaa !36, !alias.scope !113, !noalias !116
-  store ptr %85, ptr %.092.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !116, !noalias !113
-  store i64 0, ptr %94, align 8, !tbaa !36, !alias.scope !116, !noalias !113
-  store i8 0, ptr %85, align 1, !tbaa !38, !alias.scope !116, !noalias !113
+  store i64 %93, ptr %95, align 8, !tbaa !36, !alias.scope !114, !noalias !117
+  store ptr %85, ptr %.092.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !117, !noalias !114
+  store i64 0, ptr %94, align 8, !tbaa !36, !alias.scope !117, !noalias !114
+  store i8 0, ptr %85, align 1, !tbaa !38, !alias.scope !117, !noalias !114
   %96 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 32
   %98 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 48
-  store ptr %98, ptr %96, align 8, !tbaa !33, !alias.scope !113, !noalias !116
-  %99 = load ptr, ptr %97, align 8, !tbaa !66, !alias.scope !116, !noalias !113
+  store ptr %98, ptr %96, align 8, !tbaa !33, !alias.scope !114, !noalias !117
+  %99 = load ptr, ptr %97, align 8, !tbaa !66, !alias.scope !117, !noalias !114
   %100 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 48
   %101 = icmp eq ptr %99, %100
   br i1 %101, label %102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i.i.i.i.i.i.i.i.i
 
 102:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i
   %103 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 40
-  %104 = load i64, ptr %103, align 8, !tbaa !36, !alias.scope !116, !noalias !113
+  %104 = load i64, ptr %103, align 8, !tbaa !36, !alias.scope !117, !noalias !114
   %105 = icmp ult i64 %104, 16
   tail call void @llvm.assume(i1 %105)
   %106 = add nuw nsw i64 %104, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %98, ptr noundef nonnull align 8 dereferenceable(1) %100, i64 %106, i1 false), !alias.scope !118
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %98, ptr noundef nonnull align 8 dereferenceable(1) %100, i64 %106, i1 false), !alias.scope !119
   br label %_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i
-  store ptr %99, ptr %96, align 8, !tbaa !66, !alias.scope !113, !noalias !116
-  %107 = load i64, ptr %100, align 8, !tbaa !38, !alias.scope !116, !noalias !113
-  store i64 %107, ptr %98, align 8, !tbaa !38, !alias.scope !113, !noalias !116
+  store ptr %99, ptr %96, align 8, !tbaa !66, !alias.scope !114, !noalias !117
+  %107 = load i64, ptr %100, align 8, !tbaa !38, !alias.scope !117, !noalias !114
+  store i64 %107, ptr %98, align 8, !tbaa !38, !alias.scope !114, !noalias !117
   %.phi.trans.insert1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 40
-  %.pre2.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert1.i.i.i.i.i.i, align 8, !tbaa !36, !alias.scope !116, !noalias !113
+  %.pre2.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert1.i.i.i.i.i.i, align 8, !tbaa !36, !alias.scope !117, !noalias !114
   br label %_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i
 
 _ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i.i.i.i.i.i.i.i.i, %102
   %108 = phi i64 [ %104, %102 ], [ %.pre2.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i.i.i.i.i.i.i.i.i ]
   %109 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 40
   %110 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 40
-  store i64 %108, ptr %110, align 8, !tbaa !36, !alias.scope !113, !noalias !116
-  store ptr %100, ptr %97, align 8, !tbaa !66, !alias.scope !116, !noalias !113
-  store i64 0, ptr %109, align 8, !tbaa !36, !alias.scope !116, !noalias !113
-  store i8 0, ptr %100, align 1, !tbaa !38, !alias.scope !116, !noalias !113
+  store i64 %108, ptr %110, align 8, !tbaa !36, !alias.scope !114, !noalias !117
+  store ptr %100, ptr %97, align 8, !tbaa !66, !alias.scope !117, !noalias !114
+  store i64 0, ptr %109, align 8, !tbaa !36, !alias.scope !117, !noalias !114
+  store i8 0, ptr %100, align 1, !tbaa !38, !alias.scope !117, !noalias !114
   %111 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 64
   %112 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %111, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !119
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !120
 
 _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i: ; preds = %_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %53, %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i ], [ %112, %_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i ]
@@ -19266,17 +19266,17 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE11_S_relo
   br i1 %.not.i35.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %114
 
 114:                                              ; preds = %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i
-  %115 = load ptr, ptr %5, align 8, !tbaa !112
+  %115 = load ptr, ptr %5, align 8, !tbaa !113
   %116 = ptrtoint ptr %115 to i64
   %117 = sub i64 %116, %40
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %117) #24
   br label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %114, %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i
-  store ptr %53, ptr %0, align 8, !tbaa !107
-  store ptr %113, ptr %3, align 8, !tbaa !110
+  store ptr %53, ptr %0, align 8, !tbaa !108
+  store ptr %113, ptr %3, align 8, !tbaa !111
   %118 = getelementptr inbounds nuw %"struct.i18n::phonenumbers::(anonymous namespace)::NumberContext", ptr %53, i64 %49
-  store ptr %118, ptr %5, align 8, !tbaa !112
+  store ptr %118, ptr %5, align 8, !tbaa !113
   br label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
 _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i, %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
@@ -19549,9 +19549,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !107
+  %2 = load ptr, ptr %0, align 8, !tbaa !108
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !110
+  %4 = load ptr, ptr %3, align 8, !tbaa !111
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -19598,10 +19598,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %22, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i
-  %.val.pr = load ptr, ptr %0, align 8, !tbaa !107
+  %.val.pr = load ptr, ptr %0, align 8, !tbaa !108
   br label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exitthread-pre-split, %1
@@ -19611,7 +19611,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 23:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val1 = load ptr, ptr %24, align 8, !tbaa !112
+  %.val1 = load ptr, ptr %24, align 8, !tbaa !113
   %25 = ptrtoint ptr %.val1 to i64
   %26 = ptrtoint ptr %.val to i64
   %27 = sub i64 %25, %26
@@ -20040,9 +20040,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
           to label %158 unwind label %253
 
 158:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98
-  %159 = load ptr, ptr %1, align 8, !tbaa !107
+  %159 = load ptr, ptr %1, align 8, !tbaa !108
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %161 = load ptr, ptr %160, align 8, !tbaa !110
+  %161 = load ptr, ptr %160, align 8, !tbaa !111
   %.not4.i.i.i.i = icmp eq ptr %159, %161
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -20089,7 +20089,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %179 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %179, %161
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i, %158
   %.not.i.i.i = icmp eq ptr %159, null
@@ -20097,7 +20097,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 180:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val1.i = load ptr, ptr %181, align 8, !tbaa !112
+  %.val1.i = load ptr, ptr %181, align 8, !tbaa !113
   %182 = ptrtoint ptr %.val1.i to i64
   %183 = ptrtoint ptr %159 to i64
   %184 = sub i64 %182, %183
@@ -20440,9 +20440,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZN
           to label %41 unwind label %85
 
 41:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
-  %42 = load ptr, ptr %1, align 8, !tbaa !107
+  %42 = load ptr, ptr %1, align 8, !tbaa !108
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !110
+  %44 = load ptr, ptr %43, align 8, !tbaa !111
   %.not4.i.i.i.i = icmp eq ptr %42, %44
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -20489,7 +20489,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %62, %44
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i, %41
   %.not.i.i.i = icmp eq ptr %42, null
@@ -20497,7 +20497,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 63:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val1.i = load ptr, ptr %64, align 8, !tbaa !112
+  %.val1.i = load ptr, ptr %64, align 8, !tbaa !113
   %65 = ptrtoint ptr %.val1.i to i64
   %66 = ptrtoint ptr %42 to i64
   %67 = sub i64 %65, %66
@@ -20786,9 +20786,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZN
           to label %80 unwind label %141
 
 80:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
-  %81 = load ptr, ptr %1, align 8, !tbaa !107
+  %81 = load ptr, ptr %1, align 8, !tbaa !108
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !110
+  %83 = load ptr, ptr %82, align 8, !tbaa !111
   %.not4.i.i.i.i = icmp eq ptr %81, %83
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -20835,7 +20835,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %101 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %101, %83
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i, %80
   %.not.i.i.i = icmp eq ptr %81, null
@@ -20843,7 +20843,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 102:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val1.i = load ptr, ptr %103, align 8, !tbaa !112
+  %.val1.i = load ptr, ptr %103, align 8, !tbaa !113
   %104 = ptrtoint ptr %.val1.i to i64
   %105 = ptrtoint ptr %81 to i64
   %106 = sub i64 %104, %105
@@ -21849,9 +21849,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit246: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i245, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i244
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #23
-  %329 = load ptr, ptr %15, align 8, !tbaa !107
+  %329 = load ptr, ptr %15, align 8, !tbaa !108
   %330 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %331 = load ptr, ptr %330, align 8, !tbaa !110
+  %331 = load ptr, ptr %330, align 8, !tbaa !111
   %.not4.i.i.i.i = icmp eq ptr %329, %331
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -21898,7 +21898,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %349 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %349, %331
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit246
   %.not.i.i.i = icmp eq ptr %329, null
@@ -21906,7 +21906,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 350:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i
   %351 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.val1.i = load ptr, ptr %351, align 8, !tbaa !112
+  %.val1.i = load ptr, ptr %351, align 8, !tbaa !113
   %352 = ptrtoint ptr %.val1.i to i64
   %353 = ptrtoint ptr %329 to i64
   %354 = sub i64 %352, %353
@@ -21951,9 +21951,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i251, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
-  %367 = load ptr, ptr %1, align 8, !tbaa !107
+  %367 = load ptr, ptr %1, align 8, !tbaa !108
   %368 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %369 = load ptr, ptr %368, align 8, !tbaa !110
+  %369 = load ptr, ptr %368, align 8, !tbaa !111
   %.not4.i.i.i.i253 = icmp eq ptr %367, %369
   br i1 %.not4.i.i.i.i253, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i263, label %.lr.ph.i.i.i.i254
 
@@ -22000,7 +22000,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i259: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i258, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i267
   %387 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i255, i64 64
   %.not.i.i.i.i260 = icmp eq ptr %387, %369
-  br i1 %.not.i.i.i.i260, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i263, label %.lr.ph.i.i.i.i254, !llvm.loop !111
+  br i1 %.not.i.i.i.i260, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i263, label %.lr.ph.i.i.i.i254, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i263: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
   %.not.i.i.i265 = icmp eq ptr %367, null
@@ -22008,7 +22008,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 388:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i263
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val1.i266 = load ptr, ptr %389, align 8, !tbaa !112
+  %.val1.i266 = load ptr, ptr %389, align 8, !tbaa !113
   %390 = ptrtoint ptr %.val1.i266 to i64
   %391 = ptrtoint ptr %367 to i64
   %392 = sub i64 %390, %391
@@ -22546,9 +22546,9 @@ define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest21Fin
   br label %.loopexit
 
 16:                                               ; preds = %5
-  %.val = load ptr, ptr %1, align 8, !tbaa !120
+  %.val = load ptr, ptr %1, align 8, !tbaa !121
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val4464 = load ptr, ptr %17, align 8, !tbaa !120
+  %.val4464 = load ptr, ptr %17, align 8, !tbaa !121
   %.not65 = icmp eq ptr %.val, %.val4464
   br i1 %.not65, label %.loopexit, label %.lr.ph
 
@@ -22805,9 +22805,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.062.066, i64 64
-  %.val44 = load ptr, ptr %17, align 8, !tbaa !120
+  %.val44 = load ptr, ptr %17, align 8, !tbaa !121
   %.not = icmp eq ptr %96, %.val44
-  br i1 %.not, label %.loopexit, label %23, !llvm.loop !121
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !122
 
 97:                                               ; preds = %_ZN7testing7MessageD2Ev.exit54, %43
   %.pn37.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %44, %43 ]
@@ -23186,9 +23186,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
           to label %128 unwind label %210
 
 128:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
-  %129 = load ptr, ptr %3, align 8, !tbaa !107
+  %129 = load ptr, ptr %3, align 8, !tbaa !108
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %131 = load ptr, ptr %130, align 8, !tbaa !110
+  %131 = load ptr, ptr %130, align 8, !tbaa !111
   %.not4.i.i.i.i = icmp eq ptr %129, %131
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -23235,7 +23235,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %149 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %149, %131
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i, %128
   %.not.i.i.i = icmp eq ptr %129, null
@@ -23243,7 +23243,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 150:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.val1.i = load ptr, ptr %151, align 8, !tbaa !112
+  %.val1.i = load ptr, ptr %151, align 8, !tbaa !113
   %152 = ptrtoint ptr %.val1.i to i64
   %153 = ptrtoint ptr %129 to i64
   %154 = sub i64 %152, %153
@@ -23856,9 +23856,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
           to label %160 unwind label %255
 
 160:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98
-  %161 = load ptr, ptr %1, align 8, !tbaa !107
+  %161 = load ptr, ptr %1, align 8, !tbaa !108
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !110
+  %163 = load ptr, ptr %162, align 8, !tbaa !111
   %.not4.i.i.i.i = icmp eq ptr %161, %163
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -23905,7 +23905,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %181 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %181, %163
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i, %160
   %.not.i.i.i = icmp eq ptr %161, null
@@ -23913,7 +23913,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 182:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val1.i = load ptr, ptr %183, align 8, !tbaa !112
+  %.val1.i = load ptr, ptr %183, align 8, !tbaa !113
   %184 = ptrtoint ptr %.val1.i to i64
   %185 = ptrtoint ptr %161 to i64
   %186 = sub i64 %184, %185
@@ -24210,7 +24210,7 @@ _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %.noexc.i
   %37 = or i32 %35, 24
   store i32 %37, ptr %34, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 6502534561, ptr %38, align 8, !tbaa !122
+  store i64 6502534561, ptr %38, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -24259,7 +24259,7 @@ _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit78:   ; preds = %_ZNSt7__cxx1112basi
   %54 = or i32 %52, 24
   store i32 %54, ptr %51, align 8, !tbaa !20
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i64 4552343451, ptr %55, align 8, !tbaa !122
+  store i64 4552343451, ptr %55, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -25643,7 +25643,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
   %22 = icmp eq ptr %4, @_ZN4i18n12phonenumbersL16kImpossibleCasesE
-  br i1 %22, label %23, label %2
+  br i1 %22, label %23, label %2, !llvm.loop !124
 
 23:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit
   ret void
@@ -25696,7 +25696,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
   %22 = icmp eq ptr %4, @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE
-  br i1 %22, label %23, label %2
+  br i1 %22, label %23, label %2, !llvm.loop !125
 
 23:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit
   ret void
@@ -25749,7 +25749,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
   %22 = icmp eq ptr %4, @_ZN4i18n12phonenumbersL11kValidCasesE
-  br i1 %22, label %23, label %2
+  br i1 %22, label %23, label %2, !llvm.loop !126
 
 23:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit
   ret void
@@ -25802,7 +25802,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
   %22 = icmp eq ptr %4, @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE
-  br i1 %22, label %23, label %2
+  br i1 %22, label %23, label %2, !llvm.loop !127
 
 23:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit
   ret void
@@ -25855,7 +25855,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
   %22 = icmp eq ptr %4, @_ZN4i18n12phonenumbersL19kExactGroupingCasesE
-  br i1 %22, label %23, label %2
+  br i1 %22, label %23, label %2, !llvm.loop !128
 
 23:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev.exit
   ret void
@@ -25870,17 +25870,17 @@ define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_MatchesWit
           to label %3 unwind label %34
 
 3:                                                ; preds = %1
-  %.val7 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val7 = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val7, ptr noundef nonnull @_ZN4i18n12phonenumbersL11kValidCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL11kValidCasesE, i64 1216))
           to label %4 unwind label %36
 
 4:                                                ; preds = %3
-  %.val8 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val8 = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val8, ptr noundef nonnull @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE, i64 448))
           to label %5 unwind label %38
 
 5:                                                ; preds = %4
-  %.val9 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val9 = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val9, ptr noundef nonnull @_ZN4i18n12phonenumbersL19kExactGroupingCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL19kExactGroupingCasesE, i64 1600))
           to label %6 unwind label %40
 
@@ -25889,9 +25889,9 @@ define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_MatchesWit
           to label %7 unwind label %42
 
 7:                                                ; preds = %6
-  %8 = load ptr, ptr %2, align 8, !tbaa !125
+  %8 = load ptr, ptr %2, align 8, !tbaa !131
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !127
+  %10 = load ptr, ptr %9, align 8, !tbaa !133
   %.not4.i.i.i.i = icmp eq ptr %8, %10
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -25938,7 +25938,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %28, %10
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i, %7
   %.not.i.i.i = icmp eq ptr %8, null
@@ -25946,7 +25946,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 
 29:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val1.i = load ptr, ptr %30, align 8, !tbaa !129
+  %.val1.i = load ptr, ptr %30, align 8, !tbaa !135
   %31 = ptrtoint ptr %.val1.i to i64
   %32 = ptrtoint ptr %8 to i64
   %33 = sub i64 %31, %32
@@ -25991,7 +25991,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr %1, ptr noundef %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.val6 = load ptr, ptr %0, align 8, !tbaa !123
+  %.val6 = load ptr, ptr %0, align 8, !tbaa !129
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %.val6 to i64
   %7 = sub i64 %5, %6
@@ -26005,9 +26005,9 @@ define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110Nu
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !129
+  %15 = load ptr, ptr %14, align 8, !tbaa !135
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !127
+  %17 = load ptr, ptr %16, align 8, !tbaa !133
   %18 = ptrtoint ptr %15 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
@@ -26093,12 +26093,12 @@ _ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i.i.i, i64 64
   %56 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %55, %17
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !130
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !136
 
 _ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i: ; preds = %_ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
-  %57 = load ptr, ptr %16, align 8, !tbaa !127
+  %57 = load ptr, ptr %16, align 8, !tbaa !133
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %12
-  store ptr %58, ptr %16, align 8, !tbaa !127
+  store ptr %58, ptr %16, align 8, !tbaa !133
   %59 = ptrtoint ptr %26 to i64
   %60 = sub i64 %59, %5
   %61 = ashr exact i64 %60, 6
@@ -26139,7 +26139,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %81 = icmp ult i64 %80, 16
   tail call void @llvm.assume(i1 %81)
   %.not22.i.i.i.i.i.i.i.i.i = icmp eq ptr %.078.i.i.i.i.i.i.i, %.069.i.i.i.i.i.i.i
-  br i1 %.not22.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i.i.i.i.i, label %82, !prof !131
+  br i1 %.not22.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i.i.i.i.i, label %82, !prof !137
 
 82:                                               ; preds = %77
   switch i64 %80, label %85 [
@@ -26232,7 +26232,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %121 = icmp ult i64 %120, 16
   tail call void @llvm.assume(i1 %121)
   %.not22.i6.i.i.i.i.i.i.i.i = icmp eq ptr %.078.i.i.i.i.i.i.i, %.069.i.i.i.i.i.i.i
-  br i1 %.not22.i6.i.i.i.i.i.i.i.i, label %_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestaSEOS2_.exit.i.i.i.i.i.i.i, label %122, !prof !131
+  br i1 %.not22.i6.i.i.i.i.i.i.i.i, label %_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestaSEOS2_.exit.i.i.i.i.i.i.i, label %122, !prof !137
 
 122:                                              ; preds = %117
   switch i64 %120, label %125 [
@@ -26297,7 +26297,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestaSEOS2_.exit.i.i.i.i.i.i.i: ; pr
   store i8 0, ptr %141, align 1, !tbaa !38
   %143 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
   %144 = icmp sgt i64 %.010.i.i.i.i.i.i.i, 1
-  br i1 %144, label %.lr.ph.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !132
+  br i1 %144, label %.lr.ph.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !138
 
 _ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestaSEOS2_.exit.i.i.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i
   %145 = icmp sgt i64 %13, 0
@@ -26315,21 +26315,21 @@ _ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_
   %149 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 64
   %150 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %151 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %151, label %.lr.ph.i.i.i.i.i60.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !133
+  br i1 %151, label %.lr.ph.i.i.i.i.i60.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !139
 
 _ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i: ; preds = %21
   %152 = getelementptr inbounds i8, ptr %2, i64 %22
   %153 = tail call fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %152, ptr noundef %3, ptr noundef %17)
   %154 = sub nuw nsw i64 %13, %23
-  %155 = load ptr, ptr %16, align 8, !tbaa !127
+  %155 = load ptr, ptr %16, align 8, !tbaa !133
   %156 = getelementptr inbounds nuw %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %155, i64 %154
-  store ptr %156, ptr %16, align 8, !tbaa !127
+  store ptr %156, ptr %16, align 8, !tbaa !133
   %.not11.i.i.i.i.i61.i.i = icmp eq ptr %1, %17
   br i1 %.not11.i.i.i.i.i61.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit71.i.thread.i, label %.lr.ph.i.i.i.i.i62.i.i
 
 _ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit71.i.thread.i: ; preds = %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 %22
-  store ptr %157, ptr %16, align 8, !tbaa !127
+  store ptr %157, ptr %16, align 8, !tbaa !133
   br label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
 
 .lr.ph.i.i.i.i.i62.i.i:                           ; preds = %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i, %_ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i68.i.i
@@ -26400,12 +26400,12 @@ _ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i64.i.i, i64 64
   %187 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i63.i.i, i64 64
   %.not.i.i.i.i.i69.i.i = icmp eq ptr %186, %17
-  br i1 %.not.i.i.i.i.i69.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit71.i.i, label %.lr.ph.i.i.i.i.i62.i.i, !llvm.loop !130
+  br i1 %.not.i.i.i.i.i69.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit71.i.i, label %.lr.ph.i.i.i.i.i62.i.i, !llvm.loop !136
 
 _ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit71.i.i: ; preds = %_ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i68.i.i
-  %.pre.i.i = load ptr, ptr %16, align 8, !tbaa !127
+  %.pre.i.i = load ptr, ptr %16, align 8, !tbaa !133
   %188 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 %22
-  store ptr %188, ptr %16, align 8, !tbaa !127
+  store ptr %188, ptr %16, align 8, !tbaa !133
   %189 = icmp sgt i64 %23, 0
   br i1 %189, label %.lr.ph.i.i.i.i.i73.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
 
@@ -26421,7 +26421,7 @@ _ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_
   %193 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i75.i.i, i64 64
   %194 = add nsw i64 %.012.i.i.i.i.i74.i.i, -1
   %195 = icmp samesign ugt i64 %.012.i.i.i.i.i74.i.i, 1
-  br i1 %195, label %.lr.ph.i.i.i.i.i73.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !133
+  br i1 %195, label %.lr.ph.i.i.i.i.i73.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !139
 
 196:                                              ; preds = %9
   %197 = sub i64 %19, %6
@@ -26525,7 +26525,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i81.i.i, i64 64
   %239 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i80.i.i, i64 64
   %.not.i.i.i.i.i86.i.i = icmp eq ptr %238, %1
-  br i1 %.not.i.i.i.i.i86.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i, label %.lr.ph.i.i.i.i.i79.i.i, !llvm.loop !130
+  br i1 %.not.i.i.i.i.i86.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i, label %.lr.ph.i.i.i.i.i79.i.i, !llvm.loop !136
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i: ; preds = %_ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i85.i.i, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i87.i.i = phi ptr [ %209, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i ], [ %239, %_ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i85.i.i ]
@@ -26604,7 +26604,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i91.i.i, i64 64
   %271 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90.i.i, i64 64
   %.not.i.i.i.i.i96.i.i = icmp eq ptr %270, %17
-  br i1 %.not.i.i.i.i.i96.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit98.i.i, label %.lr.ph.i.i.i.i.i89.i.i, !llvm.loop !130
+  br i1 %.not.i.i.i.i.i96.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit98.i.i, label %.lr.ph.i.i.i.i.i89.i.i, !llvm.loop !136
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit98.i.i: ; preds = %_ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i95.i.i, %241
   %.0.lcssa.i.i.i.i.i97.i.i = phi ptr [ %240, %241 ], [ %271, %_ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i95.i.i ]
@@ -26654,24 +26654,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i.i
   %289 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %289, %17
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit98.i.i
   %.not.i100.i.i = icmp eq ptr %.val6, null
   br i1 %.not.i100.i.i, label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i, label %290
 
 290:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i
-  %291 = load ptr, ptr %14, align 8, !tbaa !129
+  %291 = load ptr, ptr %14, align 8, !tbaa !135
   %292 = ptrtoint ptr %291 to i64
   %293 = sub i64 %292, %6
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6, i64 noundef %293) #24
   br label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
 
 _ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; preds = %290, %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i
-  store ptr %209, ptr %0, align 8, !tbaa !125
-  store ptr %.0.lcssa.i.i.i.i.i97.i.i, ptr %16, align 8, !tbaa !127
+  store ptr %209, ptr %0, align 8, !tbaa !131
+  store ptr %.0.lcssa.i.i.i.i.i97.i.i, ptr %16, align 8, !tbaa !133
   %294 = getelementptr inbounds nuw %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %209, i64 %205
-  store ptr %294, ptr %14, align 8, !tbaa !129
+  store ptr %294, ptr %14, align 8, !tbaa !135
   br label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
 
 295:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i
@@ -26729,10 +26729,10 @@ define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest30Do
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
-  store ptr null, ptr %4, align 8, !tbaa !102
-  %.val = load ptr, ptr %1, align 8, !tbaa !123
+  store ptr null, ptr %4, align 8, !tbaa !103
+  %.val = load ptr, ptr %1, align 8, !tbaa !129
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val38117 = load ptr, ptr %15, align 8, !tbaa !123
+  %.val38117 = load ptr, ptr %15, align 8, !tbaa !129
   %.not118 = icmp eq ptr %.val, %.val38117
   br i1 %.not118, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit, label %.lr.ph
 
@@ -26779,8 +26779,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
   br label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc
-  %35 = load ptr, ptr %4, align 8, !tbaa !102
-  store ptr %30, ptr %4, align 8, !tbaa !102
+  %35 = load ptr, ptr %4, align 8, !tbaa !103
+  store ptr %30, ptr %4, align 8, !tbaa !103
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit, label %37
 
@@ -27066,9 +27066,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %39, %115, %_ZNKSt14
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.089.0119, i64 8
-  %134 = load i64, ptr %133, align 8, !tbaa !36, !noalias !134
+  %134 = load i64, ptr %133, align 8, !tbaa !36, !noalias !140
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %136 = load i64, ptr %135, align 8, !tbaa !36, !noalias !134
+  %136 = load i64, ptr %135, align 8, !tbaa !36, !noalias !140
   %137 = icmp eq i64 %134, %136
   br i1 %137, label %138, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
 
@@ -27077,9 +27077,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %39, %115, %_ZNKSt14
   br i1 %139, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i: ; preds = %138
-  %140 = load ptr, ptr %131, align 8, !tbaa !66, !noalias !134
-  %141 = load ptr, ptr %.sroa.089.0119, align 8, !tbaa !66, !noalias !134
-  %bcmp.i.i.i = call i32 @bcmp(ptr %141, ptr %140, i64 %134), !noalias !134
+  %140 = load ptr, ptr %131, align 8, !tbaa !66, !noalias !140
+  %141 = load ptr, ptr %.sroa.089.0119, align 8, !tbaa !66, !noalias !140
+  %bcmp.i.i.i = call i32 @bcmp(ptr %141, ptr %140, i64 %134), !noalias !140
   %142 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %142, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
 
@@ -27092,7 +27092,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit unwind label %150
 
 _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
-  %143 = load i8, ptr %11, align 8, !tbaa !57, !range !82, !noundef !83
+  %143 = load i8, ptr %11, align 8, !tbaa !57, !range !83, !noundef !84
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %215, label %152
 
@@ -27360,9 +27360,9 @@ _ZN4i18n12phonenumbers16PhoneNumberMatchD2Ev.exit: ; preds = %_ZNKSt7__cxx1112ba
 
 235:                                              ; preds = %126, %_ZN4i18n12phonenumbers16PhoneNumberMatchD2Ev.exit
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.089.0119, i64 64
-  %.val38 = load ptr, ptr %15, align 8, !tbaa !123
+  %.val38 = load ptr, ptr %15, align 8, !tbaa !129
   %.not = icmp eq ptr %236, %.val38
-  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !139
+  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !145
 
 .body:                                            ; preds = %41, %33, %234, %145
   %.pn28.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn.pn.pn.pn.pn.pn.pn, %234 ], [ %.pn.pn.pn.pn.pn.pn.pn, %145 ], [ %42, %41 ], [ %34, %33 ]
@@ -27373,9 +27373,9 @@ _ZN4i18n12phonenumbers16PhoneNumberMatchD2Ev.exit: ; preds = %_ZNKSt7__cxx1112ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !125
+  %2 = load ptr, ptr %0, align 8, !tbaa !131
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !127
+  %4 = load ptr, ptr %3, align 8, !tbaa !133
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -27422,10 +27422,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %22, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i
-  %.val.pr = load ptr, ptr %0, align 8, !tbaa !125
+  %.val.pr = load ptr, ptr %0, align 8, !tbaa !131
   br label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exitthread-pre-split, %1
@@ -27435,7 +27435,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 
 23:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val1 = load ptr, ptr %24, align 8, !tbaa !129
+  %.val1 = load ptr, ptr %24, align 8, !tbaa !135
   %25 = ptrtoint ptr %.val1 to i64
   %26 = ptrtoint ptr %.val to i64
   %27 = sub i64 %25, %26
@@ -27455,7 +27455,7 @@ define dso_local void @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_NonMatches
           to label %3 unwind label %29
 
 3:                                                ; preds = %1
-  %.val5 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val5 = load ptr, ptr %2, align 8, !tbaa !129
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val6 = load ptr, ptr %4, align 8
   invoke fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr %.val5, ptr %.val6, i32 noundef 0)
@@ -27508,7 +27508,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %23, %.val6
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i, %5
   %.not.i.i.i = icmp eq ptr %.val5, null
@@ -27516,7 +27516,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 
 24:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val1.i = load ptr, ptr %25, align 8, !tbaa !129
+  %.val1.i = load ptr, ptr %25, align 8, !tbaa !135
   %26 = ptrtoint ptr %.val1.i to i64
   %27 = ptrtoint ptr %.val5 to i64
   %28 = sub i64 %26, %27
@@ -27553,7 +27553,7 @@ define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33Do
   %7 = alloca %"class.testing::internal::AssertHelper", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
-  store ptr null, ptr %3, align 8, !tbaa !102
+  store ptr null, ptr %3, align 8, !tbaa !103
   %.not17 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not17, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit, label %.lr.ph
 
@@ -27593,8 +27593,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
   br label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc
-  %21 = load ptr, ptr %3, align 8, !tbaa !102
-  store ptr %16, ptr %3, align 8, !tbaa !102
+  %21 = load ptr, ptr %3, align 8, !tbaa !103
+  store ptr %16, ptr %3, align 8, !tbaa !103
   %22 = icmp eq ptr %21, null
   br i1 %22, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit, label %23
 
@@ -27861,7 +27861,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %25, %102, %_ZNKSt14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.01.018, i64 64
   %.not = icmp eq ptr %112, %.8.val
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !140
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !146
 
 113:                                              ; preds = %_ZN7testing7MessageD2Ev.exit42, %30
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit42 ], [ %31, %30 ]
@@ -27884,12 +27884,12 @@ define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_MatchesWit
           to label %3 unwind label %33
 
 3:                                                ; preds = %1
-  %.val6 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val6 = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val6, ptr noundef nonnull @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE, i64 448))
           to label %4 unwind label %35
 
 4:                                                ; preds = %3
-  %.val = load ptr, ptr %2, align 8, !tbaa !123
+  %.val = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val, ptr noundef nonnull @_ZN4i18n12phonenumbersL19kExactGroupingCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL19kExactGroupingCasesE, i64 1600))
           to label %5 unwind label %37
 
@@ -27898,9 +27898,9 @@ define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_MatchesWit
           to label %6 unwind label %39
 
 6:                                                ; preds = %5
-  %7 = load ptr, ptr %2, align 8, !tbaa !125
+  %7 = load ptr, ptr %2, align 8, !tbaa !131
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !127
+  %9 = load ptr, ptr %8, align 8, !tbaa !133
   %.not4.i.i.i.i = icmp eq ptr %7, %9
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -27947,7 +27947,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %27, %9
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i, %6
   %.not.i.i.i = icmp eq ptr %7, null
@@ -27955,7 +27955,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 
 28:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val1.i = load ptr, ptr %29, align 8, !tbaa !129
+  %.val1.i = load ptr, ptr %29, align 8, !tbaa !135
   %30 = ptrtoint ptr %.val1.i to i64
   %31 = ptrtoint ptr %7 to i64
   %32 = sub i64 %30, %31
@@ -28002,12 +28002,12 @@ define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_NonMatches
           to label %3 unwind label %30
 
 3:                                                ; preds = %1
-  %.val = load ptr, ptr %2, align 8, !tbaa !123
+  %.val = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val, ptr noundef nonnull @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE, i64 320))
           to label %4 unwind label %32
 
 4:                                                ; preds = %3
-  %.val8 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val8 = load ptr, ptr %2, align 8, !tbaa !129
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val9 = load ptr, ptr %5, align 8
   invoke fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr %.val8, ptr %.val9, i32 noundef 1)
@@ -28060,7 +28060,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %24, %.val9
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i, %6
   %.not.i.i.i = icmp eq ptr %.val8, null
@@ -28068,7 +28068,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 
 25:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val1.i = load ptr, ptr %26, align 8, !tbaa !129
+  %.val1.i = load ptr, ptr %26, align 8, !tbaa !135
   %27 = ptrtoint ptr %.val1.i to i64
   %28 = ptrtoint ptr %.val8 to i64
   %29 = sub i64 %27, %28
@@ -28110,7 +28110,7 @@ define dso_local void @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWit
           to label %3 unwind label %32
 
 3:                                                ; preds = %1
-  %.val = load ptr, ptr %2, align 8, !tbaa !123
+  %.val = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val, ptr noundef nonnull @_ZN4i18n12phonenumbersL19kExactGroupingCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL19kExactGroupingCasesE, i64 1600))
           to label %4 unwind label %34
 
@@ -28119,9 +28119,9 @@ define dso_local void @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWit
           to label %5 unwind label %36
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %2, align 8, !tbaa !125
+  %6 = load ptr, ptr %2, align 8, !tbaa !131
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !127
+  %8 = load ptr, ptr %7, align 8, !tbaa !133
   %.not4.i.i.i.i = icmp eq ptr %6, %8
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -28168,7 +28168,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %26, %8
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i, %5
   %.not.i.i.i = icmp eq ptr %6, null
@@ -28176,7 +28176,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 
 27:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val1.i = load ptr, ptr %28, align 8, !tbaa !129
+  %.val1.i = load ptr, ptr %28, align 8, !tbaa !135
   %29 = ptrtoint ptr %.val1.i to i64
   %30 = ptrtoint ptr %6 to i64
   %31 = sub i64 %29, %30
@@ -28218,17 +28218,17 @@ define dso_local void @_ZN4i18n12phonenumbers64PhoneNumberMatcherTest_NonMatches
           to label %3 unwind label %31
 
 3:                                                ; preds = %1
-  %.val6 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val6 = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val6, ptr noundef nonnull @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE, i64 320))
           to label %4 unwind label %33
 
 4:                                                ; preds = %3
-  %.val = load ptr, ptr %2, align 8, !tbaa !123
+  %.val = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val, ptr noundef nonnull @_ZN4i18n12phonenumbersL11kValidCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL11kValidCasesE, i64 1216))
           to label %5 unwind label %35
 
 5:                                                ; preds = %4
-  %.val11 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val11 = load ptr, ptr %2, align 8, !tbaa !129
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val12 = load ptr, ptr %6, align 8
   invoke fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr %.val11, ptr %.val12, i32 noundef 2)
@@ -28281,7 +28281,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %25, %.val12
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i, %7
   %.not.i.i.i = icmp eq ptr %.val11, null
@@ -28289,7 +28289,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 
 26:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val1.i = load ptr, ptr %27, align 8, !tbaa !129
+  %.val1.i = load ptr, ptr %27, align 8, !tbaa !135
   %28 = ptrtoint ptr %.val1.i to i64
   %29 = ptrtoint ptr %.val11 to i64
   %30 = sub i64 %28, %29
@@ -28340,9 +28340,9 @@ define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_MatchesWit
           to label %4 unwind label %33
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %2, align 8, !tbaa !125
+  %5 = load ptr, ptr %2, align 8, !tbaa !131
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !127
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %.not4.i.i.i.i = icmp eq ptr %5, %7
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -28389,7 +28389,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %25, %7
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i, %4
   %.not.i.i.i = icmp eq ptr %5, null
@@ -28397,7 +28397,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 
 26:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val1.i = load ptr, ptr %27, align 8, !tbaa !129
+  %.val1.i = load ptr, ptr %27, align 8, !tbaa !135
   %28 = ptrtoint ptr %.val1.i to i64
   %29 = ptrtoint ptr %5 to i64
   %30 = sub i64 %28, %29
@@ -28434,22 +28434,22 @@ define dso_local void @_ZN4i18n12phonenumbers63PhoneNumberMatcherTest_NonMatches
           to label %3 unwind label %32
 
 3:                                                ; preds = %1
-  %.val8 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val8 = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val8, ptr noundef nonnull @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE, i64 320))
           to label %4 unwind label %34
 
 4:                                                ; preds = %3
-  %.val7 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val7 = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val7, ptr noundef nonnull @_ZN4i18n12phonenumbersL11kValidCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL11kValidCasesE, i64 1216))
           to label %5 unwind label %36
 
 5:                                                ; preds = %4
-  %.val = load ptr, ptr %2, align 8, !tbaa !123
+  %.val = load ptr, ptr %2, align 8, !tbaa !129
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.val, ptr noundef nonnull @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE, i64 448))
           to label %6 unwind label %38
 
 6:                                                ; preds = %5
-  %.val14 = load ptr, ptr %2, align 8, !tbaa !123
+  %.val14 = load ptr, ptr %2, align 8, !tbaa !129
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val15 = load ptr, ptr %7, align 8
   invoke fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr %.val14, ptr %.val15, i32 noundef 3)
@@ -28502,7 +28502,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %26, %.val15
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i.i.i, %8
   %.not.i.i.i = icmp eq ptr %.val14, null
@@ -28510,7 +28510,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 
 27:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val1.i = load ptr, ptr %28, align 8, !tbaa !129
+  %.val1.i = load ptr, ptr %28, align 8, !tbaa !135
   %29 = ptrtoint ptr %.val1.i to i64
   %30 = ptrtoint ptr %.val14 to i64
   %31 = sub i64 %29, %30
@@ -28602,7 +28602,7 @@ define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_ExtractMat
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %31 = load i32, ptr %30, align 8, !tbaa !141
+  %31 = load i32, ptr %30, align 8, !tbaa !147
   %32 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPNS0_16PhoneNumberMatchE(ptr noundef nonnull align 8 dereferenceable(117) %29, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %31, ptr noundef nonnull %2)
           to label %_ZN4i18n12phonenumbers22PhoneNumberMatcherTest12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_16PhoneNumberMatchE.exit unwind label %38
 
@@ -28777,7 +28777,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN4i18n12phonenumb
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #23
-  %91 = load i32, ptr %30, align 8, !tbaa !141
+  %91 = load i32, ptr %30, align 8, !tbaa !147
   %92 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPNS0_16PhoneNumberMatchE(ptr noundef nonnull align 8 dereferenceable(117) %29, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %91, ptr noundef nonnull %2)
           to label %_ZN4i18n12phonenumbers22PhoneNumberMatcherTest12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_16PhoneNumberMatchE.exit67 unwind label %99
 
@@ -28957,7 +28957,7 @@ _ZN7testing15AssertionResultD2Ev.exit84:          ; preds = %_ZN4i18n12phonenumb
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit86: ; preds = %_ZN7testing15AssertionResultD2Ev.exit84
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #23
-  %152 = load i32, ptr %30, align 8, !tbaa !141
+  %152 = load i32, ptr %30, align 8, !tbaa !147
   %153 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPNS0_16PhoneNumberMatchE(ptr noundef nonnull align 8 dereferenceable(117) %29, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %152, ptr noundef nonnull %2)
           to label %_ZN4i18n12phonenumbers22PhoneNumberMatcherTest12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_16PhoneNumberMatchE.exit88 unwind label %158
 
@@ -29132,7 +29132,7 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %_ZN4i18n12phonenumb
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit107: ; preds = %_ZN7testing15AssertionResultD2Ev.exit105
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #23
-  %211 = load i32, ptr %30, align 8, !tbaa !141
+  %211 = load i32, ptr %30, align 8, !tbaa !147
   %212 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPNS0_16PhoneNumberMatchE(ptr noundef nonnull align 8 dereferenceable(117) %29, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %211, ptr noundef nonnull %2)
           to label %_ZN4i18n12phonenumbers22PhoneNumberMatcherTest12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_16PhoneNumberMatchE.exit109 unwind label %217
 
@@ -29307,7 +29307,7 @@ _ZN7testing15AssertionResultD2Ev.exit126:         ; preds = %_ZN4i18n12phonenumb
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit128: ; preds = %_ZN7testing15AssertionResultD2Ev.exit126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #23
-  %270 = load i32, ptr %30, align 8, !tbaa !141
+  %270 = load i32, ptr %30, align 8, !tbaa !147
   %271 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPNS0_16PhoneNumberMatchE(ptr noundef nonnull align 8 dereferenceable(117) %29, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %270, ptr noundef nonnull %2)
           to label %_ZN4i18n12phonenumbers22PhoneNumberMatcherTest12ExtractMatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_16PhoneNumberMatchE.exit130 unwind label %276
 
@@ -29619,7 +29619,7 @@ define dso_local void @_ZN4i18n12phonenumbers57PhoneNumberMatcherTest_NonMatchin
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc72
-  store ptr %38, ptr %4, align 8, !tbaa !102
+  store ptr %38, ptr %4, align 8, !tbaa !103
   %41 = load ptr, ptr %6, align 8, !tbaa !66
   %42 = icmp eq ptr %41, %35
   br i1 %42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -29900,7 +29900,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %54, %114, %_ZNKSt14
           to label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit unwind label %.body101
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit: ; preds = %.noexc100
-  store ptr %130, ptr %4, align 8, !tbaa !102
+  store ptr %130, ptr %4, align 8, !tbaa !103
   call void @_ZN4i18n12phonenumbers18PhoneNumberMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(117) %38) #23
   call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef 120) #24
   %132 = load ptr, ptr %12, align 8, !tbaa !66
@@ -30193,7 +30193,7 @@ _ZN7testing15AssertionResultD2Ev.exit132:         ; preds = %145, %204, %_ZNKSt1
           to label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit145 unwind label %.body142
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit145: ; preds = %.noexc141
-  store ptr %223, ptr %4, align 8, !tbaa !102
+  store ptr %223, ptr %4, align 8, !tbaa !103
   call void @_ZN4i18n12phonenumbers18PhoneNumberMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(117) %130) #23
   call void @_ZdlPvm(ptr noundef nonnull %130, i64 noundef 120) #24
   %225 = load ptr, ptr %18, align 8, !tbaa !66
@@ -30492,7 +30492,7 @@ _ZN7testing15AssertionResultD2Ev.exit174:         ; preds = %238, %299, %_ZNKSt1
           to label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit187 unwind label %.body184
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit187: ; preds = %.noexc183
-  store ptr %318, ptr %4, align 8, !tbaa !102
+  store ptr %318, ptr %4, align 8, !tbaa !103
   call void @_ZN4i18n12phonenumbers18PhoneNumberMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(117) %223) #23
   call void @_ZdlPvm(ptr noundef nonnull %223, i64 noundef 120) #24
   %320 = load ptr, ptr %24, align 8, !tbaa !66
@@ -30824,7 +30824,7 @@ define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_NoMatchIfR
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc23
-  store ptr %17, ptr %2, align 8, !tbaa !102
+  store ptr %17, ptr %2, align 8, !tbaa !103
   %20 = load ptr, ptr %4, align 8, !tbaa !66
   %21 = icmp eq ptr %20, %14
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -31138,7 +31138,7 @@ define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberMatcherTest_NoMatchInE
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc38
-  store ptr %19, ptr %1, align 8, !tbaa !102
+  store ptr %19, ptr %1, align 8, !tbaa !103
   %22 = load ptr, ptr %3, align 8, !tbaa !66
   %23 = icmp eq ptr %22, %16
   br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -31413,7 +31413,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %35, %93, %_ZNKSt14d
           to label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit unwind label %.body67
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit: ; preds = %.noexc66
-  store ptr %109, ptr %1, align 8, !tbaa !102
+  store ptr %109, ptr %1, align 8, !tbaa !103
   call void @_ZN4i18n12phonenumbers18PhoneNumberMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(117) %19) #23
   call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 120) #24
   %111 = load ptr, ptr %9, align 8, !tbaa !66
@@ -31739,7 +31739,7 @@ define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_NoMatchIfN
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc21
-  store ptr %17, ptr %2, align 8, !tbaa !102
+  store ptr %17, ptr %2, align 8, !tbaa !103
   %20 = load ptr, ptr %4, align 8, !tbaa !66
   %21 = icmp eq ptr %20, %14
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -32083,7 +32083,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
   %29 = add nuw nsw i32 %.057, 1
   %exitcond.not = icmp eq i32 %29, 100
-  br i1 %exitcond.not, label %._crit_edge.i.i23, label %21, !llvm.loop !142
+  br i1 %exitcond.not, label %._crit_edge.i.i23, label %21, !llvm.loop !148
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -32102,7 +32102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc29
-  store ptr %20, ptr %4, align 8, !tbaa !102
+  store ptr %20, ptr %4, align 8, !tbaa !103
   %32 = load ptr, ptr %5, align 8, !tbaa !66
   %33 = icmp eq ptr %32, %17
   br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -32474,7 +32474,7 @@ _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %.noexc.i
   %36 = or i32 %34, 24
   store i32 %36, ptr %33, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 33316005, ptr %37, align 8, !tbaa !122
+  store i64 33316005, ptr %37, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -32523,7 +32523,7 @@ _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit66:   ; preds = %_ZNSt7__cxx1112basi
   %53 = or i32 %51, 24
   store i32 %53, ptr %50, align 8, !tbaa !20
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i64 32316005, ptr %54, align 8, !tbaa !122
+  store i64 32316005, ptr %54, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -33277,7 +33277,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %24 = add nuw nsw i32 %.01792, 1
   %exitcond.not = icmp eq i32 %24, 100
-  br i1 %exitcond.not, label %17, label %18, !llvm.loop !143
+  br i1 %exitcond.not, label %17, label %18, !llvm.loop !149
 
 .loopexit87:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %lpad.loopexit89 = landingpad { ptr, i32 }
@@ -33414,8 +33414,8 @@ _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE9push_backERKS2_.exit: ; 
           to label %66 unwind label %101
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr %58, align 8, !tbaa !144
-  %68 = load ptr, ptr %59, align 8, !tbaa !147
+  %67 = load ptr, ptr %58, align 8, !tbaa !150
+  %68 = load ptr, ptr %59, align 8, !tbaa !153
   %.not.i = icmp eq ptr %67, %68
   br i1 %.not.i, label %72, label %69
 
@@ -33424,9 +33424,9 @@ _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE9push_backERKS2_.exit: ; 
           to label %.noexc51 unwind label %101
 
 .noexc51:                                         ; preds = %69
-  %70 = load ptr, ptr %58, align 8, !tbaa !144
+  %70 = load ptr, ptr %58, align 8, !tbaa !150
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
-  store ptr %71, ptr %58, align 8, !tbaa !144
+  store ptr %71, ptr %58, align 8, !tbaa !150
   br label %_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE9push_backERKS2_.exit.backedge
 
 72:                                               ; preds = %66
@@ -33524,13 +33524,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
 103:                                              ; preds = %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #23
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %105 = load ptr, ptr %104, align 8, !tbaa !144, !noalias !148
-  %106 = load ptr, ptr %6, align 8, !tbaa !153, !noalias !148
+  %105 = load ptr, ptr %104, align 8, !tbaa !150, !noalias !154
+  %106 = load ptr, ptr %6, align 8, !tbaa !159, !noalias !154
   %107 = ptrtoint ptr %105 to i64
   %108 = ptrtoint ptr %106 to i64
   %109 = sub i64 %107, %108
-  %110 = load ptr, ptr %58, align 8, !tbaa !144, !noalias !148
-  %111 = load ptr, ptr %10, align 8, !tbaa !153, !noalias !148
+  %110 = load ptr, ptr %58, align 8, !tbaa !150, !noalias !154
+  %111 = load ptr, ptr %10, align 8, !tbaa !159, !noalias !154
   %112 = ptrtoint ptr %110 to i64
   %113 = ptrtoint ptr %111 to i64
   %114 = sub i64 %112, %113
@@ -33554,7 +33554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   %119 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 72
   %120 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i.i.i = icmp eq ptr %119, %105
-  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !154
+  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !160
 
 .loopexit.i.i:                                    ; preds = %118, %116
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %12)
@@ -33565,7 +33565,7 @@ _ZSteqIN4i18n12phonenumbers11PhoneNumberESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.i
           to label %_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit unwind label %.loopexit.split-lp
 
 _ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit: ; preds = %.loopexit.i.i, %_ZSteqIN4i18n12phonenumbers11PhoneNumberESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.i
-  %121 = load i8, ptr %12, align 8, !tbaa !57, !range !82, !noundef !83
+  %121 = load i8, ptr %12, align 8, !tbaa !57, !range !83, !noundef !84
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %147, label %123
 
@@ -33712,8 +33712,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN4i18n12phonenumbers16PhoneNumberMatchD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #23
-  %169 = load ptr, ptr %10, align 8, !tbaa !153
-  %170 = load ptr, ptr %58, align 8, !tbaa !144
+  %169 = load ptr, ptr %10, align 8, !tbaa !159
+  %170 = load ptr, ptr %58, align 8, !tbaa !150
   %.not4.i.i.i.i = icmp eq ptr %169, %170
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -33722,10 +33722,10 @@ _ZN4i18n12phonenumbers16PhoneNumberMatchD2Ev.exit: ; preds = %_ZNKSt7__cxx1112ba
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i) #23
   %171 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 72
   %.not.i.i.i.i = icmp eq ptr %171, %170
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !155
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !161
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %10, align 8, !tbaa !153
+  %.pr.i = load ptr, ptr %10, align 8, !tbaa !159
   br label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN4i18n12phonenumbers16PhoneNumberMatchD2Ev.exit
@@ -33734,7 +33734,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i: ; pr
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit, label %173
 
 173:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i
-  %174 = load ptr, ptr %59, align 8, !tbaa !147
+  %174 = load ptr, ptr %59, align 8, !tbaa !153
   %175 = ptrtoint ptr %174 to i64
   %176 = ptrtoint ptr %172 to i64
   %177 = sub i64 %175, %176
@@ -33745,8 +33745,8 @@ _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit: ; preds = %_ZS
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
   call void @_ZN4i18n12phonenumbers18PhoneNumberMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(117) %8) #23
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #23
-  %178 = load ptr, ptr %6, align 8, !tbaa !153
-  %179 = load ptr, ptr %104, align 8, !tbaa !144
+  %178 = load ptr, ptr %6, align 8, !tbaa !159
+  %179 = load ptr, ptr %104, align 8, !tbaa !150
   %.not4.i.i.i.i70 = icmp eq ptr %178, %179
   br i1 %.not4.i.i.i.i70, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i76, label %.lr.ph.i.i.i.i71
 
@@ -33755,10 +33755,10 @@ _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit: ; preds = %_ZS
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i72) #23
   %180 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i72, i64 72
   %.not.i.i.i.i73 = icmp eq ptr %180, %179
-  br i1 %.not.i.i.i.i73, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i74, label %.lr.ph.i.i.i.i71, !llvm.loop !155
+  br i1 %.not.i.i.i.i73, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i74, label %.lr.ph.i.i.i.i71, !llvm.loop !161
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i74: ; preds = %.lr.ph.i.i.i.i71
-  %.pr.i75 = load ptr, ptr %6, align 8, !tbaa !153
+  %.pr.i75 = load ptr, ptr %6, align 8, !tbaa !159
   br label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i76
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i76: ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i74, %_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit
@@ -33768,7 +33768,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i76: ; 
 
 182:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i76
   %183 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %184 = load ptr, ptr %183, align 8, !tbaa !147
+  %184 = load ptr, ptr %183, align 8, !tbaa !153
   %185 = ptrtoint ptr %184 to i64
   %186 = ptrtoint ptr %181 to i64
   %187 = sub i64 %185, %186
@@ -33883,12 +33883,12 @@ _ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EEC2EmRKS3_.exit.thr
 _ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE17_S_check_init_lenEmRKS3_.exit
   %8 = mul nuw nsw i64 %1, 72
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #26
-  store ptr %9, ptr %0, align 8, !tbaa !153
+  store ptr %9, ptr %0, align 8, !tbaa !159
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %10, align 8, !tbaa !144
+  store ptr %9, ptr %10, align 8, !tbaa !150
   %11 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !147
+  store ptr %11, ptr %12, align 8, !tbaa !153
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EEC2EmRKS3_.exit, %_ZSt10_ConstructIN4i18n12phonenumbers11PhoneNumberEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -33901,7 +33901,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers11PhoneNumberEJRKS2_EEvPT_DpOT0_.exit.i.i.i
   %13 = add i64 %.01114.i.i.i.i.i, -1
   %14 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !156
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !162
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = landingpad { ptr, i32 }
@@ -33916,7 +33916,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers11PhoneNumberEJRKS2_EEvPT_DpOT0_.exit.i.i.i
   tail call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i.i.i.i) #23
   %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i.i.i = icmp eq ptr %19, %.015.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberEEvT_S4_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !155
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberEEvT_S4_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !161
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberEEvT_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %15
   invoke void @__cxa_rethrow() #25
@@ -33941,16 +33941,16 @@ _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberEEvT_S4_.exit.i.i.i.i.i: ; preds
 .loopexit:                                        ; preds = %_ZSt10_ConstructIN4i18n12phonenumbers11PhoneNumberEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EEC2EmRKS3_.exit.thread
   %26 = phi ptr [ %7, %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EEC2EmRKS3_.exit.thread ], [ %10, %_ZSt10_ConstructIN4i18n12phonenumbers11PhoneNumberEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EEC2EmRKS3_.exit.thread ], [ %14, %_ZSt10_ConstructIN4i18n12phonenumbers11PhoneNumberEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %26, align 8, !tbaa !144
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %26, align 8, !tbaa !150
   ret void
 
 .body:                                            ; preds = %20
-  %27 = load ptr, ptr %0, align 8, !tbaa !153
+  %27 = load ptr, ptr %0, align 8, !tbaa !159
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit, label %28
 
 28:                                               ; preds = %.body
-  %29 = load ptr, ptr %12, align 8, !tbaa !147
+  %29 = load ptr, ptr %12, align 8, !tbaa !153
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %27 to i64
   %32 = sub i64 %30, %31
@@ -33965,9 +33965,9 @@ declare noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4i18n12phonenumbers
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !153
+  %2 = load ptr, ptr %0, align 8, !tbaa !159
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !144
+  %4 = load ptr, ptr %3, align 8, !tbaa !150
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -33976,10 +33976,10 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumb
   tail call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i) #23
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !155
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !161
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !153
+  %.pr = load ptr, ptr %0, align 8, !tbaa !159
   br label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split, %1
@@ -33989,7 +33989,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit: ; pred
 
 7:                                                ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !147
+  %9 = load ptr, ptr %8, align 8, !tbaa !153
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
@@ -34038,7 +34038,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %17 = add nuw nsw i32 %.01455, 1
   %exitcond.not = icmp eq i32 %17, 10
-  br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !157
+  br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !163
 
 .loopexit50:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %lpad.loopexit52 = landingpad { ptr, i32 }
@@ -34086,7 +34086,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i26
   %28 = add nuw nsw i32 %.056, 1
   %exitcond57.not = icmp eq i32 %28, 100
-  br i1 %exitcond57.not, label %._crit_edge.i.i, label %.preheader, !llvm.loop !158
+  br i1 %exitcond57.not, label %._crit_edge.i.i, label %.preheader, !llvm.loop !164
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i26
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -34409,7 +34409,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %24 = add nuw nsw i32 %.01894, 1
   %exitcond.not = icmp eq i32 %24, 100
-  br i1 %exitcond.not, label %17, label %18, !llvm.loop !159
+  br i1 %exitcond.not, label %17, label %18, !llvm.loop !165
 
 .loopexit89:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %lpad.loopexit91 = landingpad { ptr, i32 }
@@ -34546,8 +34546,8 @@ _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE9push_backERKS2_.exit: ; 
           to label %66 unwind label %101
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr %58, align 8, !tbaa !144
-  %68 = load ptr, ptr %59, align 8, !tbaa !147
+  %67 = load ptr, ptr %58, align 8, !tbaa !150
+  %68 = load ptr, ptr %59, align 8, !tbaa !153
   %.not.i = icmp eq ptr %67, %68
   br i1 %.not.i, label %72, label %69
 
@@ -34556,9 +34556,9 @@ _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE9push_backERKS2_.exit: ; 
           to label %.noexc53 unwind label %101
 
 .noexc53:                                         ; preds = %69
-  %70 = load ptr, ptr %58, align 8, !tbaa !144
+  %70 = load ptr, ptr %58, align 8, !tbaa !150
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
-  store ptr %71, ptr %58, align 8, !tbaa !144
+  store ptr %71, ptr %58, align 8, !tbaa !150
   br label %_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE9push_backERKS2_.exit.backedge
 
 72:                                               ; preds = %66
@@ -34656,13 +34656,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
 103:                                              ; preds = %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #23
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %105 = load ptr, ptr %104, align 8, !tbaa !144, !noalias !160
-  %106 = load ptr, ptr %6, align 8, !tbaa !153, !noalias !160
+  %105 = load ptr, ptr %104, align 8, !tbaa !150, !noalias !166
+  %106 = load ptr, ptr %6, align 8, !tbaa !159, !noalias !166
   %107 = ptrtoint ptr %105 to i64
   %108 = ptrtoint ptr %106 to i64
   %109 = sub i64 %107, %108
-  %110 = load ptr, ptr %58, align 8, !tbaa !144, !noalias !160
-  %111 = load ptr, ptr %10, align 8, !tbaa !153, !noalias !160
+  %110 = load ptr, ptr %58, align 8, !tbaa !150, !noalias !166
+  %111 = load ptr, ptr %10, align 8, !tbaa !159, !noalias !166
   %112 = ptrtoint ptr %110 to i64
   %113 = ptrtoint ptr %111 to i64
   %114 = sub i64 %112, %113
@@ -34686,7 +34686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   %119 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 72
   %120 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i.i.i = icmp eq ptr %119, %105
-  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !154
+  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !160
 
 .loopexit.i.i:                                    ; preds = %118, %116
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %12)
@@ -34697,7 +34697,7 @@ _ZSteqIN4i18n12phonenumbers11PhoneNumberESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.i
           to label %_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit unwind label %.loopexit.split-lp
 
 _ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit: ; preds = %.loopexit.i.i, %_ZSteqIN4i18n12phonenumbers11PhoneNumberESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.i
-  %121 = load i8, ptr %12, align 8, !tbaa !57, !range !82, !noundef !83
+  %121 = load i8, ptr %12, align 8, !tbaa !57, !range !83, !noundef !84
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %147, label %123
 
@@ -34844,8 +34844,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN4i18n12phonenumbers16PhoneNumberMatchD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #23
-  %169 = load ptr, ptr %10, align 8, !tbaa !153
-  %170 = load ptr, ptr %58, align 8, !tbaa !144
+  %169 = load ptr, ptr %10, align 8, !tbaa !159
+  %170 = load ptr, ptr %58, align 8, !tbaa !150
   %.not4.i.i.i.i = icmp eq ptr %169, %170
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -34854,10 +34854,10 @@ _ZN4i18n12phonenumbers16PhoneNumberMatchD2Ev.exit: ; preds = %_ZNKSt7__cxx1112ba
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i) #23
   %171 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 72
   %.not.i.i.i.i = icmp eq ptr %171, %170
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !155
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !161
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %10, align 8, !tbaa !153
+  %.pr.i = load ptr, ptr %10, align 8, !tbaa !159
   br label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN4i18n12phonenumbers16PhoneNumberMatchD2Ev.exit
@@ -34866,7 +34866,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i: ; pr
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit, label %173
 
 173:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i
-  %174 = load ptr, ptr %59, align 8, !tbaa !147
+  %174 = load ptr, ptr %59, align 8, !tbaa !153
   %175 = ptrtoint ptr %174 to i64
   %176 = ptrtoint ptr %172 to i64
   %177 = sub i64 %175, %176
@@ -34877,8 +34877,8 @@ _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit: ; preds = %_ZS
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
   call void @_ZN4i18n12phonenumbers18PhoneNumberMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(117) %8) #23
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #23
-  %178 = load ptr, ptr %6, align 8, !tbaa !153
-  %179 = load ptr, ptr %104, align 8, !tbaa !144
+  %178 = load ptr, ptr %6, align 8, !tbaa !159
+  %179 = load ptr, ptr %104, align 8, !tbaa !150
   %.not4.i.i.i.i72 = icmp eq ptr %178, %179
   br i1 %.not4.i.i.i.i72, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i78, label %.lr.ph.i.i.i.i73
 
@@ -34887,10 +34887,10 @@ _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit: ; preds = %_ZS
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i74) #23
   %180 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i74, i64 72
   %.not.i.i.i.i75 = icmp eq ptr %180, %179
-  br i1 %.not.i.i.i.i75, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i76, label %.lr.ph.i.i.i.i73, !llvm.loop !155
+  br i1 %.not.i.i.i.i75, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i76, label %.lr.ph.i.i.i.i73, !llvm.loop !161
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i76: ; preds = %.lr.ph.i.i.i.i73
-  %.pr.i77 = load ptr, ptr %6, align 8, !tbaa !153
+  %.pr.i77 = load ptr, ptr %6, align 8, !tbaa !159
   br label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i78
 
 _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i78: ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i76, %_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit
@@ -34900,7 +34900,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i78: ; 
 
 182:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberES2_EvT_S4_RSaIT0_E.exit.i78
   %183 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %184 = load ptr, ptr %183, align 8, !tbaa !147
+  %184 = load ptr, ptr %183, align 8, !tbaa !153
   %185 = ptrtoint ptr %184 to i64
   %186 = ptrtoint ptr %181 to i64
   %187 = sub i64 %185, %186
@@ -35041,7 +35041,7 @@ define dso_local void @_ZN4i18n12phonenumbers74PhoneNumberMatcherTest_NonPlusPre
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc44
-  store ptr %23, ptr %2, align 8, !tbaa !102
+  store ptr %23, ptr %2, align 8, !tbaa !103
   %26 = load ptr, ptr %4, align 8, !tbaa !66
   %27 = icmp eq ptr %26, %20
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -35725,7 +35725,7 @@ define dso_local void @_ZN4i18n12phonenumbers42PhoneNumberMatcherTest_EmptyItera
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc57
-  store ptr %26, ptr %2, align 8, !tbaa !102
+  store ptr %26, ptr %2, align 8, !tbaa !103
   %29 = load ptr, ptr %4, align 8, !tbaa !66
   %30 = icmp eq ptr %29, %23
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -36584,7 +36584,7 @@ define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_SingleIter
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc66
-  store ptr %31, ptr %2, align 8, !tbaa !102
+  store ptr %31, ptr %2, align 8, !tbaa !103
   %34 = load ptr, ptr %4, align 8, !tbaa !66
   %35 = icmp eq ptr %34, %28
   br i1 %35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -37597,7 +37597,7 @@ define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_SingleIter
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc32
-  store ptr %19, ptr %2, align 8, !tbaa !102
+  store ptr %19, ptr %2, align 8, !tbaa !103
   %22 = load ptr, ptr %4, align 8, !tbaa !66
   %23 = icmp eq ptr %22, %16
   br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -38144,7 +38144,7 @@ define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_DoubleIter
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc102
-  store ptr %50, ptr %3, align 8, !tbaa !102
+  store ptr %50, ptr %3, align 8, !tbaa !103
   %53 = load ptr, ptr %5, align 8, !tbaa !66
   %54 = icmp eq ptr %53, %47
   br i1 %54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -39851,7 +39851,7 @@ define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_DoubleIter
           to label %_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit unwind label %.body
 
 _ZNK4i18n12phonenumbers22PhoneNumberMatcherTest22GetMatcherWithLeniencyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_18PhoneNumberMatcher8LeniencyE.exit: ; preds = %.noexc44
-  store ptr %26, ptr %3, align 8, !tbaa !102
+  store ptr %26, ptr %3, align 8, !tbaa !103
   %29 = load ptr, ptr %5, align 8, !tbaa !66
   %30 = icmp eq ptr %29, %23
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -41043,7 +41043,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTe
 
 ._crit_edge.i.i:                                  ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %5, align 8, !tbaa !165
+  store ptr %4, ptr %5, align 8, !tbaa !171
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -41100,7 +41100,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 0, ptr %25, align 8, !tbaa !141
+  store i32 0, ptr %25, align 8, !tbaa !147
   %26 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %27 unwind label %48
 
@@ -41111,7 +41111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZN
 29:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i32 2, ptr %30, align 8, !tbaa !166
+  store i32 2, ptr %30, align 8, !tbaa !172
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 16), ptr %28, align 8, !tbaa !4
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull %28)
           to label %31 unwind label %48
@@ -43161,9 +43161,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit483: ; preds = %_Z
           to label %737 unwind label %1084
 
 737:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit483
-  %738 = load ptr, ptr %10, align 8, !tbaa !107
+  %738 = load ptr, ptr %10, align 8, !tbaa !108
   %739 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %740 = load ptr, ptr %739, align 8, !tbaa !110
+  %740 = load ptr, ptr %739, align 8, !tbaa !111
   %.not4.i.i.i.i = icmp eq ptr %738, %740
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -43210,7 +43210,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %758 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %758, %740
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i, %737
   %.not.i.i.i = icmp eq ptr %738, null
@@ -43218,7 +43218,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 759:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i
   %760 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.val1.i = load ptr, ptr %760, align 8, !tbaa !112
+  %.val1.i = load ptr, ptr %760, align 8, !tbaa !113
   %761 = ptrtoint ptr %.val1.i to i64
   %762 = ptrtoint ptr %738 to i64
   %763 = sub i64 %761, %762
@@ -44803,9 +44803,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_Z
           to label %220 unwind label %342
 
 220:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128
-  %221 = load ptr, ptr %8, align 8, !tbaa !107
+  %221 = load ptr, ptr %8, align 8, !tbaa !108
   %222 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %223 = load ptr, ptr %222, align 8, !tbaa !110
+  %223 = load ptr, ptr %222, align 8, !tbaa !111
   %.not4.i.i.i.i = icmp eq ptr %221, %223
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -44852,7 +44852,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %241 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %241, %223
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextEEvPT_.exit.i.i.i.i, %220
   %.not.i.i.i = icmp eq ptr %221, null
@@ -44860,7 +44860,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT
 
 242:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_EvT_S5_RSaIT0_E.exit.i
   %243 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.val1.i = load ptr, ptr %243, align 8, !tbaa !112
+  %.val1.i = load ptr, ptr %243, align 8, !tbaa !113
   %244 = ptrtoint ptr %.val1.i to i64
   %245 = ptrtoint ptr %221 to i64
   %246 = sub i64 %244, %245
@@ -45205,9 +45205,9 @@ define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest15DoT
   %33 = alloca %"class.testing::AssertionResult", align 8
   %34 = alloca %"class.testing::Message", align 8
   %35 = alloca %"class.testing::internal::AssertHelper", align 8
-  %.val = load ptr, ptr %3, align 8, !tbaa !120
+  %.val = load ptr, ptr %3, align 8, !tbaa !121
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.val79378 = load ptr, ptr %36, align 8, !tbaa !120
+  %.val79378 = load ptr, ptr %36, align 8, !tbaa !121
   %.not379 = icmp eq ptr %.val, %.val79378
   br i1 %.not379, label %.loopexit, label %.lr.ph
 
@@ -45587,8 +45587,8 @@ _ZN7testing7MessageD2Ev.exit91:                   ; preds = %_ZNKSt14default_del
 
 178:                                              ; preds = %176
   %179 = sext i32 %175 to i64
-  call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  %180 = load i64, ptr %42, align 8, !tbaa !36, !noalias !168
+  call void @llvm.experimental.noalias.scope.decl(metadata !174)
+  %180 = load i64, ptr %42, align 8, !tbaa !36, !noalias !174
   %181 = icmp ult i64 %180, %179
   br i1 %181, label %182, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
 
@@ -45601,13 +45601,13 @@ _ZN7testing7MessageD2Ev.exit91:                   ; preds = %_ZNKSt14default_del
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %178
   %183 = sext i32 %177 to i64
-  store ptr %43, ptr %21, align 8, !tbaa !33, !alias.scope !168
-  %184 = load ptr, ptr %9, align 8, !tbaa !66, !noalias !168
+  store ptr %43, ptr %21, align 8, !tbaa !33, !alias.scope !174
+  %184 = load ptr, ptr %9, align 8, !tbaa !66, !noalias !174
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 %179
   %186 = sub nuw i64 %180, %179
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %183, i64 %186)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23, !noalias !168
-  store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !70, !noalias !168
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23, !noalias !174
+  store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !70, !noalias !174
   %187 = icmp ugt i64 %spec.select.i.i.i, 15
   br i1 %187, label %.noexc10.i.i, label %._crit_edge.i.i.i
 
@@ -45616,9 +45616,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
           to label %.noexc97 unwind label %.loopexit199
 
 .noexc97:                                         ; preds = %.noexc10.i.i
-  store ptr %188, ptr %21, align 8, !tbaa !66, !alias.scope !168
-  %189 = load i64, ptr %6, align 8, !tbaa !70, !noalias !168
-  store i64 %189, ptr %43, align 8, !tbaa !38, !alias.scope !168
+  store ptr %188, ptr %21, align 8, !tbaa !66, !alias.scope !174
+  %189 = load i64, ptr %6, align 8, !tbaa !70, !noalias !174
+  store i64 %189, ptr %43, align 8, !tbaa !38, !alias.scope !174
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
@@ -45638,12 +45638,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   br label %194
 
 194:                                              ; preds = %193, %191, %._crit_edge.i.i.i
-  %195 = load i64, ptr %6, align 8, !tbaa !70, !noalias !168
-  store i64 %195, ptr %44, align 8, !tbaa !36, !alias.scope !168
-  %196 = load ptr, ptr %21, align 8, !tbaa !66, !alias.scope !168
+  %195 = load i64, ptr %6, align 8, !tbaa !70, !noalias !174
+  store i64 %195, ptr %44, align 8, !tbaa !36, !alias.scope !174
+  %196 = load ptr, ptr %21, align 8, !tbaa !66, !alias.scope !174
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 %195
   store i8 0, ptr %197, align 1, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23, !noalias !168
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23, !noalias !174
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #23
   %198 = invoke noundef i32 @_ZNK4i18n12phonenumbers16PhoneNumberMatch5startEv(ptr noundef nonnull align 8 dereferenceable(112) %16)
@@ -45651,7 +45651,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
 
 199:                                              ; preds = %194
   store i32 %198, ptr %23, align 4, !tbaa !20
-  %200 = load i32, ptr %13, align 4, !tbaa !20, !noalias !171
+  %200 = load i32, ptr %13, align 4, !tbaa !20, !noalias !177
   %201 = icmp eq i32 %200, %198
   br i1 %201, label %202, label %203
 
@@ -45665,7 +45665,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %202, %203
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #23
-  %204 = load i8, ptr %22, align 8, !tbaa !57, !range !82, !noundef !83
+  %204 = load i8, ptr %22, align 8, !tbaa !57, !range !83, !noundef !84
   %205 = trunc nuw i8 %204 to i1
   br i1 %205, label %234, label %211
 
@@ -45810,7 +45810,7 @@ _ZN7testing15AssertionResultD2Ev.exit111:         ; preds = %234, %_ZNKSt14defau
 
 246:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit111
   store i32 %245, ptr %27, align 4, !tbaa !20
-  %247 = load i32, ptr %14, align 4, !tbaa !20, !noalias !176
+  %247 = load i32, ptr %14, align 4, !tbaa !20, !noalias !182
   %248 = icmp eq i32 %247, %245
   br i1 %248, label %249, label %250
 
@@ -45824,7 +45824,7 @@ _ZN7testing15AssertionResultD2Ev.exit111:         ; preds = %234, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit114: ; preds = %249, %250
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #23
-  %251 = load i8, ptr %26, align 8, !tbaa !57, !range !82, !noundef !83
+  %251 = load i8, ptr %26, align 8, !tbaa !57, !range !83, !noundef !84
   %252 = trunc nuw i8 %251 to i1
   br i1 %252, label %279, label %256
 
@@ -45948,8 +45948,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit127:         ; preds = %279, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #23
-  %290 = load i64, ptr %39, align 8, !tbaa !36, !noalias !181
-  %291 = load i64, ptr %44, align 8, !tbaa !36, !noalias !181
+  %290 = load i64, ptr %39, align 8, !tbaa !36, !noalias !187
+  %291 = load i64, ptr %44, align 8, !tbaa !36, !noalias !187
   %292 = icmp eq i64 %290, %291
   br i1 %292, label %293, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
 
@@ -45958,9 +45958,9 @@ _ZN7testing15AssertionResultD2Ev.exit127:         ; preds = %279, %_ZNKSt14defau
   br i1 %294, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i: ; preds = %293
-  %295 = load ptr, ptr %21, align 8, !tbaa !66, !noalias !181
-  %296 = load ptr, ptr %1, align 8, !tbaa !66, !noalias !181
-  %bcmp.i.i.i = call i32 @bcmp(ptr %296, ptr %295, i64 %290), !noalias !181
+  %295 = load ptr, ptr %21, align 8, !tbaa !66, !noalias !187
+  %296 = load ptr, ptr %1, align 8, !tbaa !66, !noalias !187
+  %bcmp.i.i.i = call i32 @bcmp(ptr %296, ptr %295, i64 %290), !noalias !187
   %297 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %297, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
 
@@ -45973,7 +45973,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit unwind label %301
 
 _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i
-  %298 = load i8, ptr %30, align 8, !tbaa !57, !range !82, !noundef !83
+  %298 = load i8, ptr %30, align 8, !tbaa !57, !range !83, !noundef !84
   %299 = trunc nuw i8 %298 to i1
   br i1 %299, label %326, label %303
 
@@ -46100,9 +46100,9 @@ _ZN7testing15AssertionResultD2Ev.exit142:         ; preds = %326, %_ZNKSt14defau
           to label %338 unwind label %351
 
 338:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit142
-  %339 = load i64, ptr %44, align 8, !tbaa !36, !noalias !186
+  %339 = load i64, ptr %44, align 8, !tbaa !36, !noalias !192
   %340 = getelementptr inbounds nuw i8, ptr %337, i64 8
-  %341 = load i64, ptr %340, align 8, !tbaa !36, !noalias !186
+  %341 = load i64, ptr %340, align 8, !tbaa !36, !noalias !192
   %342 = icmp eq i64 %339, %341
   br i1 %342, label %343, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i143
 
@@ -46111,9 +46111,9 @@ _ZN7testing15AssertionResultD2Ev.exit142:         ; preds = %326, %_ZNKSt14defau
   br i1 %344, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i146, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i144
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i144: ; preds = %343
-  %345 = load ptr, ptr %337, align 8, !tbaa !66, !noalias !186
-  %346 = load ptr, ptr %21, align 8, !tbaa !66, !noalias !186
-  %bcmp.i.i.i145 = call i32 @bcmp(ptr %346, ptr %345, i64 %339), !noalias !186
+  %345 = load ptr, ptr %337, align 8, !tbaa !66, !noalias !192
+  %346 = load ptr, ptr %21, align 8, !tbaa !66, !noalias !192
+  %bcmp.i.i.i145 = call i32 @bcmp(ptr %346, ptr %345, i64 %339), !noalias !192
   %347 = icmp eq i32 %bcmp.i.i.i145, 0
   br i1 %347, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i146, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i143
 
@@ -46126,7 +46126,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit149 unwind label %351
 
 _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit149: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i146, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i143
-  %348 = load i8, ptr %33, align 8, !tbaa !57, !range !82, !noundef !83
+  %348 = load i8, ptr %33, align 8, !tbaa !57, !range !83, !noundef !84
   %349 = trunc nuw i8 %348 to i1
   br i1 %349, label %398, label %353
 
@@ -46373,9 +46373,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 434:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   %435 = getelementptr inbounds nuw i8, ptr %.sroa.0198.0380, i64 64
-  %.val79 = load ptr, ptr %36, align 8, !tbaa !120
+  %.val79 = load ptr, ptr %36, align 8, !tbaa !121
   %.not = icmp eq ptr %435, %.val79
-  br i1 %.not, label %.loopexit, label %54, !llvm.loop !191
+  br i1 %.not, label %.loopexit, label %54, !llvm.loop !197
 
 436:                                              ; preds = %_ZN7testing7MessageD2Ev.exit165, %351
   %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn, %_ZN7testing7MessageD2Ev.exit165 ], [ %352, %351 ]
@@ -46575,27 +46575,27 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTe
   %33 = add i64 %.02396, 1
   %34 = load i64, ptr %18, align 8, !tbaa !36
   %.not = icmp ugt i64 %33, %34
-  br i1 %.not, label %169, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i, !llvm.loop !192
+  br i1 %.not, label %169, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i, !llvm.loop !198
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %4, %32
   %35 = phi i64 [ %19, %4 ], [ %34, %32 ]
   %.02396 = phi i64 [ 0, %4 ], [ %33, %32 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !193)
-  store ptr %20, ptr %6, align 8, !tbaa !33, !alias.scope !193
-  %36 = load ptr, ptr %1, align 8, !tbaa !66, !noalias !193
+  call void @llvm.experimental.noalias.scope.decl(metadata !199)
+  store ptr %20, ptr %6, align 8, !tbaa !33, !alias.scope !199
+  %36 = load ptr, ptr %1, align 8, !tbaa !66, !noalias !199
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.02396
   %38 = sub nuw i64 %35, %.02396
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23, !noalias !193
-  store i64 %38, ptr %5, align 8, !tbaa !70, !noalias !193
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23, !noalias !199
+  store i64 %38, ptr %5, align 8, !tbaa !70, !noalias !199
   %39 = icmp ugt i64 %38, 15
   br i1 %39, label %.noexc10.i.i, label %._crit_edge.i.i.i
 
 .noexc10.i.i:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
   %40 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-  store ptr %40, ptr %6, align 8, !tbaa !66, !alias.scope !193
-  %41 = load i64, ptr %5, align 8, !tbaa !70, !noalias !193
-  store i64 %41, ptr %20, align 8, !tbaa !38, !alias.scope !193
+  store ptr %40, ptr %6, align 8, !tbaa !66, !alias.scope !199
+  %41 = load i64, ptr %5, align 8, !tbaa !70, !noalias !199
+  store i64 %41, ptr %20, align 8, !tbaa !38, !alias.scope !199
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc10.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
@@ -46615,12 +46615,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds = %._crit_edge.i.i.i, %43, %45
-  %46 = load i64, ptr %5, align 8, !tbaa !70, !noalias !193
-  store i64 %46, ptr %21, align 8, !tbaa !36, !alias.scope !193
-  %47 = load ptr, ptr %6, align 8, !tbaa !66, !alias.scope !193
+  %46 = load i64, ptr %5, align 8, !tbaa !70, !noalias !199
+  store i64 %46, ptr %21, align 8, !tbaa !36, !alias.scope !199
+  %47 = load ptr, ptr %6, align 8, !tbaa !66, !alias.scope !199
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %46
   store i8 0, ptr %48, align 1, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23, !noalias !193
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23, !noalias !199
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #23
   %49 = load ptr, ptr %22, align 8, !tbaa !39
   invoke void @_ZN4i18n12phonenumbers18PhoneNumberMatcherC1ERKNS0_15PhoneNumberUtilERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_NS1_8LeniencyEi(ptr noundef nonnull align 8 dereferenceable(117) %7, ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef 1000000)
@@ -46696,7 +46696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #23
   %68 = load i32, ptr %10, align 4, !tbaa !20
   %69 = add nsw i32 %68, 1
-  br label %52, !llvm.loop !196
+  br label %52, !llvm.loop !202
 
 70:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
   %71 = landingpad { ptr, i32 }
@@ -46768,7 +46768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #23
   store i32 10, ptr %15, align 4, !tbaa !20
-  %93 = load i32, ptr %10, align 4, !tbaa !20, !noalias !197
+  %93 = load i32, ptr %10, align 4, !tbaa !20, !noalias !203
   %94 = icmp slt i32 %93, 10
   br i1 %94, label %95, label %96
 
@@ -46782,7 +46782,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 
 _ZN7testing8internal11CmpHelperLTIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit: ; preds = %95, %96
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #23
-  %97 = load i8, ptr %14, align 8, !tbaa !57, !range !82, !noundef !83
+  %97 = load i8, ptr %14, align 8, !tbaa !57, !range !83, !noundef !84
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %124, label %101
 
@@ -47156,18 +47156,18 @@ define linkonce_odr dso_local void @_ZN7testing13PrintToStringIiEENSt7__cxx1112b
           to label %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit unwind label %55
 
 _ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit: ; preds = %2
-  call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  call void @llvm.experimental.noalias.scope.decl(metadata !203)
+  call void @llvm.experimental.noalias.scope.decl(metadata !206)
+  call void @llvm.experimental.noalias.scope.decl(metadata !209)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %7, ptr %0, align 8, !tbaa !33, !alias.scope !206
+  store ptr %7, ptr %0, align 8, !tbaa !33, !alias.scope !212
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !36, !alias.scope !206
-  store i8 0, ptr %7, align 8, !tbaa !38, !alias.scope !206
+  store i64 0, ptr %8, align 8, !tbaa !36, !alias.scope !212
+  store i8 0, ptr %7, align 8, !tbaa !38, !alias.scope !212
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !207, !noalias !206
+  %10 = load ptr, ptr %9, align 8, !tbaa !213, !noalias !212
   %.not.i.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %12 = load ptr, ptr %11, align 8, !noalias !206
+  %12 = load ptr, ptr %11, align 8, !noalias !212
   %13 = icmp ugt ptr %10, %12
   %.08.i.i.i = select i1 %13, ptr %10, ptr %12
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -47176,7 +47176,7 @@ _ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit: ; preds = %2
 
 14:                                               ; preds = %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !209, !noalias !206
+  %16 = load ptr, ptr %15, align 8, !tbaa !215, !noalias !212
   %17 = ptrtoint ptr %.08.i.i.i to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
@@ -47186,18 +47186,18 @@ _ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit: ; preds = %2
 21:                                               ; preds = %29, %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %0, align 8, !tbaa !66, !alias.scope !206
+  %23 = load ptr, ptr %0, align 8, !tbaa !66, !alias.scope !212
   %24 = icmp eq ptr %23, %7
   br i1 %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %21
-  %25 = load i64, ptr %8, align 8, !tbaa !36, !alias.scope !206
+  %25 = load i64, ptr %8, align 8, !tbaa !36, !alias.scope !212
   %26 = icmp ult i64 %25, 16
   call void @llvm.assume(i1 %26)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %21
-  %27 = load i64, ptr %7, align 8, !tbaa !38, !alias.scope !206
+  %27 = load i64, ptr %7, align 8, !tbaa !38, !alias.scope !212
   %28 = add i64 %27, 1
   call void @_ZdlPvm(ptr noundef %23, i64 noundef %28) #24
   br label %.body
@@ -47250,7 +47250,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %52 = getelementptr inbounds i8, ptr %3, i64 %51
   store ptr %49, ptr %52, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %53, align 8, !tbaa !210
+  store i64 0, ptr %53, align 8, !tbaa !216
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %54) #23
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #23
@@ -47405,18 +47405,18 @@ define linkonce_odr dso_local void @_ZN7testing13PrintToStringINSt7__cxx1112basi
           to label %_ZN7testing8internal21UniversalTersePrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo.exit unwind label %53
 
 _ZN7testing8internal21UniversalTersePrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo.exit: ; preds = %2
-  call void @llvm.experimental.noalias.scope.decl(metadata !212)
-  call void @llvm.experimental.noalias.scope.decl(metadata !215)
+  call void @llvm.experimental.noalias.scope.decl(metadata !218)
+  call void @llvm.experimental.noalias.scope.decl(metadata !221)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %0, align 8, !tbaa !33, !alias.scope !218
+  store ptr %5, ptr %0, align 8, !tbaa !33, !alias.scope !224
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8, !tbaa !36, !alias.scope !218
-  store i8 0, ptr %5, align 8, !tbaa !38, !alias.scope !218
+  store i64 0, ptr %6, align 8, !tbaa !36, !alias.scope !224
+  store i8 0, ptr %5, align 8, !tbaa !38, !alias.scope !224
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !207, !noalias !218
+  %8 = load ptr, ptr %7, align 8, !tbaa !213, !noalias !224
   %.not.i.not.i.i = icmp eq ptr %8, null
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %10 = load ptr, ptr %9, align 8, !noalias !218
+  %10 = load ptr, ptr %9, align 8, !noalias !224
   %11 = icmp ugt ptr %8, %10
   %.08.i.i.i = select i1 %11, ptr %8, ptr %10
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -47425,7 +47425,7 @@ _ZN7testing8internal21UniversalTersePrinterINSt7__cxx1112basic_stringIcSt11char_
 
 12:                                               ; preds = %_ZN7testing8internal21UniversalTersePrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo.exit
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %14 = load ptr, ptr %13, align 8, !tbaa !209, !noalias !218
+  %14 = load ptr, ptr %13, align 8, !tbaa !215, !noalias !224
   %15 = ptrtoint ptr %.08.i.i.i to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -47435,18 +47435,18 @@ _ZN7testing8internal21UniversalTersePrinterINSt7__cxx1112basic_stringIcSt11char_
 19:                                               ; preds = %27, %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %0, align 8, !tbaa !66, !alias.scope !218
+  %21 = load ptr, ptr %0, align 8, !tbaa !66, !alias.scope !224
   %22 = icmp eq ptr %21, %5
   br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %19
-  %23 = load i64, ptr %6, align 8, !tbaa !36, !alias.scope !218
+  %23 = load i64, ptr %6, align 8, !tbaa !36, !alias.scope !224
   %24 = icmp ult i64 %23, 16
   call void @llvm.assume(i1 %24)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %19
-  %25 = load i64, ptr %5, align 8, !tbaa !38, !alias.scope !218
+  %25 = load i64, ptr %5, align 8, !tbaa !38, !alias.scope !224
   %26 = add i64 %25, 1
   call void @_ZdlPvm(ptr noundef %21, i64 noundef %26) #24
   br label %.body
@@ -47499,7 +47499,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %50 = getelementptr inbounds i8, ptr %3, i64 %49
   store ptr %47, ptr %50, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %51, align 8, !tbaa !210
+  store i64 0, ptr %51, align 8, !tbaa !216
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %52) #23
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #23
@@ -48647,18 +48647,18 @@ define linkonce_odr dso_local void @_ZN7testing13PrintToStringIN4i18n12phonenumb
           to label %_ZN7testing8internal21UniversalTersePrinterIN4i18n12phonenumbers11PhoneNumberEE5PrintERKS4_PSo.exit unwind label %54
 
 _ZN7testing8internal21UniversalTersePrinterIN4i18n12phonenumbers11PhoneNumberEE5PrintERKS4_PSo.exit: ; preds = %2
-  call void @llvm.experimental.noalias.scope.decl(metadata !219)
-  call void @llvm.experimental.noalias.scope.decl(metadata !222)
+  call void @llvm.experimental.noalias.scope.decl(metadata !225)
+  call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !33, !alias.scope !225
+  store ptr %6, ptr %0, align 8, !tbaa !33, !alias.scope !231
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %7, align 8, !tbaa !36, !alias.scope !225
-  store i8 0, ptr %6, align 8, !tbaa !38, !alias.scope !225
+  store i64 0, ptr %7, align 8, !tbaa !36, !alias.scope !231
+  store i8 0, ptr %6, align 8, !tbaa !38, !alias.scope !231
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !207, !noalias !225
+  %9 = load ptr, ptr %8, align 8, !tbaa !213, !noalias !231
   %.not.i.not.i.i = icmp eq ptr %9, null
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %11 = load ptr, ptr %10, align 8, !noalias !225
+  %11 = load ptr, ptr %10, align 8, !noalias !231
   %12 = icmp ugt ptr %9, %11
   %.08.i.i.i = select i1 %12, ptr %9, ptr %11
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -48667,7 +48667,7 @@ _ZN7testing8internal21UniversalTersePrinterIN4i18n12phonenumbers11PhoneNumberEE5
 
 13:                                               ; preds = %_ZN7testing8internal21UniversalTersePrinterIN4i18n12phonenumbers11PhoneNumberEE5PrintERKS4_PSo.exit
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %15 = load ptr, ptr %14, align 8, !tbaa !209, !noalias !225
+  %15 = load ptr, ptr %14, align 8, !tbaa !215, !noalias !231
   %16 = ptrtoint ptr %.08.i.i.i to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -48677,18 +48677,18 @@ _ZN7testing8internal21UniversalTersePrinterIN4i18n12phonenumbers11PhoneNumberEE5
 20:                                               ; preds = %28, %13
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %0, align 8, !tbaa !66, !alias.scope !225
+  %22 = load ptr, ptr %0, align 8, !tbaa !66, !alias.scope !231
   %23 = icmp eq ptr %22, %6
   br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %20
-  %24 = load i64, ptr %7, align 8, !tbaa !36, !alias.scope !225
+  %24 = load i64, ptr %7, align 8, !tbaa !36, !alias.scope !231
   %25 = icmp ult i64 %24, 16
   call void @llvm.assume(i1 %25)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %20
-  %26 = load i64, ptr %6, align 8, !tbaa !38, !alias.scope !225
+  %26 = load i64, ptr %6, align 8, !tbaa !38, !alias.scope !231
   %27 = add i64 %26, 1
   call void @_ZdlPvm(ptr noundef %22, i64 noundef %27) #24
   br label %.body
@@ -48741,7 +48741,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %51 = getelementptr inbounds i8, ptr %3, i64 %50
   store ptr %48, ptr %51, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %52, align 8, !tbaa !210
+  store i64 0, ptr %52, align 8, !tbaa !216
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %53) #23
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #23
@@ -49739,7 +49739,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 64
   %.not.i.i = icmp eq ptr %20, %1
-  br i1 %.not.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvT_S5_.exit, label %.lr.ph.i.i, !llvm.loop !128
+  br i1 %.not.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvT_S5_.exit, label %.lr.ph.i.i, !llvm.loop !134
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvT_S5_.exit: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i.i, %2
   ret void
@@ -49793,7 +49793,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.05.i, i64 64
   %.not.i = icmp eq ptr %20, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEEvT_S7_.exit, label %.lr.ph.i, !llvm.loop !128
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEEvT_S7_.exit, label %.lr.ph.i, !llvm.loop !134
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEEvT_S7_.exit: ; preds = %_ZSt8_DestroyIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvPT_.exit.i, %2
   ret void
@@ -49922,7 +49922,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.01220.i.i.i, i64 64
   %49 = getelementptr inbounds nuw i8, ptr %.021.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %48, %1
-  br i1 %.not.i.i.i, label %_ZSt18uninitialized_copyIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_ET0_T_S8_S7_.exit, label %.lr.ph.i.i.i, !llvm.loop !226
+  br i1 %.not.i.i.i, label %_ZSt18uninitialized_copyIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_ET0_T_S8_S7_.exit, label %.lr.ph.i.i.i, !llvm.loop !232
 
 50:                                               ; preds = %.noexc.i.i.i.i.i.i
   %51 = landingpad { ptr, i32 }
@@ -49970,8 +49970,8 @@ declare void @_ZN4i18n12phonenumbers11PhoneNumberC1ERKS1_(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !144
-  %6 = load ptr, ptr %0, align 8, !tbaa !153
+  %5 = load ptr, ptr %4, align 8, !tbaa !150
+  %6 = load ptr, ptr %0, align 8, !tbaa !159
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -50008,17 +50008,17 @@ _ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRK
   br i1 %.not.i26, label %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit, label %26
 
 26:                                               ; preds = %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
-  %27 = load ptr, ptr %25, align 8, !tbaa !147
+  %27 = load ptr, ptr %25, align 8, !tbaa !153
   %28 = ptrtoint ptr %27 to i64
   %29 = sub i64 %28, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %29) #24
   br label %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %26
-  store ptr %20, ptr %0, align 8, !tbaa !153
-  store ptr %24, ptr %4, align 8, !tbaa !144
+  store ptr %20, ptr %0, align 8, !tbaa !159
+  store ptr %24, ptr %4, align 8, !tbaa !150
   %30 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %20, i64 %16
-  store ptr %30, ptr %25, align 8, !tbaa !147
+  store ptr %30, ptr %25, align 8, !tbaa !153
   ret void
 
 31:                                               ; preds = %33
@@ -50058,38 +50058,38 @@ define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIN4i18n12phonenumbers11Ph
 .lr.ph.i.i:                                       ; preds = %4, %_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i
   %.014.i.i = phi ptr [ %32, %_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i ], [ %2, %4 ]
   %.0913.i.i = phi ptr [ %31, %_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i ], [ %0, %4 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
   invoke void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %.014.i.i, ptr noundef null)
-          to label %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit.i.i.i.i.i.i unwind label %28, !noalias !230
+          to label %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit.i.i.i.i.i.i unwind label %28, !noalias !236
 
 _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
   %5 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !232, !alias.scope !227, !noalias !230
+  %6 = load ptr, ptr %5, align 8, !tbaa !238, !alias.scope !233, !noalias !236
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i.i.i.i.i.i.i, label %9, !prof !233
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i.i.i.i.i.i.i, label %9, !prof !239
 
 9:                                                ; preds = %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit.i.i.i.i.i.i
   %10 = and i64 %7, -2
   %11 = inttoptr i64 %10 to ptr
-  %12 = load ptr, ptr %11, align 8, !tbaa !234, !noalias !230
+  %12 = load ptr, ptr %11, align 8, !tbaa !240, !noalias !236
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i.i.i.i.i.i.i
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i.i.i.i.i.i.i: ; preds = %9, %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %12, %9 ], [ %6, %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit.i.i.i.i.i.i ]
   %13 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !232, !alias.scope !230, !noalias !227
+  %14 = load ptr, ptr %13, align 8, !tbaa !238, !alias.scope !236, !noalias !233
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1
   %.not.i6.i.i.i.i.i.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i6.i.i.i.i.i.i.i, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit8.i.i.i.i.i.i.i, label %17, !prof !233
+  br i1 %.not.i6.i.i.i.i.i.i.i, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit8.i.i.i.i.i.i.i, label %17, !prof !239
 
 17:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i.i.i.i.i.i.i
   %18 = and i64 %15, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = load ptr, ptr %19, align 8, !tbaa !234, !noalias !230
+  %20 = load ptr, ptr %19, align 8, !tbaa !240, !noalias !236
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit8.i.i.i.i.i.i.i
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit8.i.i.i.i.i.i.i: ; preds = %17, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i.i.i.i.i.i.i
@@ -50120,7 +50120,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit8.i.i.i.i.i.i.i: ; preds = %17,
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #27, !noalias !230
+  tail call void @__clang_call_terminate(ptr %30) #27, !noalias !236
   unreachable
 
 _ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i: ; preds = %24, %23, %22
@@ -50128,7 +50128,7 @@ _ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_R
   %31 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 72
   %32 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 72
   %.not.i.i = icmp eq ptr %31, %1
-  br i1 %.not.i.i, label %_ZSt12__relocate_aIPN4i18n12phonenumbers11PhoneNumberES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i, !llvm.loop !237
+  br i1 %.not.i.i, label %_ZSt12__relocate_aIPN4i18n12phonenumbers11PhoneNumberES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i, !llvm.loop !243
 
 _ZSt12__relocate_aIPN4i18n12phonenumbers11PhoneNumberES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i, %4
   %.0.lcssa.i.i = phi ptr [ %2, %4 ], [ %32, %_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i ]
@@ -50258,18 +50258,18 @@ define linkonce_odr dso_local void @_ZN7testing13PrintToStringISt6vectorIN4i18n1
           to label %_ZN7testing8internal21UniversalTersePrinterISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EEE5PrintERKS7_PSo.exit unwind label %53
 
 _ZN7testing8internal21UniversalTersePrinterISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EEE5PrintERKS7_PSo.exit: ; preds = %2
-  call void @llvm.experimental.noalias.scope.decl(metadata !238)
-  call void @llvm.experimental.noalias.scope.decl(metadata !241)
+  call void @llvm.experimental.noalias.scope.decl(metadata !244)
+  call void @llvm.experimental.noalias.scope.decl(metadata !247)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %0, align 8, !tbaa !33, !alias.scope !244
+  store ptr %5, ptr %0, align 8, !tbaa !33, !alias.scope !250
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8, !tbaa !36, !alias.scope !244
-  store i8 0, ptr %5, align 8, !tbaa !38, !alias.scope !244
+  store i64 0, ptr %6, align 8, !tbaa !36, !alias.scope !250
+  store i8 0, ptr %5, align 8, !tbaa !38, !alias.scope !250
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !207, !noalias !244
+  %8 = load ptr, ptr %7, align 8, !tbaa !213, !noalias !250
   %.not.i.not.i.i = icmp eq ptr %8, null
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %10 = load ptr, ptr %9, align 8, !noalias !244
+  %10 = load ptr, ptr %9, align 8, !noalias !250
   %11 = icmp ugt ptr %8, %10
   %.08.i.i.i = select i1 %11, ptr %8, ptr %10
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -50278,7 +50278,7 @@ _ZN7testing8internal21UniversalTersePrinterISt6vectorIN4i18n12phonenumbers11Phon
 
 12:                                               ; preds = %_ZN7testing8internal21UniversalTersePrinterISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EEE5PrintERKS7_PSo.exit
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %14 = load ptr, ptr %13, align 8, !tbaa !209, !noalias !244
+  %14 = load ptr, ptr %13, align 8, !tbaa !215, !noalias !250
   %15 = ptrtoint ptr %.08.i.i.i to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -50288,18 +50288,18 @@ _ZN7testing8internal21UniversalTersePrinterISt6vectorIN4i18n12phonenumbers11Phon
 19:                                               ; preds = %27, %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %0, align 8, !tbaa !66, !alias.scope !244
+  %21 = load ptr, ptr %0, align 8, !tbaa !66, !alias.scope !250
   %22 = icmp eq ptr %21, %5
   br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %19
-  %23 = load i64, ptr %6, align 8, !tbaa !36, !alias.scope !244
+  %23 = load i64, ptr %6, align 8, !tbaa !36, !alias.scope !250
   %24 = icmp ult i64 %23, 16
   call void @llvm.assume(i1 %24)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %19
-  %25 = load i64, ptr %5, align 8, !tbaa !38, !alias.scope !244
+  %25 = load i64, ptr %5, align 8, !tbaa !38, !alias.scope !250
   %26 = add i64 %25, 1
   call void @_ZdlPvm(ptr noundef %21, i64 noundef %26) #24
   br label %.body
@@ -50352,7 +50352,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %50 = getelementptr inbounds i8, ptr %3, i64 %49
   store ptr %47, ptr %50, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %51, align 8, !tbaa !210
+  store i64 0, ptr %51, align 8, !tbaa !216
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %52) #23
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #23
@@ -50384,7 +50384,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16ContainerPrinter10Prin
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !245
+  %13 = load i64, ptr %12, align 8, !tbaa !251
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %16, label %14
 
@@ -50398,9 +50398,9 @@ define linkonce_odr dso_local void @_ZN7testing8internal16ContainerPrinter10Prin
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %18 = load ptr, ptr %0, align 8, !tbaa !246
+  %18 = load ptr, ptr %0, align 8, !tbaa !252
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !246
+  %20 = load ptr, ptr %19, align 8, !tbaa !252
   %invariant.gep = getelementptr i8, ptr %1, i64 16
   %.not3842 = icmp eq ptr %18, %20
   br i1 %.not3842, label %._crit_edge.thread, label %.lr.ph
@@ -50418,7 +50418,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %24
-  %25 = load i64, ptr %gep, align 8, !tbaa !245
+  %25 = load i64, ptr %gep, align 8, !tbaa !251
   %.not.i17 = icmp eq i64 %25, 0
   br i1 %.not.i17, label %28, label %26
 
@@ -50442,7 +50442,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %26, %28
   %33 = getelementptr i8, ptr %32, i64 -24
   %34 = load i64, ptr %33, align 8
   %gep41 = getelementptr i8, ptr %invariant.gep, i64 %34
-  %35 = load i64, ptr %gep41, align 8, !tbaa !245
+  %35 = load i64, ptr %gep41, align 8, !tbaa !251
   %.not.i20 = icmp eq i64 %35, 0
   br i1 %.not.i20, label %38, label %36
 
@@ -50464,7 +50464,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %26, %28
   %43 = add i64 %.044, 1
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.029.043, i64 72
   %.not38 = icmp eq ptr %44, %20
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !253
 
 ._crit_edge:                                      ; preds = %41
   %45 = icmp eq i64 %43, 0
@@ -50478,7 +50478,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %26, %28
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %1, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load i64, ptr %51, align 8, !tbaa !245
+  %52 = load i64, ptr %51, align 8, !tbaa !251
   %.not.i23 = icmp eq i64 %52, 0
   br i1 %.not.i23, label %55, label %53
 
@@ -50502,7 +50502,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit25: ; preds = %53, %55
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %1, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = load i64, ptr %61, align 8, !tbaa !245
+  %62 = load i64, ptr %61, align 8, !tbaa !251
   %.not.i26 = icmp eq i64 %62, 0
   br i1 %.not.i26, label %65, label %63
 
@@ -50949,7 +50949,7 @@ define internal void @_GLOBAL__sub_I_phonenumbermatcher_test.cc() #18 section ".
   store i8 0, ptr %385, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %361) #23
   %386 = getelementptr inbounds nuw i8, ptr %363, i64 32
-  store i32 345, ptr %386, align 8, !tbaa !247
+  store i32 345, ptr %386, align 8, !tbaa !254
   %387 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 345)
           to label %388 unwind label %409
 
@@ -51052,7 +51052,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i: ; preds = %_
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %364) #23
-  store ptr %393, ptr @_ZN4i18n12phonenumbers68PhoneNumberMatcherTest_ContainsMoreThanOneSlashInNationalNumber_Test10test_info_E, align 8, !tbaa !249
+  store ptr %393, ptr @_ZN4i18n12phonenumbers68PhoneNumberMatcherTest_ContainsMoreThanOneSlashInNationalNumber_Test10test_info_E, align 8, !tbaa !256
   %423 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers68PhoneNumberMatcherTest_ContainsMoreThanOneSlashInNationalNumber_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %363)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %359)
@@ -51115,7 +51115,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %443, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %357) #23
   %444 = getelementptr inbounds nuw i8, ptr %359, i64 32
-  store i32 392, ptr %444, align 8, !tbaa !247
+  store i32 392, ptr %444, align 8, !tbaa !254
   %445 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 392)
           to label %446 unwind label %467
 
@@ -51214,7 +51214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i: ; preds = %_
 
 __cxx_global_var_init.13.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %360) #23
-  store ptr %451, ptr @_ZN4i18n12phonenumbers46PhoneNumberMatcherTest_FindNationalNumber_Test10test_info_E, align 8, !tbaa !249
+  store ptr %451, ptr @_ZN4i18n12phonenumbers46PhoneNumberMatcherTest_FindNationalNumber_Test10test_info_E, align 8, !tbaa !256
   %481 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers46PhoneNumberMatcherTest_FindNationalNumber_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %359)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %355)
@@ -51277,7 +51277,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %501, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %353) #23
   %502 = getelementptr inbounds nuw i8, ptr %355, i64 32
-  store i32 416, ptr %502, align 8, !tbaa !247
+  store i32 416, ptr %502, align 8, !tbaa !254
   %503 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 416)
           to label %504 unwind label %525
 
@@ -51376,7 +51376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i13: ; preds = 
 
 __cxx_global_var_init.24.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %356) #23
-  store ptr %509, ptr @_ZN4i18n12phonenumbers57PhoneNumberMatcherTest_FindWithInternationalPrefixes_Test10test_info_E, align 8, !tbaa !249
+  store ptr %509, ptr @_ZN4i18n12phonenumbers57PhoneNumberMatcherTest_FindWithInternationalPrefixes_Test10test_info_E, align 8, !tbaa !256
   %539 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers57PhoneNumberMatcherTest_FindWithInternationalPrefixes_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %355)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %351)
@@ -51439,7 +51439,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %559, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %349) #23
   %560 = getelementptr inbounds nuw i8, ptr %351, i64 32
-  store i32 445, ptr %560, align 8, !tbaa !247
+  store i32 445, ptr %560, align 8, !tbaa !254
   %561 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 445)
           to label %562 unwind label %583
 
@@ -51538,7 +51538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i28: ; preds = 
 
 __cxx_global_var_init.35.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %352) #23
-  store ptr %567, ptr @_ZN4i18n12phonenumbers47PhoneNumberMatcherTest_FindWithLeadingZero_Test10test_info_E, align 8, !tbaa !249
+  store ptr %567, ptr @_ZN4i18n12phonenumbers47PhoneNumberMatcherTest_FindWithLeadingZero_Test10test_info_E, align 8, !tbaa !256
   %597 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers47PhoneNumberMatcherTest_FindWithLeadingZero_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %351)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %347)
@@ -51601,7 +51601,7 @@ __cxx_global_var_init.35.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %617, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %345) #23
   %618 = getelementptr inbounds nuw i8, ptr %347, i64 32
-  store i32 452, ptr %618, align 8, !tbaa !247
+  store i32 452, ptr %618, align 8, !tbaa !254
   %619 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 452)
           to label %620 unwind label %641
 
@@ -51700,7 +51700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i43: ; preds = 
 
 __cxx_global_var_init.40.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %348) #23
-  store ptr %625, ptr @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_FindNationalNumberArgentina_Test10test_info_E, align 8, !tbaa !249
+  store ptr %625, ptr @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_FindNationalNumberArgentina_Test10test_info_E, align 8, !tbaa !256
   %655 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_FindNationalNumberArgentina_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %347)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %343)
@@ -51763,7 +51763,7 @@ __cxx_global_var_init.40.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %675, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %341) #23
   %676 = getelementptr inbounds nuw i8, ptr %343, i64 32
-  store i32 472, ptr %676, align 8, !tbaa !247
+  store i32 472, ptr %676, align 8, !tbaa !254
   %677 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 472)
           to label %678 unwind label %699
 
@@ -51862,7 +51862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i58: ; preds = 
 
 __cxx_global_var_init.52.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i63
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %344) #23
-  store ptr %683, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_FindWithXInNumber_Test10test_info_E, align 8, !tbaa !249
+  store ptr %683, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_FindWithXInNumber_Test10test_info_E, align 8, !tbaa !256
   %713 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_FindWithXInNumber_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %343)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %339)
@@ -51925,7 +51925,7 @@ __cxx_global_var_init.52.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %733, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %337) #23
   %734 = getelementptr inbounds nuw i8, ptr %339, i64 32
-  store i32 486, ptr %734, align 8, !tbaa !247
+  store i32 486, ptr %734, align 8, !tbaa !254
   %735 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 486)
           to label %736 unwind label %757
 
@@ -52024,7 +52024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i73: ; preds = 
 
 __cxx_global_var_init.57.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i78
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %340) #23
-  store ptr %741, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_FindNumbersMexico_Test10test_info_E, align 8, !tbaa !249
+  store ptr %741, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_FindNumbersMexico_Test10test_info_E, align 8, !tbaa !256
   %771 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_FindNumbersMexico_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %339)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %335)
@@ -52087,7 +52087,7 @@ __cxx_global_var_init.57.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %791, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %333) #23
   %792 = getelementptr inbounds nuw i8, ptr %335, i64 32
-  store i32 499, ptr %792, align 8, !tbaa !247
+  store i32 499, ptr %792, align 8, !tbaa !254
   %793 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 499)
           to label %794 unwind label %815
 
@@ -52186,7 +52186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i88: ; preds = 
 
 __cxx_global_var_init.65.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i94, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i93
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %336) #23
-  store ptr %799, ptr @_ZN4i18n12phonenumbers59PhoneNumberMatcherTest_FindNumbersWithPlusWithNoRegion_Test10test_info_E, align 8, !tbaa !249
+  store ptr %799, ptr @_ZN4i18n12phonenumbers59PhoneNumberMatcherTest_FindNumbersWithPlusWithNoRegion_Test10test_info_E, align 8, !tbaa !256
   %829 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers59PhoneNumberMatcherTest_FindNumbersWithPlusWithNoRegion_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %335)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %331)
@@ -52249,7 +52249,7 @@ __cxx_global_var_init.65.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %849, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %329) #23
   %850 = getelementptr inbounds nuw i8, ptr %331, i64 32
-  store i32 506, ptr %850, align 8, !tbaa !247
+  store i32 506, ptr %850, align 8, !tbaa !254
   %851 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 506)
           to label %852 unwind label %873
 
@@ -52348,7 +52348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i103: ; preds =
 
 __cxx_global_var_init.67.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i108
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %332) #23
-  store ptr %857, ptr @_ZN4i18n12phonenumbers42PhoneNumberMatcherTest_FindExtensions_Test10test_info_E, align 8, !tbaa !249
+  store ptr %857, ptr @_ZN4i18n12phonenumbers42PhoneNumberMatcherTest_FindExtensions_Test10test_info_E, align 8, !tbaa !256
   %887 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers42PhoneNumberMatcherTest_FindExtensions_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %331)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %327)
@@ -52411,7 +52411,7 @@ __cxx_global_var_init.67.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %907, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %325) #23
   %908 = getelementptr inbounds nuw i8, ptr %327, i64 32
-  store i32 536, ptr %908, align 8, !tbaa !247
+  store i32 536, ptr %908, align 8, !tbaa !254
   %909 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 536)
           to label %910 unwind label %931
 
@@ -52510,7 +52510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i118: ; preds =
 
 __cxx_global_var_init.87.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i123
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %328) #23
-  store ptr %915, ptr @_ZN4i18n12phonenumbers53PhoneNumberMatcherTest_FindInterspersedWithSpace_Test10test_info_E, align 8, !tbaa !249
+  store ptr %915, ptr @_ZN4i18n12phonenumbers53PhoneNumberMatcherTest_FindInterspersedWithSpace_Test10test_info_E, align 8, !tbaa !256
   %945 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers53PhoneNumberMatcherTest_FindInterspersedWithSpace_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %327)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %323)
@@ -52573,7 +52573,7 @@ __cxx_global_var_init.87.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %965, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %321) #23
   %966 = getelementptr inbounds nuw i8, ptr %323, i64 32
-  store i32 541, ptr %966, align 8, !tbaa !247
+  store i32 541, ptr %966, align 8, !tbaa !254
   %967 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 541)
           to label %968 unwind label %989
 
@@ -52672,7 +52672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i133: ; preds =
 
 __cxx_global_var_init.90.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i138
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %324) #23
-  store ptr %973, ptr @_ZN4i18n12phonenumbers54PhoneNumberMatcherTest_IntermediateParsePositions_Test10test_info_E, align 8, !tbaa !249
+  store ptr %973, ptr @_ZN4i18n12phonenumbers54PhoneNumberMatcherTest_IntermediateParsePositions_Test10test_info_E, align 8, !tbaa !256
   %1003 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers54PhoneNumberMatcherTest_IntermediateParsePositions_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %323)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %319)
@@ -52735,7 +52735,7 @@ __cxx_global_var_init.90.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1023, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %317) #23
   %1024 = getelementptr inbounds nuw i8, ptr %319, i64 32
-  store i32 559, ptr %1024, align 8, !tbaa !247
+  store i32 559, ptr %1024, align 8, !tbaa !254
   %1025 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 559)
           to label %1026 unwind label %1047
 
@@ -52834,7 +52834,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i148: ; preds =
 
 __cxx_global_var_init.93.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i153
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %320) #23
-  store ptr %1031, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_FourMatchesInARow_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1031, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_FourMatchesInARow_Test10test_info_E, align 8, !tbaa !256
   %1061 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_FourMatchesInARow_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %319)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %315)
@@ -52897,7 +52897,7 @@ __cxx_global_var_init.93.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1081, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %313) #23
   %1082 = getelementptr inbounds nuw i8, ptr %315, i64 32
-  store i32 586, ptr %1082, align 8, !tbaa !247
+  store i32 586, ptr %1082, align 8, !tbaa !254
   %1083 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 586)
           to label %1084 unwind label %1105
 
@@ -52996,7 +52996,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i163: ; preds =
 
 __cxx_global_var_init.102.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i169, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i168
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %316) #23
-  store ptr %1089, ptr @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_MatchesFoundWithMultipleSpaces_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1089, ptr @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_MatchesFoundWithMultipleSpaces_Test10test_info_E, align 8, !tbaa !256
   %1119 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_MatchesFoundWithMultipleSpaces_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %315)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %311)
@@ -53059,7 +53059,7 @@ __cxx_global_var_init.102.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1139, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %309) #23
   %1140 = getelementptr inbounds nuw i8, ptr %311, i64 32
-  store i32 603, ptr %1140, align 8, !tbaa !247
+  store i32 603, ptr %1140, align 8, !tbaa !254
   %1141 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 603)
           to label %1142 unwind label %1163
 
@@ -53158,7 +53158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i178: ; preds =
 
 __cxx_global_var_init.105.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i184, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i183
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %312) #23
-  store ptr %1147, ptr @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_MatchWithSurroundingZipcodes_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1147, ptr @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_MatchWithSurroundingZipcodes_Test10test_info_E, align 8, !tbaa !256
   %1177 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_MatchWithSurroundingZipcodes_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %311)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %307)
@@ -53221,7 +53221,7 @@ __cxx_global_var_init.105.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1197, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %305) #23
   %1198 = getelementptr inbounds nuw i8, ptr %307, i64 32
-  store i32 636, ptr %1198, align 8, !tbaa !247
+  store i32 636, ptr %1198, align 8, !tbaa !254
   %1199 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 636)
           to label %1200 unwind label %1221
 
@@ -53320,7 +53320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i193: ; preds =
 
 __cxx_global_var_init.115.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i199, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i198
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %308) #23
-  store ptr %1205, ptr @_ZN4i18n12phonenumbers41PhoneNumberMatcherTest_IsLatinLetter_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1205, ptr @_ZN4i18n12phonenumbers41PhoneNumberMatcherTest_IsLatinLetter_Test10test_info_E, align 8, !tbaa !256
   %1235 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers41PhoneNumberMatcherTest_IsLatinLetter_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %307)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %303)
@@ -53383,7 +53383,7 @@ __cxx_global_var_init.115.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1255, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %301) #23
   %1256 = getelementptr inbounds nuw i8, ptr %303, i64 32
-  store i32 655, ptr %1256, align 8, !tbaa !247
+  store i32 655, ptr %1256, align 8, !tbaa !254
   %1257 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 655)
           to label %1258 unwind label %1279
 
@@ -53482,7 +53482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i208: ; preds =
 
 __cxx_global_var_init.133.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i214, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i213
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %304) #23
-  store ptr %1263, ptr @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_MatchesWithSurroundingLatinChars_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1263, ptr @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_MatchesWithSurroundingLatinChars_Test10test_info_E, align 8, !tbaa !256
   %1293 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_MatchesWithSurroundingLatinChars_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %303)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %299)
@@ -53545,7 +53545,7 @@ __cxx_global_var_init.133.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1313, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %297) #23
   %1314 = getelementptr inbounds nuw i8, ptr %299, i64 32
-  store i32 670, ptr %1314, align 8, !tbaa !247
+  store i32 670, ptr %1314, align 8, !tbaa !254
   %1315 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 670)
           to label %1316 unwind label %1337
 
@@ -53644,7 +53644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i223: ; preds =
 
 __cxx_global_var_init.139.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i229, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i228
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %300) #23
-  store ptr %1321, ptr @_ZN4i18n12phonenumbers53PhoneNumberMatcherTest_MoneyNotSeenAsPhoneNumber_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1321, ptr @_ZN4i18n12phonenumbers53PhoneNumberMatcherTest_MoneyNotSeenAsPhoneNumber_Test10test_info_E, align 8, !tbaa !256
   %1351 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers53PhoneNumberMatcherTest_MoneyNotSeenAsPhoneNumber_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %299)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %295)
@@ -53707,7 +53707,7 @@ __cxx_global_var_init.139.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1371, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %293) #23
   %1372 = getelementptr inbounds nuw i8, ptr %295, i64 32
-  store i32 679, ptr %1372, align 8, !tbaa !247
+  store i32 679, ptr %1372, align 8, !tbaa !254
   %1373 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 679)
           to label %1374 unwind label %1395
 
@@ -53806,7 +53806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i238: ; preds =
 
 __cxx_global_var_init.144.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i244, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i243
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %296) #23
-  store ptr %1379, ptr @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_PercentageNotSeenAsPhoneNumber_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1379, ptr @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_PercentageNotSeenAsPhoneNumber_Test10test_info_E, align 8, !tbaa !256
   %1409 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_PercentageNotSeenAsPhoneNumber_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %295)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %291)
@@ -53869,7 +53869,7 @@ __cxx_global_var_init.144.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1429, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %289) #23
   %1430 = getelementptr inbounds nuw i8, ptr %291, i64 32
-  store i32 686, ptr %1430, align 8, !tbaa !247
+  store i32 686, ptr %1430, align 8, !tbaa !254
   %1431 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 686)
           to label %1432 unwind label %1453
 
@@ -53968,7 +53968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i253: ; preds =
 
 __cxx_global_var_init.147.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i259, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i258
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %292) #23
-  store ptr %1437, ptr @_ZN4i18n12phonenumbers72PhoneNumberMatcherTest_PhoneNumberWithLeadingOrTrailingMoneyMatches_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1437, ptr @_ZN4i18n12phonenumbers72PhoneNumberMatcherTest_PhoneNumberWithLeadingOrTrailingMoneyMatches_Test10test_info_E, align 8, !tbaa !256
   %1467 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers72PhoneNumberMatcherTest_PhoneNumberWithLeadingOrTrailingMoneyMatches_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %291)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %287)
@@ -54031,7 +54031,7 @@ __cxx_global_var_init.147.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1487, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %285) #23
   %1488 = getelementptr inbounds nuw i8, ptr %287, i64 32
-  store i32 696, ptr %1488, align 8, !tbaa !247
+  store i32 696, ptr %1488, align 8, !tbaa !254
   %1489 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 696)
           to label %1490 unwind label %1511
 
@@ -54130,7 +54130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i268: ; preds =
 
 __cxx_global_var_init.151.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i274, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i273
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %288) #23
-  store ptr %1495, ptr @_ZN4i18n12phonenumbers81PhoneNumberMatcherTest_MatchesWithSurroundingLatinCharsAndLeadingPunctuation_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1495, ptr @_ZN4i18n12phonenumbers81PhoneNumberMatcherTest_MatchesWithSurroundingLatinCharsAndLeadingPunctuation_Test10test_info_E, align 8, !tbaa !256
   %1525 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers81PhoneNumberMatcherTest_MatchesWithSurroundingLatinCharsAndLeadingPunctuation_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %287)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %283)
@@ -54193,7 +54193,7 @@ __cxx_global_var_init.151.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1545, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %281) #23
   %1546 = getelementptr inbounds nuw i8, ptr %283, i64 32
-  store i32 729, ptr %1546, align 8, !tbaa !247
+  store i32 729, ptr %1546, align 8, !tbaa !254
   %1547 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 729)
           to label %1548 unwind label %1569
 
@@ -54292,7 +54292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i283: ; preds =
 
 __cxx_global_var_init.157.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i289, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i288
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %284) #23
-  store ptr %1553, ptr @_ZN4i18n12phonenumbers62PhoneNumberMatcherTest_MatchesWithSurroundingChineseChars_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1553, ptr @_ZN4i18n12phonenumbers62PhoneNumberMatcherTest_MatchesWithSurroundingChineseChars_Test10test_info_E, align 8, !tbaa !256
   %1583 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers62PhoneNumberMatcherTest_MatchesWithSurroundingChineseChars_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %283)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %279)
@@ -54355,7 +54355,7 @@ __cxx_global_var_init.157.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1603, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %277) #23
   %1604 = getelementptr inbounds nuw i8, ptr %279, i64 32
-  store i32 748, ptr %1604, align 8, !tbaa !247
+  store i32 748, ptr %1604, align 8, !tbaa !254
   %1605 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 748)
           to label %1606 unwind label %1627
 
@@ -54454,7 +54454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i298: ; preds =
 
 __cxx_global_var_init.163.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i304, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i303
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %280) #23
-  store ptr %1611, ptr @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWithSurroundingPunctuation_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1611, ptr @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWithSurroundingPunctuation_Test10test_info_E, align 8, !tbaa !256
   %1641 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWithSurroundingPunctuation_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %279)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %275)
@@ -54517,7 +54517,7 @@ __cxx_global_var_init.163.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1661, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %273) #23
   %1662 = getelementptr inbounds nuw i8, ptr %275, i64 32
-  store i32 765, ptr %1662, align 8, !tbaa !247
+  store i32 765, ptr %1662, align 8, !tbaa !254
   %1663 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 765)
           to label %1664 unwind label %1685
 
@@ -54616,7 +54616,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i313: ; preds =
 
 __cxx_global_var_init.170.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i319, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i318
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %276) #23
-  store ptr %1669, ptr @_ZN4i18n12phonenumbers88PhoneNumberMatcherTest_MatchesMultiplePhoneNumbersSeparatedByPhoneNumberPunctuation_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1669, ptr @_ZN4i18n12phonenumbers88PhoneNumberMatcherTest_MatchesMultiplePhoneNumbersSeparatedByPhoneNumberPunctuation_Test10test_info_E, align 8, !tbaa !256
   %1699 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers88PhoneNumberMatcherTest_MatchesMultiplePhoneNumbersSeparatedByPhoneNumberPunctuation_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %275)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %271)
@@ -54679,7 +54679,7 @@ __cxx_global_var_init.170.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1719, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %269) #23
   %1720 = getelementptr inbounds nuw i8, ptr %271, i64 32
-  store i32 792, ptr %1720, align 8, !tbaa !247
+  store i32 792, ptr %1720, align 8, !tbaa !254
   %1721 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 792)
           to label %1722 unwind label %1743
 
@@ -54778,7 +54778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i328: ; preds =
 
 __cxx_global_var_init.178.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i334, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i333
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %272) #23
-  store ptr %1727, ptr @_ZN4i18n12phonenumbers85PhoneNumberMatcherTest_DoesNotMatchMultiplePhoneNumbersSeparatedWithNoWhiteSpace_Test10test_info_E, align 8, !tbaa !249
+  store ptr %1727, ptr @_ZN4i18n12phonenumbers85PhoneNumberMatcherTest_DoesNotMatchMultiplePhoneNumbersSeparatedWithNoWhiteSpace_Test10test_info_E, align 8, !tbaa !256
   %1757 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers85PhoneNumberMatcherTest_DoesNotMatchMultiplePhoneNumbersSeparatedWithNoWhiteSpace_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %271)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %235) #23
@@ -56621,7 +56621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit489.i: ; preds = %
   %2351 = getelementptr inbounds i8, ptr %2350, i64 -64
   call fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2351) #23
   %2352 = icmp eq ptr %2351, @_ZN4i18n12phonenumbersL16kImpossibleCasesE
-  br i1 %2352, label %common.resume, label %.preheader.i
+  br i1 %2352, label %common.resume, label %.preheader.i, !llvm.loop !258
 
 __cxx_global_var_init.181.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i386.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i385.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %235) #23
@@ -57171,7 +57171,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i: ; preds = %
   %2531 = getelementptr inbounds i8, ptr %2530, i64 -64
   call fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2531) #23
   %2532 = icmp eq ptr %2531, @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE
-  br i1 %2532, label %common.resume, label %.preheader.i342
+  br i1 %2532, label %common.resume, label %.preheader.i342, !llvm.loop !259
 
 __cxx_global_var_init.198.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i104.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %219) #23
@@ -59274,7 +59274,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit547.i: ; preds = %
   %3208 = getelementptr inbounds i8, ptr %3207, i64 -64
   call fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3208) #23
   %3209 = icmp eq ptr %3208, @_ZN4i18n12phonenumbersL11kValidCasesE
-  br i1 %3209, label %common.resume, label %.preheader.i352
+  br i1 %3209, label %common.resume, label %.preheader.i352, !llvm.loop !260
 
 __cxx_global_var_init.205.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i432.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i431.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %179) #23
@@ -59992,7 +59992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit199.i: ; preds = %
   %3444 = getelementptr inbounds i8, ptr %3443, i64 -64
   call fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3444) #23
   %3445 = icmp eq ptr %3444, @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE
-  br i1 %3445, label %common.resume, label %.preheader.i378
+  br i1 %3445, label %common.resume, label %.preheader.i378, !llvm.loop !261
 
 __cxx_global_var_init.226.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i156.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i155.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %156) #23
@@ -62697,7 +62697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit721.i: ; preds = %
   %4316 = getelementptr inbounds i8, ptr %4315, i64 -64
   call fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4316) #23
   %4317 = icmp eq ptr %4316, @_ZN4i18n12phonenumbersL19kExactGroupingCasesE
-  br i1 %4317, label %common.resume, label %.preheader.i406
+  br i1 %4317, label %common.resume, label %.preheader.i406, !llvm.loop !262
 
 __cxx_global_var_init.235.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i570.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i569.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %106) #23
@@ -62762,7 +62762,7 @@ __cxx_global_var_init.235.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4338, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #23
   %4339 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  store i32 931, ptr %4339, align 8, !tbaa !247
+  store i32 931, ptr %4339, align 8, !tbaa !254
   %4340 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 931)
           to label %4341 unwind label %4362
 
@@ -62861,7 +62861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i564: ; preds =
 
 __cxx_global_var_init.261.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i571, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i569
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %96) #23
-  store ptr %4346, ptr @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_MatchesWithPossibleLeniency_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4346, ptr @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_MatchesWithPossibleLeniency_Test10test_info_E, align 8, !tbaa !256
   %4376 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_MatchesWithPossibleLeniency_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %95)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %91)
@@ -62924,7 +62924,7 @@ __cxx_global_var_init.261.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4396, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #23
   %4397 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  store i32 945, ptr %4397, align 8, !tbaa !247
+  store i32 945, ptr %4397, align 8, !tbaa !254
   %4398 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 945)
           to label %4399 unwind label %4420
 
@@ -63023,7 +63023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i580: ; preds =
 
 __cxx_global_var_init.263.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i587, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i585
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92) #23
-  store ptr %4404, ptr @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_NonMatchesWithPossibleLeniency_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4404, ptr @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_NonMatchesWithPossibleLeniency_Test10test_info_E, align 8, !tbaa !256
   %4434 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_NonMatchesWithPossibleLeniency_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %91)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %87)
@@ -63086,7 +63086,7 @@ __cxx_global_var_init.263.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4454, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #23
   %4455 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  store i32 952, ptr %4455, align 8, !tbaa !247
+  store i32 952, ptr %4455, align 8, !tbaa !254
   %4456 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 952)
           to label %4457 unwind label %4478
 
@@ -63185,7 +63185,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i596: ; preds =
 
 __cxx_global_var_init.265.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i603, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i601
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %88) #23
-  store ptr %4462, ptr @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_MatchesWithValidLeniency_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4462, ptr @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_MatchesWithValidLeniency_Test10test_info_E, align 8, !tbaa !256
   %4492 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_MatchesWithValidLeniency_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %87)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %83)
@@ -63248,7 +63248,7 @@ __cxx_global_var_init.265.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4512, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #23
   %4513 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  store i32 964, ptr %4513, align 8, !tbaa !247
+  store i32 964, ptr %4513, align 8, !tbaa !254
   %4514 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 964)
           to label %4515 unwind label %4536
 
@@ -63347,7 +63347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i612: ; preds =
 
 __cxx_global_var_init.267.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i619, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i617
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84) #23
-  store ptr %4520, ptr @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_NonMatchesWithValidLeniency_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4520, ptr @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_NonMatchesWithValidLeniency_Test10test_info_E, align 8, !tbaa !256
   %4550 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_NonMatchesWithValidLeniency_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %83)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %79)
@@ -63410,7 +63410,7 @@ __cxx_global_var_init.267.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4570, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #23
   %4571 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  store i32 973, ptr %4571, align 8, !tbaa !247
+  store i32 973, ptr %4571, align 8, !tbaa !254
   %4572 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 973)
           to label %4573 unwind label %4594
 
@@ -63509,7 +63509,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i628: ; preds =
 
 __cxx_global_var_init.269.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i635, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i633
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %80) #23
-  store ptr %4578, ptr @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWithStrictGroupingLeniency_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4578, ptr @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWithStrictGroupingLeniency_Test10test_info_E, align 8, !tbaa !256
   %4608 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWithStrictGroupingLeniency_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %75)
@@ -63572,7 +63572,7 @@ __cxx_global_var_init.269.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4628, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #23
   %4629 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store i32 984, ptr %4629, align 8, !tbaa !247
+  store i32 984, ptr %4629, align 8, !tbaa !254
   %4630 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 984)
           to label %4631 unwind label %4652
 
@@ -63671,7 +63671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i644: ; preds =
 
 __cxx_global_var_init.271.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i651, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i649
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %76) #23
-  store ptr %4636, ptr @_ZN4i18n12phonenumbers64PhoneNumberMatcherTest_NonMatchesWithStrictGroupingLeniency_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4636, ptr @_ZN4i18n12phonenumbers64PhoneNumberMatcherTest_NonMatchesWithStrictGroupingLeniency_Test10test_info_E, align 8, !tbaa !256
   %4666 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers64PhoneNumberMatcherTest_NonMatchesWithStrictGroupingLeniency_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %75)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %71)
@@ -63734,7 +63734,7 @@ __cxx_global_var_init.271.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4686, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #23
   %4687 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  store i32 996, ptr %4687, align 8, !tbaa !247
+  store i32 996, ptr %4687, align 8, !tbaa !254
   %4688 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 996)
           to label %4689 unwind label %4710
 
@@ -63833,7 +63833,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i660: ; preds =
 
 __cxx_global_var_init.273.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i667, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i665
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72) #23
-  store ptr %4694, ptr @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_MatchesWithExactGroupingLeniency_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4694, ptr @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_MatchesWithExactGroupingLeniency_Test10test_info_E, align 8, !tbaa !256
   %4724 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_MatchesWithExactGroupingLeniency_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %67)
@@ -63896,7 +63896,7 @@ __cxx_global_var_init.273.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4744, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #23
   %4745 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store i32 1004, ptr %4745, align 8, !tbaa !247
+  store i32 1004, ptr %4745, align 8, !tbaa !254
   %4746 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1004)
           to label %4747 unwind label %4768
 
@@ -63995,7 +63995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i676: ; preds =
 
 __cxx_global_var_init.275.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i683, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i681
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %68) #23
-  store ptr %4752, ptr @_ZN4i18n12phonenumbers63PhoneNumberMatcherTest_NonMatchesWithExactGroupingLeniency_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4752, ptr @_ZN4i18n12phonenumbers63PhoneNumberMatcherTest_NonMatchesWithExactGroupingLeniency_Test10test_info_E, align 8, !tbaa !256
   %4782 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers63PhoneNumberMatcherTest_NonMatchesWithExactGroupingLeniency_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63)
@@ -64058,7 +64058,7 @@ __cxx_global_var_init.275.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4802, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #23
   %4803 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store i32 1019, ptr %4803, align 8, !tbaa !247
+  store i32 1019, ptr %4803, align 8, !tbaa !254
   %4804 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1019)
           to label %4805 unwind label %4826
 
@@ -64157,7 +64157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i692: ; preds =
 
 __cxx_global_var_init.277.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i699, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i697
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %64) #23
-  store ptr %4810, ptr @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_ExtractMatchIgnoresAmericanDates_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4810, ptr @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_ExtractMatchIgnoresAmericanDates_Test10test_info_E, align 8, !tbaa !256
   %4840 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_ExtractMatchIgnoresAmericanDates_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %59)
@@ -64220,7 +64220,7 @@ __cxx_global_var_init.277.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4860, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #23
   %4861 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store i32 1033, ptr %4861, align 8, !tbaa !247
+  store i32 1033, ptr %4861, align 8, !tbaa !254
   %4862 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1033)
           to label %4863 unwind label %4884
 
@@ -64319,7 +64319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i708: ; preds =
 
 __cxx_global_var_init.285.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i715, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i713
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60) #23
-  store ptr %4868, ptr @_ZN4i18n12phonenumbers57PhoneNumberMatcherTest_NonMatchingBracketsAreInvalid_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4868, ptr @_ZN4i18n12phonenumbers57PhoneNumberMatcherTest_NonMatchingBracketsAreInvalid_Test10test_info_E, align 8, !tbaa !256
   %4898 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers57PhoneNumberMatcherTest_NonMatchingBracketsAreInvalid_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %55)
@@ -64382,7 +64382,7 @@ __cxx_global_var_init.285.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4918, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #23
   %4919 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i32 1057, ptr %4919, align 8, !tbaa !247
+  store i32 1057, ptr %4919, align 8, !tbaa !254
   %4920 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1057)
           to label %4921 unwind label %4942
 
@@ -64481,7 +64481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i724: ; preds =
 
 __cxx_global_var_init.291.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i731, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i729
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56) #23
-  store ptr %4926, ptr @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_NoMatchIfRegionIsUnknown_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4926, ptr @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_NoMatchIfRegionIsUnknown_Test10test_info_E, align 8, !tbaa !256
   %4956 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_NoMatchIfRegionIsUnknown_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %51)
@@ -64544,7 +64544,7 @@ __cxx_global_var_init.291.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %4976, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #23
   %4977 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store i32 1065, ptr %4977, align 8, !tbaa !247
+  store i32 1065, ptr %4977, align 8, !tbaa !254
   %4978 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1065)
           to label %4979 unwind label %5000
 
@@ -64643,7 +64643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i740: ; preds =
 
 __cxx_global_var_init.294.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i747, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i745
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52) #23
-  store ptr %4984, ptr @_ZN4i18n12phonenumbers48PhoneNumberMatcherTest_NoMatchInEmptyString_Test10test_info_E, align 8, !tbaa !249
+  store ptr %4984, ptr @_ZN4i18n12phonenumbers48PhoneNumberMatcherTest_NoMatchInEmptyString_Test10test_info_E, align 8, !tbaa !256
   %5014 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers48PhoneNumberMatcherTest_NoMatchInEmptyString_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47)
@@ -64706,7 +64706,7 @@ __cxx_global_var_init.294.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5034, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #23
   %5035 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store i32 1074, ptr %5035, align 8, !tbaa !247
+  store i32 1074, ptr %5035, align 8, !tbaa !254
   %5036 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1074)
           to label %5037 unwind label %5058
 
@@ -64805,7 +64805,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i756: ; preds =
 
 __cxx_global_var_init.297.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i763, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i761
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #23
-  store ptr %5042, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_NoMatchIfNoNumber_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5042, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_NoMatchIfNoNumber_Test10test_info_E, align 8, !tbaa !256
   %5072 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_NoMatchIfNoNumber_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %43)
@@ -64868,7 +64868,7 @@ __cxx_global_var_init.297.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5092, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #23
   %5093 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  store i32 1081, ptr %5093, align 8, !tbaa !247
+  store i32 1081, ptr %5093, align 8, !tbaa !254
   %5094 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1081)
           to label %5095 unwind label %5116
 
@@ -64967,7 +64967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i772: ; preds =
 
 __cxx_global_var_init.300.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i779, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i777
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #23
-  store ptr %5100, ptr @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_NoErrorWithSpecialCharacters_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5100, ptr @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_NoErrorWithSpecialCharacters_Test10test_info_E, align 8, !tbaa !256
   %5130 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_NoErrorWithSpecialCharacters_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
@@ -65030,7 +65030,7 @@ __cxx_global_var_init.300.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5150, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #23
   %5151 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store i32 1098, ptr %5151, align 8, !tbaa !247
+  store i32 1098, ptr %5151, align 8, !tbaa !254
   %5152 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1098)
           to label %5153 unwind label %5174
 
@@ -65129,7 +65129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i788: ; preds =
 
 __cxx_global_var_init.303.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i795, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i793
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40) #23
-  store ptr %5158, ptr @_ZN4i18n12phonenumbers37PhoneNumberMatcherTest_Sequences_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5158, ptr @_ZN4i18n12phonenumbers37PhoneNumberMatcherTest_Sequences_Test10test_info_E, align 8, !tbaa !256
   %5188 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers37PhoneNumberMatcherTest_Sequences_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35)
@@ -65192,7 +65192,7 @@ __cxx_global_var_init.303.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5208, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #23
   %5209 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i32 1124, ptr %5209, align 8, !tbaa !247
+  store i32 1124, ptr %5209, align 8, !tbaa !254
   %5210 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1124)
           to label %5211 unwind label %5232
 
@@ -65291,7 +65291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i804: ; preds =
 
 __cxx_global_var_init.306.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i811, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i809
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #23
-  store ptr %5216, ptr @_ZN4i18n12phonenumbers38PhoneNumberMatcherTest_MaxMatches_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5216, ptr @_ZN4i18n12phonenumbers38PhoneNumberMatcherTest_MaxMatches_Test10test_info_E, align 8, !tbaa !256
   %5246 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers38PhoneNumberMatcherTest_MaxMatches_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31)
@@ -65354,7 +65354,7 @@ __cxx_global_var_init.306.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5266, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #23
   %5267 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store i32 1147, ptr %5267, align 8, !tbaa !247
+  store i32 1147, ptr %5267, align 8, !tbaa !254
   %5268 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1147)
           to label %5269 unwind label %5290
 
@@ -65453,7 +65453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i820: ; preds =
 
 __cxx_global_var_init.311.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i827, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i825
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #23
-  store ptr %5274, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_MaxMatchesInvalid_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5274, ptr @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_MaxMatchesInvalid_Test10test_info_E, align 8, !tbaa !256
   %5304 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_MaxMatchesInvalid_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
@@ -65516,7 +65516,7 @@ __cxx_global_var_init.311.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5324, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #23
   %5325 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i32 1162, ptr %5325, align 8, !tbaa !247
+  store i32 1162, ptr %5325, align 8, !tbaa !254
   %5326 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1162)
           to label %5327 unwind label %5348
 
@@ -65615,7 +65615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i836: ; preds =
 
 __cxx_global_var_init.314.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i843, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i841
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #23
-  store ptr %5332, ptr @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_MaxMatchesMixed_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5332, ptr @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_MaxMatchesMixed_Test10test_info_E, align 8, !tbaa !256
   %5362 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_MaxMatchesMixed_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23)
@@ -65678,7 +65678,7 @@ __cxx_global_var_init.314.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5382, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #23
   %5383 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i32 1184, ptr %5383, align 8, !tbaa !247
+  store i32 1184, ptr %5383, align 8, !tbaa !254
   %5384 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1184)
           to label %5385 unwind label %5406
 
@@ -65777,7 +65777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i852: ; preds =
 
 __cxx_global_var_init.317.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i859, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i857
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #23
-  store ptr %5390, ptr @_ZN4i18n12phonenumbers74PhoneNumberMatcherTest_NonPlusPrefixedNumbersNotFoundForInvalidRegion_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5390, ptr @_ZN4i18n12phonenumbers74PhoneNumberMatcherTest_NonPlusPrefixedNumbersNotFoundForInvalidRegion_Test10test_info_E, align 8, !tbaa !256
   %5420 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers74PhoneNumberMatcherTest_NonPlusPrefixedNumbersNotFoundForInvalidRegion_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
@@ -65840,7 +65840,7 @@ __cxx_global_var_init.317.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5440, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #23
   %5441 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i32 1194, ptr %5441, align 8, !tbaa !247
+  store i32 1194, ptr %5441, align 8, !tbaa !254
   %5442 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1194)
           to label %5443 unwind label %5464
 
@@ -65939,7 +65939,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i868: ; preds =
 
 __cxx_global_var_init.320.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i875, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i873
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #23
-  store ptr %5448, ptr @_ZN4i18n12phonenumbers42PhoneNumberMatcherTest_EmptyIteration_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5448, ptr @_ZN4i18n12phonenumbers42PhoneNumberMatcherTest_EmptyIteration_Test10test_info_E, align 8, !tbaa !256
   %5478 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers42PhoneNumberMatcherTest_EmptyIteration_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
@@ -66002,7 +66002,7 @@ __cxx_global_var_init.320.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5498, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
   %5499 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i32 1205, ptr %5499, align 8, !tbaa !247
+  store i32 1205, ptr %5499, align 8, !tbaa !254
   %5500 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1205)
           to label %5501 unwind label %5522
 
@@ -66101,7 +66101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i884: ; preds =
 
 __cxx_global_var_init.322.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i891, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i889
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23
-  store ptr %5506, ptr @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_SingleIteration_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5506, ptr @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_SingleIteration_Test10test_info_E, align 8, !tbaa !256
   %5536 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_SingleIteration_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
@@ -66164,7 +66164,7 @@ __cxx_global_var_init.322.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5556, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
   %5557 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 1220, ptr %5557, align 8, !tbaa !247
+  store i32 1220, ptr %5557, align 8, !tbaa !254
   %5558 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1220)
           to label %5559 unwind label %5580
 
@@ -66263,7 +66263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i900: ; preds =
 
 __cxx_global_var_init.324.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i907, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i905
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23
-  store ptr %5564, ptr @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_SingleIteration_WithNextOnly_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5564, ptr @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_SingleIteration_WithNextOnly_Test10test_info_E, align 8, !tbaa !256
   %5594 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_SingleIteration_WithNextOnly_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -66326,7 +66326,7 @@ __cxx_global_var_init.324.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5614, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   %5615 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 1229, ptr %5615, align 8, !tbaa !247
+  store i32 1229, ptr %5615, align 8, !tbaa !254
   %5616 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1229)
           to label %5617 unwind label %5638
 
@@ -66425,7 +66425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i916: ; preds =
 
 __cxx_global_var_init.326.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i923, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i921
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
-  store ptr %5622, ptr @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_DoubleIteration_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5622, ptr @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_DoubleIteration_Test10test_info_E, align 8, !tbaa !256
   %5652 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_DoubleIteration_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -66488,7 +66488,7 @@ __cxx_global_var_init.326.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %5672, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #23
   %5673 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 1249, ptr %5673, align 8, !tbaa !247
+  store i32 1249, ptr %5673, align 8, !tbaa !254
   %5674 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4i18n12phonenumbers22PhoneNumberMatcherTestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 1249)
           to label %5675 unwind label %5696
 
@@ -66587,7 +66587,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i932: ; preds =
 
 __cxx_global_var_init.329.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i939, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i937
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
-  store ptr %5680, ptr @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_DoubleIteration_WithNextOnly_Test10test_info_E, align 8, !tbaa !249
+  store ptr %5680, ptr @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_DoubleIteration_WithNextOnly_Test10test_info_E, align 8, !tbaa !256
   %5710 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_DoubleIteration_WithNextOnly_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
@@ -66710,183 +66710,195 @@ attributes #27 = { noreturn nounwind }
 !68 = !{!"p1 _ZTSNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE", !14, i64 0}
 !69 = !{!30, !30, i64 0}
 !70 = !{!9, !9, i64 0}
-!71 = distinct !{!71, !72}
+!71 = distinct !{!71, !72, !73}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = distinct !{!73, !72}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
-!76 = distinct !{!76, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
-!77 = !{!78, !80}
-!78 = distinct !{!78, !79, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
-!79 = distinct !{!79, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
-!80 = distinct !{!80, !81, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: argument 0"}
-!81 = distinct !{!81, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
-!82 = !{i8 0, i8 2}
-!83 = !{}
-!84 = !{!85, !87}
-!85 = distinct !{!85, !86, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
-!86 = distinct !{!86, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
-!87 = distinct !{!87, !88, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: argument 0"}
-!88 = distinct !{!88, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
-!91 = distinct !{!91, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
-!92 = !{!93, !95}
-!93 = distinct !{!93, !94, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
-!94 = distinct !{!94, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
-!95 = distinct !{!95, !96, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
-!96 = distinct !{!96, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
-!97 = !{!98, !100}
-!98 = distinct !{!98, !99, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
-!99 = distinct !{!99, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
-!100 = distinct !{!100, !101, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
-!101 = distinct !{!101, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
-!102 = !{!103, !104, i64 0}
-!103 = !{!"_ZTSN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEEE", !104, i64 0}
-!104 = !{!"p1 _ZTSN4i18n12phonenumbers18PhoneNumberMatcherE", !14, i64 0}
-!105 = !{!106, !106, i64 0}
-!106 = !{!"char16_t", !10, i64 0}
-!107 = !{!108, !109, i64 0}
-!108 = !{!"_ZTSNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE17_Vector_impl_dataE", !109, i64 0, !109, i64 8, !109, i64 16}
-!109 = !{!"p1 _ZTSN4i18n12phonenumbers12_GLOBAL__N_113NumberContextE", !14, i64 0}
-!110 = !{!108, !109, i64 8}
-!111 = distinct !{!111, !72}
-!112 = !{!108, !109, i64 16}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!115 = distinct !{!115, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_"}
-!116 = !{!117}
-!117 = distinct !{!117, !115, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!118 = !{!114, !117}
-!119 = distinct !{!119, !72}
-!120 = !{!109, !109, i64 0}
-!121 = distinct !{!121, !72}
-!122 = !{!22, !9, i64 48}
-!123 = !{!124, !124, i64 0}
-!124 = !{!"p1 _ZTSN4i18n12phonenumbers12_GLOBAL__N_110NumberTestE", !14, i64 0}
-!125 = !{!126, !124, i64 0}
-!126 = !{!"_ZTSNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE17_Vector_impl_dataE", !124, i64 0, !124, i64 8, !124, i64 16}
-!127 = !{!126, !124, i64 8}
-!128 = distinct !{!128, !72}
-!129 = !{!126, !124, i64 16}
-!130 = distinct !{!130, !72}
-!131 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!132 = distinct !{!132, !72}
-!133 = distinct !{!133, !72}
-!134 = !{!135, !137}
-!135 = distinct !{!135, !136, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
-!136 = distinct !{!136, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
-!137 = distinct !{!137, !138, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
-!138 = distinct !{!138, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
-!139 = distinct !{!139, !72}
-!140 = distinct !{!140, !72}
-!141 = !{!40, !16, i64 144}
-!142 = distinct !{!142, !72}
-!143 = distinct !{!143, !72}
-!144 = !{!145, !146, i64 8}
-!145 = !{!"_ZTSNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE17_Vector_impl_dataE", !146, i64 0, !146, i64 8, !146, i64 16}
-!146 = !{!"p1 _ZTSN4i18n12phonenumbers11PhoneNumberE", !14, i64 0}
-!147 = !{!145, !146, i64 16}
-!148 = !{!149, !151}
-!149 = distinct !{!149, !150, !"_ZN7testing8internal11CmpHelperEQISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
-!150 = distinct !{!150, !"_ZN7testing8internal11CmpHelperEQISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
-!151 = distinct !{!151, !152, !"_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
-!152 = distinct !{!152, !"_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
-!153 = !{!145, !146, i64 0}
-!154 = distinct !{!154, !72}
-!155 = distinct !{!155, !72}
-!156 = distinct !{!156, !72}
-!157 = distinct !{!157, !72}
-!158 = distinct !{!158, !72}
-!159 = distinct !{!159, !72}
-!160 = !{!161, !163}
-!161 = distinct !{!161, !162, !"_ZN7testing8internal11CmpHelperEQISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
-!162 = distinct !{!162, !"_ZN7testing8internal11CmpHelperEQISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
-!163 = distinct !{!163, !164, !"_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
-!164 = distinct !{!164, !"_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
-!165 = !{!49, !49, i64 0}
-!166 = !{!167, !16, i64 8}
-!167 = !{!"_ZTSN4i18n12phonenumbers6LoggerE", !16, i64 8}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
-!170 = distinct !{!170, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
-!171 = !{!172, !174}
-!172 = distinct !{!172, !173, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
-!173 = distinct !{!173, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
-!174 = distinct !{!174, !175, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: argument 0"}
-!175 = distinct !{!175, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
-!176 = !{!177, !179}
-!177 = distinct !{!177, !178, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
-!178 = distinct !{!178, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
-!179 = distinct !{!179, !180, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: argument 0"}
-!180 = distinct !{!180, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
-!181 = !{!182, !184}
-!182 = distinct !{!182, !183, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
-!183 = distinct !{!183, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
-!184 = distinct !{!184, !185, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
-!185 = distinct !{!185, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
-!186 = !{!187, !189}
-!187 = distinct !{!187, !188, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
-!188 = distinct !{!188, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
-!189 = distinct !{!189, !190, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
-!190 = distinct !{!190, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
-!191 = distinct !{!191, !72}
-!192 = distinct !{!192, !72}
-!193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
-!195 = distinct !{!195, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
-!196 = distinct !{!196, !72}
-!197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZN7testing8internal11CmpHelperLTIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
-!199 = distinct !{!199, !"_ZN7testing8internal11CmpHelperLTIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!202 = distinct !{!202, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!73 = !{!"llvm.loop.estimated_trip_count"}
+!74 = distinct !{!74, !72, !73}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
+!77 = distinct !{!77, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
+!78 = !{!79, !81}
+!79 = distinct !{!79, !80, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
+!80 = distinct !{!80, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
+!81 = distinct !{!81, !82, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: argument 0"}
+!82 = distinct !{!82, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
+!83 = !{i8 0, i8 2}
+!84 = !{}
+!85 = !{!86, !88}
+!86 = distinct !{!86, !87, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
+!87 = distinct !{!87, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
+!88 = distinct !{!88, !89, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: argument 0"}
+!89 = distinct !{!89, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
+!92 = distinct !{!92, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
+!93 = !{!94, !96}
+!94 = distinct !{!94, !95, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
+!95 = distinct !{!95, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
+!96 = distinct !{!96, !97, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
+!97 = distinct !{!97, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
+!98 = !{!99, !101}
+!99 = distinct !{!99, !100, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
+!100 = distinct !{!100, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
+!101 = distinct !{!101, !102, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
+!102 = distinct !{!102, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
+!103 = !{!104, !105, i64 0}
+!104 = !{!"_ZTSN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEEE", !105, i64 0}
+!105 = !{!"p1 _ZTSN4i18n12phonenumbers18PhoneNumberMatcherE", !14, i64 0}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"char16_t", !10, i64 0}
+!108 = !{!109, !110, i64 0}
+!109 = !{!"_ZTSNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE17_Vector_impl_dataE", !110, i64 0, !110, i64 8, !110, i64 16}
+!110 = !{!"p1 _ZTSN4i18n12phonenumbers12_GLOBAL__N_113NumberContextE", !14, i64 0}
+!111 = !{!109, !110, i64 8}
+!112 = distinct !{!112, !72, !73}
+!113 = !{!109, !110, i64 16}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!116 = distinct !{!116, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_"}
+!117 = !{!118}
+!118 = distinct !{!118, !116, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!119 = !{!115, !118}
+!120 = distinct !{!120, !72, !73}
+!121 = !{!110, !110, i64 0}
+!122 = distinct !{!122, !72, !73}
+!123 = !{!22, !9, i64 48}
+!124 = distinct !{!124, !73}
+!125 = distinct !{!125, !73}
+!126 = distinct !{!126, !73}
+!127 = distinct !{!127, !73}
+!128 = distinct !{!128, !73}
+!129 = !{!130, !130, i64 0}
+!130 = !{!"p1 _ZTSN4i18n12phonenumbers12_GLOBAL__N_110NumberTestE", !14, i64 0}
+!131 = !{!132, !130, i64 0}
+!132 = !{!"_ZTSNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE17_Vector_impl_dataE", !130, i64 0, !130, i64 8, !130, i64 16}
+!133 = !{!132, !130, i64 8}
+!134 = distinct !{!134, !72, !73}
+!135 = !{!132, !130, i64 16}
+!136 = distinct !{!136, !72, !73}
+!137 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!138 = distinct !{!138, !72, !73}
+!139 = distinct !{!139, !72, !73}
+!140 = !{!141, !143}
+!141 = distinct !{!141, !142, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
+!142 = distinct !{!142, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
+!143 = distinct !{!143, !144, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
+!144 = distinct !{!144, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
+!145 = distinct !{!145, !72, !73}
+!146 = distinct !{!146, !72, !73}
+!147 = !{!40, !16, i64 144}
+!148 = distinct !{!148, !72, !73}
+!149 = distinct !{!149, !72, !73}
+!150 = !{!151, !152, i64 8}
+!151 = !{!"_ZTSNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE17_Vector_impl_dataE", !152, i64 0, !152, i64 8, !152, i64 16}
+!152 = !{!"p1 _ZTSN4i18n12phonenumbers11PhoneNumberE", !14, i64 0}
+!153 = !{!151, !152, i64 16}
+!154 = !{!155, !157}
+!155 = distinct !{!155, !156, !"_ZN7testing8internal11CmpHelperEQISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
+!156 = distinct !{!156, !"_ZN7testing8internal11CmpHelperEQISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
+!157 = distinct !{!157, !158, !"_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
+!158 = distinct !{!158, !"_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
+!159 = !{!151, !152, i64 0}
+!160 = distinct !{!160, !72, !73}
+!161 = distinct !{!161, !72, !73}
+!162 = distinct !{!162, !72, !73}
+!163 = distinct !{!163, !72, !73}
+!164 = distinct !{!164, !72, !73}
+!165 = distinct !{!165, !72, !73}
+!166 = !{!167, !169}
+!167 = distinct !{!167, !168, !"_ZN7testing8internal11CmpHelperEQISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
+!168 = distinct !{!168, !"_ZN7testing8internal11CmpHelperEQISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS5_EES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
+!169 = distinct !{!169, !170, !"_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
+!170 = distinct !{!170, !"_ZN7testing8internal8EqHelper7CompareISt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS6_EES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
+!171 = !{!49, !49, i64 0}
+!172 = !{!173, !16, i64 8}
+!173 = !{!"_ZTSN4i18n12phonenumbers6LoggerE", !16, i64 8}
+!174 = !{!175}
+!175 = distinct !{!175, !176, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
+!176 = distinct !{!176, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
+!177 = !{!178, !180}
+!178 = distinct !{!178, !179, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
+!179 = distinct !{!179, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
+!180 = distinct !{!180, !181, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: argument 0"}
+!181 = distinct !{!181, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
+!182 = !{!183, !185}
+!183 = distinct !{!183, !184, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
+!184 = distinct !{!184, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
+!185 = distinct !{!185, !186, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: argument 0"}
+!186 = distinct !{!186, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
+!187 = !{!188, !190}
+!188 = distinct !{!188, !189, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
+!189 = distinct !{!189, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
+!190 = distinct !{!190, !191, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
+!191 = distinct !{!191, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
+!192 = !{!193, !195}
+!193 = distinct !{!193, !194, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
+!194 = distinct !{!194, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}
+!195 = distinct !{!195, !196, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
+!196 = distinct !{!196, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
+!197 = distinct !{!197, !72, !73}
+!198 = distinct !{!198, !72, !73}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
+!201 = distinct !{!201, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
+!202 = distinct !{!202, !72, !73}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!205 = distinct !{!205, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!206 = !{!204, !201}
-!207 = !{!208, !35, i64 40}
-!208 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !35, i64 8, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !35, i64 48, !18, i64 56}
-!209 = !{!208, !35, i64 32}
-!210 = !{!211, !9, i64 8}
-!211 = !{!"_ZTSSi", !9, i64 8}
-!212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!214 = distinct !{!214, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!217 = distinct !{!217, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!218 = !{!216, !213}
-!219 = !{!220}
-!220 = distinct !{!220, !221, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!221 = distinct !{!221, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!224 = distinct !{!224, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!225 = !{!223, !220}
-!226 = distinct !{!226, !72}
-!227 = !{!228}
-!228 = distinct !{!228, !229, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!229 = distinct !{!229, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_"}
-!230 = !{!231}
-!231 = distinct !{!231, !229, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!232 = !{!24, !14, i64 0}
-!233 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!234 = !{!235, !236, i64 0}
-!235 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !236, i64 0}
-!236 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !14, i64 0}
-!237 = distinct !{!237, !72}
-!238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!240 = distinct !{!240, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!243 = distinct !{!243, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!244 = !{!242, !239}
-!245 = !{!8, !9, i64 16}
-!246 = !{!146, !146, i64 0}
-!247 = !{!248, !16, i64 32}
-!248 = !{!"_ZTSN7testing8internal12CodeLocationE", !37, i64 0, !16, i64 32}
-!249 = !{!250, !250, i64 0}
-!250 = !{!"p1 _ZTSN7testing8TestInfoE", !14, i64 0}
+!204 = distinct !{!204, !205, !"_ZN7testing8internal11CmpHelperLTIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: argument 0"}
+!205 = distinct !{!205, !"_ZN7testing8internal11CmpHelperLTIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
+!206 = !{!207}
+!207 = distinct !{!207, !208, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!208 = distinct !{!208, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!209 = !{!210}
+!210 = distinct !{!210, !211, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!211 = distinct !{!211, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!212 = !{!210, !207}
+!213 = !{!214, !35, i64 40}
+!214 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !35, i64 8, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !35, i64 48, !18, i64 56}
+!215 = !{!214, !35, i64 32}
+!216 = !{!217, !9, i64 8}
+!217 = !{!"_ZTSSi", !9, i64 8}
+!218 = !{!219}
+!219 = distinct !{!219, !220, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!220 = distinct !{!220, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!221 = !{!222}
+!222 = distinct !{!222, !223, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!223 = distinct !{!223, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!224 = !{!222, !219}
+!225 = !{!226}
+!226 = distinct !{!226, !227, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!227 = distinct !{!227, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!228 = !{!229}
+!229 = distinct !{!229, !230, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!230 = distinct !{!230, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!231 = !{!229, !226}
+!232 = distinct !{!232, !72, !73}
+!233 = !{!234}
+!234 = distinct !{!234, !235, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!235 = distinct !{!235, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_"}
+!236 = !{!237}
+!237 = distinct !{!237, !235, !"_ZSt19__relocate_object_aIN4i18n12phonenumbers11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!238 = !{!24, !14, i64 0}
+!239 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!240 = !{!241, !242, i64 0}
+!241 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !242, i64 0}
+!242 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !14, i64 0}
+!243 = distinct !{!243, !72, !73}
+!244 = !{!245}
+!245 = distinct !{!245, !246, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!246 = distinct !{!246, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!247 = !{!248}
+!248 = distinct !{!248, !249, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!249 = distinct !{!249, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!250 = !{!248, !245}
+!251 = !{!8, !9, i64 16}
+!252 = !{!152, !152, i64 0}
+!253 = distinct !{!253, !73}
+!254 = !{!255, !16, i64 32}
+!255 = !{!"_ZTSN7testing8internal12CodeLocationE", !37, i64 0, !16, i64 32}
+!256 = !{!257, !257, i64 0}
+!257 = !{!"p1 _ZTSN7testing8TestInfoE", !14, i64 0}
+!258 = distinct !{!258, !73}
+!259 = distinct !{!259, !73}
+!260 = distinct !{!260, !73}
+!261 = distinct !{!261, !73}
+!262 = distinct !{!262, !73}

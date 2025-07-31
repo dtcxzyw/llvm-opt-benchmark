@@ -6202,7 +6202,7 @@ lean_dec.exit:                                    ; preds = %107, %106, %104, %l
   br i1 %118, label %.backedge.backedge, label %lean_dec.exit39
 
 .backedge.backedge:                               ; preds = %117, %115
-  br label %.backedge
+  br label %.backedge, !llvm.loop !18
 
 lean_dec.exit39:                                  ; preds = %lean_dec.exit, %117, %lean_obj_tag.exit53, %115, %lean_int_dec_eq.exit, %53, %55, %56, %lean_obj_tag.exit47
   %.1.shrunk = phi i1 [ false, %lean_obj_tag.exit47 ], [ %.0.i.i, %56 ], [ %.0.i.i, %55 ], [ %.0.i.i, %53 ], [ %.0.i.i, %lean_int_dec_eq.exit ], [ false, %115 ], [ false, %lean_obj_tag.exit53 ], [ false, %117 ], [ false, %lean_dec.exit ]
@@ -31626,7 +31626,7 @@ lean_alloc_ctor.exit1075:                         ; preds = %lean_inc.exit667
 315:                                              ; preds = %314, %311
   %316 = phi i32 [ %.pr, %314 ], [ %312, %311 ]
   %317 = icmp sgt i32 %316, 1
-  br i1 %317, label %318, label %320, !prof !18
+  br i1 %317, label %318, label %320, !prof !20
 
 318:                                              ; preds = %315
   %319 = add nsw i32 %316, -1
@@ -37062,7 +37062,7 @@ lean_alloc_ctor.exit1101:                         ; preds = %lean_inc.exit689
 315:                                              ; preds = %314, %311
   %316 = phi i32 [ %.pr, %314 ], [ %312, %311 ]
   %317 = icmp sgt i32 %316, 1
-  br i1 %317, label %318, label %320, !prof !18
+  br i1 %317, label %318, label %320, !prof !20
 
 318:                                              ; preds = %315
   %319 = add nsw i32 %316, -1
@@ -50009,7 +50009,7 @@ lean_alloc_ctor.exit1075:                         ; preds = %lean_inc.exit667
 315:                                              ; preds = %314, %311
   %316 = phi i32 [ %.pr, %314 ], [ %312, %311 ]
   %317 = icmp sgt i32 %316, 1
-  br i1 %317, label %318, label %320, !prof !18
+  br i1 %317, label %318, label %320, !prof !20
 
 318:                                              ; preds = %315
   %319 = add nsw i32 %316, -1
@@ -55408,7 +55408,7 @@ lean_alloc_ctor.exit1101:                         ; preds = %lean_inc.exit689
 315:                                              ; preds = %314, %311
   %316 = phi i32 [ %.pr, %314 ], [ %312, %311 ]
   %317 = icmp sgt i32 %316, 1
-  br i1 %317, label %318, label %320, !prof !18
+  br i1 %317, label %318, label %320, !prof !20
 
 318:                                              ; preds = %315
   %319 = add nsw i32 %316, -1
@@ -68333,7 +68333,7 @@ lean_alloc_ctor.exit1075:                         ; preds = %lean_inc.exit667
 315:                                              ; preds = %314, %311
   %316 = phi i32 [ %.pr, %314 ], [ %312, %311 ]
   %317 = icmp sgt i32 %316, 1
-  br i1 %317, label %318, label %320, !prof !18
+  br i1 %317, label %318, label %320, !prof !20
 
 318:                                              ; preds = %315
   %319 = add nsw i32 %316, -1
@@ -73732,7 +73732,7 @@ lean_alloc_ctor.exit1101:                         ; preds = %lean_inc.exit689
 315:                                              ; preds = %314, %311
   %316 = phi i32 [ %.pr, %314 ], [ %312, %311 ]
   %317 = icmp sgt i32 %316, 1
-  br i1 %317, label %318, label %320, !prof !18
+  br i1 %317, label %318, label %320, !prof !20
 
 318:                                              ; preds = %315
   %319 = add nsw i32 %316, -1
@@ -86657,7 +86657,7 @@ lean_alloc_ctor.exit1075:                         ; preds = %lean_inc.exit667
 315:                                              ; preds = %314, %311
   %316 = phi i32 [ %.pr, %314 ], [ %312, %311 ]
   %317 = icmp sgt i32 %316, 1
-  br i1 %317, label %318, label %320, !prof !18
+  br i1 %317, label %318, label %320, !prof !20
 
 318:                                              ; preds = %315
   %319 = add nsw i32 %316, -1
@@ -92056,7 +92056,7 @@ lean_alloc_ctor.exit1101:                         ; preds = %lean_inc.exit689
 315:                                              ; preds = %314, %311
   %316 = phi i32 [ %.pr, %314 ], [ %312, %311 ]
   %317 = icmp sgt i32 %316, 1
-  br i1 %317, label %318, label %320, !prof !18
+  br i1 %317, label %318, label %320, !prof !20
 
 318:                                              ; preds = %315
   %319 = add nsw i32 %316, -1
@@ -165869,7 +165869,7 @@ lean_dec.exit263:                                 ; preds = %51, %50, %48, %lean
 64:                                               ; preds = %63, %60
   %65 = phi i32 [ %.pr, %63 ], [ %61, %60 ]
   %66 = icmp sgt i32 %65, 1
-  br i1 %66, label %67, label %69, !prof !18
+  br i1 %66, label %67, label %69, !prof !20
 
 67:                                               ; preds = %64
   %68 = add nsw i32 %65, -1
@@ -167362,7 +167362,7 @@ lean_obj_tag.exit324:                             ; preds = %208, %211
 226:                                              ; preds = %225, %222
   %227 = phi i32 [ %.pr, %225 ], [ %223, %222 ]
   %228 = icmp sgt i32 %227, 1
-  br i1 %228, label %229, label %231, !prof !18
+  br i1 %228, label %229, label %231, !prof !20
 
 229:                                              ; preds = %226
   %230 = add nsw i32 %227, -1
@@ -169547,7 +169547,7 @@ lean_dec.exit292:                                 ; preds = %77, %76, %74, %lean
 95:                                               ; preds = %94, %91
   %96 = phi i32 [ %.pr, %94 ], [ %92, %91 ]
   %97 = icmp sgt i32 %96, 1
-  br i1 %97, label %98, label %100, !prof !18
+  br i1 %97, label %98, label %100, !prof !20
 
 98:                                               ; preds = %95
   %99 = add nsw i32 %96, -1
@@ -170673,7 +170673,7 @@ define ptr @l_Lean_Meta_Grind_Arith_Cutsat_LeCnstr_assertImpl___lambda__9(ptr no
 24:                                               ; preds = %23, %20
   %25 = phi i32 [ %.pr, %23 ], [ %21, %20 ]
   %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !18
+  br i1 %26, label %27, label %29, !prof !20
 
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
@@ -171729,7 +171729,7 @@ lean_obj_tag.exit:                                ; preds = %78, %81
 96:                                               ; preds = %95, %92
   %97 = phi i32 [ %.pr, %95 ], [ %93, %92 ]
   %98 = icmp sgt i32 %97, 1
-  br i1 %98, label %99, label %101, !prof !18
+  br i1 %98, label %99, label %101, !prof !20
 
 99:                                               ; preds = %96
   %100 = add nsw i32 %97, -1
@@ -173880,7 +173880,7 @@ lean_inc.exit51:                                  ; preds = %10
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 75
   %29 = load i8, ptr %28, align 1, !tbaa !15
   %30 = icmp sgt i32 %27, 1
-  br i1 %30, label %31, label %33, !prof !18
+  br i1 %30, label %31, label %33, !prof !20
 
 31:                                               ; preds = %26
   %32 = add nsw i32 %27, -1
@@ -175943,7 +175943,7 @@ define ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_LeCnstr_0__Lean_Meta
 25:                                               ; preds = %24, %21
   %26 = phi i32 [ %.pr, %24 ], [ %22, %21 ]
   %27 = icmp sgt i32 %26, 1
-  br i1 %27, label %28, label %30, !prof !18
+  br i1 %27, label %28, label %30, !prof !20
 
 28:                                               ; preds = %25
   %29 = add nsw i32 %26, -1
@@ -178567,7 +178567,7 @@ define ptr @l_Lean_Meta_Grind_Arith_Cutsat_propagateNatLe___lambda__2(ptr nounde
 23:                                               ; preds = %22, %19
   %24 = phi i32 [ %.pr, %22 ], [ %20, %19 ]
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !18
+  br i1 %25, label %26, label %28, !prof !20
 
 26:                                               ; preds = %23
   %27 = add nsw i32 %24, -1
@@ -186718,9 +186718,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_LeCnstr_0__Lean_Meta_Grind_Arith_Cutsat_findEq___lambda__1___boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !19
+  store i16 10, ptr %6, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !21
   ret ptr %1
 }
 
@@ -186742,9 +186742,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_LeCnstr_assertImpl___lambda__5___boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !19
+  store i16 10, ptr %6, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !21
   ret ptr %1
 }
 
@@ -186766,9 +186766,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_LeCnstr_0__Lean_Meta_Grind_Arith_Cutsat_toPolyLe_x3f___lambda__4___boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !19
+  store i16 10, ptr %6, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !21
   ret ptr %1
 }
 
@@ -186790,9 +186790,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_LeCnstr_assert___boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !19
+  store i16 10, ptr %6, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !21
   ret ptr %1
 }
 
@@ -186851,9 +186851,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_propagateNatLe___lambda__2, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !19
+  store i16 10, ptr %6, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !21
   ret ptr %1
 }
 
@@ -186886,6 +186886,8 @@ attributes #5 = { noreturn nounwind }
 !15 = !{!6, !6, i64 0}
 !16 = !{!"branch_weights", i32 4001, i32 4000000}
 !17 = !{!"branch_weights", i32 4000000, i32 4001}
-!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !6, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !6, i64 0}

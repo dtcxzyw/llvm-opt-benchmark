@@ -520,7 +520,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %273 = add nuw nsw i64 %.018018.i, 1
   %274 = getelementptr inbounds nuw i8, ptr %.018217.i, i64 64
   %exitcond.not = icmp eq i64 %273, %61
-  br i1 %exitcond.not, label %H5O__pline_decode.exit.thread18, label %91, !llvm.loop !34
+  br i1 %exitcond.not, label %H5O__pline_decode.exit.thread18, label %91, !llvm.loop !35
 
 .thread.i:                                        ; preds = %265, %251, %216, %201, %190, %179, %159, %141, %132, %117, %97, %87, %74, %64, %54, %47, %43
   %275 = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -574,7 +574,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
 300:                                              ; preds = %297, %293
   %301 = add nuw i64 %.033.i.i, 1
   %exitcond22.not = icmp eq i64 %301, %285
-  br i1 %exitcond22.not, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !35
+  br i1 %exitcond22.not, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !36
 
 ._crit_edge.i.i:                                  ; preds = %300, %.preheader.i.i
   %302 = tail call ptr @H5MM_xfree(ptr noundef nonnull %283) #12
@@ -623,7 +623,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br i1 %12, label %13, label %H5O__pline_encode.exit, !prof !9
 
 13:                                               ; preds = %5
-  %14 = load i32, ptr %4, align 8, !tbaa !36
+  %14 = load i32, ptr %4, align 8, !tbaa !37
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %18, label %16
 
@@ -709,7 +709,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   %60 = load i32, ptr %.09218.i, align 8, !tbaa !24
   %61 = call i32 @H5Z_find(i1 noundef zeroext true, i32 noundef %60, ptr noundef nonnull %6) #12
-  %62 = load ptr, ptr %6, align 8, !tbaa !37
+  %62 = load ptr, ptr %6, align 8, !tbaa !38
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %.thread5.i, label %63
 
@@ -719,7 +719,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !39
+  %65 = load ptr, ptr %64, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   %.not100.i = icmp eq ptr %65, null
   br i1 %.not100.i, label %68, label %.thread.i
@@ -839,7 +839,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   %134 = add nuw i64 %.09013.i, 1
   %135 = load i64, ptr %92, align 8, !tbaa !29
   %136 = icmp ult i64 %134, %135
-  br i1 %136, label %110, label %._crit_edge.i, !llvm.loop !41
+  br i1 %136, label %110, label %._crit_edge.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %110
   %137 = and i64 %135, 1
@@ -860,7 +860,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   %144 = getelementptr inbounds nuw i8, ptr %.09218.i, i64 64
   %145 = load i64, ptr %31, align 8, !tbaa !21
   %146 = icmp ult i64 %143, %145
-  br i1 %146, label %.lr.ph21.i, label %H5O__pline_encode.exit, !llvm.loop !42
+  br i1 %146, label %.lr.ph21.i, label %H5O__pline_encode.exit, !llvm.loop !43
 
 H5O__pline_encode.exit:                           ; preds = %._crit_edge.thread.i, %39, %22, %19, %5
   %.0 = phi i32 [ -1, %22 ], [ 0, %19 ], [ 0, %5 ], [ 0, %39 ], [ 0, %._crit_edge.thread.i ]
@@ -894,7 +894,7 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
 
 17:                                               ; preds = %10, %9
   %.067 = phi ptr [ %1, %9 ], [ %11, %10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.067, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false), !tbaa.struct !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.067, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false), !tbaa.struct !44
   %18 = getelementptr inbounds nuw i8, ptr %.067, i64 56
   %19 = load i64, ptr %18, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %.067, i64 48
@@ -933,7 +933,7 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
   %35 = load ptr, ptr %24, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %35, i64 %.06684
   %37 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %34, i64 %.06684
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %37, i64 64, i1 false), !tbaa.struct !46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %37, i64 64, i1 false), !tbaa.struct !47
   %38 = load ptr, ptr %28, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %38, i64 %.06684, i32 3
   %40 = load ptr, ptr %39, align 8, !tbaa !30
@@ -1016,7 +1016,7 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
   %83 = add nuw i64 %.06684, 1
   %84 = load i64, ptr %26, align 8, !tbaa !21
   %85 = icmp ult i64 %83, %84
-  br i1 %85, label %33, label %H5O__pline_free.exit, !llvm.loop !49
+  br i1 %85, label %33, label %H5O__pline_free.exit, !llvm.loop !50
 
 86:                                               ; preds = %17
   %87 = getelementptr inbounds nuw i8, ptr %.067, i64 64
@@ -1080,7 +1080,7 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
   %119 = add nuw i64 %.033.i, 1
   %120 = load i64, ptr %18, align 8, !tbaa !21
   %121 = icmp ult i64 %119, %120
-  br i1 %121, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !35
+  br i1 %121, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %117, %.preheader.i
   %122 = phi ptr [ %96, %.preheader.i ], [ %118, %117 ]
@@ -1127,7 +1127,7 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
   br i1 %10, label %11, label %H5O__pline_size.exit.thread, !prof !9
 
 11:                                               ; preds = %3
-  %12 = load i32, ptr %2, align 8, !tbaa !36
+  %12 = load i32, ptr %2, align 8, !tbaa !37
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %16, label %14
 
@@ -1190,7 +1190,7 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
   %44 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %.pre.i, i64 %.0317.i
   %45 = load i32, ptr %44, align 8, !tbaa !24
   %46 = call i32 @H5Z_find(i1 noundef zeroext true, i32 noundef %45, ptr noundef nonnull %4) #12
-  %47 = load ptr, ptr %4, align 8, !tbaa !37
+  %47 = load ptr, ptr %4, align 8, !tbaa !38
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %.thread4.i, label %48
 
@@ -1200,7 +1200,7 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !39
+  %50 = load ptr, ptr %49, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   %.not35.i = icmp eq ptr %50, null
   br i1 %.not35.i, label %53, label %.thread.i
@@ -1245,7 +1245,7 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
   %75 = add nuw i64 %.0317.i, 1
   %76 = load i64, ptr %29, align 8, !tbaa !21
   %77 = icmp ult i64 %75, %76
-  br i1 %77, label %32, label %H5O__pline_size.exit, !llvm.loop !50
+  br i1 %77, label %32, label %H5O__pline_size.exit, !llvm.loop !51
 
 H5O__pline_size.exit:                             ; preds = %61
   %78 = icmp eq i64 %.2.i, 0
@@ -1322,7 +1322,7 @@ define internal noundef i32 @H5O__pline_reset(ptr noundef captures(none) %0) #1 
   %34 = add nuw i64 %.033, 1
   %35 = load i64, ptr %11, align 8, !tbaa !21
   %36 = icmp ult i64 %34, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %32, %.preheader
   %37 = phi ptr [ %10, %.preheader ], [ %33, %32 ]
@@ -1370,7 +1370,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_delete(ptr noundef %0, p
   br i1 %9, label %10, label %19, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %2, align 8, !tbaa !36
+  %11 = load i32, ptr %2, align 8, !tbaa !37
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %19, label %12
 
@@ -1401,7 +1401,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_link(ptr noundef %0, ptr
   br i1 %9, label %10, label %19, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %2, align 8, !tbaa !36
+  %11 = load i32, ptr %2, align 8, !tbaa !37
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %19, label %12
 
@@ -1435,7 +1435,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_pre_copy_file(ptr readnone capt
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i32, ptr %13, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !51
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
   %17 = tail call i32 @H5F_get_high_bound(ptr noundef %16) #12
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds [7 x i32], ptr @H5O_pline_ver_bounds, i64 0, i64 %18
@@ -1455,7 +1455,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_pre_copy_file(ptr readnone capt
 
 27:                                               ; preds = %26
   %28 = tail call ptr @H5O__pline_copy(ptr noundef nonnull %1, ptr noundef null)
-  store ptr %28, ptr %4, align 8, !tbaa !56
+  store ptr %28, ptr %4, align 8, !tbaa !57
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %34
 
@@ -1520,7 +1520,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_post_copy_file(ptr readn
   br i1 %12, label %13, label %21, !prof !9
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr %2, align 8, !tbaa !59
+  %14 = load ptr, ptr %2, align 8, !tbaa !60
   %15 = tail call i32 @H5O__shared_post_copy_file(ptr noundef %14, ptr noundef nonnull @H5O_MSG_PLINE, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5) #12
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
@@ -1549,7 +1549,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_debug(ptr readnone captu
   br i1 %13, label %14, label %H5O__pline_debug.exit, !prof !9
 
 14:                                               ; preds = %5
-  %15 = load i32, ptr %1, align 8, !tbaa !36
+  %15 = load i32, ptr %1, align 8, !tbaa !37
   %.off = add i32 %15, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %16, label %23
@@ -1643,7 +1643,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_debug(ptr readnone captu
   %65 = add nuw i64 %.0542.i, 1
   %66 = load i64, ptr %26, align 8, !tbaa !21
   %67 = icmp ult i64 %65, %66
-  br i1 %67, label %39, label %H5O__pline_debug.exit, !llvm.loop !61
+  br i1 %67, label %39, label %H5O__pline_debug.exit, !llvm.loop !62
 
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.i
   %.01.i = phi i64 [ %75, %.lr.ph.i ], [ 0, %53 ]
@@ -1661,7 +1661,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_debug(ptr readnone captu
   %77 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %76, i64 %.0542.i, i32 4
   %78 = load i64, ptr %77, align 8, !tbaa !29
   %79 = icmp ult i64 %75, %78
-  br i1 %79, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !62
+  br i1 %79, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !63
 
 H5O__pline_debug.exit:                            ; preds = %._crit_edge.i, %25, %23, %19, %5
   %.0 = phi i32 [ -1, %19 ], [ 0, %5 ], [ 0, %23 ], [ 0, %25 ], [ 0, %._crit_edge.i ]
@@ -1870,34 +1870,35 @@ attributes #15 = { nounwind allocsize(0) }
 !29 = !{!25, !11, i64 32}
 !30 = !{!25, !26, i64 24}
 !31 = !{!25, !27, i64 56}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = distinct !{!35, !33}
-!36 = !{!17, !13, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 _ZTS12H5Z_class2_t", !19, i64 0}
-!39 = !{!40, !26, i64 16}
-!40 = !{!"H5Z_class2_t", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !26, i64 16, !19, i64 24, !19, i64 32, !19, i64 40}
-!41 = distinct !{!41, !33}
-!42 = distinct !{!42, !33}
-!43 = !{i64 0, i64 4, !12, i64 8, i64 8, !44, i64 16, i64 4, !12, i64 24, i64 16, !14, i64 40, i64 4, !12, i64 48, i64 8, !10, i64 56, i64 8, !10, i64 64, i64 8, !45}
-!44 = !{!18, !18, i64 0}
-!45 = !{!20, !20, i64 0}
-!46 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 12, !14, i64 24, i64 8, !47, i64 32, i64 8, !10, i64 40, i64 16, !14, i64 56, i64 8, !48}
-!47 = !{!26, !26, i64 0}
-!48 = !{!27, !27, i64 0}
-!49 = distinct !{!49, !33}
-!50 = distinct !{!50, !33}
-!51 = !{!52, !18, i64 56}
-!52 = !{!"H5O_copy_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !53, i64 8, !13, i64 16, !13, i64 20, !54, i64 24, !54, i64 32, !4, i64 40, !55, i64 48, !18, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !11, i64 88}
-!53 = !{!"p1 _ZTS27H5O_copy_dtype_merge_list_t", !19, i64 0}
-!54 = !{!"p1 _ZTS6H5SL_t", !19, i64 0}
-!55 = !{!"p1 _ZTS5H5O_t", !19, i64 0}
-!56 = !{!57, !58, i64 0}
-!57 = !{!"H5O_copy_file_ud_common_t", !58, i64 0}
-!58 = !{!"p1 _ZTS11H5O_pline_t", !19, i64 0}
-!59 = !{!60, !18, i64 0}
-!60 = !{!"H5O_loc_t", !18, i64 0, !11, i64 8, !4, i64 16}
-!61 = distinct !{!61, !33}
-!62 = distinct !{!62, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}
+!36 = distinct !{!36, !33, !34}
+!37 = !{!17, !13, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS12H5Z_class2_t", !19, i64 0}
+!40 = !{!41, !26, i64 16}
+!41 = !{!"H5Z_class2_t", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !26, i64 16, !19, i64 24, !19, i64 32, !19, i64 40}
+!42 = distinct !{!42, !33, !34}
+!43 = distinct !{!43, !33, !34}
+!44 = !{i64 0, i64 4, !12, i64 8, i64 8, !45, i64 16, i64 4, !12, i64 24, i64 16, !14, i64 40, i64 4, !12, i64 48, i64 8, !10, i64 56, i64 8, !10, i64 64, i64 8, !46}
+!45 = !{!18, !18, i64 0}
+!46 = !{!20, !20, i64 0}
+!47 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 12, !14, i64 24, i64 8, !48, i64 32, i64 8, !10, i64 40, i64 16, !14, i64 56, i64 8, !49}
+!48 = !{!26, !26, i64 0}
+!49 = !{!27, !27, i64 0}
+!50 = distinct !{!50, !33, !34}
+!51 = distinct !{!51, !33, !34}
+!52 = !{!53, !18, i64 56}
+!53 = !{!"H5O_copy_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !54, i64 8, !13, i64 16, !13, i64 20, !55, i64 24, !55, i64 32, !4, i64 40, !56, i64 48, !18, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !11, i64 88}
+!54 = !{!"p1 _ZTS27H5O_copy_dtype_merge_list_t", !19, i64 0}
+!55 = !{!"p1 _ZTS6H5SL_t", !19, i64 0}
+!56 = !{!"p1 _ZTS5H5O_t", !19, i64 0}
+!57 = !{!58, !59, i64 0}
+!58 = !{!"H5O_copy_file_ud_common_t", !59, i64 0}
+!59 = !{!"p1 _ZTS11H5O_pline_t", !19, i64 0}
+!60 = !{!61, !18, i64 0}
+!61 = !{!"H5O_loc_t", !18, i64 0, !11, i64 8, !4, i64 16}
+!62 = distinct !{!62, !33, !34}
+!63 = distinct !{!63, !33, !34}

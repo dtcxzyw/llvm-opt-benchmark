@@ -1145,7 +1145,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %444
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #17
   %459 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv11VideoWriterlsERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(96) %13)
-          to label %430 unwind label %.loopexit, !llvm.loop !76
+          to label %430 unwind label %.loopexit, !llvm.loop !77
 
 460:                                              ; preds = %457
   %461 = landingpad { ptr, i32 }
@@ -1209,7 +1209,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i172: ; preds = %.noexc175, %
 _ZNSolsEPFRSoS_E.exit111:                         ; preds = %.noexc177
   %483 = load ptr, ptr %14, align 8, !tbaa !57
   %484 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %485 = load ptr, ptr %484, align 8, !tbaa !77
+  %485 = load ptr, ptr %484, align 8, !tbaa !78
   %.not4.i.i.i.i = icmp eq ptr %483, %485
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1218,7 +1218,7 @@ _ZNSolsEPFRSoS_E.exit111:                         ; preds = %.noexc177
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #17
   %486 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i112 = icmp eq ptr %486, %485
-  br i1 %.not.i.i.i.i112, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !78
+  br i1 %.not.i.i.i.i112, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !79
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %14, align 8, !tbaa !57
@@ -1418,7 +1418,7 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv11VideoWriterlsER
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !57
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !77
+  %4 = load ptr, ptr %3, align 8, !tbaa !78
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -1427,7 +1427,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef 
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #17
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !78
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !79
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !57
@@ -1604,8 +1604,9 @@ attributes #18 = { builtin nounwind }
 !71 = !{!"_ZTSN2cv7Scalar_IdEE", !72, i64 0}
 !72 = !{!"_ZTSN2cv3VecIdLi4EEE", !73, i64 0}
 !73 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !11, i64 0}
-!74 = distinct !{!74, !75}
+!74 = distinct !{!74, !75, !76}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = distinct !{!76, !75}
-!77 = !{!58, !59, i64 8}
-!78 = distinct !{!78, !75}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = distinct !{!77, !75, !76}
+!78 = !{!58, !59, i64 8}
+!79 = distinct !{!79, !75, !76}

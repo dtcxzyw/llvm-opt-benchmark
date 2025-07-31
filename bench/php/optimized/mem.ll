@@ -130,12 +130,12 @@ define hidden void @lexbor_mem_clean(ptr noundef captures(address_is_null) %0) l
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi ptr [ %4, %3 ], [ %7, %.lr.ph ]
   %13 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
-  store ptr null, ptr %13, align 8, !tbaa !20
+  store ptr null, ptr %13, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -177,7 +177,7 @@ define hidden ptr @lexbor_mem_destroy(ptr noundef %0, i1 noundef zeroext %1) loc
 lexbor_mem_chunk_destroy.exit:                    ; preds = %.preheader, %9
   %11 = tail call ptr @lexbor_free(ptr noundef nonnull %.01216) #6
   %.not15 = icmp eq ptr %7, null
-  br i1 %.not15, label %12, label %.preheader
+  br i1 %.not15, label %12, label %.preheader, !llvm.loop !23
 
 12:                                               ; preds = %lexbor_mem_chunk_destroy.exit
   store ptr null, ptr %0, align 8, !tbaa !11
@@ -278,7 +278,7 @@ define hidden ptr @lexbor_mem_alloc(ptr noundef captures(none) %0, i64 noundef %
 lexbor_mem_chunk_make.exit.thread:                ; preds = %17
   %20 = load ptr, ptr %0, align 8, !tbaa !11
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr null, ptr %21, align 8, !tbaa !20
+  store ptr null, ptr %21, align 8, !tbaa !22
   br label %50
 
 22:                                               ; preds = %17
@@ -302,14 +302,14 @@ lexbor_mem_chunk_make.exit.thread:                ; preds = %17
 lexbor_mem_chunk_make.exit.thread23:              ; preds = %22
   %33 = load ptr, ptr %0, align 8, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr %18, ptr %34, align 8, !tbaa !20
+  store ptr %18, ptr %34, align 8, !tbaa !22
   br label %39
 
 lexbor_mem_chunk_make.exit:                       ; preds = %22
   %35 = tail call ptr @lexbor_free(ptr noundef nonnull %18) #6
   %36 = load ptr, ptr %0, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %35, ptr %37, align 8, !tbaa !20
+  store ptr %35, ptr %37, align 8, !tbaa !22
   %38 = icmp eq ptr %35, null
   br i1 %38, label %50, label %39
 
@@ -425,4 +425,7 @@ attributes #6 = { nounwind }
 !17 = !{!5, !10, i64 24}
 !18 = !{!5, !6, i64 8}
 !19 = !{!13, !6, i64 32}
-!20 = !{!13, !6, i64 24}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!13, !6, i64 24}
+!23 = distinct !{!23, !21}

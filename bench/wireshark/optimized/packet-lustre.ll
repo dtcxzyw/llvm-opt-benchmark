@@ -2946,7 +2946,7 @@ dissect_struct_msg_v1.exit:                       ; preds = %59, %._crit_edge.i,
   %123 = add nuw i32 %.06063.i, 1
   %124 = load i32, ptr %7, align 4
   %125 = icmp ult i32 %123, %124
-  br i1 %125, label %.lr.ph.i26, label %._crit_edge.i27, !llvm.loop !8
+  br i1 %125, label %.lr.ph.i26, label %._crit_edge.i27, !llvm.loop !9
 
 ._crit_edge.i27:                                  ; preds = %.lr.ph.i26
   %126 = and i32 %124, 1
@@ -3058,7 +3058,7 @@ dissect_struct_msg_v1.exit:                       ; preds = %59, %._crit_edge.i,
   %208 = add i32 %.0105.i.i, 8
   %209 = add nuw nsw i32 %.0101104.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %209, 4
-  br i1 %exitcond.not.i.i, label %210, label %205, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %210, label %205, !llvm.loop !10
 
 210:                                              ; preds = %205
   %211 = load i32, ptr @hf_lustre_ptlrpc_body_pb_padding, align 4
@@ -3795,7 +3795,7 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   %325 = tail call fastcc i32 @dissect_struct_lu_fid(ptr noundef %0, i32 noundef %.0291.i.i, ptr noundef %322, i32 noundef %324)
   %326 = add nuw nsw i32 %.0282.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %326, %323
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %318
   %.029.lcssa.i.i = phi i32 [ %305, %318 ], [ %325, %.lr.ph.i.i ]
@@ -4496,7 +4496,7 @@ default.unreachable:                              ; preds = %343
   %749 = load i32, ptr %8, align 4
   %750 = icmp eq i32 %749, 215157968
   %751 = select i1 %748, i1 %750, i1 false
-  br i1 %751, label %.lr.ph.i.i.i, label %add_extra_padding.exit.i.i.i, !llvm.loop !11
+  br i1 %751, label %.lr.ph.i.i.i, label %add_extra_padding.exit.i.i.i, !llvm.loop !12
 
 752:                                              ; preds = %695
   %753 = sub i32 0, %682
@@ -4648,7 +4648,7 @@ dissect_struct_lmv_user_md.exit.i.i:              ; preds = %762, %689, %677
   %852 = add i32 %.0981.i.i.i, 4
   %853 = add nuw nsw i32 %.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %853, %818
-  br i1 %exitcond.not.i.i.i, label %dissect_xattr_buffers.exit.i.i, label %835, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %dissect_xattr_buffers.exit.i.i, label %835, !llvm.loop !13
 
 dissect_xattr_buffers.exit.i.i:                   ; preds = %835, %817
   %854 = sub i32 0, %825
@@ -4799,7 +4799,7 @@ default.unreachable137:                           ; preds = %670
   %949 = add nuw i32 %.03.i.i, 1
   %950 = load i32, ptr %7, align 4
   %951 = icmp ult i32 %949, %950
-  br i1 %951, label %.lr.ph.i.i133, label %._crit_edge.loopexit.i.i, !llvm.loop !13
+  br i1 %951, label %.lr.ph.i.i133, label %._crit_edge.loopexit.i.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i133
   %952 = shl i32 %950, 3
@@ -5394,7 +5394,7 @@ add_extra_padding.exit.i:                         ; preds = %48, %38
   %261 = add nuw i32 %.080.i.i, 1
   %262 = load i32, ptr %9, align 4
   %263 = icmp ult i32 %261, %262
-  br i1 %263, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !14
+  br i1 %263, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %225
   %.077.lcssa.i.i = phi i32 [ %256, %225 ], [ %260, %.lr.ph.i.i ]
@@ -5530,7 +5530,7 @@ add_extra_padding.exit._crit_edge.i.i:            ; preds = %add_extra_padding.e
   %364 = add nuw i32 %.182.i.i, 1
   %365 = load i32, ptr %9, align 4
   %366 = icmp ult i32 %364, %365
-  br i1 %366, label %.lr.ph84.i.i, label %dissect_struct_lustre_cfg.exit.i, !llvm.loop !15
+  br i1 %366, label %.lr.ph84.i.i, label %dissect_struct_lustre_cfg.exit.i, !llvm.loop !16
 
 dissect_struct_lustre_cfg.exit.i:                 ; preds = %.lr.ph84.i.i, %352, %305, %273
   %.178.i.i = phi i32 [ %301, %273 ], [ %351, %305 ], [ %.0.i.i.i, %352 ], [ %363, %.lr.ph84.i.i ]
@@ -5778,7 +5778,7 @@ dissect_struct_changelog_rec.exit.i:              ; preds = %486, %484
   %.0307.i = phi i32 [ %34, %538 ], [ %39, %add_extra_padding.exit.i ], [ %34, %62 ], [ %34, %87 ], [ %34, %92 ], [ %34, %119 ], [ %34, %144 ], [ %34, %177 ], [ %226, %dissect_struct_lustre_cfg.exit.i ], [ %34, %378 ], [ %34, %383 ], [ %34, %413 ], [ %419, %dissect_struct_changelog_rec.exit.i ], [ %34, %502 ], [ %34, %506 ], [ %34, %510 ], [ %34, %514 ], [ %34, %516 ]
   %541 = sub i32 %.2.i, %.0308.i
   %.not312.i = icmp eq i32 %541, %.0307.i
-  br i1 %.not312.i, label %.preheader.i, label %542, !llvm.loop !16
+  br i1 %.not312.i, label %.preheader.i, label %542, !llvm.loop !17
 
 542:                                              ; preds = %540
   %543 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_buflen, ptr noundef nonnull @.str.1833, i32 noundef %37, i32 noundef %.0307.i, i32 noundef %541)
@@ -6214,7 +6214,7 @@ add_extra_padding.exit.i.i.i:                     ; preds = %139, %.lr.ph.i.i.i
   %143 = add nuw i32 %.0601.i.i.i, 1
   %144 = load i32, ptr %11, align 4
   %145 = icmp ult i32 %143, %144
-  br i1 %145, label %.lr.ph.i.i.i, label %dissect_struct_object_update.exit.i.i, !llvm.loop !17
+  br i1 %145, label %.lr.ph.i.i.i, label %dissect_struct_object_update.exit.i.i, !llvm.loop !18
 
 dissect_struct_object_update.exit.i.i:            ; preds = %add_extra_padding.exit.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i = phi i32 [ %119, %.lr.ph.i.i ], [ %.0.i.i.i.i, %add_extra_padding.exit.i.i.i ]
@@ -6225,7 +6225,7 @@ dissect_struct_object_update.exit.i.i:            ; preds = %add_extra_padding.e
   %147 = add nuw i32 %.02829.i.i, 1
   %148 = load i32, ptr %13, align 4
   %149 = icmp ult i32 %147, %148
-  br i1 %149, label %.lr.ph.i.i, label %dissect_struct_object_update_request.exit.i, !llvm.loop !18
+  br i1 %149, label %.lr.ph.i.i, label %dissect_struct_object_update_request.exit.i, !llvm.loop !19
 
 dissect_struct_object_update_request.exit.i:      ; preds = %dissect_struct_object_update.exit.i.i, %73
   %.0.lcssa.i.i = phi i32 [ %80, %73 ], [ %.0.lcssa.i.i.i, %dissect_struct_object_update.exit.i.i ]
@@ -6236,7 +6236,7 @@ dissect_struct_object_update_request.exit.i:      ; preds = %dissect_struct_obje
   %151 = add nuw i32 %.07278.i, 1
   %152 = load i32, ptr %15, align 4
   %153 = icmp ult i32 %151, %152
-  br i1 %153, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
+  br i1 %153, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %dissect_struct_object_update_request.exit.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %53, %.preheader.i ], [ %.0.lcssa.i.i, %dissect_struct_object_update_request.exit.i ]
@@ -6327,7 +6327,7 @@ dissect_struct_out_update_header.exit:            ; preds = %20, %27, %165, %168
   %194 = add i32 %.03639.i, 8
   %195 = add nuw nsw i32 %.03540.i, 1
   %exitcond.not.i = icmp eq i32 %195, %184
-  br i1 %exitcond.not.i, label %._crit_edge.i26, label %.lr.ph.i25, !llvm.loop !20
+  br i1 %exitcond.not.i, label %._crit_edge.i26, label %.lr.ph.i25, !llvm.loop !21
 
 ._crit_edge.i26:                                  ; preds = %.lr.ph.i25, %.preheader.i24
   %.036.lcssa.i = phi i32 [ %.0.i, %.preheader.i24 ], [ %194, %.lr.ph.i25 ]
@@ -6407,7 +6407,7 @@ dissect_struct_out_update_buffer.exit:            ; preds = %197, %._crit_edge.i
   %237 = add nuw i32 %.05461.i, 1
   %238 = load i32, ptr %8, align 4
   %239 = icmp ult i32 %237, %238
-  br i1 %239, label %.lr.ph.i31, label %.preheader.i32, !llvm.loop !21
+  br i1 %239, label %.lr.ph.i31, label %.preheader.i32, !llvm.loop !22
 
 .lr.ph64.i:                                       ; preds = %.preheader.i32, %.lr.ph64.i
   %.163.i = phi i32 [ %259, %.lr.ph64.i ], [ 0, %.preheader.i32 ]
@@ -6437,7 +6437,7 @@ dissect_struct_out_update_buffer.exit:            ; preds = %197, %._crit_edge.i
   %259 = add nuw i32 %.163.i, 1
   %260 = load i32, ptr %8, align 4
   %261 = icmp ult i32 %259, %260
-  br i1 %261, label %.lr.ph64.i, label %._crit_edge.i33, !llvm.loop !22
+  br i1 %261, label %.lr.ph64.i, label %._crit_edge.i33, !llvm.loop !23
 
 ._crit_edge.i33:                                  ; preds = %.lr.ph64.i, %.preheader.i32, %224
   %.156.lcssa.i = phi i32 [ %236, %.preheader.i32 ], [ %231, %224 ], [ %257, %.lr.ph64.i ]
@@ -6775,7 +6775,7 @@ define internal fastcc noundef i32 @dissect_struct_obd_ioobj(ptr noundef %0, i32
   %31 = add i32 %.03436, 24
   %32 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %32, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3, %10
   %.034.lcssa = phi i32 [ %1, %10 ], [ %1, %3 ], [ %31, %.lr.ph ]
@@ -6822,7 +6822,7 @@ define internal fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 nou
   %30 = add i32 %.0341, 16
   %31 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %31, %17
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %10
   %.034.lcssa = phi i32 [ %1, %10 ], [ %1, %4 ], [ %30, %.lr.ph ]
@@ -6879,7 +6879,7 @@ define internal fastcc i32 @dissect_rc_array(ptr noundef %0, i32 noundef %1, ptr
   %26 = add i32 %.0251, 4
   %27 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %27, %23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %.025.lcssa = phi i32 [ %1, %17 ], [ %26, %.lr.ph ]
@@ -6959,7 +6959,7 @@ define internal fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noun
   %45 = add nuw i32 %.042, 1
   %46 = load i32, ptr %7, align 4
   %47 = icmp ult i32 %45, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
   %.039.lcssa = phi i32 [ %36, %34 ], [ %44, %.lr.ph ]
@@ -7202,7 +7202,7 @@ define internal fastcc noundef i32 @dissect_struct_obd_statfs(ptr noundef %0, i3
   %50 = add i32 %.06263, 4
   %51 = add nuw nsw i32 %.064, 1
   %exitcond.not = icmp eq i32 %51, 9
-  br i1 %exitcond.not, label %52, label %47, !llvm.loop !27
+  br i1 %exitcond.not, label %52, label %47, !llvm.loop !28
 
 52:                                               ; preds = %47
   ret i32 %50
@@ -7382,7 +7382,7 @@ define internal fastcc i32 @dissect_struct_ldlm_lock_desc(ptr noundef %0, i32 no
   %44 = add nuw nsw i32 %.0123, 1
   %.0120 = add i32 %.0120124, 8
   %exitcond.not = icmp eq i32 %44, 4
-  br i1 %exitcond.not, label %45, label %20, !llvm.loop !28
+  br i1 %exitcond.not, label %45, label %20, !llvm.loop !29
 
 45:                                               ; preds = %43
   %46 = load i32, ptr @hf_lustre_ldlm_lock_desc_l_req_mode, align 4
@@ -7725,7 +7725,7 @@ define internal fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 nounde
   %75 = load i32, ptr %7, align 4
   %76 = icmp eq i32 %75, 215092432
   %77 = select i1 %74, i1 %76, i1 false
-  br i1 %77, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !29
+  br i1 %77, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %37
   %.056.lcssa.i = phi i32 [ %64, %37 ], [ %71, %.lr.ph.i ]
@@ -7864,7 +7864,7 @@ dissect_struct_lmv_mds_md_v1.exit:                ; preds = %24, %30, %._crit_ed
   %169 = add nuw i32 %.0105122, 1
   %170 = load i32, ptr %8, align 4
   %171 = icmp ult i32 %169, %170
-  br i1 %171, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %171, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %141
   %.2.lcssa = phi i32 [ %.1, %141 ], [ %168, %.lr.ph ]
@@ -8332,7 +8332,7 @@ define internal fastcc noundef i32 @dissect_struct_llog_cookie_array(ptr noundef
   %32 = add i32 %23, 12
   %33 = add nuw nsw i32 %.036, 1
   %exitcond.not = icmp eq i32 %33, %17
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %10
   %.033.lcssa = phi i32 [ %1, %10 ], [ %1, %4 ], [ %32, %.lr.ph ]
@@ -8833,7 +8833,7 @@ define internal fastcc noundef i32 @dissect_struct_hsm_user_item_array(ptr nound
   %32 = add i32 %22, 16
   %33 = add nuw nsw i32 %.032, 1
   %exitcond.not = icmp eq i32 %33, %16
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !33
 
 .thread:                                          ; preds = %.lr.ph, %.preheader, %3, %10
   %.027 = phi i32 [ %1, %10 ], [ %1, %3 ], [ %1, %.preheader ], [ %32, %.lr.ph ]
@@ -8875,7 +8875,7 @@ define internal fastcc i32 @dissect_hsm_archive(ptr noundef %0, i32 noundef %1, 
   %24 = add i32 %.02426, 4
   %25 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %25, %21
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.024.lcssa = phi i32 [ %1, %15 ], [ %24, %.lr.ph ]
@@ -9232,7 +9232,7 @@ define internal fastcc noundef i32 @dissect_struct_llog_log_hdr(ptr noundef %0, 
   %63 = add i32 %.07683, 4
   %64 = add nuw nsw i32 %.084, 1
   %exitcond.not = icmp eq i32 %64, %60
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.076.lcssa = phi i32 [ %58, %27 ], [ %63, %.lr.ph ]
@@ -9430,32 +9430,33 @@ attributes #10 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}

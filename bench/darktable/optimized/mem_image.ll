@@ -423,7 +423,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.185109, i32 %.lcssa195)
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit107.loopexit, label %.preheader105, !llvm.loop !102
+  br i1 %exitcond.not, label %.loopexit107.loopexit, label %.preheader105, !llvm.loop !103
 
 .loopexit107.loopexit:                            ; preds = %.split.loop.exit257
   %46 = shl i32 %spec.select, 3
@@ -433,11 +433,11 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
 .loopexit107:                                     ; preds = %.loopexit107.loopexit, %.preheader106, %13
   %.084 = phi float [ 6.553600e+04, %13 ], [ 0.000000e+00, %.preheader106 ], [ %47, %.loopexit107.loopexit ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 5208
-  %49 = load double, ptr %48, align 8, !tbaa !103
+  %49 = load double, ptr %48, align 8, !tbaa !104
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 5216
-  %51 = load double, ptr %50, align 8, !tbaa !103
+  %51 = load double, ptr %50, align 8, !tbaa !104
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 5272
-  %53 = load float, ptr %52, align 8, !tbaa !104
+  %53 = load float, ptr %52, align 8, !tbaa !105
   %54 = fdiv reassoc nsz arcp contract afn float %.084, %53
   %55 = fptosi float %54 to i32
   tail call void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull align 8 dereferenceable(767680) %0, double noundef %49, double noundef %51, i32 noundef 2, i32 noundef %55)
@@ -445,15 +445,15 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
 
 56:                                               ; preds = %.loopexit107, %10
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %58 = load i16, ptr %57, align 4, !tbaa !105
+  %58 = load i16, ptr %57, align 4, !tbaa !106
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %60 = load i16, ptr %59, align 2, !tbaa !106
+  %60 = load i16, ptr %59, align 2, !tbaa !107
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %62 = load i16, ptr %61, align 2, !tbaa !88
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %64 = load i16, ptr %63, align 4, !tbaa !89
-  store i16 %64, ptr %57, align 4, !tbaa !105
-  store i16 %62, ptr %59, align 2, !tbaa !106
+  store i16 %64, ptr %57, align 4, !tbaa !106
+  store i16 %62, ptr %59, align 2, !tbaa !107
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %66 = load i32, ptr %65, align 8, !tbaa !94
   %67 = and i32 %66, 4
@@ -516,7 +516,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %92 = load i16, ptr %63, align 4, !tbaa !89
   %93 = zext i16 %92 to i64
   %94 = icmp samesign ult i64 %indvars.iv.next243, %93
-  br i1 %94, label %.lr.ph149.split.us, label %._crit_edge150, !llvm.loop !107
+  br i1 %94, label %.lr.ph149.split.us, label %._crit_edge150, !llvm.loop !108
 
 ._crit_edge140.us.loopexit:                       ; preds = %.lr.ph139.us
   %.pre247 = load i16, ptr %61, align 2, !tbaa !88
@@ -530,18 +530,18 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %indvars.iv.next240 = add nsw i64 %indvars.iv239, %82
   %98 = zext i16 %95 to i32
   %99 = icmp samesign ult i32 %97, %98
-  br i1 %99, label %.preheader.us, label %.loopexit.us.loopexit, !llvm.loop !109
+  br i1 %99, label %.preheader.us, label %.loopexit.us.loopexit, !llvm.loop !110
 
 .lr.ph139.us:                                     ; preds = %.preheader.us, %.lr.ph139.us
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %.lr.ph139.us ], [ 0, %.preheader.us ]
   %.382137.us = phi ptr [ %109, %.lr.ph139.us ], [ %.281142.us, %.preheader.us ]
-  %100 = load ptr, ptr %5, align 8, !tbaa !111
+  %100 = load ptr, ptr %5, align 8, !tbaa !112
   %101 = getelementptr inbounds [4 x i16], ptr %100, i64 %indvars.iv239
   %102 = getelementptr inbounds nuw [4 x i16], ptr %101, i64 0, i64 %indvars.iv236
-  %103 = load i16, ptr %102, align 2, !tbaa !112
+  %103 = load i16, ptr %102, align 2, !tbaa !113
   %104 = zext i16 %103 to i64
   %105 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %104
-  %106 = load i16, ptr %105, align 2, !tbaa !112
+  %106 = load i16, ptr %105, align 2, !tbaa !113
   %107 = lshr i16 %106, 8
   %108 = trunc nuw i16 %107 to i8
   %109 = getelementptr inbounds nuw i8, ptr %.382137.us, i64 1
@@ -550,7 +550,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %110 = load i32, ptr %80, align 4, !tbaa !95
   %111 = sext i32 %110 to i64
   %112 = icmp slt i64 %indvars.iv.next237, %111
-  br i1 %112, label %.lr.ph139.us, label %._crit_edge140.us.loopexit, !llvm.loop !113
+  br i1 %112, label %.lr.ph139.us, label %._crit_edge140.us.loopexit, !llvm.loop !114
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge140.us
   %113 = phi i16 [ %88, %.preheader.us.preheader ], [ %95, %._crit_edge140.us ]
@@ -597,15 +597,15 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %126 ], [ 0, %.preheader97.us.us ]
   %.378127.us.us = phi ptr [ %132, %126 ], [ %.277132.us.us, %.preheader97.us.us ]
   %127 = getelementptr inbounds nuw [4 x i16], ptr %125, i64 0, i64 %indvars.iv227
-  %128 = load i16, ptr %127, align 2, !tbaa !112
+  %128 = load i16, ptr %127, align 2, !tbaa !113
   %129 = zext i16 %128 to i64
   %130 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %129
-  %131 = load i16, ptr %130, align 2, !tbaa !112
+  %131 = load i16, ptr %130, align 2, !tbaa !113
   %132 = getelementptr inbounds nuw i8, ptr %.378127.us.us, i64 2
-  store i16 %131, ptr %.378127.us.us, align 2, !tbaa !112
+  store i16 %131, ptr %.378127.us.us, align 2, !tbaa !113
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
-  br i1 %exitcond231.not, label %._crit_edge130.us.us, label %126, !llvm.loop !114
+  br i1 %exitcond231.not, label %._crit_edge130.us.us, label %126, !llvm.loop !115
 
 ._crit_edge130.us.us:                             ; preds = %126
   %133 = add nuw nsw i32 %.369133.us.us, 1
@@ -613,7 +613,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %134 = load i16, ptr %61, align 2, !tbaa !88
   %135 = zext i16 %134 to i32
   %136 = icmp samesign ult i32 %133, %135
-  br i1 %136, label %.preheader97.us.us, label %.loopexit.us.loopexit173, !llvm.loop !115
+  br i1 %136, label %.preheader97.us.us, label %.loopexit.us.loopexit173, !llvm.loop !116
 
 .preheader.lr.ph.us:                              ; preds = %.preheader98.us
   %137 = load i32, ptr %80, align 4, !tbaa !95
@@ -674,7 +674,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %161 = add nsw i32 %77, %.2.lcssa.us
   %162 = zext i16 %158 to i64
   %163 = icmp samesign ult i64 %indvars.iv.next207, %162
-  br i1 %163, label %.preheader103.us, label %._crit_edge150, !llvm.loop !116
+  br i1 %163, label %.preheader103.us, label %._crit_edge150, !llvm.loop !117
 
 .lr.ph116.us:                                     ; preds = %.preheader103.us
   %164 = load ptr, ptr %5, align 8
@@ -707,14 +707,14 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %.176110.us.us = phi ptr [ %180, %174 ], [ %.075113.us.us, %.lr.ph.us.us ]
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, -1
   %175 = getelementptr inbounds nuw [4 x i16], ptr %173, i64 0, i64 %indvars.iv.next201
-  %176 = load i16, ptr %175, align 2, !tbaa !112
+  %176 = load i16, ptr %175, align 2, !tbaa !113
   %177 = zext i16 %176 to i64
   %178 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %177
-  %179 = load i16, ptr %178, align 2, !tbaa !112
+  %179 = load i16, ptr %178, align 2, !tbaa !113
   %180 = getelementptr inbounds nuw i8, ptr %.176110.us.us, i64 2
-  store i16 %179, ptr %.176110.us.us, align 2, !tbaa !112
+  store i16 %179, ptr %.176110.us.us, align 2, !tbaa !113
   %181 = icmp sgt i64 %indvars.iv200, 1
-  br i1 %181, label %174, label %._crit_edge.us.us, !llvm.loop !117
+  br i1 %181, label %174, label %._crit_edge.us.us, !llvm.loop !118
 
 ._crit_edge.us.us:                                ; preds = %174
   %182 = add nuw nsw i32 %.167114.us.us, 1
@@ -722,7 +722,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %183 = load i16, ptr %61, align 2, !tbaa !88
   %184 = zext i16 %183 to i32
   %185 = icmp samesign ult i32 %182, %184
-  br i1 %185, label %.lr.ph.us.us, label %.loopexit104.us.loopexit, !llvm.loop !118
+  br i1 %185, label %.lr.ph.us.us, label %.loopexit104.us.loopexit, !llvm.loop !119
 
 .lr.ph149.split.splitthread-pre-split:            ; preds = %.loopexit102
   %186 = add nsw i32 %77, %.3
@@ -766,14 +766,14 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %.176110.us = phi ptr [ %.075113.us, %.lr.ph.us ], [ %204, %198 ]
   %indvars.iv.next211 = add nsw i64 %indvars.iv210, -1
   %199 = getelementptr inbounds nuw [4 x i16], ptr %197, i64 0, i64 %indvars.iv.next211
-  %200 = load i16, ptr %199, align 2, !tbaa !112
+  %200 = load i16, ptr %199, align 2, !tbaa !113
   %201 = zext i16 %200 to i64
   %202 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %201
-  %203 = load i16, ptr %202, align 2, !tbaa !112
+  %203 = load i16, ptr %202, align 2, !tbaa !113
   %204 = getelementptr inbounds nuw i8, ptr %.176110.us, i64 2
-  store i16 %203, ptr %.176110.us, align 2, !tbaa !112
+  store i16 %203, ptr %.176110.us, align 2, !tbaa !113
   %205 = icmp sgt i64 %indvars.iv210, 1
-  br i1 %205, label %198, label %._crit_edge.us, !llvm.loop !117
+  br i1 %205, label %198, label %._crit_edge.us, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %198
   %206 = add nuw nsw i32 %.167114.us, 1
@@ -781,7 +781,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %207 = load i16, ptr %61, align 2, !tbaa !88
   %208 = zext i16 %207 to i32
   %209 = icmp samesign ult i32 %206, %208
-  br i1 %209, label %.lr.ph.us, label %.loopexit102.loopexit176, !llvm.loop !118
+  br i1 %209, label %.lr.ph.us, label %.loopexit102.loopexit176, !llvm.loop !119
 
 .lr.ph116.split:                                  ; preds = %.lr.ph116
   %210 = zext i16 %191 to i32
@@ -832,19 +832,19 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %indvars.iv217 = phi i64 [ %226, %.lr.ph ], [ %indvars.iv.next218, %227 ]
   %.180118 = phi ptr [ %.079121, %.lr.ph ], [ %237, %227 ]
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, -1
-  %228 = load ptr, ptr %5, align 8, !tbaa !111
+  %228 = load ptr, ptr %5, align 8, !tbaa !112
   %229 = getelementptr inbounds [4 x i16], ptr %228, i64 %indvars.iv220
   %230 = getelementptr inbounds nuw [4 x i16], ptr %229, i64 0, i64 %indvars.iv.next218
-  %231 = load i16, ptr %230, align 2, !tbaa !112
+  %231 = load i16, ptr %230, align 2, !tbaa !113
   %232 = zext i16 %231 to i64
   %233 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %232
-  %234 = load i16, ptr %233, align 2, !tbaa !112
+  %234 = load i16, ptr %233, align 2, !tbaa !113
   %235 = lshr i16 %234, 8
   %236 = trunc nuw i16 %235 to i8
   %237 = getelementptr inbounds nuw i8, ptr %.180118, i64 1
   store i8 %236, ptr %.180118, align 1, !tbaa !86
   %238 = icmp samesign ugt i64 %indvars.iv217, 1
-  br i1 %238, label %227, label %._crit_edge.loopexit, !llvm.loop !119
+  br i1 %238, label %227, label %._crit_edge.loopexit, !llvm.loop !120
 
 ._crit_edge.loopexit:                             ; preds = %227
   %.pre246 = load i16, ptr %61, align 2, !tbaa !88
@@ -857,7 +857,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, %147
   %241 = zext i16 %239 to i32
   %242 = icmp samesign ult i32 %240, %241
-  br i1 %242, label %.lr.ph124.splitthread-pre-split, label %.loopexit102.loopexit, !llvm.loop !120
+  br i1 %242, label %.lr.ph124.splitthread-pre-split, label %.loopexit102.loopexit, !llvm.loop !121
 
 .loopexit102.loopexit:                            ; preds = %._crit_edge
   %243 = trunc nsw i64 %indvars.iv.next221 to i32
@@ -873,11 +873,11 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %245 = load i16, ptr %63, align 4, !tbaa !89
   %246 = zext i16 %245 to i64
   %247 = icmp samesign ult i64 %indvars.iv.next224, %246
-  br i1 %247, label %.lr.ph149.split.splitthread-pre-split, label %._crit_edge150, !llvm.loop !121
+  br i1 %247, label %.lr.ph149.split.splitthread-pre-split, label %._crit_edge150, !llvm.loop !122
 
 ._crit_edge150:                                   ; preds = %.loopexit104.us, %.loopexit102, %.loopexit.us, %69
-  store i16 %58, ptr %57, align 4, !tbaa !105
-  store i16 %60, ptr %59, align 2, !tbaa !106
+  store i16 %58, ptr %57, align 4, !tbaa !106
+  store i16 %60, ptr %59, align 2, !tbaa !107
   store i16 %62, ptr %61, align 2, !tbaa !88
   store i16 %64, ptr %63, align 4, !tbaa !89
   br label %248
@@ -1172,25 +1172,26 @@ attributes #13 = { nounwind }
 !97 = !{!7, !63, i64 381496}
 !98 = !{!7, !20, i64 5392}
 !99 = !{!7, !15, i64 5288}
-!100 = distinct !{!100, !101}
+!100 = distinct !{!100, !101, !102}
 !101 = !{!"llvm.loop.mustprogress"}
-!102 = distinct !{!102, !101}
-!103 = !{!16, !16, i64 0}
-!104 = !{!7, !20, i64 5272}
-!105 = !{!7, !14, i64 28}
-!106 = !{!7, !14, i64 30}
-!107 = distinct !{!107, !101, !108}
-!108 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!109 = distinct !{!109, !101, !110}
-!110 = !{!"llvm.loop.unswitch.partial.disable"}
-!111 = !{!7, !9, i64 8}
-!112 = !{!14, !14, i64 0}
-!113 = distinct !{!113, !101}
-!114 = distinct !{!114, !101}
-!115 = distinct !{!115, !101, !108}
-!116 = distinct !{!116, !101, !108}
-!117 = distinct !{!117, !101}
-!118 = distinct !{!118, !101, !108}
-!119 = distinct !{!119, !101}
-!120 = distinct !{!120, !101, !110}
-!121 = distinct !{!121, !101, !110}
+!102 = !{!"llvm.loop.estimated_trip_count"}
+!103 = distinct !{!103, !101, !102}
+!104 = !{!16, !16, i64 0}
+!105 = !{!7, !20, i64 5272}
+!106 = !{!7, !14, i64 28}
+!107 = !{!7, !14, i64 30}
+!108 = distinct !{!108, !101, !102, !109}
+!109 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!110 = distinct !{!110, !101, !102, !111}
+!111 = !{!"llvm.loop.unswitch.partial.disable"}
+!112 = !{!7, !9, i64 8}
+!113 = !{!14, !14, i64 0}
+!114 = distinct !{!114, !101, !102}
+!115 = distinct !{!115, !101, !102}
+!116 = distinct !{!116, !101, !102, !109}
+!117 = distinct !{!117, !101, !102, !109}
+!118 = distinct !{!118, !101, !102}
+!119 = distinct !{!119, !101, !102, !109}
+!120 = distinct !{!120, !101, !102}
+!121 = distinct !{!121, !101, !102, !111}
+!122 = distinct !{!122, !101, !102, !111}

@@ -77,7 +77,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %.not129, label %149, label %27
 
 27:                                               ; preds = %26
-  store ptr %17, ptr %1, align 8, !tbaa !11
+  store ptr %17, ptr %1, align 8, !tbaa !12
   br label %149
 
 28:                                               ; preds = %16, %16
@@ -94,7 +94,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %.not128, label %149, label %36
 
 36:                                               ; preds = %35
-  store ptr %17, ptr %1, align 8, !tbaa !11
+  store ptr %17, ptr %1, align 8, !tbaa !12
   br label %149
 
 37:                                               ; preds = %16, %16
@@ -111,7 +111,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %.not127, label %149, label %45
 
 45:                                               ; preds = %44
-  store ptr %17, ptr %1, align 8, !tbaa !11
+  store ptr %17, ptr %1, align 8, !tbaa !12
   br label %149
 
 .lr.ph148:                                        ; preds = %16, %.lr.ph148
@@ -119,7 +119,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %46 = getelementptr i8, ptr %.2147, i64 1
   %.pr = load i8, ptr %46, align 1, !tbaa !4
   %47 = icmp eq i8 %.pr, 48
-  br i1 %47, label %.lr.ph148, label %.preheader137.preheader, !llvm.loop !14
+  br i1 %47, label %.lr.ph148, label %.preheader137.preheader, !llvm.loop !15
 
 .preheader137.preheader:                          ; preds = %.lr.ph148, %16
   %.3.ph = phi ptr [ %17, %16 ], [ %46, %.lr.ph148 ]
@@ -134,14 +134,14 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %52 = and i32 %51, 8
   %.not125 = icmp eq i32 %52, 0
   %53 = getelementptr i8, ptr %.3, i64 1
-  br i1 %.not125, label %54, label %.preheader137, !llvm.loop !15
+  br i1 %.not125, label %54, label %.preheader137, !llvm.loop !16
 
 54:                                               ; preds = %.preheader137
   %.not126 = icmp eq ptr %1, null
   br i1 %.not126, label %149, label %55
 
 55:                                               ; preds = %54
-  store ptr %.3, ptr %1, align 8, !tbaa !11
+  store ptr %.3, ptr %1, align 8, !tbaa !12
   br label %149
 
 56:                                               ; preds = %.critedge
@@ -169,7 +169,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %.not124, label %149, label %68
 
 68:                                               ; preds = %67
-  store ptr %58, ptr %1, align 8, !tbaa !11
+  store ptr %58, ptr %1, align 8, !tbaa !12
   br label %149
 
 69:                                               ; preds = %.critedge
@@ -197,7 +197,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %.not123, label %149, label %81
 
 81:                                               ; preds = %80
-  store ptr %71, ptr %1, align 8, !tbaa !11
+  store ptr %71, ptr %1, align 8, !tbaa !12
   br label %149
 
 82:                                               ; preds = %.critedge
@@ -225,7 +225,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %.not122, label %149, label %94
 
 94:                                               ; preds = %93
-  store ptr %84, ptr %1, align 8, !tbaa !11
+  store ptr %84, ptr %1, align 8, !tbaa !12
   br label %149
 
 95:                                               ; preds = %86, %83, %73, %70, %60, %57, %82, %69, %56, %.critedge
@@ -244,7 +244,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %.not132, label %149, label %98
 
 98:                                               ; preds = %97
-  store ptr %.1, ptr %1, align 8, !tbaa !11
+  store ptr %.1, ptr %1, align 8, !tbaa !12
   br label %149
 
 .preheader136:                                    ; preds = %.preheader136.preheader, %.preheader136
@@ -252,7 +252,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %99 = load i8, ptr %.4, align 1, !tbaa !4
   %100 = icmp eq i8 %99, 48
   %101 = getelementptr i8, ptr %.4, i64 1
-  br i1 %100, label %.preheader136, label %102, !llvm.loop !16
+  br i1 %100, label %.preheader136, label %102, !llvm.loop !17
 
 102:                                              ; preds = %.preheader136
   %103 = zext nneg i32 %.0105162 to i64
@@ -288,7 +288,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %120, label %select.unfold, label %121
 
 121:                                              ; preds = %119
-  %122 = load i64, ptr %111, align 8, !tbaa !17
+  %122 = load i64, ptr %111, align 8, !tbaa !18
   %123 = icmp ugt i64 %.0102150, %122
   br i1 %123, label %select.unfold, label %124
 
@@ -309,7 +309,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %135 = load i8, ptr %134, align 1, !tbaa !4
   %136 = zext i8 %135 to i32
   %137 = icmp samesign ugt i32 %.0105162, %136
-  br i1 %137, label %112, label %._crit_edge, !llvm.loop !19
+  br i1 %137, label %112, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %129, %102
   %.0102.lcssa = phi i64 [ 0, %102 ], [ %.1103, %129 ]
@@ -318,7 +318,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %.not130, label %149, label %138
 
 138:                                              ; preds = %._crit_edge
-  store ptr %.5.lcssa, ptr %1, align 8, !tbaa !11
+  store ptr %.5.lcssa, ptr %1, align 8, !tbaa !12
   br label %149
 
 select.unfold:                                    ; preds = %124, %119, %121
@@ -334,10 +334,10 @@ select.unfold:                                    ; preds = %124, %119, %121
   %143 = zext i8 %142 to i32
   %144 = icmp samesign ugt i32 %.0105162, %143
   %145 = getelementptr i8, ptr %.6, i64 1
-  br i1 %144, label %.preheader, label %146, !llvm.loop !20
+  br i1 %144, label %.preheader, label %146, !llvm.loop !21
 
 146:                                              ; preds = %.preheader
-  store ptr %.6, ptr %1, align 8, !tbaa !11
+  store ptr %.6, ptr %1, align 8, !tbaa !12
   br label %147
 
 147:                                              ; preds = %146, %select.unfold
@@ -373,7 +373,7 @@ define dso_local i64 @PyOS_strtol(ptr noundef %0, ptr noundef writeonly captures
   %11 = getelementptr i8, ptr %.028, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph
   %13 = icmp eq i8 %5, 45
@@ -432,16 +432,17 @@ attributes #3 = { nounwind willreturn memory(none) }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !5, i64 0}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !5, i64 0}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}

@@ -2260,7 +2260,7 @@ validate_boolean.exit821:                         ; preds = %155, %162
   %.10 = phi i32 [ %323, %320 ], [ %.9839, %.lr.ph840 ]
   %325 = add nuw nsw i32 %.0803838, 1
   %exitcond846.not = icmp eq i32 %325, %310
-  br i1 %exitcond846.not, label %.critedge, label %.lr.ph840, !llvm.loop !10
+  br i1 %exitcond846.not, label %.critedge, label %.lr.ph840, !llvm.loop !11
 
 326:                                              ; preds = %296
   %327 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4)
@@ -2306,7 +2306,7 @@ validate_boolean.exit821:                         ; preds = %155, %162
   tail call void @proto_item_set_len(ptr noundef %343, i32 noundef %352)
   %353 = add nuw nsw i32 %.0802833, 1
   %exitcond845.not = icmp eq i32 %353, %330
-  br i1 %exitcond845.not, label %.critedge, label %.lr.ph835, !llvm.loop !11
+  br i1 %exitcond845.not, label %.critedge, label %.lr.ph835, !llvm.loop !12
 
 354:                                              ; preds = %296
   %355 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4)
@@ -2368,7 +2368,7 @@ validate_boolean.exit821:                         ; preds = %155, %162
   %.15 = phi i32 [ %391, %379 ], [ %.14832, %.preheader ]
   %394 = add nuw nsw i32 %.0796831, 1
   %exitcond.not = icmp eq i32 %394, %365
-  br i1 %exitcond.not, label %395, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %395, label %.preheader, !llvm.loop !13
 
 395:                                              ; preds = %393
   %396 = load i32, ptr @hf_openwire_exceptionresponse_exception, align 4
@@ -2688,8 +2688,9 @@ attributes #3 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

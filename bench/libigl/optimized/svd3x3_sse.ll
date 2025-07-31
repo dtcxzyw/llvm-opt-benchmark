@@ -91,18 +91,18 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
 62:                                               ; preds = %63
   %indvars.iv.next1510 = add nuw nsw i64 %indvars.iv1509, 1
   %exitcond1513.not = icmp eq i64 %indvars.iv.next1510, 3
-  br i1 %exitcond1513.not, label %61, label %.preheader1480, !llvm.loop !9
+  br i1 %exitcond1513.not, label %61, label %.preheader1480, !llvm.loop !10
 
 63:                                               ; preds = %.preheader1480, %63
   %indvars.iv = phi i64 [ 0, %.preheader1480 ], [ %indvars.iv.next, %63 ]
   %.idx = mul i64 %indvars.iv, 12
   %gep1545 = getelementptr i8, ptr %gep, i64 %.idx
-  %64 = load float, ptr %gep1545, align 4, !tbaa !10
+  %64 = load float, ptr %gep1545, align 4, !tbaa !11
   %65 = getelementptr inbounds nuw [4 x float], ptr %60, i64 0, i64 %indvars.iv
-  store float %64, ptr %65, align 4, !tbaa !10
+  store float %64, ptr %65, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %62, label %63, !llvm.loop !12
+  br i1 %exitcond.not, label %62, label %63, !llvm.loop !13
 
 66:                                               ; preds = %524
   %67 = fmul <4 x float> %705, %705
@@ -782,7 +782,7 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
   %707 = fsub <4 x float> %701, %698
   %708 = add nuw nsw i32 %.014601495, 1
   %exitcond1518.not = icmp eq i32 %708, 5
-  br i1 %exitcond1518.not, label %66, label %524, !llvm.loop !13
+  br i1 %exitcond1518.not, label %66, label %524, !llvm.loop !14
 
 .preheader1479:                                   ; preds = %66, %714
   %indvars.iv1528 = phi i64 [ 0, %66 ], [ %indvars.iv.next1529, %714 ]
@@ -802,28 +802,28 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
 714:                                              ; preds = %715
   %indvars.iv.next1529 = add nuw nsw i64 %indvars.iv1528, 1
   %exitcond1531.not = icmp eq i64 %indvars.iv.next1529, 3
-  br i1 %exitcond1531.not, label %.preheader, label %.preheader1479, !llvm.loop !14
+  br i1 %exitcond1531.not, label %.preheader, label %.preheader1479, !llvm.loop !15
 
 715:                                              ; preds = %716
   %indvars.iv.next1524 = add nuw nsw i64 %indvars.iv1523, 1
   %exitcond1527.not = icmp eq i64 %indvars.iv.next1524, 3
-  br i1 %exitcond1527.not, label %714, label %.preheader1478, !llvm.loop !15
+  br i1 %exitcond1527.not, label %714, label %.preheader1478, !llvm.loop !16
 
 716:                                              ; preds = %.preheader1478, %716
   %indvars.iv1519 = phi i64 [ 0, %.preheader1478 ], [ %indvars.iv.next1520, %716 ]
   %717 = getelementptr inbounds nuw [4 x float], ptr %711, i64 0, i64 %indvars.iv1519
-  %718 = load float, ptr %717, align 4, !tbaa !10
+  %718 = load float, ptr %717, align 4, !tbaa !11
   %719 = mul nuw nsw i64 %indvars.iv1519, 3
   %720 = add nuw nsw i64 %719, %indvars.iv1528
   %gep1497 = getelementptr float, ptr %invariant.gep1496, i64 %720
-  store float %718, ptr %gep1497, align 4, !tbaa !10
+  store float %718, ptr %gep1497, align 4, !tbaa !11
   %721 = getelementptr inbounds nuw [4 x float], ptr %713, i64 0, i64 %indvars.iv1519
-  %722 = load float, ptr %721, align 4, !tbaa !10
+  %722 = load float, ptr %721, align 4, !tbaa !11
   %gep1499 = getelementptr float, ptr %invariant.gep1498, i64 %720
-  store float %722, ptr %gep1499, align 4, !tbaa !10
+  store float %722, ptr %gep1499, align 4, !tbaa !11
   %indvars.iv.next1520 = add nuw nsw i64 %indvars.iv1519, 1
   %exitcond1522.not = icmp eq i64 %indvars.iv.next1520, 4
-  br i1 %exitcond1522.not, label %715, label %716, !llvm.loop !16
+  br i1 %exitcond1522.not, label %715, label %716, !llvm.loop !17
 
 .preheader:                                       ; preds = %714, %725
   %indvars.iv1536 = phi i64 [ %indvars.iv.next1537, %725 ], [ 0, %714 ]
@@ -841,18 +841,18 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
 725:                                              ; preds = %726
   %indvars.iv.next1537 = add nuw nsw i64 %indvars.iv1536, 1
   %exitcond1539.not = icmp eq i64 %indvars.iv.next1537, 3
-  br i1 %exitcond1539.not, label %724, label %.preheader, !llvm.loop !17
+  br i1 %exitcond1539.not, label %724, label %.preheader, !llvm.loop !18
 
 726:                                              ; preds = %.preheader, %726
   %indvars.iv1532 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1533, %726 ]
   %727 = getelementptr inbounds nuw [4 x float], ptr %723, i64 0, i64 %indvars.iv1532
-  %728 = load float, ptr %727, align 4, !tbaa !10
+  %728 = load float, ptr %727, align 4, !tbaa !11
   %.idx1540 = mul i64 %indvars.iv1532, 12
   %gep1547 = getelementptr i8, ptr %invariant.gep, i64 %.idx1540
-  store float %728, ptr %gep1547, align 4, !tbaa !10
+  store float %728, ptr %gep1547, align 4, !tbaa !11
   %indvars.iv.next1533 = add nuw nsw i64 %indvars.iv1532, 1
   %exitcond1535.not = icmp eq i64 %indvars.iv.next1533, 4
-  br i1 %exitcond1535.not, label %725, label %726, !llvm.loop !18
+  br i1 %exitcond1535.not, label %725, label %726, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -883,15 +883,16 @@ attributes #3 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"float", !5, i64 0}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"float", !5, i64 0}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}

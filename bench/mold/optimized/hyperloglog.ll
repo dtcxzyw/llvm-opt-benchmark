@@ -89,7 +89,7 @@ define dso_local noundef i64 @_ZNK4mold11HyperLogLog15get_cardinalityEv(ptr noun
   %10 = fadd double %.011, %9
   %.09.add = add nuw nsw i64 %.09.idx10, 1
   %.not = icmp eq i64 %.09.add, 2048
-  br i1 %.not, label %2, label %5
+  br i1 %.not, label %2, label %5, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -133,3 +133,5 @@ attributes #10 = { builtin nounwind }
 !10 = !{!4, !5, i64 16}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !8, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}

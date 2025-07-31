@@ -94,7 +94,7 @@ define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %47, align 4, !tbaa !21
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %48, align 8, !tbaa !26
+  store i32 0, ptr %48, align 8, !tbaa !27
   %.not6368 = icmp eq ptr %12, null
   br i1 %.not6368, label %.loopexit, label %.lr.ph70
 
@@ -104,7 +104,7 @@ define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %50 = load ptr, ptr %1, align 8, !tbaa !20
   %51 = tail call ptr %50(ptr noundef nonnull %0, ptr noundef nonnull %.169, i32 noundef 32) #3
   %.not63 = icmp eq ptr %49, null
-  br i1 %.not63, label %.loopexit, label %.lr.ph70, !llvm.loop !27
+  br i1 %.not63, label %.loopexit, label %.lr.ph70, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph70, %38, %46, %43, %2, %5
   ret ptr %4
@@ -146,7 +146,8 @@ attributes #3 = { nounwind }
 !21 = !{!4, !10, i64 44}
 !22 = !{!23, !11, i64 0}
 !23 = !{!"dtlink_s_", !11, i64 0, !6, i64 8}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!4, !10, i64 48}
-!27 = distinct !{!27, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!4, !10, i64 48}
+!28 = distinct !{!28, !25, !26}

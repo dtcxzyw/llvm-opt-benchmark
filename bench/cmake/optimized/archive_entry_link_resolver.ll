@@ -161,9 +161,9 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef captures(addr
 
 .split.lr.ph:                                     ; preds = %22, %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !25
+  %25 = load i64, ptr %24, align 8, !tbaa !26
   %26 = add i64 %25, -1
-  store i64 %26, ptr %24, align 8, !tbaa !25
+  store i64 %26, ptr %24, align 8, !tbaa !26
   store ptr %.02941.i, ptr %3, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.split
@@ -237,11 +237,11 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef captures(addr
   br i1 %exitcond.not.i22, label %._crit_edge, label %.lr.ph58.split.i9, !llvm.loop !23
 
 next_entry.exit23:                                ; preds = %46, %47
-  %49 = load i64, ptr %27, align 8, !tbaa !25
+  %49 = load i64, ptr %27, align 8, !tbaa !26
   %50 = add i64 %49, -1
-  store i64 %50, ptr %27, align 8, !tbaa !25
+  store i64 %50, ptr %27, align 8, !tbaa !26
   store ptr %.02941.i11, ptr %3, align 8, !tbaa !15
-  br label %.split, !llvm.loop !26
+  br label %.split, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %._crit_edge.split.us.i, %38, %._crit_edge.split.us.i21, %12
   %51 = load ptr, ptr %0, align 8, !tbaa !13
@@ -304,12 +304,12 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
 22:                                               ; preds = %.lr.ph.split.split.us65
   %.029.us61 = load ptr, ptr %.02943.us59, align 8, !tbaa !20
   %.not34.us62 = icmp eq ptr %.029.us61, null
-  br i1 %.not34.us62, label %._crit_edge.split.us66, label %.lr.ph.split.split.us65, !llvm.loop !27
+  br i1 %.not34.us62, label %._crit_edge.split.us66, label %.lr.ph.split.split.us65, !llvm.loop !28
 
 ._crit_edge.split.us66:                           ; preds = %22, %.lr.ph58.split.us
   %23 = add nuw i64 %.054.us, 1
   %exitcond79.not = icmp eq i64 %23, %14
-  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph58.split.us, !llvm.loop !28
+  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph58.split.us, !llvm.loop !29
 
 .lr.ph58.split:                                   ; preds = %.lr.ph58, %._crit_edge.split.us
   %.054 = phi i64 [ %38, %._crit_edge.split.us ], [ 0, %.lr.ph58 ]
@@ -329,7 +329,7 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
 28:                                               ; preds = %.lr.ph
   %.029.us = load ptr, ptr %.02943.us, align 8, !tbaa !20
   %.not34.us = icmp eq ptr %.029.us, null
-  br i1 %.not34.us, label %._crit_edge.split.us, label %.lr.ph, !llvm.loop !30
+  br i1 %.not34.us, label %._crit_edge.split.us, label %.lr.ph, !llvm.loop !31
 
 .split.us:                                        ; preds = %.lr.ph, %.lr.ph.split.split.us65
   %.054.us.pn = phi i64 [ %.054.us, %.lr.ph.split.split.us65 ], [ %.054, %.lr.ph ]
@@ -360,9 +360,9 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
 
 34:                                               ; preds = %33, %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !25
+  %36 = load i64, ptr %35, align 8, !tbaa !26
   %37 = add i64 %36, -1
-  store i64 %37, ptr %35, align 8, !tbaa !25
+  store i64 %37, ptr %35, align 8, !tbaa !26
   store ptr %.us-phi44, ptr %3, align 8, !tbaa !15
   br label %.loopexit
 
@@ -380,8 +380,8 @@ declare void @archive_entry_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @archive_entry_linkify(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #4 {
-  store ptr null, ptr %2, align 8, !tbaa !31
-  %4 = load ptr, ptr %1, align 8, !tbaa !31
+  store ptr null, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %1, align 8, !tbaa !32
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %11
 
@@ -393,7 +393,7 @@ define dso_local void @archive_entry_linkify(ptr noundef captures(none) %0, ptr 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !19
-  store ptr %10, ptr %1, align 8, !tbaa !31
+  store ptr %10, ptr %1, align 8, !tbaa !32
   store ptr null, ptr %9, align 8, !tbaa !19
   br label %73
 
@@ -403,19 +403,19 @@ define dso_local void @archive_entry_linkify(ptr noundef captures(none) %0, ptr 
   br i1 %13, label %73, label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %1, align 8, !tbaa !31
+  %15 = load ptr, ptr %1, align 8, !tbaa !32
   %16 = tail call i32 @archive_entry_filetype(ptr noundef %15) #7
   %17 = icmp eq i32 %16, 16384
   br i1 %17, label %73, label %18
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %1, align 8, !tbaa !31
+  %19 = load ptr, ptr %1, align 8, !tbaa !32
   %20 = tail call i32 @archive_entry_filetype(ptr noundef %19) #7
   %21 = icmp eq i32 %20, 24576
   br i1 %21, label %73, label %22
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr %1, align 8, !tbaa !31
+  %23 = load ptr, ptr %1, align 8, !tbaa !32
   %24 = tail call i32 @archive_entry_filetype(ptr noundef %23) #7
   %25 = icmp eq i32 %24, 8192
   br i1 %25, label %73, label %26
@@ -430,15 +430,15 @@ define dso_local void @archive_entry_linkify(ptr noundef captures(none) %0, ptr 
   ]
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %1, align 8, !tbaa !31
+  %30 = load ptr, ptr %1, align 8, !tbaa !32
   %31 = tail call fastcc ptr @find_entry(ptr noundef nonnull %0, ptr noundef %30)
   %.not54 = icmp eq ptr %31, null
-  %32 = load ptr, ptr %1, align 8, !tbaa !31
+  %32 = load ptr, ptr %1, align 8, !tbaa !32
   br i1 %.not54, label %38, label %33
 
 33:                                               ; preds = %29
   tail call void @archive_entry_unset_size(ptr noundef %32) #7
-  %34 = load ptr, ptr %1, align 8, !tbaa !31
+  %34 = load ptr, ptr %1, align 8, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   %37 = tail call ptr @archive_entry_pathname(ptr noundef %36) #7
@@ -450,10 +450,10 @@ define dso_local void @archive_entry_linkify(ptr noundef captures(none) %0, ptr 
   br label %73
 
 40:                                               ; preds = %26
-  %41 = load ptr, ptr %1, align 8, !tbaa !31
+  %41 = load ptr, ptr %1, align 8, !tbaa !32
   %42 = tail call fastcc ptr @find_entry(ptr noundef nonnull %0, ptr noundef %41)
   %.not53 = icmp eq ptr %42, null
-  %43 = load ptr, ptr %1, align 8, !tbaa !31
+  %43 = load ptr, ptr %1, align 8, !tbaa !32
   br i1 %.not53, label %48, label %44
 
 44:                                               ; preds = %40
@@ -468,32 +468,32 @@ define dso_local void @archive_entry_linkify(ptr noundef captures(none) %0, ptr 
   br label %73
 
 50:                                               ; preds = %26
-  %51 = load ptr, ptr %1, align 8, !tbaa !31
+  %51 = load ptr, ptr %1, align 8, !tbaa !32
   %52 = tail call fastcc ptr @find_entry(ptr noundef nonnull %0, ptr noundef %51)
   %.not = icmp eq ptr %52, null
-  %53 = load ptr, ptr %1, align 8, !tbaa !31
+  %53 = load ptr, ptr %1, align 8, !tbaa !32
   br i1 %.not, label %67, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !19
-  store ptr %56, ptr %1, align 8, !tbaa !31
+  store ptr %56, ptr %1, align 8, !tbaa !32
   store ptr %53, ptr %55, align 8, !tbaa !19
-  %57 = load ptr, ptr %1, align 8, !tbaa !31
+  %57 = load ptr, ptr %1, align 8, !tbaa !32
   tail call void @archive_entry_unset_size(ptr noundef %57) #7
-  %58 = load ptr, ptr %1, align 8, !tbaa !31
+  %58 = load ptr, ptr %1, align 8, !tbaa !32
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !16
   %61 = tail call ptr @archive_entry_pathname(ptr noundef %60) #7
   tail call void @archive_entry_copy_hardlink(ptr noundef %58, ptr noundef %61) #7
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %63 = load i32, ptr %62, align 8, !tbaa !32
+  %63 = load i32, ptr %62, align 8, !tbaa !33
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %73
 
 65:                                               ; preds = %54
   %66 = load ptr, ptr %55, align 8, !tbaa !19
-  store ptr %66, ptr %2, align 8, !tbaa !31
+  store ptr %66, ptr %2, align 8, !tbaa !32
   store ptr null, ptr %55, align 8, !tbaa !19
   br label %73
 
@@ -503,10 +503,10 @@ define dso_local void @archive_entry_linkify(ptr noundef captures(none) %0, ptr 
   br i1 %69, label %73, label %70
 
 70:                                               ; preds = %67
-  %71 = load ptr, ptr %1, align 8, !tbaa !31
+  %71 = load ptr, ptr %1, align 8, !tbaa !32
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store ptr %71, ptr %72, align 8, !tbaa !19
-  store ptr null, ptr %1, align 8, !tbaa !31
+  store ptr null, ptr %1, align 8, !tbaa !32
   br label %73
 
 73:                                               ; preds = %26, %70, %65, %54, %67, %44, %48, %33, %38, %14, %18, %22, %11, %6, %8
@@ -554,7 +554,7 @@ define internal fastcc ptr @find_entry(ptr noundef captures(none) %0, ptr nounde
 .lr.ph:                                           ; preds = %12, %55
   %.04052 = phi ptr [ %.040, %55 ], [ %.04050, %12 ]
   %22 = getelementptr inbounds nuw i8, ptr %.04052, i64 32
-  %23 = load i64, ptr %22, align 8, !tbaa !33
+  %23 = load i64, ptr %22, align 8, !tbaa !34
   %24 = icmp eq i64 %23, %15
   br i1 %24, label %25, label %55
 
@@ -573,9 +573,9 @@ define internal fastcc ptr @find_entry(ptr noundef captures(none) %0, ptr nounde
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %.04052, i64 40
-  %36 = load i32, ptr %35, align 8, !tbaa !32
+  %36 = load i32, ptr %35, align 8, !tbaa !33
   %37 = add i32 %36, -1
-  store i32 %37, ptr %35, align 8, !tbaa !32
+  store i32 %37, ptr %35, align 8, !tbaa !33
   %.not45 = icmp eq i32 %37, 0
   br i1 %.not45, label %38, label %.loopexit
 
@@ -612,16 +612,16 @@ define internal fastcc ptr @find_entry(ptr noundef captures(none) %0, ptr nounde
 
 51:                                               ; preds = %50, %45
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !25
+  %53 = load i64, ptr %52, align 8, !tbaa !26
   %54 = add i64 %53, -1
-  store i64 %54, ptr %52, align 8, !tbaa !25
+  store i64 %54, ptr %52, align 8, !tbaa !26
   store ptr %.04052, ptr %3, align 8, !tbaa !15
   br label %.loopexit
 
 55:                                               ; preds = %.lr.ph, %25, %30
   %.040 = load ptr, ptr %.04052, align 8, !tbaa !20
   %.not44 = icmp eq ptr %.040, null
-  br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %55, %12, %34, %51
   %.04049 = phi ptr [ %.04052, %34 ], [ %.04052, %51 ], [ null, %12 ], [ null, %55 ]
@@ -645,7 +645,7 @@ define internal fastcc noundef ptr @insert_entry(ptr noundef captures(none) %0, 
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !25
+  %9 = load i64, ptr %8, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !4
   %12 = shl i64 %11, 1
@@ -680,7 +680,7 @@ define internal fastcc noundef ptr @insert_entry(ptr noundef captures(none) %0, 
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   store ptr %22, ptr %19, align 8, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !33
+  %24 = load i64, ptr %23, align 8, !tbaa !34
   %25 = and i64 %24, %18
   %26 = getelementptr inbounds nuw ptr, ptr %16, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !20
@@ -699,12 +699,12 @@ define internal fastcc noundef ptr @insert_entry(ptr noundef captures(none) %0, 
   store ptr %21, ptr %26, align 8, !tbaa !20
   %32 = load ptr, ptr %19, align 8, !tbaa !20
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %30, %.preheader.i
   %33 = add nuw nsw i64 %.040.i, 1
   %exitcond.not.i = icmp eq i64 %33, %11
-  br i1 %exitcond.not.i, label %._crit_edge41.i, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge41.i, label %.preheader.i, !llvm.loop !37
 
 ._crit_edge41.i:                                  ; preds = %._crit_edge.i, %.preheader38.i
   tail call void @free(ptr noundef %.pre.i) #7
@@ -733,17 +733,17 @@ grow_hash.exit:                                   ; preds = %._crit_edge41.i, %1
 
 45:                                               ; preds = %43, %grow_hash.exit
   %46 = phi ptr [ %.pre, %43 ], [ null, %grow_hash.exit ]
-  %47 = load i64, ptr %8, align 8, !tbaa !25
+  %47 = load i64, ptr %8, align 8, !tbaa !26
   %48 = add i64 %47, 1
-  store i64 %48, ptr %8, align 8, !tbaa !25
+  store i64 %48, ptr %8, align 8, !tbaa !26
   store ptr %46, ptr %3, align 8, !tbaa !21
   store ptr %3, ptr %41, align 8, !tbaa !20
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %36, ptr %49, align 8, !tbaa !33
+  store i64 %36, ptr %49, align 8, !tbaa !34
   %50 = tail call i32 @archive_entry_nlink(ptr noundef %1) #7
   %51 = add i32 %50, -1
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %51, ptr %52, align 8, !tbaa !32
+  store i32 %51, ptr %52, align 8, !tbaa !33
   br label %53
 
 53:                                               ; preds = %2, %45
@@ -783,8 +783,8 @@ define dso_local ptr @archive_entry_partial_links(ptr noundef captures(none) %0,
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %19 = load i32, ptr %18, align 8, !tbaa !32
-  store i32 %19, ptr %1, align 4, !tbaa !37
+  %19 = load i32, ptr %18, align 8, !tbaa !33
+  store i32 %19, ptr %1, align 4, !tbaa !38
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -796,7 +796,7 @@ define dso_local ptr @archive_entry_partial_links(ptr noundef captures(none) %0,
   br i1 %.not19, label %23, label %22
 
 22:                                               ; preds = %21
-  store i32 0, ptr %1, align 4, !tbaa !37
+  store i32 0, ptr %1, align 4, !tbaa !38
   br label %23
 
 23:                                               ; preds = %21, %22, %20
@@ -844,18 +844,19 @@ attributes #7 = { nounwind }
 !20 = !{!10, !10, i64 0}
 !21 = !{!17, !10, i64 0}
 !22 = !{!17, !10, i64 8}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!5, !11, i64 16}
-!26 = distinct !{!26, !24}
-!27 = distinct !{!27, !24}
-!28 = distinct !{!28, !24, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !24, !29}
-!31 = !{!18, !18, i64 0}
-!32 = !{!17, !12, i64 40}
-!33 = !{!17, !11, i64 32}
-!34 = distinct !{!34, !24}
-!35 = distinct !{!35, !24}
-!36 = distinct !{!36, !24}
-!37 = !{!12, !12, i64 0}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!5, !11, i64 16}
+!27 = distinct !{!27, !24, !25}
+!28 = distinct !{!28, !24, !25}
+!29 = distinct !{!29, !24, !25, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !24, !25, !30}
+!32 = !{!18, !18, i64 0}
+!33 = !{!17, !12, i64 40}
+!34 = !{!17, !11, i64 32}
+!35 = distinct !{!35, !24, !25}
+!36 = distinct !{!36, !24, !25}
+!37 = distinct !{!37, !24, !25}
+!38 = !{!12, !12, i64 0}

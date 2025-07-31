@@ -771,7 +771,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_120GradingRGBCurveOp
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %5
-  store ptr %7, ptr %0, align 8, !tbaa !81
+  store ptr %7, ptr %0, align 8, !tbaa !82
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !62
@@ -1078,7 +1078,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_123GradingRGBCurveFw
   %34 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
   %35 = add nuw nsw i64 %.022, 1
   %exitcond.not = icmp eq i64 %35, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !85
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9, %10
   ret void
@@ -1362,7 +1362,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   %85 = getelementptr inbounds nuw i8, ptr %.01925, i64 16
   %86 = add nuw nsw i64 %.026, 1
   %exitcond.not = icmp eq i64 %86, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !86
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9, %10
   ret void
@@ -1481,7 +1481,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_123GradingRGBCurveRe
   %34 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
   %35 = add nuw nsw i64 %.022, 1
   %exitcond.not = icmp eq i64 %35, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9, %10
   ret void
@@ -1662,11 +1662,12 @@ attributes #25 = { noreturn nounwind }
 !76 = !{!"_ZTSN19OpenColorIO_v2_5dev19DynamicPropertyTypeE", !7, i64 0}
 !77 = !{!78, !78, i64 0}
 !78 = !{!"float", !7, i64 0}
-!79 = distinct !{!79, !80}
+!79 = distinct !{!79, !80, !81}
 !80 = !{!"llvm.loop.mustprogress"}
-!81 = !{!82, !83, i64 0}
-!82 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EE", !83, i64 0, !9, i64 8}
-!83 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE", !6, i64 0}
-!84 = distinct !{!84, !80}
-!85 = distinct !{!85, !80}
-!86 = distinct !{!86, !80}
+!81 = !{!"llvm.loop.estimated_trip_count"}
+!82 = !{!83, !84, i64 0}
+!83 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EE", !84, i64 0, !9, i64 8}
+!84 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE", !6, i64 0}
+!85 = distinct !{!85, !80, !81}
+!86 = distinct !{!86, !80, !81}
+!87 = distinct !{!87, !80, !81}

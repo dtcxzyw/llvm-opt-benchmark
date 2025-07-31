@@ -167,7 +167,7 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 define internal void @hosts_draw(ptr readnone captures(none) %0) #0 {
   %2 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
   %3 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.10)
-  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 32), align 8, !range !9, !noundef !10
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 32), align 8, !range !10, !noundef !11
   %5 = trunc nuw i8 %4 to i1
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
   %7 = select i1 %5, ptr @.str.12, ptr %6
@@ -269,7 +269,8 @@ attributes #5 = { cold noreturn nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i8 0, i8 2}
+!11 = !{}

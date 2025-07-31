@@ -38,7 +38,7 @@ define dso_local zeroext i1 @SDLTest_Crc32Init(ptr noundef writeonly captures(ad
   store i32 %.1, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %11, %2
   %.014 = phi i1 [ %3, %2 ], [ true, %11 ]
@@ -89,7 +89,7 @@ SDLTest_Crc32CalcStart.exit:                      ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %.01423.i, i64 1
   %17 = add i32 %.01622.i, -1
   %.not20.i = icmp eq i32 %17, 0
-  br i1 %.not20.i, label %SDLTest_Crc32CalcBuffer.exit.thread, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not20.i, label %SDLTest_Crc32CalcBuffer.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 SDLTest_Crc32CalcBuffer.exit:                     ; preds = %SDLTest_Crc32CalcStart.exit
   store i32 0, ptr %3, align 4
@@ -169,7 +169,7 @@ define dso_local zeroext i1 @SDLTest_Crc32CalcBuffer(ptr noundef readonly captur
   %18 = getelementptr inbounds nuw i8, ptr %.01423, i64 1
   %19 = add i32 %.01622, -1
   %.not20 = icmp eq i32 %19, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.0.lcssa = phi i32 [ %11, %10 ], [ %17, %.lr.ph ]
@@ -226,7 +226,8 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

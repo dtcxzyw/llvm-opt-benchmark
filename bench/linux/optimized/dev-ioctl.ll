@@ -470,7 +470,7 @@ define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr re
 56:                                               ; preds = %54, %55
   %57 = phi i32 [ %.ph, %55 ], [ %18, %54 ]
   %58 = icmp slt i32 %57, 0
-  br i1 %58, label %.thread12, label %59, !prof !13
+  br i1 %58, label %.thread12, label %59, !prof !14
 
 59:                                               ; preds = %56
   store i32 %57, ptr %10, align 4
@@ -698,7 +698,7 @@ define internal i32 @autofs_dev_ioctl_requester(ptr readnone captures(none) %0, 
 32:                                               ; preds = %28, %22
   %33 = call i32 @follow_up(ptr noundef nonnull %4) #10
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread4, label %17, !llvm.loop !10
+  br i1 %34, label %.thread4, label %17, !llvm.loop !15
 
 .thread4:                                         ; preds = %17, %32
   call void @path_put(ptr noundef nonnull %4) #10
@@ -855,7 +855,7 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone captures
 .critedge:                                        ; preds = %36, %40, %30
   %47 = call i32 @follow_up(ptr noundef nonnull %5) #10
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.loopexit, label %25, !llvm.loop !10
+  br i1 %48, label %.loopexit, label %25, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge, %25, %46
   %49 = phi i32 [ 0, %46 ], [ -2, %25 ], [ -2, %.critedge ]
@@ -934,7 +934,7 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone captures
 96:                                               ; preds = %92, %86
   %97 = call i32 @follow_up(ptr noundef nonnull %4) #10
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.thread8, label %81, !llvm.loop !10
+  br i1 %98, label %.thread8, label %81, !llvm.loop !17
 
 .thread8:                                         ; preds = %81, %96
   call void @path_put(ptr noundef nonnull %4) #10
@@ -1090,7 +1090,11 @@ attributes #12 = { cold nounwind }
 !7 = !{i64 261155}
 !8 = !{i64 -2147483648, i64 2147483648}
 !9 = !{!"branch_weights", i32 2000, i32 1}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"branch_weights", i32 0, i32 -2147483648}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!"branch_weights", i32 0, i32 -2147483648}
+!15 = distinct !{!15, !11, !12, !13}
+!16 = distinct !{!16, !11, !12, !13}
+!17 = distinct !{!17, !11, !12, !13}

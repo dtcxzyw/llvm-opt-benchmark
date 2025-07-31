@@ -242,7 +242,7 @@ _ZN3ue2L17findDesiredStrideEmmm.exit:             ; preds = %9, %21, %25, %28, %
 49:                                               ; preds = %104
   %50 = add nuw nsw i32 %.066120, 1
   %exitcond.not = icmp eq i32 %50, 16
-  br i1 %exitcond.not, label %44, label %.preheader, !llvm.loop !7
+  br i1 %exitcond.not, label %44, label %.preheader, !llvm.loop !8
 
 51:                                               ; preds = %.preheader, %104
   %.065117 = phi i64 [ 1, %.preheader ], [ %105, %104 ]
@@ -361,7 +361,7 @@ _ZN3ue2L17findDesiredStrideEmmm.exit:             ; preds = %9, %21, %25, %28, %
   %.274 = phi i32 [ %.173116, %51 ], [ %.173116, %55 ], [ %101, %103 ], [ %.173116, %97 ]
   %105 = shl nuw nsw i64 %.065117, 1
   %106 = icmp samesign ult i64 %.065117, 3
-  br i1 %106, label %51, label %49, !llvm.loop !8
+  br i1 %106, label %51, label %49, !llvm.loop !9
 
 107:                                              ; preds = %44
   %108 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
@@ -370,11 +370,11 @@ _ZN3ue2L17findDesiredStrideEmmm.exit:             ; preds = %9, %21, %25, %28, %
 _ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_.exit: ; preds = %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %.278, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %109, ptr noundef nonnull align 8 dereferenceable(28) %110, i64 28, i1 false), !noalias !9
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %108, align 8, !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %109, ptr noundef nonnull align 8 dereferenceable(28) %110, i64 28, i1 false), !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %108, align 8, !noalias !10
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 36
   %112 = getelementptr inbounds nuw i8, ptr %.278, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %111, ptr noundef nonnull align 4 dereferenceable(12) %112, i64 12, i1 false), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %111, ptr noundef nonnull align 4 dereferenceable(12) %112, i64 12, i1 false), !noalias !10
   br label %115
 
 113:                                              ; preds = %107
@@ -527,11 +527,11 @@ _ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr
   %14 = getelementptr inbounds nuw %"class.ue2::FDREngineDescription", ptr %.pre6, i64 %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %15, ptr noundef nonnull align 8 dereferenceable(28) %16, i64 28, i1 false), !noalias !12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %13, align 8, !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %15, ptr noundef nonnull align 8 dereferenceable(28) %16, i64 28, i1 false), !noalias !13
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %13, align 8, !noalias !13
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false), !noalias !13
   br label %19
 
 19:                                               ; preds = %_ZN3ue218getFdrDescriptionsEPSt6vectorINS_20FDREngineDescriptionESaIS1_EE.exit, %_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_.exit
@@ -667,22 +667,22 @@ _ZNSt12_Vector_baseIN3ue220FDREngineDescriptionESaIS1_EE11_M_allocateEm.exit: ; 
 .lr.ph.i.i.i.i:                                   ; preds = %28, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i ], [ %22, %28 ]
   %.0911.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %6, %28 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %41, ptr noundef nonnull align 8 dereferenceable(28) %42, i64 28, i1 false), !alias.scope !20
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %.012.i.i.i.i, align 8, !alias.scope !15, !noalias !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %41, ptr noundef nonnull align 8 dereferenceable(28) %42, i64 28, i1 false), !alias.scope !21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %.012.i.i.i.i, align 8, !alias.scope !16, !noalias !19
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 36
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %43, ptr noundef nonnull align 4 dereferenceable(12) %44, i64 12, i1 false), !alias.scope !20
-  %45 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !18, !noalias !15
-  %46 = load ptr, ptr %45, align 8, !noalias !20
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i.i) #16, !noalias !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %43, ptr noundef nonnull align 4 dereferenceable(12) %44, i64 12, i1 false), !alias.scope !21
+  %45 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !19, !noalias !16
+  %46 = load ptr, ptr %45, align 8, !noalias !21
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i.i) #16, !noalias !16
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 48
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
   %.not.i.i.i.i = icmp eq ptr %47, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !21
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 _ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %28
   %.0.lcssa.i.i.i.i = phi ptr [ %22, %28 ], [ %48, %.lr.ph.i.i.i.i ]
@@ -693,22 +693,22 @@ _ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27
   %.012.i.i.i.i28 = phi ptr [ %57, %.lr.ph.i.i.i.i27 ], [ %49, %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i.i29 = phi ptr [ %56, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %50, ptr noundef nonnull align 8 dereferenceable(28) %51, i64 28, i1 false), !alias.scope !27
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %.012.i.i.i.i28, align 8, !alias.scope !22, !noalias !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %50, ptr noundef nonnull align 8 dereferenceable(28) %51, i64 28, i1 false), !alias.scope !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %.012.i.i.i.i28, align 8, !alias.scope !23, !noalias !26
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 36
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(12) %53, i64 12, i1 false), !alias.scope !27
-  %54 = load ptr, ptr %.0911.i.i.i.i29, align 8, !alias.scope !25, !noalias !22
-  %55 = load ptr, ptr %54, align 8, !noalias !27
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i.i29) #16, !noalias !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(12) %53, i64 12, i1 false), !alias.scope !28
+  %54 = load ptr, ptr %.0911.i.i.i.i29, align 8, !alias.scope !26, !noalias !23
+  %55 = load ptr, ptr %54, align 8, !noalias !28
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i.i29) #16, !noalias !23
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 48
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 48
   %.not.i.i.i.i30 = icmp eq ptr %56, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !21
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !22
 
 _ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %49, %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %57, %.lr.ph.i.i.i.i27 ]
@@ -817,26 +817,27 @@ attributes #20 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_: argument 0"}
-!11 = distinct !{!11, !"_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_: argument 0"}
-!14 = distinct !{!14, !"_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!17 = distinct !{!17, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_"}
-!18 = !{!19}
-!19 = distinct !{!19, !17, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!20 = !{!16, !19}
-!21 = distinct !{!21, !6}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!24 = distinct !{!24, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_"}
-!25 = !{!26}
-!26 = distinct !{!26, !24, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!27 = !{!23, !26}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_: argument 0"}
+!12 = distinct !{!12, !"_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_: argument 0"}
+!15 = distinct !{!15, !"_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!18 = distinct !{!18, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_"}
+!19 = !{!20}
+!20 = distinct !{!20, !18, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!21 = !{!17, !20}
+!22 = distinct !{!22, !6, !7}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!25 = distinct !{!25, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_"}
+!26 = !{!27}
+!27 = distinct !{!27, !25, !"_ZSt19__relocate_object_aIN3ue220FDREngineDescriptionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!28 = !{!24, !27}

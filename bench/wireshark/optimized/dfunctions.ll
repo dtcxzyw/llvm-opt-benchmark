@@ -408,19 +408,19 @@ define internal noundef zeroext i1 @df_func_lower(ptr noundef readonly captures(
   %36 = load ptr, ptr %33, align 8
   %37 = getelementptr i8, ptr %36, i64 %.01.i
   %38 = load i8, ptr %37, align 1
-  %39 = tail call signext i8 @g_ascii_tolower(i8 noundef signext %38), !callees !8
+  %39 = tail call signext i8 @g_ascii_tolower(i8 noundef signext %38), !callees !9
   tail call void @wmem_strbuf_append_c(ptr noundef %31, i8 noundef signext %39)
   %40 = add nuw i64 %.01.i, 1
   %41 = load i64, ptr %29, align 8
   %42 = icmp ult i64 %40, %41
-  br i1 %42, label %35, label %._crit_edge.i, !llvm.loop !9
+  br i1 %42, label %35, label %._crit_edge.i, !llvm.loop !10
 
 43:                                               ; preds = %._crit_edge.i, %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = load i32, ptr %5, align 8
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ult i64 %indvars.iv.next.i, %45
-  br i1 %46, label %.lr.ph3.i, label %string_walk.exit, !llvm.loop !10
+  br i1 %46, label %.lr.ph3.i, label %string_walk.exit, !llvm.loop !11
 
 string_walk.exit:                                 ; preds = %43, %3, %.preheader.i
   ret i1 %4
@@ -521,19 +521,19 @@ define internal noundef zeroext i1 @df_func_upper(ptr noundef readonly captures(
   %36 = load ptr, ptr %33, align 8
   %37 = getelementptr i8, ptr %36, i64 %.01.i
   %38 = load i8, ptr %37, align 1
-  %39 = tail call signext i8 @g_ascii_toupper(i8 noundef signext %38), !callees !8
+  %39 = tail call signext i8 @g_ascii_toupper(i8 noundef signext %38), !callees !9
   tail call void @wmem_strbuf_append_c(ptr noundef %31, i8 noundef signext %39)
   %40 = add nuw i64 %.01.i, 1
   %41 = load i64, ptr %29, align 8
   %42 = icmp ult i64 %40, %41
-  br i1 %42, label %35, label %._crit_edge.i, !llvm.loop !9
+  br i1 %42, label %35, label %._crit_edge.i, !llvm.loop !10
 
 43:                                               ; preds = %._crit_edge.i, %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = load i32, ptr %5, align 8
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ult i64 %indvars.iv.next.i, %45
-  br i1 %46, label %.lr.ph3.i, label %string_walk.exit, !llvm.loop !10
+  br i1 %46, label %.lr.ph3.i, label %string_walk.exit, !llvm.loop !11
 
 string_walk.exit:                                 ; preds = %43, %3, %.preheader.i
   ret i1 %4
@@ -667,7 +667,7 @@ define internal noundef zeroext i1 @df_func_string(ptr noundef readonly captures
   %18 = load i32, ptr %6, align 8
   %19 = zext i32 %18 to i64
   %.not21 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %.not21, label %.lr.ph, label %.critedge, !llvm.loop !11
+  br i1 %.not21, label %.lr.ph, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph, %16, %.preheader, %3
   ret i1 %5
@@ -786,7 +786,7 @@ define internal zeroext i1 @df_func_float(ptr noundef readonly captures(none) %0
   %22 = load i32, ptr %7, align 8
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 25:                                               ; preds = %._crit_edge, %3
   %.012 = phi i1 [ false, %3 ], [ %10, %._crit_edge ]
@@ -852,7 +852,7 @@ define internal zeroext i1 @df_func_double(ptr noundef readonly captures(none) %
   %20 = load i32, ptr %7, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 23:                                               ; preds = %._crit_edge, %3
   %.012 = phi i1 [ false, %3 ], [ %10, %._crit_edge ]
@@ -955,7 +955,7 @@ define internal noundef i32 @ul_semcheck_value_string(ptr noundef %0, ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 60
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, -1
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph49:                                         ; preds = %.preheader, %29
   %.148 = phi ptr [ %31, %29 ], [ %.0.lcssa, %.preheader ]
@@ -998,7 +998,7 @@ define internal noundef i32 @ul_semcheck_value_string(ptr noundef %0, ptr nounde
   %30 = getelementptr inbounds nuw i8, ptr %.148, i64 64
   %31 = load ptr, ptr %30, align 8
   %.not43 = icmp eq ptr %31, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph49, !llvm.loop !15
+  br i1 %.not43, label %._crit_edge, label %.lr.ph49, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %29, %.preheader
   %32 = tail call { i64, i64 } @stnode_location(ptr noundef %7)
@@ -1044,7 +1044,7 @@ define internal noundef zeroext i1 @df_func_max(ptr noundef readonly captures(no
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @fvalue_gt(ptr noundef %9, ptr noundef nonnull %.125.i), !callees !16
+  %12 = tail call i32 @fvalue_gt(ptr noundef %9, ptr noundef nonnull %.125.i), !callees !17
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %15
 
@@ -1057,7 +1057,7 @@ define internal noundef zeroext i1 @df_func_max(ptr noundef readonly captures(no
   %16 = load i32, ptr %5, align 8
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next.i, %17
-  br i1 %18, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !17
+  br i1 %18, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %15, %.preheader.i, %.lr.ph30.i
   %.3.i = phi ptr [ %.02228.i, %.lr.ph30.i ], [ %.02228.i, %.preheader.i ], [ %.2.i, %15 ]
@@ -1065,7 +1065,7 @@ define internal noundef zeroext i1 @df_func_max(ptr noundef readonly captures(no
   %20 = load ptr, ptr %19, align 8
   %21 = add nuw i32 %.02029.i, 1
   %exitcond.not.i = icmp eq i32 %21, %1
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph30.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph30.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   %.not36.i = icmp eq ptr %.3.i, null
@@ -1118,7 +1118,7 @@ define internal noundef i32 @ul_semcheck_compare(ptr noundef %0, ptr noundef %1,
   %24 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %23, %6
   ret i32 %2
@@ -1153,7 +1153,7 @@ define internal noundef zeroext i1 @df_func_min(ptr noundef readonly captures(no
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @fvalue_lt(ptr noundef %9, ptr noundef nonnull %.125.i), !callees !16
+  %12 = tail call i32 @fvalue_lt(ptr noundef %9, ptr noundef nonnull %.125.i), !callees !17
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %15
 
@@ -1166,7 +1166,7 @@ define internal noundef zeroext i1 @df_func_min(ptr noundef readonly captures(no
   %16 = load i32, ptr %5, align 8
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next.i, %17
-  br i1 %18, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !17
+  br i1 %18, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %15, %.preheader.i, %.lr.ph30.i
   %.3.i = phi ptr [ %.02228.i, %.lr.ph30.i ], [ %.02228.i, %.preheader.i ], [ %.2.i, %15 ]
@@ -1174,7 +1174,7 @@ define internal noundef zeroext i1 @df_func_min(ptr noundef readonly captures(no
   %20 = load ptr, ptr %19, align 8
   %21 = add nuw i32 %.02029.i, 1
   %exitcond.not.i = icmp eq i32 %21, %1
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph30.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph30.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   %.not36.i = icmp eq ptr %.3.i, null
@@ -1241,7 +1241,7 @@ define internal zeroext i1 @df_func_abs(ptr noundef readonly captures(none) %0, 
   %23 = load i32, ptr %7, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 26:                                               ; preds = %3, %._crit_edge
   %.015 = phi i1 [ %10, %._crit_edge ], [ false, %3 ]
@@ -1421,7 +1421,7 @@ define internal fastcc noundef zeroext i1 @df_func_base(ptr readonly captures(ad
   %43 = load i32, ptr %4, align 8
   %44 = zext i32 %43 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %41, %.preheader, %2
   ret i1 %3
@@ -1488,19 +1488,20 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{ptr @g_ascii_tolower, ptr @g_ascii_toupper}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = !{ptr @fvalue_gt, ptr @fvalue_lt}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{ptr @g_ascii_tolower, ptr @g_ascii_toupper}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = !{ptr @fvalue_gt, ptr @fvalue_lt}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

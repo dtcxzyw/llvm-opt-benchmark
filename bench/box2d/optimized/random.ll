@@ -114,5 +114,6 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !4, i64 64}
 !8 = !{!"b2Hull", !5, i64 0, !4, i64 64}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.estimated_trip_count"}

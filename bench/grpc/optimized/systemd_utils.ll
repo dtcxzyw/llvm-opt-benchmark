@@ -134,13 +134,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %.critedge
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !15
+  %34 = load i64, ptr %33, align 8, !tbaa !16
   %35 = icmp ult i64 %34, 16
   call void @llvm.assume(i1 %35)
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
-  %36 = load i64, ptr %31, align 8, !tbaa !16
+  %36 = load i64, ptr %31, align 8, !tbaa !17
   %37 = add i64 %36, 1
   call void @_ZdlPvm(ptr noundef %30, i64 noundef %37) #18
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
@@ -196,13 +196,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !15
+  %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = icmp ult i64 %9, 16
   tail call void @llvm.assume(i1 %10)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
-  %11 = load i64, ptr %6, align 8, !tbaa !16
+  %11 = load i64, ptr %6, align 8, !tbaa !17
   %12 = add i64 %11, 1
   tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %12) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -242,7 +242,7 @@ define noundef zeroext i1 @_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc
 10:                                               ; preds = %.lr.ph, %.critedge
   %.01826 = phi i32 [ %4, %.lr.ph ], [ %17, %.critedge ]
   %11 = tail call i32 @sd_is_socket_inet(i32 noundef %.01826, i32 noundef %2, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %8)
-  %12 = load i32, ptr %9, align 4, !tbaa !17
+  %12 = load i32, ptr %9, align 4, !tbaa !18
   %13 = tail call i32 @sd_is_socket_sockaddr(i32 noundef %.01826, i32 noundef 1, ptr noundef %1, i32 noundef %12, i32 noundef 1)
   %14 = icmp slt i32 %11, 1
   %15 = icmp slt i32 %13, 1
@@ -256,7 +256,7 @@ define noundef zeroext i1 @_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc
 .critedge:                                        ; preds = %10
   %17 = add nsw i32 %.01826, 1
   %.not = icmp slt i32 %17, %7
-  br i1 %.not, label %10, label %.loopexit, !llvm.loop !20
+  br i1 %.not, label %10, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.critedge, %6, %16
   %.not23 = phi i1 [ true, %16 ], [ false, %6 ], [ false, %.critedge ]
@@ -275,7 +275,7 @@ define void @_Z19set_matching_sd_fdsP15grpc_tcp_serverPK21grpc_resolved_addressi
   %7 = alloca %struct.grpc_resolved_address, align 4
   %8 = alloca [2 x %struct.grpc_resolved_address], align 16
   %9 = alloca %struct.grpc_resolved_address, align 4
-  store i32 %2, ptr %4, align 4, !tbaa !21
+  store i32 %2, ptr %4, align 4, !tbaa !22
   %10 = tail call i32 @sd_listen_fds(i32 noundef 0)
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %47, label %12
@@ -303,11 +303,11 @@ define void @_Z19set_matching_sd_fdsP15grpc_tcp_serverPK21grpc_resolved_addressi
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %7) #16
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %8) #16
-  %22 = load i32, ptr %4, align 4, !tbaa !21
+  %22 = load i32, ptr %4, align 4, !tbaa !22
   call void @_Z28grpc_sockaddr_make_wildcardsiP21grpc_resolved_addressS0_(i32 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %8, ptr noundef nonnull align 4 dereferenceable(132) %6, i64 132, i1 false), !tbaa.struct !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %8, ptr noundef nonnull align 4 dereferenceable(132) %6, i64 132, i1 false), !tbaa.struct !23
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %23, ptr noundef nonnull align 4 dereferenceable(132) %7, i64 132, i1 false), !tbaa.struct !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %23, ptr noundef nonnull align 4 dereferenceable(132) %7, i64 132, i1 false), !tbaa.struct !23
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %25 = add nuw i32 %10, 2
   %smax = call i32 @llvm.smax.i32(i32 %25, i32 3)
@@ -317,7 +317,7 @@ define void @_Z19set_matching_sd_fdsP15grpc_tcp_serverPK21grpc_resolved_addressi
   %.033.idx50 = phi i64 [ 0, %21 ], [ %.033.add, %36 ]
   %.033.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.033.idx50
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %9) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %9, ptr noundef nonnull align 4 dereferenceable(132) %.033.ptr, i64 132, i1 false), !tbaa.struct !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %9, ptr noundef nonnull align 4 dereferenceable(132) %.033.ptr, i64 132, i1 false), !tbaa.struct !23
   %26 = call noundef i32 @_Z24grpc_sockaddr_get_familyPK21grpc_resolved_address(ptr noundef nonnull %9)
   %27 = call noundef i32 @_Z22grpc_sockaddr_get_portPK21grpc_resolved_address(ptr noundef nonnull %9)
   %28 = trunc i32 %27 to i16
@@ -326,7 +326,7 @@ define void @_Z19set_matching_sd_fdsP15grpc_tcp_serverPK21grpc_resolved_addressi
 29:                                               ; preds = %.critedge.i, %.lr.ph.i
   %.01826.i = phi i32 [ 3, %.lr.ph.i ], [ %35, %.critedge.i ]
   %30 = call i32 @sd_is_socket_inet(i32 noundef %.01826.i, i32 noundef %26, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %28)
-  %31 = load i32, ptr %24, align 4, !tbaa !17
+  %31 = load i32, ptr %24, align 4, !tbaa !18
   %32 = call i32 @sd_is_socket_sockaddr(i32 noundef %.01826.i, i32 noundef 1, ptr noundef nonnull %9, i32 noundef %31, i32 noundef 1)
   %33 = icmp slt i32 %30, 1
   %34 = icmp slt i32 %32, 1
@@ -336,7 +336,7 @@ define void @_Z19set_matching_sd_fdsP15grpc_tcp_serverPK21grpc_resolved_addressi
 .critedge.i:                                      ; preds = %29
   %35 = add nuw i32 %.01826.i, 1
   %exitcond.not = icmp eq i32 %.01826.i, %smax
-  br i1 %exitcond.not, label %36, label %29, !llvm.loop !20
+  br i1 %exitcond.not, label %36, label %29, !llvm.loop !21
 
 _Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit: ; preds = %29
   call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %0, i32 noundef %.01826.i)
@@ -347,7 +347,7 @@ _Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit:
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %9) #16
   %.033.add = add nuw nsw i64 %.033.idx50, 132
   %.not37 = icmp eq i64 %.033.add, 264
-  br i1 %.not37, label %.loopexit, label %.lr.ph.i
+  br i1 %.not37, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 .loopexit:                                        ; preds = %36, %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %8) #16
@@ -366,7 +366,7 @@ _Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit:
 39:                                               ; preds = %.critedge.i43, %.lr.ph.i40
   %.01826.i41 = phi i32 [ 3, %.lr.ph.i40 ], [ %46, %.critedge.i43 ]
   %40 = call i32 @sd_is_socket_inet(i32 noundef %.01826.i41, i32 noundef %14, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %37)
-  %41 = load i32, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !17
+  %41 = load i32, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !18
   %42 = call i32 @sd_is_socket_sockaddr(i32 noundef %.01826.i41, i32 noundef 1, ptr noundef %spec.select, i32 noundef %41, i32 noundef 1)
   %43 = icmp slt i32 %40, 1
   %44 = icmp slt i32 %42, 1
@@ -380,7 +380,7 @@ _Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit:
 .critedge.i43:                                    ; preds = %39
   %46 = add nuw i32 %.01826.i41, 1
   %exitcond54.not = icmp eq i32 %.01826.i41, %smax53
-  br i1 %exitcond54.not, label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit45, label %39, !llvm.loop !20
+  br i1 %exitcond54.not, label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit45, label %39, !llvm.loop !21
 
 _Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit45: ; preds = %.critedge.i43, %45, %17, %.loopexit
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %5) #16
@@ -413,7 +413,7 @@ define internal void @__cxx_global_var_init.1() #7 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8, !tbaa !25
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -512,15 +512,17 @@ attributes #19 = { noreturn nounwind }
 !10 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
 !11 = !{!"p1 omnipotent char", !12, i64 0}
 !12 = !{!"any pointer", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!9, !5, i64 8}
-!16 = !{!6, !6, i64 0}
-!17 = !{!18, !19, i64 128}
-!18 = !{!"_ZTS21grpc_resolved_address", !6, i64 0, !19, i64 128}
-!19 = !{!"int", !6, i64 0}
-!20 = distinct !{!20, !14}
-!21 = !{!19, !19, i64 0}
-!22 = !{i64 0, i64 128, !16, i64 128, i64 4, !21}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"vtable pointer", !7, i64 0}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!9, !5, i64 8}
+!17 = !{!6, !6, i64 0}
+!18 = !{!19, !20, i64 128}
+!19 = !{!"_ZTS21grpc_resolved_address", !6, i64 0, !20, i64 128}
+!20 = !{!"int", !6, i64 0}
+!21 = distinct !{!21, !14, !15}
+!22 = !{!20, !20, i64 0}
+!23 = !{i64 0, i64 128, !17, i64 128, i64 4, !22}
+!24 = distinct !{!24, !15}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"vtable pointer", !7, i64 0}

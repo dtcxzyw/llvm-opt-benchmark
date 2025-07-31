@@ -1320,7 +1320,7 @@ define internal void @setup_dissector() #0 {
   %17 = getelementptr i8, ptr %.011, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %16, %0
   %19 = tail call ptr @find_heur_dissector_by_unique_short_name(ptr noundef nonnull @.str.264)
@@ -1571,7 +1571,7 @@ define internal fastcc noundef zeroext i1 @findSafetyFrame(ptr noundef readonly 
   %.0152.be = phi i32 [ %106, %104 ], [ 12, %93 ]
   %.0136.be = phi i32 [ %105, %104 ], [ %18, %93 ]
   %107 = icmp ugt i32 %.0152.be, 9
-  br i1 %107, label %11, label %.thread184, !llvm.loop !11
+  br i1 %107, label %11, label %.thread184, !llvm.loop !12
 
 108:                                              ; preds = %76, %90, %75
   %.3148.lcssa = phi i16 [ %.0151198, %76 ], [ 0, %90 ], [ %.0151198, %75 ]
@@ -1669,7 +1669,7 @@ define internal fastcc range(i32 0, 2) i32 @opensafety_package_dissector(ptr nou
   %36 = and i32 %indvars.iv.next353, 255
   %37 = icmp samesign ugt i32 %30, %36
   %indvars.iv.next = add i64 %indvars.iv, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %38 = tail call ptr @tvb_new_real_data(ptr noundef %29, i32 noundef %13, i32 noundef %21)
@@ -1778,7 +1778,7 @@ findFrame1Position.exit.thread291:                ; preds = %76
   %.0233.be = phi i32 [ %.0233332, %findFrame1Position.exit.thread291 ], [ %.0233332, %178 ], [ %.0233332, %223 ], [ %.0233332, %287 ], [ %.0233332, %197 ], [ %.0233332, %167 ], [ %.0233332, %169 ], [ %59, %298 ], [ %59, %291 ]
   %.0231.be = phi i8 [ %.0231334, %findFrame1Position.exit.thread291 ], [ %.0231334, %178 ], [ %.0231334, %223 ], [ %.0231334, %287 ], [ %.0231334, %197 ], [ %.0231334, %167 ], [ %.0231334, %169 ], [ %283, %298 ], [ %283, %291 ]
   %93 = icmp ult i32 %92, %13
-  br i1 %93, label %44, label %._crit_edge338, !llvm.loop !13
+  br i1 %93, label %44, label %._crit_edge338, !llvm.loop !14
 
 findFrame1Position.exit.thread:                   ; preds = %findFrame1Position.exit, %76, %76, %62
   %.0227290 = phi i16 [ %91, %findFrame1Position.exit ], [ 0, %62 ], [ 0, %76 ], [ 0, %76 ]
@@ -1949,7 +1949,7 @@ findFrame1Position.exit286:                       ; preds = %._crit_edge.i, %144
   %187 = call ptr @try_val_to_str_idx(i32 noundef %186, ptr noundef nonnull @opensafety_message_type_values, ptr noundef nonnull %12)
   %188 = load i32, ptr %12, align 4
   %189 = icmp slt i32 %188, 0
-  br i1 %189, label %197, label %190, !llvm.loop !13
+  br i1 %189, label %197, label %190, !llvm.loop !15
 
 190:                                              ; preds = %181
   br i1 %174, label %191, label %.thread367
@@ -1961,7 +1961,7 @@ findFrame1Position.exit286:                       ; preds = %._crit_edge.i, %144
   %195 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %194)
   %196 = xor i8 %195, %192
   %.not267 = icmp ult i8 %196, 4
-  br i1 %.not267, label %.thread367, label %197, !llvm.loop !13
+  br i1 %.not267, label %.thread367, label %197, !llvm.loop !15
 
 197:                                              ; preds = %191, %181
   %storemerge = add i32 %57, 2
@@ -3976,7 +3976,7 @@ proto_item_set_generated.exit208.i.i:             ; preds = %1195, %1192, %proto
   %1206 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1181, i32 noundef %1205, ptr noundef nonnull %1120, i32 noundef %1203, i32 noundef 4, i32 noundef %1204, ptr noundef nonnull @.str.402, i32 noundef %.0195219.i.i, i32 noundef %1204)
   %1207 = add nuw nsw i32 %.0195219.i.i, 1
   %exitcond223.not.i.i = icmp eq i32 %1207, %umax.i.i
-  br i1 %exitcond223.not.i.i, label %dissect_opensafety_ssdo_payload.exit.i, label %.lr.ph220.i.i, !llvm.loop !14
+  br i1 %exitcond223.not.i.i, label %dissect_opensafety_ssdo_payload.exit.i, label %.lr.ph220.i.i, !llvm.loop !16
 
 .lr.ph217.i.i:                                    ; preds = %.preheader.i.i, %.loopexit213.i.i
   %.1216.i.i = phi i32 [ %1302, %.loopexit213.i.i ], [ 0, %.preheader.i.i ]
@@ -4092,7 +4092,7 @@ proto_item_set_generated.exit211.i.i:             ; preds = %1228, %1225, %1219
   %1270 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1237, i32 noundef %1269, ptr noundef nonnull %1120, i32 noundef %1267, i32 noundef 4, i32 noundef %1268, ptr noundef nonnull @.str.402, i32 noundef %.0194215.i.i, i32 noundef %1268)
   %1271 = add nuw nsw i32 %.0194215.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %1271, %1264
-  br i1 %exitcond.not.i.i, label %.loopexit213.i.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.loopexit213.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
 1272:                                             ; preds = %1257
   %1273 = icmp eq i8 %1210, 7
@@ -4143,7 +4143,7 @@ proto_item_set_generated.exit211.i.i:             ; preds = %1228, %1225, %1219
 .loopexit213.i.i:                                 ; preds = %.lr.ph.i.i, %1298, %1297, %1283, %1274, %1260
   %1302 = add i32 %1255, 1
   %1303 = icmp ult i32 %1302, %1139
-  br i1 %1303, label %.lr.ph217.i.i, label %dissect_opensafety_ssdo_payload.exit.i, !llvm.loop !16
+  br i1 %1303, label %.lr.ph217.i.i, label %dissect_opensafety_ssdo_payload.exit.i, !llvm.loop !18
 
 .thread.i:                                        ; preds = %1102, %1101
   %1304 = load i32, ptr @hf_oss_ssdo_payload_size, align 4
@@ -4185,7 +4185,7 @@ proto_item_set_generated.exit400.i:               ; preds = %1309, %1306, %.thre
   %1324 = add nuw nsw i32 %1318, 4
   %1325 = and i32 %1324, 65535
   %1326 = icmp ult i32 %1325, %1094
-  br i1 %1326, label %.lr.ph.i, label %dissect_opensafety_ssdo_payload.exit.i, !llvm.loop !17
+  br i1 %1326, label %.lr.ph.i, label %dissect_opensafety_ssdo_payload.exit.i, !llvm.loop !19
 
 1327:                                             ; preds = %proto_item_set_generated.exit400.i
   %1328 = icmp eq i32 %.0367.i, 7
@@ -4868,7 +4868,7 @@ proto_item_set_generated.exit.i123:               ; preds = %1747, %1744, %1737
   store i8 %1807, ptr %1802, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %1808, label %.preheader.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %1808, label %.preheader.i, !llvm.loop !20
 
 1808:                                             ; preds = %.preheader.i
   br i1 %1713, label %1809, label %1826
@@ -5597,14 +5597,16 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !10}
 !15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}

@@ -423,7 +423,7 @@ initcm.exit:                                      ; preds = %58, %74, %80
   %144 = load i32, ptr %34, align 8
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next, %145
-  br i1 %146, label %.lr.ph192, label %._crit_edge193, !llvm.loop !6
+  br i1 %146, label %.lr.ph192, label %._crit_edge193, !llvm.loop !7
 
 ._crit_edge193:                                   ; preds = %.lr.ph192
   %.pre = load i32, ptr %16, align 8
@@ -535,7 +535,7 @@ define dso_local void @pg_set_regex_collation(i32 noundef %0) local_unnamed_addr
 7:                                                ; preds = %1
   %8 = tail call ptr @pg_newlocale_from_collation(i32 noundef %0) #20
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %10 = load i8, ptr %9, align 1, !range !7, !noundef !8
+  %10 = load i8, ptr %9, align 1, !range !8, !noundef !9
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %16, label %12
 
@@ -549,7 +549,7 @@ define dso_local void @pg_set_regex_collation(i32 noundef %0) local_unnamed_addr
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %18 = load i8, ptr %17, align 1, !range !7, !noundef !8
+  %18 = load i8, ptr %17, align 1, !range !8, !noundef !9
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %26, label %20
 
@@ -630,7 +630,7 @@ define internal fastcc i32 @freev(ptr noundef nonnull captures(address) %0, i32 
   store i64 %24, ptr %22, align 8
   tail call void @pfree(ptr noundef nonnull %.024.i) #20
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %._crit_edge.i, label %17, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %17, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %17, %13
   store ptr null, ptr %14, align 8
@@ -657,7 +657,7 @@ define internal fastcc i32 @freev(ptr noundef nonnull captures(address) %0, i32 
   store i64 %35, ptr %33, align 8
   tail call void @pfree(ptr noundef nonnull %.01826.i) #20
   %.not19.i = icmp eq ptr %29, null
-  br i1 %.not19.i, label %freenfa.exit, label %28, !llvm.loop !10
+  br i1 %.not19.i, label %freenfa.exit, label %28, !llvm.loop !11
 
 freenfa.exit:                                     ; preds = %28, %._crit_edge.i
   store ptr null, ptr %25, align 8
@@ -698,7 +698,7 @@ freenfa.exit:                                     ; preds = %28, %._crit_edge.i
 
 50:                                               ; preds = %49, %.lr.ph.i39
   %.not.i40 = icmp eq ptr %45, null
-  br i1 %.not.i40, label %cleanst.exit, label %.lr.ph.i39, !llvm.loop !11
+  br i1 %.not.i40, label %cleanst.exit, label %.lr.ph.i39, !llvm.loop !12
 
 cleanst.exit:                                     ; preds = %50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
@@ -762,7 +762,7 @@ cleanst.exit:                                     ; preds = %50
 76:                                               ; preds = %69, %.lr.ph.i43
   %.0.i = add nsw i32 %.012.i, -1
   %77 = icmp sgt i32 %.012.i, 1
-  br i1 %77, label %.lr.ph.i43, label %freelacons.exit, !llvm.loop !12
+  br i1 %77, label %.lr.ph.i43, label %freelacons.exit, !llvm.loop !13
 
 freelacons.exit:                                  ; preds = %76, %62
   tail call void @pfree(ptr noundef nonnull %61) #20
@@ -869,7 +869,7 @@ newfstate.exit66:                                 ; preds = %newfstate.exit, %27
   store i64 %43, ptr %41, align 8
   tail call void @pfree(ptr noundef nonnull %.024.i) #20
   %.not.i67 = icmp eq ptr %37, null
-  br i1 %.not.i67, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i67, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %35
   store ptr null, ptr %12, align 8
@@ -891,7 +891,7 @@ newfstate.exit66:                                 ; preds = %newfstate.exit, %27
   store i64 %51, ptr %49, align 8
   tail call void @pfree(ptr noundef nonnull %.01826.i) #20
   %.not19.i = icmp eq ptr %45, null
-  br i1 %.not19.i, label %freenfa.exit, label %.lr.ph28.i, !llvm.loop !10
+  br i1 %.not19.i, label %freenfa.exit, label %.lr.ph28.i, !llvm.loop !11
 
 freenfa.exit:                                     ; preds = %.lr.ph28.i, %._crit_edge.i
   store ptr null, ptr %13, align 8
@@ -904,7 +904,7 @@ freenfa.exit:                                     ; preds = %.lr.ph28.i, %._crit
   %54 = load ptr, ptr %30, align 8
   %55 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %55, 0
-  br i1 %.not.i.i, label %57, label %56, !prof !13
+  br i1 %.not.i.i, label %57, label %56, !prof !14
 
 56:                                               ; preds = %52
   tail call void @ProcessInterrupts() #20
@@ -946,7 +946,7 @@ freenfa.exit:                                     ; preds = %.lr.ph28.i, %._crit
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 24
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not26.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 73:                                               ; preds = %57
   %74 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -976,7 +976,7 @@ freenfa.exit:                                     ; preds = %.lr.ph28.i, %._crit
   %86 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 40
   %.1.i.i = load ptr, ptr %86, align 8
   %.not25.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !15
+  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %72, %85, %73, %.preheader.i.i
   tail call fastcc void @createarc(ptr noundef nonnull %4, i32 noundef 112, i16 noundef signext -2, ptr noundef %53, ptr noundef %54)
@@ -987,7 +987,7 @@ rainbow.exit:                                     ; preds = %69, %82, %.loopexit
   %88 = load ptr, ptr %30, align 8
   %89 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i68 = icmp eq i32 %89, 0
-  br i1 %.not.i68, label %91, label %90, !prof !13
+  br i1 %.not.i68, label %91, label %90, !prof !14
 
 90:                                               ; preds = %rainbow.exit
   tail call void @ProcessInterrupts() #20
@@ -1029,7 +1029,7 @@ rainbow.exit:                                     ; preds = %69, %82, %.loopexit
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i69, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i69, !llvm.loop !15
 
 107:                                              ; preds = %91
   %108 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -1059,7 +1059,7 @@ rainbow.exit:                                     ; preds = %69, %82, %.loopexit
   %120 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %120, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %106, %119, %107, %.preheader.i
   tail call fastcc void @createarc(ptr noundef nonnull %4, i32 noundef 94, i16 noundef signext 1, ptr noundef %87, ptr noundef %88)
@@ -1070,7 +1070,7 @@ newarc.exit:                                      ; preds = %103, %116, %.loopex
   %122 = load ptr, ptr %30, align 8
   %123 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i70 = icmp eq i32 %123, 0
-  br i1 %.not.i70, label %125, label %124, !prof !13
+  br i1 %.not.i70, label %125, label %124, !prof !14
 
 124:                                              ; preds = %newarc.exit
   tail call void @ProcessInterrupts() #20
@@ -1112,7 +1112,7 @@ newarc.exit:                                      ; preds = %103, %116, %.loopex
   %.0.in.i78 = getelementptr inbounds nuw i8, ptr %.033.i77, i64 24
   %.0.i79 = load ptr, ptr %.0.in.i78, align 8
   %.not26.i80 = icmp eq ptr %.0.i79, null
-  br i1 %.not26.i80, label %.loopexit.i81, label %.lr.ph.i76, !llvm.loop !14
+  br i1 %.not26.i80, label %.loopexit.i81, label %.lr.ph.i76, !llvm.loop !15
 
 141:                                              ; preds = %125
   %142 = getelementptr inbounds nuw i8, ptr %122, i64 16
@@ -1142,7 +1142,7 @@ newarc.exit:                                      ; preds = %103, %116, %.loopex
   %154 = getelementptr inbounds nuw i8, ptr %.136.i85, i64 40
   %.1.i86 = load ptr, ptr %154, align 8
   %.not25.i87 = icmp eq ptr %.1.i86, null
-  br i1 %.not25.i87, label %.loopexit.i81, label %.lr.ph37.i84, !llvm.loop !15
+  br i1 %.not25.i87, label %.loopexit.i81, label %.lr.ph37.i84, !llvm.loop !16
 
 .loopexit.i81:                                    ; preds = %140, %153, %141, %.preheader.i72
   tail call fastcc void @createarc(ptr noundef nonnull %4, i32 noundef 94, i16 noundef signext 0, ptr noundef %121, ptr noundef %122)
@@ -1153,7 +1153,7 @@ newarc.exit88:                                    ; preds = %137, %150, %.loopex
   %156 = load ptr, ptr %25, align 8
   %157 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i89 = icmp eq i32 %157, 0
-  br i1 %.not.i.i89, label %159, label %158, !prof !13
+  br i1 %.not.i.i89, label %159, label %158, !prof !14
 
 158:                                              ; preds = %newarc.exit88
   tail call void @ProcessInterrupts() #20
@@ -1195,7 +1195,7 @@ newarc.exit88:                                    ; preds = %137, %150, %.loopex
   %.0.in.i.i97 = getelementptr inbounds nuw i8, ptr %.033.i.i96, i64 24
   %.0.i.i98 = load ptr, ptr %.0.in.i.i97, align 8
   %.not26.i.i99 = icmp eq ptr %.0.i.i98, null
-  br i1 %.not26.i.i99, label %.loopexit.i.i100, label %.lr.ph.i.i95, !llvm.loop !14
+  br i1 %.not26.i.i99, label %.loopexit.i.i100, label %.lr.ph.i.i95, !llvm.loop !15
 
 175:                                              ; preds = %159
   %176 = getelementptr inbounds nuw i8, ptr %156, i64 16
@@ -1225,7 +1225,7 @@ newarc.exit88:                                    ; preds = %137, %150, %.loopex
   %188 = getelementptr inbounds nuw i8, ptr %.136.i.i104, i64 40
   %.1.i.i105 = load ptr, ptr %188, align 8
   %.not25.i.i106 = icmp eq ptr %.1.i.i105, null
-  br i1 %.not25.i.i106, label %.loopexit.i.i100, label %.lr.ph37.i.i103, !llvm.loop !15
+  br i1 %.not25.i.i106, label %.loopexit.i.i100, label %.lr.ph37.i.i103, !llvm.loop !16
 
 .loopexit.i.i100:                                 ; preds = %174, %187, %175, %.preheader.i.i91
   tail call fastcc void @createarc(ptr noundef nonnull %4, i32 noundef 112, i16 noundef signext -2, ptr noundef %155, ptr noundef %156)
@@ -1236,7 +1236,7 @@ rainbow.exit107:                                  ; preds = %171, %184, %.loopex
   %190 = load ptr, ptr %25, align 8
   %191 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i108 = icmp eq i32 %191, 0
-  br i1 %.not.i108, label %193, label %192, !prof !13
+  br i1 %.not.i108, label %193, label %192, !prof !14
 
 192:                                              ; preds = %rainbow.exit107
   tail call void @ProcessInterrupts() #20
@@ -1278,7 +1278,7 @@ rainbow.exit107:                                  ; preds = %171, %184, %.loopex
   %.0.in.i116 = getelementptr inbounds nuw i8, ptr %.033.i115, i64 24
   %.0.i117 = load ptr, ptr %.0.in.i116, align 8
   %.not26.i118 = icmp eq ptr %.0.i117, null
-  br i1 %.not26.i118, label %.loopexit.i119, label %.lr.ph.i114, !llvm.loop !14
+  br i1 %.not26.i118, label %.loopexit.i119, label %.lr.ph.i114, !llvm.loop !15
 
 209:                                              ; preds = %193
   %210 = getelementptr inbounds nuw i8, ptr %190, i64 16
@@ -1308,7 +1308,7 @@ rainbow.exit107:                                  ; preds = %171, %184, %.loopex
   %222 = getelementptr inbounds nuw i8, ptr %.136.i123, i64 40
   %.1.i124 = load ptr, ptr %222, align 8
   %.not25.i125 = icmp eq ptr %.1.i124, null
-  br i1 %.not25.i125, label %.loopexit.i119, label %.lr.ph37.i122, !llvm.loop !15
+  br i1 %.not25.i125, label %.loopexit.i119, label %.lr.ph37.i122, !llvm.loop !16
 
 .loopexit.i119:                                   ; preds = %208, %221, %209, %.preheader.i110
   tail call fastcc void @createarc(ptr noundef nonnull %4, i32 noundef 36, i16 noundef signext 1, ptr noundef %189, ptr noundef %190)
@@ -1319,7 +1319,7 @@ newarc.exit126:                                   ; preds = %205, %218, %.loopex
   %224 = load ptr, ptr %25, align 8
   %225 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i127 = icmp eq i32 %225, 0
-  br i1 %.not.i127, label %227, label %226, !prof !13
+  br i1 %.not.i127, label %227, label %226, !prof !14
 
 226:                                              ; preds = %newarc.exit126
   tail call void @ProcessInterrupts() #20
@@ -1361,7 +1361,7 @@ newarc.exit126:                                   ; preds = %205, %218, %.loopex
   %.0.in.i135 = getelementptr inbounds nuw i8, ptr %.033.i134, i64 24
   %.0.i136 = load ptr, ptr %.0.in.i135, align 8
   %.not26.i137 = icmp eq ptr %.0.i136, null
-  br i1 %.not26.i137, label %.loopexit.i138, label %.lr.ph.i133, !llvm.loop !14
+  br i1 %.not26.i137, label %.loopexit.i138, label %.lr.ph.i133, !llvm.loop !15
 
 243:                                              ; preds = %227
   %244 = getelementptr inbounds nuw i8, ptr %224, i64 16
@@ -1391,7 +1391,7 @@ newarc.exit126:                                   ; preds = %205, %218, %.loopex
   %256 = getelementptr inbounds nuw i8, ptr %.136.i142, i64 40
   %.1.i143 = load ptr, ptr %256, align 8
   %.not25.i144 = icmp eq ptr %.1.i143, null
-  br i1 %.not25.i144, label %.loopexit.i138, label %.lr.ph37.i141, !llvm.loop !15
+  br i1 %.not25.i144, label %.loopexit.i138, label %.lr.ph37.i141, !llvm.loop !16
 
 .loopexit.i138:                                   ; preds = %242, %255, %243, %.preheader.i129
   tail call fastcc void @createarc(ptr noundef nonnull %4, i32 noundef 36, i16 noundef signext 0, ptr noundef %223, ptr noundef %224)
@@ -1421,7 +1421,7 @@ newarc.exit145:                                   ; preds = %239, %252, %.loopex
   store i64 %266, ptr %264, align 8
   tail call void @pfree(ptr noundef nonnull %.024.i148) #20
   %.not.i151 = icmp eq ptr %260, null
-  br i1 %.not.i151, label %._crit_edge.i152, label %.lr.ph.i147, !llvm.loop !9
+  br i1 %.not.i151, label %._crit_edge.i152, label %.lr.ph.i147, !llvm.loop !10
 
 ._crit_edge.i152:                                 ; preds = %.lr.ph.i147, %258
   store ptr null, ptr %12, align 8
@@ -1443,7 +1443,7 @@ newarc.exit145:                                   ; preds = %239, %252, %.loopex
   store i64 %274, ptr %272, align 8
   tail call void @pfree(ptr noundef nonnull %.01826.i155) #20
   %.not19.i158 = icmp eq ptr %268, null
-  br i1 %.not19.i158, label %freenfa.exit159, label %.lr.ph28.i154, !llvm.loop !10
+  br i1 %.not19.i158, label %freenfa.exit159, label %.lr.ph28.i154, !llvm.loop !11
 
 freenfa.exit159:                                  ; preds = %.lr.ph28.i154, %._crit_edge.i152
   store ptr null, ptr %13, align 8
@@ -1824,7 +1824,7 @@ pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i: ; preds = %pg_wc_isalpha.ex
   store ptr %194, ptr %8, align 8
   %195 = load ptr, ptr %6, align 8
   %.not75.i = icmp ult ptr %194, %195
-  br i1 %.not75.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !16
+  br i1 %.not75.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %193, %134, %118, %pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i
   %.pre99.i = phi ptr [ %.pre99.pre.i, %pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i ], [ %195, %193 ], [ %.pre99103.i, %118 ], [ %.pre99103.i, %134 ]
@@ -2107,7 +2107,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   store ptr %39, ptr %61, align 8
   %66 = load ptr, ptr %37, align 8
   %.not44 = icmp eq ptr %66, null
-  br i1 %.not44, label %._crit_edge, label %.lr.ph59, !llvm.loop !17
+  br i1 %.not44, label %._crit_edge, label %.lr.ph59, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %colorchain.exit, %33
   %67 = load ptr, ptr %3, align 8
@@ -2139,7 +2139,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %82 = add i64 %77, -1
   store i64 %82, ptr %5, align 8
   %.not.i47 = icmp eq i64 %82, 0
-  br i1 %.not.i47, label %.critedge.i, label %76, !llvm.loop !18
+  br i1 %.not.i47, label %.critedge.i, label %76, !llvm.loop !19
 
 .critedge.i:                                      ; preds = %81, %76
   %.lcssa43.ph.i = phi i64 [ %77, %76 ], [ 0, %81 ]
@@ -2155,7 +2155,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   store i16 %87, ptr %16, align 8
   %88 = sext i16 %87 to i64
   %89 = icmp ult i64 %.lcssa43.ph.i, %88
-  br i1 %89, label %.lr.ph47.i, label %._crit_edge.i, !llvm.loop !19
+  br i1 %89, label %.lr.ph47.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph47.i, %.critedge.i
   %.lcssa42.i = phi i16 [ %.promoted.i, %.critedge.i ], [ %87, %.lr.ph47.i ]
@@ -2189,7 +2189,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
 104:                                              ; preds = %101, %.lr.ph53.i
   %.135.i = phi i16 [ %.03450.i, %101 ], [ %.051.i, %.lr.ph53.i ]
   %105 = icmp sgt i16 %100, 0
-  br i1 %105, label %.lr.ph53.i, label %freecolor.exit, !llvm.loop !20
+  br i1 %105, label %.lr.ph53.i, label %freecolor.exit, !llvm.loop !21
 
 106:                                              ; preds = %71
   %107 = load i16, ptr %16, align 8
@@ -2224,7 +2224,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %124 = load ptr, ptr %123, align 8
   %125 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i48 = icmp eq i32 %125, 0
-  br i1 %.not.i48, label %127, label %126, !prof !13
+  br i1 %.not.i48, label %127, label %126, !prof !14
 
 126:                                              ; preds = %.lr.ph
   tail call void @ProcessInterrupts() #20
@@ -2266,7 +2266,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i49, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i49, !llvm.loop !15
 
 143:                                              ; preds = %127
   %144 = getelementptr inbounds nuw i8, ptr %124, i64 16
@@ -2296,7 +2296,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %156 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %156, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %142, %155, %143, %.preheader.i
   %157 = load ptr, ptr %10, align 8
@@ -2495,13 +2495,13 @@ newarc.exit:                                      ; preds = %139, %152, %colorch
   %253 = getelementptr inbounds nuw i8, ptr %.04157, i64 56
   %.041 = load ptr, ptr %253, align 8
   %.not = icmp eq ptr %.041, null
-  br i1 %.not, label %freecolor.exit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %freecolor.exit, label %.lr.ph, !llvm.loop !22
 
 freecolor.exit:                                   ; preds = %newarc.exit, %104, %115, %106, %91, %._crit_edge.i, %._crit_edge, %17
   %254 = getelementptr inbounds nuw i8, ptr %.062, i64 32
   %255 = add i16 %.04060, 1
   %256 = icmp ult ptr %254, %8
-  br i1 %256, label %17, label %._crit_edge65, !llvm.loop !22
+  br i1 %256, label %17, label %._crit_edge65, !llvm.loop !23
 
 ._crit_edge65:                                    ; preds = %freecolor.exit, %2
   ret void
@@ -2619,7 +2619,7 @@ subre.exit:                                       ; preds = %19, %29
   %60 = load ptr, ptr %46, align 8
   %61 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i68 = icmp eq i32 %61, 0
-  br i1 %.not.i68, label %63, label %62, !prof !13
+  br i1 %.not.i68, label %63, label %62, !prof !14
 
 62:                                               ; preds = %59
   tail call void @ProcessInterrupts() #20
@@ -2659,7 +2659,7 @@ subre.exit:                                       ; preds = %19, %29
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i69 = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i69, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 78:                                               ; preds = %63
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -2689,7 +2689,7 @@ subre.exit:                                       ; preds = %19, %29
   %91 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %91, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %77, %90, %78, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %60, i32 noundef 110, i16 noundef signext 0, ptr noundef %3, ptr noundef %55)
@@ -2699,7 +2699,7 @@ newarc.exit:                                      ; preds = %74, %87, %.loopexit
   %92 = load ptr, ptr %46, align 8
   %93 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i70 = icmp eq i32 %93, 0
-  br i1 %.not.i70, label %95, label %94, !prof !13
+  br i1 %.not.i70, label %95, label %94, !prof !14
 
 94:                                               ; preds = %newarc.exit
   tail call void @ProcessInterrupts() #20
@@ -2740,7 +2740,7 @@ newarc.exit:                                      ; preds = %74, %87, %.loopexit
   %.0.in.i78 = getelementptr inbounds nuw i8, ptr %.033.i77, i64 24
   %.0.i79 = load ptr, ptr %.0.in.i78, align 8
   %.not26.i80 = icmp eq ptr %.0.i79, null
-  br i1 %.not26.i80, label %.loopexit.i81, label %.lr.ph.i76, !llvm.loop !14
+  br i1 %.not26.i80, label %.loopexit.i81, label %.lr.ph.i76, !llvm.loop !15
 
 110:                                              ; preds = %95
   %.134.i82 = load ptr, ptr %49, align 8
@@ -2769,7 +2769,7 @@ newarc.exit:                                      ; preds = %74, %87, %.loopexit
   %122 = getelementptr inbounds nuw i8, ptr %.136.i85, i64 40
   %.1.i86 = load ptr, ptr %122, align 8
   %.not25.i87 = icmp eq ptr %.1.i86, null
-  br i1 %.not25.i87, label %.loopexit.i81, label %.lr.ph37.i84, !llvm.loop !15
+  br i1 %.not25.i87, label %.loopexit.i81, label %.lr.ph37.i84, !llvm.loop !16
 
 .loopexit.i81:                                    ; preds = %109, %121, %110, %.preheader.i72
   tail call fastcc void @createarc(ptr noundef %92, i32 noundef 110, i16 noundef signext 0, ptr noundef %57, ptr noundef %4)
@@ -2819,11 +2819,11 @@ newarc.exit88:                                    ; preds = %106, %118, %.loopex
 145:                                              ; preds = %131
   %146 = tail call fastcc i32 @next(ptr noundef %0)
   %.not63 = icmp eq i32 %146, 0
-  br i1 %.not63, label %..critedge_crit_edge, label %53, !llvm.loop !23
+  br i1 %.not63, label %..critedge_crit_edge, label %53, !llvm.loop !24
 
 ..critedge_crit_edge:                             ; preds = %145
   %.pre102 = load i32, ptr %52, align 4
-  br label %.critedge, !llvm.loop !23
+  br label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %131, %..critedge_crit_edge
   %147 = phi i32 [ %.pre102, %..critedge_crit_edge ], [ %143, %131 ]
@@ -2896,7 +2896,7 @@ newarc.exit88:                                    ; preds = %106, %118, %.loopex
   %176 = load ptr, ptr %175, align 8
   tail call fastcc void @freesubre(ptr noundef nonnull %0, ptr noundef nonnull %.06.i)
   %.not.i91 = icmp eq ptr %176, null
-  br i1 %.not.i91, label %freesubreandsiblings.exit, label %.lr.ph.i90, !llvm.loop !24
+  br i1 %.not.i91, label %freesubreandsiblings.exit, label %.lr.ph.i90, !llvm.loop !25
 
 freesubreandsiblings.exit:                        ; preds = %.lr.ph.i90, %174
   store ptr null, ptr %50, align 8
@@ -3102,7 +3102,7 @@ define internal fastcc void @removecaptures(ptr noundef nonnull captures(address
   %19 = getelementptr inbounds nuw i8, ptr %.023, i64 32
   %.0 = load ptr, ptr %19, align 8
   %.not18 = icmp eq ptr %.0, null
-  br i1 %.not18, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not18, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %18
   %.pre = load i8, ptr %3, align 1
@@ -3125,7 +3125,7 @@ define internal fastcc void @removecaptures(ptr noundef nonnull captures(address
   %26 = load ptr, ptr %25, align 8
   tail call fastcc void @freesubre(ptr noundef nonnull %0, ptr noundef nonnull %.06.i)
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %freesubreandsiblings.exit.loopexit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %freesubreandsiblings.exit.loopexit, label %.lr.ph.i, !llvm.loop !25
 
 freesubreandsiblings.exit.loopexit:               ; preds = %.lr.ph.i
   %.pre24 = load i8, ptr %3, align 1
@@ -3160,7 +3160,7 @@ define internal fastcc i32 @numst(ptr noundef captures(none) initializes((4, 8))
   %7 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %.0 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.08.lcssa = phi i32 [ %3, %2 ], [ %6, %.lr.ph ]
@@ -3184,7 +3184,7 @@ define internal fastcc void @markst(ptr noundef captures(none) %0) unnamed_addr 
   %6 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -3213,7 +3213,7 @@ define internal fastcc void @cleanst(ptr noundef nonnull captures(none) %0) unna
 
 10:                                               ; preds = %.lr.ph, %9
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %10, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -3233,7 +3233,7 @@ define internal fastcc range(i64 0, 4097) i64 @nfatree(ptr noundef nonnull %0, p
   %5 = getelementptr inbounds nuw i8, ptr %.03, i64 32
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %6 = tail call fastcc i64 @nfanode(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
@@ -3331,7 +3331,7 @@ define internal fastcc range(i64 0, 4097) i64 @nfanode(ptr noundef nonnull %0, p
   store i64 %43, ptr %41, align 8
   tail call void @pfree(ptr noundef nonnull %.024.i) #20
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %._crit_edge.i, label %36, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %36, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %36, %.thread3
   store ptr null, ptr %33, align 8
@@ -3358,7 +3358,7 @@ define internal fastcc range(i64 0, 4097) i64 @nfanode(ptr noundef nonnull %0, p
   store i64 %54, ptr %52, align 8
   tail call void @pfree(ptr noundef nonnull %.01826.i) #20
   %.not19.i = icmp eq ptr %48, null
-  br i1 %.not19.i, label %freenfa.exit, label %47, !llvm.loop !10
+  br i1 %.not19.i, label %freenfa.exit, label %47, !llvm.loop !11
 
 freenfa.exit:                                     ; preds = %47, %._crit_edge.i
   store ptr null, ptr %44, align 8
@@ -3398,7 +3398,7 @@ define internal fastcc range(i64 0, 4097) i64 @optimize(ptr noundef %0) unnamed_
   %.011.in.i = getelementptr inbounds nuw i8, ptr %.01121.i, i64 40
   %.011.i = load ptr, ptr %.011.in.i, align 8
   %.not.i = icmp eq ptr %.011.i, null
-  br i1 %.not.i, label %removecantmatch.exit, label %8, !llvm.loop !29
+  br i1 %.not.i, label %removecantmatch.exit, label %8, !llvm.loop !30
 
 8:                                                ; preds = %.critedge.loopexit.i, %.lr.ph22.i
   %.01121.i = phi ptr [ %.01119.i, %.lr.ph22.i ], [ %.011.i, %.critedge.loopexit.i ]
@@ -3483,7 +3483,7 @@ freearc.exit.i:                                   ; preds = %40, %39
 
 49:                                               ; preds = %freearc.exit.i, %.lr.ph.i
   %.not13.i = icmp eq ptr %12, null
-  br i1 %.not13.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not13.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 removecantmatch.exit:                             ; preds = %.critedge.loopexit.i, %freearc.exit.i, %5
   %50 = load i32, ptr %2, align 8
@@ -3544,7 +3544,7 @@ removecantmatch.exit:                             ; preds = %.critedge.loopexit.
 
 76:                                               ; preds = %75, %67, %64, %59
   %.not.i19 = icmp eq ptr %61, null
-  br i1 %.not.i19, label %.critedge.i, label %.lr.ph.i14, !llvm.loop !31
+  br i1 %.not.i19, label %.critedge.i, label %.lr.ph.i14, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %76, %.lr.ph.i14
   %.pre.i = load ptr, ptr %53, align 8
@@ -3596,7 +3596,7 @@ removecantmatch.exit:                             ; preds = %.critedge.loopexit.
 
 97:                                               ; preds = %96, %88, %85, %80
   %.not136.i = icmp eq ptr %82, null
-  br i1 %.not136.i, label %.critedge2.i, label %.lr.ph11.i, !llvm.loop !32
+  br i1 %.not136.i, label %.critedge2.i, label %.lr.ph11.i, !llvm.loop !33
 
 .critedge2.i:                                     ; preds = %97, %.lr.ph11.i, %.critedge.i, %52
   %98 = load ptr, ptr %55, align 8
@@ -3646,7 +3646,7 @@ removecantmatch.exit:                             ; preds = %.critedge.loopexit.
   %122 = getelementptr inbounds nuw i8, ptr %.216.i, i64 40
   %.2.i = load ptr, ptr %122, align 8
   %.not139.i = icmp eq ptr %.2.i, null
-  br i1 %.not139.i, label %._crit_edge.loopexit.i, label %.lr.ph17.i, !llvm.loop !33
+  br i1 %.not139.i, label %._crit_edge.loopexit.i, label %.lr.ph17.i, !llvm.loop !34
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph17.i
   %123 = sext i32 %121 to i64
@@ -3701,7 +3701,7 @@ removecantmatch.exit:                             ; preds = %.critedge.loopexit.
 139:                                              ; preds = %.preheader3.i
   %140 = load i32, ptr %.0.i.i, align 8
   %.not5.i.i = icmp eq i32 %140, 110
-  br i1 %.not5.i.i, label %.preheader3.i, label %hasnonemptyout.exit.i, !llvm.loop !34
+  br i1 %.not5.i.i, label %.preheader3.i, label %hasnonemptyout.exit.i, !llvm.loop !35
 
 hasnonemptyout.exit.i:                            ; preds = %139, %136
   %141 = tail call fastcc ptr @emptyreachable(ptr noundef nonnull %0, ptr noundef nonnull %.340.i, ptr noundef nonnull %.340.i, ptr noundef %106)
@@ -3744,7 +3744,7 @@ hasnonemptyout.exit.i:                            ; preds = %139, %136
   %154 = getelementptr inbounds nuw i8, ptr %.012521.i, i64 40
   %.0125.i = load ptr, ptr %154, align 8
   %.not150.i = icmp eq ptr %.0125.i, null
-  br i1 %.not150.i, label %._crit_edge24.i, label %.lr.ph23.i, !llvm.loop !35
+  br i1 %.not150.i, label %._crit_edge24.i, label %.lr.ph23.i, !llvm.loop !36
 
 ._crit_edge24.i:                                  ; preds = %153, %.lr.ph29.i
   %.1121.lcssa.i = phi i32 [ %.012028.i, %.lr.ph29.i ], [ %.2122.i, %153 ]
@@ -3752,7 +3752,7 @@ hasnonemptyout.exit.i:                            ; preds = %139, %136
   %156 = load ptr, ptr %155, align 8
   store ptr null, ptr %155, align 8
   %.not149.i = icmp eq ptr %156, %.340.i
-  br i1 %.not149.i, label %._crit_edge30.i, label %.lr.ph29.i, !llvm.loop !36
+  br i1 %.not149.i, label %._crit_edge30.i, label %.lr.ph29.i, !llvm.loop !37
 
 ._crit_edge30.i:                                  ; preds = %._crit_edge24.i
   %157 = getelementptr inbounds nuw i8, ptr %.340.i, i64 32
@@ -3765,7 +3765,7 @@ hasnonemptyout.exit.i:                            ; preds = %139, %136
 161:                                              ; preds = %._crit_edge30.i
   %162 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i163.i = icmp eq i32 %162, 0
-  br i1 %.not.i163.i, label %164, label %163, !prof !13
+  br i1 %.not.i163.i, label %164, label %163, !prof !14
 
 163:                                              ; preds = %161
   tail call void @ProcessInterrupts() #20
@@ -3835,7 +3835,7 @@ sortins_cmp.exit.i.i:                             ; preds = %196, %192, %190, %1
   %.1.i.i = phi i32 [ %197, %196 ], [ %.058.i.i, %182 ], [ %.058.i.i, %190 ], [ %.058.i.i, %192 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %169
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !37
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !38
 
 ._crit_edge.i.i:                                  ; preds = %sortins_cmp.exit.i.i, %168
   %.0.lcssa.i.i = phi i32 [ 0, %168 ], [ %.1.i.i, %sortins_cmp.exit.i.i ]
@@ -3926,7 +3926,7 @@ sortins_cmp.exit42.thread54.i.i:                  ; preds = %sortins_cmp.exit42.
   %242 = icmp slt i32 %.2.i.i, %200
   %243 = icmp ne ptr %.149.i.i, null
   %244 = select i1 %242, i1 %243, i1 false
-  br i1 %244, label %.lr.ph62.i.i, label %.preheader.i.i, !llvm.loop !38
+  br i1 %244, label %.lr.ph62.i.i, label %.preheader.i.i, !llvm.loop !39
 
 .lr.ph65.i.i:                                     ; preds = %.lr.ph65.i.i, %.lr.ph65.preheader.i.i
   %indvars.iv68.i.i = phi i64 [ %207, %.lr.ph65.preheader.i.i ], [ %indvars.iv.next69.i.i, %.lr.ph65.i.i ]
@@ -3941,7 +3941,7 @@ sortins_cmp.exit42.thread54.i.i:                  ; preds = %sortins_cmp.exit42.
   %indvars.iv.next69.i.i = add nsw i64 %indvars.iv68.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next69.i.i to i32
   %exitcond71.not.i.i = icmp eq i32 %200, %lftr.wideiv.i.i
-  br i1 %exitcond71.not.i.i, label %mergeins.exit.i, label %.lr.ph65.i.i, !llvm.loop !39
+  br i1 %exitcond71.not.i.i, label %mergeins.exit.i, label %.lr.ph65.i.i, !llvm.loop !40
 
 mergeins.exit.i:                                  ; preds = %.lr.ph65.i.i, %.preheader.i.i, %164, %._crit_edge30.i, %._crit_edge30.thread.i
   %252 = phi i32 [ %144, %._crit_edge30.thread.i ], [ %159, %._crit_edge30.i ], [ %159, %164 ], [ %159, %.preheader.i.i ], [ %159, %.lr.ph65.i.i ]
@@ -3960,7 +3960,7 @@ mergeins.exit.i:                                  ; preds = %.lr.ph65.i.i, %.pre
   %259 = getelementptr inbounds nuw i8, ptr %.112634.i, i64 40
   %.1126.i = load ptr, ptr %259, align 8
   %260 = icmp samesign ugt i32 %.033.i, 1
-  br i1 %260, label %.lr.ph35.i, label %._crit_edge36.i, !llvm.loop !40
+  br i1 %260, label %.lr.ph35.i, label %._crit_edge36.i, !llvm.loop !41
 
 ._crit_edge36.i:                                  ; preds = %.lr.ph35.i, %mergeins.exit.i
   %.1126.lcssa.i = phi ptr [ %.112632.i, %mergeins.exit.i ], [ %.1126.i, %.lr.ph35.i ]
@@ -3974,7 +3974,7 @@ hasnonemptyout.exit.thread.i:                     ; preds = %.preheader3.i, %._c
   %264 = getelementptr inbounds nuw i8, ptr %.340.i, i64 40
   %.3.i = load ptr, ptr %264, align 8
   %.not140.i = icmp eq ptr %.3.i, null
-  br i1 %.not140.i, label %.critedge4.i, label %.lr.ph42.i, !llvm.loop !41
+  br i1 %.not140.i, label %.critedge4.i, label %.lr.ph42.i, !llvm.loop !42
 
 .critedge4.i:                                     ; preds = %hasnonemptyout.exit.thread.i, %.lr.ph42.i, %.preheader4.i
   tail call void @pfree(ptr noundef nonnull %125) #20
@@ -4073,13 +4073,13 @@ freearc.exit.i17:                                 ; preds = %301, %300
 
 307:                                              ; preds = %freearc.exit.i17, %.lr.ph47.i
   %.not146.i = icmp eq ptr %273, null
-  br i1 %.not146.i, label %._crit_edge48.i, label %.lr.ph47.i, !llvm.loop !42
+  br i1 %.not146.i, label %._crit_edge48.i, label %.lr.ph47.i, !llvm.loop !43
 
 ._crit_edge48.i:                                  ; preds = %307, %269
   %308 = getelementptr inbounds nuw i8, ptr %.451.i, i64 40
   %.4.i = load ptr, ptr %308, align 8
   %.not143.i = icmp eq ptr %.4.i, null
-  br i1 %.not143.i, label %._crit_edge53.i, label %269, !llvm.loop !43
+  br i1 %.not143.i, label %._crit_edge53.i, label %269, !llvm.loop !44
 
 ._crit_edge53.i:                                  ; preds = %._crit_edge48.i
   %.pre59.i = load ptr, ptr %53, align 8
@@ -4113,7 +4113,7 @@ freearc.exit.i17:                                 ; preds = %301, %300
 
 322:                                              ; preds = %321, %318, %314
   %.not144.i = icmp eq ptr %310, null
-  br i1 %.not144.i, label %fixempties.exit, label %.lr.ph57.i, !llvm.loop !44
+  br i1 %.not144.i, label %fixempties.exit, label %.lr.ph57.i, !llvm.loop !45
 
 fixempties.exit:                                  ; preds = %322, %.critedge2.i, %108, %127, %.critedge4.i
   %.pr = load ptr, ptr %53, align 8
@@ -4292,7 +4292,7 @@ freearc.exit.i30:                                 ; preds = %397, %396
 isconstraintarc.exit.thread.i:                    ; preds = %freearc.exit.i30, %isconstraintarc.exit.i, %338
   %.2.i26 = phi i32 [ %.16.i, %freearc.exit.i30 ], [ 1, %isconstraintarc.exit.i ], [ %.16.i, %338 ]
   %.not57.i = icmp eq ptr %340, null
-  br i1 %.not57.i, label %.critedge2.i24, label %.lr.ph.i23, !llvm.loop !45
+  br i1 %.not57.i, label %.critedge2.i24, label %.lr.ph.i23, !llvm.loop !46
 
 .critedge2.i24:                                   ; preds = %isconstraintarc.exit.thread.i, %.lr.ph.i23, %330
   %.1.lcssa.i = phi i32 [ %.011.i20, %330 ], [ %.16.i, %.lr.ph.i23 ], [ %.2.i26, %isconstraintarc.exit.thread.i ]
@@ -4313,7 +4313,7 @@ isconstraintarc.exit.thread.i:                    ; preds = %freearc.exit.i30, %
 
 410:                                              ; preds = %409, %406, %.critedge2.i24
   %.not.i25 = icmp eq ptr %332, null
-  br i1 %.not.i25, label %.critedge.i21, label %326, !llvm.loop !46
+  br i1 %.not.i25, label %.critedge.i21, label %326, !llvm.loop !47
 
 .critedge.i21:                                    ; preds = %410
   %.pre = load ptr, ptr %55, align 8
@@ -4342,7 +4342,7 @@ isconstraintarc.exit.thread.i:                    ; preds = %freearc.exit.i30, %
 
 .lr.ph19.i.backedge:                              ; preds = %413, %.loopexit3.i
   %.14618.i.be = phi ptr [ %.146.i, %413 ], [ %.14616.i, %.loopexit3.i ]
-  br label %.lr.ph19.i, !llvm.loop !47
+  br label %.lr.ph19.i, !llvm.loop !48
 
 .lr.ph19.i:                                       ; preds = %.preheader.i22, %.lr.ph19.i.backedge
   %.14618.i = phi ptr [ %.14618.i.be, %.lr.ph19.i.backedge ], [ %.pre68, %.preheader.i22 ]
@@ -4402,7 +4402,7 @@ isconstraintarc.exit.thread.i:                    ; preds = %freearc.exit.i30, %
 
 438:                                              ; preds = %437, %434, %430
   %.not54.i = icmp eq ptr %425, null
-  br i1 %.not54.i, label %fixconstraintloops.exit.sink.split, label %.lr.ph27.i, !llvm.loop !48
+  br i1 %.not54.i, label %fixconstraintloops.exit.sink.split, label %.lr.ph27.i, !llvm.loop !49
 
 fixconstraintloops.exit.thread:                   ; preds = %._crit_edge53.i, %.preheader.i, %fixempties.exit, %423
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4618,7 +4618,7 @@ freearc.exit.i.i:                                 ; preds = %538, %537
 548:                                              ; preds = %544
   %549 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i152.i = icmp eq i32 %549, 0
-  br i1 %.not.i152.i, label %551, label %550, !prof !13
+  br i1 %.not.i152.i, label %551, label %550, !prof !14
 
 550:                                              ; preds = %548
   tail call void @ProcessInterrupts() #20
@@ -4982,7 +4982,7 @@ createarc.exit151.i:                              ; preds = %colorchain.exit.i14
   %729 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 40
   %.0.i.i.i = load ptr, ptr %729, align 8
   %.not.i77.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i77.i.i, label %copyins.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !49
+  br i1 %.not.i77.i.i, label %copyins.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !50
 
 copyins.exit.i.i:                                 ; preds = %createarc.exit151.i, %625, %621
   %730 = load i32, ptr %.04433.i, align 8
@@ -4990,7 +4990,7 @@ copyins.exit.i.i:                                 ; preds = %createarc.exit151.i
   %732 = load i16, ptr %731, align 4
   %733 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i78.i.i = icmp eq i32 %733, 0
-  br i1 %.not.i.i78.i.i, label %735, label %734, !prof !13
+  br i1 %.not.i.i78.i.i, label %735, label %734, !prof !14
 
 734:                                              ; preds = %copyins.exit.i.i
   tail call void @ProcessInterrupts() #20
@@ -5032,7 +5032,7 @@ copyins.exit.i.i:                                 ; preds = %createarc.exit151.i
   %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i.i.i, i64 24
   %.0.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i, align 8
   %.not26.i.i.i.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not26.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !14
+  br i1 %.not26.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 751:                                              ; preds = %735
   %752 = getelementptr inbounds nuw i8, ptr %480, i64 16
@@ -5062,7 +5062,7 @@ copyins.exit.i.i:                                 ; preds = %createarc.exit151.i
   %764 = getelementptr inbounds nuw i8, ptr %.136.i.i.i.i, i64 40
   %.1.i.i.i.i = load ptr, ptr %764, align 8
   %.not25.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not25.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph37.i.i.i.i, !llvm.loop !15
+  br i1 %.not25.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph37.i.i.i.i, !llvm.loop !16
 
 .loopexit.i.i.i.i:                                ; preds = %750, %763, %751, %.preheader.i.i.i.i
   %765 = load ptr, ptr %455, align 8
@@ -5679,12 +5679,12 @@ freearc.exit90.i.i:                               ; preds = %1060, %1059
   %1079 = getelementptr inbounds nuw i8, ptr %.0162.i.i, i64 32
   %.0.i.i55 = load ptr, ptr %1079, align 8
   %cond.i.i = icmp eq ptr %.0.i.i55, null
-  br i1 %cond.i.i, label %._crit_edge.i.i56, label %1066, !llvm.loop !50
+  br i1 %cond.i.i, label %._crit_edge.i.i56, label %1066, !llvm.loop !51
 
 ._crit_edge.i.i56:                                ; preds = %1078, %.preheader.i.i53
   %1080 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i106.i = icmp eq i32 %1080, 0
-  br i1 %.not.i106.i, label %1082, label %1081, !prof !13
+  br i1 %.not.i106.i, label %1082, label %1081, !prof !14
 
 1081:                                             ; preds = %._crit_edge.i.i56
   tail call void @ProcessInterrupts() #20
@@ -5846,7 +5846,7 @@ newstate.exit.i:                                  ; preds = %1146, %1122, %1107
   %1157 = load i16, ptr %928, align 4
   %1158 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i91.i.i = icmp eq i32 %1158, 0
-  br i1 %.not.i.i91.i.i, label %1160, label %1159, !prof !13
+  br i1 %.not.i.i91.i.i, label %1160, label %1159, !prof !14
 
 1159:                                             ; preds = %.loopexit.i.i
   tail call void @ProcessInterrupts() #20
@@ -5888,7 +5888,7 @@ newstate.exit.i:                                  ; preds = %1146, %1122, %1107
   %.0.in.i.i99.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i98.i.i, i64 24
   %.0.i.i100.i.i = load ptr, ptr %.0.in.i.i99.i.i, align 8
   %.not26.i.i101.i.i = icmp eq ptr %.0.i.i100.i.i, null
-  br i1 %.not26.i.i101.i.i, label %.loopexit.i.i102.i.i, label %.lr.ph.i.i97.i.i, !llvm.loop !14
+  br i1 %.not26.i.i101.i.i, label %.loopexit.i.i102.i.i, label %.lr.ph.i.i97.i.i, !llvm.loop !15
 
 1176:                                             ; preds = %1160
   %1177 = getelementptr inbounds nuw i8, ptr %.1.i.i60, i64 16
@@ -5918,7 +5918,7 @@ newstate.exit.i:                                  ; preds = %1146, %1122, %1107
   %1189 = getelementptr inbounds nuw i8, ptr %.136.i.i106.i.i, i64 40
   %.1.i.i107.i.i = load ptr, ptr %1189, align 8
   %.not25.i.i108.i.i = icmp eq ptr %.1.i.i107.i.i, null
-  br i1 %.not25.i.i108.i.i, label %.loopexit.i.i102.i.i, label %.lr.ph37.i.i105.i.i, !llvm.loop !15
+  br i1 %.not25.i.i108.i.i, label %.loopexit.i.i102.i.i, label %.lr.ph37.i.i105.i.i, !llvm.loop !16
 
 .loopexit.i.i102.i.i:                             ; preds = %1175, %1188, %1176, %.preheader.i.i93.i.i
   %1190 = load ptr, ptr %455, align 8
@@ -6119,7 +6119,7 @@ cparc.exit109.i.i:                                ; preds = %1172, %1185, %color
   %1288 = load i16, ptr %1287, align 4
   %1289 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i110.i.i = icmp eq i32 %1289, 0
-  br i1 %.not.i.i110.i.i, label %1291, label %1290, !prof !13
+  br i1 %.not.i.i110.i.i, label %1291, label %1290, !prof !14
 
 1290:                                             ; preds = %cparc.exit109.i.i
   tail call void @ProcessInterrupts() #20
@@ -6160,7 +6160,7 @@ cparc.exit109.i.i:                                ; preds = %1172, %1185, %color
   %.0.in.i.i118.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i117.i.i, i64 24
   %.0.i.i119.i.i = load ptr, ptr %.0.in.i.i118.i.i, align 8
   %.not26.i.i120.i.i = icmp eq ptr %.0.i.i119.i.i, null
-  br i1 %.not26.i.i120.i.i, label %.loopexit.i.i121.i.i, label %.lr.ph.i.i116.i.i, !llvm.loop !14
+  br i1 %.not26.i.i120.i.i, label %.loopexit.i.i121.i.i, label %.lr.ph.i.i116.i.i, !llvm.loop !15
 
 1306:                                             ; preds = %1291
   %.134.i.i122.i.i = load ptr, ptr %930, align 8
@@ -6189,7 +6189,7 @@ cparc.exit109.i.i:                                ; preds = %1172, %1185, %color
   %1318 = getelementptr inbounds nuw i8, ptr %.136.i.i125.i.i, i64 40
   %.1.i.i126.i.i = load ptr, ptr %1318, align 8
   %.not25.i.i127.i.i = icmp eq ptr %.1.i.i126.i.i, null
-  br i1 %.not25.i.i127.i.i, label %.loopexit.i.i121.i.i, label %.lr.ph37.i.i124.i.i, !llvm.loop !15
+  br i1 %.not25.i.i127.i.i, label %.loopexit.i.i121.i.i, label %.lr.ph37.i.i124.i.i, !llvm.loop !16
 
 .loopexit.i.i121.i.i:                             ; preds = %1305, %1317, %1306, %.preheader.i.i112.i.i
   %1319 = load ptr, ptr %455, align 8
@@ -6507,7 +6507,7 @@ select.unfold.i:                                  ; preds = %989, %959
   %1475 = load ptr, ptr %1474, align 8
   %1476 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i135.i.i = icmp eq i32 %1476, 0
-  br i1 %.not.i135.i.i, label %1478, label %1477, !prof !13
+  br i1 %.not.i135.i.i, label %1478, label %1477, !prof !14
 
 1477:                                             ; preds = %select.unfold.i
   tail call void @ProcessInterrupts() #20
@@ -6548,7 +6548,7 @@ select.unfold.i:                                  ; preds = %989, %959
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i.i, i64 24
   %.0.i137.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not26.i.i.i = icmp eq ptr %.0.i137.i.i, null
-  br i1 %.not26.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i136.i.i, !llvm.loop !14
+  br i1 %.not26.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i136.i.i, !llvm.loop !15
 
 1493:                                             ; preds = %1478
   %.134.i.i.i = load ptr, ptr %930, align 8
@@ -6577,7 +6577,7 @@ select.unfold.i:                                  ; preds = %989, %959
   %1505 = getelementptr inbounds nuw i8, ptr %.136.i.i.i, i64 40
   %.1.i.i.i = load ptr, ptr %1505, align 8
   %.not25.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not25.i.i.i, label %.loopexit.i.i.i, label %.lr.ph37.i.i.i, !llvm.loop !15
+  br i1 %.not25.i.i.i, label %.loopexit.i.i.i, label %.lr.ph37.i.i.i, !llvm.loop !16
 
 .loopexit.i.i.i:                                  ; preds = %1492, %1504, %1493, %.preheader.i.i.i
   %1506 = load ptr, ptr %455, align 8
@@ -6898,7 +6898,7 @@ freearc.exit143.i.i:                              ; preds = %1655, %1654
 combine.exit.thread9.i:                           ; preds = %.sink.split.i.i, %979, %972, %967, %949, %942
   %.4.i62 = phi ptr [ %.3.i61, %.sink.split.i.i ], [ %.13.i, %942 ], [ %.13.i, %949 ], [ %.13.i, %972 ], [ %.13.i, %979 ], [ %.13.i, %967 ]
   %.not73.i.i = icmp eq ptr %937, null
-  br i1 %.not73.i.i, label %.critedge.i.i, label %931, !llvm.loop !51
+  br i1 %.not73.i.i, label %.critedge.i.i, label %931, !llvm.loop !52
 
 .critedge.i.i:                                    ; preds = %combine.exit.thread9.i, %931, %925
   %.5.i = phi ptr [ %.0232.i, %925 ], [ %.4.i62, %combine.exit.thread9.i ], [ %.13.i, %931 ]
@@ -7033,7 +7033,7 @@ pull.exit.i:                                      ; preds = %newstate.exit.i, %p
   %.7.i = phi ptr [ %.0232.i, %472 ], [ %.0232.i, %476 ], [ %.0232.i, %newstate.exit166.i ], [ %.0232.i, %freearc.exit84.i.i ], [ %.7.ph.i, %pull.exit.sink.split.i ], [ %.13.i, %newstate.exit.i ]
   %.2.i51 = phi i32 [ %.134.i, %472 ], [ %.134.i, %476 ], [ %.134.i, %newstate.exit166.i ], [ %.134.i, %freearc.exit84.i.i ], [ 1, %pull.exit.sink.split.i ], [ %.134.i, %newstate.exit.i ]
   %.not54.i52 = icmp eq ptr %474, null
-  br i1 %.not54.i52, label %.critedge2.i44, label %.lr.ph.i42, !llvm.loop !52
+  br i1 %.not54.i52, label %.critedge2.i44, label %.lr.ph.i42, !llvm.loop !53
 
 .critedge2.i44:                                   ; preds = %pull.exit.i, %.lr.ph.i42
   %.02.lcssa.i = phi ptr [ %.0232.i, %.lr.ph.i42 ], [ %.7.i, %pull.exit.i ]
@@ -7047,7 +7047,7 @@ pull.exit.i:                                      ; preds = %newstate.exit.i, %p
   %1724 = load ptr, ptr %1723, align 8
   store ptr null, ptr %1723, align 8
   %.not56.i46 = icmp eq ptr %1724, null
-  br i1 %.not56.i46, label %._crit_edge.i47, label %.lr.ph41.i, !llvm.loop !53
+  br i1 %.not56.i46, label %._crit_edge.i47, label %.lr.ph41.i, !llvm.loop !54
 
 ._crit_edge.i47:                                  ; preds = %.lr.ph41.i, %.critedge2.i44, %464
   %.1.lcssa72.i = phi i32 [ %.1.lcssa.i45, %.critedge2.i44 ], [ %.04343.i, %464 ], [ %.1.lcssa.i45, %.lr.ph41.i ]
@@ -7079,7 +7079,7 @@ pull.exit.i:                                      ; preds = %newstate.exit.i, %p
 .lr.ph46.i.backedge:                              ; preds = %1736, %.splitthread-pre-split.i
   %.044.i.be = phi ptr [ %466, %1736 ], [ %.pr.i, %.splitthread-pre-split.i ]
   %.04343.i.be = phi i32 [ %.1.lcssa72.i, %1736 ], [ 0, %.splitthread-pre-split.i ]
-  br label %.lr.ph46.i, !llvm.loop !54
+  br label %.lr.ph46.i, !llvm.loop !55
 
 .critedge.i32:                                    ; preds = %1736, %.lr.ph46.i
   %.043.lcssa.ph.i = phi i32 [ %.1.lcssa72.i, %1736 ], [ %.04343.i, %.lr.ph46.i ]
@@ -7091,7 +7091,7 @@ pull.exit.i:                                      ; preds = %newstate.exit.i, %p
   %1740 = getelementptr inbounds nuw i8, ptr %1739, i64 24
   %1741 = load i32, ptr %1740, align 8
   %.not51.i33 = icmp eq i32 %1741, 0
-  br i1 %.not51.i33, label %.splitthread-pre-split.i, label %.critedge5.i34, !llvm.loop !55
+  br i1 %.not51.i33, label %.splitthread-pre-split.i, label %.critedge5.i34, !llvm.loop !56
 
 .critedge5.i34:                                   ; preds = %1738, %.critedge.i32, %.splitthread-pre-split.i, %fixconstraintloops.exit.thread, %fixconstraintloops.exit
   %1742 = phi ptr [ %448, %fixconstraintloops.exit.thread ], [ %459, %fixconstraintloops.exit ], [ %459, %.splitthread-pre-split.i ], [ %459, %.critedge.i32 ], [ %459, %1738 ]
@@ -7141,7 +7141,7 @@ pull.exit.i:                                      ; preds = %newstate.exit.i, %p
   %1774 = load ptr, ptr %1773, align 8
   %1775 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i59.i = icmp eq i32 %1775, 0
-  br i1 %.not.i59.i, label %1777, label %1776, !prof !13
+  br i1 %.not.i59.i, label %1777, label %1776, !prof !14
 
 1776:                                             ; preds = %1765
   tail call void @ProcessInterrupts() #20
@@ -7183,7 +7183,7 @@ pull.exit.i:                                      ; preds = %newstate.exit.i, %p
   %.0.in.i.i37 = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 24
   %.0.i62.i = load ptr, ptr %.0.in.i.i37, align 8
   %.not26.i.i = icmp eq ptr %.0.i62.i, null
-  br i1 %.not26.i.i, label %.loopexit.i63.i, label %.lr.ph.i61.i, !llvm.loop !14
+  br i1 %.not26.i.i, label %.loopexit.i63.i, label %.lr.ph.i61.i, !llvm.loop !15
 
 1793:                                             ; preds = %1777
   %1794 = getelementptr inbounds nuw i8, ptr %1774, i64 16
@@ -7213,7 +7213,7 @@ pull.exit.i:                                      ; preds = %newstate.exit.i, %p
   %1806 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 40
   %.1.i64.i = load ptr, ptr %1806, align 8
   %.not25.i.i = icmp eq ptr %.1.i64.i, null
-  br i1 %.not25.i.i, label %.loopexit.i63.i, label %.lr.ph37.i.i, !llvm.loop !15
+  br i1 %.not25.i.i, label %.loopexit.i63.i, label %.lr.ph37.i.i, !llvm.loop !16
 
 .loopexit.i63.i:                                  ; preds = %1792, %1805, %1793, %.preheader.i60.i
   tail call fastcc void @createarc(ptr noundef nonnull %0, i32 noundef 112, i16 noundef signext %1770, ptr noundef %1772, ptr noundef %1774)
@@ -7339,7 +7339,7 @@ freearc.exit.i40:                                 ; preds = %1859, %1858
 
 1865:                                             ; preds = %freearc.exit.i40, %1760
   %.not53.i36 = icmp eq ptr %1762, null
-  br i1 %.not53.i36, label %pullback.exit, label %1760, !llvm.loop !57
+  br i1 %.not53.i36, label %pullback.exit, label %1760, !llvm.loop !58
 
 pullback.exit:                                    ; preds = %1865, %.critedge5.i34, %1755
   %1866 = load ptr, ptr %53, align 8
@@ -7522,7 +7522,7 @@ freearc.exit.i.i204:                              ; preds = %1944, %1943
 1954:                                             ; preds = %1950
   %1955 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i128.i = icmp eq i32 %1955, 0
-  br i1 %.not.i128.i, label %1957, label %1956, !prof !13
+  br i1 %.not.i128.i, label %1957, label %1956, !prof !14
 
 1956:                                             ; preds = %1954
   tail call void @ProcessInterrupts() #20
@@ -7886,7 +7886,7 @@ createarc.exit127.i:                              ; preds = %colorchain.exit.i11
   %.0.in.i.i.i197 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %.0.i.i.i198 = load ptr, ptr %.0.in.i.i.i197, align 8
   %.not.i77.i.i199 = icmp eq ptr %.0.i.i.i198, null
-  br i1 %.not.i77.i.i199, label %copyouts.exit.i.i, label %.lr.ph.i.i.i196, !llvm.loop !58
+  br i1 %.not.i77.i.i199, label %copyouts.exit.i.i, label %.lr.ph.i.i.i196, !llvm.loop !59
 
 copyouts.exit.i.i:                                ; preds = %createarc.exit127.i, %.preheader.i.i.i194, %2027
   %2133 = load i32, ptr %.04424.i, align 8
@@ -7894,7 +7894,7 @@ copyouts.exit.i.i:                                ; preds = %createarc.exit127.i
   %2135 = load i16, ptr %2134, align 4
   %2136 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i78.i.i168 = icmp eq i32 %2136, 0
-  br i1 %.not.i.i78.i.i168, label %2138, label %2137, !prof !13
+  br i1 %.not.i.i78.i.i168, label %2138, label %2137, !prof !14
 
 2137:                                             ; preds = %copyouts.exit.i.i
   tail call void @ProcessInterrupts() #20
@@ -7936,7 +7936,7 @@ copyouts.exit.i.i:                                ; preds = %createarc.exit127.i
   %.0.in.i.i.i.i176 = getelementptr inbounds nuw i8, ptr %.033.i.i.i.i175, i64 24
   %.0.i.i.i.i177 = load ptr, ptr %.0.in.i.i.i.i176, align 8
   %.not26.i.i.i.i178 = icmp eq ptr %.0.i.i.i.i177, null
-  br i1 %.not26.i.i.i.i178, label %.loopexit.i.i.i.i179, label %.lr.ph.i.i.i.i174, !llvm.loop !14
+  br i1 %.not26.i.i.i.i178, label %.loopexit.i.i.i.i179, label %.lr.ph.i.i.i.i174, !llvm.loop !15
 
 2154:                                             ; preds = %2138
   %2155 = getelementptr inbounds nuw i8, ptr %.1.i134.i, i64 16
@@ -7966,7 +7966,7 @@ copyouts.exit.i.i:                                ; preds = %createarc.exit127.i
   %2167 = getelementptr inbounds nuw i8, ptr %.136.i.i.i.i191, i64 40
   %.1.i.i.i.i192 = load ptr, ptr %2167, align 8
   %.not25.i.i.i.i193 = icmp eq ptr %.1.i.i.i.i192, null
-  br i1 %.not25.i.i.i.i193, label %.loopexit.i.i.i.i179, label %.lr.ph37.i.i.i.i190, !llvm.loop !15
+  br i1 %.not25.i.i.i.i193, label %.loopexit.i.i.i.i179, label %.lr.ph37.i.i.i.i190, !llvm.loop !16
 
 .loopexit.i.i.i.i179:                             ; preds = %2153, %2166, %2154, %.preheader.i.i.i.i170
   %2168 = load ptr, ptr %1746, align 8
@@ -8568,12 +8568,12 @@ uncolorchain.exit.i92.i.i:                        ; preds = %2433, %2431
   %2475 = getelementptr inbounds nuw i8, ptr %.0179.i.i, i64 32
   %.0.i.i113 = load ptr, ptr %2475, align 8
   %cond.i.i114 = icmp eq ptr %.0.i.i113, null
-  br i1 %cond.i.i114, label %._crit_edge.i.i115, label %2461, !llvm.loop !59
+  br i1 %cond.i.i114, label %._crit_edge.i.i115, label %2461, !llvm.loop !60
 
 ._crit_edge.i.i115:                               ; preds = %2474, %combine.exit.i.i
   %2476 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i87.i = icmp eq i32 %2476, 0
-  br i1 %.not.i87.i, label %2478, label %2477, !prof !13
+  br i1 %.not.i87.i, label %2478, label %2477, !prof !14
 
 2477:                                             ; preds = %._crit_edge.i.i115
   tail call void @ProcessInterrupts() #20
@@ -8735,7 +8735,7 @@ newstate.exit.i119:                               ; preds = %2542, %2518, %2503
   %2553 = load i16, ptr %2331, align 4
   %2554 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i94.i.i = icmp eq i32 %2554, 0
-  br i1 %.not.i.i94.i.i, label %2556, label %2555, !prof !13
+  br i1 %.not.i.i94.i.i, label %2556, label %2555, !prof !14
 
 2555:                                             ; preds = %.loopexit.i.i123
   tail call void @ProcessInterrupts() #20
@@ -8777,7 +8777,7 @@ newstate.exit.i119:                               ; preds = %2542, %2518, %2503
   %.0.in.i.i102.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i101.i.i, i64 24
   %.0.i.i103.i.i = load ptr, ptr %.0.in.i.i102.i.i, align 8
   %.not26.i.i104.i.i = icmp eq ptr %.0.i.i103.i.i, null
-  br i1 %.not26.i.i104.i.i, label %.loopexit.i.i105.i.i, label %.lr.ph.i.i100.i.i, !llvm.loop !14
+  br i1 %.not26.i.i104.i.i, label %.loopexit.i.i105.i.i, label %.lr.ph.i.i100.i.i, !llvm.loop !15
 
 2572:                                             ; preds = %2556
   %2573 = getelementptr inbounds nuw i8, ptr %2551, i64 16
@@ -8807,7 +8807,7 @@ newstate.exit.i119:                               ; preds = %2542, %2518, %2503
   %2585 = getelementptr inbounds nuw i8, ptr %.136.i.i109.i.i, i64 40
   %.1.i.i110.i.i = load ptr, ptr %2585, align 8
   %.not25.i.i111.i.i = icmp eq ptr %.1.i.i110.i.i, null
-  br i1 %.not25.i.i111.i.i, label %.loopexit.i.i105.i.i, label %.lr.ph37.i.i108.i.i, !llvm.loop !15
+  br i1 %.not25.i.i111.i.i, label %.loopexit.i.i105.i.i, label %.lr.ph37.i.i108.i.i, !llvm.loop !16
 
 .loopexit.i.i105.i.i:                             ; preds = %2571, %2584, %2572, %.preheader.i.i96.i.i
   %2586 = load ptr, ptr %1746, align 8
@@ -9008,7 +9008,7 @@ cparc.exit112.i.i:                                ; preds = %2568, %2581, %color
   %2684 = load i16, ptr %2683, align 4
   %2685 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i113.i.i = icmp eq i32 %2685, 0
-  br i1 %.not.i.i113.i.i, label %2687, label %2686, !prof !13
+  br i1 %.not.i.i113.i.i, label %2687, label %2686, !prof !14
 
 2686:                                             ; preds = %cparc.exit112.i.i
   tail call void @ProcessInterrupts() #20
@@ -9048,7 +9048,7 @@ cparc.exit112.i.i:                                ; preds = %2568, %2581, %color
   %.0.in.i.i121.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i120.i.i, i64 24
   %.0.i.i122.i.i = load ptr, ptr %.0.in.i.i121.i.i, align 8
   %.not26.i.i123.i.i = icmp eq ptr %.0.i.i122.i.i, null
-  br i1 %.not26.i.i123.i.i, label %.loopexit.i.i124.i.i, label %.lr.ph.i.i119.i.i, !llvm.loop !14
+  br i1 %.not26.i.i123.i.i, label %.loopexit.i.i124.i.i, label %.lr.ph.i.i119.i.i, !llvm.loop !15
 
 2702:                                             ; preds = %2687
   %2703 = getelementptr inbounds nuw i8, ptr %.1.i.i125, i64 16
@@ -9078,7 +9078,7 @@ cparc.exit112.i.i:                                ; preds = %2568, %2581, %color
   %2715 = getelementptr inbounds nuw i8, ptr %.136.i.i128.i.i, i64 40
   %.1.i.i129.i.i = load ptr, ptr %2715, align 8
   %.not25.i.i130.i.i = icmp eq ptr %.1.i.i129.i.i, null
-  br i1 %.not25.i.i130.i.i, label %.loopexit.i.i124.i.i, label %.lr.ph37.i.i127.i.i, !llvm.loop !15
+  br i1 %.not25.i.i130.i.i, label %.loopexit.i.i124.i.i, label %.lr.ph37.i.i127.i.i, !llvm.loop !16
 
 .loopexit.i.i124.i.i:                             ; preds = %2701, %2714, %2702, %.preheader.i.i115.i.i
   %2716 = load ptr, ptr %1746, align 8
@@ -9380,7 +9380,7 @@ select.unfold.i.i:                                ; preds = %2391, %2361
   %2866 = load ptr, ptr %2865, align 8
   %2867 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i138.i.i = icmp eq i32 %2867, 0
-  br i1 %.not.i138.i.i, label %2869, label %2868, !prof !13
+  br i1 %.not.i138.i.i, label %2869, label %2868, !prof !14
 
 2868:                                             ; preds = %select.unfold.i.i
   tail call void @ProcessInterrupts() #20
@@ -9420,7 +9420,7 @@ select.unfold.i.i:                                ; preds = %2391, %2361
   %.0.in.i142.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i.i156, i64 24
   %.0.i143.i.i = load ptr, ptr %.0.in.i142.i.i, align 8
   %.not26.i144.i.i = icmp eq ptr %.0.i143.i.i, null
-  br i1 %.not26.i144.i.i, label %.loopexit.i.i.i157, label %.lr.ph.i141.i.i, !llvm.loop !14
+  br i1 %.not26.i144.i.i, label %.loopexit.i.i.i157, label %.lr.ph.i141.i.i, !llvm.loop !15
 
 2884:                                             ; preds = %2869
   %2885 = getelementptr inbounds nuw i8, ptr %2866, i64 16
@@ -9450,7 +9450,7 @@ select.unfold.i.i:                                ; preds = %2391, %2361
   %2897 = getelementptr inbounds nuw i8, ptr %.136.i.i.i162, i64 40
   %.1.i.i.i163 = load ptr, ptr %2897, align 8
   %.not25.i145.i.i = icmp eq ptr %.1.i.i.i163, null
-  br i1 %.not25.i145.i.i, label %.loopexit.i.i.i157, label %.lr.ph37.i.i.i161, !llvm.loop !15
+  br i1 %.not25.i145.i.i, label %.loopexit.i.i.i157, label %.lr.ph37.i.i.i161, !llvm.loop !16
 
 .loopexit.i.i.i157:                               ; preds = %2883, %2896, %2884, %.preheader.i140.i.i
   tail call fastcc void @createarc(ptr noundef nonnull %0, i32 noundef %2342, i16 noundef signext %2864, ptr noundef %1885, ptr noundef %2866)
@@ -9587,7 +9587,7 @@ combine.exit.thread162.sink.split.i.i:            ; preds = %combine.exit.thread
 combine.exit.thread162.i.i:                       ; preds = %combine.exit.thread162.sink.split.i.i, %2381, %2374, %2369, %2351, %2344
   %.5.i130 = phi ptr [ %.4.i129, %combine.exit.thread162.sink.split.i.i ], [ %.13.i109, %2344 ], [ %.13.i109, %2351 ], [ %.13.i109, %2369 ], [ %.13.i109, %2374 ], [ %.13.i109, %2381 ]
   %.not73.i.i131 = icmp eq ptr %2339, null
-  br i1 %.not73.i.i131, label %.critedge.i.i111, label %2333, !llvm.loop !60
+  br i1 %.not73.i.i131, label %.critedge.i.i111, label %2333, !llvm.loop !61
 
 .critedge.i.i111:                                 ; preds = %combine.exit.thread162.i.i, %2333, %2328
   %.6.i = phi ptr [ %.0223.i, %2328 ], [ %.5.i130, %combine.exit.thread162.i.i ], [ %.13.i109, %2333 ]
@@ -9722,7 +9722,7 @@ push.exit.i:                                      ; preds = %newstate.exit.i119,
   %.8.i = phi ptr [ %.0223.i, %1879 ], [ %.0223.i, %1883 ], [ %.0223.i, %newstate.exit142.i ], [ %.0223.i, %freearc.exit84.i.i184 ], [ %.8.ph.i, %push.exit.sink.split.i ], [ %.13.i109, %newstate.exit.i119 ]
   %.2.i104 = phi i32 [ %.125.i, %1879 ], [ %.125.i, %1883 ], [ %.125.i, %newstate.exit142.i ], [ %.125.i, %freearc.exit84.i.i184 ], [ 1, %push.exit.sink.split.i ], [ %.125.i, %newstate.exit.i119 ]
   %.not54.i105 = icmp eq ptr %1881, null
-  br i1 %.not54.i105, label %.critedge2.i96, label %.lr.ph.i94, !llvm.loop !61
+  br i1 %.not54.i105, label %.critedge2.i96, label %.lr.ph.i94, !llvm.loop !62
 
 .critedge2.i96:                                   ; preds = %push.exit.i, %.lr.ph.i94
   %.02.lcssa.i97 = phi ptr [ %.0223.i, %.lr.ph.i94 ], [ %.8.i, %push.exit.i ]
@@ -9736,7 +9736,7 @@ push.exit.i:                                      ; preds = %newstate.exit.i119,
   %3020 = load ptr, ptr %3019, align 8
   store ptr null, ptr %3019, align 8
   %.not56.i99 = icmp eq ptr %3020, null
-  br i1 %.not56.i99, label %._crit_edge.i100, label %.lr.ph32.i, !llvm.loop !62
+  br i1 %.not56.i99, label %._crit_edge.i100, label %.lr.ph32.i, !llvm.loop !63
 
 ._crit_edge.i100:                                 ; preds = %.lr.ph32.i, %.critedge2.i96, %1871
   %.1.lcssa60.i = phi i32 [ %.1.lcssa.i98, %.critedge2.i96 ], [ %.04334.i, %1871 ], [ %.1.lcssa.i98, %.lr.ph32.i ]
@@ -9768,7 +9768,7 @@ push.exit.i:                                      ; preds = %newstate.exit.i119,
 .lr.ph37.i.backedge:                              ; preds = %3032, %.splitthread-pre-split.i92
   %.035.i.be = phi ptr [ %1873, %3032 ], [ %.pr.i93, %.splitthread-pre-split.i92 ]
   %.04334.i.be = phi i32 [ %.1.lcssa60.i, %3032 ], [ 0, %.splitthread-pre-split.i92 ]
-  br label %.lr.ph37.i, !llvm.loop !63
+  br label %.lr.ph37.i, !llvm.loop !64
 
 .critedge.i67:                                    ; preds = %3032, %.lr.ph37.i
   %.043.lcssa.ph.i68 = phi i32 [ %.1.lcssa60.i, %3032 ], [ %.04334.i, %.lr.ph37.i ]
@@ -9780,7 +9780,7 @@ push.exit.i:                                      ; preds = %newstate.exit.i119,
   %3036 = getelementptr inbounds nuw i8, ptr %3035, i64 24
   %3037 = load i32, ptr %3036, align 8
   %.not51.i69 = icmp eq i32 %3037, 0
-  br i1 %.not51.i69, label %.splitthread-pre-split.i92, label %.critedge5.i70, !llvm.loop !64
+  br i1 %.not51.i69, label %.splitthread-pre-split.i92, label %.critedge5.i70, !llvm.loop !65
 
 .critedge5.i70:                                   ; preds = %3034, %.critedge.i67, %.splitthread-pre-split.i92, %pullback.exit
   %3038 = load ptr, ptr %55, align 8
@@ -9821,7 +9821,7 @@ push.exit.i:                                      ; preds = %newstate.exit.i119,
   %3061 = load ptr, ptr %3060, align 8
   %3062 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i59.i73 = icmp eq i32 %3062, 0
-  br i1 %.not.i59.i73, label %3064, label %3063, !prof !13
+  br i1 %.not.i59.i73, label %3064, label %3063, !prof !14
 
 3063:                                             ; preds = %3052
   tail call void @ProcessInterrupts() #20
@@ -9863,7 +9863,7 @@ push.exit.i:                                      ; preds = %newstate.exit.i119,
   %.0.in.i.i80 = getelementptr inbounds nuw i8, ptr %.033.i.i79, i64 24
   %.0.i61.i = load ptr, ptr %.0.in.i.i80, align 8
   %.not26.i.i81 = icmp eq ptr %.0.i61.i, null
-  br i1 %.not26.i.i81, label %.loopexit.i62.i, label %.lr.ph.i60.i, !llvm.loop !14
+  br i1 %.not26.i.i81, label %.loopexit.i62.i, label %.lr.ph.i60.i, !llvm.loop !15
 
 3080:                                             ; preds = %3064
   %3081 = getelementptr inbounds nuw i8, ptr %3061, i64 16
@@ -9893,7 +9893,7 @@ push.exit.i:                                      ; preds = %newstate.exit.i119,
   %3093 = getelementptr inbounds nuw i8, ptr %.136.i.i90, i64 40
   %.1.i63.i = load ptr, ptr %3093, align 8
   %.not25.i.i91 = icmp eq ptr %.1.i63.i, null
-  br i1 %.not25.i.i91, label %.loopexit.i62.i, label %.lr.ph37.i.i89, !llvm.loop !15
+  br i1 %.not25.i.i91, label %.loopexit.i62.i, label %.lr.ph37.i.i89, !llvm.loop !16
 
 .loopexit.i62.i:                                  ; preds = %3079, %3092, %3080, %.preheader.i.i75
   tail call fastcc void @createarc(ptr noundef nonnull %0, i32 noundef 112, i16 noundef signext %3057, ptr noundef %3059, ptr noundef %3061)
@@ -10019,7 +10019,7 @@ freearc.exit.i85:                                 ; preds = %3146, %3145
 
 3152:                                             ; preds = %freearc.exit.i85, %3047
   %.not53.i72 = icmp eq ptr %3049, null
-  br i1 %.not53.i72, label %pushfwd.exit, label %3047, !llvm.loop !65
+  br i1 %.not53.i72, label %pushfwd.exit, label %3047, !llvm.loop !66
 
 pushfwd.exit:                                     ; preds = %3152, %.critedge5.i70, %3041
   tail call fastcc void @cleanup(ptr noundef nonnull %0)
@@ -10058,7 +10058,7 @@ pushfwd.exit:                                     ; preds = %3152, %.critedge5.i
   %.074.in.i.i = getelementptr inbounds nuw i8, ptr %.074181.i.i, i64 40
   %.074.i.i = load ptr, ptr %.074.in.i.i, align 8
   %.not.i.i216 = icmp eq ptr %.074.i.i, null
-  br i1 %.not.i.i216, label %.critedge._crit_edge.i.i, label %.preheader.i.i208, !llvm.loop !66
+  br i1 %.not.i.i216, label %.critedge._crit_edge.i.i, label %.preheader.i.i208, !llvm.loop !67
 
 .preheader.i.i208:                                ; preds = %.critedge.loopexit.i.i, %.preheader.lr.ph.i.i
   %.074181.i.i = phi ptr [ %.074179.i.i, %.preheader.lr.ph.i.i ], [ %.074.i.i, %.critedge.loopexit.i.i ]
@@ -10126,7 +10126,7 @@ pushfwd.exit:                                     ; preds = %3152, %.critedge5.i
   %.071.in.i.us.i = getelementptr inbounds nuw i8, ptr %.071177.i.us.i, i64 24
   %.071.i.us.i = load ptr, ptr %.071.in.i.us.i, align 8
   %.not81.i.us.i = icmp eq ptr %.071.i.us.i, null
-  br i1 %.not81.i.us.i, label %.critedge.loopexit.i.i, label %.lr.ph.i.us.i, !llvm.loop !67
+  br i1 %.not81.i.us.i, label %.critedge.loopexit.i.i, label %.lr.ph.i.us.i, !llvm.loop !68
 
 .lr.ph.i.i209:                                    ; preds = %.lr.ph.i.preheader.i, %3223
   %.071177.i.i = phi ptr [ %.071.i.i, %3223 ], [ %.071175.i.i, %.lr.ph.i.preheader.i ]
@@ -10172,7 +10172,7 @@ pushfwd.exit:                                     ; preds = %3152, %.critedge5.i
   %.071.in.i.i = getelementptr inbounds nuw i8, ptr %.071177.i.i, i64 24
   %.071.i.i = load ptr, ptr %.071.in.i.i, align 8
   %.not81.i.i = icmp eq ptr %.071.i.i, null
-  br i1 %.not81.i.i, label %.critedge.loopexit.i.i, label %.lr.ph.i.i209, !llvm.loop !69
+  br i1 %.not81.i.i, label %.critedge.loopexit.i.i, label %.lr.ph.i.i209, !llvm.loop !70
 
 .critedge._crit_edge.i.i:                         ; preds = %.critedge.loopexit.i.i, %.critedge.preheader.i.i
   %3224 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -10202,7 +10202,7 @@ pushfwd.exit:                                     ; preds = %3152, %.critedge5.i
   %3234 = getelementptr inbounds nuw i8, ptr %.031.i.i.i218, i64 24
   %.0.i.i.i219 = load ptr, ptr %3234, align 8
   %.not.i.i.i220 = icmp eq ptr %.0.i.i.i219, null
-  br i1 %.not.i.i.i220, label %.preheader28.i.i.i, label %.lr.ph.i.i.i217, !llvm.loop !70
+  br i1 %.not.i.i.i220, label %.preheader28.i.i.i, label %.lr.ph.i.i.i217, !llvm.loop !71
 
 .preheader.i.i.i223:                              ; preds = %3244
   %.237.pre.i.i.i = load ptr, ptr %3158, align 8
@@ -10234,7 +10234,7 @@ pushfwd.exit:                                     ; preds = %3152, %.critedge5.i
   %3245 = getelementptr inbounds nuw i8, ptr %.135.i.i.i, i64 24
   %.1.i.i.i221 = load ptr, ptr %3245, align 8
   %.not24.i.i.i222 = icmp eq ptr %.1.i.i.i221, null
-  br i1 %.not24.i.i.i222, label %.preheader.i.i.i223, label %.lr.ph36.i.i.i, !llvm.loop !71
+  br i1 %.not24.i.i.i222, label %.preheader.i.i.i223, label %.lr.ph36.i.i.i, !llvm.loop !72
 
 .lr.ph41.i.i.i:                                   ; preds = %.preheader.i.i.i223, %3255
   %.240.i.i.i = phi ptr [ %.2.i.i.i, %3255 ], [ %.237.pre.i.i.i, %.preheader.i.i.i223 ]
@@ -10261,7 +10261,7 @@ pushfwd.exit:                                     ; preds = %3152, %.critedge5.i
   %3256 = getelementptr inbounds nuw i8, ptr %.240.i.i.i, i64 24
   %.2.i.i.i = load ptr, ptr %3256, align 8
   %.not25.i.i.i224 = icmp eq ptr %.2.i.i.i, null
-  br i1 %.not25.i.i.i224, label %check_out_colors_match.exit.i.i, label %.lr.ph41.i.i.i, !llvm.loop !72
+  br i1 %.not25.i.i.i224, label %check_out_colors_match.exit.i.i, label %.lr.ph41.i.i.i, !llvm.loop !73
 
 check_out_colors_match.exit.i.i:                  ; preds = %3255, %.preheader.i.i.i223
   %.223.lcssa.i.i.i = phi i1 [ %.122.i.i.i, %.preheader.i.i.i223 ], [ %.3.i.i.i, %3255 ]
@@ -10299,7 +10299,7 @@ check_out_colors_match.exit.thread.i.i:           ; preds = %check_out_colors_ma
   %3269 = getelementptr inbounds nuw i8, ptr %.031.i88.i.i, i64 24
   %.0.i89.i.i = load ptr, ptr %3269, align 8
   %.not.i90.i.i = icmp eq ptr %.0.i89.i.i, null
-  br i1 %.not.i90.i.i, label %.preheader28.i91.i.i, label %.lr.ph.i87.i.i, !llvm.loop !70
+  br i1 %.not.i90.i.i, label %.preheader28.i91.i.i, label %.lr.ph.i87.i.i, !llvm.loop !71
 
 .preheader.i100.i.i:                              ; preds = %3279
   %.237.pre.i101.i.i = load ptr, ptr %3260, align 8
@@ -10331,7 +10331,7 @@ check_out_colors_match.exit.thread.i.i:           ; preds = %check_out_colors_ma
   %3280 = getelementptr inbounds nuw i8, ptr %.135.i95.i.i, i64 24
   %.1.i98.i.i = load ptr, ptr %3280, align 8
   %.not24.i99.i.i = icmp eq ptr %.1.i98.i.i, null
-  br i1 %.not24.i99.i.i, label %.preheader.i100.i.i, label %.lr.ph36.i94.i.i, !llvm.loop !71
+  br i1 %.not24.i99.i.i, label %.preheader.i100.i.i, label %.lr.ph36.i94.i.i, !llvm.loop !72
 
 .lr.ph41.i103.i.i:                                ; preds = %.preheader.i100.i.i, %3290
   %.240.i104.i.i = phi ptr [ %.2.i107.i.i, %3290 ], [ %.237.pre.i101.i.i, %.preheader.i100.i.i ]
@@ -10358,7 +10358,7 @@ check_out_colors_match.exit.thread.i.i:           ; preds = %check_out_colors_ma
   %3291 = getelementptr inbounds nuw i8, ptr %.240.i104.i.i, i64 24
   %.2.i107.i.i = load ptr, ptr %3291, align 8
   %.not25.i108.i.i = icmp eq ptr %.2.i107.i.i, null
-  br i1 %.not25.i108.i.i, label %check_out_colors_match.exit112.i.i, label %.lr.ph41.i103.i.i, !llvm.loop !72
+  br i1 %.not25.i108.i.i, label %check_out_colors_match.exit112.i.i, label %.lr.ph41.i103.i.i, !llvm.loop !73
 
 check_out_colors_match.exit112.i.i:               ; preds = %3290, %.preheader.i100.i.i
   %.223.lcssa.i109.i.i = phi i1 [ %.122.i97.i.i, %.preheader.i100.i.i ], [ %.3.i106.i.i, %3290 ]
@@ -10397,7 +10397,7 @@ check_out_colors_match.exit112.thread.i.i:        ; preds = %check_out_colors_ma
   %3305 = getelementptr inbounds nuw i8, ptr %.031.i116.i.i, i64 40
   %.0.i117.i.i = load ptr, ptr %3305, align 8
   %.not.i118.i.i = icmp eq ptr %.0.i117.i.i, null
-  br i1 %.not.i118.i.i, label %.preheader28.i119.i.i, label %.lr.ph.i115.i.i, !llvm.loop !73
+  br i1 %.not.i118.i.i, label %.preheader28.i119.i.i, label %.lr.ph.i115.i.i, !llvm.loop !74
 
 .preheader.i128.i.i:                              ; preds = %3315
   %.237.pre.i129.i.i = load ptr, ptr %3296, align 8
@@ -10429,7 +10429,7 @@ check_out_colors_match.exit112.thread.i.i:        ; preds = %check_out_colors_ma
   %3316 = getelementptr inbounds nuw i8, ptr %.135.i123.i.i, i64 40
   %.1.i126.i.i = load ptr, ptr %3316, align 8
   %.not24.i127.i.i = icmp eq ptr %.1.i126.i.i, null
-  br i1 %.not24.i127.i.i, label %.preheader.i128.i.i, label %.lr.ph36.i122.i.i, !llvm.loop !74
+  br i1 %.not24.i127.i.i, label %.preheader.i128.i.i, label %.lr.ph36.i122.i.i, !llvm.loop !75
 
 .lr.ph41.i131.i.i:                                ; preds = %.preheader.i128.i.i, %3326
   %.240.i132.i.i = phi ptr [ %.2.i135.i.i, %3326 ], [ %.237.pre.i129.i.i, %.preheader.i128.i.i ]
@@ -10456,7 +10456,7 @@ check_out_colors_match.exit112.thread.i.i:        ; preds = %check_out_colors_ma
   %3327 = getelementptr inbounds nuw i8, ptr %.240.i132.i.i, i64 40
   %.2.i135.i.i = load ptr, ptr %3327, align 8
   %.not25.i136.i.i = icmp eq ptr %.2.i135.i.i, null
-  br i1 %.not25.i136.i.i, label %check_in_colors_match.exit.i.i, label %.lr.ph41.i131.i.i, !llvm.loop !75
+  br i1 %.not25.i136.i.i, label %check_in_colors_match.exit.i.i, label %.lr.ph41.i131.i.i, !llvm.loop !76
 
 check_in_colors_match.exit.i.i:                   ; preds = %3326, %.preheader.i128.i.i
   %.223.lcssa.i137.i.i = phi i1 [ %.122.i125.i.i, %.preheader.i128.i.i ], [ %.3.i134.i.i, %3326 ]
@@ -10494,7 +10494,7 @@ check_in_colors_match.exit.thread.i.i:            ; preds = %check_in_colors_mat
   %3340 = getelementptr inbounds nuw i8, ptr %.031.i143.i.i, i64 40
   %.0.i144.i.i = load ptr, ptr %3340, align 8
   %.not.i145.i.i225 = icmp eq ptr %.0.i144.i.i, null
-  br i1 %.not.i145.i.i225, label %.preheader28.i146.i.i, label %.lr.ph.i142.i.i, !llvm.loop !73
+  br i1 %.not.i145.i.i225, label %.preheader28.i146.i.i, label %.lr.ph.i142.i.i, !llvm.loop !74
 
 .preheader.i155.i.i:                              ; preds = %3350
   %.237.pre.i156.i.i = load ptr, ptr %3331, align 8
@@ -10526,7 +10526,7 @@ check_in_colors_match.exit.thread.i.i:            ; preds = %check_in_colors_mat
   %3351 = getelementptr inbounds nuw i8, ptr %.135.i150.i.i, i64 40
   %.1.i153.i.i = load ptr, ptr %3351, align 8
   %.not24.i154.i.i = icmp eq ptr %.1.i153.i.i, null
-  br i1 %.not24.i154.i.i, label %.preheader.i155.i.i, label %.lr.ph36.i149.i.i, !llvm.loop !74
+  br i1 %.not24.i154.i.i, label %.preheader.i155.i.i, label %.lr.ph36.i149.i.i, !llvm.loop !75
 
 .lr.ph41.i158.i.i:                                ; preds = %.preheader.i155.i.i, %3361
   %.240.i159.i.i = phi ptr [ %.2.i162.i.i, %3361 ], [ %.237.pre.i156.i.i, %.preheader.i155.i.i ]
@@ -10553,7 +10553,7 @@ check_in_colors_match.exit.thread.i.i:            ; preds = %check_in_colors_mat
   %3362 = getelementptr inbounds nuw i8, ptr %.240.i159.i.i, i64 40
   %.2.i162.i.i = load ptr, ptr %3362, align 8
   %.not25.i163.i.i = icmp eq ptr %.2.i162.i.i, null
-  br i1 %.not25.i163.i.i, label %check_in_colors_match.exit167.i.i, label %.lr.ph41.i158.i.i, !llvm.loop !75
+  br i1 %.not25.i163.i.i, label %check_in_colors_match.exit167.i.i, label %.lr.ph41.i158.i.i, !llvm.loop !76
 
 check_in_colors_match.exit167.i.i:                ; preds = %3361, %.preheader.i155.i.i
   %.223.lcssa.i164.i.i = phi i1 [ %.122.i152.i.i, %.preheader.i155.i.i ], [ %.3.i161.i.i, %3361 ]
@@ -10587,14 +10587,14 @@ check_in_colors_match.exit167.thread.i.i:         ; preds = %check_in_colors_mat
 3380:                                             ; preds = %3384, %3374
   %indvars.iv.i.i229 = phi i64 [ 0, %3374 ], [ %indvars.iv.next.i.i230, %3384 ]
   %3381 = getelementptr inbounds nuw i8, ptr %3379, i64 %indvars.iv.i.i229
-  %3382 = load i8, ptr %3381, align 1, !range !7, !noundef !8
+  %3382 = load i8, ptr %3381, align 1, !range !8, !noundef !9
   %3383 = trunc nuw i8 %3382 to i1
   br i1 %3383, label %.split.loop.exit.i.i, label %3384
 
 3384:                                             ; preds = %3380
   %indvars.iv.next.i.i230 = add nuw nsw i64 %indvars.iv.i.i229, 1
   %exitcond.not.i.i231 = icmp eq i64 %indvars.iv.next.i.i230, 258
-  br i1 %exitcond.not.i.i231, label %.split.loop.exit203.i.i, label %3380, !llvm.loop !76
+  br i1 %exitcond.not.i.i231, label %.split.loop.exit203.i.i, label %3380, !llvm.loop !77
 
 .split.loop.exit.i.i:                             ; preds = %3380
   %3385 = trunc nuw nsw i64 %indvars.iv.i.i229 to i32
@@ -10615,14 +10615,14 @@ check_in_colors_match.exit167.thread.i.i:         ; preds = %check_in_colors_mat
 3388:                                             ; preds = %3387
   %indvars.iv.next187.i.i = add nuw nsw i64 %indvars.iv186.i.i, 1
   %3389 = getelementptr inbounds nuw i8, ptr %3379, i64 %indvars.iv.next187.i.i
-  %3390 = load i8, ptr %3389, align 1, !range !7, !noundef !8
+  %3390 = load i8, ptr %3389, align 1, !range !8, !noundef !9
   %3391 = trunc nuw i8 %3390 to i1
-  br i1 %3391, label %3387, label %._crit_edge199.i.i, !llvm.loop !77
+  br i1 %3391, label %3387, label %._crit_edge199.i.i, !llvm.loop !78
 
 ._crit_edge199.i.i:                               ; preds = %3388
   %3392 = trunc nuw nsw i64 %indvars.iv186.i.i to i32
   %.pre200.i.i = and i64 %indvars.iv186.i.i, 4294967295
-  br label %split.i.i, !llvm.loop !77
+  br label %split.i.i, !llvm.loop !78
 
 split.i.i:                                        ; preds = %3387, %._crit_edge199.i.i
   %.pre-phi.i.i = phi i64 [ %.pre200.i.i, %._crit_edge199.i.i ], [ %wide.trip.count.i.i, %3387 ]
@@ -10639,9 +10639,9 @@ split.i.i:                                        ; preds = %3387, %._crit_edge1
 3394:                                             ; preds = %3393
   %indvars.iv.next191.i.i = add nuw nsw i64 %indvars.iv190.i.i, 1
   %3395 = getelementptr inbounds nuw i8, ptr %3379, i64 %indvars.iv.next191.i.i
-  %3396 = load i8, ptr %3395, align 1, !range !7, !noundef !8
+  %3396 = load i8, ptr %3395, align 1, !range !8, !noundef !9
   %3397 = trunc nuw i8 %3396 to i1
-  br i1 %3397, label %.thread.i.i226, label %3393, !llvm.loop !78
+  br i1 %3397, label %.thread.i.i226, label %3393, !llvm.loop !79
 
 3398:                                             ; preds = %3393
   %3399 = add nsw i32 %.069.lcssa.i.i, -1
@@ -10678,7 +10678,7 @@ split.i.i:                                        ; preds = %3387, %._crit_edge1
   %indvars.iv.next197.i.i = add nuw nsw i64 %indvars.iv196.i.i, 1
   %3413 = sext i32 %3412 to i64
   %3414 = icmp slt i64 %indvars.iv.next197.i.i, %3413
-  br i1 %3414, label %.lr.ph184.i.i, label %._crit_edge.i.i227, !llvm.loop !79
+  br i1 %3414, label %.lr.ph184.i.i, label %._crit_edge.i.i227, !llvm.loop !80
 
 ._crit_edge.i.i227:                               ; preds = %3411, %.thread.i.i226
   tail call void @pfree(ptr noundef nonnull %3366) #20
@@ -10699,7 +10699,7 @@ checkmatchall.exit.i:                             ; preds = %3220, %3212, %3204,
   %.011.in.i213 = getelementptr inbounds nuw i8, ptr %.01123.i, i64 24
   %.011.i214 = load ptr, ptr %.011.in.i213, align 8
   %.not13.i215 = icmp eq ptr %.011.i214, null
-  br i1 %.not13.i215, label %analyze.exit, label %3417, !llvm.loop !80
+  br i1 %.not13.i215, label %analyze.exit, label %3417, !llvm.loop !81
 
 3417:                                             ; preds = %.loopexit.i, %.lr.ph.i211
   %.01123.i = phi ptr [ %.01121.i210, %.lr.ph.i211 ], [ %.011.i214, %.loopexit.i ]
@@ -10719,7 +10719,7 @@ checkmatchall.exit.i:                             ; preds = %3220, %3212, %3204,
   %3423 = load ptr, ptr %3422, align 8
   %3424 = load ptr, ptr %3416, align 8
   %3425 = icmp eq ptr %3423, %3424
-  br i1 %3425, label %analyze.exit, label %3420, !llvm.loop !81
+  br i1 %3425, label %analyze.exit, label %3420, !llvm.loop !82
 
 analyze.exit:                                     ; preds = %.loopexit.i, %3421, %pushfwd.exit, %3156, %checkmatchall.exit.i
   %.012.i = phi i64 [ 0, %pushfwd.exit ], [ 4096, %3156 ], [ 0, %checkmatchall.exit.i ], [ 2048, %3421 ], [ 0, %.loopexit.i ]
@@ -10756,12 +10756,12 @@ define internal fastcc void @makesearch(ptr noundef nonnull readonly captures(no
   %14 = getelementptr inbounds nuw i8, ptr %.065163, i64 24
   %.065 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.065, null
-  br i1 %.not, label %.critedge, label %8, !llvm.loop !82
+  br i1 %.not, label %.critedge, label %8, !llvm.loop !83
 
 15:                                               ; preds = %11
   %16 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i, label %18, label %17, !prof !13
+  br i1 %.not.i.i, label %18, label %17, !prof !14
 
 17:                                               ; preds = %15
   tail call void @ProcessInterrupts() #20
@@ -10802,7 +10802,7 @@ define internal fastcc void @makesearch(ptr noundef nonnull readonly captures(no
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 24
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not26.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 34:                                               ; preds = %18
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -10832,7 +10832,7 @@ define internal fastcc void @makesearch(ptr noundef nonnull readonly captures(no
   %47 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 40
   %.1.i.i = load ptr, ptr %47, align 8
   %.not25.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !15
+  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %33, %46, %34, %.preheader.i.i
   tail call fastcc void @createarc(ptr noundef nonnull %1, i32 noundef 112, i16 noundef signext -2, ptr noundef %3, ptr noundef %3)
@@ -10842,7 +10842,7 @@ rainbow.exit:                                     ; preds = %30, %43, %.loopexit
   %48 = load i16, ptr %5, align 8
   %49 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %51, label %50, !prof !13
+  br i1 %.not.i, label %51, label %50, !prof !14
 
 50:                                               ; preds = %rainbow.exit
   tail call void @ProcessInterrupts() #20
@@ -10881,7 +10881,7 @@ rainbow.exit:                                     ; preds = %30, %43, %.loopexit
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 65:                                               ; preds = %51
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -10911,7 +10911,7 @@ rainbow.exit:                                     ; preds = %30, %43, %.loopexit
   %78 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %78, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %64, %77, %65, %.preheader.i
   tail call fastcc void @createarc(ptr noundef nonnull %1, i32 noundef 112, i16 noundef signext %48, ptr noundef %3, ptr noundef %3)
@@ -10921,7 +10921,7 @@ newarc.exit:                                      ; preds = %61, %74, %.loopexit
   %79 = load i16, ptr %7, align 2
   %80 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i86 = icmp eq i32 %80, 0
-  br i1 %.not.i86, label %82, label %81, !prof !13
+  br i1 %.not.i86, label %82, label %81, !prof !14
 
 81:                                               ; preds = %newarc.exit
   tail call void @ProcessInterrupts() #20
@@ -10960,7 +10960,7 @@ newarc.exit:                                      ; preds = %61, %74, %.loopexit
   %.0.in.i94 = getelementptr inbounds nuw i8, ptr %.033.i93, i64 24
   %.0.i95 = load ptr, ptr %.0.in.i94, align 8
   %.not26.i96 = icmp eq ptr %.0.i95, null
-  br i1 %.not26.i96, label %.loopexit.i97, label %.lr.ph.i92, !llvm.loop !14
+  br i1 %.not26.i96, label %.loopexit.i97, label %.lr.ph.i92, !llvm.loop !15
 
 96:                                               ; preds = %82
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -10990,7 +10990,7 @@ newarc.exit:                                      ; preds = %61, %74, %.loopexit
   %109 = getelementptr inbounds nuw i8, ptr %.136.i101, i64 40
   %.1.i102 = load ptr, ptr %109, align 8
   %.not25.i103 = icmp eq ptr %.1.i102, null
-  br i1 %.not25.i103, label %.loopexit.i97, label %.lr.ph37.i100, !llvm.loop !15
+  br i1 %.not25.i103, label %.loopexit.i97, label %.lr.ph37.i100, !llvm.loop !16
 
 .loopexit.i97:                                    ; preds = %95, %108, %96, %.preheader.i88
   tail call fastcc void @createarc(ptr noundef nonnull %1, i32 noundef 112, i16 noundef signext %79, ptr noundef %3, ptr noundef %3)
@@ -11041,7 +11041,7 @@ select.unfold.preheader:                          ; preds = %.critedge85
   %126 = getelementptr inbounds nuw i8, ptr %.067166, i64 40
   %.067 = load ptr, ptr %126, align 8
   %.not81 = icmp eq ptr %.067, null
-  br i1 %.not81, label %.critedge85, label %.lr.ph167, !llvm.loop !83
+  br i1 %.not81, label %.critedge85, label %.lr.ph167, !llvm.loop !84
 
 .lr.ph167:                                        ; preds = %.lr.ph172, %125
   %.067166 = phi ptr [ %.067, %125 ], [ %.067164, %.lr.ph172 ]
@@ -11067,7 +11067,7 @@ select.unfold.preheader:                          ; preds = %.critedge85
   %135 = getelementptr inbounds nuw i8, ptr %.166171, i64 24
   %.166 = load ptr, ptr %135, align 8
   %.not74 = icmp eq ptr %.166, null
-  br i1 %.not74, label %select.unfold.preheader, label %.lr.ph172, !llvm.loop !84
+  br i1 %.not74, label %select.unfold.preheader, label %.lr.ph172, !llvm.loop !85
 
 136:                                              ; preds = %.lr.ph178, %select.unfold
   %.064177 = phi ptr [ %.1, %.lr.ph178 ], [ %445, %select.unfold ]
@@ -11295,7 +11295,7 @@ createarc.exit:                                   ; preds = %allocarc.exit.i, %2
   %.0.in.i108 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   %.0.i109 = load ptr, ptr %.0.in.i108, align 8
   %.not.i110 = icmp eq ptr %.0.i109, null
-  br i1 %.not.i110, label %copyouts.exit, label %.lr.ph.i107, !llvm.loop !58
+  br i1 %.not.i110, label %copyouts.exit, label %.lr.ph.i107, !llvm.loop !59
 
 copyouts.exit:                                    ; preds = %createarc.exit
   %.pre = load i32, ptr %115, align 8
@@ -11328,7 +11328,7 @@ copyouts.exit.thread:                             ; preds = %.preheader.i106, %1
   %258 = load i16, ptr %257, align 4
   %259 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i111 = icmp eq i32 %259, 0
-  br i1 %.not.i.i111, label %261, label %260, !prof !13
+  br i1 %.not.i.i111, label %261, label %260, !prof !14
 
 260:                                              ; preds = %255
   tail call void @ProcessInterrupts() #20
@@ -11369,7 +11369,7 @@ copyouts.exit.thread:                             ; preds = %.preheader.i106, %1
   %.0.in.i.i119 = getelementptr inbounds nuw i8, ptr %.033.i.i118, i64 24
   %.0.i.i120 = load ptr, ptr %.0.in.i.i119, align 8
   %.not26.i.i121 = icmp eq ptr %.0.i.i120, null
-  br i1 %.not26.i.i121, label %.loopexit.i.i122, label %.lr.ph.i.i117, !llvm.loop !14
+  br i1 %.not26.i.i121, label %.loopexit.i.i122, label %.lr.ph.i.i117, !llvm.loop !15
 
 276:                                              ; preds = %261
   %.134.i.i123 = load ptr, ptr %249, align 8
@@ -11398,7 +11398,7 @@ copyouts.exit.thread:                             ; preds = %.preheader.i106, %1
   %288 = getelementptr inbounds nuw i8, ptr %.136.i.i126, i64 40
   %.1.i.i127 = load ptr, ptr %288, align 8
   %.not25.i.i128 = icmp eq ptr %.1.i.i127, null
-  br i1 %.not25.i.i128, label %.loopexit.i.i122, label %.lr.ph37.i.i125, !llvm.loop !15
+  br i1 %.not25.i.i128, label %.loopexit.i.i122, label %.lr.ph37.i.i125, !llvm.loop !16
 
 .loopexit.i.i122:                                 ; preds = %275, %287, %276, %.preheader.i.i113
   %289 = load ptr, ptr %116, align 8
@@ -11713,7 +11713,7 @@ freearc.exit:                                     ; preds = %436, %437
 
 443:                                              ; preds = %250, %freearc.exit
   %.not78 = icmp eq ptr %252, null
-  br i1 %.not78, label %select.unfold, label %250, !llvm.loop !85
+  br i1 %.not78, label %select.unfold, label %250, !llvm.loop !86
 
 select.unfold:                                    ; preds = %443, %copyouts.exit.thread
   %444 = getelementptr inbounds nuw i8, ptr %.064177, i64 32
@@ -11748,7 +11748,7 @@ define internal fastcc void @compact(ptr noundef readonly captures(none) %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %.0114, i64 40
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !86
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %11 = shl i64 %9, 3
@@ -11952,7 +11952,7 @@ maxcolor.exit:                                    ; preds = %38, %65
   %.093.in = getelementptr inbounds nuw i8, ptr %.093120, i64 24
   %.093 = load ptr, ptr %.093.in, align 8
   %.not102 = icmp eq ptr %.093, null
-  br i1 %.not102, label %._crit_edge123, label %.lr.ph122, !llvm.loop !87
+  br i1 %.not102, label %._crit_edge123, label %.lr.ph122, !llvm.loop !88
 
 ._crit_edge123:                                   ; preds = %116, %.lr.ph129
   %.190.lcssa = phi ptr [ %.089127, %.lr.ph129 ], [ %.2, %116 ]
@@ -11975,7 +11975,7 @@ carcsort.exit:                                    ; preds = %._crit_edge123, %12
   %125 = getelementptr inbounds nuw i8, ptr %.1128, i64 40
   %.1 = load ptr, ptr %125, align 8
   %.not100 = icmp eq ptr %.1, null
-  br i1 %.not100, label %._crit_edge130, label %.lr.ph129, !llvm.loop !88
+  br i1 %.not100, label %._crit_edge130, label %.lr.ph129, !llvm.loop !89
 
 ._crit_edge130:                                   ; preds = %carcsort.exit, %maxcolor.exit
   %126 = load ptr, ptr %0, align 8
@@ -11996,7 +11996,7 @@ carcsort.exit:                                    ; preds = %._crit_edge123, %12
   %.194.in = getelementptr inbounds nuw i8, ptr %.194134, i64 24
   %.194 = load ptr, ptr %.194.in, align 8
   %.not101 = icmp eq ptr %.194, null
-  br i1 %.not101, label %._crit_edge137.loopexit, label %.lr.ph136, !llvm.loop !89
+  br i1 %.not101, label %._crit_edge137.loopexit, label %.lr.ph136, !llvm.loop !90
 
 ._crit_edge137.loopexit:                          ; preds = %.lr.ph136
   %.pre = load ptr, ptr %0, align 8
@@ -12152,7 +12152,7 @@ pg_wc_tolower.exit16:                             ; preds = %pg_wc_tolower.exit.
   %63 = getelementptr inbounds nuw i8, ptr %.0924, i64 4
   %64 = getelementptr inbounds nuw i8, ptr %.0825, i64 4
   %.not = icmp eq i64 %62, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %pg_wc_tolower.exit16, %61, %3
   %.010 = phi i32 [ 0, %3 ], [ 0, %61 ], [ 1, %pg_wc_tolower.exit16 ]
@@ -12209,7 +12209,7 @@ define dso_local signext i16 @pg_reg_getcolor(ptr noundef readonly captures(none
   %.232 = phi i32 [ %21, %20 ], [ %.03039, %8 ]
   %.229 = phi i32 [ %.02740, %20 ], [ %11, %8 ]
   %25 = icmp slt i32 %.232, %.229
-  br i1 %25, label %8, label %.loopexit
+  br i1 %25, label %8, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %24, %2, %.thread
   %.1 = phi i32 [ %23, %.thread ], [ 0, %2 ], [ 0, %24 ]
@@ -12320,7 +12320,7 @@ pg_wc_isprint.exit.thread.i:                      ; preds = %62, %pg_wc_isprint.
 76:                                               ; preds = %65
   %77 = load ptr, ptr @pg_regex_locale, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %79 = load i8, ptr %78, align 8, !range !7, !noundef !8
+  %79 = load i8, ptr %78, align 8, !range !8, !noundef !9
   %80 = trunc nuw i8 %79 to i1
   %81 = xor i1 %80, true
   %82 = tail call zeroext i1 @pg_u_isalnum(i32 noundef %1, i1 noundef zeroext %81) #20
@@ -12485,7 +12485,7 @@ pg_wc_isalpha.exit.thread.i:                      ; preds = %144, %pg_wc_isalpha
 162:                                              ; preds = %151
   %163 = load ptr, ptr @pg_regex_locale, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  %165 = load i8, ptr %164, align 8, !range !7, !noundef !8
+  %165 = load i8, ptr %164, align 8, !range !8, !noundef !9
   %166 = trunc nuw i8 %165 to i1
   %167 = xor i1 %166, true
   %168 = tail call zeroext i1 @pg_u_isalnum(i32 noundef %1, i1 noundef zeroext %167) #20
@@ -12565,7 +12565,7 @@ pg_wc_isword.exit.thread.i:                       ; preds = %pg_wc_isword.exit.t
 200:                                              ; preds = %195
   %201 = load ptr, ptr @pg_regex_locale, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
-  %203 = load i8, ptr %202, align 8, !range !7, !noundef !8
+  %203 = load i8, ptr %202, align 8, !range !8, !noundef !9
   %204 = trunc nuw i8 %203 to i1
   %205 = xor i1 %204, true
   %206 = tail call zeroext i1 @pg_u_isdigit(i32 noundef %1, i1 noundef zeroext %205) #20
@@ -12648,7 +12648,7 @@ pg_wc_isdigit.exit.thread.i:                      ; preds = %229, %pg_wc_isdigit
 244:                                              ; preds = %234
   %245 = load ptr, ptr @pg_regex_locale, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %247 = load i8, ptr %246, align 8, !range !7, !noundef !8
+  %247 = load i8, ptr %246, align 8, !range !8, !noundef !9
   %248 = trunc nuw i8 %247 to i1
   %249 = xor i1 %248, true
   %250 = tail call zeroext i1 @pg_u_ispunct(i32 noundef %1, i1 noundef zeroext %249) #20
@@ -13129,7 +13129,7 @@ freecm.exit:                                      ; preds = %22, %25
 46:                                               ; preds = %39, %.lr.ph.i
   %.0.i = add nsw i32 %.012.i, -1
   %47 = icmp sgt i32 %.012.i, 1
-  br i1 %47, label %.lr.ph.i, label %freelacons.exit, !llvm.loop !12
+  br i1 %47, label %.lr.ph.i, label %freelacons.exit, !llvm.loop !13
 
 freelacons.exit:                                  ; preds = %46, %32
   tail call void @pfree(ptr noundef nonnull %31) #20
@@ -13186,7 +13186,7 @@ define internal fastcc void @freesubre(ptr noundef captures(address_is_null) %0,
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @freesubre(ptr noundef %0, ptr noundef nonnull %.0.i8)
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %freesubreandsiblings.exit, label %.preheader, !llvm.loop !24
+  br i1 %.not.i, label %freesubreandsiblings.exit, label %.preheader, !llvm.loop !25
 
 freesubreandsiblings.exit:                        ; preds = %.preheader, %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -13318,7 +13318,7 @@ define internal fastcc void @rainbow(ptr noundef captures(none) %0, ptr noundef 
 18:                                               ; preds = %5
   %19 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %21, label %20, !prof !13
+  br i1 %.not.i, label %21, label %20, !prof !14
 
 20:                                               ; preds = %18
   tail call void @ProcessInterrupts() #20
@@ -13360,7 +13360,7 @@ define internal fastcc void @rainbow(ptr noundef captures(none) %0, ptr noundef 
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 37:                                               ; preds = %21
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -13390,7 +13390,7 @@ define internal fastcc void @rainbow(ptr noundef captures(none) %0, ptr noundef 
   %50 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %50, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %36, %49, %37, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef 112, i16 noundef signext -2, ptr noundef %3, ptr noundef %4)
@@ -13426,7 +13426,7 @@ define internal fastcc void @rainbow(ptr noundef captures(none) %0, ptr noundef 
 63:                                               ; preds = %59
   %64 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i31 = icmp eq i32 %64, 0
-  br i1 %.not.i31, label %66, label %65, !prof !13
+  br i1 %.not.i31, label %66, label %65, !prof !14
 
 65:                                               ; preds = %63
   tail call void @ProcessInterrupts() #20
@@ -13465,7 +13465,7 @@ define internal fastcc void @rainbow(ptr noundef captures(none) %0, ptr noundef 
   %.0.in.i39 = getelementptr inbounds nuw i8, ptr %.033.i38, i64 24
   %.0.i40 = load ptr, ptr %.0.in.i39, align 8
   %.not26.i41 = icmp eq ptr %.0.i40, null
-  br i1 %.not26.i41, label %.loopexit.i42, label %.lr.ph.i37, !llvm.loop !14
+  br i1 %.not26.i41, label %.loopexit.i42, label %.lr.ph.i37, !llvm.loop !15
 
 80:                                               ; preds = %66
   %.134.i43 = load ptr, ptr %17, align 8
@@ -13494,7 +13494,7 @@ define internal fastcc void @rainbow(ptr noundef captures(none) %0, ptr noundef 
   %92 = getelementptr inbounds nuw i8, ptr %.136.i46, i64 40
   %.1.i47 = load ptr, ptr %92, align 8
   %.not25.i48 = icmp eq ptr %.1.i47, null
-  br i1 %.not25.i48, label %.loopexit.i42, label %.lr.ph37.i45, !llvm.loop !15
+  br i1 %.not25.i48, label %.loopexit.i42, label %.lr.ph37.i45, !llvm.loop !16
 
 .loopexit.i42:                                    ; preds = %79, %91, %80, %.preheader.i33
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef 112, i16 noundef signext %.057, ptr noundef %3, ptr noundef %4)
@@ -13504,7 +13504,7 @@ newarc.exit49:                                    ; preds = %76, %88, %.loopexit
   %93 = getelementptr inbounds nuw i8, ptr %.02356, i64 32
   %94 = add i16 %.057, 1
   %95 = icmp ult ptr %93, %11
-  br i1 %95, label %51, label %.critedge, !llvm.loop !91
+  br i1 %95, label %51, label %.critedge, !llvm.loop !93
 
 .critedge:                                        ; preds = %newarc.exit49, %51, %33, %46, %.preheader, %.loopexit.i
   ret void
@@ -13514,7 +13514,7 @@ newarc.exit49:                                    ; preds = %76, %88, %.loopexit
 define internal fastcc void @newarc(ptr noundef captures(none) %0, i32 noundef %1, i16 noundef signext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %8, label %7, !prof !13
+  br i1 %.not, label %8, label %7, !prof !14
 
 7:                                                ; preds = %5
   tail call void @ProcessInterrupts() #20
@@ -13556,7 +13556,7 @@ define internal fastcc void @newarc(ptr noundef captures(none) %0, i32 noundef %
   %.0.in = getelementptr inbounds nuw i8, ptr %.033, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
   %.not26 = icmp eq ptr %.0, null
-  br i1 %.not26, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not26, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 24:                                               ; preds = %8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -13586,7 +13586,7 @@ define internal fastcc void @newarc(ptr noundef captures(none) %0, i32 noundef %
   %37 = getelementptr inbounds nuw i8, ptr %.136, i64 40
   %.1 = load ptr, ptr %37, align 8
   %.not25 = icmp eq ptr %.1, null
-  br i1 %.not25, label %.loopexit, label %.lr.ph37, !llvm.loop !15
+  br i1 %.not25, label %.loopexit, label %.lr.ph37, !llvm.loop !16
 
 .loopexit:                                        ; preds = %23, %36, %.preheader, %24
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, ptr noundef %3, ptr noundef %4)
@@ -13600,7 +13600,7 @@ define internal fastcc void @newarc(ptr noundef captures(none) %0, i32 noundef %
 define internal fastcc noundef ptr @newstate(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %4, label %3, !prof !13
+  br i1 %.not, label %4, label %3, !prof !14
 
 3:                                                ; preds = %1
   tail call void @ProcessInterrupts() #20
@@ -14226,7 +14226,7 @@ switch.early.test:                                ; preds = %64
   %77 = load ptr, ptr %48, align 8
   %78 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i291 = icmp eq i32 %78, 0
-  br i1 %.not.i291, label %80, label %79, !prof !13
+  br i1 %.not.i291, label %80, label %79, !prof !14
 
 79:                                               ; preds = %76
   tail call void @ProcessInterrupts() #20
@@ -14267,7 +14267,7 @@ switch.early.test:                                ; preds = %64
   %.0.in.i299 = getelementptr inbounds nuw i8, ptr %.033.i298, i64 24
   %.0.i300 = load ptr, ptr %.0.in.i299, align 8
   %.not26.i301 = icmp eq ptr %.0.i300, null
-  br i1 %.not26.i301, label %.loopexit.i302, label %.lr.ph.i297, !llvm.loop !14
+  br i1 %.not26.i301, label %.loopexit.i302, label %.lr.ph.i297, !llvm.loop !15
 
 95:                                               ; preds = %80
   %.134.i303 = load ptr, ptr %55, align 8
@@ -14296,7 +14296,7 @@ switch.early.test:                                ; preds = %64
   %107 = getelementptr inbounds nuw i8, ptr %.136.i306, i64 40
   %.1.i307 = load ptr, ptr %107, align 8
   %.not25.i308 = icmp eq ptr %.1.i307, null
-  br i1 %.not25.i308, label %.loopexit.i302, label %.lr.ph37.i305, !llvm.loop !15
+  br i1 %.not25.i308, label %.loopexit.i302, label %.lr.ph37.i305, !llvm.loop !16
 
 .loopexit.i302:                                   ; preds = %94, %106, %95, %.preheader.i293
   tail call fastcc void @createarc(ptr noundef %77, i32 noundef 94, i16 noundef signext 1, ptr noundef %.1, ptr noundef %4)
@@ -14313,7 +14313,7 @@ newarc.exit309:                                   ; preds = %91, %103, %.loopexi
   %112 = load i16, ptr %58, align 8
   %113 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i272 = icmp eq i32 %113, 0
-  br i1 %.not.i272, label %115, label %114, !prof !13
+  br i1 %.not.i272, label %115, label %114, !prof !14
 
 114:                                              ; preds = %110
   tail call void @ProcessInterrupts() #20
@@ -14353,7 +14353,7 @@ newarc.exit309:                                   ; preds = %91, %103, %.loopexi
   %.0.in.i280 = getelementptr inbounds nuw i8, ptr %.033.i279, i64 24
   %.0.i281 = load ptr, ptr %.0.in.i280, align 8
   %.not26.i282 = icmp eq ptr %.0.i281, null
-  br i1 %.not26.i282, label %.loopexit.i283, label %.lr.ph.i278, !llvm.loop !14
+  br i1 %.not26.i282, label %.loopexit.i283, label %.lr.ph.i278, !llvm.loop !15
 
 129:                                              ; preds = %115
   %.134.i284 = load ptr, ptr %55, align 8
@@ -14382,7 +14382,7 @@ newarc.exit309:                                   ; preds = %91, %103, %.loopexi
   %141 = getelementptr inbounds nuw i8, ptr %.136.i287, i64 40
   %.1.i288 = load ptr, ptr %141, align 8
   %.not25.i289 = icmp eq ptr %.1.i288, null
-  br i1 %.not25.i289, label %.loopexit.i283, label %.lr.ph37.i286, !llvm.loop !15
+  br i1 %.not25.i289, label %.loopexit.i283, label %.lr.ph37.i286, !llvm.loop !16
 
 .loopexit.i283:                                   ; preds = %128, %140, %129, %.preheader.i274
   tail call fastcc void @createarc(ptr noundef %111, i32 noundef 114, i16 noundef signext %112, ptr noundef %.1, ptr noundef %4)
@@ -14396,7 +14396,7 @@ newarc.exit290:                                   ; preds = %125, %137, %.loopex
   %144 = load ptr, ptr %48, align 8
   %145 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i253 = icmp eq i32 %145, 0
-  br i1 %.not.i253, label %147, label %146, !prof !13
+  br i1 %.not.i253, label %147, label %146, !prof !14
 
 146:                                              ; preds = %143
   tail call void @ProcessInterrupts() #20
@@ -14437,7 +14437,7 @@ newarc.exit290:                                   ; preds = %125, %137, %.loopex
   %.0.in.i261 = getelementptr inbounds nuw i8, ptr %.033.i260, i64 24
   %.0.i262 = load ptr, ptr %.0.in.i261, align 8
   %.not26.i263 = icmp eq ptr %.0.i262, null
-  br i1 %.not26.i263, label %.loopexit.i264, label %.lr.ph.i259, !llvm.loop !14
+  br i1 %.not26.i263, label %.loopexit.i264, label %.lr.ph.i259, !llvm.loop !15
 
 162:                                              ; preds = %147
   %.134.i265 = load ptr, ptr %55, align 8
@@ -14466,7 +14466,7 @@ newarc.exit290:                                   ; preds = %125, %137, %.loopex
   %174 = getelementptr inbounds nuw i8, ptr %.136.i268, i64 40
   %.1.i269 = load ptr, ptr %174, align 8
   %.not25.i270 = icmp eq ptr %.1.i269, null
-  br i1 %.not25.i270, label %.loopexit.i264, label %.lr.ph37.i267, !llvm.loop !15
+  br i1 %.not25.i270, label %.loopexit.i264, label %.lr.ph37.i267, !llvm.loop !16
 
 .loopexit.i264:                                   ; preds = %161, %173, %162, %.preheader.i255
   tail call fastcc void @createarc(ptr noundef %144, i32 noundef 36, i16 noundef signext 1, ptr noundef %.1, ptr noundef %4)
@@ -14483,7 +14483,7 @@ newarc.exit271:                                   ; preds = %158, %170, %.loopex
   %179 = load i16, ptr %58, align 8
   %180 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i234 = icmp eq i32 %180, 0
-  br i1 %.not.i234, label %182, label %181, !prof !13
+  br i1 %.not.i234, label %182, label %181, !prof !14
 
 181:                                              ; preds = %177
   tail call void @ProcessInterrupts() #20
@@ -14523,7 +14523,7 @@ newarc.exit271:                                   ; preds = %158, %170, %.loopex
   %.0.in.i242 = getelementptr inbounds nuw i8, ptr %.033.i241, i64 24
   %.0.i243 = load ptr, ptr %.0.in.i242, align 8
   %.not26.i244 = icmp eq ptr %.0.i243, null
-  br i1 %.not26.i244, label %.loopexit.i245, label %.lr.ph.i240, !llvm.loop !14
+  br i1 %.not26.i244, label %.loopexit.i245, label %.lr.ph.i240, !llvm.loop !15
 
 196:                                              ; preds = %182
   %.134.i246 = load ptr, ptr %55, align 8
@@ -14552,7 +14552,7 @@ newarc.exit271:                                   ; preds = %158, %170, %.loopex
   %208 = getelementptr inbounds nuw i8, ptr %.136.i249, i64 40
   %.1.i250 = load ptr, ptr %208, align 8
   %.not25.i251 = icmp eq ptr %.1.i250, null
-  br i1 %.not25.i251, label %.loopexit.i245, label %.lr.ph37.i248, !llvm.loop !15
+  br i1 %.not25.i251, label %.loopexit.i245, label %.lr.ph37.i248, !llvm.loop !16
 
 .loopexit.i245:                                   ; preds = %195, %207, %196, %.preheader.i236
   tail call fastcc void @createarc(ptr noundef %178, i32 noundef 97, i16 noundef signext %179, ptr noundef %.1, ptr noundef %4)
@@ -14566,7 +14566,7 @@ newarc.exit252:                                   ; preds = %192, %204, %.loopex
   %211 = load ptr, ptr %48, align 8
   %212 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i215 = icmp eq i32 %212, 0
-  br i1 %.not.i215, label %214, label %213, !prof !13
+  br i1 %.not.i215, label %214, label %213, !prof !14
 
 213:                                              ; preds = %210
   tail call void @ProcessInterrupts() #20
@@ -14607,7 +14607,7 @@ newarc.exit252:                                   ; preds = %192, %204, %.loopex
   %.0.in.i223 = getelementptr inbounds nuw i8, ptr %.033.i222, i64 24
   %.0.i224 = load ptr, ptr %.0.in.i223, align 8
   %.not26.i225 = icmp eq ptr %.0.i224, null
-  br i1 %.not26.i225, label %.loopexit.i226, label %.lr.ph.i221, !llvm.loop !14
+  br i1 %.not26.i225, label %.loopexit.i226, label %.lr.ph.i221, !llvm.loop !15
 
 229:                                              ; preds = %214
   %.134.i227 = load ptr, ptr %55, align 8
@@ -14636,7 +14636,7 @@ newarc.exit252:                                   ; preds = %192, %204, %.loopex
   %241 = getelementptr inbounds nuw i8, ptr %.136.i230, i64 40
   %.1.i231 = load ptr, ptr %241, align 8
   %.not25.i232 = icmp eq ptr %.1.i231, null
-  br i1 %.not25.i232, label %.loopexit.i226, label %.lr.ph37.i229, !llvm.loop !15
+  br i1 %.not25.i232, label %.loopexit.i226, label %.lr.ph37.i229, !llvm.loop !16
 
 .loopexit.i226:                                   ; preds = %228, %240, %229, %.preheader.i217
   tail call fastcc void @createarc(ptr noundef %211, i32 noundef 94, i16 noundef signext 1, ptr noundef %.1, ptr noundef %4)
@@ -14646,7 +14646,7 @@ newarc.exit233:                                   ; preds = %225, %237, %.loopex
   %242 = load ptr, ptr %48, align 8
   %243 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i196 = icmp eq i32 %243, 0
-  br i1 %.not.i196, label %245, label %244, !prof !13
+  br i1 %.not.i196, label %245, label %244, !prof !14
 
 244:                                              ; preds = %newarc.exit233
   tail call void @ProcessInterrupts() #20
@@ -14686,7 +14686,7 @@ newarc.exit233:                                   ; preds = %225, %237, %.loopex
   %.0.in.i204 = getelementptr inbounds nuw i8, ptr %.033.i203, i64 24
   %.0.i205 = load ptr, ptr %.0.in.i204, align 8
   %.not26.i206 = icmp eq ptr %.0.i205, null
-  br i1 %.not26.i206, label %.loopexit.i207, label %.lr.ph.i202, !llvm.loop !14
+  br i1 %.not26.i206, label %.loopexit.i207, label %.lr.ph.i202, !llvm.loop !15
 
 259:                                              ; preds = %245
   %.134.i208 = load ptr, ptr %55, align 8
@@ -14715,7 +14715,7 @@ newarc.exit233:                                   ; preds = %225, %237, %.loopex
   %271 = getelementptr inbounds nuw i8, ptr %.136.i211, i64 40
   %.1.i212 = load ptr, ptr %271, align 8
   %.not25.i213 = icmp eq ptr %.1.i212, null
-  br i1 %.not25.i213, label %.loopexit.i207, label %.lr.ph37.i210, !llvm.loop !15
+  br i1 %.not25.i213, label %.loopexit.i207, label %.lr.ph37.i210, !llvm.loop !16
 
 .loopexit.i207:                                   ; preds = %258, %270, %259, %.preheader.i198
   tail call fastcc void @createarc(ptr noundef %242, i32 noundef 94, i16 noundef signext 0, ptr noundef %.1, ptr noundef %4)
@@ -14729,7 +14729,7 @@ newarc.exit214:                                   ; preds = %255, %267, %.loopex
   %274 = load ptr, ptr %48, align 8
   %275 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i177 = icmp eq i32 %275, 0
-  br i1 %.not.i177, label %277, label %276, !prof !13
+  br i1 %.not.i177, label %277, label %276, !prof !14
 
 276:                                              ; preds = %273
   tail call void @ProcessInterrupts() #20
@@ -14770,7 +14770,7 @@ newarc.exit214:                                   ; preds = %255, %267, %.loopex
   %.0.in.i185 = getelementptr inbounds nuw i8, ptr %.033.i184, i64 24
   %.0.i186 = load ptr, ptr %.0.in.i185, align 8
   %.not26.i187 = icmp eq ptr %.0.i186, null
-  br i1 %.not26.i187, label %.loopexit.i188, label %.lr.ph.i183, !llvm.loop !14
+  br i1 %.not26.i187, label %.loopexit.i188, label %.lr.ph.i183, !llvm.loop !15
 
 292:                                              ; preds = %277
   %.134.i189 = load ptr, ptr %55, align 8
@@ -14799,7 +14799,7 @@ newarc.exit214:                                   ; preds = %255, %267, %.loopex
   %304 = getelementptr inbounds nuw i8, ptr %.136.i192, i64 40
   %.1.i193 = load ptr, ptr %304, align 8
   %.not25.i194 = icmp eq ptr %.1.i193, null
-  br i1 %.not25.i194, label %.loopexit.i188, label %.lr.ph37.i191, !llvm.loop !15
+  br i1 %.not25.i194, label %.loopexit.i188, label %.lr.ph37.i191, !llvm.loop !16
 
 .loopexit.i188:                                   ; preds = %291, %303, %292, %.preheader.i179
   tail call fastcc void @createarc(ptr noundef %274, i32 noundef 36, i16 noundef signext 1, ptr noundef %.1, ptr noundef %4)
@@ -14809,7 +14809,7 @@ newarc.exit195:                                   ; preds = %288, %300, %.loopex
   %305 = load ptr, ptr %48, align 8
   %306 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i158 = icmp eq i32 %306, 0
-  br i1 %.not.i158, label %308, label %307, !prof !13
+  br i1 %.not.i158, label %308, label %307, !prof !14
 
 307:                                              ; preds = %newarc.exit195
   tail call void @ProcessInterrupts() #20
@@ -14849,7 +14849,7 @@ newarc.exit195:                                   ; preds = %288, %300, %.loopex
   %.0.in.i166 = getelementptr inbounds nuw i8, ptr %.033.i165, i64 24
   %.0.i167 = load ptr, ptr %.0.in.i166, align 8
   %.not26.i168 = icmp eq ptr %.0.i167, null
-  br i1 %.not26.i168, label %.loopexit.i169, label %.lr.ph.i164, !llvm.loop !14
+  br i1 %.not26.i168, label %.loopexit.i169, label %.lr.ph.i164, !llvm.loop !15
 
 322:                                              ; preds = %308
   %.134.i170 = load ptr, ptr %55, align 8
@@ -14878,7 +14878,7 @@ newarc.exit195:                                   ; preds = %288, %300, %.loopex
   %334 = getelementptr inbounds nuw i8, ptr %.136.i173, i64 40
   %.1.i174 = load ptr, ptr %334, align 8
   %.not25.i175 = icmp eq ptr %.1.i174, null
-  br i1 %.not25.i175, label %.loopexit.i169, label %.lr.ph37.i172, !llvm.loop !15
+  br i1 %.not25.i175, label %.loopexit.i169, label %.lr.ph37.i172, !llvm.loop !16
 
 .loopexit.i169:                                   ; preds = %321, %333, %322, %.preheader.i160
   tail call fastcc void @createarc(ptr noundef %305, i32 noundef 36, i16 noundef signext 0, ptr noundef %.1, ptr noundef %4)
@@ -15057,7 +15057,7 @@ newarc.exit176:                                   ; preds = %318, %330, %.loopex
   %415 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 24
   %416 = load ptr, ptr %415, align 8
   %.not.i.i543 = icmp eq ptr %416, null
-  br i1 %.not.i.i543, label %single_color_transition.exit.i, label %.preheader.i.i524, !llvm.loop !92
+  br i1 %.not.i.i543, label %single_color_transition.exit.i, label %.preheader.i.i524, !llvm.loop !94
 
 single_color_transition.exit.i:                   ; preds = %414, %411, %.preheader.i.i524, %406, %404
   %.019.i.i = phi ptr [ null, %404 ], [ null, %406 ], [ %.018.i.i, %414 ], [ null, %.preheader.i.i524 ], [ null, %411 ]
@@ -15088,7 +15088,7 @@ single_color_transition.exit.i:                   ; preds = %414, %411, %.prehea
   %424 = load ptr, ptr %48, align 8
   %425 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i47.i = icmp eq i32 %425, 0
-  br i1 %.not.i47.i, label %427, label %426, !prof !13
+  br i1 %.not.i47.i, label %427, label %426, !prof !14
 
 426:                                              ; preds = %421
   tail call void @ProcessInterrupts() #20
@@ -15129,7 +15129,7 @@ single_color_transition.exit.i:                   ; preds = %414, %411, %.prehea
   %.0.in.i.i532 = getelementptr inbounds nuw i8, ptr %.033.i.i531, i64 24
   %.0.i.i533 = load ptr, ptr %.0.in.i.i532, align 8
   %.not26.i.i534 = icmp eq ptr %.0.i.i533, null
-  br i1 %.not26.i.i534, label %.loopexit.i.i535, label %.lr.ph.i.i530, !llvm.loop !14
+  br i1 %.not26.i.i534, label %.loopexit.i.i535, label %.lr.ph.i.i530, !llvm.loop !15
 
 442:                                              ; preds = %427
   %.134.i.i537 = load ptr, ptr %55, align 8
@@ -15158,7 +15158,7 @@ single_color_transition.exit.i:                   ; preds = %414, %411, %.prehea
   %454 = getelementptr inbounds nuw i8, ptr %.136.i.i540, i64 40
   %.1.i.i541 = load ptr, ptr %454, align 8
   %.not25.i.i542 = icmp eq ptr %.1.i.i541, null
-  br i1 %.not25.i.i542, label %.loopexit.i.i535, label %.lr.ph37.i.i539, !llvm.loop !15
+  br i1 %.not25.i.i542, label %.loopexit.i.i535, label %.lr.ph37.i.i539, !llvm.loop !16
 
 .loopexit.i.i535:                                 ; preds = %441, %453, %442, %.preheader.i48.i
   tail call fastcc void @createarc(ptr noundef %424, i32 noundef 36, i16 noundef signext 1, ptr noundef %.1, ptr noundef %4)
@@ -15168,7 +15168,7 @@ newarc.exit.i536:                                 ; preds = %438, %450, %.loopex
   %455 = load ptr, ptr %48, align 8
   %456 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i49.i = icmp eq i32 %456, 0
-  br i1 %.not.i49.i, label %458, label %457, !prof !13
+  br i1 %.not.i49.i, label %458, label %457, !prof !14
 
 457:                                              ; preds = %newarc.exit.i536
   tail call void @ProcessInterrupts() #20
@@ -15208,7 +15208,7 @@ newarc.exit.i536:                                 ; preds = %438, %450, %.loopex
   %.0.in.i57.i = getelementptr inbounds nuw i8, ptr %.033.i56.i, i64 24
   %.0.i58.i = load ptr, ptr %.0.in.i57.i, align 8
   %.not26.i59.i = icmp eq ptr %.0.i58.i, null
-  br i1 %.not26.i59.i, label %.loopexit.i60.i, label %.lr.ph.i55.i, !llvm.loop !14
+  br i1 %.not26.i59.i, label %.loopexit.i60.i, label %.lr.ph.i55.i, !llvm.loop !15
 
 472:                                              ; preds = %458
   %.134.i61.i = load ptr, ptr %55, align 8
@@ -15237,7 +15237,7 @@ newarc.exit.i536:                                 ; preds = %438, %450, %.loopex
   %484 = getelementptr inbounds nuw i8, ptr %.136.i64.i, i64 40
   %.1.i65.i = load ptr, ptr %484, align 8
   %.not25.i66.i = icmp eq ptr %.1.i65.i, null
-  br i1 %.not25.i66.i, label %.loopexit.i60.i, label %.lr.ph37.i63.i, !llvm.loop !15
+  br i1 %.not25.i66.i, label %.loopexit.i60.i, label %.lr.ph37.i63.i, !llvm.loop !16
 
 .loopexit.i60.i:                                  ; preds = %471, %483, %472, %.preheader.i51.i
   tail call fastcc void @createarc(ptr noundef %455, i32 noundef 36, i16 noundef signext 0, ptr noundef %.1, ptr noundef %4)
@@ -15263,7 +15263,7 @@ newarc.exit.i536:                                 ; preds = %438, %450, %.loopex
   %492 = load ptr, ptr %48, align 8
   %493 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i68.i = icmp eq i32 %493, 0
-  br i1 %.not.i68.i, label %495, label %494, !prof !13
+  br i1 %.not.i68.i, label %495, label %494, !prof !14
 
 494:                                              ; preds = %489
   tail call void @ProcessInterrupts() #20
@@ -15304,7 +15304,7 @@ newarc.exit.i536:                                 ; preds = %438, %450, %.loopex
   %.0.in.i76.i = getelementptr inbounds nuw i8, ptr %.033.i75.i, i64 24
   %.0.i77.i = load ptr, ptr %.0.in.i76.i, align 8
   %.not26.i78.i = icmp eq ptr %.0.i77.i, null
-  br i1 %.not26.i78.i, label %.loopexit.i79.i, label %.lr.ph.i74.i, !llvm.loop !14
+  br i1 %.not26.i78.i, label %.loopexit.i79.i, label %.lr.ph.i74.i, !llvm.loop !15
 
 510:                                              ; preds = %495
   %.134.i80.i = load ptr, ptr %55, align 8
@@ -15333,7 +15333,7 @@ newarc.exit.i536:                                 ; preds = %438, %450, %.loopex
   %522 = getelementptr inbounds nuw i8, ptr %.136.i83.i, i64 40
   %.1.i84.i = load ptr, ptr %522, align 8
   %.not25.i85.i = icmp eq ptr %.1.i84.i, null
-  br i1 %.not25.i85.i, label %.loopexit.i79.i, label %.lr.ph37.i82.i, !llvm.loop !15
+  br i1 %.not25.i85.i, label %.loopexit.i79.i, label %.lr.ph37.i82.i, !llvm.loop !16
 
 .loopexit.i79.i:                                  ; preds = %509, %521, %510, %.preheader.i70.i
   tail call fastcc void @createarc(ptr noundef %492, i32 noundef 94, i16 noundef signext 1, ptr noundef %.1, ptr noundef %4)
@@ -15343,7 +15343,7 @@ newarc.exit86.i:                                  ; preds = %506, %518, %.loopex
   %523 = load ptr, ptr %48, align 8
   %524 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i87.i = icmp eq i32 %524, 0
-  br i1 %.not.i87.i, label %526, label %525, !prof !13
+  br i1 %.not.i87.i, label %526, label %525, !prof !14
 
 525:                                              ; preds = %newarc.exit86.i
   tail call void @ProcessInterrupts() #20
@@ -15383,7 +15383,7 @@ newarc.exit86.i:                                  ; preds = %506, %518, %.loopex
   %.0.in.i95.i = getelementptr inbounds nuw i8, ptr %.033.i94.i, i64 24
   %.0.i96.i = load ptr, ptr %.0.in.i95.i, align 8
   %.not26.i97.i = icmp eq ptr %.0.i96.i, null
-  br i1 %.not26.i97.i, label %.loopexit.i98.i, label %.lr.ph.i93.i, !llvm.loop !14
+  br i1 %.not26.i97.i, label %.loopexit.i98.i, label %.lr.ph.i93.i, !llvm.loop !15
 
 540:                                              ; preds = %526
   %.134.i99.i = load ptr, ptr %55, align 8
@@ -15412,7 +15412,7 @@ newarc.exit86.i:                                  ; preds = %506, %518, %.loopex
   %552 = getelementptr inbounds nuw i8, ptr %.136.i102.i, i64 40
   %.1.i103.i = load ptr, ptr %552, align 8
   %.not25.i104.i = icmp eq ptr %.1.i103.i, null
-  br i1 %.not25.i104.i, label %.loopexit.i98.i, label %.lr.ph37.i101.i, !llvm.loop !15
+  br i1 %.not25.i104.i, label %.loopexit.i98.i, label %.lr.ph37.i101.i, !llvm.loop !16
 
 .loopexit.i98.i:                                  ; preds = %539, %551, %540, %.preheader.i89.i
   tail call fastcc void @createarc(ptr noundef %523, i32 noundef 94, i16 noundef signext 0, ptr noundef %.1, ptr noundef %4)
@@ -15472,7 +15472,7 @@ newlacon.exit.i:                                  ; preds = %568, %566
   %578 = load ptr, ptr %48, align 8
   %579 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i109.i = icmp eq i32 %579, 0
-  br i1 %.not.i109.i, label %581, label %580, !prof !13
+  br i1 %.not.i109.i, label %581, label %580, !prof !14
 
 580:                                              ; preds = %newlacon.exit.i
   tail call void @ProcessInterrupts() #20
@@ -15513,7 +15513,7 @@ newlacon.exit.i:                                  ; preds = %568, %566
   %.0.in.i117.i = getelementptr inbounds nuw i8, ptr %.033.i116.i, i64 24
   %.0.i118.i = load ptr, ptr %.0.in.i117.i, align 8
   %.not26.i119.i = icmp eq ptr %.0.i118.i, null
-  br i1 %.not26.i119.i, label %.loopexit.i120.i, label %.lr.ph.i115.i, !llvm.loop !14
+  br i1 %.not26.i119.i, label %.loopexit.i120.i, label %.lr.ph.i115.i, !llvm.loop !15
 
 596:                                              ; preds = %581
   %.134.i121.i = load ptr, ptr %55, align 8
@@ -15542,7 +15542,7 @@ newlacon.exit.i:                                  ; preds = %568, %566
   %608 = getelementptr inbounds nuw i8, ptr %.136.i124.i, i64 40
   %.1.i125.i = load ptr, ptr %608, align 8
   %.not25.i126.i = icmp eq ptr %.1.i125.i, null
-  br i1 %.not25.i126.i, label %.loopexit.i120.i, label %.lr.ph37.i123.i, !llvm.loop !15
+  br i1 %.not25.i126.i, label %.loopexit.i120.i, label %.lr.ph37.i123.i, !llvm.loop !16
 
 .loopexit.i120.i:                                 ; preds = %595, %607, %596, %.preheader.i111.i
   tail call fastcc void @createarc(ptr noundef %578, i32 noundef 76, i16 noundef signext %.0.i107.i, ptr noundef %.1, ptr noundef %4)
@@ -15647,7 +15647,7 @@ onechr.exit:                                      ; preds = %627, %628
   %650 = load i16, ptr %58, align 8
   %651 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %651, 0
-  br i1 %.not.i.i, label %653, label %652, !prof !13
+  br i1 %.not.i.i, label %653, label %652, !prof !14
 
 652:                                              ; preds = %648
   tail call void @ProcessInterrupts() #20
@@ -15689,7 +15689,7 @@ onechr.exit:                                      ; preds = %627, %628
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 24
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not26.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 669:                                              ; preds = %653
   %670 = getelementptr inbounds nuw i8, ptr %643, i64 16
@@ -15719,7 +15719,7 @@ onechr.exit:                                      ; preds = %627, %628
   %682 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 40
   %.1.i.i = load ptr, ptr %682, align 8
   %.not25.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !15
+  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %668, %681, %669, %.preheader.i.i
   tail call fastcc void @createarc(ptr noundef %649, i32 noundef 112, i16 noundef signext %650, ptr noundef %641, ptr noundef %643)
@@ -15888,7 +15888,7 @@ charclass.exit:                                   ; preds = %702, %712
   %759 = add i64 %758, 1
   store i64 %759, ptr %50, align 8
   %.not27.i = icmp ugt i64 %759, %740
-  br i1 %.not27.i, label %moresubs.exit, label %.lr.ph.i149, !llvm.loop !93
+  br i1 %.not27.i, label %moresubs.exit, label %.lr.ph.i149, !llvm.loop !95
 
 moresubs.exit:                                    ; preds = %.lr.ph.i149, %729, %754, %.thread.i, %733, %730
   %.not670.i311 = phi i1 [ false, %733 ], [ true, %730 ], [ false, %.thread.i ], [ false, %754 ], [ true, %729 ], [ false, %.lr.ph.i149 ]
@@ -15907,7 +15907,7 @@ moresubs.exit:                                    ; preds = %.lr.ph.i149, %729, 
   %767 = load ptr, ptr %48, align 8
   %768 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i130 = icmp eq i32 %768, 0
-  br i1 %.not.i130, label %770, label %769, !prof !13
+  br i1 %.not.i130, label %770, label %769, !prof !14
 
 769:                                              ; preds = %766
   tail call void @ProcessInterrupts() #20
@@ -15949,7 +15949,7 @@ moresubs.exit:                                    ; preds = %.lr.ph.i149, %729, 
   %.0.in.i138 = getelementptr inbounds nuw i8, ptr %.033.i137, i64 24
   %.0.i139 = load ptr, ptr %.0.in.i138, align 8
   %.not26.i140 = icmp eq ptr %.0.i139, null
-  br i1 %.not26.i140, label %.loopexit.i141, label %.lr.ph.i136, !llvm.loop !14
+  br i1 %.not26.i140, label %.loopexit.i141, label %.lr.ph.i136, !llvm.loop !15
 
 786:                                              ; preds = %770
   %787 = getelementptr inbounds nuw i8, ptr %762, i64 16
@@ -15979,7 +15979,7 @@ moresubs.exit:                                    ; preds = %.lr.ph.i149, %729, 
   %799 = getelementptr inbounds nuw i8, ptr %.136.i145, i64 40
   %.1.i146 = load ptr, ptr %799, align 8
   %.not25.i147 = icmp eq ptr %.1.i146, null
-  br i1 %.not25.i147, label %.loopexit.i141, label %.lr.ph37.i144, !llvm.loop !15
+  br i1 %.not25.i147, label %.loopexit.i141, label %.lr.ph37.i144, !llvm.loop !16
 
 .loopexit.i141:                                   ; preds = %785, %798, %786, %.preheader.i132
   tail call fastcc void @createarc(ptr noundef %767, i32 noundef 110, i16 noundef signext 0, ptr noundef %.1, ptr noundef %762)
@@ -15989,7 +15989,7 @@ newarc.exit148:                                   ; preds = %782, %795, %.loopex
   %800 = load ptr, ptr %48, align 8
   %801 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i111 = icmp eq i32 %801, 0
-  br i1 %.not.i111, label %803, label %802, !prof !13
+  br i1 %.not.i111, label %803, label %802, !prof !14
 
 802:                                              ; preds = %newarc.exit148
   tail call void @ProcessInterrupts() #20
@@ -16030,7 +16030,7 @@ newarc.exit148:                                   ; preds = %782, %795, %.loopex
   %.0.in.i119 = getelementptr inbounds nuw i8, ptr %.033.i118, i64 24
   %.0.i120 = load ptr, ptr %.0.in.i119, align 8
   %.not26.i121 = icmp eq ptr %.0.i120, null
-  br i1 %.not26.i121, label %.loopexit.i122, label %.lr.ph.i117, !llvm.loop !14
+  br i1 %.not26.i121, label %.loopexit.i122, label %.lr.ph.i117, !llvm.loop !15
 
 818:                                              ; preds = %803
   %.134.i123 = load ptr, ptr %55, align 8
@@ -16059,7 +16059,7 @@ newarc.exit148:                                   ; preds = %782, %795, %.loopex
   %830 = getelementptr inbounds nuw i8, ptr %.136.i126, i64 40
   %.1.i127 = load ptr, ptr %830, align 8
   %.not25.i128 = icmp eq ptr %.1.i127, null
-  br i1 %.not25.i128, label %.loopexit.i122, label %.lr.ph37.i125, !llvm.loop !15
+  br i1 %.not25.i128, label %.loopexit.i122, label %.lr.ph37.i125, !llvm.loop !16
 
 .loopexit.i122:                                   ; preds = %817, %829, %818, %.preheader.i113
   tail call fastcc void @createarc(ptr noundef %800, i32 noundef 110, i16 noundef signext 0, ptr noundef %764, ptr noundef %4)
@@ -16249,7 +16249,7 @@ subre.exit551:                                    ; preds = %881, %889
   %910 = load ptr, ptr %48, align 8
   %911 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i552 = icmp eq i32 %911, 0
-  br i1 %.not.i552, label %913, label %912, !prof !13
+  br i1 %.not.i552, label %913, label %912, !prof !14
 
 912:                                              ; preds = %903
   tail call void @ProcessInterrupts() #20
@@ -16290,7 +16290,7 @@ subre.exit551:                                    ; preds = %881, %889
   %.0.in.i560 = getelementptr inbounds nuw i8, ptr %.033.i559, i64 24
   %.0.i561 = load ptr, ptr %.0.in.i560, align 8
   %.not26.i562 = icmp eq ptr %.0.i561, null
-  br i1 %.not26.i562, label %.loopexit.i563, label %.lr.ph.i558, !llvm.loop !14
+  br i1 %.not26.i562, label %.loopexit.i563, label %.lr.ph.i558, !llvm.loop !15
 
 928:                                              ; preds = %913
   %.134.i564 = load ptr, ptr %55, align 8
@@ -16319,7 +16319,7 @@ subre.exit551:                                    ; preds = %881, %889
   %940 = getelementptr inbounds nuw i8, ptr %.136.i567, i64 40
   %.1.i568 = load ptr, ptr %940, align 8
   %.not25.i569 = icmp eq ptr %.1.i568, null
-  br i1 %.not25.i569, label %.loopexit.i563, label %.lr.ph37.i566, !llvm.loop !15
+  br i1 %.not25.i569, label %.loopexit.i563, label %.lr.ph37.i566, !llvm.loop !16
 
 .loopexit.i563:                                   ; preds = %927, %939, %928, %.preheader.i554
   tail call fastcc void @createarc(ptr noundef %910, i32 noundef 110, i16 noundef signext 0, ptr noundef %.1, ptr noundef %4)
@@ -16363,7 +16363,7 @@ newarc.exit570:                                   ; preds = %924, %936, %.loopex
   %955 = icmp eq i32 %954, 100
   %956 = icmp slt i32 %952, 255
   %957 = select i1 %955, i1 %956, i1 false
-  br i1 %957, label %.lr.ph.i110, label %._crit_edge.i, !llvm.loop !94
+  br i1 %957, label %.lr.ph.i110, label %._crit_edge.i, !llvm.loop !96
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i110, %946
   %.pr319 = phi i32 [ %948, %946 ], [ %954, %.lr.ph.i110 ]
@@ -16512,7 +16512,7 @@ delsub.exit104:                                   ; preds = %delsub.exit104.sink
   %1010 = load ptr, ptr %48, align 8
   %1011 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i82 = icmp eq i32 %1011, 0
-  br i1 %.not.i82, label %1013, label %1012, !prof !13
+  br i1 %.not.i82, label %1013, label %1012, !prof !14
 
 1012:                                             ; preds = %delsub.exit104
   tail call void @ProcessInterrupts() #20
@@ -16553,7 +16553,7 @@ delsub.exit104:                                   ; preds = %delsub.exit104.sink
   %.0.in.i90 = getelementptr inbounds nuw i8, ptr %.033.i89, i64 24
   %.0.i91 = load ptr, ptr %.0.in.i90, align 8
   %.not26.i92 = icmp eq ptr %.0.i91, null
-  br i1 %.not26.i92, label %.loopexit.i93, label %.lr.ph.i88, !llvm.loop !14
+  br i1 %.not26.i92, label %.loopexit.i93, label %.lr.ph.i88, !llvm.loop !15
 
 1028:                                             ; preds = %1013
   %.134.i94 = load ptr, ptr %55, align 8
@@ -16582,7 +16582,7 @@ delsub.exit104:                                   ; preds = %delsub.exit104.sink
   %1040 = getelementptr inbounds nuw i8, ptr %.136.i97, i64 40
   %.1.i98 = load ptr, ptr %1040, align 8
   %.not25.i99 = icmp eq ptr %.1.i98, null
-  br i1 %.not25.i99, label %.loopexit.i93, label %.lr.ph37.i96, !llvm.loop !15
+  br i1 %.not25.i99, label %.loopexit.i93, label %.lr.ph37.i96, !llvm.loop !16
 
 .loopexit.i93:                                    ; preds = %1027, %1039, %1028, %.preheader.i84
   tail call fastcc void @createarc(ptr noundef %1010, i32 noundef 110, i16 noundef signext 0, ptr noundef %.1, ptr noundef %4)
@@ -16817,7 +16817,7 @@ delsub.exit70:                                    ; preds = %1135, %delsub.exit7
   %1142 = load ptr, ptr %48, align 8
   %1143 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i50 = icmp eq i32 %1143, 0
-  br i1 %.not.i50, label %1145, label %1144, !prof !13
+  br i1 %.not.i50, label %1145, label %1144, !prof !14
 
 1144:                                             ; preds = %1141
   tail call void @ProcessInterrupts() #20
@@ -16859,7 +16859,7 @@ delsub.exit70:                                    ; preds = %1135, %delsub.exit7
   %.0.in.i58 = getelementptr inbounds nuw i8, ptr %.033.i57, i64 24
   %.0.i59 = load ptr, ptr %.0.in.i58, align 8
   %.not26.i60 = icmp eq ptr %.0.i59, null
-  br i1 %.not26.i60, label %.loopexit.i61, label %.lr.ph.i56, !llvm.loop !14
+  br i1 %.not26.i60, label %.loopexit.i61, label %.lr.ph.i56, !llvm.loop !15
 
 1161:                                             ; preds = %1145
   %1162 = getelementptr inbounds nuw i8, ptr %1139, i64 16
@@ -16889,7 +16889,7 @@ delsub.exit70:                                    ; preds = %1135, %delsub.exit7
   %1174 = getelementptr inbounds nuw i8, ptr %.136.i65, i64 40
   %.1.i66 = load ptr, ptr %1174, align 8
   %.not25.i67 = icmp eq ptr %.1.i66, null
-  br i1 %.not25.i67, label %.loopexit.i61, label %.lr.ph37.i64, !llvm.loop !15
+  br i1 %.not25.i67, label %.loopexit.i61, label %.lr.ph37.i64, !llvm.loop !16
 
 .loopexit.i61:                                    ; preds = %1160, %1173, %1161, %.preheader.i52
   tail call fastcc void @createarc(ptr noundef %1142, i32 noundef 110, i16 noundef signext 0, ptr noundef %.1, ptr noundef %1139)
@@ -17148,7 +17148,7 @@ removeconstraints.exit.thread:                    ; preds = %1289, %removeconstr
   %1297 = load ptr, ptr %1137, align 8
   %1298 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i589 = icmp eq i32 %1298, 0
-  br i1 %.not.i589, label %1300, label %1299, !prof !13
+  br i1 %.not.i589, label %1300, label %1299, !prof !14
 
 1299:                                             ; preds = %removeconstraints.exit.thread
   tail call void @ProcessInterrupts() #20
@@ -17190,7 +17190,7 @@ removeconstraints.exit.thread:                    ; preds = %1289, %removeconstr
   %.0.in.i597 = getelementptr inbounds nuw i8, ptr %.033.i596, i64 24
   %.0.i598 = load ptr, ptr %.0.in.i597, align 8
   %.not26.i599 = icmp eq ptr %.0.i598, null
-  br i1 %.not26.i599, label %.loopexit.i600, label %.lr.ph.i595, !llvm.loop !14
+  br i1 %.not26.i599, label %.loopexit.i600, label %.lr.ph.i595, !llvm.loop !15
 
 1316:                                             ; preds = %1300
   %1317 = getelementptr inbounds nuw i8, ptr %1297, i64 16
@@ -17220,7 +17220,7 @@ removeconstraints.exit.thread:                    ; preds = %1289, %removeconstr
   %1329 = getelementptr inbounds nuw i8, ptr %.136.i604, i64 40
   %.1.i605 = load ptr, ptr %1329, align 8
   %.not25.i606 = icmp eq ptr %.1.i605, null
-  br i1 %.not25.i606, label %.loopexit.i600, label %.lr.ph37.i603, !llvm.loop !15
+  br i1 %.not25.i606, label %.loopexit.i600, label %.lr.ph37.i603, !llvm.loop !16
 
 .loopexit.i600:                                   ; preds = %1315, %1328, %1316, %.preheader.i591
   tail call fastcc void @createarc(ptr noundef %1296, i32 noundef 110, i16 noundef signext 0, ptr noundef %1139, ptr noundef %1297)
@@ -17281,7 +17281,7 @@ newarc.exit607:                                   ; preds = %1312, %1325, %.loop
   %1362 = load ptr, ptr %1137, align 8
   %1363 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i608 = icmp eq i32 %1363, 0
-  br i1 %.not.i608, label %1365, label %1364, !prof !13
+  br i1 %.not.i608, label %1365, label %1364, !prof !14
 
 1364:                                             ; preds = %1360
   tail call void @ProcessInterrupts() #20
@@ -17323,7 +17323,7 @@ newarc.exit607:                                   ; preds = %1312, %1325, %.loop
   %.0.in.i616 = getelementptr inbounds nuw i8, ptr %.033.i615, i64 24
   %.0.i617 = load ptr, ptr %.0.in.i616, align 8
   %.not26.i618 = icmp eq ptr %.0.i617, null
-  br i1 %.not26.i618, label %.loopexit.i619, label %.lr.ph.i614, !llvm.loop !14
+  br i1 %.not26.i618, label %.loopexit.i619, label %.lr.ph.i614, !llvm.loop !15
 
 1381:                                             ; preds = %1365
   %1382 = getelementptr inbounds nuw i8, ptr %1362, i64 16
@@ -17353,7 +17353,7 @@ newarc.exit607:                                   ; preds = %1312, %1325, %.loop
   %1394 = getelementptr inbounds nuw i8, ptr %.136.i623, i64 40
   %.1.i624 = load ptr, ptr %1394, align 8
   %.not25.i625 = icmp eq ptr %.1.i624, null
-  br i1 %.not25.i625, label %.loopexit.i619, label %.lr.ph37.i622, !llvm.loop !15
+  br i1 %.not25.i625, label %.loopexit.i619, label %.lr.ph37.i622, !llvm.loop !16
 
 .loopexit.i619:                                   ; preds = %1380, %1393, %1381, %.preheader.i610
   tail call fastcc void @createarc(ptr noundef %1361, i32 noundef 110, i16 noundef signext 0, ptr noundef %1139, ptr noundef %1362)
@@ -17641,7 +17641,7 @@ switch.early.test.i:                              ; preds = %1493
   %1582 = load ptr, ptr %1581, align 8
   tail call fastcc void @freesubre(ptr noundef nonnull %0, ptr noundef nonnull %.06.i)
   %.not.i48 = icmp eq ptr %1582, null
-  br i1 %.not.i48, label %freesubreandsiblings.exit, label %.lr.ph.i47, !llvm.loop !24
+  br i1 %.not.i48, label %freesubreandsiblings.exit, label %.lr.ph.i47, !llvm.loop !25
 
 freesubreandsiblings.exit:                        ; preds = %.lr.ph.i47
   store ptr null, ptr %1501, align 8
@@ -17651,7 +17651,7 @@ freesubreandsiblings.exit:                        ; preds = %.lr.ph.i47
   %1584 = load ptr, ptr %48, align 8
   %1585 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i627 = icmp eq i32 %1585, 0
-  br i1 %.not.i627, label %1587, label %1586, !prof !13
+  br i1 %.not.i627, label %1587, label %1586, !prof !14
 
 1586:                                             ; preds = %1583
   tail call void @ProcessInterrupts() #20
@@ -17692,7 +17692,7 @@ freesubreandsiblings.exit:                        ; preds = %.lr.ph.i47
   %.0.in.i635 = getelementptr inbounds nuw i8, ptr %.033.i634, i64 24
   %.0.i636 = load ptr, ptr %.0.in.i635, align 8
   %.not26.i637 = icmp eq ptr %.0.i636, null
-  br i1 %.not26.i637, label %.loopexit.i638, label %.lr.ph.i633, !llvm.loop !14
+  br i1 %.not26.i637, label %.loopexit.i638, label %.lr.ph.i633, !llvm.loop !15
 
 1602:                                             ; preds = %1587
   %.134.i639 = load ptr, ptr %55, align 8
@@ -17721,7 +17721,7 @@ freesubreandsiblings.exit:                        ; preds = %.lr.ph.i47
   %1614 = getelementptr inbounds nuw i8, ptr %.136.i642, i64 40
   %.1.i643 = load ptr, ptr %1614, align 8
   %.not25.i644 = icmp eq ptr %.1.i643, null
-  br i1 %.not25.i644, label %.loopexit.i638, label %.lr.ph37.i641, !llvm.loop !15
+  br i1 %.not25.i644, label %.loopexit.i638, label %.lr.ph37.i641, !llvm.loop !16
 
 .loopexit.i638:                                   ; preds = %1601, %1613, %1602, %.preheader.i629
   tail call fastcc void @createarc(ptr noundef %1584, i32 noundef 110, i16 noundef signext 0, ptr noundef %.0636.i, ptr noundef %4)
@@ -17809,7 +17809,7 @@ parseqatom.exit:                                  ; preds = %1024, %1036, %536, 
   %.0.i42.ph.ph = phi ptr [ %.0, %newarc.exit290 ], [ %.0, %newarc.exit252 ], [ %.0, %newarc.exit214 ], [ %.0, %newarc.exit176 ], [ %.0, %340 ], [ %.0, %346 ], [ %.0, %356 ], [ %.0, %366 ], [ %.0, %1068 ], [ %1660, %1658 ], [ %.0, %freesrnode.exit ], [ %.0, %1542 ], [ %.0, %1553 ], [ %.0, %freesubreandsiblings.exit ], [ %.0, %1548 ], [ %.0, %1544 ], [ %.0, %.loopexit.i93 ], [ %.0, %418 ], [ %.0, %.loopexit.i60.i ], [ %.0, %486 ], [ %.0, %.loopexit.i98.i ], [ %.0, %.loopexit.i120.i ], [ %.0, %604 ], [ %.0, %592 ], [ %.0, %480 ], [ %.0, %468 ], [ %.0, %548 ], [ %.0, %536 ], [ %.0, %1036 ], [ %.0, %1024 ]
   %.pr335.pr = load i32, ptr %.phi.trans.insert, align 8
   %.not37 = icmp eq i32 %.pr335.pr, 0
-  br i1 %.not37, label %64, label %newarc.exit, !llvm.loop !95
+  br i1 %.not37, label %64, label %newarc.exit, !llvm.loop !97
 
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test, %64
   br i1 %.not35, label %1661, label %newarc.exit
@@ -17830,7 +17830,7 @@ parseqatom.exit:                                  ; preds = %1024, %1036, %536, 
   %1668 = load ptr, ptr %48, align 8
   %1669 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i44 = icmp eq i32 %1669, 0
-  br i1 %.not.i44, label %1671, label %1670, !prof !13
+  br i1 %.not.i44, label %1671, label %1670, !prof !14
 
 1670:                                             ; preds = %1667
   tail call void @ProcessInterrupts() #20
@@ -17871,7 +17871,7 @@ parseqatom.exit:                                  ; preds = %1024, %1036, %536, 
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i45 = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i45, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 1686:                                             ; preds = %1671
   %.134.i = load ptr, ptr %55, align 8
@@ -17900,7 +17900,7 @@ parseqatom.exit:                                  ; preds = %1024, %1036, %536, 
   %1698 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i46 = load ptr, ptr %1698, align 8
   %.not25.i = icmp eq ptr %.1.i46, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %1685, %1697, %1686, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %1668, i32 noundef 110, i16 noundef signext 0, ptr noundef %3, ptr noundef %4)
@@ -18921,12 +18921,12 @@ define internal fastcc range(i32 0, 2) i32 @next(ptr noundef nonnull %0) unnamed
   store ptr %397, ptr %8, align 8
   %.not364 = icmp ult ptr %397, %387
   %or.cond1250 = select i1 %.not365, i1 %.not364, i1 false
-  br i1 %or.cond1250, label %.lr.ph, label %.critedge, !llvm.loop !96
+  br i1 %or.cond1250, label %.lr.ph, label %.critedge, !llvm.loop !98
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
   %398 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %398, 0
-  br i1 %.not, label %10, label %brenext.exit
+  br i1 %.not, label %10, label %brenext.exit, !llvm.loop !99
 
 399:                                              ; preds = %390
   %400 = load ptr, ptr %0, align 8
@@ -19335,7 +19335,7 @@ freearc.exit:                                     ; preds = %72, %73
   store ptr %13, ptr %11, align 8
   %79 = load ptr, ptr %7, align 8
   %.not40 = icmp eq ptr %79, null
-  br i1 %.not40, label %.loopexit, label %12, !llvm.loop !97
+  br i1 %.not40, label %.loopexit, label %12, !llvm.loop !100
 
 80:                                               ; preds = %3
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -19371,7 +19371,7 @@ freearc.exit:                                     ; preds = %72, %73
   %100 = load i16, ptr %99, align 4
   %101 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i41 = icmp eq i32 %101, 0
-  br i1 %.not.i.i41, label %103, label %102, !prof !13
+  br i1 %.not.i.i41, label %103, label %102, !prof !14
 
 102:                                              ; preds = %94
   tail call void @ProcessInterrupts() #20
@@ -19412,7 +19412,7 @@ freearc.exit:                                     ; preds = %72, %73
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 24
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not26.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 118:                                              ; preds = %103
   %.134.i.i = load ptr, ptr %90, align 8
@@ -19441,7 +19441,7 @@ freearc.exit:                                     ; preds = %72, %73
   %130 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 40
   %.1.i.i = load ptr, ptr %130, align 8
   %.not25.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !15
+  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %117, %129, %118, %.preheader.i.i
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %98, i16 noundef signext %100, ptr noundef %97, ptr noundef %2)
@@ -19567,12 +19567,12 @@ freearc.exit47:                                   ; preds = %184, %185
   store ptr %95, ptr %93, align 8
   %191 = load ptr, ptr %88, align 8
   %.not39 = icmp eq ptr %191, null
-  br i1 %.not39, label %.loopexit, label %94, !llvm.loop !98
+  br i1 %.not39, label %.loopexit, label %94, !llvm.loop !101
 
 192:                                              ; preds = %84
   %193 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %193, 0
-  br i1 %.not, label %195, label %194, !prof !13
+  br i1 %.not, label %195, label %194, !prof !14
 
 194:                                              ; preds = %192
   tail call void @ProcessInterrupts() #20
@@ -19832,7 +19832,7 @@ sortins_cmp.exit.thread71:                        ; preds = %sortins_cmp.exit, %
   %321 = icmp ne ptr %.168, null
   %322 = icmp ne ptr %.1, null
   %323 = select i1 %321, i1 %322, i1 false
-  br i1 %323, label %211, label %.preheader77, !llvm.loop !99
+  br i1 %323, label %211, label %.preheader77, !llvm.loop !102
 
 .lr.ph83:                                         ; preds = %.preheader77, %changearctarget.exit58
   %.282 = phi ptr [ %325, %changearctarget.exit58 ], [ %.067.lcssa, %.preheader77 ]
@@ -19887,7 +19887,7 @@ changearctarget.exit58:                           ; preds = %338, %344
   %346 = load i32, ptr %4, align 8
   %347 = add i32 %346, 1
   store i32 %347, ptr %4, align 8
-  br i1 %.not.i56, label %.loopexit, label %.lr.ph83, !llvm.loop !100
+  br i1 %.not.i56, label %.loopexit, label %.lr.ph83, !llvm.loop !103
 
 .loopexit:                                        ; preds = %changearctarget.exit58, %freearc.exit47, %freearc.exit, %.preheader77, %87, %.preheader, %195
   ret void
@@ -19936,7 +19936,7 @@ define internal fastcc void @sortins(ptr noundef readonly captures(none) %0, ptr
   %23 = getelementptr inbounds nuw i8, ptr %.03947, i64 40
   %.039 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.039, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   tail call void @pg_qsort(ptr noundef nonnull %9, i64 noundef %7, i64 noundef 8, ptr noundef nonnull @sortins_cmp) #20
@@ -19970,7 +19970,7 @@ define internal fastcc void @sortins(ptr noundef readonly captures(none) %0, ptr
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 48
   store ptr %35, ptr %36, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge51.loopexit, label %.lr.ph50, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge51.loopexit, label %.lr.ph50, !llvm.loop !105
 
 ._crit_edge51.loopexit:                           ; preds = %.lr.ph50
   %37 = zext nneg i32 %smax to i64
@@ -20101,7 +20101,7 @@ define internal fastcc void @nonword(ptr noundef nonnull readonly captures(none)
   %8 = load ptr, ptr %7, align 8
   %9 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %11, label %10, !prof !13
+  br i1 %.not.i, label %11, label %10, !prof !14
 
 10:                                               ; preds = %4
   tail call void @ProcessInterrupts() #20
@@ -20143,7 +20143,7 @@ define internal fastcc void @nonword(ptr noundef nonnull readonly captures(none)
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 27:                                               ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -20173,7 +20173,7 @@ define internal fastcc void @nonword(ptr noundef nonnull readonly captures(none)
   %40 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %40, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %26, %39, %27, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %8, i32 noundef %6, i16 noundef signext 1, ptr noundef %2, ptr noundef %3)
@@ -20183,7 +20183,7 @@ newarc.exit:                                      ; preds = %23, %36, %.loopexit
   %41 = load ptr, ptr %7, align 8
   %42 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i14 = icmp eq i32 %42, 0
-  br i1 %.not.i14, label %44, label %43, !prof !13
+  br i1 %.not.i14, label %44, label %43, !prof !14
 
 43:                                               ; preds = %newarc.exit
   tail call void @ProcessInterrupts() #20
@@ -20223,7 +20223,7 @@ newarc.exit:                                      ; preds = %23, %36, %.loopexit
   %.0.in.i22 = getelementptr inbounds nuw i8, ptr %.033.i21, i64 24
   %.0.i23 = load ptr, ptr %.0.in.i22, align 8
   %.not26.i24 = icmp eq ptr %.0.i23, null
-  br i1 %.not26.i24, label %.loopexit.i25, label %.lr.ph.i20, !llvm.loop !14
+  br i1 %.not26.i24, label %.loopexit.i25, label %.lr.ph.i20, !llvm.loop !15
 
 58:                                               ; preds = %44
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -20253,7 +20253,7 @@ newarc.exit:                                      ; preds = %23, %36, %.loopexit
   %71 = getelementptr inbounds nuw i8, ptr %.136.i29, i64 40
   %.1.i30 = load ptr, ptr %71, align 8
   %.not25.i31 = icmp eq ptr %.1.i30, null
-  br i1 %.not25.i31, label %.loopexit.i25, label %.lr.ph37.i28, !llvm.loop !15
+  br i1 %.not25.i31, label %.loopexit.i25, label %.lr.ph37.i28, !llvm.loop !16
 
 .loopexit.i25:                                    ; preds = %57, %70, %58, %.preheader.i16
   tail call fastcc void @createarc(ptr noundef %41, i32 noundef %6, i16 noundef signext 0, ptr noundef %2, ptr noundef %3)
@@ -20349,7 +20349,7 @@ brackpart.exit:                                   ; preds = %brackpart.exit.back
   %36 = tail call fastcc i32 @next(ptr noundef nonnull %0)
   %37 = load i32, ptr %7, align 4
   %38 = icmp eq i32 %37, 112
-  br i1 %38, label %.lr.ph.i.i, label %scanplain.exit.i, !llvm.loop !103
+  br i1 %38, label %.lr.ph.i.i, label %scanplain.exit.i, !llvm.loop !106
 
 scanplain.exit.i:                                 ; preds = %.lr.ph.i.i, %29
   %.0.lcssa.i.i = phi ptr [ %32, %29 ], [ %35, %.lr.ph.i.i ]
@@ -20406,7 +20406,7 @@ element.exit.thread187.i:                         ; preds = %44
   %64 = getelementptr inbounds nuw i8, ptr %.01825.i.i, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not.i144.i = icmp eq ptr %65, null
-  br i1 %.not.i144.i, label %element.exit.thread.i, label %56, !llvm.loop !104
+  br i1 %.not.i144.i, label %element.exit.thread.i, label %56, !llvm.loop !107
 
 element.exit.thread.i:                            ; preds = %63
   store i32 101, ptr %7, align 4
@@ -20437,7 +20437,7 @@ element.exit.i:                                   ; preds = %60
   %78 = tail call fastcc i32 @next(ptr noundef nonnull %0)
   %79 = load i32, ptr %7, align 4
   %80 = icmp eq i32 %79, 112
-  br i1 %80, label %.lr.ph.i146.i, label %scanplain.exit147.i, !llvm.loop !103
+  br i1 %80, label %.lr.ph.i146.i, label %scanplain.exit147.i, !llvm.loop !106
 
 scanplain.exit147.i:                              ; preds = %.lr.ph.i146.i, %71
   %.0.lcssa.i145.i = phi ptr [ %74, %71 ], [ %77, %.lr.ph.i146.i ]
@@ -20494,7 +20494,7 @@ element.exit153.thread193.i:                      ; preds = %86
   %106 = getelementptr inbounds nuw i8, ptr %.01825.i148.i, i64 16
   %107 = load ptr, ptr %106, align 8
   %.not.i149.i = icmp eq ptr %107, null
-  br i1 %.not.i149.i, label %element.exit153.thread.i, label %98, !llvm.loop !104
+  br i1 %.not.i149.i, label %element.exit153.thread.i, label %98, !llvm.loop !107
 
 element.exit153.thread.i:                         ; preds = %105
   store i32 101, ptr %7, align 4
@@ -20716,7 +20716,7 @@ eclass.exit:                                      ; preds = %getcvec.exit.i, %15
   %206 = tail call fastcc i32 @next(ptr noundef nonnull %0)
   %207 = load i32, ptr %7, align 4
   %208 = icmp eq i32 %207, 112
-  br i1 %208, label %.lr.ph.i155.i, label %scanplain.exit156.i, !llvm.loop !103
+  br i1 %208, label %.lr.ph.i155.i, label %scanplain.exit156.i, !llvm.loop !106
 
 scanplain.exit156.i:                              ; preds = %.lr.ph.i155.i, %199
   %.0.lcssa.i154.i = phi ptr [ %202, %199 ], [ %205, %.lr.ph.i155.i ]
@@ -20762,7 +20762,7 @@ scanplain.exit156.i:                              ; preds = %.lr.ph.i155.i, %199
   %228 = add nuw nsw i32 %.023.i.i, 1
   %229 = load ptr, ptr %227, align 8
   %exitcond.i.i = icmp eq i32 %228, 14
-  br i1 %exitcond.i.i, label %lookupcclass.exit.thread.i, label %219, !llvm.loop !105
+  br i1 %exitcond.i.i, label %lookupcclass.exit.thread.i, label %219, !llvm.loop !108
 
 lookupcclass.exit.thread.i:                       ; preds = %226
   store i32 101, ptr %7, align 4
@@ -20868,7 +20868,7 @@ charclass.exit.i:                                 ; preds = %251, %241
   %275 = tail call fastcc i32 @next(ptr noundef nonnull %0)
   %276 = load i32, ptr %7, align 4
   %277 = icmp eq i32 %276, 112
-  br i1 %277, label %.lr.ph.i33, label %scanplain.exit, !llvm.loop !103
+  br i1 %277, label %.lr.ph.i33, label %scanplain.exit, !llvm.loop !106
 
 scanplain.exit:                                   ; preds = %.lr.ph.i33, %268
   %.0.lcssa.i = phi ptr [ %271, %268 ], [ %274, %.lr.ph.i33 ]
@@ -20925,7 +20925,7 @@ element.exit.thread70:                            ; preds = %283
   %303 = getelementptr inbounds nuw i8, ptr %.01825.i, i64 16
   %304 = load ptr, ptr %303, align 8
   %.not.i30 = icmp eq ptr %304, null
-  br i1 %.not.i30, label %element.exit.thread, label %295, !llvm.loop !104
+  br i1 %.not.i30, label %element.exit.thread, label %295, !llvm.loop !107
 
 element.exit.thread:                              ; preds = %302
   store i32 101, ptr %7, align 4
@@ -20936,7 +20936,7 @@ element.exit.thread:                              ; preds = %302
   br label %brackpart.exit.backedge
 
 brackpart.exit.backedge:                          ; preds = %element.exit.thread, %240, %231, %14, %24, %25, %27, %.thread.i, %42, %element.exit.thread.i, %element.exit.i, %.thread191.i, %84, %element.exit153.thread.i, %element.exit153.i, %eclass.exit, %198, %.thread197.i, %212, %lookupcclass.exit.thread.i, %lookupcclass.exit.i, %charclass.exit.i, %253, %258, %264, %.thread203.i, %281, %element.exit, %310, %.thread205.i, %322
-  br label %brackpart.exit, !llvm.loop !106
+  br label %brackpart.exit, !llvm.loop !109
 
 element.exit:                                     ; preds = %299
   %306 = getelementptr inbounds nuw i8, ptr %.01825.i, i64 8
@@ -20999,7 +20999,7 @@ element.exit:                                     ; preds = %299
 .preheader:                                       ; preds = %.preheader.outer, %334
   %indvars.iv = phi i64 [ %indvars.iv.next, %334 ], [ %indvars.iv.ph, %.preheader.outer ]
   %328 = getelementptr inbounds nuw [14 x i8], ptr %5, i64 0, i64 %indvars.iv
-  %329 = load i8, ptr %328, align 1, !range !7, !noundef !8
+  %329 = load i8, ptr %328, align 1, !range !8, !noundef !9
   %330 = trunc nuw i8 %329 to i1
   br i1 %330, label %331, label %334
 
@@ -21013,12 +21013,12 @@ element.exit:                                     ; preds = %299
 334:                                              ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %335, label %.preheader, !llvm.loop !107
+  br i1 %exitcond.not, label %335, label %.preheader, !llvm.loop !110
 
 .thread:                                          ; preds = %331
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not75 = icmp eq i64 %indvars.iv.next74, 14
-  br i1 %exitcond.not75, label %.thread77, label %.preheader.outer, !llvm.loop !107
+  br i1 %exitcond.not75, label %.thread77, label %.preheader.outer, !llvm.loop !110
 
 335:                                              ; preds = %334
   br i1 %.02057.ph, label %.thread77, label %optimizebracket.exit
@@ -21051,7 +21051,7 @@ element.exit:                                     ; preds = %299
   %353 = getelementptr inbounds nuw i8, ptr %.02234.i, i64 24
   %.022.i = load ptr, ptr %353, align 8
   %.not.i24 = icmp eq ptr %.022.i, null
-  br i1 %.not.i24, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !108
+  br i1 %.not.i24, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !111
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i25 = load ptr, ptr %325, align 8
@@ -21088,7 +21088,7 @@ element.exit:                                     ; preds = %299
   %.1.i = phi i1 [ %.036.i, %359 ], [ %spec.select.i29, %361 ]
   %364 = getelementptr inbounds nuw i8, ptr %.02335.i, i64 32
   %365 = icmp ult ptr %364, %342
-  br i1 %365, label %.lr.ph38.i, label %._crit_edge39.i, !llvm.loop !109
+  br i1 %365, label %.lr.ph38.i, label %._crit_edge39.i, !llvm.loop !112
 
 ._crit_edge39.i:                                  ; preds = %363
   br i1 %.1.i, label %.preheader.i, label %optimizebracket.exit
@@ -21225,13 +21225,13 @@ freearc.exit.i:                                   ; preds = %427, %426
   store ptr %367, ptr %432, align 8
   %434 = load ptr, ptr %343, align 8
   %.not25.i = icmp eq ptr %434, null
-  br i1 %.not25.i, label %._crit_edge42.i, label %.lr.ph41.i, !llvm.loop !110
+  br i1 %.not25.i, label %._crit_edge42.i, label %.lr.ph41.i, !llvm.loop !113
 
 ._crit_edge42.i:                                  ; preds = %freearc.exit.i, %.preheader.i
   %435 = load ptr, ptr %323, align 8
   %436 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i29.i = icmp eq i32 %436, 0
-  br i1 %.not.i29.i, label %438, label %437, !prof !13
+  br i1 %.not.i29.i, label %438, label %437, !prof !14
 
 437:                                              ; preds = %._crit_edge42.i
   tail call void @ProcessInterrupts() #20
@@ -21272,7 +21272,7 @@ freearc.exit.i:                                   ; preds = %427, %426
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 24
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not26.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i28, !llvm.loop !14
+  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i28, !llvm.loop !15
 
 454:                                              ; preds = %438
   %455 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -21302,7 +21302,7 @@ freearc.exit.i:                                   ; preds = %427, %426
   %467 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 40
   %.1.i.i = load ptr, ptr %467, align 8
   %.not25.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !15
+  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %453, %466, %454, %.preheader.i.i
   tail call fastcc void @createarc(ptr noundef %435, i32 noundef 112, i16 noundef signext -2, ptr noundef %1, ptr noundef %2)
@@ -21390,7 +21390,7 @@ define internal fastcc range(i32 -2147483648, 256) i32 @scannum(ptr noundef nonn
   %12 = icmp eq i32 %11, 100
   %13 = icmp slt i32 %9, 255
   %14 = select i1 %12, i1 %13, i1 false
-  br i1 %14, label %6, label %._crit_edge, !llvm.loop !94
+  br i1 %14, label %6, label %._crit_edge, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %6, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %9, %6 ]
@@ -21470,7 +21470,7 @@ delsub.exit:                                      ; preds = %16, %23
   %25 = load ptr, ptr %6, align 8
   %26 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i121 = icmp eq i32 %26, 0
-  br i1 %.not.i121, label %28, label %27, !prof !13
+  br i1 %.not.i121, label %28, label %27, !prof !14
 
 27:                                               ; preds = %delsub.exit
   tail call void @ProcessInterrupts() #20
@@ -21512,7 +21512,7 @@ delsub.exit:                                      ; preds = %16, %23
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 44:                                               ; preds = %28
   %45 = getelementptr inbounds nuw i8, ptr %.tr256, i64 16
@@ -21542,7 +21542,7 @@ delsub.exit:                                      ; preds = %16, %23
   %57 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %57, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %43, %56, %44, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %25, i32 noundef 110, i16 noundef signext 0, ptr noundef %1, ptr noundef %.tr256)
@@ -21552,7 +21552,7 @@ delsub.exit:                                      ; preds = %16, %23
   %59 = load ptr, ptr %6, align 8
   %60 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i122 = icmp eq i32 %60, 0
-  br i1 %.not.i122, label %62, label %61, !prof !13
+  br i1 %.not.i122, label %62, label %61, !prof !14
 
 61:                                               ; preds = %58
   tail call void @ProcessInterrupts() #20
@@ -21594,7 +21594,7 @@ delsub.exit:                                      ; preds = %16, %23
   %.0.in.i130 = getelementptr inbounds nuw i8, ptr %.033.i129, i64 24
   %.0.i131 = load ptr, ptr %.0.in.i130, align 8
   %.not26.i132 = icmp eq ptr %.0.i131, null
-  br i1 %.not26.i132, label %.loopexit.i133, label %.lr.ph.i128, !llvm.loop !14
+  br i1 %.not26.i132, label %.loopexit.i133, label %.lr.ph.i128, !llvm.loop !15
 
 78:                                               ; preds = %62
   %79 = getelementptr inbounds nuw i8, ptr %.tr256, i64 16
@@ -21624,7 +21624,7 @@ delsub.exit:                                      ; preds = %16, %23
   %91 = getelementptr inbounds nuw i8, ptr %.136.i137, i64 40
   %.1.i138 = load ptr, ptr %91, align 8
   %.not25.i139 = icmp eq ptr %.1.i138, null
-  br i1 %.not25.i139, label %.loopexit.i133, label %.lr.ph37.i136, !llvm.loop !15
+  br i1 %.not25.i139, label %.loopexit.i133, label %.lr.ph37.i136, !llvm.loop !16
 
 .loopexit.i133:                                   ; preds = %77, %90, %78, %.preheader.i124
   tail call fastcc void @createarc(ptr noundef %59, i32 noundef 110, i16 noundef signext 0, ptr noundef %1, ptr noundef %.tr256)
@@ -21640,7 +21640,7 @@ delsub.exit:                                      ; preds = %16, %23
   %95 = load ptr, ptr %6, align 8
   %96 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i141 = icmp eq i32 %96, 0
-  br i1 %.not.i141, label %98, label %97, !prof !13
+  br i1 %.not.i141, label %98, label %97, !prof !14
 
 97:                                               ; preds = %94
   tail call void @ProcessInterrupts() #20
@@ -21682,7 +21682,7 @@ delsub.exit:                                      ; preds = %16, %23
   %.0.in.i149 = getelementptr inbounds nuw i8, ptr %.033.i148, i64 24
   %.0.i150 = load ptr, ptr %.0.in.i149, align 8
   %.not26.i151 = icmp eq ptr %.0.i150, null
-  br i1 %.not26.i151, label %.loopexit.i152, label %.lr.ph.i147, !llvm.loop !14
+  br i1 %.not26.i151, label %.loopexit.i152, label %.lr.ph.i147, !llvm.loop !15
 
 114:                                              ; preds = %98
   %115 = getelementptr inbounds nuw i8, ptr %.tr256, i64 16
@@ -21712,7 +21712,7 @@ delsub.exit:                                      ; preds = %16, %23
   %127 = getelementptr inbounds nuw i8, ptr %.136.i156, i64 40
   %.1.i157 = load ptr, ptr %127, align 8
   %.not25.i158 = icmp eq ptr %.1.i157, null
-  br i1 %.not25.i158, label %.loopexit.i152, label %.lr.ph37.i155, !llvm.loop !15
+  br i1 %.not25.i158, label %.loopexit.i152, label %.lr.ph37.i155, !llvm.loop !16
 
 .loopexit.i152:                                   ; preds = %113, %126, %114, %.preheader.i143
   tail call fastcc void @createarc(ptr noundef %95, i32 noundef 110, i16 noundef signext 0, ptr noundef %1, ptr noundef %.tr256)
@@ -21733,7 +21733,7 @@ delsub.exit:                                      ; preds = %16, %23
   %135 = load ptr, ptr %6, align 8
   %136 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i160 = icmp eq i32 %136, 0
-  br i1 %.not.i160, label %138, label %137, !prof !13
+  br i1 %.not.i160, label %138, label %137, !prof !14
 
 137:                                              ; preds = %132
   tail call void @ProcessInterrupts() #20
@@ -21775,7 +21775,7 @@ delsub.exit:                                      ; preds = %16, %23
   %.0.in.i168 = getelementptr inbounds nuw i8, ptr %.033.i167, i64 24
   %.0.i169 = load ptr, ptr %.0.in.i168, align 8
   %.not26.i170 = icmp eq ptr %.0.i169, null
-  br i1 %.not26.i170, label %.loopexit.i171, label %.lr.ph.i166, !llvm.loop !14
+  br i1 %.not26.i170, label %.loopexit.i171, label %.lr.ph.i166, !llvm.loop !15
 
 154:                                              ; preds = %138
   %155 = getelementptr inbounds nuw i8, ptr %130, i64 16
@@ -21805,7 +21805,7 @@ delsub.exit:                                      ; preds = %16, %23
   %167 = getelementptr inbounds nuw i8, ptr %.136.i175, i64 40
   %.1.i176 = load ptr, ptr %167, align 8
   %.not25.i177 = icmp eq ptr %.1.i176, null
-  br i1 %.not25.i177, label %.loopexit.i171, label %.lr.ph37.i174, !llvm.loop !15
+  br i1 %.not25.i177, label %.loopexit.i171, label %.lr.ph37.i174, !llvm.loop !16
 
 .loopexit.i171:                                   ; preds = %153, %166, %154, %.preheader.i162
   tail call fastcc void @createarc(ptr noundef %135, i32 noundef 110, i16 noundef signext 0, ptr noundef %1, ptr noundef %130)
@@ -21815,7 +21815,7 @@ newarc.exit178:                                   ; preds = %150, %163, %.loopex
   %168 = load ptr, ptr %6, align 8
   %169 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i179 = icmp eq i32 %169, 0
-  br i1 %.not.i179, label %171, label %170, !prof !13
+  br i1 %.not.i179, label %171, label %170, !prof !14
 
 170:                                              ; preds = %newarc.exit178
   tail call void @ProcessInterrupts() #20
@@ -21857,7 +21857,7 @@ newarc.exit178:                                   ; preds = %150, %163, %.loopex
   %.0.in.i187 = getelementptr inbounds nuw i8, ptr %.033.i186, i64 24
   %.0.i188 = load ptr, ptr %.0.in.i187, align 8
   %.not26.i189 = icmp eq ptr %.0.i188, null
-  br i1 %.not26.i189, label %.loopexit.i190, label %.lr.ph.i185, !llvm.loop !14
+  br i1 %.not26.i189, label %.loopexit.i190, label %.lr.ph.i185, !llvm.loop !15
 
 187:                                              ; preds = %171
   %188 = getelementptr inbounds nuw i8, ptr %.tr256, i64 16
@@ -21887,7 +21887,7 @@ newarc.exit178:                                   ; preds = %150, %163, %.loopex
   %200 = getelementptr inbounds nuw i8, ptr %.136.i194, i64 40
   %.1.i195 = load ptr, ptr %200, align 8
   %.not25.i196 = icmp eq ptr %.1.i195, null
-  br i1 %.not25.i196, label %.loopexit.i190, label %.lr.ph37.i193, !llvm.loop !15
+  br i1 %.not25.i196, label %.loopexit.i190, label %.lr.ph37.i193, !llvm.loop !16
 
 .loopexit.i190:                                   ; preds = %186, %199, %187, %.preheader.i181
   tail call fastcc void @createarc(ptr noundef %168, i32 noundef 110, i16 noundef signext 0, ptr noundef %130, ptr noundef %.tr256)
@@ -21938,7 +21938,7 @@ newarc.exit178:                                   ; preds = %150, %163, %.loopex
   %223 = load ptr, ptr %6, align 8
   %224 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i198 = icmp eq i32 %224, 0
-  br i1 %.not.i198, label %226, label %225, !prof !13
+  br i1 %.not.i198, label %226, label %225, !prof !14
 
 225:                                              ; preds = %220
   tail call void @ProcessInterrupts() #20
@@ -21980,7 +21980,7 @@ newarc.exit178:                                   ; preds = %150, %163, %.loopex
   %.0.in.i206 = getelementptr inbounds nuw i8, ptr %.033.i205, i64 24
   %.0.i207 = load ptr, ptr %.0.in.i206, align 8
   %.not26.i208 = icmp eq ptr %.0.i207, null
-  br i1 %.not26.i208, label %.loopexit.i209, label %.lr.ph.i204, !llvm.loop !14
+  br i1 %.not26.i208, label %.loopexit.i209, label %.lr.ph.i204, !llvm.loop !15
 
 242:                                              ; preds = %226
   %243 = getelementptr inbounds nuw i8, ptr %216, i64 16
@@ -22010,7 +22010,7 @@ newarc.exit178:                                   ; preds = %150, %163, %.loopex
   %255 = getelementptr inbounds nuw i8, ptr %.136.i213, i64 40
   %.1.i214 = load ptr, ptr %255, align 8
   %.not25.i215 = icmp eq ptr %.1.i214, null
-  br i1 %.not25.i215, label %.loopexit.i209, label %.lr.ph37.i212, !llvm.loop !15
+  br i1 %.not25.i215, label %.loopexit.i209, label %.lr.ph37.i212, !llvm.loop !16
 
 .loopexit.i209:                                   ; preds = %241, %254, %242, %.preheader.i200
   tail call fastcc void @createarc(ptr noundef %223, i32 noundef 110, i16 noundef signext 0, ptr noundef %1, ptr noundef %216)
@@ -22020,7 +22020,7 @@ newarc.exit216:                                   ; preds = %238, %251, %.loopex
   %256 = load ptr, ptr %6, align 8
   %257 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i217 = icmp eq i32 %257, 0
-  br i1 %.not.i217, label %259, label %258, !prof !13
+  br i1 %.not.i217, label %259, label %258, !prof !14
 
 258:                                              ; preds = %newarc.exit216
   tail call void @ProcessInterrupts() #20
@@ -22062,7 +22062,7 @@ newarc.exit216:                                   ; preds = %238, %251, %.loopex
   %.0.in.i225 = getelementptr inbounds nuw i8, ptr %.033.i224, i64 24
   %.0.i226 = load ptr, ptr %.0.in.i225, align 8
   %.not26.i227 = icmp eq ptr %.0.i226, null
-  br i1 %.not26.i227, label %.loopexit.i228, label %.lr.ph.i223, !llvm.loop !14
+  br i1 %.not26.i227, label %.loopexit.i228, label %.lr.ph.i223, !llvm.loop !15
 
 275:                                              ; preds = %259
   %276 = getelementptr inbounds nuw i8, ptr %.tr256, i64 16
@@ -22092,7 +22092,7 @@ newarc.exit216:                                   ; preds = %238, %251, %.loopex
   %288 = getelementptr inbounds nuw i8, ptr %.136.i232, i64 40
   %.1.i233 = load ptr, ptr %288, align 8
   %.not25.i234 = icmp eq ptr %.1.i233, null
-  br i1 %.not25.i234, label %.loopexit.i228, label %.lr.ph37.i231, !llvm.loop !15
+  br i1 %.not25.i234, label %.loopexit.i228, label %.lr.ph37.i231, !llvm.loop !16
 
 .loopexit.i228:                                   ; preds = %274, %287, %275, %.preheader.i219
   tail call fastcc void @createarc(ptr noundef %256, i32 noundef 110, i16 noundef signext 0, ptr noundef %218, ptr noundef %.tr256)
@@ -22102,7 +22102,7 @@ newarc.exit235:                                   ; preds = %271, %284, %.loopex
   %289 = load ptr, ptr %6, align 8
   %290 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i236 = icmp eq i32 %290, 0
-  br i1 %.not.i236, label %292, label %291, !prof !13
+  br i1 %.not.i236, label %292, label %291, !prof !14
 
 291:                                              ; preds = %newarc.exit235
   tail call void @ProcessInterrupts() #20
@@ -22142,7 +22142,7 @@ newarc.exit235:                                   ; preds = %271, %284, %.loopex
   %.0.in.i244 = getelementptr inbounds nuw i8, ptr %.033.i243, i64 24
   %.0.i245 = load ptr, ptr %.0.in.i244, align 8
   %.not26.i246 = icmp eq ptr %.0.i245, null
-  br i1 %.not26.i246, label %.loopexit.i247, label %.lr.ph.i242, !llvm.loop !14
+  br i1 %.not26.i246, label %.loopexit.i247, label %.lr.ph.i242, !llvm.loop !15
 
 306:                                              ; preds = %292
   %307 = getelementptr inbounds nuw i8, ptr %216, i64 16
@@ -22172,7 +22172,7 @@ newarc.exit235:                                   ; preds = %271, %284, %.loopex
   %319 = getelementptr inbounds nuw i8, ptr %.136.i251, i64 40
   %.1.i252 = load ptr, ptr %319, align 8
   %.not25.i253 = icmp eq ptr %.1.i252, null
-  br i1 %.not25.i253, label %.loopexit.i247, label %.lr.ph37.i250, !llvm.loop !15
+  br i1 %.not25.i253, label %.loopexit.i247, label %.lr.ph37.i250, !llvm.loop !16
 
 .loopexit.i247:                                   ; preds = %305, %318, %306, %.preheader.i238
   tail call fastcc void @createarc(ptr noundef %289, i32 noundef 110, i16 noundef signext 0, ptr noundef %218, ptr noundef %216)
@@ -22378,7 +22378,7 @@ freearc.exit:                                     ; preds = %72, %73
   store ptr %13, ptr %11, align 8
   %79 = load ptr, ptr %7, align 8
   %.not40 = icmp eq ptr %79, null
-  br i1 %.not40, label %.loopexit, label %12, !llvm.loop !111
+  br i1 %.not40, label %.loopexit, label %12, !llvm.loop !114
 
 80:                                               ; preds = %3
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -22414,7 +22414,7 @@ freearc.exit:                                     ; preds = %72, %73
   %99 = load i16, ptr %98, align 4
   %100 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i41 = icmp eq i32 %100, 0
-  br i1 %.not.i.i41, label %102, label %101, !prof !13
+  br i1 %.not.i.i41, label %102, label %101, !prof !14
 
 101:                                              ; preds = %93
   tail call void @ProcessInterrupts() #20
@@ -22454,7 +22454,7 @@ freearc.exit:                                     ; preds = %72, %73
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 24
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not26.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 117:                                              ; preds = %102
   %118 = getelementptr inbounds nuw i8, ptr %96, i64 16
@@ -22484,7 +22484,7 @@ freearc.exit:                                     ; preds = %72, %73
   %130 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 40
   %.1.i.i = load ptr, ptr %130, align 8
   %.not25.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !15
+  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %116, %129, %117, %.preheader.i.i
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %97, i16 noundef signext %99, ptr noundef %2, ptr noundef %96)
@@ -22610,12 +22610,12 @@ freearc.exit47:                                   ; preds = %184, %185
   store ptr %94, ptr %92, align 8
   %191 = load ptr, ptr %88, align 8
   %.not39 = icmp eq ptr %191, null
-  br i1 %.not39, label %.loopexit, label %93, !llvm.loop !112
+  br i1 %.not39, label %.loopexit, label %93, !llvm.loop !115
 
 192:                                              ; preds = %84
   %193 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %193, 0
-  br i1 %.not, label %195, label %194, !prof !13
+  br i1 %.not, label %195, label %194, !prof !14
 
 194:                                              ; preds = %192
   tail call void @ProcessInterrupts() #20
@@ -22866,7 +22866,7 @@ sortouts_cmp.exit.thread73:                       ; preds = %sortouts_cmp.exit, 
   %317 = icmp ne ptr %.170, null
   %318 = icmp ne ptr %.1, null
   %319 = select i1 %317, i1 %318, i1 false
-  br i1 %319, label %211, label %.preheader79, !llvm.loop !113
+  br i1 %319, label %211, label %.preheader79, !llvm.loop !116
 
 .lr.ph85:                                         ; preds = %.preheader79, %changearcsource.exit60
   %.284 = phi ptr [ %321, %changearcsource.exit60 ], [ %.069.lcssa, %.preheader79 ]
@@ -22911,7 +22911,7 @@ changearcsource.exit60:                           ; preds = %330, %336
   %338 = load i32, ptr %4, align 4
   %339 = add i32 %338, 1
   store i32 %339, ptr %4, align 4
-  br i1 %.not.i58, label %.loopexit, label %.lr.ph85, !llvm.loop !114
+  br i1 %.not.i58, label %.loopexit, label %.lr.ph85, !llvm.loop !117
 
 .loopexit:                                        ; preds = %changearcsource.exit60, %freearc.exit47, %freearc.exit, %.preheader79, %87, %.preheader, %195
   ret void
@@ -22925,7 +22925,7 @@ define internal fastcc void @dupnfa(ptr noundef captures(none) %0, ptr noundef c
 7:                                                ; preds = %5
   %8 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %10, label %9, !prof !13
+  br i1 %.not.i, label %10, label %9, !prof !14
 
 9:                                                ; preds = %7
   tail call void @ProcessInterrupts() #20
@@ -22967,7 +22967,7 @@ define internal fastcc void @dupnfa(ptr noundef captures(none) %0, ptr noundef c
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -22997,7 +22997,7 @@ define internal fastcc void @dupnfa(ptr noundef captures(none) %0, ptr noundef c
   %39 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %39, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %25, %38, %26, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef 110, i16 noundef signext 0, ptr noundef %3, ptr noundef %4)
@@ -23489,7 +23489,7 @@ define internal fastcc void @subcolorcvec(ptr noundef nonnull readonly captures(
   %17 = getelementptr inbounds nuw i8, ptr %.089174, i64 4
   %18 = add nsw i32 %.091173, -1
   %19 = icmp sgt i32 %.091173, 1
-  br i1 %19, label %13, label %._crit_edge, !llvm.loop !115
+  br i1 %19, label %13, label %._crit_edge, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %16, %4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -23627,7 +23627,7 @@ subcolor.exit:                                    ; preds = %newsub.exit.i, %69,
   %94 = load ptr, ptr %29, align 8
   %95 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i113 = icmp eq i32 %95, 0
-  br i1 %.not.i113, label %97, label %96, !prof !13
+  br i1 %.not.i113, label %97, label %96, !prof !14
 
 96:                                               ; preds = %93
   tail call void @ProcessInterrupts() #20
@@ -23666,7 +23666,7 @@ subcolor.exit:                                    ; preds = %newsub.exit.i, %69,
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i114 = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i114, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 111:                                              ; preds = %97
   %.134.i = load ptr, ptr %32, align 8
@@ -23695,7 +23695,7 @@ subcolor.exit:                                    ; preds = %newsub.exit.i, %69,
   %123 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %123, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %110, %122, %111, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %94, i32 noundef 112, i16 noundef signext %.0.i, ptr noundef %2, ptr noundef %3)
@@ -23710,7 +23710,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %.0.i175 = phi i16 [ %.0.i176179, %92 ], [ %.0.i, %newarc.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not106.not = icmp samesign ult i64 %indvars.iv, %41
-  br i1 %.not106.not, label %.lr.ph183, label %.thread153.loopexit.loopexit, !llvm.loop !116
+  br i1 %.not106.not, label %.lr.ph183, label %.thread153.loopexit.loopexit, !llvm.loop !119
 
 .thread153.loopexit.loopexit:                     ; preds = %125
   %126 = trunc nuw i64 %indvars.iv.next to i32
@@ -23769,7 +23769,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %152 = getelementptr inbounds nuw i8, ptr %.0128152.i187, i64 16
   %153 = load i32, ptr %152, align 4
   %.not.i118 = icmp ult i32 %153, %.0
-  br i1 %.not.i118, label %.lr.ph188, label %._crit_edge.loopexit.split.loop.exit.i.loopexit, !llvm.loop !117
+  br i1 %.not.i118, label %.lr.ph188, label %._crit_edge.loopexit.split.loop.exit.i.loopexit, !llvm.loop !120
 
 .lr.ph188:                                        ; preds = %.lr.ph.i117.preheader, %.lr.ph.i117
   %.0128152.i187 = phi ptr [ %155, %.lr.ph.i117 ], [ %147, %.lr.ph.i117.preheader ]
@@ -23781,7 +23781,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %155 = getelementptr inbounds nuw i8, ptr %.0128152.i187, i64 12
   %156 = load i32, ptr %130, align 8
   %157 = icmp sgt i32 %156, %indvars183.i
-  br i1 %157, label %.lr.ph.i117, label %._crit_edge.i, !llvm.loop !117
+  br i1 %157, label %.lr.ph.i117, label %._crit_edge.i, !llvm.loop !120
 
 ._crit_edge.loopexit.split.loop.exit.i.loopexit:  ; preds = %.lr.ph.i117
   %158 = trunc i64 %indvars.iv.next.i to i32
@@ -23803,7 +23803,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
 163:                                              ; preds = %222
   %164 = load i32, ptr %223, align 4
   %.not145.i = icmp ugt i32 %164, %36
-  br i1 %.not145.i, label %.critedge.i, label %.lr.ph199, !llvm.loop !118
+  br i1 %.not145.i, label %.critedge.i, label %.lr.ph199, !llvm.loop !121
 
 .lr.ph199:                                        ; preds = %.lr.ph165.i, %163
   %165 = phi i32 [ %164, %163 ], [ %162, %.lr.ph165.i ]
@@ -23920,10 +23920,10 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %224 = add nuw nsw i32 %.1163.i193, 1
   %225 = load i32, ptr %130, align 8
   %226 = icmp slt i32 %224, %225
-  br i1 %226, label %163, label %..critedge.i.loopexit_crit_edge205, !llvm.loop !118
+  br i1 %226, label %163, label %..critedge.i.loopexit_crit_edge205, !llvm.loop !121
 
 ..critedge.i.loopexit_crit_edge205:               ; preds = %222
-  br label %.critedge.i, !llvm.loop !118
+  br label %.critedge.i, !llvm.loop !121
 
 .critedge.i:                                      ; preds = %163, %.lr.ph165.i, %..critedge.i.loopexit_crit_edge205, %._crit_edge.i
   %227 = phi i32 [ %159, %._crit_edge.i ], [ %225, %..critedge.i.loopexit_crit_edge205 ], [ %159, %.lr.ph165.i ], [ %225, %163 ]
@@ -23966,7 +23966,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %242 = add nuw nsw i32 %.2177.i, 1
   %243 = load i32, ptr %130, align 8
   %244 = icmp slt i32 %242, %243
-  br i1 %244, label %.lr.ph179.i, label %._crit_edge180.i, !llvm.loop !119
+  br i1 %244, label %.lr.ph179.i, label %._crit_edge180.i, !llvm.loop !122
 
 ._crit_edge180.i:                                 ; preds = %.lr.ph179.i, %235
   %.7.lcssa.i = phi i32 [ %.6.i, %235 ], [ %238, %.lr.ph179.i ]
@@ -24000,7 +24000,7 @@ subcoloronerange.exit:                            ; preds = %247, %138, %248, %2
   %253 = getelementptr inbounds nuw i8, ptr %.190212, i64 8
   %254 = add nsw i32 %.192211, -1
   %255 = icmp sgt i32 %.192211, 1
-  br i1 %255, label %33, label %._crit_edge215, !llvm.loop !120
+  br i1 %255, label %33, label %._crit_edge215, !llvm.loop !123
 
 ._crit_edge215:                                   ; preds = %252, %._crit_edge
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -24082,7 +24082,7 @@ subcoloronerange.exit:                            ; preds = %247, %138, %248, %2
   %301 = phi i32 [ %303, %.lr.ph50.split.i ], [ %322, %.lr.ph.i125 ]
   %.0.i124 = add nsw i32 %.049.i, -1
   %302 = icmp sgt i32 %.049.i, 0
-  br i1 %302, label %.lr.ph50.split.i, label %._crit_edge.i122, !llvm.loop !121
+  br i1 %302, label %.lr.ph50.split.i, label %._crit_edge.i122, !llvm.loop !124
 
 .lr.ph50.split.i:                                 ; preds = %.lr.ph50.i, %.loopexit.i123
   %303 = phi i32 [ %301, %.loopexit.i123 ], [ %.pre.i121, %.lr.ph50.i ]
@@ -24116,7 +24116,7 @@ subcoloronerange.exit:                            ; preds = %247, %138, %248, %2
   %322 = load i32, ptr %266, align 8
   %323 = sext i32 %322 to i64
   %324 = icmp slt i64 %indvars.iv.next.i127, %323
-  br i1 %324, label %.lr.ph.i125, label %.loopexit.i123, !llvm.loop !122
+  br i1 %324, label %.lr.ph.i125, label %.loopexit.i123, !llvm.loop !125
 
 ._crit_edge.i122:                                 ; preds = %.loopexit.i123, %.lr.ph50.i, %295
   %325 = phi i32 [ %.pre.i121, %295 ], [ %.pre.i121, %.lr.ph50.i ], [ %301, %.loopexit.i123 ]
@@ -24253,7 +24253,7 @@ subcolorhi.exit:                                  ; preds = %newsub.exit.i128, %
   %395 = load ptr, ptr %341, align 8
   %396 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i132 = icmp eq i32 %396, 0
-  br i1 %.not.i132, label %398, label %397, !prof !13
+  br i1 %.not.i132, label %398, label %397, !prof !14
 
 397:                                              ; preds = %394
   tail call void @ProcessInterrupts() #20
@@ -24292,7 +24292,7 @@ subcolorhi.exit:                                  ; preds = %newsub.exit.i128, %
   %.0.in.i140 = getelementptr inbounds nuw i8, ptr %.033.i139, i64 24
   %.0.i141 = load ptr, ptr %.0.in.i140, align 8
   %.not26.i142 = icmp eq ptr %.0.i141, null
-  br i1 %.not26.i142, label %.loopexit.i143, label %.lr.ph.i138, !llvm.loop !14
+  br i1 %.not26.i142, label %.loopexit.i143, label %.lr.ph.i138, !llvm.loop !15
 
 412:                                              ; preds = %398
   %.134.i144 = load ptr, ptr %344, align 8
@@ -24321,7 +24321,7 @@ subcolorhi.exit:                                  ; preds = %newsub.exit.i128, %
   %424 = getelementptr inbounds nuw i8, ptr %.136.i147, i64 40
   %.1.i148 = load ptr, ptr %424, align 8
   %.not25.i149 = icmp eq ptr %.1.i148, null
-  br i1 %.not25.i149, label %.loopexit.i143, label %.lr.ph37.i146, !llvm.loop !15
+  br i1 %.not25.i149, label %.loopexit.i143, label %.lr.ph37.i146, !llvm.loop !16
 
 .loopexit.i143:                                   ; preds = %411, %423, %412, %.preheader.i134
   tail call fastcc void @createarc(ptr noundef %395, i32 noundef 112, i16 noundef signext %.0.i131, ptr noundef %2, ptr noundef %3)
@@ -24341,7 +24341,7 @@ newarc.exit150:                                   ; preds = %408, %420, %.loopex
   %429 = add nuw nsw i32 %.085218, 1
   %430 = load i32, ptr %337, align 8
   %431 = icmp slt i32 %429, %430
-  br i1 %431, label %.lr.ph219, label %._crit_edge220.loopexit, !llvm.loop !123
+  br i1 %431, label %.lr.ph219, label %._crit_edge220.loopexit, !llvm.loop !126
 
 ._crit_edge220.loopexit:                          ; preds = %427
   %.pre251 = load i32, ptr %334, align 4
@@ -24353,7 +24353,7 @@ newarc.exit150:                                   ; preds = %408, %420, %.loopex
   %.188.lcssa = phi ptr [ %.087222, %.preheader ], [ %428, %._crit_edge220.loopexit ]
   %434 = add nuw nsw i32 %.086223, 1
   %435 = icmp slt i32 %434, %432
-  br i1 %435, label %.preheader, label %.critedge, !llvm.loop !124
+  br i1 %435, label %.preheader, label %.critedge, !llvm.loop !127
 
 .critedge:                                        ; preds = %13, %subcoloronerange.exit, %newarc.exit, %subcolor.exit, %._crit_edge220, %newarc.exit150, %subcolorhi.exit, %.preheader.lr.ph, %329, %newhicolorcols.exit, %._crit_edge215
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #20
@@ -24390,7 +24390,7 @@ define internal fastcc ptr @pg_ctype_get_cache(ptr noundef %0, i32 noundef range
   %14 = getelementptr inbounds nuw i8, ptr %.07488, i64 56
   %.074 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.074, null
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !125
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %13, %2
   %15 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #23
@@ -24477,7 +24477,7 @@ default.unreachable:                              ; preds = %30
 .backedge.backedge:                               ; preds = %43, %.thread
   %.090.be = phi i32 [ %.1, %43 ], [ 0, %.thread ]
   %.07289.be = phi i32 [ %44, %43 ], [ %45, %.thread ]
-  br label %.backedge, !llvm.loop !126
+  br label %.backedge, !llvm.loop !129
 
 .thread:                                          ; preds = %40
   %45 = add nuw nsw i32 %.07289, 1
@@ -24660,7 +24660,7 @@ define internal i32 @pg_wc_isalnum(i32 noundef %0) #0 {
 12:                                               ; preds = %1
   %13 = load ptr, ptr @pg_regex_locale, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i8, ptr %14, align 8, !range !7, !noundef !8
+  %15 = load i8, ptr %14, align 8, !range !8, !noundef !9
   %16 = trunc nuw i8 %15 to i1
   %17 = xor i1 %16, true
   %18 = tail call zeroext i1 @pg_u_isalnum(i32 noundef %0, i1 noundef zeroext %17) #20
@@ -24803,7 +24803,7 @@ define internal i32 @pg_wc_isword(i32 noundef %0) #0 {
 14:                                               ; preds = %3
   %15 = load ptr, ptr @pg_regex_locale, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load i8, ptr %16, align 8, !range !7, !noundef !8
+  %17 = load i8, ptr %16, align 8, !range !8, !noundef !9
   %18 = trunc nuw i8 %17 to i1
   %19 = xor i1 %18, true
   %20 = tail call zeroext i1 @pg_u_isalnum(i32 noundef %0, i1 noundef zeroext %19) #20
@@ -24868,7 +24868,7 @@ define internal i32 @pg_wc_isdigit(i32 noundef %0) #0 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr @pg_regex_locale, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i8, ptr %8, align 8, !range !7, !noundef !8
+  %9 = load i8, ptr %8, align 8, !range !8, !noundef !9
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = tail call zeroext i1 @pg_u_isdigit(i32 noundef %0, i1 noundef zeroext %11) #20
@@ -24940,7 +24940,7 @@ define internal i32 @pg_wc_ispunct(i32 noundef %0) #0 {
 11:                                               ; preds = %1
   %12 = load ptr, ptr @pg_regex_locale, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load i8, ptr %13, align 8, !range !7, !noundef !8
+  %14 = load i8, ptr %13, align 8, !range !8, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   %16 = xor i1 %15, true
   %17 = tail call zeroext i1 @pg_u_ispunct(i32 noundef %0, i1 noundef zeroext %16) #20
@@ -25509,7 +25509,7 @@ subcolor.exit:                                    ; preds = %newsub.exit.i, %41,
   %68 = load ptr, ptr %67, align 8
   %69 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i127 = icmp eq i32 %69, 0
-  br i1 %.not.i127, label %71, label %70, !prof !13
+  br i1 %.not.i127, label %71, label %70, !prof !14
 
 70:                                               ; preds = %66
   tail call void @ProcessInterrupts() #20
@@ -25551,7 +25551,7 @@ subcolor.exit:                                    ; preds = %newsub.exit.i, %41,
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i128 = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i128, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 87:                                               ; preds = %71
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -25581,7 +25581,7 @@ subcolor.exit:                                    ; preds = %newsub.exit.i, %41,
   %100 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %100, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %86, %99, %87, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %68, i32 noundef 112, i16 noundef signext %.0.i, ptr noundef %2, ptr noundef %3)
@@ -25637,7 +25637,7 @@ newarc.exit:                                      ; preds = %83, %96, %.loopexit
   %125 = getelementptr inbounds nuw i8, ptr %.0113137, i64 12
   %126 = load i32, ptr %102, align 8
   %127 = icmp sgt i32 %126, %indvars156
-  br i1 %127, label %.lr.ph, label %.loopexit, !llvm.loop !127
+  br i1 %127, label %.lr.ph, label %.loopexit, !llvm.loop !130
 
 128:                                              ; preds = %.lr.ph
   %indvars157.le = trunc i64 %indvars.iv to i32
@@ -25763,7 +25763,7 @@ newarc.exit:                                      ; preds = %83, %96, %.loopexit
   %194 = add nuw nsw i32 %.2112143, 1
   %195 = load i32, ptr %102, align 8
   %196 = icmp slt i32 %194, %195
-  br i1 %196, label %.lr.ph145, label %._crit_edge, !llvm.loop !128
+  br i1 %196, label %.lr.ph145, label %._crit_edge, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph145, %187
   %.4.lcssa = phi i32 [ %.1, %187 ], [ %190, %.lr.ph145 ]
@@ -25866,7 +25866,7 @@ define internal fastcc i32 @newhicolorrow(ptr noundef captures(none) %0, i32 nou
   %49 = load i32, ptr %28, align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %41, label %.critedge, !llvm.loop !129
+  br i1 %51, label %41, label %.critedge, !llvm.loop !132
 
 .critedge.sink.split:                             ; preds = %12, %7
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25988,7 +25988,7 @@ subcolorhi.exit:                                  ; preds = %newsub.exit.i, %49,
   %65 = load ptr, ptr %19, align 8
   %66 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i24 = icmp eq i32 %66, 0
-  br i1 %.not.i24, label %68, label %67, !prof !13
+  br i1 %.not.i24, label %68, label %67, !prof !14
 
 67:                                               ; preds = %64
   tail call void @ProcessInterrupts() #20
@@ -26027,7 +26027,7 @@ subcolorhi.exit:                                  ; preds = %newsub.exit.i, %49,
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i25 = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i25, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 82:                                               ; preds = %68
   %.134.i = load ptr, ptr %22, align 8
@@ -26056,7 +26056,7 @@ subcolorhi.exit:                                  ; preds = %newsub.exit.i, %49,
   %94 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %94, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %81, %93, %82, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %65, i32 noundef 112, i16 noundef signext %.0.i, ptr noundef %2, ptr noundef %3)
@@ -26076,7 +26076,7 @@ newarc.exit:                                      ; preds = %78, %90, %.loopexit
   %99 = add nuw nsw i32 %.02128, 1
   %100 = load i32, ptr %8, align 8
   %101 = icmp slt i32 %99, %100
-  br i1 %101, label %23, label %.critedge, !llvm.loop !130
+  br i1 %101, label %23, label %.critedge, !llvm.loop !133
 
 .critedge:                                        ; preds = %97, %newarc.exit, %subcolorhi.exit, %5
   ret void
@@ -26241,12 +26241,12 @@ define internal fastcc void @colorcomplement(ptr noundef captures(none) %0, ptr 
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.lr.ph, label %.lr.ph.i, !llvm.loop !131
+  br i1 %.not.i, label %.lr.ph, label %.lr.ph.i, !llvm.loop !134
 
 20:                                               ; preds = %15
   %21 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i35 = icmp eq i32 %21, 0
-  br i1 %.not.i35, label %23, label %22, !prof !13
+  br i1 %.not.i35, label %23, label %22, !prof !14
 
 22:                                               ; preds = %20
   tail call void @ProcessInterrupts() #20
@@ -26288,7 +26288,7 @@ define internal fastcc void @colorcomplement(ptr noundef captures(none) %0, ptr 
   %.0.in.i37 = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i38 = load ptr, ptr %.0.in.i37, align 8
   %.not26.i = icmp eq ptr %.0.i38, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i36, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i36, !llvm.loop !15
 
 39:                                               ; preds = %23
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -26318,7 +26318,7 @@ define internal fastcc void @colorcomplement(ptr noundef captures(none) %0, ptr 
   %52 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %52, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %38, %51, %39, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef 120, i16 noundef signext 0, ptr noundef %4, ptr noundef %5)
@@ -26352,7 +26352,7 @@ newarc.exit:                                      ; preds = %35, %48, %.loopexit
   %.0.in = getelementptr inbounds nuw i8, ptr %.067, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
   %.not30 = icmp eq ptr %.0, null
-  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !132
+  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !135
 
 ._crit_edge.loopexit:                             ; preds = %66
   %.pre = load ptr, ptr %7, align 8
@@ -26400,7 +26400,7 @@ newarc.exit:                                      ; preds = %35, %48, %.loopexit
 85:                                               ; preds = %83
   %86 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i39 = icmp eq i32 %86, 0
-  br i1 %.not.i39, label %88, label %87, !prof !13
+  br i1 %.not.i39, label %88, label %87, !prof !14
 
 87:                                               ; preds = %85
   tail call void @ProcessInterrupts() #20
@@ -26439,7 +26439,7 @@ newarc.exit:                                      ; preds = %35, %48, %.loopexit
   %.0.in.i47 = getelementptr inbounds nuw i8, ptr %.033.i46, i64 24
   %.0.i48 = load ptr, ptr %.0.in.i47, align 8
   %.not26.i49 = icmp eq ptr %.0.i48, null
-  br i1 %.not26.i49, label %.loopexit.i50, label %.lr.ph.i45, !llvm.loop !14
+  br i1 %.not26.i49, label %.loopexit.i50, label %.lr.ph.i45, !llvm.loop !15
 
 102:                                              ; preds = %88
   %.134.i51 = load ptr, ptr %72, align 8
@@ -26468,7 +26468,7 @@ newarc.exit:                                      ; preds = %35, %48, %.loopexit
   %114 = getelementptr inbounds nuw i8, ptr %.136.i54, i64 40
   %.1.i55 = load ptr, ptr %114, align 8
   %.not25.i56 = icmp eq ptr %.1.i55, null
-  br i1 %.not25.i56, label %.loopexit.i50, label %.lr.ph37.i53, !llvm.loop !15
+  br i1 %.not25.i56, label %.loopexit.i50, label %.lr.ph37.i53, !llvm.loop !16
 
 .loopexit.i50:                                    ; preds = %101, %113, %102, %.preheader.i41
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %2, i16 noundef signext %.02869, ptr noundef %4, ptr noundef %5)
@@ -26478,7 +26478,7 @@ newarc.exit57:                                    ; preds = %98, %110, %.loopexi
   %115 = getelementptr inbounds nuw i8, ptr %.02968, i64 32
   %116 = add i16 %.02869, 1
   %117 = icmp ult ptr %115, %12
-  br i1 %117, label %73, label %.critedge, !llvm.loop !133
+  br i1 %117, label %73, label %.critedge, !llvm.loop !136
 
 .critedge:                                        ; preds = %newarc.exit57, %73, %._crit_edge, %newarc.exit
   ret void
@@ -26504,7 +26504,7 @@ define internal fastcc void @cloneouts(ptr noundef captures(none) %0, ptr nounde
   %11 = load i16, ptr %10, align 4
   %12 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %14, label %13, !prof !13
+  br i1 %.not.i, label %14, label %13, !prof !14
 
 13:                                               ; preds = %9
   tail call void @ProcessInterrupts() #20
@@ -26543,7 +26543,7 @@ define internal fastcc void @cloneouts(ptr noundef captures(none) %0, ptr nounde
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 28:                                               ; preds = %14
   %.134.i = load ptr, ptr %8, align 8
@@ -26572,7 +26572,7 @@ define internal fastcc void @cloneouts(ptr noundef captures(none) %0, ptr nounde
   %40 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %40, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %27, %39, %28, %.preheader.i
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %4, i16 noundef signext %11, ptr noundef %2, ptr noundef %3)
@@ -26582,7 +26582,7 @@ newarc.exit:                                      ; preds = %24, %36, %.loopexit
   %.0.in = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !134
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %newarc.exit, %5
   ret void
@@ -27203,7 +27203,7 @@ pg_wc_toupper.exit:                               ; preds = %149, %153, %155, %1
 pg_wc_toupper.exit.thread:                        ; preds = %173, %122, %109, %160, %147, %pg_wc_toupper.exit, %180
   %185 = load volatile i32, ptr @InterruptPending, align 4
   %.not83 = icmp eq i32 %185, 0
-  br i1 %.not83, label %187, label %186, !prof !13
+  br i1 %.not83, label %187, label %186, !prof !14
 
 186:                                              ; preds = %pg_wc_toupper.exit.thread
   tail call void @ProcessInterrupts() #20
@@ -27212,7 +27212,7 @@ pg_wc_toupper.exit.thread:                        ; preds = %173, %122, %109, %1
 187:                                              ; preds = %pg_wc_toupper.exit.thread, %186
   %188 = add i32 %.0117, 1
   %.not74 = icmp ugt i32 %188, %2
-  br i1 %.not74, label %.loopexit, label %107, !llvm.loop !135
+  br i1 %.not74, label %.loopexit, label %107, !llvm.loop !138
 
 .loopexit:                                        ; preds = %187, %getcvec.exit95, %getcvec.exit, %177, %139, %39, %5
   %.061 = phi ptr [ null, %139 ], [ null, %177 ], [ %.0.i, %39 ], [ null, %5 ], [ null, %getcvec.exit ], [ null, %getcvec.exit95 ], [ %.0.i91, %187 ]
@@ -27372,7 +27372,7 @@ freearc.exit:                                     ; preds = %70, %71
   store ptr %14, ptr %7, align 8
   %77 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %77, null
-  br i1 %.not, label %.preheader, label %13, !llvm.loop !136
+  br i1 %.not, label %.preheader, label %13, !llvm.loop !139
 
 78:                                               ; preds = %.lr.ph20, %freearc.exit15
   %79 = phi ptr [ %9, %.lr.ph20 ], [ %142, %freearc.exit15 ]
@@ -27497,7 +27497,7 @@ freearc.exit15:                                   ; preds = %135, %136
   store ptr %79, ptr %12, align 8
   %142 = load ptr, ptr %8, align 8
   %.not9 = icmp eq ptr %142, null
-  br i1 %.not9, label %._crit_edge, label %78, !llvm.loop !137
+  br i1 %.not9, label %._crit_edge, label %78, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %freearc.exit15, %.preheader
   store i32 -1, ptr %1, align 8
@@ -27742,7 +27742,7 @@ freearc.exit:                                     ; preds = %93, %94
 117:                                              ; preds = %107, %103, %freearc.exit
   %118 = load ptr, ptr %25, align 8
   %.not24 = icmp eq ptr %118, null
-  br i1 %.not24, label %._crit_edge, label %31, !llvm.loop !138
+  br i1 %.not24, label %._crit_edge, label %31, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %117, %24
   store ptr null, ptr %22, align 8
@@ -27795,7 +27795,7 @@ define internal fastcc void @sortouts(ptr noundef readonly captures(none) %0, pt
   %23 = getelementptr inbounds nuw i8, ptr %.03947, i64 24
   %.039 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.039, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   tail call void @pg_qsort(ptr noundef nonnull %9, i64 noundef %7, i64 noundef 8, ptr noundef nonnull @sortouts_cmp) #20
@@ -27829,7 +27829,7 @@ define internal fastcc void @sortouts(ptr noundef readonly captures(none) %0, pt
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %35, ptr %36, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge51.loopexit, label %.lr.ph50, !llvm.loop !140
+  br i1 %exitcond.not, label %._crit_edge51.loopexit, label %.lr.ph50, !llvm.loop !143
 
 ._crit_edge51.loopexit:                           ; preds = %.lr.ph50
   %37 = zext nneg i32 %smax to i64
@@ -27976,7 +27976,7 @@ define internal fastcc void @duptraverse(ptr noundef captures(none) %0, ptr noun
   %42 = load i16, ptr %41, align 4
   %43 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %43, 0
-  br i1 %.not.i.i, label %45, label %44, !prof !13
+  br i1 %.not.i.i, label %45, label %44, !prof !14
 
 44:                                               ; preds = %35
   tail call void @ProcessInterrupts() #20
@@ -28018,7 +28018,7 @@ define internal fastcc void @duptraverse(ptr noundef captures(none) %0, ptr noun
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 24
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not26.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 61:                                               ; preds = %45
   %62 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -28048,7 +28048,7 @@ define internal fastcc void @duptraverse(ptr noundef captures(none) %0, ptr noun
   %74 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 40
   %.1.i.i = load ptr, ptr %74, align 8
   %.not25.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !15
+  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %60, %73, %61, %.preheader.i.i
   tail call fastcc void @createarc(ptr noundef nonnull %0, i32 noundef %40, i16 noundef signext %42, ptr noundef %36, ptr noundef %39)
@@ -28058,7 +28058,7 @@ cparc.exit:                                       ; preds = %57, %70, %.loopexit
   %.0.in = getelementptr inbounds nuw i8, ptr %.034, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
   %.not25 = icmp eq ptr %.0, null
-  br i1 %.not25, label %.critedge, label %.lr.ph, !llvm.loop !141
+  br i1 %.not25, label %.critedge, label %.lr.ph, !llvm.loop !144
 
 .critedge:                                        ; preds = %cparc.exit, %29, %.lr.ph, %.preheader, %23, %18, %12
   ret void
@@ -28110,7 +28110,7 @@ define internal fastcc void @cleartraverse(ptr noundef readonly captures(none) %
   %.0.in = getelementptr inbounds nuw i8, ptr %.018, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
   %.not13 = icmp eq ptr %.0, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !142
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !145
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %17, %11
   ret void
@@ -28198,7 +28198,7 @@ define internal fastcc void @removetraverse(ptr noundef captures(none) %0, ptr n
   %42 = load ptr, ptr %32, align 8
   %43 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %45, label %44, !prof !13
+  br i1 %.not.i, label %45, label %44, !prof !14
 
 44:                                               ; preds = %41
   tail call void @ProcessInterrupts() #20
@@ -28238,7 +28238,7 @@ define internal fastcc void @removetraverse(ptr noundef captures(none) %0, ptr n
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 60:                                               ; preds = %45
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -28268,7 +28268,7 @@ define internal fastcc void @removetraverse(ptr noundef captures(none) %0, ptr n
   %73 = getelementptr inbounds nuw i8, ptr %.136.i, i64 40
   %.1.i = load ptr, ptr %73, align 8
   %.not25.i = icmp eq ptr %.1.i, null
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph37.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %59, %72, %60, %.preheader.i
   tail call fastcc void @createarc(ptr noundef nonnull %0, i32 noundef 110, i16 noundef signext 0, ptr noundef %1, ptr noundef %42)
@@ -28407,7 +28407,7 @@ freearc.exit:                                     ; preds = %127, %128
 
 139:                                              ; preds = %freearc.exit, %134, %37, %37, %37
   %.not29 = icmp eq ptr %39, null
-  br i1 %.not29, label %.critedge, label %27, !llvm.loop !143
+  br i1 %.not29, label %.critedge, label %27, !llvm.loop !146
 
 .critedge:                                        ; preds = %139, %31, %27, %20, %17, %11
   ret void
@@ -28419,131 +28419,131 @@ define internal fastcc void @skip(ptr noundef nonnull captures(none) %0) unnamed
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %4, align 8
-  br label %.critedge2
+  br label %5
 
-.critedge2.loopexit:                              ; preds = %.lr.ph33thread-pre-split, %.lr.ph33.preheader
-  br label %.critedge2
-
-.critedge2:                                       ; preds = %.critedge2.loopexit, %1
-  %.pre3649 = phi ptr [ %.pre, %1 ], [ %.pre3650, %.critedge2.loopexit ]
-  %.pre3542 = phi ptr [ %3, %1 ], [ %44, %.critedge2.loopexit ]
-  %5 = phi ptr [ %.pre, %1 ], [ %41, %.critedge2.loopexit ]
-  %.not29 = icmp ult ptr %.pre3542, %5
+5:                                                ; preds = %.critedge2, %1
+  %.pre3649 = phi ptr [ %.pre3650, %.critedge2 ], [ %.pre, %1 ]
+  %.pre3542 = phi ptr [ %45, %.critedge2 ], [ %3, %1 ]
+  %6 = phi ptr [ %42, %.critedge2 ], [ %.pre, %1 ]
+  %.not29 = icmp ult ptr %.pre3542, %6
   br i1 %.not29, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.critedge2, %39
-  %.pre3652 = phi ptr [ %.pre36.pre, %39 ], [ %.pre3649, %.critedge2 ]
-  %.pre3548 = phi ptr [ %40, %39 ], [ %.pre3542, %.critedge2 ]
-  %6 = load i32, ptr %.pre3548, align 4
-  %7 = load i32, ptr @pg_regex_strategy, align 4
-  switch i32 %7, label %default.unreachable.i [
-    i32 0, label %8
-    i32 1, label %15
-    i32 2, label %18
-    i32 3, label %23
-    i32 4, label %36
+.lr.ph:                                           ; preds = %5, %40
+  %.pre3652 = phi ptr [ %.pre36.pre, %40 ], [ %.pre3649, %5 ]
+  %.pre3548 = phi ptr [ %41, %40 ], [ %.pre3542, %5 ]
+  %7 = load i32, ptr %.pre3548, align 4
+  %8 = load i32, ptr @pg_regex_strategy, align 4
+  switch i32 %8, label %default.unreachable.i [
+    i32 0, label %9
+    i32 1, label %16
+    i32 2, label %19
+    i32 3, label %24
+    i32 4, label %37
   ]
 
-8:                                                ; preds = %.lr.ph
-  %9 = icmp ult i32 %6, 128
-  br i1 %9, label %10, label %.critedge
+9:                                                ; preds = %.lr.ph
+  %10 = icmp ult i32 %7, 128
+  br i1 %10, label %11, label %.critedge
 
-10:                                               ; preds = %8
-  %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %.lobit9.i = lshr i8 %13, 7
-  %14 = zext nneg i8 %.lobit9.i to i32
+11:                                               ; preds = %9
+  %12 = zext nneg i32 %7 to i64
+  %13 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %12
+  %14 = load i8, ptr %13, align 1
+  %.lobit9.i = lshr i8 %14, 7
+  %15 = zext nneg i8 %.lobit9.i to i32
   br label %pg_wc_isspace.exit
 
-15:                                               ; preds = %.lr.ph
-  %16 = tail call zeroext i1 @pg_u_isspace(i32 noundef %6) #20
-  %17 = zext i1 %16 to i32
+16:                                               ; preds = %.lr.ph
+  %17 = tail call zeroext i1 @pg_u_isspace(i32 noundef %7) #20
+  %18 = zext i1 %17 to i32
   br label %pg_wc_isspace.exit
 
-18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr @pg_regex_locale, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 @iswspace_l(i32 noundef %6, ptr noundef %21) #20
+19:                                               ; preds = %.lr.ph
+  %20 = load ptr, ptr @pg_regex_locale, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 @iswspace_l(i32 noundef %7, ptr noundef %22) #20
   br label %pg_wc_isspace.exit
 
-23:                                               ; preds = %.lr.ph
-  %24 = icmp ult i32 %6, 256
-  br i1 %24, label %25, label %.critedge
+24:                                               ; preds = %.lr.ph
+  %25 = icmp ult i32 %7, 256
+  br i1 %25, label %26, label %.critedge
 
-25:                                               ; preds = %23
-  %26 = load ptr, ptr @pg_regex_locale, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 104
-  %30 = load ptr, ptr %29, align 8
-  %31 = zext nneg i32 %6 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %30, i64 %31
-  %33 = load i16, ptr %32, align 2
-  %34 = lshr i16 %33, 13
-  %.lobit.i = and i16 %34, 1
-  %35 = zext nneg i16 %.lobit.i to i32
+26:                                               ; preds = %24
+  %27 = load ptr, ptr @pg_regex_locale, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
+  %31 = load ptr, ptr %30, align 8
+  %32 = zext nneg i32 %7 to i64
+  %33 = getelementptr inbounds nuw i16, ptr %31, i64 %32
+  %34 = load i16, ptr %33, align 2
+  %35 = lshr i16 %34, 13
+  %.lobit.i = and i16 %35, 1
+  %36 = zext nneg i16 %.lobit.i to i32
   br label %pg_wc_isspace.exit
 
-36:                                               ; preds = %.lr.ph
-  %37 = tail call signext i8 @u_isspace_70(i32 noundef %6) #20
-  %38 = sext i8 %37 to i32
+37:                                               ; preds = %.lr.ph
+  %38 = tail call signext i8 @u_isspace_70(i32 noundef %7) #20
+  %39 = sext i8 %38 to i32
   br label %pg_wc_isspace.exit
 
 default.unreachable.i:                            ; preds = %.lr.ph
   unreachable
 
-pg_wc_isspace.exit:                               ; preds = %10, %15, %18, %25, %36
-  %.0.i = phi i32 [ %17, %15 ], [ %22, %18 ], [ %38, %36 ], [ %14, %10 ], [ %35, %25 ]
+pg_wc_isspace.exit:                               ; preds = %11, %16, %19, %26, %37
+  %.0.i = phi i32 [ %18, %16 ], [ %23, %19 ], [ %39, %37 ], [ %15, %11 ], [ %36, %26 ]
   %.not19 = icmp eq i32 %.0.i, 0
   %.pre35.pre = load ptr, ptr %2, align 8
   %.pre36.pre = load ptr, ptr %4, align 8
-  br i1 %.not19, label %.critedge, label %39
+  br i1 %.not19, label %.critedge, label %40
 
-39:                                               ; preds = %pg_wc_isspace.exit
-  %40 = getelementptr inbounds nuw i8, ptr %.pre35.pre, i64 4
-  store ptr %40, ptr %2, align 8
-  %.not = icmp ult ptr %40, %.pre36.pre
-  br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !144
+40:                                               ; preds = %pg_wc_isspace.exit
+  %41 = getelementptr inbounds nuw i8, ptr %.pre35.pre, i64 4
+  store ptr %41, ptr %2, align 8
+  %.not = icmp ult ptr %41, %.pre36.pre
+  br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !147
 
-.critedge:                                        ; preds = %pg_wc_isspace.exit, %39, %8, %23, %.critedge2
-  %.pre3650 = phi ptr [ %.pre3649, %.critedge2 ], [ %.pre36.pre, %pg_wc_isspace.exit ], [ %.pre36.pre, %39 ], [ %.pre3652, %8 ], [ %.pre3652, %23 ]
-  %.promoted = phi ptr [ %.pre3542, %.critedge2 ], [ %.pre35.pre, %pg_wc_isspace.exit ], [ %40, %39 ], [ %.pre3548, %8 ], [ %.pre3548, %23 ]
-  %41 = phi ptr [ %5, %.critedge2 ], [ %.pre36.pre, %pg_wc_isspace.exit ], [ %.pre36.pre, %39 ], [ %.pre3652, %8 ], [ %.pre3652, %23 ]
-  %.not20 = icmp ult ptr %.promoted, %41
-  br i1 %.not20, label %42, label %45
+.critedge:                                        ; preds = %pg_wc_isspace.exit, %40, %9, %24, %5
+  %.pre3650 = phi ptr [ %.pre3649, %5 ], [ %.pre36.pre, %pg_wc_isspace.exit ], [ %.pre36.pre, %40 ], [ %.pre3652, %9 ], [ %.pre3652, %24 ]
+  %.promoted = phi ptr [ %.pre3542, %5 ], [ %.pre35.pre, %pg_wc_isspace.exit ], [ %41, %40 ], [ %.pre3548, %9 ], [ %.pre3548, %24 ]
+  %42 = phi ptr [ %6, %5 ], [ %.pre36.pre, %pg_wc_isspace.exit ], [ %.pre36.pre, %40 ], [ %.pre3652, %9 ], [ %.pre3652, %24 ]
+  %.not20 = icmp ult ptr %.promoted, %42
+  br i1 %.not20, label %43, label %46
 
-42:                                               ; preds = %.critedge
-  %43 = load i32, ptr %.promoted, align 4
-  %.not21 = icmp eq i32 %43, 35
-  br i1 %.not21, label %.lr.ph33.preheader, label %45
+43:                                               ; preds = %.critedge
+  %44 = load i32, ptr %.promoted, align 4
+  %.not21 = icmp eq i32 %44, 35
+  br i1 %.not21, label %.lr.ph33.preheader, label %46
 
 .lr.ph33thread-pre-split:                         ; preds = %.lr.ph33.preheader
-  %.pr = load i32, ptr %44, align 4
+  %.pr = load i32, ptr %45, align 4
   %.not23 = icmp eq i32 %.pr, 10
-  br i1 %.not23, label %.critedge2.loopexit, label %.lr.ph33.preheader
+  br i1 %.not23, label %.critedge2, label %.lr.ph33.preheader
 
-.lr.ph33.preheader:                               ; preds = %42, %.lr.ph33thread-pre-split
-  %.promoted4053 = phi ptr [ %44, %.lr.ph33thread-pre-split ], [ %.promoted, %42 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.promoted4053, i64 4
-  store ptr %44, ptr %2, align 8
-  %.not22 = icmp ult ptr %44, %41
-  br i1 %.not22, label %.lr.ph33thread-pre-split, label %.critedge2.loopexit, !llvm.loop !145
+.lr.ph33.preheader:                               ; preds = %43, %.lr.ph33thread-pre-split
+  %.promoted4053 = phi ptr [ %45, %.lr.ph33thread-pre-split ], [ %.promoted, %43 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.promoted4053, i64 4
+  store ptr %45, ptr %2, align 8
+  %.not22 = icmp ult ptr %45, %42
+  br i1 %.not22, label %.lr.ph33thread-pre-split, label %.critedge2, !llvm.loop !148
 
-45:                                               ; preds = %.critedge, %42
+.critedge2:                                       ; preds = %.lr.ph33thread-pre-split, %.lr.ph33.preheader
+  br label %5, !llvm.loop !149
+
+46:                                               ; preds = %.critedge, %43
   %.not24 = icmp eq ptr %.promoted, %3
-  br i1 %.not24, label %51, label %46
+  br i1 %.not24, label %52, label %47
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load i64, ptr %48, align 8
-  %50 = or i64 %49, 128
-  store i64 %50, ptr %48, align 8
-  br label %51
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %0, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = or i64 %50, 128
+  store i64 %51, ptr %49, align 8
+  br label %52
 
-51:                                               ; preds = %46, %45
+52:                                               ; preds = %47, %46
   ret void
 }
 
@@ -29047,7 +29047,7 @@ element.exit.thread21:                            ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %.01825.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %element.exit.thread, label %18, !llvm.loop !104
+  br i1 %.not.i, label %element.exit.thread, label %18, !llvm.loop !107
 
 element.exit.thread:                              ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -29121,7 +29121,7 @@ switch.lookup:                                    ; preds = %10
   %17 = add i32 %switch.load, %16
   %18 = add nuw nsw i32 %.02441, 1
   %exitcond.not = icmp eq i32 %18, %3
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !146
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !150
 
 .critedge.sink.split:                             ; preds = %10, %switch.lookup
   store ptr %9, ptr %5, align 8
@@ -29197,7 +29197,7 @@ define internal fastcc void @cleanup(ptr noundef captures(none) %0) unnamed_addr
 
 26:                                               ; preds = %16, %22, %25
   %.not27 = icmp eq ptr %18, null
-  br i1 %.not27, label %.critedge, label %.lr.ph, !llvm.loop !147
+  br i1 %.not27, label %.critedge, label %.lr.ph, !llvm.loop !151
 
 .critedge:                                        ; preds = %.lr.ph, %26, %6
   %27 = load ptr, ptr %0, align 8
@@ -29214,7 +29214,7 @@ define internal fastcc void @cleanup(ptr noundef captures(none) %0) unnamed_addr
   %29 = getelementptr inbounds nuw i8, ptr %.138, i64 40
   %.1 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %.1, null
-  br i1 %.not29, label %._crit_edge, label %.lr.ph39, !llvm.loop !148
+  br i1 %.not29, label %._crit_edge, label %.lr.ph39, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %.lr.ph39, %.critedge
   %.0.lcssa = phi i32 [ 0, %.critedge ], [ %28, %.lr.ph39 ]
@@ -29272,7 +29272,7 @@ define internal fastcc void @markreachable(ptr noundef readonly captures(none) %
   %.0.in = getelementptr inbounds nuw i8, ptr %.04, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
   %.not19 = icmp eq ptr %.0, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !149
+  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !153
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %18, %12
   ret void
@@ -29324,7 +29324,7 @@ define internal fastcc void @markcanreach(ptr noundef readonly captures(none) %0
   %26 = getelementptr inbounds nuw i8, ptr %.023, i64 40
   %.0 = load ptr, ptr %26, align 8
   %.not19 = icmp eq ptr %.0, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !150
+  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !154
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %19, %13
   ret void
@@ -29389,7 +29389,7 @@ define internal fastcc ptr @emptyreachable(ptr noundef readonly captures(none) %
   %35 = getelementptr inbounds nuw i8, ptr %.029, i64 40
   %.0 = load ptr, ptr %35, align 8
   %.not24 = icmp eq ptr %.0, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !151
+  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !155
 
 .loopexit:                                        ; preds = %34, %19, %13
   %.021 = phi ptr [ %2, %13 ], [ %1, %19 ], [ %.1, %34 ]
@@ -29484,7 +29484,7 @@ isconstraintarc.exit.i:                           ; preds = %28, %27, %27, %27, 
   %.052.in.i = getelementptr inbounds nuw i8, ptr %.05287.i, i64 24
   %.052.i = load ptr, ptr %.052.in.i, align 8
   %.not.i = icmp eq ptr %.052.i, null
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !152
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !156
 
 ._crit_edge.loopexit.i:                           ; preds = %30
   %31 = icmp sgt i32 %.1.i, 1
@@ -29500,7 +29500,7 @@ isconstraintarc.exit.i:                           ; preds = %28, %27, %27, %27, 
   %.054.be.i = phi ptr [ %.155.i, %._crit_edge.i ], [ null, %._crit_edge.thread.i ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %22, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %.preheader37, !llvm.loop !153
+  br label %.preheader37, !llvm.loop !157
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i
   %.not62106.i = icmp eq ptr %22, %1
@@ -29533,7 +29533,7 @@ isconstraintarc.exit.i:                           ; preds = %28, %27, %27, %27, 
   %.151.in.i = getelementptr inbounds nuw i8, ptr %.15192.i, i64 40
   %.151.i = load ptr, ptr %.151.in.i, align 8
   %.not64.i = icmp eq ptr %.151.i, null
-  br i1 %.not64.i, label %._crit_edge95.i, label %.lr.ph94.i, !llvm.loop !154
+  br i1 %.not64.i, label %._crit_edge95.i, label %.lr.ph94.i, !llvm.loop !158
 
 ._crit_edge95.i:                                  ; preds = %.lr.ph94.i, %.thread.i
   %39 = tail call fastcc ptr @newstate(ptr noundef nonnull %0)
@@ -29624,7 +29624,7 @@ isconstraintarc.exit74.i:                         ; preds = %76, %76, %76, %76, 
   %79 = load i16, ptr %78, align 4
   %80 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i.i = icmp eq i32 %80, 0
-  br i1 %.not.i.i.i, label %82, label %81, !prof !13
+  br i1 %.not.i.i.i, label %82, label %81, !prof !14
 
 81:                                               ; preds = %77
   tail call void @ProcessInterrupts() #20
@@ -29663,7 +29663,7 @@ isconstraintarc.exit74.i:                         ; preds = %76, %76, %76, %76, 
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i.i, i64 24
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not26.i.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not26.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %.not26.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 96:                                               ; preds = %82
   %.134.i.i.i = load ptr, ptr %67, align 8
@@ -29692,7 +29692,7 @@ isconstraintarc.exit74.i:                         ; preds = %76, %76, %76, %76, 
   %108 = getelementptr inbounds nuw i8, ptr %.136.i.i.i, i64 40
   %.1.i.i.i = load ptr, ptr %108, align 8
   %.not25.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not25.i.i.i, label %.loopexit.i.i.i, label %.lr.ph37.i.i.i, !llvm.loop !15
+  br i1 %.not25.i.i.i, label %.loopexit.i.i.i, label %.lr.ph37.i.i.i, !llvm.loop !16
 
 .loopexit.i.i.i:                                  ; preds = %95, %107, %96, %.preheader.i.i.i
   tail call fastcc void @createarc(ptr noundef nonnull %0, i32 noundef %.153.val.i, i16 noundef signext %79, ptr noundef %.056.i, ptr noundef nonnull %.057.i)
@@ -29829,7 +29829,7 @@ isconstraintarc.exit74.thread.i:                  ; preds = %76, %.backedge.i
   br i1 %.not66.old.i, label %breakconstraintloop.exit, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %isconstraintarc.exit74.thread.i, %freearc.exit.i
-  br label %.backedge.i, !llvm.loop !155
+  br label %.backedge.i, !llvm.loop !159
 
 .lr.ph:                                           ; preds = %.preheader, %isconstraintarc.exit.thread
   %.02341 = phi ptr [ %.023, %isconstraintarc.exit.thread ], [ %.02339, %.preheader ]
@@ -29854,7 +29854,7 @@ isconstraintarc.exit.thread:                      ; preds = %.lr.ph, %isconstrai
   %.023.in = getelementptr inbounds nuw i8, ptr %.02341, i64 24
   %.023 = load ptr, ptr %.023.in, align 8
   %.not28 = icmp eq ptr %.023, null
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !156
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %isconstraintarc.exit.thread, %.preheader
   store ptr %1, ptr %18, align 8
@@ -29985,7 +29985,7 @@ isconstraintarc.exit.i:                           ; preds = %isconstraintarc.exi
     i32 114, label %hasconstraintout.exit
     i32 97, label %hasconstraintout.exit
     i32 76, label %hasconstraintout.exit
-  ], !llvm.loop !157
+  ], !llvm.loop !161
 
 hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, %55
   %56 = load i32, ptr %54, align 8
@@ -30008,7 +30008,7 @@ hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, 
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, %54
-  br i1 %65, label %66, label %.preheader203, !llvm.loop !158
+  br i1 %65, label %66, label %.preheader203, !llvm.loop !162
 
 66:                                               ; preds = %60, %.preheader203
   %.0109 = phi ptr [ null, %.preheader203 ], [ %62, %60 ]
@@ -30061,7 +30061,7 @@ hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, 
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
   %.not127 = icmp eq ptr %95, null
-  br i1 %.not127, label %.critedge143, label %78, !llvm.loop !159
+  br i1 %.not127, label %.critedge143, label %78, !llvm.loop !163
 
 .critedge141:                                     ; preds = %86, %70
   %.not131 = icmp eq ptr %.0109, null
@@ -30084,7 +30084,7 @@ hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, 
   %100 = load i16, ptr %99, align 4
   %101 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %101, 0
-  br i1 %.not.i.i, label %103, label %102, !prof !13
+  br i1 %.not.i.i, label %103, label %102, !prof !14
 
 102:                                              ; preds = %98
   tail call void @ProcessInterrupts() #20
@@ -30124,7 +30124,7 @@ hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, 
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 24
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not26.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 118:                                              ; preds = %103
   %119 = getelementptr inbounds nuw i8, ptr %.0109, i64 16
@@ -30154,7 +30154,7 @@ hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, 
   %131 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 40
   %.1.i.i = load ptr, ptr %131, align 8
   %.not25.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !15
+  br i1 %.not25.i.i, label %.loopexit.i.i, label %.lr.ph37.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %117, %130, %118, %.preheader.i.i
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %.0102.val, i16 noundef signext %100, ptr noundef %2, ptr noundef nonnull %.0109)
@@ -30173,7 +30173,7 @@ hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, 
   %138 = load i16, ptr %137, align 4
   %139 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i145 = icmp eq i32 %139, 0
-  br i1 %.not.i.i145, label %141, label %140, !prof !13
+  br i1 %.not.i.i145, label %141, label %140, !prof !14
 
 140:                                              ; preds = %134
   tail call void @ProcessInterrupts() #20
@@ -30213,7 +30213,7 @@ hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, 
   %.0.in.i.i153 = getelementptr inbounds nuw i8, ptr %.033.i.i152, i64 24
   %.0.i.i154 = load ptr, ptr %.0.in.i.i153, align 8
   %.not26.i.i155 = icmp eq ptr %.0.i.i154, null
-  br i1 %.not26.i.i155, label %cparc.exit163.thread188, label %.lr.ph.i.i151, !llvm.loop !14
+  br i1 %.not26.i.i155, label %cparc.exit163.thread188, label %.lr.ph.i.i151, !llvm.loop !15
 
 156:                                              ; preds = %141
   %157 = getelementptr inbounds nuw i8, ptr %133, i64 16
@@ -30243,7 +30243,7 @@ hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, 
   %169 = getelementptr inbounds nuw i8, ptr %.136.i.i160, i64 40
   %.1.i.i161 = load ptr, ptr %169, align 8
   %.not25.i.i162 = icmp eq ptr %.1.i.i161, null
-  br i1 %.not25.i.i162, label %cparc.exit163.thread188, label %.lr.ph37.i.i159, !llvm.loop !15
+  br i1 %.not25.i.i162, label %cparc.exit163.thread188, label %.lr.ph37.i.i159, !llvm.loop !16
 
 cparc.exit163.thread188:                          ; preds = %155, %168, %.preheader.i.i147, %156
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %136, i16 noundef signext %138, ptr noundef %2, ptr noundef nonnull %133)
@@ -30254,7 +30254,7 @@ isconstraintarc.exit.thread:                      ; preds = %isconstraintarc.exi
   %171 = load i16, ptr %170, align 4
   %172 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i164 = icmp eq i32 %172, 0
-  br i1 %.not.i.i164, label %174, label %173, !prof !13
+  br i1 %.not.i.i164, label %174, label %173, !prof !14
 
 173:                                              ; preds = %isconstraintarc.exit.thread
   tail call void @ProcessInterrupts() #20
@@ -30294,7 +30294,7 @@ isconstraintarc.exit.thread:                      ; preds = %isconstraintarc.exi
   %.0.in.i.i172 = getelementptr inbounds nuw i8, ptr %.033.i.i171, i64 24
   %.0.i.i173 = load ptr, ptr %.0.in.i.i172, align 8
   %.not26.i.i174 = icmp eq ptr %.0.i.i173, null
-  br i1 %.not26.i.i174, label %.loopexit.i.i175, label %.lr.ph.i.i170, !llvm.loop !14
+  br i1 %.not26.i.i174, label %.loopexit.i.i175, label %.lr.ph.i.i170, !llvm.loop !15
 
 189:                                              ; preds = %174
   %190 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -30324,7 +30324,7 @@ isconstraintarc.exit.thread:                      ; preds = %isconstraintarc.exi
   %202 = getelementptr inbounds nuw i8, ptr %.136.i.i179, i64 40
   %.1.i.i180 = load ptr, ptr %202, align 8
   %.not25.i.i181 = icmp eq ptr %.1.i.i180, null
-  br i1 %.not25.i.i181, label %.loopexit.i.i175, label %.lr.ph37.i.i178, !llvm.loop !15
+  br i1 %.not25.i.i181, label %.loopexit.i.i175, label %.lr.ph37.i.i178, !llvm.loop !16
 
 .loopexit.i.i175:                                 ; preds = %188, %201, %189, %.preheader.i.i166
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %.0102.val, i16 noundef signext %171, ptr noundef %2, ptr noundef %54)
@@ -30370,7 +30370,7 @@ cparc.exit182:                                    ; preds = %114, %127, %152, %1
   %.1.in = getelementptr inbounds nuw i8, ptr %.1216, i64 24
   %.1 = load ptr, ptr %.1.in, align 8
   %.not132 = icmp eq ptr %.1, null
-  br i1 %.not132, label %.critedge3, label %.lr.ph217, !llvm.loop !160
+  br i1 %.not132, label %.critedge3, label %.lr.ph217, !llvm.loop !164
 
 .critedge3:                                       ; preds = %.lr.ph217, %212, %.preheader
   tail call void @pfree(ptr noundef nonnull %.0) #20
@@ -30396,7 +30396,7 @@ define internal fastcc zeroext i1 @checkmatchall_recurse(ptr noundef readonly ca
 12:                                               ; preds = %3
   %13 = load volatile i32, ptr @InterruptPending, align 4
   %.not61 = icmp eq i32 %13, 0
-  br i1 %.not61, label %15, label %14, !prof !13
+  br i1 %.not61, label %15, label %14, !prof !14
 
 14:                                               ; preds = %12
   tail call void @ProcessInterrupts() #20
@@ -30474,27 +30474,27 @@ define internal fastcc zeroext i1 @checkmatchall_recurse(ptr noundef readonly ca
 44:                                               ; preds = %._crit_edge98, %36
   %45 = phi ptr [ %.pre101, %._crit_edge98 ], [ %40, %36 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 256
-  %47 = load i8, ptr %46, align 1, !range !7, !noundef !8
+  %47 = load i8, ptr %46, align 1, !range !8, !noundef !9
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 257
-  %49 = load i8, ptr %48, align 1, !range !7, !noundef !8
+  %49 = load i8, ptr %48, align 1, !range !8, !noundef !9
   %.not65 = icmp eq i8 %47, %49
   br i1 %.not65, label %.preheader73, label %.thread70
 
 .preheader73:                                     ; preds = %44, %.preheader73
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader73 ], [ 0, %44 ]
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv
-  %51 = load i8, ptr %50, align 1, !range !7, !noundef !8
+  %51 = load i8, ptr %50, align 1, !range !8, !noundef !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.next
-  %53 = load i8, ptr %52, align 1, !range !7, !noundef !8
+  %53 = load i8, ptr %52, align 1, !range !8, !noundef !9
   %54 = or i8 %53, %51
   store i8 %54, ptr %52, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %55, label %.preheader73, !llvm.loop !161
+  br i1 %exitcond.not, label %55, label %.preheader73, !llvm.loop !165
 
 55:                                               ; preds = %.preheader73
-  %56 = load i8, ptr %48, align 1, !range !7, !noundef !8
-  %57 = load i8, ptr %21, align 1, !range !7, !noundef !8
+  %56 = load i8, ptr %48, align 1, !range !8, !noundef !9
+  %57 = load i8, ptr %21, align 1, !range !8, !noundef !9
   %58 = or i8 %57, %56
   store i8 %58, ptr %21, align 1
   br label %59
@@ -30505,7 +30505,7 @@ define internal fastcc zeroext i1 @checkmatchall_recurse(ptr noundef readonly ca
   %.054.in = getelementptr inbounds nuw i8, ptr %.05483, i64 24
   %.054 = load ptr, ptr %.054.in, align 8
   %.not62 = icmp eq ptr %.054, null
-  br i1 %.not62, label %._crit_edge, label %22, !llvm.loop !162
+  br i1 %.not62, label %._crit_edge, label %22, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %59
   %or.cond = select i1 %.2, i1 %.158, i1 false
@@ -30514,14 +30514,14 @@ define internal fastcc zeroext i1 @checkmatchall_recurse(ptr noundef readonly ca
 .preheader:                                       ; preds = %._crit_edge, %63
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %63 ], [ 0, %._crit_edge ]
   %60 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv91
-  %61 = load i8, ptr %60, align 1, !range !7, !noundef !8
+  %61 = load i8, ptr %60, align 1, !range !8, !noundef !9
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %.preheader
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 257
-  br i1 %exitcond94.not, label %.thread70, label %.preheader, !llvm.loop !163
+  br i1 %exitcond94.not, label %.thread70, label %.preheader, !llvm.loop !167
 
 64:                                               ; preds = %.preheader
   %65 = icmp samesign ult i64 %indvars.iv91, 257
@@ -30627,163 +30627,167 @@ attributes #24 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5, !56}
-!56 = !{!"llvm.loop.unswitch.partial.disable"}
-!57 = distinct !{!57, !5}
-!58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
-!60 = distinct !{!60, !5}
-!61 = distinct !{!61, !5}
-!62 = distinct !{!62, !5}
-!63 = distinct !{!63, !5}
-!64 = distinct !{!64, !5, !56}
-!65 = distinct !{!65, !5}
-!66 = distinct !{!66, !5}
-!67 = distinct !{!67, !5, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = distinct !{!69, !5}
-!70 = distinct !{!70, !5}
-!71 = distinct !{!71, !5}
-!72 = distinct !{!72, !5}
-!73 = distinct !{!73, !5}
-!74 = distinct !{!74, !5}
-!75 = distinct !{!75, !5}
-!76 = distinct !{!76, !5}
-!77 = distinct !{!77, !5}
-!78 = distinct !{!78, !5}
-!79 = distinct !{!79, !5}
-!80 = distinct !{!80, !5}
-!81 = distinct !{!81, !5}
-!82 = distinct !{!82, !5}
-!83 = distinct !{!83, !5}
-!84 = distinct !{!84, !5}
-!85 = distinct !{!85, !5}
-!86 = distinct !{!86, !5}
-!87 = distinct !{!87, !5}
-!88 = distinct !{!88, !5}
-!89 = distinct !{!89, !5}
-!90 = distinct !{!90, !5}
-!91 = distinct !{!91, !5}
-!92 = distinct !{!92, !5}
-!93 = distinct !{!93, !5}
-!94 = distinct !{!94, !5}
-!95 = distinct !{!95, !5}
-!96 = distinct !{!96, !5}
-!97 = distinct !{!97, !5}
-!98 = distinct !{!98, !5}
-!99 = distinct !{!99, !5}
-!100 = distinct !{!100, !5}
-!101 = distinct !{!101, !5}
-!102 = distinct !{!102, !5}
-!103 = distinct !{!103, !5}
-!104 = distinct !{!104, !5}
-!105 = distinct !{!105, !5}
-!106 = distinct !{!106, !5}
-!107 = distinct !{!107, !5}
-!108 = distinct !{!108, !5}
-!109 = distinct !{!109, !5}
-!110 = distinct !{!110, !5}
-!111 = distinct !{!111, !5}
-!112 = distinct !{!112, !5}
-!113 = distinct !{!113, !5}
-!114 = distinct !{!114, !5}
-!115 = distinct !{!115, !5}
-!116 = distinct !{!116, !5}
-!117 = distinct !{!117, !5}
-!118 = distinct !{!118, !5}
-!119 = distinct !{!119, !5}
-!120 = distinct !{!120, !5}
-!121 = distinct !{!121, !5, !56}
-!122 = distinct !{!122, !5}
-!123 = distinct !{!123, !5}
-!124 = distinct !{!124, !5, !56}
-!125 = distinct !{!125, !5}
-!126 = distinct !{!126, !5}
-!127 = distinct !{!127, !5}
-!128 = distinct !{!128, !5}
-!129 = distinct !{!129, !5}
-!130 = distinct !{!130, !5}
-!131 = distinct !{!131, !5}
-!132 = distinct !{!132, !5}
-!133 = distinct !{!133, !5}
-!134 = distinct !{!134, !5}
-!135 = distinct !{!135, !5}
-!136 = distinct !{!136, !5}
-!137 = distinct !{!137, !5}
-!138 = distinct !{!138, !5}
-!139 = distinct !{!139, !5}
-!140 = distinct !{!140, !5}
-!141 = distinct !{!141, !5}
-!142 = distinct !{!142, !5}
-!143 = distinct !{!143, !5}
-!144 = distinct !{!144, !5}
-!145 = distinct !{!145, !5}
-!146 = distinct !{!146, !5}
-!147 = distinct !{!147, !5}
-!148 = distinct !{!148, !5}
-!149 = distinct !{!149, !5}
-!150 = distinct !{!150, !5}
-!151 = distinct !{!151, !5}
-!152 = distinct !{!152, !5}
-!153 = distinct !{!153, !5}
-!154 = distinct !{!154, !5}
-!155 = distinct !{!155, !5}
-!156 = distinct !{!156, !5}
-!157 = distinct !{!157, !5}
-!158 = distinct !{!158, !5}
-!159 = distinct !{!159, !5}
-!160 = distinct !{!160, !5}
-!161 = distinct !{!161, !5}
-!162 = distinct !{!162, !5}
-!163 = distinct !{!163, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6}
+!42 = distinct !{!42, !5, !6}
+!43 = distinct !{!43, !5, !6}
+!44 = distinct !{!44, !5, !6}
+!45 = distinct !{!45, !5, !6}
+!46 = distinct !{!46, !5, !6}
+!47 = distinct !{!47, !5, !6}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !5, !6}
+!50 = distinct !{!50, !5, !6}
+!51 = distinct !{!51, !5, !6}
+!52 = distinct !{!52, !5, !6}
+!53 = distinct !{!53, !5, !6}
+!54 = distinct !{!54, !5, !6}
+!55 = distinct !{!55, !5, !6}
+!56 = distinct !{!56, !5, !6, !57}
+!57 = !{!"llvm.loop.unswitch.partial.disable"}
+!58 = distinct !{!58, !5, !6}
+!59 = distinct !{!59, !5, !6}
+!60 = distinct !{!60, !5, !6}
+!61 = distinct !{!61, !5, !6}
+!62 = distinct !{!62, !5, !6}
+!63 = distinct !{!63, !5, !6}
+!64 = distinct !{!64, !5, !6}
+!65 = distinct !{!65, !5, !6, !57}
+!66 = distinct !{!66, !5, !6}
+!67 = distinct !{!67, !5, !6}
+!68 = distinct !{!68, !5, !6, !69}
+!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!70 = distinct !{!70, !5, !6}
+!71 = distinct !{!71, !5, !6}
+!72 = distinct !{!72, !5, !6}
+!73 = distinct !{!73, !5, !6}
+!74 = distinct !{!74, !5, !6}
+!75 = distinct !{!75, !5, !6}
+!76 = distinct !{!76, !5, !6}
+!77 = distinct !{!77, !5, !6}
+!78 = distinct !{!78, !5, !6}
+!79 = distinct !{!79, !5, !6}
+!80 = distinct !{!80, !5, !6}
+!81 = distinct !{!81, !5, !6}
+!82 = distinct !{!82, !5, !6}
+!83 = distinct !{!83, !5, !6}
+!84 = distinct !{!84, !5, !6}
+!85 = distinct !{!85, !5, !6}
+!86 = distinct !{!86, !5, !6}
+!87 = distinct !{!87, !5, !6}
+!88 = distinct !{!88, !5, !6}
+!89 = distinct !{!89, !5, !6}
+!90 = distinct !{!90, !5, !6}
+!91 = distinct !{!91, !5, !6}
+!92 = distinct !{!92, !6}
+!93 = distinct !{!93, !5, !6}
+!94 = distinct !{!94, !5, !6}
+!95 = distinct !{!95, !5, !6}
+!96 = distinct !{!96, !5, !6}
+!97 = distinct !{!97, !5, !6}
+!98 = distinct !{!98, !5, !6}
+!99 = distinct !{!99, !6}
+!100 = distinct !{!100, !5, !6}
+!101 = distinct !{!101, !5, !6}
+!102 = distinct !{!102, !5, !6}
+!103 = distinct !{!103, !5, !6}
+!104 = distinct !{!104, !5, !6}
+!105 = distinct !{!105, !5, !6}
+!106 = distinct !{!106, !5, !6}
+!107 = distinct !{!107, !5, !6}
+!108 = distinct !{!108, !5, !6}
+!109 = distinct !{!109, !5, !6}
+!110 = distinct !{!110, !5, !6}
+!111 = distinct !{!111, !5, !6}
+!112 = distinct !{!112, !5, !6}
+!113 = distinct !{!113, !5, !6}
+!114 = distinct !{!114, !5, !6}
+!115 = distinct !{!115, !5, !6}
+!116 = distinct !{!116, !5, !6}
+!117 = distinct !{!117, !5, !6}
+!118 = distinct !{!118, !5, !6}
+!119 = distinct !{!119, !5, !6}
+!120 = distinct !{!120, !5, !6}
+!121 = distinct !{!121, !5, !6}
+!122 = distinct !{!122, !5, !6}
+!123 = distinct !{!123, !5, !6}
+!124 = distinct !{!124, !5, !6, !57}
+!125 = distinct !{!125, !5, !6}
+!126 = distinct !{!126, !5, !6}
+!127 = distinct !{!127, !5, !6, !57}
+!128 = distinct !{!128, !5, !6}
+!129 = distinct !{!129, !5, !6}
+!130 = distinct !{!130, !5, !6}
+!131 = distinct !{!131, !5, !6}
+!132 = distinct !{!132, !5, !6}
+!133 = distinct !{!133, !5, !6}
+!134 = distinct !{!134, !5, !6}
+!135 = distinct !{!135, !5, !6}
+!136 = distinct !{!136, !5, !6}
+!137 = distinct !{!137, !5, !6}
+!138 = distinct !{!138, !5, !6}
+!139 = distinct !{!139, !5, !6}
+!140 = distinct !{!140, !5, !6}
+!141 = distinct !{!141, !5, !6}
+!142 = distinct !{!142, !5, !6}
+!143 = distinct !{!143, !5, !6}
+!144 = distinct !{!144, !5, !6}
+!145 = distinct !{!145, !5, !6}
+!146 = distinct !{!146, !5, !6}
+!147 = distinct !{!147, !5, !6}
+!148 = distinct !{!148, !5, !6}
+!149 = distinct !{!149, !6}
+!150 = distinct !{!150, !5, !6}
+!151 = distinct !{!151, !5, !6}
+!152 = distinct !{!152, !5, !6}
+!153 = distinct !{!153, !5, !6}
+!154 = distinct !{!154, !5, !6}
+!155 = distinct !{!155, !5, !6}
+!156 = distinct !{!156, !5, !6}
+!157 = distinct !{!157, !5, !6}
+!158 = distinct !{!158, !5, !6}
+!159 = distinct !{!159, !5, !6}
+!160 = distinct !{!160, !5, !6}
+!161 = distinct !{!161, !5, !6}
+!162 = distinct !{!162, !5, !6}
+!163 = distinct !{!163, !5, !6}
+!164 = distinct !{!164, !5, !6}
+!165 = distinct !{!165, !5, !6}
+!166 = distinct !{!166, !5, !6}
+!167 = distinct !{!167, !5, !6}

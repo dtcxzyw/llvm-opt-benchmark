@@ -66,7 +66,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_init(i32 noundef %
 
 .loopexit:                                        ; preds = %.preheader
   tail call void @_raw_spin_lock(ptr noundef nonnull @netlbl_domhsh_lock) #10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   store volatile ptr %5, ptr @netlbl_domhsh, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @netlbl_domhsh_lock) #10
   br label %23
@@ -152,7 +152,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 39:                                               ; preds = %.preheader183
   %40 = load ptr, ptr %35, align 8
   %41 = icmp eq ptr %40, %32
-  br i1 %41, label %.loopexit184, label %.preheader183, !llvm.loop !9
+  br i1 %41, label %.loopexit184, label %.preheader183, !llvm.loop !10
 
 .loopexit184:                                     ; preds = %39, %.preheader183, %30
   %42 = phi ptr [ %33, %30 ], [ %40, %39 ], [ %35, %.preheader183 ]
@@ -195,12 +195,12 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 62:                                               ; preds = %.preheader177
   %63 = load ptr, ptr %58, align 8
   %64 = icmp eq ptr %63, %32
-  br i1 %64, label %.loopexit178, label %.preheader177, !llvm.loop !9
+  br i1 %64, label %.loopexit178, label %.preheader177, !llvm.loop !11
 
 .loopexit178:                                     ; preds = %62, %.preheader177, %55
   %65 = phi ptr [ %56, %55 ], [ %63, %62 ], [ %58, %.preheader177 ]
   %66 = icmp eq ptr %65, %32
-  br i1 %66, label %.loopexit182, label %.preheader180, !llvm.loop !10
+  br i1 %66, label %.loopexit182, label %.preheader180, !llvm.loop !12
 
 .loopexit182:                                     ; preds = %.loopexit178, %.loopexit184
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -218,7 +218,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 74:                                               ; preds = %.preheader174
   %75 = load ptr, ptr %70, align 8
   %76 = icmp eq ptr %75, %67
-  br i1 %76, label %.loopexit175, label %.preheader174, !llvm.loop !11
+  br i1 %76, label %.loopexit175, label %.preheader174, !llvm.loop !13
 
 .loopexit175:                                     ; preds = %74, %.preheader174, %.loopexit182
   %77 = phi ptr [ %68, %.loopexit182 ], [ %75, %74 ], [ %70, %.preheader174 ]
@@ -261,12 +261,12 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 97:                                               ; preds = %.preheader169
   %98 = load ptr, ptr %93, align 8
   %99 = icmp eq ptr %98, %67
-  br i1 %99, label %.loopexit170, label %.preheader169, !llvm.loop !11
+  br i1 %99, label %.loopexit170, label %.preheader169, !llvm.loop !14
 
 .loopexit170:                                     ; preds = %97, %.preheader169, %90
   %100 = phi ptr [ %91, %90 ], [ %98, %97 ], [ %93, %.preheader169 ]
   %101 = icmp eq ptr %100, %67
-  br i1 %101, label %.loopexit173, label %.preheader172, !llvm.loop !12
+  br i1 %101, label %.loopexit173, label %.preheader172, !llvm.loop !15
 
 .loopexit173:                                     ; preds = %.loopexit170, %.loopexit175, %26, %20, %14
   tail call void @__rcu_read_lock() #10
@@ -292,7 +292,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %115 = xor i32 %111, %114
   %116 = add nuw nsw i64 %109, 1
   %117 = icmp eq i64 %116, %107
-  br i1 %117, label %.loopexit168, label %.preheader167, !llvm.loop !13
+  br i1 %117, label %.loopexit168, label %.preheader167, !llvm.loop !16
 
 .loopexit168:                                     ; preds = %.preheader167, %105
   %118 = phi i32 [ 0, %105 ], [ %115, %.preheader167 ]
@@ -339,7 +339,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 149:                                              ; preds = %145, %138, %132
   %150 = load volatile ptr, ptr %133, align 8
   %151 = icmp eq ptr %150, %127
-  br i1 %151, label %.thread106.thread109, label %132, !llvm.loop !14
+  br i1 %151, label %.thread106.thread109, label %132, !llvm.loop !17
 
 152:                                              ; preds = %.loopexit173
   switch i16 %104, label %.thread106.thread [
@@ -409,7 +409,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %183 = xor i32 %179, %182
   %184 = add nuw nsw i64 %177, 1
   %185 = icmp eq i64 %184, %175
-  br i1 %185, label %.loopexit166, label %.preheader165, !llvm.loop !13
+  br i1 %185, label %.loopexit166, label %.preheader165, !llvm.loop !18
 
 .loopexit166:                                     ; preds = %.preheader165, %.thread106.thread109
   %186 = phi i32 [ 0, %.thread106.thread109 ], [ %183, %.preheader165 ]
@@ -428,18 +428,18 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   store ptr %196, ptr %192, align 8
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %198, ptr %199, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
   store volatile ptr %192, ptr %198, align 8
   store ptr %192, ptr %197, align 8
   br label %213
 
 200:                                              ; preds = %.thread106.thread
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
   store volatile ptr %0, ptr @netlbl_domhsh_def_ipv4, align 8
   br label %213
 
 201:                                              ; preds = %.thread106.thread
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !21
   store volatile ptr %0, ptr @netlbl_domhsh_def_ipv6, align 8
   br label %213
 
@@ -462,9 +462,9 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 28
   store i32 1, ptr %212, align 4
   store i16 2, ptr %5, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !22
   store volatile ptr %0, ptr @netlbl_domhsh_def_ipv4, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !23
   store volatile ptr %207, ptr @netlbl_domhsh_def_ipv6, align 8
   br label %213
 
@@ -490,7 +490,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 225:                                              ; preds = %.preheader120
   %226 = load volatile ptr, ptr %221, align 8
   %227 = icmp eq ptr %226, %218
-  br i1 %227, label %.loopexit121, label %.preheader120, !llvm.loop !20
+  br i1 %227, label %.loopexit121, label %.preheader120, !llvm.loop !24
 
 .loopexit121:                                     ; preds = %225, %.preheader120, %216
   %228 = phi ptr [ %219, %216 ], [ %226, %225 ], [ %221, %.preheader120 ]
@@ -516,12 +516,12 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 239:                                              ; preds = %.preheader115
   %240 = load volatile ptr, ptr %235, align 8
   %241 = icmp eq ptr %240, %233
-  br i1 %241, label %.loopexit116, label %.preheader115, !llvm.loop !20
+  br i1 %241, label %.loopexit116, label %.preheader115, !llvm.loop !25
 
 .loopexit116:                                     ; preds = %239, %.preheader115, %.preheader118
   %242 = phi ptr [ %232, %.preheader118 ], [ %240, %239 ], [ %235, %.preheader115 ]
   %243 = icmp eq ptr %242, %233
-  br i1 %243, label %.loopexit119, label %.preheader118, !llvm.loop !21
+  br i1 %243, label %.loopexit119, label %.preheader118, !llvm.loop !26
 
 .loopexit119:                                     ; preds = %.loopexit116, %.loopexit121
   %244 = phi ptr [ %218, %.loopexit121 ], [ %233, %.loopexit116 ]
@@ -540,7 +540,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 252:                                              ; preds = %.preheader112
   %253 = load volatile ptr, ptr %248, align 8
   %254 = icmp eq ptr %253, %245
-  br i1 %254, label %.loopexit113, label %.preheader112, !llvm.loop !22
+  br i1 %254, label %.loopexit113, label %.preheader112, !llvm.loop !27
 
 .loopexit113:                                     ; preds = %252, %.preheader112, %.loopexit119
   %255 = phi ptr [ %246, %.loopexit119 ], [ %253, %252 ], [ %248, %.preheader112 ]
@@ -567,12 +567,12 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 267:                                              ; preds = %.preheader
   %268 = load volatile ptr, ptr %263, align 8
   %269 = icmp eq ptr %268, %261
-  br i1 %269, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %269, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %267, %.preheader, %.preheader110
   %270 = phi ptr [ %259, %.preheader110 ], [ %268, %267 ], [ %263, %.preheader ]
   %271 = icmp eq ptr %270, %261
-  br i1 %271, label %.loopexit111, label %.preheader110, !llvm.loop !23
+  br i1 %271, label %.loopexit111, label %.preheader110, !llvm.loop !29
 
 272:                                              ; preds = %213
   tail call fastcc void @netlbl_domhsh_audit_add(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %1)
@@ -610,7 +610,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 292:                                              ; preds = %.preheader162
   %293 = load volatile ptr, ptr %288, align 8
   %294 = icmp eq ptr %293, %285
-  br i1 %294, label %.loopexit163, label %.preheader162, !llvm.loop !20
+  br i1 %294, label %.loopexit163, label %.preheader162, !llvm.loop !30
 
 .loopexit163:                                     ; preds = %292, %.preheader162, %280
   %295 = phi ptr [ %286, %280 ], [ %293, %292 ], [ %288, %.preheader162 ]
@@ -643,12 +643,12 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 312:                                              ; preds = %.preheader156
   %313 = load volatile ptr, ptr %308, align 8
   %314 = icmp eq ptr %313, %306
-  br i1 %314, label %.loopexit157, label %.preheader156, !llvm.loop !20
+  br i1 %314, label %.loopexit157, label %.preheader156, !llvm.loop !31
 
 .loopexit157:                                     ; preds = %312, %.preheader156, %304
   %315 = phi ptr [ %305, %304 ], [ %313, %312 ], [ %308, %.preheader156 ]
   %316 = icmp eq ptr %315, %306
-  br i1 %316, label %.loopexit161, label %.preheader159, !llvm.loop !24
+  br i1 %316, label %.loopexit161, label %.preheader159, !llvm.loop !32
 
 .loopexit161:                                     ; preds = %.loopexit157, %.loopexit163
   %317 = phi ptr [ %285, %.loopexit163 ], [ %306, %.loopexit157 ]
@@ -667,7 +667,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 325:                                              ; preds = %.preheader153
   %326 = load volatile ptr, ptr %321, align 8
   %327 = icmp eq ptr %326, %318
-  br i1 %327, label %.loopexit154, label %.preheader153, !llvm.loop !22
+  br i1 %327, label %.loopexit154, label %.preheader153, !llvm.loop !33
 
 .loopexit154:                                     ; preds = %325, %.preheader153, %.loopexit161
   %328 = phi ptr [ %319, %.loopexit161 ], [ %326, %325 ], [ %321, %.preheader153 ]
@@ -699,12 +699,12 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 344:                                              ; preds = %.preheader147
   %345 = load volatile ptr, ptr %340, align 8
   %346 = icmp eq ptr %345, %338
-  br i1 %346, label %.loopexit148, label %.preheader147, !llvm.loop !22
+  br i1 %346, label %.loopexit148, label %.preheader147, !llvm.loop !34
 
 .loopexit148:                                     ; preds = %344, %.preheader147, %335
   %347 = phi ptr [ %336, %335 ], [ %345, %344 ], [ %340, %.preheader147 ]
   %348 = icmp eq ptr %347, %338
-  br i1 %348, label %.loopexit152, label %.preheader150, !llvm.loop !25
+  br i1 %348, label %.loopexit152, label %.preheader150, !llvm.loop !35
 
 .loopexit152:                                     ; preds = %.loopexit148, %.loopexit154
   %349 = phi ptr [ %317, %.loopexit154 ], [ %337, %.loopexit148 ]
@@ -722,7 +722,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 356:                                              ; preds = %.preheader144
   %357 = load ptr, ptr %352, align 8
   %358 = icmp eq ptr %357, %349
-  br i1 %358, label %.loopexit145, label %.preheader144, !llvm.loop !9
+  br i1 %358, label %.loopexit145, label %.preheader144, !llvm.loop !36
 
 .loopexit145:                                     ; preds = %356, %.preheader144, %.loopexit152
   %359 = phi ptr [ %350, %.loopexit152 ], [ %357, %356 ], [ %352, %.preheader144 ]
@@ -740,7 +740,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 366:                                              ; preds = %.preheader141
   %367 = load ptr, ptr %362, align 8
   %368 = icmp eq ptr %367, %349
-  br i1 %368, label %.loopexit142, label %.preheader141, !llvm.loop !9
+  br i1 %368, label %.loopexit142, label %.preheader141, !llvm.loop !37
 
 .loopexit142:                                     ; preds = %366, %.preheader141, %.loopexit145
   %369 = phi ptr [ %360, %.loopexit145 ], [ %367, %366 ], [ %362, %.preheader141 ]
@@ -775,12 +775,12 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 385:                                              ; preds = %.preheader135
   %386 = load ptr, ptr %381, align 8
   %387 = icmp eq ptr %386, %379
-  br i1 %387, label %.loopexit136, label %.preheader135, !llvm.loop !9
+  br i1 %387, label %.loopexit136, label %.preheader135, !llvm.loop !38
 
 .loopexit136:                                     ; preds = %385, %.preheader135, %377
   %388 = phi ptr [ %378, %377 ], [ %386, %385 ], [ %381, %.preheader135 ]
   %389 = icmp eq ptr %372, %379
-  br i1 %389, label %.loopexit140, label %.preheader138, !llvm.loop !26
+  br i1 %389, label %.loopexit140, label %.preheader138, !llvm.loop !39
 
 .loopexit140:                                     ; preds = %.loopexit136, %.loopexit142
   %390 = phi ptr [ %349, %.loopexit142 ], [ %379, %.loopexit136 ]
@@ -799,7 +799,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 398:                                              ; preds = %.preheader132
   %399 = load ptr, ptr %394, align 8
   %400 = icmp eq ptr %399, %391
-  br i1 %400, label %.loopexit133, label %.preheader132, !llvm.loop !11
+  br i1 %400, label %.loopexit133, label %.preheader132, !llvm.loop !40
 
 .loopexit133:                                     ; preds = %398, %.preheader132, %.loopexit140
   %401 = phi ptr [ %392, %.loopexit140 ], [ %399, %398 ], [ %394, %.preheader132 ]
@@ -817,7 +817,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 408:                                              ; preds = %.preheader129
   %409 = load ptr, ptr %404, align 8
   %410 = icmp eq ptr %409, %391
-  br i1 %410, label %.loopexit130, label %.preheader129, !llvm.loop !11
+  br i1 %410, label %.loopexit130, label %.preheader129, !llvm.loop !41
 
 .loopexit130:                                     ; preds = %408, %.preheader129, %.loopexit133
   %411 = phi ptr [ %402, %.loopexit133 ], [ %409, %408 ], [ %404, %.preheader129 ]
@@ -853,12 +853,12 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 428:                                              ; preds = %.preheader123
   %429 = load ptr, ptr %424, align 8
   %430 = icmp eq ptr %429, %422
-  br i1 %430, label %.loopexit124, label %.preheader123, !llvm.loop !11
+  br i1 %430, label %.loopexit124, label %.preheader123, !llvm.loop !42
 
 .loopexit124:                                     ; preds = %428, %.preheader123, %419
   %431 = phi ptr [ %420, %419 ], [ %429, %428 ], [ %424, %.preheader123 ]
   %432 = icmp eq ptr %414, %422
-  br i1 %432, label %.loopexit128, label %.preheader126, !llvm.loop !27
+  br i1 %432, label %.loopexit128, label %.preheader126, !llvm.loop !43
 
 .loopexit128:                                     ; preds = %.loopexit124, %.loopexit130
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -897,7 +897,7 @@ define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly captur
   %14 = xor i32 %10, %13
   %15 = add nuw nsw i64 %8, 1
   %16 = icmp eq i64 %15, %6
-  br i1 %16, label %.loopexit, label %.preheader7, !llvm.loop !13
+  br i1 %16, label %.loopexit, label %.preheader7, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.preheader7, %4
   %17 = phi i32 [ 0, %4 ], [ %14, %.preheader7 ]
@@ -939,7 +939,7 @@ define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly captur
 44:                                               ; preds = %40, %34, %.preheader
   %45 = load volatile ptr, ptr %29, align 8
   %46 = icmp eq ptr %45, %26
-  br i1 %46, label %.thread, label %.preheader, !llvm.loop !14
+  br i1 %46, label %.thread, label %.preheader, !llvm.loop !45
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %30, null
@@ -1043,11 +1043,11 @@ define internal fastcc void @netlbl_domhsh_audit_add(ptr noundef readonly captur
 
 39:                                               ; preds = %34
   %40 = icmp eq ptr %37, null
-  br i1 %40, label %41, label %42, !prof !28
+  br i1 %40, label %41, label %42, !prof !46
 
 41:                                               ; preds = %39
-  tail call void asm sideeffect "703: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 703b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 703) #10, !srcloc !29
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 249, i32 0, i64 12) #10, !srcloc !30
+  tail call void asm sideeffect "703: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 703b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 703) #10, !srcloc !47
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 249, i32 0, i64 12) #10, !srcloc !48
   unreachable
 
 42:                                               ; preds = %39
@@ -1057,11 +1057,11 @@ define internal fastcc void @netlbl_domhsh_audit_add(ptr noundef readonly captur
 
 44:                                               ; preds = %34
   %45 = icmp eq ptr %36, null
-  br i1 %45, label %46, label %47, !prof !28
+  br i1 %45, label %46, label %47, !prof !46
 
 46:                                               ; preds = %44
-  tail call void asm sideeffect "704: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 704b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 704) #10, !srcloc !31
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 255, i32 0, i64 12) #10, !srcloc !32
+  tail call void asm sideeffect "704: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 704b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 704) #10, !srcloc !49
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 255, i32 0, i64 12) #10, !srcloc !50
   unreachable
 
 47:                                               ; preds = %44
@@ -1122,7 +1122,7 @@ define internal void @netlbl_domhsh_free_entry(ptr noundef %0) #2 align 16 {
 14:                                               ; preds = %.preheader45
   %15 = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %15, %7
-  br i1 %16, label %.loopexit46, label %.preheader45, !llvm.loop !9
+  br i1 %16, label %.loopexit46, label %.preheader45, !llvm.loop !51
 
 .loopexit46:                                      ; preds = %14, %.preheader45, %5
   %17 = phi ptr [ %8, %5 ], [ %15, %14 ], [ %10, %.preheader45 ]
@@ -1140,7 +1140,7 @@ define internal void @netlbl_domhsh_free_entry(ptr noundef %0) #2 align 16 {
 24:                                               ; preds = %.preheader42
   %25 = load ptr, ptr %20, align 8
   %26 = icmp eq ptr %25, %7
-  br i1 %26, label %.loopexit43, label %.preheader42, !llvm.loop !9
+  br i1 %26, label %.loopexit43, label %.preheader42, !llvm.loop !52
 
 .loopexit43:                                      ; preds = %24, %.preheader42, %.loopexit46
   %27 = phi ptr [ %18, %.loopexit46 ], [ %25, %24 ], [ %20, %.preheader42 ]
@@ -1169,12 +1169,12 @@ define internal void @netlbl_domhsh_free_entry(ptr noundef %0) #2 align 16 {
 40:                                               ; preds = %.preheader37
   %41 = load ptr, ptr %36, align 8
   %42 = icmp eq ptr %41, %34
-  br i1 %42, label %.loopexit38, label %.preheader37, !llvm.loop !9
+  br i1 %42, label %.loopexit38, label %.preheader37, !llvm.loop !53
 
 .loopexit38:                                      ; preds = %40, %.preheader37, %.preheader40
   %43 = phi ptr [ %33, %.preheader40 ], [ %41, %40 ], [ %36, %.preheader37 ]
   %44 = icmp eq ptr %30, %34
-  br i1 %44, label %.loopexit41, label %.preheader40, !llvm.loop !33
+  br i1 %44, label %.loopexit41, label %.preheader40, !llvm.loop !54
 
 .loopexit41:                                      ; preds = %.loopexit38, %.loopexit43
   %45 = phi ptr [ %7, %.loopexit43 ], [ %34, %.loopexit38 ]
@@ -1193,7 +1193,7 @@ define internal void @netlbl_domhsh_free_entry(ptr noundef %0) #2 align 16 {
 53:                                               ; preds = %.preheader34
   %54 = load ptr, ptr %49, align 8
   %55 = icmp eq ptr %54, %46
-  br i1 %55, label %.loopexit35, label %.preheader34, !llvm.loop !11
+  br i1 %55, label %.loopexit35, label %.preheader34, !llvm.loop !55
 
 .loopexit35:                                      ; preds = %53, %.preheader34, %.loopexit41
   %56 = phi ptr [ %47, %.loopexit41 ], [ %54, %53 ], [ %49, %.preheader34 ]
@@ -1211,7 +1211,7 @@ define internal void @netlbl_domhsh_free_entry(ptr noundef %0) #2 align 16 {
 63:                                               ; preds = %.preheader31
   %64 = load ptr, ptr %59, align 8
   %65 = icmp eq ptr %64, %46
-  br i1 %65, label %.loopexit32, label %.preheader31, !llvm.loop !11
+  br i1 %65, label %.loopexit32, label %.preheader31, !llvm.loop !56
 
 .loopexit32:                                      ; preds = %63, %.preheader31, %.loopexit35
   %66 = phi ptr [ %57, %.loopexit35 ], [ %64, %63 ], [ %59, %.preheader31 ]
@@ -1241,12 +1241,12 @@ define internal void @netlbl_domhsh_free_entry(ptr noundef %0) #2 align 16 {
 80:                                               ; preds = %.preheader
   %81 = load ptr, ptr %76, align 8
   %82 = icmp eq ptr %81, %74
-  br i1 %82, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %82, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %80, %.preheader, %.preheader29
   %83 = phi ptr [ %72, %.preheader29 ], [ %81, %80 ], [ %76, %.preheader ]
   %84 = icmp eq ptr %69, %74
-  br i1 %84, label %.loopexit30, label %.preheader29, !llvm.loop !34
+  br i1 %84, label %.loopexit30, label %.preheader29, !llvm.loop !58
 
 .loopexit30:                                      ; preds = %.loopexit, %.loopexit32
   %85 = phi ptr [ %45, %.loopexit32 ], [ %73, %.loopexit ]
@@ -1353,7 +1353,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_entry(ptr no
 42:                                               ; preds = %.preheader33
   %43 = load volatile ptr, ptr %38, align 8
   %44 = icmp eq ptr %43, %35
-  br i1 %44, label %.loopexit34, label %.preheader33, !llvm.loop !20
+  br i1 %44, label %.loopexit34, label %.preheader33, !llvm.loop !59
 
 .loopexit34:                                      ; preds = %42, %.preheader33, %33
   %45 = phi ptr [ %36, %33 ], [ %43, %42 ], [ %38, %.preheader33 ]
@@ -1380,12 +1380,12 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_entry(ptr no
 57:                                               ; preds = %.preheader28
   %58 = load volatile ptr, ptr %53, align 8
   %59 = icmp eq ptr %58, %51
-  br i1 %59, label %.loopexit29, label %.preheader28, !llvm.loop !20
+  br i1 %59, label %.loopexit29, label %.preheader28, !llvm.loop !60
 
 .loopexit29:                                      ; preds = %57, %.preheader28, %.preheader31
   %60 = phi ptr [ %50, %.preheader31 ], [ %58, %57 ], [ %53, %.preheader28 ]
   %61 = icmp eq ptr %60, %51
-  br i1 %61, label %.loopexit32, label %.preheader31, !llvm.loop !35
+  br i1 %61, label %.loopexit32, label %.preheader31, !llvm.loop !61
 
 .loopexit32:                                      ; preds = %.loopexit29, %.loopexit34
   %62 = phi ptr [ %35, %.loopexit34 ], [ %51, %.loopexit29 ]
@@ -1404,7 +1404,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_entry(ptr no
 70:                                               ; preds = %.preheader25
   %71 = load volatile ptr, ptr %66, align 8
   %72 = icmp eq ptr %71, %63
-  br i1 %72, label %.loopexit26, label %.preheader25, !llvm.loop !22
+  br i1 %72, label %.loopexit26, label %.preheader25, !llvm.loop !62
 
 .loopexit26:                                      ; preds = %70, %.preheader25, %.loopexit32
   %73 = phi ptr [ %64, %.loopexit32 ], [ %71, %70 ], [ %66, %.preheader25 ]
@@ -1432,12 +1432,12 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_entry(ptr no
 86:                                               ; preds = %.preheader
   %87 = load volatile ptr, ptr %82, align 8
   %88 = icmp eq ptr %87, %80
-  br i1 %88, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %88, label %.loopexit, label %.preheader, !llvm.loop !63
 
 .loopexit:                                        ; preds = %86, %.preheader, %.preheader23
   %89 = phi ptr [ %78, %.preheader23 ], [ %87, %86 ], [ %82, %.preheader ]
   %90 = icmp eq ptr %89, %80
-  br i1 %90, label %.loopexit24, label %.preheader23, !llvm.loop !36
+  br i1 %90, label %.loopexit24, label %.preheader23, !llvm.loop !64
 
 91:                                               ; preds = %30
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1501,7 +1501,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noun
   %16 = xor i32 %12, %15
   %17 = add nuw nsw i64 %10, 1
   %18 = icmp eq i64 %17, %8
-  br i1 %18, label %.loopexit20, label %.preheader19, !llvm.loop !13
+  br i1 %18, label %.loopexit20, label %.preheader19, !llvm.loop !65
 
 .loopexit20:                                      ; preds = %.preheader19, %6
   %19 = phi i32 [ 0, %6 ], [ %16, %.preheader19 ]
@@ -1543,7 +1543,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noun
 43:                                               ; preds = %39, %36, %.preheader18
   %44 = load volatile ptr, ptr %31, align 8
   %45 = icmp eq ptr %44, %28
-  br i1 %45, label %.thread, label %.preheader18, !llvm.loop !14
+  br i1 %45, label %.thread, label %.preheader18, !llvm.loop !66
 
 46:                                               ; preds = %4
   %47 = load volatile ptr, ptr @netlbl_domhsh_def_ipv4, align 8
@@ -1594,7 +1594,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noun
 74:                                               ; preds = %.preheader15
   %75 = load volatile ptr, ptr %70, align 8
   %76 = icmp eq ptr %75, %67
-  br i1 %76, label %.loopexit16.thread, label %.preheader15, !llvm.loop !20
+  br i1 %76, label %.loopexit16.thread, label %.preheader15, !llvm.loop !67
 
 .loopexit16:                                      ; preds = %.preheader15
   %77 = icmp eq ptr %70, %67
@@ -1616,14 +1616,14 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noun
 85:                                               ; preds = %.preheader
   %86 = load volatile ptr, ptr %81, align 8
   %87 = icmp eq ptr %86, %78
-  br i1 %87, label %.loopexit.thread, label %.preheader, !llvm.loop !22
+  br i1 %87, label %.loopexit.thread, label %.preheader, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.preheader
   %88 = icmp eq ptr %81, %78
   br i1 %88, label %.loopexit.thread, label %90
 
 .loopexit.thread:                                 ; preds = %85, %.loopexit16.thread, %.loopexit
-  %89 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef nonnull %55, ptr noundef %3), !range !37
+  %89 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef nonnull %55, ptr noundef %3), !range !69
   br label %90
 
 90:                                               ; preds = %.loopexit.thread, %.loopexit, %.loopexit16
@@ -1673,7 +1673,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noun
   %16 = xor i32 %12, %15
   %17 = add nuw nsw i64 %10, 1
   %18 = icmp eq i64 %17, %8
-  br i1 %18, label %.loopexit20, label %.preheader19, !llvm.loop !13
+  br i1 %18, label %.loopexit20, label %.preheader19, !llvm.loop !70
 
 .loopexit20:                                      ; preds = %.preheader19, %6
   %19 = phi i32 [ 0, %6 ], [ %16, %.preheader19 ]
@@ -1715,7 +1715,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noun
 43:                                               ; preds = %39, %36, %.preheader18
   %44 = load volatile ptr, ptr %31, align 8
   %45 = icmp eq ptr %44, %28
-  br i1 %45, label %.thread, label %.preheader18, !llvm.loop !14
+  br i1 %45, label %.thread, label %.preheader18, !llvm.loop !71
 
 46:                                               ; preds = %4
   %47 = load volatile ptr, ptr @netlbl_domhsh_def_ipv6, align 8
@@ -1765,7 +1765,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noun
 73:                                               ; preds = %.preheader15
   %74 = load volatile ptr, ptr %69, align 8
   %75 = icmp eq ptr %74, %66
-  br i1 %75, label %.loopexit16.thread, label %.preheader15, !llvm.loop !20
+  br i1 %75, label %.loopexit16.thread, label %.preheader15, !llvm.loop !72
 
 .loopexit16:                                      ; preds = %.preheader15
   %76 = icmp eq ptr %69, %66
@@ -1787,14 +1787,14 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noun
 84:                                               ; preds = %.preheader
   %85 = load volatile ptr, ptr %80, align 8
   %86 = icmp eq ptr %85, %77
-  br i1 %86, label %.loopexit.thread, label %.preheader, !llvm.loop !22
+  br i1 %86, label %.loopexit.thread, label %.preheader, !llvm.loop !73
 
 .loopexit:                                        ; preds = %.preheader
   %87 = icmp eq ptr %80, %77
   br i1 %87, label %.loopexit.thread, label %89
 
 .loopexit.thread:                                 ; preds = %84, %.loopexit16.thread, %.loopexit
-  %88 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef nonnull %55, ptr noundef %3), !range !37
+  %88 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef nonnull %55, ptr noundef %3), !range !69
   br label %89
 
 89:                                               ; preds = %.loopexit.thread, %.loopexit, %.loopexit16
@@ -1847,7 +1847,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef
   %16 = xor i32 %12, %15
   %17 = add nuw nsw i64 %10, 1
   %18 = icmp eq i64 %17, %8
-  br i1 %18, label %.loopexit13, label %.preheader12, !llvm.loop !13
+  br i1 %18, label %.loopexit13, label %.preheader12, !llvm.loop !74
 
 .loopexit13:                                      ; preds = %.preheader12, %6
   %19 = phi i32 [ 0, %6 ], [ %16, %.preheader12 ]
@@ -1889,7 +1889,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef
 43:                                               ; preds = %39, %36, %.preheader9
   %44 = load volatile ptr, ptr %31, align 8
   %45 = icmp eq ptr %44, %28
-  br i1 %45, label %.loopexit10, label %.preheader9, !llvm.loop !14
+  br i1 %45, label %.loopexit10, label %.preheader9, !llvm.loop !75
 
 46:                                               ; preds = %4
   %47 = load volatile ptr, ptr @netlbl_domhsh_def_ipv4, align 8
@@ -1907,7 +1907,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef
 
 .loopexit10:                                      ; preds = %43, %39, %53, %49, %.loopexit13
   %54 = phi ptr [ null, %.loopexit13 ], [ null, %53 ], [ %47, %49 ], [ %32, %39 ], [ null, %43 ]
-  %55 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %54, ptr noundef %2), !range !37
+  %55 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %54, ptr noundef %2), !range !69
   switch i32 %55, label %112 [
     i32 -2, label %56
     i32 0, label %56
@@ -1940,7 +1940,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef
   %70 = xor i32 %66, %69
   %71 = add nuw nsw i64 %64, 1
   %72 = icmp eq i64 %71, %62
-  br i1 %72, label %.loopexit8, label %.preheader7, !llvm.loop !13
+  br i1 %72, label %.loopexit8, label %.preheader7, !llvm.loop !76
 
 .loopexit8:                                       ; preds = %.preheader7, %60
   %73 = phi i32 [ 0, %60 ], [ %70, %.preheader7 ]
@@ -1982,7 +1982,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef
 97:                                               ; preds = %93, %90, %.preheader
   %98 = load volatile ptr, ptr %85, align 8
   %99 = icmp eq ptr %98, %82
-  br i1 %99, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %99, label %.loopexit, label %.preheader, !llvm.loop !77
 
 100:                                              ; preds = %58
   %101 = load volatile ptr, ptr @netlbl_domhsh_def_ipv6, align 8
@@ -2000,7 +2000,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef
 
 .loopexit:                                        ; preds = %97, %93, %107, %103, %.loopexit8
   %108 = phi ptr [ null, %.loopexit8 ], [ null, %107 ], [ %101, %103 ], [ %86, %93 ], [ null, %97 ]
-  %109 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %108, ptr noundef %2), !range !37
+  %109 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %108, ptr noundef %2), !range !69
   %110 = icmp eq i32 %109, -2
   %111 = select i1 %110, i32 %57, i32 %109
   br label %112
@@ -2035,7 +2035,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove_default(i16
 
 .loopexit10.i:                                    ; preds = %10, %6
   %11 = phi ptr [ null, %10 ], [ %4, %6 ]
-  %12 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %11, ptr noundef %1), !range !37
+  %12 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %11, ptr noundef %1), !range !69
   switch i32 %12, label %netlbl_domhsh_remove.exit [
     i32 -2, label %13
     i32 0, label %13
@@ -2064,7 +2064,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove_default(i16
 
 .loopexit.i:                                      ; preds = %22, %18
   %23 = phi ptr [ null, %22 ], [ %16, %18 ]
-  %24 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %23, ptr noundef %1), !range !37
+  %24 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %23, ptr noundef %1), !range !69
   %25 = icmp eq i32 %24, -2
   %26 = select i1 %25, i32 %14, i32 %24
   br label %netlbl_domhsh_remove.exit
@@ -2198,7 +2198,7 @@ define dso_local i32 @netlbl_domhsh_walk(ptr noundef captures(none) %0, ptr noun
   %36 = phi i32 [ %21, %27 ], [ %32, %31 ], [ %21, %.preheader ]
   %37 = load volatile ptr, ptr %20, align 8
   %38 = icmp eq ptr %37, %17
-  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !38
+  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !78
 
 .loopexit:                                        ; preds = %34, %12
   %39 = phi i32 [ %14, %12 ], [ %36, %34 ]
@@ -2208,7 +2208,7 @@ define dso_local i32 @netlbl_domhsh_walk(ptr noundef captures(none) %0, ptr noun
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   %45 = icmp samesign ult i64 %40, %44
-  br i1 %45, label %12, label %48, !llvm.loop !39
+  br i1 %45, label %12, label %48, !llvm.loop !79
 
 46:                                               ; preds = %31
   %47 = trunc nuw i64 %13 to i32
@@ -2280,38 +2280,78 @@ attributes #10 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i64 2158138486}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = !{i64 2149670494}
-!16 = !{i64 2158150916}
-!17 = !{i64 2158159232}
-!18 = !{i64 2158167689}
-!19 = !{i64 2158176006}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = !{!"branch_weights", i32 1, i32 2000}
-!29 = !{i64 2158126421, i64 2158126230, i64 2158126282, i64 2158126328, i64 2158126356}
-!30 = !{i64 2158126495, i64 2158126524, i64 2158126570, i64 2158126628, i64 2158126682, i64 2158126736, i64 2158126791, i64 2158126822}
-!31 = !{i64 2158127746, i64 2158127555, i64 2158127607, i64 2158127653, i64 2158127681}
-!32 = !{i64 2158127820, i64 2158127849, i64 2158127895, i64 2158127953, i64 2158128007, i64 2158128061, i64 2158128116, i64 2158128147}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
-!36 = distinct !{!36, !6, !7}
-!37 = !{i32 -2, i32 1}
-!38 = distinct !{!38, !6, !7}
-!39 = distinct !{!39, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2158138486}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = !{i64 2149670494}
+!20 = !{i64 2158150916}
+!21 = !{i64 2158159232}
+!22 = !{i64 2158167689}
+!23 = !{i64 2158176006}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !6, !7, !8}
+!30 = distinct !{!30, !6, !7, !8}
+!31 = distinct !{!31, !6, !7, !8}
+!32 = distinct !{!32, !6, !7, !8}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}
+!38 = distinct !{!38, !6, !7, !8}
+!39 = distinct !{!39, !6, !7, !8}
+!40 = distinct !{!40, !6, !7, !8}
+!41 = distinct !{!41, !6, !7, !8}
+!42 = distinct !{!42, !6, !7, !8}
+!43 = distinct !{!43, !6, !7, !8}
+!44 = distinct !{!44, !6, !7, !8}
+!45 = distinct !{!45, !6, !7, !8}
+!46 = !{!"branch_weights", i32 1, i32 2000}
+!47 = !{i64 2158126421, i64 2158126230, i64 2158126282, i64 2158126328, i64 2158126356}
+!48 = !{i64 2158126495, i64 2158126524, i64 2158126570, i64 2158126628, i64 2158126682, i64 2158126736, i64 2158126791, i64 2158126822}
+!49 = !{i64 2158127746, i64 2158127555, i64 2158127607, i64 2158127653, i64 2158127681}
+!50 = !{i64 2158127820, i64 2158127849, i64 2158127895, i64 2158127953, i64 2158128007, i64 2158128061, i64 2158128116, i64 2158128147}
+!51 = distinct !{!51, !6, !7, !8}
+!52 = distinct !{!52, !6, !7, !8}
+!53 = distinct !{!53, !6, !7, !8}
+!54 = distinct !{!54, !6, !7, !8}
+!55 = distinct !{!55, !6, !7, !8}
+!56 = distinct !{!56, !6, !7, !8}
+!57 = distinct !{!57, !6, !7, !8}
+!58 = distinct !{!58, !6, !7, !8}
+!59 = distinct !{!59, !6, !7, !8}
+!60 = distinct !{!60, !6, !7, !8}
+!61 = distinct !{!61, !6, !7, !8}
+!62 = distinct !{!62, !6, !7, !8}
+!63 = distinct !{!63, !6, !7, !8}
+!64 = distinct !{!64, !6, !7, !8}
+!65 = distinct !{!65, !6, !7, !8}
+!66 = distinct !{!66, !6, !7, !8}
+!67 = distinct !{!67, !6, !7, !8}
+!68 = distinct !{!68, !6, !7, !8}
+!69 = !{i32 -2, i32 1}
+!70 = distinct !{!70, !6, !7, !8}
+!71 = distinct !{!71, !6, !7, !8}
+!72 = distinct !{!72, !6, !7, !8}
+!73 = distinct !{!73, !6, !7, !8}
+!74 = distinct !{!74, !6, !7, !8}
+!75 = distinct !{!75, !6, !7, !8}
+!76 = distinct !{!76, !6, !7, !8}
+!77 = distinct !{!77, !6, !7, !8}
+!78 = distinct !{!78, !6, !7, !8}
+!79 = distinct !{!79, !6, !7, !8}

@@ -400,7 +400,7 @@ should_output_to_client.exit:                     ; preds = %should_output_to_se
   %62 = add i32 %61, 1
   store i32 %62, ptr @errordata_stack_depth, align 4
   %63 = icmp sgt i32 %62, 4
-  br i1 %63, label %64, label %get_error_stack_entry.exit, !prof !8
+  br i1 %63, label %64, label %get_error_stack_entry.exit, !prof !9
 
 64:                                               ; preds = %59
   store i32 -1, ptr @errordata_stack_depth, align 4
@@ -571,7 +571,7 @@ set_stack_entry_location.exit:                    ; preds = %13, %14
   %44 = getelementptr i8, ptr %43, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %matches_backtrace_functions.exit.thread, label %.lr.ph.i
+  br i1 %46, label %matches_backtrace_functions.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 matches_backtrace_functions.exit:                 ; preds = %.lr.ph.i
   tail call fastcc void @set_backtrace(ptr noundef nonnull %6, i32 noundef 2)
@@ -591,7 +591,7 @@ matches_backtrace_functions.exit.thread:          ; preds = %41, %.preheader.i, 
   tail call void %48(ptr noundef %50) #32
   %.0 = load ptr, ptr %.027, align 8
   %.not22 = icmp eq ptr %.0, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %matches_backtrace_functions.exit.thread
   %51 = icmp eq i32 %22, 21
@@ -658,7 +658,7 @@ matches_backtrace_functions.exit.thread:          ; preds = %41, %.preheader.i, 
 77:                                               ; preds = %73
   %78 = load volatile i32, ptr @InterruptPending, align 4
   %.not23 = icmp eq i32 %78, 0
-  br i1 %.not23, label %80, label %79, !prof !10
+  br i1 %.not23, label %80, label %79, !prof !12
 
 79:                                               ; preds = %77
   tail call void @ProcessInterrupts() #32
@@ -720,7 +720,7 @@ define dso_local noundef i32 @errmsg_internal(ptr noundef %0, ...) local_unnamed
   %25 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #32
   call void @llvm.va_end.p0(ptr nonnull %3)
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %._crit_edge, label %.lr.ph
+  br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
@@ -775,7 +775,7 @@ define internal fastcc void @set_backtrace(ptr noundef writeonly captures(none) 
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.47, ptr noundef %10) #32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   call void @free(ptr noundef nonnull %6) #32
@@ -919,7 +919,7 @@ error_severity.exit.i:                            ; preds = %29, %switch.lookup
   %44 = ashr i32 %.067.i.i, 6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %unpack_sql_state.exit.i, label %39, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %unpack_sql_state.exit.i, label %39, !llvm.loop !15
 
 unpack_sql_state.exit.i:                          ; preds = %39
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @unpack_sql_state.buf, i64 5), align 1
@@ -1002,7 +1002,7 @@ unpack_sql_state.exit.i:                          ; preds = %39
 84:                                               ; preds = %75, %74, %68
   %85 = load i8, ptr %54, align 1
   %.not.i.i = icmp eq i8 %85, 0
-  br i1 %.not.i.i, label %append_with_tabs.exit.i, label %52, !llvm.loop !13
+  br i1 %.not.i.i, label %append_with_tabs.exit.i, label %52, !llvm.loop !16
 
 86:                                               ; preds = %45
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1070,7 +1070,7 @@ unpack_sql_state.exit.i:                          ; preds = %39
 120:                                              ; preds = %111, %110, %104
   %121 = load i8, ptr %.ptr.i, align 1
   %exitcond.i = icmp eq i64 %.pn.i68.add.i, 18
-  br i1 %exitcond.i, label %append_with_tabs.exit.i, label %89, !llvm.loop !13
+  br i1 %exitcond.i, label %append_with_tabs.exit.i, label %89, !llvm.loop !16
 
 append_with_tabs.exit.i:                          ; preds = %84, %120, %48
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 152
@@ -1175,7 +1175,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %120, %48
 173:                                              ; preds = %164, %163, %157
   %174 = load i8, ptr %143, align 1
   %.not.i77.i = icmp eq i8 %174, 0
-  br i1 %.not.i77.i, label %.sink.split152.i, label %141, !llvm.loop !13
+  br i1 %.not.i77.i, label %.sink.split152.i, label %141, !llvm.loop !16
 
 175:                                              ; preds = %132
   %176 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -1257,7 +1257,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %120, %48
 216:                                              ; preds = %207, %206, %200
   %217 = load i8, ptr %186, align 1
   %.not.i84.i = icmp eq i8 %217, 0
-  br i1 %.not.i84.i, label %.sink.split152.i, label %184, !llvm.loop !13
+  br i1 %.not.i84.i, label %.sink.split152.i, label %184, !llvm.loop !16
 
 .sink.split152.i:                                 ; preds = %173, %216, %178, %135
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #32
@@ -1343,7 +1343,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %120, %48
 259:                                              ; preds = %250, %249, %243
   %260 = load i8, ptr %229, align 1
   %.not.i91.i = icmp eq i8 %260, 0
-  br i1 %.not.i91.i, label %append_with_tabs.exit93.i, label %227, !llvm.loop !13
+  br i1 %.not.i91.i, label %append_with_tabs.exit93.i, label %227, !llvm.loop !16
 
 append_with_tabs.exit93.i:                        ; preds = %259, %221
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #32
@@ -1429,7 +1429,7 @@ append_with_tabs.exit93.i:                        ; preds = %259, %221
 302:                                              ; preds = %293, %292, %286
   %303 = load i8, ptr %272, align 1
   %.not.i98.i = icmp eq i8 %303, 0
-  br i1 %.not.i98.i, label %append_with_tabs.exit100.i, label %270, !llvm.loop !13
+  br i1 %.not.i98.i, label %append_with_tabs.exit100.i, label %270, !llvm.loop !16
 
 append_with_tabs.exit100.i:                       ; preds = %302, %264
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #32
@@ -1521,7 +1521,7 @@ append_with_tabs.exit100.i:                       ; preds = %302, %264
 349:                                              ; preds = %340, %339, %333
   %350 = load i8, ptr %319, align 1
   %.not.i105.i = icmp eq i8 %350, 0
-  br i1 %.not.i105.i, label %append_with_tabs.exit107.i, label %317, !llvm.loop !13
+  br i1 %.not.i105.i, label %append_with_tabs.exit107.i, label %317, !llvm.loop !16
 
 append_with_tabs.exit107.i:                       ; preds = %349, %311
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #32
@@ -1646,7 +1646,7 @@ append_with_tabs.exit107.i:                       ; preds = %349, %311
 411:                                              ; preds = %402, %401, %395
   %412 = load i8, ptr %381, align 1
   %.not.i112.i = icmp eq i8 %412, 0
-  br i1 %.not.i112.i, label %append_with_tabs.exit114.i, label %379, !llvm.loop !13
+  br i1 %.not.i112.i, label %append_with_tabs.exit114.i, label %379, !llvm.loop !16
 
 append_with_tabs.exit114.i:                       ; preds = %411, %373
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #32
@@ -1762,7 +1762,7 @@ append_with_tabs.exit114.i:                       ; preds = %411, %373
 470:                                              ; preds = %461, %460, %454
   %471 = load i8, ptr %440, align 1
   %.not.i120.i = icmp eq i8 %471, 0
-  br i1 %.not.i120.i, label %append_with_tabs.exit122.i, label %438, !llvm.loop !13
+  br i1 %.not.i120.i, label %append_with_tabs.exit122.i, label %438, !llvm.loop !16
 
 append_with_tabs.exit122.i:                       ; preds = %470, %432
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #32
@@ -1836,7 +1836,7 @@ switch.lookup38:                                  ; preds = %474
   %499 = getelementptr inbounds nuw i8, ptr %.05774.i.i, i64 1
   %500 = add nsw i32 %.05575.i.i, -1
   %501 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %499, i32 noundef 10) #35
-  br label %544, !llvm.loop !14
+  br label %544, !llvm.loop !17
 
 502:                                              ; preds = %.lr.ph.i124.i
   %.not61.i.i = icmp eq ptr %.05376.i.i, null
@@ -1891,7 +1891,7 @@ switch.lookup38:                                  ; preds = %474
   %530 = load i16, ptr %529, align 2
   %531 = and i16 %530, 8192
   %.not64.i.i = icmp eq i16 %531, 0
-  br i1 %.not64.i.i, label %.preheader.i.i, label %.critedge.i.i, !llvm.loop !15
+  br i1 %.not64.i.i, label %.preheader.i.i, label %.critedge.i.i, !llvm.loop !18
 
 .critedge.i.i:                                    ; preds = %525
   %532 = getelementptr inbounds nuw [901 x i8], ptr %5, i64 0, i64 %indvars.iv.next.i126.i
@@ -2038,7 +2038,7 @@ write_syslog.exit.i:                              ; preds = %544, %550, %549, %.
   %595 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 4087
   %596 = add nsw i32 %.01214.i.i, -4087
   %597 = icmp samesign ugt i32 %.01214.i.i, 8174
-  br i1 %597, label %593, label %write_pipe_chunks.exit.i, !llvm.loop !16
+  br i1 %597, label %593, label %write_pipe_chunks.exit.i, !llvm.loop !19
 
 write_pipe_chunks.exit.i:                         ; preds = %593, %583
   %.012.lcssa.i.i = phi i32 [ %582, %583 ], [ %596, %593 ]
@@ -2116,15 +2116,15 @@ switch.lookup42:                                  ; preds = %625
 error_severity.exit.i11:                          ; preds = %625, %switch.lookup42
   %.0.i.i12 = phi ptr [ %switch.load45, %switch.lookup42 ], [ @.str.45, %625 ]
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %631 = load ptr, ptr %1, align 8, !alias.scope !17
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  %631 = load ptr, ptr %1, align 8, !alias.scope !20
   %632 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %633 = load i32, ptr %632, align 8, !alias.scope !17
+  %633 = load i32, ptr %632, align 8, !alias.scope !20
   %634 = sext i32 %633 to i64
   %635 = getelementptr inbounds i8, ptr %631, i64 %634
-  store i8 83, ptr %635, align 1, !noalias !17
+  store i8 83, ptr %635, align 1, !noalias !20
   %636 = add i32 %633, 1
-  store i32 %636, ptr %632, align 8, !alias.scope !17
+  store i32 %636, ptr %632, align 8, !alias.scope !20
   %637 = load i32, ptr @recursion_depth, align 4
   %638 = icmp sgt i32 %637, 2
   br i1 %638, label %639, label %640
@@ -2139,14 +2139,14 @@ error_severity.exit.i11:                          ; preds = %625, %switch.lookup
 
 err_sendstring.exit.i:                            ; preds = %640, %639
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %641 = load ptr, ptr %1, align 8, !alias.scope !20
-  %642 = load i32, ptr %632, align 8, !alias.scope !20
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  %641 = load ptr, ptr %1, align 8, !alias.scope !23
+  %642 = load i32, ptr %632, align 8, !alias.scope !23
   %643 = sext i32 %642 to i64
   %644 = getelementptr inbounds i8, ptr %641, i64 %643
-  store i8 86, ptr %644, align 1, !noalias !20
+  store i8 86, ptr %644, align 1, !noalias !23
   %645 = add i32 %642, 1
-  store i32 %645, ptr %632, align 8, !alias.scope !20
+  store i32 %645, ptr %632, align 8, !alias.scope !23
   %646 = load i32, ptr @recursion_depth, align 4
   %647 = icmp sgt i32 %646, 2
   br i1 %647, label %648, label %649
@@ -2161,14 +2161,14 @@ err_sendstring.exit.i:                            ; preds = %640, %639
 
 err_sendstring.exit56.i:                          ; preds = %649, %648
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %650 = load ptr, ptr %1, align 8, !alias.scope !23
-  %651 = load i32, ptr %632, align 8, !alias.scope !23
+  call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  %650 = load ptr, ptr %1, align 8, !alias.scope !26
+  %651 = load i32, ptr %632, align 8, !alias.scope !26
   %652 = sext i32 %651 to i64
   %653 = getelementptr inbounds i8, ptr %650, i64 %652
-  store i8 67, ptr %653, align 1, !noalias !23
+  store i8 67, ptr %653, align 1, !noalias !26
   %654 = add i32 %651, 1
-  store i32 %654, ptr %632, align 8, !alias.scope !23
+  store i32 %654, ptr %632, align 8, !alias.scope !26
   %655 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %656 = load i32, ptr %655, align 8
   br label %657
@@ -2184,7 +2184,7 @@ err_sendstring.exit56.i:                          ; preds = %649, %648
   %662 = ashr i32 %.067.i.i14, 6
   %indvars.iv.next.i.i15 = add nuw nsw i64 %indvars.iv.i.i13, 1
   %exitcond.not.i.i16 = icmp eq i64 %indvars.iv.next.i.i15, 5
-  br i1 %exitcond.not.i.i16, label %unpack_sql_state.exit.i17, label %657, !llvm.loop !12
+  br i1 %exitcond.not.i.i16, label %unpack_sql_state.exit.i17, label %657, !llvm.loop !15
 
 unpack_sql_state.exit.i17:                        ; preds = %657
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @unpack_sql_state.buf, i64 5), align 1
@@ -2202,14 +2202,14 @@ unpack_sql_state.exit.i17:                        ; preds = %657
 
 err_sendstring.exit57.i:                          ; preds = %666, %665
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %667 = load ptr, ptr %1, align 8, !alias.scope !26
-  %668 = load i32, ptr %632, align 8, !alias.scope !26
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  %667 = load ptr, ptr %1, align 8, !alias.scope !29
+  %668 = load i32, ptr %632, align 8, !alias.scope !29
   %669 = sext i32 %668 to i64
   %670 = getelementptr inbounds i8, ptr %667, i64 %669
-  store i8 77, ptr %670, align 1, !noalias !26
+  store i8 77, ptr %670, align 1, !noalias !29
   %671 = add i32 %668, 1
-  store i32 %671, ptr %632, align 8, !alias.scope !26
+  store i32 %671, ptr %632, align 8, !alias.scope !29
   %672 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %673 = load ptr, ptr %672, align 8
   %.not44.i = icmp eq ptr %673, null
@@ -2247,14 +2247,14 @@ err_sendstring.exit58.i:                          ; preds = %681, %680, %678, %6
 
 684:                                              ; preds = %err_sendstring.exit58.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %685 = load ptr, ptr %1, align 8, !alias.scope !29
-  %686 = load i32, ptr %632, align 8, !alias.scope !29
+  call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  %685 = load ptr, ptr %1, align 8, !alias.scope !32
+  %686 = load i32, ptr %632, align 8, !alias.scope !32
   %687 = sext i32 %686 to i64
   %688 = getelementptr inbounds i8, ptr %685, i64 %687
-  store i8 68, ptr %688, align 1, !noalias !29
+  store i8 68, ptr %688, align 1, !noalias !32
   %689 = add i32 %686, 1
-  store i32 %689, ptr %632, align 8, !alias.scope !29
+  store i32 %689, ptr %632, align 8, !alias.scope !32
   %690 = load ptr, ptr %682, align 8
   %691 = load i32, ptr @recursion_depth, align 4
   %692 = icmp sgt i32 %691, 2
@@ -2276,14 +2276,14 @@ err_sendstring.exit60.i:                          ; preds = %694, %693, %err_sen
 
 697:                                              ; preds = %err_sendstring.exit60.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %698 = load ptr, ptr %1, align 8, !alias.scope !32
-  %699 = load i32, ptr %632, align 8, !alias.scope !32
+  call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  %698 = load ptr, ptr %1, align 8, !alias.scope !35
+  %699 = load i32, ptr %632, align 8, !alias.scope !35
   %700 = sext i32 %699 to i64
   %701 = getelementptr inbounds i8, ptr %698, i64 %700
-  store i8 72, ptr %701, align 1, !noalias !32
+  store i8 72, ptr %701, align 1, !noalias !35
   %702 = add i32 %699, 1
-  store i32 %702, ptr %632, align 8, !alias.scope !32
+  store i32 %702, ptr %632, align 8, !alias.scope !35
   %703 = load ptr, ptr %695, align 8
   %704 = load i32, ptr @recursion_depth, align 4
   %705 = icmp sgt i32 %704, 2
@@ -2305,14 +2305,14 @@ err_sendstring.exit61.i:                          ; preds = %707, %706, %err_sen
 
 710:                                              ; preds = %err_sendstring.exit61.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %711 = load ptr, ptr %1, align 8, !alias.scope !35
-  %712 = load i32, ptr %632, align 8, !alias.scope !35
+  call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  %711 = load ptr, ptr %1, align 8, !alias.scope !38
+  %712 = load i32, ptr %632, align 8, !alias.scope !38
   %713 = sext i32 %712 to i64
   %714 = getelementptr inbounds i8, ptr %711, i64 %713
-  store i8 87, ptr %714, align 1, !noalias !35
+  store i8 87, ptr %714, align 1, !noalias !38
   %715 = add i32 %712, 1
-  store i32 %715, ptr %632, align 8, !alias.scope !35
+  store i32 %715, ptr %632, align 8, !alias.scope !38
   %716 = load ptr, ptr %708, align 8
   %717 = load i32, ptr @recursion_depth, align 4
   %718 = icmp sgt i32 %717, 2
@@ -2334,14 +2334,14 @@ err_sendstring.exit62.i:                          ; preds = %720, %719, %err_sen
 
 723:                                              ; preds = %err_sendstring.exit62.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %724 = load ptr, ptr %1, align 8, !alias.scope !38
-  %725 = load i32, ptr %632, align 8, !alias.scope !38
+  call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %724 = load ptr, ptr %1, align 8, !alias.scope !41
+  %725 = load i32, ptr %632, align 8, !alias.scope !41
   %726 = sext i32 %725 to i64
   %727 = getelementptr inbounds i8, ptr %724, i64 %726
-  store i8 115, ptr %727, align 1, !noalias !38
+  store i8 115, ptr %727, align 1, !noalias !41
   %728 = add i32 %725, 1
-  store i32 %728, ptr %632, align 8, !alias.scope !38
+  store i32 %728, ptr %632, align 8, !alias.scope !41
   %729 = load ptr, ptr %721, align 8
   %730 = load i32, ptr @recursion_depth, align 4
   %731 = icmp sgt i32 %730, 2
@@ -2363,14 +2363,14 @@ err_sendstring.exit63.i:                          ; preds = %733, %732, %err_sen
 
 736:                                              ; preds = %err_sendstring.exit63.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %737 = load ptr, ptr %1, align 8, !alias.scope !41
-  %738 = load i32, ptr %632, align 8, !alias.scope !41
+  call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  %737 = load ptr, ptr %1, align 8, !alias.scope !44
+  %738 = load i32, ptr %632, align 8, !alias.scope !44
   %739 = sext i32 %738 to i64
   %740 = getelementptr inbounds i8, ptr %737, i64 %739
-  store i8 116, ptr %740, align 1, !noalias !41
+  store i8 116, ptr %740, align 1, !noalias !44
   %741 = add i32 %738, 1
-  store i32 %741, ptr %632, align 8, !alias.scope !41
+  store i32 %741, ptr %632, align 8, !alias.scope !44
   %742 = load ptr, ptr %734, align 8
   %743 = load i32, ptr @recursion_depth, align 4
   %744 = icmp sgt i32 %743, 2
@@ -2392,14 +2392,14 @@ err_sendstring.exit64.i:                          ; preds = %746, %745, %err_sen
 
 749:                                              ; preds = %err_sendstring.exit64.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %750 = load ptr, ptr %1, align 8, !alias.scope !44
-  %751 = load i32, ptr %632, align 8, !alias.scope !44
+  call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %750 = load ptr, ptr %1, align 8, !alias.scope !47
+  %751 = load i32, ptr %632, align 8, !alias.scope !47
   %752 = sext i32 %751 to i64
   %753 = getelementptr inbounds i8, ptr %750, i64 %752
-  store i8 99, ptr %753, align 1, !noalias !44
+  store i8 99, ptr %753, align 1, !noalias !47
   %754 = add i32 %751, 1
-  store i32 %754, ptr %632, align 8, !alias.scope !44
+  store i32 %754, ptr %632, align 8, !alias.scope !47
   %755 = load ptr, ptr %747, align 8
   %756 = load i32, ptr @recursion_depth, align 4
   %757 = icmp sgt i32 %756, 2
@@ -2421,14 +2421,14 @@ err_sendstring.exit65.i:                          ; preds = %759, %758, %err_sen
 
 762:                                              ; preds = %err_sendstring.exit65.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %763 = load ptr, ptr %1, align 8, !alias.scope !47
-  %764 = load i32, ptr %632, align 8, !alias.scope !47
+  call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  %763 = load ptr, ptr %1, align 8, !alias.scope !50
+  %764 = load i32, ptr %632, align 8, !alias.scope !50
   %765 = sext i32 %764 to i64
   %766 = getelementptr inbounds i8, ptr %763, i64 %765
-  store i8 100, ptr %766, align 1, !noalias !47
+  store i8 100, ptr %766, align 1, !noalias !50
   %767 = add i32 %764, 1
-  store i32 %767, ptr %632, align 8, !alias.scope !47
+  store i32 %767, ptr %632, align 8, !alias.scope !50
   %768 = load ptr, ptr %760, align 8
   %769 = load i32, ptr @recursion_depth, align 4
   %770 = icmp sgt i32 %769, 2
@@ -2450,14 +2450,14 @@ err_sendstring.exit66.i:                          ; preds = %772, %771, %err_sen
 
 775:                                              ; preds = %err_sendstring.exit66.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %776 = load ptr, ptr %1, align 8, !alias.scope !50
-  %777 = load i32, ptr %632, align 8, !alias.scope !50
+  call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  %776 = load ptr, ptr %1, align 8, !alias.scope !53
+  %777 = load i32, ptr %632, align 8, !alias.scope !53
   %778 = sext i32 %777 to i64
   %779 = getelementptr inbounds i8, ptr %776, i64 %778
-  store i8 110, ptr %779, align 1, !noalias !50
+  store i8 110, ptr %779, align 1, !noalias !53
   %780 = add i32 %777, 1
-  store i32 %780, ptr %632, align 8, !alias.scope !50
+  store i32 %780, ptr %632, align 8, !alias.scope !53
   %781 = load ptr, ptr %773, align 8
   %782 = load i32, ptr @recursion_depth, align 4
   %783 = icmp sgt i32 %782, 2
@@ -2480,14 +2480,14 @@ err_sendstring.exit67.i:                          ; preds = %785, %784, %err_sen
 789:                                              ; preds = %err_sendstring.exit67.i
   %790 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.26, i32 noundef %787) #32
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %791 = load ptr, ptr %1, align 8, !alias.scope !53
-  %792 = load i32, ptr %632, align 8, !alias.scope !53
+  call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  %791 = load ptr, ptr %1, align 8, !alias.scope !56
+  %792 = load i32, ptr %632, align 8, !alias.scope !56
   %793 = sext i32 %792 to i64
   %794 = getelementptr inbounds i8, ptr %791, i64 %793
-  store i8 80, ptr %794, align 1, !noalias !53
+  store i8 80, ptr %794, align 1, !noalias !56
   %795 = add i32 %792, 1
-  store i32 %795, ptr %632, align 8, !alias.scope !53
+  store i32 %795, ptr %632, align 8, !alias.scope !56
   %796 = load i32, ptr @recursion_depth, align 4
   %797 = icmp sgt i32 %796, 2
   br i1 %797, label %798, label %799
@@ -2509,14 +2509,14 @@ err_sendstring.exit68.i:                          ; preds = %799, %798, %err_sen
 803:                                              ; preds = %err_sendstring.exit68.i
   %804 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.26, i32 noundef %801) #32
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %805 = load ptr, ptr %1, align 8, !alias.scope !56
-  %806 = load i32, ptr %632, align 8, !alias.scope !56
+  call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  %805 = load ptr, ptr %1, align 8, !alias.scope !59
+  %806 = load i32, ptr %632, align 8, !alias.scope !59
   %807 = sext i32 %806 to i64
   %808 = getelementptr inbounds i8, ptr %805, i64 %807
-  store i8 112, ptr %808, align 1, !noalias !56
+  store i8 112, ptr %808, align 1, !noalias !59
   %809 = add i32 %806, 1
-  store i32 %809, ptr %632, align 8, !alias.scope !56
+  store i32 %809, ptr %632, align 8, !alias.scope !59
   %810 = load i32, ptr @recursion_depth, align 4
   %811 = icmp sgt i32 %810, 2
   br i1 %811, label %812, label %813
@@ -2537,14 +2537,14 @@ err_sendstring.exit69.i:                          ; preds = %813, %812, %err_sen
 
 816:                                              ; preds = %err_sendstring.exit69.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %817 = load ptr, ptr %1, align 8, !alias.scope !59
-  %818 = load i32, ptr %632, align 8, !alias.scope !59
+  call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  %817 = load ptr, ptr %1, align 8, !alias.scope !62
+  %818 = load i32, ptr %632, align 8, !alias.scope !62
   %819 = sext i32 %818 to i64
   %820 = getelementptr inbounds i8, ptr %817, i64 %819
-  store i8 113, ptr %820, align 1, !noalias !59
+  store i8 113, ptr %820, align 1, !noalias !62
   %821 = add i32 %818, 1
-  store i32 %821, ptr %632, align 8, !alias.scope !59
+  store i32 %821, ptr %632, align 8, !alias.scope !62
   %822 = load ptr, ptr %814, align 8
   %823 = load i32, ptr @recursion_depth, align 4
   %824 = icmp sgt i32 %823, 2
@@ -2566,14 +2566,14 @@ err_sendstring.exit70.i:                          ; preds = %826, %825, %err_sen
 
 829:                                              ; preds = %err_sendstring.exit70.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %830 = load ptr, ptr %1, align 8, !alias.scope !62
-  %831 = load i32, ptr %632, align 8, !alias.scope !62
+  call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  %830 = load ptr, ptr %1, align 8, !alias.scope !65
+  %831 = load i32, ptr %632, align 8, !alias.scope !65
   %832 = sext i32 %831 to i64
   %833 = getelementptr inbounds i8, ptr %830, i64 %832
-  store i8 70, ptr %833, align 1, !noalias !62
+  store i8 70, ptr %833, align 1, !noalias !65
   %834 = add i32 %831, 1
-  store i32 %834, ptr %632, align 8, !alias.scope !62
+  store i32 %834, ptr %632, align 8, !alias.scope !65
   %835 = load ptr, ptr %827, align 8
   %836 = load i32, ptr @recursion_depth, align 4
   %837 = icmp sgt i32 %836, 2
@@ -2596,14 +2596,14 @@ err_sendstring.exit71.i:                          ; preds = %839, %838, %err_sen
 843:                                              ; preds = %err_sendstring.exit71.i
   %844 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.26, i32 noundef %841) #32
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %845 = load ptr, ptr %1, align 8, !alias.scope !65
-  %846 = load i32, ptr %632, align 8, !alias.scope !65
+  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %845 = load ptr, ptr %1, align 8, !alias.scope !68
+  %846 = load i32, ptr %632, align 8, !alias.scope !68
   %847 = sext i32 %846 to i64
   %848 = getelementptr inbounds i8, ptr %845, i64 %847
-  store i8 76, ptr %848, align 1, !noalias !65
+  store i8 76, ptr %848, align 1, !noalias !68
   %849 = add i32 %846, 1
-  store i32 %849, ptr %632, align 8, !alias.scope !65
+  store i32 %849, ptr %632, align 8, !alias.scope !68
   %850 = load i32, ptr @recursion_depth, align 4
   %851 = icmp sgt i32 %850, 2
   br i1 %851, label %852, label %853
@@ -2624,14 +2624,14 @@ err_sendstring.exit72.i:                          ; preds = %853, %852, %err_sen
 
 856:                                              ; preds = %err_sendstring.exit72.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %857 = load ptr, ptr %1, align 8, !alias.scope !68
-  %858 = load i32, ptr %632, align 8, !alias.scope !68
+  call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  %857 = load ptr, ptr %1, align 8, !alias.scope !71
+  %858 = load i32, ptr %632, align 8, !alias.scope !71
   %859 = sext i32 %858 to i64
   %860 = getelementptr inbounds i8, ptr %857, i64 %859
-  store i8 82, ptr %860, align 1, !noalias !68
+  store i8 82, ptr %860, align 1, !noalias !71
   %861 = add i32 %858, 1
-  store i32 %861, ptr %632, align 8, !alias.scope !68
+  store i32 %861, ptr %632, align 8, !alias.scope !71
   %862 = load ptr, ptr %854, align 8
   %863 = load i32, ptr @recursion_depth, align 4
   %864 = icmp sgt i32 %863, 2
@@ -2647,14 +2647,14 @@ err_sendstring.exit72.i:                          ; preds = %853, %852, %err_sen
 
 err_sendstring.exit73.i:                          ; preds = %866, %865, %err_sendstring.exit72.i
   call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %867 = load ptr, ptr %1, align 8, !alias.scope !71
-  %868 = load i32, ptr %632, align 8, !alias.scope !71
+  call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  %867 = load ptr, ptr %1, align 8, !alias.scope !74
+  %868 = load i32, ptr %632, align 8, !alias.scope !74
   %869 = sext i32 %868 to i64
   %870 = getelementptr inbounds i8, ptr %867, i64 %869
-  store i8 0, ptr %870, align 1, !noalias !71
+  store i8 0, ptr %870, align 1, !noalias !74
   %871 = add i32 %868, 1
-  store i32 %871, ptr %632, align 8, !alias.scope !71
+  store i32 %871, ptr %632, align 8, !alias.scope !74
   call void @pq_endmessage(ptr noundef nonnull %1) #32
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #32
   br label %send_message_to_frontend.exit
@@ -2878,7 +2878,7 @@ define dso_local noundef zeroext i1 @errsave_start(ptr noundef captures(address_
   %18 = add i32 %17, 1
   store i32 %18, ptr @errordata_stack_depth, align 4
   %19 = icmp sgt i32 %18, 4
-  br i1 %19, label %20, label %get_error_stack_entry.exit, !prof !8
+  br i1 %19, label %20, label %get_error_stack_entry.exit, !prof !9
 
 20:                                               ; preds = %14
   store i32 -1, ptr @errordata_stack_depth, align 4
@@ -3170,7 +3170,7 @@ define dso_local noundef i32 @errmsg(ptr noundef %0, ...) local_unnamed_addr #3 
   %25 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #32
   call void @llvm.va_end.p0(ptr nonnull %3)
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %._crit_edge, label %.lr.ph
+  br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
@@ -3302,7 +3302,7 @@ define dso_local noundef i32 @errmsg_plural(ptr noundef %0, ptr noundef %1, i64 
   %29 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %21, ptr noundef nonnull %5) #32
   call void @llvm.va_end.p0(ptr nonnull %5)
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %._crit_edge, label %.lr.ph
+  br i1 %30, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
@@ -3379,7 +3379,7 @@ define dso_local noundef i32 @errdetail(ptr noundef %0, ...) local_unnamed_addr 
   %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #32
   call void @llvm.va_end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %._crit_edge, label %.lr.ph
+  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
@@ -3456,7 +3456,7 @@ define dso_local noundef i32 @errdetail_internal(ptr noundef %0, ...) local_unna
   %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #32
   call void @llvm.va_end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %._crit_edge, label %.lr.ph
+  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
@@ -3533,7 +3533,7 @@ define dso_local noundef i32 @errdetail_log(ptr noundef %0, ...) local_unnamed_a
   %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #32
   call void @llvm.va_end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %._crit_edge, label %.lr.ph
+  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
@@ -3612,7 +3612,7 @@ define dso_local noundef i32 @errdetail_log_plural(ptr noundef %0, ptr noundef %
   %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #32
   call void @llvm.va_end.p0(ptr nonnull %5)
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %._crit_edge, label %.lr.ph
+  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
@@ -3691,7 +3691,7 @@ define dso_local noundef i32 @errdetail_plural(ptr noundef %0, ptr noundef %1, i
   %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #32
   call void @llvm.va_end.p0(ptr nonnull %5)
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %._crit_edge, label %.lr.ph
+  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
@@ -3768,7 +3768,7 @@ define dso_local noundef i32 @errhint(ptr noundef %0, ...) local_unnamed_addr #3
   %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #32
   call void @llvm.va_end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %._crit_edge, label %.lr.ph
+  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
@@ -3847,7 +3847,7 @@ define dso_local noundef i32 @errhint_plural(ptr noundef %0, ptr noundef %1, i64
   %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #32
   call void @llvm.va_end.p0(ptr nonnull %5)
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %._crit_edge, label %.lr.ph
+  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
@@ -3935,7 +3935,7 @@ define dso_local noundef i32 @errcontext_msg(ptr noundef %0, ...) local_unnamed_
   %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #32
   call void @llvm.va_end.p0(ptr nonnull %3)
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %._crit_edge, label %.lr.ph
+  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
@@ -4291,7 +4291,7 @@ define dso_local ptr @format_elog_string(ptr noundef %0, ...) local_unnamed_addr
   %11 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #32
   call void @llvm.va_end.p0(ptr nonnull %3)
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.loopexit, label %.lr.ph
+  br i1 %12, label %.loopexit, label %.lr.ph, !llvm.loop !87
 
 .loopexit:                                        ; preds = %.lr.ph, %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
@@ -4745,7 +4745,7 @@ define dso_local void @ReThrowError(ptr noundef readonly captures(none) %0) loca
   %6 = add i32 %5, 1
   store i32 %6, ptr @errordata_stack_depth, align 4
   %7 = icmp sgt i32 %6, 4
-  br i1 %7, label %8, label %get_error_stack_entry.exit, !prof !8
+  br i1 %7, label %8, label %get_error_stack_entry.exit, !prof !9
 
 8:                                                ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
@@ -4921,7 +4921,7 @@ define dso_local ptr @GetErrorContextStack() local_unnamed_addr #3 {
   %4 = add i32 %3, 1
   store i32 %4, ptr @errordata_stack_depth, align 4
   %5 = icmp sgt i32 %4, 4
-  br i1 %5, label %6, label %get_error_stack_entry.exit, !prof !8
+  br i1 %5, label %6, label %get_error_stack_entry.exit, !prof !9
 
 6:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
@@ -4955,7 +4955,7 @@ get_error_stack_entry.exit:                       ; preds = %0
   tail call void %17(ptr noundef %19) #32
   %.0 = load ptr, ptr %.08, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr @errordata_stack_depth, align 4
@@ -5112,7 +5112,7 @@ define dso_local noundef zeroext i1 @check_backtrace_functions(ptr noundef reado
   %.1 = phi i32 [ %.035, %.lr.ph ], [ %.035, %.lr.ph ], [ %.035, %.lr.ph ], [ %26, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %29, %17
   %.0.lcssa = phi i32 [ 0, %17 ], [ %.1, %29 ]
@@ -5557,7 +5557,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef readonly ca
   %44 = load i8, ptr %41, align 1
   %45 = add i8 %44, -48
   %or.cond.i = icmp ult i8 %45, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !76
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !90
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %36
   %.1.lcssa.i = phi ptr [ %.015.i, %36 ], [ %41, %.lr.ph.i ]
@@ -6160,7 +6160,7 @@ get_formatted_start_time.exit:                    ; preds = %180, %183
   %264 = ashr i32 %.067.i, 6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %unpack_sql_state.exit, label %.preheader230, !llvm.loop !12
+  br i1 %exitcond.not.i, label %unpack_sql_state.exit, label %.preheader230, !llvm.loop !15
 
 unpack_sql_state.exit:                            ; preds = %.preheader230
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @unpack_sql_state.buf, i64 5), align 1
@@ -6178,7 +6178,7 @@ unpack_sql_state.exit:                            ; preds = %.preheader230
   %269 = ashr i32 %.067.i183, 6
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i182, 1
   %exitcond.not.i185 = icmp eq i64 %indvars.iv.next.i184, 5
-  br i1 %exitcond.not.i185, label %unpack_sql_state.exit186, label %.preheader229, !llvm.loop !12
+  br i1 %exitcond.not.i185, label %unpack_sql_state.exit186, label %.preheader229, !llvm.loop !15
 
 unpack_sql_state.exit186:                         ; preds = %.preheader229
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @unpack_sql_state.buf, i64 5), align 1
@@ -6201,7 +6201,7 @@ unpack_sql_state.exit186:                         ; preds = %.preheader229
 274:                                              ; preds = %187, %188, %134, %138, %137, %106, %107, %90, %91, %77, %78, %60, %61, %167, %179, %62, %63, %92, %93, %108, %109, %116, %112, %122, %121, %139, %140, %145, %144, %159, %158, %197, %198, %196, %221, %222, %213, %211, %220, %218, %214, %232, %233, %230, %231, %235, %251, %252, %244, %248, %257, %256, %unpack_sql_state.exit186, %unpack_sql_state.exit, %273, %272, %48, %27, %23
   %.1 = phi ptr [ %.0, %23 ], [ %25, %27 ], [ %.2, %48 ], [ %.2, %63 ], [ %.2, %62 ], [ %.2, %93 ], [ %.2, %92 ], [ %.2, %109 ], [ %.2, %108 ], [ %.2, %112 ], [ %.2, %116 ], [ %.2, %121 ], [ %.2, %122 ], [ %.2, %140 ], [ %.2, %139 ], [ %.2, %144 ], [ %.2, %145 ], [ %.2, %158 ], [ %.2, %159 ], [ %.2, %167 ], [ %.2, %179 ], [ %.2, %196 ], [ %.2, %198 ], [ %.2, %197 ], [ %.2, %211 ], [ %.2, %213 ], [ %.2, %220 ], [ %.2, %218 ], [ %.2, %214 ], [ %.2, %222 ], [ %.2, %221 ], [ %.2, %230 ], [ %.2, %231 ], [ %.2, %233 ], [ %.2, %232 ], [ %.2, %235 ], [ %.2, %244 ], [ %.2, %248 ], [ %.2, %252 ], [ %.2, %251 ], [ %.2, %256 ], [ %.2, %257 ], [ %.2, %unpack_sql_state.exit ], [ %.2, %unpack_sql_state.exit186 ], [ %.2, %272 ], [ %.2, %273 ], [ %.2, %61 ], [ %.2, %60 ], [ %.2, %78 ], [ %.2, %77 ], [ %.2, %91 ], [ %.2, %90 ], [ %.2, %107 ], [ %.2, %106 ], [ %.2, %137 ], [ %.2, %138 ], [ %.2, %134 ], [ %.2, %188 ], [ %.2, %187 ]
   %275 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %21, !llvm.loop !77
+  br label %21, !llvm.loop !91
 
 process_log_prefix_padding.exit.thread:           ; preds = %.critedge.i, %32, %21, %24, %235, %17
   ret void
@@ -6239,7 +6239,7 @@ define dso_local noundef nonnull ptr @unpack_sql_state(i32 noundef %0) local_unn
   %7 = ashr i32 %.067, 6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !12
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !15
 
 8:                                                ; preds = %2
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @unpack_sql_state.buf, i64 5), align 1
@@ -6299,7 +6299,7 @@ define dso_local void @write_pipe_chunks(ptr noundef readonly captures(none) %0,
   %20 = getelementptr inbounds nuw i8, ptr %.015, i64 4087
   %21 = add nsw i32 %.01214, -4087
   %22 = icmp samesign ugt i32 %.01214, 8174
-  br i1 %22, label %18, label %._crit_edge, !llvm.loop !16
+  br i1 %22, label %18, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %18, %13
   %.012.lcssa = phi i32 [ %1, %13 ], [ %21, %18 ]
@@ -6440,20 +6440,20 @@ attributes #37 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!9 = distinct !{!9, !7}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"pq_writeint8: argument 0"}
-!19 = distinct !{!19, !"pq_writeint8"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"pq_writeint8: argument 0"}
 !22 = distinct !{!22, !"pq_writeint8"}
@@ -6508,7 +6508,21 @@ attributes #37 = { noreturn nounwind }
 !71 = !{!72}
 !72 = distinct !{!72, !73, !"pq_writeint8: argument 0"}
 !73 = distinct !{!73, !"pq_writeint8"}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"pq_writeint8: argument 0"}
+!76 = distinct !{!76, !"pq_writeint8"}
+!77 = distinct !{!77, !8}
+!78 = distinct !{!78, !8}
+!79 = distinct !{!79, !8}
+!80 = distinct !{!80, !8}
+!81 = distinct !{!81, !8}
+!82 = distinct !{!82, !8}
+!83 = distinct !{!83, !8}
+!84 = distinct !{!84, !8}
+!85 = distinct !{!85, !8}
+!86 = distinct !{!86, !8}
+!87 = distinct !{!87, !8}
+!88 = distinct !{!88, !7, !8}
+!89 = distinct !{!89, !7, !8}
+!90 = distinct !{!90, !7, !8}
+!91 = distinct !{!91, !7, !8}

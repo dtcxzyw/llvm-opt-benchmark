@@ -312,7 +312,7 @@ define hidden <2 x float> @_ZN2cv3mcc11mace_centerERKSt6vectorINS_6Point_IfEESaI
   %.sroa.011.4.vec.insert28 = insertelement <2 x float> %.sroa.011.0.vec.insert19, float %17, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -454,6 +454,7 @@ attributes #14 = { builtin nounwind }
 !24 = !{!"_ZTSN2cv6Point_IfEE", !25, i64 0, !25, i64 4}
 !25 = !{!"float", !6, i64 0}
 !26 = !{!24, !25, i64 4}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !28, !29}

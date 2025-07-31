@@ -176,7 +176,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %215, label %20, !prof !12
+  br i1 %19, label %215, label %20, !prof !13
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -189,7 +189,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %26 = and i32 %2, 4
   %27 = icmp ne i32 %26, 0
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 507
-  %29 = load i8, ptr %28, align 1, !range !13, !noundef !14
+  %29 = load i8, ptr %28, align 1, !range !14, !noundef !15
   %30 = icmp ne i8 %29, 0
   %31 = and i1 %27, %30
   %32 = load i32, ptr %25, align 8
@@ -242,7 +242,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %52 = phi i32 [ %42, %.preheader46.us.split ], [ %41, %47 ]
   %53 = getelementptr i8, ptr %40, i64 12
   %54 = add i32 %41, 1
-  br label %.preheader46.us.split, !llvm.loop !15
+  br label %.preheader46.us.split, !llvm.loop !16
 
 .preheader43.split.us81:                          ; preds = %.preheader43.us, %62
   %55 = phi ptr [ %64, %62 ], [ %9, %.preheader43.us ]
@@ -263,13 +263,13 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %63 = phi i32 [ %57, %.preheader43.split.us81 ], [ %56, %60 ]
   %64 = getelementptr i8, ptr %55, i64 12
   %65 = add i32 %56, 1
-  br label %.preheader43.split.us81, !llvm.loop !16
+  br label %.preheader43.split.us81, !llvm.loop !17
 
 .loopexit47.us:                                   ; preds = %45, %.preheader46.us.split, %78, %.preheader46.us.split.us, %60, %.preheader43.split.us81, %.preheader43.split.us.us, %95, %.split98
   %66 = phi i32 [ %50, %.split98 ], [ %88, %.preheader43.split.us.us ], [ %87, %95 ], [ %57, %.preheader43.split.us81 ], [ %56, %60 ], [ %71, %.preheader46.us.split.us ], [ %70, %78 ], [ %42, %.preheader46.us.split ], [ %41, %45 ]
   %67 = icmp slt i32 %66, 0
   %68 = and i1 %34, %67
-  br i1 %68, label %.split.us, label %.loopexit55, !llvm.loop !17
+  br i1 %68, label %.split.us, label %.loopexit55, !llvm.loop !18
 
 .preheader43.us:                                  ; preds = %38
   br i1 %34, label %.preheader43.split.us.us, label %.preheader43.split.us81
@@ -306,7 +306,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %83 = phi i32 [ %71, %74 ], [ %71, %.preheader46.us.split.us ], [ %70, %80 ]
   %84 = getelementptr i8, ptr %69, i64 12
   %85 = add i32 %70, 1
-  br label %.preheader46.us.split.us, !llvm.loop !19
+  br label %.preheader46.us.split.us, !llvm.loop !20
 
 .preheader43.split.us.us:                         ; preds = %.preheader43.us, %97
   %86 = phi ptr [ %99, %97 ], [ %9, %.preheader43.us ]
@@ -333,7 +333,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %98 = phi i32 [ %88, %91 ], [ %88, %.preheader43.split.us.us ], [ %87, %95 ]
   %99 = getelementptr i8, ptr %86, i64 12
   %100 = add i32 %87, 1
-  br label %.preheader43.split.us.us, !llvm.loop !20
+  br label %.preheader43.split.us.us, !llvm.loop !21
 
 .split.us83:                                      ; preds = %24, %.loopexit50.us
   %101 = phi i1 [ false, %.loopexit50.us ], [ %31, %24 ]
@@ -367,7 +367,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %115 = phi i32 [ %109, %.preheader52.split.us86 ], [ %108, %112 ]
   %116 = getelementptr i8, ptr %107, i64 12
   %117 = add i32 %108, 1
-  br label %.preheader52.split.us86, !llvm.loop !21
+  br label %.preheader52.split.us86, !llvm.loop !22
 
 .preheader49.us.split:                            ; preds = %.preheader49.us, %129
   %118 = phi ptr [ %131, %129 ], [ %9, %.preheader49.us ]
@@ -399,13 +399,13 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %130 = phi i32 [ %120, %.preheader49.us.split ], [ %119, %125 ]
   %131 = getelementptr i8, ptr %118, i64 12
   %132 = add i32 %119, 1
-  br label %.preheader49.us.split, !llvm.loop !22
+  br label %.preheader49.us.split, !llvm.loop !23
 
 .loopexit50.us:                                   ; preds = %112, %.preheader52.split.us86, %.preheader52.split.us.us, %162, %123, %.preheader49.us.split, %145, %.preheader49.us.split.us, %.split103
   %133 = phi i32 [ %128, %.split103 ], [ %138, %.preheader49.us.split.us ], [ %137, %145 ], [ %120, %.preheader49.us.split ], [ %119, %123 ], [ %155, %.preheader52.split.us.us ], [ %154, %162 ], [ %109, %.preheader52.split.us86 ], [ %108, %112 ]
   %134 = icmp slt i32 %133, 0
   %135 = and i1 %101, %134
-  br i1 %135, label %.split.us83, label %.loopexit55, !llvm.loop !23
+  br i1 %135, label %.split.us83, label %.loopexit55, !llvm.loop !24
 
 .preheader49.us:                                  ; preds = %105
   br i1 %101, label %.preheader49.us.split.us, label %.preheader49.us.split
@@ -439,7 +439,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %150 = phi i32 [ %138, %141 ], [ %138, %.preheader49.us.split.us ], [ %137, %147 ]
   %151 = getelementptr i8, ptr %136, i64 12
   %152 = add i32 %137, 1
-  br label %.preheader49.us.split.us, !llvm.loop !24
+  br label %.preheader49.us.split.us, !llvm.loop !25
 
 .preheader52.us:                                  ; preds = %105
   br i1 %101, label %.preheader52.split.us.us, label %.preheader52.split.us86
@@ -469,7 +469,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %165 = phi i32 [ %155, %158 ], [ %155, %.preheader52.split.us.us ], [ %154, %162 ]
   %166 = getelementptr i8, ptr %153, i64 12
   %167 = add i32 %154, 1
-  br label %.preheader52.split.us.us, !llvm.loop !25
+  br label %.preheader52.split.us.us, !llvm.loop !26
 
 .split:                                           ; preds = %24
   br i1 %22, label %.split.split.us, label %.split.split
@@ -527,13 +527,13 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %192 = phi i32 [ %175, %.preheader37.us.split ], [ %174, %180 ]
   %193 = getelementptr i8, ptr %173, i64 12
   %194 = add i32 %174, 1
-  br label %.preheader37.us.split, !llvm.loop !26
+  br label %.preheader37.us.split, !llvm.loop !27
 
 .loopexit38.us:                                   ; preds = %178, %.preheader37.us.split, %207, %.preheader37.us.split.us, %183, %.split92
   %195 = phi i32 [ %.us-phi93, %.split92 ], [ %190, %183 ], [ %200, %.preheader37.us.split.us ], [ %199, %207 ], [ %175, %.preheader37.us.split ], [ %174, %178 ]
   %196 = icmp slt i32 %195, 0
   %197 = and i1 %168, %196
-  br i1 %197, label %.split.split.us, label %.loopexit55, !llvm.loop !27
+  br i1 %197, label %.split.split.us, label %.loopexit55, !llvm.loop !28
 
 .preheader37.us.split.us:                         ; preds = %.preheader37.us, %211
   %198 = phi ptr [ %213, %211 ], [ %9, %.preheader37.us ]
@@ -564,7 +564,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %212 = phi i32 [ %200, %203 ], [ %200, %.preheader37.us.split.us ], [ %199, %209 ]
   %213 = getelementptr i8, ptr %198, i64 12
   %214 = add i32 %199, 1
-  br label %.preheader37.us.split.us, !llvm.loop !28
+  br label %.preheader37.us.split.us, !llvm.loop !29
 
 215:                                              ; preds = %13
   %216 = tail call i32 @cpufreq_table_index_unsorted(ptr noundef %0, i32 noundef %1, i32 noundef %16) #13
@@ -629,19 +629,19 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %248 = phi i32 [ %225, %229 ], [ %225, %222 ], [ %224, %235 ]
   %249 = getelementptr i8, ptr %223, i64 12
   %250 = add i32 %224, 1
-  br label %222, !llvm.loop !29
+  br label %222, !llvm.loop !30
 
 251:                                              ; preds = %20
-  tail call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #13, !srcloc !30
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1053, i32 2307, i64 12) #13, !srcloc !31
-  tail call void asm sideeffect "330: nop\0A\09.pushsection .discard.instr_end\0A\09.long 330b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 330) #13, !srcloc !32
+  tail call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #13, !srcloc !31
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1053, i32 2307, i64 12) #13, !srcloc !32
+  tail call void asm sideeffect "330: nop\0A\09.pushsection .discard.instr_end\0A\09.long 330b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 330) #13, !srcloc !33
   br label %.loopexit55
 
 .loopexit41:                                      ; preds = %233, %222, %239, %237
   %252 = phi i32 [ %224, %237 ], [ %246, %239 ], [ %225, %222 ], [ %224, %233 ]
   %253 = icmp slt i32 %252, 0
   %254 = and i1 %217, %253
-  br i1 %254, label %.split.split, label %.loopexit55
+  br i1 %254, label %.split.split, label %.loopexit55, !llvm.loop !34
 
 .loopexit55:                                      ; preds = %.loopexit50.us, %.loopexit47.us, %.loopexit41, %.loopexit38.us, %251, %215
   %255 = phi i32 [ %216, %215 ], [ 0, %251 ], [ %195, %.loopexit38.us ], [ %252, %.loopexit41 ], [ %66, %.loopexit47.us ], [ %133, %.loopexit50.us ]
@@ -694,7 +694,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %285 = phi i32 [ %279, %.preheader34.split.us ], [ %278, %282 ]
   %286 = getelementptr i8, ptr %277, i64 12
   %287 = add i32 %278, 1
-  br label %.preheader34.split.us, !llvm.loop !33
+  br label %.preheader34.split.us, !llvm.loop !35
 
 .preheader31:                                     ; preds = %272
   br i1 %264, label %.preheader31.split.us, label %.preheader31.split
@@ -722,7 +722,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %298 = phi i32 [ %290, %.preheader31.split.us ], [ %289, %295 ]
   %299 = getelementptr i8, ptr %288, i64 12
   %300 = add i32 %289, 1
-  br label %.preheader31.split.us, !llvm.loop !34
+  br label %.preheader31.split.us, !llvm.loop !36
 
 .preheader31.split:                               ; preds = %.preheader31, %316
   %301 = phi ptr [ %318, %316 ], [ %276, %.preheader31 ]
@@ -760,7 +760,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %317 = phi i32 [ %303, %306 ], [ %303, %.preheader31.split ], [ %302, %312 ]
   %318 = getelementptr i8, ptr %301, i64 12
   %319 = add i32 %302, 1
-  br label %.preheader31.split, !llvm.loop !22
+  br label %.preheader31.split, !llvm.loop !37
 
 .preheader34.split:                               ; preds = %.preheader34, %331
   %320 = phi ptr [ %333, %331 ], [ %276, %.preheader34 ]
@@ -787,7 +787,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %332 = phi i32 [ %322, %325 ], [ %322, %.preheader34.split ], [ %321, %329 ]
   %333 = getelementptr i8, ptr %320, i64 12
   %334 = add i32 %321, 1
-  br label %.preheader34.split, !llvm.loop !21
+  br label %.preheader34.split, !llvm.loop !38
 
 .loopexit32:                                      ; preds = %.preheader34.split, %329, %282, %.preheader34.split.us, %.preheader31.split, %310, %293, %.preheader31.split.us, %.split109.us
   %335 = phi i32 [ %315, %.split109.us ], [ %290, %.preheader31.split.us ], [ %289, %293 ], [ %303, %.preheader31.split ], [ %302, %310 ], [ %279, %.preheader34.split.us ], [ %278, %282 ], [ %322, %.preheader34.split ], [ %321, %329 ]
@@ -832,7 +832,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %355 = phi i32 [ %347, %.preheader28.split.us ], [ %346, %352 ]
   %356 = getelementptr i8, ptr %345, i64 12
   %357 = add i32 %346, 1
-  br label %.preheader28.split.us, !llvm.loop !35
+  br label %.preheader28.split.us, !llvm.loop !39
 
 .preheader:                                       ; preds = %343
   br i1 %264, label %.preheader.split.us, label %.preheader.split
@@ -856,7 +856,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %366 = phi i32 [ %360, %.preheader.split.us ], [ %359, %363 ]
   %367 = getelementptr i8, ptr %358, i64 12
   %368 = add i32 %359, 1
-  br label %.preheader.split.us, !llvm.loop !36
+  br label %.preheader.split.us, !llvm.loop !40
 
 .preheader.split:                                 ; preds = %.preheader, %380
   %369 = phi ptr [ %382, %380 ], [ %276, %.preheader ]
@@ -883,7 +883,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %381 = phi i32 [ %371, %374 ], [ %371, %.preheader.split ], [ %370, %378 ]
   %382 = getelementptr i8, ptr %369, i64 12
   %383 = add i32 %370, 1
-  br label %.preheader.split, !llvm.loop !16
+  br label %.preheader.split, !llvm.loop !41
 
 .preheader28.split:                               ; preds = %.preheader28, %399
   %384 = phi ptr [ %401, %399 ], [ %276, %.preheader28 ]
@@ -921,7 +921,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %400 = phi i32 [ %386, %389 ], [ %386, %.preheader28.split ], [ %385, %395 ]
   %401 = getelementptr i8, ptr %384, i64 12
   %402 = add i32 %385, 1
-  br label %.preheader28.split, !llvm.loop !15
+  br label %.preheader28.split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.preheader28.split, %393, %350, %.preheader28.split.us, %.preheader.split, %378, %363, %.preheader.split.us, %.split114.us
   %403 = phi i32 [ %398, %.split114.us ], [ %360, %.preheader.split.us ], [ %359, %363 ], [ %371, %.preheader.split ], [ %370, %378 ], [ %347, %.preheader28.split.us ], [ %346, %350 ], [ %386, %.preheader28.split ], [ %385, %393 ]
@@ -1176,20 +1176,20 @@ define internal noundef range(i32 -12, 1) i32 @od_init(ptr noundef writeonly cap
   br i1 %4, label %32, label %5
 
 5:                                                ; preds = %1
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !37
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !38
-  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !39
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !43
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !44
+  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !45
   %7 = tail call i64 @get_cpu_idle_time_us(i32 noundef %6, ptr noundef null) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !40
-  %8 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !41
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !46
+  %8 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !47
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
-  br i1 %10, label %14, label %11, !prof !42
+  br i1 %10, label %14, label %11, !prof !48
 
 11:                                               ; preds = %5
   %12 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %13 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %12) #13, !srcloc !43
+  %13 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %12) #13, !srcloc !49
   tail call void @llvm.write_register.i64(metadata !0, i64 %13)
   br label %14
 
@@ -1274,7 +1274,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @up_threshold_sho
 define internal noundef i64 @up_threshold_store(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #6 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  store i32 0, ptr %4, align 4, !annotation !44
+  store i32 0, ptr %4, align 4, !annotation !50
   %5 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4)
   %6 = icmp ne i32 %5, 1
   %7 = load i32, ptr %4, align 4
@@ -1310,7 +1310,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @sampling_down_fa
 define internal noundef i64 @sampling_down_factor_store(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  store i32 0, ptr %4, align 4, !annotation !44
+  store i32 0, ptr %4, align 4, !annotation !50
   %5 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4)
   %6 = icmp ne i32 %5, 1
   %7 = load i32, ptr %4, align 4
@@ -1336,7 +1336,7 @@ define internal noundef i64 @sampling_down_factor_store(ptr noundef captures(add
   call void @mutex_unlock(ptr noundef %17) #13
   %19 = load ptr, ptr %16, align 8
   %20 = icmp eq ptr %19, %13
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !45
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.preheader, %11, %3
   %21 = phi i64 [ -22, %3 ], [ %2, %11 ], [ %2, %.preheader ]
@@ -1363,7 +1363,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ignore_nice_load
 define internal noundef i64 @ignore_nice_load_store(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  store i32 0, ptr %4, align 4, !annotation !44
+  store i32 0, ptr %4, align 4, !annotation !50
   %5 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %17
@@ -1414,7 +1414,7 @@ define internal noundef i64 @powersave_bias_store(ptr noundef readonly captures(
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  store i32 0, ptr %4, align 4, !annotation !44
+  store i32 0, ptr %4, align 4, !annotation !50
   %7 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4)
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %.loopexit
@@ -1438,7 +1438,7 @@ define internal noundef i64 @powersave_bias_store(ptr noundef readonly captures(
   store i32 0, ptr %19, align 8
   %20 = load ptr, ptr %14, align 8
   %21 = icmp eq ptr %20, %11
-  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !46
+  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.preheader, %9, %3
   %22 = phi i64 [ -22, %3 ], [ %2, %9 ], [ %2, %.preheader ]
@@ -1459,7 +1459,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @io_is_busy_show(
 define internal noundef i64 @io_is_busy_store(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  store i32 0, ptr %4, align 4, !annotation !44
+  store i32 0, ptr %4, align 4, !annotation !50
   %5 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %12
@@ -1535,41 +1535,47 @@ attributes #15 = { nounwind allocsize(2) }
 !6 = !{i64 904805}
 !7 = !{i64 2148409959, i64 2148410033}
 !8 = !{!"branch_weights", i32 1, i32 1999}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !10, !11, !18}
-!20 = distinct !{!20, !10, !11, !18}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !10, !11, !18}
-!25 = distinct !{!25, !10, !11, !18}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !18}
-!28 = distinct !{!28, !10, !11, !18}
-!29 = distinct !{!29, !10, !11}
-!30 = !{i64 2154632494, i64 2154632303, i64 2154632355, i64 2154632401, i64 2154632429}
-!31 = !{i64 2154632568, i64 2154632597, i64 2154632643, i64 2154632701, i64 2154632755, i64 2154632809, i64 2154632864, i64 2154632895, i64 2154633203, i64 2154633209, i64 2154633256, i64 2154633279, i64 2154633305}
-!32 = !{i64 2154633762, i64 2154633573, i64 2154633623, i64 2154633669, i64 2154633697}
-!33 = distinct !{!33, !10, !11, !18}
-!34 = distinct !{!34, !10, !11, !18}
-!35 = distinct !{!35, !10, !11, !18}
-!36 = distinct !{!36, !10, !11, !18}
-!37 = !{i64 2149488061}
-!38 = !{i64 2154749774}
-!39 = !{i64 2154752412}
-!40 = !{i64 2154753341}
-!41 = !{i64 2149492417, i64 2149492510}
-!42 = !{!"branch_weights", i32 2000, i32 1}
-!43 = !{i64 2154753523}
-!44 = !{!"auto-init"}
-!45 = distinct !{!45, !10, !11}
-!46 = distinct !{!46, !10, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!"branch_weights", i32 1, i32 2000}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !10, !11, !12}
+!17 = distinct !{!17, !10, !11, !12}
+!18 = distinct !{!18, !12, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !10, !11, !12, !19}
+!21 = distinct !{!21, !10, !11, !12, !19}
+!22 = distinct !{!22, !10, !11, !12}
+!23 = distinct !{!23, !10, !11, !12}
+!24 = distinct !{!24, !12, !19}
+!25 = distinct !{!25, !10, !11, !12, !19}
+!26 = distinct !{!26, !10, !11, !12, !19}
+!27 = distinct !{!27, !10, !11, !12}
+!28 = distinct !{!28, !12, !19}
+!29 = distinct !{!29, !10, !11, !12, !19}
+!30 = distinct !{!30, !10, !11, !12}
+!31 = !{i64 2154632494, i64 2154632303, i64 2154632355, i64 2154632401, i64 2154632429}
+!32 = !{i64 2154632568, i64 2154632597, i64 2154632643, i64 2154632701, i64 2154632755, i64 2154632809, i64 2154632864, i64 2154632895, i64 2154633203, i64 2154633209, i64 2154633256, i64 2154633279, i64 2154633305}
+!33 = !{i64 2154633762, i64 2154633573, i64 2154633623, i64 2154633669, i64 2154633697}
+!34 = distinct !{!34, !12}
+!35 = distinct !{!35, !10, !11, !12, !19}
+!36 = distinct !{!36, !10, !11, !12, !19}
+!37 = distinct !{!37, !10, !11, !12}
+!38 = distinct !{!38, !10, !11, !12}
+!39 = distinct !{!39, !10, !11, !12, !19}
+!40 = distinct !{!40, !10, !11, !12, !19}
+!41 = distinct !{!41, !10, !11, !12}
+!42 = distinct !{!42, !10, !11, !12}
+!43 = !{i64 2149488061}
+!44 = !{i64 2154749774}
+!45 = !{i64 2154752412}
+!46 = !{i64 2154753341}
+!47 = !{i64 2149492417, i64 2149492510}
+!48 = !{!"branch_weights", i32 2000, i32 1}
+!49 = !{i64 2154753523}
+!50 = !{!"auto-init"}
+!51 = distinct !{!51, !10, !11, !12}
+!52 = distinct !{!52, !10, !11, !12}

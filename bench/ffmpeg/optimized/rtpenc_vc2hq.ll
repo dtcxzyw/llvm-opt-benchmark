@@ -724,7 +724,7 @@ get_interleaved_ue_golomb.exit182.i:              ; preds = %440, %.preheader.i1
   %.sroa.14.10.i = phi i32 [ %..i170.i, %428 ], [ %spec.select56.i178.i, %.preheader.i172.i ], [ %spec.select56.i178.i, %440 ]
   %456 = add nuw nsw i32 %.053242.i, 1
   %exitcond.not.i = icmp eq i32 %456, %.043.i59.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %get_interleaved_ue_golomb.exit182.i, %get_interleaved_ue_golomb.exit140.i
   %.sroa.14.0.lcssa.i = phi i32 [ %.sroa.14.7.i, %get_interleaved_ue_golomb.exit140.i ], [ %.sroa.14.10.i, %get_interleaved_ue_golomb.exit182.i ]
@@ -787,7 +787,7 @@ send_packet.exit.i:                               ; preds = %479, %._crit_edge.i
 492:                                              ; preds = %send_packet.exit186.i, %.lr.ph245.i
   %.051244.i = phi ptr [ %488, %.lr.ph245.i ], [ %514, %send_packet.exit186.i ]
   %.052243.i = phi i32 [ %485, %.lr.ph245.i ], [ %498, %send_packet.exit186.i ]
-  %493 = load i32, ptr %489, align 8, !tbaa !32
+  %493 = load i32, ptr %489, align 8, !tbaa !33
   %494 = add nsw i32 %493, -20
   %.052..i = tail call i32 @llvm.smin.i32(i32 %494, i32 %.052243.i)
   %495 = trunc i32 %.052..i to i16
@@ -827,7 +827,7 @@ send_packet.exit186.i:                            ; preds = %508, %492
   tail call void @ff_rtp_send_data(ptr noundef nonnull %0, ptr noundef %512, i32 noundef %513, i32 noundef range(i32 0, 2) %500) #4
   %514 = getelementptr inbounds nuw i8, ptr %.051244.i, i64 %.pre-phi.i
   %515 = icmp sgt i32 %498, 0
-  br i1 %515, label %492, label %send_picture.exit, !llvm.loop !33
+  br i1 %515, label %492, label %send_picture.exit, !llvm.loop !34
 
 516:                                              ; preds = %21
   %517 = zext i8 %13 to i32
@@ -837,7 +837,7 @@ send_packet.exit186.i:                            ; preds = %508, %492
 send_picture.exit:                                ; preds = %send_packet.exit186.i, %send_packet.exit.i, %45, %21, %21, %43, %24, %send_packet.exit, %516
   %518 = getelementptr inbounds nuw i8, ptr %.050, i64 %17
   %519 = icmp ult ptr %518, %6
-  br i1 %519, label %11, label %._crit_edge, !llvm.loop !34
+  br i1 %519, label %11, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %send_picture.exit, %11, %4
   ret void
@@ -905,9 +905,10 @@ attributes #4 = { nounwind }
 !26 = !{!"RTPMuxContext", !9, i64 0, !27, i64 8, !28, i64 16, !14, i64 24, !14, i64 28, !19, i64 32, !14, i64 40, !14, i64 44, !14, i64 48, !14, i64 52, !14, i64 56, !14, i64 60, !20, i64 64, !20, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !19, i64 96, !19, i64 104, !14, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128}
 !27 = !{!"p1 _ZTS15AVFormatContext", !10, i64 0}
 !28 = !{!"p1 _ZTS8AVStream", !10, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
-!32 = !{!26, !14, i64 56}
-!33 = distinct !{!33, !30}
-!34 = distinct !{!34, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = distinct !{!32, !30, !31}
+!33 = !{!26, !14, i64 56}
+!34 = distinct !{!34, !30, !31}
+!35 = distinct !{!35, !30, !31}

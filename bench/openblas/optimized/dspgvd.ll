@@ -220,7 +220,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dtpmv_(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %gep, ptr noundef nonnull @c__1) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not147.not = icmp samesign ult i64 %indvars.iv, %96
-  br i1 %.not147.not, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %.not147.not, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph176, %94, %90, %84, %75
   %98 = sitofp i32 %77 to double
@@ -271,6 +271,7 @@ attributes #3 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}

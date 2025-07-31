@@ -885,7 +885,7 @@ define hidden range(i32 0, 134217728) i32 @zdp_parse_chanmask(ptr noundef %0, pt
   %34 = and i32 %33, %9
   %.not41 = icmp eq i32 %34, 0
   %35 = add i32 %.4, 1
-  br i1 %.not41, label %36, label %.preheader, !llvm.loop !8
+  br i1 %.not41, label %36, label %.preheader, !llvm.loop !9
 
 36:                                               ; preds = %.preheader
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.120, i32 noundef %.4)
@@ -895,7 +895,7 @@ define hidden range(i32 0, 134217728) i32 @zdp_parse_chanmask(ptr noundef %0, pt
   %.3 = phi i32 [ %.4, %36 ], [ %.244, %30 ], [ %.244, %.lr.ph ]
   %38 = add i32 %.3, 1
   %39 = icmp slt i32 %38, 32
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %19, %37, %.loopexit
   %40 = load i32, ptr %2, align 4
@@ -1185,7 +1185,7 @@ define hidden void @zdp_parse_simple_desc(ptr noundef %0, i32 noundef %1, ptr no
   %55 = add nuw i32 %.07786, 1
   %56 = load i32, ptr %8, align 4
   %57 = icmp ult i32 %55, %56
-  br i1 %57, label %.lr.ph, label %.critedge, !llvm.loop !10
+  br i1 %57, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %50, %46
   %58 = phi i32 [ %.pre94, %46 ], [ %.pre93.pre, %.lr.ph ], [ %54, %50 ]
@@ -1233,7 +1233,7 @@ define hidden void @zdp_parse_simple_desc(ptr noundef %0, i32 noundef %1, ptr no
   %80 = add nuw i32 %.188, 1
   %81 = load i32, ptr %9, align 4
   %82 = icmp ult i32 %80, %81
-  br i1 %82, label %.lr.ph89, label %.critedge7, !llvm.loop !11
+  br i1 %82, label %.lr.ph89, label %.critedge7, !llvm.loop !12
 
 .critedge7:                                       ; preds = %.lr.ph89, %74, %70
   br i1 %or.cond, label %83, label %86
@@ -2427,9 +2427,10 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

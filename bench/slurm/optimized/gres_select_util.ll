@@ -130,7 +130,7 @@ define dso_local void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef
 .backedge.us59:                                   ; preds = %47, %50, %34, %.lr.ph.split.split.split.us
   %56 = tail call ptr @slurm_list_next(ptr noundef %10) #4
   %.not38.us60 = icmp eq ptr %56, null
-  br i1 %.not38.us60, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !12
+  br i1 %.not38.us60, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !13
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.backedge
   %57 = phi ptr [ %82, %.backedge ], [ %11, %.lr.ph.split.split ]
@@ -189,7 +189,7 @@ define dso_local void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef
 .backedge:                                        ; preds = %73, %76, %.lr.ph.split.split.split, %60
   %82 = tail call ptr @slurm_list_next(ptr noundef %10) #4
   %.not38 = icmp eq ptr %82, null
-  br i1 %.not38, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !13
+  br i1 %.not38, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us59, %.backedge.us, %8
   tail call void @slurm_list_iterator_destroy(ptr noundef %10) #4
@@ -252,7 +252,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpu_nod
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 66
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, 0
-  br i1 %21, label %38, label %.thread, !llvm.loop !14
+  br i1 %21, label %38, label %.thread, !llvm.loop !15
 
 .thread:                                          ; preds = %12, %18
   %.02540 = phi i16 [ %20, %18 ], [ %17, %12 ]
@@ -291,7 +291,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpu_nod
   %.1 = phi i32 [ %37, %33 ], [ %.02642, %18 ]
   %39 = tail call ptr @slurm_list_next(ptr noundef %8) #4
   %.not34 = icmp eq ptr %39, null
-  br i1 %.not34, label %._crit_edge, label %12
+  br i1 %.not34, label %._crit_edge, label %12, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %38, %7
   %.026.lcssa = phi i32 [ 0, %7 ], [ %.1, %38 ]
@@ -383,7 +383,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %39 = load i64, ptr %38, align 8
   %.not51.us = icmp eq i64 %39, 0
-  br i1 %.not51.us, label %46, label %40, !llvm.loop !15
+  br i1 %.not51.us, label %46, label %40, !llvm.loop !17
 
 40:                                               ; preds = %37
   %41 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.gres_select_util_job_min_tasks) #4
@@ -400,7 +400,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i
   %.1.us = phi i32 [ %45, %42 ], [ %.03453.us, %37 ]
   %47 = tail call ptr @slurm_list_next(ptr noundef %16) #4
   %.not45.us = icmp eq ptr %47, null
-  br i1 %.not45.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not45.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %75
   %48 = phi ptr [ %76, %75 ], [ %17, %.lr.ph ]
@@ -408,7 +408,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %.not47 = icmp eq i32 %.033, %50
-  br i1 %.not47, label %51, label %75, !llvm.loop !15
+  br i1 %.not47, label %51, label %75, !llvm.loop !17
 
 51:                                               ; preds = %.lr.ph.split
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -442,7 +442,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %68 = load i64, ptr %67, align 8
   %.not51 = icmp eq i64 %68, 0
-  br i1 %.not51, label %75, label %69, !llvm.loop !15
+  br i1 %.not51, label %75, label %69, !llvm.loop !17
 
 69:                                               ; preds = %66
   %70 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.gres_select_util_job_min_tasks) #4
@@ -459,7 +459,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i
   %.1 = phi i32 [ %74, %71 ], [ %.03453, %.lr.ph.split ], [ %.03453, %66 ]
   %76 = tail call ptr @slurm_list_next(ptr noundef %16) #4
   %.not45 = icmp eq ptr %76, null
-  br i1 %.not45, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not45, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %75, %46, %15
   %.034.lcssa = phi i32 [ 0, %15 ], [ %.1.us, %46 ], [ %.1, %75 ]
@@ -528,7 +528,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
 26:                                               ; preds = %.thread, %20
   %27 = call ptr @slurm_list_next(ptr noundef %9) #4
   %.not43 = icmp eq ptr %27, null
-  br i1 %.not43, label %.outer._crit_edge, label %14, !llvm.loop !17
+  br i1 %.not43, label %.outer._crit_edge, label %14, !llvm.loop !20
 
 28:                                               ; preds = %.thread
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 96
@@ -547,7 +547,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
   %33 = call ptr @slurm_list_next(ptr noundef %9) #4
   %.not4357 = icmp eq ptr %33, null
-  br i1 %.not4357, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not4357, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !20
 
 34:                                               ; preds = %.lr.ph62, %57
   %indvars.iv = phi i64 [ -1, %.lr.ph62 ], [ %indvars.iv.next, %57 ]
@@ -603,7 +603,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   %60 = load ptr, ptr %5, align 8
   %61 = call ptr @next_node_bitmap(ptr noundef %60, ptr noundef nonnull %3) #4
   %.not46 = icmp eq ptr %61, null
-  br i1 %.not46, label %.outer, label %34, !llvm.loop !18
+  br i1 %.not46, label %.outer, label %34, !llvm.loop !21
 
 .outer._crit_edge:                                ; preds = %.outer, %26, %8
   %.031.ph.lcssa = phi i1 [ false, %8 ], [ %.031.ph66, %26 ], [ true, %.outer ]
@@ -660,7 +660,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i3
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 66
   %23 = load i16, ptr %22, align 2
   %24 = icmp eq i16 %23, 0
-  br i1 %24, label %47, label %.thread, !llvm.loop !19
+  br i1 %24, label %47, label %.thread, !llvm.loop !22
 
 .thread:                                          ; preds = %15, %21
   %.02946 = phi i16 [ %23, %21 ], [ %20, %15 ]
@@ -693,7 +693,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i3
   %38 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %39 = load i64, ptr %38, align 8
   %.not44 = icmp eq i64 %39, 0
-  br i1 %.not44, label %47, label %40, !llvm.loop !19
+  br i1 %.not44, label %47, label %40, !llvm.loop !22
 
 40:                                               ; preds = %37
   %41 = mul i64 %39, %14
@@ -711,7 +711,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i3
   %.1 = phi i32 [ %46, %42 ], [ %.03048, %21 ], [ %.03048, %37 ]
   %48 = tail call ptr @slurm_list_next(ptr noundef %9) #4
   %.not39 = icmp eq ptr %48, null
-  br i1 %.not39, label %._crit_edge, label %15
+  br i1 %.not39, label %._crit_edge, label %15, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %47, %8
   %.030.lcssa = phi i32 [ 0, %8 ], [ %.1, %47 ]
@@ -754,7 +754,7 @@ define dso_local i64 @gres_select_util_job_mem_max(ptr noundef %0) local_unnamed
   %14 = tail call i64 @llvm.umax.i64(i64 %.01321, i64 %.0)
   %15 = tail call ptr @slurm_list_next(ptr noundef %3) #4
   %.not18 = icmp eq ptr %15, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %13, %2
   %.013.lcssa = phi i64 [ 0, %2 ], [ %14, %13 ]
@@ -786,7 +786,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_tres_per_task(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i64, ptr %9, align 8
   %.not11 = icmp eq i64 %10, 0
-  br i1 %.not11, label %4, label %11, !llvm.loop !21
+  br i1 %.not11, label %4, label %11, !llvm.loop !25
 
 11:                                               ; preds = %6, %4
   tail call void @slurm_list_iterator_destroy(ptr noundef %3) #4
@@ -814,7 +814,7 @@ define dso_local range(i32 0, -1) i32 @gres_select_util_get_task_limit(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %19, label %12, !llvm.loop !22
+  br i1 %11, label %19, label %12, !llvm.loop !26
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -829,7 +829,7 @@ define dso_local range(i32 0, -1) i32 @gres_select_util_get_task_limit(ptr nound
   %.1 = phi i32 [ %18, %12 ], [ %.014, %.lr.ph ]
   %20 = tail call ptr @slurm_list_next(ptr noundef %2) #4
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %19, %1
   %.0.lcssa = phi i32 [ -2, %1 ], [ %.1, %19 ]
@@ -948,18 +948,23 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10, !11, !12}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !9, !10, !11, !12}
+!14 = distinct !{!14, !9, !10, !11}
 !15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !11}
 !17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
 !22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !11}

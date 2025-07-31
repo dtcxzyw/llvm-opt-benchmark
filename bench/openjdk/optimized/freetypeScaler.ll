@@ -1937,7 +1937,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr nou
 addToGP.exit:                                     ; preds = %61, %57, %35, %38, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %addToGP.exit, %42
   %.pre = load i32, ptr %28, align 4
@@ -2378,12 +2378,12 @@ define internal fastcc void @CopyBW2Grey8(ptr noundef readonly captures(none) %0
   %20 = shl i32 %.150.us, 1
   %21 = add nuw nsw i32 %.13148.us, 1
   %exitcond65.not = icmp eq i32 %21, %8
-  br i1 %exitcond65.not, label %.loopexit.us, label %16, !llvm.loop !9
+  br i1 %exitcond65.not, label %.loopexit.us, label %16, !llvm.loop !10
 
 .loopexit.us:                                     ; preds = %16, %._crit_edge.us
   %22 = add nsw i32 %12, -1
   %.not.us = icmp eq i32 %12, 0
-  br i1 %.not.us, label %._crit_edge56, label %.lr.ph.us, !llvm.loop !10
+  br i1 %.not.us, label %._crit_edge56, label %.lr.ph.us, !llvm.loop !11
 
 23:                                               ; preds = %.lr.ph.us, %26
   %.02746.us = phi ptr [ %.03552.us, %.lr.ph.us ], [ %32, %26 ]
@@ -2397,7 +2397,7 @@ define internal fastcc void @CopyBW2Grey8(ptr noundef readonly captures(none) %0
   %27 = getelementptr inbounds nuw i8, ptr %.02945.us, i64 1
   %28 = add nuw nsw i32 %.03244.us, 1
   %exitcond64.not = icmp eq i32 %28, %7
-  br i1 %exitcond64.not, label %._crit_edge.us, label %23, !llvm.loop !12
+  br i1 %exitcond64.not, label %._crit_edge.us, label %23, !llvm.loop !13
 
 29:                                               ; preds = %29, %23
   %.043.us = phi i32 [ %25, %23 ], [ %33, %29 ]
@@ -2411,7 +2411,7 @@ define internal fastcc void @CopyBW2Grey8(ptr noundef readonly captures(none) %0
   %33 = shl i32 %.043.us, 1
   %34 = add nuw nsw i32 %.03041.us, 1
   %exitcond.not = icmp eq i32 %34, 8
-  br i1 %exitcond.not, label %26, label %29, !llvm.loop !13
+  br i1 %exitcond.not, label %26, label %29, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %26
   %35 = getelementptr inbounds i8, ptr %.03453.us, i64 %10
@@ -2441,14 +2441,14 @@ define internal fastcc void @CopyBW2Grey8(ptr noundef readonly captures(none) %0
   %44 = shl i32 %.150, 1
   %45 = add nuw nsw i32 %.13148, 1
   %exitcond66.not = icmp eq i32 %45, %8
-  br i1 %exitcond66.not, label %.loopexit, label %40, !llvm.loop !9
+  br i1 %exitcond66.not, label %.loopexit, label %40, !llvm.loop !10
 
 .loopexit:                                        ; preds = %40
   %46 = getelementptr inbounds i8, ptr %.03453, i64 %10
   %47 = getelementptr inbounds nuw i8, ptr %.03552, i64 %11
   %48 = add nsw i32 %37, -1
   %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %._crit_edge56, label %.lr.ph55.split.split, !llvm.loop !14
+  br i1 %.not, label %._crit_edge56, label %.lr.ph55.split.split, !llvm.loop !15
 
 ._crit_edge56:                                    ; preds = %.loopexit.us, %.loopexit, %.lr.ph55.split, %6
   ret void
@@ -2491,13 +2491,13 @@ define internal fastcc void @CopyGrey4ToGrey8(ptr noundef readonly captures(none
   store i8 %20, ptr %17, align 1
   %22 = add nuw nsw i32 %.02023.us, 1
   %exitcond.not = icmp eq i32 %22, %4
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %10, !llvm.loop !16
 
 ..loopexit_crit_edge.us:                          ; preds = %10
   %23 = getelementptr inbounds i8, ptr %.02227.us, i64 %7
   %24 = getelementptr inbounds nuw i8, ptr %.02128.us, i64 %8
   %.not.us = icmp eq i32 %9, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.us, !llvm.loop !16
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.us, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph29, %6
   ret void
@@ -2542,14 +2542,14 @@ define internal fastcc void @CopyFTSubpixelVToSubpixel(ptr noundef readonly capt
   %22 = getelementptr inbounds nuw i8, ptr %.02326.us, i64 1
   %23 = add nuw nsw i32 %.028.us, 1
   %exitcond.not = icmp eq i32 %23, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !18
 
 ._crit_edge.us:                                   ; preds = %13
   %24 = getelementptr inbounds i8, ptr %.02430.us, i64 %11
   %25 = getelementptr inbounds nuw i8, ptr %.02231.us, i64 %12
   %26 = add nsw i32 %.02529.us, -3
   %27 = icmp sgt i32 %.02529.us, 3
-  br i1 %27, label %.preheader.us, label %._crit_edge32, !llvm.loop !18
+  br i1 %27, label %.preheader.us, label %._crit_edge32, !llvm.loop !19
 
 ._crit_edge32:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   ret void
@@ -2838,16 +2838,17 @@ attributes #23 = { nounwind allocsize(1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !11}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !11}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !12}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8, !12}

@@ -50,7 +50,7 @@ define i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h2d
   %14 = select i1 %13, i64 %.sroa.05.021.i, i64 %10, !unpredictable !3
   %15 = sub i64 %.sroa.01.022.i, %9
   %16 = icmp ugt i64 %15, 1
-  br i1 %16, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %16, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 17:                                               ; preds = %._crit_edge.i
   %18 = icmp eq i8 %7, -1
@@ -94,7 +94,7 @@ define i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17hf0
   %14 = select i1 %13, i64 %.sroa.05.021.i, i64 %10, !unpredictable !3
   %15 = sub i64 %.sroa.01.022.i, %9
   %16 = icmp ugt i64 %15, 1
-  br i1 %16, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %16, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 17:                                               ; preds = %._crit_edge.i
   %18 = icmp eq i8 %7, -1
@@ -142,7 +142,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   %16 = select i1 %15, i64 %.sroa.05.021, i64 %12, !unpredictable !3
   %17 = sub i64 %.sroa.01.022, %11
   %18 = icmp ugt i64 %17, 1
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 19:                                               ; preds = %._crit_edge
   %20 = icmp eq i8 %9, -1
@@ -185,7 +185,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   %16 = select i1 %15, i64 %.sroa.05.021, i64 %12, !unpredictable !3
   %17 = sub i64 %.sroa.01.022, %11
   %18 = icmp ugt i64 %17, 1
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 19:                                               ; preds = %._crit_edge
   %20 = icmp eq i8 %9, -1
@@ -228,7 +228,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   %16 = select i1 %15, i64 %.sroa.05.021, i64 %12, !unpredictable !3
   %17 = sub i64 %.sroa.01.022, %11
   %18 = icmp ugt i64 %17, 1
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 19:                                               ; preds = %._crit_edge
   %20 = icmp eq i8 %9, -1
@@ -279,3 +279,7 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
 !3 = !{}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

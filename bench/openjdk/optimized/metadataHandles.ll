@@ -149,7 +149,7 @@ _ZN15MetadataHandles10get_handleEv.exit:          ; preds = %30
   %70 = getelementptr inbounds nuw i8, ptr %.01726.i, i64 264
   %.017.i = load ptr, ptr %70, align 8
   %.not.i16 = icmp eq ptr %.017.i, null
-  br i1 %.not.i16, label %._crit_edge27.i, label %.preheader.i, !llvm.loop !8
+  br i1 %.not.i16, label %._crit_edge27.i, label %.preheader.i, !llvm.loop !9
 
 ._crit_edge27.i:                                  ; preds = %._crit_edge.i
   %71 = shl nsw i32 %69, 5
@@ -246,7 +246,7 @@ define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr noundef nonnul
   %24 = getelementptr inbounds nuw i8, ptr %.01726, i64 264
   %.017 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %._crit_edge27, label %.preheader, !llvm.loop !8
+  br i1 %.not, label %._crit_edge27, label %.preheader, !llvm.loop !9
 
 ._crit_edge27:                                    ; preds = %._crit_edge
   %25 = shl nsw i32 %23, 5
@@ -283,7 +283,7 @@ define hidden void @_ZN15MetadataHandles5clearEv(ptr noundef nonnull align 8 cap
   %6 = getelementptr inbounds nuw i8, ptr %.06, i64 264
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
-  br i1 %.not5, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %.not5, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -303,7 +303,7 @@ define hidden void @_ZN15MetadataHandles11metadata_doEPFvP8MetadataE(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %.022, i64 264
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge23, label %.preheader, !llvm.loop !10
+  br i1 %.not, label %._crit_edge23, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %2, %3
   %.022 = phi ptr [ %.0, %3 ], [ %.020, %2 ]
@@ -334,7 +334,7 @@ define hidden void @_ZN15MetadataHandles11metadata_doEPFvP8MetadataE(ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %15
   %19 = icmp slt i32 %16, 32
@@ -354,7 +354,7 @@ define hidden void @_ZN15MetadataHandles12do_unloadingEv(ptr noundef nonnull rea
   %3 = getelementptr inbounds nuw i8, ptr %.036, i64 264
   %.0 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge37, label %.preheader, !llvm.loop !12
+  br i1 %.not, label %._crit_edge37, label %.preheader, !llvm.loop !13
 
 .preheader:                                       ; preds = %1, %2
   %.036 = phi ptr [ %.0, %2 ], [ %.034, %1 ]
@@ -426,7 +426,7 @@ define hidden void @_ZN15MetadataHandles12do_unloadingEv(ptr noundef nonnull rea
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %37
-  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, i64 %10, ptr nonnull %7) #4, !srcloc !13
+  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, i64 %10, ptr nonnull %7) #4, !srcloc !14
   %45 = icmp eq i64 %44, %10
   %46 = icmp eq i64 %44, 0
   %or.cond = or i1 %45, %46
@@ -443,7 +443,7 @@ define hidden void @_ZN15MetadataHandles12do_unloadingEv(ptr noundef nonnull rea
   %50 = load i32, ptr %4, align 8
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %49
   %53 = icmp slt i32 %50, 32
@@ -476,12 +476,13 @@ attributes #5 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{i64 2145412694}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i64 2145412694}
+!15 = distinct !{!15, !7, !8}

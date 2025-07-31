@@ -563,7 +563,7 @@ define internal i32 @dissect_wimaxasncp(ptr noundef %0, ptr noundef %1, ptr noun
   %75 = getelementptr i8, ptr %.01218.i, i64 40
   %76 = load ptr, ptr %75, align 8
   %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %73
   %.not14.i = icmp eq ptr %.1.i, null
@@ -599,7 +599,7 @@ match_ver_value_string.exit.thread:               ; preds = %._crit_edge.i, %mat
 92:                                               ; preds = %94
   %93 = add nuw nsw i64 %.0135179, 1
   %exitcond180.not = icmp eq i64 %93, 11
-  br i1 %exitcond180.not, label %.thread, label %94, !llvm.loop !9
+  br i1 %exitcond180.not, label %.thread, label %94, !llvm.loop !10
 
 94:                                               ; preds = %85, %92
   %.0135179 = phi i64 [ 0, %85 ], [ %93, %92 ]
@@ -658,7 +658,7 @@ match_ver_value_string.exit.thread:               ; preds = %._crit_edge.i, %mat
   %117 = getelementptr i8, ptr %.01218.i155, i64 40
   %118 = load ptr, ptr %117, align 8
   %.not.i157 = icmp eq ptr %118, null
-  br i1 %.not.i157, label %._crit_edge.i158, label %.lr.ph.i153, !llvm.loop !8
+  br i1 %.not.i157, label %._crit_edge.i158, label %.lr.ph.i153, !llvm.loop !9
 
 ._crit_edge.i158:                                 ; preds = %115
   %.not14.i159 = icmp eq ptr %.1.i156, null
@@ -752,7 +752,7 @@ match_ver_value_string.exit162:                   ; preds = %.match_ver_value_st
 
 166:                                              ; preds = %163, %158
   %167 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %154, i32 noundef 10)
-  %168 = load i8, ptr @show_transaction_id_d_bit, align 1, !range !10, !noundef !11
+  %168 = load i8, ptr @show_transaction_id_d_bit, align 1, !range !11, !noundef !12
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %179
 
@@ -914,7 +914,7 @@ define internal void @register_wimaxasncp_fields(ptr readnone captures(none) %0)
   %37 = getelementptr inbounds nuw i8, ptr %.03953, i64 16
   %.039 = load ptr, ptr %37, align 8
   %.not48 = icmp eq ptr %.039, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31
   call void @wmem_array_set_null_terminator(ptr noundef %33)
@@ -928,11 +928,11 @@ define internal void @register_wimaxasncp_fields(ptr readnone captures(none) %0)
   %41 = getelementptr inbounds nuw i8, ptr %.03856, i64 96
   %.038 = load ptr, ptr %41, align 8
   %.not45 = icmp eq ptr %.038, null
-  br i1 %.not45, label %.loopexit50, label %28, !llvm.loop !13
+  br i1 %.not45, label %.loopexit50, label %28, !llvm.loop !14
 
 .loopexit50:                                      ; preds = %40, %.preheader49, %20
   call fastcc void @add_tlv_reg_info(ptr noundef nonnull @wimaxasncp_tlv_not_found)
-  %42 = load i8, ptr @debug_enabled, align 1, !range !10, !noundef !11
+  %42 = load i8, ptr @debug_enabled, align 1, !range !11, !noundef !12
   %43 = trunc nuw i8 %42 to i1
   %44 = load ptr, ptr @wimaxasncp_dict, align 8
   %45 = icmp ne ptr %44, null
@@ -983,7 +983,7 @@ define internal void @register_wimaxasncp_fields(ptr readnone captures(none) %0)
   %80 = getelementptr inbounds nuw i8, ptr %.060, i64 96
   %.0 = load ptr, ptr %80, align 8
   %.not46 = icmp eq ptr %.0, null
-  br i1 %.not46, label %.loopexit, label %.lr.ph61, !llvm.loop !14
+  br i1 %.not46, label %.loopexit, label %.lr.ph61, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph61, %.preheader, %.loopexit50
   %81 = load i32, ptr @proto_wimaxasncp, align 4
@@ -1155,11 +1155,11 @@ define internal fastcc i32 @dissect_wimaxasncp_tlvs(ptr noundef %0, ptr noundef 
   %26 = getelementptr inbounds nuw i8, ptr %.023.i, i64 96
   %.0.i = load ptr, ptr %26, align 8
   %.not17.i = icmp eq ptr %.0.i, null
-  br i1 %.not17.i, label %.loopexit.i, label %13, !llvm.loop !15
+  br i1 %.not17.i, label %.loopexit.i, label %13, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %25, %.preheader.i, %9
   %.013.i = phi ptr [ null, %9 ], [ null, %.preheader.i ], [ %.2.i, %25 ]
-  %27 = load i8, ptr @debug_enabled, align 1, !range !10, !noundef !11
+  %27 = load i8, ptr @debug_enabled, align 1, !range !11, !noundef !12
   %28 = trunc nuw i8 %27 to i1
   %29 = icmp eq ptr %.013.i, null
   %or.cond.not.i = select i1 %28, i1 %29, i1 false
@@ -1317,7 +1317,7 @@ wimaxasncp_get_tlv_info.exit:                     ; preds = %.loopexit.i, %30
   %101 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
-  %104 = load i8, ptr @debug_enabled, align 1, !range !10
+  %104 = load i8, ptr @debug_enabled, align 1, !range !11
   %105 = trunc nuw i8 %104 to i1
   %or.cond16.i = select i1 %103, i1 %105, i1 false
   br i1 %or.cond16.i, label %106, label %110
@@ -1361,7 +1361,7 @@ wimaxasncp_get_enum_name.exit.i:                  ; preds = %115, %111
   %122 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
-  %125 = load i8, ptr @debug_enabled, align 1, !range !10
+  %125 = load i8, ptr @debug_enabled, align 1, !range !11
   %126 = trunc nuw i8 %125 to i1
   %or.cond18.i = select i1 %124, i1 %126, i1 false
   br i1 %or.cond18.i, label %127, label %131
@@ -1405,7 +1405,7 @@ wimaxasncp_get_enum_name.exit708.i:               ; preds = %136, %132
   %143 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
-  %146 = load i8, ptr @debug_enabled, align 1, !range !10
+  %146 = load i8, ptr @debug_enabled, align 1, !range !11
   %147 = trunc nuw i8 %146 to i1
   %or.cond20.i = select i1 %145, i1 %147, i1 false
   br i1 %or.cond20.i, label %148, label %152
@@ -1537,7 +1537,7 @@ wimaxasncp_get_enum_name.exit714.i:               ; preds = %199, %198
 203:                                              ; preds = %wimaxasncp_get_enum_name.exit714.i, %194
   %204 = add nuw nsw i32 %.0604754.i, 1
   %exitcond766.not.i = icmp eq i32 %204, 8
-  br i1 %exitcond766.not.i, label %wimaxasncp_dissect_tlv_value.exit, label %194, !llvm.loop !16
+  br i1 %exitcond766.not.i, label %wimaxasncp_dissect_tlv_value.exit, label %194, !llvm.loop !17
 
 205:                                              ; preds = %94
   %.not678.i = icmp eq i32 %97, 2
@@ -1589,7 +1589,7 @@ wimaxasncp_get_enum_name.exit717.i:               ; preds = %222, %221
 226:                                              ; preds = %wimaxasncp_get_enum_name.exit717.i, %217
   %227 = add nuw nsw i32 %.0605753.i, 1
   %exitcond765.not.i = icmp eq i32 %227, 16
-  br i1 %exitcond765.not.i, label %wimaxasncp_dissect_tlv_value.exit, label %217, !llvm.loop !17
+  br i1 %exitcond765.not.i, label %wimaxasncp_dissect_tlv_value.exit, label %217, !llvm.loop !18
 
 228:                                              ; preds = %94
   %.not674.i = icmp eq i32 %97, 4
@@ -1639,7 +1639,7 @@ wimaxasncp_get_enum_name.exit720.i:               ; preds = %243, %242
 247:                                              ; preds = %wimaxasncp_get_enum_name.exit720.i, %239
   %248 = add nuw nsw i32 %.0606752.i, 1
   %exitcond.not.i = icmp eq i32 %248, 32
-  br i1 %exitcond.not.i, label %wimaxasncp_dissect_tlv_value.exit, label %239, !llvm.loop !18
+  br i1 %exitcond.not.i, label %wimaxasncp_dissect_tlv_value.exit, label %239, !llvm.loop !19
 
 249:                                              ; preds = %94
   switch i32 %97, label %623 [
@@ -1841,7 +1841,7 @@ wimaxasncp_proto_tree_add_ether_value.exit:       ; preds = %263, %267
   br label %wimaxasncp_dissect_tlv_value.exit
 
 339:                                              ; preds = %94
-  %340 = load i8, ptr @debug_enabled, align 1, !range !10, !noundef !11
+  %340 = load i8, ptr @debug_enabled, align 1, !range !11, !noundef !12
   %341 = trunc nuw i8 %340 to i1
   br i1 %341, label %342, label %346
 
@@ -2034,7 +2034,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %408, %405, %399
   %429 = add i32 %.0750.i, 2
   %430 = call i32 @tvb_reported_length(ptr noundef %96)
   %431 = icmp ult i32 %429, %430
-  br i1 %431, label %414, label %wimaxasncp_dissect_tlv_value.exit, !llvm.loop !19
+  br i1 %431, label %414, label %wimaxasncp_dissect_tlv_value.exit, !llvm.loop !20
 
 432:                                              ; preds = %94
   %433 = and i32 %97, 3
@@ -2153,7 +2153,7 @@ proto_item_set_hidden.exit730.i:                  ; preds = %475, %472, %proto_i
   %488 = add i32 %.1748.i, 4
   %489 = call i32 @tvb_reported_length(ptr noundef %96)
   %490 = icmp ult i32 %488, %489
-  br i1 %490, label %453, label %wimaxasncp_dissect_tlv_value.exit, !llvm.loop !20
+  br i1 %490, label %453, label %wimaxasncp_dissect_tlv_value.exit, !llvm.loop !21
 
 491:                                              ; preds = %94
   %492 = and i32 %97, 7
@@ -2223,7 +2223,7 @@ proto_item_set_hidden.exit733.i:                  ; preds = %505, %502, %496
   %524 = add i32 %.2746.i, 32
   %525 = call i32 @tvb_reported_length(ptr noundef %96)
   %526 = icmp ult i32 %524, %525
-  br i1 %526, label %516, label %wimaxasncp_dissect_tlv_value.exit, !llvm.loop !21
+  br i1 %526, label %516, label %wimaxasncp_dissect_tlv_value.exit, !llvm.loop !22
 
 527:                                              ; preds = %527, %.lr.ph.i90
   %.3745.i = phi i32 [ 0, %.lr.ph.i90 ], [ %541, %527 ]
@@ -2245,7 +2245,7 @@ proto_item_set_hidden.exit733.i:                  ; preds = %505, %502, %496
   %541 = add i32 %.3745.i, 8
   %542 = call i32 @tvb_reported_length(ptr noundef %96)
   %543 = icmp ult i32 %541, %542
-  br i1 %543, label %527, label %wimaxasncp_dissect_tlv_value.exit, !llvm.loop !22
+  br i1 %543, label %527, label %wimaxasncp_dissect_tlv_value.exit, !llvm.loop !23
 
 544:                                              ; preds = %94
   %545 = call zeroext i8 @tvb_get_uint8(ptr noundef %96, i32 noundef 0)
@@ -2384,7 +2384,7 @@ proto_item_set_hidden.exit736.i:                  ; preds = %589, %586, %580
   br label %wimaxasncp_dissect_tlv_value.exit
 
 619:                                              ; preds = %94
-  %620 = load i8, ptr @debug_enabled, align 1, !range !10, !noundef !11
+  %620 = load i8, ptr @debug_enabled, align 1, !range !11, !noundef !12
   %621 = trunc nuw i8 %620 to i1
   br i1 %621, label %622, label %623
 
@@ -2419,7 +2419,7 @@ wimaxasncp_dissect_tlv_value.exit:                ; preds = %527, %516, %487, %4
   %634 = add i32 %71, %35
   %635 = call i32 @tvb_reported_length(ptr noundef %0)
   %636 = icmp ult i32 %634, %635
-  br i1 %636, label %9, label %._crit_edge, !llvm.loop !23
+  br i1 %636, label %9, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %wimaxasncp_dissect_tlv_value.exit, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %634, %wimaxasncp_dissect_tlv_value.exit ]
@@ -2653,7 +2653,7 @@ switch.early.test.i:                              ; preds = %50
   %64 = getelementptr i8, ptr %.035.i, i64 1
   %65 = load i8, ptr %64, align 1
   %.not.i = icmp eq i8 %65, 0
-  br i1 %.not.i, label %alnumerize.exit, label %50, !llvm.loop !24
+  br i1 %.not.i, label %alnumerize.exit, label %50, !llvm.loop !25
 
 alnumerize.exit:                                  ; preds = %63, %1
   %.028.lcssa.i = phi ptr [ %47, %1 ], [ %.1.i, %63 ]
@@ -2767,7 +2767,7 @@ switch.early.test.i188:                           ; preds = %95
   %109 = getelementptr i8, ptr %.035.i179, i64 1
   %110 = load i8, ptr %109, align 1
   %.not.i186 = icmp eq i8 %110, 0
-  br i1 %.not.i186, label %alnumerize.exit189, label %95, !llvm.loop !24
+  br i1 %.not.i186, label %alnumerize.exit189, label %95, !llvm.loop !25
 
 alnumerize.exit189:                               ; preds = %108, %75
   %.028.lcssa.i187 = phi ptr [ %92, %75 ], [ %.1.i185, %108 ]
@@ -3205,7 +3205,7 @@ switch.early.test.i201:                           ; preds = %277
   %291 = getelementptr i8, ptr %.035.i192, i64 1
   %292 = load i8, ptr %291, align 1
   %.not.i199 = icmp eq i8 %292, 0
-  br i1 %.not.i199, label %alnumerize.exit202, label %277, !llvm.loop !24
+  br i1 %.not.i199, label %alnumerize.exit202, label %277, !llvm.loop !25
 
 alnumerize.exit202:                               ; preds = %290, %270
   %.028.lcssa.i200 = phi ptr [ %274, %270 ], [ %.1.i198, %290 ]
@@ -3289,7 +3289,7 @@ switch.early.test.i214:                           ; preds = %310
   %324 = getelementptr i8, ptr %.035.i205, i64 1
   %325 = load i8, ptr %324, align 1
   %.not.i212 = icmp eq i8 %325, 0
-  br i1 %.not.i212, label %alnumerize.exit215, label %310, !llvm.loop !24
+  br i1 %.not.i212, label %alnumerize.exit215, label %310, !llvm.loop !25
 
 alnumerize.exit215:                               ; preds = %323, %alnumerize.exit202
   %.028.lcssa.i213 = phi ptr [ %307, %alnumerize.exit202 ], [ %.1.i211, %323 ]
@@ -3373,7 +3373,7 @@ switch.early.test.i227:                           ; preds = %343
   %357 = getelementptr i8, ptr %.035.i218, i64 1
   %358 = load i8, ptr %357, align 1
   %.not.i225 = icmp eq i8 %358, 0
-  br i1 %.not.i225, label %alnumerize.exit228, label %343, !llvm.loop !24
+  br i1 %.not.i225, label %alnumerize.exit228, label %343, !llvm.loop !25
 
 alnumerize.exit228:                               ; preds = %356, %alnumerize.exit215
   %.028.lcssa.i226 = phi ptr [ %340, %alnumerize.exit215 ], [ %.1.i224, %356 ]
@@ -3648,7 +3648,7 @@ switch.early.test.i240:                           ; preds = %462
   %476 = getelementptr i8, ptr %.035.i231, i64 1
   %477 = load i8, ptr %476, align 1
   %.not.i238 = icmp eq i8 %477, 0
-  br i1 %.not.i238, label %alnumerize.exit241, label %462, !llvm.loop !24
+  br i1 %.not.i238, label %alnumerize.exit241, label %462, !llvm.loop !25
 
 alnumerize.exit241:                               ; preds = %475, %455
   %.028.lcssa.i239 = phi ptr [ %459, %455 ], [ %.1.i237, %475 ]
@@ -3732,7 +3732,7 @@ switch.early.test.i253:                           ; preds = %495
   %509 = getelementptr i8, ptr %.035.i244, i64 1
   %510 = load i8, ptr %509, align 1
   %.not.i251 = icmp eq i8 %510, 0
-  br i1 %.not.i251, label %alnumerize.exit254, label %495, !llvm.loop !24
+  br i1 %.not.i251, label %alnumerize.exit254, label %495, !llvm.loop !25
 
 alnumerize.exit254:                               ; preds = %508, %alnumerize.exit241
   %.028.lcssa.i252 = phi ptr [ %492, %alnumerize.exit241 ], [ %.1.i250, %508 ]
@@ -3878,7 +3878,7 @@ switch.early.test.i266:                           ; preds = %558
   %572 = getelementptr i8, ptr %.035.i257, i64 1
   %573 = load i8, ptr %572, align 1
   %.not.i264 = icmp eq i8 %573, 0
-  br i1 %.not.i264, label %alnumerize.exit267, label %558, !llvm.loop !24
+  br i1 %.not.i264, label %alnumerize.exit267, label %558, !llvm.loop !25
 
 alnumerize.exit267:                               ; preds = %571, %536
   %.028.lcssa.i265 = phi ptr [ %555, %536 ], [ %.1.i263, %571 ]
@@ -3997,7 +3997,7 @@ switch.early.test.i279:                           ; preds = %609
   %623 = getelementptr i8, ptr %.035.i270, i64 1
   %624 = load i8, ptr %623, align 1
   %.not.i277 = icmp eq i8 %624, 0
-  br i1 %.not.i277, label %alnumerize.exit280, label %609, !llvm.loop !24
+  br i1 %.not.i277, label %alnumerize.exit280, label %609, !llvm.loop !25
 
 alnumerize.exit280:                               ; preds = %622, %587
   %.028.lcssa.i278 = phi ptr [ %606, %587 ], [ %.1.i276, %622 ]
@@ -4083,7 +4083,7 @@ switch.early.test.i292:                           ; preds = %643
   %657 = getelementptr i8, ptr %.035.i283, i64 1
   %658 = load i8, ptr %657, align 1
   %.not.i290 = icmp eq i8 %658, 0
-  br i1 %.not.i290, label %alnumerize.exit293, label %643, !llvm.loop !24
+  br i1 %.not.i290, label %alnumerize.exit293, label %643, !llvm.loop !25
 
 alnumerize.exit293:                               ; preds = %656, %alnumerize.exit280
   %.028.lcssa.i291 = phi ptr [ %640, %alnumerize.exit280 ], [ %.1.i289, %656 ]
@@ -4202,7 +4202,7 @@ switch.early.test.i305:                           ; preds = %694
   %708 = getelementptr i8, ptr %.035.i296, i64 1
   %709 = load i8, ptr %708, align 1
   %.not.i303 = icmp eq i8 %709, 0
-  br i1 %.not.i303, label %alnumerize.exit306, label %694, !llvm.loop !24
+  br i1 %.not.i303, label %alnumerize.exit306, label %694, !llvm.loop !25
 
 alnumerize.exit306:                               ; preds = %707, %672
   %.028.lcssa.i304 = phi ptr [ %691, %672 ], [ %.1.i302, %707 ]
@@ -4286,7 +4286,7 @@ switch.early.test.i318:                           ; preds = %727
   %741 = getelementptr i8, ptr %.035.i309, i64 1
   %742 = load i8, ptr %741, align 1
   %.not.i316 = icmp eq i8 %742, 0
-  br i1 %.not.i316, label %alnumerize.exit319, label %727, !llvm.loop !24
+  br i1 %.not.i316, label %alnumerize.exit319, label %727, !llvm.loop !25
 
 alnumerize.exit319:                               ; preds = %740, %alnumerize.exit306
   %.028.lcssa.i317 = phi ptr [ %724, %alnumerize.exit306 ], [ %.1.i315, %740 ]
@@ -4370,7 +4370,7 @@ switch.early.test.i331:                           ; preds = %760
   %774 = getelementptr i8, ptr %.035.i322, i64 1
   %775 = load i8, ptr %774, align 1
   %.not.i329 = icmp eq i8 %775, 0
-  br i1 %.not.i329, label %alnumerize.exit332, label %760, !llvm.loop !24
+  br i1 %.not.i329, label %alnumerize.exit332, label %760, !llvm.loop !25
 
 alnumerize.exit332:                               ; preds = %773, %alnumerize.exit319
   %.028.lcssa.i330 = phi ptr [ %757, %alnumerize.exit319 ], [ %.1.i328, %773 ]
@@ -4454,7 +4454,7 @@ switch.early.test.i344:                           ; preds = %793
   %807 = getelementptr i8, ptr %.035.i335, i64 1
   %808 = load i8, ptr %807, align 1
   %.not.i342 = icmp eq i8 %808, 0
-  br i1 %.not.i342, label %alnumerize.exit345, label %793, !llvm.loop !24
+  br i1 %.not.i342, label %alnumerize.exit345, label %793, !llvm.loop !25
 
 alnumerize.exit345:                               ; preds = %806, %alnumerize.exit332
   %.028.lcssa.i343 = phi ptr [ %790, %alnumerize.exit332 ], [ %.1.i341, %806 ]
@@ -4571,7 +4571,7 @@ switch.early.test.i357:                           ; preds = %843
   %857 = getelementptr i8, ptr %.035.i348, i64 1
   %858 = load i8, ptr %857, align 1
   %.not.i355 = icmp eq i8 %858, 0
-  br i1 %.not.i355, label %alnumerize.exit358, label %843, !llvm.loop !24
+  br i1 %.not.i355, label %alnumerize.exit358, label %843, !llvm.loop !25
 
 alnumerize.exit358:                               ; preds = %856, %821
   %.028.lcssa.i356 = phi ptr [ %840, %821 ], [ %.1.i354, %856 ]
@@ -4657,7 +4657,7 @@ switch.early.test.i370:                           ; preds = %877
   %891 = getelementptr i8, ptr %.035.i361, i64 1
   %892 = load i8, ptr %891, align 1
   %.not.i368 = icmp eq i8 %892, 0
-  br i1 %.not.i368, label %alnumerize.exit371, label %877, !llvm.loop !24
+  br i1 %.not.i368, label %alnumerize.exit371, label %877, !llvm.loop !25
 
 alnumerize.exit371:                               ; preds = %890, %alnumerize.exit358
   %.028.lcssa.i369 = phi ptr [ %874, %alnumerize.exit358 ], [ %.1.i367, %890 ]
@@ -4748,7 +4748,7 @@ alnumerize.exit371:                               ; preds = %890, %alnumerize.ex
   %932 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %932, ptr noundef nonnull %2, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
-  %933 = load i8, ptr @debug_enabled, align 1, !range !10, !noundef !11
+  %933 = load i8, ptr @debug_enabled, align 1, !range !11, !noundef !12
   %934 = trunc nuw i8 %933 to i1
   br i1 %934, label %935, label %937
 
@@ -4809,22 +4809,23 @@ attributes #8 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}

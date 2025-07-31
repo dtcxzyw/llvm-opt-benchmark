@@ -473,7 +473,7 @@ define noundef zeroext i1 @_ZN6icu_779UVector64eqERKS0_(ptr noundef nonnull read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not8, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %12, label %.loopexit, !llvm.loop !22
+  br i1 %or.cond.not, label %12, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %12, %.preheader, %2
   %.07 = phi i1 [ false, %2 ], [ true, %.preheader ], [ %.not8, %12 ]
@@ -604,7 +604,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit: ; preds = %38, %9
   store i64 %49, ptr %50, align 8, !tbaa !18
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %51 = icmp samesign ugt i64 %indvars.iv.next, %44
-  br i1 %51, label %48, label %._crit_edge, !llvm.loop !23
+  br i1 %51, label %48, label %._crit_edge, !llvm.loop !24
 
 _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %37, %29, %13, %24, %21, %._crit_edge, %6, %4
   ret void
@@ -787,7 +787,8 @@ attributes #17 = { allocsize(1) }
 !17 = !{!"_ZTS10UErrorCode", !10, i64 0}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"long", !10, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = distinct !{!24, !21, !22}

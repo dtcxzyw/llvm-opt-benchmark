@@ -142,7 +142,7 @@ av1_split.exit:                                   ; preds = %37, %46, %28, %.thr
   switch i32 %62, label %58 [
     i32 438, label %63
     i32 435, label %63
-  ]
+  ], !llvm.loop !31
 
 63:                                               ; preds = %60, %60
   %64 = getelementptr inbounds i8, ptr %61, i64 -4
@@ -214,7 +214,7 @@ mpeg4video_split.exit:                            ; preds = %58, %63
   %93 = sub i64 0, %.lcssa4950.i
   %scevgep51.i = getelementptr i8, ptr %scevgep.i, i64 %93
   %94 = getelementptr inbounds i8, ptr %78, i64 -5
-  %95 = load i8, ptr %94, align 1, !tbaa !31
+  %95 = load i8, ptr %94, align 1, !tbaa !33
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %.lr.ph63, label %.critedge.i
 
@@ -222,17 +222,17 @@ mpeg4video_split.exit:                            ; preds = %58, %63
   %97 = phi ptr [ %100, %.lr.ph43.i ], [ %94, %.lr.ph43.preheader.i ]
   %.13442.i62 = phi ptr [ %99, %.lr.ph43.i ], [ %78, %.lr.ph43.preheader.i ]
   %98 = icmp ugt ptr %97, %71
-  br i1 %98, label %.lr.ph43.i, label %..critedge.i.loopexit_crit_edge, !llvm.loop !32
+  br i1 %98, label %.lr.ph43.i, label %..critedge.i.loopexit_crit_edge, !llvm.loop !34
 
 .lr.ph43.i:                                       ; preds = %.lr.ph63
   %99 = getelementptr inbounds i8, ptr %.13442.i62, i64 -1
   %100 = getelementptr inbounds i8, ptr %.13442.i62, i64 -6
-  %101 = load i8, ptr %100, align 1, !tbaa !31
+  %101 = load i8, ptr %100, align 1, !tbaa !33
   %102 = icmp eq i8 %101, 0
-  br i1 %102, label %.lr.ph63, label %.critedge.i, !llvm.loop !32
+  br i1 %102, label %.lr.ph63, label %.critedge.i, !llvm.loop !34
 
 ..critedge.i.loopexit_crit_edge:                  ; preds = %.lr.ph63
-  br label %.critedge.i, !llvm.loop !32
+  br label %.critedge.i, !llvm.loop !34
 
 .critedge.i:                                      ; preds = %.lr.ph43.i, %.lr.ph43.preheader.i, %..critedge.i.loopexit_crit_edge, %.preheader.i
   %.lcssa.i = phi ptr [ %91, %.preheader.i ], [ %scevgep51.i, %..critedge.i.loopexit_crit_edge ], [ %91, %.lr.ph43.preheader.i ], [ %97, %.lr.ph43.i ]
@@ -245,7 +245,7 @@ mpeg4video_split.exit:                            ; preds = %58, %63
   %.132.i = phi i32 [ %.03139.i, %83 ], [ %.03139.i, %84 ], [ 1, %81 ]
   %.1.i = phi i32 [ 1, %83 ], [ %.03040.i, %84 ], [ %.03040.i, %81 ]
   %107 = icmp ult ptr %78, %76
-  br i1 %107, label %.lr.ph.i33, label %h264_split.exit, !llvm.loop !34
+  br i1 %107, label %.lr.ph.i33, label %h264_split.exit, !llvm.loop !36
 
 h264_split.exit:                                  ; preds = %.lr.ph.i33, %106, %69, %.critedge.i
   %.0.i32 = phi i32 [ %105, %.critedge.i ], [ 0, %69 ], [ 0, %106 ], [ 0, %.lr.ph.i33 ]
@@ -316,7 +316,7 @@ h264_split.exit:                                  ; preds = %.lr.ph.i33, %106, %
   %133 = sub i64 0, %.lcssa4849.i
   %scevgep50.i = getelementptr i8, ptr %scevgep.i43, i64 %133
   %134 = getelementptr inbounds i8, ptr %117, i64 -5
-  %135 = load i8, ptr %134, align 1, !tbaa !31
+  %135 = load i8, ptr %134, align 1, !tbaa !33
   %136 = icmp eq i8 %135, 0
   br i1 %136, label %.lr.ph, label %.critedge.i41
 
@@ -324,17 +324,17 @@ h264_split.exit:                                  ; preds = %.lr.ph.i33, %106, %
   %137 = phi ptr [ %140, %.lr.ph42.i ], [ %134, %.lr.ph42.preheader.i ]
   %.13241.i60 = phi ptr [ %139, %.lr.ph42.i ], [ %117, %.lr.ph42.preheader.i ]
   %138 = icmp ugt ptr %137, %110
-  br i1 %138, label %.lr.ph42.i, label %..critedge.i41.loopexit_crit_edge, !llvm.loop !35
+  br i1 %138, label %.lr.ph42.i, label %..critedge.i41.loopexit_crit_edge, !llvm.loop !37
 
 .lr.ph42.i:                                       ; preds = %.lr.ph
   %139 = getelementptr inbounds i8, ptr %.13241.i60, i64 -1
   %140 = getelementptr inbounds i8, ptr %.13241.i60, i64 -6
-  %141 = load i8, ptr %140, align 1, !tbaa !31
+  %141 = load i8, ptr %140, align 1, !tbaa !33
   %142 = icmp eq i8 %141, 0
-  br i1 %142, label %.lr.ph, label %.critedge.i41, !llvm.loop !35
+  br i1 %142, label %.lr.ph, label %.critedge.i41, !llvm.loop !37
 
 ..critedge.i41.loopexit_crit_edge:                ; preds = %.lr.ph
-  br label %.critedge.i41, !llvm.loop !35
+  br label %.critedge.i41, !llvm.loop !37
 
 .critedge.i41:                                    ; preds = %.lr.ph42.i, %.lr.ph42.preheader.i, %..critedge.i41.loopexit_crit_edge, %.preheader.i40
   %.lcssa.i42 = phi ptr [ %131, %.preheader.i40 ], [ %scevgep50.i, %..critedge.i41.loopexit_crit_edge ], [ %131, %.lr.ph42.preheader.i ], [ %137, %.lr.ph42.i ]
@@ -348,7 +348,7 @@ h264_split.exit:                                  ; preds = %.lr.ph.i33, %106, %
   %.128.i = phi i32 [ 1, %122 ], [ %.02738.i, %123 ], [ %.02738.i, %128 ], [ %.02738.i, %124 ], [ %.02738.i, %119 ]
   %.1.i37 = phi i32 [ %.02639.i, %122 ], [ 1, %123 ], [ %.02639.i, %128 ], [ %.02639.i, %124 ], [ %.02639.i, %119 ]
   %147 = icmp ult ptr %117, %115
-  br i1 %147, label %.lr.ph.i35, label %hevc_split.exit, !llvm.loop !36
+  br i1 %147, label %.lr.ph.i35, label %hevc_split.exit, !llvm.loop !38
 
 hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %108, %.critedge.i41
   %.0.i34 = phi i32 [ %145, %.critedge.i41 ], [ 0, %108 ], [ 0, %146 ], [ 0, %.lr.ph.i35 ]
@@ -373,7 +373,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   %.02026.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %157, %167 ]
   %153 = shl i32 %.02026.i, 8
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv.i
-  %155 = load i8, ptr %154, align 1, !tbaa !31
+  %155 = load i8, ptr %154, align 1, !tbaa !33
   %156 = zext i8 %155 to i32
   %157 = or disjoint i32 %153, %156
   %158 = icmp eq i32 %157, 435
@@ -397,7 +397,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   %.1.i47 = phi i32 [ %.01927.i, %159 ], [ 1, %.lr.ph.i44 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %mpegvideo_split.exit, label %.lr.ph.i44, !llvm.loop !37
+  br i1 %exitcond.not.i, label %mpegvideo_split.exit, label %.lr.ph.i44, !llvm.loop !39
 
 168:                                              ; preds = %23
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -440,7 +440,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
 189:                                              ; preds = %180, %179, %.lr.ph.i48
   %.1.i51 = phi i32 [ 1, %180 ], [ 0, %179 ], [ 1, %.lr.ph.i48 ]
   %190 = icmp ult ptr %176, %174
-  br i1 %190, label %.lr.ph.i48, label %vc1_split.exit, !llvm.loop !38
+  br i1 %190, label %.lr.ph.i48, label %vc1_split.exit, !llvm.loop !40
 
 vc1_split.exit:                                   ; preds = %189, %168, %183
   %.011.i = phi i32 [ %188, %183 ], [ 0, %168 ], [ 0, %189 ]
@@ -517,11 +517,13 @@ attributes #3 = { nounwind }
 !28 = !{!29, !13, i64 32}
 !29 = !{!"AV1OBU", !13, i64 0, !20, i64 8, !13, i64 16, !13, i64 20, !20, i64 24, !13, i64 32, !13, i64 36, !13, i64 40}
 !30 = !{!13, !13, i64 0}
-!31 = !{!8, !8, i64 0}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = distinct !{!35, !33}
-!36 = distinct !{!36, !33}
-!37 = distinct !{!37, !33}
-!38 = distinct !{!38, !33}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!8, !8, i64 0}
+!34 = distinct !{!34, !35, !32}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = distinct !{!36, !35, !32}
+!37 = distinct !{!37, !35, !32}
+!38 = distinct !{!38, !35, !32}
+!39 = distinct !{!39, !35, !32}
+!40 = distinct !{!40, !35, !32}

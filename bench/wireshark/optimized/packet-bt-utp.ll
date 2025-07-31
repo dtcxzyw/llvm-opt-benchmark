@@ -531,7 +531,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %90, %93
   store volatile i32 %149, ptr %9, align 4
   %.0..0..0..0.58 = load volatile i32, ptr %9, align 4
   %.not116 = icmp sgt i32 %.0..0..0..0.58, %.0..0..0..0.56
-  br i1 %.not116, label %25, label %.loopexit, !llvm.loop !9
+  br i1 %.not116, label %25, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %25, %146, %67, %48, %43, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
@@ -960,7 +960,7 @@ dissect_utp_header_v1.exit:                       ; preds = %94, %150, %153
   %197 = load i32, ptr %5, align 4
   %198 = trunc i32 %197 to i8
   %.not.i = icmp eq i8 %198, 0
-  br i1 %.not.i, label %dissect_utp_extension.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %dissect_utp_extension.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_utp_extension.exit:                       ; preds = %.lr.ph.i, %193, %157
   %.0.lcssa.i = phi i32 [ %.0, %157 ], [ %.037.i, %.lr.ph.i ], [ %195, %193 ]
@@ -981,7 +981,7 @@ dissect_utp_extension.exit:                       ; preds = %.lr.ph.i, %193, %15
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store i16 0, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %212 = load i8, ptr %211, align 8, !range !6, !noundef !11
+  %212 = load i8, ptr %211, align 8, !range !6, !noundef !12
   %213 = trunc nuw i8 %212 to i1
   br i1 %213, label %231, label %214
 
@@ -1038,7 +1038,7 @@ proto_item_set_generated.exit.i:                  ; preds = %226, %223, %218
   br i1 %.not39.i, label %239, label %dissect_utp_payload.exit
 
 239:                                              ; preds = %235
-  %240 = load i8, ptr %211, align 8, !range !6, !noundef !11
+  %240 = load i8, ptr %211, align 8, !range !6, !noundef !12
   store i8 1, ptr %211, align 8
   %241 = getelementptr inbounds nuw i8, ptr %206, i64 12
   %242 = load i16, ptr %241, align 4
@@ -1121,7 +1121,7 @@ define internal fastcc range(i32 -1, 2) i32 @get_utp_version(ptr noundef %0) unn
   br i1 %15, label %.thread, label %25
 
 16:                                               ; preds = %9, %4
-  %17 = load i8, ptr @enable_version0, align 1, !range !6, !noundef !11
+  %17 = load i8, ptr @enable_version0, align 1, !range !6, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   %19 = icmp ugt i32 %2, 22
   %or.cond42.not = and i1 %19, %18
@@ -1212,7 +1212,7 @@ declare void @col_append_str_uint(ptr noundef, i32 noundef, ptr noundef, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @get_utp_stream_info(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %4 = load i8, ptr %3, align 1, !range !6, !noundef !11
+  %4 = load i8, ptr %3, align 1, !range !6, !noundef !12
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -1544,7 +1544,7 @@ print_pdu_tracking_data.exit.i:                   ; preds = %59, %56, %49, %46, 
 
 77:                                               ; preds = %71
   %78 = getelementptr inbounds nuw i8, ptr %37, i64 20
-  %79 = load i8, ptr %78, align 4, !range !6, !noundef !11
+  %79 = load i8, ptr %78, align 4, !range !6, !noundef !12
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %90
 
@@ -1806,8 +1806,9 @@ attributes #14 = { noreturn nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{}

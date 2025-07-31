@@ -676,7 +676,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal8T
 221:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %222 = getelementptr inbounds nuw i8, ptr %.sroa.071.076, i64 8
   %.not74 = icmp eq ptr %222, %37
-  br i1 %.not74, label %.critedge, label %40
+  br i1 %.not74, label %.critedge, label %40, !llvm.loop !33
 
 .body:                                            ; preds = %88, %168, %68, %180
   %.pn31 = phi { ptr, i32 } [ %.pn28, %180 ], [ %89, %88 ], [ %69, %68 ], [ %169, %168 ]
@@ -881,20 +881,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %.0 = phi i1 [ false, %35 ], [ true, %34 ]
   %45 = landingpad { ptr, i32 }
           cleanup
-  %46 = load ptr, ptr %9, align 8, !tbaa !33
+  %46 = load ptr, ptr %9, align 8, !tbaa !35
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %48 = icmp eq ptr %46, %47
   br i1 %48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !38
+  %50 = load i64, ptr %49, align 8, !tbaa !40
   %51 = icmp ult i64 %50, 16
   call void @llvm.assume(i1 %51)
   br i1 %.0, label %54, label %55
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %44
-  %52 = load i64, ptr %47, align 8, !tbaa !39
+  %52 = load i64, ptr %47, align 8, !tbaa !41
   %53 = add i64 %52, 1
   call void @_ZdlPvm(ptr noundef %46, i64 noundef %53) #21
   br i1 %.0, label %54, label %55
@@ -1195,10 +1195,12 @@ attributes #21 = { builtin nounwind }
 !30 = distinct !{!30, !31, !"_ZN4cvc58internal8TypeNode4nullEv: argument 0"}
 !31 = distinct !{!31, !"_ZN4cvc58internal8TypeNode4nullEv"}
 !32 = !{}
-!33 = !{!34, !36, i64 0}
-!34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !35, i64 0, !37, i64 8, !10, i64 16}
-!35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !36, i64 0}
-!36 = !{!"p1 omnipotent char", !9, i64 0}
-!37 = !{!"long", !10, i64 0}
-!38 = !{!34, !37, i64 8}
-!39 = !{!10, !10, i64 0}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!36, !38, i64 0}
+!36 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !37, i64 0, !39, i64 8, !10, i64 16}
+!37 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !38, i64 0}
+!38 = !{!"p1 omnipotent char", !9, i64 0}
+!39 = !{!"long", !10, i64 0}
+!40 = !{!36, !39, i64 8}
+!41 = !{!10, !10, i64 0}

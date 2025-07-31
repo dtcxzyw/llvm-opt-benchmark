@@ -1259,7 +1259,7 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295: ; preds = %211, %214
   %217 = add nsw i32 %199, 1
   %218 = and i32 %217, %93
   %.not273 = icmp eq i32 %218, 0
-  br i1 %.not273, label %.loopexit, label %.lr.ph.split, !llvm.loop !34
+  br i1 %.not273, label %.loopexit, label %.lr.ph.split, !llvm.loop !35
 
 .loopexit:                                        ; preds = %216, %196, %.thread, %175, %126, %139
   %.12250 = phi i32 [ %.5243, %126 ], [ %.0171, %139 ], [ %.11249, %175 ], [ %.5243, %.thread ], [ %.11249, %196 ], [ %.11249409414, %216 ]
@@ -1269,7 +1269,7 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295: ; preds = %211, %214
   %.6183 = phi i32 [ %.4181, %126 ], [ %.0209, %139 ], [ %.0209, %175 ], [ %.0209, %.thread ], [ %.0209, %196 ], [ %.0209, %216 ]
   %indvars.iv.next405 = add nsw i64 %indvars.iv404, 1
   %219 = icmp slt i64 %indvars.iv.next405, %.1216
-  br i1 %219, label %97, label %.thread334, !llvm.loop !35
+  br i1 %219, label %97, label %.thread334, !llvm.loop !36
 
 220:                                              ; preds = %79
   %221 = add nsw i32 %.0184, -1
@@ -1284,7 +1284,7 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295: ; preds = %211, %214
   %.4242346 = phi i32 [ %.0238, %72 ], [ %.0171, %83 ], [ %.12250, %.loopexit ]
   %222 = load i32, ptr %10, align 8, !tbaa !27
   %223 = icmp slt i32 %.3187352, %222
-  br i1 %223, label %46, label %224, !llvm.loop !36
+  br i1 %223, label %46, label %224, !llvm.loop !37
 
 224:                                              ; preds = %.thread334
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1377,7 +1377,7 @@ define i32 @ucptrie_toBinary_77(ptr noundef readonly captures(none) %0, ptr noun
 
 20:                                               ; preds = %15, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !37
+  %22 = load i32, ptr %21, align 8, !tbaa !38
   %23 = shl nsw i32 %22, 1
   %24 = add nsw i32 %23, 16
   switch i8 %11, label %default.unreachable [
@@ -1460,7 +1460,7 @@ default.unreachable:                              ; preds = %44, %20
   %74 = load ptr, ptr %0, align 8, !tbaa !17
   %75 = sext i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 2 %74, i64 %75, i1 false)
-  %76 = load i32, ptr %21, align 8, !tbaa !37
+  %76 = load i32, ptr %21, align 8, !tbaa !38
   %77 = shl nsw i32 %76, 1
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %73, i64 %78
@@ -1613,10 +1613,11 @@ attributes #10 = { nounwind }
 !28 = !{!18, !9, i64 20}
 !29 = !{!18, !10, i64 38}
 !30 = !{!18, !9, i64 40}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32, !33, !34}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !32}
-!35 = distinct !{!35, !32}
-!36 = distinct !{!36, !32}
-!37 = !{!18, !9, i64 16}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !32, !33}
+!36 = distinct !{!36, !32, !33}
+!37 = distinct !{!37, !32, !33}
+!38 = !{!18, !9, i64 16}

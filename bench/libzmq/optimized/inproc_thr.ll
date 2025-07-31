@@ -304,7 +304,7 @@ define internal noalias noundef ptr @_ZL6workerPv(ptr noundef %0) #6 {
   %18 = add nuw nsw i32 %.018, 1
   %19 = load i32, ptr @_ZL13message_count, align 4, !tbaa !11
   %.not13 = icmp eq i32 %18, %19
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.preheader, %17
   %.018 = phi i32 [ %18, %17 ], [ 0, %.preheader ]
@@ -434,6 +434,7 @@ attributes #13 = { cold noreturn nounwind }
 !10 = !{!"long", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}

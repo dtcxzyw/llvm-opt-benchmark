@@ -394,7 +394,7 @@ define internal range(i32 0, 2) i32 @kdf_sshkdf_set_ctx_params(ptr noundef %0, p
   br i1 %6, label %.critedge, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %7 = load ptr, ptr %1, align 8, !tbaa !25
+  %7 = load ptr, ptr %1, align 8, !tbaa !26
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.critedge, label %8
 
@@ -429,8 +429,8 @@ ossl_param_is_empty.exit:                         ; preds = %2
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load ptr, ptr %20, align 8, !tbaa !27
-  %23 = load i64, ptr %21, align 8, !tbaa !28
+  %22 = load ptr, ptr %20, align 8, !tbaa !28
+  %23 = load i64, ptr %21, align 8, !tbaa !29
   tail call void @CRYPTO_clear_free(ptr noundef %22, i64 noundef %23, ptr noundef nonnull @.str, i32 noundef 121) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %24 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %18, ptr noundef nonnull %20, i64 noundef 0, ptr noundef nonnull %21) #6
@@ -445,8 +445,8 @@ ossl_param_is_empty.exit:                         ; preds = %2
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = load ptr, ptr %28, align 8, !tbaa !27
-  %31 = load i64, ptr %29, align 8, !tbaa !28
+  %30 = load ptr, ptr %28, align 8, !tbaa !28
+  %31 = load i64, ptr %29, align 8, !tbaa !29
   tail call void @CRYPTO_clear_free(ptr noundef %30, i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 121) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %32 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %26, ptr noundef nonnull %28, i64 noundef 0, ptr noundef nonnull %29) #6
@@ -461,8 +461,8 @@ ossl_param_is_empty.exit:                         ; preds = %2
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %38 = load ptr, ptr %36, align 8, !tbaa !27
-  %39 = load i64, ptr %37, align 8, !tbaa !28
+  %38 = load ptr, ptr %36, align 8, !tbaa !28
+  %39 = load i64, ptr %37, align 8, !tbaa !29
   tail call void @CRYPTO_clear_free(ptr noundef %38, i64 noundef %39, ptr noundef nonnull @.str, i32 noundef 121) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %40 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %34, ptr noundef nonnull %36, i64 noundef 0, ptr noundef nonnull %37) #6
@@ -481,13 +481,13 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not46, label %.critedge49, label %45
 
 45:                                               ; preds = %43
-  %46 = load ptr, ptr %3, align 8, !tbaa !27
+  %46 = load ptr, ptr %3, align 8, !tbaa !28
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.critedge49, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !29
+  %50 = load i64, ptr %49, align 8, !tbaa !30
   %.not47 = icmp eq i64 %50, 1
   br i1 %.not47, label %51, label %.critedge49
 
@@ -637,10 +637,11 @@ attributes #6 = { nounwind }
 !20 = !{!6, !6, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"int", !6, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !11, i64 0}
-!26 = !{!"ossl_param_st", !11, i64 0, !22, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
-!27 = !{!11, !11, i64 0}
-!28 = !{!12, !12, i64 0}
-!29 = !{!26, !12, i64 24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !11, i64 0}
+!27 = !{!"ossl_param_st", !11, i64 0, !22, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
+!28 = !{!11, !11, i64 0}
+!29 = !{!12, !12, i64 0}
+!30 = !{!27, !12, i64 24}

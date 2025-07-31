@@ -289,7 +289,7 @@ _signal_batch_script_step.exit:                   ; preds = %17, %34, %._crit_ed
 72:                                               ; preds = %55, %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !12
 
 .loopexit:                                        ; preds = %72, %.preheader, %64
   %73 = phi ptr [ %.pre, %64 ], [ %47, %.preheader ], [ %47, %72 ]
@@ -480,7 +480,7 @@ _terminate_job_step.exit:                         ; preds = %._terminate_job_ste
 74:                                               ; preds = %50, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %50, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %50, !llvm.loop !13
 
 .loopexit:                                        ; preds = %74, %.preheader, %_terminate_job_step.exit
   %75 = phi ptr [ %.pre, %_terminate_job_step.exit ], [ %42, %.preheader ], [ %42, %74 ]
@@ -595,8 +595,9 @@ attributes #7 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}

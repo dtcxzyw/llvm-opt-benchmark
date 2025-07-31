@@ -194,7 +194,7 @@ softfloat_le128.exit.thread:                      ; preds = %52, %softfloat_le12
   %97 = and i64 %96, 4294967295
   %98 = mul nuw i64 %97, %64
   %99 = icmp slt i64 %.0167233, 29
-  br i1 %99, label %._crit_edge, label %.lr.ph
+  br i1 %99, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %94, %61
   %.0167.lcssa = phi i64 [ %65, %61 ], [ %95, %94 ]
@@ -260,7 +260,7 @@ softfloat_le128.exit.thread:                      ; preds = %52, %softfloat_le12
   %.neg.i211 = sext i1 %138 to i64
   %139 = add i64 %137, %.neg.i211
   %.not182 = icmp sgt i64 %139, -1
-  br i1 %.not182, label %134, label %.loopexit, !llvm.loop !7
+  br i1 %.not182, label %134, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %134, %127
   %.sroa.033.0 = phi i64 [ %128, %127 ], [ %.sroa.057.4, %134 ]
@@ -361,4 +361,6 @@ attributes #4 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}

@@ -16068,7 +16068,7 @@ define internal void @nbap_init() #0 {
   %7 = getelementptr [16 x i8], ptr @lchId_type_table, i64 0, i64 %indvars.iv.next
   store i8 %6, ptr %7, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !9
 
 8:                                                ; preds = %3
   ret void
@@ -20035,7 +20035,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PCH_ParametersItem
   store i8 1, ptr %29, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %28, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %28, !llvm.loop !10
 
 nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %.0.i.i = phi ptr [ %15, %4 ], [ %19, %28 ]
@@ -20167,7 +20167,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store i32 %108, ptr %109, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %103, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %103, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %103, %copy_address_wmem.exit.i
   %110 = getelementptr inbounds nuw i8, ptr %94, i64 524
@@ -20197,7 +20197,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store i32 %123, ptr %124, align 4
   %indvars.iv.next178.i = add nuw nsw i64 %indvars.iv177.i, 1
   %exitcond181.not.i = icmp eq i64 %indvars.iv.next178.i, %wide.trip.count180.i
-  br i1 %exitcond181.not.i, label %._crit_edge150.i, label %118, !llvm.loop !11
+  br i1 %exitcond181.not.i, label %._crit_edge150.i, label %118, !llvm.loop !12
 
 ._crit_edge150.i:                                 ; preds = %118, %._crit_edge.i
   %125 = getelementptr inbounds nuw i8, ptr %61, i64 76
@@ -20226,11 +20226,11 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   %130 = load i32, ptr %gep165.i, align 4
   %.not.i = icmp eq i32 %130, 0
   %.pre = load i32, ptr %126, align 8
-  br i1 %.not.i, label %.loopexit.i..critedge.i.loopexit_crit_edge, label %131, !llvm.loop !12
+  br i1 %.not.i, label %.loopexit.i..critedge.i.loopexit_crit_edge, label %131, !llvm.loop !13
 
 131:                                              ; preds = %.loopexit.i
   %132 = icmp slt i32 %.pre, 128
-  br i1 %132, label %.lr.ph, label %.critedge.i, !llvm.loop !12
+  br i1 %132, label %.lr.ph, label %.critedge.i, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.lr.ph173.i, %131
   %133 = phi i32 [ %.pre, %131 ], [ %.pre8, %.lr.ph173.i ]
@@ -20277,7 +20277,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store i32 %155, ptr %158, align 4
   %indvars.iv.next183.i = add nuw nsw i64 %indvars.iv182.i, 1
   %exitcond186.not.i = icmp eq i64 %indvars.iv.next183.i, %wide.trip.count185.i
-  br i1 %exitcond186.not.i, label %._crit_edge156.loopexit.i, label %148, !llvm.loop !13
+  br i1 %exitcond186.not.i, label %._crit_edge156.loopexit.i, label %148, !llvm.loop !14
 
 ._crit_edge156.loopexit.i:                        ; preds = %148
   %.pre.i = load i32, ptr %126, align 8
@@ -20320,10 +20320,10 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store i32 %171, ptr %174, align 4
   %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1
   %exitcond191.not.i = icmp eq i64 %indvars.iv.next188.i, %wide.trip.count190.i
-  br i1 %exitcond191.not.i, label %.loopexit.i, label %164, !llvm.loop !14
+  br i1 %exitcond191.not.i, label %.loopexit.i, label %164, !llvm.loop !15
 
 .loopexit.i..critedge.i.loopexit_crit_edge:       ; preds = %.loopexit.i
-  br label %.critedge.i, !llvm.loop !12
+  br label %.critedge.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %131, %.lr.ph173.i, %.loopexit.i..critedge.i.loopexit_crit_edge, %._crit_edge150.i
   %175 = phi i32 [ %.pre8, %._crit_edge150.i ], [ %.pre, %.loopexit.i..critedge.i.loopexit_crit_edge ], [ %.pre8, %.lr.ph173.i ], [ %.pre, %131 ]
@@ -20447,7 +20447,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RACH_ParametersIte
   store i8 1, ptr %29, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %28, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %28, !llvm.loop !10
 
 nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %.0.i.i = phi ptr [ %15, %4 ], [ %19, %28 ]
@@ -20546,7 +20546,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   %88 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store ptr %84, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 108
-  %90 = load i8, ptr %89, align 4, !range !15, !noundef !16
+  %90 = load i8, ptr %89, align 4, !range !16, !noundef !17
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %95
 
@@ -20594,7 +20594,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store i32 %118, ptr %119, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %113, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %113, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %113, %95
   %120 = getelementptr inbounds nuw i8, ptr %104, i64 524
@@ -20624,7 +20624,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store i32 %133, ptr %134, align 4
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count98.i
-  br i1 %exitcond99.not.i, label %._crit_edge93.i, label %128, !llvm.loop !18
+  br i1 %exitcond99.not.i, label %._crit_edge93.i, label %128, !llvm.loop !19
 
 ._crit_edge93.i:                                  ; preds = %128, %._crit_edge.i
   %135 = getelementptr inbounds nuw i8, ptr %61, i64 76
@@ -27734,7 +27734,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Information
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %26, !llvm.loop !10
 
 nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %.0.i.i = phi ptr [ %13, %4 ], [ %17, %26 ]
@@ -27759,7 +27759,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   store i8 0, ptr %38, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.loopexit82.i, label %.preheader.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.loopexit82.i, label %.preheader.i, !llvm.loop !20
 
 .loopexit82.i:                                    ; preds = %.preheader.i, %nbap_get_private_data.exit.i
   %39 = load i32, ptr @ett_nbap_HSDSCH_Information_to_Modify, align 4
@@ -27893,7 +27893,7 @@ copy_address_wmem.exit.i:                         ; preds = %89, %71
   store i8 1, ptr %121, align 4
   %indvars.iv.next.i79.i = add nuw nsw i64 %indvars.iv.i77.i, 1
   %exitcond.not.i80.i = icmp eq i64 %indvars.iv.next.i79.i, 8
-  br i1 %exitcond.not.i80.i, label %nbap_get_private_data.exit81.i, label %120, !llvm.loop !9
+  br i1 %exitcond.not.i80.i, label %nbap_get_private_data.exit81.i, label %120, !llvm.loop !10
 
 nbap_get_private_data.exit81.i:                   ; preds = %120, %copy_address_wmem.exit.i
   %.0.i76.i = phi ptr [ %107, %copy_address_wmem.exit.i ], [ %111, %120 ]
@@ -27940,7 +27940,7 @@ nbap_get_private_data.exit81.i:                   ; preds = %120, %copy_address_
 145:                                              ; preds = %140, %59, %52, %48
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next87.i, 8
-  br i1 %exitcond89.not.i, label %dissect_nbap_HSDSCH_Information_to_Modify.exit, label %48, !llvm.loop !20
+  br i1 %exitcond89.not.i, label %dissect_nbap_HSDSCH_Information_to_Modify.exit, label %48, !llvm.loop !21
 
 dissect_nbap_HSDSCH_Information_to_Modify.exit:   ; preds = %145, %.loopexit82.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
@@ -28004,7 +28004,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_MACdFlows_t
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %dissect_nbap_HSDSCH_MACdFlows_to_Delete.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %dissect_nbap_HSDSCH_MACdFlows_to_Delete.exit, label %25, !llvm.loop !10
 
 dissect_nbap_HSDSCH_MACdFlows_to_Delete.exit:     ; preds = %25, %4
   %.0.i.i = phi ptr [ %12, %4 ], [ %16, %25 ]
@@ -28079,7 +28079,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_E_DCH_FDD_Informat
   store i8 1, ptr %29, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %28, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %28, !llvm.loop !10
 
 nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %.0.i.i = phi ptr [ %15, %4 ], [ %19, %28 ]
@@ -28190,7 +28190,7 @@ copy_address_wmem.exit.i:                         ; preds = %83, %69
   %93 = getelementptr inbounds nuw i8, ptr %64, i64 64
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 108
-  %95 = load i8, ptr %94, align 4, !range !15, !noundef !16
+  %95 = load i8, ptr %94, align 4, !range !16, !noundef !17
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %97, label %101
 
@@ -29081,7 +29081,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Common_Syst
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %26, !llvm.loop !10
 
 nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %.0.i.i = phi ptr [ %13, %4 ], [ %17, %26 ]
@@ -29104,7 +29104,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   store i32 0, ptr %37, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.loopexit65.i, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.loopexit65.i, label %.preheader.i, !llvm.loop !22
 
 .loopexit65.i:                                    ; preds = %.preheader.i, %nbap_get_private_data.exit.i
   %38 = load i32, ptr @ett_nbap_HSDSCH_Common_System_InformationFDD, align 4
@@ -29233,7 +29233,7 @@ copy_address_wmem.exit.i:                         ; preds = %88, %70
   store i8 1, ptr %117, align 4
   %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i60.i, 1
   %exitcond.not.i63.i = icmp eq i64 %indvars.iv.next.i62.i, 8
-  br i1 %exitcond.not.i63.i, label %nbap_get_private_data.exit64.i, label %116, !llvm.loop !9
+  br i1 %exitcond.not.i63.i, label %nbap_get_private_data.exit64.i, label %116, !llvm.loop !10
 
 nbap_get_private_data.exit64.i:                   ; preds = %116, %copy_address_wmem.exit.i
   %.0.i59.i = phi ptr [ %103, %copy_address_wmem.exit.i ], [ %107, %116 ]
@@ -29258,7 +29258,7 @@ nbap_get_private_data.exit64.i:                   ; preds = %116, %copy_address_
 129:                                              ; preds = %nbap_get_private_data.exit64.i, %58, %51, %47
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next70.i, 8
-  br i1 %exitcond72.not.i, label %dissect_nbap_HSDSCH_Common_System_InformationFDD.exit, label %47, !llvm.loop !22
+  br i1 %exitcond72.not.i, label %dissect_nbap_HSDSCH_Common_System_InformationFDD.exit, label %47, !llvm.loop !23
 
 dissect_nbap_HSDSCH_Common_System_InformationFDD.exit: ; preds = %129, %.loopexit65.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
@@ -34434,7 +34434,7 @@ define internal i32 @dissect_nbap_ProcedureID(ptr noundef %0, i32 noundef %1, pt
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -34537,7 +34537,7 @@ define internal i32 @dissect_nbap_ProcedureCode(ptr noundef %0, i32 noundef %1, 
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
@@ -34590,7 +34590,7 @@ define internal i32 @dissect_nbap_DdMode(ptr noundef %0, i32 noundef %1, ptr nou
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -34648,7 +34648,7 @@ define internal i32 @dissect_nbap_T_shortTransActionId(ptr noundef %0, i32 nound
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -34694,7 +34694,7 @@ define internal i32 @dissect_nbap_T_longTransActionId(ptr noundef %0, i32 nounde
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -34906,7 +34906,7 @@ define internal i32 @dissect_nbap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
@@ -34979,7 +34979,7 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
   store i8 1, ptr %22, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %21, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %21, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %21, %4
   %.0.i = phi ptr [ %8, %4 ], [ %12, %21 ]
@@ -35205,7 +35205,7 @@ define internal i32 @dissect_nbap_CRNC_CommunicationContextID(ptr noundef %0, i3
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
@@ -35245,7 +35245,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   store i8 1, ptr %48, align 4
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %47, !llvm.loop !9
+  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %47, !llvm.loop !10
 
 nbap_get_private_data.exit12:                     ; preds = %47, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %34, %nbap_get_private_data.exit ], [ %38, %47 ]
@@ -35671,7 +35671,7 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
   store i8 1, ptr %22, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %21, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %21, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %21, %4
   %.0.i = phi ptr [ %8, %4 ], [ %12, %21 ]
@@ -35786,7 +35786,7 @@ define internal i32 @dissect_nbap_CommonPhysicalChannelID(ptr noundef %0, i32 no
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -36113,7 +36113,7 @@ define internal i32 @dissect_nbap_FACH_ParametersItem_CTCH_SetupRqstFDD(ptr noun
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
@@ -36204,7 +36204,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   %81 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 0, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
-  %83 = load i8, ptr %82, align 4, !range !15, !noundef !16
+  %83 = load i8, ptr %82, align 4, !range !16, !noundef !17
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %85, label %88
 
@@ -36260,7 +36260,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   store i32 %117, ptr %118, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %112, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %112, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %112, %88
   %119 = getelementptr inbounds nuw i8, ptr %103, i64 524
@@ -36290,7 +36290,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   store i32 %132, ptr %133, align 4
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %._crit_edge152, label %127, !llvm.loop !24
+  br i1 %exitcond183.not, label %._crit_edge152, label %127, !llvm.loop !25
 
 ._crit_edge152:                                   ; preds = %127, %._crit_edge
   %134 = getelementptr inbounds nuw i8, ptr %60, i64 76
@@ -36318,12 +36318,12 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   %gep167 = getelementptr i8, ptr %invariant.gep166, i64 %.idx
   %140 = load i32, ptr %gep167, align 4
   %.not = icmp eq i32 %140, 0
-  br i1 %.not, label %.loopexit..critedge.loopexit_crit_edge, label %141, !llvm.loop !25
+  br i1 %.not, label %.loopexit..critedge.loopexit_crit_edge, label %141, !llvm.loop !26
 
 141:                                              ; preds = %.loopexit
   %142 = load i32, ptr %135, align 8
   %143 = icmp slt i32 %142, 128
-  br i1 %143, label %.lr.ph195, label %.critedge, !llvm.loop !25
+  br i1 %143, label %.lr.ph195, label %.critedge, !llvm.loop !26
 
 .lr.ph195:                                        ; preds = %.lr.ph175, %141
   %144 = phi i32 [ %142, %141 ], [ %138, %.lr.ph175 ]
@@ -36370,7 +36370,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   store i32 %166, ptr %169, align 4
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %._crit_edge158.loopexit, label %159, !llvm.loop !26
+  br i1 %exitcond188.not, label %._crit_edge158.loopexit, label %159, !llvm.loop !27
 
 ._crit_edge158.loopexit:                          ; preds = %159
   %.pre = load i32, ptr %135, align 8
@@ -36413,10 +36413,10 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   store i32 %182, ptr %185, align 4
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %.loopexit, label %175, !llvm.loop !27
+  br i1 %exitcond193.not, label %.loopexit, label %175, !llvm.loop !28
 
 .loopexit..critedge.loopexit_crit_edge:           ; preds = %.loopexit
-  br label %.critedge, !llvm.loop !25
+  br label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %141, %.lr.ph175, %.loopexit..critedge.loopexit_crit_edge, %._crit_edge152
   %.0139.lcssa = phi i32 [ %101, %._crit_edge152 ], [ %145, %.loopexit..critedge.loopexit_crit_edge ], [ %101, %.lr.ph175 ], [ %145, %141 ]
@@ -36540,7 +36540,7 @@ define internal i32 @dissect_nbap_CommonTransportChannelID(ptr noundef %0, i32 n
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -36627,7 +36627,7 @@ define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList(ptr noundef
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -36682,7 +36682,7 @@ define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList_item(ptr no
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -36734,7 +36734,7 @@ define internal i32 @dissect_nbap_TransportFormatSet_NrOfTransportBlocks(ptr nou
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -36885,7 +36885,7 @@ define internal i32 @dissect_nbap_TransportFormatSet_TransportBlockSize(ptr noun
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -37095,7 +37095,7 @@ define internal i32 @dissect_nbap_T_transportFormatSet(ptr noundef %0, i32 nound
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -37179,7 +37179,7 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   store i8 1, ptr %29, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.sink.split, label %28, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.sink.split, label %28, !llvm.loop !10
 
 30:                                               ; preds = %5
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -37217,7 +37217,7 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   store i8 1, ptr %50, align 4
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 8
-  br i1 %exitcond.not.i13, label %.sink.split, label %49, !llvm.loop !9
+  br i1 %exitcond.not.i13, label %.sink.split, label %49, !llvm.loop !10
 
 51:                                               ; preds = %5
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -37255,7 +37255,7 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   store i8 1, ptr %71, align 4
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, 8
-  br i1 %exitcond.not.i19, label %.sink.split, label %70, !llvm.loop !9
+  br i1 %exitcond.not.i19, label %.sink.split, label %70, !llvm.loop !10
 
 72:                                               ; preds = %5
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -37293,7 +37293,7 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   store i8 1, ptr %92, align 4
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, 8
-  br i1 %exitcond.not.i25, label %.sink.split, label %91, !llvm.loop !9
+  br i1 %exitcond.not.i25, label %.sink.split, label %91, !llvm.loop !10
 
 .sink.split:                                      ; preds = %91, %70, %49, %28, %72, %51, %30, %9
   %.0.i21.sink = phi ptr [ %15, %9 ], [ %36, %30 ], [ %57, %51 ], [ %78, %72 ], [ %19, %28 ], [ %40, %49 ], [ %61, %70 ], [ %82, %91 ]
@@ -37586,7 +37586,7 @@ define internal i32 @dissect_nbap_CommonTransportChannel_InformationResponse(ptr
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %26, %5
   %.0.i = phi ptr [ %13, %5 ], [ %17, %26 ]
@@ -37726,7 +37726,7 @@ define internal i32 @dissect_nbap_BindingID(ptr noundef %0, i32 noundef %1, ptr 
   store i8 1, ptr %34, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %33, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %33, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %33, %12
   %.0.i = phi ptr [ %20, %12 ], [ %24, %33 ]
@@ -37783,7 +37783,7 @@ define internal i32 @dissect_nbap_TransportLayerAddress(ptr noundef %0, i32 noun
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -38822,7 +38822,7 @@ define internal i32 @dissect_nbap_MIB_SB_SIB_InformationItem_SystemInfoUpdateRqs
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -38862,7 +38862,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   store i8 1, ptr %45, align 4
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %44, !llvm.loop !9
+  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %44, !llvm.loop !10
 
 nbap_get_private_data.exit12:                     ; preds = %44, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %31, %nbap_get_private_data.exit ], [ %35, %44 ]
@@ -38910,7 +38910,7 @@ define internal i32 @dissect_nbap_IB_Type(ptr noundef %0, i32 noundef %1, ptr no
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -39008,7 +39008,7 @@ define internal i32 @dissect_nbap_Segment_Type(ptr noundef %0, i32 noundef %1, p
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -39057,7 +39057,7 @@ define internal i32 @dissect_nbap_IB_SG_DATA(ptr noundef %0, i32 noundef %1, ptr
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -39242,7 +39242,7 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %68, %78
   %125 = call ptr @wmem_list_frame_next(ptr noundef %.0206228)
   %126 = add nuw i32 %.0191230, 1
   %exitcond.not = icmp eq i32 %126, %112
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge247:                                   ; preds = %._crit_edge238, %._crit_edge
   %127 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %120, i32 noundef %.0200.lcssa, i32 noundef %.0200.lcssa)
@@ -39271,7 +39271,7 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %68, %78
   %135 = call ptr @wmem_list_frame_next(ptr noundef %.1207241)
   %136 = add nuw i32 %.0190244, 1
   %exitcond252.not = icmp eq i32 %136, %112
-  br i1 %exitcond252.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !29
+  br i1 %exitcond252.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !30
 
 .lr.ph237:                                        ; preds = %.lr.ph246, %148
   %.0235 = phi i32 [ %155, %148 ], [ 0, %.lr.ph246 ]
@@ -39308,7 +39308,7 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %68, %78
   %.2 = select i1 %153, i8 -128, i8 %152
   %155 = add nuw i32 %.0235, 1
   %exitcond251.not = icmp eq i32 %155, %134
-  br i1 %exitcond251.not, label %._crit_edge238, label %.lr.ph237, !llvm.loop !30
+  br i1 %exitcond251.not, label %._crit_edge238, label %.lr.ph237, !llvm.loop !31
 
 .thread223:                                       ; preds = %48, %58, %55, %109
   %.0194227 = phi ptr [ null, %109 ], [ %59, %58 ], [ %57, %55 ], [ %50, %48 ]
@@ -39707,7 +39707,7 @@ define internal i32 @dissect_nbap_UL_ScramblingCodeNumber(ptr noundef %0, i32 no
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
@@ -39747,7 +39747,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   store i8 1, ptr %48, align 4
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 8
-  br i1 %exitcond.not.i15, label %nbap_get_private_data.exit16, label %47, !llvm.loop !9
+  br i1 %exitcond.not.i15, label %nbap_get_private_data.exit16, label %47, !llvm.loop !10
 
 nbap_get_private_data.exit16:                     ; preds = %47, %nbap_get_private_data.exit
   %.0.i11 = phi ptr [ %34, %nbap_get_private_data.exit ], [ %38, %47 ]
@@ -39876,7 +39876,7 @@ define internal i32 @dissect_nbap_PayloadCRC_PresenceIndicator(ptr noundef %0, i
   store i8 1, ptr %30, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %29, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %29, !llvm.loop !10
 
 31:                                               ; preds = %5
   br i1 %16, label %32, label %nbap_get_private_data.exit
@@ -39907,7 +39907,7 @@ define internal i32 @dissect_nbap_PayloadCRC_PresenceIndicator(ptr noundef %0, i
   store i8 1, ptr %44, align 4
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit, label %43, !llvm.loop !9
+  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit, label %43, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %43, %29, %31, %17
   %.0.i7.sink = phi ptr [ %15, %17 ], [ %15, %31 ], [ %20, %29 ], [ %34, %43 ]
@@ -39961,7 +39961,7 @@ define internal i32 @dissect_nbap_DCH_Specific_FDD_InformationList(ptr noundef %
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -40001,7 +40001,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   store i8 1, ptr %45, align 4
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %44, !llvm.loop !9
+  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %44, !llvm.loop !10
 
 nbap_get_private_data.exit12:                     ; preds = %44, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %31, %nbap_get_private_data.exit ], [ %35, %44 ]
@@ -40049,7 +40049,7 @@ define internal i32 @dissect_nbap_DCH_Specific_FDD_Item(ptr noundef %0, i32 noun
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -40093,7 +40093,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   store i8 1, ptr %49, align 4
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 8
-  br i1 %exitcond.not.i12, label %nbap_get_private_data.exit13, label %48, !llvm.loop !9
+  br i1 %exitcond.not.i12, label %nbap_get_private_data.exit13, label %48, !llvm.loop !10
 
 nbap_get_private_data.exit13:                     ; preds = %48, %nbap_get_private_data.exit
   %.0.i8 = phi ptr [ %35, %nbap_get_private_data.exit ], [ %39, %48 ]
@@ -40133,7 +40133,7 @@ nbap_get_private_data.exit13:                     ; preds = %48, %nbap_get_priva
   store i8 1, ptr %70, align 4
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 8
-  br i1 %exitcond.not.i18, label %nbap_get_private_data.exit19, label %69, !llvm.loop !9
+  br i1 %exitcond.not.i18, label %nbap_get_private_data.exit19, label %69, !llvm.loop !10
 
 nbap_get_private_data.exit19:                     ; preds = %69, %nbap_get_private_data.exit13
   %.0.i14 = phi ptr [ %56, %nbap_get_private_data.exit13 ], [ %60, %69 ]
@@ -40181,7 +40181,7 @@ define internal i32 @dissect_nbap_T_dCH_ID(ptr noundef %0, i32 noundef %1, ptr n
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -40259,7 +40259,7 @@ define internal i32 @dissect_nbap_T_ul_TransportFormatSet(ptr noundef %0, i32 no
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -40321,7 +40321,7 @@ define internal i32 @dissect_nbap_T_dl_TransportFormatSet(ptr noundef %0, i32 no
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -40590,7 +40590,7 @@ define internal i32 @dissect_nbap_DCH_ID(ptr noundef %0, i32 noundef %1, ptr nou
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -40793,13 +40793,13 @@ define internal i32 @dissect_nbap_NodeB_CommunicationContextID(ptr noundef %0, i
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 1048575, ptr noundef nonnull %6, i1 noundef zeroext false)
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
-  %29 = load i8, ptr %28, align 4, !range !15, !noundef !16
+  %29 = load i8, ptr %28, align 4, !range !16, !noundef !17
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %54
 
@@ -41256,7 +41256,7 @@ define internal i32 @dissect_nbap_T_dCH_ID_01(ptr noundef %0, i32 noundef %1, pt
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -41296,7 +41296,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i8 1, ptr %47, align 4
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %46, !llvm.loop !9
+  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %46, !llvm.loop !10
 
 nbap_get_private_data.exit12:                     ; preds = %46, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %33, %nbap_get_private_data.exit ], [ %37, %46 ]
@@ -41342,7 +41342,7 @@ define internal i32 @dissect_nbap_T_ul_TransportFormatSet_01(ptr noundef %0, i32
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -41404,7 +41404,7 @@ define internal i32 @dissect_nbap_T_dl_TransportFormatSet_01(ptr noundef %0, i32
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -43095,7 +43095,7 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_ID(ptr noundef %0, i32 noundef
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -43623,7 +43623,7 @@ define internal i32 @dissect_nbap_T_hSDSCH_Physical_Layer_Category(ptr noundef %
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -43703,7 +43703,7 @@ define internal i32 @dissect_nbap_MAC_PDU_SizeExtended(ptr noundef %0, i32 nound
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -43743,7 +43743,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   store i8 1, ptr %46, align 4
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 8
-  br i1 %exitcond.not.i16, label %nbap_get_private_data.exit17, label %45, !llvm.loop !9
+  br i1 %exitcond.not.i16, label %nbap_get_private_data.exit17, label %45, !llvm.loop !10
 
 nbap_get_private_data.exit17:                     ; preds = %45, %nbap_get_private_data.exit
   %.0.i12 = phi ptr [ %32, %nbap_get_private_data.exit ], [ %36, %45 ]
@@ -43789,7 +43789,7 @@ nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge: ; preds = %
   store i8 1, ptr %67, align 4
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 8
-  br i1 %exitcond.not.i22, label %nbap_get_private_data.exit23, label %66, !llvm.loop !9
+  br i1 %exitcond.not.i22, label %nbap_get_private_data.exit23, label %66, !llvm.loop !10
 
 nbap_get_private_data.exit23:                     ; preds = %66, %nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge
   %68 = phi i64 [ %54, %nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge ], [ 3, %66 ]
@@ -44636,7 +44636,7 @@ define internal i32 @dissect_nbap_HSDSCH_FDD_Information(ptr noundef %0, i32 nou
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -44661,7 +44661,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i8 0, ptr %37, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit81, label %.preheader, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit81, label %.preheader, !llvm.loop !32
 
 .loopexit81:                                      ; preds = %.preheader, %nbap_get_private_data.exit
   %38 = load i32, ptr @ett_nbap_HSDSCH_FDD_Information, align 4
@@ -44795,7 +44795,7 @@ copy_address_wmem.exit:                           ; preds = %70, %88
   store i8 1, ptr %120, align 4
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 8
-  br i1 %exitcond.not.i79, label %nbap_get_private_data.exit80, label %119, !llvm.loop !9
+  br i1 %exitcond.not.i79, label %nbap_get_private_data.exit80, label %119, !llvm.loop !10
 
 nbap_get_private_data.exit80:                     ; preds = %119, %copy_address_wmem.exit
   %.0.i75 = phi ptr [ %106, %copy_address_wmem.exit ], [ %110, %119 ]
@@ -44840,7 +44840,7 @@ nbap_get_private_data.exit80:                     ; preds = %119, %copy_address_
 143:                                              ; preds = %47, %58, %139, %51
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 8
-  br i1 %exitcond88.not, label %.loopexit, label %47, !llvm.loop !32
+  br i1 %exitcond88.not, label %.loopexit, label %47, !llvm.loop !33
 
 .loopexit:                                        ; preds = %143, %.loopexit81
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
@@ -44888,7 +44888,7 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlows_Information(ptr noundef %0, i
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -44921,7 +44921,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i8 0, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader, %31
   %42 = load i32, ptr @ett_nbap_HSDSCH_MACdFlows_Information, align 4
@@ -44970,7 +44970,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i8 1, ptr %68, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %67, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %67, !llvm.loop !10
 
 nbap_get_private_data.exit.i:                     ; preds = %67, %50
   %.0.i.i = phi ptr [ %54, %50 ], [ %58, %67 ]
@@ -45056,7 +45056,7 @@ copy_address_wmem.exit.i:                         ; preds = %107, %91
   %119 = trunc i64 %indvars.iv.i26 to i8
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 5
   store i8 %119, ptr %120, align 1
-  %121 = load i8, ptr %72, align 4, !range !15, !noundef !16
+  %121 = load i8, ptr %72, align 4, !range !16, !noundef !17
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %123, label %126
 
@@ -45104,7 +45104,7 @@ copy_address_wmem.exit.i:                         ; preds = %107, %91
 146:                                              ; preds = %142, %83, %78, %74
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 8
-  br i1 %exitcond.not.i28, label %add_hsdsch_bind.exit, label %74, !llvm.loop !34
+  br i1 %exitcond.not.i28, label %add_hsdsch_bind.exit, label %74, !llvm.loop !35
 
 add_hsdsch_bind.exit:                             ; preds = %146, %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
@@ -45191,7 +45191,7 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem(ptr noundef 
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -45283,7 +45283,7 @@ define internal i32 @dissect_nbap_PriorityQueue_InfoItem(ptr noundef %0, i32 nou
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -45372,7 +45372,7 @@ define internal i32 @dissect_nbap_RLC_Mode(ptr noundef %0, i32 noundef %1, ptr n
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -45455,7 +45455,7 @@ define internal i32 @dissect_nbap_MACdPDU_Size(ptr noundef %0, i32 noundef %1, p
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -45540,7 +45540,7 @@ define internal i32 @dissect_nbap_HSDSCH_RNTI(ptr noundef %0, i32 noundef %1, pt
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %26, %5
   %.0.i = phi ptr [ %13, %5 ], [ %17, %26 ]
@@ -45608,7 +45608,7 @@ nbap_get_private_data.exit:                       ; preds = %26, %5
 60:                                               ; preds = %39, %57, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !36
 
 .loopexit:                                        ; preds = %60, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
@@ -45777,7 +45777,7 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem(ptr noundef %
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -45859,14 +45859,14 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i8 %75, ptr %76, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %67, %58
   %77 = getelementptr inbounds nuw i8, ptr %.0.i, i64 109
   %78 = load i8, ptr %77, align 1
   %79 = getelementptr inbounds nuw i8, ptr %50, i64 132684
   store i8 %78, ptr %79, align 4
-  %80 = load i8, ptr %27, align 8, !range !15, !noundef !16
+  %80 = load i8, ptr %27, align 8, !range !16, !noundef !17
   %81 = getelementptr inbounds nuw i8, ptr %53, i64 100
   store i8 %80, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %50, i64 72
@@ -45918,7 +45918,7 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_ID(ptr noundef %0, i32 noundef 
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -45995,7 +45995,7 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformation(ptr noundef %0
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -46064,7 +46064,7 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformationItem(ptr nounde
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -46116,7 +46116,7 @@ define internal i32 @dissect_nbap_LogicalChannelID(ptr noundef %0, i32 noundef %
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -46199,7 +46199,7 @@ define internal i32 @dissect_nbap_E_DCH_DDI_Value(ptr noundef %0, i32 noundef %1
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -46468,7 +46468,7 @@ define internal i32 @dissect_nbap_RL_Specific_DCH_Info_Item(ptr noundef %0, i32 
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
@@ -46616,7 +46616,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   store i32 %118, ptr %119, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %113, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %113, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %113, %102
   %120 = getelementptr inbounds nuw i8, ptr %104, i64 524
@@ -46646,7 +46646,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   store i32 %133, ptr %134, align 4
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %._crit_edge151, label %128, !llvm.loop !38
+  br i1 %exitcond182.not, label %._crit_edge151, label %128, !llvm.loop !39
 
 ._crit_edge151:                                   ; preds = %128, %._crit_edge
   %135 = getelementptr inbounds nuw i8, ptr %70, i64 76
@@ -46674,12 +46674,12 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   %gep166 = getelementptr i8, ptr %invariant.gep165, i64 %.idx
   %141 = load i32, ptr %gep166, align 4
   %.not140 = icmp eq i32 %141, 0
-  br i1 %.not140, label %.loopexit..critedge.loopexit_crit_edge, label %142, !llvm.loop !39
+  br i1 %.not140, label %.loopexit..critedge.loopexit_crit_edge, label %142, !llvm.loop !40
 
 142:                                              ; preds = %.loopexit
   %143 = load i32, ptr %136, align 8
   %144 = icmp slt i32 %143, 128
-  br i1 %144, label %.lr.ph194, label %.critedge, !llvm.loop !39
+  br i1 %144, label %.lr.ph194, label %.critedge, !llvm.loop !40
 
 .lr.ph194:                                        ; preds = %.lr.ph174, %142
   %145 = phi i32 [ %143, %142 ], [ %139, %.lr.ph174 ]
@@ -46726,7 +46726,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   store i32 %167, ptr %170, align 4
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %._crit_edge157.loopexit, label %160, !llvm.loop !40
+  br i1 %exitcond187.not, label %._crit_edge157.loopexit, label %160, !llvm.loop !41
 
 ._crit_edge157.loopexit:                          ; preds = %160
   %.pre = load i32, ptr %136, align 8
@@ -46769,10 +46769,10 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   store i32 %183, ptr %186, align 4
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %.loopexit, label %176, !llvm.loop !41
+  br i1 %exitcond192.not, label %.loopexit, label %176, !llvm.loop !42
 
 .loopexit..critedge.loopexit_crit_edge:           ; preds = %.loopexit
-  br label %.critedge, !llvm.loop !39
+  br label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %142, %.lr.ph174, %.loopexit..critedge.loopexit_crit_edge, %._crit_edge151
   %.0136.lcssa = phi i32 [ %101, %._crit_edge151 ], [ %146, %.loopexit..critedge.loopexit_crit_edge ], [ %101, %.lr.ph174 ], [ %146, %142 ]
@@ -46830,7 +46830,7 @@ define internal i32 @dissect_nbap_T_dCH_id(ptr noundef %0, i32 noundef %1, ptr n
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -46870,7 +46870,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i8 1, ptr %47, align 4
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %46, !llvm.loop !9
+  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %46, !llvm.loop !10
 
 nbap_get_private_data.exit12:                     ; preds = %46, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %33, %nbap_get_private_data.exit ], [ %37, %46 ]
@@ -46953,7 +46953,7 @@ define internal i32 @dissect_nbap_RL_Specific_E_DCH_Information_Item(ptr noundef
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
@@ -47066,7 +47066,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   %94 = getelementptr inbounds nuw i8, ptr %70, i64 64
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
-  %96 = load i8, ptr %95, align 4, !range !15, !noundef !16
+  %96 = load i8, ptr %95, align 4, !range !16, !noundef !17
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %98, label %102
 
@@ -47593,7 +47593,7 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InformationResp_Item(
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -47968,7 +47968,7 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem_to_Modify(pt
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -48071,7 +48071,7 @@ define internal i32 @dissect_nbap_PriorityQueue_InfoItem_to_Add(ptr noundef %0, 
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -48140,7 +48140,7 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlows_to_Delete_Item(ptr noundef %0
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -48205,7 +48205,7 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem_to_Modify(ptr
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -48225,7 +48225,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 37:                                               ; preds = %nbap_get_private_data.exit
   %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
-  %39 = load i8, ptr %38, align 4, !range !15, !noundef !16
+  %39 = load i8, ptr %38, align 4, !range !16, !noundef !17
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %43, label %41
 
@@ -48318,7 +48318,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i8 %96, ptr %97, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %88, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %88, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %88, %79
   %98 = getelementptr inbounds nuw i8, ptr %.0.i, i64 109
@@ -48326,7 +48326,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %100 = getelementptr inbounds nuw i8, ptr %71, i64 132684
   store i8 %99, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  %102 = load i8, ptr %101, align 8, !range !15, !noundef !16
+  %102 = load i8, ptr %101, align 8, !range !16, !noundef !17
   %103 = getelementptr inbounds nuw i8, ptr %74, i64 100
   store i8 %102, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %71, i64 72
@@ -48393,7 +48393,7 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelToModifyItem(ptr noundef %
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %26, %5
   %.0.i = phi ptr [ %13, %5 ], [ %17, %26 ]
@@ -48852,7 +48852,7 @@ define internal i32 @dissect_nbap_Common_MACFlow_ID(ptr noundef %0, i32 noundef 
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
@@ -48919,7 +48919,7 @@ define internal i32 @dissect_nbap_CommonMACFlow_Specific_InfoItem(ptr noundef %0
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !10
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
@@ -51685,40 +51685,41 @@ attributes #12 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}

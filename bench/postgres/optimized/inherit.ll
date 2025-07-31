@@ -487,7 +487,7 @@ define internal fastcc void @expand_partitioned_rtentry(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
   %91 = tail call i32 @bms_next_member(ptr noundef %26, i32 noundef %44) #7
   %92 = icmp sgt i32 %91, -1
-  br i1 %92, label %43, label %.loopexit
+  br i1 %92, label %43, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %90, %31, %22
   ret void
@@ -592,7 +592,7 @@ list_length.exit:                                 ; preds = %8, %27
   %61 = load i32, ptr %40, align 8
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next113, %62
-  br i1 %63, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
+  br i1 %63, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %100, %.lr.ph.split.us, %list_length.exit
   %.0.lcssa = phi ptr [ null, %list_length.exit ], [ %60, %.lr.ph.split.us ], [ %103, %100 ]
@@ -665,7 +665,7 @@ list_length.exit106:                              ; preds = %84
   %104 = load i32, ptr %40, align 8
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next, %105
-  br i1 %106, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
+  br i1 %106, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 107:                                              ; preds = %._crit_edge
   %108 = tail call noundef ptr @palloc0(i64 noundef 36) #7
@@ -1051,7 +1051,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %94 = sext i32 %93 to i64
   %.not118 = icmp slt i64 %indvars.iv.next226, %94
-  br i1 %.not118, label %75, label %.critedge124, !llvm.loop !11
+  br i1 %.not118, label %75, label %.critedge124, !llvm.loop !13
 
 .critedge124:                                     ; preds = %.critedge126, %.preheader, %._crit_edge
   %.694 = phi i32 [ %.088.lcssa, %._crit_edge ], [ %.088.lcssa, %.preheader ], [ %.896.lcssa, %.critedge126 ]
@@ -1129,7 +1129,7 @@ define internal fastcc ptr @translate_col_privs(ptr noundef %0, ptr noundef read
   %.1 = phi ptr [ %7, %6 ], [ %.027, %3 ]
   %9 = add nsw i32 %.02026, 1
   %exitcond.not = icmp eq i32 %9, 0
-  br i1 %exitcond.not, label %10, label %3, !llvm.loop !12
+  br i1 %exitcond.not, label %10, label %3, !llvm.loop !14
 
 10:                                               ; preds = %8
   %11 = tail call zeroext i1 @bms_is_member(i32 noundef 7, ptr noundef %0) #7
@@ -1258,8 +1258,10 @@ attributes #8 = { cold nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !9}
+!13 = distinct !{!13, !7, !9}
+!14 = distinct !{!14, !7, !9}

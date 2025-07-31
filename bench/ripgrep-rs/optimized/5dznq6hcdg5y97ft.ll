@@ -94,7 +94,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %33 = load i8, ptr %29, align 1, !noalias !7, !noundef !5
   %34 = icmp eq i8 %33, %2
-  br i1 %34, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h13eab00ec004919dE.exit", label %28
+  br i1 %34, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h13eab00ec004919dE.exit", label %28, !llvm.loop !11
 
 35:                                               ; preds = %15
   %switch = icmp eq i64 %17, 0
@@ -108,18 +108,18 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
 41:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %43 = load ptr, ptr %42, align 8, !nonnull !5, !align !11, !noundef !5
+  %43 = load ptr, ptr %42, align 8, !nonnull !5, !align !13, !noundef !5
   call void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %43, i8 noundef %2)
-  %44 = load i8, ptr %7, align 8, !range !12, !noundef !5
+  %44 = load i8, ptr %7, align 8, !range !14, !noundef !5
   %45 = icmp eq i8 %44, 4
   br i1 %45, label %93, label %94
 
 46:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load ptr, ptr %47, align 8, !nonnull !5, !align !11, !noundef !5
+  %48 = load ptr, ptr %47, align 8, !nonnull !5, !align !13, !noundef !5
   call void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %48, i8 noundef %2)
-  %49 = load i8, ptr %6, align 8, !range !12, !noundef !5
+  %49 = load i8, ptr %6, align 8, !range !14, !noundef !5
   %50 = icmp eq i8 %49, 4
   br i1 %50, label %95, label %96
 
@@ -162,7 +162,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
   %69 = add i64 %68, %.017.i
   %70 = add nuw i64 %.016.i, 1
   %71 = icmp eq i64 %70, %39
-  br i1 %71, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit", label %.preheader
+  br i1 %71, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit", label %.preheader, !llvm.loop !15
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit": ; preds = %.preheader
   %72 = icmp eq i64 %69, 1
@@ -181,7 +181,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
   %77 = add i64 %76, %.017.i94
   %78 = add nuw i64 %.016.i95, 1
   %79 = icmp eq i64 %78, %39
-  br i1 %79, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd79c2208b61df723E.exit", label %.preheader160
+  br i1 %79, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd79c2208b61df723E.exit", label %.preheader160, !llvm.loop !16
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd79c2208b61df723E.exit": ; preds = %.preheader160
   %80 = icmp eq i64 %77, 1
@@ -190,19 +190,19 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
 .lr.ph.i:                                         ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit", %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb5ce541ad0a2450E.exit.thread.i"
   %81 = phi ptr [ %82, %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb5ce541ad0a2450E.exit.thread.i" ], [ %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit" ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load i32, ptr %81, align 4, !range !13, !noalias !14, !noundef !5
+  %83 = load i32, ptr %81, align 4, !range !17, !noalias !18, !noundef !5
   %.not.i.i = icmp samesign ugt i32 %83, %16
   br i1 %.not.i.i, label %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb5ce541ad0a2450E.exit.thread.i", label %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb5ce541ad0a2450E.exit.i"
 
 "_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb5ce541ad0a2450E.exit.i": ; preds = %.lr.ph.i
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %85 = load i32, ptr %84, align 4, !range !13, !noalias !14, !noundef !5
+  %85 = load i32, ptr %84, align 4, !range !17, !noalias !18, !noundef !5
   %.not.i = icmp samesign ult i32 %85, %16
   br i1 %.not.i, label %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb5ce541ad0a2450E.exit.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h769754a6ce48681aE.exit"
 
 "_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb5ce541ad0a2450E.exit.thread.i": ; preds = %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb5ce541ad0a2450E.exit.i", %.lr.ph.i
   %86 = icmp eq ptr %82, %66
-  br i1 %86, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit.thread", label %.lr.ph.i
+  br i1 %86, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit.thread", label %.lr.ph.i, !llvm.loop !22
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h769754a6ce48681aE.exit": ; preds = %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb5ce541ad0a2450E.exit.i"
   store i8 3, ptr %0, align 8
@@ -213,19 +213,19 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
 .lr.ph.i100:                                      ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd79c2208b61df723E.exit", %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.thread.i"
   %87 = phi ptr [ %88, %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.thread.i" ], [ %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd79c2208b61df723E.exit" ]
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 2
-  %89 = load i8, ptr %87, align 1, !noalias !18, !noundef !5
+  %89 = load i8, ptr %87, align 1, !noalias !23, !noundef !5
   %.not.i.i101 = icmp ugt i8 %89, %2
   br i1 %.not.i.i101, label %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.thread.i", label %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.i"
 
 "_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.i": ; preds = %.lr.ph.i100
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  %91 = load i8, ptr %90, align 1, !noalias !18, !noundef !5
+  %91 = load i8, ptr %90, align 1, !noalias !23, !noundef !5
   %.not.i102 = icmp ugt i8 %2, %91
   br i1 %.not.i102, label %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h632ac1e74296db55E.exit"
 
 "_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.thread.i": ; preds = %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.i", %.lr.ph.i100
   %92 = icmp eq ptr %88, %74
-  br i1 %92, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit.thread", label %.lr.ph.i100
+  br i1 %92, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit.thread", label %.lr.ph.i100, !llvm.loop !27
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h632ac1e74296db55E.exit": ; preds = %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.i"
   store i8 3, ptr %0, align 8
@@ -263,7 +263,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
   %.sroa.0122.0167 = phi ptr [ %100, %99 ], [ %53, %51 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0122.0167, i8 noundef %2)
-  %97 = load i8, ptr %5, align 8, !range !12, !noundef !5
+  %97 = load i8, ptr %5, align 8, !range !14, !noundef !5
   %98 = icmp eq i8 %97, 4
   br i1 %98, label %99, label %102
 
@@ -271,7 +271,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0167, i64 48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %101 = icmp eq ptr %100, %56
-  br i1 %101, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit.thread", label %.lr.ph168
+  br i1 %101, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit.thread", label %.lr.ph168, !llvm.loop !28
 
 102:                                              ; preds = %.lr.ph168
   %.sroa.073.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -286,7 +286,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
   %.sroa.0124.0166 = phi ptr [ %107, %106 ], [ %60, %58 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0124.0166, i8 noundef %2)
-  %103 = load i8, ptr %4, align 8, !range !12, !noundef !5
+  %103 = load i8, ptr %4, align 8, !range !14, !noundef !5
   %104 = icmp eq i8 %103, 4
   br i1 %104, label %106, label %109
 
@@ -297,7 +297,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0166, i64 48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %108 = icmp eq ptr %107, %63
-  br i1 %108, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit.thread", label %.lr.ph
+  br i1 %108, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb981c13db60d08e0E.exit.thread", label %.lr.ph, !llvm.loop !29
 
 109:                                              ; preds = %.lr.ph
   %.sroa.079.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -357,14 +357,22 @@ attributes #5 = { noreturn }
 !8 = distinct !{!8, !9, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h13eab00ec004919dE: argument 0"}
 !9 = distinct !{!9, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h13eab00ec004919dE"}
 !10 = distinct !{!10, !9, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h13eab00ec004919dE: argument 1"}
-!11 = !{i64 8}
-!12 = !{i8 0, i8 5}
-!13 = !{i32 0, i32 1114112}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h769754a6ce48681aE: argument 0"}
-!16 = distinct !{!16, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h769754a6ce48681aE"}
-!17 = distinct !{!17, !16, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h769754a6ce48681aE: argument 1"}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i64 8}
+!14 = !{i8 0, i8 5}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}
+!17 = !{i32 0, i32 1114112}
 !18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h632ac1e74296db55E: argument 0"}
-!20 = distinct !{!20, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h632ac1e74296db55E"}
-!21 = distinct !{!21, !20, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h632ac1e74296db55E: argument 1"}
+!19 = distinct !{!19, !20, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h769754a6ce48681aE: argument 0"}
+!20 = distinct !{!20, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h769754a6ce48681aE"}
+!21 = distinct !{!21, !20, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h769754a6ce48681aE: argument 1"}
+!22 = distinct !{!22, !12}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h632ac1e74296db55E: argument 0"}
+!25 = distinct !{!25, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h632ac1e74296db55E"}
+!26 = distinct !{!26, !25, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h632ac1e74296db55E: argument 1"}
+!27 = distinct !{!27, !12}
+!28 = distinct !{!28, !12}
+!29 = distinct !{!29, !12}

@@ -12092,7 +12092,7 @@ lean_inc.exit:                                    ; preds = %34, %33, %31, %lean
 
 lean_dec.exit:                                    ; preds = %41, %40, %38, %lean_inc.exit
   %42 = tail call ptr @l_Lean_Name_str___override(ptr noundef %.0, ptr noundef %16) #4
-  br label %3
+  br label %3, !llvm.loop !17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12179,7 +12179,7 @@ lean_dec.exit37:                                  ; preds = %lean_alloc_ctor.exi
   %37 = ptrtoint ptr %27 to i64
   %38 = and i64 %37, 1
   %.not54 = icmp eq i64 %38, 0
-  br i1 %.not54, label %39, label %lean_dec.exit35, !prof !17
+  br i1 %.not54, label %39, label %lean_dec.exit35, !prof !19
 
 39:                                               ; preds = %lean_dec.exit37
   %40 = tail call ptr @lean_nat_big_add(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %27) #4
@@ -12579,7 +12579,7 @@ lean_dec.exit75:                                  ; preds = %lean_nat_sub.exit, 
   %70 = ptrtoint ptr %60 to i64
   %71 = and i64 %70, 1
   %.not122 = icmp eq i64 %71, 0
-  br i1 %.not122, label %72, label %lean_dec.exit74, !prof !17
+  br i1 %.not122, label %72, label %lean_dec.exit74, !prof !19
 
 72:                                               ; preds = %lean_dec.exit75
   %73 = tail call ptr @lean_nat_big_add(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %60) #4
@@ -16150,7 +16150,7 @@ _init_l_Lean_getLibDir___closed__1.exit:          ; preds = %lean_dec_ref.exit
   store ptr %103, ptr @l_Lean_moduleNameOfFileName___lambda__2___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %103) #4
   %104 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_forEachModuleInDir___spec__2___rarg___lambda__5___closed__3, align 8, !tbaa !4
-  %105 = load i32, ptr @l_System_FilePath_pathSeparator, align 4, !tbaa !18
+  %105 = load i32, ptr @l_System_FilePath_pathSeparator, align 4, !tbaa !20
   %106 = tail call ptr @lean_string_push(ptr noundef %104, i32 noundef %105) #4
   store ptr %106, ptr @l_Lean_moduleNameOfFileName___lambda__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %106) #4
@@ -16337,5 +16337,7 @@ attributes #5 = { noreturn nounwind }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"short", !6, i64 0}
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!12, !12, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!20 = !{!12, !12, i64 0}

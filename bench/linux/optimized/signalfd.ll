@@ -495,7 +495,7 @@ define internal i64 @signalfd_read(ptr noundef readonly captures(none) %0, ptr n
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   %94 = icmp slt i64 %93, 1
-  br i1 %94, label %149, label %95, !prof !11
+  br i1 %94, label %149, label %95, !prof !12
 
 95:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #5
@@ -617,7 +617,7 @@ define internal i64 @signalfd_read(ptr noundef readonly captures(none) %0, ptr n
   %146 = add nuw i64 %58, 128
   %147 = add nsw i64 %55, -1
   %148 = icmp eq i64 %147, 0
-  br i1 %148, label %149, label %54, !llvm.loop !12
+  br i1 %148, label %149, label %54, !llvm.loop !13
 
 149:                                              ; preds = %144, %141, %92
   %150 = phi i64 [ %93, %92 ], [ -14, %141 ], [ 128, %144 ]
@@ -764,8 +764,9 @@ attributes #7 = { nounwind memory(none) }
 !6 = !{i64 2148313963}
 !7 = !{i64 2155649258}
 !8 = !{!"branch_weights", i32 2000, i32 1}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"branch_weights", i32 1, i32 2000}
-!12 = distinct !{!12, !13, !10}
-!13 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = distinct !{!13, !14, !10, !11}
+!14 = !{!"llvm.loop.mustprogress"}

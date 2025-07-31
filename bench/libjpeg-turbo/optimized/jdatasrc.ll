@@ -147,9 +147,9 @@ define internal void @skip_input_data(ptr noundef %0, i64 noundef %1) #0 {
 ._crit_edge:                                      ; preds = %10, %.preheader
   %.0.lcssa = phi i64 [ %1, %.preheader ], [ %12, %10 ]
   %.lcssa = phi i64 [ %7, %.preheader ], [ %15, %10 ]
-  %17 = load ptr, ptr %4, align 8, !tbaa !58
+  %17 = load ptr, ptr %4, align 8, !tbaa !59
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.0.lcssa
-  store ptr %18, ptr %4, align 8, !tbaa !58
+  store ptr %18, ptr %4, align 8, !tbaa !59
   %19 = sub i64 %.lcssa, %.0.lcssa
   store i64 %19, ptr %6, align 8, !tbaa !54
   br label %20
@@ -216,14 +216,14 @@ define void @jpeg_mem_src(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr @fill_mem_input_buffer, ptr %29, align 8, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr @skip_input_data, ptr %30, align 8, !tbaa !59
+  store ptr @skip_input_data, ptr %30, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store ptr @jpeg_resync_to_restart, ptr %31, align 8, !tbaa !60
+  store ptr @jpeg_resync_to_restart, ptr %31, align 8, !tbaa !61
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  store ptr @term_source, ptr %32, align 8, !tbaa !61
+  store ptr @term_source, ptr %32, align 8, !tbaa !62
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %2, ptr %33, align 8, !tbaa !54
-  store ptr %1, ptr %27, align 8, !tbaa !58
+  store ptr %1, ptr %27, align 8, !tbaa !59
   ret void
 }
 
@@ -242,7 +242,7 @@ define internal noundef i32 @fill_mem_input_buffer(ptr noundef %0) #0 {
   tail call void %5(ptr noundef nonnull %0, i32 noundef -1) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !3
-  store ptr @fill_mem_input_buffer.mybuffer, ptr %7, align 8, !tbaa !58
+  store ptr @fill_mem_input_buffer.mybuffer, ptr %7, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 2, ptr %8, align 8, !tbaa !54
   ret i32 1
@@ -320,9 +320,10 @@ attributes #6 = { nounwind }
 !53 = !{!35, !33, i64 8}
 !54 = !{!36, !33, i64 8}
 !55 = !{!36, !6, i64 24}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!36, !18, i64 0}
-!59 = !{!36, !6, i64 32}
-!60 = !{!36, !6, i64 40}
-!61 = !{!36, !6, i64 48}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = !{!36, !18, i64 0}
+!60 = !{!36, !6, i64 32}
+!61 = !{!36, !6, i64 40}
+!62 = !{!36, !6, i64 48}

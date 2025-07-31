@@ -355,7 +355,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %67 = fadd double %.0112159, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %68, label %22, !llvm.loop !8
+  br i1 %exitcond.not, label %68, label %22, !llvm.loop !9
 
 68:                                               ; preds = %61
   %69 = fcmp olt double %.1104, 0.000000e+00
@@ -485,7 +485,7 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %125, %.thread138, %
   %.118.i = phi i64 [ %.01720.i, %.thread138 ], [ %97, %compare_lexeme_textfreq.exit ], [ %97, %125 ]
   %.1.i = phi i64 [ %132, %.thread138 ], [ %.01621.i, %compare_lexeme_textfreq.exit ], [ %.01621.i, %125 ]
   %133 = icmp ult i64 %.1.i, %.118.i
-  br i1 %133, label %.lr.ph.i, label %138, !llvm.loop !9
+  br i1 %133, label %.lr.ph.i, label %138, !llvm.loop !10
 
 .thread145:                                       ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 %98
@@ -608,7 +608,8 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

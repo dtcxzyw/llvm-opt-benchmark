@@ -96,7 +96,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %17
   %37 = phi i64 [ %.pre, %36 ], [ %15, %14 ]
   %38 = load i64, ptr %5, align 8, !noundef !4
   %.not = icmp eq i64 %38, %37
-  br i1 %.not, label %.loopexit, label %10
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -110,30 +110,30 @@ define hidden void @_ZN3std2io7BufRead13has_data_left17h4b83067a0d1aa870E(ptr no
   %3 = alloca { ptr, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @"_ZN62_$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$8fill_buf17h40b19f05c3567273E"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %4 = load ptr, ptr %3, align 8, !alias.scope !20, !noalias !17, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  %4 = load ptr, ptr %3, align 8, !alias.scope !22, !noalias !19, !noundef !4
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %5, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr %6, align 8, !alias.scope !20, !noalias !17, !noundef !4
+  %8 = load i64, ptr %6, align 8, !alias.scope !22, !noalias !19, !noundef !4
   %9 = icmp ne i64 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = zext i1 %9 to i8
-  store i8 %11, ptr %10, align 1, !alias.scope !17, !noalias !20
+  store i8 %11, ptr %10, align 1, !alias.scope !19, !noalias !22
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hadd57f66bfd38e98E.exit"
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %6, align 8, !alias.scope !20, !noalias !17, !nonnull !4, !noundef !4
+  %13 = load ptr, ptr %6, align 8, !alias.scope !22, !noalias !19, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %14, align 8, !alias.scope !17, !noalias !20
+  store ptr %13, ptr %14, align 8, !alias.scope !19, !noalias !22
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hadd57f66bfd38e98E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hadd57f66bfd38e98E.exit": ; preds = %7, %12
   %storemerge.i = phi i8 [ 0, %7 ], [ 1, %12 ]
-  store i8 %storemerge.i, ptr %0, align 8, !alias.scope !17, !noalias !20
+  store i8 %storemerge.i, ptr %0, align 8, !alias.scope !19, !noalias !22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 }
@@ -197,8 +197,10 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h5d887f48f4f813ebE.llvm.17869906768699351913: argument 0"}
 !16 = distinct !{!16, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h5d887f48f4f813ebE.llvm.17869906768699351913"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hadd57f66bfd38e98E: argument 0"}
-!19 = distinct !{!19, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hadd57f66bfd38e98E"}
-!20 = !{!21}
-!21 = distinct !{!21, !19, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hadd57f66bfd38e98E: argument 1"}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hadd57f66bfd38e98E: argument 0"}
+!21 = distinct !{!21, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hadd57f66bfd38e98E"}
+!22 = !{!23}
+!23 = distinct !{!23, !21, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hadd57f66bfd38e98E: argument 1"}

@@ -1653,7 +1653,7 @@ decode_sse.exit.i:                                ; preds = %443, %418, %407, %4
   %641 = add i32 %.1146.i.i, 2
   %indvars.iv.next.i248.i = add nuw nsw i32 %indvars.iv.i247.i, 1
   %exitcond.not.i249.i = icmp eq i32 %indvars.iv.next.i248.i, %634
-  br i1 %exitcond.not.i249.i, label %._crit_edge.i.i, label %636, !llvm.loop !8
+  br i1 %exitcond.not.i249.i, label %._crit_edge.i.i, label %636, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %636, %610
   %.1.lcssa.i.i = phi i32 [ %633, %610 ], [ %641, %636 ]
@@ -1697,14 +1697,14 @@ decode_sse.exit.i:                                ; preds = %443, %418, %407, %4
   %671 = add i32 %.2148.i.i, 2
   %indvars.iv.next160.i.i = add nuw nsw i32 %indvars.iv159.i.i, 1
   %exitcond163.not.i.i = icmp eq i32 %indvars.iv.next160.i.i, %644
-  br i1 %exitcond163.not.i.i, label %.loopexit.i.i, label %666, !llvm.loop !9
+  br i1 %exitcond163.not.i.i, label %.loopexit.i.i, label %666, !llvm.loop !10
 
 .loopexit.i.i:                                    ; preds = %666, %._crit_edge.i.i, %589
   %672 = add nuw nsw i32 %.0137151.i.i, 1
   %673 = add nuw nsw i32 %672, %.pre-phi.i.i
   %674 = add i32 %.pre-phi.i.i, %578
   %675 = icmp samesign ult i32 %673, %520
-  br i1 %675, label %.lr.ph154.i.i, label %dissect_ase.exit.i, !llvm.loop !10
+  br i1 %675, label %.lr.ph154.i.i, label %dissect_ase.exit.i, !llvm.loop !11
 
 dissect_ase.exit.i:                               ; preds = %.loopexit.i.i, %577
   store i1 false, ptr @registration_request_msg, align 4
@@ -1828,7 +1828,7 @@ dissect_fqi_entry_flags.exit.i.i:                 ; preds = %718, %698
   %.2.i.i = phi i32 [ %761, %755 ], [ %754, %749 ]
   %763 = add nuw nsw i8 %.0112118.i.i, 1
   %exitcond.not.i252.i = icmp eq i8 %763, %691
-  br i1 %exitcond.not.i252.i, label %dissect_a11_radius.exit.i, label %698, !llvm.loop !11
+  br i1 %exitcond.not.i252.i, label %dissect_a11_radius.exit.i, label %698, !llvm.loop !12
 
 764:                                              ; preds = %517
   %765 = load i32, ptr @hf_a11_rqi_srid, align 4
@@ -1929,7 +1929,7 @@ dissect_fqi_entry_flags.exit.i.i:                 ; preds = %718, %698
   %.2.i260.i = phi i32 [ %836, %830 ], [ %829, %824 ]
   %838 = add nuw nsw i8 %.0107113.i.i, 1
   %exitcond.not.i261.i = icmp eq i8 %838, %769
-  br i1 %exitcond.not.i261.i, label %dissect_a11_radius.exit.i, label %776, !llvm.loop !12
+  br i1 %exitcond.not.i261.i, label %dissect_a11_radius.exit.i, label %776, !llvm.loop !13
 
 839:                                              ; preds = %517
   %840 = load i32, ptr @ett_a11_subscriber_profile, align 4
@@ -1982,7 +1982,7 @@ dissect_fqi_entry_flags.exit.i.i:                 ; preds = %718, %698
   %.1.i266.i = phi i32 [ %866, %861 ], [ %860, %850 ]
   %868 = add nuw i8 %.03537.i.i, 1
   %exitcond.not.i267.i = icmp eq i8 %868, %846
-  br i1 %exitcond.not.i267.i, label %dissect_a11_radius.exit.i, label %850, !llvm.loop !13
+  br i1 %exitcond.not.i267.i, label %dissect_a11_radius.exit.i, label %850, !llvm.loop !14
 
 869:                                              ; preds = %517
   %870 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %519)
@@ -2023,7 +2023,7 @@ dissect_fqi_entry_flags.exit.i.i:                 ; preds = %718, %698
   %.1.i274.i = phi i32 [ %890, %885 ], [ %884, %874 ]
   %892 = add nuw i8 %.03537.i272.i, 1
   %exitcond.not.i275.i = icmp eq i8 %892, %870
-  br i1 %exitcond.not.i275.i, label %dissect_a11_radius.exit.i, label %874, !llvm.loop !14
+  br i1 %exitcond.not.i275.i, label %dissect_a11_radius.exit.i, label %874, !llvm.loop !15
 
 893:                                              ; preds = %369
   %894 = icmp samesign ult i32 %.0227.i, 2
@@ -2065,7 +2065,7 @@ dissect_fqi_entry_flags.exit.i.i:                 ; preds = %718, %698
   %913 = tail call ptr @proto_tree_add_expert(ptr noundef %351, ptr noundef %1, ptr noundef nonnull @ei_a11_entry_data_not_dissected, ptr noundef %0, i32 noundef %.047.i.i, i32 noundef %912)
   %914 = add i32 %.039.i.i, %.047.i.i
   %.not.i280.i = icmp eq i32 %.1.i279.i, 0
-  br i1 %.not.i280.i, label %decode_bcmcs.exit.i, label %.lr.ph.i278.i, !llvm.loop !15
+  br i1 %.not.i280.i, label %decode_bcmcs.exit.i, label %.lr.ph.i278.i, !llvm.loop !16
 
 915:                                              ; preds = %897
   %916 = zext i8 %898 to i32
@@ -2087,7 +2087,7 @@ dissect_a11_radius.exit.i:                        ; preds = %891, %867, %837, %7
   %922 = add i32 %.2.i, %.1228.i
   %923 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %922)
   %924 = icmp sgt i32 %923, 0
-  br i1 %924, label %325, label %dissect_a11_extensions.exit, !llvm.loop !16
+  br i1 %924, label %325, label %dissect_a11_extensions.exit, !llvm.loop !17
 
 dissect_a11_extensions.exit:                      ; preds = %dissect_a11_radius.exit.i, %16, %43, %67, %85, %107, %125, %147, %169, %187, %205, %225, %250, %274, %292, %319, %316, %315
   %925 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -2174,7 +2174,7 @@ define internal noundef nonnull ptr @dissect_3gpp2_service_option_profile(ptr no
   %31 = add i32 %30, %.1
   %32 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %31)
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %28, %3
   ret ptr @.str.455
@@ -2221,7 +2221,7 @@ define internal noundef nonnull ptr @dissect_3gpp2_radius_aut_flow_profile_ids(p
   %29 = add i32 %.029, %28
   %30 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %29)
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %25, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
@@ -2326,16 +2326,17 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

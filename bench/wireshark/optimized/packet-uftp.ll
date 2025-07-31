@@ -970,7 +970,7 @@ define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %
   %47 = add nuw nsw i32 %.165, 4
   %48 = add nuw i16 %.066, 1
   %exitcond.not = icmp eq i16 %48, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %40, %19, %6
   ret void
@@ -1094,7 +1094,7 @@ define internal fastcc void @dissect_uftp_regconf(ptr noundef %0, ptr noundef %1
   %36 = add nuw nsw i32 %.04345, 4
   %37 = add nuw i16 %.046, 1
   %exitcond.not = icmp eq i16 %37, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %16, %6
   ret void
@@ -1169,7 +1169,7 @@ define internal fastcc void @dissect_uftp_fileinfo_30(ptr noundef %0, ptr nounde
   %50 = add nuw nsw i32 %.06668, 4
   %51 = add nuw i16 %.069, 1
   %exitcond.not = icmp eq i16 %51, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %16, %6
   ret void
@@ -1246,7 +1246,7 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
   %52 = add nuw nsw i32 %.07072, 4
   %53 = add nuw i16 %.073, 1
   %exitcond.not = icmp eq i16 %53, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %16, %6
   ret void
@@ -1317,7 +1317,7 @@ define internal fastcc void @dissect_uftp_keyinfo(ptr noundef %0, ptr noundef %1
   %47 = add nuw nsw i32 %.05961, 52
   %48 = add nuw i8 %.062, 1
   %exitcond.not = icmp eq i8 %48, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %16, %6
   ret void
@@ -1396,7 +1396,7 @@ define internal fastcc void @dissect_uftp_infoack(ptr noundef %0, ptr noundef %1
   %49 = add nuw nsw i32 %.05963, 4
   %50 = add nuw i16 %.064, 1
   %exitcond.not = icmp eq i16 %50, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %16, %6
   ret void
@@ -1522,7 +1522,7 @@ define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, p
   %50 = add nuw nsw i32 %.06063, 4
   %51 = add nuw i16 %.064, 1
   %exitcond.not = icmp eq i16 %51, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %16, %6
   ret void
@@ -1658,7 +1658,7 @@ define internal fastcc void @dissect_uftp_prstatus(ptr noundef %0, ptr noundef %
   %57 = add nuw nsw i32 %.07576, 4
   %58 = add nuw i16 %.077, 1
   %exitcond.not = icmp eq i16 %58, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %16, %6
   ret void
@@ -1734,7 +1734,7 @@ define internal fastcc void @dissect_uftp_complete(ptr noundef %0, ptr noundef %
   %46 = add nuw nsw i32 %.05559, 4
   %47 = add nuw i16 %.060, 1
   %exitcond.not = icmp eq i16 %47, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %16, %6
   ret void
@@ -1810,7 +1810,7 @@ define internal fastcc void @dissect_uftp_doneconf(ptr noundef %0, ptr noundef %
   %46 = add nuw nsw i32 %.05559, 4
   %47 = add nuw i16 %.060, 1
   %exitcond.not = icmp eq i16 %47, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %16, %6
   ret void
@@ -2102,15 +2102,16 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

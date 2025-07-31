@@ -193,7 +193,7 @@ cbs_get.exit.i:                                   ; preds = %2
   br i1 %exitcond.not.i, label %cbs_get_u.exit, label %9, !llvm.loop !17
 
 cbs_get_u.exit:                                   ; preds = %9
-  store i16 %14, ptr %1, align 2, !tbaa !19
+  store i16 %14, ptr %1, align 2, !tbaa !20
   br label %cbs_get_u.exit.thread
 
 cbs_get_u.exit.thread:                            ; preds = %2, %cbs_get_u.exit
@@ -229,7 +229,7 @@ cbs_get.exit.i:                                   ; preds = %2
   br i1 %exitcond.not.i, label %16, label %9, !llvm.loop !17
 
 16:                                               ; preds = %9
-  store i32 %14, ptr %1, align 4, !tbaa !21
+  store i32 %14, ptr %1, align 4, !tbaa !22
   br label %cbs_get_u.exit
 
 cbs_get_u.exit:                                   ; preds = %2, %16
@@ -265,7 +265,7 @@ cbs_get.exit.i:                                   ; preds = %2
   br i1 %exitcond.not.i, label %16, label %9, !llvm.loop !17
 
 16:                                               ; preds = %9
-  store i32 %14, ptr %1, align 4, !tbaa !21
+  store i32 %14, ptr %1, align 4, !tbaa !22
   br label %cbs_get_u.exit
 
 cbs_get_u.exit:                                   ; preds = %2, %16
@@ -472,7 +472,7 @@ define hidden range(i32 0, 2) i32 @CBS_get_any_asn1_element(ptr noundef captures
   br i1 %.not43.i, label %17, label %16
 
 16:                                               ; preds = %15
-  store i32 %12, ptr %2, align 4, !tbaa !21
+  store i32 %12, ptr %2, align 4, !tbaa !22
   br label %17
 
 17:                                               ; preds = %16, %15
@@ -585,7 +585,7 @@ define hidden range(i32 0, 2) i32 @CBS_get_any_ber_asn1_element(ptr noundef capt
   br i1 %.not43.i, label %20, label %19
 
 19:                                               ; preds = %18
-  store i32 %15, ptr %2, align 4, !tbaa !21
+  store i32 %15, ptr %2, align 4, !tbaa !22
   br label %20
 
 20:                                               ; preds = %19, %18
@@ -1049,7 +1049,7 @@ CBS_get_bytes.exit.sink.split.i.i.i.i:            ; preds = %33, %13
   store i64 %61, ptr %1, align 8, !tbaa !15
   %62 = add nuw i64 %.01624, 1
   %exitcond.not = icmp eq i64 %62, %44
-  br i1 %exitcond.not, label %CBS_get_asn1.exit.thread, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %CBS_get_asn1.exit.thread, label %.lr.ph, !llvm.loop !24
 
 CBS_get_asn1.exit.thread:                         ; preds = %.lr.ph, %56, %38, %2, %15, %cbs_get_u.exit.i.i.i.i, %27, %CBS_get_bytes.exit.sink.split.i.i.i.i, %3, %51, %46, %42
   %.0 = phi i32 [ 0, %42 ], [ 0, %46 ], [ 0, %51 ], [ 0, %3 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i ], [ 0, %27 ], [ 0, %cbs_get_u.exit.i.i.i.i ], [ 0, %15 ], [ 0, %2 ], [ 0, %38 ], [ 0, %.lr.ph ], [ 1, %56 ]
@@ -1169,7 +1169,7 @@ CBS_peek_asn1_tag.exit.thread:                    ; preds = %CBS_get_any_asn1_el
   br i1 %.not11, label %CBS_get_asn1.exit.thread, label %53
 
 53:                                               ; preds = %CBS_peek_asn1_tag.exit.thread
-  store i32 %.0, ptr %2, align 4, !tbaa !21
+  store i32 %.0, ptr %2, align 4, !tbaa !22
   br label %CBS_get_asn1.exit.thread
 
 CBS_get_asn1.exit.thread:                         ; preds = %CBS_get_any_asn1_element.exit.i.thread.i, %11, %24, %cbs_get_u.exit.i.i.i.i, %36, %CBS_get_bytes.exit.sink.split.i.i.i.i, %13, %CBS_get_any_asn1_element.exit.i.i, %CBS_peek_asn1_tag.exit.thread, %53
@@ -1377,7 +1377,7 @@ CBS_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_el
   br i1 %.not10, label %CBS_get_optional_asn1.exit.thread, label %96
 
 96:                                               ; preds = %95
-  store i32 %.01326, ptr %2, align 4, !tbaa !21
+  store i32 %.01326, ptr %2, align 4, !tbaa !22
   br label %CBS_get_optional_asn1.exit.thread
 
 CBS_get_optional_asn1.exit.thread:                ; preds = %CBS_get_any_asn1_element.exit.i.thread.i, %50, %66, %cbs_get_u.exit.i.i.i.i, %78, %CBS_get_bytes.exit.sink.split.i.i.i.i, %54, %CBS_get_any_asn1_element.exit.i.i, %46, %11, %23, %cbs_get_u.exit.i.i.i.i.i, %35, %CBS_get_bytes.exit.sink.split.i.i.i.i.i, %12, %95, %96, %CBS_get_asn1.exit, %CBS_get_asn1.exit.thread31
@@ -1687,7 +1687,7 @@ CBS_get_bytes.exit.sink.split.i.i.i.i:            ; preds = %83, %63
 
 CBS_get_optional_asn1.exit.thread.sink.split:     ; preds = %4, %CBS_peek_asn1_tag.exit.i, %95, %92
   %.sink = phi i32 [ 1, %95 ], [ 0, %92 ], [ %3, %CBS_peek_asn1_tag.exit.i ], [ %3, %4 ]
-  store i32 %.sink, ptr %1, align 4, !tbaa !21
+  store i32 %.sink, ptr %1, align 4, !tbaa !22
   br label %CBS_get_optional_asn1.exit.thread
 
 CBS_get_optional_asn1.exit.thread:                ; preds = %CBS_get_optional_asn1.exit.thread.sink.split, %88, %50, %65, %cbs_get_u.exit.i.i.i.i, %77, %CBS_get_bytes.exit.sink.split.i.i.i.i, %53, %46, %11, %23, %cbs_get_u.exit.i.i.i.i.i, %35, %CBS_get_bytes.exit.sink.split.i.i.i.i.i, %12, %90, %92
@@ -1735,10 +1735,11 @@ attributes #16 = { nounwind willreturn memory(read) }
 !14 = !{!8, !8, i64 0}
 !15 = !{!12, !12, i64 0}
 !16 = !{!10, !10, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !10, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !10, i64 0}
-!23 = distinct !{!23, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"short", !10, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"int", !10, i64 0}
+!24 = distinct !{!24, !18, !19}

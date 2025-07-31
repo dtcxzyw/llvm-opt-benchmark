@@ -106,28 +106,28 @@ define i32 @ff_psy_init(ptr noundef initializes((0, 8), (16, 32), (36, 56)) %0, 
   %.1.lcssa = phi i32 [ %.056, %36 ], [ %47, %._crit_edge.loopexit ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge59, label %36, !llvm.loop !47
+  br i1 %exitcond70.not, label %._crit_edge59, label %36, !llvm.loop !48
 
 ._crit_edge59:                                    ; preds = %._crit_edge, %30
   %48 = load ptr, ptr %0, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load i32, ptr %49, align 8, !tbaa !48
+  %50 = load i32, ptr %49, align 8, !tbaa !49
   %cond = icmp eq i32 %50, 86018
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %cond, label %52, label %._crit_edge59._crit_edge
 
 ._crit_edge59._crit_edge:                         ; preds = %._crit_edge59
-  %.pre = load ptr, ptr %51, align 8, !tbaa !49
+  %.pre = load ptr, ptr %51, align 8, !tbaa !50
   br label %53
 
 52:                                               ; preds = %._crit_edge59
-  store ptr @ff_aac_psy_model, ptr %51, align 8, !tbaa !49
+  store ptr @ff_aac_psy_model, ptr %51, align 8, !tbaa !50
   br label %53
 
 53:                                               ; preds = %._crit_edge59._crit_edge, %52
   %54 = phi ptr [ %.pre, %._crit_edge59._crit_edge ], [ @ff_aac_psy_model, %52 ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !50
+  %56 = load ptr, ptr %55, align 8, !tbaa !51
   %.not52 = icmp eq ptr %56, null
   br i1 %.not52, label %59, label %57
 
@@ -147,13 +147,13 @@ declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: cold nounwind optsize uwtable
 define void @ff_psy_end(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %6 = load ptr, ptr %5, align 8, !tbaa !53
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %8, label %7
 
@@ -192,7 +192,7 @@ define ptr @ff_psy_find_group(ptr noundef readonly captures(none) %0, i32 nounde
   %5 = zext i8 %4 to i32
   %6 = add nuw nsw i32 %.09, %5
   %.not = icmp sgt i32 %6, %1
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %7 = and i64 %indvars.iv.next, 4294967295
@@ -214,9 +214,9 @@ define ptr @ff_psy_preprocess_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %1
-  store ptr %0, ptr %2, align 8, !tbaa !54
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !48
+  %5 = load i32, ptr %4, align 8, !tbaa !49
   %.not29 = icmp eq i32 %5, 86018
   br i1 %.not29, label %.loopexit, label %6
 
@@ -230,7 +230,7 @@ define ptr @ff_psy_preprocess_init(ptr noundef %0) local_unnamed_addr #0 {
   %11 = shl nuw i32 %8, 1
   %12 = uitofp i32 %11 to double
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %14 = load i32, ptr %13, align 8, !tbaa !59
+  %14 = load i32, ptr %13, align 8, !tbaa !60
   %15 = sitofp i32 %14 to double
   %16 = fdiv nsz double %12, %15
   %17 = fptrunc nsz double %16 to float
@@ -243,12 +243,12 @@ define ptr @ff_psy_preprocess_init(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %10
   %22 = tail call ptr @ff_iir_filter_init_coeffs(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 0, i32 noundef 4, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00) #5
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %22, ptr %23, align 8, !tbaa !60
+  store ptr %22, ptr %23, align 8, !tbaa !61
   br label %.thread
 
 .thread:                                          ; preds = %6, %21, %10
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !60
+  %25 = load ptr, ptr %24, align 8, !tbaa !61
   %.not30 = icmp eq ptr %25, null
   br i1 %.not30, label %.loopexit, label %26
 
@@ -258,7 +258,7 @@ define ptr @ff_psy_preprocess_init(ptr noundef %0) local_unnamed_addr #0 {
   %29 = sext i32 %28 to i64
   %30 = tail call noalias ptr @av_calloc(i64 noundef %29, i64 noundef 8) #5
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %30, ptr %31, align 8, !tbaa !61
+  store ptr %30, ptr %31, align 8, !tbaa !62
   %.not31 = icmp eq ptr %30, null
   br i1 %.not31, label %34, label %.preheader
 
@@ -268,7 +268,7 @@ define ptr @ff_psy_preprocess_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %33, label %.lr.ph, label %.loopexit
 
 34:                                               ; preds = %26
-  %35 = load ptr, ptr %24, align 8, !tbaa !60
+  %35 = load ptr, ptr %24, align 8, !tbaa !61
   tail call void @av_free(ptr noundef %35) #5
   tail call void @av_free(ptr noundef nonnull %2) #5
   br label %43
@@ -276,14 +276,14 @@ define ptr @ff_psy_preprocess_init(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %36 = tail call ptr @ff_iir_filter_init_state(i32 noundef 4) #5
-  %37 = load ptr, ptr %31, align 8, !tbaa !61
+  %37 = load ptr, ptr %31, align 8, !tbaa !62
   %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
-  store ptr %36, ptr %38, align 8, !tbaa !62
+  store ptr %36, ptr %38, align 8, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %27, align 4, !tbaa !18
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !64
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %.thread, %3
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -307,12 +307,12 @@ declare void @ff_iir_filter_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ff_psy_preprocess(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !54
+  %4 = load ptr, ptr %0, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 376
-  %6 = load i32, ptr %5, align 8, !tbaa !65
+  %6 = load i32, ptr %5, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !61
+  %9 = load ptr, ptr %8, align 8, !tbaa !62
   %.not = icmp ne ptr %9, null
   %10 = icmp sgt i32 %2, 0
   %or.cond = and i1 %.not, %10
@@ -326,18 +326,18 @@ define void @ff_psy_preprocess(ptr noundef readonly captures(none) %0, ptr nound
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = load ptr, ptr %7, align 8, !tbaa !66
-  %15 = load ptr, ptr %11, align 8, !tbaa !60
-  %16 = load ptr, ptr %8, align 8, !tbaa !61
+  %14 = load ptr, ptr %7, align 8, !tbaa !67
+  %15 = load ptr, ptr %11, align 8, !tbaa !61
+  %16 = load ptr, ptr %8, align 8, !tbaa !62
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !62
+  %18 = load ptr, ptr %17, align 8, !tbaa !63
   %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !67
+  %20 = load ptr, ptr %19, align 8, !tbaa !68
   %21 = getelementptr inbounds float, ptr %20, i64 %12
   tail call void %14(ptr noundef %15, ptr noundef %18, i32 noundef %6, ptr noundef %21, i64 noundef 1, ptr noundef %21, i64 noundef 1) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !69
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !70
 
 .loopexit:                                        ; preds = %13, %3
   ret void
@@ -348,12 +348,12 @@ define void @ff_psy_preprocess_end(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @ff_iir_filter_free_coeffsp(ptr noundef nonnull %2) #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %4 = load ptr, ptr %3, align 8, !tbaa !62
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !54
+  %5 = load ptr, ptr %0, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 356
   %7 = load i32, ptr %6, align 4, !tbaa !18
   %8 = icmp sgt i32 %7, 0
@@ -361,16 +361,16 @@ define void @ff_psy_preprocess_end(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %9 = load ptr, ptr %3, align 8, !tbaa !61
+  %9 = load ptr, ptr %3, align 8, !tbaa !62
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   tail call void @ff_iir_filter_free_statep(ptr noundef %10) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load ptr, ptr %0, align 8, !tbaa !54
+  %11 = load ptr, ptr %0, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 356
   %13 = load i32, ptr %12, align 4, !tbaa !18
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !70
+  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   tail call void @av_freep(ptr noundef nonnull %3) #5
@@ -436,29 +436,30 @@ attributes #5 = { nounwind }
 !42 = !{!43, !8, i64 160}
 !43 = !{!"FFPsyChannelGroup", !8, i64 0, !8, i64 160, !8, i64 161}
 !44 = !{!11, !11, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = !{!19, !13, i64 24}
-!49 = !{!5, !10, i64 8}
-!50 = !{!51, !7, i64 8}
-!51 = !{!"FFPsyModel", !24, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32}
-!52 = !{!51, !7, i64 32}
-!53 = distinct !{!53, !46}
-!54 = !{!55, !6, i64 0}
-!55 = !{!"FFPsyPreprocessContext", !6, i64 0, !26, i64 8, !56, i64 16, !57, i64 24, !58, i64 32}
-!56 = !{!"p1 _ZTS17FFIIRFilterCoeffs", !7, i64 0}
-!57 = !{!"p2 _ZTS16FFIIRFilterState", !15, i64 0}
-!58 = !{!"FFIIRFilterContext", !7, i64 0}
-!59 = !{!19, !13, i64 344}
-!60 = !{!55, !56, i64 16}
-!61 = !{!55, !57, i64 24}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 _ZTS16FFIIRFilterState", !7, i64 0}
-!64 = distinct !{!64, !46}
-!65 = !{!19, !13, i64 376}
-!66 = !{!58, !7, i64 0}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"p1 float", !7, i64 0}
-!69 = distinct !{!69, !46}
-!70 = distinct !{!70, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !46, !47}
+!49 = !{!19, !13, i64 24}
+!50 = !{!5, !10, i64 8}
+!51 = !{!52, !7, i64 8}
+!52 = !{!"FFPsyModel", !24, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32}
+!53 = !{!52, !7, i64 32}
+!54 = distinct !{!54, !46, !47}
+!55 = !{!56, !6, i64 0}
+!56 = !{!"FFPsyPreprocessContext", !6, i64 0, !26, i64 8, !57, i64 16, !58, i64 24, !59, i64 32}
+!57 = !{!"p1 _ZTS17FFIIRFilterCoeffs", !7, i64 0}
+!58 = !{!"p2 _ZTS16FFIIRFilterState", !15, i64 0}
+!59 = !{!"FFIIRFilterContext", !7, i64 0}
+!60 = !{!19, !13, i64 344}
+!61 = !{!56, !57, i64 16}
+!62 = !{!56, !58, i64 24}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS16FFIIRFilterState", !7, i64 0}
+!65 = distinct !{!65, !46, !47}
+!66 = !{!19, !13, i64 376}
+!67 = !{!59, !7, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 float", !7, i64 0}
+!70 = distinct !{!70, !46, !47}
+!71 = distinct !{!71, !46, !47}

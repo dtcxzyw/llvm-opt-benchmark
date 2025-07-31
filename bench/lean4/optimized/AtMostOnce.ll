@@ -1005,7 +1005,7 @@ lean_alloc_ctor.exit213:                          ; preds = %lean_dec.exit
   %.sink = phi i64 [ 16, %210 ], [ 24, %lean_obj_tag.exit ]
   %211 = getelementptr inbounds nuw i8, ptr %.0155, i64 %.sink
   %.0155.be = load ptr, ptr %211, align 8, !tbaa !14
-  br label %4
+  br label %4, !llvm.loop !16
 
 .thread:                                          ; preds = %lean_obj_tag.exit, %192, %lean_alloc_ctor.exit213, %167, %lean_alloc_ctor.exit211, %136, %lean_alloc_ctor.exit209, %107, %lean_alloc_ctor.exit207, %78, %lean_alloc_ctor.exit, %38, %42, %23, %24, %49, %lean_dec.exit187
   %.7 = phi ptr [ %.0161.ph, %24 ], [ %.0161.ph, %23 ], [ %39, %38 ], [ %46, %42 ], [ %.6, %lean_dec.exit187 ], [ %.0161.ph, %49 ], [ %91, %lean_alloc_ctor.exit ], [ %72, %78 ], [ %120, %lean_alloc_ctor.exit207 ], [ %101, %107 ], [ %149, %lean_alloc_ctor.exit209 ], [ %130, %136 ], [ %205, %lean_alloc_ctor.exit213 ], [ %186, %192 ], [ %180, %lean_alloc_ctor.exit211 ], [ %161, %167 ], [ %.0161.ph, %lean_obj_tag.exit ]
@@ -1316,3 +1316,5 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"any pointer", !5, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}

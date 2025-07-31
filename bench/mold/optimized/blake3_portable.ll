@@ -2190,7 +2190,7 @@ hash_one_portable.exit:                           ; preds = %23
   %45 = add i64 %.01418, -1
   %46 = getelementptr inbounds nuw i8, ptr %.020, i64 32
   %.not = icmp eq i64 %45, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %hash_one_portable.exit, %10
   ret void
@@ -2223,6 +2223,7 @@ attributes #5 = { nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}

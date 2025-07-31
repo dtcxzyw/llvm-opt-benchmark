@@ -263,7 +263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #7
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #7
-  br i1 %82, label %114, label %53
+  br i1 %82, label %114, label %53, !llvm.loop !22
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53, %53
   %84 = landingpad { ptr, i32 }
@@ -464,3 +464,5 @@ attributes #8 = { builtin nounwind }
 !19 = !{!"long", !7, i64 0}
 !20 = !{!7, !7, i64 0}
 !21 = !{!18, !16, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}

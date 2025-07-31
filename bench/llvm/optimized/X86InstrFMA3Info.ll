@@ -98,5 +98,6 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !4 = !{!"short", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.estimated_trip_count"}

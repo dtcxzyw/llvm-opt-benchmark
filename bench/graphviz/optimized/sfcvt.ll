@@ -99,11 +99,11 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %44
-  store i8 48, ptr %40, align 1, !tbaa !13
+  store i8 48, ptr %40, align 1, !tbaa !14
   br label %77
 
 47:                                               ; preds = %44
-  store i8 49, ptr %40, align 1, !tbaa !13
+  store i8 49, ptr %40, align 1, !tbaa !14
   %48 = add nsw i64 %39, -1000
   br label %77
 
@@ -112,7 +112,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  store i8 50, ptr %40, align 1, !tbaa !13
+  store i8 50, ptr %40, align 1, !tbaa !14
   %52 = add nsw i64 %39, -2000
   br label %77
 
@@ -121,12 +121,12 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
-  store i8 51, ptr %40, align 1, !tbaa !13
+  store i8 51, ptr %40, align 1, !tbaa !14
   %56 = add nsw i64 %39, -3000
   br label %77
 
 57:                                               ; preds = %53
-  store i8 52, ptr %40, align 1, !tbaa !13
+  store i8 52, ptr %40, align 1, !tbaa !14
   %58 = add nsw i64 %39, -4000
   br label %77
 
@@ -139,12 +139,12 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
-  store i8 53, ptr %40, align 1, !tbaa !13
+  store i8 53, ptr %40, align 1, !tbaa !14
   %64 = add nsw i64 %39, -5000
   br label %77
 
 65:                                               ; preds = %61
-  store i8 54, ptr %40, align 1, !tbaa !13
+  store i8 54, ptr %40, align 1, !tbaa !14
   %66 = add nsw i64 %39, -6000
   br label %77
 
@@ -153,7 +153,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %67
-  store i8 55, ptr %40, align 1, !tbaa !13
+  store i8 55, ptr %40, align 1, !tbaa !14
   %70 = add nsw i64 %39, -7000
   br label %77
 
@@ -162,12 +162,12 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
-  store i8 56, ptr %40, align 1, !tbaa !13
+  store i8 56, ptr %40, align 1, !tbaa !14
   %74 = add nsw i64 %39, -8000
   br label %77
 
 75:                                               ; preds = %71
-  store i8 57, ptr %40, align 1, !tbaa !13
+  store i8 57, ptr %40, align 1, !tbaa !14
   %76 = add nsw i64 %39, -9000
   br label %77
 
@@ -186,11 +186,11 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %82, label %84, label %85
 
 84:                                               ; preds = %81
-  store i8 48, ptr %83, align 1, !tbaa !13
+  store i8 48, ptr %83, align 1, !tbaa !14
   br label %120
 
 85:                                               ; preds = %81
-  store i8 49, ptr %83, align 1, !tbaa !13
+  store i8 49, ptr %83, align 1, !tbaa !14
   %86 = add nsw i64 %.3274, -100
   br label %120
 
@@ -200,7 +200,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds i8, ptr %.1279327, i64 -3
-  store i8 50, ptr %90, align 1, !tbaa !13
+  store i8 50, ptr %90, align 1, !tbaa !14
   %91 = add nsw i64 %.3274, -200
   br label %120
 
@@ -210,12 +210,12 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %93, label %95, label %97
 
 95:                                               ; preds = %92
-  store i8 51, ptr %94, align 1, !tbaa !13
+  store i8 51, ptr %94, align 1, !tbaa !14
   %96 = add nsw i64 %.3274, -300
   br label %120
 
 97:                                               ; preds = %92
-  store i8 52, ptr %94, align 1, !tbaa !13
+  store i8 52, ptr %94, align 1, !tbaa !14
   %98 = add nsw i64 %.3274, -400
   br label %120
 
@@ -229,12 +229,12 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %102, label %104, label %106
 
 104:                                              ; preds = %101
-  store i8 53, ptr %103, align 1, !tbaa !13
+  store i8 53, ptr %103, align 1, !tbaa !14
   %105 = add nsw i64 %.3274, -500
   br label %120
 
 106:                                              ; preds = %101
-  store i8 54, ptr %103, align 1, !tbaa !13
+  store i8 54, ptr %103, align 1, !tbaa !14
   %107 = add nsw i64 %.3274, -600
   br label %120
 
@@ -244,7 +244,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 110:                                              ; preds = %108
   %111 = getelementptr inbounds i8, ptr %.1279327, i64 -3
-  store i8 55, ptr %111, align 1, !tbaa !13
+  store i8 55, ptr %111, align 1, !tbaa !14
   %112 = add nsw i64 %.3274, -700
   br label %120
 
@@ -254,12 +254,12 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %114, label %116, label %118
 
 116:                                              ; preds = %113
-  store i8 56, ptr %115, align 1, !tbaa !13
+  store i8 56, ptr %115, align 1, !tbaa !14
   %117 = add nsw i64 %.3274, -800
   br label %120
 
 118:                                              ; preds = %113
-  store i8 57, ptr %115, align 1, !tbaa !13
+  store i8 57, ptr %115, align 1, !tbaa !14
   %119 = add nsw i64 %.3274, -900
   br label %120
 
@@ -267,15 +267,15 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %.4275 = phi i64 [ %.3274, %84 ], [ %86, %85 ], [ %91, %89 ], [ %96, %95 ], [ %98, %97 ], [ %105, %104 ], [ %107, %106 ], [ %112, %110 ], [ %117, %116 ], [ %119, %118 ]
   %121 = shl i64 %.4275, 1
   %122 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 192), i64 %121
-  %123 = load i8, ptr %122, align 2, !tbaa !13
+  %123 = load i8, ptr %122, align 2, !tbaa !14
   %124 = getelementptr inbounds i8, ptr %.1279327, i64 -2
-  store i8 %123, ptr %124, align 1, !tbaa !13
+  store i8 %123, ptr %124, align 1, !tbaa !14
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  %126 = load i8, ptr %125, align 1, !tbaa !13
+  %126 = load i8, ptr %125, align 1, !tbaa !14
   %127 = getelementptr inbounds i8, ptr %.1279327, i64 -1
-  store i8 %126, ptr %127, align 1, !tbaa !13
+  store i8 %126, ptr %127, align 1, !tbaa !14
   %128 = icmp ugt i64 %.2267328, 99999999
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %120, %33
   %.1279.lcssa = phi ptr [ getelementptr inbounds nuw (i8, ptr @_sfcvt.Buf, i64 512), %33 ], [ %40, %120 ]
@@ -291,19 +291,19 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %133 = getelementptr inbounds i8, ptr %.1279.lcssa, i64 -1
   %134 = trunc nuw nsw i64 %.2267.lcssa to i8
   %135 = or disjoint i8 %134, 48
-  store i8 %135, ptr %133, align 1, !tbaa !13
+  store i8 %135, ptr %133, align 1, !tbaa !14
   br label %241
 
 136:                                              ; preds = %130
   %137 = getelementptr inbounds i8, ptr %.1279.lcssa, i64 -2
   %138 = shl nuw nsw i64 %.2267.lcssa, 1
   %139 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 192), i64 %138
-  %140 = load i8, ptr %139, align 2, !tbaa !13
-  store i8 %140, ptr %137, align 1, !tbaa !13
+  %140 = load i8, ptr %139, align 2, !tbaa !14
+  store i8 %140, ptr %137, align 1, !tbaa !14
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 1
-  %142 = load i8, ptr %141, align 1, !tbaa !13
+  %142 = load i8, ptr %141, align 1, !tbaa !14
   %143 = getelementptr inbounds i8, ptr %.1279.lcssa, i64 -1
-  store i8 %142, ptr %143, align 1, !tbaa !13
+  store i8 %142, ptr %143, align 1, !tbaa !14
   br label %241
 
 144:                                              ; preds = %._crit_edge
@@ -352,17 +352,17 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 163:                                              ; preds = %161, %159, %157, %153, %151, %149
   %.sink365 = phi i8 [ 49, %149 ], [ 50, %151 ], [ %., %153 ], [ %.371, %157 ], [ 55, %159 ], [ %.373, %161 ]
   %.sink = phi i64 [ -100, %149 ], [ -200, %151 ], [ %.370, %153 ], [ %.372, %157 ], [ -700, %159 ], [ %.374, %161 ]
-  store i8 %.sink365, ptr %147, align 1, !tbaa !13
+  store i8 %.sink365, ptr %147, align 1, !tbaa !14
   %164 = add nsw i64 %.2267.lcssa, %.sink
   %165 = shl nuw nsw i64 %164, 1
   %166 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 192), i64 %165
-  %167 = load i8, ptr %166, align 2, !tbaa !13
+  %167 = load i8, ptr %166, align 2, !tbaa !14
   %168 = getelementptr inbounds i8, ptr %.1279.lcssa, i64 -2
-  store i8 %167, ptr %168, align 1, !tbaa !13
+  store i8 %167, ptr %168, align 1, !tbaa !14
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 1
-  %170 = load i8, ptr %169, align 1, !tbaa !13
+  %170 = load i8, ptr %169, align 1, !tbaa !14
   %171 = getelementptr inbounds i8, ptr %.1279.lcssa, i64 -1
-  store i8 %170, ptr %171, align 1, !tbaa !13
+  store i8 %170, ptr %171, align 1, !tbaa !14
   br label %241
 
 172:                                              ; preds = %144
@@ -407,7 +407,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 189:                                              ; preds = %187, %185, %183, %179, %177, %175
   %.sink367 = phi i8 [ 49, %175 ], [ 50, %177 ], [ %.375, %179 ], [ %.377, %183 ], [ 55, %185 ], [ %.379, %187 ]
   %.sink366 = phi i64 [ -1000, %175 ], [ -2000, %177 ], [ %.376, %179 ], [ %.378, %183 ], [ -7000, %185 ], [ %.380, %187 ]
-  store i8 %.sink367, ptr %173, align 1, !tbaa !13
+  store i8 %.sink367, ptr %173, align 1, !tbaa !14
   %190 = add nsw i64 %.2267.lcssa, %.sink366
   %191 = icmp samesign ult i64 %190, 500
   br i1 %191, label %192, label %212
@@ -422,11 +422,11 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %195, label %197, label %198
 
 197:                                              ; preds = %194
-  store i8 48, ptr %196, align 1, !tbaa !13
+  store i8 48, ptr %196, align 1, !tbaa !14
   br label %233
 
 198:                                              ; preds = %194
-  store i8 49, ptr %196, align 1, !tbaa !13
+  store i8 49, ptr %196, align 1, !tbaa !14
   %199 = add nsw i64 %190, -100
   br label %233
 
@@ -436,7 +436,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 202:                                              ; preds = %200
   %203 = getelementptr inbounds i8, ptr %.1279.lcssa, i64 -3
-  store i8 50, ptr %203, align 1, !tbaa !13
+  store i8 50, ptr %203, align 1, !tbaa !14
   %204 = add nsw i64 %190, -200
   br label %233
 
@@ -446,12 +446,12 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %206, label %208, label %210
 
 208:                                              ; preds = %205
-  store i8 51, ptr %207, align 1, !tbaa !13
+  store i8 51, ptr %207, align 1, !tbaa !14
   %209 = add nsw i64 %190, -300
   br label %233
 
 210:                                              ; preds = %205
-  store i8 52, ptr %207, align 1, !tbaa !13
+  store i8 52, ptr %207, align 1, !tbaa !14
   %211 = add nsw i64 %190, -400
   br label %233
 
@@ -465,12 +465,12 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %215, label %217, label %219
 
 217:                                              ; preds = %214
-  store i8 53, ptr %216, align 1, !tbaa !13
+  store i8 53, ptr %216, align 1, !tbaa !14
   %218 = add nsw i64 %190, -500
   br label %233
 
 219:                                              ; preds = %214
-  store i8 54, ptr %216, align 1, !tbaa !13
+  store i8 54, ptr %216, align 1, !tbaa !14
   %220 = add nsw i64 %190, -600
   br label %233
 
@@ -480,7 +480,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 223:                                              ; preds = %221
   %224 = getelementptr inbounds i8, ptr %.1279.lcssa, i64 -3
-  store i8 55, ptr %224, align 1, !tbaa !13
+  store i8 55, ptr %224, align 1, !tbaa !14
   %225 = add nsw i64 %190, -700
   br label %233
 
@@ -490,12 +490,12 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %227, label %229, label %231
 
 229:                                              ; preds = %226
-  store i8 56, ptr %228, align 1, !tbaa !13
+  store i8 56, ptr %228, align 1, !tbaa !14
   %230 = add nsw i64 %190, -800
   br label %233
 
 231:                                              ; preds = %226
-  store i8 57, ptr %228, align 1, !tbaa !13
+  store i8 57, ptr %228, align 1, !tbaa !14
   %232 = add nsw i64 %190, -900
   br label %233
 
@@ -503,13 +503,13 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %.5270 = phi i64 [ %190, %197 ], [ %199, %198 ], [ %204, %202 ], [ %209, %208 ], [ %211, %210 ], [ %218, %217 ], [ %220, %219 ], [ %225, %223 ], [ %230, %229 ], [ %232, %231 ]
   %234 = shl nuw nsw i64 %.5270, 1
   %235 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 192), i64 %234
-  %236 = load i8, ptr %235, align 2, !tbaa !13
+  %236 = load i8, ptr %235, align 2, !tbaa !14
   %237 = getelementptr inbounds i8, ptr %.1279.lcssa, i64 -2
-  store i8 %236, ptr %237, align 1, !tbaa !13
+  store i8 %236, ptr %237, align 1, !tbaa !14
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 1
-  %239 = load i8, ptr %238, align 1, !tbaa !13
+  %239 = load i8, ptr %238, align 1, !tbaa !14
   %240 = getelementptr inbounds i8, ptr %.1279.lcssa, i64 -1
-  store i8 %239, ptr %240, align 1, !tbaa !13
+  store i8 %239, ptr %240, align 1, !tbaa !14
   br label %241
 
 241:                                              ; preds = %163, %233, %132, %136
@@ -567,7 +567,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %269 = fmul double %267, 1.000000e+01
   %270 = fptosi double %269 to i32
   %271 = icmp eq i32 %270, 0
-  br i1 %271, label %.lr.ph330, label %..loopexit323_crit_edge, !llvm.loop !15
+  br i1 %271, label %.lr.ph330, label %..loopexit323_crit_edge, !llvm.loop !16
 
 ..loopexit323_crit_edge:                          ; preds = %.lr.ph330
   store i32 %268, ptr %2, align 4, !tbaa !3
@@ -594,7 +594,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %275 = add i64 %.5283333350, 1
   %umax356 = tail call i64 @llvm.umax.i64(i64 %273, i64 %275)
   %276 = sub i64 %umax356, %.5283333350
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.5283333, i8 48, i64 %276, i1 false), !tbaa !13
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.5283333, i8 48, i64 %276, i1 false), !tbaa !14
   br label %.loopexit
 
 277:                                              ; preds = %.lr.ph336
@@ -607,7 +607,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %281 = add i64 %.5283333350, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %273, i64 %281)
   %282 = sub i64 %umax, %.5283333350
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.5283333, i8 57, i64 %282, i1 false), !tbaa !13
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.5283333, i8 57, i64 %282, i1 false), !tbaa !14
   %scevgep = getelementptr i8, ptr %.5283333, i64 %282
   br label %.loopexit320
 
@@ -615,7 +615,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %284 = trunc i32 %279 to i8
   %285 = add i8 %284, 48
   %286 = getelementptr inbounds nuw i8, ptr %.5283333, i64 1
-  store i8 %285, ptr %.5283333, align 1, !tbaa !13
+  store i8 %285, ptr %.5283333, align 1, !tbaa !14
   %287 = sitofp i32 %279 to double
   %288 = fsub double %278, %287
   br label %.loopexit320
@@ -624,7 +624,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %.8286 = phi ptr [ %286, %283 ], [ %scevgep, %.preheader319.preheader ]
   %.8 = phi double [ %288, %283 ], [ %278, %.preheader319.preheader ]
   %289 = icmp ult ptr %.8286, %.3261
-  br i1 %289, label %.lr.ph336, label %.loopexit321, !llvm.loop !16
+  br i1 %289, label %.lr.ph336, label %.loopexit321, !llvm.loop !17
 
 .loopexit321:                                     ; preds = %.loopexit320, %.loopexit323, %248
   %.0278.ph = phi ptr [ %.3261, %248 ], [ getelementptr inbounds nuw (i8, ptr @_sfcvt.Buf, i64 512), %.loopexit323 ], [ %.8286, %.loopexit320 ]
@@ -641,9 +641,9 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 294:                                              ; preds = %292
   %295 = getelementptr inbounds i8, ptr %.0278.ph, i64 -1
-  %296 = load i8, ptr %295, align 1, !tbaa !13
+  %296 = load i8, ptr %295, align 1, !tbaa !14
   %297 = add i8 %296, 5
-  store i8 %297, ptr %295, align 1, !tbaa !13
+  store i8 %297, ptr %295, align 1, !tbaa !14
   %298 = icmp sgt i8 %297, 57
   br i1 %298, label %.lr.ph341, label %.loopexit
 
@@ -653,26 +653,26 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 .lr.ph341.split.us:                               ; preds = %.lr.ph341, %309
   %.5263339.us = phi ptr [ %.6264.us, %309 ], [ %.3261, %.lr.ph341 ]
   %.9338.us = phi ptr [ %.10.us, %309 ], [ %295, %.lr.ph341 ]
-  store i8 48, ptr %.9338.us, align 1, !tbaa !13
+  store i8 48, ptr %.9338.us, align 1, !tbaa !14
   %299 = icmp ugt ptr %.9338.us, %.1257
   br i1 %299, label %305, label %300
 
 300:                                              ; preds = %.lr.ph341.split.us
-  store i8 49, ptr %.9338.us, align 1, !tbaa !13
+  store i8 49, ptr %.9338.us, align 1, !tbaa !14
   %301 = load i32, ptr %2, align 4, !tbaa !3
   %302 = add nsw i32 %301, 1
   store i32 %302, ptr %2, align 4, !tbaa !3
   %303 = getelementptr inbounds i8, ptr %.5263339.us, i64 -1
-  store i8 48, ptr %303, align 1, !tbaa !13
+  store i8 48, ptr %303, align 1, !tbaa !14
   %304 = getelementptr inbounds nuw i8, ptr %.5263339.us, i64 1
-  %.pr.us.pre = load i8, ptr %.9338.us, align 1, !tbaa !13
+  %.pr.us.pre = load i8, ptr %.9338.us, align 1, !tbaa !14
   br label %309
 
 305:                                              ; preds = %.lr.ph341.split.us
   %306 = getelementptr inbounds i8, ptr %.9338.us, i64 -1
-  %307 = load i8, ptr %306, align 1, !tbaa !13
+  %307 = load i8, ptr %306, align 1, !tbaa !14
   %308 = add i8 %307, 1
-  store i8 %308, ptr %306, align 1, !tbaa !13
+  store i8 %308, ptr %306, align 1, !tbaa !14
   br label %309
 
 309:                                              ; preds = %305, %300
@@ -680,39 +680,39 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %.10.us = phi ptr [ %306, %305 ], [ %.9338.us, %300 ]
   %.6264.us = phi ptr [ %.5263339.us, %305 ], [ %304, %300 ]
   %310 = icmp sgt i8 %.pr.us, 57
-  br i1 %310, label %.lr.ph341.split.us, label %.loopexit, !llvm.loop !17
+  br i1 %310, label %.lr.ph341.split.us, label %.loopexit, !llvm.loop !18
 
 .lr.ph341.split:                                  ; preds = %.lr.ph341, %319
   %.9338 = phi ptr [ %.10, %319 ], [ %295, %.lr.ph341 ]
-  store i8 48, ptr %.9338, align 1, !tbaa !13
+  store i8 48, ptr %.9338, align 1, !tbaa !14
   %311 = icmp ugt ptr %.9338, %.1257
   br i1 %311, label %312, label %316
 
 312:                                              ; preds = %.lr.ph341.split
   %313 = getelementptr inbounds i8, ptr %.9338, i64 -1
-  %314 = load i8, ptr %313, align 1, !tbaa !13
+  %314 = load i8, ptr %313, align 1, !tbaa !14
   %315 = add i8 %314, 1
-  store i8 %315, ptr %313, align 1, !tbaa !13
+  store i8 %315, ptr %313, align 1, !tbaa !14
   br label %319
 
 316:                                              ; preds = %.lr.ph341.split
-  store i8 49, ptr %.9338, align 1, !tbaa !13
+  store i8 49, ptr %.9338, align 1, !tbaa !14
   %317 = load i32, ptr %2, align 4, !tbaa !3
   %318 = add nsw i32 %317, 1
   store i32 %318, ptr %2, align 4, !tbaa !3
-  %.pr.pre = load i8, ptr %.9338, align 1, !tbaa !13
+  %.pr.pre = load i8, ptr %.9338, align 1, !tbaa !14
   br label %319
 
 319:                                              ; preds = %316, %312
   %.pr = phi i8 [ %315, %312 ], [ %.pr.pre, %316 ]
   %.10 = phi ptr [ %313, %312 ], [ %.9338, %316 ]
   %320 = icmp sgt i8 %.pr, 57
-  br i1 %320, label %.lr.ph341.split, label %.loopexit, !llvm.loop !19
+  br i1 %320, label %.lr.ph341.split, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %309, %319, %.preheader.preheader, %294, %290, %292
   %.4262 = phi ptr [ %291, %290 ], [ %.3261, %292 ], [ %.3261, %294 ], [ %.3261, %.preheader.preheader ], [ %.3261, %319 ], [ %.6264.us, %309 ]
   %321 = getelementptr inbounds i8, ptr %.4262, i64 -1
-  store i8 0, ptr %321, align 1, !tbaa !13
+  store i8 0, ptr %321, align 1, !tbaa !14
   %322 = ptrtoint ptr %321 to i64
   %323 = ptrtoint ptr %.1257 to i64
   %324 = sub i64 %322, %323
@@ -721,7 +721,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 .thread:                                          ; preds = %19, %241, %5, %.loopexit
   %.sink369 = phi i64 [ %324, %.loopexit ], [ 1, %5 ], [ 3, %241 ], [ 3, %19 ]
   %.1 = phi ptr [ %.1257, %.loopexit ], [ @.str, %5 ], [ @.str.1, %241 ], [ @.str.1, %19 ]
-  store i64 %.sink369, ptr @_Sfi, align 8, !tbaa !20
+  store i64 %.sink369, ptr @_Sfi, align 8, !tbaa !21
   ret ptr %.1
 }
 
@@ -754,14 +754,15 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !8 = !{!"double", !5, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"long double", !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !12}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !5, i64 0}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!5, !5, i64 0}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !12, !13}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !5, i64 0}

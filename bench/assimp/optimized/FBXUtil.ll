@@ -935,7 +935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %48, ptr %51, align 1
   %52 = add nuw nsw i64 %.03037, 1
   %exitcond.not = icmp eq i64 %52, %10
-  br i1 %exitcond.not, label %.lr.ph39.preheader, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit, !llvm.loop !45
+  br i1 %exitcond.not, label %.lr.ph39.preheader, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit, !llvm.loop !46
 
 .lr.ph39.preheader:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit, %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
@@ -1005,7 +1005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 61, ptr %93, align 1
   %94 = add nuw nsw i64 %.038, 1
   %exitcond41.not = icmp eq i64 %94, %.zext
-  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph39, !llvm.loop !46
+  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph39, !llvm.loop !47
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1108,7 +1108,8 @@ attributes #16 = { builtin nounwind }
 !40 = distinct !{!40, !41, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
 !41 = distinct !{!41, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
 !42 = !{!40, !37, !34}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = distinct !{!45, !44}
-!46 = distinct !{!46, !44}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = distinct !{!46, !44, !45}
+!47 = distinct !{!47, !44, !45}

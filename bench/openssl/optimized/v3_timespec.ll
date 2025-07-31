@@ -664,7 +664,7 @@ i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.thread2.i:       ; preds = %i2r_OSSL_TIME_SPEC_
   br i1 %104, label %i2r_OSSL_PERIOD.exit.thread.i, label %105
 
 105:                                              ; preds = %.lr.ph.i.i
-  %106 = load ptr, ptr %102, align 8, !tbaa !34
+  %106 = load ptr, ptr %102, align 8, !tbaa !35
   %.not.i.i.i = icmp eq ptr %106, null
   br i1 %.not.i.i.i, label %109, label %107
 
@@ -685,7 +685,7 @@ i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.thread2.i:       ; preds = %i2r_OSSL_TIME_SPEC_
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !37
+  %115 = load ptr, ptr %114, align 8, !tbaa !38
   %.not18.i.i.i = icmp eq ptr %115, null
   br i1 %.not18.i.i.i, label %118, label %116
 
@@ -706,18 +706,18 @@ i2r_OSSL_DAY_TIME_BAND.exit.i.i:                  ; preds = %118, %116
 
 .loopexit19.i.i:                                  ; preds = %96, %.preheader18.i.i, %88
   %121 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !38
+  %122 = load ptr, ptr %121, align 8, !tbaa !39
   %.not118.i.i = icmp eq ptr %122, null
   br i1 %.not118.i.i, label %228, label %123
 
 123:                                              ; preds = %.loopexit19.i.i
-  %124 = load i32, ptr %122, align 8, !tbaa !39
+  %124 = load i32, ptr %122, align 8, !tbaa !40
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %126, label %144
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !41
+  %128 = load ptr, ptr %127, align 8, !tbaa !42
   %.not119.i.i = icmp eq ptr %128, null
   br i1 %.not119.i.i, label %132, label %129
 
@@ -728,7 +728,7 @@ i2r_OSSL_DAY_TIME_BAND.exit.i.i:                  ; preds = %118, %116
 
 132:                                              ; preds = %126
   %133 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %134 = load ptr, ptr %133, align 8, !tbaa !42
+  %134 = load ptr, ptr %133, align 8, !tbaa !43
   %.not120.i.i = icmp eq ptr %134, null
   br i1 %.not120.i.i, label %138, label %135
 
@@ -739,7 +739,7 @@ i2r_OSSL_DAY_TIME_BAND.exit.i.i:                  ; preds = %118, %116
 
 138:                                              ; preds = %132
   %139 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %140 = load ptr, ptr %139, align 8, !tbaa !43
+  %140 = load ptr, ptr %139, align 8, !tbaa !44
   %.not121.i.i = icmp eq ptr %140, null
   br i1 %.not121.i.i, label %147, label %141
 
@@ -754,8 +754,8 @@ i2r_OSSL_DAY_TIME_BAND.exit.i.i:                  ; preds = %118, %116
   br i1 %146, label %i2r_OSSL_PERIOD.exit.thread.i, label %147
 
 147:                                              ; preds = %144, %141, %138, %135, %129
-  %148 = load ptr, ptr %121, align 8, !tbaa !38
-  %149 = load i32, ptr %148, align 8, !tbaa !39
+  %148 = load ptr, ptr %121, align 8, !tbaa !39
+  %149 = load i32, ptr %148, align 8, !tbaa !40
   switch i32 %149, label %i2r_OSSL_PERIOD.exit.thread.i [
     i32 0, label %.preheader14.i.i
     i32 1, label %180
@@ -775,7 +775,7 @@ i2r_OSSL_DAY_TIME_BAND.exit.i.i:                  ; preds = %118, %116
 
 155:                                              ; preds = %173, %.lr.ph23.i.i
   %.122.i.i = phi i32 [ 0, %.lr.ph23.i.i ], [ %174, %173 ]
-  %156 = load ptr, ptr %121, align 8, !tbaa !38
+  %156 = load ptr, ptr %121, align 8, !tbaa !39
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !17
   %159 = call ptr @OPENSSL_sk_value(ptr noundef %158, i32 noundef %.122.i.i) #4
@@ -793,7 +793,7 @@ i2r_OSSL_DAY_TIME_BAND.exit.i.i:                  ; preds = %118, %116
   br i1 %.not156.i.i, label %i2r_OSSL_PERIOD.exit.thread.i, label %164
 
 164:                                              ; preds = %162, %161
-  %165 = load ptr, ptr %154, align 8, !tbaa !41
+  %165 = load ptr, ptr %154, align 8, !tbaa !42
   %.not157.i.i = icmp eq ptr %165, null
   %166 = load i64, ptr %5, align 8, !tbaa !11
   br i1 %.not157.i.i, label %170, label %167
@@ -817,12 +817,12 @@ switch.lookup:                                    ; preds = %167
 
 173:                                              ; preds = %170, %switch.lookup
   %174 = add nuw nsw i32 %.122.i.i, 1
-  %175 = load ptr, ptr %121, align 8, !tbaa !38
+  %175 = load ptr, ptr %121, align 8, !tbaa !39
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load ptr, ptr %176, align 8, !tbaa !17
   %178 = call i32 @OPENSSL_sk_num(ptr noundef %177) #4
   %179 = icmp slt i32 %174, %178
-  br i1 %179, label %155, label %print_day_of_week.exit.i.i, !llvm.loop !44
+  br i1 %179, label %155, label %print_day_of_week.exit.i.i, !llvm.loop !45
 
 180:                                              ; preds = %147
   %181 = getelementptr inbounds nuw i8, ptr %148, i64 8
@@ -849,7 +849,7 @@ switch.lookup:                                    ; preds = %167
 190:                                              ; preds = %188, %186
   %191 = add nsw i32 %.014.i.i.i, 1
   %192 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.print_int_named_day, i64 0, i64 %indvars.iv.i.i.i
-  %193 = load ptr, ptr %192, align 8, !tbaa !45
+  %193 = load ptr, ptr %192, align 8, !tbaa !46
   %194 = call i32 @BIO_puts(ptr noundef %2, ptr noundef %193) #4
   %.not12.i.i.i = icmp eq i32 %194, 0
   br i1 %.not12.i.i.i, label %i2r_OSSL_PERIOD.exit.thread.i, label %195
@@ -858,12 +858,12 @@ switch.lookup:                                    ; preds = %167
   %.1.i.i.i = phi i32 [ %191, %190 ], [ %.014.i.i.i, %183 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 7
-  br i1 %exitcond.not.i.i.i, label %print_day_of_week.exit.i.i, label %183, !llvm.loop !46
+  br i1 %exitcond.not.i.i.i, label %print_day_of_week.exit.i.i, label %183, !llvm.loop !47
 
 196:                                              ; preds = %147
   %197 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %198 = load ptr, ptr %197, align 8, !tbaa !17
-  %199 = load i32, ptr %198, align 8, !tbaa !47
+  %199 = load i32, ptr %198, align 8, !tbaa !48
   switch i32 %199, label %i2r_OSSL_PERIOD.exit.thread.i [
     i32 0, label %200
     i32 1, label %202
@@ -898,12 +898,12 @@ switch.lookup:                                    ; preds = %167
   br i1 %.not122.i.i, label %i2r_OSSL_PERIOD.exit.thread.i, label %210
 
 210:                                              ; preds = %208, %206, %204, %202, %200
-  %211 = load ptr, ptr %121, align 8, !tbaa !38
+  %211 = load ptr, ptr %121, align 8, !tbaa !39
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8, !tbaa !17
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %.0.i26.i = load ptr, ptr %214, align 8, !tbaa !17
-  %215 = load i32, ptr %.0.i26.i, align 8, !tbaa !49
+  %215 = load i32, ptr %.0.i26.i, align 8, !tbaa !50
   switch i32 %215, label %i2r_OSSL_PERIOD.exit.thread.i [
     i32 0, label %216
     i32 1, label %223
@@ -936,18 +936,18 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
 
 228:                                              ; preds = %print_day_of_week.exit.i.i, %.loopexit19.i.i
   %229 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %230 = load ptr, ptr %229, align 8, !tbaa !41
+  %230 = load ptr, ptr %229, align 8, !tbaa !42
   %.not132.i.i = icmp eq ptr %230, null
   br i1 %.not132.i.i, label %293, label %231
 
 231:                                              ; preds = %228
-  %232 = load i32, ptr %230, align 8, !tbaa !51
+  %232 = load i32, ptr %230, align 8, !tbaa !52
   %233 = icmp eq i32 %232, 1
   br i1 %233, label %234, label %246
 
 234:                                              ; preds = %231
   %235 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %236 = load ptr, ptr %235, align 8, !tbaa !42
+  %236 = load ptr, ptr %235, align 8, !tbaa !43
   %.not133.i.i = icmp eq ptr %236, null
   br i1 %.not133.i.i, label %240, label %237
 
@@ -958,7 +958,7 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
 
 240:                                              ; preds = %234
   %241 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %242 = load ptr, ptr %241, align 8, !tbaa !43
+  %242 = load ptr, ptr %241, align 8, !tbaa !44
   %.not134.i.i = icmp eq ptr %242, null
   br i1 %.not134.i.i, label %249, label %243
 
@@ -973,8 +973,8 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
   br i1 %248, label %i2r_OSSL_PERIOD.exit.thread.i, label %249
 
 249:                                              ; preds = %246, %243, %240, %237
-  %250 = load ptr, ptr %229, align 8, !tbaa !41
-  %251 = load i32, ptr %250, align 8, !tbaa !51
+  %250 = load ptr, ptr %229, align 8, !tbaa !42
+  %251 = load i32, ptr %250, align 8, !tbaa !52
   switch i32 %251, label %i2r_OSSL_PERIOD.exit.thread.i [
     i32 0, label %256
     i32 1, label %.preheader11.i.i
@@ -995,16 +995,16 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
 
 258:                                              ; preds = %273
   %259 = add nuw nsw i32 %.224.i.i, 1
-  %260 = load ptr, ptr %229, align 8, !tbaa !41
+  %260 = load ptr, ptr %229, align 8, !tbaa !42
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load ptr, ptr %261, align 8, !tbaa !17
   %263 = call i32 @OPENSSL_sk_num(ptr noundef %262) #4
   %264 = icmp slt i32 %259, %263
-  br i1 %264, label %.lr.ph25.i.i, label %.loopexit12.i.i, !llvm.loop !53
+  br i1 %264, label %.lr.ph25.i.i, label %.loopexit12.i.i, !llvm.loop !54
 
 .lr.ph25.i.i:                                     ; preds = %.preheader11.i.i, %258
   %.224.i.i = phi i32 [ %259, %258 ], [ 0, %.preheader11.i.i ]
-  %265 = load ptr, ptr %229, align 8, !tbaa !41
+  %265 = load ptr, ptr %229, align 8, !tbaa !42
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = load ptr, ptr %266, align 8, !tbaa !17
   %268 = call ptr @OPENSSL_sk_value(ptr noundef %267, i32 noundef %.224.i.i) #4
@@ -1052,7 +1052,7 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
 286:                                              ; preds = %284, %282
   %287 = add nsw i32 %.014.i.i, 1
   %288 = getelementptr inbounds nuw [5 x ptr], ptr @WEEK_NAMES, i64 0, i64 %indvars.iv.i.i
-  %289 = load ptr, ptr %288, align 8, !tbaa !45
+  %289 = load ptr, ptr %288, align 8, !tbaa !46
   %290 = call i32 @BIO_puts(ptr noundef %2, ptr noundef %289) #4
   %.not12.i.i = icmp eq i32 %290, 0
   br i1 %.not12.i.i, label %i2r_OSSL_PERIOD.exit.thread.i, label %291
@@ -1061,7 +1061,7 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
   %.1.i.i = phi i32 [ %287, %286 ], [ %.014.i.i, %279 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %.loopexit12.i.i, label %279, !llvm.loop !54
+  br i1 %exitcond.not.i.i, label %.loopexit12.i.i, label %279, !llvm.loop !55
 
 .loopexit12.i.i:                                  ; preds = %291, %258, %256, %.preheader11.i.i
   %292 = call i32 @BIO_puts(ptr noundef %2, ptr noundef nonnull @.str.49) #4
@@ -1070,7 +1070,7 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
 
 293:                                              ; preds = %.loopexit12.i.i, %228
   %294 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %295 = load ptr, ptr %294, align 8, !tbaa !42
+  %295 = load ptr, ptr %294, align 8, !tbaa !43
   %.not142.i.i = icmp eq ptr %295, null
   br i1 %.not142.i.i, label %332, label %296
 
@@ -1080,8 +1080,8 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
   br i1 %298, label %i2r_OSSL_PERIOD.exit.thread.i, label %299
 
 299:                                              ; preds = %296
-  %300 = load ptr, ptr %294, align 8, !tbaa !42
-  %301 = load i32, ptr %300, align 8, !tbaa !55
+  %300 = load ptr, ptr %294, align 8, !tbaa !43
+  %301 = load i32, ptr %300, align 8, !tbaa !56
   switch i32 %301, label %i2r_OSSL_PERIOD.exit.thread.i [
     i32 0, label %306
     i32 1, label %.preheader9.i.i
@@ -1102,16 +1102,16 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
 
 308:                                              ; preds = %switch.lookup51
   %309 = add nuw nsw i32 %.326.i.i, 1
-  %310 = load ptr, ptr %294, align 8, !tbaa !42
+  %310 = load ptr, ptr %294, align 8, !tbaa !43
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %312 = load ptr, ptr %311, align 8, !tbaa !17
   %313 = call i32 @OPENSSL_sk_num(ptr noundef %312) #4
   %314 = icmp slt i32 %309, %313
-  br i1 %314, label %.lr.ph27.i.i, label %.loopexit.i.i, !llvm.loop !57
+  br i1 %314, label %.lr.ph27.i.i, label %.loopexit.i.i, !llvm.loop !58
 
 .lr.ph27.i.i:                                     ; preds = %.preheader9.i.i, %308
   %.326.i.i = phi i32 [ %309, %308 ], [ 0, %.preheader9.i.i ]
-  %315 = load ptr, ptr %294, align 8, !tbaa !42
+  %315 = load ptr, ptr %294, align 8, !tbaa !43
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %317 = load ptr, ptr %316, align 8, !tbaa !17
   %318 = call ptr @OPENSSL_sk_value(ptr noundef %317, i32 noundef %.326.i.i) #4
@@ -1155,7 +1155,7 @@ switch.lookup51:                                  ; preds = %323
 
 332:                                              ; preds = %.loopexit.i.i, %293
   %333 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %334 = load ptr, ptr %333, align 8, !tbaa !43
+  %334 = load ptr, ptr %333, align 8, !tbaa !44
   %.not150.i.i = icmp eq ptr %334, null
   br i1 %.not150.i.i, label %.loopexit.i, label %335
 
@@ -1165,21 +1165,21 @@ switch.lookup51:                                  ; preds = %323
   br i1 %337, label %i2r_OSSL_PERIOD.exit.thread.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %335
-  %338 = load ptr, ptr %333, align 8, !tbaa !43
+  %338 = load ptr, ptr %333, align 8, !tbaa !44
   %339 = call i32 @OPENSSL_sk_num(ptr noundef %338) #4
   %340 = icmp sgt i32 %339, 0
   br i1 %340, label %.lr.ph29.i.i, label %.loopexit.i
 
 341:                                              ; preds = %352
   %342 = add nuw nsw i32 %.428.i.i, 1
-  %343 = load ptr, ptr %333, align 8, !tbaa !43
+  %343 = load ptr, ptr %333, align 8, !tbaa !44
   %344 = call i32 @OPENSSL_sk_num(ptr noundef %343) #4
   %345 = icmp slt i32 %342, %344
-  br i1 %345, label %.lr.ph29.i.i, label %.loopexit.i, !llvm.loop !58
+  br i1 %345, label %.lr.ph29.i.i, label %.loopexit.i, !llvm.loop !59
 
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i, %341
   %.428.i.i = phi i32 [ %342, %341 ], [ 0, %.preheader.i.i ]
-  %346 = load ptr, ptr %333, align 8, !tbaa !43
+  %346 = load ptr, ptr %333, align 8, !tbaa !44
   %347 = call ptr @OPENSSL_sk_value(ptr noundef %346, i32 noundef %.428.i.i) #4
   %348 = call i32 @ASN1_INTEGER_get_int64(ptr noundef nonnull %5, ptr noundef %347) #4
   %.not151.i.i = icmp eq i32 %348, 0
@@ -1210,7 +1210,7 @@ i2r_OSSL_PERIOD.exit.thread.i:                    ; preds = %335, %.loopexit.i.i
   %357 = load ptr, ptr %73, align 8, !tbaa !17
   %358 = call i32 @OPENSSL_sk_num(ptr noundef %357) #4
   %359 = icmp slt i32 %356, %358
-  br i1 %359, label %80, label %._crit_edge.i, !llvm.loop !59
+  br i1 %359, label %80, label %._crit_edge.i, !llvm.loop !60
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %.preheader.i
   %360 = call i32 @BIO_puts(ptr noundef %2, ptr noundef nonnull @.str.49) #4
@@ -1293,7 +1293,7 @@ define internal fastcc range(i32 0, 2) i32 @print_bit_named_day(ptr noundef %0, 
 10:                                               ; preds = %8, %6
   %11 = add nsw i32 %.014.i, 1
   %12 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.print_int_named_day, i64 0, i64 %indvars.iv.i
-  %13 = load ptr, ptr %12, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef %13) #4
   %.not12.i = icmp eq i32 %14, 0
   br i1 %.not12.i, label %print_day_of_week.exit, label %15
@@ -1302,7 +1302,7 @@ define internal fastcc range(i32 0, 2) i32 @print_bit_named_day(ptr noundef %0, 
   %.1.i = phi i32 [ %11, %10 ], [ %.014.i, %3 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %print_day_of_week.exit, label %3, !llvm.loop !46
+  br i1 %exitcond.not.i, label %print_day_of_week.exit, label %3, !llvm.loop !47
 
 print_day_of_week.exit:                           ; preds = %8, %10, %15
   %.010.i = phi i32 [ 0, %8 ], [ 0, %10 ], [ 1, %15 ]
@@ -1333,7 +1333,7 @@ define internal fastcc range(i32 0, 2) i32 @print_bit_month(ptr noundef %0, ptr 
 10:                                               ; preds = %8, %6
   %11 = add nsw i32 %.014, 1
   %12 = getelementptr inbounds nuw [12 x ptr], ptr @MONTH_NAMES, i64 0, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef %13) #4
   %.not12 = icmp eq i32 %14, 0
   br i1 %.not12, label %16, label %15
@@ -1342,7 +1342,7 @@ define internal fastcc range(i32 0, 2) i32 @print_bit_month(ptr noundef %0, ptr 
   %.1 = phi i32 [ %11, %10 ], [ %.014, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %16, label %3, !llvm.loop !60
+  br i1 %exitcond.not, label %16, label %3, !llvm.loop !61
 
 16:                                               ; preds = %15, %10, %8
   %.010 = phi i32 [ 0, %8 ], [ 0, %10 ], [ 1, %15 ]
@@ -1360,7 +1360,7 @@ define internal fastcc range(i32 0, 2) i32 @i2r_OSSL_DAY_TIME(ptr noundef nonnul
   store i64 0, ptr %4, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store i64 0, ptr %5, align 8, !tbaa !11
-  %6 = load ptr, ptr %0, align 8, !tbaa !61
+  %6 = load ptr, ptr %0, align 8, !tbaa !62
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %25, label %7
 
@@ -1371,7 +1371,7 @@ define internal fastcc range(i32 0, 2) i32 @i2r_OSSL_DAY_TIME(ptr noundef nonnul
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !63
+  %11 = load ptr, ptr %10, align 8, !tbaa !64
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %.thread, label %12
 
@@ -1381,13 +1381,13 @@ define internal fastcc range(i32 0, 2) i32 @i2r_OSSL_DAY_TIME(ptr noundef nonnul
   br i1 %.not11, label %25, label %14
 
 14:                                               ; preds = %12
-  %.pr = load ptr, ptr %10, align 8, !tbaa !63
+  %.pr = load ptr, ptr %10, align 8, !tbaa !64
   %.not12 = icmp eq ptr %.pr, null
   br i1 %.not12, label %.thread, label %15
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !64
+  %17 = load ptr, ptr %16, align 8, !tbaa !65
   %18 = call i32 @ASN1_INTEGER_get_int64(ptr noundef nonnull %5, ptr noundef %17) #4
   %.not13 = icmp eq i32 %18, 0
   br i1 %.not13, label %25, label %..thread_crit_edge
@@ -1455,36 +1455,37 @@ attributes #4 = { nounwind }
 !29 = !{!"p1 _ZTS23OSSL_TIME_SPEC_WEEKS_st", !6, i64 0}
 !30 = !{!"p1 _ZTS23OSSL_TIME_SPEC_MONTH_st", !6, i64 0}
 !31 = !{!"p1 _ZTS21stack_st_ASN1_INTEGER", !6, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!35, !36, i64 0}
-!35 = !{!"OSSL_DAY_TIME_BAND_st", !36, i64 0, !36, i64 8}
-!36 = !{!"p1 _ZTS16OSSL_DAY_TIME_st", !6, i64 0}
-!37 = !{!35, !36, i64 8}
-!38 = !{!26, !28, i64 8}
-!39 = !{!40, !9, i64 0}
-!40 = !{!"OSSL_TIME_SPEC_DAY_st", !9, i64 0, !7, i64 8}
-!41 = !{!26, !29, i64 16}
-!42 = !{!26, !30, i64 24}
-!43 = !{!26, !31, i64 32}
-!44 = distinct !{!44, !33}
-!45 = !{!23, !23, i64 0}
-!46 = distinct !{!46, !33}
-!47 = !{!48, !9, i64 0}
-!48 = !{!"OSSL_TIME_SPEC_X_DAY_OF_st", !9, i64 0, !7, i64 8}
-!49 = !{!50, !9, i64 0}
-!50 = !{!"OSSL_NAMED_DAY_st", !9, i64 0, !7, i64 8}
-!51 = !{!52, !9, i64 0}
-!52 = !{!"OSSL_TIME_SPEC_WEEKS_st", !9, i64 0, !7, i64 8}
-!53 = distinct !{!53, !33}
-!54 = distinct !{!54, !33}
-!55 = !{!56, !9, i64 0}
-!56 = !{!"OSSL_TIME_SPEC_MONTH_st", !9, i64 0, !7, i64 8}
-!57 = distinct !{!57, !33}
-!58 = distinct !{!58, !33}
-!59 = distinct !{!59, !33}
-!60 = distinct !{!60, !33}
-!61 = !{!62, !10, i64 0}
-!62 = !{!"OSSL_DAY_TIME_st", !10, i64 0, !10, i64 8, !10, i64 16}
-!63 = !{!62, !10, i64 8}
-!64 = !{!62, !10, i64 16}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"OSSL_DAY_TIME_BAND_st", !37, i64 0, !37, i64 8}
+!37 = !{!"p1 _ZTS16OSSL_DAY_TIME_st", !6, i64 0}
+!38 = !{!36, !37, i64 8}
+!39 = !{!26, !28, i64 8}
+!40 = !{!41, !9, i64 0}
+!41 = !{!"OSSL_TIME_SPEC_DAY_st", !9, i64 0, !7, i64 8}
+!42 = !{!26, !29, i64 16}
+!43 = !{!26, !30, i64 24}
+!44 = !{!26, !31, i64 32}
+!45 = distinct !{!45, !33, !34}
+!46 = !{!23, !23, i64 0}
+!47 = distinct !{!47, !33, !34}
+!48 = !{!49, !9, i64 0}
+!49 = !{!"OSSL_TIME_SPEC_X_DAY_OF_st", !9, i64 0, !7, i64 8}
+!50 = !{!51, !9, i64 0}
+!51 = !{!"OSSL_NAMED_DAY_st", !9, i64 0, !7, i64 8}
+!52 = !{!53, !9, i64 0}
+!53 = !{!"OSSL_TIME_SPEC_WEEKS_st", !9, i64 0, !7, i64 8}
+!54 = distinct !{!54, !33, !34}
+!55 = distinct !{!55, !33, !34}
+!56 = !{!57, !9, i64 0}
+!57 = !{!"OSSL_TIME_SPEC_MONTH_st", !9, i64 0, !7, i64 8}
+!58 = distinct !{!58, !33, !34}
+!59 = distinct !{!59, !33, !34}
+!60 = distinct !{!60, !33, !34}
+!61 = distinct !{!61, !33, !34}
+!62 = !{!63, !10, i64 0}
+!63 = !{!"OSSL_DAY_TIME_st", !10, i64 0, !10, i64 8, !10, i64 16}
+!64 = !{!63, !10, i64 8}
+!65 = !{!63, !10, i64 16}

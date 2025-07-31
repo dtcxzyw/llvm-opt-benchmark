@@ -99,7 +99,7 @@ get_normalized_boundaries.exit.i:                 ; preds = %.lr.ph.i.i, %filter
   %42 = shl i64 %41, 1
   %43 = and i64 %41, 2251799813685248
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.lr.ph.i26.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %44, label %.lr.ph.i26.i, label %normalize.exit.i, !llvm.loop !10
 
 normalize.exit.i:                                 ; preds = %.lr.ph.i26.i, %get_normalized_boundaries.exit.i
   %.lcssa.i25.i = phi i64 [ %23, %get_normalized_boundaries.exit.i ], [ %42, %.lr.ph.i26.i ]
@@ -116,7 +116,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph.i26.i, %get_
   %52 = sext i32 %.011.i.i to i64
   %53 = getelementptr inbounds [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load i32, ptr %54, align 8, !tbaa !10
+  %55 = load i32, ptr %54, align 8, !tbaa !11
   %56 = add nsw i32 %32, %55
   %57 = icmp slt i32 %56, -124
   br i1 %57, label %60, label %58
@@ -128,12 +128,12 @@ normalize.exit.i:                                 ; preds = %.lr.ph.i26.i, %get_
 60:                                               ; preds = %58, %51
   %.sink.i.i = phi i32 [ 1, %51 ], [ -1, %58 ]
   %61 = add nsw i32 %.sink.i.i, %.011.i.i
-  br label %51
+  br label %51, !llvm.loop !15
 
 find_cachedpow10.exit.i:                          ; preds = %58
   %62 = shl i64 %.lcssa.i25.i, 11
   %63 = shl nsw i32 %.011.i.i, 3
-  %.sroa.0.0.copyload.i.i = load i64, ptr %53, align 16, !tbaa !14
+  %.sroa.0.0.copyload.i.i = load i64, ptr %53, align 16, !tbaa !16
   %64 = lshr i64 %62, 32
   %65 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
   %66 = mul nuw i64 %65, %64
@@ -207,7 +207,7 @@ find_cachedpow10.exit.i:                          ; preds = %58
 130:                                              ; preds = %round_digit.exit.thread.i.i
   %131 = getelementptr inbounds nuw i8, ptr %.07518.i.i, i64 8
   %132 = icmp samesign ugt i32 %.07617.i.i, 1
-  br i1 %132, label %133, label %.preheader.i.i, !llvm.loop !15
+  br i1 %132, label %133, label %.preheader.i.i, !llvm.loop !17
 
 .preheader.i.i:                                   ; preds = %130
   %invariant.gep.i90.i.i = getelementptr i8, ptr %3, i64 -1
@@ -218,7 +218,7 @@ find_cachedpow10.exit.i:                          ; preds = %58
   %.07518.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @tens, i64 80), %find_cachedpow10.exit.i ], [ %131, %130 ]
   %.07617.i.i = phi i32 [ 10, %find_cachedpow10.exit.i ], [ %147, %130 ]
   %.07816.i.i = phi i32 [ 0, %find_cachedpow10.exit.i ], [ %.179.i.i, %130 ]
-  %134 = load i64, ptr %.07518.i.i, align 8, !tbaa !14
+  %134 = load i64, ptr %.07518.i.i, align 8, !tbaa !16
   %135 = udiv i64 %.07319.i.i, %134
   %136 = and i64 %135, 4294967295
   %137 = icmp ne i64 %136, 0
@@ -280,7 +280,7 @@ round_digit.exit.thread.i.i:                      ; preds = %139, %133
   %166 = sub i64 %124, %157
   %.not.i.i.i = icmp ult i64 %166, %152
   %or.cond.i.i.i = or i1 %165, %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %grisu2.exit, label %156, !llvm.loop !16
+  br i1 %or.cond.i.i.i, label %grisu2.exit, label %156, !llvm.loop !18
 
 167:                                              ; preds = %round_digit.exit96.i.i, %.preheader.i.i
   %.024 = phi i32 [ %119, %.preheader.i.i ], [ %.1, %round_digit.exit96.i.i ]
@@ -317,7 +317,7 @@ round_digit.exit.thread.i.i:                      ; preds = %139, %133
 
 183:                                              ; preds = %181
   %184 = add nsw i32 %170, %.024
-  %185 = load i64, ptr %.068.i.i, align 8, !tbaa !14
+  %185 = load i64, ptr %.068.i.i, align 8, !tbaa !16
   %186 = mul i64 %185, %123
   %187 = icmp uge i64 %182, %186
   %188 = sub nuw i64 %169, %182
@@ -350,7 +350,7 @@ round_digit.exit.thread.i.i:                      ; preds = %139, %133
   %200 = sub i64 %169, %191
   %.not.i94.i.i = icmp ult i64 %200, %126
   %or.cond.i95.i.i = or i1 %199, %.not.i94.i.i
-  br i1 %or.cond.i95.i.i, label %round_digit.exit96.i.i, label %190, !llvm.loop !16
+  br i1 %or.cond.i95.i.i, label %round_digit.exit96.i.i, label %190, !llvm.loop !18
 
 201:                                              ; preds = %181
   %202 = getelementptr inbounds i8, ptr %.068.i.i, i64 -8
@@ -360,7 +360,7 @@ round_digit.exit96.i.i:                           ; preds = %.critedge2.i93.i.i,
   %.1 = phi i32 [ %.024, %201 ], [ %184, %193 ], [ %184, %.critedge2.i93.i.i ]
   %.169.i.i = phi ptr [ %202, %201 ], [ %.068.i.i, %193 ], [ %.068.i.i, %.critedge2.i93.i.i ]
   %.4.i.i = phi i32 [ %.3.i.i, %201 ], [ %.381.i.i, %193 ], [ %.381.i.i, %.critedge2.i93.i.i ]
-  br i1 %.not.i35.i, label %grisu2.exit, label %167
+  br i1 %.not.i35.i, label %grisu2.exit, label %167, !llvm.loop !19
 
 grisu2.exit:                                      ; preds = %159, %.critedge2.i.i.i, %183, %round_digit.exit96.i.i, %150
   %.2 = phi i32 [ %151, %150 ], [ %.1, %round_digit.exit96.i.i ], [ %184, %183 ], [ %151, %.critedge2.i.i.i ], [ %151, %159 ]
@@ -548,13 +548,16 @@ attributes #5 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11, !13, i64 8}
-!11 = !{!"Fp", !12, i64 0, !13, i64 8}
-!12 = !{!"long", !5, i64 0}
-!13 = !{!"int", !5, i64 0}
-!14 = !{!12, !12, i64 0}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12, !14, i64 8}
+!12 = !{!"Fp", !13, i64 0, !14, i64 8}
+!13 = !{!"long", !5, i64 0}
+!14 = !{!"int", !5, i64 0}
+!15 = distinct !{!15, !9}
+!16 = !{!13, !13, i64 0}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !9}

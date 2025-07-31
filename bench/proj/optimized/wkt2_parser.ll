@@ -342,7 +342,7 @@ define hidden i32 @pj_wkt2_lex(ptr noundef readnone captures(none) %0, ptr nound
 .preheader80:                                     ; preds = %13, %29
   %.06585 = phi i64 [ %30, %29 ], [ 0, %13 ]
   %16 = getelementptr inbounds nuw [150 x %struct.wkt2_tokens], ptr @_ZL6tokens, i64 0, i64 %.06585
-  %17 = load ptr, ptr %16, align 16, !tbaa !21
+  %17 = load ptr, ptr %16, align 16, !tbaa !22
   %18 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %.066, ptr noundef %17) #10
   br i1 %18, label %19, label %29
 
@@ -359,13 +359,13 @@ define hidden i32 @pj_wkt2_lex(ptr noundef readnone captures(none) %0, ptr nound
   %26 = getelementptr inbounds nuw i8, ptr %.066, i64 %20
   store ptr %26, ptr %3, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !24
+  %28 = load i32, ptr %27, align 8, !tbaa !25
   br label %68
 
 29:                                               ; preds = %.preheader80, %19
   %30 = add nuw nsw i64 %.06585, 1
   %exitcond.not = icmp eq i64 %30, 150
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader80, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader80, !llvm.loop !26
 
 .loopexit.loopexit:                               ; preds = %29
   %.pre = load i8, ptr %.066, align 1, !tbaa !12
@@ -404,7 +404,7 @@ define hidden i32 @pj_wkt2_lex(ptr noundef readnone captures(none) %0, ptr nound
   %42 = load i8, ptr %.167, align 1, !tbaa !12
   %43 = add i8 %42, -48
   %or.cond79 = icmp ult i8 %43, 10
-  br i1 %or.cond79, label %41, label %.critedge2, !llvm.loop !26
+  br i1 %or.cond79, label %41, label %.critedge2, !llvm.loop !27
 
 .critedge2:                                       ; preds = %41
   store ptr %.167, ptr %3, align 8, !tbaa !17
@@ -433,7 +433,7 @@ define hidden i32 @pj_wkt2_lex(ptr noundef readnone captures(none) %0, ptr nound
 
 .preheader.backedge:                              ; preds = %46, %.preheader
   %.066.pn.be = phi ptr [ %.2, %.preheader ], [ %47, %46 ]
-  br label %.preheader, !llvm.loop !27
+  br label %.preheader, !llvm.loop !28
 
 50:                                               ; preds = %.preheader
   store ptr %.2, ptr %3, align 8, !tbaa !17
@@ -542,12 +542,13 @@ attributes #12 = { nounwind willreturn memory(read) }
 !16 = !{!15, !5, i64 8}
 !17 = !{!15, !5, i64 16}
 !18 = !{!11, !11, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!22, !5, i64 0}
-!22 = !{!"_ZTS11wkt2_tokens", !5, i64 0, !23, i64 8}
-!23 = !{!"int", !7, i64 0}
-!24 = !{!22, !23, i64 8}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!23, !5, i64 0}
+!23 = !{!"_ZTS11wkt2_tokens", !5, i64 0, !24, i64 8}
+!24 = !{!"int", !7, i64 0}
+!25 = !{!23, !24, i64 8}
+!26 = distinct !{!26, !20, !21}
+!27 = distinct !{!27, !20, !21}
+!28 = distinct !{!28, !20, !21}

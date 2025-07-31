@@ -79,7 +79,7 @@ define ptr @Mvc_CoverBooleanOr(ptr noundef %0, ptr noundef readonly captures(non
   store i32 %31, ptr %21, align 8, !tbaa !14
   %.1 = load ptr, ptr %.138, align 8, !tbaa !3
   %.not32 = icmp eq ptr %.1, null
-  br i1 %.not32, label %._crit_edge41, label %22, !llvm.loop !17
+  br i1 %.not32, label %._crit_edge41, label %22, !llvm.loop !18
 
 ._crit_edge41:                                    ; preds = %29, %._crit_edge
   ret ptr %3
@@ -110,6 +110,7 @@ attributes #2 = { nounwind }
 !12 = !{!13, !4, i64 0}
 !13 = !{!"MvcCubeStruct", !4, i64 0, !10, i64 8, !10, i64 11, !10, i64 11, !10, i64 11, !10, i64 12, !6, i64 16}
 !14 = !{!9, !10, i64 16}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}

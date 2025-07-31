@@ -760,7 +760,7 @@ define hidden void @_ZN5zxing8BitArray15initAllNextSetsEv(ptr noundef nonnull re
   store i32 %36, ptr %34, align 4, !tbaa !28
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %37 = icmp sgt i64 %indvars.iv, 0
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -831,7 +831,7 @@ define hidden void @_ZN5zxing8BitArray27initAllNextSetsFromCountersESt6vectorIiS
   store i32 %28, ptr %35, align 4, !tbaa !28
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %.loopexit, label %.lr.ph45, !llvm.loop !45
+  br i1 %exitcond58.not, label %.loopexit, label %.lr.ph45, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -843,14 +843,14 @@ define hidden void @_ZN5zxing8BitArray27initAllNextSetsFromCountersESt6vectorIiS
   store i32 %39, ptr %38, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph45, %.preheader41, %.preheader
   %40 = xor i1 %.03750, true
   %41 = add nsw i32 %27, %.04046
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph51, !llvm.loop !47
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph51, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   ret void
@@ -1059,13 +1059,13 @@ define hidden void @_ZN5zxing8BitArray5clearEv(ptr noundef nonnull readonly alig
   store i8 0, ptr %16, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5zxing8BitArray7ReverseC2ENS_3RefIS0_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8, !tbaa !49
-  %3 = load ptr, ptr %1, align 8, !tbaa !49
+  store ptr null, ptr %0, align 8, !tbaa !50
+  %3 = load ptr, ptr %1, align 8, !tbaa !50
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit, label %4
 
@@ -1077,7 +1077,7 @@ define hidden void @_ZN5zxing8BitArray7ReverseC2ENS_3RefIS0_EE(ptr noundef nonnu
   br label %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit
 
 _ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit:        ; preds = %2, %4
-  store ptr %3, ptr %0, align 8, !tbaa !49
+  store ptr %3, ptr %0, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1113,7 +1113,7 @@ _ZN5zxing8BitArray7reverseEv.exit:                ; preds = %.lr.ph.i, %_ZN5zxin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5zxing8BitArray7ReverseD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !49
+  %2 = load ptr, ptr %0, align 8, !tbaa !50
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1264,7 +1264,7 @@ _ZN5zxing8ArrayRefIhEC2Ei.exit:                   ; preds = %.noexc3.i.i
   %39 = load i32, ptr %3, align 4, !tbaa !10
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %31, label %._crit_edge.loopexit, !llvm.loop !52
+  br i1 %41, label %31, label %._crit_edge.loopexit, !llvm.loop !53
 
 42:                                               ; preds = %27, %22, %._crit_edge
   %.pre16 = phi i32 [ %.pre16.pre, %27 ], [ %.pre1618, %22 ], [ %.pre1618, %._crit_edge ]
@@ -1482,7 +1482,7 @@ _ZN5zxing8ArrayRefIhEaSERKS1_.exit:               ; preds = %._crit_edge, %47, %
   %64 = load i32, ptr %27, align 4, !tbaa !10
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %56, label %._crit_edge.loopexit, !llvm.loop !53
+  br i1 %66, label %56, label %._crit_edge.loopexit, !llvm.loop !54
 
 ._crit_edge36:                                    ; preds = %84, %_ZN5zxing8ArrayRefIhEaSERKS1_.exit
   %67 = load i32, ptr %31, align 8, !tbaa !3
@@ -1523,7 +1523,7 @@ _ZN5zxing8ArrayRefIhEaSERKS1_.exit:               ; preds = %._crit_edge, %47, %
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %27, align 4, !tbaa !10
   %87 = icmp samesign ugt i32 %.034, 1
-  br i1 %87, label %74, label %._crit_edge36, !llvm.loop !54
+  br i1 %87, label %74, label %._crit_edge36, !llvm.loop !55
 
 _ZN5zxing8ArrayRefIhED2Ev.exit:                   ; preds = %70, %._crit_edge36, %_ZN5zxing12ErrorHandlerD2Ev.exit
   ret void
@@ -1641,7 +1641,7 @@ _ZN5zxing8ArrayRefIhEaSERKS1_.exit:               ; preds = %._crit_edge, %25, %
   %45 = load i32, ptr %3, align 4, !tbaa !10
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %37, label %._crit_edge.loopexit, !llvm.loop !55
+  br i1 %47, label %37, label %._crit_edge.loopexit, !llvm.loop !56
 
 ._crit_edge25:                                    ; preds = %67, %_ZN5zxing8ArrayRefIhEaSERKS1_.exit
   %48 = load i32, ptr %9, align 8, !tbaa !3
@@ -1690,7 +1690,7 @@ _ZN5zxing8ArrayRefIhED2Ev.exit:                   ; preds = %._crit_edge25, %51
   %70 = load i32, ptr %5, align 4, !tbaa !10
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next28, %71
-  br i1 %72, label %55, label %._crit_edge25, !llvm.loop !56
+  br i1 %72, label %55, label %._crit_edge25, !llvm.loop !57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1728,7 +1728,7 @@ define hidden void @_ZN5zxing8BitArray7toBytesEiRNS_8ArrayRefIiEEii(ptr noundef 
   store i32 %spec.select, ptr %gep, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !58
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1841,7 +1841,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit12:               ; preds = %_ZNKSt7__cxx1112bas
   %sext = shl i64 %59, 32
   %60 = ashr exact i64 %sext, 32
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %41, label %.loopexit, !llvm.loop !58
+  br i1 %61, label %41, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %41, %.preheader, %_ZN5zxing12ErrorHandlerD2Ev.exit
   ret void
@@ -1877,7 +1877,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !59
+  %3 = load i32, ptr %2, align 4, !tbaa !60
   ret i32 %3
 }
 
@@ -2104,21 +2104,22 @@ attributes #17 = { nounwind }
 !39 = !{!"bool", !6, i64 0}
 !40 = !{i8 0, i8 2}
 !41 = !{}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43}
-!45 = distinct !{!45, !43}
-!46 = distinct !{!46, !43}
-!47 = distinct !{!47, !43}
-!48 = distinct !{!48, !43}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"_ZTSN5zxing3RefINS_8BitArrayEEE", !51, i64 0}
-!51 = !{!"p1 _ZTSN5zxing8BitArrayE", !14, i64 0}
-!52 = distinct !{!52, !43}
-!53 = distinct !{!53, !43}
-!54 = distinct !{!54, !43}
-!55 = distinct !{!55, !43}
-!56 = distinct !{!56, !43}
-!57 = distinct !{!57, !43}
-!58 = distinct !{!58, !43}
-!59 = !{!32, !5, i64 12}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !43, !44}
+!46 = distinct !{!46, !43, !44}
+!47 = distinct !{!47, !43, !44}
+!48 = distinct !{!48, !43, !44}
+!49 = distinct !{!49, !43, !44}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTSN5zxing3RefINS_8BitArrayEEE", !52, i64 0}
+!52 = !{!"p1 _ZTSN5zxing8BitArrayE", !14, i64 0}
+!53 = distinct !{!53, !43, !44}
+!54 = distinct !{!54, !43, !44}
+!55 = distinct !{!55, !43, !44}
+!56 = distinct !{!56, !43, !44}
+!57 = distinct !{!57, !43, !44}
+!58 = distinct !{!58, !43, !44}
+!59 = distinct !{!59, !43, !44}
+!60 = !{!32, !5, i64 12}

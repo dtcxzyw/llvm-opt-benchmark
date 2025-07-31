@@ -148,8 +148,8 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   store i32 %274, ptr %7, align 4, !tbaa !7
   store i32 %275, ptr %4, align 4, !tbaa !7
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %263, ptr %2, align 4, !tbaa !13
-  store i32 %273, ptr %34, align 4, !tbaa !15
+  store i32 %263, ptr %2, align 4, !tbaa !14
+  store i32 %273, ptr %34, align 4, !tbaa !16
   br label %276
 
 35:                                               ; preds = %.preheader153, %35
@@ -394,11 +394,11 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %273 = add i32 %268, %272
   %274 = add i32 %263, %159
   %275 = add i32 %263, %273
-  br i1 %36, label %35, label %.preheader152, !llvm.loop !16
+  br i1 %36, label %35, label %.preheader152, !llvm.loop !17
 
 .preheader:                                       ; preds = %276
-  store i32 %708, ptr %2, align 4, !tbaa !13
-  store i32 %721, ptr %34, align 4, !tbaa !15
+  store i32 %708, ptr %2, align 4, !tbaa !14
+  store i32 %721, ptr %34, align 4, !tbaa !16
   br label %726
 
 276:                                              ; preds = %.preheader152, %276
@@ -877,7 +877,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   store i32 %724, ptr %4, align 4, !tbaa !7
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 8
   %725 = icmp samesign ult i64 %indvars.iv178, 56
-  br i1 %725, label %276, label %.preheader, !llvm.loop !17
+  br i1 %725, label %276, label %.preheader, !llvm.loop !18
 
 726:                                              ; preds = %.preheader, %726
   %indvars.iv181 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next182, %726 ]
@@ -889,7 +889,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   store i32 %731, ptr %729, align 4, !tbaa !7
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 8
-  br i1 %exitcond184.not, label %732, label %726, !llvm.loop !18
+  br i1 %exitcond184.not, label %732, label %726, !llvm.loop !19
 
 732:                                              ; preds = %726
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 296)
@@ -957,7 +957,7 @@ define hidden noundef i32 @mbedtls_sha256_update(ptr noundef captures(none) %0, 
   %29 = getelementptr inbounds nuw i8, ptr %.13746, i64 64
   %30 = add i64 %.147, -64
   %31 = icmp ugt i64 %30, 63
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %26
   %.137.lcssa = phi ptr [ %.036, %26 ], [ %29, %.lr.ph ]
@@ -1270,7 +1270,7 @@ mbedtls_sha256_starts.exit:                       ; preds = %4, %7
   %22 = getelementptr inbounds nuw i8, ptr %.13746.i, i64 64
   %23 = add i64 %.147.i, -64
   %24 = icmp ugt i64 %23, 63
-  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not45.i = icmp eq i64 %23, 0
@@ -1316,12 +1316,13 @@ attributes #8 = { nounwind }
 !8 = !{!"int", !5, i64 0}
 !9 = !{!10, !8, i64 104}
 !10 = !{!"_ZTS22mbedtls_sha256_context", !5, i64 0, !5, i64 8, !5, i64 40, !8, i64 104}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !8, i64 0}
-!14 = !{!"_ZTSZ31mbedtls_internal_sha256_processE3$_0", !8, i64 0, !8, i64 4, !5, i64 8, !5, i64 264}
-!15 = !{!14, !8, i64 4}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !8, i64 0}
+!15 = !{!"_ZTSZ31mbedtls_internal_sha256_processE3$_0", !8, i64 0, !8, i64 4, !5, i64 8, !5, i64 264}
+!16 = !{!15, !8, i64 4}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}
+!20 = distinct !{!20, !12, !13}

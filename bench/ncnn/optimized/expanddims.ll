@@ -646,7 +646,7 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %.loopexit, %_ZN4ncn
 116:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #10
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !48
+  %118 = load ptr, ptr %117, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 1, i32 noundef %16, i32 noundef 1, ptr noundef %118)
   %119 = icmp eq ptr %2, %5
   %.phi.trans.insert395 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -831,7 +831,7 @@ _ZN4ncnn3MatD2Ev.exit168:                         ; preds = %188, %185, %195, %1
 205:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #10
   %206 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %207 = load ptr, ptr %206, align 8, !tbaa !48
+  %207 = load ptr, ptr %206, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 1, i32 noundef %16, ptr noundef %207)
   %208 = icmp eq ptr %2, %6
   %.phi.trans.insert393 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1016,7 +1016,7 @@ _ZN4ncnn3MatD2Ev.exit170:                         ; preds = %277, %274, %284, %2
 294:                                              ; preds = %293
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #10
   %295 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %296 = load ptr, ptr %295, align 8, !tbaa !48
+  %296 = load ptr, ptr %295, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %16, i32 noundef 1, ptr noundef %296)
   %297 = icmp eq ptr %2, %7
   %.phi.trans.insert391 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1201,7 +1201,7 @@ _ZN4ncnn3MatD2Ev.exit172:                         ; preds = %366, %363, %373, %3
 383:                                              ; preds = %382
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #10
   %384 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %385 = load ptr, ptr %384, align 8, !tbaa !48
+  %385 = load ptr, ptr %384, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %8, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 1, i32 noundef %16, i32 noundef %18, ptr noundef %385)
   %386 = icmp eq ptr %2, %8
   %.phi.trans.insert389 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1386,7 +1386,7 @@ _ZN4ncnn3MatD2Ev.exit174:                         ; preds = %455, %452, %462, %4
 472:                                              ; preds = %471
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #10
   %473 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %474 = load ptr, ptr %473, align 8, !tbaa !48
+  %474 = load ptr, ptr %473, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %9, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %16, i32 noundef 1, i32 noundef %18, ptr noundef %474)
   %475 = icmp eq ptr %2, %9
   %.phi.trans.insert387 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1571,7 +1571,7 @@ _ZN4ncnn3MatD2Ev.exit176:                         ; preds = %544, %541, %551, %5
 561:                                              ; preds = %560
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #10
   %562 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %563 = load ptr, ptr %562, align 8, !tbaa !48
+  %563 = load ptr, ptr %562, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %16, i32 noundef %18, i32 noundef 1, ptr noundef %563)
   %564 = icmp eq ptr %2, %10
   %.phi.trans.insert385 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1756,7 +1756,7 @@ _ZN4ncnn3MatD2Ev.exit178:                         ; preds = %633, %630, %640, %6
 650:                                              ; preds = %649
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #10
   %651 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %652 = load ptr, ptr %651, align 8, !tbaa !48
+  %652 = load ptr, ptr %651, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 1, i32 noundef %16, i32 noundef %18, i32 noundef %20, ptr noundef %652)
   %653 = icmp eq ptr %2, %11
   %.phi.trans.insert383 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1941,7 +1941,7 @@ _ZN4ncnn3MatD2Ev.exit180:                         ; preds = %722, %719, %729, %7
 739:                                              ; preds = %738
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #10
   %740 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %741 = load ptr, ptr %740, align 8, !tbaa !48
+  %741 = load ptr, ptr %740, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %12, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %16, i32 noundef 1, i32 noundef %18, i32 noundef %20, ptr noundef %741)
   %742 = icmp eq ptr %2, %12
   %.phi.trans.insert381 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2126,7 +2126,7 @@ _ZN4ncnn3MatD2Ev.exit182:                         ; preds = %811, %808, %818, %8
 828:                                              ; preds = %827
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #10
   %829 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %830 = load ptr, ptr %829, align 8, !tbaa !48
+  %830 = load ptr, ptr %829, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %13, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %16, i32 noundef %18, i32 noundef 1, i32 noundef %20, ptr noundef %830)
   %831 = icmp eq ptr %2, %13
   %.phi.trans.insert379 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2311,7 +2311,7 @@ _ZN4ncnn3MatD2Ev.exit184:                         ; preds = %900, %897, %907, %9
 917:                                              ; preds = %916
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #10
   %918 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %919 = load ptr, ptr %918, align 8, !tbaa !48
+  %919 = load ptr, ptr %918, align 8, !tbaa !49
   call void @_ZNK4ncnn3Mat7reshapeEiiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %14, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef 1, ptr noundef %919)
   %920 = icmp eq ptr %2, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2533,9 +2533,9 @@ define hidden void @_ZN4ncnn10ExpandDimsC2Ev(ptr noundef nonnull align 8 derefer
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
-  store i8 1, ptr %5, align 8, !tbaa !50
+  store i8 1, ptr %5, align 8, !tbaa !51
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 0, ptr %6, align 1, !tbaa !51
+  store i8 0, ptr %6, align 1, !tbaa !52
   ret void
 }
 
@@ -2645,9 +2645,10 @@ attributes #12 = { builtin nounwind }
 !43 = !{!8, !13, i64 56}
 !44 = !{!19, !13, i64 268}
 !45 = !{!13, !13, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!49, !14, i64 8}
-!49 = !{!"_ZTSN4ncnn6OptionE", !21, i64 0, !13, i64 4, !14, i64 8, !14, i64 16, !13, i64 24, !21, i64 28, !21, i64 29, !21, i64 30, !21, i64 31, !21, i64 32, !21, i64 33, !21, i64 34, !21, i64 35, !21, i64 36, !21, i64 37, !21, i64 38, !21, i64 39, !21, i64 40, !21, i64 41, !21, i64 42, !21, i64 43, !21, i64 44, !21, i64 45, !21, i64 46, !21, i64 47, !13, i64 48, !21, i64 52, !21, i64 53, !21, i64 54, !21, i64 55, !21, i64 56, !21, i64 57, !21, i64 58, !21, i64 59, !21, i64 60, !21, i64 61, !21, i64 62, !21, i64 63}
-!50 = !{!20, !21, i64 8}
-!51 = !{!20, !21, i64 9}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!50, !14, i64 8}
+!50 = !{!"_ZTSN4ncnn6OptionE", !21, i64 0, !13, i64 4, !14, i64 8, !14, i64 16, !13, i64 24, !21, i64 28, !21, i64 29, !21, i64 30, !21, i64 31, !21, i64 32, !21, i64 33, !21, i64 34, !21, i64 35, !21, i64 36, !21, i64 37, !21, i64 38, !21, i64 39, !21, i64 40, !21, i64 41, !21, i64 42, !21, i64 43, !21, i64 44, !21, i64 45, !21, i64 46, !21, i64 47, !13, i64 48, !21, i64 52, !21, i64 53, !21, i64 54, !21, i64 55, !21, i64 56, !21, i64 57, !21, i64 58, !21, i64 59, !21, i64 60, !21, i64 61, !21, i64 62, !21, i64 63}
+!51 = !{!20, !21, i64 8}
+!52 = !{!20, !21, i64 9}

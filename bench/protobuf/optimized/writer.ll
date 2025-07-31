@@ -203,7 +203,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.lr.ph: ; preds =
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.lr.ph, %while.cond.backedge
   %str.sroa.5.095 = phi ptr [ %str.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.lr.ph ], [ %str.sroa.5.0.be, %while.cond.backedge ]
   %str.sroa.0.094 = phi i64 [ %str.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.lr.ph ], [ %str.sroa.0.0.be, %while.cond.backedge ]
-  %0 = load i8, ptr %str.sroa.5.095, align 1, !noalias !6
+  %0 = load i8, ptr %str.sroa.5.095, align 1, !noalias !7
   %.fr52.i = freeze i8 %0
   %conv.i = zext i8 %.fr52.i to i32
   %sub.i.i = add i64 %str.sroa.0.094, -1
@@ -246,7 +246,7 @@ for.body.i:                                       ; preds = %if.end17.i, %for.bo
   br i1 %cmp.i.i, label %if.then4, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i: ; preds = %for.body.i
-  %4 = load i8, ptr %str.sroa.5.1, align 1, !noalias !6
+  %4 = load i8, ptr %str.sroa.5.1, align 1, !noalias !7
   %.fr.i = freeze i8 %4
   %sub.i24.i = add i64 %str.sroa.0.1, -1
   %add.ptr.i26.i = getelementptr inbounds nuw i8, ptr %str.sroa.5.1, i64 1
@@ -260,7 +260,7 @@ if.end17.i:                                       ; preds = %_ZNKSt17basic_strin
   %conv21.i = zext nneg i8 %and19.i to i32
   %or.i = or disjoint i32 %shl.i, %conv21.i
   %exitcond.not.i = icmp eq i64 %inc.i, %lookahead.0.ph.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.end17.i
   %cmp23.i = icmp ugt i32 %shl.i, 1114111
@@ -365,7 +365,7 @@ if.end12.i.i.i.i.i.i.i:                           ; preds = %if.end8.i.i.i.i.i.i
   %__first.addr.080.i.i.i.i.i.i.i.add92 = add nuw nsw i64 %__first.addr.080.i.i.i.i.i.i.i.idx, 32
   %dec.i.i.i.i.i.i.i = add nsw i64 %__trip_count.081.i.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__trip_count.081.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i.i, !llvm.loop !11
 
 for.end.loopexit.i.i.i.i.i.i.i:                   ; preds = %if.end12.i.i.i.i.i.i.i
   %10 = add i32 %5, -917536
@@ -384,7 +384,7 @@ while.cond.backedge:                              ; preds = %if.then, %if.then4,
   %str.sroa.0.0.be = phi i64 [ %str.sroa.0.3, %if.then8 ], [ %str.sroa.0.3, %if.end10 ], [ %str.sroa.0.341.ph.ph, %if.then4 ], [ %str.sroa.0.3, %if.then ]
   %str.sroa.5.0.be = phi ptr [ %str.sroa.5.3, %if.then8 ], [ %str.sroa.5.3, %if.end10 ], [ %str.sroa.5.343.ph.ph, %if.then4 ], [ %str.sroa.5.3, %if.then ]
   %cmp.i = icmp eq i64 %str.sroa.0.0.be, 0
-  br i1 %cmp.i, label %while.end, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, !llvm.loop !11
+  br i1 %cmp.i, label %while.end, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, !llvm.loop !12
 
 if.then4:                                         ; preds = %for.body.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %for.end.i, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i
   %str.sroa.5.343.ph.ph = phi ptr [ %str.sroa.5.3, %sw.bb1.i ], [ %str.sroa.5.3, %sw.bb3.i ], [ %str.sroa.5.3, %sw.bb5.i ], [ %str.sroa.5.3, %sw.bb7.i ], [ %str.sroa.5.3, %sw.bb9.i ], [ %str.sroa.5.3, %sw.bb11.i ], [ %str.sroa.5.3, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %scevgep96, %for.end.i ], [ %str.sroa.5.3, %sw.bb13.i ], [ %scevgep, %for.body.i ], [ %add.ptr.i26.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ]
@@ -504,11 +504,12 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE: %agg.result"}
-!8 = distinct !{!8, !"_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE: %agg.result"}
+!9 = distinct !{!9, !"_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE"}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

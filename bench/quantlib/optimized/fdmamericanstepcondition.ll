@@ -581,7 +581,7 @@ _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i, %for.
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, %if.end57
   %48 = phi i64 [ %.pre, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit ], [ %inc.i, %if.end57 ]
   %cmp.i.not = icmp eq i64 %48, %31
-  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body
+  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body, !llvm.loop !53
 
 eh.resume:                                        ; preds = %lpad42, %ehcleanup28
   %.pn11.pn = phi { ptr, i32 } [ %42, %lpad42 ], [ %.pn.pn.pn.pn, %ehcleanup28 ]
@@ -1012,5 +1012,7 @@ attributes #22 = { builtin allocsize(0) }
 !47 = !{!48, !48, i64 0}
 !48 = !{!"double", !6, i64 0}
 !49 = !{!30, !5, i64 8}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = distinct !{!53, !52}

@@ -3155,9 +3155,9 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu17icu_std_converterIw
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !67
+  store ptr %6, ptr %0, align 8, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %7, align 8, !tbaa !69
+  store i64 0, ptr %7, align 8, !tbaa !70
   store i32 0, ptr %6, align 8, !tbaa !60
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i16, ptr %8, align 8, !tbaa !25
@@ -3172,12 +3172,12 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu17icu_std_converterIw
           to label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEm.exit unwind label %41
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEm.exit: ; preds = %3
-  %17 = load ptr, ptr %0, align 8, !tbaa !71
+  %17 = load ptr, ptr %0, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
   store i32 0, ptr %4, align 4, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
   store i32 0, ptr %5, align 4, !tbaa !34
-  %18 = load i64, ptr %7, align 8, !tbaa !69
+  %18 = load i64, ptr %7, align 8, !tbaa !70
   %19 = load i16, ptr %8, align 8, !tbaa !25
   %20 = and i16 %19, 17
   %.not.i = icmp eq i16 %20, 0
@@ -3238,12 +3238,12 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEm.exit8: ; preds = 
 
 45:                                               ; preds = %43, %41
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %46 = load ptr, ptr %0, align 8, !tbaa !71
+  %46 = load ptr, ptr %0, align 8, !tbaa !72
   %47 = icmp eq ptr %46, %6
   br i1 %47, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i: ; preds = %45
-  %48 = load i64, ptr %7, align 8, !tbaa !69
+  %48 = load i64, ptr %7, align 8, !tbaa !70
   %49 = icmp ult i64 %48, 4
   call void @llvm.assume(i1 %49)
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
@@ -3371,10 +3371,11 @@ attributes #23 = { noreturn nounwind }
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZNK5boost6locale8impl_icu17icu_std_converterIwLi4EE3icuEPKwS5_: argument 0"}
 !64 = distinct !{!64, !"_ZNK5boost6locale8impl_icu17icu_std_converterIwLi4EE3icuEPKwS5_"}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!68, !7, i64 0}
-!68 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderE", !7, i64 0}
-!69 = !{!70, !10, i64 8}
-!70 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE", !68, i64 0, !10, i64 8, !8, i64 16}
-!71 = !{!70, !7, i64 0}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!69, !7, i64 0}
+!69 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderE", !7, i64 0}
+!70 = !{!71, !10, i64 8}
+!71 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE", !69, i64 0, !10, i64 8, !8, i64 16}
+!72 = !{!71, !7, i64 0}

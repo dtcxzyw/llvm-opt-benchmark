@@ -257,7 +257,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %48 = icmp eq i64 %.add.i, 96
-  br i1 %48, label %_ZN5clang17DiagnosticStorageD2Ev.exit, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i
+  br i1 %48, label %_ZN5clang17DiagnosticStorageD2Ev.exit, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i, !llvm.loop !46
 
 _ZN5clang17DiagnosticStorageD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 928) #7
@@ -275,8 +275,8 @@ define internal void @"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang22Stack
   %2 = inttoptr i64 %0 to ptr
   %.val = load ptr, ptr %2, align 8, !tbaa !3
   %3 = getelementptr i8, ptr %2, i64 8
-  %.val1 = load ptr, ptr %3, align 8, !tbaa !45
-  %.val1.val = load i32, ptr %.val1, align 4, !tbaa !46
+  %.val1 = load ptr, ptr %3, align 8, !tbaa !47
+  %.val1.val = load i32, ptr %.val1, align 4, !tbaa !48
   tail call void @_ZN5clang22StackExhaustionHandler18warnStackExhaustedENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(9) %.val, i32 %.val1.val)
   ret void
 }
@@ -338,7 +338,9 @@ attributes #7 = { builtin nounwind }
 !40 = !{!41, !6, i64 0}
 !41 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !25, i64 8, !25, i64 12}
 !42 = !{!41, !25, i64 8}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!4, !9, i64 8}
-!46 = !{!25, !25, i64 0}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = distinct !{!46, !45}
+!47 = !{!4, !9, i64 8}
+!48 = !{!25, !25, i64 0}

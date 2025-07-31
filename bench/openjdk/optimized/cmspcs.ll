@@ -456,7 +456,7 @@ define hidden void @cmsLab2LCh(ptr noundef writeonly captures(none) initializes(
   %.212.i = phi double [ %24, %.lr.ph13.i ], [ %.1.lcssa.i, %.preheader.i ]
   %24 = fadd double %.212.i, 3.600000e+02
   %25 = fcmp olt double %24, 0.000000e+00
-  br i1 %25, label %.lr.ph13.i, label %atan2deg.exit, !llvm.loop !8
+  br i1 %25, label %.lr.ph13.i, label %atan2deg.exit, !llvm.loop !9
 
 atan2deg.exit:                                    ; preds = %.lr.ph13.i, %2, %.preheader.i
   %.2.lcssa.i = phi double [ %.1.lcssa.i, %.preheader.i ], [ 0.000000e+00, %2 ], [ %24, %.lr.ph13.i ]
@@ -804,7 +804,7 @@ ComputeLBFD.exit62:                               ; preds = %14, %19
   %.212.i.i = phi double [ %42, %.lr.ph13.i.i ], [ %.1.lcssa.i.i, %.preheader.i.i ]
   %42 = fadd double %.212.i.i, 3.600000e+02
   %43 = fcmp olt double %42, 0.000000e+00
-  br i1 %43, label %.lr.ph13.i.i, label %cmsLab2LCh.exit, !llvm.loop !8
+  br i1 %43, label %.lr.ph13.i.i, label %cmsLab2LCh.exit, !llvm.loop !9
 
 cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %ComputeLBFD.exit62, %.preheader.i.i
   %.2.lcssa.i.i = phi double [ %.1.lcssa.i.i, %.preheader.i.i ], [ 0.000000e+00, %ComputeLBFD.exit62 ], [ %42, %.lr.ph13.i.i ]
@@ -844,7 +844,7 @@ cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %Comp
   %.212.i.i68 = phi double [ %63, %.lr.ph13.i.i67 ], [ %.1.lcssa.i.i65, %.preheader.i.i64 ]
   %63 = fadd double %.212.i.i68, 3.600000e+02
   %64 = fcmp olt double %63, 0.000000e+00
-  br i1 %64, label %.lr.ph13.i.i67, label %cmsLab2LCh.exit71, !llvm.loop !8
+  br i1 %64, label %.lr.ph13.i.i67, label %cmsLab2LCh.exit71, !llvm.loop !9
 
 cmsLab2LCh.exit71:                                ; preds = %.lr.ph13.i.i67, %cmsLab2LCh.exit, %.preheader.i.i64
   %.2.lcssa.i.i66 = phi double [ %.1.lcssa.i.i65, %.preheader.i.i64 ], [ 0.000000e+00, %cmsLab2LCh.exit ], [ %63, %.lr.ph13.i.i67 ]
@@ -1013,7 +1013,7 @@ define hidden double @cmsCMCdeltaE(ptr noundef readonly captures(none) %0, ptr n
   %.212.i.i = phi double [ %30, %.lr.ph13.i.i ], [ %.1.lcssa.i.i, %.preheader.i.i ]
   %30 = fadd double %.212.i.i, 3.600000e+02
   %31 = fcmp olt double %30, 0.000000e+00
-  br i1 %31, label %.lr.ph13.i.i, label %cmsLab2LCh.exit, !llvm.loop !8
+  br i1 %31, label %.lr.ph13.i.i, label %cmsLab2LCh.exit, !llvm.loop !9
 
 cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %10, %.preheader.i.i
   %.2.lcssa.i.i = phi double [ %.1.lcssa.i.i, %.preheader.i.i ], [ 0.000000e+00, %10 ], [ %30, %.lr.ph13.i.i ]
@@ -1174,7 +1174,7 @@ define hidden double @cmsCIE2000DeltaE(ptr noundef readonly captures(none) %0, p
   %.212.i = phi double [ %41, %.lr.ph13.i ], [ %.1.lcssa.i, %.preheader.i ]
   %41 = fadd double %.212.i, 3.600000e+02
   %42 = fcmp olt double %41, 0.000000e+00
-  br i1 %42, label %.lr.ph13.i, label %atan2deg.exit, !llvm.loop !8
+  br i1 %42, label %.lr.ph13.i, label %atan2deg.exit, !llvm.loop !9
 
 atan2deg.exit:                                    ; preds = %.lr.ph13.i, %5, %.preheader.i
   %.2.lcssa.i = phi double [ %.1.lcssa.i, %.preheader.i ], [ 0.000000e+00, %5 ], [ %41, %.lr.ph13.i ]
@@ -1205,7 +1205,7 @@ atan2deg.exit:                                    ; preds = %.lr.ph13.i, %5, %.p
   %.212.i93 = phi double [ %53, %.lr.ph13.i92 ], [ %.1.lcssa.i90, %.preheader.i89 ]
   %53 = fadd double %.212.i93, 3.600000e+02
   %54 = fcmp olt double %53, 0.000000e+00
-  br i1 %54, label %.lr.ph13.i92, label %atan2deg.exit96, !llvm.loop !8
+  br i1 %54, label %.lr.ph13.i92, label %atan2deg.exit96, !llvm.loop !9
 
 atan2deg.exit96:                                  ; preds = %.lr.ph13.i92, %atan2deg.exit, %.preheader.i89
   %.2.lcssa.i91 = phi double [ %.1.lcssa.i90, %.preheader.i89 ], [ 0.000000e+00, %atan2deg.exit ], [ %53, %.lr.ph13.i92 ]
@@ -1800,6 +1800,7 @@ attributes #12 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

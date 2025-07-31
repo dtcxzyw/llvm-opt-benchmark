@@ -538,7 +538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %161 = load i32, ptr %132, align 8
   %162 = zext i32 %161 to i64
   %163 = icmp samesign ult i64 %indvars.iv.next725.i, %162
-  br i1 %163, label %149, label %.loopexit601.i, !llvm.loop !5
+  br i1 %163, label %149, label %.loopexit601.i, !llvm.loop !6
 
 164:                                              ; preds = %141
   br i1 %4, label %.loopexit601.i, label %165
@@ -578,7 +578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %176 = phi i32 [ %207, %._crit_edge.loopexit.i ], [ 0, %.preheader599.i ]
   %177 = add nuw i32 %.0440626.i, 1
   %178 = icmp ult i32 %177, %175
-  br i1 %178, label %.preheader599.i, label %.loopexit601.i, !llvm.loop !6
+  br i1 %178, label %.preheader599.i, label %.loopexit601.i, !llvm.loop !7
 
 .lr.ph625.i:                                      ; preds = %.preheader599.i, %206
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %206 ], [ 0, %.preheader599.i ]
@@ -629,7 +629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %208 = zext i32 %207 to i64
   %209 = icmp samesign ult i64 %indvars.iv.next.i, %208
-  br i1 %209, label %.lr.ph625.i, label %._crit_edge.loopexit.i, !llvm.loop !8
+  br i1 %209, label %.lr.ph625.i, label %._crit_edge.loopexit.i, !llvm.loop !9
 
 .loopexit601.i:                                   ; preds = %._crit_edge.i, %160, %.preheader599.lr.ph.i, %.preheader602.i, %164, %.preheader600.i, %144
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.12)
@@ -640,7 +640,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %211 = load i32, ptr %112, align 8
   %212 = zext i32 %211 to i64
   %213 = icmp samesign ult i64 %indvars.iv.next728.i, %212
-  br i1 %213, label %129, label %._crit_edge631.i, !llvm.loop !9
+  br i1 %213, label %129, label %._crit_edge631.i, !llvm.loop !10
 
 214:                                              ; preds = %._crit_edge631.i, %111
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -774,7 +774,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %266 = lshr i32 %265, 2
   %267 = zext nneg i32 %266 to i64
   %268 = icmp samesign ult i64 %indvars.iv.next737.i, %267
-  br i1 %268, label %258, label %.loopexit592.i, !llvm.loop !10
+  br i1 %268, label %258, label %.loopexit592.i, !llvm.loop !11
 
 269:                                              ; preds = %258
   %270 = landingpad { ptr, i32 }
@@ -812,7 +812,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %284 = lshr i32 %283, 2
   %285 = zext nneg i32 %284 to i64
   %286 = icmp samesign ult i64 %indvars.iv.next734.i, %285
-  br i1 %286, label %277, label %.loopexit592.i, !llvm.loop !11
+  br i1 %286, label %277, label %.loopexit592.i, !llvm.loop !12
 
 287:                                              ; preds = %277
   %288 = landingpad { ptr, i32 }
@@ -865,7 +865,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %307 = load i32, ptr %290, align 4
   %308 = zext i32 %307 to i64
   %309 = icmp samesign ult i64 %indvars.iv.next731.i, %308
-  br i1 %309, label %294, label %.loopexit592.i, !llvm.loop !12
+  br i1 %309, label %294, label %.loopexit592.i, !llvm.loop !13
 
 310:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #16
@@ -913,16 +913,16 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 %323
   store i8 0, ptr %325, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  store ptr %222, ptr %14, align 8, !alias.scope !13
-  store i64 0, ptr %223, align 8, !alias.scope !13
-  store i8 0, ptr %222, align 8, !alias.scope !13
-  %326 = load i64, ptr %221, align 8, !noalias !13
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  store ptr %222, ptr %14, align 8, !alias.scope !14
+  store i64 0, ptr %223, align 8, !alias.scope !14
+  store i8 0, ptr %222, align 8, !alias.scope !14
+  %326 = load i64, ptr %221, align 8, !noalias !14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %326)
           to label %.preheader.i.i unwind label %328
 
 .preheader.i.i:                                   ; preds = %322
-  %327 = load i64, ptr %221, align 8, !noalias !13
+  %327 = load i64, ptr %221, align 8, !noalias !14
   %.not33.i.i = icmp eq i64 %327, 0
   br i1 %.not33.i.i, label %_ZN6Assimp16AssxmlFileWriterL9encodeXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %.lr.ph.i.i
 
@@ -933,10 +933,10 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i
   %.034.i.i = phi i64 [ %354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i ], [ 0, %.preheader.i.i ]
-  %330 = load ptr, ptr %15, align 8, !noalias !13
+  %330 = load ptr, ptr %15, align 8, !noalias !14
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 %.034.i.i
   %332 = load i8, ptr %331, align 1
-  %333 = load i64, ptr %223, align 8, !alias.scope !13
+  %333 = load i64, ptr %223, align 8, !alias.scope !14
   switch i8 %332, label %352 [
     i8 38, label %334
     i8 34, label %340
@@ -999,24 +999,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.invoke.i.i
   %354 = add i64 %.034.i.i, 1
-  %355 = load i64, ptr %221, align 8, !noalias !13
+  %355 = load i64, ptr %221, align 8, !noalias !14
   %.not.i.i = icmp eq i64 %354, %355
-  br i1 %.not.i.i, label %_ZN6Assimp16AssxmlFileWriterL9encodeXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %_ZN6Assimp16AssxmlFileWriterL9encodeXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 356:                                              ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i, %328
   %.pn.i.i = phi { ptr, i32 } [ %329, %328 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
-  %357 = load ptr, ptr %14, align 8, !alias.scope !13
+  %357 = load ptr, ptr %14, align 8, !alias.scope !14
   %358 = icmp eq ptr %357, %222
   br i1 %358, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %356
-  %359 = load i64, ptr %223, align 8, !alias.scope !13
+  %359 = load i64, ptr %223, align 8, !alias.scope !14
   %360 = icmp ult i64 %359, 16
   call void @llvm.assume(i1 %360)
   br label %.body.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %356
-  %361 = load i64, ptr %222, align 8, !alias.scope !13
+  %361 = load i64, ptr %222, align 8, !alias.scope !14
   %362 = add i64 %361, 1
   call void @_ZdlPvm(ptr noundef %357, i64 noundef %362) #18
   br label %.body.i
@@ -1122,7 +1122,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   %394 = load i32, ptr %229, align 8
   %395 = zext i32 %394 to i64
   %396 = icmp samesign ult i64 %indvars.iv.next740.i, %395
-  br i1 %396, label %.lr.ph639.i, label %._crit_edge640.i, !llvm.loop !17
+  br i1 %396, label %.lr.ph639.i, label %._crit_edge640.i, !llvm.loop !18
 
 397:                                              ; preds = %._crit_edge640.i
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.31)
@@ -1133,7 +1133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   %399 = load i32, ptr %215, align 8
   %400 = zext i32 %399 to i64
   %401 = icmp samesign ult i64 %indvars.iv.next743.i, %400
-  br i1 %401, label %224, label %._crit_edge643.i, !llvm.loop !18
+  br i1 %401, label %224, label %._crit_edge643.i, !llvm.loop !19
 
 402:                                              ; preds = %._crit_edge643.i, %214
   %403 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1313,7 +1313,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %479 = load i32, ptr %428, align 4
   %480 = zext i32 %479 to i64
   %481 = icmp samesign ult i64 %indvars.iv.next.i.i, %480
-  br i1 %481, label %432, label %._crit_edge.loopexit.i.i, !llvm.loop !19
+  br i1 %481, label %432, label %._crit_edge.loopexit.i.i, !llvm.loop !20
 
 482:                                              ; preds = %._crit_edge.loopexit.i.i, %425
   %483 = phi i64 [ %431, %._crit_edge.loopexit.i.i ], [ 0, %425 ]
@@ -1375,7 +1375,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %508 = load i32, ptr %487, align 4
   %509 = zext i32 %508 to i64
   %510 = icmp samesign ult i64 %indvars.iv.next746.i, %509
-  br i1 %510, label %494, label %._crit_edge646.i, !llvm.loop !20
+  br i1 %510, label %494, label %._crit_edge646.i, !llvm.loop !21
 
 511:                                              ; preds = %494
   %512 = landingpad { ptr, i32 }
@@ -1427,7 +1427,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %533 = load i32, ptr %514, align 8
   %534 = zext i32 %533 to i64
   %535 = icmp samesign ult i64 %indvars.iv.next749.i, %534
-  br i1 %535, label %519, label %._crit_edge649.i, !llvm.loop !21
+  br i1 %535, label %519, label %._crit_edge649.i, !llvm.loop !22
 
 536:                                              ; preds = %519
   %537 = landingpad { ptr, i32 }
@@ -1482,7 +1482,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %561 = load i32, ptr %539, align 8
   %562 = zext i32 %561 to i64
   %563 = icmp samesign ult i64 %indvars.iv.next752.i, %562
-  br i1 %563, label %544, label %._crit_edge652.i, !llvm.loop !22
+  br i1 %563, label %544, label %._crit_edge652.i, !llvm.loop !23
 
 564:                                              ; preds = %544
   %565 = landingpad { ptr, i32 }
@@ -1498,7 +1498,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %568 = load i32, ptr %418, align 8
   %569 = zext i32 %568 to i64
   %570 = icmp samesign ult i64 %indvars.iv.next755.i, %569
-  br i1 %570, label %425, label %._crit_edge655.i, !llvm.loop !23
+  br i1 %570, label %425, label %._crit_edge655.i, !llvm.loop !24
 
 571:                                              ; preds = %._crit_edge655.i, %417
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.48)
@@ -1509,7 +1509,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %573 = load i32, ptr %403, align 8
   %574 = zext i32 %573 to i64
   %575 = icmp samesign ult i64 %indvars.iv.next758.i, %574
-  br i1 %575, label %409, label %._crit_edge658.i, !llvm.loop !24
+  br i1 %575, label %409, label %._crit_edge658.i, !llvm.loop !25
 
 576:                                              ; preds = %._crit_edge658.i, %402
   %577 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1699,7 +1699,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %660 = load i32, ptr %609, align 4
   %661 = zext i32 %660 to i64
   %662 = icmp samesign ult i64 %indvars.iv.next.i543.i, %661
-  br i1 %662, label %613, label %._crit_edge.loopexit.i544.i, !llvm.loop !19
+  br i1 %662, label %613, label %._crit_edge.loopexit.i544.i, !llvm.loop !20
 
 663:                                              ; preds = %._crit_edge.loopexit.i544.i, %606
   %664 = phi i64 [ %612, %._crit_edge.loopexit.i544.i ], [ 0, %606 ]
@@ -1803,7 +1803,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %731 = load i32, ptr %716, align 4
   %732 = zext i32 %731 to i64
   %733 = icmp samesign ult i64 %indvars.iv.next761.i, %732
-  br i1 %733, label %723, label %._crit_edge661.i, !llvm.loop !25
+  br i1 %733, label %723, label %._crit_edge661.i, !llvm.loop !26
 
 734:                                              ; preds = %723
   %735 = landingpad { ptr, i32 }
@@ -1819,7 +1819,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %738 = load i32, ptr %599, align 8
   %739 = zext i32 %738 to i64
   %740 = icmp samesign ult i64 %indvars.iv.next764.i, %739
-  br i1 %740, label %606, label %._crit_edge664.i, !llvm.loop !26
+  br i1 %740, label %606, label %._crit_edge664.i, !llvm.loop !27
 
 741:                                              ; preds = %._crit_edge664.i, %598
   br i1 %4, label %770, label %742
@@ -1886,7 +1886,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %761 = load i32, ptr %750, align 8
   %762 = zext i32 %761 to i64
   %763 = icmp samesign ult i64 %indvars.iv.next767.i, %762
-  br i1 %763, label %756, label %._crit_edge667.i, !llvm.loop !27
+  br i1 %763, label %756, label %._crit_edge667.i, !llvm.loop !28
 
 764:                                              ; preds = %756
   %765 = landingpad { ptr, i32 }
@@ -1898,7 +1898,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %767 = load i32, ptr %743, align 8
   %768 = zext i32 %767 to i64
   %769 = icmp samesign ult i64 %indvars.iv.next770.i, %768
-  br i1 %769, label %748, label %._crit_edge670.i, !llvm.loop !28
+  br i1 %769, label %748, label %._crit_edge670.i, !llvm.loop !29
 
 770:                                              ; preds = %._crit_edge670.i, %742, %741
   %771 = getelementptr inbounds nuw i8, ptr %586, i64 16
@@ -1942,7 +1942,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %791 = load i32, ptr %773, align 4
   %792 = zext i32 %791 to i64
   %793 = icmp samesign ult i64 %indvars.iv.next773.i, %792
-  br i1 %793, label %.lr.ph672.i, label %.loopexit582.i, !llvm.loop !29
+  br i1 %793, label %.lr.ph672.i, label %.loopexit582.i, !llvm.loop !30
 
 794:                                              ; preds = %.lr.ph672.i
   %795 = landingpad { ptr, i32 }
@@ -1998,7 +1998,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %816 = load i32, ptr %773, align 4
   %817 = zext i32 %816 to i64
   %818 = icmp samesign ult i64 %indvars.iv.next776.i, %817
-  br i1 %818, label %.lr.ph674.i, label %.loopexit580.i, !llvm.loop !30
+  br i1 %818, label %.lr.ph674.i, label %.loopexit580.i, !llvm.loop !31
 
 819:                                              ; preds = %.lr.ph674.i
   %820 = landingpad { ptr, i32 }
@@ -2056,7 +2056,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i:   ; preds = %821
   %841 = load i32, ptr %773, align 4
   %842 = zext i32 %841 to i64
   %843 = icmp samesign ult i64 %indvars.iv.next779.i, %842
-  br i1 %843, label %.lr.ph676.i, label %.loopexit578.i, !llvm.loop !31
+  br i1 %843, label %.lr.ph676.i, label %.loopexit578.i, !llvm.loop !32
 
 844:                                              ; preds = %.lr.ph676.i
   %845 = landingpad { ptr, i32 }
@@ -2100,7 +2100,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i:   ; preds = %821
   %861 = load i32, ptr %773, align 4
   %862 = zext i32 %861 to i64
   %863 = icmp samesign ult i64 %indvars.iv.next782.i, %862
-  br i1 %863, label %.lr.ph678.i, label %.loopexit576.i, !llvm.loop !32
+  br i1 %863, label %.lr.ph678.i, label %.loopexit576.i, !llvm.loop !33
 
 864:                                              ; preds = %.lr.ph678.i
   %865 = landingpad { ptr, i32 }
@@ -2187,7 +2187,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   %901 = load i32, ptr %773, align 4
   %902 = zext i32 %901 to i64
   %903 = icmp samesign ult i64 %indvars.iv.next788.i, %902
-  br i1 %903, label %.lr.ph682.i, label %.loopexit570.i, !llvm.loop !33
+  br i1 %903, label %.lr.ph682.i, label %.loopexit570.i, !llvm.loop !34
 
 904:                                              ; preds = %.lr.ph682.i
   %905 = landingpad { ptr, i32 }
@@ -2211,7 +2211,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   %914 = load i32, ptr %773, align 4
   %915 = zext i32 %914 to i64
   %916 = icmp samesign ult i64 %indvars.iv.next785.i, %915
-  br i1 %916, label %.lr.ph680.i, label %.loopexit570.i, !llvm.loop !34
+  br i1 %916, label %.lr.ph680.i, label %.loopexit570.i, !llvm.loop !35
 
 917:                                              ; preds = %.lr.ph680.i
   %918 = landingpad { ptr, i32 }
@@ -2225,7 +2225,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
 919:                                              ; preds = %.loopexit570.i
   %indvars.iv.next791.i = add nuw nsw i64 %indvars.iv790.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next791.i, 8
-  br i1 %exitcond.not.i, label %920, label %869, !llvm.loop !35
+  br i1 %exitcond.not.i, label %920, label %869, !llvm.loop !36
 
 920:                                              ; preds = %919, %869
   %921 = getelementptr inbounds nuw i8, ptr %586, i64 48
@@ -2280,7 +2280,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   %946 = load i32, ptr %773, align 4
   %947 = zext i32 %946 to i64
   %948 = icmp samesign ult i64 %indvars.iv.next794.i, %947
-  br i1 %948, label %.lr.ph685.i, label %.loopexit.i, !llvm.loop !36
+  br i1 %948, label %.lr.ph685.i, label %.loopexit.i, !llvm.loop !37
 
 949:                                              ; preds = %.lr.ph685.i
   %950 = landingpad { ptr, i32 }
@@ -2294,7 +2294,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
 951:                                              ; preds = %.loopexit.i
   %indvars.iv.next797.i = add nuw nsw i64 %indvars.iv796.i, 1
   %exitcond799.not.i = icmp eq i64 %indvars.iv.next797.i, 8
-  br i1 %exitcond799.not.i, label %952, label %922, !llvm.loop !37
+  br i1 %exitcond799.not.i, label %952, label %922, !llvm.loop !38
 
 952:                                              ; preds = %951, %922
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.83)
@@ -2305,7 +2305,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   %954 = load i32, ptr %577, align 8
   %955 = zext i32 %954 to i64
   %956 = icmp samesign ult i64 %indvars.iv.next801.i, %955
-  br i1 %956, label %583, label %._crit_edge689.i, !llvm.loop !38
+  br i1 %956, label %583, label %._crit_edge689.i, !llvm.loop !39
 
 957:                                              ; preds = %._crit_edge689.i, %576
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.85)
@@ -2720,7 +2720,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL9WriteNodeEPK6aiNodePN
   %67 = load i32, ptr %58, align 8
   %68 = zext i32 %67 to i64
   %69 = icmp samesign ult i64 %indvars.iv.next, %68
-  br i1 %69, label %63, label %._crit_edge55, !llvm.loop !39
+  br i1 %69, label %63, label %._crit_edge55, !llvm.loop !40
 
 70:                                               ; preds = %._crit_edge55, %._crit_edge
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1104
@@ -2753,7 +2753,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL9WriteNodeEPK6aiNodePN
   %81 = load i32, ptr %71, align 8
   %82 = zext i32 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next66, %82
-  br i1 %83, label %77, label %._crit_edge59, !llvm.loop !40
+  br i1 %83, label %77, label %._crit_edge59, !llvm.loop !41
 
 84:                                               ; preds = %._crit_edge59, %70
   call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %1, ptr noundef nonnull @.str.91, ptr noundef nonnull %4)
@@ -2882,7 +2882,7 @@ _ZN8aiString6AppendEPKc.exit:                     ; preds = %45, %42, %39, %36, 
   %57 = load i32, ptr %1, align 4
   %58 = zext i32 %57 to i64
   %59 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %59, label %10, label %._crit_edge.loopexit, !llvm.loop !19
+  br i1 %59, label %10, label %._crit_edge.loopexit, !llvm.loop !20
 }
 
 ; Function Attrs: nounwind
@@ -2956,41 +2956,42 @@ attributes #18 = { builtin nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4, !7}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN6Assimp16AssxmlFileWriterL9encodeXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
-!15 = distinct !{!15, !"_ZN6Assimp16AssxmlFileWriterL9encodeXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4}
-!34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4}
-!36 = distinct !{!36, !4}
-!37 = distinct !{!37, !4}
-!38 = distinct !{!38, !4}
-!39 = distinct !{!39, !4}
-!40 = distinct !{!40, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5, !8}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN6Assimp16AssxmlFileWriterL9encodeXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
+!16 = distinct !{!16, !"_ZN6Assimp16AssxmlFileWriterL9encodeXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !4, !5}
+!24 = distinct !{!24, !4, !5}
+!25 = distinct !{!25, !4, !5}
+!26 = distinct !{!26, !4, !5}
+!27 = distinct !{!27, !4, !5}
+!28 = distinct !{!28, !4, !5}
+!29 = distinct !{!29, !4, !5}
+!30 = distinct !{!30, !4, !5}
+!31 = distinct !{!31, !4, !5}
+!32 = distinct !{!32, !4, !5}
+!33 = distinct !{!33, !4, !5}
+!34 = distinct !{!34, !4, !5}
+!35 = distinct !{!35, !4, !5}
+!36 = distinct !{!36, !4, !5}
+!37 = distinct !{!37, !4, !5}
+!38 = distinct !{!38, !4, !5}
+!39 = distinct !{!39, !4, !5}
+!40 = distinct !{!40, !4, !5}
+!41 = distinct !{!41, !4, !5}

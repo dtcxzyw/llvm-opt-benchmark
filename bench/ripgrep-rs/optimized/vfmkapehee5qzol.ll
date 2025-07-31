@@ -806,7 +806,7 @@ select.unfold.i:                                  ; preds = %"_ZN4core5slice29_$
 26:                                               ; preds = %24
   %27 = load ptr, ptr %25, align 8, !alias.scope !107, !noalias !112, !nonnull !5, !align !19, !noundef !5
   %28 = icmp eq ptr %27, %.sroa.0.0.i.ph.i
-  br i1 %28, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcd9dbc8611cf5773E.exit.i", label %24
+  br i1 %28, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcd9dbc8611cf5773E.exit.i", label %24, !llvm.loop !115
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcd9dbc8611cf5773E.exit.i": ; preds = %26, %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !100
@@ -1025,3 +1025,5 @@ attributes #19 = { noreturn }
 !112 = !{!113, !114, !105, !101, !97}
 !113 = distinct !{!113, !109, !"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h83521a176c007e9aE.llvm.17343405228183790979: argument 1"}
 !114 = distinct !{!114, !111, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfec9a33d91de251eE.llvm.17343405228183790979: argument 0"}
+!115 = distinct !{!115, !116}
+!116 = !{!"llvm.loop.estimated_trip_count"}

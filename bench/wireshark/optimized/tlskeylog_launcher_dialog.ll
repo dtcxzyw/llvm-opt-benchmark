@@ -2357,13 +2357,13 @@ define void @_ZN15TLSKeylogDialog18on_launchActivatedEv(ptr noundef readonly ali
 
 44:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %45 = load ptr, ptr %7, align 8, !noalias !29
+  call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  %45 = load ptr, ptr %7, align 8, !noalias !30
   %.not.i.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i.i.i
 
 _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i.i.i: ; preds = %44
-  %46 = load atomic i32, ptr %45 monotonic, align 4, !noalias !29
+  %46 = load atomic i32, ptr %45 monotonic, align 4, !noalias !30
   %47 = icmp sgt i32 %46, 1
   br i1 %47, label %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZN5QListI7QStringE5firstEv.exit.i
 
@@ -2373,42 +2373,42 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i.i: ; preds 
 
 _ZN5QListI7QStringE5firstEv.exit.i:               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i.i, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %49 = load ptr, ptr %48, align 8, !noalias !29
-  %50 = load ptr, ptr %49, align 8, !noalias !29
-  store ptr %50, ptr %8, align 8, !alias.scope !29
-  store ptr null, ptr %49, align 8, !noalias !29
+  %49 = load ptr, ptr %48, align 8, !noalias !30
+  %50 = load ptr, ptr %49, align 8, !noalias !30
+  store ptr %50, ptr %8, align 8, !alias.scope !30
+  store ptr null, ptr %49, align 8, !noalias !30
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %53 = load ptr, ptr %52, align 8, !noalias !29
-  store ptr %53, ptr %51, align 8, !alias.scope !29
-  store ptr null, ptr %52, align 8, !noalias !29
+  %53 = load ptr, ptr %52, align 8, !noalias !30
+  store ptr %53, ptr %51, align 8, !alias.scope !30
+  store ptr null, ptr %52, align 8, !noalias !30
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %56 = load i64, ptr %55, align 8, !noalias !29
-  store i64 %56, ptr %54, align 8, !alias.scope !29
-  store i64 0, ptr %55, align 8, !noalias !29
-  %57 = load ptr, ptr %48, align 8, !noalias !29
-  %58 = load ptr, ptr %57, align 8, !noalias !29
+  %56 = load i64, ptr %55, align 8, !noalias !30
+  store i64 %56, ptr %54, align 8, !alias.scope !30
+  store i64 0, ptr %55, align 8, !noalias !30
+  %57 = load ptr, ptr %48, align 8, !noalias !30
+  %58 = load ptr, ptr %57, align 8, !noalias !30
   %.not.i.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i.i, label %62, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i:  ; preds = %_ZN5QListI7QStringE5firstEv.exit.i
-  %59 = atomicrmw sub ptr %58, i32 1 seq_cst, align 4, !noalias !29
+  %59 = atomicrmw sub ptr %58, i32 1 seq_cst, align 4, !noalias !30
   %.not.i.i.i.i = icmp eq i32 %59, 1
   br i1 %.not.i.i.i.i, label %60, label %62
 
 60:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i
-  %61 = load ptr, ptr %57, align 8, !noalias !29
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %61, i64 noundef 2, i64 noundef 8) #18, !noalias !29
+  %61 = load ptr, ptr %57, align 8, !noalias !30
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %61, i64 noundef 2, i64 noundef 8) #18, !noalias !30
   br label %62
 
 62:                                               ; preds = %60, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i, %_ZN5QListI7QStringE5firstEv.exit.i
-  %63 = load ptr, ptr %48, align 8, !noalias !29
+  %63 = load ptr, ptr %48, align 8, !noalias !30
   %64 = getelementptr i8, ptr %63, i64 24
-  store ptr %64, ptr %48, align 8, !noalias !29
-  %65 = load i64, ptr %39, align 8, !noalias !29
+  store ptr %64, ptr %48, align 8, !noalias !30
+  %65 = load i64, ptr %39, align 8, !noalias !30
   %66 = add i64 %65, -1
-  store i64 %66, ptr %39, align 8, !noalias !29
+  store i64 %66, ptr %39, align 8, !noalias !30
   invoke void @_ZN8QProcess10setProgramERK7QString(ptr noundef nonnull align 8 dereferenceable_or_null(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %67 unwind label %91
 
@@ -4494,7 +4494,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !32
+  %17 = load ptr, ptr %16, align 8, !nosanitize !33
   br label %_ZN9QtPrivate15FunctionPointerIM7QDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -5081,7 +5081,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 8
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !33
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !34
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5123,7 +5123,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 8
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !34
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !35
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -5439,7 +5439,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15TLSKeylogDialogFvvENS_4L
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !32
+  %17 = load ptr, ptr %16, align 8, !nosanitize !33
   br label %_ZN9QtPrivate15FunctionPointerIM15TLSKeylogDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -5535,11 +5535,12 @@ attributes #20 = { cold noreturn }
 !24 = !{!25}
 !25 = distinct !{!25, !26, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
 !26 = distinct !{!26, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5QListI7QStringE9takeFirstEv: argument 0"}
-!31 = distinct !{!31, !"_ZN5QListI7QStringE9takeFirstEv"}
-!32 = !{}
-!33 = distinct !{!33, !28}
-!34 = distinct !{!34, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN5QListI7QStringE9takeFirstEv: argument 0"}
+!32 = distinct !{!32, !"_ZN5QListI7QStringE9takeFirstEv"}
+!33 = !{}
+!34 = distinct !{!34, !28, !29}
+!35 = distinct !{!35, !28, !29}

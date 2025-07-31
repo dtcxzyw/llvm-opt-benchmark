@@ -1023,7 +1023,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %579 = load i32, ptr %578, align 8
   %580 = zext i32 %579 to i64
   %581 = icmp samesign ult i64 %indvars.iv.next.i, %580
-  br i1 %581, label %.lr.ph.i5, label %._crit_edge.i6, !llvm.loop !13
+  br i1 %581, label %.lr.ph.i5, label %._crit_edge.i6, !llvm.loop !14
 
 ._crit_edge.i6:                                   ; preds = %.thread.i, %232
   %.lcssa.i = phi ptr [ %233, %232 ], [ %578, %.thread.i ]
@@ -1220,7 +1220,8 @@ attributes #11 = { noreturn nounwind }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}

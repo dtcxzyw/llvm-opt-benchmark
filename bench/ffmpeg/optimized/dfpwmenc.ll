@@ -134,12 +134,12 @@ define internal i32 @dfpwm_enc_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   store i32 %50, ptr %26, align 4, !tbaa !31
   %62 = add nuw nsw i32 %.04464.i, 1
   %exitcond.not.i = icmp eq i32 %62, 8
-  br i1 %exitcond.not.i, label %27, label %31, !llvm.loop !45
+  br i1 %exitcond.not.i, label %27, label %31, !llvm.loop !46
 
 au_compress.exit:                                 ; preds = %27, %19, %4
   %storemerge = phi i32 [ 0, %4 ], [ 1, %19 ], [ 1, %27 ]
   %.0 = phi i32 [ %18, %4 ], [ 0, %19 ], [ 0, %27 ]
-  store i32 %storemerge, ptr %3, align 4, !tbaa !46
+  store i32 %storemerge, ptr %3, align 4, !tbaa !47
   ret i32 %.0
 }
 
@@ -199,7 +199,8 @@ attributes #4 = { nounwind }
 !40 = !{!41, !14, i64 24}
 !41 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !42 = !{!8, !8, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = distinct !{!45, !44}
-!46 = !{!10, !10, i64 0}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = distinct !{!46, !44, !45}
+!47 = !{!10, !10, i64 0}

@@ -779,7 +779,7 @@ errcode_for_dynamic_shared_memory.exit141.i:      ; preds = %292, %290
   store volatile i32 0, ptr %304, align 4
   %305 = icmp ne i64 %.1122.i, 0
   %306 = select i1 %302, i1 %305, i1 false
-  br i1 %306, label %.lr.ph.i, label %._crit_edge.i27, !llvm.loop !8
+  br i1 %306, label %.lr.ph.i, label %._crit_edge.i27, !llvm.loop !9
 
 ._crit_edge.i27:                                  ; preds = %.lr.ph.i
   br i1 %302, label %.critedge.i, label %307
@@ -1032,6 +1032,7 @@ attributes #13 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

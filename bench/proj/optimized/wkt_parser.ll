@@ -268,7 +268,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i49: ; 
   store i8 0, ptr %112, align 1, !tbaa !12
   %113 = add nsw i32 %.066, 1
   %114 = icmp slt i32 %113, %27
-  br i1 %114, label %.lr.ph67, label %._crit_edge, !llvm.loop !19
+  br i1 %114, label %.lr.ph67, label %._crit_edge, !llvm.loop !20
 
 115:                                              ; preds = %107
   %116 = landingpad { ptr, i32 }
@@ -386,6 +386,7 @@ attributes #10 = { builtin nounwind }
 !14 = !{!"_ZTS20pj_wkt_parse_context", !6, i64 0, !6, i64 8, !6, i64 16, !4, i64 24}
 !15 = !{!14, !6, i64 0}
 !16 = !{!4, !6, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}

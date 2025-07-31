@@ -178,7 +178,7 @@ define void @av_bprintf(ptr noundef captures(address) %0, ptr noundef readonly c
 av_bprint_alloc.exit:                             ; preds = %39, %40
   store ptr %38, ptr %0, align 8, !tbaa !4
   store i32 %.0.i, ptr %4, align 4, !tbaa !12
-  br label %8
+  br label %8, !llvm.loop !15
 
 av_bprint_alloc.exit.thread:                      ; preds = %23, %26, %21, %.av_bprint_alloc.exit.threadthread-pre-split_crit_edge
   %45 = phi i32 [ %.pr.pre, %.av_bprint_alloc.exit.threadthread-pre-split_crit_edge ], [ %.pr.pre36, %21 ], [ %.pr.pre36, %26 ], [ %.pr.pre36, %23 ]
@@ -300,7 +300,7 @@ define void @av_vbprintf(ptr noundef captures(address) %0, ptr noundef readonly 
 av_bprint_alloc.exit:                             ; preds = %40, %41
   store ptr %39, ptr %0, align 8, !tbaa !4
   store i32 %.0.i, ptr %5, align 4, !tbaa !12
-  br label %9
+  br label %9, !llvm.loop !17
 
 av_bprint_alloc.exit.thread:                      ; preds = %24, %27, %22, %.av_bprint_alloc.exit.threadthread-pre-split_crit_edge
   %46 = phi i32 [ %.pr.pre, %.av_bprint_alloc.exit.threadthread-pre-split_crit_edge ], [ %.pr.pre37, %22 ], [ %.pr.pre37, %27 ], [ %.pr.pre37, %24 ]
@@ -396,7 +396,7 @@ av_bprint_alloc.exit:                             ; preds = %30, %31
   %36 = load i32, ptr %5, align 8, !tbaa !11
   %37 = tail call i32 @llvm.usub.sat.i32(i32 %.0.i, i32 %36)
   %38 = icmp ult i32 %2, %37
-  br i1 %38, label %av_bprint_alloc.exit.thread, label %12
+  br i1 %38, label %av_bprint_alloc.exit.thread, label %12, !llvm.loop !18
 
 av_bprint_alloc.exit.thread:                      ; preds = %av_bprint_alloc.exit, %12, %.av_bprint_alloc.exit.thread.loopexit_crit_edge, %3
   %.pre47 = phi i32 [ %7, %3 ], [ %.pre47.pre.pre, %.av_bprint_alloc.exit.thread.loopexit_crit_edge ], [ %36, %av_bprint_alloc.exit ], [ %14, %12 ]
@@ -510,7 +510,7 @@ av_bprint_alloc.exit:                             ; preds = %30, %31
   %36 = load i32, ptr %5, align 8, !tbaa !11
   %37 = tail call i32 @llvm.usub.sat.i32(i32 %.0.i, i32 %36)
   %38 = icmp ult i32 %2, %37
-  br i1 %38, label %av_bprint_alloc.exit.thread, label %12
+  br i1 %38, label %av_bprint_alloc.exit.thread, label %12, !llvm.loop !19
 
 av_bprint_alloc.exit.thread:                      ; preds = %av_bprint_alloc.exit, %12, %.av_bprint_alloc.exit.thread.loopexit_crit_edge, %3
   %.pre47 = phi i32 [ %7, %3 ], [ %.pre47.pre.pre, %.av_bprint_alloc.exit.thread.loopexit_crit_edge ], [ %36, %av_bprint_alloc.exit ], [ %14, %12 ]
@@ -652,7 +652,7 @@ define void @av_bprint_strftime(ptr noundef captures(address) %0, ptr noundef %1
 av_bprint_alloc.exit:                             ; preds = %45, %46
   store ptr %44, ptr %0, align 8, !tbaa !4
   store i32 %.0.i, ptr %6, align 4, !tbaa !12
-  br label %10
+  br label %10, !llvm.loop !20
 
 split:                                            ; preds = %27, %32, %._crit_edge
   %51 = phi i32 [ %.pre67, %._crit_edge ], [ %28, %32 ], [ %28, %27 ]
@@ -805,7 +805,7 @@ av_bprint_alloc.exit:                             ; preds = %.av_bprint_alloc.ex
   %35 = phi i32 [ %.pre, %.av_bprint_alloc.exit_crit_edge ], [ %.0.i, %34 ], [ %6, %11 ], [ %6, %4 ]
   %36 = load i32, ptr %7, align 8, !tbaa !11
   %37 = tail call i32 @llvm.usub.sat.i32(i32 %35, i32 %36)
-  store i32 %37, ptr %3, align 4, !tbaa !15
+  store i32 %37, ptr %3, align 4, !tbaa !21
   %.not.not = icmp ugt i32 %35, %36
   br i1 %.not.not, label %38, label %43
 
@@ -818,7 +818,7 @@ av_bprint_alloc.exit:                             ; preds = %.av_bprint_alloc.ex
 
 43:                                               ; preds = %av_bprint_alloc.exit, %38
   %44 = phi ptr [ %42, %38 ], [ null, %av_bprint_alloc.exit ]
-  store ptr %44, ptr %2, align 8, !tbaa !16
+  store ptr %44, ptr %2, align 8, !tbaa !22
   ret void
 }
 
@@ -880,7 +880,7 @@ define range(i32 -12, 1) i32 @av_bprint_finalize(ptr noundef %0, ptr noundef wri
 19:                                               ; preds = %17, %16
   %.123 = phi ptr [ %.022, %16 ], [ %18, %17 ]
   %.0 = phi i32 [ 0, %16 ], [ %spec.select36, %17 ]
-  store ptr %.123, ptr %1, align 8, !tbaa !16
+  store ptr %.123, ptr %1, align 8, !tbaa !22
   br label %22
 
 20:                                               ; preds = %2
@@ -953,7 +953,7 @@ define void @av_bprint_escape(ptr noundef captures(address) %0, ptr noundef read
 
 15:                                               ; preds = %14, %13, %12, %11, %10
   %16 = getelementptr inbounds nuw i8, ptr %.1.us, i64 1
-  br label %.preheader61.split.us, !llvm.loop !17
+  br label %.preheader61.split.us, !llvm.loop !23
 
 .preheader:                                       ; preds = %5
   %17 = load i8, ptr %1, align 1, !tbaa !14
@@ -990,7 +990,7 @@ define void @av_bprint_escape(ptr noundef captures(address) %0, ptr noundef read
 
 26:                                               ; preds = %24, %25
   %27 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %22, !llvm.loop !20
+  br label %22, !llvm.loop !26
 
 28:                                               ; preds = %22
   tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext 39, i32 noundef 1)
@@ -1037,7 +1037,7 @@ define void @av_bprint_escape(ptr noundef captures(address) %0, ptr noundef read
 
 37:                                               ; preds = %30, %31, %32, %34, %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.preheader61.split, !llvm.loop !21
+  br label %.preheader61.split, !llvm.loop !27
 
 39:                                               ; preds = %.lr.ph, %55
   %40 = phi i8 [ %17, %.lr.ph ], [ %58, %55 ]
@@ -1090,7 +1090,7 @@ define void @av_bprint_escape(ptr noundef captures(address) %0, ptr noundef read
   %57 = getelementptr inbounds nuw i8, ptr %.264, i64 1
   %58 = load i8, ptr %57, align 1, !tbaa !14
   %.not50 = icmp eq i8 %58, 0
-  br i1 %.not50, label %.loopexit, label %39, !llvm.loop !22
+  br i1 %.not50, label %.loopexit, label %39, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader61.split, %.preheader61.split.us, %55, %.preheader, %28
   ret void
@@ -1143,11 +1143,17 @@ attributes #13 = { nounwind willreturn memory(read) }
 !12 = !{!5, !10, i64 12}
 !13 = !{!5, !10, i64 16}
 !14 = !{!8, !8, i64 0}
-!15 = !{!10, !10, i64 0}
-!16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !18, !19}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}
+!21 = !{!10, !10, i64 0}
+!22 = !{!6, !6, i64 0}
+!23 = distinct !{!23, !24, !16, !25}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !24, !16}
+!27 = distinct !{!27, !24, !16}
+!28 = distinct !{!28, !24, !16}

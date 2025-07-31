@@ -60,7 +60,7 @@ _ZN4absl15random_internal12_GLOBAL__N_130ReadSeedMaterialFromGetEntropyENS_4Span
 
 19:                                               ; preds = %.lr.ph.i6.i
   %20 = tail call ptr @__errno_location() #8
-  %21 = load i32, ptr %20, align 4, !tbaa !6
+  %21 = load i32, ptr %20, align 4, !tbaa !7
   %22 = icmp eq i64 %14, -1
   %23 = icmp eq i32 %21, 4
   %or.cond.i.i = select i1 %22, i1 %23, i1 false
@@ -72,7 +72,7 @@ _ZN4absl15random_internal12_GLOBAL__N_130ReadSeedMaterialFromGetEntropyENS_4Span
   %.1.i.i = phi ptr [ %17, %16 ], [ %.01826.i.i, %19 ]
   %25 = icmp ne i64 %.122.i.i, 0
   %26 = and i1 %.120.i.i, %25
-  br i1 %26, label %.lr.ph.i6.i, label %._crit_edge.i.i, !llvm.loop !10
+  br i1 %26, label %.lr.ph.i6.i, label %._crit_edge.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %24
   %27 = tail call i32 @close(i32 noundef %13)
@@ -107,13 +107,13 @@ define dso_local void @_ZN4absl15random_internal19MixIntoSeedMaterialENS_4SpanIK
 ._crit_edge:                                      ; preds = %8
   %7 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %.not = icmp eq ptr %7, %5
-  br i1 %.not, label %._crit_edge32, label %.lr.ph
+  br i1 %.not, label %._crit_edge32, label %.lr.ph, !llvm.loop !12
 
 8:                                                ; preds = %.lr.ph, %8
   %.01526 = phi ptr [ %2, %.lr.ph ], [ %20, %8 ]
   %.125 = phi i32 [ %.02328, %.lr.ph ], [ %12, %8 ]
-  %9 = load i32, ptr %.01526, align 4, !tbaa !6
-  %10 = load i32, ptr %.029, align 4, !tbaa !6
+  %9 = load i32, ptr %.01526, align 4, !tbaa !7
+  %10 = load i32, ptr %.029, align 4, !tbaa !7
   %11 = xor i32 %10, %.125
   %12 = mul i32 %.125, -1826715531
   %13 = mul i32 %11, %12
@@ -124,10 +124,10 @@ define dso_local void @_ZN4absl15random_internal19MixIntoSeedMaterialENS_4SpanIK
   %17 = add i32 %.neg.i, %16
   %18 = lshr i32 %17, 16
   %19 = xor i32 %18, %17
-  store i32 %19, ptr %.01526, align 4, !tbaa !6
+  store i32 %19, ptr %.01526, align 4, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %.01526, i64 4
   %.not16 = icmp eq ptr %20, %6
-  br i1 %.not16, label %._crit_edge, label %8
+  br i1 %.not16, label %._crit_edge, label %8, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -141,7 +141,7 @@ define dso_local i64 @_ZN4absl15random_internal15GetSaltMaterialEv() local_unnam
   %1 = alloca i32, align 4
   %2 = load atomic i8, ptr @_ZGVZN4absl15random_internal15GetSaltMaterialEvE13salt_material acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %13, !prof !11
+  br i1 %3, label %4, label %13, !prof !14
 
 4:                                                ; preds = %0
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl15random_internal15GetSaltMaterialEvE13salt_material) #9
@@ -150,7 +150,7 @@ define dso_local i64 @_ZN4absl15random_internal15GetSaltMaterialEv() local_unnam
 
 6:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #9
-  store i32 0, ptr %1, align 4, !tbaa !6
+  store i32 0, ptr %1, align 4, !tbaa !7
   %7 = invoke noundef zeroext i1 @_ZN4absl15random_internal29ReadSeedMaterialFromOSEntropyENS_4SpanIjEE(ptr nonnull %1, i64 1)
           to label %8 unwind label %14
 
@@ -223,11 +223,14 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C++ TBAA"}
-!10 = distinct !{!10, !5}
-!11 = !{!"branch_weights", i32 1, i32 1048575}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = !{!"branch_weights", i32 1, i32 1048575}

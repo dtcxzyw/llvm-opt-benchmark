@@ -310,7 +310,7 @@ define internal fastcc noundef i64 @make_scalar_key(ptr noundef nonnull readonly
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 8, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   %13 = tail call ptr @palloc(i64 noundef 6) #8
   store i32 24, ptr %13, align 4
@@ -535,7 +535,7 @@ make_text_key.exit:                               ; preds = %.thread, %51, %54
   %.06684 = phi i32 [ %.1, %128 ], [ 0, %68 ]
   %79 = load ptr, ptr %5, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv
-  %81 = load i8, ptr %80, align 1, !range !6, !noundef !7
+  %81 = load i8, ptr %80, align 1, !range !7, !noundef !8
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %128, label %83
 
@@ -622,7 +622,7 @@ make_text_key.exit82:                             ; preds = %.thread83, %111, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %indvars.iv.next, %130
-  br i1 %131, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %131, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %128, %68
   %.066.lcssa = phi i32 [ 0, %68 ], [ %.1, %128 ]
@@ -793,12 +793,12 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb(ptr noundef readonly 
 19:                                               ; preds = %.lr.ph40
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %.loopexit, label %.lr.ph40, !llvm.loop !9
+  br i1 %exitcond51.not, label %.loopexit, label %.lr.ph40, !llvm.loop !10
 
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %19
   %indvars.iv47 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next48, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv47
-  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %21 = load i8, ptr %20, align 1, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %19, label %.loopexit
 
@@ -822,12 +822,12 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb(ptr noundef readonly 
 27:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %29 = load i8, ptr %28, align 1, !range !6, !noundef !7
+  %29 = load i8, ptr %28, align 1, !range !7, !noundef !8
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %27, label %.loopexit
 
@@ -911,7 +911,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr noundef readonly cap
   %18 = load i32, ptr %8, align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next50, %19
-  br i1 %20, label %12, label %.loopexit, !llvm.loop !11
+  br i1 %20, label %12, label %.loopexit, !llvm.loop !12
 
 21:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
@@ -933,7 +933,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr noundef readonly cap
   %27 = load i32, ptr %4, align 8
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %21, label %.loopexit, !llvm.loop !12
+  br i1 %29, label %21, label %.loopexit, !llvm.loop !13
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -986,7 +986,7 @@ define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb(ptr noundef r
 16:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
@@ -1011,7 +1011,7 @@ define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb(ptr noundef r
 23:                                               ; preds = %.lr.ph44
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph44, !llvm.loop !14
+  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph44, !llvm.loop !15
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %23
   %indvars.iv51 = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next52, %23 ]
@@ -1123,11 +1123,11 @@ init_gin_entries.exit:                            ; preds = %1
 
 .outer48.backedge:                                ; preds = %25, %54, %52
   %.0.ph49.be = phi ptr [ %49, %52 ], [ %49, %54 ], [ %26, %25 ]
-  br label %.outer48, !llvm.loop !15
+  br label %.outer48, !llvm.loop !16
 
 29:                                               ; preds = %23
   call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph49) #8
-  br label %23, !llvm.loop !15
+  br label %23, !llvm.loop !16
 
 30:                                               ; preds = %23, %23
   call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph49) #8
@@ -1162,7 +1162,7 @@ add_gin_entry.exit:                               ; preds = %30, %34, %39
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 8
   store i32 %46, ptr %.0.ph49, align 8
-  br label %.outer, !llvm.loop !15
+  br label %.outer, !llvm.loop !16
 
 47:                                               ; preds = %23, %23
   %48 = getelementptr inbounds nuw i8, ptr %.0.ph49, i64 8
@@ -1295,12 +1295,12 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb_path(ptr noundef read
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %22 = load i8, ptr %21, align 1, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %20, label %.loopexit
 
@@ -1363,7 +1363,7 @@ define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb_path(ptr noun
 16:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
@@ -1568,7 +1568,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
   %.2 = phi ptr [ %13, %8 ], [ %.135, %.lr.ph ]
   %15 = load ptr, ptr %.02334, align 8
   %.not31 = icmp eq ptr %15, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %14, %.preheader
   %.1.lcssa = phi ptr [ %3, %.preheader ], [ %.2, %14 ]
@@ -1578,7 +1578,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
 
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i8, ptr %19, align 8, !range !6, !noundef !7
+  %20 = load i8, ptr %19, align 8, !range !7, !noundef !8
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %.critedge, label %22
 
@@ -1691,7 +1691,7 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef nonnull %0, ptr %1
 19:                                               ; preds = %16, %15, %8
   %.1.i = phi ptr [ %.015.i, %16 ], [ %.015.i, %8 ], [ %.2.i, %15 ]
   %20 = call zeroext i1 @jspGetNext(ptr noundef nonnull %.016.i, ptr noundef nonnull %6) #8
-  br i1 %20, label %8, label %21
+  br i1 %20, label %8, label %21, !llvm.loop !20
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1747,7 +1747,7 @@ extract_jsp_path_expr_nodes.exit:                 ; preds = %16, %21
   %47 = load i32, ptr %28, align 4
   %48 = sext i32 %47 to i64
   %.not.i10 = icmp slt i64 %indvars.iv.next.i, %48
-  br i1 %.not.i10, label %42, label %make_jsp_expr_node_args.exit, !llvm.loop !19
+  br i1 %.not.i10, label %42, label %make_jsp_expr_node_args.exit, !llvm.loop !21
 
 make_jsp_expr_node_args.exit:                     ; preds = %42, %33, %extract_jsp_path_expr_nodes.exit, %30
   %.0 = phi ptr [ %32, %30 ], [ null, %extract_jsp_path_expr_nodes.exit ], [ %37, %33 ], [ %37, %42 ]
@@ -1987,7 +1987,7 @@ add_gin_entry.exit:                               ; preds = %._crit_edge.i, %12,
   %33 = load i32, ptr %26, align 8
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %30, label %.loopexit, !llvm.loop !20
+  br i1 %35, label %30, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %30, %25, %add_gin_entry.exit, %2
   ret void
@@ -2042,20 +2042,22 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}

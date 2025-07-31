@@ -181,7 +181,7 @@ define i32 @avpriv_slicethread_create(ptr noundef %0, ptr noundef %1, ptr nounde
   %76 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph123, !llvm.loop !25
+  br i1 %exitcond.not, label %.thread, label %.lr.ph123, !llvm.loop !26
 
 .thread:                                          ; preds = %._crit_edge, %39, %66, %54, %46, %14, %36, %31, %21
   %.0 = phi i32 [ %32, %31 ], [ %38, %36 ], [ -12, %21 ], [ -12, %14 ], [ %73, %66 ], [ %59, %54 ], [ %50, %46 ], [ %.083, %39 ], [ %.083, %._crit_edge ]
@@ -247,14 +247,14 @@ define void @avpriv_slicethread_free(ptr noundef %0) local_unnamed_addr #0 {
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph31.preheader, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.lr.ph31.preheader, label %.lr.ph, !llvm.loop !27
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv33 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next34, %.lr.ph31 ]
   %19 = load ptr, ptr %2, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw %struct.WorkerContext, ptr %19, i64 %indvars.iv33
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %22 = load i64, ptr %21, align 8, !tbaa !27
+  %22 = load i64, ptr %21, align 8, !tbaa !28
   %23 = tail call i32 @pthread_join(i64 noundef %22, ptr noundef null) #7
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %25 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %24) #7
@@ -262,7 +262,7 @@ define void @avpriv_slicethread_free(ptr noundef %0) local_unnamed_addr #0 {
   %27 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %26) #7
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
-  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph31, !llvm.loop !28
+  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph31, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %3
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -314,7 +314,7 @@ define internal noalias noundef ptr @thread_worker(ptr noundef %0) #4 {
   %20 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %5, ptr noundef nonnull %3) #7
   %.pr = load i32, ptr %8, align 8, !tbaa !22
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %21, label %19, !llvm.loop !29
+  br i1 %.not, label %21, label %19, !llvm.loop !30
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %7, align 4, !tbaa !17
@@ -326,8 +326,8 @@ define internal noalias noundef ptr @thread_worker(ptr noundef %0) #4 {
   ret ptr null
 
 25:                                               ; preds = %21
-  %26 = load i32, ptr %9, align 8, !tbaa !30
-  %27 = load i32, ptr %10, align 4, !tbaa !31
+  %26 = load i32, ptr %9, align 8, !tbaa !31
+  %27 = load i32, ptr %10, align 4, !tbaa !32
   %28 = atomicrmw add ptr %11, i32 1 acq_rel, align 4
   br label %29
 
@@ -338,7 +338,7 @@ define internal noalias noundef ptr @thread_worker(ptr noundef %0) #4 {
   tail call void %30(ptr noundef %31, i32 noundef %.0.i, i32 noundef %28, i32 noundef %26, i32 noundef %27) #7
   %32 = atomicrmw add ptr %14, i32 1 acq_rel, align 8
   %33 = icmp ult i32 %32, %26
-  br i1 %33, label %29, label %run_jobs.exit, !llvm.loop !32
+  br i1 %33, label %29, label %run_jobs.exit, !llvm.loop !33
 
 run_jobs.exit:                                    ; preds = %29
   %34 = add i32 %26, -1
@@ -354,7 +354,7 @@ run_jobs.exit:                                    ; preds = %29
   br label %.backedge
 
 .backedge:                                        ; preds = %36, %run_jobs.exit
-  br label %18
+  br label %18, !llvm.loop !34
 }
 
 ; Function Attrs: nounwind
@@ -377,12 +377,12 @@ define void @avpriv_slicethread_execute(ptr noundef %0, i32 noundef %1, i32 noun
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %7, align 8, !tbaa !30
+  store i32 %1, ptr %7, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !16
   %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %., ptr %10, align 4, !tbaa !31
+  store i32 %., ptr %10, align 4, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 0, ptr %11 monotonic, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -415,7 +415,7 @@ define void @avpriv_slicethread_execute(ptr noundef %0, i32 noundef %1, i32 noun
   %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %13, align 8, !tbaa !15
@@ -434,8 +434,8 @@ define void @avpriv_slicethread_execute(ptr noundef %0, i32 noundef %1, i32 noun
   br label %44
 
 31:                                               ; preds = %._crit_edge
-  %32 = load i32, ptr %7, align 8, !tbaa !30
-  %33 = load i32, ptr %10, align 4, !tbaa !31
+  %32 = load i32, ptr %7, align 8, !tbaa !31
+  %33 = load i32, ptr %10, align 4, !tbaa !32
   %34 = atomicrmw add ptr %11, i32 1 acq_rel, align 4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -448,7 +448,7 @@ define void @avpriv_slicethread_execute(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void %38(ptr noundef %39, i32 noundef %.0.i, i32 noundef %34, i32 noundef %32, i32 noundef %33) #7
   %40 = atomicrmw add ptr %12, i32 1 acq_rel, align 8
   %41 = icmp ult i32 %40, %32
-  br i1 %41, label %37, label %run_jobs.exit, !llvm.loop !32
+  br i1 %41, label %37, label %run_jobs.exit, !llvm.loop !33
 
 run_jobs.exit:                                    ; preds = %37
   %42 = add i32 %32, -1
@@ -472,7 +472,7 @@ run_jobs.exit:                                    ; preds = %37
   %51 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %49, ptr noundef nonnull %45) #7
   %52 = load i32, ptr %47, align 8, !tbaa !18
   %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %50, label %._crit_edge51, !llvm.loop !34
+  br i1 %.not, label %50, label %._crit_edge51, !llvm.loop !36
 
 ._crit_edge51:                                    ; preds = %50, %44
   store i32 0, ptr %47, align 8, !tbaa !18
@@ -529,15 +529,17 @@ attributes #8 = { noreturn nounwind }
 !20 = !{!"WorkerContext", !5, i64 0, !7, i64 8, !7, i64 48, !21, i64 96, !12, i64 104}
 !21 = !{!"long", !7, i64 0}
 !22 = !{!20, !12, i64 104}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}
-!27 = !{!20, !21, i64 96}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = !{!10, !12, i64 16}
-!31 = !{!10, !12, i64 12}
-!32 = distinct !{!32, !24}
-!33 = distinct !{!33, !24}
-!34 = distinct !{!34, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = distinct !{!27, !24, !25}
+!28 = !{!20, !21, i64 96}
+!29 = distinct !{!29, !24, !25}
+!30 = distinct !{!30, !24, !25}
+!31 = !{!10, !12, i64 16}
+!32 = !{!10, !12, i64 12}
+!33 = distinct !{!33, !24, !25}
+!34 = distinct !{!34, !25}
+!35 = distinct !{!35, !24, !25}
+!36 = distinct !{!36, !24, !25}

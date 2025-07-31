@@ -107,7 +107,7 @@ define hidden range(i32 0, 2) i32 @BN_add(ptr noundef %0, ptr noundef %1, ptr no
   %50 = getelementptr inbounds nuw i8, ptr %.383.i, i64 8
   store i64 %49, ptr %.383.i, align 8, !tbaa !15
   %.not61.i = icmp eq i32 %47, 0
-  br i1 %.not61.i, label %.sink.split, label %.preheader.i, !llvm.loop !19
+  br i1 %.not61.i, label %.sink.split, label %.preheader.i, !llvm.loop !20
 
 .sink.split:                                      ; preds = %.preheader.i, %15, %.loopexit77.i, %.thread69.i, %13, %11
   %.sink = phi i32 [ 1, %11 ], [ 0, %13 ], [ %5, %.thread69.i ], [ %5, %.loopexit77.i ], [ %5, %15 ], [ %5, %.preheader.i ]
@@ -184,7 +184,7 @@ define hidden range(i32 0, 2) i32 @BN_usub(ptr noundef %0, ptr noundef readonly 
   %32 = add nsw i32 %.04770, -1
   %33 = xor i1 %.1.in, true
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %30
   br i1 %.1.in, label %34, label %.loopexit
@@ -206,7 +206,7 @@ define hidden range(i32 0, 2) i32 @BN_usub(ptr noundef %0, ptr noundef readonly 
   %40 = icmp eq i64 %37, 0
   %41 = icmp ne i32 %35, 0
   %or.cond = select i1 %40, i1 %41, i1 false
-  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %15, %._crit_edge
   %.055 = phi i32 [ %8, %._crit_edge ], [ %8, %15 ], [ %35, %.preheader ]
@@ -312,7 +312,7 @@ define hidden range(i32 0, 2) i32 @BN_uadd(ptr noundef %0, ptr noundef readonly 
   %38 = getelementptr inbounds nuw i8, ptr %.383, i64 8
   store i64 %37, ptr %.383, align 8, !tbaa !15
   %.not61 = icmp eq i32 %35, 0
-  br i1 %.not61, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %.not61, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %.thread69, %.loopexit77
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -383,7 +383,7 @@ define hidden i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   store i64 %23, ptr %21, align 8, !tbaa !15
   %24 = icmp ugt i64 %.03446, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %24, label %18, label %.critedge42, !llvm.loop !22
+  br i1 %24, label %18, label %.critedge42, !llvm.loop !23
 
 .critedge:                                        ; preds = %18
   %25 = icmp sgt i32 %11, -1
@@ -497,7 +497,7 @@ define hidden i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   %30 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv.next
   %31 = load i64, ptr %30, align 8, !tbaa !15
   %.not45 = icmp eq i64 %31, 0
-  br i1 %.not45, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %.not45, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
 
 32:                                               ; preds = %._crit_edge
   store i32 %.0.lcssa, ptr %14, align 8, !tbaa !13
@@ -600,7 +600,7 @@ define hidden range(i32 0, 2) i32 @BN_sub(ptr noundef %0, ptr noundef %1, ptr no
   %45 = getelementptr inbounds nuw i8, ptr %.383.i, i64 8
   store i64 %44, ptr %.383.i, align 8, !tbaa !15
   %.not61.i = icmp eq i32 %42, 0
-  br i1 %.not61.i, label %BN_uadd.exit.thread.sink.split, label %.preheader.i, !llvm.loop !19
+  br i1 %.not61.i, label %BN_uadd.exit.thread.sink.split, label %.preheader.i, !llvm.loop !20
 
 46:                                               ; preds = %8, %9
   %.03046 = phi ptr [ %2, %8 ], [ %1, %9 ]
@@ -678,9 +678,11 @@ attributes #4 = { nounwind }
 !14 = !{!7, !8, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !10, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !19}

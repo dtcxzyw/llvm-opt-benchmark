@@ -453,7 +453,7 @@ define dso_local i32 @GetTopMostAncestorInPublication(i32 noundef %0, ptr nounde
   %28 = load i32, ptr %13, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i, %29
-  br i1 %30, label %17, label %GetRelationPublications.exit, !llvm.loop !8
+  br i1 %30, label %17, label %GetRelationPublications.exit, !llvm.loop !9
 
 GetRelationPublications.exit:                     ; preds = %17, %.lr.ph53
   %.0.lcssa.i = phi ptr [ null, %.lr.ph53 ], [ %27, %17 ]
@@ -501,7 +501,7 @@ GetRelationPublications.exit:                     ; preds = %17, %.lr.ph53
   %52 = load i32, ptr %37, align 8
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next.i37, %53
-  br i1 %54, label %41, label %GetSchemaPublications.exit, !llvm.loop !9
+  br i1 %54, label %41, label %GetSchemaPublications.exit, !llvm.loop !10
 
 GetSchemaPublications.exit:                       ; preds = %41, %33
   %.0.lcssa.i32 = phi ptr [ null, %33 ], [ %51, %41 ]
@@ -558,7 +558,7 @@ define dso_local ptr @GetRelationPublications(i32 noundef %0) local_unnamed_addr
   %19 = load i32, ptr %4, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %8, label %._crit_edge, !llvm.loop !8
+  br i1 %21, label %8, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %8, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %18, %8 ]
@@ -599,7 +599,7 @@ define dso_local ptr @GetSchemaPublications(i32 noundef %0) local_unnamed_addr #
   %19 = load i32, ptr %4, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %8, label %._crit_edge, !llvm.loop !9
+  br i1 %21, label %8, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %8, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %18, %8 ]
@@ -781,7 +781,7 @@ check_publication_add_relation.exit:              ; preds = %51
   store i16 %97, ptr %100, align 2
   %101 = tail call i32 @bms_next_member(ptr noundef %72, i32 noundef %96) #6
   %102 = icmp sgt i32 %101, -1
-  br i1 %102, label %95, label %attnumstoint2vector.exit, !llvm.loop !10
+  br i1 %102, label %95, label %attnumstoint2vector.exit, !llvm.loop !11
 
 attnumstoint2vector.exit:                         ; preds = %95, %89
   %103 = ptrtoint ptr %91 to i64
@@ -836,7 +836,7 @@ attnumstoint2vector.exit:                         ; preds = %95, %89
   call void @recordDependencyOn(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 110) #6
   %121 = call i32 @bms_next_member(ptr noundef %72, i32 noundef %120) #6
   %122 = icmp sgt i32 %121, -1
-  br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %117
   call void @table_close(ptr noundef nonnull %12, i32 noundef 3) #6
@@ -1117,7 +1117,7 @@ define dso_local ptr @pub_form_cols_map(ptr noundef readonly captures(none) %0, 
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next21, %24
-  br i1 %25, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
+  br i1 %25, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %41, %22, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %.1.us, %22 ], [ %.1, %41 ]
@@ -1156,7 +1156,7 @@ define dso_local ptr @pub_form_cols_map(ptr noundef readonly captures(none) %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
+  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1316,7 +1316,7 @@ is_publishable_class.exit:                        ; preds = %17
   %21 = icmp eq i8 %20, 112
   %22 = icmp ugt i32 %14, 16383
   %spec.select.i = and i1 %22, %21
-  br i1 %spec.select.i, label %23, label %is_publishable_class.exit.thread, !llvm.loop !15
+  br i1 %spec.select.i, label %23, label %is_publishable_class.exit.thread, !llvm.loop !16
 
 23:                                               ; preds = %is_publishable_class.exit
   %24 = call signext i8 @get_rel_relkind(i32 noundef %14) #6
@@ -1339,7 +1339,7 @@ is_publishable_class.exit.thread:                 ; preds = %.lr.ph, %17, %25, %
   %.1 = phi ptr [ %.022, %is_publishable_class.exit ], [ %26, %25 ], [ %30, %27 ], [ %.022, %23 ], [ %.022, %17 ], [ %.022, %.lr.ph ]
   %31 = call ptr @heap_getnext(ptr noundef %6, i32 noundef 1) #6
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %is_publishable_class.exit.thread, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %.1, %is_publishable_class.exit.thread ]
@@ -1384,7 +1384,7 @@ define dso_local ptr @GetPublicationRelations(i32 noundef %0, i32 noundef %1) lo
   %16 = call ptr @GetPubPartitionOptionRelations(ptr noundef %.013, i32 noundef %1, i32 noundef %15)
   %17 = call ptr @systable_getnext(ptr noundef %6) #6
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %16, %.lr.ph ]
@@ -1426,7 +1426,7 @@ define dso_local ptr @GetAllTablesPublications() local_unnamed_addr #0 {
   %12 = call ptr @lappend_oid(ptr noundef %.09, i32 noundef %11) #6
   %13 = call ptr @systable_getnext(ptr noundef %3) #6
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.0.lcssa = phi ptr [ null, %0 ], [ %12, %.lr.ph ]
@@ -1487,7 +1487,7 @@ is_publishable_class.exit.thread.us:              ; preds = %21, %is_publishable
   %.1.us = phi ptr [ %22, %21 ], [ %.031.us, %is_publishable_class.exit.us ], [ %.031.us, %15 ], [ %.031.us, %.lr.ph.split.us ]
   %23 = call ptr @heap_getnext(ptr noundef %4, i32 noundef 1) #6
   %.not.us = icmp eq ptr %23, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %is_publishable_class.exit.thread
   %24 = phi ptr [ %45, %is_publishable_class.exit.thread ], [ %5, %.lr.ph ]
@@ -1532,7 +1532,7 @@ is_publishable_class.exit.thread:                 ; preds = %.lr.ph.split, %33, 
   %.1 = phi ptr [ %.031, %39 ], [ %44, %43 ], [ %.031, %is_publishable_class.exit ], [ %.031, %33 ], [ %.031, %.lr.ph.split ]
   %45 = call ptr @heap_getnext(ptr noundef %4, i32 noundef 1) #6
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %is_publishable_class.exit.thread.us, %is_publishable_class.exit.thread, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.1, %is_publishable_class.exit.thread ], [ %.1.us, %is_publishable_class.exit.thread.us ]
@@ -1594,7 +1594,7 @@ is_publishable_class.exit29.thread:               ; preds = %.lr.ph35, %63, %73,
   %.4 = phi ptr [ %.333, %69 ], [ %74, %73 ], [ %.333, %is_publishable_class.exit29 ], [ %.333, %63 ], [ %.333, %.lr.ph35 ]
   %75 = call ptr @heap_getnext(ptr noundef %52, i32 noundef 1) #6
   %.not26 = icmp eq ptr %75, null
-  br i1 %.not26, label %._crit_edge36, label %.lr.ph35, !llvm.loop !20
+  br i1 %.not26, label %._crit_edge36, label %.lr.ph35, !llvm.loop !22
 
 ._crit_edge36:                                    ; preds = %is_publishable_class.exit29.thread, %51
   %.3.lcssa = phi ptr [ %.0.lcssa, %51 ], [ %.4, %is_publishable_class.exit29.thread ]
@@ -1643,7 +1643,7 @@ define dso_local ptr @GetPublicationSchemas(i32 noundef %0) local_unnamed_addr #
   %15 = call ptr @lappend_oid(ptr noundef %.010, i32 noundef %14) #6
   %16 = call ptr @systable_getnext(ptr noundef %5) #6
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %15, %.lr.ph ]
@@ -1851,7 +1851,7 @@ GetAllSchemaPublicationRelations.exit:            ; preds = %.lr.ph21.i, %38, %.
   %79 = load i32, ptr %3, align 4
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next141, %80
-  br i1 %81, label %.lr.ph128, label %._crit_edge, !llvm.loop !22
+  br i1 %81, label %.lr.ph128, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.critedge
   %.not49.i = icmp ne ptr %.1.lcssa, null
@@ -1931,7 +1931,7 @@ GetAllSchemaPublicationRelations.exit:            ; preds = %.lr.ph21.i, %38, %.
 is_ancestor_member_tableinfos.exit.loopexit.us48.i: ; preds = %113
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next143, %106
-  br i1 %exitcond.not.i, label %.critedge30.i, label %.lr.ph.i.us41.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.critedge30.i, label %.lr.ph.i.us41.i, !llvm.loop !25
 
 .critedge30.thread.i:                             ; preds = %109
   %114 = add i32 %.sroa.7.051.i, -1
@@ -1944,7 +1944,7 @@ is_ancestor_member_tableinfos.exit.loopexit.us48.i: ; preds = %113
   %.1.i = phi ptr [ %115, %.critedge30.thread.i ], [ %.052.fr.i, %.lr.ph.split.split.i ], [ %.052.fr.i, %93 ], [ %.052.fr.i, %.lr.ph.i.lr.ph.i ], [ %.052.fr.i, %85 ], [ null, %.lr.ph.i110 ], [ %.052.fr.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
   %116 = add i32 %.sroa.7.1.i, 1
   %.not.i109 = icmp eq ptr %.sroa.010.1.i, null
-  br i1 %.not.i109, label %filter_partitions.exit, label %.lr.ph53.i, !llvm.loop !24
+  br i1 %.not.i109, label %filter_partitions.exit, label %.lr.ph53.i, !llvm.loop !26
 
 filter_partitions.exit:                           ; preds = %.critedge30.i, %.lr.ph53.i, %10, %._crit_edge
   %.090.lcssa154 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %10 ], [ %.1.lcssa, %.lr.ph53.i ], [ %.1.lcssa, %.critedge30.i ]
@@ -2101,7 +2101,7 @@ list_length.exit:                                 ; preds = %121
   %.196 = phi i32 [ %.095131, %190 ], [ %.095131, %187 ], [ %.095131, %179 ], [ %195, %192 ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %200 = icmp slt i64 %indvars.iv.next146, %.pre-phi
-  br i1 %200, label %179, label %._crit_edge135, !llvm.loop !25
+  br i1 %200, label %179, label %._crit_edge135, !llvm.loop !27
 
 ._crit_edge135:                                   ; preds = %198
   %201 = icmp sgt i32 %.196, 0
@@ -2218,23 +2218,25 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !13}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !13}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8, !14}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !14}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}

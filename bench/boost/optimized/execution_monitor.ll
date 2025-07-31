@@ -5142,7 +5142,7 @@ define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_contai
   br i1 %.not10.i.i.i, label %_ZNKSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE4findERS9_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
-  %7 = load ptr, ptr %2, align 8, !tbaa !177
+  %7 = load ptr, ptr %2, align 8, !tbaa !178
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %9
 
@@ -5150,7 +5150,7 @@ define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_contai
   %.012.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i ]
   %.0811.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.19.i.i.i, %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i ]
   %10 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !177
+  %11 = load ptr, ptr %10, align 8, !tbaa !178
   %.not.i.i.i.i.i = icmp eq ptr %11, %7
   br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.i.i.i
 
@@ -5178,7 +5178,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %23, align 8, !tbaa !30
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, label %9, !llvm.loop !179
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, label %9, !llvm.loop !180
 
 _ZNKSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i: ; preds = %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i
   %24 = icmp eq ptr %.19.i.i.i, %6
@@ -5186,7 +5186,7 @@ _ZNKSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_p
 
 25:                                               ; preds = %_ZNKSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !177
+  %27 = load ptr, ptr %26, align 8, !tbaa !178
   %.not.i.i.i.i = icmp eq ptr %7, %27
   br i1 %.not.i.i.i.i, label %_ZNKSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE4findERS9_.exit, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.i.i
 
@@ -5212,8 +5212,8 @@ _ZNKSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_in
   store ptr %40, ptr %0, align 8, !tbaa !173
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !180
-  store ptr %43, ptr %41, align 8, !tbaa !180
+  %43 = load ptr, ptr %42, align 8, !tbaa !181
+  store ptr %43, ptr %41, align 8, !tbaa !181
   %.not.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2ERKS3_.exit, label %44
 
@@ -5236,7 +5236,7 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail25error_info_contain
   %5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %6 = load ptr, ptr %1, align 8, !tbaa !173
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !180
+  %8 = load ptr, ptr %7, align 8, !tbaa !181
   %.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2ERKS3_.exit.i, label %9
 
@@ -5248,8 +5248,8 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail25error_info_contain
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2ERKS3_.exit.i: ; preds = %9, %3
   store ptr %6, ptr %5, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !180
-  store ptr %8, ptr %12, align 8, !tbaa !180
+  %13 = load ptr, ptr %12, align 8, !tbaa !181
+  store ptr %8, ptr %12, align 8, !tbaa !181
   %.not.i.i2.i = icmp eq ptr %13, null
   br i1 %.not.i.i2.i, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEaSERKS3_.exit, label %14
 
@@ -5419,7 +5419,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 32:                                               ; preds = %24
   store ptr %31, ptr %3, align 8, !tbaa !173
-  store ptr null, ptr %18, align 8, !tbaa !180
+  store ptr null, ptr %18, align 8, !tbaa !181
   %33 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
           to label %48 unwind label %34
 
@@ -5464,25 +5464,25 @@ _ZN5boost14checked_deleteINS_16exception_detail15error_info_baseEEEvPT_.exit.i.i
 
 48:                                               ; preds = %32
   %49 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 1, ptr %49, align 8, !tbaa !181
+  store i32 1, ptr %49, align 8, !tbaa !182
   %50 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  store i32 1, ptr %50, align 4, !tbaa !183
+  store i32 1, ptr %50, align 4, !tbaa !184
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEEE, i64 16), ptr %33, align 8, !tbaa !41
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %31, ptr %51, align 8, !tbaa !184
-  store ptr %33, ptr %18, align 8, !tbaa !180
+  store ptr %31, ptr %51, align 8, !tbaa !185
+  store ptr %33, ptr %18, align 8, !tbaa !181
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #41
-  call void @llvm.experimental.noalias.scope.decl(metadata !186)
-  %52 = load i64, ptr %25, align 8, !tbaa !30, !noalias !186
-  store i64 %52, ptr %4, align 8, !tbaa !30, !alias.scope !186
-  store ptr %31, ptr %19, align 8, !tbaa !173, !alias.scope !186
-  store ptr %33, ptr %20, align 8, !tbaa !180, !alias.scope !186
-  %53 = atomicrmw add ptr %49, i32 1 monotonic, align 4, !noalias !186
+  call void @llvm.experimental.noalias.scope.decl(metadata !187)
+  %52 = load i64, ptr %25, align 8, !tbaa !30, !noalias !187
+  store i64 %52, ptr %4, align 8, !tbaa !30, !alias.scope !187
+  store ptr %31, ptr %19, align 8, !tbaa !173, !alias.scope !187
+  store ptr %33, ptr %20, align 8, !tbaa !181, !alias.scope !187
+  %53 = atomicrmw add ptr %49, i32 1 monotonic, align 4, !noalias !187
   %54 = invoke { ptr, i8 } @_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE6insertIS8_IS2_S5_EEENSt9enable_ifIXsr16is_constructibleISA_T_EE5valueES8_ISt17_Rb_tree_iteratorISA_EbEE4typeEOSG_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %55 unwind label %97
 
 55:                                               ; preds = %48
-  %56 = load ptr, ptr %20, align 8, !tbaa !180
+  %56 = load ptr, ptr %20, align 8, !tbaa !181
   %.not.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i, label %_ZNSt4pairIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEEED2Ev.exit, label %57
 
@@ -5521,7 +5521,7 @@ _ZN5boost14checked_deleteINS_16exception_detail15error_info_baseEEEvPT_.exit.i.i
 
 _ZNSt4pairIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEEED2Ev.exit: ; preds = %55, %57, %.noexc.i.i.i, %68
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #41
-  %75 = load ptr, ptr %18, align 8, !tbaa !180
+  %75 = load ptr, ptr %18, align 8, !tbaa !181
   %.not.i.i12 = icmp eq ptr %75, null
   br i1 %.not.i.i12, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, label %76
 
@@ -5562,7 +5562,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #41
   %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.025) #48
   %.not = icmp eq ptr %94, %17
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !189
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !190
 
 95:                                               ; preds = %24
   %96 = landingpad { ptr, i32 }
@@ -5608,7 +5608,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   br i1 %.not10.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %8 = load ptr, ptr %1, align 8, !tbaa !177
+  %8 = load ptr, ptr %1, align 8, !tbaa !178
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %10
 
@@ -5616,7 +5616,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !177
+  %12 = load ptr, ptr %11, align 8, !tbaa !178
   %.not.i.i.i.i.i = icmp eq ptr %12, %8
   br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.i.i.i
 
@@ -5644,7 +5644,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %24, align 8, !tbaa !30
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit, label %10, !llvm.loop !190
+  br i1 %.not.i.i.i, label %_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit, label %10, !llvm.loop !191
 
 _ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit: ; preds = %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i
   %25 = icmp eq ptr %.19.i.i.i, %7
@@ -5652,7 +5652,7 @@ _ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_inf
 
 26:                                               ; preds = %_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit
   %27 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !177
+  %28 = load ptr, ptr %27, align 8, !tbaa !178
   %.not.i.i = icmp eq ptr %8, %28
   br i1 %.not.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit
 
@@ -5702,7 +5702,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_i
   store i64 %12, ptr %9, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  store ptr %8, ptr %7, align 8, !tbaa !191
+  store ptr %8, ptr %7, align 8, !tbaa !192
   %14 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %15 unwind label %42
 
@@ -5721,8 +5721,8 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_i
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %23 = load ptr, ptr %9, align 8, !tbaa !177
-  %24 = load ptr, ptr %22, align 8, !tbaa !177
+  %23 = load ptr, ptr %9, align 8, !tbaa !178
+  %24 = load ptr, ptr %22, align 8, !tbaa !178
   %.not.i.i.i.i = icmp eq ptr %23, %24
   br i1 %.not.i.i.i.i, label %.thread, label %25
 
@@ -5761,7 +5761,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_i
 
 44:                                               ; preds = %15
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %46 = load ptr, ptr %45, align 8, !tbaa !180
+  %46 = load ptr, ptr %45, align 8, !tbaa !181
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i, label %47
 
@@ -5824,8 +5824,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16exception_detai
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !177
-  %14 = load ptr, ptr %2, align 8, !tbaa !177
+  %13 = load ptr, ptr %12, align 8, !tbaa !178
+  %14 = load ptr, ptr %2, align 8, !tbaa !178
   %.not.i.i = icmp eq ptr %13, %14
   br i1 %.not.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit
 
@@ -5854,8 +5854,8 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread: ; pr
 
 30:                                               ; preds = %3
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = load ptr, ptr %2, align 8, !tbaa !177
-  %33 = load ptr, ptr %31, align 8, !tbaa !177
+  %32 = load ptr, ptr %2, align 8, !tbaa !178
+  %33 = load ptr, ptr %31, align 8, !tbaa !178
   %.not.i.i10 = icmp eq ptr %32, %33
   br i1 %.not.i.i10, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit21.thread, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit13
 
@@ -5885,7 +5885,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit13: ; preds =
 50:                                               ; preds = %46
   %51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #48
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !177
+  %53 = load ptr, ptr %52, align 8, !tbaa !178
   %.not.i.i14 = icmp eq ptr %53, %32
   br i1 %.not.i.i14, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit17.thread, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit17
 
@@ -5902,7 +5902,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit17: ; preds =
 
 61:                                               ; preds = %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit17
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !193
+  %63 = load ptr, ptr %62, align 8, !tbaa !194
   %64 = icmp eq ptr %63, null
   %spec.select = select i1 %64, ptr null, ptr %1
   %spec.select47 = select i1 %64, ptr %51, ptr %1
@@ -5928,7 +5928,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit21: ; preds =
 74:                                               ; preds = %70
   %75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #48
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %77 = load ptr, ptr %76, align 8, !tbaa !177
+  %77 = load ptr, ptr %76, align 8, !tbaa !178
   %.not.i.i22 = icmp eq ptr %32, %77
   br i1 %.not.i.i22, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit25.thread, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit25
 
@@ -5945,7 +5945,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit25: ; preds =
 
 85:                                               ; preds = %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit25
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %87 = load ptr, ptr %86, align 8, !tbaa !193
+  %87 = load ptr, ptr %86, align 8, !tbaa !194
   %88 = icmp eq ptr %87, null
   %spec.select48 = select i1 %88, ptr null, ptr %75
   %spec.select49 = select i1 %88, ptr %1, ptr %75
@@ -5968,13 +5968,13 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit21.thread: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !191
+  %3 = load ptr, ptr %2, align 8, !tbaa !192
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %25, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !180
+  %6 = load ptr, ptr %5, align 8, !tbaa !181
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, label %7
 
@@ -6028,14 +6028,14 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16exception_detai
   br i1 %.not26, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !177
+  %5 = load ptr, ptr %1, align 8, !tbaa !178
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %21
   %.02427 = phi ptr [ %.02425, %.lr.ph ], [ %.024, %21 ]
   %8 = getelementptr inbounds nuw i8, ptr %.02427, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !177
+  %9 = load ptr, ptr %8, align 8, !tbaa !178
   %.not.i.i = icmp eq ptr %5, %9
   br i1 %.not.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit
 
@@ -6064,7 +6064,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread: ; pr
   %23 = getelementptr inbounds nuw i8, ptr %.02427, i64 %.sink
   %.024 = load ptr, ptr %23, align 8, !tbaa !30
   %.not = icmp eq ptr %.024, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !194
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !195
 
 ._crit_edge:                                      ; preds = %21
   br i1 %22, label %._crit_edge.thread, label %29
@@ -6084,8 +6084,8 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread: ; pr
   %.023.lcssa31 = phi ptr [ %.023.lcssa32, %27 ], [ %.02427, %._crit_edge ]
   %.sroa.09.0 = phi ptr [ %28, %27 ], [ %.02427, %._crit_edge ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.09.0, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !177
-  %32 = load ptr, ptr %1, align 8, !tbaa !177
+  %31 = load ptr, ptr %30, align 8, !tbaa !178
+  %32 = load ptr, ptr %1, align 8, !tbaa !178
   %.not.i.i5 = icmp eq ptr %31, %32
   br i1 %.not.i.i5, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit8.thread, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit8
 
@@ -6129,7 +6129,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #32 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !180
+  %3 = load ptr, ptr %2, align 8, !tbaa !181
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN5boost6detail12shared_countD2Ev.exit, label %4
 
@@ -6172,7 +6172,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !180
+  %2 = load ptr, ptr %0, align 8, !tbaa !181
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN5boost6detail15sp_counted_base7releaseEv.exit, label %3
 
@@ -6221,12 +6221,12 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !193
+  %4 = load ptr, ptr %3, align 8, !tbaa !194
   tail call void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !195
+  %6 = load ptr, ptr %5, align 8, !tbaa !196
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !180
+  %8 = load ptr, ptr %7, align 8, !tbaa !181
   %.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, label %9
 
@@ -6266,7 +6266,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_
 _ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %.lr.ph, %9, %.noexc.i.i.i.i.i.i.i, %20
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 56) #46
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !196
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !197
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %2
   ret void
@@ -6281,7 +6281,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapIN5boost16exception_detail10typ
   br i1 %.not10.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !177
+  %6 = load ptr, ptr %1, align 8, !tbaa !178
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %8
 
@@ -6289,7 +6289,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapIN5boost16exception_detail10typ
   %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i ]
   %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i ]
   %9 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !177
+  %10 = load ptr, ptr %9, align 8, !tbaa !178
   %.not.i.i.i.i.i = icmp eq ptr %10, %6
   br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.i.i.i
 
@@ -6317,7 +6317,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %22, align 8, !tbaa !30
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit, label %8, !llvm.loop !190
+  br i1 %.not.i.i.i, label %_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit, label %8, !llvm.loop !191
 
 _ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit: ; preds = %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread.i.i.i
   %23 = icmp eq ptr %.19.i.i.i, %5
@@ -6325,7 +6325,7 @@ _ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_inf
 
 24:                                               ; preds = %_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit
   %25 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !177
+  %26 = load ptr, ptr %25, align 8, !tbaa !178
   %.not.i.i = icmp eq ptr %6, %26
   br i1 %.not.i.i, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread, label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit
 
@@ -6361,7 +6361,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread: ; pr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt4pairIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #32 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !180
+  %3 = load ptr, ptr %2, align 8, !tbaa !181
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, label %4
 
@@ -6416,7 +6416,7 @@ define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_16except
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !184
+  %3 = load ptr, ptr %2, align 8, !tbaa !185
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN5boost14checked_deleteINS_16exception_detail15error_info_baseEEEvPT_.exit, label %5
 
@@ -6471,10 +6471,10 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_i
   store ptr %11, ptr %9, align 8, !tbaa !173
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !180
-  store ptr %14, ptr %12, align 8, !tbaa !180
+  %14 = load ptr, ptr %13, align 8, !tbaa !181
+  store ptr %14, ptr %12, align 8, !tbaa !181
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  store ptr %6, ptr %5, align 8, !tbaa !191
+  store ptr %6, ptr %5, align 8, !tbaa !192
   %15 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %16 unwind label %43
 
@@ -6493,8 +6493,8 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_i
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %24 = load ptr, ptr %7, align 8, !tbaa !177
-  %25 = load ptr, ptr %23, align 8, !tbaa !177
+  %24 = load ptr, ptr %7, align 8, !tbaa !178
+  %25 = load ptr, ptr %23, align 8, !tbaa !178
   %.not.i.i.i.i = icmp eq ptr %24, %25
   br i1 %.not.i.i.i.i, label %.thread, label %26
 
@@ -6532,7 +6532,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_i
   resume { ptr, i32 } %44
 
 45:                                               ; preds = %16
-  %46 = load ptr, ptr %12, align 8, !tbaa !180
+  %46 = load ptr, ptr %12, align 8, !tbaa !181
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i, label %47
 
@@ -6662,7 +6662,7 @@ _ZN5boost6detail8function15functor_managerINS0_7forwardEE7managerERKNS1_15functi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN5boost6detail8function20function_obj_invokerINS0_7forwardEiJEE6invokeERNS1_15function_bufferE(ptr noundef nonnull align 8 dereferenceable(24) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::bad_function_call", align 8
-  %3 = load ptr, ptr %0, align 8, !tbaa !197
+  %3 = load ptr, ptr %0, align 8, !tbaa !198
   %4 = load ptr, ptr %3, align 8, !tbaa !62
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %5, label %_ZN5boost6detail7forwardclEv.exit
@@ -6689,7 +6689,7 @@ _ZN5boost6detail7forwardclEv.exit:                ; preds = %1
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !199
+  %13 = load ptr, ptr %12, align 8, !tbaa !200
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %14)
   ret i32 0
@@ -6935,29 +6935,30 @@ attributes #48 = { nounwind willreturn memory(read) }
 !172 = !{!170, !167}
 !173 = !{!174, !5, i64 0}
 !174 = !{!"_ZTSN5boost10shared_ptrINS_16exception_detail15error_info_baseEEE", !5, i64 0, !61, i64 8}
-!175 = distinct !{!175, !176}
+!175 = distinct !{!175, !176, !177}
 !176 = !{!"llvm.loop.mustprogress"}
-!177 = !{!178, !5, i64 0}
-!178 = !{!"_ZTSN5boost16exception_detail10type_info_E", !5, i64 0}
-!179 = distinct !{!179, !176}
-!180 = !{!61, !5, i64 0}
-!181 = !{!182, !10, i64 8}
-!182 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !10, i64 8, !10, i64 12}
-!183 = !{!182, !10, i64 12}
-!184 = !{!185, !5, i64 16}
-!185 = !{!"_ZTSN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEEE", !182, i64 0, !5, i64 16}
-!186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZSt9make_pairIRKN5boost16exception_detail10type_info_ERNS0_10shared_ptrINS1_15error_info_baseEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_: argument 0"}
-!188 = distinct !{!188, !"_ZSt9make_pairIRKN5boost16exception_detail10type_info_ERNS0_10shared_ptrINS1_15error_info_baseEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_"}
-!189 = distinct !{!189, !176}
-!190 = distinct !{!190, !176}
-!191 = !{!192, !5, i64 8}
-!192 = !{!"_ZTSNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeE", !5, i64 0, !5, i64 8}
-!193 = !{!134, !5, i64 24}
-!194 = distinct !{!194, !176}
-!195 = !{!134, !5, i64 16}
-!196 = distinct !{!196, !176}
-!197 = !{!198, !5, i64 0}
-!198 = !{!"_ZTSN5boost6detail7forwardE", !5, i64 0}
-!199 = !{!200, !5, i64 8}
-!200 = !{!"_ZTSN5boost6detail8function12basic_vtableIvJEEE", !66, i64 0, !5, i64 8}
+!177 = !{!"llvm.loop.estimated_trip_count"}
+!178 = !{!179, !5, i64 0}
+!179 = !{!"_ZTSN5boost16exception_detail10type_info_E", !5, i64 0}
+!180 = distinct !{!180, !176, !177}
+!181 = !{!61, !5, i64 0}
+!182 = !{!183, !10, i64 8}
+!183 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !10, i64 8, !10, i64 12}
+!184 = !{!183, !10, i64 12}
+!185 = !{!186, !5, i64 16}
+!186 = !{!"_ZTSN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEEE", !183, i64 0, !5, i64 16}
+!187 = !{!188}
+!188 = distinct !{!188, !189, !"_ZSt9make_pairIRKN5boost16exception_detail10type_info_ERNS0_10shared_ptrINS1_15error_info_baseEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_: argument 0"}
+!189 = distinct !{!189, !"_ZSt9make_pairIRKN5boost16exception_detail10type_info_ERNS0_10shared_ptrINS1_15error_info_baseEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_"}
+!190 = distinct !{!190, !176, !177}
+!191 = distinct !{!191, !176, !177}
+!192 = !{!193, !5, i64 8}
+!193 = !{!"_ZTSNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeE", !5, i64 0, !5, i64 8}
+!194 = !{!134, !5, i64 24}
+!195 = distinct !{!195, !176, !177}
+!196 = !{!134, !5, i64 16}
+!197 = distinct !{!197, !176, !177}
+!198 = !{!199, !5, i64 0}
+!199 = !{!"_ZTSN5boost6detail7forwardE", !5, i64 0}
+!200 = !{!201, !5, i64 8}
+!201 = !{!"_ZTSN5boost6detail8function12basic_vtableIvJEEE", !66, i64 0, !5, i64 8}

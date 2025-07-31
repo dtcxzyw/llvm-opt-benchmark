@@ -184,7 +184,7 @@ define internal range(i32 -2147483648, 1) i32 @hash_init(ptr noundef readonly ca
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !50
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = tail call i32 @av_hash_alloc(ptr noundef nonnull %5, ptr noundef %9) #6
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %15, label %12
@@ -233,7 +233,7 @@ define internal void @hash_free(ptr noundef readonly captures(none) %0) #0 {
   tail call void @av_hash_freep(ptr noundef %15) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %1
   tail call void @av_freep(ptr noundef nonnull %4) #6
@@ -268,7 +268,7 @@ define internal range(i32 -2147483648, 1) i32 @streamhash_init(ptr noundef reado
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %13 = load ptr, ptr %9, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
-  %15 = load ptr, ptr %11, align 8, !tbaa !50
+  %15 = load ptr, ptr %11, align 8, !tbaa !51
   %16 = tail call i32 @av_hash_alloc(ptr noundef %14, ptr noundef %15) #6
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.loopexit, label %18
@@ -282,7 +282,7 @@ define internal range(i32 -2147483648, 1) i32 @streamhash_init(ptr noundef reado
   %22 = load i32, ptr %5, align 4, !tbaa !37
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %indvars.iv.next, %23
-  br i1 %24, label %12, label %.loopexit, !llvm.loop !52
+  br i1 %24, label %12, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %12, %18, %.preheader, %1
   %.0 = phi i32 [ -12, %1 ], [ 0, %.preheader ], [ %16, %12 ], [ 0, %18 ]
@@ -299,7 +299,7 @@ define internal noundef i32 @framehash_write_header(ptr noundef %0) #0 {
   %7 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %6, ptr noundef nonnull @.str.26) #6
   %8 = load ptr, ptr %5, align 8, !tbaa !47
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !53
+  %10 = load i32, ptr %9, align 4, !tbaa !54
   %11 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %8, ptr noundef nonnull @.str.27, i32 noundef %10) #6
   %12 = load ptr, ptr %5, align 8, !tbaa !47
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -325,7 +325,7 @@ define internal noundef i32 @framehash_write_header(ptr noundef %0) #0 {
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !54
+  %29 = load ptr, ptr %28, align 8, !tbaa !55
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %52, label %30
 
@@ -334,7 +334,7 @@ define internal noundef i32 @framehash_write_header(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %2) #6
   %32 = load ptr, ptr %5, align 8, !tbaa !47
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %34 = load i32, ptr %33, align 8, !tbaa !55
+  %34 = load i32, ptr %33, align 8, !tbaa !56
   %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   %36 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %32, ptr noundef nonnull @.str.30, i32 noundef %35, i32 noundef %34) #6
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -343,8 +343,8 @@ define internal noundef i32 @framehash_write_header(ptr noundef %0) #0 {
   call void @av_hash_init(ptr noundef %39) #6
   %40 = load ptr, ptr %37, align 8, !tbaa !24
   %41 = load ptr, ptr %40, align 8, !tbaa !33
-  %42 = load ptr, ptr %28, align 8, !tbaa !54
-  %43 = load i32, ptr %33, align 8, !tbaa !55
+  %42 = load ptr, ptr %28, align 8, !tbaa !55
+  %43 = load i32, ptr %33, align 8, !tbaa !56
   %44 = sext i32 %43 to i64
   call void @av_hash_update(ptr noundef %41, ptr noundef %42, i64 noundef %44) #6
   %45 = load ptr, ptr %37, align 8, !tbaa !24
@@ -365,7 +365,7 @@ define internal noundef i32 @framehash_write_header(ptr noundef %0) #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next.i, %54
-  br i1 %55, label %21, label %framehash_print_extradata.exit, !llvm.loop !56
+  br i1 %55, label %21, label %framehash_print_extradata.exit, !llvm.loop !57
 
 framehash_print_extradata.exit:                   ; preds = %52, %1
   %56 = call i32 @ff_framehash_write_header(ptr noundef nonnull %0) #6
@@ -395,11 +395,11 @@ define internal noundef i32 @framehash_write_packet(ptr noundef readonly capture
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %17 = load i32, ptr %16, align 4, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !57
+  %19 = load i64, ptr %18, align 8, !tbaa !58
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !58
+  %21 = load i64, ptr %20, align 8, !tbaa !59
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %23 = load i64, ptr %22, align 8, !tbaa !59
+  %23 = load i64, ptr %22, align 8, !tbaa !60
   %24 = load i32, ptr %13, align 8, !tbaa !36
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull @.str.31, i32 noundef %17, i64 noundef %19, i64 noundef %21, i64 noundef %23, i32 noundef %24) #6
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
@@ -417,20 +417,20 @@ define internal noundef i32 @framehash_write_packet(ptr noundef readonly capture
   %36 = trunc i64 %35 to i32
   call void @avio_write(ptr noundef %34, ptr noundef nonnull %3, i32 noundef %36) #6
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %38 = load i32, ptr %37, align 4, !tbaa !53
+  %38 = load i32, ptr %37, align 4, !tbaa !54
   %39 = icmp sgt i32 %38, 1
   br i1 %39, label %40, label %.loopexit
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %42 = load i32, ptr %41, align 8, !tbaa !60
+  %42 = load i32, ptr %41, align 8, !tbaa !61
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %.loopexit, label %43
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %33, align 8, !tbaa !47
   %45 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %44, ptr noundef nonnull @.str.32, i32 noundef %42) #6
-  %46 = load i32, ptr %41, align 8, !tbaa !60
+  %46 = load i32, ptr %41, align 8, !tbaa !61
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph, label %.loopexit
 
@@ -445,15 +445,15 @@ define internal noundef i32 @framehash_write_packet(ptr noundef readonly capture
   call void @av_hash_init(ptr noundef %51) #6
   %52 = load ptr, ptr %6, align 8, !tbaa !24
   %53 = load ptr, ptr %52, align 8, !tbaa !33
-  %54 = load ptr, ptr %48, align 8, !tbaa !61
+  %54 = load ptr, ptr %48, align 8, !tbaa !62
   %55 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %54, i64 %indvars.iv
-  %56 = load ptr, ptr %55, align 8, !tbaa !62
+  %56 = load ptr, ptr %55, align 8, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !64
+  %58 = load i64, ptr %57, align 8, !tbaa !65
   call void @av_hash_update(ptr noundef %53, ptr noundef %56, i64 noundef %58) #6
-  %59 = load ptr, ptr %48, align 8, !tbaa !61
+  %59 = load ptr, ptr %48, align 8, !tbaa !62
   %60 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %59, i64 %indvars.iv, i32 1
-  %61 = load i64, ptr %60, align 8, !tbaa !64
+  %61 = load i64, ptr %60, align 8, !tbaa !65
   %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull @.str.33, i64 noundef %61) #6
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
   %64 = load ptr, ptr %6, align 8, !tbaa !24
@@ -469,10 +469,10 @@ define internal noundef i32 @framehash_write_packet(ptr noundef readonly capture
   %72 = trunc i64 %71 to i32
   call void @avio_write(ptr noundef %70, ptr noundef nonnull %3, i32 noundef %72) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = load i32, ptr %41, align 8, !tbaa !60
+  %73 = load i32, ptr %41, align 8, !tbaa !61
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %49, label %.loopexit, !llvm.loop !65
+  br i1 %75, label %49, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %49, %43, %40, %2
   %76 = load ptr, ptr %33, align 8, !tbaa !47
@@ -495,7 +495,7 @@ define internal range(i32 -2147483648, 1) i32 @framehash_init(ptr noundef readon
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !50
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = tail call i32 @av_hash_alloc(ptr noundef nonnull %5, ptr noundef %9) #6
   %. = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
   br label %11
@@ -607,21 +607,22 @@ attributes #7 = { nounwind willreturn memory(read) }
 !45 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !31, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !32, i64 80, !32, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !46, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
 !46 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
 !47 = !{!5, !12, i64 32}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!25, !18, i64 16}
-!51 = distinct !{!51, !49}
-!52 = distinct !{!52, !49}
-!53 = !{!25, !13, i64 28}
-!54 = !{!45, !18, i64 16}
-!55 = !{!45, !13, i64 24}
-!56 = distinct !{!56, !49}
-!57 = !{!29, !19, i64 16}
-!58 = !{!29, !19, i64 8}
-!59 = !{!29, !19, i64 64}
-!60 = !{!29, !13, i64 56}
-!61 = !{!29, !31, i64 48}
-!62 = !{!63, !18, i64 0}
-!63 = !{!"AVPacketSideData", !18, i64 0, !19, i64 8, !13, i64 16}
-!64 = !{!63, !19, i64 8}
-!65 = distinct !{!65, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!25, !18, i64 16}
+!52 = distinct !{!52, !49, !50}
+!53 = distinct !{!53, !49, !50}
+!54 = !{!25, !13, i64 28}
+!55 = !{!45, !18, i64 16}
+!56 = !{!45, !13, i64 24}
+!57 = distinct !{!57, !49, !50}
+!58 = !{!29, !19, i64 16}
+!59 = !{!29, !19, i64 8}
+!60 = !{!29, !19, i64 64}
+!61 = !{!29, !13, i64 56}
+!62 = !{!29, !31, i64 48}
+!63 = !{!64, !18, i64 0}
+!64 = !{!"AVPacketSideData", !18, i64 0, !19, i64 8, !13, i64 16}
+!65 = !{!64, !19, i64 8}
+!66 = distinct !{!66, !49, !50}

@@ -509,7 +509,7 @@ define ptr @Lch_to_color_name(ptr noundef readonly captures(none) %0) local_unna
   %.in = phi i1 [ true, %229 ], [ %228, %224 ], [ %.0108211, %216 ], [ %.0108211, %202 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %202
+  br i1 %exitcond.not, label %.preheader, label %202, !llvm.loop !24
 
 234:                                              ; preds = %241
   br i1 %.in, label %242, label %244
@@ -531,7 +531,7 @@ define ptr @Lch_to_color_name(ptr noundef readonly captures(none) %0) local_unna
 241:                                              ; preds = %.preheader, %237
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next214, 6
-  br i1 %exitcond216.not, label %234, label %.preheader
+  br i1 %exitcond216.not, label %234, label %.preheader, !llvm.loop !26
 
 242:                                              ; preds = %234
   %243 = load ptr, ptr %4, align 8, !tbaa !22
@@ -1317,3 +1317,6 @@ attributes #6 = { nounwind }
 !21 = !{!18, !7, i64 4}
 !22 = !{!12, !12, i64 0}
 !23 = !{!14, !14, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !25}

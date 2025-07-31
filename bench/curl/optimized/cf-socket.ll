@@ -2870,7 +2870,7 @@ cf_is_socket.exit:                                ; preds = %5
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %20, ptr %3, align 8, !tbaa !153
+  store ptr %20, ptr %3, align 8, !tbaa !154
   br label %21
 
 21:                                               ; preds = %19, %18
@@ -2937,9 +2937,9 @@ define internal fastcc range(i32 0, 46) i32 @cf_socket_open(ptr noundef %0, ptr 
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !154
+  %30 = load i32, ptr %29, align 4, !tbaa !155
   %31 = or i32 %30, 2048
-  store i32 %31, ptr %29, align 4, !tbaa !154
+  store i32 %31, ptr %29, align 4, !tbaa !155
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %34 = load i32, ptr %32, align 8, !tbaa !12
@@ -2982,9 +2982,9 @@ socket_open.exit:                                 ; preds = %38, %42, %47, %50
 
 53:                                               ; preds = %socket_open.exit
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !154
+  %55 = load i32, ptr %54, align 4, !tbaa !155
   %56 = and i32 %55, -2049
-  store i32 %56, ptr %54, align 4, !tbaa !154
+  store i32 %56, ptr %54, align 4, !tbaa !155
   br label %57
 
 57:                                               ; preds = %53, %socket_open.exit
@@ -3067,7 +3067,7 @@ set_remote_ip.exit:                               ; preds = %58
 
 96:                                               ; preds = %94, %94
   %97 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %98 = load i32, ptr %97, align 4, !tbaa !154
+  %98 = load i32, ptr %97, align 4, !tbaa !155
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %100, label %.critedge
 
@@ -3166,11 +3166,11 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   %140 = call i32 @Curl_ipv6_scope(ptr noundef nonnull %139) #13
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store ptr null, ptr %4, align 8, !tbaa !155
+  store ptr null, ptr %4, align 8, !tbaa !156
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 2646
-  %142 = load i16, ptr %141, align 2, !tbaa !156
+  %142 = load i16, ptr %141, align 2, !tbaa !157
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 2648
-  %144 = load i16, ptr %143, align 8, !tbaa !157
+  %144 = load i16, ptr %143, align 8, !tbaa !158
   %145 = zext i16 %144 to i32
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 2040
   %147 = load ptr, ptr %146, align 8, !tbaa !102
@@ -3301,7 +3301,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
 .thread224.i:                                     ; preds = %.thread137, %202, %184, %179
   %.0163229.i = phi ptr [ %6, %202 ], [ %151, %179 ], [ %147, %184 ], [ %147, %.thread137 ]
   %203 = getelementptr inbounds nuw i8, ptr %137, i64 1411
-  %204 = load i8, ptr %203, align 1, !tbaa !158
+  %204 = load i8, ptr %203, align 1, !tbaa !159
   switch i32 %134, label %206 [
     i32 2, label %.sink.split.i
     i32 10, label %205
@@ -3312,7 +3312,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
 
 .sink.split.i:                                    ; preds = %205, %.thread224.i
   %.sink.i = phi i8 [ 2, %205 ], [ 1, %.thread224.i ]
-  store i8 %.sink.i, ptr %203, align 1, !tbaa !158
+  store i8 %.sink.i, ptr %203, align 1, !tbaa !159
   br label %206
 
 206:                                              ; preds = %.sink.split.i, %.thread224.i
@@ -3325,13 +3325,13 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br label %211
 
 211:                                              ; preds = %209, %206
-  store i8 %204, ptr %203, align 1, !tbaa !158
-  %212 = load ptr, ptr %4, align 8, !tbaa !155
+  store i8 %204, ptr %203, align 1, !tbaa !159
+  %212 = load ptr, ptr %4, align 8, !tbaa !156
   %.not199.i = icmp eq ptr %212, null
   br i1 %.not199.i, label %.thread231.i, label %213
 
 213:                                              ; preds = %211
-  %214 = load ptr, ptr %212, align 8, !tbaa !159
+  %214 = load ptr, ptr %212, align 8, !tbaa !160
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %216 = load i32, ptr %215, align 4, !tbaa !3
   call void @Curl_printable_address(ptr noundef %214, ptr noundef nonnull %6, i64 noundef 256) #13
@@ -3386,10 +3386,10 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br i1 %236, label %237, label %.critedge.i
 
 237:                                              ; preds = %233
-  store i16 10, ptr %3, align 8, !tbaa !161
+  store i16 10, ptr %3, align 8, !tbaa !162
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %142)
   %238 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %rev.i.i, ptr %238, align 2, !tbaa !162
+  store i16 %rev.i.i, ptr %238, align 2, !tbaa !163
   %.not205.i = icmp eq ptr %.0160.i, null
   br i1 %.not205.i, label %.critedge.i, label %239
 
@@ -3411,10 +3411,10 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br i1 %248, label %249, label %.critedge.i
 
 249:                                              ; preds = %245
-  store i16 2, ptr %3, align 8, !tbaa !163
+  store i16 2, ptr %3, align 8, !tbaa !164
   %rev.i214.i = call noundef i16 @llvm.bswap.i16(i16 %142)
   %250 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %rev.i214.i, ptr %250, align 2, !tbaa !166
+  store i16 %rev.i214.i, ptr %250, align 2, !tbaa !167
   br label %.critedge.i
 
 .thread231.i:                                     ; preds = %.thread137, %211
@@ -3445,17 +3445,17 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   ]
 
 259:                                              ; preds = %258
-  store i16 10, ptr %3, align 8, !tbaa !161
+  store i16 10, ptr %3, align 8, !tbaa !162
   %rev.i215.i = call noundef i16 @llvm.bswap.i16(i16 %142)
   %260 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %rev.i215.i, ptr %260, align 2, !tbaa !162
+  store i16 %rev.i215.i, ptr %260, align 2, !tbaa !163
   br label %263
 
 261:                                              ; preds = %258
-  store i16 2, ptr %3, align 8, !tbaa !163
+  store i16 2, ptr %3, align 8, !tbaa !164
   %rev.i216.i = call noundef i16 @llvm.bswap.i16(i16 %142)
   %262 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %rev.i216.i, ptr %262, align 2, !tbaa !166
+  store i16 %rev.i216.i, ptr %262, align 2, !tbaa !167
   br label %263
 
 263:                                              ; preds = %261, %259, %258, %.critedge.i
@@ -3542,10 +3542,10 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
 
 303:                                              ; preds = %301, %297, %292
   %rev.i217.i = call noundef i16 @llvm.bswap.i16(i16 %indvars.i)
-  store i16 %rev.i217.i, ptr %269, align 2, !tbaa !167
+  store i16 %rev.i217.i, ptr %269, align 2, !tbaa !168
   %304 = call i32 @bind(i32 noundef %138, ptr nonnull %3, i32 noundef %.3159.i) #13
   %305 = icmp sgt i32 %304, -1
-  br i1 %305, label %._crit_edge.thread.i, label %.lr.ph.split.i
+  br i1 %305, label %._crit_edge.thread.i, label %.lr.ph.split.i, !llvm.loop !169
 
 .split.us.i:                                      ; preds = %289, %.lr.ph.split.i
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #13
@@ -3638,7 +3638,7 @@ socket_close.exit:                                ; preds = %329, %.thread.i133
 
 335:                                              ; preds = %313, %311
   %336 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %337 = load i32, ptr %336, align 4, !tbaa !154
+  %337 = load i32, ptr %336, align 4, !tbaa !155
   %.not118 = icmp eq i32 %337, 2
   %338 = getelementptr inbounds nuw i8, ptr %14, i64 308
   %339 = load i8, ptr %338, align 4
@@ -3890,7 +3890,7 @@ define internal fastcc void @tcpkeepalive(ptr noundef %0, i32 noundef %1) unname
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2548
-  %23 = load i32, ptr %22, align 4, !tbaa !168
+  %23 = load i32, ptr %22, align 4, !tbaa !170
   %24 = sext i32 %23 to i64
   %25 = call i32 @curlx_sltosi(i64 noundef %24) #13
   store i32 %25, ptr %3, align 4, !tbaa !87
@@ -3924,7 +3924,7 @@ define internal fastcc void @tcpkeepalive(ptr noundef %0, i32 noundef %1) unname
 
 41:                                               ; preds = %28, %34, %38, %21
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 2552
-  %43 = load i32, ptr %42, align 8, !tbaa !169
+  %43 = load i32, ptr %42, align 8, !tbaa !171
   %44 = sext i32 %43 to i64
   %45 = call i32 @curlx_sltosi(i64 noundef %44) #13
   store i32 %45, ptr %3, align 4, !tbaa !87
@@ -3958,7 +3958,7 @@ define internal fastcc void @tcpkeepalive(ptr noundef %0, i32 noundef %1) unname
 
 61:                                               ; preds = %48, %54, %58, %41
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 2556
-  %63 = load i32, ptr %62, align 4, !tbaa !170
+  %63 = load i32, ptr %62, align 4, !tbaa !172
   %64 = sext i32 %63 to i64
   %65 = call i32 @curlx_sltosi(i64 noundef %64) #13
   store i32 %65, ptr %3, align 4, !tbaa !87
@@ -4235,23 +4235,25 @@ attributes #15 = { nounwind willreturn memory(none) }
 !148 = !{!90, !96, i64 960}
 !149 = !{!150, !5, i64 148}
 !150 = !{!"Curl_handler", !8, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !5, i64 144, !5, i64 148, !5, i64 152, !5, i64 156}
-!151 = distinct !{!151, !152}
+!151 = distinct !{!151, !152, !153}
 !152 = !{!"llvm.loop.mustprogress"}
-!153 = !{!91, !91, i64 0}
-!154 = !{!117, !5, i64 12}
-!155 = !{!70, !70, i64 0}
-!156 = !{!20, !55, i64 2646}
-!157 = !{!20, !55, i64 2648}
-!158 = !{!90, !6, i64 1411}
-!159 = !{!160, !11, i64 0}
-!160 = !{!"Curl_dns_entry", !11, i64 0, !21, i64 8, !21, i64 16, !5, i64 24, !6, i64 28}
-!161 = !{!99, !55, i64 0}
-!162 = !{!99, !55, i64 2}
-!163 = !{!164, !55, i64 0}
-!164 = !{!"sockaddr_in", !55, i64 0, !55, i64 2, !165, i64 4, !6, i64 8}
-!165 = !{!"in_addr", !5, i64 0}
-!166 = !{!164, !55, i64 2}
-!167 = !{!55, !55, i64 0}
-!168 = !{!20, !5, i64 2548}
-!169 = !{!20, !5, i64 2552}
-!170 = !{!20, !5, i64 2556}
+!153 = !{!"llvm.loop.estimated_trip_count"}
+!154 = !{!91, !91, i64 0}
+!155 = !{!117, !5, i64 12}
+!156 = !{!70, !70, i64 0}
+!157 = !{!20, !55, i64 2646}
+!158 = !{!20, !55, i64 2648}
+!159 = !{!90, !6, i64 1411}
+!160 = !{!161, !11, i64 0}
+!161 = !{!"Curl_dns_entry", !11, i64 0, !21, i64 8, !21, i64 16, !5, i64 24, !6, i64 28}
+!162 = !{!99, !55, i64 0}
+!163 = !{!99, !55, i64 2}
+!164 = !{!165, !55, i64 0}
+!165 = !{!"sockaddr_in", !55, i64 0, !55, i64 2, !166, i64 4, !6, i64 8}
+!166 = !{!"in_addr", !5, i64 0}
+!167 = !{!165, !55, i64 2}
+!168 = !{!55, !55, i64 0}
+!169 = distinct !{!169, !153}
+!170 = !{!20, !5, i64 2548}
+!171 = !{!20, !5, i64 2552}
+!172 = !{!20, !5, i64 2556}

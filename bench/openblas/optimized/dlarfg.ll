@@ -77,7 +77,7 @@ define void @dlarfg_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %41 = fcmp olt double %40, %27
   %42 = icmp samesign ult i32 %.1, 19
   %or.cond = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond, label %32, label %43
+  br i1 %or.cond, label %32, label %43, !llvm.loop !9
 
 43:                                               ; preds = %32
   %44 = load i32, ptr %0, align 4, !tbaa !3
@@ -118,7 +118,7 @@ define void @dlarfg_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %62 = fmul double %27, %.253
   %63 = add nuw nsw i32 %.04654, 1
   %exitcond.not = icmp eq i32 %.04654, %.0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %53
   %.2.lcssa = phi double [ %.047, %53 ], [ %62, %.lr.ph ]
@@ -168,4 +168,6 @@ attributes #4 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !12, !10}
+!12 = !{!"llvm.loop.mustprogress"}

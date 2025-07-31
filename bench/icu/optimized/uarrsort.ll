@@ -102,7 +102,7 @@ define i32 @uprv_stableBinarySearch_77(ptr noundef %0, i32 noundef %1, ptr nound
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %.029.lcssa, %lftr.wideiv
-  br i1 %exitcond.not, label %.thread, label %.lr.ph50
+  br i1 %exitcond.not, label %.thread, label %.lr.ph50, !llvm.loop !12
 
 .thread.loopexit.split.loop.exit:                 ; preds = %26
   %29 = trunc nsw i64 %indvars.iv to i32
@@ -126,7 +126,7 @@ define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br i1 %10, label %122, label %11
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %6, align 4, !tbaa !11
+  %12 = load i32, ptr %6, align 4, !tbaa !13
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %14, label %122
 
@@ -143,7 +143,7 @@ define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br i1 %or.cond7, label %20, label %21
 
 20:                                               ; preds = %14
-  store i32 1, ptr %6, align 4, !tbaa !11
+  store i32 1, ptr %6, align 4, !tbaa !13
   br label %122
 
 21:                                               ; preds = %14
@@ -161,11 +161,11 @@ define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 28:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %9) #10
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %29, ptr %9, align 16, !tbaa !13
+  store ptr %29, ptr %9, align 16, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 7, ptr %30, align 8, !tbaa !16
+  store i32 7, ptr %30, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i8 0, ptr %31, align 4, !tbaa !17
+  store i8 0, ptr %31, align 4, !tbaa !19
   %32 = icmp samesign ugt i32 %2, 224
   br i1 %32, label %33, label %42
 
@@ -180,23 +180,23 @@ define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br i1 %.not.i.i, label %41, label %37
 
 37:                                               ; preds = %.noexc.i
-  %38 = load i8, ptr %31, align 4, !tbaa !17
+  %38 = load i8, ptr %31, align 4, !tbaa !19
   %.not.i.i.i = icmp eq i8 %38, 0
   br i1 %.not.i.i.i, label %_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EE6resizeEii.exit.i, label %39
 
 39:                                               ; preds = %37
-  %40 = load ptr, ptr %9, align 16, !tbaa !13
+  %40 = load ptr, ptr %9, align 16, !tbaa !15
   invoke void @uprv_free_77(ptr noundef %40)
           to label %_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EE6resizeEii.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN6icu_7715MaybeStackArrayI11max_align_tLi7EE6resizeEii.exit.i: ; preds = %39, %37
-  store ptr %36, ptr %9, align 16, !tbaa !13
-  store i32 %27, ptr %30, align 8, !tbaa !16
-  store i8 1, ptr %31, align 4, !tbaa !17
+  store ptr %36, ptr %9, align 16, !tbaa !15
+  store i32 %27, ptr %30, align 8, !tbaa !18
+  store i8 1, ptr %31, align 4, !tbaa !19
   br label %42
 
 41:                                               ; preds = %.noexc.i
-  store i32 7, ptr %6, align 4, !tbaa !11
+  store i32 7, ptr %6, align 4, !tbaa !13
   br label %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph50.i.i.i
@@ -295,7 +295,7 @@ common.resume:                                    ; preds = %109, %.loopexit.spl
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %exitcond.not.i.i.i = icmp eq i32 %.029.lcssa.i38.i.i, %lftr.wideiv.i.i.i
-  br i1 %exitcond.not.i.i.i, label %uprv_stableBinarySearch_77.exit.i.i, label %.lr.ph50.i.i.i
+  br i1 %exitcond.not.i.i.i, label %uprv_stableBinarySearch_77.exit.i.i, label %.lr.ph50.i.i.i, !llvm.loop !12
 
 .thread.loopexit.split.loop.exit.i.i.i:           ; preds = %67
   %70 = trunc nsw i64 %indvars.iv.i.i.i to i32
@@ -332,15 +332,15 @@ uprv_stableBinarySearch_77.exit.i.i:              ; preds = %69, %.thread.loopex
 87:                                               ; preds = %79, %uprv_stableBinarySearch_77.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit.i, label %45, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit.i, label %45, !llvm.loop !20
 
 _ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit.i: ; preds = %87, %41
-  %88 = load i8, ptr %31, align 4, !tbaa !17
+  %88 = load i8, ptr %31, align 4, !tbaa !19
   %.not.i.i13.i = icmp eq i8 %88, 0
   br i1 %.not.i.i13.i, label %_ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit, label %89
 
 89:                                               ; preds = %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit.i
-  %90 = load ptr, ptr %9, align 16, !tbaa !13
+  %90 = load ptr, ptr %9, align 16, !tbaa !15
   invoke void @uprv_free_77(ptr noundef %90)
           to label %_ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit unwind label %91
 
@@ -358,11 +358,11 @@ _ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %_ZL15doInse
 94:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %8) #10
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %95, ptr %8, align 16, !tbaa !19
+  store ptr %95, ptr %8, align 16, !tbaa !21
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 14, ptr %96, align 8, !tbaa !21
+  store i32 14, ptr %96, align 8, !tbaa !23
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i8 0, ptr %97, align 4, !tbaa !22
+  store i8 0, ptr %97, align 4, !tbaa !24
   %98 = shl nuw nsw i32 %27, 1
   %99 = icmp samesign ugt i32 %2, 224
   br i1 %99, label %100, label %111
@@ -378,23 +378,23 @@ _ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %_ZL15doInse
   br i1 %.not.i.i35, label %108, label %104
 
 104:                                              ; preds = %.noexc.i34
-  %105 = load i8, ptr %97, align 4, !tbaa !22
+  %105 = load i8, ptr %97, align 4, !tbaa !24
   %.not.i.i.i36 = icmp eq i8 %105, 0
   br i1 %.not.i.i.i36, label %_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i, label %106
 
 106:                                              ; preds = %104
-  %107 = load ptr, ptr %8, align 16, !tbaa !19
+  %107 = load ptr, ptr %8, align 16, !tbaa !21
   invoke void @uprv_free_77(ptr noundef %107)
           to label %_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i unwind label %109
 
 _ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i: ; preds = %106, %104
-  store ptr %103, ptr %8, align 16, !tbaa !19
-  store i32 %98, ptr %96, align 8, !tbaa !21
-  store i8 1, ptr %97, align 4, !tbaa !22
+  store ptr %103, ptr %8, align 16, !tbaa !21
+  store i32 %98, ptr %96, align 8, !tbaa !23
+  store i8 1, ptr %97, align 4, !tbaa !24
   br label %111
 
 108:                                              ; preds = %.noexc.i34
-  store i32 7, ptr %6, align 4, !tbaa !11
+  store i32 7, ptr %6, align 4, !tbaa !13
   br label %115
 
 109:                                              ; preds = %111, %106, %100
@@ -412,12 +412,12 @@ _ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i: ; preds = %106
           to label %115 unwind label %109
 
 115:                                              ; preds = %111, %108
-  %116 = load i8, ptr %97, align 4, !tbaa !22
+  %116 = load i8, ptr %97, align 4, !tbaa !24
   %.not.i.i11.i = icmp eq i8 %116, 0
   br i1 %.not.i.i11.i, label %_ZL9quickSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit, label %117
 
 117:                                              ; preds = %115
-  %118 = load ptr, ptr %8, align 16, !tbaa !19
+  %118 = load ptr, ptr %8, align 16, !tbaa !21
   invoke void @uprv_free_77(ptr noundef %118)
           to label %_ZL9quickSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit unwind label %119
 
@@ -441,12 +441,12 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EED2Ev(ptr noundef nonnull align 16 dereferenceable(240) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i8, ptr %2, align 4, !tbaa !17
+  %3 = load i8, ptr %2, align 4, !tbaa !19
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EE12releaseArrayEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 16, !tbaa !13
+  %5 = load ptr, ptr %0, align 16, !tbaa !15
   invoke void @uprv_free_77(ptr noundef %5)
           to label %_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EE12releaseArrayEv.exit unwind label %6
 
@@ -568,7 +568,7 @@ define internal fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr nou
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %.029.lcssa.i38.i, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %uprv_stableBinarySearch_77.exit.i, label %.lr.ph50.i.i
+  br i1 %exitcond.not.i.i, label %uprv_stableBinarySearch_77.exit.i, label %.lr.ph50.i.i, !llvm.loop !12
 
 .thread.loopexit.split.loop.exit.i.i:             ; preds = %41
   %44 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -605,7 +605,7 @@ uprv_stableBinarySearch_77.exit.i:                ; preds = %43, %.thread.loopex
 61:                                               ; preds = %53, %uprv_stableBinarySearch_77.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit, label %19, !llvm.loop !18
+  br i1 %exitcond.not.i, label %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit, label %19, !llvm.loop !20
 
 62:                                               ; preds = %11
   %63 = add nsw i32 %.088, %.090
@@ -629,7 +629,7 @@ uprv_stableBinarySearch_77.exit.i:                ; preds = %43, %.thread.loopex
   %73 = tail call noundef i32 %4(ptr noundef %5, ptr noundef %72, ptr noundef nonnull %6)
   %74 = icmp slt i32 %73, 0
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %74, label %70, label %.preheader, !llvm.loop !23
+  br i1 %74, label %70, label %.preheader, !llvm.loop !25
 
 .preheader:                                       ; preds = %70
   %75 = sext i32 %.0 to i64
@@ -642,7 +642,7 @@ uprv_stableBinarySearch_77.exit.i:                ; preds = %43, %.thread.loopex
   %78 = getelementptr inbounds i8, ptr %0, i64 %77
   %79 = tail call noundef i32 %4(ptr noundef %5, ptr noundef nonnull %6, ptr noundef %78)
   %80 = icmp slt i32 %79, 0
-  br i1 %80, label %76, label %81, !llvm.loop !24
+  br i1 %80, label %76, label %81, !llvm.loop !26
 
 81:                                               ; preds = %76
   %82 = trunc nsw i64 %indvars.iv to i32
@@ -676,7 +676,7 @@ uprv_stableBinarySearch_77.exit.i:                ; preds = %43, %.thread.loopex
   %.2.in = phi i64 [ %indvars.iv.next105, %93 ], [ %indvars.iv104, %81 ]
   %.2 = trunc i64 %.2.in to i32
   %96 = icmp slt i32 %.287, %.2
-  br i1 %96, label %68, label %97, !llvm.loop !25
+  br i1 %96, label %68, label %97, !llvm.loop !27
 
 97:                                               ; preds = %95
   %98 = sub nsw i32 %.2, %.088
@@ -707,7 +707,7 @@ uprv_stableBinarySearch_77.exit.i:                ; preds = %43, %.thread.loopex
   %.189 = phi i32 [ %.287, %104 ], [ %.287, %101 ], [ %.088, %108 ], [ %.088, %105 ]
   %110 = add nsw i32 %.191, -1
   %111 = icmp slt i32 %.189, %110
-  br i1 %111, label %11, label %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit, !llvm.loop !26
+  br i1 %111, label %11, label %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit, !llvm.loop !28
 
 _ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit:  ; preds = %109, %61, %13
   ret void
@@ -716,12 +716,12 @@ _ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit:  ; preds = %109, %61, %13
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EED2Ev(ptr noundef nonnull align 16 dereferenceable(464) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i8, ptr %2, align 4, !tbaa !22
+  %3 = load i8, ptr %2, align 4, !tbaa !24
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE12releaseArrayEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 16, !tbaa !19
+  %5 = load ptr, ptr %0, align 16, !tbaa !21
   invoke void @uprv_free_77(ptr noundef %5)
           to label %_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE12releaseArrayEv.exit unwind label %6
 
@@ -764,21 +764,23 @@ attributes #12 = { noreturn nounwind }
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"_ZTS10UErrorCode", !5, i64 0}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"_ZTSN6icu_7715MaybeStackArrayI11max_align_tLi7EEE", !15, i64 0, !8, i64 8, !5, i64 12, !5, i64 16}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = !{!14, !8, i64 8}
-!17 = !{!14, !5, i64 12}
-!18 = distinct !{!18, !10}
-!19 = !{!20, !15, i64 0}
-!20 = !{!"_ZTSN6icu_7715MaybeStackArrayI11max_align_tLi14EEE", !15, i64 0, !8, i64 8, !5, i64 12, !5, i64 16}
-!21 = !{!20, !8, i64 8}
-!22 = !{!20, !5, i64 12}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"_ZTS10UErrorCode", !5, i64 0}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"_ZTSN6icu_7715MaybeStackArrayI11max_align_tLi7EEE", !17, i64 0, !8, i64 8, !5, i64 12, !5, i64 16}
+!17 = !{!"any pointer", !5, i64 0}
+!18 = !{!16, !8, i64 8}
+!19 = !{!16, !5, i64 12}
+!20 = distinct !{!20, !10, !11}
+!21 = !{!22, !17, i64 0}
+!22 = !{!"_ZTSN6icu_7715MaybeStackArrayI11max_align_tLi14EEE", !17, i64 0, !8, i64 8, !5, i64 12, !5, i64 16}
+!23 = !{!22, !8, i64 8}
+!24 = !{!22, !5, i64 12}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}

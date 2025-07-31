@@ -152,7 +152,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #2 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(none) %3) #2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !15
+  %5 = load ptr, ptr %1, align 8, !tbaa !16
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = icmp sgt i8 %6, -1
   br i1 %7, label %8, label %14
@@ -162,7 +162,7 @@ define internal i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr re
   %10 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !4
   store i8 %11, ptr %3, align 1, !tbaa !4
-  %12 = load ptr, ptr %1, align 8, !tbaa !15
+  %12 = load ptr, ptr %1, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   br label %25
 
@@ -182,10 +182,10 @@ define internal i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr re
   store i8 %19, ptr %.01618, align 1, !tbaa !4
   %21 = add nuw nsw i32 %.020, 1
   %exitcond.not = icmp eq i32 %21, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
-  %22 = load ptr, ptr %1, align 8, !tbaa !15
+  %22 = load ptr, ptr %1, align 8, !tbaa !16
   %23 = sext i32 %16 to i64
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
   br label %25
@@ -193,7 +193,7 @@ define internal i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr re
 25:                                               ; preds = %._crit_edge, %8
   %storemerge = phi ptr [ %24, %._crit_edge ], [ %13, %8 ]
   %.015 = phi i32 [ %16, %._crit_edge ], [ 1, %8 ]
-  store ptr %storemerge, ptr %1, align 8, !tbaa !15
+  store ptr %storemerge, ptr %1, align 8, !tbaa !16
   ret i32 %.015
 }
 
@@ -223,7 +223,7 @@ define internal i32 @property_name_to_ctype(ptr readnone captures(none) %0, ptr 
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !17
+  %15 = load i32, ptr %14, align 8, !tbaa !18
   br label %16
 
 16:                                               ; preds = %3, %10, %13
@@ -244,7 +244,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 6:                                                ; preds = %4
   %7 = zext nneg i32 %0 to i64
   %8 = getelementptr inbounds nuw [0 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %7
-  %9 = load i16, ptr %8, align 2, !tbaa !19
+  %9 = load i16, ptr %8, align 2, !tbaa !20
   %10 = zext i16 %9 to i32
   %11 = lshr i32 %10, %1
   %12 = and i32 %11, 1
@@ -300,7 +300,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 39:                                               ; preds = %36
   %40 = zext nneg i32 %37 to i64
   %41 = getelementptr inbounds nuw [2 x ptr], ptr @PropertyList, i64 0, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !21
+  %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = tail call i32 @onig_is_in_code_range(ptr noundef %42, i32 noundef %0) #8
   br label %code_to_mbclen.exit
 
@@ -323,8 +323,8 @@ define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr n
 8:                                                ; preds = %5
   %9 = zext nneg i32 %6 to i64
   %10 = getelementptr inbounds nuw [2 x ptr], ptr @PropertyList, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
-  store ptr %11, ptr %2, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  store ptr %11, ptr %2, align 8, !tbaa !22
   br label %12
 
 12:                                               ; preds = %5, %3, %8
@@ -345,7 +345,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone captures(address
   %6 = icmp ugt ptr %.018, %0
   %7 = and i1 %6, %5
   %8 = getelementptr inbounds i8, ptr %.018, i64 -1
-  br i1 %7, label %.preheader, label %9, !llvm.loop !23
+  br i1 %7, label %.preheader, label %9, !llvm.loop !24
 
 9:                                                ; preds = %.preheader
   %10 = load ptr, ptr @OnigEncodingEUC_JP, align 8, !tbaa !9
@@ -452,7 +452,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %12 ], [ 2, %18 ], [ 3, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %.03148, i64 %.sink
   %33 = icmp ult ptr %32, %1
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %8, %10, %12, %16, %18, %21, %23, %26, %28, %15, %31, %2
   %.0 = phi i32 [ 1, %2 ], [ 1, %31 ], [ 0, %15 ], [ 0, %28 ], [ 0, %26 ], [ 0, %23 ], [ 0, %21 ], [ 0, %18 ], [ 0, %16 ], [ 0, %12 ], [ 0, %10 ], [ 0, %8 ]
@@ -497,15 +497,16 @@ attributes #8 = { nounwind }
 !10 = !{!"OnigEncodingTypeST", !11, i64 0, !12, i64 8, !8, i64 16, !8, i64 20, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !8, i64 144, !8, i64 148, !8, i64 152}
 !11 = !{!"any pointer", !5, i64 0}
 !12 = !{!"p1 omnipotent char", !11, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!12, !12, i64 0}
-!16 = distinct !{!16, !14}
-!17 = !{!18, !8, i64 8}
-!18 = !{!"PropertyNameCtype", !12, i64 0, !8, i64 8}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !5, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 int", !11, i64 0}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!12, !12, i64 0}
+!17 = distinct !{!17, !14, !15}
+!18 = !{!19, !8, i64 8}
+!19 = !{!"PropertyNameCtype", !12, i64 0, !8, i64 8}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"short", !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 int", !11, i64 0}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}

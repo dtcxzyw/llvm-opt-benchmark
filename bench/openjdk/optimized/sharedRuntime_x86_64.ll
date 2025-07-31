@@ -312,7 +312,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   %67 = add nuw nsw i32 %.0192250, 1
   %exitcond281.not = icmp eq i32 %67, 16
-  br i1 %exitcond281.not, label %.preheader240, label %64, !llvm.loop !8
+  br i1 %exitcond281.not, label %.preheader240, label %64, !llvm.loop !9
 
 .preheader238:                                    ; preds = %76, %.preheader240
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -349,7 +349,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   %80 = add nuw nsw i32 %.0193251, 1
   %exitcond283.not = icmp eq i32 %.0189252, 15
-  br i1 %exitcond283.not, label %.preheader238, label %76, !llvm.loop !9
+  br i1 %exitcond283.not, label %.preheader238, label %76, !llvm.loop !10
 
 81:                                               ; preds = %.preheader238, %81
   %.1255 = phi i32 [ 0, %.preheader238 ], [ %82, %81 ]
@@ -367,7 +367,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   store i32 0, ptr %75, align 8
   call void @_ZN14MacroAssembler4kmovE7Address9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %13, i32 %.1255) #14
   %exitcond284.not = icmp eq i32 %82, 8
-  br i1 %exitcond284.not, label %.loopexit239, label %81, !llvm.loop !10
+  br i1 %exitcond284.not, label %.loopexit239, label %81, !llvm.loop !11
 
 85:                                               ; preds = %4
   %86 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -429,7 +429,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   %113 = add nuw nsw i32 %.0196245, 1
   %exitcond.not = icmp eq i32 %.2246, 15
-  br i1 %exitcond.not, label %.preheader243, label %109, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader243, label %109, !llvm.loop !12
 
 114:                                              ; preds = %.preheader243, %114
   %.3248 = phi i32 [ 0, %.preheader243 ], [ %115, %114 ]
@@ -447,7 +447,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   store i32 0, ptr %108, align 8
   call void @_ZN14MacroAssembler4kmovE7Address9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %15, i32 %.3248) #14
   %exitcond279.not = icmp eq i32 %115, 8
-  br i1 %exitcond279.not, label %.loopexit239, label %114, !llvm.loop !12
+  br i1 %exitcond279.not, label %.loopexit239, label %114, !llvm.loop !13
 
 .loopexit239:                                     ; preds = %114, %81, %85, %43
   %118 = load i8, ptr @UseAPX, align 1
@@ -483,7 +483,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %16, i32 %.0191256) #14
   %132 = add nuw nsw i32 %.0191256, 1
   %exitcond285.not = icmp eq i32 %129, 16
-  br i1 %exitcond285.not, label %.loopexit237, label %128, !llvm.loop !13
+  br i1 %exitcond285.not, label %.loopexit237, label %128, !llvm.loop !14
 
 .loopexit237:                                     ; preds = %128, %.loopexit239
   call void @_ZN9Assembler10vzeroupperEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
@@ -546,7 +546,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond291.not, label %146, label %138, !llvm.loop !14
+  br i1 %exitcond291.not, label %146, label %138, !llvm.loop !15
 
 146:                                              ; preds = %138
   %147 = load i32, ptr @UseAVX, align 4
@@ -572,7 +572,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 16
   %157 = add nuw nsw i32 %.0187262, 1
   %exitcond296.not = icmp eq i32 %157, 32
-  br i1 %exitcond296.not, label %.loopexit235, label %.lr.ph263, !llvm.loop !15
+  br i1 %exitcond296.not, label %.loopexit235, label %.lr.ph263, !llvm.loop !16
 
 .loopexit235:                                     ; preds = %.lr.ph263, %146
   br i1 %narrow, label %.preheader233, label %.loopexit232
@@ -592,7 +592,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 4
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond304.not = icmp eq i64 %indvars.iv.next298, 16
-  br i1 %exitcond304.not, label %165, label %.preheader233, !llvm.loop !16
+  br i1 %exitcond304.not, label %165, label %.preheader233, !llvm.loop !17
 
 165:                                              ; preds = %.preheader233
   %166 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -615,7 +615,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 8
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond312.not = icmp eq i64 %indvars.iv.next306, 16
-  br i1 %exitcond312.not, label %.loopexit232, label %.preheader231, !llvm.loop !17
+  br i1 %exitcond312.not, label %.loopexit232, label %.preheader231, !llvm.loop !18
 
 .loopexit232:                                     ; preds = %.preheader231, %165, %.loopexit235
   call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1320), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 2)) #14
@@ -673,7 +673,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 4
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond320.not = icmp eq i64 %indvars.iv.next314, 16
-  br i1 %exitcond320.not, label %186, label %178, !llvm.loop !18
+  br i1 %exitcond320.not, label %186, label %178, !llvm.loop !19
 
 186:                                              ; preds = %178
   %187 = load i32, ptr @UseAVX, align 4
@@ -699,7 +699,7 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 16
   %197 = add nuw nsw i32 %.0275, 1
   %exitcond325.not = icmp eq i32 %197, 32
-  br i1 %exitcond325.not, label %.loopexit, label %.lr.ph276, !llvm.loop !19
+  br i1 %exitcond325.not, label %.loopexit, label %.lr.ph276, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph276, %186
   ret ptr %134
@@ -805,7 +805,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   %39 = add nuw nsw i32 %.0103, 1
   %exitcond114.not = icmp eq i32 %39, 16
-  br i1 %exitcond114.not, label %40, label %28, !llvm.loop !20
+  br i1 %exitcond114.not, label %40, label %28, !llvm.loop !21
 
 40:                                               ; preds = %_ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit
   %41 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -860,7 +860,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   %64 = add nuw nsw i32 %.068104, 1
   %exitcond115.not = icmp eq i32 %64, 16
-  br i1 %exitcond115.not, label %.preheader94, label %61, !llvm.loop !21
+  br i1 %exitcond115.not, label %.preheader94, label %61, !llvm.loop !22
 
 .preheader92:                                     ; preds = %73, %.preheader94
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -897,7 +897,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %77 = add nuw nsw i32 %.072105, 1
   %exitcond117.not = icmp eq i32 %.069106, 15
-  br i1 %exitcond117.not, label %.preheader92, label %73, !llvm.loop !22
+  br i1 %exitcond117.not, label %.preheader92, label %73, !llvm.loop !23
 
 78:                                               ; preds = %.preheader92, %78
   %.1109 = phi i32 [ 0, %.preheader92 ], [ %79, %78 ]
@@ -915,7 +915,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   store i32 0, ptr %72, align 8
   call void @_ZN14MacroAssembler4kmovE9KRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.1109, ptr noundef nonnull %11) #14
   %exitcond118.not = icmp eq i32 %79, 8
-  br i1 %exitcond118.not, label %.loopexit93, label %78, !llvm.loop !23
+  br i1 %exitcond118.not, label %.loopexit93, label %78, !llvm.loop !24
 
 82:                                               ; preds = %2
   %83 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -977,7 +977,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %110 = add nuw nsw i32 %.07799, 1
   %exitcond.not = icmp eq i32 %.075100, 15
-  br i1 %exitcond.not, label %.preheader97, label %106, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader97, label %106, !llvm.loop !25
 
 111:                                              ; preds = %.preheader97, %111
   %.074102 = phi i32 [ 0, %.preheader97 ], [ %112, %111 ]
@@ -995,7 +995,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   store i32 0, ptr %105, align 8
   call void @_ZN14MacroAssembler4kmovE9KRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.074102, ptr noundef nonnull %13) #14
   %exitcond113.not = icmp eq i32 %112, 8
-  br i1 %exitcond113.not, label %.loopexit93, label %111, !llvm.loop !25
+  br i1 %exitcond113.not, label %.loopexit93, label %111, !llvm.loop !26
 
 .loopexit93:                                      ; preds = %111, %78, %82, %40
   %115 = load i8, ptr @UseAPX, align 1
@@ -1031,7 +1031,7 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.070111, ptr noundef nonnull %14) #14
   %129 = add nuw nsw i32 %.070111, 1
   %exitcond119.not = icmp eq i32 %126, 16
-  br i1 %exitcond119.not, label %.loopexit, label %125, !llvm.loop !26
+  br i1 %exitcond119.not, label %.loopexit, label %125, !llvm.loop !27
 
 .loopexit:                                        ; preds = %125, %.loopexit93
   call void @_ZN14MacroAssembler13pop_FPU_stateEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
@@ -1368,7 +1368,7 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   %.1 = phi i32 [ %.04351, %9 ], [ %31, %24 ], [ %.04351, %32 ], [ %.04351, %37 ], [ %61, %53 ], [ %.04351, %64 ], [ %85, %78 ], [ %.04351, %88 ], [ %113, %105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %116, %3
   %.043.lcssa = phi i32 [ 0, %3 ], [ %.1, %116 ]
@@ -1925,7 +1925,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %261, %265
 269:                                              ; preds = %228, %223, %253, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit, %242, %244, %202, %198
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %198, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %198, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %269, %124
   call void @_ZN14MacroAssembler18push_cont_fastpathEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
@@ -2641,7 +2641,7 @@ define hidden noundef ptr @_ZN13SharedRuntime23generate_i2c2i_adaptersEP14MacroA
 303:                                              ; preds = %298, %293, %285, %283, %280, %269, %267, %263, %244, %240
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %239
-  br i1 %exitcond.not.i, label %_ZL15gen_c2i_adapterP14MacroAssembleriiPK9BasicTypePK9VMRegPairR5Label.exit, label %240, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_ZL15gen_c2i_adapterP14MacroAssembleriiPK9BasicTypePK9VMRegPairR5Label.exit, label %240, !llvm.loop !30
 
 _ZL15gen_c2i_adapterP14MacroAssembleriiPK9BasicTypePK9VMRegPairR5Label.exit: ; preds = %303, %152
   store i32 3, ptr %29, align 8
@@ -2875,7 +2875,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
   %.1 = phi i32 [ %.03947, %10 ], [ %28, %24 ], [ %.03947, %32 ], [ %52, %47 ], [ %.03947, %56 ], [ %73, %69 ], [ %.03947, %77 ], [ %98, %93 ], [ %.03947, %99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %104, %3
   %.039.lcssa = phi i32 [ 0, %3 ], [ %.1, %104 ]
@@ -2916,7 +2916,7 @@ define hidden noundef i32 @_ZN13SharedRuntime25vector_calling_conventionEP9VMReg
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %gep, ptr %22, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %10, %3
   ret i32 0
@@ -3884,7 +3884,7 @@ _ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPa
   store i8 %393, ptr %394, align 1
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next686, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %391
   %395 = tail call noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef nonnull %383, ptr noundef %385, i32 noundef %381)
@@ -4078,7 +4078,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %.lr.ph677
   store i32 %500, ptr %498, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond692.not = icmp eq i64 %indvars.iv.next.i, %indvars.iv690
-  br i1 %exitcond692.not, label %.preheader16.loopexit.i, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond692.not, label %.preheader16.loopexit.i, label %.lr.ph.i, !llvm.loop !34
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %.lr.ph677, %.lr.ph19.preheader.i, %.preheader16.i
   %.sroa.25.1 = phi ptr [ %488, %.lr.ph19.preheader.i ], [ %488, %.preheader16.i ], [ %.sroa.25.0672, %.lr.ph677 ]
@@ -4126,7 +4126,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i592:       ; preds = %_ZN26GrowableArrayW
   store i32 %521, ptr %519, align 4
   %indvars.iv.next.i605 = add nuw nsw i64 %indvars.iv.i604, 1
   %exitcond695.not = icmp eq i64 %indvars.iv.next.i605, %indvars.iv693
-  br i1 %exitcond695.not, label %.preheader16.loopexit.i606, label %.lr.ph.i603, !llvm.loop !33
+  br i1 %exitcond695.not, label %.preheader16.loopexit.i606, label %.lr.ph.i603, !llvm.loop !34
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds = %.lr.ph19.preheader.i599, %.preheader16.loopexit.i606, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
   %.sroa.25.2 = phi ptr [ %.sroa.25.1, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %510, %.preheader16.loopexit.i606 ], [ %510, %.lr.ph19.preheader.i599 ]
@@ -4136,7 +4136,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds =
   %indvars.iv.next694 = add nuw nsw i64 %indvars.iv693, 2
   %indvar.next = add nuw nsw i32 %indvar, 1
   %exitcond698.not = icmp eq i32 %indvar.next, %377
-  br i1 %exitcond698.not, label %.preheader, label %.lr.ph677, !llvm.loop !34
+  br i1 %exitcond698.not, label %.preheader, label %.lr.ph677, !llvm.loop !35
 
 .lr.ph680:                                        ; preds = %.preheader, %552
   %indvars.iv699 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next700, %552 ]
@@ -4226,7 +4226,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds =
 552:                                              ; preds = %530, %536, %540, %544, %548, %.lr.ph680
   %indvars.iv.next700 = add nuw nsw i64 %indvars.iv699, 2
   %553 = icmp samesign ult i64 %indvars.iv.next700, %478
-  br i1 %553, label %.lr.ph680, label %._crit_edge681, !llvm.loop !35
+  br i1 %553, label %.lr.ph680, label %._crit_edge681, !llvm.loop !36
 
 ._crit_edge681:                                   ; preds = %552, %454
   %554 = load ptr, ptr %1, align 8
@@ -5392,7 +5392,7 @@ define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr nou
 48:                                               ; preds = %30, %39, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %48, %4
   ret void
@@ -5512,7 +5512,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %48, %52
 
 56:                                               ; preds = %34, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit, %36
   %.not.not = icmp sgt i64 %indvars.iv.next, %24
-  br i1 %.not.not, label %25, label %._crit_edge, !llvm.loop !37
+  br i1 %.not.not, label %25, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %56, %4
   ret void
@@ -7694,7 +7694,7 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   store i64 %29, ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.078.i, i64 8
   %31 = icmp samesign ugt i32 %.010.i, 1
-  br i1 %31, label %.lr.ph.i, label %.lr.ph.preheader.i30, !llvm.loop !38
+  br i1 %31, label %.lr.ph.i, label %.lr.ph.preheader.i30, !llvm.loop !39
 
 .lr.ph.preheader.i30:                             ; preds = %.lr.ph.i
   %32 = getelementptr inbounds nuw i64, ptr %16, i64 %24
@@ -7711,7 +7711,7 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   store i64 %36, ptr %34, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.078.i34, i64 8
   %38 = icmp samesign ugt i32 %.010.i32, 1
-  br i1 %38, label %.lr.ph.i31, label %.lr.ph.preheader.i36, !llvm.loop !38
+  br i1 %38, label %.lr.ph.i31, label %.lr.ph.preheader.i36, !llvm.loop !39
 
 .lr.ph.preheader.i36:                             ; preds = %.lr.ph.i31
   %39 = getelementptr inbounds nuw i64, ptr %19, i64 %24
@@ -7728,7 +7728,7 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   store i64 %43, ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.078.i40, i64 8
   %45 = icmp samesign ugt i32 %.010.i38, 1
-  br i1 %45, label %.lr.ph.i37, label %.lr.ph.preheader.i42, !llvm.loop !38
+  br i1 %45, label %.lr.ph.i37, label %.lr.ph.preheader.i42, !llvm.loop !39
 
 _ZL13reverse_wordsPmS_i.exit41:                   ; preds = %10
   call fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef %15, ptr noundef %16, ptr noundef %19, ptr noundef %22, i64 noundef %4, i32 noundef %11)
@@ -7750,7 +7750,7 @@ _ZL13reverse_wordsPmS_i.exit41:                   ; preds = %10
   store i64 %50, ptr %48, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.078.i46, i64 8
   %52 = icmp samesign ugt i32 %.010.i44, 1
-  br i1 %52, label %.lr.ph.i43, label %_ZL13reverse_wordsPmS_i.exit47, !llvm.loop !38
+  br i1 %52, label %.lr.ph.i43, label %_ZL13reverse_wordsPmS_i.exit47, !llvm.loop !39
 
 _ZL13reverse_wordsPmS_i.exit47:                   ; preds = %.lr.ph.i43, %_ZL13reverse_wordsPmS_i.exit41
   ret void
@@ -7798,7 +7798,7 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %15 = sub nuw nsw i64 %indvars.iv112, %indvars.iv
   %16 = getelementptr inbounds nuw i64, ptr %1, i64 %15
   %17 = load i64, ptr %16, align 8
-  %18 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %14, i64 %17, i64 %.180, i64 %.16879, i64 %12) #14, !srcloc !39
+  %18 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %14, i64 %17, i64 %.180, i64 %.16879, i64 %12) #14, !srcloc !40
   %19 = extractvalue { i64, i64, i64, i64 } %18, 2
   %20 = extractvalue { i64, i64, i64, i64 } %18, 3
   %21 = load i64, ptr %7, align 8
@@ -7806,12 +7806,12 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds nuw i64, ptr %2, i64 %15
   %25 = load i64, ptr %24, align 8
-  %26 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %23, i64 %25, i64 %19, i64 %20, i64 %21) #14, !srcloc !40
+  %26 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %23, i64 %25, i64 %19, i64 %20, i64 %21) #14, !srcloc !41
   %27 = extractvalue { i64, i64, i64, i64 } %26, 2
   %28 = extractvalue { i64, i64, i64, i64 } %26, 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv112
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i64, ptr %7, align 8
@@ -7824,7 +7824,7 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %30 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv112
   %31 = load i64, ptr %30, align 8
   %32 = load i64, ptr %1, align 8
-  %33 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %31, i64 %32, i64 %.1.lcssa, i64 %.168.lcssa, i64 %29) #14, !srcloc !42
+  %33 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %31, i64 %32, i64 %.1.lcssa, i64 %.168.lcssa, i64 %29) #14, !srcloc !43
   %34 = extractvalue { i64, i64, i64, i64 } %33, 2
   %35 = extractvalue { i64, i64, i64, i64 } %33, 3
   %36 = mul i64 %34, %4
@@ -7832,13 +7832,13 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   store i64 %36, ptr %37, align 8
   %38 = load i64, ptr %7, align 8
   %39 = load i64, ptr %2, align 8
-  %40 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %36, i64 %39, i64 %34, i64 %35, i64 %38) #14, !srcloc !43
+  %40 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %36, i64 %39, i64 %34, i64 %35, i64 %38) #14, !srcloc !44
   %41 = extractvalue { i64, i64, i64, i64 } %40, 3
   %42 = load i64, ptr %7, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %.preheader76, label %.preheader77, !llvm.loop !44
+  br i1 %exitcond116.not, label %.preheader76, label %.preheader77, !llvm.loop !45
 
 .preheader:                                       ; preds = %._crit_edge93, %.preheader76
   %.2.lcssa = phi i64 [ %.0.lcssa, %.preheader76 ], [ %.370.lcssa, %._crit_edge93 ]
@@ -7868,7 +7868,7 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %49 = sub nsw i64 %indvars.iv123, %indvars.iv119
   %50 = getelementptr inbounds i64, ptr %1, i64 %49
   %51 = load i64, ptr %50, align 8
-  %52 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %48, i64 %51, i64 %.389, i64 %.37088, i64 %46) #14, !srcloc !45
+  %52 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %48, i64 %51, i64 %.389, i64 %.37088, i64 %46) #14, !srcloc !46
   %53 = extractvalue { i64, i64, i64, i64 } %52, 2
   %54 = extractvalue { i64, i64, i64, i64 } %52, 3
   %55 = load i64, ptr %7, align 8
@@ -7876,12 +7876,12 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds i64, ptr %2, i64 %49
   %59 = load i64, ptr %58, align 8
-  %60 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %57, i64 %59, i64 %53, i64 %54, i64 %55) #14, !srcloc !46
+  %60 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %57, i64 %59, i64 %53, i64 %54, i64 %55) #14, !srcloc !47
   %61 = extractvalue { i64, i64, i64, i64 } %60, 2
   %62 = extractvalue { i64, i64, i64, i64 } %60, 3
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
-  br i1 %exitcond122.not, label %._crit_edge93.loopexit, label %.lr.ph92, !llvm.loop !47
+  br i1 %exitcond122.not, label %._crit_edge93.loopexit, label %.lr.ph92, !llvm.loop !48
 
 ._crit_edge93.loopexit:                           ; preds = %.lr.ph92
   %.pre129 = load i64, ptr %7, align 8
@@ -7897,14 +7897,14 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %indvars.iv.next124 = add nsw i64 %indvars.iv123, 1
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count127
-  br i1 %exitcond128.not, label %.preheader, label %.lr.ph99, !llvm.loop !48
+  br i1 %exitcond128.not, label %.preheader, label %.lr.ph99, !llvm.loop !49
 
 65:                                               ; preds = %.lr.ph103, %65
   %.4102 = phi i64 [ %.2.lcssa, %.lr.ph103 ], [ %67, %65 ]
-  %66 = call { i64, i64, i64 } asm sideeffect "clc; 0: ; mov ($4, $0, 8), $2; sbb $2, ($3, $0, 8); inc $0; dec $1; jne 0b; mov $5, $2; sbb $$0, $2; ", "=r,=r,=&r,r,r,r,0,1,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, ptr nonnull %2, i64 range(i64 1, 0) %.4102, i64 0, i64 range(i64 -1073741824, 342) %43) #14, !srcloc !49
+  %66 = call { i64, i64, i64 } asm sideeffect "clc; 0: ; mov ($4, $0, 8), $2; sbb $2, ($3, $0, 8); inc $0; dec $1; jne 0b; mov $5, $2; sbb $$0, $2; ", "=r,=r,=&r,r,r,r,0,1,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, ptr nonnull %2, i64 range(i64 1, 0) %.4102, i64 0, i64 range(i64 -1073741824, 342) %43) #14, !srcloc !50
   %67 = extractvalue { i64, i64, i64 } %66, 2
   %.not = icmp eq i64 %67, 0
-  br i1 %.not, label %._crit_edge104, label %65, !llvm.loop !50
+  br i1 %.not, label %._crit_edge104, label %65, !llvm.loop !51
 
 ._crit_edge104:                                   ; preds = %65, %.preheader
   ret void
@@ -7951,7 +7951,7 @@ define hidden void @_ZN13SharedRuntime17montgomery_squareEPiS0_ilS0_(ptr noundef
   store i64 %26, ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.078.i, i64 8
   %28 = icmp samesign ugt i32 %.010.i, 1
-  br i1 %28, label %.lr.ph.i, label %.lr.ph.preheader.i31, !llvm.loop !38
+  br i1 %28, label %.lr.ph.i, label %.lr.ph.preheader.i31, !llvm.loop !39
 
 .lr.ph.preheader.i31:                             ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i64, ptr %16, i64 %21
@@ -7968,7 +7968,7 @@ define hidden void @_ZN13SharedRuntime17montgomery_squareEPiS0_ilS0_(ptr noundef
   store i64 %33, ptr %31, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.078.i35, i64 8
   %35 = icmp samesign ugt i32 %.010.i33, 1
-  br i1 %35, label %.lr.ph.i32, label %_ZL13reverse_wordsPmS_i.exit36, !llvm.loop !38
+  br i1 %35, label %.lr.ph.i32, label %_ZL13reverse_wordsPmS_i.exit36, !llvm.loop !39
 
 _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %36 = icmp samesign ugt i32 %2, 63
@@ -8005,7 +8005,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %43 = sub nsw i64 %indvars.iv179.i, %indvars.iv.i
   %44 = getelementptr inbounds i64, ptr %15, i64 %43
   %45 = load i64, ptr %44, align 8
-  %46 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %42, i64 %45, i64 %.1119.i, i64 %.1102118.i, i64 %40) #14, !srcloc !51
+  %46 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %42, i64 %45, i64 %.1119.i, i64 %.1102118.i, i64 %40) #14, !srcloc !52
   %47 = extractvalue { i64, i64, i64, i64 } %46, 2
   %48 = extractvalue { i64, i64, i64, i64 } %46, 3
   %49 = load i64, ptr %6, align 8
@@ -8013,12 +8013,12 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds i64, ptr %16, i64 %43
   %53 = load i64, ptr %52, align 8
-  %54 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %51, i64 %53, i64 %47, i64 %48, i64 %49) #14, !srcloc !52
+  %54 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %51, i64 %53, i64 %47, i64 %48, i64 %49) #14, !srcloc !53
   %55 = extractvalue { i64, i64, i64, i64 } %54, 2
   %56 = extractvalue { i64, i64, i64, i64 } %54, 3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
-  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !54
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i38
   %57 = and i64 %indvars.iv179.i, 1
@@ -8036,7 +8036,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %.0111.lcssa201.i = phi i64 [ %umax, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
   %60 = getelementptr inbounds nuw i64, ptr %15, i64 %.0111.lcssa201.i
   %61 = load i64, ptr %60, align 8
-  %62 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %61, i64 %61, i64 %.1.lcssa204.i, i64 %.1102.lcssa203.i, i64 %59) #14, !srcloc !54
+  %62 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %61, i64 %61, i64 %.1.lcssa204.i, i64 %.1102.lcssa203.i, i64 %59) #14, !srcloc !55
   %63 = extractvalue { i64, i64, i64, i64 } %62, 2
   %64 = extractvalue { i64, i64, i64, i64 } %62, 3
   br label %._crit_edge.i._crit_edge
@@ -8058,12 +8058,12 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %69 = sub nuw nsw i64 %indvars.iv179.i, %indvars.iv176.i
   %70 = getelementptr inbounds nuw i64, ptr %16, i64 %69
   %71 = load i64, ptr %70, align 8
-  %72 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %68, i64 %71, i64 %.3124.i, i64 %.3104123.i, i64 %66) #14, !srcloc !55
+  %72 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %68, i64 %71, i64 %.3124.i, i64 %.3104123.i, i64 %66) #14, !srcloc !56
   %73 = extractvalue { i64, i64, i64, i64 } %72, 2
   %74 = extractvalue { i64, i64, i64, i64 } %72, 3
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next177.i, %indvars.iv179.i
-  br i1 %exitcond.not.i, label %._crit_edge127.i, label %.lr.ph126.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %._crit_edge127.i, label %.lr.ph126.i, !llvm.loop !57
 
 ._crit_edge127.i:                                 ; preds = %.lr.ph126.i, %._crit_edge.i._crit_edge
   %.3104.lcssa.i = phi i64 [ %.2103.i, %._crit_edge.i._crit_edge ], [ %74, %.lr.ph126.i ]
@@ -8073,13 +8073,13 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   store i64 %75, ptr %76, align 8
   %77 = load i64, ptr %6, align 8
   %78 = load i64, ptr %16, align 8
-  %79 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %75, i64 %78, i64 %.3.lcssa.i, i64 %.3104.lcssa.i, i64 %77) #14, !srcloc !57
+  %79 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %75, i64 %78, i64 %.3.lcssa.i, i64 %.3104.lcssa.i, i64 %77) #14, !srcloc !58
   %80 = extractvalue { i64, i64, i64, i64 } %79, 3
   %81 = load i64, ptr %6, align 8
   store i64 0, ptr %6, align 8
   %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, %21
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  br i1 %exitcond183.not.i, label %.preheader116.i, label %.lr.ph134.i, !llvm.loop !58
+  br i1 %exitcond183.not.i, label %.preheader116.i, label %.lr.ph134.i, !llvm.loop !59
 
 .preheader.i:                                     ; preds = %._crit_edge151.i, %.preheader116.i
   %.4.lcssa.i = phi i64 [ %80, %.preheader116.i ], [ %.7108.lcssa.i, %._crit_edge151.i ]
@@ -8111,7 +8111,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %93 = sub nsw i64 %indvars.iv193.i, %indvars.iv186.i
   %94 = getelementptr inbounds i64, ptr %15, i64 %93
   %95 = load i64, ptr %94, align 8
-  %96 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %92, i64 %95, i64 %.5139.i, i64 %.5106138.i, i64 %90) #14, !srcloc !59
+  %96 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %92, i64 %95, i64 %.5139.i, i64 %.5106138.i, i64 %90) #14, !srcloc !60
   %97 = extractvalue { i64, i64, i64, i64 } %96, 2
   %98 = extractvalue { i64, i64, i64, i64 } %96, 3
   %99 = load i64, ptr %6, align 8
@@ -8119,12 +8119,12 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %101 = load i64, ptr %100, align 8
   %102 = getelementptr inbounds i64, ptr %16, i64 %93
   %103 = load i64, ptr %102, align 8
-  %104 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %101, i64 %103, i64 %97, i64 %98, i64 %99) #14, !srcloc !60
+  %104 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %101, i64 %103, i64 %97, i64 %98, i64 %99) #14, !srcloc !61
   %105 = extractvalue { i64, i64, i64, i64 } %104, 2
   %106 = extractvalue { i64, i64, i64, i64 } %104, 3
   %indvars.iv.next187.i = add nuw nsw i64 %indvars.iv186.i, 1
   %107 = icmp slt i64 %indvars.iv.next187.i, %88
-  br i1 %107, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !61
+  br i1 %107, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !62
 
 ._crit_edge142.i:                                 ; preds = %.lr.ph141.i, %.lr.ph157.i
   %.0113.lcssa.in.i = phi i64 [ %83, %.lr.ph157.i ], [ %indvars.iv.next187.i, %.lr.ph141.i ]
@@ -8141,7 +8141,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %112 = ashr exact i64 %sext.i, 29
   %113 = getelementptr inbounds i8, ptr %15, i64 %112
   %114 = load i64, ptr %113, align 8
-  %115 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %114, i64 %114, i64 %.5.lcssa.i, i64 %.5106.lcssa.i, i64 %111) #14, !srcloc !62
+  %115 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %114, i64 %114, i64 %.5.lcssa.i, i64 %.5106.lcssa.i, i64 %111) #14, !srcloc !63
   %116 = extractvalue { i64, i64, i64, i64 } %115, 2
   %117 = extractvalue { i64, i64, i64, i64 } %115, 3
   br label %118
@@ -8167,13 +8167,13 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %124 = sub nsw i64 %indvars.iv193.i, %indvars.iv189.i
   %125 = getelementptr inbounds i64, ptr %16, i64 %124
   %126 = load i64, ptr %125, align 8
-  %127 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %123, i64 %126, i64 %.7148.i, i64 %.7108147.i, i64 %121) #14, !srcloc !63
+  %127 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %123, i64 %126, i64 %.7148.i, i64 %.7108147.i, i64 %121) #14, !srcloc !64
   %128 = extractvalue { i64, i64, i64, i64 } %127, 2
   %129 = extractvalue { i64, i64, i64, i64 } %127, 3
   %indvars.iv.next190.i = add nsw i64 %indvars.iv189.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next190.i to i32
   %exitcond192.not.i = icmp eq i32 %7, %lftr.wideiv.i
-  br i1 %exitcond192.not.i, label %._crit_edge151.i, label %.lr.ph150.i, !llvm.loop !64
+  br i1 %exitcond192.not.i, label %._crit_edge151.i, label %.lr.ph150.i, !llvm.loop !65
 
 ._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %118
   %.7108.lcssa.i = phi i64 [ %.6107.i, %118 ], [ %129, %.lr.ph150.i ]
@@ -8185,14 +8185,14 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %indvars.iv.next194.i = add nuw nsw i64 %indvars.iv193.i, 1
   %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
   %exitcond196.not.i = icmp eq i64 %indvars.iv.next194.i, %18
-  br i1 %exitcond196.not.i, label %.preheader.i, label %.lr.ph157.i, !llvm.loop !65
+  br i1 %exitcond196.not.i, label %.preheader.i, label %.lr.ph157.i, !llvm.loop !66
 
 .lr.ph161.i:                                      ; preds = %.preheader.i, %.lr.ph161.i
   %.8160.i = phi i64 [ %133, %.lr.ph161.i ], [ %.4.lcssa.i, %.preheader.i ]
-  %132 = call { i64, i64, i64 } asm sideeffect "clc; 0: ; mov ($4, $0, 8), $2; sbb $2, ($3, $0, 8); inc $0; dec $1; jne 0b; mov $5, $2; sbb $$0, $2; ", "=r,=r,=&r,r,r,r,0,1,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19, ptr nonnull %16, i64 range(i64 1, 0) %.8160.i, i64 0, i64 range(i64 -1073741824, 342) %12) #14, !srcloc !49
+  %132 = call { i64, i64, i64 } asm sideeffect "clc; 0: ; mov ($4, $0, 8), $2; sbb $2, ($3, $0, 8); inc $0; dec $1; jne 0b; mov $5, $2; sbb $$0, $2; ", "=r,=r,=&r,r,r,r,0,1,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19, ptr nonnull %16, i64 range(i64 1, 0) %.8160.i, i64 0, i64 range(i64 -1073741824, 342) %12) #14, !srcloc !50
   %133 = extractvalue { i64, i64, i64 } %132, 2
   %.not.i = icmp eq i64 %133, 0
-  br i1 %.not.i, label %_ZL17montgomery_squarePmS_S_mi.exit, label %.lr.ph161.i, !llvm.loop !66
+  br i1 %.not.i, label %_ZL17montgomery_squarePmS_S_mi.exit, label %.lr.ph161.i, !llvm.loop !67
 
 _ZL17montgomery_squarePmS_S_mi.exit:              ; preds = %.lr.ph161.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -8221,7 +8221,7 @@ _ZL13reverse_wordsPmS_i.exit36.thread:            ; preds = %11, %_ZL13reverse_w
   store i64 %140, ptr %138, align 8
   %141 = getelementptr inbounds nuw i8, ptr %.078.i44, i64 8
   %142 = icmp samesign ugt i32 %.010.i42, 1
-  br i1 %142, label %.lr.ph.i41, label %_ZL13reverse_wordsPmS_i.exit45, !llvm.loop !38
+  br i1 %142, label %.lr.ph.i41, label %_ZL13reverse_wordsPmS_i.exit45, !llvm.loop !39
 
 _ZL13reverse_wordsPmS_i.exit45:                   ; preds = %.lr.ph.i41, %134
   ret void
@@ -9222,7 +9222,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #14, !srcloc !67
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #14, !srcloc !68
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -9245,7 +9245,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #14, !srcloc !67
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #14, !srcloc !68
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -9257,9 +9257,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #14, !srcloc !67
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #14, !srcloc !68
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !68
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !69
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -9292,7 +9292,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !69
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !70
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
@@ -9327,7 +9327,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !69
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !70
   %34 = and i8 %33, 4
   %.not14 = icmp eq i8 %34, 0
   br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %35
@@ -9357,7 +9357,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 49:                                               ; preds = %45
   %50 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #14
   %51 = load volatile i32, ptr %50, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !69
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !70
   %52 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %53 = and i32 %52, %51
   %.not.i.i.i13 = icmp eq i32 %53, 0
@@ -9510,7 +9510,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !67
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !68
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -9518,7 +9518,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !70
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !71
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -9558,7 +9558,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #14, !srcloc !67
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #14, !srcloc !68
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -9581,7 +9581,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #14, !srcloc !67
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #14, !srcloc !68
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -9593,9 +9593,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #14, !srcloc !67
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #14, !srcloc !68
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !68
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !69
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -9705,68 +9705,69 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = !{i64 2157315771}
-!40 = !{i64 2157316136}
-!41 = distinct !{!41, !7}
-!42 = !{i64 2157316501}
-!43 = !{i64 2157316864}
-!44 = distinct !{!44, !7}
-!45 = !{i64 2157317289}
-!46 = !{i64 2157317654}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = !{i64 129093}
-!50 = distinct !{!50, !7}
-!51 = !{i64 2157318211}
-!52 = !{i64 2157318642}
-!53 = distinct !{!53, !7}
-!54 = !{i64 2157319007}
-!55 = !{i64 2157319370}
-!56 = distinct !{!56, !7}
-!57 = !{i64 2157319735}
-!58 = distinct !{!58, !7}
-!59 = !{i64 2157320158}
-!60 = !{i64 2157320589}
-!61 = distinct !{!61, !7}
-!62 = !{i64 2157320954}
-!63 = !{i64 2157321317}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = !{i64 2145412694}
-!68 = distinct !{!68, !7}
-!69 = !{i64 2145392468}
-!70 = distinct !{!70, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = !{i64 2157315771}
+!41 = !{i64 2157316136}
+!42 = distinct !{!42, !7, !8}
+!43 = !{i64 2157316501}
+!44 = !{i64 2157316864}
+!45 = distinct !{!45, !7, !8}
+!46 = !{i64 2157317289}
+!47 = !{i64 2157317654}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = !{i64 129093}
+!51 = distinct !{!51, !7, !8}
+!52 = !{i64 2157318211}
+!53 = !{i64 2157318642}
+!54 = distinct !{!54, !7, !8}
+!55 = !{i64 2157319007}
+!56 = !{i64 2157319370}
+!57 = distinct !{!57, !7, !8}
+!58 = !{i64 2157319735}
+!59 = distinct !{!59, !7, !8}
+!60 = !{i64 2157320158}
+!61 = !{i64 2157320589}
+!62 = distinct !{!62, !7, !8}
+!63 = !{i64 2157320954}
+!64 = !{i64 2157321317}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = !{i64 2145412694}
+!69 = distinct !{!69, !7, !8}
+!70 = !{i64 2145392468}
+!71 = distinct !{!71, !7, !8}

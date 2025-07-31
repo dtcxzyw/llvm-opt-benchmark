@@ -409,10 +409,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   %.sroa.077.0.insert.ext78 = zext i32 %144 to i64
   %.sroa.077.0.insert.insert80 = or disjoint i64 %.sroa.6.0.insert.shift82, %.sroa.077.0.insert.ext78
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #14
-  store double 0.000000e+00, ptr %18, align 8, !tbaa !44
-  store double 1.000000e+02, ptr %110, align 8, !tbaa !44
-  store double 1.000000e+02, ptr %111, align 8, !tbaa !44
-  store double 0.000000e+00, ptr %112, align 8, !tbaa !44
+  store double 0.000000e+00, ptr %18, align 8, !tbaa !45
+  store double 1.000000e+02, ptr %110, align 8, !tbaa !45
+  store double 1.000000e+02, ptr %111, align 8, !tbaa !45
+  store double 0.000000e+00, ptr %112, align 8, !tbaa !45
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 %.sroa.077.0.insert.insert80, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3, i32 noundef 16, i32 noundef 0)
           to label %146 unwind label %157
 
@@ -425,10 +425,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   store i32 50397184, ptr %19, align 8, !tbaa !21
   store ptr %5, ptr %114, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #14
-  store double 2.550000e+02, ptr %20, align 8, !tbaa !44
-  store double 0.000000e+00, ptr %116, align 8, !tbaa !44
-  store double 2.550000e+02, ptr %117, align 8, !tbaa !44
-  store double 0.000000e+00, ptr %118, align 8, !tbaa !44
+  store double 2.550000e+02, ptr %20, align 8, !tbaa !45
+  store double 0.000000e+00, ptr %116, align 8, !tbaa !45
+  store double 2.550000e+02, ptr %117, align 8, !tbaa !45
+  store double 0.000000e+00, ptr %118, align 8, !tbaa !45
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 %.sroa.077.0.insert.insert80, i32 noundef %147, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 3, i32 noundef 16, i32 noundef 0)
           to label %148 unwind label %159
 
@@ -444,7 +444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   %154 = sub i64 %152, %153
   %155 = sdiv exact i64 %154, 12
   %156 = icmp ult i64 %149, %155
-  br i1 %156, label %134, label %.noexc.i66, !llvm.loop !46
+  br i1 %156, label %134, label %.noexc.i66, !llvm.loop !47
 
 157:                                              ; preds = %143
   %158 = landingpad { ptr, i32 }
@@ -697,8 +697,9 @@ attributes #16 = { builtin nounwind }
 !39 = !{!19, !19, i64 0}
 !40 = !{!41, !41, i64 0}
 !41 = !{!"float", !8, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"double", !8, i64 0}
-!46 = distinct !{!46, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"double", !8, i64 0}
+!47 = distinct !{!47, !43, !44}

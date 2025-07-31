@@ -80,7 +80,7 @@ define noundef zeroext i1 @ggml_cpu_extra_compute_forward(ptr noundef %0, ptr no
 .critedge:                                        ; preds = %11, %16, %8, %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.025.030, i64 8
   %.not28.not = icmp eq ptr %21, %6
-  br i1 %.not28.not, label %.critedge24, label %.lr.ph
+  br i1 %.not28.not, label %.critedge24, label %.lr.ph, !llvm.loop !18
 
 .critedge24:                                      ; preds = %.critedge, %16, %2
   %.not28.lcssa = phi i1 [ false, %2 ], [ true, %16 ], [ false, %.critedge ]
@@ -128,7 +128,7 @@ define noundef zeroext i1 @ggml_cpu_extra_work_size(i32 noundef %0, ptr noundef 
 .critedge:                                        ; preds = %12, %17, %9, %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.026.031, i64 8
   %.not29.not = icmp eq ptr %22, %7
-  br i1 %.not29.not, label %.critedge25, label %.lr.ph
+  br i1 %.not29.not, label %.critedge25, label %.lr.ph, !llvm.loop !20
 
 .critedge25:                                      ; preds = %.critedge, %17, %3
   %.not29.lcssa = phi i1 [ false, %3 ], [ true, %17 ], [ false, %.critedge ]
@@ -162,3 +162,6 @@ attributes #5 = { noreturn nounwind }
 !15 = !{!"p1 _ZTS19ggml_backend_device", !7, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"vtable pointer", !9, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !19}

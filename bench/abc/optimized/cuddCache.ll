@@ -33,13 +33,13 @@ cuddComputeFloorLog2.exit:                        ; preds = %.lr.ph.i, %3
   %14 = mul nuw nsw i64 %13, 40
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %15, ptr %16, align 8, !tbaa !26
+  store ptr %15, ptr %16, align 8, !tbaa !27
   %17 = icmp eq ptr %15, null
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %cuddComputeFloorLog2.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %19, align 8, !tbaa !27
+  store i32 1, ptr %19, align 8, !tbaa !28
   br label %.loopexit
 
 20:                                               ; preds = %cuddComputeFloorLog2.exit
@@ -49,46 +49,46 @@ cuddComputeFloorLog2.exit:                        ; preds = %.lr.ph.i, %3
   %24 = lshr i64 %23, 3
   %25 = getelementptr inbounds nuw ptr, ptr %15, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %25, ptr %26, align 8, !tbaa !28
+  store ptr %25, ptr %26, align 8, !tbaa !29
   %27 = add nuw i32 %11, 1
   %28 = zext i32 %27 to i64
   %29 = mul nuw nsw i64 %28, 40
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %31 = load i64, ptr %30, align 8, !tbaa !29
+  %31 = load i64, ptr %30, align 8, !tbaa !30
   %32 = add i64 %31, %29
-  store i64 %32, ptr %30, align 8, !tbaa !29
+  store i64 %32, ptr %30, align 8, !tbaa !30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %11, ptr %33, align 8, !tbaa !30
+  store i32 %11, ptr %33, align 8, !tbaa !31
   %34 = sub i32 32, %.0.lcssa.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %34, ptr %35, align 4, !tbaa !31
+  store i32 %34, ptr %35, align 4, !tbaa !32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %2, ptr %36, align 4, !tbaa !32
+  store i32 %2, ptr %36, align 4, !tbaa !33
   %37 = shl i32 %5, 2
   %.54 = tail call i32 @llvm.umin.i32(i32 %37, i32 %2)
   %.neg = shl i32 -2, %.0.lcssa.i
   %38 = add i32 %.neg, %.54
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %38, ptr %39, align 8, !tbaa !33
+  store i32 %38, ptr %39, align 8, !tbaa !34
   tail call void @Cudd_SetMinHit(ptr noundef nonnull %0, i32 noundef 30) #14
   %40 = uitofp i32 %11 to double
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %42 = load double, ptr %41, align 8, !tbaa !34
+  %42 = load double, ptr %41, align 8, !tbaa !35
   %43 = tail call double @llvm.fmuladd.f64(double %40, double %42, double 1.000000e+00)
   %44 = fptosi double %43 to i32
   %45 = sitofp i32 %44 to double
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store double %45, ptr %46, align 8, !tbaa !35
+  store double %45, ptr %46, align 8, !tbaa !36
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store double 0.000000e+00, ptr %47, align 8, !tbaa !36
+  store double 0.000000e+00, ptr %47, align 8, !tbaa !37
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store double 0.000000e+00, ptr %48, align 8, !tbaa !37
+  store double 0.000000e+00, ptr %48, align 8, !tbaa !38
   %49 = fneg double %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store double %49, ptr %50, align 8, !tbaa !38
+  store double %49, ptr %50, align 8, !tbaa !39
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
-  %52 = load ptr, ptr %26, align 8, !tbaa !28
+  %52 = load ptr, ptr %26, align 8, !tbaa !29
   %wide.trip.count = zext i32 %11 to i64
   br label %53
 
@@ -98,7 +98,7 @@ cuddComputeFloorLog2.exit:                        ; preds = %.lr.ph.i, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !40
 
 .loopexit:                                        ; preds = %53, %18
   %.0 = phi i32 [ 0, %18 ], [ 1, %53 ]
@@ -143,7 +143,7 @@ define void @cuddCacheInsert(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %14 = and i64 %7, -2
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !40
+  %17 = load i64, ptr %16, align 8, !tbaa !41
   %18 = shl i64 %17, 1
   %19 = and i64 %7, 1
   %20 = or disjoint i64 %18, %19
@@ -151,7 +151,7 @@ define void @cuddCacheInsert(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %22 = and i64 %10, -2
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load i64, ptr %24, align 8, !tbaa !40
+  %25 = load i64, ptr %24, align 8, !tbaa !41
   %26 = shl i64 %25, 1
   %27 = and i64 %10, 1
   %28 = or disjoint i64 %26, %27
@@ -159,7 +159,7 @@ define void @cuddCacheInsert(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %30 = and i64 %13, -2
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %33 = load i64, ptr %32, align 8, !tbaa !40
+  %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = shl i64 %33, 1
   %35 = and i64 %13, 1
   %36 = or disjoint i64 %34, %35
@@ -171,34 +171,34 @@ define void @cuddCacheInsert(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %42 = add i32 %40, %41
   %43 = mul i32 %42, 4256249
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %45 = load i32, ptr %44, align 4, !tbaa !31
+  %45 = load i32, ptr %44, align 4, !tbaa !32
   %46 = lshr i32 %43, %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %48 = load ptr, ptr %47, align 8, !tbaa !28
+  %48 = load ptr, ptr %47, align 8, !tbaa !29
   %49 = sext i32 %46 to i64
   %50 = getelementptr inbounds %struct.DdCache, ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !41
+  %52 = load ptr, ptr %51, align 8, !tbaa !42
   %53 = icmp ne ptr %52, null
   %54 = uitofp i1 %53 to double
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %56 = load double, ptr %55, align 8, !tbaa !43
+  %56 = load double, ptr %55, align 8, !tbaa !44
   %57 = fadd double %56, %54
-  store double %57, ptr %55, align 8, !tbaa !43
+  store double %57, ptr %55, align 8, !tbaa !44
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %59 = load double, ptr %58, align 8, !tbaa !44
+  %59 = load double, ptr %58, align 8, !tbaa !45
   %60 = fadd double %59, 1.000000e+00
-  store double %60, ptr %58, align 8, !tbaa !44
+  store double %60, ptr %58, align 8, !tbaa !45
   %61 = inttoptr i64 %9 to ptr
-  store ptr %61, ptr %50, align 8, !tbaa !45
+  store ptr %61, ptr %50, align 8, !tbaa !46
   %62 = inttoptr i64 %12 to ptr
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %62, ptr %63, align 8, !tbaa !46
+  store ptr %62, ptr %63, align 8, !tbaa !47
   %64 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i64 %13, ptr %64, align 8, !tbaa !47
-  store ptr %5, ptr %51, align 8, !tbaa !41
+  store i64 %13, ptr %64, align 8, !tbaa !48
+  store ptr %5, ptr %51, align 8, !tbaa !42
   %65 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  store i32 %43, ptr %65, align 8, !tbaa !48
+  store i32 %43, ptr %65, align 8, !tbaa !49
   ret void
 }
 
@@ -208,7 +208,7 @@ define void @cuddCacheInsert2(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %10 = load i64, ptr %9, align 8, !tbaa !41
   %11 = shl i64 %10, 1
   %12 = and i64 %6, 1
   %13 = or disjoint i64 %11, %12
@@ -221,7 +221,7 @@ define void @cuddCacheInsert2(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i64, ptr %22, align 8, !tbaa !40
+  %23 = load i64, ptr %22, align 8, !tbaa !41
   %24 = shl i64 %23, 1
   %25 = and i64 %19, 1
   %26 = or disjoint i64 %24, %25
@@ -229,37 +229,37 @@ define void @cuddCacheInsert2(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %28 = add i32 %18, %27
   %29 = mul i32 %28, 4256249
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %31 = load i32, ptr %30, align 4, !tbaa !31
+  %31 = load i32, ptr %30, align 4, !tbaa !32
   %32 = lshr i32 %29, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  %34 = load ptr, ptr %33, align 8, !tbaa !29
   %35 = sext i32 %32 to i64
   %36 = getelementptr inbounds %struct.DdCache, ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !41
+  %38 = load ptr, ptr %37, align 8, !tbaa !42
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %43, label %39
 
 39:                                               ; preds = %5
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %41 = load double, ptr %40, align 8, !tbaa !43
+  %41 = load double, ptr %40, align 8, !tbaa !44
   %42 = fadd double %41, 1.000000e+00
-  store double %42, ptr %40, align 8, !tbaa !43
+  store double %42, ptr %40, align 8, !tbaa !44
   br label %43
 
 43:                                               ; preds = %39, %5
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %45 = load double, ptr %44, align 8, !tbaa !44
+  %45 = load double, ptr %44, align 8, !tbaa !45
   %46 = fadd double %45, 1.000000e+00
-  store double %46, ptr %44, align 8, !tbaa !44
-  store ptr %2, ptr %36, align 8, !tbaa !45
+  store double %46, ptr %44, align 8, !tbaa !45
+  store ptr %2, ptr %36, align 8, !tbaa !46
   %47 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %3, ptr %47, align 8, !tbaa !46
+  store ptr %3, ptr %47, align 8, !tbaa !47
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i64 %15, ptr %48, align 8, !tbaa !47
-  store ptr %4, ptr %37, align 8, !tbaa !41
+  store i64 %15, ptr %48, align 8, !tbaa !48
+  store ptr %4, ptr %37, align 8, !tbaa !42
   %49 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store i32 %29, ptr %49, align 8, !tbaa !48
+  store i32 %29, ptr %49, align 8, !tbaa !49
   ret void
 }
 
@@ -269,7 +269,7 @@ define void @cuddCacheInsert1(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !40
+  %9 = load i64, ptr %8, align 8, !tbaa !41
   %10 = shl i64 %9, 1
   %11 = and i64 %5, 1
   %12 = or disjoint i64 %10, %11
@@ -281,37 +281,37 @@ define void @cuddCacheInsert1(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %18 = add i32 %17, %13
   %19 = mul i32 %18, 4256249
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %21 = load i32, ptr %20, align 4, !tbaa !31
+  %21 = load i32, ptr %20, align 4, !tbaa !32
   %22 = lshr i32 %19, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load ptr, ptr %23, align 8, !tbaa !28
+  %24 = load ptr, ptr %23, align 8, !tbaa !29
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds %struct.DdCache, ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !41
+  %28 = load ptr, ptr %27, align 8, !tbaa !42
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %33, label %29
 
 29:                                               ; preds = %4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %31 = load double, ptr %30, align 8, !tbaa !43
+  %31 = load double, ptr %30, align 8, !tbaa !44
   %32 = fadd double %31, 1.000000e+00
-  store double %32, ptr %30, align 8, !tbaa !43
+  store double %32, ptr %30, align 8, !tbaa !44
   br label %33
 
 33:                                               ; preds = %29, %4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %35 = load double, ptr %34, align 8, !tbaa !44
+  %35 = load double, ptr %34, align 8, !tbaa !45
   %36 = fadd double %35, 1.000000e+00
-  store double %36, ptr %34, align 8, !tbaa !44
-  store ptr %2, ptr %26, align 8, !tbaa !45
+  store double %36, ptr %34, align 8, !tbaa !45
+  store ptr %2, ptr %26, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %2, ptr %37, align 8, !tbaa !46
+  store ptr %2, ptr %37, align 8, !tbaa !47
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i64 %14, ptr %38, align 8, !tbaa !47
-  store ptr %3, ptr %27, align 8, !tbaa !41
+  store i64 %14, ptr %38, align 8, !tbaa !48
+  store ptr %3, ptr %27, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store i32 %19, ptr %39, align 8, !tbaa !48
+  store i32 %19, ptr %39, align 8, !tbaa !49
   ret void
 }
 
@@ -326,7 +326,7 @@ define ptr @cuddCacheLookup(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
   %12 = and i64 %6, -2
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load i64, ptr %14, align 8, !tbaa !40
+  %15 = load i64, ptr %14, align 8, !tbaa !41
   %16 = shl i64 %15, 1
   %17 = and i64 %6, 1
   %18 = or disjoint i64 %16, %17
@@ -334,7 +334,7 @@ define ptr @cuddCacheLookup(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
   %20 = and i64 %8, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i64, ptr %22, align 8, !tbaa !40
+  %23 = load i64, ptr %22, align 8, !tbaa !41
   %24 = shl i64 %23, 1
   %25 = and i64 %8, 1
   %26 = or disjoint i64 %24, %25
@@ -342,12 +342,12 @@ define ptr @cuddCacheLookup(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
   %28 = and i64 %11, -2
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load i64, ptr %30, align 8, !tbaa !40
+  %31 = load i64, ptr %30, align 8, !tbaa !41
   %32 = shl i64 %31, 1
   %33 = and i64 %11, 1
   %34 = or disjoint i64 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = trunc i64 %19 to i32
   %38 = trunc i64 %34 to i32
   %39 = add i32 %38, %37
@@ -356,32 +356,32 @@ define ptr @cuddCacheLookup(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
   %42 = add i32 %40, %41
   %43 = mul i32 %42, 4256249
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %45 = load i32, ptr %44, align 4, !tbaa !31
+  %45 = load i32, ptr %44, align 4, !tbaa !32
   %46 = lshr i32 %43, %45
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds %struct.DdCache, ptr %36, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !41
+  %50 = load ptr, ptr %49, align 8, !tbaa !42
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %76, label %51
 
 51:                                               ; preds = %5
   %52 = or i64 %7, %6
-  %53 = load ptr, ptr %48, align 8, !tbaa !45
+  %53 = load ptr, ptr %48, align 8, !tbaa !46
   %54 = inttoptr i64 %52 to ptr
   %55 = icmp eq ptr %53, %54
   br i1 %55, label %56, label %76
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !46
+  %58 = load ptr, ptr %57, align 8, !tbaa !47
   %59 = inttoptr i64 %10 to ptr
   %60 = icmp eq ptr %58, %59
   br i1 %60, label %61, label %76
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %63 = load i64, ptr %62, align 8, !tbaa !47
+  %63 = load i64, ptr %62, align 8, !tbaa !48
   %64 = icmp eq i64 %63, %11
   br i1 %64, label %65, label %76
 
@@ -390,34 +390,34 @@ define ptr @cuddCacheLookup(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
   %67 = and i64 %66, -2
   %68 = inttoptr i64 %67 to ptr
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %70 = load double, ptr %69, align 8, !tbaa !36
+  %70 = load double, ptr %69, align 8, !tbaa !37
   %71 = fadd double %70, 1.000000e+00
-  store double %71, ptr %69, align 8, !tbaa !36
+  store double %71, ptr %69, align 8, !tbaa !37
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %73 = load i32, ptr %72, align 4, !tbaa !49
+  %73 = load i32, ptr %72, align 4, !tbaa !50
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %91
 
 75:                                               ; preds = %65
   tail call void @cuddReclaim(ptr noundef nonnull %0, ptr noundef nonnull %68) #14
-  %.pre = load ptr, ptr %49, align 8, !tbaa !41
+  %.pre = load ptr, ptr %49, align 8, !tbaa !42
   br label %91
 
 76:                                               ; preds = %61, %56, %51, %5
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %78 = load double, ptr %77, align 8, !tbaa !35
+  %78 = load double, ptr %77, align 8, !tbaa !36
   %79 = fadd double %78, 1.000000e+00
-  store double %79, ptr %77, align 8, !tbaa !35
+  store double %79, ptr %77, align 8, !tbaa !36
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %81 = load i32, ptr %80, align 8, !tbaa !33
+  %81 = load i32, ptr %80, align 8, !tbaa !34
   %82 = icmp sgt i32 %81, -1
   br i1 %82, label %83, label %91
 
 83:                                               ; preds = %76
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %85 = load double, ptr %84, align 8, !tbaa !36
+  %85 = load double, ptr %84, align 8, !tbaa !37
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %87 = load double, ptr %86, align 8, !tbaa !34
+  %87 = load double, ptr %86, align 8, !tbaa !35
   %88 = fmul double %79, %87
   %89 = fcmp ogt double %85, %88
   br i1 %89, label %90, label %91
@@ -436,32 +436,32 @@ declare void @cuddReclaim(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @cuddCacheResize(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load i32, ptr %6, align 8, !tbaa !30
+  %7 = load i32, ptr %6, align 8, !tbaa !31
   %8 = shl i32 %7, 1
-  store i32 %8, ptr %6, align 8, !tbaa !30
-  %9 = load ptr, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !50
+  store i32 %8, ptr %6, align 8, !tbaa !31
+  %9 = load ptr, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !51
   %10 = add i32 %8, 2
   %11 = zext i32 %10 to i64
   %12 = mul nuw nsw i64 %11, 40
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #13
-  store ptr %13, ptr %4, align 8, !tbaa !26
-  store ptr %9, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !50
+  store ptr %13, ptr %4, align 8, !tbaa !27
+  store ptr %9, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !51
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %1
-  store i32 %7, ptr %6, align 8, !tbaa !30
-  store ptr %5, ptr %4, align 8, !tbaa !26
+  store i32 %7, ptr %6, align 8, !tbaa !31
+  store ptr %5, ptr %4, align 8, !tbaa !27
   %16 = add i32 %7, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %16, ptr %17, align 4, !tbaa !32
+  store i32 %16, ptr %17, align 4, !tbaa !33
   %18 = xor i32 %7, -1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %18, ptr %19, align 8, !tbaa !33
+  store i32 %18, ptr %19, align 8, !tbaa !34
   br label %81
 
 20:                                               ; preds = %1
@@ -470,21 +470,21 @@ define void @cuddCacheResize(ptr noundef captures(none) %0) local_unnamed_addr #
   %23 = sub nuw nsw i64 32, %22
   %24 = lshr i64 %23, 3
   %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %24
-  store ptr %25, ptr %2, align 8, !tbaa !28
+  store ptr %25, ptr %2, align 8, !tbaa !29
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %27 = load i32, ptr %26, align 4, !tbaa !31
+  %27 = load i32, ptr %26, align 4, !tbaa !32
   %28 = add nsw i32 %27, -1
-  store i32 %28, ptr %26, align 4, !tbaa !31
+  store i32 %28, ptr %26, align 4, !tbaa !32
   %29 = zext i32 %7 to i64
   %30 = mul nuw nsw i64 %29, 40
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %32 = load i64, ptr %31, align 8, !tbaa !29
+  %32 = load i64, ptr %31, align 8, !tbaa !30
   %33 = add i64 %32, %30
-  store i64 %33, ptr %31, align 8, !tbaa !29
+  store i64 %33, ptr %31, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %35 = load i32, ptr %34, align 8, !tbaa !33
+  %35 = load i32, ptr %34, align 8, !tbaa !34
   %36 = sub i32 %35, %8
-  store i32 %36, ptr %34, align 8, !tbaa !33
+  store i32 %36, ptr %34, align 8, !tbaa !34
   %.not81 = icmp eq i32 %8, 0
   br i1 %.not81, label %.preheader, label %.lr.ph.preheader
 
@@ -503,37 +503,37 @@ define void @cuddCacheResize(ptr noundef captures(none) %0) local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep, i8 0, i64 16, i1 false)
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !52
 
 .lr.ph80:                                         ; preds = %.preheader, %56
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %56 ], [ 0, %.preheader ]
   %.07178 = phi i32 [ %.172, %56 ], [ 0, %.preheader ]
   %37 = getelementptr inbounds nuw %struct.DdCache, ptr %3, i64 %indvars.iv84
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !41
+  %39 = load ptr, ptr %38, align 8, !tbaa !42
   %.not76 = icmp eq ptr %39, null
   br i1 %.not76, label %56, label %40
 
 40:                                               ; preds = %.lr.ph80
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %42 = load i32, ptr %41, align 8, !tbaa !48
+  %42 = load i32, ptr %41, align 8, !tbaa !49
   %43 = lshr i32 %42, %28
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds %struct.DdCache, ptr %25, i64 %44
-  %46 = load ptr, ptr %37, align 8, !tbaa !45
-  store ptr %46, ptr %45, align 8, !tbaa !45
+  %46 = load ptr, ptr %37, align 8, !tbaa !46
+  store ptr %46, ptr %45, align 8, !tbaa !46
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !46
+  %48 = load ptr, ptr %47, align 8, !tbaa !47
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %48, ptr %49, align 8, !tbaa !46
+  store ptr %48, ptr %49, align 8, !tbaa !47
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !47
+  %51 = load i64, ptr %50, align 8, !tbaa !48
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i64 %51, ptr %52, align 8, !tbaa !47
+  store i64 %51, ptr %52, align 8, !tbaa !48
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr %39, ptr %53, align 8, !tbaa !41
+  store ptr %39, ptr %53, align 8, !tbaa !42
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store i32 %42, ptr %54, align 8, !tbaa !48
+  store i32 %42, ptr %54, align 8, !tbaa !49
   %55 = add nsw i32 %.07178, 1
   br label %56
 
@@ -541,7 +541,7 @@ define void @cuddCacheResize(ptr noundef captures(none) %0) local_unnamed_addr #
   %.172 = phi i32 [ %55, %40 ], [ %.07178, %.lr.ph80 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %29
-  br i1 %exitcond88.not, label %._crit_edge.loopexit, label %.lr.ph80, !llvm.loop !52
+  br i1 %exitcond88.not, label %._crit_edge.loopexit, label %.lr.ph80, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %56
   %57 = sitofp i32 %.172 to double
@@ -559,30 +559,30 @@ define void @cuddCacheResize(ptr noundef captures(none) %0) local_unnamed_addr #
 59:                                               ; preds = %._crit_edge, %58
   %60 = uitofp i32 %8 to double
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %62 = load double, ptr %61, align 8, !tbaa !34
+  %62 = load double, ptr %61, align 8, !tbaa !35
   %63 = tail call double @llvm.fmuladd.f64(double %60, double %62, double 1.000000e+00)
   %64 = fptosi double %63 to i32
   %65 = sitofp i32 %64 to double
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %67 = load double, ptr %66, align 8, !tbaa !35
+  %67 = load double, ptr %66, align 8, !tbaa !36
   %68 = fsub double %67, %65
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %70 = load double, ptr %69, align 8, !tbaa !38
+  %70 = load double, ptr %69, align 8, !tbaa !39
   %71 = fadd double %70, %68
-  store double %71, ptr %69, align 8, !tbaa !38
-  store double %65, ptr %66, align 8, !tbaa !35
+  store double %71, ptr %69, align 8, !tbaa !39
+  store double %65, ptr %66, align 8, !tbaa !36
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %73 = load double, ptr %72, align 8, !tbaa !36
+  %73 = load double, ptr %72, align 8, !tbaa !37
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %75 = load double, ptr %74, align 8, !tbaa !37
+  %75 = load double, ptr %74, align 8, !tbaa !38
   %76 = fadd double %73, %75
-  store double %76, ptr %74, align 8, !tbaa !37
-  store double 0.000000e+00, ptr %72, align 8, !tbaa !36
+  store double %76, ptr %74, align 8, !tbaa !38
+  store double 0.000000e+00, ptr %72, align 8, !tbaa !37
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %78 = load double, ptr %77, align 8, !tbaa !44
+  %78 = load double, ptr %77, align 8, !tbaa !45
   %79 = fsub double %78, %.071.lcssa
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  store double %79, ptr %80, align 8, !tbaa !53
+  store double %79, ptr %80, align 8, !tbaa !54
   br label %81
 
 81:                                               ; preds = %59, %15
@@ -600,7 +600,7 @@ define ptr @cuddCacheLookupZdd(ptr noundef %0, i64 noundef %1, ptr noundef %2, p
   %12 = and i64 %6, -2
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load i64, ptr %14, align 8, !tbaa !40
+  %15 = load i64, ptr %14, align 8, !tbaa !41
   %16 = shl i64 %15, 1
   %17 = and i64 %6, 1
   %18 = or disjoint i64 %16, %17
@@ -608,7 +608,7 @@ define ptr @cuddCacheLookupZdd(ptr noundef %0, i64 noundef %1, ptr noundef %2, p
   %20 = and i64 %8, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i64, ptr %22, align 8, !tbaa !40
+  %23 = load i64, ptr %22, align 8, !tbaa !41
   %24 = shl i64 %23, 1
   %25 = and i64 %8, 1
   %26 = or disjoint i64 %24, %25
@@ -616,12 +616,12 @@ define ptr @cuddCacheLookupZdd(ptr noundef %0, i64 noundef %1, ptr noundef %2, p
   %28 = and i64 %11, -2
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load i64, ptr %30, align 8, !tbaa !40
+  %31 = load i64, ptr %30, align 8, !tbaa !41
   %32 = shl i64 %31, 1
   %33 = and i64 %11, 1
   %34 = or disjoint i64 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = trunc i64 %19 to i32
   %38 = trunc i64 %34 to i32
   %39 = add i32 %38, %37
@@ -630,32 +630,32 @@ define ptr @cuddCacheLookupZdd(ptr noundef %0, i64 noundef %1, ptr noundef %2, p
   %42 = add i32 %40, %41
   %43 = mul i32 %42, 4256249
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %45 = load i32, ptr %44, align 4, !tbaa !31
+  %45 = load i32, ptr %44, align 4, !tbaa !32
   %46 = lshr i32 %43, %45
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds %struct.DdCache, ptr %36, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !41
+  %50 = load ptr, ptr %49, align 8, !tbaa !42
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %76, label %51
 
 51:                                               ; preds = %5
   %52 = or i64 %7, %6
-  %53 = load ptr, ptr %48, align 8, !tbaa !45
+  %53 = load ptr, ptr %48, align 8, !tbaa !46
   %54 = inttoptr i64 %52 to ptr
   %55 = icmp eq ptr %53, %54
   br i1 %55, label %56, label %76
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !46
+  %58 = load ptr, ptr %57, align 8, !tbaa !47
   %59 = inttoptr i64 %10 to ptr
   %60 = icmp eq ptr %58, %59
   br i1 %60, label %61, label %76
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %63 = load i64, ptr %62, align 8, !tbaa !47
+  %63 = load i64, ptr %62, align 8, !tbaa !48
   %64 = icmp eq i64 %63, %11
   br i1 %64, label %65, label %76
 
@@ -664,34 +664,34 @@ define ptr @cuddCacheLookupZdd(ptr noundef %0, i64 noundef %1, ptr noundef %2, p
   %67 = and i64 %66, -2
   %68 = inttoptr i64 %67 to ptr
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %70 = load double, ptr %69, align 8, !tbaa !36
+  %70 = load double, ptr %69, align 8, !tbaa !37
   %71 = fadd double %70, 1.000000e+00
-  store double %71, ptr %69, align 8, !tbaa !36
+  store double %71, ptr %69, align 8, !tbaa !37
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %73 = load i32, ptr %72, align 4, !tbaa !49
+  %73 = load i32, ptr %72, align 4, !tbaa !50
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %91
 
 75:                                               ; preds = %65
   tail call void @cuddReclaimZdd(ptr noundef nonnull %0, ptr noundef nonnull %68) #14
-  %.pre = load ptr, ptr %49, align 8, !tbaa !41
+  %.pre = load ptr, ptr %49, align 8, !tbaa !42
   br label %91
 
 76:                                               ; preds = %61, %56, %51, %5
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %78 = load double, ptr %77, align 8, !tbaa !35
+  %78 = load double, ptr %77, align 8, !tbaa !36
   %79 = fadd double %78, 1.000000e+00
-  store double %79, ptr %77, align 8, !tbaa !35
+  store double %79, ptr %77, align 8, !tbaa !36
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %81 = load i32, ptr %80, align 8, !tbaa !33
+  %81 = load i32, ptr %80, align 8, !tbaa !34
   %82 = icmp sgt i32 %81, -1
   br i1 %82, label %83, label %91
 
 83:                                               ; preds = %76
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %85 = load double, ptr %84, align 8, !tbaa !36
+  %85 = load double, ptr %84, align 8, !tbaa !37
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %87 = load double, ptr %86, align 8, !tbaa !34
+  %87 = load double, ptr %86, align 8, !tbaa !35
   %88 = fmul double %79, %87
   %89 = fcmp ogt double %85, %88
   br i1 %89, label %90, label %91
@@ -710,12 +710,12 @@ declare void @cuddReclaimZdd(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = ptrtoint ptr %2 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !40
+  %11 = load i64, ptr %10, align 8, !tbaa !41
   %12 = shl i64 %11, 1
   %13 = and i64 %7, 1
   %14 = or disjoint i64 %12, %13
@@ -728,7 +728,7 @@ define ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !40
+  %24 = load i64, ptr %23, align 8, !tbaa !41
   %25 = shl i64 %24, 1
   %26 = and i64 %20, 1
   %27 = or disjoint i64 %25, %26
@@ -736,29 +736,29 @@ define ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %29 = add i32 %19, %28
   %30 = mul i32 %29, 4256249
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %32 = load i32, ptr %31, align 4, !tbaa !31
+  %32 = load i32, ptr %31, align 4, !tbaa !32
   %33 = lshr i32 %30, %32
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds %struct.DdCache, ptr %6, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !41
+  %37 = load ptr, ptr %36, align 8, !tbaa !42
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %60, label %38
 
 38:                                               ; preds = %4
-  %39 = load ptr, ptr %35, align 8, !tbaa !45
+  %39 = load ptr, ptr %35, align 8, !tbaa !46
   %40 = icmp eq ptr %39, %2
   br i1 %40, label %41, label %60
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !46
+  %43 = load ptr, ptr %42, align 8, !tbaa !47
   %44 = icmp eq ptr %43, %3
   br i1 %44, label %45, label %60
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !47
+  %47 = load i64, ptr %46, align 8, !tbaa !48
   %48 = icmp eq i64 %47, %16
   br i1 %48, label %49, label %60
 
@@ -767,34 +767,34 @@ define ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %54 = load double, ptr %53, align 8, !tbaa !36
+  %54 = load double, ptr %53, align 8, !tbaa !37
   %55 = fadd double %54, 1.000000e+00
-  store double %55, ptr %53, align 8, !tbaa !36
+  store double %55, ptr %53, align 8, !tbaa !37
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !49
+  %57 = load i32, ptr %56, align 4, !tbaa !50
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %75
 
 59:                                               ; preds = %49
   tail call void @cuddReclaim(ptr noundef nonnull %0, ptr noundef nonnull %52) #14
-  %.pre = load ptr, ptr %36, align 8, !tbaa !41
+  %.pre = load ptr, ptr %36, align 8, !tbaa !42
   br label %75
 
 60:                                               ; preds = %45, %41, %38, %4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %62 = load double, ptr %61, align 8, !tbaa !35
+  %62 = load double, ptr %61, align 8, !tbaa !36
   %63 = fadd double %62, 1.000000e+00
-  store double %63, ptr %61, align 8, !tbaa !35
+  store double %63, ptr %61, align 8, !tbaa !36
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %65 = load i32, ptr %64, align 8, !tbaa !33
+  %65 = load i32, ptr %64, align 8, !tbaa !34
   %66 = icmp sgt i32 %65, -1
   br i1 %66, label %67, label %75
 
 67:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %69 = load double, ptr %68, align 8, !tbaa !36
+  %69 = load double, ptr %68, align 8, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %71 = load double, ptr %70, align 8, !tbaa !34
+  %71 = load double, ptr %70, align 8, !tbaa !35
   %72 = fmul double %63, %71
   %73 = fcmp ogt double %69, %72
   br i1 %73, label %74, label %75
@@ -811,12 +811,12 @@ define ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 ; Function Attrs: nounwind uwtable
 define ptr @cuddCacheLookup1(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %10 = load i64, ptr %9, align 8, !tbaa !41
   %11 = shl i64 %10, 1
   %12 = and i64 %6, 1
   %13 = or disjoint i64 %11, %12
@@ -828,23 +828,23 @@ define ptr @cuddCacheLookup1(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   %19 = add i32 %18, %14
   %20 = mul i32 %19, 4256249
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %22 = load i32, ptr %21, align 4, !tbaa !31
+  %22 = load i32, ptr %21, align 4, !tbaa !32
   %23 = lshr i32 %20, %22
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds %struct.DdCache, ptr %5, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !41
+  %27 = load ptr, ptr %26, align 8, !tbaa !42
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %46, label %28
 
 28:                                               ; preds = %3
-  %29 = load ptr, ptr %25, align 8, !tbaa !45
+  %29 = load ptr, ptr %25, align 8, !tbaa !46
   %30 = icmp eq ptr %29, %2
   br i1 %30, label %31, label %46
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !47
+  %33 = load i64, ptr %32, align 8, !tbaa !48
   %34 = icmp eq i64 %33, %15
   br i1 %34, label %35, label %46
 
@@ -853,34 +853,34 @@ define ptr @cuddCacheLookup1(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %40 = load double, ptr %39, align 8, !tbaa !36
+  %40 = load double, ptr %39, align 8, !tbaa !37
   %41 = fadd double %40, 1.000000e+00
-  store double %41, ptr %39, align 8, !tbaa !36
+  store double %41, ptr %39, align 8, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !49
+  %43 = load i32, ptr %42, align 4, !tbaa !50
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %61
 
 45:                                               ; preds = %35
   tail call void @cuddReclaim(ptr noundef nonnull %0, ptr noundef nonnull %38) #14
-  %.pre = load ptr, ptr %26, align 8, !tbaa !41
+  %.pre = load ptr, ptr %26, align 8, !tbaa !42
   br label %61
 
 46:                                               ; preds = %31, %28, %3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %48 = load double, ptr %47, align 8, !tbaa !35
+  %48 = load double, ptr %47, align 8, !tbaa !36
   %49 = fadd double %48, 1.000000e+00
-  store double %49, ptr %47, align 8, !tbaa !35
+  store double %49, ptr %47, align 8, !tbaa !36
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %51 = load i32, ptr %50, align 8, !tbaa !33
+  %51 = load i32, ptr %50, align 8, !tbaa !34
   %52 = icmp sgt i32 %51, -1
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %55 = load double, ptr %54, align 8, !tbaa !36
+  %55 = load double, ptr %54, align 8, !tbaa !37
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %57 = load double, ptr %56, align 8, !tbaa !34
+  %57 = load double, ptr %56, align 8, !tbaa !35
   %58 = fmul double %49, %57
   %59 = fcmp ogt double %55, %58
   br i1 %59, label %60, label %61
@@ -897,12 +897,12 @@ define ptr @cuddCacheLookup1(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 ; Function Attrs: nounwind uwtable
 define ptr @cuddCacheLookup2Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = ptrtoint ptr %2 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !40
+  %11 = load i64, ptr %10, align 8, !tbaa !41
   %12 = shl i64 %11, 1
   %13 = and i64 %7, 1
   %14 = or disjoint i64 %12, %13
@@ -915,7 +915,7 @@ define ptr @cuddCacheLookup2Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !40
+  %24 = load i64, ptr %23, align 8, !tbaa !41
   %25 = shl i64 %24, 1
   %26 = and i64 %20, 1
   %27 = or disjoint i64 %25, %26
@@ -923,29 +923,29 @@ define ptr @cuddCacheLookup2Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %29 = add i32 %19, %28
   %30 = mul i32 %29, 4256249
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %32 = load i32, ptr %31, align 4, !tbaa !31
+  %32 = load i32, ptr %31, align 4, !tbaa !32
   %33 = lshr i32 %30, %32
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds %struct.DdCache, ptr %6, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !41
+  %37 = load ptr, ptr %36, align 8, !tbaa !42
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %60, label %38
 
 38:                                               ; preds = %4
-  %39 = load ptr, ptr %35, align 8, !tbaa !45
+  %39 = load ptr, ptr %35, align 8, !tbaa !46
   %40 = icmp eq ptr %39, %2
   br i1 %40, label %41, label %60
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !46
+  %43 = load ptr, ptr %42, align 8, !tbaa !47
   %44 = icmp eq ptr %43, %3
   br i1 %44, label %45, label %60
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !47
+  %47 = load i64, ptr %46, align 8, !tbaa !48
   %48 = icmp eq i64 %47, %16
   br i1 %48, label %49, label %60
 
@@ -954,34 +954,34 @@ define ptr @cuddCacheLookup2Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %54 = load double, ptr %53, align 8, !tbaa !36
+  %54 = load double, ptr %53, align 8, !tbaa !37
   %55 = fadd double %54, 1.000000e+00
-  store double %55, ptr %53, align 8, !tbaa !36
+  store double %55, ptr %53, align 8, !tbaa !37
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !49
+  %57 = load i32, ptr %56, align 4, !tbaa !50
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %75
 
 59:                                               ; preds = %49
   tail call void @cuddReclaimZdd(ptr noundef nonnull %0, ptr noundef nonnull %52) #14
-  %.pre = load ptr, ptr %36, align 8, !tbaa !41
+  %.pre = load ptr, ptr %36, align 8, !tbaa !42
   br label %75
 
 60:                                               ; preds = %45, %41, %38, %4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %62 = load double, ptr %61, align 8, !tbaa !35
+  %62 = load double, ptr %61, align 8, !tbaa !36
   %63 = fadd double %62, 1.000000e+00
-  store double %63, ptr %61, align 8, !tbaa !35
+  store double %63, ptr %61, align 8, !tbaa !36
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %65 = load i32, ptr %64, align 8, !tbaa !33
+  %65 = load i32, ptr %64, align 8, !tbaa !34
   %66 = icmp sgt i32 %65, -1
   br i1 %66, label %67, label %75
 
 67:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %69 = load double, ptr %68, align 8, !tbaa !36
+  %69 = load double, ptr %68, align 8, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %71 = load double, ptr %70, align 8, !tbaa !34
+  %71 = load double, ptr %70, align 8, !tbaa !35
   %72 = fmul double %63, %71
   %73 = fcmp ogt double %69, %72
   br i1 %73, label %74, label %75
@@ -998,12 +998,12 @@ define ptr @cuddCacheLookup2Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddCacheLookup1Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %10 = load i64, ptr %9, align 8, !tbaa !41
   %11 = shl i64 %10, 1
   %12 = and i64 %6, 1
   %13 = or disjoint i64 %11, %12
@@ -1015,23 +1015,23 @@ define ptr @cuddCacheLookup1Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %19 = add i32 %18, %14
   %20 = mul i32 %19, 4256249
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %22 = load i32, ptr %21, align 4, !tbaa !31
+  %22 = load i32, ptr %21, align 4, !tbaa !32
   %23 = lshr i32 %20, %22
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds %struct.DdCache, ptr %5, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !41
+  %27 = load ptr, ptr %26, align 8, !tbaa !42
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %46, label %28
 
 28:                                               ; preds = %3
-  %29 = load ptr, ptr %25, align 8, !tbaa !45
+  %29 = load ptr, ptr %25, align 8, !tbaa !46
   %30 = icmp eq ptr %29, %2
   br i1 %30, label %31, label %46
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !47
+  %33 = load i64, ptr %32, align 8, !tbaa !48
   %34 = icmp eq i64 %33, %15
   br i1 %34, label %35, label %46
 
@@ -1040,34 +1040,34 @@ define ptr @cuddCacheLookup1Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %40 = load double, ptr %39, align 8, !tbaa !36
+  %40 = load double, ptr %39, align 8, !tbaa !37
   %41 = fadd double %40, 1.000000e+00
-  store double %41, ptr %39, align 8, !tbaa !36
+  store double %41, ptr %39, align 8, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !49
+  %43 = load i32, ptr %42, align 4, !tbaa !50
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %61
 
 45:                                               ; preds = %35
   tail call void @cuddReclaimZdd(ptr noundef nonnull %0, ptr noundef nonnull %38) #14
-  %.pre = load ptr, ptr %26, align 8, !tbaa !41
+  %.pre = load ptr, ptr %26, align 8, !tbaa !42
   br label %61
 
 46:                                               ; preds = %31, %28, %3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %48 = load double, ptr %47, align 8, !tbaa !35
+  %48 = load double, ptr %47, align 8, !tbaa !36
   %49 = fadd double %48, 1.000000e+00
-  store double %49, ptr %47, align 8, !tbaa !35
+  store double %49, ptr %47, align 8, !tbaa !36
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %51 = load i32, ptr %50, align 8, !tbaa !33
+  %51 = load i32, ptr %50, align 8, !tbaa !34
   %52 = icmp sgt i32 %51, -1
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %55 = load double, ptr %54, align 8, !tbaa !36
+  %55 = load double, ptr %54, align 8, !tbaa !37
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %57 = load double, ptr %56, align 8, !tbaa !34
+  %57 = load double, ptr %56, align 8, !tbaa !35
   %58 = fmul double %49, %57
   %59 = fcmp ogt double %55, %58
   br i1 %59, label %60, label %61
@@ -1092,7 +1092,7 @@ define ptr @cuddConstantLookup(ptr noundef captures(none) %0, i64 noundef %1, pt
   %12 = and i64 %6, -2
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load i64, ptr %14, align 8, !tbaa !40
+  %15 = load i64, ptr %14, align 8, !tbaa !41
   %16 = shl i64 %15, 1
   %17 = and i64 %6, 1
   %18 = or disjoint i64 %16, %17
@@ -1100,7 +1100,7 @@ define ptr @cuddConstantLookup(ptr noundef captures(none) %0, i64 noundef %1, pt
   %20 = and i64 %8, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i64, ptr %22, align 8, !tbaa !40
+  %23 = load i64, ptr %22, align 8, !tbaa !41
   %24 = shl i64 %23, 1
   %25 = and i64 %8, 1
   %26 = or disjoint i64 %24, %25
@@ -1108,12 +1108,12 @@ define ptr @cuddConstantLookup(ptr noundef captures(none) %0, i64 noundef %1, pt
   %28 = and i64 %11, -2
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load i64, ptr %30, align 8, !tbaa !40
+  %31 = load i64, ptr %30, align 8, !tbaa !41
   %32 = shl i64 %31, 1
   %33 = and i64 %11, 1
   %34 = or disjoint i64 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = trunc i64 %19 to i32
   %38 = trunc i64 %34 to i32
   %39 = add i32 %38, %37
@@ -1122,57 +1122,57 @@ define ptr @cuddConstantLookup(ptr noundef captures(none) %0, i64 noundef %1, pt
   %42 = add i32 %40, %41
   %43 = mul i32 %42, 4256249
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %45 = load i32, ptr %44, align 4, !tbaa !31
+  %45 = load i32, ptr %44, align 4, !tbaa !32
   %46 = lshr i32 %43, %45
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds %struct.DdCache, ptr %36, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !41
+  %50 = load ptr, ptr %49, align 8, !tbaa !42
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %69, label %51
 
 51:                                               ; preds = %5
   %52 = or i64 %7, %6
-  %53 = load ptr, ptr %48, align 8, !tbaa !45
+  %53 = load ptr, ptr %48, align 8, !tbaa !46
   %54 = inttoptr i64 %52 to ptr
   %55 = icmp eq ptr %53, %54
   br i1 %55, label %56, label %69
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !46
+  %58 = load ptr, ptr %57, align 8, !tbaa !47
   %59 = inttoptr i64 %10 to ptr
   %60 = icmp eq ptr %58, %59
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %63 = load i64, ptr %62, align 8, !tbaa !47
+  %63 = load i64, ptr %62, align 8, !tbaa !48
   %64 = icmp eq i64 %63, %11
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %67 = load double, ptr %66, align 8, !tbaa !36
+  %67 = load double, ptr %66, align 8, !tbaa !37
   %68 = fadd double %67, 1.000000e+00
-  store double %68, ptr %66, align 8, !tbaa !36
+  store double %68, ptr %66, align 8, !tbaa !37
   br label %84
 
 69:                                               ; preds = %61, %56, %51, %5
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %71 = load double, ptr %70, align 8, !tbaa !35
+  %71 = load double, ptr %70, align 8, !tbaa !36
   %72 = fadd double %71, 1.000000e+00
-  store double %72, ptr %70, align 8, !tbaa !35
+  store double %72, ptr %70, align 8, !tbaa !36
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %74 = load i32, ptr %73, align 8, !tbaa !33
+  %74 = load i32, ptr %73, align 8, !tbaa !34
   %75 = icmp sgt i32 %74, -1
   br i1 %75, label %76, label %84
 
 76:                                               ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %78 = load double, ptr %77, align 8, !tbaa !36
+  %78 = load double, ptr %77, align 8, !tbaa !37
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %80 = load double, ptr %79, align 8, !tbaa !34
+  %80 = load double, ptr %79, align 8, !tbaa !35
   %81 = fmul double %72, %80
   %82 = fcmp ogt double %78, %81
   br i1 %82, label %83, label %84
@@ -1189,9 +1189,9 @@ define ptr @cuddConstantLookup(ptr noundef captures(none) %0, i64 noundef %1, pt
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @cuddCacheProfile(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load i32, ptr %5, align 8, !tbaa !30
+  %6 = load i32, ptr %5, align 8, !tbaa !31
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1203,13 +1203,13 @@ define range(i32 0, 2) i32 @cuddCacheProfile(ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01620 = phi i32 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %8 = getelementptr inbounds nuw %struct.DdCache, ptr %4, i64 %indvars.iv, i32 2
-  %9 = load i64, ptr %8, align 8, !tbaa !47
+  %9 = load i64, ptr %8, align 8, !tbaa !48
   %10 = icmp eq i64 %9, 0
   %11 = zext i1 %10 to i32
   %12 = add nuw nsw i32 %.01620, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %13 = uitofp nneg i32 %12 to double
@@ -1219,14 +1219,14 @@ define range(i32 0, 2) i32 @cuddCacheProfile(ptr noundef readonly captures(none)
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.016.lcssa = phi double [ 0.000000e+00, %2 ], [ %14, %._crit_edge.loopexit ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %16 = load double, ptr %15, align 8, !tbaa !44
+  %16 = load double, ptr %15, align 8, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %18 = load double, ptr %17, align 8, !tbaa !53
+  %18 = load double, ptr %17, align 8, !tbaa !54
   %19 = fsub double %16, %18
   %20 = fneg double %19
   %21 = sitofp i32 %6 to double
   %22 = fdiv double %20, %21
-  %23 = tail call double @exp(double noundef %22) #14, !tbaa !55
+  %23 = tail call double @exp(double noundef %22) #14, !tbaa !56
   %24 = fsub double 1.000000e+00, %23
   %25 = fmul double %24, 1.000000e+02
   %26 = fdiv double %.016.lcssa, %21
@@ -1249,15 +1249,15 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @cuddCacheFlush(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i32, ptr %2, align 8, !tbaa !30
+  %3 = load i32, ptr %2, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph, label %15
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %.promoted = load double, ptr %7, align 8, !tbaa !56
+  %.promoted = load double, ptr %7, align 8, !tbaa !57
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %8
 
@@ -1265,24 +1265,24 @@ define void @cuddCacheFlush(ptr noundef captures(none) %0) local_unnamed_addr #1
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = phi double [ %.promoted, %.lr.ph ], [ %14, %8 ]
   %10 = getelementptr inbounds nuw %struct.DdCache, ptr %5, i64 %indvars.iv, i32 3
-  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = icmp ne ptr %11, null
   %13 = uitofp i1 %12 to double
   %14 = fadd double %9, %13
-  store ptr null, ptr %10, align 8, !tbaa !41
+  store ptr null, ptr %10, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %8
-  store double %14, ptr %7, align 8, !tbaa !56
+  store double %14, ptr %7, align 8, !tbaa !57
   br label %15
 
 15:                                               ; preds = %._crit_edge, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %17 = load double, ptr %16, align 8, !tbaa !44
+  %17 = load double, ptr %16, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  store double %17, ptr %18, align 8, !tbaa !53
+  store double %17, ptr %18, align 8, !tbaa !54
   ret void
 }
 
@@ -1337,37 +1337,38 @@ attributes #14 = { nounwind }
 !21 = !{!"p1 _ZTS12DdLocalCache", !10, i64 0}
 !22 = !{!"p1 _ZTS6DdHook", !10, i64 0}
 !23 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!4, !12, i64 80}
-!27 = !{!4, !6, i64 624}
-!28 = !{!4, !12, i64 88}
-!29 = !{!4, !11, i64 632}
-!30 = !{!4, !6, i64 96}
-!31 = !{!4, !6, i64 100}
-!32 = !{!4, !6, i64 132}
-!33 = !{!4, !6, i64 128}
-!34 = !{!4, !13, i64 120}
-!35 = !{!4, !13, i64 104}
-!36 = !{!4, !13, i64 112}
-!37 = !{!4, !13, i64 680}
-!38 = !{!4, !13, i64 688}
-!39 = distinct !{!39, !25}
-!40 = !{!5, !11, i64 32}
-!41 = !{!42, !9, i64 24}
-!42 = !{!"DdCache", !9, i64 0, !9, i64 8, !11, i64 16, !9, i64 24, !6, i64 32}
-!43 = !{!4, !13, i64 696}
-!44 = !{!4, !13, i64 704}
-!45 = !{!42, !9, i64 0}
-!46 = !{!42, !9, i64 8}
-!47 = !{!42, !11, i64 16}
-!48 = !{!42, !6, i64 32}
-!49 = !{!5, !6, i64 4}
-!50 = !{!10, !10, i64 0}
-!51 = distinct !{!51, !25}
-!52 = distinct !{!52, !25}
-!53 = !{!4, !13, i64 712}
-!54 = distinct !{!54, !25}
-!55 = !{!6, !6, i64 0}
-!56 = !{!4, !13, i64 720}
-!57 = distinct !{!57, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!4, !12, i64 80}
+!28 = !{!4, !6, i64 624}
+!29 = !{!4, !12, i64 88}
+!30 = !{!4, !11, i64 632}
+!31 = !{!4, !6, i64 96}
+!32 = !{!4, !6, i64 100}
+!33 = !{!4, !6, i64 132}
+!34 = !{!4, !6, i64 128}
+!35 = !{!4, !13, i64 120}
+!36 = !{!4, !13, i64 104}
+!37 = !{!4, !13, i64 112}
+!38 = !{!4, !13, i64 680}
+!39 = !{!4, !13, i64 688}
+!40 = distinct !{!40, !25, !26}
+!41 = !{!5, !11, i64 32}
+!42 = !{!43, !9, i64 24}
+!43 = !{!"DdCache", !9, i64 0, !9, i64 8, !11, i64 16, !9, i64 24, !6, i64 32}
+!44 = !{!4, !13, i64 696}
+!45 = !{!4, !13, i64 704}
+!46 = !{!43, !9, i64 0}
+!47 = !{!43, !9, i64 8}
+!48 = !{!43, !11, i64 16}
+!49 = !{!43, !6, i64 32}
+!50 = !{!5, !6, i64 4}
+!51 = !{!10, !10, i64 0}
+!52 = distinct !{!52, !25, !26}
+!53 = distinct !{!53, !25, !26}
+!54 = !{!4, !13, i64 712}
+!55 = distinct !{!55, !25, !26}
+!56 = !{!6, !6, i64 0}
+!57 = !{!4, !13, i64 720}
+!58 = distinct !{!58, !25, !26}

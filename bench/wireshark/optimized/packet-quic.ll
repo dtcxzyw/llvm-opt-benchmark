@@ -959,7 +959,7 @@ define internal fastcc void @quic_connection_add_cid(ptr noundef nonnull %0, ptr
 15:                                               ; preds = %12, %9
   %16 = load ptr, ptr %.01422.i, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %23, label %9
+  br i1 %.not.i, label %23, label %9, !llvm.loop !8
 
 quic_cids_has_match.exit:                         ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %.01422.i, i64 48
@@ -1152,7 +1152,7 @@ quic_connection_equal.exit.thread:                ; preds = %17, %quic_connectio
   %.3 = phi ptr [ %23, %.preheader ], [ %.0, %10 ]
   %23 = load ptr, ptr %.3, align 8
   %.not30 = icmp eq ptr %23, null
-  br i1 %.not30, label %.loopexit.sink.split, label %.preheader, !llvm.loop !8
+  br i1 %.not30, label %.loopexit.sink.split, label %.preheader, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %quic_connection_equal.exit, %.preheader
   %.140.lcssa.sink43 = phi ptr [ %.3, %.preheader ], [ %.140, %quic_connection_equal.exit ]
@@ -1232,7 +1232,7 @@ define noundef zeroext i1 @quic_get_stream_id_le(i32 noundef %0, i32 noundef %1,
 9:                                                ; preds = %.lr.ph.i
   %10 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.08.i)
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %get_conn_by_number.exit.thread, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %get_conn_by_number.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 get_conn_by_number.exit:                          ; preds = %.lr.ph.i
   %.not = icmp eq ptr %6, null
@@ -1266,7 +1266,7 @@ get_conn_by_number.exit:                          ; preds = %.lr.ph.i
   %24 = trunc i64 %23 to i32
   %25 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.01628)
   %.not21 = icmp eq ptr %25, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %21
   %.not22 = icmp eq i32 %24, -1
@@ -1308,7 +1308,7 @@ define noundef zeroext i1 @quic_get_stream_id_ge(i32 noundef %0, i32 noundef %1,
 9:                                                ; preds = %.lr.ph.i
   %10 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.08.i)
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %get_conn_by_number.exit.thread, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %get_conn_by_number.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 get_conn_by_number.exit:                          ; preds = %.lr.ph.i
   %.not = icmp eq ptr %6, null
@@ -1343,7 +1343,7 @@ get_conn_by_number.exit:                          ; preds = %.lr.ph.i
 23:                                               ; preds = %.lr.ph
   %24 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.022)
   %.not14 = icmp eq ptr %24, null
-  br i1 %.not14, label %get_conn_by_number.exit.thread, label %.lr.ph, !llvm.loop !12
+  br i1 %.not14, label %get_conn_by_number.exit.thread, label %.lr.ph, !llvm.loop !14
 
 get_conn_by_number.exit.thread:                   ; preds = %9, %23, %14, %3, %11, %get_conn_by_number.exit, %19
   %.010 = phi i1 [ true, %19 ], [ false, %get_conn_by_number.exit ], [ false, %11 ], [ false, %3 ], [ false, %14 ], [ false, %23 ], [ false, %9 ]
@@ -1603,7 +1603,7 @@ quic_connection_from_conv.exit.i:                 ; preds = %84
 addresses_equal.exit.i.i:                         ; preds = %112, %105, %101, %.lr.ph.i.i
   %118 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.093.i.i)
   %.not.not.i.i = icmp eq ptr %118, null
-  br i1 %.not.not.i.i, label %quic_connection_from_server_endpoint.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.not.i.i, label %quic_connection_from_server_endpoint.exit.i, label %.lr.ph.i.i, !llvm.loop !15
 
 quic_connection_from_server_endpoint.exit.i:      ; preds = %addresses_equal.exit.i.i, %112, %110, %92
   %119 = phi i8 [ 0, %92 ], [ 1, %110 ], [ 1, %112 ], [ 0, %addresses_equal.exit.i.i ]
@@ -1627,13 +1627,13 @@ quic_connection_from_server_endpoint.exit.i:      ; preds = %addresses_equal.exi
 129:                                              ; preds = %126, %122
   %130 = load ptr, ptr %.02438.i, align 8
   %.not26.i = icmp eq ptr %130, null
-  br i1 %.not26.i, label %131, label %122, !llvm.loop !14
+  br i1 %.not26.i, label %131, label %122, !llvm.loop !16
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %.02240.i, i64 672
   %133 = load ptr, ptr %132, align 8
   %.not.i = icmp eq ptr %133, null
-  br i1 %.not.i, label %.thread197.loopexit, label %92, !llvm.loop !15
+  br i1 %.not.i, label %.thread197.loopexit, label %92, !llvm.loop !17
 
 quic_find_stateless_reset_token.exit:             ; preds = %126
   store i8 %119, ptr %45, align 1
@@ -2062,7 +2062,7 @@ dissect_quic_stateless_reset.exit:                ; preds = %proto_item_set_gene
   %.0.i156 = phi ptr [ %336, %.preheader277 ], [ %264, %333 ]
   %336 = load ptr, ptr %.0.i156, align 8
   %.not52.i = icmp eq ptr %336, null
-  br i1 %.not52.i, label %337, label %.preheader277, !llvm.loop !16
+  br i1 %.not52.i, label %337, label %.preheader277, !llvm.loop !18
 
 337:                                              ; preds = %.preheader277
   %338 = getelementptr inbounds nuw i8, ptr %.0.i156, i64 42
@@ -2345,7 +2345,7 @@ quic_proto_tree_add_version.exit.i:               ; preds = %458, %.lr.ph.i163
   %459 = add i32 %.01.i, 4
   %460 = call i32 @tvb_reported_length_remaining(ptr noundef %.3.i, i32 noundef %459)
   %461 = icmp sgt i32 %460, 0
-  br i1 %461, label %.lr.ph.i163, label %dissect_quic_version_negotiation.exit, !llvm.loop !17
+  br i1 %461, label %.lr.ph.i163, label %dissect_quic_version_negotiation.exit, !llvm.loop !19
 
 dissect_quic_version_negotiation.exit:            ; preds = %quic_proto_tree_add_version.exit.i, %446
   %.0.lcssa.i = phi i32 [ %450, %446 ], [ %459, %quic_proto_tree_add_version.exit.i ]
@@ -3006,7 +3006,7 @@ quic_is_hp_cipher_initialized.exit.i:             ; preds = %.critedge.i.i, %qui
 722:                                              ; preds = %719, %quic_is_hp_cipher_initialized.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %quic_create_0rtt_decoder.exit.i, label %701, !llvm.loop !18
+  br i1 %exitcond.not.i, label %quic_create_0rtt_decoder.exit.i, label %701, !llvm.loop !20
 
 quic_create_0rtt_decoder.exit.i:                  ; preds = %722
   %.pr216.pre.i = load ptr, ptr %23, align 8
@@ -3949,7 +3949,7 @@ dissect_quic_short_header.exit:                   ; preds = %1128, %1130, %1131,
   %1246 = add i32 %1245, %.0115
   %1247 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1246)
   %.not144 = icmp eq i32 %1247, 0
-  br i1 %.not144, label %.loopexit234, label %300, !llvm.loop !19
+  br i1 %.not144, label %.loopexit234, label %300, !llvm.loop !21
 
 .loopexit234:                                     ; preds = %1244, %435, %442, %dissect_quic_version_negotiation.exit, %.loopexit, %dissect_quic_stateless_reset.exit
   %.0 = phi i32 [ %299, %dissect_quic_stateless_reset.exit ], [ %.0115, %.loopexit ], [ %440, %435 ], [ %440, %442 ], [ %462, %dissect_quic_version_negotiation.exit ], [ %1246, %1244 ]
@@ -4629,7 +4629,7 @@ quic_connection_equal.exit.thread:                ; preds = %30, %quic_connectio
 45:                                               ; preds = %42, %39
   %46 = load ptr, ptr %.01422.i, align 8
   %.not.i71 = icmp eq ptr %46, null
-  br i1 %.not.i71, label %.loopexit104, label %39
+  br i1 %.not.i71, label %.loopexit104, label %39, !llvm.loop !8
 
 quic_cids_has_match.exit:                         ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %.01422.i, i64 48
@@ -4685,13 +4685,13 @@ quic_cids_has_match.exit:                         ; preds = %42
 67:                                               ; preds = %64, %61
   %68 = load ptr, ptr %.01422.i72.us, align 8
   %.not.i76.us = icmp eq ptr %68, null
-  br i1 %.not.i76.us, label %quic_cids_has_match.exit87.thread.us, label %61
+  br i1 %.not.i76.us, label %quic_cids_has_match.exit87.thread.us, label %61, !llvm.loop !8
 
 quic_cids_has_match.exit87.thread.us:             ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %.3113.us, i64 672
   %70 = load ptr, ptr %69, align 8
   %.not64.us = icmp eq ptr %70, null
-  br i1 %.not64.us, label %.lr.ph124.preheader, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %.not64.us, label %.lr.ph124.preheader, label %.lr.ph.split.us, !llvm.loop !22
 
 quic_cids_has_match.exit79.thread:                ; preds = %.lr.ph, %quic_cids_has_match.exit87.thread.loopexit
   %.3113 = phi ptr [ %81, %quic_cids_has_match.exit87.thread.loopexit ], [ %55, %.lr.ph ]
@@ -4715,13 +4715,13 @@ quic_cids_has_match.exit79.thread:                ; preds = %.lr.ph, %quic_cids_
 78:                                               ; preds = %75, %72
   %79 = load ptr, ptr %.01422.i80, align 8
   %.not.i84 = icmp eq ptr %79, null
-  br i1 %.not.i84, label %quic_cids_has_match.exit87.thread.loopexit, label %72
+  br i1 %.not.i84, label %quic_cids_has_match.exit87.thread.loopexit, label %72, !llvm.loop !8
 
 quic_cids_has_match.exit87.thread.loopexit:       ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %.3113, i64 672
   %81 = load ptr, ptr %80, align 8
   %.not64 = icmp eq ptr %81, null
-  br i1 %.not64, label %.lr.ph124.preheader, label %quic_cids_has_match.exit79.thread, !llvm.loop !22
+  br i1 %.not64, label %.lr.ph124.preheader, label %quic_cids_has_match.exit79.thread, !llvm.loop !24
 
 .loopexit:                                        ; preds = %75, %64
   %.01422.i80.lcssa.sink150 = phi ptr [ %.01422.i72.us, %64 ], [ %.01422.i80, %75 ]
@@ -4759,7 +4759,7 @@ quic_cids_has_match.exit87.thread.loopexit:       ; preds = %78
 99:                                               ; preds = %97, %90
   %.5 = phi ptr [ %98, %97 ], [ null, %90 ]
   %.not67 = icmp eq ptr %.5, null
-  br i1 %.not67, label %.lr.ph124, label %.critedge69, !llvm.loop !23
+  br i1 %.not67, label %.lr.ph124, label %.critedge69, !llvm.loop !25
 
 .critedge:                                        ; preds = %.lr.ph124
   store i8 0, ptr %2, align 8
@@ -4973,7 +4973,7 @@ define internal fastcc ptr @quic_connection_find_dcid(ptr noundef %0, ptr nounde
 addresses_equal.exit.i:                           ; preds = %57, %50, %46, %39
   %63 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.093.i)
   %.not.not.i = icmp eq ptr %63, null
-  br i1 %.not.not.i, label %quic_connection_from_server_endpoint.exit, label %39, !llvm.loop !13
+  br i1 %.not.not.i, label %quic_connection_from_server_endpoint.exit, label %39, !llvm.loop !15
 
 quic_connection_from_server_endpoint.exit:        ; preds = %55, %57, %addresses_equal.exit.i, %31
   %.not.lcssa.i = phi i8 [ 0, %31 ], [ 0, %addresses_equal.exit.i ], [ 1, %57 ], [ 1, %55 ]
@@ -5487,7 +5487,7 @@ define internal fastcc noundef zeroext i1 @quic_decrypt_header(ptr noundef %0, i
   %38 = shl nuw i32 %35, %37
   %39 = or i32 %38, %.0301
   %exitcond.not = icmp eq i64 %indvars.iv.next, %25
-  br i1 %exitcond.not, label %28, label %29, !llvm.loop !24
+  br i1 %exitcond.not, label %28, label %29, !llvm.loop !26
 
 40:                                               ; preds = %10, %18, %16, %13, %28
   %.1 = phi i1 [ true, %28 ], [ false, %13 ], [ false, %16 ], [ false, %18 ], [ false, %10 ]
@@ -5664,7 +5664,7 @@ quic_is_pp_cipher_initialized.exit:               ; preds = %85
   store i8 %110, ptr %115, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
 
 116:                                              ; preds = %._crit_edge.i
   store ptr @.str.514, ptr %78, align 8
@@ -6112,7 +6112,7 @@ proto_item_set_generated.exit.i:                  ; preds = %312, %309, %302
   %363 = add i64 %362, -1
   store i64 %363, ptr %16, align 8
   %.not440.i = icmp eq i64 %363, 0
-  br i1 %.not440.i, label %._crit_edge.i53, label %.lr.ph.i52, !llvm.loop !26
+  br i1 %.not440.i, label %._crit_edge.i53, label %.lr.ph.i52, !llvm.loop !28
 
 ._crit_edge.i53:                                  ; preds = %.lr.ph.i52, %337
   %.2.lcssa.i = phi i32 [ %353, %337 ], [ %361, %.lr.ph.i52 ]
@@ -6484,7 +6484,7 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   %.1211.i.i = select i1 %.not246.not.i.i, i32 %.021043.i.i, i32 %563
   %.0209.i.i = load ptr, ptr %.020944.i.i, align 8
   %.not245.i.i = icmp eq ptr %.0209.i.i, null
-  br i1 %.not245.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %.not245.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 .thread2.thread.i.i:                              ; preds = %551
   %564 = zext i32 %462 to i64
@@ -7348,7 +7348,7 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %999, %996, %993, %9
 .backedge.i.i.i.backedge:                         ; preds = %1003, %929
   %.0213.i.i.i.be = phi i32 [ %1005, %1003 ], [ %.pre-phi.i.i.i, %929 ]
   %.0.i.i.i.be = phi i32 [ %1004, %1003 ], [ %930, %929 ]
-  br label %.backedge.i.i.i
+  br label %.backedge.i.i.i, !llvm.loop !30
 
 dissect_quic_stream_payload.exit.i:               ; preds = %proto_item_set_generated.exit.i.i.i, %808, %proto_item_set_generated.exit.thread.i.i.i, %790
   %1006 = load i64, ptr %35, align 8
@@ -7938,7 +7938,7 @@ dissect_quic_frame_type.exit:                     ; preds = %proto_item_set_gene
   %.1 = phi i32 [ %288, %286 ], [ %.0430.i, %dissect_quic_frame_type.exit ]
   %1308 = call i32 @tvb_reported_length_remaining(ptr noundef %256, i32 noundef %.1)
   %1309 = icmp sgt i32 %1308, 0
-  br i1 %1309, label %284, label %.loopexit, !llvm.loop !28
+  br i1 %1309, label %284, label %.loopexit, !llvm.loop !31
 
 1310:                                             ; preds = %.thread
   %1311 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8138,7 +8138,7 @@ quic_hp_cipher_init.exit.thread:                  ; preds = %16
 quic_hp_cipher_init.exit:                         ; preds = %16
   %26 = load ptr, ptr %8, align 8
   %27 = and i64 %17, 255
-  %28 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %26, i64 noundef range(i64 0, 4294967296) %27, i64 noundef 32) #18, !alias.scope !29
+  %28 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %26, i64 noundef range(i64 0, 4294967296) %27, i64 noundef 32) #18, !alias.scope !32
   call void @wmem_free(ptr noundef null, ptr noundef %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
@@ -8232,7 +8232,7 @@ quic_hkdf_expand_label.exit.i:                    ; preds = %27
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr %11, align 8
-  %36 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef %35, i64 noundef range(i64 0, 4294967296) %25, i64 noundef 32) #18, !alias.scope !33
+  %36 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef %35, i64 noundef range(i64 0, 4294967296) %25, i64 noundef 32) #18, !alias.scope !36
   call void @wmem_free(ptr noundef null, ptr noundef %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #18
@@ -8792,31 +8792,34 @@ attributes #20 = { allocsize(0) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"memcpy.inline: argument 0"}
-!31 = distinct !{!31, !"memcpy.inline"}
-!32 = distinct !{!32, !31, !"memcpy.inline: argument 1"}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
-!35 = distinct !{!35, !"memcpy.inline"}
-!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11, !9}
+!13 = distinct !{!13, !11, !9}
+!14 = distinct !{!14, !11, !9}
+!15 = distinct !{!15, !11, !9}
+!16 = distinct !{!16, !11, !9}
+!17 = distinct !{!17, !11, !9}
+!18 = distinct !{!18, !11, !9}
+!19 = distinct !{!19, !11, !9}
+!20 = distinct !{!20, !11, !9}
+!21 = distinct !{!21, !11, !9}
+!22 = distinct !{!22, !11, !9, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !11, !9}
+!25 = distinct !{!25, !11, !9}
+!26 = distinct !{!26, !11, !9}
+!27 = distinct !{!27, !11, !9}
+!28 = distinct !{!28, !11, !9}
+!29 = distinct !{!29, !11, !9}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !11, !9}
+!32 = !{!33, !35}
+!33 = distinct !{!33, !34, !"memcpy.inline: argument 0"}
+!34 = distinct !{!34, !"memcpy.inline"}
+!35 = distinct !{!35, !34, !"memcpy.inline: argument 1"}
+!36 = !{!37, !39}
+!37 = distinct !{!37, !38, !"memcpy.inline: argument 0"}
+!38 = distinct !{!38, !"memcpy.inline"}
+!39 = distinct !{!39, !38, !"memcpy.inline: argument 1"}

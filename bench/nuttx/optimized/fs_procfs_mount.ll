@@ -264,7 +264,7 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
 .critedge2:                                       ; preds = %32, %34
   %39 = add nuw nsw i32 %.1, 1
   %40 = lshr i32 %.044, 10
-  br label %32, !llvm.loop !8
+  br label %32, !llvm.loop !9
 
 41:                                               ; preds = %34
   %42 = sub i32 %15, %28
@@ -289,7 +289,7 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
 .critedge4:                                       ; preds = %46, %48
   %53 = add nuw nsw i32 %.2, 1
   %54 = lshr i32 %.043, 10
-  br label %46, !llvm.loop !9
+  br label %46, !llvm.loop !10
 
 55:                                               ; preds = %48
   %56 = zext nneg i32 %.2 to i64
@@ -384,7 +384,8 @@ attributes #15 = { allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

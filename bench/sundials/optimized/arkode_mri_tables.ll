@@ -2235,7 +2235,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %25 = fadd double %.0133174, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %21, %10
   %.0133.lcssa = phi double [ %14, %10 ], [ %25, %21 ]
@@ -2261,7 +2261,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
 34:                                               ; preds = %.lr.ph177
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
-  br i1 %exitcond228.not, label %.preheader168, label %.lr.ph177
+  br i1 %exitcond228.not, label %.preheader168, label %.lr.ph177, !llvm.loop !36
 
 .preheader168:                                    ; preds = %34, %.preheader169
   br i1 %17, label %.lr.ph185, label %.thread290
@@ -2291,7 +2291,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %.2135.lcssa = phi double [ %.1134183, %45 ], [ %54, %50 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count239
-  br i1 %exitcond240.not, label %._crit_edge186, label %45
+  br i1 %exitcond240.not, label %._crit_edge186, label %45, !llvm.loop !37
 
 45:                                               ; preds = %.lr.ph185, %.loopexit167
   %indvars.iv236 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next237, %.loopexit167 ]
@@ -2316,7 +2316,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %54 = fadd double %.2135179, %53
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count239
-  br i1 %exitcond235.not, label %.loopexit167, label %50
+  br i1 %exitcond235.not, label %.loopexit167, label %50, !llvm.loop !38
 
 ._crit_edge186:                                   ; preds = %.loopexit167
   %55 = fcmp ogt double %.2135.lcssa, 0x3D19000000000000
@@ -2350,7 +2350,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %.2138 = select i1 %73, i32 1, i32 %.1137189
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %._crit_edge192.loopexit, label %66
+  br i1 %exitcond245.not, label %._crit_edge192.loopexit, label %66, !llvm.loop !39
 
 ._crit_edge192.loopexit:                          ; preds = %66
   %74 = icmp eq i32 %.2138, 0
@@ -2409,12 +2409,12 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %.2131 = select i1 %98, i32 1, i32 %.1130195
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count254
-  br i1 %exitcond252.not, label %99, label %94
+  br i1 %exitcond252.not, label %99, label %94, !llvm.loop !40
 
 99:                                               ; preds = %94
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond255.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count254
-  br i1 %exitcond255.not, label %._crit_edge198, label %.preheader166
+  br i1 %exitcond255.not, label %._crit_edge198, label %.preheader166, !llvm.loop !41
 
 ._crit_edge198:                                   ; preds = %99, %88
   %.0129.lcssa = phi i32 [ 0, %88 ], [ %.2131, %99 ]
@@ -2446,7 +2446,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   store double %111, ptr %112, align 8, !tbaa !18
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
-  br i1 %exitcond260.not, label %._crit_edge203, label %109
+  br i1 %exitcond260.not, label %._crit_edge203, label %109, !llvm.loop !42
 
 ._crit_edge203:                                   ; preds = %109, %101
   br i1 %.not155159, label %119, label %113
@@ -2464,7 +2464,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   %120 = icmp eq i32 %.0129.lcssa, 0
   %.0132.in.v = select i1 %120, i64 32, i64 40
   %.0132.in = getelementptr inbounds nuw i8, ptr %100, i64 %.0132.in.v
-  %.0132 = load ptr, ptr %.0132.in, align 8, !tbaa !34
+  %.0132 = load ptr, ptr %.0132.in, align 8, !tbaa !43
   %121 = icmp sgt i32 %89, 0
   br i1 %121, label %.preheader165.lr.ph.split.us, label %.preheader164
 
@@ -2481,7 +2481,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   tail call void @llvm.memset.p0.i64(ptr align 8 %126, i8 0, i64 %124, i1 false), !tbaa !18
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %123
-  br i1 %exitcond268.not, label %.preheader164, label %.preheader165.us, !llvm.loop !35
+  br i1 %exitcond268.not, label %.preheader164, label %.preheader165.us, !llvm.loop !44
 
 .preheader164:                                    ; preds = %.preheader165.us, %119
   %127 = icmp sgt i32 %104, 1
@@ -2515,12 +2515,12 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   store double %142, ptr %143, align 8, !tbaa !18
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count277
-  br i1 %exitcond273.not, label %._crit_edge211.us, label %137
+  br i1 %exitcond273.not, label %._crit_edge211.us, label %137, !llvm.loop !46
 
 ._crit_edge211.us:                                ; preds = %137
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count277
-  br i1 %exitcond278.not, label %._crit_edge213, label %.preheader163.us, !llvm.loop !37
+  br i1 %exitcond278.not, label %._crit_edge213, label %.preheader163.us, !llvm.loop !47
 
 ._crit_edge213:                                   ; preds = %._crit_edge211.us, %.preheader164
   %144 = icmp slt i32 %104, 1
@@ -2554,7 +2554,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   store double %163, ptr %164, align 8, !tbaa !18
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond283.not = icmp eq i64 %indvars.iv.next280, %149
-  br i1 %exitcond283.not, label %.loopexit162, label %158
+  br i1 %exitcond283.not, label %.loopexit162, label %158, !llvm.loop !48
 
 .loopexit162:                                     ; preds = %158, %._crit_edge213
   %or.cond219 = and i1 %5, %105
@@ -2586,7 +2586,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   store double %182, ptr %183, align 8, !tbaa !18
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next285, %169
-  br i1 %exitcond288.not, label %.loopexit, label %177
+  br i1 %exitcond288.not, label %.loopexit, label %177, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph177, %177, %.loopexit162, %._crit_edge198, %._crit_edge186, %27, %._crit_edge, %6, %3
   %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %._crit_edge ], [ null, %27 ], [ null, %._crit_edge186 ], [ null, %._crit_edge198 ], [ %100, %.loopexit162 ], [ %100, %177 ], [ null, %.lr.ph177 ]
@@ -2608,11 +2608,11 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %6
-  store i32 %2, ptr %7, align 8, !tbaa !38
+  store i32 %2, ptr %7, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %0, ptr %9, align 4, !tbaa !39
+  store i32 %0, ptr %9, align 4, !tbaa !51
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %1, ptr %10, align 8, !tbaa !40
+  store i32 %1, ptr %10, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %11, align 4, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2660,7 +2660,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 28:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
-  br i1 %exitcond.not, label %.preheader155.preheader, label %30
+  br i1 %exitcond.not, label %.preheader155.preheader, label %30, !llvm.loop !53
 
 .preheader155.preheader:                          ; preds = %28
   %29 = add nuw i32 %1, 1
@@ -2684,7 +2684,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 35:                                               ; preds = %36
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %._crit_edge, label %36
+  br i1 %exitcond184.not, label %._crit_edge, label %36, !llvm.loop !54
 
 36:                                               ; preds = %.preheader155, %35
   %indvars.iv180 = phi i64 [ 0, %.preheader155 ], [ %indvars.iv.next181, %35 ]
@@ -2697,7 +2697,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 ._crit_edge:                                      ; preds = %35
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %24
-  br i1 %exitcond189.not, label %._crit_edge163, label %.preheader155
+  br i1 %exitcond189.not, label %._crit_edge163, label %.preheader155, !llvm.loop !55
 
 ._crit_edge163:                                   ; preds = %._crit_edge
   switch i32 %2, label %.loopexit [
@@ -2726,7 +2726,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 44:                                               ; preds = %46
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %.pre-phi
-  br i1 %exitcond194.not, label %.preheader152.preheader, label %46
+  br i1 %exitcond194.not, label %.preheader152.preheader, label %46, !llvm.loop !56
 
 .preheader152.preheader:                          ; preds = %44
   %45 = add nuw i32 %1, 1
@@ -2750,7 +2750,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 51:                                               ; preds = %52
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count199
-  br i1 %exitcond200.not, label %._crit_edge169, label %52
+  br i1 %exitcond200.not, label %._crit_edge169, label %52, !llvm.loop !57
 
 52:                                               ; preds = %.preheader152, %51
   %indvars.iv195 = phi i64 [ 0, %.preheader152 ], [ %indvars.iv.next196, %51 ]
@@ -2763,7 +2763,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 ._crit_edge169:                                   ; preds = %51
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %.pre-phi
-  br i1 %exitcond205.not, label %._crit_edge171, label %.preheader152
+  br i1 %exitcond205.not, label %._crit_edge171, label %.preheader152, !llvm.loop !58
 
 ._crit_edge171:                                   ; preds = %._crit_edge169, %.preheader154
   br i1 %18, label %55, label %.loopexit
@@ -2796,7 +2796,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %62, i8 -1, i64 %59, i1 false), !tbaa !32
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %19
-  br i1 %exitcond213.not, label %.loopexit, label %60, !llvm.loop !41
+  br i1 %exitcond213.not, label %.loopexit, label %60, !llvm.loop !59
 
 .loopexit.sink.split:                             ; preds = %30, %36, %46, %52, %60, %55, %39, %23, %8
   tail call void @MRIStepCoupling_Free(ptr noundef nonnull %7)
@@ -5085,7 +5085,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
 
 .preheader81:                                     ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !39
+  %10 = load i32, ptr %9, align 4, !tbaa !51
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph85, label %._crit_edge86
 
@@ -5103,7 +5103,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   br i1 %.not75, label %37, label %.preheader80
 
 .preheader80:                                     ; preds = %13
-  %18 = load i32, ptr %12, align 8, !tbaa !40
+  %18 = load i32, ptr %12, align 8, !tbaa !52
   %.not7682 = icmp slt i32 %18, 0
   br i1 %.not7682, label %._crit_edge, label %.lr.ph
 
@@ -5125,7 +5125,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %28 = load ptr, ptr %27, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   store ptr null, ptr %29, align 8, !tbaa !22
-  %.pre = load i32, ptr %12, align 8, !tbaa !40
+  %.pre = load i32, ptr %12, align 8, !tbaa !52
   br label %30
 
 30:                                               ; preds = %.lr.ph, %25
@@ -5135,7 +5135,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %31 to i64
   %.not76.not = icmp slt i64 %indvars.iv, %33
-  br i1 %.not76.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not76.not, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %30, %.preheader80
   %34 = phi ptr [ %17, %.preheader80 ], [ %.pre110, %30 ]
@@ -5143,7 +5143,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %35 = load ptr, ptr %7, align 8, !tbaa !20
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv98
   store ptr null, ptr %36, align 8, !tbaa !21
-  %.pre111 = load i32, ptr %9, align 4, !tbaa !39
+  %.pre111 = load i32, ptr %9, align 4, !tbaa !51
   br label %37
 
 37:                                               ; preds = %13, %._crit_edge
@@ -5152,7 +5152,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %40 = sext i32 %38 to i64
   %41 = icmp slt i64 %indvars.iv.next99, %40
-  br i1 %41, label %13, label %._crit_edge86
+  br i1 %41, label %13, label %._crit_edge86, !llvm.loop !61
 
 ._crit_edge86:                                    ; preds = %37, %.preheader81
   %42 = phi ptr [ %8, %.preheader81 ], [ %39, %37 ]
@@ -5167,7 +5167,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
 
 .preheader79:                                     ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !39
+  %47 = load i32, ptr %46, align 4, !tbaa !51
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph92, label %._crit_edge93
 
@@ -5185,7 +5185,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   br i1 %.not72, label %74, label %.preheader78
 
 .preheader78:                                     ; preds = %50
-  %55 = load i32, ptr %49, align 8, !tbaa !40
+  %55 = load i32, ptr %49, align 8, !tbaa !52
   %.not7387 = icmp slt i32 %55, 0
   br i1 %.not7387, label %._crit_edge90, label %.lr.ph89
 
@@ -5207,7 +5207,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %65 = load ptr, ptr %64, align 8, !tbaa !21
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv101
   store ptr null, ptr %66, align 8, !tbaa !22
-  %.pre112 = load i32, ptr %49, align 8, !tbaa !40
+  %.pre112 = load i32, ptr %49, align 8, !tbaa !52
   br label %67
 
 67:                                               ; preds = %.lr.ph89, %62
@@ -5217,7 +5217,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %70 = sext i32 %68 to i64
   %.not73.not = icmp slt i64 %indvars.iv101, %70
-  br i1 %.not73.not, label %.lr.ph89, label %._crit_edge90
+  br i1 %.not73.not, label %.lr.ph89, label %._crit_edge90, !llvm.loop !62
 
 ._crit_edge90:                                    ; preds = %67, %.preheader78
   %71 = phi ptr [ %54, %.preheader78 ], [ %.pre114, %67 ]
@@ -5225,7 +5225,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %72 = load ptr, ptr %44, align 8, !tbaa !23
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv104
   store ptr null, ptr %73, align 8, !tbaa !21
-  %.pre115 = load i32, ptr %46, align 4, !tbaa !39
+  %.pre115 = load i32, ptr %46, align 4, !tbaa !51
   br label %74
 
 74:                                               ; preds = %50, %._crit_edge90
@@ -5234,7 +5234,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %77 = sext i32 %75 to i64
   %78 = icmp slt i64 %indvars.iv.next105, %77
-  br i1 %78, label %50, label %._crit_edge93
+  br i1 %78, label %50, label %._crit_edge93, !llvm.loop !63
 
 ._crit_edge93:                                    ; preds = %74, %.preheader79
   %79 = phi ptr [ %45, %.preheader79 ], [ %76, %74 ]
@@ -5249,7 +5249,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
 
 .preheader:                                       ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %84 = load i32, ptr %83, align 8, !tbaa !40
+  %84 = load i32, ptr %83, align 8, !tbaa !52
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %.lr.ph95, label %._crit_edge96
 
@@ -5267,7 +5267,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %91 = load ptr, ptr %81, align 8, !tbaa !29
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv107
   store ptr null, ptr %92, align 8, !tbaa !30
-  %.pre116 = load i32, ptr %83, align 8, !tbaa !40
+  %.pre116 = load i32, ptr %83, align 8, !tbaa !52
   br label %93
 
 93:                                               ; preds = %.lr.ph95, %90
@@ -5276,7 +5276,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %96 = sext i32 %94 to i64
   %97 = icmp slt i64 %indvars.iv.next108, %96
-  br i1 %97, label %.lr.ph95, label %._crit_edge96
+  br i1 %97, label %.lr.ph95, label %._crit_edge96, !llvm.loop !64
 
 ._crit_edge96:                                    ; preds = %93, %.preheader
   %98 = phi ptr [ %82, %.preheader ], [ %95, %93 ]
@@ -5341,7 +5341,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   store double %27, ptr %28, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %25
   %29 = icmp eq i32 %3, 0
@@ -5379,7 +5379,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 ._crit_edge130.us.us:                             ; preds = %64, %58, %.lr.ph129.split.us137.us
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count180
-  br i1 %exitcond181.not, label %._crit_edge134.split.us.us, label %.preheader123.us.us, !llvm.loop !42
+  br i1 %exitcond181.not, label %._crit_edge134.split.us.us, label %.preheader123.us.us, !llvm.loop !66
 
 .lr.ph129.split.us.us.us:                         ; preds = %.preheader123.us.us
   %39 = load ptr, ptr %31, align 8, !tbaa !20
@@ -5413,7 +5413,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 58:                                               ; preds = %49, %44
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count174
-  br i1 %exitcond175.not, label %._crit_edge130.us.us, label %44, !llvm.loop !43
+  br i1 %exitcond175.not, label %._crit_edge130.us.us, label %44, !llvm.loop !67
 
 .lr.ph129.split.split.us.us.us:                   ; preds = %.lr.ph129.split.us137.us
   %59 = load ptr, ptr %32, align 8, !tbaa !23
@@ -5432,12 +5432,12 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   store double %65, ptr %66, align 8, !tbaa !18
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count168
-  br i1 %exitcond169.not, label %._crit_edge130.us.us, label %64, !llvm.loop !44
+  br i1 %exitcond169.not, label %._crit_edge130.us.us, label %64, !llvm.loop !68
 
 ._crit_edge134.split.us.us:                       ; preds = %._crit_edge130.us.us
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count186
-  br i1 %exitcond187.not, label %.loopexit, label %.preheader124.us141, !llvm.loop !45
+  br i1 %exitcond187.not, label %.loopexit, label %.preheader124.us141, !llvm.loop !69
 
 .preheader121.us.preheader:                       ; preds = %._crit_edge
   %67 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -5465,7 +5465,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 ._crit_edge145.us.us:                             ; preds = %98, %92, %.lr.ph144.split.us151.us
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count204
-  br i1 %exitcond205.not, label %._crit_edge148.split.us.us, label %.preheader.us.us, !llvm.loop !46
+  br i1 %exitcond205.not, label %._crit_edge148.split.us.us, label %.preheader.us.us, !llvm.loop !70
 
 .lr.ph144.split.us.us.us:                         ; preds = %.preheader.us.us
   %73 = load ptr, ptr %67, align 8, !tbaa !20
@@ -5499,7 +5499,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 92:                                               ; preds = %83, %78
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count204
-  br i1 %exitcond199.not, label %._crit_edge145.us.us, label %78, !llvm.loop !47
+  br i1 %exitcond199.not, label %._crit_edge145.us.us, label %78, !llvm.loop !71
 
 .lr.ph144.split.split.us.us.us:                   ; preds = %.lr.ph144.split.us151.us
   %93 = load ptr, ptr %68, align 8, !tbaa !23
@@ -5518,12 +5518,12 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   store double %99, ptr %100, align 8, !tbaa !18
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count204
-  br i1 %exitcond193.not, label %._crit_edge145.us.us, label %98, !llvm.loop !48
+  br i1 %exitcond193.not, label %._crit_edge145.us.us, label %98, !llvm.loop !72
 
 ._crit_edge148.split.us.us:                       ; preds = %._crit_edge145.us.us
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count210
-  br i1 %exitcond211.not, label %.loopexit, label %.preheader121.us, !llvm.loop !49
+  br i1 %exitcond211.not, label %.loopexit, label %.preheader121.us, !llvm.loop !73
 
 .loopexit:                                        ; preds = %._crit_edge134.split.us.us, %._crit_edge148.split.us.us, %17, %16, %7
   %.0114 = phi ptr [ null, %7 ], [ null, %16 ], [ null, %17 ], [ %20, %._crit_edge148.split.us.us ], [ %20, %._crit_edge134.split.us.us ]
@@ -5545,11 +5545,11 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
   br i1 %.not81, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr %0, align 8, !tbaa !38
+  %6 = load i32, ptr %0, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !39
+  %8 = load i32, ptr %7, align 4, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !40
+  %10 = load i32, ptr %9, align 8, !tbaa !52
   %11 = tail call ptr @MRIStepCoupling_Alloc(i32 noundef %8, i32 noundef %10, i32 noundef %6)
   %.not82 = icmp eq ptr %11, null
   br i1 %.not82, label %.loopexit, label %12
@@ -5581,7 +5581,7 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
   store double %25, ptr %26, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %23, %12
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5631,17 +5631,17 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
   store double %43, ptr %44, align 8, !tbaa !18
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %._crit_edge99.us.us, label %41
+  br i1 %exitcond129.not, label %._crit_edge99.us.us, label %41, !llvm.loop !75
 
 ._crit_edge99.us.us:                              ; preds = %41
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %._crit_edge102.split.us.us, label %.preheader92.us.us, !llvm.loop !50
+  br i1 %exitcond134.not, label %._crit_edge102.split.us.us, label %.preheader92.us.us, !llvm.loop !76
 
 ._crit_edge102.split.us.us:                       ; preds = %._crit_edge99.us.us
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %.loopexit95, label %.preheader93.us104, !llvm.loop !51
+  br i1 %exitcond139.not, label %.loopexit95, label %.preheader93.us104, !llvm.loop !77
 
 .loopexit95:                                      ; preds = %._crit_edge102.split.us.us, %.preheader93.lr.ph, %._crit_edge
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5684,17 +5684,17 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
   store double %60, ptr %61, align 8, !tbaa !18
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %._crit_edge108.us.us, label %58
+  br i1 %exitcond144.not, label %._crit_edge108.us.us, label %58, !llvm.loop !78
 
 ._crit_edge108.us.us:                             ; preds = %58
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %._crit_edge111.split.us.us, label %.preheader88.us.us, !llvm.loop !52
+  br i1 %exitcond149.not, label %._crit_edge111.split.us.us, label %.preheader88.us.us, !llvm.loop !79
 
 ._crit_edge111.split.us.us:                       ; preds = %._crit_edge108.us.us
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %.loopexit91, label %.preheader89.us113, !llvm.loop !53
+  br i1 %exitcond154.not, label %.loopexit91, label %.preheader89.us113, !llvm.loop !80
 
 .loopexit91:                                      ; preds = %._crit_edge111.split.us.us, %.loopexit95, %.preheader93.lr.ph.split
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5731,12 +5731,12 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
   store i32 %76, ptr %77, align 4, !tbaa !32
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count163
-  br i1 %exitcond159.not, label %._crit_edge117.us, label %74
+  br i1 %exitcond159.not, label %._crit_edge117.us, label %74, !llvm.loop !81
 
 ._crit_edge117.us:                                ; preds = %74
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit, label %.preheader.us, !llvm.loop !54
+  br i1 %exitcond164.not, label %.loopexit, label %.preheader.us, !llvm.loop !82
 
 .loopexit:                                        ; preds = %._crit_edge117.us, %64, %.loopexit91, %5, %2, %1
   %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ null, %5 ], [ %11, %.loopexit91 ], [ %11, %64 ], [ %11, %._crit_edge117.us ]
@@ -5745,13 +5745,13 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @MRIStepCoupling_Space(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #6 {
-  store i64 0, ptr %1, align 8, !tbaa !55
-  store i64 0, ptr %2, align 8, !tbaa !55
+  store i64 0, ptr %1, align 8, !tbaa !83
+  store i64 0, ptr %2, align 8, !tbaa !83
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %51, label %4
 
 4:                                                ; preds = %3
-  store i64 5, ptr %1, align 8, !tbaa !55
+  store i64 5, ptr %1, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %.not21 = icmp eq ptr %6, null
@@ -5759,11 +5759,11 @@ define void @MRIStepCoupling_Space(ptr noundef readonly captures(address_is_null
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !40
+  %9 = load i32, ptr %8, align 8, !tbaa !52
   %10 = sext i32 %9 to i64
-  %11 = load i64, ptr %2, align 8, !tbaa !55
+  %11 = load i64, ptr %2, align 8, !tbaa !83
   %12 = add nsw i64 %11, %10
-  store i64 %12, ptr %2, align 8, !tbaa !55
+  store i64 %12, ptr %2, align 8, !tbaa !83
   br label %13
 
 13:                                               ; preds = %7, %4
@@ -5774,16 +5774,16 @@ define void @MRIStepCoupling_Space(ptr noundef readonly captures(address_is_null
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !39
+  %18 = load i32, ptr %17, align 4, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !40
+  %20 = load i32, ptr %19, align 8, !tbaa !52
   %21 = add nsw i32 %20, 1
   %22 = mul i32 %20, %18
   %23 = mul i32 %22, %21
   %24 = sext i32 %23 to i64
-  %25 = load i64, ptr %2, align 8, !tbaa !55
+  %25 = load i64, ptr %2, align 8, !tbaa !83
   %26 = add nsw i64 %25, %24
-  store i64 %26, ptr %2, align 8, !tbaa !55
+  store i64 %26, ptr %2, align 8, !tbaa !83
   br label %27
 
 27:                                               ; preds = %16, %13
@@ -5794,16 +5794,16 @@ define void @MRIStepCoupling_Space(ptr noundef readonly captures(address_is_null
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !39
+  %32 = load i32, ptr %31, align 4, !tbaa !51
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !40
+  %34 = load i32, ptr %33, align 8, !tbaa !52
   %35 = add nsw i32 %34, 1
   %36 = mul i32 %34, %32
   %37 = mul i32 %36, %35
   %38 = sext i32 %37 to i64
-  %39 = load i64, ptr %2, align 8, !tbaa !55
+  %39 = load i64, ptr %2, align 8, !tbaa !83
   %40 = add nsw i64 %39, %38
-  store i64 %40, ptr %2, align 8, !tbaa !55
+  store i64 %40, ptr %2, align 8, !tbaa !83
   br label %41
 
 41:                                               ; preds = %30, %27
@@ -5814,12 +5814,12 @@ define void @MRIStepCoupling_Space(ptr noundef readonly captures(address_is_null
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !40
+  %46 = load i32, ptr %45, align 8, !tbaa !52
   %47 = mul nsw i32 %46, %46
   %48 = zext nneg i32 %47 to i64
-  %49 = load i64, ptr %1, align 8, !tbaa !55
+  %49 = load i64, ptr %1, align 8, !tbaa !83
   %50 = add nsw i64 %49, %48
-  store i64 %50, ptr %1, align 8, !tbaa !55
+  store i64 %50, ptr %1, align 8, !tbaa !83
   br label %51
 
 51:                                               ; preds = %3, %44, %41
@@ -5860,7 +5860,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 .preheader160:                                    ; preds = %.thread
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !39
+  %15 = load i32, ptr %14, align 4, !tbaa !51
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph166, label %.loopexit161
 
@@ -5877,7 +5877,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   br i1 %.not144, label %.loopexit, label %.preheader158
 
 .preheader158:                                    ; preds = %18
-  %21 = load i32, ptr %17, align 8, !tbaa !40
+  %21 = load i32, ptr %17, align 8, !tbaa !52
   %.not145163 = icmp slt i32 %21, 0
   br i1 %.not145163, label %._crit_edge, label %.lr.ph.preheader
 
@@ -5889,7 +5889,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 23:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
@@ -5901,7 +5901,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 ._crit_edge:                                      ; preds = %23, %.preheader158
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
-  br i1 %exitcond218.not, label %.loopexit161, label %18
+  br i1 %exitcond218.not, label %.loopexit161, label %18, !llvm.loop !86
 
 .loopexit161:                                     ; preds = %._crit_edge, %9, %.preheader160
   %26 = phi ptr [ %12, %.preheader160 ], [ %10, %9 ], [ %12, %._crit_edge ]
@@ -5912,7 +5912,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 .preheader155:                                    ; preds = %.loopexit161
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !39
+  %30 = load i32, ptr %29, align 4, !tbaa !51
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph172, label %.loopexit156
 
@@ -5929,7 +5929,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   br i1 %.not141, label %.loopexit, label %.preheader153
 
 .preheader153:                                    ; preds = %33
-  %36 = load i32, ptr %32, align 8, !tbaa !40
+  %36 = load i32, ptr %32, align 8, !tbaa !52
   %.not142167 = icmp slt i32 %36, 0
   br i1 %.not142167, label %._crit_edge170, label %.lr.ph169.preheader
 
@@ -5941,7 +5941,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 38:                                               ; preds = %.lr.ph169
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
-  br i1 %exitcond223.not, label %._crit_edge170, label %.lr.ph169
+  br i1 %exitcond223.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !87
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %38
   %indvars.iv219 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next220, %38 ]
@@ -5953,7 +5953,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 ._crit_edge170:                                   ; preds = %38, %.preheader153
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
-  br i1 %exitcond228.not, label %.loopexit156, label %33
+  br i1 %exitcond228.not, label %.loopexit156, label %33, !llvm.loop !88
 
 .loopexit156:                                     ; preds = %._crit_edge170, %.preheader155, %.loopexit161
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5963,7 +5963,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 .preheader150:                                    ; preds = %.loopexit156
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !40
+  %44 = load i32, ptr %43, align 8, !tbaa !52
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph174.preheader, label %.loopexit151
 
@@ -5974,7 +5974,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 46:                                               ; preds = %.lr.ph174
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count232
-  br i1 %exitcond233.not, label %.loopexit151, label %.lr.ph174
+  br i1 %exitcond233.not, label %.loopexit151, label %.lr.ph174, !llvm.loop !89
 
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %46
   %indvars.iv229 = phi i64 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next230, %46 ]
@@ -5984,7 +5984,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   br i1 %.not140, label %.loopexit, label %46
 
 .loopexit151:                                     ; preds = %46, %.preheader150, %.loopexit156
-  %49 = load i32, ptr %0, align 8, !tbaa !38
+  %49 = load i32, ptr %0, align 8, !tbaa !50
   switch i32 %49, label %60 [
     i32 0, label %50
     i32 1, label %52
@@ -6019,10 +6019,10 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 62:                                               ; preds = %60, %58, %56, %54, %52, %50
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !39
+  %64 = load i32, ptr %63, align 4, !tbaa !51
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %64) #14
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !40
+  %67 = load i32, ptr %66, align 8, !tbaa !52
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %67) #14
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %70 = load i32, ptr %69, align 4, !tbaa !12
@@ -6031,7 +6031,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %73 = load i32, ptr %72, align 8, !tbaa !16
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, i32 noundef %73) #14
   %75 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 6, i64 1, ptr %1)
-  %76 = load i32, ptr %66, align 8, !tbaa !40
+  %76 = load i32, ptr %66, align 8, !tbaa !52
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.lr.ph177, label %._crit_edge178
 
@@ -6042,10 +6042,10 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %80 = load double, ptr %79, align 8, !tbaa !18
   %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, double noundef %80) #14
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %82 = load i32, ptr %66, align 8, !tbaa !40
+  %82 = load i32, ptr %66, align 8, !tbaa !52
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next235, %83
-  br i1 %84, label %.lr.ph177, label %._crit_edge178
+  br i1 %84, label %.lr.ph177, label %._crit_edge178, !llvm.loop !90
 
 ._crit_edge178:                                   ; preds = %.lr.ph177, %62
   %fputc = tail call i32 @fputc(i32 10, ptr %1)
@@ -6054,7 +6054,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   br i1 %.not130, label %.loopexit149, label %.preheader148
 
 .preheader148:                                    ; preds = %._crit_edge178
-  %86 = load i32, ptr %63, align 4, !tbaa !39
+  %86 = load i32, ptr %63, align 4, !tbaa !51
   %87 = icmp sgt i32 %86, 0
   br i1 %87, label %.lr.ph189, label %.loopexit149
 
@@ -6062,14 +6062,14 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %._crit_edge187 ], [ 0, %.preheader148 ]
   %88 = trunc nuw nsw i64 %indvars.iv243 to i32
   %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.42, i32 noundef %88) #14
-  %90 = load i32, ptr %66, align 8, !tbaa !40
+  %90 = load i32, ptr %66, align 8, !tbaa !52
   %.not137183 = icmp slt i32 %90, 0
   br i1 %.not137183, label %._crit_edge187, label %.lr.ph186
 
 .lr.ph186:                                        ; preds = %.lr.ph189, %._crit_edge182
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %._crit_edge182 ], [ 0, %.lr.ph189 ]
   %91 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 6, i64 1, ptr %1)
-  %92 = load i32, ptr %66, align 8, !tbaa !40
+  %92 = load i32, ptr %66, align 8, !tbaa !52
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %.lr.ph181, label %._crit_edge182
 
@@ -6084,26 +6084,26 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %100 = load double, ptr %99, align 8, !tbaa !18
   %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %100) #14
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
-  %102 = load i32, ptr %66, align 8, !tbaa !40
+  %102 = load i32, ptr %66, align 8, !tbaa !52
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next238, %103
-  br i1 %104, label %.lr.ph181, label %._crit_edge182
+  br i1 %104, label %.lr.ph181, label %._crit_edge182, !llvm.loop !91
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.lr.ph186
   %fputc139 = tail call i32 @fputc(i32 10, ptr %1)
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
-  %105 = load i32, ptr %66, align 8, !tbaa !40
+  %105 = load i32, ptr %66, align 8, !tbaa !52
   %106 = sext i32 %105 to i64
   %.not137.not = icmp slt i64 %indvars.iv240, %106
-  br i1 %.not137.not, label %.lr.ph186, label %._crit_edge187
+  br i1 %.not137.not, label %.lr.ph186, label %._crit_edge187, !llvm.loop !92
 
 ._crit_edge187:                                   ; preds = %._crit_edge182, %.lr.ph189
   %fputc138 = tail call i32 @fputc(i32 10, ptr %1)
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %107 = load i32, ptr %63, align 4, !tbaa !39
+  %107 = load i32, ptr %63, align 4, !tbaa !51
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next244, %108
-  br i1 %109, label %.lr.ph189, label %.loopexit149
+  br i1 %109, label %.lr.ph189, label %.loopexit149, !llvm.loop !93
 
 .loopexit149:                                     ; preds = %._crit_edge187, %.preheader148, %._crit_edge178
   %110 = load ptr, ptr %27, align 8, !tbaa !23
@@ -6111,7 +6111,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   br i1 %.not131, label %.loopexit147, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit149
-  %111 = load i32, ptr %63, align 4, !tbaa !39
+  %111 = load i32, ptr %63, align 4, !tbaa !51
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %.lr.ph200, label %.loopexit147
 
@@ -6119,14 +6119,14 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %._crit_edge198 ], [ 0, %.preheader ]
   %113 = trunc nuw nsw i64 %indvars.iv252 to i32
   %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %113) #14
-  %115 = load i32, ptr %66, align 8, !tbaa !40
+  %115 = load i32, ptr %66, align 8, !tbaa !52
   %.not134194 = icmp slt i32 %115, 0
   br i1 %.not134194, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %.lr.ph200, %._crit_edge193
   %indvars.iv249 = phi i64 [ %indvars.iv.next250, %._crit_edge193 ], [ 0, %.lr.ph200 ]
   %116 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 6, i64 1, ptr %1)
-  %117 = load i32, ptr %66, align 8, !tbaa !40
+  %117 = load i32, ptr %66, align 8, !tbaa !52
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %.lr.ph192, label %._crit_edge193
 
@@ -6141,26 +6141,26 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %125 = load double, ptr %124, align 8, !tbaa !18
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %125) #14
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %127 = load i32, ptr %66, align 8, !tbaa !40
+  %127 = load i32, ptr %66, align 8, !tbaa !52
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next247, %128
-  br i1 %129, label %.lr.ph192, label %._crit_edge193
+  br i1 %129, label %.lr.ph192, label %._crit_edge193, !llvm.loop !94
 
 ._crit_edge193:                                   ; preds = %.lr.ph192, %.lr.ph197
   %fputc136 = tail call i32 @fputc(i32 10, ptr %1)
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
-  %130 = load i32, ptr %66, align 8, !tbaa !40
+  %130 = load i32, ptr %66, align 8, !tbaa !52
   %131 = sext i32 %130 to i64
   %.not134.not = icmp slt i64 %indvars.iv249, %131
-  br i1 %.not134.not, label %.lr.ph197, label %._crit_edge198
+  br i1 %.not134.not, label %.lr.ph197, label %._crit_edge198, !llvm.loop !95
 
 ._crit_edge198:                                   ; preds = %._crit_edge193, %.lr.ph200
   %fputc135 = tail call i32 @fputc(i32 10, ptr %1)
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
-  %132 = load i32, ptr %63, align 4, !tbaa !39
+  %132 = load i32, ptr %63, align 4, !tbaa !51
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next253, %133
-  br i1 %134, label %.lr.ph200, label %.loopexit147
+  br i1 %134, label %.lr.ph200, label %.loopexit147, !llvm.loop !96
 
 .loopexit147:                                     ; preds = %._crit_edge198, %.preheader, %.loopexit149
   %135 = load ptr, ptr %41, align 8, !tbaa !29
@@ -6179,7 +6179,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %indvars.iv258 = phi i64 [ %indvars.iv.next259, %._crit_edge204 ], [ 0, %136 ]
   %142 = trunc nuw nsw i64 %indvars.iv258 to i32
   %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.47, i32 noundef %142) #14
-  %144 = load i32, ptr %66, align 8, !tbaa !40
+  %144 = load i32, ptr %66, align 8, !tbaa !52
   %145 = icmp sgt i32 %144, 0
   br i1 %145, label %.lr.ph203, label %._crit_edge204
 
@@ -6196,7 +6196,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 153:                                              ; preds = %.lr.ph203
   %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, i32 noundef %151) #14
-  %.pre = load i32, ptr %66, align 8, !tbaa !40
+  %.pre = load i32, ptr %66, align 8, !tbaa !52
   br label %155
 
 155:                                              ; preds = %.lr.ph203, %153
@@ -6204,7 +6204,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv.next256, %157
-  br i1 %158, label %.lr.ph203, label %._crit_edge204
+  br i1 %158, label %.lr.ph203, label %._crit_edge204, !llvm.loop !97
 
 ._crit_edge204:                                   ; preds = %155, %.lr.ph207
   %fputc133 = tail call i32 @fputc(i32 10, ptr %1)
@@ -6212,7 +6212,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
   %159 = load i32, ptr %137, align 8, !tbaa !28
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv.next259, %160
-  br i1 %161, label %.lr.ph207, label %.loopexit
+  br i1 %161, label %.lr.ph207, label %.loopexit, !llvm.loop !98
 
 .loopexit:                                        ; preds = %18, %.lr.ph, %33, %.lr.ph169, %.lr.ph174, %._crit_edge204, %.thread, %136, %.loopexit147, %9, %6, %2
   ret void
@@ -6228,7 +6228,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !40
+  %6 = load i32, ptr %5, align 8, !tbaa !52
   %7 = icmp sgt i32 %1, %6
   br i1 %7, label %153, label %8
 
@@ -6237,7 +6237,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   br i1 %9, label %153, label %10
 
 10:                                               ; preds = %8
-  %11 = load i32, ptr %0, align 8, !tbaa !38
+  %11 = load i32, ptr %0, align 8, !tbaa !50
   %.off = add i32 %11, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %153, label %12
@@ -6254,7 +6254,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 .preheader125:                                    ; preds = %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !39
+  %18 = load i32, ptr %17, align 4, !tbaa !51
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph155.split.us.preheader, label %.loopexit126
 
@@ -6309,12 +6309,12 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   %44 = phi i32 [ 1, %33 ], [ %42, %34 ]
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
-  br i1 %exitcond213.not, label %._crit_edge.us159, label %33
+  br i1 %exitcond213.not, label %._crit_edge.us159, label %33, !llvm.loop !99
 
 ._crit_edge.us159:                                ; preds = %43
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
-  br i1 %exitcond218.not, label %.loopexit126, label %.lr.ph155.split.us, !llvm.loop !57
+  br i1 %exitcond218.not, label %.loopexit126, label %.lr.ph155.split.us, !llvm.loop !100
 
 .loopexit126:                                     ; preds = %._crit_edge.us159, %.preheader125, %16
   %.098 = phi i32 [ 0, %16 ], [ 0, %.preheader125 ], [ %31, %._crit_edge.us159 ]
@@ -6326,7 +6326,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 .preheader124:                                    ; preds = %.loopexit126
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !39
+  %48 = load i32, ptr %47, align 4, !tbaa !51
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.preheader.lr.ph, label %.loopexit
 
@@ -6367,12 +6367,12 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   %64 = phi i32 [ 1, %53 ], [ %62, %54 ]
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
-  br i1 %exitcond223.not, label %._crit_edge.us169, label %53
+  br i1 %exitcond223.not, label %._crit_edge.us169, label %53, !llvm.loop !101
 
 ._crit_edge.us169:                                ; preds = %63
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
-  br i1 %exitcond228.not, label %.loopexit, label %.preheader.us, !llvm.loop !58
+  br i1 %exitcond228.not, label %.loopexit, label %.preheader.us, !llvm.loop !102
 
 .loopexit:                                        ; preds = %._crit_edge.us169, %.preheader.lr.ph, %.preheader124, %.loopexit126
   %.090 = phi i32 [ 0, %.loopexit126 ], [ 0, %.preheader124 ], [ 0, %.preheader.lr.ph ], [ %64, %._crit_edge.us169 ]
@@ -6391,7 +6391,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 .preheader130:                                    ; preds = %73
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !39
+  %75 = load i32, ptr %74, align 4, !tbaa !51
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %.lr.ph137, label %.loopexit131
 
@@ -6451,12 +6451,12 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   %102 = phi i32 [ 1, %91 ], [ %100, %92 ]
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %._crit_edge.us, label %91
+  br i1 %exitcond188.not, label %._crit_edge.us, label %91, !llvm.loop !103
 
 ._crit_edge.us:                                   ; preds = %101
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %.loopexit131, label %.lr.ph137.split.us, !llvm.loop !59
+  br i1 %exitcond193.not, label %.loopexit131, label %.lr.ph137.split.us, !llvm.loop !104
 
 .lr.ph137.split:                                  ; preds = %.lr.ph137, %114
   %indvars.iv = phi i64 [ %indvars.iv.next, %114 ], [ 0, %.lr.ph137 ]
@@ -6481,7 +6481,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   %115 = phi i32 [ 1, %.lr.ph137.split ], [ %113, %103 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count192
-  br i1 %exitcond.not, label %.loopexit131, label %.lr.ph137.split
+  br i1 %exitcond.not, label %.loopexit131, label %.lr.ph137.split, !llvm.loop !105
 
 .loopexit131:                                     ; preds = %._crit_edge.us, %114, %.preheader130, %73
   %.3101 = phi i32 [ 0, %73 ], [ 0, %.preheader130 ], [ %115, %114 ], [ %89, %._crit_edge.us ]
@@ -6493,7 +6493,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 
 .preheader128:                                    ; preds = %.loopexit131
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %119 = load i32, ptr %118, align 4, !tbaa !39
+  %119 = load i32, ptr %118, align 4, !tbaa !51
   %120 = icmp sgt i32 %119, 0
   br i1 %120, label %.preheader127.lr.ph, label %.loopexit129
 
@@ -6534,12 +6534,12 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
   %135 = phi i32 [ 1, %124 ], [ %133, %125 ]
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
-  br i1 %exitcond198.not, label %._crit_edge.us147, label %124
+  br i1 %exitcond198.not, label %._crit_edge.us147, label %124, !llvm.loop !106
 
 ._crit_edge.us147:                                ; preds = %134
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
-  br i1 %exitcond203.not, label %.loopexit129, label %.preheader127.us, !llvm.loop !60
+  br i1 %exitcond203.not, label %.loopexit129, label %.preheader127.us, !llvm.loop !107
 
 .loopexit129:                                     ; preds = %._crit_edge.us147, %.preheader127.lr.ph, %.preheader128, %.loopexit131
   %.4 = phi i32 [ 0, %.loopexit131 ], [ 0, %.preheader128 ], [ 0, %.preheader127.lr.ph ], [ %135, %._crit_edge.us147 ]
@@ -6610,14 +6610,14 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   br i1 %or.cond, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr %0, align 8, !tbaa !38
+  %14 = load i32, ptr %0, align 8, !tbaa !50
   %.off = add i32 %14, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %15, label %24
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !40
+  %17 = load i32, ptr %16, align 8, !tbaa !52
   store i32 %17, ptr %2, align 4, !tbaa !32
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph124, label %.loopexit
@@ -6628,15 +6628,15 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %20 = trunc nuw nsw i64 %indvars.iv179 to i32
   store i32 %20, ptr %19, align 4, !tbaa !32
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %21 = load i32, ptr %16, align 8, !tbaa !40
+  %21 = load i32, ptr %16, align 8, !tbaa !52
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next180, %22
-  br i1 %23, label %.lr.ph124, label %.loopexit
+  br i1 %23, label %.lr.ph124, label %.loopexit, !llvm.loop !108
 
 24:                                               ; preds = %13
   store i32 0, ptr %2, align 4, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !40
+  %26 = load i32, ptr %25, align 8, !tbaa !52
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph, label %.loopexit
 
@@ -6664,7 +6664,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %38 = fadd double %.292.us, %37
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %._crit_edge93.us, label %32
+  br i1 %exitcond170.not, label %._crit_edge93.us, label %32, !llvm.loop !109
 
 .loopexit81.us:                                   ; preds = %._crit_edge93.us
   %39 = fcmp ogt double %38, 0x3D19000000000000
@@ -6680,10 +6680,10 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %42 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv176
   store i32 %.sink, ptr %42, align 4, !tbaa !32
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %43 = load i32, ptr %25, align 8, !tbaa !40
+  %43 = load i32, ptr %25, align 8, !tbaa !52
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next177, %44
-  br i1 %45, label %.lr.ph.split.us, label %._crit_edge104, !llvm.loop !61
+  br i1 %45, label %.lr.ph.split.us, label %._crit_edge104, !llvm.loop !110
 
 .preheader.us106:                                 ; preds = %.preheader.us106.preheader, %._crit_edge93.us
   %indvars.iv171 = phi i64 [ 0, %.preheader.us106.preheader ], [ %indvars.iv.next172, %._crit_edge93.us ]
@@ -6693,7 +6693,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   br label %32
 
 .preheader80.us:                                  ; preds = %.lr.ph.split.us
-  %48 = load i32, ptr %28, align 4, !tbaa !39
+  %48 = load i32, ptr %28, align 4, !tbaa !51
   %49 = icmp slt i32 %48, 1
   %.not7790.us = icmp slt i32 %31, 0
   %or.cond200 = or i1 %49, %.not7790.us
@@ -6702,7 +6702,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 ._crit_edge93.us:                                 ; preds = %32
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %.loopexit81.us, label %.preheader.us106
+  br i1 %exitcond175.not, label %.loopexit81.us, label %.preheader.us106, !llvm.loop !111
 
 .preheader.us106.preheader:                       ; preds = %.preheader80.us
   %50 = add nuw i32 %31, 1
@@ -6717,7 +6717,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.loopexit83.us.thread ], [ 0, %.lr.ph.split ]
   %51 = phi i32 [ %64, %.loopexit83.us.thread ], [ %26, %.lr.ph.split ]
   %.061102.us111 = phi i32 [ %.162.us115, %.loopexit83.us.thread ], [ 0, %.lr.ph.split ]
-  %52 = load i32, ptr %28, align 4, !tbaa !39
+  %52 = load i32, ptr %28, align 4, !tbaa !51
   %53 = icmp slt i32 %52, 1
   %.not7884.us = icmp slt i32 %51, 0
   %or.cond201 = or i1 %53, %.not7884.us
@@ -6734,7 +6734,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %60 = fadd double %.26086.us, %59
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %._crit_edge.us, label %54
+  br i1 %exitcond157.not, label %._crit_edge.us, label %54, !llvm.loop !112
 
 61:                                               ; preds = %.loopexit83.us
   %62 = add nsw i32 %.061102.us111, 1
@@ -6746,10 +6746,10 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %63 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv163
   store i32 %.sink182, ptr %63, align 4, !tbaa !32
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %64 = load i32, ptr %25, align 8, !tbaa !40
+  %64 = load i32, ptr %25, align 8, !tbaa !52
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next164, %65
-  br i1 %66, label %.preheader82.us, label %._crit_edge104, !llvm.loop !62
+  br i1 %66, label %.preheader82.us, label %._crit_edge104, !llvm.loop !113
 
 .preheader79.us116:                               ; preds = %.preheader79.us116.preheader, %._crit_edge.us
   %indvars.iv158 = phi i64 [ 0, %.preheader79.us116.preheader ], [ %indvars.iv.next159, %._crit_edge.us ]
@@ -6765,7 +6765,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
 ._crit_edge.us:                                   ; preds = %54
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
-  br i1 %exitcond162.not, label %.loopexit83.us, label %.preheader79.us116
+  br i1 %exitcond162.not, label %.loopexit83.us, label %.preheader79.us116, !llvm.loop !114
 
 .preheader79.us116.preheader:                     ; preds = %.preheader82.us
   %70 = add nuw i32 %51, 1
@@ -6777,7 +6777,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.loopexit81 ], [ 0, %.lr.ph.split ]
   %71 = phi i32 [ %99, %.loopexit81 ], [ %26, %.lr.ph.split ]
   %.061102 = phi i32 [ %spec.select206, %.loopexit81 ], [ 0, %.lr.ph.split ]
-  %72 = load i32, ptr %28, align 4, !tbaa !39
+  %72 = load i32, ptr %28, align 4, !tbaa !51
   %73 = icmp slt i32 %72, 1
   %.not7884 = icmp slt i32 %71, 0
   %or.cond203 = or i1 %73, %.not7884
@@ -6807,12 +6807,12 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %83 = fadd double %.26086, %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %77
+  br i1 %exitcond.not, label %._crit_edge, label %77, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %77
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %.loopexit83, label %.preheader79
+  br i1 %exitcond139.not, label %.loopexit83, label %.preheader79, !llvm.loop !114
 
 .loopexit83:                                      ; preds = %._crit_edge
   %84 = fcmp ogt double %83, 0x3D19000000000000
@@ -6842,12 +6842,12 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %94 = fadd double %.292, %93
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %._crit_edge93, label %88
+  br i1 %exitcond144.not, label %._crit_edge93, label %88, !llvm.loop !109
 
 ._crit_edge93:                                    ; preds = %88
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit81.loopexit128, label %.preheader
+  br i1 %exitcond149.not, label %.loopexit81.loopexit128, label %.preheader, !llvm.loop !111
 
 .loopexit81.loopexit128:                          ; preds = %._crit_edge93
   %95 = fcmp ogt double %94, 0x3D19000000000000
@@ -6862,10 +6862,10 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   %98 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv150
   store i32 %spec.select, ptr %98, align 4, !tbaa !32
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
-  %99 = load i32, ptr %25, align 8, !tbaa !40
+  %99 = load i32, ptr %25, align 8, !tbaa !52
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next151, %100
-  br i1 %101, label %.preheader82, label %._crit_edge104
+  br i1 %101, label %.preheader82, label %._crit_edge104, !llvm.loop !115
 
 ._crit_edge104:                                   ; preds = %.loopexit81, %.loopexit83.us.thread, %.loopexit81.us.thread
   %.061.lcssa = phi i32 [ %.162.us, %.loopexit81.us.thread ], [ %.162.us115, %.loopexit83.us.thread ], [ %spec.select206, %.loopexit81 ]
@@ -6945,32 +6945,85 @@ attributes #17 = { nounwind willreturn memory(read) }
 !31 = !{!"p1 int", !9, i64 0}
 !32 = !{!5, !5, i64 0}
 !33 = !{!4, !5, i64 8}
-!34 = !{!14, !14, i64 0}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !36}
-!38 = !{!13, !5, i64 0}
-!39 = !{!13, !5, i64 4}
-!40 = !{!13, !5, i64 8}
-!41 = distinct !{!41, !36}
-!42 = distinct !{!42, !36}
-!43 = distinct !{!43, !36}
-!44 = distinct !{!44, !36}
-!45 = distinct !{!45, !36}
-!46 = distinct !{!46, !36}
-!47 = distinct !{!47, !36}
-!48 = distinct !{!48, !36}
-!49 = distinct !{!49, !36}
-!50 = distinct !{!50, !36}
-!51 = distinct !{!51, !36}
-!52 = distinct !{!52, !36}
-!53 = distinct !{!53, !36}
-!54 = distinct !{!54, !36}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"long", !6, i64 0}
-!57 = distinct !{!57, !36}
-!58 = distinct !{!58, !36}
-!59 = distinct !{!59, !36}
-!60 = distinct !{!60, !36}
-!61 = distinct !{!61, !36}
-!62 = distinct !{!62, !36}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = distinct !{!36, !35}
+!37 = distinct !{!37, !35}
+!38 = distinct !{!38, !35}
+!39 = distinct !{!39, !35}
+!40 = distinct !{!40, !35}
+!41 = distinct !{!41, !35}
+!42 = distinct !{!42, !35}
+!43 = !{!14, !14, i64 0}
+!44 = distinct !{!44, !35, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !35}
+!47 = distinct !{!47, !35, !45}
+!48 = distinct !{!48, !35}
+!49 = distinct !{!49, !35}
+!50 = !{!13, !5, i64 0}
+!51 = !{!13, !5, i64 4}
+!52 = !{!13, !5, i64 8}
+!53 = distinct !{!53, !35}
+!54 = distinct !{!54, !35}
+!55 = distinct !{!55, !35}
+!56 = distinct !{!56, !35}
+!57 = distinct !{!57, !35}
+!58 = distinct !{!58, !35}
+!59 = distinct !{!59, !35, !45}
+!60 = distinct !{!60, !35}
+!61 = distinct !{!61, !35}
+!62 = distinct !{!62, !35}
+!63 = distinct !{!63, !35}
+!64 = distinct !{!64, !35}
+!65 = distinct !{!65, !35}
+!66 = distinct !{!66, !35, !45}
+!67 = distinct !{!67, !35, !45}
+!68 = distinct !{!68, !35, !45}
+!69 = distinct !{!69, !35, !45}
+!70 = distinct !{!70, !35, !45}
+!71 = distinct !{!71, !35, !45}
+!72 = distinct !{!72, !35, !45}
+!73 = distinct !{!73, !35, !45}
+!74 = distinct !{!74, !35}
+!75 = distinct !{!75, !35}
+!76 = distinct !{!76, !35, !45}
+!77 = distinct !{!77, !35, !45}
+!78 = distinct !{!78, !35}
+!79 = distinct !{!79, !35, !45}
+!80 = distinct !{!80, !35, !45}
+!81 = distinct !{!81, !35}
+!82 = distinct !{!82, !35, !45}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"long", !6, i64 0}
+!85 = distinct !{!85, !35}
+!86 = distinct !{!86, !35}
+!87 = distinct !{!87, !35}
+!88 = distinct !{!88, !35}
+!89 = distinct !{!89, !35}
+!90 = distinct !{!90, !35}
+!91 = distinct !{!91, !35}
+!92 = distinct !{!92, !35}
+!93 = distinct !{!93, !35}
+!94 = distinct !{!94, !35}
+!95 = distinct !{!95, !35}
+!96 = distinct !{!96, !35}
+!97 = distinct !{!97, !35}
+!98 = distinct !{!98, !35}
+!99 = distinct !{!99, !35}
+!100 = distinct !{!100, !35, !45}
+!101 = distinct !{!101, !35}
+!102 = distinct !{!102, !35, !45}
+!103 = distinct !{!103, !35}
+!104 = distinct !{!104, !35, !45}
+!105 = distinct !{!105, !35}
+!106 = distinct !{!106, !35}
+!107 = distinct !{!107, !35, !45}
+!108 = distinct !{!108, !35}
+!109 = distinct !{!109, !35}
+!110 = distinct !{!110, !35, !45}
+!111 = distinct !{!111, !35}
+!112 = distinct !{!112, !35}
+!113 = distinct !{!113, !35, !45}
+!114 = distinct !{!114, !35}
+!115 = distinct !{!115, !35}

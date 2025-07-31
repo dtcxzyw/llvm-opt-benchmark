@@ -81,7 +81,7 @@ _ZNK20btAlignedObjectArrayI10btTriangleE4copyEiiPS0_.exit.i.i: ; preds = %24, %_
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   %.not.i5.i.i = icmp ne ptr %29, null
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load i8, ptr %30, align 8, !range !21
+  %31 = load i8, ptr %30, align 8, !range !22
   %32 = trunc nuw i8 %31 to i1
   %or.cond.i.i = select i1 %.not.i5.i.i, i1 %32, i1 false
   br i1 %or.cond.i.i, label %33, label %_ZN20btAlignedObjectArrayI10btTriangleE10deallocateEv.exit.i.i
@@ -91,7 +91,7 @@ _ZNK20btAlignedObjectArrayI10btTriangleE4copyEiiPS0_.exit.i.i: ; preds = %24, %_
   br label %_ZN20btAlignedObjectArrayI10btTriangleE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayI10btTriangleE10deallocateEv.exit.i.i: ; preds = %33, %_ZNK20btAlignedObjectArrayI10btTriangleE4copyEiiPS0_.exit.i.i
-  store i8 1, ptr %30, align 8, !tbaa !22
+  store i8 1, ptr %30, align 8, !tbaa !23
   store ptr %.0.i.i.i, ptr %28, align 8, !tbaa !16
   store i32 %14, ptr %9, align 8, !tbaa !15
   %.pre2.i = load i32, ptr %7, align 4, !tbaa !8
@@ -126,12 +126,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btTriangleBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16btTriangleBuffer, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16btTriangleBuffer, i64 16), ptr %0, align 8, !tbaa !24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %.not.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !21
+  %5 = load i8, ptr %4, align 8, !range !22
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayI10btTriangleED2Ev.exit
@@ -149,7 +149,7 @@ define linkonce_odr dso_local void @_ZN16btTriangleBufferD2Ev(ptr noundef nonnul
 
 _ZN20btAlignedObjectArrayI10btTriangleED2Ev.exit: ; preds = %1, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 1, ptr %4, align 8, !tbaa !22
+  store i8 1, ptr %4, align 8, !tbaa !23
   store ptr null, ptr %2, align 8, !tbaa !16
   store i32 0, ptr %11, align 4, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -160,12 +160,12 @@ _ZN20btAlignedObjectArrayI10btTriangleED2Ev.exit: ; preds = %1, %7
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btTriangleBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16btTriangleBuffer, i64 16), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16btTriangleBuffer, i64 16), ptr %0, align 8, !tbaa !24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %.not.i.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !21
+  %5 = load i8, ptr %4, align 8, !range !22
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i.i, label %7, label %_ZN16btTriangleBufferD2Ev.exit
@@ -183,7 +183,7 @@ define linkonce_odr dso_local void @_ZN16btTriangleBufferD0Ev(ptr noundef nonnul
 
 _ZN16btTriangleBufferD2Ev.exit:                   ; preds = %1, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 1, ptr %4, align 8, !tbaa !22
+  store i8 1, ptr %4, align 8, !tbaa !23
   store ptr null, ptr %2, align 8, !tbaa !16
   store i32 0, ptr %11, align 4, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -251,9 +251,10 @@ attributes #11 = { builtin nounwind }
 !16 = !{!9, !12, i64 16}
 !17 = !{i64 0, i64 16, !5, i64 16, i64 16, !5, i64 32, i64 16, !5, i64 48, i64 4, !18, i64 52, i64 4, !18}
 !18 = !{!11, !11, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{i8 0, i8 2}
-!22 = !{!9, !14, i64 24}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"vtable pointer", !7, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{i8 0, i8 2}
+!23 = !{!9, !14, i64 24}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"vtable pointer", !7, i64 0}

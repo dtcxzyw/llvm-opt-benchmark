@@ -515,7 +515,7 @@ biquad_process.exit62.us:                         ; preds = %.lr.ph.i56.us, %.lr
   store double %.033.lcssa.i52.us, ptr %58, align 8, !tbaa !69
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !72
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !73
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %44, label %.lr.ph.preheader.i.us, label %._crit_edge
@@ -583,7 +583,7 @@ biquad_process.exit51.loopexit.us:                ; preds = %.lr.ph.i45.us
   store double %.037.i47.us, ptr %114, align 8, !tbaa !69
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count80
-  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !74
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !75
 
 biquad_process.exit.loopexit.us:                  ; preds = %.lr.ph.i.us
   store double %93, ptr %78, align 8, !tbaa !69
@@ -720,8 +720,9 @@ attributes #11 = { nounwind willreturn memory(none) }
 !67 = !{!36, !37, i64 96}
 !68 = !{!11, !11, i64 0}
 !69 = !{!48, !48, i64 0}
-!70 = distinct !{!70, !71}
+!70 = distinct !{!70, !71, !72}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = distinct !{!72, !71, !73}
-!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!74 = distinct !{!74, !71, !73}
+!72 = !{!"llvm.loop.estimated_trip_count"}
+!73 = distinct !{!73, !71, !72, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = distinct !{!75, !71, !72, !74}

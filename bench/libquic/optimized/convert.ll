@@ -132,7 +132,7 @@ define hidden range(i64 0, 4294967296) i64 @BN_bn2bin(ptr noundef %0, ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   store i8 %13, ptr %.010, align 1, !tbaa !14
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret i64 %4
@@ -168,7 +168,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr noundef writeonly captur
   %16 = lshr i64 %1, 3
   %17 = load ptr, ptr %2, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !21
+  %19 = load i32, ptr %18, align 4, !tbaa !22
   %20 = sext i32 %19 to i64
   %21 = add nsw i32 %19, -1
   %22 = sext i32 %21 to i64
@@ -197,7 +197,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr noundef writeonly captur
   %33 = add i64 %.026, -1
   %34 = lshr i64 %33, 3
   %35 = load ptr, ptr %2, align 8, !tbaa !15
-  %36 = load i32, ptr %31, align 4, !tbaa !21
+  %36 = load i32, ptr %31, align 4, !tbaa !22
   %37 = sext i32 %36 to i64
   %38 = add nsw i32 %36, -1
   %39 = sext i32 %38 to i64
@@ -216,7 +216,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr noundef writeonly captur
   %51 = getelementptr inbounds nuw i8, ptr %.01825, i64 1
   store i8 %50, ptr %.01825, align 1, !tbaa !14
   %.not22 = icmp eq i64 %33, 0
-  br i1 %.not22, label %.loopexit, label %32, !llvm.loop !22
+  br i1 %.not22, label %.loopexit, label %32, !llvm.loop !23
 
 .loopexit:                                        ; preds = %32, %30, %15, %6, %5
   %.017 = phi i32 [ 1, %5 ], [ 0, %6 ], [ 0, %15 ], [ 1, %30 ], [ 1, %32 ]
@@ -237,7 +237,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef 
   br i1 %.not, label %BN_bn2bin_padded.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %4, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8, !tbaa !24
   %8 = call i32 @BN_is_zero(ptr noundef %2) #10
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %10, label %9
@@ -264,7 +264,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef 
   %20 = lshr i64 %1, 3
   %21 = load ptr, ptr %2, align 8, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !21
+  %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = sext i32 %23 to i64
   %25 = add nsw i32 %23, -1
   %26 = sext i32 %25 to i64
@@ -293,7 +293,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef 
   %37 = add i64 %.026.i, -1
   %38 = lshr i64 %37, 3
   %39 = load ptr, ptr %2, align 8, !tbaa !15
-  %40 = load i32, ptr %35, align 4, !tbaa !21
+  %40 = load i32, ptr %35, align 4, !tbaa !22
   %41 = sext i32 %40 to i64
   %42 = add nsw i32 %40, -1
   %43 = sext i32 %42 to i64
@@ -312,7 +312,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef 
   %55 = getelementptr inbounds nuw i8, ptr %.01825.i, i64 1
   store i8 %54, ptr %.01825.i, align 1, !tbaa !14
   %.not22.i = icmp eq i64 %37, 0
-  br i1 %.not22.i, label %BN_bn2bin_padded.exit, label %36, !llvm.loop !22
+  br i1 %.not22.i, label %BN_bn2bin_padded.exit, label %36, !llvm.loop !23
 
 BN_bn2bin_padded.exit:                            ; preds = %36, %34, %19, %10, %9, %3
   %56 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 0, %10 ], [ 0, %19 ], [ 1, %34 ], [ 1, %36 ]
@@ -371,7 +371,7 @@ define hidden noalias noundef ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr 
 
 .loopexit:                                        ; preds = %43
   %23 = icmp sgt i64 %indvars.iv40, 1
-  br i1 %23, label %.preheader, label %._crit_edge, !llvm.loop !25
+  br i1 %23, label %.preheader, label %._crit_edge, !llvm.loop !26
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %indvars.iv40 = phi i64 [ %22, %.preheader.preheader ], [ %indvars.iv.next41, %.loopexit ]
@@ -414,7 +414,7 @@ define hidden noalias noundef ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr 
   %.4 = phi ptr [ %42, %33 ], [ %.334, %24 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -8
   %.not43 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not43, label %.loopexit, label %24, !llvm.loop !26
+  br i1 %.not43, label %.loopexit, label %24, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit, %19
   %.2.lcssa = phi ptr [ %.1, %19 ], [ %.4, %.loopexit ]
@@ -457,13 +457,13 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %.034.i, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1, !tbaa !14
   %13 = zext i8 %12 to i32
-  %14 = tail call i32 @isxdigit(i32 noundef %13) #10, !callees !27
+  %14 = tail call i32 @isxdigit(i32 noundef %13) #10, !callees !28
   %15 = icmp ne i32 %14, 0
   %16 = add nuw nsw i64 %indvars.iv.i, %9
   %17 = icmp ne i64 %16, 2147483647
   %18 = select i1 %15, i1 %17, i1 false
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %18, label %10, label %19, !llvm.loop !28
+  br i1 %18, label %10, label %19, !llvm.loop !29
 
 19:                                               ; preds = %10
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -472,7 +472,7 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %22, label %bn_x2bn.exit, label %23
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %0, align 8, !tbaa !29
+  %24 = load ptr, ptr %0, align 8, !tbaa !30
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %29
 
@@ -554,7 +554,7 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   %58 = or i64 %57, %.0.i3
   %indvars.iv.next.i4 = add nsw i64 %indvars.iv.i2, -1
   %59 = icmp sgt i64 %indvars.iv.i2, 1
-  br i1 %59, label %41, label %60, !llvm.loop !31
+  br i1 %59, label %41, label %60, !llvm.loop !32
 
 60:                                               ; preds = %56
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
@@ -562,7 +562,7 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   store i64 %58, ptr %61, align 8, !tbaa !16
   %62 = tail call i32 @llvm.usub.sat.i32(i32 %.04450.i, i32 16)
   %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %38, label %._crit_edge.loopexit.i, !llvm.loop !32
+  br i1 %63, label %38, label %._crit_edge.loopexit.i, !llvm.loop !33
 
 ._crit_edge.loopexit.i:                           ; preds = %60
   %64 = trunc nuw i64 %indvars.iv.next54.i to i32
@@ -583,11 +583,11 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   br label %70
 
 70:                                               ; preds = %68, %65
-  store ptr %.033.i, ptr %0, align 8, !tbaa !29
+  store ptr %.033.i, ptr %0, align 8, !tbaa !30
   br label %bn_x2bn.exit
 
 71:                                               ; preds = %32, %33
-  %72 = load ptr, ptr %0, align 8, !tbaa !29
+  %72 = load ptr, ptr %0, align 8, !tbaa !30
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %bn_x2bn.exit
 
@@ -667,7 +667,7 @@ define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %.063, i64 8
   %34 = tail call i32 @BN_is_zero(ptr noundef nonnull %20) #10
   %.not53 = icmp eq i32 %34, 0
-  br i1 %.not53, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %.not53, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
   %.0.lcssa = phi ptr [ %12, %30 ], [ %33, %.lr.ph ]
@@ -697,7 +697,7 @@ define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   %strlen68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.265)
   %scevgep69 = getelementptr i8, ptr %.265, i64 %strlen68
   %.not55 = icmp eq ptr %41, %12
-  br i1 %.not55, label %.loopexit61, label %.loopexit, !llvm.loop !34
+  br i1 %.not55, label %.loopexit61, label %.loopexit, !llvm.loop !35
 
 .loopexit61:                                      ; preds = %.loopexit, %._crit_edge, %24
   tail call void @free(ptr noundef nonnull %12) #10
@@ -760,7 +760,7 @@ define hidden i32 @BN_dec2bn(ptr noundef captures(address_is_null) %0, ptr nound
   %15 = icmp ne i64 %14, 2147483647
   %16 = select i1 %isdigit, i1 %15, i1 false
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %16, label %10, label %17, !llvm.loop !28
+  br i1 %16, label %10, label %17, !llvm.loop !29
 
 17:                                               ; preds = %10
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -769,7 +769,7 @@ define hidden i32 @BN_dec2bn(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %20, label %bn_x2bn.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %0, align 8, !tbaa !29
+  %22 = load ptr, ptr %0, align 8, !tbaa !30
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %27
 
@@ -824,7 +824,7 @@ define hidden i32 @BN_dec2bn(ptr noundef captures(address_is_null) %0, ptr nound
   %.1.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %42 ]
   %indvars.iv.next.i3 = add nuw nsw i64 %indvars.iv.i2, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i3, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %decode_dec.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %decode_dec.exit, label %.lr.ph.i, !llvm.loop !36
 
 decode_dec.exit:                                  ; preds = %44, %28
   tail call void @bn_correct_top(ptr noundef nonnull %.033.i) #10
@@ -838,11 +838,11 @@ decode_dec.exit:                                  ; preds = %44, %28
   br label %48
 
 48:                                               ; preds = %46, %decode_dec.exit
-  store ptr %.033.i, ptr %0, align 8, !tbaa !29
+  store ptr %.033.i, ptr %0, align 8, !tbaa !30
   br label %bn_x2bn.exit
 
 49:                                               ; preds = %40, %42
-  %50 = load ptr, ptr %0, align 8, !tbaa !29
+  %50 = load ptr, ptr %0, align 8, !tbaa !30
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %bn_x2bn.exit
 
@@ -890,13 +890,13 @@ define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_nul
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr %0, align 8, !tbaa !29
+  %19 = load ptr, ptr %0, align 8, !tbaa !30
   %20 = tail call i32 @BN_is_zero(ptr noundef %19) #10
   %.not16 = icmp eq i32 %20, 0
   br i1 %.not16, label %21, label %24
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %0, align 8, !tbaa !29
+  %22 = load ptr, ptr %0, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 1, ptr %23, align 8, !tbaa !13
   br label %24
@@ -940,7 +940,7 @@ define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) loca
 
 .loopexit:                                        ; preds = %28
   %16 = icmp sgt i64 %indvars.iv34, 1
-  br i1 %16, label %.preheader, label %.loopexit24, !llvm.loop !36
+  br i1 %16, label %.preheader, label %.loopexit24, !llvm.loop !37
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %indvars.iv34 = phi i64 [ %15, %.preheader.preheader ], [ %indvars.iv.next35, %.loopexit ]
@@ -971,7 +971,7 @@ define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) loca
   %.2 = phi i32 [ 0, %17 ], [ 1, %25 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
   %.not37 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not37, label %.loopexit, label %17, !llvm.loop !37
+  br i1 %.not37, label %.loopexit, label %17, !llvm.loop !38
 
 .loopexit24:                                      ; preds = %.loopexit, %25, %11, %9, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 1, %11 ], [ 0, %25 ], [ 1, %.loopexit ]
@@ -1091,7 +1091,7 @@ define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %0, ptr noundef
   %38 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
   store i8 %37, ptr %.010.i, align 1, !tbaa !14
   %.not.i = icmp eq i64 %29, 0
-  br i1 %.not.i, label %BN_bn2bin.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %BN_bn2bin.exit, label %.lr.ph.i, !llvm.loop !21
 
 BN_bn2bin.exit:                                   ; preds = %.lr.ph.i, %24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1290,23 +1290,24 @@ attributes #11 = { nounwind allocsize(0) }
 !15 = !{!7, !8, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !10, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = !{!7, !12, i64 12}
-!22 = distinct !{!22, !19}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 omnipotent char", !9, i64 0}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
-!27 = distinct !{null, ptr @isxdigit}
-!28 = distinct !{!28, !19}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
-!31 = distinct !{!31, !19}
-!32 = distinct !{!32, !19}
-!33 = distinct !{!33, !19}
-!34 = distinct !{!34, !19}
-!35 = distinct !{!35, !19}
-!36 = distinct !{!36, !19}
-!37 = distinct !{!37, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = !{!7, !12, i64 12}
+!23 = distinct !{!23, !19, !20}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 omnipotent char", !9, i64 0}
+!26 = distinct !{!26, !19, !20}
+!27 = distinct !{!27, !19, !20}
+!28 = distinct !{null, ptr @isxdigit}
+!29 = distinct !{!29, !19, !20}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
+!32 = distinct !{!32, !19, !20}
+!33 = distinct !{!33, !19, !20}
+!34 = distinct !{!34, !19, !20}
+!35 = distinct !{!35, !19, !20}
+!36 = distinct !{!36, !19, !20}
+!37 = distinct !{!37, !19, !20}
+!38 = distinct !{!38, !19, !20}

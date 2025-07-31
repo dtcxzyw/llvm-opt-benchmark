@@ -157,7 +157,7 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %31, %28, %23
-  br i1 %24, label %23, label %11, !llvm.loop !8
+  br i1 %24, label %23, label %11, !llvm.loop !9
 
 37:                                               ; preds = %.thread14, %11
   %38 = phi i1 [ true, %11 ], [ false, %.thread14 ]
@@ -290,7 +290,7 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
   %119 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, %102
-  br i1 %121, label %122, label %.preheader18, !llvm.loop !9
+  br i1 %121, label %122, label %.preheader18, !llvm.loop !10
 
 122:                                              ; preds = %117
   %123 = icmp eq i32 %118, 0
@@ -346,7 +346,7 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
   %156 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, %139
-  br i1 %158, label %159, label %.preheader, !llvm.loop !9
+  br i1 %158, label %159, label %.preheader, !llvm.loop !11
 
 159:                                              ; preds = %154
   %160 = icmp eq i32 %155, 0
@@ -373,7 +373,7 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
   br label %.loopexit
 
 .thread14:                                        ; preds = %136, %44, %124, %161, %.thread13, %159
-  br i1 %38, label %37, label %.loopexit, !llvm.loop !10
+  br i1 %38, label %37, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %31, %.thread14, %169, %.thread
   %172 = phi i32 [ 0, %169 ], [ -22, %.thread ], [ -22, %.thread14 ], [ -16, %31 ]
@@ -459,11 +459,11 @@ define internal ptr @nonstatic_find_mem_region(i64 noundef %0, i64 noundef %1, i
 
 55:                                               ; preds = %52
   store ptr %17, ptr %32, align 8
-  br i1 %43, label %42, label %56, !llvm.loop !11
+  br i1 %43, label %42, label %56, !llvm.loop !13
 
 56:                                               ; preds = %55
   %57 = or i1 %38, %39
-  br i1 %57, label %58, label %37, !llvm.loop !12
+  br i1 %57, label %58, label %37, !llvm.loop !14
 
 58:                                               ; preds = %56
   call void @kfree(ptr noundef nonnull %15) #11
@@ -582,7 +582,7 @@ define internal noundef range(i32 -12, 1) i32 @nonstatic_init(ptr noundef %0) #0
 70:                                               ; preds = %66
   %71 = load i64, ptr %68, align 8
   %72 = icmp ugt i64 %71, %43
-  br i1 %72, label %73, label %52, !llvm.loop !13
+  br i1 %72, label %73, label %52, !llvm.loop !15
 
 73:                                               ; preds = %70, %66
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -661,7 +661,7 @@ define internal noundef range(i32 -12, 1) i32 @nonstatic_init(ptr noundef %0) #0
 120:                                              ; preds = %116
   %121 = load i64, ptr %118, align 8
   %122 = icmp ugt i64 %121, %98
-  br i1 %122, label %123, label %.preheader.i, !llvm.loop !13
+  br i1 %122, label %123, label %.preheader.i, !llvm.loop !16
 
 123:                                              ; preds = %120, %116
   %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -693,7 +693,7 @@ adjust_memory.exit.thread:                        ; preds = %132, %93, %134, %86
   %137 = phi i32 [ %24, %37 ], [ %87, %86 ], [ %24, %.preheader ], [ %136, %134 ], [ %87, %93 ], [ %87, %132 ]
   %138 = add nuw nsw i64 %23, 1
   %139 = icmp eq i64 %138, 4
-  br i1 %139, label %140, label %.preheader, !llvm.loop !14
+  br i1 %139, label %140, label %.preheader, !llvm.loop !17
 
 140:                                              ; preds = %adjust_memory.exit.thread
   %141 = icmp eq i32 %137, 768
@@ -725,7 +725,7 @@ define internal void @nonstatic_release_resource_db(ptr noundef readonly capture
   %10 = load ptr, ptr %9, align 8
   tail call void @kfree(ptr noundef %8) #11
   %11 = icmp eq ptr %10, %4
-  br i1 %11, label %.loopexit6, label %.preheader5, !llvm.loop !15
+  br i1 %11, label %.loopexit6, label %.preheader5, !llvm.loop !18
 
 .loopexit6:                                       ; preds = %.preheader5, %1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -739,7 +739,7 @@ define internal void @nonstatic_release_resource_db(ptr noundef readonly capture
   %17 = load ptr, ptr %16, align 8
   tail call void @kfree(ptr noundef %15) #11
   %18 = icmp eq ptr %17, %3
-  br i1 %18, label %.loopexit4, label %.preheader3, !llvm.loop !16
+  br i1 %18, label %.loopexit4, label %.preheader3, !llvm.loop !19
 
 .loopexit4:                                       ; preds = %.preheader3, %.loopexit6
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -754,7 +754,7 @@ define internal void @nonstatic_release_resource_db(ptr noundef readonly capture
   %25 = load ptr, ptr %24, align 8
   tail call void @kfree(ptr noundef %23) #11
   %26 = icmp eq ptr %25, %19
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4
   tail call void @kfree(ptr noundef %3) #11
@@ -824,14 +824,14 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
 
 .preheader11.us:                                  ; preds = %28, %33
   %30 = phi i64 [ %34, %33 ], [ %23, %28 ]
-  %31 = tail call fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %30, i64 noundef %20, ptr noundef %3), !range !18
+  %31 = tail call fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %30, i64 noundef %20, ptr noundef %3), !range !21
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.loopexit12.us, label %33
 
 33:                                               ; preds = %.preheader11.us
   %34 = add i64 %30, %20
   %35 = icmp ult i64 %34, %9
-  br i1 %35, label %.preheader11.us, label %.loopexit12.us, !llvm.loop !19
+  br i1 %35, label %.preheader11.us, label %.loopexit12.us, !llvm.loop !22
 
 .loopexit12.us:                                   ; preds = %.preheader11.us, %33, %28
   %36 = phi i64 [ %23, %28 ], [ %30, %.preheader11.us ], [ %34, %33 ]
@@ -859,7 +859,7 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
   %50 = add i64 %43, -1
   %51 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i64 noundef %23, i64 noundef %50) #13
   %52 = sub i64 %43, %23
-  %53 = tail call fastcc i32 @sub_interval(ptr noundef %7, i64 noundef %23, i64 noundef %52), !range !20
+  %53 = tail call fastcc i32 @sub_interval(ptr noundef %7, i64 noundef %23, i64 noundef %52), !range !23
   %54 = add i64 %52, %26
   br label %55
 
@@ -867,7 +867,7 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
   %56 = phi i64 [ %54, %49 ], [ %26, %41 ]
   %57 = add i64 %43, %20
   %58 = icmp ult i64 %57, %9
-  br i1 %58, label %.split.us, label %.split15.us, !llvm.loop !21
+  br i1 %58, label %.split.us, label %.split15.us, !llvm.loop !24
 
 .split:                                           ; preds = %22, %94
   %59 = phi i64 [ %96, %94 ], [ %1, %22 ]
@@ -882,14 +882,14 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
 
 .preheader11:                                     ; preds = %63, %68
   %65 = phi i64 [ %69, %68 ], [ %59, %63 ]
-  %66 = tail call fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %65, i64 noundef %20, ptr noundef %3), !range !18
+  %66 = tail call fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %65, i64 noundef %20, ptr noundef %3), !range !21
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.loopexit24, label %68
 
 68:                                               ; preds = %.preheader11
   %69 = add i64 %65, %20
   %70 = icmp ult i64 %69, %9
-  br i1 %70, label %.preheader11, label %.loopexit24, !llvm.loop !19
+  br i1 %70, label %.preheader11, label %.loopexit24, !llvm.loop !22
 
 .loopexit24:                                      ; preds = %.preheader11, %68, %63
   %71 = phi i64 [ %59, %63 ], [ %65, %.preheader11 ], [ %69, %68 ]
@@ -904,14 +904,14 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
 
 .preheader:                                       ; preds = %.thread21, %78
   %75 = phi i64 [ %79, %78 ], [ %59, %.thread21 ]
-  %76 = tail call fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %75, i64 noundef %20, ptr noundef nonnull %4), !range !18
+  %76 = tail call fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %75, i64 noundef %20, ptr noundef nonnull %4), !range !21
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %.loopexit, label %78
 
 78:                                               ; preds = %.preheader
   %79 = add i64 %75, %20
   %80 = icmp ult i64 %79, %9
-  br i1 %80, label %.preheader, label %.loopexit, !llvm.loop !23
+  br i1 %80, label %.preheader, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %78, %.preheader, %.thread21, %.loopexit24
   %81 = phi i64 [ 0, %.loopexit24 ], [ 1, %.thread21 ], [ 1, %.preheader ], [ 1, %78 ]
@@ -931,7 +931,7 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
   %89 = add i64 %82, -1
   %90 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i64 noundef %59, i64 noundef %89) #13
   %91 = sub i64 %82, %59
-  %92 = tail call fastcc i32 @sub_interval(ptr noundef %7, i64 noundef %59, i64 noundef %91), !range !20
+  %92 = tail call fastcc i32 @sub_interval(ptr noundef %7, i64 noundef %59, i64 noundef %91), !range !23
   %93 = add i64 %91, %61
   br label %94
 
@@ -939,7 +939,7 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
   %95 = phi i64 [ %93, %88 ], [ %61, %.loopexit ]
   %96 = add i64 %82, %20
   %97 = icmp ult i64 %96, %9
-  br i1 %97, label %.split, label %.split15.us, !llvm.loop !24
+  br i1 %97, label %.split, label %.split15.us, !llvm.loop !27
 
 .split15.us:                                      ; preds = %94, %55
   %.us-phi = phi i64 [ %56, %55 ], [ %95, %94 ]
@@ -1030,7 +1030,7 @@ define internal noundef range(i32 -22, 1) i32 @checksum(ptr noundef %0, ptr noun
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !annotation !28
   store i8 0, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 1, ptr %12, align 1
@@ -1055,13 +1055,13 @@ define internal noundef range(i32 -22, 1) i32 @checksum(ptr noundef %0, ptr noun
   %25 = phi i32 [ %31, %.preheader ], [ 0, %11 ]
   %26 = sext i32 %25 to i64
   %27 = getelementptr i8, ptr %9, i64 %26
-  %28 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27) #11, !srcloc !26
+  %28 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27) #11, !srcloc !29
   %29 = add i32 %28, %24
   %30 = and i32 %28, %23
   %31 = add i32 %25, 44
   %32 = load i32, ptr %6, align 4
   %33 = icmp ult i32 %31, %32
-  br i1 %33, label %.preheader, label %34, !llvm.loop !27
+  br i1 %33, label %.preheader, label %34, !llvm.loop !30
 
 34:                                               ; preds = %.preheader
   %35 = icmp eq i32 %30, -1
@@ -1176,8 +1176,8 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   br i1 %45, label %.thread31, label %46
 
 46:                                               ; preds = %44
-  %47 = call i32 %3(ptr noundef %0, ptr noundef nonnull %26, ptr noundef nonnull %5) #11, !callees !28
-  %48 = call i32 %3(ptr noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %6) #11, !callees !28
+  %47 = call i32 %3(ptr noundef %0, ptr noundef nonnull %26, ptr noundef nonnull %5) #11, !callees !31
+  %48 = call i32 %3(ptr noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %6) #11, !callees !31
   %49 = sub i32 0, %48
   %50 = icmp eq i32 %47, %49
   %51 = call i32 @release_resource(ptr noundef nonnull %28) #11
@@ -1257,7 +1257,7 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
 88:                                               ; preds = %84
   %89 = load i64, ptr %86, align 8
   %90 = icmp ugt i64 %89, %70
-  br i1 %90, label %91, label %71, !llvm.loop !13
+  br i1 %90, label %91, label %71, !llvm.loop !32
 
 91:                                               ; preds = %88, %84
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -1281,7 +1281,7 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   br label %102
 
 102:                                              ; preds = %97, %95, %80
-  %103 = call fastcc i32 @sub_interval(ptr noundef %8, i64 noundef %1, i64 noundef %2), !range !20
+  %103 = call fastcc i32 @sub_interval(ptr noundef %8, i64 noundef %1, i64 noundef %2), !range !23
   br label %104
 
 104:                                              ; preds = %55, %.thread19.thread, %.thread31, %102, %63, %61, %.thread19, %46
@@ -1380,7 +1380,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @sub_interval(ptr noundef c
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %0
-  br i1 %53, label %.loopexit, label %9, !llvm.loop !29
+  br i1 %53, label %.loopexit, label %9, !llvm.loop !33
 
 .loopexit:                                        ; preds = %49, %36, %3
   %54 = phi i32 [ -12, %36 ], [ 0, %3 ], [ 0, %49 ]
@@ -1474,7 +1474,7 @@ define internal i64 @pcmcia_align(ptr noundef readonly captures(none) %0, ptr no
   %43 = add i64 %19, %40
   %44 = icmp ugt i64 %43, %31
   %45 = select i1 %42, i1 %44, i1 false
-  br i1 %45, label %20, label %.loopexit
+  br i1 %45, label %20, label %.loopexit, !llvm.loop !34
 
 46:                                               ; preds = %20
   %47 = load i64, ptr %18, align 8
@@ -1531,7 +1531,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @adjust_memory(ptr noundef 
 29:                                               ; preds = %25
   %30 = load i64, ptr %27, align 8
   %31 = icmp ugt i64 %30, %3
-  br i1 %31, label %32, label %.preheader, !llvm.loop !13
+  br i1 %31, label %32, label %.preheader, !llvm.loop !16
 
 32:                                               ; preds = %29, %25
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -1559,7 +1559,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @adjust_memory(ptr noundef 
   br label %47
 
 45:                                               ; preds = %10
-  %46 = tail call fastcc i32 @sub_interval(ptr noundef %6, i64 noundef %2, i64 noundef %8), !range !20
+  %46 = tail call fastcc i32 @sub_interval(ptr noundef %6, i64 noundef %2, i64 noundef %8), !range !23
   br label %47
 
 47:                                               ; preds = %41, %45, %43, %4
@@ -1642,7 +1642,7 @@ define internal range(i64 -2147483648, 2147487734) i64 @show_io_db(ptr noundef r
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %9
-  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %26, %3
   %31 = phi i64 [ 0, %3 ], [ %27, %26 ]
@@ -1657,9 +1657,9 @@ define internal noundef i64 @store_io_db(ptr noundef readonly captures(none) %0,
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store i64 0, ptr %5, align 8, !annotation !25
+  store i64 0, ptr %5, align 8, !annotation !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  store i64 0, ptr %6, align 8, !annotation !25
+  store i64 0, ptr %6, align 8, !annotation !28
   %9 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = icmp eq i32 %9, 2
   br i1 %10, label %17, label %11
@@ -1730,7 +1730,7 @@ define internal noundef i64 @store_io_db(ptr noundef readonly captures(none) %0,
 53:                                               ; preds = %49
   %54 = load i64, ptr %51, align 8
   %55 = icmp ugt i64 %54, %25
-  br i1 %55, label %56, label %.preheader.i, !llvm.loop !13
+  br i1 %55, label %56, label %.preheader.i, !llvm.loop !36
 
 56:                                               ; preds = %53, %49
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -1754,7 +1754,7 @@ define internal noundef i64 @store_io_db(ptr noundef readonly captures(none) %0,
   br label %.sink.split
 
 67:                                               ; preds = %32
-  %68 = call fastcc i32 @sub_interval(ptr noundef nonnull %35, i64 noundef %26, i64 noundef %28), !range !20
+  %68 = call fastcc i32 @sub_interval(ptr noundef nonnull %35, i64 noundef %26, i64 noundef %28), !range !23
   br label %.sink.split
 
 .sink.split:                                      ; preds = %62, %44, %67, %60, %22
@@ -1819,7 +1819,7 @@ define internal range(i64 -2147483648, 2147487734) i64 @show_mem_db(ptr noundef 
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %9
-  br i1 %34, label %.loopexit8, label %.preheader7, !llvm.loop !31
+  br i1 %34, label %.loopexit8, label %.preheader7, !llvm.loop !37
 
 .preheader:                                       ; preds = %.loopexit8, %48
   %35 = phi ptr [ %51, %48 ], [ %15, %.loopexit8 ]
@@ -1844,7 +1844,7 @@ define internal range(i64 -2147483648, 2147487734) i64 @show_mem_db(ptr noundef 
   %50 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %8
-  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %48, %.loopexit8
   %53 = phi i64 [ %13, %.loopexit8 ], [ %49, %48 ]
@@ -1859,9 +1859,9 @@ define internal noundef i64 @store_mem_db(ptr noundef readonly captures(none) %0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store i64 0, ptr %5, align 8, !annotation !25
+  store i64 0, ptr %5, align 8, !annotation !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  store i64 0, ptr %6, align 8, !annotation !25
+  store i64 0, ptr %6, align 8, !annotation !28
   %9 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = icmp eq i32 %9, 2
   br i1 %10, label %17, label %11
@@ -1936,31 +1936,37 @@ attributes #13 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = !{i32 -22, i32 1}
-!19 = distinct !{!19, !6, !7}
-!20 = !{i32 -12, i32 1}
-!21 = distinct !{!21, !6, !7, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = !{!"auto-init"}
-!26 = !{i64 2154284228}
-!27 = distinct !{!27, !6, !7}
-!28 = !{ptr @checksum, ptr @readable}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = !{i32 -22, i32 1}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = !{i32 -12, i32 1}
+!24 = distinct !{!24, !6, !7, !8, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = !{!"auto-init"}
+!29 = !{i64 2154284228}
+!30 = distinct !{!30, !6, !7, !8}
+!31 = !{ptr @checksum, ptr @readable}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}
+!38 = distinct !{!38, !6, !7, !8}

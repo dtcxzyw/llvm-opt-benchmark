@@ -446,7 +446,7 @@ pg_isblank.exit.i:                                ; preds = %69, %65, %65, %65
   %71 = icmp eq i8 %68, 44
   %72 = or i1 %71, %70
   %indvar.next = add i64 %indvar, 1
-  br i1 %72, label %65, label %.critedge.i118.preheader, !llvm.loop !6
+  br i1 %72, label %65, label %.critedge.i118.preheader, !llvm.loop !7
 
 .critedge.i118.preheader:                         ; preds = %pg_isblank.exit.i, %65
   %.040.i.ph = phi i8 [ %68, %65 ], [ 0, %pg_isblank.exit.i ]
@@ -520,7 +520,7 @@ pg_isblank.exit46.i:                              ; preds = %.critedge.i118, %.c
   %90 = getelementptr i8, ptr %.2129, i64 1
   %91 = load i8, ptr %.2129, align 1
   %indvar.next236 = add i64 %indvar235, 1
-  br label %.critedge.i118, !llvm.loop !7
+  br label %.critedge.i118, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %79, %pg_isblank.exit46.i, %.critedge.i118, %.preheader.i.preheader
   %.0132 = phi i1 [ false, %.preheader.i.preheader ], [ true, %79 ], [ false, %pg_isblank.exit46.i ], [ false, %.critedge.i118 ]
@@ -698,7 +698,7 @@ tokenize_expand_file.exit:                        ; preds = %.critedge.i, %149, 
   %164 = load ptr, ptr %11, align 8
   %165 = icmp eq ptr %164, null
   %or.cond149 = select i1 %.0132, i1 %165, i1 false
-  br i1 %or.cond149, label %64, label %next_field_expand.exit, !llvm.loop !8
+  br i1 %or.cond149, label %64, label %next_field_expand.exit, !llvm.loop !9
 
 next_field_expand.exit:                           ; preds = %.critedge2.i, %163
   %.1.i = phi ptr [ %.2.i, %163 ], [ %.0.i, %.critedge2.i ]
@@ -723,7 +723,7 @@ next_field_expand.exit:                           ; preds = %.critedge2.i, %163
   %174 = load ptr, ptr %11, align 8
   %175 = icmp eq ptr %174, null
   %176 = select i1 %173, i1 %175, i1 false
-  br i1 %176, label %.lr.ph207, label %._crit_edge208, !llvm.loop !9
+  br i1 %176, label %.lr.ph207, label %._crit_edge208, !llvm.loop !10
 
 ._crit_edge208:                                   ; preds = %171, %57
   %.087.lcssa = phi ptr [ null, %57 ], [ %.188, %171 ]
@@ -853,7 +853,7 @@ tokenize_include_file.exit111:                    ; preds = %219, %217, %.lr.ph2
   %229 = load i32, ptr %12, align 4
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %indvars.iv.next244, %230
-  br i1 %231, label %.lr.ph213, label %.preheader, !llvm.loop !10
+  br i1 %231, label %.lr.ph213, label %.preheader, !llvm.loop !11
 
 ._crit_edge216:                                   ; preds = %.lr.ph215, %209, %.preheader
   call void @pfree(ptr noundef nonnull %208) #13
@@ -870,7 +870,7 @@ tokenize_include_file.exit111:                    ; preds = %219, %217, %.lr.ph2
   %236 = load i32, ptr %12, align 4
   %237 = sext i32 %236 to i64
   %238 = icmp slt i64 %indvars.iv.next247, %237
-  br i1 %238, label %.lr.ph215, label %._crit_edge216, !llvm.loop !11
+  br i1 %238, label %.lr.ph215, label %._crit_edge216, !llvm.loop !12
 
 239:                                              ; preds = %._crit_edge216
   %240 = load ptr, ptr %13, align 8
@@ -975,7 +975,7 @@ list_length.exit.thread:                          ; preds = %178, %241, %tokeniz
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
   %281 = call i32 @feof(ptr noundef %1) #13
   %.not = icmp eq i32 %281, 0
-  br i1 %.not, label %30, label %.critedge
+  br i1 %.not, label %30, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %30, %.thread137, %23, %.thread142
   store ptr %20, ptr @CurrentMemoryContext, align 8
@@ -1266,7 +1266,7 @@ list_head.exit:                                   ; preds = %2, %24
   %129 = load ptr, ptr %128, align 8
   %.val810 = load ptr, ptr %129, align 8
   %130 = getelementptr i8, ptr %129, i64 8
-  %.val811 = load i8, ptr %130, align 8, !range !12, !noundef !13
+  %.val811 = load i8, ptr %130, align 8, !range !14, !noundef !15
   %131 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val810) #15
   %sext.i.i = shl i64 %131, 32
   %132 = ashr exact i64 %sext.i.i, 32
@@ -1345,7 +1345,7 @@ list_head.exit:                                   ; preds = %2, %24
   %169 = load ptr, ptr %168, align 8
   %.val812 = load ptr, ptr %169, align 8
   %170 = getelementptr i8, ptr %169, i64 8
-  %.val813 = load i8, ptr %170, align 8, !range !12, !noundef !13
+  %.val813 = load i8, ptr %170, align 8, !range !14, !noundef !15
   %171 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val812) #15
   %sext.i.i815 = shl i64 %171, 32
   %172 = ashr exact i64 %sext.i.i815, 32
@@ -1437,7 +1437,7 @@ list_head.exit:                                   ; preds = %2, %24
   %.val796 = load ptr, ptr %218, align 8
   %219 = load ptr, ptr %.val796, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %221 = load i8, ptr %220, align 8, !range !12, !noundef !13
+  %221 = load i8, ptr %220, align 8, !range !14, !noundef !15
   %222 = trunc nuw i8 %221 to i1
   br i1 %222, label %.thread868, label %223
 
@@ -2019,7 +2019,7 @@ list_head.exit:                                   ; preds = %2, %24
   %546 = sext i32 %.val808 to i64
   %547 = getelementptr inbounds %union.ListCell, ptr %.val809, i64 %546
   %.not885 = icmp ult ptr %545, %547
-  br i1 %.not885, label %548, label %.critedge791._crit_edge.loopexit
+  br i1 %.not885, label %548, label %.critedge791._crit_edge.loopexit, !llvm.loop !16
 
 548:                                              ; preds = %.lr.ph1092, %.critedge791.critedge
   %549 = phi ptr [ %506, %.lr.ph1092 ], [ %542, %.critedge791.critedge ]
@@ -2063,7 +2063,7 @@ list_head.exit:                                   ; preds = %2, %24
   %571 = load ptr, ptr %557, align 8
   %572 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.60, ptr noundef %571) #13
   store ptr %572, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 573:                                              ; preds = %.lr.ph1674
   %574 = getelementptr inbounds nuw i8, ptr %560, i64 1
@@ -2099,7 +2099,7 @@ list_head.exit:                                   ; preds = %2, %24
 588:                                              ; preds = %583, %581
   %589 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.84) #13
   store ptr %589, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 590:                                              ; preds = %579, %579, %579, %579, %579
   %591 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2130,7 +2130,7 @@ list_head.exit:                                   ; preds = %2, %24
 
 604:                                              ; preds = %599, %597
   store ptr @.str.86, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 605:                                              ; preds = %595
   %606 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %574, ptr noundef nonnull dereferenceable(12) @.str.87) #15
@@ -2165,7 +2165,7 @@ list_head.exit:                                   ; preds = %2, %24
 
 622:                                              ; preds = %617, %615
   store ptr @.str.90, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 623:                                              ; preds = %612
   store i32 1, ptr %540, align 8
@@ -2173,7 +2173,7 @@ list_head.exit:                                   ; preds = %2, %24
 
 624:                                              ; preds = %609
   %625 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %625, label %626, label %.critedge, !llvm.loop !14
+  br i1 %625, label %626, label %.critedge, !llvm.loop !17
 
 626:                                              ; preds = %624
   %627 = call i32 @errcode(i32 noundef 22) #13
@@ -2181,7 +2181,7 @@ list_head.exit:                                   ; preds = %2, %24
   %629 = call i32 @set_errcontext_domain(ptr noundef null) #13
   %630 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.12, i32 noundef %575, ptr noundef %576) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2111, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 631:                                              ; preds = %592
   %632 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %559, ptr noundef nonnull dereferenceable(11) @.str.92) #15
@@ -2207,7 +2207,7 @@ list_head.exit:                                   ; preds = %2, %24
 
 643:                                              ; preds = %638, %636
   store ptr @.str.93, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 sub_0.i:                                          ; preds = %634
   %644 = load i8, ptr %574, align 1
@@ -2250,7 +2250,7 @@ sub_1743.i:                                       ; preds = %sub_0.i
 
 .tail741.thread.i:                                ; preds = %sub_0.i, %sub_1.i, %.tail.i, %sub_1743.i, %.tail741.i
   %657 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %657, label %658, label %.critedge, !llvm.loop !14
+  br i1 %657, label %658, label %.critedge, !llvm.loop !17
 
 658:                                              ; preds = %.tail741.thread.i
   %659 = call i32 @errcode(i32 noundef 22) #13
@@ -2258,7 +2258,7 @@ sub_1743.i:                                       ; preds = %sub_0.i
   %661 = call i32 @set_errcontext_domain(ptr noundef null) #13
   %662 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.12, i32 noundef %575, ptr noundef %576) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2142, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 663:                                              ; preds = %631
   %664 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %559, ptr noundef nonnull dereferenceable(11) @.str.97) #15
@@ -2285,7 +2285,7 @@ sub_1743.i:                                       ; preds = %sub_0.i
 675:                                              ; preds = %670, %668
   %676 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.50) #13
   store ptr %676, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 677:                                              ; preds = %666
   %678 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2317,7 +2317,7 @@ sub_1743.i:                                       ; preds = %sub_0.i
 691:                                              ; preds = %686, %684
   %692 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.50) #13
   store ptr %692, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 sub_0747.i:                                       ; preds = %682
   %693 = load i8, ptr %574, align 1
@@ -2363,7 +2363,7 @@ sub_0747.i:                                       ; preds = %682
 710:                                              ; preds = %705, %704
   %711 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.52) #13
   store ptr %711, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 712:                                              ; preds = %701
   br i1 %703, label %713, label %716
@@ -2403,7 +2403,7 @@ sub_0747.i:                                       ; preds = %682
 729:                                              ; preds = %724, %722
   %730 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.52) #13
   store ptr %730, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 sub_0751.i:                                       ; preds = %720
   %731 = load i8, ptr %574, align 1
@@ -2449,7 +2449,7 @@ sub_0751.i:                                       ; preds = %720
 748:                                              ; preds = %743, %741
   %749 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.52) #13
   store ptr %749, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 750:                                              ; preds = %739
   %751 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %574, ptr noundef nonnull dereferenceable(5) @.str.52) #15
@@ -2503,7 +2503,7 @@ sub_0751.i:                                       ; preds = %720
 775:                                              ; preds = %770, %768
   %776 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.52) #13
   store ptr %776, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 777:                                              ; preds = %766
   %778 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2535,7 +2535,7 @@ sub_0751.i:                                       ; preds = %720
 791:                                              ; preds = %786, %784
   %792 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.52) #13
   store ptr %792, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 793:                                              ; preds = %782
   %794 = call i64 @strtol(ptr noundef nonnull captures(none) %574, ptr noundef null, i32 noundef 10) #13
@@ -2559,7 +2559,7 @@ sub_0751.i:                                       ; preds = %720
 804:                                              ; preds = %799, %797
   %805 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.107, ptr noundef nonnull %574) #13
   store ptr %805, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 806:                                              ; preds = %779
   %807 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %559, ptr noundef nonnull dereferenceable(11) @.str.108) #15
@@ -2586,7 +2586,7 @@ sub_0751.i:                                       ; preds = %720
 818:                                              ; preds = %813, %811
   %819 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.52) #13
   store ptr %819, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 820:                                              ; preds = %809
   %821 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2618,7 +2618,7 @@ sub_0751.i:                                       ; preds = %720
 834:                                              ; preds = %829, %827
   %835 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.52) #13
   store ptr %835, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 836:                                              ; preds = %825
   %837 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2650,7 +2650,7 @@ sub_0751.i:                                       ; preds = %720
 850:                                              ; preds = %845, %843
   %851 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.52) #13
   store ptr %851, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 852:                                              ; preds = %841
   %853 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2682,7 +2682,7 @@ sub_0751.i:                                       ; preds = %720
 866:                                              ; preds = %861, %859
   %867 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.52) #13
   store ptr %867, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 868:                                              ; preds = %857
   %869 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2714,7 +2714,7 @@ sub_0751.i:                                       ; preds = %720
 882:                                              ; preds = %877, %875
   %883 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.52) #13
   store ptr %883, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 884:                                              ; preds = %873
   %885 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2746,7 +2746,7 @@ sub_0751.i:                                       ; preds = %720
 898:                                              ; preds = %893, %891
   %899 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.52) #13
   store ptr %899, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 900:                                              ; preds = %889
   %901 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2778,7 +2778,7 @@ sub_0751.i:                                       ; preds = %720
 914:                                              ; preds = %909, %907
   %915 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.52) #13
   store ptr %915, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 916:                                              ; preds = %905
   %917 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2811,7 +2811,7 @@ sub_0751.i:                                       ; preds = %720
 930:                                              ; preds = %925, %923
   %931 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116) #13
   store ptr %931, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 932:                                              ; preds = %921
   %933 = call ptr @pstrdup(ptr noundef nonnull %574) #13
@@ -2844,7 +2844,7 @@ sub_0751.i:                                       ; preds = %720
 946:                                              ; preds = %941, %939
   %947 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.116) #13
   store ptr %947, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 sub_0755.i:                                       ; preds = %937
   %948 = load i8, ptr %574, align 1
@@ -2890,7 +2890,7 @@ sub_0755.i:                                       ; preds = %937
 965:                                              ; preds = %960, %958
   %966 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.46) #13
   store ptr %966, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 sub_0759.i:                                       ; preds = %956
   %967 = load i8, ptr %574, align 1
@@ -2936,7 +2936,7 @@ sub_0759.i:                                       ; preds = %956
 984:                                              ; preds = %979, %977
   %985 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.46) #13
   store ptr %985, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 sub_0763.i:                                       ; preds = %975
   %986 = load i8, ptr %574, align 1
@@ -3307,25 +3307,25 @@ sub_0763.i:                                       ; preds = %975
 1161:                                             ; preds = %1156, %1154
   %1162 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.128, ptr noundef nonnull %559) #13
   store ptr %1162, ptr %15, align 8
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 .critedge728.i:                                   ; preds = %1008, %1010, %1041, %1004
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 .critedge732.i:                                   ; preds = %.split.i, %1093, %1074, %1063
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 .critedge734.i:                                   ; preds = %1117, %1119, %1113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 .critedge736.i:                                   ; preds = %1144, %1146, %1140
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
-  br label %.critedge, !llvm.loop !14
+  br label %.critedge, !llvm.loop !17
 
 1163:                                             ; preds = %1151, %1124, %.critedge730.i, %.critedge.i, %623, %608, %677, %716, %761, %793, %836, %868, %900, %932, %.tail758.thread.i, %971, %990, %.tail762.thread.i, %952, %.tail754.thread.i, %916, %884, %852, %820, %777, %735, %.tail750.thread.i, %697, %.tail746.thread.i, %650, %656, %590
   call void @pfree(ptr noundef nonnull %559) #13
@@ -4076,7 +4076,7 @@ list_head.exit:                                   ; preds = %2, %9
   %64 = load ptr, ptr %.val108, align 8
   %.val116 = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %64, i64 8
-  %.val117 = load i8, ptr %65, align 8, !range !12, !noundef !13
+  %.val117 = load i8, ptr %65, align 8, !range !14, !noundef !15
   %66 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val116) #15
   %sext.i.i = shl i64 %66, 32
   %67 = ashr exact i64 %sext.i.i, 32
@@ -4151,7 +4151,7 @@ list_head.exit:                                   ; preds = %2, %9
   %106 = load ptr, ptr %.val, align 8
   %.val114 = load ptr, ptr %106, align 8
   %107 = getelementptr i8, ptr %106, i64 8
-  %.val115 = load i8, ptr %107, align 8, !range !12, !noundef !13
+  %.val115 = load i8, ptr %107, align 8, !range !14, !noundef !15
   %108 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val114) #15
   %sext.i.i119 = shl i64 %108, 32
   %109 = ashr exact i64 %sext.i.i119, 32
@@ -4307,7 +4307,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %72 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = load i8, ptr %74, align 8, !range !12, !noundef !13
+  %75 = load i8, ptr %74, align 8, !range !14, !noundef !15
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %81, label %77
 
@@ -4611,7 +4611,7 @@ define dso_local void @hba_getauthmethod(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not40.i, label %check_ip.exit.i, label %33
 
 33:                                               ; preds = %32
-  %34 = load i8, ptr %12, align 8, !range !12, !noundef !13
+  %34 = load i8, ptr %12, align 8, !range !14, !noundef !15
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %37
 
@@ -4738,7 +4738,7 @@ hostname_match.exit.i.i:                          ; preds = %62, %54
   %82 = getelementptr inbounds nuw i8, ptr %.03448.i.us.i, i64 40
   %.034.i.us.i = load ptr, ptr %82, align 8
   %.not42.not.i.us.i = icmp eq ptr %.034.i.us.i, null
-  br i1 %.not42.not.i.us.i, label %ipv6eq.exit._crit_edge.thread59.i.i, label %.lr.ph.i.split.us.i, !llvm.loop !15
+  br i1 %.not42.not.i.us.i, label %ipv6eq.exit._crit_edge.thread59.i.i, label %.lr.ph.i.split.us.i, !llvm.loop !18
 
 .lr.ph.i.split.us56.i:                            ; preds = %.lr.ph.i.i, %94
   %.03448.i.us57.i = phi ptr [ %.034.i.us58.i, %94 ], [ %.03446.i.i, %.lr.ph.i.i ]
@@ -4762,7 +4762,7 @@ hostname_match.exit.i.i:                          ; preds = %62, %54
   %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i.i.us.i, 1
   %exitcond.i.i.us.i = icmp ne i64 %indvars.iv.next.i.i.us.i, 16
   %or.cond.not.i.i.us.i = select i1 %.not.i.i.us.i, i1 %exitcond.i.i.us.i, i1 false
-  br i1 %or.cond.not.i.i.us.i, label %89, label %ipv6eq.exit.i.us.i, !llvm.loop !17
+  br i1 %or.cond.not.i.i.us.i, label %89, label %ipv6eq.exit.i.us.i, !llvm.loop !20
 
 ipv6eq.exit.i.us.i:                               ; preds = %89
   br i1 %.not.i.i.us.i, label %check_hostname.exit.i, label %94
@@ -4771,7 +4771,7 @@ ipv6eq.exit.i.us.i:                               ; preds = %89
   %95 = getelementptr inbounds nuw i8, ptr %.03448.i.us57.i, i64 40
   %.034.i.us58.i = load ptr, ptr %95, align 8
   %.not42.not.i.us59.i = icmp eq ptr %.034.i.us58.i, null
-  br i1 %.not42.not.i.us59.i, label %ipv6eq.exit._crit_edge.thread59.i.i, label %.lr.ph.i.split.us56.i, !llvm.loop !18
+  br i1 %.not42.not.i.us59.i, label %ipv6eq.exit._crit_edge.thread59.i.i, label %.lr.ph.i.split.us56.i, !llvm.loop !21
 
 96:                                               ; preds = %70
   store i32 -2, ptr %15, align 8
@@ -4842,7 +4842,7 @@ check_same_host_or_net.exit.thread.i:             ; preds = %113, %111
   br label %check_ip.exit.i
 
 check_same_host_or_net.exit.i:                    ; preds = %107
-  %115 = load i8, ptr %14, align 8, !range !12, !noundef !13
+  %115 = load i8, ptr %14, align 8, !range !14, !noundef !15
   %116 = trunc nuw i8 %115 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #13
   br i1 %116, label %check_ip.exit.thread.i, label %check_ip.exit.i
@@ -4871,14 +4871,14 @@ check_ip.exit.thread.i:                           ; preds = %check_ip.exit.threa
   %125 = load ptr, ptr %122, align 8
   %126 = getelementptr inbounds nuw %union.ListCell, ptr %125, i64 %indvars.iv.i60.i
   %127 = load ptr, ptr %126, align 8
-  %128 = load i8, ptr @am_walsender, align 1, !range !12, !noundef !13
+  %128 = load i8, ptr @am_walsender, align 1, !range !14, !noundef !15
   %129 = trunc nuw i8 %128 to i1
   %.not.i46.i = xor i1 %129, true
-  %130 = load i8, ptr @am_db_walsender, align 1, !range !12
+  %130 = load i8, ptr @am_db_walsender, align 1, !range !14
   %131 = trunc nuw i8 %130 to i1
   %or.cond.i.i = select i1 %.not.i46.i, i1 true, i1 %131
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %133 = load i8, ptr %132, align 8, !range !12, !noundef !13
+  %133 = load i8, ptr %132, align 8, !range !14, !noundef !15
   %134 = trunc nuw i8 %133 to i1
   br i1 %or.cond.i.i, label %140, label %135
 
@@ -5053,7 +5053,7 @@ define internal fastcc noundef zeroext i1 @check_role(ptr noundef %0, i32 nounde
   %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv44
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i8, ptr %12, align 8, !range !12, !noundef !13
+  %13 = load i8, ptr %12, align 8, !range !14, !noundef !15
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %.thread30, label %15
 
@@ -5154,7 +5154,7 @@ define internal void @check_network_callback(ptr noundef %0, ptr noundef %1, ptr
   %4 = alloca %struct.sockaddr_storage, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load i8, ptr %5, align 8, !range !12, !noundef !13
+  %6 = load i8, ptr %5, align 8, !range !14, !noundef !15
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %32, label %8
 
@@ -5231,18 +5231,21 @@ attributes #15 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !6}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5, !16}
+!18 = distinct !{!18, !5, !6, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6, !19}

@@ -412,7 +412,7 @@ bytestream2_put_le24.exit92.i:                    ; preds = %bytestream2_get_le2
   %.sroa.0.3 = phi ptr [ %185, %177 ], [ %.sroa.0.2, %bytestream2_get_le24.exit88.i ]
   %186 = add nuw nsw i32 %.064115.i, 1
   %exitcond.not.i = icmp eq i32 %186, %.0.i.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !51
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !52
 
 187:                                              ; preds = %bytestream2_get_byte.exit.i
   %188 = ptrtoint ptr %.sroa.0.0 to i64
@@ -482,7 +482,7 @@ bytestream2_put_le24.exit94.i:                    ; preds = %bytestream2_seek_p.
   %220 = phi ptr [ %218, %216 ], [ %212, %211 ], [ %199, %208 ], [ %207, %bytestream2_seek_p.exit86.i ]
   %221 = add nuw nsw i32 %.0117.i, 1
   %exitcond141.not.i = icmp eq i32 %221, %93
-  br i1 %exitcond141.not.i, label %.loopexit.i, label %197, !llvm.loop !52
+  br i1 %exitcond141.not.i, label %.loopexit.i, label %197, !llvm.loop !53
 
 .loopexit.i:                                      ; preds = %bytestream2_put_le24.exit92.i, %bytestream2_put_le24.exit94.i, %bytestream2_put_le24.exit.i, %bytestream2_get_byte.exit.thread.i, %.preheader112.i, %.preheader.i
   %.sroa.40.5 = phi i32 [ %.sroa.40.1, %.preheader.i ], [ %.sroa.40.1, %.preheader112.i ], [ %.sroa.40.1, %bytestream2_get_byte.exit.thread.i ], [ %.sroa.40.8, %bytestream2_put_le24.exit.i ], [ %.sroa.40.11, %bytestream2_put_le24.exit94.i ], [ %.sroa.40.4, %bytestream2_put_le24.exit92.i ]
@@ -495,7 +495,7 @@ bytestream2_put_le24.exit94.i:                    ; preds = %bytestream2_seek_p.
   %223 = sub i64 %59, %222
   %224 = trunc i64 %223 to i32
   %225 = icmp sgt i32 %224, 0
-  br i1 %225, label %75, label %rle_uncompress.exit, !llvm.loop !53
+  br i1 %225, label %75, label %rle_uncompress.exit, !llvm.loop !54
 
 rle_uncompress.exit:                              ; preds = %.loopexit.i
   %.not50 = icmp eq i32 %.170.i, 0
@@ -503,22 +503,22 @@ rle_uncompress.exit:                              ; preds = %.loopexit.i
 
 rle_uncompress.exit.thread:                       ; preds = %187, %bytestream2_get_le32.exit.i, %133, %bytestream2_init_writer.exit, %rle_uncompress.exit
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %227 = load i32, ptr %226, align 4, !tbaa !54
+  %227 = load i32, ptr %226, align 4, !tbaa !55
   %228 = or i32 %227, 2
-  store i32 %228, ptr %226, align 4, !tbaa !54
+  store i32 %228, ptr %226, align 4, !tbaa !55
   br label %233
 
 229:                                              ; preds = %rle_uncompress.exit
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %231 = load i32, ptr %230, align 4, !tbaa !54
+  %231 = load i32, ptr %230, align 4, !tbaa !55
   %232 = and i32 %231, -3
-  store i32 %232, ptr %230, align 4, !tbaa !54
+  store i32 %232, ptr %230, align 4, !tbaa !55
   br label %233
 
 233:                                              ; preds = %229, %rle_uncompress.exit.thread
   %.not51 = phi i32 [ 2, %229 ], [ 1, %rle_uncompress.exit.thread ]
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 %.not51, ptr %234, align 8, !tbaa !59
+  store i32 %.not51, ptr %234, align 8, !tbaa !60
   %235 = load ptr, ptr %35, align 8, !tbaa !37
   %236 = tail call i32 @av_frame_replace(ptr noundef %235, ptr noundef nonnull %1) #5
   %237 = icmp slt i32 %236, 0
@@ -635,14 +635,15 @@ attributes #6 = { noreturn nounwind }
 !46 = !{!14, !14, i64 0}
 !47 = !{!10, !10, i64 0}
 !48 = !{!8, !8, i64 0}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = distinct !{!51, !50}
-!52 = distinct !{!52, !50}
-!53 = distinct !{!53, !50}
-!54 = !{!55, !10, i64 276}
-!55 = !{!"AVFrame", !8, i64 0, !8, i64 64, !56, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !57, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !58, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!56 = !{!"p2 omnipotent char", !26, i64 0}
-!57 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!58 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!59 = !{!55, !10, i64 120}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = distinct !{!52, !50, !51}
+!53 = distinct !{!53, !50, !51}
+!54 = distinct !{!54, !50, !51}
+!55 = !{!56, !10, i64 276}
+!56 = !{!"AVFrame", !8, i64 0, !8, i64 64, !57, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !58, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !59, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!57 = !{!"p2 omnipotent char", !26, i64 0}
+!58 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!59 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!60 = !{!56, !10, i64 120}

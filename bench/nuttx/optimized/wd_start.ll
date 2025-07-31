@@ -124,7 +124,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   %42 = load i64, ptr %41, align 8
   %43 = add nsw i64 %42, %.172102
   %.not84 = icmp sgt i64 %43, %17
-  br i1 %.not84, label %._crit_edge, label %.lr.ph104, !llvm.loop !10
+  br i1 %.not84, label %._crit_edge, label %.lr.ph104, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %40, %.critedge.._crit_edge_crit_edge
   %44 = phi i64 [ %.pre, %.critedge.._crit_edge_crit_edge ], [ %42, %40 ]
@@ -185,7 +185,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %.not.i, label %up_irq_restore.exit, label %63
 
 63:                                               ; preds = %60
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %63, %60, %4
@@ -232,7 +232,7 @@ define i32 @wd_timer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #
   %17 = icmp ne ptr %.013, null
   %18 = icmp sgt i32 %16, 0
   %19 = select i1 %17, i1 %18, i1 false
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not = icmp eq ptr %.01320, null
@@ -272,7 +272,7 @@ define i32 @wd_timer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #
   tail call void %36(i64 noundef %38) #4
   %39 = load ptr, ptr @g_wdactivelist, align 8
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %wd_expiration.exit.thread, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %wd_expiration.exit.thread, label %.lr.ph.i, !llvm.loop !14
 
 wd_expiration.exit:                               ; preds = %._crit_edge
   br i1 %.not, label %wd_expiration.exit.thread, label %wd_expiration.exit.thread24
@@ -320,9 +320,10 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 274732, i64 274750}
 !7 = !{i64 275351}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{i64 275472}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{i64 275472}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

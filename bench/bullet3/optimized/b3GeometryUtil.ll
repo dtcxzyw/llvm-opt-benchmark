@@ -94,7 +94,7 @@ define dso_local noundef zeroext i1 @_ZN14b3GeometryUtil22areVerticesBehindPlane
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %26, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %15, label %.critedge, !llvm.loop !19
+  br i1 %or.cond.not, label %15, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %15, %3
   %.not.lcssa = phi i1 [ true, %3 ], [ %26, %15 ]
@@ -134,7 +134,7 @@ define dso_local noundef zeroext i1 @_Z8notExistRK9b3Vector3RK20b3AlignedObjectA
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %22, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %12, label %.critedge, !llvm.loop !20
+  br i1 %or.cond.not, label %12, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %12, %2
   %.not.lcssa = phi i1 [ true, %2 ], [ %22, %12 ]
@@ -162,7 +162,7 @@ define dso_local void @_ZN14b3GeometryUtil29getPlaneEquationsFromVerticesER20b3A
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge, label %12, !llvm.loop !21
+  br i1 %exitcond114.not, label %._crit_edge, label %12, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit90, %2
   ret void
@@ -185,7 +185,7 @@ define dso_local void @_ZN14b3GeometryUtil29getPlaneEquationsFromVerticesER20b3A
 .loopexit89:                                      ; preds = %54, %18
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count113
-  br i1 %exitcond109.not, label %.loopexit90, label %18, !llvm.loop !22
+  br i1 %exitcond109.not, label %.loopexit90, label %18, !llvm.loop !23
 
 18:                                               ; preds = %.lr.ph95, %.loopexit89
   %indvars.iv106 = phi i64 [ %indvars.iv104, %.lr.ph95 ], [ %indvars.iv.next107, %.loopexit89 ]
@@ -238,7 +238,7 @@ define dso_local void @_ZN14b3GeometryUtil29getPlaneEquationsFromVerticesER20b3A
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next102 to i32
   %exitcond.not = icmp eq i32 %4, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit89, label %25, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit89, label %25, !llvm.loop !24
 
 55:                                               ; preds = %25, %_Z8notExistRK9b3Vector3RK20b3AlignedObjectArrayIS_E.exit
   %56 = phi i1 [ true, %25 ], [ false, %_Z8notExistRK9b3Vector3RK20b3AlignedObjectArrayIS_E.exit ]
@@ -273,7 +273,7 @@ define dso_local void @_ZN14b3GeometryUtil29getPlaneEquationsFromVerticesER20b3A
 72:                                               ; preds = %73
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit88, label %73, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.loopexit88, label %73, !llvm.loop !21
 
 73:                                               ; preds = %72, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
@@ -310,7 +310,7 @@ define dso_local void @_ZN14b3GeometryUtil29getPlaneEquationsFromVerticesER20b3A
 93:                                               ; preds = %94
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i46
-  br i1 %exitcond.not.i50, label %.loopexit, label %94, !llvm.loop !19
+  br i1 %exitcond.not.i50, label %.loopexit, label %94, !llvm.loop !20
 
 94:                                               ; preds = %93, %.lr.ph.i45
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i49, %93 ]
@@ -328,7 +328,7 @@ define dso_local void @_ZN14b3GeometryUtil29getPlaneEquationsFromVerticesER20b3A
   br i1 %105, label %93, label %_Z8notExistRK9b3Vector3RK20b3AlignedObjectArrayIS_E.exit
 
 .loopexit:                                        ; preds = %93, %.loopexit88
-  %106 = load i32, ptr %9, align 8, !tbaa !24
+  %106 = load i32, ptr %9, align 8, !tbaa !25
   %107 = icmp eq i32 %70, %106
   br i1 %107, label %108, label %_ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit
 
@@ -364,10 +364,10 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E8allocateEi.exit.i.i: ; preds = %112
   %120 = getelementptr inbounds nuw %class.b3Vector3, ptr %115, i64 %indvars.iv.i.i.i
   %121 = load ptr, ptr %8, align 8, !tbaa !13
   %122 = getelementptr inbounds nuw %class.b3Vector3, ptr %121, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %120, ptr noundef nonnull align 16 dereferenceable(16) %122, i64 16, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %120, ptr noundef nonnull align 16 dereferenceable(16) %122, i64 16, i1 false), !tbaa.struct !26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i, label %119, !llvm.loop !26
+  br i1 %exitcond.not.i.i.i, label %_ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i, label %119, !llvm.loop !27
 
 _ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit15.i.i: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3E8allocateEi.exit.i.i, %112
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 301)
@@ -380,7 +380,7 @@ _ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i: ; preds = %119, %_Z
   %.0.i.i = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit15.i.i ], [ %110, %.split.i.i ], [ %110, %119 ]
   %123 = load ptr, ptr %8, align 8, !tbaa !13
   %.not.i16.i.i = icmp ne ptr %123, null
-  %124 = load i8, ptr %10, align 8, !range !27
+  %124 = load i8, ptr %10, align 8, !range !28
   %125 = trunc nuw i8 %124 to i1
   %or.cond.i.i = select i1 %.not.i16.i.i, i1 %125, i1 false
   br i1 %or.cond.i.i, label %126, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i.i
@@ -390,9 +390,9 @@ _ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i: ; preds = %119, %_Z
   br label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i.i
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i.i: ; preds = %126, %_ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i
-  store i8 1, ptr %10, align 8, !tbaa !28
+  store i8 1, ptr %10, align 8, !tbaa !29
   store ptr %.0.i18.i.i, ptr %8, align 8, !tbaa !13
-  store i32 %.0.i.i, ptr %9, align 8, !tbaa !24
+  store i32 %.0.i.i, ptr %9, align 8, !tbaa !25
   %.pre.i = load i32, ptr %7, align 4, !tbaa !4
   br label %_ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit
 
@@ -410,7 +410,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit: ; preds = %.loopexit
   br label %_Z8notExistRK9b3Vector3RK20b3AlignedObjectArrayIS_E.exit
 
 _Z8notExistRK9b3Vector3RK20b3AlignedObjectArrayIS_E.exit: ; preds = %73, %94, %_ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit, %55
-  br i1 %56, label %55, label %54, !llvm.loop !29
+  br i1 %56, label %55, label %54, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -437,7 +437,7 @@ define dso_local void @_ZN14b3GeometryUtil29getVerticesFromPlaneEquationsERK20b3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %._crit_edge, label %12, !llvm.loop !30
+  br i1 %exitcond144.not, label %._crit_edge, label %12, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.loopexit123, %2
   ret void
@@ -461,7 +461,7 @@ define dso_local void @_ZN14b3GeometryUtil29getVerticesFromPlaneEquationsERK20b3
 .loopexit122:                                     ; preds = %_ZN14b3GeometryUtil19isPointInsidePlanesERK20b3AlignedObjectArrayI9b3Vector3ERKS1_f.exit, %19
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count143
-  br i1 %exitcond139.not, label %.loopexit123, label %19, !llvm.loop !31
+  br i1 %exitcond139.not, label %.loopexit123, label %19, !llvm.loop !32
 
 19:                                               ; preds = %.lr.ph126, %.loopexit122
   %indvars.iv136 = phi i64 [ %indvars.iv134, %.lr.ph126 ], [ %indvars.iv.next137, %.loopexit122 ]
@@ -605,7 +605,7 @@ define dso_local void @_ZN14b3GeometryUtil29getVerticesFromPlaneEquationsERK20b3
 
 .loopexit:                                        ; preds = %113, %88
   %128 = load i32, ptr %7, align 4, !tbaa !4
-  %129 = load i32, ptr %8, align 8, !tbaa !24
+  %129 = load i32, ptr %8, align 8, !tbaa !25
   %130 = icmp eq i32 %128, %129
   br i1 %130, label %131, label %_ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit
 
@@ -641,10 +641,10 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E8allocateEi.exit.i.i: ; preds = %135
   %143 = getelementptr inbounds nuw %class.b3Vector3, ptr %138, i64 %indvars.iv.i.i.i
   %144 = load ptr, ptr %9, align 8, !tbaa !13
   %145 = getelementptr inbounds nuw %class.b3Vector3, ptr %144, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %143, ptr noundef nonnull align 16 dereferenceable(16) %145, i64 16, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %143, ptr noundef nonnull align 16 dereferenceable(16) %145, i64 16, i1 false), !tbaa.struct !26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i, label %142, !llvm.loop !26
+  br i1 %exitcond.not.i.i.i, label %_ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i, label %142, !llvm.loop !27
 
 _ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit15.i.i: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3E8allocateEi.exit.i.i, %135
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 301)
@@ -657,7 +657,7 @@ _ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i: ; preds = %142, %_Z
   %.0.i.i = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit15.i.i ], [ %133, %.split.i.i ], [ %133, %142 ]
   %146 = load ptr, ptr %9, align 8, !tbaa !13
   %.not.i16.i.i = icmp ne ptr %146, null
-  %147 = load i8, ptr %10, align 8, !range !27
+  %147 = load i8, ptr %10, align 8, !range !28
   %148 = trunc nuw i8 %147 to i1
   %or.cond.i.i = select i1 %.not.i16.i.i, i1 %148, i1 false
   br i1 %or.cond.i.i, label %149, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i.i
@@ -667,9 +667,9 @@ _ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i: ; preds = %142, %_Z
   br label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i.i
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i.i: ; preds = %149, %_ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit.i.i
-  store i8 1, ptr %10, align 8, !tbaa !28
+  store i8 1, ptr %10, align 8, !tbaa !29
   store ptr %.0.i18.i.i, ptr %9, align 8, !tbaa !13
-  store i32 %.0.i.i, ptr %8, align 8, !tbaa !24
+  store i32 %.0.i.i, ptr %8, align 8, !tbaa !25
   %.pre.i = load i32, ptr %7, align 4, !tbaa !4
   br label %_ZN20b3AlignedObjectArrayI9b3Vector3E9push_backERKS0_.exit
 
@@ -694,7 +694,7 @@ _ZN14b3GeometryUtil19isPointInsidePlanesERK20b3AlignedObjectArrayI9b3Vector3ERKS
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next132 to i32
   %exitcond.not = icmp eq i32 %4, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit122, label %27, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit122, label %27, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -739,19 +739,20 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !14 = !{!8, !8, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"float", !8, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
-!24 = !{!5, !7, i64 8}
-!25 = !{i64 0, i64 16, !14}
-!26 = distinct !{!26, !18}
-!27 = !{i8 0, i8 2}
-!28 = !{!5, !12, i64 24}
-!29 = distinct !{!29, !18}
-!30 = distinct !{!30, !18}
-!31 = distinct !{!31, !18}
-!32 = distinct !{!32, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}
+!25 = !{!5, !7, i64 8}
+!26 = !{i64 0, i64 16, !14}
+!27 = distinct !{!27, !18, !19}
+!28 = !{i8 0, i8 2}
+!29 = !{!5, !12, i64 24}
+!30 = distinct !{!30, !18, !19}
+!31 = distinct !{!31, !18, !19}
+!32 = distinct !{!32, !18, !19}
+!33 = distinct !{!33, !18, !19}

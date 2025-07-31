@@ -691,7 +691,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds 
   %170 = load ptr, ptr %61, align 8, !tbaa !34
   %171 = zext i8 %169 to i64
   %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
-  %173 = load ptr, ptr %172, align 8, !tbaa !57
+  %173 = load ptr, ptr %172, align 8, !tbaa !58
   %174 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %175 = load i32, ptr %174, align 8, !tbaa !49
   %176 = sext i32 %175 to i64
@@ -699,7 +699,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds 
   %178 = load i8, ptr %177, align 1, !tbaa !54
   %179 = zext i8 %178 to i64
   %180 = getelementptr inbounds nuw ptr, ptr %170, i64 %179
-  %181 = load ptr, ptr %180, align 8, !tbaa !57
+  %181 = load ptr, ptr %180, align 8, !tbaa !58
   %182 = invoke noundef i32 @_ZN6icu_7714LocaleDistance27getRegionPartitionsDistanceERNS_9BytesTrieEmPKcS4_i(ptr noundef nonnull align 8 dereferenceable(28) %11, i64 noundef %164, ptr noundef %173, ptr noundef %181, i32 noundef %152)
           to label %183 unwind label %185
 
@@ -792,7 +792,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds 
   br i1 %221, label %222, label %.thread
 
 222:                                              ; preds = %220, %217
-  %223 = load ptr, ptr %0, align 8, !tbaa !58
+  %223 = load ptr, ptr %0, align 8, !tbaa !59
   %224 = zext nneg i32 %.0131226 to i64
   %225 = getelementptr inbounds nuw ptr, ptr %2, i64 %224
   %226 = load ptr, ptr %225, align 8, !tbaa !52
@@ -811,7 +811,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds 
   %.2104.ph = phi i32 [ %.0102229, %228 ], [ %195, %202 ], [ %.0102229, %214 ], [ %.0102229, %220 ], [ %.0102229, %211 ], [ %188, %213 ], [ %.0102229, %191 ], [ %.0102229, %200 ], [ %.0102229, %138 ], [ %.0102229, %104 ], [ %.0102229, %151 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread192, label %64, !llvm.loop !59
+  br i1 %exitcond.not, label %.thread192, label %64, !llvm.loop !60
 
 230:                                              ; preds = %202
   %231 = shl i32 %190, 10
@@ -1270,7 +1270,7 @@ define noundef zeroext i1 @_ZNK6icu_7714LocaleDistance13isParadigmLSRERKNS_3LSRE
   %7 = load i32, ptr %4, align 8, !tbaa !38
   %8 = sext i32 %7 to i64
   %.not8 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %.not8, label %.lr.ph, label %._crit_edge, !llvm.loop !60
+  br i1 %.not8, label %.lr.ph, label %._crit_edge, !llvm.loop !61
 
 .lr.ph:                                           ; preds = %2, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %2 ]
@@ -1383,9 +1383,10 @@ attributes #12 = { nounwind willreturn memory(read) }
 !52 = !{!13, !13, i64 0}
 !53 = !{!33, !14, i64 84}
 !54 = !{!5, !5, i64 0}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!9, !9, i64 0}
-!58 = !{!33, !26, i64 0}
-!59 = distinct !{!59, !56}
-!60 = distinct !{!60, !56}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!9, !9, i64 0}
+!59 = !{!33, !26, i64 0}
+!60 = distinct !{!60, !56, !57}
+!61 = distinct !{!61, !56, !57}

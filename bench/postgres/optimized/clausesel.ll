@@ -492,7 +492,7 @@ addRangeClause.exit:                              ; preds = %121, %132, %168, %1
   %228 = load ptr, ptr %.0.165, align 8
   call void @pfree(ptr noundef nonnull %.0.165) #4
   %.not99 = icmp eq ptr %228, null
-  br i1 %.not99, label %.loopexit, label %.lr.ph167, !llvm.loop !8
+  br i1 %.not99, label %.loopexit, label %.lr.ph167, !llvm.loop !9
 
 .loopexit:                                        ; preds = %227, %.critedge, %27, %12
   %.079 = phi double [ %15, %12 ], [ %.183160.lcssa, %.critedge ], [ %.082, %27 ], [ %.7, %227 ]
@@ -1082,6 +1082,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

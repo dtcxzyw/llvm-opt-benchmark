@@ -125,7 +125,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %40 = getelementptr inbounds i32, ptr %0, i64 %39
   call void @Ptngc_comp_conv_to_vals16(ptr noundef %40, i32 noundef %spec.select, ptr noundef %18, ptr noundef nonnull %7) #10
   %41 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %42 = load i32, ptr %7, align 4, !tbaa !10
+  %42 = load i32, ptr %7, align 4, !tbaa !11
   %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.3, i32 noundef %42) #11
   %44 = load ptr, ptr @stderr, align 8, !tbaa !3
   %45 = call i64 @fwrite(ptr nonnull @.str.4, i64 4, i64 1, ptr %44) #12
@@ -133,15 +133,15 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
 
 .critedge:                                        ; preds = %.thread, %36
   %46 = add nsw i32 %.0219278, %spec.select
-  %47 = load i32, ptr %7, align 4, !tbaa !10
+  %47 = load i32, ptr %7, align 4, !tbaa !11
   call void @Ptngc_comp_to_bwt(ptr noundef %18, i32 noundef %47, ptr noundef nonnull %23, ptr noundef nonnull %11) #10
   %48 = sext i32 %.0217279 to i64
   %49 = getelementptr inbounds i8, ptr %2, i64 %48
   store i32 %spec.select, ptr %49, align 1
-  %50 = load i32, ptr %7, align 4, !tbaa !10
+  %50 = load i32, ptr %7, align 4, !tbaa !11
   %51 = getelementptr i8, ptr %49, i64 4
   store i32 %50, ptr %51, align 1
-  %52 = load i32, ptr %11, align 4, !tbaa !10
+  %52 = load i32, ptr %11, align 4, !tbaa !11
   %53 = getelementptr i8, ptr %49, i64 8
   store i32 %52, ptr %53, align 1
   %54 = add nsw i32 %.0217279, 12
@@ -150,7 +150,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
 55:                                               ; preds = %.critedge
   %56 = load ptr, ptr @stderr, align 8, !tbaa !3
   %57 = call i64 @fwrite(ptr nonnull @.str.5, i64 4, i64 1, ptr %56) #12
-  %.pre = load i32, ptr %7, align 4, !tbaa !10
+  %.pre = load i32, ptr %7, align 4, !tbaa !11
   br label %58
 
 58:                                               ; preds = %55, %.critedge
@@ -170,7 +170,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   br label %64
 
 64:                                               ; preds = %61, %60
-  %65 = load i32, ptr %7, align 4, !tbaa !10
+  %65 = load i32, ptr %7, align 4, !tbaa !11
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.lr.ph.preheader, label %._crit_edge
 
@@ -189,42 +189,42 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %71 = add nsw i32 %67, %70
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %28, i64 %72
-  %74 = load i8, ptr %73, align 1, !tbaa !12
+  %74 = load i8, ptr %73, align 1, !tbaa !13
   %75 = zext i8 %74 to i32
   %76 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
-  store i32 %75, ptr %76, align 4, !tbaa !10
+  store i32 %75, ptr %76, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = icmp samesign ult i64 %indvars.iv.next, %68
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 78:                                               ; preds = %._crit_edge
   br i1 %.not, label %79, label %.thread250
 
 79:                                               ; preds = %78
   call void @Ptngc_comp_to_lz77(ptr noundef nonnull %24, i32 noundef %65, ptr noundef nonnull %25, ptr noundef nonnull %12, ptr noundef nonnull %27, ptr noundef nonnull %14, ptr noundef nonnull %26, ptr noundef nonnull %13) #10
-  %80 = load i32, ptr %14, align 4, !tbaa !10
+  %80 = load i32, ptr %14, align 4, !tbaa !11
   %81 = icmp slt i32 %80, 2
   br i1 %81, label %..thread243_crit_edge, label %.critedge234
 
 ..thread243_crit_edge:                            ; preds = %79
-  %.pre307 = load i32, ptr %7, align 4, !tbaa !10
+  %.pre307 = load i32, ptr %7, align 4, !tbaa !11
   br label %.thread243
 
 .thread250:                                       ; preds = %78
   %82 = load ptr, ptr @stderr, align 8, !tbaa !3
   %83 = call i64 @fwrite(ptr nonnull @.str.7, i64 5, i64 1, ptr %82) #12
-  %84 = load i32, ptr %7, align 4, !tbaa !10
+  %84 = load i32, ptr %7, align 4, !tbaa !11
   call void @Ptngc_comp_to_lz77(ptr noundef nonnull %24, i32 noundef %84, ptr noundef nonnull %25, ptr noundef nonnull %12, ptr noundef nonnull %27, ptr noundef nonnull %14, ptr noundef nonnull %26, ptr noundef nonnull %13) #10
   %85 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %86 = load i32, ptr %12, align 4, !tbaa !10
+  %86 = load i32, ptr %12, align 4, !tbaa !11
   %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.8, i32 noundef %86) #11
   %88 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %89 = load i32, ptr %14, align 4, !tbaa !10
+  %89 = load i32, ptr %14, align 4, !tbaa !11
   %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.9, i32 noundef %89) #11
   %91 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %92 = load i32, ptr %13, align 4, !tbaa !10
+  %92 = load i32, ptr %13, align 4, !tbaa !11
   %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.10, i32 noundef %92) #11
-  %94 = load i32, ptr %14, align 4, !tbaa !10
+  %94 = load i32, ptr %14, align 4, !tbaa !11
   %95 = icmp slt i32 %94, 2
   br i1 %95, label %.thread247, label %.thread251
 
@@ -234,10 +234,10 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
 .thread247:                                       ; preds = %.thread250, %96
   %97 = load ptr, ptr @stderr, align 8, !tbaa !3
   %98 = call i64 @fwrite(ptr nonnull @.str.11, i64 4, i64 1, ptr %97) #12
-  %99 = load i32, ptr %7, align 4, !tbaa !10
+  %99 = load i32, ptr %7, align 4, !tbaa !11
   call void @Ptngc_comp_conv_to_rle(ptr noundef nonnull %24, i32 noundef %99, ptr noundef nonnull %25, ptr noundef nonnull %12, i32 noundef 1) #10
   %100 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %101 = load i32, ptr %12, align 4, !tbaa !10
+  %101 = load i32, ptr %12, align 4, !tbaa !11
   %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.12, i32 noundef %101) #11
   br label %.thread251
 
@@ -252,14 +252,14 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %.1241249 = phi i32 [ 0, %.thread247 ], [ 1, %.thread250 ]
   %105 = sext i32 %.1218273 to i64
   %106 = getelementptr inbounds i8, ptr %2, i64 %105
-  store i8 %.sink, ptr %106, align 1, !tbaa !12
+  store i8 %.sink, ptr %106, align 1, !tbaa !13
   %107 = load ptr, ptr @stderr, align 8, !tbaa !3
   %108 = call i64 @fwrite(ptr nonnull @.str.13, i64 8, i64 1, ptr %107) #12
-  store i32 -1, ptr %10, align 4, !tbaa !10
-  %109 = load i32, ptr %12, align 4, !tbaa !10
+  store i32 -1, ptr %10, align 4, !tbaa !11
+  %109 = load i32, ptr %12, align 4, !tbaa !11
   call void @Ptngc_comp_huff_compress_verbose(ptr noundef nonnull %25, i32 noundef %109, ptr noundef %22, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1) #10
   %110 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %111 = load i32, ptr %8, align 4, !tbaa !10
+  %111 = load i32, ptr %8, align 4, !tbaa !11
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.14, i32 noundef %111) #11
   br label %113
 
@@ -269,19 +269,19 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %115 = trunc nuw nsw i64 %indvars.iv287 to i32
   %116 = call ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %115) #10
   %117 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv287
-  %118 = load i32, ptr %117, align 4, !tbaa !10
-  %119 = load i32, ptr %8, align 4, !tbaa !10
+  %118 = load i32, ptr %117, align 4, !tbaa !11
+  %119 = load i32, ptr %8, align 4, !tbaa !11
   %120 = sub nsw i32 %118, %119
   %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.15, ptr noundef %116, i32 noundef %120) #11
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next288, 3
-  br i1 %exitcond.not, label %122, label %113, !llvm.loop !14
+  br i1 %exitcond.not, label %122, label %113, !llvm.loop !15
 
 122:                                              ; preds = %113
   %123 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %124 = load i32, ptr %10, align 4, !tbaa !10
+  %124 = load i32, ptr %10, align 4, !tbaa !11
   %125 = call ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %124) #10
-  %126 = load i32, ptr %15, align 4, !tbaa !10
+  %126 = load i32, ptr %15, align 4, !tbaa !11
   %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.16, ptr noundef %125, i32 noundef %126) #11
   br label %132
 
@@ -291,9 +291,9 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %.1241246 = phi i32 [ 0, %.thread243 ], [ 1, %79 ]
   %129 = sext i32 %.1218273 to i64
   %130 = getelementptr inbounds i8, ptr %2, i64 %129
-  store i8 %.sink310, ptr %130, align 1, !tbaa !12
-  store i32 -1, ptr %10, align 4, !tbaa !10
-  %131 = load i32, ptr %12, align 4, !tbaa !10
+  store i8 %.sink310, ptr %130, align 1, !tbaa !13
+  store i32 -1, ptr %10, align 4, !tbaa !11
+  %131 = load i32, ptr %12, align 4, !tbaa !11
   call void @Ptngc_comp_huff_compress_verbose(ptr noundef nonnull %25, i32 noundef %131, ptr noundef %22, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1) #10
   br label %132
 
@@ -301,10 +301,10 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %133 = phi ptr [ %130, %.critedge234 ], [ %106, %122 ]
   %134 = phi i1 [ %128, %.critedge234 ], [ %104, %122 ]
   %.1241245 = phi i32 [ %.1241246, %.critedge234 ], [ %.1241249, %122 ]
-  %135 = load i32, ptr %12, align 4, !tbaa !10
+  %135 = load i32, ptr %12, align 4, !tbaa !11
   %136 = getelementptr i8, ptr %133, i64 1
   store i32 %135, ptr %136, align 1
-  %137 = load i32, ptr %15, align 4, !tbaa !10
+  %137 = load i32, ptr %15, align 4, !tbaa !11
   %138 = getelementptr i8, ptr %133, i64 5
   store i32 %137, ptr %138, align 1
   %139 = add i32 %.1218273, 9
@@ -316,7 +316,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   br i1 %134, label %144, label %239
 
 144:                                              ; preds = %132
-  %145 = load i32, ptr %13, align 4, !tbaa !10
+  %145 = load i32, ptr %13, align 4, !tbaa !11
   %146 = sext i32 %143 to i64
   %147 = getelementptr inbounds i8, ptr %2, i64 %146
   store i32 %145, ptr %147, align 1
@@ -330,11 +330,11 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
 151:                                              ; preds = %150
   %152 = load ptr, ptr @stderr, align 8, !tbaa !3
   %153 = call i64 @fwrite(ptr nonnull @.str.17, i64 20, i64 1, ptr %152) #12
-  store i32 -1, ptr %10, align 4, !tbaa !10
-  %154 = load i32, ptr %13, align 4, !tbaa !10
+  store i32 -1, ptr %10, align 4, !tbaa !11
+  %154 = load i32, ptr %13, align 4, !tbaa !11
   call void @Ptngc_comp_huff_compress_verbose(ptr noundef nonnull %26, i32 noundef %154, ptr noundef %22, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1) #10
   %155 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %156 = load i32, ptr %8, align 4, !tbaa !10
+  %156 = load i32, ptr %8, align 4, !tbaa !11
   %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.14, i32 noundef %156) #11
   br label %158
 
@@ -344,30 +344,30 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %160 = trunc nuw nsw i64 %indvars.iv290 to i32
   %161 = call ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %160) #10
   %162 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv290
-  %163 = load i32, ptr %162, align 4, !tbaa !10
-  %164 = load i32, ptr %8, align 4, !tbaa !10
+  %163 = load i32, ptr %162, align 4, !tbaa !11
+  %164 = load i32, ptr %8, align 4, !tbaa !11
   %165 = sub nsw i32 %163, %164
   %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef nonnull @.str.15, ptr noundef %161, i32 noundef %165) #11
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next291, 3
-  br i1 %exitcond293.not, label %167, label %158, !llvm.loop !15
+  br i1 %exitcond293.not, label %167, label %158, !llvm.loop !16
 
 167:                                              ; preds = %158
   %168 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %169 = load i32, ptr %10, align 4, !tbaa !10
+  %169 = load i32, ptr %10, align 4, !tbaa !11
   %170 = call ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %169) #10
-  %171 = load i32, ptr %15, align 4, !tbaa !10
+  %171 = load i32, ptr %15, align 4, !tbaa !11
   %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.16, ptr noundef %170, i32 noundef %171) #11
   br label %173
 
 .critedge236:                                     ; preds = %150
-  store i32 -1, ptr %10, align 4, !tbaa !10
+  store i32 -1, ptr %10, align 4, !tbaa !11
   call void @Ptngc_comp_huff_compress_verbose(ptr noundef nonnull %26, i32 noundef %145, ptr noundef %22, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1) #10
   br label %173
 
 173:                                              ; preds = %.critedge236, %167
-  %174 = load i32, ptr %15, align 4, !tbaa !10
-  %175 = load i32, ptr %13, align 4, !tbaa !10
+  %174 = load i32, ptr %15, align 4, !tbaa !11
+  %175 = load i32, ptr %13, align 4, !tbaa !11
   %176 = shl nsw i32 %175, 1
   %177 = icmp slt i32 %174, %176
   br i1 %177, label %178, label %187
@@ -375,7 +375,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
 178:                                              ; preds = %173
   %179 = sext i32 %148 to i64
   %180 = getelementptr inbounds i8, ptr %2, i64 %179
-  store i8 0, ptr %180, align 1, !tbaa !12
+  store i8 0, ptr %180, align 1, !tbaa !13
   %181 = getelementptr i8, ptr %147, i64 5
   store i32 %174, ptr %181, align 1
   %182 = add nsw i32 %143, 9
@@ -390,7 +390,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %188 = add i32 %143, 5
   %189 = sext i32 %148 to i64
   %190 = getelementptr inbounds i8, ptr %2, i64 %189
-  store i8 1, ptr %190, align 1, !tbaa !12
+  store i8 1, ptr %190, align 1, !tbaa !13
   %191 = icmp sgt i32 %175, 0
   br i1 %191, label %.lr.ph268.preheader, label %._crit_edge269
 
@@ -403,19 +403,19 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %indvars.iv296 = phi i64 [ %192, %.lr.ph268.preheader ], [ %indvars.iv.next297, %.lr.ph268 ]
   %indvars.iv294 = phi i64 [ 0, %.lr.ph268.preheader ], [ %indvars.iv.next295, %.lr.ph268 ]
   %193 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv294
-  %194 = load i32, ptr %193, align 4, !tbaa !10
+  %194 = load i32, ptr %193, align 4, !tbaa !11
   %195 = trunc i32 %194 to i8
   %196 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv296
-  store i8 %195, ptr %196, align 1, !tbaa !12
-  %197 = load i32, ptr %193, align 4, !tbaa !10
+  store i8 %195, ptr %196, align 1, !tbaa !13
+  %197 = load i32, ptr %193, align 4, !tbaa !11
   %198 = lshr i32 %197, 8
   %199 = trunc i32 %198 to i8
   %indvars.iv.next297 = add nsw i64 %indvars.iv296, 2
   %200 = getelementptr i8, ptr %196, i64 1
-  store i8 %199, ptr %200, align 1, !tbaa !12
+  store i8 %199, ptr %200, align 1, !tbaa !13
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count
-  br i1 %exitcond301.not, label %._crit_edge269.loopexit, label %.lr.ph268, !llvm.loop !16
+  br i1 %exitcond301.not, label %._crit_edge269.loopexit, label %.lr.ph268, !llvm.loop !17
 
 ._crit_edge269.loopexit:                          ; preds = %.lr.ph268
   %201 = trunc nsw i64 %indvars.iv.next297 to i32
@@ -438,11 +438,11 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %.2259 = phi i32 [ %.3.lcssa, %.thread257 ], [ %.2, %204 ]
   %206 = load ptr, ptr @stderr, align 8, !tbaa !3
   %207 = call i64 @fwrite(ptr nonnull @.str.19, i64 20, i64 1, ptr %206) #12
-  store i32 -1, ptr %10, align 4, !tbaa !10
-  %208 = load i32, ptr %14, align 4, !tbaa !10
+  store i32 -1, ptr %10, align 4, !tbaa !11
+  %208 = load i32, ptr %14, align 4, !tbaa !11
   call void @Ptngc_comp_huff_compress_verbose(ptr noundef nonnull %27, i32 noundef %208, ptr noundef %22, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1) #10
   %209 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %210 = load i32, ptr %8, align 4, !tbaa !10
+  %210 = load i32, ptr %8, align 4, !tbaa !11
   %211 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.14, i32 noundef %210) #11
   br label %212
 
@@ -452,36 +452,36 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %214 = trunc nuw nsw i64 %indvars.iv302 to i32
   %215 = call ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %214) #10
   %216 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv302
-  %217 = load i32, ptr %216, align 4, !tbaa !10
-  %218 = load i32, ptr %8, align 4, !tbaa !10
+  %217 = load i32, ptr %216, align 4, !tbaa !11
+  %218 = load i32, ptr %8, align 4, !tbaa !11
   %219 = sub nsw i32 %217, %218
   %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.15, ptr noundef %215, i32 noundef %219) #11
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %exitcond305.not = icmp eq i64 %indvars.iv.next303, 3
-  br i1 %exitcond305.not, label %221, label %212, !llvm.loop !17
+  br i1 %exitcond305.not, label %221, label %212, !llvm.loop !18
 
 221:                                              ; preds = %212
   %222 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %223 = load i32, ptr %10, align 4, !tbaa !10
+  %223 = load i32, ptr %10, align 4, !tbaa !11
   %224 = call ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %223) #10
-  %225 = load i32, ptr %15, align 4, !tbaa !10
+  %225 = load i32, ptr %15, align 4, !tbaa !11
   %226 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %222, ptr noundef nonnull @.str.16, ptr noundef %224, i32 noundef %225) #11
   br label %228
 
 .critedge238:                                     ; preds = %._crit_edge269, %204
   %.2256 = phi i32 [ %.2, %204 ], [ %.3.lcssa, %._crit_edge269 ]
-  store i32 -1, ptr %10, align 4, !tbaa !10
-  %227 = load i32, ptr %14, align 4, !tbaa !10
+  store i32 -1, ptr %10, align 4, !tbaa !11
+  %227 = load i32, ptr %14, align 4, !tbaa !11
   call void @Ptngc_comp_huff_compress_verbose(ptr noundef nonnull %27, i32 noundef %227, ptr noundef %22, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1) #10
   br label %228
 
 228:                                              ; preds = %.critedge238, %221
   %.2255 = phi i32 [ %.2256, %.critedge238 ], [ %.2259, %221 ]
-  %229 = load i32, ptr %14, align 4, !tbaa !10
+  %229 = load i32, ptr %14, align 4, !tbaa !11
   %230 = sext i32 %.2255 to i64
   %231 = getelementptr inbounds i8, ptr %2, i64 %230
   store i32 %229, ptr %231, align 1
-  %232 = load i32, ptr %15, align 4, !tbaa !10
+  %232 = load i32, ptr %15, align 4, !tbaa !11
   %233 = getelementptr i8, ptr %231, i64 4
   store i32 %232, ptr %233, align 1
   %234 = add nsw i32 %.2255, 8
@@ -496,11 +496,11 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %.4 = phi i32 [ %238, %228 ], [ %143, %132 ]
   %240 = add nuw nsw i32 %.0222272, 1
   %exitcond306.not = icmp eq i32 %240, 3
-  br i1 %exitcond306.not, label %.loopexit, label %60, !llvm.loop !18
+  br i1 %exitcond306.not, label %.loopexit, label %60, !llvm.loop !19
 
 ._crit_edge282:                                   ; preds = %.loopexit, %32
   %.0217.lcssa = phi i32 [ 4, %32 ], [ %.4, %.loopexit ]
-  store i32 %.0217.lcssa, ptr %3, align 4, !tbaa !10
+  store i32 %.0217.lcssa, ptr %3, align 4, !tbaa !11
   call void @free(ptr noundef %17) #10
   call void @free(ptr noundef %16) #10
   call void @free(ptr noundef %22) #10
@@ -608,49 +608,49 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %30 = load i16, ptr %29, align 1
   %31 = zext i16 %30 to i32
   %32 = getelementptr i8, ptr %29, i64 2
-  %33 = load i8, ptr %32, align 1, !tbaa !12
+  %33 = load i8, ptr %32, align 1, !tbaa !13
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 16
   %36 = or disjoint i32 %35, %31
   %37 = getelementptr i8, ptr %29, i64 3
-  %38 = load i8, ptr %37, align 1, !tbaa !12
+  %38 = load i8, ptr %37, align 1, !tbaa !13
   %39 = zext i8 %38 to i32
   %40 = shl nuw i32 %39, 24
   %41 = or disjoint i32 %36, %40
   %42 = sub nsw i32 %.0234277, %41
   %gep269 = getelementptr i8, ptr %invariant.gep268, i64 %28
-  %43 = load i8, ptr %gep269, align 1, !tbaa !12
+  %43 = load i8, ptr %gep269, align 1, !tbaa !13
   %44 = zext i8 %43 to i32
   %45 = getelementptr i8, ptr %29, i64 5
-  %46 = load i8, ptr %45, align 1, !tbaa !12
+  %46 = load i8, ptr %45, align 1, !tbaa !13
   %47 = zext i8 %46 to i32
   %48 = shl nuw nsw i32 %47, 8
   %49 = or disjoint i32 %48, %44
   %50 = getelementptr i8, ptr %29, i64 6
-  %51 = load i8, ptr %50, align 1, !tbaa !12
+  %51 = load i8, ptr %50, align 1, !tbaa !13
   %52 = zext i8 %51 to i32
   %53 = shl nuw nsw i32 %52, 16
   %54 = or disjoint i32 %49, %53
   %55 = getelementptr i8, ptr %29, i64 7
-  %56 = load i8, ptr %55, align 1, !tbaa !12
+  %56 = load i8, ptr %55, align 1, !tbaa !13
   %57 = zext i8 %56 to i32
   %58 = shl nuw i32 %57, 24
   %59 = or disjoint i32 %54, %58
   %gep271 = getelementptr i8, ptr %invariant.gep270, i64 %28
-  %60 = load i8, ptr %gep271, align 1, !tbaa !12
+  %60 = load i8, ptr %gep271, align 1, !tbaa !13
   %61 = zext i8 %60 to i32
   %62 = getelementptr i8, ptr %29, i64 9
-  %63 = load i8, ptr %62, align 1, !tbaa !12
+  %63 = load i8, ptr %62, align 1, !tbaa !13
   %64 = zext i8 %63 to i32
   %65 = shl nuw nsw i32 %64, 8
   %66 = or disjoint i32 %65, %61
   %67 = getelementptr i8, ptr %29, i64 10
-  %68 = load i8, ptr %67, align 1, !tbaa !12
+  %68 = load i8, ptr %67, align 1, !tbaa !13
   %69 = zext i8 %68 to i32
   %70 = shl nuw nsw i32 %69, 16
   %71 = or disjoint i32 %66, %70
   %72 = getelementptr i8, ptr %29, i64 11
-  %73 = load i8, ptr %72, align 1, !tbaa !12
+  %73 = load i8, ptr %72, align 1, !tbaa !13
   %74 = zext i8 %73 to i32
   %75 = shl nuw i32 %74, 24
   %76 = or disjoint i32 %71, %75
@@ -722,40 +722,40 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 116:                                              ; preds = %112, %111
   %117 = sext i32 %.1230267 to i64
   %118 = getelementptr inbounds i8, ptr %0, i64 %117
-  %119 = load i8, ptr %118, align 1, !tbaa !12
+  %119 = load i8, ptr %118, align 1, !tbaa !13
   %gep = getelementptr i8, ptr %invariant.gep, i64 %117
-  %120 = load i8, ptr %gep, align 1, !tbaa !12
+  %120 = load i8, ptr %gep, align 1, !tbaa !13
   %121 = zext i8 %120 to i32
   %122 = getelementptr i8, ptr %118, i64 2
-  %123 = load i8, ptr %122, align 1, !tbaa !12
+  %123 = load i8, ptr %122, align 1, !tbaa !13
   %124 = zext i8 %123 to i32
   %125 = shl nuw nsw i32 %124, 8
   %126 = or disjoint i32 %125, %121
   %127 = getelementptr i8, ptr %118, i64 3
-  %128 = load i8, ptr %127, align 1, !tbaa !12
+  %128 = load i8, ptr %127, align 1, !tbaa !13
   %129 = zext i8 %128 to i32
   %130 = shl nuw nsw i32 %129, 16
   %131 = or disjoint i32 %126, %130
   %132 = getelementptr i8, ptr %118, i64 4
-  %133 = load i8, ptr %132, align 1, !tbaa !12
+  %133 = load i8, ptr %132, align 1, !tbaa !13
   %134 = zext i8 %133 to i32
   %135 = shl nuw i32 %134, 24
   %136 = or disjoint i32 %131, %135
   %gep263 = getelementptr i8, ptr %invariant.gep262, i64 %117
-  %137 = load i8, ptr %gep263, align 1, !tbaa !12
+  %137 = load i8, ptr %gep263, align 1, !tbaa !13
   %138 = zext i8 %137 to i32
   %139 = getelementptr i8, ptr %118, i64 6
-  %140 = load i8, ptr %139, align 1, !tbaa !12
+  %140 = load i8, ptr %139, align 1, !tbaa !13
   %141 = zext i8 %140 to i32
   %142 = shl nuw nsw i32 %141, 8
   %143 = or disjoint i32 %142, %138
   %144 = getelementptr i8, ptr %118, i64 7
-  %145 = load i8, ptr %144, align 1, !tbaa !12
+  %145 = load i8, ptr %144, align 1, !tbaa !13
   %146 = zext i8 %145 to i32
   %147 = shl nuw nsw i32 %146, 16
   %148 = or disjoint i32 %143, %147
   %149 = getelementptr i8, ptr %118, i64 8
-  %150 = load i8, ptr %149, align 1, !tbaa !12
+  %150 = load i8, ptr %149, align 1, !tbaa !13
   %151 = zext i8 %150 to i32
   %152 = shl nuw i32 %151, 24
   %153 = or disjoint i32 %148, %152
@@ -783,12 +783,12 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %165 = load i16, ptr %164, align 1
   %166 = zext i16 %165 to i32
   %167 = getelementptr i8, ptr %164, i64 2
-  %168 = load i8, ptr %167, align 1, !tbaa !12
+  %168 = load i8, ptr %167, align 1, !tbaa !13
   %169 = zext i8 %168 to i32
   %170 = shl nuw nsw i32 %169, 16
   %171 = or disjoint i32 %170, %166
   %172 = getelementptr i8, ptr %164, i64 3
-  %173 = load i8, ptr %172, align 1, !tbaa !12
+  %173 = load i8, ptr %172, align 1, !tbaa !13
   %174 = zext i8 %173 to i32
   %175 = shl nuw i32 %174, 24
   %176 = or disjoint i32 %171, %175
@@ -799,27 +799,27 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 179:                                              ; preds = %162
   %180 = sext i32 %177 to i64
   %181 = getelementptr inbounds i8, ptr %0, i64 %180
-  %182 = load i8, ptr %181, align 1, !tbaa !12
+  %182 = load i8, ptr %181, align 1, !tbaa !13
   %183 = icmp eq i8 %182, 0
   br i1 %183, label %184, label %211
 
 184:                                              ; preds = %179
   %185 = sext i32 %161 to i64
   %gep310 = getelementptr i8, ptr %invariant.gep309, i64 %185
-  %186 = load i8, ptr %gep310, align 1, !tbaa !12
+  %186 = load i8, ptr %gep310, align 1, !tbaa !13
   %187 = zext i8 %186 to i32
   %188 = getelementptr i8, ptr %164, i64 6
-  %189 = load i8, ptr %188, align 1, !tbaa !12
+  %189 = load i8, ptr %188, align 1, !tbaa !13
   %190 = zext i8 %189 to i32
   %191 = shl nuw nsw i32 %190, 8
   %192 = or disjoint i32 %191, %187
   %193 = getelementptr i8, ptr %164, i64 7
-  %194 = load i8, ptr %193, align 1, !tbaa !12
+  %194 = load i8, ptr %193, align 1, !tbaa !13
   %195 = zext i8 %194 to i32
   %196 = shl nuw nsw i32 %195, 16
   %197 = or disjoint i32 %192, %196
   %198 = getelementptr i8, ptr %164, i64 8
-  %199 = load i8, ptr %198, align 1, !tbaa !12
+  %199 = load i8, ptr %198, align 1, !tbaa !13
   %200 = zext i8 %199 to i32
   %201 = shl nuw i32 %200, 24
   %202 = or disjoint i32 %197, %201
@@ -863,11 +863,11 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %222 = load i16, ptr %221, align 1
   %223 = zext i16 %222 to i32
   %224 = getelementptr inbounds nuw i32, ptr %.1241, i64 %indvars.iv
-  store i32 %223, ptr %224, align 4, !tbaa !10
+  store i32 %223, ptr %224, align 4, !tbaa !11
   %indvars.iv.next292 = add nsw i64 %indvars.iv291, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %225 = trunc nsw i64 %indvars.iv.next292 to i32
@@ -879,20 +879,20 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %227 = getelementptr inbounds i8, ptr %0, i64 %226
   %228 = load i32, ptr %227, align 1
   %gep265 = getelementptr i8, ptr %invariant.gep268, i64 %226
-  %229 = load i8, ptr %gep265, align 1, !tbaa !12
+  %229 = load i8, ptr %gep265, align 1, !tbaa !13
   %230 = zext i8 %229 to i32
   %231 = getelementptr i8, ptr %227, i64 5
-  %232 = load i8, ptr %231, align 1, !tbaa !12
+  %232 = load i8, ptr %231, align 1, !tbaa !13
   %233 = zext i8 %232 to i32
   %234 = shl nuw nsw i32 %233, 8
   %235 = or disjoint i32 %234, %230
   %236 = getelementptr i8, ptr %227, i64 6
-  %237 = load i8, ptr %236, align 1, !tbaa !12
+  %237 = load i8, ptr %236, align 1, !tbaa !13
   %238 = zext i8 %237 to i32
   %239 = shl nuw nsw i32 %238, 16
   %240 = or disjoint i32 %235, %239
   %241 = getelementptr i8, ptr %227, i64 7
-  %242 = load i8, ptr %241, align 1, !tbaa !12
+  %242 = load i8, ptr %241, align 1, !tbaa !13
   %243 = zext i8 %242 to i32
   %244 = shl nuw i32 %243, 24
   %245 = or disjoint i32 %240, %244
@@ -944,18 +944,18 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 ._crit_edge:                                      ; preds = %265, %263
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %exitcond304.not = icmp eq i64 %indvars.iv.next302, 3
-  br i1 %exitcond304.not, label %269, label %111, !llvm.loop !20
+  br i1 %exitcond304.not, label %269, label %111, !llvm.loop !21
 
 265:                                              ; preds = %.lr.ph261, %265
   %indvars.iv296 = phi i64 [ 0, %.lr.ph261 ], [ %indvars.iv.next297, %265 ]
   %266 = getelementptr inbounds nuw i32, ptr %.1228, i64 %indvars.iv296
-  %267 = load i32, ptr %266, align 4, !tbaa !10
+  %267 = load i32, ptr %266, align 4, !tbaa !11
   %268 = trunc i32 %267 to i8
   %gep308 = getelementptr inbounds nuw i8, ptr %invariant.gep307, i64 %indvars.iv296
-  store i8 %268, ptr %gep308, align 1, !tbaa !12
+  store i8 %268, ptr %gep308, align 1, !tbaa !13
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
-  br i1 %exitcond300.not, label %._crit_edge, label %265, !llvm.loop !21
+  br i1 %exitcond300.not, label %._crit_edge, label %265, !llvm.loop !22
 
 269:                                              ; preds = %._crit_edge
   br i1 %.not, label %.thread255, label %270
@@ -980,7 +980,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %278 = sext i32 %.0231279 to i64
   %279 = getelementptr inbounds i32, ptr %2, i64 %278
   call void @Ptngc_comp_conv_from_vals16(ptr noundef %.1, i32 noundef %59, ptr noundef %279, ptr noundef nonnull %5) #10
-  %280 = load i32, ptr %5, align 4, !tbaa !10
+  %280 = load i32, ptr %5, align 4, !tbaa !11
   %.not252 = icmp eq i32 %280, %41
   br i1 %.not252, label %284, label %281
 
@@ -994,7 +994,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %285 = add nsw i32 %41, %.0231279
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   %.not251 = icmp eq i32 %42, 0
-  br i1 %.not251, label %._crit_edge286, label %27, !llvm.loop !22
+  br i1 %.not251, label %._crit_edge286, label %27, !llvm.loop !23
 
 ._crit_edge286:                                   ; preds = %284, %.preheader
   %.0232.lcssa = phi ptr [ %18, %.preheader ], [ %.1233, %284 ]
@@ -1094,18 +1094,19 @@ attributes #13 = { cold noreturn nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !6, i64 0}
-!12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!6, !6, i64 0}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}

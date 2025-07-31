@@ -2167,7 +2167,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %14, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !238
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !239
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8, !tbaa !233
@@ -2384,7 +2384,7 @@ define linkonce_odr hidden { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBits
 5:                                                ; preds = %2
   %6 = tail call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %0, i32 noundef 0) #22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !239
+  %8 = load i32, ptr %7, align 4, !tbaa !240
   %9 = zext i32 %8 to i64
   br label %58
 
@@ -2392,15 +2392,15 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   %10 = lshr i32 %4, 8
   %11 = tail call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %0, i32 noundef %10) #22
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !239
+  %13 = load i32, ptr %12, align 4, !tbaa !240
   %14 = zext i32 %13 to i64
   br label %58
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !241
+  %17 = load i64, ptr %16, align 8, !tbaa !242
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !247
+  %19 = load ptr, ptr %18, align 8, !tbaa !248
   %20 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %19)
   %.fca.0.extract.i13.i = extractvalue { i64, i8 } %20, 0
   %.fca.1.extract.i14.i = extractvalue { i64, i8 } %20, 1
@@ -2449,11 +2449,11 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
 43:                                               ; preds = %2, %2
   %44 = and i32 %4, 255
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %46 = load i32, ptr %45, align 8, !tbaa !248
+  %46 = load i32, ptr %45, align 8, !tbaa !249
   %47 = icmp eq i32 %44, 18
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !250
+  %50 = load ptr, ptr %49, align 8, !tbaa !251
   %51 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %50)
   %.fca.0.extract1 = extractvalue { i64, i8 } %51, 0
   %52 = mul i64 %.fca.0.extract1, %48
@@ -2538,7 +2538,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFvRKbEN4
 
 _ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIbLb0ENS2_6parserIbEEEUlRKbE_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit.sink.split: ; preds = %3, %.sink.split.i
   %.sink = phi ptr [ null, %.sink.split.i ], [ %1, %3 ]
-  store ptr %.sink, ptr %0, align 8, !tbaa !251
+  store ptr %.sink, ptr %0, align 8, !tbaa !252
   br label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIbLb0ENS2_6parserIbEEEUlRKbE_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIbLb0ENS2_6parserIbEEEUlRKbE_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit: ; preds = %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIbLb0ENS2_6parserIbEEEUlRKbE_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit.sink.split, %3
@@ -2551,10 +2551,10 @@ declare void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt17_Function_handlerIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0E9_M_invokeERKSt9_Any_dataS4_"(ptr dead_on_unwind noalias writable sret(%"class.llvm::TargetTransformInfo") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) #1 align 2 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !252
-  %4 = load ptr, ptr %.val, align 8, !tbaa !3, !noalias !254
+  %.val = load ptr, ptr %1, align 8, !tbaa !253
+  %4 = load ptr, ptr %.val, align 8, !tbaa !3, !noalias !255
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %6 = load ptr, ptr %5, align 8, !noalias !254
+  %6 = load ptr, ptr %5, align 8, !noalias !255
   tail call void %6(ptr dead_on_unwind writable sret(%"class.llvm::TargetTransformInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1264) %.val, ptr noundef nonnull align 8 dereferenceable(136) %2) #22
   ret void
 }
@@ -2568,11 +2568,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm19TargetTra
   ]
 
 4:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !251
+  store ptr %1, ptr %0, align 8, !tbaa !252
   br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !261
+  store ptr null, ptr %0, align 8, !tbaa !262
   br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -2888,30 +2888,31 @@ attributes #25 = { builtin nounwind allocsize(0) }
 !233 = !{!169, !170, i64 0}
 !234 = !{!169, !170, i64 16}
 !235 = !{!170, !170, i64 0}
-!236 = distinct !{!236, !237}
+!236 = distinct !{!236, !237, !238}
 !237 = !{!"llvm.loop.mustprogress"}
-!238 = distinct !{!238, !237}
-!239 = !{!240, !19, i64 4}
-!240 = !{!"_ZTSN4llvm10DataLayout11PointerSpecE", !19, i64 0, !19, i64 4, !96, i64 8, !96, i64 9, !19, i64 12, !24, i64 16}
-!241 = !{!242, !13, i64 32}
-!242 = !{!"_ZTSN4llvm9ArrayTypeE", !243, i64 0, !190, i64 24, !13, i64 32}
-!243 = !{!"_ZTSN4llvm4TypeE", !244, i64 0, !245, i64 8, !19, i64 9, !19, i64 12, !246, i64 16}
-!244 = !{!"p1 _ZTSN4llvm11LLVMContextE", !12, i64 0}
-!245 = !{!"_ZTSN4llvm4Type6TypeIDE", !9, i64 0}
-!246 = !{!"p2 _ZTSN4llvm4TypeE", !12, i64 0}
-!247 = !{!242, !190, i64 24}
-!248 = !{!249, !19, i64 32}
-!249 = !{!"_ZTSN4llvm10VectorTypeE", !243, i64 0, !190, i64 24, !19, i64 32}
-!250 = !{!249, !190, i64 24}
-!251 = !{!12, !12, i64 0}
-!252 = !{!253, !209, i64 0}
-!253 = !{!"_ZTSZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0", !209, i64 0}
-!254 = !{!255, !257, !259}
-!255 = distinct !{!255, !256, !"_ZZNK4llvm13TargetMachine19getTargetIRAnalysisEvENK3$_0clERKNS_8FunctionE: argument 0"}
-!256 = distinct !{!256, !"_ZZNK4llvm13TargetMachine19getTargetIRAnalysisEvENK3$_0clERKNS_8FunctionE"}
-!257 = distinct !{!257, !258, !"_ZSt13__invoke_implIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!258 = distinct !{!258, !"_ZSt13__invoke_implIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_"}
-!259 = distinct !{!259, !260, !"_ZSt10__invoke_rIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_: argument 0"}
-!260 = distinct !{!260, !"_ZSt10__invoke_rIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_"}
-!261 = !{!262, !262, i64 0}
-!262 = !{!"p1 _ZTSSt9type_info", !12, i64 0}
+!238 = !{!"llvm.loop.estimated_trip_count"}
+!239 = distinct !{!239, !237, !238}
+!240 = !{!241, !19, i64 4}
+!241 = !{!"_ZTSN4llvm10DataLayout11PointerSpecE", !19, i64 0, !19, i64 4, !96, i64 8, !96, i64 9, !19, i64 12, !24, i64 16}
+!242 = !{!243, !13, i64 32}
+!243 = !{!"_ZTSN4llvm9ArrayTypeE", !244, i64 0, !190, i64 24, !13, i64 32}
+!244 = !{!"_ZTSN4llvm4TypeE", !245, i64 0, !246, i64 8, !19, i64 9, !19, i64 12, !247, i64 16}
+!245 = !{!"p1 _ZTSN4llvm11LLVMContextE", !12, i64 0}
+!246 = !{!"_ZTSN4llvm4Type6TypeIDE", !9, i64 0}
+!247 = !{!"p2 _ZTSN4llvm4TypeE", !12, i64 0}
+!248 = !{!243, !190, i64 24}
+!249 = !{!250, !19, i64 32}
+!250 = !{!"_ZTSN4llvm10VectorTypeE", !244, i64 0, !190, i64 24, !19, i64 32}
+!251 = !{!250, !190, i64 24}
+!252 = !{!12, !12, i64 0}
+!253 = !{!254, !209, i64 0}
+!254 = !{!"_ZTSZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0", !209, i64 0}
+!255 = !{!256, !258, !260}
+!256 = distinct !{!256, !257, !"_ZZNK4llvm13TargetMachine19getTargetIRAnalysisEvENK3$_0clERKNS_8FunctionE: argument 0"}
+!257 = distinct !{!257, !"_ZZNK4llvm13TargetMachine19getTargetIRAnalysisEvENK3$_0clERKNS_8FunctionE"}
+!258 = distinct !{!258, !259, !"_ZSt13__invoke_implIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!259 = distinct !{!259, !"_ZSt13__invoke_implIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_"}
+!260 = distinct !{!260, !261, !"_ZSt10__invoke_rIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_: argument 0"}
+!261 = distinct !{!261, !"_ZSt10__invoke_rIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_"}
+!262 = !{!263, !263, i64 0}
+!263 = !{!"p1 _ZTSSt9type_info", !12, i64 0}

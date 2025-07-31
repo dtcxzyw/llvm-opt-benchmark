@@ -690,7 +690,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %.sroa.6.0.val15.i.i.i, ptr %41, align 8, !noalias !268
   %42 = icmp eq i64 %36, 0
-  br i1 %42, label %.loopexit, label %.lr.ph.i.i.i
+  br i1 %42, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !269
 
 43:                                               ; preds = %.noexc
   %44 = landingpad { ptr, i32 }
@@ -706,7 +706,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 .loopexit:                                        ; preds = %35, %.lr.ph.i.i.i, %.noexc.i
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.013.037, i64 64
-  %48 = load i8, ptr %47, align 8, !range !269, !alias.scope !254, !noalias !257, !noundef !4
+  %48 = load i8, ptr %47, align 8, !range !271, !alias.scope !254, !noalias !257, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !260
@@ -726,7 +726,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   store i8 %48, ptr %.sroa.06.sroa.9.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.06.sroa.6)
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %.thread, label %.lr.ph
+  br i1 %50, label %.thread, label %.lr.ph, !llvm.loop !272
 
 51:                                               ; preds = %53
   %52 = landingpad { ptr, i32 }
@@ -1146,4 +1146,7 @@ attributes #11 = { nounwind }
 !266 = distinct !{!266, !267, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc508abf627d7c0bcE: argument 0"}
 !267 = distinct !{!267, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc508abf627d7c0bcE"}
 !268 = !{!265, !262, !266, !258}
-!269 = !{i8 0, i8 2}
+!269 = distinct !{!269, !270}
+!270 = !{!"llvm.loop.estimated_trip_count"}
+!271 = !{i8 0, i8 2}
+!272 = distinct !{!272, !270}

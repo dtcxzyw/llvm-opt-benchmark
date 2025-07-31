@@ -135485,7 +135485,7 @@ lean_inc.exit:                                    ; preds = %66, %65, %63, %lean
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %75, %74, %72, %lean_inc.exit
-  br label %lean_dec.exit
+  br label %lean_dec.exit, !llvm.loop !28
 }
 
 declare ptr @l_Lean_Server_RequestCancellationToken_cancelByEdit(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -178281,7 +178281,7 @@ lean_dec.exit205:                                 ; preds = %180, %179, %177, %1
   %190 = and i64 %189, 1
   %191 = icmp ne i64 %190, 0
   %or.cond = select i1 %158, i1 %191, i1 false
-  br i1 %or.cond, label %192, label %.critedge.i282, !prof !28
+  br i1 %or.cond, label %192, label %.critedge.i282, !prof !30
 
 .thread350:                                       ; preds = %lean_nat_le.exit.thread
   %.old = ptrtoint ptr %.0.i343 to i64
@@ -178454,7 +178454,7 @@ lean_dec.exit200:                                 ; preds = %237, %236, %234, %2
   %247 = and i64 %246, 1
   %248 = icmp ne i64 %247, 0
   %or.cond401 = select i1 %158, i1 %248, i1 false
-  br i1 %or.cond401, label %249, label %.critedge.i287, !prof !29
+  br i1 %or.cond401, label %249, label %.critedge.i287, !prof !31
 
 .thread358:                                       ; preds = %lean_dec.exit201.thread357
   %.old398 = ptrtoint ptr %.0.i343 to i64
@@ -178776,7 +178776,7 @@ lean_dec.exit190:                                 ; preds = %353, %352, %350, %3
   br label %lean_dec.exit204
 
 361:                                              ; preds = %lean_dec.exit191
-  br i1 %.not408, label %lean_nat_lt.exit292, label %.thread366, !prof !30
+  br i1 %.not408, label %lean_nat_lt.exit292, label %.thread366, !prof !32
 
 .thread366:                                       ; preds = %lean_nat_le.exit309.thread, %361
   br i1 %.not407, label %lean_nat_lt.exit292.thread368, label %lean_nat_lt.exit292.thread, !prof !17
@@ -178846,7 +178846,7 @@ lean_dec.exit188:                                 ; preds = %375, %374, %372, %l
   br label %lean_dec.exit204
 
 388:                                              ; preds = %lean_nat_le.exit309
-  br i1 %.not403, label %lean_nat_lt.exit295, label %.thread369, !prof !31
+  br i1 %.not403, label %lean_nat_lt.exit295, label %.thread369, !prof !33
 
 .thread369:                                       ; preds = %lean_nat_le.exit309.thread, %388
   %389 = ptrtoint ptr %331 to i64
@@ -178942,7 +178942,7 @@ lean_dec.exit185:                                 ; preds = %409, %408, %406, %4
   br label %lean_dec.exit204
 
 417:                                              ; preds = %lean_dec.exit186
-  br i1 %.not408, label %lean_nat_lt.exit298, label %.thread376, !prof !32
+  br i1 %.not408, label %lean_nat_lt.exit298, label %.thread376, !prof !34
 
 .thread376:                                       ; preds = %lean_dec.exit186.thread375, %417
   br i1 %.not407, label %lean_nat_lt.exit298.thread378, label %lean_nat_lt.exit298.thread, !prof !17
@@ -204834,7 +204834,7 @@ lean_inc.exit107:                                 ; preds = %204, %203, %201, %l
 lean_dec.exit121.backedge:                        ; preds = %lean_inc.exit107, %210, %212, %213, %lean_dec.exit119, %lean_alloc_ctor.exit208
   %.099.be = phi ptr [ %216, %lean_alloc_ctor.exit208 ], [ %216, %lean_dec.exit119 ], [ %196, %213 ], [ %196, %212 ], [ %196, %210 ], [ %196, %lean_inc.exit107 ]
   %.096.be = phi ptr [ %316, %lean_alloc_ctor.exit208 ], [ %107, %lean_dec.exit119 ], [ %107, %213 ], [ %107, %212 ], [ %107, %210 ], [ %107, %lean_inc.exit107 ]
-  br label %lean_dec.exit121
+  br label %lean_dec.exit121, !llvm.loop !35
 
 207:                                              ; preds = %lean_inc.exit107
   %208 = load i32, ptr %160, align 4, !tbaa !10
@@ -205684,7 +205684,7 @@ lean_inc.exit106:                                 ; preds = %203, %202, %200, %l
 lean_dec.exit120.backedge:                        ; preds = %lean_inc.exit106, %209, %211, %212, %lean_dec.exit118, %lean_alloc_ctor.exit207
   %.098.be = phi ptr [ %215, %lean_alloc_ctor.exit207 ], [ %215, %lean_dec.exit118 ], [ %195, %212 ], [ %195, %211 ], [ %195, %209 ], [ %195, %lean_inc.exit106 ]
   %.095.be = phi ptr [ %315, %lean_alloc_ctor.exit207 ], [ %106, %lean_dec.exit118 ], [ %106, %212 ], [ %106, %211 ], [ %106, %209 ], [ %106, %lean_inc.exit106 ]
-  br label %lean_dec.exit120
+  br label %lean_dec.exit120, !llvm.loop !36
 
 206:                                              ; preds = %lean_inc.exit106
   %207 = load i32, ptr %159, align 4, !tbaa !10
@@ -256090,8 +256090,12 @@ attributes #8 = { noreturn nounwind }
 !25 = !{!"branch_weights", i32 4001, i32 4000000}
 !26 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
 !27 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!28 = !{!"branch_weights", i32 -102760953, i32 4194808}
-!29 = !{!"branch_weights", i32 -102757048, i32 4190903}
-!30 = !{!"branch_weights", !"expected", i32 1072000, i32 2146411648}
-!31 = !{!"branch_weights", !"expected", i32 1073203, i32 2146410445}
-!32 = !{!"branch_weights", !"expected", i32 1072001, i32 2146411647}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!"branch_weights", i32 -102760953, i32 4194808}
+!31 = !{!"branch_weights", i32 -102757048, i32 4190903}
+!32 = !{!"branch_weights", !"expected", i32 1072000, i32 2146411648}
+!33 = !{!"branch_weights", !"expected", i32 1073203, i32 2146410445}
+!34 = !{!"branch_weights", !"expected", i32 1072001, i32 2146411647}
+!35 = distinct !{!35, !29}
+!36 = distinct !{!36, !29}

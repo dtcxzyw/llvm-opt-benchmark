@@ -427,21 +427,21 @@ define hidden i32 @mbedtls_x509write_crt_set_ext_key_usage(ptr noundef %0, ptr n
   br i1 %.not44, label %10, label %7, !llvm.loop !24
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr %.0, align 8, !tbaa !26
+  %11 = load i32, ptr %.0, align 8, !tbaa !27
   %.not45 = icmp eq i32 %11, 6
   br i1 %.not45, label %12, label %.loopexit
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !27
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !28
+  %16 = load i64, ptr %15, align 8, !tbaa !29
   %17 = call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %14, i64 noundef %16) #11
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %12
-  %20 = load i64, ptr %15, align 8, !tbaa !28
+  %20 = load i64, ptr %15, align 8, !tbaa !29
   %21 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %20) #11
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.loopexit, label %23
@@ -459,7 +459,7 @@ define hidden i32 @mbedtls_x509write_crt_set_ext_key_usage(ptr noundef %0, ptr n
   %31 = zext nneg i32 %24 to i64
   %32 = add i64 %30, %31
   %.not = icmp eq ptr %.0, %1
-  br i1 %.not, label %33, label %.preheader, !llvm.loop !29
+  br i1 %.not, label %33, label %.preheader, !llvm.loop !30
 
 33:                                               ; preds = %26
   %34 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %32) #11
@@ -531,7 +531,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   %12 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  store i64 0, ptr %7, align 8, !tbaa !30
+  store i64 0, ptr %7, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #11
@@ -566,7 +566,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %29 = load ptr, ptr %28, align 8, !tbaa !31
+  %29 = load ptr, ptr %28, align 8, !tbaa !32
   %30 = call i32 @mbedtls_x509_write_extensions(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %29) #11
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %202, label %32
@@ -622,7 +622,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   %66 = getelementptr inbounds i8, ptr %64, i64 %65
   store ptr %66, ptr %8, align 8, !tbaa !17
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = load ptr, ptr %67, align 8, !tbaa !32
+  %68 = load ptr, ptr %67, align 8, !tbaa !33
   %69 = call i32 @mbedtls_x509_write_names(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %68) #11
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %202, label %71
@@ -656,7 +656,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %91 = load ptr, ptr %90, align 8, !tbaa !33
+  %91 = load ptr, ptr %90, align 8, !tbaa !34
   %92 = call i32 @mbedtls_x509_write_names(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %91) #11
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %202, label %94
@@ -797,8 +797,8 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   store ptr %181, ptr %8, align 8, !tbaa !17
   store ptr %13, ptr %9, align 8, !tbaa !17
   %182 = load ptr, ptr %6, align 8, !tbaa !17
-  %183 = load i64, ptr %7, align 8, !tbaa !30
-  %184 = load i64, ptr %12, align 8, !tbaa !30
+  %183 = load i64, ptr %7, align 8, !tbaa !31
+  %184 = load i64, ptr %12, align 8, !tbaa !31
   %185 = call i32 @mbedtls_x509_write_sig(ptr noundef nonnull %9, ptr noundef %181, ptr noundef %182, i64 noundef %183, ptr noundef nonnull %10, i64 noundef %184, i32 noundef %.0159) #11
   %186 = icmp slt i32 %185, 0
   br i1 %186, label %202, label %187
@@ -1000,13 +1000,14 @@ attributes #12 = { nounwind willreturn memory(read) }
 !21 = !{!"mbedtls_asn1_sequence", !22, i64 0, !23, i64 24}
 !22 = !{!"mbedtls_asn1_buf", !5, i64 0, !8, i64 8, !18, i64 16}
 !23 = !{!"p1 _ZTS21mbedtls_asn1_sequence", !10, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!21, !5, i64 0}
-!27 = !{!21, !18, i64 16}
-!28 = !{!21, !8, i64 8}
-!29 = distinct !{!29, !25}
-!30 = !{!8, !8, i64 0}
-!31 = !{!4, !11, i64 104}
-!32 = !{!4, !11, i64 48}
-!33 = !{!4, !11, i64 56}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!21, !5, i64 0}
+!28 = !{!21, !18, i64 16}
+!29 = !{!21, !8, i64 8}
+!30 = distinct !{!30, !25, !26}
+!31 = !{!8, !8, i64 0}
+!32 = !{!4, !11, i64 104}
+!33 = !{!4, !11, i64 48}
+!34 = !{!4, !11, i64 56}

@@ -273,13 +273,13 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %126, ptr %129, align 8, !tbaa !7
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next378, %wide.trip.count380
-  br i1 %exitcond381.not, label %._crit_edge296, label %122, !llvm.loop !11
+  br i1 %exitcond381.not, label %._crit_edge296, label %122, !llvm.loop !12
 
 ._crit_edge296:                                   ; preds = %122, %115
   %storemerge266.lcssa = phi i32 [ %indvars382, %115 ], [ %113, %122 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond384.not = icmp eq i64 %indvars.iv.next, %wide.trip.count383
-  br i1 %exitcond384.not, label %130, label %115, !llvm.loop !12
+  br i1 %exitcond384.not, label %130, label %115, !llvm.loop !13
 
 130:                                              ; preds = %._crit_edge296
   store i32 %storemerge266.lcssa, ptr %14, align 4, !tbaa !3
@@ -375,13 +375,13 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %183, ptr %185, align 8, !tbaa !7
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count390
-  br i1 %exitcond391.not, label %._crit_edge302, label %178, !llvm.loop !13
+  br i1 %exitcond391.not, label %._crit_edge302, label %178, !llvm.loop !14
 
 ._crit_edge302:                                   ; preds = %178, %171
   %storemerge264.lcssa = phi i32 [ %indvars392, %171 ], [ %169, %178 ]
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next386, %wide.trip.count393
-  br i1 %exitcond394.not, label %..loopexit281_crit_edge, label %171, !llvm.loop !14
+  br i1 %exitcond394.not, label %..loopexit281_crit_edge, label %171, !llvm.loop !15
 
 ..loopexit281_crit_edge:                          ; preds = %._crit_edge302
   store i32 %storemerge264.lcssa, ptr %14, align 4, !tbaa !3
@@ -390,12 +390,12 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .loopexit281:                                     ; preds = %157, %..loopexit281_crit_edge, %66, %107
   %186 = add nuw nsw i32 %.1223311, %37
   %.not256 = icmp sgt i32 %186, %49
-  br i1 %.not256, label %.loopexit279, label %.lr.ph313, !llvm.loop !15
+  br i1 %.not256, label %.loopexit279, label %.lr.ph313, !llvm.loop !16
 
 .loopexit280:                                     ; preds = %.lr.ph317, %.lr.ph321
   %indvar.next396 = add nuw nsw i64 %indvar395, 1
   %exitcond404.not = icmp eq i64 %indvar.next396, %wide.trip.count403
-  br i1 %exitcond404.not, label %._crit_edge322, label %.lr.ph321, !llvm.loop !16
+  br i1 %exitcond404.not, label %._crit_edge322, label %.lr.ph321, !llvm.loop !17
 
 .lr.ph321:                                        ; preds = %.lr.ph321.preheader, %.loopexit280
   %indvar395 = phi i64 [ 0, %.lr.ph321.preheader ], [ %indvar.next396, %.loopexit280 ]
@@ -536,12 +536,12 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %255, ptr %258, align 8, !tbaa !7
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
   %exitcond409.not = icmp eq i64 %indvars.iv.next406, %wide.trip.count408
-  br i1 %exitcond409.not, label %._crit_edge328, label %251, !llvm.loop !17
+  br i1 %exitcond409.not, label %._crit_edge328, label %251, !llvm.loop !18
 
 ._crit_edge328:                                   ; preds = %251
   %259 = add nuw i32 %.2333, 1
   %exitcond411.not = icmp eq i32 %.2333, %243
-  br i1 %exitcond411.not, label %._crit_edge336, label %.lr.ph327, !llvm.loop !18
+  br i1 %exitcond411.not, label %._crit_edge336, label %.lr.ph327, !llvm.loop !19
 
 ._crit_edge336:                                   ; preds = %._crit_edge328
   %smin410 = call i32 @llvm.smin.i32(i32 %240, i32 %243)
@@ -631,13 +631,13 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %303, ptr %305, align 8, !tbaa !7
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count416
-  br i1 %exitcond417.not, label %._crit_edge342, label %298, !llvm.loop !19
+  br i1 %exitcond417.not, label %._crit_edge342, label %298, !llvm.loop !20
 
 ._crit_edge342:                                   ; preds = %298, %290
   %storemerge.lcssa = phi i32 [ 1, %290 ], [ %291, %298 ]
   %306 = add nuw i32 %.3347, 1
   %exitcond419.not = icmp eq i32 %.3347, %287
-  br i1 %exitcond419.not, label %..loopexit_crit_edge, label %290, !llvm.loop !20
+  br i1 %exitcond419.not, label %..loopexit_crit_edge, label %290, !llvm.loop !21
 
 ..loopexit_crit_edge:                             ; preds = %._crit_edge342
   %smin418 = call i32 @llvm.smin.i32(i32 %288, i32 %287)
@@ -648,7 +648,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .loopexit:                                        ; preds = %280, %..loopexit_crit_edge, %208, %239
   %307 = add nuw nsw i32 %37, %.3225356
   %.not421 = icmp sgt i32 %307, %194
-  br i1 %.not421, label %.loopexit279, label %.lr.ph358, !llvm.loop !21
+  br i1 %.not421, label %.loopexit279, label %.lr.ph358, !llvm.loop !22
 
 308:                                              ; preds = %206, %64
   %storemerge253.in = phi i32 [ %207, %206 ], [ %65, %64 ]
@@ -714,16 +714,17 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}

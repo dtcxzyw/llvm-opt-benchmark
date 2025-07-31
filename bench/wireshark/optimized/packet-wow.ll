@@ -1036,7 +1036,7 @@ define internal fastcc void @add_body_fields(ptr noundef readonly captures(none)
   %380 = add nuw i32 %.0337397, 1
   %381 = load i32, ptr %13, align 4
   %382 = icmp ult i32 %380, %381
-  br i1 %382, label %.lr.ph399, label %.loopexit, !llvm.loop !10
+  br i1 %382, label %.lr.ph399, label %.loopexit, !llvm.loop !11
 
 383:                                              ; preds = %305
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -1096,7 +1096,7 @@ define internal fastcc void @add_body_fields(ptr noundef readonly captures(none)
   %424 = add nuw i32 %.0336394, 1
   %425 = load i32, ptr %13, align 4
   %426 = icmp ult i32 %424, %425
-  br i1 %426, label %.lr.ph396, label %.loopexit, !llvm.loop !11
+  br i1 %426, label %.lr.ph396, label %.loopexit, !llvm.loop !12
 
 427:                                              ; preds = %4
   %428 = load i32, ptr %3, align 4
@@ -1352,7 +1352,7 @@ define internal fastcc void @add_body_fields(ptr noundef readonly captures(none)
   %597 = call zeroext i8 @tvb_get_uint8(ptr noundef %592, i32 noundef %596)
   %.not.i.i = icmp eq i8 %597, 0
   %598 = add nuw nsw i32 %.012.i.i, 1
-  br i1 %.not.i.i, label %add_cstring.exit, label %594, !llvm.loop !12
+  br i1 %.not.i.i, label %add_cstring.exit, label %594, !llvm.loop !13
 
 add_cstring.exit:                                 ; preds = %594, %595
   %spec.select.i.i = phi i32 [ %598, %595 ], [ 0, %594 ]
@@ -1372,7 +1372,7 @@ add_cstring.exit:                                 ; preds = %594, %595
   %606 = call zeroext i8 @tvb_get_uint8(ptr noundef %601, i32 noundef %605)
   %.not.i.i346 = icmp eq i8 %606, 0
   %607 = add nuw nsw i32 %.012.i.i344, 1
-  br i1 %.not.i.i346, label %add_cstring.exit348, label %603, !llvm.loop !12
+  br i1 %.not.i.i346, label %add_cstring.exit348, label %603, !llvm.loop !13
 
 add_cstring.exit348:                              ; preds = %603, %604
   %spec.select.i.i347 = phi i32 [ %607, %604 ], [ 0, %603 ]
@@ -1390,7 +1390,7 @@ add_cstring.exit348:                              ; preds = %603, %604
   %618 = add nuw i32 %.0335390, 1
   %619 = load i32, ptr %12, align 4
   %620 = icmp ult i32 %618, %619
-  br i1 %620, label %.lr.ph392, label %._crit_edge393, !llvm.loop !13
+  br i1 %620, label %.lr.ph392, label %._crit_edge393, !llvm.loop !14
 
 621:                                              ; preds = %572
   %622 = load i32, ptr @hf_wow_padding, align 4
@@ -1443,7 +1443,7 @@ add_cstring.exit348:                              ; preds = %603, %604
   %651 = call zeroext i8 @tvb_get_uint8(ptr noundef %646, i32 noundef %650)
   %.not.i.i351 = icmp eq i8 %651, 0
   %652 = add nuw nsw i32 %.012.i.i349, 1
-  br i1 %.not.i.i351, label %add_cstring.exit353, label %648, !llvm.loop !12
+  br i1 %.not.i.i351, label %add_cstring.exit353, label %648, !llvm.loop !13
 
 add_cstring.exit353:                              ; preds = %648, %649
   %spec.select.i.i352 = phi i32 [ %652, %649 ], [ 0, %648 ]
@@ -1463,7 +1463,7 @@ add_cstring.exit353:                              ; preds = %648, %649
   %660 = call zeroext i8 @tvb_get_uint8(ptr noundef %655, i32 noundef %659)
   %.not.i.i356 = icmp eq i8 %660, 0
   %661 = add nuw nsw i32 %.012.i.i354, 1
-  br i1 %.not.i.i356, label %add_cstring.exit358, label %657, !llvm.loop !12
+  br i1 %.not.i.i356, label %add_cstring.exit358, label %657, !llvm.loop !13
 
 add_cstring.exit358:                              ; preds = %657, %658
   %spec.select.i.i357 = phi i32 [ %661, %658 ], [ 0, %657 ]
@@ -1481,7 +1481,7 @@ add_cstring.exit358:                              ; preds = %657, %658
   %672 = add nuw i32 %.0334386, 1
   %673 = load i32, ptr %12, align 4
   %674 = icmp ult i32 %672, %673
-  br i1 %674, label %.lr.ph388, label %._crit_edge389, !llvm.loop !14
+  br i1 %674, label %.lr.ph388, label %._crit_edge389, !llvm.loop !15
 
 675:                                              ; preds = %624
   %676 = load i32, ptr @hf_wow_padding, align 4
@@ -1534,7 +1534,7 @@ add_cstring.exit358:                              ; preds = %657, %658
   %705 = call zeroext i8 @tvb_get_uint8(ptr noundef %700, i32 noundef %704)
   %.not.i.i361 = icmp eq i8 %705, 0
   %706 = add nuw nsw i32 %.012.i.i359, 1
-  br i1 %.not.i.i361, label %add_cstring.exit363, label %702, !llvm.loop !12
+  br i1 %.not.i.i361, label %add_cstring.exit363, label %702, !llvm.loop !13
 
 add_cstring.exit363:                              ; preds = %702, %703
   %spec.select.i.i362 = phi i32 [ %706, %703 ], [ 0, %702 ]
@@ -1554,7 +1554,7 @@ add_cstring.exit363:                              ; preds = %702, %703
   %714 = call zeroext i8 @tvb_get_uint8(ptr noundef %709, i32 noundef %713)
   %.not.i.i366 = icmp eq i8 %714, 0
   %715 = add nuw nsw i32 %.012.i.i364, 1
-  br i1 %.not.i.i366, label %add_cstring.exit368, label %711, !llvm.loop !12
+  br i1 %.not.i.i366, label %add_cstring.exit368, label %711, !llvm.loop !13
 
 add_cstring.exit368:                              ; preds = %711, %712
   %spec.select.i.i367 = phi i32 [ %715, %712 ], [ 0, %711 ]
@@ -1572,7 +1572,7 @@ add_cstring.exit368:                              ; preds = %711, %712
   %726 = add nuw i32 %.0333382, 1
   %727 = load i32, ptr %12, align 4
   %728 = icmp ult i32 %726, %727
-  br i1 %728, label %.lr.ph384, label %._crit_edge385, !llvm.loop !15
+  br i1 %728, label %.lr.ph384, label %._crit_edge385, !llvm.loop !16
 
 729:                                              ; preds = %678
   %730 = load i32, ptr @hf_wow_padding, align 4
@@ -1625,7 +1625,7 @@ add_cstring.exit368:                              ; preds = %711, %712
   %759 = call zeroext i8 @tvb_get_uint8(ptr noundef %754, i32 noundef %758)
   %.not.i.i371 = icmp eq i8 %759, 0
   %760 = add nuw nsw i32 %.012.i.i369, 1
-  br i1 %.not.i.i371, label %add_cstring.exit373, label %756, !llvm.loop !12
+  br i1 %.not.i.i371, label %add_cstring.exit373, label %756, !llvm.loop !13
 
 add_cstring.exit373:                              ; preds = %756, %757
   %spec.select.i.i372 = phi i32 [ %760, %757 ], [ 0, %756 ]
@@ -1645,7 +1645,7 @@ add_cstring.exit373:                              ; preds = %756, %757
   %768 = call zeroext i8 @tvb_get_uint8(ptr noundef %763, i32 noundef %767)
   %.not.i.i376 = icmp eq i8 %768, 0
   %769 = add nuw nsw i32 %.012.i.i374, 1
-  br i1 %.not.i.i376, label %add_cstring.exit378, label %765, !llvm.loop !12
+  br i1 %.not.i.i376, label %add_cstring.exit378, label %765, !llvm.loop !13
 
 add_cstring.exit378:                              ; preds = %765, %766
   %spec.select.i.i377 = phi i32 [ %769, %766 ], [ 0, %765 ]
@@ -1683,7 +1683,7 @@ add_cstring.exit378:                              ; preds = %765, %766
   %794 = add nuw i32 %.0381, 1
   %795 = load i32, ptr %12, align 4
   %796 = icmp ult i32 %794, %795
-  br i1 %796, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %796, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 797:                                              ; preds = %732
   %798 = load i32, ptr @hf_wow_padding, align 4
@@ -1789,12 +1789,13 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

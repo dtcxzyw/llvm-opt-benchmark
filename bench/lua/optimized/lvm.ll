@@ -360,7 +360,7 @@ define hidden zeroext i8 @luaV_finishget(ptr noundef %0, ptr noundef %1, ptr nou
   %45 = phi i8 [ %42, %40 ], [ 48, %38 ]
   %46 = add nuw nsw i32 %.02943, 1
   %exitcond.not = icmp eq i32 %46, 2000
-  br i1 %exitcond.not, label %47, label %7
+  br i1 %exitcond.not, label %47, label %7, !llvm.loop !40
 
 47:                                               ; preds = %.thread35
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.1) #14
@@ -438,7 +438,7 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 28:                                               ; preds = %.thread
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %30 = load i8, ptr %29, align 1, !tbaa !40
+  %30 = load i8, ptr %29, align 1, !tbaa !42
   %31 = and i8 %30, 32
   %.not51 = icmp eq i8 %31, 0
   br i1 %.not51, label %.critedge56, label %32
@@ -446,7 +446,7 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
 32:                                               ; preds = %28
   %33 = load ptr, ptr %3, align 8, !tbaa !8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  %35 = load i8, ptr %34, align 1, !tbaa !40
+  %35 = load i8, ptr %34, align 1, !tbaa !42
   %36 = and i8 %35, 24
   %.not52 = icmp eq i8 %36, 0
   br i1 %.not52, label %.critedge56, label %37
@@ -493,7 +493,7 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.ph = phi i32 [ %.fr, %51 ], [ 2, %49 ]
   %55 = add nuw nsw i32 %.04372, 1
   %exitcond.not = icmp eq i32 %55, 2000
-  br i1 %exitcond.not, label %56, label %7
+  br i1 %exitcond.not, label %56, label %7, !llvm.loop !44
 
 56:                                               ; preds = %.thread58
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.2) #14
@@ -696,7 +696,7 @@ define internal fastcc i32 @lessthanothers(ptr noundef %0, ptr noundef %1, ptr n
   %54 = sub i64 %.14164.i, %50
   %55 = tail call i32 @strcoll(ptr noundef nonnull %51, ptr noundef nonnull %53) #15
   %.not.i = icmp eq i32 %55, 0
-  br i1 %.not.i, label %.lr.ph.i, label %l_strcmp.exit
+  br i1 %.not.i, label %.lr.ph.i, label %l_strcmp.exit, !llvm.loop !45
 
 l_strcmp.exit:                                    ; preds = %46, %48, %.lr.ph.i, %40
   %.136.ph.i = phi i32 [ %42, %40 ], [ %55, %48 ], [ -1, %46 ], [ 0, %.lr.ph.i ]
@@ -902,7 +902,7 @@ define internal fastcc i32 @lessequalothers(ptr noundef %0, ptr noundef %1, ptr 
   %57 = sub i64 %.14164.i, %53
   %58 = tail call i32 @strcoll(ptr noundef nonnull %54, ptr noundef nonnull %56) #15
   %.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i, label %.lr.ph.i, label %l_strcmp.exit
+  br i1 %.not.i, label %.lr.ph.i, label %l_strcmp.exit, !llvm.loop !45
 
 l_strcmp.exit:                                    ; preds = %49, %51, %40, %46
   %.136.ph.i = phi i32 [ %48, %46 ], [ %42, %40 ], [ %58, %51 ], [ -1, %49 ]
@@ -1067,7 +1067,7 @@ luaV_tointegerns.exit79:                          ; preds = %31
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %77 = load ptr, ptr %76, align 8, !tbaa !42
+  %77 = load ptr, ptr %76, align 8, !tbaa !46
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.thread, label %79
 
@@ -1094,7 +1094,7 @@ luaV_tointegerns.exit79:                          ; preds = %31
 .thread:                                          ; preds = %..thread_crit_edge, %75, %79
   %90 = phi ptr [ %.pre115, %..thread_crit_edge ], [ %71, %75 ], [ %71, %79 ]
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  %92 = load ptr, ptr %91, align 8, !tbaa !42
+  %92 = load ptr, ptr %91, align 8, !tbaa !46
   %93 = icmp eq ptr %92, null
   br i1 %93, label %luaV_tointegerns.exit.thread92, label %94
 
@@ -1339,7 +1339,7 @@ define hidden void @luaV_concat(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %72 = phi i64 [ %67, %66 ], [ %70, %68 ]
   %73 = sub i64 9223372036854775759, %.07292
   %.not = icmp ult i64 %72, %73
-  br i1 %.not, label %78, label %74, !prof !44
+  br i1 %.not, label %78, label %74, !prof !48
 
 74:                                               ; preds = %71
   %75 = zext nneg i32 %.0 to i64
@@ -1353,7 +1353,7 @@ define hidden void @luaV_concat(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %79 = add i64 %72, %.07292
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %53
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !49
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
   %80 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1401,7 +1401,7 @@ define hidden void @luaV_concat(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %102 = add i64 %.013.i, %.014.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %103 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %103, label %84, label %copy2buff.exit
+  br i1 %103, label %84, label %copy2buff.exit, !llvm.loop !50
 
 copy2buff.exit:                                   ; preds = %99
   %104 = call ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %.072.lcssa) #13
@@ -1446,7 +1446,7 @@ copy2buff.exit:                                   ; preds = %99
   %128 = add i64 %.013.i83, %.014.i82
   %indvars.iv.next.i84 = add nsw i64 %indvars.iv.i81, -1
   %129 = icmp sgt i64 %indvars.iv.i81, 1
-  br i1 %129, label %110, label %copy2buff.exit85
+  br i1 %129, label %110, label %copy2buff.exit85, !llvm.loop !50
 
 copy2buff.exit85:                                 ; preds = %125, %copy2buff.exit
   %.pre-phi = phi i64 [ %83, %copy2buff.exit ], [ %109, %125 ]
@@ -1455,7 +1455,7 @@ copy2buff.exit85:                                 ; preds = %125, %copy2buff.exi
   %131 = getelementptr inbounds %union.StackValue, ptr %7, i64 %130
   store ptr %.073, ptr %131, align 8, !tbaa !8
   %132 = getelementptr inbounds nuw i8, ptr %.073, i64 8
-  %133 = load i8, ptr %132, align 8, !tbaa !45
+  %133 = load i8, ptr %132, align 8, !tbaa !51
   %134 = or i8 %133, 64
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i8 %134, ptr %135, align 8, !tbaa !4
@@ -1471,7 +1471,7 @@ copy2buff.exit85:                                 ; preds = %125, %copy2buff.exi
   %142 = getelementptr inbounds %union.StackValue, ptr %139, i64 %141
   store ptr %142, ptr %5, align 8, !tbaa !8
   %143 = icmp sgt i32 %138, 1
-  br i1 %143, label %6, label %.loopexit
+  br i1 %143, label %6, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %137, %2
   ret void
@@ -1640,7 +1640,7 @@ define hidden i64 @luaV_mod(ptr noundef %0, i64 noundef %1, i64 noundef %2) loca
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @luaV_modf(ptr noundef readnone captures(none) %0, double noundef %1, double noundef %2) local_unnamed_addr #8 {
-  %4 = tail call double @fmod(double noundef %1, double noundef %2) #13, !tbaa !46
+  %4 = tail call double @fmod(double noundef %1, double noundef %2) #13, !tbaa !53
   %5 = fcmp ogt double %4, 0.000000e+00
   br i1 %5, label %6, label %8
 
@@ -1694,13 +1694,13 @@ define hidden i64 @luaV_shiftl(i64 noundef %0, i64 noundef %1) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define hidden void @luaV_finishOp(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   %4 = load ptr, ptr %3, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = getelementptr inbounds i8, ptr %7, i64 -4
-  %9 = load i32, ptr %8, align 4, !tbaa !46
+  %9 = load i32, ptr %8, align 4, !tbaa !53
   %10 = and i32 %9, 127
   switch i32 %10, label %83 [
     i32 46, label %11
@@ -1728,7 +1728,7 @@ define hidden void @luaV_finishOp(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %1, %1, %1
   %12 = getelementptr inbounds i8, ptr %7, i64 -8
-  %13 = load i32, ptr %12, align 4, !tbaa !46
+  %13 = load i32, ptr %12, align 4, !tbaa !53
   %14 = lshr i32 %13, 7
   %15 = and i32 %14, 255
   %16 = zext nneg i32 %15 to i64
@@ -1862,7 +1862,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 .backedge3098:                                    ; preds = %.backedge3098.backedge, %2
   %.0 = phi ptr [ %1, %2 ], [ %.0.be, %.backedge3098.backedge ]
-  %21 = load volatile i32, ptr %10, align 8, !tbaa !48
+  %21 = load volatile i32, ptr %10, align 8, !tbaa !55
   br label %22
 
 22:                                               ; preds = %3133, %.backedge3098
@@ -1871,18 +1871,18 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %23 = load ptr, ptr %.1, align 8, !tbaa !8
   %24 = load ptr, ptr %23, align 8, !tbaa !8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !49
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %28 = load ptr, ptr %27, align 8, !tbaa !52
+  %28 = load ptr, ptr %27, align 8, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !8
   %.not = icmp eq i32 %.02224, 0
-  br i1 %.not, label %.critedge, label %31, !prof !44
+  br i1 %.not, label %.critedge, label %31, !prof !48
 
 31:                                               ; preds = %22
   %32 = call i32 @luaG_tracecall(ptr noundef nonnull %0) #13
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.critedge, label %34, !prof !44
+  br i1 %33, label %.critedge, label %34, !prof !48
 
 34:                                               ; preds = %31
   %35 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %30) #13
@@ -1914,7 +1914,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i8 %51, ptr %52, align 8, !tbaa !4
   %.not2578 = icmp eq i32 %.32227, 0
-  br i1 %.not2578, label %57, label %53, !prof !44
+  br i1 %.not2578, label %57, label %53, !prof !48
 
 53:                                               ; preds = %40
   %54 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -1933,7 +1933,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.32227.be = phi i32 [ %.42228, %57 ], [ %.52229, %72 ], [ %.62230, %87 ], [ %.72231, %105 ], [ %.82232, %125 ], [ %.92233, %136 ], [ %.102234, %148 ], [ %.112235, %159 ], [ %.122236, %177 ], [ %.132237, %199 ], [ %.142238, %233 ], [ %.162240, %308 ], [ %.182242, %409 ], [ %.202244, %497 ], [ %.222246, %569 ], [ %.242248, %620 ], [ %.262250, %708 ], [ %.282252, %785 ], [ %.302254, %833 ], [ %.322256, %870 ], [ %.342258, %945 ], [ %.352259, %975 ], [ %.362260, %1018 ], [ %.372261, %1061 ], [ %.382262, %1104 ], [ %.392263, %1167 ], [ %.402264, %1211 ], [ %.412265, %1249 ], [ %.422266, %1307 ], [ %.432267, %1342 ], [ %.442268, %1377 ], [ %.452269, %1412 ], [ %.462270, %1454 ], [ %.472271, %1496 ], [ %.482272, %1539 ], [ %.492273, %1582 ], [ %.502274, %1625 ], [ %.512275, %1688 ], [ %.522276, %1732 ], [ %.532277, %1770 ], [ %.542278, %1828 ], [ %.552279, %1875 ], [ %.562280, %1922 ], [ %.572281, %1969 ], [ %.582282, %2023 ], [ %.592283, %2078 ], [ %.602284, %2102 ], [ %.612285, %2128 ], [ %.622286, %2154 ], [ %.642288, %2183 ], [ %.662290, %2216 ], [ %.672291, %2235 ], [ %.682292, %2290 ], [ %.702294, %2313 ], [ %.712295, %2327 ], [ %.722296, %2339 ], [ %.732297, %2351 ], [ %.752299, %2381 ], [ %.782302, %2520 ], [ %.81, %2664 ], [ %.83, %2692 ], [ %.85, %2731 ], [ %.88, %2775 ], [ %.91, %2819 ], [ %.94, %2863 ], [ %.97, %2907 ], [ %.99, %2934 ], [ %.101, %2969 ], [ %.102, %2992 ], [ %.104, %3178 ], [ %.105, %3414 ], [ %.106, %3479 ], [ %.107, %3550 ], [ %.108, %3610 ], [ %.109, %3625 ], [ %.110, %.critedge2582 ], [ %.111, %3640 ]
   %.02181.be = phi ptr [ %58, %57 ], [ %73, %72 ], [ %88, %87 ], [ %106, %105 ], [ %126, %125 ], [ %137, %136 ], [ %149, %148 ], [ %160, %159 ], [ %178, %177 ], [ %200, %199 ], [ %234, %233 ], [ %309, %308 ], [ %410, %409 ], [ %498, %497 ], [ %570, %569 ], [ %621, %620 ], [ %709, %708 ], [ %786, %785 ], [ %834, %833 ], [ %871, %870 ], [ %946, %945 ], [ %976, %975 ], [ %1019, %1018 ], [ %1062, %1061 ], [ %1105, %1104 ], [ %1168, %1167 ], [ %1212, %1211 ], [ %1250, %1249 ], [ %1308, %1307 ], [ %1343, %1342 ], [ %1378, %1377 ], [ %1413, %1412 ], [ %1455, %1454 ], [ %1497, %1496 ], [ %1540, %1539 ], [ %1583, %1582 ], [ %1626, %1625 ], [ %1689, %1688 ], [ %1733, %1732 ], [ %1771, %1770 ], [ %1829, %1828 ], [ %1876, %1875 ], [ %1923, %1922 ], [ %1970, %1969 ], [ %2024, %2023 ], [ %2079, %2078 ], [ %2103, %2102 ], [ %2129, %2128 ], [ %2155, %2154 ], [ %2184, %2183 ], [ %2217, %2216 ], [ %2236, %2235 ], [ %2291, %2290 ], [ %2314, %2313 ], [ %2328, %2327 ], [ %2340, %2339 ], [ %2352, %2351 ], [ %2382, %2381 ], [ %2521, %2520 ], [ %2665, %2664 ], [ %2693, %2692 ], [ %2732, %2731 ], [ %2776, %2775 ], [ %2820, %2819 ], [ %2864, %2863 ], [ %2908, %2907 ], [ %2935, %2934 ], [ %2970, %2969 ], [ %2993, %2992 ], [ %3179, %3178 ], [ %3415, %3414 ], [ %3480, %3479 ], [ %3551, %3550 ], [ %3611, %3610 ], [ %3626, %3625 ], [ %3634, %.critedge2582 ], [ %3641, %3640 ]
   %.12180.be = phi ptr [ %.2, %57 ], [ %.3, %72 ], [ %.4, %87 ], [ %.5, %105 ], [ %.6, %125 ], [ %.7, %136 ], [ %.8, %148 ], [ %.9, %159 ], [ %.10, %177 ], [ %.11, %199 ], [ %.12, %233 ], [ %.13, %308 ], [ %.14, %409 ], [ %.15, %497 ], [ %.16, %569 ], [ %.17, %620 ], [ %.18, %708 ], [ %.19, %785 ], [ %.20, %833 ], [ %.21, %870 ], [ %.22, %945 ], [ %.23, %975 ], [ %.24, %1018 ], [ %.25, %1061 ], [ %.26, %1104 ], [ %.27, %1167 ], [ %.28, %1211 ], [ %.29, %1249 ], [ %.30, %1307 ], [ %.31, %1342 ], [ %.32, %1377 ], [ %.33, %1412 ], [ %.34, %1454 ], [ %.35, %1496 ], [ %.36, %1539 ], [ %.37, %1582 ], [ %.38, %1625 ], [ %.39, %1688 ], [ %.40, %1732 ], [ %.41, %1770 ], [ %.42, %1828 ], [ %.43, %1875 ], [ %.44, %1922 ], [ %.45, %1969 ], [ %.46, %2023 ], [ %.47, %2078 ], [ %.48, %2102 ], [ %.49, %2128 ], [ %.50, %2154 ], [ %.51, %2183 ], [ %.52, %2216 ], [ %.53, %2235 ], [ %.54, %2290 ], [ %.55, %2313 ], [ %.56, %2327 ], [ %.57, %2339 ], [ %.58, %2351 ], [ %.59, %2381 ], [ %.60, %2520 ], [ %.61, %2664 ], [ %.62, %2692 ], [ %.63, %2731 ], [ %.64, %2775 ], [ %.65, %2819 ], [ %.66, %2863 ], [ %.67, %2907 ], [ %.68, %2934 ], [ %.69, %2969 ], [ %.70, %2992 ], [ %.71, %3178 ], [ %.72, %3414 ], [ %.73, %3479 ], [ %.74, %3550 ], [ %.75, %3610 ], [ %.76, %3625 ], [ %.77, %.critedge2582 ], [ %.78, %3640 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !67
 
 59:                                               ; preds = %.backedge
   %60 = lshr i32 %.02305, 7
@@ -1947,7 +1947,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i8 3, ptr %67, align 8, !tbaa !4
   %.not2577 = icmp eq i32 %.32227, 0
-  br i1 %.not2577, label %72, label %68, !prof !44
+  br i1 %.not2577, label %72, label %68, !prof !48
 
 68:                                               ; preds = %59
   %69 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -1973,7 +1973,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i8 19, ptr %82, align 8, !tbaa !4
   %.not2576 = icmp eq i32 %.32227, 0
-  br i1 %.not2576, label %87, label %83, !prof !44
+  br i1 %.not2576, label %87, label %83, !prof !48
 
 83:                                               ; preds = %74
   %84 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2002,7 +2002,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i8 %99, ptr %100, align 8, !tbaa !4
   %.not2575 = icmp eq i32 %.32227, 0
-  br i1 %.not2575, label %105, label %101, !prof !44
+  br i1 %.not2575, label %105, label %101, !prof !48
 
 101:                                              ; preds = %89
   %102 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2021,7 +2021,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %109 = and i32 %108, 255
   %110 = zext nneg i32 %109 to i64
   %111 = getelementptr inbounds nuw %union.StackValue, ptr %.12180, i64 %110
-  %112 = load i32, ptr %.02181, align 4, !tbaa !46
+  %112 = load i32, ptr %.02181, align 4, !tbaa !53
   %113 = lshr i32 %112, 7
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr inbounds nuw %struct.TValue, ptr %28, i64 %114
@@ -2033,7 +2033,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %120 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i8 %119, ptr %120, align 8, !tbaa !4
   %.not2574 = icmp eq i32 %.32227, 0
-  br i1 %.not2574, label %125, label %121, !prof !44
+  br i1 %.not2574, label %125, label %121, !prof !48
 
 121:                                              ; preds = %107
   %122 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef nonnull %116) #13
@@ -2054,7 +2054,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %131 = getelementptr inbounds nuw %union.StackValue, ptr %.12180, i64 %130, i32 0, i32 1
   store i8 1, ptr %131, align 8, !tbaa !8
   %.not2573 = icmp eq i32 %.32227, 0
-  br i1 %.not2573, label %136, label %132, !prof !44
+  br i1 %.not2573, label %136, label %132, !prof !48
 
 132:                                              ; preds = %127
   %133 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2076,7 +2076,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   store i8 1, ptr %142, align 8, !tbaa !8
   %143 = getelementptr inbounds nuw i8, ptr %.02181, i64 4
   %.not2572 = icmp eq i32 %.32227, 0
-  br i1 %.not2572, label %148, label %144, !prof !44
+  br i1 %.not2572, label %148, label %144, !prof !48
 
 144:                                              ; preds = %138
   %145 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef nonnull %143) #13
@@ -2097,7 +2097,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %154 = getelementptr inbounds nuw %union.StackValue, ptr %.12180, i64 %153, i32 0, i32 1
   store i8 17, ptr %154, align 8, !tbaa !8
   %.not2571 = icmp eq i32 %.32227, 0
-  br i1 %.not2571, label %159, label %155, !prof !44
+  br i1 %.not2571, label %159, label %155, !prof !48
 
 155:                                              ; preds = %150
   %156 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2128,11 +2128,11 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   store i8 0, ptr %170, align 8, !tbaa !8
   %171 = add nsw i32 %.02313, -1
   %.not2569 = icmp eq i32 %.02313, 0
-  br i1 %.not2569, label %172, label %168
+  br i1 %.not2569, label %172, label %168, !llvm.loop !68
 
 172:                                              ; preds = %168
   %.not2570 = icmp eq i32 %.32227, 0
-  br i1 %.not2570, label %177, label %173, !prof !44
+  br i1 %.not2570, label %177, label %173, !prof !48
 
 173:                                              ; preds = %172
   %174 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2155,7 +2155,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %185 = and i32 %184, 255
   %186 = zext nneg i32 %185 to i64
   %187 = getelementptr inbounds nuw [1 x ptr], ptr %39, i64 0, i64 %186
-  %188 = load ptr, ptr %187, align 8, !tbaa !60
+  %188 = load ptr, ptr %187, align 8, !tbaa !69
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load ptr, ptr %189, align 8, !tbaa !8
   %191 = load i64, ptr %190, align 8, !tbaa !8
@@ -2165,7 +2165,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %194 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i8 %193, ptr %194, align 8, !tbaa !4
   %.not2568 = icmp eq i32 %.32227, 0
-  br i1 %.not2568, label %199, label %195, !prof !44
+  br i1 %.not2568, label %199, label %195, !prof !48
 
 195:                                              ; preds = %179
   %196 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2188,7 +2188,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %207 = and i32 %206, 255
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw [1 x ptr], ptr %39, i64 0, i64 %208
-  %210 = load ptr, ptr %209, align 8, !tbaa !60
+  %210 = load ptr, ptr %209, align 8, !tbaa !69
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = load ptr, ptr %211, align 8, !tbaa !8
   %213 = load i64, ptr %205, align 8, !tbaa !8
@@ -2203,7 +2203,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 218:                                              ; preds = %201
   %219 = getelementptr inbounds nuw i8, ptr %210, i64 9
-  %220 = load i8, ptr %219, align 1, !tbaa !61
+  %220 = load i8, ptr %219, align 1, !tbaa !70
   %221 = and i8 %220, 32
   %.not2565 = icmp eq i8 %221, 0
   br i1 %.not2565, label %228, label %222
@@ -2211,7 +2211,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
 222:                                              ; preds = %218
   %223 = load ptr, ptr %205, align 8, !tbaa !8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 9
-  %225 = load i8, ptr %224, align 1, !tbaa !40
+  %225 = load i8, ptr %224, align 1, !tbaa !42
   %226 = and i8 %225, 24
   %.not2566 = icmp eq i8 %226, 0
   br i1 %.not2566, label %228, label %227
@@ -2222,7 +2222,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 228:                                              ; preds = %201, %227, %222, %218
   %.not2567 = icmp eq i32 %.32227, 0
-  br i1 %.not2567, label %233, label %229, !prof !44
+  br i1 %.not2567, label %233, label %229, !prof !48
 
 229:                                              ; preds = %228
   %230 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2245,7 +2245,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %241 = and i32 %240, 255
   %242 = zext nneg i32 %241 to i64
   %243 = getelementptr inbounds nuw [1 x ptr], ptr %39, i64 0, i64 %242
-  %244 = load ptr, ptr %243, align 8, !tbaa !60
+  %244 = load ptr, ptr %243, align 8, !tbaa !69
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %246 = load ptr, ptr %245, align 8, !tbaa !8
   %247 = lshr i32 %.02305, 24
@@ -2348,7 +2348,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %299 = phi i8 [ %296, %294 ], [ 48, %292 ]
   %300 = add nuw nsw i32 %.02943.i, 1
   %exitcond.not.i = icmp eq i32 %300, 2000
-  br i1 %exitcond.not.i, label %301, label %261
+  br i1 %exitcond.not.i, label %301, label %261, !llvm.loop !40
 
 301:                                              ; preds = %.thread35.i
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.1) #14
@@ -2361,7 +2361,7 @@ luaV_finishget.exit:                              ; preds = %294, %.thread.i, %2
 303:                                              ; preds = %luaV_finishget.exit, %253
   %.152239 = phi i32 [ %302, %luaV_finishget.exit ], [ %.32227, %253 ]
   %.not2563 = icmp eq i32 %.152239, 0
-  br i1 %.not2563, label %308, label %304, !prof !44
+  br i1 %.not2563, label %308, label %304, !prof !48
 
 304:                                              ; preds = %303
   %305 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2403,14 +2403,14 @@ luaV_finishget.exit:                              ; preds = %294, %.thread.i, %2
   %331 = load i64, ptr %321, align 8, !tbaa !8
   %332 = add i64 %331, -1
   %333 = getelementptr inbounds nuw i8, ptr %330, i64 12
-  %334 = load i32, ptr %333, align 4, !tbaa !63
+  %334 = load i32, ptr %333, align 4, !tbaa !72
   %335 = zext i32 %334 to i64
   %336 = icmp ult i64 %332, %335
   br i1 %336, label %337, label %352
 
 337:                                              ; preds = %329
   %338 = getelementptr inbounds nuw i8, ptr %330, i64 16
-  %339 = load ptr, ptr %338, align 8, !tbaa !64
+  %339 = load ptr, ptr %338, align 8, !tbaa !73
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 4
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 %332
   %342 = load i8, ptr %341, align 1, !tbaa !8
@@ -2421,7 +2421,7 @@ luaV_finishget.exit:                              ; preds = %294, %.thread.i, %2
 345:                                              ; preds = %337
   %346 = getelementptr inbounds nuw i8, ptr %314, i64 8
   store i8 %342, ptr %346, align 8, !tbaa !8
-  %347 = load ptr, ptr %338, align 8, !tbaa !64
+  %347 = load ptr, ptr %338, align 8, !tbaa !73
   %348 = getelementptr inbounds i8, ptr %347, i64 -8
   %349 = sub nsw i64 1, %331
   %350 = getelementptr inbounds %union.Value, ptr %348, i64 %349
@@ -2531,7 +2531,7 @@ luaV_finishget.exit:                              ; preds = %294, %.thread.i, %2
   %400 = phi i8 [ %397, %395 ], [ 48, %393 ]
   %401 = add nuw nsw i32 %.02943.i2583, 1
   %exitcond.not.i2594 = icmp eq i32 %401, 2000
-  br i1 %exitcond.not.i2594, label %402, label %362
+  br i1 %exitcond.not.i2594, label %402, label %362, !llvm.loop !40
 
 402:                                              ; preds = %.thread35.i2593
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.1) #14
@@ -2544,7 +2544,7 @@ luaV_finishget.exit2595:                          ; preds = %395, %.thread.i2587
 404:                                              ; preds = %luaV_finishget.exit2595, %358
   %.172241 = phi i32 [ %403, %luaV_finishget.exit2595 ], [ %.32227, %358 ]
   %.not2562 = icmp eq i32 %.172241, 0
-  br i1 %.not2562, label %409, label %405, !prof !44
+  br i1 %.not2562, label %409, label %405, !prof !48
 
 405:                                              ; preds = %404
   %406 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2582,14 +2582,14 @@ luaV_finishget.exit2595:                          ; preds = %395, %.thread.i2587
   %426 = zext nneg i32 %420 to i64
   %427 = add nsw i64 %426, -1
   %428 = getelementptr inbounds nuw i8, ptr %425, i64 12
-  %429 = load i32, ptr %428, align 4, !tbaa !63
+  %429 = load i32, ptr %428, align 4, !tbaa !72
   %430 = zext i32 %429 to i64
   %431 = icmp ult i64 %427, %430
   br i1 %431, label %432, label %446
 
 432:                                              ; preds = %424
   %433 = getelementptr inbounds nuw i8, ptr %425, i64 16
-  %434 = load ptr, ptr %433, align 8, !tbaa !64
+  %434 = load ptr, ptr %433, align 8, !tbaa !73
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 4
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 %427
   %437 = load i8, ptr %436, align 1, !tbaa !8
@@ -2600,7 +2600,7 @@ luaV_finishget.exit2595:                          ; preds = %395, %.thread.i2587
 .thread3489:                                      ; preds = %432
   %440 = getelementptr inbounds nuw i8, ptr %415, i64 8
   store i8 %437, ptr %440, align 8, !tbaa !8
-  %441 = load ptr, ptr %433, align 8, !tbaa !64
+  %441 = load ptr, ptr %433, align 8, !tbaa !73
   %442 = getelementptr inbounds i8, ptr %441, i64 -8
   %443 = sub nsw i64 1, %426
   %444 = getelementptr inbounds %union.Value, ptr %442, i64 %443
@@ -2701,7 +2701,7 @@ luaV_finishget.exit2595:                          ; preds = %395, %.thread.i2587
   %488 = phi i8 [ %485, %483 ], [ 48, %481 ]
   %489 = add nuw nsw i32 %.02943.i2596, 1
   %exitcond.not.i2607 = icmp eq i32 %489, 2000
-  br i1 %exitcond.not.i2607, label %490, label %450
+  br i1 %exitcond.not.i2607, label %490, label %450, !llvm.loop !40
 
 490:                                              ; preds = %.thread35.i2606
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.1) #14
@@ -2714,7 +2714,7 @@ luaV_finishget.exit2608:                          ; preds = %483, %.thread.i2600
 492:                                              ; preds = %.thread3489, %luaV_finishget.exit2608, %446
   %.192243 = phi i32 [ %491, %luaV_finishget.exit2608 ], [ %.32227, %446 ], [ %.32227, %.thread3489 ]
   %.not2561 = icmp eq i32 %.192243, 0
-  br i1 %.not2561, label %497, label %493, !prof !44
+  br i1 %.not2561, label %497, label %493, !prof !48
 
 493:                                              ; preds = %492
   %494 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2837,7 +2837,7 @@ luaV_finishget.exit2608:                          ; preds = %483, %.thread.i2600
   %560 = phi i8 [ %557, %555 ], [ 48, %553 ]
   %561 = add nuw nsw i32 %.02943.i2609, 1
   %exitcond.not.i2620 = icmp eq i32 %561, 2000
-  br i1 %exitcond.not.i2620, label %562, label %522
+  br i1 %exitcond.not.i2620, label %562, label %522, !llvm.loop !40
 
 562:                                              ; preds = %.thread35.i2619
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.1) #14
@@ -2850,7 +2850,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 564:                                              ; preds = %luaV_finishget.exit2621, %514
   %.212245 = phi i32 [ %563, %luaV_finishget.exit2621 ], [ %.32227, %514 ]
   %.not2560 = icmp eq i32 %.212245, 0
-  br i1 %.not2560, label %569, label %565, !prof !44
+  br i1 %.not2560, label %569, label %565, !prof !48
 
 565:                                              ; preds = %564
   %566 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2869,7 +2869,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
   %573 = and i32 %572, 255
   %574 = zext nneg i32 %573 to i64
   %575 = getelementptr inbounds nuw [1 x ptr], ptr %39, i64 0, i64 %574
-  %576 = load ptr, ptr %575, align 8, !tbaa !60
+  %576 = load ptr, ptr %575, align 8, !tbaa !69
   %577 = getelementptr inbounds nuw i8, ptr %576, i64 16
   %578 = load ptr, ptr %577, align 8, !tbaa !8
   %579 = lshr i32 %.02305, 16
@@ -2905,7 +2905,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 601:                                              ; preds = %597
   %602 = load ptr, ptr %578, align 8, !tbaa !8
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 9
-  %604 = load i8, ptr %603, align 1, !tbaa !40
+  %604 = load i8, ptr %603, align 1, !tbaa !42
   %605 = and i8 %604, 32
   %.not2557 = icmp eq i8 %605, 0
   br i1 %.not2557, label %615, label %606
@@ -2913,7 +2913,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 606:                                              ; preds = %601
   %607 = load ptr, ptr %588, align 8, !tbaa !8
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 9
-  %609 = load i8, ptr %608, align 1, !tbaa !40
+  %609 = load i8, ptr %608, align 1, !tbaa !42
   %610 = and i8 %609, 24
   %.not2558 = icmp eq i8 %610, 0
   br i1 %.not2558, label %615, label %611
@@ -2934,7 +2934,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 615:                                              ; preds = %601, %606, %611, %597, %.thread2873
   %.232247 = phi i32 [ %.32227, %611 ], [ %.32227, %606 ], [ %.32227, %601 ], [ %.32227, %597 ], [ %614, %.thread2873 ]
   %.not2559 = icmp eq i32 %.232247, 0
-  br i1 %.not2559, label %620, label %616, !prof !44
+  br i1 %.not2559, label %620, label %616, !prof !48
 
 616:                                              ; preds = %615
   %617 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -2980,14 +2980,14 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
   %646 = load i64, ptr %630, align 8, !tbaa !8
   %647 = add i64 %646, -1
   %648 = getelementptr inbounds nuw i8, ptr %645, i64 12
-  %649 = load i32, ptr %648, align 4, !tbaa !63
+  %649 = load i32, ptr %648, align 4, !tbaa !72
   %650 = zext i32 %649 to i64
   %651 = icmp ult i64 %647, %650
   br i1 %651, label %652, label %678
 
 652:                                              ; preds = %644
   %653 = getelementptr inbounds nuw i8, ptr %645, i64 16
-  %654 = load ptr, ptr %653, align 8, !tbaa !64
+  %654 = load ptr, ptr %653, align 8, !tbaa !73
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 4
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 %647
   %657 = getelementptr inbounds nuw i8, ptr %645, i64 32
@@ -3012,7 +3012,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
   %668 = getelementptr inbounds nuw i8, ptr %636, i64 8
   %669 = load i8, ptr %668, align 8, !tbaa !4
   store i8 %669, ptr %656, align 1, !tbaa !8
-  %670 = load ptr, ptr %653, align 8, !tbaa !64
+  %670 = load ptr, ptr %653, align 8, !tbaa !73
   %671 = getelementptr inbounds i8, ptr %670, i64 -8
   %672 = sub nsw i64 1, %646
   %673 = getelementptr inbounds %union.Value, ptr %671, i64 %672
@@ -3052,7 +3052,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 690:                                              ; preds = %686
   %691 = load ptr, ptr %626, align 8, !tbaa !8
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 9
-  %693 = load i8, ptr %692, align 1, !tbaa !40
+  %693 = load i8, ptr %692, align 1, !tbaa !42
   %694 = and i8 %693, 32
   %.not2552 = icmp eq i8 %694, 0
   br i1 %.not2552, label %703, label %695
@@ -3060,7 +3060,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 695:                                              ; preds = %690
   %696 = load ptr, ptr %636, align 8, !tbaa !8
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 9
-  %698 = load i8, ptr %697, align 1, !tbaa !40
+  %698 = load i8, ptr %697, align 1, !tbaa !42
   %699 = and i8 %698, 24
   %.not2553 = icmp eq i8 %699, 0
   br i1 %.not2553, label %703, label %700
@@ -3081,7 +3081,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 703:                                              ; preds = %690, %695, %700, %686, %.thread2875
   %.252249 = phi i32 [ %.32227, %700 ], [ %.32227, %695 ], [ %.32227, %690 ], [ %.32227, %686 ], [ %702, %.thread2875 ]
   %.not2554 = icmp eq i32 %.252249, 0
-  br i1 %.not2554, label %708, label %704, !prof !44
+  br i1 %.not2554, label %708, label %704, !prof !48
 
 704:                                              ; preds = %703
   %705 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -3123,14 +3123,14 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
   %728 = zext nneg i32 %716 to i64
   %729 = add nsw i64 %728, -1
   %730 = getelementptr inbounds nuw i8, ptr %727, i64 12
-  %731 = load i32, ptr %730, align 4, !tbaa !63
+  %731 = load i32, ptr %730, align 4, !tbaa !72
   %732 = zext i32 %731 to i64
   %733 = icmp ult i64 %729, %732
   br i1 %733, label %734, label %760
 
 734:                                              ; preds = %726
   %735 = getelementptr inbounds nuw i8, ptr %727, i64 16
-  %736 = load ptr, ptr %735, align 8, !tbaa !64
+  %736 = load ptr, ptr %735, align 8, !tbaa !73
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 4
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 %729
   %739 = getelementptr inbounds nuw i8, ptr %727, i64 32
@@ -3155,7 +3155,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
   %750 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %751 = load i8, ptr %750, align 8, !tbaa !4
   store i8 %751, ptr %738, align 1, !tbaa !8
-  %752 = load ptr, ptr %735, align 8, !tbaa !64
+  %752 = load ptr, ptr %735, align 8, !tbaa !73
   %753 = getelementptr inbounds i8, ptr %752, i64 -8
   %754 = sub nsw i64 1, %728
   %755 = getelementptr inbounds %union.Value, ptr %753, i64 %754
@@ -3183,7 +3183,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 767:                                              ; preds = %763
   %768 = load ptr, ptr %714, align 8, !tbaa !8
   %769 = getelementptr inbounds nuw i8, ptr %768, i64 9
-  %770 = load i8, ptr %769, align 1, !tbaa !40
+  %770 = load i8, ptr %769, align 1, !tbaa !42
   %771 = and i8 %770, 32
   %.not2546 = icmp eq i8 %771, 0
   br i1 %.not2546, label %780, label %772
@@ -3191,7 +3191,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 772:                                              ; preds = %767
   %773 = load ptr, ptr %722, align 8, !tbaa !8
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 9
-  %775 = load i8, ptr %774, align 1, !tbaa !40
+  %775 = load i8, ptr %774, align 1, !tbaa !42
   %776 = and i8 %775, 24
   %.not2547 = icmp eq i8 %776, 0
   br i1 %.not2547, label %780, label %777
@@ -3215,7 +3215,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 780:                                              ; preds = %767, %772, %777, %763, %.thread2881
   %.272251 = phi i32 [ %.32227, %777 ], [ %.32227, %772 ], [ %.32227, %767 ], [ %.32227, %763 ], [ %779, %.thread2881 ]
   %.not2548 = icmp eq i32 %.272251, 0
-  br i1 %.not2548, label %785, label %781, !prof !44
+  br i1 %.not2548, label %785, label %781, !prof !48
 
 781:                                              ; preds = %780
   %782 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -3267,7 +3267,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 814:                                              ; preds = %810
   %815 = load ptr, ptr %791, align 8, !tbaa !8
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 9
-  %817 = load i8, ptr %816, align 1, !tbaa !40
+  %817 = load i8, ptr %816, align 1, !tbaa !42
   %818 = and i8 %817, 32
   %.not2540 = icmp eq i8 %818, 0
   br i1 %.not2540, label %828, label %819
@@ -3275,7 +3275,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 819:                                              ; preds = %814
   %820 = load ptr, ptr %801, align 8, !tbaa !8
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 9
-  %822 = load i8, ptr %821, align 1, !tbaa !40
+  %822 = load i8, ptr %821, align 1, !tbaa !42
   %823 = and i8 %822, 24
   %.not2541 = icmp eq i8 %823, 0
   br i1 %.not2541, label %828, label %824
@@ -3296,7 +3296,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 828:                                              ; preds = %814, %819, %824, %810, %.thread2886
   %.292253 = phi i32 [ %.32227, %824 ], [ %.32227, %819 ], [ %.32227, %814 ], [ %.32227, %810 ], [ %827, %.thread2886 ]
   %.not2542 = icmp eq i32 %.292253, 0
-  br i1 %.not2542, label %833, label %829, !prof !44
+  br i1 %.not2542, label %833, label %829, !prof !48
 
 829:                                              ; preds = %828
   %830 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -3327,7 +3327,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
   br i1 %.not2536, label %851, label %846
 
 846:                                              ; preds = %835
-  %847 = load i32, ptr %.02181, align 4, !tbaa !46
+  %847 = load i32, ptr %.02181, align 4, !tbaa !53
   %848 = shl i32 %847, 3
   %849 = and i32 %848, -1024
   %850 = or disjoint i32 %849, %842
@@ -3353,7 +3353,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 858:                                              ; preds = %851, %857
   %859 = load ptr, ptr %13, align 8, !tbaa !27
   %860 = getelementptr inbounds nuw i8, ptr %859, i64 24
-  %861 = load i64, ptr %860, align 8, !tbaa !65
+  %861 = load i64, ptr %860, align 8, !tbaa !74
   %862 = icmp slt i64 %861, 1
   br i1 %862, label %863, label %865
 
@@ -3367,7 +3367,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
 865:                                              ; preds = %863, %858
   %.312255 = phi i32 [ %864, %863 ], [ %.32227, %858 ]
   %.not2537 = icmp eq i32 %.312255, 0
-  br i1 %.not2537, label %870, label %866, !prof !44
+  br i1 %.not2537, label %870, label %866, !prof !48
 
 866:                                              ; preds = %865
   %867 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef nonnull %852) #13
@@ -3495,7 +3495,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
   %936 = phi i8 [ %933, %931 ], [ 48, %929 ]
   %937 = add nuw nsw i32 %.02943.i2622, 1
   %exitcond.not.i2633 = icmp eq i32 %937, 2000
-  br i1 %exitcond.not.i2633, label %938, label %898
+  br i1 %exitcond.not.i2633, label %938, label %898, !llvm.loop !40
 
 938:                                              ; preds = %.thread35.i2632
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.1) #14
@@ -3508,7 +3508,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 940:                                              ; preds = %luaV_finishget.exit2634, %891
   %.332257 = phi i32 [ %939, %luaV_finishget.exit2634 ], [ %.32227, %891 ]
   %.not2534 = icmp eq i32 %.332257, 0
-  br i1 %.not2534, label %945, label %941, !prof !44
+  br i1 %.not2534, label %945, label %941, !prof !48
 
 941:                                              ; preds = %940
   %942 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -3564,7 +3564,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 970:                                              ; preds = %.sink.split, %947
   %.12182 = phi ptr [ %.02181, %947 ], [ %.12182.ph, %.sink.split ]
   %.not2533 = icmp eq i32 %.32227, 0
-  br i1 %.not2533, label %975, label %971, !prof !44
+  br i1 %.not2533, label %975, label %971, !prof !48
 
 971:                                              ; preds = %970
   %972 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.12182) #13
@@ -3654,7 +3654,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 1013:                                             ; preds = %.sink.split3674, %977, %1003
   %.22183 = phi ptr [ %.02181, %1003 ], [ %.02181, %977 ], [ %.22183.ph, %.sink.split3674 ]
   %.not2532 = icmp eq i32 %.32227, 0
-  br i1 %.not2532, label %1018, label %1014, !prof !44
+  br i1 %.not2532, label %1018, label %1014, !prof !48
 
 1014:                                             ; preds = %1013
   %1015 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.22183) #13
@@ -3744,7 +3744,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 1056:                                             ; preds = %.sink.split3677, %1020, %1046
   %.32184 = phi ptr [ %.02181, %1046 ], [ %.02181, %1020 ], [ %.32184.ph, %.sink.split3677 ]
   %.not2531 = icmp eq i32 %.32227, 0
-  br i1 %.not2531, label %1061, label %1057, !prof !44
+  br i1 %.not2531, label %1061, label %1057, !prof !48
 
 1057:                                             ; preds = %1056
   %1058 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.32184) #13
@@ -3834,7 +3834,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 1099:                                             ; preds = %.sink.split3680, %1063, %1089
   %.42185 = phi ptr [ %.02181, %1089 ], [ %.02181, %1063 ], [ %.42185.ph, %.sink.split3680 ]
   %.not2530 = icmp eq i32 %.32227, 0
-  br i1 %.not2530, label %1104, label %1100, !prof !44
+  br i1 %.not2530, label %1104, label %1100, !prof !48
 
 1100:                                             ; preds = %1099
   %1101 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.42185) #13
@@ -3934,7 +3934,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 
 1151:                                             ; preds = %1146, %1148
   %.02327 = phi double [ %1147, %1146 ], [ %1150, %1148 ]
-  %1152 = call double @fmod(double noundef %.02326, double noundef %.02327) #13, !tbaa !46
+  %1152 = call double @fmod(double noundef %.02326, double noundef %.02327) #13, !tbaa !53
   %1153 = fcmp ogt double %1152, 0.000000e+00
   br i1 %1153, label %1154, label %1156
 
@@ -3964,7 +3964,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 1162:                                             ; preds = %.sink.split3683, %1106, %1144
   %.52186 = phi ptr [ %.02181, %1144 ], [ %.02181, %1106 ], [ %.52186.ph, %.sink.split3683 ]
   %.not2529 = icmp eq i32 %.32227, 0
-  br i1 %.not2529, label %1167, label %1163, !prof !44
+  br i1 %.not2529, label %1167, label %1163, !prof !48
 
 1163:                                             ; preds = %1162
   %1164 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %.52186) #13
@@ -4035,7 +4035,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
   br label %1203
 
 1201:                                             ; preds = %1196
-  %1202 = call double @pow(double noundef %.02328, double noundef %.02329) #13, !tbaa !46
+  %1202 = call double @pow(double noundef %.02328, double noundef %.02329) #13, !tbaa !53
   br label %1203
 
 1203:                                             ; preds = %1201, %1199
@@ -4048,7 +4048,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 1206:                                             ; preds = %1188, %1169, %1203
   %.62187 = phi ptr [ %1197, %1203 ], [ %.02181, %1169 ], [ %.02181, %1188 ]
   %.not2528 = icmp eq i32 %.32227, 0
-  br i1 %.not2528, label %1211, label %1207, !prof !44
+  br i1 %.not2528, label %1211, label %1207, !prof !48
 
 1207:                                             ; preds = %1206
   %1208 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.62187) #13
@@ -4120,7 +4120,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 1244:                                             ; preds = %1232, %1213, %1240
   %.72188 = phi ptr [ %1241, %1240 ], [ %.02181, %1213 ], [ %.02181, %1232 ]
   %.not2527 = icmp eq i32 %.32227, 0
-  br i1 %.not2527, label %1249, label %1245, !prof !44
+  br i1 %.not2527, label %1249, label %1245, !prof !48
 
 1245:                                             ; preds = %1244
   %1246 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.72188) #13
@@ -4244,7 +4244,7 @@ luaV_idiv.exit:                                   ; preds = %1278, %1280, %1285
 1302:                                             ; preds = %.sink.split3686, %1251, %1291
   %.82189 = phi ptr [ %.02181, %1291 ], [ %.02181, %1251 ], [ %.82189.ph, %.sink.split3686 ]
   %.not2526 = icmp eq i32 %.32227, 0
-  br i1 %.not2526, label %1307, label %1303, !prof !44
+  br i1 %.not2526, label %1307, label %1303, !prof !48
 
 1303:                                             ; preds = %1302
   %1304 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %.82189) #13
@@ -4276,7 +4276,7 @@ luaV_idiv.exit:                                   ; preds = %1278, %1280, %1285
   switch i8 %1323, label %luaV_tointegerns.exit.thread2900 [
     i8 3, label %1324
     i8 19, label %1326
-  ], !prof !70
+  ], !prof !79
 
 1324:                                             ; preds = %1309
   %1325 = load i64, ptr %1317, align 8, !tbaa !8
@@ -4310,7 +4310,7 @@ luaV_tointegerns.exit:                            ; preds = %1330
 luaV_tointegerns.exit.thread2900:                 ; preds = %1309, %1326, %1330, %1334
   %.92190 = phi ptr [ %1335, %1334 ], [ %.02181, %1330 ], [ %.02181, %1326 ], [ %.02181, %1309 ]
   %.not2525 = icmp eq i32 %.32227, 0
-  br i1 %.not2525, label %1342, label %1338, !prof !44
+  br i1 %.not2525, label %1342, label %1338, !prof !48
 
 1338:                                             ; preds = %luaV_tointegerns.exit.thread2900
   %1339 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.92190) #13
@@ -4342,7 +4342,7 @@ luaV_tointegerns.exit.thread2900:                 ; preds = %1309, %1326, %1330,
   switch i8 %1358, label %luaV_tointegerns.exit2642.thread2910 [
     i8 3, label %1359
     i8 19, label %1361
-  ], !prof !70
+  ], !prof !79
 
 1359:                                             ; preds = %1344
   %1360 = load i64, ptr %1352, align 8, !tbaa !8
@@ -4376,7 +4376,7 @@ luaV_tointegerns.exit2642:                        ; preds = %1365
 luaV_tointegerns.exit2642.thread2910:             ; preds = %1344, %1361, %1365, %1369
   %.102191 = phi ptr [ %1370, %1369 ], [ %.02181, %1365 ], [ %.02181, %1361 ], [ %.02181, %1344 ]
   %.not2523 = icmp eq i32 %.32227, 0
-  br i1 %.not2523, label %1377, label %1373, !prof !44
+  br i1 %.not2523, label %1377, label %1373, !prof !48
 
 1373:                                             ; preds = %luaV_tointegerns.exit2642.thread2910
   %1374 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.102191) #13
@@ -4408,7 +4408,7 @@ luaV_tointegerns.exit2642.thread2910:             ; preds = %1344, %1361, %1365,
   switch i8 %1393, label %luaV_tointegerns.exit2645.thread2920 [
     i8 3, label %1394
     i8 19, label %1396
-  ], !prof !70
+  ], !prof !79
 
 1394:                                             ; preds = %1379
   %1395 = load i64, ptr %1387, align 8, !tbaa !8
@@ -4442,7 +4442,7 @@ luaV_tointegerns.exit2645:                        ; preds = %1400
 luaV_tointegerns.exit2645.thread2920:             ; preds = %1379, %1396, %1400, %1404
   %.112192 = phi ptr [ %1405, %1404 ], [ %.02181, %1400 ], [ %.02181, %1396 ], [ %.02181, %1379 ]
   %.not2521 = icmp eq i32 %.32227, 0
-  br i1 %.not2521, label %1412, label %1408, !prof !44
+  br i1 %.not2521, label %1412, label %1408, !prof !48
 
 1408:                                             ; preds = %luaV_tointegerns.exit2645.thread2920
   %1409 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.112192) #13
@@ -4471,7 +4471,7 @@ luaV_tointegerns.exit2645.thread2920:             ; preds = %1379, %1396, %1400,
   switch i8 %1425, label %luaV_tointegerns.exit2648.thread2930 [
     i8 3, label %1426
     i8 19, label %1428
-  ], !prof !70
+  ], !prof !79
 
 1426:                                             ; preds = %1414
   %1427 = load i64, ptr %1422, align 8, !tbaa !8
@@ -4526,7 +4526,7 @@ luaV_shiftl.exit:                                 ; preds = %1441, %1443, %1446
 luaV_tointegerns.exit2648.thread2930:             ; preds = %1414, %1428, %1432, %luaV_shiftl.exit
   %.122193 = phi ptr [ %1437, %luaV_shiftl.exit ], [ %.02181, %1432 ], [ %.02181, %1428 ], [ %.02181, %1414 ]
   %.not2519 = icmp eq i32 %.32227, 0
-  br i1 %.not2519, label %1454, label %1450, !prof !44
+  br i1 %.not2519, label %1454, label %1450, !prof !48
 
 1450:                                             ; preds = %luaV_tointegerns.exit2648.thread2930
   %1451 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.122193) #13
@@ -4556,7 +4556,7 @@ luaV_tointegerns.exit2648.thread2930:             ; preds = %1414, %1428, %1432,
   switch i8 %1468, label %luaV_tointegerns.exit2653.thread2940 [
     i8 3, label %1469
     i8 19, label %1471
-  ], !prof !70
+  ], !prof !79
 
 1469:                                             ; preds = %1456
   %1470 = load i64, ptr %1464, align 8, !tbaa !8
@@ -4610,7 +4610,7 @@ luaV_shiftl.exit2656:                             ; preds = %1483, %1485, %1488
 luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475, %luaV_shiftl.exit2656
   %.132194 = phi ptr [ %1480, %luaV_shiftl.exit2656 ], [ %.02181, %1475 ], [ %.02181, %1471 ], [ %.02181, %1456 ]
   %.not2517 = icmp eq i32 %.32227, 0
-  br i1 %.not2517, label %1496, label %1492, !prof !44
+  br i1 %.not2517, label %1496, label %1492, !prof !48
 
 1492:                                             ; preds = %luaV_tointegerns.exit2653.thread2940
   %1493 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.132194) #13
@@ -4700,7 +4700,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 1534:                                             ; preds = %.sink.split3689, %1498, %1524
   %.142195 = phi ptr [ %.02181, %1524 ], [ %.02181, %1498 ], [ %.142195.ph, %.sink.split3689 ]
   %.not2515 = icmp eq i32 %.32227, 0
-  br i1 %.not2515, label %1539, label %1535, !prof !44
+  br i1 %.not2515, label %1539, label %1535, !prof !48
 
 1535:                                             ; preds = %1534
   %1536 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.142195) #13
@@ -4790,7 +4790,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 1577:                                             ; preds = %.sink.split3692, %1541, %1567
   %.152196 = phi ptr [ %.02181, %1567 ], [ %.02181, %1541 ], [ %.152196.ph, %.sink.split3692 ]
   %.not2514 = icmp eq i32 %.32227, 0
-  br i1 %.not2514, label %1582, label %1578, !prof !44
+  br i1 %.not2514, label %1582, label %1578, !prof !48
 
 1578:                                             ; preds = %1577
   %1579 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.152196) #13
@@ -4880,7 +4880,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 1620:                                             ; preds = %.sink.split3695, %1584, %1610
   %.162197 = phi ptr [ %.02181, %1610 ], [ %.02181, %1584 ], [ %.162197.ph, %.sink.split3695 ]
   %.not2513 = icmp eq i32 %.32227, 0
-  br i1 %.not2513, label %1625, label %1621, !prof !44
+  br i1 %.not2513, label %1625, label %1621, !prof !48
 
 1621:                                             ; preds = %1620
   %1622 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.162197) #13
@@ -4980,7 +4980,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 
 1672:                                             ; preds = %1667, %1669
   %.02345 = phi double [ %1668, %1667 ], [ %1671, %1669 ]
-  %1673 = call double @fmod(double noundef %.02342, double noundef %.02345) #13, !tbaa !46
+  %1673 = call double @fmod(double noundef %.02342, double noundef %.02345) #13, !tbaa !53
   %1674 = fcmp ogt double %1673, 0.000000e+00
   br i1 %1674, label %1675, label %1677
 
@@ -5010,7 +5010,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 1683:                                             ; preds = %.sink.split3698, %1627, %1665
   %.172198 = phi ptr [ %.02181, %1665 ], [ %.02181, %1627 ], [ %.172198.ph, %.sink.split3698 ]
   %.not2512 = icmp eq i32 %.32227, 0
-  br i1 %.not2512, label %1688, label %1684, !prof !44
+  br i1 %.not2512, label %1688, label %1684, !prof !48
 
 1684:                                             ; preds = %1683
   %1685 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %.172198) #13
@@ -5081,7 +5081,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
   br label %1724
 
 1722:                                             ; preds = %1717
-  %1723 = call double @pow(double noundef %.02346, double noundef %.02347) #13, !tbaa !46
+  %1723 = call double @pow(double noundef %.02346, double noundef %.02347) #13, !tbaa !53
   br label %1724
 
 1724:                                             ; preds = %1722, %1720
@@ -5094,7 +5094,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 1727:                                             ; preds = %1709, %1690, %1724
   %.182199 = phi ptr [ %1718, %1724 ], [ %.02181, %1690 ], [ %.02181, %1709 ]
   %.not2511 = icmp eq i32 %.32227, 0
-  br i1 %.not2511, label %1732, label %1728, !prof !44
+  br i1 %.not2511, label %1732, label %1728, !prof !48
 
 1728:                                             ; preds = %1727
   %1729 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.182199) #13
@@ -5166,7 +5166,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 1765:                                             ; preds = %1753, %1734, %1761
   %.192200 = phi ptr [ %1762, %1761 ], [ %.02181, %1734 ], [ %.02181, %1753 ]
   %.not2510 = icmp eq i32 %.32227, 0
-  br i1 %.not2510, label %1770, label %1766, !prof !44
+  br i1 %.not2510, label %1770, label %1766, !prof !48
 
 1766:                                             ; preds = %1765
   %1767 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.192200) #13
@@ -5290,7 +5290,7 @@ luaV_idiv.exit2667:                               ; preds = %1799, %1801, %1806
 1823:                                             ; preds = %.sink.split3701, %1772, %1812
   %.202201 = phi ptr [ %.02181, %1812 ], [ %.02181, %1772 ], [ %.202201.ph, %.sink.split3701 ]
   %.not2509 = icmp eq i32 %.32227, 0
-  br i1 %.not2509, label %1828, label %1824, !prof !44
+  br i1 %.not2509, label %1828, label %1824, !prof !48
 
 1824:                                             ; preds = %1823
   %1825 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %.202201) #13
@@ -5321,7 +5321,7 @@ luaV_idiv.exit2667:                               ; preds = %1799, %1801, %1806
   switch i8 %1843, label %luaV_tointegerns.exit2670.thread2955 [
     i8 3, label %1844
     i8 19, label %1846
-  ], !prof !70
+  ], !prof !79
 
 1844:                                             ; preds = %1830
   %1845 = load i64, ptr %1838, align 8, !tbaa !8
@@ -5350,7 +5350,7 @@ luaV_tointegerns.exit2670:                        ; preds = %1850
   switch i8 %1856, label %luaV_tointegerns.exit2670.thread2955 [
     i8 3, label %1857
     i8 19, label %1859
-  ], !prof !70
+  ], !prof !79
 
 1857:                                             ; preds = %1854
   %1858 = load i64, ptr %1841, align 8, !tbaa !8
@@ -5384,7 +5384,7 @@ luaV_tointegerns.exit2673:                        ; preds = %1863
 luaV_tointegerns.exit2670.thread2955:             ; preds = %1854, %1830, %1859, %1863, %1846, %1850, %1867
   %.212202 = phi ptr [ %1868, %1867 ], [ %.02181, %1850 ], [ %.02181, %1846 ], [ %.02181, %1863 ], [ %.02181, %1859 ], [ %.02181, %1830 ], [ %.02181, %1854 ]
   %.not2508 = icmp eq i32 %.32227, 0
-  br i1 %.not2508, label %1875, label %1871, !prof !44
+  br i1 %.not2508, label %1875, label %1871, !prof !48
 
 1871:                                             ; preds = %luaV_tointegerns.exit2670.thread2955
   %1872 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.212202) #13
@@ -5415,7 +5415,7 @@ luaV_tointegerns.exit2670.thread2955:             ; preds = %1854, %1830, %1859,
   switch i8 %1890, label %luaV_tointegerns.exit2676.thread2975 [
     i8 3, label %1891
     i8 19, label %1893
-  ], !prof !70
+  ], !prof !79
 
 1891:                                             ; preds = %1877
   %1892 = load i64, ptr %1885, align 8, !tbaa !8
@@ -5444,7 +5444,7 @@ luaV_tointegerns.exit2676:                        ; preds = %1897
   switch i8 %1903, label %luaV_tointegerns.exit2676.thread2975 [
     i8 3, label %1904
     i8 19, label %1906
-  ], !prof !70
+  ], !prof !79
 
 1904:                                             ; preds = %1901
   %1905 = load i64, ptr %1888, align 8, !tbaa !8
@@ -5478,7 +5478,7 @@ luaV_tointegerns.exit2679:                        ; preds = %1910
 luaV_tointegerns.exit2676.thread2975:             ; preds = %1901, %1877, %1906, %1910, %1893, %1897, %1914
   %.222203 = phi ptr [ %1915, %1914 ], [ %.02181, %1897 ], [ %.02181, %1893 ], [ %.02181, %1910 ], [ %.02181, %1906 ], [ %.02181, %1877 ], [ %.02181, %1901 ]
   %.not2505 = icmp eq i32 %.32227, 0
-  br i1 %.not2505, label %1922, label %1918, !prof !44
+  br i1 %.not2505, label %1922, label %1918, !prof !48
 
 1918:                                             ; preds = %luaV_tointegerns.exit2676.thread2975
   %1919 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.222203) #13
@@ -5509,7 +5509,7 @@ luaV_tointegerns.exit2676.thread2975:             ; preds = %1901, %1877, %1906,
   switch i8 %1937, label %luaV_tointegerns.exit2682.thread2995 [
     i8 3, label %1938
     i8 19, label %1940
-  ], !prof !70
+  ], !prof !79
 
 1938:                                             ; preds = %1924
   %1939 = load i64, ptr %1932, align 8, !tbaa !8
@@ -5538,7 +5538,7 @@ luaV_tointegerns.exit2682:                        ; preds = %1944
   switch i8 %1950, label %luaV_tointegerns.exit2682.thread2995 [
     i8 3, label %1951
     i8 19, label %1953
-  ], !prof !70
+  ], !prof !79
 
 1951:                                             ; preds = %1948
   %1952 = load i64, ptr %1935, align 8, !tbaa !8
@@ -5572,7 +5572,7 @@ luaV_tointegerns.exit2685:                        ; preds = %1957
 luaV_tointegerns.exit2682.thread2995:             ; preds = %1948, %1924, %1953, %1957, %1940, %1944, %1961
   %.232204 = phi ptr [ %1962, %1961 ], [ %.02181, %1944 ], [ %.02181, %1940 ], [ %.02181, %1957 ], [ %.02181, %1953 ], [ %.02181, %1924 ], [ %.02181, %1948 ]
   %.not2502 = icmp eq i32 %.32227, 0
-  br i1 %.not2502, label %1969, label %1965, !prof !44
+  br i1 %.not2502, label %1969, label %1965, !prof !48
 
 1965:                                             ; preds = %luaV_tointegerns.exit2682.thread2995
   %1966 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.232204) #13
@@ -5603,7 +5603,7 @@ luaV_tointegerns.exit2682.thread2995:             ; preds = %1948, %1924, %1953,
   switch i8 %1984, label %luaV_tointegerns.exit2688.thread3015 [
     i8 3, label %1985
     i8 19, label %1987
-  ], !prof !70
+  ], !prof !79
 
 1985:                                             ; preds = %1971
   %1986 = load i64, ptr %1979, align 8, !tbaa !8
@@ -5632,7 +5632,7 @@ luaV_tointegerns.exit2688:                        ; preds = %1991
   switch i8 %1997, label %luaV_tointegerns.exit2688.thread3015 [
     i8 3, label %1998
     i8 19, label %2000
-  ], !prof !70
+  ], !prof !79
 
 1998:                                             ; preds = %1995
   %1999 = load i64, ptr %1982, align 8, !tbaa !8
@@ -5683,7 +5683,7 @@ luaV_shiftl.exit2694:                             ; preds = %2012, %2015
 luaV_tointegerns.exit2688.thread3015:             ; preds = %1995, %1971, %2000, %2004, %1987, %1991, %luaV_shiftl.exit2694
   %.242205 = phi ptr [ %2009, %luaV_shiftl.exit2694 ], [ %.02181, %1991 ], [ %.02181, %1987 ], [ %.02181, %2004 ], [ %.02181, %2000 ], [ %.02181, %1971 ], [ %.02181, %1995 ]
   %.not2496 = icmp eq i32 %.32227, 0
-  br i1 %.not2496, label %2023, label %2019, !prof !44
+  br i1 %.not2496, label %2023, label %2019, !prof !48
 
 2019:                                             ; preds = %luaV_tointegerns.exit2688.thread3015
   %2020 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.242205) #13
@@ -5714,7 +5714,7 @@ luaV_tointegerns.exit2688.thread3015:             ; preds = %1995, %1971, %2000,
   switch i8 %2038, label %luaV_tointegerns.exit2697.thread3035 [
     i8 3, label %2039
     i8 19, label %2041
-  ], !prof !70
+  ], !prof !79
 
 2039:                                             ; preds = %2025
   %2040 = load i64, ptr %2033, align 8, !tbaa !8
@@ -5743,7 +5743,7 @@ luaV_tointegerns.exit2697:                        ; preds = %2045
   switch i8 %2051, label %luaV_tointegerns.exit2697.thread3035 [
     i8 3, label %2052
     i8 19, label %2054
-  ], !prof !70
+  ], !prof !79
 
 2052:                                             ; preds = %2049
   %2053 = load i64, ptr %2036, align 8, !tbaa !8
@@ -5796,7 +5796,7 @@ luaV_shiftl.exit2703:                             ; preds = %2065, %2067, %2070
 luaV_tointegerns.exit2697.thread3035:             ; preds = %2049, %2025, %2054, %2058, %2041, %2045, %luaV_shiftl.exit2703
   %.252206 = phi ptr [ %2063, %luaV_shiftl.exit2703 ], [ %.02181, %2045 ], [ %.02181, %2041 ], [ %.02181, %2058 ], [ %.02181, %2054 ], [ %.02181, %2025 ], [ %.02181, %2049 ]
   %.not2499 = icmp eq i32 %.32227, 0
-  br i1 %.not2499, label %2078, label %2074, !prof !44
+  br i1 %.not2499, label %2078, label %2074, !prof !48
 
 2074:                                             ; preds = %luaV_tointegerns.exit2697.thread3035
   %2075 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.252206) #13
@@ -5816,7 +5816,7 @@ luaV_tointegerns.exit2697.thread3035:             ; preds = %2049, %2025, %2054,
   %2083 = zext nneg i32 %2082 to i64
   %2084 = getelementptr inbounds nuw %union.StackValue, ptr %.12180, i64 %2083
   %2085 = getelementptr inbounds i8, ptr %.02181, i64 -8
-  %2086 = load i32, ptr %2085, align 4, !tbaa !46
+  %2086 = load i32, ptr %2085, align 4, !tbaa !53
   %2087 = lshr i32 %.02305, 16
   %2088 = and i32 %2087, 255
   %2089 = zext nneg i32 %2088 to i64
@@ -5832,7 +5832,7 @@ luaV_tointegerns.exit2697.thread3035:             ; preds = %2049, %2025, %2054,
   call void @luaT_trybinTM(ptr noundef %0, ptr noundef %2084, ptr noundef %2090, ptr noundef %2095, i32 noundef %2091) #13
   %2097 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2493 = icmp eq i32 %2097, 0
-  br i1 %.not2493, label %2102, label %2098, !prof !44
+  br i1 %.not2493, label %2102, label %2098, !prof !48
 
 2098:                                             ; preds = %2080
   %2099 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef nonnull %.02181) #13
@@ -5852,7 +5852,7 @@ luaV_tointegerns.exit2697.thread3035:             ; preds = %2049, %2025, %2054,
   %2107 = zext nneg i32 %2106 to i64
   %2108 = getelementptr inbounds nuw %union.StackValue, ptr %.12180, i64 %2107
   %2109 = getelementptr inbounds i8, ptr %.02181, i64 -8
-  %2110 = load i32, ptr %2109, align 4, !tbaa !46
+  %2110 = load i32, ptr %2109, align 4, !tbaa !53
   %2111 = lshr i32 %.02305, 16
   %2112 = and i32 %2111, 255
   %2113 = add nsw i32 %2112, -127
@@ -5870,7 +5870,7 @@ luaV_tointegerns.exit2697.thread3035:             ; preds = %2049, %2025, %2054,
   call void @luaT_trybiniTM(ptr noundef %0, ptr noundef %2108, i64 noundef %2122, i32 noundef %2116, ptr noundef %2120, i32 noundef %2114) #13
   %2123 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2492 = icmp eq i32 %2123, 0
-  br i1 %.not2492, label %2128, label %2124, !prof !44
+  br i1 %.not2492, label %2128, label %2124, !prof !48
 
 2124:                                             ; preds = %2104
   %2125 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef nonnull %.02181) #13
@@ -5890,7 +5890,7 @@ luaV_tointegerns.exit2697.thread3035:             ; preds = %2049, %2025, %2054,
   %2133 = zext nneg i32 %2132 to i64
   %2134 = getelementptr inbounds nuw %union.StackValue, ptr %.12180, i64 %2133
   %2135 = getelementptr inbounds i8, ptr %.02181, i64 -8
-  %2136 = load i32, ptr %2135, align 4, !tbaa !46
+  %2136 = load i32, ptr %2135, align 4, !tbaa !53
   %2137 = lshr i32 %.02305, 16
   %2138 = and i32 %2137, 255
   %2139 = zext nneg i32 %2138 to i64
@@ -5908,7 +5908,7 @@ luaV_tointegerns.exit2697.thread3035:             ; preds = %2049, %2025, %2054,
   call void @luaT_trybinassocTM(ptr noundef %0, ptr noundef %2134, ptr noundef %2140, i32 noundef %2143, ptr noundef %2147, i32 noundef %2141) #13
   %2149 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2491 = icmp eq i32 %2149, 0
-  br i1 %.not2491, label %2154, label %2150, !prof !44
+  br i1 %.not2491, label %2154, label %2150, !prof !48
 
 2150:                                             ; preds = %2130
   %2151 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef nonnull %.02181) #13
@@ -5965,7 +5965,7 @@ luaV_tointegerns.exit2697.thread3035:             ; preds = %2049, %2025, %2054,
 2178:                                             ; preds = %2171, %2175, %2167
   %.632287 = phi i32 [ %.32227, %2167 ], [ %.32227, %2171 ], [ %2177, %2175 ]
   %.not2490 = icmp eq i32 %.632287, 0
-  br i1 %.not2490, label %2183, label %2179, !prof !44
+  br i1 %.not2490, label %2183, label %2179, !prof !48
 
 2179:                                             ; preds = %2178
   %2180 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -5993,7 +5993,7 @@ luaV_tointegerns.exit2697.thread3035:             ; preds = %2049, %2025, %2054,
   switch i8 %2195, label %luaV_tointegerns.exit2706.thread3056 [
     i8 3, label %2196
     i8 19, label %2198
-  ], !prof !70
+  ], !prof !79
 
 2196:                                             ; preds = %2185
   %2197 = load i64, ptr %2193, align 8, !tbaa !8
@@ -6034,7 +6034,7 @@ luaV_tointegerns.exit2706.thread3056:             ; preds = %2185, %2198, %2202
 2211:                                             ; preds = %luaV_tointegerns.exit2706.thread3056, %2206
   %.652289 = phi i32 [ %.32227, %2206 ], [ %2210, %luaV_tointegerns.exit2706.thread3056 ]
   %.not2489 = icmp eq i32 %.652289, 0
-  br i1 %.not2489, label %2216, label %2212, !prof !44
+  br i1 %.not2489, label %2216, label %2212, !prof !48
 
 2212:                                             ; preds = %2211
   %2213 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -6065,7 +6065,7 @@ luaV_tointegerns.exit2706.thread3056:             ; preds = %2185, %2198, %2202
   %2230 = getelementptr inbounds nuw %union.StackValue, ptr %.12180, i64 %2221, i32 0, i32 1
   store i8 %spec.select3704, ptr %2230, align 8, !tbaa !8
   %.not2487 = icmp eq i32 %.32227, 0
-  br i1 %.not2487, label %2235, label %2231, !prof !44
+  br i1 %.not2487, label %2235, label %2231, !prof !48
 
 2231:                                             ; preds = %2218
   %2232 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.02181) #13
@@ -6168,7 +6168,7 @@ luaV_tointegerns.exit2706.thread3056:             ; preds = %2185, %2198, %2202
 luaV_objlen.exit:                                 ; preds = %.thread.i2708, %2266, %2272, %.critedge.i
   %2285 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2486 = icmp eq i32 %2285, 0
-  br i1 %.not2486, label %2290, label %2286, !prof !44
+  br i1 %.not2486, label %2290, label %2286, !prof !48
 
 2286:                                             ; preds = %luaV_objlen.exit
   %2287 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %.02181) #13
@@ -6197,7 +6197,7 @@ luaV_objlen.exit:                                 ; preds = %.thread.i2708, %226
   %2301 = load volatile i32, ptr %37, align 8, !tbaa !8
   %2302 = load ptr, ptr %13, align 8, !tbaa !27
   %2303 = getelementptr inbounds nuw i8, ptr %2302, i64 24
-  %2304 = load i64, ptr %2303, align 8, !tbaa !65
+  %2304 = load i64, ptr %2303, align 8, !tbaa !74
   %2305 = icmp slt i64 %2304, 1
   br i1 %2305, label %2306, label %2308
 
@@ -6210,7 +6210,7 @@ luaV_objlen.exit:                                 ; preds = %.thread.i2708, %226
 2308:                                             ; preds = %2306, %2292
   %.692293 = phi i32 [ %2307, %2306 ], [ %2301, %2292 ]
   %.not2485 = icmp eq i32 %.692293, 0
-  br i1 %.not2485, label %2313, label %2309, !prof !44
+  br i1 %.not2485, label %2313, label %2309, !prof !48
 
 2309:                                             ; preds = %2308
   %2310 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %.02181) #13
@@ -6235,7 +6235,7 @@ luaV_objlen.exit:                                 ; preds = %.thread.i2708, %226
   %2321 = call ptr @luaF_close(ptr noundef %0, ptr noundef %2319, i32 noundef 0, i32 noundef 1) #13
   %2322 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2484 = icmp eq i32 %2322, 0
-  br i1 %.not2484, label %2327, label %2323, !prof !44
+  br i1 %.not2484, label %2327, label %2323, !prof !48
 
 2323:                                             ; preds = %2315
   %2324 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %.02181) #13
@@ -6259,7 +6259,7 @@ luaV_objlen.exit:                                 ; preds = %.thread.i2708, %226
   store ptr %2334, ptr %12, align 8, !tbaa !8
   call void @luaF_newtbcupval(ptr noundef %0, ptr noundef %2333) #13
   %.not2483 = icmp eq i32 %.32227, 0
-  br i1 %.not2483, label %2339, label %2335, !prof !44
+  br i1 %.not2483, label %2339, label %2335, !prof !48
 
 2335:                                             ; preds = %2329
   %2336 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %.02181) #13
@@ -6280,7 +6280,7 @@ luaV_objlen.exit:                                 ; preds = %.thread.i2708, %226
   %2345 = getelementptr i8, ptr %2344, i64 -67108860
   %2346 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2482 = icmp eq i32 %2346, 0
-  br i1 %.not2482, label %2351, label %2347, !prof !44
+  br i1 %.not2482, label %2351, label %2347, !prof !48
 
 2347:                                             ; preds = %2341
   %2348 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %2345) #13
@@ -6318,7 +6318,7 @@ luaV_objlen.exit:                                 ; preds = %.thread.i2708, %226
   br label %2376
 
 2369:                                             ; preds = %2353
-  %2370 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2370 = load i32, ptr %.02181, align 4, !tbaa !53
   %2371 = lshr i32 %2370, 7
   %2372 = zext nneg i32 %2371 to i64
   %2373 = getelementptr i32, ptr %.02181, i64 %2372
@@ -6330,7 +6330,7 @@ luaV_objlen.exit:                                 ; preds = %.thread.i2708, %226
   %.742298 = phi i32 [ %2364, %2367 ], [ %2375, %2369 ]
   %.262207 = phi ptr [ %2368, %2367 ], [ %2374, %2369 ]
   %.not2481 = icmp eq i32 %.742298, 0
-  br i1 %.not2481, label %2381, label %2377, !prof !44
+  br i1 %.not2481, label %2381, label %2377, !prof !48
 
 2377:                                             ; preds = %2376
   %2378 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %.262207) #13
@@ -6537,7 +6537,7 @@ LTnum.exit:                                       ; preds = %2418, %luaV_flttoin
   %2498 = sub i64 %.14164.i.i, %2494
   %2499 = call i32 @strcoll(ptr noundef nonnull %2495, ptr noundef nonnull %2497) #15
   %.not.i.i = icmp eq i32 %2499, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %l_strcmp.exit.i
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %l_strcmp.exit.i, !llvm.loop !45
 
 l_strcmp.exit.i:                                  ; preds = %2492, %2490, %.lr.ph.i.i, %2484
   %.136.ph.i.i = phi i32 [ %2486, %2484 ], [ 0, %.lr.ph.i.i ], [ -1, %2490 ], [ %2499, %2492 ]
@@ -6566,7 +6566,7 @@ lessthanothers.exit:                              ; preds = %l_strcmp.exit.i, %2
   br label %2515
 
 2508:                                             ; preds = %2503
-  %2509 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2509 = load i32, ptr %.02181, align 4, !tbaa !53
   %2510 = lshr i32 %2509, 7
   %2511 = zext nneg i32 %2510 to i64
   %2512 = getelementptr i32, ptr %.02181, i64 %2511
@@ -6578,7 +6578,7 @@ lessthanothers.exit:                              ; preds = %l_strcmp.exit.i, %2
   %.772301 = phi i32 [ %.762300, %2506 ], [ %2514, %2508 ]
   %.272208 = phi ptr [ %2507, %2506 ], [ %2513, %2508 ]
   %.not2479 = icmp eq i32 %.772301, 0
-  br i1 %.not2479, label %2520, label %2516, !prof !44
+  br i1 %.not2479, label %2520, label %2516, !prof !48
 
 2516:                                             ; preds = %2515
   %2517 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.272208) #13
@@ -6790,7 +6790,7 @@ LEnum.exit:                                       ; preds = %2557, %luaV_flttoin
   %2640 = sub i64 %.14164.i.i2726, %2636
   %2641 = call i32 @strcoll(ptr noundef nonnull %2637, ptr noundef nonnull %2639) #15
   %.not.i.i2729 = icmp eq i32 %2641, 0
-  br i1 %.not.i.i2729, label %.lr.ph.i.i2724, label %l_strcmp.exit.i2722
+  br i1 %.not.i.i2729, label %.lr.ph.i.i2724, label %l_strcmp.exit.i2722, !llvm.loop !45
 
 l_strcmp.exit.i2722:                              ; preds = %2634, %2632, %2629, %2623
   %.136.ph.i.i2723 = phi i32 [ %2631, %2629 ], [ %2625, %2623 ], [ -1, %2632 ], [ %2641, %2634 ]
@@ -6820,7 +6820,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br label %2659
 
 2652:                                             ; preds = %2647
-  %2653 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2653 = load i32, ptr %.02181, align 4, !tbaa !53
   %2654 = lshr i32 %2653, 7
   %2655 = zext nneg i32 %2654 to i64
   %2656 = getelementptr i32, ptr %.02181, i64 %2655
@@ -6832,7 +6832,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.802304 = phi i32 [ %.792303, %2650 ], [ %2658, %2652 ]
   %.282209 = phi ptr [ %2651, %2650 ], [ %2657, %2652 ]
   %.not2477 = icmp eq i32 %.802304, 0
-  br i1 %.not2477, label %2664, label %2660, !prof !44
+  br i1 %.not2477, label %2664, label %2660, !prof !48
 
 2660:                                             ; preds = %2659
   %2661 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.282209) #13
@@ -6866,7 +6866,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br label %2687
 
 2680:                                             ; preds = %2666
-  %2681 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2681 = load i32, ptr %.02181, align 4, !tbaa !53
   %2682 = lshr i32 %2681, 7
   %2683 = zext nneg i32 %2682 to i64
   %2684 = getelementptr i32, ptr %.02181, i64 %2683
@@ -6878,7 +6878,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.82 = phi i32 [ %.32227, %2678 ], [ %2686, %2680 ]
   %.292210 = phi ptr [ %2679, %2678 ], [ %2685, %2680 ]
   %.not2475 = icmp eq i32 %.82, 0
-  br i1 %.not2475, label %2692, label %2688, !prof !44
+  br i1 %.not2475, label %2692, label %2688, !prof !48
 
 2688:                                             ; preds = %2687
   %2689 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.292210) #13
@@ -6936,7 +6936,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br label %2726
 
 2719:                                             ; preds = %._crit_edge, %2714
-  %2720 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2720 = load i32, ptr %.02181, align 4, !tbaa !53
   %2721 = lshr i32 %2720, 7
   %2722 = zext nneg i32 %2721 to i64
   %2723 = getelementptr i32, ptr %.02181, i64 %2722
@@ -6948,7 +6948,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.84 = phi i32 [ %.32227, %2717 ], [ %2725, %2719 ]
   %.302211 = phi ptr [ %2718, %2717 ], [ %2724, %2719 ]
   %.not2473 = icmp eq i32 %.84, 0
-  br i1 %.not2473, label %2731, label %2727, !prof !44
+  br i1 %.not2473, label %2731, label %2727, !prof !48
 
 2727:                                             ; preds = %2726
   %2728 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.302211) #13
@@ -7013,7 +7013,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br label %2770
 
 2763:                                             ; preds = %2758
-  %2764 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2764 = load i32, ptr %.02181, align 4, !tbaa !53
   %2765 = lshr i32 %2764, 7
   %2766 = zext nneg i32 %2765 to i64
   %2767 = getelementptr i32, ptr %.02181, i64 %2766
@@ -7025,7 +7025,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.87 = phi i32 [ %.86, %2761 ], [ %2769, %2763 ]
   %.312212 = phi ptr [ %2762, %2761 ], [ %2768, %2763 ]
   %.not2471 = icmp eq i32 %.87, 0
-  br i1 %.not2471, label %2775, label %2771, !prof !44
+  br i1 %.not2471, label %2775, label %2771, !prof !48
 
 2771:                                             ; preds = %2770
   %2772 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.312212) #13
@@ -7090,7 +7090,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br label %2814
 
 2807:                                             ; preds = %2802
-  %2808 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2808 = load i32, ptr %.02181, align 4, !tbaa !53
   %2809 = lshr i32 %2808, 7
   %2810 = zext nneg i32 %2809 to i64
   %2811 = getelementptr i32, ptr %.02181, i64 %2810
@@ -7102,7 +7102,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.90 = phi i32 [ %.89, %2805 ], [ %2813, %2807 ]
   %.322213 = phi ptr [ %2806, %2805 ], [ %2812, %2807 ]
   %.not2469 = icmp eq i32 %.90, 0
-  br i1 %.not2469, label %2819, label %2815, !prof !44
+  br i1 %.not2469, label %2819, label %2815, !prof !48
 
 2815:                                             ; preds = %2814
   %2816 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.322213) #13
@@ -7167,7 +7167,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br label %2858
 
 2851:                                             ; preds = %2846
-  %2852 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2852 = load i32, ptr %.02181, align 4, !tbaa !53
   %2853 = lshr i32 %2852, 7
   %2854 = zext nneg i32 %2853 to i64
   %2855 = getelementptr i32, ptr %.02181, i64 %2854
@@ -7179,7 +7179,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.93 = phi i32 [ %.92, %2849 ], [ %2857, %2851 ]
   %.332214 = phi ptr [ %2850, %2849 ], [ %2856, %2851 ]
   %.not2467 = icmp eq i32 %.93, 0
-  br i1 %.not2467, label %2863, label %2859, !prof !44
+  br i1 %.not2467, label %2863, label %2859, !prof !48
 
 2859:                                             ; preds = %2858
   %2860 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.332214) #13
@@ -7244,7 +7244,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br label %2902
 
 2895:                                             ; preds = %2890
-  %2896 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2896 = load i32, ptr %.02181, align 4, !tbaa !53
   %2897 = lshr i32 %2896, 7
   %2898 = zext nneg i32 %2897 to i64
   %2899 = getelementptr i32, ptr %.02181, i64 %2898
@@ -7256,7 +7256,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.96 = phi i32 [ %.95, %2893 ], [ %2901, %2895 ]
   %.342215 = phi ptr [ %2894, %2893 ], [ %2900, %2895 ]
   %.not2465 = icmp eq i32 %.96, 0
-  br i1 %.not2465, label %2907, label %2903, !prof !44
+  br i1 %.not2465, label %2907, label %2903, !prof !48
 
 2903:                                             ; preds = %2902
   %2904 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.342215) #13
@@ -7290,7 +7290,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br label %2929
 
 2922:                                             ; preds = %2909
-  %2923 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2923 = load i32, ptr %.02181, align 4, !tbaa !53
   %2924 = lshr i32 %2923, 7
   %2925 = zext nneg i32 %2924 to i64
   %2926 = getelementptr i32, ptr %.02181, i64 %2925
@@ -7302,7 +7302,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.98 = phi i32 [ %.32227, %2920 ], [ %2928, %2922 ]
   %.352216 = phi ptr [ %2921, %2920 ], [ %2927, %2922 ]
   %.not2463 = icmp eq i32 %.98, 0
-  br i1 %.not2463, label %2934, label %2930, !prof !44
+  br i1 %.not2463, label %2934, label %2930, !prof !48
 
 2930:                                             ; preds = %2929
   %2931 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.352216) #13
@@ -7345,7 +7345,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   store i64 %2956, ptr %2955, align 8, !tbaa !8
   %2957 = getelementptr inbounds nuw i8, ptr %2955, i64 8
   store i8 %2942, ptr %2957, align 8, !tbaa !4
-  %2958 = load i32, ptr %.02181, align 4, !tbaa !46
+  %2958 = load i32, ptr %.02181, align 4, !tbaa !53
   %2959 = lshr i32 %2958, 7
   %2960 = zext nneg i32 %2959 to i64
   %2961 = getelementptr i32, ptr %.02181, i64 %2960
@@ -7357,7 +7357,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.100 = phi i32 [ %.32227, %2949 ], [ %2963, %2951 ]
   %.362217 = phi ptr [ %2950, %2949 ], [ %2962, %2951 ]
   %.not2461 = icmp eq i32 %.100, 0
-  br i1 %.not2461, label %2969, label %2965, !prof !44
+  br i1 %.not2461, label %2969, label %2965, !prof !48
 
 2965:                                             ; preds = %2964
   %2966 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.362217) #13
@@ -7393,12 +7393,12 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   store ptr %.02181, ptr %29, align 8, !tbaa !8
   %2984 = call ptr @luaD_precall(ptr noundef %0, ptr noundef %2975, i32 noundef %2979) #13
   %2985 = icmp eq ptr %2984, null
-  br i1 %2985, label %2986, label %.backedge3098.backedge
+  br i1 %2985, label %2986, label %.backedge3098.backedge, !llvm.loop !80
 
 2986:                                             ; preds = %2983
   %2987 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2460 = icmp eq i32 %2987, 0
-  br i1 %.not2460, label %2992, label %2988, !prof !44
+  br i1 %.not2460, label %2992, label %2988, !prof !48
 
 2988:                                             ; preds = %2986
   %2989 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef nonnull %.02181) #13
@@ -7463,7 +7463,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
 3021:                                             ; preds = %3020, %3018
   %3022 = call i32 @luaD_pretailcall(ptr noundef nonnull %0, ptr noundef nonnull %.1, ptr noundef %2998, i32 noundef %.02348, i32 noundef %3007) #13
   %3023 = icmp slt i32 %3022, 0
-  br i1 %3023, label %.backedge3098.backedge, label %3024
+  br i1 %3023, label %.backedge3098.backedge, label %3024, !llvm.loop !80
 
 3024:                                             ; preds = %3021
   %3025 = load ptr, ptr %.1, align 8, !tbaa !8
@@ -7519,7 +7519,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %3056 = call ptr @luaF_close(ptr noundef nonnull %0, ptr noundef %.12180, i32 noundef -1, i32 noundef 1) #13
   %3057 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2453 = icmp eq i32 %3057, 0
-  br i1 %.not2453, label %3062, label %3058, !prof !44
+  br i1 %.not2453, label %3062, label %3058, !prof !48
 
 3058:                                             ; preds = %3055
   %3059 = load ptr, ptr %.1, align 8, !tbaa !8
@@ -7552,9 +7552,9 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br label %.loopexit
 
 3075:                                             ; preds = %.backedge
-  %3076 = load volatile i32, ptr %10, align 8, !tbaa !48
+  %3076 = load volatile i32, ptr %10, align 8, !tbaa !55
   %.not2451 = icmp eq i32 %3076, 0
-  br i1 %.not2451, label %3082, label %3077, !prof !44
+  br i1 %.not2451, label %3082, label %3077, !prof !48
 
 3077:                                             ; preds = %3075
   %3078 = lshr i32 %.02305, 7
@@ -7568,15 +7568,15 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
 
 3082:                                             ; preds = %3075
   %3083 = getelementptr inbounds nuw i8, ptr %.1, i64 60
-  %3084 = load i32, ptr %3083, align 4, !tbaa !71
+  %3084 = load i32, ptr %3083, align 4, !tbaa !81
   %3085 = and i32 %3084, 255
   %3086 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %3087 = load ptr, ptr %3086, align 8, !tbaa !72
-  store ptr %3087, ptr %20, align 8, !tbaa !47
+  %3087 = load ptr, ptr %3086, align 8, !tbaa !82
+  store ptr %3087, ptr %20, align 8, !tbaa !54
   %3088 = getelementptr inbounds i8, ptr %.12180, i64 -16
   store ptr %3088, ptr %12, align 8, !tbaa !8
   %3089 = icmp samesign ugt i32 %3085, 1
-  br i1 %3089, label %.lr.ph3284, label %.loopexit, !prof !73
+  br i1 %3089, label %.lr.ph3284, label %.loopexit, !prof !83
 
 .lr.ph3284:                                       ; preds = %3082, %.lr.ph3284
   %.02340.in3282 = phi i32 [ %.02340, %.lr.ph3284 ], [ %3085, %3082 ]
@@ -7587,12 +7587,12 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %3092 = getelementptr inbounds nuw i8, ptr %3090, i64 8
   store i8 0, ptr %3092, align 8, !tbaa !8
   %3093 = icmp samesign ugt i32 %.02340.in3282, 2
-  br i1 %3093, label %.lr.ph3284, label %.loopexit, !prof !74
+  br i1 %3093, label %.lr.ph3284, label %.loopexit, !prof !84, !llvm.loop !85
 
 3094:                                             ; preds = %.backedge
-  %3095 = load volatile i32, ptr %10, align 8, !tbaa !48
+  %3095 = load volatile i32, ptr %10, align 8, !tbaa !55
   %.not2450 = icmp eq i32 %3095, 0
-  br i1 %.not2450, label %3102, label %3096, !prof !44
+  br i1 %.not2450, label %3102, label %3096, !prof !48
 
 3096:                                             ; preds = %3094
   %3097 = lshr i32 %.02305, 7
@@ -7607,12 +7607,12 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
 
 3102:                                             ; preds = %3094
   %3103 = getelementptr inbounds nuw i8, ptr %.1, i64 60
-  %3104 = load i32, ptr %3103, align 4, !tbaa !71
+  %3104 = load i32, ptr %3103, align 4, !tbaa !81
   %3105 = and i32 %3104, 255
   %3106 = add nsw i32 %3105, -1
   %3107 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %3108 = load ptr, ptr %3107, align 8, !tbaa !72
-  store ptr %3108, ptr %20, align 8, !tbaa !47
+  %3108 = load ptr, ptr %3107, align 8, !tbaa !82
+  store ptr %3108, ptr %20, align 8, !tbaa !54
   %3109 = icmp eq i32 %3106, 0
   br i1 %3109, label %3110, label %3112
 
@@ -7635,7 +7635,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   store i8 %3120, ptr %3121, align 8, !tbaa !4
   store ptr %.12180, ptr %12, align 8, !tbaa !8
   %3122 = icmp samesign ugt i32 %3105, 2
-  br i1 %3122, label %.lr.ph3281, label %.loopexit, !prof !73
+  br i1 %3122, label %.lr.ph3281, label %.loopexit, !prof !83
 
 .lr.ph3281:                                       ; preds = %3112, %.lr.ph3281
   %.023383279 = phi i32 [ %3126, %.lr.ph3281 ], [ %3106, %3112 ]
@@ -7646,12 +7646,12 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   store i8 0, ptr %3125, align 8, !tbaa !8
   %3126 = add nsw i32 %.023383279, -1
   %3127 = icmp samesign ugt i32 %.023383279, 2
-  br i1 %3127, label %.lr.ph3281, label %.loopexit, !prof !74
+  br i1 %3127, label %.lr.ph3281, label %.loopexit, !prof !84, !llvm.loop !86
 
 .loopexit:                                        ; preds = %.lr.ph3281, %.lr.ph3284, %3112, %3082, %3096, %3110, %3077, %3071, %3024
   %.103 = phi i32 [ %3029, %3024 ], [ %3074, %3071 ], [ 1, %3077 ], [ 1, %3096 ], [ %.32227, %3110 ], [ %.32227, %3082 ], [ %.32227, %3112 ], [ %.32227, %.lr.ph3284 ], [ %.32227, %.lr.ph3281 ]
   %3128 = getelementptr inbounds nuw i8, ptr %.1, i64 60
-  %3129 = load i32, ptr %3128, align 4, !tbaa !71
+  %3129 = load i32, ptr %3128, align 4, !tbaa !81
   %3130 = and i32 %3129, 65536
   %.not2458 = icmp eq i32 %3130, 0
   br i1 %.not2458, label %3133, label %3131
@@ -7664,17 +7664,17 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.32227 = phi i32 [ %.22226, %.critedge ], [ %.32227.be, %.backedge.backedge ]
   %.02181 = phi ptr [ %36, %.critedge ], [ %.02181.be, %.backedge.backedge ]
   %.12180 = phi ptr [ %.02179, %.critedge ], [ %.12180.be, %.backedge.backedge ]
-  %.02305 = load i32, ptr %.02305.in, align 4, !tbaa !46
+  %.02305 = load i32, ptr %.02305.in, align 4, !tbaa !53
   %.pn3705.in = and i32 %.02305, 127
   %.pn3705 = zext nneg i32 %.pn3705.in to i64
   %.in = getelementptr inbounds nuw [83 x ptr], ptr @luaV_execute.disptab, i64 0, i64 %.pn3705
-  %3132 = load ptr, ptr %.in, align 8, !tbaa !75
+  %3132 = load ptr, ptr %.in, align 8, !tbaa !87
   indirectbr ptr %3132, [label %40, label %59, label %74, label %89, label %107, label %127, label %138, label %150, label %161, label %179, label %201, label %235, label %310, label %411, label %499, label %571, label %622, label %710, label %787, label %835, label %872, label %947, label %977, label %1020, label %1063, label %1106, label %1169, label %1213, label %1251, label %1309, label %1344, label %1379, label %1414, label %1456, label %1498, label %1541, label %1584, label %1627, label %1690, label %1734, label %1772, label %1830, label %1877, label %1924, label %2025, label %1971, label %2080, label %2104, label %2130, label %2156, label %2185, label %2218, label %2237, label %2292, label %2315, label %2329, label %2341, label %2353, label %2383, label %2522, label %2666, label %2694, label %2733, label %2777, label %2821, label %2865, label %2909, label %2936, label %2971, label %2994, label %3030, label %3075, label %3094, label %3136, label %3180, label %3416, label %3434, label %3463, label %3481, label %3552, label %3612, label %3627, label %3635]
 
 3133:                                             ; preds = %.loopexit
   %3134 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %3135 = load ptr, ptr %3134, align 8, !tbaa !72
-  br label %22
+  %3135 = load ptr, ptr %3134, align 8, !tbaa !82
+  br label %22, !llvm.loop !88
 
 3136:                                             ; preds = %.backedge
   %3137 = lshr i32 %.02305, 7
@@ -7735,7 +7735,7 @@ floatforloop.exit.thread:                         ; preds = %3164, %3166, %3168,
   %.372218 = phi ptr [ %3156, %3147 ], [ %.02181, %3145 ], [ %3172, %3168 ], [ %.02181, %3166 ], [ %.02181, %3164 ]
   %3173 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2449 = icmp eq i32 %3173, 0
-  br i1 %.not2449, label %3178, label %3174, !prof !44
+  br i1 %.not2449, label %3178, label %3174, !prof !48
 
 3174:                                             ; preds = %floatforloop.exit.thread
   %3175 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.372218) #13
@@ -8224,7 +8224,7 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
 3408:                                             ; preds = %3287, %.critedge74.i, %forprep.exit.thread
   %3409 = phi ptr [ %3407, %forprep.exit.thread ], [ %.02181, %.critedge74.i ], [ %.02181, %3287 ]
   %.not2446 = icmp eq i32 %.32227, 0
-  br i1 %.not2446, label %3414, label %3410, !prof !44
+  br i1 %.not2446, label %3414, label %3410, !prof !48
 
 3410:                                             ; preds = %3408
   %3411 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef %3409) #13
@@ -8263,7 +8263,7 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   %3430 = zext nneg i32 %3429 to i64
   %3431 = getelementptr inbounds nuw i32, ptr %.02181, i64 %3430
   %3432 = getelementptr inbounds nuw i8, ptr %3431, i64 4
-  %3433 = load i32, ptr %3431, align 4, !tbaa !46
+  %3433 = load i32, ptr %3431, align 4, !tbaa !53
   br label %3434
 
 3434:                                             ; preds = %.backedge, %3416
@@ -8301,7 +8301,7 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   call void @luaD_call(ptr noundef %0, ptr noundef nonnull %3440, i32 noundef %3455) #13
   %3456 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2443 = icmp eq i32 %3456, 0
-  br i1 %.not2443, label %3460, label %3457, !prof !44
+  br i1 %.not2443, label %3460, label %3457, !prof !48
 
 3457:                                             ; preds = %3434
   %3458 = load ptr, ptr %.1, align 8, !tbaa !8
@@ -8311,7 +8311,7 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
 3460:                                             ; preds = %3457, %3434
   %.79 = phi ptr [ %3459, %3457 ], [ %.12180, %3434 ]
   %3461 = getelementptr inbounds nuw i8, ptr %.392220, i64 4
-  %3462 = load i32, ptr %.392220, align 4, !tbaa !46
+  %3462 = load i32, ptr %.392220, align 4, !tbaa !53
   br label %3463
 
 3463:                                             ; preds = %.backedge, %3460
@@ -8333,7 +8333,7 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   %.412222.idx = select i1 %3471, i64 0, i64 %3474
   %.412222 = getelementptr inbounds i32, ptr %.402221, i64 %.412222.idx
   %.not2444 = icmp eq i32 %.112, 0
-  br i1 %.not2444, label %3479, label %3475, !prof !44
+  br i1 %.not2444, label %3479, label %3475, !prof !48
 
 3475:                                             ; preds = %3463
   %3476 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.412222) #13
@@ -8382,7 +8382,7 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   br i1 %.not2437, label %3510, label %3504
 
 3504:                                             ; preds = %3501
-  %3505 = load i32, ptr %.02181, align 4, !tbaa !46
+  %3505 = load i32, ptr %.02181, align 4, !tbaa !53
   %3506 = shl i32 %3505, 3
   %3507 = and i32 %3506, -1024
   %3508 = add i32 %3507, %3502
@@ -8393,7 +8393,7 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   %.02309 = phi i32 [ %3508, %3504 ], [ %3502, %3501 ]
   %.422223 = phi ptr [ %3509, %3504 ], [ %.02181, %3501 ]
   %3511 = getelementptr inbounds nuw i8, ptr %3489, i64 12
-  %3512 = load i32, ptr %3511, align 4, !tbaa !63
+  %3512 = load i32, ptr %3511, align 4, !tbaa !72
   %3513 = icmp ugt i32 %.02309, %3512
   br i1 %3513, label %3514, label %3515
 
@@ -8417,13 +8417,13 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   %3520 = getelementptr inbounds nuw %union.StackValue, ptr %3485, i64 %indvars.iv
   %3521 = getelementptr inbounds nuw i8, ptr %3520, i64 8
   %3522 = load i8, ptr %3521, align 8, !tbaa !4
-  %3523 = load ptr, ptr %3516, align 8, !tbaa !64
+  %3523 = load ptr, ptr %3516, align 8, !tbaa !73
   %3524 = getelementptr inbounds nuw i8, ptr %3523, i64 4
   %3525 = add i32 %.123103276, -1
   %3526 = zext i32 %3525 to i64
   %3527 = getelementptr inbounds nuw i8, ptr %3524, i64 %3526
   store i8 %3522, ptr %3527, align 1, !tbaa !8
-  %3528 = load ptr, ptr %3516, align 8, !tbaa !64
+  %3528 = load ptr, ptr %3516, align 8, !tbaa !73
   %3529 = getelementptr inbounds i8, ptr %3528, i64 -8
   %3530 = sub nsw i64 0, %3526
   %3531 = getelementptr inbounds %union.Value, ptr %3529, i64 %3530
@@ -8436,14 +8436,14 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   br i1 %.not2440, label %3544, label %3536
 
 3536:                                             ; preds = %3519
-  %3537 = load i8, ptr %3517, align 1, !tbaa !40
+  %3537 = load i8, ptr %3517, align 1, !tbaa !42
   %3538 = and i8 %3537, 32
   %.not2441 = icmp eq i8 %3538, 0
   br i1 %.not2441, label %3544, label %3539
 
 3539:                                             ; preds = %3536
   %3540 = getelementptr inbounds nuw i8, ptr %3535, i64 9
-  %3541 = load i8, ptr %3540, align 1, !tbaa !40
+  %3541 = load i8, ptr %3540, align 1, !tbaa !42
   %3542 = and i8 %3541, 24
   %.not2442 = icmp eq i8 %3542, 0
   br i1 %.not2442, label %3544, label %3543
@@ -8456,11 +8456,11 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3545 = and i64 %indvars.iv.next, 4294967295
   %.not2438 = icmp eq i64 %3545, 0
-  br i1 %.not2438, label %._crit_edge3278, label %3519
+  br i1 %.not2438, label %._crit_edge3278, label %3519, !llvm.loop !89
 
 ._crit_edge3278:                                  ; preds = %3544, %3515
   %.not2439 = icmp eq i32 %.32227, 0
-  br i1 %.not2439, label %3550, label %3546, !prof !44
+  br i1 %.not2439, label %3550, label %3546, !prof !48
 
 3546:                                             ; preds = %._crit_edge3278
   %3547 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef %.422223) #13
@@ -8479,23 +8479,23 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   %3554 = and i32 %3553, 255
   %3555 = zext nneg i32 %3554 to i64
   %3556 = getelementptr inbounds nuw %union.StackValue, ptr %.12180, i64 %3555
-  %3557 = load ptr, ptr %25, align 8, !tbaa !49
+  %3557 = load ptr, ptr %25, align 8, !tbaa !56
   %3558 = getelementptr inbounds nuw i8, ptr %3557, i64 72
-  %3559 = load ptr, ptr %3558, align 8, !tbaa !76
+  %3559 = load ptr, ptr %3558, align 8, !tbaa !90
   %3560 = lshr i32 %.02305, 15
   %3561 = zext nneg i32 %3560 to i64
   %3562 = getelementptr inbounds nuw ptr, ptr %3559, i64 %3561
-  %3563 = load ptr, ptr %3562, align 8, !tbaa !77
+  %3563 = load ptr, ptr %3562, align 8, !tbaa !91
   store ptr %.02181, ptr %29, align 8, !tbaa !8
   %3564 = load ptr, ptr %38, align 8, !tbaa !8
   store ptr %3564, ptr %12, align 8, !tbaa !8
   %3565 = getelementptr inbounds nuw i8, ptr %3563, i64 16
-  %3566 = load i32, ptr %3565, align 8, !tbaa !78
+  %3566 = load i32, ptr %3565, align 8, !tbaa !92
   %3567 = getelementptr inbounds nuw i8, ptr %3563, i64 80
-  %3568 = load ptr, ptr %3567, align 8, !tbaa !79
+  %3568 = load ptr, ptr %3567, align 8, !tbaa !93
   %3569 = call ptr @luaF_newLclosure(ptr noundef %0, i32 noundef %3566) #13
   %3570 = getelementptr inbounds nuw i8, ptr %3569, i64 24
-  store ptr %3563, ptr %3570, align 8, !tbaa !49
+  store ptr %3563, ptr %3570, align 8, !tbaa !56
   store ptr %3569, ptr %3556, align 8, !tbaa !8
   %3571 = getelementptr inbounds nuw i8, ptr %3556, i64 8
   store i8 70, ptr %3571, align 8, !tbaa !4
@@ -8512,10 +8512,10 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %3597 ]
   %3576 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %3568, i64 %indvars.iv.i
   %3577 = getelementptr inbounds nuw i8, ptr %3576, i64 8
-  %3578 = load i8, ptr %3577, align 8, !tbaa !80
+  %3578 = load i8, ptr %3577, align 8, !tbaa !94
   %.not.i2737 = icmp eq i8 %3578, 0
   %3579 = getelementptr inbounds nuw i8, ptr %3576, i64 9
-  %3580 = load i8, ptr %3579, align 1, !tbaa !82
+  %3580 = load i8, ptr %3579, align 1, !tbaa !96
   %3581 = zext i8 %3580 to i64
   %3582 = getelementptr inbounds nuw [1 x ptr], ptr %3573, i64 0, i64 %indvars.iv.i
   br i1 %.not.i2737, label %3586, label %3583
@@ -8527,20 +8527,20 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
 
 3586:                                             ; preds = %3575
   %3587 = getelementptr inbounds nuw ptr, ptr %39, i64 %3581
-  %3588 = load ptr, ptr %3587, align 8, !tbaa !60
+  %3588 = load ptr, ptr %3587, align 8, !tbaa !69
   br label %3589
 
 3589:                                             ; preds = %3586, %3583
   %.sink.i = phi ptr [ %3588, %3586 ], [ %3585, %3583 ]
-  store ptr %.sink.i, ptr %3582, align 8, !tbaa !60
-  %3590 = load i8, ptr %3574, align 1, !tbaa !83
+  store ptr %.sink.i, ptr %3582, align 8, !tbaa !69
+  %3590 = load i8, ptr %3574, align 1, !tbaa !97
   %3591 = and i8 %3590, 32
   %.not33.i = icmp eq i8 %3591, 0
   br i1 %.not33.i, label %3597, label %3592
 
 3592:                                             ; preds = %3589
   %3593 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 9
-  %3594 = load i8, ptr %3593, align 1, !tbaa !61
+  %3594 = load i8, ptr %3593, align 1, !tbaa !70
   %3595 = and i8 %3594, 24
   %.not34.i = icmp eq i8 %3595, 0
   br i1 %.not34.i, label %3597, label %3596
@@ -8552,12 +8552,12 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
 3597:                                             ; preds = %3596, %3592, %3589
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i2738 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i2738, label %pushclosure.exit, label %3575
+  br i1 %exitcond.not.i2738, label %pushclosure.exit, label %3575, !llvm.loop !98
 
 pushclosure.exit:                                 ; preds = %3597, %3552
   %3598 = load ptr, ptr %13, align 8, !tbaa !27
   %3599 = getelementptr inbounds nuw i8, ptr %3598, i64 24
-  %3600 = load i64, ptr %3599, align 8, !tbaa !65
+  %3600 = load i64, ptr %3599, align 8, !tbaa !74
   %3601 = icmp slt i64 %3600, 1
   br i1 %3601, label %3602, label %3605
 
@@ -8572,7 +8572,7 @@ pushclosure.exit:                                 ; preds = %3597, %3552
 3605:                                             ; preds = %3602, %pushclosure.exit
   %.113 = phi i32 [ %3604, %3602 ], [ %.32227, %pushclosure.exit ]
   %.not2436 = icmp eq i32 %.113, 0
-  br i1 %.not2436, label %3610, label %3606, !prof !44
+  br i1 %.not2436, label %3610, label %3606, !prof !48
 
 3606:                                             ; preds = %3605
   %3607 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef nonnull %.02181) #13
@@ -8599,7 +8599,7 @@ pushclosure.exit:                                 ; preds = %3597, %3552
   call void @luaT_getvarargs(ptr noundef %0, ptr noundef nonnull %.1, ptr noundef %3616, i32 noundef %3618) #13
   %3620 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2435 = icmp eq i32 %3620, 0
-  br i1 %.not2435, label %3625, label %3621, !prof !44
+  br i1 %.not2435, label %3625, label %3621, !prof !48
 
 3621:                                             ; preds = %3612
   %3622 = call i32 @luaG_traceexec(ptr noundef nonnull %0, ptr noundef nonnull %.02181) #13
@@ -8617,15 +8617,15 @@ pushclosure.exit:                                 ; preds = %3597, %3552
   store ptr %.02181, ptr %29, align 8, !tbaa !8
   %3628 = lshr i32 %.02305, 7
   %3629 = and i32 %3628, 255
-  %3630 = load ptr, ptr %25, align 8, !tbaa !49
+  %3630 = load ptr, ptr %25, align 8, !tbaa !56
   call void @luaT_adjustvarargs(ptr noundef %0, i32 noundef %3629, ptr noundef nonnull %.1, ptr noundef %3630) #13
   %3631 = load volatile i32, ptr %37, align 8, !tbaa !8
   %.not2433 = icmp eq i32 %3631, 0
-  br i1 %.not2433, label %.critedge2582, label %3632, !prof !44
+  br i1 %.not2433, label %.critedge2582, label %3632, !prof !48
 
 3632:                                             ; preds = %3627
   call void @luaD_hookcall(ptr noundef %0, ptr noundef nonnull %.1) #13
-  store i32 1, ptr %11, align 4, !tbaa !84
+  store i32 1, ptr %11, align 4, !tbaa !99
   %3633 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef nonnull %.02181) #13
   br label %.critedge2582
 
@@ -8638,7 +8638,7 @@ pushclosure.exit:                                 ; preds = %3597, %3552
 
 3635:                                             ; preds = %.backedge
   %.not2432 = icmp eq i32 %.32227, 0
-  br i1 %.not2432, label %3640, label %3636, !prof !44
+  br i1 %.not2432, label %3640, label %3636, !prof !48
 
 3636:                                             ; preds = %3635
   %3637 = call i32 @luaG_traceexec(ptr noundef %0, ptr noundef nonnull %.02181) #13
@@ -8782,48 +8782,63 @@ attributes #15 = { nounwind willreturn memory(read) }
 !37 = !{!"", !13, i64 0, !13, i64 4}
 !38 = !{!39, !39, i64 0}
 !39 = !{!"p1 _ZTS7TString", !12, i64 0}
-!40 = !{!41, !6, i64 9}
-!41 = !{!"GCObject", !11, i64 0, !6, i64 8, !6, i64 9}
-!42 = !{!43, !25, i64 24}
-!43 = !{!"Udata", !11, i64 0, !6, i64 8, !6, i64 9, !29, i64 10, !36, i64 16, !25, i64 24, !11, i64 32, !6, i64 40}
-!44 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!45 = !{!10, !6, i64 8}
-!46 = !{!13, !13, i64 0}
-!47 = !{!28, !31, i64 32}
-!48 = !{!28, !13, i64 192}
-!49 = !{!50, !51, i64 24}
-!50 = !{!"LClosure", !11, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !11, i64 16, !51, i64 24, !6, i64 32}
-!51 = !{!"p1 _ZTS5Proto", !12, i64 0}
-!52 = !{!53, !54, i64 56}
-!53 = !{!"Proto", !11, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !6, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !13, i64 48, !54, i64 56, !55, i64 64, !56, i64 72, !57, i64 80, !14, i64 88, !58, i64 96, !59, i64 104, !39, i64 112, !11, i64 120}
-!54 = !{!"p1 _ZTS6TValue", !12, i64 0}
-!55 = !{!"p1 int", !12, i64 0}
-!56 = !{!"p2 _ZTS5Proto", !12, i64 0}
-!57 = !{!"p1 _ZTS9Upvaldesc", !12, i64 0}
-!58 = !{!"p1 _ZTS11AbsLineInfo", !12, i64 0}
-!59 = !{!"p1 _ZTS6LocVar", !12, i64 0}
-!60 = !{!32, !32, i64 0}
-!61 = !{!62, !6, i64 9}
-!62 = !{!"UpVal", !11, i64 0, !6, i64 8, !6, i64 9, !6, i64 16, !6, i64 24}
-!63 = !{!22, !13, i64 12}
-!64 = !{!22, !23, i64 16}
-!65 = !{!66, !36, i64 24}
-!66 = !{!"global_State", !12, i64 0, !12, i64 8, !36, i64 16, !36, i64 24, !36, i64 32, !36, i64 40, !67, i64 48, !5, i64 64, !5, i64 80, !13, i64 96, !6, i64 100, !6, i64 106, !6, i64 107, !6, i64 108, !6, i64 109, !6, i64 110, !6, i64 111, !11, i64 112, !69, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !33, i64 248, !12, i64 256, !33, i64 264, !39, i64 272, !6, i64 280, !6, i64 480, !6, i64 552, !12, i64 1400, !12, i64 1408}
-!67 = !{!"stringtable", !68, i64 0, !13, i64 8, !13, i64 12}
-!68 = !{!"p2 _ZTS7TString", !12, i64 0}
-!69 = !{!"p2 _ZTS8GCObject", !12, i64 0}
-!70 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!71 = !{!35, !13, i64 60}
-!72 = !{!35, !31, i64 16}
-!73 = !{!"branch_weights", i32 1, i32 1999}
-!74 = !{!"branch_weights", i32 0, i32 1}
-!75 = !{!12, !12, i64 0}
-!76 = !{!53, !56, i64 72}
-!77 = !{!51, !51, i64 0}
-!78 = !{!53, !13, i64 16}
-!79 = !{!53, !57, i64 80}
-!80 = !{!81, !6, i64 8}
-!81 = !{!"Upvaldesc", !39, i64 0, !6, i64 8, !6, i64 9, !6, i64 10}
-!82 = !{!81, !6, i64 9}
-!83 = !{!50, !6, i64 9}
-!84 = !{!28, !13, i64 180}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!43, !6, i64 9}
+!43 = !{!"GCObject", !11, i64 0, !6, i64 8, !6, i64 9}
+!44 = distinct !{!44, !41}
+!45 = distinct !{!45, !41}
+!46 = !{!47, !25, i64 24}
+!47 = !{!"Udata", !11, i64 0, !6, i64 8, !6, i64 9, !29, i64 10, !36, i64 16, !25, i64 24, !11, i64 32, !6, i64 40}
+!48 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!49 = distinct !{!49, !41}
+!50 = distinct !{!50, !41}
+!51 = !{!10, !6, i64 8}
+!52 = distinct !{!52, !41}
+!53 = !{!13, !13, i64 0}
+!54 = !{!28, !31, i64 32}
+!55 = !{!28, !13, i64 192}
+!56 = !{!57, !58, i64 24}
+!57 = !{!"LClosure", !11, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !11, i64 16, !58, i64 24, !6, i64 32}
+!58 = !{!"p1 _ZTS5Proto", !12, i64 0}
+!59 = !{!60, !61, i64 56}
+!60 = !{!"Proto", !11, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !6, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !13, i64 48, !61, i64 56, !62, i64 64, !63, i64 72, !64, i64 80, !14, i64 88, !65, i64 96, !66, i64 104, !39, i64 112, !11, i64 120}
+!61 = !{!"p1 _ZTS6TValue", !12, i64 0}
+!62 = !{!"p1 int", !12, i64 0}
+!63 = !{!"p2 _ZTS5Proto", !12, i64 0}
+!64 = !{!"p1 _ZTS9Upvaldesc", !12, i64 0}
+!65 = !{!"p1 _ZTS11AbsLineInfo", !12, i64 0}
+!66 = !{!"p1 _ZTS6LocVar", !12, i64 0}
+!67 = distinct !{!67, !41}
+!68 = distinct !{!68, !41}
+!69 = !{!32, !32, i64 0}
+!70 = !{!71, !6, i64 9}
+!71 = !{!"UpVal", !11, i64 0, !6, i64 8, !6, i64 9, !6, i64 16, !6, i64 24}
+!72 = !{!22, !13, i64 12}
+!73 = !{!22, !23, i64 16}
+!74 = !{!75, !36, i64 24}
+!75 = !{!"global_State", !12, i64 0, !12, i64 8, !36, i64 16, !36, i64 24, !36, i64 32, !36, i64 40, !76, i64 48, !5, i64 64, !5, i64 80, !13, i64 96, !6, i64 100, !6, i64 106, !6, i64 107, !6, i64 108, !6, i64 109, !6, i64 110, !6, i64 111, !11, i64 112, !78, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !33, i64 248, !12, i64 256, !33, i64 264, !39, i64 272, !6, i64 280, !6, i64 480, !6, i64 552, !12, i64 1400, !12, i64 1408}
+!76 = !{!"stringtable", !77, i64 0, !13, i64 8, !13, i64 12}
+!77 = !{!"p2 _ZTS7TString", !12, i64 0}
+!78 = !{!"p2 _ZTS8GCObject", !12, i64 0}
+!79 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!80 = distinct !{!80, !41}
+!81 = !{!35, !13, i64 60}
+!82 = !{!35, !31, i64 16}
+!83 = !{!"branch_weights", i32 1, i32 1999}
+!84 = !{!"branch_weights", i32 0, i32 1}
+!85 = distinct !{!85, !41}
+!86 = distinct !{!86, !41}
+!87 = !{!12, !12, i64 0}
+!88 = distinct !{!88, !41}
+!89 = distinct !{!89, !41}
+!90 = !{!60, !63, i64 72}
+!91 = !{!58, !58, i64 0}
+!92 = !{!60, !13, i64 16}
+!93 = !{!60, !64, i64 80}
+!94 = !{!95, !6, i64 8}
+!95 = !{!"Upvaldesc", !39, i64 0, !6, i64 8, !6, i64 9, !6, i64 10}
+!96 = !{!95, !6, i64 9}
+!97 = !{!57, !6, i64 9}
+!98 = distinct !{!98, !41}
+!99 = !{!28, !13, i64 180}

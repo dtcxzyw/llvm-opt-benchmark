@@ -319,7 +319,7 @@ define internal range(i32 0, 2) i32 @kdf_tls1_prf_set_ctx_params(ptr noundef %0,
   br i1 %8, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %9 = load ptr, ptr %1, align 8, !tbaa !20
+  %9 = load ptr, ptr %1, align 8, !tbaa !21
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %10
 
@@ -331,7 +331,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %14, ptr noundef nonnull @.str.5) #7
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %23
@@ -410,28 +410,28 @@ ossl_param_is_empty.exit:                         ; preds = %2
 47:                                               ; preds = %.preheader, %70
   %.046 = phi ptr [ %72, %70 ], [ %44, %.preheader ]
   %48 = getelementptr inbounds nuw i8, ptr %.046, i64 24
-  %49 = load i64, ptr %48, align 8, !tbaa !24
+  %49 = load i64, ptr %48, align 8, !tbaa !25
   %.not64 = icmp eq i64 %49, 0
   br i1 %.not64, label %70, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %.046, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !23
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
   %.not65 = icmp eq ptr %52, null
   br i1 %.not65, label %70, label %53
 
 53:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !25
+  store ptr null, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store i64 0, ptr %5, align 8, !tbaa !26
+  store i64 0, ptr %5, align 8, !tbaa !27
   %54 = call i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef nonnull %.046, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %.not66 = icmp eq i32 %54, 0
   br i1 %.not66, label %safe_add_size_t.exit, label %55
 
 55:                                               ; preds = %53
   %56 = load i64, ptr %45, align 8, !tbaa !16
-  %57 = load i64, ptr %5, align 8, !tbaa !26
+  %57 = load i64, ptr %5, align 8, !tbaa !27
   %58 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %56, i64 %57)
   %59 = extractvalue { i64, i1 } %58, 1
   br i1 %59, label %safe_add_size_t.exit, label %60
@@ -445,14 +445,14 @@ ossl_param_is_empty.exit:                         ; preds = %2
 
 64:                                               ; preds = %60
   store ptr %63, ptr %46, align 8, !tbaa !15
-  %65 = load i64, ptr %5, align 8, !tbaa !26
+  %65 = load i64, ptr %5, align 8, !tbaa !27
   %.not69 = icmp eq i64 %65, 0
-  br i1 %.not69, label %.critedge71, label %66, !prof !27
+  br i1 %.not69, label %.critedge71, label %66, !prof !28
 
 66:                                               ; preds = %64
   %67 = load i64, ptr %45, align 8, !tbaa !16
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 %67
-  %69 = load ptr, ptr %4, align 8, !tbaa !25
+  %69 = load ptr, ptr %4, align 8, !tbaa !26
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr align 1 %69, i64 %65, i1 false)
   br label %.critedge71
 
@@ -471,7 +471,7 @@ safe_add_size_t.exit:                             ; preds = %55, %60, %53
   %71 = getelementptr inbounds nuw i8, ptr %.046, i64 40
   %72 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %71, ptr noundef nonnull @.str.4) #7
   %.old2.not = icmp eq ptr %72, null
-  br i1 %.old2.not, label %ossl_param_is_empty.exit.thread, label %47
+  br i1 %.old2.not, label %ossl_param_is_empty.exit.thread, label %47, !llvm.loop !29
 
 .critedge:                                        ; preds = %28, %23, %17, %20, %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
@@ -584,7 +584,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef nonnull 
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %.lr.ph.split.us
-  %26 = load i64, ptr %9, align 8, !tbaa !26
+  %26 = load i64, ptr %9, align 8, !tbaa !27
   %27 = call i32 @EVP_MAC_update(ptr noundef nonnull %23, ptr noundef nonnull %8, i64 noundef %26) #7
   %.not56.us = icmp eq i32 %27, 0
   br i1 %.not56.us, label %.loopexit, label %28
@@ -609,7 +609,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef nonnull 
   %37 = sub i64 %.04364.us, %12
   %38 = call i32 @EVP_MAC_final(ptr noundef nonnull %31, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 64) #7
   %.not55.us = icmp eq i32 %38, 0
-  br i1 %.not55.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %.not55.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.thread, %56
   %.166 = phi ptr [ %47, %56 ], [ %15, %.thread ]
@@ -621,7 +621,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef nonnull 
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %.lr.ph.split
-  %42 = load i64, ptr %9, align 8, !tbaa !26
+  %42 = load i64, ptr %9, align 8, !tbaa !27
   %43 = call i32 @EVP_MAC_update(ptr noundef nonnull %39, ptr noundef nonnull %8, i64 noundef %42) #7
   %.not56 = icmp eq i32 %43, 0
   br i1 %.not56, label %.loopexit, label %44
@@ -668,7 +668,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef nonnull 
   %58 = sub i64 %.04364, %12
   %59 = call i32 @EVP_MAC_final(ptr noundef nonnull %47, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 64) #7
   %.not55 = icmp eq i32 %59, 0
-  br i1 %.not55, label %.loopexit, label %.lr.ph.split
+  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !32
 
 .loopexit:                                        ; preds = %56, %.lr.ph.split, %41, %46, %49, %54, %35, %.lr.ph.split.us, %25, %30, %33, %.thread110, %.thread, %20, %.split.us, %18, %14, %11, %7, %53
   %.040 = phi ptr [ null, %11 ], [ null, %14 ], [ %.us-phi91, %53 ], [ %.us-phi91, %.split.us ], [ null, %18 ], [ null, %7 ], [ null, %20 ], [ null, %.thread ], [ %39, %.thread110 ], [ null, %35 ], [ null, %.lr.ph.split.us ], [ %23, %25 ], [ %23, %30 ], [ %23, %33 ], [ null, %56 ], [ null, %.lr.ph.split ], [ %39, %41 ], [ %39, %46 ], [ %39, %49 ], [ %39, %54 ]
@@ -755,15 +755,18 @@ attributes #7 = { nounwind }
 !15 = !{!4, !9, i64 40}
 !16 = !{!4, !10, i64 48}
 !17 = !{!6, !6, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !9, i64 0}
-!21 = !{!"ossl_param_st", !9, i64 0, !22, i64 8, !5, i64 16, !10, i64 24, !10, i64 32}
-!22 = !{!"int", !6, i64 0}
-!23 = !{!21, !5, i64 16}
-!24 = !{!21, !10, i64 24}
-!25 = !{!5, !5, i64 0}
-!26 = !{!10, !10, i64 0}
-!27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !9, i64 0}
+!22 = !{!"ossl_param_st", !9, i64 0, !23, i64 8, !5, i64 16, !10, i64 24, !10, i64 32}
+!23 = !{!"int", !6, i64 0}
+!24 = !{!22, !5, i64 16}
+!25 = !{!22, !10, i64 24}
+!26 = !{!5, !5, i64 0}
+!27 = !{!10, !10, i64 0}
+!28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!29 = distinct !{!29, !20}
+!30 = distinct !{!30, !20, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !20}

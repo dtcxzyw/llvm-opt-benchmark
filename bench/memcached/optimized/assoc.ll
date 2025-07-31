@@ -295,7 +295,7 @@ define dso_local void @assoc_delete(ptr noundef readonly captures(none) %0, i64 
   %32 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !20
   %.not18.i = icmp eq ptr %33, null
-  br i1 %.not18.i, label %_hashitem_before.exit.thread, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not18.i, label %_hashitem_before.exit.thread, label %.lr.ph.i, !llvm.loop !28
 
 _hashitem_before.exit:                            ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
@@ -386,7 +386,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %.01321 = phi ptr [ %16, %.lr.ph ], [ %14, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %.01321, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !20
-  %17 = load ptr, ptr @hash, align 8, !tbaa !28
+  %17 = load ptr, ptr @hash, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %.01321, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %.01321, i64 38
   %20 = load i16, ptr %19, align 2, !tbaa !23
@@ -410,7 +410,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   store ptr %36, ptr %15, align 8, !tbaa !20
   store ptr %.01321, ptr %35, align 8, !tbaa !20
   %.not18 = icmp eq ptr %16, null
-  br i1 %.not18, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not18, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr @old_hashtable, align 8, !tbaa !8
@@ -442,9 +442,9 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 24), align 8, !tbaa !18
   %51 = add i64 %.neg, %50
   store i64 %51, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 24), align 8, !tbaa !18
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 52), align 4, !tbaa !30
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 52), align 4, !tbaa !31
   tail call void @STATS_UNLOCK() #18
-  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !31
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !32
   %53 = icmp sgt i32 %52, 1
   br i1 %53, label %54, label %58
 
@@ -467,7 +467,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %62 = icmp slt i32 %60, %61
   %.b15 = load i1, ptr @expanding, align 1
   %63 = select i1 %62, i1 %.b15, i1 false
-  br i1 %63, label %.lr.ph24, label %._crit_edge25, !llvm.loop !36
+  br i1 %63, label %.lr.ph24, label %._crit_edge25, !llvm.loop !37
 
 ._crit_edge25:                                    ; preds = %59, %.preheader
   %.b15.lcssa = phi i1 [ %.b1522, %.preheader ], [ %.b15, %59 ]
@@ -493,7 +493,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   br i1 %.not.i, label %86, label %74
 
 74:                                               ; preds = %67
-  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !31
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !32
   %76 = icmp sgt i32 %75, 1
   br i1 %76, label %77, label %80
 
@@ -517,7 +517,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 24), align 8, !tbaa !18
   %85 = add i64 %84, %83
   store i64 %85, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 24), align 8, !tbaa !18
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 52), align 4, !tbaa !30
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 52), align 4, !tbaa !31
   tail call void @STATS_UNLOCK() #18
   br label %assoc_expand.exit
 
@@ -532,7 +532,7 @@ assoc_expand.exit:                                ; preds = %80, %86
 87:                                               ; preds = %64, %assoc_expand.exit, %._crit_edge25
   %88 = load volatile i32, ptr @do_run_maintenance_thread, align 4, !tbaa !4
   %.not = icmp eq i32 %88, 0
-  br i1 %.not, label %._crit_edge27, label %.preheader, !llvm.loop !37
+  br i1 %.not, label %._crit_edge27, label %.preheader, !llvm.loop !38
 
 ._crit_edge27:                                    ; preds = %87, %1
   %89 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @maintenance_lock) #18
@@ -581,32 +581,32 @@ define dso_local noalias ptr @assoc_get_iterator() local_unnamed_addr #0 {
 define dso_local noundef zeroext i1 @assoc_iterate(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i8, ptr %3, align 8, !tbaa !38, !range !40, !noundef !41
+  %4 = load i8, ptr %3, align 8, !tbaa !39, !range !41, !noundef !42
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %.not32 = icmp eq ptr %8, null
   br i1 %.not32, label %13, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %10, align 8, !tbaa !43
+  store ptr %8, ptr %10, align 8, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !20
-  store ptr %12, ptr %7, align 8, !tbaa !42
+  store ptr %12, ptr %7, align 8, !tbaa !43
   br label %18
 
 13:                                               ; preds = %6
-  %14 = load i64, ptr %0, align 8, !tbaa !44
+  %14 = load i64, ptr %0, align 8, !tbaa !45
   %15 = trunc i64 %14 to i32
   tail call void @item_unlock(i32 noundef %15) #18
-  %16 = load i64, ptr %0, align 8, !tbaa !44
+  %16 = load i64, ptr %0, align 8, !tbaa !45
   %17 = add i64 %16, 1
-  store i64 %17, ptr %0, align 8, !tbaa !44
-  store i8 0, ptr %3, align 8, !tbaa !38
+  store i64 %17, ptr %0, align 8, !tbaa !45
+  store i8 0, ptr %3, align 8, !tbaa !39
   br label %18
 
 18:                                               ; preds = %13, %9
@@ -614,7 +614,7 @@ define dso_local noundef zeroext i1 @assoc_iterate(ptr noundef captures(none) %0
   br label %39
 
 19:                                               ; preds = %2
-  %20 = load i64, ptr %0, align 8, !tbaa !44
+  %20 = load i64, ptr %0, align 8, !tbaa !45
   %21 = load i32, ptr @hashpower, align 4, !tbaa !4
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw i64 1, %22
@@ -624,13 +624,13 @@ define dso_local noundef zeroext i1 @assoc_iterate(ptr noundef captures(none) %0
 24:                                               ; preds = %19
   %25 = trunc i64 %20 to i32
   tail call void @item_lock(i32 noundef %25) #18
-  store i8 1, ptr %3, align 8, !tbaa !38
+  store i8 1, ptr %3, align 8, !tbaa !39
   %26 = load ptr, ptr @primary_hashtable, align 8, !tbaa !8
-  %27 = load i64, ptr %0, align 8, !tbaa !44
+  %27 = load i64, ptr %0, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %29, ptr %30, align 8, !tbaa !43
+  store ptr %29, ptr %30, align 8, !tbaa !44
   %.not31 = icmp eq ptr %29, null
   br i1 %.not31, label %35, label %31
 
@@ -638,17 +638,17 @@ define dso_local noundef zeroext i1 @assoc_iterate(ptr noundef captures(none) %0
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %33, ptr %34, align 8, !tbaa !42
+  store ptr %33, ptr %34, align 8, !tbaa !43
   store ptr %29, ptr %1, align 8, !tbaa !20
   br label %39
 
 35:                                               ; preds = %24
   %36 = trunc i64 %27 to i32
   tail call void @item_unlock(i32 noundef %36) #18
-  store i8 0, ptr %3, align 8, !tbaa !38
-  %37 = load i64, ptr %0, align 8, !tbaa !44
+  store i8 0, ptr %3, align 8, !tbaa !39
+  %37 = load i64, ptr %0, align 8, !tbaa !45
   %38 = add i64 %37, 1
-  store i64 %38, ptr %0, align 8, !tbaa !44
+  store i64 %38, ptr %0, align 8, !tbaa !45
   br label %39
 
 39:                                               ; preds = %35, %31, %19, %18
@@ -663,12 +663,12 @@ declare void @item_lock(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @assoc_iterate_final(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8, !tbaa !38, !range !40, !noundef !41
+  %3 = load i8, ptr %2, align 8, !tbaa !39, !range !41, !noundef !42
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = load i64, ptr %0, align 8, !tbaa !44
+  %6 = load i64, ptr %0, align 8, !tbaa !45
   %7 = trunc i64 %6 to i32
   tail call void @item_unlock(i32 noundef %7) #18
   br label %8
@@ -752,23 +752,24 @@ attributes #19 = { cold nounwind }
 !22 = !{!6, !6, i64 0}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"short", !6, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = !{!10, !10, i64 0}
-!29 = distinct !{!29, !26}
-!30 = !{!14, !17, i64 52}
-!31 = !{!32, !5, i64 32}
-!32 = !{!"settings", !15, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !33, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !33, i64 48, !33, i64 56, !5, i64 64, !34, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !6, i64 92, !5, i64 96, !5, i64 100, !17, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !17, i64 132, !17, i64 133, !17, i64 134, !17, i64 135, !17, i64 136, !17, i64 137, !17, i64 138, !5, i64 140, !5, i64 144, !34, i64 152, !34, i64 160, !5, i64 168, !5, i64 172, !17, i64 176, !5, i64 180, !17, i64 184, !17, i64 185, !33, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !5, i64 212, !34, i64 216, !34, i64 224, !5, i64 232, !17, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !5, i64 252, !5, i64 256, !17, i64 260, !17, i64 261, !17, i64 262, !35, i64 264, !5, i64 272, !5, i64 276, !5, i64 280, !5, i64 284, !5, i64 288, !5, i64 292, !5, i64 296, !5, i64 300, !5, i64 304, !5, i64 308, !34, i64 312, !17, i64 320, !5, i64 324, !5, i64 328, !33, i64 336, !5, i64 344}
-!33 = !{!"p1 omnipotent char", !10, i64 0}
-!34 = !{!"double", !6, i64 0}
-!35 = !{!"p1 _ZTS17slab_rebal_thread", !10, i64 0}
-!36 = distinct !{!36, !26}
-!37 = distinct !{!37, !26}
-!38 = !{!39, !17, i64 24}
-!39 = !{!"assoc_iterator", !15, i64 0, !21, i64 8, !21, i64 16, !17, i64 24}
-!40 = !{i8 0, i8 2}
-!41 = !{}
-!42 = !{!39, !21, i64 16}
-!43 = !{!39, !21, i64 8}
-!44 = !{!39, !15, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = !{!10, !10, i64 0}
+!30 = distinct !{!30, !26, !27}
+!31 = !{!14, !17, i64 52}
+!32 = !{!33, !5, i64 32}
+!33 = !{!"settings", !15, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !34, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !34, i64 48, !34, i64 56, !5, i64 64, !35, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !6, i64 92, !5, i64 96, !5, i64 100, !17, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !17, i64 132, !17, i64 133, !17, i64 134, !17, i64 135, !17, i64 136, !17, i64 137, !17, i64 138, !5, i64 140, !5, i64 144, !35, i64 152, !35, i64 160, !5, i64 168, !5, i64 172, !17, i64 176, !5, i64 180, !17, i64 184, !17, i64 185, !34, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !5, i64 212, !35, i64 216, !35, i64 224, !5, i64 232, !17, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !5, i64 252, !5, i64 256, !17, i64 260, !17, i64 261, !17, i64 262, !36, i64 264, !5, i64 272, !5, i64 276, !5, i64 280, !5, i64 284, !5, i64 288, !5, i64 292, !5, i64 296, !5, i64 300, !5, i64 304, !5, i64 308, !35, i64 312, !17, i64 320, !5, i64 324, !5, i64 328, !34, i64 336, !5, i64 344}
+!34 = !{!"p1 omnipotent char", !10, i64 0}
+!35 = !{!"double", !6, i64 0}
+!36 = !{!"p1 _ZTS17slab_rebal_thread", !10, i64 0}
+!37 = distinct !{!37, !26, !27}
+!38 = distinct !{!38, !26, !27}
+!39 = !{!40, !17, i64 24}
+!40 = !{!"assoc_iterator", !15, i64 0, !21, i64 8, !21, i64 16, !17, i64 24}
+!41 = !{i8 0, i8 2}
+!42 = !{}
+!43 = !{!40, !21, i64 16}
+!44 = !{!40, !21, i64 8}
+!45 = !{!40, !15, i64 0}

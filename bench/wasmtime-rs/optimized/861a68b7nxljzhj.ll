@@ -107,7 +107,7 @@ define void @_ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E(ptr align 2 %0, 
   call void @_ZN4core4hash6Hasher9write_u1617hf48a3e55b2539554E(ptr align 8 %2, i16 %11)
   %12 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %4)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  br i1 %13, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -120,7 +120,7 @@ define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$R
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h4c983d904ed07b44E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !10, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !12, !noundef !3
   tail call void @"_ZN72_$LT$cranelift_isle..trie_again..Binding$u20$as$u20$core..hash..Hash$GT$4hash17h749ae5ef090b1a57E"(ptr nonnull align 16 %3, ptr align 8 %1)
   ret void
 }
@@ -184,11 +184,11 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checke
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h46595ec51d4546a3E"(ptr align 2 captures(none) %0, i64 %1, i64 %2, i64 %3, ptr align 8 %4) unnamed_addr #1 {
   %6 = icmp ult i64 %2, %1
-  br i1 %6, label %7, label %9, !prof !11
+  br i1 %6, label %7, label %9, !prof !13
 
 7:                                                ; preds = %5
   %8 = icmp ult i64 %3, %1
-  br i1 %8, label %10, label %14, !prof !11
+  br i1 %8, label %10, label %14, !prof !13
 
 9:                                                ; preds = %5
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %2, i64 %1, ptr align 8 %4) #15
@@ -280,7 +280,7 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
   %7 = getelementptr inbounds [0 x i16], ptr %0, i64 0, i64 %.sroa.01.0
   %8 = getelementptr inbounds [0 x i16], ptr %2, i64 0, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h32c0817388e03f85E"(ptr align 2 %7, ptr align 2 %8)
-  br i1 %9, label %.preheader.split, label %.critedge
+  br i1 %9, label %.preheader.split, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %.preheader.split, %5, %4
   %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
@@ -298,7 +298,7 @@ define hidden void @"_ZN14cranelift_isle10trie_again10Constraint12bindings_for28
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = load i16, ptr %4, align 2, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !12, !noundef !3
+  %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !15, !noundef !3
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %5, ptr %9, align 2
@@ -365,18 +365,18 @@ define hidden void @"_ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_
   %3 = alloca { i16, [7 x i16], { i8, [31 x i8] } }, align 16
   %4 = alloca { i8, [31 x i8] }, align 16
   %5 = load i16, ptr %1, align 2, !noundef !3
-  %6 = load ptr, ptr %0, align 8, !nonnull !3, !align !12, !noundef !3
+  %6 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !12, !noundef !3
+  %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !15, !noundef !3
   call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %4, ptr nonnull align 8 %8, i16 %5)
-  %9 = load i8, ptr %4, align 16, !range !13, !noundef !3
+  %9 = load i8, ptr %4, align 16, !range !16, !noundef !3
   %.not = icmp eq i8 %9, 4
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
-  %12 = load ptr, ptr %6, align 8, !nonnull !3, !align !12, !noundef !3
+  %12 = load ptr, ptr %6, align 8, !nonnull !3, !align !15, !noundef !3
   store i16 %5, ptr %3, align 16
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb9f971c6d271dd5fE"(ptr nonnull align 8 %12, ptr nonnull align 16 %3)
   br label %13
@@ -387,7 +387,7 @@ define hidden void @"_ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden i16 @"_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d99f48b339e66bE"(ptr readonly align 8 captures(none) %0, ptr align 16 %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !12, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %4 = tail call i16 @_ZN14cranelift_isle10trie_again14RuleSetBuilder13dedup_binding17hb9851a908e01dc3fE(ptr nonnull align 8 %3, ptr align 16 %1)
   ret i16 %4
 }
@@ -395,7 +395,7 @@ define hidden i16 @"_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constra
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden i16 @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..PatternVisitor$GT$11add_extract28_$u7b$$u7b$closure$u7d$$u7d$17haba088fa8d628e36E"(ptr readonly align 8 captures(none) %0, i8 %1) unnamed_addr #1 {
   %3 = alloca { i8, [47 x i8] }, align 16
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !12, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !4, !noundef !3
   %7 = load i16, ptr %6, align 2, !noundef !3
@@ -454,10 +454,10 @@ define void @"_ZN74_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..h
 define void @"_ZN72_$LT$cranelift_isle..trie_again..Binding$u20$as$u20$core..hash..Hash$GT$4hash17h749ae5ef090b1a57E"(ptr readonly align 16 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { ptr, ptr, {} }, align 8
   %4 = alloca { ptr, ptr, {} }, align 8
-  %5 = load i8, ptr %0, align 16, !range !14, !noundef !3
+  %5 = load i8, ptr %0, align 16, !range !17, !noundef !3
   %6 = zext nneg i8 %5 to i64
   tail call void @_ZN4core4hash6Hasher11write_isize17h83bde60138eb0869E(ptr align 8 %1, i64 %6)
-  %7 = load i8, ptr %0, align 16, !range !14, !noundef !3
+  %7 = load i8, ptr %0, align 16, !range !17, !noundef !3
   switch i8 %7, label %default.unreachable3 [
     i8 0, label %8
     i8 1, label %13
@@ -528,7 +528,7 @@ default.unreachable3:                             ; preds = %2
   call void @_ZN4core4hash6Hasher9write_u1617hf48a3e55b2539554E(ptr align 8 %1, i16 %36)
   %37 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %4)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %_ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit, label %.lr.ph.i
+  br i1 %38, label %_ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit: ; preds = %.lr.ph.i, %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -570,7 +570,7 @@ _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit: ; preds = %.lr.ph.i, %2
   call void @_ZN4core4hash6Hasher9write_u1617hf48a3e55b2539554E(ptr align 8 %1, i16 %58)
   %59 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %3)
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %_ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit2, label %.lr.ph.i1
+  br i1 %60, label %_ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit2, label %.lr.ph.i1, !llvm.loop !10
 
 _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit2: ; preds = %.lr.ph.i1, %44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -754,8 +754,11 @@ attributes #15 = { noreturn }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E: argument 0"}
 !9 = distinct !{!9, !"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E"}
-!10 = !{i64 16}
-!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = !{i64 8}
-!13 = !{i8 0, i8 5}
-!14 = !{i8 0, i8 10}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i64 16}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = distinct !{!14, !11}
+!15 = !{i64 8}
+!16 = !{i8 0, i8 5}
+!17 = !{i8 0, i8 10}

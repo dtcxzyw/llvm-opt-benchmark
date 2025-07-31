@@ -680,7 +680,7 @@ define range(i32 -1094995529, 1) i32 @av_timecode_init_from_string(ptr noundef c
   br label %20
 
 12:                                               ; preds = %4
-  %13 = load i8, ptr %5, align 1, !tbaa !15
+  %13 = load i8, ptr %5, align 1, !tbaa !16
   %.not5 = icmp ne i8 %13, 58
   %14 = zext i1 %.not5 to i32
   %15 = load i32, ptr %6, align 4, !tbaa !12
@@ -741,6 +741,7 @@ attributes #10 = { nounwind }
 !10 = !{!5, !6, i64 4}
 !11 = !{!5, !6, i64 0}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!7, !7, i64 0}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!7, !7, i64 0}

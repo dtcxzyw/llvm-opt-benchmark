@@ -272,7 +272,7 @@ define internal fastcc void @cleanup_event_list_core(ptr noundef nonnull %0) unn
   %.1 = phi i32 [ %.018, %9 ], [ %11, %10 ]
   %13 = add nuw i32 %.01617, 1
   %exitcond.not = icmp eq i32 %13, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
   tail call void @lv_array_deinit(ptr noundef nonnull %0) #12
@@ -296,7 +296,7 @@ define ptr @lv_event_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br i1 %.not, label %.preheader, label %7
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !48
 
 7:                                                ; preds = %4
   store ptr %1, ptr %6, align 8, !tbaa !38
@@ -331,14 +331,14 @@ define noundef zeroext i1 @lv_event_remove_dsc(ptr noundef %0, ptr noundef readn
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !49
 
 3:                                                ; preds = %2
   %.not22 = icmp eq ptr %1, null
   br i1 %.not22, label %.preheader27, label %4
 
 .preheader27:                                     ; preds = %3, %.preheader27
-  br label %.preheader27
+  br label %.preheader27, !llvm.loop !50
 
 4:                                                ; preds = %3
   %5 = tail call i32 @lv_array_size(ptr noundef nonnull %0) #12
@@ -348,7 +348,7 @@ define noundef zeroext i1 @lv_event_remove_dsc(ptr noundef %0, ptr noundef readn
 6:                                                ; preds = %.critedge
   %7 = add nuw i32 %.01831, 1
   %exitcond.not = icmp eq i32 %7, %5
-  br i1 %exitcond.not, label %.critedge26, label %.critedge, !llvm.loop !47
+  br i1 %exitcond.not, label %.critedge26, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %4, %6
   %.01831 = phi i32 [ %7, %6 ], [ 0, %4 ]
@@ -389,7 +389,7 @@ define i32 @lv_event_get_count(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !52
 
 2:                                                ; preds = %1
   %3 = tail call i32 @lv_array_size(ptr noundef nonnull %0) #12
@@ -402,7 +402,7 @@ define ptr @lv_event_get_dsc(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !53
 
 3:                                                ; preds = %2
   %4 = tail call ptr @lv_array_at(ptr noundef nonnull %0, i32 noundef %1) #12
@@ -424,7 +424,7 @@ define ptr @lv_event_dsc_get_cb(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !54
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8, !tbaa !38
@@ -437,7 +437,7 @@ define ptr @lv_event_dsc_get_user_data(ptr noundef readonly captures(address_is_
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !55
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -451,7 +451,7 @@ define noundef zeroext i1 @lv_event_remove(ptr noundef %0, i32 noundef %1) local
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !56
 
 3:                                                ; preds = %2
   %4 = tail call ptr @lv_array_at(ptr noundef nonnull %0, i32 noundef %1) #12
@@ -495,7 +495,7 @@ define void @lv_event_remove_all(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !57
 
 2:                                                ; preds = %1
   %3 = tail call i32 @lv_array_size(ptr noundef nonnull %0) #12
@@ -536,19 +536,19 @@ cleanup_event_list.exit:                          ; preds = %._crit_edge, %8
   store i32 %18, ptr %16, align 8, !tbaa !40
   %19 = add nuw i32 %.09, 1
   %exitcond.not = icmp eq i32 %19, %3
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @lv_event_get_current_target(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !49
+  %2 = load ptr, ptr %0, align 8, !tbaa !59
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @lv_event_get_target(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
   ret ptr %3
 }
 
@@ -563,7 +563,7 @@ define range(i32 0, -32768) i32 @lv_event_get_code(ptr noundef readonly captures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @lv_event_get_param(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   ret ptr %3
 }
 
@@ -594,27 +594,27 @@ define void @lv_event_stop_processing(ptr noundef captures(none) %0) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define i32 @lv_event_register_id() local_unnamed_addr #9 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 208), align 8, !tbaa !52
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 208), align 8, !tbaa !62
   %2 = add i32 %1, 1
-  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 208), align 8, !tbaa !52
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 208), align 8, !tbaa !62
   ret i32 %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @lv_event_mark_deleted(ptr noundef readnone captures(address) %0) local_unnamed_addr #10 {
-  %.08 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 200), align 8, !tbaa !53
+  %.08 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 200), align 8, !tbaa !63
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %12
   %.010 = phi ptr [ %.0, %12 ], [ %.08, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.010, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = load ptr, ptr %.010, align 8, !tbaa !49
+  %6 = load ptr, ptr %.010, align 8, !tbaa !59
   %7 = icmp eq ptr %6, %0
   br i1 %7, label %8, label %12
 
@@ -627,9 +627,9 @@ define void @lv_event_mark_deleted(ptr noundef readnone captures(address) %0) lo
 
 12:                                               ; preds = %8, %5
   %13 = getelementptr inbounds nuw i8, ptr %.010, i64 40
-  %.0 = load ptr, ptr %13, align 8, !tbaa !53
+  %.0 = load ptr, ptr %13, align 8, !tbaa !63
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %12, %1
   ret void
@@ -722,14 +722,24 @@ attributes #12 = { nounwind }
 !41 = !{!31, !9, i64 16}
 !42 = !{!39, !11, i64 8}
 !43 = !{!31, !11, i64 24}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45}
-!48 = distinct !{!48, !45}
-!49 = !{!31, !11, i64 0}
-!50 = !{!31, !11, i64 8}
-!51 = !{!31, !11, i64 32}
-!52 = !{!4, !9, i64 208}
-!53 = !{!16, !16, i64 0}
-!54 = distinct !{!54, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !46}
+!49 = distinct !{!49, !46}
+!50 = distinct !{!50, !46}
+!51 = distinct !{!51, !45, !46}
+!52 = distinct !{!52, !46}
+!53 = distinct !{!53, !46}
+!54 = distinct !{!54, !46}
+!55 = distinct !{!55, !46}
+!56 = distinct !{!56, !46}
+!57 = distinct !{!57, !46}
+!58 = distinct !{!58, !45, !46}
+!59 = !{!31, !11, i64 0}
+!60 = !{!31, !11, i64 8}
+!61 = !{!31, !11, i64 32}
+!62 = !{!4, !9, i64 208}
+!63 = !{!16, !16, i64 0}
+!64 = distinct !{!64, !45, !46}

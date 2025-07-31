@@ -281,7 +281,7 @@ define internal i64 @loop_write(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %or.cond, label %.loopexit, label %24
 
 24:                                               ; preds = %16
-  br i1 %22, label %16, label %25, !llvm.loop !8
+  br i1 %22, label %16, label %25, !llvm.loop !9
 
 25:                                               ; preds = %24
   %26 = load i16, ptr %7, align 8
@@ -354,6 +354,7 @@ attributes #7 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

@@ -1570,7 +1570,7 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %68 = tail call ptr @proto_tree_add_item(ptr noundef %.0100, i32 noundef %67, ptr noundef %.0, i32 noundef %62, i32 noundef 2, i32 noundef 0)
   %69 = add nuw nsw i32 %.0406417.i, 2
   %70 = icmp samesign ult i32 %69, %47
-  br i1 %70, label %61, label %71, !llvm.loop !8
+  br i1 %70, label %61, label %71, !llvm.loop !9
 
 71:                                               ; preds = %61
   %72 = load ptr, ptr %42, align 8
@@ -1976,7 +1976,7 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %340 = add nuw nsw i32 %.1416.i, 1
   %341 = tail call ptr @proto_tree_add_item(ptr noundef %.0100, i32 noundef %339, ptr noundef %.0, i32 noundef %.1416.i, i32 noundef 1, i32 noundef 0)
   %exitcond.not.i = icmp eq i32 %.1416.i, %338
-  br i1 %exitcond.not.i, label %dissect_gsm_apdu.exit.thread, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %dissect_gsm_apdu.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 342:                                              ; preds = %41
   %343 = load i32, ptr @hf_le, align 4
@@ -2316,7 +2316,8 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

@@ -595,7 +595,7 @@ define dso_local void @DestroyPartitionDirectory(ptr noundef readonly captures(n
   call void @RelationDecrementReferenceCount(ptr noundef %8) #6
   %9 = call ptr @hash_seq_search(ptr noundef nonnull %2) #6
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #6
@@ -716,6 +716,7 @@ attributes #7 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

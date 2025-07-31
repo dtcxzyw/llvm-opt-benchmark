@@ -276,7 +276,7 @@ resetNativeData.exit:                             ; preds = %.lr.ph, %10
   %50 = load i32, ptr @awt_numScreens, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next28, %51
-  br i1 %52, label %.lr.ph24, label %.loopexit, !llvm.loop !8
+  br i1 %52, label %.lr.ph24, label %.loopexit, !llvm.loop !9
 
 .lr.ph24:                                         ; preds = %.preheader, %49
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %49 ], [ 0, %.preheader ]
@@ -1669,7 +1669,7 @@ define void @Java_sun_awt_X11GraphicsConfig_init(ptr noundef %0, ptr noundef %1,
 17:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !10
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
@@ -1909,7 +1909,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %104 = load i32, ptr %9, align 4
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next, %105
-  br i1 %106, label %70, label %._crit_edge, !llvm.loop !10
+  br i1 %106, label %70, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %103, %66
   %.1191.lcssa = phi i32 [ 1, %66 ], [ %.2192, %103 ]
@@ -1973,7 +1973,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %134 = load i32, ptr %4, align 4
   %135 = sext i32 %134 to i64
   %136 = icmp slt i64 %indvars.iv.next272, %135
-  br i1 %136, label %116, label %.preheader226, !llvm.loop !11
+  br i1 %136, label %116, label %.preheader226, !llvm.loop !12
 
 .preheader225:                                    ; preds = %157, %.preheader226
   %.5195.lcssa = phi i32 [ %.3193.lcssa, %.preheader226 ], [ %.6196, %157 ]
@@ -2019,7 +2019,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %158 = load i32, ptr %5, align 4
   %159 = sext i32 %158 to i64
   %160 = icmp slt i64 %indvars.iv.next275, %159
-  br i1 %160, label %140, label %.preheader225, !llvm.loop !12
+  br i1 %160, label %140, label %.preheader225, !llvm.loop !13
 
 .preheader224:                                    ; preds = %181, %.preheader225
   %.7197.lcssa = phi i32 [ %.5195.lcssa, %.preheader225 ], [ %.8, %181 ]
@@ -2065,7 +2065,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %182 = load i32, ptr %6, align 4
   %183 = sext i32 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next278, %183
-  br i1 %184, label %164, label %.preheader224, !llvm.loop !13
+  br i1 %184, label %164, label %.preheader224, !llvm.loop !14
 
 .preheader:                                       ; preds = %205, %.preheader224
   %.9.lcssa = phi i32 [ %.7197.lcssa, %.preheader224 ], [ %.10, %205 ]
@@ -2111,7 +2111,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %206 = load i32, ptr %7, align 4
   %207 = sext i32 %206 to i64
   %208 = icmp slt i64 %indvars.iv.next281, %207
-  br i1 %208, label %188, label %.preheader, !llvm.loop !14
+  br i1 %208, label %188, label %.preheader, !llvm.loop !15
 
 209:                                              ; preds = %.lr.ph259, %226
   %indvars.iv283 = phi i64 [ 0, %.lr.ph259 ], [ %indvars.iv.next284, %226 ]
@@ -2147,7 +2147,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %227 = load i32, ptr %8, align 4
   %228 = sext i32 %227 to i64
   %229 = icmp slt i64 %indvars.iv.next284, %228
-  br i1 %229, label %209, label %.critedge, !llvm.loop !15
+  br i1 %229, label %209, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %226, %.preheader
   %.11.lcssa = phi i32 [ %.9.lcssa, %.preheader ], [ %.12, %226 ]
@@ -2177,7 +2177,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   call void @free(ptr noundef %234) #17
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge264, label %.lr.ph263, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge264, label %.lr.ph263, !llvm.loop !17
 
 ._crit_edge264:                                   ; preds = %.lr.ph263, %231
   call void @free(ptr noundef nonnull %44) #17
@@ -3312,7 +3312,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
   %115 = load i32, ptr %45, align 8
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %109, %100
   %118 = load ptr, ptr %0, align 8
@@ -3999,7 +3999,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
   %54 = load i32, ptr %6, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph55, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph55 ]
@@ -4074,7 +4074,7 @@ X11GD_AddDisplayMode.exit:                        ; preds = %.lr.ph, %64, %X11GD
   %101 = load i32, ptr %5, align 4
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next60, %102
-  br i1 %103, label %.lr.ph55, label %.loopexit, !llvm.loop !19
+  br i1 %103, label %.lr.ph55, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %._crit_edge, %X11GD_AddDisplayMode.exit, %42
   %104 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
@@ -4230,7 +4230,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 58:                                               ; preds = %.lr.ph76
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.critedge, label %.lr.ph76, !llvm.loop !20
+  br i1 %exitcond85.not, label %.critedge, label %.lr.ph76, !llvm.loop !21
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %58
   %indvars.iv81 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next82, %58 ]
@@ -4243,7 +4243,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 63:                                               ; preds = %.lr.ph, %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 64:                                               ; preds = %.lr.ph76
   %65 = load ptr, ptr @awt_XRRSetScreenConfigAndRate, align 8
@@ -4636,7 +4636,7 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
   %37 = load i32, ptr %4, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %24, label %._crit_edge, !llvm.loop !22
+  br i1 %39, label %24, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %36
   %.not43 = icmp eq i32 %.2, -1
@@ -4766,20 +4766,21 @@ attributes #19 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

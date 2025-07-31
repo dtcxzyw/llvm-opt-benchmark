@@ -266,7 +266,7 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i:
   %102 = or disjoint i32 %101, %100
   %103 = add nuw nsw i64 %.03153.i, 1
   %exitcond.not.i = icmp eq i64 %103, 3
-  br i1 %exitcond.not.i, label %104, label %.preheader.i54, !llvm.loop !10
+  br i1 %exitcond.not.i, label %104, label %.preheader.i54, !llvm.loop !11
 
 104:                                              ; preds = %99
   %105 = and i32 %.03252.i55, 31744
@@ -341,11 +341,11 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit: ; p
   %.236 = phi i32 [ %.034131, %.lr.ph ], [ 2, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i ], [ 2, %71 ], [ 2, %117 ]
   %127 = add i64 %.0, 1
   %.not = icmp ult i64 %127, %1
-  br i1 %.not, label %.lr.ph, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, !llvm.loop !11
+  br i1 %.not, label %.lr.ph, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, !llvm.loop !12
 
 _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split: ; preds = %126, %89, %98, %110, %116, %123, %44, %53, %64, %70, %77, %21, %24, %30
   %.lcssa.sink.i60.sink = phi i64 [ %19, %21 ], [ %15, %24 ], [ %28, %30 ], [ %42, %44 ], [ %46, %53 ], [ %62, %64 ], [ %68, %70 ], [ %75, %77 ], [ %87, %89 ], [ %91, %98 ], [ %108, %110 ], [ %114, %116 ], [ %121, %123 ], [ %storemerge130, %126 ]
-  store i64 %.lcssa.sink.i60.sink, ptr %3, align 8, !tbaa !12
+  store i64 %.lcssa.sink.i60.sink, ptr %3, align 8, !tbaa !13
   br label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread
 
 _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread: ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split, %4, %98, %123, %116, %110, %89, %53, %77, %70, %64, %44, %24, %30, %21, %126
@@ -471,7 +471,7 @@ define void @_ZN6duckdb8Utf8Proc9MakeValidEPcmc(ptr noundef captures(none) %0, i
   %61 = or disjoint i32 %60, %59
   %62 = add nuw nsw i64 %.03153.i, 1
   %exitcond.not.i = icmp eq i64 %62, 3
-  br i1 %exitcond.not.i, label %63, label %.preheader.i35, !llvm.loop !10
+  br i1 %exitcond.not.i, label %63, label %.preheader.i35, !llvm.loop !11
 
 63:                                               ; preds = %58
   %64 = and i32 %.03252.i36, 31744
@@ -507,7 +507,7 @@ _ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20Unico
   %.043 = phi i64 [ %storemerge70, %.lr.ph72 ], [ %storemerge70, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit ], [ %14, %.preheader.i ], [ %26, %38 ], [ %51, %63 ], [ %.14448, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread ], [ %.14448, %.lr.ph.preheader ]
   %73 = add i64 %.043, 1
   %74 = icmp ult i64 %73, %1
-  br i1 %74, label %.lr.ph72, label %._crit_edge, !llvm.loop !14
+  br i1 %74, label %.lr.ph72, label %._crit_edge, !llvm.loop !15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -596,7 +596,7 @@ _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit:  ; preds = %3, %13, %18, %26, %
   %.126 = phi i32 [ 2, %13 ], [ undef, %18 ], [ 3, %26 ], [ 4, %36 ], [ undef, %34 ], [ 1, %3 ]
   %.0.i = phi i32 [ %17, %13 ], [ -1, %18 ], [ %33, %26 ], [ %48, %36 ], [ -1, %34 ], [ %7, %3 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  store i32 0, ptr %4, align 4, !tbaa !15
+  store i32 0, ptr %4, align 4, !tbaa !16
   br label %49
 
 49:                                               ; preds = %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit24, %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit
@@ -677,7 +677,7 @@ _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit24: ; preds = %52, %61, %66, %74,
   %.2 = phi i32 [ 2, %61 ], [ %.025, %66 ], [ 3, %74 ], [ 4, %84 ], [ %.025, %82 ], [ 1, %52 ]
   %.0.i23 = phi i32 [ %65, %61 ], [ -1, %66 ], [ %81, %74 ], [ %96, %84 ], [ -1, %82 ], [ %55, %52 ]
   %97 = call noundef zeroext i1 @_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi(i32 noundef %.014, i32 noundef %.0.i23, ptr noundef nonnull %4)
-  br i1 %97, label %98, label %49, !llvm.loop !17
+  br i1 %97, label %98, label %49, !llvm.loop !18
 
 98:                                               ; preds = %49, %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
@@ -692,7 +692,7 @@ define noundef range(i32 -63447168, 4460608) i32 @_ZN6duckdb8Utf8Proc15UTF8ToCod
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %1, align 4, !tbaa !15
+  store i32 1, ptr %1, align 4, !tbaa !16
   br label %47
 
 7:                                                ; preds = %2
@@ -703,7 +703,7 @@ define noundef range(i32 -63447168, 4460608) i32 @_ZN6duckdb8Utf8Proc15UTF8ToCod
   br i1 %or.cond, label %11, label %16
 
 11:                                               ; preds = %7
-  store i32 2, ptr %1, align 4, !tbaa !15
+  store i32 2, ptr %1, align 4, !tbaa !16
   %12 = shl nuw nsw i32 %4, 6
   %13 = zext i8 %9 to i32
   %14 = add nsw i32 %12, -12416
@@ -725,7 +725,7 @@ define noundef range(i32 -63447168, 4460608) i32 @_ZN6duckdb8Utf8Proc15UTF8ToCod
   br i1 %or.cond5, label %24, label %32
 
 24:                                               ; preds = %20
-  store i32 3, ptr %1, align 4, !tbaa !15
+  store i32 3, ptr %1, align 4, !tbaa !16
   %25 = shl nuw nsw i32 %4, 12
   %26 = zext i8 %9 to i32
   %27 = shl nuw nsw i32 %26, 6
@@ -743,7 +743,7 @@ define noundef range(i32 -63447168, 4460608) i32 @_ZN6duckdb8Utf8Proc15UTF8ToCod
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %36 = load i8, ptr %35, align 1, !tbaa !3
-  store i32 4, ptr %1, align 4, !tbaa !15
+  store i32 4, ptr %1, align 4, !tbaa !16
   %37 = shl nuw nsw i32 %4, 18
   %38 = zext i8 %9 to i32
   %39 = shl nuw nsw i32 %38, 12
@@ -788,24 +788,24 @@ define noundef i64 @_ZN6duckdb8Utf8Proc13GraphemeCountEPKcm(ptr noundef %0, i64 
 
 _ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit: ; preds = %_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit.backedge, %2
   %.0 = phi i64 [ 0, %2 ], [ %30, %_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit.backedge ]
-  %12 = load i64, ptr %6, align 8, !tbaa !18
-  %13 = load i64, ptr %7, align 8, !tbaa !18
+  %12 = load i64, ptr %6, align 8, !tbaa !19
+  %13 = load i64, ptr %7, align 8, !tbaa !19
   %14 = icmp eq i64 %12, %13
-  %.pr.pre = load ptr, ptr %4, align 8, !tbaa !23
+  %.pr.pre = load ptr, ptr %4, align 8, !tbaa !24
   %15 = load ptr, ptr %5, align 8
   %16 = icmp eq ptr %.pr.pre, %15
   %or.cond = select i1 %14, i1 %16, i1 false
   br i1 %or.cond, label %17, label %_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit.thread
 
 17:                                               ; preds = %_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit
-  %18 = load i64, ptr %8, align 8, !tbaa !24
-  %19 = load i64, ptr %9, align 8, !tbaa !24
+  %18 = load i64, ptr %8, align 8, !tbaa !25
+  %19 = load i64, ptr %9, align 8, !tbaa !25
   %20 = icmp eq i64 %18, %19
   br i1 %20, label %_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit, label %_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit.thread
 
 _ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit: ; preds = %17
-  %21 = load i64, ptr %10, align 8, !tbaa !25
-  %22 = load i64, ptr %11, align 8, !tbaa !25
+  %21 = load i64, ptr %10, align 8, !tbaa !26
+  %22 = load i64, ptr %11, align 8, !tbaa !26
   %.not = icmp eq i64 %21, %22
   br i1 %.not, label %23, label %_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit.thread
 
@@ -834,7 +834,7 @@ _ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit.thread: ; pr
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit.thread
-  %.sroa.2.0.copyload.i = load i64, ptr %10, align 8, !tbaa !12
+  %.sroa.2.0.copyload.i = load i64, ptr %10, align 8, !tbaa !13
   %30 = add i64 %.0, 1
   %.not.i.i7 = icmp ult i64 %.sroa.2.0.copyload.i, %12
   br i1 %.not.i.i7, label %32, label %31
@@ -844,13 +844,13 @@ _ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit.thread: ; pr
   br label %_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit.backedge
 
 _ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit.backedge: ; preds = %31, %32
-  br label %_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit
+  br label %_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit, !llvm.loop !27
 
 32:                                               ; preds = %29
   %33 = call noundef i64 @_ZN6duckdb8Utf8Proc19NextGraphemeClusterEPKcmm(ptr noundef nonnull %.pr.pre, i64 noundef %12, i64 noundef %.sroa.2.0.copyload.i)
-  %34 = load i64, ptr %10, align 8, !tbaa !25
-  store i64 %34, ptr %8, align 8, !tbaa !24
-  store i64 %33, ptr %10, align 8, !tbaa !25
+  %34 = load i64, ptr %10, align 8, !tbaa !26
+  store i64 %34, ptr %8, align 8, !tbaa !25
+  store i64 %33, ptr %10, align 8, !tbaa !26
   br label %_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit.backedge
 }
 
@@ -869,31 +869,31 @@ define { ptr, i64 } @_ZN6duckdb8Utf8Proc16GraphemeClustersEPKcm(ptr noundef %0, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !18
+  %4 = load i64, ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !18
+  %6 = load i64, ptr %5, align 8, !tbaa !19
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %0, align 8, !tbaa !23
-  %10 = load ptr, ptr %1, align 8, !tbaa !23
+  %9 = load ptr, ptr %0, align 8, !tbaa !24
+  %10 = load ptr, ptr %1, align 8, !tbaa !24
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !24
+  %14 = load i64, ptr %13, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !24
+  %16 = load i64, ptr %15, align 8, !tbaa !25
   %17 = icmp eq i64 %14, %16
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !25
+  %20 = load i64, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !25
+  %22 = load i64, ptr %21, align 8, !tbaa !26
   %23 = icmp ne i64 %20, %22
   br label %24
 
@@ -904,7 +904,7 @@ define noundef zeroext i1 @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIterato
 
 ; Function Attrs: mustprogress uwtable
 define { i64, i64 } @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratordeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
+  %2 = load ptr, ptr %0, align 8, !tbaa !24
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %8
 
@@ -925,9 +925,9 @@ define { i64, i64 } @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratordeEv(
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload = load i64, ptr %9, align 8, !tbaa !12
+  %.sroa.0.0.copyload = load i64, ptr %9, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !13
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1
   ret { i64, i64 } %.fca.1.insert
@@ -935,7 +935,7 @@ define { i64, i64 } @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratordeEv(
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
+  %2 = load ptr, ptr %0, align 8, !tbaa !24
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %8
 
@@ -956,9 +956,9 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb16GraphemeIter
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !25
+  %10 = load i64, ptr %9, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !18
+  %12 = load i64, ptr %11, align 8, !tbaa !19
   %.not.i = icmp ult i64 %10, %12
   br i1 %.not.i, label %14, label %13
 
@@ -969,9 +969,9 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb16GraphemeIter
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = tail call noundef i64 @_ZN6duckdb8Utf8Proc19NextGraphemeClusterEPKcmm(ptr noundef nonnull %2, i64 noundef %12, i64 noundef %10)
-  %17 = load i64, ptr %9, align 8, !tbaa !25
-  store i64 %17, ptr %15, align 8, !tbaa !24
-  store i64 %16, ptr %9, align 8, !tbaa !25
+  %17 = load i64, ptr %9, align 8, !tbaa !26
+  store i64 %17, ptr %15, align 8, !tbaa !25
+  store i64 %16, ptr %9, align 8, !tbaa !26
   br label %_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv.exit
 
 _ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv.exit: ; preds = %13, %14
@@ -996,17 +996,17 @@ declare noundef i32 @_ZN6duckdb16utf8proc_tolowerEi(i32 noundef) local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6duckdb16GraphemeIteratorC2EPKcm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !26
+  store ptr %1, ptr %0, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %4, align 8, !tbaa !28
+  store i64 %2, ptr %4, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorC2EPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr %1, ptr %0, align 8, !tbaa !23
+  store ptr %1, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %4, align 8, !tbaa !18
+  store i64 %2, ptr %4, align 8, !tbaa !19
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %5
 
@@ -1023,9 +1023,9 @@ define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorC2EPKcm(ptr no
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = tail call noundef i64 @_ZN6duckdb8Utf8Proc19NextGraphemeClusterEPKcmm(ptr noundef nonnull %1, i64 noundef %2, i64 noundef 0)
-  %11 = load i64, ptr %9, align 8, !tbaa !25
-  store i64 %11, ptr %6, align 8, !tbaa !24
-  store i64 %10, ptr %9, align 8, !tbaa !25
+  %11 = load i64, ptr %9, align 8, !tbaa !26
+  store i64 %11, ptr %6, align 8, !tbaa !25
+  store i64 %10, ptr %9, align 8, !tbaa !26
   br label %_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv.exit
 
 12:                                               ; preds = %3
@@ -1038,7 +1038,7 @@ _ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv.exit: ; preds = %8,
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
+  %2 = load ptr, ptr %0, align 8, !tbaa !24
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %8
 
@@ -1059,9 +1059,9 @@ define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv(ptr no
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !25
+  %10 = load i64, ptr %9, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !18
+  %12 = load i64, ptr %11, align 8, !tbaa !19
   %.not = icmp ult i64 %10, %12
   br i1 %.not, label %14, label %13
 
@@ -1072,9 +1072,9 @@ define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv(ptr no
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = tail call noundef i64 @_ZN6duckdb8Utf8Proc19NextGraphemeClusterEPKcmm(ptr noundef nonnull %2, i64 noundef %12, i64 noundef %10)
-  %17 = load i64, ptr %9, align 8, !tbaa !25
-  store i64 %17, ptr %15, align 8, !tbaa !24
-  store i64 %16, ptr %9, align 8, !tbaa !25
+  %17 = load i64, ptr %9, align 8, !tbaa !26
+  store i64 %17, ptr %15, align 8, !tbaa !25
+  store i64 %16, ptr %9, align 8, !tbaa !26
   br label %18
 
 18:                                               ; preds = %14, %13
@@ -1089,7 +1089,7 @@ define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator10SetInvalidEv
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIterator9IsInvalidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
+  %2 = load ptr, ptr %0, align 8, !tbaa !24
   %.not = icmp eq ptr %2, null
   ret i1 %.not
 }
@@ -1124,7 +1124,7 @@ define noundef i64 @_ZN6duckdb8Utf8Proc23PreviousGraphemeClusterEPKcmm(ptr nound
   %.not = icmp ugt i64 %7, %.014
   %.not17 = icmp ult i64 %7, %2
   %or.cond = and i1 %.not, %.not17
-  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !29
+  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %5
   %.013 = phi i64 [ %6, %5 ], [ %.014, %.preheader ]
@@ -1137,7 +1137,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  store i32 1, ptr %1, align 4, !tbaa !15
+  store i32 1, ptr %1, align 4, !tbaa !16
   %6 = trunc i32 %0 to i8
   store i8 %6, ptr %2, align 1, !tbaa !3
   br label %56
@@ -1147,7 +1147,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %7
-  store i32 2, ptr %1, align 4, !tbaa !15
+  store i32 2, ptr %1, align 4, !tbaa !16
   %10 = lshr i32 %0, 6
   %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
@@ -1165,7 +1165,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
   br i1 %or.cond, label %19, label %20
 
 19:                                               ; preds = %17
-  store i32 -1, ptr %1, align 4, !tbaa !15
+  store i32 -1, ptr %1, align 4, !tbaa !16
   br label %56
 
 20:                                               ; preds = %17
@@ -1173,7 +1173,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
   br i1 %21, label %22, label %35
 
 22:                                               ; preds = %20
-  store i32 3, ptr %1, align 4, !tbaa !15
+  store i32 3, ptr %1, align 4, !tbaa !16
   %23 = lshr i32 %0, 12
   %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
@@ -1196,7 +1196,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
   br i1 %36, label %37, label %55
 
 37:                                               ; preds = %35
-  store i32 4, ptr %1, align 4, !tbaa !15
+  store i32 4, ptr %1, align 4, !tbaa !16
   %38 = lshr i32 %0, 18
   %39 = trunc nuw nsw i32 %38 to i8
   %40 = or disjoint i8 %39, -16
@@ -1221,7 +1221,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
   br label %56
 
 55:                                               ; preds = %35
-  store i32 -1, ptr %1, align 4, !tbaa !15
+  store i32 -1, ptr %1, align 4, !tbaa !16
   br label %56
 
 56:                                               ; preds = %5, %37, %22, %9, %55, %19
@@ -1339,7 +1339,7 @@ declare noundef ptr @_ZN6duckdb21utf8proc_get_propertyEi(i32 noundef) local_unna
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN6duckdb8Utf8Proc11RenderWidthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !30
+  %3 = load i64, ptr %2, align 8, !tbaa !32
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1347,7 +1347,7 @@ define noundef i64 @_ZN6duckdb8Utf8Proc11RenderWidthERKNSt7__cxx1112basic_string
   %.012 = phi i64 [ %55, %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit ], [ 0, %1 ]
   %.0811 = phi i64 [ %57, %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit ], [ 0, %1 ]
   %.0910 = phi i32 [ %.1, %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit ], [ undef, %1 ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !33
+  %4 = load ptr, ptr %0, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.0811
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = zext i8 %6 to i32
@@ -1424,9 +1424,9 @@ _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit:  ; preds = %.lr.ph, %13, %18, %
   %55 = add i64 %.012, %54
   %56 = sext i32 %.1 to i64
   %57 = add i64 %.0811, %56
-  %58 = load i64, ptr %2, align 8, !tbaa !30
+  %58 = load i64, ptr %2, align 8, !tbaa !32
   %59 = icmp ult i64 %57, %58
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %55, %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit ]
@@ -1465,30 +1465,32 @@ attributes #14 = { noreturn }
 !5 = !{!"Simple C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"_ZTSN6duckdb20UnicodeInvalidReasonE", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !4, i64 0}
-!14 = distinct !{!14, !9}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !4, i64 0}
-!17 = distinct !{!17, !9}
-!18 = !{!19, !13, i64 8}
-!19 = !{!"_ZTSN6duckdb16GraphemeIterator23GraphemeClusterIteratorE", !20, i64 0, !13, i64 8, !22, i64 16}
-!20 = !{!"p1 omnipotent char", !21, i64 0}
-!21 = !{!"any pointer", !4, i64 0}
-!22 = !{!"_ZTSN6duckdb15GraphemeClusterE", !13, i64 0, !13, i64 8}
-!23 = !{!19, !20, i64 0}
-!24 = !{!19, !13, i64 16}
-!25 = !{!19, !13, i64 24}
-!26 = !{!27, !20, i64 0}
-!27 = !{!"_ZTSN6duckdb16GraphemeIteratorE", !20, i64 0, !13, i64 8}
-!28 = !{!27, !13, i64 8}
-!29 = distinct !{!29, !9}
-!30 = !{!31, !13, i64 8}
-!31 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !32, i64 0, !13, i64 8, !4, i64 16}
-!32 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !20, i64 0}
-!33 = !{!31, !20, i64 0}
-!34 = distinct !{!34, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !4, i64 0}
+!15 = distinct !{!15, !9, !10}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !4, i64 0}
+!18 = distinct !{!18, !9, !10}
+!19 = !{!20, !14, i64 8}
+!20 = !{!"_ZTSN6duckdb16GraphemeIterator23GraphemeClusterIteratorE", !21, i64 0, !14, i64 8, !23, i64 16}
+!21 = !{!"p1 omnipotent char", !22, i64 0}
+!22 = !{!"any pointer", !4, i64 0}
+!23 = !{!"_ZTSN6duckdb15GraphemeClusterE", !14, i64 0, !14, i64 8}
+!24 = !{!20, !21, i64 0}
+!25 = !{!20, !14, i64 16}
+!26 = !{!20, !14, i64 24}
+!27 = distinct !{!27, !10}
+!28 = !{!29, !21, i64 0}
+!29 = !{!"_ZTSN6duckdb16GraphemeIteratorE", !21, i64 0, !14, i64 8}
+!30 = !{!29, !14, i64 8}
+!31 = distinct !{!31, !9, !10}
+!32 = !{!33, !14, i64 8}
+!33 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !34, i64 0, !14, i64 8, !4, i64 16}
+!34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !21, i64 0}
+!35 = !{!33, !21, i64 0}
+!36 = distinct !{!36, !9, !10}

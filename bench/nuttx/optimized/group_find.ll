@@ -33,7 +33,7 @@ define ptr @group_findbypid(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %up_irq_restore.exit, label %11
 
 11:                                               ; preds = %9
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !11
   br label %up_irq_restore.exit
 
 12:                                               ; preds = %4
@@ -42,7 +42,7 @@ define ptr @group_findbypid(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i8, label %up_irq_restore.exit, label %14
 
 14:                                               ; preds = %12
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !11
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %14, %12, %11, %9
@@ -69,6 +69,7 @@ attributes #2 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 243451, i64 243469}
 !7 = !{i64 244070}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 244191}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 244191}

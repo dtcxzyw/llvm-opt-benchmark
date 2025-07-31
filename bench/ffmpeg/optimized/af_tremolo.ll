@@ -108,17 +108,17 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %40 = getelementptr inbounds nuw double, ptr %.03243.us, i64 %27
   %41 = getelementptr inbounds nuw double, ptr %.03542.us, i64 %27
   %42 = add nsw i32 %31, 1
-  %43 = load i32, ptr %28, align 8, !tbaa !49
+  %43 = load i32, ptr %28, align 8, !tbaa !50
   %.not40.us = icmp slt i32 %42, %43
   %spec.store.select.us = select i1 %.not40.us, i32 %42, i32 0
   store i32 %spec.store.select.us, ptr %26, align 4
   %44 = add nuw nsw i32 %.03144.us, 1
   %exitcond48.not = icmp eq i32 %44, %15
-  br i1 %exitcond48.not, label %._crit_edge45, label %.preheader.us, !llvm.loop !50
+  br i1 %exitcond48.not, label %._crit_edge45, label %.preheader.us, !llvm.loop !51
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %.promoted = load i32, ptr %26, align 4
-  %.pre = load i32, ptr %28, align 8, !tbaa !49
+  %.pre = load i32, ptr %28, align 8, !tbaa !50
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.preheader
@@ -129,7 +129,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %spec.store.select = select i1 %.not40, i32 %46, i32 0
   %47 = add nuw nsw i32 %.03144, 1
   %exitcond.not = icmp eq i32 %47, %15
-  br i1 %exitcond.not, label %._crit_edge45.split, label %.preheader, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge45.split, label %.preheader, !llvm.loop !53
 
 ._crit_edge45.split:                              ; preds = %.preheader
   store i32 %spec.store.select, ptr %26, align 4
@@ -159,20 +159,20 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load double, ptr %6, align 8, !tbaa !53
+  %7 = load double, ptr %6, align 8, !tbaa !54
   %8 = fmul nsz double %7, 5.000000e-01
   %9 = fsub nsz double 1.000000e+00, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load i32, ptr %10, align 8, !tbaa !54
+  %11 = load i32, ptr %10, align 8, !tbaa !55
   %12 = sitofp i32 %11 to double
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load double, ptr %13, align 8, !tbaa !55
+  %14 = load double, ptr %13, align 8, !tbaa !56
   %15 = fdiv nsz double %12, %14
   %16 = fadd nsz double %15, 5.000000e-01
   %17 = tail call i64 @llvm.lrint.i64.f64(double %16)
   %18 = trunc i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %18, ptr %19, align 8, !tbaa !49
+  store i32 %18, ptr %19, align 8, !tbaa !50
   %sext = shl i64 %17, 32
   %20 = ashr exact i64 %sext, 32
   %21 = tail call ptr @av_malloc_array(i64 noundef %20, i64 noundef 8) #4
@@ -182,12 +182,12 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br i1 %.not, label %42, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %23 = load i32, ptr %19, align 8, !tbaa !49
+  %23 = load i32, ptr %19, align 8, !tbaa !50
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %25 = load i32, ptr %10, align 8, !tbaa !54
+  %25 = load i32, ptr %10, align 8, !tbaa !55
   %26 = sitofp i32 %25 to double
   %27 = tail call nsz double @llvm.fabs.f64(double %9)
   %28 = fsub nsz double 1.000000e+00, %27
@@ -196,7 +196,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = load double, ptr %13, align 8, !tbaa !55
+  %30 = load double, ptr %13, align 8, !tbaa !56
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = uitofp nneg i32 %31 to double
   %33 = fmul nsz double %30, %32
@@ -210,7 +210,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   store double %39, ptr %40, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %29, %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -305,13 +305,14 @@ attributes #4 = { nounwind }
 !44 = !{!"double", !8, i64 0}
 !45 = !{!43, !15, i64 36}
 !46 = !{!44, !44, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!43, !15, i64 32}
-!50 = distinct !{!50, !48, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!52 = distinct !{!52, !48}
-!53 = !{!43, !44, i64 16}
-!54 = !{!23, !15, i64 64}
-!55 = !{!43, !44, i64 8}
-!56 = distinct !{!56, !48}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!43, !15, i64 32}
+!51 = distinct !{!51, !48, !49, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !48, !49}
+!54 = !{!43, !44, i64 16}
+!55 = !{!23, !15, i64 64}
+!56 = !{!43, !44, i64 8}
+!57 = distinct !{!57, !48, !49}

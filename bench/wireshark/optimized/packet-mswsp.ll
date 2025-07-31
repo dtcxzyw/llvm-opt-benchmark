@@ -1826,7 +1826,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @dissect_mswsp_smb_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 25
-  %6 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %6 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -1892,7 +1892,7 @@ define internal zeroext i1 @dissect_mswsp_smb_heur(ptr noundef %0, ptr noundef %
   %38 = getelementptr inbounds nuw i8, ptr %.02243.i.i, i64 8
   %.022.i.i = load ptr, ptr %38, align 8
   %.not29.i.i = icmp eq ptr %.022.i.i, null
-  br i1 %.not29.i.i, label %dissect_mswsp_smb.exit, label %28, !llvm.loop !10
+  br i1 %.not29.i.i, label %dissect_mswsp_smb.exit, label %28, !llvm.loop !11
 
 find_fid_info.exit.i:                             ; preds = %33
   %.not.i = icmp eq ptr %29, null
@@ -2256,7 +2256,7 @@ dissect_CPMConnect.exit:                          ; preds = %get_create_converst
   %151 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ...) @parse_CCategorizationSpec(ptr noundef %0, ptr noundef %1, i32 noundef %.41.i, ptr noundef %109, ptr noundef %114, ptr nonnull poison, i32 noundef %.02.i)
   %152 = add nuw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %152, %147
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %145, %140
   %.3.i = phi i32 [ %144, %140 ], [ %150, %145 ], [ %151, %.lr.ph.i ]
@@ -2423,7 +2423,7 @@ get_create_converstation_data.exit.i144:          ; preds = %178, %175, %166
 
 238:                                              ; preds = %235
   %239 = getelementptr inbounds nuw i8, ptr %231, i64 10
-  %240 = load i8, ptr %239, align 2, !range !8, !noundef !9
+  %240 = load i8, ptr %239, align 2, !range !9, !noundef !10
   %.not7.i.i = icmp eq i8 %240, 0
   br i1 %.not7.i.i, label %250, label %241
 
@@ -2444,7 +2444,7 @@ get_create_converstation_data.exit.i144:          ; preds = %178, %175, %166
   %251 = getelementptr inbounds nuw i8, ptr %.01725.i.i.i, i64 8
   %.017.i.i.i = load ptr, ptr %251, align 8
   %.not.i.i.i = icmp eq ptr %.017.i.i.i, null
-  br i1 %.not.i.i.i, label %find_binding_msg_data.exit.i, label %230, !llvm.loop !12
+  br i1 %.not.i.i.i, label %find_binding_msg_data.exit.i, label %230, !llvm.loop !13
 
 find_binding_msg_data.exit.i:                     ; preds = %250, %245, %221
   %.1.i.i.i = phi ptr [ null, %221 ], [ null, %250 ], [ %231, %245 ]
@@ -2484,7 +2484,7 @@ find_binding_msg_data.exit.i:                     ; preds = %250, %245, %221
 
 267:                                              ; preds = %264
   %268 = getelementptr inbounds nuw i8, ptr %260, i64 10
-  %269 = load i8, ptr %268, align 2, !range !8, !noundef !9
+  %269 = load i8, ptr %268, align 2, !range !9, !noundef !10
   %.not7.i162.i = icmp eq i8 %269, 0
   br i1 %.not7.i162.i, label %279, label %270
 
@@ -2505,7 +2505,7 @@ find_binding_msg_data.exit.i:                     ; preds = %250, %245, %221
   %280 = getelementptr inbounds nuw i8, ptr %.01725.i.i156.i, i64 8
   %.017.i.i157.i = load ptr, ptr %280, align 8
   %.not.i.i158.i = icmp eq ptr %.017.i.i157.i, null
-  br i1 %.not.i.i158.i, label %find_rowsin_msg_data.exit.i, label %259, !llvm.loop !12
+  br i1 %.not.i.i158.i, label %find_rowsin_msg_data.exit.i, label %259, !llvm.loop !13
 
 find_rowsin_msg_data.exit.i:                      ; preds = %279, %274, %find_binding_msg_data.exit.i
   %.1.i.i159.i = phi ptr [ null, %find_binding_msg_data.exit.i ], [ null, %279 ], [ %260, %274 ]
@@ -2545,7 +2545,7 @@ find_rowsin_msg_data.exit.i:                      ; preds = %279, %274, %find_bi
 
 296:                                              ; preds = %293
   %297 = getelementptr inbounds nuw i8, ptr %289, i64 10
-  %298 = load i8, ptr %297, align 2, !range !8, !noundef !9
+  %298 = load i8, ptr %297, align 2, !range !9, !noundef !10
   %.not28.i.i = icmp eq i8 %298, 0
   br i1 %.not28.i.i, label %308, label %299
 
@@ -2566,7 +2566,7 @@ find_rowsin_msg_data.exit.i:                      ; preds = %279, %274, %find_bi
   %309 = getelementptr inbounds nuw i8, ptr %.01725.i.i166.i, i64 8
   %.017.i.i167.i = load ptr, ptr %309, align 8
   %.not.i.i168.i = icmp eq ptr %.017.i.i167.i, null
-  br i1 %.not.i.i168.i, label %find_matching_request_by_fid.exit.thread.i.i, label %288, !llvm.loop !12
+  br i1 %.not.i.i168.i, label %find_matching_request_by_fid.exit.thread.i.i, label %288, !llvm.loop !13
 
 find_matching_request_by_fid.exit.thread.i.i:     ; preds = %308, %find_rowsin_msg_data.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #11
@@ -2614,7 +2614,7 @@ find_matching_request_by_fid.exit.i.i:            ; preds = %303
 
 327:                                              ; preds = %324
   %328 = getelementptr inbounds nuw i8, ptr %320, i64 10
-  %329 = load i8, ptr %328, align 2, !range !8, !noundef !9
+  %329 = load i8, ptr %328, align 2, !range !9, !noundef !10
   %330 = icmp eq i8 %329, 0
   br i1 %330, label %331, label %340
 
@@ -2635,7 +2635,7 @@ find_matching_request_by_fid.exit.i.i:            ; preds = %303
   %341 = getelementptr inbounds nuw i8, ptr %.01725.i19.i.i, i64 8
   %.017.i20.i.i = load ptr, ptr %341, align 8
   %.not.i21.i.i = icmp eq ptr %.017.i20.i.i, null
-  br i1 %.not.i21.i.i, label %find_matching_request_by_fid.exit23.thread.i.i, label %319, !llvm.loop !12
+  br i1 %.not.i21.i.i, label %find_matching_request_by_fid.exit23.thread.i.i, label %319, !llvm.loop !13
 
 find_matching_request_by_fid.exit23.thread.i.i:   ; preds = %340, %310
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
@@ -2891,7 +2891,7 @@ get_create_converstation_data.exit.i154:          ; preds = %460, %457, %455
   %470 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CTableColumn(ptr noundef %0, ptr noundef %1, i32 noundef %468, ptr noundef %429, ptr noundef %431, ptr noundef %469, ptr nonnull poison, i32 noundef %467)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i157, label %._crit_edge.i, label %.lr.ph.i156, !llvm.loop !13
+  br i1 %exitcond.not.i157, label %._crit_edge.i, label %.lr.ph.i156, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i156, %get_create_converstation_data.exit.i154
   %471 = call fastcc ptr @find_or_create_message_data(ptr noundef %.0.i.i155, ptr noundef %1, i16 noundef zeroext 208, i1 noundef zeroext true, ptr noundef readonly %4)
@@ -3399,7 +3399,7 @@ define internal noundef i32 @parse_PropertySetArray(ptr noundef %0, ptr noundef 
   %22 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ...) @parse_CDbPropSet(ptr noundef %0, ptr noundef %1, i32 noundef %.033, ptr noundef %13, ptr noundef %5, ptr nonnull poison, i32 noundef %.03132)
   %23 = add nuw nsw i32 %.03132, 1
   %exitcond.not = icmp eq i32 %23, %17
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi i32 [ %20, %7 ], [ %22, %.lr.ph ]
@@ -3528,7 +3528,7 @@ define internal fastcc noundef zeroext i1 @get_fid_and_frame(ptr noundef %0, ptr
   %48 = getelementptr inbounds nuw i8, ptr %.02243.i, i64 8
   %.022.i = load ptr, ptr %48, align 8
   %.not29.i = icmp eq ptr %.022.i, null
-  br i1 %.not29.i, label %.critedge, label %38, !llvm.loop !10
+  br i1 %.not29.i, label %.critedge, label %38, !llvm.loop !11
 
 find_fid_info.exit:                               ; preds = %43
   %.not24.not = icmp eq ptr %39, null
@@ -3605,9 +3605,9 @@ define internal range(i32 0, 2) i32 @msg_data_find(ptr noundef readonly captures
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %26 = load i8, ptr %25, align 2, !range !8, !noundef !9
+  %26 = load i8, ptr %25, align 2, !range !9, !noundef !10
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %28 = load i8, ptr %27, align 2, !range !8, !noundef !9
+  %28 = load i8, ptr %27, align 2, !range !9, !noundef !10
   %29 = icmp eq i8 %26, %28
   br i1 %29, label %31, label %30
 
@@ -3663,7 +3663,7 @@ define internal noundef i32 @parse_CDbPropSet(ptr noundef %0, ptr noundef %1, i3
 15:                                               ; preds = %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 204
-  br i1 %exitcond.not.i, label %GuidPropertySet_find_guid.exit.thread, label %16, !llvm.loop !15
+  br i1 %exitcond.not.i, label %GuidPropertySet_find_guid.exit.thread, label %16, !llvm.loop !16
 
 16:                                               ; preds = %15, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %15 ]
@@ -3711,7 +3711,7 @@ GuidPropertySet_find_guid.exit.thread:            ; preds = %15, %GuidPropertySe
   %38 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CDbProp(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef %13, ptr noundef %4, ptr noundef %.05.i43, ptr nonnull poison, i32 noundef %.03946)
   %39 = add nuw nsw i32 %.03946, 1
   %exitcond.not = icmp eq i32 %39, %31
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   %.0.lcssa = phi i32 [ %34, %29 ], [ %38, %.lr.ph ]
@@ -3918,7 +3918,7 @@ define internal fastcc noundef i32 @parse_CBaseStorageVariant(ptr noundef %0, pt
 13:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
-  br i1 %exitcond.not.i, label %vType_get_type.exit.thread, label %15, !llvm.loop !17
+  br i1 %exitcond.not.i, label %vType_get_type.exit.thread, label %15, !llvm.loop !18
 
 vType_get_type.exit.thread:                       ; preds = %13
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -4043,7 +4043,7 @@ vType_get_type.exit:                              ; preds = %15
   %93 = mul i32 %87, %.05
   %94 = add nuw nsw i32 %.01183, 1
   %exitcond.not = icmp eq i32 %94, %75
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %70
   %.1.lcssa = phi i32 [ %86, %70 ], [ %92, %.lr.ph ]
@@ -4159,7 +4159,7 @@ define internal fastcc ptr @str_CBaseStorageVariant(ptr noundef %0, i1 noundef z
   %41 = getelementptr i8, ptr %.015.i, i64 %spec.select.i
   %42 = add nuw i32 %.01214.i, 1
   %exitcond.not.i = icmp eq i32 %42, %30
-  br i1 %exitcond.not.i, label %vvalue_strbuf_append_vector.exit, label %37, !llvm.loop !19
+  br i1 %exitcond.not.i, label %vvalue_strbuf_append_vector.exit, label %37, !llvm.loop !20
 
 vvalue_strbuf_append_vector.exit:                 ; preds = %39, %27
   tail call void @wmem_strbuf_append_c(ptr noundef %4, i8 noundef signext 93)
@@ -4200,7 +4200,7 @@ vvalue_strbuf_append_vector.exit:                 ; preds = %39, %27
   %57 = getelementptr i8, ptr %.015.i27, i64 %spec.select.i24
   %58 = add nuw i32 %.01214.i28, 1
   %exitcond.not.i30 = icmp eq i32 %58, %46
-  br i1 %exitcond.not.i30, label %vvalue_strbuf_append_vector.exit31, label %53, !llvm.loop !19
+  br i1 %exitcond.not.i30, label %vvalue_strbuf_append_vector.exit31, label %53, !llvm.loop !20
 
 vvalue_strbuf_append_vector.exit31:               ; preds = %55, %43
   tail call void @wmem_strbuf_append_c(ptr noundef %4, i8 noundef signext 93)
@@ -4287,7 +4287,7 @@ define internal fastcc i32 @vvalue_tvb_vector_internal(ptr noundef %0, i32 nound
   %.1.us = select i1 %.not41.us, i32 %23, i32 %25
   %26 = add nuw i32 %.03544.us, 1
   %exitcond50.not = icmp eq i32 %26, %4
-  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %28
   %.045 = phi i32 [ %31, %28 ], [ %1, %.lr.ph ]
@@ -4307,7 +4307,7 @@ define internal fastcc i32 @vvalue_tvb_vector_internal(ptr noundef %0, i32 nound
   %31 = add i32 %29, %.045
   %32 = add nuw i32 %.03544, 1
   %exitcond.not = icmp eq i32 %32, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %28, %20, %11
   %.0.lcssa = phi i32 [ %1, %11 ], [ %.1.us, %20 ], [ %31, %28 ]
@@ -4600,7 +4600,7 @@ define internal noundef i32 @parse_CColumnSet(ptr noundef %0, i32 noundef %1, pt
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull %.str.1226..str.1251, i32 noundef %15)
   %18 = add nuw i32 %.01920, 1
   %exitcond.not = icmp eq i32 %18, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %10, %4 ], [ %16, %.lr.ph ]
@@ -4650,7 +4650,7 @@ define internal noundef i32 @parse_CRestrictionArray(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
   %27 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %27, %16
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %6
   %.035 = phi i32 [ %23, %6 ], [ %25, %24 ], [ %26, %.lr.ph ]
@@ -4686,7 +4686,7 @@ define internal noundef i32 @parse_CInGroupSortAggregSets(ptr noundef %0, ptr no
   %17 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ...) @parse_CInGroupSortAggregSet(ptr noundef %0, ptr noundef %1, i32 noundef %.025, ptr noundef %12, ptr noundef %4, ptr nonnull poison, i32 noundef %.02324)
   %18 = add nuw i32 %.02324, 1
   %exitcond.not = icmp eq i32 %18, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i32 [ %16, %6 ], [ %17, %.lr.ph ]
@@ -4790,7 +4790,7 @@ define internal noundef i32 @parse_CPidMapper(ptr noundef %0, i32 noundef %1, pt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11
   %20 = add nuw i32 %.02930, 1
   %exitcond.not = icmp eq i32 %20, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %17, %5 ], [ %19, %.lr.ph ]
@@ -4827,7 +4827,7 @@ define internal void @parse_CColumnGroupArray(ptr noundef %0, i32 noundef %1, pt
   %17 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CColumnGroup(ptr noundef %0, i32 noundef %16, ptr noundef %11, ptr poison, ptr nonnull poison, i32 noundef %.028)
   %18 = add nuw i32 %.028, 1
   %exitcond.not = icmp eq i32 %18, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.026.lcssa = phi i32 [ %15, %5 ], [ %17, %.lr.ph ]
@@ -5019,7 +5019,7 @@ define internal noundef i32 @parse_CNodeRestriction(ptr noundef %0, ptr noundef 
   %22 = add nuw i32 %.02829, 1
   %23 = load i32, ptr %5, align 8
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi i32 [ %18, %7 ], [ %21, %.lr.ph ]
@@ -5296,7 +5296,7 @@ define internal i32 @parse_CFullPropSpec(ptr noundef %0, i32 noundef %1, ptr nou
 15:                                               ; preds = %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 204
-  br i1 %exitcond.not.i, label %GuidPropertySet_find_guid.exit, label %16, !llvm.loop !15
+  br i1 %exitcond.not.i, label %GuidPropertySet_find_guid.exit, label %16, !llvm.loop !16
 
 16:                                               ; preds = %15, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %15 ]
@@ -5512,7 +5512,7 @@ define internal noundef i32 @parse_CSortSet(ptr noundef %0, i32 noundef %1, ptr 
   %17 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CSort(ptr noundef %0, i32 noundef %16, ptr noundef %11, ptr poison, ptr noundef nonnull @.str.1328, i32 noundef %.02627)
   %18 = add nuw i32 %.02627, 1
   %exitcond.not = icmp eq i32 %18, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %15, %5 ], [ %17, %.lr.ph ]
@@ -5628,7 +5628,7 @@ define internal noundef i32 @parse_CAggregSet(ptr noundef %0, i32 noundef %1, pt
   %16 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CAggregSpec(ptr noundef %0, i32 noundef %.024, ptr noundef %11, ptr noundef %3, ptr noundef nonnull @.str.1343, i32 noundef %.02223)
   %17 = add nuw i32 %.02223, 1
   %exitcond.not = icmp eq i32 %17, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %15, %5 ], [ %16, %.lr.ph ]
@@ -5664,7 +5664,7 @@ define internal noundef i32 @parse_CSortAggregSet(ptr noundef %0, i32 noundef %1
   %16 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CAggregSortKey(ptr noundef %0, i32 noundef %.024, ptr noundef %11, ptr noundef %3, ptr nonnull poison, i32 noundef %.02223)
   %17 = add nuw i32 %.02223, 1
   %exitcond.not = icmp eq i32 %17, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %15, %5 ], [ %16, %.lr.ph ]
@@ -5714,7 +5714,7 @@ define internal noundef i32 @parse_CRangeCategSpec(ptr noundef %0, ptr noundef %
   %31 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ...) @parse_RANGEBOUNDARY(ptr noundef %0, ptr noundef %1, i32 noundef %.028, ptr noundef %12, ptr noundef %4, ptr nonnull poison, i32 noundef %.02627)
   %32 = add nuw i32 %.02627, 1
   %exitcond.not = icmp eq i32 %32, %27
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i32 [ %30, %6 ], [ %31, %.lr.ph ]
@@ -5938,7 +5938,7 @@ define internal noundef i32 @parse_CColumnGroup(ptr noundef %0, i32 noundef %1, 
   %30 = add nuw i32 %.04042, 1
   %.0 = add i32 %.044, 8
   %exitcond.not = icmp eq i32 %30, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %.0.lcssa = phi i32 [ %.041, %24 ], [ %.0, %.lr.ph ]
@@ -6089,12 +6089,12 @@ define internal noundef i32 @parse_RowsBuffer(ptr noundef %0, ptr noundef %1, i3
   %22 = add nuw i32 %.02526, 1
   %23 = load i32, ptr %16, align 8
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %25 = add nuw i32 %.027, 1
   %exitcond.not = icmp eq i32 %25, %3
-  br i1 %exitcond.not, label %._crit_edge30, label %17, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge30, label %17, !llvm.loop !36
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #11
@@ -6132,7 +6132,7 @@ define internal noundef i32 @parse_UInt32Array(ptr noundef %0, i32 noundef %1, p
   %16 = add i32 %.022, 4
   %17 = add nuw i32 %.02021, 1
   %exitcond.not = icmp eq i32 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i32 [ %1, %6 ], [ %16, %.lr.ph ]
@@ -6268,7 +6268,7 @@ define internal void @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 nound
 21:                                               ; preds = %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
-  br i1 %exitcond.not.i, label %vType_get_type.exit, label %22, !llvm.loop !17
+  br i1 %exitcond.not.i, label %vType_get_type.exit, label %22, !llvm.loop !18
 
 22:                                               ; preds = %21, %9
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %21 ]
@@ -6333,7 +6333,7 @@ vType_get_type.exit:                              ; preds = %21, %22
 55:                                               ; preds = %56
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 28
-  br i1 %exitcond.not.i.i, label %get_fixed_vtype_dataize.exit, label %56, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %get_fixed_vtype_dataize.exit, label %56, !llvm.loop !18
 
 56:                                               ; preds = %55, %36
   %indvars.iv.i.i = phi i64 [ 0, %36 ], [ %indvars.iv.next.i.i, %55 ]
@@ -6464,7 +6464,7 @@ get_fixed_vtype_dataize.exit:                     ; preds = %55, %vType_get_type
   %128 = add i32 %.06573.us.i, 1
   %129 = zext i32 %128 to i64
   %130 = icmp ugt i64 %77, %129
-  br i1 %130, label %.lr.ph.split.us.i, label %parse_VariantColVector.exit, !llvm.loop !37
+  br i1 %130, label %.lr.ph.split.us.i, label %parse_VariantColVector.exit, !llvm.loop !38
 
 .lr.ph.split.i:                                   ; preds = %150, %.lr.ph.split.preheader.i
   %.06573.i = phi i32 [ %155, %150 ], [ 0, %.lr.ph.split.preheader.i ]
@@ -6519,7 +6519,7 @@ get_fixed_vtype_dataize.exit:                     ; preds = %55, %vType_get_type
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
   %155 = add nuw i32 %.06573.i, 1
   %exitcond.not = icmp eq i32 %155, %91
-  br i1 %exitcond.not, label %parse_VariantColVector.exit, label %.lr.ph.split.i, !llvm.loop !38
+  br i1 %exitcond.not, label %parse_VariantColVector.exit, label %.lr.ph.split.i, !llvm.loop !39
 
 156:                                              ; preds = %get_fixed_vtype_dataize.exit
   %157 = call ptr @wmem_packet_scope()
@@ -6630,7 +6630,7 @@ define internal noundef i32 @parse_CTableColumn(ptr noundef %0, ptr noundef %1, 
 17:                                               ; preds = %18
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 204
-  br i1 %exitcond.not.i.i, label %.thread.i, label %18, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.thread.i, label %18, !llvm.loop !16
 
 18:                                               ; preds = %17, %7
   %indvars.iv.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i, %17 ]
@@ -6727,7 +6727,7 @@ get_name_from_fullpropspec.exit:                  ; preds = %28, %41, %45, %49
 59:                                               ; preds = %60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
-  br i1 %exitcond.not.i, label %vType_get_type.exit.thread, label %60, !llvm.loop !17
+  br i1 %exitcond.not.i, label %vType_get_type.exit.thread, label %60, !llvm.loop !18
 
 60:                                               ; preds = %59, %57
   %indvars.iv.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i, %59 ]
@@ -6900,7 +6900,7 @@ define internal noundef i32 @parse_uin32_array(ptr noundef %0, i32 noundef %1, p
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull %.str.1226..str.1251, i32 noundef %14)
   %17 = add nuw i32 %.01617, 1
   %exitcond.not = icmp eq i32 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %1, %5 ], [ %15, %.lr.ph ]
@@ -6937,37 +6937,38 @@ attributes #13 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7, !21}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8, !22}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}

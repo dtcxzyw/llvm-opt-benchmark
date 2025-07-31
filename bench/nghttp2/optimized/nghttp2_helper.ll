@@ -126,23 +126,23 @@ define hidden void @nghttp2_downcase(ptr noundef captures(none) %0, i64 noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
-  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %5 = load i32, ptr %3, align 4, !tbaa !9
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %27
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %1, align 4, !tbaa !8
+  %8 = load i32, ptr %1, align 4, !tbaa !9
   %9 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %8, i32 0)
   %10 = sub nsw i32 %9, %5
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7
-  store i32 %10, ptr %1, align 4, !tbaa !8
+  store i32 %10, ptr %1, align 4, !tbaa !9
   br label %46
 
 13:                                               ; preds = %7
-  %14 = load i32, ptr %0, align 4, !tbaa !8
+  %14 = load i32, ptr %0, align 4, !tbaa !9
   %15 = add nsw i32 %10, 2147483647
   %16 = icmp sgt i32 %14, %15
   br i1 %16, label %46, label %17
@@ -150,49 +150,49 @@ define hidden range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr nound
 17:                                               ; preds = %13
   %18 = sub nsw i32 0, %10
   %19 = sub nsw i32 %14, %10
-  store i32 %19, ptr %0, align 4, !tbaa !8
-  %20 = load i32, ptr %2, align 4, !tbaa !8
+  store i32 %19, ptr %0, align 4, !tbaa !9
+  %20 = load i32, ptr %2, align 4, !tbaa !9
   %21 = tail call noundef i32 @llvm.smin.i32(i32 %20, i32 range(i32 0, -2147483648) %18)
   %22 = sub nsw i32 %20, %21
-  store i32 %22, ptr %2, align 4, !tbaa !8
-  %23 = load i32, ptr %1, align 4, !tbaa !8
+  store i32 %22, ptr %2, align 4, !tbaa !9
+  %23 = load i32, ptr %1, align 4, !tbaa !9
   %24 = tail call i32 @llvm.smin.i32(i32 %23, i32 0)
   %storemerge = add nsw i32 %24, %21
-  store i32 %storemerge, ptr %1, align 4, !tbaa !8
-  %25 = load i32, ptr %3, align 4, !tbaa !8
+  store i32 %storemerge, ptr %1, align 4, !tbaa !9
+  %25 = load i32, ptr %3, align 4, !tbaa !9
   %26 = sub nsw i32 %25, %21
-  store i32 %26, ptr %3, align 4, !tbaa !8
+  store i32 %26, ptr %3, align 4, !tbaa !9
   br label %46
 
 27:                                               ; preds = %4
-  %28 = load i32, ptr %0, align 4, !tbaa !8
+  %28 = load i32, ptr %0, align 4, !tbaa !9
   %29 = add nsw i32 %28, %5
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %46, label %31
 
 31:                                               ; preds = %27
-  %32 = load i32, ptr %1, align 4, !tbaa !8
+  %32 = load i32, ptr %1, align 4, !tbaa !9
   %33 = sub nsw i32 -2147483648, %5
   %34 = icmp slt i32 %32, %33
   br i1 %34, label %46, label %35
 
 35:                                               ; preds = %31
-  %36 = load i32, ptr %2, align 4, !tbaa !8
+  %36 = load i32, ptr %2, align 4, !tbaa !9
   %37 = add nsw i32 %5, 2147483647
   %38 = icmp sgt i32 %36, %37
   br i1 %38, label %46, label %39
 
 39:                                               ; preds = %35
-  store i32 %29, ptr %0, align 4, !tbaa !8
-  %40 = load i32, ptr %3, align 4, !tbaa !8
-  %41 = load i32, ptr %1, align 4, !tbaa !8
+  store i32 %29, ptr %0, align 4, !tbaa !9
+  %40 = load i32, ptr %3, align 4, !tbaa !9
+  %41 = load i32, ptr %1, align 4, !tbaa !9
   %42 = add nsw i32 %41, %40
-  store i32 %42, ptr %1, align 4, !tbaa !8
-  %43 = load i32, ptr %3, align 4, !tbaa !8
-  %44 = load i32, ptr %2, align 4, !tbaa !8
+  store i32 %42, ptr %1, align 4, !tbaa !9
+  %43 = load i32, ptr %3, align 4, !tbaa !9
+  %44 = load i32, ptr %2, align 4, !tbaa !9
   %45 = sub nsw i32 %44, %43
-  store i32 %45, ptr %2, align 4, !tbaa !8
-  store i32 0, ptr %3, align 4, !tbaa !8
+  store i32 %45, ptr %2, align 4, !tbaa !9
+  store i32 0, ptr %3, align 4, !tbaa !9
   br label %46
 
 46:                                               ; preds = %27, %31, %35, %12, %17, %13, %39
@@ -202,7 +202,7 @@ define hidden range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
-  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %5 = load i32, ptr %3, align 4, !tbaa !9
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %8, label %7
 
@@ -211,24 +211,24 @@ define hidden range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr nou
   unreachable
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr %0, align 4, !tbaa !8
+  %9 = load i32, ptr %0, align 4, !tbaa !9
   %10 = sub nuw nsw i32 2147483647, %5
   %11 = icmp sgt i32 %9, %10
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %8
   %13 = add nsw i32 %9, %5
-  store i32 %13, ptr %0, align 4, !tbaa !8
-  %14 = load i32, ptr %2, align 4, !tbaa !8
+  store i32 %13, ptr %0, align 4, !tbaa !9
+  %14 = load i32, ptr %2, align 4, !tbaa !9
   %15 = tail call noundef i32 @llvm.smin.i32(i32 %14, i32 range(i32 0, -2147483648) %5)
   %16 = sub nsw i32 %14, %15
-  store i32 %16, ptr %2, align 4, !tbaa !8
-  %17 = load i32, ptr %1, align 4, !tbaa !8
+  store i32 %16, ptr %2, align 4, !tbaa !9
+  %17 = load i32, ptr %1, align 4, !tbaa !9
   %18 = add nsw i32 %17, %15
-  store i32 %18, ptr %1, align 4, !tbaa !8
-  %19 = load i32, ptr %3, align 4, !tbaa !8
+  store i32 %18, ptr %1, align 4, !tbaa !9
+  %19 = load i32, ptr %3, align 4, !tbaa !9
   %20 = sub nsw i32 %19, %15
-  store i32 %20, ptr %3, align 4, !tbaa !8
+  store i32 %20, ptr %3, align 4, !tbaa !9
   br label %21
 
 21:                                               ; preds = %8, %12
@@ -461,14 +461,14 @@ define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly captu
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.116, i64 1
   %.not = icmp eq ptr %14, %12
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %.116 = phi ptr [ %14, %13 ], [ %.012, %.lr.ph.preheader ]
   %15 = load i8, ptr %.116, align 1, !tbaa !3
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !8
+  %18 = load i32, ptr %17, align 4, !tbaa !9
   %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %.loopexit, label %13
 
@@ -486,14 +486,14 @@ define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly capt
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %.not = icmp eq ptr %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %2, %4
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %6 = load i8, ptr %.069, align 1, !tbaa !3
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %7
-  %9 = load i32, ptr %8, align 4, !tbaa !8
+  %9 = load i32, ptr %8, align 4, !tbaa !9
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %._crit_edge, label %4
 
@@ -526,14 +526,14 @@ define range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef reado
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.069.i, i64 1
   %.not.i = icmp eq ptr %11, %7
-  br i1 %.not.i, label %nghttp2_check_header_value.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %nghttp2_check_header_value.exit, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %6, %10
   %.069.i = phi ptr [ %11, %10 ], [ %0, %6 ]
   %12 = load i8, ptr %.069.i, align 1, !tbaa !3
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !8
+  %15 = load i32, ptr %14, align 4, !tbaa !9
   %.not7.i = icmp eq i32 %15, 0
   br i1 %.not7.i, label %nghttp2_check_header_value.exit, label %10
 
@@ -554,7 +554,7 @@ define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly captures(a
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.0711, i64 1
   %.not = icmp eq ptr %6, %4
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %.0711 = phi ptr [ %6, %5 ], [ %0, %.lr.ph.preheader ]
@@ -579,7 +579,7 @@ define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly captures(add
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %.not = icmp eq ptr %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %2, %4
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
@@ -604,7 +604,7 @@ define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly capture
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %.not = icmp eq ptr %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %2, %4
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
@@ -683,12 +683,13 @@ attributes #10 = { noreturn nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"int", !4, i64 0}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !4, i64 0}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

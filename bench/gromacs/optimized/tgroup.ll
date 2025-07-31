@@ -122,7 +122,7 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
 78:                                               ; preds = %67
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 3
-  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %78, %32, %33
   %79 = getelementptr inbounds nuw i8, ptr %24, i64 80
@@ -179,7 +179,7 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
   %121 = load float, ptr %120, align 4, !tbaa !15
   %122 = fadd float %119, %121
   %123 = tail call noundef float @_Z9calc_tempff(float noundef %122, float noundef %22)
-  store float %123, ptr %24, align 8, !tbaa !27
+  store float %123, ptr %24, align 8, !tbaa !28
   %124 = load float, ptr %79, align 4, !tbaa !15
   %125 = load float, ptr %95, align 4, !tbaa !15
   %126 = fadd float %124, %125
@@ -187,7 +187,7 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
   %128 = fadd float %126, %127
   %129 = tail call noundef float @_Z9calc_tempff(float noundef %128, float noundef %22)
   %130 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store float %129, ptr %130, align 4, !tbaa !28
+  store float %129, ptr %130, align 4, !tbaa !29
   br i1 %3, label %131, label %133
 
 131:                                              ; preds = %.loopexit
@@ -202,8 +202,8 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
 
 135:                                              ; preds = %20
   %136 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store float 0.000000e+00, ptr %136, align 4, !tbaa !28
-  store float 0.000000e+00, ptr %24, align 8, !tbaa !27
+  store float 0.000000e+00, ptr %136, align 4, !tbaa !29
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !28
   br label %137
 
 137:                                              ; preds = %131, %133, %135
@@ -212,7 +212,7 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
   %140 = fadd float %.06069, %22
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond81.not, label %._crit_edge, label %20, !llvm.loop !29
+  br i1 %exitcond81.not, label %._crit_edge, label %20, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %137, %5
   %.062.lcssa = phi float [ 0.000000e+00, %5 ], [ %139, %137 ]
@@ -222,12 +222,12 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
 
 141:                                              ; preds = %._crit_edge
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %143 = load float, ptr %142, align 8, !tbaa !30
+  %143 = load float, ptr %142, align 8, !tbaa !31
   br i1 %3, label %.sink.split, label %144
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  %146 = load float, ptr %145, align 4, !tbaa !54
+  %146 = load float, ptr %145, align 4, !tbaa !55
   %147 = fadd float %143, %146
   %148 = fmul float %147, 5.000000e-01
   br label %.sink.split
@@ -286,34 +286,35 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !21 = !{!"_ZTS12t_grp_tcstat", !16, i64 0, !16, i64 4, !7, i64 8, !7, i64 44, !7, i64 80, !16, i64 116, !22, i64 120, !22, i64 128, !22, i64 136}
 !22 = !{!"double", !7, i64 0}
 !23 = !{!21, !22, i64 120}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
-!27 = !{!21, !16, i64 0}
-!28 = !{!21, !16, i64 4}
-!29 = distinct !{!29, !25}
-!30 = !{!31, !16, i64 152}
-!31 = !{!"_ZTS14gmx_ekindata_t", !32, i64 0, !36, i64 24, !16, i64 28, !37, i64 32, !12, i64 56, !12, i64 64, !12, i64 72, !7, i64 80, !7, i64 116, !16, i64 152, !16, i64 156, !40, i64 160, !47, i64 168, !52, i64 192, !53, i64 204, !6, i64 208}
-!32 = !{!"_ZTSSt6vectorIfSaIfEE", !33, i64 0}
-!33 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !34, i64 0}
-!34 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !35, i64 0}
-!35 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
-!36 = !{!"_ZTS26EnsembleTemperatureSetting", !7, i64 0}
-!37 = !{!"_ZTSSt6vectorI12t_grp_tcstatSaIS0_EE", !38, i64 0}
-!38 = !{!"_ZTSSt12_Vector_baseI12t_grp_tcstatSaIS0_EE", !39, i64 0}
-!39 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE12_Vector_implE", !18, i64 0}
-!40 = !{!"_ZTSSt10unique_ptrI13SystemMomentaSt14default_deleteIS0_EE", !41, i64 0}
-!41 = !{!"_ZTSSt15__uniq_ptr_dataI13SystemMomentaSt14default_deleteIS0_ELb1ELb1EE", !42, i64 0}
-!42 = !{!"_ZTSSt15__uniq_ptr_implI13SystemMomentaSt14default_deleteIS0_EE", !43, i64 0}
-!43 = !{!"_ZTSSt5tupleIJP13SystemMomentaSt14default_deleteIS0_EEE", !44, i64 0}
-!44 = !{!"_ZTSSt11_Tuple_implILm0EJP13SystemMomentaSt14default_deleteIS0_EEE", !45, i64 0}
-!45 = !{!"_ZTSSt10_Head_baseILm0EP13SystemMomentaLb0EE", !46, i64 0}
-!46 = !{!"p1 _ZTS13SystemMomenta", !10, i64 0}
-!47 = !{!"_ZTSSt6vectorISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !48, i64 0}
-!48 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !49, i64 0}
-!49 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE12_Vector_implE", !50, i64 0}
-!50 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !51, i64 0, !51, i64 8, !51, i64 16}
-!51 = !{!"p1 _ZTSSt10unique_ptrI14SystemMomentumSt14default_deleteIS0_EE", !10, i64 0}
-!52 = !{!"_ZTS9t_cos_acc", !16, i64 0, !16, i64 4, !16, i64 8}
-!53 = !{!"bool", !7, i64 0}
-!54 = !{!31, !16, i64 156}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !25, !26}
+!28 = !{!21, !16, i64 0}
+!29 = !{!21, !16, i64 4}
+!30 = distinct !{!30, !25, !26}
+!31 = !{!32, !16, i64 152}
+!32 = !{!"_ZTS14gmx_ekindata_t", !33, i64 0, !37, i64 24, !16, i64 28, !38, i64 32, !12, i64 56, !12, i64 64, !12, i64 72, !7, i64 80, !7, i64 116, !16, i64 152, !16, i64 156, !41, i64 160, !48, i64 168, !53, i64 192, !54, i64 204, !6, i64 208}
+!33 = !{!"_ZTSSt6vectorIfSaIfEE", !34, i64 0}
+!34 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !35, i64 0}
+!35 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !36, i64 0}
+!36 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
+!37 = !{!"_ZTS26EnsembleTemperatureSetting", !7, i64 0}
+!38 = !{!"_ZTSSt6vectorI12t_grp_tcstatSaIS0_EE", !39, i64 0}
+!39 = !{!"_ZTSSt12_Vector_baseI12t_grp_tcstatSaIS0_EE", !40, i64 0}
+!40 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE12_Vector_implE", !18, i64 0}
+!41 = !{!"_ZTSSt10unique_ptrI13SystemMomentaSt14default_deleteIS0_EE", !42, i64 0}
+!42 = !{!"_ZTSSt15__uniq_ptr_dataI13SystemMomentaSt14default_deleteIS0_ELb1ELb1EE", !43, i64 0}
+!43 = !{!"_ZTSSt15__uniq_ptr_implI13SystemMomentaSt14default_deleteIS0_EE", !44, i64 0}
+!44 = !{!"_ZTSSt5tupleIJP13SystemMomentaSt14default_deleteIS0_EEE", !45, i64 0}
+!45 = !{!"_ZTSSt11_Tuple_implILm0EJP13SystemMomentaSt14default_deleteIS0_EEE", !46, i64 0}
+!46 = !{!"_ZTSSt10_Head_baseILm0EP13SystemMomentaLb0EE", !47, i64 0}
+!47 = !{!"p1 _ZTS13SystemMomenta", !10, i64 0}
+!48 = !{!"_ZTSSt6vectorISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !49, i64 0}
+!49 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !50, i64 0}
+!50 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE12_Vector_implE", !51, i64 0}
+!51 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !52, i64 0, !52, i64 8, !52, i64 16}
+!52 = !{!"p1 _ZTSSt10unique_ptrI14SystemMomentumSt14default_deleteIS0_EE", !10, i64 0}
+!53 = !{!"_ZTS9t_cos_acc", !16, i64 0, !16, i64 4, !16, i64 8}
+!54 = !{!"bool", !7, i64 0}
+!55 = !{!32, !16, i64 156}

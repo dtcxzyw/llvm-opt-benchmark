@@ -1427,18 +1427,18 @@ define internal fastcc range(i32 -1, 1) i32 @new_code_arena() unnamed_addr #0 {
   br label %36
 
 29:                                               ; preds = %23
-  store ptr %1, ptr %24, align 8, !tbaa !201
+  store ptr %1, ptr %24, align 8, !tbaa !202
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %1, ptr %30, align 8, !tbaa !185
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i64 65536, ptr %31, align 8, !tbaa !202
+  store i64 65536, ptr %31, align 8, !tbaa !203
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 65536, ptr %32, align 8, !tbaa !184
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 sub (i64 ptrtoint (ptr @_Py_trampoline_func_end to i64), i64 ptrtoint (ptr @_Py_trampoline_func_start to i64)), ptr %33, align 8, !tbaa !182
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2648), align 8, !tbaa !181
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store ptr %34, ptr %35, align 8, !tbaa !203
+  store ptr %34, ptr %35, align 8, !tbaa !204
   store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2648), align 8, !tbaa !181
   br label %36
 
@@ -1456,15 +1456,15 @@ define hidden void @_PyPerfTrampoline_FreeArenas() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %.07.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %0 ]
-  %2 = load ptr, ptr %.07.i, align 8, !tbaa !201
+  %2 = load ptr, ptr %.07.i, align 8, !tbaa !202
   %3 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !202
+  %4 = load i64, ptr %3, align 8, !tbaa !203
   %5 = tail call i32 @munmap(ptr noundef %2, i64 noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %.07.i, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !203
+  %7 = load ptr, ptr %6, align 8, !tbaa !204
   tail call void @PyMem_RawFree(ptr noundef nonnull %.07.i) #10
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %free_code_arenas.exit, label %.lr.ph.i, !llvm.loop !204
+  br i1 %.not.i, label %free_code_arenas.exit, label %.lr.ph.i, !llvm.loop !205
 
 free_code_arenas.exit:                            ; preds = %.lr.ph.i, %0
   ret void
@@ -1473,14 +1473,14 @@ free_code_arenas.exit:                            ; preds = %.lr.ph.i, %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @PyUnstable_PerfTrampoline_SetPersistAfterFork(i32 noundef returned %0) local_unnamed_addr #5 {
   %2 = sext i32 %0 to i64
-  store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2704), align 8, !tbaa !205
+  store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2704), align 8, !tbaa !206
   ret i32 %0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyPerfTrampoline_AfterFork_Child(ptr dead_on_unwind noalias writable sret(%struct.PyStatus) align 8 %0) local_unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
-  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2704), align 8, !tbaa !205
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2704), align 8, !tbaa !206
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %27, label %4
 
@@ -1900,10 +1900,11 @@ attributes #10 = { nounwind }
 !196 = !{!5, !29, i64 2672}
 !197 = !{!42, !29, i64 16}
 !198 = !{!52, !52, i64 0}
-!199 = distinct !{!199, !200}
+!199 = distinct !{!199, !200, !201}
 !200 = !{!"llvm.loop.mustprogress"}
-!201 = !{!183, !63, i64 0}
-!202 = !{!183, !9, i64 16}
-!203 = !{!183, !66, i64 40}
-!204 = distinct !{!204, !200}
-!205 = !{!5, !9, i64 2704}
+!201 = !{!"llvm.loop.estimated_trip_count"}
+!202 = !{!183, !63, i64 0}
+!203 = !{!183, !9, i64 16}
+!204 = !{!183, !66, i64 40}
+!205 = distinct !{!205, !200, !201}
+!206 = !{!5, !9, i64 2704}

@@ -270,7 +270,7 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %54 = sext i32 %53 to i64
   %55 = icmp sge i64 %indvars.iv.next, %54
   %.not24 = select i1 %55, i1 true, i1 %.not
-  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit
   br i1 %.not, label %57, label %.critedge
@@ -317,7 +317,7 @@ define range(i64 0, 2) i64 @overpaid(ptr noundef captures(none) %0) local_unname
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   %7 = call i64 @GetAttributeByName(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %2) #18
-  %8 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %8 = load i8, ptr %2, align 1, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -389,7 +389,7 @@ switch.early.test:                                ; preds = %1, %15
   %.1 = phi i32 [ %12, %10 ], [ %.01925, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %17 = icmp sgt i32 %.1, 2
-  br i1 %17, label %21, label %switch.early.test, !llvm.loop !8
+  br i1 %17, label %21, label %switch.early.test, !llvm.loop !9
 
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -495,7 +495,7 @@ define i64 @reverse_name(ptr noundef readonly captures(none) %0) local_unnamed_a
 9:                                                ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !10
 
 .critedge.thread:                                 ; preds = %6
   %10 = trunc nuw nsw i64 %indvars.iv to i32
@@ -528,7 +528,7 @@ define i64 @reverse_name(ptr noundef readonly captures(none) %0) local_unnamed_a
   store i8 %19, ptr %21, align 1
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, -1
   %.not29 = icmp eq i64 %indvars.iv25, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %22 = ptrtoint ptr %5 to i64
@@ -689,7 +689,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br label %60
 
 59:                                               ; preds = %71
-  br i1 %61, label %60, label %78, !llvm.loop !11
+  br i1 %61, label %60, label %78, !llvm.loop !12
 
 60:                                               ; preds = %53, %59
   %61 = phi i1 [ true, %53 ], [ false, %59 ]
@@ -728,7 +728,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 78:                                               ; preds = %59
   %79 = load i32, ptr %2, align 4
   %80 = call i64 @SPI_getbinval(ptr noundef %36, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #18
-  %81 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %81 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %87
 
@@ -744,7 +744,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = call i64 @SPI_getbinval(ptr noundef %36, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #18
-  %91 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %91 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %93, label %98
 
@@ -763,7 +763,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 
 99:                                               ; preds = %98
   %100 = call i64 @SPI_getbinval(ptr noundef nonnull %.0119, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #18
-  %101 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %101 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %107
 
@@ -777,7 +777,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 
 107:                                              ; preds = %99
   %108 = call i64 @SPI_getbinval(ptr noundef nonnull %.0119, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #18
-  %109 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %109 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %116
 
@@ -850,13 +850,13 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %142 = call i64 @SPI_getbinval(ptr noundef %139, ptr noundef nonnull %57, i32 noundef %141, ptr noundef nonnull %4) #18
   %143 = getelementptr inbounds nuw i64, ptr %136, i64 %indvars.iv154
   store i64 %142, ptr %143, align 8
-  %144 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %144 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %145 = trunc nuw i8 %144 to i1
   %146 = select i1 %145, i8 110, i8 32
   %147 = getelementptr inbounds nuw i8, ptr %137, i64 %indvars.iv154
   store i8 %146, ptr %147, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %140, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %140, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %140, %128
   br i1 %.not132, label %153, label %148
@@ -907,7 +907,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   store i32 %173, ptr %176, align 4
   %177 = add i32 %.2147, 1
   %.not137 = icmp sgt i32 %177, %58
-  br i1 %.not137, label %._crit_edge150, label %.lr.ph149, !llvm.loop !13
+  br i1 %.not137, label %._crit_edge150, label %.lr.ph149, !llvm.loop !14
 
 ._crit_edge150:                                   ; preds = %.lr.ph149, %160
   %178 = call ptr @SPI_prepare(ptr noundef %166, i32 noundef %58, ptr noundef %162) #18
@@ -1182,13 +1182,13 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   %gep = getelementptr i8, ptr %invariant.gep, i64 %26
   %27 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 91
-  %29 = load i8, ptr %28, align 1, !range !6, !noundef !7
+  %29 = load i8, ptr %28, align 1, !range !7, !noundef !8
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %100, label %31
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1, !range !6, !noundef !7
+  %33 = load i8, ptr %32, align 1, !range !7, !noundef !8
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %100, label %35
 
@@ -1309,7 +1309,7 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
 100:                                              ; preds = %48, %.lr.ph, %31, %35, %38, %95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %100, %1
   %101 = call ptr @heap_form_tuple(ptr noundef nonnull %9, ptr noundef %19, ptr noundef %20) #18
@@ -1377,7 +1377,7 @@ define i64 @get_environ(ptr noundef readnone captures(none) %0) local_unnamed_ad
   %9 = getelementptr inbounds nuw i8, ptr %.01216, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %._crit_edge
   %11 = tail call ptr @construct_array_builtin(ptr noundef %6, i32 noundef %.013.lcssa, i32 noundef 25) #18
@@ -1395,7 +1395,7 @@ define i64 @get_environ(ptr noundef readnone captures(none) %0) local_unnamed_ad
   store i64 %17, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !17
 }
 
 declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -1476,7 +1476,7 @@ define noundef i64 @wait_pid(ptr noundef readonly captures(none) %0) local_unnam
 .lr.ph:                                           ; preds = %.preheader, %13
   %11 = load volatile i32, ptr @InterruptPending, align 4
   %.not2 = icmp eq i32 %11, 0
-  br i1 %.not2, label %13, label %12, !prof !17
+  br i1 %.not2, label %13, label %12, !prof !18
 
 12:                                               ; preds = %.lr.ph
   tail call void @ProcessInterrupts() #18
@@ -1486,7 +1486,7 @@ define noundef i64 @wait_pid(ptr noundef readonly captures(none) %0) local_unnam
   tail call void @pg_usleep(i64 noundef 50000) #18
   %14 = tail call i32 @kill(i32 noundef %4, i32 noundef 0) #18
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %16 = tail call ptr @__errno_location() #21
@@ -1527,7 +1527,7 @@ define noundef range(i64 0, 2) i64 @test_atomic_ops(ptr noundef readnone capture
   %4 = alloca %struct.pg_atomic_uint32, align 4
   %5 = alloca %struct.pg_atomic_flag, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !20
   store volatile i8 0, ptr %5, align 1
   %6 = load volatile i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
@@ -1541,7 +1541,7 @@ define noundef range(i64 0, 2) i64 @test_atomic_ops(ptr noundef readnone capture
   unreachable
 
 11:                                               ; preds = %1
-  %12 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #18, !srcloc !20
+  %12 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #18, !srcloc !21
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %17, label %14
 
@@ -1565,7 +1565,7 @@ define noundef range(i64 0, 2) i64 @test_atomic_ops(ptr noundef readnone capture
   unreachable
 
 23:                                               ; preds = %17
-  %24 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #18, !srcloc !20
+  %24 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #18, !srcloc !21
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %29
 
@@ -1577,7 +1577,7 @@ define noundef range(i64 0, 2) i64 @test_atomic_ops(ptr noundef readnone capture
   unreachable
 
 29:                                               ; preds = %23
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !20
   store volatile i8 0, ptr %5, align 1
   %30 = load volatile i8, ptr %5, align 1
   %31 = icmp eq i8 %30, 0
@@ -1591,7 +1591,7 @@ define noundef range(i64 0, 2) i64 @test_atomic_ops(ptr noundef readnone capture
   unreachable
 
 35:                                               ; preds = %29
-  %36 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #18, !srcloc !20
+  %36 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #18, !srcloc !21
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %test_atomic_flag.exit, label %38
 
@@ -1603,7 +1603,7 @@ define noundef range(i64 0, 2) i64 @test_atomic_ops(ptr noundef readnone capture
   unreachable
 
 test_atomic_flag.exit:                            ; preds = %35
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !20
   store volatile i8 0, ptr %5, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
@@ -1635,7 +1635,7 @@ test_atomic_flag.exit:                            ; preds = %35
 50:                                               ; preds = %45
   %51 = load volatile i32, ptr %4, align 4
   %52 = add i32 %51, -2
-  %53 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %52, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %53 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %52, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
   %.not96.i = icmp eq i32 %53, 3
   br i1 %.not96.i, label %57, label %54
 
@@ -1672,7 +1672,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 68:                                               ; preds = %62
-  %69 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 10, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %69 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 10, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
   %.not99.i = icmp eq i32 %69, 0
   br i1 %.not99.i, label %74, label %70
 
@@ -1709,7 +1709,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 84:                                               ; preds = %79
-  %85 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2147483647, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %85 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2147483647, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
   %.not102.i = icmp eq i32 %85, 0
   br i1 %.not102.i, label %89, label %86
 
@@ -1721,7 +1721,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 89:                                               ; preds = %84
-  %90 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2147483647, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %90 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2147483647, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
   %.not103.i = icmp eq i32 %90, 2147483647
   br i1 %.not103.i, label %94, label %91
 
@@ -1733,8 +1733,8 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 94:                                               ; preds = %89
-  %95 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
-  %96 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32767, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %95 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %96 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32767, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
   %.not104.i = icmp eq i32 %96, 0
   br i1 %.not104.i, label %100, label %97
 
@@ -1746,7 +1746,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 100:                                              ; preds = %94
-  %101 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %101 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
   %.not105.i = icmp eq i32 %101, 32767
   br i1 %.not105.i, label %105, label %102
 
@@ -1758,7 +1758,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 105:                                              ; preds = %100
-  %106 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32768, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %106 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32768, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
   %.not106.i = icmp eq i32 %106, 65535
   br i1 %.not106.i, label %110, label %107
 
@@ -1770,7 +1770,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 110:                                              ; preds = %105
-  %111 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32769, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %111 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32769, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
   %.not107.i = icmp eq i32 %111, 32767
   br i1 %.not107.i, label %115, label %112
 
@@ -1782,7 +1782,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 115:                                              ; preds = %110
-  %116 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %116 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
   %117 = load volatile i32, ptr %4, align 4
   %.not108.i = icmp eq i32 %117, -1
   br i1 %.not108.i, label %121, label %118
@@ -1833,7 +1833,7 @@ test_atomic_flag.exit:                            ; preds = %35
 
 137:                                              ; preds = %131
   %138 = atomicrmw sub ptr %4, i32 1 seq_cst, align 4
-  %139 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32767, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %139 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32767, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !23
   %140 = extractvalue { i32, i8 } %139, 1
   %.not124.i = icmp eq i8 %140, 0
   br i1 %.not124.i, label %144, label %141
@@ -1846,7 +1846,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 144:                                              ; preds = %137
-  %145 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %145 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !23
   %146 = extractvalue { i32, i8 } %145, 1
   %.not125.i = icmp eq i8 %146, 0
   br i1 %.not125.i, label %150, label %147
@@ -1859,7 +1859,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 150:                                              ; preds = %144
-  %151 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32768, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %151 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32768, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !23
   %152 = extractvalue { i32, i8 } %151, 1
   %.not126.i = icmp eq i8 %152, 0
   br i1 %.not126.i, label %156, label %153
@@ -1872,7 +1872,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 156:                                              ; preds = %150
-  %157 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32769, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %157 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32769, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !23
   %158 = extractvalue { i32, i8 } %157, 1
   %.not127.i = icmp eq i8 %158, 0
   br i1 %.not127.i, label %162, label %159
@@ -1885,7 +1885,7 @@ test_atomic_flag.exit:                            ; preds = %35
   unreachable
 
 162:                                              ; preds = %156
-  %163 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 10, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %163 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 10, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !23
   %164 = extractvalue { i32, i8 } %163, 1
   %.not128.i = icmp eq i8 %164, 0
   br i1 %.not128.i, label %.preheader.i, label %165
@@ -1899,7 +1899,7 @@ test_atomic_flag.exit:                            ; preds = %35
 
 .preheader.i:                                     ; preds = %162, %170
   %.0131.i = phi i32 [ %171, %170 ], [ 0, %162 ]
-  %168 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 0, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %168 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 0, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !23
   %169 = extractvalue { i32, i8 } %168, 1
   %.not129.i = icmp eq i8 %169, 0
   br i1 %.not129.i, label %.thread.i, label %170
@@ -1907,7 +1907,7 @@ test_atomic_flag.exit:                            ; preds = %35
 170:                                              ; preds = %.preheader.i
   %171 = add nuw nsw i32 %.0131.i, 1
   %exitcond.not.i = icmp eq i32 %171, 1000
-  br i1 %exitcond.not.i, label %172, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %172, label %.preheader.i, !llvm.loop !24
 
 172:                                              ; preds = %170
   %173 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -2035,7 +2035,7 @@ test_atomic_uint32.exit:                          ; preds = %207
 221:                                              ; preds = %216
   %222 = load volatile i64, ptr %3, align 8
   %223 = add i64 %222, -2
-  %224 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %223, ptr nonnull elementtype(i64) %3) #18, !srcloc !24
+  %224 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %223, ptr nonnull elementtype(i64) %3) #18, !srcloc !25
   %.not56.i = icmp eq i64 %224, 3
   br i1 %.not56.i, label %228, label %225
 
@@ -2072,7 +2072,7 @@ test_atomic_uint32.exit:                          ; preds = %207
   unreachable
 
 239:                                              ; preds = %233
-  %240 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 10, ptr nonnull elementtype(i64) %3) #18, !srcloc !24
+  %240 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 10, ptr nonnull elementtype(i64) %3) #18, !srcloc !25
   %.not59.i = icmp eq i64 %240, 0
   br i1 %.not59.i, label %245, label %241
 
@@ -2109,7 +2109,7 @@ test_atomic_uint32.exit:                          ; preds = %207
   unreachable
 
 255:                                              ; preds = %250
-  %256 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 10, i64 1, ptr nonnull elementtype(i64) %3) #18, !srcloc !25
+  %256 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 10, i64 1, ptr nonnull elementtype(i64) %3) #18, !srcloc !26
   %257 = extractvalue { i64, i8 } %256, 1
   %.not70.i = icmp eq i8 %257, 0
   br i1 %.not70.i, label %.preheader.i2, label %258
@@ -2123,7 +2123,7 @@ test_atomic_uint32.exit:                          ; preds = %207
 
 .preheader.i2:                                    ; preds = %255, %263
   %.073.i = phi i32 [ %264, %263 ], [ 0, %255 ]
-  %261 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 0, i64 1, ptr nonnull elementtype(i64) %3) #18, !srcloc !25
+  %261 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 0, i64 1, ptr nonnull elementtype(i64) %3) #18, !srcloc !26
   %262 = extractvalue { i64, i8 } %261, 1
   %.not71.i = icmp eq i8 %262, 0
   br i1 %.not71.i, label %.thread.i4, label %263
@@ -2131,7 +2131,7 @@ test_atomic_uint32.exit:                          ; preds = %207
 263:                                              ; preds = %.preheader.i2
   %264 = add nuw nsw i32 %.073.i, 1
   %exitcond.not.i3 = icmp eq i32 %264, 100
-  br i1 %exitcond.not.i3, label %265, label %.preheader.i2, !llvm.loop !26
+  br i1 %exitcond.not.i3, label %265, label %.preheader.i2, !llvm.loop !27
 
 265:                                              ; preds = %263
   %266 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -2234,10 +2234,10 @@ test_atomic_uint64.exit:                          ; preds = %300
   store i32 1684234849, ptr %2, align 4
   %305 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i32 842098277, ptr %305, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !27
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !28
   %306 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 0, ptr %306, align 4
-  %307 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  %307 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !29
   %.not.i5 = icmp eq i8 %307, 0
   br i1 %.not.i5, label %310, label %308
 
@@ -2246,11 +2246,11 @@ test_atomic_uint64.exit:                          ; preds = %300
   br label %310
 
 310:                                              ; preds = %308, %test_atomic_uint64.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !29
-  store i8 0, ptr %306, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !30
   store i8 0, ptr %306, align 4
-  %311 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !31
+  store i8 0, ptr %306, align 4
+  %311 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !29
   %.not1.i = icmp eq i8 %311, 0
   br i1 %.not1.i, label %314, label %312
 
@@ -2259,12 +2259,12 @@ test_atomic_uint64.exit:                          ; preds = %300
   br label %314
 
 314:                                              ; preds = %312, %310
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !31
-  store i8 0, ptr %306, align 4
-  %315 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.96, i32 noundef 17, ptr noundef nonnull @.str.97) #18
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !32
   store i8 0, ptr %306, align 4
-  %316 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  %315 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.96, i32 noundef 17, ptr noundef nonnull @.str.97) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !33
+  store i8 0, ptr %306, align 4
+  %316 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !29
   %.not2.i = icmp eq i8 %316, 0
   br i1 %.not2.i, label %319, label %317
 
@@ -2273,7 +2273,7 @@ test_atomic_uint64.exit:                          ; preds = %300
   br label %319
 
 319:                                              ; preds = %317, %314
-  %320 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  %320 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !29
   %.not3.i = icmp eq i8 %320, 0
   br i1 %.not3.i, label %321, label %324
 
@@ -2290,7 +2290,7 @@ test_atomic_uint64.exit:                          ; preds = %300
   br i1 %.not4.i, label %326, label %331
 
 326:                                              ; preds = %324
-  %327 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  %327 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !29
   %.not5.i = icmp eq i8 %327, 0
   br i1 %.not5.i, label %328, label %331
 
@@ -2302,7 +2302,7 @@ test_atomic_uint64.exit:                          ; preds = %300
   unreachable
 
 331:                                              ; preds = %326, %324
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !33
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !34
   store i8 0, ptr %306, align 4
   %lhsv = load i32, ptr %2, align 4
   %.not = icmp eq i32 %lhsv, 1684234849
@@ -2362,7 +2362,7 @@ define noundef i64 @test_support_func(ptr noundef readonly captures(none) %0) lo
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %9 = load i8, ptr %8, align 4, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 4, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -2433,7 +2433,7 @@ define noundef i64 @test_support_func(ptr noundef readonly captures(none) %0) lo
 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %51 = load i8, ptr %50, align 8, !range !6, !noundef !7
+  %51 = load i8, ptr %50, align 8, !range !7, !noundef !8
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %70, label %53
 
@@ -2444,7 +2444,7 @@ define noundef i64 @test_support_func(ptr noundef readonly captures(none) %0) lo
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %58 = load i8, ptr %57, align 8, !range !6, !noundef !7
+  %58 = load i8, ptr %57, align 8, !range !7, !noundef !8
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %70, label %60
 
@@ -2606,7 +2606,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 42
-  br i1 %exitcond.not, label %6, label %7, !llvm.loop !34
+  br i1 %exitcond.not, label %6, label %7, !llvm.loop !35
 }
 
 declare i32 @pg_encoding_max_length(i32 noundef) local_unnamed_addr #3
@@ -2911,35 +2911,36 @@ attributes #22 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = distinct !{!18, !4}
-!19 = !{i64 2140928}
-!20 = !{i64 2140572, i64 2140588}
-!21 = !{i64 2141664, i64 2141681}
-!22 = !{i64 2141293, i64 2141310, i64 2141333}
-!23 = distinct !{!23, !4}
-!24 = !{i64 2142553, i64 2142570}
-!25 = !{i64 2142182, i64 2142199, i64 2142222}
-!26 = distinct !{!26, !4}
-!27 = !{i64 2151410437}
-!28 = !{i64 2187877, i64 2187893}
-!29 = !{i64 2151410746}
-!30 = !{i64 2151410873}
-!31 = !{i64 2151411114}
-!32 = !{i64 2151411206}
-!33 = !{i64 2151413033}
-!34 = distinct !{!34, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!19 = distinct !{!19, !4, !5}
+!20 = !{i64 2140928}
+!21 = !{i64 2140572, i64 2140588}
+!22 = !{i64 2141664, i64 2141681}
+!23 = !{i64 2141293, i64 2141310, i64 2141333}
+!24 = distinct !{!24, !4, !5}
+!25 = !{i64 2142553, i64 2142570}
+!26 = !{i64 2142182, i64 2142199, i64 2142222}
+!27 = distinct !{!27, !4, !5}
+!28 = !{i64 2151410437}
+!29 = !{i64 2187877, i64 2187893}
+!30 = !{i64 2151410746}
+!31 = !{i64 2151410873}
+!32 = !{i64 2151411114}
+!33 = !{i64 2151411206}
+!34 = !{i64 2151413033}
+!35 = distinct !{!35, !4, !5}

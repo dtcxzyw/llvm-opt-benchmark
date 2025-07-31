@@ -139,14 +139,14 @@ Curl_slist_append_nodup.exit.i:                   ; preds = %5
   %18 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   tail call void %18(ptr noundef nonnull %.0.i14) #1
   %.not9.i = icmp eq ptr %15, null
-  br i1 %.not9.i, label %curl_slist_free_all.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %.not9.i, label %curl_slist_free_all.exit, label %.preheader.i, !llvm.loop !15
 
 curl_slist_append.exit:                           ; preds = %slist_get_last.exit.i.i, %8
   %.0.i = phi ptr [ %7, %8 ], [ %.0925, %slist_get_last.exit.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.01024, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !7
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %curl_slist_free_all.exit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %curl_slist_free_all.exit, label %.lr.ph, !llvm.loop !16
 
 curl_slist_free_all.exit:                         ; preds = %curl_slist_append.exit, %.preheader.i, %1, %.loopexit
   %.0 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %.preheader.i ], [ %.0.i, %curl_slist_append.exit ]
@@ -169,7 +169,7 @@ define void @curl_slist_free_all(ptr noundef %0) local_unnamed_addr #0 {
   %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   tail call void %6(ptr noundef nonnull %.0) #1
   %.not9 = icmp eq ptr %3, null
-  br i1 %.not9, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %.not9, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -192,7 +192,8 @@ attributes #1 = { nounwind }
 !9 = !{!"p1 omnipotent char", !4, i64 0}
 !10 = !{!"p1 _ZTS10curl_slist", !4, i64 0}
 !11 = !{!8, !9, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}

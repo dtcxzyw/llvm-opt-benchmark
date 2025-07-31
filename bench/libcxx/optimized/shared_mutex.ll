@@ -53,10 +53,10 @@ define dso_local void @_ZNSt3__119__shared_mutex_base4lockEv(ptr noundef nonnull
   %12 = load i32, ptr %4, align 8, !tbaa !13
   %13 = and i32 %12, 2147483647
   %.not1 = icmp eq i32 %13, 0
-  br i1 %.not1, label %._crit_edge7, label %11, !llvm.loop !20
+  br i1 %.not1, label %._crit_edge7, label %11, !llvm.loop !21
 
 ._crit_edge7:                                     ; preds = %11, %._crit_edge
-  %14 = load i8, ptr %3, align 8, !tbaa !12, !range !21, !noundef !22
+  %14 = load i8, ptr %3, align 8, !tbaa !12, !range !22, !noundef !23
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit
 
@@ -136,10 +136,10 @@ define dso_local void @_ZNSt3__119__shared_mutex_base11lock_sharedEv(ptr noundef
   call void @_ZNSt3__118condition_variable4waitERNS_11unique_lockINS_5mutexEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(9) %2) #6
   %8 = load i32, ptr %4, align 8, !tbaa !13
   %or.cond = icmp ugt i32 %8, 2147483646
-  br i1 %or.cond, label %.critedge, label %._crit_edge, !llvm.loop !23
+  br i1 %or.cond, label %.critedge, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.critedge
-  %.pre = load i8, ptr %3, align 8, !tbaa !12, !range !21
+  %.pre = load i8, ptr %3, align 8, !tbaa !12, !range !22
   %9 = trunc nuw i8 %.pre to i1
   %10 = add nuw nsw i32 %8, 1
   store i32 %10, ptr %4, align 8, !tbaa !13
@@ -264,10 +264,10 @@ define dso_local void @_ZNSt3__118shared_timed_mutex4lockEv(ptr noundef nonnull 
   %12 = load i32, ptr %4, align 8, !tbaa !13
   %13 = and i32 %12, 2147483647
   %.not1.i = icmp eq i32 %13, 0
-  br i1 %.not1.i, label %._crit_edge7.i, label %11, !llvm.loop !20
+  br i1 %.not1.i, label %._crit_edge7.i, label %11, !llvm.loop !21
 
 ._crit_edge7.i:                                   ; preds = %11, %._crit_edge.i
-  %14 = load i8, ptr %3, align 8, !tbaa !12, !range !21, !noundef !22
+  %14 = load i8, ptr %3, align 8, !tbaa !12, !range !22, !noundef !23
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %_ZNSt3__119__shared_mutex_base4lockEv.exit
 
@@ -335,10 +335,10 @@ define dso_local void @_ZNSt3__118shared_timed_mutex11lock_sharedEv(ptr noundef 
   call void @_ZNSt3__118condition_variable4waitERNS_11unique_lockINS_5mutexEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(9) %2) #6
   %8 = load i32, ptr %4, align 8, !tbaa !13
   %or.cond.i = icmp ugt i32 %8, 2147483646
-  br i1 %or.cond.i, label %.critedge.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %or.cond.i, label %.critedge.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %.critedge.i
-  %.pre.i = load i8, ptr %3, align 8, !tbaa !12, !range !21
+  %.pre.i = load i8, ptr %3, align 8, !tbaa !12, !range !22
   %9 = trunc nuw i8 %.pre.i to i1
   %10 = add nuw nsw i32 %8, 1
   store i32 %10, ptr %4, align 8, !tbaa !13
@@ -455,9 +455,10 @@ attributes #6 = { nounwind }
 !15 = !{!"_ZTSNSt3__15mutexE", !9, i64 0}
 !16 = !{!"_ZTSNSt3__118condition_variableE", !9, i64 0}
 !17 = !{!"int", !9, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = distinct !{!23, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = distinct !{!24, !19, !20}

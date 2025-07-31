@@ -118,7 +118,7 @@ define hidden ptr @Curl_HMAC_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %69 = load i32, ptr %23, align 4, !tbaa !16
   %70 = zext i32 %69 to i64
   %71 = icmp samesign ult i64 %68, %70
-  br i1 %71, label %63, label %.loopexit, !llvm.loop !23
+  br i1 %71, label %63, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %63, %.preheader, %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #3
@@ -262,6 +262,7 @@ attributes #3 = { nounwind }
 !18 = !{!4, !5, i64 8}
 !19 = !{!4, !5, i64 16}
 !20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}

@@ -408,7 +408,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit44:            ; preds = %.critedge31, %157, 
 _ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i: ; preds = %178, %172, %.lr.ph.i.i.i.i
   %182 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %182, %168
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !30
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !31
 
 _ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %3, align 8, !tbaa !14
@@ -421,7 +421,7 @@ _ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_Z
 
 184:                                              ; preds = %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit.i
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %186 = load ptr, ptr %185, align 8, !tbaa !31
+  %186 = load ptr, ptr %185, align 8, !tbaa !32
   %187 = ptrtoint ptr %186 to i64
   %188 = ptrtoint ptr %183 to i64
   %189 = sub i64 %187, %188
@@ -525,7 +525,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED
 _ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i: ; preds = %14, %8, %.lr.ph.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %18, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !30
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !31
 
 _ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !14
@@ -538,7 +538,7 @@ _ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt
 
 20:                                               ; preds = %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !31
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
@@ -586,8 +586,8 @@ define hidden void @_ZN4cvc58internal18FunctionArrayConstC2ERKNS0_8TypeNodeERKNS
           to label %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit unwind label %73
 
 _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %19, %13, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !32
-  store ptr %5, ptr %0, align 8, !tbaa !32
+  %23 = load ptr, ptr %0, align 8, !tbaa !33
+  store ptr %5, ptr %0, align 8, !tbaa !33
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EE5resetEPS2_.exit, label %24
 
@@ -627,8 +627,8 @@ _ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EE5resetEPS2_.e
           to label %39 unwind label %71
 
 39:                                               ; preds = %_ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EE5resetEPS2_.exit
-  %40 = load ptr, ptr %2, align 8, !tbaa !33
-  store ptr %40, ptr %38, align 8, !tbaa !33
+  %40 = load ptr, ptr %2, align 8, !tbaa !34
+  store ptr %40, ptr %38, align 8, !tbaa !34
   %41 = load i64, ptr %40, align 8
   %42 = lshr i64 %41, 40
   %43 = trunc nuw nsw i64 %42 to i32
@@ -656,13 +656,13 @@ _ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EE5resetEPS2_.e
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %75
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %52, %46, %54
-  %56 = load ptr, ptr %4, align 8, !tbaa !35
-  store ptr %38, ptr %4, align 8, !tbaa !35
+  %56 = load ptr, ptr %4, align 8, !tbaa !36
+  store ptr %38, ptr %4, align 8, !tbaa !36
   %.not.i.i7 = icmp eq ptr %56, null
   br i1 %.not.i.i7, label %_ZNSt10unique_ptrIN4cvc58internal12NodeTemplateILb1EEESt14default_deleteIS3_EE5resetEPS3_.exit, label %57
 
 57:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %58 = load ptr, ptr %56, align 8, !tbaa !33
+  %58 = load ptr, ptr %56, align 8, !tbaa !34
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 1152920405095219200
   %.not.i.i.i.i.i8 = icmp eq i64 %60, 1152920405095219200
@@ -727,12 +727,12 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrIN4cvc58internal12NodeTemplateILb1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %2, align 8, !tbaa !33
+  %4 = load ptr, ptr %2, align 8, !tbaa !34
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 1152920405095219200
   %.not.i.i.i = icmp eq i64 %6, 1152920405095219200
@@ -763,13 +763,13 @@ _ZNKSt14default_deleteIN4cvc58internal12NodeTemplateILb1EEEEclEPS3_.exit: ; pred
   br label %17
 
 17:                                               ; preds = %_ZNKSt14default_deleteIN4cvc58internal12NodeTemplateILb1EEEEclEPS3_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !35
+  store ptr null, ptr %0, align 8, !tbaa !36
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !32
+  %2 = load ptr, ptr %0, align 8, !tbaa !33
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %17, label %3
 
@@ -805,14 +805,14 @@ _ZNKSt14default_deleteIN4cvc58internal8TypeNodeEEclEPS2_.exit: ; preds = %3, %7,
   br label %17
 
 17:                                               ; preds = %_ZNKSt14default_deleteIN4cvc58internal8TypeNodeEEclEPS2_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !32
+  store ptr null, ptr %0, align 8, !tbaa !33
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal18FunctionArrayConstC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
-  %4 = load ptr, ptr %1, align 8, !tbaa !32
+  %4 = load ptr, ptr %1, align 8, !tbaa !33
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %5, ptr %3, align 8, !tbaa !3
   %6 = load i64, ptr %5, align 8
@@ -842,15 +842,15 @@ define hidden void @_ZN4cvc58internal18FunctionArrayConstC2ERKS1_(ptr noundef no
           to label %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit unwind label %42
 
 _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %17, %11, %19
-  store ptr %3, ptr %0, align 8, !tbaa !32
+  store ptr %3, ptr %0, align 8, !tbaa !33
   %21 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
           to label %22 unwind label %44
 
 22:                                               ; preds = %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !35
-  %25 = load ptr, ptr %24, align 8, !tbaa !33
-  store ptr %25, ptr %21, align 8, !tbaa !33
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  store ptr %25, ptr %21, align 8, !tbaa !34
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, 40
   %28 = trunc nuw nsw i64 %27 to i32
@@ -879,7 +879,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %17, %11, %19
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %37, %31, %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %21, ptr %41, align 8, !tbaa !35
+  store ptr %21, ptr %41, align 8, !tbaa !36
   ret void
 
 42:                                               ; preds = %19
@@ -911,26 +911,26 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %37, %31, %39
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal18FunctionArrayConst7getTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #9 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !32
+  %2 = load ptr, ptr %0, align 8, !tbaa !33
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal18FunctionArrayConst13getArrayValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal18FunctionArrayConstD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4cvc58internal12NodeTemplateILb1EEESt14default_deleteIS3_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %3, align 8, !tbaa !33
+  %5 = load ptr, ptr %3, align 8, !tbaa !34
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 1152920405095219200
   %.not.i.i.i.i = icmp eq i64 %7, 1152920405095219200
@@ -961,8 +961,8 @@ _ZNKSt14default_deleteIN4cvc58internal12NodeTemplateILb1EEEEclEPS3_.exit.i: ; pr
   br label %_ZNSt10unique_ptrIN4cvc58internal12NodeTemplateILb1EEESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal12NodeTemplateILb1EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4cvc58internal12NodeTemplateILb1EEEEclEPS3_.exit.i
-  store ptr null, ptr %2, align 8, !tbaa !35
-  %18 = load ptr, ptr %0, align 8, !tbaa !32
+  store ptr null, ptr %2, align 8, !tbaa !36
+  %18 = load ptr, ptr %0, align 8, !tbaa !33
   %.not.i1 = icmp eq ptr %18, null
   br i1 %.not.i1, label %_ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EED2Ev.exit, label %19
 
@@ -998,14 +998,14 @@ _ZNKSt14default_deleteIN4cvc58internal8TypeNodeEEclEPS2_.exit.i: ; preds = %29, 
   br label %_ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal12NodeTemplateILb1EEESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal8TypeNodeEEclEPS2_.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !32
+  store ptr null, ptr %0, align 8, !tbaa !33
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal18FunctionArrayConstaSERKS1_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !32
-  %4 = load ptr, ptr %0, align 8, !tbaa !32
+  %3 = load ptr, ptr %1, align 8, !tbaa !33
+  %4 = load ptr, ptr %0, align 8, !tbaa !33
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = load ptr, ptr %3, align 8, !tbaa !3
   %.not.i = icmp eq ptr %5, %6
@@ -1061,11 +1061,11 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %16, %10, %7
 
 _ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %2, %23, %29, %31
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !35
+  %34 = load ptr, ptr %33, align 8, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !35
-  %37 = load ptr, ptr %36, align 8, !tbaa !33
-  %38 = load ptr, ptr %34, align 8, !tbaa !33
+  %36 = load ptr, ptr %35, align 8, !tbaa !36
+  %37 = load ptr, ptr %36, align 8, !tbaa !34
+  %38 = load ptr, ptr %34, align 8, !tbaa !34
   %.not.i3 = icmp eq ptr %37, %38
   br i1 %.not.i3, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, label %39, !prof !10
 
@@ -1089,8 +1089,8 @@ _ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %2, %23, %29, %31
   br label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i5
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i5:   ; preds = %48, %42, %39
-  %49 = load ptr, ptr %34, align 8, !tbaa !33
-  store ptr %49, ptr %36, align 8, !tbaa !33
+  %49 = load ptr, ptr %34, align 8, !tbaa !34
+  store ptr %49, ptr %36, align 8, !tbaa !34
   %50 = load i64, ptr %49, align 8
   %51 = lshr i64 %50, 40
   %52 = trunc nuw nsw i64 %51 to i32
@@ -1123,8 +1123,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %_ZN4cvc58internal
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConsteqERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !32
-  %4 = load ptr, ptr %1, align 8, !tbaa !32
+  %3 = load ptr, ptr %0, align 8, !tbaa !33
+  %4 = load ptr, ptr %1, align 8, !tbaa !33
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = icmp eq ptr %5, %6
@@ -1132,11 +1132,11 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConsteqERKS1_
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !35
-  %13 = load ptr, ptr %10, align 8, !tbaa !33
-  %14 = load ptr, ptr %12, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %13 = load ptr, ptr %10, align 8, !tbaa !34
+  %14 = load ptr, ptr %12, align 8, !tbaa !34
   %15 = icmp eq ptr %13, %14
   br label %16
 
@@ -1147,8 +1147,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConsteqERKS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstneERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !32
-  %4 = load ptr, ptr %1, align 8, !tbaa !32
+  %3 = load ptr, ptr %0, align 8, !tbaa !33
+  %4 = load ptr, ptr %1, align 8, !tbaa !33
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = icmp eq ptr %5, %6
@@ -1156,11 +1156,11 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstneERKS1_
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !35
-  %13 = load ptr, ptr %10, align 8, !tbaa !33
-  %14 = load ptr, ptr %12, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %13 = load ptr, ptr %10, align 8, !tbaa !34
+  %14 = load ptr, ptr %12, align 8, !tbaa !34
   %15 = icmp ne ptr %13, %14
   br label %_ZNK4cvc58internal18FunctionArrayConsteqERKS1_.exit
 
@@ -1171,8 +1171,8 @@ _ZNK4cvc58internal18FunctionArrayConsteqERKS1_.exit: ; preds = %2, %8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstltERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !32
-  %4 = load ptr, ptr %1, align 8, !tbaa !32
+  %3 = load ptr, ptr %0, align 8, !tbaa !33
+  %4 = load ptr, ptr %1, align 8, !tbaa !33
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 1099511627775
@@ -1188,13 +1188,13 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstltERKS1_
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !35
-  %19 = load ptr, ptr %16, align 8, !tbaa !33
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %19 = load ptr, ptr %16, align 8, !tbaa !34
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 1099511627775
-  %22 = load ptr, ptr %18, align 8, !tbaa !33
+  %22 = load ptr, ptr %18, align 8, !tbaa !34
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 1099511627775
   %25 = icmp samesign ult i64 %21, %24
@@ -1207,8 +1207,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstltERKS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstleERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !32
-  %4 = load ptr, ptr %1, align 8, !tbaa !32
+  %3 = load ptr, ptr %0, align 8, !tbaa !33
+  %4 = load ptr, ptr %1, align 8, !tbaa !33
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 1099511627775
@@ -1224,13 +1224,13 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstleERKS1_
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !35
-  %19 = load ptr, ptr %16, align 8, !tbaa !33
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %19 = load ptr, ptr %16, align 8, !tbaa !34
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 1099511627775
-  %22 = load ptr, ptr %18, align 8, !tbaa !33
+  %22 = load ptr, ptr %18, align 8, !tbaa !34
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 1099511627775
   %25 = icmp samesign ule i64 %21, %24
@@ -1243,8 +1243,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstleERKS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstgtERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !32
-  %4 = load ptr, ptr %1, align 8, !tbaa !32
+  %3 = load ptr, ptr %0, align 8, !tbaa !33
+  %4 = load ptr, ptr %1, align 8, !tbaa !33
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 1099511627775
@@ -1260,13 +1260,13 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstgtERKS1_
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !35
-  %19 = load ptr, ptr %16, align 8, !tbaa !33
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %19 = load ptr, ptr %16, align 8, !tbaa !34
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 1099511627775
-  %22 = load ptr, ptr %18, align 8, !tbaa !33
+  %22 = load ptr, ptr %18, align 8, !tbaa !34
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 1099511627775
   %25 = icmp samesign ugt i64 %21, %24
@@ -1279,8 +1279,8 @@ _ZNK4cvc58internal18FunctionArrayConstleERKS1_.exit: ; preds = %2, %12, %14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstgeERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !32
-  %4 = load ptr, ptr %1, align 8, !tbaa !32
+  %3 = load ptr, ptr %0, align 8, !tbaa !33
+  %4 = load ptr, ptr %1, align 8, !tbaa !33
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 1099511627775
@@ -1296,13 +1296,13 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConstgeERKS1_
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !35
-  %19 = load ptr, ptr %16, align 8, !tbaa !33
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %19 = load ptr, ptr %16, align 8, !tbaa !34
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 1099511627775
-  %22 = load ptr, ptr %18, align 8, !tbaa !33
+  %22 = load ptr, ptr %18, align 8, !tbaa !34
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 1099511627775
   %25 = icmp samesign uge i64 %21, %24
@@ -1318,14 +1318,14 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
   %3 = alloca i8, align 1
   %4 = alloca %"class.cvc5::internal::options::ioutils::Scope", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str, i64 noundef 20)
-  %6 = load ptr, ptr %1, align 8, !tbaa !32
+  %6 = load ptr, ptr %1, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
-  %7 = load ptr, ptr %0, align 8, !tbaa !37
+  %7 = load ptr, ptr %0, align 8, !tbaa !38
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   call void @_ZN4cvc58internal7options7ioutils5ScopeC1ERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(46) %4, ptr noundef nonnull align 8 dereferenceable(216) %10)
-  %11 = load ptr, ptr %0, align 8, !tbaa !37
+  %11 = load ptr, ptr %0, align 8, !tbaa !38
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -1349,17 +1349,17 @@ _ZN4cvc58internallsERSoRKNS0_8TypeNodeE.exit:     ; preds = %15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #16
   %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1, i64 noundef 2)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !35
-  %21 = load ptr, ptr %20, align 8, !tbaa !33
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %21 = load ptr, ptr %20, align 8, !tbaa !34
   call void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store i8 41, ptr %3, align 1, !tbaa !39
-  %22 = load ptr, ptr %0, align 8, !tbaa !37
+  store i8 41, ptr %3, align 1, !tbaa !40
+  %22 = load ptr, ptr %0, align 8, !tbaa !38
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !40
+  %27 = load i64, ptr %26, align 8, !tbaa !41
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %30, label %28
 
@@ -1382,11 +1382,11 @@ define hidden noundef i64 @_ZNK4cvc58internal30FunctionArrayConstHashFunctionclE
   %3 = alloca %"struct.std::hash", align 1
   %4 = alloca %"struct.std::hash.11", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
-  %5 = load ptr, ptr %1, align 8, !tbaa !32
+  %5 = load ptr, ptr %1, align 8, !tbaa !33
   %6 = call noundef i64 @_ZNKSt4hashIN4cvc58internal8TypeNodeEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %10 = mul i64 %9, %6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
@@ -1493,26 +1493,27 @@ attributes #19 = { builtin allocsize(0) }
 !25 = distinct !{!25, !26, !"_ZNK4cvc58internal8TypeNodeixEi: argument 0"}
 !26 = distinct !{!26, !"_ZNK4cvc58internal8TypeNodeixEi"}
 !27 = !{!25, !22}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = !{!12, !13, i64 16}
-!32 = !{!13, !13, i64 0}
-!33 = !{!34, !5, i64 0}
-!34 = !{!"_ZTSN4cvc58internal12NodeTemplateILb1EEE", !5, i64 0}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTSN4cvc58internal12NodeTemplateILb1EEE", !6, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"vtable pointer", !8, i64 0}
-!39 = !{!7, !7, i64 0}
-!40 = !{!41, !42, i64 16}
-!41 = !{!"_ZTSSt8ios_base", !42, i64 8, !42, i64 16, !43, i64 24, !44, i64 28, !44, i64 32, !45, i64 40, !46, i64 48, !7, i64 64, !47, i64 192, !48, i64 200, !49, i64 208}
-!42 = !{!"long", !7, i64 0}
-!43 = !{!"_ZTSSt13_Ios_Fmtflags", !7, i64 0}
-!44 = !{!"_ZTSSt12_Ios_Iostate", !7, i64 0}
-!45 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !6, i64 0}
-!46 = !{!"_ZTSNSt8ios_base6_WordsE", !6, i64 0, !42, i64 8}
-!47 = !{!"int", !7, i64 0}
-!48 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !6, i64 0}
-!49 = !{!"_ZTSSt6locale", !50, i64 0}
-!50 = !{!"p1 _ZTSNSt6locale5_ImplE", !6, i64 0}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = !{!12, !13, i64 16}
+!33 = !{!13, !13, i64 0}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"_ZTSN4cvc58internal12NodeTemplateILb1EEE", !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSN4cvc58internal12NodeTemplateILb1EEE", !6, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"vtable pointer", !8, i64 0}
+!40 = !{!7, !7, i64 0}
+!41 = !{!42, !43, i64 16}
+!42 = !{!"_ZTSSt8ios_base", !43, i64 8, !43, i64 16, !44, i64 24, !45, i64 28, !45, i64 32, !46, i64 40, !47, i64 48, !7, i64 64, !48, i64 192, !49, i64 200, !50, i64 208}
+!43 = !{!"long", !7, i64 0}
+!44 = !{!"_ZTSSt13_Ios_Fmtflags", !7, i64 0}
+!45 = !{!"_ZTSSt12_Ios_Iostate", !7, i64 0}
+!46 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !6, i64 0}
+!47 = !{!"_ZTSNSt8ios_base6_WordsE", !6, i64 0, !43, i64 8}
+!48 = !{!"int", !7, i64 0}
+!49 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !6, i64 0}
+!50 = !{!"_ZTSSt6locale", !51, i64 0}
+!51 = !{!"p1 _ZTSNSt6locale5_ImplE", !6, i64 0}

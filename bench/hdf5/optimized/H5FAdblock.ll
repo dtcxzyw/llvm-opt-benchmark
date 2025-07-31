@@ -723,5 +723,6 @@ attributes #3 = { nounwind }
 !52 = !{!53, !24, i64 0}
 !53 = !{!"H5FA_dblock_cache_ud_t", !24, i64 0, !11, i64 8}
 !54 = !{!53, !11, i64 8}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
+!57 = !{!"llvm.loop.estimated_trip_count"}

@@ -362,7 +362,7 @@ _ZN6XUtils20object_copy_disjointEmmm.exit.i:      ; preds = %147, %145, %115
   %156 = or disjoint i64 %155, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %157 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.1
-  %158 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %156, i64 0, ptr %157) #8, !srcloc !9
+  %158 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %156, i64 0, ptr %157) #8, !srcloc !10
   %159 = and i64 %158, 1
   %.not20.i.i.i = icmp eq i64 %159, 0
   br i1 %.not20.i.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit.i, label %.lr.ph21.i.i.i
@@ -370,10 +370,10 @@ _ZN6XUtils20object_copy_disjointEmmm.exit.i:      ; preds = %147, %145, %115
 .loopexit.i.i.i:                                  ; preds = %171, %.lr.ph21.i.i.i
   %.4 = phi i64 [ %.2, %.lr.ph21.i.i.i ], [ %175, %171 ]
   %160 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.4
-  %161 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %156, i64 0, ptr %160) #8, !srcloc !9
+  %161 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %156, i64 0, ptr %160) #8, !srcloc !10
   %162 = and i64 %161, 1
   %.not.i.i.i = icmp eq i64 %162, 0
-  br i1 %.not.i.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit.i, label %.lr.ph21.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit.i, label %.lr.ph21.i.i.i, !llvm.loop !11
 
 .lr.ph21.i.i.i:                                   ; preds = %_ZN6XUtils20object_copy_disjointEmmm.exit.i, %.loopexit.i.i.i
   %.2 = phi i64 [ %.4, %.loopexit.i.i.i ], [ %.1, %_ZN6XUtils20object_copy_disjointEmmm.exit.i ]
@@ -406,7 +406,7 @@ _ZN6XUtils20object_copy_disjointEmmm.exit.i:      ; preds = %147, %145, %115
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %178 = and i64 %177, 1
   %.not15.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not15.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not15.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZL17forwarding_insertP11XForwardingmmPm.exit.i:  ; preds = %.loopexit.i.i.i, %168, %_ZN6XUtils20object_copy_disjointEmmm.exit.i
   %.5 = phi i64 [ %.1, %_ZN6XUtils20object_copy_disjointEmmm.exit.i ], [ %.3, %168 ], [ %.4, %.loopexit.i.i.i ]
@@ -454,7 +454,7 @@ _ZL21relocate_object_innerP11XForwardingmPm.exit: ; preds = %_ZL17forwarding_ins
   %202 = or disjoint i64 %201, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %203 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.640
-  %204 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %202, i64 0, ptr %203) #8, !srcloc !9
+  %204 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %202, i64 0, ptr %203) #8, !srcloc !10
   %205 = and i64 %204, 1
   %.not20.i.i = icmp eq i64 %205, 0
   br i1 %.not20.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %.lr.ph21.i.i
@@ -462,10 +462,10 @@ _ZL21relocate_object_innerP11XForwardingmPm.exit: ; preds = %_ZL17forwarding_ins
 .loopexit.i.i:                                    ; preds = %217, %.lr.ph21.i.i
   %.9 = phi i64 [ %.7, %.lr.ph21.i.i ], [ %221, %217 ]
   %206 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.9
-  %207 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %202, i64 0, ptr %206) #8, !srcloc !9
+  %207 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %202, i64 0, ptr %206) #8, !srcloc !10
   %208 = and i64 %207, 1
   %.not.i.i = icmp eq i64 %208, 0
-  br i1 %.not.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %.lr.ph21.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %.lr.ph21.i.i, !llvm.loop !11
 
 .lr.ph21.i.i:                                     ; preds = %194, %.loopexit.i.i
   %.7 = phi i64 [ %.9, %.loopexit.i.i ], [ %.640, %194 ]
@@ -498,7 +498,7 @@ _ZL21relocate_object_innerP11XForwardingmPm.exit: ; preds = %_ZL17forwarding_ins
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %224 = and i64 %223, 1
   %.not15.i.i = icmp eq i64 %224, 0
-  br i1 %.not15.i.i, label %.loopexit.i.i, label %.lr.ph.i.i22, !llvm.loop !11
+  br i1 %.not15.i.i, label %.loopexit.i.i, label %.lr.ph.i.i22, !llvm.loop !12
 
 _ZL17forwarding_insertP11XForwardingmmPm.exit:    ; preds = %.loopexit.i.i, %194, %214
   %.0.i.i = phi i64 [ %216, %214 ], [ %196, %194 ], [ %196, %.loopexit.i.i ]
@@ -840,9 +840,9 @@ define linkonce_odr hidden void @_ZN13XRelocateTask4workEv(ptr noundef nonnull a
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
-  %18 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %17, ptr %.011.i.i, ptr nonnull align 8 dereferenceable(16) %10) #8, !srcloc !9
+  %18 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %17, ptr %.011.i.i, ptr nonnull align 8 dereferenceable(16) %10) #8, !srcloc !10
   %19 = icmp eq ptr %18, %.011.i.i
-  br i1 %19, label %20, label %14, !llvm.loop !12
+  br i1 %19, label %20, label %14, !llvm.loop !13
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %.011.i.i, align 8
@@ -861,7 +861,7 @@ define linkonce_odr hidden void @_ZN13XRelocateTask4workEv(ptr noundef nonnull a
   br label %.backedge
 
 .backedge:                                        ; preds = %27, %26
-  br label %12, !llvm.loop !13
+  br label %12, !llvm.loop !14
 
 _ZN18XArrayIteratorImplIP11XForwardingLb1EE4nextEPS1_.exit: ; preds = %14
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI24XRelocateMediumAllocatorE, i64 16), ptr %3, align 8
@@ -1037,7 +1037,7 @@ _ZN23XRelocateSmallAllocator17alloc_target_pageEP11XForwardingP5XPage.exit: ; pr
   br label %.backedge
 
 23:                                               ; preds = %8, %_ZL10alloc_pagePK11XForwarding.exit.i
-  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %9) #8, !srcloc !14
+  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %9) #8, !srcloc !15
   store ptr null, ptr %7, align 8
   %25 = load ptr, ptr %6, align 8
   %26 = tail call noundef ptr @_ZN11XForwarding10claim_pageEv(ptr noundef nonnull align 8 dereferenceable(134) %25) #8
@@ -1050,7 +1050,7 @@ _ZN23XRelocateSmallAllocator17alloc_target_pageEP11XForwardingP5XPage.exit: ; pr
 
 .backedge:                                        ; preds = %23, %_ZN23XRelocateSmallAllocator17alloc_target_pageEP11XForwardingP5XPage.exit
   %29 = tail call noundef zeroext i1 @_ZNK16XRelocateClosureI23XRelocateSmallAllocatorE15relocate_objectEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %3)
-  br i1 %29, label %._crit_edge, label %8, !llvm.loop !15
+  br i1 %29, label %._crit_edge, label %8, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.backedge, %2
   ret void
@@ -1368,7 +1368,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %174, %172, %142, %1
   %187 = add i64 %186, 136
   %188 = inttoptr i64 %187 to ptr
   %189 = getelementptr inbounds %class.XForwardingEntry, ptr %188, i64 %.1
-  %190 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %185, i64 0, ptr %189) #8, !srcloc !9
+  %190 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %185, i64 0, ptr %189) #8, !srcloc !10
   %191 = and i64 %190, 1
   %.not20.i.i = icmp eq i64 %191, 0
   br i1 %.not20.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %.lr.ph21.i.i
@@ -1380,10 +1380,10 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %174, %172, %142, %1
 .loopexit.i.i:                                    ; preds = %205, %196
   %.4 = phi i64 [ %.2, %196 ], [ %209, %205 ]
   %193 = getelementptr inbounds %class.XForwardingEntry, ptr %188, i64 %.4
-  %194 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %185, i64 0, ptr %193) #8, !srcloc !9
+  %194 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %185, i64 0, ptr %193) #8, !srcloc !10
   %195 = and i64 %194, 1
   %.not.i.i = icmp eq i64 %195, 0
-  br i1 %.not.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %196, !llvm.loop !10
+  br i1 %.not.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %196, !llvm.loop !11
 
 196:                                              ; preds = %.loopexit.i.i, %.lr.ph21.i.i
   %.2 = phi i64 [ %.1, %.lr.ph21.i.i ], [ %.4, %.loopexit.i.i ]
@@ -1416,7 +1416,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %174, %172, %142, %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %212 = and i64 %211, 1
   %.not15.i.i = icmp eq i64 %212, 0
-  br i1 %.not15.i.i, label %.loopexit.i.i, label %.lr.ph.i.i27, !llvm.loop !11
+  br i1 %.not15.i.i, label %.loopexit.i.i, label %.lr.ph.i.i27, !llvm.loop !12
 
 _ZL17forwarding_insertP11XForwardingmmPm.exit:    ; preds = %.loopexit.i.i, %_ZN6XUtils20object_copy_conjointEmmm.exit, %202
   %.0.i.i = phi i64 [ %204, %202 ], [ %181, %_ZN6XUtils20object_copy_conjointEmmm.exit ], [ %181, %.loopexit.i.i ]
@@ -1501,7 +1501,7 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI24XRelocateMediumAllocato
   %16 = tail call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(112) %9, i64 noundef 0) #8
   %17 = load i8, ptr %13, align 8
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %18, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -1539,7 +1539,7 @@ _ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit.thre
 
 36:                                               ; preds = %_ZL10alloc_pagePK11XForwarding.exit.i, %_ZL10alloc_pagePK11XForwarding.exit.thread.i
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %38 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %37) #8, !srcloc !14
+  %38 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %37) #8, !srcloc !15
   store i8 1, ptr %13, align 8
   %.pre.i = load ptr, ptr %19, align 8
   br label %_ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit
@@ -1563,7 +1563,7 @@ _ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit: ; p
 
 .backedge:                                        ; preds = %_ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit.thread, %41, %_ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit
   %46 = tail call noundef zeroext i1 @_ZNK16XRelocateClosureI24XRelocateMediumAllocatorE15relocate_objectEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %3)
-  br i1 %46, label %._crit_edge, label %8, !llvm.loop !17
+  br i1 %46, label %._crit_edge, label %8, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.backedge, %2
   ret void
@@ -1767,9 +1767,9 @@ _ZNK5XPage16object_alignmentEv.exit.i.i:          ; preds = %_ZNK5XPage16object_
   br i1 %127, label %_ZNK24XRelocateMediumAllocator17undo_alloc_objectEP5XPagemm.exit, label %128
 
 128:                                              ; preds = %124
-  %129 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %125, i64 %.011.i.i, ptr nonnull %121) #8, !srcloc !9
+  %129 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %125, i64 %.011.i.i, ptr nonnull %121) #8, !srcloc !10
   %130 = icmp eq i64 %129, %.011.i.i
-  br i1 %130, label %_ZNK24XRelocateMediumAllocator12alloc_objectEP5XPagem.exit, label %124, !llvm.loop !18
+  br i1 %130, label %_ZNK24XRelocateMediumAllocator12alloc_objectEP5XPagem.exit, label %124, !llvm.loop !19
 
 _ZNK24XRelocateMediumAllocator12alloc_objectEP5XPagem.exit: ; preds = %128
   %131 = load i64, ptr @XAddressOffsetMask, align 8
@@ -1889,7 +1889,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %178, %176, %146, %1
   %191 = add i64 %190, 136
   %192 = inttoptr i64 %191 to ptr
   %193 = getelementptr inbounds %class.XForwardingEntry, ptr %192, i64 %.1
-  %194 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %189, i64 0, ptr %193) #8, !srcloc !9
+  %194 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %189, i64 0, ptr %193) #8, !srcloc !10
   %195 = and i64 %194, 1
   %.not20.i.i = icmp eq i64 %195, 0
   br i1 %.not20.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %.lr.ph21.i.i
@@ -1901,10 +1901,10 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %178, %176, %146, %1
 .loopexit.i.i:                                    ; preds = %209, %200
   %.4 = phi i64 [ %.2, %200 ], [ %213, %209 ]
   %197 = getelementptr inbounds %class.XForwardingEntry, ptr %192, i64 %.4
-  %198 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %189, i64 0, ptr %197) #8, !srcloc !9
+  %198 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %189, i64 0, ptr %197) #8, !srcloc !10
   %199 = and i64 %198, 1
   %.not.i.i = icmp eq i64 %199, 0
-  br i1 %.not.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %200, !llvm.loop !10
+  br i1 %.not.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %200, !llvm.loop !11
 
 200:                                              ; preds = %.loopexit.i.i, %.lr.ph21.i.i
   %.2 = phi i64 [ %.1, %.lr.ph21.i.i ], [ %.4, %.loopexit.i.i ]
@@ -1937,7 +1937,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %178, %176, %146, %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %216 = and i64 %215, 1
   %.not15.i.i = icmp eq i64 %216, 0
-  br i1 %.not15.i.i, label %.loopexit.i.i, label %.lr.ph.i.i27, !llvm.loop !11
+  br i1 %.not15.i.i, label %.loopexit.i.i, label %.lr.ph.i.i27, !llvm.loop !12
 
 _ZL17forwarding_insertP11XForwardingmmPm.exit:    ; preds = %.loopexit.i.i, %_ZN6XUtils20object_copy_conjointEmmm.exit, %206
   %.0.i.i = phi i64 [ %208, %206 ], [ %185, %_ZN6XUtils20object_copy_conjointEmmm.exit ], [ %185, %.loopexit.i.i ]
@@ -1983,9 +1983,9 @@ _ZNK5XPage16object_alignmentEv.exit.i.i29:        ; preds = %_ZNK5XPage16object_
   br i1 %.not.i.i31, label %236, label %_ZNK24XRelocateMediumAllocator17undo_alloc_objectEP5XPagemm.exit
 
 236:                                              ; preds = %234
-  %237 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %223, i64 %.012.i.i, ptr nonnull %232) #8, !srcloc !9
+  %237 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %223, i64 %.012.i.i, ptr nonnull %232) #8, !srcloc !10
   %238 = icmp eq i64 %237, %.012.i.i
-  br i1 %238, label %_ZNK24XRelocateMediumAllocator17undo_alloc_objectEP5XPagemm.exit, label %234, !llvm.loop !19
+  br i1 %238, label %_ZNK24XRelocateMediumAllocator17undo_alloc_objectEP5XPagemm.exit, label %234, !llvm.loop !20
 
 _ZNK24XRelocateMediumAllocator17undo_alloc_objectEP5XPagemm.exit: ; preds = %124, %236, %234, %_ZN6XUtils11object_sizeEm.exit, %_ZL17forwarding_insertP11XForwardingmmPm.exit, %_ZNK24XRelocateMediumAllocator12alloc_objectEP5XPagem.exit, %_ZL15forwarding_findP11XForwardingmPm.exit
   %.0 = phi i1 [ true, %_ZL15forwarding_findP11XForwardingmPm.exit ], [ false, %_ZNK24XRelocateMediumAllocator12alloc_objectEP5XPagem.exit ], [ true, %_ZL17forwarding_insertP11XForwardingmmPm.exit ], [ false, %_ZN6XUtils11object_sizeEm.exit ], [ true, %234 ], [ true, %236 ], [ false, %124 ]
@@ -2077,7 +2077,7 @@ _ZNK8XLiveMap17next_live_segmentEm.exit.i:        ; preds = %30, %.lr.ph
   %.0.i.i.i6.i = phi i64 [ %24, %.lr.ph ], [ %32, %30 ]
   tail call void @_ZN8XLiveMap15iterate_segmentEP13ObjectClosuremmm(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1, i64 noundef %.0.i.i.i6.i, i64 noundef %9, i64 noundef %.0.i)
   %.not.i = icmp eq i64 %.0.i.i.i6.i, 63
-  br i1 %.not.i, label %_ZN8XLiveMap7iterateEP13ObjectClosuremm.exit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not.i, label %_ZN8XLiveMap7iterateEP13ObjectClosuremm.exit, label %.lr.ph, !llvm.loop !21
 
 _ZN8XLiveMap7iterateEP13ObjectClosuremm.exit:     ; preds = %30, %28, %_ZNK8XLiveMap17next_live_segmentEm.exit.i, %.lr.ph.i.preheader, %_ZNK5XPage22object_alignment_shiftEv.exit, %18
   ret void
@@ -2125,7 +2125,7 @@ define linkonce_odr hidden void @_ZN8XLiveMap15iterate_segmentEP13ObjectClosurem
   %31 = getelementptr inbounds nuw i64, ptr %16, i64 %28
   %32 = load i64, ptr %31, align 8
   %.not36.i.i = icmp eq i64 %32, 0
-  br i1 %.not36.i.i, label %27, label %33, !llvm.loop !21
+  br i1 %.not36.i.i, label %27, label %33, !llvm.loop !22
 
 33:                                               ; preds = %30
   %34 = shl i64 %28, 6
@@ -2280,7 +2280,7 @@ _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
   %129 = getelementptr inbounds nuw i64, ptr %118, i64 %126
   %130 = load i64, ptr %129, align 8
   %.not36.i.i30 = icmp eq i64 %130, 0
-  br i1 %.not36.i.i30, label %.preheader, label %131, !llvm.loop !21
+  br i1 %.not36.i.i30, label %.preheader, label %131, !llvm.loop !22
 
 131:                                              ; preds = %128
   %132 = shl i64 %126, 6
@@ -2297,7 +2297,7 @@ _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
 _ZNK6BitMap18find_first_set_bitEmm.exit31:        ; preds = %116, %133
   %.0.i.i25 = phi i64 [ %115, %116 ], [ %135, %133 ]
   %137 = icmp ult i64 %.0.i.i25, %11
-  br i1 %137, label %48, label %_ZN6XUtils11object_sizeEm.exit._crit_edge, !llvm.loop !22
+  br i1 %137, label %48, label %_ZN6XUtils11object_sizeEm.exit._crit_edge, !llvm.loop !23
 
 _ZN6XUtils11object_sizeEm.exit._crit_edge:        ; preds = %27, %133, %_ZNK6BitMap18find_first_set_bitEmm.exit31, %_ZN6XUtils11object_sizeEm.exit, %.preheader, %35, %5, %_ZNK6BitMap18find_first_set_bitEmm.exit
   ret void
@@ -2337,19 +2337,20 @@ attributes #8 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145412694}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = !{i64 2145411697}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = !{i64 2145411697}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}

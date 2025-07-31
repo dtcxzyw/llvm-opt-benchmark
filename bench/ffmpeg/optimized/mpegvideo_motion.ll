@@ -241,7 +241,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = load i32, ptr %170, align 4, !tbaa !36
   tail call fastcc void @mpeg_motion_field(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef %166, ptr noundef nonnull %5, ptr noundef %.0217.i48, i32 noundef %169, i32 noundef %171, i32 noundef %70)
-  br i1 %158, label %.preheader, label %mpv_motion_internal.exit, !llvm.loop !55
+  br i1 %158, label %.preheader, label %mpv_motion_internal.exit, !llvm.loop !56
 
 172:                                              ; preds = %.preheader27, %187
   %173 = phi i1 [ true, %.preheader27 ], [ false, %187 ]
@@ -270,11 +270,11 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 187:                                              ; preds = %184, %172
   %.2221.i = phi ptr [ %.1220.i44, %172 ], [ %186, %184 ]
-  br i1 %173, label %172, label %mpv_motion_internal.exit, !llvm.loop !56
+  br i1 %173, label %172, label %mpv_motion_internal.exit, !llvm.loop !57
 
 188:                                              ; preds = %8
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 4008
-  %190 = load i32, ptr %189, align 8, !tbaa !57
+  %190 = load i32, ptr %189, align 8, !tbaa !58
   %.not223.i = icmp eq i32 %190, 0
   br i1 %.not223.i, label %1605, label %191
 
@@ -288,48 +288,48 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #5
   %195 = load i32, ptr %20, align 4, !tbaa !37
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  %197 = load i32, ptr %196, align 4, !tbaa !58
+  %197 = load i32, ptr %196, align 4, !tbaa !59
   %198 = mul nsw i32 %197, %70
   %199 = add nsw i32 %198, %195
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %201 = load i32, ptr %200, align 8, !tbaa !59
+  %201 = load i32, ptr %200, align 8, !tbaa !60
   %202 = shl nsw i32 %195, 1
   %203 = shl nsw i32 %70, 1
   %204 = mul nsw i32 %203, %201
   %205 = add nsw i32 %204, %202
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %207 = load ptr, ptr %206, align 8, !tbaa !60
+  %207 = load ptr, ptr %206, align 8, !tbaa !61
   %208 = sext i32 %205 to i64
   %209 = getelementptr inbounds [2 x i16], ptr %207, i64 %208
-  %210 = load i32, ptr %209, align 4, !tbaa !61
+  %210 = load i32, ptr %209, align 4, !tbaa !62
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %212 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 %210, ptr %212, align 4, !tbaa !61
+  store i32 %210, ptr %212, align 4, !tbaa !62
   %213 = getelementptr i8, ptr %209, i64 4
-  %214 = load i32, ptr %213, align 4, !tbaa !61
+  %214 = load i32, ptr %213, align 4, !tbaa !62
   %215 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 %214, ptr %215, align 8, !tbaa !61
+  store i32 %214, ptr %215, align 8, !tbaa !62
   %216 = add nsw i32 %205, %201
   %217 = sext i32 %216 to i64
   %218 = getelementptr [2 x i16], ptr %207, i64 %217
-  %219 = load i32, ptr %218, align 4, !tbaa !61
+  %219 = load i32, ptr %218, align 4, !tbaa !62
   %220 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %221 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i32 %219, ptr %221, align 4, !tbaa !61
+  store i32 %219, ptr %221, align 4, !tbaa !62
   %222 = getelementptr i8, ptr %218, i64 4
-  %223 = load i32, ptr %222, align 4, !tbaa !61
+  %223 = load i32, ptr %222, align 4, !tbaa !62
   %224 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 %223, ptr %224, align 8, !tbaa !61
+  store i32 %223, ptr %224, align 8, !tbaa !62
   %225 = getelementptr inbounds nuw i8, ptr %10, i64 52
-  store i32 %219, ptr %225, align 4, !tbaa !61
+  store i32 %219, ptr %225, align 4, !tbaa !62
   %226 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i32 %223, ptr %226, align 8, !tbaa !61
+  store i32 %223, ptr %226, align 8, !tbaa !62
   %227 = icmp eq i32 %70, 0
   br i1 %227, label %236, label %228
 
 228:                                              ; preds = %194
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %230 = load ptr, ptr %229, align 8, !tbaa !62
+  %230 = load ptr, ptr %229, align 8, !tbaa !63
   %231 = sub nsw i32 %199, %197
   %232 = sext i32 %231 to i64
   %233 = getelementptr inbounds i32, ptr %230, i64 %232
@@ -340,30 +340,30 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 236:                                              ; preds = %228, %194
   %237 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %210, ptr %237, align 4, !tbaa !61
+  store i32 %210, ptr %237, align 4, !tbaa !62
   br label %246
 
 238:                                              ; preds = %228
   %239 = sub nsw i32 %205, %201
   %240 = sext i32 %239 to i64
   %241 = getelementptr inbounds [2 x i16], ptr %207, i64 %240
-  %242 = load i32, ptr %241, align 4, !tbaa !61
+  %242 = load i32, ptr %241, align 4, !tbaa !62
   %243 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %242, ptr %243, align 4, !tbaa !61
+  store i32 %242, ptr %243, align 4, !tbaa !62
   %244 = getelementptr i8, ptr %241, i64 4
-  %245 = load i32, ptr %244, align 4, !tbaa !61
+  %245 = load i32, ptr %244, align 4, !tbaa !62
   br label %246
 
 246:                                              ; preds = %238, %236
   %.sink.i = phi i32 [ %245, %238 ], [ %214, %236 ]
   %247 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sink.i, ptr %247, align 8, !tbaa !61
+  store i32 %.sink.i, ptr %247, align 8, !tbaa !62
   %248 = icmp eq i32 %195, 0
   br i1 %248, label %257, label %249
 
 249:                                              ; preds = %246
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %251 = load ptr, ptr %250, align 8, !tbaa !62
+  %251 = load ptr, ptr %250, align 8, !tbaa !63
   %252 = sext i32 %199 to i64
   %253 = getelementptr i32, ptr %251, i64 %252
   %254 = getelementptr i8, ptr %253, i64 -4
@@ -373,33 +373,33 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %.not132.i, label %258, label %257
 
 257:                                              ; preds = %249, %246
-  store i32 %210, ptr %211, align 8, !tbaa !61
+  store i32 %210, ptr %211, align 8, !tbaa !62
   br label %267
 
 258:                                              ; preds = %249
   %259 = add nsw i32 %205, -1
   %260 = sext i32 %259 to i64
   %261 = getelementptr inbounds [2 x i16], ptr %207, i64 %260
-  %262 = load i32, ptr %261, align 4, !tbaa !61
-  store i32 %262, ptr %211, align 8, !tbaa !61
+  %262 = load i32, ptr %261, align 4, !tbaa !62
+  store i32 %262, ptr %211, align 8, !tbaa !62
   %263 = add nsw i32 %259, %201
   %264 = sext i32 %263 to i64
   %265 = getelementptr inbounds [2 x i16], ptr %207, i64 %264
-  %266 = load i32, ptr %265, align 4, !tbaa !61
+  %266 = load i32, ptr %265, align 4, !tbaa !62
   br label %267
 
 267:                                              ; preds = %258, %257
   %storemerge.i = phi i32 [ %266, %258 ], [ %219, %257 ]
-  store i32 %storemerge.i, ptr %220, align 8, !tbaa !61
+  store i32 %storemerge.i, ptr %220, align 8, !tbaa !62
   %268 = add nsw i32 %195, 1
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %270 = load i32, ptr %269, align 4, !tbaa !63
+  %270 = load i32, ptr %269, align 4, !tbaa !64
   %.not133.i = icmp slt i32 %268, %270
   br i1 %.not133.i, label %271, label %279
 
 271:                                              ; preds = %267
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %273 = load ptr, ptr %272, align 8, !tbaa !62
+  %273 = load ptr, ptr %272, align 8, !tbaa !63
   %274 = sext i32 %199 to i64
   %275 = getelementptr i32, ptr %273, i64 %274
   %276 = getelementptr i8, ptr %275, i64 4
@@ -410,26 +410,26 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 279:                                              ; preds = %271, %267
   %280 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  store i32 %214, ptr %280, align 4, !tbaa !61
+  store i32 %214, ptr %280, align 4, !tbaa !62
   br label %291
 
 281:                                              ; preds = %271
   %282 = add nsw i32 %205, 2
   %283 = sext i32 %282 to i64
   %284 = getelementptr inbounds [2 x i16], ptr %207, i64 %283
-  %285 = load i32, ptr %284, align 4, !tbaa !61
+  %285 = load i32, ptr %284, align 4, !tbaa !62
   %286 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  store i32 %285, ptr %286, align 4, !tbaa !61
+  store i32 %285, ptr %286, align 4, !tbaa !62
   %287 = add nsw i32 %282, %201
   %288 = sext i32 %287 to i64
   %289 = getelementptr inbounds [2 x i16], ptr %207, i64 %288
-  %290 = load i32, ptr %289, align 4, !tbaa !61
+  %290 = load i32, ptr %289, align 4, !tbaa !62
   br label %291
 
 291:                                              ; preds = %281, %279
   %.sink141.i = phi i32 [ %290, %281 ], [ %223, %279 ]
   %292 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  store i32 %.sink141.i, ptr %292, align 4, !tbaa !61
+  store i32 %.sink141.i, ptr %292, align 4, !tbaa !62
   %293 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %294 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %295 = getelementptr inbounds nuw i8, ptr %11, i64 6
@@ -467,40 +467,40 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %gep.i = getelementptr inbounds nuw [4 x [2 x i16]], ptr %211, i64 %320
   %321 = zext nneg i32 %318 to i64
   %322 = getelementptr inbounds nuw [4 x [2 x i16]], ptr %gep.i, i64 0, i64 %321
-  %323 = load i16, ptr %322, align 4, !tbaa !64
-  store i16 %323, ptr %11, align 16, !tbaa !64
+  %323 = load i16, ptr %322, align 4, !tbaa !65
+  store i16 %323, ptr %11, align 16, !tbaa !65
   %324 = getelementptr inbounds nuw i8, ptr %322, i64 2
-  %325 = load i16, ptr %324, align 2, !tbaa !64
-  store i16 %325, ptr %293, align 2, !tbaa !64
+  %325 = load i16, ptr %324, align 2, !tbaa !65
+  store i16 %325, ptr %293, align 2, !tbaa !65
   %326 = getelementptr inbounds nuw [4 x [2 x i16]], ptr %10, i64 %320
   %327 = getelementptr inbounds nuw [4 x [2 x i16]], ptr %326, i64 0, i64 %321
-  %328 = load i16, ptr %327, align 4, !tbaa !64
-  store i16 %328, ptr %294, align 4, !tbaa !64
+  %328 = load i16, ptr %327, align 4, !tbaa !65
+  store i16 %328, ptr %294, align 4, !tbaa !65
   %329 = getelementptr inbounds nuw i8, ptr %327, i64 2
-  %330 = load i16, ptr %329, align 2, !tbaa !64
-  store i16 %330, ptr %295, align 2, !tbaa !64
+  %330 = load i16, ptr %329, align 2, !tbaa !65
+  store i16 %330, ptr %295, align 2, !tbaa !65
   %331 = zext nneg i32 %317 to i64
   %332 = getelementptr inbounds nuw [4 x [2 x i16]], ptr %gep.i, i64 0, i64 %331
-  %333 = load i16, ptr %332, align 4, !tbaa !64
-  store i16 %333, ptr %296, align 8, !tbaa !64
+  %333 = load i16, ptr %332, align 4, !tbaa !65
+  store i16 %333, ptr %296, align 8, !tbaa !65
   %334 = getelementptr inbounds nuw i8, ptr %332, i64 2
-  %335 = load i16, ptr %334, align 2, !tbaa !64
-  store i16 %335, ptr %297, align 2, !tbaa !64
+  %335 = load i16, ptr %334, align 2, !tbaa !65
+  store i16 %335, ptr %297, align 2, !tbaa !65
   %336 = or i32 %.0131135.i, 2
   %337 = zext nneg i32 %336 to i64
   %338 = getelementptr inbounds nuw [4 x [2 x i16]], ptr %gep.i, i64 0, i64 %337
-  %339 = load i16, ptr %338, align 4, !tbaa !64
-  store i16 %339, ptr %298, align 4, !tbaa !64
+  %339 = load i16, ptr %338, align 4, !tbaa !65
+  store i16 %339, ptr %298, align 4, !tbaa !65
   %340 = getelementptr inbounds nuw i8, ptr %338, i64 2
-  %341 = load i16, ptr %340, align 2, !tbaa !64
-  store i16 %341, ptr %299, align 2, !tbaa !64
+  %341 = load i16, ptr %340, align 2, !tbaa !65
+  store i16 %341, ptr %299, align 2, !tbaa !65
   %342 = getelementptr inbounds nuw i8, ptr %326, i64 32
   %343 = getelementptr inbounds nuw [4 x [2 x i16]], ptr %342, i64 0, i64 %321
-  %344 = load i16, ptr %343, align 4, !tbaa !64
-  store i16 %344, ptr %300, align 16, !tbaa !64
+  %344 = load i16, ptr %343, align 4, !tbaa !65
+  store i16 %344, ptr %300, align 16, !tbaa !65
   %345 = getelementptr inbounds nuw i8, ptr %343, i64 2
-  %346 = load i16, ptr %345, align 2, !tbaa !64
-  store i16 %346, ptr %301, align 2, !tbaa !64
+  %346 = load i16, ptr %345, align 2, !tbaa !65
+  store i16 %346, ptr %301, align 2, !tbaa !65
   %347 = shl nuw nsw i32 %317, 3
   %348 = shl nuw nsw i32 %319, 3
   %349 = load i64, ptr %35, align 8, !tbaa !39
@@ -517,13 +517,13 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 354:                                              ; preds = %353
   %355 = getelementptr inbounds nuw [2 x i16], ptr %11, i64 %indvars.iv.i.i
-  %356 = load i16, ptr %355, align 4, !tbaa !64
+  %356 = load i16, ptr %355, align 4, !tbaa !65
   %357 = icmp eq i16 %356, %323
   br i1 %357, label %358, label %._crit_edge.i.i
 
 358:                                              ; preds = %354
   %359 = getelementptr inbounds nuw i8, ptr %355, i64 2
-  %360 = load i16, ptr %359, align 2, !tbaa !64
+  %360 = load i16, ptr %359, align 2, !tbaa !65
   %361 = icmp eq i16 %360, %325
   br i1 %361, label %362, label %._crit_edge.i.i
 
@@ -535,7 +535,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 ._crit_edge.i.i:                                  ; preds = %358, %354, %353
   %365 = phi i16 [ %323, %358 ], [ %356, %354 ], [ %323, %353 ]
-  %366 = load ptr, ptr %305, align 8, !tbaa !65
+  %366 = load ptr, ptr %305, align 8, !tbaa !66
   %367 = shl i64 %indvars.iv.i.i, 3
   %368 = and i64 %367, 8
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 %368
@@ -548,18 +548,18 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store ptr %374, ptr %375, align 8, !tbaa !41
   %376 = sext i16 %365 to i32
   %377 = getelementptr inbounds nuw [2 x i16], ptr %11, i64 %indvars.iv.i.i, i64 1
-  %378 = load i16, ptr %377, align 2, !tbaa !64
+  %378 = load i16, ptr %377, align 2, !tbaa !65
   %379 = sext i16 %378 to i32
   %380 = ashr i32 %376, 1
   %381 = add nsw i32 %351, %380
   %382 = ashr i32 %379, 1
   %383 = add nsw i32 %352, %382
-  %384 = load i32, ptr %306, align 8, !tbaa !66
+  %384 = load i32, ptr %306, align 8, !tbaa !67
   %385 = icmp slt i32 %381, -16
   %..i.i.i.i = tail call i32 @llvm.smin.i32(i32 %381, i32 %384)
   %.0.i.i.i.i = select i1 %385, i32 -16, i32 %..i.i.i.i
   %386 = and i32 %376, 1
-  %387 = load i32, ptr %307, align 4, !tbaa !67
+  %387 = load i32, ptr %307, align 4, !tbaa !68
   %388 = icmp slt i32 %383, -16
   %..i52.i.i.i = tail call i32 @llvm.smin.i32(i32 %383, i32 %387)
   %.0.i53.i.i.i = select i1 %388, i32 -16, i32 %..i52.i.i.i
@@ -568,13 +568,13 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %391 = sext i32 %.0.i.i.i.i to i64
   %392 = getelementptr i8, ptr %350, i64 %390
   %393 = getelementptr i8, ptr %392, i64 %391
-  %394 = load i32, ptr %308, align 4, !tbaa !68
+  %394 = load i32, ptr %308, align 4, !tbaa !69
   %395 = sub nsw i32 %394, %386
   %396 = icmp sgt i32 %395, 7
   %397 = add nsw i32 %395, -7
   %398 = icmp ult i32 %.0.i.i.i.i, %397
   %.not50.i.i.i = select i1 %396, i1 %398, i1 false
-  %399 = load i32, ptr %309, align 8, !tbaa !69
+  %399 = load i32, ptr %309, align 8, !tbaa !70
   br i1 %.not50.i.i.i, label %400, label %._crit_edge.i.i.i
 
 400:                                              ; preds = %._crit_edge.i.i
@@ -587,10 +587,10 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %.not51.i.i.i, label %hpel_motion.exit.i.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %400, %._crit_edge.i.i
-  %406 = load ptr, ptr %310, align 8, !tbaa !70
-  %407 = load ptr, ptr %311, align 8, !tbaa !71
+  %406 = load ptr, ptr %310, align 8, !tbaa !71
+  %407 = load ptr, ptr %311, align 8, !tbaa !72
   tail call void %406(ptr noundef %407, ptr noundef %393, i64 noundef %370, i64 noundef %370, i32 noundef 9, i32 noundef 9, i32 noundef %.0.i.i.i.i, i32 noundef %.0.i53.i.i.i, i32 noundef %394, i32 noundef %399) #5
-  %408 = load ptr, ptr %311, align 8, !tbaa !71
+  %408 = load ptr, ptr %311, align 8, !tbaa !72
   %.pre54.i.i.i = load i64, ptr %35, align 8, !tbaa !39
   br label %hpel_motion.exit.i.i
 
@@ -606,14 +606,14 @@ hpel_motion.exit.i.i:                             ; preds = %._crit_edge.i.i.i, 
   %.1.i.i.i = or disjoint i32 %412, %spec.select.i.i.i
   %413 = zext nneg i32 %.1.i.i.i to i64
   %414 = getelementptr inbounds nuw ptr, ptr %304, i64 %413
-  %415 = load ptr, ptr %414, align 8, !tbaa !72
+  %415 = load ptr, ptr %414, align 8, !tbaa !73
   tail call void %415(ptr noundef %374, ptr noundef %.046.i.i.i, i64 noundef %409, i32 noundef 8) #5
   br label %416
 
 416:                                              ; preds = %hpel_motion.exit.i.i, %362
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %obmc_motion.exit.i, label %353, !llvm.loop !73
+  br i1 %exitcond.not.i.i, label %obmc_motion.exit.i, label %353, !llvm.loop !74
 
 obmc_motion.exit.i:                               ; preds = %416
   %417 = zext nneg i32 %347 to i64
@@ -628,29 +628,29 @@ obmc_motion.exit.i:                               ; preds = %416
   %426 = load ptr, ptr %9, align 16, !tbaa !41
   %427 = load ptr, ptr %314, align 8, !tbaa !41
   %428 = load ptr, ptr %315, align 16, !tbaa !41
-  %429 = load i8, ptr %424, align 1, !tbaa !61
+  %429 = load i8, ptr %424, align 1, !tbaa !62
   %430 = zext i8 %429 to i16
-  %431 = load i8, ptr %425, align 1, !tbaa !61
+  %431 = load i8, ptr %425, align 1, !tbaa !62
   %432 = zext i8 %431 to i16
   %433 = add nuw nsw i16 %432, %430
   %434 = shl nuw nsw i16 %433, 1
-  %435 = load i8, ptr %426, align 1, !tbaa !61
+  %435 = load i8, ptr %426, align 1, !tbaa !62
   %436 = zext i8 %435 to i16
   %437 = shl nuw nsw i16 %436, 2
   %438 = add nuw nsw i16 %437, 4
   %439 = add nuw nsw i16 %438, %434
   %440 = lshr i16 %439, 3
   %441 = trunc nuw i16 %440 to i8
-  store i8 %441, ptr %421, align 1, !tbaa !61
+  store i8 %441, ptr %421, align 1, !tbaa !62
   %442 = getelementptr inbounds nuw i8, ptr %424, i64 1
-  %443 = load i8, ptr %442, align 1, !tbaa !61
+  %443 = load i8, ptr %442, align 1, !tbaa !62
   %444 = zext i8 %443 to i16
   %445 = shl nuw nsw i16 %444, 1
   %446 = getelementptr inbounds nuw i8, ptr %425, i64 1
-  %447 = load i8, ptr %446, align 1, !tbaa !61
+  %447 = load i8, ptr %446, align 1, !tbaa !62
   %448 = zext i8 %447 to i16
   %449 = getelementptr inbounds nuw i8, ptr %426, i64 1
-  %450 = load i8, ptr %449, align 1, !tbaa !61
+  %450 = load i8, ptr %449, align 1, !tbaa !62
   %451 = zext i8 %450 to i16
   %452 = mul nuw nsw i16 %451, 5
   %453 = add nuw nsw i16 %448, 4
@@ -659,16 +659,16 @@ obmc_motion.exit.i:                               ; preds = %416
   %456 = lshr i16 %455, 3
   %457 = trunc nuw i16 %456 to i8
   %458 = getelementptr inbounds nuw i8, ptr %421, i64 1
-  store i8 %457, ptr %458, align 1, !tbaa !61
+  store i8 %457, ptr %458, align 1, !tbaa !62
   %459 = getelementptr inbounds nuw i8, ptr %424, i64 2
-  %460 = load i8, ptr %459, align 1, !tbaa !61
+  %460 = load i8, ptr %459, align 1, !tbaa !62
   %461 = zext i8 %460 to i16
   %462 = shl nuw nsw i16 %461, 1
   %463 = getelementptr inbounds nuw i8, ptr %425, i64 2
-  %464 = load i8, ptr %463, align 1, !tbaa !61
+  %464 = load i8, ptr %463, align 1, !tbaa !62
   %465 = zext i8 %464 to i16
   %466 = getelementptr inbounds nuw i8, ptr %426, i64 2
-  %467 = load i8, ptr %466, align 1, !tbaa !61
+  %467 = load i8, ptr %466, align 1, !tbaa !62
   %468 = zext i8 %467 to i16
   %469 = mul nuw nsw i16 %468, 5
   %470 = add nuw nsw i16 %465, 4
@@ -677,16 +677,16 @@ obmc_motion.exit.i:                               ; preds = %416
   %473 = lshr i16 %472, 3
   %474 = trunc nuw i16 %473 to i8
   %475 = getelementptr inbounds nuw i8, ptr %421, i64 2
-  store i8 %474, ptr %475, align 1, !tbaa !61
+  store i8 %474, ptr %475, align 1, !tbaa !62
   %476 = getelementptr inbounds nuw i8, ptr %424, i64 3
-  %477 = load i8, ptr %476, align 1, !tbaa !61
+  %477 = load i8, ptr %476, align 1, !tbaa !62
   %478 = zext i8 %477 to i16
   %479 = shl nuw nsw i16 %478, 1
   %480 = getelementptr inbounds nuw i8, ptr %425, i64 3
-  %481 = load i8, ptr %480, align 1, !tbaa !61
+  %481 = load i8, ptr %480, align 1, !tbaa !62
   %482 = zext i8 %481 to i16
   %483 = getelementptr inbounds nuw i8, ptr %426, i64 3
-  %484 = load i8, ptr %483, align 1, !tbaa !61
+  %484 = load i8, ptr %483, align 1, !tbaa !62
   %485 = zext i8 %484 to i16
   %486 = mul nuw nsw i16 %485, 5
   %487 = add nuw nsw i16 %482, 4
@@ -695,19 +695,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %490 = lshr i16 %489, 3
   %491 = trunc nuw i16 %490 to i8
   %492 = getelementptr inbounds nuw i8, ptr %421, i64 3
-  store i8 %491, ptr %492, align 1, !tbaa !61
+  store i8 %491, ptr %492, align 1, !tbaa !62
   %493 = shl i64 %422, 32
   %sext.i.i = add i64 %493, 8589934592
   %494 = ashr exact i64 %sext.i.i, 32
   %495 = getelementptr inbounds i8, ptr %424, i64 %494
-  %496 = load i8, ptr %495, align 1, !tbaa !61
+  %496 = load i8, ptr %495, align 1, !tbaa !62
   %497 = zext i8 %496 to i16
   %498 = shl nuw nsw i16 %497, 1
   %499 = getelementptr inbounds i8, ptr %425, i64 %494
-  %500 = load i8, ptr %499, align 1, !tbaa !61
+  %500 = load i8, ptr %499, align 1, !tbaa !62
   %501 = zext i8 %500 to i16
   %502 = getelementptr inbounds i8, ptr %426, i64 %494
-  %503 = load i8, ptr %502, align 1, !tbaa !61
+  %503 = load i8, ptr %502, align 1, !tbaa !62
   %504 = zext i8 %503 to i16
   %505 = mul nuw nsw i16 %504, 5
   %506 = add nuw nsw i16 %501, 4
@@ -716,18 +716,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %509 = lshr i16 %508, 3
   %510 = trunc nuw i16 %509 to i8
   %511 = getelementptr inbounds i8, ptr %421, i64 %494
-  store i8 %510, ptr %511, align 1, !tbaa !61
+  store i8 %510, ptr %511, align 1, !tbaa !62
   %sext26.i.i = add i64 %493, 12884901888
   %512 = ashr exact i64 %sext26.i.i, 32
   %513 = getelementptr inbounds i8, ptr %424, i64 %512
-  %514 = load i8, ptr %513, align 1, !tbaa !61
+  %514 = load i8, ptr %513, align 1, !tbaa !62
   %515 = zext i8 %514 to i16
   %516 = shl nuw nsw i16 %515, 1
   %517 = getelementptr inbounds i8, ptr %425, i64 %512
-  %518 = load i8, ptr %517, align 1, !tbaa !61
+  %518 = load i8, ptr %517, align 1, !tbaa !62
   %519 = zext i8 %518 to i16
   %520 = getelementptr inbounds i8, ptr %426, i64 %512
-  %521 = load i8, ptr %520, align 1, !tbaa !61
+  %521 = load i8, ptr %520, align 1, !tbaa !62
   %522 = zext i8 %521 to i16
   %523 = mul nuw nsw i16 %522, 5
   %524 = add nuw nsw i16 %519, 4
@@ -736,17 +736,17 @@ obmc_motion.exit.i:                               ; preds = %416
   %527 = lshr i16 %526, 3
   %528 = trunc nuw i16 %527 to i8
   %529 = getelementptr inbounds i8, ptr %421, i64 %512
-  store i8 %528, ptr %529, align 1, !tbaa !61
+  store i8 %528, ptr %529, align 1, !tbaa !62
   %530 = getelementptr inbounds nuw i8, ptr %424, i64 4
-  %531 = load i8, ptr %530, align 1, !tbaa !61
+  %531 = load i8, ptr %530, align 1, !tbaa !62
   %532 = zext i8 %531 to i16
   %533 = shl nuw nsw i16 %532, 1
   %534 = getelementptr inbounds nuw i8, ptr %426, i64 4
-  %535 = load i8, ptr %534, align 1, !tbaa !61
+  %535 = load i8, ptr %534, align 1, !tbaa !62
   %536 = zext i8 %535 to i16
   %537 = mul nuw nsw i16 %536, 5
   %538 = getelementptr inbounds nuw i8, ptr %427, i64 4
-  %539 = load i8, ptr %538, align 1, !tbaa !61
+  %539 = load i8, ptr %538, align 1, !tbaa !62
   %540 = zext i8 %539 to i16
   %541 = add nuw nsw i16 %533, 4
   %542 = add nuw nsw i16 %541, %537
@@ -754,17 +754,17 @@ obmc_motion.exit.i:                               ; preds = %416
   %544 = lshr i16 %543, 3
   %545 = trunc nuw i16 %544 to i8
   %546 = getelementptr inbounds nuw i8, ptr %421, i64 4
-  store i8 %545, ptr %546, align 1, !tbaa !61
+  store i8 %545, ptr %546, align 1, !tbaa !62
   %547 = getelementptr inbounds nuw i8, ptr %424, i64 5
-  %548 = load i8, ptr %547, align 1, !tbaa !61
+  %548 = load i8, ptr %547, align 1, !tbaa !62
   %549 = zext i8 %548 to i16
   %550 = shl nuw nsw i16 %549, 1
   %551 = getelementptr inbounds nuw i8, ptr %426, i64 5
-  %552 = load i8, ptr %551, align 1, !tbaa !61
+  %552 = load i8, ptr %551, align 1, !tbaa !62
   %553 = zext i8 %552 to i16
   %554 = mul nuw nsw i16 %553, 5
   %555 = getelementptr inbounds nuw i8, ptr %427, i64 5
-  %556 = load i8, ptr %555, align 1, !tbaa !61
+  %556 = load i8, ptr %555, align 1, !tbaa !62
   %557 = zext i8 %556 to i16
   %558 = add nuw nsw i16 %550, 4
   %559 = add nuw nsw i16 %558, %554
@@ -772,19 +772,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %561 = lshr i16 %560, 3
   %562 = trunc nuw i16 %561 to i8
   %563 = getelementptr inbounds nuw i8, ptr %421, i64 5
-  store i8 %562, ptr %563, align 1, !tbaa !61
+  store i8 %562, ptr %563, align 1, !tbaa !62
   %sext27.i.i = add i64 %493, 17179869184
   %564 = ashr exact i64 %sext27.i.i, 32
   %565 = getelementptr inbounds i8, ptr %424, i64 %564
-  %566 = load i8, ptr %565, align 1, !tbaa !61
+  %566 = load i8, ptr %565, align 1, !tbaa !62
   %567 = zext i8 %566 to i16
   %568 = shl nuw nsw i16 %567, 1
   %569 = getelementptr inbounds i8, ptr %426, i64 %564
-  %570 = load i8, ptr %569, align 1, !tbaa !61
+  %570 = load i8, ptr %569, align 1, !tbaa !62
   %571 = zext i8 %570 to i16
   %572 = mul nuw nsw i16 %571, 5
   %573 = getelementptr inbounds i8, ptr %427, i64 %564
-  %574 = load i8, ptr %573, align 1, !tbaa !61
+  %574 = load i8, ptr %573, align 1, !tbaa !62
   %575 = zext i8 %574 to i16
   %576 = add nuw nsw i16 %568, 4
   %577 = add nuw nsw i16 %576, %572
@@ -792,19 +792,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %579 = lshr i16 %578, 3
   %580 = trunc nuw i16 %579 to i8
   %581 = getelementptr inbounds i8, ptr %421, i64 %564
-  store i8 %580, ptr %581, align 1, !tbaa !61
+  store i8 %580, ptr %581, align 1, !tbaa !62
   %sext28.i.i = add i64 %493, 21474836480
   %582 = ashr exact i64 %sext28.i.i, 32
   %583 = getelementptr inbounds i8, ptr %424, i64 %582
-  %584 = load i8, ptr %583, align 1, !tbaa !61
+  %584 = load i8, ptr %583, align 1, !tbaa !62
   %585 = zext i8 %584 to i16
   %586 = shl nuw nsw i16 %585, 1
   %587 = getelementptr inbounds i8, ptr %426, i64 %582
-  %588 = load i8, ptr %587, align 1, !tbaa !61
+  %588 = load i8, ptr %587, align 1, !tbaa !62
   %589 = zext i8 %588 to i16
   %590 = mul nuw nsw i16 %589, 5
   %591 = getelementptr inbounds i8, ptr %427, i64 %582
-  %592 = load i8, ptr %591, align 1, !tbaa !61
+  %592 = load i8, ptr %591, align 1, !tbaa !62
   %593 = zext i8 %592 to i16
   %594 = add nuw nsw i16 %586, 4
   %595 = add nuw nsw i16 %594, %590
@@ -812,17 +812,17 @@ obmc_motion.exit.i:                               ; preds = %416
   %597 = lshr i16 %596, 3
   %598 = trunc nuw i16 %597 to i8
   %599 = getelementptr inbounds i8, ptr %421, i64 %582
-  store i8 %598, ptr %599, align 1, !tbaa !61
+  store i8 %598, ptr %599, align 1, !tbaa !62
   %600 = getelementptr inbounds nuw i8, ptr %424, i64 6
-  %601 = load i8, ptr %600, align 1, !tbaa !61
+  %601 = load i8, ptr %600, align 1, !tbaa !62
   %602 = zext i8 %601 to i16
   %603 = shl nuw nsw i16 %602, 1
   %604 = getelementptr inbounds nuw i8, ptr %426, i64 6
-  %605 = load i8, ptr %604, align 1, !tbaa !61
+  %605 = load i8, ptr %604, align 1, !tbaa !62
   %606 = zext i8 %605 to i16
   %607 = mul nuw nsw i16 %606, 5
   %608 = getelementptr inbounds nuw i8, ptr %427, i64 6
-  %609 = load i8, ptr %608, align 1, !tbaa !61
+  %609 = load i8, ptr %608, align 1, !tbaa !62
   %610 = zext i8 %609 to i16
   %611 = add nuw nsw i16 %603, 4
   %612 = add nuw nsw i16 %611, %607
@@ -830,16 +830,16 @@ obmc_motion.exit.i:                               ; preds = %416
   %614 = lshr i16 %613, 3
   %615 = trunc nuw i16 %614 to i8
   %616 = getelementptr inbounds nuw i8, ptr %421, i64 6
-  store i8 %615, ptr %616, align 1, !tbaa !61
+  store i8 %615, ptr %616, align 1, !tbaa !62
   %617 = getelementptr inbounds nuw i8, ptr %424, i64 7
-  %618 = load i8, ptr %617, align 1, !tbaa !61
+  %618 = load i8, ptr %617, align 1, !tbaa !62
   %619 = zext i8 %618 to i16
   %620 = getelementptr inbounds nuw i8, ptr %426, i64 7
-  %621 = load i8, ptr %620, align 1, !tbaa !61
+  %621 = load i8, ptr %620, align 1, !tbaa !62
   %622 = zext i8 %621 to i16
   %623 = shl nuw nsw i16 %622, 2
   %624 = getelementptr inbounds nuw i8, ptr %427, i64 7
-  %625 = load i8, ptr %624, align 1, !tbaa !61
+  %625 = load i8, ptr %624, align 1, !tbaa !62
   %626 = zext i8 %625 to i16
   %627 = add nuw nsw i16 %626, %619
   %628 = shl nuw nsw i16 %627, 1
@@ -848,17 +848,17 @@ obmc_motion.exit.i:                               ; preds = %416
   %631 = lshr i16 %630, 3
   %632 = trunc nuw i16 %631 to i8
   %633 = getelementptr inbounds nuw i8, ptr %421, i64 7
-  store i8 %632, ptr %633, align 1, !tbaa !61
+  store i8 %632, ptr %633, align 1, !tbaa !62
   %634 = ashr exact i64 %493, 32
   %635 = getelementptr inbounds i8, ptr %424, i64 %634
-  %636 = load i8, ptr %635, align 1, !tbaa !61
+  %636 = load i8, ptr %635, align 1, !tbaa !62
   %637 = zext i8 %636 to i16
   %638 = getelementptr inbounds i8, ptr %425, i64 %634
-  %639 = load i8, ptr %638, align 1, !tbaa !61
+  %639 = load i8, ptr %638, align 1, !tbaa !62
   %640 = zext i8 %639 to i16
   %641 = shl nuw nsw i16 %640, 1
   %642 = getelementptr inbounds i8, ptr %426, i64 %634
-  %643 = load i8, ptr %642, align 1, !tbaa !61
+  %643 = load i8, ptr %642, align 1, !tbaa !62
   %644 = zext i8 %643 to i16
   %645 = mul nuw nsw i16 %644, 5
   %646 = add nuw nsw i16 %637, 4
@@ -867,18 +867,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %649 = lshr i16 %648, 3
   %650 = trunc nuw i16 %649 to i8
   %651 = getelementptr inbounds i8, ptr %421, i64 %634
-  store i8 %650, ptr %651, align 1, !tbaa !61
+  store i8 %650, ptr %651, align 1, !tbaa !62
   %sext30.i.i = add i64 %493, 4294967296
   %652 = ashr exact i64 %sext30.i.i, 32
   %653 = getelementptr inbounds i8, ptr %424, i64 %652
-  %654 = load i8, ptr %653, align 1, !tbaa !61
+  %654 = load i8, ptr %653, align 1, !tbaa !62
   %655 = zext i8 %654 to i16
   %656 = getelementptr inbounds i8, ptr %425, i64 %652
-  %657 = load i8, ptr %656, align 1, !tbaa !61
+  %657 = load i8, ptr %656, align 1, !tbaa !62
   %658 = zext i8 %657 to i16
   %659 = shl nuw nsw i16 %658, 1
   %660 = getelementptr inbounds i8, ptr %426, i64 %652
-  %661 = load i8, ptr %660, align 1, !tbaa !61
+  %661 = load i8, ptr %660, align 1, !tbaa !62
   %662 = zext i8 %661 to i16
   %663 = mul nuw nsw i16 %662, 5
   %664 = add nuw nsw i16 %655, 4
@@ -887,18 +887,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %667 = lshr i16 %666, 3
   %668 = trunc nuw i16 %667 to i8
   %669 = getelementptr inbounds i8, ptr %421, i64 %652
-  store i8 %668, ptr %669, align 1, !tbaa !61
+  store i8 %668, ptr %669, align 1, !tbaa !62
   %sext31.i.i = add i64 %493, 25769803776
   %670 = ashr exact i64 %sext31.i.i, 32
   %671 = getelementptr inbounds i8, ptr %424, i64 %670
-  %672 = load i8, ptr %671, align 1, !tbaa !61
+  %672 = load i8, ptr %671, align 1, !tbaa !62
   %673 = zext i8 %672 to i16
   %674 = getelementptr inbounds i8, ptr %426, i64 %670
-  %675 = load i8, ptr %674, align 1, !tbaa !61
+  %675 = load i8, ptr %674, align 1, !tbaa !62
   %676 = zext i8 %675 to i16
   %677 = mul nuw nsw i16 %676, 5
   %678 = getelementptr inbounds i8, ptr %427, i64 %670
-  %679 = load i8, ptr %678, align 1, !tbaa !61
+  %679 = load i8, ptr %678, align 1, !tbaa !62
   %680 = zext i8 %679 to i16
   %681 = shl nuw nsw i16 %680, 1
   %682 = add nuw nsw i16 %673, 4
@@ -907,18 +907,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %685 = lshr i16 %684, 3
   %686 = trunc nuw i16 %685 to i8
   %687 = getelementptr inbounds i8, ptr %421, i64 %670
-  store i8 %686, ptr %687, align 1, !tbaa !61
+  store i8 %686, ptr %687, align 1, !tbaa !62
   %sext32.i.i = add i64 %493, 30064771072
   %688 = ashr exact i64 %sext32.i.i, 32
   %689 = getelementptr inbounds i8, ptr %424, i64 %688
-  %690 = load i8, ptr %689, align 1, !tbaa !61
+  %690 = load i8, ptr %689, align 1, !tbaa !62
   %691 = zext i8 %690 to i16
   %692 = getelementptr inbounds i8, ptr %426, i64 %688
-  %693 = load i8, ptr %692, align 1, !tbaa !61
+  %693 = load i8, ptr %692, align 1, !tbaa !62
   %694 = zext i8 %693 to i16
   %695 = mul nuw nsw i16 %694, 5
   %696 = getelementptr inbounds i8, ptr %427, i64 %688
-  %697 = load i8, ptr %696, align 1, !tbaa !61
+  %697 = load i8, ptr %696, align 1, !tbaa !62
   %698 = zext i8 %697 to i16
   %699 = shl nuw nsw i16 %698, 1
   %700 = add nuw nsw i16 %691, 4
@@ -927,18 +927,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %703 = lshr i16 %702, 3
   %704 = trunc nuw i16 %703 to i8
   %705 = getelementptr inbounds i8, ptr %421, i64 %688
-  store i8 %704, ptr %705, align 1, !tbaa !61
+  store i8 %704, ptr %705, align 1, !tbaa !62
   %706 = shl nsw i32 %423, 1
   %707 = sext i32 %706 to i64
   %708 = getelementptr inbounds i8, ptr %424, i64 %707
-  %709 = load i8, ptr %708, align 1, !tbaa !61
+  %709 = load i8, ptr %708, align 1, !tbaa !62
   %710 = zext i8 %709 to i16
   %711 = getelementptr inbounds i8, ptr %425, i64 %707
-  %712 = load i8, ptr %711, align 1, !tbaa !61
+  %712 = load i8, ptr %711, align 1, !tbaa !62
   %713 = zext i8 %712 to i16
   %714 = shl nuw nsw i16 %713, 1
   %715 = getelementptr inbounds i8, ptr %426, i64 %707
-  %716 = load i8, ptr %715, align 1, !tbaa !61
+  %716 = load i8, ptr %715, align 1, !tbaa !62
   %717 = zext i8 %716 to i16
   %718 = mul nuw nsw i16 %717, 5
   %719 = add nuw nsw i16 %710, 4
@@ -947,18 +947,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %722 = lshr i16 %721, 3
   %723 = trunc nuw i16 %722 to i8
   %724 = getelementptr inbounds i8, ptr %421, i64 %707
-  store i8 %723, ptr %724, align 1, !tbaa !61
+  store i8 %723, ptr %724, align 1, !tbaa !62
   %725 = or disjoint i32 %706, 1
   %726 = sext i32 %725 to i64
   %727 = getelementptr inbounds i8, ptr %424, i64 %726
-  %728 = load i8, ptr %727, align 1, !tbaa !61
+  %728 = load i8, ptr %727, align 1, !tbaa !62
   %729 = zext i8 %728 to i16
   %730 = getelementptr inbounds i8, ptr %425, i64 %726
-  %731 = load i8, ptr %730, align 1, !tbaa !61
+  %731 = load i8, ptr %730, align 1, !tbaa !62
   %732 = zext i8 %731 to i16
   %733 = shl nuw nsw i16 %732, 1
   %734 = getelementptr inbounds i8, ptr %426, i64 %726
-  %735 = load i8, ptr %734, align 1, !tbaa !61
+  %735 = load i8, ptr %734, align 1, !tbaa !62
   %736 = zext i8 %735 to i16
   %737 = mul nuw nsw i16 %736, 5
   %738 = add nuw nsw i16 %729, 4
@@ -967,18 +967,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %741 = lshr i16 %740, 3
   %742 = trunc nuw i16 %741 to i8
   %743 = getelementptr inbounds i8, ptr %421, i64 %726
-  store i8 %742, ptr %743, align 1, !tbaa !61
+  store i8 %742, ptr %743, align 1, !tbaa !62
   %sext33.i.i = mul i64 %422, 12884901888
   %744 = ashr exact i64 %sext33.i.i, 32
   %745 = getelementptr inbounds i8, ptr %424, i64 %744
-  %746 = load i8, ptr %745, align 1, !tbaa !61
+  %746 = load i8, ptr %745, align 1, !tbaa !62
   %747 = zext i8 %746 to i16
   %748 = getelementptr inbounds i8, ptr %425, i64 %744
-  %749 = load i8, ptr %748, align 1, !tbaa !61
+  %749 = load i8, ptr %748, align 1, !tbaa !62
   %750 = zext i8 %749 to i16
   %751 = shl nuw nsw i16 %750, 1
   %752 = getelementptr inbounds i8, ptr %426, i64 %744
-  %753 = load i8, ptr %752, align 1, !tbaa !61
+  %753 = load i8, ptr %752, align 1, !tbaa !62
   %754 = zext i8 %753 to i16
   %755 = mul nuw nsw i16 %754, 5
   %756 = add nuw nsw i16 %747, 4
@@ -987,18 +987,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %759 = lshr i16 %758, 3
   %760 = trunc nuw i16 %759 to i8
   %761 = getelementptr inbounds i8, ptr %421, i64 %744
-  store i8 %760, ptr %761, align 1, !tbaa !61
+  store i8 %760, ptr %761, align 1, !tbaa !62
   %762 = add nsw i32 %725, %423
   %763 = sext i32 %762 to i64
   %764 = getelementptr inbounds i8, ptr %424, i64 %763
-  %765 = load i8, ptr %764, align 1, !tbaa !61
+  %765 = load i8, ptr %764, align 1, !tbaa !62
   %766 = zext i8 %765 to i16
   %767 = getelementptr inbounds i8, ptr %425, i64 %763
-  %768 = load i8, ptr %767, align 1, !tbaa !61
+  %768 = load i8, ptr %767, align 1, !tbaa !62
   %769 = zext i8 %768 to i16
   %770 = shl nuw nsw i16 %769, 1
   %771 = getelementptr inbounds i8, ptr %426, i64 %763
-  %772 = load i8, ptr %771, align 1, !tbaa !61
+  %772 = load i8, ptr %771, align 1, !tbaa !62
   %773 = zext i8 %772 to i16
   %774 = mul nuw nsw i16 %773, 5
   %775 = add nuw nsw i16 %766, 4
@@ -1007,17 +1007,17 @@ obmc_motion.exit.i:                               ; preds = %416
   %778 = lshr i16 %777, 3
   %779 = trunc nuw i16 %778 to i8
   %780 = getelementptr inbounds i8, ptr %421, i64 %763
-  store i8 %779, ptr %780, align 1, !tbaa !61
+  store i8 %779, ptr %780, align 1, !tbaa !62
   %781 = add nsw i32 %706, 2
   %782 = sext i32 %781 to i64
   %783 = getelementptr inbounds i8, ptr %424, i64 %782
-  %784 = load i8, ptr %783, align 1, !tbaa !61
+  %784 = load i8, ptr %783, align 1, !tbaa !62
   %785 = zext i8 %784 to i16
   %786 = getelementptr inbounds i8, ptr %425, i64 %782
-  %787 = load i8, ptr %786, align 1, !tbaa !61
+  %787 = load i8, ptr %786, align 1, !tbaa !62
   %788 = zext i8 %787 to i16
   %789 = getelementptr inbounds i8, ptr %426, i64 %782
-  %790 = load i8, ptr %789, align 1, !tbaa !61
+  %790 = load i8, ptr %789, align 1, !tbaa !62
   %791 = zext i8 %790 to i16
   %792 = mul nuw nsw i16 %791, 6
   %793 = add nuw nsw i16 %785, 4
@@ -1026,17 +1026,17 @@ obmc_motion.exit.i:                               ; preds = %416
   %796 = lshr i16 %795, 3
   %797 = trunc nuw i16 %796 to i8
   %798 = getelementptr inbounds i8, ptr %421, i64 %782
-  store i8 %797, ptr %798, align 1, !tbaa !61
+  store i8 %797, ptr %798, align 1, !tbaa !62
   %799 = add nsw i32 %706, 3
   %800 = sext i32 %799 to i64
   %801 = getelementptr inbounds i8, ptr %424, i64 %800
-  %802 = load i8, ptr %801, align 1, !tbaa !61
+  %802 = load i8, ptr %801, align 1, !tbaa !62
   %803 = zext i8 %802 to i16
   %804 = getelementptr inbounds i8, ptr %425, i64 %800
-  %805 = load i8, ptr %804, align 1, !tbaa !61
+  %805 = load i8, ptr %804, align 1, !tbaa !62
   %806 = zext i8 %805 to i16
   %807 = getelementptr inbounds i8, ptr %426, i64 %800
-  %808 = load i8, ptr %807, align 1, !tbaa !61
+  %808 = load i8, ptr %807, align 1, !tbaa !62
   %809 = zext i8 %808 to i16
   %810 = mul nuw nsw i16 %809, 6
   %811 = add nuw nsw i16 %803, 4
@@ -1045,17 +1045,17 @@ obmc_motion.exit.i:                               ; preds = %416
   %814 = lshr i16 %813, 3
   %815 = trunc nuw i16 %814 to i8
   %816 = getelementptr inbounds i8, ptr %421, i64 %800
-  store i8 %815, ptr %816, align 1, !tbaa !61
+  store i8 %815, ptr %816, align 1, !tbaa !62
   %817 = add nsw i32 %781, %423
   %818 = sext i32 %817 to i64
   %819 = getelementptr inbounds i8, ptr %424, i64 %818
-  %820 = load i8, ptr %819, align 1, !tbaa !61
+  %820 = load i8, ptr %819, align 1, !tbaa !62
   %821 = zext i8 %820 to i16
   %822 = getelementptr inbounds i8, ptr %425, i64 %818
-  %823 = load i8, ptr %822, align 1, !tbaa !61
+  %823 = load i8, ptr %822, align 1, !tbaa !62
   %824 = zext i8 %823 to i16
   %825 = getelementptr inbounds i8, ptr %426, i64 %818
-  %826 = load i8, ptr %825, align 1, !tbaa !61
+  %826 = load i8, ptr %825, align 1, !tbaa !62
   %827 = zext i8 %826 to i16
   %828 = mul nuw nsw i16 %827, 6
   %829 = add nuw nsw i16 %821, 4
@@ -1064,17 +1064,17 @@ obmc_motion.exit.i:                               ; preds = %416
   %832 = lshr i16 %831, 3
   %833 = trunc nuw i16 %832 to i8
   %834 = getelementptr inbounds i8, ptr %421, i64 %818
-  store i8 %833, ptr %834, align 1, !tbaa !61
+  store i8 %833, ptr %834, align 1, !tbaa !62
   %835 = add nsw i32 %799, %423
   %836 = sext i32 %835 to i64
   %837 = getelementptr inbounds i8, ptr %424, i64 %836
-  %838 = load i8, ptr %837, align 1, !tbaa !61
+  %838 = load i8, ptr %837, align 1, !tbaa !62
   %839 = zext i8 %838 to i16
   %840 = getelementptr inbounds i8, ptr %425, i64 %836
-  %841 = load i8, ptr %840, align 1, !tbaa !61
+  %841 = load i8, ptr %840, align 1, !tbaa !62
   %842 = zext i8 %841 to i16
   %843 = getelementptr inbounds i8, ptr %426, i64 %836
-  %844 = load i8, ptr %843, align 1, !tbaa !61
+  %844 = load i8, ptr %843, align 1, !tbaa !62
   %845 = zext i8 %844 to i16
   %846 = mul nuw nsw i16 %845, 6
   %847 = add nuw nsw i16 %839, 4
@@ -1083,18 +1083,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %850 = lshr i16 %849, 3
   %851 = trunc nuw i16 %850 to i8
   %852 = getelementptr inbounds i8, ptr %421, i64 %836
-  store i8 %851, ptr %852, align 1, !tbaa !61
+  store i8 %851, ptr %852, align 1, !tbaa !62
   %853 = add nsw i32 %706, 4
   %854 = sext i32 %853 to i64
   %855 = getelementptr inbounds i8, ptr %424, i64 %854
-  %856 = load i8, ptr %855, align 1, !tbaa !61
+  %856 = load i8, ptr %855, align 1, !tbaa !62
   %857 = zext i8 %856 to i16
   %858 = getelementptr inbounds i8, ptr %426, i64 %854
-  %859 = load i8, ptr %858, align 1, !tbaa !61
+  %859 = load i8, ptr %858, align 1, !tbaa !62
   %860 = zext i8 %859 to i16
   %861 = mul nuw nsw i16 %860, 6
   %862 = getelementptr inbounds i8, ptr %427, i64 %854
-  %863 = load i8, ptr %862, align 1, !tbaa !61
+  %863 = load i8, ptr %862, align 1, !tbaa !62
   %864 = zext i8 %863 to i16
   %865 = add nuw nsw i16 %857, 4
   %866 = add nuw nsw i16 %865, %861
@@ -1102,18 +1102,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %868 = lshr i16 %867, 3
   %869 = trunc nuw i16 %868 to i8
   %870 = getelementptr inbounds i8, ptr %421, i64 %854
-  store i8 %869, ptr %870, align 1, !tbaa !61
+  store i8 %869, ptr %870, align 1, !tbaa !62
   %871 = add nsw i32 %706, 5
   %872 = sext i32 %871 to i64
   %873 = getelementptr inbounds i8, ptr %424, i64 %872
-  %874 = load i8, ptr %873, align 1, !tbaa !61
+  %874 = load i8, ptr %873, align 1, !tbaa !62
   %875 = zext i8 %874 to i16
   %876 = getelementptr inbounds i8, ptr %426, i64 %872
-  %877 = load i8, ptr %876, align 1, !tbaa !61
+  %877 = load i8, ptr %876, align 1, !tbaa !62
   %878 = zext i8 %877 to i16
   %879 = mul nuw nsw i16 %878, 6
   %880 = getelementptr inbounds i8, ptr %427, i64 %872
-  %881 = load i8, ptr %880, align 1, !tbaa !61
+  %881 = load i8, ptr %880, align 1, !tbaa !62
   %882 = zext i8 %881 to i16
   %883 = add nuw nsw i16 %875, 4
   %884 = add nuw nsw i16 %883, %879
@@ -1121,18 +1121,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %886 = lshr i16 %885, 3
   %887 = trunc nuw i16 %886 to i8
   %888 = getelementptr inbounds i8, ptr %421, i64 %872
-  store i8 %887, ptr %888, align 1, !tbaa !61
+  store i8 %887, ptr %888, align 1, !tbaa !62
   %889 = add nsw i32 %853, %423
   %890 = sext i32 %889 to i64
   %891 = getelementptr inbounds i8, ptr %424, i64 %890
-  %892 = load i8, ptr %891, align 1, !tbaa !61
+  %892 = load i8, ptr %891, align 1, !tbaa !62
   %893 = zext i8 %892 to i16
   %894 = getelementptr inbounds i8, ptr %426, i64 %890
-  %895 = load i8, ptr %894, align 1, !tbaa !61
+  %895 = load i8, ptr %894, align 1, !tbaa !62
   %896 = zext i8 %895 to i16
   %897 = mul nuw nsw i16 %896, 6
   %898 = getelementptr inbounds i8, ptr %427, i64 %890
-  %899 = load i8, ptr %898, align 1, !tbaa !61
+  %899 = load i8, ptr %898, align 1, !tbaa !62
   %900 = zext i8 %899 to i16
   %901 = add nuw nsw i16 %893, 4
   %902 = add nuw nsw i16 %901, %897
@@ -1140,18 +1140,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %904 = lshr i16 %903, 3
   %905 = trunc nuw i16 %904 to i8
   %906 = getelementptr inbounds i8, ptr %421, i64 %890
-  store i8 %905, ptr %906, align 1, !tbaa !61
+  store i8 %905, ptr %906, align 1, !tbaa !62
   %907 = add nsw i32 %871, %423
   %908 = sext i32 %907 to i64
   %909 = getelementptr inbounds i8, ptr %424, i64 %908
-  %910 = load i8, ptr %909, align 1, !tbaa !61
+  %910 = load i8, ptr %909, align 1, !tbaa !62
   %911 = zext i8 %910 to i16
   %912 = getelementptr inbounds i8, ptr %426, i64 %908
-  %913 = load i8, ptr %912, align 1, !tbaa !61
+  %913 = load i8, ptr %912, align 1, !tbaa !62
   %914 = zext i8 %913 to i16
   %915 = mul nuw nsw i16 %914, 6
   %916 = getelementptr inbounds i8, ptr %427, i64 %908
-  %917 = load i8, ptr %916, align 1, !tbaa !61
+  %917 = load i8, ptr %916, align 1, !tbaa !62
   %918 = zext i8 %917 to i16
   %919 = add nuw nsw i16 %911, 4
   %920 = add nuw nsw i16 %919, %915
@@ -1159,18 +1159,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %922 = lshr i16 %921, 3
   %923 = trunc nuw i16 %922 to i8
   %924 = getelementptr inbounds i8, ptr %421, i64 %908
-  store i8 %923, ptr %924, align 1, !tbaa !61
+  store i8 %923, ptr %924, align 1, !tbaa !62
   %925 = add nsw i32 %706, 6
   %926 = sext i32 %925 to i64
   %927 = getelementptr inbounds i8, ptr %424, i64 %926
-  %928 = load i8, ptr %927, align 1, !tbaa !61
+  %928 = load i8, ptr %927, align 1, !tbaa !62
   %929 = zext i8 %928 to i16
   %930 = getelementptr inbounds i8, ptr %426, i64 %926
-  %931 = load i8, ptr %930, align 1, !tbaa !61
+  %931 = load i8, ptr %930, align 1, !tbaa !62
   %932 = zext i8 %931 to i16
   %933 = mul nuw nsw i16 %932, 5
   %934 = getelementptr inbounds i8, ptr %427, i64 %926
-  %935 = load i8, ptr %934, align 1, !tbaa !61
+  %935 = load i8, ptr %934, align 1, !tbaa !62
   %936 = zext i8 %935 to i16
   %937 = shl nuw nsw i16 %936, 1
   %938 = add nuw nsw i16 %929, 4
@@ -1179,18 +1179,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %941 = lshr i16 %940, 3
   %942 = trunc nuw i16 %941 to i8
   %943 = getelementptr inbounds i8, ptr %421, i64 %926
-  store i8 %942, ptr %943, align 1, !tbaa !61
+  store i8 %942, ptr %943, align 1, !tbaa !62
   %944 = add nsw i32 %706, 7
   %945 = sext i32 %944 to i64
   %946 = getelementptr inbounds i8, ptr %424, i64 %945
-  %947 = load i8, ptr %946, align 1, !tbaa !61
+  %947 = load i8, ptr %946, align 1, !tbaa !62
   %948 = zext i8 %947 to i16
   %949 = getelementptr inbounds i8, ptr %426, i64 %945
-  %950 = load i8, ptr %949, align 1, !tbaa !61
+  %950 = load i8, ptr %949, align 1, !tbaa !62
   %951 = zext i8 %950 to i16
   %952 = mul nuw nsw i16 %951, 5
   %953 = getelementptr inbounds i8, ptr %427, i64 %945
-  %954 = load i8, ptr %953, align 1, !tbaa !61
+  %954 = load i8, ptr %953, align 1, !tbaa !62
   %955 = zext i8 %954 to i16
   %956 = shl nuw nsw i16 %955, 1
   %957 = add nuw nsw i16 %948, 4
@@ -1199,18 +1199,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %960 = lshr i16 %959, 3
   %961 = trunc nuw i16 %960 to i8
   %962 = getelementptr inbounds i8, ptr %421, i64 %945
-  store i8 %961, ptr %962, align 1, !tbaa !61
+  store i8 %961, ptr %962, align 1, !tbaa !62
   %963 = add nsw i32 %925, %423
   %964 = sext i32 %963 to i64
   %965 = getelementptr inbounds i8, ptr %424, i64 %964
-  %966 = load i8, ptr %965, align 1, !tbaa !61
+  %966 = load i8, ptr %965, align 1, !tbaa !62
   %967 = zext i8 %966 to i16
   %968 = getelementptr inbounds i8, ptr %426, i64 %964
-  %969 = load i8, ptr %968, align 1, !tbaa !61
+  %969 = load i8, ptr %968, align 1, !tbaa !62
   %970 = zext i8 %969 to i16
   %971 = mul nuw nsw i16 %970, 5
   %972 = getelementptr inbounds i8, ptr %427, i64 %964
-  %973 = load i8, ptr %972, align 1, !tbaa !61
+  %973 = load i8, ptr %972, align 1, !tbaa !62
   %974 = zext i8 %973 to i16
   %975 = shl nuw nsw i16 %974, 1
   %976 = add nuw nsw i16 %967, 4
@@ -1219,18 +1219,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %979 = lshr i16 %978, 3
   %980 = trunc nuw i16 %979 to i8
   %981 = getelementptr inbounds i8, ptr %421, i64 %964
-  store i8 %980, ptr %981, align 1, !tbaa !61
+  store i8 %980, ptr %981, align 1, !tbaa !62
   %982 = add nsw i32 %944, %423
   %983 = sext i32 %982 to i64
   %984 = getelementptr inbounds i8, ptr %424, i64 %983
-  %985 = load i8, ptr %984, align 1, !tbaa !61
+  %985 = load i8, ptr %984, align 1, !tbaa !62
   %986 = zext i8 %985 to i16
   %987 = getelementptr inbounds i8, ptr %426, i64 %983
-  %988 = load i8, ptr %987, align 1, !tbaa !61
+  %988 = load i8, ptr %987, align 1, !tbaa !62
   %989 = zext i8 %988 to i16
   %990 = mul nuw nsw i16 %989, 5
   %991 = getelementptr inbounds i8, ptr %427, i64 %983
-  %992 = load i8, ptr %991, align 1, !tbaa !61
+  %992 = load i8, ptr %991, align 1, !tbaa !62
   %993 = zext i8 %992 to i16
   %994 = shl nuw nsw i16 %993, 1
   %995 = add nuw nsw i16 %986, 4
@@ -1239,19 +1239,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %998 = lshr i16 %997, 3
   %999 = trunc nuw i16 %998 to i8
   %1000 = getelementptr inbounds i8, ptr %421, i64 %983
-  store i8 %999, ptr %1000, align 1, !tbaa !61
+  store i8 %999, ptr %1000, align 1, !tbaa !62
   %1001 = shl nsw i32 %423, 2
   %1002 = sext i32 %1001 to i64
   %1003 = getelementptr inbounds i8, ptr %425, i64 %1002
-  %1004 = load i8, ptr %1003, align 1, !tbaa !61
+  %1004 = load i8, ptr %1003, align 1, !tbaa !62
   %1005 = zext i8 %1004 to i16
   %1006 = shl nuw nsw i16 %1005, 1
   %1007 = getelementptr inbounds i8, ptr %426, i64 %1002
-  %1008 = load i8, ptr %1007, align 1, !tbaa !61
+  %1008 = load i8, ptr %1007, align 1, !tbaa !62
   %1009 = zext i8 %1008 to i16
   %1010 = mul nuw nsw i16 %1009, 5
   %1011 = getelementptr inbounds i8, ptr %428, i64 %1002
-  %1012 = load i8, ptr %1011, align 1, !tbaa !61
+  %1012 = load i8, ptr %1011, align 1, !tbaa !62
   %1013 = zext i8 %1012 to i16
   %1014 = add nuw nsw i16 %1006, 4
   %1015 = add nuw nsw i16 %1014, %1010
@@ -1259,19 +1259,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1017 = lshr i16 %1016, 3
   %1018 = trunc nuw i16 %1017 to i8
   %1019 = getelementptr inbounds i8, ptr %421, i64 %1002
-  store i8 %1018, ptr %1019, align 1, !tbaa !61
+  store i8 %1018, ptr %1019, align 1, !tbaa !62
   %1020 = or disjoint i32 %1001, 1
   %1021 = sext i32 %1020 to i64
   %1022 = getelementptr inbounds i8, ptr %425, i64 %1021
-  %1023 = load i8, ptr %1022, align 1, !tbaa !61
+  %1023 = load i8, ptr %1022, align 1, !tbaa !62
   %1024 = zext i8 %1023 to i16
   %1025 = shl nuw nsw i16 %1024, 1
   %1026 = getelementptr inbounds i8, ptr %426, i64 %1021
-  %1027 = load i8, ptr %1026, align 1, !tbaa !61
+  %1027 = load i8, ptr %1026, align 1, !tbaa !62
   %1028 = zext i8 %1027 to i16
   %1029 = mul nuw nsw i16 %1028, 5
   %1030 = getelementptr inbounds i8, ptr %428, i64 %1021
-  %1031 = load i8, ptr %1030, align 1, !tbaa !61
+  %1031 = load i8, ptr %1030, align 1, !tbaa !62
   %1032 = zext i8 %1031 to i16
   %1033 = add nuw nsw i16 %1025, 4
   %1034 = add nuw nsw i16 %1033, %1029
@@ -1279,19 +1279,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1036 = lshr i16 %1035, 3
   %1037 = trunc nuw i16 %1036 to i8
   %1038 = getelementptr inbounds i8, ptr %421, i64 %1021
-  store i8 %1037, ptr %1038, align 1, !tbaa !61
+  store i8 %1037, ptr %1038, align 1, !tbaa !62
   %sext34.i.i = mul i64 %422, 21474836480
   %1039 = ashr exact i64 %sext34.i.i, 32
   %1040 = getelementptr inbounds i8, ptr %425, i64 %1039
-  %1041 = load i8, ptr %1040, align 1, !tbaa !61
+  %1041 = load i8, ptr %1040, align 1, !tbaa !62
   %1042 = zext i8 %1041 to i16
   %1043 = shl nuw nsw i16 %1042, 1
   %1044 = getelementptr inbounds i8, ptr %426, i64 %1039
-  %1045 = load i8, ptr %1044, align 1, !tbaa !61
+  %1045 = load i8, ptr %1044, align 1, !tbaa !62
   %1046 = zext i8 %1045 to i16
   %1047 = mul nuw nsw i16 %1046, 5
   %1048 = getelementptr inbounds i8, ptr %428, i64 %1039
-  %1049 = load i8, ptr %1048, align 1, !tbaa !61
+  %1049 = load i8, ptr %1048, align 1, !tbaa !62
   %1050 = zext i8 %1049 to i16
   %1051 = add nuw nsw i16 %1043, 4
   %1052 = add nuw nsw i16 %1051, %1047
@@ -1299,19 +1299,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1054 = lshr i16 %1053, 3
   %1055 = trunc nuw i16 %1054 to i8
   %1056 = getelementptr inbounds i8, ptr %421, i64 %1039
-  store i8 %1055, ptr %1056, align 1, !tbaa !61
+  store i8 %1055, ptr %1056, align 1, !tbaa !62
   %1057 = add nsw i32 %1020, %423
   %1058 = sext i32 %1057 to i64
   %1059 = getelementptr inbounds i8, ptr %425, i64 %1058
-  %1060 = load i8, ptr %1059, align 1, !tbaa !61
+  %1060 = load i8, ptr %1059, align 1, !tbaa !62
   %1061 = zext i8 %1060 to i16
   %1062 = shl nuw nsw i16 %1061, 1
   %1063 = getelementptr inbounds i8, ptr %426, i64 %1058
-  %1064 = load i8, ptr %1063, align 1, !tbaa !61
+  %1064 = load i8, ptr %1063, align 1, !tbaa !62
   %1065 = zext i8 %1064 to i16
   %1066 = mul nuw nsw i16 %1065, 5
   %1067 = getelementptr inbounds i8, ptr %428, i64 %1058
-  %1068 = load i8, ptr %1067, align 1, !tbaa !61
+  %1068 = load i8, ptr %1067, align 1, !tbaa !62
   %1069 = zext i8 %1068 to i16
   %1070 = add nuw nsw i16 %1062, 4
   %1071 = add nuw nsw i16 %1070, %1066
@@ -1319,18 +1319,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1073 = lshr i16 %1072, 3
   %1074 = trunc nuw i16 %1073 to i8
   %1075 = getelementptr inbounds i8, ptr %421, i64 %1058
-  store i8 %1074, ptr %1075, align 1, !tbaa !61
+  store i8 %1074, ptr %1075, align 1, !tbaa !62
   %1076 = or disjoint i32 %1001, 2
   %1077 = sext i32 %1076 to i64
   %1078 = getelementptr inbounds i8, ptr %425, i64 %1077
-  %1079 = load i8, ptr %1078, align 1, !tbaa !61
+  %1079 = load i8, ptr %1078, align 1, !tbaa !62
   %1080 = zext i8 %1079 to i16
   %1081 = getelementptr inbounds i8, ptr %426, i64 %1077
-  %1082 = load i8, ptr %1081, align 1, !tbaa !61
+  %1082 = load i8, ptr %1081, align 1, !tbaa !62
   %1083 = zext i8 %1082 to i16
   %1084 = mul nuw nsw i16 %1083, 6
   %1085 = getelementptr inbounds i8, ptr %428, i64 %1077
-  %1086 = load i8, ptr %1085, align 1, !tbaa !61
+  %1086 = load i8, ptr %1085, align 1, !tbaa !62
   %1087 = zext i8 %1086 to i16
   %1088 = add nuw nsw i16 %1080, 4
   %1089 = add nuw nsw i16 %1088, %1084
@@ -1338,18 +1338,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1091 = lshr i16 %1090, 3
   %1092 = trunc nuw i16 %1091 to i8
   %1093 = getelementptr inbounds i8, ptr %421, i64 %1077
-  store i8 %1092, ptr %1093, align 1, !tbaa !61
+  store i8 %1092, ptr %1093, align 1, !tbaa !62
   %1094 = or disjoint i32 %1001, 3
   %1095 = sext i32 %1094 to i64
   %1096 = getelementptr inbounds i8, ptr %425, i64 %1095
-  %1097 = load i8, ptr %1096, align 1, !tbaa !61
+  %1097 = load i8, ptr %1096, align 1, !tbaa !62
   %1098 = zext i8 %1097 to i16
   %1099 = getelementptr inbounds i8, ptr %426, i64 %1095
-  %1100 = load i8, ptr %1099, align 1, !tbaa !61
+  %1100 = load i8, ptr %1099, align 1, !tbaa !62
   %1101 = zext i8 %1100 to i16
   %1102 = mul nuw nsw i16 %1101, 6
   %1103 = getelementptr inbounds i8, ptr %428, i64 %1095
-  %1104 = load i8, ptr %1103, align 1, !tbaa !61
+  %1104 = load i8, ptr %1103, align 1, !tbaa !62
   %1105 = zext i8 %1104 to i16
   %1106 = add nuw nsw i16 %1098, 4
   %1107 = add nuw nsw i16 %1106, %1102
@@ -1357,18 +1357,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1109 = lshr i16 %1108, 3
   %1110 = trunc nuw i16 %1109 to i8
   %1111 = getelementptr inbounds i8, ptr %421, i64 %1095
-  store i8 %1110, ptr %1111, align 1, !tbaa !61
+  store i8 %1110, ptr %1111, align 1, !tbaa !62
   %1112 = add nsw i32 %1076, %423
   %1113 = sext i32 %1112 to i64
   %1114 = getelementptr inbounds i8, ptr %425, i64 %1113
-  %1115 = load i8, ptr %1114, align 1, !tbaa !61
+  %1115 = load i8, ptr %1114, align 1, !tbaa !62
   %1116 = zext i8 %1115 to i16
   %1117 = getelementptr inbounds i8, ptr %426, i64 %1113
-  %1118 = load i8, ptr %1117, align 1, !tbaa !61
+  %1118 = load i8, ptr %1117, align 1, !tbaa !62
   %1119 = zext i8 %1118 to i16
   %1120 = mul nuw nsw i16 %1119, 6
   %1121 = getelementptr inbounds i8, ptr %428, i64 %1113
-  %1122 = load i8, ptr %1121, align 1, !tbaa !61
+  %1122 = load i8, ptr %1121, align 1, !tbaa !62
   %1123 = zext i8 %1122 to i16
   %1124 = add nuw nsw i16 %1116, 4
   %1125 = add nuw nsw i16 %1124, %1120
@@ -1376,18 +1376,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1127 = lshr i16 %1126, 3
   %1128 = trunc nuw i16 %1127 to i8
   %1129 = getelementptr inbounds i8, ptr %421, i64 %1113
-  store i8 %1128, ptr %1129, align 1, !tbaa !61
+  store i8 %1128, ptr %1129, align 1, !tbaa !62
   %1130 = add nsw i32 %1094, %423
   %1131 = sext i32 %1130 to i64
   %1132 = getelementptr inbounds i8, ptr %425, i64 %1131
-  %1133 = load i8, ptr %1132, align 1, !tbaa !61
+  %1133 = load i8, ptr %1132, align 1, !tbaa !62
   %1134 = zext i8 %1133 to i16
   %1135 = getelementptr inbounds i8, ptr %426, i64 %1131
-  %1136 = load i8, ptr %1135, align 1, !tbaa !61
+  %1136 = load i8, ptr %1135, align 1, !tbaa !62
   %1137 = zext i8 %1136 to i16
   %1138 = mul nuw nsw i16 %1137, 6
   %1139 = getelementptr inbounds i8, ptr %428, i64 %1131
-  %1140 = load i8, ptr %1139, align 1, !tbaa !61
+  %1140 = load i8, ptr %1139, align 1, !tbaa !62
   %1141 = zext i8 %1140 to i16
   %1142 = add nuw nsw i16 %1134, 4
   %1143 = add nuw nsw i16 %1142, %1138
@@ -1395,18 +1395,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1145 = lshr i16 %1144, 3
   %1146 = trunc nuw i16 %1145 to i8
   %1147 = getelementptr inbounds i8, ptr %421, i64 %1131
-  store i8 %1146, ptr %1147, align 1, !tbaa !61
+  store i8 %1146, ptr %1147, align 1, !tbaa !62
   %1148 = add nsw i32 %1001, 4
   %1149 = sext i32 %1148 to i64
   %1150 = getelementptr inbounds i8, ptr %426, i64 %1149
-  %1151 = load i8, ptr %1150, align 1, !tbaa !61
+  %1151 = load i8, ptr %1150, align 1, !tbaa !62
   %1152 = zext i8 %1151 to i16
   %1153 = mul nuw nsw i16 %1152, 6
   %1154 = getelementptr inbounds i8, ptr %427, i64 %1149
-  %1155 = load i8, ptr %1154, align 1, !tbaa !61
+  %1155 = load i8, ptr %1154, align 1, !tbaa !62
   %1156 = zext i8 %1155 to i16
   %1157 = getelementptr inbounds i8, ptr %428, i64 %1149
-  %1158 = load i8, ptr %1157, align 1, !tbaa !61
+  %1158 = load i8, ptr %1157, align 1, !tbaa !62
   %1159 = zext i8 %1158 to i16
   %1160 = add nuw nsw i16 %1156, 4
   %1161 = add nuw nsw i16 %1160, %1153
@@ -1414,18 +1414,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1163 = lshr i16 %1162, 3
   %1164 = trunc nuw i16 %1163 to i8
   %1165 = getelementptr inbounds i8, ptr %421, i64 %1149
-  store i8 %1164, ptr %1165, align 1, !tbaa !61
+  store i8 %1164, ptr %1165, align 1, !tbaa !62
   %1166 = add nsw i32 %1001, 5
   %1167 = sext i32 %1166 to i64
   %1168 = getelementptr inbounds i8, ptr %426, i64 %1167
-  %1169 = load i8, ptr %1168, align 1, !tbaa !61
+  %1169 = load i8, ptr %1168, align 1, !tbaa !62
   %1170 = zext i8 %1169 to i16
   %1171 = mul nuw nsw i16 %1170, 6
   %1172 = getelementptr inbounds i8, ptr %427, i64 %1167
-  %1173 = load i8, ptr %1172, align 1, !tbaa !61
+  %1173 = load i8, ptr %1172, align 1, !tbaa !62
   %1174 = zext i8 %1173 to i16
   %1175 = getelementptr inbounds i8, ptr %428, i64 %1167
-  %1176 = load i8, ptr %1175, align 1, !tbaa !61
+  %1176 = load i8, ptr %1175, align 1, !tbaa !62
   %1177 = zext i8 %1176 to i16
   %1178 = add nuw nsw i16 %1174, 4
   %1179 = add nuw nsw i16 %1178, %1171
@@ -1433,18 +1433,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1181 = lshr i16 %1180, 3
   %1182 = trunc nuw i16 %1181 to i8
   %1183 = getelementptr inbounds i8, ptr %421, i64 %1167
-  store i8 %1182, ptr %1183, align 1, !tbaa !61
+  store i8 %1182, ptr %1183, align 1, !tbaa !62
   %1184 = add nsw i32 %1148, %423
   %1185 = sext i32 %1184 to i64
   %1186 = getelementptr inbounds i8, ptr %426, i64 %1185
-  %1187 = load i8, ptr %1186, align 1, !tbaa !61
+  %1187 = load i8, ptr %1186, align 1, !tbaa !62
   %1188 = zext i8 %1187 to i16
   %1189 = mul nuw nsw i16 %1188, 6
   %1190 = getelementptr inbounds i8, ptr %427, i64 %1185
-  %1191 = load i8, ptr %1190, align 1, !tbaa !61
+  %1191 = load i8, ptr %1190, align 1, !tbaa !62
   %1192 = zext i8 %1191 to i16
   %1193 = getelementptr inbounds i8, ptr %428, i64 %1185
-  %1194 = load i8, ptr %1193, align 1, !tbaa !61
+  %1194 = load i8, ptr %1193, align 1, !tbaa !62
   %1195 = zext i8 %1194 to i16
   %1196 = add nuw nsw i16 %1192, 4
   %1197 = add nuw nsw i16 %1196, %1189
@@ -1452,18 +1452,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1199 = lshr i16 %1198, 3
   %1200 = trunc nuw i16 %1199 to i8
   %1201 = getelementptr inbounds i8, ptr %421, i64 %1185
-  store i8 %1200, ptr %1201, align 1, !tbaa !61
+  store i8 %1200, ptr %1201, align 1, !tbaa !62
   %1202 = add nsw i32 %1166, %423
   %1203 = sext i32 %1202 to i64
   %1204 = getelementptr inbounds i8, ptr %426, i64 %1203
-  %1205 = load i8, ptr %1204, align 1, !tbaa !61
+  %1205 = load i8, ptr %1204, align 1, !tbaa !62
   %1206 = zext i8 %1205 to i16
   %1207 = mul nuw nsw i16 %1206, 6
   %1208 = getelementptr inbounds i8, ptr %427, i64 %1203
-  %1209 = load i8, ptr %1208, align 1, !tbaa !61
+  %1209 = load i8, ptr %1208, align 1, !tbaa !62
   %1210 = zext i8 %1209 to i16
   %1211 = getelementptr inbounds i8, ptr %428, i64 %1203
-  %1212 = load i8, ptr %1211, align 1, !tbaa !61
+  %1212 = load i8, ptr %1211, align 1, !tbaa !62
   %1213 = zext i8 %1212 to i16
   %1214 = add nuw nsw i16 %1210, 4
   %1215 = add nuw nsw i16 %1214, %1207
@@ -1471,19 +1471,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1217 = lshr i16 %1216, 3
   %1218 = trunc nuw i16 %1217 to i8
   %1219 = getelementptr inbounds i8, ptr %421, i64 %1203
-  store i8 %1218, ptr %1219, align 1, !tbaa !61
+  store i8 %1218, ptr %1219, align 1, !tbaa !62
   %1220 = add nsw i32 %1001, 6
   %1221 = sext i32 %1220 to i64
   %1222 = getelementptr inbounds i8, ptr %426, i64 %1221
-  %1223 = load i8, ptr %1222, align 1, !tbaa !61
+  %1223 = load i8, ptr %1222, align 1, !tbaa !62
   %1224 = zext i8 %1223 to i16
   %1225 = mul nuw nsw i16 %1224, 5
   %1226 = getelementptr inbounds i8, ptr %427, i64 %1221
-  %1227 = load i8, ptr %1226, align 1, !tbaa !61
+  %1227 = load i8, ptr %1226, align 1, !tbaa !62
   %1228 = zext i8 %1227 to i16
   %1229 = shl nuw nsw i16 %1228, 1
   %1230 = getelementptr inbounds i8, ptr %428, i64 %1221
-  %1231 = load i8, ptr %1230, align 1, !tbaa !61
+  %1231 = load i8, ptr %1230, align 1, !tbaa !62
   %1232 = zext i8 %1231 to i16
   %1233 = add nuw nsw i16 %1225, 4
   %1234 = add nuw nsw i16 %1233, %1229
@@ -1491,19 +1491,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1236 = lshr i16 %1235, 3
   %1237 = trunc nuw i16 %1236 to i8
   %1238 = getelementptr inbounds i8, ptr %421, i64 %1221
-  store i8 %1237, ptr %1238, align 1, !tbaa !61
+  store i8 %1237, ptr %1238, align 1, !tbaa !62
   %1239 = add nsw i32 %1001, 7
   %1240 = sext i32 %1239 to i64
   %1241 = getelementptr inbounds i8, ptr %426, i64 %1240
-  %1242 = load i8, ptr %1241, align 1, !tbaa !61
+  %1242 = load i8, ptr %1241, align 1, !tbaa !62
   %1243 = zext i8 %1242 to i16
   %1244 = mul nuw nsw i16 %1243, 5
   %1245 = getelementptr inbounds i8, ptr %427, i64 %1240
-  %1246 = load i8, ptr %1245, align 1, !tbaa !61
+  %1246 = load i8, ptr %1245, align 1, !tbaa !62
   %1247 = zext i8 %1246 to i16
   %1248 = shl nuw nsw i16 %1247, 1
   %1249 = getelementptr inbounds i8, ptr %428, i64 %1240
-  %1250 = load i8, ptr %1249, align 1, !tbaa !61
+  %1250 = load i8, ptr %1249, align 1, !tbaa !62
   %1251 = zext i8 %1250 to i16
   %1252 = add nuw nsw i16 %1244, 4
   %1253 = add nuw nsw i16 %1252, %1248
@@ -1511,19 +1511,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1255 = lshr i16 %1254, 3
   %1256 = trunc nuw i16 %1255 to i8
   %1257 = getelementptr inbounds i8, ptr %421, i64 %1240
-  store i8 %1256, ptr %1257, align 1, !tbaa !61
+  store i8 %1256, ptr %1257, align 1, !tbaa !62
   %1258 = add nsw i32 %1220, %423
   %1259 = sext i32 %1258 to i64
   %1260 = getelementptr inbounds i8, ptr %426, i64 %1259
-  %1261 = load i8, ptr %1260, align 1, !tbaa !61
+  %1261 = load i8, ptr %1260, align 1, !tbaa !62
   %1262 = zext i8 %1261 to i16
   %1263 = mul nuw nsw i16 %1262, 5
   %1264 = getelementptr inbounds i8, ptr %427, i64 %1259
-  %1265 = load i8, ptr %1264, align 1, !tbaa !61
+  %1265 = load i8, ptr %1264, align 1, !tbaa !62
   %1266 = zext i8 %1265 to i16
   %1267 = shl nuw nsw i16 %1266, 1
   %1268 = getelementptr inbounds i8, ptr %428, i64 %1259
-  %1269 = load i8, ptr %1268, align 1, !tbaa !61
+  %1269 = load i8, ptr %1268, align 1, !tbaa !62
   %1270 = zext i8 %1269 to i16
   %1271 = add nuw nsw i16 %1263, 4
   %1272 = add nuw nsw i16 %1271, %1267
@@ -1531,19 +1531,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1274 = lshr i16 %1273, 3
   %1275 = trunc nuw i16 %1274 to i8
   %1276 = getelementptr inbounds i8, ptr %421, i64 %1259
-  store i8 %1275, ptr %1276, align 1, !tbaa !61
+  store i8 %1275, ptr %1276, align 1, !tbaa !62
   %1277 = add nsw i32 %1239, %423
   %1278 = sext i32 %1277 to i64
   %1279 = getelementptr inbounds i8, ptr %426, i64 %1278
-  %1280 = load i8, ptr %1279, align 1, !tbaa !61
+  %1280 = load i8, ptr %1279, align 1, !tbaa !62
   %1281 = zext i8 %1280 to i16
   %1282 = mul nuw nsw i16 %1281, 5
   %1283 = getelementptr inbounds i8, ptr %427, i64 %1278
-  %1284 = load i8, ptr %1283, align 1, !tbaa !61
+  %1284 = load i8, ptr %1283, align 1, !tbaa !62
   %1285 = zext i8 %1284 to i16
   %1286 = shl nuw nsw i16 %1285, 1
   %1287 = getelementptr inbounds i8, ptr %428, i64 %1278
-  %1288 = load i8, ptr %1287, align 1, !tbaa !61
+  %1288 = load i8, ptr %1287, align 1, !tbaa !62
   %1289 = zext i8 %1288 to i16
   %1290 = add nuw nsw i16 %1282, 4
   %1291 = add nuw nsw i16 %1290, %1286
@@ -1551,19 +1551,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1293 = lshr i16 %1292, 3
   %1294 = trunc nuw i16 %1293 to i8
   %1295 = getelementptr inbounds i8, ptr %421, i64 %1278
-  store i8 %1294, ptr %1295, align 1, !tbaa !61
+  store i8 %1294, ptr %1295, align 1, !tbaa !62
   %1296 = mul nsw i32 %423, 6
   %1297 = sext i32 %1296 to i64
   %1298 = getelementptr inbounds i8, ptr %425, i64 %1297
-  %1299 = load i8, ptr %1298, align 1, !tbaa !61
+  %1299 = load i8, ptr %1298, align 1, !tbaa !62
   %1300 = zext i8 %1299 to i16
   %1301 = shl nuw nsw i16 %1300, 1
   %1302 = getelementptr inbounds i8, ptr %426, i64 %1297
-  %1303 = load i8, ptr %1302, align 1, !tbaa !61
+  %1303 = load i8, ptr %1302, align 1, !tbaa !62
   %1304 = zext i8 %1303 to i16
   %1305 = mul nuw nsw i16 %1304, 5
   %1306 = getelementptr inbounds i8, ptr %428, i64 %1297
-  %1307 = load i8, ptr %1306, align 1, !tbaa !61
+  %1307 = load i8, ptr %1306, align 1, !tbaa !62
   %1308 = zext i8 %1307 to i16
   %1309 = add nuw nsw i16 %1301, 4
   %1310 = add nuw nsw i16 %1309, %1305
@@ -1571,19 +1571,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1312 = lshr i16 %1311, 3
   %1313 = trunc nuw i16 %1312 to i8
   %1314 = getelementptr inbounds i8, ptr %421, i64 %1297
-  store i8 %1313, ptr %1314, align 1, !tbaa !61
+  store i8 %1313, ptr %1314, align 1, !tbaa !62
   %1315 = or disjoint i32 %1296, 1
   %1316 = sext i32 %1315 to i64
   %1317 = getelementptr inbounds i8, ptr %425, i64 %1316
-  %1318 = load i8, ptr %1317, align 1, !tbaa !61
+  %1318 = load i8, ptr %1317, align 1, !tbaa !62
   %1319 = zext i8 %1318 to i16
   %1320 = shl nuw nsw i16 %1319, 1
   %1321 = getelementptr inbounds i8, ptr %426, i64 %1316
-  %1322 = load i8, ptr %1321, align 1, !tbaa !61
+  %1322 = load i8, ptr %1321, align 1, !tbaa !62
   %1323 = zext i8 %1322 to i16
   %1324 = mul nuw nsw i16 %1323, 5
   %1325 = getelementptr inbounds i8, ptr %428, i64 %1316
-  %1326 = load i8, ptr %1325, align 1, !tbaa !61
+  %1326 = load i8, ptr %1325, align 1, !tbaa !62
   %1327 = zext i8 %1326 to i16
   %1328 = add nuw nsw i16 %1320, 4
   %1329 = add nuw nsw i16 %1328, %1324
@@ -1591,18 +1591,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1331 = lshr i16 %1330, 3
   %1332 = trunc nuw i16 %1331 to i8
   %1333 = getelementptr inbounds i8, ptr %421, i64 %1316
-  store i8 %1332, ptr %1333, align 1, !tbaa !61
+  store i8 %1332, ptr %1333, align 1, !tbaa !62
   %1334 = add nsw i32 %1296, 2
   %1335 = sext i32 %1334 to i64
   %1336 = getelementptr inbounds i8, ptr %425, i64 %1335
-  %1337 = load i8, ptr %1336, align 1, !tbaa !61
+  %1337 = load i8, ptr %1336, align 1, !tbaa !62
   %1338 = zext i8 %1337 to i16
   %1339 = getelementptr inbounds i8, ptr %426, i64 %1335
-  %1340 = load i8, ptr %1339, align 1, !tbaa !61
+  %1340 = load i8, ptr %1339, align 1, !tbaa !62
   %1341 = zext i8 %1340 to i16
   %1342 = mul nuw nsw i16 %1341, 5
   %1343 = getelementptr inbounds i8, ptr %428, i64 %1335
-  %1344 = load i8, ptr %1343, align 1, !tbaa !61
+  %1344 = load i8, ptr %1343, align 1, !tbaa !62
   %1345 = zext i8 %1344 to i16
   %1346 = shl nuw nsw i16 %1345, 1
   %1347 = add nuw nsw i16 %1338, 4
@@ -1611,18 +1611,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1350 = lshr i16 %1349, 3
   %1351 = trunc nuw i16 %1350 to i8
   %1352 = getelementptr inbounds i8, ptr %421, i64 %1335
-  store i8 %1351, ptr %1352, align 1, !tbaa !61
+  store i8 %1351, ptr %1352, align 1, !tbaa !62
   %1353 = add nsw i32 %1296, 3
   %1354 = sext i32 %1353 to i64
   %1355 = getelementptr inbounds i8, ptr %425, i64 %1354
-  %1356 = load i8, ptr %1355, align 1, !tbaa !61
+  %1356 = load i8, ptr %1355, align 1, !tbaa !62
   %1357 = zext i8 %1356 to i16
   %1358 = getelementptr inbounds i8, ptr %426, i64 %1354
-  %1359 = load i8, ptr %1358, align 1, !tbaa !61
+  %1359 = load i8, ptr %1358, align 1, !tbaa !62
   %1360 = zext i8 %1359 to i16
   %1361 = mul nuw nsw i16 %1360, 5
   %1362 = getelementptr inbounds i8, ptr %428, i64 %1354
-  %1363 = load i8, ptr %1362, align 1, !tbaa !61
+  %1363 = load i8, ptr %1362, align 1, !tbaa !62
   %1364 = zext i8 %1363 to i16
   %1365 = shl nuw nsw i16 %1364, 1
   %1366 = add nuw nsw i16 %1357, 4
@@ -1631,18 +1631,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1369 = lshr i16 %1368, 3
   %1370 = trunc nuw i16 %1369 to i8
   %1371 = getelementptr inbounds i8, ptr %421, i64 %1354
-  store i8 %1370, ptr %1371, align 1, !tbaa !61
+  store i8 %1370, ptr %1371, align 1, !tbaa !62
   %1372 = add nsw i32 %1334, %423
   %1373 = sext i32 %1372 to i64
   %1374 = getelementptr inbounds i8, ptr %425, i64 %1373
-  %1375 = load i8, ptr %1374, align 1, !tbaa !61
+  %1375 = load i8, ptr %1374, align 1, !tbaa !62
   %1376 = zext i8 %1375 to i16
   %1377 = getelementptr inbounds i8, ptr %426, i64 %1373
-  %1378 = load i8, ptr %1377, align 1, !tbaa !61
+  %1378 = load i8, ptr %1377, align 1, !tbaa !62
   %1379 = zext i8 %1378 to i16
   %1380 = mul nuw nsw i16 %1379, 5
   %1381 = getelementptr inbounds i8, ptr %428, i64 %1373
-  %1382 = load i8, ptr %1381, align 1, !tbaa !61
+  %1382 = load i8, ptr %1381, align 1, !tbaa !62
   %1383 = zext i8 %1382 to i16
   %1384 = shl nuw nsw i16 %1383, 1
   %1385 = add nuw nsw i16 %1376, 4
@@ -1651,18 +1651,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1388 = lshr i16 %1387, 3
   %1389 = trunc nuw i16 %1388 to i8
   %1390 = getelementptr inbounds i8, ptr %421, i64 %1373
-  store i8 %1389, ptr %1390, align 1, !tbaa !61
+  store i8 %1389, ptr %1390, align 1, !tbaa !62
   %1391 = add nsw i32 %1353, %423
   %1392 = sext i32 %1391 to i64
   %1393 = getelementptr inbounds i8, ptr %425, i64 %1392
-  %1394 = load i8, ptr %1393, align 1, !tbaa !61
+  %1394 = load i8, ptr %1393, align 1, !tbaa !62
   %1395 = zext i8 %1394 to i16
   %1396 = getelementptr inbounds i8, ptr %426, i64 %1392
-  %1397 = load i8, ptr %1396, align 1, !tbaa !61
+  %1397 = load i8, ptr %1396, align 1, !tbaa !62
   %1398 = zext i8 %1397 to i16
   %1399 = mul nuw nsw i16 %1398, 5
   %1400 = getelementptr inbounds i8, ptr %428, i64 %1392
-  %1401 = load i8, ptr %1400, align 1, !tbaa !61
+  %1401 = load i8, ptr %1400, align 1, !tbaa !62
   %1402 = zext i8 %1401 to i16
   %1403 = shl nuw nsw i16 %1402, 1
   %1404 = add nuw nsw i16 %1395, 4
@@ -1671,18 +1671,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1407 = lshr i16 %1406, 3
   %1408 = trunc nuw i16 %1407 to i8
   %1409 = getelementptr inbounds i8, ptr %421, i64 %1392
-  store i8 %1408, ptr %1409, align 1, !tbaa !61
+  store i8 %1408, ptr %1409, align 1, !tbaa !62
   %1410 = add nsw i32 %1296, 4
   %1411 = sext i32 %1410 to i64
   %1412 = getelementptr inbounds i8, ptr %426, i64 %1411
-  %1413 = load i8, ptr %1412, align 1, !tbaa !61
+  %1413 = load i8, ptr %1412, align 1, !tbaa !62
   %1414 = zext i8 %1413 to i16
   %1415 = mul nuw nsw i16 %1414, 5
   %1416 = getelementptr inbounds i8, ptr %427, i64 %1411
-  %1417 = load i8, ptr %1416, align 1, !tbaa !61
+  %1417 = load i8, ptr %1416, align 1, !tbaa !62
   %1418 = zext i8 %1417 to i16
   %1419 = getelementptr inbounds i8, ptr %428, i64 %1411
-  %1420 = load i8, ptr %1419, align 1, !tbaa !61
+  %1420 = load i8, ptr %1419, align 1, !tbaa !62
   %1421 = zext i8 %1420 to i16
   %1422 = shl nuw nsw i16 %1421, 1
   %1423 = add nuw nsw i16 %1418, 4
@@ -1691,18 +1691,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1426 = lshr i16 %1425, 3
   %1427 = trunc nuw i16 %1426 to i8
   %1428 = getelementptr inbounds i8, ptr %421, i64 %1411
-  store i8 %1427, ptr %1428, align 1, !tbaa !61
+  store i8 %1427, ptr %1428, align 1, !tbaa !62
   %1429 = add nsw i32 %1296, 5
   %1430 = sext i32 %1429 to i64
   %1431 = getelementptr inbounds i8, ptr %426, i64 %1430
-  %1432 = load i8, ptr %1431, align 1, !tbaa !61
+  %1432 = load i8, ptr %1431, align 1, !tbaa !62
   %1433 = zext i8 %1432 to i16
   %1434 = mul nuw nsw i16 %1433, 5
   %1435 = getelementptr inbounds i8, ptr %427, i64 %1430
-  %1436 = load i8, ptr %1435, align 1, !tbaa !61
+  %1436 = load i8, ptr %1435, align 1, !tbaa !62
   %1437 = zext i8 %1436 to i16
   %1438 = getelementptr inbounds i8, ptr %428, i64 %1430
-  %1439 = load i8, ptr %1438, align 1, !tbaa !61
+  %1439 = load i8, ptr %1438, align 1, !tbaa !62
   %1440 = zext i8 %1439 to i16
   %1441 = shl nuw nsw i16 %1440, 1
   %1442 = add nuw nsw i16 %1437, 4
@@ -1711,18 +1711,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1445 = lshr i16 %1444, 3
   %1446 = trunc nuw i16 %1445 to i8
   %1447 = getelementptr inbounds i8, ptr %421, i64 %1430
-  store i8 %1446, ptr %1447, align 1, !tbaa !61
+  store i8 %1446, ptr %1447, align 1, !tbaa !62
   %1448 = add nsw i32 %1410, %423
   %1449 = sext i32 %1448 to i64
   %1450 = getelementptr inbounds i8, ptr %426, i64 %1449
-  %1451 = load i8, ptr %1450, align 1, !tbaa !61
+  %1451 = load i8, ptr %1450, align 1, !tbaa !62
   %1452 = zext i8 %1451 to i16
   %1453 = mul nuw nsw i16 %1452, 5
   %1454 = getelementptr inbounds i8, ptr %427, i64 %1449
-  %1455 = load i8, ptr %1454, align 1, !tbaa !61
+  %1455 = load i8, ptr %1454, align 1, !tbaa !62
   %1456 = zext i8 %1455 to i16
   %1457 = getelementptr inbounds i8, ptr %428, i64 %1449
-  %1458 = load i8, ptr %1457, align 1, !tbaa !61
+  %1458 = load i8, ptr %1457, align 1, !tbaa !62
   %1459 = zext i8 %1458 to i16
   %1460 = shl nuw nsw i16 %1459, 1
   %1461 = add nuw nsw i16 %1456, 4
@@ -1731,18 +1731,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1464 = lshr i16 %1463, 3
   %1465 = trunc nuw i16 %1464 to i8
   %1466 = getelementptr inbounds i8, ptr %421, i64 %1449
-  store i8 %1465, ptr %1466, align 1, !tbaa !61
+  store i8 %1465, ptr %1466, align 1, !tbaa !62
   %1467 = add nsw i32 %1429, %423
   %1468 = sext i32 %1467 to i64
   %1469 = getelementptr inbounds i8, ptr %426, i64 %1468
-  %1470 = load i8, ptr %1469, align 1, !tbaa !61
+  %1470 = load i8, ptr %1469, align 1, !tbaa !62
   %1471 = zext i8 %1470 to i16
   %1472 = mul nuw nsw i16 %1471, 5
   %1473 = getelementptr inbounds i8, ptr %427, i64 %1468
-  %1474 = load i8, ptr %1473, align 1, !tbaa !61
+  %1474 = load i8, ptr %1473, align 1, !tbaa !62
   %1475 = zext i8 %1474 to i16
   %1476 = getelementptr inbounds i8, ptr %428, i64 %1468
-  %1477 = load i8, ptr %1476, align 1, !tbaa !61
+  %1477 = load i8, ptr %1476, align 1, !tbaa !62
   %1478 = zext i8 %1477 to i16
   %1479 = shl nuw nsw i16 %1478, 1
   %1480 = add nuw nsw i16 %1475, 4
@@ -1751,19 +1751,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1483 = lshr i16 %1482, 3
   %1484 = trunc nuw i16 %1483 to i8
   %1485 = getelementptr inbounds i8, ptr %421, i64 %1468
-  store i8 %1484, ptr %1485, align 1, !tbaa !61
+  store i8 %1484, ptr %1485, align 1, !tbaa !62
   %1486 = add nsw i32 %1296, 6
   %1487 = sext i32 %1486 to i64
   %1488 = getelementptr inbounds i8, ptr %426, i64 %1487
-  %1489 = load i8, ptr %1488, align 1, !tbaa !61
+  %1489 = load i8, ptr %1488, align 1, !tbaa !62
   %1490 = zext i8 %1489 to i16
   %1491 = mul nuw nsw i16 %1490, 5
   %1492 = getelementptr inbounds i8, ptr %427, i64 %1487
-  %1493 = load i8, ptr %1492, align 1, !tbaa !61
+  %1493 = load i8, ptr %1492, align 1, !tbaa !62
   %1494 = zext i8 %1493 to i16
   %1495 = shl nuw nsw i16 %1494, 1
   %1496 = getelementptr inbounds i8, ptr %428, i64 %1487
-  %1497 = load i8, ptr %1496, align 1, !tbaa !61
+  %1497 = load i8, ptr %1496, align 1, !tbaa !62
   %1498 = zext i8 %1497 to i16
   %1499 = add nuw nsw i16 %1491, 4
   %1500 = add nuw nsw i16 %1499, %1495
@@ -1771,19 +1771,19 @@ obmc_motion.exit.i:                               ; preds = %416
   %1502 = lshr i16 %1501, 3
   %1503 = trunc nuw i16 %1502 to i8
   %1504 = getelementptr inbounds i8, ptr %421, i64 %1487
-  store i8 %1503, ptr %1504, align 1, !tbaa !61
+  store i8 %1503, ptr %1504, align 1, !tbaa !62
   %1505 = add nsw i32 %1296, 7
   %1506 = sext i32 %1505 to i64
   %1507 = getelementptr inbounds i8, ptr %426, i64 %1506
-  %1508 = load i8, ptr %1507, align 1, !tbaa !61
+  %1508 = load i8, ptr %1507, align 1, !tbaa !62
   %1509 = zext i8 %1508 to i16
   %1510 = mul nuw nsw i16 %1509, 5
   %1511 = getelementptr inbounds i8, ptr %427, i64 %1506
-  %1512 = load i8, ptr %1511, align 1, !tbaa !61
+  %1512 = load i8, ptr %1511, align 1, !tbaa !62
   %1513 = zext i8 %1512 to i16
   %1514 = shl nuw nsw i16 %1513, 1
   %1515 = getelementptr inbounds i8, ptr %428, i64 %1506
-  %1516 = load i8, ptr %1515, align 1, !tbaa !61
+  %1516 = load i8, ptr %1515, align 1, !tbaa !62
   %1517 = zext i8 %1516 to i16
   %1518 = add nuw nsw i16 %1510, 4
   %1519 = add nuw nsw i16 %1518, %1514
@@ -1791,18 +1791,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1521 = lshr i16 %1520, 3
   %1522 = trunc nuw i16 %1521 to i8
   %1523 = getelementptr inbounds i8, ptr %421, i64 %1506
-  store i8 %1522, ptr %1523, align 1, !tbaa !61
+  store i8 %1522, ptr %1523, align 1, !tbaa !62
   %1524 = mul nsw i32 %423, 7
   %1525 = sext i32 %1524 to i64
   %1526 = getelementptr inbounds i8, ptr %425, i64 %1525
-  %1527 = load i8, ptr %1526, align 1, !tbaa !61
+  %1527 = load i8, ptr %1526, align 1, !tbaa !62
   %1528 = zext i8 %1527 to i16
   %1529 = getelementptr inbounds i8, ptr %426, i64 %1525
-  %1530 = load i8, ptr %1529, align 1, !tbaa !61
+  %1530 = load i8, ptr %1529, align 1, !tbaa !62
   %1531 = zext i8 %1530 to i16
   %1532 = shl nuw nsw i16 %1531, 2
   %1533 = getelementptr inbounds i8, ptr %428, i64 %1525
-  %1534 = load i8, ptr %1533, align 1, !tbaa !61
+  %1534 = load i8, ptr %1533, align 1, !tbaa !62
   %1535 = zext i8 %1534 to i16
   %1536 = add nuw nsw i16 %1535, %1528
   %1537 = shl nuw nsw i16 %1536, 1
@@ -1811,18 +1811,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1540 = lshr i16 %1539, 3
   %1541 = trunc nuw i16 %1540 to i8
   %1542 = getelementptr inbounds i8, ptr %421, i64 %1525
-  store i8 %1541, ptr %1542, align 1, !tbaa !61
+  store i8 %1541, ptr %1542, align 1, !tbaa !62
   %1543 = add nsw i32 %1524, 1
   %1544 = sext i32 %1543 to i64
   %1545 = getelementptr inbounds i8, ptr %425, i64 %1544
-  %1546 = load i8, ptr %1545, align 1, !tbaa !61
+  %1546 = load i8, ptr %1545, align 1, !tbaa !62
   %1547 = zext i8 %1546 to i16
   %1548 = getelementptr inbounds i8, ptr %426, i64 %1544
-  %1549 = load i8, ptr %1548, align 1, !tbaa !61
+  %1549 = load i8, ptr %1548, align 1, !tbaa !62
   %1550 = zext i8 %1549 to i16
   %1551 = mul nuw nsw i16 %1550, 5
   %1552 = getelementptr inbounds i8, ptr %428, i64 %1544
-  %1553 = load i8, ptr %1552, align 1, !tbaa !61
+  %1553 = load i8, ptr %1552, align 1, !tbaa !62
   %1554 = zext i8 %1553 to i16
   %1555 = shl nuw nsw i16 %1554, 1
   %1556 = add nuw nsw i16 %1547, 4
@@ -1831,18 +1831,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1559 = lshr i16 %1558, 3
   %1560 = trunc nuw i16 %1559 to i8
   %1561 = getelementptr inbounds i8, ptr %421, i64 %1544
-  store i8 %1560, ptr %1561, align 1, !tbaa !61
+  store i8 %1560, ptr %1561, align 1, !tbaa !62
   %1562 = add nsw i32 %1524, 6
   %1563 = sext i32 %1562 to i64
   %1564 = getelementptr inbounds i8, ptr %426, i64 %1563
-  %1565 = load i8, ptr %1564, align 1, !tbaa !61
+  %1565 = load i8, ptr %1564, align 1, !tbaa !62
   %1566 = zext i8 %1565 to i16
   %1567 = mul nuw nsw i16 %1566, 5
   %1568 = getelementptr inbounds i8, ptr %427, i64 %1563
-  %1569 = load i8, ptr %1568, align 1, !tbaa !61
+  %1569 = load i8, ptr %1568, align 1, !tbaa !62
   %1570 = zext i8 %1569 to i16
   %1571 = getelementptr inbounds i8, ptr %428, i64 %1563
-  %1572 = load i8, ptr %1571, align 1, !tbaa !61
+  %1572 = load i8, ptr %1571, align 1, !tbaa !62
   %1573 = zext i8 %1572 to i16
   %1574 = shl nuw nsw i16 %1573, 1
   %1575 = add nuw nsw i16 %1570, 4
@@ -1851,18 +1851,18 @@ obmc_motion.exit.i:                               ; preds = %416
   %1578 = lshr i16 %1577, 3
   %1579 = trunc nuw i16 %1578 to i8
   %1580 = getelementptr inbounds i8, ptr %421, i64 %1563
-  store i8 %1579, ptr %1580, align 1, !tbaa !61
+  store i8 %1579, ptr %1580, align 1, !tbaa !62
   %1581 = add nsw i32 %1524, 7
   %1582 = sext i32 %1581 to i64
   %1583 = getelementptr inbounds i8, ptr %426, i64 %1582
-  %1584 = load i8, ptr %1583, align 1, !tbaa !61
+  %1584 = load i8, ptr %1583, align 1, !tbaa !62
   %1585 = zext i8 %1584 to i16
   %1586 = shl nuw nsw i16 %1585, 2
   %1587 = getelementptr inbounds i8, ptr %427, i64 %1582
-  %1588 = load i8, ptr %1587, align 1, !tbaa !61
+  %1588 = load i8, ptr %1587, align 1, !tbaa !62
   %1589 = zext i8 %1588 to i16
   %1590 = getelementptr inbounds i8, ptr %428, i64 %1582
-  %1591 = load i8, ptr %1590, align 1, !tbaa !61
+  %1591 = load i8, ptr %1590, align 1, !tbaa !62
   %1592 = zext i8 %1591 to i16
   %1593 = add nuw nsw i16 %1592, %1589
   %1594 = shl nuw nsw i16 %1593, 1
@@ -1871,7 +1871,7 @@ obmc_motion.exit.i:                               ; preds = %416
   %1597 = lshr i16 %1596, 3
   %1598 = trunc nuw i16 %1597 to i8
   %1599 = getelementptr inbounds i8, ptr %421, i64 %1582
-  store i8 %1598, ptr %1599, align 1, !tbaa !61
+  store i8 %1598, ptr %1599, align 1, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #5
   %1600 = sext i16 %323 to i32
   %1601 = add nsw i32 %.0137.i, %1600
@@ -1880,7 +1880,7 @@ obmc_motion.exit.i:                               ; preds = %416
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #5
   %1604 = add nuw nsw i32 %.0131135.i, 1
   %exitcond.not.i = icmp eq i32 %1604, 4
-  br i1 %exitcond.not.i, label %apply_obmc.exit, label %316, !llvm.loop !74
+  br i1 %exitcond.not.i, label %apply_obmc.exit, label %316, !llvm.loop !75
 
 apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   tail call fastcc void @chroma_4mv_motion(ptr noundef nonnull readonly %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %304, i32 noundef %1601, i32 noundef %1603)
@@ -1898,7 +1898,7 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
 
 1608:                                             ; preds = %1605
   %1609 = getelementptr inbounds nuw i8, ptr %0, i64 4088
-  %1610 = load i32, ptr %1609, align 8, !tbaa !75
+  %1610 = load i32, ptr %1609, align 8, !tbaa !76
   %.not231.i = icmp eq i32 %1610, 0
   br i1 %.not231.i, label %1612, label %1611
 
@@ -1919,13 +1919,13 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
 
 .critedge.i:                                      ; preds = %1612
   %1617 = getelementptr inbounds nuw i8, ptr %0, i64 4156
-  %1618 = load i32, ptr %1617, align 4, !tbaa !76
+  %1618 = load i32, ptr %1617, align 4, !tbaa !77
   %.not233.i = icmp eq i32 %1618, 0
   br i1 %.not233.i, label %.critedge234.i, label %1619
 
 1619:                                             ; preds = %.critedge.i
   %1620 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  %1621 = load i32, ptr %1620, align 4, !tbaa !77
+  %1621 = load i32, ptr %1620, align 4, !tbaa !78
   %1622 = icmp eq i32 %1621, 18
   br i1 %1622, label %1623, label %.critedge234.i
 
@@ -1991,13 +1991,13 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   %1662 = and i32 %1661, 8
   %1663 = or disjoint i32 %1662, %1632
   %1664 = add i32 %1663, %1660
-  %1665 = load i32, ptr %1633, align 8, !tbaa !66
+  %1665 = load i32, ptr %1633, align 8, !tbaa !67
   %1666 = icmp slt i32 %1659, -16
   %..i.i = tail call i32 @llvm.smin.i32(i32 %1659, i32 %1665)
   %.0.i.i = select i1 %1666, i32 -16, i32 %..i.i
   %1667 = icmp eq i32 %.0.i.i, %1665
   %1668 = select i1 %1667, i32 0, i32 %1654
-  %1669 = load i32, ptr %1634, align 4, !tbaa !67
+  %1669 = load i32, ptr %1634, align 4, !tbaa !68
   %1670 = icmp slt i32 %1664, -16
   %..i115.i = tail call i32 @llvm.smin.i32(i32 %1664, i32 %1669)
   %.0.i116.i = select i1 %1670, i32 -16, i32 %..i115.i
@@ -2011,13 +2011,13 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   %1676 = getelementptr inbounds i8, ptr %1672, i64 %1675
   %1677 = sext i32 %.0.i.i to i64
   %1678 = getelementptr inbounds i8, ptr %1676, i64 %1677
-  %1679 = load i32, ptr %1635, align 4, !tbaa !68
+  %1679 = load i32, ptr %1635, align 4, !tbaa !69
   %1680 = sub nsw i32 %1679, %1654
   %1681 = icmp sgt i32 %1680, 7
   %1682 = add nsw i32 %1680, -7
   %1683 = icmp ult i32 %.0.i.i, %1682
   %.not113.i = select i1 %1681, i1 %1683, i1 false
-  %.pre.i = load i32, ptr %1636, align 8, !tbaa !69
+  %.pre.i = load i32, ptr %1636, align 8, !tbaa !70
   br i1 %.not113.i, label %1684, label %1689
 
 1684:                                             ; preds = %1647
@@ -2029,10 +2029,10 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   br i1 %.not114.i, label %1693, label %1689
 
 1689:                                             ; preds = %1684, %1647
-  %1690 = load ptr, ptr %1637, align 8, !tbaa !70
-  %1691 = load ptr, ptr %1638, align 8, !tbaa !71
+  %1690 = load ptr, ptr %1637, align 8, !tbaa !71
+  %1691 = load ptr, ptr %1638, align 8, !tbaa !72
   tail call void %1690(ptr noundef %1691, ptr noundef %1678, i64 noundef %1674, i64 noundef %1674, i32 noundef 9, i32 noundef 9, i32 noundef %.0.i.i, i32 noundef %.0.i116.i, i32 noundef %1679, i32 noundef %.pre.i) #5
-  %1692 = load ptr, ptr %1638, align 8, !tbaa !71
+  %1692 = load ptr, ptr %1638, align 8, !tbaa !72
   %.pre135.i = load i64, ptr %35, align 8, !tbaa !39
   br label %1693
 
@@ -2046,7 +2046,7 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   %1699 = getelementptr inbounds i8, ptr %1696, i64 %1698
   %1700 = zext nneg i32 %.1.i22 to i64
   %1701 = getelementptr inbounds nuw [16 x ptr], ptr %1639, i64 0, i64 %1700
-  %1702 = load ptr, ptr %1701, align 8, !tbaa !72
+  %1702 = load ptr, ptr %1701, align 8, !tbaa !73
   tail call void %1702(ptr noundef %1699, ptr noundef %.0105.i, i64 noundef %1694) #5
   %1703 = load i32, ptr %1648, align 8, !tbaa !36
   %1704 = sdiv i32 %1703, 2
@@ -2056,7 +2056,7 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   %1708 = add nsw i32 %1707, %.0106121.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i23, label %apply_8x8.exit, label %1647, !llvm.loop !78
+  br i1 %exitcond.not.i23, label %apply_8x8.exit, label %1647, !llvm.loop !79
 
 1709:                                             ; preds = %hpel_motion.exit.i, %.preheader.i
   %indvars.iv131.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next132.i, %hpel_motion.exit.i ]
@@ -2084,12 +2084,12 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   %1728 = add nsw i32 %1721, %1727
   %1729 = ashr i32 %1726, 1
   %1730 = add nsw i32 %1722, %1729
-  %1731 = load i32, ptr %1641, align 8, !tbaa !66
+  %1731 = load i32, ptr %1641, align 8, !tbaa !67
   %1732 = icmp slt i32 %1728, -16
   %..i.i.i = tail call i32 @llvm.smin.i32(i32 %1728, i32 %1731)
   %.0.i.i.i = select i1 %1732, i32 -16, i32 %..i.i.i
   %1733 = and i32 %1724, 1
-  %1734 = load i32, ptr %1642, align 4, !tbaa !67
+  %1734 = load i32, ptr %1642, align 4, !tbaa !68
   %1735 = icmp slt i32 %1730, -16
   %..i52.i.i = tail call i32 @llvm.smin.i32(i32 %1730, i32 %1734)
   %.0.i53.i.i = select i1 %1735, i32 -16, i32 %..i52.i.i
@@ -2098,13 +2098,13 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   %1738 = sext i32 %.0.i.i.i to i64
   %1739 = getelementptr i8, ptr %1720, i64 %1737
   %1740 = getelementptr i8, ptr %1739, i64 %1738
-  %1741 = load i32, ptr %1643, align 4, !tbaa !68
+  %1741 = load i32, ptr %1643, align 4, !tbaa !69
   %1742 = sub nsw i32 %1741, %1733
   %1743 = icmp sgt i32 %1742, 7
   %1744 = add nsw i32 %1742, -7
   %1745 = icmp ult i32 %.0.i.i.i, %1744
   %.not50.i.i = select i1 %1743, i1 %1745, i1 false
-  %1746 = load i32, ptr %1644, align 8, !tbaa !69
+  %1746 = load i32, ptr %1644, align 8, !tbaa !70
   br i1 %.not50.i.i, label %1747, label %._crit_edge.i.i24
 
 1747:                                             ; preds = %1709
@@ -2117,10 +2117,10 @@ apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   br i1 %.not51.i.i, label %hpel_motion.exit.i, label %._crit_edge.i.i24
 
 ._crit_edge.i.i24:                                ; preds = %1747, %1709
-  %1753 = load ptr, ptr %1645, align 8, !tbaa !70
-  %1754 = load ptr, ptr %1646, align 8, !tbaa !71
+  %1753 = load ptr, ptr %1645, align 8, !tbaa !71
+  %1754 = load ptr, ptr %1646, align 8, !tbaa !72
   tail call void %1753(ptr noundef %1754, ptr noundef %1740, i64 noundef %1717, i64 noundef %1717, i32 noundef 9, i32 noundef 9, i32 noundef %.0.i.i.i, i32 noundef %.0.i53.i.i, i32 noundef %1741, i32 noundef %1746) #5
-  %1755 = load ptr, ptr %1646, align 8, !tbaa !71
+  %1755 = load ptr, ptr %1646, align 8, !tbaa !72
   %.pre54.i.i = load i64, ptr %35, align 8, !tbaa !39
   br label %hpel_motion.exit.i
 
@@ -2136,7 +2136,7 @@ hpel_motion.exit.i:                               ; preds = %._crit_edge.i.i24, 
   %.1.i.i = or disjoint i32 %1759, %spec.select.i.i
   %1760 = zext nneg i32 %.1.i.i to i64
   %1761 = getelementptr inbounds nuw ptr, ptr %1640, i64 %1760
-  %1762 = load ptr, ptr %1761, align 8, !tbaa !72
+  %1762 = load ptr, ptr %1761, align 8, !tbaa !73
   tail call void %1762(ptr noundef %1719, ptr noundef %.046.i.i, i64 noundef %1756, i32 noundef 8) #5
   %1763 = load i32, ptr %1723, align 8, !tbaa !36
   %1764 = add nsw i32 %1763, %.2125.i
@@ -2144,7 +2144,7 @@ hpel_motion.exit.i:                               ; preds = %._crit_edge.i.i24, 
   %1766 = add nsw i32 %1765, %.2108124.i
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next132.i, 4
-  br i1 %exitcond134.not.i, label %apply_8x8.exit, label %1709, !llvm.loop !79
+  br i1 %exitcond134.not.i, label %apply_8x8.exit, label %1709, !llvm.loop !80
 
 apply_8x8.exit:                                   ; preds = %1693, %hpel_motion.exit.i
   %.1107.i = phi i32 [ %1766, %hpel_motion.exit.i ], [ %1708, %1693 ]
@@ -2219,7 +2219,7 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   %27 = ashr i32 %11, 2
   %28 = add nsw i32 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %30 = load i32, ptr %29, align 8, !tbaa !69
+  %30 = load i32, ptr %29, align 8, !tbaa !70
   %31 = ashr i32 %30, %4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %33 = load i64, ptr %32, align 8, !tbaa !39
@@ -2238,7 +2238,7 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
 
 42:                                               ; preds = %13
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %44 = load i32, ptr %43, align 4, !tbaa !80
+  %44 = load i32, ptr %43, align 4, !tbaa !81
   %45 = and i32 %44, 256
   %.not164 = icmp eq i32 %45, 0
   br i1 %.not164, label %59, label %46
@@ -2305,7 +2305,7 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   %94 = getelementptr inbounds i8, ptr %93, i64 %88
   %95 = getelementptr inbounds i8, ptr %94, i64 %90
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %97 = load i32, ptr %96, align 4, !tbaa !68
+  %97 = load i32, ptr %96, align 4, !tbaa !69
   %98 = sub nsw i32 %97, %16
   %99 = icmp sgt i32 %98, 15
   %100 = add nsw i32 %98, -15
@@ -2323,13 +2323,13 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
 
 107:                                              ; preds = %102, %71
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  %109 = load ptr, ptr %108, align 8, !tbaa !70
+  %109 = load ptr, ptr %108, align 8, !tbaa !71
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  %111 = load ptr, ptr %110, align 8, !tbaa !71
+  %111 = load ptr, ptr %110, align 8, !tbaa !72
   %112 = add nuw nsw i32 %4, 17
   %113 = shl nsw i32 %28, %4
   tail call void %109(ptr noundef %111, ptr noundef %84, i64 noundef %33, i64 noundef %33, i32 noundef 17, i32 noundef %112, i32 noundef %22, i32 noundef %113, i32 noundef %97, i32 noundef %30) #5
-  %114 = load ptr, ptr %110, align 8, !tbaa !71
+  %114 = load ptr, ptr %110, align 8, !tbaa !72
   %115 = load i64, ptr %32, align 8, !tbaa !39
   %116 = mul nsw i64 %115, 18
   %117 = getelementptr inbounds i8, ptr %114, i64 %116
@@ -2337,25 +2337,25 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   %119 = mul nsw i64 %118, 10
   %120 = getelementptr inbounds i8, ptr %117, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %122 = load i32, ptr %121, align 4, !tbaa !80
+  %122 = load i32, ptr %121, align 4, !tbaa !81
   %123 = and i32 %122, 32768
   %.not168 = icmp eq i32 %123, 0
   %124 = sub i64 0, %118
   %.0.idx = select i1 %.not168, i64 0, i64 %124
   %.0 = getelementptr inbounds i8, ptr %120, i64 %.0.idx
-  %125 = load ptr, ptr %108, align 8, !tbaa !70
+  %125 = load ptr, ptr %108, align 8, !tbaa !71
   %126 = add nuw nsw i32 %4, 9
   %127 = shl nsw i32 %78, %4
-  %128 = load i32, ptr %96, align 4, !tbaa !68
+  %128 = load i32, ptr %96, align 4, !tbaa !69
   %129 = ashr i32 %128, 1
-  %130 = load i32, ptr %29, align 8, !tbaa !69
+  %130 = load i32, ptr %29, align 8, !tbaa !70
   %131 = ashr i32 %130, 1
   tail call void %125(ptr noundef %117, ptr noundef %91, i64 noundef %118, i64 noundef %118, i32 noundef 9, i32 noundef %126, i32 noundef %75, i32 noundef %127, i32 noundef %129, i32 noundef %131) #5
-  %132 = load ptr, ptr %108, align 8, !tbaa !70
+  %132 = load ptr, ptr %108, align 8, !tbaa !71
   %133 = load i64, ptr %36, align 8, !tbaa !42
-  %134 = load i32, ptr %96, align 4, !tbaa !68
+  %134 = load i32, ptr %96, align 4, !tbaa !69
   %135 = ashr i32 %134, 1
-  %136 = load i32, ptr %29, align 8, !tbaa !69
+  %136 = load i32, ptr %29, align 8, !tbaa !70
   %137 = ashr i32 %136, 1
   tail call void %132(ptr noundef %.0, ptr noundef %95, i64 noundef %133, i64 noundef %133, i32 noundef 9, i32 noundef %126, i32 noundef %75, i32 noundef %127, i32 noundef %135, i32 noundef %137) #5
   br label %138
@@ -2369,7 +2369,7 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
 139:                                              ; preds = %138
   %140 = zext nneg i32 %17 to i64
   %141 = getelementptr inbounds nuw [16 x ptr], ptr %9, i64 0, i64 %140
-  %142 = load ptr, ptr %141, align 8, !tbaa !72
+  %142 = load ptr, ptr %141, align 8, !tbaa !73
   tail call void %142(ptr noundef %1, ptr noundef %.0153, i64 noundef %35) #5
   br label %165
 
@@ -2407,9 +2407,9 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   %158 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %159 = zext nneg i32 %17 to i64
   %160 = getelementptr inbounds nuw [16 x ptr], ptr %158, i64 0, i64 %159
-  %161 = load ptr, ptr %160, align 8, !tbaa !72
+  %161 = load ptr, ptr %160, align 8, !tbaa !73
   tail call void %161(ptr noundef %.0149, ptr noundef %.1154, i64 noundef %35) #5
-  %162 = load ptr, ptr %160, align 8, !tbaa !72
+  %162 = load ptr, ptr %160, align 8, !tbaa !73
   %163 = getelementptr inbounds nuw i8, ptr %.0149, i64 8
   %164 = getelementptr inbounds nuw i8, ptr %.1154, i64 8
   tail call void %162(ptr noundef nonnull %163, ptr noundef nonnull %164, i64 noundef %35) #5
@@ -2430,10 +2430,10 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %174 = zext nneg i32 %172 to i64
   %175 = getelementptr inbounds nuw [4 x ptr], ptr %173, i64 0, i64 %174
-  %176 = load ptr, ptr %175, align 8, !tbaa !72
+  %176 = load ptr, ptr %175, align 8, !tbaa !73
   %177 = lshr i32 %12, 1
   tail call void %176(ptr noundef %.0151, ptr noundef %.1158, i64 noundef %38, i32 noundef %177) #5
-  %178 = load ptr, ptr %175, align 8, !tbaa !72
+  %178 = load ptr, ptr %175, align 8, !tbaa !73
   tail call void %178(ptr noundef %.0150, ptr noundef %.1156, i64 noundef %38, i32 noundef %177) #5
   ret void
 }
@@ -2445,11 +2445,11 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %14 = load i32, ptr %13, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %16 = load i32, ptr %15, align 8, !tbaa !69
+  %16 = load i32, ptr %15, align 8, !tbaa !70
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %18 = load i64, ptr %17, align 8, !tbaa !81
+  %18 = load i64, ptr %17, align 8, !tbaa !82
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %20 = load i64, ptr %19, align 8, !tbaa !81
+  %20 = load i64, ptr %19, align 8, !tbaa !82
   %21 = and i32 %8, 1
   %22 = shl nuw nsw i32 %21, 1
   %23 = and i32 %7, 1
@@ -2492,7 +2492,7 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
 
 51:                                               ; preds = %34
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %53 = load i32, ptr %52, align 8, !tbaa !82
+  %53 = load i32, ptr %52, align 8, !tbaa !83
   %.not186.i = icmp eq i32 %53, 0
   br i1 %.not186.i, label %61, label %54
 
@@ -2527,7 +2527,7 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %77 = getelementptr inbounds i8, ptr %76, i64 %71
   %78 = getelementptr inbounds i8, ptr %77, i64 %73
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %80 = load i32, ptr %79, align 4, !tbaa !68
+  %80 = load i32, ptr %79, align 4, !tbaa !69
   %81 = sub nsw i32 %80, %23
   %82 = icmp sgt i32 %81, 15
   %83 = add nsw i32 %81, -15
@@ -2545,7 +2545,7 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
 
 90:                                               ; preds = %85, %61
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %92 = load ptr, ptr %91, align 8, !tbaa !83
+  %92 = load ptr, ptr %91, align 8, !tbaa !84
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %92, i32 noundef 48, ptr noundef nonnull @.str, i32 noundef %29, i32 noundef %33) #5
   br label %mpeg_motion_internal.exit
 
@@ -2569,23 +2569,23 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %.1.i = phi ptr [ %97, %94 ], [ %67, %93 ]
   %103 = zext nneg i32 %24 to i64
   %104 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %103
-  %105 = load ptr, ptr %104, align 8, !tbaa !72
+  %105 = load ptr, ptr %104, align 8, !tbaa !73
   tail call void %105(ptr noundef %1, ptr noundef %.1.i, i64 noundef %18, i32 noundef range(i32 8, 17) %9) #5
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %107 = load i32, ptr %106, align 8, !tbaa !82
+  %107 = load i32, ptr %106, align 8, !tbaa !83
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds [4 x ptr], ptr %6, i64 %108
   %110 = zext nneg i32 %.0182.i to i64
   %111 = getelementptr inbounds nuw [4 x ptr], ptr %109, i64 0, i64 %110
-  %112 = load ptr, ptr %111, align 8, !tbaa !72
+  %112 = load ptr, ptr %111, align 8, !tbaa !73
   %113 = load i32, ptr %35, align 4, !tbaa !52
   %114 = lshr i32 %9, %113
   tail call void %112(ptr noundef %2, ptr noundef %.1177.i, i64 noundef %20, i32 noundef %114) #5
-  %115 = load i32, ptr %106, align 8, !tbaa !82
+  %115 = load i32, ptr %106, align 8, !tbaa !83
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds [4 x ptr], ptr %6, i64 %116
   %118 = getelementptr inbounds nuw [4 x ptr], ptr %117, i64 0, i64 %110
-  %119 = load ptr, ptr %118, align 8, !tbaa !72
+  %119 = load ptr, ptr %118, align 8, !tbaa !73
   %120 = load i32, ptr %35, align 4, !tbaa !52
   %121 = lshr i32 %9, %120
   tail call void %119(ptr noundef %3, ptr noundef %.1181.i, i64 noundef %20, i32 noundef %121) #5
@@ -2633,7 +2633,7 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %154 = getelementptr inbounds i8, ptr %153, i64 %148
   %155 = getelementptr inbounds i8, ptr %154, i64 %150
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %157 = load i32, ptr %156, align 4, !tbaa !68
+  %157 = load i32, ptr %156, align 4, !tbaa !69
   %158 = sub nsw i32 %157, %23
   %159 = icmp sgt i32 %158, 15
   %160 = add nsw i32 %158, -15
@@ -2651,13 +2651,13 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
 
 167:                                              ; preds = %162, %138
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  %169 = load ptr, ptr %168, align 8, !tbaa !70
+  %169 = load ptr, ptr %168, align 8, !tbaa !71
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  %171 = load ptr, ptr %170, align 8, !tbaa !71
+  %171 = load ptr, ptr %170, align 8, !tbaa !72
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %173 = load i64, ptr %172, align 8, !tbaa !39
   tail call void %169(ptr noundef %171, ptr noundef %144, i64 noundef %173, i64 noundef %173, i32 noundef 17, i32 noundef 17, i32 noundef %29, i32 noundef %33, i32 noundef %157, i32 noundef %16) #5
-  %174 = load ptr, ptr %170, align 8, !tbaa !71
+  %174 = load ptr, ptr %170, align 8, !tbaa !72
   %175 = load i64, ptr %172, align 8, !tbaa !39
   %176 = mul nsw i64 %175, 18
   %177 = getelementptr inbounds i8, ptr %174, i64 %176
@@ -2666,23 +2666,23 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %180 = mul nsw i64 %179, 10
   %181 = getelementptr inbounds i8, ptr %177, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %183 = load i32, ptr %182, align 4, !tbaa !80
+  %183 = load i32, ptr %182, align 4, !tbaa !81
   %184 = and i32 %183, 32768
   %.not189.i = icmp eq i32 %184, 0
   %185 = sub i64 0, %179
   %.0.i.idx = select i1 %.not189.i, i64 0, i64 %185
   %.0.i = getelementptr inbounds i8, ptr %181, i64 %.0.i.idx
-  %186 = load ptr, ptr %168, align 8, !tbaa !70
-  %187 = load i32, ptr %156, align 4, !tbaa !68
+  %186 = load ptr, ptr %168, align 8, !tbaa !71
+  %187 = load i32, ptr %156, align 4, !tbaa !69
   %188 = ashr i32 %187, 1
-  %189 = load i32, ptr %15, align 8, !tbaa !69
+  %189 = load i32, ptr %15, align 8, !tbaa !70
   %190 = ashr i32 %189, 1
   tail call void %186(ptr noundef %177, ptr noundef %151, i64 noundef %179, i64 noundef %179, i32 noundef 9, i32 noundef 9, i32 noundef %.0179.i25, i32 noundef %.0178.i26, i32 noundef %188, i32 noundef %190) #5
-  %191 = load ptr, ptr %168, align 8, !tbaa !70
+  %191 = load ptr, ptr %168, align 8, !tbaa !71
   %192 = load i64, ptr %178, align 8, !tbaa !42
-  %193 = load i32, ptr %156, align 4, !tbaa !68
+  %193 = load i32, ptr %156, align 4, !tbaa !69
   %194 = ashr i32 %193, 1
-  %195 = load i32, ptr %15, align 8, !tbaa !69
+  %195 = load i32, ptr %15, align 8, !tbaa !70
   %196 = ashr i32 %195, 1
   tail call void %191(ptr noundef %.0.i, ptr noundef %155, i64 noundef %192, i64 noundef %192, i32 noundef 9, i32 noundef 9, i32 noundef %.0179.i25, i32 noundef %.0178.i26, i32 noundef %194, i32 noundef %196) #5
   br label %197
@@ -2710,23 +2710,23 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %.1.i31 = phi ptr [ %201, %198 ], [ %.0175.i, %197 ]
   %207 = zext nneg i32 %24 to i64
   %208 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %207
-  %209 = load ptr, ptr %208, align 8, !tbaa !72
+  %209 = load ptr, ptr %208, align 8, !tbaa !73
   tail call void %209(ptr noundef %1, ptr noundef %.1.i31, i64 noundef %18, i32 noundef range(i32 8, 17) %9) #5
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %211 = load i32, ptr %210, align 8, !tbaa !82
+  %211 = load i32, ptr %210, align 8, !tbaa !83
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds [4 x ptr], ptr %6, i64 %212
   %214 = getelementptr inbounds nuw [4 x ptr], ptr %213, i64 0, i64 %.0182.i24
-  %215 = load ptr, ptr %214, align 8, !tbaa !72
+  %215 = load ptr, ptr %214, align 8, !tbaa !73
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 4260
   %217 = load i32, ptr %216, align 4, !tbaa !52
   %218 = lshr i32 %9, %217
   tail call void %215(ptr noundef %2, ptr noundef %.1177.i30, i64 noundef %20, i32 noundef %218) #5
-  %219 = load i32, ptr %210, align 8, !tbaa !82
+  %219 = load i32, ptr %210, align 8, !tbaa !83
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds [4 x ptr], ptr %6, i64 %220
   %222 = getelementptr inbounds nuw [4 x ptr], ptr %221, i64 0, i64 %.0182.i24
-  %223 = load ptr, ptr %222, align 8, !tbaa !72
+  %223 = load ptr, ptr %222, align 8, !tbaa !73
   %224 = load i32, ptr %216, align 4, !tbaa !52
   %225 = lshr i32 %9, %224
   tail call void %223(ptr noundef %3, ptr noundef %.1181.i29, i64 noundef %20, i32 noundef %225) #5
@@ -2747,13 +2747,13 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %13 = load i32, ptr %12, align 8, !tbaa !43
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %15 = load i32, ptr %14, align 8, !tbaa !69
+  %15 = load i32, ptr %14, align 8, !tbaa !70
   %16 = ashr i32 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %18 = load i64, ptr %17, align 8, !tbaa !81
+  %18 = load i64, ptr %17, align 8, !tbaa !82
   %19 = shl i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %21 = load i64, ptr %20, align 8, !tbaa !81
+  %21 = load i64, ptr %20, align 8, !tbaa !82
   %22 = shl i64 %21, 1
   %23 = and i32 %9, 1
   %24 = shl nuw nsw i32 %23, 1
@@ -2795,7 +2795,7 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
 
 51:                                               ; preds = %35
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %53 = load i32, ptr %52, align 8, !tbaa !82
+  %53 = load i32, ptr %52, align 8, !tbaa !83
   %.not186.i = icmp eq i32 %53, 0
   br i1 %.not186.i, label %61, label %54
 
@@ -2830,7 +2830,7 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
   %77 = getelementptr inbounds i8, ptr %76, i64 %71
   %78 = getelementptr inbounds i8, ptr %77, i64 %73
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %80 = load i32, ptr %79, align 4, !tbaa !68
+  %80 = load i32, ptr %79, align 4, !tbaa !69
   %81 = sub nsw i32 %80, %25
   %82 = icmp sgt i32 %81, 15
   %83 = add nsw i32 %81, -15
@@ -2848,7 +2848,7 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
 
 90:                                               ; preds = %85, %61
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %92 = load ptr, ptr %91, align 8, !tbaa !83
+  %92 = load ptr, ptr %91, align 8, !tbaa !84
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %92, i32 noundef 48, ptr noundef nonnull @.str, i32 noundef %31, i32 noundef %34) #5
   br label %mpeg_motion_internal.exit
 
@@ -2889,23 +2889,23 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
   %.1.i = phi ptr [ %106, %103 ], [ %67, %102 ]
   %112 = zext nneg i32 %26 to i64
   %113 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %112
-  %114 = load ptr, ptr %113, align 8, !tbaa !72
+  %114 = load ptr, ptr %113, align 8, !tbaa !73
   tail call void %114(ptr noundef %.0172.i, ptr noundef %.1.i, i64 noundef %19, i32 noundef 8) #5
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %116 = load i32, ptr %115, align 8, !tbaa !82
+  %116 = load i32, ptr %115, align 8, !tbaa !83
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds [4 x ptr], ptr %7, i64 %117
   %119 = zext nneg i32 %.0182.i to i64
   %120 = getelementptr inbounds nuw [4 x ptr], ptr %118, i64 0, i64 %119
-  %121 = load ptr, ptr %120, align 8, !tbaa !72
+  %121 = load ptr, ptr %120, align 8, !tbaa !73
   %122 = load i32, ptr %36, align 4, !tbaa !52
   %123 = lshr i32 8, %122
   tail call void %121(ptr noundef %.0173.i, ptr noundef %.1177.i, i64 noundef %22, i32 noundef %123) #5
-  %124 = load i32, ptr %115, align 8, !tbaa !82
+  %124 = load i32, ptr %115, align 8, !tbaa !83
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds [4 x ptr], ptr %7, i64 %125
   %127 = getelementptr inbounds nuw [4 x ptr], ptr %126, i64 0, i64 %119
-  %128 = load ptr, ptr %127, align 8, !tbaa !72
+  %128 = load ptr, ptr %127, align 8, !tbaa !73
   %129 = load i32, ptr %36, align 4, !tbaa !52
   %130 = lshr i32 8, %129
   tail call void %128(ptr noundef %.0174.i, ptr noundef %.1181.i, i64 noundef %22, i32 noundef %130) #5
@@ -2913,7 +2913,7 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
 
 131:                                              ; preds = %11
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %133 = load i32, ptr %132, align 4, !tbaa !80
+  %133 = load i32, ptr %132, align 4, !tbaa !81
   %134 = and i32 %133, 2048
   %.not = icmp eq i32 %134, 0
   br i1 %.not, label %146, label %135
@@ -2971,7 +2971,7 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
   %176 = getelementptr inbounds i8, ptr %175, i64 %170
   %177 = getelementptr inbounds i8, ptr %176, i64 %172
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %179 = load i32, ptr %178, align 4, !tbaa !68
+  %179 = load i32, ptr %178, align 4, !tbaa !69
   %180 = sub nsw i32 %179, %25
   %181 = icmp sgt i32 %180, 15
   %182 = add nsw i32 %180, -15
@@ -2990,13 +2990,13 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
 189:                                              ; preds = %184, %160
   %190 = shl i32 %34, 1
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  %192 = load ptr, ptr %191, align 8, !tbaa !70
+  %192 = load ptr, ptr %191, align 8, !tbaa !71
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  %194 = load ptr, ptr %193, align 8, !tbaa !71
+  %194 = load ptr, ptr %193, align 8, !tbaa !72
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %196 = load i64, ptr %195, align 8, !tbaa !39
   tail call void %192(ptr noundef %194, ptr noundef %166, i64 noundef %196, i64 noundef %196, i32 noundef 17, i32 noundef 18, i32 noundef %31, i32 noundef %190, i32 noundef %179, i32 noundef %15) #5
-  %197 = load ptr, ptr %193, align 8, !tbaa !71
+  %197 = load ptr, ptr %193, align 8, !tbaa !72
   %198 = load i64, ptr %195, align 8, !tbaa !39
   %199 = mul nsw i64 %198, 18
   %200 = getelementptr inbounds i8, ptr %197, i64 %199
@@ -3005,24 +3005,24 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
   %203 = mul nsw i64 %202, 10
   %204 = getelementptr inbounds i8, ptr %200, i64 %203
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %206 = load i32, ptr %205, align 4, !tbaa !80
+  %206 = load i32, ptr %205, align 4, !tbaa !81
   %207 = and i32 %206, 32768
   %.not189.i = icmp eq i32 %207, 0
   %208 = sub i64 0, %202
   %.0.i.idx = select i1 %.not189.i, i64 0, i64 %208
   %.0.i = getelementptr inbounds i8, ptr %204, i64 %.0.i.idx
   %209 = shl i32 %.0178.i24, 1
-  %210 = load ptr, ptr %191, align 8, !tbaa !70
-  %211 = load i32, ptr %178, align 4, !tbaa !68
+  %210 = load ptr, ptr %191, align 8, !tbaa !71
+  %211 = load i32, ptr %178, align 4, !tbaa !69
   %212 = ashr i32 %211, 1
-  %213 = load i32, ptr %14, align 8, !tbaa !69
+  %213 = load i32, ptr %14, align 8, !tbaa !70
   %214 = ashr i32 %213, 1
   tail call void %210(ptr noundef %200, ptr noundef %173, i64 noundef %202, i64 noundef %202, i32 noundef 9, i32 noundef 10, i32 noundef %.0179.i23, i32 noundef %209, i32 noundef %212, i32 noundef %214) #5
-  %215 = load ptr, ptr %191, align 8, !tbaa !70
+  %215 = load ptr, ptr %191, align 8, !tbaa !71
   %216 = load i64, ptr %201, align 8, !tbaa !42
-  %217 = load i32, ptr %178, align 4, !tbaa !68
+  %217 = load i32, ptr %178, align 4, !tbaa !69
   %218 = ashr i32 %217, 1
-  %219 = load i32, ptr %14, align 8, !tbaa !69
+  %219 = load i32, ptr %14, align 8, !tbaa !70
   %220 = ashr i32 %219, 1
   tail call void %215(ptr noundef %.0.i, ptr noundef %177, i64 noundef %216, i64 noundef %216, i32 noundef 9, i32 noundef 10, i32 noundef %.0179.i23, i32 noundef %209, i32 noundef %218, i32 noundef %220) #5
   br label %221
@@ -3067,24 +3067,24 @@ define internal fastcc void @mpeg_motion_field(ptr noundef %0, ptr noundef %1, p
   %.1.i33 = phi ptr [ %234, %231 ], [ %.0175.i, %230 ]
   %240 = zext nneg i32 %26 to i64
   %241 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %240
-  %242 = load ptr, ptr %241, align 8, !tbaa !72
+  %242 = load ptr, ptr %241, align 8, !tbaa !73
   tail call void %242(ptr noundef %.0172.i29, ptr noundef %.1.i33, i64 noundef %19, i32 noundef 8) #5
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %244 = load i32, ptr %243, align 8, !tbaa !82
+  %244 = load i32, ptr %243, align 8, !tbaa !83
   %245 = sext i32 %244 to i64
   %246 = getelementptr inbounds [4 x ptr], ptr %7, i64 %245
   %247 = zext nneg i32 %.0182.i22 to i64
   %248 = getelementptr inbounds nuw [4 x ptr], ptr %246, i64 0, i64 %247
-  %249 = load ptr, ptr %248, align 8, !tbaa !72
+  %249 = load ptr, ptr %248, align 8, !tbaa !73
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 4260
   %251 = load i32, ptr %250, align 4, !tbaa !52
   %252 = lshr i32 8, %251
   tail call void %249(ptr noundef %.0173.i28, ptr noundef %.1177.i32, i64 noundef %22, i32 noundef %252) #5
-  %253 = load i32, ptr %243, align 8, !tbaa !82
+  %253 = load i32, ptr %243, align 8, !tbaa !83
   %254 = sext i32 %253 to i64
   %255 = getelementptr inbounds [4 x ptr], ptr %7, i64 %254
   %256 = getelementptr inbounds nuw [4 x ptr], ptr %255, i64 0, i64 %247
-  %257 = load ptr, ptr %256, align 8, !tbaa !72
+  %257 = load ptr, ptr %256, align 8, !tbaa !73
   %258 = load i32, ptr %250, align 4, !tbaa !52
   %259 = lshr i32 8, %258
   tail call void %257(ptr noundef %.0174.i27, ptr noundef %.1181.i31, i64 noundef %22, i32 noundef %259) #5
@@ -3105,14 +3105,14 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
   %8 = and i32 %5, 15
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw [16 x i8], ptr @ff_h263_round_chroma.h263_chroma_roundtab, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !61
+  %11 = load i8, ptr %10, align 1, !tbaa !62
   %12 = zext i8 %11 to i32
   %13 = ashr i32 %5, 3
   %14 = add nsw i32 %13, %12
   %15 = and i32 %6, 15
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw [16 x i8], ptr @ff_h263_round_chroma.h263_chroma_roundtab, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !61
+  %18 = load i8, ptr %17, align 1, !tbaa !62
   %19 = zext i8 %18 to i32
   %20 = ashr i32 %6, 3
   %21 = add nsw i32 %20, %19
@@ -3130,7 +3130,7 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
   %33 = shl nsw i32 %32, 3
   %34 = add nsw i32 %33, %26
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %36 = load i32, ptr %35, align 8, !tbaa !66
+  %36 = load i32, ptr %35, align 8, !tbaa !67
   %37 = ashr i32 %36, 1
   %38 = icmp slt i32 %30, -8
   %..i = tail call i32 @llvm.smin.i32(i32 %30, i32 %37)
@@ -3138,7 +3138,7 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
   %39 = icmp eq i32 %.0.i, %37
   %40 = select i1 %39, i32 0, i32 %24
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  %42 = load i32, ptr %41, align 4, !tbaa !67
+  %42 = load i32, ptr %41, align 4, !tbaa !68
   %43 = ashr i32 %42, 1
   %44 = icmp slt i32 %34, -8
   %..i74 = tail call i32 @llvm.smin.i32(i32 %34, i32 %43)
@@ -3156,7 +3156,7 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
   %53 = load ptr, ptr %52, align 8, !tbaa !41
   %54 = getelementptr inbounds i8, ptr %53, i64 %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %56 = load i32, ptr %55, align 4, !tbaa !68
+  %56 = load i32, ptr %55, align 4, !tbaa !69
   %57 = ashr i32 %56, 1
   %58 = sub nsw i32 %57, %40
   %59 = icmp sgt i32 %58, 7
@@ -3164,7 +3164,7 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
   %61 = icmp ult i32 %.0.i, %60
   %.not = select i1 %59, i1 %61, i1 false
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %63 = load i32, ptr %62, align 8, !tbaa !69
+  %63 = load i32, ptr %62, align 8, !tbaa !70
   %64 = ashr i32 %63, 1
   br i1 %.not, label %65, label %._crit_edge
 
@@ -3180,7 +3180,7 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
 .thread:                                          ; preds = %65
   %71 = zext nneg i32 %.169 to i64
   %72 = getelementptr inbounds nuw ptr, ptr %4, i64 %71
-  %73 = load ptr, ptr %72, align 8, !tbaa !72
+  %73 = load ptr, ptr %72, align 8, !tbaa !73
   tail call void %73(ptr noundef %1, ptr noundef %54, i64 noundef %48, i32 noundef 8) #5
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !41
@@ -3189,37 +3189,37 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
 
 ._crit_edge:                                      ; preds = %7, %65
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  %78 = load ptr, ptr %77, align 8, !tbaa !70
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  %80 = load ptr, ptr %79, align 8, !tbaa !71
+  %80 = load ptr, ptr %79, align 8, !tbaa !72
   tail call void %78(ptr noundef %80, ptr noundef %54, i64 noundef %48, i64 noundef %48, i32 noundef 9, i32 noundef 9, i32 noundef %.0.i, i32 noundef %.0.i75, i32 noundef %57, i32 noundef %64) #5
-  %81 = load ptr, ptr %79, align 8, !tbaa !71
+  %81 = load ptr, ptr %79, align 8, !tbaa !72
   %.pre76 = load i64, ptr %47, align 8, !tbaa !42
   %82 = zext nneg i32 %.169 to i64
   %83 = getelementptr inbounds nuw ptr, ptr %4, i64 %82
-  %84 = load ptr, ptr %83, align 8, !tbaa !72
+  %84 = load ptr, ptr %83, align 8, !tbaa !73
   tail call void %84(ptr noundef %1, ptr noundef %81, i64 noundef %.pre76, i32 noundef 8) #5
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !41
   %87 = getelementptr inbounds i8, ptr %86, i64 %51
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  %89 = load ptr, ptr %88, align 8, !tbaa !70
+  %89 = load ptr, ptr %88, align 8, !tbaa !71
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  %91 = load ptr, ptr %90, align 8, !tbaa !71
+  %91 = load ptr, ptr %90, align 8, !tbaa !72
   %92 = load i64, ptr %47, align 8, !tbaa !42
-  %93 = load i32, ptr %55, align 4, !tbaa !68
+  %93 = load i32, ptr %55, align 4, !tbaa !69
   %94 = ashr i32 %93, 1
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %96 = load i32, ptr %95, align 8, !tbaa !69
+  %96 = load i32, ptr %95, align 8, !tbaa !70
   %97 = ashr i32 %96, 1
   tail call void %89(ptr noundef %91, ptr noundef %87, i64 noundef %92, i64 noundef %92, i32 noundef 9, i32 noundef 9, i32 noundef %.0.i, i32 noundef %.0.i75, i32 noundef %94, i32 noundef %97) #5
-  %98 = load ptr, ptr %90, align 8, !tbaa !71
+  %98 = load ptr, ptr %90, align 8, !tbaa !72
   br label %99
 
 99:                                               ; preds = %.thread, %._crit_edge
   %100 = phi ptr [ %83, %._crit_edge ], [ %72, %.thread ]
   %.1 = phi ptr [ %98, %._crit_edge ], [ %76, %.thread ]
-  %101 = load ptr, ptr %100, align 8, !tbaa !72
+  %101 = load ptr, ptr %100, align 8, !tbaa !73
   %102 = load i64, ptr %47, align 8, !tbaa !42
   tail call void %101(ptr noundef %2, ptr noundef %.1, i64 noundef %102, i32 noundef 8) #5
   ret void
@@ -3294,34 +3294,35 @@ attributes #5 = { nounwind }
 !50 = !{!"MPVPicture", !33, i64 0, !12, i64 8, !12, i64 16, !8, i64 24, !8, i64 40, !19, i64 56, !19, i64 64, !12, i64 72, !8, i64 80, !7, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !10, i64 128, !10, i64 132, !10, i64 136, !10, i64 140, !51, i64 144}
 !51 = !{!"ThreadProgress", !8, i64 0, !10, i64 4, !8, i64 8, !8, i64 48}
 !52 = !{!5, !10, i64 4260}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = distinct !{!55, !54}
-!56 = distinct !{!56, !54}
-!57 = !{!5, !10, i64 4008}
-!58 = !{!5, !10, i64 548}
-!59 = !{!5, !10, i64 552}
-!60 = !{!20, !20, i64 0}
-!61 = !{!8, !8, i64 0}
-!62 = !{!17, !19, i64 80}
-!63 = !{!5, !10, i64 540}
-!64 = !{!30, !30, i64 0}
-!65 = !{!5, !12, i64 1448}
-!66 = !{!5, !10, i64 488}
-!67 = !{!5, !10, i64 492}
-!68 = !{!5, !10, i64 556}
-!69 = !{!5, !10, i64 560}
-!70 = !{!5, !7, i64 2896}
-!71 = !{!5, !12, i64 1440}
-!72 = !{!7, !7, i64 0}
-!73 = distinct !{!73, !54}
-!74 = distinct !{!74, !54}
-!75 = !{!5, !10, i64 4088}
-!76 = !{!5, !10, i64 4156}
-!77 = !{!5, !10, i64 516}
-!78 = distinct !{!78, !54}
-!79 = distinct !{!79, !54}
-!80 = !{!5, !10, i64 524}
-!81 = !{!14, !14, i64 0}
-!82 = !{!5, !10, i64 4256}
-!83 = !{!5, !13, i64 472}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = distinct !{!56, !54, !55}
+!57 = distinct !{!57, !54, !55}
+!58 = !{!5, !10, i64 4008}
+!59 = !{!5, !10, i64 548}
+!60 = !{!5, !10, i64 552}
+!61 = !{!20, !20, i64 0}
+!62 = !{!8, !8, i64 0}
+!63 = !{!17, !19, i64 80}
+!64 = !{!5, !10, i64 540}
+!65 = !{!30, !30, i64 0}
+!66 = !{!5, !12, i64 1448}
+!67 = !{!5, !10, i64 488}
+!68 = !{!5, !10, i64 492}
+!69 = !{!5, !10, i64 556}
+!70 = !{!5, !10, i64 560}
+!71 = !{!5, !7, i64 2896}
+!72 = !{!5, !12, i64 1440}
+!73 = !{!7, !7, i64 0}
+!74 = distinct !{!74, !54, !55}
+!75 = distinct !{!75, !54, !55}
+!76 = !{!5, !10, i64 4088}
+!77 = !{!5, !10, i64 4156}
+!78 = !{!5, !10, i64 516}
+!79 = distinct !{!79, !54, !55}
+!80 = distinct !{!80, !54, !55}
+!81 = !{!5, !10, i64 524}
+!82 = !{!14, !14, i64 0}
+!83 = !{!5, !10, i64 4256}
+!84 = !{!5, !13, i64 472}

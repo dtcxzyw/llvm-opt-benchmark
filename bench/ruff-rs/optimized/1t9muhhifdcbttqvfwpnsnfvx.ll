@@ -52,7 +52,7 @@ define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..collections
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17ha057e0c9a99bf39fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !3
   %8 = load ptr, ptr %2, align 8, !noalias !11, !noundef !16
   %.not.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i, label %"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE.exit", label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE.exit", label %.lr.ph.i.i.i, !llvm.loop !17
 
 "_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE.exit": ; preds = %.lr.ph.i.i.i, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11
@@ -64,57 +64,57 @@ define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..collections
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$ruff_python_index..fstring_ranges..FStringRanges$GT$17hd14821f5b77ce6c1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [72 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !23
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8, !alias.scope !23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !25
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8, !alias.scope !25
   %.not.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i, null
   br i1 %.not.i.i.i, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i", label %4
 
 4:                                                ; preds = %1
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !23
+  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !25
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !23
+  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !25
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !24, !noalias !27
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !26, !noalias !29
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !24, !noalias !27
+  store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !26, !noalias !29
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.4.0.copyload.i.i, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !24, !noalias !27
+  store i64 %.sroa.4.0.copyload.i.i, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !26, !noalias !29
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr null, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !24, !noalias !27
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !26, !noalias !29
   %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !24, !noalias !27
+  store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !26, !noalias !29
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 %.sroa.4.0.copyload.i.i, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !24, !noalias !27
+  store i64 %.sroa.4.0.copyload.i.i, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !26, !noalias !29
   br label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i"
 
 "_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i": ; preds = %4, %1
   %.sink22.i.i.i = phi i64 [ 1, %4 ], [ 0, %1 ]
   %.sroa.7.0.copyload.sink.i.i.i = phi i64 [ %.sroa.5.0.copyload.i.i, %4 ], [ 0, %1 ]
-  store i64 %.sink22.i.i.i, ptr %3, align 8, !alias.scope !24, !noalias !27
+  store i64 %.sink22.i.i.i, ptr %3, align 8, !alias.scope !26, !noalias !29
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %.sink22.i.i.i, ptr %5, align 8, !alias.scope !24, !noalias !27
+  store i64 %.sink22.i.i.i, ptr %5, align 8, !alias.scope !26, !noalias !29
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i64 %.sroa.7.0.copyload.sink.i.i.i, ptr %6, align 8, !alias.scope !24, !noalias !27
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !29
-  call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17ha057e0c9a99bf39fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !23
-  %7 = load ptr, ptr %2, align 8, !noalias !29, !noundef !16
+  store i64 %.sroa.7.0.copyload.sink.i.i.i, ptr %6, align 8, !alias.scope !26, !noalias !29
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !31
+  call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17ha057e0c9a99bf39fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !25
+  %7 = load ptr, ptr %2, align 8, !noalias !31, !noundef !16
   %.not5.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not5.i.i.i.i, label %"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i", %.lr.ph.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !29
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !29
-  call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17ha057e0c9a99bf39fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !23
-  %8 = load ptr, ptr %2, align 8, !noalias !29, !noundef !16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !31
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !31
+  call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17ha057e0c9a99bf39fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !25
+  %8 = load ptr, ptr %2, align 8, !noalias !31, !noundef !16
   %.not.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E.exit", label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 "_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !29
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !23
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !31
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !25
   ret void
 }
 
@@ -158,57 +158,57 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$ruff_python_index..fstring_r
 
 "_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17h1a5a3ecb5059ddedE.exit": ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !40
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %7, align 8, !alias.scope !40
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !42
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %7, align 8, !alias.scope !42
   %.not.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i, null
   br i1 %.not.i.i.i, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i", label %8
 
 8:                                                ; preds = %"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17h1a5a3ecb5059ddedE.exit"
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !40
+  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !42
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !40
+  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !42
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !41, !noalias !44
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !46
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !41, !noalias !44
+  store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !46
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.4.0.copyload.i.i, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !41, !noalias !44
+  store i64 %.sroa.4.0.copyload.i.i, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !46
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr null, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !41, !noalias !44
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !46
   %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !41, !noalias !44
+  store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !46
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 %.sroa.4.0.copyload.i.i, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !41, !noalias !44
+  store i64 %.sroa.4.0.copyload.i.i, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !46
   br label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i"
 
 "_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i": ; preds = %8, %"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17h1a5a3ecb5059ddedE.exit"
   %.sink22.i.i.i = phi i64 [ 1, %8 ], [ 0, %"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17h1a5a3ecb5059ddedE.exit" ]
   %.sroa.7.0.copyload.sink.i.i.i = phi i64 [ %.sroa.5.0.copyload.i.i, %8 ], [ 0, %"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17h1a5a3ecb5059ddedE.exit" ]
-  store i64 %.sink22.i.i.i, ptr %3, align 8, !alias.scope !41, !noalias !44
+  store i64 %.sink22.i.i.i, ptr %3, align 8, !alias.scope !43, !noalias !46
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %.sink22.i.i.i, ptr %9, align 8, !alias.scope !41, !noalias !44
+  store i64 %.sink22.i.i.i, ptr %9, align 8, !alias.scope !43, !noalias !46
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i64 %.sroa.7.0.copyload.sink.i.i.i, ptr %10, align 8, !alias.scope !41, !noalias !44
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !46
-  call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17ha057e0c9a99bf39fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !40
-  %11 = load ptr, ptr %2, align 8, !noalias !46, !noundef !16
+  store i64 %.sroa.7.0.copyload.sink.i.i.i, ptr %10, align 8, !alias.scope !43, !noalias !46
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !48
+  call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17ha057e0c9a99bf39fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !42
+  %11 = load ptr, ptr %2, align 8, !noalias !48, !noundef !16
   %.not5.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not5.i.i.i.i, label %"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i", %.lr.ph.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !46
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !46
-  call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17ha057e0c9a99bf39fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !40
-  %12 = load ptr, ptr %2, align 8, !noalias !46, !noundef !16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !48
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !48
+  call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17ha057e0c9a99bf39fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !42
+  %12 = load ptr, ptr %2, align 8, !noalias !48, !noundef !16
   %.not.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E.exit", label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 "_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !46
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !40
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !42
   ret void
 
 13:                                               ; preds = %4
@@ -279,37 +279,39 @@ attributes #6 = { cold noreturn nounwind }
 !14 = distinct !{!14, !15, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E: argument 0"}
 !15 = distinct !{!15, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E"}
 !16 = !{}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E: argument 0"}
-!19 = distinct !{!19, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE: argument 0"}
-!22 = distinct !{!22, !"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE"}
-!23 = !{!21, !18}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E: argument 0"}
-!26 = distinct !{!26, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E"}
-!27 = !{!28, !21, !18}
-!28 = distinct !{!28, !26, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E: argument 1"}
-!29 = !{!30, !32, !21, !18}
-!30 = distinct !{!30, !31, !"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb82203efc8746d23E: argument 0"}
-!31 = distinct !{!31, !"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb82203efc8746d23E"}
-!32 = distinct !{!32, !33, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E: argument 0"}
-!33 = distinct !{!33, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E: argument 0"}
-!36 = distinct !{!36, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE: argument 0"}
-!39 = distinct !{!39, !"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE"}
-!40 = !{!38, !35}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E: argument 0"}
-!43 = distinct !{!43, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E"}
-!44 = !{!45, !38, !35}
-!45 = distinct !{!45, !43, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E: argument 1"}
-!46 = !{!47, !49, !38, !35}
-!47 = distinct !{!47, !48, !"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb82203efc8746d23E: argument 0"}
-!48 = distinct !{!48, !"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb82203efc8746d23E"}
-!49 = distinct !{!49, !50, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E: argument 0"}
-!50 = distinct !{!50, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E"}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E: argument 0"}
+!21 = distinct !{!21, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE: argument 0"}
+!24 = distinct !{!24, !"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE"}
+!25 = !{!23, !20}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E: argument 0"}
+!28 = distinct !{!28, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E"}
+!29 = !{!30, !23, !20}
+!30 = distinct !{!30, !28, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E: argument 1"}
+!31 = !{!32, !34, !23, !20}
+!32 = distinct !{!32, !33, !"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb82203efc8746d23E: argument 0"}
+!33 = distinct !{!33, !"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb82203efc8746d23E"}
+!34 = distinct !{!34, !35, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E: argument 0"}
+!35 = distinct !{!35, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E: argument 0"}
+!38 = distinct !{!38, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17ha6ce7cd11cbff5a9E"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE: argument 0"}
+!41 = distinct !{!41, !"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb72437379c720abE"}
+!42 = !{!40, !37}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E: argument 0"}
+!45 = distinct !{!45, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E"}
+!46 = !{!47, !40, !37}
+!47 = distinct !{!47, !45, !"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfae6b7315759b797E: argument 1"}
+!48 = !{!49, !51, !40, !37}
+!49 = distinct !{!49, !50, !"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb82203efc8746d23E: argument 0"}
+!50 = distinct !{!50, !"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb82203efc8746d23E"}
+!51 = distinct !{!51, !52, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E: argument 0"}
+!52 = distinct !{!52, !"_ZN4core3ptr134drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ruff_text_size..size..TextSize$C$ruff_text_size..range..TextRange$GT$$GT$17h631fc7ea34c2ec50E"}

@@ -403,7 +403,7 @@ yop_copy_previous_block.exit:                     ; preds = %yop_get_next_nibble
   %194 = add nuw nsw i32 %.07697, 2
   %195 = load i32, ptr %56, align 8, !tbaa !31
   %196 = icmp slt i32 %194, %195
-  br i1 %196, label %.lr.ph98, label %._crit_edge.loopexit, !llvm.loop !52
+  br i1 %196, label %.lr.ph98, label %._crit_edge.loopexit, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %191
   %.pre = load i32, ptr %53, align 4, !tbaa !32
@@ -422,7 +422,7 @@ yop_copy_previous_block.exit:                     ; preds = %yop_get_next_nibble
   store ptr %204, ptr %29, align 8, !tbaa !45
   %205 = add nuw nsw i32 %.07599, 2
   %206 = icmp slt i32 %205, %197
-  br i1 %206, label %.preheader, label %._crit_edge100, !llvm.loop !53
+  br i1 %206, label %.preheader, label %._crit_edge100, !llvm.loop !54
 
 ._crit_edge100:                                   ; preds = %._crit_edge, %.preheader.lr.ph.split.us, %.preheader92
   %207 = load ptr, ptr %7, align 8, !tbaa !39
@@ -526,8 +526,9 @@ attributes #5 = { nounwind }
 !47 = !{!28, !14, i64 40}
 !48 = !{!28, !14, i64 48}
 !49 = !{!28, !14, i64 32}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = distinct !{!52, !51}
-!53 = distinct !{!53, !51, !54}
-!54 = !{!"llvm.loop.unswitch.partial.disable"}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = distinct !{!53, !51, !52}
+!54 = distinct !{!54, !51, !52, !55}
+!55 = !{!"llvm.loop.unswitch.partial.disable"}

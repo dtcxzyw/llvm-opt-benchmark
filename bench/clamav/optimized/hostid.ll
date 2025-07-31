@@ -24,7 +24,7 @@ define range(i32 0, 2) i32 @is_valid_hostid() local_unnamed_addr #0 {
   %spec.select = add nuw nsw i32 %.01423, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond.not, label %6, label %.preheader
+  br i1 %exitcond.not, label %6, label %.preheader, !llvm.loop !6
 
 6:                                                ; preds = %.preheader
   %.not16 = icmp eq i32 %spec.select, 4
@@ -74,7 +74,7 @@ define noalias ptr @get_hostid(ptr noundef readnone captures(none) %0) local_unn
   %spec.select.i = add nuw nsw i32 %.01423.i, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 36
-  br i1 %exitcond.not.i, label %8, label %.preheader.i
+  br i1 %exitcond.not.i, label %8, label %.preheader.i, !llvm.loop !6
 
 8:                                                ; preds = %.preheader.i
   %.not16.i = icmp eq i32 %spec.select.i, 4
@@ -133,3 +133,5 @@ attributes #7 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

@@ -507,7 +507,7 @@ define noundef i32 @_ZN7RawRead8GetVSizeEm(ptr noundef nonnull readonly align 8 
 14:                                               ; preds = %6
   %15 = add i64 %.0812, 1
   %exitcond.not = icmp eq i64 %15, %4
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !26
 
 .loopexit:                                        ; preds = %14, %2, %10
   %spec.select = phi i32 [ %13, %10 ], [ 0, %2 ], [ 0, %14 ]
@@ -632,8 +632,8 @@ define noundef i32 @_ZN7RawRead8GetCRC50Ev(ptr noundef nonnull readonly align 8 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i64 @_Z7RawGetVPKhRjjRb(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, i32 noundef %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #9 {
-  store i8 0, ptr %3, align 1, !tbaa !26
-  %.promoted = load i32, ptr %1, align 4, !tbaa !28
+  store i8 0, ptr %3, align 1, !tbaa !27
+  %.promoted = load i32, ptr %1, align 4, !tbaa !29
   %.not21 = icmp ult i32 %.promoted, %2
   br i1 %.not21, label %.lr.ph.preheader, label %._crit_edge
 
@@ -644,7 +644,7 @@ define noundef i64 @_Z7RawGetVPKhRjjRb(ptr noundef readonly captures(none) %0, p
 6:                                                ; preds = %.lr.ph
   %7 = add i32 %.01723, 7
   %exitcond.not = icmp eq i32 %2, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
@@ -652,7 +652,7 @@ define noundef i64 @_Z7RawGetVPKhRjjRb(ptr noundef readonly captures(none) %0, p
   %.01822 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = trunc i64 %indvars.iv.next to i32
-  store i32 %8, ptr %1, align 4, !tbaa !28
+  store i32 %8, ptr %1, align 4, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1, !tbaa !22
   %11 = and i8 %10, 127
@@ -664,7 +664,7 @@ define noundef i64 @_Z7RawGetVPKhRjjRb(ptr noundef readonly captures(none) %0, p
   br i1 %16, label %6, label %.thread
 
 ._crit_edge:                                      ; preds = %6, %4
-  store i8 1, ptr %3, align 1, !tbaa !26
+  store i8 1, ptr %3, align 1, !tbaa !27
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
@@ -724,11 +724,12 @@ attributes #12 = { nounwind allocsize(1) }
 !20 = !{!"vtable pointer", !8, i64 0}
 !21 = !{!11, !9, i64 48}
 !22 = !{!7, !7, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"bool", !7, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"int", !7, i64 0}
-!30 = distinct !{!30, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"bool", !7, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"int", !7, i64 0}
+!31 = distinct !{!31, !24, !25}

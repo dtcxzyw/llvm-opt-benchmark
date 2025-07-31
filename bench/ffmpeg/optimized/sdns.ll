@@ -134,7 +134,7 @@ define internal i32 @sdns_read_packet(ptr noundef readonly captures(none) %0, pt
   %7 = load ptr, ptr %3, align 8, !tbaa !12
   %8 = tail call i32 @av_get_packet(ptr noundef %7, ptr noundef %1, i32 noundef 2048) #5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %9, align 4, !tbaa !43
+  store i32 0, ptr %9, align 4, !tbaa !44
   br label %10
 
 10:                                               ; preds = %2, %6
@@ -219,6 +219,7 @@ attributes #5 = { nounwind }
 !38 = !{!35, !10, i64 152}
 !39 = !{!35, !10, i64 156}
 !40 = !{!35, !6, i64 16}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!31, !10, i64 36}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!31, !10, i64 36}

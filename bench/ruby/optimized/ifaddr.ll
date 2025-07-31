@@ -679,7 +679,7 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %19 = or disjoint i64 %18, 8
   %20 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %19) #9
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 %12, ptr %21, align 4, !tbaa !28
+  store i32 %12, ptr %21, align 4, !tbaa !29
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %wide.trip.count.i = zext i32 %indvars.iv47.i to i64
   br label %23
@@ -690,18 +690,18 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %.137.i = load ptr, ptr %.137.in42.i, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv.i
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %25, ptr %24, align 8, !tbaa !30
+  store i32 %25, ptr %24, align 8, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %.137.i, ptr %26, align 8, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %27, label %23, !llvm.loop !31
+  br i1 %exitcond.not.i, label %27, label %23, !llvm.loop !32
 
 27:                                               ; preds = %23
   %28 = inttoptr i64 %16 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %22, ptr %29, align 8, !tbaa !32
-  store i32 1, ptr %20, align 8, !tbaa !36
+  store ptr %22, ptr %29, align 8, !tbaa !33
+  store i32 1, ptr %20, align 8, !tbaa !37
   %30 = call i64 @rb_ary_new_capa(i64 noundef %17) #7
   %31 = call i64 @rb_ary_push(i64 noundef %30, i64 noundef %16) #7
   %.not45.i = icmp eq i32 %.03441.i, 0
@@ -712,13 +712,13 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %32 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   %33 = getelementptr inbounds nuw [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv49.i
   %34 = call i64 @rb_data_typed_object_wrap(i64 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull @ifaddr_type) #7
-  %35 = load i32, ptr %20, align 8, !tbaa !36
+  %35 = load i32, ptr %20, align 8, !tbaa !37
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %20, align 8, !tbaa !36
+  store i32 %36, ptr %20, align 8, !tbaa !37
   %37 = call i64 @rb_ary_push(i64 noundef %30, i64 noundef %34) #7
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
-  br i1 %exitcond54.not.i, label %rsock_getifaddrs.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %exitcond54.not.i, label %rsock_getifaddrs.exit, label %.lr.ph.i, !llvm.loop !38
 
 rsock_getifaddrs.exit:                            ; preds = %.lr.ph.i, %10, %27
   %.0.i = phi i64 [ %11, %10 ], [ %30, %27 ], [ %30, %.lr.ph.i ]
@@ -749,14 +749,14 @@ declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ifaddr_free(ptr noundef %0) #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !30
+  %2 = load i32, ptr %0, align 8, !tbaa !31
   %3 = sub nsw i32 0, %2
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds %struct.rb_ifaddr_tag, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 -8
-  %7 = load i32, ptr %6, align 8, !tbaa !36
+  %7 = load i32, ptr %6, align 8, !tbaa !37
   %8 = add nsw i32 %7, -1
-  store i32 %8, ptr %6, align 8, !tbaa !36
+  store i32 %8, ptr %6, align 8, !tbaa !37
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %13
 
@@ -773,7 +773,7 @@ define internal void @ifaddr_free(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal range(i64 64, 81) i64 @ifaddr_memsize(ptr noundef readonly captures(none) %0) #4 {
-  %2 = load i32, ptr %0, align 8, !tbaa !30
+  %2 = load i32, ptr %0, align 8, !tbaa !31
   %3 = icmp eq i32 %2, 0
   %spec.select = select i1 %3, i64 80, i64 64
   ret i64 %spec.select
@@ -855,15 +855,16 @@ attributes #9 = { nounwind allocsize(0) }
 !23 = !{!12, !12, i64 0}
 !24 = !{!13, !13, i64 0}
 !25 = !{!16, !13, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!29, !12, i64 4}
-!29 = !{!"rb_ifaddr_root_tag", !12, i64 0, !12, i64 4, !8, i64 8}
-!30 = !{!11, !12, i64 0}
-!31 = distinct !{!31, !27}
-!32 = !{!33, !14, i64 32}
-!33 = !{!"RTypedData", !34, i64 0, !35, i64 16, !7, i64 24, !14, i64 32}
-!34 = !{!"RBasic", !7, i64 0, !7, i64 8}
-!35 = !{!"p1 _ZTS19rb_data_type_struct", !14, i64 0}
-!36 = !{!29, !12, i64 0}
-!37 = distinct !{!37, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!30, !12, i64 4}
+!30 = !{!"rb_ifaddr_root_tag", !12, i64 0, !12, i64 4, !8, i64 8}
+!31 = !{!11, !12, i64 0}
+!32 = distinct !{!32, !27, !28}
+!33 = !{!34, !14, i64 32}
+!34 = !{!"RTypedData", !35, i64 0, !36, i64 16, !7, i64 24, !14, i64 32}
+!35 = !{!"RBasic", !7, i64 0, !7, i64 8}
+!36 = !{!"p1 _ZTS19rb_data_type_struct", !14, i64 0}
+!37 = !{!30, !12, i64 0}
+!38 = distinct !{!38, !27, !28}

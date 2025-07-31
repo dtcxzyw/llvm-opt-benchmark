@@ -344,7 +344,7 @@ define dso_local noundef zeroext i1 @task_state_first_exit(ptr noundef %0) local
   store i8 1, ptr %19, align 4
   %20 = tail call ptr @list_next(ptr noundef %16) #6
   %.not20 = icmp eq ptr %20, null
-  br i1 %.not20, label %.sink.split, label %.lr.ph30, !llvm.loop !13
+  br i1 %.not20, label %.sink.split, label %.lr.ph30, !llvm.loop !14
 
 .sink.split:                                      ; preds = %.lr.ph30, %15, %2
   %.sink = phi ptr [ %3, %2 ], [ %16, %15 ], [ %16, %.lr.ph30 ]
@@ -387,7 +387,7 @@ define dso_local noundef zeroext i1 @task_state_first_abnormal_exit(ptr noundef 
   %12 = add nsw i32 %11, %.022
   %13 = tail call ptr @list_next(ptr noundef %3) #6
   %.not19 = icmp eq ptr %13, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph
   %.0.lcssa.ph = phi i32 [ %12, %9 ], [ %.022, %.lr.ph ]
@@ -408,7 +408,7 @@ define dso_local noundef zeroext i1 @task_state_first_abnormal_exit(ptr noundef 
   store i8 1, ptr %19, align 1
   %20 = tail call ptr @list_next(ptr noundef %16) #6
   %.not20 = icmp eq ptr %20, null
-  br i1 %.not20, label %.sink.split, label %.lr.ph30, !llvm.loop !15
+  br i1 %.not20, label %.sink.split, label %.lr.ph30, !llvm.loop !16
 
 .sink.split:                                      ; preds = %.lr.ph30, %15, %2
   %.sink = phi ptr [ %3, %2 ], [ %16, %15 ], [ %16, %.lr.ph30 ]
@@ -552,7 +552,7 @@ _task_state_print.exit:                           ; preds = %67, %68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   %69 = call ptr @list_next(ptr noundef %10) #6
   %.not7 = icmp eq ptr %69, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_task_state_print.exit, %9
   call void @list_iterator_destroy(ptr noundef %10) #6
@@ -613,10 +613,11 @@ attributes #6 = { nounwind }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = distinct !{!15, !11, !12, !13}
+!16 = distinct !{!16, !11, !12, !13}
+!17 = distinct !{!17, !11, !12, !13}

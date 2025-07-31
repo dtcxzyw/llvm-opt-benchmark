@@ -109,7 +109,7 @@ sub_119:                                          ; preds = %.tail
   store i32 0, ptr %24, align 4
   %40 = call ptr @readdir(ptr noundef nonnull %22) #11
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %._crit_edge, label %sub_0
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %39, %.preheader
   %41 = load i32, ptr %24, align 4
@@ -245,7 +245,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %get_d
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %get_dirent_type.exit.thread, label %sub_127, !llvm.loop !5
+  br i1 %17, label %get_dirent_type.exit.thread, label %sub_127, !llvm.loop !7
 
 sub_127:                                          ; preds = %.tail
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -257,7 +257,7 @@ sub_127:                                          ; preds = %.tail
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 21
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %get_dirent_type.exit.thread, label %.tail25.thread, !llvm.loop !5
+  br i1 %22, label %get_dirent_type.exit.thread, label %.tail25.thread, !llvm.loop !7
 
 .tail25.thread:                                   ; preds = %sub_0, %sub_127, %.tail25
   %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull %13) #11
@@ -316,7 +316,7 @@ get_dirent_type.exit:                             ; preds = %36
   br label %get_dirent_type.exit.thread19
 
 get_dirent_type.exit.thread17:                    ; preds = %.tail25.thread, %get_dirent_type.exit.thread23
-  %39 = call i32 %1(ptr noundef nonnull %5, i1 noundef zeroext false) #11, !callees !6
+  %39 = call i32 %1(ptr noundef nonnull %5, i1 noundef zeroext false) #11, !callees !8
   br label %get_dirent_type.exit.thread
 
 get_dirent_type.exit.thread19:                    ; preds = %.tail25.thread, %get_dirent_type.exit
@@ -328,7 +328,7 @@ get_dirent_type.exit.thread:                      ; preds = %26, %get_dirent_typ
   store i32 0, ptr %8, align 4
   %40 = call ptr @readdir(ptr noundef nonnull %6) #11
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %._crit_edge, label %sub_0
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %get_dirent_type.exit.thread, %.preheader
   %41 = load i32, ptr %8, align 4
@@ -341,7 +341,7 @@ get_dirent_type.exit.thread:                      ; preds = %26, %get_dirent_typ
 
 43:                                               ; preds = %42, %._crit_edge
   %44 = call i32 @closedir(ptr noundef nonnull %6)
-  %45 = call i32 %1(ptr noundef %0, i1 noundef zeroext true) #11, !callees !6
+  %45 = call i32 %1(ptr noundef %0, i1 noundef zeroext true) #11, !callees !8
   br label %46
 
 46:                                               ; preds = %43, %11
@@ -653,7 +653,7 @@ define i32 @compute_remaining_iovec(ptr noundef captures(address) %0, ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   %11 = add i32 %.018, -1
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.loopexit, label %5, !llvm.loop !7
+  br i1 %12, label %.loopexit, label %5, !llvm.loop !10
 
 13:                                               ; preds = %5
   %.not24 = icmp eq ptr %.019, %0
@@ -743,7 +743,7 @@ pg_pwritev.exit:                                  ; preds = %10, %14
   %25 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
   %26 = add i32 %.018.i, -1
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %compute_remaining_iovec.exit.thread, label %20, !llvm.loop !7
+  br i1 %27, label %compute_remaining_iovec.exit.thread, label %20, !llvm.loop !10
 
 28:                                               ; preds = %20
   %.not24.i = icmp eq ptr %.019.i, %5
@@ -763,7 +763,7 @@ compute_remaining_iovec.exit:                     ; preds = %28, %29
   %35 = sub i64 %34, %.0.i22
   store i64 %35, ptr %.018.sroa.gep23, align 8
   %36 = icmp sgt i32 %.018.i, 0
-  br i1 %36, label %.preheader, label %compute_remaining_iovec.exit.thread, !llvm.loop !8
+  br i1 %36, label %.preheader, label %compute_remaining_iovec.exit.thread, !llvm.loop !11
 
 compute_remaining_iovec.exit.thread:              ; preds = %compute_remaining_iovec.exit, %pg_pwritev.exit, %23, %7
   %.0 = phi i64 [ -1, %7 ], [ %18, %23 ], [ %18, %compute_remaining_iovec.exit ], [ -1, %pg_pwritev.exit ]
@@ -800,7 +800,7 @@ define i64 @pg_pwrite_zeros(i32 noundef %0, i64 noundef %1, i64 noundef %2) loca
   %10 = icmp samesign ult i64 %indvars.iv, 31
   %11 = icmp ne i64 %9, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.preheader, label %.preheader.preheader.i, !llvm.loop !9
+  br i1 %12, label %.preheader, label %.preheader.preheader.i, !llvm.loop !12
 
 .preheader.preheader.i:                           ; preds = %.preheader
   %13 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -854,7 +854,7 @@ pg_pwritev_with_retry.exit.thread:                ; preds = %pg_pwritev.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
   %31 = add i32 %.018.i.i, -1
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %pg_pwritev_with_retry.exit, label %25, !llvm.loop !7
+  br i1 %32, label %pg_pwritev_with_retry.exit, label %25, !llvm.loop !10
 
 33:                                               ; preds = %25
   %.not24.i.i = icmp eq ptr %.019.i.i, %4
@@ -874,14 +874,14 @@ compute_remaining_iovec.exit.i:                   ; preds = %34, %33
   %40 = sub i64 %39, %.0.i22.i
   store i64 %40, ptr %.018.sroa.gep23.i, align 8
   %41 = icmp sgt i32 %.018.i.i, 0
-  br i1 %41, label %.preheader.i, label %pg_pwritev_with_retry.exit, !llvm.loop !8
+  br i1 %41, label %.preheader.i, label %pg_pwritev_with_retry.exit, !llvm.loop !11
 
 pg_pwritev_with_retry.exit:                       ; preds = %compute_remaining_iovec.exit.i, %28
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
   %42 = icmp sgt i64 %23, -1
   %43 = add i64 %23, %.031
   %44 = add i64 %23, %.027
-  br i1 %42, label %6, label %.loopexit, !llvm.loop !10
+  br i1 %42, label %6, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %6, %pg_pwritev_with_retry.exit, %pg_pwritev_with_retry.exit.thread
   %.2 = phi i64 [ -1, %pg_pwritev_with_retry.exit.thread ], [ %.027, %6 ], [ %23, %pg_pwritev_with_retry.exit ]
@@ -924,9 +924,12 @@ attributes #13 = { cold noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{ptr @fsync_fname, ptr @pre_sync_fname}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
 !7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
+!8 = !{ptr @fsync_fname, ptr @pre_sync_fname}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !4, !6}
+!11 = distinct !{!11, !4, !6}
+!12 = distinct !{!12, !4, !6}
+!13 = distinct !{!13, !4, !6}

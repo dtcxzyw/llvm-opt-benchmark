@@ -2033,7 +2033,7 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   %75 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %.168, ptr noundef %64, i32 noundef %.026.i, ptr noundef %1)
   %76 = add i32 %75, %.026.i
   %77 = icmp ult i32 %76, %73
-  br i1 %77, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit, !llvm.loop !10
+  br i1 %77, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit, !llvm.loop !11
 
 78:                                               ; preds = %54
   %79 = load i8, ptr %7, align 1
@@ -2619,7 +2619,7 @@ define internal fastcc range(i32 4, 65540) i32 @dissect_capwap_message_element_t
 dissect_capwap_ac_information.exit:               ; preds = %.lr.ph1015, %.sink.split.i
   %81 = add i32 %64, %.09141013
   %82 = icmp ult i32 %81, %54
-  br i1 %82, label %.lr.ph1015, label %.loopexit, !llvm.loop !11
+  br i1 %82, label %.lr.ph1015, label %.loopexit, !llvm.loop !12
 
 83:                                               ; preds = %4
   %84 = icmp ult i16 %8, 4
@@ -2646,7 +2646,7 @@ dissect_capwap_ac_information.exit:               ; preds = %.lr.ph1015, %.sink.
   %94 = add i32 %.11012, 4
   %95 = add nuw nsw i32 %.09181011, 1
   %exitcond1034.not = icmp eq i32 %95, %90
-  br i1 %exitcond1034.not, label %.loopexit, label %91, !llvm.loop !12
+  br i1 %exitcond1034.not, label %.loopexit, label %91, !llvm.loop !13
 
 96:                                               ; preds = %4
   %97 = icmp ult i16 %8, 16
@@ -2673,7 +2673,7 @@ dissect_capwap_ac_information.exit:               ; preds = %.lr.ph1015, %.sink.
   %107 = add i32 %.21010, 16
   %108 = add nuw nsw i32 %.19191009, 1
   %exitcond1033.not = icmp eq i32 %108, %103
-  br i1 %exitcond1033.not, label %.loopexit, label %104, !llvm.loop !13
+  br i1 %exitcond1033.not, label %.loopexit, label %104, !llvm.loop !14
 
 109:                                              ; preds = %4
   %110 = icmp eq i16 %8, 0
@@ -3104,7 +3104,7 @@ dissect_capwap_ac_information.exit:               ; preds = %.lr.ph1015, %.sink.
 dissect_capwap_board_data.exit:                   ; preds = %.lr.ph1008, %.sink.split.i973
   %339 = add i32 %321, %.31006
   %340 = icmp ult i32 %339, %313
-  br i1 %340, label %.lr.ph1008, label %.loopexit, !llvm.loop !14
+  br i1 %340, label %.lr.ph1008, label %.loopexit, !llvm.loop !15
 
 341:                                              ; preds = %4
   %342 = icmp ult i16 %8, 33
@@ -3163,7 +3163,7 @@ dissect_capwap_board_data.exit:                   ; preds = %.lr.ph1008, %.sink.
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %366, ptr noundef nonnull @.str.1160, i32 noundef %380)
   %381 = add nuw nsw i32 %.29201001, 1
   %exitcond1032.not = icmp eq i32 %381, %356
-  br i1 %exitcond1032.not, label %._crit_edge, label %362, !llvm.loop !15
+  br i1 %exitcond1032.not, label %._crit_edge, label %362, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %362, %353
   %382 = mul nuw nsw i32 %356, 3
@@ -3222,7 +3222,7 @@ switch.lookup:                                    ; preds = %.lr.ph1005
 dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch.lookup
   %415 = add i32 %397, %.51003
   %416 = icmp ult i32 %415, %.0916
-  br i1 %416, label %.lr.ph1005, label %.loopexit, !llvm.loop !16
+  br i1 %416, label %.lr.ph1005, label %.loopexit, !llvm.loop !17
 
 417:                                              ; preds = %4
   %.not957 = icmp eq i16 %8, 1
@@ -3457,7 +3457,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %569 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %567, ptr noundef %0, i32 noundef %568, i32 noundef 1, i32 noundef 0)
   %570 = add nuw nsw i32 %566, 1
   %571 = icmp samesign ult i32 %570, %563
-  br i1 %571, label %565, label %.loopexit, !llvm.loop !17
+  br i1 %571, label %565, label %.loopexit, !llvm.loop !18
 
 572:                                              ; preds = %4
   %.not950 = icmp eq i16 %8, 8
@@ -3547,7 +3547,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %628 = tail call i32 @add_tagged_field(ptr noundef %3, ptr noundef %15, ptr noundef %0, i32 noundef %.6998, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null)
   %629 = add i32 %628, %.6998
   %630 = icmp ult i32 %629, %616
-  br i1 %630, label %.lr.ph999, label %.loopexit, !llvm.loop !18
+  br i1 %630, label %.lr.ph999, label %.loopexit, !llvm.loop !19
 
 631:                                              ; preds = %4
   %.not947 = icmp eq i16 %8, 16
@@ -3675,7 +3675,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %718 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %717, ptr noundef %0, i32 noundef %.7996, i32 noundef 1, i32 noundef 0)
   %719 = add i32 %.7996, 1
   %exitcond1031.not = icmp eq i32 %719, %712
-  br i1 %exitcond1031.not, label %.loopexit, label %.lr.ph997, !llvm.loop !19
+  br i1 %exitcond1031.not, label %.loopexit, label %.lr.ph997, !llvm.loop !20
 
 720:                                              ; preds = %4
   %721 = icmp ult i16 %8, 14
@@ -3715,7 +3715,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %747 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %746, ptr noundef %0, i32 noundef %.8994, i32 noundef 1, i32 noundef 0)
   %748 = add i32 %.8994, 1
   %exitcond1030.not = icmp eq i32 %748, %725
-  br i1 %exitcond1030.not, label %.loopexit, label %.lr.ph995, !llvm.loop !20
+  br i1 %exitcond1030.not, label %.loopexit, label %.lr.ph995, !llvm.loop !21
 
 749:                                              ; preds = %4
   %750 = icmp ult i16 %8, 25
@@ -3769,7 +3769,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %784 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %783, ptr noundef %0, i32 noundef %.9992, i32 noundef 1, i32 noundef 0)
   %785 = add i32 %.9992, 1
   %exitcond.not = icmp eq i32 %785, %778
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph993, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph993, !llvm.loop !22
 
 786:                                              ; preds = %4
   %.not943 = icmp eq i16 %8, 4
@@ -3821,7 +3821,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %816 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %813, ptr noundef %0, i32 noundef %815, i32 noundef 2, i32 noundef 0)
   %817 = add nuw nsw i32 %812, 1
   %818 = icmp samesign ult i32 %817, %809
-  br i1 %818, label %811, label %.loopexit, !llvm.loop !22
+  br i1 %818, label %811, label %.loopexit, !llvm.loop !23
 
 819:                                              ; preds = %4
   %820 = icmp ult i16 %8, 8
@@ -3937,7 +3937,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %900 = add i32 %.10989, 1
   %901 = add i8 %.0990, -1
   %.not940 = icmp eq i8 %901, 0
-  br i1 %.not940, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not940, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 902:                                              ; preds = %4
   %.not = icmp eq i16 %8, 1
@@ -4090,7 +4090,7 @@ define internal fastcc void @dissect_capwap_message_element_vendor_fortinet_type
   %58 = add i32 %.2478, 6
   %59 = add nuw nsw i32 %.0469477, 1
   %exitcond484.not = icmp eq i32 %59, %52
-  br i1 %exitcond484.not, label %.loopexit, label %.lr.ph479, !llvm.loop !24
+  br i1 %exitcond484.not, label %.loopexit, label %.lr.ph479, !llvm.loop !25
 
 60:                                               ; preds = %6
   %61 = load i32, ptr @hf_capwap_fortinet_wtp_allow_sn, align 4
@@ -4131,7 +4131,7 @@ define internal fastcc void @dissect_capwap_message_element_vendor_fortinet_type
   %82 = add i32 %.4476, 6
   %83 = add nuw nsw i32 %.1470475, 1
   %exitcond.not = icmp eq i32 %83, %77
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader474
   %.4.lcssa = phi i32 [ %76, %.preheader474 ], [ %82, %.lr.ph ]
@@ -4636,21 +4636,22 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}

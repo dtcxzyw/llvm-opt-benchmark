@@ -2665,7 +2665,7 @@ uv__queue_move.exit:                              ; preds = %3
 .backedge:                                        ; preds = %24, %13
   %26 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %4, %26
-  br i1 %.not, label %._crit_edge, label %13
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.backedge, %3, %uv__queue_move.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
@@ -2752,7 +2752,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.188, i32 noundef %25, i32 noundef %31, i32 noundef %37, ptr noundef nonnull %.016.us, ptr noundef nonnull %12) #26
   %.015.us = load ptr, ptr %.01529.us, align 8
   %.not.us = icmp eq ptr %.015.us, %11
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
   %.01529 = phi ptr [ %.015, %62 ], [ %.01527, %.lr.ph ]
@@ -2798,7 +2798,7 @@ switch.lookup33:                                  ; preds = %43
 62:                                               ; preds = %.lr.ph.split, %48
   %.015 = load ptr, ptr %.01529, align 8
   %.not = icmp eq ptr %.015, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %62, %17, %uv_default_loop.exit
   ret void
@@ -2906,7 +2906,7 @@ define hidden i64 @uv__count_bufs(ptr noundef readonly captures(none) %0, i32 no
   %5 = add i64 %4, %.08
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %5, %.lr.ph ]
@@ -3003,7 +3003,7 @@ define hidden void @uv__fs_scandir_cleanup(ptr noundef captures(none) %0) local_
   tail call void @free(ptr noundef %15) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %16, label %.lr.ph, label %.loopexit
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3146,7 +3146,7 @@ define hidden void @uv__fs_readdir_cleanup(ptr noundef captures(none) %0) local_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i64, ptr %8, align 8
   %18 = icmp sgt i64 %17, %indvars.iv.next
-  br i1 %18, label %12, label %.loopexit
+  br i1 %18, label %12, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %12, %.preheader, %5, %1
   ret void
@@ -3240,7 +3240,7 @@ define dso_local range(i32 -16, 1) i32 @uv_loop_close(ptr noundef %0) local_unna
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 16
   %.not11 = icmp eq i32 %10, 0
-  br i1 %.not11, label %.loopexit, label %6
+  br i1 %.not11, label %.loopexit, label %6, !llvm.loop !12
 
 11:                                               ; preds = %6
   tail call void @uv__loop_close(ptr noundef %0) #26
@@ -3282,7 +3282,7 @@ define dso_local void @uv_loop_delete(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 16
   %.not11.i = icmp eq i32 %11, 0
-  br i1 %.not11.i, label %uv_loop_close.exit, label %7
+  br i1 %.not11.i, label %uv_loop_close.exit, label %7, !llvm.loop !12
 
 12:                                               ; preds = %7
   tail call void @uv__loop_close(ptr noundef %0) #26
@@ -3367,7 +3367,7 @@ define dso_local void @uv_os_free_environ(ptr noundef %0, i32 noundef %1) local_
   store i32 %.pre, ptr %4, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %5, %2
   %9 = load i32, ptr %4, align 4
@@ -3565,4 +3565,12 @@ attributes #27 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

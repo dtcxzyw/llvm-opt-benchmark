@@ -339,7 +339,7 @@ select.unfold:                                    ; preds = %108, %ipfs_gateway.
 
 .sink.split:                                      ; preds = %select.unfold, %119, %120
   %.str.4.sink = phi ptr [ @.str.4, %120 ], [ @.str.3, %119 ], [ @.str.2, %select.unfold ]
-  %121 = load ptr, ptr @tool_stderr, align 8, !tbaa !27
+  %121 = load ptr, ptr @tool_stderr, align 8, !tbaa !28
   call void (ptr, ptr, ...) @helpf(ptr noundef %121, ptr noundef nonnull %.str.4.sink) #8
   br label %122
 
@@ -496,7 +496,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !22 = !{!"State", !17, i64 0, !23, i64 8, !23, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72}
 !23 = !{!"p1 _ZTS7URLGlob", !6, i64 0}
 !24 = !{!7, !7, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}

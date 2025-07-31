@@ -358,7 +358,7 @@ equal_ignore_case.exit:                           ; preds = %36
 _Py_XNewRef.exit46:                               ; preds = %.lr.ph.i, %47, %44, %53, %51, %56
   %86 = add nuw nsw i64 %.03065, 1
   %exitcond.not = icmp eq i64 %86, %31
-  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %_Py_XNewRef.exit46, %28
   %87 = load ptr, ptr @PyExc_IndexError, align 8, !tbaa !29
@@ -418,9 +418,9 @@ define internal ptr @pysqlite_row_new(ptr noundef %0, ptr noundef readonly captu
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %11 = load ptr, ptr %10, align 8, !tbaa !36
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 296
-  %13 = load ptr, ptr %12, align 8, !tbaa !36
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
   %14 = icmp ne ptr %11, %13
   %15 = icmp eq ptr %2, null
   %or.cond = or i1 %15, %14
@@ -452,7 +452,7 @@ define internal ptr @pysqlite_row_new(ptr noundef %0, ptr noundef readonly captu
   %26 = tail call ptr @PyType_GetModuleByDef(ptr noundef %0, ptr noundef nonnull @_sqlite3module) #3
   %27 = tail call ptr @PyModule_GetState(ptr noundef %26) #3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  %29 = load ptr, ptr %28, align 8, !tbaa !37
+  %29 = load ptr, ptr %28, align 8, !tbaa !38
   %30 = getelementptr i8, ptr %25, i64 8
   %.val31 = load ptr, ptr %30, align 8, !tbaa !11
   %.not.i = icmp eq ptr %.val31, %29
@@ -467,9 +467,9 @@ PyObject_TypeCheck.exit:                          ; preds = %23
   %33 = tail call ptr @PyType_GetModuleByDef(ptr noundef %0, ptr noundef nonnull @_sqlite3module) #3
   %34 = tail call ptr @PyModule_GetState(ptr noundef %33) #3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 128
-  %36 = load ptr, ptr %35, align 8, !tbaa !37
+  %36 = load ptr, ptr %35, align 8, !tbaa !38
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !38
+  %38 = load ptr, ptr %37, align 8, !tbaa !39
   %39 = load ptr, ptr %24, align 8, !tbaa !29
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %38, ptr noundef %39) #3
   br label %pysqlite_row_new_impl.exit
@@ -492,7 +492,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %23, %PyObject_TypeC
 
 47:                                               ; preds = %PyObject_TypeCheck.exit.thread
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %49 = load ptr, ptr %48, align 8, !tbaa !39
+  %49 = load ptr, ptr %48, align 8, !tbaa !40
   %50 = tail call ptr %49(ptr noundef %0, i64 noundef 0) #3
   %51 = icmp eq ptr %50, null
   br i1 %51, label %pysqlite_row_new_impl.exit, label %52
@@ -511,7 +511,7 @@ _Py_NewRef.exit.i:                                ; preds = %55, %52
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %42, ptr %57, align 8, !tbaa !26
   %58 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !40
+  %59 = load ptr, ptr %58, align 8, !tbaa !41
   %60 = load i32, ptr %59, align 8, !tbaa !23
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %_Py_NewRef.exit10.i, label %62
@@ -644,7 +644,7 @@ define internal ptr @pysqlite_row_keys(ptr noundef readonly captures(none) %0, p
 9:                                                ; preds = %.lr.ph.i
   %10 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %10, %7
-  br i1 %exitcond.not.i, label %pysqlite_row_keys_impl.exit, label %.lr.ph.i, !llvm.loop !42
+  br i1 %exitcond.not.i, label %pysqlite_row_keys_impl.exit, label %.lr.ph.i, !llvm.loop !43
 
 .lr.ph.i:                                         ; preds = %4, %9
   %.013.i = phi i64 [ %10, %9 ], [ 0, %4 ]
@@ -754,13 +754,14 @@ attributes #3 = { nounwind }
 !30 = !{!31, !16, i64 16}
 !31 = !{!"", !12, i64 0, !16, i64 16, !16, i64 24, !32, i64 32}
 !32 = !{!"", !21, i64 0, !21, i64 2, !21, i64 2, !21, i64 2, !21, i64 2}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34}
-!36 = !{!14, !6, i64 296}
-!37 = !{!4, !10, i64 128}
-!38 = !{!14, !17, i64 24}
-!39 = !{!14, !6, i64 304}
-!40 = !{!41, !5, i64 24}
-!41 = !{!"", !12, i64 0, !6, i64 16, !5, i64 24, !5, i64 32, !9, i64 40, !5, i64 48, !16, i64 56, !5, i64 64, !6, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !5, i64 96}
-!42 = distinct !{!42, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = distinct !{!36, !34, !35}
+!37 = !{!14, !6, i64 296}
+!38 = !{!4, !10, i64 128}
+!39 = !{!14, !17, i64 24}
+!40 = !{!14, !6, i64 304}
+!41 = !{!42, !5, i64 24}
+!42 = !{!"", !12, i64 0, !6, i64 16, !5, i64 24, !5, i64 32, !9, i64 40, !5, i64 48, !16, i64 56, !5, i64 64, !6, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !5, i64 96}
+!43 = distinct !{!43, !34, !35}

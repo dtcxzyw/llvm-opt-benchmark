@@ -316,7 +316,7 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
 ._crit_edge94:                                    ; preds = %._crit_edge94.critedge, %._crit_edge
   %37 = tail call ptr @Msat_OrderAlloc(ptr noundef nonnull %calloc121) #11
   %38 = getelementptr inbounds nuw i8, ptr %calloc121, i64 72
-  store ptr %37, ptr %38, align 8, !tbaa !56
+  store ptr %37, ptr %38, align 8, !tbaa !57
   %39 = load i32, ptr %7, align 4, !tbaa !23
   %40 = shl nsw i32 %39, 1
   %41 = sext i32 %40 to i64
@@ -332,23 +332,23 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
   %46 = tail call ptr @Msat_ClauseVecAlloc(i32 noundef 16) #11
   %47 = load ptr, ptr %44, align 8, !tbaa !30
   %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv114
-  store ptr %46, ptr %48, align 8, !tbaa !57
+  store ptr %46, ptr %48, align 8, !tbaa !58
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %49 = load i32, ptr %7, align 4, !tbaa !23
   %50 = shl nsw i32 %49, 1
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next115, %51
-  br i1 %52, label %.lr.ph97, label %._crit_edge98, !llvm.loop !58
+  br i1 %52, label %.lr.ph97, label %._crit_edge98, !llvm.loop !59
 
 ._crit_edge98:                                    ; preds = %.lr.ph97, %._crit_edge94
   %.lcssa89 = phi i32 [ %39, %._crit_edge94 ], [ %49, %.lr.ph97 ]
   %53 = tail call ptr @Msat_QueueAlloc(i32 noundef %.lcssa89) #11
   %54 = getelementptr inbounds nuw i8, ptr %calloc121, i64 88
-  store ptr %53, ptr %54, align 8, !tbaa !59
+  store ptr %53, ptr %54, align 8, !tbaa !60
   %55 = load i32, ptr %7, align 4, !tbaa !23
   %56 = tail call ptr @Msat_IntVecAlloc(i32 noundef %55) #11
   %57 = getelementptr inbounds nuw i8, ptr %calloc121, i64 120
-  store ptr %56, ptr %57, align 8, !tbaa !60
+  store ptr %56, ptr %57, align 8, !tbaa !61
   %58 = load i32, ptr %7, align 4, !tbaa !23
   %59 = tail call ptr @Msat_IntVecAlloc(i32 noundef %58) #11
   %60 = getelementptr inbounds nuw i8, ptr %calloc121, i64 128
@@ -374,11 +374,11 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
 
 ._crit_edge102:                                   ; preds = %.lr.ph101.preheader, %._crit_edge98
   %71 = getelementptr inbounds nuw i8, ptr %calloc121, i64 160
-  store double 0x4195D9C3F4000000, ptr %71, align 8, !tbaa !61
+  store double 0x4195D9C3F4000000, ptr %71, align 8, !tbaa !62
   %72 = getelementptr inbounds nuw i8, ptr %calloc121, i64 168
   store i32 %5, ptr %72, align 8, !tbaa !37
   %73 = getelementptr inbounds nuw i8, ptr %calloc121, i64 176
-  store double 0.000000e+00, ptr %73, align 8, !tbaa !62
+  store double 0.000000e+00, ptr %73, align 8, !tbaa !63
   %74 = tail call ptr @Msat_MmStepStart(i32 noundef 10) #11
   %75 = getelementptr inbounds nuw i8, ptr %calloc121, i64 248
   store ptr %74, ptr %75, align 8, !tbaa !34
@@ -402,7 +402,7 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
   %86 = add nuw nsw i32 %.4103, 1
   %87 = load i32, ptr %7, align 4, !tbaa !23
   %88 = icmp slt i32 %86, %87
-  br i1 %88, label %.lr.ph105, label %._crit_edge106, !llvm.loop !63
+  br i1 %88, label %.lr.ph105, label %._crit_edge106, !llvm.loop !64
 
 ._crit_edge106:                                   ; preds = %.lr.ph105, %._crit_edge102
   %.lcssa = phi i32 [ %82, %._crit_edge102 ], [ %87, %.lr.ph105 ]
@@ -421,11 +421,11 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
   store i32 1, ptr %96, align 8, !tbaa !36
   %97 = tail call ptr @Msat_IntVecAlloc(i32 noundef %92) #11
   %98 = getelementptr inbounds nuw i8, ptr %calloc121, i64 224
-  store ptr %97, ptr %98, align 8, !tbaa !64
+  store ptr %97, ptr %98, align 8, !tbaa !65
   %99 = load i32, ptr %7, align 4, !tbaa !23
   %100 = tail call ptr @Msat_IntVecAlloc(i32 noundef %99) #11
   %101 = getelementptr inbounds nuw i8, ptr %calloc121, i64 232
-  store ptr %100, ptr %101, align 8, !tbaa !65
+  store ptr %100, ptr %101, align 8, !tbaa !66
   ret ptr %calloc121
 }
 
@@ -510,7 +510,7 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   store float 1.000000e+00, ptr %32, align 4, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %30, %24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -568,12 +568,12 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   %60 = load i32, ptr %3, align 4, !tbaa !23
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next145, %61
-  br i1 %62, label %58, label %._crit_edge120, !llvm.loop !67
+  br i1 %62, label %58, label %._crit_edge120, !llvm.loop !68
 
 ._crit_edge120:                                   ; preds = %58, %52
   %.lcssa114 = phi i32 [ %53, %52 ], [ %60, %58 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %64 = load ptr, ptr %63, align 8, !tbaa !56
+  %64 = load ptr, ptr %63, align 8, !tbaa !57
   tail call void @Msat_OrderSetBounds(ptr noundef %64, i32 noundef %.lcssa114) #11
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %66 = load ptr, ptr %65, align 8, !tbaa !30
@@ -610,21 +610,21 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   %81 = tail call ptr @Msat_ClauseVecAlloc(i32 noundef 16) #11
   %82 = load ptr, ptr %65, align 8, !tbaa !30
   %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv147
-  store ptr %81, ptr %83, align 8, !tbaa !57
+  store ptr %81, ptr %83, align 8, !tbaa !58
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
   %84 = load i32, ptr %3, align 4, !tbaa !23
   %85 = shl nsw i32 %84, 1
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next148, %86
-  br i1 %87, label %.lr.ph124, label %._crit_edge125, !llvm.loop !68
+  br i1 %87, label %.lr.ph124, label %._crit_edge125, !llvm.loop !69
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %75
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %89 = load ptr, ptr %88, align 8, !tbaa !59
+  %89 = load ptr, ptr %88, align 8, !tbaa !60
   tail call void @Msat_QueueFree(ptr noundef %89) #11
   %90 = load i32, ptr %3, align 4, !tbaa !23
   %91 = tail call ptr @Msat_QueueAlloc(i32 noundef %90) #11
-  store ptr %91, ptr %88, align 8, !tbaa !59
+  store ptr %91, ptr %88, align 8, !tbaa !60
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %93 = load ptr, ptr %92, align 8, !tbaa !26
   %.not109 = icmp eq ptr %93, null
@@ -677,12 +677,12 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 118:                                              ; preds = %.lr.ph128, %118
   %indvars.iv150 = phi i64 [ %117, %.lr.ph128 ], [ %indvars.iv.next151, %118 ]
   %119 = getelementptr inbounds ptr, ptr %116, i64 %indvars.iv150
-  store ptr null, ptr %119, align 8, !tbaa !69
+  store ptr null, ptr %119, align 8, !tbaa !70
   %120 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv150
   store i32 -1, ptr %120, align 4, !tbaa !28
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %._crit_edge129, label %118, !llvm.loop !71
+  br i1 %exitcond154.not, label %._crit_edge129, label %118, !llvm.loop !72
 
 ._crit_edge129:                                   ; preds = %118, %112
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -722,7 +722,7 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 ._crit_edge134:                                   ; preds = %.lr.ph133.preheader, %129
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %141 = load ptr, ptr %140, align 8, !tbaa !60
+  %141 = load ptr, ptr %140, align 8, !tbaa !61
   tail call void @Msat_IntVecGrow(ptr noundef %141, i32 noundef %130) #11
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %143 = load ptr, ptr %142, align 8, !tbaa !24
@@ -743,7 +743,7 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   %152 = add nsw i32 %.5136, 1
   %153 = load i32, ptr %3, align 4, !tbaa !23
   %154 = icmp slt i32 %152, %153
-  br i1 %154, label %.lr.ph138, label %._crit_edge139, !llvm.loop !72
+  br i1 %154, label %.lr.ph138, label %._crit_edge139, !llvm.loop !73
 
 ._crit_edge139:                                   ; preds = %.lr.ph138, %._crit_edge134
   %.lcssa = phi i32 [ %148, %._crit_edge134 ], [ %153, %.lr.ph138 ]
@@ -782,11 +782,11 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !69
+  %11 = load ptr, ptr %10, align 8, !tbaa !70
   tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %11, i32 noundef 0) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %12 = load ptr, ptr %4, align 8, !tbaa !40
@@ -806,11 +806,11 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv80 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next81, %.lr.ph59 ]
   %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv80
-  %20 = load ptr, ptr %19, align 8, !tbaa !69
+  %20 = load ptr, ptr %19, align 8, !tbaa !70
   tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %20, i32 noundef 0) #11
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !74
+  br i1 %exitcond84.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !75
 
 ._crit_edge60:                                    ; preds = %.lr.ph59, %._crit_edge
   %21 = load ptr, ptr %13, align 8, !tbaa !29
@@ -829,7 +829,7 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %._crit_edge60
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %29 = load ptr, ptr %28, align 8, !tbaa !56
+  %29 = load ptr, ptr %28, align 8, !tbaa !57
   tail call void @Msat_OrderSetBounds(ptr noundef %29, i32 noundef %22) #11
   %30 = load i32, ptr %3, align 8, !tbaa !3
   %31 = icmp sgt i32 %30, 0
@@ -843,18 +843,18 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
   %indvars.iv88 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next89, %33 ]
   %34 = load ptr, ptr %32, align 8, !tbaa !30
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv88
-  %36 = load ptr, ptr %35, align 8, !tbaa !57
+  %36 = load ptr, ptr %35, align 8, !tbaa !58
   tail call void @Msat_ClauseVecClear(ptr noundef %36) #11
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %37 = load i32, ptr %3, align 8, !tbaa !3
   %38 = shl nsw i32 %37, 1
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next89, %39
-  br i1 %40, label %33, label %._crit_edge68, !llvm.loop !75
+  br i1 %40, label %33, label %._crit_edge68, !llvm.loop !76
 
 ._crit_edge68:                                    ; preds = %33, %._crit_edge64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %42 = load ptr, ptr %41, align 8, !tbaa !59
+  %42 = load ptr, ptr %41, align 8, !tbaa !60
   tail call void @Msat_QueueClear(ptr noundef %42) #11
   %43 = load i32, ptr %3, align 8, !tbaa !3
   %44 = icmp sgt i32 %43, 0
@@ -873,11 +873,11 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
   %49 = load i32, ptr %3, align 8, !tbaa !3
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next92, %50
-  br i1 %51, label %47, label %._crit_edge72, !llvm.loop !76
+  br i1 %51, label %47, label %._crit_edge72, !llvm.loop !77
 
 ._crit_edge72:                                    ; preds = %47, %._crit_edge68
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %53 = load ptr, ptr %52, align 8, !tbaa !60
+  %53 = load ptr, ptr %52, align 8, !tbaa !61
   tail call void @Msat_IntVecClear(ptr noundef %53) #11
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %55 = load ptr, ptr %54, align 8, !tbaa !24
@@ -909,14 +909,14 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
   %67 = load i32, ptr %3, align 8, !tbaa !3
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next95, %68
-  br i1 %69, label %65, label %._crit_edge76, !llvm.loop !77
+  br i1 %69, label %65, label %._crit_edge76, !llvm.loop !78
 
 ._crit_edge76:                                    ; preds = %65, %._crit_edge72.._crit_edge76_crit_edge
   %.pre-phi = phi i64 [ %.pre, %._crit_edge72.._crit_edge76_crit_edge ], [ %68, %65 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store double 0x4195D9C3F4000000, ptr %70, align 8, !tbaa !61
+  store double 0x4195D9C3F4000000, ptr %70, align 8, !tbaa !62
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store double 0.000000e+00, ptr %71, align 8, !tbaa !62
+  store double 0.000000e+00, ptr %71, align 8, !tbaa !63
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %73 = load ptr, ptr %72, align 8, !tbaa !35
   %74 = shl nsw i64 %.pre-phi, 2
@@ -924,10 +924,10 @@ define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 1, ptr %75, align 8, !tbaa !36
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %77 = load ptr, ptr %76, align 8, !tbaa !64
+  %77 = load ptr, ptr %76, align 8, !tbaa !65
   tail call void @Msat_IntVecClear(ptr noundef %77) #11
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %79 = load ptr, ptr %78, align 8, !tbaa !65
+  %79 = load ptr, ptr %78, align 8, !tbaa !66
   tail call void @Msat_IntVecClear(ptr noundef %79) #11
   ret void
 }
@@ -959,11 +959,11 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !69
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
   tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %9, i32 noundef 0) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %10 = load ptr, ptr %2, align 8, !tbaa !40
@@ -983,11 +983,11 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv96 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next97, %.lr.ph85 ]
   %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv96
-  %18 = load ptr, ptr %17, align 8, !tbaa !69
+  %18 = load ptr, ptr %17, align 8, !tbaa !70
   tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %18, i32 noundef 0) #11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !79
+  br i1 %exitcond100.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !80
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge
   %19 = load ptr, ptr %11, align 8, !tbaa !29
@@ -1015,7 +1015,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 
 27:                                               ; preds = %23, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %29 = load ptr, ptr %28, align 8, !tbaa !56
+  %29 = load ptr, ptr %28, align 8, !tbaa !57
   tail call void @Msat_OrderFree(ptr noundef %29) #11
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %31 = load i32, ptr %30, align 4, !tbaa !23
@@ -1030,14 +1030,14 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv101 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next102, %34 ]
   %35 = load ptr, ptr %33, align 8, !tbaa !30
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv101
-  %37 = load ptr, ptr %36, align 8, !tbaa !57
+  %37 = load ptr, ptr %36, align 8, !tbaa !58
   tail call void @Msat_ClauseVecFree(ptr noundef %37) #11
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %38 = load i32, ptr %30, align 4, !tbaa !23
   %39 = shl nsw i32 %38, 1
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next102, %40
-  br i1 %41, label %34, label %._crit_edge90, !llvm.loop !80
+  br i1 %41, label %34, label %._crit_edge90, !llvm.loop !81
 
 ._crit_edge90:                                    ; preds = %34, %27
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1052,7 +1052,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 
 45:                                               ; preds = %._crit_edge90, %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %47 = load ptr, ptr %46, align 8, !tbaa !59
+  %47 = load ptr, ptr %46, align 8, !tbaa !60
   tail call void @Msat_QueueFree(ptr noundef %47) #11
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %49 = load ptr, ptr %48, align 8, !tbaa !27
@@ -1077,7 +1077,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 
 55:                                               ; preds = %51, %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %57 = load ptr, ptr %56, align 8, !tbaa !60
+  %57 = load ptr, ptr %56, align 8, !tbaa !61
   tail call void @Msat_IntVecFree(ptr noundef %57) #11
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %59 = load ptr, ptr %58, align 8, !tbaa !24
@@ -1122,11 +1122,11 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv104 = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next105, %.lr.ph93 ]
   %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv104
-  %77 = load ptr, ptr %76, align 8, !tbaa !69
+  %77 = load ptr, ptr %76, align 8, !tbaa !70
   tail call void @Msat_IntVecFree(ptr noundef %77) #11
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !81
+  br i1 %exitcond108.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !82
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %67
   %78 = load ptr, ptr %70, align 8, !tbaa !43
@@ -1149,10 +1149,10 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 
 86:                                               ; preds = %._crit_edge94, %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %88 = load ptr, ptr %87, align 8, !tbaa !64
+  %88 = load ptr, ptr %87, align 8, !tbaa !65
   tail call void @Msat_IntVecFree(ptr noundef %88) #11
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %90 = load ptr, ptr %89, align 8, !tbaa !65
+  %90 = load ptr, ptr %89, align 8, !tbaa !66
   tail call void @Msat_IntVecFree(ptr noundef %90) #11
   tail call void @free(ptr noundef nonnull %0) #11
   ret void
@@ -1192,7 +1192,7 @@ define void @Msat_SolverPrepare(ptr noundef captures(none) %0, ptr noundef %1) l
   %15 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 -1, ptr %15, align 4, !tbaa !28
   %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
-  store ptr null, ptr %16, align 8, !tbaa !69
+  store ptr null, ptr %16, align 8, !tbaa !70
   %17 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   store i32 -1, ptr %17, align 4, !tbaa !28
   %18 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
@@ -1201,23 +1201,23 @@ define void @Msat_SolverPrepare(ptr noundef captures(none) %0, ptr noundef %1) l
   %19 = load i32, ptr %3, align 4, !tbaa !23
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %14, label %._crit_edge, !llvm.loop !82
+  br i1 %21, label %14, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %14, %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %23 = load ptr, ptr %22, align 8, !tbaa !56
+  %23 = load ptr, ptr %22, align 8, !tbaa !57
   tail call void @Msat_OrderClean(ptr noundef %23, ptr noundef %1) #11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %25 = load ptr, ptr %24, align 8, !tbaa !59
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
   tail call void @Msat_QueueClear(ptr noundef %25) #11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
+  %27 = load ptr, ptr %26, align 8, !tbaa !61
   tail call void @Msat_IntVecClear(ptr noundef %27) #11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   tail call void @Msat_IntVecClear(ptr noundef %29) #11
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store double 0.000000e+00, ptr %30, align 8, !tbaa !62
+  store double 0.000000e+00, ptr %30, align 8, !tbaa !63
   ret void
 }
 
@@ -1297,32 +1297,33 @@ attributes #13 = { nounwind allocsize(1) }
 !51 = !{!10, !10, i64 0}
 !52 = !{!53, !53, i64 0}
 !53 = !{!"float", !6, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!4, !13, i64 72}
-!57 = !{!8, !8, i64 0}
-!58 = distinct !{!58, !55}
-!59 = !{!4, !15, i64 88}
-!60 = !{!4, !17, i64 120}
-!61 = !{!4, !10, i64 160}
-!62 = !{!4, !10, i64 176}
-!63 = distinct !{!63, !55}
-!64 = !{!4, !17, i64 224}
-!65 = !{!4, !17, i64 232}
-!66 = distinct !{!66, !55}
-!67 = distinct !{!67, !55}
-!68 = distinct !{!68, !55}
-!69 = !{!70, !70, i64 0}
-!70 = !{!"p1 _ZTS14Msat_Clause_t_", !9, i64 0}
-!71 = distinct !{!71, !55}
-!72 = distinct !{!72, !55}
-!73 = distinct !{!73, !55}
-!74 = distinct !{!74, !55}
-!75 = distinct !{!75, !55}
-!76 = distinct !{!76, !55}
-!77 = distinct !{!77, !55}
-!78 = distinct !{!78, !55}
-!79 = distinct !{!79, !55}
-!80 = distinct !{!80, !55}
-!81 = distinct !{!81, !55}
-!82 = distinct !{!82, !55}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!4, !13, i64 72}
+!58 = !{!8, !8, i64 0}
+!59 = distinct !{!59, !55, !56}
+!60 = !{!4, !15, i64 88}
+!61 = !{!4, !17, i64 120}
+!62 = !{!4, !10, i64 160}
+!63 = !{!4, !10, i64 176}
+!64 = distinct !{!64, !55, !56}
+!65 = !{!4, !17, i64 224}
+!66 = !{!4, !17, i64 232}
+!67 = distinct !{!67, !55, !56}
+!68 = distinct !{!68, !55, !56}
+!69 = distinct !{!69, !55, !56}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS14Msat_Clause_t_", !9, i64 0}
+!72 = distinct !{!72, !55, !56}
+!73 = distinct !{!73, !55, !56}
+!74 = distinct !{!74, !55, !56}
+!75 = distinct !{!75, !55, !56}
+!76 = distinct !{!76, !55, !56}
+!77 = distinct !{!77, !55, !56}
+!78 = distinct !{!78, !55, !56}
+!79 = distinct !{!79, !55, !56}
+!80 = distinct !{!80, !55, !56}
+!81 = distinct !{!81, !55, !56}
+!82 = distinct !{!82, !55, !56}
+!83 = distinct !{!83, !55, !56}

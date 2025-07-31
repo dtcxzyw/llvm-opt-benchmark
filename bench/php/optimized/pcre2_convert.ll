@@ -180,7 +180,7 @@ define dso_local i32 @pcre2_pattern_convert_8(ptr noundef %0, i64 noundef %1, i3
   %.1.i.i = phi ptr [ %74, %71 ], [ %.014.i.i, %69 ]
   %76 = add nsw i64 %.013.i.i, -1
   %.not.i.i = icmp eq i64 %76, 0
-  br i1 %.not.i.i, label %convert_glob_write_str.exit.i, label %69
+  br i1 %.not.i.i, label %convert_glob_write_str.exit.i, label %69, !llvm.loop !21
 
 convert_glob_write_str.exit.i:                    ; preds = %75
   %.not53.i = icmp eq ptr %memchr.i, null
@@ -232,7 +232,7 @@ convert_glob_write_str.exit.i:                    ; preds = %75
   %.1.i144.i = phi ptr [ %92, %89 ], [ %.014.i141.i, %87 ]
   %94 = add nsw i64 %.013.i142.i, -1
   %.not.i145.i = icmp eq i64 %94, 0
-  br i1 %.not.i145.i, label %95, label %87
+  br i1 %.not.i145.i, label %95, label %87, !llvm.loop !21
 
 95:                                               ; preds = %93
   store ptr %.1.i144.i, ptr %7, align 8, !tbaa !16
@@ -315,7 +315,7 @@ convert_glob_write.exit.i:                        ; preds = %115, %109, %107
 131:                                              ; preds = %128
   %132 = load i8, ptr %129, align 1, !tbaa !20
   %133 = icmp eq i8 %132, 42
-  br i1 %133, label %128, label %134
+  br i1 %133, label %128, label %134, !llvm.loop !23
 
 134:                                              ; preds = %131
   %135 = icmp eq i8 %132, %60
@@ -375,7 +375,7 @@ convert_glob_write.exit.i:                        ; preds = %115, %109, %107
   %.1.i151.i = phi ptr [ %156, %153 ], [ %.014.i148.i, %151 ]
   %158 = add nsw i64 %.013.i149.i, -1
   %.not.i152.i = icmp eq i64 %158, 0
-  br i1 %.not.i152.i, label %convert_glob_write_str.exit153.i, label %151
+  br i1 %.not.i152.i, label %convert_glob_write_str.exit153.i, label %151, !llvm.loop !21
 
 convert_glob_write_str.exit153.i:                 ; preds = %157
   %159 = add i64 %150, 6
@@ -439,7 +439,7 @@ convert_glob_write.exit155.i:                     ; preds = %173, %convert_glob_
   %.093.be.i = phi i32 [ 0, %convert_glob_write.exit155.i ], [ 0, %146 ], [ 0, %convert_glob_write_str.exit182.i ], [ 0, %convert_glob_write_str.exit163.i ], [ 0, %254 ], [ %.319.i, %convert_glob_write_str.exit215.i ], [ %.09381.i, %367 ], [ %.09381.i, %convert_glob_print_separator.exit.i229.i ], [ %.09381.i, %convert_glob_print_separator.exit.thread.i227.i ], [ %.09381.i, %338 ], [ %.09381.i, %332 ], [ %.09381.i, %convert_glob_write.exit316.i.i ], [ %.09381.i, %convert_glob_print_separator.exit.thread.i247.i ], [ %.09381.i, %convert_glob_print_separator.exit.i248.i ], [ %.09381.i, %554 ], [ %.09381.i, %convert_glob_write.exit252.i ], [ %.09381.i, %1059 ]
   %.092.be.i = phi i32 [ 1, %convert_glob_write.exit155.i ], [ 1, %146 ], [ 1, %convert_glob_write_str.exit182.i ], [ 1, %convert_glob_write_str.exit163.i ], [ %.09282.i, %254 ], [ %.09282.i, %convert_glob_write_str.exit215.i ], [ %.09282.i, %367 ], [ %.09282.i, %convert_glob_print_separator.exit.i229.i ], [ %.09282.i, %convert_glob_print_separator.exit.thread.i227.i ], [ %.09282.i, %338 ], [ %.09282.i, %332 ], [ %.09282.i, %convert_glob_write.exit316.i.i ], [ %.09282.i, %convert_glob_print_separator.exit.thread.i247.i ], [ %.09282.i, %convert_glob_print_separator.exit.i248.i ], [ %.09282.i, %554 ], [ %.09282.i, %convert_glob_write.exit252.i ], [ %.09282.i, %1059 ]
   %176 = icmp ult ptr %.0.be.i, %37
-  br i1 %176, label %104, label %._crit_edge.loopexit.i
+  br i1 %176, label %104, label %._crit_edge.loopexit.i, !llvm.loop !24
 
 177:                                              ; preds = %144
   store i8 40, ptr %42, align 8, !tbaa !20
@@ -474,7 +474,7 @@ convert_glob_write.exit155.i:                     ; preds = %173, %convert_glob_
   %.1.i.i.i = phi ptr [ %186, %183 ], [ %.014.i.i.i, %181 ]
   %188 = add nsw i64 %.013.i.i.i, -1
   %.not.i.i.i = icmp eq i64 %188, 0
-  br i1 %.not.i.i.i, label %convert_glob_write_str.exit.i.i, label %181
+  br i1 %.not.i.i.i, label %convert_glob_write_str.exit.i.i, label %181, !llvm.loop !21
 
 convert_glob_write_str.exit.i.i:                  ; preds = %187
   store ptr %.1.i.i.i, ptr %7, align 8, !tbaa !16
@@ -535,7 +535,7 @@ convert_glob_print_commit.exit._crit_edge.i:      ; preds = %convert_glob_print_
   %.1.i161.i = phi ptr [ %205, %202 ], [ %.014.i158.i, %200 ]
   %207 = add nsw i64 %.013.i159.i, -1
   %.not.i162.i = icmp eq i64 %207, 0
-  br i1 %.not.i162.i, label %convert_glob_write_str.exit163.i, label %200
+  br i1 %.not.i162.i, label %convert_glob_write_str.exit163.i, label %200, !llvm.loop !21
 
 convert_glob_write_str.exit163.i:                 ; preds = %206
   %208 = add i64 %197, 3
@@ -571,7 +571,7 @@ convert_glob_write_str.exit163.i:                 ; preds = %206
   %.1.i168.i = phi ptr [ %215, %212 ], [ %.014.i165.i, %210 ]
   %217 = add nsw i64 %.013.i166.i, -1
   %.not.i169.i = icmp eq i64 %217, 0
-  br i1 %.not.i169.i, label %convert_glob_write_str.exit170.i, label %210
+  br i1 %.not.i169.i, label %convert_glob_write_str.exit170.i, label %210, !llvm.loop !21
 
 convert_glob_write_str.exit170.i:                 ; preds = %216
   %218 = add i64 %.pre114.i, 6
@@ -640,7 +640,7 @@ convert_glob_print_separator.exit175.i:           ; preds = %229, %convert_glob_
   %.1.i180.i = phi ptr [ %239, %236 ], [ %.014.i177.i, %234 ]
   %241 = add nsw i64 %.013.i178.i, -1
   %.not.i181.i = icmp eq i64 %241, 0
-  br i1 %.not.i181.i, label %convert_glob_write_str.exit182.i, label %234
+  br i1 %.not.i181.i, label %convert_glob_write_str.exit182.i, label %234, !llvm.loop !21
 
 convert_glob_write_str.exit182.i:                 ; preds = %240
   %242 = add i64 %231, 3
@@ -666,7 +666,7 @@ convert_glob_write_str.exit182.i:                 ; preds = %240
 250:                                              ; preds = %.preheader.i
   %251 = load i8, ptr %248, align 1, !tbaa !20
   %252 = icmp eq i8 %251, 42
-  br i1 %252, label %.preheader.i, label %.critedge7.i
+  br i1 %252, label %.preheader.i, label %.critedge7.i, !llvm.loop !25
 
 .critedge7.i:                                     ; preds = %250, %.preheader.i, %245, %244
   %.4.i = phi ptr [ %105, %245 ], [ %105, %244 ], [ %248, %.preheader.i ], [ %248, %250 ]
@@ -720,7 +720,7 @@ convert_glob_write_str.exit182.i:                 ; preds = %240
   %.1.i187.i = phi ptr [ %265, %262 ], [ %.014.i184.i, %260 ]
   %267 = add nsw i64 %.013.i185.i, -1
   %.not.i188.i = icmp eq i64 %267, 0
-  br i1 %.not.i188.i, label %convert_glob_write_str.exit189.i, label %260
+  br i1 %.not.i188.i, label %convert_glob_write_str.exit189.i, label %260, !llvm.loop !21
 
 convert_glob_write_str.exit189.i:                 ; preds = %266
   %268 = add i64 %259, 3
@@ -760,7 +760,7 @@ convert_glob_write_str.exit189.i:                 ; preds = %266
   %.1.i.i194.i = phi ptr [ %278, %275 ], [ %.014.i.i191.i, %273 ]
   %280 = add nsw i64 %.013.i.i192.i, -1
   %.not.i.i195.i = icmp eq i64 %280, 0
-  br i1 %.not.i.i195.i, label %convert_glob_write_str.exit.i196.i, label %273
+  br i1 %.not.i.i195.i, label %convert_glob_write_str.exit.i196.i, label %273, !llvm.loop !21
 
 convert_glob_write_str.exit.i196.i:               ; preds = %279
   store ptr %.1.i.i194.i, ptr %7, align 8, !tbaa !16
@@ -825,7 +825,7 @@ convert_glob_print_commit.exit198.thread.i:       ; preds = %convert_glob_print_
   %.1.i.i204.i = phi ptr [ %299, %296 ], [ %.014.i.i201.i, %294 ]
   %301 = add nsw i64 %.013.i.i202.i, -1
   %.not.i.i205.i = icmp eq i64 %301, 0
-  br i1 %.not.i.i205.i, label %convert_glob_write_str.exit.i206.i, label %294
+  br i1 %.not.i.i205.i, label %convert_glob_write_str.exit.i206.i, label %294, !llvm.loop !21
 
 convert_glob_write_str.exit.i206.i:               ; preds = %300
   %302 = add i64 %291, 2
@@ -910,7 +910,7 @@ convert_glob_write.exit199.i:                     ; preds = %317, %convert_glob_
   %.1.i213.i = phi ptr [ %327, %324 ], [ %.014.i210.i, %322 ]
   %329 = add nsw i64 %.013.i211.i, -1
   %.not.i214.i = icmp eq i64 %329, 0
-  br i1 %.not.i214.i, label %convert_glob_write_str.exit215.i, label %322
+  br i1 %.not.i214.i, label %convert_glob_write_str.exit215.i, label %322, !llvm.loop !21
 
 convert_glob_write_str.exit215.i:                 ; preds = %328
   %330 = add i64 %321, 2
@@ -963,7 +963,7 @@ convert_glob_write_str.exit215.i:                 ; preds = %328
   %.1.i.i221.i = phi ptr [ %349, %346 ], [ %.014.i.i218.i, %344 ]
   %351 = add nsw i64 %.013.i.i219.i, -1
   %.not.i.i222.i = icmp eq i64 %351, 0
-  br i1 %.not.i.i222.i, label %convert_glob_write_str.exit.i223.i, label %344
+  br i1 %.not.i.i222.i, label %convert_glob_write_str.exit.i223.i, label %344, !llvm.loop !21
 
 convert_glob_write_str.exit.i223.i:               ; preds = %350
   %352 = add i64 %343, 2
@@ -1081,7 +1081,7 @@ convert_glob_print_separator.exit.i229.i:         ; preds = %convert_glob_write.
   %.1.i.i242.i = phi ptr [ %391, %388 ], [ %.014.i.i239.i, %386 ]
   %393 = add nsw i64 %.013.i.i240.i, -1
   %.not.i.i243.i = icmp eq i64 %393, 0
-  br i1 %.not.i.i243.i, label %convert_glob_write_str.exit.i244.i, label %386
+  br i1 %.not.i.i243.i, label %convert_glob_write_str.exit.i244.i, label %386, !llvm.loop !21
 
 convert_glob_write_str.exit.i244.i:               ; preds = %392
   %394 = add i64 %385, %.0250.i.i
@@ -1138,7 +1138,7 @@ convert_glob_write.exit.i245.i:                   ; preds = %401, %395, %convert
   %.1.i313.i.i = phi ptr [ %414, %411 ], [ %.014.i310.i.i, %409 ]
   %416 = add nsw i64 %.013.i311.i.i, -1
   %.not.i314.i.i = icmp eq i64 %416, 0
-  br i1 %.not.i314.i.i, label %convert_glob_write_str.exit315.i.i, label %409
+  br i1 %.not.i314.i.i, label %convert_glob_write_str.exit315.i.i, label %409, !llvm.loop !21
 
 convert_glob_write_str.exit315.i.i:               ; preds = %415
   %417 = add i64 %408, 2
@@ -1331,7 +1331,7 @@ convert_glob_write.exit316.i.i:                   ; preds = %524, %518
   %.1.i321.i.i = phi ptr [ %536, %533 ], [ %.014.i318.i.i, %531 ]
   %538 = add nsw i64 %.013.i319.i.i, -1
   %.not.i322.i.i = icmp eq i64 %538, 0
-  br i1 %.not.i322.i.i, label %convert_glob_write_str.exit323.i.i, label %531
+  br i1 %.not.i322.i.i, label %convert_glob_write_str.exit323.i.i, label %531, !llvm.loop !21
 
 convert_glob_write_str.exit323.i.i:               ; preds = %537
   %539 = add i64 %530, 4
@@ -1414,7 +1414,7 @@ convert_glob_print_separator.exit.i248.i:         ; preds = %convert_glob_write.
   %568 = load i8, ptr %.035.i.i.i, align 1, !tbaa !20
   %569 = add i8 %568, -123
   %or.cond.i.i.i = icmp ult i8 %569, -26
-  br i1 %or.cond.i.i.i, label %570, label %565
+  br i1 %or.cond.i.i.i, label %570, label %565, !llvm.loop !26
 
 570:                                              ; preds = %566
   %.not42.i.i.i = icmp eq i8 %568, 58
@@ -1492,7 +1492,7 @@ convert_glob_print_separator.exit.i248.i:         ; preds = %convert_glob_write.
 
 convert_glob_write.exit.i327.i.i:                 ; preds = %594, %.split.i.i.i
   %596 = icmp ult ptr %587, %580
-  br i1 %596, label %.split.i.i.i, label %convert_glob_parse_class.exit.i.i, !llvm.loop !21
+  br i1 %596, label %.split.i.i.i, label %convert_glob_parse_class.exit.i.i, !llvm.loop !27
 
 597:                                              ; preds = %.lr.ph.i.i.i
   %598 = getelementptr inbounds nuw i8, ptr %.13656.i.i.i, i64 1
@@ -1501,14 +1501,14 @@ convert_glob_write.exit.i327.i.i:                 ; preds = %594, %.split.i.i.i
   %601 = load i8, ptr %599, align 1, !tbaa !20
   %602 = icmp eq i8 %600, %601
   %indvars.iv.next.i.i.i = add i64 %indvars.iv.i.i.i, 1
-  br i1 %602, label %.lr.ph.i.i.i, label %.preheader.i.i.i
+  br i1 %602, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !29
 
 .lr.ph61.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph61.i.i.i
   %.260.i.i.i = phi ptr [ %603, %.lr.ph61.i.i.i ], [ %.1.lcssa.i.i.i, %.preheader.i.i.i ]
   %603 = getelementptr inbounds nuw i8, ptr %.260.i.i.i, i64 1
   %.pr.i.i.i = load i8, ptr %603, align 1, !tbaa !20
   %.not45.i.i.i = icmp eq i8 %.pr.i.i.i, 58
-  br i1 %.not45.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph61.i.i.i
+  br i1 %.not45.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph61.i.i.i, !llvm.loop !30
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph61.i.i.i, %.preheader.i.i.i
   %.2.lcssa.i.i.i = phi ptr [ %.1.lcssa.i.i.i, %.preheader.i.i.i ], [ %603, %.lr.ph61.i.i.i ]
@@ -1516,7 +1516,7 @@ convert_glob_write.exit.i327.i.i:                 ; preds = %594, %.split.i.i.i
   %605 = add nuw nsw i32 %.064.i.i.i, 1
   %606 = load i8, ptr %604, align 1, !tbaa !20
   %607 = icmp eq i8 %606, 0
-  br i1 %607, label %.thread337.i.i, label %.preheader47.i.i.i
+  br i1 %607, label %.thread337.i.i, label %.preheader47.i.i.i, !llvm.loop !31
 
 convert_glob_parse_class.exit.i.i:                ; preds = %convert_glob_write.exit.i327.i.i, %.split.us.i.i.i
   br i1 %.not298.i.i, label %608, label %.backedge.i.i
@@ -1540,99 +1540,99 @@ convert_glob_parse_class.exit.i.i:                ; preds = %convert_glob_write.
 
 609:                                              ; preds = %608
   %610 = tail call ptr @__ctype_b_loc() #8
-  %611 = load ptr, ptr %610, align 8, !tbaa !23
+  %611 = load ptr, ptr %610, align 8, !tbaa !32
   %612 = getelementptr inbounds nuw i16, ptr %611, i64 %97
-  %613 = load i16, ptr %612, align 2, !tbaa !25
+  %613 = load i16, ptr %612, align 2, !tbaa !34
   %614 = and i16 %613, 8
   %615 = zext nneg i16 %614 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 616:                                              ; preds = %608
   %617 = tail call ptr @__ctype_b_loc() #8
-  %618 = load ptr, ptr %617, align 8, !tbaa !23
+  %618 = load ptr, ptr %617, align 8, !tbaa !32
   %619 = getelementptr inbounds nuw i16, ptr %618, i64 %97
-  %620 = load i16, ptr %619, align 2, !tbaa !25
+  %620 = load i16, ptr %619, align 2, !tbaa !34
   %621 = and i16 %620, 1024
   %622 = zext nneg i16 %621 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 623:                                              ; preds = %608
   %624 = tail call ptr @__ctype_b_loc() #8
-  %625 = load ptr, ptr %624, align 8, !tbaa !23
+  %625 = load ptr, ptr %624, align 8, !tbaa !32
   %626 = getelementptr inbounds nuw i16, ptr %625, i64 %97
-  %627 = load i16, ptr %626, align 2, !tbaa !25
+  %627 = load i16, ptr %626, align 2, !tbaa !34
   %628 = and i16 %627, 2
   %629 = zext nneg i16 %628 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 630:                                              ; preds = %608
   %631 = tail call ptr @__ctype_b_loc() #8
-  %632 = load ptr, ptr %631, align 8, !tbaa !23
+  %632 = load ptr, ptr %631, align 8, !tbaa !32
   %633 = getelementptr inbounds nuw i16, ptr %632, i64 %97
-  %634 = load i16, ptr %633, align 2, !tbaa !25
+  %634 = load i16, ptr %633, align 2, !tbaa !34
   %635 = and i16 %634, 2048
   %636 = zext nneg i16 %635 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 637:                                              ; preds = %608
   %638 = tail call ptr @__ctype_b_loc() #8
-  %639 = load ptr, ptr %638, align 8, !tbaa !23
+  %639 = load ptr, ptr %638, align 8, !tbaa !32
   %640 = getelementptr inbounds nuw i16, ptr %639, i64 %97
-  %641 = load i16, ptr %640, align 2, !tbaa !25
+  %641 = load i16, ptr %640, align 2, !tbaa !34
   %642 = and i16 %641, -32768
   %643 = zext i16 %642 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 644:                                              ; preds = %608
   %645 = tail call ptr @__ctype_b_loc() #8
-  %646 = load ptr, ptr %645, align 8, !tbaa !23
+  %646 = load ptr, ptr %645, align 8, !tbaa !32
   %647 = getelementptr inbounds nuw i16, ptr %646, i64 %97
-  %648 = load i16, ptr %647, align 2, !tbaa !25
+  %648 = load i16, ptr %647, align 2, !tbaa !34
   %649 = and i16 %648, 512
   %650 = zext nneg i16 %649 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 651:                                              ; preds = %608
   %652 = tail call ptr @__ctype_b_loc() #8
-  %653 = load ptr, ptr %652, align 8, !tbaa !23
+  %653 = load ptr, ptr %652, align 8, !tbaa !32
   %654 = getelementptr inbounds nuw i16, ptr %653, i64 %97
-  %655 = load i16, ptr %654, align 2, !tbaa !25
+  %655 = load i16, ptr %654, align 2, !tbaa !34
   %656 = and i16 %655, 16384
   %657 = zext nneg i16 %656 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 658:                                              ; preds = %608
   %659 = tail call ptr @__ctype_b_loc() #8
-  %660 = load ptr, ptr %659, align 8, !tbaa !23
+  %660 = load ptr, ptr %659, align 8, !tbaa !32
   %661 = getelementptr inbounds nuw i16, ptr %660, i64 %97
-  %662 = load i16, ptr %661, align 2, !tbaa !25
+  %662 = load i16, ptr %661, align 2, !tbaa !34
   %663 = and i16 %662, 4
   %664 = zext nneg i16 %663 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 665:                                              ; preds = %608
   %666 = tail call ptr @__ctype_b_loc() #8
-  %667 = load ptr, ptr %666, align 8, !tbaa !23
+  %667 = load ptr, ptr %666, align 8, !tbaa !32
   %668 = getelementptr inbounds nuw i16, ptr %667, i64 %97
-  %669 = load i16, ptr %668, align 2, !tbaa !25
+  %669 = load i16, ptr %668, align 2, !tbaa !34
   %670 = and i16 %669, 8192
   %671 = zext nneg i16 %670 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 672:                                              ; preds = %608
   %673 = tail call ptr @__ctype_b_loc() #8
-  %674 = load ptr, ptr %673, align 8, !tbaa !23
+  %674 = load ptr, ptr %673, align 8, !tbaa !32
   %675 = getelementptr inbounds nuw i16, ptr %674, i64 %97
-  %676 = load i16, ptr %675, align 2, !tbaa !25
+  %676 = load i16, ptr %675, align 2, !tbaa !34
   %677 = and i16 %676, 256
   %678 = zext nneg i16 %677 to i32
   br label %convert_glob_char_in_class.exit.i.i
 
 679:                                              ; preds = %608
   %680 = tail call ptr @__ctype_b_loc() #8
-  %681 = load ptr, ptr %680, align 8, !tbaa !23
+  %681 = load ptr, ptr %680, align 8, !tbaa !32
   %682 = getelementptr inbounds nuw i16, ptr %681, i64 %97
-  %683 = load i16, ptr %682, align 2, !tbaa !25
+  %683 = load i16, ptr %682, align 2, !tbaa !34
   %684 = and i16 %683, 8
   %685 = icmp ne i16 %684, 0
   %686 = or i1 %98, %685
@@ -1641,9 +1641,9 @@ convert_glob_parse_class.exit.i.i:                ; preds = %convert_glob_write.
 
 688:                                              ; preds = %608
   %689 = tail call ptr @__ctype_b_loc() #8
-  %690 = load ptr, ptr %689, align 8, !tbaa !23
+  %690 = load ptr, ptr %689, align 8, !tbaa !32
   %691 = getelementptr inbounds nuw i16, ptr %690, i64 %97
-  %692 = load i16, ptr %691, align 2, !tbaa !25
+  %692 = load i16, ptr %691, align 2, !tbaa !34
   %693 = and i16 %692, 4096
   %694 = zext nneg i16 %693 to i32
   br label %convert_glob_char_in_class.exit.i.i
@@ -1661,7 +1661,7 @@ convert_glob_char_in_class.exit.i.i:              ; preds = %688, %679, %672, %6
   %.2262.be.i.i = phi ptr [ %.5265349.i.i, %convert_glob_write.exit329.split.us.i.i ], [ %580, %convert_glob_parse_class.exit.i.i ], [ %580, %608 ], [ %580, %convert_glob_char_in_class.exit.i.i ], [ %.5265349.i.i, %convert_glob_write.exit330.i.i ]
   %.1252.be.i.i = phi i32 [ %.2355.i.i, %convert_glob_write.exit329.split.us.i.i ], [ 0, %convert_glob_parse_class.exit.i.i ], [ 0, %608 ], [ 0, %convert_glob_char_in_class.exit.i.i ], [ %.2355.i.i, %convert_glob_write.exit330.i.i ]
   %695 = icmp ult ptr %.2262.be.i.i, %37
-  br i1 %695, label %.lr.ph.i.i, label %convert_glob_parse_range.exit.thread.i
+  br i1 %695, label %.lr.ph.i.i, label %convert_glob_parse_range.exit.thread.i, !llvm.loop !36
 
 696:                                              ; preds = %557
   %697 = icmp eq i32 %.0253.i.i, 45
@@ -2165,7 +2165,7 @@ convert_glob_write.exit329.split.i.i:             ; preds = %convert_glob_write.
 
 convert_glob_write.exit330.i.i:                   ; preds = %1033, %convert_glob_write.exit329.split.i.i
   %1035 = icmp ult ptr %1026, %.5265349.i.i
-  br i1 %1035, label %convert_glob_write.exit329.split.i.i, label %.backedge.i.i, !llvm.loop !27
+  br i1 %1035, label %convert_glob_write.exit329.split.i.i, label %.backedge.i.i, !llvm.loop !37
 
 1036:                                             ; preds = %104
   %1037 = icmp eq i8 %106, %60
@@ -2258,7 +2258,7 @@ convert_glob_write.exit252.i:                     ; preds = %1052, %1046, %1044,
   %1072 = phi ptr [ %1070, %1067 ], [ %.014.i255.i, %1065 ]
   %1073 = add nsw i64 %.013.i256.i, -1
   %.not.i259.i = icmp eq i64 %1073, 0
-  br i1 %.not.i259.i, label %1074, label %1065
+  br i1 %.not.i259.i, label %1074, label %1065, !llvm.loop !21
 
 1074:                                             ; preds = %1071
   %1075 = add i64 %1062, 2
@@ -2349,7 +2349,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %.ptr.i = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.0230107.add.i
   %1104 = load i8, ptr %.ptr.i, align 1, !tbaa !20
   %exitcond.i = icmp eq i64 %.0230107.add.i, 6
-  br i1 %exitcond.i, label %.critedge.preheader.i, label %1100
+  br i1 %exitcond.i, label %.critedge.preheader.i, label %1100, !llvm.loop !38
 
 .lr.ph.i98:                                       ; preds = %.critedge.preheader.i, %.thread.i
   %.0231133.i = phi i32 [ %.1232.i, %.thread.i ], [ 0, %.critedge.preheader.i ]
@@ -2509,10 +2509,10 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
 
 1205:                                             ; preds = %1203
   %1206 = tail call ptr @__ctype_b_loc() #8
-  %1207 = load ptr, ptr %1206, align 8, !tbaa !23
+  %1207 = load ptr, ptr %1206, align 8, !tbaa !32
   %1208 = zext nneg i32 %.0219.i to i64
   %1209 = getelementptr inbounds nuw i16, ptr %1207, i64 %1208
-  %1210 = load i16, ptr %1209, align 2, !tbaa !25
+  %1210 = load i16, ptr %1209, align 2, !tbaa !34
   %1211 = and i16 %1210, 512
   %.not311.i = icmp eq i16 %1211, 0
   br i1 %.not311.i, label %1212, label %1228
@@ -2542,7 +2542,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %.ptr175.i = getelementptr inbounds nuw i8, ptr @.str.4, i64 %.0215119.add.i
   %1221 = load i8, ptr %.ptr175.i, align 1, !tbaa !20
   %exitcond174.i = icmp eq i64 %.0215119.add.i, 2
-  br i1 %exitcond174.i, label %1222, label %.preheader49.i
+  br i1 %exitcond174.i, label %1222, label %.preheader49.i, !llvm.loop !39
 
 1222:                                             ; preds = %1219
   %1223 = add i64 %1198, -1
@@ -2675,10 +2675,10 @@ thread-pre-split.i:                               ; preds = %1242
 
 1257:                                             ; preds = %1255
   %1258 = tail call ptr @__ctype_b_loc() #8
-  %1259 = load ptr, ptr %1258, align 8, !tbaa !23
+  %1259 = load ptr, ptr %1258, align 8, !tbaa !32
   %1260 = zext nneg i8 %1253 to i64
   %1261 = getelementptr inbounds nuw i16, ptr %1259, i64 %1260
-  %1262 = load i16, ptr %1261, align 2, !tbaa !25
+  %1262 = load i16, ptr %1261, align 2, !tbaa !34
   %1263 = and i16 %1262, 2048
   %.not296.i = icmp eq i16 %1263, 0
   br i1 %.not296.i, label %.thread30.i, label %.preheader57.preheader.i
@@ -2841,7 +2841,7 @@ convert_posix.exit:                               ; preds = %.critedge._crit_edg
   store ptr %1313, ptr %3, align 8, !tbaa !8
   %1314 = load i64, ptr %4, align 8, !tbaa !4
   %1315 = add i64 %1314, 1
-  br i1 %53, label %52, label %.thread127
+  br i1 %53, label %52, label %.thread127, !llvm.loop !40
 
 .thread127:                                       ; preds = %1312, %57
   store i64 0, ptr %4, align 8, !tbaa !4
@@ -2873,9 +2873,9 @@ define dso_local void @pcre2_converted_pattern_free_8(ptr noundef %0) local_unna
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
-  %5 = load ptr, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds i8, ptr %0, i64 -8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   tail call void %5(ptr noundef nonnull %3, ptr noundef %7) #7
   br label %8
 
@@ -2935,11 +2935,24 @@ attributes #8 = { nounwind willreturn memory(none) }
 !19 = !{!17, !5, i64 16}
 !20 = !{!6, !6, i64 0}
 !21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.partial.disable"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 short", !10, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"short", !6, i64 0}
-!27 = distinct !{!27, !22}
-!28 = !{!13, !10, i64 8}
-!29 = !{!13, !10, i64 16}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !22}
+!24 = distinct !{!24, !22}
+!25 = distinct !{!25, !22}
+!26 = distinct !{!26, !22}
+!27 = distinct !{!27, !22, !28}
+!28 = !{!"llvm.loop.unswitch.partial.disable"}
+!29 = distinct !{!29, !22}
+!30 = distinct !{!30, !22}
+!31 = distinct !{!31, !22}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 short", !10, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"short", !6, i64 0}
+!36 = distinct !{!36, !22}
+!37 = distinct !{!37, !22, !28}
+!38 = distinct !{!38, !22}
+!39 = distinct !{!39, !22}
+!40 = distinct !{!40, !22}
+!41 = !{!13, !10, i64 8}
+!42 = !{!13, !10, i64 16}

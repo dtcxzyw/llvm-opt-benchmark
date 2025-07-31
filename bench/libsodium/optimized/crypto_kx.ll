@@ -154,7 +154,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_kx_server_session_keys(ptr noundef
   store i8 %27, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %29, label %21, !llvm.loop !6
+  br i1 %exitcond.not, label %29, label %21, !llvm.loop !7
 
 29:                                               ; preds = %21
   call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 64) #5
@@ -207,6 +207,7 @@ attributes #6 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

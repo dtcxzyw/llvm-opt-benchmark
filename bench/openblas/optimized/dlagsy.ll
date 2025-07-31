@@ -87,7 +87,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %40 = sext i32 %39 to i64
   %41 = shl nsw i64 %40, 3
   %scevgep317 = getelementptr i8, ptr %scevgep, i64 %41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep317, i8 0, i64 %36, i1 false), !tbaa !9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep317, i8 0, i64 %36, i1 false), !tbaa !10
   br label %.loopexit278
 
 .lr.ph287:                                        ; preds = %.loopexit278
@@ -110,15 +110,15 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 48:                                               ; preds = %.lr.ph287, %48
   %indvars.iv = phi i64 [ 1, %.lr.ph287 ], [ %indvars.iv.next, %48 ]
   %49 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
-  %50 = load double, ptr %49, align 8, !tbaa !9
+  %50 = load double, ptr %49, align 8, !tbaa !10
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = mul i32 %42, %51
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds double, ptr %18, i64 %53
-  store double %50, ptr %54, align 8, !tbaa !9
+  store double %50, ptr %54, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond326.not = icmp eq i64 %indvars.iv.next, %wide.trip.count325
-  br i1 %exitcond326.not, label %.preheader, label %48, !llvm.loop !11
+  br i1 %exitcond326.not, label %.preheader, label %48, !llvm.loop !12
 
 55:                                               ; preds = %.lr.ph298, %75
   %indvars.iv327 = phi i64 [ %47, %.lr.ph298 ], [ %indvars.iv.next328, %75 ]
@@ -141,7 +141,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %75
 
 63:                                               ; preds = %55
-  %64 = load double, ptr %6, align 8, !tbaa !9
+  %64 = load double, ptr %6, align 8, !tbaa !10
   %65 = fcmp ult double %64, 0.000000e+00
   %.neg266 = fneg double %61
   %66 = fcmp oge double %61, 0.000000e+00
@@ -153,16 +153,16 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %72 = sub nsw i32 %70, %71
   store i32 %72, ptr %9, align 4, !tbaa !3
   %73 = fdiv double 1.000000e+00, %69
-  store double %73, ptr %12, align 8, !tbaa !9
+  store double %73, ptr %12, align 8, !tbaa !10
   call void @dscal_(ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %45, ptr noundef nonnull @c__1) #4
-  store double 1.000000e+00, ptr %6, align 8, !tbaa !9
+  store double 1.000000e+00, ptr %6, align 8, !tbaa !10
   %74 = fdiv double %69, %68
   br label %75
 
 75:                                               ; preds = %._crit_edge358, %63
   %.pre-phi360 = phi i32 [ %.pre359, %._crit_edge358 ], [ %71, %63 ]
   %storemerge267 = phi double [ 0.000000e+00, %._crit_edge358 ], [ %74, %63 ]
-  store double %storemerge267, ptr %14, align 8, !tbaa !9
+  store double %storemerge267, ptr %14, align 8, !tbaa !10
   %76 = load i32, ptr %0, align 4, !tbaa !3
   %77 = add i32 %57, %76
   store i32 %77, ptr %9, align 4, !tbaa !3
@@ -175,13 +175,13 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %82 = load i32, ptr %0, align 4, !tbaa !3
   %83 = add i32 %57, %82
   store i32 %83, ptr %9, align 4, !tbaa !3
-  %84 = load double, ptr %14, align 8, !tbaa !9
+  %84 = load double, ptr %14, align 8, !tbaa !10
   %85 = fmul double %84, -5.000000e-01
   %86 = sext i32 %82 to i64
   %gep289 = getelementptr double, ptr %6, i64 %86
   %87 = call double @ddot_(ptr noundef nonnull %9, ptr noundef %gep289, ptr noundef nonnull @c__1, ptr noundef nonnull %6, ptr noundef nonnull @c__1) #4
   %88 = fmul double %85, %87
-  store double %88, ptr %13, align 8, !tbaa !9
+  store double %88, ptr %13, align 8, !tbaa !10
   %89 = load i32, ptr %0, align 4, !tbaa !3
   %90 = add i32 %57, %89
   store i32 %90, ptr %9, align 4, !tbaa !3
@@ -197,7 +197,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %95 = icmp samesign ugt i64 %indvars.iv327, 2
   %96 = trunc i64 %indvars.iv327 to i32
   %97 = sub i32 2, %96
-  br i1 %95, label %55, label %._crit_edge299.loopexit, !llvm.loop !12
+  br i1 %95, label %55, label %._crit_edge299.loopexit, !llvm.loop !13
 
 ._crit_edge299.loopexit:                          ; preds = %75
   %.pre = load i32, ptr %0, align 4, !tbaa !3
@@ -220,7 +220,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .loopexit277:                                     ; preds = %.lr.ph303, %140
   %103 = load i32, ptr %9, align 4, !tbaa !3
   %.not262.not = icmp sgt i32 %103, %indvars337
-  br i1 %.not262.not, label %104, label %._crit_edge308, !llvm.loop !13
+  br i1 %.not262.not, label %104, label %._crit_edge308, !llvm.loop !14
 
 104:                                              ; preds = %.lr.ph307, %.loopexit277
   %105 = phi i32 [ %98, %.lr.ph307 ], [ %208, %.loopexit277 ]
@@ -241,7 +241,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %117 = add i32 %116, %110
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds double, ptr %18, i64 %118
-  %120 = load double, ptr %119, align 8, !tbaa !9
+  %120 = load double, ptr %119, align 8, !tbaa !10
   %121 = fcmp ult double %120, 0.000000e+00
   %122 = fcmp oge double %114, 0.000000e+00
   %.neg = fneg double %114
@@ -256,7 +256,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %129 = sub i32 %128, %116
   store i32 %129, ptr %10, align 4, !tbaa !3
   %130 = fdiv double 1.000000e+00, %127
-  store double %130, ptr %12, align 8, !tbaa !9
+  store double %130, ptr %12, align 8, !tbaa !10
   %131 = add i32 %117, 1
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds double, ptr %18, i64 %132
@@ -266,7 +266,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %136 = add i32 %135, %134
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds double, ptr %18, i64 %137
-  store double 1.000000e+00, ptr %138, align 8, !tbaa !9
+  store double 1.000000e+00, ptr %138, align 8, !tbaa !10
   %139 = fdiv double %127, %124
   %.pre353 = add i32 %134, %indvars337
   %.pre354 = add nsw i32 %.pre353, %110
@@ -278,7 +278,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.pre-phi = phi i32 [ %116, %104 ], [ %.pre353, %126 ]
   %141 = phi i32 [ %115, %104 ], [ %134, %126 ]
   %storemerge = phi double [ 0.000000e+00, %104 ], [ %139, %126 ]
-  store double %storemerge, ptr %14, align 8, !tbaa !9
+  store double %storemerge, ptr %14, align 8, !tbaa !10
   %142 = load i32, ptr %0, align 4, !tbaa !3
   %143 = add i32 %142, 1
   %144 = sub i32 %143, %.pre-phi
@@ -301,9 +301,9 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %155, ptr %10, align 4, !tbaa !3
   %156 = add nsw i32 %152, -1
   store i32 %156, ptr %11, align 4, !tbaa !3
-  %157 = load double, ptr %14, align 8, !tbaa !9
+  %157 = load double, ptr %14, align 8, !tbaa !10
   %158 = fneg double %157
-  store double %158, ptr %12, align 8, !tbaa !9
+  store double %158, ptr %12, align 8, !tbaa !10
   %159 = add nsw i32 %153, %110
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds double, ptr %18, i64 %160
@@ -330,14 +330,14 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %179 = add i32 %176, 1
   %180 = sub i32 %179, %178
   store i32 %180, ptr %10, align 4, !tbaa !3
-  %181 = load double, ptr %14, align 8, !tbaa !9
+  %181 = load double, ptr %14, align 8, !tbaa !10
   %182 = fmul double %181, -5.000000e-01
   %183 = add nsw i32 %178, %110
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds double, ptr %18, i64 %184
   %186 = call double @ddot_(ptr noundef nonnull %10, ptr noundef %6, ptr noundef nonnull @c__1, ptr noundef %185, ptr noundef nonnull @c__1) #4
   %187 = fmul double %182, %186
-  store double %187, ptr %13, align 8, !tbaa !9
+  store double %187, ptr %13, align 8, !tbaa !10
   %188 = load i32, ptr %0, align 4, !tbaa !3
   %189 = load i32, ptr %1, align 4, !tbaa !3
   %190 = add i32 %189, %indvars337
@@ -367,7 +367,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %210 = add nsw i32 %209, %110
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds double, ptr %18, i64 %211
-  store double %207, ptr %212, align 8, !tbaa !9
+  store double %207, ptr %212, align 8, !tbaa !10
   %213 = load i32, ptr %0, align 4, !tbaa !3
   store i32 %213, ptr %10, align 4, !tbaa !3
   %invariant.op = add i32 %110, 1
@@ -386,10 +386,10 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.reass = add i32 %invariant.op, %216
   %217 = sext i32 %.reass to i64
   %218 = getelementptr inbounds double, ptr %18, i64 %217
-  store double 0.000000e+00, ptr %218, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %218, align 8, !tbaa !10
   %lftr.wideiv = trunc i64 %indvars.iv.next334 to i32
   %exitcond336.not = icmp eq i32 %213, %lftr.wideiv
-  br i1 %exitcond336.not, label %.loopexit277, label %.lr.ph303, !llvm.loop !14
+  br i1 %exitcond336.not, label %.loopexit277, label %.lr.ph303, !llvm.loop !15
 
 ._crit_edge308:                                   ; preds = %.loopexit277, %._crit_edge299
   %219 = phi i32 [ %99, %._crit_edge299 ], [ %213, %.loopexit277 ]
@@ -406,7 +406,7 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .loopexit:                                        ; preds = %225, %.lr.ph316
   %indvars.iv.next339 = add nuw i32 %indvars.iv338, 1
   %exitcond351.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count350
-  br i1 %exitcond351.not, label %.loopexit276, label %.lr.ph316, !llvm.loop !15
+  br i1 %exitcond351.not, label %.loopexit276, label %.lr.ph316, !llvm.loop !16
 
 .lr.ph316:                                        ; preds = %.lr.ph316.preheader, %.loopexit
   %indvars.iv346 = phi i64 [ 1, %.lr.ph316.preheader ], [ %indvars.iv.next347, %.loopexit ]
@@ -425,14 +425,14 @@ define void @dlagsy_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 225:                                              ; preds = %.lr.ph312, %225
   %indvars.iv340 = phi i64 [ %223, %.lr.ph312 ], [ %indvars.iv.next341, %225 ]
   %gep362 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv340
-  %226 = load double, ptr %gep362, align 8, !tbaa !9
+  %226 = load double, ptr %gep362, align 8, !tbaa !10
   %227 = mul nsw i64 %indvars.iv340, %220
   %gep364 = getelementptr double, ptr %invariant.gep363, i64 %227
-  store double %226, ptr %gep364, align 8, !tbaa !9
+  store double %226, ptr %gep364, align 8, !tbaa !10
   %indvars.iv.next341 = add nsw i64 %indvars.iv340, 1
   %lftr.wideiv344 = trunc i64 %indvars.iv.next341 to i32
   %exitcond345.not = icmp eq i32 %221, %lftr.wideiv344
-  br i1 %exitcond345.not, label %.loopexit, label %225, !llvm.loop !16
+  br i1 %exitcond345.not, label %.loopexit, label %225, !llvm.loop !17
 
 .loopexit276:                                     ; preds = %.loopexit, %._crit_edge308, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
@@ -488,13 +488,14 @@ attributes #4 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"double", !5, i64 0}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"double", !5, i64 0}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}

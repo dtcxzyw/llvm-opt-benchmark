@@ -49,7 +49,7 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr noundef readonly c
 .loopexit.us:                                     ; preds = %15, %8
   %.139.us = add nsw i32 %.13958.us, -1
   %16 = icmp sgt i32 %.13958.us, 0
-  br i1 %16, label %8, label %.loopexit50, !llvm.loop !18
+  br i1 %16, label %8, label %.loopexit50, !llvm.loop !19
 
 .lr.ph.us:                                        ; preds = %8
   %17 = and i32 %.13958.us, 31
@@ -98,7 +98,7 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr noundef readonly c
 .loopexit:                                        ; preds = %34, %28, %.lr.ph59.split
   %.139 = add nsw i32 %.13958, -1
   %35 = icmp sgt i32 %.13958, 0
-  br i1 %35, label %.lr.ph59.split, label %.loopexit50, !llvm.loop !20
+  br i1 %35, label %.lr.ph59.split, label %.loopexit50, !llvm.loop !21
 
 .loopexit50:                                      ; preds = %.loopexit, %33, %.loopexit.us, %14, %2
   %.0 = phi i32 [ -1, %2 ], [ %.13958.us, %14 ], [ -1, %.loopexit.us ], [ %.13958, %33 ], [ -1, %.loopexit ]
@@ -141,7 +141,7 @@ define i32 @Mvc_CoverBestLiteral(ptr noundef readonly captures(none) %0, ptr nou
   %spec.select.us = add nuw nsw i32 %15, %.02742.us
   %.033.us = load ptr, ptr %.03343.us, align 8, !tbaa !14
   %.not36.us = icmp eq ptr %.033.us, null
-  br i1 %.not36.us, label %._crit_edge.us, label %10, !llvm.loop !21
+  br i1 %.not36.us, label %._crit_edge.us, label %10, !llvm.loop !22
 
 ._crit_edge.us:                                   ; preds = %10, %8
   %.027.lcssa.us = phi i32 [ 0, %8 ], [ %spec.select.us, %10 ]
@@ -150,7 +150,7 @@ define i32 @Mvc_CoverBestLiteral(ptr noundef readonly captures(none) %0, ptr nou
   %spec.select39.us = tail call i32 @llvm.smax.i32(i32 %.02846.us, i32 %.027.lcssa.us)
   %17 = add nuw nsw i32 %.03244.us, 1
   %exitcond54.not = icmp eq i32 %17, %4
-  br i1 %exitcond54.not, label %._crit_edge49, label %8, !llvm.loop !22
+  br i1 %exitcond54.not, label %._crit_edge49, label %8, !llvm.loop !23
 
 .lr.ph.us:                                        ; preds = %8
   %18 = lshr i32 %.03244.us, 5
@@ -187,7 +187,7 @@ define i32 @Mvc_CoverBestLiteral(ptr noundef readonly captures(none) %0, ptr nou
   %spec.select = add nuw nsw i32 %32, %.02742
   %.033 = load ptr, ptr %.03343, align 8, !tbaa !14
   %.not36 = icmp eq ptr %.033, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.027.lcssa = phi i32 [ 0, %27 ], [ %spec.select, %.lr.ph ]
@@ -201,7 +201,7 @@ define i32 @Mvc_CoverBestLiteral(ptr noundef readonly captures(none) %0, ptr nou
   %.129 = phi i32 [ %.02846, %.lr.ph48.split ], [ %spec.select39, %._crit_edge ]
   %35 = add nuw nsw i32 %.03244, 1
   %exitcond.not = icmp eq i32 %35, %4
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !24
 
 ._crit_edge49:                                    ; preds = %34, %._crit_edge.us
   %.030.lcssa = phi i32 [ %spec.select38.us, %._crit_edge.us ], [ %.131, %34 ]
@@ -252,7 +252,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   %spec.select.us = add nuw nsw i32 %15, %.02843.us
   %.034.us = load ptr, ptr %.03444.us, align 8, !tbaa !14
   %.not37.us = icmp eq ptr %.034.us, null
-  br i1 %.not37.us, label %._crit_edge.us, label %10, !llvm.loop !24
+  br i1 %.not37.us, label %._crit_edge.us, label %10, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %10, %8
   %.028.lcssa.us = phi i32 [ 0, %8 ], [ %spec.select.us, %10 ]
@@ -263,7 +263,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   %spec.select40.us = select i1 %or.cond.us, i32 %.028.lcssa.us, i32 %.02947.us
   %18 = add nuw nsw i32 %.03345.us, 1
   %exitcond55.not = icmp eq i32 %18, %4
-  br i1 %exitcond55.not, label %._crit_edge50, label %8, !llvm.loop !25
+  br i1 %exitcond55.not, label %._crit_edge50, label %8, !llvm.loop !26
 
 .lr.ph.us:                                        ; preds = %8
   %19 = lshr i32 %.03345.us, 5
@@ -300,7 +300,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   %spec.select = add nuw nsw i32 %33, %.02843
   %.034 = load ptr, ptr %.03444, align 8, !tbaa !14
   %.not37 = icmp eq ptr %.034, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %.028.lcssa = phi i32 [ 0, %28 ], [ %spec.select, %.lr.ph ]
@@ -316,7 +316,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   %.130 = phi i32 [ %.02947, %.lr.ph49.split ], [ %spec.select40, %._crit_edge ]
   %37 = add nuw nsw i32 %.03345, 1
   %exitcond.not = icmp eq i32 %37, %4
-  br i1 %exitcond.not, label %._crit_edge50, label %.lr.ph49.split, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge50, label %.lr.ph49.split, !llvm.loop !27
 
 ._crit_edge50:                                    ; preds = %36, %._crit_edge.us
   %.031.lcssa = phi i32 [ %spec.select39.us, %._crit_edge.us ], [ %.132, %36 ]
@@ -398,7 +398,7 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   %spec.select.us.i = add nuw nsw i32 %28, %.02742.us.i
   %.033.us.i = load ptr, ptr %.03343.us.i, align 8, !tbaa !14
   %.not36.us.i = icmp eq ptr %.033.us.i, null
-  br i1 %.not36.us.i, label %._crit_edge.us.i, label %23, !llvm.loop !21
+  br i1 %.not36.us.i, label %._crit_edge.us.i, label %23, !llvm.loop !22
 
 ._crit_edge.us.i:                                 ; preds = %23, %21
   %.027.lcssa.us.i = phi i32 [ 0, %21 ], [ %spec.select.us.i, %23 ]
@@ -407,7 +407,7 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   %spec.select39.us.i = tail call i32 @llvm.smax.i32(i32 %.02846.us.i, i32 %.027.lcssa.us.i)
   %30 = add nuw nsw i32 %.03244.us.i, 1
   %exitcond54.not.i = icmp eq i32 %30, %17
-  br i1 %exitcond54.not.i, label %._crit_edge49.i, label %21, !llvm.loop !22
+  br i1 %exitcond54.not.i, label %._crit_edge49.i, label %21, !llvm.loop !23
 
 .lr.ph.us.i:                                      ; preds = %21
   %31 = lshr i32 %.03244.us.i, 5
@@ -444,7 +444,7 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   %spec.select.i = add nuw nsw i32 %45, %.02742.i
   %.033.i = load ptr, ptr %.03343.i, align 8, !tbaa !14
   %.not36.i = icmp eq ptr %.033.i, null
-  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %40
   %.027.lcssa.i = phi i32 [ 0, %40 ], [ %spec.select.i, %.lr.ph.i ]
@@ -458,7 +458,7 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   %.129.i = phi i32 [ %.02846.i, %.lr.ph48.split.i ], [ %spec.select39.i, %._crit_edge.i ]
   %48 = add nuw nsw i32 %.03244.i, 1
   %exitcond.not.i = icmp eq i32 %48, %17
-  br i1 %exitcond.not.i, label %._crit_edge49.i, label %.lr.ph48.split.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %._crit_edge49.i, label %.lr.ph48.split.i, !llvm.loop !24
 
 ._crit_edge49.i:                                  ; preds = %47, %._crit_edge.us.i
   %.030.lcssa.i = phi i32 [ %spec.select38.us.i, %._crit_edge.us.i ], [ %.131.i, %47 ]
@@ -480,28 +480,28 @@ Mvc_CoverBestLiteral.exit:                        ; preds = %.loopexit, %._crit_
   %58 = or i32 %52, %57
   store i32 %58, ptr %56, align 4, !tbaa !15
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !27
+  %60 = load ptr, ptr %59, align 8, !tbaa !28
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %Mvc_CoverBestLiteral.exit
-  store ptr %4, ptr %59, align 8, !tbaa !27
+  store ptr %4, ptr %59, align 8, !tbaa !28
   br label %66
 
 63:                                               ; preds = %Mvc_CoverBestLiteral.exit
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !28
-  store ptr %4, ptr %65, align 8, !tbaa !29
+  %65 = load ptr, ptr %64, align 8, !tbaa !29
+  store ptr %4, ptr %65, align 8, !tbaa !30
   br label %66
 
 66:                                               ; preds = %63, %62
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %4, ptr %67, align 8, !tbaa !28
-  store ptr null, ptr %4, align 8, !tbaa !29
+  store ptr %4, ptr %67, align 8, !tbaa !29
+  store ptr null, ptr %4, align 8, !tbaa !30
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %69 = load i32, ptr %68, align 8, !tbaa !31
+  %69 = load i32, ptr %68, align 8, !tbaa !32
   %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %68, align 8, !tbaa !31
+  store i32 %70, ptr %68, align 8, !tbaa !32
   ret ptr %3
 }
 
@@ -535,7 +535,7 @@ define range(i32 -2147483648, 2147483647) i32 @Mvc_CoverFirstCubeFirstLit(ptr no
 14:                                               ; preds = %.lr.ph
   %15 = add nuw nsw i32 %.0910, 1
   %exitcond.not = icmp eq i32 %15, %5
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph, %14, %1
   %.0 = phi i32 [ -1, %1 ], [ -1, %14 ], [ %.0910, %.lr.ph ]
@@ -574,13 +574,13 @@ define i32 @Mvc_CoverCountLiterals(ptr noundef readonly captures(none) %0) local
   %spec.select = add nuw nsw i32 %14, %.020
   %.016 = load ptr, ptr %.01621, align 8, !tbaa !14
   %.not = icmp eq ptr %.016, null
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %9
   %15 = add nuw nsw i32 %spec.select, %.01423
   %16 = add nuw nsw i32 %.01522, 1
   %exitcond.not = icmp eq i32 %16, %3
-  br i1 %exitcond.not, label %._crit_edge26, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge26, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge26:                                    ; preds = %._crit_edge, %.lr.ph25, %1
   %.014.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph25 ], [ %15, %._crit_edge ]
@@ -625,7 +625,7 @@ define range(i32 0, 2) i32 @Mvc_CoverIsOneLiteral(ptr noundef %0) local_unnamed_
   %.1 = phi i32 [ 1, %17 ], [ %.01015, %9 ]
   %19 = add nuw nsw i32 %.01114, 1
   %exitcond.not = icmp eq i32 %19, %6
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !36
 
 .critedge:                                        ; preds = %17, %18, %3, %1
   %.0 = phi i32 [ 0, %1 ], [ 1, %3 ], [ 0, %17 ], [ 1, %18 ]
@@ -665,23 +665,24 @@ attributes #5 = { nounwind }
 !13 = !{!"p1 _ZTS16MvcManagerStruct", !10, i64 0}
 !14 = !{!9, !9, i64 0}
 !15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17, !19}
-!23 = distinct !{!23, !17}
-!24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17, !19}
-!26 = distinct !{!26, !17}
-!27 = !{!8, !9, i64 0}
-!28 = !{!8, !9, i64 8}
-!29 = !{!30, !9, i64 0}
-!30 = !{!"MvcCubeStruct", !9, i64 0, !5, i64 8, !5, i64 11, !5, i64 11, !5, i64 11, !5, i64 12, !6, i64 16}
-!31 = !{!8, !5, i64 16}
-!32 = distinct !{!32, !17}
-!33 = distinct !{!33, !17}
-!34 = distinct !{!34, !17}
-!35 = distinct !{!35, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !17, !18, !20}
+!24 = distinct !{!24, !17, !18}
+!25 = distinct !{!25, !17, !18}
+!26 = distinct !{!26, !17, !18, !20}
+!27 = distinct !{!27, !17, !18}
+!28 = !{!8, !9, i64 0}
+!29 = !{!8, !9, i64 8}
+!30 = !{!31, !9, i64 0}
+!31 = !{!"MvcCubeStruct", !9, i64 0, !5, i64 8, !5, i64 11, !5, i64 11, !5, i64 11, !5, i64 12, !6, i64 16}
+!32 = !{!8, !5, i64 16}
+!33 = distinct !{!33, !17, !18}
+!34 = distinct !{!34, !17, !18}
+!35 = distinct !{!35, !17, !18}
+!36 = distinct !{!36, !17, !18}

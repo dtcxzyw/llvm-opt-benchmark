@@ -2494,5 +2494,6 @@ attributes #28 = { noreturn nounwind }
 !306 = !{!307, !9, i64 0}
 !307 = !{!"_ZTSNSt12_Vector_baseIN4cvc516ProofRewriteRuleESaIS1_EE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
 !308 = !{!307, !9, i64 16}
-!309 = distinct !{!309, !310}
+!309 = distinct !{!309, !310, !311}
 !310 = !{!"llvm.loop.mustprogress"}
+!311 = !{!"llvm.loop.estimated_trip_count"}

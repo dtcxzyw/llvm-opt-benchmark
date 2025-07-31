@@ -1939,7 +1939,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !12
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -2518,7 +2518,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i = icmp eq i64 %64, 0
   %65 = icmp ne i64 %60, 0
   %66 = and i1 %65, %.not.i.i
-  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !11
+  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !12
 
 67:                                               ; preds = %2
   br i1 %.not.i.i24, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %68
@@ -2902,7 +2902,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
   %15 = lshr i64 %12, %14
   %16 = trunc i64 %15 to i32
   %17 = select i1 %8, i32 0, i32 %16
-  %18 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %17, ptr %6) #11, !srcloc !12
+  %18 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %17, ptr %6) #11, !srcloc !13
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
@@ -2930,7 +2930,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
   %16 = select i1 %7, i32 0, i32 %15
-  %17 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %16, ptr %6) #11, !srcloc !12
+  %17 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %16, ptr %6) #11, !srcloc !13
   ret void
 }
 
@@ -2977,7 +2977,7 @@ _ZN12G1BarrierSet19write_ref_field_preILm287782E9narrowOopEEvPT0_.exit.i.i: ; pr
   %34 = lshr i64 %31, %33
   %35 = trunc i64 %34 to i32
   %36 = select i1 %27, i32 0, i32 %35
-  %37 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %36, ptr %6) #11, !srcloc !12
+  %37 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %36, ptr %6) #11, !srcloc !13
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
@@ -3022,7 +3022,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
   %16 = select i1 %7, i32 0, i32 %15
-  %17 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %16, ptr %6) #11, !srcloc !12
+  %17 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %16, ptr %6) #11, !srcloc !13
   ret void
 }
 
@@ -3041,7 +3041,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %13 = zext nneg i32 %12 to i64
   %14 = shl i64 %7, %13
   %15 = or i64 %14, %8
-  %16 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %15, ptr %6) #11, !srcloc !13
+  %16 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %15, ptr %6) #11, !srcloc !14
   ret void
 }
 
@@ -3188,7 +3188,7 @@ _ZN20ShenandoahBarrierSet12satb_barrierILm287782E9narrowOopEEvPT0_.exit: ; preds
   %106 = lshr i64 %103, %105
   %107 = trunc i64 %106 to i32
   %108 = select i1 %99, i32 0, i32 %107
-  %109 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %108, ptr %0) #11, !srcloc !12
+  %109 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %108, ptr %0) #11, !srcloc !13
   ret void
 }
 
@@ -3198,7 +3198,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
   %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %8 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %6) #11, !srcloc !13
+  %8 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %6) #11, !srcloc !14
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -3216,7 +3216,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %6) #11, !srcloc !13
+  %7 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %6) #11, !srcloc !14
   ret void
 }
 
@@ -3245,7 +3245,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1B
   br label %_ZN12G1BarrierSet19write_ref_field_preILm287750EP7oopDescEEvPT0_.exit.i.i
 
 _ZN12G1BarrierSet19write_ref_field_preILm287750EP7oopDescEEvPT0_.exit.i.i: ; preds = %15, %12, %3
-  %19 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %6) #11, !srcloc !13
+  %19 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %6) #11, !srcloc !14
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
@@ -3280,7 +3280,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %6) #11, !srcloc !13
+  %7 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %6) #11, !srcloc !14
   ret void
 }
 
@@ -3299,7 +3299,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %13 = zext nneg i32 %12 to i64
   %14 = shl i64 %7, %13
   %15 = or i64 %14, %8
-  %16 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %15, ptr %6) #11, !srcloc !13
+  %16 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %15, ptr %6) #11, !srcloc !14
   ret void
 }
 
@@ -3429,7 +3429,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i8: ; preds = %58
   br label %_ZN20ShenandoahBarrierSet12satb_barrierILm287750EP7oopDescEEvPT0_.exit
 
 _ZN20ShenandoahBarrierSet12satb_barrierILm287750EP7oopDescEEvPT0_.exit: ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, %49, %55, %58, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i8, %87
-  %92 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #11, !srcloc !13
+  %92 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #11, !srcloc !14
   ret void
 }
 
@@ -3458,8 +3458,9 @@ attributes #12 = { noreturn nounwind }
 !6 = !{i64 2145392468}
 !7 = !{i64 2145411161}
 !8 = !{i64 2145412694}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{i64 2145415273}
-!13 = !{i64 2145415582}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = !{i64 2145415273}
+!14 = !{i64 2145415582}

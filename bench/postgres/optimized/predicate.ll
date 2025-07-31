@@ -489,7 +489,7 @@ dlist_push_tail.exit27:                           ; preds = %142, %148
   %152 = add i32 %.029, 1
   %153 = sext i32 %152 to i64
   %154 = icmp sgt i64 %130, %153
-  br i1 %154, label %142, label %.loopexit, !llvm.loop !8
+  br i1 %154, label %142, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %dlist_push_tail.exit27, %134, %125
   %155 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.6, i64 noundef 16, ptr noundef nonnull %3) #12
@@ -628,7 +628,7 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
   %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !10
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr @MainLWLockArray, align 8
@@ -670,7 +670,7 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
   %33 = add i32 %.01923, 1
   %34 = call ptr @hash_seq_search(ptr noundef nonnull %1) #12
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %35 = load ptr, ptr @MainLWLockArray, align 8
@@ -686,7 +686,7 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
   call void @LWLockRelease(ptr noundef nonnull %40) #12
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, -1
   %.not29 = icmp eq i64 %indvars.iv26, 0
-  br i1 %.not29, label %41, label %37, !llvm.loop !11
+  br i1 %.not29, label %41, label %37, !llvm.loop !12
 
 41:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
@@ -729,7 +729,7 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef wr
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not31 = icmp eq ptr %16, %8
-  br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 60
@@ -770,7 +770,7 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef wr
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.144, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not35 = icmp eq ptr %33, %22
-  br i1 %.not35, label %.loopexit.loopexit.split.loop.exit58, label %.lr.ph46, !llvm.loop !13
+  br i1 %.not35, label %.loopexit.loopexit.split.loop.exit58, label %.lr.ph46, !llvm.loop !14
 
 .loopexit.loopexit.split.loop.exit58:             ; preds = %31
   %34 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -852,12 +852,12 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
   %45 = icmp eq ptr %44, null
   %46 = icmp eq ptr %44, %42
   %spec.select.i.i = or i1 %45, %46
-  br i1 %spec.select.i.i, label %..critedge.loopexit_crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %spec.select.i.i, label %..critedge.loopexit_crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ..critedge.loopexit_crit_edge.i:                  ; preds = %35
   %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %41, i64 156
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4
-  br label %.critedge.i, !llvm.loop !14
+  br label %.critedge.i, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %..critedge.loopexit_crit_edge.i, %.lr.ph9.i
   %47 = phi i32 [ %24, %.lr.ph9.i ], [ %.pre.pre.i, %..critedge.loopexit_crit_edge.i ], [ %32, %.lr.ph.i ]
@@ -891,7 +891,7 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
   %60 = tail call fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0, ptr noundef null, i32 noundef -1)
   %61 = load ptr, ptr @MySerializableXact, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %GetSafeSnapshot.exit, label %.lr.ph9.i
+  br i1 %62, label %GetSafeSnapshot.exit, label %.lr.ph9.i, !llvm.loop !16
 
 GetSafeSnapshot.exit:                             ; preds = %59, %9, %53
   %.0 = phi ptr [ %17, %53 ], [ %14, %9 ], [ %60, %59 ]
@@ -1129,7 +1129,7 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %97, %89, %86
   %134 = tail call zeroext i1 @LWLockAcquire(ptr noundef %133, i32 noundef 0) #12
   %135 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %125) #12
   %136 = icmp eq i64 %125, %65
-  br i1 %136, label %.loopexit.i.i, label %.lr.ph.i.i
+  br i1 %136, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
 .critedge.i.i:                                    ; preds = %108
   %137 = tail call zeroext i1 @LWLockAcquire(ptr noundef %73, i32 noundef 0) #12
@@ -1180,7 +1180,7 @@ SummarizeOldestCommittedSxact.exit:               ; preds = %.lr.ph, %154
   %163 = icmp eq ptr %162, null
   %164 = icmp eq ptr %162, %160
   %spec.select.i.i = or i1 %163, %164
-  br i1 %spec.select.i.i, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %spec.select.i.i, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 .critedge:                                        ; preds = %33, %._crit_edge
   store ptr %29, ptr %23, align 8
@@ -1402,7 +1402,7 @@ SetPossibleUnsafeConflict.exit:                   ; preds = %dlist_push_tail.exi
   %272 = getelementptr inbounds nuw i8, ptr %.sroa.0.078, i64 8
   %273 = load ptr, ptr %272, align 8
   %.not56 = icmp eq ptr %273, %230
-  br i1 %.not56, label %._crit_edge81, label %235, !llvm.loop !16
+  br i1 %.not56, label %._crit_edge81, label %235, !llvm.loop !19
 
 ._crit_edge81:                                    ; preds = %271, %228
   %274 = load ptr, ptr %211, align 8
@@ -1765,7 +1765,7 @@ PredicateLockExists.exit.i:                       ; preds = %PredicateLockExists
   br i1 %30, label %CoarserLockCovers.exit.thread, label %PredicateLockExists.exit.i.backedge
 
 PredicateLockExists.exit.i.backedge:              ; preds = %27, %24
-  br label %PredicateLockExists.exit.i, !llvm.loop !17
+  br label %PredicateLockExists.exit.i, !llvm.loop !20
 
 CoarserLockCovers.exit.thread:                    ; preds = %27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
@@ -1881,11 +1881,11 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
 MaxPredicateChildLocks.exit:                      ; preds = %66, %69, %72, %77
   %.0.i17 = phi i32 [ %78, %77 ], [ %76, %72 ], [ %70, %69 ], [ 0, %66 ]
   %79 = icmp sgt i32 %67, %.0.i17
-  br i1 %79, label %80, label %46, !llvm.loop !18
+  br i1 %79, label %80, label %46, !llvm.loop !21
 
 80:                                               ; preds = %MaxPredicateChildLocks.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  br label %.outer, !llvm.loop !18
+  br label %.outer, !llvm.loop !21
 
 GetParentPredicateLockTag.exit:                   ; preds = %48
   br i1 %.0.i14.ph, label %CheckAndPromotePredicateLockRequest.exit.thread, label %81
@@ -2032,7 +2032,7 @@ RemoveTargetIfNoLongerUsed.exit.i:                ; preds = %155, %124
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
   %.not25.i = icmp eq ptr %.sroa.8.032.i, %94
-  br i1 %.not25.i, label %._crit_edge.i, label %103, !llvm.loop !19
+  br i1 %.not25.i, label %._crit_edge.i, label %103, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %158, %93
   %159 = call zeroext i1 @IsInParallelMode() #12
@@ -2273,7 +2273,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   %35 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %34, i32 noundef 0) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %36, label %31, !llvm.loop !20
+  br i1 %exitcond.not.i, label %36, label %31, !llvm.loop !23
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr @MainLWLockArray, align 8
@@ -2304,12 +2304,12 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   %.not68.i = icmp eq i32 %52, %13
-  br i1 %.not68.i, label %53, label %129, !llvm.loop !21
+  br i1 %.not68.i, label %53, label %129, !llvm.loop !24
 
 53:                                               ; preds = %49
   %54 = load i32, ptr %50, align 8
   %.not69.i = icmp eq i32 %54, %21
-  br i1 %.not69.i, label %55, label %129, !llvm.loop !21
+  br i1 %.not69.i, label %55, label %129, !llvm.loop !24
 
 55:                                               ; preds = %53
   br i1 %.not70.i, label %56, label %.critedge.i
@@ -2324,7 +2324,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   %60 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %61 = load i32, ptr %60, align 8
   %.not72.not.i = icmp eq i32 %61, -1
-  br i1 %.not72.not.i, label %129, label %.critedge.i, !llvm.loop !21
+  br i1 %.not72.not.i, label %129, label %.critedge.i, !llvm.loop !24
 
 .critedge.i:                                      ; preds = %59, %56, %55
   %62 = icmp eq ptr %.085.i, null
@@ -2460,7 +2460,7 @@ dlist_push_tail.exit75.i:                         ; preds = %116, %dlist_push_ta
 126:                                              ; preds = %125, %121, %dlist_push_tail.exit75.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   %.not74.i = icmp eq ptr %.sroa.8.082.i, %75
-  br i1 %.not74.i, label %._crit_edge.i, label %80, !llvm.loop !22
+  br i1 %.not74.i, label %._crit_edge.i, label %80, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %126, %74
   %127 = load ptr, ptr @PredicateLockTargetHash, align 8
@@ -2472,7 +2472,7 @@ dlist_push_tail.exit75.i:                         ; preds = %116, %dlist_push_ta
   %.1.i = phi ptr [ %.2.i, %._crit_edge.i ], [ %.085.i, %49 ], [ %.085.i, %53 ], [ %.085.i, %59 ]
   %130 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
   %.not67.i = icmp eq ptr %130, null
-  br i1 %.not67.i, label %._crit_edge88.i, label %49
+  br i1 %.not67.i, label %._crit_edge88.i, label %49, !llvm.loop !26
 
 ._crit_edge88.i:                                  ; preds = %129, %36
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
@@ -2493,7 +2493,7 @@ dlist_push_tail.exit75.i:                         ; preds = %116, %dlist_push_ta
   call void @LWLockRelease(ptr noundef nonnull %139) #12
   %indvars.iv.next93.i = add nsw i64 %indvars.iv92.i, -1
   %.not95.i = icmp eq i64 %indvars.iv92.i, 0
-  br i1 %.not95.i, label %140, label %136, !llvm.loop !23
+  br i1 %.not95.i, label %140, label %136, !llvm.loop !27
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr @MainLWLockArray, align 8
@@ -2760,7 +2760,7 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %126 = call ptr @hash_search_with_hash_value(ptr noundef %119, ptr noundef nonnull %108, i32 noundef %125, i32 noundef 2, ptr noundef nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
   %.not13.i = icmp eq ptr %.sroa.8.0.i, %67
-  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %101
   %127 = load ptr, ptr @MainLWLockArray, align 8
@@ -2838,7 +2838,7 @@ dlist_push_tail.exit83:                           ; preds = %dlist_push_tail.exi
 
 DeleteLockTarget.exit:                            ; preds = %dlist_push_tail.exit83, %161, %157
   %.not81 = icmp eq ptr %.sroa.8.091, %63
-  br i1 %.not81, label %._crit_edge, label %69, !llvm.loop !25
+  br i1 %.not81, label %._crit_edge, label %69, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %DeleteLockTarget.exit, %59
   %162 = load ptr, ptr @MainLWLockArray, align 8
@@ -3158,7 +3158,7 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
   store ptr %80, ptr %95, align 8
   store ptr %80, ptr %89, align 8
   %.not82 = icmp eq ptr %.sroa.26.0, %77
-  br i1 %.not82, label %.loopexit126.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not82, label %.loopexit126.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit126.loopexit:                            ; preds = %ReleaseRWConflict.exit
   %.pre.pre = load ptr, ptr @MySerializableXact, align 8
@@ -3292,7 +3292,7 @@ ReleaseRWConflict.exit114:                        ; preds = %.critedge, %154
 
 157:                                              ; preds = %ReleaseRWConflict.exit114, %134
   %.not86 = icmp eq ptr %.sroa.26.1134, %104
-  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph135, !llvm.loop !27
+  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph135, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %157
   %.pre157 = load ptr, ptr @MySerializableXact, align 8
@@ -3359,7 +3359,7 @@ ReleaseRWConflict.exit115:                        ; preds = %169, %182
 
 185:                                              ; preds = %163, %ReleaseRWConflict.exit115
   %.not88 = icmp eq ptr %.sroa.26.2140, %159
-  br i1 %.not88, label %._crit_edge143.loopexit, label %.lr.ph142, !llvm.loop !28
+  br i1 %.not88, label %._crit_edge143.loopexit, label %.lr.ph142, !llvm.loop !32
 
 ._crit_edge143.loopexit:                          ; preds = %185
   %.pre161.pre163.pre = load ptr, ptr @MySerializableXact, align 8
@@ -3457,7 +3457,7 @@ ReleaseRWConflict.exit.i:                         ; preds = %222, %.lr.ph.i
   store ptr %209, ptr %224, align 8
   store ptr %209, ptr %218, align 8
   %.not9.i = icmp eq ptr %.sroa.8.0.i, %206
-  br i1 %.not9.i, label %FlagSxactUnsafe.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not9.i, label %FlagSxactUnsafe.exit, label %.lr.ph.i, !llvm.loop !33
 
 225:                                              ; preds = %197, %192, %.lr.ph151
   %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.3147, i64 16
@@ -3527,7 +3527,7 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
 259:                                              ; preds = %256, %FlagSxactUnsafe.exit
   %.b91159 = phi i1 [ %.b91.pre, %256 ], [ %.b91, %FlagSxactUnsafe.exit ]
   %.not90 = icmp eq ptr %.sroa.26.3149, %187
-  br i1 %.not90, label %.loopexit.loopexit, label %.lr.ph151, !llvm.loop !30
+  br i1 %.not90, label %.loopexit.loopexit, label %.lr.ph151, !llvm.loop !34
 
 .loopexit.loopexit:                               ; preds = %259
   %.pre161.pre = load ptr, ptr @MySerializableXact, align 8
@@ -3642,7 +3642,7 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 8
   %318 = load ptr, ptr %317, align 8
   %.not13.i = icmp eq ptr %318, %277
-  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i119, !llvm.loop !31
+  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i119, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %313
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %314, i64 32
@@ -3843,7 +3843,7 @@ dlist_push_tail.exit:                             ; preds = %346, %353
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 3584
   %418 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %417, i32 noundef 1) #12
   %.not41.i = icmp eq ptr %.sroa.14.056.i, %372
-  br i1 %.not41.i, label %.thread.i, label %.lr.ph.i121, !llvm.loop !32
+  br i1 %.not41.i, label %.thread.i, label %.lr.ph.i121, !llvm.loop !36
 
 .thread.i:                                        ; preds = %415, %397, %390, %365
   %419 = load ptr, ptr @MainLWLockArray, align 8
@@ -3940,7 +3940,7 @@ RemoveTargetIfNoLongerUsed.exit.i:                ; preds = %473, %440
 
 476:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit.i, %429
   %.not46.i = icmp eq ptr %.sroa.14.164.i, %425
-  br i1 %.not46.i, label %ClearOldPredicateLocks.exit, label %429, !llvm.loop !33
+  br i1 %.not46.i, label %ClearOldPredicateLocks.exit, label %429, !llvm.loop !37
 
 ClearOldPredicateLocks.exit:                      ; preds = %476, %.thread.i
   %477 = load ptr, ptr @MainLWLockArray, align 8
@@ -4123,7 +4123,7 @@ RemoveTargetIfNoLongerUsed.exit.us:               ; preds = %81, %76, %dlist_pus
   %.sroa.20.0.in.us = getelementptr inbounds nuw i8, ptr %.sroa.20.080.us, i64 8
   %.sroa.20.0.us = load ptr, ptr %.sroa.20.0.in.us, align 8
   %.not65.us = icmp eq ptr %.sroa.20.080.us, %16
-  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
+  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !38
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %RemoveTargetIfNoLongerUsed.exit
   %.sroa.20.080 = phi ptr [ %.sroa.20.0, %RemoveTargetIfNoLongerUsed.exit ], [ %.sroa.20.077, %.lr.ph ]
@@ -4186,7 +4186,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %114, %.lr.ph.split
   %.sroa.20.0.in = getelementptr inbounds nuw i8, ptr %.sroa.20.080, i64 8
   %.sroa.20.0 = load ptr, ptr %.sroa.20.0.in, align 8
   %.not65 = icmp eq ptr %.sroa.20.080, %16
-  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %RemoveTargetIfNoLongerUsed.exit, %RemoveTargetIfNoLongerUsed.exit.us, %15
   store ptr %16, ptr %16, align 8
@@ -4269,7 +4269,7 @@ ReleaseRWConflict.exit:                           ; preds = %138, %153
   store ptr %.sroa.0.184, ptr %155, align 8
   store ptr %.sroa.0.184, ptr %149, align 8
   %.not67 = icmp eq ptr %.sroa.20.186, %129
-  br i1 %.not67, label %.loopexit, label %.lr.ph88, !llvm.loop !37
+  br i1 %.not67, label %.loopexit, label %.lr.ph88, !llvm.loop !41
 
 .loopexit:                                        ; preds = %ReleaseRWConflict.exit, %128, %120
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4330,7 +4330,7 @@ ReleaseRWConflict.exit75:                         ; preds = %166, %180
   store ptr %159, ptr %182, align 8
   store ptr %159, ptr %176, align 8
   %.not69 = icmp eq ptr %.sroa.20.293, %156
-  br i1 %.not69, label %._crit_edge96, label %.lr.ph95, !llvm.loop !38
+  br i1 %.not69, label %._crit_edge96, label %.lr.ph95, !llvm.loop !42
 
 ._crit_edge96:                                    ; preds = %ReleaseRWConflict.exit75, %.loopexit
   br i1 %1, label %201, label %183
@@ -4791,7 +4791,7 @@ define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr 
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   %or.cond = select i1 %23, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond, label %pg_lfind32.exit, label %.lr.ph.i.i, !llvm.loop !39
+  br i1 %or.cond, label %pg_lfind32.exit, label %.lr.ph.i.i, !llvm.loop !43
 
 .preheader.i:                                     ; preds = %39, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %39 ]
@@ -4820,7 +4820,7 @@ define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr 
 39:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
   %40 = icmp samesign ult i64 %indvars.iv.next.i, %19
-  br i1 %40, label %.preheader.i, label %41, !llvm.loop !40
+  br i1 %40, label %.preheader.i, label %41, !llvm.loop !44
 
 41:                                               ; preds = %39
   %42 = add i32 %14, -16
@@ -4896,7 +4896,7 @@ define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not17 = icmp eq ptr %26, %11
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %2, %6, %10, %16
   %.0 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %6 ], [ false, %2 ], [ %.not18, %24 ], [ %.not18, %.lr.ph ]
@@ -4973,7 +4973,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.017.0100.us.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not58.us.i = icmp eq ptr %36, %9
-  br i1 %.not58.us.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !42
+  br i1 %.not58.us.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !46
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %52
   %.sroa.017.0100.i = phi ptr [ %54, %52 ], [ %11, %.lr.ph.i ]
@@ -5017,7 +5017,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.017.0100.i, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not58.i = icmp eq ptr %54, %9
-  br i1 %.not58.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !43
+  br i1 %.not58.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !47
 
 .critedge.i:                                      ; preds = %52, %34, %8
   %55 = and i32 %.fr106.i, 2
@@ -5087,7 +5087,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.0102.i, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not70.i = icmp eq ptr %87, %63
-  br i1 %.not70.i, label %OnConflict_CheckForSerializationFailure.exit, label %67, !llvm.loop !44
+  br i1 %.not70.i, label %OnConflict_CheckForSerializationFailure.exit, label %67, !llvm.loop !48
 
 .thread93.i:                                      ; preds = %50, %48, %30, %28, %81, %79, %60, %2
   %88 = load ptr, ptr @MySerializableXact, align 8
@@ -5466,7 +5466,7 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not17.i = icmp eq ptr %71, %56
-  br i1 %.not17.i, label %.loopexit71, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not17.i, label %.loopexit71, label %.lr.ph.i, !llvm.loop !45
 
 .loopexit71:                                      ; preds = %69, %61, %55, %51, %47
   %72 = load ptr, ptr @MainLWLockArray, align 8
@@ -5541,7 +5541,7 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i64, i64 8
   %112 = load ptr, ptr %111, align 8
   %.not17.i66 = icmp eq ptr %112, %97
-  br i1 %.not17.i66, label %.loopexit, label %.lr.ph.i63, !llvm.loop !41
+  br i1 %.not17.i66, label %.loopexit, label %.lr.ph.i63, !llvm.loop !45
 
 .loopexit:                                        ; preds = %110, %102, %96, %92, %88
   tail call fastcc void @FlagRWConflict(ptr noundef %25, ptr noundef %90)
@@ -5559,7 +5559,7 @@ RWConflictExists.exit67:                          ; preds = %.lr.ph.i63, %.loope
 RWConflictExists.exit:                            ; preds = %.lr.ph.i, %34, %40, %RWConflictExists.exit67, %28, %30, %33
   %.1 = phi ptr [ %.04376, %28 ], [ %23, %33 ], [ %.04376, %30 ], [ %.04376, %34 ], [ %.04376, %RWConflictExists.exit67 ], [ %.04376, %40 ], [ %.04376, %.lr.ph.i ]
   %.not49 = icmp eq ptr %.sroa.8.077, %18
-  br i1 %.not49, label %._crit_edge, label %22, !llvm.loop !45
+  br i1 %.not49, label %._crit_edge, label %22, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %RWConflictExists.exit, %14
   %.043.lcssa = phi ptr [ null, %14 ], [ %.1, %RWConflictExists.exit ]
@@ -5709,7 +5709,7 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %25, i32 noundef 1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %27, label %22, !llvm.loop !46
+  br i1 %exitcond.not, label %27, label %22, !llvm.loop !50
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @MainLWLockArray, align 8
@@ -5726,12 +5726,12 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %.not27 = icmp eq i32 %35, %10
-  br i1 %.not27, label %36, label %.loopexit37, !llvm.loop !47
+  br i1 %.not27, label %36, label %.loopexit37, !llvm.loop !51
 
 36:                                               ; preds = %.lr.ph45
   %37 = load i32, ptr %33, align 8
   %.not28 = icmp eq i32 %37, %18
-  br i1 %.not28, label %38, label %.loopexit37, !llvm.loop !47
+  br i1 %.not28, label %38, label %.loopexit37, !llvm.loop !51
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -5799,7 +5799,7 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not17.i = icmp eq ptr %69, %54
-  br i1 %.not17.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not17.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !45
 
 .loopexit:                                        ; preds = %67, %59, %53, %49, %45
   call fastcc void @FlagRWConflict(ptr noundef %44, ptr noundef %42)
@@ -5809,12 +5809,12 @@ SerializationNeededForWrite.exit:                 ; preds = %8
 RWConflictExists.exit:                            ; preds = %.lr.ph.i, %.loopexit, %.lr.ph
   %70 = phi ptr [ %.pre, %.loopexit ], [ %42, %.lr.ph ], [ %42, %.lr.ph.i ]
   %.not30 = icmp eq ptr %.sroa.8.043, %39
-  br i1 %.not30, label %.loopexit37, label %.lr.ph, !llvm.loop !48
+  br i1 %.not30, label %.loopexit37, label %.lr.ph, !llvm.loop !52
 
 .loopexit37:                                      ; preds = %RWConflictExists.exit, %38, %36, %.lr.ph45
   %71 = call ptr @hash_seq_search(ptr noundef nonnull %2) #12
   %.not26 = icmp eq ptr %71, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph45
+  br i1 %.not26, label %._crit_edge, label %.lr.ph45, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.loopexit37, %27
   %72 = load ptr, ptr @MainLWLockArray, align 8
@@ -5830,7 +5830,7 @@ RWConflictExists.exit:                            ; preds = %.lr.ph.i, %.loopexi
   call void @LWLockRelease(ptr noundef nonnull %77) #12
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
   %.not53 = icmp eq i64 %indvars.iv48, 0
-  br i1 %.not53, label %78, label %74, !llvm.loop !49
+  br i1 %.not53, label %78, label %74, !llvm.loop !54
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr @MainLWLockArray, align 8
@@ -5942,13 +5942,13 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not30 = icmp eq ptr %53, %29
-  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !50
+  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 .loopexit:                                        ; preds = %51, %28, %49, %.lr.ph45
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.014.044, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not26 = icmp eq ptr %55, %20
-  br i1 %.not26, label %._crit_edge, label %.lr.ph45, !llvm.loop !51
+  br i1 %.not26, label %._crit_edge, label %.lr.ph45, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.loopexit, %19
   %56 = load ptr, ptr @PredXact, align 8
@@ -6010,7 +6010,7 @@ define dso_local void @AtPrepare_PredicateLocks() local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not11 = icmp eq ptr %20, %14
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %21 = load ptr, ptr @MainLWLockArray, align 8
@@ -6546,7 +6546,7 @@ define internal fastcc void @DecrementParentLocks(ptr noundef nonnull readonly c
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %6
 
-6:                                                ; preds = %.backedge, %1
+6:                                                ; preds = %32, %1
   %7 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %.thread.i
@@ -6576,7 +6576,7 @@ define internal fastcc void @DecrementParentLocks(ptr noundef nonnull readonly c
   %17 = load ptr, ptr @LocalPredicateLockHash, align 8
   %18 = call ptr @hash_search_with_hash_value(ptr noundef %17, ptr noundef nonnull %2, i32 noundef %16, i32 noundef 0, ptr noundef null) #12
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.backedge, label %20
+  br i1 %19, label %32, label %20, !llvm.loop !58
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 20
@@ -6585,21 +6585,21 @@ define internal fastcc void @DecrementParentLocks(ptr noundef nonnull readonly c
   %spec.select = call i32 @llvm.smax.i32(i32 %23, i32 0)
   store i32 %spec.select, ptr %21, align 4
   %24 = icmp slt i32 %23, 1
-  br i1 %24, label %25, label %.backedge
-
-.backedge:                                        ; preds = %20, %25, %29, %14
-  br label %6, !llvm.loop !53
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %27 = load i8, ptr %26, align 4, !range !4, !noundef !5
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %.backedge, label %29
+  br i1 %28, label %32, label %29
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr @LocalPredicateLockHash, align 8
   %31 = call ptr @hash_search_with_hash_value(ptr noundef %30, ptr noundef nonnull %2, i32 noundef %16, i32 noundef 2, ptr noundef null) #12
-  br label %.backedge
+  br label %32
+
+32:                                               ; preds = %20, %25, %29, %14
+  br label %6, !llvm.loop !59
 
 GetParentPredicateLockTag.exit:                   ; preds = %8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
@@ -6647,51 +6647,57 @@ attributes #13 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
 !24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7, !35}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8, !39}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
 !51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7}
+!59 = distinct !{!59, !8}

@@ -827,7 +827,7 @@ define internal noundef i32 @aes_cfb1_cipher(ptr noundef %0, ptr noundef %1, ptr
   %29 = getelementptr inbounds nuw i8, ptr %.03438, i64 1152921504606846976
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   %30 = icmp ugt i64 %27, 1152921504606846975
-  br i1 %30, label %21, label %._crit_edge, !llvm.loop !13
+  br i1 %30, label %21, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %.035.lcssa = phi ptr [ %1, %.preheader ], [ %28, %21 ]
@@ -947,34 +947,34 @@ define internal range(i32 0, 2) i32 @aesni_gcm_init_key(ptr noundef %0, ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 256
   tail call void @CRYPTO_gcm128_init(ptr noundef nonnull %15, ptr noundef %5, ptr noundef nonnull @aesni_encrypt) #8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  store ptr @aesni_ctr32_encrypt_blocks, ptr %16, align 8, !tbaa !14
+  store ptr @aesni_ctr32_encrypt_blocks, ptr %16, align 8, !tbaa !15
   br i1 %6, label %17, label %.thread42
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  %19 = load i32, ptr %18, align 4, !tbaa !20
+  %19 = load i32, ptr %18, align 4, !tbaa !21
   %.not38 = icmp eq i32 %19, 0
   br i1 %.not38, label %.thread46, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %22 = load ptr, ptr %21, align 8, !tbaa !21
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
   %.not39 = icmp eq ptr %22, null
   br i1 %.not39, label %.thread46, label %.thread42
 
 .thread42:                                        ; preds = %12, %20
   %.03345 = phi ptr [ %22, %20 ], [ %2, %12 ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %24 = load i32, ptr %23, align 8, !tbaa !22
+  %24 = load i32, ptr %23, align 8, !tbaa !23
   %25 = sext i32 %24 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %15, ptr noundef nonnull %.03345, i64 noundef %25) #8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 1, ptr %26, align 4, !tbaa !20
+  store i32 1, ptr %26, align 4, !tbaa !21
   br label %.thread46
 
 .thread46:                                        ; preds = %20, %.thread42, %17
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store i32 1, ptr %27, align 8, !tbaa !23
+  store i32 1, ptr %27, align 8, !tbaa !24
   br label %46
 
 28:                                               ; preds = %9
@@ -985,32 +985,32 @@ define internal range(i32 0, 2) i32 @aesni_gcm_init_key(ptr noundef %0, ptr noun
 
 29:                                               ; preds = %8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %31 = load i32, ptr %30, align 8, !tbaa !23
+  %31 = load i32, ptr %30, align 8, !tbaa !24
   %.not37 = icmp eq i32 %31, 0
   br i1 %.not37, label %37, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %35 = load i32, ptr %34, align 8, !tbaa !22
+  %35 = load i32, ptr %34, align 8, !tbaa !23
   %36 = sext i32 %35 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %33, ptr noundef %2, i64 noundef %36) #8
   br label %43
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %39 = load ptr, ptr %38, align 8, !tbaa !21
+  %39 = load ptr, ptr %38, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %41 = load i32, ptr %40, align 8, !tbaa !22
+  %41 = load i32, ptr %40, align 8, !tbaa !23
   %42 = sext i32 %41 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %2, i64 %42, i1 false)
   br label %43
 
 43:                                               ; preds = %37, %32
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 1, ptr %44, align 4, !tbaa !20
+  store i32 1, ptr %44, align 4, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  store i32 0, ptr %45, align 8, !tbaa !24
+  store i32 0, ptr %45, align 8, !tbaa !25
   br label %46
 
 46:                                               ; preds = %43, %.thread46, %28, %4
@@ -1022,13 +1022,13 @@ define internal range(i32 0, 2) i32 @aesni_gcm_init_key(ptr noundef %0, ptr noun
 define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %7 = load i32, ptr %6, align 8, !tbaa !23
+  %7 = load i32, ptr %6, align 8, !tbaa !24
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.critedge139, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 728
-  %10 = load i32, ptr %9, align 8, !tbaa !25
+  %10 = load i32, ptr %9, align 8, !tbaa !26
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %107
 
@@ -1046,9 +1046,9 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 736
-  %20 = load i64, ptr %19, align 8, !tbaa !26
+  %20 = load i64, ptr %19, align 8, !tbaa !27
   %21 = add i64 %20, 1
-  store i64 %21, ptr %19, align 8, !tbaa !26
+  store i64 %21, ptr %19, align 8, !tbaa !27
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %24
 
@@ -1070,7 +1070,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 256
   %31 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %0) #8
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 728
-  %33 = load i32, ptr %32, align 8, !tbaa !25
+  %33 = load i32, ptr %32, align 8, !tbaa !26
   %34 = sext i32 %33 to i64
   %35 = tail call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %30, ptr noundef %31, i64 noundef %34) #8
   %.not106.i = icmp eq i32 %35, 0
@@ -1083,7 +1083,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %40 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
   %.not107.i = icmp eq i32 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 744
-  %42 = load ptr, ptr %41, align 8, !tbaa !14
+  %42 = load ptr, ptr %41, align 8, !tbaa !15
   %.not108.i = icmp eq ptr %42, null
   br i1 %.not107.i, label %71, label %43
 
@@ -1098,7 +1098,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 616
-  %49 = load ptr, ptr %48, align 8, !tbaa !27
+  %49 = load ptr, ptr %48, align 8, !tbaa !28
   %50 = icmp eq ptr %49, @gcm_ghash_avx
   br i1 %50, label %51, label %61
 
@@ -1109,14 +1109,14 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 648
-  %55 = load ptr, ptr %54, align 8, !tbaa !28
+  %55 = load ptr, ptr %54, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 320
   %57 = tail call i64 @aesni_gcm_encrypt(ptr noundef nonnull %37, ptr noundef nonnull %38, i64 noundef %39, ptr noundef %55, ptr noundef nonnull %30, ptr noundef nonnull %56) #8
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 312
   %59 = load i64, ptr %58, align 8, !tbaa !10
   %60 = add i64 %59, %57
   store i64 %60, ptr %58, align 8, !tbaa !10
-  %.pre.i = load ptr, ptr %41, align 8, !tbaa !14
+  %.pre.i = load ptr, ptr %41, align 8, !tbaa !15
   br label %61
 
 61:                                               ; preds = %53, %47, %44
@@ -1151,7 +1151,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 616
-  %77 = load ptr, ptr %76, align 8, !tbaa !27
+  %77 = load ptr, ptr %76, align 8, !tbaa !28
   %78 = icmp eq ptr %77, @gcm_ghash_avx
   br i1 %78, label %79, label %89
 
@@ -1162,14 +1162,14 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 648
-  %83 = load ptr, ptr %82, align 8, !tbaa !28
+  %83 = load ptr, ptr %82, align 8, !tbaa !29
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 320
   %85 = tail call i64 @aesni_gcm_decrypt(ptr noundef nonnull %37, ptr noundef nonnull %38, i64 noundef %39, ptr noundef %83, ptr noundef nonnull %30, ptr noundef nonnull %84) #8
   %86 = getelementptr inbounds nuw i8, ptr %13, i64 312
   %87 = load i64, ptr %86, align 8, !tbaa !10
   %88 = add i64 %87, %85
   store i64 %88, ptr %86, align 8, !tbaa !10
-  %.pre130.i = load ptr, ptr %41, align 8, !tbaa !14
+  %.pre130.i = load ptr, ptr %41, align 8, !tbaa !15
   br label %89
 
 89:                                               ; preds = %81, %75, %72
@@ -1207,14 +1207,14 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 104:                                              ; preds = %102, %101, %95, %89, %.thread123.i, %67, %61, %29, %24, %23
   %.098.i = phi i32 [ -1, %23 ], [ -1, %24 ], [ -1, %29 ], [ %70, %.thread123.i ], [ -1, %67 ], [ -1, %101 ], [ %103, %102 ], [ -1, %95 ], [ -1, %61 ], [ -1, %89 ]
   %105 = getelementptr inbounds nuw i8, ptr %13, i64 252
-  store i32 0, ptr %105, align 4, !tbaa !20
+  store i32 0, ptr %105, align 4, !tbaa !21
   %106 = getelementptr inbounds nuw i8, ptr %13, i64 728
-  store i32 -1, ptr %106, align 8, !tbaa !25
+  store i32 -1, ptr %106, align 8, !tbaa !26
   br label %.critedge139
 
 107:                                              ; preds = %8
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  %109 = load i32, ptr %108, align 4, !tbaa !20
+  %109 = load i32, ptr %108, align 4, !tbaa !21
   %.not125 = icmp eq i32 %109, 0
   br i1 %.not125, label %.critedge139, label %110
 
@@ -1236,7 +1236,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %117 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
   %.not129 = icmp eq i32 %117, 0
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %119 = load ptr, ptr %118, align 8, !tbaa !14
+  %119 = load ptr, ptr %118, align 8, !tbaa !15
   %.not130 = icmp eq ptr %119, null
   br i1 %.not129, label %157, label %120
 
@@ -1252,13 +1252,13 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 616
-  %127 = load ptr, ptr %126, align 8, !tbaa !27
+  %127 = load ptr, ptr %126, align 8, !tbaa !28
   %128 = icmp eq ptr %127, @gcm_ghash_avx
   br i1 %128, label %129, label %.critedge
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 632
-  %131 = load i32, ptr %130, align 8, !tbaa !29
+  %131 = load i32, ptr %130, align 8, !tbaa !30
   %132 = sub i32 0, %131
   %133 = and i32 %132, 15
   %134 = zext nneg i32 %133 to i64
@@ -1271,7 +1271,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 %134
   %139 = sub nuw i64 %3, %134
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  %141 = load ptr, ptr %140, align 8, !tbaa !28
+  %141 = load ptr, ptr %140, align 8, !tbaa !29
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 320
   %143 = tail call i64 @aesni_gcm_encrypt(ptr noundef nonnull %137, ptr noundef nonnull %138, i64 noundef %139, ptr noundef %141, ptr noundef nonnull %125, ptr noundef nonnull %142) #8
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 312
@@ -1279,7 +1279,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %146 = add i64 %145, %143
   store i64 %146, ptr %144, align 8, !tbaa !10
   %147 = add i64 %143, %134
-  %.pre = load ptr, ptr %118, align 8, !tbaa !14
+  %.pre = load ptr, ptr %118, align 8, !tbaa !15
   br label %.critedge
 
 .critedge:                                        ; preds = %136, %124, %121
@@ -1311,13 +1311,13 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 161:                                              ; preds = %158
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %163 = getelementptr inbounds nuw i8, ptr %5, i64 616
-  %164 = load ptr, ptr %163, align 8, !tbaa !27
+  %164 = load ptr, ptr %163, align 8, !tbaa !28
   %165 = icmp eq ptr %164, @gcm_ghash_avx
   br i1 %165, label %166, label %.critedge142
 
 166:                                              ; preds = %161
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 632
-  %168 = load i32, ptr %167, align 8, !tbaa !29
+  %168 = load i32, ptr %167, align 8, !tbaa !30
   %169 = sub i32 0, %168
   %170 = and i32 %169, 15
   %171 = zext nneg i32 %170 to i64
@@ -1330,7 +1330,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 %171
   %176 = sub nuw i64 %3, %171
   %177 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  %178 = load ptr, ptr %177, align 8, !tbaa !28
+  %178 = load ptr, ptr %177, align 8, !tbaa !29
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 320
   %180 = tail call i64 @aesni_gcm_decrypt(ptr noundef nonnull %174, ptr noundef nonnull %175, i64 noundef %176, ptr noundef %178, ptr noundef nonnull %162, ptr noundef nonnull %179) #8
   %181 = getelementptr inbounds nuw i8, ptr %5, i64 312
@@ -1338,7 +1338,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %183 = add i64 %182, %180
   store i64 %183, ptr %181, align 8, !tbaa !10
   %184 = add i64 %180, %171
-  %.pre145 = load ptr, ptr %118, align 8, !tbaa !14
+  %.pre145 = load ptr, ptr %118, align 8, !tbaa !15
   br label %.critedge142
 
 .critedge142:                                     ; preds = %173, %161, %158
@@ -1369,21 +1369,21 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 
 198:                                              ; preds = %196
   %199 = getelementptr inbounds nuw i8, ptr %5, i64 716
-  %200 = load i32, ptr %199, align 4, !tbaa !30
+  %200 = load i32, ptr %199, align 4, !tbaa !31
   %201 = icmp slt i32 %200, 0
   br i1 %201, label %.critedge139, label %202
 
 202:                                              ; preds = %198
   %203 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %204 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %0) #8
-  %205 = load i32, ptr %199, align 4, !tbaa !30
+  %205 = load i32, ptr %199, align 4, !tbaa !31
   %206 = sext i32 %205 to i64
   %207 = tail call i32 @CRYPTO_gcm128_finish(ptr noundef nonnull %203, ptr noundef %204, i64 noundef %206) #8
   %.not128 = icmp eq i32 %207, 0
   br i1 %.not128, label %208, label %.critedge139
 
 208:                                              ; preds = %202
-  store i32 0, ptr %108, align 4, !tbaa !20
+  store i32 0, ptr %108, align 4, !tbaa !21
   br label %.critedge139
 
 209:                                              ; preds = %196
@@ -1391,8 +1391,8 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %211 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %0) #8
   tail call void @CRYPTO_gcm128_tag(ptr noundef nonnull %210, ptr noundef %211, i64 noundef 16) #8
   %212 = getelementptr inbounds nuw i8, ptr %5, i64 716
-  store i32 16, ptr %212, align 4, !tbaa !30
-  store i32 0, ptr %108, align 4, !tbaa !20
+  store i32 16, ptr %212, align 4, !tbaa !31
+  store i32 0, ptr %108, align 4, !tbaa !21
   br label %.critedge139
 
 .critedge139:                                     ; preds = %104, %79, %51, %12, %166, %129, %202, %198, %113, %107, %4, %.critedge, %154, %.critedge142, %191, %209, %208, %194
@@ -1410,7 +1410,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_cleanup(ptr noundef %0) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 256
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 448) #8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 704
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not = icmp eq ptr %7, %8
   br i1 %.not, label %10, label %9
@@ -1442,27 +1442,27 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store i32 0, ptr %7, align 8, !tbaa !23
+  store i32 0, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 0, ptr %8, align 4, !tbaa !20
-  %9 = load ptr, ptr %0, align 8, !tbaa !31
+  store i32 0, ptr %8, align 4, !tbaa !21
+  %9 = load ptr, ptr %0, align 8, !tbaa !32
   %10 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %9) #8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  store i32 %10, ptr %11, align 8, !tbaa !22
+  store i32 %10, ptr %11, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  store ptr %12, ptr %13, align 8, !tbaa !21
+  store ptr %12, ptr %13, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 716
-  store i32 -1, ptr %14, align 4, !tbaa !30
+  store i32 -1, ptr %14, align 4, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  store i32 0, ptr %15, align 8, !tbaa !24
+  store i32 0, ptr %15, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 728
-  store i32 -1, ptr %16, align 8, !tbaa !25
+  store i32 -1, ptr %16, align 8, !tbaa !26
   br label %.thread
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %19 = load i32, ptr %18, align 8, !tbaa !22
+  %19 = load i32, ptr %18, align 8, !tbaa !23
   store i32 %19, ptr %3, align 4, !tbaa !3
   br label %.thread
 
@@ -1476,13 +1476,13 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %26 = load i32, ptr %25, align 8, !tbaa !22
+  %26 = load i32, ptr %25, align 8, !tbaa !23
   %27 = icmp sgt i32 %2, %26
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %30 = load ptr, ptr %29, align 8, !tbaa !21
+  %30 = load ptr, ptr %29, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not144 = icmp eq ptr %30, %31
   br i1 %.not144, label %33, label %32
@@ -1494,13 +1494,13 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
 33:                                               ; preds = %32, %28
   %34 = zext nneg i32 %2 to i64
   %35 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %34, ptr noundef nonnull @.str, i32 noundef 2675) #8
-  store ptr %35, ptr %29, align 8, !tbaa !21
+  store ptr %35, ptr %29, align 8, !tbaa !22
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33, %24, %22
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  store i32 %2, ptr %38, align 8, !tbaa !22
+  store i32 %2, ptr %38, align 8, !tbaa !23
   br label %.thread
 
 39:                                               ; preds = %4
@@ -1510,7 +1510,7 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load i32, ptr %42, align 8, !tbaa !35
+  %43 = load i32, ptr %42, align 8, !tbaa !36
   %.not143 = icmp eq i32 %43, 0
   br i1 %.not143, label %44, label %.thread
 
@@ -1519,7 +1519,7 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
   %46 = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 1 %3, i64 %46, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 716
-  store i32 %2, ptr %47, align 4, !tbaa !30
+  store i32 %2, ptr %47, align 4, !tbaa !31
   br label %.thread
 
 48:                                               ; preds = %4
@@ -1529,13 +1529,13 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !35
+  %52 = load i32, ptr %51, align 8, !tbaa !36
   %.not142 = icmp eq i32 %52, 0
   br i1 %.not142, label %.thread, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 716
-  %55 = load i32, ptr %54, align 4, !tbaa !30
+  %55 = load i32, ptr %54, align 4, !tbaa !31
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %.thread, label %57
 
@@ -1551,13 +1551,13 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %64 = load ptr, ptr %63, align 8, !tbaa !21
+  %64 = load ptr, ptr %63, align 8, !tbaa !22
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %66 = load i32, ptr %65, align 8, !tbaa !22
+  %66 = load i32, ptr %65, align 8, !tbaa !23
   %67 = sext i32 %66 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %3, i64 %67, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  store i32 1, ptr %68, align 8, !tbaa !24
+  store i32 1, ptr %68, align 8, !tbaa !25
   br label %.thread
 
 69:                                               ; preds = %60
@@ -1566,25 +1566,25 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %73 = load i32, ptr %72, align 8, !tbaa !22
+  %73 = load i32, ptr %72, align 8, !tbaa !23
   %74 = sub nsw i32 %73, %2
   %75 = icmp slt i32 %74, 8
   br i1 %75, label %.thread, label %76
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %78 = load ptr, ptr %77, align 8, !tbaa !21
+  %78 = load ptr, ptr %77, align 8, !tbaa !22
   %79 = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr align 1 %3, i64 %79, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8, !tbaa !35
+  %81 = load i32, ptr %80, align 8, !tbaa !36
   %.not141 = icmp eq i32 %81, 0
   br i1 %.not141, label %89, label %82
 
 82:                                               ; preds = %76
-  %83 = load ptr, ptr %77, align 8, !tbaa !21
+  %83 = load ptr, ptr %77, align 8, !tbaa !22
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %79
-  %85 = load i32, ptr %72, align 8, !tbaa !22
+  %85 = load i32, ptr %72, align 8, !tbaa !23
   %86 = sub nsw i32 %85, %2
   %87 = tail call i32 @RAND_bytes(ptr noundef nonnull %84, i32 noundef %86) #8
   %88 = icmp slt i32 %87, 1
@@ -1592,42 +1592,42 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
 
 89:                                               ; preds = %82, %76
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  store i32 1, ptr %90, align 8, !tbaa !24
+  store i32 1, ptr %90, align 8, !tbaa !25
   br label %.thread
 
 91:                                               ; preds = %4
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  %93 = load i32, ptr %92, align 8, !tbaa !24
+  %93 = load i32, ptr %92, align 8, !tbaa !25
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %.thread, label %95
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %97 = load i32, ptr %96, align 8, !tbaa !23
+  %97 = load i32, ptr %96, align 8, !tbaa !24
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %.thread, label %99
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %102 = load ptr, ptr %101, align 8, !tbaa !21
+  %102 = load ptr, ptr %101, align 8, !tbaa !22
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %104 = load i32, ptr %103, align 8, !tbaa !22
+  %104 = load i32, ptr %103, align 8, !tbaa !23
   %105 = sext i32 %104 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %100, ptr noundef %102, i64 noundef %105) #8
   %106 = icmp slt i32 %2, 1
-  %.pre = load i32, ptr %103, align 8, !tbaa !22
+  %.pre = load i32, ptr %103, align 8, !tbaa !23
   %107 = tail call i32 @llvm.smin.i32(i32 %2, i32 %.pre)
   %.0128 = select i1 %106, i32 %.pre, i32 %107
-  %108 = load ptr, ptr %101, align 8, !tbaa !21
+  %108 = load ptr, ptr %101, align 8, !tbaa !22
   %109 = sext i32 %.pre to i64
   %110 = getelementptr inbounds i8, ptr %108, i64 %109
   %111 = sext i32 %.0128 to i64
   %112 = sub nsw i64 0, %111
   %113 = getelementptr inbounds i8, ptr %110, i64 %112
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %113, i64 %111, i1 false)
-  %114 = load ptr, ptr %101, align 8, !tbaa !21
-  %115 = load i32, ptr %103, align 8, !tbaa !22
+  %114 = load ptr, ptr %101, align 8, !tbaa !22
+  %115 = load i32, ptr %103, align 8, !tbaa !23
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i8, ptr %114, i64 %116
   %118 = getelementptr inbounds i8, ptr %117, i64 -8
@@ -1643,36 +1643,36 @@ define internal range(i32 -1, 17) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef 
   %.not.i = icmp ne i8 %122, 0
   %.not9.i = icmp eq i64 %indvars.iv.next.i, 0
   %or.cond.i = or i1 %.not9.i, %.not.i
-  br i1 %or.cond.i, label %ctr64_inc.exit, label %119, !llvm.loop !36
+  br i1 %or.cond.i, label %ctr64_inc.exit, label %119, !llvm.loop !37
 
 ctr64_inc.exit:                                   ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 1, ptr %123, align 4, !tbaa !20
+  store i32 1, ptr %123, align 4, !tbaa !21
   br label %.thread
 
 124:                                              ; preds = %4
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  %126 = load i32, ptr %125, align 8, !tbaa !24
+  %126 = load i32, ptr %125, align 8, !tbaa !25
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %.thread, label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %130 = load i32, ptr %129, align 8, !tbaa !23
+  %130 = load i32, ptr %129, align 8, !tbaa !24
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %.thread, label %132
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %134 = load i32, ptr %133, align 8, !tbaa !35
+  %134 = load i32, ptr %133, align 8, !tbaa !36
   %.not140 = icmp eq i32 %134, 0
   br i1 %.not140, label %135, label %.thread
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %137 = load ptr, ptr %136, align 8, !tbaa !21
+  %137 = load ptr, ptr %136, align 8, !tbaa !22
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %139 = load i32, ptr %138, align 8, !tbaa !22
+  %139 = load i32, ptr %138, align 8, !tbaa !23
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds i8, ptr %137, i64 %140
   %142 = sext i32 %2 to i64
@@ -1680,12 +1680,12 @@ ctr64_inc.exit:                                   ; preds = %119
   %144 = getelementptr inbounds i8, ptr %141, i64 %143
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %144, ptr align 1 %3, i64 %142, i1 false)
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %146 = load ptr, ptr %136, align 8, !tbaa !21
-  %147 = load i32, ptr %138, align 8, !tbaa !22
+  %146 = load ptr, ptr %136, align 8, !tbaa !22
+  %147 = load i32, ptr %138, align 8, !tbaa !23
   %148 = sext i32 %147 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %145, ptr noundef %146, i64 noundef %148) #8
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 1, ptr %149, align 4, !tbaa !20
+  store i32 1, ptr %149, align 4, !tbaa !21
   br label %.thread
 
 150:                                              ; preds = %4
@@ -1696,9 +1696,9 @@ ctr64_inc.exit:                                   ; preds = %119
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %152, ptr noundef nonnull align 1 dereferenceable(13) %3, i64 13, i1 false)
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 728
-  store i32 13, ptr %153, align 8, !tbaa !25
+  store i32 13, ptr %153, align 8, !tbaa !26
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 736
-  store i64 0, ptr %154, align 8, !tbaa !26
+  store i64 0, ptr %154, align 8, !tbaa !27
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 67
   %156 = load i8, ptr %155, align 1, !tbaa !10
   %157 = zext i8 %156 to i32
@@ -1713,7 +1713,7 @@ ctr64_inc.exit:                                   ; preds = %119
 164:                                              ; preds = %151
   %165 = add nsw i32 %162, -8
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %167 = load i32, ptr %166, align 8, !tbaa !35
+  %167 = load i32, ptr %166, align 8, !tbaa !36
   %.not139 = icmp eq i32 %167, 0
   br i1 %.not139, label %168, label %172
 
@@ -1737,7 +1737,7 @@ ctr64_inc.exit:                                   ; preds = %119
 176:                                              ; preds = %4
   %177 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %3) #8
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  %179 = load ptr, ptr %178, align 8, !tbaa !28
+  %179 = load ptr, ptr %178, align 8, !tbaa !29
   %.not = icmp eq ptr %179, null
   br i1 %.not, label %183, label %180
 
@@ -1747,12 +1747,12 @@ ctr64_inc.exit:                                   ; preds = %119
 
 181:                                              ; preds = %180
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 648
-  store ptr %177, ptr %182, align 8, !tbaa !28
+  store ptr %177, ptr %182, align 8, !tbaa !29
   br label %183
 
 183:                                              ; preds = %181, %176
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %185 = load ptr, ptr %184, align 8, !tbaa !21
+  %185 = load ptr, ptr %184, align 8, !tbaa !22
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %187 = icmp eq ptr %185, %186
   br i1 %187, label %188, label %191
@@ -1760,22 +1760,22 @@ ctr64_inc.exit:                                   ; preds = %119
 188:                                              ; preds = %183
   %189 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %190 = getelementptr inbounds nuw i8, ptr %177, i64 704
-  store ptr %189, ptr %190, align 8, !tbaa !21
+  store ptr %189, ptr %190, align 8, !tbaa !22
   br label %.thread
 
 191:                                              ; preds = %183
   %192 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %193 = load i32, ptr %192, align 8, !tbaa !22
+  %193 = load i32, ptr %192, align 8, !tbaa !23
   %194 = sext i32 %193 to i64
   %195 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %194, ptr noundef nonnull @.str, i32 noundef 2775) #8
   %196 = getelementptr inbounds nuw i8, ptr %177, i64 704
-  store ptr %195, ptr %196, align 8, !tbaa !21
+  store ptr %195, ptr %196, align 8, !tbaa !22
   %197 = icmp eq ptr %195, null
   br i1 %197, label %.thread, label %198
 
 198:                                              ; preds = %191
-  %199 = load ptr, ptr %184, align 8, !tbaa !21
-  %200 = load i32, ptr %192, align 8, !tbaa !22
+  %199 = load ptr, ptr %184, align 8, !tbaa !22
+  %200 = load i32, ptr %192, align 8, !tbaa !23
   %201 = sext i32 %200 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr align 1 %199, i64 %201, i1 false)
   br label %.thread
@@ -1852,18 +1852,18 @@ define internal range(i32 0, 2) i32 @aes_gcm_init_key(ptr noundef %0, ptr nounde
   tail call void @CRYPTO_gcm128_init(ptr noundef nonnull %17, ptr noundef %5, ptr noundef nonnull @AES_encrypt) #8
   %.ossl_bsaes_ctr32_encrypt_blocks = select i1 %.not50, ptr null, ptr @ossl_bsaes_ctr32_encrypt_blocks
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  store ptr %.ossl_bsaes_ctr32_encrypt_blocks, ptr %18, align 8, !tbaa !14
+  store ptr %.ossl_bsaes_ctr32_encrypt_blocks, ptr %18, align 8, !tbaa !15
   br i1 %6, label %19, label %.thread55
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  %21 = load i32, ptr %20, align 4, !tbaa !20
+  %21 = load i32, ptr %20, align 4, !tbaa !21
   %.not51 = icmp eq i32 %21, 0
   br i1 %.not51, label %.thread59, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %24 = load ptr, ptr %23, align 8, !tbaa !21
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
   %.not52 = icmp eq ptr %24, null
   br i1 %.not52, label %.thread59, label %.thread55
 
@@ -1871,16 +1871,16 @@ define internal range(i32 0, 2) i32 @aes_gcm_init_key(ptr noundef %0, ptr nounde
   %.04558 = phi ptr [ %24, %22 ], [ %2, %12 ]
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %27 = load i32, ptr %26, align 8, !tbaa !22
+  %27 = load i32, ptr %26, align 8, !tbaa !23
   %28 = sext i32 %27 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %25, ptr noundef nonnull %.04558, i64 noundef %28) #8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 1, ptr %29, align 4, !tbaa !20
+  store i32 1, ptr %29, align 4, !tbaa !21
   br label %.thread59
 
 .thread59:                                        ; preds = %22, %.thread55, %19
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store i32 1, ptr %30, align 8, !tbaa !23
+  store i32 1, ptr %30, align 8, !tbaa !24
   br label %49
 
 31:                                               ; preds = %9
@@ -1891,32 +1891,32 @@ define internal range(i32 0, 2) i32 @aes_gcm_init_key(ptr noundef %0, ptr nounde
 
 32:                                               ; preds = %8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %34 = load i32, ptr %33, align 8, !tbaa !23
+  %34 = load i32, ptr %33, align 8, !tbaa !24
   %.not49 = icmp eq i32 %34, 0
   br i1 %.not49, label %40, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %38 = load i32, ptr %37, align 8, !tbaa !22
+  %38 = load i32, ptr %37, align 8, !tbaa !23
   %39 = sext i32 %38 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %36, ptr noundef %2, i64 noundef %39) #8
   br label %46
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %42 = load ptr, ptr %41, align 8, !tbaa !21
+  %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %44 = load i32, ptr %43, align 8, !tbaa !22
+  %44 = load i32, ptr %43, align 8, !tbaa !23
   %45 = sext i32 %44 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %2, i64 %45, i1 false)
   br label %46
 
 46:                                               ; preds = %40, %35
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 1, ptr %47, align 4, !tbaa !20
+  store i32 1, ptr %47, align 4, !tbaa !21
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  store i32 0, ptr %48, align 8, !tbaa !24
+  store i32 0, ptr %48, align 8, !tbaa !25
   br label %49
 
 49:                                               ; preds = %46, %.thread59, %31, %4
@@ -1968,17 +1968,17 @@ define internal range(i32 0, 2) i32 @aesni_xts_init_key(ptr noundef %0, ptr noun
 22:                                               ; preds = %16
   %23 = tail call i32 @aesni_set_encrypt_key(ptr noundef nonnull %1, i32 noundef %12, ptr noundef %5) #8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  store ptr @aesni_encrypt, ptr %24, align 8, !tbaa !37
+  store ptr @aesni_encrypt, ptr %24, align 8, !tbaa !38
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  store ptr @aesni_xts_encrypt, ptr %25, align 8, !tbaa !40
+  store ptr @aesni_xts_encrypt, ptr %25, align 8, !tbaa !41
   br label %29
 
 .critedge:                                        ; preds = %15
   %26 = tail call i32 @aesni_set_decrypt_key(ptr noundef nonnull %1, i32 noundef %12, ptr noundef %5) #8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  store ptr @aesni_decrypt, ptr %27, align 8, !tbaa !37
+  store ptr @aesni_decrypt, ptr %27, align 8, !tbaa !38
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  store ptr @aesni_xts_decrypt, ptr %28, align 8, !tbaa !40
+  store ptr @aesni_xts_decrypt, ptr %28, align 8, !tbaa !41
   %.pre = zext nneg i32 %11 to i64
   br label %29
 
@@ -1989,8 +1989,8 @@ define internal range(i32 0, 2) i32 @aesni_xts_init_key(ptr noundef %0, ptr noun
   %32 = tail call i32 @aesni_set_encrypt_key(ptr noundef nonnull %30, i32 noundef %12, ptr noundef nonnull %31) #8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 496
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 520
-  store ptr @aesni_encrypt, ptr %34, align 8, !tbaa !41
-  store ptr %5, ptr %33, align 8, !tbaa !42
+  store ptr @aesni_encrypt, ptr %34, align 8, !tbaa !42
+  store ptr %5, ptr %33, align 8, !tbaa !43
   br label %35
 
 35:                                               ; preds = %29, %8
@@ -1999,7 +1999,7 @@ define internal range(i32 0, 2) i32 @aesni_xts_init_key(ptr noundef %0, ptr noun
 36:                                               ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 504
-  store ptr %37, ptr %38, align 8, !tbaa !43
+  store ptr %37, ptr %38, align 8, !tbaa !44
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
   br label %.critedge44
@@ -2013,13 +2013,13 @@ define internal range(i32 0, 2) i32 @aesni_xts_init_key(ptr noundef %0, ptr noun
 define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  %7 = load ptr, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = icmp eq ptr %7, null
   br i1 %8, label %28, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 504
-  %11 = load ptr, ptr %10, align 8, !tbaa !43
+  %11 = load ptr, ptr %10, align 8, !tbaa !44
   %12 = icmp eq ptr %11, null
   %13 = icmp eq ptr %1, null
   %or.cond = or i1 %13, %12
@@ -2041,7 +2041,7 @@ define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef %0, ptr noundef 
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  %21 = load ptr, ptr %20, align 8, !tbaa !40
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
   %.not = icmp eq ptr %21, null
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %.not, label %24, label %23
@@ -2075,7 +2075,7 @@ define internal range(i32 -1, 2) i32 @aes_xts_ctrl(ptr noundef %0, i32 noundef %
 6:                                                ; preds = %4
   %7 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %3) #8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  %9 = load ptr, ptr %8, align 8, !tbaa !42
+  %9 = load ptr, ptr %8, align 8, !tbaa !43
   %.not20 = icmp eq ptr %9, null
   br i1 %.not20, label %13, label %10
 
@@ -2085,12 +2085,12 @@ define internal range(i32 -1, 2) i32 @aes_xts_ctrl(ptr noundef %0, i32 noundef %
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 496
-  store ptr %7, ptr %12, align 8, !tbaa !42
+  store ptr %7, ptr %12, align 8, !tbaa !43
   br label %13
 
 13:                                               ; preds = %11, %6
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 504
-  %15 = load ptr, ptr %14, align 8, !tbaa !43
+  %15 = load ptr, ptr %14, align 8, !tbaa !44
   %.not22 = icmp eq ptr %15, null
   br i1 %.not22, label %23, label %16
 
@@ -2102,7 +2102,7 @@ define internal range(i32 -1, 2) i32 @aes_xts_ctrl(ptr noundef %0, i32 noundef %
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 504
-  store ptr %19, ptr %20, align 8, !tbaa !43
+  store ptr %19, ptr %20, align 8, !tbaa !44
   br label %23
 
 21:                                               ; preds = %4
@@ -2164,7 +2164,7 @@ define internal range(i32 0, 2) i32 @aes_xts_init_key(ptr noundef %0, ptr nounde
 
 22:                                               ; preds = %16, %15
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  store ptr null, ptr %23, align 8, !tbaa !40
+  store ptr null, ptr %23, align 8, !tbaa !41
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !3
   %25 = and i32 %24, 512
   %.not59 = icmp eq i32 %25, 0
@@ -2172,7 +2172,7 @@ define internal range(i32 0, 2) i32 @aes_xts_init_key(ptr noundef %0, ptr nounde
 
 26:                                               ; preds = %22
   %27 = select i1 %.not58, ptr @ossl_bsaes_xts_decrypt, ptr @ossl_bsaes_xts_encrypt
-  store ptr %27, ptr %23, align 8, !tbaa !40
+  store ptr %27, ptr %23, align 8, !tbaa !41
   br label %28
 
 28:                                               ; preds = %22, %26
@@ -2189,15 +2189,15 @@ define internal range(i32 0, 2) i32 @aes_xts_init_key(ptr noundef %0, ptr nounde
 33:                                               ; preds = %29, %31
   %AES_encrypt.sink = phi ptr [ @AES_decrypt, %31 ], [ @AES_encrypt, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  store ptr %AES_encrypt.sink, ptr %34, align 8, !tbaa !37
+  store ptr %AES_encrypt.sink, ptr %34, align 8, !tbaa !38
   %35 = zext nneg i32 %11 to i64
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %38 = tail call i32 @AES_set_encrypt_key(ptr noundef nonnull %36, i32 noundef %12, ptr noundef nonnull %37) #8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 496
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 520
-  store ptr @AES_encrypt, ptr %40, align 8, !tbaa !41
-  store ptr %5, ptr %39, align 8, !tbaa !42
+  store ptr @AES_encrypt, ptr %40, align 8, !tbaa !42
+  store ptr %5, ptr %39, align 8, !tbaa !43
   br label %41
 
 41:                                               ; preds = %33, %8
@@ -2206,7 +2206,7 @@ define internal range(i32 0, 2) i32 @aes_xts_init_key(ptr noundef %0, ptr nounde
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 504
-  store ptr %43, ptr %44, align 8, !tbaa !43
+  store ptr %43, ptr %44, align 8, !tbaa !44
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
   br label %.thread
@@ -2241,16 +2241,16 @@ define internal range(i32 0, 2) i32 @aesni_ccm_init_key(ptr noundef %0, ptr noun
   %13 = tail call i32 @aesni_set_encrypt_key(ptr noundef nonnull %1, i32 noundef %12, ptr noundef %5) #8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  %16 = load i32, ptr %15, align 4, !tbaa !44
+  %16 = load i32, ptr %15, align 4, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %18 = load i32, ptr %17, align 8, !tbaa !48
+  %18 = load i32, ptr %17, align 8, !tbaa !49
   tail call void @CRYPTO_ccm128_init(ptr noundef nonnull %14, i32 noundef %16, i32 noundef %18, ptr noundef %5, ptr noundef nonnull @aesni_encrypt) #8
   %.not27 = icmp eq i32 %3, 0
   %19 = select i1 %.not27, ptr @aesni_ccm64_decrypt_blocks, ptr @aesni_ccm64_encrypt_blocks
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 336
-  store ptr %19, ptr %20, align 8, !tbaa !49
+  store ptr %19, ptr %20, align 8, !tbaa !50
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store i32 1, ptr %21, align 8, !tbaa !50
+  store i32 1, ptr %21, align 8, !tbaa !51
   br label %23
 
 22:                                               ; preds = %9
@@ -2265,12 +2265,12 @@ define internal range(i32 0, 2) i32 @aesni_ccm_init_key(ptr noundef %0, ptr noun
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %27 = load i32, ptr %26, align 8, !tbaa !48
+  %27 = load i32, ptr %26, align 8, !tbaa !49
   %28 = sub nsw i32 15, %27
   %29 = sext i32 %28 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %2, i64 %29, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 1, ptr %30, align 4, !tbaa !51
+  store i32 1, ptr %30, align 4, !tbaa !52
   br label %31
 
 31:                                               ; preds = %22, %23, %24, %4
@@ -2285,13 +2285,13 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 248
-  %10 = load i32, ptr %9, align 8, !tbaa !50
+  %10 = load i32, ptr %9, align 8, !tbaa !51
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %aes_ccm_tls_cipher.exit, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  %13 = load i32, ptr %12, align 8, !tbaa !52
+  %13 = load i32, ptr %12, align 8, !tbaa !53
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %83
 
@@ -2303,7 +2303,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 268
-  %20 = load i32, ptr %19, align 4, !tbaa !44
+  %20 = load i32, ptr %19, align 4, !tbaa !45
   %21 = sext i32 %20 to i64
   %22 = add nsw i64 %21, 8
   %23 = icmp ult i64 %3, %22
@@ -2325,12 +2325,12 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load i64, ptr %2, align 1
   store i64 %32, ptr %31, align 1
-  %33 = load i32, ptr %19, align 4, !tbaa !44
+  %33 = load i32, ptr %19, align 4, !tbaa !45
   %34 = add nsw i32 %33, 8
   %35 = sext i32 %34 to i64
   %36 = sub i64 %3, %35
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 264
-  %38 = load i32, ptr %37, align 8, !tbaa !48
+  %38 = load i32, ptr %37, align 8, !tbaa !49
   %39 = sub nsw i32 15, %38
   %40 = sext i32 %39 to i64
   %41 = tail call i32 @CRYPTO_ccm128_setiv(ptr noundef nonnull %17, ptr noundef nonnull %30, i64 noundef %40, i64 noundef %36) #8
@@ -2340,7 +2340,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 42:                                               ; preds = %29
   %43 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef nonnull %0) #8
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 272
-  %45 = load i32, ptr %44, align 8, !tbaa !52
+  %45 = load i32, ptr %44, align 8, !tbaa !53
   %46 = sext i32 %45 to i64
   tail call void @CRYPTO_ccm128_aad(ptr noundef nonnull %17, ptr noundef %43, i64 noundef %46) #8
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2348,7 +2348,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
   %49 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #8
   %.not66.i = icmp eq i32 %49, 0
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 336
-  %51 = load ptr, ptr %50, align 8, !tbaa !49
+  %51 = load ptr, ptr %50, align 8, !tbaa !50
   %.not67.i = icmp eq ptr %51, null
   br i1 %.not66.i, label %67, label %52
 
@@ -2367,14 +2367,14 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 57:                                               ; preds = %55, %53
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 %36
-  %59 = load i32, ptr %19, align 4, !tbaa !44
+  %59 = load i32, ptr %19, align 4, !tbaa !45
   %60 = sext i32 %59 to i64
   %61 = tail call i64 @CRYPTO_ccm128_tag(ptr noundef nonnull %17, ptr noundef nonnull %58, i64 noundef %60) #8
   %.not75.i = icmp eq i64 %61, 0
   br i1 %.not75.i, label %aes_ccm_tls_cipher.exit, label %62
 
 62:                                               ; preds = %57
-  %63 = load i32, ptr %19, align 4, !tbaa !44
+  %63 = load i32, ptr %19, align 4, !tbaa !45
   %64 = trunc i64 %36 to i32
   %65 = add i32 %64, 8
   %66 = add i32 %65, %63
@@ -2395,7 +2395,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 72:                                               ; preds = %70, %68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
-  %73 = load i32, ptr %19, align 4, !tbaa !44
+  %73 = load i32, ptr %19, align 4, !tbaa !45
   %74 = sext i32 %73 to i64
   %75 = call i64 @CRYPTO_ccm128_tag(ptr noundef nonnull %17, ptr noundef nonnull %5, i64 noundef %74) #8
   %.not70.i = icmp eq i64 %75, 0
@@ -2407,7 +2407,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %47, i64 %36
-  %78 = load i32, ptr %19, align 4, !tbaa !44
+  %78 = load i32, ptr %19, align 4, !tbaa !45
   %79 = sext i32 %78 to i64
   %80 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %5, ptr noundef nonnull %77, i64 noundef %79) #8
   %.not71.not.i = icmp eq i32 %80, 0
@@ -2427,7 +2427,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 252
-  %88 = load i32, ptr %87, align 4, !tbaa !51
+  %88 = load i32, ptr %87, align 4, !tbaa !52
   %.not76 = icmp eq i32 %88, 0
   br i1 %.not76, label %aes_ccm_tls_cipher.exit, label %89
 
@@ -2440,7 +2440,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %94 = load i32, ptr %93, align 8, !tbaa !48
+  %94 = load i32, ptr %93, align 8, !tbaa !49
   %95 = sub nsw i32 15, %94
   %96 = sext i32 %95 to i64
   %97 = tail call i32 @CRYPTO_ccm128_setiv(ptr noundef nonnull %8, ptr noundef nonnull %92, i64 noundef %96, i64 noundef %3) #8
@@ -2449,13 +2449,13 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 98:                                               ; preds = %91
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 260
-  store i32 1, ptr %99, align 4, !tbaa !53
+  store i32 1, ptr %99, align 4, !tbaa !54
   %100 = trunc i64 %3 to i32
   br label %aes_ccm_tls_cipher.exit
 
 101:                                              ; preds = %90
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 260
-  %103 = load i32, ptr %102, align 4, !tbaa !53
+  %103 = load i32, ptr %102, align 4, !tbaa !54
   %104 = icmp eq i32 %103, 0
   %105 = icmp ne i64 %3, 0
   %or.cond3 = and i1 %105, %104
@@ -2473,20 +2473,20 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  %112 = load i32, ptr %111, align 8, !tbaa !54
+  %112 = load i32, ptr %111, align 8, !tbaa !55
   %.not80 = icmp eq i32 %112, 0
   br i1 %.not80, label %aes_ccm_tls_cipher.exit, label %113
 
 113:                                              ; preds = %110, %108
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 260
-  %115 = load i32, ptr %114, align 4, !tbaa !53
+  %115 = load i32, ptr %114, align 4, !tbaa !54
   %.not81 = icmp eq i32 %115, 0
   br i1 %.not81, label %116, label %124
 
 116:                                              ; preds = %113
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %119 = load i32, ptr %118, align 8, !tbaa !48
+  %119 = load i32, ptr %118, align 8, !tbaa !49
   %120 = sub nsw i32 15, %119
   %121 = sext i32 %120 to i64
   %122 = tail call i32 @CRYPTO_ccm128_setiv(ptr noundef nonnull %8, ptr noundef nonnull %117, i64 noundef %121, i64 noundef %3) #8
@@ -2494,14 +2494,14 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not82, label %123, label %aes_ccm_tls_cipher.exit
 
 123:                                              ; preds = %116
-  store i32 1, ptr %114, align 4, !tbaa !53
+  store i32 1, ptr %114, align 4, !tbaa !54
   br label %124
 
 124:                                              ; preds = %123, %113
   %125 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
   %.not83 = icmp eq i32 %125, 0
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 336
-  %127 = load ptr, ptr %126, align 8, !tbaa !49
+  %127 = load ptr, ptr %126, align 8, !tbaa !50
   %.not84 = icmp eq ptr %127, null
   br i1 %.not83, label %136, label %128
 
@@ -2520,7 +2520,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 133:                                              ; preds = %131, %129
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  store i32 1, ptr %134, align 8, !tbaa !54
+  store i32 1, ptr %134, align 8, !tbaa !55
   %135 = trunc i64 %3 to i32
   br label %aes_ccm_tls_cipher.exit
 
@@ -2540,7 +2540,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 141:                                              ; preds = %139, %137
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 268
-  %143 = load i32, ptr %142, align 4, !tbaa !44
+  %143 = load i32, ptr %142, align 4, !tbaa !45
   %144 = sext i32 %143 to i64
   %145 = call i64 @CRYPTO_ccm128_tag(ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef %144) #8
   %.not87 = icmp eq i64 %145, 0
@@ -2548,7 +2548,7 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 146:                                              ; preds = %141
   %147 = call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %0) #8
-  %148 = load i32, ptr %142, align 4, !tbaa !44
+  %148 = load i32, ptr %142, align 4, !tbaa !45
   %149 = sext i32 %148 to i64
   %150 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %6, ptr noundef %147, i64 noundef %149) #8
   %.not88 = icmp eq i32 %150, 0
@@ -2570,10 +2570,10 @@ define internal i32 @aes_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 154:                                              ; preds = %.thread, %151
   %.093 = phi i32 [ -1, %.thread ], [ %152, %151 ]
-  store i32 0, ptr %87, align 4, !tbaa !51
+  store i32 0, ptr %87, align 4, !tbaa !52
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  store i32 0, ptr %155, align 8, !tbaa !54
-  store i32 0, ptr %114, align 4, !tbaa !53
+  store i32 0, ptr %155, align 8, !tbaa !55
+  store i32 0, ptr %114, align 4, !tbaa !54
   br label %aes_ccm_tls_cipher.exit
 
 aes_ccm_tls_cipher.exit:                          ; preds = %82, %76, %62, %57, %55, %53, %29, %18, %15, %129, %131, %116, %110, %101, %91, %86, %83, %4, %154, %133, %106, %98
@@ -2598,24 +2598,24 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store i32 0, ptr %7, align 8, !tbaa !50
+  store i32 0, ptr %7, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 0, ptr %8, align 4, !tbaa !51
+  store i32 0, ptr %8, align 4, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  store i32 8, ptr %9, align 8, !tbaa !48
+  store i32 8, ptr %9, align 8, !tbaa !49
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  store i32 12, ptr %10, align 4, !tbaa !44
+  store i32 12, ptr %10, align 4, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  store i32 0, ptr %11, align 8, !tbaa !54
+  store i32 0, ptr %11, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  store i32 0, ptr %12, align 4, !tbaa !53
+  store i32 0, ptr %12, align 4, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  store i32 -1, ptr %13, align 8, !tbaa !52
+  store i32 -1, ptr %13, align 8, !tbaa !53
   br label %99
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %16 = load i32, ptr %15, align 8, !tbaa !48
+  %16 = load i32, ptr %15, align 8, !tbaa !49
   %17 = sub nsw i32 15, %16
   store i32 %17, ptr %3, align 4, !tbaa !3
   br label %99
@@ -2628,7 +2628,7 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %20 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %0) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %20, ptr noundef nonnull align 1 dereferenceable(13) %3, i64 13, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  store i32 13, ptr %21, align 8, !tbaa !52
+  store i32 13, ptr %21, align 8, !tbaa !53
   %22 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %0) #8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 11
   %24 = load i8, ptr %23, align 1, !tbaa !10
@@ -2652,7 +2652,7 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 37:                                               ; preds = %33
   %38 = zext i16 %35 to i32
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  %40 = load i32, ptr %39, align 4, !tbaa !44
+  %40 = load i32, ptr %39, align 4, !tbaa !45
   %41 = icmp sgt i32 %40, %38
   br i1 %41, label %99, label %42
 
@@ -2673,7 +2673,7 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i8 %49, ptr %51, align 1, !tbaa !10
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  %53 = load i32, ptr %52, align 4, !tbaa !44
+  %53 = load i32, ptr %52, align 4, !tbaa !45
   br label %99
 
 54:                                               ; preds = %4
@@ -2698,7 +2698,7 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  store i32 %.079, ptr %63, align 8, !tbaa !48
+  store i32 %.079, ptr %63, align 8, !tbaa !49
   br label %99
 
 64:                                               ; preds = %4
@@ -2721,7 +2721,7 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  store i32 1, ptr %75, align 8, !tbaa !54
+  store i32 1, ptr %75, align 8, !tbaa !55
   %76 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %0) #8
   %77 = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull align 1 %3, i64 %77, i1 false)
@@ -2729,7 +2729,7 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 78:                                               ; preds = %74, %73
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  store i32 %2, ptr %79, align 4, !tbaa !44
+  store i32 %2, ptr %79, align 4, !tbaa !45
   br label %99
 
 80:                                               ; preds = %4
@@ -2739,7 +2739,7 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %84 = load i32, ptr %83, align 8, !tbaa !54
+  %84 = load i32, ptr %83, align 8, !tbaa !55
   %.not91 = icmp eq i32 %84, 0
   br i1 %.not91, label %99, label %85
 
@@ -2751,17 +2751,17 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not92, label %99, label %89
 
 89:                                               ; preds = %85
-  store i32 0, ptr %83, align 8, !tbaa !54
+  store i32 0, ptr %83, align 8, !tbaa !55
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 0, ptr %90, align 4, !tbaa !51
+  store i32 0, ptr %90, align 4, !tbaa !52
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  store i32 0, ptr %91, align 4, !tbaa !53
+  store i32 0, ptr %91, align 4, !tbaa !54
   br label %99
 
 92:                                               ; preds = %4
   %93 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %3) #8
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 328
-  %95 = load ptr, ptr %94, align 8, !tbaa !55
+  %95 = load ptr, ptr %94, align 8, !tbaa !56
   %.not = icmp eq ptr %95, null
   br i1 %.not, label %99, label %96
 
@@ -2771,7 +2771,7 @@ define internal i32 @aes_ccm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 97:                                               ; preds = %96
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 328
-  store ptr %93, ptr %98, align 8, !tbaa !55
+  store ptr %93, ptr %98, align 8, !tbaa !56
   br label %99
 
 99:                                               ; preds = %4, %96, %97, %92, %85, %80, %82, %69, %64, %60, %54, %19, %37, %18, %89, %78, %62, %55, %.critedge, %14, %6
@@ -2843,11 +2843,11 @@ define internal range(i32 0, 2) i32 @aes_ccm_init_key(ptr noundef %0, ptr nounde
 
 .thread.sink.split:                               ; preds = %21, %23
   %AES_encrypt.sink = phi ptr [ @AES_encrypt, %23 ], [ @vpaes_encrypt, %21 ]
-  %26 = load i32, ptr %17, align 4, !tbaa !44
-  %27 = load i32, ptr %18, align 8, !tbaa !48
+  %26 = load i32, ptr %17, align 4, !tbaa !45
+  %27 = load i32, ptr %18, align 8, !tbaa !49
   tail call void @CRYPTO_ccm128_init(ptr noundef nonnull %16, i32 noundef %26, i32 noundef %27, ptr noundef %5, ptr noundef nonnull %AES_encrypt.sink) #8
-  store ptr null, ptr %19, align 8, !tbaa !49
-  store i32 1, ptr %20, align 8, !tbaa !50
+  store ptr null, ptr %19, align 8, !tbaa !50
+  store i32 1, ptr %20, align 8, !tbaa !51
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %8
@@ -2856,12 +2856,12 @@ define internal range(i32 0, 2) i32 @aes_ccm_init_key(ptr noundef %0, ptr nounde
 28:                                               ; preds = %.thread
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %31 = load i32, ptr %30, align 8, !tbaa !48
+  %31 = load i32, ptr %30, align 8, !tbaa !49
   %32 = sub nsw i32 15, %31
   %33 = sext i32 %32 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 1 %2, i64 %33, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  store i32 1, ptr %34, align 4, !tbaa !51
+  store i32 1, ptr %34, align 4, !tbaa !52
   br label %35
 
 35:                                               ; preds = %25, %.thread, %28, %4
@@ -2904,7 +2904,7 @@ define internal range(i32 0, 2) i32 @aes_wrap_init_key(ptr noundef %0, ptr nound
 
 .thread.thread:                                   ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store ptr null, ptr %20, align 8, !tbaa !56
+  store ptr null, ptr %20, align 8, !tbaa !57
   br label %28
 
 21:                                               ; preds = %9
@@ -2926,7 +2926,7 @@ define internal range(i32 0, 2) i32 @aes_wrap_init_key(ptr noundef %0, ptr nound
   %26 = zext nneg i32 %22 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %2, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store ptr %25, ptr %27, align 8, !tbaa !56
+  store ptr %25, ptr %27, align 8, !tbaa !57
   br label %28
 
 28:                                               ; preds = %.thread.thread, %21, %.thread, %24, %.thread.thread31, %4
@@ -2999,7 +2999,7 @@ define internal i32 @aes_wrap_cipher(ptr noundef %0, ptr noundef %1, ptr noundef
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %31 = load ptr, ptr %30, align 8, !tbaa !56
+  %31 = load ptr, ptr %30, align 8, !tbaa !57
   br i1 %7, label %32, label %37
 
 32:                                               ; preds = %29
@@ -3087,23 +3087,23 @@ define internal range(i32 0, 2) i32 @aesni_ocb_init_key(ptr noundef %0, ptr noun
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 500
-  %24 = load i32, ptr %23, align 4, !tbaa !58
+  %24 = load i32, ptr %23, align 4, !tbaa !59
   %.not45 = icmp eq i32 %24, 0
   br i1 %.not45, label %.thread, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 680
-  %27 = load ptr, ptr %26, align 8, !tbaa !62
+  %27 = load ptr, ptr %26, align 8, !tbaa !63
   %.not46 = icmp eq ptr %27, null
   br i1 %.not46, label %.thread, label %.thread50
 
 .thread50:                                        ; preds = %21, %25
   %.03853 = phi ptr [ %27, %25 ], [ %2, %21 ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %29 = load i32, ptr %28, align 8, !tbaa !63
+  %29 = load i32, ptr %28, align 8, !tbaa !64
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  %32 = load i32, ptr %31, align 4, !tbaa !64
+  %32 = load i32, ptr %31, align 4, !tbaa !65
   %33 = sext i32 %32 to i64
   %34 = tail call i32 @CRYPTO_ocb128_setiv(ptr noundef nonnull %18, ptr noundef nonnull %.03853, i64 noundef %30, i64 noundef %33) #8
   %.not47 = icmp eq i32 %34, 1
@@ -3111,43 +3111,43 @@ define internal range(i32 0, 2) i32 @aesni_ocb_init_key(ptr noundef %0, ptr noun
 
 35:                                               ; preds = %.thread50
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 500
-  store i32 1, ptr %36, align 4, !tbaa !58
+  store i32 1, ptr %36, align 4, !tbaa !59
   br label %.thread
 
 .thread:                                          ; preds = %22, %35, %25
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  store i32 1, ptr %37, align 8, !tbaa !65
+  store i32 1, ptr %37, align 8, !tbaa !66
   br label %.critedge
 
 38:                                               ; preds = %8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  %40 = load i32, ptr %39, align 8, !tbaa !65
+  %40 = load i32, ptr %39, align 8, !tbaa !66
   %.not42 = icmp eq i32 %40, 0
   br i1 %.not42, label %50, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 504
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %44 = load i32, ptr %43, align 8, !tbaa !63
+  %44 = load i32, ptr %43, align 8, !tbaa !64
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  %47 = load i32, ptr %46, align 4, !tbaa !64
+  %47 = load i32, ptr %46, align 4, !tbaa !65
   %48 = sext i32 %47 to i64
   %49 = tail call i32 @CRYPTO_ocb128_setiv(ptr noundef nonnull %42, ptr noundef %2, i64 noundef %45, i64 noundef %48) #8
   br label %56
 
 50:                                               ; preds = %38
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 680
-  %52 = load ptr, ptr %51, align 8, !tbaa !62
+  %52 = load ptr, ptr %51, align 8, !tbaa !63
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %54 = load i32, ptr %53, align 8, !tbaa !63
+  %54 = load i32, ptr %53, align 8, !tbaa !64
   %55 = sext i32 %54 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %2, i64 %55, i1 false)
   br label %56
 
 56:                                               ; preds = %50, %41
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 500
-  store i32 1, ptr %57, align 4, !tbaa !58
+  store i32 1, ptr %57, align 4, !tbaa !59
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %13, %.thread50, %56, %.thread, %4
@@ -3159,13 +3159,13 @@ define internal range(i32 0, 2) i32 @aesni_ocb_init_key(ptr noundef %0, ptr noun
 define internal i32 @aes_ocb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 500
-  %7 = load i32, ptr %6, align 4, !tbaa !58
+  %7 = load i32, ptr %6, align 4, !tbaa !59
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  %10 = load i32, ptr %9, align 8, !tbaa !65
+  %10 = load i32, ptr %9, align 8, !tbaa !66
   %.not131 = icmp eq i32 %10, 0
   br i1 %.not131, label %.thread, label %11
 
@@ -3314,7 +3314,7 @@ define internal i32 @aes_ocb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 77:                                               ; preds = %11
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 736
-  %79 = load i32, ptr %78, align 8, !tbaa !66
+  %79 = load i32, ptr %78, align 8, !tbaa !67
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %93
 
@@ -3323,7 +3323,7 @@ define internal i32 @aes_ocb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.not133 = icmp eq i32 %82, 0
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 504
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %85 = load i32, ptr %78, align 8, !tbaa !66
+  %85 = load i32, ptr %78, align 8, !tbaa !67
   %86 = sext i32 %85 to i64
   br i1 %.not133, label %89, label %87
 
@@ -3338,14 +3338,14 @@ define internal i32 @aes_ocb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not134, label %.thread, label %91
 
 91:                                               ; preds = %89, %87
-  %92 = load i32, ptr %78, align 8, !tbaa !66
-  store i32 0, ptr %78, align 8, !tbaa !66
+  %92 = load i32, ptr %78, align 8, !tbaa !67
+  store i32 0, ptr %78, align 8, !tbaa !67
   br label %93
 
 93:                                               ; preds = %91, %77
   %.3 = phi i32 [ %92, %91 ], [ 0, %77 ]
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 740
-  %95 = load i32, ptr %94, align 4, !tbaa !67
+  %95 = load i32, ptr %94, align 4, !tbaa !68
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %97, label %103
 
@@ -3358,7 +3358,7 @@ define internal i32 @aes_ocb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not136, label %.thread, label %102
 
 102:                                              ; preds = %97
-  store i32 0, ptr %94, align 4, !tbaa !67
+  store i32 0, ptr %94, align 4, !tbaa !68
   br label %103
 
 103:                                              ; preds = %102, %93
@@ -3368,7 +3368,7 @@ define internal i32 @aes_ocb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  %107 = load i32, ptr %106, align 4, !tbaa !64
+  %107 = load i32, ptr %106, align 4, !tbaa !65
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %.thread, label %109
 
@@ -3381,7 +3381,7 @@ define internal i32 @aes_ocb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not138, label %114, label %.thread
 
 114:                                              ; preds = %109
-  store i32 0, ptr %6, align 4, !tbaa !58
+  store i32 0, ptr %6, align 4, !tbaa !59
   br label %.thread
 
 115:                                              ; preds = %103
@@ -3392,7 +3392,7 @@ define internal i32 @aes_ocb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not139, label %119, label %.thread
 
 119:                                              ; preds = %115
-  store i32 0, ptr %6, align 4, !tbaa !58
+  store i32 0, ptr %6, align 4, !tbaa !59
   br label %.thread
 
 .thread:                                          ; preds = %50, %48, %42, %35, %115, %109, %105, %97, %89, %87, %74, %75, %68, %66, %58, %8, %4, %119, %114, %25
@@ -3422,27 +3422,27 @@ define internal i32 @aes_ocb_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  store i32 0, ptr %7, align 8, !tbaa !65
+  store i32 0, ptr %7, align 8, !tbaa !66
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 500
-  store i32 0, ptr %8, align 4, !tbaa !58
-  %9 = load ptr, ptr %0, align 8, !tbaa !31
+  store i32 0, ptr %8, align 4, !tbaa !59
+  %9 = load ptr, ptr %0, align 8, !tbaa !32
   %10 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %9) #8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  store i32 %10, ptr %11, align 8, !tbaa !63
+  store i32 %10, ptr %11, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 680
-  store ptr %12, ptr %13, align 8, !tbaa !62
+  store ptr %12, ptr %13, align 8, !tbaa !63
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  store i32 16, ptr %14, align 4, !tbaa !64
+  store i32 16, ptr %14, align 4, !tbaa !65
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 736
-  store i32 0, ptr %15, align 8, !tbaa !66
+  store i32 0, ptr %15, align 8, !tbaa !67
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 740
-  store i32 0, ptr %16, align 4, !tbaa !67
+  store i32 0, ptr %16, align 4, !tbaa !68
   br label %51
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %19 = load i32, ptr %18, align 8, !tbaa !63
+  %19 = load i32, ptr %18, align 8, !tbaa !64
   store i32 %19, ptr %3, align 4, !tbaa !3
   br label %51
 
@@ -3453,7 +3453,7 @@ define internal i32 @aes_ocb_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  store i32 %2, ptr %23, align 8, !tbaa !63
+  store i32 %2, ptr %23, align 8, !tbaa !64
   br label %51
 
 24:                                               ; preds = %4
@@ -3466,12 +3466,12 @@ define internal i32 @aes_ocb_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  store i32 %2, ptr %28, align 4, !tbaa !64
+  store i32 %2, ptr %28, align 4, !tbaa !65
   br label %51
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  %31 = load i32, ptr %30, align 4, !tbaa !64
+  %31 = load i32, ptr %30, align 4, !tbaa !65
   %.not46 = icmp eq i32 %2, %31
   br i1 %.not46, label %32, label %51
 
@@ -3488,7 +3488,7 @@ define internal i32 @aes_ocb_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 37:                                               ; preds = %4
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  %39 = load i32, ptr %38, align 4, !tbaa !64
+  %39 = load i32, ptr %38, align 4, !tbaa !65
   %.not = icmp eq i32 %2, %39
   br i1 %.not, label %40, label %51
 
@@ -3588,13 +3588,13 @@ define internal range(i32 0, 2) i32 @aes_ocb_init_key(ptr noundef %0, ptr nounde
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 500
-  %30 = load i32, ptr %29, align 4, !tbaa !58
+  %30 = load i32, ptr %29, align 4, !tbaa !59
   %.not54 = icmp eq i32 %30, 0
   br i1 %.not54, label %.thread, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 680
-  %33 = load ptr, ptr %32, align 8, !tbaa !62
+  %33 = load ptr, ptr %32, align 8, !tbaa !63
   %.not55 = icmp eq ptr %33, null
   br i1 %.not55, label %.thread, label %.thread59
 
@@ -3602,10 +3602,10 @@ define internal range(i32 0, 2) i32 @aes_ocb_init_key(ptr noundef %0, ptr nounde
   %.04662 = phi ptr [ %33, %31 ], [ %2, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 504
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %36 = load i32, ptr %35, align 8, !tbaa !63
+  %36 = load i32, ptr %35, align 8, !tbaa !64
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  %39 = load i32, ptr %38, align 4, !tbaa !64
+  %39 = load i32, ptr %38, align 4, !tbaa !65
   %40 = sext i32 %39 to i64
   %41 = tail call i32 @CRYPTO_ocb128_setiv(ptr noundef nonnull %34, ptr noundef nonnull %.04662, i64 noundef %37, i64 noundef %40) #8
   %.not56 = icmp eq i32 %41, 1
@@ -3613,43 +3613,43 @@ define internal range(i32 0, 2) i32 @aes_ocb_init_key(ptr noundef %0, ptr nounde
 
 42:                                               ; preds = %.thread59
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 500
-  store i32 1, ptr %43, align 4, !tbaa !58
+  store i32 1, ptr %43, align 4, !tbaa !59
   br label %.thread
 
 .thread:                                          ; preds = %28, %42, %31
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  store i32 1, ptr %44, align 8, !tbaa !65
+  store i32 1, ptr %44, align 8, !tbaa !66
   br label %.critedge
 
 45:                                               ; preds = %8
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  %47 = load i32, ptr %46, align 8, !tbaa !65
+  %47 = load i32, ptr %46, align 8, !tbaa !66
   %.not50 = icmp eq i32 %47, 0
   br i1 %.not50, label %57, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 504
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %51 = load i32, ptr %50, align 8, !tbaa !63
+  %51 = load i32, ptr %50, align 8, !tbaa !64
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  %54 = load i32, ptr %53, align 4, !tbaa !64
+  %54 = load i32, ptr %53, align 4, !tbaa !65
   %55 = sext i32 %54 to i64
   %56 = tail call i32 @CRYPTO_ocb128_setiv(ptr noundef nonnull %49, ptr noundef %2, i64 noundef %52, i64 noundef %55) #8
   br label %63
 
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 680
-  %59 = load ptr, ptr %58, align 8, !tbaa !62
+  %59 = load ptr, ptr %58, align 8, !tbaa !63
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %61 = load i32, ptr %60, align 8, !tbaa !63
+  %61 = load i32, ptr %60, align 8, !tbaa !64
   %62 = sext i32 %61 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 1 %2, i64 %62, i1 false)
   br label %63
 
 63:                                               ; preds = %57, %48
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 500
-  store i32 1, ptr %64, align 4, !tbaa !58
+  store i32 1, ptr %64, align 4, !tbaa !59
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %19, %23, %.thread59, %63, %.thread, %4
@@ -3686,60 +3686,61 @@ attributes #8 = { nounwind }
 !8 = !{!"", !5, i64 0, !9, i64 248, !5, i64 256}
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = !{!15, !9, i64 744}
-!15 = !{!"", !5, i64 0, !4, i64 248, !4, i64 252, !16, i64 256, !18, i64 704, !4, i64 712, !4, i64 716, !4, i64 720, !4, i64 724, !4, i64 728, !19, i64 736, !9, i64 744}
-!16 = !{!"gcm128_context", !5, i64 0, !5, i64 16, !5, i64 32, !5, i64 48, !5, i64 64, !5, i64 80, !5, i64 96, !17, i64 352, !4, i64 376, !4, i64 380, !9, i64 384, !9, i64 392, !5, i64 400}
-!17 = !{!"gcm_funcs_st", !9, i64 0, !9, i64 8, !9, i64 16}
-!18 = !{!"p1 omnipotent char", !9, i64 0}
-!19 = !{!"long", !5, i64 0}
-!20 = !{!15, !4, i64 252}
-!21 = !{!15, !18, i64 704}
-!22 = !{!15, !4, i64 712}
-!23 = !{!15, !4, i64 248}
-!24 = !{!15, !4, i64 720}
-!25 = !{!15, !4, i64 728}
-!26 = !{!15, !19, i64 736}
-!27 = !{!15, !9, i64 616}
-!28 = !{!15, !9, i64 648}
-!29 = !{!15, !4, i64 632}
-!30 = !{!15, !4, i64 716}
-!31 = !{!32, !33, i64 0}
-!32 = !{!"evp_cipher_ctx_st", !33, i64 0, !34, i64 8, !4, i64 16, !4, i64 20, !5, i64 24, !5, i64 40, !5, i64 56, !4, i64 88, !9, i64 96, !4, i64 104, !4, i64 108, !19, i64 112, !9, i64 120, !4, i64 128, !4, i64 132, !5, i64 136, !19, i64 168, !9, i64 176, !33, i64 184}
-!33 = !{!"p1 _ZTS13evp_cipher_st", !9, i64 0}
-!34 = !{!"p1 _ZTS9engine_st", !9, i64 0}
-!35 = !{!32, !4, i64 16}
-!36 = distinct !{!36, !12}
-!37 = !{!38, !9, i64 512}
-!38 = !{!"", !5, i64 0, !5, i64 248, !39, i64 496, !9, i64 528}
-!39 = !{!"xts128_context", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
-!40 = !{!38, !9, i64 528}
-!41 = !{!38, !9, i64 520}
-!42 = !{!38, !9, i64 496}
-!43 = !{!38, !9, i64 504}
-!44 = !{!45, !4, i64 268}
-!45 = !{!"", !5, i64 0, !4, i64 248, !4, i64 252, !4, i64 256, !4, i64 260, !4, i64 264, !4, i64 268, !4, i64 272, !46, i64 280, !9, i64 336}
-!46 = !{!"ccm128_context", !5, i64 0, !5, i64 16, !47, i64 32, !9, i64 40, !9, i64 48}
-!47 = !{!"long long", !5, i64 0}
-!48 = !{!45, !4, i64 264}
-!49 = !{!45, !9, i64 336}
-!50 = !{!45, !4, i64 248}
-!51 = !{!45, !4, i64 252}
-!52 = !{!45, !4, i64 272}
-!53 = !{!45, !4, i64 260}
-!54 = !{!45, !4, i64 256}
-!55 = !{!45, !9, i64 328}
-!56 = !{!57, !18, i64 248}
-!57 = !{!"", !5, i64 0, !18, i64 248}
-!58 = !{!59, !4, i64 500}
-!59 = !{!"", !5, i64 0, !5, i64 248, !4, i64 496, !4, i64 500, !60, i64 504, !18, i64 680, !5, i64 688, !5, i64 704, !5, i64 720, !4, i64 736, !4, i64 740, !4, i64 744, !4, i64 748}
-!60 = !{!"ocb128_context", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !19, i64 40, !19, i64 48, !5, i64 56, !5, i64 72, !9, i64 88, !61, i64 96}
-!61 = !{!"", !47, i64 0, !47, i64 8, !5, i64 16, !5, i64 32, !5, i64 48, !5, i64 64}
-!62 = !{!59, !18, i64 680}
-!63 = !{!59, !4, i64 744}
-!64 = !{!59, !4, i64 748}
-!65 = !{!59, !4, i64 496}
-!66 = !{!59, !4, i64 736}
-!67 = !{!59, !4, i64 740}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = !{!16, !9, i64 744}
+!16 = !{!"", !5, i64 0, !4, i64 248, !4, i64 252, !17, i64 256, !19, i64 704, !4, i64 712, !4, i64 716, !4, i64 720, !4, i64 724, !4, i64 728, !20, i64 736, !9, i64 744}
+!17 = !{!"gcm128_context", !5, i64 0, !5, i64 16, !5, i64 32, !5, i64 48, !5, i64 64, !5, i64 80, !5, i64 96, !18, i64 352, !4, i64 376, !4, i64 380, !9, i64 384, !9, i64 392, !5, i64 400}
+!18 = !{!"gcm_funcs_st", !9, i64 0, !9, i64 8, !9, i64 16}
+!19 = !{!"p1 omnipotent char", !9, i64 0}
+!20 = !{!"long", !5, i64 0}
+!21 = !{!16, !4, i64 252}
+!22 = !{!16, !19, i64 704}
+!23 = !{!16, !4, i64 712}
+!24 = !{!16, !4, i64 248}
+!25 = !{!16, !4, i64 720}
+!26 = !{!16, !4, i64 728}
+!27 = !{!16, !20, i64 736}
+!28 = !{!16, !9, i64 616}
+!29 = !{!16, !9, i64 648}
+!30 = !{!16, !4, i64 632}
+!31 = !{!16, !4, i64 716}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"evp_cipher_ctx_st", !34, i64 0, !35, i64 8, !4, i64 16, !4, i64 20, !5, i64 24, !5, i64 40, !5, i64 56, !4, i64 88, !9, i64 96, !4, i64 104, !4, i64 108, !20, i64 112, !9, i64 120, !4, i64 128, !4, i64 132, !5, i64 136, !20, i64 168, !9, i64 176, !34, i64 184}
+!34 = !{!"p1 _ZTS13evp_cipher_st", !9, i64 0}
+!35 = !{!"p1 _ZTS9engine_st", !9, i64 0}
+!36 = !{!33, !4, i64 16}
+!37 = distinct !{!37, !12, !13}
+!38 = !{!39, !9, i64 512}
+!39 = !{!"", !5, i64 0, !5, i64 248, !40, i64 496, !9, i64 528}
+!40 = !{!"xts128_context", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!41 = !{!39, !9, i64 528}
+!42 = !{!39, !9, i64 520}
+!43 = !{!39, !9, i64 496}
+!44 = !{!39, !9, i64 504}
+!45 = !{!46, !4, i64 268}
+!46 = !{!"", !5, i64 0, !4, i64 248, !4, i64 252, !4, i64 256, !4, i64 260, !4, i64 264, !4, i64 268, !4, i64 272, !47, i64 280, !9, i64 336}
+!47 = !{!"ccm128_context", !5, i64 0, !5, i64 16, !48, i64 32, !9, i64 40, !9, i64 48}
+!48 = !{!"long long", !5, i64 0}
+!49 = !{!46, !4, i64 264}
+!50 = !{!46, !9, i64 336}
+!51 = !{!46, !4, i64 248}
+!52 = !{!46, !4, i64 252}
+!53 = !{!46, !4, i64 272}
+!54 = !{!46, !4, i64 260}
+!55 = !{!46, !4, i64 256}
+!56 = !{!46, !9, i64 328}
+!57 = !{!58, !19, i64 248}
+!58 = !{!"", !5, i64 0, !19, i64 248}
+!59 = !{!60, !4, i64 500}
+!60 = !{!"", !5, i64 0, !5, i64 248, !4, i64 496, !4, i64 500, !61, i64 504, !19, i64 680, !5, i64 688, !5, i64 704, !5, i64 720, !4, i64 736, !4, i64 740, !4, i64 744, !4, i64 748}
+!61 = !{!"ocb128_context", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !20, i64 40, !20, i64 48, !5, i64 56, !5, i64 72, !9, i64 88, !62, i64 96}
+!62 = !{!"", !48, i64 0, !48, i64 8, !5, i64 16, !5, i64 32, !5, i64 48, !5, i64 64}
+!63 = !{!60, !19, i64 680}
+!64 = !{!60, !4, i64 744}
+!65 = !{!60, !4, i64 748}
+!66 = !{!60, !4, i64 496}
+!67 = !{!60, !4, i64 736}
+!68 = !{!60, !4, i64 740}

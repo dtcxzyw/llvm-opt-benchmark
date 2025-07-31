@@ -580,9 +580,9 @@ define internal i64 @ossl_ts_resp_get_tsa_certificate(i64 noundef %0) #0 {
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef 0) #7
   %13 = tail call ptr @PKCS7_cert_from_signer_info(ptr noundef nonnull %6, ptr noundef %12) #7
   %.not12 = icmp eq ptr %13, null
@@ -611,7 +611,7 @@ define internal i64 @ossl_ts_resp_to_der(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  %7 = tail call i32 @i2d_TS_RESP(ptr noundef nonnull %3, ptr noundef null) #7, !callees !30
+  %7 = tail call i32 @i2d_TS_RESP(ptr noundef nonnull %3, ptr noundef null) #7, !callees !31
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %9, label %11
 
@@ -622,9 +622,9 @@ define internal i64 @ossl_ts_resp_to_der(i64 noundef %0) #0 {
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %7 to i64
-  %13 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %12) #7, !callees !31
+  %13 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %12) #7, !callees !32
   %14 = inttoptr i64 %13 to ptr
-  %15 = load i64, ptr %14, align 8, !tbaa !32, !noalias !33
+  %15 = load i64, ptr %14, align 8, !tbaa !33, !noalias !34
   %16 = and i64 %15, 8192
   %.not.i.i.i = icmp eq i64 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -636,8 +636,8 @@ define internal i64 @ossl_ts_resp_to_der(i64 noundef %0) #0 {
 
 RSTRING_PTR.exit.i:                               ; preds = %18, %11
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %18 ], [ %17, %11 ]
-  store ptr %.sroa.2.0.i.i, ptr %2, align 8, !tbaa !36
-  %19 = call i32 @i2d_TS_RESP(ptr noundef nonnull %3, ptr noundef nonnull %2) #7, !callees !30
+  store ptr %.sroa.2.0.i.i, ptr %2, align 8, !tbaa !37
+  %19 = call i32 @i2d_TS_RESP(ptr noundef nonnull %3, ptr noundef nonnull %2) #7, !callees !31
   %20 = icmp slt i32 %19, 1
   br i1 %20, label %21, label %23
 
@@ -647,8 +647,8 @@ RSTRING_PTR.exit.i:                               ; preds = %18, %11
   unreachable
 
 23:                                               ; preds = %RSTRING_PTR.exit.i
-  %24 = load ptr, ptr %2, align 8, !tbaa !36
-  %25 = load i64, ptr %14, align 8, !tbaa !32, !noalias !38
+  %24 = load ptr, ptr %2, align 8, !tbaa !37
+  %25 = load i64, ptr %14, align 8, !tbaa !33, !noalias !39
   %26 = and i64 %25, 8192
   %.not.i.i9.i = icmp eq i64 %26, 0
   br i1 %.not.i.i9.i, label %asn1_to_der.exit, label %27
@@ -716,11 +716,11 @@ define internal noundef i64 @ossl_ts_resp_verify(i32 noundef %0, ptr noundef rea
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
-  store ptr %4, ptr %8, align 8, !tbaa !41
+  store ptr %4, ptr %8, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %5, ptr %9, align 8, !tbaa !41
+  store ptr %5, ptr %9, align 8, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %6, ptr %10, align 8, !tbaa !41
+  store ptr %6, ptr %10, align 8, !tbaa !42
   %11 = icmp slt i32 %0, 2
   br i1 %11, label %22, label %.preheader48
 
@@ -728,7 +728,7 @@ define internal noundef i64 @ossl_ts_resp_verify(i32 noundef %0, ptr noundef rea
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %13 = load ptr, ptr %12, align 8, !tbaa !42
   %.not109.i = icmp eq ptr %13, null
   br i1 %.not109.i, label %17, label %14
 
@@ -740,7 +740,7 @@ define internal noundef i64 @ossl_ts_resp_verify(i32 noundef %0, ptr noundef rea
 
 17:                                               ; preds = %14, %.preheader48
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %.preheader47, label %.preheader48, !llvm.loop !43
+  br i1 %exitcond.not, label %.preheader47, label %.preheader48, !llvm.loop !44
 
 .preheader47:                                     ; preds = %17
   %.not63 = icmp eq i32 %0, 2
@@ -801,13 +801,13 @@ rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.ex
 
 40:                                               ; preds = %37
   %41 = call ptr @ossl_protect_x509_ary2sk(i64 noundef %38, ptr noundef nonnull %7) #7
-  %42 = load i32, ptr %7, align 4, !tbaa !44
+  %42 = load i32, ptr %7, align 4, !tbaa !45
   %.not41 = icmp eq i32 %42, 0
   br i1 %.not41, label %49, label %43
 
 43:                                               ; preds = %40
   call void @TS_VERIFY_CTX_free(ptr noundef nonnull %34) #7
-  %44 = load i32, ptr %7, align 4, !tbaa !44
+  %44 = load i32, ptr %7, align 4, !tbaa !45
   call void @rb_jump_tag(i32 noundef %44) #8
   unreachable
 
@@ -830,9 +830,9 @@ rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.ex
 
 .preheader:                                       ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !21
+  %52 = load ptr, ptr %51, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !46
+  %54 = load ptr, ptr %53, align 8, !tbaa !47
   %55 = call i32 @OPENSSL_sk_num(ptr noundef %54) #7
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph, label %._crit_edge
@@ -846,9 +846,9 @@ rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.ex
 
 .lr.ph:                                           ; preds = %.preheader, %66
   %.03354 = phi i32 [ %68, %66 ], [ 0, %.preheader ]
-  %59 = load ptr, ptr %51, align 8, !tbaa !21
+  %59 = load ptr, ptr %51, align 8, !tbaa !22
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !46
+  %61 = load ptr, ptr %60, align 8, !tbaa !47
   %62 = call ptr @OPENSSL_sk_value(ptr noundef %61, i32 noundef %.03354) #7
   %63 = call i32 @OPENSSL_sk_push(ptr noundef %.0, ptr noundef %62) #7
   %.not46 = icmp eq i32 %63, 0
@@ -864,12 +864,12 @@ rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.ex
 66:                                               ; preds = %.lr.ph
   %67 = call i32 @X509_up_ref(ptr noundef %62) #7
   %68 = add nuw nsw i32 %.03354, 1
-  %69 = load ptr, ptr %51, align 8, !tbaa !21
+  %69 = load ptr, ptr %51, align 8, !tbaa !22
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !46
+  %71 = load ptr, ptr %70, align 8, !tbaa !47
   %72 = call i32 @OPENSSL_sk_num(ptr noundef %71) #7
   %73 = icmp slt i32 %68, %72
-  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %66, %.preheader
   %74 = call i32 @X509_STORE_up_ref(ptr noundef %33) #7
@@ -932,14 +932,14 @@ define internal noundef i64 @ossl_ts_token_info_initialize(i64 noundef returned 
   %5 = inttoptr i64 %0 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  store ptr %7, ptr %4, align 8, !tbaa !48
+  store ptr %7, ptr %4, align 8, !tbaa !49
   %8 = tail call i64 @ossl_to_der_if_possible(i64 noundef %1) #7
   store i64 %8, ptr %3, align 8, !tbaa !6
   %9 = call ptr @ossl_obj2bio(ptr noundef nonnull %3) #7
   %10 = call ptr @d2i_TS_TST_INFO_bio(ptr noundef %9, ptr noundef nonnull %4) #7
-  store ptr %10, ptr %4, align 8, !tbaa !48
+  store ptr %10, ptr %4, align 8, !tbaa !49
   %11 = call i32 @BIO_free(ptr noundef %9) #7
-  %12 = load ptr, ptr %4, align 8, !tbaa !48
+  %12 = load ptr, ptr %4, align 8, !tbaa !49
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %15
 
@@ -1020,7 +1020,7 @@ define internal i64 @ossl_ts_token_info_get_algorithm(i64 noundef %0) #0 {
   %7 = tail call ptr @TS_TST_INFO_get_msg_imprint(ptr noundef nonnull %3) #7
   %8 = tail call ptr @TS_MSG_IMPRINT_get_algo(ptr noundef %7) #7
   call void @X509_ALGOR_get0(ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef %8) #7
-  %9 = load ptr, ptr %2, align 8, !tbaa !50
+  %9 = load ptr, ptr %2, align 8, !tbaa !51
   %10 = call fastcc i64 @get_asn1obj(ptr noundef %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   ret i64 %10
@@ -1041,8 +1041,8 @@ define internal i64 @ossl_ts_token_info_get_msg_imprint(i64 noundef %0) #0 {
   %6 = tail call ptr @TS_TST_INFO_get_msg_imprint(ptr noundef nonnull %2) #7
   %7 = tail call ptr @TS_MSG_IMPRINT_get_msg(ptr noundef %6) #7
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !52
-  %10 = load i32, ptr %7, align 8, !tbaa !54
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
+  %10 = load i32, ptr %7, align 8, !tbaa !55
   %11 = sext i32 %10 to i64
   %12 = tail call i64 @rb_str_new(ptr noundef %9, i64 noundef %11) #7
   ret i64 %12
@@ -1139,7 +1139,7 @@ define internal i64 @ossl_ts_token_info_to_der(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  %7 = tail call i32 @i2d_TS_TST_INFO(ptr noundef nonnull %3, ptr noundef null) #7, !callees !30
+  %7 = tail call i32 @i2d_TS_TST_INFO(ptr noundef nonnull %3, ptr noundef null) #7, !callees !31
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %9, label %11
 
@@ -1150,9 +1150,9 @@ define internal i64 @ossl_ts_token_info_to_der(i64 noundef %0) #0 {
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %7 to i64
-  %13 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %12) #7, !callees !31
+  %13 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %12) #7, !callees !32
   %14 = inttoptr i64 %13 to ptr
-  %15 = load i64, ptr %14, align 8, !tbaa !32, !noalias !55
+  %15 = load i64, ptr %14, align 8, !tbaa !33, !noalias !56
   %16 = and i64 %15, 8192
   %.not.i.i.i = icmp eq i64 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -1164,8 +1164,8 @@ define internal i64 @ossl_ts_token_info_to_der(i64 noundef %0) #0 {
 
 RSTRING_PTR.exit.i:                               ; preds = %18, %11
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %18 ], [ %17, %11 ]
-  store ptr %.sroa.2.0.i.i, ptr %2, align 8, !tbaa !36
-  %19 = call i32 @i2d_TS_TST_INFO(ptr noundef nonnull %3, ptr noundef nonnull %2) #7, !callees !30
+  store ptr %.sroa.2.0.i.i, ptr %2, align 8, !tbaa !37
+  %19 = call i32 @i2d_TS_TST_INFO(ptr noundef nonnull %3, ptr noundef nonnull %2) #7, !callees !31
   %20 = icmp slt i32 %19, 1
   br i1 %20, label %21, label %23
 
@@ -1175,8 +1175,8 @@ RSTRING_PTR.exit.i:                               ; preds = %18, %11
   unreachable
 
 23:                                               ; preds = %RSTRING_PTR.exit.i
-  %24 = load ptr, ptr %2, align 8, !tbaa !36
-  %25 = load i64, ptr %14, align 8, !tbaa !32, !noalias !58
+  %24 = load ptr, ptr %2, align 8, !tbaa !37
+  %25 = load i64, ptr %14, align 8, !tbaa !33, !noalias !59
   %26 = and i64 %25, 8192
   %.not.i.i9.i = icmp eq i64 %26, 0
   br i1 %.not.i.i9.i, label %asn1_to_der.exit, label %27
@@ -1262,7 +1262,7 @@ define internal noundef i64 @ossl_ts_req_initialize(i32 noundef %0, ptr noundef 
   %6 = inttoptr i64 %2 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !15
-  store ptr %8, ptr %4, align 8, !tbaa !61
+  store ptr %8, ptr %4, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %9 = icmp slt i32 %0, 0
   br i1 %9, label %10, label %.preheader.split.split
@@ -1283,9 +1283,9 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.split.sp
   store i64 %12, ptr %5, align 8, !tbaa !6
   %13 = call ptr @ossl_obj2bio(ptr noundef nonnull %5) #7
   %14 = call ptr @d2i_TS_REQ_bio(ptr noundef %13, ptr noundef nonnull %4) #7
-  store ptr %14, ptr %4, align 8, !tbaa !61
+  store ptr %14, ptr %4, align 8, !tbaa !62
   %15 = call i32 @BIO_free(ptr noundef %13) #7
-  %16 = load ptr, ptr %4, align 8, !tbaa !61
+  %16 = load ptr, ptr %4, align 8, !tbaa !62
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %19
 
@@ -1402,7 +1402,7 @@ define internal noundef i64 @ossl_ts_req_set_algorithm(i64 noundef %0, i64 nound
   %8 = call i64 @rb_string_value(ptr noundef nonnull %3) #7
   %9 = load i64, ptr %3, align 8, !tbaa !6
   %10 = inttoptr i64 %9 to ptr
-  %11 = load i64, ptr %10, align 8, !tbaa !32, !noalias !63
+  %11 = load i64, ptr %10, align 8, !tbaa !33, !noalias !64
   %12 = and i64 %11, 8192
   %.not.i.i.i = icmp eq i64 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1421,7 +1421,7 @@ RSTRING_PTR.exit.i:                               ; preds = %14, %7
 16:                                               ; preds = %RSTRING_PTR.exit.i
   %17 = load i64, ptr %3, align 8, !tbaa !6
   %18 = inttoptr i64 %17 to ptr
-  %19 = load i64, ptr %18, align 8, !tbaa !32, !noalias !66
+  %19 = load i64, ptr %18, align 8, !tbaa !33, !noalias !67
   %20 = and i64 %19, 8192
   %.not.i.i5.i = icmp eq i64 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -1478,7 +1478,7 @@ define internal i64 @ossl_ts_req_get_algorithm(i64 noundef %0) #0 {
   %7 = tail call ptr @TS_REQ_get_msg_imprint(ptr noundef nonnull %3) #7
   %8 = tail call ptr @TS_MSG_IMPRINT_get_algo(ptr noundef %7) #7
   call void @X509_ALGOR_get0(ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef %8) #7
-  %9 = load ptr, ptr %2, align 8, !tbaa !50
+  %9 = load ptr, ptr %2, align 8, !tbaa !51
   %10 = call fastcc i64 @get_asn1obj(ptr noundef %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   ret i64 %10
@@ -1502,7 +1502,7 @@ define internal i64 @ossl_ts_req_set_msg_imprint(i64 noundef %0, i64 noundef %1)
   %9 = call ptr @TS_REQ_get_msg_imprint(ptr noundef nonnull %5) #7
   %10 = load i64, ptr %3, align 8, !tbaa !6
   %11 = inttoptr i64 %10 to ptr
-  %12 = load i64, ptr %11, align 8, !tbaa !32, !noalias !69
+  %12 = load i64, ptr %11, align 8, !tbaa !33, !noalias !70
   %13 = and i64 %12, 8192
   %.not.i.i = icmp eq i64 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1515,7 +1515,7 @@ define internal i64 @ossl_ts_req_set_msg_imprint(i64 noundef %0, i64 noundef %1)
 RSTRING_PTR.exit:                                 ; preds = %8, %15
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %15 ], [ %14, %8 ]
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !72
+  %17 = load i64, ptr %16, align 8, !tbaa !73
   %18 = add i64 %17, 2147483648
   %.not.i.i4 = icmp ult i64 %18, 4294967296
   br i1 %.not.i.i4, label %RSTRING_LENINT.exit, label %19
@@ -1555,8 +1555,8 @@ define internal i64 @ossl_ts_req_get_msg_imprint(i64 noundef %0) #0 {
   %6 = tail call ptr @TS_REQ_get_msg_imprint(ptr noundef nonnull %2) #7
   %7 = tail call ptr @TS_MSG_IMPRINT_get_msg(ptr noundef %6) #7
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !52
-  %10 = load i32, ptr %7, align 8, !tbaa !54
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
+  %10 = load i32, ptr %7, align 8, !tbaa !55
   %11 = sext i32 %10 to i64
   %12 = tail call i64 @rb_str_new(ptr noundef %9, i64 noundef %11) #7
   ret i64 %12
@@ -1580,7 +1580,7 @@ define internal noundef i64 @ossl_ts_req_set_policy_id(i64 noundef %0, i64 nound
   %8 = call i64 @rb_string_value(ptr noundef nonnull %3) #7
   %9 = load i64, ptr %3, align 8, !tbaa !6
   %10 = inttoptr i64 %9 to ptr
-  %11 = load i64, ptr %10, align 8, !tbaa !32, !noalias !74
+  %11 = load i64, ptr %10, align 8, !tbaa !33, !noalias !75
   %12 = and i64 %11, 8192
   %.not.i.i.i = icmp eq i64 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1599,7 +1599,7 @@ RSTRING_PTR.exit.i:                               ; preds = %14, %7
 16:                                               ; preds = %RSTRING_PTR.exit.i
   %17 = load i64, ptr %3, align 8, !tbaa !6
   %18 = inttoptr i64 %17 to ptr
-  %19 = load i64, ptr %18, align 8, !tbaa !32, !noalias !77
+  %19 = load i64, ptr %18, align 8, !tbaa !33, !noalias !78
   %20 = and i64 %19, 8192
   %.not.i.i5.i = icmp eq i64 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -1770,7 +1770,7 @@ define internal i64 @ossl_ts_req_to_der(i64 noundef %0) #0 {
   %8 = tail call ptr @TS_REQ_get_msg_imprint(ptr noundef nonnull %4) #7
   %9 = tail call ptr @TS_MSG_IMPRINT_get_algo(ptr noundef %8) #7
   call void @X509_ALGOR_get0(ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef %9) #7
-  %10 = load ptr, ptr %3, align 8, !tbaa !50
+  %10 = load ptr, ptr %3, align 8, !tbaa !51
   %11 = call i32 @OBJ_obj2nid(ptr noundef %10) #7
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
@@ -1782,7 +1782,7 @@ define internal i64 @ossl_ts_req_to_der(i64 noundef %0) #0 {
 
 15:                                               ; preds = %7
   %16 = call ptr @TS_MSG_IMPRINT_get_msg(ptr noundef %8) #7
-  %17 = load i32, ptr %16, align 8, !tbaa !54
+  %17 = load i32, ptr %16, align 8, !tbaa !55
   %.not7 = icmp eq i32 %17, 0
   br i1 %.not7, label %18, label %20
 
@@ -1793,7 +1793,7 @@ define internal i64 @ossl_ts_req_to_der(i64 noundef %0) #0 {
 
 20:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  %21 = call i32 @i2d_TS_REQ(ptr noundef nonnull %4, ptr noundef null) #7, !callees !30
+  %21 = call i32 @i2d_TS_REQ(ptr noundef nonnull %4, ptr noundef null) #7, !callees !31
   %22 = icmp slt i32 %21, 1
   br i1 %22, label %23, label %25
 
@@ -1804,9 +1804,9 @@ define internal i64 @ossl_ts_req_to_der(i64 noundef %0) #0 {
 
 25:                                               ; preds = %20
   %26 = zext nneg i32 %21 to i64
-  %27 = call i64 @rb_str_new(ptr noundef null, i64 noundef %26) #7, !callees !31
+  %27 = call i64 @rb_str_new(ptr noundef null, i64 noundef %26) #7, !callees !32
   %28 = inttoptr i64 %27 to ptr
-  %29 = load i64, ptr %28, align 8, !tbaa !32, !noalias !80
+  %29 = load i64, ptr %28, align 8, !tbaa !33, !noalias !81
   %30 = and i64 %29, 8192
   %.not.i.i.i = icmp eq i64 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -1818,8 +1818,8 @@ define internal i64 @ossl_ts_req_to_der(i64 noundef %0) #0 {
 
 RSTRING_PTR.exit.i:                               ; preds = %32, %25
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %32 ], [ %31, %25 ]
-  store ptr %.sroa.2.0.i.i, ptr %2, align 8, !tbaa !36
-  %33 = call i32 @i2d_TS_REQ(ptr noundef nonnull %4, ptr noundef nonnull %2) #7, !callees !30
+  store ptr %.sroa.2.0.i.i, ptr %2, align 8, !tbaa !37
+  %33 = call i32 @i2d_TS_REQ(ptr noundef nonnull %4, ptr noundef nonnull %2) #7, !callees !31
   %34 = icmp slt i32 %33, 1
   br i1 %34, label %35, label %37
 
@@ -1829,8 +1829,8 @@ RSTRING_PTR.exit.i:                               ; preds = %32, %25
   unreachable
 
 37:                                               ; preds = %RSTRING_PTR.exit.i
-  %38 = load ptr, ptr %2, align 8, !tbaa !36
-  %39 = load i64, ptr %28, align 8, !tbaa !32, !noalias !83
+  %38 = load ptr, ptr %2, align 8, !tbaa !37
+  %39 = load i64, ptr %28, align 8, !tbaa !33, !noalias !84
   %40 = and i64 %39, 8192
   %.not.i.i9.i = icmp eq i64 %40, 0
   br i1 %.not.i.i9.i, label %asn1_to_der.exit, label %41
@@ -1900,10 +1900,10 @@ define internal i64 @ossl_tsfac_create_ts(i64 noundef %0, i64 noundef %1, i64 no
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store ptr null, ptr %6, align 8, !tbaa !86
+  store ptr null, ptr %6, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
-  store i32 0, ptr %8, align 4, !tbaa !44
+  store i32 0, ptr %8, align 4, !tbaa !45
   %9 = load i64, ptr @cTimestampResponse, align 8, !tbaa !6
   %10 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %9, ptr noundef null, ptr noundef nonnull @ossl_ts_resp_type) #7
   %11 = tail call ptr @GetX509CertPtr(i64 noundef %2) #7
@@ -1926,7 +1926,7 @@ define internal i64 @ossl_tsfac_create_ts(i64 noundef %0, i64 noundef %1, i64 no
   %17 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.78, i64 noundef 9) #7
   store i64 %17, ptr @ossl_tsfac_create_ts.rbimpl_id, align 8, !tbaa !6
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !87
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !88
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %16
   %.lcssa.i = phi i64 [ %.pr.i, %16 ], [ %17, %.lr.ph.i ]
@@ -1945,7 +1945,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %16
   %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.81, i64 noundef 4) #7
   store i64 %22, ptr @ossl_tsfac_create_ts.rbimpl_id.80, align 8, !tbaa !6
   %.not.i100 = icmp eq i64 %22, 0
-  br i1 %.not.i100, label %.lr.ph.i99, label %rbimpl_intern_const.exit101, !llvm.loop !87
+  br i1 %.not.i100, label %.lr.ph.i99, label %rbimpl_intern_const.exit101, !llvm.loop !88
 
 rbimpl_intern_const.exit101:                      ; preds = %.lr.ph.i99, %21
   %.lcssa.i98 = phi i64 [ %.pr.i96, %21 ], [ %22, %.lr.ph.i99 ]
@@ -1973,7 +1973,7 @@ rb_num2long_inline.exit:                          ; preds = %25, %27
   %29 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.83, i64 noundef 14) #7
   store i64 %29, ptr @ossl_tsfac_create_ts.rbimpl_id.82, align 8, !tbaa !6
   %.not.i107 = icmp eq i64 %29, 0
-  br i1 %.not.i107, label %.lr.ph.i106, label %rbimpl_intern_const.exit108, !llvm.loop !87
+  br i1 %.not.i107, label %.lr.ph.i106, label %rbimpl_intern_const.exit108, !llvm.loop !88
 
 rbimpl_intern_const.exit108:                      ; preds = %.lr.ph.i106, %rb_num2long_inline.exit
   %.lcssa.i105 = phi i64 [ %.pr.i103, %rb_num2long_inline.exit ], [ %29, %.lr.ph.i106 ]
@@ -1983,7 +1983,7 @@ rbimpl_intern_const.exit108:                      ; preds = %.lr.ph.i106, %rb_nu
 
 32:                                               ; preds = %rbimpl_intern_const.exit108
   %33 = tail call ptr @num_to_asn1integer(i64 noundef %30, ptr noundef null) #7
-  store ptr %33, ptr %6, align 8, !tbaa !86
+  store ptr %33, ptr %6, align 8, !tbaa !87
   %.pr.i109 = load i64, ptr @ossl_tsfac_create_ts.rbimpl_id.85, align 8, !tbaa !6
   %.not4.i110 = icmp eq i64 %.pr.i109, 0
   br i1 %.not4.i110, label %.lr.ph.i112, label %rbimpl_intern_const.exit114
@@ -1992,7 +1992,7 @@ rbimpl_intern_const.exit108:                      ; preds = %.lr.ph.i106, %rb_nu
   %34 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.86, i64 noundef 18) #7
   store i64 %34, ptr @ossl_tsfac_create_ts.rbimpl_id.85, align 8, !tbaa !6
   %.not.i113 = icmp eq i64 %34, 0
-  br i1 %.not.i113, label %.lr.ph.i112, label %rbimpl_intern_const.exit114, !llvm.loop !87
+  br i1 %.not.i113, label %.lr.ph.i112, label %rbimpl_intern_const.exit114, !llvm.loop !88
 
 rbimpl_intern_const.exit114:                      ; preds = %.lr.ph.i112, %32
   %.lcssa.i111 = phi i64 [ %.pr.i109, %32 ], [ %34, %.lr.ph.i112 ]
@@ -2011,7 +2011,7 @@ rbimpl_intern_const.exit114:                      ; preds = %.lr.ph.i112, %32
 39:                                               ; preds = %.critedge
   %40 = call i64 @rb_protect(ptr noundef nonnull @obj_to_asn1obj_i, i64 noundef %35, ptr noundef nonnull %8) #7
   %41 = inttoptr i64 %40 to ptr
-  %42 = load i32, ptr %8, align 4, !tbaa !44
+  %42 = load i32, ptr %8, align 4, !tbaa !45
   %.not81 = icmp eq i32 %42, 0
   br i1 %.not81, label %43, label %.loopexit
 
@@ -2036,7 +2036,7 @@ rbimpl_intern_const.exit114:                      ; preds = %.lr.ph.i112, %32
   %48 = call i64 @rb_intern2(ptr noundef nonnull @.str.91, i64 noundef 17) #7
   store i64 %48, ptr @ossl_tsfac_create_ts.rbimpl_id.90, align 8, !tbaa !6
   %.not.i119 = icmp eq i64 %48, 0
-  br i1 %.not.i119, label %.lr.ph.i118, label %rbimpl_intern_const.exit120, !llvm.loop !87
+  br i1 %.not.i119, label %.lr.ph.i118, label %rbimpl_intern_const.exit120, !llvm.loop !88
 
 rbimpl_intern_const.exit120:                      ; preds = %.lr.ph.i118, %47
   %.lcssa.i117 = phi i64 [ %.pr.i115, %47 ], [ %48, %.lr.ph.i118 ]
@@ -2048,7 +2048,7 @@ rbimpl_intern_const.exit120:                      ; preds = %.lr.ph.i118, %47
 
 52:                                               ; preds = %rbimpl_intern_const.exit120
   %53 = call ptr @ossl_protect_x509_ary2sk(i64 noundef %49, ptr noundef nonnull %8) #7
-  %54 = load i32, ptr %8, align 4, !tbaa !44
+  %54 = load i32, ptr %8, align 4, !tbaa !45
   %.not85 = icmp eq i32 %54, 0
   br i1 %.not85, label %55, label %.loopexit
 
@@ -2090,7 +2090,7 @@ rbimpl_intern_const.exit120:                      ; preds = %.lr.ph.i118, %47
   %69 = call i64 @rb_intern2(ptr noundef nonnull @.str.93, i64 noundef 16) #7
   store i64 %69, ptr @ossl_tsfac_create_ts.rbimpl_id.92, align 8, !tbaa !6
   %.not.i125 = icmp eq i64 %69, 0
-  br i1 %.not.i125, label %.lr.ph.i124, label %rbimpl_intern_const.exit126, !llvm.loop !87
+  br i1 %.not.i125, label %.lr.ph.i124, label %rbimpl_intern_const.exit126, !llvm.loop !88
 
 rbimpl_intern_const.exit126:                      ; preds = %.lr.ph.i124, %68
   %.lcssa.i123 = phi i64 [ %.pr.i121, %68 ], [ %69, %.lr.ph.i124 ]
@@ -2107,7 +2107,7 @@ rbimpl_intern_const.exit126:                      ; preds = %.lr.ph.i124, %68
 
 75:                                               ; preds = %.preheader, %88
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %88 ]
-  %76 = load i64, ptr %73, align 8, !tbaa !32
+  %76 = load i64, ptr %73, align 8, !tbaa !33
   %77 = and i64 %76, 8192
   %.not.i127 = icmp eq i64 %77, 0
   br i1 %.not.i127, label %81, label %78
@@ -2118,7 +2118,7 @@ rbimpl_intern_const.exit126:                      ; preds = %.lr.ph.i124, %68
   br label %rb_array_len.exit
 
 81:                                               ; preds = %75
-  %82 = load i64, ptr %74, align 8, !tbaa !21
+  %82 = load i64, ptr %74, align 8, !tbaa !22
   br label %rb_array_len.exit
 
 rb_array_len.exit:                                ; preds = %78, %81
@@ -2129,7 +2129,7 @@ rb_array_len.exit:                                ; preds = %78, %81
 84:                                               ; preds = %rb_array_len.exit
   %85 = call i64 @rb_ary_entry(i64 noundef %70, i64 noundef %indvars.iv) #10
   %86 = call i64 @rb_protect(ptr noundef nonnull @ossl_evp_get_digestbyname_i, i64 noundef %85, ptr noundef nonnull %8) #7
-  %87 = load i32, ptr %8, align 4, !tbaa !44
+  %87 = load i32, ptr %8, align 4, !tbaa !45
   %.not89 = icmp eq i32 %87, 0
   br i1 %.not89, label %88, label %.loopexit
 
@@ -2137,19 +2137,19 @@ rb_array_len.exit:                                ; preds = %78, %81
   %89 = inttoptr i64 %86 to ptr
   %90 = call i32 @TS_RESP_CTX_add_md(ptr noundef nonnull %44, ptr noundef %89) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %75, !llvm.loop !88
+  br label %75, !llvm.loop !89
 
 .thread:                                          ; preds = %rb_array_len.exit, %rbimpl_intern_const.exit126
   %91 = call i64 @rb_protect(ptr noundef nonnull @ossl_to_der, i64 noundef %3, ptr noundef nonnull %8) #7
   store i64 %91, ptr %5, align 8, !tbaa !6
-  %92 = load i32, ptr %8, align 4, !tbaa !44
+  %92 = load i32, ptr %8, align 4, !tbaa !45
   %.not90 = icmp eq i32 %92, 0
   br i1 %.not90, label %93, label %.loopexit
 
 93:                                               ; preds = %.thread
   %94 = ptrtoint ptr %5 to i64
   %95 = call i64 @rb_protect(ptr noundef nonnull @ossl_obj2bio_i, i64 noundef %94, ptr noundef nonnull %8) #7
-  %96 = load i32, ptr %8, align 4, !tbaa !44
+  %96 = load i32, ptr %8, align 4, !tbaa !45
   %.not91 = icmp eq i32 %96, 0
   br i1 %.not91, label %97, label %.loopexit
 
@@ -2173,7 +2173,7 @@ rb_array_len.exit:                                ; preds = %78, %81
   %.070 = phi ptr [ %.1, %52 ], [ %.1, %.thread ], [ %.1, %93 ], [ %.1, %101 ], [ %41, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit108 ], [ null, %38 ], [ %.1, %43 ], [ %.1, %45 ], [ %.1, %97 ], [ %.1, %84 ]
   %.069 = phi ptr [ %44, %52 ], [ %44, %.thread ], [ %44, %93 ], [ %44, %101 ], [ null, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit108 ], [ null, %38 ], [ null, %43 ], [ %44, %45 ], [ %44, %97 ], [ %44, %84 ]
   %.067 = phi i64 [ 4, %52 ], [ 4, %.thread ], [ 4, %93 ], [ %10, %101 ], [ 4, %39 ], [ 4, %rbimpl_intern_const.exit ], [ 4, %rbimpl_intern_const.exit108 ], [ 4, %38 ], [ 4, %43 ], [ 4, %45 ], [ 4, %97 ], [ 4, %84 ]
-  %104 = load ptr, ptr %6, align 8, !tbaa !86
+  %104 = load ptr, ptr %6, align 8, !tbaa !87
   call void @ASN1_INTEGER_free(ptr noundef %104) #7
   call void @ASN1_OBJECT_free(ptr noundef %.070) #7
   call void @TS_RESP_CTX_free(ptr noundef %.069) #7
@@ -2187,7 +2187,7 @@ rb_array_len.exit:                                ; preds = %78, %81
   unreachable
 
 109:                                              ; preds = %.loopexit
-  %110 = load i32, ptr %8, align 4, !tbaa !44
+  %110 = load i32, ptr %8, align 4, !tbaa !45
   %.not94 = icmp eq i32 %110, 0
   br i1 %.not94, label %112, label %111
 
@@ -2481,7 +2481,7 @@ define internal i64 @obj_to_asn1obj_i(i64 noundef %0) #0 {
   %3 = call i64 @rb_string_value(ptr noundef nonnull %2) #7
   %4 = load i64, ptr %2, align 8, !tbaa !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %5, align 8, !tbaa !32, !noalias !89
+  %6 = load i64, ptr %5, align 8, !tbaa !33, !noalias !90
   %7 = and i64 %6, 8192
   %.not.i.i.i = icmp eq i64 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2500,7 +2500,7 @@ RSTRING_PTR.exit.i:                               ; preds = %9, %1
 11:                                               ; preds = %RSTRING_PTR.exit.i
   %12 = load i64, ptr %2, align 8, !tbaa !6
   %13 = inttoptr i64 %12 to ptr
-  %14 = load i64, ptr %13, align 8, !tbaa !32, !noalias !92
+  %14 = load i64, ptr %13, align 8, !tbaa !33, !noalias !93
   %15 = and i64 %14, 8192
   %.not.i.i5.i = icmp eq i64 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -2534,8 +2534,8 @@ declare void @TS_RESP_CTX_set_serial_cb(ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal ptr @ossl_tsfac_serial_cb(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #5 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !86
-  store ptr null, ptr %1, align 8, !tbaa !86
+  %3 = load ptr, ptr %1, align 8, !tbaa !87
+  store ptr null, ptr %1, align 8, !tbaa !87
   ret ptr %3
 }
 
@@ -2627,79 +2627,80 @@ attributes #10 = { nounwind willreturn memory(read) }
 !16 = !{!"RData", !12, i64 0, !14, i64 16, !14, i64 24, !14, i64 32}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"p1 _ZTS10TS_resp_st", !14, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!8, !8, i64 0}
-!22 = !{!23, !28, i64 32}
-!23 = !{!"pkcs7_signed_st", !24, i64 0, !25, i64 8, !26, i64 16, !27, i64 24, !28, i64 32, !29, i64 40}
-!24 = !{!"p1 _ZTS14asn1_string_st", !14, i64 0}
-!25 = !{!"p1 _ZTS19stack_st_X509_ALGOR", !14, i64 0}
-!26 = !{!"p1 _ZTS13stack_st_X509", !14, i64 0}
-!27 = !{!"p1 _ZTS17stack_st_X509_CRL", !14, i64 0}
-!28 = !{!"p1 _ZTS26stack_st_PKCS7_SIGNER_INFO", !14, i64 0}
-!29 = !{!"p1 _ZTS8pkcs7_st", !14, i64 0}
-!30 = !{ptr @i2d_TS_REQ, ptr @i2d_TS_RESP, ptr @i2d_TS_TST_INFO}
-!31 = distinct !{ptr @rb_str_new, null}
-!32 = !{!12, !7, i64 0}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"rbimpl_rstring_getmem: argument 0"}
-!35 = distinct !{!35, !"rbimpl_rstring_getmem"}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 omnipotent char", !14, i64 0}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"rbimpl_rstring_getmem: argument 0"}
-!40 = distinct !{!40, !"rbimpl_rstring_getmem"}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 long", !14, i64 0}
-!43 = distinct !{!43, !20}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"int", !8, i64 0}
-!46 = !{!23, !26, i64 16}
-!47 = distinct !{!47, !20}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS14TS_tst_info_st", !14, i64 0}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS14asn1_object_st", !14, i64 0}
-!52 = !{!53, !37, i64 8}
-!53 = !{!"asn1_string_st", !45, i64 0, !45, i64 4, !37, i64 8, !7, i64 16}
-!54 = !{!53, !45, i64 0}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"rbimpl_rstring_getmem: argument 0"}
-!57 = distinct !{!57, !"rbimpl_rstring_getmem"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"rbimpl_rstring_getmem: argument 0"}
-!60 = distinct !{!60, !"rbimpl_rstring_getmem"}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS9TS_req_st", !14, i64 0}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"rbimpl_rstring_getmem: argument 0"}
-!65 = distinct !{!65, !"rbimpl_rstring_getmem"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"rbimpl_rstring_getmem: argument 0"}
-!68 = distinct !{!68, !"rbimpl_rstring_getmem"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"rbimpl_rstring_getmem: argument 0"}
-!71 = distinct !{!71, !"rbimpl_rstring_getmem"}
-!72 = !{!73, !7, i64 16}
-!73 = !{!"RString", !12, i64 0, !7, i64 16, !8, i64 24}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"rbimpl_rstring_getmem: argument 0"}
-!76 = distinct !{!76, !"rbimpl_rstring_getmem"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"rbimpl_rstring_getmem: argument 0"}
-!79 = distinct !{!79, !"rbimpl_rstring_getmem"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"rbimpl_rstring_getmem: argument 0"}
-!82 = distinct !{!82, !"rbimpl_rstring_getmem"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"rbimpl_rstring_getmem: argument 0"}
-!85 = distinct !{!85, !"rbimpl_rstring_getmem"}
-!86 = !{!24, !24, i64 0}
-!87 = distinct !{!87, !20}
-!88 = distinct !{!88, !20}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"rbimpl_rstring_getmem: argument 0"}
-!91 = distinct !{!91, !"rbimpl_rstring_getmem"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"rbimpl_rstring_getmem: argument 0"}
-!94 = distinct !{!94, !"rbimpl_rstring_getmem"}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!8, !8, i64 0}
+!23 = !{!24, !29, i64 32}
+!24 = !{!"pkcs7_signed_st", !25, i64 0, !26, i64 8, !27, i64 16, !28, i64 24, !29, i64 32, !30, i64 40}
+!25 = !{!"p1 _ZTS14asn1_string_st", !14, i64 0}
+!26 = !{!"p1 _ZTS19stack_st_X509_ALGOR", !14, i64 0}
+!27 = !{!"p1 _ZTS13stack_st_X509", !14, i64 0}
+!28 = !{!"p1 _ZTS17stack_st_X509_CRL", !14, i64 0}
+!29 = !{!"p1 _ZTS26stack_st_PKCS7_SIGNER_INFO", !14, i64 0}
+!30 = !{!"p1 _ZTS8pkcs7_st", !14, i64 0}
+!31 = !{ptr @i2d_TS_REQ, ptr @i2d_TS_RESP, ptr @i2d_TS_TST_INFO}
+!32 = distinct !{ptr @rb_str_new, null}
+!33 = !{!12, !7, i64 0}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"rbimpl_rstring_getmem: argument 0"}
+!36 = distinct !{!36, !"rbimpl_rstring_getmem"}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 omnipotent char", !14, i64 0}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"rbimpl_rstring_getmem: argument 0"}
+!41 = distinct !{!41, !"rbimpl_rstring_getmem"}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 long", !14, i64 0}
+!44 = distinct !{!44, !20, !21}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"int", !8, i64 0}
+!47 = !{!24, !27, i64 16}
+!48 = distinct !{!48, !20, !21}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS14TS_tst_info_st", !14, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS14asn1_object_st", !14, i64 0}
+!53 = !{!54, !38, i64 8}
+!54 = !{!"asn1_string_st", !46, i64 0, !46, i64 4, !38, i64 8, !7, i64 16}
+!55 = !{!54, !46, i64 0}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"rbimpl_rstring_getmem: argument 0"}
+!58 = distinct !{!58, !"rbimpl_rstring_getmem"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"rbimpl_rstring_getmem: argument 0"}
+!61 = distinct !{!61, !"rbimpl_rstring_getmem"}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS9TS_req_st", !14, i64 0}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"rbimpl_rstring_getmem: argument 0"}
+!66 = distinct !{!66, !"rbimpl_rstring_getmem"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"rbimpl_rstring_getmem: argument 0"}
+!69 = distinct !{!69, !"rbimpl_rstring_getmem"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"rbimpl_rstring_getmem: argument 0"}
+!72 = distinct !{!72, !"rbimpl_rstring_getmem"}
+!73 = !{!74, !7, i64 16}
+!74 = !{!"RString", !12, i64 0, !7, i64 16, !8, i64 24}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"rbimpl_rstring_getmem: argument 0"}
+!77 = distinct !{!77, !"rbimpl_rstring_getmem"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"rbimpl_rstring_getmem: argument 0"}
+!80 = distinct !{!80, !"rbimpl_rstring_getmem"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"rbimpl_rstring_getmem: argument 0"}
+!83 = distinct !{!83, !"rbimpl_rstring_getmem"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"rbimpl_rstring_getmem: argument 0"}
+!86 = distinct !{!86, !"rbimpl_rstring_getmem"}
+!87 = !{!25, !25, i64 0}
+!88 = distinct !{!88, !20, !21}
+!89 = distinct !{!89, !20, !21}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"rbimpl_rstring_getmem: argument 0"}
+!92 = distinct !{!92, !"rbimpl_rstring_getmem"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"rbimpl_rstring_getmem: argument 0"}
+!95 = distinct !{!95, !"rbimpl_rstring_getmem"}

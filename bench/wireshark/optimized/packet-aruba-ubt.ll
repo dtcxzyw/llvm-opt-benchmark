@@ -850,7 +850,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 301:                                              ; preds = %303
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %302 = icmp samesign ult i64 %indvars.iv, 224
-  br i1 %302, label %277, label %268, !llvm.loop !8
+  br i1 %302, label %277, label %268, !llvm.loop !9
 
 303:                                              ; preds = %300, %303
   %.6587 = phi i32 [ %.6585, %300 ], [ %.6, %303 ]
@@ -861,7 +861,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %306 = add nuw nsw i32 %.0566586, 1
   %.6 = add i32 %.6587, 1
   %exitcond607.not = icmp eq i32 %306, 32
-  br i1 %exitcond607.not, label %301, label %303, !llvm.loop !9
+  br i1 %exitcond607.not, label %301, label %303, !llvm.loop !10
 
 307:                                              ; preds = %340
   %308 = load i32, ptr @hf_ubt_dt_l2conn1, align 4
@@ -930,7 +930,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 340:                                              ; preds = %342
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 32
   %341 = icmp samesign ult i64 %indvars.iv610, 224
-  br i1 %341, label %316, label %307, !llvm.loop !10
+  br i1 %341, label %316, label %307, !llvm.loop !11
 
 342:                                              ; preds = %339, %342
   %.8592 = phi i32 [ %.8590, %339 ], [ %.8, %342 ]
@@ -941,7 +941,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %345 = add nuw nsw i32 %.0564591, 1
   %.8 = add i32 %.8592, 1
   %exitcond609.not = icmp eq i32 %345, 32
-  br i1 %exitcond609.not, label %340, label %342, !llvm.loop !11
+  br i1 %exitcond609.not, label %340, label %342, !llvm.loop !12
 
 346:                                              ; preds = %374
   %347 = load i32, ptr @hf_ubt_dt_uaccount, align 4
@@ -997,7 +997,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 374:                                              ; preds = %376
   %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 32
   %375 = icmp samesign ult i64 %indvars.iv614, 224
-  br i1 %375, label %350, label %346, !llvm.loop !12
+  br i1 %375, label %350, label %346, !llvm.loop !13
 
 376:                                              ; preds = %373, %376
   %.10597 = phi i32 [ %.10595, %373 ], [ %.10, %376 ]
@@ -1008,7 +1008,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %379 = add nuw nsw i32 %.0562596, 1
   %.10 = add i32 %.10597, 1
   %exitcond613.not = icmp eq i32 %379, 32
-  br i1 %exitcond613.not, label %374, label %376, !llvm.loop !13
+  br i1 %exitcond613.not, label %374, label %376, !llvm.loop !14
 
 380:                                              ; preds = %346, %410
   %.0561601 = phi i32 [ 0, %346 ], [ %385, %410 ]
@@ -1060,18 +1060,18 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 410:                                              ; preds = %390, %396, %405, %408
   %.12 = add i32 %.11600, 20
   %exitcond617.not = icmp eq i32 %385, 12
-  br i1 %exitcond617.not, label %.loopexit, label %380, !llvm.loop !14
+  br i1 %exitcond617.not, label %.loopexit, label %380, !llvm.loop !15
 
 411:                                              ; preds = %70
   %412 = load i32, ptr @hf_ubt_dt_status, align 4
   %413 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %81, i32 noundef %412, ptr noundef %0, i32 noundef %86, i32 noundef %75, i32 noundef 0, ptr noundef nonnull %7)
-  %414 = load i8, ptr %7, align 1, !range !15, !noundef !16
+  %414 = load i8, ptr %7, align 1, !range !16, !noundef !17
   %415 = trunc nuw i8 %414 to i1
   %416 = zext nneg i8 %414 to i32
   %417 = select i1 %415, ptr @.str.190, ptr @.str.191
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.189, i32 noundef %416, ptr noundef nonnull %417)
   %418 = load ptr, ptr %11, align 8
-  %419 = load i8, ptr %7, align 1, !range !15, !noundef !16
+  %419 = load i8, ptr %7, align 1, !range !16, !noundef !17
   %420 = trunc nuw i8 %419 to i1
   %421 = zext nneg i8 %419 to i32
   %422 = select i1 %420, ptr @.str.190, ptr @.str.191
@@ -1190,7 +1190,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %496 = add i32 %.13583, 2
   %497 = add nuw nsw i32 %.0584, 1
   %exitcond.not = icmp eq i32 %497, 200
-  br i1 %exitcond.not, label %.loopexit, label %493, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %493, !llvm.loop !18
 
 498:                                              ; preds = %70
   %499 = load i32, ptr @hf_ubt_dt_maxmsgs, align 4
@@ -1208,7 +1208,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
   %505 = icmp ult i32 %.2573, %42
-  br i1 %505, label %70, label %._crit_edge, !llvm.loop !18
+  br i1 %505, label %70, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.loopexit, %41
   %.1572.lcssa = phi i32 [ %38, %41 ], [ %.2573, %.loopexit ]
@@ -1318,16 +1318,17 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

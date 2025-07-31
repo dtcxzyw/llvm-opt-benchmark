@@ -93,14 +93,14 @@ define dso_local i32 @cmd_upload_archive_writer(i32 noundef %0, ptr noundef %1, 
   %27 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef nonnull %26) #10
   %28 = call ptr @packet_read_line(i32 noundef 0, ptr noundef null) #10
   %.not14 = icmp eq ptr %28, null
-  br i1 %.not14, label %._crit_edge, label %17
+  br i1 %.not14, label %._crit_edge, label %17, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %25, %13
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !9
   %31 = trunc i64 %30 to i32
-  %32 = load ptr, ptr %5, align 8, !tbaa !13
-  %33 = load ptr, ptr @the_repository, align 8, !tbaa !14
+  %32 = load ptr, ptr %5, align 8, !tbaa !15
+  %33 = load ptr, ptr @the_repository, align 8, !tbaa !16
   %34 = call i32 @write_archive(i32 noundef %31, ptr noundef %32, ptr noundef %2, ptr noundef %33, ptr noundef null, i32 noundef 1) #10
   call void @strvec_clear(ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
@@ -156,9 +156,9 @@ define dso_local noundef i32 @cmd_upload_archive(i32 noundef %0, ptr noundef %1,
 10:                                               ; preds = %4
   tail call void @show_usage_if_asked(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @upload_archive_usage) #10
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store i32 -1, ptr %11, align 8, !tbaa !16
+  store i32 -1, ptr %11, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 84
-  store i32 -1, ptr %12, align 4, !tbaa !19
+  store i32 -1, ptr %12, align 4, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i16 8, ptr %13, align 8
   %14 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef nonnull @.str.7) #10
@@ -170,7 +170,7 @@ define dso_local noundef i32 @cmd_upload_archive(i32 noundef %0, ptr noundef %1,
 
 17:                                               ; preds = %10
   %18 = tail call ptr @__errno_location() #12
-  %19 = load i32, ptr %18, align 4, !tbaa !20
+  %19 = load i32, ptr %18, align 4, !tbaa !22
   call void (i32, ptr, ...) @packet_write_fmt(i32 noundef 1, ptr noundef nonnull @.str.8) #10
   %20 = call ptr @strerror(i32 noundef %19) #10
   call void (ptr, ...) @die(ptr noundef nonnull @.str.9, ptr noundef %20) #11
@@ -188,19 +188,19 @@ define dso_local noundef i32 @cmd_upload_archive(i32 noundef %0, ptr noundef %1,
 
 27:                                               ; preds = %65, %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
-  %28 = load i32, ptr %12, align 4, !tbaa !19
-  store i32 %28, ptr %8, align 16, !tbaa !21
-  store i16 1, ptr %22, align 4, !tbaa !24
-  %29 = load i32, ptr %11, align 8, !tbaa !16
-  store i32 %29, ptr %23, align 8, !tbaa !21
-  store i16 1, ptr %24, align 4, !tbaa !24
+  %28 = load i32, ptr %12, align 4, !tbaa !21
+  store i32 %28, ptr %8, align 16, !tbaa !23
+  store i16 1, ptr %22, align 4, !tbaa !26
+  %29 = load i32, ptr %11, align 8, !tbaa !18
+  store i32 %29, ptr %23, align 8, !tbaa !23
+  store i16 1, ptr %24, align 4, !tbaa !26
   %30 = call i32 @poll(ptr noundef nonnull %8, i64 noundef 2, i32 noundef -1) #10
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %27
   %33 = tail call ptr @__errno_location() #12
-  %34 = load i32, ptr %33, align 4, !tbaa !20
+  %34 = load i32, ptr %33, align 4, !tbaa !22
   %.not13 = icmp eq i32 %34, 4
   br i1 %.not13, label %65, label %35
 
@@ -210,13 +210,13 @@ define dso_local noundef i32 @cmd_upload_archive(i32 noundef %0, ptr noundef %1,
   br label %65
 
 38:                                               ; preds = %27
-  %39 = load i16, ptr %25, align 2, !tbaa !25
+  %39 = load i16, ptr %25, align 2, !tbaa !27
   %40 = and i16 %39, 1
   %.not8 = icmp eq i16 %40, 0
   br i1 %.not8, label %50, label %41
 
 41:                                               ; preds = %38
-  %42 = load i32, ptr %23, align 8, !tbaa !21
+  %42 = load i32, ptr %23, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %6) #10
   %43 = call i64 @read(i32 noundef %42, ptr noundef nonnull %6, i64 noundef 16384) #10
   %44 = icmp slt i64 %43, 0
@@ -224,7 +224,7 @@ define dso_local noundef i32 @cmd_upload_archive(i32 noundef %0, ptr noundef %1,
 
 45:                                               ; preds = %41
   %46 = tail call ptr @__errno_location() #12
-  %47 = load i32, ptr %46, align 4, !tbaa !20
+  %47 = load i32, ptr %46, align 4, !tbaa !22
   switch i32 %47, label %48 [
     i32 11, label %process_input.exit.thread
     i32 4, label %process_input.exit.thread
@@ -246,13 +246,13 @@ process_input.exit:                               ; preds = %41
   br i1 %.not9, label %50, label %65
 
 50:                                               ; preds = %process_input.exit, %38
-  %51 = load i16, ptr %26, align 2, !tbaa !25
+  %51 = load i16, ptr %26, align 2, !tbaa !27
   %52 = and i16 %51, 1
   %.not10 = icmp eq i16 %52, 0
   br i1 %.not10, label %62, label %53
 
 53:                                               ; preds = %50
-  %54 = load i32, ptr %8, align 16, !tbaa !21
+  %54 = load i32, ptr %8, align 16, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %5) #10
   %55 = call i64 @read(i32 noundef %54, ptr noundef nonnull %5, i64 noundef 16384) #10
   %56 = icmp slt i64 %55, 0
@@ -260,7 +260,7 @@ process_input.exit:                               ; preds = %41
 
 57:                                               ; preds = %53
   %58 = tail call ptr @__errno_location() #12
-  %59 = load i32, ptr %58, align 4, !tbaa !20
+  %59 = load i32, ptr %58, align 4, !tbaa !22
   switch i32 %59, label %60 [
     i32 11, label %process_input.exit14.thread
     i32 4, label %process_input.exit14.thread
@@ -337,11 +337,11 @@ define internal void @error_clnt(ptr noundef %0, ...) unnamed_addr #7 {
   call void @strbuf_vaddf(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #10
   call void @llvm.va_end.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !28
+  %7 = load i64, ptr %6, align 8, !tbaa !30
   call void @send_sideband(i32 noundef 1, i32 noundef 3, ptr noundef %5, i64 noundef %7, i32 noundef 65520) #10
-  %8 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
   call void (ptr, ...) @die(ptr noundef nonnull @.str.14, ptr noundef %8) #11
   unreachable
 }
@@ -388,19 +388,21 @@ attributes #12 = { nounwind willreturn memory(none) }
 !10 = !{!"strvec", !11, i64 0, !12, i64 8, !12, i64 16}
 !11 = !{!"p2 omnipotent char", !6, i64 0}
 !12 = !{!"long", !7, i64 0}
-!13 = !{!10, !11, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS10repository", !6, i64 0}
-!16 = !{!17, !18, i64 88}
-!17 = !{!"child_process", !10, i64 0, !10, i64 24, !18, i64 48, !18, i64 52, !12, i64 56, !5, i64 64, !5, i64 72, !18, i64 80, !18, i64 84, !18, i64 88, !5, i64 96, !18, i64 104, !18, i64 104, !18, i64 104, !18, i64 104, !18, i64 104, !18, i64 104, !18, i64 104, !18, i64 104, !18, i64 105, !18, i64 105, !6, i64 112}
-!18 = !{!"int", !7, i64 0}
-!19 = !{!17, !18, i64 84}
-!20 = !{!18, !18, i64 0}
-!21 = !{!22, !18, i64 0}
-!22 = !{!"pollfd", !18, i64 0, !23, i64 4, !23, i64 6}
-!23 = !{!"short", !7, i64 0}
-!24 = !{!22, !23, i64 4}
-!25 = !{!22, !23, i64 6}
-!26 = !{!27, !5, i64 16}
-!27 = !{!"strbuf", !12, i64 0, !12, i64 8, !5, i64 16}
-!28 = !{!27, !12, i64 8}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!10, !11, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS10repository", !6, i64 0}
+!18 = !{!19, !20, i64 88}
+!19 = !{!"child_process", !10, i64 0, !10, i64 24, !20, i64 48, !20, i64 52, !12, i64 56, !5, i64 64, !5, i64 72, !20, i64 80, !20, i64 84, !20, i64 88, !5, i64 96, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 105, !20, i64 105, !6, i64 112}
+!20 = !{!"int", !7, i64 0}
+!21 = !{!19, !20, i64 84}
+!22 = !{!20, !20, i64 0}
+!23 = !{!24, !20, i64 0}
+!24 = !{!"pollfd", !20, i64 0, !25, i64 4, !25, i64 6}
+!25 = !{!"short", !7, i64 0}
+!26 = !{!24, !25, i64 4}
+!27 = !{!24, !25, i64 6}
+!28 = !{!29, !5, i64 16}
+!29 = !{!"strbuf", !12, i64 0, !12, i64 8, !5, i64 16}
+!30 = !{!29, !12, i64 8}

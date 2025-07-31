@@ -268,7 +268,7 @@ check_retval.exit105:                             ; preds = %11
 101:                                              ; preds = %92, %83, %74, %65, %57, %49, %40, %31
   %.1.i = phi i32 [ %32, %31 ], [ %41, %40 ], [ %50, %49 ], [ %58, %57 ], [ %66, %65 ], [ %75, %74 ], [ %84, %83 ], [ %93, %92 ]
   %102 = icmp slt i32 %.1.i, %0
-  br i1 %102, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %102, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %101
   %.pre.i = load i32, ptr %21, align 8, !tbaa !20
@@ -304,7 +304,7 @@ check_retval.exit109:                             ; preds = %107
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %116) #13
   %117 = load ptr, ptr %5, align 8, !tbaa !8
   %118 = call ptr @CVodeCreate(i32 noundef 2, ptr noundef %117) #13
-  store ptr %118, ptr %6, align 8, !tbaa !26
+  store ptr %118, ptr %6, align 8, !tbaa !28
   %119 = icmp eq ptr %118, null
   br i1 %119, label %check_retval.exit113, label %122
 
@@ -483,13 +483,13 @@ check_retval.exit135:                             ; preds = %178
   br i1 %.not96, label %205, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %203
-  %.pre223 = load ptr, ptr %6, align 8, !tbaa !26
+  %.pre223 = load ptr, ptr %6, align 8, !tbaa !28
   br label %208
 
 205:                                              ; preds = %203
   %206 = load i32, ptr %24, align 4, !tbaa !23
   %207 = icmp eq i32 %206, 0
-  %.pre224 = load ptr, ptr %6, align 8, !tbaa !26
+  %.pre224 = load ptr, ptr %6, align 8, !tbaa !28
   br i1 %207, label %208, label %check_retval.exit137.thread
 
 208:                                              ; preds = %._crit_edge, %205
@@ -547,7 +547,7 @@ check_retval.exit143:                             ; preds = %219
   %.1 = phi double [ %229, %228 ], [ %234, %230 ]
   %236 = add nuw nsw i32 %.076217, 1
   %exitcond.not = icmp eq i32 %236, %.075234
-  br i1 %exitcond.not, label %.loopexit, label %203
+  br i1 %exitcond.not, label %.loopexit, label %203, !llvm.loop !29
 
 .loopexit:                                        ; preds = %235, %195, %check_retval.exit139
   %.072202232 = phi ptr [ %.072202233, %check_retval.exit139 ], [ %188, %195 ], [ %.072202233, %235 ]
@@ -577,7 +577,7 @@ check_retval.exit145:                             ; preds = %242
   %249 = load double, ptr %3, align 8, !tbaa !4
   %250 = load double, ptr %4, align 8, !tbaa !4
   call fastcc void @WriteOutput(double noundef %249, ptr noundef nonnull %109, ptr noundef %116, double noundef %250, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %251 = load ptr, ptr %6, align 8, !tbaa !26
+  %251 = load ptr, ptr %6, align 8, !tbaa !28
   call fastcc void @PrintStats(ptr noundef %251)
   call void @free(ptr noundef nonnull %12) #13
   call void @N_VDestroy(ptr noundef nonnull %109) #13
@@ -805,11 +805,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @ComputeError(double noundef 
   %7 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #13
   %8 = load double, ptr %4, align 8, !tbaa !13
   %9 = fmul double %0, %8
-  %10 = tail call double @cos(double noundef %9) #13, !tbaa !27
+  %10 = tail call double @cos(double noundef %9) #13, !tbaa !30
   store double %10, ptr %7, align 8, !tbaa !4
   %11 = load double, ptr %4, align 8, !tbaa !13
   %12 = fmul double %0, %11
-  %13 = tail call double @sin(double noundef %12) #13, !tbaa !27
+  %13 = tail call double @sin(double noundef %12) #13, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %13, ptr %14, align 8, !tbaa !4
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef -1.000000e+00, ptr noundef %2, ptr noundef %2) #13
@@ -913,19 +913,19 @@ check_retval.exit16:                              ; preds = %check_retval.exit14
 
 check_retval.exit18:                              ; preds = %check_retval.exit16, %41
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %44 = load i64, ptr %2, align 8, !tbaa !28
+  %44 = load i64, ptr %2, align 8, !tbaa !31
   %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i64 noundef %44)
-  %46 = load i64, ptr %3, align 8, !tbaa !28
+  %46 = load i64, ptr %3, align 8, !tbaa !31
   %47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i64 noundef %46)
-  %48 = load i64, ptr %4, align 8, !tbaa !28
+  %48 = load i64, ptr %4, align 8, !tbaa !31
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, i64 noundef %48)
-  %50 = load i64, ptr %5, align 8, !tbaa !28
+  %50 = load i64, ptr %5, align 8, !tbaa !31
   %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i64 noundef %50)
-  %52 = load i64, ptr %6, align 8, !tbaa !28
+  %52 = load i64, ptr %6, align 8, !tbaa !31
   %53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, i64 noundef %52)
-  %54 = load i64, ptr %7, align 8, !tbaa !28
+  %54 = load i64, ptr %7, align 8, !tbaa !31
   %55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i64 noundef %54)
-  %56 = load i64, ptr %8, align 8, !tbaa !28
+  %56 = load i64, ptr %8, align 8, !tbaa !31
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i64 noundef %56)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
@@ -1058,7 +1058,10 @@ attributes #16 = { nounwind willreturn memory(read) }
 !23 = !{!14, !15, i64 52}
 !24 = !{!25, !25, i64 0}
 !25 = !{!"p1 omnipotent char", !10, i64 0}
-!26 = !{!10, !10, i64 0}
-!27 = !{!15, !15, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"long", !6, i64 0}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!10, !10, i64 0}
+!29 = distinct !{!29, !27}
+!30 = !{!15, !15, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"long", !6, i64 0}

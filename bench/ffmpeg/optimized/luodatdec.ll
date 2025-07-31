@@ -138,14 +138,14 @@ define internal i32 @dat_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 %10, ptr %39, align 4, !tbaa !33
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
-  store i32 0, ptr %41, align 8, !tbaa !43
+  %41 = load ptr, ptr %40, align 8, !tbaa !43
+  store i32 0, ptr %41, align 8, !tbaa !44
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store i32 27, ptr %42, align 4, !tbaa !46
+  store i32 27, ptr %42, align 4, !tbaa !47
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 72
-  store i32 %11, ptr %43, align 8, !tbaa !47
+  store i32 %11, ptr %43, align 8, !tbaa !48
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 76
-  store i32 %12, ptr %44, align 4, !tbaa !48
+  store i32 %12, ptr %44, align 4, !tbaa !49
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %37, i32 noundef 64, i32 noundef 1, i32 noundef %13) #4
   %.pre = load i32, ptr %24, align 4, !tbaa !29
   br label %45
@@ -167,18 +167,18 @@ define internal i32 @dat_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %5, ptr %52, align 8, !tbaa !49
+  store i64 %5, ptr %52, align 8, !tbaa !50
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %20, ptr %53, align 8, !tbaa !50
+  store i64 %20, ptr %53, align 8, !tbaa !51
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.056.lcssa72, ptr %54, align 4, !tbaa !51
+  store i32 %.056.lcssa72, ptr %54, align 4, !tbaa !52
   br i1 %16, label %55, label %.critedge
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %57 = load i32, ptr %56, align 8, !tbaa !52
+  %57 = load i32, ptr %56, align 8, !tbaa !53
   %58 = or i32 %57, 1
-  store i32 %58, ptr %56, align 8, !tbaa !52
+  store i32 %58, ptr %56, align 8, !tbaa !53
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge.thread, %51, %55, %48, %9, %7, %2
@@ -257,16 +257,17 @@ attributes #4 = { nounwind }
 !37 = !{!"AVPacket", !38, i64 0, !23, i64 8, !23, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !39, i64 48, !10, i64 56, !23, i64 64, !23, i64 72, !7, i64 80, !38, i64 88, !36, i64 96}
 !38 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
 !39 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!34, !35, i64 16}
-!43 = !{!44, !10, i64 0}
-!44 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !39, i64 32, !10, i64 40, !10, i64 44, !23, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !36, i64 80, !36, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !45, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
-!45 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
-!46 = !{!44, !10, i64 4}
-!47 = !{!44, !10, i64 72}
-!48 = !{!44, !10, i64 76}
-!49 = !{!37, !23, i64 72}
-!50 = !{!37, !23, i64 8}
-!51 = !{!37, !10, i64 36}
-!52 = !{!37, !10, i64 40}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!34, !35, i64 16}
+!44 = !{!45, !10, i64 0}
+!45 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !39, i64 32, !10, i64 40, !10, i64 44, !23, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !36, i64 80, !36, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !46, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
+!46 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
+!47 = !{!45, !10, i64 4}
+!48 = !{!45, !10, i64 72}
+!49 = !{!45, !10, i64 76}
+!50 = !{!37, !23, i64 72}
+!51 = !{!37, !23, i64 8}
+!52 = !{!37, !10, i64 36}
+!53 = !{!37, !10, i64 40}

@@ -2025,7 +2025,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i22, i64 8
   %22 = cmpxchg ptr %21, i64 0, i64 %10 acq_rel acquire, align 8, !noalias !129
   %23 = extractvalue { i64, i1 } %22, 1
-  br i1 %23, label %.loopexit, label %.lr.ph
+  br i1 %23, label %.loopexit, label %.lr.ph, !llvm.loop !132
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2062,11 +2062,11 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
 
 .preheader:                                       ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$3new17h299db0d9254194e6E.llvm.17377617297042387971.exit"
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 2048
-  %16 = load i64, ptr %15, align 8, !noalias !132, !noundef !5
+  %16 = load i64, ptr %15, align 8, !noalias !134, !noundef !5
   %17 = add i64 %16, 32
-  store i64 %17, ptr %9, align 8, !noalias !132
+  store i64 %17, ptr %9, align 8, !noalias !134
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 2056
-  %19 = cmpxchg ptr %18, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !132
+  %19 = cmpxchg ptr %18, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !134
   %20 = extractvalue { i64, i1 } %19, 1
   br i1 %20, label %.loopexit, label %.lr.ph
 
@@ -2080,13 +2080,13 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
   %.sroa.07.0.i22 = inttoptr i64 %.sroa.07.0.in.i21 to ptr
   tail call void @llvm.x86.sse2.pause() #6
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i22, i64 2048
-  %23 = load i64, ptr %22, align 8, !noalias !132, !noundef !5
+  %23 = load i64, ptr %22, align 8, !noalias !134, !noundef !5
   %24 = add i64 %23, 32
-  store i64 %24, ptr %9, align 8, !noalias !132
+  store i64 %24, ptr %9, align 8, !noalias !134
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i22, i64 2056
-  %26 = cmpxchg ptr %25, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !132
+  %26 = cmpxchg ptr %25, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !134
   %27 = extractvalue { i64, i1 } %26, 1
-  br i1 %27, label %.loopexit, label %.lr.ph
+  br i1 %27, label %.loopexit, label %.lr.ph, !llvm.loop !137
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2123,11 +2123,11 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
 
 .preheader:                                       ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$3new17h3db8ae8881ecbbddE.llvm.17377617297042387971.exit"
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 7424
-  %16 = load i64, ptr %15, align 8, !noalias !135, !noundef !5
+  %16 = load i64, ptr %15, align 8, !noalias !138, !noundef !5
   %17 = add i64 %16, 32
-  store i64 %17, ptr %9, align 8, !noalias !135
+  store i64 %17, ptr %9, align 8, !noalias !138
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 7432
-  %19 = cmpxchg ptr %18, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !135
+  %19 = cmpxchg ptr %18, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !138
   %20 = extractvalue { i64, i1 } %19, 1
   br i1 %20, label %.loopexit, label %.lr.ph
 
@@ -2141,13 +2141,13 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
   %.sroa.07.0.i22 = inttoptr i64 %.sroa.07.0.in.i21 to ptr
   tail call void @llvm.x86.sse2.pause() #6
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i22, i64 7424
-  %23 = load i64, ptr %22, align 8, !noalias !135, !noundef !5
+  %23 = load i64, ptr %22, align 8, !noalias !138, !noundef !5
   %24 = add i64 %23, 32
-  store i64 %24, ptr %9, align 8, !noalias !135
+  store i64 %24, ptr %9, align 8, !noalias !138
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i22, i64 7432
-  %26 = cmpxchg ptr %25, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !135
+  %26 = cmpxchg ptr %25, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !138
   %27 = extractvalue { i64, i1 } %26, 1
-  br i1 %27, label %.loopexit, label %.lr.ph
+  br i1 %27, label %.loopexit, label %.lr.ph, !llvm.loop !141
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2184,11 +2184,11 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
 
 .preheader:                                       ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$3new17h705570da5df7b3f0E.llvm.17377617297042387971.exit"
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 2816
-  %16 = load i64, ptr %15, align 8, !noalias !138, !noundef !5
+  %16 = load i64, ptr %15, align 8, !noalias !142, !noundef !5
   %17 = add i64 %16, 32
-  store i64 %17, ptr %9, align 8, !noalias !138
+  store i64 %17, ptr %9, align 8, !noalias !142
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 2824
-  %19 = cmpxchg ptr %18, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !138
+  %19 = cmpxchg ptr %18, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !142
   %20 = extractvalue { i64, i1 } %19, 1
   br i1 %20, label %.loopexit, label %.lr.ph
 
@@ -2202,13 +2202,13 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
   %.sroa.07.0.i22 = inttoptr i64 %.sroa.07.0.in.i21 to ptr
   tail call void @llvm.x86.sse2.pause() #6
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i22, i64 2816
-  %23 = load i64, ptr %22, align 8, !noalias !138, !noundef !5
+  %23 = load i64, ptr %22, align 8, !noalias !142, !noundef !5
   %24 = add i64 %23, 32
-  store i64 %24, ptr %9, align 8, !noalias !138
+  store i64 %24, ptr %9, align 8, !noalias !142
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i22, i64 2824
-  %26 = cmpxchg ptr %25, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !138
+  %26 = cmpxchg ptr %25, i64 0, i64 %12 acq_rel acquire, align 8, !noalias !142
   %27 = extractvalue { i64, i1 } %26, 1
-  br i1 %27, label %.loopexit, label %.lr.ph
+  br i1 %27, label %.loopexit, label %.lr.ph, !llvm.loop !145
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2961,12 +2961,17 @@ attributes #13 = { noreturn }
 !129 = !{!130}
 !130 = distinct !{!130, !131, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h42fcacff069baf7cE: argument 0"}
 !131 = distinct !{!131, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h42fcacff069baf7cE"}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h58be0cd8b8d6faabE: argument 0"}
-!134 = distinct !{!134, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h58be0cd8b8d6faabE"}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h0653a6cfbd4bad6dE: argument 0"}
-!137 = distinct !{!137, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h0653a6cfbd4bad6dE"}
+!132 = distinct !{!132, !133}
+!133 = !{!"llvm.loop.estimated_trip_count"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h58be0cd8b8d6faabE: argument 0"}
+!136 = distinct !{!136, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h58be0cd8b8d6faabE"}
+!137 = distinct !{!137, !133}
 !138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h33fe63bf7072c978E: argument 0"}
-!140 = distinct !{!140, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h33fe63bf7072c978E"}
+!139 = distinct !{!139, !140, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h0653a6cfbd4bad6dE: argument 0"}
+!140 = distinct !{!140, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h0653a6cfbd4bad6dE"}
+!141 = distinct !{!141, !133}
+!142 = !{!143}
+!143 = distinct !{!143, !144, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h33fe63bf7072c978E: argument 0"}
+!144 = distinct !{!144, !"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$8try_push17h33fe63bf7072c978E"}
+!145 = distinct !{!145, !133}

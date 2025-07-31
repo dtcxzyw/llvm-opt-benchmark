@@ -467,7 +467,7 @@ dissect_ypserv_status.exit:                       ; preds = %9, %15
   %23 = load i32, ptr @hf_ypserv_more, align 4
   %24 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %23, i32 noundef %21)
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %9
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %dissect_ypserv_status.exit, %4
   %.lcssa = phi i32 [ %7, %4 ], [ %24, %dissect_ypserv_status.exit ]
@@ -597,7 +597,7 @@ dissect_ypserv_status.exit:                       ; preds = %4, %9
   %17 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %16, i32 noundef %15, ptr noundef null)
   %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %17)
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %dissect_ypserv_status.exit
   %.0.lcssa = phi i32 [ %7, %dissect_ypserv_status.exit ], [ %17, %.lr.ph ]
@@ -656,4 +656,6 @@ attributes #3 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}

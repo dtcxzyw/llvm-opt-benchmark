@@ -244,7 +244,7 @@ marker_is_icc.exit.thread:                        ; preds = %.lr.ph, %28, %32, %
   %127 = add i32 %126, %.082115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge117, label %.lr.ph116, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge117, label %.lr.ph116, !llvm.loop !47
 
 ._crit_edge117:                                   ; preds = %123
   %128 = icmp eq i32 %127, 0
@@ -395,12 +395,12 @@ marker_is_icc.exit99:                             ; preds = %192
   %212 = getelementptr inbounds nuw i8, ptr %.080121, i64 1
   store i8 %211, ptr %.080121, align 1, !tbaa !35
   %.not93 = icmp eq i32 %209, 0
-  br i1 %.not93, label %marker_is_icc.exit99.thread, label %.lr.ph124, !llvm.loop !47
+  br i1 %.not93, label %marker_is_icc.exit99.thread, label %.lr.ph124, !llvm.loop !48
 
 marker_is_icc.exit99.thread:                      ; preds = %.lr.ph124, %198, %.lr.ph129, %147, %151, %156, %160, %164, %168, %172, %176, %180, %184, %188, %192, %marker_is_icc.exit99
   %.188 = load ptr, ptr %.188127, align 8, !tbaa !38
   %.not91 = icmp eq ptr %.188, null
-  br i1 %.not91, label %._crit_edge130, label %.lr.ph129, !llvm.loop !48
+  br i1 %.not91, label %._crit_edge130, label %.lr.ph129, !llvm.loop !49
 
 ._crit_edge130:                                   ; preds = %marker_is_icc.exit99.thread, %143
   store ptr %135, ptr %1, align 8, !tbaa !36
@@ -480,8 +480,9 @@ attributes #5 = { nounwind allocsize(0) }
 !41 = !{!40, !11, i64 16}
 !42 = !{!40, !18, i64 24}
 !43 = !{!31, !6, i64 8}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45}
-!48 = distinct !{!48, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !45, !46}
+!49 = distinct !{!49, !45, !46}

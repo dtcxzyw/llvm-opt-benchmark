@@ -1794,7 +1794,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   switch i32 %19, label %.thread [
     i32 0, label %.preheader
     i32 1, label %20
-  ]
+  ], !llvm.loop !8
 
 20:                                               ; preds = %.preheader
   tail call void @llvm.debugtrap()
@@ -2262,7 +2262,7 @@ define internal noundef zeroext i1 @GL_QueueDrawPoints(ptr noundef %0, ptr nound
   store float %20, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %4
   ret i1 %.not
@@ -2319,7 +2319,7 @@ define internal noundef zeroext i1 @GL_QueueDrawLines(ptr noundef %0, ptr nounde
   store float %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %4
   ret i1 %.not
@@ -2433,7 +2433,7 @@ define internal noundef zeroext i1 @GL_QueueGeometry(ptr noundef %0, ptr noundef
   store float %74, ptr %72, align 4
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %88 ]
@@ -2513,7 +2513,7 @@ define internal noundef zeroext i1 @GL_QueueGeometry(ptr noundef %0, ptr noundef
   store float %126, ptr %122, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %88, %48, %.thread, %25, %15
   ret i1 %.not70
@@ -2841,7 +2841,7 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 .lr.ph:                                           ; preds = %166
   %160 = load i32, ptr %.0210, align 8
   %.not228 = icmp eq i32 %160, 6
-  br i1 %.not228, label %.lr.ph325, label %.thread
+  br i1 %.not228, label %.lr.ph325, label %.thread, !llvm.loop !14
 
 .lr.ph325:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.0207273324 = phi ptr [ %.0210275322, %.lr.ph ], [ %.0201314, %.lr.ph.preheader ]
@@ -2863,11 +2863,14 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   %.0210.in = getelementptr inbounds nuw i8, ptr %.0210275322, i64 80
   %.0210 = load ptr, ptr %.0210.in, align 8
   %.not227 = icmp eq ptr %.0210, null
-  br i1 %.not227, label %.thread, label %.lr.ph
+  br i1 %.not227, label %..thread.loopexit_crit_edge332, label %.lr.ph, !llvm.loop !14
 
-.thread:                                          ; preds = %163, %.lr.ph325, %.lr.ph, %166, %.lr.ph.preheader, %156
-  %.0207.lcssa = phi ptr [ %.0201314, %156 ], [ %.0201314, %.lr.ph.preheader ], [ %.0210275322, %166 ], [ %.0210275322, %.lr.ph ], [ %.0207273324, %.lr.ph325 ], [ %.0207273324, %163 ]
-  %.0204.lcssa = phi i64 [ %148, %156 ], [ %148, %.lr.ph.preheader ], [ %167, %166 ], [ %167, %.lr.ph ], [ %.0204274323, %.lr.ph325 ], [ %.0204274323, %163 ]
+..thread.loopexit_crit_edge332:                   ; preds = %166
+  br label %.thread, !llvm.loop !14
+
+.thread:                                          ; preds = %163, %.lr.ph325, %.lr.ph, %.lr.ph.preheader, %..thread.loopexit_crit_edge332, %156
+  %.0207.lcssa = phi ptr [ %.0201314, %156 ], [ %.0210275322, %..thread.loopexit_crit_edge332 ], [ %.0201314, %.lr.ph.preheader ], [ %.0210275322, %.lr.ph ], [ %.0207273324, %.lr.ph325 ], [ %.0207273324, %163 ]
+  %.0204.lcssa = phi i64 [ %148, %156 ], [ %167, %..thread.loopexit_crit_edge332 ], [ %148, %.lr.ph.preheader ], [ %167, %.lr.ph ], [ %.0204274323, %.lr.ph325 ], [ %.0204274323, %163 ]
   %168 = load ptr, ptr %31, align 8
   %169 = trunc i64 %.0204.lcssa to i32
   call void %168(i32 noundef 1, i32 noundef 0, i32 noundef %169) #7
@@ -2900,7 +2903,7 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 .lr.ph292:                                        ; preds = %200
   %185 = load i32, ptr %.0216, align 8
   %.not232 = icmp eq i32 %185, %60
-  br i1 %.not232, label %.lr.ph339, label %.thread252
+  br i1 %.not232, label %.lr.ph339, label %.thread252, !llvm.loop !15
 
 .lr.ph339:                                        ; preds = %.lr.ph292.preheader, %.lr.ph292
   %.0218289338 = phi ptr [ %.0216291336, %.lr.ph292 ], [ %.0201314, %.lr.ph292.preheader ]
@@ -2942,11 +2945,14 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   %.0216.in = getelementptr inbounds nuw i8, ptr %.0216291336, i64 80
   %.0216 = load ptr, ptr %.0216.in, align 8
   %.not231 = icmp eq ptr %.0216, null
-  br i1 %.not231, label %.thread252, label %.lr.ph292
+  br i1 %.not231, label %..thread252.loopexit_crit_edge356, label %.lr.ph292, !llvm.loop !15
 
-.thread252:                                       ; preds = %.lr.ph339, %188, %191, %194, %197, %.lr.ph292, %200, %.lr.ph292.preheader, %170
-  %.0218.lcssa = phi ptr [ %.0201314, %170 ], [ %.0201314, %.lr.ph292.preheader ], [ %.0216291336, %200 ], [ %.0216291336, %.lr.ph292 ], [ %.0218289338, %197 ], [ %.0218289338, %194 ], [ %.0218289338, %191 ], [ %.0218289338, %188 ], [ %.0218289338, %.lr.ph339 ]
-  %.0213.lcssa = phi i64 [ %183, %170 ], [ %183, %.lr.ph292.preheader ], [ %203, %200 ], [ %203, %.lr.ph292 ], [ %.0213290337, %197 ], [ %.0213290337, %194 ], [ %.0213290337, %191 ], [ %.0213290337, %188 ], [ %.0213290337, %.lr.ph339 ]
+..thread252.loopexit_crit_edge356:                ; preds = %200
+  br label %.thread252, !llvm.loop !15
+
+.thread252:                                       ; preds = %.lr.ph339, %188, %191, %194, %197, %.lr.ph292, %.lr.ph292.preheader, %..thread252.loopexit_crit_edge356, %170
+  %.0218.lcssa = phi ptr [ %.0201314, %170 ], [ %.0216291336, %..thread252.loopexit_crit_edge356 ], [ %.0201314, %.lr.ph292.preheader ], [ %.0216291336, %.lr.ph292 ], [ %.0218289338, %197 ], [ %.0218289338, %194 ], [ %.0218289338, %191 ], [ %.0218289338, %188 ], [ %.0218289338, %.lr.ph339 ]
+  %.0213.lcssa = phi i64 [ %183, %170 ], [ %203, %..thread252.loopexit_crit_edge356 ], [ %183, %.lr.ph292.preheader ], [ %203, %.lr.ph292 ], [ %.0213290337, %197 ], [ %.0213290337, %194 ], [ %.0213290337, %191 ], [ %.0213290337, %188 ], [ %.0213290337, %.lr.ph339 ]
   %.not238 = icmp eq ptr %173, null
   br i1 %.not238, label %SetCopyState.exit.thread259, label %204
 
@@ -3275,7 +3281,7 @@ SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode
   %353 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %354 = load ptr, ptr %353, align 8
   %.not226 = icmp eq ptr %354, null
-  br i1 %.not226, label %._crit_edge, label %59, !llvm.loop !12
+  br i1 %.not226, label %._crit_edge, label %59, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %SetCopyState.exit.thread, %29
   %355 = getelementptr inbounds nuw i8, ptr %8, i64 614
@@ -3628,7 +3634,7 @@ define internal void @GL_DestroyRenderer(ptr noundef readonly captures(none) %0)
   %25 = load i32, ptr %17, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %21, label %._crit_edge.i, !llvm.loop !13
+  br i1 %27, label %21, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %21, %.preheader.i
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -3648,7 +3654,7 @@ define internal void @GL_DestroyRenderer(ptr noundef readonly captures(none) %0)
   %33 = load ptr, ptr %31, align 8
   %34 = tail call i32 %33() #7
   %.not13.i = icmp eq i32 %34, 0
-  br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !14
+  br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !18
 
 GL_ClearErrors.exit:                              ; preds = %.preheader1.i, %8, %16, %._crit_edge.i, %30
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 9
@@ -3702,7 +3708,7 @@ GL_ClearErrors.exit:                              ; preds = %.preheader1.i, %8, 
   tail call void @SDL_free_REAL(ptr noundef %60) #7
   store ptr %56, ptr %50, align 8
   %.not27 = icmp eq ptr %56, null
-  br i1 %.not27, label %._crit_edge.loopexit, label %53, !llvm.loop !15
+  br i1 %.not27, label %._crit_edge.loopexit, label %53, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %53
   %.pre = load ptr, ptr %3, align 8
@@ -3909,7 +3915,7 @@ define internal fastcc noundef zeroext i1 @GL_ActivateRenderer(ptr noundef reado
   %27 = load i32, ptr %19, align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next.i, %28
-  br i1 %29, label %23, label %._crit_edge.i, !llvm.loop !13
+  br i1 %29, label %23, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %23, %.preheader.i
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -3929,7 +3935,7 @@ define internal fastcc noundef zeroext i1 @GL_ActivateRenderer(ptr noundef reado
   %35 = load ptr, ptr %33, align 8
   %36 = tail call i32 %35() #7
   %.not13.i = icmp eq i32 %36, 0
-  br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !14
+  br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !18
 
 GL_ClearErrors.exit:                              ; preds = %.preheader1.i, %32, %._crit_edge.i, %18, %10, %6
   %.0 = phi i1 [ false, %6 ], [ true, %10 ], [ true, %18 ], [ true, %._crit_edge.i ], [ true, %32 ], [ true, %.preheader1.i ]
@@ -3986,7 +3992,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   %27 = load i32, ptr %18, align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %22, label %._crit_edge, !llvm.loop !16
+  br i1 %29, label %22, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %22
   %.val.pre = load ptr, ptr %5, align 8
@@ -4026,7 +4032,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   %43 = load i32, ptr %35, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next.i, %44
-  br i1 %45, label %39, label %._crit_edge.i, !llvm.loop !13
+  br i1 %45, label %39, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %39, %.preheader.i
   %46 = getelementptr inbounds nuw i8, ptr %.val16, i64 16
@@ -4046,7 +4052,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   %51 = load ptr, ptr %49, align 8
   %52 = tail call i32 %51() #7
   %.not13.i = icmp eq i32 %52, 0
-  br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !14
+  br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.preheader5, %67
   %53 = phi i32 [ %70, %67 ], [ %16, %.preheader5 ]
@@ -4101,7 +4107,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   %69 = load ptr, ptr %14, align 8
   %70 = tail call i32 %69() #7
   %.not = icmp eq i32 %70, 0
-  br i1 %.not, label %GL_ClearErrors.exit, label %.lr.ph
+  br i1 %.not, label %GL_ClearErrors.exit, label %.lr.ph, !llvm.loop !21
 
 GL_ClearErrors.exit:                              ; preds = %67, %.preheader1.i, %.preheader5, %17, %._crit_edge, %34, %._crit_edge.i, %48, %4
   %.0 = phi i1 [ true, %4 ], [ true, %17 ], [ false, %._crit_edge ], [ %20, %34 ], [ %20, %._crit_edge.i ], [ %20, %48 ], [ true, %.preheader5 ], [ %20, %.preheader1.i ], [ false, %67 ]
@@ -4554,15 +4560,20 @@ attributes #12 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !7}

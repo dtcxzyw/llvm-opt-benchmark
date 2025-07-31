@@ -2925,7 +2925,7 @@ define dso_local void @PHP_TIGERUpdate(ptr noundef %0, ptr noundef readonly capt
   store i64 %2758, ptr %1402, align 8, !tbaa !11
   %2759 = add i64 %1407, 64
   %.not1197 = icmp ugt i64 %2759, %2
-  br i1 %.not1197, label %._crit_edge1274, label %1403
+  br i1 %.not1197, label %._crit_edge1274, label %1403, !llvm.loop !12
 
 ._crit_edge1274:                                  ; preds = %2753, %1387
   %.1.lcssa = phi i64 [ %.01147, %1387 ], [ %1407, %2753 ]
@@ -2966,10 +2966,10 @@ define dso_local void @PHP_TIGER128Final(ptr noundef writeonly captures(none) %0
   %10 = lshr i64 %7, %9
   %11 = trunc i64 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %11, ptr %12, align 1, !tbaa !12
+  store i8 %11, ptr %12, align 1, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3
+  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3, !llvm.loop !15
 
 TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
@@ -2990,7 +2990,7 @@ define internal fastcc void @TigerFinalize(ptr noundef captures(none) %0) unname
   %10 = add i32 %3, 1
   store i32 %10, ptr %2, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %4
-  store i8 1, ptr %11, align 1, !tbaa !12
+  store i8 1, ptr %11, align 1, !tbaa !14
   %12 = load i32, ptr %2, align 8, !tbaa !8
   %13 = and i32 %12, 7
   %.not = icmp eq i32 %13, 0
@@ -5867,10 +5867,10 @@ define dso_local void @PHP_TIGER160Final(ptr noundef writeonly captures(none) %0
   %10 = lshr i64 %7, %9
   %11 = trunc i64 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %11, ptr %12, align 1, !tbaa !12
+  store i8 %11, ptr %12, align 1, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3
+  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3, !llvm.loop !15
 
 TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
@@ -5893,10 +5893,10 @@ define dso_local void @PHP_TIGER192Final(ptr noundef writeonly captures(none) %0
   %10 = lshr i64 %7, %9
   %11 = trunc i64 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %11, ptr %12, align 1, !tbaa !12
+  store i8 %11, ptr %12, align 1, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 24
-  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3
+  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3, !llvm.loop !15
 
 TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
@@ -5910,7 +5910,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #6
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_tiger_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = icmp eq i64 %1, 2
   br i1 %6, label %7, label %.thread
 
@@ -5956,14 +5956,17 @@ attributes #7 = { nounwind }
 !9 = !{!"", !6, i64 0, !5, i64 24, !6, i64 32, !10, i64 96, !10, i64 100}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!9, !5, i64 24}
-!12 = !{!6, !6, i64 0}
-!13 = !{!14, !16, i64 8}
-!14 = !{!"_php_hashcontext_object", !15, i64 0, !16, i64 8, !5, i64 16, !17, i64 24, !18, i64 32}
-!15 = !{!"p1 _ZTS13_php_hash_ops", !16, i64 0}
-!16 = !{!"any pointer", !6, i64 0}
-!17 = !{!"p1 omnipotent char", !16, i64 0}
-!18 = !{!"_zend_object", !19, i64 0, !10, i64 8, !10, i64 12, !20, i64 16, !21, i64 24, !22, i64 32, !6, i64 40}
-!19 = !{!"_zend_refcounted_h", !10, i64 0, !6, i64 4}
-!20 = !{!"p1 _ZTS17_zend_class_entry", !16, i64 0}
-!21 = !{!"p1 _ZTS21_zend_object_handlers", !16, i64 0}
-!22 = !{!"p1 _ZTS11_zend_array", !16, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!6, !6, i64 0}
+!15 = distinct !{!15, !13}
+!16 = !{!17, !19, i64 8}
+!17 = !{!"_php_hashcontext_object", !18, i64 0, !19, i64 8, !5, i64 16, !20, i64 24, !21, i64 32}
+!18 = !{!"p1 _ZTS13_php_hash_ops", !19, i64 0}
+!19 = !{!"any pointer", !6, i64 0}
+!20 = !{!"p1 omnipotent char", !19, i64 0}
+!21 = !{!"_zend_object", !22, i64 0, !10, i64 8, !10, i64 12, !23, i64 16, !24, i64 24, !25, i64 32, !6, i64 40}
+!22 = !{!"_zend_refcounted_h", !10, i64 0, !6, i64 4}
+!23 = !{!"p1 _ZTS17_zend_class_entry", !19, i64 0}
+!24 = !{!"p1 _ZTS21_zend_object_handlers", !19, i64 0}
+!25 = !{!"p1 _ZTS11_zend_array", !19, i64 0}

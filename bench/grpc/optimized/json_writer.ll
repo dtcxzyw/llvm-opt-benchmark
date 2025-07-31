@@ -224,7 +224,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter9ObjectKeyERKNSt7__cxx1112basic_stringIcS
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpValueERKNS_12experimental4JsonE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %21)
   %43 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.041.063) #16
   %.not59 = icmp eq ptr %43, %14
-  br i1 %.not59, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10DumpObjectERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE.exit, label %19
+  br i1 %.not59, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10DumpObjectERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE.exit, label %19, !llvm.loop !36
 
 _ZN9grpc_core12_GLOBAL__N_110JsonWriter10DumpObjectERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9ObjectKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter13ContainerEndsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 4)
@@ -232,9 +232,9 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10DumpObjectERKSt3mapINSt7__cxx1112basic_
 
 _ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %2
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter15ContainerBeginsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 5)
-  %44 = load ptr, ptr %1, align 8, !tbaa !36
+  %44 = load ptr, ptr %1, align 8, !tbaa !38
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !36
+  %46 = load ptr, ptr %45, align 8, !tbaa !38
   %.not60 = icmp eq ptr %44, %46
   br i1 %.not60, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpArrayERKSt6vectorINS_12experimental4JsonESaIS4_EE.exit, label %.lr.ph
 
@@ -243,7 +243,7 @@ _ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %2
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpValueERKNS_12experimental4JsonE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.045.061)
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.045.061, i64 56
   %.not = icmp eq ptr %47, %46
-  br i1 %.not, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpArrayERKSt6vectorINS_12experimental4JsonESaIS4_EE.exit, label %.lr.ph
+  br i1 %.not, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpArrayERKSt6vectorINS_12experimental4JsonESaIS4_EE.exit, label %.lr.ph, !llvm.loop !40
 
 _ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpArrayERKSt6vectorINS_12experimental4JsonESaIS4_EE.exit: ; preds = %.lr.ph, %_ZNK9grpc_core12experimental4Json5arrayEv.exit
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter13ContainerEndsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 5)
@@ -251,7 +251,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpArrayERKSt6vectorINS_12experimental4
 
 _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit: ; preds = %2
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %49 = load i8, ptr %48, align 1, !tbaa !19, !range !38, !noundef !39
+  %49 = load i8, ptr %48, align 1, !tbaa !19, !range !41, !noundef !42
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter11ValueStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %51
 
@@ -270,7 +270,7 @@ _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit21: ; preds = %2
   br label %111
 
 _ZNK9grpc_core12experimental4Json7booleanEv.exit: ; preds = %2
-  %52 = load i8, ptr %1, align 8, !tbaa !40, !range !38, !noundef !39
+  %52 = load i8, ptr %1, align 8, !tbaa !43, !range !41, !noundef !42
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %73
 
@@ -458,7 +458,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter8ValueRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %4 = load i8, ptr %3, align 1, !tbaa !19, !range !38, !noundef !39
+  %4 = load i8, ptr %3, align 1, !tbaa !19, !range !41, !noundef !42
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %7, label %6
 
@@ -552,7 +552,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter15ContainerBeginsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef range(i32 4, 6) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %4 = load i8, ptr %3, align 1, !tbaa !19, !range !38, !noundef !39
+  %4 = load i8, ptr %3, align 1, !tbaa !19, !range !41, !noundef !42
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %7, label %6
 
@@ -640,7 +640,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter13ContainerE
   %3 = load i32, ptr %0, align 8, !tbaa !6
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i8, ptr %4, align 8, !range !38
+  %5 = load i8, ptr %4, align 8, !range !41
   %6 = trunc nuw i8 %5 to i1
   %or.cond = select i1 %.not, i1 true, i1 %6
   br i1 %or.cond, label %32, label %7
@@ -707,7 +707,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit: ; preds = %_ZNKSt7__
   %30 = load ptr, ptr %8, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %20
   store i8 0, ptr %31, align 1, !tbaa !22
-  %.pre = load i8, ptr %4, align 8, !tbaa !18, !range !38
+  %.pre = load i8, ptr %4, align 8, !tbaa !18, !range !41
   br label %32
 
 32:                                               ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit, %2
@@ -796,7 +796,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit14: ; preds = %_ZNKSt7
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter8ValueEndEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !tbaa !18, !range !38, !noundef !39
+  %3 = load i8, ptr %2, align 8, !tbaa !18, !range !41, !noundef !42
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %36
 
@@ -1016,7 +1016,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputInde
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = mul nsw i32 %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %9 = load i8, ptr %8, align 1, !tbaa !19, !range !38, !noundef !39
+  %9 = load i8, ptr %8, align 1, !tbaa !19, !range !41, !noundef !42
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %15, label %.preheader
 
@@ -1136,7 +1136,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
   %53 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @_ZZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEvE9spacesstr, i64 noundef 64)
   %54 = add i32 %.023, -64
   %55 = icmp ugt i32 %54, 63
-  br i1 %55, label %40, label %._crit_edge, !llvm.loop !41
+  br i1 %55, label %40, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit, %.preheader
   %.0.lcssa22 = phi i32 [ %7, %.preheader ], [ %54, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
@@ -1700,7 +1700,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
   %187 = or disjoint i32 %186, %177
   %188 = add nuw nsw i32 %.056171, 1
   %exitcond.not = icmp eq i32 %188, %.057
-  br i1 %exitcond.not, label %189, label %176, !llvm.loop !43
+  br i1 %exitcond.not, label %189, label %176, !llvm.loop !46
 
 189:                                              ; preds = %185
   %190 = and i32 %.1170, 67108832
@@ -1735,7 +1735,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
   %205 = add i64 %.5.ph, 1
   %206 = load i64, ptr %27, align 8, !tbaa !21
   %207 = icmp ult i64 %205, %206
-  br i1 %207, label %.lr.ph, label %.thread151, !llvm.loop !44
+  br i1 %207, label %.lr.ph, label %.thread151, !llvm.loop !47
 
 .thread151:                                       ; preds = %204, %167, %189, %176, %180, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
   %208 = load ptr, ptr %3, align 8, !tbaa !23
@@ -2166,12 +2166,15 @@ attributes #16 = { nounwind willreturn memory(read) }
 !33 = !{!"_ZTSSt18_Rb_tree_node_base", !34, i64 0, !35, i64 8, !35, i64 16, !35, i64 24}
 !34 = !{!"_ZTSSt14_Rb_tree_color", !9, i64 0}
 !35 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !15, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTSN9grpc_core12experimental4JsonE", !15, i64 0}
-!38 = !{i8 0, i8 2}
-!39 = !{}
-!40 = !{!11, !11, i64 0}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42}
-!44 = distinct !{!44, !42}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSN9grpc_core12experimental4JsonE", !15, i64 0}
+!40 = distinct !{!40, !37}
+!41 = !{i8 0, i8 2}
+!42 = !{}
+!43 = !{!11, !11, i64 0}
+!44 = distinct !{!44, !45, !37}
+!45 = !{!"llvm.loop.mustprogress"}
+!46 = distinct !{!46, !45, !37}
+!47 = distinct !{!47, !45, !37}

@@ -260,7 +260,7 @@ get_flat_masks.exit144:                           ; preds = %.lr.ph, %89
 97:                                               ; preds = %get_flat_masks.exit144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %.not57.i92 = icmp samesign ult i64 %indvars.iv.next, %81
-  br i1 %.not57.i92, label %.lr.ph, label %._crit_edge
+  br i1 %.not57.i92, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %97, %74
   %98 = icmp ugt i32 %32, %75
@@ -549,7 +549,7 @@ get_flat_masks.exit155:                           ; preds = %245, %261
 261:                                              ; preds = %get_flat_masks.exit155
   %262 = add nuw nsw i32 %.050.i259, 64
   %.not57.i = icmp samesign ult i32 %262, %247
-  br i1 %.not57.i, label %get_flat_masks.exit155, label %._crit_edge260
+  br i1 %.not57.i, label %get_flat_masks.exit155, label %._crit_edge260, !llvm.loop !5
 
 ._crit_edge260:                                   ; preds = %261, %245
   %263 = icmp samesign ult i32 %246, %16
@@ -748,7 +748,7 @@ define hidden i64 @repeatNextMatchRange(ptr noundef readonly captures(none) %0, 
 13:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %14
+  br i1 %exitcond.not, label %.thread, label %14, !llvm.loop !7
 
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
@@ -788,7 +788,7 @@ define hidden i64 @repeatNextMatchBitmap(ptr noundef readonly captures(none) %0,
   br i1 %.not, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #11, !srcloc !5
+  %12 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #11, !srcloc !8
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = and i64 %13, 4294967295
   %15 = add i64 %14, %4
@@ -804,7 +804,7 @@ define hidden i64 @repeatNextMatchBitmap(ptr noundef readonly captures(none) %0,
   %23 = zext i32 %22 to i64
   %24 = add i64 %15, %23
   %.not21 = icmp ult i64 %2, %24
-  br i1 %.not21, label %.thread, label %10
+  br i1 %.not21, label %.thread, label %10, !llvm.loop !9
 
 .thread:                                          ; preds = %11, %10, %20
   %.2 = phi i64 [ %9, %20 ], [ 0, %10 ], [ %18, %11 ]
@@ -926,7 +926,7 @@ mmbit_clear.exit.thread.i:                        ; preds = %mmbit_clear.exit.i,
   %42 = load i8, ptr %41, align 1
   %43 = and i8 %42, 1
   %.not.not.i.i = icmp eq i8 %43, 0
-  br i1 %.not.not.i.i, label %44, label %.thread.i, !prof !6
+  br i1 %.not.not.i.i, label %44, label %.thread.i, !prof !10
 
 44:                                               ; preds = %36
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 %40
@@ -947,12 +947,12 @@ mmbit_clear.exit.thread.i:                        ; preds = %mmbit_clear.exit.i,
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 %53
   store i64 1, ptr %54, align 1
   %.not33.i.i = icmp eq i32 %48, %34
-  br i1 %.not33.i.i, label %storeInitialRingTop.exit, label %.lr.ph.i
+  br i1 %.not33.i.i, label %storeInitialRingTop.exit, label %.lr.ph.i, !llvm.loop !11
 
 .thread.i:                                        ; preds = %36
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %.not.i8.i = icmp eq i64 %indvars.iv357, %35
-  br i1 %.not.i8.i, label %storeInitialRingTop.exit, label %36
+  br i1 %.not.i8.i, label %storeInitialRingTop.exit, label %36, !llvm.loop !12
 
 storeInitialRingTop.exit:                         ; preds = %.thread.i, %.lr.ph.i, %mmbit_clear.exit.thread.i, %44
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1055,7 +1055,7 @@ get_flat_masks.exit38.i82:                        ; preds = %106, %.lr.ph
   store i64 %112, ptr %100, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %113 = icmp samesign ult i64 %indvars.iv.next, %97
-  br i1 %113, label %.lr.ph, label %._crit_edge
+  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 114:                                              ; preds = %._crit_edge
   %115 = lshr exact i32 %89, 3
@@ -1356,7 +1356,7 @@ get_lowhi_masks.exit.i135:                        ; preds = %241, %187
 mmbit_unset_big.exit:                             ; preds = %.lr.ph441, %243, %.thread204
   %285 = add nuw i32 %230, 1
   %286 = icmp eq i32 %285, %76
-  br i1 %286, label %mmbit_unset_range.exit, label %185
+  br i1 %286, label %mmbit_unset_range.exit, label %185, !llvm.loop !14
 
 mmbit_unset_range.exit:                           ; preds = %185, %mmbit_unset_big.exit, %.thread189, %234, %._crit_edge, %get_flat_masks.exit.i78, %155, %156, %164, %169, %174, %176, %181, %183
   %.not68 = icmp ult i32 %75, %7
@@ -1407,7 +1407,7 @@ get_flat_masks.exit38.i:                          ; preds = %get_flat_masks.exit
   store i64 %311, ptr %306, align 1
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 64
   %312 = icmp samesign ult i64 %indvars.iv.next349, %303
-  br i1 %312, label %get_flat_masks.exit38.i, label %._crit_edge295
+  br i1 %312, label %get_flat_masks.exit38.i, label %._crit_edge295, !llvm.loop !13
 
 313:                                              ; preds = %._crit_edge295
   %314 = lshr exact i32 %300, 3
@@ -1706,7 +1706,7 @@ get_lowhi_masks.exit.i:                           ; preds = %442, %388
 mmbit_unset_big.exit160:                          ; preds = %.lr.ph446, %444, %.thread238
   %486 = add nuw i32 %431, 1
   %487 = icmp eq i32 %486, %288
-  br i1 %487, label %mmbit_unset_range.exit72, label %386
+  br i1 %487, label %mmbit_unset_range.exit72, label %386, !llvm.loop !14
 
 mmbit_unset_range.exit72:                         ; preds = %386, %.thread223, %mmbit_unset_big.exit160, %435, %mmbit_unset_range.exit
   %.0 = phi i32 [ %75, %mmbit_unset_range.exit ], [ %288, %435 ], [ %288, %mmbit_unset_big.exit160 ], [ %288, %.thread223 ], [ %288, %386 ]
@@ -1755,7 +1755,7 @@ mmbit_unset_range.exit72.thread:                  ; preds = %._crit_edge295, %mm
   %520 = zext i8 %519 to i32
   %521 = and i32 %518, %520
   %.not.not.i163 = icmp eq i32 %521, 0
-  br i1 %.not.not.i163, label %522, label %.thread239, !prof !6
+  br i1 %.not.not.i163, label %522, label %.thread239, !prof !10
 
 522:                                              ; preds = %504
   %523 = getelementptr inbounds nuw i8, ptr %509, i64 %513
@@ -1788,12 +1788,12 @@ mmbit_unset_range.exit72.thread:                  ; preds = %._crit_edge295, %mm
   %544 = shl nuw i64 1, %543
   store i64 %544, ptr %540, align 1
   %.not33.i = icmp eq i32 %527, %501
-  br i1 %.not33.i, label %mmbit_set_i.exit, label %.lr.ph307
+  br i1 %.not33.i, label %mmbit_set_i.exit, label %.lr.ph307, !llvm.loop !11
 
 .thread239:                                       ; preds = %504
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %.not.i164 = icmp eq i64 %indvars.iv354, %503
-  br i1 %.not.i164, label %mmbit_set_i.exit, label %504
+  br i1 %.not.i164, label %mmbit_set_i.exit, label %504, !llvm.loop !12
 
 mmbit_set_i.exit:                                 ; preds = %.thread239, %.lr.ph307, %522, %mmbit_unset_range.exit72.thread
   %.0366 = phi i32 [ %.0, %522 ], [ %.0367, %mmbit_unset_range.exit72.thread ], [ %.0, %.lr.ph307 ], [ %.0, %.thread239 ]
@@ -1848,7 +1848,7 @@ define hidden void @repeatStoreRange(ptr noundef readonly captures(none) %0, ptr
 20:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %14
+  br i1 %exitcond.not, label %._crit_edge.thread, label %14, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %14
   %21 = zext i8 %7 to i64
@@ -1894,7 +1894,7 @@ define hidden void @repeatStoreRange(ptr noundef readonly captures(none) %0, ptr
   %38 = sub nsw i64 %37, %indvars.iv
   %39 = and i64 %38, 4294967295
   %40 = icmp samesign ult i64 %indvars.iv.next84, %39
-  br i1 %40, label %.lr.ph76, label %._crit_edge77
+  br i1 %40, label %.lr.ph76, label %._crit_edge77, !llvm.loop !16
 
 thread-pre-split:                                 ; preds = %23
   %.pre.pre = load i64, ptr %1, align 8
@@ -2202,7 +2202,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
 71:                                               ; preds = %52
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %.not.i125.i = icmp eq i64 %indvars.iv102.i, %51
-  br i1 %.not.i125.i, label %ringHasMatch.exit.thread48, label %52
+  br i1 %.not.i125.i, label %ringHasMatch.exit.thread48, label %52, !llvm.loop !17
 
 72:                                               ; preds = %28
   %73 = add i32 %spec.select52, %17
@@ -2337,7 +2337,7 @@ get_flat_masks.exit117.i:                         ; preds = %131, %.lr.ph.i
 139:                                              ; preds = %get_flat_masks.exit117.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
   %.not57.i.i = icmp samesign ult i64 %indvars.iv.next.i, %123
-  br i1 %.not57.i.i, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %.not57.i.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %139, %116
   %140 = icmp ugt i32 %76, %117
@@ -2603,7 +2603,7 @@ get_flat_masks.exit105.i:                         ; preds = %288, %get_flat_mask
 288:                                              ; preds = %get_flat_masks.exit105.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %.not57.i53.i = icmp samesign ult i64 %indvars.iv.next, %279
-  br i1 %.not57.i53.i, label %get_flat_masks.exit105.i, label %._crit_edge94.i
+  br i1 %.not57.i53.i, label %get_flat_masks.exit105.i, label %._crit_edge94.i, !llvm.loop !5
 
 ._crit_edge94.i:                                  ; preds = %288
   %289 = icmp ugt i32 %spec.select44.i, %276
@@ -2816,7 +2816,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRange(ptr noundef readonly capt
 29:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !18
 
 30:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -2852,7 +2852,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchBitmap(ptr noundef readonly cap
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %6
-  %14 = tail call { i64, i64 } asm "bsrq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %5) #11, !srcloc !7
+  %14 = tail call { i64, i64 } asm "bsrq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %5) #11, !srcloc !19
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = and i64 %15, 4294967295
   %17 = add i64 %7, %16
@@ -2874,7 +2874,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchBitmap(ptr noundef readonly cap
   br i1 %.not27, label %.loopexit, label %24
 
 24:                                               ; preds = %.preheader
-  %25 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.032) #11, !srcloc !5
+  %25 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.032) #11, !srcloc !8
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = and i64 %26, 4294967295
   %28 = add i64 %7, %27
@@ -2882,7 +2882,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchBitmap(ptr noundef readonly cap
   %.not28 = icmp ult i64 %29, %11
   %.not29 = icmp ugt i64 %29, %21
   %or.cond = or i1 %.not28, %.not29
-  br i1 %or.cond, label %.preheader, label %.loopexit
+  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %24, %.preheader, %6, %23, %13, %3
   %.0 = phi i32 [ 2, %3 ], [ 0, %6 ], [ 2, %13 ], [ 1, %23 ], [ 1, %24 ], [ 0, %.preheader ]
@@ -3538,7 +3538,7 @@ storePackedRelative.exit.i32:                     ; preds = %201, %199, %194, %1
   %.2.i.i = phi i64 [ %268, %263 ], [ %282, %279 ], [ 0, %273 ]
   %.126.i.i = phi i32 [ %271, %263 ], [ %275, %279 ], [ %275, %273 ]
   %.1.i.i = phi ptr [ %.0.i18.i, %263 ], [ %274, %279 ], [ %274, %273 ]
-  br i1 %264, label %263, label %230
+  br i1 %264, label %263, label %230, !llvm.loop !21
 
 repeatPackTrailer.exit:                           ; preds = %230, %233, %234, %242, %247, %252, %254, %259, %261
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
@@ -4136,7 +4136,7 @@ repeatUnpackSparseOptimalP.exit:                  ; preds = %295, %300
   %.133.i.lcssa.i = phi i32 [ %.032.i15.i, %310 ], [ %spec.select.i36, %.lr.ph.i._crit_edge ]
   %.1.i.lcssa.i = phi ptr [ %.0.i16.i, %310 ], [ %spec.select40.i, %.lr.ph.i._crit_edge ]
   store i64 %.042.i.lcssa.i, ptr %indvars.iv.i.sroa.phi, align 8
-  br i1 %311, label %310, label %repeatUnpackTrailer.exit
+  br i1 %311, label %310, label %repeatUnpackTrailer.exit, !llvm.loop !22
 
 repeatUnpackTrailer.exit:                         ; preds = %._crit_edge.i
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load i64, ptr %.sroa.0, align 16
@@ -4288,7 +4288,7 @@ partial_load_u64a.exit:                           ; preds = %3, %26, %28, %41, %
   %84 = getelementptr inbounds nuw i64, ptr %78, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not35 = icmp ult i64 %.0.i, %85
-  br i1 %.not35, label %80, label %86
+  br i1 %.not35, label %80, label %86, !llvm.loop !23
 
 86:                                               ; preds = %82
   %87 = load i64, ptr %1, align 8
@@ -4500,7 +4500,7 @@ get_flat_masks.exit362:                           ; preds = %.lr.ph, %105
 113:                                              ; preds = %get_flat_masks.exit362
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %.not57.i = icmp samesign ult i64 %indvars.iv.next, %97
-  br i1 %.not57.i, label %.lr.ph, label %._crit_edge
+  br i1 %.not57.i, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %113, %90
   %114 = icmp ugt i32 %47, %91
@@ -4853,7 +4853,7 @@ partial_load_u64a.exit:                           ; preds = %272, %274, %287, %2
   %.1.i370 = phi i32 [ %.01622.i, %327 ], [ %.023.i, %.lr.ph.i ]
   %334 = add i32 %.117.i, 1
   %.not.i371 = icmp ugt i32 %334, %321
-  br i1 %.not.i371, label %partial_load_u64a.exit.thread, label %.lr.ph.i
+  br i1 %.not.i371, label %partial_load_u64a.exit.thread, label %.lr.ph.i, !llvm.loop !24
 
 partial_load_u64a.exit.thread:                    ; preds = %332
   %335 = icmp eq i32 %.1.i370, 0
@@ -4962,7 +4962,7 @@ get_flat_masks.exit350:                           ; preds = %.lr.ph587, %371
 380:                                              ; preds = %get_flat_masks.exit350
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 64
   %.not57.i192 = icmp samesign ult i64 %indvars.iv.next634, %267
-  br i1 %.not57.i192, label %.lr.ph587, label %._crit_edge588
+  br i1 %.not57.i192, label %.lr.ph587, label %._crit_edge588, !llvm.loop !5
 
 ._crit_edge588:                                   ; preds = %380, %360
   br i1 %230, label %381, label %.thread458
@@ -5111,7 +5111,7 @@ get_lowhi_masks.exit368:                          ; preds = %457, %404
 mmbit_iterate_bounded.exit181:                    ; preds = %.thread444, %357, %.thread428, %400
   %.013.i180 = phi i32 [ %359, %357 ], [ %403, %400 ], [ %379, %.thread428 ], [ %447, %.thread444 ]
   %.not160 = icmp eq i32 %.013.i180, -1
-  br i1 %.not160, label %.thread458, label %268
+  br i1 %.not160, label %.thread458, label %268, !llvm.loop !25
 
 459:                                              ; preds = %partial_load_u64a.exit.thread
   %460 = zext i32 %.1.i370 to i64
@@ -5227,7 +5227,7 @@ get_flat_masks.exit338:                           ; preds = %get_flat_masks.exit
 519:                                              ; preds = %get_flat_masks.exit338
   %520 = add nuw nsw i32 %.050.i201599, 64
   %.not57.i203 = icmp samesign ult i32 %520, %505
-  br i1 %.not57.i203, label %get_flat_masks.exit338, label %._crit_edge600
+  br i1 %.not57.i203, label %get_flat_masks.exit338, label %._crit_edge600, !llvm.loop !5
 
 ._crit_edge600:                                   ; preds = %519
   %521 = icmp samesign ult i32 %504, %46
@@ -5559,7 +5559,7 @@ partial_load_u64a.exit188:                        ; preds = %674, %676, %689, %6
   %.1.i379 = phi i32 [ %.01622.i376, %727 ], [ %.023.i375, %.lr.ph.i373 ]
   %734 = add i32 %.117.i378, 1
   %.not.i380 = icmp ugt i32 %734, %7
-  br i1 %.not.i380, label %partial_load_u64a.exit188.thread, label %.lr.ph.i373
+  br i1 %.not.i380, label %partial_load_u64a.exit188.thread, label %.lr.ph.i373, !llvm.loop !24
 
 partial_load_u64a.exit188.thread:                 ; preds = %732
   %735 = icmp eq i32 %.1.i379, 0
@@ -5667,7 +5667,7 @@ get_flat_masks.exit327:                           ; preds = %.lr.ph604, %771
 780:                                              ; preds = %get_flat_masks.exit327
   %indvars.iv.next636 = add nuw nsw i64 %indvars.iv635, 64
   %.not57.i214 = icmp samesign ult i64 %indvars.iv.next636, %669
-  br i1 %.not57.i214, label %.lr.ph604, label %._crit_edge605
+  br i1 %.not57.i214, label %.lr.ph604, label %._crit_edge605, !llvm.loop !5
 
 ._crit_edge605:                                   ; preds = %780, %760
   br i1 %631, label %781, label %.thread536
@@ -5816,7 +5816,7 @@ get_lowhi_masks.exit:                             ; preds = %857, %804
 mmbit_iterate_bounded.exit:                       ; preds = %.thread522, %757, %.thread506, %800
   %.013.i = phi i32 [ %759, %757 ], [ %803, %800 ], [ %779, %.thread506 ], [ %847, %.thread522 ]
   %.not166 = icmp eq i32 %.013.i, -1
-  br i1 %.not166, label %.thread536, label %670
+  br i1 %.not166, label %.thread536, label %670, !llvm.loop !26
 
 859:                                              ; preds = %partial_load_u64a.exit188.thread
   %860 = zext i32 %.1.i379 to i64
@@ -5896,7 +5896,7 @@ mmbit_clear.exit.thread.i:                        ; preds = %mmbit_clear.exit.i,
   %37 = load i8, ptr %36, align 1
   %38 = and i8 %37, 1
   %.not.not.i.i = icmp eq i8 %38, 0
-  br i1 %.not.not.i.i, label %39, label %.thread.i, !prof !6
+  br i1 %.not.not.i.i, label %39, label %.thread.i, !prof !10
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 %35
@@ -5917,12 +5917,12 @@ mmbit_clear.exit.thread.i:                        ; preds = %mmbit_clear.exit.i,
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 %48
   store i64 1, ptr %49, align 1
   %.not33.i.i = icmp eq i32 %43, %29
-  br i1 %.not33.i.i, label %mmbit_set_i.exit.i, label %.lr.ph.i
+  br i1 %.not33.i.i, label %mmbit_set_i.exit.i, label %.lr.ph.i, !llvm.loop !11
 
 .thread.i:                                        ; preds = %31
   %indvars.iv.next749 = add nuw nsw i64 %indvars.iv748, 1
   %.not.i15.i = icmp eq i64 %indvars.iv748, %30
-  br i1 %.not.i15.i, label %mmbit_set_i.exit.i, label %31
+  br i1 %.not.i15.i, label %mmbit_set_i.exit.i, label %31, !llvm.loop !12
 
 mmbit_set_i.exit.i:                               ; preds = %.thread.i, %.lr.ph.i, %39, %mmbit_clear.exit.thread.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -6102,7 +6102,7 @@ get_flat_masks.exit38.i:                          ; preds = %137, %.lr.ph
   store i64 %143, ptr %131, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %144 = icmp samesign ult i64 %indvars.iv.next, %128
-  br i1 %144, label %.lr.ph, label %._crit_edge
+  br i1 %144, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 145:                                              ; preds = %._crit_edge
   %146 = lshr exact i32 %120, 3
@@ -6403,7 +6403,7 @@ get_lowhi_masks.exit.i:                           ; preds = %272, %218
 mmbit_unset_big.exit372:                          ; preds = %.lr.ph882, %274, %.thread418
   %316 = add nuw i32 %261, 1
   %317 = icmp eq i32 %316, %106
-  br i1 %317, label %mmbit_unset_range.exit125, label %216
+  br i1 %317, label %mmbit_unset_range.exit125, label %216, !llvm.loop !14
 
 mmbit_unset_range.exit125:                        ; preds = %216, %mmbit_unset_big.exit372, %.thread403, %265, %._crit_edge, %get_flat_masks.exit.i, %186, %187, %195, %200, %205, %207, %212, %214
   %.not118 = icmp ult i32 %105, %78
@@ -6455,7 +6455,7 @@ get_flat_masks.exit38.i136:                       ; preds = %get_flat_masks.exit
   store i64 %343, ptr %338, align 1
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 64
   %344 = icmp samesign ult i64 %indvars.iv.next729, %335
-  br i1 %344, label %get_flat_masks.exit38.i136, label %._crit_edge636
+  br i1 %344, label %get_flat_masks.exit38.i136, label %._crit_edge636, !llvm.loop !13
 
 345:                                              ; preds = %._crit_edge636
   %346 = lshr exact i32 %332, 3
@@ -6754,7 +6754,7 @@ get_lowhi_masks.exit.i215:                        ; preds = %474, %420
 mmbit_unset_big.exit366:                          ; preds = %.lr.ph887, %476, %.thread452
   %518 = add nuw i32 %463, 1
   %519 = icmp eq i32 %319, %463
-  br i1 %519, label %partial_load_u64a.exit.sink.split, label %418
+  br i1 %519, label %partial_load_u64a.exit.sink.split, label %418, !llvm.loop !14
 
 520:                                              ; preds = %71
   %521 = icmp ult i32 %81, %.0.i379
@@ -7021,7 +7021,7 @@ get_flat_masks.exit38.i149:                       ; preds = %713, %.lr.ph645
   store i64 %719, ptr %707, align 1
   %indvars.iv.next735 = add nuw nsw i64 %indvars.iv734, 64
   %720 = icmp samesign ult i64 %indvars.iv.next735, %704
-  br i1 %720, label %.lr.ph645, label %._crit_edge646
+  br i1 %720, label %.lr.ph645, label %._crit_edge646, !llvm.loop !13
 
 721:                                              ; preds = %._crit_edge646
   %722 = lshr exact i32 %696, 3
@@ -7322,7 +7322,7 @@ get_lowhi_masks.exit.i274:                        ; preds = %848, %794
 mmbit_unset_big.exit360:                          ; preds = %.lr.ph893, %850, %.thread486
   %892 = add nuw i32 %837, 1
   %893 = icmp eq i32 %892, %682
-  br i1 %893, label %mmbit_unset_range.exit121, label %792
+  br i1 %893, label %mmbit_unset_range.exit121, label %792, !llvm.loop !14
 
 mmbit_unset_range.exit121:                        ; preds = %792, %mmbit_unset_big.exit360, %.thread471, %841, %._crit_edge646, %get_flat_masks.exit.i145, %762, %763, %771, %776, %781, %783, %788, %790
   %.not116 = icmp ult i32 %681, %78
@@ -7374,7 +7374,7 @@ get_flat_masks.exit38.i162:                       ; preds = %get_flat_masks.exit
   store i64 %919, ptr %914, align 1
   %indvars.iv.next740 = add nuw nsw i64 %indvars.iv739, 64
   %920 = icmp samesign ult i64 %indvars.iv.next740, %911
-  br i1 %920, label %get_flat_masks.exit38.i162, label %._crit_edge654
+  br i1 %920, label %get_flat_masks.exit38.i162, label %._crit_edge654, !llvm.loop !13
 
 921:                                              ; preds = %._crit_edge654
   %922 = lshr exact i32 %908, 3
@@ -7673,7 +7673,7 @@ get_lowhi_masks.exit.i333:                        ; preds = %1050, %996
 mmbit_unset_big.exit:                             ; preds = %.lr.ph899, %1052, %.thread520
   %1094 = add nuw i32 %1039, 1
   %1095 = icmp eq i32 %895, %1039
-  br i1 %1095, label %partial_load_u64a.exit.sink.split, label %994
+  br i1 %1095, label %partial_load_u64a.exit.sink.split, label %994, !llvm.loop !14
 
 partial_load_u64a.exit.sink.split:                ; preds = %mmbit_unset_big.exit366, %.thread437, %418, %467, %mmbit_unset_big.exit, %.thread505, %994, %1043, %mmbit_unset_range.exit121, %._crit_edge654, %mmbit_get_flat_block.exit.i155, %962, %963, %971, %976, %981, %983, %988, %991, %mmbit_unset_range.exit125, %._crit_edge636, %mmbit_get_flat_block.exit.i129, %386, %387, %395, %400, %405, %407, %412, %415
   %.2.sink = phi i32 [ %105, %mmbit_unset_range.exit125 ], [ %319, %._crit_edge636 ], [ %319, %mmbit_get_flat_block.exit.i129 ], [ %319, %386 ], [ %319, %387 ], [ %319, %395 ], [ %319, %400 ], [ %319, %405 ], [ %319, %407 ], [ %319, %412 ], [ %319, %415 ], [ %681, %mmbit_unset_range.exit121 ], [ %895, %._crit_edge654 ], [ %895, %mmbit_get_flat_block.exit.i155 ], [ %895, %962 ], [ %895, %963 ], [ %895, %971 ], [ %895, %976 ], [ %895, %981 ], [ %895, %983 ], [ %895, %988 ], [ %895, %991 ], [ %895, %1043 ], [ %895, %994 ], [ %895, %.thread505 ], [ %895, %mmbit_unset_big.exit ], [ %319, %467 ], [ %319, %418 ], [ %319, %.thread437 ], [ %319, %mmbit_unset_big.exit366 ]
@@ -7841,7 +7841,7 @@ partial_store_u64a.exit:                          ; preds = %partial_load_u64a.e
   %1193 = zext i8 %1192 to i32
   %1194 = and i32 %1191, %1193
   %.not.not.i375 = icmp eq i32 %1194, 0
-  br i1 %.not.not.i375, label %1195, label %.thread553, !prof !6
+  br i1 %.not.not.i375, label %1195, label %.thread553, !prof !10
 
 1195:                                             ; preds = %1177
   %1196 = getelementptr inbounds nuw i8, ptr %1182, i64 %1186
@@ -7874,12 +7874,12 @@ partial_store_u64a.exit:                          ; preds = %partial_load_u64a.e
   %1217 = shl nuw i64 1, %1216
   store i64 %1217, ptr %1213, align 1
   %.not33.i = icmp eq i32 %1200, %1174
-  br i1 %.not33.i, label %mmbit_set_i.exit, label %.lr.ph666
+  br i1 %.not33.i, label %mmbit_set_i.exit, label %.lr.ph666, !llvm.loop !11
 
 .thread553:                                       ; preds = %1177
   %indvars.iv.next746 = add nuw nsw i64 %indvars.iv745, 1
   %.not.i376 = icmp eq i64 %indvars.iv745, %1176
-  br i1 %.not.i376, label %mmbit_set_i.exit, label %1177
+  br i1 %.not.i376, label %mmbit_set_i.exit, label %1177, !llvm.loop !12
 
 mmbit_set_i.exit:                                 ; preds = %.thread553, %.lr.ph666, %1195, %1159, %storeInitialRingTopPatch.exit
   ret void
@@ -8033,7 +8033,7 @@ define internal fastcc signext range(i8 0, 2) i8 @sparseHasMatch(ptr noundef %0,
 51:                                               ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not.i92 = icmp eq i64 %indvars.iv, %31
-  br i1 %.not.i92, label %mmbit_isset.exit.thread114, label %32
+  br i1 %.not.i92, label %mmbit_isset.exit.thread114, label %32, !llvm.loop !17
 
 mmbit_isset.exit:                                 ; preds = %4
   %52 = lshr i32 %11, 3
@@ -8166,7 +8166,7 @@ partial_load_u64a.exit62:                         ; preds = %mmbit_isset.exit.th
   %.117.i = phi i32 [ %.01622.i, %117 ], [ %127, %123 ]
   %130 = add i32 %.117.i, 1
   %.not.i96 = icmp ugt i32 %130, %115
-  br i1 %.not.i96, label %getSparseOptimalTargetValue.exit, label %117
+  br i1 %.not.i96, label %getSparseOptimalTargetValue.exit, label %117, !llvm.loop !24
 
 getSparseOptimalTargetValue.exit:                 ; preds = %128, %112, %partial_load_u64a.exit62
   %.0111 = phi i64 [ %.0.i61, %partial_load_u64a.exit62 ], [ %.0.i61, %112 ], [ %.2, %128 ]
@@ -8308,7 +8308,7 @@ get_flat_masks.exit78:                            ; preds = %.lr.ph, %190
 198:                                              ; preds = %get_flat_masks.exit78
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 64
   %.not57.i = icmp samesign ult i64 %indvars.iv.next175, %182
-  br i1 %.not57.i, label %.lr.ph, label %._crit_edge
+  br i1 %.not57.i, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %198, %175
   %199 = icmp ugt i32 %12, %176
@@ -8526,7 +8526,7 @@ mmbit_iterate_bounded.exit.thread.thread:         ; preds = %get_flat_masks.exit
 331:                                              ; preds = %312
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %.not.i88 = icmp eq i64 %indvars.iv176, %311
-  br i1 %.not.i88, label %mmbit_isset.exit87.thread155, label %312
+  br i1 %.not.i88, label %mmbit_isset.exit87.thread155, label %312, !llvm.loop !17
 
 mmbit_isset.exit87:                               ; preds = %mmbit_iterate_bounded.exit.thread.thread, %303
   %332 = lshr i32 %12, 3
@@ -8658,7 +8658,7 @@ partial_load_u64a.exit:                           ; preds = %mmbit_isset.exit87.
   %.117.i103 = phi i32 [ %.01622.i101, %395 ], [ %405, %401 ]
   %408 = add i32 %.117.i103, 1
   %.not.i105 = icmp ugt i32 %408, %393
-  br i1 %.not.i105, label %getSparseOptimalTargetValue.exit107, label %395
+  br i1 %.not.i105, label %getSparseOptimalTargetValue.exit107, label %395, !llvm.loop !24
 
 getSparseOptimalTargetValue.exit107:              ; preds = %406, %partial_load_u64a.exit
   %.6 = phi i64 [ %.0.i, %partial_load_u64a.exit ], [ %.5, %406 ]
@@ -8718,6 +8718,25 @@ attributes #11 = { nounwind memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 4515692, i64 4515722}
-!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = !{i64 4517076, i64 4517106}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = !{i64 4515692, i64 4515722}
+!9 = distinct !{!9, !6}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = !{i64 4517076, i64 4517106}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}

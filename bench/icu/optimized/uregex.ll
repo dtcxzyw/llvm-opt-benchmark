@@ -3059,7 +3059,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %26,
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 130
-  %44 = load i8, ptr %43, align 2, !tbaa !36
+  %44 = load i8, ptr %43, align 2, !tbaa !37
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %46, label %47
 
@@ -3084,20 +3084,20 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %26,
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !45
+  %55 = load ptr, ptr %54, align 8, !tbaa !46
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
-  %57 = load ptr, ptr %56, align 8, !tbaa !46
+  %57 = load ptr, ptr %56, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 72
-  %59 = load ptr, ptr %58, align 8, !tbaa !47
+  %59 = load ptr, ptr %58, align 8, !tbaa !48
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %68
 
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %42, i64 152
-  %63 = load i64, ptr %62, align 8, !tbaa !49
+  %63 = load i64, ptr %62, align 8, !tbaa !50
   %64 = trunc i64 %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %42, i64 136
-  %66 = load i64, ptr %65, align 8, !tbaa !50
+  %66 = load i64, ptr %65, align 8, !tbaa !51
   %67 = trunc i64 %66 to i32
   br label %78
 
@@ -3105,13 +3105,13 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %26,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
   store i32 0, ptr %7, align 4, !tbaa !19
   %69 = getelementptr inbounds nuw i8, ptr %42, i64 152
-  %70 = load i64, ptr %69, align 8, !tbaa !49
+  %70 = load i64, ptr %69, align 8, !tbaa !50
   %71 = call i32 @utext_extract_77(ptr noundef nonnull %55, i64 noundef 0, i64 noundef %70, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !19
-  %72 = load ptr, ptr %54, align 8, !tbaa !45
-  %73 = load i64, ptr %69, align 8, !tbaa !49
+  %72 = load ptr, ptr %54, align 8, !tbaa !46
+  %73 = load i64, ptr %69, align 8, !tbaa !50
   %74 = getelementptr inbounds nuw i8, ptr %42, i64 136
-  %75 = load i64, ptr %74, align 8, !tbaa !50
+  %75 = load i64, ptr %74, align 8, !tbaa !51
   %76 = call i32 @utext_extract_77(ptr noundef %72, i64 noundef %73, i64 noundef %75, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7)
   %77 = add nsw i32 %76, %71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
@@ -3148,17 +3148,17 @@ _ZL11appendToBufDsPiPDsi.exit:                    ; preds = %.lr.ph, %84
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit313, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit313, label %.lr.ph, !llvm.loop !52
 
 89:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
   store i32 0, ptr %8, align 4, !tbaa !19
   %90 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %91 = load ptr, ptr %90, align 8, !tbaa !45
+  %91 = load ptr, ptr %90, align 8, !tbaa !46
   %92 = getelementptr inbounds nuw i8, ptr %42, i64 152
-  %93 = load i64, ptr %92, align 8, !tbaa !49
+  %93 = load i64, ptr %92, align 8, !tbaa !50
   %94 = getelementptr inbounds nuw i8, ptr %42, i64 136
-  %95 = load i64, ptr %94, align 8, !tbaa !50
+  %95 = load i64, ptr %94, align 8, !tbaa !51
   %96 = call i32 @utext_extract_77(ptr noundef %91, i64 noundef %93, i64 noundef %95, ptr noundef %34, i32 noundef %36, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   br label %.loopexit313
@@ -3206,7 +3206,7 @@ _ZL11appendToBufDsPiPDsi.exit:                    ; preds = %.lr.ph, %84
 
 _ZL11appendToBufDsPiPDsi.exit259:                 ; preds = %109, %111
   %114 = add nsw i32 %.2279, 1
-  br label %.thread289, !llvm.loop !52
+  br label %.thread289, !llvm.loop !53
 
 115:                                              ; preds = %104
   %.not245 = icmp slt i32 %108, %.0191
@@ -3242,7 +3242,7 @@ _ZL11appendToBufDsPiPDsi.exit259:                 ; preds = %109, %111
 
 _ZL11appendToBufDsPiPDsi.exit260:                 ; preds = %126, %127
   %131 = add nsw i32 %.2279, 1
-  br label %.thread289, !llvm.loop !52
+  br label %.thread289, !llvm.loop !53
 
 132:                                              ; preds = %123
   br i1 %125, label %133, label %_ZL11appendToBufDsPiPDsi.exit261
@@ -3272,7 +3272,7 @@ _ZL11appendToBufDsPiPDsi.exit261:                 ; preds = %132, %133
 
 _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %_ZL11appendToBufDsPiPDsi.exit261, %141
   %147 = add nsw i32 %.2279, 2
-  br label %.thread289, !llvm.loop !52
+  br label %.thread289, !llvm.loop !53
 
 148:                                              ; preds = %121, %116
   %149 = icmp slt i32 %.2279, %36
@@ -3289,7 +3289,7 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
   %154 = load i32, ptr %9, align 4, !tbaa !24
   %155 = add nsw i32 %154, 1
   store i32 %155, ptr %9, align 4, !tbaa !24
-  br label %.thread289, !llvm.loop !52
+  br label %.thread289, !llvm.loop !53
 
 156:                                              ; preds = %104
   %157 = icmp slt i32 %108, %.0191
@@ -3336,11 +3336,11 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
   br i1 %.not234300, label %.thread293.thread.sink.split, label %180
 
 180:                                              ; preds = %.thread298, %177
-  %181 = load ptr, ptr %97, align 8, !tbaa !53
+  %181 = load ptr, ptr %97, align 8, !tbaa !54
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 136
-  %183 = load ptr, ptr %182, align 8, !tbaa !54
+  %183 = load ptr, ptr %182, align 8, !tbaa !55
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load i32, ptr %184, align 8, !tbaa !63
+  %185 = load i32, ptr %184, align 8, !tbaa !64
   %186 = load i32, ptr %9, align 4, !tbaa !24
   %.not239321 = icmp slt i32 %186, %.0191
   br i1 %.not239321, label %.lr.ph324, label %.thread293
@@ -3448,7 +3448,7 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
   %248 = phi i32 [ %231, %229 ], [ %231, %237 ], [ %244, %243 ]
   %249 = add nuw nsw i32 %.0196323, 1
   %.not239 = icmp slt i32 %248, %.0191
-  br i1 %.not239, label %.lr.ph324, label %.thread293
+  br i1 %.not239, label %.lr.ph324, label %.thread293, !llvm.loop !67
 
 250:                                              ; preds = %177
   %251 = icmp eq i32 %.0198, 123
@@ -3456,8 +3456,8 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
 
 252:                                              ; preds = %250
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #13
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !66
-  store i16 2, ptr %98, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !68
+  store i16 2, ptr %98, align 8, !tbaa !70
   %253 = load i32, ptr %9, align 4, !tbaa !24
   %254 = add nsw i32 %253, 1
   store i32 %254, ptr %9, align 4, !tbaa !24
@@ -3561,7 +3561,7 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
 301:                                              ; preds = %299
   %302 = load ptr, ptr %99, align 8, !tbaa !15
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 192
-  %304 = load ptr, ptr %303, align 8, !tbaa !69
+  %304 = load ptr, ptr %303, align 8, !tbaa !71
   %.not238 = icmp eq ptr %304, null
   br i1 %.not238, label %.loopexit.sink.split, label %305
 
@@ -3582,7 +3582,7 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
   %312 = icmp slt i32 %311, 1
   %313 = icmp ne i32 %.6, 125
   %314 = and i1 %313, %312
-  br i1 %314, label %.lr.ph329, label %.loopexit, !llvm.loop !70
+  br i1 %314, label %.lr.ph329, label %.loopexit, !llvm.loop !72
 
 .loopexit.sink.split:                             ; preds = %.lr.ph329, %307, %301
   store i32 66325, ptr %5, align 4, !tbaa !19
@@ -3630,7 +3630,7 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
   %327 = load i32, ptr %9, align 4
   %328 = icmp slt i32 %327, %.0191
   %or.cond257 = select i1 %.0193, i1 %328, i1 false
-  br i1 %or.cond257, label %100, label %.critedge
+  br i1 %or.cond257, label %100, label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %115, %.thread289, %100, %.loopexit313
   %.3 = phi i32 [ %.1, %.loopexit313 ], [ %.2279, %115 ], [ %.4280, %.thread289 ], [ %.2279, %100 ]
@@ -3786,24 +3786,24 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 130
-  %36 = load i8, ptr %35, align 2, !tbaa !36
+  %36 = load i8, ptr %35, align 2, !tbaa !37
   %.not94 = icmp eq i8 %36, 0
   br i1 %20, label %81, label %37
 
 37:                                               ; preds = %32
   %.in.v = select i1 %.not94, i64 152, i64 144
   %.in = getelementptr inbounds nuw i8, ptr %34, i64 %.in.v
-  %38 = load i64, ptr %.in, align 8, !tbaa !71
+  %38 = load i64, ptr %.in, align 8, !tbaa !74
   %39 = icmp eq i64 %38, -1
   br i1 %39, label %52, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !45
+  %42 = load ptr, ptr %41, align 8, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
-  %44 = load ptr, ptr %43, align 8, !tbaa !46
+  %44 = load ptr, ptr %43, align 8, !tbaa !47
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  %46 = load ptr, ptr %45, align 8, !tbaa !47
+  %46 = load ptr, ptr %45, align 8, !tbaa !48
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %50
 
@@ -3859,7 +3859,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond = icmp eq i64 %indvars.iv.next163, %wide.trip.count
-  br i1 %exitcond, label %.thread107, label %.lr.ph.split.us, !llvm.loop !72
+  br i1 %exitcond, label %.thread107, label %.lr.ph.split.us, !llvm.loop !75
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph
   %69 = xor i32 %.081, -1
@@ -3900,19 +3900,19 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
   %indvars.iv.next168 = add nsw i64 %indvars.iv167, 1
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond175 = icmp eq i64 %indvars.iv.next170, %wide.trip.count174
-  br i1 %exitcond175, label %.thread107, label %.lr.ph.split.split
+  br i1 %exitcond175, label %.thread107, label %.lr.ph.split.split, !llvm.loop !77
 
 81:                                               ; preds = %32
   br i1 %.not94, label %85, label %82
 
 82:                                               ; preds = %81
   %83 = getelementptr inbounds nuw i8, ptr %34, i64 144
-  %84 = load i64, ptr %83, align 8, !tbaa !74
+  %84 = load i64, ptr %83, align 8, !tbaa !78
   br label %89
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %34, i64 152
-  %87 = load i64, ptr %86, align 8, !tbaa !49
+  %87 = load i64, ptr %86, align 8, !tbaa !50
   %88 = icmp eq i64 %87, -1
   %spec.store.select = select i1 %88, i64 0, i64 %87
   br label %89
@@ -3920,9 +3920,9 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
 89:                                               ; preds = %85, %82
   %.0 = phi i64 [ %84, %82 ], [ %spec.store.select, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %91 = load ptr, ptr %90, align 8, !tbaa !45
+  %91 = load ptr, ptr %90, align 8, !tbaa !46
   %92 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %93 = load i64, ptr %92, align 8, !tbaa !75
+  %93 = load i64, ptr %92, align 8, !tbaa !79
   %94 = tail call i32 @utext_extract_77(ptr noundef %91, i64 noundef %.0, i64 noundef %93, ptr noundef %27, i32 noundef %29, ptr noundef nonnull %3)
   br label %.thread107
 
@@ -4055,9 +4055,9 @@ define linkonce_odr noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpre
   %11 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetEv(ptr noundef nonnull align 8 dereferenceable(336) %10)
   %12 = load ptr, ptr %9, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !75
+  %16 = load i64, ptr %15, align 8, !tbaa !79
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %210, label %18
 
@@ -4098,7 +4098,7 @@ define linkonce_odr noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpre
   store ptr %29, ptr %30, align 8, !tbaa !33
   %31 = load ptr, ptr %9, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 136
-  %33 = load i64, ptr %32, align 8, !tbaa !50
+  %33 = load i64, ptr %32, align 8, !tbaa !51
   %34 = sub nsw i32 %2, %.0120179.us
   %35 = call i32 @llvm.smax.i32(i32 %34, i32 0)
   %36 = call i32 @utext_extract_77(ptr noundef %14, i64 noundef %.0119180.us, i64 noundef %33, ptr noundef %29, i32 noundef %35, ptr noundef nonnull %8)
@@ -4119,14 +4119,14 @@ define linkonce_odr noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpre
 43:                                               ; preds = %42, %41
   %44 = load ptr, ptr %9, align 8, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 144
-  %46 = load i64, ptr %45, align 8, !tbaa !74
+  %46 = load i64, ptr %45, align 8, !tbaa !78
   %47 = icmp eq i64 %46, %16
   br i1 %47, label %.split192.us.loopexit, label %48
 
 48:                                               ; preds = %43
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge183, label %.lr.ph182.split.us, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge183, label %.lr.ph182.split.us, !llvm.loop !80
 
 ._crit_edge183:                                   ; preds = %192, %48, %18
   %.0121.lcssa = phi i32 [ 0, %18 ], [ %20, %48 ], [ %193, %192 ]
@@ -4184,7 +4184,7 @@ define linkonce_odr noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpre
   store ptr %75, ptr %77, align 8, !tbaa !33
   %78 = load ptr, ptr %9, align 8, !tbaa !13
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 136
-  %80 = load i64, ptr %79, align 8, !tbaa !50
+  %80 = load i64, ptr %79, align 8, !tbaa !51
   %81 = sub nsw i32 %2, %.0120179
   %82 = call i32 @llvm.smax.i32(i32 %81, i32 0)
   %83 = call i32 @utext_extract_77(ptr noundef %14, i64 noundef %.0119180, i64 noundef %80, ptr noundef %75, i32 noundef %82, ptr noundef nonnull %8)
@@ -4205,7 +4205,7 @@ define linkonce_odr noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpre
 90:                                               ; preds = %89, %88
   %91 = load ptr, ptr %9, align 8, !tbaa !13
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 144
-  %93 = load i64, ptr %92, align 8, !tbaa !74
+  %93 = load i64, ptr %92, align 8, !tbaa !78
   %94 = icmp eq i32 %.0121178, %20
   br i1 %94, label %._crit_edge.split, label %.lr.ph
 
@@ -4233,7 +4233,7 @@ uregex_group_77.exit.thread.us169:                ; preds = %uregex_group_77.exi
   %101 = trunc nsw i64 %indvars.iv.next274 to i32
   %102 = icmp eq i32 %20, %101
   %or.cond.us172 = or i1 %102, %.not134.us171
-  br i1 %or.cond.us172, label %._crit_edge.split.split.us, label %uregex_group_77.exit.thread.us169, !llvm.loop !77
+  br i1 %or.cond.us172, label %._crit_edge.split.split.us, label %uregex_group_77.exit.thread.us169, !llvm.loop !81
 
 ._crit_edge.split.split.us:                       ; preds = %uregex_group_77.exit.thread.us169
   %103 = trunc nsw i64 %indvars.iv.next to i32
@@ -4370,7 +4370,7 @@ uregex_group_77.exit:                             ; preds = %uregex_group_77.exi
   %164 = trunc nsw i64 %indvars.iv.next279 to i32
   %165 = icmp eq i32 %20, %164
   %or.cond = or i1 %165, %.not134
-  br i1 %or.cond, label %._crit_edge.split, label %.lr.ph.split.split, !llvm.loop !78
+  br i1 %or.cond, label %._crit_edge.split, label %.lr.ph.split.split, !llvm.loop !82
 
 ._crit_edge.split:                                ; preds = %161, %._crit_edge.split.split.us, %90
   %.3124.lcssa = phi i32 [ %20, %90 ], [ %101, %._crit_edge.split.split.us ], [ %164, %161 ]
@@ -4435,7 +4435,7 @@ uregex_group_77.exit:                             ; preds = %uregex_group_77.exi
 192:                                              ; preds = %._crit_edge.split
   %193 = add nsw i32 %.3124.lcssa, 1
   %.not = icmp slt i32 %193, %20
-  br i1 %.not, label %.lr.ph182.split.split, label %._crit_edge183, !llvm.loop !80
+  br i1 %.not, label %.lr.ph182.split.split, label %._crit_edge183, !llvm.loop !84
 
 194:                                              ; preds = %179, %._crit_edge183, %._crit_edge295, %.split.us
   %.2123 = phi i32 [ %20, %._crit_edge295 ], [ %.0121.lcssa, %._crit_edge183 ], [ %spec.select139, %179 ], [ %.us-phi188, %.split.us ]
@@ -4565,50 +4565,54 @@ attributes #15 = { allocsize(0) }
 !31 = !{!27, !5, i64 28}
 !32 = !{!27, !11, i64 48}
 !33 = !{!11, !11, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !6, i64 130}
-!37 = !{!"_ZTSN6icu_7712RegexMatcherE", !38, i64 0, !8, i64 8, !8, i64 16, !39, i64 24, !40, i64 32, !40, i64 40, !28, i64 48, !5, i64 56, !28, i64 64, !28, i64 72, !28, i64 80, !28, i64 88, !28, i64 96, !28, i64 104, !28, i64 112, !28, i64 120, !6, i64 128, !6, i64 129, !6, i64 130, !28, i64 136, !28, i64 144, !28, i64 152, !28, i64 160, !6, i64 168, !6, i64 169, !41, i64 176, !42, i64 184, !43, i64 192, !6, i64 200, !5, i64 264, !5, i64 268, !5, i64 272, !5, i64 276, !9, i64 280, !9, i64 288, !9, i64 296, !9, i64 304, !6, i64 312, !6, i64 313, !20, i64 316, !44, i64 320, !44, i64 328}
-!38 = !{!"_ZTSN6icu_777UObjectE"}
-!39 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !9, i64 0}
-!40 = !{!"p1 _ZTS5UText", !9, i64 0}
-!41 = !{!"p1 _ZTSN6icu_779UVector64E", !9, i64 0}
-!42 = !{!"p1 _ZTSN6icu_7712REStackFrameE", !9, i64 0}
-!43 = !{!"p1 long", !9, i64 0}
-!44 = !{!"p1 _ZTSN6icu_7713BreakIteratorE", !9, i64 0}
-!45 = !{!37, !40, i64 32}
-!46 = !{!27, !29, i64 56}
-!47 = !{!48, !9, i64 72}
-!48 = !{!"_ZTS10UTextFuncs", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104}
-!49 = !{!37, !28, i64 152}
-!50 = !{!37, !28, i64 136}
-!51 = distinct !{!51, !35}
-!52 = distinct !{!52, !35}
-!53 = !{!37, !8, i64 8}
-!54 = !{!55, !60, i64 136}
-!55 = !{!"_ZTSN6icu_7712RegexPatternE", !38, i64 0, !40, i64 8, !39, i64 16, !5, i64 24, !41, i64 32, !56, i64 40, !58, i64 104, !59, i64 112, !20, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !60, i64 136, !5, i64 144, !5, i64 148, !5, i64 152, !61, i64 160, !5, i64 168, !59, i64 176, !6, i64 184, !62, i64 192}
-!56 = !{!"_ZTSN6icu_7713UnicodeStringE", !57, i64 0, !6, i64 8}
-!57 = !{!"_ZTSN6icu_7711ReplaceableE", !38, i64 0}
-!58 = !{!"p1 _ZTSN6icu_777UVectorE", !9, i64 0}
-!59 = !{!"p1 _ZTSN6icu_7712Regex8BitSetE", !9, i64 0}
-!60 = !{!"p1 _ZTSN6icu_779UVector32E", !9, i64 0}
-!61 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !9, i64 0}
-!62 = !{!"p1 _ZTS10UHashtable", !9, i64 0}
-!63 = !{!64, !5, i64 8}
-!64 = !{!"_ZTSN6icu_779UVector32E", !38, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !65, i64 24}
-!65 = !{!"p1 int", !9, i64 0}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"vtable pointer", !7, i64 0}
-!68 = !{!6, !6, i64 0}
-!69 = !{!55, !62, i64 192}
-!70 = distinct !{!70, !35}
-!71 = !{!28, !28, i64 0}
-!72 = distinct !{!72, !73}
-!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!74 = !{!37, !28, i64 144}
-!75 = !{!37, !28, i64 48}
-!76 = distinct !{!76, !35, !73}
-!77 = distinct !{!77, !35, !73}
-!78 = distinct !{!78, !35, !79}
-!79 = !{!"llvm.loop.unswitch.partial.disable"}
-!80 = distinct !{!80, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !6, i64 130}
+!38 = !{!"_ZTSN6icu_7712RegexMatcherE", !39, i64 0, !8, i64 8, !8, i64 16, !40, i64 24, !41, i64 32, !41, i64 40, !28, i64 48, !5, i64 56, !28, i64 64, !28, i64 72, !28, i64 80, !28, i64 88, !28, i64 96, !28, i64 104, !28, i64 112, !28, i64 120, !6, i64 128, !6, i64 129, !6, i64 130, !28, i64 136, !28, i64 144, !28, i64 152, !28, i64 160, !6, i64 168, !6, i64 169, !42, i64 176, !43, i64 184, !44, i64 192, !6, i64 200, !5, i64 264, !5, i64 268, !5, i64 272, !5, i64 276, !9, i64 280, !9, i64 288, !9, i64 296, !9, i64 304, !6, i64 312, !6, i64 313, !20, i64 316, !45, i64 320, !45, i64 328}
+!39 = !{!"_ZTSN6icu_777UObjectE"}
+!40 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !9, i64 0}
+!41 = !{!"p1 _ZTS5UText", !9, i64 0}
+!42 = !{!"p1 _ZTSN6icu_779UVector64E", !9, i64 0}
+!43 = !{!"p1 _ZTSN6icu_7712REStackFrameE", !9, i64 0}
+!44 = !{!"p1 long", !9, i64 0}
+!45 = !{!"p1 _ZTSN6icu_7713BreakIteratorE", !9, i64 0}
+!46 = !{!38, !41, i64 32}
+!47 = !{!27, !29, i64 56}
+!48 = !{!49, !9, i64 72}
+!49 = !{!"_ZTS10UTextFuncs", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104}
+!50 = !{!38, !28, i64 152}
+!51 = !{!38, !28, i64 136}
+!52 = distinct !{!52, !35, !36}
+!53 = distinct !{!53, !35}
+!54 = !{!38, !8, i64 8}
+!55 = !{!56, !61, i64 136}
+!56 = !{!"_ZTSN6icu_7712RegexPatternE", !39, i64 0, !41, i64 8, !40, i64 16, !5, i64 24, !42, i64 32, !57, i64 40, !59, i64 104, !60, i64 112, !20, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !61, i64 136, !5, i64 144, !5, i64 148, !5, i64 152, !62, i64 160, !5, i64 168, !60, i64 176, !6, i64 184, !63, i64 192}
+!57 = !{!"_ZTSN6icu_7713UnicodeStringE", !58, i64 0, !6, i64 8}
+!58 = !{!"_ZTSN6icu_7711ReplaceableE", !39, i64 0}
+!59 = !{!"p1 _ZTSN6icu_777UVectorE", !9, i64 0}
+!60 = !{!"p1 _ZTSN6icu_7712Regex8BitSetE", !9, i64 0}
+!61 = !{!"p1 _ZTSN6icu_779UVector32E", !9, i64 0}
+!62 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !9, i64 0}
+!63 = !{!"p1 _ZTS10UHashtable", !9, i64 0}
+!64 = !{!65, !5, i64 8}
+!65 = !{!"_ZTSN6icu_779UVector32E", !39, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !66, i64 24}
+!66 = !{!"p1 int", !9, i64 0}
+!67 = distinct !{!67, !36}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"vtable pointer", !7, i64 0}
+!70 = !{!6, !6, i64 0}
+!71 = !{!56, !63, i64 192}
+!72 = distinct !{!72, !35, !36}
+!73 = distinct !{!73, !36}
+!74 = !{!28, !28, i64 0}
+!75 = distinct !{!75, !36, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!77 = distinct !{!77, !36}
+!78 = !{!38, !28, i64 144}
+!79 = !{!38, !28, i64 48}
+!80 = distinct !{!80, !35, !36, !76}
+!81 = distinct !{!81, !35, !36, !76}
+!82 = distinct !{!82, !35, !36, !83}
+!83 = !{!"llvm.loop.unswitch.partial.disable"}
+!84 = distinct !{!84, !35, !36}

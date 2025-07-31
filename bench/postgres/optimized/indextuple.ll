@@ -145,7 +145,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
 55:                                               ; preds = %.lr.ph84
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.split72, label %.lr.ph84, !llvm.loop !8
+  br i1 %exitcond98.not, label %.split72, label %.lr.ph84, !llvm.loop !9
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %55
   %indvars.iv94 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next95, %55 ]
@@ -190,7 +190,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
 73:                                               ; preds = %.lr.ph92, %69
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %._crit_edge, label %.lr.ph92, !llvm.loop !9
+  br i1 %exitcond103.not, label %._crit_edge, label %.lr.ph92, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %73, %.split72
   %.not78 = icmp ult i64 %61, 8192
@@ -283,7 +283,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit191, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit191, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
@@ -368,7 +368,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 55:                                               ; preds = %.lr.ph195
   %56 = add i32 %.0127194, 1
   %.not149.not = icmp sgt i32 %56, %6
-  br i1 %.not149.not, label %.thread168, label %.lr.ph195, !llvm.loop !11
+  br i1 %.not149.not, label %.thread168, label %.lr.ph195, !llvm.loop !12
 
 .lr.ph195:                                        ; preds = %.preheader189, %55
   %.0127194 = phi i32 [ %56, %55 ], [ 0, %.preheader189 ]
@@ -407,7 +407,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 68:                                               ; preds = %.lr.ph199
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next209, %wide.trip.count211
-  br i1 %exitcond212.not, label %._crit_edge, label %.lr.ph199, !llvm.loop !12
+  br i1 %exitcond212.not, label %._crit_edge, label %.lr.ph199, !llvm.loop !13
 
 .critedge.loopexit:                               ; preds = %.lr.ph199
   %69 = trunc nuw nsw i64 %indvars.iv208 to i32
@@ -453,7 +453,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %94 = trunc nuw i64 %indvars.iv.next214 to i32
   %95 = icmp sgt i32 %62, %94
-  br i1 %95, label %.lr.ph205, label %._crit_edge, !llvm.loop !13
+  br i1 %95, label %.lr.ph205, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %68, %84, %.lr.ph205, %.critedge
   %96 = sext i32 %6 to i64
@@ -645,7 +645,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %.1123.ph = phi i1 [ false, %103 ], [ %spec.select, %203 ]
   %208 = add i32 %.0121, 1
   %.val155.pre = load i16, ptr %4, align 2
-  br label %99
+  br label %99, !llvm.loop !15
 
 .loopexit.loopexit:                               ; preds = %159
   %.pre = sext i32 %6 to i64
@@ -975,7 +975,7 @@ fetch_att.exit:                                   ; preds = %84, %87, %90, %93, 
   %.1 = phi i1 [ true, %22 ], [ %spec.select, %140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %144, %6
   ret void
@@ -1067,12 +1067,14 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !7, !8}

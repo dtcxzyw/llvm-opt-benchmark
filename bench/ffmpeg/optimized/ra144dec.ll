@@ -125,11 +125,11 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
   %62 = load i16, ptr %61, align 2, !tbaa !50
   %63 = sext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 37812
-  %65 = load i32, ptr %64, align 4, !tbaa !54
+  %65 = load i32, ptr %64, align 4, !tbaa !55
   %66 = call i32 @ff_interp(ptr noundef %13, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1, i32 noundef %65) #5
   store i32 %66, ptr %5, align 16, !tbaa !36
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %68 = load i32, ptr %64, align 4, !tbaa !54
+  %68 = load i32, ptr %64, align 4, !tbaa !55
   %69 = icmp uge i32 %68, %63
   %70 = zext i1 %69 to i32
   %71 = mul i32 %68, %63
@@ -218,17 +218,17 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
   store i16 %.0.i, ptr %.15566, align 2, !tbaa !50
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 40
-  br i1 %exitcond76.not, label %138, label %127, !llvm.loop !55
+  br i1 %exitcond76.not, label %138, label %127, !llvm.loop !56
 
 138:                                              ; preds = %127
   %139 = call i32 @llvm.umin.i32(i32 %.sroa.7.168, i32 139)
   %140 = add nuw nsw i32 %139, 29
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 4
-  br i1 %exitcond80.not, label %141, label %85, !llvm.loop !56
+  br i1 %exitcond80.not, label %141, label %85, !llvm.loop !57
 
 141:                                              ; preds = %138
-  store i32 %63, ptr %64, align 4, !tbaa !54
+  store i32 %63, ptr %64, align 4, !tbaa !55
   %142 = load i32, ptr %49, align 8, !tbaa !36
   %143 = getelementptr inbounds nuw i8, ptr %13, i64 37916
   store i32 %142, ptr %143, align 4, !tbaa !36
@@ -348,8 +348,9 @@ attributes #5 = { nounwind }
 !49 = !{!17, !17, i64 0}
 !50 = !{!51, !51, i64 0}
 !51 = !{!"short", !8, i64 0}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!28, !10, i64 37812}
-!55 = distinct !{!55, !53}
-!56 = distinct !{!56, !53}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!28, !10, i64 37812}
+!56 = distinct !{!56, !53, !54}
+!57 = distinct !{!57, !53, !54}

@@ -186,7 +186,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %75 = and i32 %61, -4194305
   store volatile i32 %75, ptr %74, align 4
   %.pre65 = load ptr, ptr @StrategyControl, align 8
-  br label %.preheader
+  br label %.preheader, !llvm.loop !9
 
 76:                                               ; preds = %52, %34
   %77 = phi ptr [ %53, %52 ], [ %38, %34 ]
@@ -214,10 +214,10 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 
 .critedge14.i:                                    ; preds = %96
   %88 = extractvalue { i32, i8 } %101, 0
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %89 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %89, align 4
-  br label %90
+  br label %90, !llvm.loop !12
 
 90:                                               ; preds = %.critedge14.i, %.critedge.i
   %91 = phi ptr [ %.pre.i, %.critedge.i ], [ %89, %.critedge14.i ]
@@ -236,7 +236,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %98 = urem i32 %.0.i52, %97
   %99 = load ptr, ptr @StrategyControl, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  %101 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %100, i32 %.0.i52, i32 %98, ptr nonnull elementtype(i32) %100) #9, !srcloc !10
+  %101 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %100, i32 %.0.i52, i32 %98, ptr nonnull elementtype(i32) %100) #9, !srcloc !13
   %102 = extractvalue { i32, i8 } %101, 1
   %.not16.i = icmp eq i8 %102, 0
   br i1 %.not16.i, label %.critedge14.i, label %103
@@ -247,7 +247,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, 1
   store i32 %107, ptr %105, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %108 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %108, align 4
   br label %ClockSweepTick.exit
@@ -315,7 +315,7 @@ ClockSweepTick.exit:                              ; preds = %79, %84, %103
   %140 = and i32 %.0, -4194305
   store volatile i32 %140, ptr %139, align 4
   %.pre66 = load ptr, ptr @StrategyControl, align 8
-  br label %79
+  br label %79, !llvm.loop !14
 
 141:                                              ; preds = %129, %72, %25
   %.038 = phi ptr [ %19, %25 ], [ %111, %129 ], [ %57, %72 ]
@@ -379,7 +379,7 @@ define dso_local void @StrategyFreeBuffer(ptr noundef captures(none) %0) local_u
   br label %20
 
 20:                                               ; preds = %7, %._crit_edge
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   %21 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %21, align 4
   ret void
@@ -427,7 +427,7 @@ define dso_local range(i32 0, -1) i32 @StrategySyncStart(ptr noundef writeonly c
 
 23:                                               ; preds = %19, %20
   %24 = urem i32 %11, %12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   %25 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %25, align 4
   ret i32 %24
@@ -449,7 +449,7 @@ define dso_local void @StrategyNotifyBgWriter(i32 noundef %0) local_unnamed_addr
   %8 = load ptr, ptr @StrategyControl, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %9, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !17
   %10 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %10, align 4
   ret void
@@ -478,12 +478,12 @@ define dso_local void @StrategyInitialize(i1 noundef zeroext %0) local_unnamed_a
   tail call void @InitBufTable(i32 noundef %4) #9
   %5 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef 28, ptr noundef nonnull %2) #9
   store ptr %5, ptr @StrategyControl, align 8
-  %6 = load i8, ptr %2, align 1, !range !14, !noundef !15
+  %6 = load i8, ptr %2, align 1, !range !18, !noundef !19
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !20
   %9 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -722,11 +722,15 @@ attributes #10 = { cold nounwind }
 !6 = !{i64 2304682, i64 2304698}
 !7 = !{i64 2150560797}
 !8 = !{i64 2150560982}
-!9 = !{i64 2150560267}
-!10 = !{i64 2254964, i64 2254981, i64 2255004}
-!11 = !{i64 2150562476}
-!12 = !{i64 2150562900}
-!13 = !{i64 2150563324}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = !{i64 2150563760}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 2150560267}
+!12 = distinct !{!12, !10}
+!13 = !{i64 2254964, i64 2254981, i64 2255004}
+!14 = distinct !{!14, !10}
+!15 = !{i64 2150562476}
+!16 = !{i64 2150562900}
+!17 = !{i64 2150563324}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = !{i64 2150563760}

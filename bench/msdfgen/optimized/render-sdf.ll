@@ -169,7 +169,7 @@ for.inc28:                                        ; preds = %for.inc28.loopexit,
   %24 = phi i32 [ %22, %for.inc28.loopexit ], [ %6, %for.cond16.preheader ]
   %inc29 = add nuw nsw i32 %y.033, 1
   %cmp = icmp slt i32 %inc29, %23
-  br i1 %cmp, label %for.cond16.preheader, label %for.end30, !llvm.loop !7
+  br i1 %cmp, label %for.cond16.preheader, label %for.end30, !llvm.loop !8
 
 for.end30:                                        ; preds = %for.inc28, %for.cond16.preheader.lr.ph, %entry
   ret void
@@ -349,7 +349,7 @@ _ZN7msdfgenL7distValEfdf.exit:                    ; preds = %if.then.i, %if.end.
   %inc = add nuw nsw i32 %x.051, 1
   %26 = load i32, ptr %width1, align 8
   %cmp18 = icmp slt i32 %inc, %26
-  br i1 %cmp18, label %for.body19, label %for.inc32.loopexit, !llvm.loop !9
+  br i1 %cmp18, label %for.body19, label %for.inc32.loopexit, !llvm.loop !10
 
 for.inc32.loopexit:                               ; preds = %_ZN7msdfgenL7distValEfdf.exit
   %.pre = load i32, ptr %height4, align 4
@@ -360,7 +360,7 @@ for.inc32:                                        ; preds = %for.inc32.loopexit,
   %28 = phi i32 [ %26, %for.inc32.loopexit ], [ %6, %for.cond16.preheader ]
   %inc33 = add nuw nsw i32 %y.053, 1
   %cmp = icmp slt i32 %inc33, %27
-  br i1 %cmp, label %for.cond16.preheader, label %for.end34, !llvm.loop !10
+  br i1 %cmp, label %for.cond16.preheader, label %for.end34, !llvm.loop !11
 
 for.end34:                                        ; preds = %for.inc32, %for.cond16.preheader.lr.ph, %entry
   ret void
@@ -509,7 +509,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store float %conv3.i75.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit, label %for.body.i, !llvm.loop !12
 
 _ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit: ; preds = %for.body.i
   %20 = load float, ptr %sd, align 4
@@ -554,7 +554,7 @@ _ZN7msdfgenL7distValEfdf.exit:                    ; preds = %if.then.i, %if.end.
   %inc = add nuw nsw i32 %x.033, 1
   %25 = load i32, ptr %width1, align 8
   %cmp18 = icmp slt i32 %inc, %25
-  br i1 %cmp18, label %for.body19, label %for.inc31.loopexit, !llvm.loop !12
+  br i1 %cmp18, label %for.body19, label %for.inc31.loopexit, !llvm.loop !13
 
 for.inc31.loopexit:                               ; preds = %_ZN7msdfgenL7distValEfdf.exit
   %.pre = load i32, ptr %height4, align 4
@@ -565,7 +565,7 @@ for.inc31:                                        ; preds = %for.inc31.loopexit,
   %27 = phi i32 [ %25, %for.inc31.loopexit ], [ %6, %for.cond16.preheader ]
   %inc32 = add nuw nsw i32 %y.035, 1
   %cmp = icmp slt i32 %inc32, %26
-  br i1 %cmp, label %for.cond16.preheader, label %for.end33, !llvm.loop !13
+  br i1 %cmp, label %for.cond16.preheader, label %for.end33, !llvm.loop !14
 
 for.end33:                                        ; preds = %for.inc31, %for.cond16.preheader.lr.ph, %entry
   ret void
@@ -714,7 +714,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store float %conv3.i75.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit, label %for.body.i, !llvm.loop !12
 
 _ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit: ; preds = %for.body.i
   %20 = load float, ptr %sd, align 4
@@ -814,7 +814,7 @@ _ZN7msdfgenL7distValEfdf.exit77:                  ; preds = %if.then.i63, %if.en
   %inc = add nuw nsw i32 %x.085, 1
   %31 = load i32, ptr %width1, align 8
   %cmp18 = icmp slt i32 %inc, %31
-  br i1 %cmp18, label %for.body19, label %for.inc37.loopexit, !llvm.loop !14
+  br i1 %cmp18, label %for.body19, label %for.inc37.loopexit, !llvm.loop !15
 
 for.inc37.loopexit:                               ; preds = %_ZN7msdfgenL7distValEfdf.exit77
   %.pre = load i32, ptr %height4, align 4
@@ -825,7 +825,7 @@ for.inc37:                                        ; preds = %for.inc37.loopexit,
   %33 = phi i32 [ %31, %for.inc37.loopexit ], [ %6, %for.cond16.preheader ]
   %inc38 = add nuw nsw i32 %y.087, 1
   %cmp = icmp slt i32 %inc38, %32
-  br i1 %cmp, label %for.cond16.preheader, label %for.end39, !llvm.loop !15
+  br i1 %cmp, label %for.cond16.preheader, label %for.end39, !llvm.loop !16
 
 for.end39:                                        ; preds = %for.inc37, %for.cond16.preheader.lr.ph, %entry
   ret void
@@ -974,7 +974,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store float %conv3.i75.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit, label %for.body.i, !llvm.loop !17
 
 _ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit: ; preds = %for.body.i
   %20 = load float, ptr %sd, align 16
@@ -1019,7 +1019,7 @@ _ZN7msdfgenL7distValEfdf.exit:                    ; preds = %if.then.i, %if.end.
   %inc = add nuw nsw i32 %x.033, 1
   %25 = load i32, ptr %width1, align 8
   %cmp18 = icmp slt i32 %inc, %25
-  br i1 %cmp18, label %for.body19, label %for.inc31.loopexit, !llvm.loop !17
+  br i1 %cmp18, label %for.body19, label %for.inc31.loopexit, !llvm.loop !18
 
 for.inc31.loopexit:                               ; preds = %_ZN7msdfgenL7distValEfdf.exit
   %.pre = load i32, ptr %height4, align 4
@@ -1030,7 +1030,7 @@ for.inc31:                                        ; preds = %for.inc31.loopexit,
   %27 = phi i32 [ %25, %for.inc31.loopexit ], [ %6, %for.cond16.preheader ]
   %inc32 = add nuw nsw i32 %y.035, 1
   %cmp = icmp slt i32 %inc32, %26
-  br i1 %cmp, label %for.cond16.preheader, label %for.end33, !llvm.loop !18
+  br i1 %cmp, label %for.cond16.preheader, label %for.end33, !llvm.loop !19
 
 for.end33:                                        ; preds = %for.inc31, %for.cond16.preheader.lr.ph, %entry
   ret void
@@ -1180,7 +1180,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store float %conv3.i75.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit, label %for.body.i, !llvm.loop !17
 
 _ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit: ; preds = %for.body.i
   %20 = load float, ptr %sd, align 16
@@ -1312,7 +1312,7 @@ _ZN7msdfgenL7distValEfdf.exit104:                 ; preds = %if.then.i90, %if.en
   %inc = add nuw nsw i32 %x.0112, 1
   %35 = load i32, ptr %width1, align 8
   %cmp18 = icmp slt i32 %inc, %35
-  br i1 %cmp18, label %for.body19, label %for.inc41.loopexit, !llvm.loop !19
+  br i1 %cmp18, label %for.body19, label %for.inc41.loopexit, !llvm.loop !20
 
 for.inc41.loopexit:                               ; preds = %_ZN7msdfgenL7distValEfdf.exit104
   %.pre = load i32, ptr %height4, align 4
@@ -1323,7 +1323,7 @@ for.inc41:                                        ; preds = %for.inc41.loopexit,
   %37 = phi i32 [ %35, %for.inc41.loopexit ], [ %6, %for.cond16.preheader ]
   %inc42 = add nuw nsw i32 %y.0114, 1
   %cmp = icmp slt i32 %inc42, %36
-  br i1 %cmp, label %for.cond16.preheader, label %for.end43, !llvm.loop !20
+  br i1 %cmp, label %for.cond16.preheader, label %for.end43, !llvm.loop !21
 
 for.end43:                                        ; preds = %for.inc41, %for.cond16.preheader.lr.ph, %entry
   ret void
@@ -1361,7 +1361,7 @@ for.body:                                         ; preds = %entry, %for.body
   store float %mul.i8, ptr %p.010, align 4
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.010, i64 4
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1400,7 +1400,7 @@ for.body:                                         ; preds = %entry, %for.body
   store float %mul.i8, ptr %p.010, align 4
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.010, i64 4
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1439,7 +1439,7 @@ for.body:                                         ; preds = %entry, %for.body
   store float %mul.i8, ptr %p.010, align 4
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.010, i64 4
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1461,22 +1461,23 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6, !8}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6, !8}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6, !8}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6, !8}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6, !8}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6, !8}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7, !9}
+!9 = !{!"llvm.loop.unswitch.partial.disable"}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7, !9}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7, !9}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7, !9}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7, !9}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7, !9}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}

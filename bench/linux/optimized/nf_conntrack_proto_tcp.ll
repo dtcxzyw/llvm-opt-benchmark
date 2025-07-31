@@ -968,7 +968,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %576 = phi ptr [ %573, %570 ], [ %533, %535 ]
   %577 = phi i32 [ %574, %570 ], [ %536, %535 ]
   %578 = icmp sgt i32 %577, 0
-  br i1 %578, label %530, label %.thread42, !llvm.loop !7
+  br i1 %578, label %530, label %.thread42, !llvm.loop !12
 
 .thread42:                                        ; preds = %530, %539, %537, %575, %557, %514, %512, %528, %525, %517, %502
   %579 = phi i32 [ %477, %502 ], [ %477, %517 ], [ %477, %525 ], [ %477, %528 ], [ %477, %512 ], [ %477, %514 ], [ %566, %557 ], [ %477, %575 ], [ %477, %537 ], [ %477, %539 ], [ %477, %530 ]
@@ -1189,11 +1189,11 @@ tcp_new.exit:                                     ; preds = %100, %133
   %714 = load i8, ptr %713, align 1
   %715 = or i8 %714, 16
   store i8 %715, ptr %713, align 1
-  %716 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 0, ptr noundef nonnull @.str.19, i32 noundef %691), !range !11
+  %716 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 0, ptr noundef nonnull @.str.19, i32 noundef %691), !range !13
   br label %841
 
 717:                                              ; preds = %695, %689
-  %718 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 1, ptr noundef nonnull @.str.20, i32 noundef %686), !range !11
+  %718 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 1, ptr noundef nonnull @.str.20, i32 noundef %686), !range !13
   br label %841
 
 719:                                              ; preds = %681
@@ -1204,7 +1204,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   br i1 %723, label %726, label %724
 
 724:                                              ; preds = %719
-  %725 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 1, ptr noundef nonnull @.str.21, i32 noundef %721), !range !11
+  %725 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 1, ptr noundef nonnull @.str.21, i32 noundef %721), !range !13
   br label %841
 
 726:                                              ; preds = %719
@@ -1222,7 +1222,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   br i1 %735, label %738, label %736
 
 736:                                              ; preds = %730
-  %737 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 0, ptr noundef nonnull @.str.22, i32 noundef %733), !range !11
+  %737 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 0, ptr noundef nonnull @.str.22, i32 noundef %733), !range !13
   br label %841
 
 738:                                              ; preds = %730, %726
@@ -1236,7 +1236,7 @@ tcp_new.exit:                                     ; preds = %100, %133
 744:                                              ; preds = %738
   %745 = xor i32 %740, -1
   %746 = add i32 %720, %745
-  %747 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 0, ptr noundef nonnull @.str.23, i32 noundef %746), !range !11
+  %747 = call i32 (ptr, ptr, ptr, ptr, i32, ptr, ...) @nf_tcp_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef %467, i32 noundef 0, ptr noundef nonnull @.str.23, i32 noundef %746), !range !13
   br label %841
 
 748:                                              ; preds = %738
@@ -1557,7 +1557,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   br i1 %935, label %936, label %937
 
 936:                                              ; preds = %931
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %69, i32 4, ptr nonnull elementtype(i8) %69) #11, !srcloc !12
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %69, i32 4, ptr nonnull elementtype(i8) %69) #11, !srcloc !14
   br label %937
 
 937:                                              ; preds = %936, %931, %927, %923, %921
@@ -1645,7 +1645,7 @@ define internal fastcc void @tcp_options(ptr noundef %0, i32 noundef %1, i16 %.1
 
 42:                                               ; preds = %.preheader
   %43 = add nsw i32 %38, -1
-  br label %73, !llvm.loop !13
+  br label %73, !llvm.loop !15
 
 44:                                               ; preds = %.preheader
   %45 = icmp eq i32 %38, 1
@@ -1697,7 +1697,7 @@ define internal fastcc void @tcp_options(ptr noundef %0, i32 noundef %1, i16 %.1
   %75 = phi ptr [ %71, %67 ], [ %40, %42 ]
   %76 = phi i32 [ %72, %67 ], [ %43, %42 ]
   %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %.preheader, label %.thread, !llvm.loop !13
+  br i1 %77, label %.preheader, label %.thread, !llvm.loop !16
 
 .thread:                                          ; preds = %46, %44, %.preheader, %73, %22, %20, %.thread1, %25, %3
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #11
@@ -2176,7 +2176,10 @@ attributes #13 = { cold }
 !7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{i32 0, i32 3}
-!12 = !{i64 2148562551, i64 2148562590, i64 2148562611, i64 2148562648, i64 2148562671, i64 2148562541}
-!13 = distinct !{!13, !8, !9}
+!10 = distinct !{!10, !8, !9, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !8, !9, !11}
+!13 = !{i32 0, i32 3}
+!14 = !{i64 2148562551, i64 2148562590, i64 2148562611, i64 2148562648, i64 2148562671, i64 2148562541}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9, !11}

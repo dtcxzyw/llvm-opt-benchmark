@@ -462,14 +462,14 @@ select.unfold:                                    ; preds = %175, %176, %178
   %190 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %191 = load ptr, ptr %190, align 8, !tbaa !36
   %192 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store ptr %191, ptr %192, align 8, !tbaa !63
+  store ptr %191, ptr %192, align 8, !tbaa !64
   %193 = load ptr, ptr %5, align 16, !tbaa !36
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store ptr %193, ptr %194, align 8, !tbaa !64
+  store ptr %193, ptr %194, align 8, !tbaa !65
   %195 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %196 = load ptr, ptr %195, align 16, !tbaa !36
   %197 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr %196, ptr %197, align 8, !tbaa !65
+  store ptr %196, ptr %197, align 8, !tbaa !66
   %198 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %199 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %200 = call i32 @xdl_merge(ptr noundef nonnull %198, ptr noundef nonnull %6, ptr noundef nonnull %199, ptr noundef nonnull %8, ptr noundef nonnull %7) #12
@@ -487,12 +487,12 @@ select.unfold:                                    ; preds = %175, %176, %178
 207:                                              ; preds = %202
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %14) #12
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %209 = load i64, ptr %208, align 8, !tbaa !66
+  %209 = load i64, ptr %208, align 8, !tbaa !67
   %.not65 = icmp eq i64 %209, 0
   br i1 %.not65, label %218, label %210
 
 210:                                              ; preds = %207
-  %211 = load ptr, ptr %7, align 8, !tbaa !68
+  %211 = load ptr, ptr %7, align 8, !tbaa !69
   %212 = call i32 @write_object_file_flags(ptr noundef %211, i64 noundef range(i64 1, 0) %209, i32 noundef 3, ptr noundef nonnull %14, ptr noundef null, i32 noundef 0) #12
   %213 = icmp slt i32 %212, 0
   br i1 %213, label %214, label %229
@@ -514,9 +514,9 @@ select.unfold:                                    ; preds = %175, %176, %178
   %223 = load ptr, ptr %222, align 8, !tbaa !55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %14, ptr noundef nonnull readonly align 4 dereferenceable(32) %223, i64 32, i1 false)
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 32
-  %225 = load i32, ptr %224, align 4, !tbaa !69
+  %225 = load i32, ptr %224, align 4, !tbaa !70
   %226 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 %225, ptr %226, align 4, !tbaa !69
+  store i32 %225, ptr %226, align 4, !tbaa !70
   br label %229
 
 227:                                              ; preds = %216, %214
@@ -556,12 +556,12 @@ select.unfold:                                    ; preds = %175, %176, %178
 
 242:                                              ; preds = %240
   %243 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %244 = load i64, ptr %243, align 8, !tbaa !66
+  %244 = load i64, ptr %243, align 8, !tbaa !67
   %.not68 = icmp eq i64 %244, 0
   br i1 %.not68, label %248, label %245
 
 245:                                              ; preds = %242
-  %246 = load ptr, ptr %7, align 8, !tbaa !68
+  %246 = load ptr, ptr %7, align 8, !tbaa !69
   %247 = call i64 @fwrite(ptr noundef %246, i64 noundef %244, i64 noundef 1, ptr noundef nonnull %241)
   %.not69 = icmp eq i64 %247, 1
   br i1 %.not69, label %248, label %.sink.split
@@ -583,7 +583,7 @@ select.unfold:                                    ; preds = %175, %176, %178
 
 252:                                              ; preds = %251, %231
   %.6 = phi i32 [ %.7, %251 ], [ %.591, %231 ]
-  %253 = load ptr, ptr %7, align 8, !tbaa !68
+  %253 = load ptr, ptr %7, align 8, !tbaa !69
   call void @free(ptr noundef %253) #12
   br label %254
 
@@ -603,7 +603,7 @@ select.unfold:                                    ; preds = %175, %176, %178
   call void @free(ptr noundef %258) #12
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, 3
-  br i1 %exitcond111.not, label %.loopexit, label %256, !llvm.loop !71
+  br i1 %exitcond111.not, label %.loopexit, label %256, !llvm.loop !72
 
 .loopexit:                                        ; preds = %256, %145
   %.0 = phi i32 [ -1, %145 ], [ %.3, %256 ]
@@ -641,10 +641,10 @@ define internal range(i32 -1, 1) i32 @diff_algorithm_cb(ptr noundef readonly cap
   br i1 %9, label %set_diff_algorithm.exit, label %set_diff_algorithm.exit.thread
 
 set_diff_algorithm.exit.thread:                   ; preds = %5
-  %10 = load i64, ptr %7, align 8, !tbaa !72
+  %10 = load i64, ptr %7, align 8, !tbaa !73
   %11 = and i64 %10, -49153
   %12 = or i64 %11, %8
-  store i64 %12, ptr %7, align 8, !tbaa !72
+  store i64 %12, ptr %7, align 8, !tbaa !73
   br label %17
 
 set_diff_algorithm.exit:                          ; preds = %5
@@ -844,15 +844,16 @@ attributes #13 = { noreturn nounwind }
 !58 = !{!59, !12, i64 8}
 !59 = !{!"s_mmfile", !10, i64 0, !12, i64 8}
 !60 = !{!59, !10, i64 0}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!22, !10, i64 56}
-!64 = !{!22, !10, i64 64}
-!65 = !{!22, !10, i64 72}
-!66 = !{!67, !12, i64 8}
-!67 = !{!"s_mmbuffer", !10, i64 0, !12, i64 8}
-!68 = !{!67, !10, i64 0}
-!69 = !{!70, !5, i64 32}
-!70 = !{!"object_id", !6, i64 0, !5, i64 32}
-!71 = distinct !{!71, !62}
-!72 = !{!23, !12, i64 0}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!22, !10, i64 56}
+!65 = !{!22, !10, i64 64}
+!66 = !{!22, !10, i64 72}
+!67 = !{!68, !12, i64 8}
+!68 = !{!"s_mmbuffer", !10, i64 0, !12, i64 8}
+!69 = !{!68, !10, i64 0}
+!70 = !{!71, !5, i64 32}
+!71 = !{!"object_id", !6, i64 0, !5, i64 32}
+!72 = distinct !{!72, !62, !63}
+!73 = !{!23, !12, i64 0}

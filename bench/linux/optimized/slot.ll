@@ -131,7 +131,7 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i32
   %16 = icmp eq i32 %1, %15
-  br i1 %16, label %17, label %8, !llvm.loop !8
+  br i1 %16, label %17, label %8, !llvm.loop !9
 
 17:                                               ; preds = %12
   %18 = getelementptr i8, ptr %10, i64 -8
@@ -239,7 +239,7 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
 72:                                               ; preds = %70, %.preheader
   %73 = load ptr, ptr %64, align 8
   %74 = icmp eq ptr %73, %61
-  br i1 %74, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %74, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %72, %60
   tail call void @up_read(ptr noundef nonnull @pci_bus_sem) #7
@@ -309,7 +309,7 @@ define internal fastcc noundef ptr @make_slot_name(ptr noundef %0) unnamed_addr 
   %29 = load ptr, ptr @pci_slots_kset, align 8
   %30 = tail call ptr @kset_find_obj(ptr noundef %29, ptr noundef %24) #7
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %.lr.ph
+  br i1 %31, label %.thread, label %.lr.ph, !llvm.loop !11
 
 .thread:                                          ; preds = %23, %17, %4, %1
   %32 = phi ptr [ null, %1 ], [ %2, %4 ], [ %24, %23 ], [ null, %17 ]
@@ -475,7 +475,7 @@ define internal void @pci_slot_release(ptr noundef %0) #0 align 16 {
   %23 = load ptr, ptr %11, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %25 = icmp eq ptr %23, %24
-  br i1 %25, label %.loopexit, label %9, !llvm.loop !10
+  br i1 %25, label %.loopexit, label %9, !llvm.loop !12
 
 .loopexit:                                        ; preds = %21, %1
   tail call void @up_read(ptr noundef nonnull @pci_bus_sem) #7
@@ -613,9 +613,11 @@ attributes #10 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !6, !7, !8}

@@ -187,7 +187,7 @@ define dso_local void @cn_queue_del_callback(ptr noundef %0, ptr noundef readonl
 
 .critedge.backedge:                               ; preds = %15, %9
   %19 = icmp eq ptr %11, %4
-  br i1 %19, label %.critedge._crit_edge, label %9, !llvm.loop !13
+  br i1 %19, label %.critedge._crit_edge, label %9, !llvm.loop !12
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -275,7 +275,7 @@ define dso_local void @cn_queue_free_dev(ptr noundef %0) local_unnamed_addr #0 a
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %8, align 8
   %11 = icmp eq ptr %7, %3
-  br i1 %11, label %.loopexit1, label %.preheader, !llvm.loop !14
+  br i1 %11, label %.loopexit1, label %.preheader, !llvm.loop !13
 
 .loopexit1:                                       ; preds = %.preheader, %1
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %2) #6
@@ -293,7 +293,7 @@ define dso_local void @cn_queue_free_dev(ptr noundef %0) local_unnamed_addr #0 a
   tail call void @msleep(i32 noundef 1000) #6
   %19 = load volatile i32, ptr %0, align 4
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.loopexit, label %16, !llvm.loop !15
+  br i1 %20, label %.loopexit, label %16, !llvm.loop !16
 
 .loopexit:                                        ; preds = %16, %.loopexit1
   tail call void @kfree(ptr noundef %0) #6
@@ -340,9 +340,10 @@ attributes #8 = { cold nounwind }
 !7 = !{i64 2150348747}
 !8 = !{i64 2148810087, i64 2148810126, i64 2148810147, i64 2148810184, i64 2148810207, i64 2148810077}
 !9 = !{i64 2148809724, i64 2148809763, i64 2148809784, i64 2148809821, i64 2148809844, i64 2148809714}
-!10 = distinct !{!10, !11, !12}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !14, !15, !11}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.unroll.disable"}
+!16 = distinct !{!16, !14, !15, !11}

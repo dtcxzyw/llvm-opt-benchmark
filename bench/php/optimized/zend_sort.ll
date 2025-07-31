@@ -144,7 +144,7 @@ define dso_local void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noun
   %69 = getelementptr inbounds i8, ptr %.0120, i64 %61
   %70 = tail call i32 %3(ptr noundef %69, ptr noundef %.0135) #1
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.preheader131, label %72
+  br i1 %71, label %.preheader131, label %72, !llvm.loop !4
 
 72:                                               ; preds = %68, %.preheader131
   %.0120.lcssa = phi ptr [ %.0120, %68 ], [ %0, %.preheader131 ]
@@ -156,12 +156,12 @@ define dso_local void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noun
   %74 = getelementptr inbounds i8, ptr %.0122134, i64 %61
   tail call void %4(ptr noundef nonnull %.0122134, ptr noundef nonnull %74) #1
   %75 = icmp ugt ptr %74, %.0120.lcssa
-  br i1 %75, label %.lr.ph, label %.loopexit130
+  br i1 %75, label %.lr.ph, label %.loopexit130, !llvm.loop !6
 
 .loopexit130:                                     ; preds = %.lr.ph, %72, %64
   %76 = getelementptr inbounds nuw i8, ptr %.0135, i64 %2
   %77 = icmp ult ptr %76, %58
-  br i1 %77, label %64, label %.preheader129
+  br i1 %77, label %64, label %.preheader129, !llvm.loop !7
 
 78:                                               ; preds = %.lr.ph142, %.loopexit
   %.1140 = phi ptr [ %58, %.lr.ph142 ], [ %99, %.loopexit ]
@@ -191,7 +191,7 @@ define dso_local void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noun
 
 91:                                               ; preds = %89
   %92 = icmp eq ptr %82, %59
-  br i1 %92, label %93, label %.preheader
+  br i1 %92, label %93, label %.preheader, !llvm.loop !8
 
 93:                                               ; preds = %91
   %94 = tail call i32 %3(ptr noundef %.1140, ptr noundef %0) #1
@@ -209,12 +209,12 @@ define dso_local void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noun
   %97 = getelementptr inbounds i8, ptr %.1123138, i64 %63
   tail call void %4(ptr noundef nonnull %.1123138, ptr noundef nonnull %97) #1
   %98 = icmp ugt ptr %97, %.3
-  br i1 %98, label %.lr.ph139, label %.loopexit
+  br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph139, %.loopexit128, %78
   %99 = getelementptr inbounds nuw i8, ptr %.1140, i64 %2
   %100 = icmp ult ptr %99, %56
-  br i1 %100, label %78, label %zend_sort_2.exit
+  br i1 %100, label %78, label %zend_sort_2.exit, !llvm.loop !10
 
 zend_sort_2.exit:                                 ; preds = %.loopexit, %.preheader129, %53, %50, %47, %44, %36, %30, %27, %26, %22, %19, %16, %10, %6, %5, %5, %31
   ret void
@@ -405,12 +405,12 @@ zend_sort_5.exit:                                 ; preds = %50, %47, %46, %42, 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %.1100, i64 %2
   %60 = icmp eq ptr %59, %.0101
-  br i1 %60, label %.loopexit, label %55, !prof !4
+  br i1 %60, label %.loopexit, label %55, !prof !11, !llvm.loop !12
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds i8, ptr %.0101, i64 %7
   %63 = icmp eq ptr %62, %.1100
-  br i1 %63, label %.loopexit, label %.preheader, !prof !4
+  br i1 %63, label %.loopexit, label %.preheader, !prof !11
 
 .preheader:                                       ; preds = %61, %66
   %.1102 = phi ptr [ %67, %66 ], [ %62, %61 ]
@@ -421,13 +421,13 @@ zend_sort_5.exit:                                 ; preds = %50, %47, %46, %42, 
 66:                                               ; preds = %.preheader
   %67 = getelementptr inbounds i8, ptr %.1102, i64 %7
   %68 = icmp eq ptr %67, %.1100
-  br i1 %68, label %.loopexit, label %.preheader, !prof !4
+  br i1 %68, label %.loopexit, label %.preheader, !prof !11, !llvm.loop !14
 
 69:                                               ; preds = %.preheader
   tail call void %4(ptr noundef %.1100, ptr noundef %.1102) #1
   %70 = getelementptr inbounds nuw i8, ptr %.1100, i64 %2
   %71 = icmp eq ptr %70, %.1102
-  br i1 %71, label %.loopexit, label %54, !prof !4
+  br i1 %71, label %.loopexit, label %54, !prof !11, !llvm.loop !15
 
 .loopexit:                                        ; preds = %69, %61, %58, %66
   %.2 = phi ptr [ %.1100, %66 ], [ %59, %58 ], [ %70, %69 ], [ %.1100, %61 ]
@@ -462,7 +462,7 @@ zend_sort_5.exit:                                 ; preds = %50, %47, %46, %42, 
   %.198 = phi i64 [ %84, %80 ], [ %89, %85 ]
   %.1 = phi ptr [ %.2, %80 ], [ %.0117, %85 ]
   %91 = icmp ult i64 %.198, 17
-  br i1 %91, label %._crit_edge, label %8
+  br i1 %91, label %._crit_edge, label %8, !llvm.loop !16
 }
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -474,4 +474,16 @@ attributes #1 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count", i32 2001}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !5}

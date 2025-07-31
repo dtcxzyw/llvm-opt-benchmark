@@ -663,13 +663,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit105: ; preds = %_ZNS
   %224 = load i32, ptr %198, align 4, !tbaa !67
   %225 = sext i32 %224 to i64
   %226 = icmp slt i64 %indvars.iv.next175, %225
-  br i1 %226, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !77
+  br i1 %226, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !78
 
 227:                                              ; preds = %.preheader, %227
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %227 ]
   %228 = load double, ptr %11, align 8, !tbaa !65
-  %229 = load ptr, ptr %199, align 8, !tbaa !78
-  %230 = load ptr, ptr %200, align 8, !tbaa !79
+  %229 = load ptr, ptr %199, align 8, !tbaa !79
+  %230 = load ptr, ptr %200, align 8, !tbaa !80
   %231 = load i64, ptr %230, align 8, !tbaa !10
   %232 = mul i64 %231, %indvars.iv177
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 %232
@@ -685,8 +685,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit105: ; preds = %_ZNS
   %243 = call i32 @llvm.smax.i32(i32 %242, i32 0)
   %244 = call i32 @llvm.umin.i32(i32 %243, i32 255)
   %245 = trunc nuw i32 %244 to i8
-  %246 = load ptr, ptr %201, align 8, !tbaa !78
-  %247 = load ptr, ptr %202, align 8, !tbaa !79
+  %246 = load ptr, ptr %201, align 8, !tbaa !79
+  %247 = load ptr, ptr %202, align 8, !tbaa !80
   %248 = load i64, ptr %247, align 8, !tbaa !10
   %249 = mul i64 %248, %indvars.iv177
   %250 = getelementptr inbounds nuw i8, ptr %246, i64 %249
@@ -699,7 +699,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit105: ; preds = %_ZNS
   %255 = and i32 %254, 511
   %256 = zext nneg i32 %255 to i64
   %.not.not = icmp samesign ult i64 %indvars.iv, %256
-  br i1 %.not.not, label %227, label %223, !llvm.loop !80
+  br i1 %.not.not, label %227, label %223, !llvm.loop !81
 
 257:                                              ; preds = %._crit_edge.i.i106
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #15
@@ -1036,10 +1036,11 @@ attributes #17 = { noreturn }
 !71 = !{!72, !28, i64 0}
 !72 = !{!"_ZTSN2cv11_InputArrayE", !28, i64 0, !7, i64 8, !69, i64 16}
 !73 = !{!72, !7, i64 8}
-!74 = distinct !{!74, !75, !76}
+!74 = distinct !{!74, !75, !76, !77}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!"llvm.loop.unswitch.partial.disable"}
-!77 = distinct !{!77, !75}
-!78 = !{!50, !6, i64 16}
-!79 = !{!50, !54, i64 72}
-!80 = distinct !{!80, !75}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = !{!"llvm.loop.unswitch.partial.disable"}
+!78 = distinct !{!78, !75, !76}
+!79 = !{!50, !6, i64 16}
+!80 = !{!50, !54, i64 72}
+!81 = distinct !{!81, !75, !76}

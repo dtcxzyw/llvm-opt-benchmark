@@ -92,7 +92,7 @@ oid_set_algo.exit:                                ; preds = %34, %.split.loop.ex
 
 38:                                               ; preds = %oid_set_algo.exit, %18
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %39, align 8, !tbaa !39
+  store i32 0, ptr %39, align 8, !tbaa !40
   ret void
 }
 
@@ -101,7 +101,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @oid_array_sort(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8, !tbaa !39
+  %3 = load i32, ptr %2, align 8, !tbaa !40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %10
 
@@ -117,7 +117,7 @@ define dso_local void @oid_array_sort(ptr noundef captures(none) %0) local_unnam
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %4, %8
-  store i32 1, ptr %2, align 8, !tbaa !39
+  store i32 1, ptr %2, align 8, !tbaa !40
   br label %10
 
 10:                                               ; preds = %1, %sane_qsort.exit
@@ -150,7 +150,7 @@ define internal i32 @void_hashcmp(ptr noundef readonly captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @oid_array_lookup(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !39
+  %4 = load i32, ptr %3, align 8, !tbaa !40
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %oid_array_sort.exit
 
@@ -166,7 +166,7 @@ define dso_local i32 @oid_array_lookup(ptr noundef captures(none) %0, ptr nounde
   br label %sane_qsort.exit.i
 
 sane_qsort.exit.i:                                ; preds = %9, %5
-  store i32 1, ptr %3, align 8, !tbaa !39
+  store i32 1, ptr %3, align 8, !tbaa !40
   br label %oid_array_sort.exit
 
 oid_array_sort.exit:                              ; preds = %2, %sane_qsort.exit.i
@@ -207,7 +207,7 @@ define dso_local i32 @oid_array_for_each(ptr noundef readonly captures(none) %0,
   %7 = add nuw i64 %.01113, 1
   %8 = load i64, ptr %4, align 8, !tbaa !4
   %9 = icmp ult i64 %7, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 .lr.ph:                                           ; preds = %3, %6
   %.01113 = phi i64 [ %7, %6 ], [ 0, %3 ]
@@ -225,7 +225,7 @@ define dso_local i32 @oid_array_for_each(ptr noundef readonly captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @oid_array_for_each_unique(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !39
+  %5 = load i32, ptr %4, align 8, !tbaa !40
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %oid_array_sort.exit
 
@@ -241,7 +241,7 @@ define dso_local i32 @oid_array_for_each_unique(ptr noundef captures(none) %0, p
   br label %sane_qsort.exit.i
 
 sane_qsort.exit.i:                                ; preds = %10, %6
-  store i32 1, ptr %4, align 8, !tbaa !39
+  store i32 1, ptr %4, align 8, !tbaa !40
   br label %oid_array_sort.exit
 
 oid_array_sort.exit:                              ; preds = %3, %sane_qsort.exit.i
@@ -277,11 +277,11 @@ oid_array_sort.exit:                              ; preds = %3, %sane_qsort.exit
   %26 = getelementptr inbounds i8, ptr %25, i64 -36
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %25, ptr noundef nonnull readonly dereferenceable(32) %26, i64 32)
   %.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not.i.not.i, label %21, label %oid_array_next_unique.exit, !llvm.loop !41
+  br i1 %.not.i.not.i, label %21, label %oid_array_next_unique.exit, !llvm.loop !42
 
 oid_array_next_unique.exit:                       ; preds = %22
   %27 = icmp ult i64 %23, %18
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %oid_array_next_unique.exit, %21, %oid_array_sort.exit
   %.2 = phi i32 [ 0, %oid_array_sort.exit ], [ 0, %21 ], [ 0, %oid_array_next_unique.exit ], [ %16, %.lr.ph ]
@@ -325,7 +325,7 @@ define dso_local void @oid_array_filter(ptr noundef captures(none) %0, ptr nound
   %.1 = phi i64 [ %16, %15 ], [ %.01719, %.lr.ph ]
   %18 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %18, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %17, %3
   %.017.lcssa = phi i64 [ 0, %3 ], [ %.1, %17 ]
@@ -411,10 +411,11 @@ attributes #16 = { nounwind willreturn memory(read) }
 !34 = !{!"p1 _ZTS12remote_state", !7, i64 0}
 !35 = !{!"p1 _ZTS13git_hash_algo", !7, i64 0}
 !36 = !{!"p1 _ZTS22promisor_remote_config", !7, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!5, !11, i64 24}
-!40 = distinct !{!40, !38}
-!41 = distinct !{!41, !38}
-!42 = distinct !{!42, !38}
-!43 = distinct !{!43, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!5, !11, i64 24}
+!41 = distinct !{!41, !38, !39}
+!42 = distinct !{!42, !38, !39}
+!43 = distinct !{!43, !38, !39}
+!44 = distinct !{!44, !38, !39}

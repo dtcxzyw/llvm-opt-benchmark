@@ -97,7 +97,7 @@ define dso_local nonnull ptr @SlabContextCreate(ptr noundef %0, ptr noundef %1, 
   store ptr %44, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %46, label %43, !llvm.loop !6
+  br i1 %exitcond.not, label %46, label %43, !llvm.loop !7
 
 46:                                               ; preds = %43
   tail call void @MemoryContextCreate(ptr noundef nonnull %16, i32 noundef 475, i32 noundef 5, ptr noundef %0, ptr noundef %1) #13
@@ -172,7 +172,7 @@ define dso_local void @SlabReset(ptr noundef captures(address) %0) local_unnamed
   %21 = sub i64 %20, %19
   store i64 %21, ptr %7, align 8
   %.not33 = icmp eq ptr %.sroa.16.0, %2
-  br i1 %.not33, label %.preheader, label %11, !llvm.loop !7
+  br i1 %.not33, label %.preheader, label %11, !llvm.loop !8
 
 22:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
@@ -201,12 +201,12 @@ define dso_local void @SlabReset(ptr noundef captures(address) %0) local_unnamed
   %33 = sub i64 %32, %31
   store i64 %33, ptr %10, align 8
   %.not35 = icmp eq ptr %.sroa.16.1, %23
-  br i1 %.not35, label %._crit_edge, label %.lr.ph41, !llvm.loop !8
+  br i1 %.not35, label %._crit_edge, label %.lr.ph41, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph41, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %34, label %22, !llvm.loop !9
+  br i1 %exitcond.not, label %34, label %22, !llvm.loop !10
 
 34:                                               ; preds = %._crit_edge
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -259,7 +259,7 @@ define dso_local void @SlabDelete(ptr noundef captures(address) %0) local_unname
   %21 = sub i64 %20, %19
   store i64 %21, ptr %7, align 8
   %.not33.i = icmp eq ptr %.sroa.16.0.i, %2
-  br i1 %.not33.i, label %.preheader.i, label %11, !llvm.loop !7
+  br i1 %.not33.i, label %.preheader.i, label %11, !llvm.loop !8
 
 22:                                               ; preds = %._crit_edge.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
@@ -288,12 +288,12 @@ define dso_local void @SlabDelete(ptr noundef captures(address) %0) local_unname
   %33 = sub i64 %32, %31
   store i64 %33, ptr %10, align 8
   %.not35.i = icmp eq ptr %.sroa.16.1.i, %23
-  br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph41.i, !llvm.loop !8
+  br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph41.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph41.i, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %SlabReset.exit, label %22, !llvm.loop !9
+  br i1 %exitcond.not.i, label %SlabReset.exit, label %22, !llvm.loop !10
 
 SlabReset.exit:                                   ; preds = %._crit_edge.i
   tail call void @free(ptr noundef nonnull %0) #13
@@ -306,7 +306,7 @@ define dso_local ptr @SlabAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %.not = icmp eq i64 %1, %6
-  br i1 %.not, label %8, label %7, !prof !10
+  br i1 %.not, label %8, label %7, !prof !11
 
 7:                                                ; preds = %3
   tail call fastcc void @SlabAllocInvalidSize(ptr noundef nonnull %0, i64 noundef %1) #15
@@ -316,7 +316,7 @@ define dso_local ptr @SlabAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %14, !prof !11
+  br i1 %11, label %12, label %14, !prof !12
 
 12:                                               ; preds = %8
   %13 = tail call fastcc ptr @SlabAllocFromNewBlock(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2)
@@ -367,7 +367,7 @@ SlabGetNextFreeChunk.exit:                        ; preds = %22, %25
   %41 = sub i32 0, %40
   %42 = load i32, ptr %9, align 8
   %.not33 = icmp eq i32 %42, %41
-  br i1 %.not33, label %66, label %43, !prof !10
+  br i1 %.not33, label %66, label %43, !prof !11
 
 43:                                               ; preds = %SlabGetNextFreeChunk.exit
   %44 = getelementptr inbounds nuw i8, ptr %.val35, i64 8
@@ -413,7 +413,7 @@ dlist_push_head.exit:                             ; preds = %43, %54
 64:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %SlabFindNextBlockListIndex.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.i, label %SlabFindNextBlockListIndex.exit, label %.preheader, !llvm.loop !13
 
 .split.loop.exit.i:                               ; preds = %.preheader
   %65 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -516,7 +516,7 @@ SlabGetNextFreeChunk.exit:                        ; preds = %17, %20
   %36 = zext i32 %35 to i64
   %37 = tail call noalias ptr @malloc(i64 noundef %36) #14
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %41, !prof !11
+  br i1 %38, label %39, label %41, !prof !12
 
 39:                                               ; preds = %33
   %40 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2) #13
@@ -623,7 +623,7 @@ define dso_local void @SlabFree(ptr noundef %0) local_unnamed_addr #0 {
   %.not52 = ashr i32 %12, %.val43
   %.neg = add i32 %.not52, 1
   %.not = icmp eq i32 %.neg, %17
-  br i1 %.not, label %42, label %18, !prof !10
+  br i1 %.not, label %42, label %18, !prof !11
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -670,7 +670,7 @@ dlist_push_head.exit:                             ; preds = %18, %31
 40:                                               ; preds = %.preheader53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %SlabFindNextBlockListIndex.exit, label %.preheader53, !llvm.loop !12
+  br i1 %exitcond.i, label %SlabFindNextBlockListIndex.exit, label %.preheader53, !llvm.loop !13
 
 .split.loop.exit.i:                               ; preds = %.preheader53
   %41 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -686,7 +686,7 @@ SlabFindNextBlockListIndex.exit:                  ; preds = %40, %.split.loop.ex
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 92
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %43, %45
-  br i1 %46, label %47, label %91, !prof !11
+  br i1 %46, label %47, label %91, !prof !12
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -766,7 +766,7 @@ dclist_push_head.exit:                            ; preds = %60, %64
 89:                                               ; preds = %.preheader
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.i50 = icmp eq i64 %indvars.iv.next.i49, 3
-  br i1 %exitcond.i50, label %SlabFindNextBlockListIndex.exit51, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.i50, label %SlabFindNextBlockListIndex.exit51, label %.preheader, !llvm.loop !13
 
 .split.loop.exit.i47:                             ; preds = %.preheader
   %90 = trunc nuw nsw i64 %indvars.iv.i45 to i32
@@ -909,7 +909,7 @@ define dso_local void @SlabStats(ptr noundef %0, ptr noundef readonly captures(a
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.056, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not53 = icmp eq ptr %32, %17
-  br i1 %.not53, label %._crit_edge, label %21, !llvm.loop !13
+  br i1 %.not53, label %._crit_edge, label %21, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %21, %16
   %.146.lcssa = phi i64 [ %.04565, %16 ], [ %28, %21 ]
@@ -918,7 +918,7 @@ define dso_local void @SlabStats(ptr noundef %0, ptr noundef readonly captures(a
   %.1.lcssa = phi i64 [ %.068, %16 ], [ %22, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %33, label %16, !llvm.loop !14
+  br i1 %exitcond.not, label %33, label %16, !llvm.loop !15
 
 33:                                               ; preds = %._crit_edge
   %.not = icmp eq ptr %1, null
@@ -991,14 +991,15 @@ attributes #15 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}

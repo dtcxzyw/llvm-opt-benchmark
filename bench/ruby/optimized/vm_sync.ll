@@ -362,7 +362,7 @@ declare void @rb_ractor_sched_barrier_start(ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_ec_vm_lock_rec_release(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ugt i32 %1, %2
-  br i1 %4, label %10, label %.preheader, !prof !83
+  br i1 %4, label %10, label %.preheader, !prof !84
 
 .preheader:                                       ; preds = %3
   %5 = icmp ult i32 %1, %2
@@ -402,7 +402,7 @@ rb_vm_lock_leave.exit.thread:                     ; preds = %.lr.ph.split
 
 rb_vm_lock_leave.exit:                            ; preds = %.lr.ph.split
   %16 = icmp ult i32 %1, %12
-  br i1 %16, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !84
+  br i1 %16, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !85
 
 ._crit_edge.loopexit:                             ; preds = %rb_vm_lock_leave.exit
   store i32 %12, ptr %9, align 8, !tbaa !61
@@ -525,8 +525,9 @@ attributes #9 = { cold noreturn nounwind }
 !78 = !{!49, !39, i64 48}
 !79 = !{i64 2151828192}
 !80 = !{!41, !42, i64 152}
-!81 = distinct !{!81, !82}
+!81 = distinct !{!81, !82, !83}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!84 = distinct !{!84, !82, !85}
-!85 = !{!"llvm.loop.unswitch.partial.disable"}
+!83 = !{!"llvm.loop.estimated_trip_count"}
+!84 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!85 = distinct !{!85, !82, !83, !86}
+!86 = !{!"llvm.loop.unswitch.partial.disable"}

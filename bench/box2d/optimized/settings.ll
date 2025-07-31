@@ -191,7 +191,7 @@ _ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit: ; preds = %21
 71:                                               ; preds = %.lr.ph208, %65
   %indvars.iv.next250 = add nsw i64 %indvars.iv249, -1
   %72 = icmp sgt i64 %indvars.iv249, 0
-  br i1 %72, label %.lr.ph208, label %.loopexit, !llvm.loop !20
+  br i1 %72, label %.lr.ph208, label %.loopexit, !llvm.loop !21
 
 73:                                               ; preds = %11
   %74 = add i32 %16, 1
@@ -289,7 +289,7 @@ switch.early.test.i:                              ; preds = %99
   store i32 %102, ptr %0, align 4, !tbaa !9
   %103 = add nuw nsw i32 %.082.i, 1
   %exitcond.not.i = icmp eq i32 %103, 4
-  br i1 %exitcond.not.i, label %.critedge3.i, label %92, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.critedge3.i, label %92, !llvm.loop !22
 
 .critedge3.i:                                     ; preds = %101, %96, %92
   %.promoted84.i = phi i32 [ %93, %92 ], [ %102, %101 ], [ %93, %96 ]
@@ -302,7 +302,7 @@ switch.early.test.i:                              ; preds = %99
   store i32 %106, ptr %0, align 4, !tbaa !9
   %107 = zext i32 %106 to i64
   %108 = icmp ugt i64 %2, %107
-  br i1 %108, label %.lr.ph.i, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split, !llvm.loop !22
+  br i1 %108, label %.lr.ph.i, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split, !llvm.loop !23
 
 _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
   %109 = zext i32 %13 to i64
@@ -387,7 +387,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
 145:                                              ; preds = %.lr.ph, %139, %136
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %146 = icmp sgt i64 %indvars.iv, 0
-  br i1 %146, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  br i1 %146, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .lr.ph.i147:                                      ; preds = %11, %153
   %147 = phi i64 [ %155, %153 ], [ %15, %11 ]
@@ -416,7 +416,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
   store i32 %154, ptr %0, align 4, !tbaa !9
   %155 = zext i32 %154 to i64
   %156 = icmp ugt i64 %2, %155
-  br i1 %156, label %.lr.ph.i147, label %.critedge.i142, !llvm.loop !24
+  br i1 %156, label %.lr.ph.i147, label %.critedge.i142, !llvm.loop !25
 
 .critedge.i142:                                   ; preds = %153, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147
   %.lcssa.i = phi i32 [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %154, %153 ]
@@ -467,7 +467,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
   store i32 %179, ptr %0, align 4, !tbaa !9
   %180 = zext i32 %179 to i64
   %181 = icmp ugt i64 %2, %180
-  br i1 %181, label %11, label %.critedge, !llvm.loop !25
+  br i1 %181, label %11, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %.loopexit, %11, %5
   %182 = phi i32 [ %7, %5 ], [ %12, %11 ], [ %175, %.loopexit ]
@@ -501,7 +501,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
 193:                                              ; preds = %.lr.ph219, %189
   %indvars.iv.next253 = add nsw i64 %indvars.iv252, -1
   %194 = icmp sgt i64 %indvars.iv252, 0
-  br i1 %194, label %.lr.ph219, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread, !llvm.loop !26
+  br i1 %194, label %.lr.ph219, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread, !llvm.loop !27
 
 _ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split: ; preds = %159, %73, %82, %.lr.ph.i, %105, %87, %151, %switch.early.test.i
   %.2.ph = phi i32 [ -2, %switch.early.test.i ], [ -2, %151 ], [ -2, %87 ], [ -3, %105 ], [ -3, %.lr.ph.i ], [ -1, %82 ], [ -3, %73 ], [ -1, %159 ]
@@ -533,70 +533,70 @@ define dso_local void @jsmn_init(ptr noundef writeonly captures(none) initialize
 define dso_local void @_ZN8Settings4SaveEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(44) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 2, i64 1, ptr %2)
-  %4 = load i32, ptr %0, align 4, !tbaa !27
+  %4 = load i32, ptr %0, align 4, !tbaa !28
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %7 = load i8, ptr %6, align 1, !tbaa !31, !range !32, !noundef !33
+  %7 = load i8, ptr %6, align 1, !tbaa !32, !range !33, !noundef !34
   %8 = trunc nuw i8 %7 to i1
   %9 = select i1 %8, ptr @.str.4, ptr @.str.5
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %12 = load i8, ptr %11, align 2, !tbaa !34, !range !32, !noundef !33
+  %12 = load i8, ptr %11, align 2, !tbaa !35, !range !33, !noundef !34
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %13, ptr @.str.4, ptr @.str.5
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, ptr noundef nonnull %14) #12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %17 = load i8, ptr %16, align 4, !tbaa !35, !range !32, !noundef !33
+  %17 = load i8, ptr %16, align 4, !tbaa !36, !range !33, !noundef !34
   %18 = trunc nuw i8 %17 to i1
   %19 = select i1 %18, ptr @.str.4, ptr @.str.5
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef nonnull %19) #12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %22 = load i8, ptr %21, align 1, !tbaa !36, !range !32, !noundef !33
+  %22 = load i8, ptr %21, align 1, !tbaa !37, !range !33, !noundef !34
   %23 = trunc nuw i8 %22 to i1
   %24 = select i1 %23, ptr @.str.4, ptr @.str.5
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef nonnull %24) #12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %27 = load i8, ptr %26, align 2, !tbaa !37, !range !32, !noundef !33
+  %27 = load i8, ptr %26, align 2, !tbaa !38, !range !33, !noundef !34
   %28 = trunc nuw i8 %27 to i1
   %29 = select i1 %28, ptr @.str.4, ptr @.str.5
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, ptr noundef nonnull %29) #12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 31
-  %32 = load i8, ptr %31, align 1, !tbaa !38, !range !32, !noundef !33
+  %32 = load i8, ptr %31, align 1, !tbaa !39, !range !33, !noundef !34
   %33 = trunc nuw i8 %32 to i1
   %34 = select i1 %33, ptr @.str.4, ptr @.str.5
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %34) #12
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load i8, ptr %36, align 4, !tbaa !39, !range !32, !noundef !33
+  %37 = load i8, ptr %36, align 4, !tbaa !40, !range !33, !noundef !34
   %38 = trunc nuw i8 %37 to i1
   %39 = select i1 %38, ptr @.str.4, ptr @.str.5
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, ptr noundef nonnull %39) #12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %42 = load i8, ptr %41, align 1, !tbaa !40, !range !32, !noundef !33
+  %42 = load i8, ptr %41, align 1, !tbaa !41, !range !33, !noundef !34
   %43 = trunc nuw i8 %42 to i1
   %44 = select i1 %43, ptr @.str.4, ptr @.str.5
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef nonnull %44) #12
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %47 = load i8, ptr %46, align 4, !tbaa !41, !range !32, !noundef !33
+  %47 = load i8, ptr %46, align 4, !tbaa !42, !range !33, !noundef !34
   %48 = trunc nuw i8 %47 to i1
   %49 = select i1 %48, ptr @.str.4, ptr @.str.5
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef nonnull %49) #12
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %52 = load i8, ptr %51, align 1, !tbaa !42, !range !32, !noundef !33
+  %52 = load i8, ptr %51, align 1, !tbaa !43, !range !33, !noundef !34
   %53 = trunc nuw i8 %52 to i1
   %54 = select i1 %53, ptr @.str.4, ptr @.str.5
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef nonnull %54) #12
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %57 = load i8, ptr %56, align 2, !tbaa !43, !range !32, !noundef !33
+  %57 = load i8, ptr %56, align 2, !tbaa !44, !range !33, !noundef !34
   %58 = trunc nuw i8 %57 to i1
   %59 = select i1 %58, ptr @.str.4, ptr @.str.5
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.15, ptr noundef nonnull %59) #12
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  %62 = load i8, ptr %61, align 1, !tbaa !44, !range !32, !noundef !33
+  %62 = load i8, ptr %61, align 1, !tbaa !45, !range !33, !noundef !34
   %63 = trunc nuw i8 %62 to i1
   %64 = select i1 %63, ptr @.str.4, ptr @.str.5
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef nonnull %64) #12
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %67 = load i8, ptr %66, align 4, !tbaa !45, !range !32, !noundef !33
+  %67 = load i8, ptr %66, align 4, !tbaa !46, !range !33, !noundef !34
   %68 = trunc nuw i8 %67 to i1
   %69 = select i1 %68, ptr @.str.4, ptr @.str.5
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, ptr noundef nonnull %69) #12
@@ -709,7 +709,7 @@ define dso_local void @_ZN8Settings4LoadEv(ptr noundef nonnull writeonly align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   %56 = call i64 @strtol(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 10) #12
   %57 = trunc i64 %56 to i32
-  store i32 %57, ptr %0, align 4, !tbaa !27
+  store i32 %57, ptr %0, align 4, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
@@ -731,7 +731,7 @@ define dso_local void @_ZN8Settings4LoadEv(ptr noundef nonnull writeonly align 4
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %63
-  store i8 1, ptr %27, align 1, !tbaa !31
+  store i8 1, ptr %27, align 1, !tbaa !32
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
 72:                                               ; preds = %63
@@ -740,7 +740,7 @@ define dso_local void @_ZN8Settings4LoadEv(ptr noundef nonnull writeonly align 4
   br i1 %74, label %75, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
 75:                                               ; preds = %72
-  store i8 0, ptr %27, align 1, !tbaa !31
+  store i8 0, ptr %27, align 1, !tbaa !32
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
 76:                                               ; preds = %58
@@ -761,7 +761,7 @@ define dso_local void @_ZN8Settings4LoadEv(ptr noundef nonnull writeonly align 4
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %81
-  store i8 1, ptr %26, align 2, !tbaa !34
+  store i8 1, ptr %26, align 2, !tbaa !35
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
 90:                                               ; preds = %81
@@ -770,13 +770,13 @@ define dso_local void @_ZN8Settings4LoadEv(ptr noundef nonnull writeonly align 4
   br i1 %92, label %93, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
 93:                                               ; preds = %90
-  store i8 0, ptr %26, align 2, !tbaa !34
+  store i8 0, ptr %26, align 2, !tbaa !35
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
 _ZL6jsoneqPKcP7jsmntokS0_.exit25:                 ; preds = %32, %38, %28, %76, %89, %93, %90, %71, %75, %72, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !47
 
 _ZL8ReadFileRPcRiPKc.exit.thread:                 ; preds = %8, %1, %._crit_edge
   ret void
@@ -845,32 +845,33 @@ attributes #14 = { nounwind willreturn memory(read) }
 !15 = !{!5, !6, i64 8}
 !16 = !{!12, !13, i64 0}
 !17 = !{!12, !6, i64 4}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
-!27 = !{!28, !6, i64 0}
-!28 = !{!"_ZTS8Settings", !6, i64 0, !6, i64 4, !6, i64 8, !29, i64 12, !6, i64 16, !6, i64 20, !30, i64 24, !30, i64 25, !30, i64 26, !30, i64 27, !30, i64 28, !30, i64 29, !30, i64 30, !30, i64 31, !30, i64 32, !30, i64 33, !30, i64 34, !30, i64 35, !30, i64 36, !30, i64 37, !30, i64 38, !30, i64 39, !30, i64 40, !30, i64 41, !30, i64 42, !30, i64 43}
-!29 = !{!"float", !7, i64 0}
-!30 = !{!"bool", !7, i64 0}
-!31 = !{!28, !30, i64 25}
-!32 = !{i8 0, i8 2}
-!33 = !{}
-!34 = !{!28, !30, i64 26}
-!35 = !{!28, !30, i64 28}
-!36 = !{!28, !30, i64 29}
-!37 = !{!28, !30, i64 30}
-!38 = !{!28, !30, i64 31}
-!39 = !{!28, !30, i64 32}
-!40 = !{!28, !30, i64 33}
-!41 = !{!28, !30, i64 36}
-!42 = !{!28, !30, i64 37}
-!43 = !{!28, !30, i64 38}
-!44 = !{!28, !30, i64 39}
-!45 = !{!28, !30, i64 40}
-!46 = distinct !{!46, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !19, !20}
+!25 = distinct !{!25, !19, !20}
+!26 = distinct !{!26, !19, !20}
+!27 = distinct !{!27, !19, !20}
+!28 = !{!29, !6, i64 0}
+!29 = !{!"_ZTS8Settings", !6, i64 0, !6, i64 4, !6, i64 8, !30, i64 12, !6, i64 16, !6, i64 20, !31, i64 24, !31, i64 25, !31, i64 26, !31, i64 27, !31, i64 28, !31, i64 29, !31, i64 30, !31, i64 31, !31, i64 32, !31, i64 33, !31, i64 34, !31, i64 35, !31, i64 36, !31, i64 37, !31, i64 38, !31, i64 39, !31, i64 40, !31, i64 41, !31, i64 42, !31, i64 43}
+!30 = !{!"float", !7, i64 0}
+!31 = !{!"bool", !7, i64 0}
+!32 = !{!29, !31, i64 25}
+!33 = !{i8 0, i8 2}
+!34 = !{}
+!35 = !{!29, !31, i64 26}
+!36 = !{!29, !31, i64 28}
+!37 = !{!29, !31, i64 29}
+!38 = !{!29, !31, i64 30}
+!39 = !{!29, !31, i64 31}
+!40 = !{!29, !31, i64 32}
+!41 = !{!29, !31, i64 33}
+!42 = !{!29, !31, i64 36}
+!43 = !{!29, !31, i64 37}
+!44 = !{!29, !31, i64 38}
+!45 = !{!29, !31, i64 39}
+!46 = !{!29, !31, i64 40}
+!47 = distinct !{!47, !19, !20}

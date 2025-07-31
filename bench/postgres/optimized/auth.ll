@@ -649,7 +649,7 @@ auth_peer.exit:                                   ; preds = %161, %162, %165, %1
   %286 = tail call ptr @__errno_location() #18
   %287 = load i32, ptr %286, align 4
   %288 = icmp eq i32 %287, 4
-  br i1 %288, label %.critedge43.i, label %.critedge5.i, !llvm.loop !9
+  br i1 %288, label %.critedge43.i, label %.critedge5.i, !llvm.loop !10
 
 .critedge5.i:                                     ; preds = %285
   %289 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
@@ -795,15 +795,15 @@ ident_inet.exit:                                  ; preds = %310, %311
 341:                                              ; preds = %340, %338
   call void @pq_beginmessage(ptr noundef nonnull %19, i8 noundef signext 82) #16
   call void @enlargeStringInfo(ptr noundef nonnull %19, i32 noundef 4) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %342 = load ptr, ptr %19, align 8, !alias.scope !10
+  call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  %342 = load ptr, ptr %19, align 8, !alias.scope !11
   %343 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %344 = load i32, ptr %343, align 8, !alias.scope !10
+  %344 = load i32, ptr %343, align 8, !alias.scope !11
   %345 = sext i32 %344 to i64
   %346 = getelementptr inbounds i8, ptr %342, i64 %345
-  store i32 83886080, ptr %346, align 1, !noalias !10
+  store i32 83886080, ptr %346, align 1, !noalias !11
   %347 = add i32 %344, 4
-  store i32 %347, ptr %343, align 8, !alias.scope !10
+  store i32 %347, ptr %343, align 8, !alias.scope !11
   call void @pq_sendbytes(ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 4) #16
   call void @pq_endmessage(ptr noundef nonnull %19) #16
   %348 = load ptr, ptr @PqCommMethods, align 8
@@ -876,15 +876,15 @@ CheckMD5Auth.exit.i:                              ; preds = %360, %sendAuthReque
 372:                                              ; preds = %371, %369
   call void @pq_beginmessage(ptr noundef nonnull %18, i8 noundef signext 82) #16
   call void @enlargeStringInfo(ptr noundef nonnull %18, i32 noundef 4) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %373 = load ptr, ptr %18, align 8, !alias.scope !13
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  %373 = load ptr, ptr %18, align 8, !alias.scope !14
   %374 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %375 = load i32, ptr %374, align 8, !alias.scope !13
+  %375 = load i32, ptr %374, align 8, !alias.scope !14
   %376 = sext i32 %375 to i64
   %377 = getelementptr inbounds i8, ptr %373, i64 %376
-  store i32 50331648, ptr %377, align 1, !noalias !13
+  store i32 50331648, ptr %377, align 1, !noalias !14
   %378 = add i32 %375, 4
-  store i32 %378, ptr %374, align 8, !alias.scope !13
+  store i32 %378, ptr %374, align 8, !alias.scope !14
   call void @pq_endmessage(ptr noundef nonnull %18) #16
   %379 = load ptr, ptr @PqCommMethods, align 8
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
@@ -971,15 +971,15 @@ sendAuthRequest.exit.i:                           ; preds = %384, %372
 416:                                              ; preds = %415, %413
   call void @pq_beginmessage(ptr noundef nonnull %17, i8 noundef signext 82) #16
   call void @enlargeStringInfo(ptr noundef nonnull %17, i32 noundef 4) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %417 = load ptr, ptr %17, align 8, !alias.scope !16
+  call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %417 = load ptr, ptr %17, align 8, !alias.scope !17
   %418 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %419 = load i32, ptr %418, align 8, !alias.scope !16
+  %419 = load i32, ptr %418, align 8, !alias.scope !17
   %420 = sext i32 %419 to i64
   %421 = getelementptr inbounds i8, ptr %417, i64 %420
-  store i32 50331648, ptr %421, align 1, !noalias !16
+  store i32 50331648, ptr %421, align 1, !noalias !17
   %422 = add i32 %419, 4
-  store i32 %422, ptr %418, align 8, !alias.scope !16
+  store i32 %422, ptr %418, align 8, !alias.scope !17
   call void @pq_endmessage(ptr noundef nonnull %17) #16
   %423 = load ptr, ptr @PqCommMethods, align 8
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 8
@@ -1347,14 +1347,14 @@ radius_add_attribute.exit174.i.i:                 ; preds = %564, %562, %560
 607:                                              ; preds = %601, %599
   %indvars.iv.next198.i.i = add nuw nsw i64 %indvars.iv197.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next198.i.i, %indvars.iv202.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %599, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %599, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %607
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
   %608 = icmp samesign ult i64 %indvars.iv.next.i.i, %584
   %indvars.iv.next203.i.i = add nuw nsw i64 %indvars.iv202.i.i, 16
-  br i1 %608, label %.lr.ph186.i.i, label %._crit_edge187.i.i, !llvm.loop !20
+  br i1 %608, label %.lr.ph186.i.i, label %._crit_edge187.i.i, !llvm.loop !21
 
 ._crit_edge187.i.i:                               ; preds = %._crit_edge.i.i, %radius_add_attribute.exit174.i.i
   call void @pfree(ptr noundef %581) #16
@@ -1731,7 +1731,7 @@ radius_add_attribute.exit175.i.i:                 ; preds = %617, %615, %613
   %807 = sub i64 %682, %806
   %808 = add i64 %807, %reass.mul.i.i
   %809 = icmp slt i64 %808, 1
-  br i1 %809, label %._crit_edge195.i.i, label %700
+  br i1 %809, label %._crit_edge195.i.i, label %700, !llvm.loop !22
 
 PerformRadiusTransaction.exit.thread84.sink.split.i: ; preds = %728, %720, %714, %698
   %.sink.i89 = phi i32 [ 3105, %698 ], [ 3123, %714 ], [ 3131, %720 ], [ 3153, %728 ]
@@ -1931,15 +1931,15 @@ CheckPWChallengeAuth.exit.thread:                 ; preds = %814, %sendAuthReque
 879:                                              ; preds = %878, %876
   call void @pq_beginmessage(ptr noundef nonnull %2, i8 noundef signext 82) #16
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %880 = load ptr, ptr %2, align 8, !alias.scope !21
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  %880 = load ptr, ptr %2, align 8, !alias.scope !23
   %881 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %882 = load i32, ptr %881, align 8, !alias.scope !21
+  %882 = load i32, ptr %881, align 8, !alias.scope !23
   %883 = sext i32 %882 to i64
   %884 = getelementptr inbounds i8, ptr %880, i64 %883
-  store i32 0, ptr %884, align 1, !noalias !21
+  store i32 0, ptr %884, align 1, !noalias !23
   %885 = add i32 %882, 4
-  store i32 %885, ptr %881, align 8, !alias.scope !21
+  store i32 %885, ptr %881, align 8, !alias.scope !23
   call void @pq_endmessage(ptr noundef nonnull %2) #16
   %886 = load volatile i32, ptr @InterruptPending, align 4
   %.not6.i = icmp eq i32 %886, 0
@@ -2062,16 +2062,16 @@ define dso_local void @sendAuthRequest(ptr noundef readnone captures(none) %0, i
 8:                                                ; preds = %7, %4
   call void @pq_beginmessage(ptr noundef nonnull %5, i8 noundef signext 82) #16
   call void @enlargeStringInfo(ptr noundef nonnull %5, i32 noundef 4) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %9 = call i32 @llvm.bswap.i32(i32 %1)
-  %10 = load ptr, ptr %5, align 8, !alias.scope !24
+  %10 = load ptr, ptr %5, align 8, !alias.scope !26
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load i32, ptr %11, align 8, !alias.scope !24
+  %12 = load i32, ptr %11, align 8, !alias.scope !26
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
-  store i32 %9, ptr %14, align 1, !noalias !24
+  store i32 %9, ptr %14, align 1, !noalias !26
   %15 = add i32 %12, 4
-  store i32 %15, ptr %11, align 8, !alias.scope !24
+  store i32 %15, ptr %11, align 8, !alias.scope !26
   %16 = icmp sgt i32 %3, 0
   br i1 %16, label %17, label %18
 
@@ -2326,7 +2326,7 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
 
 11:                                               ; preds = %.preheader63
   %12 = getelementptr inbounds nuw i8, ptr %.041, i64 1
-  br label %.preheader63, !llvm.loop !27
+  br label %.preheader63, !llvm.loop !29
 
 13:                                               ; preds = %.preheader63
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #16
@@ -2337,7 +2337,7 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
   %.142 = getelementptr inbounds nuw i8, ptr %.041.pn, i64 1
   %15 = load i8, ptr %.142, align 1
   %16 = tail call zeroext i1 @pg_isblank(i8 noundef signext %15) #16
-  br i1 %16, label %14, label %.preheader62, !llvm.loop !28
+  br i1 %16, label %14, label %.preheader62, !llvm.loop !30
 
 .preheader62:                                     ; preds = %14, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %14 ]
@@ -2360,7 +2360,7 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 0, i64 %indvars.iv
   store i8 %23, ptr %24, align 1
-  br label %.preheader62, !llvm.loop !29
+  br label %.preheader62, !llvm.loop !31
 
 .critedge2:                                       ; preds = %.preheader62, %.preheader62, %18
   %25 = and i64 %indvars.iv, 4294967295
@@ -2373,7 +2373,7 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
   %28 = load i8, ptr %.3, align 1
   %29 = tail call zeroext i1 @pg_isblank(i8 noundef signext %28) #16
   %30 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br i1 %29, label %27, label %31, !llvm.loop !30
+  br i1 %29, label %27, label %31, !llvm.loop !32
 
 31:                                               ; preds = %27
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %3, ptr noundef nonnull dereferenceable(7) @.str.46, i64 7)
@@ -2399,7 +2399,7 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
   %.5 = getelementptr inbounds nuw i8, ptr %.4.pn, i64 1
   %35 = load i8, ptr %.5, align 1
   %36 = tail call zeroext i1 @pg_isblank(i8 noundef signext %35) #16
-  br i1 %36, label %.preheader60, label %.preheader, !llvm.loop !31
+  br i1 %36, label %.preheader60, label %.preheader, !llvm.loop !33
 
 .preheader:                                       ; preds = %.preheader60
   %37 = load i8, ptr %.5, align 1
@@ -2418,7 +2418,7 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
   %42 = icmp ne i8 %41, 13
   %43 = icmp samesign ult i64 %indvars.iv73, 511
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.1.lcssa = phi i64 [ 0, %.preheader ], [ %indvars.iv.next74, %.lr.ph ]
@@ -2510,29 +2510,31 @@ attributes #20 = { noreturn nounwind }
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"pq_writeint32: argument 0"}
-!12 = distinct !{!12, !"pq_writeint32"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"pq_writeint32: argument 0"}
-!15 = distinct !{!15, !"pq_writeint32"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"pq_writeint32: argument 0"}
-!18 = distinct !{!18, !"pq_writeint32"}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"pq_writeint32: argument 0"}
-!23 = distinct !{!23, !"pq_writeint32"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"pq_writeint32: argument 0"}
-!26 = distinct !{!26, !"pq_writeint32"}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"pq_writeint32: argument 0"}
+!13 = distinct !{!13, !"pq_writeint32"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"pq_writeint32: argument 0"}
+!16 = distinct !{!16, !"pq_writeint32"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"pq_writeint32: argument 0"}
+!19 = distinct !{!19, !"pq_writeint32"}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !9}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"pq_writeint32: argument 0"}
+!25 = distinct !{!25, !"pq_writeint32"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"pq_writeint32: argument 0"}
+!28 = distinct !{!28, !"pq_writeint32"}
+!29 = distinct !{!29, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !8, !9}
+!34 = distinct !{!34, !8, !9}

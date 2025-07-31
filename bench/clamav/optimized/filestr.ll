@@ -407,7 +407,7 @@ _ZN5ArrayIwE5AllocEm.exit173:                     ; preds = %137, %.thread290
   store i32 %151, ptr %154, align 4, !tbaa !3
   %155 = add nuw nsw i64 %.099339, 2
   %156 = icmp samesign ult i64 %155, %138
-  br i1 %156, label %145, label %._crit_edge, !llvm.loop !19
+  br i1 %156, label %145, label %._crit_edge, !llvm.loop !20
 
 _Z18DetectTextEncodingPKhm.exit.thread287:        ; preds = %.thread278, %.noexc145
   %157 = add nuw nsw i64 %29, 1
@@ -474,7 +474,7 @@ unreachable:                                      ; preds = %.thread278
 177:                                              ; preds = %.preheader331.split.us
   %178 = getelementptr inbounds nuw i8, ptr %.093.us, i64 4
   %.pr314.us = load i32, ptr %178, align 4, !tbaa !3
-  br label %.preheader331.split.us, !llvm.loop !20
+  br label %.preheader331.split.us, !llvm.loop !21
 
 .preheader331.split:                              ; preds = %.preheader331, %185
   %179 = phi i32 [ %.pr314, %185 ], [ %175, %.preheader331 ]
@@ -506,7 +506,7 @@ unreachable:                                      ; preds = %.thread278
   %.pr314 = phi i32 [ 47, %184 ], [ %182, %180 ], [ %.pr314.pre, %.preheader331.split._crit_edge ]
   %.192 = phi ptr [ %.093, %184 ], [ %.091, %180 ], [ %.091, %.preheader331.split._crit_edge ]
   %186 = getelementptr inbounds nuw i8, ptr %.093, i64 4
-  br label %.preheader331.split, !llvm.loop !22
+  br label %.preheader331.split, !llvm.loop !23
 
 .critedge:                                        ; preds = %.preheader331.split.us, %.preheader331.split.us, %.preheader331.split.us, %.preheader331.split, %.preheader331.split, %.preheader331.split
   %.us-phi = phi i32 [ %179, %.preheader331.split ], [ %179, %.preheader331.split ], [ %179, %.preheader331.split ], [ %176, %.preheader331.split.us ], [ %176, %.preheader331.split.us ], [ %176, %.preheader331.split.us ]
@@ -532,7 +532,7 @@ unreachable:                                      ; preds = %.thread278
   store i32 0, ptr %.088346, align 4, !tbaa !3
   %.088 = getelementptr inbounds i8, ptr %.088346, i64 -4
   %.not124 = icmp ult ptr %.088, %.094351
-  br i1 %.not124, label %._crit_edge348, label %.lr.ph347, !llvm.loop !23
+  br i1 %.not124, label %._crit_edge348, label %.lr.ph347, !llvm.loop !24
 
 ._crit_edge348:                                   ; preds = %190, %.lr.ph347, %.critedge
   br i1 %5, label %191, label %thread-pre-split
@@ -586,7 +586,7 @@ thread-pre-split:                                 ; preds = %194, %200, %._crit_
     i32 13, label %.preheader.backedge
     i32 10, label %.preheader.backedge
     i32 0, label %_ZN5ArrayIwED2Ev.exit
-  ], !llvm.loop !24
+  ], !llvm.loop !25
 
 .preheader.backedge:                              ; preds = %.preheader, %.preheader
   br label %.preheader
@@ -808,11 +808,12 @@ attributes #11 = { nounwind willreturn memory(read) }
 !14 = !{!"p1 omnipotent char", !15, i64 0}
 !15 = !{!"any pointer", !5, i64 0}
 !16 = !{!5, !5, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}

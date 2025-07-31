@@ -1939,7 +1939,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %628, %626
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %51) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %49) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %49) #13
-  br i1 %or.cond3.not, label %355, label %.loopexit398
+  br i1 %or.cond3.not, label %355, label %.loopexit398, !llvm.loop !64
 
 633:                                              ; preds = %.loopexit, %.loopexit.split-lp, %609, %598, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338, %531, %529
   %.pn128 = phi { ptr, i32 } [ %610, %609 ], [ %.pn125.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338 ], [ %.pn122.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348 ], [ %.pn117.pn.pn.pn, %598 ], [ %532, %531 ], [ %530, %529 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -2337,3 +2337,5 @@ attributes #15 = { noreturn }
 !61 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 8, !17, i64 12}
 !62 = !{!61, !17, i64 12}
 !63 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!64 = distinct !{!64, !65}
+!65 = !{!"llvm.loop.estimated_trip_count"}

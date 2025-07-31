@@ -108,7 +108,7 @@ define weak_odr dso_local void @_ZN3igl17triangulated_gridIiiN5Eigen6MatrixIdLin
   %51 = load i32, ptr %0, align 4, !tbaa !4
   %52 = add nsw i32 %51, -1
   %53 = icmp slt i32 %37, %52
-  br i1 %53, label %32, label %._crit_edge.loopexit.i, !llvm.loop !16
+  br i1 %53, label %32, label %._crit_edge.loopexit.i, !llvm.loop !17
 
 _ZN3igl17triangulated_gridIiiN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKT0_RNS1_15PlainObjectBaseIT1_EE.exit: ; preds = %._crit_edge.i, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
@@ -206,7 +206,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %45 = load i32, ptr %0, align 4, !tbaa !4
   %46 = add nsw i32 %45, -1
   %47 = icmp slt i32 %31, %46
-  br i1 %47, label %26, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %47, label %26, label %._crit_edge.loopexit, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -217,7 +217,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0E
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !17
+  %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
@@ -234,7 +234,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0E
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #7
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8, !tbaa !18
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #8
   unreachable
 
@@ -246,7 +246,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i: ; preds = %13
 
 20:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i
   %21 = tail call ptr @__cxa_allocate_exception(i64 8) #7
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8, !tbaa !18
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8, !tbaa !19
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #8
   unreachable
 
@@ -257,7 +257,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i: ; preds = %13
 
 22:                                               ; preds = %.sink.split, %4
   store i64 %2, ptr %5, align 8, !tbaa !13
-  store i64 %3, ptr %7, align 8, !tbaa !17
+  store i64 %3, ptr %7, align 8, !tbaa !18
   ret void
 }
 
@@ -304,9 +304,10 @@ attributes #9 = { nounwind allocsize(0) }
 !11 = !{!"any pointer", !6, i64 0}
 !12 = !{!"long", !6, i64 0}
 !13 = !{!9, !12, i64 8}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = !{!9, !12, i64 16}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"vtable pointer", !7, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = !{!9, !12, i64 16}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"vtable pointer", !7, i64 0}

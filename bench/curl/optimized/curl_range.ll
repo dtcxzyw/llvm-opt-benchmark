@@ -60,7 +60,7 @@ define hidden range(i32 0, 34) i32 @Curl_range(ptr noundef captures(none) %0) lo
   br i1 %or.cond, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = load i64, ptr %2, align 8, !tbaa !79
+  %25 = load i64, ptr %2, align 8, !tbaa !80
   br label %.critedge37.sink.split
 
 26:                                               ; preds = %21
@@ -70,15 +70,15 @@ define hidden range(i32 0, 34) i32 @Curl_range(ptr noundef captures(none) %0) lo
   br i1 %or.cond6, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = load i64, ptr %3, align 8, !tbaa !79
+  %30 = load i64, ptr %3, align 8, !tbaa !80
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %30, ptr %31, align 8, !tbaa !80
+  store i64 %30, ptr %31, align 8, !tbaa !81
   %32 = sub nsw i64 0, %30
   br label %.critedge37.sink.split
 
 33:                                               ; preds = %26
-  %34 = load i64, ptr %2, align 8, !tbaa !79
-  %35 = load i64, ptr %3, align 8, !tbaa !79
+  %34 = load i64, ptr %2, align 8, !tbaa !80
+  %35 = load i64, ptr %3, align 8, !tbaa !80
   %36 = icmp sgt i64 %34, %35
   br i1 %36, label %.critedge37, label %37
 
@@ -90,14 +90,14 @@ define hidden range(i32 0, 34) i32 @Curl_range(ptr noundef captures(none) %0) lo
 .critedge35:                                      ; preds = %37
   %40 = add nsw i64 %38, 1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %40, ptr %41, align 8, !tbaa !80
+  store i64 %40, ptr %41, align 8, !tbaa !81
   br label %.critedge37.sink.split
 
 .critedge37.sink.split:                           ; preds = %1, %9, %.critedge35, %24, %29
   %.sink39 = phi i64 [ 4472, %29 ], [ 4472, %24 ], [ 4472, %.critedge35 ], [ 248, %9 ], [ 248, %1 ]
   %.sink = phi i64 [ %32, %29 ], [ %25, %24 ], [ %34, %.critedge35 ], [ -1, %9 ], [ -1, %1 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink39
-  store i64 %.sink, ptr %42, align 8, !tbaa !79
+  store i64 %.sink, ptr %42, align 8, !tbaa !80
   br label %.critedge37
 
 .critedge37:                                      ; preds = %.critedge37.sink.split, %12, %.critedge, %37, %33
@@ -201,7 +201,8 @@ attributes #3 = { nounwind }
 !74 = !{!"curl_tlssessioninfo", !5, i64 0, !10, i64 8}
 !75 = !{!29, !29, i64 0}
 !76 = !{!6, !6, i64 0}
-!77 = distinct !{!77, !78}
+!77 = distinct !{!77, !78, !79}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = !{!8, !8, i64 0}
-!80 = !{!4, !8, i64 248}
+!79 = !{!"llvm.loop.estimated_trip_count"}
+!80 = !{!8, !8, i64 0}
+!81 = !{!4, !8, i64 248}

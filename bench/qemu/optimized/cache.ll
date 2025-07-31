@@ -567,7 +567,7 @@ bad_cache_params.exit.i:                          ; preds = %bad_cache_params.ex
   %22 = sext i32 %7 to i64
   %23 = tail call noalias ptr @g_malloc_n(i64 noundef %22, i64 noundef 32) #16
   store ptr %23, ptr %18, align 8
-  br i1 %15, label %24, label %.preheader.i.i, !prof !7
+  br i1 %15, label %24, label %.preheader.i.i, !prof !8
 
 .preheader.i.i:                                   ; preds = %bad_cache_params.exit.i
   br i1 %.not11.i.i, label %pow_of_two.exit.i, label %.lr.ph.i.i
@@ -583,7 +583,7 @@ bad_cache_params.exit.i:                          ; preds = %bad_cache_params.ex
   %26 = add i32 %.013.i.i, 1
   %.07.off.i.i = add nsw i32 %25, 1
   %.not.i76.i = icmp ult i32 %.07.off.i.i, 3
-  br i1 %.not.i76.i, label %pow_of_two.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i76.i, label %pow_of_two.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 pow_of_two.exit.i:                                ; preds = %.lr.ph.i.i, %.preheader.i.i
   %27 = phi i32 [ 0, %.preheader.i.i ], [ %26, %.lr.ph.i.i ]
@@ -601,7 +601,7 @@ pow_of_two.exit.i:                                ; preds = %.lr.ph.i.i, %.prehe
   store ptr %31, ptr %32, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %22
-  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %pow_of_two.exit.i
   %33 = add i32 %7, -1
@@ -629,7 +629,7 @@ cache_init.exit:                                  ; preds = %._crit_edge.i, %42
   %44 = load i32, ptr @cores, align 4
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %bad_cache_params.exit.i, label %bad_cache_params.exit.thread, !llvm.loop !10
+  br i1 %46, label %bad_cache_params.exit.i, label %bad_cache_params.exit.thread, !llvm.loop !11
 
 bad_cache_params.exit.thread:                     ; preds = %cache_init.exit, %8, %3, %bad_cache_params.exit
   %.0 = phi ptr [ null, %bad_cache_params.exit ], [ null, %3 ], [ %11, %8 ], [ %11, %cache_init.exit ]
@@ -699,7 +699,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   %28 = add nuw i64 %.03134, 1
   %exitcond.not = icmp eq i64 %28, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %27, %2
   ret void
@@ -811,7 +811,7 @@ append_stats_line.exit.i:                         ; preds = %65, %.thread35.i
   %71 = load i32, ptr @cores, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next.i, %72
-  br i1 %73, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %73, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %append_stats_line.exit.i
   %74 = icmp sgt i32 %71, 1
@@ -873,7 +873,7 @@ append_stats_line.exit.i:                         ; preds = %65, %.thread35.i
   %109 = add i64 %108, %85
   %indvars.iv.next31.i.i = add nuw nsw i64 %indvars.iv30.i.i, 1
   %exitcond34.not.i.i = icmp eq i64 %indvars.iv.next31.i.i, %wide.trip.count33.i.i
-  br i1 %exitcond34.not.i.i, label %.split.us.i.i, label %.preheader.split.us.i.i, !llvm.loop !13
+  br i1 %exitcond34.not.i.i, label %.split.us.i.i, label %.preheader.split.us.i.i, !llvm.loop !14
 
 .split.us.i.i:                                    ; preds = %.preheader.split.us.i.i
   store i64 %106, ptr @l2_misses, align 8
@@ -904,7 +904,7 @@ append_stats_line.exit.i:                         ; preds = %65, %.thread35.i
   %129 = add i64 %128, %113
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %sum_stats.exit.i, label %.preheader.split.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %sum_stats.exit.i, label %.preheader.split.i.i, !llvm.loop !16
 
 sum_stats.exit.i:                                 ; preds = %.preheader.split.i.i, %.split.us.i.i
   %.us-phi.i.i = phi i64 [ %101, %.split.us.i.i ], [ %129, %.preheader.split.i.i ]
@@ -998,7 +998,7 @@ log_stats.exit:                                   ; preds = %8, %._crit_edge.i, 
   %181 = load i32, ptr @limit, align 4
   %182 = icmp slt i32 %177, %181
   %183 = select i1 %180, i1 %182, i1 false
-  br i1 %183, label %.lr.ph.i2, label %._crit_edge.i1, !llvm.loop !16
+  br i1 %183, label %.lr.ph.i2, label %._crit_edge.i1, !llvm.loop !17
 
 ._crit_edge.i1:                                   ; preds = %173, %log_stats.exit
   %184 = tail call ptr @g_list_sort(ptr noundef %161, ptr noundef nonnull @icmp) #12
@@ -1037,7 +1037,7 @@ log_stats.exit:                                   ; preds = %8, %._crit_edge.i, 
   %203 = load i32, ptr @limit, align 4
   %204 = icmp slt i32 %199, %203
   %205 = select i1 %202, i1 %204, i1 false
-  br i1 %205, label %.lr.ph61.i, label %._crit_edge62.i, !llvm.loop !17
+  br i1 %205, label %.lr.ph61.i, label %._crit_edge62.i, !llvm.loop !18
 
 ._crit_edge62.i:                                  ; preds = %195, %._crit_edge.i1
   %206 = load i8, ptr @use_l2, align 1, !range !3, !noundef !4
@@ -1081,7 +1081,7 @@ log_stats.exit:                                   ; preds = %8, %._crit_edge.i, 
   %228 = load i32, ptr @limit, align 4
   %229 = icmp slt i32 %224, %228
   %230 = select i1 %227, i1 %229, i1 false
-  br i1 %230, label %.lr.ph66.i, label %log_top_insns.exit, !llvm.loop !18
+  br i1 %230, label %.lr.ph66.i, label %log_top_insns.exit, !llvm.loop !19
 
 log_top_insns.exit:                               ; preds = %220, %._crit_edge62.i, %208
   %.0.i = phi ptr [ %184, %._crit_edge62.i ], [ %209, %208 ], [ %209, %220 ]
@@ -1118,7 +1118,7 @@ log_top_insns.exit:                               ; preds = %220, %._crit_edge62
   %245 = load i32, ptr %238, align 8
   %246 = sext i32 %245 to i64
   %247 = icmp slt i64 %indvars.iv.next.i.i9, %246
-  br i1 %247, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !19
+  br i1 %247, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !20
 
 248:                                              ; preds = %._crit_edge.i.i
   tail call void %241(ptr noundef nonnull %237) #12
@@ -1132,7 +1132,7 @@ cache_free.exit.i:                                ; preds = %248, %._crit_edge.i
   %250 = load i32, ptr @cores, align 4
   %251 = sext i32 %250 to i64
   %252 = icmp slt i64 %indvars.iv.next.i7, %251
-  br i1 %252, label %.lr.ph.i4, label %caches_free.exit, !llvm.loop !20
+  br i1 %252, label %.lr.ph.i4, label %caches_free.exit, !llvm.loop !21
 
 caches_free.exit:                                 ; preds = %cache_free.exit.i
   %253 = load ptr, ptr @l1_icaches, align 8
@@ -1163,7 +1163,7 @@ caches_free.exit:                                 ; preds = %cache_free.exit.i
   %264 = load i32, ptr %257, align 8
   %265 = sext i32 %264 to i64
   %266 = icmp slt i64 %indvars.iv.next.i.i19, %265
-  br i1 %266, label %.lr.ph.i.i17, label %._crit_edge.i.i13, !llvm.loop !19
+  br i1 %266, label %.lr.ph.i.i17, label %._crit_edge.i.i13, !llvm.loop !20
 
 267:                                              ; preds = %._crit_edge.i.i13
   tail call void %260(ptr noundef nonnull %256) #12
@@ -1177,7 +1177,7 @@ cache_free.exit.i15:                              ; preds = %267, %._crit_edge.i
   %269 = load i32, ptr @cores, align 4
   %270 = sext i32 %269 to i64
   %271 = icmp slt i64 %indvars.iv.next.i16, %270
-  br i1 %271, label %.lr.ph.i11, label %caches_free.exit20, !llvm.loop !20
+  br i1 %271, label %.lr.ph.i11, label %caches_free.exit20, !llvm.loop !21
 
 caches_free.exit20:                               ; preds = %cache_free.exit.i15, %log_top_insns.exit, %caches_free.exit
   %272 = load ptr, ptr @l1_dcache_locks, align 8
@@ -1218,7 +1218,7 @@ caches_free.exit20:                               ; preds = %cache_free.exit.i15
   %289 = load i32, ptr %282, align 8
   %290 = sext i32 %289 to i64
   %291 = icmp slt i64 %indvars.iv.next.i.i30, %290
-  br i1 %291, label %.lr.ph.i.i28, label %._crit_edge.i.i24, !llvm.loop !19
+  br i1 %291, label %.lr.ph.i.i28, label %._crit_edge.i.i24, !llvm.loop !20
 
 292:                                              ; preds = %._crit_edge.i.i24
   tail call void %285(ptr noundef nonnull %281) #12
@@ -1232,7 +1232,7 @@ cache_free.exit.i26:                              ; preds = %292, %._crit_edge.i
   %294 = load i32, ptr @cores, align 4
   %295 = sext i32 %294 to i64
   %296 = icmp slt i64 %indvars.iv.next.i27, %295
-  br i1 %296, label %.lr.ph.i22, label %caches_free.exit31, !llvm.loop !20
+  br i1 %296, label %.lr.ph.i22, label %caches_free.exit31, !llvm.loop !21
 
 caches_free.exit31:                               ; preds = %cache_free.exit.i26, %276
   %297 = load ptr, ptr @l2_ucache_locks, align 8
@@ -1304,7 +1304,7 @@ define internal void @lru_priorities_init(ptr noundef readonly captures(none) %0
   %14 = load i32, ptr %2, align 8
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !21
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -1327,7 +1327,7 @@ define internal void @lru_priorities_destroy(ptr noundef readonly captures(none)
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
   %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1362,7 +1362,7 @@ define internal void @fifo_init(ptr noundef readonly captures(none) %0) #0 {
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
   %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1385,7 +1385,7 @@ define internal void @fifo_destroy(ptr noundef readonly captures(none) %0) #0 {
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
   %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1676,7 +1676,7 @@ define internal fastcc noundef zeroext i1 @access_cache(ptr noundef %0, i64 noun
 24:                                               ; preds = %20, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.i34, label %16, !llvm.loop !25
+  br i1 %exitcond.not.i, label %.lr.ph.i34, label %16, !llvm.loop !26
 
 in_cache.exit:                                    ; preds = %20
   %25 = load ptr, ptr @update_hit, align 8
@@ -1699,7 +1699,7 @@ in_cache.exit:                                    ; preds = %20
 32:                                               ; preds = %.lr.ph.i34
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i
-  br i1 %exitcond.not.i38, label %get_invalid_block.exit.thread, label %.lr.ph.i34, !llvm.loop !26
+  br i1 %exitcond.not.i38, label %get_invalid_block.exit.thread, label %.lr.ph.i34, !llvm.loop !27
 
 get_invalid_block.exit:                           ; preds = %.lr.ph.i34
   %33 = trunc nuw nsw i64 %indvars.iv.i36 to i32
@@ -1746,7 +1746,7 @@ get_invalid_block.exit.thread:                    ; preds = %32, %2
   %spec.select1718.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %47)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %get_replaced_block.exit, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %get_replaced_block.exit, label %.lr.ph.i.i, !llvm.loop !28
 
 50:                                               ; preds = %get_invalid_block.exit.thread
   %.val.i39 = load ptr, ptr %0, align 8
@@ -1886,26 +1886,27 @@ attributes #17 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}

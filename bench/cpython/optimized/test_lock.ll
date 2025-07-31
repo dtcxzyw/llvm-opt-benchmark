@@ -219,15 +219,15 @@ define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(non
 5:                                                ; preds = %2, %5
   %.078 = phi i64 [ 0, %2 ], [ %8, %5 ]
   %6 = getelementptr [5 x %struct.thread_data_counter], ptr %4, i64 0, i64 %.078
-  store ptr %3, ptr %6, align 16, !tbaa !13
+  store ptr %3, ptr %6, align 16, !tbaa !14
   %7 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @counter_thread, ptr noundef nonnull %6) #6
   %8 = add nuw nsw i64 %.078, 1
   %exitcond.not = icmp eq i64 %8, 5
-  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !18
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !18
+  %11 = load i64, ptr %10, align 8, !tbaa !19
   %12 = icmp eq i64 %11, 50000
   br i1 %12, label %16, label %15
 
@@ -237,7 +237,7 @@ define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(non
   call void @PyEvent_Wait(ptr noundef %13) #6
   %14 = add nuw nsw i64 %.09, 1
   %exitcond10.not = icmp eq i64 %14, 5
-  br i1 %exitcond10.not, label %9, label %.preheader, !llvm.loop !21
+  br i1 %exitcond10.not, label %9, label %.preheader, !llvm.loop !22
 
 15:                                               ; preds = %9
   call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.11, i32 noundef 146, ptr noundef nonnull @__PRETTY_FUNCTION__.test_lock_counter) #7
@@ -262,15 +262,15 @@ define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone capture
 5:                                                ; preds = %2, %5
   %.078 = phi i64 [ 0, %2 ], [ %8, %5 ]
   %6 = getelementptr [5 x %struct.thread_data_counter], ptr %4, i64 0, i64 %.078
-  store ptr %3, ptr %6, align 16, !tbaa !13
+  store ptr %3, ptr %6, align 16, !tbaa !14
   %7 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @slow_counter_thread, ptr noundef nonnull %6) #6
   %8 = add nuw nsw i64 %.078, 1
   %exitcond.not = icmp eq i64 %8, 5
-  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !23
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !18
+  %11 = load i64, ptr %10, align 8, !tbaa !19
   %12 = icmp eq i64 %11, 500
   br i1 %12, label %16, label %15
 
@@ -280,7 +280,7 @@ define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone capture
   call void @PyEvent_Wait(ptr noundef %13) #6
   %14 = add nuw nsw i64 %.09, 1
   %exitcond10.not = icmp eq i64 %14, 5
-  br i1 %exitcond10.not, label %9, label %.preheader, !llvm.loop !23
+  br i1 %exitcond10.not, label %9, label %.preheader, !llvm.loop !24
 
 15:                                               ; preds = %9
   call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.11, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__.test_lock_counter_slow) #7
@@ -304,20 +304,20 @@ define internal ptr @_testinternalcapi_benchmark_locks(ptr readnone captures(non
   br i1 %.not, label %46, label %7
 
 7:                                                ; preds = %3, %5
-  %8 = load ptr, ptr %1, align 8, !tbaa !24
+  %8 = load ptr, ptr %1, align 8, !tbaa !25
   %9 = tail call ptr @_PyNumber_Index(ptr noundef %8) #6
   %.not37 = icmp eq ptr %9, null
   br i1 %.not37, label %Py_DECREF.exit.thread, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i64 @PyLong_AsSsize_t(ptr noundef nonnull %9) #6
-  %12 = load i32, ptr %9, align 8, !tbaa !26
+  %12 = load i32, ptr %9, align 8, !tbaa !27
   %.not.i = icmp sgt i32 %12, -1
   br i1 %.not.i, label %13, label %Py_DECREF.exit
 
 13:                                               ; preds = %10
   %14 = add nsw i32 %12, -1
-  store i32 %14, ptr %9, align 8, !tbaa !26
+  store i32 %14, ptr %9, align 8, !tbaa !27
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %Py_DECREF.exit
 
@@ -341,7 +341,7 @@ Py_DECREF.exit.thread:                            ; preds = %7, %Py_DECREF.exit
 
 21:                                               ; preds = %19
   %22 = getelementptr i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !24
+  %23 = load ptr, ptr %22, align 8, !tbaa !25
   %24 = tail call i32 @PyObject_IsTrue(ptr noundef %23) #6
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %46, label %26
@@ -352,7 +352,7 @@ Py_DECREF.exit.thread:                            ; preds = %7, %Py_DECREF.exit
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !24
+  %30 = load ptr, ptr %29, align 8, !tbaa !25
   %31 = tail call i32 @PyLong_AsInt(ptr noundef %30) #6
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %33, label %35
@@ -368,7 +368,7 @@ Py_DECREF.exit.thread:                            ; preds = %7, %Py_DECREF.exit
 
 37:                                               ; preds = %35
   %38 = getelementptr i8, ptr %1, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !24
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
   %40 = tail call i32 @PyLong_AsInt(ptr noundef %39) #6
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %42, label %44
@@ -397,13 +397,13 @@ define internal noundef ptr @test_lock_benchmark(ptr readnone captures(none) %0,
   br i1 %4, label %Py_DECREF.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr %3, align 8, !tbaa !26
+  %6 = load i32, ptr %3, align 8, !tbaa !27
   %.not.i = icmp sgt i32 %6, -1
   br i1 %.not.i, label %7, label %Py_DECREF.exit
 
 7:                                                ; preds = %5
   %8 = add nsw i32 %6, -1
-  store i32 %8, ptr %3, align 8, !tbaa !26
+  store i32 %8, ptr %3, align 8, !tbaa !27
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %Py_DECREF.exit
 
@@ -423,7 +423,7 @@ define internal noundef nonnull ptr @test_lock_once(ptr readnone captures(none) 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   store i8 0, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  store i32 0, ptr %4, align 4, !tbaa !27
+  store i32 0, ptr %4, align 4, !tbaa !28
   br label %6
 
 5:                                                ; preds = %20
@@ -463,7 +463,7 @@ _PyOnceFlag_CallOnce.exit.thread:                 ; preds = %6
   unreachable
 
 .thread9:                                         ; preds = %_PyOnceFlag_CallOnce.exit.thread, %14
-  %17 = load i32, ptr %4, align 4, !tbaa !27
+  %17 = load i32, ptr %4, align 4, !tbaa !28
   %18 = icmp eq i32 %17, 5
   br i1 %18, label %20, label %19
 
@@ -474,7 +474,7 @@ _PyOnceFlag_CallOnce.exit.thread:                 ; preds = %6
 20:                                               ; preds = %.thread9, %12
   %21 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %21, 10
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !28
+  br i1 %exitcond.not, label %5, label %6, !llvm.loop !29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -484,7 +484,7 @@ define internal noundef nonnull ptr @test_lock_rwlock(ptr readnone captures(none
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.test_lock_rwlock.test_data, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_PyRWMutex_Lock(ptr noundef nonnull %4) #6
-  %5 = load i64, ptr %4, align 8, !tbaa !29
+  %5 = load i64, ptr %4, align 8, !tbaa !30
   %6 = icmp eq i64 %5, 1
   br i1 %6, label %8, label %7
 
@@ -494,7 +494,7 @@ define internal noundef nonnull ptr @test_lock_rwlock(ptr readnone captures(none
 
 8:                                                ; preds = %2
   call void @_PyRWMutex_Unlock(ptr noundef nonnull %4) #6
-  %9 = load i64, ptr %4, align 8, !tbaa !29
+  %9 = load i64, ptr %4, align 8, !tbaa !30
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %12, label %11
 
@@ -515,7 +515,7 @@ define internal noundef nonnull ptr @test_lock_rwlock(ptr readnone captures(none
   %19 = icmp ne i64 %17, 8
   %20 = icmp samesign ult i32 %.0.i, 199
   %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %15, label %wait_until.exit, !llvm.loop !32
+  br i1 %21, label %15, label %wait_until.exit, !llvm.loop !33
 
 wait_until.exit:                                  ; preds = %15
   %22 = icmp eq i64 %17, 8
@@ -537,7 +537,7 @@ wait_until.exit:                                  ; preds = %15
   %30 = icmp ne i64 %28, 10
   %31 = icmp samesign ult i32 %.0.i1, 199
   %32 = select i1 %30, i1 %31, i1 false
-  br i1 %32, label %26, label %wait_until.exit2, !llvm.loop !32
+  br i1 %32, label %26, label %wait_until.exit2, !llvm.loop !33
 
 wait_until.exit2:                                 ; preds = %26
   %33 = icmp eq i64 %28, 10
@@ -560,7 +560,7 @@ wait_until.exit2:                                 ; preds = %26
   %41 = icmp ne i64 %39, 3
   %42 = icmp samesign ult i32 %.0.i3, 199
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %37, label %wait_until.exit4, !llvm.loop !32
+  br i1 %43, label %37, label %wait_until.exit4, !llvm.loop !33
 
 wait_until.exit4:                                 ; preds = %37
   %44 = icmp eq i64 %39, 3
@@ -583,7 +583,7 @@ wait_until.exit4:                                 ; preds = %37
   %52 = icmp ne i64 %50, 8
   %53 = icmp samesign ult i32 %.0.i5, 199
   %54 = select i1 %52, i1 %53, i1 false
-  br i1 %54, label %48, label %wait_until.exit6, !llvm.loop !32
+  br i1 %54, label %48, label %wait_until.exit6, !llvm.loop !33
 
 wait_until.exit6:                                 ; preds = %48
   %55 = icmp eq i64 %50, 8
@@ -606,7 +606,7 @@ wait_until.exit6:                                 ; preds = %48
   %63 = icmp ne i64 %61, 0
   %64 = icmp samesign ult i32 %.0.i7, 199
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %59, label %wait_until.exit8, !llvm.loop !32
+  br i1 %65, label %59, label %wait_until.exit8, !llvm.loop !33
 
 wait_until.exit8:                                 ; preds = %59
   %66 = icmp eq i64 %61, 0
@@ -639,7 +639,7 @@ define internal noundef nonnull ptr @test_lock_recursive(ptr readnone captures(n
 6:                                                ; preds = %2
   call void @_PyRecursiveMutex_Lock(ptr noundef nonnull %3) #6
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !33
+  %8 = load i64, ptr %7, align 8, !tbaa !34
   %9 = call i64 @PyThread_get_thread_ident_ex() #6
   %10 = icmp eq i64 %8, %9
   br i1 %10, label %12, label %11
@@ -660,7 +660,7 @@ define internal noundef nonnull ptr @test_lock_recursive(ptr readnone captures(n
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !36
+  %18 = load i64, ptr %17, align 8, !tbaa !37
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %21, label %20
 
@@ -670,7 +670,7 @@ define internal noundef nonnull ptr @test_lock_recursive(ptr readnone captures(n
 
 21:                                               ; preds = %16
   call void @_PyRecursiveMutex_Lock(ptr noundef nonnull %3) #6
-  %22 = load i64, ptr %17, align 8, !tbaa !36
+  %22 = load i64, ptr %17, align 8, !tbaa !37
   %23 = icmp eq i64 %22, 1
   br i1 %23, label %25, label %24
 
@@ -681,7 +681,7 @@ define internal noundef nonnull ptr @test_lock_recursive(ptr readnone captures(n
 25:                                               ; preds = %21
   call void @_PyRecursiveMutex_Unlock(ptr noundef nonnull %3) #6
   call void @_PyRecursiveMutex_Unlock(ptr noundef nonnull %3) #6
-  %26 = load i64, ptr %7, align 8, !tbaa !33
+  %26 = load i64, ptr %7, align 8, !tbaa !34
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %29, label %28
 
@@ -700,7 +700,7 @@ define internal noundef nonnull ptr @test_lock_recursive(ptr readnone captures(n
   unreachable
 
 33:                                               ; preds = %29
-  %34 = load i64, ptr %17, align 8, !tbaa !36
+  %34 = load i64, ptr %17, align 8, !tbaa !37
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %37, label %36
 
@@ -784,7 +784,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @counter_thread(ptr noundef %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !13
+  %2 = load ptr, ptr %0, align 8, !tbaa !14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %6
 
@@ -804,9 +804,9 @@ define internal void @counter_thread(ptr noundef %0) #0 {
   br label %_PyMutex_Lock.exit
 
 _PyMutex_Lock.exit:                               ; preds = %6, %9
-  %10 = load i64, ptr %3, align 8, !tbaa !18
+  %10 = load i64, ptr %3, align 8, !tbaa !19
   %11 = add i64 %10, 1
-  store i64 %11, ptr %3, align 8, !tbaa !18
+  store i64 %11, ptr %3, align 8, !tbaa !19
   %12 = cmpxchg ptr %2, i8 1, i8 0 seq_cst seq_cst, align 1
   %13 = extractvalue { i8, i1 } %12, 1
   br i1 %13, label %_PyMutex_Unlock.exit, label %14
@@ -818,12 +818,12 @@ _PyMutex_Lock.exit:                               ; preds = %6, %9
 _PyMutex_Unlock.exit:                             ; preds = %_PyMutex_Lock.exit, %14
   %15 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %15, 10000
-  br i1 %exitcond.not, label %4, label %6, !llvm.loop !37
+  br i1 %exitcond.not, label %4, label %6, !llvm.loop !38
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @slow_counter_thread(ptr noundef %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !13
+  %2 = load ptr, ptr %0, align 8, !tbaa !14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %6
 
@@ -853,9 +853,9 @@ _PyMutex_Lock.exit:                               ; preds = %6, %9
   br label %14
 
 14:                                               ; preds = %12, %_PyMutex_Lock.exit
-  %15 = load i64, ptr %3, align 8, !tbaa !18
+  %15 = load i64, ptr %3, align 8, !tbaa !19
   %16 = add i64 %15, 1
-  store i64 %16, ptr %3, align 8, !tbaa !18
+  store i64 %16, ptr %3, align 8, !tbaa !19
   %17 = cmpxchg ptr %2, i8 1, i8 0 seq_cst seq_cst, align 1
   %18 = extractvalue { i8, i1 } %17, 1
   br i1 %18, label %_PyMutex_Unlock.exit, label %19
@@ -867,7 +867,7 @@ _PyMutex_Lock.exit:                               ; preds = %6, %9
 _PyMutex_Unlock.exit:                             ; preds = %14, %19
   %20 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %20, 100
-  br i1 %exitcond.not, label %4, label %6, !llvm.loop !38
+  br i1 %exitcond.not, label %4, label %6, !llvm.loop !39
 }
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -890,12 +890,12 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %5) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %5, i8 0, i64 248, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %1, ptr %8, align 4, !tbaa !39
+  store i32 %1, ptr %8, align 4, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %2, ptr %9, align 8, !tbaa !42
+  store i32 %2, ptr %9, align 8, !tbaa !43
   %10 = tail call ptr @PyThread_allocate_lock() #6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  store ptr %10, ptr %11, align 8, !tbaa !43
+  store ptr %10, ptr %11, align 8, !tbaa !44
   %12 = icmp eq ptr %10, null
   br i1 %12, label %13, label %15
 
@@ -935,15 +935,15 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
 .lr.ph:                                           ; preds = %.preheader4, %.lr.ph
   %.0405 = phi i64 [ %31, %.lr.ph ], [ 0, %.preheader4 ]
   %29 = getelementptr %struct.bench_thread_data, ptr %16, i64 %.0405
-  store ptr %5, ptr %29, align 8, !tbaa !44
+  store ptr %5, ptr %29, align 8, !tbaa !45
   %30 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @thread_benchmark_locks, ptr noundef nonnull %29) #6
   %31 = add nuw nsw i64 %.0405, 1
   %exitcond.not = icmp eq i64 %31, %0
-  br i1 %exitcond.not, label %.lr.ph8.preheader, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %.lr.ph8.preheader, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge9:                                     ; preds = %.lr.ph8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %33 = load i64, ptr %32, align 8, !tbaa !48
+  %33 = load i64, ptr %32, align 8, !tbaa !49
   %34 = call i32 @PyTime_PerfCounter(ptr noundef nonnull %7) #6
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.loopexit, label %.lr.ph11
@@ -953,7 +953,7 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
   %37 = call i32 @usleep(i32 noundef %36) #6
   store atomic i32 1, ptr %5 seq_cst, align 8
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %39 = load i64, ptr %38, align 8, !tbaa !48
+  %39 = load i64, ptr %38, align 8, !tbaa !49
   %40 = call i32 @PyTime_PerfCounter(ptr noundef nonnull %7) #6
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %.loopexit, label %._crit_edge12
@@ -970,20 +970,20 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
   call void @PyEvent_Wait(ptr noundef %45) #6
   %46 = add nuw nsw i64 %.0396, 1
   %exitcond13.not = icmp eq i64 %46, %0
-  br i1 %exitcond13.not, label %._crit_edge9, label %.lr.ph8, !llvm.loop !49
+  br i1 %exitcond13.not, label %._crit_edge9, label %.lr.ph8, !llvm.loop !50
 
 47:                                               ; preds = %.lr.ph11, %59
   %.03710 = phi i64 [ 0, %.lr.ph11 ], [ %62, %59 ]
   %48 = getelementptr %struct.bench_thread_data, ptr %16, i64 %.03710, i32 1
-  %49 = load i64, ptr %48, align 8, !tbaa !50
+  %49 = load i64, ptr %48, align 8, !tbaa !51
   %50 = call ptr @PyLong_FromSsize_t(i64 noundef %49) #6
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %.loopexit, label %51
 
 51:                                               ; preds = %47
-  %.val.i = load ptr, ptr %42, align 8, !tbaa !51
+  %.val.i = load ptr, ptr %42, align 8, !tbaa !52
   %52 = getelementptr i8, ptr %.val.i, i64 168
-  %.val7.i = load i64, ptr %52, align 8, !tbaa !54
+  %.val7.i = load i64, ptr %52, align 8, !tbaa !55
   %53 = and i64 %.val7.i, 33554432
   %.not.i = icmp eq i64 %53, 0
   br i1 %.not.i, label %54, label %55
@@ -993,7 +993,7 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
   unreachable
 
 55:                                               ; preds = %51
-  %56 = load i64, ptr %43, align 8, !tbaa !62
+  %56 = load i64, ptr %43, align 8, !tbaa !63
   %57 = icmp slt i64 %.03710, %56
   br i1 %57, label %59, label %58
 
@@ -1002,17 +1002,17 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
   unreachable
 
 59:                                               ; preds = %55
-  %60 = load ptr, ptr %44, align 8, !tbaa !65
+  %60 = load ptr, ptr %44, align 8, !tbaa !66
   %61 = getelementptr ptr, ptr %60, i64 %.03710
-  store ptr %50, ptr %61, align 8, !tbaa !24
+  store ptr %50, ptr %61, align 8, !tbaa !25
   %62 = add nuw nsw i64 %.03710, 1
   %exitcond14.not = icmp eq i64 %62, %0
-  br i1 %exitcond14.not, label %._crit_edge12, label %47, !llvm.loop !66
+  br i1 %exitcond14.not, label %._crit_edge12, label %47, !llvm.loop !67
 
 ._crit_edge12:                                    ; preds = %59, %._crit_edge9.thread
   %63 = phi i64 [ %39, %._crit_edge9.thread ], [ %33, %59 ]
-  %64 = load i64, ptr %7, align 8, !tbaa !67
-  %65 = load i64, ptr %6, align 8, !tbaa !67
+  %64 = load i64, ptr %7, align 8, !tbaa !68
+  %65 = load i64, ptr %6, align 8, !tbaa !68
   %.not50 = icmp eq i64 %64, %65
   br i1 %.not50, label %66, label %67
 
@@ -1032,20 +1032,20 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
 .loopexit:                                        ; preds = %47, %._crit_edge9.thread, %._crit_edge9, %23, %20, %67, %18
   %.038 = phi ptr [ null, %18 ], [ null, %20 ], [ null, %23 ], [ null, %._crit_edge9 ], [ %73, %67 ], [ null, %._crit_edge9.thread ], [ null, %47 ]
   %.036 = phi ptr [ null, %18 ], [ null, %20 ], [ %21, %23 ], [ %21, %._crit_edge9 ], [ %21, %67 ], [ %21, %._crit_edge9.thread ], [ %21, %47 ]
-  %74 = load ptr, ptr %11, align 8, !tbaa !43
+  %74 = load ptr, ptr %11, align 8, !tbaa !44
   call void @PyThread_free_lock(ptr noundef %74) #6
   call void @PyMem_Free(ptr noundef %16) #6
   %.not.i51 = icmp eq ptr %.036, null
   br i1 %.not.i51, label %Py_XDECREF.exit, label %75
 
 75:                                               ; preds = %.loopexit
-  %76 = load i32, ptr %.036, align 8, !tbaa !26
+  %76 = load i32, ptr %.036, align 8, !tbaa !27
   %.not.i.i = icmp sgt i32 %76, -1
   br i1 %.not.i.i, label %77, label %Py_XDECREF.exit
 
 77:                                               ; preds = %75
   %78 = add nsw i32 %76, -1
-  store i32 %78, ptr %.036, align 8, !tbaa !26
+  store i32 %78, ptr %.036, align 8, !tbaa !27
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %Py_XDECREF.exit
 
@@ -1073,11 +1073,11 @@ declare i32 @PyTime_PerfCounter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @thread_benchmark_locks(ptr noundef %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !44
+  %2 = load ptr, ptr %0, align 8, !tbaa !45
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !39
+  %4 = load i32, ptr %3, align 4, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !42
+  %6 = load i32, ptr %5, align 8, !tbaa !43
   %.fr54 = freeze i32 %6
   %7 = load atomic i32, ptr %2 monotonic, align 4
   %.not41 = icmp eq i32 %7, 0
@@ -1094,18 +1094,18 @@ define internal void @thread_benchmark_locks(ptr noundef %0) #0 {
 .lr.ph45.split.us:                                ; preds = %.lr.ph45, %_PyMutex_Unlock.exit.us
   %.02843.us = phi i64 [ %15, %_PyMutex_Unlock.exit.us ], [ 0, %.lr.ph45 ]
   %.02942.us = phi double [ %.3.lcssa.us, %_PyMutex_Unlock.exit.us ], [ 1.000000e+00, %.lr.ph45 ]
-  %12 = load ptr, ptr %10, align 8, !tbaa !43
+  %12 = load ptr, ptr %10, align 8, !tbaa !44
   %13 = tail call i32 @PyThread_acquire_lock(ptr noundef %12, i32 noundef 1) #6
   br i1 %11, label %.lr.ph36.us, label %_PyMutex_Unlock.exit.us
 
 _PyMutex_Unlock.exit.us:                          ; preds = %._crit_edge37.us, %.lr.ph45.split.us
   %.3.lcssa.us = phi double [ %19, %._crit_edge37.us ], [ %.02942.us, %.lr.ph45.split.us ]
-  %14 = load ptr, ptr %10, align 8, !tbaa !43
+  %14 = load ptr, ptr %10, align 8, !tbaa !44
   tail call void @PyThread_release_lock(ptr noundef %14) #6
   %15 = add i64 %.02843.us, 1
   %16 = load atomic i32, ptr %2 monotonic, align 4
   %.not.us = icmp eq i32 %16, 0
-  br i1 %.not.us, label %.lr.ph45.split.us, label %._crit_edge46, !llvm.loop !68
+  br i1 %.not.us, label %.lr.ph45.split.us, label %._crit_edge46, !llvm.loop !69
 
 17:                                               ; preds = %.lr.ph36.us, %17
   %18 = phi double [ %.promoted39.us, %.lr.ph36.us ], [ %19, %17 ]
@@ -1114,14 +1114,14 @@ _PyMutex_Unlock.exit.us:                          ; preds = %._crit_edge37.us, %
   %19 = fadd double %.333.us, %18
   %20 = add nuw nsw i32 %.034.us, 1
   %exitcond61.not = icmp eq i32 %20, %.fr54
-  br i1 %exitcond61.not, label %._crit_edge37.us, label %17, !llvm.loop !70
+  br i1 %exitcond61.not, label %._crit_edge37.us, label %17, !llvm.loop !71
 
 .lr.ph36.us:                                      ; preds = %.lr.ph45.split.us
-  %.promoted39.us = load double, ptr %9, align 8, !tbaa !71
+  %.promoted39.us = load double, ptr %9, align 8, !tbaa !72
   br label %17
 
 ._crit_edge37.us:                                 ; preds = %17
-  store double %19, ptr %9, align 8, !tbaa !71
+  store double %19, ptr %9, align 8, !tbaa !72
   br label %_PyMutex_Unlock.exit.us
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45
@@ -1139,7 +1139,7 @@ _PyMutex_Unlock.exit.us:                          ; preds = %._crit_edge37.us, %
   br label %_PyMutex_Lock.exit.us
 
 _PyMutex_Lock.exit.us:                            ; preds = %23, %.lr.ph45.split.split.us
-  %.promoted.us = load double, ptr %9, align 8, !tbaa !71
+  %.promoted.us = load double, ptr %9, align 8, !tbaa !72
   br label %25
 
 24:                                               ; preds = %._crit_edge.us
@@ -1153,16 +1153,16 @@ _PyMutex_Lock.exit.us:                            ; preds = %23, %.lr.ph45.split
   %27 = fadd double %.131.us, %26
   %28 = add nuw nsw i32 %.02732.us, 1
   %exitcond.not = icmp eq i32 %28, %.fr54
-  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !73
 
 _PyMutex_Unlock.exit.us50:                        ; preds = %24, %._crit_edge.us
   %29 = add i64 %.02843.us48, 1
   %30 = load atomic i32, ptr %2 monotonic, align 4
   %.not.us51 = icmp eq i32 %30, 0
-  br i1 %.not.us51, label %.lr.ph45.split.split.us, label %._crit_edge46, !llvm.loop !73
+  br i1 %.not.us51, label %.lr.ph45.split.split.us, label %._crit_edge46, !llvm.loop !74
 
 ._crit_edge.us:                                   ; preds = %25
-  store double %27, ptr %9, align 8, !tbaa !71
+  store double %27, ptr %9, align 8, !tbaa !72
   %31 = cmpxchg ptr %8, i8 1, i8 0 seq_cst seq_cst, align 1
   %32 = extractvalue { i8, i1 } %31, 1
   br i1 %32, label %_PyMutex_Unlock.exit.us50, label %24
@@ -1190,12 +1190,12 @@ _PyMutex_Unlock.exit:                             ; preds = %38, %_PyMutex_Lock.
   %39 = add i64 %.02843, 1
   %40 = load atomic i32, ptr %2 monotonic, align 4
   %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %.lr.ph45.split.split, label %._crit_edge46, !llvm.loop !74
+  br i1 %.not, label %.lr.ph45.split.split, label %._crit_edge46, !llvm.loop !75
 
 ._crit_edge46:                                    ; preds = %_PyMutex_Unlock.exit, %_PyMutex_Unlock.exit.us50, %_PyMutex_Unlock.exit.us, %1
   %.028.lcssa = phi i64 [ 0, %1 ], [ %15, %_PyMutex_Unlock.exit.us ], [ %29, %_PyMutex_Unlock.exit.us50 ], [ %39, %_PyMutex_Unlock.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.028.lcssa, ptr %41, align 8, !tbaa !50
+  store i64 %.028.lcssa, ptr %41, align 8, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %43 = atomicrmw add ptr %42, i64 %.028.lcssa seq_cst, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1217,9 +1217,9 @@ declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @init_maybe_fail(ptr noundef captures(none) %0) #0 {
-  %2 = load i32, ptr %0, align 4, !tbaa !27
+  %2 = load i32, ptr %0, align 4, !tbaa !28
   %3 = add i32 %2, 1
-  store i32 %3, ptr %0, align 4, !tbaa !27
+  store i32 %3, ptr %0, align 4, !tbaa !28
   %4 = icmp slt i32 %3, 5
   br i1 %4, label %8, label %5
 
@@ -1323,67 +1323,68 @@ attributes #7 = { noreturn nounwind }
 !8 = !{!"test_lock2_data", !4, i64 0, !9, i64 1, !10, i64 4}
 !9 = !{!"", !5, i64 0}
 !10 = !{!"int", !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"thread_data_counter", !15, i64 0, !9, i64 8}
-!15 = !{!"p1 _ZTS17test_data_counter", !16, i64 0}
-!16 = !{!"any pointer", !5, i64 0}
-!17 = distinct !{!17, !12}
-!18 = !{!19, !20, i64 8}
-!19 = !{!"test_data_counter", !4, i64 0, !20, i64 8}
-!20 = !{!"long", !5, i64 0}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS7_object", !16, i64 0}
-!26 = !{!5, !5, i64 0}
-!27 = !{!10, !10, i64 0}
-!28 = distinct !{!28, !12}
-!29 = !{!30, !20, i64 8}
-!30 = !{!"test_rwlock_data", !20, i64 0, !31, i64 8, !9, i64 16, !9, i64 17, !9, i64 18, !9, i64 19}
-!31 = !{!"", !20, i64 0}
-!32 = distinct !{!32, !12}
-!33 = !{!34, !35, i64 8}
-!34 = !{!"", !4, i64 0, !35, i64 8, !20, i64 16}
-!35 = !{!"long long", !5, i64 0}
-!36 = !{!34, !20, i64 16}
-!37 = distinct !{!37, !12}
-!38 = distinct !{!38, !12}
-!39 = !{!40, !10, i64 4}
-!40 = !{!"bench_data_locks", !10, i64 0, !10, i64 4, !10, i64 8, !5, i64 12, !16, i64 216, !4, i64 224, !41, i64 232, !20, i64 240}
-!41 = !{!"double", !5, i64 0}
-!42 = !{!40, !10, i64 8}
-!43 = !{!40, !16, i64 216}
-!44 = !{!45, !46, i64 0}
-!45 = !{!"bench_thread_data", !46, i64 0, !20, i64 8, !9, i64 16}
-!46 = !{!"p1 _ZTS16bench_data_locks", !16, i64 0}
-!47 = distinct !{!47, !12}
-!48 = !{!40, !20, i64 240}
-!49 = distinct !{!49, !12}
-!50 = !{!45, !20, i64 8}
-!51 = !{!52, !53, i64 8}
-!52 = !{!"_object", !5, i64 0, !53, i64 8}
-!53 = !{!"p1 _ZTS11_typeobject", !16, i64 0}
-!54 = !{!55, !20, i64 168}
-!55 = !{!"_typeobject", !56, i64 0, !57, i64 24, !20, i64 32, !20, i64 40, !16, i64 48, !20, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !16, i64 104, !16, i64 112, !16, i64 120, !16, i64 128, !16, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !20, i64 168, !57, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !20, i64 208, !16, i64 216, !16, i64 224, !58, i64 232, !59, i64 240, !60, i64 248, !53, i64 256, !25, i64 264, !16, i64 272, !16, i64 280, !20, i64 288, !16, i64 296, !16, i64 304, !16, i64 312, !16, i64 320, !16, i64 328, !25, i64 336, !25, i64 344, !25, i64 352, !16, i64 360, !25, i64 368, !16, i64 376, !10, i64 384, !16, i64 392, !16, i64 400, !5, i64 408, !61, i64 410}
-!56 = !{!"", !52, i64 0, !20, i64 16}
-!57 = !{!"p1 omnipotent char", !16, i64 0}
-!58 = !{!"p1 _ZTS11PyMethodDef", !16, i64 0}
-!59 = !{!"p1 _ZTS11PyMemberDef", !16, i64 0}
-!60 = !{!"p1 _ZTS11PyGetSetDef", !16, i64 0}
-!61 = !{!"short", !5, i64 0}
-!62 = !{!63, !20, i64 32}
-!63 = !{!"", !56, i64 0, !64, i64 24, !20, i64 32}
-!64 = !{!"p2 _ZTS7_object", !16, i64 0}
-!65 = !{!63, !64, i64 24}
-!66 = distinct !{!66, !12}
-!67 = !{!20, !20, i64 0}
-!68 = distinct !{!68, !12, !69}
-!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!70 = distinct !{!70, !12}
-!71 = !{!40, !41, i64 232}
-!72 = distinct !{!72, !12}
-!73 = distinct !{!73, !12, !69}
-!74 = distinct !{!74, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"thread_data_counter", !16, i64 0, !9, i64 8}
+!16 = !{!"p1 _ZTS17test_data_counter", !17, i64 0}
+!17 = !{!"any pointer", !5, i64 0}
+!18 = distinct !{!18, !12, !13}
+!19 = !{!20, !21, i64 8}
+!20 = !{!"test_data_counter", !4, i64 0, !21, i64 8}
+!21 = !{!"long", !5, i64 0}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !12, !13}
+!24 = distinct !{!24, !12, !13}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS7_object", !17, i64 0}
+!27 = !{!5, !5, i64 0}
+!28 = !{!10, !10, i64 0}
+!29 = distinct !{!29, !12, !13}
+!30 = !{!31, !21, i64 8}
+!31 = !{!"test_rwlock_data", !21, i64 0, !32, i64 8, !9, i64 16, !9, i64 17, !9, i64 18, !9, i64 19}
+!32 = !{!"", !21, i64 0}
+!33 = distinct !{!33, !12, !13}
+!34 = !{!35, !36, i64 8}
+!35 = !{!"", !4, i64 0, !36, i64 8, !21, i64 16}
+!36 = !{!"long long", !5, i64 0}
+!37 = !{!35, !21, i64 16}
+!38 = distinct !{!38, !12, !13}
+!39 = distinct !{!39, !12, !13}
+!40 = !{!41, !10, i64 4}
+!41 = !{!"bench_data_locks", !10, i64 0, !10, i64 4, !10, i64 8, !5, i64 12, !17, i64 216, !4, i64 224, !42, i64 232, !21, i64 240}
+!42 = !{!"double", !5, i64 0}
+!43 = !{!41, !10, i64 8}
+!44 = !{!41, !17, i64 216}
+!45 = !{!46, !47, i64 0}
+!46 = !{!"bench_thread_data", !47, i64 0, !21, i64 8, !9, i64 16}
+!47 = !{!"p1 _ZTS16bench_data_locks", !17, i64 0}
+!48 = distinct !{!48, !12, !13}
+!49 = !{!41, !21, i64 240}
+!50 = distinct !{!50, !12, !13}
+!51 = !{!46, !21, i64 8}
+!52 = !{!53, !54, i64 8}
+!53 = !{!"_object", !5, i64 0, !54, i64 8}
+!54 = !{!"p1 _ZTS11_typeobject", !17, i64 0}
+!55 = !{!56, !21, i64 168}
+!56 = !{!"_typeobject", !57, i64 0, !58, i64 24, !21, i64 32, !21, i64 40, !17, i64 48, !21, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !17, i64 96, !17, i64 104, !17, i64 112, !17, i64 120, !17, i64 128, !17, i64 136, !17, i64 144, !17, i64 152, !17, i64 160, !21, i64 168, !58, i64 176, !17, i64 184, !17, i64 192, !17, i64 200, !21, i64 208, !17, i64 216, !17, i64 224, !59, i64 232, !60, i64 240, !61, i64 248, !54, i64 256, !26, i64 264, !17, i64 272, !17, i64 280, !21, i64 288, !17, i64 296, !17, i64 304, !17, i64 312, !17, i64 320, !17, i64 328, !26, i64 336, !26, i64 344, !26, i64 352, !17, i64 360, !26, i64 368, !17, i64 376, !10, i64 384, !17, i64 392, !17, i64 400, !5, i64 408, !62, i64 410}
+!57 = !{!"", !53, i64 0, !21, i64 16}
+!58 = !{!"p1 omnipotent char", !17, i64 0}
+!59 = !{!"p1 _ZTS11PyMethodDef", !17, i64 0}
+!60 = !{!"p1 _ZTS11PyMemberDef", !17, i64 0}
+!61 = !{!"p1 _ZTS11PyGetSetDef", !17, i64 0}
+!62 = !{!"short", !5, i64 0}
+!63 = !{!64, !21, i64 32}
+!64 = !{!"", !57, i64 0, !65, i64 24, !21, i64 32}
+!65 = !{!"p2 _ZTS7_object", !17, i64 0}
+!66 = !{!64, !65, i64 24}
+!67 = distinct !{!67, !12, !13}
+!68 = !{!21, !21, i64 0}
+!69 = distinct !{!69, !12, !13, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = distinct !{!71, !12, !13}
+!72 = !{!41, !42, i64 232}
+!73 = distinct !{!73, !12, !13}
+!74 = distinct !{!74, !12, !13, !70}
+!75 = distinct !{!75, !12, !13}

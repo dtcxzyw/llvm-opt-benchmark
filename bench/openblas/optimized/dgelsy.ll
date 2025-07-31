@@ -355,7 +355,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %151, ptr %19, align 8, !tbaa !7
   store i32 %.pre-phi438, ptr %9, align 4, !tbaa !3
   %177 = icmp slt i32 %.pre-phi438, %.
-  br i1 %177, label %144, label %._crit_edge385
+  br i1 %177, label %144, label %._crit_edge385, !llvm.loop !12
 
 ._crit_edge385:                                   ; preds = %._crit_edge, %144, %.preheader
   %178 = phi i32 [ 1, %.preheader ], [ %.pre-phi438, %._crit_edge ], [ %.pre428.pre, %144 ]
@@ -420,7 +420,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep411, i8 0, i64 %200, i1 false), !tbaa !7
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next416, %wide.trip.count418
-  br i1 %exitcond419.not, label %._crit_edge396, label %.lr.ph390.us, !llvm.loop !11
+  br i1 %exitcond419.not, label %._crit_edge396, label %.lr.ph390.us, !llvm.loop !13
 
 ._crit_edge396:                                   ; preds = %.lr.ph390.us, %.lr.ph395, %187
   %.lcssa = phi i32 [ %.promoted, %187 ], [ %.pre431, %.lr.ph395 ], [ %.pre431, %.lr.ph390.us ]
@@ -482,7 +482,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %225, ptr %229, align 8, !tbaa !7
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count423
-  br i1 %exitcond424.not, label %._crit_edge401, label %224, !llvm.loop !13
+  br i1 %exitcond424.not, label %._crit_edge401, label %224, !llvm.loop !15
 
 ._crit_edge401:                                   ; preds = %224, %.lr.ph407
   %gep403 = getelementptr double, ptr %invariant.gep402, i64 %.pre435
@@ -491,7 +491,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %230 = load i32, ptr %14, align 4, !tbaa !3
   %231 = sext i32 %230 to i64
   %.not357.not = icmp slt i64 %indvars.iv425, %231
-  br i1 %.not357.not, label %.lr.ph407, label %._crit_edge408, !llvm.loop !14
+  br i1 %.not357.not, label %.lr.ph407, label %._crit_edge408, !llvm.loop !16
 
 ._crit_edge408:                                   ; preds = %._crit_edge401, %219
   %brmerge = or i1 %or.cond364, %116
@@ -604,9 +604,11 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !10, !11, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}

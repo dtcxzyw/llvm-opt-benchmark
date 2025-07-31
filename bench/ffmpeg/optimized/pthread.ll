@@ -203,7 +203,7 @@ define void @ff_pthread_free(ptr noundef %0, ptr noundef readonly captures(none)
   %37 = icmp ne i32 %36, 0
   %38 = icmp ne i32 %34, 0
   %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %.lr.ph21, label %._crit_edge, !llvm.loop !40
+  br i1 %39, label %.lr.ph21, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph21, %.preheader
   ret void
@@ -245,7 +245,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_pthread_init(ptr noundef %0, 
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !37
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !42
 
 .lr.ph52:                                         ; preds = %.preheader, %22
   %17 = phi i32 [ %25, %22 ], [ %7, %.preheader ]
@@ -262,7 +262,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_pthread_init(ptr noundef %0, 
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !37
   %.not35 = icmp eq i32 %25, 0
-  br i1 %.not35, label %.loopexit, label %.lr.ph52, !llvm.loop !42
+  br i1 %.not35, label %.loopexit, label %.lr.ph52, !llvm.loop !43
 
 .loopexit.split.loop.exit46:                      ; preds = %.lr.ph52
   %26 = sub nsw i32 0, %21
@@ -336,8 +336,9 @@ attributes #4 = { nounwind }
 !35 = !{!5, !10, i64 656}
 !36 = !{!5, !10, i64 660}
 !37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
-!41 = distinct !{!41, !39}
-!42 = distinct !{!42, !39}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = distinct !{!41, !39, !40}
+!42 = distinct !{!42, !39, !40}
+!43 = distinct !{!43, !39, !40}

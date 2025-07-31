@@ -108,11 +108,11 @@ switch.early.test:                                ; preds = %21
 .critedge:                                        ; preds = %31, %29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
   %.not42 = icmp eq i64 %22, 0
-  br i1 %.not42, label %._crit_edge, label %21
+  br i1 %.not42, label %._crit_edge, label %21, !llvm.loop !8
 
 41:                                               ; preds = %29, %31
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  br label %43, !llvm.loop !8
+  br label %43, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.critedge
   %42 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #5
@@ -232,7 +232,7 @@ switch.early.test80.us.i.i:                       ; preds = %22
   %40 = getelementptr inbounds nuw i8, ptr %.05185.us.i.i, i64 1
   store i8 %.0.us.i.i, ptr %.05185.us.i.i, align 1, !tbaa !7
   %.not68.us.i.i = icmp eq i64 %38, 0
-  br i1 %.not68.us.i.i, label %.loopexit.i, label %.lr.ph.split.us.i.i, !llvm.loop !10
+  br i1 %.not68.us.i.i, label %.loopexit.i, label %.lr.ph.split.us.i.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %37, %14
   %.051.lcssa.i.i = phi ptr [ %13, %14 ], [ %40, %37 ]
@@ -352,7 +352,7 @@ switch.early.test80.us.i:                         ; preds = %24
   %42 = getelementptr inbounds nuw i8, ptr %.05185.us.i, i64 1
   store i8 %.0.us.i, ptr %.05185.us.i, align 1, !tbaa !7
   %.not68.us.i = icmp eq i64 %40, 0
-  br i1 %.not68.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !10
+  br i1 %.not68.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !12
 
 .loopexit:                                        ; preds = %39, %16
   %.051.lcssa.i = phi ptr [ %15, %16 ], [ %42, %39 ]
@@ -369,7 +369,7 @@ switch.early.test80.us.i:                         ; preds = %24
 
 48:                                               ; preds = %46
   %49 = tail call i32 @curlx_uztosi(i64 noundef %45) #5
-  store i32 %49, ptr %3, align 4, !tbaa !12
+  store i32 %49, ptr %3, align 4, !tbaa !14
   br label %.critedge
 
 50:                                               ; preds = %46
@@ -415,7 +415,7 @@ define hidden range(i32 0, 28) i32 @Curl_urldecode(ptr noundef readonly captures
   br i1 %.not67, label %79, label %13
 
 13:                                               ; preds = %8
-  store ptr %12, ptr %2, align 8, !tbaa !14
+  store ptr %12, ptr %2, align 8, !tbaa !16
   %.not6882 = icmp eq i64 %9, 0
   br i1 %.not6882, label %._crit_edge, label %.lr.ph
 
@@ -509,7 +509,7 @@ switch.early.test80.us:                           ; preds = %23
   %43 = getelementptr inbounds nuw i8, ptr %.05185.us, i64 1
   store i8 %.0.us, ptr %.05185.us, align 1, !tbaa !7
   %.not68.us = icmp eq i64 %41, 0
-  br i1 %.not68.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %.not68.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
   %.05185 = phi ptr [ %71, %68 ], [ %12, %.lr.ph ]
@@ -595,13 +595,13 @@ switch.early.test80:                              ; preds = %51
   %71 = getelementptr inbounds nuw i8, ptr %.05185, i64 1
   store i8 %.0, ptr %.05185, align 1, !tbaa !7
   %.not68 = icmp eq i64 %69, 0
-  br i1 %.not68, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not68, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 .critedge:                                        ; preds = %38, %66
   %72 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %73 = load ptr, ptr %2, align 8, !tbaa !14
+  %73 = load ptr, ptr %2, align 8, !tbaa !16
   tail call void %72(ptr noundef %73) #5
-  store ptr null, ptr %2, align 8, !tbaa !14
+  store ptr null, ptr %2, align 8, !tbaa !16
   br label %79
 
 ._crit_edge:                                      ; preds = %40, %68, %13
@@ -611,11 +611,11 @@ switch.early.test80:                              ; preds = %51
   br i1 %.not69, label %79, label %74
 
 74:                                               ; preds = %._crit_edge
-  %75 = load ptr, ptr %2, align 8, !tbaa !14
+  %75 = load ptr, ptr %2, align 8, !tbaa !16
   %76 = ptrtoint ptr %.051.lcssa to i64
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
-  store i64 %78, ptr %3, align 8, !tbaa !17
+  store i64 %78, ptr %3, align 8, !tbaa !19
   br label %79
 
 79:                                               ; preds = %._crit_edge, %74, %.critedge, %8
@@ -666,7 +666,7 @@ define hidden void @Curl_hexencode(ptr noundef readonly captures(address_is_null
   %23 = icmp ne i64 %8, 0
   %24 = icmp ugt i64 %22, 2
   %25 = select i1 %23, i1 %24, i1 false
-  br i1 %25, label %.preheader, label %.sink.split, !llvm.loop !19
+  br i1 %25, label %.preheader, label %.sink.split, !llvm.loop !21
 
 26:                                               ; preds = %4
   %.not = icmp eq i64 %3, 0
@@ -700,14 +700,16 @@ attributes #6 = { nounwind willreturn memory(read) }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11, !9, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !14 = !{!15, !15, i64 0}
-!15 = !{!"p1 omnipotent char", !4, i64 0}
-!16 = distinct !{!16, !9}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !5, i64 0}
-!19 = distinct !{!19, !9}
+!15 = !{!"int", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !4, i64 0}
+!18 = distinct !{!18, !11, !9}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !5, i64 0}
+!21 = distinct !{!21, !11, !9}

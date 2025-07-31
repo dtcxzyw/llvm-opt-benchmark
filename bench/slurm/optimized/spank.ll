@@ -492,7 +492,7 @@ _do_option_cb.exit.i.i.i:                         ; preds = %43
 63:                                               ; preds = %58, %spank_stack_find_option_by_name.exit.thread.i.i.i, %19
   %64 = call ptr @list_next(ptr noundef %15) #19
   %.not17.i.i.i = icmp eq ptr %64, null
-  br i1 %.not17.i.i.i, label %._crit_edge.i.i.i, label %19
+  br i1 %.not17.i.i.i, label %._crit_edge.i.i.i, label %19, !llvm.loop !14
 
 ._crit_edge.i.i.i:                                ; preds = %63, %14
   call void @list_iterator_destroy(ptr noundef %15) #19
@@ -578,7 +578,7 @@ _do_option_cb.exit.i19.i.i:                       ; preds = %81
 .backedge.i.i.i:                                  ; preds = %95, %73, %.lr.ph.i11.i.i
   %96 = call ptr @list_next(ptr noundef %69) #19
   %.not16.i.i.i = icmp eq ptr %96, null
-  br i1 %.not16.i.i.i, label %._crit_edge.i13.i.i, label %.lr.ph.i11.i.i, !llvm.loop !14
+  br i1 %.not16.i.i.i, label %._crit_edge.i13.i.i, label %.lr.ph.i11.i.i, !llvm.loop !16
 
 ._crit_edge.i13.i.i:                              ; preds = %.backedge.i.i.i, %68
   call void @list_iterator_destroy(ptr noundef %69) #19
@@ -719,7 +719,7 @@ _option_setenv.exit.i:                            ; preds = %36, %dyn_spank_set_
 39:                                               ; preds = %_option_setenv.exit.i, %.lr.ph.i
   %40 = call ptr @list_next(ptr noundef %12) #19
   %.not.i = icmp eq ptr %40, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %39, %11
   call void @list_iterator_destroy(ptr noundef %12) #19
@@ -1124,7 +1124,7 @@ _add_one_option.exit:                             ; preds = %31
 49:                                               ; preds = %_add_one_option.exit, %40, %26
   %50 = call ptr @list_next(ptr noundef %21) #19
   %.not15 = icmp eq ptr %50, null
-  br i1 %.not15, label %._crit_edge, label %26, !llvm.loop !16
+  br i1 %.not15, label %._crit_edge, label %26, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %49, %20
   call void @list_iterator_destroy(ptr noundef %21) #19
@@ -1296,7 +1296,7 @@ get_global_option_cache.exit:                     ; preds = %0
   store ptr %16, ptr %2, align 8
   %17 = call ptr @getenv(ptr noundef %16) #19
   %.not19 = icmp eq ptr %17, null
-  br i1 %.not19, label %39, label %18, !llvm.loop !17
+  br i1 %.not19, label %39, label %18, !llvm.loop !19
 
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr %13, align 8
@@ -1399,7 +1399,7 @@ define internal fastcc noundef nonnull ptr @_opt_env_name(ptr readonly captures(
   store i8 %..i, ptr %19, align 1
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %20 = icmp ugt i64 %5, %indvars.iv.next17
-  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !18
+  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph, %10, %2
   %.lcssa2 = phi i64 [ %6, %2 ], [ %indvars.iv.next17, %10 ], [ %indvars.iv16, %.lr.ph ]
@@ -1436,7 +1436,7 @@ define internal fastcc noundef nonnull ptr @_opt_env_name(ptr readonly captures(
   store i8 %..i39, ptr %37, align 1
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %38 = icmp ugt i64 %5, %indvars.iv.next24
-  br i1 %38, label %.lr.ph11, label %.critedge2, !llvm.loop !19
+  br i1 %38, label %.lr.ph11, label %.critedge2, !llvm.loop !21
 
 .critedge2:                                       ; preds = %.lr.ph11, %28, %.critedge
   %.lcssa = phi i64 [ %24, %.critedge ], [ %indvars.iv.next24, %28 ], [ %indvars.iv23, %.lr.ph11 ]
@@ -1609,7 +1609,7 @@ _get_next_segment.exit.us:                        ; preds = %.loopexit.i.us, %70
   %77 = load ptr, ptr %5, align 8
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 0
-  br i1 %79, label %_spank_opt_print.exit, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %79, label %_spank_opt_print.exit, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_get_next_segment.exit
   %80 = phi ptr [ %110, %_get_next_segment.exit ], [ %61, %.lr.ph ]
@@ -1644,7 +1644,7 @@ _get_next_segment.exit.us:                        ; preds = %.loopexit.i.us, %70
 95:                                               ; preds = %89
   %96 = getelementptr inbounds i8, ptr %.026.i.i, i64 -1
   %.not.i.i14 = icmp eq ptr %96, %80
-  br i1 %.not.i.i14, label %.loopexit.i, label %89, !llvm.loop !22
+  br i1 %.not.i.i14, label %.loopexit.i, label %89, !llvm.loop !24
 
 .critedge.i.i.loopexit:                           ; preds = %89
   %97 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 1
@@ -1665,7 +1665,7 @@ _get_next_segment.exit.us:                        ; preds = %.loopexit.i.us, %70
 103:                                              ; preds = %.lr.ph31.i.i
   %104 = getelementptr inbounds i8, ptr %.130.i.i, i64 -1
   %.not22.i.i = icmp eq ptr %104, %80
-  br i1 %.not22.i.i, label %.loopexit.i, label %.lr.ph31.i.i, !llvm.loop !23
+  br i1 %.not22.i.i, label %.loopexit.i, label %.lr.ph31.i.i, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %95, %103, %.critedge.i.i.loopexit
   %105 = call i64 @strlcpy(ptr noundef nonnull %7, ptr noundef nonnull dereferenceable(1) %80, i64 noundef %66) #19
@@ -1685,7 +1685,7 @@ _get_next_segment.exit:                           ; preds = %83, %.loopexit.i, %
   %110 = load ptr, ptr %5, align 8
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 0
-  br i1 %112, label %_spank_opt_print.exit, label %.lr.ph.split, !llvm.loop !24
+  br i1 %112, label %_spank_opt_print.exit, label %.lr.ph.split, !llvm.loop !26
 
 _spank_opt_print.exit:                            ; preds = %_get_next_segment.exit, %_get_next_segment.exit.us, %.lr.ph.i.preheader, %58
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %8) #19
@@ -1697,7 +1697,7 @@ _spank_opt_print.exit:                            ; preds = %_get_next_segment.e
 .backedge:                                        ; preds = %_spank_opt_print.exit, %21
   %113 = call ptr @list_next(ptr noundef %19) #19
   %.not = icmp eq ptr %113, null
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.backedge, %17
   call void @list_iterator_destroy(ptr noundef %19) #19
@@ -1740,7 +1740,7 @@ define dso_local void @spank_set_remote_options(ptr noundef %0) local_unnamed_ad
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i8, ptr %16, align 4, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %29, !llvm.loop !26
+  br i1 %18, label %19, label %29, !llvm.loop !28
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %15, align 8
@@ -1760,7 +1760,7 @@ define dso_local void @spank_set_remote_options(ptr noundef %0) local_unnamed_ad
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
   %30 = call ptr @list_next(ptr noundef %13) #19
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %29, %12
   call void @list_iterator_destroy(ptr noundef %13) #19
@@ -2038,7 +2038,7 @@ define dso_local void @spank_clear_remote_options_env(ptr noundef %0) local_unna
   %27 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %26, %1
   ret void
@@ -2067,7 +2067,7 @@ define dso_local range(i32 -1, 2) i32 @spank_symbol_supported(ptr noundef %0) lo
 3:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
@@ -3221,7 +3221,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 563:                                              ; preds = %564
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %job_task_info_by_pid.exit.thread, label %564, !llvm.loop !29
+  br i1 %exitcond.not.i, label %job_task_info_by_pid.exit.thread, label %564, !llvm.loop !32
 
 564:                                              ; preds = %563, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %563 ]
@@ -3311,7 +3311,7 @@ job_task_info_by_pid.exit:                        ; preds = %564
 608:                                              ; preds = %609
   %indvars.iv.next.i278 = add nuw nsw i64 %indvars.iv.i277, 1
   %exitcond.not.i279 = icmp eq i64 %indvars.iv.next.i278, %wide.trip.count.i276
-  br i1 %exitcond.not.i279, label %job_task_info_by_pid.exit.thread, label %609, !llvm.loop !29
+  br i1 %exitcond.not.i279, label %job_task_info_by_pid.exit.thread, label %609, !llvm.loop !32
 
 609:                                              ; preds = %608, %.lr.ph.i275
   %indvars.iv.i277 = phi i64 [ 0, %.lr.ph.i275 ], [ %indvars.iv.next.i278, %608 ]
@@ -3797,7 +3797,7 @@ define internal fastcc range(i32 0, 3008) i32 @_global_to_local_id(ptr noundef r
 11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !33
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -4269,7 +4269,7 @@ define dso_local range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef rea
   %35 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   store ptr %34, ptr %35, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !34
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %47
   %indvars.iv68 = phi i64 [ %32, %.lr.ph58.preheader ], [ %indvars.iv.next69, %47 ]
@@ -4310,7 +4310,7 @@ define dso_local range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef rea
   %51 = load i32, ptr %50, align 8
   %52 = zext i32 %51 to i64
   %53 = icmp samesign ult i64 %indvars.iv.next67, %52
-  br i1 %53, label %.lr.ph58, label %.critedge3.loopexit, !llvm.loop !32
+  br i1 %53, label %.lr.ph58, label %.critedge3.loopexit, !llvm.loop !35
 
 54:                                               ; preds = %14, %8, %11, %3, %4, %.critedge3
   %.038 = phi i32 [ 0, %.critedge3 ], [ 3001, %4 ], [ 3001, %3 ], [ 3002, %14 ], [ 3002, %11 ], [ 3002, %8 ]
@@ -4349,7 +4349,7 @@ define dso_local i64 @spank_get_plugin_names(ptr noundef %0) local_unnamed_addr 
   store ptr %14, ptr %16, align 8
   %17 = tail call ptr @list_next(ptr noundef %6) #19
   %.not14 = icmp eq ptr %17, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %9, %.lr.ph ]
@@ -4396,7 +4396,7 @@ get_global_option_cache.exit:                     ; preds = %2, %4
 .backedge:                                        ; preds = %10, %16
   %15 = tail call ptr @list_next(ptr noundef %7) #19
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.outer._crit_edge, label %10, !llvm.loop !34
+  br i1 %.not, label %.outer._crit_edge, label %10, !llvm.loop !37
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -4421,7 +4421,7 @@ get_global_option_cache.exit:                     ; preds = %2, %4
   store ptr %27, ptr %29, align 8
   %30 = tail call ptr @list_next(ptr noundef %7) #19
   %.not17 = icmp eq ptr %30, null
-  br i1 %.not17, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not17, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !37
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %get_global_option_cache.exit
   %.0.ph.lcssa = phi i64 [ 0, %get_global_option_cache.exit ], [ %.0.ph20, %.backedge ], [ %21, %.outer ]
@@ -4585,7 +4585,7 @@ get_global_option_cache.exit:                     ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load i8, ptr %21, align 8, !range !11, !noundef !12
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %17, !llvm.loop !35
+  br i1 %23, label %24, label %17, !llvm.loop !38
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -4713,7 +4713,7 @@ define internal void @_spank_plugin_destroy(ptr noundef %0) #0 {
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8
   %.not4 = icmp eq ptr %14, null
-  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @slurm_xfree(ptr noundef nonnull %8) #19
@@ -4877,7 +4877,7 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   store ptr %61, ptr %63, align 8
   %64 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #19
   %.not25.i = icmp eq ptr %64, null
-  br i1 %.not25.i, label %._crit_edge.loopexit.i, label %.lr.ph.i41, !llvm.loop !37
+  br i1 %.not25.i, label %._crit_edge.loopexit.i, label %.lr.ph.i41, !llvm.loop !40
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i41
   %65 = trunc nuw nsw i64 %indvars.iv.next.i43 to i32
@@ -4968,7 +4968,7 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   %96 = load i64, ptr %5, align 8
   %97 = icmp ult i64 %95, %96
   %or.cond = select i1 %94, i1 %97, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !38
+  br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !41
 
 98:                                               ; preds = %87
   %99 = tail call ptr @__errno_location() #21
@@ -5077,7 +5077,7 @@ _spank_conf_include.exit:                         ; preds = %73, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
   %140 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %129, i32 noundef 58) #20
   %.not19.i = icmp eq ptr %140, null
-  br i1 %.not19.i, label %_spank_plugin_find.exit.thread, label %.lr.ph.i35, !llvm.loop !39
+  br i1 %.not19.i, label %_spank_plugin_find.exit.thread, label %.lr.ph.i35, !llvm.loop !42
 
 _spank_plugin_find.exit.thread:                   ; preds = %139, %111, %126
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %8) #19
@@ -5191,7 +5191,7 @@ _spank_plugin_find.exit:                          ; preds = %136
   %191 = load ptr, ptr %190, align 8
   %192 = load ptr, ptr %159, align 8
   %193 = icmp eq ptr %191, %192
-  br i1 %193, label %194, label %187, !llvm.loop !40
+  br i1 %193, label %194, label %187, !llvm.loop !43
 
 194:                                              ; preds = %189
   call void @list_iterator_destroy(ptr noundef %186) #19
@@ -5222,7 +5222,7 @@ _spank_plugin_find.exit:                          ; preds = %136
   %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv.next.i26
   %203 = load ptr, ptr %202, align 8
   %.not4.i27 = icmp eq ptr %203, null
-  br i1 %.not4.i27, label %._crit_edge.i28, label %.lr.ph.i24, !llvm.loop !36
+  br i1 %.not4.i27, label %._crit_edge.i28, label %.lr.ph.i24, !llvm.loop !39
 
 ._crit_edge.i28:                                  ; preds = %.lr.ph.i24, %.preheader.i22
   call void @slurm_xfree(ptr noundef nonnull %165) #19
@@ -5353,7 +5353,7 @@ spank_stack_plugin_valid_for_context.exit:        ; preds = %208, %221, %204
   %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv.next.i
   %247 = load ptr, ptr %246, align 8
   %.not4.i = icmp eq ptr %247, null
-  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   call void @slurm_xfree(ptr noundef nonnull %165) #19
@@ -5394,7 +5394,7 @@ _spank_plugin_destroy.exit:                       ; preds = %240, %._crit_edge.i
   %260 = getelementptr inbounds nuw i8, ptr %.0.i7994, i64 40
   %261 = load ptr, ptr %260, align 8
   %.not45.i = icmp eq ptr %261, null
-  br i1 %.not45.i, label %_spank_stack_process_line.exit.thread, label %.lr.ph80, !llvm.loop !41
+  br i1 %.not45.i, label %_spank_stack_process_line.exit.thread, label %.lr.ph80, !llvm.loop !44
 
 _spank_stack_process_line.exit.thread:            ; preds = %.lr.ph80, %.lr.ph80.preheader, %254, %66, %_spank_plugin_destroy.exit29, %_spank_plugin_destroy.exit, %106
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
@@ -5411,7 +5411,7 @@ _spank_stack_process_line.exit:                   ; preds = %_spank_conf_include
   %264 = add nuw nsw i32 %.01383, 1
   %265 = call ptr @fgets(ptr noundef nonnull %15, i32 noundef 4096, ptr noundef nonnull %23)
   %.not = icmp eq ptr %265, null
-  br i1 %.not, label %_spank_stack_process_line.exit._crit_edge, label %35, !llvm.loop !42
+  br i1 %.not, label %_spank_stack_process_line.exit._crit_edge, label %35, !llvm.loop !45
 
 _spank_stack_process_line.exit._crit_edge:        ; preds = %263, %_spank_stack_process_line.exit, %.preheader74
   %.1 = phi i32 [ 0, %.preheader74 ], [ %.036.i, %_spank_stack_process_line.exit ], [ %.036.i73, %263 ]
@@ -5602,7 +5602,7 @@ define internal fastcc noundef ptr @_get_next_segment(ptr noundef nonnull captur
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %.026.i, i64 -1
   %.not.i = icmp eq ptr %25, %4
-  br i1 %.not.i, label %.loopexit, label %18, !llvm.loop !22
+  br i1 %.not.i, label %.loopexit, label %18, !llvm.loop !24
 
 .critedge.i:                                      ; preds = %18, %13
   %.0.lcssa.i = phi ptr [ %15, %13 ], [ %.026.i, %18 ]
@@ -5629,7 +5629,7 @@ define internal fastcc noundef ptr @_get_next_segment(ptr noundef nonnull captur
 35:                                               ; preds = %29
   %36 = getelementptr inbounds i8, ptr %.130.i, i64 -1
   %.not22.i = icmp eq ptr %36, %4
-  br i1 %.not22.i, label %.loopexit, label %29, !llvm.loop !23
+  br i1 %.not22.i, label %.loopexit, label %29, !llvm.loop !25
 
 .loopexit:                                        ; preds = %24, %35, %.critedge.i
   store ptr %4, ptr %0, align 8
@@ -5704,32 +5704,35 @@ attributes #21 = { nounwind willreturn memory(none) }
 !11 = !{i8 0, i8 2}
 !12 = !{}
 !13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !9, !10, !15}
+!17 = distinct !{!17, !9, !10, !15}
+!18 = distinct !{!18, !9, !10, !15}
 !19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
+!20 = distinct !{!20, !9, !10, !15}
+!21 = distinct !{!21, !9, !10, !15}
+!22 = distinct !{!22, !9, !10, !15, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !9, !10, !15}
+!25 = distinct !{!25, !9, !10, !15}
+!26 = distinct !{!26, !9, !10, !15}
+!27 = distinct !{!27, !9, !10, !15}
 !28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !9, !10}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}
+!29 = distinct !{!29, !15}
+!30 = distinct !{!30, !9, !10, !15}
+!31 = distinct !{!31, !9, !10, !15}
+!32 = distinct !{!32, !9, !10, !15}
+!33 = distinct !{!33, !9, !10, !15}
+!34 = distinct !{!34, !9, !10, !15}
+!35 = distinct !{!35, !9, !10, !15}
+!36 = distinct !{!36, !9, !10, !15}
+!37 = distinct !{!37, !9, !10, !15}
+!38 = distinct !{!38, !9, !10, !15}
+!39 = distinct !{!39, !9, !10, !15}
+!40 = distinct !{!40, !9, !10, !15}
+!41 = distinct !{!41, !9, !10, !15}
+!42 = distinct !{!42, !9, !10, !15}
+!43 = distinct !{!43, !9, !10, !15}
+!44 = distinct !{!44, !9, !10, !15}
+!45 = distinct !{!45, !9, !10, !15}

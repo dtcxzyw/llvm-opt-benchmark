@@ -4067,7 +4067,7 @@ define internal i32 @dissect_qsig_err(ptr noundef %0, ptr noundef %1, ptr nounde
 18:                                               ; preds = %20
   %19 = add nsw i32 %.06.i, -1
   %.not.i = icmp eq i32 %.06.i, 0
-  br i1 %.not.i, label %get_err.exit.thread, label %20, !llvm.loop !8
+  br i1 %.not.i, label %get_err.exit.thread, label %20, !llvm.loop !9
 
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 90, %15 ], [ %19, %18 ]
@@ -4180,7 +4180,7 @@ define hidden void @proto_reg_handoff_qsig() local_unnamed_addr #0 {
   tail call void @wmem_free(ptr noundef null, ptr noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 122
-  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !10
 
 .preheader:                                       ; preds = %5, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %5 ]
@@ -4190,7 +4190,7 @@ define hidden void @proto_reg_handoff_qsig() local_unnamed_addr #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.1457, i32 noundef %14, ptr noundef %15)
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, 91
-  br i1 %exitcond17.not, label %16, label %.preheader, !llvm.loop !10
+  br i1 %exitcond17.not, label %16, label %.preheader, !llvm.loop !11
 
 16:                                               ; preds = %.preheader
   %17 = load ptr, ptr @qsig_ie4_handle, align 8
@@ -8818,8 +8818,9 @@ attributes #6 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

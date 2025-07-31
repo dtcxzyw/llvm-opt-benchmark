@@ -613,7 +613,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
 .critedge:                                        ; preds = %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond.not, label %.critedge323, label %38, !llvm.loop !8
+  br i1 %exitcond.not, label %.critedge323, label %38, !llvm.loop !9
 
 .critedge323:                                     ; preds = %.critedge
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0329, ptr noundef nonnull dereferenceable(36) @.str.250) #6
@@ -1085,6 +1085,7 @@ attributes #7 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

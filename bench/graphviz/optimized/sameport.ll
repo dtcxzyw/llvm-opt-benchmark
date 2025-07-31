@@ -131,9 +131,9 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not52, label %.preheader, label %.lr.ph, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %74
-  %56 = load ptr, ptr %2, align 8, !tbaa !12, !noalias !27
-  %57 = load i64, ptr %12, align 8, !tbaa !13, !noalias !27
-  %58 = load i64, ptr %13, align 8, !tbaa !14, !noalias !27
+  %56 = load ptr, ptr %2, align 8, !tbaa !12, !noalias !28
+  %57 = load i64, ptr %12, align 8, !tbaa !13, !noalias !28
+  %58 = load i64, ptr %13, align 8, !tbaa !14, !noalias !28
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.i
@@ -141,11 +141,11 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   %60 = add i64 %57, %.08.i
   %61 = urem i64 %60, %58
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds %struct.same_t, ptr %56, i64 %61, i32 1
-  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !30
+  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !31
   tail call void @free(ptr noundef %.sroa.2.0.copyload.i) #15
   %62 = add nuw i64 %.08.i, 1
   %exitcond85.not = icmp eq i64 %62, %.val.pre
-  br i1 %exitcond85.not, label %same_list_clear.exit, label %59, !llvm.loop !32
+  br i1 %exitcond85.not, label %same_list_clear.exit, label %59, !llvm.loop !33
 
 same_list_clear.exit:                             ; preds = %59, %17, %.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -165,7 +165,7 @@ same_list_clear.exit:                             ; preds = %59, %17, %.preheade
   %68 = urem i64 %67, %21
   %69 = getelementptr inbounds nuw %struct.same_t, ptr %19, i64 %68
   %70 = getelementptr i8, ptr %69, i64 24
-  %.val56 = load i64, ptr %70, align 8, !tbaa !33
+  %.val56 = load i64, ptr %70, align 8, !tbaa !34
   %71 = icmp ugt i64 %.val56, 1
   br i1 %71, label %72, label %74
 
@@ -177,12 +177,12 @@ same_list_clear.exit:                             ; preds = %59, %17, %.preheade
 74:                                               ; preds = %66, %72
   %75 = add nuw i64 %.04672, 1
   %exitcond.not = icmp eq i64 %75, %.val.pre
-  br i1 %exitcond.not, label %.lr.ph.i, label %66, !llvm.loop !35
+  br i1 %exitcond.not, label %.lr.ph.i, label %66, !llvm.loop !36
 
 .lr.ph.i59:                                       ; preds = %92
-  %76 = load ptr, ptr %3, align 8, !tbaa !12, !noalias !36
-  %77 = load i64, ptr %15, align 8, !tbaa !13, !noalias !36
-  %78 = load i64, ptr %16, align 8, !tbaa !14, !noalias !36
+  %76 = load ptr, ptr %3, align 8, !tbaa !12, !noalias !37
+  %77 = load i64, ptr %15, align 8, !tbaa !13, !noalias !37
+  %78 = load i64, ptr %16, align 8, !tbaa !14, !noalias !37
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.i59
@@ -190,17 +190,17 @@ same_list_clear.exit:                             ; preds = %59, %17, %.preheade
   %80 = add i64 %77, %.08.i60
   %81 = urem i64 %80, %78
   %.sroa.2.0..sroa_idx.i61 = getelementptr inbounds %struct.same_t, ptr %76, i64 %81, i32 1
-  %.sroa.2.0.copyload.i62 = load ptr, ptr %.sroa.2.0..sroa_idx.i61, align 8, !tbaa !30
+  %.sroa.2.0.copyload.i62 = load ptr, ptr %.sroa.2.0..sroa_idx.i61, align 8, !tbaa !31
   tail call void @free(ptr noundef %.sroa.2.0.copyload.i62) #15
   %82 = add nuw i64 %.08.i60, 1
   %exitcond87.not = icmp eq i64 %82, %.val55
-  br i1 %exitcond87.not, label %same_list_clear.exit63, label %79, !llvm.loop !32
+  br i1 %exitcond87.not, label %same_list_clear.exit63, label %79, !llvm.loop !33
 
 same_list_clear.exit63:                           ; preds = %79, %same_list_clear.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %83 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04879) #15
   %.not = icmp eq ptr %83, null
-  br i1 %.not, label %._crit_edge82.loopexit, label %17, !llvm.loop !39
+  br i1 %.not, label %._crit_edge82.loopexit, label %17, !llvm.loop !40
 
 84:                                               ; preds = %.lr.ph75, %92
   %.074 = phi i64 [ 0, %.lr.ph75 ], [ %93, %92 ]
@@ -208,7 +208,7 @@ same_list_clear.exit63:                           ; preds = %79, %same_list_clea
   %86 = urem i64 %85, %65
   %87 = getelementptr inbounds nuw %struct.same_t, ptr %63, i64 %86
   %88 = getelementptr i8, ptr %87, i64 24
-  %.val57 = load i64, ptr %88, align 8, !tbaa !33
+  %.val57 = load i64, ptr %88, align 8, !tbaa !34
   %89 = icmp ugt i64 %.val57, 1
   br i1 %89, label %90, label %92
 
@@ -220,7 +220,7 @@ same_list_clear.exit63:                           ; preds = %79, %same_list_clea
 92:                                               ; preds = %84, %90
   %93 = add nuw i64 %.074, 1
   %exitcond86.not = icmp eq i64 %93, %.val55
-  br i1 %exitcond86.not, label %.lr.ph.i59, label %84, !llvm.loop !40
+  br i1 %exitcond86.not, label %.lr.ph.i59, label %84, !llvm.loop !41
 
 ._crit_edge82.loopexit:                           ; preds = %same_list_clear.exit63
   %.pre92.pre = load ptr, ptr %2, align 8, !tbaa !12
@@ -261,24 +261,24 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = load ptr, ptr %0, align 8, !tbaa !12, !noalias !41
+  %5 = load ptr, ptr %0, align 8, !tbaa !12, !noalias !42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !13, !noalias !41
+  %7 = load i64, ptr %6, align 8, !tbaa !13, !noalias !42
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !14, !noalias !41
+  %9 = load i64, ptr %8, align 8, !tbaa !14, !noalias !42
   br label %12
 
 10:                                               ; preds = %12
   %11 = add nuw i64 %.01242, 1
   %exitcond.not = icmp eq i64 %11, %.val
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !45
 
 12:                                               ; preds = %.lr.ph, %10
   %.01242 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
   %13 = add i64 %7, %.01242
   %14 = urem i64 %13, %9
   %15 = getelementptr inbounds nuw %struct.same_t, ptr %5, i64 %14
-  %.sroa.033.0.copyload = load ptr, ptr %15, align 8, !tbaa !45
+  %.sroa.033.0.copyload = load ptr, ptr %15, align 8, !tbaa !46
   %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.033.0.copyload, ptr noundef nonnull readonly dereferenceable(1) %2) #16
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %10
@@ -286,16 +286,16 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
 18:                                               ; preds = %12
   %.sroa.2.0..sroa_idx.le = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !33
+  %20 = load i64, ptr %19, align 8, !tbaa !34
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %22 = load i64, ptr %21, align 8, !tbaa !47
+  %22 = load i64, ptr %21, align 8, !tbaa !48
   %23 = icmp eq i64 %20, %22
   br i1 %23, label %24, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %18
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !48
-  %.pre46.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.le, align 8, !tbaa !49
+  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !49
+  %.pre46.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.le, align 8, !tbaa !50
   br label %54
 
 24:                                               ; preds = %18
@@ -306,21 +306,21 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
   br i1 %mul.ov.i.i, label %50, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %.sroa.2.0..sroa_idx.le, align 8, !tbaa !49
+  %28 = load ptr, ptr %.sroa.2.0..sroa_idx.le, align 8, !tbaa !50
   %29 = shl nuw i64 %spec.select.i.i, 3
   %30 = tail call ptr @realloc(ptr noundef %28, i64 noundef %29) #17
   %31 = icmp eq ptr %30, null
   br i1 %31, label %50, label %32
 
 32:                                               ; preds = %27
-  %33 = load i64, ptr %21, align 8, !tbaa !47
+  %33 = load i64, ptr %21, align 8, !tbaa !48
   %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
   %35 = sub i64 %spec.select.i.i, %33
   %36 = shl i64 %35, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %34, i8 0, i64 %36, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !48
-  %39 = load i64, ptr %19, align 8, !tbaa !33
+  %38 = load i64, ptr %37, align 8, !tbaa !49
+  %39 = load i64, ptr %19, align 8, !tbaa !34
   %40 = add i64 %39, %38
   %41 = icmp ugt i64 %40, %33
   br i1 %41, label %42, label %48
@@ -332,18 +332,18 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
   %46 = getelementptr inbounds nuw ptr, ptr %30, i64 %38
   %47 = shl i64 %43, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 8 %46, i64 %47, i1 false)
-  store i64 %44, ptr %37, align 8, !tbaa !48
+  store i64 %44, ptr %37, align 8, !tbaa !49
   br label %48
 
 48:                                               ; preds = %42, %32
   %49 = phi i64 [ %38, %32 ], [ %44, %42 ]
-  store ptr %30, ptr %.sroa.2.0..sroa_idx.le, align 8, !tbaa !49
-  store i64 %spec.select.i.i, ptr %21, align 8, !tbaa !47
+  store ptr %30, ptr %.sroa.2.0..sroa_idx.le, align 8, !tbaa !50
+  store i64 %spec.select.i.i, ptr %21, align 8, !tbaa !48
   br label %54
 
 50:                                               ; preds = %27, %24
   %.2.i.ph.i = phi i32 [ 34, %24 ], [ 12, %27 ]
-  %51 = load ptr, ptr @stderr, align 8, !tbaa !50
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !51
   %52 = tail call ptr @strerror(i32 noundef %.2.i.ph.i) #15
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.2, ptr noundef %52) #18
   tail call fastcc void @graphviz_exit() #19
@@ -357,9 +357,9 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
   %59 = add i64 %58, %57
   %60 = urem i64 %59, %56
   %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %60
-  store ptr %1, ptr %61, align 8, !tbaa !52
+  store ptr %1, ptr %61, align 8, !tbaa !53
   %62 = add i64 %57, 1
-  store i64 %62, ptr %19, align 8, !tbaa !33
+  store i64 %62, ptr %19, align 8, !tbaa !34
   br label %109
 
 ._crit_edge:                                      ; preds = %10, %3
@@ -368,14 +368,14 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
   br i1 %63, label %64, label %edge_list_append.exit20
 
 64:                                               ; preds = %._crit_edge
-  %65 = load ptr, ptr @stderr, align 8, !tbaa !50
+  %65 = load ptr, ptr @stderr, align 8, !tbaa !51
   %66 = tail call ptr @strerror(i32 noundef 12) #15
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.2, ptr noundef %66) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
 edge_list_append.exit20:                          ; preds = %._crit_edge
-  store ptr %1, ptr %malloc, align 8, !tbaa !52
+  store ptr %1, ptr %malloc, align 8, !tbaa !53
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %69 = load i64, ptr %68, align 8, !tbaa !14
   %70 = icmp eq i64 %.val, %69
@@ -431,7 +431,7 @@ edge_list_append.exit20:                          ; preds = %._crit_edge
 
 96:                                               ; preds = %73, %71
   %.2.i.ph.i26 = phi i32 [ 34, %71 ], [ 12, %73 ]
-  %97 = load ptr, ptr @stderr, align 8, !tbaa !50
+  %97 = load ptr, ptr @stderr, align 8, !tbaa !51
   %98 = tail call ptr @strerror(i32 noundef %.2.i.ph.i26) #15
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.2, ptr noundef %98) #18
   tail call fastcc void @graphviz_exit() #19
@@ -469,31 +469,31 @@ declare ptr @agnxtedge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readonly byval(%struct.edge_list_t) align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [4 x %struct.pointf_s], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val193 = load i64, ptr %4, align 8, !tbaa !33
+  %.val193 = load i64, ptr %4, align 8, !tbaa !34
   %.not210 = icmp eq i64 %.val193, 0
   br i1 %.not210, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !55
   %.phi.trans.insert214 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre215 = load double, ptr %.phi.trans.insert214, align 8, !tbaa !55
+  %.pre215 = load double, ptr %.phi.trans.insert214, align 8, !tbaa !56
   %.phi.trans.insert216 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
-  %.pre217 = load double, ptr %.phi.trans.insert216, align 8, !tbaa !67
+  %.pre217 = load double, ptr %.phi.trans.insert216, align 8, !tbaa !68
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !49
+  %5 = load ptr, ptr %1, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !48
+  %7 = load i64, ptr %6, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !47
+  %9 = load i64, ptr %8, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !54
+  %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load double, ptr %12, align 8, !tbaa !55
+  %13 = load double, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %15 = load double, ptr %14, align 8, !tbaa !67
+  %15 = load double, ptr %14, align 8, !tbaa !68
   br label %85
 
 ._crit_edge:                                      ; preds = %102, %.._crit_edge_crit_edge
@@ -502,86 +502,86 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %18 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %11, %102 ]
   %.0185.lcssa = phi double [ 0.000000e+00, %.._crit_edge_crit_edge ], [ %115, %102 ]
   %.0184.lcssa = phi double [ 0.000000e+00, %.._crit_edge_crit_edge ], [ %113, %102 ]
-  %19 = tail call double @hypot(double noundef %.0184.lcssa, double noundef %.0185.lcssa) #15, !tbaa !68
+  %19 = tail call double @hypot(double noundef %.0184.lcssa, double noundef %.0185.lcssa) #15, !tbaa !69
   %20 = fdiv double %.0184.lcssa, %19
   %21 = fdiv double %.0185.lcssa, %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %24 = load double, ptr %23, align 8, !tbaa !69
+  %24 = load double, ptr %23, align 8, !tbaa !70
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %26 = load double, ptr %25, align 8, !tbaa !70
+  %26 = load double, ptr %25, align 8, !tbaa !71
   %27 = fadd double %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  %29 = load double, ptr %28, align 8, !tbaa !71
+  %29 = load double, ptr %28, align 8, !tbaa !72
   %30 = tail call ptr @agraphof(ptr noundef nonnull %0) #15
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !54
+  %32 = load ptr, ptr %31, align 8, !tbaa !55
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 356
-  %34 = load i32, ptr %33, align 4, !tbaa !72
+  %34 = load i32, ptr %33, align 4, !tbaa !73
   %35 = sitofp i32 %34 to double
   %36 = fadd double %29, %35
   %37 = tail call double @llvm.maxnum.f64(double %27, double %36)
-  %38 = load ptr, ptr %22, align 8, !tbaa !54
+  %38 = load ptr, ptr %22, align 8, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %40 = load double, ptr %39, align 8, !tbaa !55
+  %40 = load double, ptr %39, align 8, !tbaa !56
   %41 = tail call double @llvm.fmuladd.f64(double %20, double %37, double %40)
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %43 = load double, ptr %42, align 8, !tbaa !67
+  %43 = load double, ptr %42, align 8, !tbaa !68
   %44 = tail call double @llvm.fmuladd.f64(double %21, double %37, double %43)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
-  store double %17, ptr %3, align 16, !tbaa !83
+  store double %17, ptr %3, align 16, !tbaa !84
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %16, ptr %45, align 8, !tbaa !84
+  store double %16, ptr %45, align 8, !tbaa !85
   %46 = tail call double @llvm.fmuladd.f64(double %17, double 2.000000e+00, double %41)
   %47 = fdiv double %46, 3.000000e+00
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %47, ptr %48, align 16, !tbaa !83
+  store double %47, ptr %48, align 16, !tbaa !84
   %49 = tail call double @llvm.fmuladd.f64(double %16, double 2.000000e+00, double %44)
   %50 = fdiv double %49, 3.000000e+00
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %50, ptr %51, align 8, !tbaa !84
+  store double %50, ptr %51, align 8, !tbaa !85
   %52 = tail call double @llvm.fmuladd.f64(double %41, double 2.000000e+00, double %17)
   %53 = fdiv double %52, 3.000000e+00
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store double %53, ptr %54, align 16, !tbaa !83
+  store double %53, ptr %54, align 16, !tbaa !84
   %55 = tail call double @llvm.fmuladd.f64(double %44, double 2.000000e+00, double %16)
   %56 = fdiv double %55, 3.000000e+00
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store double %56, ptr %57, align 8, !tbaa !84
+  store double %56, ptr %57, align 8, !tbaa !85
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %41, ptr %58, align 16, !tbaa !83
+  store double %41, ptr %58, align 16, !tbaa !84
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store double %44, ptr %59, align 8, !tbaa !84
+  store double %44, ptr %59, align 8, !tbaa !85
   call void @shape_clip(ptr noundef nonnull %0, ptr noundef nonnull %3) #15
-  %60 = load double, ptr %3, align 16, !tbaa !83
-  %61 = load ptr, ptr %22, align 8, !tbaa !54
+  %60 = load double, ptr %3, align 16, !tbaa !84
+  %61 = load ptr, ptr %22, align 8, !tbaa !55
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %63 = load double, ptr %62, align 8, !tbaa !55
+  %63 = load double, ptr %62, align 8, !tbaa !56
   %64 = fsub double %60, %63
-  %65 = load double, ptr %45, align 8, !tbaa !84
+  %65 = load double, ptr %45, align 8, !tbaa !85
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %67 = load double, ptr %66, align 8, !tbaa !67
+  %67 = load double, ptr %66, align 8, !tbaa !68
   %68 = fsub double %65, %67
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
   %69 = call double @llvm.round.f64(double %64)
   %70 = call double @llvm.round.f64(double %68)
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 104
-  %72 = load double, ptr %71, align 8, !tbaa !69
+  %72 = load double, ptr %71, align 8, !tbaa !70
   %73 = fadd double %69, %72
   %74 = fmul double %73, 2.560000e+02
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 112
-  %76 = load double, ptr %75, align 8, !tbaa !70
+  %76 = load double, ptr %75, align 8, !tbaa !71
   %77 = fadd double %72, %76
   %78 = fdiv double %74, %77
   %79 = fptoui double %78 to i8
   br i1 %.not210, label %._crit_edge209, label %.lr.ph208
 
 .lr.ph208:                                        ; preds = %._crit_edge
-  %80 = load ptr, ptr %1, align 8, !tbaa !49
+  %80 = load ptr, ptr %1, align 8, !tbaa !50
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %82 = load i64, ptr %81, align 8, !tbaa !48
+  %82 = load i64, ptr %81, align 8, !tbaa !49
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %84 = load i64, ptr %83, align 8, !tbaa !47
+  %84 = load i64, ptr %83, align 8, !tbaa !48
   br label %119
 
 85:                                               ; preds = %.lr.ph, %102
@@ -591,7 +591,7 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %86 = add i64 %7, %.0186195
   %87 = urem i64 %86, %9
   %88 = getelementptr inbounds nuw ptr, ptr %5, i64 %87
-  %89 = load ptr, ptr %88, align 8, !tbaa !52
+  %89 = load ptr, ptr %88, align 8, !tbaa !53
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %90, 3
   %92 = icmp eq i32 %91, 2
@@ -613,30 +613,30 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
 102:                                              ; preds = %85, %97
   %.0182 = phi ptr [ %101, %97 ], [ %95, %85 ]
   %103 = getelementptr inbounds nuw i8, ptr %.0182, i64 16
-  %104 = load ptr, ptr %103, align 8, !tbaa !54
+  %104 = load ptr, ptr %103, align 8, !tbaa !55
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %106 = load double, ptr %105, align 8, !tbaa !55
+  %106 = load double, ptr %105, align 8, !tbaa !56
   %107 = fsub double %106, %13
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 40
-  %109 = load double, ptr %108, align 8, !tbaa !67
+  %109 = load double, ptr %108, align 8, !tbaa !68
   %110 = fsub double %109, %15
-  %111 = tail call double @hypot(double noundef %107, double noundef %110) #15, !tbaa !68
+  %111 = tail call double @hypot(double noundef %107, double noundef %110) #15, !tbaa !69
   %112 = fdiv double %107, %111
   %113 = fadd double %.0184197, %112
   %114 = fdiv double %110, %111
   %115 = fadd double %.0185196, %114
   %116 = add nuw i64 %.0186195, 1
   %exitcond.not = icmp eq i64 %116, %.val193
-  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !86
 
 ._crit_edge209.loopexit:                          ; preds = %._crit_edge205
-  %.pre220 = load ptr, ptr %22, align 8, !tbaa !54
+  %.pre220 = load ptr, ptr %22, align 8, !tbaa !55
   br label %._crit_edge209
 
 ._crit_edge209:                                   ; preds = %._crit_edge209.loopexit, %._crit_edge
   %117 = phi ptr [ %.pre220, %._crit_edge209.loopexit ], [ %61, %._crit_edge ]
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 193
-  store i8 1, ptr %118, align 1, !tbaa !86
+  store i8 1, ptr %118, align 1, !tbaa !87
   ret void
 
 119:                                              ; preds = %.lr.ph208, %._crit_edge205
@@ -644,7 +644,7 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %120 = add i64 %82, %.0181206
   %121 = urem i64 %120, %84
   %122 = getelementptr inbounds nuw ptr, ptr %80, i64 %121
-  %.0202 = load ptr, ptr %122, align 8, !tbaa !52
+  %.0202 = load ptr, ptr %122, align 8, !tbaa !53
   %.not203 = icmp eq ptr %.0202, null
   br i1 %.not203, label %._crit_edge205, label %.preheader194
 
@@ -666,21 +666,21 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
 
 132:                                              ; preds = %123
   %133 = getelementptr inbounds nuw i8, ptr %.0183200, i64 16
-  %134 = load ptr, ptr %133, align 8, !tbaa !54
+  %134 = load ptr, ptr %133, align 8, !tbaa !55
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 72
-  store double %69, ptr %135, align 8, !tbaa !87
+  store double %69, ptr %135, align 8, !tbaa !88
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 80
-  store double %70, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !87
+  store double %70, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !88
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 88
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx, i8 0, i64 16, i1 false)
-  store i8 1, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !88
+  store i8 1, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !89
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 105
-  store i8 0, ptr %.sroa.15.0..sroa_idx, align 1, !tbaa !88
+  store i8 0, ptr %.sroa.15.0..sroa_idx, align 1, !tbaa !89
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 106
-  store i8 0, ptr %.sroa.17.0..sroa_idx, align 2, !tbaa !88
+  store i8 0, ptr %.sroa.17.0..sroa_idx, align 2, !tbaa !89
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 107
-  store i8 0, ptr %.sroa.19.0..sroa_idx, align 1, !tbaa !88
+  store i8 0, ptr %.sroa.19.0..sroa_idx, align 1, !tbaa !89
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 108
   store i8 %79, ptr %.sroa.21.0..sroa_idx, align 4, !tbaa !24
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 109
@@ -688,7 +688,7 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 110
   store i16 0, ptr %.sroa.25.0..sroa_idx, align 2
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 112
-  store ptr null, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !45
+  store ptr null, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !46
   %.pre218 = load i32, ptr %.0183200, align 8
   %.pre221 = and i32 %.pre218, 3
   br label %136
@@ -705,21 +705,21 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
 
 142:                                              ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %.0183200, i64 16
-  %144 = load ptr, ptr %143, align 8, !tbaa !54
+  %144 = load ptr, ptr %143, align 8, !tbaa !55
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  store double %69, ptr %145, align 8, !tbaa !87
+  store double %69, ptr %145, align 8, !tbaa !88
   %.sroa.8.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %144, i64 32
-  store double %70, ptr %.sroa.8.0..sroa_idx9, align 8, !tbaa !87
+  store double %70, ptr %.sroa.8.0..sroa_idx9, align 8, !tbaa !88
   %.sroa.9.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %144, i64 40
   %.sroa.13.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %144, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx15, i8 0, i64 16, i1 false)
-  store i8 1, ptr %.sroa.13.0..sroa_idx27, align 8, !tbaa !88
+  store i8 1, ptr %.sroa.13.0..sroa_idx27, align 8, !tbaa !89
   %.sroa.15.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %144, i64 57
-  store i8 0, ptr %.sroa.15.0..sroa_idx33, align 1, !tbaa !88
+  store i8 0, ptr %.sroa.15.0..sroa_idx33, align 1, !tbaa !89
   %.sroa.17.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %144, i64 58
-  store i8 0, ptr %.sroa.17.0..sroa_idx39, align 2, !tbaa !88
+  store i8 0, ptr %.sroa.17.0..sroa_idx39, align 2, !tbaa !89
   %.sroa.19.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %144, i64 59
-  store i8 0, ptr %.sroa.19.0..sroa_idx45, align 1, !tbaa !88
+  store i8 0, ptr %.sroa.19.0..sroa_idx45, align 1, !tbaa !89
   %.sroa.21.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %144, i64 60
   store i8 %79, ptr %.sroa.21.0..sroa_idx51, align 4, !tbaa !24
   %.sroa.23.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %144, i64 61
@@ -727,14 +727,14 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %.sroa.25.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %144, i64 62
   store i16 0, ptr %.sroa.25.0..sroa_idx63, align 2
   %.sroa.26.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %144, i64 64
-  store ptr null, ptr %.sroa.26.0..sroa_idx69, align 8, !tbaa !45
+  store ptr null, ptr %.sroa.26.0..sroa_idx69, align 8, !tbaa !46
   br label %146
 
 146:                                              ; preds = %136, %142
   %147 = getelementptr inbounds nuw i8, ptr %.0183200, i64 16
-  %148 = load ptr, ptr %147, align 8, !tbaa !54
+  %148 = load ptr, ptr %147, align 8, !tbaa !55
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 152
-  %150 = load i8, ptr %149, align 8, !tbaa !89
+  %150 = load i8, ptr %149, align 8, !tbaa !90
   %151 = icmp eq i8 %150, 1
   br i1 %151, label %152, label %.preheader.preheader
 
@@ -746,24 +746,24 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 56
   %158 = load ptr, ptr %157, align 8, !tbaa !15
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  %160 = load ptr, ptr %159, align 8, !tbaa !54
+  %160 = load ptr, ptr %159, align 8, !tbaa !55
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 216
-  %162 = load i8, ptr %161, align 8, !tbaa !95
+  %162 = load i8, ptr %161, align 8, !tbaa !96
   %163 = icmp eq i8 %162, 1
   br i1 %163, label %164, label %.preheader.preheader
 
 164:                                              ; preds = %152
   %165 = getelementptr inbounds nuw i8, ptr %160, i64 280
-  %166 = load i64, ptr %165, align 8, !tbaa !96
+  %166 = load i64, ptr %165, align 8, !tbaa !97
   %167 = icmp eq i64 %166, 1
   br i1 %167, label %168, label %.preheader.preheader
 
 168:                                              ; preds = %164
   %169 = getelementptr inbounds nuw i8, ptr %160, i64 272
-  %170 = load ptr, ptr %169, align 8, !tbaa !97
-  %171 = load ptr, ptr %170, align 8, !tbaa !52
+  %170 = load ptr, ptr %169, align 8, !tbaa !98
+  %171 = load ptr, ptr %170, align 8, !tbaa !53
   %.not188 = icmp eq ptr %171, null
-  br i1 %.not188, label %.preheader.preheader, label %123, !llvm.loop !98
+  br i1 %.not188, label %.preheader.preheader, label %123, !llvm.loop !99
 
 .preheader.preheader:                             ; preds = %146, %152, %164, %168
   br label %.preheader
@@ -782,21 +782,21 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
 
 179:                                              ; preds = %.preheader
   %180 = getelementptr inbounds nuw i8, ptr %.1201, i64 16
-  %181 = load ptr, ptr %180, align 8, !tbaa !54
+  %181 = load ptr, ptr %180, align 8, !tbaa !55
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 72
-  store double %69, ptr %182, align 8, !tbaa !87
+  store double %69, ptr %182, align 8, !tbaa !88
   %.sroa.8.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %181, i64 80
-  store double %70, ptr %.sroa.8.0..sroa_idx11, align 8, !tbaa !87
+  store double %70, ptr %.sroa.8.0..sroa_idx11, align 8, !tbaa !88
   %.sroa.9.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %181, i64 88
   %.sroa.13.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %181, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx17, i8 0, i64 16, i1 false)
-  store i8 1, ptr %.sroa.13.0..sroa_idx29, align 8, !tbaa !88
+  store i8 1, ptr %.sroa.13.0..sroa_idx29, align 8, !tbaa !89
   %.sroa.15.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %181, i64 105
-  store i8 0, ptr %.sroa.15.0..sroa_idx35, align 1, !tbaa !88
+  store i8 0, ptr %.sroa.15.0..sroa_idx35, align 1, !tbaa !89
   %.sroa.17.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %181, i64 106
-  store i8 0, ptr %.sroa.17.0..sroa_idx41, align 2, !tbaa !88
+  store i8 0, ptr %.sroa.17.0..sroa_idx41, align 2, !tbaa !89
   %.sroa.19.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %181, i64 107
-  store i8 0, ptr %.sroa.19.0..sroa_idx47, align 1, !tbaa !88
+  store i8 0, ptr %.sroa.19.0..sroa_idx47, align 1, !tbaa !89
   %.sroa.21.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %181, i64 108
   store i8 %79, ptr %.sroa.21.0..sroa_idx53, align 4, !tbaa !24
   %.sroa.23.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %181, i64 109
@@ -804,7 +804,7 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %.sroa.25.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %181, i64 110
   store i16 0, ptr %.sroa.25.0..sroa_idx65, align 2
   %.sroa.26.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %181, i64 112
-  store ptr null, ptr %.sroa.26.0..sroa_idx71, align 8, !tbaa !45
+  store ptr null, ptr %.sroa.26.0..sroa_idx71, align 8, !tbaa !46
   %.pre219 = load i32, ptr %.1201, align 8
   %.pre222 = and i32 %.pre219, 3
   br label %183
@@ -821,21 +821,21 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
 
 190:                                              ; preds = %183
   %191 = getelementptr inbounds nuw i8, ptr %.1201, i64 16
-  %192 = load ptr, ptr %191, align 8, !tbaa !54
+  %192 = load ptr, ptr %191, align 8, !tbaa !55
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  store double %69, ptr %193, align 8, !tbaa !87
+  store double %69, ptr %193, align 8, !tbaa !88
   %.sroa.8.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %192, i64 32
-  store double %70, ptr %.sroa.8.0..sroa_idx13, align 8, !tbaa !87
+  store double %70, ptr %.sroa.8.0..sroa_idx13, align 8, !tbaa !88
   %.sroa.9.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %192, i64 40
   %.sroa.13.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %192, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx19, i8 0, i64 16, i1 false)
-  store i8 1, ptr %.sroa.13.0..sroa_idx31, align 8, !tbaa !88
+  store i8 1, ptr %.sroa.13.0..sroa_idx31, align 8, !tbaa !89
   %.sroa.15.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %192, i64 57
-  store i8 0, ptr %.sroa.15.0..sroa_idx37, align 1, !tbaa !88
+  store i8 0, ptr %.sroa.15.0..sroa_idx37, align 1, !tbaa !89
   %.sroa.17.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %192, i64 58
-  store i8 0, ptr %.sroa.17.0..sroa_idx43, align 2, !tbaa !88
+  store i8 0, ptr %.sroa.17.0..sroa_idx43, align 2, !tbaa !89
   %.sroa.19.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %192, i64 59
-  store i8 0, ptr %.sroa.19.0..sroa_idx49, align 1, !tbaa !88
+  store i8 0, ptr %.sroa.19.0..sroa_idx49, align 1, !tbaa !89
   %.sroa.21.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %192, i64 60
   store i8 %79, ptr %.sroa.21.0..sroa_idx55, align 4, !tbaa !24
   %.sroa.23.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %192, i64 61
@@ -843,14 +843,14 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %.sroa.25.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %192, i64 62
   store i16 0, ptr %.sroa.25.0..sroa_idx67, align 2
   %.sroa.26.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %192, i64 64
-  store ptr null, ptr %.sroa.26.0..sroa_idx73, align 8, !tbaa !45
+  store ptr null, ptr %.sroa.26.0..sroa_idx73, align 8, !tbaa !46
   br label %194
 
 194:                                              ; preds = %183, %190
   %195 = getelementptr inbounds nuw i8, ptr %.1201, i64 16
-  %196 = load ptr, ptr %195, align 8, !tbaa !54
+  %196 = load ptr, ptr %195, align 8, !tbaa !55
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 152
-  %198 = load i8, ptr %197, align 8, !tbaa !89
+  %198 = load i8, ptr %197, align 8, !tbaa !90
   %199 = icmp eq i8 %198, 1
   br i1 %199, label %200, label %.thread226
 
@@ -862,37 +862,37 @@ define internal fastcc void @sameport(ptr noundef nonnull %0, ptr noundef readon
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 56
   %206 = load ptr, ptr %205, align 8, !tbaa !15
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %208 = load ptr, ptr %207, align 8, !tbaa !54
+  %208 = load ptr, ptr %207, align 8, !tbaa !55
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 216
-  %210 = load i8, ptr %209, align 8, !tbaa !95
+  %210 = load i8, ptr %209, align 8, !tbaa !96
   %211 = icmp eq i8 %210, 1
   br i1 %211, label %212, label %.thread226
 
 212:                                              ; preds = %200
   %213 = getelementptr inbounds nuw i8, ptr %208, i64 264
-  %214 = load i64, ptr %213, align 8, !tbaa !99
+  %214 = load i64, ptr %213, align 8, !tbaa !100
   %215 = icmp eq i64 %214, 1
   br i1 %215, label %216, label %.thread226
 
 216:                                              ; preds = %212
   %217 = getelementptr inbounds nuw i8, ptr %208, i64 256
-  %218 = load ptr, ptr %217, align 8, !tbaa !100
-  %219 = load ptr, ptr %218, align 8, !tbaa !52
+  %218 = load ptr, ptr %217, align 8, !tbaa !101
+  %219 = load ptr, ptr %218, align 8, !tbaa !53
   %.not189 = icmp eq ptr %219, null
-  br i1 %.not189, label %.thread226, label %.preheader, !llvm.loop !101
+  br i1 %.not189, label %.thread226, label %.preheader, !llvm.loop !102
 
 .thread226:                                       ; preds = %194, %200, %212, %216
   %220 = getelementptr inbounds nuw i8, ptr %.0204, i64 16
-  %221 = load ptr, ptr %220, align 8, !tbaa !54
+  %221 = load ptr, ptr %220, align 8, !tbaa !55
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 232
-  %.0 = load ptr, ptr %222, align 8, !tbaa !52
+  %.0 = load ptr, ptr %222, align 8, !tbaa !53
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge205, label %.preheader194, !llvm.loop !102
+  br i1 %.not, label %._crit_edge205, label %.preheader194, !llvm.loop !103
 
 ._crit_edge205:                                   ; preds = %.thread226, %119
   %223 = add nuw i64 %.0181206, 1
   %exitcond213.not = icmp eq i64 %223, %.val193
-  br i1 %exitcond213.not, label %._crit_edge209.loopexit, label %119, !llvm.loop !103
+  br i1 %exitcond213.not, label %._crit_edge209.loopexit, label %119, !llvm.loop !104
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -995,82 +995,83 @@ attributes #20 = { cold noreturn nounwind }
 !22 = !{!"p1 _ZTS9dtlink_s_", !5, i64 0}
 !23 = !{!"p1 _ZTS8Agnode_s", !5, i64 0}
 !24 = !{!6, !6, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"same_list_get: argument 0"}
-!29 = distinct !{!29, !"same_list_get"}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p2 _ZTS8Agedge_s", !5, i64 0}
-!32 = distinct !{!32, !26}
-!33 = !{!34, !11, i64 16}
-!34 = !{!"", !31, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
-!35 = distinct !{!35, !26}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"same_list_get: argument 0"}
-!38 = distinct !{!38, !"same_list_get"}
-!39 = distinct !{!39, !26}
-!40 = distinct !{!40, !26}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"same_list_get: argument 0"}
-!43 = distinct !{!43, !"same_list_get"}
-!44 = distinct !{!44, !26}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 omnipotent char", !5, i64 0}
-!47 = !{!34, !11, i64 24}
-!48 = !{!34, !11, i64 8}
-!49 = !{!34, !31, i64 0}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 _ZTS8Agedge_s", !5, i64 0}
-!54 = !{!17, !20, i64 16}
-!55 = !{!56, !60, i64 32}
-!56 = !{!"Agnodeinfo_t", !57, i64 0, !58, i64 16, !5, i64 24, !59, i64 32, !60, i64 48, !60, i64 56, !61, i64 64, !60, i64 96, !60, i64 104, !60, i64 112, !60, i64 120, !60, i64 128, !62, i64 136, !62, i64 144, !5, i64 152, !6, i64 160, !6, i64 161, !63, i64 162, !6, i64 163, !19, i64 164, !19, i64 168, !19, i64 172, !64, i64 176, !60, i64 184, !6, i64 192, !63, i64 193, !23, i64 200, !23, i64 208, !6, i64 216, !11, i64 224, !6, i64 232, !6, i64 233, !6, i64 234, !23, i64 240, !23, i64 248, !65, i64 256, !65, i64 272, !65, i64 288, !65, i64 304, !65, i64 320, !66, i64 336, !19, i64 344, !23, i64 352, !19, i64 360, !19, i64 364, !60, i64 368, !65, i64 376, !65, i64 392, !65, i64 408, !65, i64 424, !53, i64 440, !19, i64 448, !19, i64 452, !19, i64 456, !6, i64 464}
-!57 = !{!"Agrec_s", !46, i64 0, !20, i64 8}
-!58 = !{!"p1 _ZTS10shape_desc", !5, i64 0}
-!59 = !{!"pointf_s", !60, i64 0, !60, i64 8}
-!60 = !{!"double", !6, i64 0}
-!61 = !{!"", !59, i64 0, !59, i64 16}
-!62 = !{!"p1 _ZTS11textlabel_t", !5, i64 0}
-!63 = !{!"_Bool", !6, i64 0}
-!64 = !{!"p1 double", !5, i64 0}
-!65 = !{!"elist", !31, i64 0, !11, i64 8}
-!66 = !{!"p1 _ZTS8Agraph_s", !5, i64 0}
-!67 = !{!56, !60, i64 40}
-!68 = !{!19, !19, i64 0}
-!69 = !{!56, !60, i64 104}
-!70 = !{!56, !60, i64 112}
-!71 = !{!56, !60, i64 96}
-!72 = !{!73, !19, i64 356}
-!73 = !{!"Agraphinfo_t", !57, i64 0, !74, i64 16, !62, i64 24, !61, i64 32, !6, i64 64, !6, i64 128, !6, i64 129, !63, i64 130, !6, i64 131, !19, i64 132, !60, i64 136, !60, i64 144, !75, i64 152, !5, i64 160, !76, i64 168, !5, i64 176, !77, i64 184, !19, i64 192, !78, i64 200, !78, i64 208, !78, i64 216, !79, i64 224, !75, i64 232, !75, i64 234, !19, i64 236, !80, i64 240, !66, i64 248, !23, i64 256, !81, i64 264, !66, i64 272, !19, i64 280, !23, i64 288, !23, i64 296, !82, i64 304, !23, i64 320, !23, i64 328, !19, i64 336, !19, i64 340, !63, i64 344, !6, i64 345, !19, i64 348, !19, i64 352, !19, i64 356, !23, i64 360, !23, i64 368, !23, i64 376, !77, i64 384, !63, i64 392, !6, i64 393, !6, i64 394, !6, i64 395, !63, i64 396}
-!74 = !{!"p1 _ZTS8layout_t", !5, i64 0}
-!75 = !{!"short", !6, i64 0}
-!76 = !{!"p1 _ZTS5GVC_s", !5, i64 0}
-!77 = !{!"p2 _ZTS8Agnode_s", !5, i64 0}
-!78 = !{!"p2 double", !5, i64 0}
-!79 = !{!"p3 double", !5, i64 0}
-!80 = !{!"p2 _ZTS8Agraph_s", !5, i64 0}
-!81 = !{!"p1 _ZTS6rank_t", !5, i64 0}
-!82 = !{!"nlist_t", !77, i64 0, !11, i64 8}
-!83 = !{!59, !60, i64 0}
-!84 = !{!59, !60, i64 8}
-!85 = distinct !{!85, !26}
-!86 = !{!56, !63, i64 193}
-!87 = !{!60, !60, i64 0}
-!88 = !{!63, !63, i64 0}
-!89 = !{!90, !6, i64 152}
-!90 = !{!"Agedgeinfo_t", !57, i64 0, !91, i64 16, !92, i64 24, !92, i64 72, !62, i64 120, !62, i64 128, !62, i64 136, !62, i64 144, !6, i64 152, !6, i64 153, !6, i64 154, !6, i64 155, !6, i64 156, !53, i64 160, !5, i64 168, !60, i64 176, !60, i64 184, !93, i64 192, !6, i64 208, !63, i64 209, !75, i64 210, !19, i64 212, !19, i64 216, !19, i64 220, !75, i64 224, !19, i64 228, !53, i64 232}
-!91 = !{!"p1 _ZTS7splines", !5, i64 0}
-!92 = !{!"port", !59, i64 0, !60, i64 16, !5, i64 24, !63, i64 32, !63, i64 33, !63, i64 34, !63, i64 35, !6, i64 36, !6, i64 37, !46, i64 40}
-!93 = !{!"Ppoly_t", !94, i64 0, !11, i64 8}
-!94 = !{!"p1 _ZTS8pointf_s", !5, i64 0}
-!95 = !{!56, !6, i64 216}
-!96 = !{!56, !11, i64 280}
-!97 = !{!56, !31, i64 272}
-!98 = distinct !{!98, !26}
-!99 = !{!56, !11, i64 264}
-!100 = !{!56, !31, i64 256}
-!101 = distinct !{!101, !26}
-!102 = distinct !{!102, !26}
-!103 = distinct !{!103, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"same_list_get: argument 0"}
+!30 = distinct !{!30, !"same_list_get"}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p2 _ZTS8Agedge_s", !5, i64 0}
+!33 = distinct !{!33, !26, !27}
+!34 = !{!35, !11, i64 16}
+!35 = !{!"", !32, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
+!36 = distinct !{!36, !26, !27}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"same_list_get: argument 0"}
+!39 = distinct !{!39, !"same_list_get"}
+!40 = distinct !{!40, !26, !27}
+!41 = distinct !{!41, !26, !27}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"same_list_get: argument 0"}
+!44 = distinct !{!44, !"same_list_get"}
+!45 = distinct !{!45, !26, !27}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 omnipotent char", !5, i64 0}
+!48 = !{!35, !11, i64 24}
+!49 = !{!35, !11, i64 8}
+!50 = !{!35, !32, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS8Agedge_s", !5, i64 0}
+!55 = !{!17, !20, i64 16}
+!56 = !{!57, !61, i64 32}
+!57 = !{!"Agnodeinfo_t", !58, i64 0, !59, i64 16, !5, i64 24, !60, i64 32, !61, i64 48, !61, i64 56, !62, i64 64, !61, i64 96, !61, i64 104, !61, i64 112, !61, i64 120, !61, i64 128, !63, i64 136, !63, i64 144, !5, i64 152, !6, i64 160, !6, i64 161, !64, i64 162, !6, i64 163, !19, i64 164, !19, i64 168, !19, i64 172, !65, i64 176, !61, i64 184, !6, i64 192, !64, i64 193, !23, i64 200, !23, i64 208, !6, i64 216, !11, i64 224, !6, i64 232, !6, i64 233, !6, i64 234, !23, i64 240, !23, i64 248, !66, i64 256, !66, i64 272, !66, i64 288, !66, i64 304, !66, i64 320, !67, i64 336, !19, i64 344, !23, i64 352, !19, i64 360, !19, i64 364, !61, i64 368, !66, i64 376, !66, i64 392, !66, i64 408, !66, i64 424, !54, i64 440, !19, i64 448, !19, i64 452, !19, i64 456, !6, i64 464}
+!58 = !{!"Agrec_s", !47, i64 0, !20, i64 8}
+!59 = !{!"p1 _ZTS10shape_desc", !5, i64 0}
+!60 = !{!"pointf_s", !61, i64 0, !61, i64 8}
+!61 = !{!"double", !6, i64 0}
+!62 = !{!"", !60, i64 0, !60, i64 16}
+!63 = !{!"p1 _ZTS11textlabel_t", !5, i64 0}
+!64 = !{!"_Bool", !6, i64 0}
+!65 = !{!"p1 double", !5, i64 0}
+!66 = !{!"elist", !32, i64 0, !11, i64 8}
+!67 = !{!"p1 _ZTS8Agraph_s", !5, i64 0}
+!68 = !{!57, !61, i64 40}
+!69 = !{!19, !19, i64 0}
+!70 = !{!57, !61, i64 104}
+!71 = !{!57, !61, i64 112}
+!72 = !{!57, !61, i64 96}
+!73 = !{!74, !19, i64 356}
+!74 = !{!"Agraphinfo_t", !58, i64 0, !75, i64 16, !63, i64 24, !62, i64 32, !6, i64 64, !6, i64 128, !6, i64 129, !64, i64 130, !6, i64 131, !19, i64 132, !61, i64 136, !61, i64 144, !76, i64 152, !5, i64 160, !77, i64 168, !5, i64 176, !78, i64 184, !19, i64 192, !79, i64 200, !79, i64 208, !79, i64 216, !80, i64 224, !76, i64 232, !76, i64 234, !19, i64 236, !81, i64 240, !67, i64 248, !23, i64 256, !82, i64 264, !67, i64 272, !19, i64 280, !23, i64 288, !23, i64 296, !83, i64 304, !23, i64 320, !23, i64 328, !19, i64 336, !19, i64 340, !64, i64 344, !6, i64 345, !19, i64 348, !19, i64 352, !19, i64 356, !23, i64 360, !23, i64 368, !23, i64 376, !78, i64 384, !64, i64 392, !6, i64 393, !6, i64 394, !6, i64 395, !64, i64 396}
+!75 = !{!"p1 _ZTS8layout_t", !5, i64 0}
+!76 = !{!"short", !6, i64 0}
+!77 = !{!"p1 _ZTS5GVC_s", !5, i64 0}
+!78 = !{!"p2 _ZTS8Agnode_s", !5, i64 0}
+!79 = !{!"p2 double", !5, i64 0}
+!80 = !{!"p3 double", !5, i64 0}
+!81 = !{!"p2 _ZTS8Agraph_s", !5, i64 0}
+!82 = !{!"p1 _ZTS6rank_t", !5, i64 0}
+!83 = !{!"nlist_t", !78, i64 0, !11, i64 8}
+!84 = !{!60, !61, i64 0}
+!85 = !{!60, !61, i64 8}
+!86 = distinct !{!86, !26, !27}
+!87 = !{!57, !64, i64 193}
+!88 = !{!61, !61, i64 0}
+!89 = !{!64, !64, i64 0}
+!90 = !{!91, !6, i64 152}
+!91 = !{!"Agedgeinfo_t", !58, i64 0, !92, i64 16, !93, i64 24, !93, i64 72, !63, i64 120, !63, i64 128, !63, i64 136, !63, i64 144, !6, i64 152, !6, i64 153, !6, i64 154, !6, i64 155, !6, i64 156, !54, i64 160, !5, i64 168, !61, i64 176, !61, i64 184, !94, i64 192, !6, i64 208, !64, i64 209, !76, i64 210, !19, i64 212, !19, i64 216, !19, i64 220, !76, i64 224, !19, i64 228, !54, i64 232}
+!92 = !{!"p1 _ZTS7splines", !5, i64 0}
+!93 = !{!"port", !60, i64 0, !61, i64 16, !5, i64 24, !64, i64 32, !64, i64 33, !64, i64 34, !64, i64 35, !6, i64 36, !6, i64 37, !47, i64 40}
+!94 = !{!"Ppoly_t", !95, i64 0, !11, i64 8}
+!95 = !{!"p1 _ZTS8pointf_s", !5, i64 0}
+!96 = !{!57, !6, i64 216}
+!97 = !{!57, !11, i64 280}
+!98 = !{!57, !32, i64 272}
+!99 = distinct !{!99, !26, !27}
+!100 = !{!57, !11, i64 264}
+!101 = !{!57, !32, i64 256}
+!102 = distinct !{!102, !26, !27}
+!103 = distinct !{!103, !26, !27}
+!104 = distinct !{!104, !26, !27}

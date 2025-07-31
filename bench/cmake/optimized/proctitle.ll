@@ -77,7 +77,7 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly capture
   store ptr %22, ptr %27, align 8, !tbaa !4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge56.loopexit, label %.lr.ph55
+  br i1 %exitcond70.not, label %._crit_edge56.loopexit, label %.lr.ph55, !llvm.loop !12
 
 ._crit_edge56.loopexit:                           ; preds = %.lr.ph55
   %28 = zext nneg i32 %0 to i64
@@ -96,10 +96,10 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly capture
   %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
-  store ptr %17, ptr @args_mem, align 8, !tbaa !11
+  store ptr %17, ptr @args_mem, align 8, !tbaa !13
   store ptr %5, ptr @process_title.0, align 8, !tbaa !4
-  store i64 %6, ptr @process_title.1, align 8, !tbaa !12
-  store i64 %36, ptr @process_title.2, align 8, !tbaa !12
+  store i64 %6, ptr @process_title.1, align 8, !tbaa !14
+  store i64 %36, ptr @process_title.2, align 8, !tbaa !14
   br label %37
 
 37:                                               ; preds = %._crit_edge, %2, %._crit_edge56
@@ -117,7 +117,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -105, 1) i32 @uv_set_process_title(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr @args_mem, align 8, !tbaa !11
+  %2 = load ptr, ptr @args_mem, align 8, !tbaa !13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %10, label %4
 
@@ -125,16 +125,16 @@ define dso_local range(i32 -105, 1) i32 @uv_set_process_title(ptr noundef readon
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   tail call void @uv_once(ptr noundef nonnull @process_title_mutex_once, ptr noundef nonnull @init_process_title_mutex_once) #7
   tail call void @uv_mutex_lock(ptr noundef nonnull @process_title_mutex) #7
-  %6 = load i64, ptr @process_title.2, align 8, !tbaa !14
+  %6 = load i64, ptr @process_title.2, align 8, !tbaa !16
   %.not = icmp ult i64 %5, %6
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
   %.0 = select i1 %.not, i64 %5, i64 %spec.select
-  %7 = load ptr, ptr @process_title.0, align 8, !tbaa !16
+  %7 = load ptr, ptr @process_title.0, align 8, !tbaa !18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 1 %0, i64 %.0, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.0
   %9 = sub i64 %6, %.0
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %9, i1 false)
-  store i64 %.0, ptr @process_title.1, align 8, !tbaa !17
+  store i64 %.0, ptr @process_title.1, align 8, !tbaa !19
   tail call void @uv__set_process_title(ptr noundef %7) #7
   tail call void @uv_mutex_unlock(ptr noundef nonnull @process_title_mutex) #7
   br label %10
@@ -169,14 +169,14 @@ define dso_local range(i32 -105, 1) i32 @uv_get_process_title(ptr noundef writeo
   br i1 %or.cond, label %16, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr @args_mem, align 8, !tbaa !11
+  %6 = load ptr, ptr @args_mem, align 8, !tbaa !13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %5
   tail call void @uv_once(ptr noundef nonnull @process_title_mutex_once, ptr noundef nonnull @init_process_title_mutex_once) #7
   tail call void @uv_mutex_lock(ptr noundef nonnull @process_title_mutex) #7
-  %9 = load i64, ptr @process_title.1, align 8, !tbaa !17
+  %9 = load i64, ptr @process_title.1, align 8, !tbaa !19
   %.not = icmp ugt i64 %1, %9
   br i1 %.not, label %10, label %.sink.split
 
@@ -185,14 +185,14 @@ define dso_local range(i32 -105, 1) i32 @uv_get_process_title(ptr noundef writeo
   br i1 %.not9, label %14, label %11
 
 11:                                               ; preds = %10
-  %12 = load ptr, ptr @process_title.0, align 8, !tbaa !16
+  %12 = load ptr, ptr @process_title.0, align 8, !tbaa !18
   %13 = add nuw i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %12, i64 %13, i1 false)
   br label %14
 
 14:                                               ; preds = %11, %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %9
-  store i8 0, ptr %15, align 1, !tbaa !18
+  store i8 0, ptr %15, align 1, !tbaa !20
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %14
@@ -207,9 +207,9 @@ define dso_local range(i32 -105, 1) i32 @uv_get_process_title(ptr noundef writeo
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__process_title_cleanup() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @args_mem, align 8, !tbaa !11
+  %1 = load ptr, ptr @args_mem, align 8, !tbaa !13
   tail call void @uv__free(ptr noundef %1) #7
-  store ptr null, ptr @args_mem, align 8, !tbaa !11
+  store ptr null, ptr @args_mem, align 8, !tbaa !13
   ret void
 }
 
@@ -240,13 +240,15 @@ attributes #7 = { nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!6, !6, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !7, i64 0}
-!14 = !{!15, !13, i64 16}
-!15 = !{!"uv__process_title", !5, i64 0, !13, i64 8, !13, i64 16}
-!16 = !{!15, !5, i64 0}
-!17 = !{!15, !13, i64 8}
-!18 = !{!7, !7, i64 0}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = !{!6, !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!17, !15, i64 16}
+!17 = !{!"uv__process_title", !5, i64 0, !15, i64 8, !15, i64 16}
+!18 = !{!17, !5, i64 0}
+!19 = !{!17, !15, i64 8}
+!20 = !{!7, !7, i64 0}

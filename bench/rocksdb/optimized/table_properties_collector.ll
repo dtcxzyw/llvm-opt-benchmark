@@ -869,5 +869,6 @@ attributes #15 = { noreturn }
 !66 = !{!"_ZTSSt14_Rb_tree_color", !8, i64 0}
 !67 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !7, i64 0}
 !68 = !{!67, !67, i64 0}
-!69 = distinct !{!69, !70}
+!69 = distinct !{!69, !70, !71}
 !70 = !{!"llvm.loop.mustprogress"}
+!71 = !{!"llvm.loop.estimated_trip_count"}

@@ -324,7 +324,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42: 
   store i64 %16, ptr %19, align 8, !tbaa !25
   store i64 3, ptr %21, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !31
+  %39 = load i64, ptr %38, align 8, !tbaa !32
   %.not.i.i43 = icmp eq i64 %1, %39
   br i1 %.not.i.i43, label %_ZN5Eigen15PlainObjectBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit, label %40
 
@@ -340,7 +340,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42: 
 
 .invoke:                                          ; preds = %42, %27, %._crit_edge
   %45 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8, !tbaa !32
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8, !tbaa !33
   invoke void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #12
           to label %.cont unwind label %54
 
@@ -353,7 +353,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42: 
   br label %_ZN5Eigen15PlainObjectBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42, %.sink.split.i.i44
-  store i64 %1, ptr %38, align 8, !tbaa !31
+  store i64 %1, ptr %38, align 8, !tbaa !32
   %46 = load i64, ptr %11, align 8, !tbaa !24
   %47 = icmp sgt i64 %46, 0
   br i1 %47, label %.lr.ph60, label %._crit_edge61
@@ -401,13 +401,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge61, %._c
   %66 = mul nsw i64 %50, %65
   %67 = getelementptr i8, ptr %49, i64 %64
   %68 = getelementptr i8, ptr %67, i64 %66
-  store i8 %63, ptr %68, align 1, !tbaa !34
+  store i8 %63, ptr %68, align 1, !tbaa !35
   %69 = and i1 %.03058, %62
   %70 = getelementptr inbounds i8, ptr %51, i64 %59
-  store i8 %63, ptr %70, align 1, !tbaa !34
+  store i8 %63, ptr %70, align 1, !tbaa !35
   %71 = add nuw nsw i64 %.02959, 1
   %exitcond62.not = icmp eq i64 %71, %46
-  br i1 %exitcond62.not, label %._crit_edge61.thread, label %56, !llvm.loop !36
+  br i1 %exitcond62.not, label %._crit_edge61.thread, label %56, !llvm.loop !37
 
 72:                                               ; preds = %54
   %73 = ptrtoint ptr %.sroa.049.0 to i64
@@ -459,7 +459,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc39, %_ZNSt6ve
 
 ._crit_edge:                                      ; preds = %30, %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !37
+  %16 = load i64, ptr %15, align 8, !tbaa !38
   %17 = icmp sgt i64 %16, 3074457345618258602
   br i1 %17, label %.invoke, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
 
@@ -500,13 +500,13 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
   store i64 %36, ptr %34, align 8, !tbaa !23
   %37 = add nuw nsw i64 %.03457, 1
   %exitcond.not = icmp eq i64 %37, %12
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !40
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42: ; preds = %.sink.split.i.i, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
   store i64 %16, ptr %19, align 8, !tbaa !25
   store i64 3, ptr %21, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !31
+  %39 = load i64, ptr %38, align 8, !tbaa !32
   %.not.i.i43 = icmp eq i64 %1, %39
   br i1 %.not.i.i43, label %_ZN5Eigen15PlainObjectBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit, label %40
 
@@ -522,7 +522,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42: 
 
 .invoke:                                          ; preds = %42, %27, %._crit_edge
   %45 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8, !tbaa !32
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8, !tbaa !33
   invoke void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #12
           to label %.cont unwind label %54
 
@@ -535,7 +535,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42: 
   br label %_ZN5Eigen15PlainObjectBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42, %.sink.split.i.i44
-  store i64 %1, ptr %38, align 8, !tbaa !31
+  store i64 %1, ptr %38, align 8, !tbaa !32
   %46 = load i64, ptr %11, align 8, !tbaa !24
   %47 = icmp sgt i64 %46, 0
   br i1 %47, label %.lr.ph60, label %._crit_edge61
@@ -583,13 +583,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge61, %._c
   %66 = mul nsw i64 %50, %65
   %67 = getelementptr i8, ptr %49, i64 %64
   %68 = getelementptr i8, ptr %67, i64 %66
-  store i8 %63, ptr %68, align 1, !tbaa !34
+  store i8 %63, ptr %68, align 1, !tbaa !35
   %69 = and i1 %.03058, %62
   %70 = getelementptr inbounds i8, ptr %51, i64 %59
-  store i8 %63, ptr %70, align 1, !tbaa !34
+  store i8 %63, ptr %70, align 1, !tbaa !35
   %71 = add nuw nsw i64 %.02959, 1
   %exitcond62.not = icmp eq i64 %71, %46
-  br i1 %exitcond62.not, label %._crit_edge61.thread, label %56, !llvm.loop !40
+  br i1 %exitcond62.not, label %._crit_edge61.thread, label %56, !llvm.loop !41
 
 72:                                               ; preds = %54
   %73 = ptrtoint ptr %.sroa.049.0 to i64
@@ -640,7 +640,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc39, %_ZNSt6ve
 
 ._crit_edge:                                      ; preds = %30, %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !41
+  %16 = load i64, ptr %15, align 8, !tbaa !42
   %17 = icmp sgt i64 %16, 3074457345618258602
   br i1 %17, label %.invoke, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
 
@@ -681,13 +681,13 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
   store i64 %36, ptr %34, align 8, !tbaa !23
   %37 = add nuw nsw i64 %.03457, 1
   %exitcond.not = icmp eq i64 %37, %12
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !44
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42: ; preds = %.sink.split.i.i, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
   store i64 %16, ptr %19, align 8, !tbaa !25
   store i64 3, ptr %21, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !31
+  %39 = load i64, ptr %38, align 8, !tbaa !32
   %.not.i.i43 = icmp eq i64 %1, %39
   br i1 %.not.i.i43, label %_ZN5Eigen15PlainObjectBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit, label %40
 
@@ -703,7 +703,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42: 
 
 .invoke:                                          ; preds = %42, %27, %._crit_edge
   %45 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8, !tbaa !32
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8, !tbaa !33
   invoke void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #12
           to label %.cont unwind label %54
 
@@ -716,7 +716,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42: 
   br label %_ZN5Eigen15PlainObjectBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i42, %.sink.split.i.i44
-  store i64 %1, ptr %38, align 8, !tbaa !31
+  store i64 %1, ptr %38, align 8, !tbaa !32
   %46 = load i64, ptr %11, align 8, !tbaa !24
   %47 = icmp sgt i64 %46, 0
   br i1 %47, label %.lr.ph60, label %._crit_edge61
@@ -764,13 +764,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge61, %._c
   %66 = mul nsw i64 %50, %65
   %67 = getelementptr i8, ptr %49, i64 %64
   %68 = getelementptr i8, ptr %67, i64 %66
-  store i8 %63, ptr %68, align 1, !tbaa !34
+  store i8 %63, ptr %68, align 1, !tbaa !35
   %69 = and i1 %.03058, %62
   %70 = getelementptr inbounds i8, ptr %51, i64 %59
-  store i8 %63, ptr %70, align 1, !tbaa !34
+  store i8 %63, ptr %70, align 1, !tbaa !35
   %71 = add nuw nsw i64 %.02959, 1
   %exitcond62.not = icmp eq i64 %71, %46
-  br i1 %exitcond62.not, label %._crit_edge61.thread, label %56, !llvm.loop !44
+  br i1 %exitcond62.not, label %._crit_edge61.thread, label %56, !llvm.loop !45
 
 72:                                               ; preds = %54
   %73 = ptrtoint ptr %.sroa.049.0 to i64
@@ -853,19 +853,20 @@ attributes #15 = { builtin nounwind }
 !26 = !{!20, !10, i64 16}
 !27 = !{!28, !28, i64 0}
 !28 = !{!"int", !8, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!17, !10, i64 8}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"vtable pointer", !9, i64 0}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"bool", !8, i64 0}
-!36 = distinct !{!36, !30}
-!37 = !{!38, !10, i64 8}
-!38 = !{!"_ZTSN5Eigen12DenseStorageIjLin1ELin1ELin1ELi1EEE", !6, i64 0, !10, i64 8, !10, i64 16}
-!39 = distinct !{!39, !30}
-!40 = distinct !{!40, !30}
-!41 = !{!42, !10, i64 8}
-!42 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi3ELi0EEE", !6, i64 0, !10, i64 8}
-!43 = distinct !{!43, !30}
-!44 = distinct !{!44, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!17, !10, i64 8}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"vtable pointer", !9, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"bool", !8, i64 0}
+!37 = distinct !{!37, !30, !31}
+!38 = !{!39, !10, i64 8}
+!39 = !{!"_ZTSN5Eigen12DenseStorageIjLin1ELin1ELin1ELi1EEE", !6, i64 0, !10, i64 8, !10, i64 16}
+!40 = distinct !{!40, !30, !31}
+!41 = distinct !{!41, !30, !31}
+!42 = !{!43, !10, i64 8}
+!43 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi3ELi0EEE", !6, i64 0, !10, i64 8}
+!44 = distinct !{!44, !30, !31}
+!45 = distinct !{!45, !30, !31}

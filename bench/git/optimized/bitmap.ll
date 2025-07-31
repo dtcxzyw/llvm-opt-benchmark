@@ -282,7 +282,7 @@ st_mult.exit:                                     ; preds = %11
   store i64 %22, ptr %23, align 8, !tbaa !12
   %24 = call i32 @ewah_iterator_next(ptr noundef nonnull %3, ptr noundef nonnull %2) #13
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %20, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %8, %20 ]
@@ -324,7 +324,7 @@ define dso_local void @bitmap_and_not(ptr noundef readonly captures(none) %0, pt
   store i64 %15, ptr %13, align 8, !tbaa !12
   %16 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %16, %.
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %9, %2
   ret void
@@ -391,7 +391,7 @@ bitmap_grow.exit:                                 ; preds = %._crit_edge.i, %st_
   %31 = add nuw i64 %.08, 1
   %32 = load i64, ptr %3, align 8, !tbaa !11
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %25, label %._crit_edge, !llvm.loop !17
+  br i1 %33, label %25, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %25, %bitmap_grow.exit
   ret void
@@ -416,7 +416,7 @@ define dso_local range(i32 0, 2) i32 @ewah_bitmap_is_subset(ptr noundef %0, ptr 
   %8 = add nuw i64 %.012, 1
   %9 = load i64, ptr %5, align 8, !tbaa !11
   %10 = icmp ult i64 %8, %9
-  br i1 %10, label %.lr.ph, label %.preheader.preheader, !llvm.loop !18
+  br i1 %10, label %.lr.ph, label %.preheader.preheader, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %2, %7
   %.012 = phi i64 [ %8, %7 ], [ 0, %2 ]
@@ -442,7 +442,7 @@ define dso_local range(i32 0, 2) i32 @ewah_bitmap_is_subset(ptr noundef %0, ptr 
 20:                                               ; preds = %.preheader
   %21 = load i64, ptr %4, align 8, !tbaa !12
   %.not7 = icmp eq i64 %21, 0
-  br i1 %.not7, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %.not7, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %12, %.lr.ph, %.preheader, %20
   %.06 = phi i32 [ 1, %.preheader ], [ 0, %20 ], [ 0, %12 ], [ 1, %.lr.ph ]
@@ -458,7 +458,7 @@ define dso_local void @bitmap_or_ewah(ptr noundef captures(none) %0, ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !20
+  %8 = load i64, ptr %7, align 8, !tbaa !21
   %9 = lshr i64 %8, 6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
@@ -496,7 +496,7 @@ st_mult.exit:                                     ; preds = %2
   store i64 %25, ptr %23, align 8, !tbaa !12
   %26 = call i32 @ewah_iterator_next(ptr noundef nonnull %4, ptr noundef nonnull %3) #13
   %.not16 = icmp eq i32 %26, 0
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
@@ -540,7 +540,7 @@ define dso_local i64 @bitmap_popcount(ptr noundef readonly captures(none) %0) lo
   %22 = add i64 %21, %.08
   %23 = add nuw i64 %.067, 1
   %exitcond.not = icmp eq i64 %23, %3
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %5, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %22, %5 ]
@@ -578,7 +578,7 @@ define dso_local i64 @ewah_bitmap_popcount(ptr noundef %0) local_unnamed_addr #0
   %20 = add i64 %19, %.03
   %21 = call i32 @ewah_iterator_next(ptr noundef nonnull %3, ptr noundef nonnull %2) #13
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %20, %.lr.ph ]
@@ -601,7 +601,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_is_empty(ptr noundef readonly captu
 5:                                                ; preds = %7
   %6 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %6, %3
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !26
 
 7:                                                ; preds = %.lr.ph, %5
   %.06 = phi i64 [ 0, %.lr.ph ], [ %6, %5 ]
@@ -656,12 +656,12 @@ define dso_local range(i32 0, 2) i32 @bitmap_equals(ptr noundef readonly capture
 21:                                               ; preds = %16
   %22 = add nuw i64 %.025, 1
   %exitcond.not = icmp eq i64 %22, %9
-  br i1 %exitcond.not, label %.preheader, label %16, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader, label %16, !llvm.loop !27
 
 23:                                               ; preds = %25
   %24 = add i64 %.126, 1
   %exitcond33.not = icmp eq i64 %24, %13
-  br i1 %exitcond33.not, label %.loopexit, label %25, !llvm.loop !27
+  br i1 %exitcond33.not, label %.loopexit, label %25, !llvm.loop !28
 
 25:                                               ; preds = %.lr.ph27, %23
   %.126 = phi i64 [ %9, %.lr.ph27 ], [ %24, %23 ]
@@ -717,12 +717,12 @@ define dso_local range(i32 0, 2) i32 @bitmap_equals_ewah(ptr noundef readonly ca
   %.1 = phi i64 [ %17, %15 ], [ %.0, %11 ]
   %21 = phi i64 [ %19, %15 ], [ 0, %11 ]
   %.not12 = icmp eq i64 %12, %21
-  br i1 %.not12, label %6, label %.loopexit, !llvm.loop !28
+  br i1 %.not12, label %6, label %.loopexit, !llvm.loop !29
 
 22:                                               ; preds = %24
   %23 = add i64 %.215, 1
   %exitcond.not = icmp eq i64 %23, %8
-  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !30
 
 24:                                               ; preds = %.lr.ph, %22
   %.215 = phi i64 [ %.0, %.lr.ph ], [ %23, %22 ]
@@ -758,7 +758,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_is_subset(ptr noundef readonly capt
 10:                                               ; preds = %12
   %11 = add i64 %.024, 1
   %exitcond.not = icmp eq i64 %11, %4
-  br i1 %exitcond.not, label %.loopexit22, label %12, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit22, label %12, !llvm.loop !31
 
 12:                                               ; preds = %.lr.ph, %10
   %.024 = phi i64 [ %6, %.lr.ph ], [ %11, %10 ]
@@ -780,7 +780,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_is_subset(ptr noundef readonly capt
 17:                                               ; preds = %19
   %18 = add nuw i64 %.125, 1
   %exitcond31.not = icmp eq i64 %18, %.017
-  br i1 %exitcond31.not, label %.loopexit, label %19, !llvm.loop !31
+  br i1 %exitcond31.not, label %.loopexit, label %19, !llvm.loop !32
 
 19:                                               ; preds = %.lr.ph26, %17
   %.125 = phi i64 [ 0, %.lr.ph26 ], [ %18, %17 ]
@@ -859,22 +859,23 @@ attributes #14 = { noreturn nounwind }
 !10 = !{!"long", !8, i64 0}
 !11 = !{!5, !10, i64 8}
 !12 = !{!10, !10, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
-!20 = !{!21, !10, i64 24}
-!21 = !{!"ewah_bitmap", !6, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !6, i64 32}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
-!28 = distinct !{!28, !14}
-!29 = distinct !{!29, !14}
-!30 = distinct !{!30, !14}
-!31 = distinct !{!31, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}
+!21 = !{!22, !10, i64 24}
+!22 = !{!"ewah_bitmap", !6, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !6, i64 32}
+!23 = distinct !{!23, !14, !15}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}
+!26 = distinct !{!26, !14, !15}
+!27 = distinct !{!27, !14, !15}
+!28 = distinct !{!28, !14, !15}
+!29 = distinct !{!29, !14, !15}
+!30 = distinct !{!30, !14, !15}
+!31 = distinct !{!31, !14, !15}
+!32 = distinct !{!32, !14, !15}

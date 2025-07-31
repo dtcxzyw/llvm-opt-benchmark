@@ -1151,7 +1151,7 @@ Vec_StrAppend.exit119:                            ; preds = %Vec_StrPush.exit.i.
   %.175 = phi i32 [ %.074, %19 ], [ %.074, %22 ], [ %.074, %29 ], [ %.074, %Vec_StrAppend.exit236 ], [ %.074, %Vec_StrAppend.exit249 ], [ %.074, %462 ], [ 1, %425 ], [ 0, %461 ], [ %.074, %17 ], [ %.074, %440 ], [ %.074, %442 ], [ %.074, %457 ], [ 1, %459 ], [ %.074, %Vec_StrAppend.exit ], [ %.074, %Vec_StrAppend.exit132 ], [ %.074, %Vec_StrAppend.exit158 ], [ %.074, %Vec_StrAppend.exit184 ], [ %.074, %Vec_StrAppend.exit210 ], [ %.074, %Vec_StrPush.exit.i.i113 ], [ %.074, %Vec_StrPush.exit.i.i139 ], [ %.074, %Vec_StrPush.exit.i.i165 ], [ %.074, %Vec_StrPush.exit.i.i191 ], [ %.074, %Vec_StrPush.exit.i.i217 ]
   %.173 = phi i32 [ %.072, %19 ], [ %.072, %22 ], [ %.072, %29 ], [ 1, %Vec_StrAppend.exit236 ], [ 1, %Vec_StrAppend.exit249 ], [ %.072, %462 ], [ %.072, %425 ], [ 1, %461 ], [ %.072, %17 ], [ 1, %440 ], [ 1, %442 ], [ 1, %457 ], [ 1, %459 ], [ 1, %Vec_StrAppend.exit ], [ 3, %Vec_StrAppend.exit132 ], [ 4, %Vec_StrAppend.exit158 ], [ 2, %Vec_StrAppend.exit184 ], [ 5, %Vec_StrAppend.exit210 ], [ 1, %Vec_StrPush.exit.i.i113 ], [ 3, %Vec_StrPush.exit.i.i139 ], [ 4, %Vec_StrPush.exit.i.i165 ], [ 2, %Vec_StrPush.exit.i.i191 ], [ 5, %Vec_StrPush.exit.i.i217 ]
   %.1 = phi ptr [ %.071, %19 ], [ %.071, %22 ], [ %.071, %29 ], [ %.071, %Vec_StrAppend.exit236 ], [ %.071, %Vec_StrAppend.exit249 ], [ %.071, %462 ], [ %426, %425 ], [ %.071, %461 ], [ %.071, %17 ], [ %.071, %440 ], [ %.071, %442 ], [ %.071, %457 ], [ %.071, %459 ], [ %.071, %Vec_StrAppend.exit ], [ %.071, %Vec_StrAppend.exit132 ], [ %.071, %Vec_StrAppend.exit158 ], [ %.071, %Vec_StrAppend.exit184 ], [ %.071, %Vec_StrAppend.exit210 ], [ %.071, %Vec_StrPush.exit.i.i113 ], [ %.071, %Vec_StrPush.exit.i.i139 ], [ %.071, %Vec_StrPush.exit.i.i165 ], [ %.071, %Vec_StrPush.exit.i.i191 ], [ %.071, %Vec_StrPush.exit.i.i217 ]
-  br label %17, !llvm.loop !36
+  br label %17, !llvm.loop !37
 
 463:                                              ; preds = %17
   %464 = load i32, ptr %9, align 4, !tbaa !3
@@ -1230,10 +1230,10 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   br i1 %.not86, label %500, label %496
 
 496:                                              ; preds = %494
-  %497 = load ptr, ptr @stdin, align 8, !tbaa !37
+  %497 = load ptr, ptr @stdin, align 8, !tbaa !38
   %498 = call ptr @Gia_ManFromBridge(ptr noundef %497, ptr noundef null) #14
   %499 = getelementptr inbounds nuw i8, ptr %12, i64 288
-  store ptr %498, ptr %499, align 8, !tbaa !38
+  store ptr %498, ptr %499, align 8, !tbaa !39
   br label %504
 
 500:                                              ; preds = %494
@@ -1259,7 +1259,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 505:                                              ; preds = %500, %500, %504
   %506 = getelementptr inbounds nuw i8, ptr %12, i64 92
-  store i32 1, ptr %506, align 4, !tbaa !39
+  store i32 1, ptr %506, align 4, !tbaa !40
   %507 = load i32, ptr @globalUtilOptind, align 4, !tbaa !28
   %508 = icmp eq i32 %0, %507
   br i1 %508, label %518, label %509
@@ -1325,7 +1325,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   ]
 
 535:                                              ; preds = %534, %534
-  store i32 0, ptr %506, align 4, !tbaa !39
+  store i32 0, ptr %506, align 4, !tbaa !40
   br label %.critedge96
 
 536:                                              ; preds = %534
@@ -1365,7 +1365,7 @@ Vec_StrFreeP.exit254:                             ; preds = %.critedge96, %.thre
   br label %540
 
 540:                                              ; preds = %.preheader, %543
-  %541 = load ptr, ptr @stdin, align 8, !tbaa !37
+  %541 = load ptr, ptr @stdin, align 8, !tbaa !38
   %542 = call i32 @feof(ptr noundef %541) #14
   %.not90 = icmp eq i32 %542, 0
   br i1 %.not90, label %543, label %.loopexit
@@ -1374,7 +1374,7 @@ Vec_StrFreeP.exit254:                             ; preds = %.critedge96, %.thre
   %544 = call ptr @Abc_UtilsGetUsersInput(ptr noundef %12) #14
   %545 = call i32 @Cmd_CommandExecute(ptr noundef %12, ptr noundef %544) #14
   %or.cond15 = icmp ugt i32 %545, -3
-  br i1 %or.cond15, label %.loopexit, label %540, !llvm.loop !40
+  br i1 %or.cond15, label %.loopexit, label %540, !llvm.loop !41
 
 .loopexit:                                        ; preds = %540, %543, %Vec_StrFreeP.exit
   call void (...) @Abc_Stop() #14
@@ -1383,7 +1383,7 @@ Vec_StrFreeP.exit254:                             ; preds = %.critedge96, %.thre
 .loopexit293.sink.split:                          ; preds = %454, %437
   %.lcssa.sink = phi ptr [ %428, %437 ], [ %445, %454 ]
   %546 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  %547 = load ptr, ptr %546, align 8, !tbaa !41
+  %547 = load ptr, ptr %546, align 8, !tbaa !42
   %548 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %547, ptr noundef nonnull @.str.18, ptr noundef nonnull %.lcssa.sink) #14
   br label %.loopexit293
 
@@ -1545,7 +1545,7 @@ define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unn
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #14
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !38
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #14
@@ -1553,7 +1553,7 @@ define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unn
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !37, !noalias !42
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !38, !noalias !43
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #14
   br label %17
 
@@ -1672,14 +1672,15 @@ attributes #16 = { nounwind willreturn memory(read) }
 !31 = !{!"long", !6, i64 0}
 !32 = !{!30, !31, i64 8}
 !33 = !{!6, !6, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = !{!19, !19, i64 0}
-!38 = !{!14, !22, i64 288}
-!39 = !{!14, !5, i64 92}
-!40 = distinct !{!40, !35}
-!41 = !{!14, !19, i64 136}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"vprintf: argument 0"}
-!44 = distinct !{!44, !"vprintf"}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36}
+!38 = !{!19, !19, i64 0}
+!39 = !{!14, !22, i64 288}
+!40 = !{!14, !5, i64 92}
+!41 = distinct !{!41, !35, !36}
+!42 = !{!14, !19, i64 136}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"vprintf: argument 0"}
+!45 = distinct !{!45, !"vprintf"}

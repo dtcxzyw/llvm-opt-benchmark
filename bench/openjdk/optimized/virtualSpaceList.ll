@@ -133,7 +133,7 @@ define hidden void @_ZN9metaspace16VirtualSpaceList15create_new_nodeEv(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load volatile ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   store volatile ptr %6, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
@@ -175,7 +175,7 @@ define hidden noundef ptr @_ZN9metaspace16VirtualSpaceList19allocate_root_chunkE
   %22 = tail call noundef ptr @_ZN9metaspace16VirtualSpaceNode11create_nodeEmPNS_13CommitLimiterEPNS_15AbstractCounterImEES5_(i64 noundef 8388608, ptr noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %21) #8
   %23 = load volatile ptr, ptr %2, align 8
   store ptr %23, ptr %22, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   store volatile ptr %22, ptr %2, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i32, ptr %24, align 8
@@ -252,7 +252,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %9 = load ptr, ptr %.01013, align 8
   %10 = add nuw nsw i32 %.014, 1
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %.0.lcssa = phi i32 [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %10, %.lr.ph ]
@@ -281,7 +281,7 @@ declare void @_ZNK9metaspace16VirtualSpaceNode8print_onEP12outputStream(ptr noun
 define hidden noundef zeroext i1 @_ZNK9metaspace16VirtualSpaceList8containsEPKP12MetaWordImpl(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load volatile ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   %.not7.not = icmp eq ptr %4, null
   br i1 %.not7.not, label %._crit_edge, label %.lr.ph
 
@@ -300,7 +300,7 @@ define hidden noundef zeroext i1 @_ZNK9metaspace16VirtualSpaceList8containsEPKP1
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr %.08, align 8
   %.not.not = icmp eq ptr %13, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ %11, %12 ], [ %11, %.lr.ph ]
@@ -396,8 +396,9 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 2145392468}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2145392468}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

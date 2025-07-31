@@ -158,7 +158,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
   %45 = getelementptr inbounds nuw i8, ptr %.0166, i64 1
   %46 = add i64 %.093165, -1
   %cond = icmp eq i64 %46, 0
-  br i1 %cond, label %47, label %43
+  br i1 %cond, label %47, label %43, !llvm.loop !47
 
 47:                                               ; preds = %.critedge2
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
@@ -195,7 +195,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 
 .critedge4:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   %57 = add i64 %.2, -1
-  br label %.critedge
+  br label %.critedge, !llvm.loop !49
 
 58:                                               ; preds = %.critedge
   switch i8 %44, label %.thread [
@@ -312,7 +312,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
   %102 = icmp ult i64 %.017.i, 2305843009213693952
   %103 = shl nuw i64 %.017.i, 3
   %104 = or disjoint i64 %103, %101
-  br i1 %102, label %94, label %.thread152
+  br i1 %102, label %94, label %.thread152, !llvm.loop !50
 
 105:                                              ; preds = %78
   %.not119.not = icmp eq i64 %61, 0
@@ -385,7 +385,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
   %137 = mul nsw i64 %.03349.us.i, 10
   %138 = add nsw i64 %137, %132
   %139 = icmp ult ptr %136, %54
-  br i1 %139, label %.lr.ph.split.us.i, label %php_filter_parse_octal.exit, !llvm.loop !47
+  br i1 %139, label %.lr.ph.split.us.i, label %php_filter_parse_octal.exit, !llvm.loop !51
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %144
   %.03349.i = phi i64 [ %147, %144 ], [ %123, %.lr.ph.i ]
@@ -408,7 +408,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
   %146 = mul nsw i64 %.03349.i, 10
   %147 = sub nsw i64 %146, %142
   %148 = icmp ult ptr %145, %54
-  br i1 %148, label %.lr.ph.split.i, label %php_filter_parse_octal.exit
+  br i1 %148, label %.lr.ph.split.i, label %php_filter_parse_octal.exit, !llvm.loop !53
 
 php_filter_parse_octal.exit:                      ; preds = %94, %144, %135, %.preheader.i, %._crit_edge, %108, %105
   %149 = phi i64 [ %.pre, %._crit_edge ], [ 0, %108 ], [ 0, %105 ], [ %123, %.preheader.i ], [ %138, %135 ], [ %147, %144 ], [ %.017.i, %94 ]
@@ -502,7 +502,7 @@ define internal fastcc range(i32 -1, 2) i32 @php_filter_parse_hex(ptr noundef re
   %15 = shl nuw i64 %.02133, 4
   %16 = add nuw i64 %15, %.0
   %17 = icmp ult ptr %.1, %3
-  br i1 %17, label %.lr.ph, label %._crit_edge
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %14
   store i64 %16, ptr %2, align 8, !tbaa !46
@@ -548,7 +548,7 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %.04571, i64 1
   %11 = add i64 %.04472, -1
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !55
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge4
   %.2 = phi i64 [ %13, %.critedge4 ], [ %.04472, %.critedge.preheader ]
@@ -564,7 +564,7 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nound
 
 .critedge4:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   %13 = add i64 %.2, -1
-  br label %.critedge
+  br label %.critedge, !llvm.loop !56
 
 .critedge52:                                      ; preds = %.critedge
   switch i64 %.2, label %.critedge60 [
@@ -681,7 +681,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %.0196344, i64 1
   %13 = add i64 %.0345, -1
   %cond = icmp eq i64 %13, 0
-  br i1 %cond, label %._crit_edge, label %.lr.ph
+  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.critedge2, %4
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
@@ -718,7 +718,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
 
 .critedge4:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   %23 = add i64 %.2, -1
-  br label %.critedge
+  br label %.critedge, !llvm.loop !58
 
 24:                                               ; preds = %.critedge
   %.not241 = icmp eq ptr %2, null
@@ -734,7 +734,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i8, ptr %29, align 8, !tbaa !4
   %31 = icmp eq i8 %30, 10
-  br i1 %31, label %32, label %35, !prof !49
+  br i1 %31, label %32, label %35, !prof !59
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %27, align 8, !tbaa !4
@@ -795,7 +795,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i8, ptr %59, align 8, !tbaa !4
   %61 = icmp eq i8 %60, 10
-  br i1 %61, label %62, label %65, !prof !49
+  br i1 %61, label %62, label %65, !prof !59
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %57, align 8, !tbaa !4
@@ -950,7 +950,7 @@ switch.early.test.us:                             ; preds = %116
   %123 = getelementptr inbounds nuw i8, ptr %.2215346.us, i64 1
   store i8 %113, ptr %.2215346.us, align 1, !tbaa !4
   %124 = icmp ult ptr %122, %20
-  br i1 %124, label %.lr.ph350.us, label %.critedge6.us, !llvm.loop !50
+  br i1 %124, label %.lr.ph350.us, label %.critedge6.us, !llvm.loop !60
 
 .split:                                           ; preds = %110, %173
   %.1214 = phi ptr [ %.2215.lcssa, %173 ], [ %.0213, %110 ]
@@ -974,7 +974,7 @@ switch.early.test.us:                             ; preds = %116
   %131 = getelementptr inbounds nuw i8, ptr %.2215346, i64 1
   store i8 %126, ptr %.2215346, align 1, !tbaa !4
   %132 = icmp ult ptr %130, %20
-  br i1 %132, label %.lr.ph350, label %.critedge6
+  br i1 %132, label %.lr.ph350, label %.critedge6, !llvm.loop !61
 
 .critedge6:                                       ; preds = %128, %.lr.ph350, %.split
   %.2215.lcssa = phi ptr [ %.1214, %.split ], [ %.2215346, %.lr.ph350 ], [ %131, %128 ]
@@ -1030,7 +1030,7 @@ switch.early.test:                                ; preds = %134
   %.4217 = getelementptr inbounds nuw i8, ptr %.4217364, i64 1
   %.5 = getelementptr inbounds nuw i8, ptr %.5365, i64 1
   %148 = icmp ult ptr %.5, %20
-  br i1 %148, label %.lr.ph367, label %.critedge9thread-pre-split
+  br i1 %148, label %.lr.ph367, label %.critedge9thread-pre-split, !llvm.loop !62
 
 .critedge9thread-pre-split:                       ; preds = %147, %143
   %.4217.lcssa = phi ptr [ %.4217362, %143 ], [ %.4217, %147 ]
@@ -1086,7 +1086,7 @@ switch.early.test:                                ; preds = %134
   %165 = getelementptr inbounds nuw i8, ptr %.6219370, i64 1
   store i8 %161, ptr %.6219370, align 1, !tbaa !4
   %166 = icmp ult ptr %164, %20
-  br i1 %166, label %.lr.ph373, label %.critedge11
+  br i1 %166, label %.lr.ph373, label %.critedge11, !llvm.loop !63
 
 167:                                              ; preds = %switch.early.test
   %168 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %103, i32 noundef %136) #16
@@ -1107,7 +1107,7 @@ switch.early.test:                                ; preds = %134
 
 173:                                              ; preds = %170, %172
   %174 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 1
-  br label %.split
+  br label %.split, !llvm.loop !64
 
 .critedge11:                                      ; preds = %163, %.lr.ph373, %159, %.critedge9
   %.7220 = phi ptr [ %.3216, %.critedge9 ], [ %.5218, %159 ], [ %165, %163 ], [ %.6219370, %.lr.ph373 ]
@@ -1156,7 +1156,7 @@ is_numeric_string_ex.exit:                        ; preds = %175
   br label %213
 
 195:                                              ; preds = %is_numeric_string_ex.exit
-  %196 = load double, ptr %6, align 8, !tbaa !51
+  %196 = load double, ptr %6, align 8, !tbaa !65
   %197 = fcmp oeq double %196, 0.000000e+00
   %198 = icmp sgt i64 %178, 1
   %or.cond275 = and i1 %198, %197
@@ -1182,7 +1182,7 @@ is_numeric_string_ex.exit:                        ; preds = %175
 
 205:                                              ; preds = %202
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #15
-  %206 = load double, ptr %6, align 8, !tbaa !51
+  %206 = load double, ptr %6, align 8, !tbaa !65
   br label %213
 
 is_numeric_string_ex.exit.thread:                 ; preds = %172, %170, %167, %switch.early.test.us, %175, %202, %is_numeric_string_ex.exit, %199, %201, %183, %188, %.critedge11, %.split358.us
@@ -1252,7 +1252,7 @@ define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, p
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i8, ptr %10, align 8, !tbaa !4
   %12 = icmp eq i8 %11, 10
-  br i1 %12, label %13, label %16, !prof !49
+  br i1 %12, label %13, label %16, !prof !59
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %8, align 8, !tbaa !4
@@ -1316,7 +1316,7 @@ define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, p
   br label %60
 
 36:                                               ; preds = %19
-  %37 = load i32, ptr %5, align 4, !tbaa !53
+  %37 = load i32, ptr %5, align 4, !tbaa !67
   %38 = call ptr @php_pcre_create_match_data(i32 noundef %37, ptr noundef nonnull %21) #15
   %.not46 = icmp eq ptr %38, null
   br i1 %.not46, label %39, label %46
@@ -1440,10 +1440,10 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__ctype_b_loc() #18
-  %17 = load ptr, ptr %16, align 8, !tbaa !54
+  %17 = load ptr, ptr %16, align 8, !tbaa !68
   %18 = zext i8 %11 to i64
   %19 = getelementptr inbounds nuw i16, ptr %17, i64 %18
-  %20 = load i16, ptr %19, align 2, !tbaa !56
+  %20 = load i16, ptr %19, align 2, !tbaa !70
   %21 = and i16 %20, 8
   %.not36 = icmp eq i16 %21, 0
   br i1 %.not36, label %.loopexit, label %.thread66
@@ -1481,7 +1481,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
   %.1.us = phi i8 [ %30, %29 ], [ 1, %31 ]
   %36 = getelementptr inbounds nuw i8, ptr %.03145.us, i64 1
   %exitcond65.not = icmp eq ptr %36, %.03044
-  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !58
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !72
 
 .lr.ph.split:                                     ; preds = %.thread66, %73
   %.046 = phi i8 [ %.1, %73 ], [ 1, %.thread66 ]
@@ -1498,12 +1498,12 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
 
 43:                                               ; preds = %39
   %44 = tail call ptr @__ctype_b_loc() #18
-  %45 = load ptr, ptr %44, align 8, !tbaa !54
+  %45 = load ptr, ptr %44, align 8, !tbaa !68
   %46 = getelementptr inbounds i8, ptr %.03145, i64 -1
   %47 = load i8, ptr %46, align 1, !tbaa !4
   %48 = zext i8 %47 to i64
   %49 = getelementptr inbounds nuw i16, ptr %45, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !56
+  %50 = load i16, ptr %49, align 2, !tbaa !70
   %51 = and i16 %50, 8
   %.not39 = icmp eq i16 %51, 0
   br i1 %.not39, label %.loopexit, label %52
@@ -1511,7 +1511,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
 52:                                               ; preds = %43
   %53 = zext i8 %41 to i64
   %54 = getelementptr inbounds nuw i16, ptr %45, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !56
+  %55 = load i16, ptr %54, align 2, !tbaa !70
   %56 = and i16 %55, 8
   %.not40 = icmp eq i16 %56, 0
   br i1 %.not40, label %.loopexit, label %73
@@ -1532,10 +1532,10 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
 
 64:                                               ; preds = %60, %59
   %65 = tail call ptr @__ctype_b_loc() #18
-  %66 = load ptr, ptr %65, align 8, !tbaa !54
+  %66 = load ptr, ptr %65, align 8, !tbaa !68
   %67 = zext i8 %37 to i64
   %68 = getelementptr inbounds nuw i16, ptr %66, i64 %67
-  %69 = load i16, ptr %68, align 2, !tbaa !56
+  %69 = load i16, ptr %68, align 2, !tbaa !70
   %70 = and i16 %69, 8
   %.not38 = icmp eq i16 %70, 0
   br i1 %.not38, label %.loopexit, label %71
@@ -1548,7 +1548,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
   %.1 = phi i8 [ %72, %71 ], [ 1, %52 ]
   %74 = getelementptr inbounds nuw i8, ptr %.03145, i64 1
   %exitcond.not = icmp eq ptr %74, %.03044
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !73
 
 .loopexit:                                        ; preds = %52, %43, %39, %64, %57, %73, %31, %27, %35, %.thread66, %22, %.thread, %15, %5
   %.028 = phi i32 [ 0, %5 ], [ 0, %15 ], [ 0, %.thread ], [ 1, %22 ], [ 1, %.thread66 ], [ 0, %31 ], [ 0, %27 ], [ 1, %35 ], [ 0, %52 ], [ 0, %43 ], [ 0, %39 ], [ 0, %64 ], [ 0, %57 ], [ 1, %73 ]
@@ -1618,7 +1618,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
   br label %.thread
 
 30:                                               ; preds = %20
-  %31 = load ptr, ptr %22, align 8, !tbaa !59
+  %31 = load ptr, ptr %22, align 8, !tbaa !74
   %.not77 = icmp eq ptr %31, null
   br i1 %.not77, label %.thread121, label %32
 
@@ -1635,7 +1635,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %.not78, label %46, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %36
-  %.pre = load ptr, ptr %22, align 8, !tbaa !59
+  %.pre = load ptr, ptr %22, align 8, !tbaa !74
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre134 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !8
   br label %39
@@ -1654,7 +1654,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
 
 46:                                               ; preds = %43, %36
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !61
+  %48 = load ptr, ptr %47, align 8, !tbaa !76
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread121, label %50
 
@@ -1681,7 +1681,7 @@ php_filter_is_valid_ipv6_hostname.exit:           ; preds = %56
   br i1 %.not131, label %php_filter_is_valid_ipv6_hostname.exit.php_filter_is_valid_ipv6_hostname.exit.thread_crit_edge, label %.thread119
 
 php_filter_is_valid_ipv6_hostname.exit.php_filter_is_valid_ipv6_hostname.exit.thread_crit_edge: ; preds = %php_filter_is_valid_ipv6_hostname.exit
-  %.pre135 = load ptr, ptr %47, align 8, !tbaa !61
+  %.pre135 = load ptr, ptr %47, align 8, !tbaa !76
   br label %php_filter_is_valid_ipv6_hostname.exit.thread
 
 php_filter_is_valid_ipv6_hostname.exit.thread:    ; preds = %php_filter_is_valid_ipv6_hostname.exit.php_filter_is_valid_ipv6_hostname.exit.thread_crit_edge, %50, %56
@@ -1712,14 +1712,14 @@ php_filter_is_valid_ipv6_hostname.exit.thread:    ; preds = %php_filter_is_valid
   br label %.thread
 
 .thread119:                                       ; preds = %php_filter_is_valid_ipv6_hostname.exit, %php_filter_is_valid_ipv6_hostname.exit.thread, %43
-  %.pr = load ptr, ptr %22, align 8, !tbaa !59
+  %.pr = load ptr, ptr %22, align 8, !tbaa !74
   %73 = icmp eq ptr %.pr, null
   br i1 %73, label %.thread121, label %.thread122
 
 .thread122:                                       ; preds = %39, %.thread119
   %74 = phi ptr [ %.pr, %.thread119 ], [ %41, %39 ]
   %75 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !61
+  %76 = load ptr, ptr %75, align 8, !tbaa !76
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %83
 
@@ -1755,7 +1755,7 @@ zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %87 = load ptr, ptr %86, align 8, !tbaa !62
+  %87 = load ptr, ptr %86, align 8, !tbaa !77
   %88 = icmp eq ptr %87, null
   br i1 %88, label %.thread121, label %89
 
@@ -1766,7 +1766,7 @@ zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %93 = load ptr, ptr %92, align 8, !tbaa !63
+  %93 = load ptr, ptr %92, align 8, !tbaa !78
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.thread121, label %100
 
@@ -1792,7 +1792,7 @@ zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_
 
 100:                                              ; preds = %91, %89
   %101 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !64
+  %102 = load ptr, ptr %101, align 8, !tbaa !79
   %.not85 = icmp eq ptr %102, null
   br i1 %.not85, label %is_userinfo_valid.exit, label %103
 
@@ -1806,7 +1806,7 @@ zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_
 
 .lr.ph.i:                                         ; preds = %103
   %108 = tail call ptr @__ctype_b_loc() #18
-  %109 = load ptr, ptr %108, align 8, !tbaa !54
+  %109 = load ptr, ptr %108, align 8, !tbaa !68
   %110 = add i64 %107, -3
   br label %111
 
@@ -1816,7 +1816,7 @@ zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_
   %113 = load i8, ptr %.025.i, align 1, !tbaa !4
   %114 = sext i8 %113 to i64
   %115 = getelementptr inbounds i16, ptr %109, i64 %114
-  %116 = load i16, ptr %115, align 2, !tbaa !56
+  %116 = load i16, ptr %115, align 2, !tbaa !70
   %117 = and i16 %116, 3072
   %or.cond.i = icmp eq i16 %117, 0
   br i1 %or.cond.i, label %118, label %136
@@ -1838,7 +1838,7 @@ zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_
   %124 = load i8, ptr %123, align 1, !tbaa !4
   %125 = sext i8 %124 to i64
   %126 = getelementptr inbounds i16, ptr %109, i64 %125
-  %127 = load i16, ptr %126, align 2, !tbaa !56
+  %127 = load i16, ptr %126, align 2, !tbaa !70
   %128 = and i16 %127, 2048
   %.not22.i = icmp eq i16 %128, 0
   br i1 %.not22.i, label %is_userinfo_valid.exit.thread, label %129
@@ -1848,7 +1848,7 @@ zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_
   %131 = load i8, ptr %130, align 1, !tbaa !4
   %132 = sext i8 %131 to i64
   %133 = getelementptr inbounds i16, ptr %109, i64 %132
-  %134 = load i16, ptr %133, align 2, !tbaa !56
+  %134 = load i16, ptr %133, align 2, !tbaa !70
   %135 = and i16 %134, 4096
   %.not23.i = icmp eq i16 %135, 0
   br i1 %.not23.i, label %is_userinfo_valid.exit.thread, label %136
@@ -1859,11 +1859,11 @@ zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_
   %138 = ptrtoint ptr %137 to i64
   %139 = sub i64 %138, %105
   %140 = icmp ult i64 %139, %107
-  br i1 %140, label %111, label %is_userinfo_valid.exit
+  br i1 %140, label %111, label %is_userinfo_valid.exit, !llvm.loop !80
 
 is_userinfo_valid.exit:                           ; preds = %136, %103, %100
   %141 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %142 = load ptr, ptr %141, align 8, !tbaa !65
+  %142 = load ptr, ptr %141, align 8, !tbaa !81
   %.not87 = icmp eq ptr %142, null
   br i1 %.not87, label %is_userinfo_valid.exit116, label %143
 
@@ -1877,7 +1877,7 @@ is_userinfo_valid.exit:                           ; preds = %136, %103, %100
 
 .lr.ph.i105:                                      ; preds = %143
   %148 = tail call ptr @__ctype_b_loc() #18
-  %149 = load ptr, ptr %148, align 8, !tbaa !54
+  %149 = load ptr, ptr %148, align 8, !tbaa !68
   %150 = add i64 %147, -3
   br label %151
 
@@ -1887,7 +1887,7 @@ is_userinfo_valid.exit:                           ; preds = %136, %103, %100
   %153 = load i8, ptr %.025.i106, align 1, !tbaa !4
   %154 = sext i8 %153 to i64
   %155 = getelementptr inbounds i16, ptr %149, i64 %154
-  %156 = load i16, ptr %155, align 2, !tbaa !56
+  %156 = load i16, ptr %155, align 2, !tbaa !70
   %157 = and i16 %156, 3072
   %or.cond.i107 = icmp eq i16 %157, 0
   br i1 %or.cond.i107, label %158, label %176
@@ -1909,7 +1909,7 @@ is_userinfo_valid.exit:                           ; preds = %136, %103, %100
   %164 = load i8, ptr %163, align 1, !tbaa !4
   %165 = sext i8 %164 to i64
   %166 = getelementptr inbounds i16, ptr %149, i64 %165
-  %167 = load i16, ptr %166, align 2, !tbaa !56
+  %167 = load i16, ptr %166, align 2, !tbaa !70
   %168 = and i16 %167, 2048
   %.not22.i114 = icmp eq i16 %168, 0
   br i1 %.not22.i114, label %is_userinfo_valid.exit.thread, label %169
@@ -1919,7 +1919,7 @@ is_userinfo_valid.exit:                           ; preds = %136, %103, %100
   %171 = load i8, ptr %170, align 1, !tbaa !4
   %172 = sext i8 %171 to i64
   %173 = getelementptr inbounds i16, ptr %149, i64 %172
-  %174 = load i16, ptr %173, align 2, !tbaa !56
+  %174 = load i16, ptr %173, align 2, !tbaa !70
   %175 = and i16 %174, 4096
   %.not23.i115 = icmp eq i16 %175, 0
   br i1 %.not23.i115, label %is_userinfo_valid.exit.thread, label %176
@@ -1930,7 +1930,7 @@ is_userinfo_valid.exit:                           ; preds = %136, %103, %100
   %178 = ptrtoint ptr %177 to i64
   %179 = sub i64 %178, %145
   %180 = icmp ult i64 %179, %147
-  br i1 %180, label %151, label %is_userinfo_valid.exit116
+  br i1 %180, label %151, label %is_userinfo_valid.exit116, !llvm.loop !80
 
 is_userinfo_valid.exit.thread:                    ; preds = %129, %122, %120, %169, %162, %160
   tail call void @php_url_free(ptr noundef nonnull %22) #15
@@ -2006,11 +2006,11 @@ zend_string_alloc.exit:                           ; preds = %4
   %18 = add nuw nsw i64 %.47, 32
   %19 = and i64 %18, 1272
   %20 = tail call noalias ptr @_emalloc(i64 noundef %19) #17
-  store i32 1, ptr %20, align 4, !tbaa !66
+  store i32 1, ptr %20, align 4, !tbaa !82
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 22, ptr %21, align 4, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 0, ptr %22, align 8, !tbaa !67
+  store i64 0, ptr %22, align 8, !tbaa !83
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %.47, ptr %23, align 8, !tbaa !8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -2024,11 +2024,11 @@ zend_string_alloc.exit:                           ; preds = %4
   br i1 %.not.i, label %29, label %zend_string_release_ex.exit
 
 29:                                               ; preds = %zend_string_alloc.exit
-  %30 = load i32, ptr %20, align 4, !tbaa !66
+  %30 = load i32, ptr %20, align 4, !tbaa !82
   %31 = icmp ne i32 %30, 0
   call void @llvm.assume(i1 %31)
   %32 = add i32 %30, -1
-  store i32 %32, ptr %20, align 4, !tbaa !66
+  store i32 %32, ptr %20, align 4, !tbaa !82
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %zend_string_release_ex.exit
 
@@ -2061,7 +2061,7 @@ zend_string_release_ex.exit:                      ; preds = %zend_string_alloc.e
   br label %66
 
 42:                                               ; preds = %zend_string_release_ex.exit
-  %43 = load i32, ptr %5, align 4, !tbaa !53
+  %43 = load i32, ptr %5, align 4, !tbaa !67
   %44 = call ptr @php_pcre_create_match_data(i32 noundef %43, ptr noundef nonnull %26) #15
   %.not40 = icmp eq ptr %44, null
   br i1 %.not40, label %45, label %52
@@ -2264,7 +2264,7 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   %61 = add nuw nsw i32 %.033.i, 1
   %62 = icmp samesign ugt i32 %.033.i, 2
   %or.cond50.i = select i1 %60, i1 true, i1 %62
-  br i1 %or.cond50.i, label %_php_filter_validate_ipv4.exit.thread, label %51
+  br i1 %or.cond50.i, label %_php_filter_validate_ipv4.exit.thread, label %51, !llvm.loop !84
 
 .critedge.i:                                      ; preds = %53, %51
   br i1 %49, label %63, label %66
@@ -2278,7 +2278,7 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
 66:                                               ; preds = %63, %.critedge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %67 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
-  store i32 %.034.i, ptr %67, align 4, !tbaa !53
+  store i32 %.034.i, ptr %67, align 4, !tbaa !67
   %68 = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %68, label %_php_filter_validate_ipv4.exit, label %69
 
@@ -2289,7 +2289,7 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   %71 = getelementptr inbounds nuw i8, ptr %.035.pn.i, i64 2
   %72 = load i8, ptr %.237.i, align 1, !tbaa !4
   %.not45.i = icmp eq i8 %72, 46
-  br i1 %.not45.i, label %43, label %_php_filter_validate_ipv4.exit.thread
+  br i1 %.not45.i, label %43, label %_php_filter_validate_ipv4.exit.thread, !llvm.loop !85
 
 _php_filter_validate_ipv4.exit:                   ; preds = %66
   %.not191 = icmp eq ptr %.237.i, %42
@@ -2316,7 +2316,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
   br label %ipv4_get_status_flags.exit
 
 79:                                               ; preds = %_php_filter_validate_ipv4.exit
-  %80 = load i32, ptr %5, align 16, !tbaa !53
+  %80 = load i32, ptr %5, align 16, !tbaa !67
   switch i32 %80, label %116 [
     i32 0, label %ipv4_get_status_flags.exit.thread
     i32 10, label %81
@@ -2334,27 +2334,27 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %84 = load i32, ptr %83, align 4, !tbaa !53
+  %84 = load i32, ptr %83, align 4, !tbaa !67
   %85 = and i32 %84, -64
   %or.cond.i94 = icmp eq i32 %85, 64
   br i1 %or.cond.i94, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
 86:                                               ; preds = %79
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !53
+  %88 = load i32, ptr %87, align 4, !tbaa !67
   %89 = icmp eq i32 %88, 254
   br i1 %89, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
 90:                                               ; preds = %79
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %92 = load i32, ptr %91, align 4, !tbaa !53
+  %92 = load i32, ptr %91, align 4, !tbaa !67
   %93 = and i32 %92, -16
   %or.cond66.i = icmp eq i32 %93, 16
   br i1 %or.cond66.i, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
 94:                                               ; preds = %79
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %96 = load i32, ptr %95, align 4, !tbaa !53
+  %96 = load i32, ptr %95, align 4, !tbaa !67
   switch i32 %96, label %ipv4_get_status_flags.exit [
     i32 0, label %97
     i32 168, label %ipv4_get_status_flags.exit.thread
@@ -2362,7 +2362,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !53
+  %99 = load i32, ptr %98, align 8, !tbaa !67
   switch i32 %99, label %ipv4_get_status_flags.exit [
     i32 0, label %ipv4_get_status_flags.exit.thread
     i32 2, label %ipv4_get_status_flags.exit.thread
@@ -2370,7 +2370,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
 
 100:                                              ; preds = %79
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %102 = load i32, ptr %101, align 4, !tbaa !53
+  %102 = load i32, ptr %101, align 4, !tbaa !67
   %103 = and i32 %102, -2
   %or.cond68.i = icmp eq i32 %103, 18
   br i1 %or.cond68.i, label %ipv4_get_status_flags.exit.thread, label %104
@@ -2385,7 +2385,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
 
 109:                                              ; preds = %79
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %111 = load i32, ptr %110, align 4, !tbaa !53
+  %111 = load i32, ptr %110, align 4, !tbaa !67
   %112 = icmp eq i32 %111, 0
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %114 = load i32, ptr %113, align 8
@@ -2427,7 +2427,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
   br label %ipv4_get_status_flags.exit
 
 130:                                              ; preds = %121
-  %131 = load i32, ptr %5, align 16, !tbaa !53
+  %131 = load i32, ptr %5, align 16, !tbaa !67
   switch i32 %131, label %170 [
     i32 0, label %132
     i32 100, label %ipv4_get_status_flags.exit
@@ -2438,7 +2438,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %134 = load i32, ptr %133, align 4, !tbaa !53
+  %134 = load i32, ptr %133, align 4, !tbaa !67
   %135 = icmp eq i32 %134, 0
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %137 = load i32, ptr %136, align 8
@@ -2448,7 +2448,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
 
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %141 = load i32, ptr %140, align 4, !tbaa !53
+  %141 = load i32, ptr %140, align 4, !tbaa !67
   %142 = icmp eq i32 %141, 0
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %144 = load i32, ptr %143, align 16
@@ -2473,7 +2473,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
 
 156:                                              ; preds = %130
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %158 = load i32, ptr %157, align 4, !tbaa !53
+  %158 = load i32, ptr %157, align 4, !tbaa !67
   %159 = icmp eq i32 %158, 0
   %160 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %161 = load i32, ptr %160, align 8
@@ -2487,7 +2487,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
 
 166:                                              ; preds = %130
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %168 = load i32, ptr %167, align 4, !tbaa !53
+  %168 = load i32, ptr %167, align 4, !tbaa !67
   %.fr.i = freeze i32 %168
   %169 = icmp slt i32 %.fr.i, 512
   %switch.selectcmp.case1.i = icmp eq i32 %.fr.i, 3512
@@ -2611,7 +2611,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_ipv6(ptr nounde
   %10 = getelementptr inbounds i8, ptr %.1114, i64 -1
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %.not144 = icmp eq i8 %11, 58
-  br i1 %.not144, label %.critedge, label %.preheader165
+  br i1 %.not144, label %.critedge, label %.preheader165, !llvm.loop !86
 
 .critedge:                                        ; preds = %.preheader165, %9
   %12 = ptrtoint ptr %.1114 to i64
@@ -2661,7 +2661,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_ipv6(ptr nounde
   %35 = add nuw nsw i32 %.033.i, 1
   %36 = icmp samesign ugt i32 %.033.i, 2
   %or.cond50.i = select i1 %34, i1 true, i1 %36
-  br i1 %or.cond50.i, label %_php_filter_validate_ipv4.exit.thread, label %25
+  br i1 %or.cond50.i, label %_php_filter_validate_ipv4.exit.thread, label %25, !llvm.loop !84
 
 .critedge.i:                                      ; preds = %27, %25
   br i1 %23, label %37, label %40
@@ -2675,7 +2675,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_ipv6(ptr nounde
 40:                                               ; preds = %37, %.critedge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
-  store i32 %.034.i, ptr %41, align 4, !tbaa !53
+  store i32 %.034.i, ptr %41, align 4, !tbaa !67
   %42 = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %42, label %_php_filter_validate_ipv4.exit, label %43
 
@@ -2686,7 +2686,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_ipv6(ptr nounde
   %45 = getelementptr inbounds nuw i8, ptr %.035.pn.i, i64 2
   %46 = load i8, ptr %.237.i, align 1, !tbaa !4
   %.not45.i = icmp eq i8 %46, 46
-  br i1 %.not45.i, label %17, label %_php_filter_validate_ipv4.exit.thread
+  br i1 %.not45.i, label %17, label %_php_filter_validate_ipv4.exit.thread, !llvm.loop !85
 
 _php_filter_validate_ipv4.exit:                   ; preds = %40
   %47 = icmp ne ptr %.237.i, %16
@@ -2743,7 +2743,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
 70:                                               ; preds = %68
   %71 = sext i32 %.1122 to i64
   %72 = getelementptr inbounds i32, ptr %2, i64 %71
-  store i32 -1, ptr %72, align 4, !tbaa !53
+  store i32 -1, ptr %72, align 4, !tbaa !67
   br label %73
 
 73:                                               ; preds = %70, %68
@@ -2811,7 +2811,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %104 = add nuw nsw i32 %.0118178, 1
   %105 = getelementptr inbounds nuw i8, ptr %.2179, i64 1
   %106 = icmp ult ptr %105, %54
-  br i1 %106, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %106, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !87
 
 ._crit_edge.loopexit:                             ; preds = %96, %103
   %.0119.lcssa.ph = phi i32 [ %.1120, %103 ], [ %.0119177, %96 ]
@@ -2832,14 +2832,14 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
 110:                                              ; preds = %._crit_edge
   %111 = sext i32 %.2123 to i64
   %112 = getelementptr inbounds i32, ptr %2, i64 %111
-  store i32 %.0119.lcssa, ptr %112, align 4, !tbaa !53
+  store i32 %.0119.lcssa, ptr %112, align 4, !tbaa !67
   br label %113
 
 113:                                              ; preds = %110, %._crit_edge
   %114 = add nsw i32 %.2123, 1
   %115 = icmp sgt i32 %.2123, 7
   %or.cond156 = select i1 %.0118.lcssa, i1 true, i1 %115
-  br i1 %or.cond156, label %_php_filter_validate_ipv4.exit.thread, label %56
+  br i1 %or.cond156, label %_php_filter_validate_ipv4.exit.thread, label %56, !llvm.loop !88
 
 .loopexit162:                                     ; preds = %56, %77
   %.2126 = phi i32 [ %.1122, %77 ], [ %.0124, %56 ]
@@ -2848,24 +2848,24 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   br i1 %or.cond7, label %.preheader.preheader, label %130
 
 .preheader.preheader:                             ; preds = %.loopexit162
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false), !tbaa !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false), !tbaa !67
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 65535, ptr %116, align 4, !tbaa !53
-  %117 = load i32, ptr %4, align 16, !tbaa !53
+  store i32 65535, ptr %116, align 4, !tbaa !67
+  %117 = load i32, ptr %4, align 16, !tbaa !67
   %118 = shl nsw i32 %117, 8
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !53
+  %120 = load i32, ptr %119, align 4, !tbaa !67
   %121 = add nsw i32 %118, %120
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %121, ptr %122, align 4, !tbaa !53
+  store i32 %121, ptr %122, align 4, !tbaa !67
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %124 = load i32, ptr %123, align 8, !tbaa !53
+  %124 = load i32, ptr %123, align 8, !tbaa !67
   %125 = shl nsw i32 %124, 8
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %127 = load i32, ptr %126, align 4, !tbaa !53
+  %127 = load i32, ptr %126, align 4, !tbaa !67
   %128 = add nsw i32 %125, %127
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %128, ptr %129, align 4, !tbaa !53
+  store i32 %128, ptr %129, align 4, !tbaa !67
   br label %.loopexit
 
 130:                                              ; preds = %.loopexit162
@@ -2888,12 +2888,12 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %indvars.iv = phi i64 [ 7, %.lr.ph188.preheader ], [ %indvars.iv.next, %.lr.ph188 ]
   %138 = sub nsw i64 %indvars.iv, %136
   %139 = getelementptr inbounds i32, ptr %2, i64 %138
-  %140 = load i32, ptr %139, align 4, !tbaa !53
+  %140 = load i32, ptr %139, align 4, !tbaa !67
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  store i32 %140, ptr %141, align 4, !tbaa !53
+  store i32 %140, ptr %141, align 4, !tbaa !67
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %142 = icmp samesign ugt i64 %indvars.iv.next, %137
-  br i1 %142, label %.lr.ph188, label %.lr.ph192.preheader
+  br i1 %142, label %.lr.ph188, label %.lr.ph192.preheader, !llvm.loop !89
 
 .lr.ph192.preheader:                              ; preds = %.lr.ph188, %132
   br label %.lr.ph192
@@ -2902,10 +2902,10 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %.2117191 = phi i32 [ %145, %.lr.ph192 ], [ %134, %.lr.ph192.preheader ]
   %143 = zext nneg i32 %.2117191 to i64
   %144 = getelementptr inbounds nuw i32, ptr %2, i64 %143
-  store i32 0, ptr %144, align 4, !tbaa !53
+  store i32 0, ptr %144, align 4, !tbaa !67
   %145 = add nsw i32 %.2117191, -1
   %.not150.not = icmp samesign ugt i32 %.2117191, %.2126
-  br i1 %.not150.not, label %.lr.ph192, label %.loopexit
+  br i1 %.not150.not, label %.lr.ph192, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %.lr.ph192, %130, %.preheader.preheader
   %146 = icmp sgt i32 %.2126, -1
@@ -2939,7 +2939,7 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i8, ptr %13, align 8, !tbaa !4
   %15 = icmp eq i8 %14, 10
-  br i1 %15, label %16, label %19, !prof !49
+  br i1 %15, label %16, label %19, !prof !59
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %11, align 8, !tbaa !4
@@ -3140,7 +3140,7 @@ zend_hash_str_find_deref.exit.thread83:           ; preds = %9, %4, %19, %zend_h
   %88 = shl nuw i64 %.02133.i, 4
   %89 = add nuw i64 %88, %.0.i78
   %90 = icmp ult ptr %.1.i, %76
-  br i1 %90, label %.lr.ph.i, label %php_filter_parse_hex.exit
+  br i1 %90, label %.lr.ph.i, label %php_filter_parse_hex.exit, !llvm.loop !54
 
 91:                                               ; preds = %82, %85
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
@@ -3165,7 +3165,7 @@ zend_hash_str_find_deref.exit.thread83:           ; preds = %9, %4, %19, %zend_h
 php_filter_parse_hex.exit:                        ; preds = %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %61
+  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !91
 
 .loopexit:                                        ; preds = %php_filter_parse_hex.exit, %97, %96, %91, %73, %72, %67, %54, %53, %48, %43, %42, %.critedge, %33, %32, %26
   ret void
@@ -3262,23 +3262,47 @@ attributes #18 = { nounwind willreturn memory(none) }
 !45 = !{!"p1 omnipotent char", !17, i64 0}
 !46 = !{!12, !12, i64 0}
 !47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !48}
 !50 = distinct !{!50, !48}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"double", !5, i64 0}
-!53 = !{!11, !11, i64 0}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 short", !17, i64 0}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"short", !5, i64 0}
+!51 = distinct !{!51, !48, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !48}
+!54 = distinct !{!54, !48}
+!55 = distinct !{!55, !48}
+!56 = distinct !{!56, !48}
+!57 = distinct !{!57, !48}
 !58 = distinct !{!58, !48}
-!59 = !{!60, !41, i64 0}
-!60 = !{!"php_url", !41, i64 0, !41, i64 8, !41, i64 16, !41, i64 24, !57, i64 32, !41, i64 40, !41, i64 48, !41, i64 56}
-!61 = !{!60, !41, i64 24}
-!62 = !{!60, !41, i64 40}
-!63 = !{!60, !41, i64 48}
-!64 = !{!60, !41, i64 8}
-!65 = !{!60, !41, i64 16}
-!66 = !{!10, !11, i64 0}
-!67 = !{!9, !12, i64 8}
+!59 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!60 = distinct !{!60, !48, !52}
+!61 = distinct !{!61, !48}
+!62 = distinct !{!62, !48}
+!63 = distinct !{!63, !48}
+!64 = distinct !{!64, !48}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"double", !5, i64 0}
+!67 = !{!11, !11, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 short", !17, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"short", !5, i64 0}
+!72 = distinct !{!72, !48, !52}
+!73 = distinct !{!73, !48}
+!74 = !{!75, !41, i64 0}
+!75 = !{!"php_url", !41, i64 0, !41, i64 8, !41, i64 16, !41, i64 24, !71, i64 32, !41, i64 40, !41, i64 48, !41, i64 56}
+!76 = !{!75, !41, i64 24}
+!77 = !{!75, !41, i64 40}
+!78 = !{!75, !41, i64 48}
+!79 = !{!75, !41, i64 8}
+!80 = distinct !{!80, !48}
+!81 = !{!75, !41, i64 16}
+!82 = !{!10, !11, i64 0}
+!83 = !{!9, !12, i64 8}
+!84 = distinct !{!84, !48}
+!85 = distinct !{!85, !48}
+!86 = distinct !{!86, !48}
+!87 = distinct !{!87, !48}
+!88 = distinct !{!88, !48}
+!89 = distinct !{!89, !48}
+!90 = distinct !{!90, !48}
+!91 = distinct !{!91, !48}

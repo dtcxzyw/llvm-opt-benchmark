@@ -231,7 +231,7 @@ atomic_store_u8.exit:                             ; preds = %atomic_load_u8.exit
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %0, ptr %7, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %0, ptr %8, align 8, !tbaa !50
+  store ptr %0, ptr %8, align 8, !tbaa !51
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %malloc_mutex_trylock_final.exit.i.i, label %10
@@ -266,13 +266,13 @@ malloc_mutex_lock.exit.i:                         ; preds = %15, %11
 
 20:                                               ; preds = %malloc_mutex_lock.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 216
-  %22 = load ptr, ptr %21, align 8, !tbaa !50
-  %23 = load ptr, ptr %8, align 8, !tbaa !50
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
+  %23 = load ptr, ptr %8, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 208
   store ptr %22, ptr %24, align 8, !tbaa !20
-  store ptr %23, ptr %21, align 8, !tbaa !50
-  store ptr %22, ptr %8, align 8, !tbaa !50
-  %25 = load ptr, ptr %21, align 8, !tbaa !50
+  store ptr %23, ptr %21, align 8, !tbaa !51
+  store ptr %22, ptr %8, align 8, !tbaa !51
+  %25 = load ptr, ptr %21, align 8, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 208
   store ptr %18, ptr %26, align 8, !tbaa !20
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 208
@@ -334,16 +334,16 @@ malloc_mutex_lock.exit.i17:                       ; preds = %39, %35
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %49 = load ptr, ptr %48, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 216
-  %51 = load ptr, ptr %50, align 8, !tbaa !50
+  %51 = load ptr, ptr %50, align 8, !tbaa !51
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %53 = load ptr, ptr %52, align 8, !tbaa !50
+  %53 = load ptr, ptr %52, align 8, !tbaa !51
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 208
   store ptr %51, ptr %54, align 8, !tbaa !20
   %55 = load ptr, ptr %48, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 216
-  store ptr %53, ptr %56, align 8, !tbaa !50
-  store ptr %51, ptr %52, align 8, !tbaa !50
-  %57 = load ptr, ptr %56, align 8, !tbaa !50
+  store ptr %53, ptr %56, align 8, !tbaa !51
+  store ptr %51, ptr %52, align 8, !tbaa !51
+  %57 = load ptr, ptr %56, align 8, !tbaa !51
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 208
   store ptr %55, ptr %58, align 8, !tbaa !20
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 208
@@ -509,14 +509,14 @@ je_tsd_slow_update.exit39:                        ; preds = %atomic_exchange_u8.
   tail call void @je_te_recompute_fast_threshold(ptr noundef nonnull %0) #7
   %41 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %.not.i = icmp eq ptr %41, %0
-  br i1 %.not.i, label %43, label %42, !prof !51
+  br i1 %.not.i, label %43, label %42, !prof !52
 
 42:                                               ; preds = %je_tsd_slow_update.exit39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2704) %41, ptr noundef nonnull align 8 dereferenceable(2704) %0, i64 2704, i1 false), !tbaa.struct !52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2704) %41, ptr noundef nonnull align 8 dereferenceable(2704) %0, i64 2704, i1 false), !tbaa.struct !53
   br label %43
 
 43:                                               ; preds = %42, %je_tsd_slow_update.exit39
-  %44 = load i32, ptr @je_tsd_tsd, align 4, !tbaa !55
+  %44 = load i32, ptr @je_tsd_tsd, align 4, !tbaa !56
   %45 = tail call i32 @pthread_setspecific(i32 noundef %44, ptr noundef nonnull %41) #7
   %.not3.i = icmp eq i32 %45, 0
   br i1 %.not3.i, label %tsd_set.exit, label %46
@@ -546,14 +546,14 @@ tsd_set.exit:                                     ; preds = %43, %46
   tail call void @je_tsd_state_set(ptr noundef nonnull %0, i8 noundef zeroext 3)
   %55 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %.not.i27 = icmp eq ptr %55, %0
-  br i1 %.not.i27, label %57, label %56, !prof !51
+  br i1 %.not.i27, label %57, label %56, !prof !52
 
 56:                                               ; preds = %54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2704) %55, ptr noundef nonnull align 8 dereferenceable(2704) %0, i64 2704, i1 false), !tbaa.struct !52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2704) %55, ptr noundef nonnull align 8 dereferenceable(2704) %0, i64 2704, i1 false), !tbaa.struct !53
   br label %57
 
 57:                                               ; preds = %56, %54
-  %58 = load i32, ptr @je_tsd_tsd, align 4, !tbaa !55
+  %58 = load i32, ptr @je_tsd_tsd, align 4, !tbaa !56
   %59 = tail call i32 @pthread_setspecific(i32 noundef %58, ptr noundef nonnull %55) #7
   %.not3.i28 = icmp eq i32 %59, 0
   br i1 %.not3.i28, label %tsd_set.exit29, label %60
@@ -648,14 +648,14 @@ je_tsd_slow_update.exit46:                        ; preds = %atomic_exchange_u8.
   tail call void @je_tsd_state_set(ptr noundef nonnull %0, i8 noundef zeroext 5)
   %97 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %.not.i30 = icmp eq ptr %97, %0
-  br i1 %.not.i30, label %99, label %98, !prof !51
+  br i1 %.not.i30, label %99, label %98, !prof !52
 
 98:                                               ; preds = %96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2704) %97, ptr noundef nonnull align 8 dereferenceable(2704) %0, i64 2704, i1 false), !tbaa.struct !52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2704) %97, ptr noundef nonnull align 8 dereferenceable(2704) %0, i64 2704, i1 false), !tbaa.struct !53
   br label %99
 
 99:                                               ; preds = %98, %96
-  %100 = load i32, ptr @je_tsd_tsd, align 4, !tbaa !55
+  %100 = load i32, ptr @je_tsd_tsd, align 4, !tbaa !56
   %101 = tail call i32 @pthread_setspecific(i32 noundef %100, ptr noundef nonnull %97) #7
   %.not3.i31 = icmp eq i32 %101, 0
   br i1 %.not3.i31, label %tsd_set.exit32, label %102
@@ -730,14 +730,14 @@ define hidden void @je_tsd_cleanup(ptr noundef %0) #0 {
   tail call void @je_tsd_state_set(ptr noundef nonnull %0, i8 noundef zeroext 4)
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %.not.i = icmp eq ptr %7, %0
-  br i1 %.not.i, label %9, label %8, !prof !51
+  br i1 %.not.i, label %9, label %8, !prof !52
 
 8:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2704) %7, ptr noundef nonnull align 8 dereferenceable(2704) %0, i64 2704, i1 false), !tbaa.struct !52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2704) %7, ptr noundef nonnull align 8 dereferenceable(2704) %0, i64 2704, i1 false), !tbaa.struct !53
   br label %9
 
 9:                                                ; preds = %8, %4
-  %10 = load i32, ptr @je_tsd_tsd, align 4, !tbaa !55
+  %10 = load i32, ptr @je_tsd_tsd, align 4, !tbaa !56
   %11 = tail call i32 @pthread_setspecific(i32 noundef %10, ptr noundef nonnull %7) #7
   %.not3.i = icmp eq i32 %11, 0
   br i1 %.not3.i, label %tsd_set.exit, label %12
@@ -775,7 +775,7 @@ define hidden ptr @je_malloc_tsd_boot0() local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 888
   %7 = load i8, ptr %6, align 8, !tbaa !44
   %.not.i2 = icmp eq i8 %7, 0
-  br i1 %.not.i2, label %tsd_fetch_impl.exit, label %8, !prof !63
+  br i1 %.not.i2, label %tsd_fetch_impl.exit, label %8, !prof !64
 
 8:                                                ; preds = %4
   %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %5, i1 noundef zeroext false)
@@ -794,7 +794,7 @@ define hidden void @je_malloc_tsd_boot1() local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %1, i64 888
   %3 = load i8, ptr %2, align 8, !tbaa !44
   %.not.i = icmp eq i8 %3, 0
-  br i1 %.not.i, label %tsd_fetch_impl.exit, label %4, !prof !63
+  br i1 %.not.i, label %tsd_fetch_impl.exit, label %4, !prof !64
 
 4:                                                ; preds = %0
   %5 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false)
@@ -867,7 +867,7 @@ define hidden void @je_tsd_postfork_child(ptr noundef %0) local_unnamed_addr #0 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %0, ptr %6, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %0, ptr %7, align 8, !tbaa !50
+  store ptr %0, ptr %7, align 8, !tbaa !51
   %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %malloc_mutex_trylock_final.exit.i.i, label %9
@@ -902,13 +902,13 @@ malloc_mutex_lock.exit.i:                         ; preds = %14, %10
 
 19:                                               ; preds = %malloc_mutex_lock.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 216
-  %21 = load ptr, ptr %20, align 8, !tbaa !50
-  %22 = load ptr, ptr %7, align 8, !tbaa !50
+  %21 = load ptr, ptr %20, align 8, !tbaa !51
+  %22 = load ptr, ptr %7, align 8, !tbaa !51
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 208
   store ptr %21, ptr %23, align 8, !tbaa !20
-  store ptr %22, ptr %20, align 8, !tbaa !50
-  store ptr %21, ptr %7, align 8, !tbaa !50
-  %24 = load ptr, ptr %20, align 8, !tbaa !50
+  store ptr %22, ptr %20, align 8, !tbaa !51
+  store ptr %21, ptr %7, align 8, !tbaa !51
+  %24 = load ptr, ptr %20, align 8, !tbaa !51
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 208
   store ptr %17, ptr %25, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 208
@@ -1031,19 +1031,20 @@ attributes #8 = { noreturn nounwind }
 !45 = !{!22, !22, i64 0}
 !46 = !{i8 0, i8 2}
 !47 = !{}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!21, !18, i64 216}
-!51 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!52 = !{i64 0, i64 1, !45, i64 1, i64 1, !44, i64 2, i64 1, !44, i64 8, i64 8, !19, i64 16, i64 8, !19, i64 24, i64 8, !19, i64 32, i64 8, !19, i64 40, i64 8, !19, i64 48, i64 8, !19, i64 56, i64 8, !19, i64 64, i64 8, !19, i64 72, i64 8, !19, i64 80, i64 8, !19, i64 88, i64 8, !19, i64 96, i64 8, !19, i64 104, i64 8, !19, i64 112, i64 8, !53, i64 120, i64 8, !19, i64 128, i64 8, !19, i64 136, i64 8, !19, i64 144, i64 8, !54, i64 152, i64 8, !54, i64 160, i64 4, !55, i64 164, i64 4, !55, i64 168, i64 1, !44, i64 169, i64 36, !44, i64 208, i64 8, !56, i64 216, i64 8, !56, i64 224, i64 1, !45, i64 232, i64 8, !19, i64 240, i64 8, !19, i64 248, i64 8, !57, i64 256, i64 8, !57, i64 264, i64 8, !58, i64 272, i64 8, !58, i64 280, i64 8, !59, i64 288, i64 8, !59, i64 296, i64 8, !60, i64 304, i64 8, !54, i64 312, i64 4, !55, i64 320, i64 8, !19, i64 328, i64 4, !55, i64 332, i64 4, !55, i64 336, i64 4, !55, i64 340, i64 72, !44, i64 412, i64 36, !44, i64 448, i64 36, !44, i64 488, i64 8, !57, i64 496, i64 8, !61, i64 504, i64 256, !44, i64 760, i64 128, !44, i64 888, i64 1, !44, i64 896, i64 8, !19, i64 904, i64 8, !19, i64 912, i64 8, !19, i64 920, i64 8, !19, i64 928, i64 8, !58, i64 936, i64 1752, !44, i64 2688, i64 8, !62, i64 2696, i64 1, !45}
-!53 = !{!23, !23, i64 0}
-!54 = !{!24, !24, i64 0}
-!55 = !{!10, !10, i64 0}
-!56 = !{!18, !18, i64 0}
-!57 = !{!13, !13, i64 0}
-!58 = !{!32, !32, i64 0}
-!59 = !{!35, !35, i64 0}
-!60 = !{!36, !36, i64 0}
-!61 = !{!37, !37, i64 0}
-!62 = !{!43, !43, i64 0}
-!63 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!21, !18, i64 216}
+!52 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!53 = !{i64 0, i64 1, !45, i64 1, i64 1, !44, i64 2, i64 1, !44, i64 8, i64 8, !19, i64 16, i64 8, !19, i64 24, i64 8, !19, i64 32, i64 8, !19, i64 40, i64 8, !19, i64 48, i64 8, !19, i64 56, i64 8, !19, i64 64, i64 8, !19, i64 72, i64 8, !19, i64 80, i64 8, !19, i64 88, i64 8, !19, i64 96, i64 8, !19, i64 104, i64 8, !19, i64 112, i64 8, !54, i64 120, i64 8, !19, i64 128, i64 8, !19, i64 136, i64 8, !19, i64 144, i64 8, !55, i64 152, i64 8, !55, i64 160, i64 4, !56, i64 164, i64 4, !56, i64 168, i64 1, !44, i64 169, i64 36, !44, i64 208, i64 8, !57, i64 216, i64 8, !57, i64 224, i64 1, !45, i64 232, i64 8, !19, i64 240, i64 8, !19, i64 248, i64 8, !58, i64 256, i64 8, !58, i64 264, i64 8, !59, i64 272, i64 8, !59, i64 280, i64 8, !60, i64 288, i64 8, !60, i64 296, i64 8, !61, i64 304, i64 8, !55, i64 312, i64 4, !56, i64 320, i64 8, !19, i64 328, i64 4, !56, i64 332, i64 4, !56, i64 336, i64 4, !56, i64 340, i64 72, !44, i64 412, i64 36, !44, i64 448, i64 36, !44, i64 488, i64 8, !58, i64 496, i64 8, !62, i64 504, i64 256, !44, i64 760, i64 128, !44, i64 888, i64 1, !44, i64 896, i64 8, !19, i64 904, i64 8, !19, i64 912, i64 8, !19, i64 920, i64 8, !19, i64 928, i64 8, !59, i64 936, i64 1752, !44, i64 2688, i64 8, !63, i64 2696, i64 1, !45}
+!54 = !{!23, !23, i64 0}
+!55 = !{!24, !24, i64 0}
+!56 = !{!10, !10, i64 0}
+!57 = !{!18, !18, i64 0}
+!58 = !{!13, !13, i64 0}
+!59 = !{!32, !32, i64 0}
+!60 = !{!35, !35, i64 0}
+!61 = !{!36, !36, i64 0}
+!62 = !{!37, !37, i64 0}
+!63 = !{!43, !43, i64 0}
+!64 = !{!"branch_weights", !"expected", i32 2000, i32 1}

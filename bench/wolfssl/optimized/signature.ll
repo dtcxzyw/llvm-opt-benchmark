@@ -137,7 +137,7 @@ wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, 
 45:                                               ; preds = %43
   %46 = zext nneg i32 %spec.select to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
-  store ptr null, ptr %11, align 8, !tbaa !9
+  store ptr null, ptr %11, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr nonnull align 64 %10, i8 0, i64 %46, i1 false)
   %47 = zext i32 %5 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %10, ptr nonnull align 1 %4, i64 %47, i1 false)
@@ -155,7 +155,7 @@ wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, 
 52:                                               ; preds = %48, %50
   %.4 = phi i32 [ %51, %50 ], [ %.3, %48 ]
   %53 = icmp eq i32 %.4, -108
-  br i1 %53, label %48, label %54, !llvm.loop !12
+  br i1 %53, label %48, label %54, !llvm.loop !13
 
 54:                                               ; preds = %52
   %55 = icmp sgt i32 %.4, -1
@@ -392,7 +392,7 @@ wc_SignatureGetSize.exit:                         ; preds = %20, %21, %23, %25, 
 37:                                               ; preds = %.preheader, %35
   %.1 = phi i32 [ %36, %35 ], [ %.0, %.preheader ]
   %38 = icmp eq i32 %.1, -108
-  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !13
+  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !14
 
 39:                                               ; preds = %.preheader67, %44
   %40 = phi i1 [ false, %44 ], [ true, %.preheader67 ]
@@ -407,7 +407,7 @@ wc_SignatureGetSize.exit:                         ; preds = %20, %21, %23, %25, 
 44:                                               ; preds = %39, %41
   %.4 = phi i32 [ %43, %41 ], [ %.3, %39 ]
   %45 = icmp eq i32 %.4, -108
-  br i1 %45, label %39, label %46, !llvm.loop !14
+  br i1 %45, label %39, label %46, !llvm.loop !15
 
 46:                                               ; preds = %44
   %47 = icmp sgt i32 %.4, -1
@@ -562,11 +562,12 @@ attributes #7 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !5, i64 0}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}

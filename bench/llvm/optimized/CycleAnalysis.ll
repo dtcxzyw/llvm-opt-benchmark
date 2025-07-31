@@ -586,7 +586,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8
 
 31:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt14default_deleteIS6_EEEvT_SB_.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !93
+  %33 = load ptr, ptr %32, align 8, !tbaa !94
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
@@ -639,10 +639,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #4 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !30
-  %3 = load ptr, ptr %2, align 8, !tbaa !94
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !96
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %5 = load ptr, ptr %4, align 8, !tbaa !97
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #13
   ret void
 }
@@ -763,12 +763,13 @@ attributes #16 = { builtin nounwind }
 !88 = !{!"_ZTSN4llvm8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEE", !89, i64 0, !19, i64 8, !19, i64 12, !19, i64 16}
 !89 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPKNS_10BasicBlockEEE", !5, i64 0}
 !90 = !{!88, !19, i64 16}
-!91 = distinct !{!91, !92}
+!91 = distinct !{!91, !92, !93}
 !92 = !{!"llvm.loop.mustprogress"}
-!93 = !{!56, !57, i64 16}
-!94 = !{!95, !5, i64 0}
-!95 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !5, i64 0, !59, i64 8}
-!96 = !{!95, !59, i64 8}
-!97 = !{!98, !99, i64 0}
-!98 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !99, i64 0}
-!99 = !{!"p1 _ZTSN4llvm12PassRegistryE", !5, i64 0}
+!93 = !{!"llvm.loop.estimated_trip_count"}
+!94 = !{!56, !57, i64 16}
+!95 = !{!96, !5, i64 0}
+!96 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !5, i64 0, !59, i64 8}
+!97 = !{!96, !59, i64 8}
+!98 = !{!99, !100, i64 0}
+!99 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !100, i64 0}
+!100 = !{!"p1 _ZTSN4llvm12PassRegistryE", !5, i64 0}

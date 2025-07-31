@@ -231,7 +231,7 @@ define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef range(i32 0, 
 80:                                               ; preds = %64, %.lr.ph.i
   %81 = getelementptr inbounds i8, ptr %.04858.i, i64 -1
   %.not54.i = icmp ult ptr %81, %39
-  br i1 %.not54.i, label %find_positions.exit.thread.sink.split, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not54.i, label %find_positions.exit.thread.sink.split, label %.lr.ph.i, !llvm.loop !9
 
 find_positions.exit:                              ; preds = %15, %76
   %.sink = phi i64 [ %79, %76 ], [ %10, %15 ]
@@ -451,7 +451,7 @@ find_positions.exit.thread.sink.split:            ; preds = %80, %44, %41
   %232 = load i8, ptr %231, align 1
   %233 = icmp eq i8 %232, 2
   %234 = and i1 %230, %233
-  br i1 %234, label %.lr.ph, label %.sink.split, !llvm.loop !9
+  br i1 %234, label %.lr.ph, label %.sink.split, !llvm.loop !10
 
 .sink.split:                                      ; preds = %217, %._crit_edge102, %104, %.preheader, %163, %160, %147, %88, %84, %find_positions.exit, %9, %12, %30, %33, %38, %find_positions.exit.thread.sink.split, %178
   %.0.ph = phi i32 [ 0, %178 ], [ -1, %find_positions.exit.thread.sink.split ], [ -1, %38 ], [ -1, %33 ], [ -1, %30 ], [ -1, %12 ], [ -1, %9 ], [ -1, %find_positions.exit ], [ -1, %84 ], [ -1, %88 ], [ -1, %147 ], [ -1, %160 ], [ -1, %163 ], [ -1, %.preheader ], [ -1, %104 ], [ -1, %._crit_edge102 ], [ -1, %217 ]
@@ -663,7 +663,7 @@ define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr noundef nonnull c
   %25 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %26 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %23, ptr %.1, align 1
-  br label %22, !llvm.loop !10
+  br label %22, !llvm.loop !11
 
 27:                                               ; preds = %22, %22
   store i8 0, ptr %.1, align 1
@@ -687,7 +687,7 @@ define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr noundef nonnull c
   %.2 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %36 = load i8, ptr %.2, align 1
   %37 = icmp eq i8 %36, 32
-  br i1 %37, label %.lr.ph, label %.loopexit45, !llvm.loop !11
+  br i1 %37, label %.lr.ph, label %.loopexit45, !llvm.loop !12
 
 .loopexit45:                                      ; preds = %35, %18
   %.136.pn.lcssa = phi ptr [ %.136, %18 ], [ %.4, %35 ]
@@ -809,7 +809,7 @@ define range(i32 -2, 1) i32 @JLI_ManifestIterate(ptr noundef readonly captures(n
   tail call void %1(ptr noundef %22, ptr noundef %23, ptr noundef %2) #14
   %24 = call fastcc i32 @parse_nv_pair(ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %.lcssa = phi i32 [ %20, %19 ], [ %24, %.lr.ph ]
@@ -1375,10 +1375,11 @@ attributes #16 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

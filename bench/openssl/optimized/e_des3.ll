@@ -228,7 +228,7 @@ define internal noundef i32 @des_ede_cfb64_cipher(ptr noundef %0, ptr noundef %1
   %.02425 = phi ptr [ %1, %.lr.ph ], [ %21, %9 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %10 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
-  store i32 %10, ptr %5, align 4, !tbaa !8
+  store i32 %10, ptr %5, align 4, !tbaa !9
   %11 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %12 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
@@ -236,14 +236,14 @@ define internal noundef i32 @des_ede_cfb64_cipher(ptr noundef %0, ptr noundef %1
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %16 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #5
   call void @DES_ede3_cfb64_encrypt(ptr noundef %.02326, ptr noundef %.02425, i64 noundef 1073741824, ptr noundef %11, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %16) #5
-  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %17 = load i32, ptr %5, align 4, !tbaa !9
   %18 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %17) #5
   %19 = add i64 %.027, -1073741824
   %20 = getelementptr inbounds nuw i8, ptr %.02326, i64 1073741824
   %21 = getelementptr inbounds nuw i8, ptr %.02425, i64 1073741824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %22 = icmp ugt i64 %19, 1073741823
-  br i1 %22, label %9, label %._crit_edge, !llvm.loop !10
+  br i1 %22, label %9, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %9, %4
   %.024.lcssa = phi ptr [ %1, %4 ], [ %21, %9 ]
@@ -255,7 +255,7 @@ define internal noundef i32 @des_ede_cfb64_cipher(ptr noundef %0, ptr noundef %1
 23:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   %24 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
-  store i32 %24, ptr %6, align 4, !tbaa !8
+  store i32 %24, ptr %6, align 4, !tbaa !9
   %25 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %26 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
@@ -264,7 +264,7 @@ define internal noundef i32 @des_ede_cfb64_cipher(ptr noundef %0, ptr noundef %1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #5
   call void @DES_ede3_cfb64_encrypt(ptr noundef %.023.lcssa, ptr noundef %.024.lcssa, i64 noundef %.0.lcssa, ptr noundef %25, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %6, i32 noundef %31) #5
-  %32 = load i32, ptr %6, align 4, !tbaa !8
+  %32 = load i32, ptr %6, align 4, !tbaa !9
   %33 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %32) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   br label %34
@@ -296,21 +296,21 @@ define internal noundef i32 @des_ede_ofb_cipher(ptr noundef %0, ptr noundef %1, 
   %.02223 = phi ptr [ %1, %.lr.ph ], [ %20, %9 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %10 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
-  store i32 %10, ptr %5, align 4, !tbaa !8
+  store i32 %10, ptr %5, align 4, !tbaa !9
   %11 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %12 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 256
   call void @DES_ede3_ofb64_encrypt(ptr noundef %.02124, ptr noundef %.02223, i64 noundef 1073741824, ptr noundef %11, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %5) #5
-  %16 = load i32, ptr %5, align 4, !tbaa !8
+  %16 = load i32, ptr %5, align 4, !tbaa !9
   %17 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %16) #5
   %18 = add i64 %.025, -1073741824
   %19 = getelementptr inbounds nuw i8, ptr %.02124, i64 1073741824
   %20 = getelementptr inbounds nuw i8, ptr %.02223, i64 1073741824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %21 = icmp ugt i64 %18, 1073741823
-  br i1 %21, label %9, label %._crit_edge, !llvm.loop !11
+  br i1 %21, label %9, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %9, %4
   %.022.lcssa = phi ptr [ %1, %4 ], [ %20, %9 ]
@@ -322,7 +322,7 @@ define internal noundef i32 @des_ede_ofb_cipher(ptr noundef %0, ptr noundef %1, 
 22:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   %23 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
-  store i32 %23, ptr %6, align 4, !tbaa !8
+  store i32 %23, ptr %6, align 4, !tbaa !9
   %24 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %25 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
@@ -330,7 +330,7 @@ define internal noundef i32 @des_ede_ofb_cipher(ptr noundef %0, ptr noundef %1, 
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 256
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @DES_ede3_ofb64_encrypt(ptr noundef %.021.lcssa, ptr noundef %.022.lcssa, i64 noundef %.0.lcssa, ptr noundef %24, ptr noundef nonnull %26, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %6) #5
-  %30 = load i32, ptr %6, align 4, !tbaa !8
+  %30 = load i32, ptr %6, align 4, !tbaa !9
   %31 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %30) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   br label %32
@@ -345,7 +345,7 @@ declare void @DES_ede3_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr 
 define internal noundef i32 @des_ede_ecb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %0) #5
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !12
+  %7 = load i32, ptr %6, align 4, !tbaa !13
   %8 = sext i32 %7 to i64
   %9 = icmp ult i64 %3, %8
   br i1 %9, label %.loopexit, label %10
@@ -367,7 +367,7 @@ define internal noundef i32 @des_ede_ecb_cipher(ptr noundef %0, ptr noundef %1, 
   tail call void @DES_ecb3_encrypt(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %17, ptr noundef nonnull %19, i32 noundef %20) #5
   %21 = add i64 %.01719, %8
   %.not = icmp ugt i64 %21, %11
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !20
 
 .loopexit:                                        ; preds = %12, %4
   ret i32 1
@@ -445,7 +445,7 @@ define internal noundef i32 @des_ede3_cfb1_cipher(ptr noundef %0, ptr noundef ca
   store i8 %37, ptr %27, align 1, !tbaa !3
   %38 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %38, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %10, %4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
@@ -481,7 +481,7 @@ define internal noundef i32 @des_ede3_cfb8_cipher(ptr noundef %0, ptr noundef %1
   %15 = getelementptr inbounds nuw i8, ptr %.01922, i64 1073741824
   %16 = getelementptr inbounds nuw i8, ptr %.02021, i64 1073741824
   %17 = icmp ugt i64 %14, 1073741823
-  br i1 %17, label %7, label %._crit_edge, !llvm.loop !21
+  br i1 %17, label %7, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %7, %4
   %.020.lcssa = phi ptr [ %1, %4 ], [ %16, %7 ]
@@ -741,19 +741,20 @@ attributes #5 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"int", !4, i64 0}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!13, !9, i64 4}
-!13 = !{!"evp_cipher_st", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !14, i64 16, !9, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !9, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !9, i64 96, !16, i64 104, !16, i64 112, !17, i64 120, !18, i64 128, !15, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !15, i64 208, !15, i64 216, !15, i64 224, !15, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !15, i64 264, !15, i64 272, !15, i64 280, !15, i64 288}
-!14 = !{!"long", !4, i64 0}
-!15 = !{!"any pointer", !4, i64 0}
-!16 = !{!"p1 omnipotent char", !15, i64 0}
-!17 = !{!"p1 _ZTS16ossl_provider_st", !15, i64 0}
-!18 = !{!"", !4, i64 0}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !4, i64 0}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{!14, !10, i64 4}
+!14 = !{!"evp_cipher_st", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !15, i64 16, !10, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !10, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !10, i64 96, !17, i64 104, !17, i64 112, !18, i64 120, !19, i64 128, !16, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !16, i64 208, !16, i64 216, !16, i64 224, !16, i64 232, !16, i64 240, !16, i64 248, !16, i64 256, !16, i64 264, !16, i64 272, !16, i64 280, !16, i64 288}
+!15 = !{!"long", !4, i64 0}
+!16 = !{!"any pointer", !4, i64 0}
+!17 = !{!"p1 omnipotent char", !16, i64 0}
+!18 = !{!"p1 _ZTS16ossl_provider_st", !16, i64 0}
+!19 = !{!"", !4, i64 0}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

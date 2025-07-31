@@ -247,5 +247,6 @@ attributes #7 = { nounwind willreturn memory(none) }
 !48 = !{!29, !19, i64 8}
 !49 = !{!50, !50, i64 0}
 !50 = !{!"short", !8, i64 0}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
+!53 = !{!"llvm.loop.estimated_trip_count"}

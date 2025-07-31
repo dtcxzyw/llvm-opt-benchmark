@@ -652,7 +652,7 @@ dissect_octet_string.exit.i158:                   ; preds = %188, %186
   %203 = tail call fastcc i32 @dissect_object_id(ptr noundef %0, ptr noundef %183, i32 noundef %202, i8 noundef zeroext %7, i32 noundef 1)
   %204 = add i32 %202, %203
   %205 = icmp sgt i32 %199, %204
-  br i1 %205, label %.lr.ph.i160, label %dissect_register_pdu.exit, !llvm.loop !8
+  br i1 %205, label %.lr.ph.i160, label %dissect_register_pdu.exit, !llvm.loop !9
 
 206:                                              ; preds = %29
   %207 = zext i8 %7 to i32
@@ -705,7 +705,7 @@ dissect_octet_string.exit.i164:                   ; preds = %217, %215
   %236 = tail call fastcc i32 @dissect_object_id(ptr noundef %0, ptr noundef %212, i32 noundef %235, i8 noundef zeroext %7, i32 noundef 1)
   %237 = add i32 %235, %236
   %.not26.i = icmp slt i32 %23, %237
-  br i1 %.not26.i, label %dissect_register_pdu.exit, label %.lr.ph.i166, !llvm.loop !9
+  br i1 %.not26.i, label %dissect_register_pdu.exit, label %.lr.ph.i166, !llvm.loop !10
 
 238:                                              ; preds = %29
   %239 = load i32, ptr @ett_testset, align 4
@@ -746,7 +746,7 @@ dissect_octet_string.exit.i169:                   ; preds = %245, %243
   %257 = tail call fastcc i32 @dissect_varbind(ptr noundef %0, ptr noundef %240, i32 noundef %.118.i, i32 noundef %23, i8 noundef zeroext %7)
   %258 = add i32 %257, %.118.i
   %259 = icmp sgt i32 %23, %258
-  br i1 %259, label %.lr.ph.i171, label %dissect_register_pdu.exit, !llvm.loop !10
+  br i1 %259, label %.lr.ph.i171, label %dissect_register_pdu.exit, !llvm.loop !11
 
 260:                                              ; preds = %29
   %261 = load i32, ptr @ett_notify, align 4
@@ -787,7 +787,7 @@ dissect_octet_string.exit.i174:                   ; preds = %267, %265
   %279 = tail call fastcc i32 @dissect_varbind(ptr noundef %0, ptr noundef %262, i32 noundef %.118.i177, i32 noundef %23, i8 noundef zeroext %7)
   %280 = add i32 %279, %.118.i177
   %281 = icmp sgt i32 %23, %280
-  br i1 %281, label %.lr.ph.i176, label %dissect_register_pdu.exit, !llvm.loop !11
+  br i1 %281, label %.lr.ph.i176, label %dissect_register_pdu.exit, !llvm.loop !12
 
 282:                                              ; preds = %29
   %283 = load i32, ptr @ett_ping, align 4
@@ -854,7 +854,7 @@ dissect_octet_string.exit.i184:                   ; preds = %303, %301
   %315 = tail call fastcc i32 @dissect_varbind(ptr noundef %0, ptr noundef %298, i32 noundef %.118.i187, i32 noundef %23, i8 noundef zeroext %7)
   %316 = add i32 %315, %.118.i187
   %317 = icmp sgt i32 %23, %316
-  br i1 %317, label %.lr.ph.i186, label %dissect_register_pdu.exit, !llvm.loop !12
+  br i1 %317, label %.lr.ph.i186, label %dissect_register_pdu.exit, !llvm.loop !13
 
 318:                                              ; preds = %29
   %319 = load i32, ptr @ett_idxdalloc, align 4
@@ -895,7 +895,7 @@ dissect_octet_string.exit.i190:                   ; preds = %325, %323
   %337 = tail call fastcc i32 @dissect_varbind(ptr noundef %0, ptr noundef %320, i32 noundef %.118.i193, i32 noundef %23, i8 noundef zeroext %7)
   %338 = add i32 %337, %.118.i193
   %339 = icmp sgt i32 %23, %338
-  br i1 %339, label %.lr.ph.i192, label %dissect_register_pdu.exit, !llvm.loop !13
+  br i1 %339, label %.lr.ph.i192, label %dissect_register_pdu.exit, !llvm.loop !14
 
 340:                                              ; preds = %29
   %341 = load i32, ptr @ett_addcap, align 4
@@ -1017,7 +1017,7 @@ dissect_rem_caps_pdu.exit:                        ; preds = %369, %dissect_octet
   %408 = tail call fastcc i32 @dissect_varbind(ptr noundef %0, ptr noundef %390, i32 noundef %.034.i, i32 noundef %406, i8 noundef zeroext %7)
   %409 = add i32 %408, %.034.i
   %410 = icmp sgt i32 %406, %409
-  br i1 %410, label %.lr.ph.i204, label %dissect_register_pdu.exit, !llvm.loop !14
+  br i1 %410, label %.lr.ph.i204, label %dissect_register_pdu.exit, !llvm.loop !15
 
 dissect_register_pdu.exit:                        ; preds = %.lr.ph.i192, %.lr.ph.i186, %.lr.ph.i176, %.lr.ph.i204, %.lr.ph.i171, %.lr.ph.i166, %.lr.ph.i160, %.lr.ph.i, %29, %dissect_open_pdu.exit, %74, %dissect_add_caps_pdu.exit, %dissect_rem_caps_pdu.exit, %101, %115, %139, %153, %173, %198, %227, %255, %277, %282, %dissect_octet_string.exit.i180, %313, %335, %395, %19
   %411 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1108,7 +1108,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   store i32 %20, ptr %21, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %exitcond70.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1120,7 +1120,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   store i32 %24, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.not36.i = icmp eq i8 %10, 0
@@ -1155,7 +1155,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %42 = icmp samesign ult i64 %indvars.iv.next.i, %30
   %43 = icmp slt i32 %41, 2048
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !18
+  br i1 %44, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !19
 
 convert_oid_to_str.exit:                          ; preds = %.lr.ph.i
   %.not = icmp eq i32 %41, 0
@@ -1353,16 +1353,17 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

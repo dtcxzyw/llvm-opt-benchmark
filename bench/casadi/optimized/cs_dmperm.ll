@@ -100,9 +100,9 @@ define ptr @cs_dmperm(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 45:                                               ; preds = %._crit_edge.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !21
+  %47 = load ptr, ptr %46, align 8, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !22
+  %49 = load ptr, ptr %48, align 8, !tbaa !23
   %50 = icmp sgt i32 %.1.i, 0
   br i1 %50, label %.lr.ph62.i, label %cs_bfs.exit
 
@@ -110,7 +110,7 @@ define ptr @cs_dmperm(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.3.lcssa.i = phi i32 [ %.260.i, %.lr.ph62.i ], [ %.4.i, %79 ]
   %51 = sext i32 %.3.lcssa.i to i64
   %52 = icmp slt i64 %indvars.iv.next69.i, %51
-  br i1 %52, label %.lr.ph62.i, label %cs_bfs.exit, !llvm.loop !23
+  br i1 %52, label %.lr.ph62.i, label %cs_bfs.exit, !llvm.loop !24
 
 .lr.ph62.i:                                       ; preds = %45, %.loopexit.i
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %.loopexit.i ], [ 0, %45 ]
@@ -165,7 +165,7 @@ define ptr @cs_dmperm(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %80 = load i32, ptr %58, align 4, !tbaa !18
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next66.i, %81
-  br i1 %82, label %.lr.ph58.i, label %.loopexit.i, !llvm.loop !24
+  br i1 %82, label %.lr.ph58.i, label %.loopexit.i, !llvm.loop !25
 
 cs_bfs.exit:                                      ; preds = %.loopexit.i, %45, %._crit_edge, %._crit_edge.i
   br i1 %31, label %.lr.ph.preheader.i226, label %135
@@ -209,9 +209,9 @@ cs_bfs.exit:                                      ; preds = %.loopexit.i, %45, %
 
 .thread.i:                                        ; preds = %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %97 = load ptr, ptr %96, align 8, !tbaa !21
+  %97 = load ptr, ptr %96, align 8, !tbaa !22
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %99 = load ptr, ptr %98, align 8, !tbaa !22
+  %99 = load ptr, ptr %98, align 8, !tbaa !23
   %100 = icmp sgt i32 %.1.i231, 0
   br i1 %100, label %.lr.ph62.i236, label %._crit_edge63.i235
 
@@ -219,7 +219,7 @@ cs_bfs.exit:                                      ; preds = %.loopexit.i, %45, %
   %.3.lcssa.i241 = phi i32 [ %.260.i238, %.lr.ph62.i236 ], [ %.4.i246, %129 ]
   %101 = sext i32 %.3.lcssa.i241 to i64
   %102 = icmp slt i64 %indvars.iv.next69.i239, %101
-  br i1 %102, label %.lr.ph62.i236, label %._crit_edge63.i235, !llvm.loop !23
+  br i1 %102, label %.lr.ph62.i236, label %._crit_edge63.i235, !llvm.loop !24
 
 .lr.ph62.i236:                                    ; preds = %.thread.i, %.loopexit.i240
   %indvars.iv68.i237 = phi i64 [ %indvars.iv.next69.i239, %.loopexit.i240 ], [ 0, %.thread.i ]
@@ -274,7 +274,7 @@ cs_bfs.exit:                                      ; preds = %.loopexit.i, %45, %
   %130 = load i32, ptr %108, align 4, !tbaa !18
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv.next66.i247, %131
-  br i1 %132, label %.lr.ph58.i243, label %.loopexit.i240, !llvm.loop !24
+  br i1 %132, label %.lr.ph58.i243, label %.loopexit.i240, !llvm.loop !25
 
 ._crit_edge63.i235:                               ; preds = %.loopexit.i240, %.thread.i
   %133 = tail call ptr @cs_spfree(ptr noundef nonnull %95) #4
@@ -326,7 +326,7 @@ cs_unmatched.exit.thread:                         ; preds = %135
   %.1.i254 = phi i32 [ %147, %146 ], [ %.014.i, %.lr.ph.i252 ]
   %indvars.iv.next.i255 = add nuw nsw i64 %indvars.iv.i253, 1
   %exitcond.not.i256 = icmp eq i64 %indvars.iv.next.i255, %wide.trip.count.i251
-  br i1 %exitcond.not.i256, label %cs_unmatched.exit, label %.lr.ph.i252, !llvm.loop !25
+  br i1 %exitcond.not.i256, label %cs_unmatched.exit, label %.lr.ph.i252, !llvm.loop !26
 
 cs_unmatched.exit:                                ; preds = %151
   %152 = getelementptr inbounds nuw i8, ptr %12, i64 60
@@ -362,7 +362,7 @@ cs_unmatched.exit:                                ; preds = %151
   %.1.i264 = phi i32 [ %.027.i, %.lr.ph.i261 ], [ %159, %156 ]
   %indvars.iv.next.i265 = add nuw nsw i64 %indvars.iv.i262, 1
   %exitcond.not.i266 = icmp eq i64 %indvars.iv.next.i265, %wide.trip.count.i251
-  br i1 %exitcond.not.i266, label %cs_matched.exit, label %.lr.ph.i261, !llvm.loop !26
+  br i1 %exitcond.not.i266, label %cs_matched.exit, label %.lr.ph.i261, !llvm.loop !27
 
 cs_matched.exit:                                  ; preds = %166
   %167 = getelementptr i8, ptr %12, i64 40
@@ -399,7 +399,7 @@ cs_matched.exit:                                  ; preds = %166
   %.1.i278 = phi i32 [ %.027.i274, %.lr.ph.i272 ], [ %174, %171 ]
   %indvars.iv.next.i279 = add nuw nsw i64 %indvars.iv.i273, 1
   %exitcond.not.i280 = icmp eq i64 %indvars.iv.next.i279, %wide.trip.count.i251
-  br i1 %exitcond.not.i280, label %cs_matched.exit281, label %.lr.ph.i272, !llvm.loop !26
+  br i1 %exitcond.not.i280, label %cs_matched.exit281, label %.lr.ph.i272, !llvm.loop !27
 
 cs_matched.exit281:                               ; preds = %181
   %182 = getelementptr i8, ptr %12, i64 44
@@ -436,7 +436,7 @@ cs_matched.exit281:                               ; preds = %181
   %.1.i293 = phi i32 [ %.027.i289, %.lr.ph.i287 ], [ %189, %186 ]
   %indvars.iv.next.i294 = add nuw nsw i64 %indvars.iv.i288, 1
   %exitcond.not.i295 = icmp eq i64 %indvars.iv.next.i294, %wide.trip.count.i251
-  br i1 %exitcond.not.i295, label %cs_matched.exit296, label %.lr.ph.i287, !llvm.loop !26
+  br i1 %exitcond.not.i295, label %cs_matched.exit296, label %.lr.ph.i287, !llvm.loop !27
 
 cs_matched.exit296:                               ; preds = %196, %cs_unmatched.exit.thread
   %.023.lcssa.i283 = phi i32 [ %136, %cs_unmatched.exit.thread ], [ %.124.i292, %196 ]
@@ -471,7 +471,7 @@ cs_matched.exit296:                               ; preds = %196, %cs_unmatched.
   %.1.i304 = phi i32 [ %203, %202 ], [ %.014.i303, %.lr.ph.i301 ]
   %indvars.iv.next.i305 = add nuw nsw i64 %indvars.iv.i302, 1
   %exitcond.not.i306 = icmp eq i64 %indvars.iv.next.i305, %wide.trip.count.i300
-  br i1 %exitcond.not.i306, label %cs_unmatched.exit307, label %.lr.ph.i301, !llvm.loop !25
+  br i1 %exitcond.not.i306, label %cs_unmatched.exit307, label %.lr.ph.i301, !llvm.loop !26
 
 cs_unmatched.exit307:                             ; preds = %207, %cs_matched.exit296
   %.0.lcssa.i298 = phi i32 [ %.0.lcssa.i284, %cs_matched.exit296 ], [ %.1.i304, %207 ]
@@ -498,7 +498,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
 
 218:                                              ; preds = %213
   %219 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  %220 = load ptr, ptr %219, align 8, !tbaa !21
+  %220 = load ptr, ptr %219, align 8, !tbaa !22
   %221 = getelementptr inbounds nuw i8, ptr %12, i64 68
   %222 = load i32, ptr %221, align 4, !tbaa !18
   %223 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -526,7 +526,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %235 = load i32, ptr %221, align 4, !tbaa !18
   %.not224.not = icmp sgt i32 %235, %231
-  br i1 %.not224.not, label %.lr.ph330, label %.loopexit322, !llvm.loop !27
+  br i1 %.not224.not, label %.lr.ph330, label %.loopexit322, !llvm.loop !28
 
 .loopexit322:                                     ; preds = %.lr.ph330, %218
   %236 = getelementptr inbounds nuw i8, ptr %214, i64 8
@@ -545,7 +545,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   %246 = getelementptr inbounds i32, ptr %220, i64 %245
   %247 = load i32, ptr %246, align 4, !tbaa !18
   %248 = getelementptr inbounds nuw i8, ptr %214, i64 24
-  %249 = load ptr, ptr %248, align 8, !tbaa !22
+  %249 = load ptr, ptr %248, align 8, !tbaa !23
   %250 = load i32, ptr %239, align 4, !tbaa !18
   %251 = icmp sgt i32 %250, 0
   %252 = icmp sgt i32 %247, 0
@@ -565,7 +565,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   store i32 %256, ptr %254, align 4, !tbaa !18
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph332, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph332, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph332, %243, %.loopexit322
   %257 = getelementptr inbounds nuw i8, ptr %214, i64 4
@@ -583,7 +583,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   %263 = getelementptr inbounds nuw i8, ptr %258, i64 16
   %264 = load ptr, ptr %263, align 8, !tbaa !16
   %265 = getelementptr inbounds nuw i8, ptr %258, i64 32
-  %266 = load i32, ptr %265, align 8, !tbaa !29
+  %266 = load i32, ptr %265, align 8, !tbaa !30
   %267 = icmp sgt i32 %225, 0
   br i1 %267, label %.lr.ph335.preheader, label %._crit_edge342
 
@@ -608,7 +608,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   store i32 %274, ptr %275, align 4, !tbaa !18
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next355, %wide.trip.count357
-  br i1 %exitcond358.not, label %.lr.ph337.preheader, label %.lr.ph335, !llvm.loop !30
+  br i1 %exitcond358.not, label %.lr.ph337.preheader, label %.lr.ph335, !llvm.loop !31
 
 .lr.ph339.preheader:                              ; preds = %.lr.ph337
   %wide.trip.count367 = zext nneg i32 %225 to i64
@@ -626,7 +626,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   store i32 %277, ptr %282, align 4, !tbaa !18
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond363.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count362
-  br i1 %exitcond363.not, label %.lr.ph339.preheader, label %.lr.ph337, !llvm.loop !31
+  br i1 %exitcond363.not, label %.lr.ph339.preheader, label %.lr.ph337, !llvm.loop !32
 
 .lr.ph341.preheader:                              ; preds = %.lr.ph339
   %wide.trip.count372 = zext nneg i32 %225 to i64
@@ -645,7 +645,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   store i32 %289, ptr %290, align 4, !tbaa !18
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond368.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count367
-  br i1 %exitcond368.not, label %.lr.ph341.preheader, label %.lr.ph339, !llvm.loop !32
+  br i1 %exitcond368.not, label %.lr.ph341.preheader, label %.lr.ph339, !llvm.loop !33
 
 .lr.ph341:                                        ; preds = %.lr.ph341.preheader, %.lr.ph341
   %indvars.iv369 = phi i64 [ 0, %.lr.ph341.preheader ], [ %indvars.iv.next370, %.lr.ph341 ]
@@ -659,7 +659,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   store i32 %292, ptr %297, align 4, !tbaa !18
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %exitcond373.not = icmp eq i64 %indvars.iv.next370, %wide.trip.count372
-  br i1 %exitcond373.not, label %._crit_edge342, label %.lr.ph341, !llvm.loop !33
+  br i1 %exitcond373.not, label %._crit_edge342, label %.lr.ph341, !llvm.loop !34
 
 ._crit_edge342:                                   ; preds = %.lr.ph341, %261
   store i32 0, ptr %20, align 4, !tbaa !18
@@ -692,7 +692,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
   %exitcond382.not = icmp eq i64 %indvars.iv.next375, %wide.trip.count381
-  br i1 %exitcond382.not, label %._crit_edge347.loopexit, label %.lr.ph346, !llvm.loop !34
+  br i1 %exitcond382.not, label %._crit_edge347.loopexit, label %.lr.ph346, !llvm.loop !35
 
 ._crit_edge347.loopexit:                          ; preds = %.lr.ph346
   %311 = trunc nuw i64 %indvars.iv.next377 to i32
@@ -722,7 +722,7 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   %323 = getelementptr inbounds i32, ptr %20, i64 %321
   store i32 %11, ptr %323, align 4, !tbaa !18
   %324 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 %.2206, ptr %324, align 8, !tbaa !29
+  store i32 %.2206, ptr %324, align 8, !tbaa !30
   %325 = tail call ptr @cs_dfree(ptr noundef nonnull %258) #4
   %326 = tail call ptr @cs_ddone(ptr noundef nonnull %12, ptr noundef nonnull %214, ptr noundef null, i32 noundef 1) #4
   br label %327
@@ -803,19 +803,20 @@ attributes #4 = { nounwind }
 !16 = !{!14, !8, i64 16}
 !17 = !{!14, !8, i64 24}
 !18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!4, !8, i64 16}
-!22 = !{!4, !8, i64 24}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = !{!14, !5, i64 32}
-!30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20}
-!32 = distinct !{!32, !20}
-!33 = distinct !{!33, !20}
-!34 = distinct !{!34, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!4, !8, i64 16}
+!23 = !{!4, !8, i64 24}
+!24 = distinct !{!24, !20, !21}
+!25 = distinct !{!25, !20, !21}
+!26 = distinct !{!26, !20, !21}
+!27 = distinct !{!27, !20, !21}
+!28 = distinct !{!28, !20, !21}
+!29 = distinct !{!29, !20, !21}
+!30 = !{!14, !5, i64 32}
+!31 = distinct !{!31, !20, !21}
+!32 = distinct !{!32, !20, !21}
+!33 = distinct !{!33, !20, !21}
+!34 = distinct !{!34, !20, !21}
+!35 = distinct !{!35, !20, !21}

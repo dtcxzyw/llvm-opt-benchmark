@@ -99,5 +99,6 @@ attributes #2 = { nounwind }
 !9 = !{!10, !4, i64 8}
 !10 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
 !11 = !{!10, !4, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!"llvm.loop.estimated_trip_count"}

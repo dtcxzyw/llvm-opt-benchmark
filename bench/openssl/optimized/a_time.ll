@@ -365,7 +365,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
 149:                                              ; preds = %.lr.ph
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, %19
-  br i1 %exitcond189.not, label %.thread, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond189.not, label %.thread, label %.lr.ph, !llvm.loop !29
 
 .critedge:                                        ; preds = %.lr.ph
   %150 = trunc nuw nsw i64 %indvars.iv186 to i32
@@ -455,7 +455,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
 197:                                              ; preds = %193
   %indvars.iv.next195 = add nsw i64 %indvars.iv194, 2
   %exitcond197.not = icmp eq i32 %187, %166
-  br i1 %exitcond197.not, label %.split.us.thread, label %.preheader.split.us, !llvm.loop !29
+  br i1 %exitcond197.not, label %.split.us.thread, label %.preheader.split.us, !llvm.loop !30
 
 .split.us.thread:                                 ; preds = %197
   %.us-phi202 = trunc i64 %indvars.iv.next195 to i32
@@ -525,7 +525,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   %.1 = phi i32 [ %229, %228 ], [ %234, %232 ], [ %.0179, %230 ]
   %indvars.iv.next191 = add nsw i64 %indvars.iv190, 2
   %exitcond193.not = icmp eq i32 %216, %166
-  br i1 %exitcond193.not, label %.split.us, label %.preheader.split, !llvm.loop !31
+  br i1 %exitcond193.not, label %.split.us, label %.preheader.split, !llvm.loop !32
 
 .split.us:                                        ; preds = %235
   %.us-phi = trunc i64 %indvars.iv.next191 to i32
@@ -550,7 +550,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br i1 %.not155, label %.thread, label %244
 
 244:                                              ; preds = %243
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !tbaa.struct !33
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %31, %37, %42, %59, %50, %leap_year.exit, %149, %.preheader.split, %202, %222, %207, %193, %178, %173, %.preheader.split.us, %236, %162, %7, %140, %141, %.critedge, %160, %241, %161, %243, %244, %2
@@ -692,7 +692,7 @@ define dso_local noundef ptr @ASN1_TIME_set(ptr noundef %0, i64 noundef %1) loca
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i64 %1, ptr %3, align 8, !tbaa !33
+  store i64 %1, ptr %3, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #8
   %5 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %6 = icmp eq ptr %5, null
@@ -719,7 +719,7 @@ ASN1_TIME_adj.exit:                               ; preds = %7, %8
 define dso_local noundef ptr @ASN1_TIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.tm, align 8
-  store i64 %1, ptr %5, align 8, !tbaa !33
+  store i64 %1, ptr %5, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
   %7 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %8 = icmp eq ptr %7, null
@@ -813,7 +813,7 @@ ASN1_TIME_to_tm.exit:                             ; preds = %2
   br i1 %.not, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %1, align 8, !tbaa !35
+  %13 = load ptr, ptr %1, align 8, !tbaa !36
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %.thread.i
 
@@ -867,7 +867,7 @@ ossl_asn1_time_from_tm.exit:                      ; preds = %25
   br i1 %.not, label %ossl_asn1_time_from_tm.exit.thread, label %41
 
 41:                                               ; preds = %ossl_asn1_time_from_tm.exit
-  store ptr %.149.i, ptr %1, align 8, !tbaa !35
+  store ptr %.149.i, ptr %1, align 8, !tbaa !36
   br label %ossl_asn1_time_from_tm.exit.thread
 
 ossl_asn1_time_from_tm.exit.thread:               ; preds = %6, %29, %30, %.thread, %ossl_asn1_time_from_tm.exit, %41, %ASN1_TIME_to_tm.exit
@@ -1146,7 +1146,7 @@ define dso_local range(i32 -1, 2) i32 @ossl_asn1_time_print_ex(ptr noundef %0, p
 27:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !38
 
 .critedge.split.loop.exit43:                      ; preds = %.lr.ph
   %28 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1263,7 +1263,7 @@ define dso_local range(i32 -2, 2) i32 @ASN1_TIME_cmp_time_t(ptr noundef readonly
   %6 = alloca %struct.tm, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store i64 %1, ptr %4, align 8, !tbaa !33
+  store i64 %1, ptr %4, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
@@ -1469,15 +1469,16 @@ attributes #9 = { nounwind willreturn memory(read) }
 !23 = !{!18, !6, i64 8}
 !24 = !{!18, !6, i64 4}
 !25 = !{!18, !6, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = distinct !{!29, !27, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !27}
-!32 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 4, !16, i64 12, i64 4, !16, i64 16, i64 4, !16, i64 20, i64 4, !16, i64 24, i64 4, !16, i64 28, i64 4, !16, i64 32, i64 4, !16, i64 40, i64 8, !33, i64 48, i64 8, !34}
-!33 = !{!11, !11, i64 0}
-!34 = !{!9, !9, i64 0}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS14asn1_string_st", !10, i64 0}
-!37 = distinct !{!37, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = distinct !{!30, !27, !28, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !27, !28}
+!33 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 4, !16, i64 12, i64 4, !16, i64 16, i64 4, !16, i64 20, i64 4, !16, i64 24, i64 4, !16, i64 28, i64 4, !16, i64 32, i64 4, !16, i64 40, i64 8, !34, i64 48, i64 8, !35}
+!34 = !{!11, !11, i64 0}
+!35 = !{!9, !9, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS14asn1_string_st", !10, i64 0}
+!38 = distinct !{!38, !27, !28}

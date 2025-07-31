@@ -905,7 +905,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
-  %38 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre.i) #19, !srcloc !22
+  %38 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre.i) #19, !srcloc !23
   br label %39
 
 39:                                               ; preds = %37, %34
@@ -1010,7 +1010,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   br i1 %96, label %98, label %thread-pre-split
 
 98:                                               ; preds = %87
-  %99 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %97) #19, !srcloc !23
+  %99 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %97) #19, !srcloc !24
   store i32 %99, ptr %6, align 4
   br label %thread-pre-split
 
@@ -1078,7 +1078,7 @@ thread-pre-split:                                 ; preds = %87, %98
   %115 = load ptr, ptr %0, align 8
   %116 = call i32 @file_eof(ptr noundef %115)
   %.not82 = icmp eq i32 %116, 0
-  br i1 %.not82, label %.lr.ph, label %get_block_type_internal.exit, !llvm.loop !24
+  br i1 %.not82, label %.lr.ph, label %get_block_type_internal.exit, !llvm.loop !25
 
 get_block_type_internal.exit:                     ; preds = %114, %103, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %49, %110, %84
   br label %117
@@ -1128,7 +1128,7 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %22 = load i16, ptr %21, align 4
   %rev = call i16 @llvm.bswap.i16(i16 %22)
-  %23 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #19, !srcloc !25
+  %23 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #19, !srcloc !26
   br label %26
 
 24:                                               ; preds = %9
@@ -1200,7 +1200,7 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
   br i1 %54, label %57, label %59
 
 57:                                               ; preds = %47
-  %58 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %56) #19, !srcloc !26
+  %58 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %56) #19, !srcloc !27
   br label %59
 
 59:                                               ; preds = %47, %57
@@ -1277,7 +1277,7 @@ define internal noundef zeroext i1 @pcapng_read(ptr noundef %0, ptr noundef %1, 
 
 29:                                               ; preds = %26
   call fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr noundef %9, ptr noundef %20, ptr noundef nonnull byval(%struct.section_info_t) align 8 %6, ptr noundef nonnull %7, ptr noundef %4)
-  br label %13
+  br label %13, !llvm.loop !28
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1325,7 +1325,7 @@ define internal noundef zeroext i1 @pcapng_seek_read(ptr noundef captures(none) 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8
   %.not = icmp sgt i64 %24, %1
-  br i1 %.not, label %20, label %25
+  br i1 %.not, label %20, label %25, !llvm.loop !29
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1394,7 +1394,7 @@ define internal void @pcapng_close(ptr noundef readonly captures(none) %0) #0 {
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1445,11 +1445,11 @@ define internal fastcc noundef zeroext i1 @pcapng_read_block(ptr noundef capture
   br label %32
 
 27:                                               ; preds = %24
-  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %20) #19, !srcloc !28
+  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %20) #19, !srcloc !31
   store i32 %28, ptr %16, align 4
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %30 = load i32, ptr %29, align 4
-  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #19, !srcloc !29
+  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #19, !srcloc !32
   br label %32
 
 32:                                               ; preds = %27, %._crit_edge
@@ -1686,14 +1686,14 @@ pcapng_read_meta_event_block.exit:                ; preds = %73
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 112
   store i16 %rev.i, ptr %130, align 8
   %131 = load i64, ptr %10, align 8
-  %132 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %131) #19, !srcloc !30
+  %132 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %131) #19, !srcloc !33
   %133 = load i64, ptr %11, align 8
-  %134 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %133) #19, !srcloc !31
+  %134 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %133) #19, !srcloc !34
   %135 = load ptr, ptr %88, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 88
   store i64 %134, ptr %136, align 8
   %137 = load i32, ptr %12, align 4
-  %138 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %137) #19, !srcloc !32
+  %138 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %137) #19, !srcloc !35
   %139 = load ptr, ptr %88, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 96
   store i32 %138, ptr %140, align 8
@@ -1703,7 +1703,7 @@ pcapng_read_meta_event_block.exit:                ; preds = %73
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 104
   store i16 %rev135.i, ptr %143, align 8
   %144 = load i32, ptr %14, align 4
-  %145 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %144) #19, !srcloc !33
+  %145 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %144) #19, !srcloc !36
   br label %161
 
 146:                                              ; preds = %116
@@ -1807,7 +1807,7 @@ pcapng_read_sysdig_event_block.exit:              ; preds = %169
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %191
-  %195 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre.i) #19, !srcloc !22
+  %195 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre.i) #19, !srcloc !23
   br label %196
 
 196:                                              ; preds = %194, %191
@@ -2189,7 +2189,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_if_descr_block(ptr nounde
 
 27:                                               ; preds = %18
   %rev = call i16 @llvm.bswap.i16(i16 %24)
-  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #19, !srcloc !34
+  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #19, !srcloc !37
   br label %29
 
 29:                                               ; preds = %18, %27
@@ -2289,7 +2289,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_if_descr_block(ptr nounde
   %72 = mul i64 %.078107, 10
   %73 = add nuw nsw i32 %.0108, 1
   %exitcond.not = icmp eq i32 %73, %69
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.078.lcssa = phi i64 [ 1, %.preheader ], [ %72, %.lr.ph ]
@@ -2386,19 +2386,19 @@ define internal fastcc noundef zeroext i1 @pcapng_read_packet_block(ptr noundef 
   br i1 %25, label %27, label %41
 
 27:                                               ; preds = %23
-  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #19, !srcloc !36
+  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #19, !srcloc !39
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %30 = load i32, ptr %29, align 4
-  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #19, !srcloc !37
+  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #19, !srcloc !40
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = load i32, ptr %32, align 4
-  %34 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #19, !srcloc !38
+  %34 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #19, !srcloc !41
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %36 = load i32, ptr %35, align 4
-  %37 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %36) #19, !srcloc !39
+  %37 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %36) #19, !srcloc !42
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %39 = load i32, ptr %38, align 4
-  %40 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %39) #19, !srcloc !40
+  %40 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %39) #19, !srcloc !43
   br label %86
 
 41:                                               ; preds = %23
@@ -2439,16 +2439,16 @@ define internal fastcc noundef zeroext i1 @pcapng_read_packet_block(ptr noundef 
   %rev206 = call i16 @llvm.bswap.i16(i16 %62)
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %64 = load i32, ptr %63, align 4
-  %65 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %64) #19, !srcloc !41
+  %65 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %64) #19, !srcloc !44
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %67 = load i32, ptr %66, align 4
-  %68 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %67) #19, !srcloc !42
+  %68 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %67) #19, !srcloc !45
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %70) #19, !srcloc !43
+  %71 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %70) #19, !srcloc !46
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %73 = load i32, ptr %72, align 4
-  %74 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %73) #19, !srcloc !44
+  %74 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %73) #19, !srcloc !47
   br label %96
 
 75:                                               ; preds = %56
@@ -2742,7 +2742,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_simple_packet_block(ptr n
   br i1 %27, label %29, label %31
 
 29:                                               ; preds = %24
-  %30 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #19, !srcloc !45
+  %30 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #19, !srcloc !48
   br label %31
 
 31:                                               ; preds = %24, %29
@@ -3025,7 +3025,7 @@ name_resolution_block_find_name_end.exit.thread:  ; preds = %81
   %83 = add i32 %.01012.i, -1
   %84 = add nuw i32 %.014.i, 1
   %85 = icmp eq i32 %83, 0
-  br i1 %85, label %name_resolution_block_find_name_end.exit.thread, label %.lr.ph.i
+  br i1 %85, label %name_resolution_block_find_name_end.exit.thread, label %.lr.ph.i, !llvm.loop !49
 
 name_resolution_block_find_name_end.exit:         ; preds = %.lr.ph.i
   %86 = add i32 %.014.i, 1
@@ -3048,7 +3048,7 @@ name_resolution_block_find_name_end.exit:         ; preds = %.lr.ph.i
   %95 = getelementptr i8, ptr %.0124204, i64 %94
   %96 = sub i32 %.0122205, %86
   %.not135 = icmp eq i32 %96, 0
-  br i1 %.not135, label %._crit_edge206.loopexit, label %.lr.ph.i.preheader, !llvm.loop !46
+  br i1 %.not135, label %._crit_edge206.loopexit, label %.lr.ph.i.preheader, !llvm.loop !50
 
 ._crit_edge206.loopexit:                          ; preds = %88
   %.pre244 = load i16, ptr %26, align 2
@@ -3156,7 +3156,7 @@ name_resolution_block_find_name_end.exit153.thread: ; preds = %138
   %140 = add i32 %.01012.i150, -1
   %141 = add nuw i32 %.014.i148, 1
   %142 = icmp eq i32 %140, 0
-  br i1 %142, label %name_resolution_block_find_name_end.exit153.thread, label %.lr.ph.i147
+  br i1 %142, label %name_resolution_block_find_name_end.exit153.thread, label %.lr.ph.i147, !llvm.loop !49
 
 name_resolution_block_find_name_end.exit153:      ; preds = %.lr.ph.i147
   %143 = add i32 %.014.i148, 1
@@ -3182,7 +3182,7 @@ name_resolution_block_find_name_end.exit153:      ; preds = %.lr.ph.i147
   %153 = getelementptr i8, ptr %.1125201, i64 %152
   %154 = sub i32 %.1123202, %143
   %.not = icmp eq i32 %154, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph.i147.preheader, !llvm.loop !47
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph.i147.preheader, !llvm.loop !51
 
 ._crit_edge.loopexit:                             ; preds = %145
   %.pre243 = load i16, ptr %26, align 2
@@ -3230,7 +3230,7 @@ name_resolution_block_find_name_end.exit153:      ; preds = %.lr.ph.i147
 177:                                              ; preds = %171, %160, %102
   %.2 = phi i32 [ %176, %171 ], [ %109, %102 ], [ %167, %160 ]
   %178 = icmp slt i32 %.2, %16
-  br i1 %178, label %29, label %._crit_edge209, !llvm.loop !48
+  br i1 %178, label %29, label %._crit_edge209, !llvm.loop !52
 
 ._crit_edge209:                                   ; preds = %56, %177, %22
   %.1 = phi i32 [ 0, %22 ], [ %.2, %177 ], [ %38, %56 ]
@@ -3282,16 +3282,16 @@ define internal fastcc noundef zeroext i1 @pcapng_read_interface_statistics_bloc
   br i1 %21, label %23, label %32
 
 23:                                               ; preds = %16
-  %24 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #19, !srcloc !49
+  %24 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #19, !srcloc !53
   store i32 %24, ptr %19, align 4
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #19, !srcloc !50
+  %27 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #19, !srcloc !54
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %27, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load i32, ptr %29, align 4
-  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #19, !srcloc !51
+  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #19, !srcloc !55
   br label %38
 
 32:                                               ; preds = %16
@@ -3342,11 +3342,11 @@ define internal fastcc noundef zeroext i1 @pcapng_read_decryption_secrets_block(
   br i1 %14, label %16, label %21
 
 16:                                               ; preds = %9
-  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #19, !srcloc !52
+  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #19, !srcloc !56
   store i32 %17, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #19, !srcloc !53
+  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #19, !srcloc !57
   br label %24
 
 21:                                               ; preds = %9
@@ -3431,7 +3431,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_custom_block(ptr noundef 
   br i1 %22, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23) #19, !srcloc !54
+  %25 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23) #19, !srcloc !58
   br label %26
 
 26:                                               ; preds = %20, %24
@@ -3624,7 +3624,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_systemd_journal_export_bl
   %34 = getelementptr i8, ptr %29, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %31, label %.critedge, !llvm.loop !55
+  br i1 %36, label %31, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %32
   %37 = trunc nuw i64 %indvars.iv to i32
@@ -3937,7 +3937,7 @@ define internal noundef zeroext i1 @pcapng_process_if_descr_block_option(ptr nou
 
 88:                                               ; preds = %76
   %89 = load i32, ptr %84, align 4
-  %90 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %89) #19, !srcloc !56
+  %90 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %89) #19, !srcloc !60
   store i32 %90, ptr %84, align 4
   br label %91
 
@@ -3945,7 +3945,7 @@ define internal noundef zeroext i1 @pcapng_process_if_descr_block_option(ptr nou
   %92 = getelementptr i8, ptr %.0102115, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %61
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 93:                                               ; preds = %7
   %94 = zext i16 %3 to i64
@@ -4246,7 +4246,7 @@ pcapng_process_uint32_option.exit119:             ; preds = %69, %73
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %95
-  %101 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %97) #19, !srcloc !58
+  %101 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %97) #19, !srcloc !62
   br label %102
 
 102:                                              ; preds = %100, %95
@@ -4274,7 +4274,7 @@ pcapng_process_uint32_option.exit119:             ; preds = %69, %73
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %107
-  %113 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %109) #19, !srcloc !59
+  %113 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %109) #19, !srcloc !63
   br label %114
 
 114:                                              ; preds = %112, %107
@@ -4784,7 +4784,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !60
+  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 .lr.ph:                                           ; preds = %.preheader30, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.preheader30 ]
@@ -4814,7 +4814,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
   %73 = icmp samesign ult i64 %indvars.iv.next42, %72
-  br i1 %73, label %.lr.ph34, label %.loopexit, !llvm.loop !61
+  br i1 %73, label %.lr.ph34, label %.loopexit, !llvm.loop !65
 
 .lr.ph34:                                         ; preds = %.preheader, %68
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %68 ], [ 0, %.preheader ]
@@ -5071,7 +5071,7 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
   %129 = load i32, ptr %128, align 8
   %130 = zext i32 %129 to i64
   %131 = icmp samesign ult i64 %indvars.iv.next, %130
-  br i1 %131, label %109, label %._crit_edge.i, !llvm.loop !62
+  br i1 %131, label %109, label %._crit_edge.i, !llvm.loop !66
 
 ._crit_edge.i.split.loop.exit73:                  ; preds = %123
   %132 = trunc nuw i64 %indvars.iv to i32
@@ -5645,7 +5645,7 @@ define internal noundef zeroext i1 @pcapng_dump_finish(ptr noundef %0, ptr nound
   %31 = load i8, ptr %27, align 8
   %32 = zext i8 %31 to i64
   %.not = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %.not, label %33, label %.critedge, !llvm.loop !63
+  br i1 %.not, label %33, label %.critedge, !llvm.loop !67
 
 33:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
@@ -5726,7 +5726,7 @@ pcapng_write_interface_statistics_block.exit:     ; preds = %51, %write_options.
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next33, %59
-  br i1 %60, label %21, label %.loopexit, !llvm.loop !64
+  br i1 %60, label %21, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.critedge, %pcapng_write_interface_statistics_block.exit, %.preheader, %pcapng_write_interface_statistics_block.exit.thread, %3
   %.0 = phi i1 [ false, %3 ], [ false, %pcapng_write_interface_statistics_block.exit.thread ], [ true, %.preheader ], [ false, %pcapng_write_interface_statistics_block.exit ], [ true, %.critedge ]
@@ -5926,7 +5926,7 @@ define internal fastcc noundef zeroext i1 @pcapng_write_internal_blocks(ptr noun
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.critedge.thread, !llvm.loop !65
+  br i1 %26, label %.lr.ph, label %.critedge.thread, !llvm.loop !69
 
 .critedge.thread:                                 ; preds = %19, %7, %2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -6006,7 +6006,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
   %69 = icmp samesign ult i64 %indvars.iv.next109, %68
-  br i1 %69, label %37, label %.critedge79, !llvm.loop !66
+  br i1 %69, label %37, label %.critedge79, !llvm.loop !70
 
 .critedge79:                                      ; preds = %62, %29, %.critedge.thread
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6105,7 +6105,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %122 = load i32, ptr %121, align 8
   %123 = zext i32 %122 to i64
   %124 = icmp samesign ult i64 %indvars.iv.next112, %123
-  br i1 %124, label %.lr.ph102, label %.critedge79.thread, !llvm.loop !67
+  br i1 %124, label %.lr.ph102, label %.critedge79.thread, !llvm.loop !71
 
 .critedge79.thread:                               ; preds = %.lr.ph, %pcapng_write_meta_event_block.exit, %117, %.lr.ph102, %105, %85, %pcapng_write_meta_event_block.exit.thread, %102
   %.4 = phi i1 [ true, %102 ], [ false, %pcapng_write_meta_event_block.exit.thread ], [ false, %85 ], [ true, %105 ], [ %116, %.lr.ph102 ], [ %116, %117 ], [ false, %pcapng_write_meta_event_block.exit ], [ false, %.lr.ph ]
@@ -6332,7 +6332,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %33 = load ptr, ptr %10, align 8
   %34 = call ptr @g_list_nth_data(ptr noundef %33, i32 noundef %32)
   %.not144 = icmp eq ptr %34, null
-  br i1 %.not144, label %.loopexit147, label %27, !llvm.loop !68
+  br i1 %.not144, label %.loopexit147, label %27, !llvm.loop !72
 
 35:                                               ; preds = %27
   %36 = trunc nuw i64 %29 to i16
@@ -6378,7 +6378,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %64 = select i1 %63, i64 0, i64 %62
   %65 = icmp ne i64 %64, -1
   call void @llvm.assume(i1 %65)
-  %66 = call ptr @__memcpy_chk(ptr noundef %61, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %64) #20, !alias.scope !69
+  %66 = call ptr @__memcpy_chk(ptr noundef %61, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %64) #20, !alias.scope !73
   %67 = zext i32 %.reass168 to i64
   %68 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %67, ptr noundef %2)
   br i1 %68, label %.outer148.thread, label %.sink.split
@@ -6406,7 +6406,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %78 = phi i64 [ 1048568, %.outer148.thread ], [ %spec.select, %.outer148 ]
   %79 = icmp ne i64 %78, -1
   call void @llvm.assume(i1 %79)
-  %80 = call ptr @__memcpy_chk(ptr noundef %76, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %78) #20, !alias.scope !73
+  %80 = call ptr @__memcpy_chk(ptr noundef %76, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %78) #20, !alias.scope !77
   %81 = add i32 %.2222, 4
   %82 = zext i32 %81 to i64
   %83 = getelementptr i8, ptr %19, i64 %82
@@ -6415,7 +6415,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %86 = select i1 %85, i64 0, i64 %84
   %87 = icmp ne i64 %86, -1
   call void @llvm.assume(i1 %87)
-  %88 = call ptr @__memcpy_chk(ptr noundef %83, ptr noundef nonnull %.0134162, i64 noundef 4, i64 noundef %86) #20, !alias.scope !77
+  %88 = call ptr @__memcpy_chk(ptr noundef %83, ptr noundef nonnull %.0134162, i64 noundef 4, i64 noundef %86) #20, !alias.scope !81
   %89 = add i32 %.2222, 8
   %90 = zext i32 %89 to i64
   %91 = getelementptr i8, ptr %19, i64 %90
@@ -6425,7 +6425,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %95 = select i1 %94, i64 0, i64 %93
   %96 = icmp ne i64 %95, -1
   call void @llvm.assume(i1 %96)
-  %97 = call ptr @__memcpy_chk(ptr noundef %91, ptr noundef nonnull %28, i64 noundef %92, i64 noundef %95) #20, !alias.scope !81
+  %97 = call ptr @__memcpy_chk(ptr noundef %91, ptr noundef nonnull %28, i64 noundef %92, i64 noundef %95) #20, !alias.scope !85
   %98 = add i32 %89, %38
   %99 = zext i32 %98 to i64
   %100 = getelementptr i8, ptr %19, i64 %99
@@ -6444,7 +6444,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %112 = load ptr, ptr %10, align 8
   %113 = call ptr @g_list_nth_data(ptr noundef %112, i32 noundef %111)
   %.not144161 = icmp eq ptr %113, null
-  br i1 %.not144161, label %.loopexit147, label %.lr.ph, !llvm.loop !68
+  br i1 %.not144161, label %.loopexit147, label %.lr.ph, !llvm.loop !72
 
 .loopexit147:                                     ; preds = %75, %31, %23, %18
   %114 = phi i32 [ 12, %18 ], [ 12, %23 ], [ %.ph149170, %31 ], [ %77, %75 ]
@@ -6487,7 +6487,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %127 = load ptr, ptr %115, align 8
   %128 = call ptr @g_list_nth_data(ptr noundef %127, i32 noundef %126)
   %.not146 = icmp eq ptr %128, null
-  br i1 %.not146, label %.loopexit, label %121, !llvm.loop !85
+  br i1 %.not146, label %.loopexit, label %121, !llvm.loop !89
 
 129:                                              ; preds = %121
   %130 = trunc nuw i64 %123 to i16
@@ -6533,7 +6533,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %158 = select i1 %157, i64 0, i64 %156
   %159 = icmp ne i64 %158, -1
   call void @llvm.assume(i1 %159)
-  %160 = call ptr @__memcpy_chk(ptr noundef %155, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %158) #20, !alias.scope !86
+  %160 = call ptr @__memcpy_chk(ptr noundef %155, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %158) #20, !alias.scope !90
   %161 = zext i32 %.reass187 to i64
   %162 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %161, ptr noundef %2)
   br i1 %162, label %.outer.thread, label %.sink.split
@@ -6561,7 +6561,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %172 = phi i64 [ 1048568, %.outer.thread ], [ %spec.select252, %.outer ]
   %173 = icmp ne i64 %172, -1
   call void @llvm.assume(i1 %173)
-  %174 = call ptr @__memcpy_chk(ptr noundef %170, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %172) #20, !alias.scope !90
+  %174 = call ptr @__memcpy_chk(ptr noundef %170, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %172) #20, !alias.scope !94
   %175 = add i32 %.5226, 4
   %176 = zext i32 %175 to i64
   %177 = getelementptr i8, ptr %19, i64 %176
@@ -6570,7 +6570,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %180 = select i1 %179, i64 0, i64 %178
   %181 = icmp ne i64 %180, -1
   call void @llvm.assume(i1 %181)
-  %182 = call ptr @__memcpy_chk(ptr noundef %177, ptr noundef nonnull %.0133177, i64 noundef 16, i64 noundef %180) #20, !alias.scope !94
+  %182 = call ptr @__memcpy_chk(ptr noundef %177, ptr noundef nonnull %.0133177, i64 noundef 16, i64 noundef %180) #20, !alias.scope !98
   %183 = add i32 %.5226, 20
   %184 = zext i32 %183 to i64
   %185 = getelementptr i8, ptr %19, i64 %184
@@ -6580,7 +6580,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %189 = select i1 %188, i64 0, i64 %187
   %190 = icmp ne i64 %189, -1
   call void @llvm.assume(i1 %190)
-  %191 = call ptr @__memcpy_chk(ptr noundef %185, ptr noundef nonnull %122, i64 noundef %186, i64 noundef %189) #20, !alias.scope !98
+  %191 = call ptr @__memcpy_chk(ptr noundef %185, ptr noundef nonnull %122, i64 noundef %186, i64 noundef %189) #20, !alias.scope !102
   %192 = add i32 %183, %132
   %193 = zext i32 %192 to i64
   %194 = getelementptr i8, ptr %19, i64 %193
@@ -6599,7 +6599,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %206 = load ptr, ptr %115, align 8
   %207 = call ptr @g_list_nth_data(ptr noundef %206, i32 noundef %205)
   %.not146176 = icmp eq ptr %207, null
-  br i1 %.not146176, label %.loopexit, label %.lr.ph179, !llvm.loop !85
+  br i1 %.not146176, label %.loopexit, label %.lr.ph179, !llvm.loop !89
 
 .loopexit:                                        ; preds = %169, %125, %117, %.loopexit147
   %208 = phi i32 [ %114, %.loopexit147 ], [ %114, %117 ], [ %.ph189, %125 ], [ %171, %169 ]
@@ -6634,7 +6634,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %229 = select i1 %228, i64 0, i64 %227
   %230 = icmp ne i64 %229, -1
   call void @llvm.assume(i1 %230)
-  %231 = call ptr @__memcpy_chk(ptr noundef %226, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %229) #20, !alias.scope !102
+  %231 = call ptr @__memcpy_chk(ptr noundef %226, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %229) #20, !alias.scope !106
   %232 = zext i32 %223 to i64
   %233 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %232, ptr noundef %2)
   br label %.sink.split
@@ -7876,59 +7876,59 @@ attributes #24 = { noreturn }
 !17 = !{i64 2150252098}
 !18 = !{i64 2150263632}
 !19 = !{i64 2150264284}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{i64 2150355840}
-!23 = !{i64 2150375637}
-!24 = distinct !{!24, !21}
-!25 = !{i64 2150272004}
-!26 = !{i64 2150275265}
-!27 = distinct !{!27, !21}
-!28 = !{i64 2150358343}
-!29 = !{i64 2150358966}
-!30 = !{i64 2150346386}
-!31 = !{i64 2150347939}
-!32 = !{i64 2150349497}
-!33 = !{i64 2150350266}
-!34 = !{i64 2150280969}
-!35 = distinct !{!35, !21}
-!36 = !{i64 2150297473}
-!37 = !{i64 2150298096}
-!38 = !{i64 2150298720}
-!39 = !{i64 2150299342}
-!40 = !{i64 2150299961}
-!41 = !{i64 2150303184}
-!42 = !{i64 2150303806}
-!43 = !{i64 2150304426}
-!44 = !{i64 2150305043}
-!45 = !{i64 2150312031}
-!46 = distinct !{!46, !21}
-!47 = distinct !{!47, !21}
-!48 = distinct !{!48, !21}
-!49 = !{i64 2150327345}
-!50 = !{i64 2150327968}
-!51 = !{i64 2150328592}
-!52 = !{i64 2150285455}
-!53 = !{i64 2150286075}
-!54 = !{i64 2150338562}
-!55 = distinct !{!55, !21}
-!56 = !{i64 2150278880}
-!57 = distinct !{!57, !21}
-!58 = !{i64 2150292042}
-!59 = !{i64 2150293722}
-!60 = distinct !{!60, !21}
-!61 = distinct !{!61, !21}
-!62 = distinct !{!62, !21}
-!63 = distinct !{!63, !21}
-!64 = distinct !{!64, !21}
-!65 = distinct !{!65, !21}
-!66 = distinct !{!66, !21}
-!67 = distinct !{!67, !21}
-!68 = distinct !{!68, !21}
-!69 = !{!70, !72}
-!70 = distinct !{!70, !71, !"memcpy.inline: argument 0"}
-!71 = distinct !{!71, !"memcpy.inline"}
-!72 = distinct !{!72, !71, !"memcpy.inline: argument 1"}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{i64 2150355840}
+!24 = !{i64 2150375637}
+!25 = distinct !{!25, !21, !22}
+!26 = !{i64 2150272004}
+!27 = !{i64 2150275265}
+!28 = distinct !{!28, !22}
+!29 = distinct !{!29, !22}
+!30 = distinct !{!30, !21, !22}
+!31 = !{i64 2150358343}
+!32 = !{i64 2150358966}
+!33 = !{i64 2150346386}
+!34 = !{i64 2150347939}
+!35 = !{i64 2150349497}
+!36 = !{i64 2150350266}
+!37 = !{i64 2150280969}
+!38 = distinct !{!38, !21, !22}
+!39 = !{i64 2150297473}
+!40 = !{i64 2150298096}
+!41 = !{i64 2150298720}
+!42 = !{i64 2150299342}
+!43 = !{i64 2150299961}
+!44 = !{i64 2150303184}
+!45 = !{i64 2150303806}
+!46 = !{i64 2150304426}
+!47 = !{i64 2150305043}
+!48 = !{i64 2150312031}
+!49 = distinct !{!49, !22}
+!50 = distinct !{!50, !21, !22}
+!51 = distinct !{!51, !21, !22}
+!52 = distinct !{!52, !21, !22}
+!53 = !{i64 2150327345}
+!54 = !{i64 2150327968}
+!55 = !{i64 2150328592}
+!56 = !{i64 2150285455}
+!57 = !{i64 2150286075}
+!58 = !{i64 2150338562}
+!59 = distinct !{!59, !21, !22}
+!60 = !{i64 2150278880}
+!61 = distinct !{!61, !21, !22}
+!62 = !{i64 2150292042}
+!63 = !{i64 2150293722}
+!64 = distinct !{!64, !21, !22}
+!65 = distinct !{!65, !21, !22}
+!66 = distinct !{!66, !21, !22}
+!67 = distinct !{!67, !21, !22}
+!68 = distinct !{!68, !21, !22}
+!69 = distinct !{!69, !21, !22}
+!70 = distinct !{!70, !21, !22}
+!71 = distinct !{!71, !21, !22}
+!72 = distinct !{!72, !21, !22}
 !73 = !{!74, !76}
 !74 = distinct !{!74, !75, !"memcpy.inline: argument 0"}
 !75 = distinct !{!75, !"memcpy.inline"}
@@ -7941,11 +7941,11 @@ attributes #24 = { noreturn }
 !82 = distinct !{!82, !83, !"memcpy.inline: argument 0"}
 !83 = distinct !{!83, !"memcpy.inline"}
 !84 = distinct !{!84, !83, !"memcpy.inline: argument 1"}
-!85 = distinct !{!85, !21}
-!86 = !{!87, !89}
-!87 = distinct !{!87, !88, !"memcpy.inline: argument 0"}
-!88 = distinct !{!88, !"memcpy.inline"}
-!89 = distinct !{!89, !88, !"memcpy.inline: argument 1"}
+!85 = !{!86, !88}
+!86 = distinct !{!86, !87, !"memcpy.inline: argument 0"}
+!87 = distinct !{!87, !"memcpy.inline"}
+!88 = distinct !{!88, !87, !"memcpy.inline: argument 1"}
+!89 = distinct !{!89, !21, !22}
 !90 = !{!91, !93}
 !91 = distinct !{!91, !92, !"memcpy.inline: argument 0"}
 !92 = distinct !{!92, !"memcpy.inline"}
@@ -7962,3 +7962,7 @@ attributes #24 = { noreturn }
 !103 = distinct !{!103, !104, !"memcpy.inline: argument 0"}
 !104 = distinct !{!104, !"memcpy.inline"}
 !105 = distinct !{!105, !104, !"memcpy.inline: argument 1"}
+!106 = !{!107, !109}
+!107 = distinct !{!107, !108, !"memcpy.inline: argument 0"}
+!108 = distinct !{!108, !"memcpy.inline"}
+!109 = distinct !{!109, !108, !"memcpy.inline: argument 1"}

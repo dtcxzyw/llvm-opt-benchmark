@@ -181,7 +181,7 @@ softfloat_lt128.exit.thread:                      ; preds = %36, %softfloat_lt12
   %88 = lshr i64 %87, 32
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %89 = icmp eq i64 %indvars.iv, 0
-  br i1 %89, label %90, label %58
+  br i1 %89, label %90, label %58, !llvm.loop !7
 
 90:                                               ; preds = %82
   %91 = add nuw nsw i64 %88, 1
@@ -332,3 +332,5 @@ attributes #4 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}

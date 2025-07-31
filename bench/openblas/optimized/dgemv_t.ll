@@ -76,13 +76,13 @@ define noundef i32 @dgemv_t(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %.1482 = phi ptr [ %.0456570, %41 ], [ %.0481568, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #5
-  store ptr %.0455571, ptr %13, align 16, !tbaa !9
+  store ptr %.0455571, ptr %13, align 16, !tbaa !10
   %46 = getelementptr inbounds double, ptr %.0455571, i64 %5
-  store ptr %46, ptr %28, align 8, !tbaa !9
+  store ptr %46, ptr %28, align 8, !tbaa !10
   %47 = getelementptr inbounds double, ptr %46, i64 %5
-  store ptr %47, ptr %29, align 16, !tbaa !9
+  store ptr %47, ptr %29, align 16, !tbaa !10
   %48 = getelementptr inbounds double, ptr %47, i64 %5
-  store ptr %48, ptr %30, align 8, !tbaa !9
+  store ptr %48, ptr %30, align 8, !tbaa !10
   br i1 %.not, label %.loopexit544, label %.preheader542
 
 .preheader542:                                    ; preds = %copy_x.exit, %62
@@ -103,24 +103,24 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %55 = phi ptr [ %51, %.preheader542 ], [ %59, %52 ]
   call fastcc void @dgemv_kernel_4x4(i64 noundef %.mux, ptr noundef %13, ptr noundef %.1482, ptr noundef %.0490552)
   %56 = getelementptr inbounds double, ptr %.0455517551, i64 %27
-  store ptr %56, ptr %13, align 16, !tbaa !9
+  store ptr %56, ptr %13, align 16, !tbaa !10
   %57 = getelementptr inbounds double, ptr %53, i64 %27
-  store ptr %57, ptr %28, align 8, !tbaa !9
+  store ptr %57, ptr %28, align 8, !tbaa !10
   %58 = getelementptr inbounds double, ptr %54, i64 %27
-  store ptr %58, ptr %29, align 16, !tbaa !9
+  store ptr %58, ptr %29, align 16, !tbaa !10
   %59 = getelementptr inbounds double, ptr %55, i64 %27
-  store ptr %59, ptr %30, align 8, !tbaa !9
+  store ptr %59, ptr %30, align 8, !tbaa !10
   %60 = getelementptr inbounds nuw i8, ptr %.0490552, i64 32
   %61 = add nuw nsw i64 %.0459553, 1
   %exitcond.not = icmp eq i64 %61, 512
-  br i1 %exitcond.not, label %62, label %52, !llvm.loop !12
+  br i1 %exitcond.not, label %62, label %52, !llvm.loop !13
 
 62:                                               ; preds = %52
   call fastcc void @add_y(i64 noundef 2048, double noundef %3, ptr noundef nonnull %18, ptr noundef %.1474555, i64 noundef %9)
   %63 = getelementptr inbounds i8, ptr %.1474555, i64 %.idx504
   %64 = add nuw nsw i64 %.0461557, 1
   %exitcond667.not = icmp eq i64 %64, %19
-  br i1 %exitcond667.not, label %.loopexit544, label %.preheader542, !llvm.loop !13
+  br i1 %exitcond667.not, label %.loopexit544, label %.preheader542, !llvm.loop !14
 
 .loopexit544:                                     ; preds = %62, %copy_x.exit
   %65 = phi ptr [ %48, %copy_x.exit ], [ %59, %62 ]
@@ -140,17 +140,17 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %70 = phi ptr [ %74, %.lr.ph ], [ %65, %.loopexit544 ]
   call fastcc void @dgemv_kernel_4x4(i64 noundef %.mux, ptr noundef %13, ptr noundef %.1482, ptr noundef %.1491564)
   %71 = getelementptr inbounds double, ptr %.0455518563, i64 %27
-  store ptr %71, ptr %13, align 16, !tbaa !9
+  store ptr %71, ptr %13, align 16, !tbaa !10
   %72 = getelementptr inbounds double, ptr %68, i64 %27
-  store ptr %72, ptr %28, align 8, !tbaa !9
+  store ptr %72, ptr %28, align 8, !tbaa !10
   %73 = getelementptr inbounds double, ptr %69, i64 %27
-  store ptr %73, ptr %29, align 16, !tbaa !9
+  store ptr %73, ptr %29, align 16, !tbaa !10
   %74 = getelementptr inbounds double, ptr %70, i64 %27
-  store ptr %74, ptr %30, align 8, !tbaa !9
+  store ptr %74, ptr %30, align 8, !tbaa !10
   %75 = getelementptr inbounds nuw i8, ptr %.1491564, i64 32
   %76 = add nuw nsw i64 %.1460565, 1
   %exitcond668.not = icmp eq i64 %76, %21
-  br i1 %exitcond668.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond668.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
   call fastcc void @add_y(i64 noundef %31, double noundef %3, ptr noundef nonnull %18, ptr noundef %.0473, i64 noundef %9)
@@ -199,7 +199,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %97 = getelementptr inbounds double, ptr %.0456570, i64 %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #5
   %scevgep666 = getelementptr i8, ptr %indvars.iv, i64 16384
-  br i1 %40, label %38, label %98, !llvm.loop !15
+  br i1 %40, label %38, label %98, !llvm.loop !16
 
 98:                                               ; preds = %38, %94
   %.0456.lcssa = phi ptr [ %97, %94 ], [ %.0456570, %38 ]
@@ -293,7 +293,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %159 = getelementptr inbounds nuw i8, ptr %.0485622, i64 96
   %160 = add nuw nsw i64 %.1462623, 4
   %161 = icmp samesign ult i64 %160, %110
-  br i1 %161, label %.lr.ph624, label %.preheader, !llvm.loop !16
+  br i1 %161, label %.lr.ph624, label %.preheader, !llvm.loop !17
 
 .lr.ph629:                                        ; preds = %.preheader, %.lr.ph629
   %.2463628 = phi i64 [ %174, %.lr.ph629 ], [ %.1462.lcssa, %.preheader ]
@@ -313,7 +313,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %173 = getelementptr inbounds nuw i8, ptr %.1486627, i64 24
   %174 = add nuw nsw i64 %.2463628, 1
   %exitcond677.not = icmp eq i64 %174, %1
-  br i1 %exitcond677.not, label %.loopexit, label %.lr.ph629, !llvm.loop !17
+  br i1 %exitcond677.not, label %.loopexit, label %.lr.ph629, !llvm.loop !18
 
 175:                                              ; preds = %99
   br i1 %109, label %.preheader523, label %.preheader524
@@ -395,7 +395,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %227 = getelementptr inbounds i8, ptr %.2487614, i64 %.idx514
   %228 = add nuw nsw i64 %.3615, 4
   %229 = icmp samesign ult i64 %228, %177
-  br i1 %229, label %179, label %.preheader521, !llvm.loop !18
+  br i1 %229, label %179, label %.preheader521, !llvm.loop !19
 
 .lr.ph621:                                        ; preds = %.preheader521, %.lr.ph621
   %.4620 = phi i64 [ %242, %.lr.ph621 ], [ %.3.lcssa, %.preheader521 ]
@@ -415,7 +415,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %241 = getelementptr inbounds double, ptr %.3488619, i64 %5
   %242 = add nuw nsw i64 %.4620, 1
   %exitcond676.not = icmp eq i64 %242, %1
-  br i1 %exitcond676.not, label %.loopexit, label %.lr.ph621, !llvm.loop !19
+  br i1 %exitcond676.not, label %.loopexit, label %.lr.ph621, !llvm.loop !20
 
 .lr.ph613:                                        ; preds = %.preheader524, %.lr.ph613
   %.5612 = phi i64 [ %255, %.lr.ph613 ], [ 0, %.preheader524 ]
@@ -436,7 +436,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %254 = getelementptr inbounds double, ptr %.4489610, i64 %5
   %255 = add nuw nsw i64 %.5612, 1
   %exitcond675.not = icmp eq i64 %255, %1
-  br i1 %exitcond675.not, label %.loopexit, label %.lr.ph613, !llvm.loop !20
+  br i1 %exitcond675.not, label %.loopexit, label %.lr.ph613, !llvm.loop !21
 
 256:                                              ; preds = %98
   %257 = load double, ptr %.0456.lcssa, align 8, !tbaa !3
@@ -505,7 +505,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %301 = getelementptr inbounds nuw i8, ptr %.0468602, i64 64
   %302 = add nuw nsw i64 %.6603, 4
   %303 = icmp samesign ult i64 %302, %264
-  br i1 %303, label %.lr.ph604, label %.preheader526, !llvm.loop !21
+  br i1 %303, label %.lr.ph604, label %.preheader526, !llvm.loop !22
 
 .lr.ph609:                                        ; preds = %.preheader526, %.lr.ph609
   %.7608 = phi i64 [ %313, %.lr.ph609 ], [ %.6.lcssa, %.preheader526 ]
@@ -522,7 +522,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %312 = getelementptr inbounds nuw i8, ptr %.1469607, i64 16
   %313 = add nuw nsw i64 %.7608, 1
   %exitcond674.not = icmp eq i64 %313, %1
-  br i1 %exitcond674.not, label %.loopexit, label %.lr.ph609, !llvm.loop !22
+  br i1 %exitcond674.not, label %.loopexit, label %.lr.ph609, !llvm.loop !23
 
 314:                                              ; preds = %256
   br i1 %263, label %.preheader531, label %.preheader532
@@ -592,7 +592,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %354 = getelementptr inbounds i8, ptr %.2470594, i64 %.idx511
   %355 = add nuw nsw i64 %.8595, 4
   %356 = icmp samesign ult i64 %355, %316
-  br i1 %356, label %318, label %.preheader529, !llvm.loop !23
+  br i1 %356, label %318, label %.preheader529, !llvm.loop !24
 
 .lr.ph601:                                        ; preds = %.preheader529, %.lr.ph601
   %.9600 = phi i64 [ %366, %.lr.ph601 ], [ %.8.lcssa, %.preheader529 ]
@@ -609,7 +609,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %365 = getelementptr inbounds double, ptr %.3471599, i64 %5
   %366 = add nuw nsw i64 %.9600, 1
   %exitcond673.not = icmp eq i64 %366, %1
-  br i1 %exitcond673.not, label %.loopexit, label %.lr.ph601, !llvm.loop !24
+  br i1 %exitcond673.not, label %.loopexit, label %.lr.ph601, !llvm.loop !25
 
 .lr.ph593:                                        ; preds = %.preheader532, %.lr.ph593
   %.10592 = phi i64 [ %376, %.lr.ph593 ], [ 0, %.preheader532 ]
@@ -627,7 +627,7 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   %375 = getelementptr inbounds double, ptr %.4472591, i64 %5
   %376 = add nuw nsw i64 %.10592, 1
   %exitcond672.not = icmp eq i64 %376, %1
-  br i1 %exitcond672.not, label %.loopexit, label %.lr.ph593, !llvm.loop !25
+  br i1 %exitcond672.not, label %.loopexit, label %.lr.ph593, !llvm.loop !26
 
 default.unreachable:                              ; preds = %98
   unreachable
@@ -681,7 +681,7 @@ default.unreachable:                              ; preds = %98
   store double %406, ptr %404, align 8, !tbaa !3
   %407 = add nuw nsw i64 %.11585, 4
   %408 = icmp samesign ult i64 %407, %382
-  br i1 %408, label %.lr.ph586, label %.preheader534, !llvm.loop !26
+  br i1 %408, label %.lr.ph586, label %.preheader534, !llvm.loop !27
 
 .lr.ph589:                                        ; preds = %.preheader534, %.lr.ph589
   %.12588 = phi i64 [ %414, %.lr.ph589 ], [ %.11.lcssa, %.preheader534 ]
@@ -693,7 +693,7 @@ default.unreachable:                              ; preds = %98
   store double %413, ptr %411, align 8, !tbaa !3
   %414 = add nuw nsw i64 %.12588, 1
   %exitcond671.not = icmp eq i64 %414, %1
-  br i1 %exitcond671.not, label %.loopexit, label %.lr.ph589, !llvm.loop !27
+  br i1 %exitcond671.not, label %.loopexit, label %.lr.ph589, !llvm.loop !28
 
 415:                                              ; preds = %377
   br i1 %381, label %.preheader539, label %.preheader540
@@ -747,7 +747,7 @@ default.unreachable:                              ; preds = %98
   %439 = getelementptr inbounds i8, ptr %.0457578, i64 %.idx508
   %440 = add nuw nsw i64 %.13577, 4
   %441 = icmp samesign ult i64 %440, %417
-  br i1 %441, label %419, label %.preheader537, !llvm.loop !28
+  br i1 %441, label %419, label %.preheader537, !llvm.loop !29
 
 .lr.ph584:                                        ; preds = %.preheader537, %.lr.ph584
   %.1458583 = phi ptr [ %446, %.lr.ph584 ], [ %.0457.lcssa, %.preheader537 ]
@@ -760,7 +760,7 @@ default.unreachable:                              ; preds = %98
   %446 = getelementptr inbounds double, ptr %.1458583, i64 %5
   %447 = add nuw nsw i64 %.14582, 1
   %exitcond670.not = icmp eq i64 %447, %1
-  br i1 %exitcond670.not, label %.loopexit, label %.lr.ph584, !llvm.loop !29
+  br i1 %exitcond670.not, label %.loopexit, label %.lr.ph584, !llvm.loop !30
 
 .lr.ph576:                                        ; preds = %.preheader540, %.lr.ph576
   %.2575 = phi ptr [ %452, %.lr.ph576 ], [ %.0455.lcssa, %.preheader540 ]
@@ -774,7 +774,7 @@ default.unreachable:                              ; preds = %98
   %452 = getelementptr inbounds double, ptr %.2575, i64 %5
   %453 = add nuw nsw i64 %.15574, 1
   %exitcond669.not = icmp eq i64 %453, %1
-  br i1 %exitcond669.not, label %.loopexit, label %.lr.ph576, !llvm.loop !30
+  br i1 %exitcond669.not, label %.loopexit, label %.lr.ph576, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph576, %.lr.ph584, %.lr.ph589, %.lr.ph593, %.lr.ph601, %.lr.ph609, %.lr.ph613, %.lr.ph621, %.lr.ph629, %.preheader540, %.preheader537, %.preheader534, %.preheader532, %.preheader529, %.preheader526, %.preheader524, %.preheader521, %.preheader, %98, %11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #5
@@ -786,14 +786,14 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc void @dgemv_kernel_4x4(i64 noundef range(i64 -3, 2049) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !9
+  %5 = load ptr, ptr %1, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !9
+  %7 = load ptr, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !9
+  %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !9
-  %12 = tail call { i64, i64 } asm sideeffect "vzeroupper\09\09\09         \0A\09vxorpd\09\09%ymm4 , %ymm4, %ymm4  \0A\09vxorpd\09\09%ymm5 , %ymm5, %ymm5  \0A\09vxorpd\09\09%ymm6 , %ymm6, %ymm6  \0A\09vxorpd\09\09%ymm7 , %ymm7, %ymm7  \0A\09testq          $$0x04, $1                      \0A\09jz             2f                    \0A\09vmovups\09($2,$0,8), %ymm12       \0A\09vfmadd231pd   ($4,$0,8), %ymm12, %ymm4      \0A\09vfmadd231pd   ($5,$0,8), %ymm12, %ymm5      \0A\09vfmadd231pd   ($6,$0,8), %ymm12, %ymm6      \0A\09vfmadd231pd   ($7,$0,8), %ymm12, %ymm7      \0A\09addq\09\09$$4 , $0\09  \09 \09      \0A\09subq\09        $$4 , $1\09\09\09      \0A\092:                                  \0A\09cmpq           $$0, $1                         \0A\09je             3f                      \0A\091:\09\09\09\09 \0A\09vmovups\09($2,$0,8), %ymm12       \0A\09vmovups      32($2,$0,8), %ymm13       \0A\09vfmadd231pd   ($4,$0,8), %ymm12, %ymm4      \0A\09vfmadd231pd   ($5,$0,8), %ymm12, %ymm5      \0A\09vfmadd231pd   ($6,$0,8), %ymm12, %ymm6      \0A\09vfmadd231pd   ($7,$0,8), %ymm12, %ymm7      \0A\09vfmadd231pd 32($4,$0,8), %ymm13, %ymm4      \0A\09vfmadd231pd 32($5,$0,8), %ymm13, %ymm5      \0A\09addq\09\09$$8 , $0\09  \09 \09       \0A\09vfmadd231pd -32($6,$0,8), %ymm13, %ymm6     \0A\09subq\09        $$8 , $1\09\09\09       \0A\09vfmadd231pd -32($7,$0,8), %ymm13, %ymm7     \0A\09jnz\09\091b\09\09      \0A\093:                                   \0A\09vextractf128   $$1 , %ymm4, %xmm12\09      \0A\09vextractf128   $$1 , %ymm5, %xmm13\09      \0A\09vextractf128   $$1 , %ymm6, %xmm14\09      \0A\09vextractf128   $$1 , %ymm7, %xmm15\09      \0A\09vaddpd\09\09%xmm4, %xmm12, %xmm4       \0A\09vaddpd\09\09%xmm5, %xmm13, %xmm5       \0A\09vaddpd\09\09%xmm6, %xmm14, %xmm6       \0A\09vaddpd\09\09%xmm7, %xmm15, %xmm7       \0A\09vhaddpd        %xmm4, %xmm4, %xmm4  \0A\09vhaddpd        %xmm5, %xmm5, %xmm5  \0A\09vhaddpd        %xmm6, %xmm6, %xmm6  \0A\09vhaddpd        %xmm7, %xmm7, %xmm7  \0A\09vmovsd         %xmm4,    ($3)         \0A\09vmovsd         %xmm5,   8($3)         \0A\09vmovsd         %xmm6,  16($3)         \0A\09vmovsd         %xmm7,  24($3)         \0A\09vzeroupper\09\09\09 \0A\09", "=r,=r,r,r,r,r,r,r,0,1,~{cc},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %3, ptr %5, ptr %7, ptr %9, ptr %11, i64 0, i64 %0) #5, !srcloc !31
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
+  %12 = tail call { i64, i64 } asm sideeffect "vzeroupper\09\09\09         \0A\09vxorpd\09\09%ymm4 , %ymm4, %ymm4  \0A\09vxorpd\09\09%ymm5 , %ymm5, %ymm5  \0A\09vxorpd\09\09%ymm6 , %ymm6, %ymm6  \0A\09vxorpd\09\09%ymm7 , %ymm7, %ymm7  \0A\09testq          $$0x04, $1                      \0A\09jz             2f                    \0A\09vmovups\09($2,$0,8), %ymm12       \0A\09vfmadd231pd   ($4,$0,8), %ymm12, %ymm4      \0A\09vfmadd231pd   ($5,$0,8), %ymm12, %ymm5      \0A\09vfmadd231pd   ($6,$0,8), %ymm12, %ymm6      \0A\09vfmadd231pd   ($7,$0,8), %ymm12, %ymm7      \0A\09addq\09\09$$4 , $0\09  \09 \09      \0A\09subq\09        $$4 , $1\09\09\09      \0A\092:                                  \0A\09cmpq           $$0, $1                         \0A\09je             3f                      \0A\091:\09\09\09\09 \0A\09vmovups\09($2,$0,8), %ymm12       \0A\09vmovups      32($2,$0,8), %ymm13       \0A\09vfmadd231pd   ($4,$0,8), %ymm12, %ymm4      \0A\09vfmadd231pd   ($5,$0,8), %ymm12, %ymm5      \0A\09vfmadd231pd   ($6,$0,8), %ymm12, %ymm6      \0A\09vfmadd231pd   ($7,$0,8), %ymm12, %ymm7      \0A\09vfmadd231pd 32($4,$0,8), %ymm13, %ymm4      \0A\09vfmadd231pd 32($5,$0,8), %ymm13, %ymm5      \0A\09addq\09\09$$8 , $0\09  \09 \09       \0A\09vfmadd231pd -32($6,$0,8), %ymm13, %ymm6     \0A\09subq\09        $$8 , $1\09\09\09       \0A\09vfmadd231pd -32($7,$0,8), %ymm13, %ymm7     \0A\09jnz\09\091b\09\09      \0A\093:                                   \0A\09vextractf128   $$1 , %ymm4, %xmm12\09      \0A\09vextractf128   $$1 , %ymm5, %xmm13\09      \0A\09vextractf128   $$1 , %ymm6, %xmm14\09      \0A\09vextractf128   $$1 , %ymm7, %xmm15\09      \0A\09vaddpd\09\09%xmm4, %xmm12, %xmm4       \0A\09vaddpd\09\09%xmm5, %xmm13, %xmm5       \0A\09vaddpd\09\09%xmm6, %xmm14, %xmm6       \0A\09vaddpd\09\09%xmm7, %xmm15, %xmm7       \0A\09vhaddpd        %xmm4, %xmm4, %xmm4  \0A\09vhaddpd        %xmm5, %xmm5, %xmm5  \0A\09vhaddpd        %xmm6, %xmm6, %xmm6  \0A\09vhaddpd        %xmm7, %xmm7, %xmm7  \0A\09vmovsd         %xmm4,    ($3)         \0A\09vmovsd         %xmm5,   8($3)         \0A\09vmovsd         %xmm6,  16($3)         \0A\09vmovsd         %xmm7,  24($3)         \0A\09vzeroupper\09\09\09 \0A\09", "=r,=r,r,r,r,r,r,r,0,1,~{cc},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %3, ptr %5, ptr %7, ptr %9, ptr %11, i64 0, i64 %0) #5, !srcloc !32
   ret void
 }
 
@@ -815,10 +815,10 @@ define internal fastcc void @add_y(i64 noundef range(i64 4, 2049) %0, double nou
   %11 = getelementptr inbounds double, ptr %.01214, i64 %4
   %12 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %12, %0
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !33
 
 13:                                               ; preds = %5
-  %14 = call { i64, i64 } asm sideeffect "movsd\09 ($2) , %xmm10                 \0A\09shufpd  $$0 , %xmm10 , %xmm10\09\09\0A\091:                            \0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm10   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm11\09\09\0A\09subq           $$2 , $1                 \0A\09movups  %xmm11, -16($4,$0,8)\09\09\0A\09jnz            1b              \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm10},~{xmm11},~{xmm12},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, ptr %2, ptr %3, i64 0, i64 %0) #5, !srcloc !33
+  %14 = call { i64, i64 } asm sideeffect "movsd\09 ($2) , %xmm10                 \0A\09shufpd  $$0 , %xmm10 , %xmm10\09\09\0A\091:                            \0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm10   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm11\09\09\0A\09subq           $$2 , $1                 \0A\09movups  %xmm11, -16($4,$0,8)\09\09\0A\09jnz            1b              \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm10},~{xmm11},~{xmm12},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, ptr %2, ptr %3, i64 0, i64 %0) #5, !srcloc !34
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %13
@@ -830,7 +830,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc void @dgemv_kernel_4x2(i64 noundef range(i64 -3, 2049) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #2 {
-  %6 = tail call { i64, i64 } asm sideeffect "xorpd %xmm10 , %xmm10\09\09\0A\09xorpd %xmm11 , %xmm11\09\09\0A\09testq\09$$2 , $1\09\09\09\09\0A\09jz\092f\09\09\09\0A\09movups  ($5,$0,8) , %xmm14\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$2 , $1                 \0A\09addpd   %xmm13   , %xmm11\09\09\0A\092:                           \0A\09cmpq\09$$0, $1\09\09\09\09\0A\09je\093f\09\09\09\0A\091:                            \0A\09movups  ($5,$0,8) , %xmm14\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addpd   %xmm12   , %xmm10\09\09\0A\09addpd   %xmm13   , %xmm11\09\09\0A\09movups  16($5,$0,8) , %xmm14\09\09\0A\09movups  16($3,$0,8) , %xmm12\09\09\0A\09movups  16($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addpd   %xmm12   , %xmm10\09\09\0A\09addpd   %xmm13   , %xmm11\09\09\0A\09addq           $$4 , $0                 \0A\09subq           $$4 , $1                 \0A\09jnz            1b              \0A\093:                             \0A\09haddpd        %xmm10, %xmm10         \0A\09haddpd        %xmm11, %xmm11         \0A\09movsd\09       %xmm10, ($2)\09        \0A\09movsd\09       %xmm11,8($2)\09        \0A\09", "=r,=r,r,r,r,r,0,1,~{cc},~{xmm4},~{xmm5},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, ptr %1, ptr %2, ptr %3, i64 0, i64 %0) #5, !srcloc !34
+  %6 = tail call { i64, i64 } asm sideeffect "xorpd %xmm10 , %xmm10\09\09\0A\09xorpd %xmm11 , %xmm11\09\09\0A\09testq\09$$2 , $1\09\09\09\09\0A\09jz\092f\09\09\09\0A\09movups  ($5,$0,8) , %xmm14\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$2 , $1                 \0A\09addpd   %xmm13   , %xmm11\09\09\0A\092:                           \0A\09cmpq\09$$0, $1\09\09\09\09\0A\09je\093f\09\09\09\0A\091:                            \0A\09movups  ($5,$0,8) , %xmm14\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addpd   %xmm12   , %xmm10\09\09\0A\09addpd   %xmm13   , %xmm11\09\09\0A\09movups  16($5,$0,8) , %xmm14\09\09\0A\09movups  16($3,$0,8) , %xmm12\09\09\0A\09movups  16($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addpd   %xmm12   , %xmm10\09\09\0A\09addpd   %xmm13   , %xmm11\09\09\0A\09addq           $$4 , $0                 \0A\09subq           $$4 , $1                 \0A\09jnz            1b              \0A\093:                             \0A\09haddpd        %xmm10, %xmm10         \0A\09haddpd        %xmm11, %xmm11         \0A\09movsd\09       %xmm10, ($2)\09        \0A\09movsd\09       %xmm11,8($2)\09        \0A\09", "=r,=r,r,r,r,r,0,1,~{cc},~{xmm4},~{xmm5},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, ptr %1, ptr %2, ptr %3, i64 0, i64 %0) #5, !srcloc !35
   ret void
 }
 
@@ -839,7 +839,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc void @dgemv_kernel_4x1(i64 noundef range(i64 -3, 2049) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #2 {
-  %5 = tail call { i64, i64 } asm sideeffect "xorpd %xmm9  , %xmm9 \09\09\0A\09xorpd %xmm10 , %xmm10\09\09\0A\09testq\09$$2 , $1\09\09\09\09\0A\09jz\092f\09\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm11   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$2 , $1                 \0A\092:                           \0A\09cmpq\09$$0, $1\09\09\09\09\0A\09je\093f\09\09\09\0A\091:                            \0A\09movups    ($3,$0,8) , %xmm12\09\09\0A\09movups  16($3,$0,8) , %xmm14\09\09\0A\09movups    ($4,$0,8) , %xmm11\09\09\0A\09movups  16($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm11   , %xmm12 \09\09\0A\09mulpd   %xmm13   , %xmm14 \09\09\0A\09addq           $$4 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$4 , $1                 \0A\09addpd   %xmm14   , %xmm9 \09\09\0A\09jnz            1b              \0A\093:                             \0A\09addpd\09       %xmm9 , %xmm10         \0A\09haddpd        %xmm10, %xmm10         \0A\09movsd\09       %xmm10, ($2)\09        \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, ptr %1, ptr %2, i64 0, i64 %0) #5, !srcloc !35
+  %5 = tail call { i64, i64 } asm sideeffect "xorpd %xmm9  , %xmm9 \09\09\0A\09xorpd %xmm10 , %xmm10\09\09\0A\09testq\09$$2 , $1\09\09\09\09\0A\09jz\092f\09\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm11   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$2 , $1                 \0A\092:                           \0A\09cmpq\09$$0, $1\09\09\09\09\0A\09je\093f\09\09\09\0A\091:                            \0A\09movups    ($3,$0,8) , %xmm12\09\09\0A\09movups  16($3,$0,8) , %xmm14\09\09\0A\09movups    ($4,$0,8) , %xmm11\09\09\0A\09movups  16($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm11   , %xmm12 \09\09\0A\09mulpd   %xmm13   , %xmm14 \09\09\0A\09addq           $$4 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$4 , $1                 \0A\09addpd   %xmm14   , %xmm9 \09\09\0A\09jnz            1b              \0A\093:                             \0A\09addpd\09       %xmm9 , %xmm10         \0A\09haddpd        %xmm10, %xmm10         \0A\09movsd\09       %xmm10, ($2)\09        \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, ptr %1, ptr %2, i64 0, i64 %0) #5, !srcloc !36
   ret void
 }
 
@@ -862,32 +862,33 @@ attributes #5 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 double", !11, i64 0}
-!11 = !{!"any pointer", !5, i64 0}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = !{i64 2669853, i64 2669878, i64 2669919, i64 2669960, i64 2670001, i64 2670042, i64 2670104, i64 2670156, i64 2670198, i64 2670262, i64 2670317, i64 2670372, i64 2670427, i64 2670469, i64 2670506, i64 2670560, i64 2670622, i64 2670676, i64 2670717, i64 2670796, i64 2670853, i64 2670961, i64 2671016, i64 2671115, i64 2671170, i64 2671269, i64 2671324, i64 2671366, i64 2671464, i64 2671503, i64 2671559, i64 2671584, i64 2671637, i64 2671688, i64 2671738, i64 2671788, i64 2671838, i64 2671885, i64 2671931, i64 2671977, i64 2672023, i64 2672078, i64 2672132, i64 2672186, i64 2672240, i64 2672295, i64 2672349, i64 2672403, i64 2672457, i64 2672480}
-!32 = distinct !{!32, !8}
-!33 = !{i64 26251, i64 26292, i64 26332, i64 26435, i64 26473, i64 26510, i64 26548, i64 26602, i64 26639, i64 26693, i64 26732, i64 26779}
-!34 = !{i64 21930, i64 21958, i64 21991, i64 22019, i64 22035, i64 22073, i64 22115, i64 22159, i64 22204, i64 22242, i64 22296, i64 22333, i64 22387, i64 22424, i64 22469, i64 22493, i64 22509, i64 22612, i64 22650, i64 22692, i64 22736, i64 22781, i64 22819, i64 22856, i64 22893, i64 22933, i64 22977, i64 23023, i64 23068, i64 23106, i64 23143, i64 23180, i64 23235, i64 23289, i64 23335, i64 23382, i64 23430, i64 23477, i64 23521, i64 23564}
-!35 = !{i64 24115, i64 24143, i64 24176, i64 24203, i64 24219, i64 24257, i64 24294, i64 24332, i64 24386, i64 24423, i64 24477, i64 24522, i64 24546, i64 24562, i64 24665, i64 24705, i64 24744, i64 24783, i64 24822, i64 24860, i64 24898, i64 24952, i64 24989, i64 25043, i64 25080, i64 25127, i64 25174, i64 25221, i64 25268, i64 25312}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 double", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = !{i64 2669853, i64 2669878, i64 2669919, i64 2669960, i64 2670001, i64 2670042, i64 2670104, i64 2670156, i64 2670198, i64 2670262, i64 2670317, i64 2670372, i64 2670427, i64 2670469, i64 2670506, i64 2670560, i64 2670622, i64 2670676, i64 2670717, i64 2670796, i64 2670853, i64 2670961, i64 2671016, i64 2671115, i64 2671170, i64 2671269, i64 2671324, i64 2671366, i64 2671464, i64 2671503, i64 2671559, i64 2671584, i64 2671637, i64 2671688, i64 2671738, i64 2671788, i64 2671838, i64 2671885, i64 2671931, i64 2671977, i64 2672023, i64 2672078, i64 2672132, i64 2672186, i64 2672240, i64 2672295, i64 2672349, i64 2672403, i64 2672457, i64 2672480}
+!33 = distinct !{!33, !8, !9}
+!34 = !{i64 26251, i64 26292, i64 26332, i64 26435, i64 26473, i64 26510, i64 26548, i64 26602, i64 26639, i64 26693, i64 26732, i64 26779}
+!35 = !{i64 21930, i64 21958, i64 21991, i64 22019, i64 22035, i64 22073, i64 22115, i64 22159, i64 22204, i64 22242, i64 22296, i64 22333, i64 22387, i64 22424, i64 22469, i64 22493, i64 22509, i64 22612, i64 22650, i64 22692, i64 22736, i64 22781, i64 22819, i64 22856, i64 22893, i64 22933, i64 22977, i64 23023, i64 23068, i64 23106, i64 23143, i64 23180, i64 23235, i64 23289, i64 23335, i64 23382, i64 23430, i64 23477, i64 23521, i64 23564}
+!36 = !{i64 24115, i64 24143, i64 24176, i64 24203, i64 24219, i64 24257, i64 24294, i64 24332, i64 24386, i64 24423, i64 24477, i64 24522, i64 24546, i64 24562, i64 24665, i64 24705, i64 24744, i64 24783, i64 24822, i64 24860, i64 24898, i64 24952, i64 24989, i64 25043, i64 25080, i64 25127, i64 25174, i64 25221, i64 25268, i64 25312}

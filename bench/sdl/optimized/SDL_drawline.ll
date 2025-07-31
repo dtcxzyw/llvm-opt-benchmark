@@ -321,7 +321,7 @@ define internal void @SDL_DrawLine1(ptr noundef readonly captures(none) %0, i32 
   store i8 %65, ptr %.2196244, align 1
   %69 = getelementptr inbounds i8, ptr %.2196244, i64 %66
   %.not224 = icmp eq i32 %68, 0
-  br i1 %.not224, label %.loopexit, label %67, !llvm.loop !6
+  br i1 %.not224, label %.loopexit, label %67, !llvm.loop !7
 
 70:                                               ; preds = %36
   %71 = sub nsw i32 %1, %3
@@ -392,7 +392,7 @@ define internal void @SDL_DrawLine1(ptr noundef readonly captures(none) %0, i32 
   store i8 %103, ptr %.2187240, align 1
   %107 = getelementptr inbounds i8, ptr %.2187240, i64 %104
   %.not222 = icmp eq i32 %106, 0
-  br i1 %.not222, label %.loopexit, label %105, !llvm.loop !7
+  br i1 %.not222, label %.loopexit, label %105, !llvm.loop !8
 
 108:                                              ; preds = %70
   %109 = sub nsw i32 %3, %1
@@ -463,7 +463,7 @@ define internal void @SDL_DrawLine1(ptr noundef readonly captures(none) %0, i32 
   %.2 = add nsw i32 %.0176..0175, %.1178235
   %138 = add nuw nsw i32 %.0184234, 1
   %exitcond.not = icmp eq i32 %138, %.1180
-  br i1 %exitcond.not, label %.loopexit, label %129, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %129, !llvm.loop !9
 
 .loopexit:                                        ; preds = %129, %105, %67, %121, %101, %31
   ret void
@@ -528,7 +528,7 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   store i16 %38, ptr %.2310451, align 2
   %41 = getelementptr inbounds nuw i8, ptr %.2310451, i64 2
   %.not412 = icmp eq i32 %40, 0
-  br i1 %.not412, label %.loopexit, label %39, !llvm.loop !9
+  br i1 %.not412, label %.loopexit, label %39, !llvm.loop !10
 
 42:                                               ; preds = %7
   %43 = icmp eq i32 %1, %3
@@ -584,7 +584,7 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   store i16 %71, ptr %.2335447, align 2
   %75 = getelementptr inbounds i16, ptr %.2335447, i64 %72
   %.not410 = icmp eq i32 %74, 0
-  br i1 %.not410, label %.loopexit, label %73, !llvm.loop !10
+  br i1 %.not410, label %.loopexit, label %73, !llvm.loop !11
 
 76:                                               ; preds = %42
   %77 = sub nsw i32 %1, %3
@@ -655,7 +655,7 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   store i16 %109, ptr %.2365443, align 2
   %113 = getelementptr inbounds i16, ptr %.2365443, i64 %110
   %.not408 = icmp eq i32 %112, 0
-  br i1 %.not408, label %.loopexit, label %111, !llvm.loop !11
+  br i1 %.not408, label %.loopexit, label %111, !llvm.loop !12
 
 114:                                              ; preds = %76
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
@@ -744,7 +744,7 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   %.2353 = add nsw i32 %.0350..0349, %.1352433
   %152 = add nuw nsw i32 %.0362432, 1
   %exitcond461.not = icmp eq i32 %152, %.1355
-  br i1 %exitcond461.not, label %.loopexit425, label %142, !llvm.loop !12
+  br i1 %exitcond461.not, label %.loopexit425, label %142, !llvm.loop !13
 
 153:                                              ; preds = %114
   br i1 %.not, label %158, label %154
@@ -811,7 +811,7 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   %.2328 = add nsw i32 %.0325..0324, %.1327429
   %180 = add nuw nsw i32 %.0336428, 1
   %exitcond.not = icmp eq i32 %180, %.1330
-  br i1 %exitcond.not, label %.loopexit425, label %170, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit425, label %170, !llvm.loop !14
 
 181:                                              ; preds = %114
   br i1 %.not, label %186, label %182
@@ -878,7 +878,7 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   %.2 = add nsw i32 %.0301..0300, %.1303438
   %208 = add nuw nsw i32 %.0311437, 1
   %exitcond462.not = icmp eq i32 %208, %.1305
-  br i1 %exitcond462.not, label %.loopexit425, label %198, !llvm.loop !14
+  br i1 %exitcond462.not, label %.loopexit425, label %198, !llvm.loop !15
 
 .loopexit425:                                     ; preds = %170, %142, %198, %162, %134, %190
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
@@ -946,7 +946,7 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   store i32 %5, ptr %.2310451, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.2310451, i64 4
   %.not412 = icmp eq i32 %38, 0
-  br i1 %.not412, label %.loopexit, label %.lr.ph453, !llvm.loop !15
+  br i1 %.not412, label %.loopexit, label %.lr.ph453, !llvm.loop !16
 
 40:                                               ; preds = %7
   %41 = icmp eq i32 %1, %3
@@ -1001,7 +1001,7 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   store i32 %5, ptr %.2335447, align 4
   %72 = getelementptr inbounds i32, ptr %.2335447, i64 %69
   %.not410 = icmp eq i32 %71, 0
-  br i1 %.not410, label %.loopexit, label %70, !llvm.loop !16
+  br i1 %.not410, label %.loopexit, label %70, !llvm.loop !17
 
 73:                                               ; preds = %40
   %74 = sub nsw i32 %1, %3
@@ -1071,7 +1071,7 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   store i32 %5, ptr %.2365443, align 4
   %109 = getelementptr inbounds i32, ptr %.2365443, i64 %106
   %.not408 = icmp eq i32 %108, 0
-  br i1 %.not408, label %.loopexit, label %107, !llvm.loop !17
+  br i1 %.not408, label %.loopexit, label %107, !llvm.loop !18
 
 110:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
@@ -1163,7 +1163,7 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   %.2353 = add nsw i32 %.0350..0349, %.1352438
   %151 = add nuw nsw i32 %.0362437, 1
   %exitcond462.not = icmp eq i32 %151, %.1355
-  br i1 %exitcond462.not, label %.loopexit425, label %141, !llvm.loop !18
+  br i1 %exitcond462.not, label %.loopexit425, label %141, !llvm.loop !19
 
 152:                                              ; preds = %118
   br i1 %.not403, label %157, label %153
@@ -1229,7 +1229,7 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   %.2328 = add nsw i32 %.0325..0324, %.1327433
   %178 = add nuw nsw i32 %.0336432, 1
   %exitcond461.not = icmp eq i32 %178, %.1330
-  br i1 %exitcond461.not, label %.loopexit425, label %168, !llvm.loop !19
+  br i1 %exitcond461.not, label %.loopexit425, label %168, !llvm.loop !20
 
 179:                                              ; preds = %110
   %180 = sub nsw i32 %3, %1
@@ -1300,7 +1300,7 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   %.2 = add nsw i32 %.0301..0300, %.1303429
   %209 = add nuw nsw i32 %.0311428, 1
   %exitcond.not = icmp eq i32 %209, %.1305
-  br i1 %exitcond.not, label %.loopexit425, label %199, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit425, label %199, !llvm.loop !21
 
 .loopexit425:                                     ; preds = %199, %168, %141, %192, %161, %134
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
@@ -1335,20 +1335,21 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{ptr @SDL_DrawLine1, ptr @SDL_DrawLine2, ptr @SDL_DrawLine4}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}

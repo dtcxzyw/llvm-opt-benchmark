@@ -787,7 +787,7 @@ define hidden void @_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv() local_un
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 421
-  br i1 %.not, label %6, label %1
+  br i1 %.not, label %6, label %1, !llvm.loop !6
 
 6:                                                ; preds = %1
   store ptr @.str, ptr @_ZL23vm_intrinsic_name_table, align 16
@@ -813,7 +813,7 @@ define hidden noundef ptr @_ZN12vmIntrinsics7name_atE13vmIntrinsicID(i32 noundef
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 421
-  br i1 %.not.i, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit, label %.preheader
+  br i1 %.not.i, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit, label %.preheader, !llvm.loop !6
 
 _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
   store ptr @.str, ptr @_ZL23vm_intrinsic_name_table, align 16
@@ -850,7 +850,7 @@ define hidden noundef range(i32 422, 421) i32 @_ZN12vmIntrinsics7find_idEPKc(ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 421
-  br i1 %.not.i, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit, label %.preheader
+  br i1 %.not.i, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit, label %.preheader, !llvm.loop !6
 
 _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
   store ptr @.str, ptr @_ZL23vm_intrinsic_name_table, align 16
@@ -870,7 +870,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
 13:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 421
-  br i1 %.not, label %.split.loop.exit, label %8
+  br i1 %.not, label %.split.loop.exit, label %8, !llvm.loop !8
 
 .split.loop.exit13:                               ; preds = %8
   %14 = trunc nuw nsw i64 %indvars.iv to i32
@@ -905,7 +905,7 @@ declare noundef zeroext i1 @_ZN10VM_Version22is_intrinsic_supportedE13vmIntrinsi
 define hidden noundef zeroext i1 @_ZN12vmIntrinsics20is_disabled_by_flagsE13vmIntrinsicID(i32 noundef %0) local_unnamed_addr #6 align 2 {
   %2 = alloca %class.ControlIntrinsicIter, align 8
   %3 = alloca %class.ControlIntrinsicIter, align 8
-  %4 = load i32, ptr @_ZL26vm_intrinsic_control_words, align 4, !noalias !6
+  %4 = load i32, ptr @_ZL26vm_intrinsic_control_words, align 4, !noalias !9
   %5 = and i32 %4, 2
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %81
@@ -943,7 +943,7 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics20is_disabled_by_flagsE13vmIn
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 421
-  br i1 %.not.i.i, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i, label %.preheader.i
+  br i1 %.not.i.i, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i, label %.preheader.i, !llvm.loop !6
 
 _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.i
   store ptr @.str, ptr @_ZL23vm_intrinsic_name_table, align 16
@@ -963,7 +963,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.
 25:                                               ; preds = %20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i12 = icmp eq i64 %indvars.iv.next.i, 421
-  br i1 %.not.i12, label %_ZN12vmIntrinsics7find_idEPKc.exit.thread, label %20
+  br i1 %.not.i12, label %_ZN12vmIntrinsics7find_idEPKc.exit.thread, label %20, !llvm.loop !8
 
 _ZN12vmIntrinsics7find_idEPKc.exit:               ; preds = %20
   %26 = load i8, ptr %2, align 8
@@ -985,7 +985,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit:               ; preds = %20
   %37 = lshr i64 %36, 4
   %38 = getelementptr inbounds nuw [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %37
   %39 = lshr exact i64 %sext, 31
-  %40 = load i32, ptr %38, align 4, !noalias !9
+  %40 = load i32, ptr %38, align 4, !noalias !12
   %41 = trunc i64 %39 to i32
   %42 = and i32 %41, 30
   %43 = ashr i32 %40, %42
@@ -1001,11 +1001,11 @@ _ZN12vmIntrinsics7find_idEPKc.exit.thread:        ; preds = %25, %34
   %49 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #10
   %50 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge74:                                    ; preds = %_ZN12vmIntrinsics7find_idEPKc.exit24.thread, %._crit_edge
   call void @_ZN20ControlIntrinsicIterD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #10
-  %51 = load i32, ptr @_ZL26vm_intrinsic_control_words, align 4, !noalias !14
+  %51 = load i32, ptr @_ZL26vm_intrinsic_control_words, align 4, !noalias !17
   %52 = or i32 %51, 3
   store i32 %52, ptr @_ZL26vm_intrinsic_control_words, align 4
   br label %81
@@ -1026,7 +1026,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit.thread:        ; preds = %25, %34
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i19, 1
   %.not.i.i22 = icmp eq i64 %indvars.iv.next.i.i21, 421
-  br i1 %.not.i.i22, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i23, label %.preheader.i18
+  br i1 %.not.i.i22, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i23, label %.preheader.i18, !llvm.loop !6
 
 _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i23: ; preds = %.preheader.i18
   store ptr @.str, ptr @_ZL23vm_intrinsic_name_table, align 16
@@ -1046,7 +1046,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i23: ; preds = %.preheade
 65:                                               ; preds = %60
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %.not.i15 = icmp eq i64 %indvars.iv.next.i14, 421
-  br i1 %.not.i15, label %_ZN12vmIntrinsics7find_idEPKc.exit24.thread, label %60
+  br i1 %.not.i15, label %_ZN12vmIntrinsics7find_idEPKc.exit24.thread, label %60, !llvm.loop !8
 
 _ZN12vmIntrinsics7find_idEPKc.exit24:             ; preds = %60
   %sext64 = shl i64 %indvars.iv.i13, 32
@@ -1054,7 +1054,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24:             ; preds = %60
   %67 = lshr i64 %66, 4
   %68 = getelementptr inbounds nuw [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %67
   %69 = lshr exact i64 %sext64, 31
-  %70 = load i32, ptr %68, align 4, !noalias !17
+  %70 = load i32, ptr %68, align 4, !noalias !20
   %71 = trunc i64 %69 to i32
   %72 = and i32 %71, 30
   %73 = ashr i32 %70, %72
@@ -1070,7 +1070,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24.thread:      ; preds = %65, %_ZN12vmIntrins
   %79 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %3) #10
   %80 = load ptr, ptr %11, align 8
   %.not9 = icmp eq ptr %80, null
-  br i1 %.not9, label %._crit_edge74, label %.lr.ph73, !llvm.loop !20
+  br i1 %.not9, label %._crit_edge74, label %.lr.ph73, !llvm.loop !23
 
 81:                                               ; preds = %._crit_edge74, %1
   %82 = sext i32 %0 to i64
@@ -1078,7 +1078,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24.thread:      ; preds = %65, %_ZN12vmIntrins
   %84 = getelementptr inbounds nuw [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %83
   %85 = shl i32 %0, 1
   %86 = and i32 %85, 30
-  %87 = load i32, ptr %84, align 4, !noalias !21
+  %87 = load i32, ptr %84, align 4, !noalias !24
   %88 = ashr i32 %87, %86
   %89 = trunc i32 %88 to i8
   %90 = and i8 %89, 2
@@ -3678,7 +3678,7 @@ define hidden noundef ptr @_ZN12vmIntrinsics22short_name_as_C_stringE13vmIntrins
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 421
-  br i1 %.not.i.i, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i, label %.preheader.i
+  br i1 %.not.i.i, label %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i, label %.preheader.i, !llvm.loop !6
 
 _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.i
   store ptr @.str, ptr @_ZL23vm_intrinsic_name_table, align 16
@@ -3719,21 +3719,24 @@ attributes #10 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
-!8 = distinct !{!8, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
 !11 = distinct !{!11, !"_ZN12TriBoolArrayILm421EiEixEm"}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
-!16 = distinct !{!16, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!14 = distinct !{!14, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!15 = distinct !{!15, !16, !7}
+!16 = !{!"llvm.loop.mustprogress"}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
 !19 = distinct !{!19, !"_ZN12TriBoolArrayILm421EiEixEm"}
-!20 = distinct !{!20, !13}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
-!23 = distinct !{!23, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!22 = distinct !{!22, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!23 = distinct !{!23, !16, !7}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!26 = distinct !{!26, !"_ZN12TriBoolArrayILm421EiEixEm"}

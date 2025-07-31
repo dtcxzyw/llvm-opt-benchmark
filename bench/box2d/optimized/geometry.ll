@@ -193,7 +193,7 @@ define void @b2MakePolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
   %.sroa.03.4.vec.insert.i.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i.i, float %55, i64 1
   %56 = fadd float %.052.i, %47
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %b2ComputePolygonCentroid.exit, label %32, !llvm.loop !23
+  br i1 %exitcond.not.i, label %b2ComputePolygonCentroid.exit, label %32, !llvm.loop !24
 
 b2ComputePolygonCentroid.exit:                    ; preds = %32, %.._crit_edge_crit_edge.i
   %57 = phi ptr [ %30, %.._crit_edge_crit_edge.i ], [ %28, %32 ]
@@ -253,7 +253,7 @@ b2Normalize.exit:                                 ; preds = %63, %82
   %.pr = load i32, ptr %17, align 4, !tbaa !18
   %88 = sext i32 %.pr to i64
   %89 = icmp slt i64 %indvars.iv.next35, %88
-  br i1 %89, label %63, label %._crit_edge, !llvm.loop !24
+  br i1 %89, label %63, label %._crit_edge, !llvm.loop !25
 
 90:                                               ; preds = %b2ComputePolygonCentroid.exit, %7
   ret void
@@ -262,37 +262,37 @@ b2Normalize.exit:                                 ; preds = %63, %82
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @b2MakeSquare(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Polygon) align 4 captures(none) initializes((0, 144)) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %3, i8 0, i64 96, i1 false), !alias.scope !25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %3, i8 0, i64 96, i1 false), !alias.scope !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 4, ptr %4, align 4, !tbaa !18, !alias.scope !25
+  store i32 4, ptr %4, align 4, !tbaa !18, !alias.scope !26
   %5 = fneg float %1
-  store float %5, ptr %0, align 4, !tbaa !9, !alias.scope !25
+  store float %5, ptr %0, align 4, !tbaa !9, !alias.scope !26
   %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %5, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !25
+  store float %5, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %1, ptr %6, align 4, !tbaa !9, !alias.scope !25
+  store float %1, ptr %6, align 4, !tbaa !9, !alias.scope !26
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %5, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !25
+  store float %5, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %1, ptr %7, align 4, !tbaa !9, !alias.scope !25
+  store float %1, ptr %7, align 4, !tbaa !9, !alias.scope !26
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %1, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !25
+  store float %1, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %5, ptr %8, align 4, !tbaa !9, !alias.scope !25
+  store float %5, ptr %8, align 4, !tbaa !9, !alias.scope !26
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %1, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !25
+  store float %1, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !26
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float -1.000000e+00, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !25
+  store float -1.000000e+00, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !26
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store float 1.000000e+00, ptr %9, align 4, !tbaa !9, !alias.scope !25
+  store float 1.000000e+00, ptr %9, align 4, !tbaa !9, !alias.scope !26
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store float 1.000000e+00, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !25
+  store float 1.000000e+00, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store float -1.000000e+00, ptr %10, align 4, !tbaa !9, !alias.scope !25
+  store float -1.000000e+00, ptr %10, align 4, !tbaa !9, !alias.scope !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store float 0.000000e+00, ptr %11, align 4, !tbaa !20, !alias.scope !25
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !20, !alias.scope !26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %12, align 4, !alias.scope !25
+  store i64 0, ptr %12, align 4, !alias.scope !26
   ret void
 }
 
@@ -317,36 +317,36 @@ define void @b2MakeOffsetRoundedPolygon(ptr dead_on_unwind noalias writable sret
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %10, i8 0, i64 96, i1 false), !alias.scope !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %10, i8 0, i64 96, i1 false), !alias.scope !29
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 4, ptr %11, align 4, !tbaa !18, !alias.scope !28
-  store float -5.000000e-01, ptr %0, align 4, !tbaa !9, !alias.scope !28
+  store i32 4, ptr %11, align 4, !tbaa !18, !alias.scope !29
+  store float -5.000000e-01, ptr %0, align 4, !tbaa !9, !alias.scope !29
   %.sroa.214.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float -5.000000e-01, ptr %.sroa.214.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !28
+  store float -5.000000e-01, ptr %.sroa.214.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !29
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float 5.000000e-01, ptr %12, align 4, !tbaa !9, !alias.scope !28
+  store float 5.000000e-01, ptr %12, align 4, !tbaa !9, !alias.scope !29
   %.sroa.212.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float -5.000000e-01, ptr %.sroa.212.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !28
+  store float -5.000000e-01, ptr %.sroa.212.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float 5.000000e-01, ptr %13, align 4, !tbaa !9, !alias.scope !28
+  store float 5.000000e-01, ptr %13, align 4, !tbaa !9, !alias.scope !29
   %.sroa.210.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float 5.000000e-01, ptr %.sroa.210.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !28
+  store float 5.000000e-01, ptr %.sroa.210.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float -5.000000e-01, ptr %14, align 4, !tbaa !9, !alias.scope !28
+  store float -5.000000e-01, ptr %14, align 4, !tbaa !9, !alias.scope !29
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float 5.000000e-01, ptr %.sroa.28.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !28
+  store float 5.000000e-01, ptr %.sroa.28.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !29
   %.sroa.26.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float -1.000000e+00, ptr %.sroa.26.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !28
+  store float -1.000000e+00, ptr %.sroa.26.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !29
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store float 1.000000e+00, ptr %15, align 4, !tbaa !9, !alias.scope !28
+  store float 1.000000e+00, ptr %15, align 4, !tbaa !9, !alias.scope !29
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store float 1.000000e+00, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !28
+  store float 1.000000e+00, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !tbaa !9, !alias.scope !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store float -1.000000e+00, ptr %16, align 4, !tbaa !9, !alias.scope !28
+  store float -1.000000e+00, ptr %16, align 4, !tbaa !9, !alias.scope !29
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store float 0.000000e+00, ptr %17, align 4, !tbaa !20, !alias.scope !28
+  store float 0.000000e+00, ptr %17, align 4, !tbaa !20, !alias.scope !29
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %18, align 4, !alias.scope !28
+  store i64 0, ptr %18, align 4, !alias.scope !29
   br label %102
 
 .lr.ph:                                           ; preds = %5
@@ -397,7 +397,7 @@ define void @b2MakeOffsetRoundedPolygon(ptr dead_on_unwind noalias writable sret
   %37 = load i32, ptr %19, align 4, !tbaa !18
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %24, label %.preheader, !llvm.loop !33
+  br i1 %39, label %24, label %.preheader, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %b2Normalize.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -455,7 +455,7 @@ define void @b2MakeOffsetRoundedPolygon(ptr dead_on_unwind noalias writable sret
   %.sroa.03.4.vec.insert.i.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i.i, float %67, i64 1
   %68 = fadd float %.052.i, %59
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %b2ComputePolygonCentroid.exit, label %44, !llvm.loop !23
+  br i1 %exitcond.not.i, label %b2ComputePolygonCentroid.exit, label %44, !llvm.loop !24
 
 b2ComputePolygonCentroid.exit:                    ; preds = %44, %.._crit_edge_crit_edge.i
   %69 = phi ptr [ %42, %.._crit_edge_crit_edge.i ], [ %40, %44 ]
@@ -515,7 +515,7 @@ b2Normalize.exit:                                 ; preds = %75, %94
   %.pr = load i32, ptr %19, align 4, !tbaa !18
   %100 = sext i32 %.pr to i64
   %101 = icmp slt i64 %indvars.iv.next41, %100
-  br i1 %101, label %75, label %._crit_edge, !llvm.loop !34
+  br i1 %101, label %75, label %._crit_edge, !llvm.loop !35
 
 102:                                              ; preds = %b2ComputePolygonCentroid.exit, %9
   ret void
@@ -564,37 +564,37 @@ define void @b2MakeBox(ptr dead_on_unwind noalias writable writeonly sret(%struc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @b2MakeRoundedBox(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Polygon) align 4 captures(none) initializes((0, 144)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %5, i8 0, i64 96, i1 false), !alias.scope !35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %5, i8 0, i64 96, i1 false), !alias.scope !36
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 4, ptr %6, align 4, !tbaa !18, !alias.scope !35
+  store i32 4, ptr %6, align 4, !tbaa !18, !alias.scope !36
   %7 = fneg float %1
   %8 = fneg float %2
-  store float %7, ptr %0, align 4, !tbaa !9, !alias.scope !35
+  store float %7, ptr %0, align 4, !tbaa !9, !alias.scope !36
   %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %8, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !35
+  store float %8, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !36
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %1, ptr %9, align 4, !tbaa !9, !alias.scope !35
+  store float %1, ptr %9, align 4, !tbaa !9, !alias.scope !36
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %8, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !35
+  store float %8, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !36
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %1, ptr %10, align 4, !tbaa !9, !alias.scope !35
+  store float %1, ptr %10, align 4, !tbaa !9, !alias.scope !36
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %2, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !35
+  store float %2, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !36
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %7, ptr %11, align 4, !tbaa !9, !alias.scope !35
+  store float %7, ptr %11, align 4, !tbaa !9, !alias.scope !36
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %2, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !35
+  store float %2, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !36
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float -1.000000e+00, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !35
+  store float -1.000000e+00, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !36
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store float 1.000000e+00, ptr %12, align 4, !tbaa !9, !alias.scope !35
+  store float 1.000000e+00, ptr %12, align 4, !tbaa !9, !alias.scope !36
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store float 1.000000e+00, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !35
+  store float 1.000000e+00, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !9, !alias.scope !36
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store float -1.000000e+00, ptr %13, align 4, !tbaa !9, !alias.scope !35
+  store float -1.000000e+00, ptr %13, align 4, !tbaa !9, !alias.scope !36
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %15, align 4, !alias.scope !35
+  store i64 0, ptr %15, align 4, !alias.scope !36
   store float %3, ptr %14, align 4, !tbaa !20
   ret void
 }
@@ -767,7 +767,7 @@ define void @b2MakeOffsetRoundedBox(ptr dead_on_unwind noalias writable writeonl
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @b2TransformPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Polygon) align 4 captures(none) initializes((0, 144)) %0, <2 x float> %1, <2 x float> %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %0, ptr noundef nonnull align 4 dereferenceable(144) %3, i64 144, i1 false), !tbaa.struct !38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %0, ptr noundef nonnull align 4 dereferenceable(144) %3, i64 144, i1 false), !tbaa.struct !39
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4, !tbaa !18
   %7 = icmp sgt i32 %6, 0
@@ -836,13 +836,13 @@ define void @b2TransformPolygon(ptr dead_on_unwind noalias writable sret(%struct
   %41 = load i32, ptr %5, align 4, !tbaa !18
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %20, label %._crit_edge, !llvm.loop !41
+  br i1 %43, label %20, label %._crit_edge, !llvm.loop !42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { <2 x float>, <2 x float> } @b2ComputeCircleMass(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load float, ptr %3, align 4, !tbaa !42
+  %4 = load float, ptr %3, align 4, !tbaa !43
   %5 = fmul float %4, %4
   %6 = fmul float %1, 0x400921FB60000000
   %7 = fmul float %6, %5
@@ -871,7 +871,7 @@ define { <2 x float>, <2 x float> } @b2ComputeCircleMass(ptr noundef readonly ca
 define { <2 x float>, <2 x float> } @b2ComputeCapsuleMass(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #8 {
   %3 = alloca %struct.b2MassData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load float, ptr %4, align 4, !tbaa !44
+  %5 = load float, ptr %4, align 4, !tbaa !45
   %6 = fmul float %5, %5
   %.sroa.017.0.copyload = load <2 x float>, ptr %0, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -893,16 +893,16 @@ define { <2 x float>, <2 x float> } @b2ComputeCapsuleMass(ptr noundef readonly c
   %19 = fmul float %18, %sqrt.i
   %20 = fmul float %1, %19
   %21 = fadd float %17, %20
-  store float %21, ptr %3, align 8, !tbaa !46
+  store float %21, ptr %3, align 8, !tbaa !47
   %22 = fadd <2 x float> %.sroa.017.0.copyload, %.sroa.015.0.copyload
   %23 = extractelement <2 x float> %22, i64 0
   %24 = fmul float %23, 5.000000e-01
   %.4..4..4..4..sroa_idx50 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %24, ptr %.4..4..4..4..sroa_idx50, align 4, !tbaa !48
+  store float %24, ptr %.4..4..4..4..sroa_idx50, align 4, !tbaa !49
   %25 = fadd float %.sroa.0.4.vec.extract.i, %.sroa.01.4.vec.extract.i
   %26 = fmul float %25, 5.000000e-01
   %.8..8..8..8..sroa_idx51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %26, ptr %.8..8..8..8..sroa_idx51, align 8, !tbaa !49
+  store float %26, ptr %.8..8..8..8..sroa_idx51, align 8, !tbaa !50
   %27 = fmul float %5, 4.000000e+00
   %28 = fdiv float %27, 0x4022D97C80000000
   %29 = fmul float %sqrt.i, 5.000000e-01
@@ -928,7 +928,7 @@ define { <2 x float>, <2 x float> } @b2ComputeCapsuleMass(ptr noundef readonly c
   %46 = fmul float %21, %45
   %47 = fadd float %46, %41
   %.12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store float %47, ptr %.12..12..12..12..sroa_idx, align 4, !tbaa !50
+  store float %47, ptr %.12..12..12..12..sroa_idx, align 4, !tbaa !51
   %.0..0..0..0..fca.0.load = load <2 x float>, ptr %3, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.0..0..0..0..fca.0.load, 0
   %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -995,16 +995,16 @@ define { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef readonly c
   %40 = fmul float %39, %sqrt.i.i
   %41 = fmul float %1, %40
   %42 = fadd float %38, %41
-  store float %42, ptr %3, align 8, !tbaa !46
+  store float %42, ptr %3, align 8, !tbaa !47
   %43 = fadd <2 x float> %23, %25
   %44 = extractelement <2 x float> %43, i64 0
   %45 = fmul float %44, 5.000000e-01
   %.4..4..4..4..4..4..sroa_idx197 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %45, ptr %.4..4..4..4..4..4..sroa_idx197, align 4, !tbaa !48
+  store float %45, ptr %.4..4..4..4..4..4..sroa_idx197, align 4, !tbaa !49
   %46 = fadd float %.sroa.0.4.vec.extract.i.i, %.sroa.01.4.vec.extract.i.i102
   %47 = fmul float %46, 5.000000e-01
   %.8..8..8..8..8..8..sroa_idx198 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %47, ptr %.8..8..8..8..8..8..sroa_idx198, align 8, !tbaa !49
+  store float %47, ptr %.8..8..8..8..8..8..sroa_idx198, align 8, !tbaa !50
   %48 = fmul float %27, 4.000000e+00
   %49 = fdiv float %48, 0x4022D97C80000000
   %50 = fmul float %sqrt.i.i, 5.000000e-01
@@ -1030,7 +1030,7 @@ define { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef readonly c
   %67 = fmul float %42, %66
   %68 = fadd float %67, %62
   %.12..12..12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store float %68, ptr %.12..12..12..12..12..12..sroa_idx, align 4, !tbaa !50
+  store float %68, ptr %.12..12..12..12..12..12..sroa_idx, align 4, !tbaa !51
   %.0..0..0..0..0..0..fca.0.load.i = load <2 x float>, ptr %3, align 8
   %.8..8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.8..8..8..8..8..8..fca.1.load.i = load <2 x float>, ptr %.8..8..8..8..8..8..sroa_idx, align 8
@@ -1114,7 +1114,7 @@ b2Normalize.exit:                                 ; preds = %78, %93
   store <2 x float> %.sroa.03.4.vec.insert.i, ptr %98, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %78, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit, label %78, !llvm.loop !52
 
 .loopexit.thread:                                 ; preds = %.preheader161, %.preheader
   %.sroa.031.0.copyload189 = load <2 x float>, ptr %5, align 16
@@ -1148,7 +1148,7 @@ b2Normalize.exit:                                 ; preds = %78, %93
   %.095.lcssa = phi float [ 0.000000e+00, %.loopexit.._crit_edge_crit_edge ], [ %139, %123 ]
   %.sroa.039.0.lcssa = phi <2 x float> [ zeroinitializer, %.loopexit.._crit_edge_crit_edge ], [ %.sroa.03.4.vec.insert.i150, %123 ]
   %107 = fmul float %1, %.095.lcssa
-  store float %107, ptr %4, align 8, !tbaa !46
+  store float %107, ptr %4, align 8, !tbaa !47
   %108 = fdiv float 1.000000e+00, %.095.lcssa
   %.sroa.039.0.vec.extract = extractelement <2 x float> %.sroa.039.0.lcssa, i64 0
   %109 = fmul float %108, %.sroa.039.0.vec.extract
@@ -1171,7 +1171,7 @@ b2Normalize.exit:                                 ; preds = %78, %93
   %121 = fmul float %107, %120
   %122 = fadd float %113, %121
   %.12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store float %122, ptr %.12..12..12..12..sroa_idx, align 4, !tbaa !50
+  store float %122, ptr %.12..12..12..12..sroa_idx, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17
   %.0..0..0..0..fca.0.load.pre = load <2 x float>, ptr %4, align 8
   %.8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1228,7 +1228,7 @@ b2Normalize.exit:                                 ; preds = %78, %93
   %161 = fmul float %159, %160
   %162 = fadd float %.096167, %161
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %._crit_edge, label %123, !llvm.loop !52
+  br i1 %exitcond181.not, label %._crit_edge, label %123, !llvm.loop !53
 
 163:                                              ; preds = %._crit_edge, %22, %8
   %.8..8..8..fca.1.load = phi <2 x float> [ %.8..8..8..8..fca.1.load.pre, %._crit_edge ], [ %.8..8..8..8..8..8..fca.1.load.i, %22 ], [ %.sroa.4.12.vec.insert.i, %8 ]
@@ -1257,7 +1257,7 @@ define { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef readonly ca
   %.sroa.06.4.vec.extract.i = extractelement <2 x float> %1, i64 1
   %13 = fadd float %.sroa.06.4.vec.extract.i, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load float, ptr %14, align 4, !tbaa !42
+  %15 = load float, ptr %14, align 4, !tbaa !43
   %16 = fsub float %9, %15
   %.sroa.011.0.vec.insert = insertelement <2 x float> poison, float %16, i64 0
   %17 = fsub float %13, %15
@@ -1303,7 +1303,7 @@ define { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef readonly c
   %23 = fadd float %21, %22
   %24 = fadd float %.sroa.06.4.vec.extract.i, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load float, ptr %25, align 4, !tbaa !44
+  %26 = load float, ptr %25, align 4, !tbaa !45
   %27 = fcmp olt float %9, %20
   %28 = select i1 %27, float %9, float %20
   %29 = fcmp olt float %13, %24
@@ -1410,7 +1410,7 @@ define { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef readonly c
   %.sroa.02.4.vec.insert.i52 = insertelement <2 x float> %.sroa.02.0.vec.insert.i49, float %41, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1472,7 +1472,7 @@ define zeroext i1 @b2PointInCircle(<2 x float> %0, ptr noundef readonly captures
   %7 = fadd <2 x float> %5, %shift
   %8 = extractelement <2 x float> %7, i64 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load float, ptr %9, align 4, !tbaa !42
+  %10 = load float, ptr %9, align 4, !tbaa !43
   %11 = fmul float %10, %10
   %12 = fcmp ole float %8, %11
   ret i1 %12
@@ -1481,7 +1481,7 @@ define zeroext i1 @b2PointInCircle(<2 x float> %0, ptr noundef readonly captures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @b2PointInCapsule(<2 x float> %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load float, ptr %3, align 4, !tbaa !44
+  %4 = load float, ptr %3, align 4, !tbaa !45
   %.sroa.010.0.copyload = load <2 x float>, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.09.0.copyload = load <2 x float>, ptr %5, align 4
@@ -1546,20 +1546,20 @@ define zeroext i1 @b2PointInPolygon(<2 x float> %0, ptr noundef %1) local_unname
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef nonnull %3, i32 noundef 1, float noundef 0.000000e+00) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %10, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %10, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !55
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i32 0, ptr %13, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   store i64 0, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #17
   call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %7, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #17
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %15 = load float, ptr %14, align 4, !tbaa !56
+  %15 = load float, ptr %14, align 4, !tbaa !57
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %17 = load float, ptr %16, align 4, !tbaa !20
   %18 = fcmp ole float %15, %17
@@ -1624,7 +1624,7 @@ b2GetLengthAndNormalize.exit:                     ; preds = %3, %16
   %31 = fmul float %29, %29
   %32 = fadd float %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %34 = load float, ptr %33, align 4, !tbaa !42
+  %34 = load float, ptr %33, align 4, !tbaa !43
   %35 = fmul float %34, %34
   %36 = fcmp ogt float %32, %35
   br i1 %36, label %69, label %37
@@ -1632,7 +1632,7 @@ b2GetLengthAndNormalize.exit:                     ; preds = %3, %16
 37:                                               ; preds = %21
   %38 = fneg float %25
   %39 = fsub float %35, %32
-  %40 = tail call float @sqrtf(float noundef %39) #17, !tbaa !40
+  %40 = tail call float @sqrtf(float noundef %39) #17, !tbaa !41
   %41 = fsub float %38, %40
   %42 = fcmp olt float %41, 0.000000e+00
   br i1 %42, label %69, label %43
@@ -1651,7 +1651,7 @@ b2GetLengthAndNormalize.exit:                     ; preds = %3, %16
   %52 = fadd float %8, %51
   %53 = fdiv float %41, %sqrt.i.i
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %53, ptr %54, align 4, !tbaa !58
+  store float %53, ptr %54, align 4, !tbaa !59
   %55 = fmul float %50, %50
   %56 = fmul float %52, %52
   %57 = fadd float %55, %56
@@ -1681,7 +1681,7 @@ b2Normalize.exit:                                 ; preds = %48, %59
   %.sroa.03.4.vec.insert.i52 = insertelement <2 x float> %.sroa.03.0.vec.insert.i50, float %67, i64 1
   store <2 x float> %.sroa.03.4.vec.insert.i52, ptr %63, align 4
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %68, align 4, !tbaa !61
+  store i8 1, ptr %68, align 4, !tbaa !62
   br label %69
 
 69:                                               ; preds = %21, %37, %43, %b2Normalize.exit, %b2GetLengthAndNormalize.exit
@@ -1714,16 +1714,16 @@ define void @b2RayCastCapsule(ptr dead_on_unwind noalias writable writeonly sret
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = load float, ptr %15, align 4, !tbaa !44
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !62
-  %17 = load <2 x float>, ptr %1, align 4, !noalias !62
+  %16 = load float, ptr %15, align 4, !tbaa !45
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !63
+  %17 = load <2 x float>, ptr %1, align 4, !noalias !63
   %18 = fsub <2 x float> %17, %.sroa.079.0.copyload
   %19 = extractelement <2 x float> %18, i64 0
   %20 = fsub <2 x float> %17, %.sroa.079.0.copyload
   %21 = extractelement <2 x float> %20, i64 1
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load <2 x float>, ptr %22, align 4, !noalias !62
+  %23 = load <2 x float>, ptr %22, align 4, !noalias !63
   %24 = fmul <2 x float> %23, %23
   %25 = extractelement <2 x float> %24, i64 0
   %.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %23, i64 1
@@ -1768,14 +1768,14 @@ b2GetLengthAndNormalize.exit.i:                   ; preds = %29, %14
 48:                                               ; preds = %34
   %49 = fneg float %38
   %50 = fsub float %46, %45
-  %51 = tail call float @sqrtf(float noundef %50) #17, !tbaa !40, !noalias !62
+  %51 = tail call float @sqrtf(float noundef %50) #17, !tbaa !41, !noalias !63
   %52 = fsub float %49, %51
   %53 = fcmp olt float %52, 0.000000e+00
   br i1 %53, label %b2RayCastCircle.exit, label %54
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %56 = load float, ptr %55, align 4, !tbaa !3, !noalias !62
+  %56 = load float, ptr %55, align 4, !tbaa !3, !noalias !63
   %57 = fmul float %sqrt.i.i.i, %56
   %58 = fcmp olt float %57, %52
   br i1 %58, label %b2RayCastCircle.exit, label %59
@@ -1787,7 +1787,7 @@ b2GetLengthAndNormalize.exit.i:                   ; preds = %29, %14
   %63 = fadd float %21, %62
   %64 = fdiv float %52, %sqrt.i.i.i
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %64, ptr %65, align 4, !tbaa !58, !alias.scope !62
+  store float %64, ptr %65, align 4, !tbaa !59, !alias.scope !63
   %66 = fmul float %61, %61
   %67 = fmul float %63, %63
   %68 = fadd float %66, %67
@@ -1805,7 +1805,7 @@ b2GetLengthAndNormalize.exit.i:                   ; preds = %29, %14
 
 b2Normalize.exit.i:                               ; preds = %70, %59
   %.sroa.012.0.i.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i.i, %70 ], [ zeroinitializer, %59 ]
-  store <2 x float> %.sroa.012.0.i.i, ptr %0, align 4, !alias.scope !62
+  store <2 x float> %.sroa.012.0.i.i, ptr %0, align 4, !alias.scope !63
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.vec.extract.i49.i = extractelement <2 x float> %.sroa.012.0.i.i, i64 0
   %75 = fmul float %16, %.sroa.0.0.vec.extract.i49.i
@@ -1815,9 +1815,9 @@ b2Normalize.exit.i:                               ; preds = %70, %59
   %77 = fmul float %16, %.sroa.0.4.vec.extract.i51.i
   %78 = fadd float %.sroa.0.4.vec.extract.i, %77
   %.sroa.03.4.vec.insert.i52.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i50.i, float %78, i64 1
-  store <2 x float> %.sroa.03.4.vec.insert.i52.i, ptr %74, align 4, !alias.scope !62
+  store <2 x float> %.sroa.03.4.vec.insert.i52.i, ptr %74, align 4, !alias.scope !63
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %79, align 4, !tbaa !61, !alias.scope !62
+  store i8 1, ptr %79, align 4, !tbaa !62, !alias.scope !63
   br label %b2RayCastCircle.exit
 
 80:                                               ; preds = %3
@@ -1840,7 +1840,7 @@ b2Normalize.exit.i:                               ; preds = %70, %59
   %94 = fmul float %84, %91
   %95 = fsub float %88, %94
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %97 = load float, ptr %96, align 4, !tbaa !44
+  %97 = load float, ptr %96, align 4, !tbaa !45
   %98 = fmul float %93, %93
   %99 = fmul float %95, %95
   %100 = fadd float %98, %99
@@ -1853,8 +1853,8 @@ b2Normalize.exit.i:                               ; preds = %70, %59
   br i1 %104, label %105, label %161
 
 105:                                              ; preds = %103
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !65
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !66
   %106 = fmul <2 x float> %.sroa.057.0.copyload, %.sroa.057.0.copyload
   %107 = extractelement <2 x float> %106, i64 0
   %.sroa.0.4.vec.extract.i.i.i168 = extractelement <2 x float> %.sroa.057.0.copyload, i64 1
@@ -1898,14 +1898,14 @@ b2GetLengthAndNormalize.exit.i172:                ; preds = %111, %105
 129:                                              ; preds = %116
   %130 = fneg float %120
   %131 = fsub float %101, %127
-  %132 = tail call float @sqrtf(float noundef %131) #17, !tbaa !40, !noalias !65
+  %132 = tail call float @sqrtf(float noundef %131) #17, !tbaa !41, !noalias !66
   %133 = fsub float %130, %132
   %134 = fcmp olt float %133, 0.000000e+00
   br i1 %134, label %b2RayCastCircle.exit, label %135
 
 135:                                              ; preds = %129
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %137 = load float, ptr %136, align 4, !tbaa !3, !noalias !65
+  %137 = load float, ptr %136, align 4, !tbaa !3, !noalias !66
   %138 = fmul float %sqrt.i.i.i169, %137
   %139 = fcmp olt float %138, %133
   br i1 %139, label %b2RayCastCircle.exit, label %140
@@ -1917,7 +1917,7 @@ b2GetLengthAndNormalize.exit.i172:                ; preds = %111, %105
   %144 = fadd float %88, %143
   %145 = fdiv float %133, %sqrt.i.i.i169
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %145, ptr %146, align 4, !tbaa !58, !alias.scope !65
+  store float %145, ptr %146, align 4, !tbaa !59, !alias.scope !66
   %147 = fmul float %142, %142
   %148 = fmul float %144, %144
   %149 = fadd float %147, %148
@@ -1935,7 +1935,7 @@ b2GetLengthAndNormalize.exit.i172:                ; preds = %111, %105
 
 b2Normalize.exit.i179:                            ; preds = %151, %140
   %.sroa.012.0.i.i180 = phi <2 x float> [ %.sroa.012.4.vec.insert.i.i178, %151 ], [ zeroinitializer, %140 ]
-  store <2 x float> %.sroa.012.0.i.i180, ptr %0, align 4, !alias.scope !65
+  store <2 x float> %.sroa.012.0.i.i180, ptr %0, align 4, !alias.scope !66
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.vec.extract.i49.i181 = extractelement <2 x float> %.sroa.012.0.i.i180, i64 0
   %156 = fmul float %97, %.sroa.0.0.vec.extract.i49.i181
@@ -1945,9 +1945,9 @@ b2Normalize.exit.i179:                            ; preds = %151, %140
   %158 = fmul float %97, %.sroa.0.4.vec.extract.i51.i183
   %159 = fadd float %.sroa.0.4.vec.extract.i, %158
   %.sroa.03.4.vec.insert.i52.i184 = insertelement <2 x float> %.sroa.03.0.vec.insert.i50.i182, float %159, i64 1
-  store <2 x float> %.sroa.03.4.vec.insert.i52.i184, ptr %155, align 4, !alias.scope !65
+  store <2 x float> %.sroa.03.4.vec.insert.i52.i184, ptr %155, align 4, !alias.scope !66
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %160, align 4, !tbaa !61, !alias.scope !65
+  store i8 1, ptr %160, align 4, !tbaa !62, !alias.scope !66
   br label %b2RayCastCircle.exit
 
 161:                                              ; preds = %103
@@ -1955,8 +1955,8 @@ b2Normalize.exit.i179:                            ; preds = %151, %140
   br i1 %162, label %163, label %222
 
 163:                                              ; preds = %161
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !68
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !69
   %164 = fsub <2 x float> %.sroa.058.0.copyload, %.sroa.075.0.copyload
   %165 = extractelement <2 x float> %164, i64 0
   %166 = fsub float %.sroa.01.4.vec.extract.i149, %.sroa.01.4.vec.extract.i
@@ -2003,14 +2003,14 @@ b2GetLengthAndNormalize.exit.i196:                ; preds = %172, %163
 190:                                              ; preds = %177
   %191 = fneg float %181
   %192 = fsub float %101, %188
-  %193 = tail call float @sqrtf(float noundef %192) #17, !tbaa !40, !noalias !68
+  %193 = tail call float @sqrtf(float noundef %192) #17, !tbaa !41, !noalias !69
   %194 = fsub float %191, %193
   %195 = fcmp olt float %194, 0.000000e+00
   br i1 %195, label %b2RayCastCircle.exit, label %196
 
 196:                                              ; preds = %190
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %198 = load float, ptr %197, align 4, !tbaa !3, !noalias !68
+  %198 = load float, ptr %197, align 4, !tbaa !3, !noalias !69
   %199 = fmul float %sqrt.i.i.i193, %198
   %200 = fcmp olt float %199, %194
   br i1 %200, label %b2RayCastCircle.exit, label %201
@@ -2022,7 +2022,7 @@ b2GetLengthAndNormalize.exit.i196:                ; preds = %172, %163
   %205 = fadd float %166, %204
   %206 = fdiv float %194, %sqrt.i.i.i193
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %206, ptr %207, align 4, !tbaa !58, !alias.scope !68
+  store float %206, ptr %207, align 4, !tbaa !59, !alias.scope !69
   %208 = fmul float %203, %203
   %209 = fmul float %205, %205
   %210 = fadd float %208, %209
@@ -2040,7 +2040,7 @@ b2GetLengthAndNormalize.exit.i196:                ; preds = %172, %163
 
 b2Normalize.exit.i203:                            ; preds = %212, %201
   %.sroa.012.0.i.i204 = phi <2 x float> [ %.sroa.012.4.vec.insert.i.i202, %212 ], [ zeroinitializer, %201 ]
-  store <2 x float> %.sroa.012.0.i.i204, ptr %0, align 4, !alias.scope !68
+  store <2 x float> %.sroa.012.0.i.i204, ptr %0, align 4, !alias.scope !69
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.vec.extract.i49.i205 = extractelement <2 x float> %.sroa.012.0.i.i204, i64 0
   %217 = fmul float %97, %.sroa.0.0.vec.extract.i49.i205
@@ -2050,9 +2050,9 @@ b2Normalize.exit.i203:                            ; preds = %212, %201
   %219 = fmul float %97, %.sroa.0.4.vec.extract.i51.i207
   %220 = fadd float %.sroa.01.4.vec.extract.i, %219
   %.sroa.03.4.vec.insert.i52.i208 = insertelement <2 x float> %.sroa.03.0.vec.insert.i50.i206, float %220, i64 1
-  store <2 x float> %.sroa.03.4.vec.insert.i52.i208, ptr %216, align 4, !alias.scope !68
+  store <2 x float> %.sroa.03.4.vec.insert.i52.i208, ptr %216, align 4, !alias.scope !69
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %221, align 4, !tbaa !61, !alias.scope !68
+  store i8 1, ptr %221, align 4, !tbaa !62, !alias.scope !69
   br label %b2RayCastCircle.exit
 
 222:                                              ; preds = %161
@@ -2152,7 +2152,7 @@ b2GetLengthAndNormalize.exit216:                  ; preds = %223, %230
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #17
   store <2 x float> %.sroa.079.0.copyload, ptr %4, align 8
   %273 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float %97, ptr %273, align 8, !tbaa !42
+  store float %97, ptr %273, align 8, !tbaa !43
   call void @b2RayCastCircle(ptr dead_on_unwind writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #17
   br label %b2RayCastCircle.exit
@@ -2165,7 +2165,7 @@ b2GetLengthAndNormalize.exit216:                  ; preds = %223, %230
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #17
   store <2 x float> %.sroa.075.0.copyload, ptr %5, align 8
   %277 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float %97, ptr %277, align 8, !tbaa !42
+  store float %97, ptr %277, align 8, !tbaa !43
   call void @b2RayCastCircle(ptr dead_on_unwind writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #17
   br label %b2RayCastCircle.exit
@@ -2194,9 +2194,9 @@ b2GetLengthAndNormalize.exit216:                  ; preds = %223, %230
   %.sroa.9.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %279, ptr %.sroa.9.0..sroa_idx99, align 4, !tbaa !9
   %.sroa.10.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %.sroa.10.0..sroa_idx105, align 4, !tbaa !40
+  store i32 0, ptr %.sroa.10.0..sroa_idx105, align 4, !tbaa !41
   %.sroa.10107.0..sroa_idx112 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %.sroa.10107.0..sroa_idx112, align 4, !tbaa !71
+  store i8 1, ptr %.sroa.10107.0..sroa_idx112, align 4, !tbaa !72
   %.sroa.11.0..sroa_idx116 = getelementptr inbounds nuw i8, ptr %0, i64 25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.11.0..sroa_idx116, i8 0, i64 3, i1 false)
   br label %b2RayCastCircle.exit
@@ -2328,13 +2328,13 @@ b2GetLengthAndNormalize.exit:                     ; preds = %.thread, %27
   %.sroa.01.4.vec.insert.i95 = shufflevector <2 x float> %.sroa.01.0.vec.insert.i93, <2 x float> %.sroa.06.0.i, <2 x i32> <i32 0, i32 2>
   %.sroa.015.0 = select i1 %63, <2 x float> %.sroa.01.4.vec.insert.i95, <2 x float> %.sroa.01.4.vec.insert.i
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %44, ptr %65, align 4, !tbaa !58
+  store float %44, ptr %65, align 4, !tbaa !59
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.03.4.vec.insert.i101 = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %54, i64 1
   store <2 x float> %.sroa.03.4.vec.insert.i101, ptr %66, align 4
   store <2 x float> %.sroa.015.0, ptr %0, align 4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %67, align 4, !tbaa !61
+  store i8 1, ptr %67, align 4, !tbaa !62
   br label %68
 
 68:                                               ; preds = %b2GetLengthAndNormalize.exit, %46, %43, %50, %62, %32, %21
@@ -2370,7 +2370,7 @@ define void @b2RayCastPolygon(ptr dead_on_unwind noalias writable sret(%struct.b
 16:                                               ; preds = %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !73
 
 17:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
@@ -2436,7 +2436,7 @@ define void @b2RayCastPolygon(ptr dead_on_unwind noalias writable sret(%struct.b
 
 51:                                               ; preds = %._crit_edge
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.3, ptr %52, align 4, !tbaa !58
+  store float %.3, ptr %52, align 4, !tbaa !59
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %54 = zext nneg i32 %.354 to i64
   %55 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %53, i64 0, i64 %54
@@ -2455,7 +2455,7 @@ define void @b2RayCastPolygon(ptr dead_on_unwind noalias writable sret(%struct.b
   %.sroa.03.4.vec.insert.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %61, i64 1
   store <2 x float> %.sroa.03.4.vec.insert.i, ptr %57, align 4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %62, align 4, !tbaa !61
+  store i8 1, ptr %62, align 4, !tbaa !62
   br label %.thread79
 
 63:                                               ; preds = %3
@@ -2466,12 +2466,12 @@ define void @b2RayCastPolygon(ptr dead_on_unwind noalias writable sret(%struct.b
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef %1, i32 noundef 1, float noundef 0.000000e+00) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %66, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %66, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !55
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load i64, ptr %70, align 4
@@ -2479,7 +2479,7 @@ define void @b2RayCastPolygon(ptr dead_on_unwind noalias writable sret(%struct.b
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load float, ptr %72, align 4, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store float %73, ptr %74, align 4, !tbaa !73
+  store float %73, ptr %74, align 4, !tbaa !74
   call void @b2ShapeCast(ptr dead_on_unwind writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 188, ptr nonnull %4) #17
   br label %.thread79
@@ -2496,29 +2496,29 @@ define void @b2ShapeCastCircle(ptr dead_on_unwind noalias writable sret(%struct.
   %5 = alloca %struct.b2ShapeProxy, align 4
   call void @llvm.lifetime.start.p0(i64 188, ptr nonnull %4) #17
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load float, ptr %6, align 4, !tbaa !42
+  %7 = load float, ptr %6, align 4, !tbaa !43
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %4, ptr noundef %2, i32 noundef 1, float noundef %7) #17
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = load i32, ptr %9, align 4, !tbaa !78
+  %10 = load i32, ptr %9, align 4, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %12 = load float, ptr %11, align 4, !tbaa !80
+  %12 = load float, ptr %11, align 4, !tbaa !81
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef %1, i32 noundef %10, float noundef %12) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !55
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load i64, ptr %16, align 4
   store i64 %17, ptr %15, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %19 = load float, ptr %18, align 4, !tbaa !81
+  %19 = load float, ptr %18, align 4, !tbaa !82
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store float %19, ptr %20, align 4, !tbaa !73
+  store float %19, ptr %20, align 4, !tbaa !74
   call void @b2ShapeCast(ptr dead_on_unwind writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 188, ptr nonnull %4) #17
   ret void
@@ -2530,29 +2530,29 @@ define void @b2ShapeCastCapsule(ptr dead_on_unwind noalias writable sret(%struct
   %5 = alloca %struct.b2ShapeProxy, align 4
   call void @llvm.lifetime.start.p0(i64 188, ptr nonnull %4) #17
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load float, ptr %6, align 4, !tbaa !44
+  %7 = load float, ptr %6, align 4, !tbaa !45
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %4, ptr noundef %2, i32 noundef 2, float noundef %7) #17
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = load i32, ptr %9, align 4, !tbaa !78
+  %10 = load i32, ptr %9, align 4, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %12 = load float, ptr %11, align 4, !tbaa !80
+  %12 = load float, ptr %11, align 4, !tbaa !81
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef %1, i32 noundef %10, float noundef %12) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !55
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load i64, ptr %16, align 4
   store i64 %17, ptr %15, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %19 = load float, ptr %18, align 4, !tbaa !81
+  %19 = load float, ptr %18, align 4, !tbaa !82
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store float %19, ptr %20, align 4, !tbaa !73
+  store float %19, ptr %20, align 4, !tbaa !74
   call void @b2ShapeCast(ptr dead_on_unwind writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 188, ptr nonnull %4) #17
   ret void
@@ -2567,24 +2567,24 @@ define void @b2ShapeCastSegment(ptr dead_on_unwind noalias writable sret(%struct
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = load i32, ptr %7, align 4, !tbaa !78
+  %8 = load i32, ptr %7, align 4, !tbaa !79
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %10 = load float, ptr %9, align 4, !tbaa !80
+  %10 = load float, ptr %9, align 4, !tbaa !81
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef %1, i32 noundef %8, float noundef %10) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %6, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %6, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !55
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load i64, ptr %14, align 4
   store i64 %15, ptr %13, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %17 = load float, ptr %16, align 4, !tbaa !81
+  %17 = load float, ptr %16, align 4, !tbaa !82
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store float %17, ptr %18, align 4, !tbaa !73
+  store float %17, ptr %18, align 4, !tbaa !74
   call void @b2ShapeCast(ptr dead_on_unwind writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 188, ptr nonnull %4) #17
   ret void
@@ -2603,24 +2603,24 @@ define void @b2ShapeCastPolygon(ptr dead_on_unwind noalias writable sret(%struct
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %12 = load i32, ptr %11, align 4, !tbaa !78
+  %12 = load i32, ptr %11, align 4, !tbaa !79
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %14 = load float, ptr %13, align 4, !tbaa !80
+  %14 = load float, ptr %13, align 4, !tbaa !81
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef %1, i32 noundef %12, float noundef %14) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %10, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %10, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !55
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !56
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %19 = load i64, ptr %18, align 4
   store i64 %19, ptr %17, align 4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %21 = load float, ptr %20, align 4, !tbaa !81
+  %21 = load float, ptr %20, align 4, !tbaa !82
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store float %21, ptr %22, align 4, !tbaa !73
+  store float %21, ptr %22, align 4, !tbaa !74
   call void @b2ShapeCast(ptr dead_on_unwind writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 188, ptr nonnull %4) #17
   ret void
@@ -2677,64 +2677,65 @@ attributes #17 = { nounwind }
 !18 = !{!19, !12, i64 140}
 !19 = !{!"b2Polygon", !7, i64 0, !7, i64 64, !5, i64 128, !6, i64 136, !12, i64 140}
 !20 = !{!19, !6, i64 136}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"b2MakeBox: argument 0"}
-!27 = distinct !{!27, !"b2MakeBox"}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"b2MakeBox: argument 0"}
-!30 = distinct !{!30, !"b2MakeBox"}
-!31 = distinct !{!31, !32, !"b2MakeSquare: argument 0"}
-!32 = distinct !{!32, !"b2MakeSquare"}
-!33 = distinct !{!33, !22}
-!34 = distinct !{!34, !22}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"b2MakeBox: argument 0"}
-!37 = distinct !{!37, !"b2MakeBox"}
-!38 = !{i64 0, i64 64, !39, i64 64, i64 64, !39, i64 128, i64 4, !9, i64 132, i64 4, !9, i64 136, i64 4, !9, i64 140, i64 4, !40}
-!39 = !{!7, !7, i64 0}
-!40 = !{!12, !12, i64 0}
-!41 = distinct !{!41, !22}
-!42 = !{!43, !6, i64 8}
-!43 = !{!"b2Circle", !5, i64 0, !6, i64 8}
-!44 = !{!45, !6, i64 16}
-!45 = !{!"b2Capsule", !5, i64 0, !5, i64 8, !6, i64 16}
-!46 = !{!47, !6, i64 0}
-!47 = !{!"b2MassData", !6, i64 0, !5, i64 4, !6, i64 12}
-!48 = !{!47, !6, i64 4}
-!49 = !{!47, !6, i64 8}
-!50 = !{!47, !6, i64 12}
-!51 = distinct !{!51, !22}
-!52 = distinct !{!52, !22}
-!53 = distinct !{!53, !22}
-!54 = !{i64 0, i64 64, !39, i64 64, i64 4, !40, i64 68, i64 4, !9}
-!55 = !{i64 0, i64 4, !9, i64 4, i64 4, !9, i64 8, i64 4, !9, i64 12, i64 4, !9}
-!56 = !{!57, !6, i64 16}
-!57 = !{!"b2DistanceOutput", !5, i64 0, !5, i64 8, !6, i64 16, !12, i64 20, !12, i64 24}
-!58 = !{!59, !6, i64 16}
-!59 = !{!"b2CastOutput", !5, i64 0, !5, i64 8, !6, i64 16, !12, i64 20, !60, i64 24}
-!60 = !{!"_Bool", !7, i64 0}
-!61 = !{!59, !60, i64 24}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"b2RayCastCircle: argument 0"}
-!64 = distinct !{!64, !"b2RayCastCircle"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"b2RayCastCircle: argument 0"}
-!67 = distinct !{!67, !"b2RayCastCircle"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"b2RayCastCircle: argument 0"}
-!70 = distinct !{!70, !"b2RayCastCircle"}
-!71 = !{!60, !60, i64 0}
-!72 = distinct !{!72, !22}
-!73 = !{!74, !6, i64 184}
-!74 = !{!"b2ShapeCastPairInput", !75, i64 0, !75, i64 72, !76, i64 144, !76, i64 160, !5, i64 176, !6, i64 184}
-!75 = !{!"b2ShapeProxy", !7, i64 0, !12, i64 64, !6, i64 68}
-!76 = !{!"b2Transform", !5, i64 0, !77, i64 8}
-!77 = !{!"b2Rot", !6, i64 0, !6, i64 4}
-!78 = !{!79, !12, i64 64}
-!79 = !{!"b2ShapeCastInput", !7, i64 0, !12, i64 64, !6, i64 68, !5, i64 72, !6, i64 80}
-!80 = !{!79, !6, i64 68}
-!81 = !{!79, !6, i64 80}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = distinct !{!25, !22, !23}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"b2MakeBox: argument 0"}
+!28 = distinct !{!28, !"b2MakeBox"}
+!29 = !{!30, !32}
+!30 = distinct !{!30, !31, !"b2MakeBox: argument 0"}
+!31 = distinct !{!31, !"b2MakeBox"}
+!32 = distinct !{!32, !33, !"b2MakeSquare: argument 0"}
+!33 = distinct !{!33, !"b2MakeSquare"}
+!34 = distinct !{!34, !22, !23}
+!35 = distinct !{!35, !22, !23}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"b2MakeBox: argument 0"}
+!38 = distinct !{!38, !"b2MakeBox"}
+!39 = !{i64 0, i64 64, !40, i64 64, i64 64, !40, i64 128, i64 4, !9, i64 132, i64 4, !9, i64 136, i64 4, !9, i64 140, i64 4, !41}
+!40 = !{!7, !7, i64 0}
+!41 = !{!12, !12, i64 0}
+!42 = distinct !{!42, !22, !23}
+!43 = !{!44, !6, i64 8}
+!44 = !{!"b2Circle", !5, i64 0, !6, i64 8}
+!45 = !{!46, !6, i64 16}
+!46 = !{!"b2Capsule", !5, i64 0, !5, i64 8, !6, i64 16}
+!47 = !{!48, !6, i64 0}
+!48 = !{!"b2MassData", !6, i64 0, !5, i64 4, !6, i64 12}
+!49 = !{!48, !6, i64 4}
+!50 = !{!48, !6, i64 8}
+!51 = !{!48, !6, i64 12}
+!52 = distinct !{!52, !22, !23}
+!53 = distinct !{!53, !22, !23}
+!54 = distinct !{!54, !22, !23}
+!55 = !{i64 0, i64 64, !40, i64 64, i64 4, !41, i64 68, i64 4, !9}
+!56 = !{i64 0, i64 4, !9, i64 4, i64 4, !9, i64 8, i64 4, !9, i64 12, i64 4, !9}
+!57 = !{!58, !6, i64 16}
+!58 = !{!"b2DistanceOutput", !5, i64 0, !5, i64 8, !6, i64 16, !12, i64 20, !12, i64 24}
+!59 = !{!60, !6, i64 16}
+!60 = !{!"b2CastOutput", !5, i64 0, !5, i64 8, !6, i64 16, !12, i64 20, !61, i64 24}
+!61 = !{!"_Bool", !7, i64 0}
+!62 = !{!60, !61, i64 24}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"b2RayCastCircle: argument 0"}
+!65 = distinct !{!65, !"b2RayCastCircle"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"b2RayCastCircle: argument 0"}
+!68 = distinct !{!68, !"b2RayCastCircle"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"b2RayCastCircle: argument 0"}
+!71 = distinct !{!71, !"b2RayCastCircle"}
+!72 = !{!61, !61, i64 0}
+!73 = distinct !{!73, !22, !23}
+!74 = !{!75, !6, i64 184}
+!75 = !{!"b2ShapeCastPairInput", !76, i64 0, !76, i64 72, !77, i64 144, !77, i64 160, !5, i64 176, !6, i64 184}
+!76 = !{!"b2ShapeProxy", !7, i64 0, !12, i64 64, !6, i64 68}
+!77 = !{!"b2Transform", !5, i64 0, !78, i64 8}
+!78 = !{!"b2Rot", !6, i64 0, !6, i64 4}
+!79 = !{!80, !12, i64 64}
+!80 = !{!"b2ShapeCastInput", !7, i64 0, !12, i64 64, !6, i64 68, !5, i64 72, !6, i64 80}
+!81 = !{!80, !6, i64 68}
+!82 = !{!80, !6, i64 80}

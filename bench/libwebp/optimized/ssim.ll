@@ -266,7 +266,7 @@ define internal double @SSIMGetClipped_C(ptr noundef readonly captures(none) %0,
   %61 = getelementptr inbounds i8, ptr %.090, i64 %19
   %62 = getelementptr inbounds i8, ptr %.05189, i64 %20
   %.not.not = icmp slt i64 %indvars.iv112, %32
-  br i1 %.not.not, label %.preheader, label %._crit_edge91.loopexit105, !llvm.loop !19
+  br i1 %.not.not, label %.preheader, label %._crit_edge91.loopexit105, !llvm.loop !20
 
 ._crit_edge91.loopexit105:                        ; preds = %._crit_edge
   %63 = zext i32 %52 to i64
@@ -372,14 +372,14 @@ define internal double @SSIMGet_C(ptr noundef readonly captures(none) %0, i32 no
   %28 = add i32 %27, %.sroa.15.142
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %29, label %9, !llvm.loop !20
+  br i1 %exitcond.not, label %29, label %9, !llvm.loop !21
 
 29:                                               ; preds = %9
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %30 = getelementptr inbounds i8, ptr %.051, i64 %5
   %31 = getelementptr inbounds i8, ptr %.02650, i64 %6
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 7
-  br i1 %exitcond60.not, label %32, label %.preheader, !llvm.loop !21
+  br i1 %exitcond60.not, label %32, label %.preheader, !llvm.loop !22
 
 32:                                               ; preds = %29
   %33 = zext i32 %20 to i64
@@ -444,7 +444,7 @@ define internal i32 @AccumulateSSE_C(ptr noundef readonly captures(none) %0, ptr
   %13 = add i32 %12, %.01011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.010.lcssa = phi i32 [ 0, %3 ], [ %13, %.lr.ph ]
@@ -489,9 +489,10 @@ attributes #6 = { nounwind }
 !14 = !{!"any pointer", !6, i64 0}
 !15 = !{!5, !5, i64 0}
 !16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}

@@ -58,7 +58,7 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count74
-  br i1 %exitcond75.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !8
+  br i1 %exitcond75.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !9
 
 ._crit_edge60:                                    ; preds = %.lr.ph59, %._crit_edge
   %24 = add nuw nsw i32 %spec.store.select1, 7
@@ -99,7 +99,7 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   %45 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next77
   store i8 %44, ptr %45, align 1, !tbaa !3
   %46 = icmp eq i64 %indvars.iv.next77, 0
-  br i1 %46, label %._crit_edge66, label %.lr.ph65, !llvm.loop !9
+  br i1 %46, label %._crit_edge66, label %.lr.ph65, !llvm.loop !10
 
 ._crit_edge66:                                    ; preds = %.lr.ph65, %._crit_edge60
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 252
@@ -113,10 +113,10 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   %49 = load i16, ptr %gep, align 1
   %50 = zext i16 %49 to i32
   %51 = getelementptr inbounds i8, ptr %.05068, i64 -4
-  store i32 %50, ptr %.05068, align 4, !tbaa !10
+  store i32 %50, ptr %.05068, align 4, !tbaa !11
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -2
   %52 = icmp samesign ugt i64 %indvars.iv78, 1
-  br i1 %52, label %48, label %53, !llvm.loop !12
+  br i1 %52, label %48, label %53, !llvm.loop !13
 
 53:                                               ; preds = %48
   ret void
@@ -139,10 +139,11 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !4, i64 0}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !4, i64 0}
+!13 = distinct !{!13, !7, !8}

@@ -161,7 +161,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit25: ; preds = %59, %64
   store i64 %69, ptr %5, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !16
 }
 
 declare void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -185,6 +185,7 @@ attributes #2 = { nounwind }
 !10 = !{!7, !9, i64 16}
 !11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !12 = !{!7, !8, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}

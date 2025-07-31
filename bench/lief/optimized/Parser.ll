@@ -227,5 +227,6 @@ attributes #12 = { nounwind allocsize(0) }
 !22 = !{!"p1 _ZTS14Macho_Binary_t", !6, i64 0}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"vtable pointer", !8, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!"llvm.loop.estimated_trip_count"}

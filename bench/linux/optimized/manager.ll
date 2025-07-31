@@ -162,7 +162,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
 
 21:                                               ; preds = %20, %.preheader27
   %22 = icmp eq ptr %15, %11
-  br i1 %22, label %.loopexit28, label %.preheader27, !llvm.loop !8
+  br i1 %22, label %.loopexit28, label %.preheader27, !llvm.loop !9
 
 .loopexit28:                                      ; preds = %21, %10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -214,7 +214,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %55 = add i32 %37, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !10
   %56 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %57 = load i8, ptr %56, align 8
   %58 = call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef %37) #7
@@ -289,7 +289,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
   %101 = icmp ugt i64 %96, %100
   %102 = icmp eq i64 %94, 0
   %103 = or i1 %102, %101
-  br i1 %103, label %104, label %90, !llvm.loop !10
+  br i1 %103, label %104, label %90, !llvm.loop !11
 
 104:                                              ; preds = %93
   %105 = load i32, ptr @pnp_debug, align 4
@@ -318,7 +318,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
   %117 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %118 = add i32 %38, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !10
   %119 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %120 = load i8, ptr %119, align 8
   %121 = call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef %38) #7
@@ -414,7 +414,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
   %177 = icmp ugt i64 %172, %176
   %178 = icmp eq i64 %170, 0
   %179 = or i1 %178, %177
-  br i1 %179, label %180, label %166, !llvm.loop !11
+  br i1 %179, label %180, label %166, !llvm.loop !12
 
 180:                                              ; preds = %169
   %181 = load i32, ptr @pnp_debug, align 4
@@ -443,7 +443,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
   %193 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %194 = add i32 %39, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !10
   %195 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %196 = load i8, ptr %195, align 8
   %197 = call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 1024, i32 noundef %39) #7
@@ -504,7 +504,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
   %227 = getelementptr [16 x i16], ptr @pnp_assign_irq.xtab, i64 0, i64 %226
   %228 = load i16, ptr %227, align 2
   %229 = zext i16 %228 to i64
-  %230 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %193, i64 %229) #7, !srcloc !12
+  %230 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %193, i64 %229) #7, !srcloc !13
   %231 = icmp ult i8 %230, 2
   call void @llvm.assume(i1 %231)
   %232 = icmp eq i8 %230, 0
@@ -520,7 +520,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
 236:                                              ; preds = %233, %.preheader22
   %237 = add nuw nsw i64 %226, 1
   %238 = icmp eq i64 %237, 16
-  br i1 %238, label %239, label %.preheader22, !llvm.loop !13
+  br i1 %238, label %239, label %.preheader22, !llvm.loop !14
 
 239:                                              ; preds = %236
   %240 = load i8, ptr %195, align 8
@@ -567,7 +567,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
   %261 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %262 = add i32 %40, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !10
   %263 = getelementptr inbounds nuw i8, ptr %36, i64 33
   %264 = load i8, ptr %263, align 1
   %265 = call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 2048, i32 noundef %40) #7
@@ -635,7 +635,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
 302:                                              ; preds = %298, %.preheader24
   %303 = add nuw nsw i64 %289, 1
   %304 = icmp eq i64 %303, 8
-  br i1 %304, label %305, label %.preheader24, !llvm.loop !14
+  br i1 %304, label %305, label %.preheader24, !llvm.loop !15
 
 305:                                              ; preds = %302
   %306 = load i32, ptr @pnp_debug, align 4
@@ -675,7 +675,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
   %327 = phi i32 [ %37, %44 ], [ %321, %316 ]
   %328 = load ptr, ptr %36, align 8
   %329 = icmp eq ptr %328, %23
-  br i1 %329, label %.loopexit26, label %35, !llvm.loop !15
+  br i1 %329, label %.loopexit26, label %35, !llvm.loop !16
 
 .thread:                                          ; preds = %48, %316
   %.ph = phi i32 [ %317, %316 ], [ -22, %48 ]
@@ -708,7 +708,7 @@ define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %
 
 343:                                              ; preds = %342, %.preheader
   %344 = icmp eq ptr %337, %11
-  br i1 %344, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %344, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit26:                                      ; preds = %323, %.loopexit28
   call void @mutex_unlock(ptr noundef nonnull @pnp_res_mutex) #7
@@ -798,7 +798,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pnp_stop_dev(ptr noundef %0) #0 
 12:                                               ; preds = %7
   %13 = and i32 %9, 32
   %14 = icmp ne i32 %13, 0
-  %15 = load i8, ptr @console_suspend_enabled, align 1, !range !16
+  %15 = load i8, ptr @console_suspend_enabled, align 1, !range !18
   %16 = icmp eq i8 %15, 0
   %17 = select i1 %14, i1 %16, i1 false
   br i1 %17, label %18, label %22
@@ -951,7 +951,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pnp_disable_dev(ptr noundef %0) 
 16:                                               ; preds = %11
   %17 = and i32 %13, 32
   %18 = icmp ne i32 %17, 0
-  %19 = load i8, ptr @console_suspend_enabled, align 1, !range !16
+  %19 = load i8, ptr @console_suspend_enabled, align 1, !range !18
   %20 = icmp eq i8 %19, 0
   %21 = select i1 %18, i1 %20, i1 false
   br i1 %21, label %22, label %26
@@ -998,7 +998,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pnp_disable_dev(ptr noundef %0) 
 
 41:                                               ; preds = %40, %.preheader
   %42 = icmp eq ptr %35, %31
-  br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %41, %30
   tail call void @mutex_unlock(ptr noundef nonnull @pnp_res_mutex) #7
@@ -1077,15 +1077,18 @@ attributes #8 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = !{i64 2148487866, i64 2148487940}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = !{i8 0, i8 2}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{!"auto-init"}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{i64 2148487866, i64 2148487940}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = !{i8 0, i8 2}
+!19 = distinct !{!19, !6, !7, !8}

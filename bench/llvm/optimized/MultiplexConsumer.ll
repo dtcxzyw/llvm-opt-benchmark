@@ -148,7 +148,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener14Identifie
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %1, ptr noundef %2) #15
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -172,7 +172,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener9MacroReadE
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1, ptr noundef %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -202,7 +202,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener8TypeReadEN
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 %1, i64 %2) #15
   %18 = add i64 %.08, 1
   %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -235,7 +235,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener8DeclReadEN
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 %1, ptr noundef %2) #15
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -265,7 +265,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener19Predefine
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1, ptr noundef %2) #15
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -295,7 +295,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener12SelectorR
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1, i64 %2) #15
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -325,7 +325,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener19MacroDefi
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1, ptr noundef %2) #15
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -349,7 +349,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener10ModuleRea
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1, ptr noundef %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -373,7 +373,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener16ModuleImp
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1, i32 %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -389,22 +389,22 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.ex
 _ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
   %4 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %5, align 8, !tbaa !25
+  store ptr %4, ptr %5, align 8, !tbaa !29
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit
 
 6:                                                ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #14
-  store ptr %7, ptr %3, align 8, !tbaa !28
+  store ptr %7, ptr %3, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %8, ptr %9, align 8, !tbaa !25
+  store ptr %8, ptr %9, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 8 %1, i64 %.idx, i1 false)
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit
 
 _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i, %6
   %10 = phi ptr [ %4, %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i ], [ %8, %6 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !29
+  store ptr %10, ptr %11, align 8, !tbaa !33
   ret void
 }
 
@@ -412,8 +412,8 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit: ;
 define dso_local void @_ZN5clang28MultiplexASTMutationListener22CompletedTagDefinitionEPKNS_7TagDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -426,24 +426,24 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22CompletedTagDefi
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #15
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener16AddedVisibleDeclEPKNS_11DeclContextEPKNS_4DeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -456,131 +456,11 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener16AddedVisibleDecl
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
-  %18 = add i64 %.07, 1
-  %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedCXXImplicitMemberEPKNS_13CXXRecordDeclEPKNS_4DeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
-  %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
-  %10 = sub i64 %8, %9
-  %11 = ashr exact i64 %10, 3
-  %.not6 = icmp eq ptr %6, %7
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  ret void
-
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
-  %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
-  %18 = add i64 %.07, 1
-  %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplateSpecializationEPKNS_17ClassTemplateDeclEPKNS_31ClassTemplateSpecializationDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
-  %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
-  %10 = sub i64 %8, %9
-  %11 = ashr exact i64 %10, 3
-  %.not6 = icmp eq ptr %6, %7
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  ret void
-
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
-  %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
-  %18 = add i64 %.07, 1
-  %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplateSpecializationEPKNS_15VarTemplateDeclEPKNS_29VarTemplateSpecializationDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
-  %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
-  %10 = sub i64 %8, %9
-  %11 = ashr exact i64 %10, 3
-  %.not6 = icmp eq ptr %6, %7
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  ret void
-
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
-  %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
-  %18 = add i64 %.07, 1
-  %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplateSpecializationEPKNS_20FunctionTemplateDeclEPKNS_12FunctionDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
-  %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
-  %10 = sub i64 %8, %9
-  %11 = ashr exact i64 %10, 3
-  %.not6 = icmp eq ptr %6, %7
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  ret void
-
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
-  %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
   %18 = add i64 %.07, 1
@@ -589,35 +469,11 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28MultiplexASTMutationListener21ResolvedExceptionSpecEPKNS_12FunctionDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
-  %.not8 = icmp eq ptr %4, %6
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %2
-  ret void
-
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !30
-  %8 = load ptr, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1) #15
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
-  %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28MultiplexASTMutationListener17DeducedReturnTypeEPKNS_12FunctionDeclENS_8QualTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedCXXImplicitMemberEPKNS_13CXXRecordDeclEPKNS_4DeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -630,24 +486,168 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener17DeducedReturnTyp
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
   %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, i64 %2) #15
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
+  %18 = add i64 %.07, 1
+  %.not = icmp eq i64 %18, %11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplateSpecializationEPKNS_17ClassTemplateDeclEPKNS_31ClassTemplateSpecializationDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = ashr exact i64 %10, 3
+  %.not6 = icmp eq ptr %6, %7
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  ret void
+
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
+  %12 = load ptr, ptr %4, align 8, !tbaa !32
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
+  %15 = load ptr, ptr %14, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplateSpecializationEPKNS_15VarTemplateDeclEPKNS_29VarTemplateSpecializationDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = ashr exact i64 %10, 3
+  %.not6 = icmp eq ptr %6, %7
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  ret void
+
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
+  %12 = load ptr, ptr %4, align 8, !tbaa !32
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
+  %15 = load ptr, ptr %14, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
+  %18 = add i64 %.07, 1
+  %.not = icmp eq i64 %18, %11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplateSpecializationEPKNS_20FunctionTemplateDeclEPKNS_12FunctionDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = ashr exact i64 %10, 3
+  %.not6 = icmp eq ptr %6, %7
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  ret void
+
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
+  %12 = load ptr, ptr %4, align 8, !tbaa !32
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
+  %15 = load ptr, ptr %14, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
+  %18 = add i64 %.07, 1
+  %.not = icmp eq i64 %18, %11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN5clang28MultiplexASTMutationListener21ResolvedExceptionSpecEPKNS_12FunctionDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
+  %.not8 = icmp eq ptr %4, %6
+  br i1 %.not8, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  ret void
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !34
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %10 = load ptr, ptr %9, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1) #15
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
+  %.not = icmp eq ptr %11, %6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN5clang28MultiplexASTMutationListener17DeducedReturnTypeEPKNS_12FunctionDeclENS_8QualTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = ashr exact i64 %10, 3
+  %.not6 = icmp eq ptr %6, %7
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  ret void
+
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
+  %12 = load ptr, ptr %4, align 8, !tbaa !32
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
+  %15 = load ptr, ptr %14, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, i64 %2) #15
+  %18 = add i64 %.07, 1
+  %.not = icmp eq i64 %18, %11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+}
+
+; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener22ResolvedOperatorDeleteEPKNS_17CXXDestructorDeclEPKNS_12FunctionDeclEPNS_4ExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !38
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
   %.not10 = icmp eq ptr %6, %8
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -656,22 +656,22 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22ResolvedOperator
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.sroa.07.011 = phi ptr [ %13, %.lr.ph ], [ %6, %4 ]
-  %9 = load ptr, ptr %.sroa.07.011, align 8, !tbaa !30
+  %9 = load ptr, ptr %.sroa.07.011, align 8, !tbaa !34
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %1, ptr noundef %2, ptr noundef %3) #15
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 8
   %.not = icmp eq ptr %13, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener27CompletedImplicitDefinitionEPKNS_12FunctionDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -684,24 +684,24 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27CompletedImplici
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #15
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener22InstantiationRequestedEPKNS_9ValueDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -714,24 +714,24 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22InstantiationReq
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #15
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener30VariableDefinitionInstantiatedEPKNS_7VarDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -744,24 +744,24 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30VariableDefiniti
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #15
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener30FunctionDefinitionInstantiatedEPKNS_12FunctionDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -770,22 +770,22 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30FunctionDefiniti
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !30
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !34
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener27DefaultArgumentInstantiatedEPKNS_11ParmVarDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -798,24 +798,24 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27DefaultArgumentI
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #15
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener36DefaultMemberInitializerInstantiatedEPKNS_9FieldDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -828,24 +828,24 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DefaultMemberIni
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #15
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener28AddedObjCCategoryToInterfaceEPKNS_16ObjCCategoryDeclEPKNS_17ObjCInterfaceDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -858,24 +858,24 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener28AddedObjCCategor
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #15
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener21DeclarationMarkedUsedEPKNS_4DeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -888,24 +888,24 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21DeclarationMarke
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #15
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarkedOpenMPThreadPrivateEPKNS_4DeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %3, align 8, !tbaa !32
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -918,24 +918,24 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarke
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #15
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener31DeclarationMarkedOpenMPAllocateEPKNS_4DeclEPKNS_4AttrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -944,22 +944,22 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener31DeclarationMarke
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !30
+  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !34
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarkedOpenMPDeclareTargetEPKNS_4DeclEPKNS_4AttrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -968,22 +968,22 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarke
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !30
+  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !34
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener25RedefinedHiddenDefinitionEPKNS_9NamedDeclEPNS_6ModuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -992,22 +992,22 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener25RedefinedHiddenD
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !30
+  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !34
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedAttributeToRecordEPKNS_4AttrEPKNS_10RecordDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -1016,22 +1016,22 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedAttributeTo
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !30
+  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !34
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener21EnteringModulePurviewEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %.not7 = icmp eq ptr %3, %5
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -1040,22 +1040,22 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21EnteringModulePu
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.04.08 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
-  %6 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !30
+  %6 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !34
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %10, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener19AddedManglingNumberEPKNS_4DeclEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   %.not8 = icmp eq ptr %5, %7
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1064,22 +1064,22 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener19AddedManglingNum
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.05.09 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !30
+  %8 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !34
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, i32 noundef %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedStaticLocalNumbersEPKNS_4DeclEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   %.not8 = icmp eq ptr %5, %7
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1088,22 +1088,22 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedStaticLocal
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.05.09 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !30
+  %8 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !34
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, i32 noundef %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedAnonymousNamespaceEPKNS_19TranslationUnitDeclEPNS_13NamespaceDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -1112,40 +1112,40 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedAnonymousNa
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !30
+  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !34
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #15
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumerC2ESt6vectorISt10unique_ptrINS_11ASTConsumerESt14default_deleteIS3_EESaIS6_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 9), (16, 56)) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %4, align 8, !tbaa !48
+  store i8 1, ptr %4, align 8, !tbaa !63
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN5clang17MultiplexConsumerE, i64 16), ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %1, align 8, !tbaa !51
-  store ptr %6, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %1, align 8, !tbaa !66
+  store ptr %6, ptr %5, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !54
-  store ptr %9, ptr %7, align 8, !tbaa !54
+  %9 = load ptr, ptr %8, align 8, !tbaa !69
+  store ptr %9, ptr %7, align 8, !tbaa !69
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
-  store ptr %12, ptr %10, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !70
+  store ptr %12, ptr %10, align 8, !tbaa !70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
-  %15 = load ptr, ptr %5, align 8, !tbaa !56
-  %16 = load ptr, ptr %7, align 8, !tbaa !56
+  %15 = load ptr, ptr %5, align 8, !tbaa !71
+  %16 = load ptr, ptr %7, align 8, !tbaa !71
   %.not3241 = icmp eq ptr %15, %16
   br i1 %.not3241, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit.thread, label %.lr.ph
 
@@ -1175,7 +1175,7 @@ _ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit.thread: ; pr
   %.sroa.13.043 = phi ptr [ null, %.lr.ph ], [ %.sroa.13.1, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.022.042 = phi ptr [ %15, %.lr.ph ], [ %84, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit ]
   %26 = phi ptr [ null, %.lr.ph ], [ %83, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit ]
-  %27 = load ptr, ptr %.sroa.022.042, align 8, !tbaa !57
+  %27 = load ptr, ptr %.sroa.022.042, align 8, !tbaa !72
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 136
   %30 = load ptr, ptr %29, align 8
@@ -1188,7 +1188,7 @@ _ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit.thread: ; pr
   br i1 %.not.i, label %35, label %33
 
 33:                                               ; preds = %32
-  store ptr %31, ptr %.sroa.8.044, align 8, !tbaa !30
+  store ptr %31, ptr %.sroa.8.044, align 8, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.8.044, i64 8
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit
 
@@ -1215,7 +1215,7 @@ _ZNKSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %46 = shl nuw nsw i64 %45, 3
   %47 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #14
   %48 = getelementptr inbounds i8, ptr %47, i64 %38
-  store ptr %31, ptr %48, align 8, !tbaa !30
+  store ptr %31, ptr %48, align 8, !tbaa !34
   %49 = icmp sgt i64 %38, 0
   br i1 %49, label %50, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -1240,7 +1240,7 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit: ; pred
   %.sroa.13.1 = phi ptr [ %.sroa.13.043, %23 ], [ %53, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.13.043, %33 ]
   %.sroa.8.1 = phi ptr [ %.sroa.8.044, %23 ], [ %51, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %34, %33 ]
   %.sroa.025.1 = phi ptr [ %.sroa.025.045, %23 ], [ %47, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.025.045, %33 ]
-  %54 = load ptr, ptr %.sroa.022.042, align 8, !tbaa !57
+  %54 = load ptr, ptr %.sroa.022.042, align 8, !tbaa !72
   %55 = load ptr, ptr %54, align 8, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 144
   %57 = load ptr, ptr %56, align 8
@@ -1307,17 +1307,17 @@ _ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit:
   %83 = phi ptr [ %74, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %26, %60 ], [ %26, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit ]
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.022.042, i64 8
   %.not32 = icmp eq ptr %84, %16
-  br i1 %.not32, label %19, label %23
+  br i1 %.not32, label %19, label %23, !llvm.loop !74
 
 85:                                               ; preds = %19
-  %86 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14, !noalias !59
+  %86 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14, !noalias !75
   %87 = ptrtoint ptr %.sroa.8.1 to i64
   %88 = ptrtoint ptr %.sroa.025.1 to i64
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 3
-  tail call void @_ZN5clang28MultiplexASTMutationListenerC1EN4llvm8ArrayRefIPNS_19ASTMutationListenerEEE(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr %.sroa.025.1, i64 %90) #15, !noalias !59
-  %91 = load ptr, ptr %13, align 8, !tbaa !62
-  store ptr %86, ptr %13, align 8, !tbaa !62
+  tail call void @_ZN5clang28MultiplexASTMutationListenerC1EN4llvm8ArrayRefIPNS_19ASTMutationListenerEEE(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr %.sroa.025.1, i64 %90) #15, !noalias !75
+  %91 = load ptr, ptr %13, align 8, !tbaa !78
+  store ptr %86, ptr %13, align 8, !tbaa !78
   %.not.i.i.i.i = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i
 
@@ -1332,10 +1332,10 @@ _ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EE
   br i1 %21, label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit, label %95
 
 95:                                               ; preds = %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i, %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit
-  %96 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14, !noalias !64
-  call void @_ZN5clang35MultiplexASTDeserializationListenerC1ERKSt6vectorIPNS_26ASTDeserializationListenerESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(24) %3) #15, !noalias !64
-  %97 = load ptr, ptr %14, align 8, !tbaa !67
-  store ptr %96, ptr %14, align 8, !tbaa !67
+  %96 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14, !noalias !80
+  call void @_ZN5clang35MultiplexASTDeserializationListenerC1ERKSt6vectorIPNS_26ASTDeserializationListenerESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(24) %3) #15, !noalias !80
+  %97 = load ptr, ptr %14, align 8, !tbaa !83
+  store ptr %96, ptr %14, align 8, !tbaa !83
   %.not.i.i.i.i11 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i11, label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exitthread-pre-split, label %_ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i.i.i.i
 
@@ -1383,25 +1383,25 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit: ; preds = %_ZNSt6v
 define dso_local void @_ZN5clang17MultiplexConsumerC2ESt10unique_ptrINS_11ASTConsumerESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 9), (16, 56)) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
 _ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit:
   %2 = alloca %"class.std::vector.8", align 8
-  %3 = load i64, ptr %1, align 8, !tbaa !57
-  store ptr null, ptr %1, align 8, !tbaa !57
+  %3 = load i64, ptr %1, align 8, !tbaa !72
+  store ptr null, ptr %1, align 8, !tbaa !72
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
-  store i64 %3, ptr %5, align 8, !tbaa !57
+  store i64 %3, ptr %5, align 8, !tbaa !72
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %5, ptr %2, align 8, !tbaa !51
-  store ptr %6, ptr %4, align 8, !tbaa !54
-  store ptr %6, ptr %7, align 8, !tbaa !55
+  store ptr %5, ptr %2, align 8, !tbaa !66
+  store ptr %6, ptr %4, align 8, !tbaa !69
+  store ptr %6, ptr %7, align 8, !tbaa !70
   call void @_ZN5clang17MultiplexConsumerC2ESt6vectorISt10unique_ptrINS_11ASTConsumerESt14default_deleteIS3_EESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2)
-  %8 = load ptr, ptr %2, align 8, !tbaa !51
-  %9 = load ptr, ptr %4, align 8, !tbaa !54
+  %8 = load ptr, ptr %2, align 8, !tbaa !66
+  %9 = load ptr, ptr %4, align 8, !tbaa !69
   %.not4.i.i.i.i = icmp eq ptr %8, %9
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %14, %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i ], [ %8, %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ]
-  %10 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !57
+  %10 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !72
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i.i.i.i.i.i
 
@@ -1413,17 +1413,17 @@ _ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i.i.i.i.i.i: ; preds =
   br label %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !57
+  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !72
   %14 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %14, %9
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !69
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 _ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit
   %.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit, label %15
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i
-  %16 = load ptr, ptr %7, align 8, !tbaa !55
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %8 to i64
   %19 = sub i64 %17, %18
@@ -1438,7 +1438,7 @@ _ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit: ; pred
 define dso_local void @_ZN5clang17MultiplexConsumerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN5clang17MultiplexConsumerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i
 
@@ -1450,9 +1450,9 @@ _ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exi
   br label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i
-  store ptr null, ptr %2, align 8, !tbaa !67
+  store ptr null, ptr %2, align 8, !tbaa !83
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !62
+  %8 = load ptr, ptr %7, align 8, !tbaa !78
   %.not.i1 = icmp eq ptr %8, null
   br i1 %.not.i1, label %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i
 
@@ -1464,17 +1464,17 @@ _ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i: ; 
   br label %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i
-  store ptr null, ptr %7, align 8, !tbaa !62
+  store ptr null, ptr %7, align 8, !tbaa !78
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !51
+  %13 = load ptr, ptr %12, align 8, !tbaa !66
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !69
   %.not4.i.i.i.i = icmp eq ptr %13, %15
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %20, %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i ], [ %13, %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit ]
-  %16 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !57
+  %16 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !72
   %.not.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i.i.i.i.i.i
 
@@ -1486,13 +1486,13 @@ _ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i.i.i.i.i.i: ; preds =
   br label %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !57
+  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %20, %15
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !69
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 _ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %12, align 8, !tbaa !51
+  %.pr.i = load ptr, ptr %12, align 8, !tbaa !66
   br label %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit
@@ -1502,7 +1502,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_Ev
 
 22:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !55
+  %24 = load ptr, ptr %23, align 8, !tbaa !70
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
@@ -1526,9 +1526,9 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer10InitializeERNS_10ASTContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1537,22 +1537,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer10InitializeERNS_10ASTContext
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer18HandleTopLevelDeclENS_12DeclGroupRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not9 = icmp eq ptr %4, %6
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -1566,7 +1566,7 @@ define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer18HandleTopLeve
   br i1 %.011, label %7, label %13
 
 7:                                                ; preds = %.lr.ph
-  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !57
+  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !72
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
@@ -1577,15 +1577,15 @@ define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer18HandleTopLeve
   %14 = phi i1 [ false, %.lr.ph ], [ %12, %7 ]
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %15, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer30HandleInlineFunctionDefinitionEPNS_12FunctionDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1594,22 +1594,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer30HandleInlineFunctionDefinit
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer37HandleCXXStaticMemberVarInstantiationEPNS_7VarDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1618,22 +1618,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer37HandleCXXStaticMemberVarIns
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer21HandleInterestingDeclENS_12DeclGroupRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1642,22 +1642,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer21HandleInterestingDeclENS_12
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer21HandleTranslationUnitERNS_10ASTContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1666,22 +1666,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer21HandleTranslationUnitERNS_1
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer23HandleTagDeclDefinitionEPNS_7TagDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1690,22 +1690,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer23HandleTagDeclDefinitionEPNS
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer31HandleTagDeclRequiredDefinitionEPKNS_7TagDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1714,22 +1714,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer31HandleTagDeclRequiredDefini
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer38HandleCXXImplicitFunctionInstantiationEPNS_12FunctionDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1738,22 +1738,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer38HandleCXXImplicitFunctionIn
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer33HandleTopLevelDeclInObjCContainerENS_12DeclGroupRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1762,22 +1762,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer33HandleTopLevelDeclInObjCCon
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer24HandleImplicitImportDeclEPNS_10ImportDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1786,22 +1786,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer24HandleImplicitImportDeclEPN
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer27CompleteTentativeDefinitionEPNS_7VarDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1810,22 +1810,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer27CompleteTentativeDefinition
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer27CompleteExternalDeclarationEPNS_14DeclaratorDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1834,22 +1834,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer27CompleteExternalDeclaration
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer22AssignInheritanceModelEPNS_13CXXRecordDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1858,22 +1858,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer22AssignInheritanceModelEPNS_
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer12HandleVTableEPNS_13CXXRecordDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1882,36 +1882,36 @@ define dso_local void @_ZN5clang17MultiplexConsumer12HandleVTableEPNS_13CXXRecor
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN5clang17MultiplexConsumer22GetASTMutationListenerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !78
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN5clang17MultiplexConsumer29GetASTDeserializationListenerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer10PrintStatsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
   %.not7 = icmp eq ptr %3, %5
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -1920,22 +1920,22 @@ define dso_local void @_ZN5clang17MultiplexConsumer10PrintStatsEv(ptr noundef no
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.04.08 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
-  %6 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !57
+  %6 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !72
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(9) %6) #15
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %10, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer22shouldSkipFunctionBodyEPNS_4DeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not9 = icmp eq ptr %4, %6
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -1949,7 +1949,7 @@ define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer22shouldSkipFun
   br i1 %.011, label %7, label %13
 
 7:                                                ; preds = %.lr.ph
-  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !57
+  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !72
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %11 = load ptr, ptr %10, align 8
@@ -1960,15 +1960,15 @@ define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer22shouldSkipFun
   %14 = phi i1 [ false, %.lr.ph ], [ %12, %7 ]
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %15, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer14InitializeSemaERNS_4SemaE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not1012 = icmp eq ptr %4, %6
   br i1 %.not1012, label %._crit_edge, label %.lr.ph
 
@@ -1977,9 +1977,9 @@ define dso_local void @_ZN5clang17MultiplexConsumer14InitializeSemaERNS_4SemaE(p
 
 .lr.ph:                                           ; preds = %2, %15
   %.sroa.07.013 = phi ptr [ %16, %15 ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.07.013, align 8, !tbaa !57
+  %7 = load ptr, ptr %.sroa.07.013, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load i8, ptr %8, align 8, !tbaa !48, !range !70, !noundef !71
+  %9 = load i8, ptr %8, align 8, !tbaa !63, !range !103, !noundef !104
   %10 = trunc nuw i8 %9 to i1
   %.not11 = icmp ne ptr %7, null
   %.not.not = and i1 %.not11, %10
@@ -1995,15 +1995,15 @@ define dso_local void @_ZN5clang17MultiplexConsumer14InitializeSemaERNS_4SemaE(p
 15:                                               ; preds = %11, %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 8
   %.not10 = icmp eq ptr %16, %6
-  br i1 %.not10, label %._crit_edge, label %.lr.ph
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !105
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumer10ForgetSemaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
   %.not911 = icmp eq ptr %3, %5
   br i1 %.not911, label %._crit_edge, label %.lr.ph
 
@@ -2012,9 +2012,9 @@ define dso_local void @_ZN5clang17MultiplexConsumer10ForgetSemaEv(ptr noundef no
 
 .lr.ph:                                           ; preds = %1, %14
   %.sroa.06.012 = phi ptr [ %15, %14 ], [ %3, %1 ]
-  %6 = load ptr, ptr %.sroa.06.012, align 8, !tbaa !57
+  %6 = load ptr, ptr %.sroa.06.012, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i8, ptr %7, align 8, !tbaa !48, !range !70, !noundef !71
+  %8 = load i8, ptr %7, align 8, !tbaa !63, !range !103, !noundef !104
   %9 = trunc nuw i8 %8 to i1
   %.not10 = icmp ne ptr %6, null
   %.not.not = and i1 %.not10, %9
@@ -2030,7 +2030,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer10ForgetSemaEv(ptr noundef no
 14:                                               ; preds = %10, %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 8
   %.not9 = icmp eq ptr %15, %5
-  br i1 %.not9, label %._crit_edge, label %.lr.ph
+  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -2082,13 +2082,13 @@ _ZN5clang35MultiplexASTDeserializationListenerD2Ev.exit: ; preds = %1, %4
 define linkonce_odr hidden void @_ZN5clang28MultiplexASTMutationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN5clang28MultiplexASTMutationListenerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -2104,13 +2104,13 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit: ; preds = %1, %4
 define linkonce_odr hidden void @_ZN5clang28MultiplexASTMutationListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN5clang28MultiplexASTMutationListenerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang28MultiplexASTMutationListenerD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -2192,58 +2192,93 @@ attributes #16 = { builtin nounwind }
 !14 = !{!8, !8, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTSN5clang26ASTDeserializationListenerE", !9, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
-!25 = !{!26, !27, i64 16}
-!26 = !{!"_ZTSNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE17_Vector_impl_dataE", !27, i64 0, !27, i64 8, !27, i64 16}
-!27 = !{!"p2 _ZTSN5clang19ASTMutationListenerE", !9, i64 0}
-!28 = !{!26, !27, i64 0}
-!29 = !{!26, !27, i64 8}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTSN5clang19ASTMutationListenerE", !9, i64 0}
-!32 = distinct !{!32, !18}
-!33 = distinct !{!33, !18}
-!34 = distinct !{!34, !18}
-!35 = distinct !{!35, !18}
-!36 = distinct !{!36, !18}
-!37 = distinct !{!37, !18}
-!38 = !{!27, !27, i64 0}
-!39 = distinct !{!39, !18}
-!40 = distinct !{!40, !18}
-!41 = distinct !{!41, !18}
-!42 = distinct !{!42, !18}
-!43 = distinct !{!43, !18}
-!44 = distinct !{!44, !18}
-!45 = distinct !{!45, !18}
-!46 = distinct !{!46, !18}
-!47 = distinct !{!47, !18}
-!48 = !{!49, !50, i64 8}
-!49 = !{!"_ZTSN5clang11ASTConsumerE", !50, i64 8}
-!50 = !{!"bool", !10, i64 0}
-!51 = !{!52, !53, i64 0}
-!52 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_Vector_impl_dataE", !53, i64 0, !53, i64 8, !53, i64 16}
-!53 = !{!"p1 _ZTSSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EE", !9, i64 0}
-!54 = !{!52, !53, i64 8}
-!55 = !{!52, !53, i64 16}
-!56 = !{!53, !53, i64 0}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 _ZTSN5clang11ASTConsumerE", !9, i64 0}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZSt11make_uniqueIN5clang28MultiplexASTMutationListenerEJRSt6vectorIPNS0_19ASTMutationListenerESaIS4_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!61 = distinct !{!61, !"_ZSt11make_uniqueIN5clang28MultiplexASTMutationListenerEJRSt6vectorIPNS0_19ASTMutationListenerESaIS4_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 _ZTSN5clang28MultiplexASTMutationListenerE", !9, i64 0}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZSt11make_uniqueIN5clang35MultiplexASTDeserializationListenerEJRSt6vectorIPNS0_26ASTDeserializationListenerESaIS4_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!66 = distinct !{!66, !"_ZSt11make_uniqueIN5clang35MultiplexASTDeserializationListenerEJRSt6vectorIPNS0_26ASTDeserializationListenerESaIS4_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"p1 _ZTSN5clang35MultiplexASTDeserializationListenerE", !9, i64 0}
-!69 = distinct !{!69, !18}
-!70 = !{i8 0, i8 2}
-!71 = !{}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}
+!26 = distinct !{!26, !18, !19}
+!27 = distinct !{!27, !19}
+!28 = distinct !{!28, !19}
+!29 = !{!30, !31, i64 16}
+!30 = !{!"_ZTSNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE17_Vector_impl_dataE", !31, i64 0, !31, i64 8, !31, i64 16}
+!31 = !{!"p2 _ZTSN5clang19ASTMutationListenerE", !9, i64 0}
+!32 = !{!30, !31, i64 0}
+!33 = !{!30, !31, i64 8}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN5clang19ASTMutationListenerE", !9, i64 0}
+!36 = distinct !{!36, !18, !19}
+!37 = distinct !{!37, !18, !19}
+!38 = distinct !{!38, !18, !19}
+!39 = distinct !{!39, !18, !19}
+!40 = distinct !{!40, !18, !19}
+!41 = distinct !{!41, !18, !19}
+!42 = !{!31, !31, i64 0}
+!43 = distinct !{!43, !19}
+!44 = distinct !{!44, !18, !19}
+!45 = distinct !{!45, !19}
+!46 = distinct !{!46, !18, !19}
+!47 = distinct !{!47, !18, !19}
+!48 = distinct !{!48, !18, !19}
+!49 = distinct !{!49, !19}
+!50 = distinct !{!50, !18, !19}
+!51 = distinct !{!51, !18, !19}
+!52 = distinct !{!52, !18, !19}
+!53 = distinct !{!53, !18, !19}
+!54 = distinct !{!54, !18, !19}
+!55 = distinct !{!55, !19}
+!56 = distinct !{!56, !19}
+!57 = distinct !{!57, !19}
+!58 = distinct !{!58, !19}
+!59 = distinct !{!59, !19}
+!60 = distinct !{!60, !19}
+!61 = distinct !{!61, !19}
+!62 = distinct !{!62, !19}
+!63 = !{!64, !65, i64 8}
+!64 = !{!"_ZTSN5clang11ASTConsumerE", !65, i64 8}
+!65 = !{!"bool", !10, i64 0}
+!66 = !{!67, !68, i64 0}
+!67 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_Vector_impl_dataE", !68, i64 0, !68, i64 8, !68, i64 16}
+!68 = !{!"p1 _ZTSSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EE", !9, i64 0}
+!69 = !{!67, !68, i64 8}
+!70 = !{!67, !68, i64 16}
+!71 = !{!68, !68, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTSN5clang11ASTConsumerE", !9, i64 0}
+!74 = distinct !{!74, !19}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZSt11make_uniqueIN5clang28MultiplexASTMutationListenerEJRSt6vectorIPNS0_19ASTMutationListenerESaIS4_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!77 = distinct !{!77, !"_ZSt11make_uniqueIN5clang28MultiplexASTMutationListenerEJRSt6vectorIPNS0_19ASTMutationListenerESaIS4_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p1 _ZTSN5clang28MultiplexASTMutationListenerE", !9, i64 0}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZSt11make_uniqueIN5clang35MultiplexASTDeserializationListenerEJRSt6vectorIPNS0_26ASTDeserializationListenerESaIS4_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!82 = distinct !{!82, !"_ZSt11make_uniqueIN5clang35MultiplexASTDeserializationListenerEJRSt6vectorIPNS0_26ASTDeserializationListenerESaIS4_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTSN5clang35MultiplexASTDeserializationListenerE", !9, i64 0}
+!85 = distinct !{!85, !18, !19}
+!86 = distinct !{!86, !19}
+!87 = distinct !{!87, !19}
+!88 = distinct !{!88, !19}
+!89 = distinct !{!89, !19}
+!90 = distinct !{!90, !19}
+!91 = distinct !{!91, !19}
+!92 = distinct !{!92, !19}
+!93 = distinct !{!93, !19}
+!94 = distinct !{!94, !19}
+!95 = distinct !{!95, !19}
+!96 = distinct !{!96, !19}
+!97 = distinct !{!97, !19}
+!98 = distinct !{!98, !19}
+!99 = distinct !{!99, !19}
+!100 = distinct !{!100, !19}
+!101 = distinct !{!101, !19}
+!102 = distinct !{!102, !19}
+!103 = !{i8 0, i8 2}
+!104 = !{}
+!105 = distinct !{!105, !19}
+!106 = distinct !{!106, !19}

@@ -232,15 +232,15 @@ newpass_bags.exit.i:                              ; preds = %78, %63, %newpass_b
   %105 = add nuw nsw i32 %.05189.i, 1
   %106 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %25) #3
   %107 = icmp slt i32 %105, %106
-  br i1 %107, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !35
+  br i1 %107, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %104, %.preheader.i
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %109 = load ptr, ptr %108, align 8, !tbaa !36
+  %109 = load ptr, ptr %108, align 8, !tbaa !37
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load ptr, ptr %110, align 8, !tbaa !21
   %112 = call ptr @ASN1_OCTET_STRING_new() #3
-  %113 = load ptr, ptr %108, align 8, !tbaa !36
+  %113 = load ptr, ptr %108, align 8, !tbaa !37
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
   store ptr %112, ptr %114, align 8, !tbaa !21
   %115 = icmp eq ptr %112, null
@@ -263,7 +263,7 @@ newpass_bags.exit.i:                              ; preds = %78, %63, %newpass_b
 
 122:                                              ; preds = %120
   %123 = load ptr, ptr %19, align 8, !tbaa !3
-  %124 = load ptr, ptr %123, align 8, !tbaa !37
+  %124 = load ptr, ptr %123, align 8, !tbaa !38
   call void @X509_SIG_getm(ptr noundef %124, ptr noundef null, ptr noundef nonnull %13) #3
   %125 = load ptr, ptr %13, align 8, !tbaa !13
   %126 = load i32, ptr %15, align 4, !tbaa !11
@@ -290,11 +290,11 @@ newpass_p12.exit:                                 ; preds = %122, %118
   br i1 %.not66.i, label %.critedge, label %129
 
 129:                                              ; preds = %128
-  %130 = load ptr, ptr %108, align 8, !tbaa !36
+  %130 = load ptr, ptr %108, align 8, !tbaa !37
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !21
   call void @ASN1_OCTET_STRING_free(ptr noundef %132) #3
-  %133 = load ptr, ptr %108, align 8, !tbaa !36
+  %133 = load ptr, ptr %108, align 8, !tbaa !37
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 32
   store ptr %111, ptr %134, align 8, !tbaa !21
   br label %.critedge
@@ -356,7 +356,7 @@ define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
   call void @X509_ALGOR_get0(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef %0) #3
-  %9 = load ptr, ptr %7, align 8, !tbaa !40
+  %9 = load ptr, ptr %7, align 8, !tbaa !41
   %10 = call i32 @OBJ_obj2nid(ptr noundef %9) #3
   %cond = icmp eq i32 %10, 161
   br i1 %cond, label %11, label %42
@@ -367,54 +367,54 @@ define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %0, ptr noundef 
   br i1 %13, label %14, label %.thread93
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %8, align 8, !tbaa !41
+  %15 = load ptr, ptr %8, align 8, !tbaa !42
   %16 = call ptr @PBE2PARAM_it() #3
   %17 = call ptr @ASN1_item_unpack(ptr noundef %15, ptr noundef %16) #3
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread93, label %19
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr %17, align 8, !tbaa !42
+  %20 = load ptr, ptr %17, align 8, !tbaa !43
   call void @X509_ALGOR_get0(ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef %20) #3
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !44
+  %22 = load ptr, ptr %21, align 8, !tbaa !45
   call void @X509_ALGOR_get0(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef %22) #3
-  %23 = load ptr, ptr %7, align 8, !tbaa !40
+  %23 = load ptr, ptr %7, align 8, !tbaa !41
   %24 = call i32 @OBJ_obj2nid(ptr noundef %23) #3
   %25 = load i32, ptr %6, align 4, !tbaa !11
   %26 = icmp eq i32 %25, 16
   br i1 %26, label %27, label %.thread46
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr %8, align 8, !tbaa !41
+  %28 = load ptr, ptr %8, align 8, !tbaa !42
   %29 = call ptr @PBKDF2PARAM_it() #3
   %30 = call ptr @ASN1_item_unpack(ptr noundef %28, ptr noundef %29) #3
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread46, label %32
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr %30, align 8, !tbaa !45
-  %34 = load i32, ptr %33, align 8, !tbaa !48
+  %33 = load ptr, ptr %30, align 8, !tbaa !46
+  %34 = load i32, ptr %33, align 8, !tbaa !49
   %.not = icmp eq i32 %34, 4
   br i1 %.not, label %35, label %.thread80
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !50
+  %37 = load ptr, ptr %36, align 8, !tbaa !51
   %38 = icmp eq ptr %37, null
   br i1 %38, label %48, label %39
 
 39:                                               ; preds = %35
   call void @X509_ALGOR_get0(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef nonnull %37) #3
-  %40 = load ptr, ptr %7, align 8, !tbaa !40
+  %40 = load ptr, ptr %7, align 8, !tbaa !41
   %41 = call i32 @OBJ_obj2nid(ptr noundef %40) #3
-  %.pre = load ptr, ptr %30, align 8, !tbaa !45
+  %.pre = load ptr, ptr %30, align 8, !tbaa !46
   br label %48
 
 42:                                               ; preds = %5
   %43 = call ptr @PBEPARAM_it() #3
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !51
+  %45 = load ptr, ptr %44, align 8, !tbaa !52
   %46 = call ptr @ASN1_TYPE_unpack_sequence(ptr noundef %43, ptr noundef %45) #3
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread93, label %57
@@ -424,10 +424,10 @@ define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %0, ptr noundef 
   %.037 = phi i32 [ %41, %39 ], [ 163, %35 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !21
-  %52 = load i32, ptr %51, align 8, !tbaa !53
+  %52 = load i32, ptr %51, align 8, !tbaa !54
   store i32 %52, ptr %3, align 4, !tbaa !11
   %53 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !55
+  %54 = load ptr, ptr %53, align 8, !tbaa !56
   %55 = call i64 @ASN1_INTEGER_get(ptr noundef %54) #3
   %56 = trunc i64 %55 to i32
   store i32 %56, ptr %2, align 4, !tbaa !11
@@ -446,16 +446,16 @@ define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %0, ptr noundef 
   br label %.thread93
 
 57:                                               ; preds = %42
-  %58 = load ptr, ptr %0, align 8, !tbaa !56
+  %58 = load ptr, ptr %0, align 8, !tbaa !57
   %59 = call i32 @OBJ_obj2nid(ptr noundef %58) #3
   store i32 %59, ptr %1, align 4, !tbaa !11
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !57
+  %61 = load ptr, ptr %60, align 8, !tbaa !58
   %62 = call i64 @ASN1_INTEGER_get(ptr noundef %61) #3
   %63 = trunc i64 %62 to i32
   store i32 %63, ptr %2, align 4, !tbaa !11
-  %64 = load ptr, ptr %46, align 8, !tbaa !59
-  %65 = load i32, ptr %64, align 8, !tbaa !53
+  %64 = load ptr, ptr %46, align 8, !tbaa !60
+  %65 = load i32, ptr %64, align 8, !tbaa !54
   store i32 %65, ptr %3, align 4, !tbaa !11
   store i32 0, ptr %4, align 4, !tbaa !11
   call void @PBEPARAM_free(ptr noundef nonnull %46) #3
@@ -574,30 +574,31 @@ attributes #3 = { nounwind }
 !30 = !{!15, !20, i64 40}
 !31 = !{!15, !16, i64 48}
 !32 = !{!27, !27, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34}
-!36 = !{!4, !10, i64 16}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"PKCS12_MAC_DATA_st", !39, i64 0, !5, i64 8, !5, i64 16}
-!39 = !{!"p1 _ZTS11X509_sig_st", !6, i64 0}
-!40 = !{!18, !18, i64 0}
-!41 = !{!6, !6, i64 0}
-!42 = !{!43, !27, i64 0}
-!43 = !{!"PBE2PARAM_st", !27, i64 0, !27, i64 8}
-!44 = !{!43, !27, i64 8}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"PBKDF2PARAM_st", !47, i64 0, !5, i64 8, !5, i64 16, !27, i64 24}
-!47 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
-!48 = !{!49, !12, i64 0}
-!49 = !{!"asn1_type_st", !12, i64 0, !7, i64 8}
-!50 = !{!46, !27, i64 24}
-!51 = !{!52, !47, i64 8}
-!52 = !{!"X509_algor_st", !18, i64 0, !47, i64 8}
-!53 = !{!54, !12, i64 0}
-!54 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !16, i64 8, !17, i64 16}
-!55 = !{!46, !5, i64 8}
-!56 = !{!52, !18, i64 0}
-!57 = !{!58, !5, i64 8}
-!58 = !{!"PBEPARAM_st", !5, i64 0, !5, i64 8}
-!59 = !{!58, !5, i64 0}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = distinct !{!36, !34, !35}
+!37 = !{!4, !10, i64 16}
+!38 = !{!39, !40, i64 0}
+!39 = !{!"PKCS12_MAC_DATA_st", !40, i64 0, !5, i64 8, !5, i64 16}
+!40 = !{!"p1 _ZTS11X509_sig_st", !6, i64 0}
+!41 = !{!18, !18, i64 0}
+!42 = !{!6, !6, i64 0}
+!43 = !{!44, !27, i64 0}
+!44 = !{!"PBE2PARAM_st", !27, i64 0, !27, i64 8}
+!45 = !{!44, !27, i64 8}
+!46 = !{!47, !48, i64 0}
+!47 = !{!"PBKDF2PARAM_st", !48, i64 0, !5, i64 8, !5, i64 16, !27, i64 24}
+!48 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
+!49 = !{!50, !12, i64 0}
+!50 = !{!"asn1_type_st", !12, i64 0, !7, i64 8}
+!51 = !{!47, !27, i64 24}
+!52 = !{!53, !48, i64 8}
+!53 = !{!"X509_algor_st", !18, i64 0, !48, i64 8}
+!54 = !{!55, !12, i64 0}
+!55 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !16, i64 8, !17, i64 16}
+!56 = !{!47, !5, i64 8}
+!57 = !{!53, !18, i64 0}
+!58 = !{!59, !5, i64 8}
+!59 = !{!"PBEPARAM_st", !5, i64 0, !5, i64 8}
+!60 = !{!59, !5, i64 0}

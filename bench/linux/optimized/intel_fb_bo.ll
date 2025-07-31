@@ -246,7 +246,7 @@ define dso_local ptr @intel_fb_bo_lookup_valid_bo(ptr noundef readonly captures(
   br i1 %36, label %50, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, i32 -1, ptr nonnull elementtype(i32) %8) #4, !srcloc !12
+  %38 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, i32 -1, ptr nonnull elementtype(i32) %8) #4, !srcloc !13
   %39 = icmp eq i32 %38, 1
   br i1 %39, label %43, label %40
 
@@ -259,7 +259,7 @@ define dso_local ptr @intel_fb_bo_lookup_valid_bo(ptr noundef readonly captures(
   br label %.thread8
 
 43:                                               ; preds = %37
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !14
   tail call void @drm_gem_object_free(ptr noundef nonnull %8) #4
   br label %.thread8
 
@@ -326,8 +326,9 @@ attributes #4 = { nounwind }
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{!"branch_weights", i32 2000, i32 1}
 !8 = !{i64 2148825504, i64 2148825543, i64 2148825564, i64 2148825601, i64 2148825624, i64 2148825633, i64 2148825931}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i64 2148819797, i64 2148819836, i64 2148819857, i64 2148819894, i64 2148819917, i64 2148819926}
-!13 = !{i64 2150199244}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i64 2148819797, i64 2148819836, i64 2148819857, i64 2148819894, i64 2148819917, i64 2148819926}
+!14 = !{i64 2150199244}

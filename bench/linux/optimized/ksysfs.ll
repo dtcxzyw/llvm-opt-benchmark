@@ -162,7 +162,7 @@ define internal fastcc i32 @create_setup_data_nodes(ptr noundef nonnull %0) unna
   tail call void @kobject_put(ptr noundef %32) #11
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, -1
   %.not8 = icmp eq i64 %indvars.iv18, 0
-  br i1 %.not8, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %.not8, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %25
   tail call void @kfree(ptr noundef nonnull %17) #11
@@ -228,7 +228,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @get_setup_data_total_num(i
   %10 = load i64, ptr %7, align 8
   tail call void @memunmap(ptr noundef nonnull %7) #11
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %3, !llvm.loop !11
+  br i1 %11, label %12, label %3, !llvm.loop !12
 
 12:                                               ; preds = %9, %3
   %13 = phi i32 [ 0, %9 ], [ -12, %3 ]
@@ -241,15 +241,15 @@ define internal fastcc i32 @create_setup_data_node(ptr noundef nonnull %0, ptr n
   %5 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !13
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %2) #11
   %7 = call ptr @kobject_create_and_add(ptr noundef nonnull %5, ptr noundef nonnull %0) #11
   %8 = icmp eq ptr %7, null
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %3
-  store i64 0, ptr %4, align 8, !annotation !12
-  %10 = call fastcc i32 @get_setup_data_size(i32 noundef %2, ptr noundef nonnull %4) #12, !range !13
+  store i64 0, ptr %4, align 8, !annotation !13
+  %10 = call fastcc i32 @get_setup_data_size(i32 noundef %2, ptr noundef nonnull %4) #12, !range !14
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
 
@@ -360,7 +360,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_setup_data_size(i32 no
   tail call void @memunmap(ptr noundef nonnull %7) #11
   %40 = add i32 %5, 1
   %41 = icmp eq i64 %39, 0
-  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %38, %.preheader, %35, %17, %2
   %42 = phi i32 [ 0, %35 ], [ -12, %17 ], [ -22, %2 ], [ -12, %.preheader ], [ -22, %38 ]
@@ -371,7 +371,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_setup_data_size(i32 no
 define internal range(i64 -2147483648, 2147483648) i64 @setup_data_data_read(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, i64 noundef %5) #9 align 16 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  store i32 0, ptr %7, align 4, !annotation !12
+  store i32 0, ptr %7, align 4, !annotation !13
   %8 = load ptr, ptr %1, align 8
   %9 = call i32 @kstrtoint(ptr noundef %8, i32 noundef 10, ptr noundef nonnull %7) #11
   %10 = icmp eq i32 %9, 0
@@ -403,7 +403,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @setup_data_data_read(ptr
   call void @memunmap(ptr noundef nonnull %20) #11
   %25 = add i32 %18, 1
   %26 = icmp eq i64 %24, 0
-  br i1 %26, label %.thread, label %.preheader, !llvm.loop !15
+  br i1 %26, label %.thread, label %.preheader, !llvm.loop !16
 
 27:                                               ; preds = %.preheader
   br i1 %21, label %.thread, label %28
@@ -495,7 +495,7 @@ declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_un
 define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #9 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  store i32 0, ptr %4, align 4, !annotation !12
+  store i32 0, ptr %4, align 4, !annotation !13
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @kstrtoint(ptr noundef %5, i32 noundef 10, ptr noundef nonnull %4) #11
   %7 = icmp eq i32 %6, 0
@@ -527,7 +527,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr noundef re
   call void @memunmap(ptr noundef nonnull %17) #11
   %22 = add i32 %15, 1
   %23 = icmp eq i64 %21, 0
-  br i1 %23, label %.thread, label %.preheader, !llvm.loop !15
+  br i1 %23, label %.thread, label %.preheader, !llvm.loop !17
 
 24:                                               ; preds = %.preheader
   br i1 %18, label %.thread, label %25
@@ -594,12 +594,14 @@ attributes #13 = { nounwind allocsize(0) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 -12, i32 1}
 !6 = !{!"branch_weights", i32 1, i32 2000}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = !{!"auto-init"}
-!13 = !{i32 -22, i32 1}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = !{!"auto-init"}
+!14 = !{i32 -22, i32 1}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = distinct !{!16, !8, !9, !10}
+!17 = distinct !{!17, !8, !9, !10}

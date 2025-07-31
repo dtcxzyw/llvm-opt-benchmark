@@ -202,7 +202,7 @@ define internal void @SetResidualCoeffs_C(ptr noalias noundef %0, ptr noalias no
 9:                                                ; preds = %4
   %10 = add nsw i32 %.09, -1
   %.not11 = icmp eq i32 %.09, 0
-  br i1 %.not11, label %.loopexit, label %4, !llvm.loop !24
+  br i1 %.not11, label %.loopexit, label %4, !llvm.loop !25
 
 .loopexit:                                        ; preds = %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -250,6 +250,7 @@ attributes #6 = { nounwind }
 !19 = !{!"short", !5, i64 0}
 !20 = !{!8, !9, i64 4}
 !21 = !{!8, !10, i64 8}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}

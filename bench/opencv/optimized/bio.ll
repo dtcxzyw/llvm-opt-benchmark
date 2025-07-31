@@ -226,7 +226,7 @@ opj_bio_getbit.exit:                              ; preds = %8, %12, %19
   %29 = shl nuw i32 %28, %.06
   %30 = or i32 %29, %.08
   %31 = icmp samesign ugt i32 %.06.in7, 1
-  br i1 %31, label %8, label %._crit_edge, !llvm.loop !17
+  br i1 %31, label %8, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %opj_bio_getbit.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %30, %opj_bio_getbit.exit ]
@@ -350,6 +350,7 @@ attributes #8 = { nounwind }
 !12 = !{!4, !9, i64 24}
 !13 = !{!4, !9, i64 28}
 !14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}

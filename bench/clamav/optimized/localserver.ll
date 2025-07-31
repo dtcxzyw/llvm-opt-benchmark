@@ -53,7 +53,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %.preheader
   %13 = add nuw nsw i32 %.05688, 1
   %exitcond.not = icmp eq i32 %13, %6
-  br i1 %exitcond.not, label %17, label %.preheader
+  br i1 %exitcond.not, label %17, label %.preheader, !llvm.loop !4
 
 .preheader:                                       ; preds = %10, %12
   %.05688 = phi i32 [ %13, %12 ], [ 0, %10 ]
@@ -73,14 +73,14 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %21, i8 0, i64 108, i1 false)
-  store i16 1, ptr %2, align 2, !tbaa !4
+  store i16 1, ptr %2, align 2, !tbaa !6
   %.ptr69 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %22 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.3) #13
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !9
+  %24 = load ptr, ptr %23, align 8, !tbaa !11
   %25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.ptr69, ptr noundef nonnull dereferenceable(1) %24, i64 noundef 108) #13
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 109
-  store i8 0, ptr %26, align 1, !tbaa !17
+  store i8 0, ptr %26, align 1, !tbaa !19
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.ptr69, i32 47)
   %.not = icmp eq ptr %strchr, null
   br i1 %.not, label %76, label %27
@@ -104,7 +104,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   %.059.idx87 = phi i64 [ %.059.add, %37 ], [ %.add, %.lr.ph.preheader ]
   %.06086 = phi i32 [ %38, %37 ], [ 0, %.lr.ph.preheader ]
   %.059.ptr = getelementptr inbounds i8, ptr %2, i64 %.059.idx87
-  %31 = load i8, ptr %.059.ptr, align 1, !tbaa !17
+  %31 = load i8, ptr %.059.ptr, align 1, !tbaa !19
   %32 = icmp eq i8 %31, 47
   br i1 %32, label %33, label %37
 
@@ -118,7 +118,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   %.059.add = add nsw i64 %.059.idx87, -1
   %38 = add nuw nsw i32 %.06086, 1
   %.not68 = icmp eq i64 %.059.add, 2
-  br i1 %.not68, label %.loopexit, label %.lr.ph
+  br i1 %.not68, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %37, %29, %33
   %.055 = phi ptr [ %36, %33 ], [ null, %29 ], [ null, %37 ]
@@ -128,14 +128,14 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 
 40:                                               ; preds = %.loopexit
   %41 = tail call ptr @__errno_location() #15
-  %42 = load i32, ptr %41, align 4, !tbaa !18
+  %42 = load i32, ptr %41, align 4, !tbaa !21
   %43 = icmp eq i32 %42, 2
   br i1 %43, label %44, label %75
 
 44:                                               ; preds = %40
   %45 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.5) #13
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = load i32, ptr %46, align 8, !tbaa !19
+  %47 = load i32, ptr %46, align 8, !tbaa !22
   %.not72 = icmp eq i32 %47, 0
   br i1 %.not72, label %61, label %48
 
@@ -143,17 +143,17 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   %49 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.5) #13
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !9
+  %51 = load ptr, ptr %50, align 8, !tbaa !11
   %52 = call i64 @strtol(ptr noundef %51, ptr noundef nonnull %5, i32 noundef 8) #13
-  %53 = load ptr, ptr %5, align 8, !tbaa !20
-  %54 = load i8, ptr %53, align 1, !tbaa !17
+  %53 = load ptr, ptr %5, align 8, !tbaa !23
+  %54 = load i8, ptr %53, align 1, !tbaa !19
   %.not73 = icmp eq i8 %54, 0
   br i1 %.not73, label %.critedge, label %55
 
 55:                                               ; preds = %48
   %56 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.5) #13
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !9
+  %58 = load ptr, ptr %57, align 8, !tbaa !11
   %59 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef %58) #13
   call void @free(ptr noundef %.055) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
@@ -172,10 +172,10 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not74, label %72, label %64
 
 64:                                               ; preds = %61
-  %65 = load i32, ptr %41, align 4, !tbaa !18
+  %65 = load i32, ptr %41, align 4, !tbaa !21
   %66 = call ptr @strerror(i32 noundef %65) #13
   %67 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.7, ptr noundef %.055, ptr noundef %66) #13
-  %68 = load i32, ptr %41, align 4, !tbaa !18
+  %68 = load i32, ptr %41, align 4, !tbaa !21
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %70, label %.critedge78
 
@@ -202,7 +202,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 
 79:                                               ; preds = %76
   %80 = tail call ptr @__errno_location() #15
-  %81 = load i32, ptr %80, align 4, !tbaa !18
+  %81 = load i32, ptr %80, align 4, !tbaa !21
   %82 = call ptr @strerror(i32 noundef %81) #13
   %83 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef %82) #13
   br label %142
@@ -214,7 +214,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 
 87:                                               ; preds = %84
   %88 = tail call ptr @__errno_location() #15
-  %89 = load i32, ptr %88, align 4, !tbaa !18
+  %89 = load i32, ptr %88, align 4, !tbaa !21
   %90 = icmp eq i32 %89, 98
   br i1 %90, label %91, label %123
 
@@ -231,7 +231,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 97:                                               ; preds = %91
   %98 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.12) #13
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  %100 = load i32, ptr %99, align 8, !tbaa !19
+  %100 = load i32, ptr %99, align 8, !tbaa !22
   %.not75 = icmp eq i32 %100, 0
   br i1 %.not75, label %118, label %101
 
@@ -242,7 +242,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %104, label %105, label %110
 
 105:                                              ; preds = %101
-  %106 = load i32, ptr %88, align 4, !tbaa !18
+  %106 = load i32, ptr %88, align 4, !tbaa !21
   %107 = call ptr @strerror(i32 noundef %106) #13
   %108 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.14, ptr noundef nonnull %.ptr69, ptr noundef %107) #13
   %109 = call i32 @close(i32 noundef %77) #13
@@ -254,7 +254,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %112, label %113, label %127
 
 113:                                              ; preds = %110
-  %114 = load i32, ptr %88, align 4, !tbaa !18
+  %114 = load i32, ptr %88, align 4, !tbaa !21
   %115 = call ptr @strerror(i32 noundef %114) #13
   %116 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.15, ptr noundef nonnull %.ptr69, ptr noundef %115) #13
   %117 = call i32 @close(i32 noundef %77) #13
@@ -280,7 +280,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   %128 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull %.ptr69) #13
   %129 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.19) #13
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %131 = load i64, ptr %130, align 8, !tbaa !21
+  %131 = load i64, ptr %130, align 8, !tbaa !24
   %132 = trunc i64 %131 to i32
   %133 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.20, i32 noundef %132) #13
   %134 = call i32 @listen(i32 noundef %77, i32 noundef %132) #13
@@ -289,7 +289,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 
 136:                                              ; preds = %127
   %137 = tail call ptr @__errno_location() #15
-  %138 = load i32, ptr %137, align 4, !tbaa !18
+  %138 = load i32, ptr %137, align 4, !tbaa !21
   %139 = call ptr @strerror(i32 noundef %138) #13
   %140 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef %139) #13
   %141 = call i32 @close(i32 noundef %77) #13
@@ -392,21 +392,24 @@ attributes #15 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!5, !6, i64 0}
-!5 = !{!"sockaddr_un", !6, i64 0, !7, i64 2}
-!6 = !{!"short", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!10, !11, i64 16}
-!10 = !{!"optstruct", !11, i64 0, !11, i64 8, !11, i64 16, !13, i64 24, !14, i64 32, !14, i64 36, !14, i64 40, !14, i64 44, !15, i64 48, !15, i64 56, !16, i64 64}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !7, i64 0}
-!13 = !{!"long long", !7, i64 0}
-!14 = !{!"int", !7, i64 0}
-!15 = !{!"p1 _ZTS9optstruct", !12, i64 0}
-!16 = !{!"p2 omnipotent char", !12, i64 0}
-!17 = !{!7, !7, i64 0}
-!18 = !{!14, !14, i64 0}
-!19 = !{!10, !14, i64 32}
-!20 = !{!11, !11, i64 0}
-!21 = !{!10, !13, i64 24}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"sockaddr_un", !8, i64 0, !9, i64 2}
+!8 = !{!"short", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !13, i64 16}
+!12 = !{!"optstruct", !13, i64 0, !13, i64 8, !13, i64 16, !15, i64 24, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !17, i64 48, !17, i64 56, !18, i64 64}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !9, i64 0}
+!15 = !{!"long long", !9, i64 0}
+!16 = !{!"int", !9, i64 0}
+!17 = !{!"p1 _ZTS9optstruct", !14, i64 0}
+!18 = !{!"p2 omnipotent char", !14, i64 0}
+!19 = !{!9, !9, i64 0}
+!20 = distinct !{!20, !5}
+!21 = !{!16, !16, i64 0}
+!22 = !{!12, !16, i64 32}
+!23 = !{!13, !13, i64 0}
+!24 = !{!12, !15, i64 24}

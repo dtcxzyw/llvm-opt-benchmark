@@ -32,7 +32,7 @@ define noundef i16 @_ZN9softposit5p16e17convert22convert_u32_to_p16bits17he88965
   %12 = shl i32 %.020, 1
   %13 = and i32 %.020, 16777216
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.017.lcssa = phi i8 [ 25, %.preheader ], [ %11, %.lr.ph ]
@@ -105,7 +105,7 @@ define noundef i16 @_ZN9softposit5p16e17convert22convert_u64_to_p16bits17h8bc16a
   %12 = shl i64 %.023, 1
   %13 = and i64 %.023, 16777216
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.020.lcssa = phi i8 [ 25, %.preheader ], [ %11, %.lr.ph ]
@@ -194,7 +194,7 @@ define noundef i32 @_ZN9softposit5p16e17convert22convert_p16bits_to_u3217h8ad37e
   %25 = shl i16 %.0.in35, 1
   %26 = and i16 %.0.in35, 4096
   %27 = icmp eq i16 %26, 0
-  br i1 %27, label %._crit_edge, label %.lr.ph
+  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 28:                                               ; preds = %40, %33, %._crit_edge
   %.031 = phi i32 [ %22, %._crit_edge ], [ %22, %33 ], [ %42, %40 ]
@@ -269,7 +269,7 @@ define noundef i64 @_ZN9softposit5p16e17convert22convert_p16bits_to_u6417he8525e
   %25 = shl i16 %.0.in35, 1
   %26 = and i16 %.0.in35, 4096
   %27 = icmp eq i16 %26, 0
-  br i1 %27, label %._crit_edge, label %.lr.ph
+  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 28:                                               ; preds = %33, %40, %._crit_edge
   %.031 = phi i64 [ %22, %._crit_edge ], [ %22, %33 ], [ %42, %40 ]
@@ -313,13 +313,13 @@ define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e
   br i1 %10, label %11, label %.preheader.outer
 
 11:                                               ; preds = %8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %12 = fcmp ult double %9, 5.000000e-01
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %11
-  store i8 1, ptr %2, align 1, !alias.scope !4, !noalias !7
+  store i8 1, ptr %2, align 1, !alias.scope !9, !noalias !12
   %14 = fadd double %9, -5.000000e-01
   br label %15
 
@@ -329,7 +329,7 @@ define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e
   br i1 %16, label %17, label %_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit
 
 17:                                               ; preds = %15
-  store i8 1, ptr %3, align 1, !alias.scope !7, !noalias !4
+  store i8 1, ptr %3, align 1, !alias.scope !12, !noalias !9
   br label %_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit
 
 .preheader:                                       ; preds = %.preheader.outer, %21
@@ -344,7 +344,7 @@ define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e
 21:                                               ; preds = %.preheader
   %22 = shl i32 %.025, 1
   %23 = icmp eq i16 %20, 0
-  br i1 %23, label %29, label %.preheader
+  br i1 %23, label %29, label %.preheader, !llvm.loop !14
 
 24:                                               ; preds = %.preheader
   %25 = fsub double %.0.ph, %18
@@ -354,14 +354,14 @@ define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e
   br i1 %28, label %39, label %37
 
 29:                                               ; preds = %21
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %30 = fmul double %18, 5.000000e-01
   %31 = fcmp ugt double %30, %.0.ph
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %29
-  store i8 1, ptr %2, align 1, !alias.scope !9, !noalias !12
+  store i8 1, ptr %2, align 1, !alias.scope !15, !noalias !18
   %33 = fsub double %.0.ph, %30
   br label %34
 
@@ -371,12 +371,12 @@ define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e
   br i1 %35, label %36, label %_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit
 
 36:                                               ; preds = %34
-  store i8 1, ptr %3, align 1, !alias.scope !12, !noalias !9
+  store i8 1, ptr %3, align 1, !alias.scope !18, !noalias !15
   br label %_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit
 
 37:                                               ; preds = %24
   %38 = icmp eq i16 %20, 0
-  br i1 %38, label %43, label %.preheader.outer
+  br i1 %38, label %43, label %.preheader.outer, !llvm.loop !14
 
 .preheader.outer:                                 ; preds = %8, %37
   %.027.ph = phi double [ %18, %37 ], [ 1.000000e+00, %8 ]
@@ -392,14 +392,14 @@ define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e
   br label %_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit
 
 43:                                               ; preds = %37
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %44 = fmul double %18, 5.000000e-01
   %45 = fcmp ugt double %44, %25
   br i1 %45, label %48, label %46
 
 46:                                               ; preds = %43
-  store i8 1, ptr %2, align 1, !alias.scope !14, !noalias !17
+  store i8 1, ptr %2, align 1, !alias.scope !20, !noalias !23
   %47 = fsub double %25, %44
   br label %48
 
@@ -409,7 +409,7 @@ define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e
   br i1 %49, label %50, label %_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit
 
 50:                                               ; preds = %48
-  store i8 1, ptr %3, align 1, !alias.scope !17, !noalias !14
+  store i8 1, ptr %3, align 1, !alias.scope !23, !noalias !20
   br label %_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit
 
 _ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit: ; preds = %50, %48, %36, %34, %17, %15, %6, %4, %39
@@ -431,18 +431,24 @@ attributes #2 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 0"}
-!6 = distinct !{!6, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E"}
-!7 = !{!8}
-!8 = distinct !{!8, !6, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 1"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 0"}
 !11 = distinct !{!11, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E"}
 !12 = !{!13}
 !13 = distinct !{!13, !11, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 1"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 0"}
-!16 = distinct !{!16, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E"}
-!17 = !{!18}
-!18 = distinct !{!18, !16, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 1"}
+!14 = distinct !{!14, !5}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 0"}
+!17 = distinct !{!17, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E"}
+!18 = !{!19}
+!19 = distinct !{!19, !17, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 1"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 0"}
+!22 = distinct !{!22, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E"}
+!23 = !{!24}
+!24 = distinct !{!24, !22, !"_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E: argument 1"}

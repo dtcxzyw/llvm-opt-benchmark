@@ -316,8 +316,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE13_M_assign_auxIN9__gnu_
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !19
-  %9 = load ptr, ptr %0, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  %9 = load ptr, ptr %0, align 8, !tbaa !22
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -351,15 +351,15 @@ _ZNSt6vectorIcSaIcEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPcNSt7
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %_ZNSt6vectorIcSaIcEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES0_EEEEEES5_mT_SC_.exit, %20
-  store ptr %17, ptr %0, align 8, !tbaa !21
+  store ptr %17, ptr %0, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %6
-  store ptr %21, ptr %19, align 8, !tbaa !22
-  store ptr %21, ptr %7, align 8, !tbaa !19
+  store ptr %21, ptr %19, align 8, !tbaa !23
+  store ptr %21, ptr %7, align 8, !tbaa !20
   br label %_ZNSt6vectorIcSaIcEE15_M_erase_at_endEPc.exit
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %25, %11
   %.not = icmp ult i64 %26, %6
@@ -371,7 +371,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %_ZNSt6vectorIcSa
 
 28:                                               ; preds = %27
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %9, ptr align 1 %1, i64 %6, i1 false)
-  %.pre = load ptr, ptr %23, align 8, !tbaa !22
+  %.pre = load ptr, ptr %23, align 8, !tbaa !23
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit: ; preds = %27, %28
@@ -381,7 +381,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
   br i1 %.not.i18, label %_ZNSt6vectorIcSaIcEE15_M_erase_at_endEPc.exit, label %31
 
 31:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit
-  store ptr %30, ptr %23, align 8, !tbaa !22
+  store ptr %30, ptr %23, align 8, !tbaa !23
   br label %_ZNSt6vectorIcSaIcEE15_M_erase_at_endEPc.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit: ; preds = %22
@@ -392,7 +392,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 
 34:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %26, i1 false)
-  %.pre26 = load ptr, ptr %23, align 8, !tbaa !22
+  %.pre26 = load ptr, ptr %23, align 8, !tbaa !23
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit, %34
@@ -407,7 +407,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_cET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20, %37
   %38 = getelementptr inbounds i8, ptr %35, i64 %36
-  store ptr %38, ptr %23, align 8, !tbaa !22
+  store ptr %38, ptr %23, align 8, !tbaa !23
   br label %_ZNSt6vectorIcSaIcEE15_M_erase_at_endEPc.exit
 
 _ZNSt6vectorIcSaIcEE15_M_erase_at_endEPc.exit:    ; preds = %31, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_cET0_T_SB_SA_RSaIT1_E.exit, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit
@@ -461,9 +461,10 @@ attributes #14 = { builtin allocsize(0) }
 !14 = !{!8, !8, i64 0}
 !15 = !{!13, !11, i64 8}
 !16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !6, i64 16}
-!20 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
-!21 = !{!20, !6, i64 0}
-!22 = !{!20, !6, i64 8}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !6, i64 16}
+!21 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
+!22 = !{!21, !6, i64 0}
+!23 = !{!21, !6, i64 8}

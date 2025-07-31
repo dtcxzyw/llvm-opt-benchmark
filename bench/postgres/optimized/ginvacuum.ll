@@ -206,7 +206,7 @@ BufferGetPage.exit:                               ; preds = %38, %42
 
 60:                                               ; preds = %53
   call void @LockBuffer(i32 noundef %.057.ph, i32 noundef 0) #7
-  br label %37
+  br label %37, !llvm.loop !7
 
 61:                                               ; preds = %BufferGetPage.exit
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
@@ -224,7 +224,7 @@ BufferGetPage.exit:                               ; preds = %38, %42
   call void @UnlockReleaseBuffer(i32 noundef %.057.ph) #7
   %71 = load ptr, ptr %16, align 8
   %72 = call i32 @ReadBufferExtended(ptr noundef %10, i32 noundef 0, i32 noundef %70, i32 noundef 0, ptr noundef %71) #7
-  br label %.outer
+  br label %.outer, !llvm.loop !7
 
 .preheader:                                       ; preds = %53, %52
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -492,7 +492,7 @@ ginVacuumItemPointers.exit.i:                     ; preds = %156
   %.1.i = phi ptr [ %.2.i, %199 ], [ %.05991.i, %107 ], [ %.05991.i, %.lr.ph.i ]
   %201 = add i16 %.06089.i, 1
   %.not.i = icmp ugt i16 %201, %93
-  br i1 %.not.i, label %ginVacuumEntryPage.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %ginVacuumEntryPage.exit, label %.lr.ph.i, !llvm.loop !8
 
 ginVacuumEntryPage.exit:                          ; preds = %200
   %202 = icmp eq ptr %.1.i, %.0.i.i6881
@@ -645,7 +645,7 @@ BufferGetPage.exit.i.i:                           ; preds = %265, %259
   %283 = zext i16 %.val44.i.i to i32
   %284 = or disjoint i32 %282, %283
   call void @UnlockReleaseBuffer(i32 noundef %257) #7
-  br label %254
+  br label %254, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %BufferGetPage.exit.i.i
   call void @LockBuffer(i32 noundef %257, i32 noundef 0) #7
@@ -726,7 +726,7 @@ BufferGetPage.exit46.i.i:                         ; preds = %BufferGetPage.exit4
 
 BufferGetPage.exit46.i.i.backedge:                ; preds = %321, %315
   %.041.i.i.be = phi ptr [ %320, %315 ], [ %326, %321 ]
-  br label %BufferGetPage.exit46.i.i
+  br label %BufferGetPage.exit46.i.i, !llvm.loop !10
 
 ginVacuumPostingTreeLeaves.exit.i:                ; preds = %304
   br i1 %.039.i.i, label %ginVacuumPostingTreeLeaves.exit.thread.i, label %ginVacuumPostingTree.exit
@@ -749,7 +749,7 @@ ginVacuumPostingTreeLeaves.exit.thread.i:         ; preds = %.thread.i74, %ginVa
   %332 = load ptr, ptr %.018.i, align 8
   call void @pfree(ptr noundef nonnull %.018.i) #7
   %.not.i73 = icmp eq ptr %332, null
-  br i1 %.not.i73, label %._crit_edge.i, label %.lr.ph.i72, !llvm.loop !7
+  br i1 %.not.i73, label %._crit_edge.i, label %.lr.ph.i72, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i72, %ginVacuumPostingTreeLeaves.exit.thread.i
   call void @UnlockReleaseBuffer(i32 noundef %329) #7
@@ -760,7 +760,7 @@ ginVacuumPostingTree.exit:                        ; preds = %ginVacuumPostingTre
   call void @vacuum_delay_point(i1 noundef zeroext false) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %ginVacuumPostingTree.exit, %250
   %333 = icmp eq i32 %251, -1
@@ -770,7 +770,7 @@ ginVacuumPostingTree.exit:                        ; preds = %ginVacuumPostingTre
   %335 = load ptr, ptr %16, align 8
   %336 = call i32 @ReadBufferExtended(ptr noundef %10, i32 noundef 0, i32 noundef %251, i32 noundef 0, ptr noundef %335) #7
   call void @LockBuffer(i32 noundef %336, i32 noundef 2) #7
-  br label %74
+  br label %74, !llvm.loop !13
 
 337:                                              ; preds = %._crit_edge
   %338 = load ptr, ptr %13, align 8
@@ -811,7 +811,7 @@ define dso_local ptr @ginvacuumcleanup(ptr noundef readonly captures(none) %0, p
   call void @llvm.lifetime.start.p0(i64 9656, ptr nonnull %3) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i8, ptr %6, align 8, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 8, !range !14, !noundef !15
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %13
 
@@ -847,11 +847,11 @@ define dso_local ptr @ginvacuumcleanup(ptr noundef readonly captures(none) %0, p
   %24 = getelementptr inbounds nuw i8, ptr %.055, i64 8
   store double %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %26 = load i8, ptr %25, align 2, !range !9, !noundef !10
+  %26 = load i8, ptr %25, align 2, !range !14, !noundef !15
   %27 = getelementptr inbounds nuw i8, ptr %.055, i64 4
   store i8 %26, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %29 = load i8, ptr %28, align 8, !range !9, !noundef !10
+  %29 = load i8, ptr %28, align 8, !range !14, !noundef !15
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %.thread64, label %31
 
@@ -998,7 +998,7 @@ GinPageIsRecyclable.exit.thread66:                ; preds = %GinPageIsRecyclable
   call void @UnlockReleaseBuffer(i32 noundef %51) #7
   %102 = add nuw i32 %.05768, 1
   %exitcond.not = icmp eq i32 %102, %39
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %98, %38
   %.056.lcssa = phi i32 [ 0, %38 ], [ %.1, %98 ]
@@ -1221,7 +1221,7 @@ BufferGetPage.exit:                               ; preds = %27, %33
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i16, ptr %69, align 4
   %.not78 = icmp ugt i16 %65, %70
-  br i1 %.not78, label %._crit_edge, label %54, !llvm.loop !12
+  br i1 %.not78, label %._crit_edge, label %54, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %54, %46
   %71 = phi i16 [ %48, %46 ], [ %66, %54 ]
@@ -1585,12 +1585,17 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !6}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}

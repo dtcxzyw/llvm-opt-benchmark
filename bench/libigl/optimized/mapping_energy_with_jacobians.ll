@@ -387,7 +387,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %216 = load i64, ptr %20, align 8, !tbaa !11
   %217 = icmp sgt i64 %216, %indvars.iv.next
-  br i1 %217, label %115, label %._crit_edge, !llvm.loop !21
+  br i1 %217, label %115, label %._crit_edge, !llvm.loop !22
 
 218:                                              ; preds = %._crit_edge, %._crit_edge172
   %.2 = phi double [ %.0.lcssa, %._crit_edge172 ], [ %.3.lcssa, %._crit_edge ]
@@ -449,6 +449,7 @@ attributes #5 = { nounwind }
 !16 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EEE", !6, i64 0, !10, i64 8}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"int", !8, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}

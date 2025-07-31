@@ -112,13 +112,13 @@ define range(i32 -2147483647, -2147483648) i32 @ossl_i2c_ASN1_BIT_STRING(ptr nou
   br i1 %44, label %64, label %.thread59
 
 .thread59:                                        ; preds = %.thread54
-  %45 = load ptr, ptr %1, align 8, !tbaa !16
+  %45 = load ptr, ptr %1, align 8, !tbaa !17
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store i8 0, ptr %45, align 1, !tbaa !13
   br label %62
 
 47:                                               ; preds = %41
-  %48 = load ptr, ptr %1, align 8, !tbaa !16
+  %48 = load ptr, ptr %1, align 8, !tbaa !17
   %49 = trunc nuw nsw i32 %.040 to i8
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store i8 %49, ptr %48, align 1, !tbaa !13
@@ -142,7 +142,7 @@ define range(i32 -2147483647, -2147483648) i32 @ossl_i2c_ASN1_BIT_STRING(ptr nou
 62:                                               ; preds = %.thread59, %52, %47
   %63 = phi i32 [ %42, %52 ], [ %42, %47 ], [ 1, %.thread59 ]
   %.038 = phi ptr [ %56, %52 ], [ %50, %47 ], [ %46, %.thread59 ]
-  store ptr %.038, ptr %1, align 8, !tbaa !16
+  store ptr %.038, ptr %1, align 8, !tbaa !17
   br label %64
 
 64:                                               ; preds = %.thread54, %41, %2, %62
@@ -167,7 +167,7 @@ define ptr @ossl_c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0, p
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %0, align 8, !tbaa !17
+  %10 = load ptr, ptr %0, align 8, !tbaa !18
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %15
 
@@ -178,7 +178,7 @@ define ptr @ossl_c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0, p
 
 15:                                               ; preds = %9, %12
   %.1 = phi ptr [ %13, %12 ], [ %10, %9 ]
-  %16 = load ptr, ptr %1, align 8, !tbaa !16
+  %16 = load ptr, ptr %1, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %18 = load i8, ptr %16, align 1, !tbaa !13
   %19 = zext i8 %18 to i32
@@ -214,15 +214,15 @@ define ptr @ossl_c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0, p
   %35 = trunc nuw nsw i64 %22 to i32
   tail call void @ASN1_STRING_set0(ptr noundef nonnull %.1, ptr noundef %.037, i32 noundef %35) #7
   %36 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  store i32 3, ptr %36, align 4, !tbaa !19
+  store i32 3, ptr %36, align 4, !tbaa !20
   br i1 %8, label %38, label %37
 
 37:                                               ; preds = %34
-  store ptr %.1, ptr %0, align 8, !tbaa !17
+  store ptr %.1, ptr %0, align 8, !tbaa !18
   br label %38
 
 38:                                               ; preds = %37, %34
-  store ptr %.038, ptr %1, align 8, !tbaa !16
+  store ptr %.038, ptr %1, align 8, !tbaa !17
   br label %45
 
 39:                                               ; preds = %23
@@ -243,7 +243,7 @@ define ptr @ossl_c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0, p
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = load ptr, ptr %0, align 8, !tbaa !17
+  %43 = load ptr, ptr %0, align 8, !tbaa !18
   %.not50 = icmp eq ptr %43, %.03955
   br i1 %.not50, label %45, label %44
 
@@ -366,7 +366,7 @@ define range(i32 0, 2) i32 @ASN1_BIT_STRING_set_bit(ptr noundef captures(address
   %57 = add nsw i32 %52, -1
   store i32 %57, ptr %0, align 8, !tbaa !3
   %58 = icmp sgt i32 %52, 1
-  br i1 %58, label %51, label %.critedge, !llvm.loop !20
+  br i1 %58, label %51, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %56, %51, %39, %23, %22, %5, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %22 ], [ 0, %23 ], [ 1, %39 ], [ 1, %51 ], [ 1, %56 ]
@@ -458,7 +458,7 @@ define range(i32 0, 2) i32 @ASN1_BIT_STRING_check(ptr noundef readonly captures(
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = icmp samesign ult i64 %indvars.iv.next, %10
   %25 = select i1 %24, i1 %23, i1 false
-  br i1 %25, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !21
+  br i1 %25, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !22
 
 .loopexit.loopexit:                               ; preds = %17
   %26 = zext i1 %23 to i32
@@ -494,11 +494,12 @@ attributes #7 = { nounwind }
 !11 = !{!4, !10, i64 16}
 !12 = !{!4, !8, i64 8}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!8, !8, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
-!19 = !{!4, !5, i64 4}
-!20 = distinct !{!20, !15}
-!21 = distinct !{!21, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!8, !8, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
+!20 = !{!4, !5, i64 4}
+!21 = distinct !{!21, !15, !16}
+!22 = distinct !{!22, !15, !16}

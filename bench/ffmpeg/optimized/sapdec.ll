@@ -320,18 +320,18 @@ define internal i32 @sap_fetch_packet(ptr noundef %0, ptr noundef %1) #0 {
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = tail call i32 @ffurl_get_file_handle(ptr noundef %7) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i32 %8, ptr %3, align 4, !tbaa !60
+  store i32 %8, ptr %3, align 4, !tbaa !61
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i16 1, ptr %9, align 4, !tbaa !62
+  store i16 1, ptr %9, align 4, !tbaa !63
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i16 0, ptr %10, align 2, !tbaa !63
+  store i16 0, ptr %10, align 2, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %4) #6
   %11 = icmp slt i32 %8, 0
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 312
-  %14 = load i32, ptr %13, align 8, !tbaa !64
+  %14 = load i32, ptr %13, align 8, !tbaa !65
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.preheader46, label %.thread
 
@@ -346,7 +346,7 @@ define internal i32 @sap_fetch_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %19
 
 19:                                               ; preds = %.lr.ph, %34
-  %20 = load i16, ptr %10, align 2, !tbaa !63
+  %20 = load i16, ptr %10, align 2, !tbaa !64
   %21 = and i16 %20, 1
   %.not41 = icmp eq i16 %21, 0
   br i1 %.not41, label %._crit_edge, label %22
@@ -371,13 +371,13 @@ define internal i32 @sap_fetch_packet(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %33, label %.critedge, label %34
 
 .critedge:                                        ; preds = %29
-  store i32 1, ptr %13, align 8, !tbaa !64
+  store i32 1, ptr %13, align 8, !tbaa !65
   br label %.thread
 
 34:                                               ; preds = %29, %26, %22
   %35 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 0) #6
   %36 = icmp slt i32 %35, 1
-  br i1 %36, label %._crit_edge, label %19
+  br i1 %36, label %._crit_edge, label %19, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %19, %34, %.preheader46
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -436,7 +436,7 @@ define internal i32 @sap_fetch_packet(ptr noundef %0, ptr noundef %1) #0 {
   %76 = load i32, ptr %75, align 4, !tbaa !46
   %77 = load i32, ptr %45, align 4, !tbaa !46
   %78 = icmp ugt i32 %76, %77
-  br i1 %78, label %.lr.ph48, label %.thread, !llvm.loop !65
+  br i1 %78, label %.lr.ph48, label %.thread, !llvm.loop !67
 
 .thread:                                          ; preds = %53, %.lr.ph48, %.preheader, %41, %._crit_edge, %.critedge, %12, %2
   %.0 = phi i32 [ %8, %2 ], [ -541478725, %12 ], [ -541478725, %.critedge ], [ %39, %._crit_edge ], [ %39, %41 ], [ %39, %.preheader ], [ %39, %53 ], [ -12, %.lr.ph48 ]
@@ -602,11 +602,13 @@ attributes #7 = { nounwind willreturn memory(read) }
 !55 = !{!12, !17, i64 48}
 !56 = !{!57, !57, i64 0}
 !57 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!61, !10, i64 0}
-!61 = !{!"pollfd", !10, i64 0, !37, i64 4, !37, i64 6}
-!62 = !{!61, !37, i64 4}
-!63 = !{!61, !37, i64 6}
-!64 = !{!32, !10, i64 312}
-!65 = distinct !{!65, !59}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!62, !10, i64 0}
+!62 = !{!"pollfd", !10, i64 0, !37, i64 4, !37, i64 6}
+!63 = !{!62, !37, i64 4}
+!64 = !{!62, !37, i64 6}
+!65 = !{!32, !10, i64 312}
+!66 = distinct !{!66, !60}
+!67 = distinct !{!67, !59, !60}

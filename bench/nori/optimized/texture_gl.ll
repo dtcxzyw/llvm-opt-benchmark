@@ -911,7 +911,7 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
   %48 = getelementptr inbounds i8, ptr %.02026, i64 %37
   %49 = getelementptr inbounds i8, ptr %.027, i64 %46
   %50 = icmp ult ptr %48, %49
-  br i1 %50, label %47, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, !llvm.loop !7
+  br i1 %50, label %47, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, !llvm.loop !8
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %47, %32
   tail call void @_ZdaPv(ptr noundef nonnull %38) #13
@@ -951,7 +951,7 @@ define hidden void @_ZN7nanogui7Texture6resizeERKNS_5ArrayIiLm2EEE(ptr noundef n
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %6, %8
   %or.cond.i = and i1 %.not8.i, %.not.i
-  br i1 %or.cond.i, label %4, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !8
+  br i1 %or.cond.i, label %4, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !9
 
 _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %4
   br i1 %.not.i, label %11, label %9
@@ -994,7 +994,8 @@ attributes #14 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}

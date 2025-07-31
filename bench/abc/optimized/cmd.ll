@@ -341,41 +341,41 @@ define internal range(i32 0, 2) i32 @CmdCommandTime(ptr noundef captures(none) %
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %11 = load double, ptr %10, align 8, !tbaa !32
+  %11 = load double, ptr %10, align 8, !tbaa !33
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %13 = load double, ptr %12, align 8, !tbaa !33
+  %13 = load double, ptr %12, align 8, !tbaa !34
   %14 = fadd double %11, %13
-  store double %14, ptr %12, align 8, !tbaa !33
-  store double 0.000000e+00, ptr %10, align 8, !tbaa !32
+  store double %14, ptr %12, align 8, !tbaa !34
+  store double 0.000000e+00, ptr %10, align 8, !tbaa !33
   br label %35
 
 15:                                               ; preds = %8
-  %16 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %16 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not22 = icmp eq i32 %1, %16
   br i1 %.not22, label %17, label %.loopexit
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %19 = load double, ptr %18, align 8, !tbaa !32
+  %19 = load double, ptr %18, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %21 = load double, ptr %20, align 8, !tbaa !33
+  %21 = load double, ptr %20, align 8, !tbaa !34
   %22 = fadd double %19, %21
-  store double %22, ptr %20, align 8, !tbaa !33
+  store double %22, ptr %20, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %24 = load ptr, ptr %23, align 8, !tbaa !35
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.41, double noundef %19, double noundef %22) #19
-  store double 0.000000e+00, ptr %18, align 8, !tbaa !32
+  store double 0.000000e+00, ptr %18, align 8, !tbaa !33
   br label %35
 
 .loopexit:                                        ; preds = %4, %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %27 = load ptr, ptr %26, align 8, !tbaa !36
+  %27 = load ptr, ptr %26, align 8, !tbaa !37
   %28 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 18, i64 1, ptr %27)
-  %29 = load ptr, ptr %26, align 8, !tbaa !36
+  %29 = load ptr, ptr %26, align 8, !tbaa !37
   %30 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 46, i64 1, ptr %29)
-  %31 = load ptr, ptr %26, align 8, !tbaa !36
+  %31 = load ptr, ptr %26, align 8, !tbaa !37
   %32 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 52, i64 1, ptr %31)
-  %33 = load ptr, ptr %26, align 8, !tbaa !36
+  %33 = load ptr, ptr %26, align 8, !tbaa !37
   %34 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 32, i64 1, ptr %33)
   br label %35
 
@@ -400,7 +400,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr noundef readonly captur
   ]
 
 8:                                                ; preds = %6
-  %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not25 = icmp slt i32 %9, %1
   br i1 %.not25, label %11, label %10
 
@@ -411,16 +411,16 @@ define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr noundef readonly captur
 11:                                               ; preds = %8
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds ptr, ptr %2, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %14 = load ptr, ptr %13, align 8, !tbaa !38
   %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #19
   %16 = trunc i64 %15 to i32
   %17 = add nsw i32 %9, 1
-  store i32 %17, ptr @globalUtilOptind, align 4, !tbaa !34
+  store i32 %17, ptr @globalUtilOptind, align 4, !tbaa !35
   %18 = icmp slt i32 %16, 0
-  br i1 %18, label %.loopexit28, label %6, !llvm.loop !38
+  br i1 %18, label %.loopexit28, label %6, !llvm.loop !39
 
 19:                                               ; preds = %6
-  %20 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %20 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %21 = add nsw i32 %20, 1
   %22 = icmp eq i32 %1, %21
   br i1 %22, label %23, label %32
@@ -428,13 +428,13 @@ define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr noundef readonly captur
 23:                                               ; preds = %19
   %24 = sext i32 %20 to i64
   %25 = getelementptr inbounds ptr, ptr %2, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !37
+  %26 = load ptr, ptr %25, align 8, !tbaa !38
   br label %27
 
 27:                                               ; preds = %27, %23
   %28 = tail call noalias ptr @fopen(ptr noundef %26, ptr noundef nonnull @.str.48)
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %27, label %30, !llvm.loop !39
+  br i1 %29, label %27, label %30, !llvm.loop !40
 
 30:                                               ; preds = %27
   %31 = tail call i32 @fclose(ptr noundef nonnull %28)
@@ -447,10 +447,10 @@ define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr noundef readonly captur
   br i1 %34, label %Abc_Clock.exit, label %35
 
 35:                                               ; preds = %32
-  %36 = load i64, ptr %5, align 8, !tbaa !40
+  %36 = load i64, ptr %5, align 8, !tbaa !41
   %37 = mul nsw i64 %36, 1000000
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !43
+  %39 = load i64, ptr %38, align 8, !tbaa !44
   %40 = sdiv i64 %39, 1000
   %41 = add nsw i64 %40, %37
   br label %Abc_Clock.exit
@@ -471,9 +471,9 @@ Abc_Clock.exit:                                   ; preds = %32, %35
   br i1 %48, label %Abc_Clock.exit27, label %49
 
 49:                                               ; preds = %46
-  %50 = load i64, ptr %4, align 8, !tbaa !40
+  %50 = load i64, ptr %4, align 8, !tbaa !41
   %51 = mul nsw i64 %50, 1000000
-  %52 = load i64, ptr %45, align 8, !tbaa !43
+  %52 = load i64, ptr %45, align 8, !tbaa !44
   %53 = sdiv i64 %52, 1000
   %54 = add nsw i64 %53, %51
   br label %Abc_Clock.exit27
@@ -482,20 +482,20 @@ Abc_Clock.exit27:                                 ; preds = %46, %49
   %.0.i26 = phi i64 [ %54, %49 ], [ -1, %46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   %55 = icmp slt i64 %.0.i26, %44
-  br i1 %55, label %46, label %.loopexit, !llvm.loop !44
+  br i1 %55, label %46, label %.loopexit, !llvm.loop !45
 
 .loopexit28:                                      ; preds = %6, %11, %10
   %.1 = phi i32 [ %.0, %10 ], [ %.0, %6 ], [ %16, %11 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %57 = load ptr, ptr %56, align 8, !tbaa !36
+  %57 = load ptr, ptr %56, align 8, !tbaa !37
   %58 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 41, i64 1, ptr %57)
-  %59 = load ptr, ptr %56, align 8, !tbaa !36
+  %59 = load ptr, ptr %56, align 8, !tbaa !37
   %60 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 47, i64 1, ptr %59)
-  %61 = load ptr, ptr %56, align 8, !tbaa !36
+  %61 = load ptr, ptr %56, align 8, !tbaa !37
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.51, i32 noundef %.1) #19
-  %63 = load ptr, ptr %56, align 8, !tbaa !36
+  %63 = load ptr, ptr %56, align 8, !tbaa !37
   %64 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 49, i64 1, ptr %63)
-  %65 = load ptr, ptr %56, align 8, !tbaa !36
+  %65 = load ptr, ptr %56, align 8, !tbaa !37
   %66 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 67, i64 1, ptr %65)
   br label %.loopexit
 
@@ -515,14 +515,14 @@ define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr noundef readonly capture
   switch i32 %5, label %28 [
     i32 -1, label %6
     i32 110, label %4
-  ], !llvm.loop !45
+  ], !llvm.loop !46
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %8 = load ptr, ptr %7, align 8, !tbaa !36
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !47
   %10 = icmp eq ptr %8, %9
-  %11 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %11 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %12 = icmp slt i32 %11, %1
   br i1 %10, label %13, label %18
 
@@ -537,11 +537,11 @@ define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr noundef readonly capture
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv35 = phi i64 [ %14, %.lr.ph31.preheader ], [ %indvars.iv.next36, %.lr.ph31 ]
   %15 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv35
-  %16 = load ptr, ptr %15, align 8, !tbaa !37
+  %16 = load ptr, ptr %15, align 8, !tbaa !38
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.57, ptr noundef %16)
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !47
+  br i1 %exitcond39.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !48
 
 ._crit_edge32:                                    ; preds = %.lr.ph31, %13
   br i1 %.not25, label %36, label %17
@@ -560,16 +560,16 @@ define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %20 = load ptr, ptr %7, align 8, !tbaa !35
+  %20 = load ptr, ptr %7, align 8, !tbaa !36
   %21 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !37
+  %22 = load ptr, ptr %21, align 8, !tbaa !38
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.57, ptr noundef %22) #19
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre40.pre = load ptr, ptr %7, align 8, !tbaa !35
+  %.pre40.pre = load ptr, ptr %7, align 8, !tbaa !36
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
@@ -578,7 +578,7 @@ define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr noundef readonly capture
 
 24:                                               ; preds = %._crit_edge
   %fputc = tail call i32 @fputc(i32 10, ptr %.pre40)
-  %.pre = load ptr, ptr %7, align 8, !tbaa !35
+  %.pre = load ptr, ptr %7, align 8, !tbaa !36
   br label %25
 
 25:                                               ; preds = %24, %._crit_edge
@@ -588,11 +588,11 @@ define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr noundef readonly capture
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %30 = load ptr, ptr %29, align 8, !tbaa !36
+  %30 = load ptr, ptr %29, align 8, !tbaa !37
   %31 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 25, i64 1, ptr %30)
-  %32 = load ptr, ptr %29, align 8, !tbaa !36
+  %32 = load ptr, ptr %29, align 8, !tbaa !37
   %33 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 36, i64 1, ptr %32)
-  %34 = load ptr, ptr %29, align 8, !tbaa !36
+  %34 = load ptr, ptr %29, align 8, !tbaa !37
   %35 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 32, i64 1, ptr %34)
   br label %36
 
@@ -611,17 +611,17 @@ define internal range(i32 -2, 2) i32 @CmdCommandQuit(ptr noundef readonly captur
   ]
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %6 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not8 = icmp eq i32 %1, %6
   br i1 %.not8, label %15, label %7
 
 7:                                                ; preds = %3, %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %9 = load ptr, ptr %8, align 8, !tbaa !36
+  %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 18, i64 1, ptr %9)
-  %11 = load ptr, ptr %8, align 8, !tbaa !36
+  %11 = load ptr, ptr %8, align 8, !tbaa !37
   %12 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 31, i64 1, ptr %11)
-  %13 = load ptr, ptr %8, align 8, !tbaa !36
+  %13 = load ptr, ptr %8, align 8, !tbaa !37
   %14 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 44, i64 1, ptr %13)
   br label %15
 
@@ -643,9 +643,9 @@ define internal range(i32 0, 2) i32 @CmdCommandAbcrc(ptr noundef %0, i32 noundef
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %8 = load ptr, ptr %7, align 8, !tbaa !36
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
   %9 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 18, i64 1, ptr %8)
-  %10 = load ptr, ptr %7, align 8, !tbaa !36
+  %10 = load ptr, ptr %7, align 8, !tbaa !37
   %11 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 70, i64 1, ptr %10)
   br label %12
 
@@ -662,7 +662,7 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
   br i1 %.not, label %5, label %63
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %6 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %7 = add nsw i32 %6, 1
   %8 = icmp sgt i32 %1, %7
   br i1 %8, label %63, label %9
@@ -674,12 +674,12 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
 11:                                               ; preds = %9
   %12 = sext i32 %6 to i64
   %13 = getelementptr inbounds ptr, ptr %2, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %14 = load ptr, ptr %13, align 8, !tbaa !38
   %.not47 = icmp eq ptr %14, null
   br i1 %.not47, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = load i8, ptr %14, align 1, !tbaa !49
+  %16 = load i8, ptr %14, align 1, !tbaa !50
   %17 = add i8 %16, -49
   %or.cond = icmp ult i8 %17, 9
   br i1 %or.cond, label %23, label %.preheader
@@ -724,8 +724,8 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
   %36 = getelementptr i8, ptr %35, i64 8
   %.val53 = load ptr, ptr %36, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv70
-  %38 = load ptr, ptr %37, align 8, !tbaa !50
-  %39 = load ptr, ptr %32, align 8, !tbaa !35
+  %38 = load ptr, ptr %37, align 8, !tbaa !51
+  %39 = load ptr, ptr %32, align 8, !tbaa !36
   %40 = trunc nuw nsw i64 %indvars.iv70 to i32
   %41 = sub nsw i32 %.val4966, %40
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.68, i32 noundef %41, ptr noundef %38) #19
@@ -735,7 +735,7 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
   %.val49 = load i32, ptr %44, align 4, !tbaa !25
   %45 = trunc nuw i64 %indvars.iv.next71 to i32
   %46 = icmp sgt i32 %.val49, %45
-  br i1 %46, label %34, label %.critedge, !llvm.loop !51
+  br i1 %46, label %34, label %.critedge, !llvm.loop !52
 
 47:                                               ; preds = %.lr.ph, %58
   %48 = phi ptr [ %19, %.lr.ph ], [ %59, %58 ]
@@ -744,13 +744,13 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
   %49 = getelementptr i8, ptr %48, i64 8
   %.val54 = load ptr, ptr %49, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw ptr, ptr %.val54, i64 %indvars.iv
-  %51 = load ptr, ptr %50, align 8, !tbaa !50
+  %51 = load ptr, ptr %50, align 8, !tbaa !51
   %52 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %14) #21
   %.not48 = icmp eq ptr %52, null
   br i1 %.not48, label %58, label %53
 
 53:                                               ; preds = %47
-  %54 = load ptr, ptr %22, align 8, !tbaa !35
+  %54 = load ptr, ptr %22, align 8, !tbaa !36
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = sub nsw i32 %.val5163, %55
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.68, i32 noundef %56, ptr noundef nonnull %51) #19
@@ -764,17 +764,17 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
   %.val51 = load i32, ptr %60, align 4, !tbaa !25
   %61 = sext i32 %.val51 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %47, label %.critedge, !llvm.loop !52
+  br i1 %62, label %47, label %.critedge, !llvm.loop !53
 
 63:                                               ; preds = %5, %3
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %65 = load ptr, ptr %64, align 8, !tbaa !36
+  %65 = load ptr, ptr %64, align 8, !tbaa !37
   %66 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 26, i64 1, ptr %65)
-  %67 = load ptr, ptr %64, align 8, !tbaa !36
+  %67 = load ptr, ptr %64, align 8, !tbaa !37
   %68 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 61, i64 1, ptr %67)
-  %69 = load ptr, ptr %64, align 8, !tbaa !36
+  %69 = load ptr, ptr %64, align 8, !tbaa !37
   %70 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 33, i64 1, ptr %69)
-  %71 = load ptr, ptr %64, align 8, !tbaa !36
+  %71 = load ptr, ptr %64, align 8, !tbaa !37
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.72, i32 noundef 20) #19
   br label %.critedge
 
@@ -810,20 +810,20 @@ define internal range(i32 0, 2) i32 @CmdCommandAlias(ptr noundef %0, i32 noundef
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !37
+  %15 = load ptr, ptr %14, align 8, !tbaa !38
   %16 = call i32 @st__lookup(ptr noundef %13, ptr noundef %15, ptr noundef nonnull %5) #19
   %.not18 = icmp eq i32 %16, 0
   br i1 %.not18, label %37, label %17
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr %5, align 8, !tbaa !37
+  %18 = load ptr, ptr %5, align 8, !tbaa !38
   call void @CmdCommandAliasPrint(ptr noundef nonnull %0, ptr noundef %18) #19
   br label %37
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !37
-  store ptr %21, ptr %4, align 8, !tbaa !37
+  %21 = load ptr, ptr %20, align 8, !tbaa !38
+  store ptr %21, ptr %4, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = call i32 @st__delete(ptr noundef %23, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
@@ -831,12 +831,12 @@ define internal range(i32 0, 2) i32 @CmdCommandAlias(ptr noundef %0, i32 noundef
   br i1 %.not17, label %27, label %25
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %5, align 8, !tbaa !37
+  %26 = load ptr, ptr %5, align 8, !tbaa !38
   call void @CmdCommandAliasFree(ptr noundef %26) #19
   br label %27
 
 27:                                               ; preds = %25, %19
-  %28 = load ptr, ptr %20, align 8, !tbaa !37
+  %28 = load ptr, ptr %20, align 8, !tbaa !38
   %29 = add nsw i32 %1, -2
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @CmdCommandAliasAdd(ptr noundef nonnull %0, ptr noundef %28, i32 noundef %29, ptr noundef nonnull %30) #19
@@ -844,9 +844,9 @@ define internal range(i32 0, 2) i32 @CmdCommandAlias(ptr noundef %0, i32 noundef
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %33 = load ptr, ptr %32, align 8, !tbaa !36
+  %33 = load ptr, ptr %32, align 8, !tbaa !37
   %34 = tail call i64 @fwrite(ptr nonnull @.str.73, i64 37, i64 1, ptr %33)
-  %35 = load ptr, ptr %32, align 8, !tbaa !36
+  %35 = load ptr, ptr %32, align 8, !tbaa !37
   %36 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 32, i64 1, ptr %35)
   br label %37
 
@@ -878,28 +878,28 @@ define internal range(i32 0, 2) i32 @CmdCommandUnalias(ptr noundef readonly capt
 10:                                               ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %17 ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
-  store ptr %12, ptr %4, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !38
+  store ptr %12, ptr %4, align 8, !tbaa !38
   %13 = load ptr, ptr %9, align 8, !tbaa !23
   %14 = call i32 @st__delete(ptr noundef %13, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8, !tbaa !37
+  %16 = load ptr, ptr %5, align 8, !tbaa !38
   call void @CmdCommandAliasFree(ptr noundef %16) #19
   br label %17
 
 17:                                               ; preds = %10, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !53
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !54
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
   %21 = tail call i64 @fwrite(ptr nonnull @.str.74, i64 32, i64 1, ptr %20)
-  %22 = load ptr, ptr %19, align 8, !tbaa !36
+  %22 = load ptr, ptr %19, align 8, !tbaa !37
   %23 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 32, i64 1, ptr %22)
   br label %.loopexit
 
@@ -932,14 +932,14 @@ define internal range(i32 0, 2) i32 @CmdCommandHelp(ptr noundef %0, i32 noundef 
 
 6:                                                ; preds = %4, %4
   %7 = xor i32 %.017.ph, 1
-  br label %.outer, !llvm.loop !54
+  br label %.outer, !llvm.loop !55
 
 8:                                                ; preds = %4
   %9 = xor i32 %.016, 1
-  br label %4, !llvm.loop !54
+  br label %4, !llvm.loop !55
 
 10:                                               ; preds = %4
-  %11 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %11 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not20 = icmp eq i32 %1, %11
   br i1 %.not20, label %12, label %.loopexit
 
@@ -949,19 +949,19 @@ define internal range(i32 0, 2) i32 @CmdCommandHelp(ptr noundef %0, i32 noundef 
 
 .loopexit:                                        ; preds = %4, %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load ptr, ptr %13, align 8, !tbaa !36
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 27, i64 1, ptr %14)
-  %16 = load ptr, ptr %13, align 8, !tbaa !36
+  %16 = load ptr, ptr %13, align 8, !tbaa !37
   %17 = tail call i64 @fwrite(ptr nonnull @.str.77, i64 54, i64 1, ptr %16)
-  %18 = load ptr, ptr %13, align 8, !tbaa !36
+  %18 = load ptr, ptr %13, align 8, !tbaa !37
   %.not21 = icmp eq i32 %.017.ph, 0
   %19 = select i1 %.not21, ptr @.str.80, ptr @.str.79
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.78, ptr noundef nonnull %19) #19
-  %21 = load ptr, ptr %13, align 8, !tbaa !36
+  %21 = load ptr, ptr %13, align 8, !tbaa !37
   %.not22 = icmp eq i32 %.016, 0
   %22 = select i1 %.not22, ptr @.str.80, ptr @.str.79
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.81, ptr noundef nonnull %22) #19
-  %24 = load ptr, ptr %13, align 8, !tbaa !36
+  %24 = load ptr, ptr %13, align 8, !tbaa !37
   %25 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 34, i64 1, ptr %24)
   br label %26
 
@@ -1009,48 +1009,48 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
     i32 112, label %10
     i32 115, label %12
     i32 120, label %14
-  ], !llvm.loop !55
+  ], !llvm.loop !56
 
 10:                                               ; preds = %8
   %11 = xor i32 %.073.ph152, 1
-  br label %.outer151, !llvm.loop !55
+  br label %.outer151, !llvm.loop !56
 
 12:                                               ; preds = %8
   %13 = xor i32 %.075.ph148, 1
-  br label %.outer147, !llvm.loop !55
+  br label %.outer147, !llvm.loop !56
 
 14:                                               ; preds = %8
   %15 = xor i32 %.071, 1
-  br label %8, !llvm.loop !55
+  br label %8, !llvm.loop !56
 
 16:                                               ; preds = %8
-  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %18 = icmp eq i32 %1, %17
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 1, ptr %20, align 4, !tbaa !56
+  store i32 1, ptr %20, align 4, !tbaa !57
   %21 = sext i32 %17 to i64
   %22 = getelementptr inbounds ptr, ptr %2, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !37
+  %23 = load ptr, ptr %22, align 8, !tbaa !38
   br label %24
 
 24:                                               ; preds = %27, %19
   %.069 = phi ptr [ %23, %19 ], [ %28, %27 ]
-  %25 = load i8, ptr %.069, align 1, !tbaa !49
+  %25 = load i8, ptr %.069, align 1, !tbaa !50
   switch i8 %25, label %27 [
     i8 0, label %29
     i8 62, label %26
   ]
 
 26:                                               ; preds = %24
-  store i8 92, ptr %.069, align 1, !tbaa !49
+  store i8 92, ptr %.069, align 1, !tbaa !50
   br label %27
 
 27:                                               ; preds = %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %.069, i64 1
-  br label %24, !llvm.loop !57
+  br label %24, !llvm.loop !58
 
 29:                                               ; preds = %24
   %30 = call ptr @CmdFileOpen(ptr noundef %0, ptr noundef %23, ptr noundef nonnull @.str.33, ptr noundef nonnull %5, i32 noundef %.075.ph148) #19
@@ -1066,8 +1066,8 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %38
 
 34:                                               ; preds = %29
-  store i32 0, ptr %20, align 4, !tbaa !56
-  %35 = load ptr, ptr %5, align 8, !tbaa !37
+  store i32 0, ptr %20, align 4, !tbaa !57
+  %35 = load ptr, ptr %5, align 8, !tbaa !38
   %.not102 = icmp eq ptr %35, null
   br i1 %.not102, label %.thread116, label %36
 
@@ -1103,7 +1103,7 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
 
 47:                                               ; preds = %45
   %48 = add nsw i32 %.081, 1
-  %49 = load ptr, ptr %33, align 8, !tbaa !36
+  %49 = load ptr, ptr %33, align 8, !tbaa !37
   %50 = call i64 @fwrite(ptr nonnull @.str.86, i64 26, i64 1, ptr %49)
   br label %80
 
@@ -1111,7 +1111,7 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not96, label %55, label %52
 
 52:                                               ; preds = %51
-  %53 = load ptr, ptr %31, align 8, !tbaa !35
+  %53 = load ptr, ptr %31, align 8, !tbaa !36
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.87, ptr noundef nonnull %6) #19
   br label %55
 
@@ -1121,13 +1121,13 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %57, label %.thread, label %58
 
 58:                                               ; preds = %55
-  %59 = load i32, ptr %4, align 4, !tbaa !34
+  %59 = load i32, ptr %4, align 4, !tbaa !35
   %60 = icmp ne i32 %59, 0
   %or.cond5 = and i1 %60, %7
   br i1 %or.cond5, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr %31, align 8, !tbaa !35
+  %62 = load ptr, ptr %31, align 8, !tbaa !36
   %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.88, ptr noundef nonnull %56) #19
   br label %64
 
@@ -1147,18 +1147,18 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
 
 70:                                               ; preds = %67
   call void @Cmd_HistoryAddCommand(ptr noundef %0, ptr noundef nonnull %6) #19
-  %71 = load ptr, ptr %32, align 8, !tbaa !58
+  %71 = load ptr, ptr %32, align 8, !tbaa !59
   %.not98 = icmp eq ptr %71, null
   br i1 %.not98, label %76, label %72
 
 72:                                               ; preds = %70
   %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %71, ptr noundef nonnull @.str.88, ptr noundef nonnull %6) #19
-  %74 = load ptr, ptr %32, align 8, !tbaa !58
+  %74 = load ptr, ptr %32, align 8, !tbaa !59
   %75 = call i32 @fflush(ptr noundef %74)
   br label %76
 
 76:                                               ; preds = %70, %72, %67
-  %77 = load ptr, ptr %31, align 8, !tbaa !35
+  %77 = load ptr, ptr %31, align 8, !tbaa !36
   %78 = call i32 @fflush(ptr noundef %77)
   %79 = call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef nonnull %6) #19
   br label %80
@@ -1167,16 +1167,16 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
   %.182 = phi i32 [ %48, %47 ], [ 0, %76 ]
   %.3 = phi i32 [ 0, %47 ], [ %79, %76 ]
   %81 = icmp eq i32 %.3, 0
-  br i1 %81, label %38, label %82, !llvm.loop !59
+  br i1 %81, label %38, label %82, !llvm.loop !60
 
 82:                                               ; preds = %44, %45, %80
   %.4 = phi i32 [ %.3, %80 ], [ -1, %45 ], [ 0, %44 ]
-  %83 = load ptr, ptr @stdin, align 8, !tbaa !46
+  %83 = load ptr, ptr @stdin, align 8, !tbaa !47
   %.not100 = icmp eq ptr %30, %83
   br i1 %.not100, label %92, label %85
 
 .thread:                                          ; preds = %55
-  %84 = load ptr, ptr @stdin, align 8, !tbaa !46
+  %84 = load ptr, ptr @stdin, align 8, !tbaa !47
   %.not100109 = icmp eq ptr %30, %84
   br i1 %.not100109, label %92, label %.thread112
 
@@ -1186,8 +1186,8 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
 
 .thread112:                                       ; preds = %.thread, %85
   %.4110115 = phi i32 [ %.4, %85 ], [ 1, %.thread ]
-  %87 = load ptr, ptr %33, align 8, !tbaa !36
-  %88 = load ptr, ptr %5, align 8, !tbaa !37
+  %87 = load ptr, ptr %33, align 8, !tbaa !37
+  %88 = load ptr, ptr %5, align 8, !tbaa !38
   %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.89, ptr noundef %88) #19
   br label %90
 
@@ -1198,7 +1198,7 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
 
 92:                                               ; preds = %.thread, %90, %82
   %.4111 = phi i32 [ 1, %.thread ], [ %.4110114, %90 ], [ %.4, %82 ]
-  %93 = load ptr, ptr %5, align 8, !tbaa !37
+  %93 = load ptr, ptr %5, align 8, !tbaa !38
   %.not101 = icmp eq ptr %93, null
   br i1 %.not101, label %95, label %94
 
@@ -1207,26 +1207,26 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %95
 
 95:                                               ; preds = %92, %94
-  store i32 0, ptr %20, align 4, !tbaa !56
+  store i32 0, ptr %20, align 4, !tbaa !57
   br label %110
 
 .loopexit:                                        ; preds = %8, %16
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %97 = load ptr, ptr %96, align 8, !tbaa !36
+  %97 = load ptr, ptr %96, align 8, !tbaa !37
   %98 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 34, i64 1, ptr %97)
-  %99 = load ptr, ptr %96, align 8, !tbaa !36
+  %99 = load ptr, ptr %96, align 8, !tbaa !37
   %.not105 = icmp eq i32 %.073.ph152, 0
   %100 = select i1 %.not105, ptr @.str.80, ptr @.str.79
   %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.91, ptr noundef nonnull %100) #19
-  %102 = load ptr, ptr %96, align 8, !tbaa !36
+  %102 = load ptr, ptr %96, align 8, !tbaa !37
   %.not106 = icmp eq i32 %.075.ph148, 0
   %103 = select i1 %.not106, ptr @.str.80, ptr @.str.79
   %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.92, ptr noundef nonnull %103) #19
-  %105 = load ptr, ptr %96, align 8, !tbaa !36
+  %105 = load ptr, ptr %96, align 8, !tbaa !37
   %.not107 = icmp eq i32 %.071, 0
   %106 = select i1 %.not107, ptr @.str.80, ptr @.str.79
   %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.93, ptr noundef nonnull %106) #19
-  %108 = load ptr, ptr %96, align 8, !tbaa !36
+  %108 = load ptr, ptr %96, align 8, !tbaa !37
   %109 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 32, i64 1, ptr %108)
   br label %110
 
@@ -1267,8 +1267,8 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !37
-  store ptr %17, ptr %5, align 8, !tbaa !37
+  %17 = load ptr, ptr %16, align 8, !tbaa !38
+  store ptr %17, ptr %5, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = call i32 @st__delete(ptr noundef %19, ptr noundef nonnull %5, ptr noundef nonnull %4) #19
@@ -1276,23 +1276,23 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
   br i1 %.not53, label %27, label %21
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %5, align 8, !tbaa !37
+  %22 = load ptr, ptr %5, align 8, !tbaa !38
   %.not54 = icmp eq ptr %22, null
   br i1 %.not54, label %24, label %23
 
 23:                                               ; preds = %21
   call void @free(ptr noundef nonnull %22) #19
-  store ptr null, ptr %5, align 8, !tbaa !37
+  store ptr null, ptr %5, align 8, !tbaa !38
   br label %24
 
 24:                                               ; preds = %21, %23
-  %25 = load ptr, ptr %4, align 8, !tbaa !37
+  %25 = load ptr, ptr %4, align 8, !tbaa !38
   %.not55 = icmp eq ptr %25, null
   br i1 %.not55, label %27, label %26
 
 26:                                               ; preds = %24
   call void @free(ptr noundef nonnull %25) #19
-  store ptr null, ptr %4, align 8, !tbaa !37
+  store ptr null, ptr %4, align 8, !tbaa !38
   br label %27
 
 27:                                               ; preds = %26, %24, %15
@@ -1301,25 +1301,25 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !37
+  %31 = load ptr, ptr %30, align 8, !tbaa !38
   br label %32
 
 32:                                               ; preds = %27, %29
   %.sink = phi ptr [ %31, %29 ], [ @.str.95, %27 ]
   %33 = call ptr @Extra_UtilStrsav(ptr noundef %.sink) #19
   %34 = load ptr, ptr %18, align 8, !tbaa !24
-  %35 = load ptr, ptr %16, align 8, !tbaa !37
+  %35 = load ptr, ptr %16, align 8, !tbaa !38
   %36 = call ptr @Extra_UtilStrsav(ptr noundef %35) #19
   %37 = call i32 @st__insert(ptr noundef %34, ptr noundef %36, ptr noundef %33) #19
-  %38 = load ptr, ptr %16, align 8, !tbaa !37
+  %38 = load ptr, ptr %16, align 8, !tbaa !38
   %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.96) #21
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %53
 
 41:                                               ; preds = %32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %43 = load ptr, ptr %42, align 8, !tbaa !35
-  %44 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %43 = load ptr, ptr %42, align 8, !tbaa !36
+  %44 = load ptr, ptr @stdout, align 8, !tbaa !47
   %.not56 = icmp eq ptr %43, %44
   br i1 %.not56, label %47, label %45
 
@@ -1332,26 +1332,26 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
   %48 = icmp eq i8 %strcmpload, 0
   %spec.store.select = select i1 %48, ptr @.str.97, ptr %33
   %49 = call ptr @CmdFileOpen(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef 0) #19
-  store ptr %49, ptr %42, align 8, !tbaa !35
+  store ptr %49, ptr %42, align 8, !tbaa !36
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %47
-  %52 = load ptr, ptr @stdout, align 8, !tbaa !46
-  store ptr %52, ptr %42, align 8, !tbaa !35
+  %52 = load ptr, ptr @stdout, align 8, !tbaa !47
+  store ptr %52, ptr %42, align 8, !tbaa !36
   br label %53
 
 53:                                               ; preds = %47, %51, %32
   %.046 = phi ptr [ %spec.store.select, %51 ], [ %spec.store.select, %47 ], [ %33, %32 ]
-  %54 = load ptr, ptr %16, align 8, !tbaa !37
+  %54 = load ptr, ptr %16, align 8, !tbaa !38
   %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(7) @.str.99) #21
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %69
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %59 = load ptr, ptr %58, align 8, !tbaa !36
-  %60 = load ptr, ptr @stderr, align 8, !tbaa !46
+  %59 = load ptr, ptr %58, align 8, !tbaa !37
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !47
   %.not57 = icmp eq ptr %59, %60
   br i1 %.not57, label %63, label %61
 
@@ -1364,25 +1364,25 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
   %64 = icmp eq i8 %strcmpload58, 0
   %spec.store.select2 = select i1 %64, ptr @.str.97, ptr %.046
   %65 = call ptr @CmdFileOpen(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select2, ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef 0) #19
-  store ptr %65, ptr %58, align 8, !tbaa !36
+  store ptr %65, ptr %58, align 8, !tbaa !37
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %63
-  %68 = load ptr, ptr @stderr, align 8, !tbaa !46
-  store ptr %68, ptr %58, align 8, !tbaa !36
+  %68 = load ptr, ptr @stderr, align 8, !tbaa !47
+  store ptr %68, ptr %58, align 8, !tbaa !37
   br label %69
 
 69:                                               ; preds = %63, %67, %53
   %.1 = phi ptr [ %spec.store.select2, %67 ], [ %spec.store.select2, %63 ], [ %.046, %53 ]
-  %70 = load ptr, ptr %16, align 8, !tbaa !37
+  %70 = load ptr, ptr %16, align 8, !tbaa !38
   %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(8) @.str.6) #21
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %91
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %75 = load ptr, ptr %74, align 8, !tbaa !58
+  %75 = load ptr, ptr %74, align 8, !tbaa !59
   %.not59 = icmp eq ptr %75, null
   br i1 %.not59, label %78, label %76
 
@@ -1396,7 +1396,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %78
-  store ptr null, ptr %74, align 8, !tbaa !58
+  store ptr null, ptr %74, align 8, !tbaa !59
   br label %91
 
 81:                                               ; preds = %78
@@ -1406,11 +1406,11 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
 
 83:                                               ; preds = %7, %3
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %85 = load ptr, ptr %84, align 8, !tbaa !36
+  %85 = load ptr, ptr %84, align 8, !tbaa !37
   %86 = tail call i64 @fwrite(ptr nonnull @.str.100, i64 31, i64 1, ptr %85)
-  %87 = load ptr, ptr %84, align 8, !tbaa !36
+  %87 = load ptr, ptr %84, align 8, !tbaa !37
   %88 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 44, i64 1, ptr %87)
-  %89 = load ptr, ptr %84, align 8, !tbaa !36
+  %89 = load ptr, ptr %84, align 8, !tbaa !37
   %90 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 33, i64 1, ptr %89)
   br label %91
 
@@ -1442,45 +1442,45 @@ define internal range(i32 0, 2) i32 @CmdCommandUnsetVariable(ptr noundef readonl
 10:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %21 ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
-  store ptr %12, ptr %4, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !38
+  store ptr %12, ptr %4, align 8, !tbaa !38
   %13 = load ptr, ptr %9, align 8, !tbaa !24
   %14 = call i32 @st__delete(ptr noundef %13, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %4, align 8, !tbaa !37
+  %16 = load ptr, ptr %4, align 8, !tbaa !38
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %18, label %17
 
 17:                                               ; preds = %15
   call void @free(ptr noundef nonnull %16) #19
-  store ptr null, ptr %4, align 8, !tbaa !37
+  store ptr null, ptr %4, align 8, !tbaa !38
   br label %18
 
 18:                                               ; preds = %15, %17
-  %19 = load ptr, ptr %5, align 8, !tbaa !37
+  %19 = load ptr, ptr %5, align 8, !tbaa !38
   %.not18 = icmp eq ptr %19, null
   br i1 %.not18, label %21, label %20
 
 20:                                               ; preds = %18
   call void @free(ptr noundef nonnull %19) #19
-  store ptr null, ptr %5, align 8, !tbaa !37
+  store ptr null, ptr %5, align 8, !tbaa !38
   br label %21
 
 21:                                               ; preds = %10, %18, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !60
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !61
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %24 = load ptr, ptr %23, align 8, !tbaa !37
   %25 = tail call i64 @fwrite(ptr nonnull @.str.102, i64 26, i64 1, ptr %24)
-  %26 = load ptr, ptr %23, align 8, !tbaa !36
+  %26 = load ptr, ptr %23, align 8, !tbaa !37
   %27 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 47, i64 1, ptr %26)
-  %28 = load ptr, ptr %23, align 8, !tbaa !36
+  %28 = load ptr, ptr %23, align 8, !tbaa !37
   %29 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 33, i64 1, ptr %28)
   br label %.loopexit
 
@@ -1498,7 +1498,7 @@ define internal range(i32 0, 2) i32 @CmdCommandUndo(ptr noundef %0, i32 noundef 
 
 sub_0:                                            ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = load i8, ptr %6, align 1
   %.not12 = icmp eq i8 %7, 45
   br i1 %.not12, label %sub_1, label %.thread
@@ -1517,19 +1517,19 @@ sub_1:                                            ; preds = %sub_0
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !61
+  %15 = load ptr, ptr %14, align 8, !tbaa !62
   %16 = icmp eq ptr %15, null
   br i1 %16, label %20, label %24
 
 .thread:                                          ; preds = %sub_1, %sub_0, %.tail
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !61
+  %18 = load ptr, ptr %17, align 8, !tbaa !62
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %.thread11
 
 20:                                               ; preds = %.thread, %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
   %23 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 15, i64 1, ptr %22)
   br label %33
 
@@ -1543,9 +1543,9 @@ sub_1:                                            ; preds = %sub_0
 
 .thread11:                                        ; preds = %.thread, %24, %.tail
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %29 = load ptr, ptr %28, align 8, !tbaa !36
+  %29 = load ptr, ptr %28, align 8, !tbaa !37
   %30 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 12, i64 1, ptr %29)
-  %31 = load ptr, ptr %28, align 8, !tbaa !36
+  %31 = load ptr, ptr %28, align 8, !tbaa !37
   %32 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 69, i64 1, ptr %31)
   br label %33
 
@@ -1563,13 +1563,13 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !61
+  %7 = load ptr, ptr %6, align 8, !tbaa !62
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %11 = load ptr, ptr %10, align 8, !tbaa !35
+  %11 = load ptr, ptr %10, align 8, !tbaa !36
   %12 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 15, i64 1, ptr %11)
   br label %79
 
@@ -1591,15 +1591,15 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   ]
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr %6, align 8, !tbaa !61
+  %21 = load ptr, ptr %6, align 8, !tbaa !62
   %22 = getelementptr i8, ptr %21, i64 160
-  %.val = load ptr, ptr %22, align 8, !tbaa !62
+  %.val = load ptr, ptr %22, align 8, !tbaa !63
   %23 = icmp eq ptr %.val, null
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %26 = load ptr, ptr %25, align 8, !tbaa !35
+  %26 = load ptr, ptr %25, align 8, !tbaa !36
   %27 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 38, i64 1, ptr %26)
   br label %79
 
@@ -1610,11 +1610,11 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 
 30:                                               ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !37
+  %32 = load ptr, ptr %31, align 8, !tbaa !38
   %33 = tail call i64 @strtol(ptr noundef nonnull captures(none) %32, ptr noundef null, i32 noundef 10) #19
   %34 = trunc i64 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %36 = load i32, ptr %35, align 8, !tbaa !71
+  %36 = load i32, ptr %35, align 8, !tbaa !72
   %.not70 = icmp sgt i32 %36, %34
   br i1 %.not70, label %46, label %37
 
@@ -1624,7 +1624,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   %spec.store.select2 = tail call i32 @llvm.smax.i32(i32 %36, i32 1)
   %39 = icmp eq i32 %spec.store.select, %spec.store.select2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %41 = load ptr, ptr %40, align 8, !tbaa !35
+  %41 = load ptr, ptr %40, align 8, !tbaa !36
   br i1 %39, label %42, label %44
 
 42:                                               ; preds = %37
@@ -1641,7 +1641,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %50 = load ptr, ptr %49, align 8, !tbaa !35
+  %50 = load ptr, ptr %49, align 8, !tbaa !36
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.112, i32 noundef %34) #19
   br label %79
 
@@ -1650,7 +1650,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   br i1 %53, label %54, label %.preheader
 
 .preheader:                                       ; preds = %52
-  %.06077 = load ptr, ptr %6, align 8, !tbaa !72
+  %.06077 = load ptr, ptr %6, align 8, !tbaa !73
   %.not7178 = icmp eq ptr %.06077, null
   br i1 %.not7178, label %._crit_edge, label %.lr.ph
 
@@ -1661,15 +1661,15 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 .lr.ph:                                           ; preds = %.preheader, %57
   %.06079 = phi ptr [ %.060, %57 ], [ %.06077, %.preheader ]
   %55 = getelementptr i8, ptr %.06079, i64 168
-  %.060.val72 = load i32, ptr %55, align 8, !tbaa !73
+  %.060.val72 = load i32, ptr %55, align 8, !tbaa !74
   %56 = icmp eq i32 %.060.val72, %34
   br i1 %56, label %67, label %57
 
 57:                                               ; preds = %.lr.ph
   %58 = getelementptr i8, ptr %.06079, i64 160
-  %.060 = load ptr, ptr %58, align 8, !tbaa !72
+  %.060 = load ptr, ptr %58, align 8, !tbaa !73
   %.not71 = icmp eq ptr %.060, null
-  br i1 %.not71, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %.not71, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge.loopexit:                             ; preds = %57
   %59 = tail call i32 @llvm.smax.i32(i32 %.060.val72, i32 1)
@@ -1679,7 +1679,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   %.062.lcssa = phi i32 [ 1, %.preheader ], [ %59, %._crit_edge.loopexit ]
   %60 = icmp eq i32 %.062.lcssa, %36
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %62 = load ptr, ptr %61, align 8, !tbaa !35
+  %62 = load ptr, ptr %61, align 8, !tbaa !36
   br i1 %60, label %63, label %65
 
 63:                                               ; preds = %._crit_edge
@@ -1697,13 +1697,13 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 
 69:                                               ; preds = %19, %3
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %71 = load ptr, ptr %70, align 8, !tbaa !36
+  %71 = load ptr, ptr %70, align 8, !tbaa !37
   %72 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 23, i64 1, ptr %71)
-  %73 = load ptr, ptr %70, align 8, !tbaa !36
+  %73 = load ptr, ptr %70, align 8, !tbaa !37
   %74 = tail call i64 @fwrite(ptr nonnull @.str.114, i64 68, i64 1, ptr %73)
-  %75 = load ptr, ptr %70, align 8, !tbaa !36
+  %75 = load ptr, ptr %70, align 8, !tbaa !37
   %76 = tail call i64 @fwrite(ptr nonnull @.str.115, i64 49, i64 1, ptr %75)
-  %77 = load ptr, ptr %70, align 8, !tbaa !36
+  %77 = load ptr, ptr %70, align 8, !tbaa !37
   %78 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 33, i64 1, ptr %77)
   br label %79
 
@@ -1726,11 +1726,11 @@ define internal range(i32 0, 2) i32 @CmdCommandEmpty(ptr noundef %0, i32 noundef
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %8 = load ptr, ptr %7, align 8, !tbaa !36
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
   %9 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 18, i64 1, ptr %8)
-  %10 = load ptr, ptr %7, align 8, !tbaa !36
+  %10 = load ptr, ptr %7, align 8, !tbaa !37
   %11 = tail call i64 @fwrite(ptr nonnull @.str.118, i64 51, i64 1, ptr %10)
-  %12 = load ptr, ptr %7, align 8, !tbaa !36
+  %12 = load ptr, ptr %7, align 8, !tbaa !37
   %13 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 33, i64 1, ptr %12)
   br label %14
 
@@ -1795,73 +1795,73 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
   ]
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %8 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not141 = icmp slt i32 %8, %1
   br i1 %.not141, label %9, label %.loopexit.sink.split
 
 9:                                                ; preds = %7
   %10 = sext i32 %8 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !38
   %13 = add nsw i32 %8, 1
-  store i32 %13, ptr @globalUtilOptind, align 4, !tbaa !34
-  br label %5, !llvm.loop !75
+  store i32 %13, ptr @globalUtilOptind, align 4, !tbaa !35
+  br label %5, !llvm.loop !76
 
 14:                                               ; preds = %5
-  %15 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %15 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not140 = icmp slt i32 %15, %1
   br i1 %.not140, label %16, label %.loopexit.sink.split
 
 16:                                               ; preds = %14
   %17 = sext i32 %15 to i64
   %18 = getelementptr inbounds ptr, ptr %2, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = add nsw i32 %15, 1
-  store i32 %20, ptr @globalUtilOptind, align 4, !tbaa !34
-  br label %.outer, !llvm.loop !75
+  store i32 %20, ptr @globalUtilOptind, align 4, !tbaa !35
+  br label %.outer, !llvm.loop !76
 
 21:                                               ; preds = %5
-  %22 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %22 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not139 = icmp slt i32 %22, %1
   br i1 %.not139, label %23, label %.loopexit.sink.split
 
 23:                                               ; preds = %21
   %24 = sext i32 %22 to i64
   %25 = getelementptr inbounds ptr, ptr %2, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !37
+  %26 = load ptr, ptr %25, align 8, !tbaa !38
   %27 = add nsw i32 %22, 1
-  store i32 %27, ptr @globalUtilOptind, align 4, !tbaa !34
-  br label %.outer332, !llvm.loop !75
+  store i32 %27, ptr @globalUtilOptind, align 4, !tbaa !35
+  br label %.outer332, !llvm.loop !76
 
 28:                                               ; preds = %5
-  %29 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %29 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not138 = icmp slt i32 %29, %1
   br i1 %.not138, label %30, label %.loopexit.sink.split
 
 30:                                               ; preds = %28
   %31 = sext i32 %29 to i64
   %32 = getelementptr inbounds ptr, ptr %2, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !37
+  %33 = load ptr, ptr %32, align 8, !tbaa !38
   %34 = add nsw i32 %29, 1
-  store i32 %34, ptr @globalUtilOptind, align 4, !tbaa !34
-  br label %.outer338, !llvm.loop !75
+  store i32 %34, ptr @globalUtilOptind, align 4, !tbaa !35
+  br label %.outer338, !llvm.loop !76
 
 35:                                               ; preds = %5
-  %36 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %36 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not137 = icmp slt i32 %36, %1
   br i1 %.not137, label %37, label %.loopexit.sink.split
 
 37:                                               ; preds = %35
   %38 = sext i32 %36 to i64
   %39 = getelementptr inbounds ptr, ptr %2, i64 %38
-  %40 = load ptr, ptr %39, align 8, !tbaa !37
+  %40 = load ptr, ptr %39, align 8, !tbaa !38
   %41 = add nsw i32 %36, 1
-  store i32 %41, ptr @globalUtilOptind, align 4, !tbaa !34
-  br label %.outer343, !llvm.loop !75
+  store i32 %41, ptr @globalUtilOptind, align 4, !tbaa !35
+  br label %.outer343, !llvm.loop !76
 
 42:                                               ; preds = %5
   %43 = xor i32 %.0101.ph348, 1
-  br label %.outer347, !llvm.loop !75
+  br label %.outer347, !llvm.loop !76
 
 44:                                               ; preds = %5
   %45 = tail call noalias ptr @fopen(ptr noundef %.096, ptr noundef nonnull @.str.98)
@@ -1912,14 +1912,14 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.0103205 = phi i64 [ 0, %.lr.ph ], [ %spec.select158, %60 ]
   %61 = getelementptr inbounds nuw ptr, ptr %.val147, i64 %indvars.iv
-  %62 = load ptr, ptr %61, align 8, !tbaa !50
+  %62 = load ptr, ptr %61, align 8, !tbaa !51
   %sext = shl i64 %.0103205, 32
   %63 = ashr exact i64 %sext, 32
   %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #21
   %spec.select158 = tail call i64 @llvm.umax.i64(i64 %64, i64 %63)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %60, !llvm.loop !76
+  br i1 %exitcond.not, label %.critedge.loopexit, label %60, !llvm.loop !77
 
 .critedge.loopexit:                               ; preds = %60
   %spec.select = trunc i64 %spec.select158 to i32
@@ -1927,7 +1927,7 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
   %.0103.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.critedge.loopexit ]
-  %65 = load i8, ptr %.0109.ph333, align 1, !tbaa !49
+  %65 = load i8, ptr %.0109.ph333, align 1, !tbaa !50
   %66 = tail call ptr (...) @Extra_TimeStamp() #19
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %45, ptr noundef nonnull @.str.129, ptr noundef %66) #19
   %.not126 = icmp eq ptr %.0107.ph339, null
@@ -1957,7 +1957,7 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
   %indvars.iv267 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next268, %125 ]
   %.val148 = load ptr, ptr %75, align 8, !tbaa !28
   %81 = getelementptr inbounds nuw ptr, ptr %.val148, i64 %indvars.iv267
-  %82 = load ptr, ptr %81, align 8, !tbaa !50
+  %82 = load ptr, ptr %81, align 8, !tbaa !51
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %82, i32 46)
   %.not128 = icmp eq ptr %strchr, null
   br i1 %.not128, label %125, label %sub_0
@@ -2017,12 +2017,12 @@ sub_1165:                                         ; preds = %.tail159, %sub_1161
   %indvars.iv261 = phi i64 [ %103, %.lr.ph208.preheader ], [ %indvars.iv.next262, %.lr.ph208 ]
   %indvars.iv.next262 = add nsw i64 %indvars.iv261, -1
   %104 = getelementptr inbounds nuw [2000 x i8], ptr %4, i64 0, i64 %indvars.iv.next262
-  %105 = load i8, ptr %104, align 1, !tbaa !49
+  %105 = load i8, ptr %104, align 1, !tbaa !50
   %106 = icmp eq i8 %105, 92
   %spec.store.select = select i1 %106, i8 47, i8 %105
   store i8 %spec.store.select, ptr %104, align 1
   %107 = icmp samesign ugt i64 %indvars.iv261, 1
-  br i1 %107, label %.lr.ph208, label %._crit_edge, !llvm.loop !77
+  br i1 %107, label %.lr.ph208, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph208, %98
   %fputs = call i32 @fputs(ptr nonnull %4, ptr nonnull %45)
@@ -2051,12 +2051,12 @@ sub_1165:                                         ; preds = %.tail159, %sub_1161
   %indvars.iv264 = phi i64 [ %117, %.lr.ph211.preheader ], [ %indvars.iv.next265, %.lr.ph211 ]
   %indvars.iv.next265 = add nsw i64 %indvars.iv264, -1
   %118 = getelementptr inbounds nuw [2000 x i8], ptr %4, i64 0, i64 %indvars.iv.next265
-  %119 = load i8, ptr %118, align 1, !tbaa !49
+  %119 = load i8, ptr %118, align 1, !tbaa !50
   %120 = icmp eq i8 %119, 92
   %spec.store.select143 = select i1 %120, i8 47, i8 %119
   store i8 %spec.store.select143, ptr %118, align 1
   %121 = icmp samesign ugt i64 %indvars.iv264, 1
-  br i1 %121, label %.lr.ph211, label %._crit_edge212, !llvm.loop !78
+  br i1 %121, label %.lr.ph211, label %._crit_edge212, !llvm.loop !79
 
 ._crit_edge212:                                   ; preds = %.lr.ph211, %111
   %fputs135 = call i32 @fputs(ptr nonnull %4, ptr nonnull %45)
@@ -2079,7 +2079,7 @@ sub_1165:                                         ; preds = %.tail159, %sub_1161
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %126 = sext i32 %.val145 to i64
   %127 = icmp slt i64 %indvars.iv.next268, %126
-  br i1 %127, label %80, label %._crit_edge216, !llvm.loop !79
+  br i1 %127, label %80, label %._crit_edge216, !llvm.loop !80
 
 ._crit_edge216:                                   ; preds = %125, %.critedge
   %.val145.lcssa = phi i32 [ %.val145213, %.critedge ], [ %.val145, %125 ]
@@ -2098,7 +2098,7 @@ sub_1165:                                         ; preds = %.tail159, %sub_1161
 133:                                              ; preds = %137, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %137 ]
   %134 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
-  %135 = load ptr, ptr %134, align 8, !tbaa !50
+  %135 = load ptr, ptr %134, align 8, !tbaa !51
   %switch.i.i = icmp ult ptr %135, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %137, label %136
 
@@ -2109,7 +2109,7 @@ sub_1165:                                         ; preds = %.tail159, %sub_1161
 137:                                              ; preds = %136, %133
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next.i.i, %132
-  br i1 %exitcond270.not, label %Vec_PtrFreeData.exit.i.thread, label %133, !llvm.loop !80
+  br i1 %exitcond270.not, label %Vec_PtrFreeData.exit.i.thread, label %133, !llvm.loop !81
 
 Vec_PtrFreeData.exit.i:                           ; preds = %._crit_edge216
   %.not.i.i = icmp eq ptr %.val14.i.i, null
@@ -2126,33 +2126,33 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 .loopexit.sink.split:                             ; preds = %14, %28, %7, %35, %21
   %.str.126.sink = phi ptr [ @.str.122, %7 ], [ @.str.126, %35 ], [ @.str.125, %28 ], [ @.str.124, %21 ], [ @.str.123, %14 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %139 = load ptr, ptr %138, align 8, !tbaa !36
+  %139 = load ptr, ptr %138, align 8, !tbaa !37
   %140 = tail call i64 @fwrite(ptr nonnull %.str.126.sink, i64 57, i64 1, ptr %139)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %.loopexit.sink.split
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %142 = load ptr, ptr %141, align 8, !tbaa !36
+  %142 = load ptr, ptr %141, align 8, !tbaa !37
   %143 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 63, i64 1, ptr %142)
-  %144 = load ptr, ptr %141, align 8, !tbaa !36
+  %144 = load ptr, ptr %141, align 8, !tbaa !37
   %145 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 44, i64 1, ptr %144)
-  %146 = load ptr, ptr %141, align 8, !tbaa !36
+  %146 = load ptr, ptr %141, align 8, !tbaa !37
   %147 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 60, i64 1, ptr %146)
-  %148 = load ptr, ptr %141, align 8, !tbaa !36
+  %148 = load ptr, ptr %141, align 8, !tbaa !37
   %149 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 64, i64 1, ptr %148)
-  %150 = load ptr, ptr %141, align 8, !tbaa !36
+  %150 = load ptr, ptr %141, align 8, !tbaa !37
   %151 = tail call i64 @fwrite(ptr nonnull @.str.145, i64 60, i64 1, ptr %150)
-  %152 = load ptr, ptr %141, align 8, !tbaa !36
+  %152 = load ptr, ptr %141, align 8, !tbaa !37
   %153 = tail call i64 @fwrite(ptr nonnull @.str.146, i64 77, i64 1, ptr %152)
-  %154 = load ptr, ptr %141, align 8, !tbaa !36
+  %154 = load ptr, ptr %141, align 8, !tbaa !37
   %155 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 85, i64 1, ptr %154)
-  %156 = load ptr, ptr %141, align 8, !tbaa !36
+  %156 = load ptr, ptr %141, align 8, !tbaa !37
   %.not142 = icmp eq i32 %.0101.ph348, 0
   %157 = select i1 %.not142, ptr @.str.80, ptr @.str.79
   %158 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.148, ptr noundef nonnull %157) #19
-  %159 = load ptr, ptr %141, align 8, !tbaa !36
+  %159 = load ptr, ptr %141, align 8, !tbaa !37
   %160 = tail call i64 @fwrite(ptr nonnull @.str.149, i64 36, i64 1, ptr %159)
-  %161 = load ptr, ptr %141, align 8, !tbaa !36
+  %161 = load ptr, ptr %141, align 8, !tbaa !37
   %162 = tail call i64 @fwrite(ptr nonnull @.str.150, i64 71, i64 1, ptr %161)
   br label %Vec_PtrFreeP.exit
 
@@ -2176,11 +2176,11 @@ define internal range(i32 0, 2) i32 @CmdCommandVersion(ptr noundef %0, i32 nound
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %9 = load ptr, ptr %8, align 8, !tbaa !36
+  %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = tail call i64 @fwrite(ptr nonnull @.str.243, i64 20, i64 1, ptr %9)
-  %11 = load ptr, ptr %8, align 8, !tbaa !36
+  %11 = load ptr, ptr %8, align 8, !tbaa !37
   %12 = tail call i64 @fwrite(ptr nonnull @.str.244, i64 34, i64 1, ptr %11)
-  %13 = load ptr, ptr %8, align 8, !tbaa !36
+  %13 = load ptr, ptr %8, align 8, !tbaa !37
   %14 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 33, i64 1, ptr %13)
   br label %15
 
@@ -2216,39 +2216,39 @@ define internal range(i32 0, 2) i32 @CmdCommandSGen(ptr noundef %0, i32 noundef 
   ]
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not30 = icmp slt i32 %7, %1
   br i1 %.not30, label %8, label %.loopexit.sink.split
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #19
   %13 = trunc i64 %12 to i32
   %14 = add nsw i32 %7, 1
-  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !34
+  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !35
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !81
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !82
 
 16:                                               ; preds = %4
-  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not29 = icmp slt i32 %17, %1
   br i1 %.not29, label %18, label %.loopexit.sink.split
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %2, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !37
+  %21 = load ptr, ptr %20, align 8, !tbaa !38
   %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #19
   %23 = trunc i64 %22 to i32
   %24 = add nsw i32 %17, 1
-  store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !34
-  br label %.outer73, !llvm.loop !81
+  store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !35
+  br label %.outer73, !llvm.loop !82
 
 25:                                               ; preds = %4
   %26 = xor i32 %.0, 1
-  br label %4, !llvm.loop !81
+  br label %4, !llvm.loop !82
 
 27:                                               ; preds = %4
   %28 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #19
@@ -2261,7 +2261,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSGen(ptr noundef %0, i32 noundef 
 
 31:                                               ; preds = %27
   %32 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #19
-  %.val = load i32, ptr %32, align 8, !tbaa !82
+  %.val = load i32, ptr %32, align 8, !tbaa !83
   %.not = icmp eq i32 %.val, 3
   br i1 %.not, label %34, label %33
 
@@ -2309,7 +2309,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSis(ptr noundef %0, i32 noundef %
 
 sub_0:                                            ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = load i8, ptr %11, align 1
   %.not99 = icmp eq i8 %12, 45
   br i1 %.not99, label %sub_1, label %.tail93.thread
@@ -2347,7 +2347,7 @@ sub_195:                                          ; preds = %.tail, %sub_1
   br label %91
 
 26:                                               ; preds = %.tail93.thread
-  %27 = load ptr, ptr %2, align 8, !tbaa !37
+  %27 = load ptr, ptr %2, align 8, !tbaa !38
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(4) @.str.20) #21
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %31, label %29
@@ -2395,9 +2395,9 @@ sub_195:                                          ; preds = %.tail, %sub_1
   %.059 = phi ptr [ %.061, %39 ], [ %.060, %41 ]
   %46 = tail call i32 @fclose(ptr noundef nonnull %.063)
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !83
+  %48 = load i32, ptr %47, align 4, !tbaa !84
   %49 = icmp eq i32 %48, 4
-  %.val.pre104 = load i32, ptr %6, align 8, !tbaa !82
+  %.val.pre104 = load i32, ptr %6, align 8, !tbaa !83
   br i1 %49, label %Abc_NtkIsMappedLogic.exit, label %Abc_NtkIsMappedLogic.exit.thread
 
 Abc_NtkIsMappedLogic.exit:                        ; preds = %45
@@ -2407,7 +2407,7 @@ Abc_NtkIsMappedLogic.exit:                        ; preds = %45
 50:                                               ; preds = %Abc_NtkIsMappedLogic.exit
   %51 = tail call i32 @Abc_NtkMapToSop(ptr noundef nonnull %6) #19
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %.val.pre = load i32, ptr %6, align 8, !tbaa !82
+  %.val.pre = load i32, ptr %6, align 8, !tbaa !83
   br label %Abc_NtkIsMappedLogic.exit.thread
 
 Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %45, %50
@@ -2451,12 +2451,12 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %61 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %62 = load ptr, ptr %61, align 8, !tbaa !37
+  %62 = load ptr, ptr %61, align 8, !tbaa !38
   %63 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.162, ptr noundef %62) #19
   %64 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58
   %strlen81 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
@@ -2492,26 +2492,26 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
   %77 = call i32 @fclose(ptr noundef nonnull %71)
   %78 = call ptr @Io_Read(ptr noundef nonnull @.str.166, i32 noundef 4, i32 noundef 1, i32 noundef 0) #19
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !85
+  %80 = load ptr, ptr %79, align 8, !tbaa !86
   %.not88 = icmp eq ptr %80, null
   br i1 %.not88, label %88, label %81
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !85
+  %83 = load ptr, ptr %82, align 8, !tbaa !86
   %.not89 = icmp eq ptr %83, null
   br i1 %.not89, label %85, label %84
 
 84:                                               ; preds = %81
   call void @free(ptr noundef nonnull %83) #19
-  store ptr null, ptr %82, align 8, !tbaa !85
-  %.pre = load ptr, ptr %79, align 8, !tbaa !85
+  store ptr null, ptr %82, align 8, !tbaa !86
+  %.pre = load ptr, ptr %79, align 8, !tbaa !86
   br label %85
 
 85:                                               ; preds = %81, %84
   %86 = phi ptr [ %80, %81 ], [ %.pre, %84 ]
   %87 = call ptr @Extra_UtilStrsav(ptr noundef %86) #19
-  store ptr %87, ptr %82, align 8, !tbaa !85
+  store ptr %87, ptr %82, align 8, !tbaa !86
   br label %88
 
 88:                                               ; preds = %85, %76
@@ -2552,7 +2552,7 @@ define internal range(i32 0, 2) i32 @CmdCommandMvsis(ptr noundef %0, i32 noundef
 
 sub_0:                                            ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = load i8, ptr %11, align 1
   %.not99 = icmp eq i8 %12, 45
   br i1 %.not99, label %sub_1, label %.tail93.thread
@@ -2590,7 +2590,7 @@ sub_195:                                          ; preds = %.tail, %sub_1
   br label %91
 
 26:                                               ; preds = %.tail93.thread
-  %27 = load ptr, ptr %2, align 8, !tbaa !37
+  %27 = load ptr, ptr %2, align 8, !tbaa !38
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(6) @.str.21) #21
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %31, label %29
@@ -2638,9 +2638,9 @@ sub_195:                                          ; preds = %.tail, %sub_1
   %.059 = phi ptr [ %.061, %39 ], [ %.060, %41 ]
   %46 = tail call i32 @fclose(ptr noundef nonnull %.063)
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !83
+  %48 = load i32, ptr %47, align 4, !tbaa !84
   %49 = icmp eq i32 %48, 4
-  %.val.pre104 = load i32, ptr %6, align 8, !tbaa !82
+  %.val.pre104 = load i32, ptr %6, align 8, !tbaa !83
   br i1 %49, label %Abc_NtkIsMappedLogic.exit, label %Abc_NtkIsMappedLogic.exit.thread
 
 Abc_NtkIsMappedLogic.exit:                        ; preds = %45
@@ -2650,7 +2650,7 @@ Abc_NtkIsMappedLogic.exit:                        ; preds = %45
 50:                                               ; preds = %Abc_NtkIsMappedLogic.exit
   %51 = tail call i32 @Abc_NtkMapToSop(ptr noundef nonnull %6) #19
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %.val.pre = load i32, ptr %6, align 8, !tbaa !82
+  %.val.pre = load i32, ptr %6, align 8, !tbaa !83
   br label %Abc_NtkIsMappedLogic.exit.thread
 
 Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %45, %50
@@ -2694,12 +2694,12 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %61 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %62 = load ptr, ptr %61, align 8, !tbaa !37
+  %62 = load ptr, ptr %61, align 8, !tbaa !38
   %63 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.162, ptr noundef %62) #19
   %64 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58
   %strlen81 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
@@ -2735,26 +2735,26 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
   %77 = call i32 @fclose(ptr noundef nonnull %71)
   %78 = call ptr @Io_Read(ptr noundef nonnull @.str.183, i32 noundef 4, i32 noundef 1, i32 noundef 0) #19
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !85
+  %80 = load ptr, ptr %79, align 8, !tbaa !86
   %.not88 = icmp eq ptr %80, null
   br i1 %.not88, label %88, label %81
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !85
+  %83 = load ptr, ptr %82, align 8, !tbaa !86
   %.not89 = icmp eq ptr %83, null
   br i1 %.not89, label %85, label %84
 
 84:                                               ; preds = %81
   call void @free(ptr noundef nonnull %83) #19
-  store ptr null, ptr %82, align 8, !tbaa !85
-  %.pre = load ptr, ptr %79, align 8, !tbaa !85
+  store ptr null, ptr %82, align 8, !tbaa !86
+  %.pre = load ptr, ptr %79, align 8, !tbaa !86
   br label %85
 
 85:                                               ; preds = %81, %84
   %86 = phi ptr [ %80, %81 ], [ %.pre, %84 ]
   %87 = call ptr @Extra_UtilStrsav(ptr noundef %86) #19
-  store ptr %87, ptr %82, align 8, !tbaa !85
+  store ptr %87, ptr %82, align 8, !tbaa !86
   br label %88
 
 88:                                               ; preds = %85, %76
@@ -2795,7 +2795,7 @@ define internal range(i32 0, 2) i32 @CmdCommandCapo(ptr noundef %0, i32 noundef 
 
 sub_0:                                            ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = load i8, ptr %11, align 1
   %.not124 = icmp eq i8 %12, 45
   br i1 %.not124, label %sub_1, label %.tail117.thread
@@ -2833,7 +2833,7 @@ sub_1119:                                         ; preds = %.tail, %sub_1
   br label %107
 
 26:                                               ; preds = %.tail117.thread
-  %27 = load ptr, ptr %2, align 8, !tbaa !37
+  %27 = load ptr, ptr %2, align 8, !tbaa !38
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(5) @.str.22) #21
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %31, label %29
@@ -2881,9 +2881,9 @@ sub_1119:                                         ; preds = %.tail, %sub_1
   %.085 = phi ptr [ %.089, %39 ], [ %.088, %41 ]
   %46 = tail call i32 @fclose(ptr noundef nonnull %.091)
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !83
+  %48 = load i32, ptr %47, align 4, !tbaa !84
   %49 = icmp eq i32 %48, 4
-  %.val.pre129 = load i32, ptr %6, align 8, !tbaa !82
+  %.val.pre129 = load i32, ptr %6, align 8, !tbaa !83
   br i1 %49, label %Abc_NtkIsMappedLogic.exit, label %Abc_NtkIsMappedLogic.exit.thread
 
 Abc_NtkIsMappedLogic.exit:                        ; preds = %45
@@ -2893,7 +2893,7 @@ Abc_NtkIsMappedLogic.exit:                        ; preds = %45
 50:                                               ; preds = %Abc_NtkIsMappedLogic.exit
   %51 = tail call i32 @Abc_NtkMapToSop(ptr noundef nonnull %6) #19
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %.val.pre = load i32, ptr %6, align 8, !tbaa !82
+  %.val.pre = load i32, ptr %6, align 8, !tbaa !83
   br label %Abc_NtkIsMappedLogic.exit.thread
 
 Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %45, %50
@@ -2928,24 +2928,24 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
   %.083122 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %69 ]
   %60 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %61 = load ptr, ptr %60, align 8, !tbaa !37
+  %61 = load ptr, ptr %60, align 8, !tbaa !38
   %62 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.162, ptr noundef %61) #19
   %63 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #19
-  %64 = load ptr, ptr %60, align 8, !tbaa !37
+  %64 = load ptr, ptr %60, align 8, !tbaa !38
   %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(6) @.str.198) #21
   %.not113 = icmp eq i32 %65, 0
   br i1 %.not113, label %66, label %69
 
 66:                                               ; preds = %.lr.ph
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !37
+  %68 = load ptr, ptr %67, align 8, !tbaa !38
   br label %69
 
 69:                                               ; preds = %.lr.ph, %66
   %.1 = phi ptr [ %.083122, %.lr.ph ], [ %68, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %69, %58
   %.083.lcssa = phi ptr [ null, %58 ], [ %.1, %69 ]
@@ -3019,7 +3019,7 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
   br i1 %103, label %104, label %125
 
 104:                                              ; preds = %99
-  %105 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %105 = load ptr, ptr @stdout, align 8, !tbaa !47
   %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.39, ptr noundef nonnull %4) #19
   br label %107
 
@@ -3077,40 +3077,40 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr noundef readonly capt
   ]
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not38 = icmp slt i32 %7, %1
   br i1 %.not38, label %8, label %.loopexit.sink.split
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #19
   %13 = trunc i64 %12 to i32
   %14 = add nsw i32 %7, 1
-  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !34
+  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !35
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer77, !llvm.loop !88
+  br i1 %15, label %.loopexit, label %.outer77, !llvm.loop !89
 
 16:                                               ; preds = %4
-  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not37 = icmp slt i32 %17, %1
   br i1 %.not37, label %18, label %.loopexit.sink.split
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %2, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !37
+  %21 = load ptr, ptr %20, align 8, !tbaa !38
   %22 = add nsw i32 %17, 1
-  store i32 %22, ptr @globalUtilOptind, align 4, !tbaa !34
-  br label %.outer, !llvm.loop !88
+  store i32 %22, ptr @globalUtilOptind, align 4, !tbaa !35
+  br label %.outer, !llvm.loop !89
 
 23:                                               ; preds = %4
   %24 = xor i32 %.0, 1
-  br label %4, !llvm.loop !88
+  br label %4, !llvm.loop !89
 
 25:                                               ; preds = %4
-  %26 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %26 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %27 = add nsw i32 %26, 1
   %.not35 = icmp eq i32 %1, %27
   br i1 %.not35, label %29, label %28
@@ -3122,7 +3122,7 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr noundef readonly capt
 29:                                               ; preds = %25
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds ptr, ptr %2, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !37
+  %32 = load ptr, ptr %31, align 8, !tbaa !38
   %33 = tail call ptr @Io_FileOpen(ptr noundef %32, ptr noundef nonnull @.str.219, ptr noundef nonnull @.str.48, i32 noundef 0) #19
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %39
@@ -3144,7 +3144,7 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr noundef readonly capt
 39:                                               ; preds = %29
   %40 = tail call i32 @fclose(ptr noundef nonnull %33)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !89
+  %42 = load ptr, ptr %41, align 8, !tbaa !90
   tail call void @Cmd_RunStarter(ptr noundef %32, ptr noundef %42, ptr noundef %.026.ph, i32 noundef %.023.ph78, i32 noundef %.0) #19
   br label %44
 
@@ -3206,50 +3206,50 @@ define internal range(i32 0, 2) i32 @CmdCommandAutoTuner(ptr readnone captures(n
   ]
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %7 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not51 = icmp slt i32 %7, %1
   br i1 %.not51, label %8, label %.loopexit.sink.split
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #19
   %13 = trunc i64 %12 to i32
   %14 = add nsw i32 %7, 1
-  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !34
+  store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !35
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer117, !llvm.loop !90
+  br i1 %15, label %.loopexit, label %.outer117, !llvm.loop !91
 
 16:                                               ; preds = %4
-  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %17 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not50 = icmp slt i32 %17, %1
   br i1 %.not50, label %18, label %.loopexit.sink.split
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %2, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !37
+  %21 = load ptr, ptr %20, align 8, !tbaa !38
   %22 = add nsw i32 %17, 1
-  store i32 %22, ptr @globalUtilOptind, align 4, !tbaa !34
-  br label %.outer, !llvm.loop !90
+  store i32 %22, ptr @globalUtilOptind, align 4, !tbaa !35
+  br label %.outer, !llvm.loop !91
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr @globalUtilOptind, align 4, !tbaa !34
+  %24 = load i32, ptr @globalUtilOptind, align 4, !tbaa !35
   %.not49 = icmp slt i32 %24, %1
   br i1 %.not49, label %25, label %.loopexit.sink.split
 
 25:                                               ; preds = %23
   %26 = sext i32 %24 to i64
   %27 = getelementptr inbounds ptr, ptr %2, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !37
+  %28 = load ptr, ptr %27, align 8, !tbaa !38
   %29 = add nsw i32 %24, 1
-  store i32 %29, ptr @globalUtilOptind, align 4, !tbaa !34
-  br label %.outer113, !llvm.loop !90
+  store i32 %29, ptr @globalUtilOptind, align 4, !tbaa !35
+  br label %.outer113, !llvm.loop !91
 
 30:                                               ; preds = %4
   %31 = xor i32 %.0, 1
-  br label %4, !llvm.loop !90
+  br label %4, !llvm.loop !91
 
 32:                                               ; preds = %4
   %33 = icmp eq ptr %.035.ph, null
@@ -3362,11 +3362,11 @@ define void @Cmd_End(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not1924, label %._crit_edge25, label %.critedge2
 
 .critedge:                                        ; preds = %1, %.critedge
-  %13 = load ptr, ptr %3, align 8, !tbaa !37
+  %13 = load ptr, ptr %3, align 8, !tbaa !38
   call void @CmdCommandFree(ptr noundef %13) #19
   %14 = call i32 @st__gen(ptr noundef %6, ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !91
+  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !92
 
 ._crit_edge25:                                    ; preds = %.critedge2, %._crit_edge
   call void @st__free_gen(ptr noundef %11) #19
@@ -3380,11 +3380,11 @@ define void @Cmd_End(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not2026, label %._crit_edge27, label %.critedge4
 
 .critedge2:                                       ; preds = %._crit_edge, %.critedge2
-  %20 = load ptr, ptr %3, align 8, !tbaa !37
+  %20 = load ptr, ptr %3, align 8, !tbaa !38
   call void @CmdCommandAliasFree(ptr noundef %20) #19
   %21 = call i32 @st__gen(ptr noundef %11, ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   %.not19 = icmp eq i32 %21, 0
-  br i1 %.not19, label %._crit_edge25, label %.critedge2, !llvm.loop !92
+  br i1 %.not19, label %._crit_edge25, label %.critedge2, !llvm.loop !93
 
 ._crit_edge27:                                    ; preds = %45, %._crit_edge25
   call void @st__free_gen(ptr noundef %18) #19
@@ -3410,7 +3410,7 @@ define void @Cmd_End(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %34 ]
   %.val14.i.i = load ptr, ptr %29, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
-  %32 = load ptr, ptr %31, align 8, !tbaa !50
+  %32 = load ptr, ptr %31, align 8, !tbaa !51
   %switch.i.i = icmp ult ptr %32, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %34, label %33
 
@@ -3424,7 +3424,7 @@ define void @Cmd_End(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %35 = sext i32 %.val.i.i to i64
   %36 = icmp slt i64 %indvars.iv.next.i.i, %35
-  br i1 %36, label %30, label %Vec_PtrFreeData.exit.i, !llvm.loop !80
+  br i1 %36, label %30, label %Vec_PtrFreeData.exit.i, !llvm.loop !81
 
 Vec_PtrFreeData.exit.i:                           ; preds = %34, %26
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3446,29 +3446,29 @@ Vec_PtrFreeFree.exit:                             ; preds = %._crit_edge27, %Vec
   ret void
 
 .critedge4:                                       ; preds = %._crit_edge25, %45
-  %40 = load ptr, ptr %2, align 8, !tbaa !37
+  %40 = load ptr, ptr %2, align 8, !tbaa !38
   %.not21 = icmp eq ptr %40, null
   br i1 %.not21, label %42, label %41
 
 41:                                               ; preds = %.critedge4
   call void @free(ptr noundef nonnull %40) #19
-  store ptr null, ptr %2, align 8, !tbaa !37
+  store ptr null, ptr %2, align 8, !tbaa !38
   br label %42
 
 42:                                               ; preds = %.critedge4, %41
-  %43 = load ptr, ptr %3, align 8, !tbaa !37
+  %43 = load ptr, ptr %3, align 8, !tbaa !38
   %.not22 = icmp eq ptr %43, null
   br i1 %.not22, label %45, label %44
 
 44:                                               ; preds = %42
   call void @free(ptr noundef nonnull %43) #19
-  store ptr null, ptr %3, align 8, !tbaa !37
+  store ptr null, ptr %3, align 8, !tbaa !38
   br label %45
 
 45:                                               ; preds = %42, %44
   %46 = call i32 @st__gen(ptr noundef %18, ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   %.not20 = icmp eq i32 %46, 0
-  br i1 %.not20, label %._crit_edge27, label %.critedge4, !llvm.loop !93
+  br i1 %.not20, label %._crit_edge27, label %.critedge4, !llvm.loop !94
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -3522,7 +3522,7 @@ define noalias noundef ptr @CmdReturnFileNames(ptr noundef %0) local_unnamed_add
   br label %70
 
 ._crit_edge:                                      ; preds = %67, %.preheader
-  %11 = load ptr, ptr %2, align 8, !tbaa !94
+  %11 = load ptr, ptr %2, align 8, !tbaa !95
   call void @free(ptr noundef %11) #19
   br label %70
 
@@ -3530,9 +3530,9 @@ define noalias noundef ptr @CmdReturnFileNames(ptr noundef %0) local_unnamed_add
   %12 = phi i32 [ 100, %.lr.ph.preheader ], [ %68, %67 ]
   %13 = phi i32 [ 0, %.lr.ph.preheader ], [ %69, %67 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
-  %14 = load ptr, ptr %2, align 8, !tbaa !94
+  %14 = load ptr, ptr %2, align 8, !tbaa !95
   %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !96
+  %16 = load ptr, ptr %15, align 8, !tbaa !97
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 19
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 46)
   %.not = icmp eq ptr %strchr, null
@@ -3642,10 +3642,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %61, ptr %4, align 4, !tbaa !25
   %62 = sext i32 %13 to i64
   %63 = getelementptr inbounds ptr, ptr %60, i64 %62
-  store ptr %36, ptr %63, align 8, !tbaa !50
-  %64 = load ptr, ptr %2, align 8, !tbaa !94
+  store ptr %36, ptr %63, align 8, !tbaa !51
+  %64 = load ptr, ptr %2, align 8, !tbaa !95
   %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
-  %66 = load ptr, ptr %65, align 8, !tbaa !96
+  %66 = load ptr, ptr %65, align 8, !tbaa !97
   call void @free(ptr noundef %66) #19
   br label %67
 
@@ -3654,7 +3654,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %69 = phi i32 [ %13, %.lr.ph ], [ %13, %.tail ], [ %13, %.tail22 ], [ %13, %.tail26 ], [ %13, %.tail26.thread ], [ %61, %Vec_PtrPush.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 70:                                               ; preds = %._crit_edge, %10
   %.0 = phi ptr [ null, %10 ], [ %3, %._crit_edge ]
@@ -3681,7 +3681,7 @@ define void @Gia_ManGnuplotShow(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !47
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.34, ptr noundef %0) #19
   br label %34
 
@@ -3718,7 +3718,7 @@ define void @Gia_ManGnuplotShow(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26, label %22, label %25
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !47
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.37, ptr noundef %.019, ptr noundef %.018) #19
   br label %34
 
@@ -3733,7 +3733,7 @@ define void @Gia_ManGnuplotShow(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %31 = load ptr, ptr @stdout, align 8, !tbaa !47
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.39, ptr noundef nonnull %2) #19
   br label %33
 
@@ -3775,7 +3775,7 @@ declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnam
 define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1, ...) unnamed_addr #9 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !34
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !35
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %31, label %5
 
@@ -3805,12 +3805,12 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   ]
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !47
   %15 = tail call i32 @Gia_ManToBridgeText(ptr noundef %14, i32 noundef 7, ptr noundef nonnull @.str.54) #19
   br label %19
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !47
   %18 = tail call i32 @Gia_ManToBridgeText(ptr noundef %17, i32 noundef 9, ptr noundef nonnull @.str.55) #19
   br label %19
 
@@ -3822,7 +3822,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
 
 21:                                               ; preds = %19
   %22 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #19
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !47
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #21
   %25 = trunc i64 %24 to i32
   %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %22) #19
@@ -3830,7 +3830,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   br label %30
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !46, !noalias !99
+  %28 = load ptr, ptr @stdout, align 8, !tbaa !47, !noalias !100
   %29 = call i32 @vfprintf(ptr noundef %28, ptr noundef %1, ptr noundef nonnull %3) #19
   br label %30
 
@@ -4040,75 +4040,76 @@ attributes #22 = { nounwind allocsize(1) }
 !27 = !{!26, !12, i64 0}
 !28 = !{!26, !6, i64 8}
 !29 = !{!4, !10, i64 40}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!4, !15, i64 152}
-!33 = !{!4, !15, i64 160}
-!34 = !{!12, !12, i64 0}
-!35 = !{!4, !14, i64 128}
-!36 = !{!4, !14, i64 136}
-!37 = !{!5, !5, i64 0}
-!38 = distinct !{!38, !31}
-!39 = distinct !{!39, !31}
-!40 = !{!41, !42, i64 0}
-!41 = !{!"timespec", !42, i64 0, !42, i64 8}
-!42 = !{!"long", !7, i64 0}
-!43 = !{!41, !42, i64 8}
-!44 = distinct !{!44, !31}
-!45 = distinct !{!45, !31}
-!46 = !{!14, !14, i64 0}
-!47 = distinct !{!47, !31}
-!48 = distinct !{!48, !31}
-!49 = !{!7, !7, i64 0}
-!50 = !{!6, !6, i64 0}
-!51 = distinct !{!51, !31}
-!52 = distinct !{!52, !31}
-!53 = distinct !{!53, !31}
-!54 = distinct !{!54, !31}
-!55 = distinct !{!55, !31}
-!56 = !{!4, !12, i64 84}
-!57 = distinct !{!57, !31}
-!58 = !{!4, !14, i64 144}
-!59 = distinct !{!59, !31}
-!60 = distinct !{!60, !31}
-!61 = !{!4, !11, i64 48}
-!62 = !{!63, !11, i64 160}
-!63 = !{!"Abc_Ntk_t_", !12, i64 0, !12, i64 4, !5, i64 8, !5, i64 16, !64, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !7, i64 96, !12, i64 140, !12, i64 144, !12, i64 148, !12, i64 152, !11, i64 160, !12, i64 168, !65, i64 176, !11, i64 184, !12, i64 192, !12, i64 196, !12, i64 200, !15, i64 208, !12, i64 216, !66, i64 224, !67, i64 240, !68, i64 248, !6, i64 256, !69, i64 264, !6, i64 272, !13, i64 280, !12, i64 284, !16, i64 288, !10, i64 296, !22, i64 304, !18, i64 312, !10, i64 320, !11, i64 328, !6, i64 336, !6, i64 344, !11, i64 352, !6, i64 360, !6, i64 368, !16, i64 376, !16, i64 384, !5, i64 392, !70, i64 400, !10, i64 408, !16, i64 416, !16, i64 424, !10, i64 432, !16, i64 440, !16, i64 448, !16, i64 456}
-!64 = !{!"p1 _ZTS9Nm_Man_t_", !6, i64 0}
-!65 = !{!"p1 _ZTS10Abc_Des_t_", !6, i64 0}
-!66 = !{!"Vec_Int_t_", !12, i64 0, !12, i64 4, !22, i64 8}
-!67 = !{!"p1 _ZTS12Mem_Fixed_t_", !6, i64 0}
-!68 = !{!"p1 _ZTS11Mem_Step_t_", !6, i64 0}
-!69 = !{!"p1 _ZTS14Abc_ManTime_t_", !6, i64 0}
-!70 = !{!"p1 float", !6, i64 0}
-!71 = !{!4, !12, i64 80}
-!72 = !{!11, !11, i64 0}
-!73 = !{!63, !12, i64 168}
-!74 = distinct !{!74, !31}
-!75 = distinct !{!75, !31}
-!76 = distinct !{!76, !31}
-!77 = distinct !{!77, !31}
-!78 = distinct !{!78, !31}
-!79 = distinct !{!79, !31}
-!80 = distinct !{!80, !31}
-!81 = distinct !{!81, !31}
-!82 = !{!63, !12, i64 0}
-!83 = !{!63, !12, i64 4}
-!84 = distinct !{!84, !31}
-!85 = !{!63, !5, i64 16}
-!86 = distinct !{!86, !31}
-!87 = distinct !{!87, !31}
-!88 = distinct !{!88, !31}
-!89 = !{!4, !5, i64 8}
-!90 = distinct !{!90, !31}
-!91 = distinct !{!91, !31}
-!92 = distinct !{!92, !31}
-!93 = distinct !{!93, !31}
-!94 = !{!95, !95, i64 0}
-!95 = !{!"p2 _ZTS6dirent", !6, i64 0}
-!96 = !{!97, !97, i64 0}
-!97 = !{!"p1 _ZTS6dirent", !6, i64 0}
-!98 = distinct !{!98, !31}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"vprintf: argument 0"}
-!101 = distinct !{!101, !"vprintf"}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!4, !15, i64 152}
+!34 = !{!4, !15, i64 160}
+!35 = !{!12, !12, i64 0}
+!36 = !{!4, !14, i64 128}
+!37 = !{!4, !14, i64 136}
+!38 = !{!5, !5, i64 0}
+!39 = distinct !{!39, !31, !32}
+!40 = distinct !{!40, !31, !32}
+!41 = !{!42, !43, i64 0}
+!42 = !{!"timespec", !43, i64 0, !43, i64 8}
+!43 = !{!"long", !7, i64 0}
+!44 = !{!42, !43, i64 8}
+!45 = distinct !{!45, !31, !32}
+!46 = distinct !{!46, !31, !32}
+!47 = !{!14, !14, i64 0}
+!48 = distinct !{!48, !31, !32}
+!49 = distinct !{!49, !31, !32}
+!50 = !{!7, !7, i64 0}
+!51 = !{!6, !6, i64 0}
+!52 = distinct !{!52, !31, !32}
+!53 = distinct !{!53, !31, !32}
+!54 = distinct !{!54, !31, !32}
+!55 = distinct !{!55, !31, !32}
+!56 = distinct !{!56, !31, !32}
+!57 = !{!4, !12, i64 84}
+!58 = distinct !{!58, !31, !32}
+!59 = !{!4, !14, i64 144}
+!60 = distinct !{!60, !31, !32}
+!61 = distinct !{!61, !31, !32}
+!62 = !{!4, !11, i64 48}
+!63 = !{!64, !11, i64 160}
+!64 = !{!"Abc_Ntk_t_", !12, i64 0, !12, i64 4, !5, i64 8, !5, i64 16, !65, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !7, i64 96, !12, i64 140, !12, i64 144, !12, i64 148, !12, i64 152, !11, i64 160, !12, i64 168, !66, i64 176, !11, i64 184, !12, i64 192, !12, i64 196, !12, i64 200, !15, i64 208, !12, i64 216, !67, i64 224, !68, i64 240, !69, i64 248, !6, i64 256, !70, i64 264, !6, i64 272, !13, i64 280, !12, i64 284, !16, i64 288, !10, i64 296, !22, i64 304, !18, i64 312, !10, i64 320, !11, i64 328, !6, i64 336, !6, i64 344, !11, i64 352, !6, i64 360, !6, i64 368, !16, i64 376, !16, i64 384, !5, i64 392, !71, i64 400, !10, i64 408, !16, i64 416, !16, i64 424, !10, i64 432, !16, i64 440, !16, i64 448, !16, i64 456}
+!65 = !{!"p1 _ZTS9Nm_Man_t_", !6, i64 0}
+!66 = !{!"p1 _ZTS10Abc_Des_t_", !6, i64 0}
+!67 = !{!"Vec_Int_t_", !12, i64 0, !12, i64 4, !22, i64 8}
+!68 = !{!"p1 _ZTS12Mem_Fixed_t_", !6, i64 0}
+!69 = !{!"p1 _ZTS11Mem_Step_t_", !6, i64 0}
+!70 = !{!"p1 _ZTS14Abc_ManTime_t_", !6, i64 0}
+!71 = !{!"p1 float", !6, i64 0}
+!72 = !{!4, !12, i64 80}
+!73 = !{!11, !11, i64 0}
+!74 = !{!64, !12, i64 168}
+!75 = distinct !{!75, !31, !32}
+!76 = distinct !{!76, !31, !32}
+!77 = distinct !{!77, !31, !32}
+!78 = distinct !{!78, !31, !32}
+!79 = distinct !{!79, !31, !32}
+!80 = distinct !{!80, !31, !32}
+!81 = distinct !{!81, !31, !32}
+!82 = distinct !{!82, !31, !32}
+!83 = !{!64, !12, i64 0}
+!84 = !{!64, !12, i64 4}
+!85 = distinct !{!85, !31, !32}
+!86 = !{!64, !5, i64 16}
+!87 = distinct !{!87, !31, !32}
+!88 = distinct !{!88, !31, !32}
+!89 = distinct !{!89, !31, !32}
+!90 = !{!4, !5, i64 8}
+!91 = distinct !{!91, !31, !32}
+!92 = distinct !{!92, !31, !32}
+!93 = distinct !{!93, !31, !32}
+!94 = distinct !{!94, !31, !32}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p2 _ZTS6dirent", !6, i64 0}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTS6dirent", !6, i64 0}
+!99 = distinct !{!99, !31, !32}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"vprintf: argument 0"}
+!102 = distinct !{!102, !"vprintf"}

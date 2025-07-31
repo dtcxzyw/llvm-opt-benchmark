@@ -230,7 +230,7 @@ define internal range(i32 0, 2) i32 @test_standard_exts() #0 {
   %13 = add nuw nsw i64 %.11621, 1
   %14 = getelementptr inbounds nuw i8, ptr %.122, i64 8
   %exitcond23.not = icmp eq i64 %13, 73
-  br i1 %exitcond23.not, label %.loopexit, label %9, !llvm.loop !14
+  br i1 %exitcond23.not, label %.loopexit, label %9, !llvm.loop !15
 
 .loopexit:                                        ; preds = %9, %7
   ret i32 %spec.select
@@ -243,8 +243,8 @@ define internal range(i32 0, 2) i32 @test_a2i_ipaddress(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [62 x %struct.IP_TESTDATA], ptr @a2i_ipaddress_tests, i64 0, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !15
-  %6 = load ptr, ptr %3, align 8, !tbaa !18
+  %5 = load i32, ptr %4, align 8, !tbaa !16
+  %6 = load ptr, ptr %3, align 8, !tbaa !19
   %7 = tail call ptr @a2i_IPADDRESS(ptr noundef %6) #3
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %9, label %12
@@ -273,7 +273,7 @@ define internal range(i32 0, 2) i32 @test_a2i_ipaddress(i32 noundef %0) #0 {
   %18 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %7) #3
   %19 = sext i32 %5 to i64
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !19
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 167, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %18, i64 noundef %19, ptr noundef %21, i64 noundef %19) #3
   %.not15 = icmp eq i32 %22, 0
   br i1 %.not15, label %23, label %24
@@ -392,7 +392,7 @@ define internal range(i32 0, 2) i32 @tests_X509_PURPOSE() #0 {
   br i1 %.not35, label %63, label %52
 
 52:                                               ; preds = %49
-  %53 = load i32, ptr %38, align 4, !tbaa !20
+  %53 = load i32, ptr %38, align 4, !tbaa !21
   %54 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 219, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.89, i32 noundef %53, i32 noundef %1) #3
   %.not36 = icmp eq i32 %54, 0
   br i1 %.not36, label %63, label %55
@@ -489,12 +489,13 @@ attributes #3 = { nounwind }
 !9 = !{!10, !11, i64 0}
 !10 = !{!"v3_ext_method", !11, i64 0, !11, i64 4, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96}
 !11 = !{!"int", !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{!16, !11, i64 16}
-!16 = !{!"", !17, i64 0, !17, i64 8, !11, i64 16}
-!17 = !{!"p1 omnipotent char", !6, i64 0}
-!18 = !{!16, !17, i64 0}
-!19 = !{!16, !17, i64 8}
-!20 = !{!11, !11, i64 0}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = !{!17, !11, i64 16}
+!17 = !{!"", !18, i64 0, !18, i64 8, !11, i64 16}
+!18 = !{!"p1 omnipotent char", !6, i64 0}
+!19 = !{!17, !18, i64 0}
+!20 = !{!17, !18, i64 8}
+!21 = !{!11, !11, i64 0}

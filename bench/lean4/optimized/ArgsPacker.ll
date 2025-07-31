@@ -22957,7 +22957,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit156.backedge:                        ; preds = %73, %75, %85, %84, %82
   %.0134.be = phi ptr [ %77, %75 ], [ %79, %82 ], [ %79, %84 ], [ %79, %85 ], [ inttoptr (i64 1 to ptr), %73 ]
   %.0133.be = phi ptr [ %.1.i223294, %75 ], [ %78, %82 ], [ %78, %84 ], [ %78, %85 ], [ %.1.i223294, %73 ]
-  br label %lean_dec.exit156
+  br label %lean_dec.exit156, !llvm.loop !18
 
 75:                                               ; preds = %73
   %76 = add i64 %50, -2
@@ -34661,7 +34661,7 @@ lean_obj_tag.exit:                                ; preds = %81, %84
 99:                                               ; preds = %98, %95
   %100 = phi i32 [ %.pr, %98 ], [ %96, %95 ]
   %101 = icmp sgt i32 %100, 1
-  br i1 %101, label %102, label %104, !prof !18
+  br i1 %101, label %102, label %104, !prof !20
 
 102:                                              ; preds = %99
   %103 = add nsw i32 %100, -1
@@ -56228,7 +56228,7 @@ lean_dec.exit98:                                  ; preds = %58, %57, %55, %lean
   %64 = and i64 %63, 1
   %65 = icmp ne i64 %64, 0
   %or.cond = select i1 %62, i1 %65, i1 false
-  br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !19
+  br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !21
 
 lean_nat_lt.exit.thread:                          ; preds = %lean_dec.exit98
   %66 = icmp ult ptr %2, %59
@@ -59136,7 +59136,7 @@ lean_dec.exit84:                                  ; preds = %lean_dec.exit84.bac
   %31 = and i64 %30, 1
   %32 = icmp ne i64 %31, 0
   %or.cond = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond, label %33, label %lean_nat_lt.exit, !prof !19
+  br i1 %or.cond, label %33, label %lean_nat_lt.exit, !prof !21
 
 33:                                               ; preds = %lean_dec.exit84
   %34 = icmp ult ptr %.068, %26
@@ -63992,5 +63992,7 @@ attributes #8 = { noreturn nounwind }
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !6, i64 0}
-!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!"branch_weights", i32 4000000, i32 4001}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!21 = !{!"branch_weights", i32 4000000, i32 4001}

@@ -654,8 +654,8 @@ define internal range(i32 0, 2) i32 @less(ptr readnone captures(none) %0, ptr no
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %3
-  %10 = load float, ptr %4, align 4, !tbaa !64
-  %11 = load float, ptr %5, align 4, !tbaa !64
+  %10 = load float, ptr %4, align 4, !tbaa !65
+  %11 = load float, ptr %5, align 4, !tbaa !65
   %12 = fsub nsz float %10, %11
   %13 = fcmp nsz olt float %12, 0x3E80000000000000
   %14 = zext i1 %13 to i32
@@ -681,8 +681,8 @@ define internal range(i32 0, 2) i32 @equal(ptr readnone captures(none) %0, ptr n
   br i1 %.not, label %9, label %16
 
 9:                                                ; preds = %3
-  %10 = load float, ptr %4, align 4, !tbaa !64
-  %11 = load float, ptr %5, align 4, !tbaa !64
+  %10 = load float, ptr %4, align 4, !tbaa !65
+  %11 = load float, ptr %5, align 4, !tbaa !65
   %12 = fsub nsz float %10, %11
   %13 = call nsz float @llvm.fabs.f32(float %12)
   %14 = fcmp nsz olt float %13, 0x3E80000000000000
@@ -709,8 +709,8 @@ define internal range(i32 0, 2) i32 @greater(ptr readnone captures(none) %0, ptr
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %3
-  %10 = load float, ptr %5, align 4, !tbaa !64
-  %11 = load float, ptr %4, align 4, !tbaa !64
+  %10 = load float, ptr %5, align 4, !tbaa !65
+  %11 = load float, ptr %4, align 4, !tbaa !65
   %12 = fsub nsz float %10, %11
   %13 = fcmp nsz olt float %12, 0x3E80000000000000
   %14 = zext i1 %13 to i32
@@ -736,16 +736,16 @@ define internal i32 @parse_expr(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %.not, label %9, label %20
 
 9:                                                ; preds = %3
-  %10 = load double, ptr %4, align 8, !tbaa !66
+  %10 = load double, ptr %4, align 8, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %10, ptr %12, align 8, !tbaa !66
-  store double %10, ptr %11, align 8, !tbaa !66
-  %13 = load double, ptr %5, align 8, !tbaa !66
+  store double %10, ptr %12, align 8, !tbaa !67
+  store double %10, ptr %11, align 8, !tbaa !67
+  %13 = load double, ptr %5, align 8, !tbaa !67
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %13, ptr %14, align 8, !tbaa !66
+  store double %13, ptr %14, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %13, ptr %15, align 8, !tbaa !66
+  store double %13, ptr %15, align 8, !tbaa !67
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !36
   %18 = call nsz double @av_expr_eval(ptr noundef %17, ptr noundef nonnull %11, ptr noundef null) #14
@@ -782,14 +782,14 @@ define internal void @print_file(ptr noundef readonly captures(none) %0, ptr nou
 11:                                               ; preds = %14, %7
   %.05.i = phi i64 [ 0, %7 ], [ %15, %14 ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %.05.i
-  %13 = load i8, ptr %12, align 1, !tbaa !68
+  %13 = load i8, ptr %12, align 1, !tbaa !69
   %.not.i = icmp eq i8 %13, 0
   br i1 %.not.i, label %av_strnlen.exit, label %14
 
 14:                                               ; preds = %11
   %15 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %15, 128
-  br i1 %exitcond.not.i, label %av_strnlen.exit, label %11, !llvm.loop !69
+  br i1 %exitcond.not.i, label %av_strnlen.exit, label %11, !llvm.loop !70
 
 av_strnlen.exit:                                  ; preds = %11, %14
   %.0.lcssa.i = phi i64 [ 128, %14 ], [ %.05.i, %11 ]
@@ -948,11 +948,12 @@ attributes #16 = { nounwind willreturn memory(read) }
 !59 = !{!"p2 omnipotent char", !14, i64 0}
 !60 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
 !61 = !{!54, !11, i64 0}
-!62 = distinct !{!62, !63}
+!62 = distinct !{!62, !63, !64}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"float", !8, i64 0}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"double", !8, i64 0}
-!68 = !{!8, !8, i64 0}
-!69 = distinct !{!69, !63}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"float", !8, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"double", !8, i64 0}
+!69 = !{!8, !8, i64 0}
+!70 = distinct !{!70, !63, !64}

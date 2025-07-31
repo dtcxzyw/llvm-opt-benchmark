@@ -90,7 +90,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ff_lsb2full(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !41
+  %4 = load i32, ptr %3, align 8, !tbaa !42
   %5 = zext nneg i32 %4 to i64
   %notmask = shl nsw i64 -1, %5
   %6 = xor i64 %notmask, -1
@@ -106,8 +106,8 @@ define i64 @ff_lsb2full(ptr noundef readonly captures(none) %0, i64 noundef %1) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ff_nut_sp_pos_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load i64, ptr %0, align 8, !tbaa !42
-  %4 = load i64, ptr %1, align 8, !tbaa !42
+  %3 = load i64, ptr %0, align 8, !tbaa !43
+  %4 = load i64, ptr %1, align 8, !tbaa !43
   %5 = sub i64 %3, %4
   %6 = lshr i64 %5, 32
   %7 = sub i64 %4, %3
@@ -120,9 +120,9 @@ define i32 @ff_nut_sp_pos_cmp(ptr noundef readonly captures(none) %0, ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ff_nut_sp_pts_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !44
+  %4 = load i64, ptr %3, align 8, !tbaa !45
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !44
+  %6 = load i64, ptr %5, align 8, !tbaa !45
   %7 = sub nsw i64 %4, %6
   %8 = lshr i64 %7, 32
   %9 = sub nsw i64 %6, %4
@@ -138,10 +138,10 @@ define range(i32 -12, 1) i32 @ff_nut_add_sp(ptr noundef %0, i64 noundef %1, i64 
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %7 = tail call noalias ptr @av_mallocz(i64 noundef 24) #7
-  store ptr %7, ptr %5, align 8, !tbaa !45
+  store ptr %7, ptr %5, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   %8 = tail call ptr @av_tree_node_alloc() #7
-  store ptr %8, ptr %6, align 8, !tbaa !47
+  store ptr %8, ptr %6, align 8, !tbaa !48
   %9 = icmp ne ptr %7, null
   %10 = icmp ne ptr %8, null
   %or.cond = select i1 %9, i1 %10, i1 false
@@ -154,23 +154,23 @@ define range(i32 -12, 1) i32 @ff_nut_add_sp(ptr noundef %0, i64 noundef %1, i64 
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %14 = load i32, ptr %13, align 8, !tbaa !48
+  %14 = load i32, ptr %13, align 8, !tbaa !49
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %13, align 8, !tbaa !48
-  store i64 %1, ptr %7, align 8, !tbaa !42
+  store i32 %15, ptr %13, align 8, !tbaa !49
+  store i64 %1, ptr %7, align 8, !tbaa !43
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %2, ptr %16, align 8, !tbaa !49
+  store i64 %2, ptr %16, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %3, ptr %17, align 8, !tbaa !44
+  store i64 %3, ptr %17, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4304
   %19 = call ptr @av_tree_insert(ptr noundef nonnull %18, ptr noundef nonnull %7, ptr noundef nonnull @ff_nut_sp_pos_cmp, ptr noundef nonnull %6) #7
-  %20 = load ptr, ptr %6, align 8, !tbaa !47
+  %20 = load ptr, ptr %6, align 8, !tbaa !48
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %12
   call void @av_free(ptr noundef nonnull %7) #7
-  %22 = load ptr, ptr %6, align 8, !tbaa !47
+  %22 = load ptr, ptr %6, align 8, !tbaa !48
   call void @av_free(ptr noundef %22) #7
   br label %23
 
@@ -194,13 +194,13 @@ declare void @av_free(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define void @ff_nut_free_sp(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4304
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
   tail call void @av_tree_enumerate(ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef nonnull @enu_free) #7
-  %5 = load ptr, ptr %2, align 8, !tbaa !50
+  %5 = load ptr, ptr %2, align 8, !tbaa !51
   tail call void @av_tree_destroy(ptr noundef %5) #7
   br label %6
 
@@ -268,15 +268,16 @@ attributes #7 = { nounwind }
 !36 = !{!"AVRational", !14, i64 0, !14, i64 4}
 !37 = !{!36, !14, i64 0}
 !38 = !{!33, !11, i64 8}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!33, !14, i64 32}
-!42 = !{!43, !11, i64 0}
-!43 = !{!"Syncpoint", !11, i64 0, !11, i64 8, !11, i64 16}
-!44 = !{!43, !11, i64 16}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS9Syncpoint", !7, i64 0}
-!47 = !{!16, !16, i64 0}
-!48 = !{!5, !14, i64 4312}
-!49 = !{!43, !11, i64 8}
-!50 = !{!5, !16, i64 4304}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!33, !14, i64 32}
+!43 = !{!44, !11, i64 0}
+!44 = !{!"Syncpoint", !11, i64 0, !11, i64 8, !11, i64 16}
+!45 = !{!44, !11, i64 16}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS9Syncpoint", !7, i64 0}
+!48 = !{!16, !16, i64 0}
+!49 = !{!5, !14, i64 4312}
+!50 = !{!44, !11, i64 8}
+!51 = !{!5, !16, i64 4304}

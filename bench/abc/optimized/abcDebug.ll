@@ -166,7 +166,7 @@ Abc_Clock.exit41:                                 ; preds = %18, %21
   %.val.i = load i32, ptr %59, align 4, !tbaa !28
   %60 = sext i32 %.val.i to i64
   %61 = icmp slt i64 %indvars.iv.next48.i, %60
-  br i1 %61, label %29, label %Abc_NtkCountFaninsTotal.exit, !llvm.loop !41
+  br i1 %61, label %29, label %Abc_NtkCountFaninsTotal.exit, !llvm.loop !42
 
 Abc_NtkCountFaninsTotal.exit:                     ; preds = %.critedge2.i, %Abc_Clock.exit41
   %.0.lcssa.i = phi i32 [ 0, %Abc_Clock.exit41 ], [ %.3.i, %.critedge2.i ]
@@ -263,7 +263,7 @@ Abc_NtkCountFaninsTotal.exit:                     ; preds = %.critedge2.i, %Abc_
   %.val34.i.i = load i32, ptr %81, align 4, !tbaa !32
   %103 = sext i32 %.val34.i.i to i64
   %104 = icmp slt i64 %indvars.iv.next.i.i, %103
-  br i1 %104, label %85, label %.critedge2.loopexit.i.i, !llvm.loop !42
+  br i1 %104, label %85, label %.critedge2.loopexit.i.i, !llvm.loop !43
 
 .critedge2.loopexit.i.i:                          ; preds = %102
   %.pre.i.i = load ptr, ptr %70, align 8, !tbaa !9
@@ -277,7 +277,7 @@ Abc_NtkCountFaninsTotal.exit:                     ; preds = %.critedge2.i, %Abc_
   %.val.i.i = load i32, ptr %106, align 4, !tbaa !28
   %107 = sext i32 %.val.i.i to i64
   %108 = icmp slt i64 %indvars.iv.next58.i.i, %107
-  br i1 %108, label %75, label %Abc_NtkFindGivenFanin.exit.i, !llvm.loop !43
+  br i1 %108, label %75, label %Abc_NtkFindGivenFanin.exit.i, !llvm.loop !44
 
 Abc_NtkFindGivenFanin.exit.i:                     ; preds = %.critedge2.i.i, %99, %.lr.ph
   %.019.i = phi ptr [ undef, %.lr.ph ], [ %79, %99 ], [ undef, %.critedge2.i.i ]
@@ -334,7 +334,7 @@ Abc_NtkAutoDebugModify.exit:                      ; preds = %113, %120
   call void @Abc_NtkDelete(ptr noundef %69) #11
   %128 = add nuw nsw i32 %.03460, 1
   %exitcond.not = icmp eq i32 %128, %smax
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
 .loopexit:                                        ; preds = %127, %Abc_NtkCountFaninsTotal.exit, %126
   %.03458 = phi i32 [ %.03460, %126 ], [ 0, %Abc_NtkCountFaninsTotal.exit ], [ %smax, %127 ]
@@ -367,7 +367,7 @@ Abc_Clock.exit45:                                 ; preds = %.loopexit, %134
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %142)
   %143 = icmp eq i32 %.03458, %62
   %144 = add nuw nsw i32 %.036, 1
-  br i1 %143, label %145, label %18
+  br i1 %143, label %145, label %18, !llvm.loop !46
 
 145:                                              ; preds = %Abc_Clock.exit45
   call void @Io_WriteBlifLogic(ptr noundef nonnull %.1, ptr noundef nonnull @.str, i32 noundef 1) #11
@@ -437,7 +437,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #5 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !45
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !47
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #12
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #11
@@ -445,7 +445,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #5 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !45, !noalias !47
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !47, !noalias !49
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #11
   br label %17
 
@@ -535,8 +535,8 @@ define range(i32 0, 2) i32 @Abc_NtkFindGivenFanin(ptr noundef readonly captures(
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34
-  store ptr %14, ptr %2, align 8, !tbaa !50
-  store ptr %27, ptr %3, align 8, !tbaa !50
+  store ptr %14, ptr %2, align 8, !tbaa !52
+  store ptr %27, ptr %3, align 8, !tbaa !52
   br label %.critedge
 
 38:                                               ; preds = %20, %34, %32, %29
@@ -545,7 +545,7 @@ define range(i32 0, 2) i32 @Abc_NtkFindGivenFanin(ptr noundef readonly captures(
   %.val34 = load i32, ptr %16, align 4, !tbaa !32
   %39 = sext i32 %.val34 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %20, label %.critedge2.loopexit, !llvm.loop !42
+  br i1 %40, label %20, label %.critedge2.loopexit, !llvm.loop !43
 
 .critedge2.loopexit:                              ; preds = %38
   %.pre = load ptr, ptr %5, align 8, !tbaa !9
@@ -559,7 +559,7 @@ define range(i32 0, 2) i32 @Abc_NtkFindGivenFanin(ptr noundef readonly captures(
   %.val = load i32, ptr %42, align 4, !tbaa !28
   %43 = sext i32 %.val to i64
   %44 = icmp slt i64 %indvars.iv.next58, %43
-  br i1 %44, label %10, label %.critedge, !llvm.loop !43
+  br i1 %44, label %10, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %.critedge2, %4, %37
   %.027 = phi i32 [ 1, %37 ], [ 0, %4 ], [ 0, %.critedge2 ]
@@ -669,15 +669,17 @@ attributes #12 = { nounwind willreturn memory(read) }
 !36 = !{!33, !16, i64 0}
 !37 = !{!33, !20, i64 32}
 !38 = !{!11, !11, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
-!42 = distinct !{!42, !40}
-!43 = distinct !{!43, !40}
-!44 = distinct !{!44, !40}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"vprintf: argument 0"}
-!49 = distinct !{!49, !"vprintf"}
-!50 = !{!34, !34, i64 0}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !40, !41}
+!43 = distinct !{!43, !40, !41}
+!44 = distinct !{!44, !40, !41}
+!45 = distinct !{!45, !40, !41}
+!46 = distinct !{!46, !41}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"vprintf: argument 0"}
+!51 = distinct !{!51, !"vprintf"}
+!52 = !{!34, !34, i64 0}

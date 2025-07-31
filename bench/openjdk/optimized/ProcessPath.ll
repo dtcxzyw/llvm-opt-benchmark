@@ -1363,7 +1363,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   store double %432, ptr %441, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i241, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i241, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i241:                                 ; preds = %.critedge.i, %.preheader.i
   %442 = load double, ptr %10, align 16
@@ -1490,7 +1490,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
 518:                                              ; preds = %482, %476
   %indvars.iv.next192.i = add nuw nsw i64 %indvars.iv191.i, 1
   %exitcond195.not.i = icmp eq i64 %indvars.iv.next192.i, %wide.trip.count194.i
-  br i1 %exitcond195.not.i, label %ProcessCubic.exit, label %476, !llvm.loop !9
+  br i1 %exitcond195.not.i, label %ProcessCubic.exit, label %476, !llvm.loop !10
 
 ProcessCubic.exit:                                ; preds = %518, %426, %._crit_edge.i241
   call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
@@ -1541,7 +1541,7 @@ ProcessCubic.exit:                                ; preds = %518, %426, %._crit_
   %.1 = phi i32 [ %.0281, %115 ], [ %119, %143 ], [ %119, %132 ], [ %145, %159 ], [ %145, %158 ], [ %145, %146 ], [ %161, %278 ], [ %161, %180 ], [ %161, %162 ], [ %280, %520 ], [ %280, %305 ], [ %280, %281 ], [ %.0281, %521 ], [ %.0281, %530 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %115, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %115, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %532
   %533 = icmp ne i8 %.1191, 0
@@ -1957,7 +1957,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %51 = getelementptr inbounds nuw i8, ptr %.0302357, i64 48
   store ptr null, ptr %51, align 8
   %.not = icmp eq ptr %40, %37
-  br i1 %.not, label %._crit_edge360, label %39, !llvm.loop !11
+  br i1 %.not, label %._crit_edge360, label %39, !llvm.loop !12
 
 ._crit_edge360:                                   ; preds = %39
   %52 = getelementptr inbounds i8, ptr %36, i64 -52
@@ -2273,7 +2273,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %202 = getelementptr inbounds nuw i8, ptr %.0301365, i64 32
   %.0301 = load ptr, ptr %202, align 8
   %.not322 = icmp eq ptr %.0301, null
-  br i1 %.not322, label %._crit_edge369, label %.lr.ph368, !llvm.loop !12
+  br i1 %.not322, label %._crit_edge369, label %.lr.ph368, !llvm.loop !13
 
 ._crit_edge369:                                   ; preds = %201, %.lr.ph406
   %.1298.lcssa = phi i32 [ %.0297401, %.lr.ph406 ], [ %.3300, %201 ]
@@ -2293,7 +2293,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %207 = load ptr, ptr %206, align 8
   %208 = icmp ne ptr %.1280, %207
   %209 = select i1 %208, i1 %205, i1 false
-  br i1 %209, label %.preheader, label %.lr.ph388.preheader, !llvm.loop !13
+  br i1 %209, label %.preheader, label %.lr.ph388.preheader, !llvm.loop !14
 
 .lr.ph388.preheader:                              ; preds = %.loopexit, %.preheader, %.preheader354
   %.7.lcssa429 = phi ptr [ %.1291.lcssa, %.preheader354 ], [ %.9, %.loopexit ], [ %.7382, %.preheader ]
@@ -2347,7 +2347,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %226 = icmp eq ptr %225, %.1274376
   %spec.select = select i1 %226, ptr %.1280, ptr %.1274376
   %.not329 = icmp eq ptr %.1280, %spec.select
-  br i1 %.not329, label %.loopexit, label %.lr.ph378, !llvm.loop !14
+  br i1 %.not329, label %.loopexit, label %.lr.ph378, !llvm.loop !15
 
 .lr.ph388:                                        ; preds = %.lr.ph388.preheader, %.lr.ph388
   %.0294387 = phi ptr [ %229, %.lr.ph388 ], [ %.7.lcssa429, %.lr.ph388.preheader ]
@@ -2357,7 +2357,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %228 = getelementptr inbounds nuw i8, ptr %.0294387, i64 32
   %229 = load ptr, ptr %228, align 8
   %.not324 = icmp eq ptr %229, null
-  br i1 %.not324, label %._crit_edge389, label %.lr.ph388, !llvm.loop !15
+  br i1 %.not324, label %._crit_edge389, label %.lr.ph388, !llvm.loop !16
 
 ._crit_edge389:                                   ; preds = %.lr.ph388
   %230 = load ptr, ptr %3, align 8
@@ -2416,7 +2416,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %257 = getelementptr inbounds nuw i8, ptr %.1295392, i64 32
   %258 = load ptr, ptr %257, align 8
   %.not325 = icmp eq ptr %258, null
-  br i1 %.not325, label %._crit_edge397, label %234, !llvm.loop !16
+  br i1 %.not325, label %._crit_edge397, label %234, !llvm.loop !17
 
 ._crit_edge397:                                   ; preds = %252
   %259 = icmp ne i32 %.2289, 0
@@ -2439,7 +2439,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   %265 = icmp sle i32 %.0284, %13
   %266 = icmp slt i64 %indvars.iv.next, %26
   %267 = select i1 %265, i1 %266, i1 false
-  br i1 %267, label %.lr.ph406, label %._crit_edge407, !llvm.loop !17
+  br i1 %267, label %.lr.ph406, label %._crit_edge407, !llvm.loop !18
 
 ._crit_edge407:                                   ; preds = %._crit_edge397.thread, %._crit_edge360
   tail call void @free(ptr noundef %34) #12
@@ -3167,7 +3167,7 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef no
   %167 = shl i32 %.092113.i, 2
   %168 = add nuw nsw i32 %.096111.i, 2
   %169 = icmp samesign ugt i32 %.097110.i, 32771
-  br i1 %169, label %.lr.ph.i, label %.preheader.i, !llvm.loop !18
+  br i1 %169, label %.lr.ph.i, label %.preheader.i, !llvm.loop !19
 
 .lr.ph127.i:                                      ; preds = %.lr.ph127.i, %.lr.ph127.preheader.i
   %.1126.i = phi i32 [ %171, %.lr.ph127.i ], [ %.0.lcssa146.i, %.lr.ph127.preheader.i ]
@@ -3197,7 +3197,7 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef no
   %185 = load ptr, ptr %0, align 8
   tail call void %185(ptr noundef nonnull %0, i32 noundef %.0100122.i, i32 noundef %.098123.i, i32 noundef %spec.select.i, i32 noundef %.199.i, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %115, i8 noundef zeroext 0) #12
   %186 = icmp samesign ugt i32 %.195124.i, 2
-  br i1 %186, label %.lr.ph127.i, label %DrawMonotonicQuad.exit, !llvm.loop !19
+  br i1 %186, label %.lr.ph127.i, label %DrawMonotonicQuad.exit, !llvm.loop !20
 
 DrawMonotonicQuad.exit:                           ; preds = %.lr.ph127.i, %.preheader.i
   %.0100.lcssa.i = phi i32 [ %117, %.preheader.i ], [ %spec.select.i, %.lr.ph127.i ]
@@ -3552,7 +3552,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef n
   %228 = add nsw i32 %211, %219
   %229 = icmp ugt i32 %228, %220
   %or.cond186.i = select i1 %227, i1 true, i1 %229
-  br i1 %or.cond186.i, label %.critedge.i, label %.preheader.i, !llvm.loop !20
+  br i1 %or.cond186.i, label %.critedge.i, label %.preheader.i, !llvm.loop !21
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.2233.i = phi i32 [ %245, %.lr.ph.i ], [ %.1.lcssa.i, %.preheader.i ]
@@ -3595,7 +3595,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef n
   %252 = add nsw i32 %235, %243
   %.not183.i = icmp ugt i32 %252, %244
   %or.cond188.i = select i1 %or.cond187.i, i1 true, i1 %.not183.i
-  br i1 %or.cond188.i, label %.critedge3.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %or.cond188.i, label %.critedge3.i, label %.lr.ph.i, !llvm.loop !22
 
 .critedge3.i:                                     ; preds = %.lr.ph.i, %.preheader.i
   %.2182.lcssa.i = phi i32 [ %.1181.lcssa.i, %.preheader.i ], [ %247, %.lr.ph.i ]
@@ -3641,7 +3641,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef n
   %272 = load ptr, ptr %0, align 8
   tail call void %272(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %spec.select.i, i32 noundef %.1150.i, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %142, i8 noundef zeroext 0) #12
   %273 = icmp sgt i32 %.2179.lcssa.i, 1
-  br i1 %273, label %.preheader192.i, label %DrawMonotonicCubic.exit, !llvm.loop !22
+  br i1 %273, label %.preheader192.i, label %DrawMonotonicCubic.exit, !llvm.loop !23
 
 DrawMonotonicCubic.exit:                          ; preds = %255, %.thread.i, %64, %68, %72, %48, %52, %56, %60, %90
   ret void
@@ -3689,20 +3689,21 @@ attributes #14 = { nounwind allocsize(1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

@@ -295,7 +295,7 @@ yy_find_shift_action.exit:                        ; preds = %17, %27, %30
 yy_destructor.exit:                               ; preds = %.lr.ph.i, %51, %53, %55, %57, %59
   %61 = load ptr, ptr %0, align 8
   %62 = icmp ugt ptr %61, %44
-  br i1 %62, label %.lr.ph.i, label %.thread57, !llvm.loop !8
+  br i1 %62, label %.lr.ph.i, label %.thread57, !llvm.loop !9
 
 .thread57:                                        ; preds = %yy_destructor.exit, %43
   store ptr %41, ptr %10, align 8
@@ -891,7 +891,7 @@ resolve_unparsed.exit:                            ; preds = %237, %251
   %372 = load ptr, ptr %6, align 8
   %373 = call i32 @stnode_type_id(ptr noundef %372)
   %374 = icmp eq i32 %373, 1
-  br i1 %374, label %.lr.ph.i40, label %._crit_edge.loopexit.i, !llvm.loop !9
+  br i1 %374, label %.lr.ph.i40, label %._crit_edge.loopexit.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i40
   %.pre.i = load ptr, ptr %6, align 8
@@ -1246,7 +1246,7 @@ new_function.exit:                                ; preds = %541, %546
   store i8 %585, ptr %586, align 8
   %587 = getelementptr i8, ptr %576, i64 17
   store i8 %572, ptr %587, align 1
-  br label %17
+  br label %17, !llvm.loop !11
 
 588:                                              ; preds = %yy_find_shift_action.exit
   %589 = icmp ult i8 %.0.i, -76
@@ -1277,7 +1277,7 @@ new_function.exit:                                ; preds = %541, %546
   call fastcc void @yy_destructor(i8 noundef zeroext %602, ptr noundef nonnull %603)
   %604 = load ptr, ptr %0, align 8
   %605 = icmp ugt ptr %604, %597
-  br i1 %605, label %.lr.ph.i.i, label %yyStackOverflow.exit.i, !llvm.loop !8
+  br i1 %605, label %.lr.ph.i.i, label %yyStackOverflow.exit.i, !llvm.loop !9
 
 yyStackOverflow.exit.i:                           ; preds = %.lr.ph.i.i, %595
   store ptr %596, ptr %10, align 8
@@ -1362,7 +1362,7 @@ yy_syntax_error.exit:                             ; preds = %629, %626, %620
   call fastcc void @yy_destructor(i8 noundef zeroext %642, ptr noundef nonnull %643)
   %644 = load ptr, ptr %0, align 8
   %645 = icmp ugt ptr %644, %636
-  br i1 %645, label %.lr.ph.i44, label %yy_parse_failed.exit, !llvm.loop !10
+  br i1 %645, label %.lr.ph.i44, label %yy_parse_failed.exit, !llvm.loop !12
 
 yy_parse_failed.exit:                             ; preds = %.lr.ph.i44, %634
   store ptr %635, ptr %10, align 8
@@ -1601,8 +1601,10 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !7, !8}

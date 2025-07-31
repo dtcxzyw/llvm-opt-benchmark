@@ -467,7 +467,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %252 = getelementptr inbounds nuw i8, ptr %.29311249, i64 4
   %253 = getelementptr inbounds nuw i8, ptr %.39231250, i64 4
   %exitcond1315.not = icmp eq i32 %251, 22
-  br i1 %exitcond1315.not, label %.loopexit, label %.preheader1229
+  br i1 %exitcond1315.not, label %.loopexit, label %.preheader1229, !llvm.loop !6
 
 254:                                              ; preds = %226
   %255 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
@@ -519,7 +519,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %276 = getelementptr inbounds nuw i8, ptr %.49331246, i64 4
   %277 = getelementptr inbounds nuw i8, ptr %.59251247, i64 4
   %exitcond.not = icmp eq i32 %275, 39
-  br i1 %exitcond.not, label %.loopexit, label %.preheader1230
+  br i1 %exitcond.not, label %.loopexit, label %.preheader1230, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader1230, %.preheader1229
   %.3932 = phi ptr [ %252, %.preheader1229 ], [ %276, %.preheader1230 ]
@@ -550,7 +550,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %290 = add nuw nsw i32 %.28811253, 1
   %291 = getelementptr inbounds nuw i8, ptr %.69261252, i64 4
   %exitcond1316.not = icmp eq i32 %290, 4
-  br i1 %exitcond1316.not, label %.preheader1228, label %289
+  br i1 %exitcond1316.not, label %.preheader1228, label %289, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader1228, %.lr.ph
   %.38821255 = phi i32 [ %292, %.lr.ph ], [ 0, %.preheader1228 ]
@@ -559,7 +559,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %292 = add nuw nsw i32 %.38821255, 1
   %293 = getelementptr inbounds nuw i8, ptr %.79271254, i64 4
   %exitcond1317.not = icmp eq i32 %292, %198
-  br i1 %exitcond1317.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond1317.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader1228
   %294 = getelementptr inbounds nuw i8, ptr %.3932, i64 12
@@ -806,7 +806,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %422 = getelementptr inbounds nuw i8, ptr %.111264, i64 4
   %423 = getelementptr inbounds nuw i8, ptr %.59341263, i64 4
   %.not1039 = icmp eq i32 %420, 0
-  br i1 %.not1039, label %._crit_edge1267, label %.lr.ph1266
+  br i1 %.not1039, label %._crit_edge1267, label %.lr.ph1266, !llvm.loop !11
 
 ._crit_edge1267:                                  ; preds = %.lr.ph1266
   %424 = add i64 %415, 8
@@ -854,7 +854,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %446 = add nuw nsw i32 %.58841270, 1
   %447 = getelementptr inbounds nuw i8, ptr %.121269, i64 4
   %exitcond1320.not = icmp eq i32 %446, %367
-  br i1 %exitcond1320.not, label %._crit_edge1273, label %.lr.ph1272
+  br i1 %exitcond1320.not, label %._crit_edge1273, label %.lr.ph1272, !llvm.loop !12
 
 ._crit_edge1273:                                  ; preds = %.lr.ph1272, %444
   %448 = getelementptr inbounds nuw i8, ptr %scevgep, i64 24
@@ -977,7 +977,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %515 = add nuw nsw i32 %.71257, 1
   %516 = getelementptr inbounds nuw i8, ptr %.141256, i64 4
   %exitcond1318.not = icmp eq i32 %515, 4
-  br i1 %exitcond1318.not, label %.preheader1227, label %514
+  br i1 %exitcond1318.not, label %.preheader1227, label %514, !llvm.loop !13
 
 .lr.ph1260:                                       ; preds = %.preheader1227, %.lr.ph1260
   %.81259 = phi i32 [ %517, %.lr.ph1260 ], [ 0, %.preheader1227 ]
@@ -986,7 +986,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %517 = add nuw nsw i32 %.81259, 1
   %518 = getelementptr inbounds nuw i8, ptr %.151258, i64 4
   %exitcond1319.not = icmp eq i32 %517, %367
-  br i1 %exitcond1319.not, label %._crit_edge1261, label %.lr.ph1260
+  br i1 %exitcond1319.not, label %._crit_edge1261, label %.lr.ph1260, !llvm.loop !14
 
 ._crit_edge1261:                                  ; preds = %.lr.ph1260, %.preheader1227
   %519 = load i32, ptr %501, align 1, !tbaa !3
@@ -1156,20 +1156,20 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %.7902 = phi i32 [ %.5900.ph1281, %.split1275 ], [ %587, %.thread1216 ]
   %.4894 = phi i32 [ %588, %.split1275 ], [ %586, %.thread1216 ]
   %.not1107 = icmp eq i32 %.7902, 0
-  br i1 %.not1107, label %.outer._crit_edge, label %.outer.split
+  br i1 %.not1107, label %.outer._crit_edge, label %.outer.split, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.outer, %553
   %589 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 0, ptr %589, align 4, !tbaa !6
-  store i32 %7, ptr %10, align 4, !tbaa !9
+  store i32 0, ptr %589, align 4, !tbaa !16
+  store i32 %7, ptr %10, align 4, !tbaa !19
   %590 = ptrtoint ptr %.2916 to i64
   %591 = ptrtoint ptr %.9 to i64
   %592 = sub i64 %590, %591
   %593 = trunc i64 %592 to i32
   %594 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %593, ptr %594, align 4, !tbaa !10
+  store i32 %593, ptr %594, align 4, !tbaa !20
   %595 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %593, ptr %595, align 4, !tbaa !11
+  store i32 %593, ptr %595, align 4, !tbaa !21
   br i1 %.not, label %596, label %.critedge
 
 596:                                              ; preds = %.outer._crit_edge
@@ -1219,18 +1219,18 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
-  store i32 %4, ptr %12, align 4, !tbaa !12
+  store i32 %4, ptr %12, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
-  store ptr %8, ptr %10, align 8, !tbaa !13
+  store ptr %8, ptr %10, align 8, !tbaa !23
   %16 = load i32, ptr %3, align 1, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %16, ptr %17, align 8, !tbaa !17
+  store i32 %16, ptr %17, align 8, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %19 = load i32, ptr %18, align 1, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %19, ptr %20, align 4, !tbaa !18
+  store i32 %19, ptr %20, align 4, !tbaa !28
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21, ptr noundef %8, i32 noundef %16, i32 noundef %19) #4
   br label %33
 
@@ -1259,24 +1259,24 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 %34
   %36 = load i32, ptr %35, align 1, !tbaa !3
   %37 = getelementptr inbounds nuw [6 x i32], ptr %14, i64 0, i64 %indvars.iv
-  store i32 %36, ptr %37, align 4, !tbaa !12
+  store i32 %36, ptr %37, align 4, !tbaa !22
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22, i32 noundef %38, i32 noundef %36) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.preheader370, label %33
+  br i1 %exitcond.not, label %.preheader370, label %33, !llvm.loop !29
 
 39:                                               ; preds = %.preheader370, %307
   %.0255 = phi i32 [ %.2257, %307 ], [ %2, %.preheader370 ]
   %.0245 = phi ptr [ %.1246, %307 ], [ %5, %.preheader370 ]
-  store i32 %.0255, ptr %11, align 4, !tbaa !12
+  store i32 %.0255, ptr %11, align 4, !tbaa !22
   %40 = shl i32 %.0255, 2
   %41 = zext i32 %40 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %41
-  store ptr %gep, ptr %15, align 8, !tbaa !19
+  store ptr %gep, ptr %15, align 8, !tbaa !30
   %42 = call i32 @lzma_upack_esi_00(ptr noundef nonnull %10, ptr noundef nonnull %gep, ptr noundef %0, i32 noundef %1) #4
   %.not = icmp eq i32 %42, 0
-  %.promoted389 = load i32, ptr %11, align 4, !tbaa !12
+  %.promoted389 = load i32, ptr %11, align 4, !tbaa !22
   br i1 %.not, label %.preheader369, label %43
 
 43:                                               ; preds = %39
@@ -1285,41 +1285,41 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %46 = select i1 %45, i32 11, i32 8
   %47 = and i32 %.promoted389, -256
   %48 = or disjoint i32 %46, %47
-  store i32 %48, ptr %11, align 4, !tbaa !12
-  %49 = load i32, ptr %21, align 8, !tbaa !12
-  %50 = load i32, ptr %12, align 4, !tbaa !12
+  store i32 %48, ptr %11, align 4, !tbaa !22
+  %49 = load i32, ptr %21, align 8, !tbaa !22
+  %50 = load i32, ptr %12, align 4, !tbaa !22
   %51 = and i32 %50, -256
   %52 = or disjoint i32 %51, 48
-  store i32 %52, ptr %12, align 4, !tbaa !12
-  %53 = load ptr, ptr %15, align 8, !tbaa !19
+  store i32 %52, ptr %12, align 4, !tbaa !22
+  %53 = load ptr, ptr %15, align 8, !tbaa !30
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
-  store ptr %55, ptr %15, align 8, !tbaa !19
+  store ptr %55, ptr %15, align 8, !tbaa !30
   %56 = call i32 @lzma_upack_esi_00(ptr noundef nonnull %10, ptr noundef nonnull %55, ptr noundef %0, i32 noundef %1) #4
   %.not311 = icmp eq i32 %56, 0
   br i1 %.not311, label %57, label %147
 
 57:                                               ; preds = %43
-  %58 = load i32, ptr %11, align 4, !tbaa !12
+  %58 = load i32, ptr %11, align 4, !tbaa !22
   %59 = add i32 %58, -1
-  store i32 %59, ptr %11, align 4, !tbaa !12
-  %60 = load i32, ptr %22, align 16, !tbaa !12
-  %61 = load i32, ptr %23, align 4, !tbaa !12
-  store i32 %61, ptr %22, align 16, !tbaa !12
-  store i32 %49, ptr %23, align 4, !tbaa !12
-  store ptr %29, ptr %15, align 8, !tbaa !19
-  store i32 %60, ptr %24, align 4, !tbaa !12
+  store i32 %59, ptr %11, align 4, !tbaa !22
+  %60 = load i32, ptr %22, align 16, !tbaa !22
+  %61 = load i32, ptr %23, align 4, !tbaa !22
+  store i32 %61, ptr %22, align 16, !tbaa !22
+  store i32 %49, ptr %23, align 4, !tbaa !22
+  store ptr %29, ptr %15, align 8, !tbaa !30
+  store i32 %60, ptr %24, align 4, !tbaa !22
   %62 = call i32 @lzma_upack_esi_54(ptr noundef nonnull %10, i32 noundef %59, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef %0, i32 noundef %1) #4
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %.critedge, label %64
 
 64:                                               ; preds = %57
-  %65 = load i32, ptr %13, align 4, !tbaa !12
+  %65 = load i32, ptr %13, align 4, !tbaa !22
   %66 = add i32 %65, -1
   %spec.select = call i32 @llvm.umin.i32(i32 %66, i32 3)
-  store i32 64, ptr %12, align 4, !tbaa !12
+  store i32 64, ptr %12, align 4, !tbaa !22
   %67 = shl nuw nsw i32 %spec.select, 6
-  store i32 %67, ptr %11, align 4, !tbaa !12
+  store i32 %67, ptr %11, align 4, !tbaa !22
   %68 = shl nuw nsw i32 %spec.select, 8
   %69 = zext nneg i32 %68 to i64
   %gep392 = getelementptr inbounds nuw i8, ptr %invariant.gep391, i64 %69
@@ -1328,7 +1328,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %71, label %.critedge, label %72
 
 72:                                               ; preds = %64
-  %73 = load i32, ptr %11, align 4, !tbaa !12
+  %73 = load i32, ptr %11, align 4, !tbaa !22
   %74 = and i32 %73, 252
   %.not313 = icmp eq i32 %74, 0
   br i1 %.not313, label %144, label %75
@@ -1343,7 +1343,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %82 = shl i32 %81, 2
   %83 = zext i32 %82 to i64
   %gep394 = getelementptr inbounds nuw i8, ptr %invariant.gep393, i64 %83
-  store ptr %gep394, ptr %15, align 8, !tbaa !19
+  store ptr %gep394, ptr %15, align 8, !tbaa !30
   %84 = icmp samesign ugt i32 %80, 5
   br i1 %84, label %85, label %124
 
@@ -1351,8 +1351,8 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %86 = and i32 %79, -256
   %87 = add nsw i32 %80, -4
   %88 = or i32 %87, %86
-  store i32 %88, ptr %12, align 4, !tbaa !12
-  store i32 0, ptr %11, align 4, !tbaa !12
+  store i32 %88, ptr %12, align 4, !tbaa !22
+  store i32 0, ptr %11, align 4, !tbaa !22
   br i1 %30, label %.split.preheader, label %.critedge
 
 .split.preheader:                                 ; preds = %85
@@ -1384,18 +1384,18 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %100 = load i32, ptr %93, align 1, !tbaa !3
   %101 = call i32 @llvm.bswap.i32(i32 %100)
   %102 = lshr i32 %92, 1
-  store i32 %102, ptr %17, align 8, !tbaa !17
+  store i32 %102, ptr %17, align 8, !tbaa !27
   %103 = sub i32 %101, %91
   %104 = shl i32 %90, 1
-  store i32 %104, ptr %11, align 4, !tbaa !12
+  store i32 %104, ptr %11, align 4, !tbaa !22
   %.not316 = icmp ult i32 %103, %102
   br i1 %.not316, label %108, label %105
 
 105:                                              ; preds = %99
   %106 = or disjoint i32 %104, 1
-  store i32 %106, ptr %11, align 4, !tbaa !12
+  store i32 %106, ptr %11, align 4, !tbaa !22
   %107 = add i32 %91, %102
-  store i32 %107, ptr %20, align 4, !tbaa !18
+  store i32 %107, ptr %20, align 4, !tbaa !28
   br label %108
 
 108:                                              ; preds = %105, %99
@@ -1406,11 +1406,11 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 
 112:                                              ; preds = %108
   %113 = shl i32 %110, 8
-  store i32 %113, ptr %20, align 4, !tbaa !18
+  store i32 %113, ptr %20, align 4, !tbaa !28
   %114 = shl nuw i32 %102, 8
-  store i32 %114, ptr %17, align 8, !tbaa !17
+  store i32 %114, ptr %17, align 8, !tbaa !27
   %115 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  store ptr %115, ptr %10, align 8, !tbaa !13
+  store ptr %115, ptr %10, align 8, !tbaa !23
   br label %116
 
 116:                                              ; preds = %112, %108
@@ -1418,14 +1418,14 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %118 = phi i32 [ %114, %112 ], [ %102, %108 ]
   %119 = phi ptr [ %115, %112 ], [ %93, %108 ]
   %120 = add i32 %89, -1
-  store i32 %120, ptr %12, align 4, !tbaa !12
+  store i32 %120, ptr %12, align 4, !tbaa !22
   %.not317 = icmp eq i32 %120, 0
-  br i1 %.not317, label %121, label %.split
+  br i1 %.not317, label %121, label %.split, !llvm.loop !31
 
 121:                                              ; preds = %116
   %122 = shl i32 %109, 4
   %123 = add i32 %122, %81
-  store ptr %31, ptr %15, align 8, !tbaa !19
+  store ptr %31, ptr %15, align 8, !tbaa !30
   br label %124
 
 124:                                              ; preds = %121, %75
@@ -1434,14 +1434,14 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %.1260 = phi i32 [ %123, %121 ], [ %81, %75 ]
   %127 = and i32 %126, 255
   %128 = shl nuw i32 1, %127
-  store i32 %128, ptr %12, align 4, !tbaa !12
-  store i32 %126, ptr %11, align 4, !tbaa !12
+  store i32 %128, ptr %12, align 4, !tbaa !22
+  store i32 %126, ptr %11, align 4, !tbaa !22
   %129 = call i32 @lzma_upack_esi_50(ptr noundef nonnull %10, i32 noundef 1, i32 noundef %128, ptr noundef nonnull %15, ptr noundef %125, ptr noundef nonnull %11, ptr noundef %0, i32 noundef %1) #4
   %130 = icmp eq i32 %129, -1
   br i1 %130, label %.critedge, label %131
 
 131:                                              ; preds = %124
-  %132 = load i32, ptr %11, align 4, !tbaa !12
+  %132 = load i32, ptr %11, align 4, !tbaa !22
   %133 = ashr i32 %132, 31
   br label %134
 
@@ -1455,10 +1455,10 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %140 = lshr i32 %136, 1
   %141 = add i32 %135, -1
   %.not318 = icmp eq i32 %141, 0
-  br i1 %.not318, label %142, label %134
+  br i1 %.not318, label %142, label %134, !llvm.loop !32
 
 142:                                              ; preds = %134
-  store i32 %140, ptr %11, align 4, !tbaa !12
+  store i32 %140, ptr %11, align 4, !tbaa !22
   %143 = add i32 %139, %.1260
   br label %144
 
@@ -1469,68 +1469,68 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   br label %203
 
 147:                                              ; preds = %43
-  %148 = load i32, ptr %12, align 4, !tbaa !12
-  %149 = load ptr, ptr %15, align 8, !tbaa !19
+  %148 = load i32, ptr %12, align 4, !tbaa !22
+  %149 = load ptr, ptr %15, align 8, !tbaa !30
   %150 = zext i32 %148 to i64
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 %150
-  store ptr %151, ptr %15, align 8, !tbaa !19
+  store ptr %151, ptr %15, align 8, !tbaa !30
   %152 = call i32 @lzma_upack_esi_00(ptr noundef nonnull %10, ptr noundef %151, ptr noundef %0, i32 noundef %1) #4
   %.not320 = icmp eq i32 %152, 0
   br i1 %.not320, label %169, label %153
 
 153:                                              ; preds = %147
-  %154 = load ptr, ptr %15, align 8, !tbaa !19
+  %154 = load ptr, ptr %15, align 8, !tbaa !30
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 96
-  store ptr %155, ptr %15, align 8, !tbaa !19
+  store ptr %155, ptr %15, align 8, !tbaa !30
   %156 = call i32 @lzma_upack_esi_00(ptr noundef nonnull %10, ptr noundef nonnull %155, ptr noundef %0, i32 noundef %1) #4
   %.not327 = icmp eq i32 %156, 0
   br i1 %.not327, label %167, label %157
 
 157:                                              ; preds = %153
-  %158 = load i32, ptr %12, align 4, !tbaa !12
-  %159 = load ptr, ptr %15, align 8, !tbaa !19
+  %158 = load i32, ptr %12, align 4, !tbaa !22
+  %159 = load ptr, ptr %15, align 8, !tbaa !30
   %160 = zext i32 %158 to i64
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 %160
-  store ptr %161, ptr %15, align 8, !tbaa !19
+  store ptr %161, ptr %15, align 8, !tbaa !30
   %162 = call i32 @lzma_upack_esi_00(ptr noundef nonnull %10, ptr noundef %161, ptr noundef %0, i32 noundef %1) #4
-  %163 = load i32, ptr %22, align 16, !tbaa !12
-  %164 = load i32, ptr %23, align 4, !tbaa !12
-  store i32 %164, ptr %22, align 16, !tbaa !12
-  store i32 %49, ptr %23, align 4, !tbaa !12
+  %163 = load i32, ptr %22, align 16, !tbaa !22
+  %164 = load i32, ptr %23, align 4, !tbaa !22
+  store i32 %164, ptr %22, align 16, !tbaa !22
+  store i32 %49, ptr %23, align 4, !tbaa !22
   %.not328 = icmp eq i32 %162, 0
   br i1 %.not328, label %196, label %165
 
 165:                                              ; preds = %157
-  %166 = load i32, ptr %24, align 4, !tbaa !12
-  store i32 %163, ptr %24, align 4, !tbaa !12
+  %166 = load i32, ptr %24, align 4, !tbaa !22
+  store i32 %163, ptr %24, align 4, !tbaa !22
   br label %196
 
 167:                                              ; preds = %153
-  %168 = load i32, ptr %23, align 4, !tbaa !12
-  store i32 %49, ptr %23, align 4, !tbaa !12
+  %168 = load i32, ptr %23, align 4, !tbaa !22
+  store i32 %49, ptr %23, align 4, !tbaa !22
   br label %196
 
 169:                                              ; preds = %147
-  %170 = load i32, ptr %12, align 4, !tbaa !12
-  %171 = load ptr, ptr %15, align 8, !tbaa !19
+  %170 = load i32, ptr %12, align 4, !tbaa !22
+  %171 = load ptr, ptr %15, align 8, !tbaa !30
   %172 = zext i32 %170 to i64
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 %172
-  store ptr %173, ptr %15, align 8, !tbaa !19
+  store ptr %173, ptr %15, align 8, !tbaa !30
   %174 = call i32 @lzma_upack_esi_00(ptr noundef nonnull %10, ptr noundef %173, ptr noundef %0, i32 noundef %1) #4
   %.not321 = icmp eq i32 %174, 0
   br i1 %.not321, label %175, label %196
 
 175:                                              ; preds = %169
-  %176 = load i32, ptr %11, align 4, !tbaa !12
+  %176 = load i32, ptr %11, align 4, !tbaa !22
   %177 = or i32 %176, 1
-  store i32 %177, ptr %11, align 4, !tbaa !12
+  store i32 %177, ptr %11, align 4, !tbaa !22
   %178 = zext i32 %49 to i64
   %179 = sub nsw i64 0, %178
   %180 = getelementptr inbounds i8, ptr %.0245, i64 %179
-  %181 = load i32, ptr %12, align 4, !tbaa !12
+  %181 = load i32, ptr %12, align 4, !tbaa !22
   %182 = and i32 %181, -256
   %183 = or disjoint i32 %182, 128
-  store i32 %183, ptr %12, align 4, !tbaa !12
+  store i32 %183, ptr %12, align 4, !tbaa !22
   %.not323 = icmp ult ptr %180, %0
   %or.cond395 = select i1 %.not322, i1 true, i1 %.not323
   br i1 %or.cond395, label %.critedge, label %184
@@ -1564,16 +1564,16 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 
 196:                                              ; preds = %169, %167, %165, %157
   %.3262 = phi i32 [ %166, %165 ], [ %163, %157 ], [ %168, %167 ], [ %49, %169 ]
-  %197 = load i32, ptr %11, align 4, !tbaa !12
-  store ptr %25, ptr %15, align 8, !tbaa !19
+  %197 = load i32, ptr %11, align 4, !tbaa !22
+  store ptr %25, ptr %15, align 8, !tbaa !30
   %198 = call i32 @lzma_upack_esi_54(ptr noundef nonnull %10, i32 noundef %197, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef %0, i32 noundef %1) #4
   %199 = icmp eq i32 %198, -1
   br i1 %199, label %.critedge, label %200
 
 200:                                              ; preds = %196
-  %201 = load i32, ptr %12, align 4, !tbaa !12
-  store i32 %201, ptr %11, align 4, !tbaa !12
-  %202 = load i32, ptr %13, align 4, !tbaa !12
+  %201 = load i32, ptr %12, align 4, !tbaa !22
+  store i32 %201, ptr %11, align 4, !tbaa !22
+  %202 = load i32, ptr %13, align 4, !tbaa !22
   %.pre413 = add i32 %202, -1
   br label %203
 
@@ -1583,7 +1583,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %205 = phi i32 [ %202, %200 ], [ %65, %144 ]
   %.2261 = phi i32 [ %.3262, %200 ], [ %146, %144 ]
   %.1256 = phi i32 [ %197, %200 ], [ %59, %144 ]
-  store i32 %205, ptr %12, align 4, !tbaa !12
+  store i32 %205, ptr %12, align 4, !tbaa !22
   %206 = icmp uge i32 %.pre-phi, %1
   %or.cond344 = select i1 %.not322, i1 true, i1 %206
   %.not330 = icmp ult ptr %.0245, %0
@@ -1625,7 +1625,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %or.cond349, label %225, label %.critedge
 
 225:                                              ; preds = %220
-  store i32 %.2261, ptr %21, align 8, !tbaa !12
+  store i32 %.2261, ptr %21, align 8, !tbaa !22
   %.not401 = icmp eq i32 %205, 0
   br i1 %.not401, label %._crit_edge, label %.lr.ph
 
@@ -1637,12 +1637,12 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   store i8 %227, ptr %.2247388, align 1, !tbaa !3
   %228 = add nuw i32 %.1254387, 1
   %229 = getelementptr inbounds nuw i8, ptr %.2247388, i64 1
-  %230 = load i32, ptr %12, align 4, !tbaa !12
+  %230 = load i32, ptr %12, align 4, !tbaa !22
   %231 = icmp ult i32 %228, %230
-  br i1 %231, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %231, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i32, ptr %11, align 4, !tbaa !12
+  %.pre = load i32, ptr %11, align 4, !tbaa !22
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %225
@@ -1653,7 +1653,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %235 = load i8, ptr %234, align 1, !tbaa !3
   %236 = zext i8 %235 to i32
   %237 = or disjoint i32 %233, %236
-  store i32 %237, ptr %11, align 4, !tbaa !12
+  store i32 %237, ptr %11, align 4, !tbaa !22
   br label %.thread358
 
 .preheader369:                                    ; preds = %39, %.preheader369
@@ -1663,10 +1663,10 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %240 = and i32 %238, -256
   %241 = or disjoint i32 %.0264, %240
   %242 = icmp samesign ugt i32 %.0264, 6
-  br i1 %242, label %.preheader369, label %243
+  br i1 %242, label %.preheader369, label %243, !llvm.loop !34
 
 243:                                              ; preds = %.preheader369
-  store i32 %241, ptr %11, align 4, !tbaa !12
+  store i32 %241, ptr %11, align 4, !tbaa !22
   %244 = icmp ugt ptr %.0245, %5
   %245 = icmp ult ptr %.0245, %32
   %or.cond352 = select i1 %244, i1 %245, i1 false
@@ -1686,13 +1686,13 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %.4263 = phi i64 [ %253, %246 ], [ 4104, %243 ]
   %255 = getelementptr inbounds nuw i8, ptr %3, i64 %.4263
   %256 = or disjoint i32 %240, 1
-  store i32 %256, ptr %11, align 4, !tbaa !12
-  %257 = load i32, ptr %12, align 4, !tbaa !12
+  store i32 %256, ptr %11, align 4, !tbaa !22
+  %257 = load i32, ptr %12, align 4, !tbaa !22
   %.not304 = icmp eq i32 %257, 0
   br i1 %.not304, label %296, label %258
 
 258:                                              ; preds = %254
-  %259 = load i32, ptr %21, align 8, !tbaa !12
+  %259 = load i32, ptr %21, align 8, !tbaa !22
   %260 = zext i32 %259 to i64
   %261 = sub nsw i64 0, %260
   %262 = getelementptr inbounds i8, ptr %.0245, i64 %261
@@ -1721,19 +1721,19 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %.not308 = icmp eq i32 %273, 0
   %274 = select i1 %.not308, i32 256, i32 512
   %275 = or disjoint i32 %274, %269
-  store i32 %275, ptr %11, align 4, !tbaa !12
+  store i32 %275, ptr %11, align 4, !tbaa !22
   %276 = shl i32 %275, 2
   %277 = zext i32 %276 to i64
   %278 = getelementptr inbounds nuw i8, ptr %255, i64 %277
-  store ptr %278, ptr %15, align 8, !tbaa !19
+  store ptr %278, ptr %15, align 8, !tbaa !30
   %279 = call i32 @lzma_upack_esi_00(ptr noundef nonnull %10, ptr noundef nonnull %278, ptr noundef %0, i32 noundef %1) #4
-  %280 = load i32, ptr %11, align 4, !tbaa !12
+  %280 = load i32, ptr %11, align 4, !tbaa !22
   %281 = shl i32 %280, 1
   %282 = add i32 %281, %279
   %283 = and i32 %282, 255
   %284 = and i32 %280, -256
   %285 = or disjoint i32 %283, %284
-  store i32 %285, ptr %11, align 4, !tbaa !12
+  store i32 %285, ptr %11, align 4, !tbaa !22
   %.not309 = icmp samesign ult i32 %272, 2
   br i1 %.not309, label %.thread358, label %286
 
@@ -1748,13 +1748,13 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 291:                                              ; preds = %286
   %292 = and i32 %280, -65536
   %293 = or disjoint i32 %283, %292
-  store i32 %293, ptr %11, align 4, !tbaa !12
+  store i32 %293, ptr %11, align 4, !tbaa !22
   %294 = call i32 @lzma_upack_esi_50(ptr noundef nonnull %10, i32 noundef %293, i32 noundef 256, ptr noundef nonnull %15, ptr noundef nonnull %255, ptr noundef nonnull %11, ptr noundef %0, i32 noundef %1) #4
   %295 = icmp eq i32 %294, -1
   br i1 %295, label %.critedge, label %.thread358
 
 296:                                              ; preds = %254
-  store i32 256, ptr %12, align 4, !tbaa !12
+  store i32 256, ptr %12, align 4, !tbaa !22
   %297 = call i32 @lzma_upack_esi_50(ptr noundef nonnull %10, i32 noundef %256, i32 noundef 256, ptr noundef nonnull %15, ptr noundef nonnull %255, ptr noundef nonnull %11, ptr noundef %0, i32 noundef %1) #4
   %298 = icmp eq i32 %297, -1
   br i1 %298, label %.critedge, label %.thread358
@@ -1763,7 +1763,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %storemerge = phi i32 [ 128, %._crit_edge ], [ 0, %296 ], [ 0, %291 ], [ 0, %.preheader ]
   %.3258 = phi i32 [ %.1256, %._crit_edge ], [ %241, %296 ], [ %241, %291 ], [ %241, %.preheader ]
   %.3 = phi ptr [ %.2247.lcssa, %._crit_edge ], [ %.0245, %296 ], [ %.0245, %291 ], [ %.0245, %.preheader ]
-  store i32 %storemerge, ptr %12, align 4, !tbaa !12
+  store i32 %storemerge, ptr %12, align 4, !tbaa !22
   %.not337 = icmp ult ptr %.3, %0
   %or.cond368 = or i1 %.not322, %.not337
   br i1 %or.cond368, label %.critedge, label %299
@@ -1779,7 +1779,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %or.cond356, label %304, label %.critedge
 
 304:                                              ; preds = %299
-  %305 = load i32, ptr %11, align 4, !tbaa !12
+  %305 = load i32, ptr %11, align 4, !tbaa !22
   %306 = trunc i32 %305 to i8
   store i8 %306, ptr %.3, align 1, !tbaa !3
   br label %307
@@ -1789,7 +1789,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %.3.pn = phi ptr [ %.3, %304 ], [ %.0245, %194 ]
   %.1246 = getelementptr inbounds nuw i8, ptr %.3.pn, i64 1
   %308 = icmp ult ptr %.1246, %6
-  br i1 %308, label %39, label %.critedge
+  br i1 %308, label %39, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %291, %258, %263, %307, %.thread358, %299, %296, %203, %207, %213, %216, %220, %196, %175, %184, %189, %124, %64, %57, %85, %.split, %94
   %.1249 = phi i32 [ -1, %94 ], [ -1, %.split ], [ -1, %85 ], [ -1, %291 ], [ -1, %258 ], [ -1, %263 ], [ 1, %307 ], [ -1, %.thread358 ], [ -1, %299 ], [ -1, %296 ], [ -1, %203 ], [ -1, %207 ], [ -1, %213 ], [ -1, %216 ], [ -1, %220 ], [ -1, %196 ], [ -1, %175 ], [ -1, %184 ], [ -1, %189 ], [ -1, %124 ], [ -1, %64 ], [ -1, %57 ]
@@ -1836,17 +1836,33 @@ attributes #4 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = !{!7, !8, i64 8}
-!7 = !{!"cli_exe_section", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !8, i64 32}
-!8 = !{!"int", !4, i64 0}
-!9 = !{!7, !8, i64 0}
-!10 = !{!7, !8, i64 12}
-!11 = !{!7, !8, i64 4}
-!12 = !{!8, !8, i64 0}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"lzmastate", !15, i64 0, !8, i64 8, !8, i64 12}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !4, i64 0}
-!17 = !{!14, !8, i64 8}
-!18 = !{!14, !8, i64 12}
-!19 = !{!15, !15, i64 0}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = !{!17, !18, i64 8}
+!17 = !{!"cli_exe_section", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !18, i64 28, !18, i64 32}
+!18 = !{!"int", !4, i64 0}
+!19 = !{!17, !18, i64 0}
+!20 = !{!17, !18, i64 12}
+!21 = !{!17, !18, i64 4}
+!22 = !{!18, !18, i64 0}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"lzmastate", !25, i64 0, !18, i64 8, !18, i64 12}
+!25 = !{!"p1 omnipotent char", !26, i64 0}
+!26 = !{!"any pointer", !4, i64 0}
+!27 = !{!24, !18, i64 8}
+!28 = !{!24, !18, i64 12}
+!29 = distinct !{!29, !7}
+!30 = !{!25, !25, i64 0}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}

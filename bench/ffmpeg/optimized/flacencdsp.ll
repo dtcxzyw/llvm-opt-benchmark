@@ -227,7 +227,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   store i32 %102, ptr %103, align 4, !tbaa !10
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 2
   %104 = icmp samesign ult i64 %indvars.iv.next196, %54
-  br i1 %104, label %.lr.ph116, label %lpc_encode_unrolled_16.exit, !llvm.loop !14
+  br i1 %104, label %.lr.ph116, label %lpc_encode_unrolled_16.exit, !llvm.loop !15
 
 105:                                              ; preds = %.lr.ph112, %105
   %indvars.iv192 = phi i64 [ 2, %.lr.ph112 ], [ %indvars.iv.next193, %105 ]
@@ -258,7 +258,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   store i32 %126, ptr %127, align 4, !tbaa !10
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 2
   %128 = icmp samesign ult i64 %indvars.iv.next193, %52
-  br i1 %128, label %105, label %lpc_encode_unrolled_16.exit, !llvm.loop !14
+  br i1 %128, label %105, label %lpc_encode_unrolled_16.exit, !llvm.loop !15
 
 129:                                              ; preds = %.lr.ph108, %129
   %indvars.iv189 = phi i64 [ 3, %.lr.ph108 ], [ %indvars.iv.next190, %129 ]
@@ -296,7 +296,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   store i32 %157, ptr %158, align 4, !tbaa !10
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 2
   %159 = icmp samesign ult i64 %indvars.iv.next190, %49
-  br i1 %159, label %129, label %lpc_encode_unrolled_16.exit, !llvm.loop !14
+  br i1 %159, label %129, label %lpc_encode_unrolled_16.exit, !llvm.loop !15
 
 160:                                              ; preds = %.lr.ph104, %160
   %indvars.iv186 = phi i64 [ 4, %.lr.ph104 ], [ %indvars.iv.next187, %160 ]
@@ -341,7 +341,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   store i32 %195, ptr %196, align 4, !tbaa !10
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 2
   %197 = icmp samesign ult i64 %indvars.iv.next187, %45
-  br i1 %197, label %160, label %lpc_encode_unrolled_16.exit, !llvm.loop !14
+  br i1 %197, label %160, label %lpc_encode_unrolled_16.exit, !llvm.loop !15
 
 198:                                              ; preds = %.lr.ph100, %198
   %indvars.iv183 = phi i64 [ 5, %.lr.ph100 ], [ %indvars.iv.next184, %198 ]
@@ -393,7 +393,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   store i32 %240, ptr %241, align 4, !tbaa !10
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 2
   %242 = icmp samesign ult i64 %indvars.iv.next184, %40
-  br i1 %242, label %198, label %lpc_encode_unrolled_16.exit, !llvm.loop !14
+  br i1 %242, label %198, label %lpc_encode_unrolled_16.exit, !llvm.loop !15
 
 243:                                              ; preds = %.lr.ph96, %243
   %indvars.iv180 = phi i64 [ 6, %.lr.ph96 ], [ %indvars.iv.next181, %243 ]
@@ -452,7 +452,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   store i32 %292, ptr %293, align 4, !tbaa !10
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 2
   %294 = icmp samesign ult i64 %indvars.iv.next181, %34
-  br i1 %294, label %243, label %lpc_encode_unrolled_16.exit, !llvm.loop !14
+  br i1 %294, label %243, label %lpc_encode_unrolled_16.exit, !llvm.loop !15
 
 295:                                              ; preds = %.lr.ph92, %295
   %indvars.iv177 = phi i64 [ 7, %.lr.ph92 ], [ %indvars.iv.next178, %295 ]
@@ -518,7 +518,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   store i32 %351, ptr %352, align 4, !tbaa !10
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 2
   %353 = icmp samesign ult i64 %indvars.iv.next178, %27
-  br i1 %353, label %295, label %lpc_encode_unrolled_16.exit, !llvm.loop !14
+  br i1 %353, label %295, label %lpc_encode_unrolled_16.exit, !llvm.loop !15
 
 354:                                              ; preds = %.lr.ph88, %354
   %indvars.iv174 = phi i64 [ 8, %.lr.ph88 ], [ %indvars.iv.next175, %354 ]
@@ -591,7 +591,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   store i32 %417, ptr %418, align 4, !tbaa !10
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 2
   %419 = icmp samesign ult i64 %indvars.iv.next175, %19
-  br i1 %419, label %354, label %lpc_encode_unrolled_16.exit, !llvm.loop !14
+  br i1 %419, label %354, label %lpc_encode_unrolled_16.exit, !llvm.loop !15
 
 420:                                              ; preds = %.lr.ph164, %647
   %indvars.iv198 = phi i64 [ %87, %.lr.ph164 ], [ %indvars.iv.next199, %647 ]
@@ -1010,7 +1010,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   store i32 %656, ptr %657, align 4, !tbaa !10
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, 2
   %658 = icmp slt i64 %indvars.iv.next199, %88
-  br i1 %658, label %420, label %lpc_encode_unrolled_16.exit, !llvm.loop !14
+  br i1 %658, label %420, label %lpc_encode_unrolled_16.exit, !llvm.loop !15
 
 lpc_encode_unrolled_16.exit:                      ; preds = %354, %295, %243, %198, %160, %129, %105, %.lr.ph116, %647, %.preheader84, %.preheader82, %.preheader80, %.preheader78, %.preheader76, %.preheader74, %.preheader72, %.preheader70, %.preheader
   ret void
@@ -1033,7 +1033,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %9, ptr %10, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   switch i32 %3, label %.preheader [
@@ -1250,7 +1250,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %119, ptr %120, align 4, !tbaa !10
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 2
   %121 = icmp samesign ult i64 %indvars.iv.next231, %62
-  br i1 %121, label %98, label %lpc_encode_unrolled_32.exit, !llvm.loop !16
+  br i1 %121, label %98, label %lpc_encode_unrolled_32.exit, !llvm.loop !17
 
 122:                                              ; preds = %.lr.ph147, %122
   %indvars.iv227 = phi i64 [ 2, %.lr.ph147 ], [ %indvars.iv.next228, %122 ]
@@ -1292,7 +1292,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %152, ptr %153, align 4, !tbaa !10
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 2
   %154 = icmp samesign ult i64 %indvars.iv.next228, %59
-  br i1 %154, label %122, label %lpc_encode_unrolled_32.exit, !llvm.loop !16
+  br i1 %154, label %122, label %lpc_encode_unrolled_32.exit, !llvm.loop !17
 
 155:                                              ; preds = %.lr.ph143, %155
   %indvars.iv224 = phi i64 [ 3, %.lr.ph143 ], [ %indvars.iv.next225, %155 ]
@@ -1343,7 +1343,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %194, ptr %195, align 4, !tbaa !10
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 2
   %196 = icmp samesign ult i64 %indvars.iv.next225, %55
-  br i1 %196, label %155, label %lpc_encode_unrolled_32.exit, !llvm.loop !16
+  br i1 %196, label %155, label %lpc_encode_unrolled_32.exit, !llvm.loop !17
 
 197:                                              ; preds = %.lr.ph139, %197
   %indvars.iv221 = phi i64 [ 4, %.lr.ph139 ], [ %indvars.iv.next222, %197 ]
@@ -1403,7 +1403,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %245, ptr %246, align 4, !tbaa !10
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 2
   %247 = icmp samesign ult i64 %indvars.iv.next222, %50
-  br i1 %247, label %197, label %lpc_encode_unrolled_32.exit, !llvm.loop !16
+  br i1 %247, label %197, label %lpc_encode_unrolled_32.exit, !llvm.loop !17
 
 248:                                              ; preds = %.lr.ph135, %248
   %indvars.iv218 = phi i64 [ 5, %.lr.ph135 ], [ %indvars.iv.next219, %248 ]
@@ -1472,7 +1472,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %305, ptr %306, align 4, !tbaa !10
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 2
   %307 = icmp samesign ult i64 %indvars.iv.next219, %44
-  br i1 %307, label %248, label %lpc_encode_unrolled_32.exit, !llvm.loop !16
+  br i1 %307, label %248, label %lpc_encode_unrolled_32.exit, !llvm.loop !17
 
 308:                                              ; preds = %.lr.ph131, %308
   %indvars.iv215 = phi i64 [ 6, %.lr.ph131 ], [ %indvars.iv.next216, %308 ]
@@ -1550,7 +1550,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %374, ptr %375, align 4, !tbaa !10
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 2
   %376 = icmp samesign ult i64 %indvars.iv.next216, %37
-  br i1 %376, label %308, label %lpc_encode_unrolled_32.exit, !llvm.loop !16
+  br i1 %376, label %308, label %lpc_encode_unrolled_32.exit, !llvm.loop !17
 
 377:                                              ; preds = %.lr.ph127, %377
   %indvars.iv212 = phi i64 [ 7, %.lr.ph127 ], [ %indvars.iv.next213, %377 ]
@@ -1637,7 +1637,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %452, ptr %453, align 4, !tbaa !10
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 2
   %454 = icmp samesign ult i64 %indvars.iv.next213, %29
-  br i1 %454, label %377, label %lpc_encode_unrolled_32.exit, !llvm.loop !16
+  br i1 %454, label %377, label %lpc_encode_unrolled_32.exit, !llvm.loop !17
 
 455:                                              ; preds = %.lr.ph123, %455
   %indvars.iv209 = phi i64 [ 8, %.lr.ph123 ], [ %indvars.iv.next210, %455 ]
@@ -1733,7 +1733,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %539, ptr %540, align 4, !tbaa !10
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 2
   %541 = icmp samesign ult i64 %indvars.iv.next210, %20
-  br i1 %541, label %455, label %lpc_encode_unrolled_32.exit, !llvm.loop !16
+  br i1 %541, label %455, label %lpc_encode_unrolled_32.exit, !llvm.loop !17
 
 542:                                              ; preds = %.lr.ph199, %834
   %indvars.iv233 = phi i64 [ %96, %.lr.ph199 ], [ %indvars.iv.next234, %834 ]
@@ -2315,7 +2315,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   store i32 %847, ptr %848, align 4, !tbaa !10
   %indvars.iv.next234 = add nsw i64 %indvars.iv233, 2
   %849 = icmp slt i64 %indvars.iv.next234, %97
-  br i1 %849, label %542, label %lpc_encode_unrolled_32.exit, !llvm.loop !16
+  br i1 %849, label %542, label %lpc_encode_unrolled_32.exit, !llvm.loop !17
 
 lpc_encode_unrolled_32.exit:                      ; preds = %455, %377, %308, %248, %197, %155, %122, %98, %834, %.preheader119, %.preheader117, %.preheader115, %.preheader113, %.preheader111, %.preheader109, %.preheader107, %.preheader105, %.preheader
   ret void
@@ -2345,8 +2345,9 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = !{!5, !6, i64 8}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}

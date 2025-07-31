@@ -352,7 +352,7 @@ define dso_local void @pci_ioapic_remove(ptr noundef readonly captures(none) %0)
 
 19:                                               ; preds = %16, %12, %.preheader
   %20 = icmp eq ptr %5, @ioapic_list
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %19, %1
   tail call void @mutex_unlock(ptr noundef nonnull @ioapic_list_lock) #8
@@ -432,7 +432,7 @@ define dso_local range(i32 -16, 1) i32 @acpi_ioapic_remove(ptr noundef readonly 
 36:                                               ; preds = %31, %.preheader
   %37 = phi i32 [ %4, %.preheader ], [ %20, %31 ]
   %38 = icmp eq ptr %7, @ioapic_list
-  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %36, %1
   %39 = phi i32 [ 0, %1 ], [ %37, %36 ]
@@ -578,8 +578,9 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}

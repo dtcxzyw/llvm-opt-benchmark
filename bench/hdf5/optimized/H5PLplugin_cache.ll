@@ -186,9 +186,9 @@ H5PL__expand_cache.exit:                          ; preds = %13
   %32 = phi i32 [ %11, %._crit_edge ], [ %19, %H5PL__expand_cache.exit ]
   %33 = phi ptr [ %.pre, %._crit_edge ], [ %17, %H5PL__expand_cache.exit ]
   %34 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %33, i64 %.pre-phi
-  store i32 %0, ptr %34, align 8, !tbaa !21
+  store i32 %0, ptr %34, align 8, !tbaa !22
   %35 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %33, i64 %.pre-phi, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !23
   %36 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %33, i64 %.pre-phi, i32 2
   store ptr %2, ptr %36, align 8, !tbaa !17
   %37 = add i32 %32, 1
@@ -215,13 +215,13 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 10:                                               ; preds = %3
   store i8 0, ptr %1, align 1, !tbaa !3
-  store ptr null, ptr %2, align 8, !tbaa !24
+  store ptr null, ptr %2, align 8, !tbaa !25
   %11 = load i32, ptr @H5PL_num_plugins_g, align 4, !tbaa !10
   %.not74 = icmp eq i32 %11, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %12 = load i32, ptr %0, align 8, !tbaa !25
+  %12 = load i32, ptr %0, align 8, !tbaa !26
   %.fr = freeze i32 %12
   %13 = load ptr, ptr @H5PL_cache_g, align 8, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -235,36 +235,36 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %23
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %23 ], [ 0, %.lr.ph ]
   %15 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %13, i64 %indvars.iv91
-  %16 = load i32, ptr %15, align 8, !tbaa !21
+  %16 = load i32, ptr %15, align 8, !tbaa !22
   %.not.us = icmp eq i32 %16, 0
   br i1 %.not.us, label %17, label %23
 
 17:                                               ; preds = %.lr.ph.split.us
-  %18 = load ptr, ptr %14, align 8, !tbaa !28
-  %19 = load i32, ptr %18, align 8, !tbaa !23
+  %18 = load ptr, ptr %14, align 8, !tbaa !29
+  %19 = load i32, ptr %18, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !23
+  %21 = load i32, ptr %20, align 8, !tbaa !24
   %22 = icmp eq i32 %19, %21
   br i1 %22, label %.split.us, label %23
 
 23:                                               ; preds = %17, %.lr.ph.split.us
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count99
-  br i1 %exitcond95.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !29
+  br i1 %exitcond95.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !30
 
 .lr.ph.split.us60:                                ; preds = %.lr.ph, %46
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %46 ], [ 0, %.lr.ph ]
   %24 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %13, i64 %indvars.iv86
-  %25 = load i32, ptr %24, align 8, !tbaa !21
+  %25 = load i32, ptr %24, align 8, !tbaa !22
   %.not.us62 = icmp eq i32 %25, 1
   br i1 %.not.us62, label %26, label %46
 
 26:                                               ; preds = %.lr.ph.split.us60
-  %27 = load ptr, ptr %14, align 8, !tbaa !28
-  %28 = load i32, ptr %27, align 8, !tbaa !23
+  %27 = load ptr, ptr %14, align 8, !tbaa !29
+  %28 = load i32, ptr %27, align 8, !tbaa !24
   %29 = icmp eq i32 %28, 0
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !23
+  %31 = load i32, ptr %30, align 8, !tbaa !24
   br i1 %29, label %39, label %32
 
 32:                                               ; preds = %26
@@ -273,9 +273,9 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !23
+  %35 = load i32, ptr %34, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %37 = load i32, ptr %36, align 8, !tbaa !23
+  %37 = load i32, ptr %36, align 8, !tbaa !24
   %38 = icmp eq i32 %35, %37
   br i1 %38, label %.split.us, label %46
 
@@ -285,9 +285,9 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !23
+  %42 = load ptr, ptr %41, align 8, !tbaa !24
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !23
+  %44 = load ptr, ptr %43, align 8, !tbaa !24
   %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %44) #9
   %.not47.us = icmp eq i32 %45, 0
   br i1 %.not47.us, label %.split.us, label %46
@@ -295,21 +295,21 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 46:                                               ; preds = %40, %39, %33, %32, %.lr.ph.split.us60
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count99
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph.split.us60, !llvm.loop !31
+  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph.split.us60, !llvm.loop !32
 
 .lr.ph.split.us67:                                ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph ]
   %47 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %13, i64 %indvars.iv
-  %48 = load i32, ptr %47, align 8, !tbaa !21
+  %48 = load i32, ptr %47, align 8, !tbaa !22
   %.not.us69 = icmp eq i32 %48, 2
   br i1 %.not.us69, label %49, label %69
 
 49:                                               ; preds = %.lr.ph.split.us67
-  %50 = load ptr, ptr %14, align 8, !tbaa !28
-  %51 = load i32, ptr %50, align 8, !tbaa !23
+  %50 = load ptr, ptr %14, align 8, !tbaa !29
+  %51 = load i32, ptr %50, align 8, !tbaa !24
   %52 = icmp eq i32 %51, 0
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %54 = load i32, ptr %53, align 8, !tbaa !23
+  %54 = load i32, ptr %53, align 8, !tbaa !24
   br i1 %52, label %62, label %55
 
 55:                                               ; preds = %49
@@ -318,9 +318,9 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %58 = load i32, ptr %57, align 8, !tbaa !23
+  %58 = load i32, ptr %57, align 8, !tbaa !24
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %60 = load i32, ptr %59, align 8, !tbaa !23
+  %60 = load i32, ptr %59, align 8, !tbaa !24
   %61 = icmp eq i32 %58, %60
   br i1 %61, label %.split.us, label %69
 
@@ -330,9 +330,9 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !23
+  %65 = load ptr, ptr %64, align 8, !tbaa !24
   %66 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !23
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
   %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %67) #9
   %.not44.us = icmp eq i32 %68, 0
   br i1 %.not44.us, label %.split.us, label %69
@@ -340,12 +340,12 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 69:                                               ; preds = %63, %62, %56, %55, %.lr.ph.split.us67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count99
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us67, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us67, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %92
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %92 ], [ 0, %.lr.ph ]
   %70 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %13, i64 %indvars.iv96
-  %71 = load i32, ptr %70, align 8, !tbaa !21
+  %71 = load i32, ptr %70, align 8, !tbaa !22
   %.not = icmp eq i32 %.fr, %71
   br i1 %.not, label %72, label %92
 
@@ -382,13 +382,13 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 
 91:                                               ; preds = %84
   store i8 1, ptr %1, align 1, !tbaa !3
-  store ptr %85, ptr %2, align 8, !tbaa !24
+  store ptr %85, ptr %2, align 8, !tbaa !25
   br label %.loopexit
 
 92:                                               ; preds = %.lr.ph.split
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !33
+  br i1 %exitcond100.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !34
 
 .loopexit:                                        ; preds = %69, %46, %23, %92, %10, %72, %91, %87, %80, %3
   %.0 = phi i32 [ 0, %3 ], [ -1, %72 ], [ -1, %80 ], [ -1, %87 ], [ 0, %91 ], [ 0, %10 ], [ 0, %92 ], [ 0, %23 ], [ 0, %46 ], [ 0, %69 ]
@@ -438,18 +438,19 @@ attributes #9 = { nounwind willreturn memory(read) }
 !16 = !{!"long", !5, i64 0}
 !17 = !{!18, !14, i64 24}
 !18 = !{!"H5PL_plugin_t", !11, i64 0, !5, i64 8, !14, i64 24}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!18, !11, i64 0}
-!22 = !{i64 0, i64 16, !23}
-!23 = !{!5, !5, i64 0}
-!24 = !{!14, !14, i64 0}
-!25 = !{!26, !11, i64 0}
-!26 = !{!"H5PL_search_params_t", !11, i64 0, !27, i64 8}
-!27 = !{!"p1 _ZTS10H5PL_key_t", !14, i64 0}
-!28 = !{!26, !27, i64 8}
-!29 = distinct !{!29, !20, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !20, !30}
-!32 = distinct !{!32, !20, !30}
-!33 = distinct !{!33, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!18, !11, i64 0}
+!23 = !{i64 0, i64 16, !24}
+!24 = !{!5, !5, i64 0}
+!25 = !{!14, !14, i64 0}
+!26 = !{!27, !11, i64 0}
+!27 = !{!"H5PL_search_params_t", !11, i64 0, !28, i64 8}
+!28 = !{!"p1 _ZTS10H5PL_key_t", !14, i64 0}
+!29 = !{!27, !28, i64 8}
+!30 = distinct !{!30, !20, !21, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !20, !21, !31}
+!33 = distinct !{!33, !20, !21, !31}
+!34 = distinct !{!34, !20, !21}

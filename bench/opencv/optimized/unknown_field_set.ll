@@ -339,7 +339,7 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet17InternalMergeFromERKS1
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !26
+  %26 = load ptr, ptr %25, align 8, !tbaa !27
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %27, %17
   %29 = ashr exact i64 %28, 4
@@ -369,7 +369,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %18
   store ptr %36, ptr %13, align 8, !tbaa !9
   %37 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %32, i64 %21
-  store ptr %37, ptr %25, align 8, !tbaa !26
+  store ptr %37, ptr %25, align 8, !tbaa !27
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m.exit.i, %24
@@ -381,12 +381,12 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   %38 = load ptr, ptr %1, align 8, !tbaa !12
   %39 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %13, align 8, !tbaa !9
-  %41 = load ptr, ptr %25, align 8, !tbaa !26
+  %41 = load ptr, ptr %25, align 8, !tbaa !27
   %.not.i = icmp eq ptr %40, %41
   br i1 %.not.i, label %45, label %42
 
 42:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !28
   %43 = load ptr, ptr %13, align 8, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %44, ptr %13, align 8, !tbaa !9
@@ -416,7 +416,7 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %57 = shl nuw nsw i64 %56, 4
   %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #18
   %59 = getelementptr inbounds i8, ptr %58, i64 %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !28
   %60 = icmp sgt i64 %49, 0
   br i1 %60, label %61, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -437,7 +437,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %58, ptr %0, align 8, !tbaa !12
   store ptr %62, ptr %13, align 8, !tbaa !9
   %64 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %58, i64 %56
-  store ptr %64, ptr %25, align 8, !tbaa !26
+  store ptr %64, ptr %25, align 8, !tbaa !27
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; preds = %42, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -445,7 +445,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; pr
   tail call void @_ZN6google8protobuf12UnknownField8DeepCopyERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr nonnull align 8 poison)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit, %2
   ret void
@@ -466,12 +466,12 @@ define hidden void @_ZN6google8protobuf12UnknownField8DeepCopyERKS1_(ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %10, ptr %7, align 8, !tbaa !30
+  store ptr %10, ptr %7, align 8, !tbaa !31
   %11 = load ptr, ptr %9, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  store i64 %13, ptr %3, align 8, !tbaa !31
+  store i64 %13, ptr %3, align 8, !tbaa !32
   %14 = icmp ugt i64 %13, 15
   br i1 %14, label %.noexc.i, label %._crit_edge.i.i
 
@@ -481,7 +481,7 @@ define hidden void @_ZN6google8protobuf12UnknownField8DeepCopyERKS1_(ptr noundef
 
 .noexc:                                           ; preds = %.noexc.i
   store ptr %15, ptr %7, align 8, !tbaa !17
-  %16 = load i64, ptr %3, align 8, !tbaa !31
+  %16 = load i64, ptr %3, align 8, !tbaa !32
   store i64 %16, ptr %10, align 8, !tbaa !16
   br label %._crit_edge.i.i
 
@@ -502,7 +502,7 @@ define hidden void @_ZN6google8protobuf12UnknownField8DeepCopyERKS1_(ptr noundef
   br label %21
 
 21:                                               ; preds = %20, %18, %._crit_edge.i.i
-  %22 = load i64, ptr %3, align 8, !tbaa !31
+  %22 = load i64, ptr %3, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %22, ptr %23, align 8, !tbaa !22
   %24 = load ptr, ptr %7, align 8, !tbaa !17
@@ -563,7 +563,7 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr nou
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !26
+  %26 = load ptr, ptr %25, align 8, !tbaa !27
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %27, %17
   %29 = ashr exact i64 %28, 4
@@ -593,7 +593,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %18
   store ptr %36, ptr %13, align 8, !tbaa !9
   %37 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %32, i64 %21
-  store ptr %37, ptr %25, align 8, !tbaa !26
+  store ptr %37, ptr %25, align 8, !tbaa !27
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m.exit.i, %24
@@ -605,12 +605,12 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   %38 = load ptr, ptr %1, align 8, !tbaa !12
   %39 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %13, align 8, !tbaa !9
-  %41 = load ptr, ptr %25, align 8, !tbaa !26
+  %41 = load ptr, ptr %25, align 8, !tbaa !27
   %.not.i = icmp eq ptr %40, %41
   br i1 %.not.i, label %45, label %42
 
 42:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !28
   %43 = load ptr, ptr %13, align 8, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %44, ptr %13, align 8, !tbaa !9
@@ -640,7 +640,7 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %57 = shl nuw nsw i64 %56, 4
   %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #18
   %59 = getelementptr inbounds i8, ptr %58, i64 %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !28
   %60 = icmp sgt i64 %49, 0
   br i1 %60, label %61, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -661,7 +661,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %58, ptr %0, align 8, !tbaa !12
   store ptr %62, ptr %13, align 8, !tbaa !9
   %64 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %58, i64 %56
-  store ptr %64, ptr %25, align 8, !tbaa !26
+  store ptr %64, ptr %25, align 8, !tbaa !27
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; preds = %42, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -669,7 +669,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; pr
   tail call void @_ZN6google8protobuf12UnknownField8DeepCopyERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr nonnull align 8 poison)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit, %2
   ret void
@@ -691,8 +691,8 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet19MergeFromAndDestroyEPS
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   store ptr %11, ptr %4, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
-  store ptr %13, ptr %8, align 8, !tbaa !26
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  store ptr %13, ptr %8, align 8, !tbaa !27
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EEaSEOS4_.exit, label %14
@@ -729,10 +729,10 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE5clearEv.exit: ; preds = %_
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf15UnknownFieldSet23MergeToInternalMetadataERKS1_PNS0_8internal16InternalMetadataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = load i64, ptr %1, align 8, !tbaa !33
+  %3 = load i64, ptr %1, align 8, !tbaa !34
   %4 = and i64 %3, 1
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %9, label %5, !prof !35
+  br i1 %.not, label %9, label %5, !prof !36
 
 5:                                                ; preds = %2
   %6 = and i64 %3, -4
@@ -796,7 +796,7 @@ define hidden noundef i64 @_ZNK6google8protobuf15UnknownFieldSet26SpaceUsedExclu
   %.1 = phi i64 [ %.0914, %10 ], [ %18, %13 ], [ %25, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.010.013, i64 16
   %.not = icmp eq ptr %27, %4
-  br i1 %.not, label %.loopexit, label %10
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !37
 
 .loopexit:                                        ; preds = %26, %1
   %.0 = phi i64 [ 0, %1 ], [ %.1, %26 ]
@@ -859,7 +859,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf15UnknownFieldSet22S
   %.1.i = phi i64 [ %.09.i5, %10 ], [ %18, %13 ], [ %25, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.01.04, i64 16
   %.not = icmp eq ptr %27, %4
-  br i1 %.not, label %_ZNK6google8protobuf15UnknownFieldSet26SpaceUsedExcludingSelfLongEv.exit.loopexit, label %10
+  br i1 %.not, label %_ZNK6google8protobuf15UnknownFieldSet26SpaceUsedExcludingSelfLongEv.exit.loopexit, label %10, !llvm.loop !37
 
 _ZNK6google8protobuf15UnknownFieldSet26SpaceUsedExcludingSelfLongEv.exit.loopexit: ; preds = %26
   %28 = trunc i64 %.1.i to i32
@@ -875,14 +875,14 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet9AddVarintEim(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %11, label %8
 
 8:                                                ; preds = %3
-  store i32 %1, ptr %5, align 8, !tbaa !28
+  store i32 %1, ptr %5, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !28
+  store i32 0, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !16
   %9 = load ptr, ptr %4, align 8, !tbaa !9
@@ -914,9 +914,9 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %23 = shl nuw nsw i64 %22, 4
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #18
   %25 = getelementptr inbounds i8, ptr %24, i64 %15
-  store i32 %1, ptr %25, align 8, !tbaa !28
+  store i32 %1, ptr %25, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store i32 0, ptr %.sroa.5.0..sroa_idx3, align 4, !tbaa !28
+  store i32 0, ptr %.sroa.5.0..sroa_idx3, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %2, ptr %.sroa.6.0..sroa_idx5, align 8, !tbaa !16
   %26 = icmp sgt i64 %15, 0
@@ -939,7 +939,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %28, ptr %4, align 8, !tbaa !9
   %30 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %24, i64 %22
-  store ptr %30, ptr %6, align 8, !tbaa !26
+  store ptr %30, ptr %6, align 8, !tbaa !27
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; preds = %8, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -951,14 +951,14 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet10AddFixed32Eij(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %11, label %8
 
 8:                                                ; preds = %3
-  store i32 %1, ptr %5, align 8, !tbaa !28
+  store i32 %1, ptr %5, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 1, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !28
+  store i32 1, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.6.0..sroa_idx, align 8
   %9 = load ptr, ptr %4, align 8, !tbaa !9
@@ -990,9 +990,9 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %23 = shl nuw nsw i64 %22, 4
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #18
   %25 = getelementptr inbounds i8, ptr %24, i64 %15
-  store i32 %1, ptr %25, align 8, !tbaa !28
+  store i32 %1, ptr %25, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store i32 1, ptr %.sroa.5.0..sroa_idx3, align 4, !tbaa !28
+  store i32 1, ptr %.sroa.5.0..sroa_idx3, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 %2, ptr %.sroa.6.0..sroa_idx5, align 8
   %26 = icmp sgt i64 %15, 0
@@ -1015,7 +1015,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %28, ptr %4, align 8, !tbaa !9
   %30 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %24, i64 %22
-  store ptr %30, ptr %6, align 8, !tbaa !26
+  store ptr %30, ptr %6, align 8, !tbaa !27
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; preds = %8, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -1027,14 +1027,14 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet10AddFixed64Eim(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %11, label %8
 
 8:                                                ; preds = %3
-  store i32 %1, ptr %5, align 8, !tbaa !28
+  store i32 %1, ptr %5, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 2, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !28
+  store i32 2, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !16
   %9 = load ptr, ptr %4, align 8, !tbaa !9
@@ -1066,9 +1066,9 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %23 = shl nuw nsw i64 %22, 4
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #18
   %25 = getelementptr inbounds i8, ptr %24, i64 %15
-  store i32 %1, ptr %25, align 8, !tbaa !28
+  store i32 %1, ptr %25, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store i32 2, ptr %.sroa.5.0..sroa_idx3, align 4, !tbaa !28
+  store i32 2, ptr %.sroa.5.0..sroa_idx3, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %2, ptr %.sroa.6.0..sroa_idx5, align 8, !tbaa !16
   %26 = icmp sgt i64 %15, 0
@@ -1091,7 +1091,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %28, ptr %4, align 8, !tbaa !9
   %30 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %24, i64 %22
-  store ptr %30, ptr %6, align 8, !tbaa !26
+  store ptr %30, ptr %6, align 8, !tbaa !27
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; preds = %8, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -1102,21 +1102,21 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; pr
 define hidden noundef nonnull ptr @_ZN6google8protobuf15UnknownFieldSet18AddLengthDelimitedB5cxx11Ei(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr %3, align 8, !tbaa !30
+  store ptr %4, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8, !tbaa !22
   store i8 0, ptr %4, align 1, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %.not.i = icmp eq ptr %7, %9
   br i1 %.not.i, label %13, label %10
 
 10:                                               ; preds = %2
-  store i32 %1, ptr %7, align 8, !tbaa !28
+  store i32 %1, ptr %7, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 3, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !28
+  store i32 3, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !16
   %11 = load ptr, ptr %6, align 8, !tbaa !9
@@ -1148,9 +1148,9 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %25 = shl nuw nsw i64 %24, 4
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
   %27 = getelementptr inbounds i8, ptr %26, i64 %17
-  store i32 %1, ptr %27, align 8, !tbaa !28
+  store i32 %1, ptr %27, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 3, ptr %.sroa.5.0..sroa_idx2, align 4, !tbaa !28
+  store i32 3, ptr %.sroa.5.0..sroa_idx2, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %3, ptr %.sroa.6.0..sroa_idx4, align 8, !tbaa !16
   %28 = icmp sgt i64 %17, 0
@@ -1173,7 +1173,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %26, ptr %0, align 8, !tbaa !12
   store ptr %30, ptr %6, align 8, !tbaa !9
   %32 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %26, i64 %24
-  store ptr %32, ptr %8, align 8, !tbaa !26
+  store ptr %32, ptr %8, align 8, !tbaa !27
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; preds = %10, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -1187,14 +1187,14 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf15UnknownFieldSet8AddGroup
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %11, label %8
 
 8:                                                ; preds = %2
-  store i32 %1, ptr %5, align 8, !tbaa !28
+  store i32 %1, ptr %5, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 4, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !28
+  store i32 4, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !16
   %9 = load ptr, ptr %4, align 8, !tbaa !9
@@ -1226,9 +1226,9 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %23 = shl nuw nsw i64 %22, 4
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #18
   %25 = getelementptr inbounds i8, ptr %24, i64 %15
-  store i32 %1, ptr %25, align 8, !tbaa !28
+  store i32 %1, ptr %25, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store i32 4, ptr %.sroa.5.0..sroa_idx2, align 4, !tbaa !28
+  store i32 4, ptr %.sroa.5.0..sroa_idx2, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %3, ptr %.sroa.6.0..sroa_idx4, align 8, !tbaa !16
   %26 = icmp sgt i64 %15, 0
@@ -1251,7 +1251,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %28, ptr %4, align 8, !tbaa !9
   %30 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %24, i64 %22
-  store ptr %30, ptr %6, align 8, !tbaa !26
+  store ptr %30, ptr %6, align 8, !tbaa !27
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; preds = %8, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -1263,12 +1263,12 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet8AddFieldERKNS0_12Unknow
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !26
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !28
   %8 = load ptr, ptr %3, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %9, ptr %3, align 8, !tbaa !9
@@ -1298,7 +1298,7 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %22 = shl nuw nsw i64 %21, 4
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #18
   %24 = getelementptr inbounds i8, ptr %23, i64 %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !28
   %25 = icmp sgt i64 %14, 0
   br i1 %25, label %26, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -1319,7 +1319,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %23, ptr %0, align 8, !tbaa !12
   store ptr %27, ptr %3, align 8, !tbaa !9
   %29 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %23, i64 %21
-  store ptr %29, ptr %5, align 8, !tbaa !26
+  store ptr %29, ptr %5, align 8, !tbaa !27
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit: ; preds = %7, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -1425,7 +1425,7 @@ _ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i: ; preds = %_ZN6google8pro
 _ZN6google8protobuf12UnknownField6DeleteEv.exit:  ; preds = %.lr.ph, %22, %33, %.sink.split.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 .preheader:                                       ; preds = %48, %._crit_edge
   %.promoted = phi ptr [ %9, %._crit_edge ], [ %54, %48 ]
@@ -1446,7 +1446,7 @@ _ZN6google8protobuf12UnknownField6DeleteEv.exit:  ; preds = %.lr.ph, %22, %33, %
   %50 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %49, i64 %.01519
   %51 = sub i64 %.01519, %16
   %52 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %49, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !28
   %53 = add nuw i64 %.01519, 1
   %54 = load ptr, ptr %8, align 8, !tbaa !9
   %55 = load ptr, ptr %0, align 8, !tbaa !12
@@ -1455,7 +1455,7 @@ _ZN6google8protobuf12UnknownField6DeleteEv.exit:  ; preds = %.lr.ph, %22, %33, %
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 4
   %60 = icmp ult i64 %53, %59
-  br i1 %60, label %48, label %.preheader, !llvm.loop !37
+  br i1 %60, label %48, label %.preheader, !llvm.loop !39
 
 61:                                               ; preds = %.lr.ph23.preheader, %.preheader
   ret void
@@ -1506,7 +1506,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit: ; preds = %
   %.017 = phi i64 [ %.1, %_ZN6google8protobuf12UnknownField6DeleteEv.exit ], [ 0, %2 ]
   %.01216 = phi i64 [ %47, %_ZN6google8protobuf12UnknownField6DeleteEv.exit ], [ 0, %2 ]
   %14 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %13, i64 %.01216
-  %15 = load i32, ptr %14, align 8, !tbaa !38
+  %15 = load i32, ptr %14, align 8, !tbaa !40
   %16 = icmp eq i32 %15, %1
   br i1 %16, label %17, label %42
 
@@ -1579,7 +1579,7 @@ _ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i: ; preds = %_ZN6google8pro
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %13, i64 %.017
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !28
   br label %45
 
 45:                                               ; preds = %43, %42
@@ -1596,7 +1596,7 @@ _ZN6google8protobuf12UnknownField6DeleteEv.exit:  ; preds = %.sink.split.i, %31,
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 4
   %54 = icmp ult i64 %47, %53
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1612,7 +1612,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf15UnknownFieldSet20MergeFro
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %8 = load i8, ptr %7, align 4, !tbaa !40, !range !46, !noundef !47
+  %8 = load i8, ptr %7, align 4, !tbaa !42, !range !48, !noundef !49
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %_ZN6google8protobuf15UnknownFieldSet19MergeFromAndDestroyEPS1_.exit
 
@@ -1631,8 +1631,8 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf15UnknownFieldSet20MergeFro
   %19 = load ptr, ptr %18, align 8, !tbaa !9
   store ptr %19, ptr %12, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !26
-  store ptr %21, ptr %16, align 8, !tbaa !26
+  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  store ptr %21, ptr %16, align 8, !tbaa !27
   %.not.i.i.i.i.i.i = icmp eq ptr %11, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EEaSEOS4_.exit.i, label %22
@@ -1748,20 +1748,20 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf15UnknownFieldSet23ParseFro
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 16, i1 false)
-  store ptr %1, ptr %4, align 8, !tbaa !48
+  store ptr %1, ptr %4, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %5, i8 0, i64 14, i1 false)
-  store i32 2147483647, ptr %6, align 8, !tbaa !49
+  store i32 2147483647, ptr %6, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 0, ptr %7, align 4, !tbaa !50
+  store i32 0, ptr %7, align 4, !tbaa !52
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 2147483647, ptr %8, align 8, !tbaa !51
+  store i32 2147483647, ptr %8, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %10 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4, !tbaa !28
-  store i32 %10, ptr %9, align 4, !tbaa !52
+  %10 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4, !tbaa !29
+  store i32 %10, ptr %9, align 4, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 %10, ptr %11, align 8, !tbaa !53
+  store i32 %10, ptr %11, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(ptr noundef nonnull align 8 dereferenceable(80) %3)
@@ -1781,7 +1781,7 @@ _ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i: ; preds = %18, %2
 
 _ZN6google8protobuf15UnknownFieldSet20ParseFromCodedStreamEPNS0_2io16CodedInputStreamE.exit: ; preds = %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %21 = load i8, ptr %20, align 4, !range !46
+  %21 = load i8, ptr %20, align 4, !range !48
   %22 = trunc nuw i8 %21 to i1
   %23 = select i1 %19, i1 %22, i1 false
   call void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #17
@@ -1809,20 +1809,20 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf15UnknownFieldSet14ParseFro
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 16, i1 false)
-  store ptr %4, ptr %5, align 8, !tbaa !48
+  store ptr %4, ptr %5, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %6, i8 0, i64 14, i1 false)
-  store i32 2147483647, ptr %7, align 8, !tbaa !49
+  store i32 2147483647, ptr %7, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 0, ptr %8, align 4, !tbaa !50
+  store i32 0, ptr %8, align 4, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 2147483647, ptr %9, align 8, !tbaa !51
+  store i32 2147483647, ptr %9, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %11 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4, !tbaa !28
-  store i32 %11, ptr %10, align 4, !tbaa !52
+  %11 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4, !tbaa !29
+  store i32 %11, ptr %10, align 4, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 %11, ptr %12, align 8, !tbaa !53
+  store i32 %11, ptr %12, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(ptr noundef nonnull align 8 dereferenceable(80) %3)
@@ -1850,7 +1850,7 @@ _ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i: ; preds = %19, %.noexc
 
 22:                                               ; preds = %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %24 = load i8, ptr %23, align 4, !range !46
+  %24 = load i8, ptr %23, align 4, !range !48
   %25 = trunc nuw i8 %24 to i1
   %26 = select i1 %20, i1 %25, i1 false
   call void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #17
@@ -1905,20 +1905,20 @@ define hidden noundef ptr @_ZNK6google8protobuf12UnknownField37InternalSerialize
   store i8 %23, ptr %.0.i.i, align 1, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %25 = icmp samesign ugt i32 %.018.i.i, 16383
-  br i1 %25, label %.preheader, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, !llvm.loop !54
+  br i1 %25, label %.preheader, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, !llvm.loop !56
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; preds = %.preheader, %11, %13
   %.019.i.i = phi ptr [ %12, %11 ], [ %19, %13 ], [ %24, %.preheader ]
   %26 = load ptr, ptr %5, align 8, !tbaa !17
   %27 = load i64, ptr %6, align 8, !tbaa !22
-  %28 = load ptr, ptr %2, align 8, !tbaa !55
+  %28 = load ptr, ptr %2, align 8, !tbaa !57
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %.019.i.i to i64
   %31 = sub i64 %29, %30
   %sext = shl i64 %27, 32
   %32 = ashr exact i64 %sext, 32
   %33 = icmp slt i64 %31, %32
-  br i1 %33, label %34, label %37, !prof !35
+  br i1 %33, label %34, label %37, !prof !36
 
 34:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
   %35 = trunc i64 %27 to i32
@@ -1939,7 +1939,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh.exit: ; preds = %34,
 define hidden noundef ptr @_ZN6google8protobuf8internal17UnknownGroupParseEPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca %"class.google::protobuf::internal::UnknownFieldParserHelper", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  store ptr %0, ptr %4, align 8, !tbaa !58
+  store ptr %0, ptr %4, align 8, !tbaa !60
   %5 = call noundef ptr @_ZN6google8protobuf8internal16WireFormatParserINS1_24UnknownFieldParserHelperEEEPKcRT_S5_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   ret ptr %5
@@ -1954,18 +1954,18 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16WireFormat
 
 7:                                                ; preds = %46, %3
   %.015 = phi ptr [ %1, %3 ], [ %48, %46 ]
-  %8 = load i32, ptr %4, align 4, !tbaa !60
-  %9 = load ptr, ptr %2, align 8, !tbaa !65
+  %8 = load i32, ptr %4, align 4, !tbaa !62
+  %9 = load ptr, ptr %2, align 8, !tbaa !67
   %10 = icmp ult ptr %.015, %9
-  br i1 %10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread21, label %11, !prof !66
+  br i1 %10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread21, label %11, !prof !68
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %5, align 8, !tbaa !67
+  %12 = load ptr, ptr %5, align 8, !tbaa !69
   %13 = ptrtoint ptr %.015 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = trunc i64 %15 to i32
-  %17 = load i32, ptr %6, align 4, !tbaa !68
+  %17 = load i32, ptr %6, align 4, !tbaa !70
   %18 = icmp eq i32 %17, %16
   br i1 %18, label %19, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
@@ -2025,14 +2025,14 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
 43:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %44 = add i32 %.01428, -1
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 %44, ptr %45, align 8, !tbaa !69
+  store i32 %44, ptr %45, align 8, !tbaa !71
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 46:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %47 = zext i32 %.01428 to i64
   %48 = tail call noundef ptr @_ZN6google8protobuf8internal11FieldParserINS1_24UnknownFieldParserHelperEEEPKcmRT_S5_PNS1_12ParseContextE(i64 noundef %47, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0.i29, ptr noundef nonnull %2)
   %.not8.not = icmp eq ptr %48, null
-  br i1 %.not8.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %7
+  br i1 %.not8.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %7, !llvm.loop !72
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %46, %19, %43
   %.2 = phi ptr [ %.0.i29, %43 ], [ %spec.select, %19 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %46 ]
@@ -2043,7 +2043,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 define hidden noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca %"class.google::protobuf::internal::UnknownFieldParserHelper", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  store ptr %1, ptr %5, align 8, !tbaa !58
+  store ptr %1, ptr %5, align 8, !tbaa !60
   %6 = call noundef ptr @_ZN6google8protobuf8internal11FieldParserINS1_24UnknownFieldParserHelperEEEPKcmRT_S5_PNS1_12ParseContextE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   ret ptr %6
@@ -2105,18 +2105,18 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit: ; preds = %17
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread: ; preds = %24, %15, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit
   %.0.i72 = phi ptr [ %28, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ %26, %24 ], [ %14, %15 ]
   %.06771 = phi i64 [ %29, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ %25, %24 ], [ %16, %15 ]
-  %30 = load ptr, ptr %1, align 8, !tbaa !58
+  %30 = load ptr, ptr %1, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !9
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !26
+  %34 = load ptr, ptr %33, align 8, !tbaa !27
   %.not.i.i.i = icmp eq ptr %32, %34
   br i1 %.not.i.i.i, label %38, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread
-  store i32 %9, ptr %32, align 8, !tbaa !28
+  store i32 %9, ptr %32, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !28
+  store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %.06771, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !16
   %36 = load ptr, ptr %31, align 8, !tbaa !9
@@ -2148,9 +2148,9 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %50 = shl nuw nsw i64 %49, 4
   %51 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #18
   %52 = getelementptr inbounds i8, ptr %51, i64 %42
-  store i32 %9, ptr %52, align 8, !tbaa !28
+  store i32 %9, ptr %52, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx3.i.i = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 0, ptr %.sroa.5.0..sroa_idx3.i.i, align 4, !tbaa !28
+  store i32 0, ptr %.sroa.5.0..sroa_idx3.i.i, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.06771, ptr %.sroa.6.0..sroa_idx5.i.i, align 8, !tbaa !16
   %53 = icmp sgt i64 %42, 0
@@ -2173,24 +2173,24 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %51, ptr %30, align 8, !tbaa !12
   store ptr %55, ptr %31, align 8, !tbaa !9
   %57 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %51, i64 %49
-  store ptr %57, ptr %33, align 8, !tbaa !26
+  store ptr %57, ptr %33, align 8, !tbaa !27
   br label %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit
 
 58:                                               ; preds = %10
   %.0.copyload.i.i = load i64, ptr %2, align 1
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %60 = load ptr, ptr %1, align 8, !tbaa !58
+  %60 = load ptr, ptr %1, align 8, !tbaa !60
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !9
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !26
+  %64 = load ptr, ptr %63, align 8, !tbaa !27
   %.not.i.i.i42 = icmp eq ptr %62, %64
   br i1 %.not.i.i.i42, label %68, label %65
 
 65:                                               ; preds = %58
-  store i32 %9, ptr %62, align 8, !tbaa !28
+  store i32 %9, ptr %62, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i32 2, ptr %.sroa.5.0..sroa_idx.i.i43, align 4, !tbaa !28
+  store i32 2, ptr %.sroa.5.0..sroa_idx.i.i43, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx.i.i44, align 8, !tbaa !16
   %66 = load ptr, ptr %61, align 8, !tbaa !9
@@ -2222,9 +2222,9 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %80 = shl nuw nsw i64 %79, 4
   %81 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %80) #18
   %82 = getelementptr inbounds i8, ptr %81, i64 %72
-  store i32 %9, ptr %82, align 8, !tbaa !28
+  store i32 %9, ptr %82, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx3.i.i48 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store i32 2, ptr %.sroa.5.0..sroa_idx3.i.i48, align 4, !tbaa !28
+  store i32 2, ptr %.sroa.5.0..sroa_idx3.i.i48, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx5.i.i49 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 %.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx5.i.i49, align 8, !tbaa !16
   %83 = icmp sgt i64 %72, 0
@@ -2247,11 +2247,11 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %81, ptr %60, align 8, !tbaa !12
   store ptr %85, ptr %61, align 8, !tbaa !9
   %87 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %81, i64 %79
-  store ptr %87, ptr %63, align 8, !tbaa !26
+  store ptr %87, ptr %63, align 8, !tbaa !27
   br label %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit
 
 88:                                               ; preds = %10
-  %89 = load ptr, ptr %1, align 8, !tbaa !58
+  %89 = load ptr, ptr %1, align 8, !tbaa !60
   %90 = tail call noundef ptr @_ZN6google8protobuf15UnknownFieldSet18AddLengthDelimitedB5cxx11Ei(ptr noundef nonnull align 8 dereferenceable(24) %89, i32 noundef %9)
   %91 = load i8, ptr %2, align 1, !tbaa !16
   %92 = zext i8 %91 to i32
@@ -2274,7 +2274,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %88
   %storemerge.i11.i = phi ptr [ %94, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ]
   %97 = sext i32 %.0.i12.i to i64
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !67
+  %99 = load ptr, ptr %98, align 8, !tbaa !69
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = ptrtoint ptr %100 to i64
   %102 = ptrtoint ptr %storemerge.i11.i to i64
@@ -2296,13 +2296,13 @@ _ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPK
 
 109:                                              ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  %110 = load ptr, ptr %1, align 8, !tbaa !58
+  %110 = load ptr, ptr %1, align 8, !tbaa !60
   %111 = tail call noundef ptr @_ZN6google8protobuf15UnknownFieldSet8AddGroupEi(ptr noundef nonnull align 8 dereferenceable(24) %110, i32 noundef %9)
-  store ptr %111, ptr %5, align 8, !tbaa !58
+  store ptr %111, ptr %5, align 8, !tbaa !60
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %113 = load i32, ptr %112, align 8, !tbaa !70
+  %113 = load i32, ptr %112, align 8, !tbaa !73
   %114 = add nsw i32 %113, -1
-  store i32 %114, ptr %112, align 8, !tbaa !70
+  store i32 %114, ptr %112, align 8, !tbaa !73
   %115 = icmp slt i32 %113, 1
   br i1 %115, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread, label %116
 
@@ -2310,21 +2310,21 @@ _ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPK
   %117 = shl i32 %9, 3
   %118 = or disjoint i32 %117, 3
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 92
-  %120 = load i32, ptr %119, align 4, !tbaa !60
+  %120 = load i32, ptr %119, align 4, !tbaa !62
   %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %119, align 4, !tbaa !60
+  store i32 %121, ptr %119, align 4, !tbaa !62
   %122 = call noundef ptr @_ZN6google8protobuf8internal16WireFormatParserINS1_24UnknownFieldParserHelperEEEPKcRT_S5_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(120) %3)
-  %123 = load i32, ptr %119, align 4, !tbaa !60
+  %123 = load i32, ptr %119, align 4, !tbaa !62
   %124 = add nsw i32 %123, -1
-  store i32 %124, ptr %119, align 4, !tbaa !60
-  %125 = load i32, ptr %112, align 8, !tbaa !70
+  store i32 %124, ptr %119, align 4, !tbaa !62
+  %125 = load i32, ptr %112, align 8, !tbaa !73
   %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %112, align 8, !tbaa !70
+  store i32 %126, ptr %112, align 8, !tbaa !73
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %128 = load i32, ptr %127, align 8, !tbaa !69
+  %128 = load i32, ptr %127, align 8, !tbaa !71
   %129 = icmp eq i32 %128, %118
-  store i32 0, ptr %127, align 8, !tbaa !69
-  br i1 %129, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread, !prof !66
+  store i32 0, ptr %127, align 8, !tbaa !71
+  br i1 %129, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread, !prof !68
 
 _ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread: ; preds = %109, %116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
@@ -2372,18 +2372,18 @@ _ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12Pa
 139:                                              ; preds = %10
   %.0.copyload.i.i55 = load i32, ptr %2, align 1
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %141 = load ptr, ptr %1, align 8, !tbaa !58
+  %141 = load ptr, ptr %1, align 8, !tbaa !60
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !9
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %145 = load ptr, ptr %144, align 8, !tbaa !26
+  %145 = load ptr, ptr %144, align 8, !tbaa !27
   %.not.i.i.i56 = icmp eq ptr %143, %145
   br i1 %.not.i.i.i56, label %149, label %146
 
 146:                                              ; preds = %139
-  store i32 %9, ptr %143, align 8, !tbaa !28
+  store i32 %9, ptr %143, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx.i.i57 = getelementptr inbounds nuw i8, ptr %143, i64 4
-  store i32 1, ptr %.sroa.5.0..sroa_idx.i.i57, align 4, !tbaa !28
+  store i32 1, ptr %.sroa.5.0..sroa_idx.i.i57, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx.i.i58 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i32 %.0.copyload.i.i55, ptr %.sroa.6.0..sroa_idx.i.i58, align 8
   %147 = load ptr, ptr %142, align 8, !tbaa !9
@@ -2415,9 +2415,9 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit.i
   %161 = shl nuw nsw i64 %160, 4
   %162 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %161) #18
   %163 = getelementptr inbounds i8, ptr %162, i64 %153
-  store i32 %9, ptr %163, align 8, !tbaa !28
+  store i32 %9, ptr %163, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx3.i.i62 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  store i32 1, ptr %.sroa.5.0..sroa_idx3.i.i62, align 4, !tbaa !28
+  store i32 1, ptr %.sroa.5.0..sroa_idx3.i.i62, align 4, !tbaa !29
   %.sroa.6.0..sroa_idx5.i.i63 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i32 %.0.copyload.i.i55, ptr %.sroa.6.0..sroa_idx5.i.i63, align 8
   %164 = icmp sgt i64 %153, 0
@@ -2440,7 +2440,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   store ptr %162, ptr %141, align 8, !tbaa !12
   store ptr %166, ptr %142, align 8, !tbaa !9
   %168 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %162, i64 %160
-  store ptr %168, ptr %144, align 8, !tbaa !26
+  store ptr %168, ptr %144, align 8, !tbaa !27
   br label %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit
 
 _ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit: ; preds = %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i66, %146, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit.thread75, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i52, %65, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %35, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit, %133
@@ -2511,7 +2511,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESa
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = ptrtoint ptr %11 to i64
@@ -2649,7 +2649,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   store ptr %57, ptr %0, align 8, !tbaa !12
   store ptr %67, ptr %12, align 8, !tbaa !9
   %69 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %57, i64 %53
-  store ptr %69, ptr %10, align 8, !tbaa !26
+  store ptr %69, ptr %10, align 8, !tbaa !27
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit
 
 _ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit: ; preds = %41, %_ZSt22__uninitialized_move_aIPN6google8protobuf12UnknownFieldES3_SaIS2_EET0_T_S6_S5_RT1_.exit53, %_ZSt13move_backwardIPN6google8protobuf12UnknownFieldES3_ET0_T_S5_S4_.exit, %_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m.exit, %4
@@ -2658,15 +2658,15 @@ _ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12U
 
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i64, ptr %0, align 8, !tbaa !33
+  %2 = load i64, ptr %0, align 8, !tbaa !34
   %3 = and i64 %2, 1
   %.not = icmp eq i64 %3, 0
   %4 = and i64 %2, -4
   %5 = inttoptr i64 %4 to ptr
-  br i1 %.not, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit, label %6, !prof !66
+  br i1 %.not, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit, label %6, !prof !68
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %5, align 8, !tbaa !71
+  %7 = load ptr, ptr %5, align 8, !tbaa !74
   br label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %6
@@ -2683,11 +2683,11 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %6
   %12 = tail call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, i64 noundef 32, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE)
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
-  store ptr %13, ptr %14, align 8, !tbaa !73
+  store ptr %13, ptr %14, align 8, !tbaa !76
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %15, align 8, !tbaa !75
+  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %15, align 8, !tbaa !78
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  %.pre = load i64, ptr %0, align 8, !tbaa !33
+  %.pre = load i64, ptr %0, align 8, !tbaa !34
   br label %_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
 
 _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit: ; preds = %9, %11
@@ -2697,8 +2697,8 @@ _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9Contai
   %18 = ptrtoint ptr %.0.i6 to i64
   %19 = or i64 %17, %18
   %20 = or i64 %19, 1
-  store i64 %20, ptr %0, align 8, !tbaa !33
-  store ptr %.0.i, ptr %.0.i6, align 8, !tbaa !71
+  store i64 %20, ptr %0, align 8, !tbaa !34
+  store ptr %.0.i, ptr %.0.i6, align 8, !tbaa !74
   %21 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 8
   ret ptr %21
 }
@@ -2749,7 +2749,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESa
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 4
@@ -2775,10 +2775,10 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESa
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
   %.06.i.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %23 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !28
   %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %24
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN6google8protobuf12UnknownFieldEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !76
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN6google8protobuf12UnknownFieldEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !79
 
 _ZSt27__uninitialized_default_n_aIPN6google8protobuf12UnknownFieldEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
@@ -2813,10 +2813,10 @@ _ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit: 
 
 .lr.ph.i.i.i.i.i.i.i31:                           ; preds = %.lr.ph.i.i.i.i.i.i.i31, %36
   %.06.i.i.i.i.i.i.i32 = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i31 ], [ %37, %36 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !28
   %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 16
   %.not.i.i.i.i.i.i.i33 = icmp eq ptr %39, %38
-  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN6google8protobuf12UnknownFieldEmS2_ET_S4_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !76
+  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN6google8protobuf12UnknownFieldEmS2_ET_S4_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !79
 
 _ZSt27__uninitialized_default_n_aIPN6google8protobuf12UnknownFieldEmS2_ET_S4_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit
   %40 = icmp sgt i64 %9, 0
@@ -2839,7 +2839,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   %43 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %33, i64 %1
   store ptr %43, ptr %4, align 8, !tbaa !9
   %44 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %32, i64 %30
-  store ptr %44, ptr %11, align 8, !tbaa !26
+  store ptr %44, ptr %11, align 8, !tbaa !27
   br label %45
 
 45:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN6google8protobuf12UnknownFieldEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m.exit38, %2
@@ -2922,56 +2922,59 @@ attributes #20 = { noreturn }
 !21 = !{!"long", !7, i64 0}
 !22 = !{!18, !21, i64 8}
 !23 = !{!11, !11, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!10, !11, i64 16}
-!27 = !{i64 0, i64 4, !28, i64 4, i64 4, !28, i64 8, i64 8, !16}
-!28 = !{!15, !15, i64 0}
-!29 = distinct !{!29, !25}
-!30 = !{!19, !20, i64 0}
-!31 = !{!21, !21, i64 0}
-!32 = distinct !{!32, !25}
-!33 = !{!34, !21, i64 0}
-!34 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !21, i64 0}
-!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!36 = distinct !{!36, !25}
-!37 = distinct !{!37, !25}
-!38 = !{!14, !15, i64 0}
-!39 = distinct !{!39, !25}
-!40 = !{!41, !43, i64 36}
-!41 = !{!"_ZTSN6google8protobuf2io16CodedInputStreamE", !20, i64 0, !20, i64 8, !42, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !43, i64 36, !43, i64 37, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !44, i64 64, !45, i64 72}
-!42 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !6, i64 0}
-!43 = !{!"bool", !7, i64 0}
-!44 = !{!"p1 _ZTSN6google8protobuf14DescriptorPoolE", !6, i64 0}
-!45 = !{!"p1 _ZTSN6google8protobuf14MessageFactoryE", !6, i64 0}
-!46 = !{i8 0, i8 2}
-!47 = !{}
-!48 = !{!41, !42, i64 16}
-!49 = !{!41, !15, i64 40}
-!50 = !{!41, !15, i64 44}
-!51 = !{!41, !15, i64 48}
-!52 = !{!41, !15, i64 52}
-!53 = !{!41, !15, i64 56}
-!54 = distinct !{!54, !25}
-!55 = !{!56, !20, i64 0}
-!56 = !{!"_ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !20, i64 0, !20, i64 8, !7, i64 16, !57, i64 48, !43, i64 56, !43, i64 57, !43, i64 58}
-!57 = !{!"p1 _ZTSN6google8protobuf2io20ZeroCopyOutputStreamE", !6, i64 0}
-!58 = !{!59, !5, i64 0}
-!59 = !{!"_ZTSN6google8protobuf8internal24UnknownFieldParserHelperE", !5, i64 0}
-!60 = !{!61, !15, i64 92}
-!61 = !{!"_ZTSN6google8protobuf8internal12ParseContextE", !62, i64 0, !15, i64 88, !15, i64 92, !63, i64 96}
-!62 = !{!"_ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !20, i64 0, !20, i64 8, !20, i64 16, !15, i64 24, !15, i64 28, !42, i64 32, !7, i64 40, !21, i64 72, !15, i64 80, !15, i64 84}
-!63 = !{!"_ZTSN6google8protobuf8internal12ParseContext4DataE", !44, i64 0, !45, i64 8, !64, i64 16}
-!64 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !6, i64 0}
-!65 = !{!62, !20, i64 0}
-!66 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!67 = !{!62, !20, i64 8}
-!68 = !{!62, !15, i64 28}
-!69 = !{!62, !15, i64 80}
-!70 = !{!61, !15, i64 88}
-!71 = !{!72, !64, i64 0}
-!72 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !64, i64 0}
-!73 = !{!74, !6, i64 0}
-!74 = !{!"_ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !6, i64 0, !6, i64 8}
-!75 = !{!74, !6, i64 8}
-!76 = distinct !{!76, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!10, !11, i64 16}
+!28 = !{i64 0, i64 4, !29, i64 4, i64 4, !29, i64 8, i64 8, !16}
+!29 = !{!15, !15, i64 0}
+!30 = distinct !{!30, !25, !26}
+!31 = !{!19, !20, i64 0}
+!32 = !{!21, !21, i64 0}
+!33 = distinct !{!33, !25, !26}
+!34 = !{!35, !21, i64 0}
+!35 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !21, i64 0}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = distinct !{!37, !26}
+!38 = distinct !{!38, !25, !26}
+!39 = distinct !{!39, !25, !26}
+!40 = !{!14, !15, i64 0}
+!41 = distinct !{!41, !25, !26}
+!42 = !{!43, !45, i64 36}
+!43 = !{!"_ZTSN6google8protobuf2io16CodedInputStreamE", !20, i64 0, !20, i64 8, !44, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !45, i64 36, !45, i64 37, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !46, i64 64, !47, i64 72}
+!44 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !6, i64 0}
+!45 = !{!"bool", !7, i64 0}
+!46 = !{!"p1 _ZTSN6google8protobuf14DescriptorPoolE", !6, i64 0}
+!47 = !{!"p1 _ZTSN6google8protobuf14MessageFactoryE", !6, i64 0}
+!48 = !{i8 0, i8 2}
+!49 = !{}
+!50 = !{!43, !44, i64 16}
+!51 = !{!43, !15, i64 40}
+!52 = !{!43, !15, i64 44}
+!53 = !{!43, !15, i64 48}
+!54 = !{!43, !15, i64 52}
+!55 = !{!43, !15, i64 56}
+!56 = distinct !{!56, !25, !26}
+!57 = !{!58, !20, i64 0}
+!58 = !{!"_ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !20, i64 0, !20, i64 8, !7, i64 16, !59, i64 48, !45, i64 56, !45, i64 57, !45, i64 58}
+!59 = !{!"p1 _ZTSN6google8protobuf2io20ZeroCopyOutputStreamE", !6, i64 0}
+!60 = !{!61, !5, i64 0}
+!61 = !{!"_ZTSN6google8protobuf8internal24UnknownFieldParserHelperE", !5, i64 0}
+!62 = !{!63, !15, i64 92}
+!63 = !{!"_ZTSN6google8protobuf8internal12ParseContextE", !64, i64 0, !15, i64 88, !15, i64 92, !65, i64 96}
+!64 = !{!"_ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !20, i64 0, !20, i64 8, !20, i64 16, !15, i64 24, !15, i64 28, !44, i64 32, !7, i64 40, !21, i64 72, !15, i64 80, !15, i64 84}
+!65 = !{!"_ZTSN6google8protobuf8internal12ParseContext4DataE", !46, i64 0, !47, i64 8, !66, i64 16}
+!66 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !6, i64 0}
+!67 = !{!64, !20, i64 0}
+!68 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!69 = !{!64, !20, i64 8}
+!70 = !{!64, !15, i64 28}
+!71 = !{!64, !15, i64 80}
+!72 = distinct !{!72, !26}
+!73 = !{!63, !15, i64 88}
+!74 = !{!75, !66, i64 0}
+!75 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !66, i64 0}
+!76 = !{!77, !6, i64 0}
+!77 = !{!"_ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !6, i64 0, !6, i64 8}
+!78 = !{!77, !6, i64 8}
+!79 = distinct !{!79, !25, !26}

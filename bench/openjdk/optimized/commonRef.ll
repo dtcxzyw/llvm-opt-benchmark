@@ -192,7 +192,7 @@ deleteNode.exit:                                  ; preds = %25, %.sink.split.i
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph16, label %._crit_edge17, !llvm.loop !8
+  br i1 %68, label %.lr.ph16, label %._crit_edge17, !llvm.loop !9
 
 ._crit_edge17:                                    ; preds = %._crit_edge, %1
   %.lcssa = phi ptr [ %5, %1 ], [ %64, %._crit_edge ]
@@ -555,12 +555,12 @@ findNodeByRef.exit:                               ; preds = %5, %13
   %126 = getelementptr inbounds ptr, ptr %125, i64 %122
   store ptr %.01825.i, ptr %126, align 8
   %.not.i17 = icmp eq ptr %112, null
-  br i1 %.not.i17, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i17, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge29.i, label %.lr.ph28.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge29.i, label %.lr.ph28.i, !llvm.loop !11
 
 ._crit_edge29.i:                                  ; preds = %._crit_edge.i, %100
   call void @jvmtiDeallocate(ptr noundef %102) #5
@@ -643,7 +643,7 @@ define hidden ptr @commonRef_idToRef(ptr noundef %0, i64 noundef %1) local_unnam
   %20 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %.0.i = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %deleteNodeByID.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %deleteNodeByID.exit, label %.lr.ph.i, !llvm.loop !12
 
 findNodeByID.exit:                                ; preds = %.lr.ph.i
   %21 = getelementptr inbounds nuw i8, ptr %.03.i, i64 28
@@ -709,7 +709,7 @@ isStrong.exit.thread:                             ; preds = %findNodeByID.exit, 
 .lr.ph.i21:                                       ; preds = %.lr.ph
   %54 = load i64, ptr %.019.i, align 8
   %55 = icmp eq i64 %41, %54
-  br i1 %55, label %62, label %.lr.ph, !llvm.loop !12
+  br i1 %55, label %62, label %.lr.ph, !llvm.loop !13
 
 56:                                               ; preds = %.lr.ph.i21.preheader
   %57 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 24
@@ -740,7 +740,7 @@ isStrong.exit.thread:                             ; preds = %findNodeByID.exit, 
   %68 = getelementptr inbounds nuw i8, ptr %.01928.i30, i64 16
   %.019.i = load ptr, ptr %68, align 8
   %.not.i22 = icmp eq ptr %.019.i, null
-  br i1 %.not.i22, label %deleteNodeByID.exit, label %.lr.ph.i21, !llvm.loop !12
+  br i1 %.not.i22, label %deleteNodeByID.exit, label %.lr.ph.i21, !llvm.loop !13
 
 69:                                               ; preds = %32
   %70 = load ptr, ptr %36, align 8
@@ -803,7 +803,7 @@ define internal fastcc void @deleteNodeByID(ptr noundef %0, i64 noundef %1, i32 
 .lr.ph:                                           ; preds = %.lr.ph37
   %16 = load i64, ptr %.019, align 8
   %17 = icmp eq i64 %1, %16
-  br i1 %17, label %.lr.ph._crit_edge, label %.lr.ph37, !llvm.loop !12
+  br i1 %17, label %.lr.ph._crit_edge, label %.lr.ph37, !llvm.loop !13
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01928.lcssa = phi ptr [ %.01925, %.lr.ph.preheader ], [ %.019, %.lr.ph ]
@@ -862,7 +862,7 @@ define internal fastcc void @deleteNodeByID(ptr noundef %0, i64 noundef %1, i32 
   %40 = getelementptr inbounds nuw i8, ptr %.0192836, i64 16
   %.019 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %.019, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph37, %3, %19, %39
   ret void
@@ -920,7 +920,7 @@ define hidden range(i32 0, 206) i32 @commonRef_pin(i64 noundef %0) local_unnamed
   %21 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %.0.i = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %deleteNodeByID.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %deleteNodeByID.exit, label %.lr.ph.i, !llvm.loop !12
 
 findNodeByID.exit:                                ; preds = %.lr.ph.i
   %22 = tail call fastcc ptr @strengthenNode(ptr noundef %7, ptr noundef %.03.i, i8 noundef zeroext 0)
@@ -949,7 +949,7 @@ findNodeByID.exit:                                ; preds = %.lr.ph.i
 .lr.ph.i14:                                       ; preds = %.lr.ph
   %35 = load i64, ptr %.019.i, align 8
   %36 = icmp eq i64 %0, %35
-  br i1 %36, label %43, label %.lr.ph, !llvm.loop !12
+  br i1 %36, label %43, label %.lr.ph, !llvm.loop !13
 
 37:                                               ; preds = %.lr.ph.i14.preheader
   %38 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 24
@@ -981,7 +981,7 @@ findNodeByID.exit:                                ; preds = %.lr.ph.i
   %49 = getelementptr inbounds nuw i8, ptr %.01928.i21, i64 16
   %.019.i = load ptr, ptr %49, align 8
   %.not.i15 = icmp eq ptr %.019.i, null
-  br i1 %.not.i15, label %deleteNodeByID.exit, label %.lr.ph.i14, !llvm.loop !12
+  br i1 %.not.i15, label %deleteNodeByID.exit, label %.lr.ph.i14, !llvm.loop !13
 
 deleteNodeByID.exit:                              ; preds = %20, %.lr.ph, %3, %48, %24, %findNodeByID.exit
   %50 = phi ptr [ %.pre27, %findNodeByID.exit ], [ %.pre27, %24 ], [ %.pre, %48 ], [ %9, %3 ], [ %.pre27, %.lr.ph ], [ %9, %20 ]
@@ -1123,7 +1123,7 @@ define hidden range(i32 0, 189) i32 @commonRef_unpin(i64 noundef %0) local_unnam
   %19 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %.0.i = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %findNodeByID.exit.thread, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %findNodeByID.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 findNodeByID.exit:                                ; preds = %.lr.ph.i
   %20 = tail call fastcc ptr @weakenNode(ptr noundef %5, ptr noundef %.03.i, i8 noundef zeroext 0)
@@ -1486,7 +1486,7 @@ deleteNode.exit:                                  ; preds = %77, %.sink.split.i
   %.118 = phi ptr [ %.01726, %deleteNode.exit ], [ %.027, %113 ]
   %.1 = phi ptr [ %59, %deleteNode.exit ], [ %115, %113 ]
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %116
   %.pre36 = load ptr, ptr @gdata, align 8
@@ -1499,7 +1499,7 @@ deleteNode.exit:                                  ; preds = %77, %.sink.split.i
   %119 = load i32, ptr %118, align 8
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next, %120
-  br i1 %121, label %.lr.ph33, label %.loopexit, !llvm.loop !14
+  br i1 %121, label %.lr.ph33, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %9, %0
   %122 = phi ptr [ %11, %9 ], [ %4, %0 ], [ %117, %._crit_edge ]
@@ -1631,7 +1631,7 @@ weakenNode.exit.thread:                           ; preds = %46, %weakenNode.exi
   %61 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   %.0 = load ptr, ptr %61, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %60
   %.pre17 = load ptr, ptr @gdata, align 8
@@ -1644,7 +1644,7 @@ weakenNode.exit.thread:                           ; preds = %46, %weakenNode.exi
   %64 = load i32, ptr %63, align 8
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %.lr.ph15, label %.loopexit, !llvm.loop !16
+  br i1 %66, label %.lr.ph15, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge, %9, %0
   %67 = phi ptr [ %11, %9 ], [ %4, %0 ], [ %62, %._crit_edge ]
@@ -1857,7 +1857,7 @@ isStrong.exit.thread:                             ; preds = %.lr.ph, %18, %isStr
   %.119 = phi ptr [ %.027, %isStrong.exit.thread ], [ %.01826, %deleteNode.exit ]
   %.1 = phi ptr [ %77, %isStrong.exit.thread ], [ %25, %deleteNode.exit ]
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %78
   %.pre35 = load ptr, ptr @gdata, align 8
@@ -1870,7 +1870,7 @@ isStrong.exit.thread:                             ; preds = %.lr.ph, %18, %isStr
   %81 = load i32, ptr %80, align 8
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph32, label %.loopexit, !llvm.loop !18
+  br i1 %83, label %.lr.ph32, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %0
   %84 = phi ptr [ %5, %0 ], [ %79, %._crit_edge ]
@@ -1929,16 +1929,17 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

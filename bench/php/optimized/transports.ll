@@ -180,7 +180,7 @@ switch.early.test:                                ; preds = %32
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %32
   %38 = add i64 %.079, 1
   %39 = getelementptr inbounds nuw i8, ptr %.082, i64 1
-  br label %32
+  br label %32, !llvm.loop !31
 
 40:                                               ; preds = %switch.early.test
   %41 = icmp eq i8 %33, 58
@@ -243,16 +243,16 @@ sub_1:                                            ; preds = %40
   br label %._crit_edge
 
 59:                                               ; preds = %.thread
-  %60 = load ptr, ptr %51, align 8, !tbaa !8, !nonnull !31, !noundef !31
+  %60 = load ptr, ptr %51, align 8, !tbaa !8, !nonnull !33, !noundef !33
   %61 = call ptr %60(ptr noundef nonnull %.081145, i64 noundef %.180147, ptr noundef %.084143, i64 noundef %.085141, ptr noundef %4, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %spec.store.select, ptr noundef %6) #14
   store ptr %61, ptr %12, align 8, !tbaa !12
   %.not102 = icmp eq ptr %61, null
   br i1 %.not102, label %189, label %62
 
 62:                                               ; preds = %59
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !32
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %16) #14
-  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !32
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !34
   %64 = call i32 @__sigsetjmp(ptr noundef nonnull %16, i32 noundef 0) #16
   %65 = icmp ne i32 %64, 0
   br i1 %65, label %.thread159, label %66
@@ -274,7 +274,7 @@ sub_1:                                            ; preds = %40
   %74 = phi ptr [ %70, %69 ], [ %72, %71 ]
   %75 = load ptr, ptr %12, align 8, !tbaa !12
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 136
-  store ptr %74, ptr %76, align 8, !tbaa !60
+  store ptr %74, ptr %76, align 8, !tbaa !62
   %77 = and i32 %3, 1
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %116
@@ -290,13 +290,13 @@ sub_1:                                            ; preds = %40
   %82 = and i32 %3, 16
   %.not.i133 = icmp eq i32 %82, 0
   %83 = select i1 %.not.i133, i32 1, i32 4
-  store i32 %83, ptr %11, align 8, !tbaa !68
+  store i32 %83, ptr %11, align 8, !tbaa !70
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %.084143, ptr %84, align 8, !tbaa !74
+  store ptr %.084143, ptr %84, align 8, !tbaa !76
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %.085141, ptr %85, align 8, !tbaa !75
+  store i64 %.085141, ptr %85, align 8, !tbaa !77
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %spec.store.select, ptr %86, align 8, !tbaa !76
+  store ptr %spec.store.select, ptr %86, align 8, !tbaa !78
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 4, ptr %87, align 4
   %88 = call i32 @_php_stream_set_option(ptr noundef nonnull %75, i32 noundef 7, i32 noundef 0, ptr noundef nonnull %11) #14
@@ -305,20 +305,20 @@ sub_1:                                            ; preds = %40
 
 90:                                               ; preds = %81
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %92 = load ptr, ptr %91, align 8, !tbaa !77
+  %92 = load ptr, ptr %91, align 8, !tbaa !79
   store ptr %92, ptr %13, align 8, !tbaa !14
   %.not16.i = icmp eq ptr %8, null
   br i1 %.not16.i, label %96, label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 116
-  %95 = load i32, ptr %94, align 4, !tbaa !78
-  store i32 %95, ptr %8, align 4, !tbaa !79
+  %95 = load i32, ptr %94, align 4, !tbaa !80
+  store i32 %95, ptr %8, align 4, !tbaa !81
   br label %96
 
 96:                                               ; preds = %93, %90
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  %98 = load i32, ptr %97, align 8, !tbaa !80
+  %98 = load i32, ptr %97, align 8, !tbaa !82
   br label %php_stream_xport_connect.exit
 
 php_stream_xport_connect.exit:                    ; preds = %81, %96
@@ -372,9 +372,9 @@ php_stream_xport_connect.exit:                    ; preds = %81, %96
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %10) #14
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %10, i8 0, i64 120, i1 false)
-  store ptr %.084143, ptr %119, align 8, !tbaa !74
+  store ptr %.084143, ptr %119, align 8, !tbaa !76
   %120 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %.085141, ptr %120, align 8, !tbaa !75
+  store i64 %.085141, ptr %120, align 8, !tbaa !77
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 4, ptr %121, align 4
   %122 = call i32 @_php_stream_set_option(ptr noundef nonnull %75, i32 noundef 7, i32 noundef 0, ptr noundef nonnull %10) #14
@@ -387,10 +387,10 @@ php_stream_xport_bind.exit.thread:                ; preds = %118
 
 php_stream_xport_bind.exit:                       ; preds = %118
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %125 = load ptr, ptr %124, align 8, !tbaa !77
+  %125 = load ptr, ptr %124, align 8, !tbaa !79
   store ptr %125, ptr %13, align 8, !tbaa !14
   %126 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %127 = load i32, ptr %126, align 8, !tbaa !80
+  %127 = load i32, ptr %126, align 8, !tbaa !82
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %10) #14
   %.not104 = icmp eq i32 %127, 0
   br i1 %.not104, label %144, label %128
@@ -439,13 +439,13 @@ php_stream_xport_bind.exit:                       ; preds = %118
 146:                                              ; preds = %144
   %147 = load ptr, ptr %12, align 8, !tbaa !12
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 144
-  %149 = load ptr, ptr %148, align 8, !tbaa !81
+  %149 = load ptr, ptr %148, align 8, !tbaa !83
   %.not106 = icmp eq ptr %149, null
   br i1 %.not106, label %.critedge127, label %150
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  %152 = load ptr, ptr %151, align 8, !tbaa !82
+  %152 = load ptr, ptr %151, align 8, !tbaa !84
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.critedge127, label %154
 
@@ -458,7 +458,7 @@ php_stream_xport_bind.exit:                       ; preds = %118
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %158 = load i8, ptr %157, align 8, !tbaa !8
   %159 = icmp eq i8 %158, 4
-  br i1 %159, label %160, label %162, !prof !84
+  br i1 %159, label %160, label %162, !prof !86
 
 160:                                              ; preds = %156
   %161 = load i64, ptr %155, align 8, !tbaa !8
@@ -519,14 +519,14 @@ zval_get_long.exit:                               ; preds = %160, %162
 184:                                              ; preds = %144, %.critedge127
   %185 = load ptr, ptr %12, align 8, !tbaa !12
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 116
-  %187 = load i32, ptr %186, align 4, !tbaa !85
+  %187 = load i32, ptr %186, align 4, !tbaa !87
   %188 = or i32 %187, 1024
-  store i32 %188, ptr %186, align 4, !tbaa !85
+  store i32 %188, ptr %186, align 4, !tbaa !87
   br label %.thread159
 
 .thread159:                                       ; preds = %62, %183, %178, %174, %143, %138, %134, %115, %110, %106, %170, %171, %130, %131, %102, %103, %php_stream_xport_connect.exit, %79, %184, %116
   %.3 = phi i1 [ false, %php_stream_xport_connect.exit ], [ false, %79 ], [ false, %184 ], [ false, %116 ], [ true, %103 ], [ true, %102 ], [ true, %131 ], [ true, %130 ], [ true, %171 ], [ true, %170 ], [ true, %106 ], [ true, %110 ], [ true, %115 ], [ true, %134 ], [ true, %138 ], [ true, %143 ], [ true, %174 ], [ true, %178 ], [ true, %183 ], [ false, %62 ]
-  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !32
+  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %16) #14
   br label %189
 
@@ -590,13 +590,13 @@ define dso_local i32 @php_stream_xport_connect(ptr noundef %0, ptr noundef %1, i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 120, i1 false)
   %.not = icmp eq i32 %3, 0
   %9 = select i1 %.not, i32 1, i32 4
-  store i32 %9, ptr %8, align 8, !tbaa !68
+  store i32 %9, ptr %8, align 8, !tbaa !70
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %1, ptr %10, align 8, !tbaa !74
+  store ptr %1, ptr %10, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %2, ptr %11, align 8, !tbaa !75
+  store i64 %2, ptr %11, align 8, !tbaa !77
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %4, ptr %12, align 8, !tbaa !76
+  store ptr %4, ptr %12, align 8, !tbaa !78
   %.not15.not = icmp eq ptr %5, null
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %14 = select i1 %.not15.not, i8 0, i8 4
@@ -610,7 +610,7 @@ define dso_local i32 @php_stream_xport_connect(ptr noundef %0, ptr noundef %1, i
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %20 = load ptr, ptr %19, align 8, !tbaa !77
+  %20 = load ptr, ptr %19, align 8, !tbaa !79
   store ptr %20, ptr %5, align 8, !tbaa !14
   br label %21
 
@@ -620,13 +620,13 @@ define dso_local i32 @php_stream_xport_connect(ptr noundef %0, ptr noundef %1, i
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 116
-  %24 = load i32, ptr %23, align 4, !tbaa !78
-  store i32 %24, ptr %6, align 4, !tbaa !79
+  %24 = load i32, ptr %23, align 4, !tbaa !80
+  store i32 %24, ptr %6, align 4, !tbaa !81
   br label %25
 
 25:                                               ; preds = %22, %21
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %27 = load i32, ptr %26, align 8, !tbaa !80
+  %27 = load i32, ptr %26, align 8, !tbaa !82
   br label %28
 
 28:                                               ; preds = %7, %25
@@ -641,9 +641,9 @@ define dso_local i32 @php_stream_xport_bind(ptr noundef %0, ptr noundef %1, i64 
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 120, i1 false)
-  store ptr %1, ptr %6, align 8, !tbaa !74
+  store ptr %1, ptr %6, align 8, !tbaa !76
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %2, ptr %7, align 8, !tbaa !75
+  store i64 %2, ptr %7, align 8, !tbaa !77
   %.not.not = icmp eq ptr %3, null
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = select i1 %.not.not, i8 0, i8 4
@@ -657,13 +657,13 @@ define dso_local i32 @php_stream_xport_bind(ptr noundef %0, ptr noundef %1, i64 
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %15 = load ptr, ptr %14, align 8, !tbaa !77
+  %15 = load ptr, ptr %14, align 8, !tbaa !79
   store ptr %15, ptr %3, align 8, !tbaa !14
   br label %16
 
 16:                                               ; preds = %13, %12
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %18 = load i32, ptr %17, align 8, !tbaa !80
+  %18 = load i32, ptr %17, align 8, !tbaa !82
   br label %19
 
 19:                                               ; preds = %4, %16
@@ -679,9 +679,9 @@ define dso_local i32 @php_stream_xport_listen(ptr noundef %0, i32 noundef %1, pt
   %4 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false)
-  store i32 2, ptr %4, align 8, !tbaa !68
+  store i32 2, ptr %4, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i32 %1, ptr %5, align 4, !tbaa !86
+  store i32 %1, ptr %5, align 4, !tbaa !88
   %.not.not = icmp eq ptr %2, null
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = select i1 %.not.not, i8 0, i8 4
@@ -695,13 +695,13 @@ define dso_local i32 @php_stream_xport_listen(ptr noundef %0, i32 noundef %1, pt
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %13 = load ptr, ptr %12, align 8, !tbaa !77
+  %13 = load ptr, ptr %12, align 8, !tbaa !79
   store ptr %13, ptr %2, align 8, !tbaa !14
   br label %14
 
 14:                                               ; preds = %11, %10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %16 = load i32, ptr %15, align 8, !tbaa !80
+  %16 = load i32, ptr %15, align 8, !tbaa !82
   br label %17
 
 17:                                               ; preds = %3, %14
@@ -718,9 +718,9 @@ define dso_local i32 @php_stream_xport_accept(ptr noundef %0, ptr noundef writeo
   %8 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 120, i1 false)
-  store i32 3, ptr %8, align 8, !tbaa !68
+  store i32 3, ptr %8, align 8, !tbaa !70
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %5, ptr %9, align 8, !tbaa !76
+  store ptr %5, ptr %9, align 8, !tbaa !78
   %.not = icmp ne ptr %3, null
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = zext i1 %.not to i8
@@ -737,17 +737,17 @@ define dso_local i32 @php_stream_xport_accept(ptr noundef %0, ptr noundef writeo
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %20 = load ptr, ptr %19, align 8, !tbaa !87
+  %20 = load ptr, ptr %19, align 8, !tbaa !89
   store ptr %20, ptr %1, align 8, !tbaa !12
   br i1 %.not, label %21, label %26
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %23 = load ptr, ptr %22, align 8, !tbaa !88
+  %23 = load ptr, ptr %22, align 8, !tbaa !90
   store ptr %23, ptr %3, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %25 = load i32, ptr %24, align 8, !tbaa !89
-  store i32 %25, ptr %4, align 4, !tbaa !79
+  %25 = load i32, ptr %24, align 8, !tbaa !91
+  store i32 %25, ptr %4, align 4, !tbaa !81
   br label %26
 
 26:                                               ; preds = %21, %18
@@ -755,7 +755,7 @@ define dso_local i32 @php_stream_xport_accept(ptr noundef %0, ptr noundef writeo
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %29 = load ptr, ptr %28, align 8, !tbaa !90
+  %29 = load ptr, ptr %28, align 8, !tbaa !92
   store ptr %29, ptr %2, align 8, !tbaa !14
   br label %30
 
@@ -764,13 +764,13 @@ define dso_local i32 @php_stream_xport_accept(ptr noundef %0, ptr noundef writeo
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %33 = load ptr, ptr %32, align 8, !tbaa !77
+  %33 = load ptr, ptr %32, align 8, !tbaa !79
   store ptr %33, ptr %6, align 8, !tbaa !14
   br label %34
 
 34:                                               ; preds = %31, %30
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %36 = load i32, ptr %35, align 8, !tbaa !80
+  %36 = load i32, ptr %35, align 8, !tbaa !82
   br label %37
 
 37:                                               ; preds = %7, %34
@@ -786,7 +786,7 @@ define dso_local i32 @php_stream_xport_get_name(ptr noundef %0, i32 noundef %1, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false)
   %.not = icmp eq i32 %1, 0
   %7 = select i1 %.not, i32 5, i32 6
-  store i32 %7, ptr %6, align 8, !tbaa !68
+  store i32 %7, ptr %6, align 8, !tbaa !70
   %.not14 = icmp ne ptr %3, null
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = zext i1 %.not14 to i8
@@ -803,11 +803,11 @@ define dso_local i32 @php_stream_xport_get_name(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %17 = load ptr, ptr %16, align 8, !tbaa !88
+  %17 = load ptr, ptr %16, align 8, !tbaa !90
   store ptr %17, ptr %3, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %19 = load i32, ptr %18, align 8, !tbaa !89
-  store i32 %19, ptr %4, align 4, !tbaa !79
+  %19 = load i32, ptr %18, align 8, !tbaa !91
+  store i32 %19, ptr %4, align 4, !tbaa !81
   br label %20
 
 20:                                               ; preds = %15, %14
@@ -815,13 +815,13 @@ define dso_local i32 @php_stream_xport_get_name(ptr noundef %0, i32 noundef %1, 
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %23 = load ptr, ptr %22, align 8, !tbaa !90
+  %23 = load ptr, ptr %22, align 8, !tbaa !92
   store ptr %23, ptr %2, align 8, !tbaa !14
   br label %24
 
 24:                                               ; preds = %21, %20
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %26 = load i32, ptr %25, align 8, !tbaa !80
+  %26 = load i32, ptr %25, align 8, !tbaa !82
   br label %27
 
 27:                                               ; preds = %5, %24
@@ -837,15 +837,15 @@ define dso_local i32 @php_stream_xport_crypto_setup(ptr noundef %0, i32 noundef 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store i32 %1, ptr %5, align 4, !tbaa !91
-  store ptr %2, ptr %4, align 8, !tbaa !95
+  store i32 %1, ptr %5, align 4, !tbaa !93
+  store ptr %2, ptr %4, align 8, !tbaa !97
   %7 = call i32 @_php_stream_set_option(ptr noundef %0, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %4) #14
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !96
+  %11 = load i32, ptr %10, align 8, !tbaa !98
   br label %13
 
 12:                                               ; preds = %3
@@ -864,16 +864,16 @@ define dso_local i32 @php_stream_xport_crypto_enable(ptr noundef %0, i32 noundef
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 1, ptr %4, align 4, !tbaa !97
+  store i32 1, ptr %4, align 4, !tbaa !99
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !98
+  store i32 %1, ptr %5, align 8, !tbaa !100
   %6 = call i32 @_php_stream_set_option(ptr noundef %0, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %3) #14
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !96
+  %10 = load i32, ptr %9, align 8, !tbaa !98
   br label %12
 
 11:                                               ; preds = %2
@@ -891,7 +891,7 @@ define dso_local i32 @php_stream_xport_recvfrom(ptr noundef %0, ptr noundef %1, 
   %8 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 120, i1 false)
-  store i32 7, ptr %8, align 8, !tbaa !68
+  store i32 7, ptr %8, align 8, !tbaa !70
   %.not = icmp ne ptr %4, null
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = zext i1 %.not to i8
@@ -900,11 +900,11 @@ define dso_local i32 @php_stream_xport_recvfrom(ptr noundef %0, ptr noundef %1, 
   %12 = or disjoint i8 %11, %10
   store i8 %12, ptr %9, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %1, ptr %13, align 8, !tbaa !99
+  store ptr %1, ptr %13, align 8, !tbaa !101
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %2, ptr %14, align 8, !tbaa !100
+  store i64 %2, ptr %14, align 8, !tbaa !102
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 %3, ptr %15, align 8, !tbaa !101
+  store i32 %3, ptr %15, align 8, !tbaa !103
   %16 = call i32 @_php_stream_set_option(ptr noundef %0, i32 noundef 7, i32 noundef 0, ptr noundef nonnull %8) #14
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %31
@@ -914,11 +914,11 @@ define dso_local i32 @php_stream_xport_recvfrom(ptr noundef %0, ptr noundef %1, 
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %21 = load ptr, ptr %20, align 8, !tbaa !88
+  %21 = load ptr, ptr %20, align 8, !tbaa !90
   store ptr %21, ptr %4, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %23 = load i32, ptr %22, align 8, !tbaa !89
-  store i32 %23, ptr %5, align 4, !tbaa !79
+  %23 = load i32, ptr %22, align 8, !tbaa !91
+  store i32 %23, ptr %5, align 4, !tbaa !81
   br label %24
 
 24:                                               ; preds = %19, %18
@@ -926,13 +926,13 @@ define dso_local i32 @php_stream_xport_recvfrom(ptr noundef %0, ptr noundef %1, 
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %27 = load ptr, ptr %26, align 8, !tbaa !90
+  %27 = load ptr, ptr %26, align 8, !tbaa !92
   store ptr %27, ptr %6, align 8, !tbaa !14
   br label %28
 
 28:                                               ; preds = %25, %24
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %30 = load i32, ptr %29, align 8, !tbaa !80
+  %30 = load i32, ptr %29, align 8, !tbaa !82
   br label %31
 
 31:                                               ; preds = %7, %28
@@ -953,7 +953,7 @@ define dso_local i32 @php_stream_xport_sendto(ptr noundef %0, ptr noundef %1, i6
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !102
+  %13 = load ptr, ptr %12, align 8, !tbaa !104
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14
 
@@ -963,27 +963,27 @@ define dso_local i32 @php_stream_xport_sendto(ptr noundef %0, ptr noundef %1, i6
 
 15:                                               ; preds = %6, %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, i8 0, i64 120, i1 false)
-  store i32 8, ptr %7, align 8, !tbaa !68
+  store i32 8, ptr %7, align 8, !tbaa !70
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %17 = zext i1 %10 to i8
   store i8 %17, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %1, ptr %18, align 8, !tbaa !99
+  store ptr %1, ptr %18, align 8, !tbaa !101
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i64 %2, ptr %19, align 8, !tbaa !100
+  store i64 %2, ptr %19, align 8, !tbaa !102
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i32 %3, ptr %20, align 8, !tbaa !101
+  store i32 %3, ptr %20, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %4, ptr %21, align 8, !tbaa !103
+  store ptr %4, ptr %21, align 8, !tbaa !105
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 %5, ptr %22, align 8, !tbaa !104
+  store i32 %5, ptr %22, align 8, !tbaa !106
   %23 = call i32 @_php_stream_set_option(ptr noundef %0, i32 noundef 7, i32 noundef 0, ptr noundef nonnull %7) #14
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %27 = load i32, ptr %26, align 8, !tbaa !80
+  %27 = load i32, ptr %26, align 8, !tbaa !82
   br label %28
 
 28:                                               ; preds = %15, %25, %14
@@ -997,7 +997,7 @@ define dso_local i32 @php_stream_xport_shutdown(ptr noundef %0, i32 noundef %1) 
   %3 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 120, i1 false)
-  store i32 9, ptr %3, align 8, !tbaa !68
+  store i32 9, ptr %3, align 8, !tbaa !70
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = trunc i32 %1 to i8
   %6 = shl i8 %5, 3
@@ -1081,77 +1081,79 @@ attributes #17 = { noreturn nounwind }
 !28 = !{!"p1 short", !5, i64 0}
 !29 = !{!30, !30, i64 0}
 !30 = !{!"short", !6, i64 0}
-!31 = !{}
-!32 = !{!33, !37, i64 416}
-!33 = !{!"_zend_executor_globals", !34, i64 0, !34, i64 16, !6, i64 32, !35, i64 288, !35, i64 296, !36, i64 304, !36, i64 360, !37, i64 416, !11, i64 424, !19, i64 428, !34, i64 432, !11, i64 448, !22, i64 456, !22, i64 464, !22, i64 472, !38, i64 480, !38, i64 488, !39, i64 496, !18, i64 504, !40, i64 512, !41, i64 520, !11, i64 528, !40, i64 536, !11, i64 544, !18, i64 552, !11, i64 560, !11, i64 564, !11, i64 568, !19, i64 572, !19, i64 573, !42, i64 574, !42, i64 575, !22, i64 576, !18, i64 584, !5, i64 592, !5, i64 600, !36, i64 608, !36, i64 664, !11, i64 720, !19, i64 724, !34, i64 728, !34, i64 744, !43, i64 760, !43, i64 784, !43, i64 808, !41, i64 832, !11, i64 840, !11, i64 844, !18, i64 848, !22, i64 856, !22, i64 864, !44, i64 872, !45, i64 880, !47, i64 904, !48, i64 960, !48, i64 968, !49, i64 976, !6, i64 984, !50, i64 1080, !19, i64 1088, !6, i64 1089, !18, i64 1096, !11, i64 1104, !11, i64 1108, !51, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !52, i64 1640, !36, i64 1672, !18, i64 1728, !53, i64 1736, !54, i64 1760, !54, i64 1768, !55, i64 1776, !18, i64 1784, !19, i64 1792, !11, i64 1796, !56, i64 1800, !15, i64 1808, !18, i64 1816, !57, i64 1824, !18, i64 1840, !18, i64 1848, !58, i64 1856, !6, i64 1936}
-!34 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
-!35 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
-!36 = !{!"_zend_array", !10, i64 0, !6, i64 8, !11, i64 12, !6, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !18, i64 40, !5, i64 48}
-!37 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
-!38 = !{!"p1 _ZTS12_zval_struct", !5, i64 0}
-!39 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
-!40 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
-!41 = !{!"p1 _ZTS17_zend_class_entry", !5, i64 0}
-!42 = !{!"zend_atomic_bool_s", !6, i64 0}
-!43 = !{!"_zend_stack", !11, i64 0, !11, i64 4, !11, i64 8, !5, i64 16}
-!44 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
-!45 = !{!"_zend_objects_store", !46, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!46 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
-!47 = !{!"_zend_lazy_objects_store", !36, i64 0}
-!48 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
-!49 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
-!50 = !{!"p1 _ZTS18_zend_module_entry", !5, i64 0}
-!51 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
-!52 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !11, i64 20, !11, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
-!53 = !{!"", !38, i64 0, !38, i64 8, !38, i64 16}
-!54 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
-!55 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
-!56 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
-!57 = !{!"_zend_call_stack", !5, i64 0, !18, i64 8}
-!58 = !{!"_zend_strtod_state", !6, i64 0, !59, i64 64, !20, i64 72}
-!59 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
-!60 = !{!61, !20, i64 136}
-!61 = !{!"_php_stream", !62, i64 0, !5, i64 8, !63, i64 16, !63, i64 40, !65, i64 64, !5, i64 72, !34, i64 80, !30, i64 96, !30, i64 96, !30, i64 96, !30, i64 96, !30, i64 96, !30, i64 96, !30, i64 97, !6, i64 98, !11, i64 116, !66, i64 120, !67, i64 128, !20, i64 136, !66, i64 144, !18, i64 152, !20, i64 160, !18, i64 168, !18, i64 176, !18, i64 184, !18, i64 192, !13, i64 200}
-!62 = !{!"p1 _ZTS15_php_stream_ops", !5, i64 0}
-!63 = !{!"_php_stream_filter_chain", !64, i64 0, !64, i64 8, !13, i64 16}
-!64 = !{!"p1 _ZTS18_php_stream_filter", !5, i64 0}
-!65 = !{!"p1 _ZTS19_php_stream_wrapper", !5, i64 0}
-!66 = !{!"p1 _ZTS14_zend_resource", !5, i64 0}
-!67 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!68 = !{!69, !11, i64 0}
-!69 = !{!"_php_stream_xport_param", !11, i64 0, !11, i64 4, !11, i64 4, !11, i64 4, !11, i64 4, !70, i64 8, !73, i64 72}
-!70 = !{!"", !20, i64 0, !18, i64 8, !71, i64 16, !72, i64 24, !20, i64 32, !18, i64 40, !11, i64 48, !11, i64 52, !11, i64 56}
-!71 = !{!"p1 _ZTS7timeval", !5, i64 0}
-!72 = !{!"p1 _ZTS8sockaddr", !5, i64 0}
-!73 = !{!"", !13, i64 0, !72, i64 8, !11, i64 16, !15, i64 24, !15, i64 32, !11, i64 40, !11, i64 44}
-!74 = !{!69, !20, i64 8}
-!75 = !{!69, !18, i64 16}
-!76 = !{!69, !71, i64 24}
-!77 = !{!69, !15, i64 104}
-!78 = !{!69, !11, i64 116}
-!79 = !{!11, !11, i64 0}
-!80 = !{!69, !11, i64 112}
-!81 = !{!61, !66, i64 144}
-!82 = !{!83, !5, i64 24}
-!83 = !{!"_zend_resource", !10, i64 0, !18, i64 8, !11, i64 16, !5, i64 24}
-!84 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!85 = !{!61, !11, i64 116}
-!86 = !{!69, !11, i64 60}
-!87 = !{!69, !13, i64 72}
-!88 = !{!69, !72, i64 80}
-!89 = !{!69, !11, i64 88}
-!90 = !{!69, !15, i64 96}
-!91 = !{!92, !11, i64 12}
-!92 = !{!"_php_stream_xport_crypto_param", !93, i64 0, !94, i64 16, !11, i64 20}
-!93 = !{!"", !13, i64 0, !11, i64 8, !11, i64 12}
-!94 = !{!"", !11, i64 0}
-!95 = !{!92, !13, i64 0}
-!96 = !{!92, !11, i64 16}
-!97 = !{!92, !11, i64 20}
-!98 = !{!92, !11, i64 8}
-!99 = !{!69, !20, i64 40}
-!100 = !{!69, !18, i64 48}
-!101 = !{!69, !11, i64 64}
-!102 = !{!61, !64, i64 40}
-!103 = !{!69, !72, i64 32}
-!104 = !{!69, !11, i64 56}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{}
+!34 = !{!35, !39, i64 416}
+!35 = !{!"_zend_executor_globals", !36, i64 0, !36, i64 16, !6, i64 32, !37, i64 288, !37, i64 296, !38, i64 304, !38, i64 360, !39, i64 416, !11, i64 424, !19, i64 428, !36, i64 432, !11, i64 448, !22, i64 456, !22, i64 464, !22, i64 472, !40, i64 480, !40, i64 488, !41, i64 496, !18, i64 504, !42, i64 512, !43, i64 520, !11, i64 528, !42, i64 536, !11, i64 544, !18, i64 552, !11, i64 560, !11, i64 564, !11, i64 568, !19, i64 572, !19, i64 573, !44, i64 574, !44, i64 575, !22, i64 576, !18, i64 584, !5, i64 592, !5, i64 600, !38, i64 608, !38, i64 664, !11, i64 720, !19, i64 724, !36, i64 728, !36, i64 744, !45, i64 760, !45, i64 784, !45, i64 808, !43, i64 832, !11, i64 840, !11, i64 844, !18, i64 848, !22, i64 856, !22, i64 864, !46, i64 872, !47, i64 880, !49, i64 904, !50, i64 960, !50, i64 968, !51, i64 976, !6, i64 984, !52, i64 1080, !19, i64 1088, !6, i64 1089, !18, i64 1096, !11, i64 1104, !11, i64 1108, !53, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !54, i64 1640, !38, i64 1672, !18, i64 1728, !55, i64 1736, !56, i64 1760, !56, i64 1768, !57, i64 1776, !18, i64 1784, !19, i64 1792, !11, i64 1796, !58, i64 1800, !15, i64 1808, !18, i64 1816, !59, i64 1824, !18, i64 1840, !18, i64 1848, !60, i64 1856, !6, i64 1936}
+!36 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
+!37 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
+!38 = !{!"_zend_array", !10, i64 0, !6, i64 8, !11, i64 12, !6, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !18, i64 40, !5, i64 48}
+!39 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
+!40 = !{!"p1 _ZTS12_zval_struct", !5, i64 0}
+!41 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
+!42 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
+!43 = !{!"p1 _ZTS17_zend_class_entry", !5, i64 0}
+!44 = !{!"zend_atomic_bool_s", !6, i64 0}
+!45 = !{!"_zend_stack", !11, i64 0, !11, i64 4, !11, i64 8, !5, i64 16}
+!46 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
+!47 = !{!"_zend_objects_store", !48, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!48 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
+!49 = !{!"_zend_lazy_objects_store", !38, i64 0}
+!50 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
+!51 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
+!52 = !{!"p1 _ZTS18_zend_module_entry", !5, i64 0}
+!53 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
+!54 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !11, i64 20, !11, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
+!55 = !{!"", !40, i64 0, !40, i64 8, !40, i64 16}
+!56 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
+!57 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
+!58 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
+!59 = !{!"_zend_call_stack", !5, i64 0, !18, i64 8}
+!60 = !{!"_zend_strtod_state", !6, i64 0, !61, i64 64, !20, i64 72}
+!61 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
+!62 = !{!63, !20, i64 136}
+!63 = !{!"_php_stream", !64, i64 0, !5, i64 8, !65, i64 16, !65, i64 40, !67, i64 64, !5, i64 72, !36, i64 80, !30, i64 96, !30, i64 96, !30, i64 96, !30, i64 96, !30, i64 96, !30, i64 96, !30, i64 97, !6, i64 98, !11, i64 116, !68, i64 120, !69, i64 128, !20, i64 136, !68, i64 144, !18, i64 152, !20, i64 160, !18, i64 168, !18, i64 176, !18, i64 184, !18, i64 192, !13, i64 200}
+!64 = !{!"p1 _ZTS15_php_stream_ops", !5, i64 0}
+!65 = !{!"_php_stream_filter_chain", !66, i64 0, !66, i64 8, !13, i64 16}
+!66 = !{!"p1 _ZTS18_php_stream_filter", !5, i64 0}
+!67 = !{!"p1 _ZTS19_php_stream_wrapper", !5, i64 0}
+!68 = !{!"p1 _ZTS14_zend_resource", !5, i64 0}
+!69 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!70 = !{!71, !11, i64 0}
+!71 = !{!"_php_stream_xport_param", !11, i64 0, !11, i64 4, !11, i64 4, !11, i64 4, !11, i64 4, !72, i64 8, !75, i64 72}
+!72 = !{!"", !20, i64 0, !18, i64 8, !73, i64 16, !74, i64 24, !20, i64 32, !18, i64 40, !11, i64 48, !11, i64 52, !11, i64 56}
+!73 = !{!"p1 _ZTS7timeval", !5, i64 0}
+!74 = !{!"p1 _ZTS8sockaddr", !5, i64 0}
+!75 = !{!"", !13, i64 0, !74, i64 8, !11, i64 16, !15, i64 24, !15, i64 32, !11, i64 40, !11, i64 44}
+!76 = !{!71, !20, i64 8}
+!77 = !{!71, !18, i64 16}
+!78 = !{!71, !73, i64 24}
+!79 = !{!71, !15, i64 104}
+!80 = !{!71, !11, i64 116}
+!81 = !{!11, !11, i64 0}
+!82 = !{!71, !11, i64 112}
+!83 = !{!63, !68, i64 144}
+!84 = !{!85, !5, i64 24}
+!85 = !{!"_zend_resource", !10, i64 0, !18, i64 8, !11, i64 16, !5, i64 24}
+!86 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!87 = !{!63, !11, i64 116}
+!88 = !{!71, !11, i64 60}
+!89 = !{!71, !13, i64 72}
+!90 = !{!71, !74, i64 80}
+!91 = !{!71, !11, i64 88}
+!92 = !{!71, !15, i64 96}
+!93 = !{!94, !11, i64 12}
+!94 = !{!"_php_stream_xport_crypto_param", !95, i64 0, !96, i64 16, !11, i64 20}
+!95 = !{!"", !13, i64 0, !11, i64 8, !11, i64 12}
+!96 = !{!"", !11, i64 0}
+!97 = !{!94, !13, i64 0}
+!98 = !{!94, !11, i64 16}
+!99 = !{!94, !11, i64 20}
+!100 = !{!94, !11, i64 8}
+!101 = !{!71, !20, i64 40}
+!102 = !{!71, !18, i64 48}
+!103 = !{!71, !11, i64 64}
+!104 = !{!63, !66, i64 40}
+!105 = !{!71, !74, i64 32}
+!106 = !{!71, !11, i64 56}

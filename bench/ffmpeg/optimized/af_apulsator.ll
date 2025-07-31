@@ -196,7 +196,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %7 = load i32, ptr %6, align 4, !tbaa !53
+  %7 = load i32, ptr %6, align 4, !tbaa !54
   switch i32 %7, label %21 [
     i32 0, label %8
     i32 1, label %12
@@ -205,13 +205,13 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %10 = load double, ptr %9, align 8, !tbaa !54
+  %10 = load double, ptr %9, align 8, !tbaa !55
   %11 = fdiv nsz double %10, 6.000000e+01
   br label %22
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %14 = load i32, ptr %13, align 8, !tbaa !55
+  %14 = load i32, ptr %13, align 8, !tbaa !56
   %15 = sitofp i32 %14 to double
   %16 = fdiv nsz double %15, 1.000000e+03
   %17 = fdiv nsz double 1.000000e+00, %16
@@ -219,7 +219,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %20 = load double, ptr %19, align 8, !tbaa !56
+  %20 = load double, ptr %19, align 8, !tbaa !57
   br label %22
 
 21:                                               ; preds = %1
@@ -230,41 +230,41 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
 22:                                               ; preds = %18, %12, %8
   %.0 = phi nsz double [ %11, %8 ], [ %17, %12 ], [ %20, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store double %.0, ptr %23, align 8, !tbaa !57
+  store double %.0, ptr %23, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  store double %.0, ptr %24, align 8, !tbaa !58
+  store double %.0, ptr %24, align 8, !tbaa !59
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !59
+  %26 = load i32, ptr %25, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  store i32 %26, ptr %27, align 8, !tbaa !60
+  store i32 %26, ptr %27, align 8, !tbaa !61
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store i32 %26, ptr %28, align 8, !tbaa !61
+  store i32 %26, ptr %28, align 8, !tbaa !62
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %30 = load double, ptr %29, align 8, !tbaa !62
+  %30 = load double, ptr %29, align 8, !tbaa !63
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store double %30, ptr %31, align 8, !tbaa !63
+  store double %30, ptr %31, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %33 = load double, ptr %32, align 8, !tbaa !64
+  %33 = load double, ptr %32, align 8, !tbaa !65
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  store double %33, ptr %34, align 8, !tbaa !65
+  store double %33, ptr %34, align 8, !tbaa !66
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %36 = load i32, ptr %35, align 8, !tbaa !66
+  %36 = load i32, ptr %35, align 8, !tbaa !67
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 132
-  store i32 %36, ptr %37, align 4, !tbaa !67
+  store i32 %36, ptr %37, align 4, !tbaa !68
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 180
-  store i32 %36, ptr %38, align 4, !tbaa !68
+  store i32 %36, ptr %38, align 4, !tbaa !69
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %40 = load double, ptr %39, align 8, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store double %40, ptr %41, align 8, !tbaa !69
+  store double %40, ptr %41, align 8, !tbaa !70
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  store double %40, ptr %42, align 8, !tbaa !70
+  store double %40, ptr %42, align 8, !tbaa !71
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %44 = load double, ptr %43, align 8, !tbaa !71
+  %44 = load double, ptr %43, align 8, !tbaa !72
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store double %44, ptr %45, align 8, !tbaa !72
+  store double %44, ptr %45, align 8, !tbaa !73
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  store double %44, ptr %46, align 8, !tbaa !73
+  store double %44, ptr %46, align 8, !tbaa !74
   ret i32 0
 }
 
@@ -280,7 +280,7 @@ declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc double @lfo_get_value(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load double, ptr %0, align 8, !tbaa !48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load double, ptr %3, align 8, !tbaa !74
+  %4 = load double, ptr %3, align 8, !tbaa !75
   %5 = fcmp nsz olt double %4, 1.000000e-02
   %6 = fcmp nsz olt double %4, 1.990000e+00
   %7 = or i1 %5, %6
@@ -290,7 +290,7 @@ define internal fastcc double @lfo_get_value(ptr noundef readonly captures(none)
   %9 = select nsz i1 %5, double 1.000000e-02, double %4
   %10 = fdiv nsz double %2, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load double, ptr %11, align 8, !tbaa !75
+  %12 = load double, ptr %11, align 8, !tbaa !76
   %13 = fadd nsz double %10, %12
   %14 = fcmp nsz olt double %13, 1.000000e+02
   br i1 %14, label %20, label %26
@@ -298,7 +298,7 @@ define internal fastcc double @lfo_get_value(ptr noundef readonly captures(none)
 .thread:                                          ; preds = %1
   %15 = fdiv nsz double %2, 1.990000e+00
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load double, ptr %16, align 8, !tbaa !75
+  %17 = load double, ptr %16, align 8, !tbaa !76
   %18 = fadd nsz double %15, %17
   %19 = fcmp nsz olt double %18, 1.000000e+02
   br i1 %19, label %.thread32, label %26
@@ -322,7 +322,7 @@ define internal fastcc double @lfo_get_value(ptr noundef readonly captures(none)
   %29 = frem nsz double %27, 1.000000e+00
   %.026 = select nsz i1 %28, double %29, double %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load i32, ptr %30, align 8, !tbaa !76
+  %31 = load i32, ptr %30, align 8, !tbaa !77
   switch i32 %31, label %55 [
     i32 0, label %32
     i32 1, label %36
@@ -380,7 +380,7 @@ define internal fastcc double @lfo_get_value(ptr noundef readonly captures(none)
 56:                                               ; preds = %38, %45, %43, %52, %50, %47, %32
   %.0 = phi nsz double [ %35, %32 ], [ %40, %38 ], [ %44, %43 ], [ %46, %45 ], [ %49, %47 ], [ %51, %50 ], [ %54, %52 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load double, ptr %57, align 8, !tbaa !77
+  %58 = load double, ptr %57, align 8, !tbaa !78
   %59 = fmul nsz double %.0, %58
   ret double %59
 }
@@ -471,30 +471,31 @@ attributes #6 = { noreturn nounwind }
 !48 = !{!44, !43, i64 0}
 !49 = !{!44, !43, i64 8}
 !50 = !{!44, !13, i64 44}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!42, !13, i64 84}
-!54 = !{!42, !43, i64 64}
-!55 = !{!42, !13, i64 80}
-!56 = !{!42, !43, i64 72}
-!57 = !{!42, !43, i64 96}
-!58 = !{!42, !43, i64 144}
-!59 = !{!42, !13, i64 8}
-!60 = !{!42, !13, i64 128}
-!61 = !{!42, !13, i64 176}
-!62 = !{!42, !43, i64 40}
-!63 = !{!42, !43, i64 104}
-!64 = !{!42, !43, i64 48}
-!65 = !{!42, !43, i64 152}
-!66 = !{!10, !13, i64 64}
-!67 = !{!42, !13, i64 132}
-!68 = !{!42, !13, i64 180}
-!69 = !{!42, !43, i64 112}
-!70 = !{!42, !43, i64 160}
-!71 = !{!42, !43, i64 56}
-!72 = !{!42, !43, i64 120}
-!73 = !{!42, !43, i64 168}
-!74 = !{!44, !43, i64 32}
-!75 = !{!44, !43, i64 16}
-!76 = !{!44, !13, i64 40}
-!77 = !{!44, !43, i64 24}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!42, !13, i64 84}
+!55 = !{!42, !43, i64 64}
+!56 = !{!42, !13, i64 80}
+!57 = !{!42, !43, i64 72}
+!58 = !{!42, !43, i64 96}
+!59 = !{!42, !43, i64 144}
+!60 = !{!42, !13, i64 8}
+!61 = !{!42, !13, i64 128}
+!62 = !{!42, !13, i64 176}
+!63 = !{!42, !43, i64 40}
+!64 = !{!42, !43, i64 104}
+!65 = !{!42, !43, i64 48}
+!66 = !{!42, !43, i64 152}
+!67 = !{!10, !13, i64 64}
+!68 = !{!42, !13, i64 132}
+!69 = !{!42, !13, i64 180}
+!70 = !{!42, !43, i64 112}
+!71 = !{!42, !43, i64 160}
+!72 = !{!42, !43, i64 56}
+!73 = !{!42, !43, i64 120}
+!74 = !{!42, !43, i64 168}
+!75 = !{!44, !43, i64 32}
+!76 = !{!44, !43, i64 16}
+!77 = !{!44, !13, i64 40}
+!78 = !{!44, !43, i64 24}

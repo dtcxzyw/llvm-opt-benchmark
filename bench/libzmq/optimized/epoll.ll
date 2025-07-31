@@ -226,13 +226,13 @@ define noundef ptr @_ZN3zmq7epoll_t6add_fdEiPNS_13i_poll_eventsE(ptr noundef non
   br label %10
 
 10:                                               ; preds = %5, %3
-  store i32 %1, ptr %4, align 8, !tbaa !52
+  store i32 %1, ptr %4, align 8, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %11, align 4, !tbaa !56
+  store i32 0, ptr %11, align 4, !tbaa !57
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %4, ptr %12, align 4, !tbaa !57
+  store ptr %4, ptr %12, align 4, !tbaa !58
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %2, ptr %13, align 8, !tbaa !58
+  store ptr %2, ptr %13, align 8, !tbaa !59
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8, !tbaa !6
   %16 = tail call i32 @epoll_ctl(i32 noundef %15, i32 noundef 1, i32 noundef %1, ptr noundef nonnull %11) #20
@@ -273,7 +273,7 @@ define void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceabl
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 8, !tbaa !6
-  %5 = load i32, ptr %1, align 8, !tbaa !52
+  %5 = load i32, ptr %1, align 8, !tbaa !53
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = tail call i32 @epoll_ctl(i32 noundef %4, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %6) #20
   %.not = icmp eq i32 %7, -1
@@ -291,19 +291,19 @@ define void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceabl
   br label %16
 
 16:                                               ; preds = %8, %2
-  store i32 -1, ptr %1, align 8, !tbaa !52
+  store i32 -1, ptr %1, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %19 = load ptr, ptr %18, align 8, !tbaa !59
+  %19 = load ptr, ptr %18, align 8, !tbaa !60
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %21 = load ptr, ptr %20, align 8, !tbaa !60
+  %21 = load ptr, ptr %20, align 8, !tbaa !61
   %.not.i = icmp eq ptr %19, %21
   br i1 %.not.i, label %24, label %22
 
 22:                                               ; preds = %16
   store ptr %1, ptr %19, align 8, !tbaa !48
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %23, ptr %18, align 8, !tbaa !59
+  store ptr %23, ptr %18, align 8, !tbaa !60
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit
 
 24:                                               ; preds = %16
@@ -349,9 +349,9 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.e
 
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %37, ptr %17, align 8, !tbaa !45
-  store ptr %41, ptr %18, align 8, !tbaa !59
+  store ptr %41, ptr %18, align 8, !tbaa !60
   %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
-  store ptr %43, ptr %20, align 8, !tbaa !60
+  store ptr %43, ptr %20, align 8, !tbaa !61
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit: ; preds = %22, %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
@@ -363,12 +363,12 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit: ; preds
 define void @_ZN3zmq7epoll_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !56
+  %4 = load i32, ptr %3, align 4, !tbaa !57
   %5 = or i32 %4, 1
-  store i32 %5, ptr %3, align 4, !tbaa !56
+  store i32 %5, ptr %3, align 4, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load i32, ptr %6, align 8, !tbaa !6
-  %8 = load i32, ptr %1, align 8, !tbaa !52
+  %8 = load i32, ptr %1, align 8, !tbaa !53
   %9 = tail call i32 @epoll_ctl(i32 noundef %7, i32 noundef 3, i32 noundef %8, ptr noundef nonnull %3) #20
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %10, label %18, !prof !41
@@ -392,12 +392,12 @@ define void @_ZN3zmq7epoll_t10set_pollinEPv(ptr noundef nonnull align 8 derefere
 define void @_ZN3zmq7epoll_t12reset_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !56
+  %4 = load i32, ptr %3, align 4, !tbaa !57
   %5 = and i32 %4, -2
-  store i32 %5, ptr %3, align 4, !tbaa !56
+  store i32 %5, ptr %3, align 4, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load i32, ptr %6, align 8, !tbaa !6
-  %8 = load i32, ptr %1, align 8, !tbaa !52
+  %8 = load i32, ptr %1, align 8, !tbaa !53
   %9 = tail call i32 @epoll_ctl(i32 noundef %7, i32 noundef 3, i32 noundef %8, ptr noundef nonnull %3) #20
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %10, label %18, !prof !41
@@ -421,12 +421,12 @@ define void @_ZN3zmq7epoll_t12reset_pollinEPv(ptr noundef nonnull align 8 derefe
 define void @_ZN3zmq7epoll_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !56
+  %4 = load i32, ptr %3, align 4, !tbaa !57
   %5 = or i32 %4, 4
-  store i32 %5, ptr %3, align 4, !tbaa !56
+  store i32 %5, ptr %3, align 4, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load i32, ptr %6, align 8, !tbaa !6
-  %8 = load i32, ptr %1, align 8, !tbaa !52
+  %8 = load i32, ptr %1, align 8, !tbaa !53
   %9 = tail call i32 @epoll_ctl(i32 noundef %7, i32 noundef 3, i32 noundef %8, ptr noundef nonnull %3) #20
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %10, label %18, !prof !41
@@ -450,12 +450,12 @@ define void @_ZN3zmq7epoll_t11set_polloutEPv(ptr noundef nonnull align 8 derefer
 define void @_ZN3zmq7epoll_t13reset_polloutEPv(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !56
+  %4 = load i32, ptr %3, align 4, !tbaa !57
   %5 = and i32 %4, -5
-  store i32 %5, ptr %3, align 4, !tbaa !56
+  store i32 %5, ptr %3, align 4, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load i32, ptr %6, align 8, !tbaa !6
-  %8 = load i32, ptr %1, align 8, !tbaa !52
+  %8 = load i32, ptr %1, align 8, !tbaa !53
   %9 = tail call i32 @epoll_ctl(i32 noundef %7, i32 noundef 3, i32 noundef %8, ptr noundef nonnull %3) #20
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %10, label %18, !prof !41
@@ -493,155 +493,155 @@ define void @_ZN3zmq7epoll_t4loopEv(ptr noundef nonnull align 8 dereferenceable(
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  br label %.backedge
+  br label %6
 
-.backedge:                                        ; preds = %.backedge.backedge, %1
-  %6 = call noundef i64 @_ZN3zmq13poller_base_t14execute_timersEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
-  %7 = trunc i64 %6 to i32
-  %8 = call noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit, label %10
+6:                                                ; preds = %.backedge, %1
+  %7 = call noundef i64 @_ZN3zmq13poller_base_t14execute_timersEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
+  %8 = trunc i64 %7 to i32
+  %9 = call noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit, label %11
 
-_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit: ; preds = %.backedge
-  %.not36 = icmp eq i32 %7, 0
-  br i1 %.not36, label %69, label %.backedge.backedge
+_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit: ; preds = %6
+  %.not36 = icmp eq i32 %8, 0
+  br i1 %.not36, label %70, label %.backedge
 
-10:                                               ; preds = %.backedge
-  %11 = load i32, ptr %3, align 8, !tbaa !6
-  %.not = icmp eq i32 %7, 0
-  %12 = select i1 %.not, i32 -1, i32 %7
-  %13 = call i32 @epoll_wait(i32 noundef %11, ptr noundef nonnull %2, i32 noundef 256, i32 noundef %12)
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %16, label %.preheader
+.backedge:                                        ; preds = %._crit_edge, %20, %17, %._crit_edge42, %64, %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit
+  br label %6, !llvm.loop !62
 
-.preheader:                                       ; preds = %10
-  %15 = icmp sgt i32 %13, 0
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
+11:                                               ; preds = %6
+  %12 = load i32, ptr %3, align 8, !tbaa !6
+  %.not = icmp eq i32 %8, 0
+  %13 = select i1 %.not, i32 -1, i32 %8
+  %14 = call i32 @epoll_wait(i32 noundef %12, ptr noundef nonnull %2, i32 noundef 256, i32 noundef %13)
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %17, label %.preheader
+
+.preheader:                                       ; preds = %11
+  %16 = icmp sgt i32 %14, 0
+  br i1 %16, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %13 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph
 
-16:                                               ; preds = %10
-  %17 = tail call ptr @__errno_location() #21
-  %18 = load i32, ptr %17, align 4, !tbaa !42
-  %.not30 = icmp eq i32 %18, 4
-  br i1 %.not30, label %.backedge.backedge, label %19, !prof !61
+17:                                               ; preds = %11
+  %18 = tail call ptr @__errno_location() #21
+  %19 = load i32, ptr %18, align 4, !tbaa !42
+  %.not30 = icmp eq i32 %19, 4
+  br i1 %.not30, label %.backedge, label %20, !prof !63, !llvm.loop !64
 
-19:                                               ; preds = %16
-  %20 = call ptr @strerror(i32 noundef %18) #20
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !43
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef %20, ptr noundef nonnull @.str.1, i32 noundef 160) #22
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !43
-  %24 = call i32 @fflush(ptr noundef %23)
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %20)
-  br label %.backedge.backedge
+20:                                               ; preds = %17
+  %21 = call ptr @strerror(i32 noundef %19) #20
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !43
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str, ptr noundef %21, ptr noundef nonnull @.str.1, i32 noundef 160) #22
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !43
+  %25 = call i32 @fflush(ptr noundef %24)
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %21)
+  br label %.backedge, !llvm.loop !64
 
-._crit_edge:                                      ; preds = %61, %.preheader
-  %25 = load ptr, ptr %4, align 8, !tbaa !46
-  %26 = load ptr, ptr %5, align 8, !tbaa !46
-  %.not3538 = icmp eq ptr %25, %26
-  br i1 %.not3538, label %.backedge.backedge, label %.lr.ph41
+._crit_edge:                                      ; preds = %62, %.preheader
+  %26 = load ptr, ptr %4, align 8, !tbaa !46
+  %27 = load ptr, ptr %5, align 8, !tbaa !46
+  %.not3538 = icmp eq ptr %26, %27
+  br i1 %.not3538, label %.backedge, label %.lr.ph41
 
-.backedge.backedge:                               ; preds = %._crit_edge, %19, %16, %._crit_edge42, %63, %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit
-  br label %.backedge, !llvm.loop !62
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
+  %28 = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %2, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %30 = load ptr, ptr %29, align 4, !tbaa !58
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %62, label %32
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %27 = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %2, i64 0, i64 %indvars.iv
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %29 = load ptr, ptr %28, align 4, !tbaa !57
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %61, label %31
+32:                                               ; preds = %.lr.ph
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !59
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %62, label %36
 
-31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !58
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %61, label %35
+36:                                               ; preds = %32
+  %37 = load i32, ptr %30, align 8, !tbaa !53
+  %38 = icmp eq i32 %37, -1
+  br i1 %38, label %62, label %39
 
-35:                                               ; preds = %31
-  %36 = load i32, ptr %29, align 8, !tbaa !52
-  %37 = icmp eq i32 %36, -1
-  br i1 %37, label %61, label %38
+39:                                               ; preds = %36
+  %40 = load i32, ptr %28, align 4, !tbaa !65
+  %41 = and i32 %40, 24
+  %.not27 = icmp eq i32 %41, 0
+  br i1 %.not27, label %.thread, label %42
 
-38:                                               ; preds = %35
-  %39 = load i32, ptr %27, align 4, !tbaa !63
-  %40 = and i32 %39, 24
-  %.not27 = icmp eq i32 %40, 0
-  br i1 %.not27, label %.thread, label %41
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %34, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  call void %45(ptr noundef nonnull align 8 dereferenceable(8) %34)
+  %.pre = load i32, ptr %30, align 8, !tbaa !53
+  %46 = icmp eq i32 %.pre, -1
+  br i1 %46, label %62, label %.thread
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %33, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(8) %33)
-  %.pre = load i32, ptr %29, align 8, !tbaa !52
-  %45 = icmp eq i32 %.pre, -1
-  br i1 %45, label %61, label %.thread
+.thread:                                          ; preds = %39, %42
+  %47 = load i32, ptr %28, align 4, !tbaa !65
+  %48 = and i32 %47, 4
+  %.not28 = icmp eq i32 %48, 0
+  br i1 %.not28, label %.thread47, label %49
 
-.thread:                                          ; preds = %38, %41
-  %46 = load i32, ptr %27, align 4, !tbaa !63
-  %47 = and i32 %46, 4
-  %.not28 = icmp eq i32 %47, 0
-  br i1 %.not28, label %.thread47, label %48
+49:                                               ; preds = %.thread
+  %50 = load ptr, ptr %33, align 8, !tbaa !59
+  %51 = load ptr, ptr %50, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(8) %50)
+  %.pre44 = load i32, ptr %30, align 8, !tbaa !53
+  %54 = icmp eq i32 %.pre44, -1
+  br i1 %54, label %62, label %.thread47
 
-48:                                               ; preds = %.thread
-  %49 = load ptr, ptr %32, align 8, !tbaa !58
-  %50 = load ptr, ptr %49, align 8, !tbaa !3
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %49)
-  %.pre44 = load i32, ptr %29, align 8, !tbaa !52
-  %53 = icmp eq i32 %.pre44, -1
-  br i1 %53, label %61, label %.thread47
+.thread47:                                        ; preds = %.thread, %49
+  %55 = load i32, ptr %28, align 4, !tbaa !65
+  %56 = and i32 %55, 1
+  %.not29 = icmp eq i32 %56, 0
+  br i1 %.not29, label %62, label %57
 
-.thread47:                                        ; preds = %.thread, %48
-  %54 = load i32, ptr %27, align 4, !tbaa !63
-  %55 = and i32 %54, 1
-  %.not29 = icmp eq i32 %55, 0
-  br i1 %.not29, label %61, label %56
+57:                                               ; preds = %.thread47
+  %58 = load ptr, ptr %33, align 8, !tbaa !59
+  %59 = load ptr, ptr %58, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
+  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %58)
+  br label %62
 
-56:                                               ; preds = %.thread47
-  %57 = load ptr, ptr %32, align 8, !tbaa !58
-  %58 = load ptr, ptr %57, align 8, !tbaa !3
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %57)
-  br label %61
-
-61:                                               ; preds = %.thread47, %56, %48, %41, %35, %31, %.lr.ph
+62:                                               ; preds = %.thread47, %57, %49, %42, %36, %32, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
-._crit_edge42:                                    ; preds = %67
+._crit_edge42:                                    ; preds = %68
   %.pre45 = load ptr, ptr %4, align 8, !tbaa !45
-  %.pre46 = load ptr, ptr %5, align 8, !tbaa !59
-  %62 = icmp eq ptr %.pre46, %.pre45
-  br i1 %62, label %.backedge.backedge, label %63
+  %.pre46 = load ptr, ptr %5, align 8, !tbaa !60
+  %63 = icmp eq ptr %.pre46, %.pre45
+  br i1 %63, label %.backedge, label %64
 
-63:                                               ; preds = %._crit_edge42
-  store ptr %.pre45, ptr %5, align 8, !tbaa !59
-  br label %.backedge.backedge
+64:                                               ; preds = %._crit_edge42
+  store ptr %.pre45, ptr %5, align 8, !tbaa !60
+  br label %.backedge
 
-.lr.ph41:                                         ; preds = %._crit_edge, %67
-  %.sroa.031.039 = phi ptr [ %68, %67 ], [ %25, %._crit_edge ]
-  %64 = load ptr, ptr %.sroa.031.039, align 8, !tbaa !48
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %67, label %66
+.lr.ph41:                                         ; preds = %._crit_edge, %68
+  %.sroa.031.039 = phi ptr [ %69, %68 ], [ %26, %._crit_edge ]
+  %65 = load ptr, ptr %.sroa.031.039, align 8, !tbaa !48
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %68, label %67
 
-66:                                               ; preds = %.lr.ph41
-  call void @_ZdlPv(ptr noundef nonnull %64) #23
-  br label %67
+67:                                               ; preds = %.lr.ph41
+  call void @_ZdlPv(ptr noundef nonnull %65) #23
+  br label %68
 
-67:                                               ; preds = %66, %.lr.ph41
+68:                                               ; preds = %67, %.lr.ph41
   store ptr null, ptr %.sroa.031.039, align 8, !tbaa !48
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 8
-  %.not35 = icmp eq ptr %68, %26
-  br i1 %.not35, label %._crit_edge42, label %.lr.ph41, !llvm.loop !65
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 8
+  %.not35 = icmp eq ptr %69, %27
+  br i1 %.not35, label %._crit_edge42, label %.lr.ph41, !llvm.loop !67
 
-69:                                               ; preds = %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit
+70:                                               ; preds = %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit
   call void @llvm.lifetime.end.p0(i64 3072, ptr nonnull %2) #20
   ret void
 }
@@ -692,13 +692,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_er
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !68
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %6 = load ptr, ptr %5, align 8, !tbaa !69
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #23
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -806,22 +806,24 @@ attributes #27 = { builtin allocsize(0) }
 !47 = !{!18, !21, i64 8}
 !48 = !{!49, !49, i64 0}
 !49 = !{!"p1 _ZTSN3zmq7epoll_t12poll_entry_tE", !22, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!53, !26, i64 0}
-!53 = !{!"_ZTSN3zmq7epoll_t12poll_entry_tE", !26, i64 0, !54, i64 4, !55, i64 16}
-!54 = !{!"_ZTS11epoll_event", !26, i64 0, !12, i64 4}
-!55 = !{!"p1 _ZTSN3zmq13i_poll_eventsE", !22, i64 0}
-!56 = !{!53, !26, i64 4}
-!57 = !{!12, !12, i64 0}
-!58 = !{!53, !55, i64 16}
-!59 = !{!38, !39, i64 8}
-!60 = !{!38, !39, i64 16}
-!61 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!62 = distinct !{!62, !51}
-!63 = !{!54, !26, i64 0}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!54, !26, i64 0}
+!54 = !{!"_ZTSN3zmq7epoll_t12poll_entry_tE", !26, i64 0, !55, i64 4, !56, i64 16}
+!55 = !{!"_ZTS11epoll_event", !26, i64 0, !12, i64 4}
+!56 = !{!"p1 _ZTSN3zmq13i_poll_eventsE", !22, i64 0}
+!57 = !{!54, !26, i64 4}
+!58 = !{!12, !12, i64 0}
+!59 = !{!54, !56, i64 16}
+!60 = !{!38, !39, i64 8}
+!61 = !{!38, !39, i64 16}
+!62 = distinct !{!62, !52}
+!63 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !64 = distinct !{!64, !51}
-!65 = distinct !{!65, !51}
-!66 = !{!19, !21, i64 24}
-!67 = !{!19, !21, i64 16}
-!68 = distinct !{!68, !51}
+!65 = !{!55, !26, i64 0}
+!66 = distinct !{!66, !51, !52}
+!67 = distinct !{!67, !51, !52}
+!68 = !{!19, !21, i64 24}
+!69 = !{!19, !21, i64 16}
+!70 = distinct !{!70, !51, !52}

@@ -1125,17 +1125,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_E
   %69 = ptrtoint ptr %66 to i64
   %70 = sub i64 %68, %69
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %65, ptr nonnull align 8 %66, i64 %70, i1 false)
-  %.pre.i.i.i = load ptr, ptr %16, align 8, !tbaa !77
+  %.pre.i.i.i = load ptr, ptr %16, align 8, !tbaa !78
   br label %71
 
 71:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i, %.noexc
   %72 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i ], [ %67, %.noexc ]
   %73 = getelementptr inbounds i8, ptr %72, i64 -8
-  store ptr %73, ptr %16, align 8, !tbaa !77
+  store ptr %73, ptr %16, align 8, !tbaa !78
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.02.014, i64 8
   %75 = load ptr, ptr %4, align 8, !tbaa !66
   %.not = icmp eq ptr %74, %75
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !79
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !80
 
 76:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i
   %77 = landingpad { ptr, i32 }
@@ -1261,8 +1261,9 @@ attributes #12 = { noreturn nounwind }
 !72 = !{!"p2 _ZTSN5Ipopt7SubjectE", !23, i64 0}
 !73 = !{!74, !74, i64 0}
 !74 = !{!"p1 _ZTSN5Ipopt7SubjectE", !13, i64 0}
-!75 = distinct !{!75, !76}
+!75 = distinct !{!75, !76, !77}
 !76 = !{!"llvm.loop.mustprogress"}
-!77 = !{!78, !72, i64 8}
-!78 = !{!"_ZTSNSt12_Vector_baseIPKN5Ipopt7SubjectESaIS3_EE17_Vector_impl_dataE", !72, i64 0, !72, i64 8, !72, i64 16}
-!79 = distinct !{!79, !76}
+!77 = !{!"llvm.loop.estimated_trip_count"}
+!78 = !{!79, !72, i64 8}
+!79 = !{!"_ZTSNSt12_Vector_baseIPKN5Ipopt7SubjectESaIS3_EE17_Vector_impl_dataE", !72, i64 0, !72, i64 8, !72, i64 16}
+!80 = distinct !{!80, !76, !77}

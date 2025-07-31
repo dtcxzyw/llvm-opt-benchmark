@@ -1143,7 +1143,7 @@ define void @_ZN6icu_7721UTF8CollationIterator21backwardNumCodePointsEiR10UError
   %20 = phi i32 [ %18, %17 ], [ %12, %10 ]
   %21 = add nsw i32 %.04, -1
   %22 = icmp sgt i32 %.04, 1
-  br i1 %22, label %7, label %.critedge, !llvm.loop !47
+  br i1 %22, label %7, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %7, %19, %3
   ret void
@@ -1153,7 +1153,7 @@ declare i32 @utf8_back1SafeBody_77(ptr noundef, i32 noundef, i32 noundef) local_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7724FCDUTF8CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(496) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7724FCDUTF8CollationIteratorE, i64 16), ptr %0, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7724FCDUTF8CollationIteratorE, i64 16), ptr %0, align 8, !tbaa !49
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #18
   tail call void @_ZN6icu_7717CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) #18
@@ -1176,16 +1176,16 @@ define void @_ZN6icu_7724FCDUTF8CollationIterator13resetToOffsetEi(ptr noundef n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i32 %1, ptr %3, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  store i32 %1, ptr %4, align 4, !tbaa !50
+  store i32 %1, ptr %4, align 4, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 0, ptr %5, align 8, !tbaa !55
+  store i32 0, ptr %5, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7724FCDUTF8CollationIterator9getOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(496) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %3 = load i32, ptr %2, align 8, !tbaa !55
+  %3 = load i32, ptr %2, align 8, !tbaa !56
   %.not = icmp eq i32 %3, 3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br i1 %.not, label %5, label %12
@@ -1223,7 +1223,7 @@ define noundef i32 @_ZN6icu_7724FCDUTF8CollationIterator14handleNextCE32ERiR10UE
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
-  %13 = load i32, ptr %4, align 8, !tbaa !55
+  %13 = load i32, ptr %4, align 8, !tbaa !56
   switch i32 %13, label %.thread83 [
     i32 0, label %14
     i32 2, label %197
@@ -1527,7 +1527,7 @@ _ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit: ; preds = %169, %17
 
 197:                                              ; preds = %.backedge
   %198 = load i32, ptr %5, align 8, !tbaa !15
-  %199 = load i32, ptr %7, align 8, !tbaa !56
+  %199 = load i32, ptr %7, align 8, !tbaa !57
   %.not = icmp eq i32 %198, %199
   br i1 %.not, label %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit, label %200
 
@@ -1561,7 +1561,7 @@ _ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit: ; preds = %169, %17
   %218 = select i1 %.not.i.i.i, ptr %217, ptr %215
   %219 = sext i32 %203 to i64
   %220 = getelementptr inbounds i16, ptr %218, i64 %219
-  %221 = load i16, ptr %220, align 2, !tbaa !57
+  %221 = load i16, ptr %220, align 2, !tbaa !58
   %222 = zext i16 %221 to i32
   br label %_ZNK6icu_7713UnicodeStringixEi.exit
 
@@ -1572,25 +1572,25 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %210, %213
 
 223:                                              ; preds = %.backedge
   %224 = load i32, ptr %5, align 8, !tbaa !15
-  store i32 %224, ptr %6, align 4, !tbaa !50
-  %225 = load i32, ptr %7, align 8, !tbaa !56
+  store i32 %224, ptr %6, align 4, !tbaa !51
+  %225 = load i32, ptr %7, align 8, !tbaa !57
   %226 = icmp eq i32 %224, %225
   %..i = select i1 %226, i32 0, i32 2
   br label %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit
 
 .thread83:                                        ; preds = %.backedge, %202
-  %227 = load i32, ptr %7, align 8, !tbaa !56
+  %227 = load i32, ptr %7, align 8, !tbaa !57
   store i32 %227, ptr %5, align 8, !tbaa !15
-  store i32 %227, ptr %6, align 4, !tbaa !50
+  store i32 %227, ptr %6, align 4, !tbaa !51
   br label %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit
 
 _ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit: ; preds = %197, %223, %.thread83
   %.sink.i = phi i32 [ %..i, %223 ], [ 0, %.thread83 ], [ 0, %197 ]
-  store i32 %.sink.i, ptr %4, align 8, !tbaa !55
+  store i32 %.sink.i, ptr %4, align 8, !tbaa !56
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit, %194
-  br label %.backedge, !llvm.loop !59
+  br label %.backedge, !llvm.loop !60
 
 .thread75:                                        ; preds = %59, %70, %_ZN6icu_7712CollationFCD7hasTcccEi.exit, %83, %85, %_ZNK6icu_7713UnicodeStringixEi.exit
   %228 = phi i32 [ %.0.i.i, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ %68, %85 ], [ %68, %83 ], [ %68, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %68, %70 ], [ %68, %59 ]
@@ -1780,7 +1780,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7724FCDUTF8CollationIterator11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %8 = load i32, ptr %7, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #18
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %3, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %3, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 2, ptr %9, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -1911,9 +1911,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7724FCDUTF8CollationIterator11
 
 91:                                               ; preds = %86, %79, %75, %69, %60, %58, %46, %43, %28, %22, %13
   %.366 = phi i32 [ %20, %13 ], [ %89, %86 ], [ 65533, %79 ], [ 65533, %75 ], [ 65533, %69 ], [ 65533, %60 ], [ 65533, %58 ], [ 65533, %46 ], [ 65533, %43 ], [ 65533, %28 ], [ 65533, %22 ]
-  %92 = load ptr, ptr %11, align 8, !tbaa !60
+  %92 = load ptr, ptr %11, align 8, !tbaa !61
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i16, ptr %93, align 8, !tbaa !61
+  %94 = load i16, ptr %93, align 8, !tbaa !62
   %95 = zext i16 %94 to i32
   %96 = icmp slt i32 %.366, %95
   br i1 %96, label %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit, label %97
@@ -1924,7 +1924,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7724FCDUTF8CollationIterator11
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 56
-  %101 = load ptr, ptr %100, align 8, !tbaa !68
+  %101 = load ptr, ptr %100, align 8, !tbaa !69
   %102 = lshr i32 %.366, 8
   %103 = zext nneg i32 %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 %103
@@ -2123,9 +2123,9 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit:     ; preds = %99, %91, %112
 
 205:                                              ; preds = %200, %193, %189, %183, %174, %172, %160, %157, %142, %137, %129
   %.7 = phi i32 [ %135, %129 ], [ %203, %200 ], [ 65533, %193 ], [ 65533, %189 ], [ 65533, %183 ], [ 65533, %174 ], [ 65533, %172 ], [ 65533, %160 ], [ 65533, %157 ], [ 65533, %142 ], [ 65533, %137 ]
-  %206 = load ptr, ptr %11, align 8, !tbaa !60
+  %206 = load ptr, ptr %11, align 8, !tbaa !61
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  %208 = load i16, ptr %207, align 8, !tbaa !61
+  %208 = load i16, ptr %207, align 8, !tbaa !62
   %209 = zext i16 %208 to i32
   %210 = icmp slt i32 %.7, %209
   br i1 %210, label %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit103.thread, label %211
@@ -2136,7 +2136,7 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit:     ; preds = %99, %91, %112
 
 213:                                              ; preds = %211
   %214 = getelementptr inbounds nuw i8, ptr %206, i64 56
-  %215 = load ptr, ptr %214, align 8, !tbaa !68
+  %215 = load ptr, ptr %214, align 8, !tbaa !69
   %216 = lshr i32 %.7, 8
   %217 = zext nneg i32 %216 to i64
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 %217
@@ -2165,10 +2165,10 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit103.thread: ; preds = %213, %205, %_
 
 229:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit103
   %230 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %.7)
-          to label %126 unwind label %.loopexit116, !llvm.loop !69
+          to label %126 unwind label %.loopexit116, !llvm.loop !70
 
 .loopexit:                                        ; preds = %126, %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit103.thread
-  %231 = load ptr, ptr %11, align 8, !tbaa !60
+  %231 = load ptr, ptr %11, align 8, !tbaa !61
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %233 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715Normalizer2Impl9decomposeERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %231, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %232, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %234 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -2180,12 +2180,12 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit103.thread: ; preds = %213, %205, %_
 
 237:                                              ; preds = %234
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  store i32 %8, ptr %238, align 4, !tbaa !50
+  store i32 %8, ptr %238, align 4, !tbaa !51
   %239 = load i32, ptr %7, align 8, !tbaa !15
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 %239, ptr %240, align 8, !tbaa !56
+  store i32 %239, ptr %240, align 8, !tbaa !57
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 3, ptr %241, align 8, !tbaa !55
+  store i32 3, ptr %241, align 8, !tbaa !56
   store i32 0, ptr %7, align 8, !tbaa !15
   br label %.thread
 
@@ -2207,10 +2207,10 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit103.thread: ; preds = %213, %205, %_
 select.unfold:                                    ; preds = %242, %116
   %247 = phi i32 [ %14, %116 ], [ %243, %242 ]
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 %247, ptr %248, align 8, !tbaa !56
+  store i32 %247, ptr %248, align 8, !tbaa !57
   store i32 %8, ptr %7, align 8, !tbaa !15
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 2, ptr %249, align 8, !tbaa !55
+  store i32 2, ptr %249, align 8, !tbaa !56
   br label %.thread
 
 .thread:                                          ; preds = %234, %237, %select.unfold
@@ -2227,7 +2227,7 @@ select.unfold:                                    ; preds = %242, %116
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv(ptr noundef nonnull align 8 captures(none) dereferenceable(496) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %3 = load i32, ptr %2, align 8, !tbaa !55
+  %3 = load i32, ptr %2, align 8, !tbaa !56
   switch i32 %3, label %11 [
     i32 1, label %4
     i32 2, label %16
@@ -2237,25 +2237,25 @@ define void @_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  store i32 %6, ptr %7, align 4, !tbaa !50
+  store i32 %6, ptr %7, align 4, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %9 = load i32, ptr %8, align 8, !tbaa !56
+  %9 = load i32, ptr %8, align 8, !tbaa !57
   %10 = icmp eq i32 %6, %9
   %. = select i1 %10, i32 0, i32 2
   br label %16
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %13 = load i32, ptr %12, align 8, !tbaa !56
+  %13 = load i32, ptr %12, align 8, !tbaa !57
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i32 %13, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  store i32 %13, ptr %15, align 4, !tbaa !50
+  store i32 %13, ptr %15, align 4, !tbaa !51
   br label %16
 
 16:                                               ; preds = %11, %1, %4
   %.sink = phi i32 [ %., %4 ], [ 0, %1 ], [ 0, %11 ]
-  store i32 %.sink, ptr %2, align 8, !tbaa !55
+  store i32 %.sink, ptr %2, align 8, !tbaa !56
   ret void
 }
 
@@ -2318,7 +2318,7 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %12, %21, %26
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i16 @_ZN6icu_7724FCDUTF8CollationIterator23handleGetTrailSurrogateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(496) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %3 = load i32, ptr %2, align 8, !tbaa !55
+  %3 = load i32, ptr %2, align 8, !tbaa !56
   %.not = icmp eq i32 %3, 3
   br i1 %.not, label %4, label %_ZNK6icu_7713UnicodeStringixEi.exit.thread
 
@@ -2345,7 +2345,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %4
   %20 = select i1 %.not.i.i.i, ptr %19, ptr %17
   %21 = sext i32 %6 to i64
   %22 = getelementptr inbounds i16, ptr %20, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !57
+  %23 = load i16, ptr %22, align 2, !tbaa !58
   %24 = and i16 %23, -1024
   %25 = icmp eq i16 %24, -9216
   br i1 %25, label %26, label %_ZNK6icu_7713UnicodeStringixEi.exit.thread
@@ -2363,7 +2363,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit.thread:       ; preds = %4, %_ZNK6icu_7713Un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7724FCDUTF8CollationIterator18foundNULTerminatorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(496) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %3 = load i32, ptr %2, align 8, !tbaa !55
+  %3 = load i32, ptr %2, align 8, !tbaa !56
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %13
 
@@ -2399,7 +2399,7 @@ define noundef i32 @_ZN6icu_7724FCDUTF8CollationIterator13nextCodePointER10UErro
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
-  %11 = load i32, ptr %3, align 8, !tbaa !55
+  %11 = load i32, ptr %3, align 8, !tbaa !56
   switch i32 %11, label %.thread93 [
     i32 0, label %12
     i32 2, label %136
@@ -2625,7 +2625,7 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %.thread.thread
 
 136:                                              ; preds = %.backedge
   %137 = load i32, ptr %4, align 8, !tbaa !15
-  %138 = load i32, ptr %6, align 8, !tbaa !56
+  %138 = load i32, ptr %6, align 8, !tbaa !57
   %.not = icmp eq i32 %137, %138
   br i1 %.not, label %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit, label %139
 
@@ -2769,25 +2769,25 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %.thread.thread
 
 231:                                              ; preds = %.backedge
   %232 = load i32, ptr %4, align 8, !tbaa !15
-  store i32 %232, ptr %5, align 4, !tbaa !50
-  %233 = load i32, ptr %6, align 8, !tbaa !56
+  store i32 %232, ptr %5, align 4, !tbaa !51
+  %233 = load i32, ptr %6, align 8, !tbaa !57
   %234 = icmp eq i32 %232, %233
   %..i = select i1 %234, i32 0, i32 2
   br label %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit
 
 .thread93:                                        ; preds = %.backedge, %216
-  %235 = load i32, ptr %6, align 8, !tbaa !56
+  %235 = load i32, ptr %6, align 8, !tbaa !57
   store i32 %235, ptr %4, align 8, !tbaa !15
-  store i32 %235, ptr %5, align 4, !tbaa !50
+  store i32 %235, ptr %5, align 4, !tbaa !51
   br label %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit
 
 _ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit: ; preds = %136, %231, %.thread93
   %.sink.i = phi i32 [ %..i, %231 ], [ 0, %.thread93 ], [ 0, %136 ]
-  store i32 %.sink.i, ptr %3, align 8, !tbaa !55
+  store i32 %.sink.i, ptr %3, align 8, !tbaa !56
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit, %133
-  br label %.backedge, !llvm.loop !70
+  br label %.backedge, !llvm.loop !71
 
 _ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split: ; preds = %25, %224, %211
   %.sink = phi i32 [ %215, %211 ], [ %230, %224 ], [ %27, %25 ]
@@ -2813,7 +2813,7 @@ define noundef i32 @_ZN6icu_7724FCDUTF8CollationIterator17previousCodePointER10U
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
-  %9 = load i32, ptr %4, align 8, !tbaa !55
+  %9 = load i32, ptr %4, align 8, !tbaa !56
   switch i32 %9, label %109 [
     i32 1, label %10
     i32 2, label %96
@@ -2968,7 +2968,7 @@ _ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit: ; preds = %70
 
 96:                                               ; preds = %.backedge
   %97 = load i32, ptr %5, align 8, !tbaa !15
-  %98 = load i32, ptr %6, align 4, !tbaa !50
+  %98 = load i32, ptr %6, align 4, !tbaa !51
   %.not = icmp eq i32 %97, %98
   br i1 %.not, label %_ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv.exit, label %99
 
@@ -3010,25 +3010,25 @@ _ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit: ; preds = %70
   br i1 %cond, label %120, label %123
 
 120:                                              ; preds = %119
-  store i32 %111, ptr %8, align 8, !tbaa !56
-  %121 = load i32, ptr %6, align 4, !tbaa !50
+  store i32 %111, ptr %8, align 8, !tbaa !57
+  %121 = load i32, ptr %6, align 4, !tbaa !51
   %122 = icmp eq i32 %111, %121
   %..i = select i1 %122, i32 1, i32 2
   br label %_ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv.exit
 
 123:                                              ; preds = %119
-  %124 = load i32, ptr %6, align 4, !tbaa !50
+  %124 = load i32, ptr %6, align 4, !tbaa !51
   store i32 %124, ptr %5, align 8, !tbaa !15
-  store i32 %124, ptr %8, align 8, !tbaa !56
+  store i32 %124, ptr %8, align 8, !tbaa !57
   br label %_ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv.exit
 
 _ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv.exit: ; preds = %96, %120, %123
   %.sink.i = phi i32 [ %..i, %120 ], [ 1, %123 ], [ 1, %96 ]
-  store i32 %.sink.i, ptr %4, align 8, !tbaa !55
+  store i32 %.sink.i, ptr %4, align 8, !tbaa !56
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv.exit, %91
-  br label %.backedge, !llvm.loop !71
+  br label %.backedge, !llvm.loop !72
 
 _ZN6icu_7712CollationFCD7hasLcccEi.exit.thread:   ; preds = %54, %32, %39, %_ZN6icu_7712CollationFCD7hasLcccEi.exit, %52, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit, %91, %10, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit.thread36, %99, %107, %112, %20
   %.022 = phi i32 [ %21, %20 ], [ %115, %112 ], [ %105, %99 ], [ %108, %107 ], [ %.0, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit.thread36 ], [ %.0, %54 ], [ %.0, %32 ], [ %.0, %39 ], [ %.0, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %.0, %52 ], [ %.0, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit ], [ -1, %91 ], [ -1, %10 ]
@@ -3046,7 +3046,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7724FCDUTF8CollationIterator15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %8 = load i32, ptr %7, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #18
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %3, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %3, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 2, ptr %9, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -3077,9 +3077,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7724FCDUTF8CollationIterator15
 
 25:                                               ; preds = %21, %12
   %.039 = phi i32 [ %19, %12 ], [ %22, %21 ]
-  %26 = load ptr, ptr %11, align 8, !tbaa !60
+  %26 = load ptr, ptr %11, align 8, !tbaa !61
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i16, ptr %27, align 8, !tbaa !61
+  %28 = load i16, ptr %27, align 8, !tbaa !62
   %29 = zext i16 %28 to i32
   %30 = icmp slt i32 %.039, %29
   br i1 %30, label %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit, label %31
@@ -3090,7 +3090,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7724FCDUTF8CollationIterator15
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %35 = load ptr, ptr %34, align 8, !tbaa !68
+  %35 = load ptr, ptr %34, align 8, !tbaa !69
   %36 = lshr i32 %.039, 8
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
@@ -3192,9 +3192,9 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit:     ; preds = %33, %25, %46
 
 74:                                               ; preds = %72, %64
   %.140 = phi i32 [ %70, %64 ], [ %73, %72 ]
-  %75 = load ptr, ptr %11, align 8, !tbaa !60
+  %75 = load ptr, ptr %11, align 8, !tbaa !61
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load i16, ptr %76, align 8, !tbaa !61
+  %77 = load i16, ptr %76, align 8, !tbaa !62
   %78 = zext i16 %77 to i32
   %79 = icmp slt i32 %.140, %78
   br i1 %79, label %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit62.thread, label %80
@@ -3205,7 +3205,7 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit:     ; preds = %33, %25, %46
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  %84 = load ptr, ptr %83, align 8, !tbaa !68
+  %84 = load ptr, ptr %83, align 8, !tbaa !69
   %85 = lshr i32 %.140, 8
   %86 = zext nneg i32 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %86
@@ -3234,7 +3234,7 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit62.thread: ; preds = %82, %74, %_ZNK
 
 98:                                               ; preds = %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit62
   %99 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %.140)
-          to label %60 unwind label %.loopexit, !llvm.loop !72
+          to label %60 unwind label %.loopexit, !llvm.loop !73
 
 .critedge:                                        ; preds = %60, %62, %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit62.thread
   %100 = load i16, ptr %9, align 8, !tbaa !27
@@ -3248,7 +3248,7 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit62.thread: ; preds = %82, %74, %_ZNK
           to label %_ZN6icu_7713UnicodeString7reverseEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN6icu_7713UnicodeString7reverseEv.exit:         ; preds = %.critedge
-  %108 = load ptr, ptr %11, align 8, !tbaa !60
+  %108 = load ptr, ptr %11, align 8, !tbaa !61
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %110 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715Normalizer2Impl9decomposeERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %108, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %109, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %111 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -3260,12 +3260,12 @@ _ZN6icu_7713UnicodeString7reverseEv.exit:         ; preds = %.critedge
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 %8, ptr %115, align 8, !tbaa !56
+  store i32 %8, ptr %115, align 8, !tbaa !57
   %116 = load i32, ptr %7, align 8, !tbaa !15
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  store i32 %116, ptr %117, align 4, !tbaa !50
+  store i32 %116, ptr %117, align 4, !tbaa !51
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 3, ptr %118, align 8, !tbaa !55
+  store i32 3, ptr %118, align 8, !tbaa !56
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %120 = load i16, ptr %119, align 8, !tbaa !27
   %121 = icmp slt i16 %120, 0
@@ -3295,10 +3295,10 @@ _ZN6icu_7713UnicodeString7reverseEv.exit:         ; preds = %.critedge
 select.unfold:                                    ; preds = %127, %50
   %133 = phi i32 [ %13, %50 ], [ %130, %127 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  store i32 %133, ptr %134, align 4, !tbaa !50
+  store i32 %133, ptr %134, align 4, !tbaa !51
   store i32 %8, ptr %7, align 8, !tbaa !15
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 2, ptr %135, align 8, !tbaa !55
+  store i32 2, ptr %135, align 8, !tbaa !56
   br label %.thread
 
 .thread:                                          ; preds = %111, %114, %select.unfold
@@ -3315,7 +3315,7 @@ select.unfold:                                    ; preds = %127, %50
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv(ptr noundef nonnull align 8 captures(none) dereferenceable(496) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %3 = load i32, ptr %2, align 8, !tbaa !55
+  %3 = load i32, ptr %2, align 8, !tbaa !56
   switch i32 %3, label %11 [
     i32 0, label %4
     i32 2, label %16
@@ -3325,25 +3325,25 @@ define void @_ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 %6, ptr %7, align 8, !tbaa !56
+  store i32 %6, ptr %7, align 8, !tbaa !57
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  %9 = load i32, ptr %8, align 4, !tbaa !50
+  %9 = load i32, ptr %8, align 4, !tbaa !51
   %10 = icmp eq i32 %6, %9
   %. = select i1 %10, i32 1, i32 2
   br label %16
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  %13 = load i32, ptr %12, align 4, !tbaa !50
+  %13 = load i32, ptr %12, align 4, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i32 %13, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 %13, ptr %15, align 8, !tbaa !56
+  store i32 %13, ptr %15, align 8, !tbaa !57
   br label %16
 
 16:                                               ; preds = %11, %1, %4
   %.sink = phi i32 [ %., %4 ], [ 1, %1 ], [ 1, %11 ]
-  store i32 %.sink, ptr %2, align 8, !tbaa !55
+  store i32 %.sink, ptr %2, align 8, !tbaa !56
   ret void
 }
 
@@ -3359,7 +3359,7 @@ define void @_ZN6icu_7724FCDUTF8CollationIterator20forwardNumCodePointsEiR10UErr
   %7 = add nsw i32 %.03, -1
   %8 = icmp sgt i32 %.03, 1
   %or.cond = select i1 %6, i1 %8, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !73
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %.lr.ph, %3
   ret void
@@ -3377,7 +3377,7 @@ define void @_ZN6icu_7724FCDUTF8CollationIterator21backwardNumCodePointsEiR10UEr
   %7 = add nsw i32 %.03, -1
   %8 = icmp sgt i32 %.03, 1
   %or.cond = select i1 %6, i1 %8, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !74
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !75
 
 .critedge:                                        ; preds = %.lr.ph, %3
   ret void
@@ -3388,7 +3388,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStri
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7724FCDUTF8CollationIterator9normalizeERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %7 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715Normalizer2Impl9decomposeERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %8 = load i32, ptr %2, align 4, !tbaa !13
@@ -3485,33 +3485,34 @@ attributes #20 = { noreturn nounwind }
 !42 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !6, i64 0}
 !43 = !{!30, !9, i64 44}
 !44 = !{!30, !9, i64 48}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"vtable pointer", !8, i64 0}
-!50 = !{!51, !9, i64 412}
-!51 = !{!"_ZTSN6icu_7724FCDUTF8CollationIteratorE", !16, i64 0, !52, i64 408, !9, i64 412, !9, i64 416, !41, i64 424, !53, i64 432}
-!52 = !{!"_ZTSN6icu_7724FCDUTF8CollationIterator5StateE", !7, i64 0}
-!53 = !{!"_ZTSN6icu_7713UnicodeStringE", !54, i64 0, !7, i64 8}
-!54 = !{!"_ZTSN6icu_7711ReplaceableE", !18, i64 0}
-!55 = !{!51, !52, i64 408}
-!56 = !{!51, !9, i64 416}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"char16_t", !7, i64 0}
-!59 = distinct !{!59, !46}
-!60 = !{!51, !41, i64 424}
-!61 = !{!62, !58, i64 8}
-!62 = !{!"_ZTSN6icu_7715Normalizer2ImplE", !18, i64 0, !58, i64 8, !58, i64 10, !58, i64 12, !33, i64 14, !33, i64 16, !33, i64 18, !33, i64 20, !33, i64 22, !33, i64 24, !33, i64 26, !33, i64 28, !33, i64 30, !33, i64 32, !33, i64 34, !63, i64 40, !31, i64 48, !5, i64 56, !64, i64 64, !67, i64 72}
-!63 = !{!"p1 _ZTS7UCPTrie", !6, i64 0}
-!64 = !{!"_ZTSN6icu_779UInitOnceE", !65, i64 0, !14, i64 4}
-!65 = !{!"_ZTSSt6atomicIiE", !66, i64 0}
-!66 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
-!67 = !{!"p1 _ZTSN6icu_7713CanonIterDataE", !6, i64 0}
-!68 = !{!62, !5, i64 56}
-!69 = distinct !{!69, !46}
-!70 = distinct !{!70, !46}
-!71 = distinct !{!71, !46}
-!72 = distinct !{!72, !46}
-!73 = distinct !{!73, !46}
-!74 = distinct !{!74, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !46, !47}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"vtable pointer", !8, i64 0}
+!51 = !{!52, !9, i64 412}
+!52 = !{!"_ZTSN6icu_7724FCDUTF8CollationIteratorE", !16, i64 0, !53, i64 408, !9, i64 412, !9, i64 416, !41, i64 424, !54, i64 432}
+!53 = !{!"_ZTSN6icu_7724FCDUTF8CollationIterator5StateE", !7, i64 0}
+!54 = !{!"_ZTSN6icu_7713UnicodeStringE", !55, i64 0, !7, i64 8}
+!55 = !{!"_ZTSN6icu_7711ReplaceableE", !18, i64 0}
+!56 = !{!52, !53, i64 408}
+!57 = !{!52, !9, i64 416}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"char16_t", !7, i64 0}
+!60 = distinct !{!60, !46}
+!61 = !{!52, !41, i64 424}
+!62 = !{!63, !59, i64 8}
+!63 = !{!"_ZTSN6icu_7715Normalizer2ImplE", !18, i64 0, !59, i64 8, !59, i64 10, !59, i64 12, !33, i64 14, !33, i64 16, !33, i64 18, !33, i64 20, !33, i64 22, !33, i64 24, !33, i64 26, !33, i64 28, !33, i64 30, !33, i64 32, !33, i64 34, !64, i64 40, !31, i64 48, !5, i64 56, !65, i64 64, !68, i64 72}
+!64 = !{!"p1 _ZTS7UCPTrie", !6, i64 0}
+!65 = !{!"_ZTSN6icu_779UInitOnceE", !66, i64 0, !14, i64 4}
+!66 = !{!"_ZTSSt6atomicIiE", !67, i64 0}
+!67 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
+!68 = !{!"p1 _ZTSN6icu_7713CanonIterDataE", !6, i64 0}
+!69 = !{!63, !5, i64 56}
+!70 = distinct !{!70, !46, !47}
+!71 = distinct !{!71, !46, !47}
+!72 = distinct !{!72, !46, !47}
+!73 = distinct !{!73, !46, !47}
+!74 = distinct !{!74, !46, !47}
+!75 = distinct !{!75, !46, !47}

@@ -93,7 +93,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
 59:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread35, label %.lr.ph
+  br i1 %exitcond.not, label %.thread35, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
@@ -363,7 +363,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
 58:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
@@ -608,7 +608,7 @@ define hidden noundef signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %50, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %doComplexReport.exit, label %.lr.ph
+  br i1 %or.cond, label %doComplexReport.exit, label %.lr.ph, !llvm.loop !5
 
 doComplexReport.exit.sink.split:                  ; preds = %30, %27, %45
   %.sink = phi i32 [ %46, %45 ], [ %29, %27 ], [ 0, %30 ]
@@ -693,7 +693,7 @@ define hidden noundef signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef rea
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %47, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %doComplexReport.exit, label %.lr.ph
+  br i1 %or.cond, label %doComplexReport.exit, label %.lr.ph, !llvm.loop !5
 
 doComplexReport.exit.sink.split:                  ; preds = %34, %31, %42
   %.sink = phi i32 [ %43, %42 ], [ %33, %31 ], [ 0, %34 ]
@@ -736,7 +736,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAccept(ptr noundef re
 20:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
@@ -799,7 +799,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAccept(ptr noundef r
 20:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
@@ -915,7 +915,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
 59:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread39, label %.lr.ph
+  br i1 %exitcond.not, label %.thread39, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
@@ -1195,7 +1195,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
 59:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread39, label %.lr.ph
+  br i1 %exitcond.not, label %.thread39, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
@@ -1470,7 +1470,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
 59:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
@@ -1639,7 +1639,7 @@ nfaExecMcSheng8_Q2i.exit:                         ; preds = %90
 139:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %nfaExecMcSheng8_inAccept.exit, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %nfaExecMcSheng8_inAccept.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 .lr.ph.i.i:                                       ; preds = %139, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %139 ]
@@ -1741,7 +1741,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
 58:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
@@ -1900,7 +1900,7 @@ nfaExecMcSheng16_Q2i.exit:                        ; preds = %89
 134:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %nfaExecMcSheng16_inAccept.exit, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %nfaExecMcSheng16_inAccept.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 .lr.ph.i.i:                                       ; preds = %134, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %134 ]
@@ -1985,7 +1985,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_testEOD(ptr noundef rea
 22:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %mcshengCheckEOD.exit, label %.lr.ph
+  br i1 %exitcond.not, label %mcshengCheckEOD.exit, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
@@ -2030,7 +2030,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_testEOD(ptr noundef re
 22:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %mcshengCheckEOD.exit, label %.lr.ph
+  br i1 %exitcond.not, label %mcshengCheckEOD.exit, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
@@ -2484,7 +2484,7 @@ doSheng.exit65:                                   ; preds = %107, %104, %156, %1
   %264 = getelementptr inbounds nuw i8, ptr %.030.i68, i64 1
   %265 = zext i8 %262 to i16
   %.not33.i = icmp ugt i16 %241, %265
-  br i1 %.not33.i, label %248, label %doNormal8.exit75
+  br i1 %.not33.i, label %248, label %doNormal8.exit75, !llvm.loop !8
 
 doNormal8.exit75:                                 ; preds = %252, %248, %doSheng.exit65
   %.5119 = phi ptr [ %.9.i25, %doSheng.exit65 ], [ %264, %252 ], [ %.030.i68, %248 ]
@@ -2544,7 +2544,7 @@ doNormal8.exit75:                                 ; preds = %252, %248, %doSheng
 296:                                              ; preds = %297
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread135, label %297
+  br i1 %exitcond.not, label %.thread135, label %297, !llvm.loop !5
 
 297:                                              ; preds = %.lr.ph272, %296
   %indvars.iv = phi i64 [ 0, %.lr.ph272 ], [ %indvars.iv.next, %296 ]
@@ -2558,7 +2558,7 @@ doNormal8.exit75:                                 ; preds = %252, %248, %doSheng
   %.7109 = phi i32 [ %.4106, %doNormal8.exit75 ], [ %293, %291 ], [ %.4106, %276 ], [ %.4106, %270 ], [ %.4106, %279 ], [ %.4106, %296 ]
   %.7 = phi i32 [ %.4, %doNormal8.exit75 ], [ %.4105.i, %291 ], [ %.4, %276 ], [ %.4, %270 ], [ %.4, %279 ], [ %.4, %296 ]
   %302 = icmp ult ptr %.5119, %.3
-  br i1 %302, label %40, label %303
+  br i1 %302, label %40, label %303, !llvm.loop !9
 
 303:                                              ; preds = %.thread135
   %304 = icmp eq ptr %.5119, %13
@@ -2965,7 +2965,7 @@ doSheng.exit:                                     ; preds = %408, %405, %457, %4
   %576 = getelementptr inbounds nuw i8, ptr %.030.i, i64 1
   %577 = zext i8 %574 to i16
   %.not34.i = icmp ugt i16 %317, %577
-  br i1 %.not34.i, label %560, label %doNormal8.exit
+  br i1 %.not34.i, label %560, label %doNormal8.exit, !llvm.loop !8
 
 doNormal8.exit:                                   ; preds = %564, %560, %doSheng.exit
   %.6120 = phi ptr [ %.9.i, %doSheng.exit ], [ %576, %564 ], [ %.030.i, %560 ]
@@ -3025,7 +3025,7 @@ doNormal8.exit:                                   ; preds = %564, %560, %doSheng
 608:                                              ; preds = %609
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
-  br i1 %exitcond364.not, label %doComplexReport.exit.i, label %609
+  br i1 %exitcond364.not, label %doComplexReport.exit.i, label %609, !llvm.loop !5
 
 609:                                              ; preds = %.lr.ph289, %608
   %indvars.iv360 = phi i64 [ 0, %.lr.ph289 ], [ %indvars.iv.next361, %608 ]
@@ -3039,7 +3039,7 @@ doComplexReport.exit.i:                           ; preds = %608, %591, %582, %d
   %.2104.ph = phi i32 [ %.1103, %588 ], [ %605, %603 ], [ %.1103, %doNormal8.exit ], [ %.1103, %582 ], [ %.1103, %591 ], [ %.1103, %608 ]
   %.2100.ph = phi i32 [ %.199, %588 ], [ %.7108.i, %603 ], [ %.199, %doNormal8.exit ], [ %.199, %582 ], [ %.199, %591 ], [ %.199, %608 ]
   %614 = icmp ult ptr %.6120, %13
-  br i1 %614, label %316, label %.thread184
+  br i1 %614, label %316, label %.thread184, !llvm.loop !10
 
 .thread184:                                       ; preds = %40, %316, %doComplexReport.exit.i, %543, %325, %303
   %.3104.i = phi i32 [ %.4105.i, %303 ], [ %.5106.i, %325 ], [ %.5106.i, %543 ], [ 0, %316 ], [ %.7108.i, %doComplexReport.exit.i ], [ 0, %40 ]
@@ -3421,7 +3421,7 @@ doSheng.exit61:                                   ; preds = %99, %96, %148, %158
   %256 = getelementptr inbounds nuw i8, ptr %.030.i64, i64 1
   %257 = zext i8 %254 to i16
   %.not33.i = icmp ugt i16 %233, %257
-  br i1 %.not33.i, label %240, label %doNormal8.exit71
+  br i1 %.not33.i, label %240, label %doNormal8.exit71, !llvm.loop !8
 
 doNormal8.exit71:                                 ; preds = %244, %240, %doSheng.exit61
   %258 = phi i16 [ %40, %doSheng.exit61 ], [ %231, %240 ], [ %231, %244 ]
@@ -3437,7 +3437,7 @@ doNormal8.exit71:                                 ; preds = %244, %240, %doSheng
 
 261:                                              ; preds = %doNormal8.exit71
   %262 = icmp ult ptr %.319, %.0
-  br i1 %262, label %32, label %263
+  br i1 %262, label %32, label %263, !llvm.loop !9
 
 263:                                              ; preds = %261
   %264 = icmp eq ptr %.319, %8
@@ -3835,7 +3835,7 @@ doSheng.exit:                                     ; preds = %367, %364, %416, %4
   %533 = getelementptr inbounds nuw i8, ptr %.030.i, i64 1
   %534 = zext i8 %531 to i16
   %.not34.i = icmp ugt i16 %268, %534
-  br i1 %.not34.i, label %517, label %doNormal8.exit
+  br i1 %.not34.i, label %517, label %doNormal8.exit, !llvm.loop !8
 
 doNormal8.exit:                                   ; preds = %521, %517, %doSheng.exit
   %.7 = phi ptr [ %.9.i, %doSheng.exit ], [ %533, %521 ], [ %.030.i, %517 ]
@@ -3850,7 +3850,7 @@ doNormal8.exit:                                   ; preds = %521, %517, %doSheng
 
 536:                                              ; preds = %doNormal8.exit
   %537 = icmp ult ptr %.7, %8
-  br i1 %537, label %282, label %.thread36
+  br i1 %537, label %282, label %.thread36, !llvm.loop !10
 
 .thread36:                                        ; preds = %32, %282, %536, %502, %289, %263
   %.3104.i = phi i32 [ %.4105.i, %263 ], [ %.5106.i, %289 ], [ %.5106.i, %502 ], [ 0, %282 ], [ %.7108.i, %536 ], [ 0, %32 ]
@@ -4232,14 +4232,14 @@ doSheng.exit60:                                   ; preds = %97, %94, %146, %156
   %252 = icmp ult ptr %251, %.0
   %253 = icmp samesign uge i32 %250, %230
   %254 = select i1 %252, i1 %253, i1 false
-  br i1 %254, label %.lr.ph, label %doNormal8.exit70
+  br i1 %254, label %.lr.ph, label %doNormal8.exit70, !llvm.loop !8
 
 doNormal8.exit70:                                 ; preds = %.lr.ph, %228, %doSheng.exit60
   %255 = phi i16 [ %38, %doSheng.exit60 ], [ %229, %228 ], [ %229, %.lr.ph ]
   %.317 = phi ptr [ %.9.i20, %doSheng.exit60 ], [ %.115, %228 ], [ %251, %.lr.ph ]
   %.4105.i = phi i32 [ %227, %doSheng.exit60 ], [ %.2103.i, %228 ], [ %250, %.lr.ph ]
   %256 = icmp ult ptr %.317, %.0
-  br i1 %256, label %30, label %257
+  br i1 %256, label %30, label %257, !llvm.loop !9
 
 257:                                              ; preds = %doNormal8.exit70
   %258 = icmp eq ptr %.317, %9
@@ -4637,13 +4637,13 @@ doSheng.exit:                                     ; preds = %361, %358, %410, %4
   %527 = getelementptr inbounds nuw i8, ptr %.030.i, i64 1
   %528 = zext i8 %525 to i16
   %.not34.i = icmp ugt i16 %262, %528
-  br i1 %.not34.i, label %511, label %.thread26
+  br i1 %.not34.i, label %511, label %.thread26, !llvm.loop !8
 
 .thread26:                                        ; preds = %515, %511, %doSheng.exit
   %.8.ph = phi ptr [ %.9.i, %doSheng.exit ], [ %527, %515 ], [ %.030.i, %511 ]
   %.6107.i.ph = phi i32 [ %491, %doSheng.exit ], [ %526, %515 ], [ %.029.i, %511 ]
   %529 = icmp ult ptr %.8.ph, %9
-  br i1 %529, label %276, label %doNormal8.exit.thread40
+  br i1 %529, label %276, label %doNormal8.exit.thread40, !llvm.loop !10
 
 doNormal8.exit.thread40:                          ; preds = %30, %276, %.thread26, %496, %283, %257
   %.3104.i = phi i32 [ %.4105.i, %257 ], [ %.5106.i, %283 ], [ %.5106.i, %496 ], [ 0, %276 ], [ %.6107.i.ph, %.thread26 ], [ 0, %30 ]
@@ -5112,7 +5112,7 @@ doSherman16.exit:                                 ; preds = %.thread48, %282, %2
   %.2.i18 = zext i16 %.2.i18.in to i32
   %298 = getelementptr inbounds nuw i8, ptr %.041.i14, i64 1
   %.not46.i24 = icmp sgt i16 %.2.i18.in, -1
-  br i1 %.not46.i24, label %246, label %doNormal16.exit27
+  br i1 %.not46.i24, label %246, label %doNormal16.exit27, !llvm.loop !11
 
 .thread:                                          ; preds = %105, %102, %230, %219, %208, %197, %186, %175, %164, %154
   %.15.i157.i = phi i8 [ %231, %230 ], [ %229, %219 ], [ %218, %208 ], [ %207, %197 ], [ %196, %186 ], [ %185, %175 ], [ %174, %164 ], [ %163, %154 ], [ %146, %105 ], [ %104, %102 ]
@@ -5187,7 +5187,7 @@ doNormal16.exit27:                                ; preds = %doSherman16.exit, %
 339:                                              ; preds = %340
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %doComplexReport.exit149.i, label %340
+  br i1 %exitcond.not, label %doComplexReport.exit149.i, label %340, !llvm.loop !5
 
 340:                                              ; preds = %.lr.ph226, %339
   %indvars.iv = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next, %339 ]
@@ -5203,7 +5203,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %.5.ph = phi i32 [ %.120, %319 ], [ %317, %334 ], [ %.120, %.thread ], [ %.120, %312 ], [ %.120, %322 ], [ %.120, %339 ], [ %.120, %246 ]
   %.3111.i.ph = phi i32 [ %.4112.i51, %319 ], [ %.4112.i51, %334 ], [ %302, %.thread ], [ %.4112.i51, %312 ], [ %.4112.i51, %322 ], [ %.4112.i51, %339 ], [ %.040.i15, %246 ]
   %345 = icmp ult ptr %.439.ph, %.0
-  br i1 %345, label %38, label %346
+  br i1 %345, label %38, label %346, !llvm.loop !12
 
 346:                                              ; preds = %doComplexReport.exit149.i
   %347 = icmp eq ptr %.439.ph, %11
@@ -5666,7 +5666,7 @@ doSherman16.exit35:                               ; preds = %.thread97, %643, %6
   %.not44.i = icmp eq i32 %660, 0
   %.not46.i = icmp sgt i16 %.2.i9.in, -1
   %or.cond = and i1 %.not46.i, %.not44.i
-  br i1 %or.cond, label %607, label %doNormal16.exit
+  br i1 %or.cond, label %607, label %doNormal16.exit, !llvm.loop !11
 
 doNormal16.exit:                                  ; preds = %doSherman16.exit35
   %661 = icmp sgt i16 %.2.i9.in, -1
@@ -5745,7 +5745,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit35
 703:                                              ; preds = %704
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %exitcond312.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count311
-  br i1 %exitcond312.not, label %doComplexReport.exit.i, label %704
+  br i1 %exitcond312.not, label %doComplexReport.exit.i, label %704, !llvm.loop !5
 
 704:                                              ; preds = %.lr.ph243, %703
   %indvars.iv308 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next309, %703 ]
@@ -5761,7 +5761,7 @@ doComplexReport.exit.i:                           ; preds = %607, %703, %686, %6
   %.11.ph = phi i32 [ %.7, %683 ], [ %681, %698 ], [ %.7, %doNormal16.exit ], [ %.7, %.thread93 ], [ %.7, %676 ], [ %.7, %686 ], [ %.7, %703 ], [ %.7, %607 ]
   %.7115.i.ph = phi i32 [ %.8116.i106, %683 ], [ %.8116.i106, %698 ], [ %.2.i9, %doNormal16.exit ], [ %665, %.thread93 ], [ %.8116.i106, %676 ], [ %.8116.i106, %686 ], [ %.8116.i106, %703 ], [ %.040.i, %607 ]
   %709 = icmp ult ptr %.944.ph, %11
-  br i1 %709, label %360, label %.thread145
+  br i1 %709, label %360, label %.thread145, !llvm.loop !13
 
 .thread145:                                       ; preds = %38, %360, %doComplexReport.exit.i, %579, %367, %346
   %.5113.i = phi i32 [ %.3111.i.ph, %346 ], [ %.6114.i, %367 ], [ %580, %579 ], [ 0, %360 ], [ %.7115.i.ph, %doComplexReport.exit.i ], [ 0, %38 ]
@@ -6204,7 +6204,7 @@ doSherman16.exit:                                 ; preds = %.thread23, %278, %2
   %.2.i17 = zext i16 %.2.i17.in to i32
   %294 = getelementptr inbounds nuw i8, ptr %.041.i13, i64 1
   %.not46.i23 = icmp sgt i16 %.2.i17.in, -1
-  br i1 %.not46.i23, label %242, label %.thread36
+  br i1 %.not46.i23, label %242, label %.thread36, !llvm.loop !11
 
 .thread:                                          ; preds = %101, %98, %226, %215, %204, %193, %182, %171, %160, %150
   %.15.i157.i = phi i8 [ %227, %226 ], [ %225, %215 ], [ %214, %204 ], [ %203, %193 ], [ %192, %182 ], [ %181, %171 ], [ %170, %160 ], [ %159, %150 ], [ %142, %101 ], [ %100, %98 ]
@@ -6238,7 +6238,7 @@ doNormal16.exit26.thread:                         ; preds = %242, %.thread
   %.4.ph = phi ptr [ %.9.i158.i, %.thread ], [ %.041.i13, %242 ]
   %.3111.i.ph = phi i32 [ %298, %.thread ], [ %.040.i14, %242 ]
   %308 = icmp ult ptr %.4.ph, %.0
-  br i1 %308, label %34, label %309
+  br i1 %308, label %34, label %309, !llvm.loop !12
 
 309:                                              ; preds = %doNormal16.exit26.thread
   %310 = icmp eq ptr %.4.ph, %9
@@ -6693,7 +6693,7 @@ doSherman16.exit34:                               ; preds = %.thread46, %604, %5
   %.not44.i = icmp eq i32 %621, 0
   %.not46.i = icmp sgt i16 %.2.i9.in, -1
   %or.cond = and i1 %.not46.i, %.not44.i
-  br i1 %or.cond, label %568, label %doNormal16.exit
+  br i1 %or.cond, label %568, label %doNormal16.exit, !llvm.loop !11
 
 doNormal16.exit:                                  ; preds = %doSherman16.exit34
   %622 = icmp sgt i16 %.2.i9.in, -1
@@ -6730,7 +6730,7 @@ doNormal16.exit.thread:                           ; preds = %568, %.thread42, %d
   %.9.ph = phi ptr [ %620, %doNormal16.exit ], [ %.9.i.i, %.thread42 ], [ %.041.i, %568 ]
   %.7115.i.ph65 = phi i32 [ %.2.i9, %doNormal16.exit ], [ %626, %.thread42 ], [ %.040.i, %568 ]
   %635 = icmp ult ptr %.9.ph, %9
-  br i1 %635, label %328, label %.thread58
+  br i1 %635, label %328, label %.thread58, !llvm.loop !13
 
 .thread58:                                        ; preds = %34, %328, %doNormal16.exit.thread, %542, %335, %309
   %.5113.i = phi i32 [ %.3111.i.ph, %309 ], [ %.6114.i, %335 ], [ %543, %542 ], [ 0, %328 ], [ %.7115.i.ph65, %doNormal16.exit.thread ], [ 0, %34 ]
@@ -7181,14 +7181,14 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   %296 = icmp ult ptr %294, %.0
   %297 = icmp uge i16 %295, %231
   %298 = select i1 %296, i1 %297, i1 false
-  br i1 %298, label %.lr.ph, label %.loopexit
+  br i1 %298, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %doSherman16.exit, %230, %doSheng.exit198.i
   %299 = phi i16 [ %40, %doSheng.exit198.i ], [ %231, %230 ], [ %231, %doSherman16.exit ]
   %.4.ph = phi ptr [ %.9.i158.i, %doSheng.exit198.i ], [ %.115, %230 ], [ %294, %doSherman16.exit ]
   %.3111.i.ph = phi i32 [ %229, %doSheng.exit198.i ], [ %.040.i1485, %230 ], [ %.040.i14, %doSherman16.exit ]
   %300 = icmp ult ptr %.4.ph, %.0
-  br i1 %300, label %32, label %301
+  br i1 %300, label %32, label %301, !llvm.loop !12
 
 301:                                              ; preds = %.loopexit
   %302 = icmp eq ptr %.4.ph, %7
@@ -7652,13 +7652,13 @@ doSherman16.exit32:                               ; preds = %.thread33, %600, %5
   %616 = getelementptr inbounds nuw i8, ptr %.041.i, i64 1
   %617 = and i32 %.2.i9, 16384
   %.not44.i = icmp eq i32 %617, 0
-  br i1 %.not44.i, label %564, label %doNormal16.exit
+  br i1 %.not44.i, label %564, label %doNormal16.exit, !llvm.loop !11
 
 doNormal16.exit:                                  ; preds = %564, %doSherman16.exit32, %doSheng.exit.i
   %.9.ph = phi ptr [ %.9.i.i, %doSheng.exit.i ], [ %616, %doSherman16.exit32 ], [ %.041.i, %564 ]
   %.7115.i.ph47 = phi i32 [ %535, %doSheng.exit.i ], [ %.2.i9, %doSherman16.exit32 ], [ %.040.i, %564 ]
   %618 = icmp ult ptr %.9.ph, %7
-  br i1 %618, label %320, label %.thread41
+  br i1 %618, label %320, label %.thread41, !llvm.loop !13
 
 .thread41:                                        ; preds = %32, %320, %doNormal16.exit, %538, %327, %301
   %.5113.i = phi i32 [ %.3111.i.ph, %301 ], [ %.6114.i, %327 ], [ %539, %538 ], [ 0, %320 ], [ %.7115.i.ph47, %doNormal16.exit ], [ 0, %32 ]
@@ -7698,3 +7698,12 @@ attributes #13 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

@@ -104,7 +104,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.out
   unreachable
 
 29:                                               ; preds = %openFile.exit.i
-  %30 = load i32, ptr @optopt, align 4, !tbaa !14
+  %30 = load i32, ptr @optopt, align 4, !tbaa !15
   switch i32 %30, label %32 [
     i32 63, label %31
     i32 0, label %31
@@ -127,7 +127,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.out
   unreachable
 
 init.exit:                                        ; preds = %openFile.exit.i
-  %38 = load i32, ptr @optind, align 4, !tbaa !14
+  %38 = load i32, ptr @optind, align 4, !tbaa !15
   %.not28.i = icmp eq i32 %0, %38
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds ptr, ptr %1, i64 %39
@@ -154,7 +154,7 @@ init.exit:                                        ; preds = %openFile.exit.i
   %47 = call i32 @agwrite(ptr noundef nonnull %43, ptr noundef %.sroa.0.0) #10
   %48 = call ptr @nextGraph(ptr noundef nonnull %4) #10
   %.not = icmp eq ptr %48, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %46, %init.exit
   call fastcc void @graphviz_exit(i32 noundef 0) #13
@@ -249,8 +249,9 @@ attributes #14 = { noreturn nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = distinct !{!17, !13, !14}

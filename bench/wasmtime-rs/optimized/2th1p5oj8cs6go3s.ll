@@ -140,7 +140,7 @@ define noundef ptr @_ZN3std2io5Write9write_all17h65928e756faa5383E(ptr align 4 %
   %.sroa.0.133 = phi ptr [ %19, %.thread ], [ %.sroa.0.023, %29 ], [ %.sroa.0.023, %21 ]
   %.sroa.4.132 = phi i64 [ %18, %.thread ], [ %.sroa.4.022, %29 ], [ %.sroa.4.022, %21 ]
   %31 = icmp eq i64 %.sroa.4.132, 0
-  br i1 %31, label %.loopexit, label %7
+  br i1 %31, label %.loopexit, label %7, !llvm.loop !5
 
 32:                                               ; preds = %23
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E"(ptr nonnull align 8 %6) #8
@@ -211,3 +211,5 @@ attributes #9 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{i64 0, i64 2}
 !4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}

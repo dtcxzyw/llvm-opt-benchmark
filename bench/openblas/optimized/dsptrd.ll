@@ -207,7 +207,7 @@ define void @dsptrd_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %101, ptr %104, align 8, !tbaa !7
   %105 = add nuw nsw i32 %69, 1
   %.not106.not = icmp slt i32 %69, %30
-  br i1 %.not106.not, label %.lr.ph121, label %._crit_edge122.loopexit, !llvm.loop !11
+  br i1 %.not106.not, label %.lr.ph121, label %._crit_edge122.loopexit, !llvm.loop !12
 
 ._crit_edge122.loopexit:                          ; preds = %100
   %.pre125 = load i32, ptr %1, align 4, !tbaa !3
@@ -269,6 +269,7 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}

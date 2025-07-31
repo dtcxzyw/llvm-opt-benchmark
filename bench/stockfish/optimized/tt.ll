@@ -280,19 +280,19 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds =
   %.sroa.5.1 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 8
   %37 = add nuw i64 %.031, 1
   %exitcond.not = icmp eq i64 %37, %1
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !13
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
   %.sroa.011.034 = phi ptr [ %38, %.lr.ph35 ], [ %.sroa.020.1, %.preheader ]
   call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.011.034) #19
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.011.034, i64 8
   %.not = icmp eq ptr %.sroa.011.034, %.0.lcssa.i.i.i.i.i.pn
-  br i1 %.not, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i, label %.lr.ph35
+  br i1 %.not, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i, label %.lr.ph35, !llvm.loop !14
 
 39:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.05.i.i.i.i, %.0.lcssa.i.i.i.i.i.pn
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i, !llvm.loop !15
 
 _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %.lr.ph35, %39
   %.05.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.020.1, %.lr.ph35 ]
@@ -335,7 +335,7 @@ define dso_local noundef ptr @_ZNK9Stockfish18TranspositionTable5probeEmRb(ptr n
 14:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %18, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader, label %18, !llvm.loop !16
 
 .preheader:                                       ; preds = %14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -398,7 +398,7 @@ split:                                            ; preds = %24, %._crit_edge
   %spec.select = select i1 %52, ptr %42, ptr %.03236
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %.loopexit, label %32, !llvm.loop !15
+  br i1 %exitcond43.not, label %.loopexit, label %32, !llvm.loop !17
 
 .loopexit:                                        ; preds = %32, %split
   %storemerge = phi i8 [ %25, %split ], [ 0, %32 ]
@@ -443,12 +443,12 @@ define dso_local noundef range(i32 -715827882, 715827883) i32 @_ZNK9Stockfish18T
   %19 = add nsw i32 %18, %.112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %20, label %7, !llvm.loop !16
+  br i1 %exitcond.not, label %20, label %7, !llvm.loop !18
 
 20:                                               ; preds = %17
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, 1000
-  br i1 %exitcond20.not, label %21, label %.preheader, !llvm.loop !17
+  br i1 %exitcond20.not, label %21, label %.preheader, !llvm.loop !19
 
 21:                                               ; preds = %20
   %22 = sdiv i32 %19, 3
@@ -587,11 +587,13 @@ attributes #23 = { builtin nounwind }
 !7 = distinct !{!7, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
 !8 = !{!9}
 !9 = distinct !{!9, !7, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}

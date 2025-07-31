@@ -1670,7 +1670,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit26:  ; preds = %35, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
   %.019.add = add nuw nsw i64 %.019.idx41, 40
   %.not = icmp eq i64 %.019.add, 240
-  br i1 %.not, label %.loopexit, label %4
+  br i1 %.not, label %.loopexit, label %4, !llvm.loop !27
 
 .critedge:                                        ; preds = %29, %14
   %.not.i27 = icmp eq ptr %9, null
@@ -1705,7 +1705,7 @@ define internal fastcc noundef zeroext i1 @_ZL14TestASN1Uint64v() unnamed_addr #
 8:                                                ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
   %9 = add nuw nsw i64 %.02048, 1
   %exitcond.not = icmp eq i64 %9, 7
-  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !27
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !29
 
 10:                                               ; preds = %0, %8
   %.02048 = phi i64 [ 0, %0 ], [ %9, %8 ]
@@ -1716,9 +1716,9 @@ define internal fastcc noundef zeroext i1 @_ZL14TestASN1Uint64v() unnamed_addr #
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !31
+  %15 = load i64, ptr %14, align 8, !tbaa !33
   call void @CBS_init(ptr noundef nonnull %1, ptr noundef %13, i64 noundef %15)
   %16 = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not = icmp eq i32 %16, 0
@@ -1731,7 +1731,7 @@ define internal fastcc noundef zeroext i1 @_ZL14TestASN1Uint64v() unnamed_addr #
 
 19:                                               ; preds = %17
   %20 = load i64, ptr %2, align 8, !tbaa !14
-  %21 = load i64, ptr %11, align 8, !tbaa !32
+  %21 = load i64, ptr %11, align 8, !tbaa !34
   %.not28 = icmp eq i64 %20, %21
   br i1 %.not28, label %22, label %.thread.sink.split
 
@@ -1791,9 +1791,9 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %32, %33
   %35 = getelementptr inbounds nuw [5 x %struct.ASN1InvalidUint64Test], ptr @_ZL23kASN1InvalidUint64Tests, i64 0, i64 %.01949
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  %36 = load ptr, ptr %35, align 16, !tbaa !33
+  %36 = load ptr, ptr %35, align 16, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !35
+  %38 = load i64, ptr %37, align 8, !tbaa !37
   call void @CBS_init(ptr noundef nonnull %6, ptr noundef %36, i64 noundef %38)
   %39 = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not34 = icmp eq i32 %39, 0
@@ -1802,7 +1802,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %32, %33
   %40 = add nuw nsw i64 %.01949, 1
   %exitcond53 = icmp ne i64 %40, 5
   %or.cond.not = select i1 %.not34, i1 %exitcond53, i1 false
-  br i1 %or.cond.not, label %.preheader, label %.thread, !llvm.loop !36
+  br i1 %or.cond.not, label %.preheader, label %.thread, !llvm.loop !38
 
 .thread.sink.split:                               ; preds = %19, %17, %10, %22, %34, %.critedge39, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
@@ -2207,12 +2207,14 @@ attributes #17 = { cold nounwind }
 !25 = !{!19, !15, i64 32}
 !26 = !{!19, !12, i64 24}
 !27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!30, !12, i64 8}
-!30 = !{!"_ZTS14ASN1Uint64Test", !15, i64 0, !12, i64 8, !15, i64 16}
-!31 = !{!30, !15, i64 16}
-!32 = !{!30, !15, i64 0}
-!33 = !{!34, !12, i64 0}
-!34 = !{!"_ZTS21ASN1InvalidUint64Test", !12, i64 0, !15, i64 8}
-!35 = !{!34, !15, i64 8}
-!36 = distinct !{!36, !28}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !30, !28}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = !{!32, !12, i64 8}
+!32 = !{!"_ZTS14ASN1Uint64Test", !15, i64 0, !12, i64 8, !15, i64 16}
+!33 = !{!32, !15, i64 16}
+!34 = !{!32, !15, i64 0}
+!35 = !{!36, !12, i64 0}
+!36 = !{!"_ZTS21ASN1InvalidUint64Test", !12, i64 0, !15, i64 8}
+!37 = !{!36, !15, i64 8}
+!38 = distinct !{!38, !30, !28}

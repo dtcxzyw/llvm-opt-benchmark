@@ -447,10 +447,10 @@ define internal fastcc i32 @ssl3_handshake_mac(ptr noundef readonly captures(non
 
 33:                                               ; preds = %31, %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %35 = load ptr, ptr %34, align 8, !tbaa !57
+  %35 = load ptr, ptr %34, align 8, !tbaa !58
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !58
+  %38 = load i32, ptr %37, align 4, !tbaa !59
   %39 = sext i32 %38 to i64
   %40 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef nonnull %36, i64 noundef %39) #6
   %41 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef nonnull @ssl3_handshake_mac.kPad1, i64 noundef %30) #6
@@ -466,19 +466,19 @@ define internal fastcc i32 @ssl3_handshake_mac(ptr noundef readonly captures(non
   br label %61
 
 47:                                               ; preds = %33
-  %48 = load ptr, ptr %34, align 8, !tbaa !57
+  %48 = load ptr, ptr %34, align 8, !tbaa !58
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !58
+  %51 = load i32, ptr %50, align 4, !tbaa !59
   %52 = sext i32 %51 to i64
   %53 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef nonnull %49, i64 noundef %52) #6
   %54 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef nonnull @ssl3_handshake_mac.kPad2, i64 noundef %30) #6
-  %55 = load i32, ptr %7, align 4, !tbaa !62
+  %55 = load i32, ptr %7, align 4, !tbaa !63
   %56 = zext i32 %55 to i64
   %57 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef %56) #6
   %58 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %9, ptr noundef %4, ptr noundef nonnull %6) #6
   %59 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %9) #6
-  %60 = load i32, ptr %6, align 4, !tbaa !62
+  %60 = load i32, ptr %6, align 4, !tbaa !63
   br label %61
 
 61:                                               ; preds = %47, %45, %25, %22
@@ -564,11 +564,12 @@ attributes #6 = { nounwind }
 !52 = !{!"buf_mem_st", !25, i64 0, !16, i64 8, !25, i64 16}
 !53 = !{!52, !25, i64 0}
 !54 = !{!9, !9, i64 0}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!7, !23, i64 184}
-!58 = !{!59, !8, i64 12}
-!59 = !{!"ssl_session_st", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !9, i64 16, !8, i64 64, !9, i64 68, !8, i64 100, !9, i64 104, !16, i64 136, !60, i64 144, !61, i64 152, !25, i64 160, !25, i64 168, !25, i64 176, !46, i64 184, !26, i64 192, !23, i64 200, !23, i64 208, !16, i64 216, !16, i64 224, !25, i64 232, !25, i64 240, !16, i64 248, !25, i64 256, !16, i64 264, !9, i64 272, !9, i64 304, !8, i64 368, !8, i64 372, !8, i64 376, !8, i64 376, !8, i64 376}
-!60 = !{!"p1 _ZTS7x509_st", !13, i64 0}
-!61 = !{!"p1 _ZTS13stack_st_X509", !13, i64 0}
-!62 = !{!8, !8, i64 0}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!7, !23, i64 184}
+!59 = !{!60, !8, i64 12}
+!60 = !{!"ssl_session_st", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !9, i64 16, !8, i64 64, !9, i64 68, !8, i64 100, !9, i64 104, !16, i64 136, !61, i64 144, !62, i64 152, !25, i64 160, !25, i64 168, !25, i64 176, !46, i64 184, !26, i64 192, !23, i64 200, !23, i64 208, !16, i64 216, !16, i64 224, !25, i64 232, !25, i64 240, !16, i64 248, !25, i64 256, !16, i64 264, !9, i64 272, !9, i64 304, !8, i64 368, !8, i64 372, !8, i64 376, !8, i64 376, !8, i64 376}
+!61 = !{!"p1 _ZTS7x509_st", !13, i64 0}
+!62 = !{!"p1 _ZTS13stack_st_X509", !13, i64 0}
+!63 = !{!8, !8, i64 0}

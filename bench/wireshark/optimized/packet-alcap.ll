@@ -1043,7 +1043,7 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 71:                                               ; preds = %43
   %72 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %73 = load i8, ptr %72, align 8, !range !8, !noundef !9
+  %73 = load i8, ptr %72, align 8, !range !9, !noundef !10
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %80
 
@@ -1062,10 +1062,10 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %83 = sub nsw i32 %.0153196, %82
   %84 = add i32 %82, %.0154195
   %85 = icmp sgt i32 %83, 0
-  br i1 %85, label %43, label %._crit_edge, !llvm.loop !10
+  br i1 %85, label %43, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %80, %16
-  %86 = load i8, ptr @keep_persistent_info, align 1, !range !8, !noundef !9
+  %86 = load i8, ptr @keep_persistent_info, align 1, !range !9, !noundef !10
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %.thread190
 
@@ -1470,7 +1470,7 @@ define internal ptr @dissect_fields_cau(ptr noundef %0, ptr noundef %1, ptr noun
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %59, ptr noundef %1, i32 noundef %60, i32 noundef 1, i32 noundef 0)
   %62 = add nsw i32 %.073, -2
   %63 = icmp samesign ugt i32 %62, 1
-  br i1 %63, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %63, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 64:                                               ; preds = %50
   %65 = tail call ptr @proto_tree_add_expert(ptr noundef %47, ptr noundef %0, ptr noundef nonnull @ei_alcap_undecoded, ptr noundef %1, i32 noundef %39, i32 noundef %42)
@@ -2492,9 +2492,10 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

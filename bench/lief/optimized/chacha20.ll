@@ -170,13 +170,13 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr noundef captures(none) %0
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 %.0.i52
   store i64 %33, ptr %34, align 1
   %.not.i = icmp samesign ugt i64 %.0.i52, 55
-  br i1 %.not.i, label %mbedtls_xor.exit, label %29, !llvm.loop !13
+  br i1 %.not.i, label %mbedtls_xor.exit, label %29, !llvm.loop !14
 
 mbedtls_xor.exit:                                 ; preds = %29
   %35 = add i64 %.156, 64
   %36 = add i64 %.13455, -64
   %37 = icmp ugt i64 %36, 63
-  br i1 %37, label %24, label %._crit_edge, !llvm.loop !14
+  br i1 %37, label %24, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %mbedtls_xor.exit
   %.not36 = icmp eq i64 %36, 0
@@ -213,7 +213,7 @@ mbedtls_xor.exit:                                 ; preds = %29
   store i64 %48, ptr %49, align 1
   %50 = add nuw nsw i64 %45, 8
   %.not.i38 = icmp ugt i64 %50, %.134.lcssa78
-  br i1 %.not.i38, label %.preheader, label %.lr.ph63, !llvm.loop !13
+  br i1 %.not.i38, label %.preheader, label %.lr.ph63, !llvm.loop !14
 
 .lr.ph66:                                         ; preds = %.preheader, %.lr.ph66
   %.1.i3965 = phi i64 [ %57, %.lr.ph66 ], [ %.0.i37.lcssa, %.preheader ]
@@ -226,7 +226,7 @@ mbedtls_xor.exit:                                 ; preds = %29
   store i8 %55, ptr %56, align 1, !tbaa !10
   %57 = add nuw nsw i64 %.1.i3965, 1
   %exitcond.not = icmp eq i64 %57, %.134.lcssa78
-  br i1 %exitcond.not, label %mbedtls_xor.exit40, label %.lr.ph66, !llvm.loop !15
+  br i1 %exitcond.not, label %mbedtls_xor.exit40, label %.lr.ph66, !llvm.loop !16
 
 mbedtls_xor.exit40:                               ; preds = %.lr.ph66, %.preheader
   store i64 %.134.lcssa78, ptr %5, align 8, !tbaa !3
@@ -393,7 +393,7 @@ define internal fastcc void @chacha20_block(ptr noundef readonly captures(none) 
   %131 = tail call i32 @llvm.fshl.i32(i32 %130, i32 %130, i32 7)
   %132 = add nuw nsw i64 %.054, 1
   %exitcond.not = icmp eq i64 %132, 10
-  br i1 %exitcond.not, label %133, label %19, !llvm.loop !16
+  br i1 %exitcond.not, label %133, label %19, !llvm.loop !17
 
 133:                                              ; preds = %19
   %134 = load i32, ptr %0, align 4, !tbaa !8
@@ -569,7 +569,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   %20 = getelementptr inbounds nuw [2 x i32], ptr @test_counters, i64 0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !8
   %22 = getelementptr inbounds nuw [2 x i64], ptr @test_lengths, i64 0, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8, !tbaa !17
+  %23 = load i64, ptr %22, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw [2 x [375 x i8]], ptr @test_input, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 64) #10
@@ -613,7 +613,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   br i1 %15, label %.backedge.backedge, label %.loopexit
 
 .backedge.backedge:                               ; preds = %31, %.thread
-  br label %.backedge, !llvm.loop !18
+  br label %.backedge, !llvm.loop !19
 
 .thread:                                          ; preds = %30
   %puts21 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -675,11 +675,12 @@ attributes #10 = { nounwind }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !5, i64 0}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !12, !13}

@@ -1129,7 +1129,7 @@ define hidden ptr @mbedtls_md_get_name(ptr noundef readonly captures(address_is_
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !20
+  %4 = load ptr, ptr %0, align 8, !tbaa !21
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -1172,6 +1172,7 @@ attributes #13 = { nounwind allocsize(0,1) }
 !15 = !{!11, !7, i64 13}
 !16 = !{!11, !7, i64 12}
 !17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!11, !12, i64 0}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!11, !12, i64 0}

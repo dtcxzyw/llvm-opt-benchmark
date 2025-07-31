@@ -77,7 +77,7 @@ switch.early.test:                                ; preds = %18
   %.phi.trans.insert = sext i8 %.pre to i64
   %.phi.trans.insert91 = getelementptr inbounds i16, ptr %.pre90, i64 %.phi.trans.insert
   %.pre92 = load i16, ptr %.phi.trans.insert91, align 2, !tbaa !11
-  br label %18, !llvm.loop !15
+  br label %18, !llvm.loop !16
 
 .critedge:                                        ; preds = %switch.early.test, %23
   store ptr %19, ptr %4, align 8
@@ -133,7 +133,7 @@ switch.early.test:                                ; preds = %18
   %45 = getelementptr inbounds nuw i8, ptr %.01520.i, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !10
   %.not.i = icmp eq i8 %46, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %44, %39
   %47 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef nonnull %35, ptr noundef nonnull %4)
@@ -186,7 +186,7 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
 .thread:                                          ; preds = %49, %54
   %62 = zext nneg i32 %.04684 to i64
   %63 = getelementptr inbounds nuw [3 x double], ptr @_ZL2vm, i64 0, i64 %62
-  %64 = load double, ptr %63, align 8, !tbaa !17
+  %64 = load double, ptr %63, align 8, !tbaa !18
   %65 = call double @llvm.fmuladd.f64(double %.0.i, double %64, double %.04285)
   br label %._crit_edge
 
@@ -204,18 +204,18 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
 70:                                               ; preds = %66
   %71 = zext nneg i32 %.3 to i64
   %72 = getelementptr inbounds nuw [3 x double], ptr @_ZL2vm, i64 0, i64 %71
-  %73 = load double, ptr %72, align 8, !tbaa !17
+  %73 = load double, ptr %72, align 8, !tbaa !18
   %74 = call double @llvm.fmuladd.f64(double %.0.i, double %73, double %.04285)
   %75 = getelementptr inbounds nuw i8, ptr %50, i64 %.0
   store ptr %75, ptr %4, align 8, !tbaa !3
   %76 = add nuw nsw i32 %.3, 1
-  br i1 %67, label %34, label %._crit_edge, !llvm.loop !19
+  br i1 %67, label %34, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %70, %60, %.thread
   %.143.ph97 = phi double [ %.0.i, %60 ], [ %65, %.thread ], [ %74, %70 ]
   %77 = phi ptr [ %61, %60 ], [ %50, %.thread ], [ %75, %70 ]
   %.pre93 = load i8, ptr %77, align 1, !tbaa !10
-  br label %split, !llvm.loop !19
+  br label %split, !llvm.loop !20
 
 split:                                            ; preds = %34, %._crit_edge
   %78 = phi i8 [ %.pre93, %._crit_edge ], [ %36, %34 ]
@@ -310,10 +310,11 @@ attributes #8 = { nounwind willreturn memory(none) }
 !10 = !{!6, !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"double", !6, i64 0}
-!19 = distinct !{!19, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"double", !6, i64 0}
+!20 = distinct !{!20, !14, !15}

@@ -1658,7 +1658,7 @@ define dso_local noundef i32 @_ZNK22btVoronoiSimplexSolver10getSimplexEP9btVecto
   %17 = load i32, ptr %0, align 4, !tbaa !4
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %10, label %._crit_edge, !llvm.loop !26
+  br i1 %19, label %10, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %10, %4
   %.lcssa = phi i32 [ %5, %4 ], [ %17, %10 ]
@@ -1679,7 +1679,7 @@ define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver9inSimplexERK9bt
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load float, ptr %9, align 4, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %12 = load float, ptr %11, align 4, !tbaa !27
+  %12 = load float, ptr %11, align 4, !tbaa !28
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %13
 
@@ -1701,7 +1701,7 @@ define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver9inSimplexERK9bt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %26, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %13, !llvm.loop !28
+  br i1 %or.cond, label %._crit_edge, label %13, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %13, %2
   %.lcssa = phi i1 [ false, %2 ], [ %26, %13 ]
@@ -1871,8 +1871,9 @@ attributes #9 = { nounwind }
 !21 = !{!10, !10, i64 0}
 !22 = !{!5, !11, i64 352}
 !23 = !{!12, !11, i64 36}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
-!27 = !{!5, !10, i64 308}
-!28 = distinct !{!28, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !25, !26}
+!28 = !{!5, !10, i64 308}
+!29 = distinct !{!29, !25, !26}

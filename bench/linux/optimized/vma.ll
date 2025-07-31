@@ -163,7 +163,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = alloca %struct.vma_iterator, align 8
-  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !12
+  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !13
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1192
   %7 = load ptr, ptr %6, align 8
@@ -205,7 +205,7 @@ define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unname
 
 20:                                               ; preds = %18
   %21 = call zeroext i1 @vma_is_special_mapping(ptr noundef nonnull %16, ptr noundef nonnull @vvar_mapping) #9
-  br i1 %21, label %22, label %15, !llvm.loop !13
+  br i1 %21, label %22, label %15, !llvm.loop !14
 
 22:                                               ; preds = %20, %18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #9
@@ -216,7 +216,7 @@ define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unname
   br label %24
 
 24:                                               ; preds = %23, %22
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, 1
@@ -233,7 +233,7 @@ define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unname
   br label %30
 
 30:                                               ; preds = %29, %28
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %32 = load i32, ptr %31, align 8
   %33 = add i32 %32, 1
@@ -250,7 +250,7 @@ define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1) unnamed_addr #3 align 16 {
-  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !12
+  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !13
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1192
   %6 = load ptr, ptr %5, align 8
@@ -284,7 +284,7 @@ define internal fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1) unnamed_add
   %20 = sub i64 %17, %19
   %21 = tail call i64 @get_unmapped_area(ptr noundef null, i64 noundef %1, i64 noundef %20, i64 noundef 0, i64 noundef 0) #9
   %22 = icmp ugt i64 %21, -4096
-  br i1 %22, label %23, label %25, !prof !15
+  br i1 %22, label %23, label %25, !prof !16
 
 23:                                               ; preds = %15
   %24 = trunc nsw i64 %21 to i32
@@ -337,7 +337,7 @@ define internal fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1) unnamed_add
   br label %53
 
 53:                                               ; preds = %52, %50
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %55 = load i32, ptr %54, align 8
   %56 = add i32 %55, 1
@@ -357,7 +357,7 @@ define dso_local i32 @arch_setup_additional_pages(ptr noundef readnone captures(
   br i1 %4, label %37, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !12
+  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !13
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1192
   %9 = load ptr, ptr %8, align 8
@@ -416,7 +416,7 @@ define dso_local i32 @compat_arch_setup_additional_pages(ptr noundef readnone ca
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local noundef zeroext i1 @arch_syscall_is_vdso_sigreturn(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 align 16 {
-  %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !12
+  %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !13
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1192
   %5 = load ptr, ptr %4, align 8
@@ -697,7 +697,7 @@ define internal noundef range(i32 0, 3) i32 @vdso_fault(ptr readnone captures(no
 56:                                               ; preds = %55, %48, %39, %36
   %57 = phi ptr [ %38, %36 ], [ %54, %48 ], [ %30, %55 ], [ %30, %39 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, ptr nonnull elementtype(i32) %58) #9, !srcloc !16
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, ptr nonnull elementtype(i32) %58) #9, !srcloc !17
   br label %59
 
 59:                                               ; preds = %56, %9, %3
@@ -707,7 +707,7 @@ define internal noundef range(i32 0, 3) i32 @vdso_fault(ptr readnone captures(no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal noundef i32 @vdso_mremap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 align 16 {
-  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !12
+  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !13
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1192
   %6 = load ptr, ptr %5, align 8
@@ -803,11 +803,12 @@ attributes #10 = { nounwind memory(none) }
 !6 = !{i64 2155898581, i64 2155898390, i64 2155898442, i64 2155898488, i64 2155898516}
 !7 = !{i64 2155898655, i64 2155898684, i64 2155898730, i64 2155898788, i64 2155898842, i64 2155898896, i64 2155898951, i64 2155898982}
 !8 = !{i64 811523, i64 811567, i64 2148298542, i64 2148298563, i64 2148298589, i64 2148298622, i64 2148298656, i64 2148298680}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i64 2148168670}
-!13 = distinct !{!13, !10, !11}
-!14 = !{i64 2151462772}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = !{i64 2148983384, i64 2148983423, i64 2148983444, i64 2148983481, i64 2148983504, i64 2148983374}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i64 2148168670}
+!14 = distinct !{!14, !10, !11, !12}
+!15 = !{i64 2151462772}
+!16 = !{!"branch_weights", i32 1, i32 2000}
+!17 = !{i64 2148983384, i64 2148983423, i64 2148983444, i64 2148983481, i64 2148983504, i64 2148983374}

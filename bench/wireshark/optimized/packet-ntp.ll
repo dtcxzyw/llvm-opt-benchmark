@@ -1841,14 +1841,14 @@ proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %4, %
   %indvars.iv227 = phi i64 [ %indvars.iv.next, %156 ], [ 0, %150 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv227, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 46
-  br i1 %exitcond, label %.loopexit, label %156, !llvm.loop !9
+  br i1 %exitcond, label %.loopexit, label %156, !llvm.loop !10
 
 156:                                              ; preds = %.lr.ph229
   %157 = getelementptr [47 x %struct.anon.1], ptr @primary_sources, i64 0, i64 %indvars.iv.next
   %158 = load ptr, ptr %157, align 16
   %159 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %158, i64 noundef 4)
   %160 = icmp eq i32 %159, 0
-  br i1 %160, label %._crit_edge230, label %.lr.ph229, !llvm.loop !9
+  br i1 %160, label %._crit_edge230, label %.lr.ph229, !llvm.loop !10
 
 ._crit_edge230:                                   ; preds = %156, %150
   %.lcssa225 = phi ptr [ @primary_sources, %150 ], [ %157, %156 ]
@@ -1893,19 +1893,19 @@ proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %4, %
 .lr.ph.preheader:                                 ; preds = %.loopexit
   %186 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 50)
   %187 = icmp ult i16 %186, 16
-  br i1 %187, label %.thread, label %.lr.ph238
+  br i1 %187, label %.thread.loopexit, label %.lr.ph238
 
 188:                                              ; preds = %.lr.ph238
   %189 = add i32 %.0155196236, %196
   %190 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %189)
   %191 = icmp sgt i32 %190, 15
-  br i1 %191, label %.lr.ph, label %.thread.loopexit.loopexit
+  br i1 %191, label %.lr.ph, label %..thread.loopexit_crit_edge243, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %188
   %192 = add i32 %189, 2
   %193 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %192)
   %194 = icmp ult i16 %193, 16
-  br i1 %194, label %.thread.loopexit.loopexit, label %.lr.ph238
+  br i1 %194, label %.thread.loopexit, label %.lr.ph238, !llvm.loop !11
 
 .lr.ph238:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %195 = phi i16 [ %193, %.lr.ph ], [ %186, %.lr.ph.preheader ]
@@ -1914,17 +1914,20 @@ proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %4, %
   %196 = zext i16 %195 to i32
   %197 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0155196236)
   %198 = icmp slt i32 %197, %196
-  br i1 %198, label %.thread.loopexit.loopexit, label %188
+  br i1 %198, label %.thread.loopexit, label %188
 
-.thread.loopexit.loopexit:                        ; preds = %.lr.ph238, %.lr.ph, %188
-  %.0157.lcssa.ph.ph = phi i16 [ %195, %188 ], [ %195, %.lr.ph ], [ %.0157195237, %.lr.ph238 ]
-  %.0155.lcssa.ph.ph = phi i32 [ %189, %188 ], [ %189, %.lr.ph ], [ %.0155196236, %.lr.ph238 ]
-  %199 = zext i16 %.0157.lcssa.ph.ph to i32
+..thread.loopexit_crit_edge243:                   ; preds = %188
+  br label %.thread.loopexit, !llvm.loop !11
+
+.thread.loopexit:                                 ; preds = %.lr.ph, %.lr.ph238, %..thread.loopexit_crit_edge243, %.lr.ph.preheader
+  %.0157.lcssa.ph = phi i16 [ %195, %..thread.loopexit_crit_edge243 ], [ 0, %.lr.ph.preheader ], [ %195, %.lr.ph ], [ %.0157195237, %.lr.ph238 ]
+  %.0155.lcssa.ph = phi i32 [ %189, %..thread.loopexit_crit_edge243 ], [ 48, %.lr.ph.preheader ], [ %189, %.lr.ph ], [ %.0155196236, %.lr.ph238 ]
+  %199 = zext i16 %.0157.lcssa.ph to i32
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph.preheader, %.thread.loopexit.loopexit, %.loopexit
-  %.0157.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.lr.ph.preheader ], [ %199, %.thread.loopexit.loopexit ]
-  %.0155.lcssa = phi i32 [ 48, %.loopexit ], [ 48, %.lr.ph.preheader ], [ %.0155.lcssa.ph.ph, %.thread.loopexit.loopexit ]
+.thread:                                          ; preds = %.thread.loopexit, %.loopexit
+  %.0157.lcssa = phi i32 [ 0, %.loopexit ], [ %199, %.thread.loopexit ]
+  %.0155.lcssa = phi i32 [ 48, %.loopexit ], [ %.0155.lcssa.ph, %.thread.loopexit ]
   %200 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0155.lcssa)
   switch i32 %200, label %203 [
     i32 0, label %206
@@ -1954,7 +1957,7 @@ proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %4, %
   %208 = load i64, ptr %6, align 8
   %209 = call fastcc i32 @dissect_ntp_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0160204, i64 noundef %208)
   %210 = icmp slt i32 %209, %.3
-  br i1 %210, label %.lr.ph205, label %._crit_edge, !llvm.loop !10
+  br i1 %210, label %.lr.ph205, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph205, %206
   %.0160.lcssa = phi i32 [ 48, %206 ], [ %209, %.lr.ph205 ]
@@ -2268,7 +2271,7 @@ proto_item_set_generated.exit185:                 ; preds = %122, %119, %116, %1
   %156 = add nuw nsw i32 %152, 2
   %157 = add i16 %.1198, -4
   %.not177 = icmp eq i16 %157, 0
-  br i1 %.not177, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not177, label %.loopexit, label %.preheader, !llvm.loop !13
 
 158:                                              ; preds = %143, %137, %137, %137, %137
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -2286,7 +2289,7 @@ proto_item_set_generated.exit185:                 ; preds = %122, %119, %116, %1
   %166 = load ptr, ptr @want, align 8
   %167 = call ptr @tvbparse_get(ptr noundef %162, ptr noundef %166)
   %.not178 = icmp eq ptr %167, null
-  br i1 %.not178, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not178, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 168:                                              ; preds = %137
   %169 = load i32, ptr @hf_ntpctrl_trapmsg, align 4
@@ -4148,7 +4151,7 @@ proto_item_set_generated.exit1407:                ; preds = %117, %114, %111, %9
   %1513 = trunc i64 %1512 to i32
   %1514 = and i32 %1513, 65535
   %1515 = icmp samesign ult i32 %1511, %1514
-  br i1 %1515, label %135, label %._crit_edge, !llvm.loop !13
+  br i1 %1515, label %135, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %1510, %123
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
@@ -4511,7 +4514,7 @@ thread-pre-split:                                 ; preds = %121
 138:                                              ; preds = %133
   %139 = load ptr, ptr @nts_cookie, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 26
-  %141 = load i8, ptr %140, align 2, !range !14, !noundef !15
+  %141 = load i8, ptr %140, align 2, !range !16, !noundef !17
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %dissect_nts_ext.exit
 
@@ -4537,7 +4540,7 @@ thread-pre-split:                                 ; preds = %121
   %159 = getelementptr i8, ptr %115, i64 %157
   %160 = load i16, ptr %149, align 2
   %161 = zext i16 %160 to i64
-  %162 = call ptr @__memcpy_chk(ptr noundef %155, ptr noundef readonly %159, i64 noundef range(i64 0, 4294967296) %161, i64 noundef %154) #9, !alias.scope !16
+  %162 = call ptr @__memcpy_chk(ptr noundef %155, ptr noundef readonly %159, i64 noundef range(i64 0, 4294967296) %161, i64 noundef %154) #9, !alias.scope !18
   %163 = getelementptr inbounds nuw i8, ptr %137, i64 2
   %164 = load i16, ptr %163, align 2
   %165 = zext i16 %164 to i32
@@ -4658,7 +4661,7 @@ proto_item_set_generated.exit:                    ; preds = %ntp_decrypt_nts.exi
   %215 = call fastcc i32 @dissect_ntp_ext(ptr noundef nonnull %.0.i50, ptr noundef %1, ptr noundef %2, i32 noundef %.057.i52, i64 noundef %4)
   %216 = call i32 @tvb_reported_length(ptr noundef nonnull %.0.i50)
   %217 = icmp ult i32 %215, %216
-  br i1 %217, label %.lr.ph, label %dissect_nts_ext.exit, !llvm.loop !20
+  br i1 %217, label %.lr.ph, label %dissect_nts_ext.exit, !llvm.loop !22
 
 dissect_nts_ext.exit:                             ; preds = %.lr.ph, %213, %88, %117, %129, %133, %138, %proto_item_set_generated.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
@@ -4837,17 +4840,19 @@ attributes #10 = { allocsize(1) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{ptr @dissect_ntp_ctrl, ptr @dissect_ntp_priv, ptr @dissect_ntp_std}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
-!18 = distinct !{!18, !"memcpy.inline"}
-!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
-!20 = distinct !{!20, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = distinct !{!22, !8, !9}

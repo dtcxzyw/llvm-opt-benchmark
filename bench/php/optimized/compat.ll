@@ -789,7 +789,7 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
   %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %23 = load ptr, ptr %22, align 8, !tbaa !61
   %.not28 = icmp eq ptr %23, null
-  br i1 %.not28, label %.loopexit, label %.lr.ph
+  br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
   %.0 = phi ptr [ %13, %11 ], [ %13, %.preheader ], [ %20, %.lr.ph ]
@@ -979,7 +979,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %24 = add nuw nsw i32 %.098145, 1
   %exitcond.not = icmp eq i32 %24, %4
-  br i1 %exitcond.not, label %.loopexit143, label %17
+  br i1 %exitcond.not, label %.loopexit143, label %17, !llvm.loop !86
 
 .loopexit143:                                     ; preds = %17, %13, %9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1047,7 +1047,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
   %54 = add nuw nsw i32 %.0107154, 1
   %exitcond183.not = icmp eq i32 %54, %4
-  br i1 %exitcond183.not, label %.loopexit140, label %.lr.ph156
+  br i1 %exitcond183.not, label %.loopexit140, label %.lr.ph156, !llvm.loop !87
 
 .loopexit140:                                     ; preds = %50, %41
   %.0135 = phi ptr [ %storemerge, %41 ], [ %52, %50 ]
@@ -1097,7 +1097,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
   %78 = add nuw nsw i32 %.1160, 1
   %exitcond187.not = icmp eq i32 %78, %6
-  br i1 %exitcond187.not, label %.loopexit, label %.lr.ph161
+  br i1 %exitcond187.not, label %.loopexit, label %.lr.ph161, !llvm.loop !88
 
 .loopexit:                                        ; preds = %68, %.loopexit140
   %.2137 = phi ptr [ %.0135, %.loopexit140 ], [ %76, %68 ]
@@ -1197,7 +1197,7 @@ qualify_namespace.exit127:                        ; preds = %116, %110, %118
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 5
   %131 = add nuw nsw i32 %.2148, 1
   %exitcond175.not = icmp eq i32 %131, %6
-  br i1 %exitcond175.not, label %._crit_edge.loopexit, label %102
+  br i1 %exitcond175.not, label %._crit_edge.loopexit, label %102, !llvm.loop !89
 
 ._crit_edge.loopexit:                             ; preds = %qualify_namespace.exit127
   %132 = trunc nuw i64 %indvars.iv.next169 to i32
@@ -1236,7 +1236,7 @@ qualify_namespace.exit127:                        ; preds = %116, %110, %118
   tail call void %139(ptr noundef %141) #11
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count
-  br i1 %exitcond179.not, label %._crit_edge152, label %.lr.ph151
+  br i1 %exitcond179.not, label %._crit_edge152, label %.lr.ph151, !llvm.loop !90
 
 ._crit_edge152:                                   ; preds = %.lr.ph151, %.preheader141
   tail call void @_efree(ptr noundef nonnull %.0) #11
@@ -1471,3 +1471,10 @@ attributes #12 = { nounwind willreturn memory(read) }
 !81 = !{!77, !9, i64 16}
 !82 = !{!77, !9, i64 104}
 !83 = !{!77, !9, i64 96}
+!84 = distinct !{!84, !85}
+!85 = !{!"llvm.loop.estimated_trip_count"}
+!86 = distinct !{!86, !85}
+!87 = distinct !{!87, !85}
+!88 = distinct !{!88, !85}
+!89 = distinct !{!89, !85}
+!90 = distinct !{!90, !85}

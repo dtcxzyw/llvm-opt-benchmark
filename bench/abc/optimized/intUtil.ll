@@ -130,10 +130,10 @@ define range(i32 0, 2) i32 @Inter_ManCheckAllStates(ptr noundef %0) local_unname
   br i1 %5, label %Abc_Clock.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8, !tbaa !45
+  %7 = load i64, ptr %3, align 8, !tbaa !46
   %.neg12 = mul i64 %7, -1000000
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !47
+  %9 = load i64, ptr %8, align 8, !tbaa !48
   %.neg = sdiv i64 %9, -1000
   %.neg13 = add i64 %.neg, %.neg12
   br label %Abc_Clock.exit
@@ -159,10 +159,10 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %17, label %Abc_Clock.exit11, label %18
 
 18:                                               ; preds = %14
-  %19 = load i64, ptr %2, align 8, !tbaa !45
+  %19 = load i64, ptr %2, align 8, !tbaa !46
   %20 = mul nsw i64 %19, 1000000
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !47
+  %22 = load i64, ptr %21, align 8, !tbaa !48
   %23 = sdiv i64 %22, 1000
   %24 = add nsw i64 %23, %20
   br label %Abc_Clock.exit11
@@ -200,7 +200,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #9
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !48
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !49
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #9
@@ -208,7 +208,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !48, !noalias !49
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !49, !noalias !50
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #9
   br label %17
 
@@ -302,12 +302,13 @@ attributes #10 = { nounwind willreturn memory(read) }
 !40 = !{!6, !6, i64 0}
 !41 = !{!11, !12, i64 36}
 !42 = !{!12, !12, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!46, !20, i64 0}
-!46 = !{!"timespec", !20, i64 0, !20, i64 8}
-!47 = !{!46, !20, i64 8}
-!48 = !{!39, !39, i64 0}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"vprintf: argument 0"}
-!51 = distinct !{!51, !"vprintf"}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!47, !20, i64 0}
+!47 = !{!"timespec", !20, i64 0, !20, i64 8}
+!48 = !{!47, !20, i64 8}
+!49 = !{!39, !39, i64 0}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"vprintf: argument 0"}
+!52 = distinct !{!52, !"vprintf"}

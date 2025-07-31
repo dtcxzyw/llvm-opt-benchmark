@@ -254,7 +254,7 @@ put_bits.exit80:                                  ; preds = %101, %153
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %159 = add nuw nsw i32 %.057128, 1
   %160 = icmp slt i32 %159, %157
-  br i1 %160, label %.lr.ph131.split, label %flush_put_bits.exit, !llvm.loop !41
+  br i1 %160, label %.lr.ph131.split, label %flush_put_bits.exit, !llvm.loop !42
 
 flush_put_bits.exit:                              ; preds = %._crit_edge, %29, %.lr.ph131
   store i32 1, ptr %3, align 4, !tbaa !35
@@ -334,7 +334,8 @@ attributes #5 = { nounwind }
 !36 = !{!37, !10, i64 8}
 !37 = !{!"CLJRContext", !6, i64 0, !10, i64 8}
 !38 = !{!8, !8, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40, !42}
-!42 = !{!"llvm.loop.unswitch.partial.disable"}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !40, !41, !43}
+!43 = !{!"llvm.loop.unswitch.partial.disable"}

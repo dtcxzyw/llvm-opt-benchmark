@@ -28,7 +28,7 @@ define void @_ZN6LibRaw19setPhaseOneFeaturesEy(ptr noundef nonnull align 8 deref
 .preheader:                                       ; preds = %4, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %4 ]
   %8 = getelementptr inbounds nuw [138 x %struct.anon], ptr @_ZZN6LibRaw19setPhaseOneFeaturesEyE9p1_unique, i64 0, i64 %indvars.iv
-  %9 = load i64, ptr %8, align 16, !tbaa !74
+  %9 = load i64, ptr %8, align 16, !tbaa !75
   %10 = icmp eq i64 %1, %9
   br i1 %10, label %11, label %7
 
@@ -36,15 +36,15 @@ define void @_ZN6LibRaw19setPhaseOneFeaturesEy(ptr noundef nonnull align 8 deref
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %12) #2
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %15 = load i32, ptr %14, align 4, !tbaa !76
+  %15 = load i32, ptr %14, align 4, !tbaa !77
   %16 = trunc i32 %15 to i16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i16 %16, ptr %17, align 8, !tbaa !77
+  store i16 %16, ptr %17, align 8, !tbaa !78
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %19 = load i32, ptr %18, align 8, !tbaa !78
+  %19 = load i32, ptr %18, align 8, !tbaa !79
   %20 = trunc i32 %19 to i16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1354
-  store i16 %20, ptr %21, align 2, !tbaa !79
+  store i16 %20, ptr %21, align 2, !tbaa !80
   switch i16 %20, label %.loopexit [
     i16 30, label %22
     i16 31, label %22
@@ -53,12 +53,12 @@ define void @_ZN6LibRaw19setPhaseOneFeaturesEy(ptr noundef nonnull align 8 deref
 
 22:                                               ; preds = %11, %11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  store i16 1, ptr %23, align 4, !tbaa !80
+  store i16 1, ptr %23, align 4, !tbaa !81
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %11, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1338
-  store i16 %20, ptr %24, align 2, !tbaa !81
+  store i16 %20, ptr %24, align 2, !tbaa !82
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.loopexit.sink.split, %11, %4, %2
@@ -146,13 +146,14 @@ attributes #2 = { nounwind }
 !69 = !{!"_ZTS13libraw_memmgr", !10, i64 0, !15, i64 8}
 !70 = !{!"_ZTS18libraw_callbacks_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128}
 !71 = !{!11, !11, i64 0}
-!72 = distinct !{!72, !73}
+!72 = distinct !{!72, !73, !74}
 !73 = !{!"llvm.loop.mustprogress"}
-!74 = !{!75, !24, i64 0}
-!75 = !{!"_ZTSZN6LibRaw19setPhaseOneFeaturesEyE3$_0", !24, i64 0, !11, i64 8, !15, i64 40, !15, i64 44}
-!76 = !{!75, !15, i64 44}
-!77 = !{!7, !14, i64 1352}
-!78 = !{!75, !15, i64 40}
-!79 = !{!7, !14, i64 1354}
-!80 = !{!7, !14, i64 1420}
-!81 = !{!7, !14, i64 1338}
+!74 = !{!"llvm.loop.estimated_trip_count"}
+!75 = !{!76, !24, i64 0}
+!76 = !{!"_ZTSZN6LibRaw19setPhaseOneFeaturesEyE3$_0", !24, i64 0, !11, i64 8, !15, i64 40, !15, i64 44}
+!77 = !{!76, !15, i64 44}
+!78 = !{!7, !14, i64 1352}
+!79 = !{!76, !15, i64 40}
+!80 = !{!7, !14, i64 1354}
+!81 = !{!7, !14, i64 1420}
+!82 = !{!7, !14, i64 1338}

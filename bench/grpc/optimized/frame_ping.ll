@@ -237,7 +237,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = 
 
 33:                                               ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  %35 = load ptr, ptr %34, align 8, !tbaa !30
   %36 = ptrtoint ptr %35 to i64
   %37 = ptrtoint ptr %32 to i64
   %38 = sub i64 %36, %37
@@ -294,12 +294,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNK
   resume { ptr, i32 } %47
 
 55:                                               ; preds = %4
-  store i8 0, ptr %1, align 8, !tbaa !30
+  store i8 0, ptr %1, align 8, !tbaa !31
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %3, ptr %56, align 1, !tbaa !32
+  store i8 %3, ptr %56, align 1, !tbaa !33
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %57, align 8, !tbaa !33
-  store i64 1, ptr %0, align 8, !tbaa !25, !alias.scope !34
+  store i64 0, ptr %57, align 8, !tbaa !34
+  store i64 1, ptr %0, align 8, !tbaa !25, !alias.scope !35
   br label %58
 
 58:                                               ; preds = %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -356,7 +356,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit: ; preds = %_
 
 14:                                               ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !29
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
@@ -378,7 +378,7 @@ define void @_Z29grpc_chttp2_ping_parser_parsePvP21grpc_chttp2_transportP18grpc_
   %13 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
-  store ptr %2, ptr %10, align 8, !tbaa !37
+  store ptr %2, ptr %10, align 8, !tbaa !38
   %16 = load ptr, ptr %4, align 8, !tbaa !3
   %.not = icmp eq ptr %16, null
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -390,7 +390,7 @@ define void @_Z29grpc_chttp2_ping_parser_parsePvP21grpc_chttp2_transportP18grpc_
   %23 = and i64 %22, 255
   %24 = select i1 %.not, i64 %23, i64 %22
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %24
-  %.pr = load i8, ptr %1, align 8, !tbaa !30
+  %.pr = load i8, ptr %1, align 8, !tbaa !31
   %26 = icmp ne i8 %.pr, 8
   %27 = icmp samesign ne i64 %24, 0
   %28 = select i1 %26, i1 %27, i1 false
@@ -398,7 +398,7 @@ define void @_Z29grpc_chttp2_ping_parser_parsePvP21grpc_chttp2_transportP18grpc_
 
 .lr.ph:                                           ; preds = %6
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted = load i64, ptr %29, align 8, !tbaa !33
+  %.promoted = load i64, ptr %29, align 8, !tbaa !34
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
@@ -413,14 +413,14 @@ define void @_Z29grpc_chttp2_ping_parser_parsePvP21grpc_chttp2_transportP18grpc_
   %38 = and i64 %37, 4294967288
   %39 = shl i64 %35, %38
   %40 = or i64 %39, %31
-  store i64 %40, ptr %29, align 8, !tbaa !33
+  store i64 %40, ptr %29, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %.04179, i64 1
   %42 = add i8 %32, 1
-  store i8 %42, ptr %1, align 8, !tbaa !30
+  store i8 %42, ptr %1, align 8, !tbaa !31
   %43 = icmp ne i8 %42, 8
   %44 = icmp ne ptr %41, %25
   %45 = select i1 %43, i1 %44, i1 false
-  br i1 %45, label %30, label %._crit_edge, !llvm.loop !39
+  br i1 %45, label %30, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %30, %6
   %.lcssa = phi i8 [ %.pr, %6 ], [ %42, %30 ]
@@ -429,7 +429,7 @@ define void @_Z29grpc_chttp2_ping_parser_parsePvP21grpc_chttp2_transportP18grpc_
 
 47:                                               ; preds = %._crit_edge
   %.not53 = icmp eq i32 %5, 0
-  br i1 %.not53, label %48, label %.critedge, !prof !40
+  br i1 %.not53, label %48, label %.critedge, !prof !41
 
 48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #22
@@ -439,21 +439,21 @@ define void @_Z29grpc_chttp2_ping_parser_parsePvP21grpc_chttp2_transportP18grpc_
 
 .critedge:                                        ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %50 = load i8, ptr %49, align 1, !tbaa !32
+  %50 = load i8, ptr %49, align 1, !tbaa !33
   %.not54 = icmp eq i8 %50, 0
   br i1 %.not54, label %70, label %51
 
 51:                                               ; preds = %.critedge
   %52 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core16http2_ping_traceE, i64 16) monotonic, align 8
   %53 = trunc i8 %52 to i1
-  br i1 %53, label %54, label %.critedge61, !prof !40
+  br i1 %53, label %54, label %.critedge61, !prof !41
 
 54:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #22
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.1, i32 noundef 94) #25
-  %55 = load ptr, ptr %10, align 8, !tbaa !37
+  %55 = load ptr, ptr %10, align 8, !tbaa !38
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 3416
-  %57 = load i8, ptr %56, align 8, !tbaa !41, !range !250, !noundef !251
+  %57 = load i8, ptr %56, align 8, !tbaa !42, !range !251, !noundef !252
   %58 = trunc nuw i8 %57 to i1
   %59 = select i1 %58, ptr @.str.3, ptr @.str.4
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 6, ptr nonnull align 1 dereferenceable(7) %59)
@@ -473,9 +473,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit: ; pre
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit: ; preds = %61
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !33
+  %63 = load i64, ptr %62, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store i64 %63, ptr %9, align 8, !tbaa !252
+  store i64 %63, ptr %9, align 8, !tbaa !253
   %64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %.critedge60 unwind label %68
 
@@ -483,13 +483,13 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #22
-  %.pre = load ptr, ptr %10, align 8, !tbaa !37
+  %.pre = load ptr, ptr %10, align 8, !tbaa !38
   br label %.critedge61
 
 .critedge61:                                      ; preds = %51, %.critedge60
   %65 = phi ptr [ %2, %51 ], [ %.pre, %.critedge60 ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !33
+  %67 = load i64, ptr %66, align 8, !tbaa !34
   call void @_Z20grpc_chttp2_ack_pingP21grpc_chttp2_transportm(ptr noundef %65, i64 noundef %67)
   br label %171
 
@@ -502,19 +502,19 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit: ; pr
 
 70:                                               ; preds = %.critedge
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 3416
-  %72 = load i8, ptr %71, align 8, !tbaa !41, !range !250, !noundef !251
+  %72 = load i8, ptr %71, align 8, !tbaa !42, !range !251, !noundef !252
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %129, label %74
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 3413
-  %76 = load i8, ptr %75, align 1, !tbaa !253, !range !250, !noundef !251
+  %76 = load i8, ptr %75, align 1, !tbaa !254, !range !251, !noundef !252
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  %80 = load i64, ptr %79, align 8, !tbaa !254
+  %80 = load i64, ptr %79, align 8, !tbaa !255
   %.not.i = icmp ult i64 %80, 2
   br label %81
 
@@ -522,12 +522,12 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit: ; pr
   %82 = phi i1 [ false, %74 ], [ %.not.i, %78 ]
   %83 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core20http_keepalive_traceE, i64 16) monotonic, align 8
   %84 = trunc i8 %83 to i1
-  br i1 %84, label %88, label %85, !prof !40
+  br i1 %84, label %88, label %85, !prof !41
 
 85:                                               ; preds = %81
   %86 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core10http_traceE, i64 16) monotonic, align 8
   %87 = trunc i8 %86 to i1
-  br i1 %87, label %88, label %123, !prof !40
+  br i1 %87, label %88, label %123, !prof !41
 
 88:                                               ; preds = %85, %81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #22
@@ -545,9 +545,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi8EEERS2_RAT__Kc.exit: ; pre
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; preds = %90
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %92 = load i64, ptr %91, align 8, !tbaa !33
+  %92 = load i64, ptr %91, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store i64 %92, ptr %8, align 8, !tbaa !252
+  store i64 %92, ptr %8, align 8, !tbaa !253
   %93 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %94 unwind label %108
 
@@ -558,7 +558,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit: ; preds = %94
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #22
-  %95 = load ptr, ptr %10, align 8, !tbaa !37
+  %95 = load ptr, ptr %10, align 8, !tbaa !38
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 2016
   invoke void @_ZNK9grpc_core21Chttp2PingAbusePolicy14GetDebugStringB5cxx11Eb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %96, i1 noundef zeroext %82)
           to label %97 unwind label %110
@@ -590,7 +590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #22
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #22
-  %.pre81 = load ptr, ptr %10, align 8, !tbaa !37
+  %.pre81 = load ptr, ptr %10, align 8, !tbaa !38
   br label %123
 
 108:                                              ; preds = %94, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit, %90, %88, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi8EEERS2_RAT__Kc.exit
@@ -642,14 +642,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   br i1 %126, label %127, label %.critedge64
 
 127:                                              ; preds = %123
-  %128 = load ptr, ptr %10, align 8, !tbaa !37
+  %128 = load ptr, ptr %10, align 8, !tbaa !38
   call void @_Z33grpc_chttp2_exceeded_ping_strikesP21grpc_chttp2_transport(ptr noundef %128)
   br label %.critedge64
 
 129:                                              ; preds = %70
   %130 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core16http2_ping_traceE, i64 16) monotonic, align 8
   %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %.critedge64, !prof !40
+  br i1 %131, label %132, label %.critedge64, !prof !41
 
 132:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
@@ -667,9 +667,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi8EEERS2_RAT__Kc.exit69: ; p
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit70: ; preds = %134
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %136 = load i64, ptr %135, align 8, !tbaa !33
+  %136 = load i64, ptr %135, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i64 %136, ptr %7, align 8, !tbaa !252
+  store i64 %136, ptr %7, align 8, !tbaa !253
   %137 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.critedge63 unwind label %138
 
@@ -687,39 +687,39 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit70: ; 
   br label %172
 
 .critedge64:                                      ; preds = %.critedge63, %129, %123, %127
-  %140 = load ptr, ptr %10, align 8, !tbaa !37
+  %140 = load ptr, ptr %10, align 8, !tbaa !38
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 3418
-  %142 = load i8, ptr %141, align 2, !tbaa !255, !range !250, !noundef !251
+  %142 = load i8, ptr %141, align 2, !tbaa !256, !range !251, !noundef !252
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %144, label %171
 
 144:                                              ; preds = %.critedge64
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 2208
-  %146 = load i64, ptr %145, align 8, !tbaa !256
+  %146 = load i64, ptr %145, align 8, !tbaa !257
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 2216
-  %148 = load i64, ptr %147, align 8, !tbaa !257
+  %148 = load i64, ptr %147, align 8, !tbaa !258
   %149 = icmp eq i64 %146, %148
   br i1 %149, label %150, label %._crit_edge82
 
 ._crit_edge82:                                    ; preds = %144
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %140, i64 2224
-  %.pre83 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !258
+  %.pre83 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !259
   br label %159
 
 150:                                              ; preds = %144
   %151 = mul i64 %146, 3
   %152 = lshr i64 %151, 1
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %152, i64 3)
-  store i64 %.sroa.speculated, ptr %147, align 8, !tbaa !257
+  store i64 %.sroa.speculated, ptr %147, align 8, !tbaa !258
   %153 = getelementptr inbounds nuw i8, ptr %140, i64 2224
-  %154 = load ptr, ptr %153, align 8, !tbaa !258
+  %154 = load ptr, ptr %153, align 8, !tbaa !259
   %155 = shl i64 %.sroa.speculated, 3
   %156 = call ptr @gpr_realloc(ptr noundef %154, i64 noundef %155)
-  %157 = load ptr, ptr %10, align 8, !tbaa !37
+  %157 = load ptr, ptr %10, align 8, !tbaa !38
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 2224
-  store ptr %156, ptr %158, align 8, !tbaa !258
+  store ptr %156, ptr %158, align 8, !tbaa !259
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %157, i64 2208
-  %.pre85 = load i64, ptr %.phi.trans.insert84, align 8, !tbaa !256
+  %.pre85 = load i64, ptr %.phi.trans.insert84, align 8, !tbaa !257
   br label %159
 
 159:                                              ; preds = %._crit_edge82, %150
@@ -727,21 +727,21 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit70: ; 
   %161 = phi ptr [ %156, %150 ], [ %.pre83, %._crit_edge82 ]
   %162 = phi ptr [ %157, %150 ], [ %140, %._crit_edge82 ]
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 3332
-  %164 = load i32, ptr %163, align 4, !tbaa !259
+  %164 = load i32, ptr %163, align 4, !tbaa !260
   %165 = add i32 %164, 1
-  store i32 %165, ptr %163, align 4, !tbaa !259
+  store i32 %165, ptr %163, align 4, !tbaa !260
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %167 = load i64, ptr %166, align 8, !tbaa !33
+  %167 = load i64, ptr %166, align 8, !tbaa !34
   %168 = getelementptr inbounds nuw i8, ptr %162, i64 2208
   %169 = add i64 %160, 1
-  store i64 %169, ptr %168, align 8, !tbaa !256
+  store i64 %169, ptr %168, align 8, !tbaa !257
   %170 = getelementptr inbounds nuw i64, ptr %161, i64 %160
-  store i64 %167, ptr %170, align 8, !tbaa !252
+  store i64 %167, ptr %170, align 8, !tbaa !253
   call void @_Z26grpc_chttp2_initiate_writeP21grpc_chttp2_transport33grpc_chttp2_initiate_write_reason(ptr noundef nonnull %162, i32 noundef 20)
   br label %171
 
 171:                                              ; preds = %.critedge61, %159, %.critedge64, %._crit_edge
-  store i64 1, ptr %0, align 8, !tbaa !25, !alias.scope !260
+  store i64 1, ptr %0, align 8, !tbaa !25, !alias.scope !261
   ret void
 
 172:                                              ; preds = %138, %122, %68
@@ -763,13 +763,13 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !263
+  %5 = load ptr, ptr %4, align 8, !tbaa !264
   call void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 1 %5)
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
           to label %7 unwind label %10
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %1, align 8, !tbaa !37
+  %8 = load ptr, ptr %1, align 8, !tbaa !38
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8)
           to label %_ZNSolsEPKv.exit unwind label %10
 
@@ -811,7 +811,7 @@ define internal void @__cxx_global_var_init.11() #11 section ".text.startup" com
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8, !tbaa !265
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8, !tbaa !266
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -827,7 +827,7 @@ define internal void @__cxx_global_var_init.12() #12 section ".text.startup" com
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 8
   %4 = tail call noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaContextTraits6MakeIdEPFvPvE(ptr noundef nonnull @_ZN9grpc_core12arena_detail19DestroyArenaContextIN17grpc_event_engine12experimental11EventEngineEEEvPv)
-  store i16 %4, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !267
+  store i16 %4, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !268
   %5 = tail call ptr @llvm.invariant.start.p0(i64 2, ptr nonnull @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E)
   br label %6
 
@@ -839,7 +839,7 @@ define internal void @__cxx_global_var_init.12() #12 section ".text.startup" com
 define linkonce_odr noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaContextTraits6MakeIdEPFvPvE(ptr noundef %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit, !prof !268
+  br i1 %3, label %4, label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit, !prof !269
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits) #22
@@ -852,21 +852,21 @@ define linkonce_odr noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaC
   br label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
 
 _ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit: ; preds = %1, %4, %6
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !269
-  %8 = load ptr, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !271
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !270
+  %8 = load ptr, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !272
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !272
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !273
   %.not.i2 = icmp eq ptr %7, %13
   br i1 %.not.i2, label %17, label %14
 
 14:                                               ; preds = %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
-  store ptr %0, ptr %7, align 8, !tbaa !273
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !269
+  store ptr %0, ptr %7, align 8, !tbaa !274
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !270
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !269
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !270
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
 17:                                               ; preds = %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
@@ -888,7 +888,7 @@ _ZNKSt6vectorIPFvPvESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %17
   %24 = shl nuw nsw i64 %23, 3
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #28
   %26 = getelementptr inbounds i8, ptr %25, i64 %11
-  store ptr %0, ptr %26, align 8, !tbaa !273
+  store ptr %0, ptr %26, align 8, !tbaa !274
   %27 = icmp sgt i64 %11, 0
   br i1 %27, label %28, label %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -906,10 +906,10 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
   br label %_ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !271
-  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !269
+  store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !272
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !270
   %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
-  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !272
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !273
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit: ; preds = %14, %_ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -934,7 +934,7 @@ define internal void @__cxx_global_var_init.13() #12 section ".text.startup" com
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 8
   %4 = tail call noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaContextTraits6MakeIdEPFvPvE(ptr noundef nonnull @_ZN9grpc_core12arena_detail19DestroyArenaContextINS_19CallTracerInterfaceEEEvPv)
-  store i16 %4, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !267
+  store i16 %4, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !268
   %5 = tail call ptr @llvm.invariant.start.p0(i64 2, ptr nonnull @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E)
   br label %6
 
@@ -1075,250 +1075,251 @@ attributes #28 = { builtin allocsize(0) }
 !24 = !{!22, !23, i64 8}
 !25 = !{!26, !19, i64 0}
 !26 = !{!"_ZTSN4absl12lts_202407226StatusE", !19, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!22, !23, i64 16}
-!30 = !{!31, !7, i64 0}
-!31 = !{!"_ZTS23grpc_chttp2_ping_parser", !7, i64 0, !7, i64 1, !19, i64 8}
-!32 = !{!31, !7, i64 1}
-!33 = !{!31, !19, i64 8}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!36 = distinct !{!36, !"_ZN4absl12lts_202407228OkStatusEv"}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 _ZTS21grpc_chttp2_transport", !6, i64 0}
-!39 = distinct !{!39, !28}
-!40 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!41 = !{!42, !51, i64 3416}
-!42 = !{!"_ZTS21grpc_chttp2_transport", !43, i64 0, !50, i64 16, !52, i64 24, !59, i64 32, !60, i64 40, !62, i64 72, !63, i64 80, !70, i64 96, !71, i64 120, !79, i64 160, !82, i64 176, !83, i64 184, !86, i64 472, !87, i64 480, !87, i64 488, !26, i64 496, !7, i64 504, !88, i64 584, !19, i64 616, !95, i64 624, !95, i64 656, !95, i64 688, !96, i64 720, !98, i64 952, !6, i64 960, !6, i64 968, !6, i64 976, !100, i64 984, !107, i64 1040, !108, i64 1272, !96, i64 1616, !19, i64 1848, !26, i64 1856, !174, i64 1864, !175, i64 1868, !178, i64 1984, !109, i64 2000, !109, i64 2004, !109, i64 2008, !179, i64 2016, !182, i64 2040, !183, i64 2064, !178, i64 2160, !95, i64 2176, !19, i64 2208, !19, i64 2216, !194, i64 2224, !195, i64 2232, !7, i64 2448, !226, i64 2504, !228, i64 2536, !229, i64 2768, !19, i64 2912, !237, i64 2920, !7, i64 2924, !7, i64 2925, !7, i64 2926, !51, i64 2927, !109, i64 2928, !109, i64 2932, !109, i64 2936, !109, i64 2940, !51, i64 2944, !238, i64 2952, !239, i64 2960, !240, i64 2984, !95, i64 2992, !95, i64 3024, !95, i64 3056, !26, i64 3088, !241, i64 3096, !95, i64 3112, !95, i64 3144, !178, i64 3176, !95, i64 3192, !95, i64 3224, !178, i64 3256, !181, i64 3272, !180, i64 3280, !181, i64 3288, !242, i64 3296, !244, i64 3304, !109, i64 3308, !245, i64 3312, !246, i64 3320, !109, i64 3328, !109, i64 3332, !109, i64 3336, !181, i64 3344, !178, i64 3352, !181, i64 3368, !109, i64 3376, !248, i64 3380, !249, i64 3384, !51, i64 3408, !51, i64 3409, !7, i64 3410, !51, i64 3411, !51, i64 3412, !51, i64 3413, !51, i64 3414, !7, i64 3415, !51, i64 3416, !51, i64 3417, !51, i64 3418, !51, i64 3419, !51, i64 3420, !51, i64 3421, !7, i64 3422, !180, i64 3424}
-!43 = !{!"_ZTSN9grpc_core20FilterStackTransportE", !44, i64 0}
-!44 = !{!"_ZTSN9grpc_core9TransportE", !45, i64 0}
-!45 = !{!"_ZTSN9grpc_core20InternallyRefCountedINS_9TransportENS_11UnrefDeleteEEE", !46, i64 0, !47, i64 8}
-!46 = !{!"_ZTSN9grpc_core10OrphanableE"}
-!47 = !{!"_ZTSN9grpc_core8RefCountE", !48, i64 0}
-!48 = !{!"_ZTSSt6atomicIlE", !49, i64 0}
-!49 = !{!"_ZTSSt13__atomic_baseIlE", !19, i64 0}
-!50 = !{!"_ZTSN9grpc_core20KeepsGrpcInitializedE", !51, i64 0}
-!51 = !{!"bool", !7, i64 0}
-!52 = !{!"_ZTSSt10unique_ptrI13grpc_endpointN9grpc_core16OrphanableDeleteEE", !53, i64 0}
-!53 = !{!"_ZTSSt15__uniq_ptr_dataI13grpc_endpointN9grpc_core16OrphanableDeleteELb1ELb1EE", !54, i64 0}
-!54 = !{!"_ZTSSt15__uniq_ptr_implI13grpc_endpointN9grpc_core16OrphanableDeleteEE", !55, i64 0}
-!55 = !{!"_ZTSSt5tupleIJP13grpc_endpointN9grpc_core16OrphanableDeleteEEE", !56, i64 0}
-!56 = !{!"_ZTSSt11_Tuple_implILm0EJP13grpc_endpointN9grpc_core16OrphanableDeleteEEE", !57, i64 0}
-!57 = !{!"_ZTSSt10_Head_baseILm0EP13grpc_endpointLb0EE", !58, i64 0}
-!58 = !{!"p1 _ZTS13grpc_endpoint", !6, i64 0}
-!59 = !{!"_ZTSN4absl12lts_202407225MutexE", !48, i64 0}
-!60 = !{!"_ZTSN9grpc_core5SliceE", !61, i64 0}
-!61 = !{!"_ZTSN9grpc_core12slice_detail9BaseSliceE", !4, i64 0}
-!62 = !{!"p1 _ZTSN9grpc_core33TransportFramingEndpointExtensionE", !6, i64 0}
-!63 = !{!"_ZTSN9grpc_core11MemoryOwnerE", !64, i64 0}
-!64 = !{!"_ZTSN17grpc_event_engine12experimental15MemoryAllocatorE", !65, i64 0}
-!65 = !{!"_ZTSSt10shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplEE", !66, i64 0}
-!66 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE", !67, i64 0, !68, i64 8}
-!67 = !{!"p1 _ZTSN17grpc_event_engine12experimental8internal19MemoryAllocatorImplE", !6, i64 0}
-!68 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !69, i64 0}
-!69 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
-!70 = !{!"_ZTSN17grpc_event_engine12experimental15MemoryAllocator11ReservationE", !65, i64 0, !19, i64 16}
-!71 = !{!"_ZTSN9grpc_core16ReclamationSweepE", !72, i64 0, !19, i64 16, !75, i64 24}
-!72 = !{!"_ZTSSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEE", !73, i64 0}
-!73 = !{!"_ZTSSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EE", !74, i64 0, !68, i64 8}
-!74 = !{!"p1 _ZTSN9grpc_core16BasicMemoryQuotaE", !6, i64 0}
-!75 = !{!"_ZTSN9grpc_core5WakerE", !76, i64 0}
-!76 = !{!"_ZTSN9grpc_core5Waker14WakeableAndArgE", !77, i64 0, !78, i64 8}
-!77 = !{!"p1 _ZTSN9grpc_core8WakeableE", !6, i64 0}
-!78 = !{!"short", !7, i64 0}
-!79 = !{!"_ZTSSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEE", !80, i64 0}
-!80 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EE", !81, i64 0, !68, i64 8}
-!81 = !{!"p1 _ZTSN17grpc_event_engine12experimental11EventEngineE", !6, i64 0}
-!82 = !{!"p1 _ZTSN9grpc_core8CombinerE", !6, i64 0}
-!83 = !{!"_ZTSN4absl12lts_2024072215random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEE", !84, i64 0}
-!84 = !{!"_ZTSN4absl12lts_2024072215random_internal13randen_engineImEE", !7, i64 0, !19, i64 264, !85, i64 272}
-!85 = !{!"_ZTSN4absl12lts_2024072215random_internal6RandenE", !6, i64 0, !51, i64 8}
-!86 = !{!"p1 _ZTS16grpc_pollset_set", !6, i64 0}
-!87 = !{!"p1 _ZTS12grpc_closure", !6, i64 0}
-!88 = !{!"_ZTSN4absl12lts_2024072213flat_hash_mapIjP18grpc_chttp2_streamNS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS3_EEEE", !89, i64 0}
-!89 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEEE", !90, i64 0}
-!90 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEEE", !91, i64 0}
-!91 = !{!"_ZTSN4absl12lts_2024072218container_internal15CompressedTupleIJNS1_12CommonFieldsENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjP18grpc_chttp2_streamEEEEE", !92, i64 0}
-!92 = !{!"_ZTSN4absl12lts_2024072218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjP18grpc_chttp2_streamEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EEE", !93, i64 0}
-!93 = !{!"_ZTSN4absl12lts_2024072218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EEE", !94, i64 0}
-!94 = !{!"_ZTSN4absl12lts_2024072218container_internal12CommonFieldsE", !19, i64 0, !19, i64 8, !7, i64 16}
-!95 = !{!"_ZTS12grpc_closure", !7, i64 0, !6, i64 8, !6, i64 16, !7, i64 24}
-!96 = !{!"_ZTS17grpc_slice_buffer", !97, i64 0, !97, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !7, i64 40}
-!97 = !{!"p1 _ZTS10grpc_slice", !6, i64 0}
-!98 = !{!"p2 _ZTS18grpc_chttp2_stream", !99, i64 0}
-!99 = !{!"any p2 pointer", !6, i64 0}
-!100 = !{!"_ZTSN9grpc_core24ConnectivityStateTrackerE", !18, i64 0, !101, i64 8, !26, i64 16, !103, i64 24}
-!101 = !{!"_ZTSSt6atomicI23grpc_connectivity_stateE", !102, i64 0}
-!102 = !{!"_ZTS23grpc_connectivity_state", !7, i64 0}
-!103 = !{!"_ZTSN4absl12lts_2024072213flat_hash_setISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS3_16OrphanableDeleteEENS0_18container_internal6HashEqIPS4_vE4HashENSA_2EqESaIS6_EEE", !104, i64 0}
-!104 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EEE", !105, i64 0}
-!105 = !{!"_ZTSN4absl12lts_2024072218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPN9grpc_core33ConnectivityStateWatcherInterfaceEvE4HashENS8_2EqESaISt10unique_ptrIS6_NS5_16OrphanableDeleteEEEEEE", !106, i64 0}
-!106 = !{!"_ZTSN4absl12lts_2024072218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPN9grpc_core33ConnectivityStateWatcherInterfaceEvE4HashENSA_2EqESaISt10unique_ptrIS8_NS7_16OrphanableDeleteEEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EEE", !93, i64 0}
-!107 = !{!"_ZTSN9grpc_core11SliceBufferE", !96, i64 0}
-!108 = !{!"_ZTSN9grpc_core15HPackCompressorE", !109, i64 0, !51, i64 4, !110, i64 8, !116, i64 48}
-!109 = !{!"int", !7, i64 0}
-!110 = !{!"_ZTSN9grpc_core17HPackEncoderTableE", !109, i64 0, !109, i64 4, !109, i64 8, !109, i64 12, !111, i64 16}
-!111 = !{!"_ZTSSt6vectorItSaItEE", !112, i64 0}
-!112 = !{!"_ZTSSt12_Vector_baseItSaItEE", !113, i64 0}
-!113 = !{!"_ZTSNSt12_Vector_baseItSaItEE12_Vector_implE", !114, i64 0}
-!114 = !{!"_ZTSNSt12_Vector_baseItSaItEE17_Vector_impl_dataE", !115, i64 0, !115, i64 8, !115, i64 16}
-!115 = !{!"p1 short", !6, i64 0}
-!116 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !117, i64 0, !125, i64 24}
-!117 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_16HttpPathMetadataELb1EEE", !118, i64 0}
-!118 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_16HttpPathMetadataENS_26SmallSetOfValuesCompressorEEE", !119, i64 0}
-!119 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10SliceIndexE", !120, i64 0}
-!120 = !{!"_ZTSSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE", !121, i64 0}
-!121 = !{!"_ZTSSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE", !122, i64 0}
-!122 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_Vector_implE", !123, i64 0}
-!123 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE17_Vector_impl_dataE", !124, i64 0, !124, i64 8, !124, i64 16}
-!124 = !{!"p1 _ZTSN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexE", !6, i64 0}
-!125 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !126, i64 0, !128, i64 24}
-!126 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_21HttpAuthorityMetadataELb1EEE", !127, i64 0}
-!127 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_21HttpAuthorityMetadataENS_26SmallSetOfValuesCompressorEEE", !119, i64 0}
-!128 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !129, i64 0}
-!129 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !130, i64 0}
-!130 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !131, i64 0}
-!131 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !132, i64 0, !134, i64 8}
-!132 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_19ContentTypeMetadataELb1EEE", !133, i64 0}
-!133 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_19ContentTypeMetadataENS_20KnownValueCompressorINS2_9ValueTypeELS4_0EEEEE", !109, i64 0}
-!134 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !135, i64 0, !137, i64 8}
-!135 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_10TeMetadataELb1EEE", !136, i64 0}
-!136 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_10TeMetadataENS_20KnownValueCompressorINS2_9ValueTypeELS4_0EEEEE", !109, i64 0}
-!137 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !138, i64 0, !140, i64 16}
-!138 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_20GrpcEncodingMetadataELb1EEE", !139, i64 0}
-!139 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_20GrpcEncodingMetadataENS_29SmallIntegralValuesCompressorILm3EEEEE", !7, i64 0}
-!140 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !141, i64 0}
-!141 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !142, i64 0, !146, i64 8}
-!142 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_26GrpcAcceptEncodingMetadataELb1EEE", !143, i64 0}
-!143 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_26GrpcAcceptEncodingMetadataENS_21StableValueCompressorEEE", !144, i64 0, !109, i64 4}
-!144 = !{!"_ZTSN9grpc_core23CompressionAlgorithmSetE", !145, i64 0}
-!145 = !{!"_ZTSN9grpc_core6BitSetILm3ELm8EEE", !7, i64 0}
-!146 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !147, i64 0, !149, i64 64}
-!147 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_18GrpcStatusMetadataELb1EEE", !148, i64 0}
-!148 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_18GrpcStatusMetadataENS_29SmallIntegralValuesCompressorILm16EEEEE", !7, i64 0}
-!149 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !150, i64 0, !153, i64 48}
-!150 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_19GrpcTimeoutMetadataELb1EEE", !151, i64 0}
-!151 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_19GrpcTimeoutMetadataENS_17TimeoutCompressorEEE", !152, i64 0}
-!152 = !{!"_ZTSN9grpc_core20hpack_encoder_detail21TimeoutCompressorImplE", !7, i64 0, !109, i64 40}
-!153 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !154, i64 0}
-!154 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !155, i64 0}
-!155 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !156, i64 0, !158, i64 40}
-!156 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_17UserAgentMetadataELb1EEE", !157, i64 0}
-!157 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_17UserAgentMetadataENS_21StableValueCompressorEEE", !60, i64 0, !109, i64 32}
-!158 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !159, i64 0}
-!159 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !160, i64 0}
-!160 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !161, i64 0}
-!161 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !162, i64 0}
-!162 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !163, i64 0, !165, i64 8}
-!163 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_20GrpcTraceBinMetadataELb1EEE", !164, i64 0}
-!164 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_20GrpcTraceBinMetadataENS_43FrequentKeyWithNoValueCompressionCompressorEEE", !109, i64 0}
-!165 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !166, i64 0, !168, i64 8}
-!166 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_19GrpcTagsBinMetadataELb1EEE", !167, i64 0}
-!167 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_19GrpcTagsBinMetadataENS_43FrequentKeyWithNoValueCompressionCompressorEEE", !109, i64 0}
-!168 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !169, i64 0}
-!169 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !170, i64 0}
-!170 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !171, i64 0}
-!171 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !172, i64 0}
-!172 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_18XEnvoyPeerMetadataELb1EEE", !173, i64 0}
-!173 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_18XEnvoyPeerMetadataENS_21StableValueCompressorEEE", !60, i64 0, !109, i64 32}
-!174 = !{!"_ZTS29grpc_chttp2_sent_goaway_state", !7, i64 0}
-!175 = !{!"_ZTSN9grpc_core20Http2SettingsManagerE", !176, i64 0, !177, i64 4, !177, i64 32, !177, i64 60, !177, i64 88}
-!176 = !{!"_ZTSN9grpc_core20Http2SettingsManager11UpdateStateE", !7, i64 0}
-!177 = !{!"_ZTSN9grpc_core13Http2SettingsE", !109, i64 0, !109, i64 4, !109, i64 8, !109, i64 12, !109, i64 16, !109, i64 20, !51, i64 24, !51, i64 25, !51, i64 26}
-!178 = !{!"_ZTSN17grpc_event_engine12experimental11EventEngine10TaskHandleE", !7, i64 0}
-!179 = !{!"_ZTSN9grpc_core21Chttp2PingAbusePolicyE", !180, i64 0, !181, i64 8, !109, i64 16, !109, i64 20}
-!180 = !{!"_ZTSN9grpc_core9TimestampE", !19, i64 0}
-!181 = !{!"_ZTSN9grpc_core8DurationE", !19, i64 0}
-!182 = !{!"_ZTSN9grpc_core20Chttp2PingRatePolicyE", !109, i64 0, !109, i64 4, !109, i64 8, !180, i64 16}
-!183 = !{!"_ZTSN9grpc_core19Chttp2PingCallbacksE", !184, i64 0, !19, i64 32, !51, i64 40, !51, i64 41, !189, i64 48, !189, i64 72}
-!184 = !{!"_ZTSN4absl12lts_2024072213flat_hash_mapImN9grpc_core19Chttp2PingCallbacks12InflightPingENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS4_EEEE", !185, i64 0}
-!185 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEEE", !186, i64 0}
-!186 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEEE", !187, i64 0}
-!187 = !{!"_ZTSN4absl12lts_2024072218container_internal15CompressedTupleIJNS1_12CommonFieldsENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmN9grpc_core19Chttp2PingCallbacks12InflightPingEEEEEE", !188, i64 0}
-!188 = !{!"_ZTSN4absl12lts_2024072218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmN9grpc_core19Chttp2PingCallbacks12InflightPingEEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EEE", !93, i64 0}
-!189 = !{!"_ZTSSt6vectorIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE", !190, i64 0}
-!190 = !{!"_ZTSSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE", !191, i64 0}
-!191 = !{!"_ZTSNSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE12_Vector_implE", !192, i64 0}
-!192 = !{!"_ZTSNSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE17_Vector_impl_dataE", !193, i64 0, !193, i64 8, !193, i64 16}
-!193 = !{!"p1 _ZTSN4absl12lts_2024072212AnyInvocableIFvvEEE", !6, i64 0}
-!194 = !{!"p1 long", !6, i64 0}
-!195 = !{!"_ZTSN9grpc_core11HPackParserE", !196, i64 0, !197, i64 8, !19, i64 32, !201, i64 40, !202, i64 41, !203, i64 44, !205, i64 56}
-!196 = !{!"p1 _ZTS19grpc_metadata_batch", !6, i64 0}
-!197 = !{!"_ZTSSt6vectorIhSaIhEE", !198, i64 0}
-!198 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !199, i64 0}
-!199 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !200, i64 0}
-!200 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !18, i64 0, !18, i64 8, !18, i64 16}
-!201 = !{!"_ZTSN9grpc_core11HPackParser8BoundaryE", !7, i64 0}
-!202 = !{!"_ZTSN9grpc_core11HPackParser8PriorityE", !7, i64 0}
-!203 = !{!"_ZTSN9grpc_core11HPackParser7LogInfoE", !109, i64 0, !204, i64 4, !51, i64 5}
-!204 = !{!"_ZTSN9grpc_core11HPackParser7LogInfo4TypeE", !7, i64 0}
-!205 = !{!"_ZTSN9grpc_core11HPackParser15InterSliceStateE", !206, i64 0, !214, i64 72, !214, i64 80, !109, i64 88, !109, i64 92, !217, i64 96, !51, i64 112, !51, i64 113, !51, i64 114, !7, i64 115, !218, i64 116, !219, i64 120}
-!206 = !{!"_ZTSN9grpc_core10HPackTableE", !109, i64 0, !109, i64 4, !109, i64 8, !207, i64 16, !213, i64 64}
-!207 = !{!"_ZTSN9grpc_core10HPackTable17MementoRingBufferE", !109, i64 0, !109, i64 4, !109, i64 8, !109, i64 12, !180, i64 16, !208, i64 24}
-!208 = !{!"_ZTSSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE", !209, i64 0}
-!209 = !{!"_ZTSSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE", !210, i64 0}
-!210 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE12_Vector_implE", !211, i64 0}
-!211 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE17_Vector_impl_dataE", !212, i64 0, !212, i64 8, !212, i64 16}
-!212 = !{!"p1 _ZTSN9grpc_core10HPackTable7MementoE", !6, i64 0}
-!213 = !{!"p1 _ZTSN9grpc_core10HPackTable14StaticMementosE", !6, i64 0}
-!214 = !{!"_ZTSN9grpc_core16HpackParseResultE", !215, i64 0}
-!215 = !{!"_ZTSN9grpc_core13RefCountedPtrINS_16HpackParseResult21HpackParseResultStateEEE", !216, i64 0}
-!216 = !{!"p1 _ZTSN9grpc_core16HpackParseResult21HpackParseResultStateE", !6, i64 0}
-!217 = !{!"_ZTSN9grpc_core20RandomEarlyDetectionE", !19, i64 0, !19, i64 8}
-!218 = !{!"_ZTSN9grpc_core11HPackParser10ParseStateE", !7, i64 0}
-!219 = !{!"_ZTSSt7variantIJPKN9grpc_core10HPackTable7MementoENS0_5SliceEEE", !220, i64 0}
-!220 = !{!"_ZTSNSt8__detail9__variant13_Variant_baseIJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !221, i64 0}
-!221 = !{!"_ZTSNSt8__detail9__variant17_Move_assign_baseILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !222, i64 0}
-!222 = !{!"_ZTSNSt8__detail9__variant17_Copy_assign_baseILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !223, i64 0}
-!223 = !{!"_ZTSNSt8__detail9__variant15_Move_ctor_baseILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !224, i64 0}
-!224 = !{!"_ZTSNSt8__detail9__variant15_Copy_ctor_baseILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !225, i64 0}
-!225 = !{!"_ZTSNSt8__detail9__variant16_Variant_storageILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !7, i64 0, !7, i64 32}
-!226 = !{!"_ZTS25grpc_chttp2_goaway_parser", !227, i64 0, !109, i64 4, !109, i64 8, !18, i64 16, !109, i64 24, !109, i64 28}
-!227 = !{!"_ZTS30grpc_chttp2_goaway_parse_state", !7, i64 0}
-!228 = !{!"_ZTS33grpc_chttp2_security_frame_parser", !107, i64 0}
-!229 = !{!"_ZTSN9grpc_core6chttp220TransportFlowControlE", !230, i64 0, !19, i64 8, !51, i64 16, !231, i64 24, !19, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !109, i64 136, !109, i64 140}
-!230 = !{!"p1 _ZTSN9grpc_core11MemoryOwnerE", !6, i64 0}
-!231 = !{!"_ZTSN9grpc_core12BdpEstimatorE", !19, i64 0, !19, i64 8, !232, i64 16, !181, i64 32, !109, i64 40, !234, i64 44, !235, i64 48, !236, i64 56}
-!232 = !{!"_ZTS12gpr_timespec", !19, i64 0, !109, i64 8, !233, i64 12}
-!233 = !{!"_ZTS14gpr_clock_type", !7, i64 0}
-!234 = !{!"_ZTSN9grpc_core12BdpEstimator9PingStateE", !7, i64 0}
-!235 = !{!"double", !7, i64 0}
-!236 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !19, i64 0, !18, i64 8}
-!237 = !{!"_ZTS35grpc_chttp2_deframe_transport_state", !7, i64 0}
-!238 = !{!"p1 _ZTS18grpc_chttp2_stream", !6, i64 0}
-!239 = !{!"_ZTSN21grpc_chttp2_transport6ParserE", !18, i64 0, !6, i64 8, !6, i64 16}
-!240 = !{!"p1 _ZTS20grpc_chttp2_write_cb", !6, i64 0}
-!241 = !{!"_ZTS17grpc_closure_list", !87, i64 0, !87, i64 8}
-!242 = !{!"_ZTSSt6atomicImE", !243, i64 0}
-!243 = !{!"_ZTSSt13__atomic_baseImE", !19, i64 0}
-!244 = !{!"_ZTS27grpc_chttp2_keepalive_state", !7, i64 0}
-!245 = !{!"p1 _ZTSSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE", !6, i64 0}
-!246 = !{!"_ZTSN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEEE", !247, i64 0}
-!247 = !{!"p1 _ZTSN9grpc_core8channelz10SocketNodeE", !6, i64 0}
-!248 = !{!"_ZTS23grpc_chttp2_write_state", !7, i64 0}
-!249 = !{!"_ZTSN9grpc_core21Chttp2WriteSizePolicyE", !19, i64 0, !180, i64 8, !7, i64 16}
-!250 = !{i8 0, i8 2}
-!251 = !{}
-!252 = !{!19, !19, i64 0}
-!253 = !{!42, !51, i64 3413}
-!254 = !{!94, !19, i64 8}
-!255 = !{!42, !51, i64 3418}
-!256 = !{!42, !19, i64 2208}
-!257 = !{!42, !19, i64 2216}
-!258 = !{!42, !194, i64 2224}
-!259 = !{!42, !109, i64 3332}
-!260 = !{!261}
-!261 = distinct !{!261, !262, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!262 = distinct !{!262, !"_ZN4absl12lts_202407228OkStatusEv"}
-!263 = !{!264, !264, i64 0}
-!264 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !6, i64 0}
-!265 = !{!266, !266, i64 0}
-!266 = !{!"vtable pointer", !8, i64 0}
-!267 = !{!78, !78, i64 0}
-!268 = !{!"branch_weights", i32 1, i32 1048575}
-!269 = !{!270, !99, i64 8}
-!270 = !{!"_ZTSNSt12_Vector_baseIPFvPvESaIS2_EE17_Vector_impl_dataE", !99, i64 0, !99, i64 8, !99, i64 16}
-!271 = !{!270, !99, i64 0}
-!272 = !{!270, !99, i64 16}
-!273 = !{!6, !6, i64 0}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!22, !23, i64 16}
+!31 = !{!32, !7, i64 0}
+!32 = !{!"_ZTS23grpc_chttp2_ping_parser", !7, i64 0, !7, i64 1, !19, i64 8}
+!33 = !{!32, !7, i64 1}
+!34 = !{!32, !19, i64 8}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!37 = distinct !{!37, !"_ZN4absl12lts_202407228OkStatusEv"}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS21grpc_chttp2_transport", !6, i64 0}
+!40 = distinct !{!40, !28, !29}
+!41 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!42 = !{!43, !52, i64 3416}
+!43 = !{!"_ZTS21grpc_chttp2_transport", !44, i64 0, !51, i64 16, !53, i64 24, !60, i64 32, !61, i64 40, !63, i64 72, !64, i64 80, !71, i64 96, !72, i64 120, !80, i64 160, !83, i64 176, !84, i64 184, !87, i64 472, !88, i64 480, !88, i64 488, !26, i64 496, !7, i64 504, !89, i64 584, !19, i64 616, !96, i64 624, !96, i64 656, !96, i64 688, !97, i64 720, !99, i64 952, !6, i64 960, !6, i64 968, !6, i64 976, !101, i64 984, !108, i64 1040, !109, i64 1272, !97, i64 1616, !19, i64 1848, !26, i64 1856, !175, i64 1864, !176, i64 1868, !179, i64 1984, !110, i64 2000, !110, i64 2004, !110, i64 2008, !180, i64 2016, !183, i64 2040, !184, i64 2064, !179, i64 2160, !96, i64 2176, !19, i64 2208, !19, i64 2216, !195, i64 2224, !196, i64 2232, !7, i64 2448, !227, i64 2504, !229, i64 2536, !230, i64 2768, !19, i64 2912, !238, i64 2920, !7, i64 2924, !7, i64 2925, !7, i64 2926, !52, i64 2927, !110, i64 2928, !110, i64 2932, !110, i64 2936, !110, i64 2940, !52, i64 2944, !239, i64 2952, !240, i64 2960, !241, i64 2984, !96, i64 2992, !96, i64 3024, !96, i64 3056, !26, i64 3088, !242, i64 3096, !96, i64 3112, !96, i64 3144, !179, i64 3176, !96, i64 3192, !96, i64 3224, !179, i64 3256, !182, i64 3272, !181, i64 3280, !182, i64 3288, !243, i64 3296, !245, i64 3304, !110, i64 3308, !246, i64 3312, !247, i64 3320, !110, i64 3328, !110, i64 3332, !110, i64 3336, !182, i64 3344, !179, i64 3352, !182, i64 3368, !110, i64 3376, !249, i64 3380, !250, i64 3384, !52, i64 3408, !52, i64 3409, !7, i64 3410, !52, i64 3411, !52, i64 3412, !52, i64 3413, !52, i64 3414, !7, i64 3415, !52, i64 3416, !52, i64 3417, !52, i64 3418, !52, i64 3419, !52, i64 3420, !52, i64 3421, !7, i64 3422, !181, i64 3424}
+!44 = !{!"_ZTSN9grpc_core20FilterStackTransportE", !45, i64 0}
+!45 = !{!"_ZTSN9grpc_core9TransportE", !46, i64 0}
+!46 = !{!"_ZTSN9grpc_core20InternallyRefCountedINS_9TransportENS_11UnrefDeleteEEE", !47, i64 0, !48, i64 8}
+!47 = !{!"_ZTSN9grpc_core10OrphanableE"}
+!48 = !{!"_ZTSN9grpc_core8RefCountE", !49, i64 0}
+!49 = !{!"_ZTSSt6atomicIlE", !50, i64 0}
+!50 = !{!"_ZTSSt13__atomic_baseIlE", !19, i64 0}
+!51 = !{!"_ZTSN9grpc_core20KeepsGrpcInitializedE", !52, i64 0}
+!52 = !{!"bool", !7, i64 0}
+!53 = !{!"_ZTSSt10unique_ptrI13grpc_endpointN9grpc_core16OrphanableDeleteEE", !54, i64 0}
+!54 = !{!"_ZTSSt15__uniq_ptr_dataI13grpc_endpointN9grpc_core16OrphanableDeleteELb1ELb1EE", !55, i64 0}
+!55 = !{!"_ZTSSt15__uniq_ptr_implI13grpc_endpointN9grpc_core16OrphanableDeleteEE", !56, i64 0}
+!56 = !{!"_ZTSSt5tupleIJP13grpc_endpointN9grpc_core16OrphanableDeleteEEE", !57, i64 0}
+!57 = !{!"_ZTSSt11_Tuple_implILm0EJP13grpc_endpointN9grpc_core16OrphanableDeleteEEE", !58, i64 0}
+!58 = !{!"_ZTSSt10_Head_baseILm0EP13grpc_endpointLb0EE", !59, i64 0}
+!59 = !{!"p1 _ZTS13grpc_endpoint", !6, i64 0}
+!60 = !{!"_ZTSN4absl12lts_202407225MutexE", !49, i64 0}
+!61 = !{!"_ZTSN9grpc_core5SliceE", !62, i64 0}
+!62 = !{!"_ZTSN9grpc_core12slice_detail9BaseSliceE", !4, i64 0}
+!63 = !{!"p1 _ZTSN9grpc_core33TransportFramingEndpointExtensionE", !6, i64 0}
+!64 = !{!"_ZTSN9grpc_core11MemoryOwnerE", !65, i64 0}
+!65 = !{!"_ZTSN17grpc_event_engine12experimental15MemoryAllocatorE", !66, i64 0}
+!66 = !{!"_ZTSSt10shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplEE", !67, i64 0}
+!67 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE", !68, i64 0, !69, i64 8}
+!68 = !{!"p1 _ZTSN17grpc_event_engine12experimental8internal19MemoryAllocatorImplE", !6, i64 0}
+!69 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !70, i64 0}
+!70 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
+!71 = !{!"_ZTSN17grpc_event_engine12experimental15MemoryAllocator11ReservationE", !66, i64 0, !19, i64 16}
+!72 = !{!"_ZTSN9grpc_core16ReclamationSweepE", !73, i64 0, !19, i64 16, !76, i64 24}
+!73 = !{!"_ZTSSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEE", !74, i64 0}
+!74 = !{!"_ZTSSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EE", !75, i64 0, !69, i64 8}
+!75 = !{!"p1 _ZTSN9grpc_core16BasicMemoryQuotaE", !6, i64 0}
+!76 = !{!"_ZTSN9grpc_core5WakerE", !77, i64 0}
+!77 = !{!"_ZTSN9grpc_core5Waker14WakeableAndArgE", !78, i64 0, !79, i64 8}
+!78 = !{!"p1 _ZTSN9grpc_core8WakeableE", !6, i64 0}
+!79 = !{!"short", !7, i64 0}
+!80 = !{!"_ZTSSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEE", !81, i64 0}
+!81 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EE", !82, i64 0, !69, i64 8}
+!82 = !{!"p1 _ZTSN17grpc_event_engine12experimental11EventEngineE", !6, i64 0}
+!83 = !{!"p1 _ZTSN9grpc_core8CombinerE", !6, i64 0}
+!84 = !{!"_ZTSN4absl12lts_2024072215random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEE", !85, i64 0}
+!85 = !{!"_ZTSN4absl12lts_2024072215random_internal13randen_engineImEE", !7, i64 0, !19, i64 264, !86, i64 272}
+!86 = !{!"_ZTSN4absl12lts_2024072215random_internal6RandenE", !6, i64 0, !52, i64 8}
+!87 = !{!"p1 _ZTS16grpc_pollset_set", !6, i64 0}
+!88 = !{!"p1 _ZTS12grpc_closure", !6, i64 0}
+!89 = !{!"_ZTSN4absl12lts_2024072213flat_hash_mapIjP18grpc_chttp2_streamNS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS3_EEEE", !90, i64 0}
+!90 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEEE", !91, i64 0}
+!91 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEEE", !92, i64 0}
+!92 = !{!"_ZTSN4absl12lts_2024072218container_internal15CompressedTupleIJNS1_12CommonFieldsENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjP18grpc_chttp2_streamEEEEE", !93, i64 0}
+!93 = !{!"_ZTSN4absl12lts_2024072218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjP18grpc_chttp2_streamEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EEE", !94, i64 0}
+!94 = !{!"_ZTSN4absl12lts_2024072218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EEE", !95, i64 0}
+!95 = !{!"_ZTSN4absl12lts_2024072218container_internal12CommonFieldsE", !19, i64 0, !19, i64 8, !7, i64 16}
+!96 = !{!"_ZTS12grpc_closure", !7, i64 0, !6, i64 8, !6, i64 16, !7, i64 24}
+!97 = !{!"_ZTS17grpc_slice_buffer", !98, i64 0, !98, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !7, i64 40}
+!98 = !{!"p1 _ZTS10grpc_slice", !6, i64 0}
+!99 = !{!"p2 _ZTS18grpc_chttp2_stream", !100, i64 0}
+!100 = !{!"any p2 pointer", !6, i64 0}
+!101 = !{!"_ZTSN9grpc_core24ConnectivityStateTrackerE", !18, i64 0, !102, i64 8, !26, i64 16, !104, i64 24}
+!102 = !{!"_ZTSSt6atomicI23grpc_connectivity_stateE", !103, i64 0}
+!103 = !{!"_ZTS23grpc_connectivity_state", !7, i64 0}
+!104 = !{!"_ZTSN4absl12lts_2024072213flat_hash_setISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS3_16OrphanableDeleteEENS0_18container_internal6HashEqIPS4_vE4HashENSA_2EqESaIS6_EEE", !105, i64 0}
+!105 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EEE", !106, i64 0}
+!106 = !{!"_ZTSN4absl12lts_2024072218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPN9grpc_core33ConnectivityStateWatcherInterfaceEvE4HashENS8_2EqESaISt10unique_ptrIS6_NS5_16OrphanableDeleteEEEEEE", !107, i64 0}
+!107 = !{!"_ZTSN4absl12lts_2024072218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPN9grpc_core33ConnectivityStateWatcherInterfaceEvE4HashENSA_2EqESaISt10unique_ptrIS8_NS7_16OrphanableDeleteEEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EEE", !94, i64 0}
+!108 = !{!"_ZTSN9grpc_core11SliceBufferE", !97, i64 0}
+!109 = !{!"_ZTSN9grpc_core15HPackCompressorE", !110, i64 0, !52, i64 4, !111, i64 8, !117, i64 48}
+!110 = !{!"int", !7, i64 0}
+!111 = !{!"_ZTSN9grpc_core17HPackEncoderTableE", !110, i64 0, !110, i64 4, !110, i64 8, !110, i64 12, !112, i64 16}
+!112 = !{!"_ZTSSt6vectorItSaItEE", !113, i64 0}
+!113 = !{!"_ZTSSt12_Vector_baseItSaItEE", !114, i64 0}
+!114 = !{!"_ZTSNSt12_Vector_baseItSaItEE12_Vector_implE", !115, i64 0}
+!115 = !{!"_ZTSNSt12_Vector_baseItSaItEE17_Vector_impl_dataE", !116, i64 0, !116, i64 8, !116, i64 16}
+!116 = !{!"p1 short", !6, i64 0}
+!117 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !118, i64 0, !126, i64 24}
+!118 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_16HttpPathMetadataELb1EEE", !119, i64 0}
+!119 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_16HttpPathMetadataENS_26SmallSetOfValuesCompressorEEE", !120, i64 0}
+!120 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10SliceIndexE", !121, i64 0}
+!121 = !{!"_ZTSSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE", !122, i64 0}
+!122 = !{!"_ZTSSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE", !123, i64 0}
+!123 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_Vector_implE", !124, i64 0}
+!124 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE17_Vector_impl_dataE", !125, i64 0, !125, i64 8, !125, i64 16}
+!125 = !{!"p1 _ZTSN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexE", !6, i64 0}
+!126 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !127, i64 0, !129, i64 24}
+!127 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_21HttpAuthorityMetadataELb1EEE", !128, i64 0}
+!128 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_21HttpAuthorityMetadataENS_26SmallSetOfValuesCompressorEEE", !120, i64 0}
+!129 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !130, i64 0}
+!130 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !131, i64 0}
+!131 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !132, i64 0}
+!132 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !133, i64 0, !135, i64 8}
+!133 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_19ContentTypeMetadataELb1EEE", !134, i64 0}
+!134 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_19ContentTypeMetadataENS_20KnownValueCompressorINS2_9ValueTypeELS4_0EEEEE", !110, i64 0}
+!135 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !136, i64 0, !138, i64 8}
+!136 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_10TeMetadataELb1EEE", !137, i64 0}
+!137 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_10TeMetadataENS_20KnownValueCompressorINS2_9ValueTypeELS4_0EEEEE", !110, i64 0}
+!138 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !139, i64 0, !141, i64 16}
+!139 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_20GrpcEncodingMetadataELb1EEE", !140, i64 0}
+!140 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_20GrpcEncodingMetadataENS_29SmallIntegralValuesCompressorILm3EEEEE", !7, i64 0}
+!141 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !142, i64 0}
+!142 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !143, i64 0, !147, i64 8}
+!143 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_26GrpcAcceptEncodingMetadataELb1EEE", !144, i64 0}
+!144 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_26GrpcAcceptEncodingMetadataENS_21StableValueCompressorEEE", !145, i64 0, !110, i64 4}
+!145 = !{!"_ZTSN9grpc_core23CompressionAlgorithmSetE", !146, i64 0}
+!146 = !{!"_ZTSN9grpc_core6BitSetILm3ELm8EEE", !7, i64 0}
+!147 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !148, i64 0, !150, i64 64}
+!148 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_18GrpcStatusMetadataELb1EEE", !149, i64 0}
+!149 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_18GrpcStatusMetadataENS_29SmallIntegralValuesCompressorILm16EEEEE", !7, i64 0}
+!150 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !151, i64 0, !154, i64 48}
+!151 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_19GrpcTimeoutMetadataELb1EEE", !152, i64 0}
+!152 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_19GrpcTimeoutMetadataENS_17TimeoutCompressorEEE", !153, i64 0}
+!153 = !{!"_ZTSN9grpc_core20hpack_encoder_detail21TimeoutCompressorImplE", !7, i64 0, !110, i64 40}
+!154 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !155, i64 0}
+!155 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !156, i64 0}
+!156 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !157, i64 0, !159, i64 40}
+!157 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_17UserAgentMetadataELb1EEE", !158, i64 0}
+!158 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_17UserAgentMetadataENS_21StableValueCompressorEEE", !61, i64 0, !110, i64 32}
+!159 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !160, i64 0}
+!160 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !161, i64 0}
+!161 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !162, i64 0}
+!162 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !163, i64 0}
+!163 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !164, i64 0, !166, i64 8}
+!164 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_20GrpcTraceBinMetadataELb1EEE", !165, i64 0}
+!165 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_20GrpcTraceBinMetadataENS_43FrequentKeyWithNoValueCompressionCompressorEEE", !110, i64 0}
+!166 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !167, i64 0, !169, i64 8}
+!167 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_19GrpcTagsBinMetadataELb1EEE", !168, i64 0}
+!168 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_19GrpcTagsBinMetadataENS_43FrequentKeyWithNoValueCompressionCompressorEEE", !110, i64 0}
+!169 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !170, i64 0}
+!170 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !171, i64 0}
+!171 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !172, i64 0}
+!172 = !{!"_ZTSN9grpc_core15metadata_detail18StatefulCompressorINS_20hpack_encoder_detail10CompressorEJNS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEEE", !173, i64 0}
+!173 = !{!"_ZTSN9grpc_core15metadata_detail26SpecificStatefulCompressorINS_20hpack_encoder_detail10CompressorENS_18XEnvoyPeerMetadataELb1EEE", !174, i64 0}
+!174 = !{!"_ZTSN9grpc_core20hpack_encoder_detail10CompressorINS_18XEnvoyPeerMetadataENS_21StableValueCompressorEEE", !61, i64 0, !110, i64 32}
+!175 = !{!"_ZTS29grpc_chttp2_sent_goaway_state", !7, i64 0}
+!176 = !{!"_ZTSN9grpc_core20Http2SettingsManagerE", !177, i64 0, !178, i64 4, !178, i64 32, !178, i64 60, !178, i64 88}
+!177 = !{!"_ZTSN9grpc_core20Http2SettingsManager11UpdateStateE", !7, i64 0}
+!178 = !{!"_ZTSN9grpc_core13Http2SettingsE", !110, i64 0, !110, i64 4, !110, i64 8, !110, i64 12, !110, i64 16, !110, i64 20, !52, i64 24, !52, i64 25, !52, i64 26}
+!179 = !{!"_ZTSN17grpc_event_engine12experimental11EventEngine10TaskHandleE", !7, i64 0}
+!180 = !{!"_ZTSN9grpc_core21Chttp2PingAbusePolicyE", !181, i64 0, !182, i64 8, !110, i64 16, !110, i64 20}
+!181 = !{!"_ZTSN9grpc_core9TimestampE", !19, i64 0}
+!182 = !{!"_ZTSN9grpc_core8DurationE", !19, i64 0}
+!183 = !{!"_ZTSN9grpc_core20Chttp2PingRatePolicyE", !110, i64 0, !110, i64 4, !110, i64 8, !181, i64 16}
+!184 = !{!"_ZTSN9grpc_core19Chttp2PingCallbacksE", !185, i64 0, !19, i64 32, !52, i64 40, !52, i64 41, !190, i64 48, !190, i64 72}
+!185 = !{!"_ZTSN4absl12lts_2024072213flat_hash_mapImN9grpc_core19Chttp2PingCallbacks12InflightPingENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS4_EEEE", !186, i64 0}
+!186 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEEE", !187, i64 0}
+!187 = !{!"_ZTSN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEEE", !188, i64 0}
+!188 = !{!"_ZTSN4absl12lts_2024072218container_internal15CompressedTupleIJNS1_12CommonFieldsENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmN9grpc_core19Chttp2PingCallbacks12InflightPingEEEEEE", !189, i64 0}
+!189 = !{!"_ZTSN4absl12lts_2024072218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmN9grpc_core19Chttp2PingCallbacks12InflightPingEEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EEE", !94, i64 0}
+!190 = !{!"_ZTSSt6vectorIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE", !191, i64 0}
+!191 = !{!"_ZTSSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE", !192, i64 0}
+!192 = !{!"_ZTSNSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE12_Vector_implE", !193, i64 0}
+!193 = !{!"_ZTSNSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE17_Vector_impl_dataE", !194, i64 0, !194, i64 8, !194, i64 16}
+!194 = !{!"p1 _ZTSN4absl12lts_2024072212AnyInvocableIFvvEEE", !6, i64 0}
+!195 = !{!"p1 long", !6, i64 0}
+!196 = !{!"_ZTSN9grpc_core11HPackParserE", !197, i64 0, !198, i64 8, !19, i64 32, !202, i64 40, !203, i64 41, !204, i64 44, !206, i64 56}
+!197 = !{!"p1 _ZTS19grpc_metadata_batch", !6, i64 0}
+!198 = !{!"_ZTSSt6vectorIhSaIhEE", !199, i64 0}
+!199 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !200, i64 0}
+!200 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !201, i64 0}
+!201 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !18, i64 0, !18, i64 8, !18, i64 16}
+!202 = !{!"_ZTSN9grpc_core11HPackParser8BoundaryE", !7, i64 0}
+!203 = !{!"_ZTSN9grpc_core11HPackParser8PriorityE", !7, i64 0}
+!204 = !{!"_ZTSN9grpc_core11HPackParser7LogInfoE", !110, i64 0, !205, i64 4, !52, i64 5}
+!205 = !{!"_ZTSN9grpc_core11HPackParser7LogInfo4TypeE", !7, i64 0}
+!206 = !{!"_ZTSN9grpc_core11HPackParser15InterSliceStateE", !207, i64 0, !215, i64 72, !215, i64 80, !110, i64 88, !110, i64 92, !218, i64 96, !52, i64 112, !52, i64 113, !52, i64 114, !7, i64 115, !219, i64 116, !220, i64 120}
+!207 = !{!"_ZTSN9grpc_core10HPackTableE", !110, i64 0, !110, i64 4, !110, i64 8, !208, i64 16, !214, i64 64}
+!208 = !{!"_ZTSN9grpc_core10HPackTable17MementoRingBufferE", !110, i64 0, !110, i64 4, !110, i64 8, !110, i64 12, !181, i64 16, !209, i64 24}
+!209 = !{!"_ZTSSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE", !210, i64 0}
+!210 = !{!"_ZTSSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE", !211, i64 0}
+!211 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE12_Vector_implE", !212, i64 0}
+!212 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE17_Vector_impl_dataE", !213, i64 0, !213, i64 8, !213, i64 16}
+!213 = !{!"p1 _ZTSN9grpc_core10HPackTable7MementoE", !6, i64 0}
+!214 = !{!"p1 _ZTSN9grpc_core10HPackTable14StaticMementosE", !6, i64 0}
+!215 = !{!"_ZTSN9grpc_core16HpackParseResultE", !216, i64 0}
+!216 = !{!"_ZTSN9grpc_core13RefCountedPtrINS_16HpackParseResult21HpackParseResultStateEEE", !217, i64 0}
+!217 = !{!"p1 _ZTSN9grpc_core16HpackParseResult21HpackParseResultStateE", !6, i64 0}
+!218 = !{!"_ZTSN9grpc_core20RandomEarlyDetectionE", !19, i64 0, !19, i64 8}
+!219 = !{!"_ZTSN9grpc_core11HPackParser10ParseStateE", !7, i64 0}
+!220 = !{!"_ZTSSt7variantIJPKN9grpc_core10HPackTable7MementoENS0_5SliceEEE", !221, i64 0}
+!221 = !{!"_ZTSNSt8__detail9__variant13_Variant_baseIJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !222, i64 0}
+!222 = !{!"_ZTSNSt8__detail9__variant17_Move_assign_baseILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !223, i64 0}
+!223 = !{!"_ZTSNSt8__detail9__variant17_Copy_assign_baseILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !224, i64 0}
+!224 = !{!"_ZTSNSt8__detail9__variant15_Move_ctor_baseILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !225, i64 0}
+!225 = !{!"_ZTSNSt8__detail9__variant15_Copy_ctor_baseILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !226, i64 0}
+!226 = !{!"_ZTSNSt8__detail9__variant16_Variant_storageILb0EJPKN9grpc_core10HPackTable7MementoENS2_5SliceEEEE", !7, i64 0, !7, i64 32}
+!227 = !{!"_ZTS25grpc_chttp2_goaway_parser", !228, i64 0, !110, i64 4, !110, i64 8, !18, i64 16, !110, i64 24, !110, i64 28}
+!228 = !{!"_ZTS30grpc_chttp2_goaway_parse_state", !7, i64 0}
+!229 = !{!"_ZTS33grpc_chttp2_security_frame_parser", !108, i64 0}
+!230 = !{!"_ZTSN9grpc_core6chttp220TransportFlowControlE", !231, i64 0, !19, i64 8, !52, i64 16, !232, i64 24, !19, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !110, i64 136, !110, i64 140}
+!231 = !{!"p1 _ZTSN9grpc_core11MemoryOwnerE", !6, i64 0}
+!232 = !{!"_ZTSN9grpc_core12BdpEstimatorE", !19, i64 0, !19, i64 8, !233, i64 16, !182, i64 32, !110, i64 40, !235, i64 44, !236, i64 48, !237, i64 56}
+!233 = !{!"_ZTS12gpr_timespec", !19, i64 0, !110, i64 8, !234, i64 12}
+!234 = !{!"_ZTS14gpr_clock_type", !7, i64 0}
+!235 = !{!"_ZTSN9grpc_core12BdpEstimator9PingStateE", !7, i64 0}
+!236 = !{!"double", !7, i64 0}
+!237 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !19, i64 0, !18, i64 8}
+!238 = !{!"_ZTS35grpc_chttp2_deframe_transport_state", !7, i64 0}
+!239 = !{!"p1 _ZTS18grpc_chttp2_stream", !6, i64 0}
+!240 = !{!"_ZTSN21grpc_chttp2_transport6ParserE", !18, i64 0, !6, i64 8, !6, i64 16}
+!241 = !{!"p1 _ZTS20grpc_chttp2_write_cb", !6, i64 0}
+!242 = !{!"_ZTS17grpc_closure_list", !88, i64 0, !88, i64 8}
+!243 = !{!"_ZTSSt6atomicImE", !244, i64 0}
+!244 = !{!"_ZTSSt13__atomic_baseImE", !19, i64 0}
+!245 = !{!"_ZTS27grpc_chttp2_keepalive_state", !7, i64 0}
+!246 = !{!"p1 _ZTSSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE", !6, i64 0}
+!247 = !{!"_ZTSN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEEE", !248, i64 0}
+!248 = !{!"p1 _ZTSN9grpc_core8channelz10SocketNodeE", !6, i64 0}
+!249 = !{!"_ZTS23grpc_chttp2_write_state", !7, i64 0}
+!250 = !{!"_ZTSN9grpc_core21Chttp2WriteSizePolicyE", !19, i64 0, !181, i64 8, !7, i64 16}
+!251 = !{i8 0, i8 2}
+!252 = !{}
+!253 = !{!19, !19, i64 0}
+!254 = !{!43, !52, i64 3413}
+!255 = !{!95, !19, i64 8}
+!256 = !{!43, !52, i64 3418}
+!257 = !{!43, !19, i64 2208}
+!258 = !{!43, !19, i64 2216}
+!259 = !{!43, !195, i64 2224}
+!260 = !{!43, !110, i64 3332}
+!261 = !{!262}
+!262 = distinct !{!262, !263, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!263 = distinct !{!263, !"_ZN4absl12lts_202407228OkStatusEv"}
+!264 = !{!265, !265, i64 0}
+!265 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !6, i64 0}
+!266 = !{!267, !267, i64 0}
+!267 = !{!"vtable pointer", !8, i64 0}
+!268 = !{!79, !79, i64 0}
+!269 = !{!"branch_weights", i32 1, i32 1048575}
+!270 = !{!271, !100, i64 8}
+!271 = !{!"_ZTSNSt12_Vector_baseIPFvPvESaIS2_EE17_Vector_impl_dataE", !100, i64 0, !100, i64 8, !100, i64 16}
+!272 = !{!271, !100, i64 0}
+!273 = !{!271, !100, i64 16}
+!274 = !{!6, !6, i64 0}

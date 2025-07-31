@@ -130,7 +130,7 @@ arc4_init.exit:                                   ; preds = %.preheader6
 7:                                                ; preds = %10
   %8 = add nuw i64 %13, %.09.i.i
   %9 = icmp ult i64 %8, 32
-  br i1 %9, label %10, label %15, !llvm.loop !5
+  br i1 %9, label %10, label %15, !llvm.loop !6
 
 10:                                               ; preds = %7, %6
   %.09.i.i = phi i64 [ 0, %6 ], [ %8, %7 ]
@@ -167,7 +167,7 @@ arc4_init.exit:                                   ; preds = %.preheader6
   store i8 %24, ptr %32, align 1
   %34 = add nuw nsw i32 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %34, 256
-  br i1 %exitcond.not.i.i.i, label %35, label %18, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %35, label %18, !llvm.loop !7
 
 35:                                               ; preds = %18
   store i8 %21, ptr @rs, align 1
@@ -185,7 +185,7 @@ arc4_seed_getrandom.exit.i:                       ; preds = %10, %35
 38:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not7.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %.not7.i.i, label %arc4_seed_urandom.exit.thread12.i, label %.preheader.i.i, !llvm.loop !7
+  br i1 %.not7.i.i, label %arc4_seed_urandom.exit.thread12.i, label %.preheader.i.i, !llvm.loop !8
 
 .preheader.i.i:                                   ; preds = %arc4_seed_getrandom.exit.i, %38
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %38 ], [ 0, %arc4_seed_getrandom.exit.i ]
@@ -276,7 +276,7 @@ arc4_seed_urandom.exit.thread12.i:                ; preds = %38, %arc4_seed_uran
   %.1.i.i = phi i32 [ %79, %78 ], [ %.02128.i.i, %58 ]
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i2.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i4.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %81, label %58, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %81, label %58, !llvm.loop !9
 
 81:                                               ; preds = %80
   %82 = icmp slt i32 %.1.i.i, 2
@@ -310,14 +310,14 @@ arc4_seed_urandom.exit.thread12.i:                ; preds = %38, %arc4_seed_uran
   store i8 %93, ptr %101, align 1
   %103 = add nuw nsw i32 %.07.i.i6.i, 1
   %exitcond.not.i.i7.i = icmp eq i32 %103, 256
-  br i1 %exitcond.not.i.i7.i, label %arc4_addrandom.exit.i8.i, label %87, !llvm.loop !6
+  br i1 %exitcond.not.i.i7.i, label %arc4_addrandom.exit.i8.i, label %87, !llvm.loop !7
 
 arc4_addrandom.exit.i8.i:                         ; preds = %87
   store i8 %90, ptr @rs, align 1
   store i8 %90, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 1), align 1
   %104 = add nuw nsw i32 %84, %.02329.i.i
   %105 = icmp samesign ult i32 %104, 32
-  br i1 %105, label %49, label %106, !llvm.loop !9
+  br i1 %105, label %49, label %106, !llvm.loop !10
 
 106:                                              ; preds = %arc4_addrandom.exit.i8.i
   call void @evutil_memclear_(ptr noundef nonnull %2, i64 noundef 64) #7
@@ -356,7 +356,7 @@ arc4_seed.exit:                                   ; preds = %arc4_seed_urandom.e
   store i8 %113, ptr %116, align 1
   %118 = add nuw nsw i32 %.0410, 1
   %exitcond.not = icmp eq i32 %118, 4096
-  br i1 %exitcond.not, label %119, label %107, !llvm.loop !10
+  br i1 %exitcond.not, label %119, label %107, !llvm.loop !11
 
 119:                                              ; preds = %107
   %120 = add i8 %108, 2
@@ -505,7 +505,7 @@ arc4_stir_if_needed.exit.i.i:                     ; preds = %12, %7
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   store i8 %34, ptr %35, align 1
   %.not5.i.i = icmp eq i64 %15, 0
-  br i1 %.not5.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not5.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %20, %arc4_stir_if_needed.exit.i.i
   %36 = load ptr, ptr @arc4rand_lock, align 8
@@ -582,12 +582,12 @@ define void @evutil_secure_rng_add_bytes(ptr noundef readonly captures(none) %0,
   store i8 %23, ptr %31, align 1
   %33 = add nuw nsw i32 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %33, 256
-  br i1 %exitcond.not.i.i, label %arc4_addrandom.exit.i, label %17, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %arc4_addrandom.exit.i, label %17, !llvm.loop !7
 
 arc4_addrandom.exit.i:                            ; preds = %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 256
   %34 = icmp samesign ult i64 %indvars.iv.next.i, %3
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %arc4_addrandom.exit.i
   store i8 %.lcssa1013.i, ptr @rs, align 1
@@ -646,7 +646,7 @@ define internal fastcc range(i32 -1, 1) i32 @arc4_seed_urandom_helper_(ptr nound
 5:                                                ; preds = %.preheader
   %6 = add nuw i64 %10, %.01215.i
   %7 = icmp ult i64 %6, 32
-  br i1 %7, label %.preheader, label %read_all.exit, !llvm.loop !13
+  br i1 %7, label %.preheader, label %read_all.exit, !llvm.loop !14
 
 .preheader:                                       ; preds = %1, %5
   %.01215.i = phi i64 [ %6, %5 ], [ 0, %1 ]
@@ -692,7 +692,7 @@ read_all.exit:                                    ; preds = %5
   store i8 %22, ptr %30, align 1
   %32 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %32, 256
-  br i1 %exitcond.not.i, label %arc4_addrandom.exit, label %16, !llvm.loop !6
+  br i1 %exitcond.not.i, label %arc4_addrandom.exit, label %16, !llvm.loop !7
 
 arc4_addrandom.exit:                              ; preds = %16
   store i8 %19, ptr @rs, align 1
@@ -740,14 +740,15 @@ attributes #7 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}

@@ -93,7 +93,7 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %gep59 = getelementptr i64, ptr %invariant.gep58, i64 %indvars.iv.next
   store i64 %46, ptr %gep59, align 8, !tbaa !15
   %47 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %47, label %41, label %.loopexit, !llvm.loop !19
+  br i1 %47, label %41, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %41, %.lr.ph51, %.preheader47, %.preheader
   %48 = shl nuw nsw i32 %10, 3
@@ -181,7 +181,7 @@ define hidden range(i32 0, 2) i32 @BN_lshift1(ptr noundef %0, ptr noundef readon
   %.lobit = lshr i64 %29, 63
   %33 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %33, %24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %34 = icmp sgt i64 %29, -1
@@ -270,7 +270,7 @@ define hidden range(i32 0, 2) i32 @BN_rshift(ptr noundef %0, ptr noundef %1, i32
   store i64 %36, ptr %.04771, align 8, !tbaa !15
   %38 = add nsw i32 %.04970, -1
   %.not61 = icmp eq i32 %38, 0
-  br i1 %.not61, label %.loopexit, label %.lr.ph73, !llvm.loop !21
+  br i1 %.not61, label %.loopexit, label %.lr.ph73, !llvm.loop !22
 
 39:                                               ; preds = %26
   %40 = load i64, ptr %29, align 8, !tbaa !15
@@ -297,7 +297,7 @@ define hidden range(i32 0, 2) i32 @BN_rshift(ptr noundef %0, ptr noundef %1, i32
   store i64 %46, ptr %.14864, align 8, !tbaa !15
   %.150 = add nsw i32 %.15067, -1
   %.not59 = icmp eq i32 %.150, 0
-  br i1 %.not59, label %._crit_edge, label %42, !llvm.loop !22
+  br i1 %.not59, label %._crit_edge, label %42, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %42, %39
   %.148.lcssa = phi ptr [ %30, %39 ], [ %47, %42 ]
@@ -389,7 +389,7 @@ define hidden range(i32 0, 2) i32 @BN_rshift1(ptr noundef %0, ptr noundef %1) lo
   %38 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.next
   store i64 %37, ptr %38, align 8, !tbaa !15
   %39 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -590,10 +590,11 @@ attributes #5 = { nounwind }
 !14 = !{!7, !8, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !10, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}

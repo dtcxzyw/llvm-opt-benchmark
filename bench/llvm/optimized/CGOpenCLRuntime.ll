@@ -436,9 +436,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit: ; preds = %23, %2
   %.sink.i = phi ptr [ %24, %23 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %.sink.i, ptr %3, align 8, !tbaa !378
+  store ptr %.sink.i, ptr %3, align 8, !tbaa !379
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !379
+  %35 = load i32, ptr %34, align 8, !tbaa !380
   %36 = shl i32 %35, 2
   %37 = add i32 %36, 4
   %38 = mul i32 %6, 3
@@ -451,7 +451,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime
 
 41:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !380
+  %43 = load i32, ptr %42, align 4, !tbaa !381
   %.neg.i.i = xor i32 %35, -1
   %.neg12.i.i = add i32 %6, %.neg.i.i
   %44 = sub i32 %.neg12.i.i, %43
@@ -463,24 +463,24 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime
   %.sink.i.i = phi i32 [ %40, %39 ], [ %6, %41 ]
   tail call void @_ZN4llvm8DenseMapIPKN5clang4ExprENS1_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %.sink.i.i)
   %46 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre.i = load i32, ptr %34, align 8, !tbaa !379
-  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !378
+  %.pre.i = load i32, ptr %34, align 8, !tbaa !380
+  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !379
   br label %47
 
 47:                                               ; preds = %.sink.split.i.i, %41
   %48 = phi ptr [ %.pre7.i, %.sink.split.i.i ], [ %.sink.i, %41 ]
   %49 = phi i32 [ %.pre.i, %.sink.split.i.i ], [ %35, %41 ]
   %50 = add i32 %49, 1
-  store i32 %50, ptr %34, align 8, !tbaa !379
+  store i32 %50, ptr %34, align 8, !tbaa !380
   %51 = load ptr, ptr %48, align 8, !tbaa !366
   %52 = icmp eq ptr %51, inttoptr (i64 -4096 to ptr)
   br i1 %52, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E16InsertIntoBucketIS5_JEEEPSD_SH_OT_DpOT0_.exit, label %53
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !380
+  %55 = load i32, ptr %54, align 4, !tbaa !381
   %56 = add i32 %55, -1
-  store i32 %56, ptr %54, align 4, !tbaa !380
+  store i32 %56, ptr %54, align 4, !tbaa !381
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E16InsertIntoBucketIS5_JEEEPSD_SH_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E16InsertIntoBucketIS5_JEEEPSD_SH_OT_DpOT0_.exit: ; preds = %47, %53
@@ -516,7 +516,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenCLRuntime17getInvokeFunct
 
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !381
+  %12 = load ptr, ptr %11, align 8, !tbaa !382
   %13 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %12) #9
   %.pre.i = load i16, ptr %13, align 8
   %.pre9.i = and i16 %.pre.i, 511
@@ -528,7 +528,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenCLRuntime17getInvokeFunct
   %15 = icmp eq i16 %.pre-phi.i, 119
   %16 = icmp eq ptr %.1.i, %.068.i
   %.not4.i = or i1 %15, %16
-  br i1 %.not4.i, label %_ZL12getBlockExprPKN5clang4ExprE.exit, label %.lr.ph.i, !llvm.loop !388
+  br i1 %.not4.i, label %_ZL12getBlockExprPKN5clang4ExprE.exit, label %.lr.ph.i, !llvm.loop !389
 
 _ZL12getBlockExprPKN5clang4ExprE.exit:            ; preds = %14, %2
   %.06.lcssa.i = phi ptr [ %1, %2 ], [ %.1.i, %14 ]
@@ -558,7 +558,7 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenCLRuntime23emitOpenCLEnqueuedBlo
 
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !381
+  %14 = load ptr, ptr %13, align 8, !tbaa !382
   %15 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %14) #9
   %.pre.i = load i16, ptr %15, align 8
   %.pre9.i = and i16 %.pre.i, 511
@@ -570,7 +570,7 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenCLRuntime23emitOpenCLEnqueuedBlo
   %17 = icmp eq i16 %.pre-phi.i, 119
   %18 = icmp eq ptr %.1.i, %.068.i
   %.not4.i = or i1 %17, %18
-  br i1 %.not4.i, label %_ZL12getBlockExprPKN5clang4ExprE.exit, label %.lr.ph.i, !llvm.loop !388
+  br i1 %.not4.i, label %_ZL12getBlockExprPKN5clang4ExprE.exit, label %.lr.ph.i, !llvm.loop !389
 
 _ZL12getBlockExprPKN5clang4ExprE.exit:            ; preds = %16, %4
   %.06.lcssa.i = phi ptr [ %3, %4 ], [ %.1.i, %16 ]
@@ -610,7 +610,7 @@ _ZL12getBlockExprPKN5clang4ExprE.exit:            ; preds = %16, %4
   %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %20, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !366
   %43 = icmp eq ptr %.06.lcssa.i, %42
-  br i1 %43, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit, label %.lr.ph.i.i, !prof !375, !llvm.loop !389
+  br i1 %43, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit, label %.lr.ph.i.i, !prof !375, !llvm.loop !390
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %_ZL12getBlockExprPKN5clang4ExprE.exit
   %44 = zext i32 %22 to i64
@@ -627,7 +627,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime
 
 49:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %51 = load ptr, ptr %50, align 8, !tbaa !390
+  %51 = load ptr, ptr %50, align 8, !tbaa !391
   %52 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang7CodeGen13CodeGenModule20getTargetCodeGenInfoEv(ptr noundef nonnull align 8 dereferenceable(3608) %51) #9
   %53 = load ptr, ptr %46, align 8, !tbaa !368
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 32
@@ -712,7 +712,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
 .thread:                                          ; preds = %25, %8, %3, %23
   %.sink = phi ptr [ %24, %23 ], [ null, %3 ], [ %17, %8 ], [ %31, %25 ]
   %.0 = phi i1 [ false, %23 ], [ false, %3 ], [ true, %8 ], [ true, %25 ]
-  store ptr %.sink, ptr %2, align 8, !tbaa !378
+  store ptr %.sink, ptr %2, align 8, !tbaa !379
   ret i1 %.0
 }
 
@@ -750,9 +750,9 @@ _ZN4llvm8DenseMapIPKN5clang4ExprENS1_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInf
 
 22:                                               ; preds = %_ZN4llvm8DenseMapIPKN5clang4ExprENS1_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEE15allocateBucketsEj.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %23, align 8, !tbaa !379
+  store i32 0, ptr %23, align 8, !tbaa !380
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %24, align 4, !tbaa !380
+  store i32 0, ptr %24, align 4, !tbaa !381
   %25 = load i32, ptr %2, align 8, !tbaa !12
   %26 = zext i32 %25 to i64
   %.idx.i = mul nuw nsw i64 %26, 40
@@ -765,16 +765,16 @@ _ZN4llvm8DenseMapIPKN5clang4ExprENS1_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInf
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8, !tbaa !366
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 40
   %.not.i = icmp eq ptr %28, %27
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !637
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !638
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPKN5clang4ExprENS1_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
   %.idx = mul nuw nsw i64 %30, 40
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %32, align 8, !tbaa !379
+  store i32 0, ptr %32, align 8, !tbaa !380
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %33, align 4, !tbaa !380
+  store i32 0, ptr %33, align 4, !tbaa !381
   %34 = load i32, ptr %2, align 8, !tbaa !12
   %35 = zext i32 %34 to i64
   %.idx.i.i = mul nuw nsw i64 %35, 40
@@ -787,7 +787,7 @@ _ZN4llvm8DenseMapIPKN5clang4ExprENS1_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInf
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !366
   %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 40
   %.not.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !637
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !638
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E9initEmptyEv.exit.i: ; preds = %.lr.ph.i.i, %29
   %.not21.i = icmp eq i32 %3, 0
@@ -852,16 +852,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime
   store ptr %38, ptr %.sink.i.i, align 8, !tbaa !366
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %67, i64 32, i1 false), !tbaa.struct !638
-  %68 = load i32, ptr %32, align 8, !tbaa !379
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %67, i64 32, i1 false), !tbaa.struct !639
+  %68 = load i32, ptr %32, align 8, !tbaa !380
   %69 = add i32 %68, 1
-  store i32 %69, ptr %32, align 8, !tbaa !379
+  store i32 %69, ptr %32, align 8, !tbaa !380
   br label %70
 
 70:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit.i, %.lr.ph.i7, %.lr.ph.i7
   %71 = getelementptr inbounds nuw i8, ptr %.022.i, i64 40
   %.not.i8 = icmp eq ptr %71, %31
-  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_.exit, label %.lr.ph.i7, !llvm.loop !641
+  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_.exit, label %.lr.ph.i7, !llvm.loop !642
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_.exit: ; preds = %70, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_7CodeGen15CGOpenCLRuntime17EnqueuedBlockInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E9initEmptyEv.exit.i
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #9
@@ -1270,269 +1270,270 @@ attributes #11 = { nounwind willreturn memory(read) }
 !373 = !{!"branch_weights", i32 1999, i32 1}
 !374 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !375 = !{!"branch_weights", i32 1, i32 0}
-!376 = distinct !{!376, !377}
+!376 = distinct !{!376, !377, !378}
 !377 = !{!"llvm.loop.mustprogress"}
-!378 = !{!8, !8, i64 0}
-!379 = !{!7, !11, i64 8}
-!380 = !{!7, !11, i64 12}
-!381 = !{!382, !386, i64 16}
-!382 = !{!"_ZTSN5clang11DeclRefExprE", !383, i64 0, !386, i64 16, !387, i64 24}
-!383 = !{!"_ZTSN5clang4ExprE", !384, i64 0, !21, i64 8}
-!384 = !{!"_ZTSN5clang9ValueStmtE", !385, i64 0}
-!385 = !{!"_ZTSN5clang4StmtE", !10, i64 0}
-!386 = !{!"p1 _ZTSN5clang9ValueDeclE", !9, i64 0}
-!387 = !{!"_ZTSN5clang18DeclarationNameLocE", !10, i64 0}
-!388 = distinct !{!388, !377}
-!389 = distinct !{!389, !377}
-!390 = !{!391, !15, i64 144}
-!391 = !{!"_ZTSN5clang7CodeGen15CodeGenFunctionE", !27, i64 0, !15, i64 144, !40, i64 152, !340, i64 160, !392, i64 168, !400, i64 280, !423, i64 440, !440, i64 1552, !445, i64 1600, !450, i64 1744, !11, i64 1792, !455, i64 1800, !455, i64 1808, !456, i64 1816, !21, i64 1824, !311, i64 1832, !457, i64 1840, !462, i64 1888, !470, i64 1904, !308, i64 1912, !471, i64 1928, !472, i64 1936, !473, i64 1960, !473, i64 2008, !367, i64 2056, !479, i64 2064, !479, i64 2072, !480, i64 2080, !481, i64 2088, !53, i64 2104, !53, i64 2105, !53, i64 2106, !53, i64 2107, !308, i64 2112, !53, i64 2128, !53, i64 2129, !53, i64 2130, !53, i64 2131, !53, i64 2132, !53, i64 2133, !483, i64 2136, !484, i64 2144, !485, i64 2152, !300, i64 2160, !486, i64 2168, !488, i64 2192, !489, i64 2200, !491, i64 2224, !497, i64 2544, !503, i64 2824, !508, i64 2888, !513, i64 2920, !514, i64 2928, !11, i64 2952, !408, i64 2960, !300, i64 2968, !515, i64 2976, !516, i64 2984, !300, i64 3048, !521, i64 3056, !408, i64 3064, !408, i64 3072, !408, i64 3080, !408, i64 3088, !53, i64 3096, !522, i64 3100, !523, i64 3104, !471, i64 3184, !121, i64 3192, !11, i64 3200, !53, i64 3204, !53, i64 3205, !528, i64 3208, !529, i64 3216, !531, i64 3240, !533, i64 3264, !535, i64 3304, !537, i64 3328, !539, i64 3352, !544, i64 3752, !550, i64 4216, !473, i64 4352, !586, i64 4400, !587, i64 4408, !588, i64 4416, !408, i64 4424, !589, i64 4432, !591, i64 4456, !593, i64 4480, !408, i64 4504, !11, i64 4512, !11, i64 4516, !595, i64 4520, !596, i64 4528, !597, i64 4536, !300, i64 4544, !300, i64 4552, !476, i64 4560, !476, i64 4568, !473, i64 4576, !300, i64 4624, !598, i64 4632, !597, i64 6128, !300, i64 6136, !615, i64 6144, !616, i64 6152, !595, i64 6160, !617, i64 6168, !300, i64 6192, !473, i64 6200, !408, i64 6248, !408, i64 6256, !619, i64 6264, !624, i64 6296, !11, i64 6336, !53, i64 6340, !631, i64 6344, !632, i64 6352}
-!392 = !{!"_ZTSN5clang7CodeGen13LoopInfoStackE", !393, i64 0, !395, i64 64}
-!393 = !{!"_ZTSN5clang7CodeGen14LoopAttributesE", !53, i64 0, !394, i64 4, !394, i64 8, !394, i64 12, !394, i64 16, !11, i64 20, !394, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !394, i64 40, !53, i64 44, !11, i64 48, !11, i64 52, !53, i64 56}
-!394 = !{!"_ZTSN5clang7CodeGen14LoopAttributes13LVEnableStateE", !10, i64 0}
-!395 = !{!"_ZTSN4llvm11SmallVectorISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EELj4EEE", !396, i64 0, !399, i64 16}
-!396 = !{!"_ZTSN4llvm15SmallVectorImplISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EEEE", !397, i64 0}
-!397 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EELb0EEE", !398, i64 0}
-!398 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EEvEE", !161, i64 0}
-!399 = !{!"_ZTSN4llvm18SmallVectorStorageISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EELj4EEE", !10, i64 0}
-!400 = !{!"_ZTSN5clang7CodeGen11CGBuilderTyE", !401, i64 0, !422, i64 152}
-!401 = !{!"_ZTSN4llvm9IRBuilderINS_14ConstantFolderEN5clang7CodeGen17CGBuilderInserterEEE", !402, i64 0, !418, i64 128, !420, i64 136}
-!402 = !{!"_ZTSN4llvm13IRBuilderBaseE", !403, i64 0, !408, i64 48, !409, i64 56, !48, i64 72, !411, i64 80, !412, i64 88, !129, i64 96, !413, i64 104, !53, i64 108, !414, i64 109, !415, i64 110, !416, i64 112}
-!403 = !{!"_ZTSN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEE", !404, i64 0, !407, i64 16}
-!404 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE", !405, i64 0}
-!405 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EEE", !406, i64 0}
-!406 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIjPNS_6MDNodeEEvEE", !161, i64 0}
-!407 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIjPNS_6MDNodeEELj2EEE", !10, i64 0}
-!408 = !{!"p1 _ZTSN4llvm10BasicBlockE", !9, i64 0}
-!409 = !{!"_ZTSN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE", !410, i64 0, !53, i64 8, !53, i64 9}
-!410 = !{!"p1 _ZTSN4llvm15ilist_node_implINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEEEE", !9, i64 0}
-!411 = !{!"p1 _ZTSN4llvm15IRBuilderFolderE", !9, i64 0}
-!412 = !{!"p1 _ZTSN4llvm24IRBuilderDefaultInserterE", !9, i64 0}
-!413 = !{!"_ZTSN4llvm13FastMathFlagsE", !11, i64 0}
-!414 = !{!"_ZTSN4llvm2fp17ExceptionBehaviorE", !10, i64 0}
-!415 = !{!"_ZTSN4llvm12RoundingModeE", !10, i64 0}
-!416 = !{!"_ZTSN4llvm8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE", !417, i64 0, !52, i64 8}
-!417 = !{!"p1 _ZTSN4llvm17OperandBundleDefTIPNS_5ValueEEE", !9, i64 0}
-!418 = !{!"_ZTSN4llvm14ConstantFolderE", !419, i64 0}
-!419 = !{!"_ZTSN4llvm15IRBuilderFolderE"}
-!420 = !{!"_ZTSN5clang7CodeGen17CGBuilderInserterE", !421, i64 0, !340, i64 8}
-!421 = !{!"_ZTSN4llvm24IRBuilderDefaultInserterE"}
-!422 = !{!"p1 _ZTSN5clang7CodeGen16CodeGenTypeCacheE", !9, i64 0}
-!423 = !{!"_ZTSN5clang7CodeGen17VarBypassDetectorE", !424, i64 0, !429, i64 784, !434, i64 1056, !436, i64 1080, !53, i64 1104}
-!424 = !{!"_ZTSN4llvm11SmallVectorISt4pairIjPKN5clang7VarDeclEELj48EEE", !425, i64 0, !428, i64 16}
-!425 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIjPKN5clang7VarDeclEEEE", !426, i64 0}
-!426 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIjPKN5clang7VarDeclEELb1EEE", !427, i64 0}
-!427 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIjPKN5clang7VarDeclEEvEE", !161, i64 0}
-!428 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIjPKN5clang7VarDeclEELj48EEE", !10, i64 0}
-!429 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPKN5clang4StmtEjELj16EEE", !430, i64 0, !433, i64 16}
-!430 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPKN5clang4StmtEjEEE", !431, i64 0}
-!431 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4StmtEjELb1EEE", !432, i64 0}
-!432 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPKN5clang4StmtEjEvEE", !161, i64 0}
-!433 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIPKN5clang4StmtEjELj16EEE", !10, i64 0}
-!434 = !{!"_ZTSN4llvm8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEE", !435, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!435 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang4StmtEjEE", !9, i64 0}
-!436 = !{!"_ZTSN4llvm8DenseSetIPKN5clang7VarDeclENS_12DenseMapInfoIS4_vEEEE", !437, i64 0}
-!437 = !{!"_ZTSN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_EE", !438, i64 0}
-!438 = !{!"_ZTSN4llvm8DenseMapIPKN5clang7VarDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEE", !439, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!439 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPKN5clang7VarDeclEEE", !9, i64 0}
-!440 = !{!"_ZTSN4llvm11SmallVectorIPNS_17CanonicalLoopInfoELj4EEE", !441, i64 0, !444, i64 16}
-!441 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_17CanonicalLoopInfoEEE", !442, i64 0}
-!442 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_17CanonicalLoopInfoELb1EEE", !443, i64 0}
-!443 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_17CanonicalLoopInfoEvEE", !161, i64 0}
-!444 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17CanonicalLoopInfoELj4EEE", !10, i64 0}
-!445 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang14BinaryOperatorELj16EEE", !446, i64 0, !449, i64 16}
-!446 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang14BinaryOperatorEEE", !447, i64 0}
-!447 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang14BinaryOperatorELb1EEE", !448, i64 0}
-!448 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang14BinaryOperatorEvEE", !161, i64 0}
-!449 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang14BinaryOperatorELj16EEE", !10, i64 0}
-!450 = !{!"_ZTSN4llvm11SmallVectorIPNS_22ConvergenceControlInstELj4EEE", !451, i64 0, !454, i64 16}
-!451 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_22ConvergenceControlInstEEE", !452, i64 0}
-!452 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_22ConvergenceControlInstELb1EEE", !453, i64 0}
-!453 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_22ConvergenceControlInstEvEE", !161, i64 0}
-!454 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_22ConvergenceControlInstELj4EEE", !10, i64 0}
-!455 = !{!"p1 _ZTSN5clang4DeclE", !9, i64 0}
-!456 = !{!"p1 _ZTSN5clang7CodeGen14CGFunctionInfoE", !9, i64 0}
-!457 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang11ParmVarDeclELj4EEE", !458, i64 0, !461, i64 16}
-!458 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang11ParmVarDeclEEE", !459, i64 0}
-!459 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang11ParmVarDeclELb1EEE", !460, i64 0}
-!460 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang11ParmVarDeclEvEE", !161, i64 0}
-!461 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang11ParmVarDeclELj4EEE", !10, i64 0}
-!462 = !{!"_ZTSN5clang7CodeGen15CodeGenFunction10CGCoroInfoE", !463, i64 0, !53, i64 8}
-!463 = !{!"_ZTSSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EE", !464, i64 0}
-!464 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_ELb1ELb1EE", !465, i64 0}
-!465 = !{!"_ZTSSt15__uniq_ptr_implIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EE", !466, i64 0}
-!466 = !{!"_ZTSSt5tupleIJPN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EEE", !467, i64 0}
-!467 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EEE", !468, i64 0}
-!468 = !{!"_ZTSSt10_Head_baseILm0EPN5clang7CodeGen10CGCoroDataELb0EE", !469, i64 0}
-!469 = !{!"p1 _ZTSN5clang7CodeGen10CGCoroDataE", !9, i64 0}
-!470 = !{!"_ZTSN5clang7CodeGen15CodeGenFunction23AwaitSuspendWrapperInfoE", !300, i64 0}
-!471 = !{!"_ZTSN5clang7CodeGen12EHScopeStack15stable_iteratorE", !52, i64 0}
-!472 = !{!"_ZTSN5clang7CodeGen15CodeGenFunction8JumpDestE", !408, i64 0, !471, i64 8, !11, i64 16}
-!473 = !{!"_ZTSN5clang7CodeGen7AddressE", !474, i64 0, !16, i64 8, !476, i64 16, !477, i64 24, !300, i64 40}
-!474 = !{!"_ZTSN4llvm14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS2_EENS_18PointerIntPairInfoIS2_Lj1ES4_EEEE", !475, i64 0}
-!475 = !{!"_ZTSN4llvm6detail13PunnedPointerIPNS_5ValueEEE", !10, i64 0}
-!476 = !{!"_ZTSN5clang9CharUnitsE", !52, i64 0}
-!477 = !{!"_ZTSN5clang7CodeGen17CGPointerAuthInfoE", !478, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !300, i64 8}
-!478 = !{!"_ZTSN5clang25PointerAuthenticationModeE", !10, i64 0}
-!479 = !{!"_ZTSN4llvm11AssertingVHINS_11InstructionEEE", !300, i64 0}
-!480 = !{!"p1 _ZTSN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE", !9, i64 0}
-!481 = !{!"_ZTSN5clang12SanitizerSetE", !482, i64 0}
-!482 = !{!"_ZTSN5clang13SanitizerMaskE", !10, i64 0}
-!483 = !{!"_ZTSN5clang23HLSLControlFlowHintAttr8SpellingE", !10, i64 0}
-!484 = !{!"p1 _ZTSN5clang8CallExprE", !9, i64 0}
-!485 = !{!"p1 _ZTSN5clang7CodeGen11CGBlockInfoE", !9, i64 0}
-!486 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !487, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!487 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang9ValueDeclEPNS2_9FieldDeclEEE", !9, i64 0}
-!488 = !{!"p1 _ZTSN5clang9FieldDeclE", !9, i64 0}
-!489 = !{!"_ZTSN4llvm8DenseMapIPKN5clang7VarDeclEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !490, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!490 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang7VarDeclEPNS_5ValueEEE", !9, i64 0}
-!491 = !{!"_ZTSN5clang7CodeGen12EHScopeStackE", !51, i64 0, !51, i64 8, !51, i64 16, !471, i64 24, !471, i64 32, !340, i64 40, !492, i64 48}
-!492 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen11BranchFixupELj8EEE", !493, i64 0, !496, i64 16}
-!493 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen11BranchFixupEEE", !494, i64 0}
-!494 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen11BranchFixupELb1EEE", !495, i64 0}
-!495 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11BranchFixupEvEE", !161, i64 0}
-!496 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen11BranchFixupELj8EEE", !10, i64 0}
-!497 = !{!"_ZTSN4llvm11SmallVectorIcLj256EEE", !498, i64 0, !502, i64 24}
-!498 = !{!"_ZTSN4llvm15SmallVectorImplIcEE", !499, i64 0}
-!499 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIcLb1EEE", !500, i64 0}
-!500 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIcvEE", !501, i64 0}
-!501 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !9, i64 0, !52, i64 8, !52, i64 16}
-!502 = !{!"_ZTSN4llvm18SmallVectorStorageIcLj256EEE", !10, i64 0}
-!503 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupELj3EEE", !504, i64 0, !507, i64 16}
-!504 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupEEE", !505, i64 0}
-!505 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupELb1EEE", !506, i64 0}
-!506 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupEvEE", !161, i64 0}
-!507 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupELj3EEE", !10, i64 0}
-!508 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang7CodeGen15CodeGenFunction8JumpDestELj2EEE", !509, i64 0, !512, i64 16}
-!509 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang7CodeGen15CodeGenFunction8JumpDestEEE", !510, i64 0}
-!510 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang7CodeGen15CodeGenFunction8JumpDestELb1EEE", !511, i64 0}
-!511 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang7CodeGen15CodeGenFunction8JumpDestEvEE", !161, i64 0}
-!512 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang7CodeGen15CodeGenFunction8JumpDestELj2EEE", !10, i64 0}
-!513 = !{!"p1 _ZTSN4llvm11InstructionE", !9, i64 0}
-!514 = !{!"_ZTSN5clang7CodeGen10RawAddressE", !474, i64 0, !16, i64 8, !476, i64 16}
-!515 = !{!"p1 _ZTSN4llvm10AllocaInstE", !9, i64 0}
-!516 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen7AddressELj1EEE", !517, i64 0, !520, i64 16}
-!517 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen7AddressEEE", !518, i64 0}
-!518 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen7AddressELb1EEE", !519, i64 0}
-!519 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen7AddressEvEE", !161, i64 0}
-!520 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen7AddressELj1EEE", !10, i64 0}
-!521 = !{!"p1 _ZTSN5clang22OMPExecutableDirectiveE", !9, i64 0}
-!522 = !{!"_ZTSN5clang9FPOptionsE", !11, i64 0}
-!523 = !{!"_ZTSN4llvm11SmallVectorIPNS_5ValueELj8EEE", !524, i64 0, !527, i64 16}
-!524 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_5ValueEEE", !525, i64 0}
-!525 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EEE", !526, i64 0}
-!526 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_5ValueEvEE", !161, i64 0}
-!527 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_5ValueELj8EEE", !10, i64 0}
-!528 = !{!"p1 _ZTSN4llvm14IndirectBrInstE", !9, i64 0}
-!529 = !{!"_ZTSN4llvm8DenseMapIPKN5clang4DeclENS1_7CodeGen7AddressENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !530, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!530 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang4DeclENS2_7CodeGen7AddressEEE", !9, i64 0}
-!531 = !{!"_ZTSN4llvm8DenseMapIPKN5clang11ParmVarDeclENS1_7CodeGen12EHScopeStack15stable_iteratorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !532, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!532 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang11ParmVarDeclENS2_7CodeGen12EHScopeStack15stable_iteratorEEE", !9, i64 0}
-!533 = !{!"_ZTSN4llvm13SmallDenseMapIPKN5clang11ParmVarDeclEPKNS1_17ImplicitParamDeclELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !11, i64 0, !11, i64 0, !11, i64 4, !534, i64 8}
-!534 = !{!"_ZTSN4llvm21AlignedCharArrayUnionIA2_NS_6detail12DenseMapPairIPKN5clang11ParmVarDeclEPKNS3_17ImplicitParamDeclEEEJNS_13SmallDenseMapIS6_S9_Lj2ENS_12DenseMapInfoIS6_vEESA_E8LargeRepEEEE", !10, i64 0}
-!535 = !{!"_ZTSN4llvm8DenseMapIPNS_10AllocaInstEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEE", !536, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!536 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_10AllocaInstEiEE", !9, i64 0}
-!537 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9LabelDeclENS1_7CodeGen15CodeGenFunction8JumpDestENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !538, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!538 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang9LabelDeclENS2_7CodeGen15CodeGenFunction8JumpDestEEE", !9, i64 0}
-!539 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen15CodeGenFunction13BreakContinueELj8EEE", !540, i64 0, !543, i64 16}
-!540 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction13BreakContinueEEE", !541, i64 0}
-!541 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction13BreakContinueELb1EEE", !542, i64 0}
-!542 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen15CodeGenFunction13BreakContinueEvEE", !161, i64 0}
-!543 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen15CodeGenFunction13BreakContinueELj8EEE", !10, i64 0}
-!544 = !{!"_ZTSN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStackE", !545, i64 0}
-!545 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitELj8EEE", !546, i64 0, !549, i64 16}
-!546 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitEEE", !547, i64 0}
-!547 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitELb1EEE", !548, i64 0}
-!548 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitEvEE", !161, i64 0}
-!549 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitELj8EEE", !10, i64 0}
-!550 = !{!"_ZTSN5clang7CodeGen10CodeGenPGOE", !15, i64 0, !49, i64 8, !551, i64 40, !552, i64 48, !11, i64 60, !52, i64 64, !553, i64 72, !560, i64 80, !567, i64 88, !574, i64 96, !581, i64 104, !52, i64 128}
-!551 = !{!"p1 _ZTSN4llvm14GlobalVariableE", !9, i64 0}
-!552 = !{!"_ZTSSt5arrayIjLm3EE", !10, i64 0}
-!553 = !{!"_ZTSSt10unique_ptrIN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_EE", !554, i64 0}
-!554 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_ELb1ELb1EE", !555, i64 0}
-!555 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_EE", !556, i64 0}
-!556 = !{!"_ZTSSt5tupleIJPN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_EEE", !557, i64 0}
-!557 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_EEE", !558, i64 0}
-!558 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEELb0EE", !559, i64 0}
-!559 = !{!"p1 _ZTSN4llvm8DenseMapIPKN5clang4StmtENS1_7CodeGen11CounterPairENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !9, i64 0}
-!560 = !{!"_ZTSSt10unique_ptrIN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_EE", !561, i64 0}
-!561 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_ELb1ELb1EE", !562, i64 0}
-!562 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_EE", !563, i64 0}
-!563 = !{!"_ZTSSt5tupleIJPN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_EEE", !564, i64 0}
-!564 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_EEE", !565, i64 0}
-!565 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEELb0EE", !566, i64 0}
-!566 = !{!"p1 _ZTSN4llvm8DenseMapIPKN5clang4StmtEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEE", !9, i64 0}
-!567 = !{!"_ZTSSt10unique_ptrIN4llvm15InstrProfRecordESt14default_deleteIS1_EE", !568, i64 0}
-!568 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm15InstrProfRecordESt14default_deleteIS1_ELb1ELb1EE", !569, i64 0}
-!569 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm15InstrProfRecordESt14default_deleteIS1_EE", !570, i64 0}
-!570 = !{!"_ZTSSt5tupleIJPN4llvm15InstrProfRecordESt14default_deleteIS1_EEE", !571, i64 0}
-!571 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm15InstrProfRecordESt14default_deleteIS1_EEE", !572, i64 0}
-!572 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm15InstrProfRecordELb0EE", !573, i64 0}
-!573 = !{!"p1 _ZTSN4llvm15InstrProfRecordE", !9, i64 0}
-!574 = !{!"_ZTSSt10unique_ptrIN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_EE", !575, i64 0}
-!575 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_ELb1ELb1EE", !576, i64 0}
-!576 = !{!"_ZTSSt15__uniq_ptr_implIN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_EE", !577, i64 0}
-!577 = !{!"_ZTSSt5tupleIJPN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_EEE", !578, i64 0}
-!578 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_EEE", !579, i64 0}
-!579 = !{!"_ZTSSt10_Head_baseILm0EPN5clang7CodeGen4MCDC5StateELb0EE", !580, i64 0}
-!580 = !{!"p1 _ZTSN5clang7CodeGen4MCDC5StateE", !9, i64 0}
-!581 = !{!"_ZTSSt6vectorImSaImEE", !582, i64 0}
-!582 = !{!"_ZTSSt12_Vector_baseImSaImEE", !583, i64 0}
-!583 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !584, i64 0}
-!584 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !585, i64 0, !585, i64 8, !585, i64 16}
-!585 = !{!"p1 long", !9, i64 0}
-!586 = !{!"p1 _ZTSN4llvm10SwitchInstE", !9, i64 0}
-!587 = !{!"p1 _ZTSN4llvm11SmallVectorImLj16EEE", !9, i64 0}
-!588 = !{!"p1 _ZTSN4llvm11SmallVectorIN5clang4Stmt10LikelihoodELj16EEE", !9, i64 0}
-!589 = !{!"_ZTSN4llvm8DenseMapIPKN5clang15OpaqueValueExprENS1_7CodeGen6LValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !590, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!590 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang15OpaqueValueExprENS2_7CodeGen6LValueEEE", !9, i64 0}
-!591 = !{!"_ZTSN4llvm8DenseMapIPKN5clang15OpaqueValueExprENS1_7CodeGen6RValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !592, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!592 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang15OpaqueValueExprENS2_7CodeGen6RValueEEE", !9, i64 0}
-!593 = !{!"_ZTSN4llvm8DenseMapIPKN5clang4ExprEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !594, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!594 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang4ExprEPNS_5ValueEEE", !9, i64 0}
-!595 = !{!"_ZTSN5clang14SourceLocationE", !11, i64 0}
-!596 = !{!"_ZTSN5clang25CurrentSourceLocExprScopeE", !367, i64 0}
-!597 = !{!"p1 _ZTSN5clang17ImplicitParamDeclE", !9, i64 0}
-!598 = !{!"_ZTSN5clang7CodeGen11CallArgListE", !599, i64 0, !604, i64 1232, !609, i64 1456, !614, i64 1488}
-!599 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen7CallArgELj8EEE", !600, i64 0, !603, i64 16}
-!600 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen7CallArgEEE", !601, i64 0}
-!601 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen7CallArgELb1EEE", !602, i64 0}
-!602 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen7CallArgEvEE", !161, i64 0}
-!603 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen7CallArgELj8EEE", !10, i64 0}
-!604 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EEE", !605, i64 0, !608, i64 16}
-!605 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList9WritebackEEE", !606, i64 0}
-!606 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen11CallArgList9WritebackELb1EEE", !607, i64 0}
-!607 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11CallArgList9WritebackEvEE", !161, i64 0}
-!608 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen11CallArgList9WritebackELj1EEE", !10, i64 0}
-!609 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EEE", !610, i64 0, !613, i64 16}
-!610 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList14CallArgCleanupEEE", !611, i64 0}
-!611 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen11CallArgList14CallArgCleanupELb1EEE", !612, i64 0}
-!612 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11CallArgList14CallArgCleanupEvEE", !161, i64 0}
-!613 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EEE", !10, i64 0}
-!614 = !{!"p1 _ZTSN4llvm8CallInstE", !9, i64 0}
-!615 = !{!"p1 _ZTSN5clang7CodeGen15CodeGenFunction21ConditionalEvaluationE", !9, i64 0}
-!616 = !{!"p1 _ZTSN5clang7CodeGen15CodeGenFunction12LexicalScopeE", !9, i64 0}
-!617 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9ValueDeclENS1_7CodeGen14BlockByrefInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !618, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!618 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang9ValueDeclENS2_7CodeGen14BlockByrefInfoEEE", !9, i64 0}
-!619 = !{!"_ZTSN4llvm11SmallVectorIPNS_10BasicBlockELj2EEE", !620, i64 0, !623, i64 16}
-!620 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_10BasicBlockEEE", !621, i64 0}
-!621 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EEE", !622, i64 0}
-!622 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_10BasicBlockEvEE", !161, i64 0}
-!623 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_10BasicBlockELj2EEE", !10, i64 0}
-!624 = !{!"_ZTSN4llvm9MapVectorIPNS_5ValueEPNS_10BasicBlockENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S4_ELj0EEEEE", !625, i64 0, !627, i64 24}
-!625 = !{!"_ZTSN4llvm8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEE", !626, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!626 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_5ValueEjEE", !9, i64 0}
-!627 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPNS_5ValueEPNS_10BasicBlockEELj0EEE", !628, i64 0}
-!628 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPNS_5ValueEPNS_10BasicBlockEEEE", !629, i64 0}
-!629 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueEPNS_10BasicBlockEELb1EEE", !630, i64 0}
-!630 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPNS_5ValueEPNS_10BasicBlockEEvEE", !161, i64 0}
-!631 = !{!"p1 _ZTSN5clang7CodeGen15CodeGenFunction13AllocaTrackerE", !9, i64 0}
-!632 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_14WeakTrackingVHEPNS_5ValueEELj4EEE", !633, i64 0, !636, i64 16}
-!633 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_14WeakTrackingVHEPNS_5ValueEEEE", !634, i64 0}
-!634 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_14WeakTrackingVHEPNS_5ValueEELb0EEE", !635, i64 0}
-!635 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_14WeakTrackingVHEPNS_5ValueEEvEE", !161, i64 0}
-!636 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairINS_14WeakTrackingVHEPNS_5ValueEELj4EEE", !10, i64 0}
-!637 = distinct !{!637, !377}
-!638 = !{i64 0, i64 8, !639, i64 8, i64 8, !640, i64 16, i64 8, !640, i64 24, i64 8, !365}
-!639 = !{!311, !311, i64 0}
-!640 = !{!300, !300, i64 0}
-!641 = distinct !{!641, !377}
+!378 = !{!"llvm.loop.estimated_trip_count"}
+!379 = !{!8, !8, i64 0}
+!380 = !{!7, !11, i64 8}
+!381 = !{!7, !11, i64 12}
+!382 = !{!383, !387, i64 16}
+!383 = !{!"_ZTSN5clang11DeclRefExprE", !384, i64 0, !387, i64 16, !388, i64 24}
+!384 = !{!"_ZTSN5clang4ExprE", !385, i64 0, !21, i64 8}
+!385 = !{!"_ZTSN5clang9ValueStmtE", !386, i64 0}
+!386 = !{!"_ZTSN5clang4StmtE", !10, i64 0}
+!387 = !{!"p1 _ZTSN5clang9ValueDeclE", !9, i64 0}
+!388 = !{!"_ZTSN5clang18DeclarationNameLocE", !10, i64 0}
+!389 = distinct !{!389, !377, !378}
+!390 = distinct !{!390, !377, !378}
+!391 = !{!392, !15, i64 144}
+!392 = !{!"_ZTSN5clang7CodeGen15CodeGenFunctionE", !27, i64 0, !15, i64 144, !40, i64 152, !340, i64 160, !393, i64 168, !401, i64 280, !424, i64 440, !441, i64 1552, !446, i64 1600, !451, i64 1744, !11, i64 1792, !456, i64 1800, !456, i64 1808, !457, i64 1816, !21, i64 1824, !311, i64 1832, !458, i64 1840, !463, i64 1888, !471, i64 1904, !308, i64 1912, !472, i64 1928, !473, i64 1936, !474, i64 1960, !474, i64 2008, !367, i64 2056, !480, i64 2064, !480, i64 2072, !481, i64 2080, !482, i64 2088, !53, i64 2104, !53, i64 2105, !53, i64 2106, !53, i64 2107, !308, i64 2112, !53, i64 2128, !53, i64 2129, !53, i64 2130, !53, i64 2131, !53, i64 2132, !53, i64 2133, !484, i64 2136, !485, i64 2144, !486, i64 2152, !300, i64 2160, !487, i64 2168, !489, i64 2192, !490, i64 2200, !492, i64 2224, !498, i64 2544, !504, i64 2824, !509, i64 2888, !514, i64 2920, !515, i64 2928, !11, i64 2952, !409, i64 2960, !300, i64 2968, !516, i64 2976, !517, i64 2984, !300, i64 3048, !522, i64 3056, !409, i64 3064, !409, i64 3072, !409, i64 3080, !409, i64 3088, !53, i64 3096, !523, i64 3100, !524, i64 3104, !472, i64 3184, !121, i64 3192, !11, i64 3200, !53, i64 3204, !53, i64 3205, !529, i64 3208, !530, i64 3216, !532, i64 3240, !534, i64 3264, !536, i64 3304, !538, i64 3328, !540, i64 3352, !545, i64 3752, !551, i64 4216, !474, i64 4352, !587, i64 4400, !588, i64 4408, !589, i64 4416, !409, i64 4424, !590, i64 4432, !592, i64 4456, !594, i64 4480, !409, i64 4504, !11, i64 4512, !11, i64 4516, !596, i64 4520, !597, i64 4528, !598, i64 4536, !300, i64 4544, !300, i64 4552, !477, i64 4560, !477, i64 4568, !474, i64 4576, !300, i64 4624, !599, i64 4632, !598, i64 6128, !300, i64 6136, !616, i64 6144, !617, i64 6152, !596, i64 6160, !618, i64 6168, !300, i64 6192, !474, i64 6200, !409, i64 6248, !409, i64 6256, !620, i64 6264, !625, i64 6296, !11, i64 6336, !53, i64 6340, !632, i64 6344, !633, i64 6352}
+!393 = !{!"_ZTSN5clang7CodeGen13LoopInfoStackE", !394, i64 0, !396, i64 64}
+!394 = !{!"_ZTSN5clang7CodeGen14LoopAttributesE", !53, i64 0, !395, i64 4, !395, i64 8, !395, i64 12, !395, i64 16, !11, i64 20, !395, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !395, i64 40, !53, i64 44, !11, i64 48, !11, i64 52, !53, i64 56}
+!395 = !{!"_ZTSN5clang7CodeGen14LoopAttributes13LVEnableStateE", !10, i64 0}
+!396 = !{!"_ZTSN4llvm11SmallVectorISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EELj4EEE", !397, i64 0, !400, i64 16}
+!397 = !{!"_ZTSN4llvm15SmallVectorImplISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EEEE", !398, i64 0}
+!398 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EELb0EEE", !399, i64 0}
+!399 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EEvEE", !161, i64 0}
+!400 = !{!"_ZTSN4llvm18SmallVectorStorageISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EELj4EEE", !10, i64 0}
+!401 = !{!"_ZTSN5clang7CodeGen11CGBuilderTyE", !402, i64 0, !423, i64 152}
+!402 = !{!"_ZTSN4llvm9IRBuilderINS_14ConstantFolderEN5clang7CodeGen17CGBuilderInserterEEE", !403, i64 0, !419, i64 128, !421, i64 136}
+!403 = !{!"_ZTSN4llvm13IRBuilderBaseE", !404, i64 0, !409, i64 48, !410, i64 56, !48, i64 72, !412, i64 80, !413, i64 88, !129, i64 96, !414, i64 104, !53, i64 108, !415, i64 109, !416, i64 110, !417, i64 112}
+!404 = !{!"_ZTSN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEE", !405, i64 0, !408, i64 16}
+!405 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE", !406, i64 0}
+!406 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EEE", !407, i64 0}
+!407 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIjPNS_6MDNodeEEvEE", !161, i64 0}
+!408 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIjPNS_6MDNodeEELj2EEE", !10, i64 0}
+!409 = !{!"p1 _ZTSN4llvm10BasicBlockE", !9, i64 0}
+!410 = !{!"_ZTSN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE", !411, i64 0, !53, i64 8, !53, i64 9}
+!411 = !{!"p1 _ZTSN4llvm15ilist_node_implINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEEEE", !9, i64 0}
+!412 = !{!"p1 _ZTSN4llvm15IRBuilderFolderE", !9, i64 0}
+!413 = !{!"p1 _ZTSN4llvm24IRBuilderDefaultInserterE", !9, i64 0}
+!414 = !{!"_ZTSN4llvm13FastMathFlagsE", !11, i64 0}
+!415 = !{!"_ZTSN4llvm2fp17ExceptionBehaviorE", !10, i64 0}
+!416 = !{!"_ZTSN4llvm12RoundingModeE", !10, i64 0}
+!417 = !{!"_ZTSN4llvm8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE", !418, i64 0, !52, i64 8}
+!418 = !{!"p1 _ZTSN4llvm17OperandBundleDefTIPNS_5ValueEEE", !9, i64 0}
+!419 = !{!"_ZTSN4llvm14ConstantFolderE", !420, i64 0}
+!420 = !{!"_ZTSN4llvm15IRBuilderFolderE"}
+!421 = !{!"_ZTSN5clang7CodeGen17CGBuilderInserterE", !422, i64 0, !340, i64 8}
+!422 = !{!"_ZTSN4llvm24IRBuilderDefaultInserterE"}
+!423 = !{!"p1 _ZTSN5clang7CodeGen16CodeGenTypeCacheE", !9, i64 0}
+!424 = !{!"_ZTSN5clang7CodeGen17VarBypassDetectorE", !425, i64 0, !430, i64 784, !435, i64 1056, !437, i64 1080, !53, i64 1104}
+!425 = !{!"_ZTSN4llvm11SmallVectorISt4pairIjPKN5clang7VarDeclEELj48EEE", !426, i64 0, !429, i64 16}
+!426 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIjPKN5clang7VarDeclEEEE", !427, i64 0}
+!427 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIjPKN5clang7VarDeclEELb1EEE", !428, i64 0}
+!428 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIjPKN5clang7VarDeclEEvEE", !161, i64 0}
+!429 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIjPKN5clang7VarDeclEELj48EEE", !10, i64 0}
+!430 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPKN5clang4StmtEjELj16EEE", !431, i64 0, !434, i64 16}
+!431 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPKN5clang4StmtEjEEE", !432, i64 0}
+!432 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4StmtEjELb1EEE", !433, i64 0}
+!433 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPKN5clang4StmtEjEvEE", !161, i64 0}
+!434 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIPKN5clang4StmtEjELj16EEE", !10, i64 0}
+!435 = !{!"_ZTSN4llvm8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEE", !436, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!436 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang4StmtEjEE", !9, i64 0}
+!437 = !{!"_ZTSN4llvm8DenseSetIPKN5clang7VarDeclENS_12DenseMapInfoIS4_vEEEE", !438, i64 0}
+!438 = !{!"_ZTSN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_EE", !439, i64 0}
+!439 = !{!"_ZTSN4llvm8DenseMapIPKN5clang7VarDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEE", !440, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!440 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPKN5clang7VarDeclEEE", !9, i64 0}
+!441 = !{!"_ZTSN4llvm11SmallVectorIPNS_17CanonicalLoopInfoELj4EEE", !442, i64 0, !445, i64 16}
+!442 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_17CanonicalLoopInfoEEE", !443, i64 0}
+!443 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_17CanonicalLoopInfoELb1EEE", !444, i64 0}
+!444 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_17CanonicalLoopInfoEvEE", !161, i64 0}
+!445 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17CanonicalLoopInfoELj4EEE", !10, i64 0}
+!446 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang14BinaryOperatorELj16EEE", !447, i64 0, !450, i64 16}
+!447 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang14BinaryOperatorEEE", !448, i64 0}
+!448 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang14BinaryOperatorELb1EEE", !449, i64 0}
+!449 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang14BinaryOperatorEvEE", !161, i64 0}
+!450 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang14BinaryOperatorELj16EEE", !10, i64 0}
+!451 = !{!"_ZTSN4llvm11SmallVectorIPNS_22ConvergenceControlInstELj4EEE", !452, i64 0, !455, i64 16}
+!452 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_22ConvergenceControlInstEEE", !453, i64 0}
+!453 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_22ConvergenceControlInstELb1EEE", !454, i64 0}
+!454 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_22ConvergenceControlInstEvEE", !161, i64 0}
+!455 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_22ConvergenceControlInstELj4EEE", !10, i64 0}
+!456 = !{!"p1 _ZTSN5clang4DeclE", !9, i64 0}
+!457 = !{!"p1 _ZTSN5clang7CodeGen14CGFunctionInfoE", !9, i64 0}
+!458 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang11ParmVarDeclELj4EEE", !459, i64 0, !462, i64 16}
+!459 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang11ParmVarDeclEEE", !460, i64 0}
+!460 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang11ParmVarDeclELb1EEE", !461, i64 0}
+!461 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang11ParmVarDeclEvEE", !161, i64 0}
+!462 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang11ParmVarDeclELj4EEE", !10, i64 0}
+!463 = !{!"_ZTSN5clang7CodeGen15CodeGenFunction10CGCoroInfoE", !464, i64 0, !53, i64 8}
+!464 = !{!"_ZTSSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EE", !465, i64 0}
+!465 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_ELb1ELb1EE", !466, i64 0}
+!466 = !{!"_ZTSSt15__uniq_ptr_implIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EE", !467, i64 0}
+!467 = !{!"_ZTSSt5tupleIJPN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EEE", !468, i64 0}
+!468 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EEE", !469, i64 0}
+!469 = !{!"_ZTSSt10_Head_baseILm0EPN5clang7CodeGen10CGCoroDataELb0EE", !470, i64 0}
+!470 = !{!"p1 _ZTSN5clang7CodeGen10CGCoroDataE", !9, i64 0}
+!471 = !{!"_ZTSN5clang7CodeGen15CodeGenFunction23AwaitSuspendWrapperInfoE", !300, i64 0}
+!472 = !{!"_ZTSN5clang7CodeGen12EHScopeStack15stable_iteratorE", !52, i64 0}
+!473 = !{!"_ZTSN5clang7CodeGen15CodeGenFunction8JumpDestE", !409, i64 0, !472, i64 8, !11, i64 16}
+!474 = !{!"_ZTSN5clang7CodeGen7AddressE", !475, i64 0, !16, i64 8, !477, i64 16, !478, i64 24, !300, i64 40}
+!475 = !{!"_ZTSN4llvm14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS2_EENS_18PointerIntPairInfoIS2_Lj1ES4_EEEE", !476, i64 0}
+!476 = !{!"_ZTSN4llvm6detail13PunnedPointerIPNS_5ValueEEE", !10, i64 0}
+!477 = !{!"_ZTSN5clang9CharUnitsE", !52, i64 0}
+!478 = !{!"_ZTSN5clang7CodeGen17CGPointerAuthInfoE", !479, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !300, i64 8}
+!479 = !{!"_ZTSN5clang25PointerAuthenticationModeE", !10, i64 0}
+!480 = !{!"_ZTSN4llvm11AssertingVHINS_11InstructionEEE", !300, i64 0}
+!481 = !{!"p1 _ZTSN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE", !9, i64 0}
+!482 = !{!"_ZTSN5clang12SanitizerSetE", !483, i64 0}
+!483 = !{!"_ZTSN5clang13SanitizerMaskE", !10, i64 0}
+!484 = !{!"_ZTSN5clang23HLSLControlFlowHintAttr8SpellingE", !10, i64 0}
+!485 = !{!"p1 _ZTSN5clang8CallExprE", !9, i64 0}
+!486 = !{!"p1 _ZTSN5clang7CodeGen11CGBlockInfoE", !9, i64 0}
+!487 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !488, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!488 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang9ValueDeclEPNS2_9FieldDeclEEE", !9, i64 0}
+!489 = !{!"p1 _ZTSN5clang9FieldDeclE", !9, i64 0}
+!490 = !{!"_ZTSN4llvm8DenseMapIPKN5clang7VarDeclEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !491, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!491 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang7VarDeclEPNS_5ValueEEE", !9, i64 0}
+!492 = !{!"_ZTSN5clang7CodeGen12EHScopeStackE", !51, i64 0, !51, i64 8, !51, i64 16, !472, i64 24, !472, i64 32, !340, i64 40, !493, i64 48}
+!493 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen11BranchFixupELj8EEE", !494, i64 0, !497, i64 16}
+!494 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen11BranchFixupEEE", !495, i64 0}
+!495 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen11BranchFixupELb1EEE", !496, i64 0}
+!496 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11BranchFixupEvEE", !161, i64 0}
+!497 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen11BranchFixupELj8EEE", !10, i64 0}
+!498 = !{!"_ZTSN4llvm11SmallVectorIcLj256EEE", !499, i64 0, !503, i64 24}
+!499 = !{!"_ZTSN4llvm15SmallVectorImplIcEE", !500, i64 0}
+!500 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIcLb1EEE", !501, i64 0}
+!501 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIcvEE", !502, i64 0}
+!502 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !9, i64 0, !52, i64 8, !52, i64 16}
+!503 = !{!"_ZTSN4llvm18SmallVectorStorageIcLj256EEE", !10, i64 0}
+!504 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupELj3EEE", !505, i64 0, !508, i64 16}
+!505 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupEEE", !506, i64 0}
+!506 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupELb1EEE", !507, i64 0}
+!507 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupEvEE", !161, i64 0}
+!508 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupELj3EEE", !10, i64 0}
+!509 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang7CodeGen15CodeGenFunction8JumpDestELj2EEE", !510, i64 0, !513, i64 16}
+!510 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang7CodeGen15CodeGenFunction8JumpDestEEE", !511, i64 0}
+!511 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang7CodeGen15CodeGenFunction8JumpDestELb1EEE", !512, i64 0}
+!512 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang7CodeGen15CodeGenFunction8JumpDestEvEE", !161, i64 0}
+!513 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang7CodeGen15CodeGenFunction8JumpDestELj2EEE", !10, i64 0}
+!514 = !{!"p1 _ZTSN4llvm11InstructionE", !9, i64 0}
+!515 = !{!"_ZTSN5clang7CodeGen10RawAddressE", !475, i64 0, !16, i64 8, !477, i64 16}
+!516 = !{!"p1 _ZTSN4llvm10AllocaInstE", !9, i64 0}
+!517 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen7AddressELj1EEE", !518, i64 0, !521, i64 16}
+!518 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen7AddressEEE", !519, i64 0}
+!519 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen7AddressELb1EEE", !520, i64 0}
+!520 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen7AddressEvEE", !161, i64 0}
+!521 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen7AddressELj1EEE", !10, i64 0}
+!522 = !{!"p1 _ZTSN5clang22OMPExecutableDirectiveE", !9, i64 0}
+!523 = !{!"_ZTSN5clang9FPOptionsE", !11, i64 0}
+!524 = !{!"_ZTSN4llvm11SmallVectorIPNS_5ValueELj8EEE", !525, i64 0, !528, i64 16}
+!525 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_5ValueEEE", !526, i64 0}
+!526 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EEE", !527, i64 0}
+!527 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_5ValueEvEE", !161, i64 0}
+!528 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_5ValueELj8EEE", !10, i64 0}
+!529 = !{!"p1 _ZTSN4llvm14IndirectBrInstE", !9, i64 0}
+!530 = !{!"_ZTSN4llvm8DenseMapIPKN5clang4DeclENS1_7CodeGen7AddressENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !531, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!531 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang4DeclENS2_7CodeGen7AddressEEE", !9, i64 0}
+!532 = !{!"_ZTSN4llvm8DenseMapIPKN5clang11ParmVarDeclENS1_7CodeGen12EHScopeStack15stable_iteratorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !533, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!533 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang11ParmVarDeclENS2_7CodeGen12EHScopeStack15stable_iteratorEEE", !9, i64 0}
+!534 = !{!"_ZTSN4llvm13SmallDenseMapIPKN5clang11ParmVarDeclEPKNS1_17ImplicitParamDeclELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !11, i64 0, !11, i64 0, !11, i64 4, !535, i64 8}
+!535 = !{!"_ZTSN4llvm21AlignedCharArrayUnionIA2_NS_6detail12DenseMapPairIPKN5clang11ParmVarDeclEPKNS3_17ImplicitParamDeclEEEJNS_13SmallDenseMapIS6_S9_Lj2ENS_12DenseMapInfoIS6_vEESA_E8LargeRepEEEE", !10, i64 0}
+!536 = !{!"_ZTSN4llvm8DenseMapIPNS_10AllocaInstEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEE", !537, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!537 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_10AllocaInstEiEE", !9, i64 0}
+!538 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9LabelDeclENS1_7CodeGen15CodeGenFunction8JumpDestENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !539, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!539 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang9LabelDeclENS2_7CodeGen15CodeGenFunction8JumpDestEEE", !9, i64 0}
+!540 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen15CodeGenFunction13BreakContinueELj8EEE", !541, i64 0, !544, i64 16}
+!541 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction13BreakContinueEEE", !542, i64 0}
+!542 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction13BreakContinueELb1EEE", !543, i64 0}
+!543 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen15CodeGenFunction13BreakContinueEvEE", !161, i64 0}
+!544 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen15CodeGenFunction13BreakContinueELj8EEE", !10, i64 0}
+!545 = !{!"_ZTSN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStackE", !546, i64 0}
+!546 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitELj8EEE", !547, i64 0, !550, i64 16}
+!547 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitEEE", !548, i64 0}
+!548 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitELb1EEE", !549, i64 0}
+!549 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitEvEE", !161, i64 0}
+!550 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack10CancelExitELj8EEE", !10, i64 0}
+!551 = !{!"_ZTSN5clang7CodeGen10CodeGenPGOE", !15, i64 0, !49, i64 8, !552, i64 40, !553, i64 48, !11, i64 60, !52, i64 64, !554, i64 72, !561, i64 80, !568, i64 88, !575, i64 96, !582, i64 104, !52, i64 128}
+!552 = !{!"p1 _ZTSN4llvm14GlobalVariableE", !9, i64 0}
+!553 = !{!"_ZTSSt5arrayIjLm3EE", !10, i64 0}
+!554 = !{!"_ZTSSt10unique_ptrIN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_EE", !555, i64 0}
+!555 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_ELb1ELb1EE", !556, i64 0}
+!556 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_EE", !557, i64 0}
+!557 = !{!"_ZTSSt5tupleIJPN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_EEE", !558, i64 0}
+!558 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEESt14default_deleteISD_EEE", !559, i64 0}
+!559 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_S7_EEEELb0EE", !560, i64 0}
+!560 = !{!"p1 _ZTSN4llvm8DenseMapIPKN5clang4StmtENS1_7CodeGen11CounterPairENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !9, i64 0}
+!561 = !{!"_ZTSSt10unique_ptrIN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_EE", !562, i64 0}
+!562 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_ELb1ELb1EE", !563, i64 0}
+!563 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_EE", !564, i64 0}
+!564 = !{!"_ZTSSt5tupleIJPN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_EEE", !565, i64 0}
+!565 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEESt14default_deleteISB_EEE", !566, i64 0}
+!566 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm8DenseMapIPKN5clang4StmtEmNS0_12DenseMapInfoIS5_vEENS0_6detail12DenseMapPairIS5_mEEEELb0EE", !567, i64 0}
+!567 = !{!"p1 _ZTSN4llvm8DenseMapIPKN5clang4StmtEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEE", !9, i64 0}
+!568 = !{!"_ZTSSt10unique_ptrIN4llvm15InstrProfRecordESt14default_deleteIS1_EE", !569, i64 0}
+!569 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm15InstrProfRecordESt14default_deleteIS1_ELb1ELb1EE", !570, i64 0}
+!570 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm15InstrProfRecordESt14default_deleteIS1_EE", !571, i64 0}
+!571 = !{!"_ZTSSt5tupleIJPN4llvm15InstrProfRecordESt14default_deleteIS1_EEE", !572, i64 0}
+!572 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm15InstrProfRecordESt14default_deleteIS1_EEE", !573, i64 0}
+!573 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm15InstrProfRecordELb0EE", !574, i64 0}
+!574 = !{!"p1 _ZTSN4llvm15InstrProfRecordE", !9, i64 0}
+!575 = !{!"_ZTSSt10unique_ptrIN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_EE", !576, i64 0}
+!576 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_ELb1ELb1EE", !577, i64 0}
+!577 = !{!"_ZTSSt15__uniq_ptr_implIN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_EE", !578, i64 0}
+!578 = !{!"_ZTSSt5tupleIJPN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_EEE", !579, i64 0}
+!579 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang7CodeGen4MCDC5StateESt14default_deleteIS3_EEE", !580, i64 0}
+!580 = !{!"_ZTSSt10_Head_baseILm0EPN5clang7CodeGen4MCDC5StateELb0EE", !581, i64 0}
+!581 = !{!"p1 _ZTSN5clang7CodeGen4MCDC5StateE", !9, i64 0}
+!582 = !{!"_ZTSSt6vectorImSaImEE", !583, i64 0}
+!583 = !{!"_ZTSSt12_Vector_baseImSaImEE", !584, i64 0}
+!584 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !585, i64 0}
+!585 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !586, i64 0, !586, i64 8, !586, i64 16}
+!586 = !{!"p1 long", !9, i64 0}
+!587 = !{!"p1 _ZTSN4llvm10SwitchInstE", !9, i64 0}
+!588 = !{!"p1 _ZTSN4llvm11SmallVectorImLj16EEE", !9, i64 0}
+!589 = !{!"p1 _ZTSN4llvm11SmallVectorIN5clang4Stmt10LikelihoodELj16EEE", !9, i64 0}
+!590 = !{!"_ZTSN4llvm8DenseMapIPKN5clang15OpaqueValueExprENS1_7CodeGen6LValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !591, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!591 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang15OpaqueValueExprENS2_7CodeGen6LValueEEE", !9, i64 0}
+!592 = !{!"_ZTSN4llvm8DenseMapIPKN5clang15OpaqueValueExprENS1_7CodeGen6RValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !593, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!593 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang15OpaqueValueExprENS2_7CodeGen6RValueEEE", !9, i64 0}
+!594 = !{!"_ZTSN4llvm8DenseMapIPKN5clang4ExprEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !595, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!595 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang4ExprEPNS_5ValueEEE", !9, i64 0}
+!596 = !{!"_ZTSN5clang14SourceLocationE", !11, i64 0}
+!597 = !{!"_ZTSN5clang25CurrentSourceLocExprScopeE", !367, i64 0}
+!598 = !{!"p1 _ZTSN5clang17ImplicitParamDeclE", !9, i64 0}
+!599 = !{!"_ZTSN5clang7CodeGen11CallArgListE", !600, i64 0, !605, i64 1232, !610, i64 1456, !615, i64 1488}
+!600 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen7CallArgELj8EEE", !601, i64 0, !604, i64 16}
+!601 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen7CallArgEEE", !602, i64 0}
+!602 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen7CallArgELb1EEE", !603, i64 0}
+!603 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen7CallArgEvEE", !161, i64 0}
+!604 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen7CallArgELj8EEE", !10, i64 0}
+!605 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EEE", !606, i64 0, !609, i64 16}
+!606 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList9WritebackEEE", !607, i64 0}
+!607 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen11CallArgList9WritebackELb1EEE", !608, i64 0}
+!608 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11CallArgList9WritebackEvEE", !161, i64 0}
+!609 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen11CallArgList9WritebackELj1EEE", !10, i64 0}
+!610 = !{!"_ZTSN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EEE", !611, i64 0, !614, i64 16}
+!611 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList14CallArgCleanupEEE", !612, i64 0}
+!612 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen11CallArgList14CallArgCleanupELb1EEE", !613, i64 0}
+!613 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11CallArgList14CallArgCleanupEvEE", !161, i64 0}
+!614 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EEE", !10, i64 0}
+!615 = !{!"p1 _ZTSN4llvm8CallInstE", !9, i64 0}
+!616 = !{!"p1 _ZTSN5clang7CodeGen15CodeGenFunction21ConditionalEvaluationE", !9, i64 0}
+!617 = !{!"p1 _ZTSN5clang7CodeGen15CodeGenFunction12LexicalScopeE", !9, i64 0}
+!618 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9ValueDeclENS1_7CodeGen14BlockByrefInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !619, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!619 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang9ValueDeclENS2_7CodeGen14BlockByrefInfoEEE", !9, i64 0}
+!620 = !{!"_ZTSN4llvm11SmallVectorIPNS_10BasicBlockELj2EEE", !621, i64 0, !624, i64 16}
+!621 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_10BasicBlockEEE", !622, i64 0}
+!622 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EEE", !623, i64 0}
+!623 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_10BasicBlockEvEE", !161, i64 0}
+!624 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_10BasicBlockELj2EEE", !10, i64 0}
+!625 = !{!"_ZTSN4llvm9MapVectorIPNS_5ValueEPNS_10BasicBlockENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S4_ELj0EEEEE", !626, i64 0, !628, i64 24}
+!626 = !{!"_ZTSN4llvm8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEE", !627, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!627 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_5ValueEjEE", !9, i64 0}
+!628 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPNS_5ValueEPNS_10BasicBlockEELj0EEE", !629, i64 0}
+!629 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPNS_5ValueEPNS_10BasicBlockEEEE", !630, i64 0}
+!630 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueEPNS_10BasicBlockEELb1EEE", !631, i64 0}
+!631 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPNS_5ValueEPNS_10BasicBlockEEvEE", !161, i64 0}
+!632 = !{!"p1 _ZTSN5clang7CodeGen15CodeGenFunction13AllocaTrackerE", !9, i64 0}
+!633 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_14WeakTrackingVHEPNS_5ValueEELj4EEE", !634, i64 0, !637, i64 16}
+!634 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_14WeakTrackingVHEPNS_5ValueEEEE", !635, i64 0}
+!635 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_14WeakTrackingVHEPNS_5ValueEELb0EEE", !636, i64 0}
+!636 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_14WeakTrackingVHEPNS_5ValueEEvEE", !161, i64 0}
+!637 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairINS_14WeakTrackingVHEPNS_5ValueEELj4EEE", !10, i64 0}
+!638 = distinct !{!638, !377, !378}
+!639 = !{i64 0, i64 8, !640, i64 8, i64 8, !641, i64 16, i64 8, !641, i64 24, i64 8, !365}
+!640 = !{!311, !311, i64 0}
+!641 = !{!300, !300, i64 0}
+!642 = distinct !{!642, !377, !378}

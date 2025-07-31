@@ -399,7 +399,7 @@ switch.early.test:                                ; preds = %181
   %215 = load i8, ptr %214, align 1, !tbaa !4
   %.off412 = add i8 %215, -3
   %switch413 = icmp ult i8 %.off412, 2
-  br i1 %switch413, label %.critedge, label %.loopexit
+  br i1 %switch413, label %.critedge, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %213, %24
   %216 = phi i8 [ %25, %24 ], [ %215, %213 ]
@@ -793,7 +793,7 @@ switch.early.test:                                ; preds = %181
 
 490:                                              ; preds = %482
   %491 = add nsw i32 %484, -1
-  br label %.outer
+  br label %.outer, !llvm.loop !18
 
 492:                                              ; preds = %482
   %493 = add nuw i32 %484, 1
@@ -801,7 +801,7 @@ switch.early.test:                                ; preds = %181
   %495 = getelementptr inbounds nuw i16, ptr %.2339, i64 %494
   %496 = load i16, ptr %495, align 2, !tbaa !7
   %.not400 = icmp ugt i16 %496, %481
-  br i1 %.not400, label %.thread427, label %482
+  br i1 %.not400, label %.thread427, label %482, !llvm.loop !18
 
 .thread427:                                       ; preds = %492
   %497 = icmp eq i32 %449, %488
@@ -898,7 +898,7 @@ switch.early.test:                                ; preds = %181
 
 553:                                              ; preds = %546
   %554 = add nsw i32 %548, -1
-  br label %.outer469
+  br label %.outer469, !llvm.loop !19
 
 555:                                              ; preds = %546
   %556 = add nuw i32 %548, 1
@@ -906,7 +906,7 @@ switch.early.test:                                ; preds = %181
   %558 = getelementptr inbounds nuw i32, ptr %.4341, i64 %557
   %559 = load i32, ptr %558, align 4, !tbaa !12
   %.not398 = icmp ugt i32 %559, %517
-  br i1 %.not398, label %.thread432, label %546
+  br i1 %.not398, label %.thread432, label %546, !llvm.loop !19
 
 .thread432:                                       ; preds = %555
   %560 = icmp eq i32 %551, %517
@@ -1013,7 +1013,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_eclass_8(i32 noundef %0, ptr noundef r
   %.2 = phi ptr [ %26, %25 ], [ %31, %30 ], [ %36, %35 ], [ %41, %40 ], [ %54, %43 ]
   %.138 = phi i32 [ %29, %25 ], [ %34, %30 ], [ %39, %35 ], [ %42, %40 ], [ %56, %43 ]
   %58 = icmp ult ptr %.2, %2
-  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %57
   %59 = and i32 %.138, 1
@@ -1044,3 +1044,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 !13 = !{!10, !5, i64 0}
 !14 = !{!10, !8, i64 8}
 !15 = !{!10, !8, i64 10}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}

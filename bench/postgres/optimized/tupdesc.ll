@@ -220,7 +220,7 @@ define dso_local noundef ptr @CreateTupleDescCopy(ptr noundef readonly captures(
   %26 = load i32, ptr %5, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -276,7 +276,7 @@ define dso_local noundef ptr @CreateTupleDescTruncatedCopy(ptr noundef readonly 
   %26 = load i32, ptr %5, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -326,7 +326,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %23 = add nuw nsw i32 %.092, 1
   %24 = load i32, ptr %7, align 8
   %25 = icmp slt i32 %23, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.not = icmp eq ptr %3, null
@@ -382,7 +382,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %55 = getelementptr inbounds nuw %struct.AttrDefault, ptr %54, i64 %indvars.iv.next, i32 1
   store ptr %53, ptr %55, align 8
   %56 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %56, label %.lr.ph95, label %.loopexit91, !llvm.loop !11
+  br i1 %56, label %.lr.ph95, label %.loopexit91, !llvm.loop !12
 
 .loopexit91:                                      ; preds = %.lr.ph95, %40, %26
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -439,7 +439,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
 91:                                               ; preds = %73, %78
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, -1
   %92 = icmp sgt i64 %indvars.iv106, 0
-  br i1 %92, label %73, label %.loopexit90, !llvm.loop !12
+  br i1 %92, label %73, label %.loopexit90, !llvm.loop !13
 
 .loopexit90:                                      ; preds = %91, %59, %.loopexit91
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 26
@@ -505,7 +505,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %134 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %133, i64 %indvars.iv.next110, i32 4
   store i8 %132, ptr %134, align 2
   %135 = icmp samesign ugt i64 %indvars.iv109, 1
-  br i1 %135, label %.lr.ph102, label %.loopexit, !llvm.loop !13
+  br i1 %135, label %.lr.ph102, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph102, %96, %.loopexit90
   store ptr %27, ptr %8, align 8
@@ -553,7 +553,7 @@ define dso_local void @TupleDescCopy(ptr noundef captures(none) %0, ptr noundef 
   %13 = load i32, ptr %0, align 8
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -615,7 +615,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load ptr, ptr %11, align 8
   tail call void @pfree(ptr noundef %12) #11
   %13 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %13, label %10, label %14, !llvm.loop !15
+  br i1 %13, label %10, label %14, !llvm.loop !16
 
 14:                                               ; preds = %10
   tail call void @pfree(ptr noundef nonnull %8) #11
@@ -668,7 +668,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %.lr.ph, %26, %33
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
   %38 = icmp sgt i64 %indvars.iv44, 0
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %37, %19
   tail call void @pfree(ptr noundef nonnull %18) #11
@@ -698,7 +698,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   %51 = load ptr, ptr %50, align 8
   tail call void @pfree(ptr noundef %51) #11
   %52 = icmp samesign ugt i64 %indvars.iv47, 1
-  br i1 %52, label %47, label %53, !llvm.loop !17
+  br i1 %52, label %47, label %53, !llvm.loop !18
 
 53:                                               ; preds = %47
   tail call void @pfree(ptr noundef nonnull %45) #11
@@ -786,7 +786,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
 15:                                               ; preds = %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !19
 
 16:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
@@ -983,7 +983,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
 129:                                              ; preds = %135
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge184, label %130, !llvm.loop !19
+  br i1 %exitcond199.not, label %._crit_edge184, label %130, !llvm.loop !20
 
 130:                                              ; preds = %.lr.ph183, %129
   %indvars.iv195 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next196, %129 ]
@@ -1062,7 +1062,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %171 = sext i32 %170 to i64
   %172 = icmp slt i64 %indvars.iv.next201, %171
-  br i1 %172, label %147, label %.loopexit, !llvm.loop !20
+  br i1 %172, label %147, label %.loopexit, !llvm.loop !21
 
 173:                                              ; preds = %._crit_edge184
   br i1 %.not142, label %.loopexit, label %.critedge
@@ -1090,7 +1090,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
 182:                                              ; preds = %.critedge171
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206
-  br i1 %exitcond207.not, label %.critedge167, label %183, !llvm.loop !21
+  br i1 %exitcond207.not, label %.critedge167, label %183, !llvm.loop !22
 
 183:                                              ; preds = %.lr.ph188, %182
   %indvars.iv203 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next204, %182 ]
@@ -1183,7 +1183,7 @@ define dso_local noundef zeroext i1 @equalRowTypes(ptr noundef readonly captures
 15:                                               ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !22
+  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !23
 
 16:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
@@ -1272,7 +1272,7 @@ define dso_local i32 @hashRowType(ptr noundef readonly captures(none) %0) local_
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.09.lcssa = phi i32 [ %13, %1 ], [ %27, %.lr.ph ]
@@ -1621,7 +1621,7 @@ list_length.exit:                                 ; preds = %4, %5
   %gep = getelementptr i8, ptr %invariant.gep, i64 %76
   %77 = getelementptr i8, ptr %gep, i64 %.idx.i
   store i32 %71, ptr %77, align 4
-  br label %24, !llvm.loop !24
+  br label %24, !llvm.loop !25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1645,7 +1645,7 @@ define dso_local ptr @TupleDescGetDefault(ptr noundef readonly captures(none) %0
 9:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
@@ -1729,23 +1729,24 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}

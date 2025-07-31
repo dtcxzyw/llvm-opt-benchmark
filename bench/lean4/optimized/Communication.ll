@@ -2516,7 +2516,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %39, %38, %36, %13
-  br label %lean_dec.exit
+  br label %lean_dec.exit, !llvm.loop !16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9200,9 +9200,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_IO_FS_Stream_writeLspRequest___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !16
+  store i16 4, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -9623,9 +9623,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_IO_FS_Stream_writeLspNotification___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !16
+  store i16 4, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -9768,9 +9768,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_IO_FS_Stream_writeLspResponse___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !16
+  store i16 4, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -10480,9 +10480,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_IO_FS_Stream_writeLspResponseErrorWithData___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !16
+  store i16 4, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -10601,9 +10601,9 @@ _init_l___private_Lean_Data_Lsp_Communication_0__IO_FS_Stream_isLean3Request___c
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr @l_Lean_Json_Parser_any, ptr %46, align 8, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i16 1, ptr %47, align 8, !tbaa !16
+  store i16 1, ptr %47, align 8, !tbaa !18
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 18
-  store i16 0, ptr %48, align 2, !tbaa !16
+  store i16 0, ptr %48, align 2, !tbaa !18
   store ptr %42, ptr @l___private_Lean_Data_Lsp_Communication_0__IO_FS_Stream_isLean3Request___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %42) #4
   %49 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.3, i64 noundef 7, i64 noundef 7) #4
@@ -11361,5 +11361,7 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!6, !6, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !6, i64 0}

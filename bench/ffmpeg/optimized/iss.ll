@@ -331,5 +331,6 @@ attributes #8 = { nounwind }
 !51 = !{!12, !17, i64 48}
 !52 = !{!53, !53, i64 0}
 !53 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
+!56 = !{!"llvm.loop.estimated_trip_count"}

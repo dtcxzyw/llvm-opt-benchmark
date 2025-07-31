@@ -304,7 +304,7 @@ _ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thr
   %103 = shl nuw i64 %.011.i.i, 10
   %104 = add nsw i32 %.0810.i.i, -10
   %105 = icmp ult i64 %.011.i.i, 17592186044416
-  br i1 %105, label %.lr.ph.i.i15, label %.preheader.i.i, !llvm.loop !10
+  br i1 %105, label %.lr.ph.i.i15, label %.preheader.i.i, !llvm.loop !11
 
 .lr.ph15.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph15.i.i
   %.114.i.i = phi i64 [ %106, %.lr.ph15.i.i ], [ %.0.lcssa.i.i13, %.preheader.i.i ]
@@ -312,7 +312,7 @@ _ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thr
   %106 = shl nuw i64 %.114.i.i, 1
   %107 = add nsw i32 %.1913.i.i, -1
   %108 = icmp sgt i64 %106, -1
-  br i1 %108, label %.lr.ph15.i.i, label %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i, !llvm.loop !11
+  br i1 %108, label %.lr.ph15.i.i, label %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i, !llvm.loop !12
 
 _ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i: ; preds = %.lr.ph15.i.i, %.preheader.i.i
   %.19.lcssa.i.i = phi i32 [ %.08.lcssa.i.i, %.preheader.i.i ], [ %107, %.lr.ph15.i.i ]
@@ -325,12 +325,12 @@ _ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i: ; preds = %.lr.ph15.i.i,
 
 113:                                              ; preds = %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  store i64 0, ptr %5, align 8, !tbaa !12
+  store i64 0, ptr %5, align 8, !tbaa !13
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %114, align 8, !tbaa !16
+  store i32 0, ptr %114, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
   call void @_ZN6icu_7717double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS0_5DiyFpEPi(i32 noundef %99, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %115 = load i32, ptr %6, align 4, !tbaa !17
+  %115 = load i32, ptr %6, align 4, !tbaa !18
   %.not.i = icmp eq i32 %115, %99
   br i1 %.not.i, label %135, label %116
 
@@ -374,7 +374,7 @@ switch.lookup:                                    ; preds = %116
   %.052.i = phi i64 [ %111, %113 ], [ %spec.select.i, %switch.lookup ]
   %136 = lshr i64 %.sroa.081.0.i, 32
   %137 = and i64 %.sroa.081.0.i, 4294967295
-  %138 = load i64, ptr %5, align 8, !tbaa !12
+  %138 = load i64, ptr %5, align 8, !tbaa !13
   %139 = lshr i64 %138, 32
   %140 = and i64 %138, 4294967295
   %141 = mul nuw i64 %139, %136
@@ -387,7 +387,7 @@ switch.lookup:                                    ; preds = %116
   %148 = add nuw nsw i64 %146, 2147483648
   %149 = add nuw nsw i64 %148, %145
   %150 = add nuw nsw i64 %149, %147
-  %151 = load i32, ptr %114, align 8, !tbaa !16
+  %151 = load i32, ptr %114, align 8, !tbaa !17
   %152 = add i32 %.sroa.16.0.i, 64
   %153 = add i32 %152, %151
   %154 = lshr i64 %143, 32
@@ -414,7 +414,7 @@ switch.lookup:                                    ; preds = %116
   %164 = shl nuw i64 %.011.i72.i, 10
   %165 = add nsw i32 %.0810.i73.i, -10
   %166 = icmp ult i64 %.011.i72.i, 17592186044416
-  br i1 %166, label %.lr.ph.i71.i, label %.preheader.i63.i, !llvm.loop !10
+  br i1 %166, label %.lr.ph.i71.i, label %.preheader.i63.i, !llvm.loop !11
 
 .lr.ph15.i68.i:                                   ; preds = %.preheader.i63.i, %.lr.ph15.i68.i
   %.114.i69.i = phi i64 [ %167, %.lr.ph15.i68.i ], [ %.0.lcssa.i65.i, %.preheader.i63.i ]
@@ -422,7 +422,7 @@ switch.lookup:                                    ; preds = %116
   %167 = shl nuw i64 %.114.i69.i, 1
   %168 = add nsw i32 %.1913.i70.i, -1
   %169 = icmp sgt i64 %167, -1
-  br i1 %169, label %.lr.ph15.i68.i, label %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i, !llvm.loop !11
+  br i1 %169, label %.lr.ph15.i68.i, label %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i, !llvm.loop !12
 
 _ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i: ; preds = %.lr.ph15.i68.i, %.preheader.i63.i
   %.19.lcssa.i66.i = phi i32 [ %.08.lcssa.i64.i, %.preheader.i63.i ], [ %168, %.lr.ph15.i68.i ]
@@ -475,7 +475,7 @@ _ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i: ; preds = %.lr.ph15.i6
   %197 = lshr i64 %.01620.i.i.i, 1
   %198 = add nsw i32 %.01521.i.i.i, 1
   %199 = icmp ugt i64 %.01620.i.i.i, 18014398509481983
-  br i1 %199, label %.lr.ph.i.i76.i, label %._crit_edge.i.i.i, !llvm.loop !18
+  br i1 %199, label %.lr.ph.i.i76.i, label %._crit_edge.i.i.i, !llvm.loop !19
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i76.i, %184
   %.016.lcssa.i.i.i = phi i64 [ %spec.select106.i, %184 ], [ %197, %.lr.ph.i.i76.i ]
@@ -503,7 +503,7 @@ _ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i: ; preds = %.lr.ph15.i6
   %210 = and i64 %.11723.i.i.i, 2251799813685248
   %211 = icmp eq i64 %210, 0
   %212 = select i1 %209, i1 %211, i1 false
-  br i1 %212, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i, !llvm.loop !19
+  br i1 %212, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i, !llvm.loop !20
 
 ._crit_edge26.i.i.i:                              ; preds = %.lr.ph25.i.i.i, %.preheader.i.i.i
   %.117.lcssa.i.i.i = phi i64 [ %.016.lcssa.i.i.i, %.preheader.i.i.i ], [ %207, %.lr.ph25.i.i.i ]
@@ -553,13 +553,13 @@ define internal fastcc noundef i32 @_ZN6icu_7717double_conversionL22CompareBuffe
   %6 = alloca %"class.icu_77::double_conversion::Bignum", align 4
   %7 = alloca %"class.icu_77::double_conversion::Bignum", align 4
   call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %6) #6
-  store i16 0, ptr %6, align 4, !tbaa !20
+  store i16 0, ptr %6, align 4, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i16 0, ptr %8, align 2, !tbaa !23
+  store i16 0, ptr %8, align 2, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %7) #6
-  store i16 0, ptr %7, align 4, !tbaa !20
+  store i16 0, ptr %7, align 4, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i16 0, ptr %9, align 2, !tbaa !23
+  store i16 0, ptr %9, align 2, !tbaa !24
   call void @_ZN6icu_7717double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 dereferenceable(516) %6, ptr %0, i32 %1)
   call void @_ZN6icu_7717double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %7, i64 noundef %3)
   %10 = icmp sgt i32 %2, -1
@@ -616,7 +616,7 @@ define noundef double @_ZN6icu_7717double_conversion6StrtodENS0_6VectorIKcEEi(pt
 9:                                                ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 10:                                               ; preds = %.lr.ph.i.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
@@ -645,7 +645,7 @@ _ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i:
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.09.1.i.i, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !7
   %.not.i26.i = icmp eq i8 %22, 48
-  br i1 %.not.i26.i, label %15, label %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !25
+  br i1 %.not.i26.i, label %15, label %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !26
 
 _ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %19
   %23 = sub nsw i32 %.sroa.3.1.i.i, %16
@@ -765,7 +765,7 @@ define noundef float @_ZN6icu_7717double_conversion6StrtofENS0_6VectorIKcEEi(ptr
 8:                                                ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 9:                                                ; preds = %.lr.ph.i.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
@@ -794,7 +794,7 @@ _ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i:
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.09.1.i.i, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !7
   %.not.i26.i = icmp eq i8 %21, 48
-  br i1 %.not.i26.i, label %14, label %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !25
+  br i1 %.not.i26.i, label %14, label %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !26
 
 _ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %18
   %22 = sub nsw i32 %.sroa.3.1.i.i, %15
@@ -1030,21 +1030,22 @@ attributes #7 = { noreturn nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"_ZTSN6icu_7717double_conversion5DiyFpE", !14, i64 0, !15, i64 8}
-!14 = !{!"long", !5, i64 0}
-!15 = !{!"int", !5, i64 0}
-!16 = !{!13, !15, i64 8}
-!17 = !{!15, !15, i64 0}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"_ZTSN6icu_7717double_conversion6BignumE", !22, i64 0, !22, i64 2, !5, i64 4}
-!22 = !{!"short", !5, i64 0}
-!23 = !{!21, !22, i64 2}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"_ZTSN6icu_7717double_conversion5DiyFpE", !15, i64 0, !16, i64 8}
+!15 = !{!"long", !5, i64 0}
+!16 = !{!"int", !5, i64 0}
+!17 = !{!14, !16, i64 8}
+!18 = !{!16, !16, i64 0}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"_ZTSN6icu_7717double_conversion6BignumE", !23, i64 0, !23, i64 2, !5, i64 4}
+!23 = !{!"short", !5, i64 0}
+!24 = !{!22, !23, i64 2}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}

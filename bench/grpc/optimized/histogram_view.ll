@@ -58,7 +58,7 @@ define noundef double @_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd(p
 14:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %8
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -89,17 +89,17 @@ define noundef double @_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd(p
   %25 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next39
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %21, label %27, !llvm.loop !17
+  br i1 %.not, label %21, label %27, !llvm.loop !18
 
 27:                                               ; preds = %24, %21
   %.024.lcssa = phi i32 [ %22, %24 ], [ %smax, %21 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !18
+  %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i32, ptr %29, i64 %17
-  %31 = load i32, ptr %30, align 4, !tbaa !19
+  %31 = load i32, ptr %30, align 4, !tbaa !20
   %32 = zext nneg i32 %.024.lcssa to i64
   %33 = getelementptr inbounds nuw i32, ptr %29, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !19
+  %34 = load i32, ptr %33, align 4, !tbaa !20
   %35 = add nsw i32 %34, %31
   %36 = sitofp i32 %35 to double
   %37 = fmul double %36, 5.000000e-01
@@ -107,12 +107,12 @@ define noundef double @_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd(p
 
 38:                                               ; preds = %._crit_edge
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !18
+  %40 = load ptr, ptr %39, align 8, !tbaa !19
   %41 = getelementptr inbounds nuw i32, ptr %40, i64 %17
-  %42 = load i32, ptr %41, align 4, !tbaa !19
+  %42 = load i32, ptr %41, align 4, !tbaa !20
   %43 = sitofp i32 %42 to double
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !19
+  %45 = load i32, ptr %44, align 4, !tbaa !20
   %46 = sitofp i32 %45 to double
   %47 = fsub double %46, %43
   %48 = fsub double %.1, %1
@@ -177,7 +177,7 @@ _ZNK9grpc_core13HistogramView5CountEv.exit:       ; preds = %8
 22:                                               ; preds = %16
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, %wide.trip.count.i
-  br i1 %exitcond.not.i10, label %._crit_edge.i, label %16, !llvm.loop !16
+  br i1 %exitcond.not.i10, label %._crit_edge.i, label %16, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %16
   %23 = trunc nuw nsw i64 %indvars.iv.i8 to i32
@@ -206,17 +206,17 @@ _ZNK9grpc_core13HistogramView5CountEv.exit:       ; preds = %8
   %30 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.next39.i
   %31 = load i64, ptr %30, align 8, !tbaa !12
   %.not.i = icmp eq i64 %31, 0
-  br i1 %.not.i, label %26, label %32, !llvm.loop !17
+  br i1 %.not.i, label %26, label %32, !llvm.loop !18
 
 32:                                               ; preds = %29, %26
   %.024.lcssa.i = phi i32 [ %27, %29 ], [ %smax.i, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !18
+  %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = getelementptr inbounds nuw i32, ptr %34, i64 %.pre-phi
-  %36 = load i32, ptr %35, align 4, !tbaa !19
+  %36 = load i32, ptr %35, align 4, !tbaa !20
   %37 = zext nneg i32 %.024.lcssa.i to i64
   %38 = getelementptr inbounds nuw i32, ptr %34, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !19
+  %39 = load i32, ptr %38, align 4, !tbaa !20
   %40 = add nsw i32 %39, %36
   %41 = sitofp i32 %40 to double
   %42 = fmul double %41, 5.000000e-01
@@ -224,12 +224,12 @@ _ZNK9grpc_core13HistogramView5CountEv.exit:       ; preds = %8
 
 43:                                               ; preds = %._crit_edge.i
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !18
+  %45 = load ptr, ptr %44, align 8, !tbaa !19
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.pre-phi
-  %47 = load i32, ptr %46, align 4, !tbaa !19
+  %47 = load i32, ptr %46, align 4, !tbaa !20
   %48 = sitofp i32 %47 to double
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !19
+  %50 = load i32, ptr %49, align 4, !tbaa !20
   %51 = sitofp i32 %50 to double
   %52 = fsub double %51, %48
   %53 = fsub double %20, %15
@@ -268,9 +268,10 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !11 = !{!4, !10, i64 24}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = !{!4, !8, i64 8}
-!19 = !{!9, !9, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = !{!4, !8, i64 8}
+!20 = !{!9, !9, i64 0}

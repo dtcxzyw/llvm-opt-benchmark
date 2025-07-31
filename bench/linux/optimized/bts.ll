@@ -1075,7 +1075,7 @@ define internal noalias ptr @bts_buffer_setup_aux(ptr noundef readonly captures(
   %131 = add nuw i32 %79, 1
   %132 = load i32, ptr %64, align 4
   %133 = icmp ult i32 %131, %132
-  br i1 %133, label %77, label %.loopexit, !llvm.loop !36
+  br i1 %133, label %77, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %120, %62, %.thread, %53
   %134 = phi ptr [ null, %53 ], [ null, %.thread ], [ %60, %62 ], [ %60, %120 ]
@@ -1170,7 +1170,8 @@ attributes #8 = { nounwind allocsize(0) }
 !30 = !{i64 2155579109}
 !31 = !{i64 2155587589}
 !32 = !{i64 2155588930}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34, !35, !36}
 !34 = !{!"llvm.loop.mustprogress"}
 !35 = !{!"llvm.loop.unroll.disable"}
-!36 = distinct !{!36, !34, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !34, !35, !36}

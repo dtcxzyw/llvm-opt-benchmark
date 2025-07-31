@@ -31,7 +31,7 @@ define dso_local void @PHP_JOAATUpdate(ptr noundef captures(none) %0, ptr nounde
   %11 = xor i32 %10, %9
   %12 = add nuw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %12, %2
-  br i1 %exitcond.not.i, label %joaat_buf.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %joaat_buf.exit, label %.lr.ph.i, !llvm.loop !10
 
 joaat_buf.exit:                                   ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ %4, %3 ], [ %11, %.lr.ph.i ]
@@ -48,7 +48,7 @@ define dso_local void @PHP_JOAATFinal(ptr noundef writeonly captures(none) %0, p
   %6 = lshr i32 %5, 11
   %7 = xor i32 %6, %5
   %8 = mul i32 %7, 32769
-  store i32 %8, ptr %3, align 4, !tbaa !10
+  store i32 %8, ptr %3, align 4, !tbaa !12
   br label %9
 
 9:                                                ; preds = %2, %9
@@ -60,7 +60,7 @@ define dso_local void @PHP_JOAATFinal(ptr noundef writeonly captures(none) %0, p
   store i8 %12, ptr %13, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %14, label %9
+  br i1 %exitcond.not, label %14, label %9, !llvm.loop !13
 
 14:                                               ; preds = %9
   store i32 0, ptr %1, align 4, !tbaa !4
@@ -98,4 +98,7 @@ attributes #4 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!7, !7, i64 0}
-!10 = !{!6, !6, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!6, !6, i64 0}
+!13 = distinct !{!13, !11}

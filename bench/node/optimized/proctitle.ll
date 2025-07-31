@@ -41,7 +41,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add8 = add i64 %add7, %call6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end
   %size.0.lcssa = phi i64 [ %add, %if.end ], [ %add8, %for.body ]
@@ -78,7 +78,7 @@ for.body23:                                       ; preds = %for.body23.preheade
   store ptr %add.ptr, ptr %arrayidx31, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %for.end34.loopexit, label %for.body23
+  br i1 %exitcond52.not, label %for.end34.loopexit, label %for.body23, !llvm.loop !7
 
 for.end34.loopexit:                               ; preds = %for.body23
   %4 = zext nneg i32 %argc to i64
@@ -241,3 +241,6 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}

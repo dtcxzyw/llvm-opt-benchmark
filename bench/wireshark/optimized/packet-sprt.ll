@@ -1177,7 +1177,7 @@ show_setup_info.exit:                             ; preds = %69, %66, %proto_ite
   %273 = add i32 %.0662.i, 2
   %274 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %273)
   %275 = icmp sgt i32 %274, 1
-  br i1 %275, label %.preheader.i, label %dissect_sprt_data.exit, !llvm.loop !10
+  br i1 %275, label %.preheader.i, label %dissect_sprt_data.exit, !llvm.loop !11
 
 276:                                              ; preds = %123
   %277 = load i32, ptr @hf_sprt_payload_msg_connect_selmod, align 4
@@ -1807,6 +1807,7 @@ attributes #6 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

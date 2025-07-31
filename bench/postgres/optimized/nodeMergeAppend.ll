@@ -200,7 +200,7 @@ list_length.exit79:                               ; preds = %32, %33
   %109 = load i32, ptr %76, align 8
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %89, label %._crit_edge84, !llvm.loop !8
+  br i1 %111, label %89, label %._crit_edge84, !llvm.loop !9
 
 ._crit_edge84:                                    ; preds = %89, %74
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 240
@@ -216,7 +216,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 define internal ptr @ExecMergeAppend(ptr noundef captures(none) %0) #0 {
   %2 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %4, label %3, !prof !9
+  br i1 %.not, label %4, label %3, !prof !10
 
 3:                                                ; preds = %1
   tail call void @ProcessInterrupts() #3
@@ -313,7 +313,7 @@ ExecProcNode.exit:                                ; preds = %34, %42
   %59 = load ptr, ptr %20, align 8
   %60 = tail call i32 @bms_next_member(ptr noundef %59, i32 noundef %35) #3
   %61 = icmp sgt i32 %60, -1
-  br i1 %61, label %34, label %._crit_edge, !llvm.loop !10
+  br i1 %61, label %34, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %58, %27
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -535,7 +535,7 @@ ApplySortComparator.exit.thread:                  ; preds = %48, %ApplySortCompa
   %68 = load i32, ptr %12, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %22, label %.thread46, !llvm.loop !11
+  br i1 %70, label %22, label %.thread46, !llvm.loop !12
 
 .thread46.loopexit.split.loop.exit53:             ; preds = %ApplySortComparator.exit
   %71 = icmp slt i32 %.0.i.fr, 0
@@ -578,7 +578,7 @@ define dso_local void @ExecEndMergeAppend(ptr noundef readonly captures(none) %0
   tail call void @ExecEndNode(ptr noundef %8) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -647,7 +647,7 @@ define dso_local void @ExecReScanMergeAppend(ptr noundef captures(none) %0) loca
   %31 = load i32, ptr %14, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %19, label %._crit_edge, !llvm.loop !13
+  br i1 %33, label %19, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %30, %13
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -697,11 +697,12 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

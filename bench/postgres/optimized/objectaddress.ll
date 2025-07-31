@@ -1558,7 +1558,7 @@ get_object_address_unqualified.exit:              ; preds = %245, %13
   %574 = icmp eq i64 %14, %573
   %575 = icmp ne ptr %.1330, null
   %or.cond = or i1 %575, %574
-  br i1 %or.cond, label %576, label %13
+  br i1 %or.cond, label %576, label %13, !llvm.loop !4
 
 576:                                              ; preds = %558, %572
   %.sroa.0183.sroa.0.1333.lcssa405 = phi i32 [ %.sroa.0183.sroa.0.0, %558 ], [ %.sroa.0183.sroa.0.1333, %572 ]
@@ -1777,7 +1777,7 @@ define dso_local i64 @pg_get_object_address(ptr noundef %0) local_unnamed_addr #
 27:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 59
-  br i1 %exitcond.not.i, label %33, label %28, !llvm.loop !4
+  br i1 %exitcond.not.i, label %33, label %28, !llvm.loop !6
 
 28:                                               ; preds = %27, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %27 ]
@@ -1838,7 +1838,7 @@ read_objtype_from_string.exit:                    ; preds = %28
 
 51:                                               ; preds = %45
   %52 = load ptr, ptr %7, align 8
-  %53 = load i8, ptr %52, align 1, !range !6, !noundef !7
+  %53 = load i8, ptr %52, align 1, !range !8, !noundef !9
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %59
 
@@ -1880,7 +1880,7 @@ read_objtype_from_string.exit:                    ; preds = %28
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %10, align 8
-  %73 = load i8, ptr %72, align 1, !range !6, !noundef !7
+  %73 = load i8, ptr %72, align 1, !range !8, !noundef !9
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %switch.early.test.thread
 
@@ -1947,7 +1947,7 @@ switch.early.test:                                ; preds = %91
   %.095151 = phi ptr [ %112, %105 ], [ null, %94 ]
   %97 = load ptr, ptr %13, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 %indvars.iv
-  %99 = load i8, ptr %98, align 1, !range !6, !noundef !7
+  %99 = load i8, ptr %98, align 1, !range !8, !noundef !9
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %105
 
@@ -1971,7 +1971,7 @@ switch.early.test:                                ; preds = %91
   %113 = load i32, ptr %14, align 4
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %115, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %105, %94
   %.095.lcssa = phi ptr [ null, %94 ], [ %112, %105 ]
@@ -2300,7 +2300,7 @@ define dso_local i32 @read_objtype_from_string(ptr noundef %0) local_unnamed_add
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 59
-  br i1 %exitcond.not, label %11, label %3, !llvm.loop !4
+  br i1 %exitcond.not, label %11, label %3, !llvm.loop !6
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -2348,7 +2348,7 @@ define internal fastcc ptr @textarray_to_strvaluelist(ptr noundef %0) unnamed_ad
   %.068 = phi ptr [ %22, %15 ], [ null, %1 ]
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
-  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 1, !range !8, !noundef !9
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %15
 
@@ -2372,7 +2372,7 @@ define internal fastcc ptr @textarray_to_strvaluelist(ptr noundef %0) unnamed_ad
   %23 = load i32, ptr %4, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %15, %1
   %.06.lcssa = phi ptr [ null, %1 ], [ %22, %15 ]
@@ -2533,7 +2533,7 @@ define dso_local void @check_object_ownership(i32 noundef %0, i32 noundef %1, i6
   br label %112
 
 48:                                               ; preds = %6
-  %49 = load i8, ptr @lo_compat_privileges, align 1, !range !6, !noundef !7
+  %49 = load i8, ptr @lo_compat_privileges, align 1, !range !8, !noundef !9
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %112, label %51
 
@@ -2698,7 +2698,7 @@ define dso_local i32 @get_object_namespace(ptr noundef readonly captures(none) %
 8:                                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %15, label %9, !llvm.loop !10
+  br i1 %exitcond.not.i, label %15, label %9, !llvm.loop !12
 
 9:                                                ; preds = %.preheader, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %.preheader ]
@@ -2779,7 +2779,7 @@ define dso_local ptr @get_object_class_descr(i32 noundef %0) local_unnamed_addr 
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -2824,7 +2824,7 @@ define dso_local i32 @get_object_oid_index(i32 noundef %0) local_unnamed_addr #0
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -2870,7 +2870,7 @@ define dso_local i32 @get_object_catcache_oid(i32 noundef %0) local_unnamed_addr
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -2916,7 +2916,7 @@ define dso_local i32 @get_object_catcache_name(i32 noundef %0) local_unnamed_add
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -2962,7 +2962,7 @@ define dso_local signext i16 @get_object_attnum_oid(i32 noundef %0) local_unname
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -3008,7 +3008,7 @@ define dso_local signext i16 @get_object_attnum_name(i32 noundef %0) local_unnam
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -3054,7 +3054,7 @@ define dso_local signext i16 @get_object_attnum_namespace(i32 noundef %0) local_
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -3100,7 +3100,7 @@ define dso_local signext i16 @get_object_attnum_owner(i32 noundef %0) local_unna
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -3146,7 +3146,7 @@ define dso_local signext i16 @get_object_attnum_acl(i32 noundef %0) local_unname
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -3192,7 +3192,7 @@ define dso_local i32 @get_object_type(i32 noundef %0, i32 noundef %1) local_unna
 8:                                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %15, label %9, !llvm.loop !10
+  br i1 %exitcond.not.i, label %15, label %9, !llvm.loop !12
 
 9:                                                ; preds = %.preheader, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %.preheader ]
@@ -3302,7 +3302,7 @@ define dso_local zeroext i1 @get_object_namensp_unique(i32 noundef %0) local_unn
 7:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %14, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
@@ -3326,7 +3326,7 @@ define dso_local zeroext i1 @get_object_namensp_unique(i32 noundef %0) local_unn
 get_object_property_data.exit:                    ; preds = %3, %13
   %.08.i = phi ptr [ %9, %13 ], [ %2, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %.08.i, i64 40
-  %18 = load i8, ptr %17, align 8, !range !6, !noundef !7
+  %18 = load i8, ptr %17, align 8, !range !8, !noundef !9
   %19 = trunc nuw i8 %18 to i1
   ret i1 %19
 }
@@ -3343,7 +3343,7 @@ define dso_local zeroext i1 @is_objectclass_supported(i32 noundef %0) local_unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 37
   %or.cond = select i1 %5, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %6, label %2, !llvm.loop !11
+  br i1 %or.cond, label %6, label %2, !llvm.loop !13
 
 6:                                                ; preds = %2
   ret i1 %5
@@ -3376,7 +3376,7 @@ define dso_local ptr @get_catalog_object_by_oid_extended(ptr noundef %0, i16 nou
 13:                                               ; preds = %14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 37
-  br i1 %exitcond.not.i.i, label %20, label %14, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %20, label %14, !llvm.loop !12
 
 14:                                               ; preds = %.preheader, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 0, %.preheader ]
@@ -5370,7 +5370,7 @@ define dso_local i64 @pg_identify_object(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
   %or.cond.i = select i1 %24, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %is_objectclass_supported.exit, label %.preheader, !llvm.loop !11
+  br i1 %or.cond.i, label %is_objectclass_supported.exit, label %.preheader, !llvm.loop !13
 
 is_objectclass_supported.exit:                    ; preds = %.preheader
   br i1 %24, label %25, label %111
@@ -5393,7 +5393,7 @@ is_objectclass_supported.exit:                    ; preds = %.preheader
 32:                                               ; preds = %33
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 37
-  br i1 %exitcond.not.i.i, label %39, label %33, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %39, label %33, !llvm.loop !12
 
 33:                                               ; preds = %.preheader98, %32
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %32 ], [ 0, %.preheader98 ]
@@ -5440,7 +5440,7 @@ get_object_attnum_oid.exit:                       ; preds = %28, %38
 51:                                               ; preds = %52
   %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i42, 1
   %exitcond.not.i.i44 = icmp eq i64 %indvars.iv.next.i.i43, 37
-  br i1 %exitcond.not.i.i44, label %58, label %52, !llvm.loop !10
+  br i1 %exitcond.not.i.i44, label %58, label %52, !llvm.loop !12
 
 52:                                               ; preds = %.preheader95, %51
   %indvars.iv.i.i42 = phi i64 [ %indvars.iv.next.i.i43, %51 ], [ 0, %.preheader95 ]
@@ -5473,7 +5473,7 @@ get_object_attnum_namespace.exit:                 ; preds = %47, %57
   %65 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %66 = load ptr, ptr %65, align 8
   %67 = call fastcc i64 @heap_getattr(ptr noundef %44, i32 noundef %64, ptr noundef %66, ptr noundef %6)
-  %68 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %68 = load i8, ptr %6, align 1, !range !8, !noundef !9
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %73
 
@@ -5505,7 +5505,7 @@ get_object_attnum_namespace.exit:                 ; preds = %47, %57
 80:                                               ; preds = %81
   %indvars.iv.next.i.i48 = add nuw nsw i64 %indvars.iv.i.i47, 1
   %exitcond.not.i.i49 = icmp eq i64 %indvars.iv.next.i.i48, 37
-  br i1 %exitcond.not.i.i49, label %87, label %81, !llvm.loop !10
+  br i1 %exitcond.not.i.i49, label %87, label %81, !llvm.loop !12
 
 81:                                               ; preds = %80, %79
   %indvars.iv.i.i47 = phi i64 [ 0, %79 ], [ %indvars.iv.next.i.i48, %80 ]
@@ -5530,7 +5530,7 @@ get_object_namensp_unique.exit:                   ; preds = %.thread74, %86
   %.278 = phi i32 [ %.277, %86 ], [ %.279, %.thread74 ]
   %90 = phi ptr [ %82, %86 ], [ %75, %.thread74 ]
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
-  %92 = load i8, ptr %91, align 8, !range !6, !noundef !7
+  %92 = load i8, ptr %91, align 8, !range !8, !noundef !9
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %get_object_attnum_name.exit, label %109
 
@@ -5545,7 +5545,7 @@ get_object_attnum_name.exit:                      ; preds = %get_object_namensp_
   %98 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %99 = load ptr, ptr %98, align 8
   %100 = call fastcc i64 @heap_getattr(ptr noundef %44, i32 noundef %97, ptr noundef %99, ptr noundef %6)
-  %101 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %101 = load i8, ptr %6, align 1, !range !8, !noundef !9
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %106
 
@@ -5685,7 +5685,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %31 = zext nneg i32 %24 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 6
-  %34 = load i8, ptr %33, align 2, !range !6, !noundef !7
+  %34 = load i8, ptr %33, align 2, !range !8, !noundef !9
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %37 = load i16, ptr %36, align 4
@@ -8146,7 +8146,7 @@ define dso_local i64 @pg_get_acl(ptr noundef captures(none) %0) local_unnamed_ad
 21:                                               ; preds = %22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 37
-  br i1 %exitcond.not.i.i, label %28, label %22, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %28, label %22, !llvm.loop !12
 
 22:                                               ; preds = %.preheader69, %21
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %21 ], [ 0, %.preheader69 ]
@@ -8210,7 +8210,7 @@ get_object_attnum_acl.exit:                       ; preds = %17, %27
 51:                                               ; preds = %52
   %indvars.iv.next.i.i50 = add nuw nsw i64 %indvars.iv.i.i49, 1
   %exitcond.not.i.i51 = icmp eq i64 %indvars.iv.next.i.i50, 37
-  br i1 %exitcond.not.i.i51, label %58, label %52, !llvm.loop !10
+  br i1 %exitcond.not.i.i51, label %58, label %52, !llvm.loop !12
 
 52:                                               ; preds = %.preheader, %51
   %indvars.iv.i.i49 = phi i64 [ %indvars.iv.next.i.i50, %51 ], [ 0, %.preheader ]
@@ -8252,7 +8252,7 @@ get_object_attnum_oid.exit:                       ; preds = %47, %57
 
 68:                                               ; preds = %64, %42
   %.139 = phi i64 [ %43, %42 ], [ %67, %64 ]
-  %69 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %69 = load i8, ptr %2, align 1, !range !8, !noundef !9
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %.sink.split, label %72
 
@@ -8546,10 +8546,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !7, !5}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7, !5}
+!11 = distinct !{!11, !7, !5}
+!12 = distinct !{!12, !7, !5}
+!13 = distinct !{!13, !7, !5}

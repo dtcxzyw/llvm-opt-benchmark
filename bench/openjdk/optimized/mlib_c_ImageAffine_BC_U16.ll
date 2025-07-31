@@ -359,7 +359,7 @@ define hidden noundef i32 @mlib_ImageAffine_u16_1ch_bc(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %257, %1
   ret i32 0
@@ -648,7 +648,7 @@ define hidden noundef i32 @mlib_ImageAffine_u16_2ch_bc(ptr noundef readonly capt
   %192 = sext i32 %191 to i64
   %193 = getelementptr i16, ptr %189, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  br label %92, !llvm.loop !9
+  br label %92, !llvm.loop !10
 
 195:                                              ; preds = %92
   %196 = mul nsw i32 %.0221, %.0230
@@ -724,13 +724,13 @@ define hidden noundef i32 @mlib_ImageAffine_u16_2ch_bc(ptr noundef readonly capt
   %spec.select262 = select i1 %263, i16 0, i16 %264
   %.sink261 = select i1 %262, i16 -1, i16 %spec.select262
   store i16 %.sink261, ptr %.0, align 2
-  br i1 %88, label %87, label %.loopexit, !llvm.loop !10
+  br i1 %88, label %87, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %195, %50
   %indvars.iv.next259 = add nsw i64 %indvars.iv258, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next259 to i32
   %exitcond.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret i32 0
@@ -1018,7 +1018,7 @@ define hidden noundef i32 @mlib_ImageAffine_u16_3ch_bc(ptr noundef readonly capt
   %191 = sext i32 %190 to i64
   %192 = getelementptr i16, ptr %189, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %.0, i64 6
-  br label %91, !llvm.loop !12
+  br label %91, !llvm.loop !13
 
 194:                                              ; preds = %91
   %195 = mul nsw i32 %.0221, %.0230
@@ -1096,13 +1096,13 @@ define hidden noundef i32 @mlib_ImageAffine_u16_3ch_bc(ptr noundef readonly capt
   store i16 %.sink262, ptr %.0, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %87, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %87, !llvm.loop !14
 
 .loopexit:                                        ; preds = %194, %50
   %indvars.iv.next259 = add nsw i64 %indvars.iv258, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next259 to i32
   %exitcond261.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond261.not, label %._crit_edge, label %35, !llvm.loop !14
+  br i1 %exitcond261.not, label %._crit_edge, label %35, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret i32 0
@@ -1390,7 +1390,7 @@ define hidden noundef i32 @mlib_ImageAffine_u16_4ch_bc(ptr noundef readonly capt
   %191 = sext i32 %190 to i64
   %192 = getelementptr i16, ptr %188, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  br label %91, !llvm.loop !15
+  br label %91, !llvm.loop !16
 
 194:                                              ; preds = %91
   %195 = mul nsw i32 %.0221, %.0230
@@ -1468,13 +1468,13 @@ define hidden noundef i32 @mlib_ImageAffine_u16_4ch_bc(ptr noundef readonly capt
   store i16 %.sink262, ptr %.0, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %87, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %87, !llvm.loop !17
 
 .loopexit:                                        ; preds = %194, %50
   %indvars.iv.next259 = add nsw i64 %indvars.iv258, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next259 to i32
   %exitcond261.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond261.not, label %._crit_edge, label %35, !llvm.loop !17
+  br i1 %exitcond261.not, label %._crit_edge, label %35, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret i32 0
@@ -1490,15 +1490,16 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

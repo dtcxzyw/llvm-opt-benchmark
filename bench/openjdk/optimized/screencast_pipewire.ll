@@ -1524,7 +1524,7 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
   store i32 %55, ptr %.sroa.4.0..sroa_idx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %58 = icmp samesign ult i64 %indvars.iv.next.i, %47
-  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %59 = load ptr, ptr %0, align 8
@@ -1660,7 +1660,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   call void %107(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %104, i32 noundef %.sroa.3.0.copyload, ptr noundef %114) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pr.pre = load ptr, ptr %88, align 8
@@ -1701,7 +1701,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %131 = sext i32 %129 to i64
   %132 = icmp slt i64 %indvars.iv.next145, %131
-  br i1 %132, label %.lr.ph141, label %._crit_edge142, !llvm.loop !10
+  br i1 %132, label %.lr.ph141, label %._crit_edge142, !llvm.loop !11
 
 ._crit_edge142:                                   ; preds = %128, %76
   %.not.i119 = icmp eq ptr %70, null
@@ -2197,7 +2197,7 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   %229 = load ptr, ptr @pw, align 8
   call void %228(ptr noundef %229) #16
   %.b53.i.i = load i1, ptr @hasPipewireFailed, align 4
-  br i1 %.b53.i.i, label %230, label %.preheader.i.i, !llvm.loop !11
+  br i1 %.b53.i.i, label %230, label %.preheader.i.i, !llvm.loop !12
 
 230:                                              ; preds = %225
   %231 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
@@ -2259,7 +2259,7 @@ connectStream.exit.i:                             ; preds = %158
   %271 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %272 = sext i32 %271 to i64
   %273 = icmp slt i64 %indvars.iv.next.i, %272
-  br i1 %273, label %87, label %._crit_edge.i, !llvm.loop !12
+  br i1 %273, label %87, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %265, %.critedge.i
   br i1 %or.cond.not.i, label %274, label %doLoop.exit.preheader
@@ -2312,7 +2312,7 @@ doLoop.exit:                                      ; preds = %doLoop.exit.prehead
 290:                                              ; preds = %287, %284
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %doLoop.exit.thread, label %284, !llvm.loop !13
+  br i1 %exitcond.not.i, label %doLoop.exit.thread, label %284, !llvm.loop !14
 
 isAllDataReady.exit:                              ; preds = %287
   %291 = load ptr, ptr @fp_pw_thread_loop_lock, align 8
@@ -2325,7 +2325,7 @@ isAllDataReady.exit:                              ; preds = %287
   %296 = load ptr, ptr @pw, align 8
   call void %295(ptr noundef %296) #16
   %.b = load i1, ptr @hasPipewireFailed, align 4
-  br i1 %.b, label %297, label %doLoop.exit, !llvm.loop !14
+  br i1 %.b, label %297, label %doLoop.exit, !llvm.loop !15
 
 297:                                              ; preds = %isAllDataReady.exit
   call fastcc void @doCleanup()
@@ -2418,7 +2418,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %30 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %29, %5
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
@@ -2716,7 +2716,7 @@ spa_pod_is_object.exit.i.i:                       ; preds = %52
   %80 = add i64 %79, %78
   %81 = add i64 %80, 16
   %.not.i.i.i.i32 = icmp ugt i64 %81, %64
-  br i1 %.not.i.i.i.i32, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i.i32, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !17
 
 spa_pod_find_prop.exit.i:                         ; preds = %73
   store i32 4, ptr %54, align 4
@@ -3187,7 +3187,7 @@ spa_pod_prop_is_inside.exit.preheader.i.i:        ; preds = %69, %.lr.ph.i.i, %5
   %74 = inttoptr i64 %73 to ptr
   %75 = add i64 %73, 16
   %.not.i.i.i = icmp ugt i64 %75, %57
-  br i1 %.not.i.i.i, label %spa_pod_prop_is_inside.exit.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i, label %spa_pod_prop_is_inside.exit.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
 .lr.ph30.i.i:                                     ; preds = %spa_pod_prop_is_inside.exit.preheader.i.i, %spa_pod_prop_is_inside.exit.i.i
   %.129.i.i = phi ptr [ %86, %spa_pod_prop_is_inside.exit.i.i ], [ %42, %spa_pod_prop_is_inside.exit.preheader.i.i ]
@@ -3206,7 +3206,7 @@ spa_pod_prop_is_inside.exit.i.i:                  ; preds = %.lr.ph30.i.i
   %85 = add i64 %84, %83
   %86 = inttoptr i64 %85 to ptr
   %.not21.i.i = icmp eq ptr %54, %86
-  br i1 %.not21.i.i, label %spa_pod_object_find_prop.exit.i, label %.lr.ph30.i.i, !llvm.loop !17
+  br i1 %.not21.i.i, label %spa_pod_object_find_prop.exit.i, label %.lr.ph30.i.i, !llvm.loop !18
 
 spa_pod_object_find_prop.exit.i:                  ; preds = %66, %spa_pod_prop_is_inside.exit.i.i, %.lr.ph30.i.i, %spa_pod_prop_is_inside.exit.preheader.i.i
   %.019.i.i = phi ptr [ null, %spa_pod_prop_is_inside.exit.preheader.i.i ], [ %.129.i.i, %.lr.ph30.i.i ], [ null, %spa_pod_prop_is_inside.exit.i.i ], [ %.026.i.i, %66 ]
@@ -3712,7 +3712,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %.backedge
 
 .backedge:                                        ; preds = %322, %320, %298, %296, %287
-  br label %19
+  br label %19, !llvm.loop !19
 
 325:                                              ; preds = %171
   %.2.idx192.i = select i1 %156, i64 16, i64 0
@@ -4315,7 +4315,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
 
 662:                                              ; preds = %658, %655, %642, %627, %595, %526, %508, %493, %480, %442, %419, %399, %384, %369, %354, %338
   %663 = add nuw nsw i32 %.090.i.ph, 1
-  br label %.outer
+  br label %.outer, !llvm.loop !19
 
 spa_pod_parser_getv.exit:                         ; preds = %29, %99, %spa_pod_parser_next.exit.thread.i, %spa_pod_is_string.exit.thread.i.thread.i, %spa_pod_is_object.exit.thread.i.thread.i, %spa_pod_parser_can_collect.exit.thread.i, %spa_pod_parser_can_collect.exit.thread.thread.i, %286
   %.0.i = phi i32 [ -71, %spa_pod_parser_can_collect.exit.thread.i ], [ -3, %spa_pod_parser_next.exit.thread.i ], [ %.090.i.ph, %99 ], [ %.090.i.ph, %29 ], [ -71, %spa_pod_is_object.exit.thread.i.thread.i ], [ -71, %spa_pod_is_string.exit.thread.i.thread.i ], [ -71, %286 ], [ -3, %spa_pod_parser_can_collect.exit.thread.thread.i ]
@@ -4361,7 +4361,7 @@ define internal fastcc ptr @spa_debug_type_find(ptr noundef readonly captures(ad
   %17 = getelementptr inbounds nuw i8, ptr %.01219, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %11, %13, %15, %2
   %.0 = phi ptr [ null, %2 ], [ null, %15 ], [ %.01219, %13 ], [ %12, %11 ]
@@ -4526,7 +4526,7 @@ define internal void @spa_pod_builder_add(ptr noundef nonnull captures(none) %0,
   %102 = getelementptr inbounds nuw i8, ptr %.02841.i.i.i, i64 8
   %.028.i.i.i = load ptr, ptr %102, align 8
   %.not34.i.i.i = icmp eq ptr %.028.i.i.i, null
-  br i1 %.not34.i.i.i, label %spa_pod_builder_prop.exit.i, label %.lr.ph.i.i.i, !llvm.loop !19
+  br i1 %.not34.i.i.i, label %spa_pod_builder_prop.exit.i, label %.lr.ph.i.i.i, !llvm.loop !21
 
 103:                                              ; preds = %63
   %104 = load i32, ptr %16, align 16
@@ -4630,7 +4630,7 @@ define internal void @spa_pod_builder_add(ptr noundef nonnull captures(none) %0,
   %152 = getelementptr inbounds nuw i8, ptr %.02841.i.i127.i, i64 8
   %.028.i.i128.i = load ptr, ptr %152, align 8
   %.not34.i.i129.i = icmp eq ptr %.028.i.i128.i, null
-  br i1 %.not34.i.i129.i, label %spa_pod_builder_prop.exit.i, label %.lr.ph.i.i126.i, !llvm.loop !19
+  br i1 %.not34.i.i129.i, label %spa_pod_builder_prop.exit.i, label %.lr.ph.i.i126.i, !llvm.loop !21
 
 spa_pod_builder_prop.exit.i:                      ; preds = %.lr.ph.i.i126.i, %.lr.ph.i.i.i, %.critedge.thread.i.i122.i, %.critedge.thread.i.i.i, %63
   %153 = load i32, ptr %16, align 16
@@ -4745,7 +4745,7 @@ spa_choice_from_id.exit.i:                        ; preds = %176, %175, %174, %1
   %200 = getelementptr inbounds nuw i8, ptr %.02841.i.i140.i, i64 8
   %.028.i.i141.i = load ptr, ptr %200, align 8
   %.not34.i.i142.i = icmp eq ptr %.028.i.i141.i, null
-  br i1 %.not34.i.i142.i, label %spa_pod_builder_raw.exit.i.loopexit.i, label %.lr.ph.i.i139.i, !llvm.loop !19
+  br i1 %.not34.i.i142.i, label %spa_pod_builder_raw.exit.i.loopexit.i, label %.lr.ph.i.i139.i, !llvm.loop !21
 
 spa_pod_builder_raw.exit.i.loopexit.i:            ; preds = %.lr.ph.i.i139.i
   %.pre.i = load ptr, ptr %17, align 8
@@ -5184,7 +5184,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %396 = getelementptr inbounds nuw i8, ptr %.02841.i.i154.i, i64 8
   %.028.i.i155.i = load ptr, ptr %396, align 8
   %.not34.i.i156.i = icmp eq ptr %.028.i.i155.i, null
-  br i1 %.not34.i.i156.i, label %spa_pod_builder_bytes.exit.i, label %.lr.ph.i.i153.i, !llvm.loop !19
+  br i1 %.not34.i.i156.i, label %spa_pod_builder_bytes.exit.i, label %.lr.ph.i.i153.i, !llvm.loop !21
 
 spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.critedge.thread.i.i149.i
   call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef readonly %371, i32 noundef %373)
@@ -5409,7 +5409,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   %505 = getelementptr inbounds nuw i8, ptr %.02841.i.i170.i, i64 8
   %.028.i.i171.i = load ptr, ptr %505, align 8
   %.not34.i.i172.i = icmp eq ptr %.028.i.i171.i, null
-  br i1 %.not34.i.i172.i, label %spa_pod_builder_array.exit.i, label %.lr.ph.i.i169.i, !llvm.loop !19
+  br i1 %.not34.i.i172.i, label %spa_pod_builder_array.exit.i, label %.lr.ph.i.i169.i, !llvm.loop !21
 
 spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.critedge.thread.i.i165.i
   call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef readonly %480, i32 noundef %481)
@@ -5613,7 +5613,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   %601 = getelementptr inbounds nuw i8, ptr %.02841.i.i186.i, i64 8
   %.028.i.i187.i = load ptr, ptr %601, align 8
   %.not34.i.i188.i = icmp eq ptr %.028.i.i187.i, null
-  br i1 %.not34.i.i188.i, label %spa_pod_builder_raw.exit.i189.i, label %.lr.ph.i.i185.i, !llvm.loop !19
+  br i1 %.not34.i.i188.i, label %spa_pod_builder_raw.exit.i189.i, label %.lr.ph.i.i185.i, !llvm.loop !21
 
 spa_pod_builder_raw.exit.i189.i:                  ; preds = %.lr.ph.i.i185.i, %.critedge.thread.i.i181.i
   %602 = load i32, ptr %32, align 4
@@ -5688,7 +5688,7 @@ spa_pod_builder_pad.exit.thread.i.i:              ; preds = %603
   %632 = getelementptr inbounds nuw i8, ptr %.02841.i.i.i.i, i64 8
   %.028.i.i.i.i = load ptr, ptr %632, align 8
   %.not34.i.i.i.i = icmp eq ptr %.028.i.i.i.i, null
-  br i1 %.not34.i.i.i.i, label %spa_pod_builder_pad.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
+  br i1 %.not34.i.i.i.i, label %spa_pod_builder_pad.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !21
 
 spa_pod_builder_pad.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i, %.critedge.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -5696,7 +5696,7 @@ spa_pod_builder_pad.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i, %.c
 
 spa_pod_builder_primitive.exit.i:                 ; preds = %spa_pod_builder_pad.exit.i.i, %spa_pod_builder_pad.exit.thread.i.i, %spa_pod_builder_raw.exit.i189.i, %561, %542, %527, %spa_pod_builder_array.exit.i, %425, %408, %spa_pod_builder_bytes.exit.i, %345, %323, %320, %303, %288, %274, %260, %246, %230, %.lr.ph.i
   %633 = icmp samesign ugt i32 %.in.i, 1
-  br i1 %633, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %633, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %spa_pod_builder_primitive.exit.i
   br i1 %169, label %._crit_edge.thread.i, label %.backedge
@@ -5706,7 +5706,7 @@ spa_pod_builder_primitive.exit.i:                 ; preds = %spa_pod_builder_pad
   br label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  br label %63
+  br label %63, !llvm.loop !23
 
 spa_pod_builder_addv.exit:                        ; preds = %75, %124, %163
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
@@ -5781,7 +5781,7 @@ define internal fastcc noundef ptr @spa_pod_builder_pop(ptr noundef nonnull capt
   %35 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 8
   %.028.i = load ptr, ptr %35, align 8
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !21
 
 spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedge.thread.i, %2
   %.val = load i32, ptr %1, align 8
@@ -5884,7 +5884,7 @@ spa_pod_builder_frame.exit.thread:                ; preds = %spa_pod_builder_raw
   %85 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %85, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %spa_pod_builder_frame.exit.thread, %.critedge.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -5957,7 +5957,7 @@ define internal fastcc void @spa_pod_builder_string_len(ptr noundef nonnull capt
   %33 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 8
   %.028.i = load ptr, ptr %33, align 8
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %spa_pod_builder_raw.exit.loopexit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not34.i, label %spa_pod_builder_raw.exit.loopexit, label %.lr.ph.i, !llvm.loop !21
 
 spa_pod_builder_raw.exit.loopexit:                ; preds = %.lr.ph.i
   %.pre = load i32, ptr %6, align 8
@@ -6025,7 +6025,7 @@ spa_pod_builder_raw.exit:                         ; preds = %spa_pod_builder_raw
   %62 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %62, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %spa_pod_builder_raw.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not34.i.i, label %spa_pod_builder_raw.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !21
 
 spa_pod_builder_raw.exit.loopexit.i:              ; preds = %.lr.ph.i.i
   %.pre.i = load i32, ptr %6, align 8
@@ -6086,7 +6086,7 @@ spa_pod_builder_raw.exit.i:                       ; preds = %spa_pod_builder_raw
   %87 = getelementptr inbounds nuw i8, ptr %.02841.i18.i, i64 8
   %.028.i19.i = load ptr, ptr %87, align 8
   %.not34.i20.i = icmp eq ptr %.028.i19.i, null
-  br i1 %.not34.i20.i, label %spa_pod_builder_raw.exit24.loopexit.i, label %.lr.ph.i17.i, !llvm.loop !19
+  br i1 %.not34.i20.i, label %spa_pod_builder_raw.exit24.loopexit.i, label %.lr.ph.i17.i, !llvm.loop !21
 
 spa_pod_builder_raw.exit24.loopexit.i:            ; preds = %.lr.ph.i17.i
   %.pre29.i = load i32, ptr %6, align 8
@@ -6157,7 +6157,7 @@ spa_pod_builder_raw.exit24.i:                     ; preds = %spa_pod_builder_raw
   %117 = getelementptr inbounds nuw i8, ptr %.02841.i.i.i, i64 8
   %.028.i.i.i = load ptr, ptr %117, align 8
   %.not34.i.i.i = icmp eq ptr %.028.i.i.i, null
-  br i1 %.not34.i.i.i, label %spa_pod_builder_write_string.exit, label %.lr.ph.i.i.i, !llvm.loop !19
+  br i1 %.not34.i.i.i, label %spa_pod_builder_write_string.exit, label %.lr.ph.i.i.i, !llvm.loop !21
 
 spa_pod_builder_write_string.exit:                ; preds = %.lr.ph.i.i.i, %.critedge.thread.i.i.i, %spa_pod_builder_raw.exit24.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -6253,7 +6253,7 @@ define internal fastcc void @spa_pod_builder_primitive(ptr noundef nonnull captu
   %48 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 8
   %.028.i = load ptr, ptr %48, align 8
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !21
 
 spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedge.thread.i
   %49 = load i32, ptr %4, align 4
@@ -6326,7 +6326,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   %81 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %81, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %.sink.split, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not34.i.i, label %.sink.split, label %.lr.ph.i.i, !llvm.loop !21
 
 .sink.split:                                      ; preds = %.lr.ph.i.i, %.critedge.thread.i.i, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -6403,7 +6403,7 @@ define internal fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull capt
   %36 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 8
   %.028.i = load ptr, ptr %36, align 8
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !21
 
 spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedge.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -6471,7 +6471,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   %67 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %67, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit.thread, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit.thread, label %.lr.ph.i.i, !llvm.loop !21
 
 spa_pod_builder_pad.exit.thread:                  ; preds = %.lr.ph.i.i, %.critedge.thread.i.i, %spa_pod_builder_raw.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -6519,18 +6519,21 @@ attributes #19 = { cold nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !8}

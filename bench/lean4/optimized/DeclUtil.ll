@@ -6262,7 +6262,7 @@ lean_dec.exit:                                    ; preds = %135, %134, %132, %l
   %145 = load ptr, ptr @l_Lean_RBNode_foldM___at_Lake_DSL_mkConfigFields___spec__4___closed__3, align 8, !tbaa !4
   %146 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %136, ptr noundef %145, ptr noundef %139, ptr noundef %144) #5
   %147 = tail call ptr @lean_array_push(ptr noundef %73, ptr noundef %146) #5
-  br label %6
+  br label %6, !llvm.loop !16
 }
 
 declare ptr @l_Lean_Syntax_node2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -7462,9 +7462,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lean_Elab_Term_mkFreshBinderName___at_Lake_DSL_mkConfigDeclIdent___spec__2___lambda__1___boxed, ptr %9, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 4, ptr %10, align 8, !tbaa !16
+  store i16 4, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 1, ptr %11, align 2, !tbaa !16
+  store i16 1, ptr %11, align 2, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %4, ptr %12, align 8, !tbaa !4
   %13 = tail call ptr @l_Lean_Elab_Command_withFreshMacroScope___rarg(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %2) #5
@@ -7489,9 +7489,9 @@ lean_alloc_small_object.exit:                     ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !16
+  store i16 4, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 1, ptr %8, align 2, !tbaa !16
+  store i16 1, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -7570,9 +7570,9 @@ l_Lean_Elab_Term_mkFreshBinderName___at_Lake_DSL_mkConfigDeclIdent___spec__2.exi
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @l_Lean_Elab_Term_mkFreshBinderName___at_Lake_DSL_mkConfigDeclIdent___spec__2___lambda__1___boxed, ptr %11, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 4, ptr %12, align 8, !tbaa !16
+  store i16 4, ptr %12, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  store i16 1, ptr %13, align 2, !tbaa !16
+  store i16 1, ptr %13, align 2, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %6, ptr %14, align 8, !tbaa !4
   %15 = tail call ptr @l_Lean_Elab_Command_withFreshMacroScope___rarg(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5
@@ -9330,9 +9330,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit526
   %335 = getelementptr inbounds nuw i8, ptr %331, i64 8
   store ptr @l_Lean_Elab_Command_elabCommand, ptr %335, align 8, !tbaa !4
   %336 = getelementptr inbounds nuw i8, ptr %331, i64 16
-  store i16 4, ptr %336, align 8, !tbaa !16
+  store i16 4, ptr %336, align 8, !tbaa !18
   %337 = getelementptr inbounds nuw i8, ptr %331, i64 18
-  store i16 1, ptr %337, align 2, !tbaa !16
+  store i16 1, ptr %337, align 2, !tbaa !18
   %338 = getelementptr inbounds nuw i8, ptr %331, i64 24
   store ptr %322, ptr %338, align 8, !tbaa !4
   %339 = tail call ptr @l_Lean_Elab_Command_withMacroExpansion___rarg(ptr noundef %6, ptr noundef %322, ptr noundef nonnull %331, ptr noundef %9, ptr noundef %10, ptr noundef %197) #5
@@ -9738,9 +9738,9 @@ lean_alloc_closure.exit708:                       ; preds = %lean_inc.exit515
   %489 = getelementptr inbounds nuw i8, ptr %485, i64 8
   store ptr @l_Lean_Elab_Command_elabCommand, ptr %489, align 8, !tbaa !4
   %490 = getelementptr inbounds nuw i8, ptr %485, i64 16
-  store i16 4, ptr %490, align 8, !tbaa !16
+  store i16 4, ptr %490, align 8, !tbaa !18
   %491 = getelementptr inbounds nuw i8, ptr %485, i64 18
-  store i16 1, ptr %491, align 2, !tbaa !16
+  store i16 1, ptr %491, align 2, !tbaa !18
   %492 = getelementptr inbounds nuw i8, ptr %485, i64 24
   store ptr %476, ptr %492, align 8, !tbaa !4
   %493 = tail call ptr @l_Lean_Elab_Command_withMacroExpansion___rarg(ptr noundef %6, ptr noundef %476, ptr noundef nonnull %485, ptr noundef %9, ptr noundef %10, ptr noundef %342) #5
@@ -10280,9 +10280,9 @@ lean_alloc_closure.exit759:                       ; preds = %lean_inc.exit503
   %694 = getelementptr inbounds nuw i8, ptr %690, i64 8
   store ptr @l_Lean_Elab_Command_elabCommand, ptr %694, align 8, !tbaa !4
   %695 = getelementptr inbounds nuw i8, ptr %690, i64 16
-  store i16 4, ptr %695, align 8, !tbaa !16
+  store i16 4, ptr %695, align 8, !tbaa !18
   %696 = getelementptr inbounds nuw i8, ptr %690, i64 18
-  store i16 1, ptr %696, align 2, !tbaa !16
+  store i16 1, ptr %696, align 2, !tbaa !18
   %697 = getelementptr inbounds nuw i8, ptr %690, i64 24
   store ptr %681, ptr %697, align 8, !tbaa !4
   %698 = tail call ptr @l_Lean_Elab_Command_withMacroExpansion___rarg(ptr noundef %6, ptr noundef %681, ptr noundef nonnull %690, ptr noundef %9, ptr noundef %10, ptr noundef %517) #5
@@ -11087,9 +11087,9 @@ lean_alloc_closure.exit827:                       ; preds = %lean_inc.exit489
   %999 = getelementptr inbounds nuw i8, ptr %995, i64 8
   store ptr @l_Lean_Elab_Command_elabCommand, ptr %999, align 8, !tbaa !4
   %1000 = getelementptr inbounds nuw i8, ptr %995, i64 16
-  store i16 4, ptr %1000, align 8, !tbaa !16
+  store i16 4, ptr %1000, align 8, !tbaa !18
   %1001 = getelementptr inbounds nuw i8, ptr %995, i64 18
-  store i16 1, ptr %1001, align 2, !tbaa !16
+  store i16 1, ptr %1001, align 2, !tbaa !18
   %1002 = getelementptr inbounds nuw i8, ptr %995, i64 24
   store ptr %986, ptr %1002, align 8, !tbaa !4
   %1003 = tail call ptr @l_Lean_Elab_Command_withMacroExpansion___rarg(ptr noundef %6, ptr noundef %986, ptr noundef nonnull %995, ptr noundef %9, ptr noundef %10, ptr noundef %813) #5
@@ -15292,9 +15292,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit735
   %1522 = getelementptr inbounds nuw i8, ptr %1518, i64 8
   store ptr @l_Lean_Elab_Command_elabCommand, ptr %1522, align 8, !tbaa !4
   %1523 = getelementptr inbounds nuw i8, ptr %1518, i64 16
-  store i16 4, ptr %1523, align 8, !tbaa !16
+  store i16 4, ptr %1523, align 8, !tbaa !18
   %1524 = getelementptr inbounds nuw i8, ptr %1518, i64 18
-  store i16 1, ptr %1524, align 2, !tbaa !16
+  store i16 1, ptr %1524, align 2, !tbaa !18
   %1525 = getelementptr inbounds nuw i8, ptr %1518, i64 24
   store ptr %1509, ptr %1525, align 8, !tbaa !4
   %1526 = tail call ptr @l_Lean_Elab_Command_withMacroExpansion___rarg(ptr noundef %4, ptr noundef %1509, ptr noundef nonnull %1518, ptr noundef %5, ptr noundef %6, ptr noundef %1370) #5
@@ -16002,9 +16002,9 @@ lean_alloc_closure.exit1319:                      ; preds = %lean_inc.exit721
   %1790 = getelementptr inbounds nuw i8, ptr %1786, i64 8
   store ptr @l_Lean_Elab_Command_elabCommand, ptr %1790, align 8, !tbaa !4
   %1791 = getelementptr inbounds nuw i8, ptr %1786, i64 16
-  store i16 4, ptr %1791, align 8, !tbaa !16
+  store i16 4, ptr %1791, align 8, !tbaa !18
   %1792 = getelementptr inbounds nuw i8, ptr %1786, i64 18
-  store i16 1, ptr %1792, align 2, !tbaa !16
+  store i16 1, ptr %1792, align 2, !tbaa !18
   %1793 = getelementptr inbounds nuw i8, ptr %1786, i64 24
   store ptr %1777, ptr %1793, align 8, !tbaa !4
   %1794 = tail call ptr @l_Lean_Elab_Command_withMacroExpansion___rarg(ptr noundef %4, ptr noundef %1777, ptr noundef nonnull %1786, ptr noundef %5, ptr noundef %6, ptr noundef %1604) #5
@@ -18918,5 +18918,7 @@ attributes #6 = { noreturn nounwind }
 !13 = !{!"long", !6, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !15 = !{!6, !6, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !6, i64 0}

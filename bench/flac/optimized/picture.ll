@@ -192,11 +192,11 @@ safe_malloc_add_2op_.exit.i106:                   ; preds = %46
   ]
 
 64:                                               ; preds = %63
-  store i32 %.051.i, ptr %16, align 8, !tbaa !15
+  store i32 %.051.i, ptr %16, align 8, !tbaa !16
   br label %66
 
 65:                                               ; preds = %63
-  store i32 %.051.i, ptr %15, align 4, !tbaa !16
+  store i32 %.051.i, ptr %15, align 4, !tbaa !17
   br label %66
 
 66:                                               ; preds = %65, %64
@@ -223,16 +223,16 @@ safe_malloc_add_2op_.exit.i106:                   ; preds = %46
   %.1.i = phi i32 [ 0, %66 ], [ %75, %72 ]
   %77 = add nuw i64 %.04050.i, 1
   %exitcond.not.i111 = icmp eq i64 %77, %59
-  br i1 %exitcond.not.i111, label %79, label %.preheader.i110, !llvm.loop !17
+  br i1 %exitcond.not.i111, label %79, label %.preheader.i110, !llvm.loop !18
 
 .thread.i:                                        ; preds = %68
-  store i32 %.051.i, ptr %14, align 8, !tbaa !18
+  store i32 %.051.i, ptr %14, align 8, !tbaa !19
   %78 = add nuw i64 %.04050.i, 1
   %exitcond.not57.i = icmp eq i64 %78, %59
-  br i1 %exitcond.not57.i, label %local__parse_resolution_.exit.thread175, label %.preheader.outer.i, !llvm.loop !17
+  br i1 %exitcond.not57.i, label %local__parse_resolution_.exit.thread175, label %.preheader.outer.i, !llvm.loop !18
 
 local__parse_resolution_.exit.thread175:          ; preds = %.thread.i
-  store i32 0, ptr %13, align 4, !tbaa !19
+  store i32 0, ptr %13, align 4, !tbaa !20
   br label %local__parse_type_.exit.thread
 
 79:                                               ; preds = %76
@@ -246,11 +246,11 @@ local__parse_resolution_.exit.thread175:          ; preds = %.thread.i
   ]
 
 local__parse_resolution_.exit.thread124:          ; preds = %81
-  store i32 %.1.i, ptr %14, align 8, !tbaa !18
+  store i32 %.1.i, ptr %14, align 8, !tbaa !19
   br label %local__parse_type_.exit.thread
 
 local__parse_resolution_.exit:                    ; preds = %81
-  store i32 %.1.i, ptr %13, align 4, !tbaa !19
+  store i32 %.1.i, ptr %13, align 4, !tbaa !20
   %82 = icmp ult i32 %.pr52.ph.i, 32
   %83 = shl nuw i32 1, %.pr52.ph.i
   %84 = icmp ult i32 %83, %.1.i
@@ -262,11 +262,11 @@ local__parse_type_.exit.thread:                   ; preds = %local__parse_resolu
   %85 = getelementptr inbounds nuw i8, ptr %.0161, i64 1
   %86 = add nuw nsw i32 %.075160.ph, 1
   %87 = icmp eq ptr %.pre.pr, null
-  br i1 %87, label %.outer, label %.thread136.thread, !llvm.loop !20
+  br i1 %87, label %.outer, label %.thread136.thread, !llvm.loop !21
 
 88:                                               ; preds = %18
   %89 = getelementptr inbounds nuw i8, ptr %.0161, i64 1
-  br label %18, !llvm.loop !20
+  br label %18, !llvm.loop !21
 
 .thread:                                          ; preds = %9
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -409,7 +409,7 @@ define internal fastcc ptr @read_file(ptr noundef %0, ptr noundef nonnull %1) un
   br i1 %6, label %49, label %7
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !21
+  %8 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !22
   %9 = shl nuw i32 1, %8
   %10 = zext i32 %9 to i64
   %.not = icmp samesign ult i64 %3, %10
@@ -483,7 +483,7 @@ fread.inline.exit:                                ; preds = %14
 
 46:                                               ; preds = %44, %40
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !22
+  %48 = load i32, ptr %47, align 8, !tbaa !23
   %.highbits = lshr i32 %48, %8
   %.not33 = icmp eq i32 %.highbits, 0
   %spec.select = select i1 %.not33, ptr null, ptr @.str.14
@@ -556,19 +556,19 @@ define dso_local ptr @grabbag__picture_from_specification(i32 noundef %0, ptr no
   br label %41
 
 30:                                               ; preds = %24
-  %31 = load i32, ptr %3, align 4, !tbaa !24
+  %31 = load i32, ptr %3, align 4, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 %31, ptr %32, align 8, !tbaa !9
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !26
+  %34 = load i32, ptr %33, align 4, !tbaa !27
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i32 %34, ptr %35, align 4, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load i32, ptr %36, align 4, !tbaa !27
+  %37 = load i32, ptr %36, align 4, !tbaa !28
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 %37, ptr %38, align 8, !tbaa !9
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %40 = load i32, ptr %39, align 4, !tbaa !28
+  %40 = load i32, ptr %39, align 4, !tbaa !29
   br label %41
 
 41:                                               ; preds = %30, %26
@@ -742,11 +742,11 @@ define internal fastcc i32 @local__extract_mime_type_(ptr noundef nonnull %0) un
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info_(ptr noundef nonnull captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i32, ptr %4, align 8, !tbaa !30
+  %5 = load i32, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  %7 = load ptr, ptr %6, align 8, !tbaa !32
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(10) @.str.2) #13
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %110
@@ -828,7 +828,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   %62 = load i8, ptr %61, align 1, !tbaa !9
   %63 = zext i8 %62 to i32
   %64 = or disjoint i32 %60, %63
-  store i32 %64, ptr %17, align 8, !tbaa !15
+  store i32 %64, ptr %17, align 8, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %.0125219, i64 12
   %66 = load i8, ptr %65, align 1, !tbaa !9
   %67 = zext i8 %66 to i32
@@ -847,7 +847,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   %80 = load i8, ptr %79, align 1, !tbaa !9
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %78, %81
-  store i32 %82, ptr %18, align 4, !tbaa !16
+  store i32 %82, ptr %18, align 4, !tbaa !17
   switch i8 %46, label %.critedge.sink.split [
     i8 3, label %83
     i8 0, label %84
@@ -857,7 +857,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   ]
 
 83:                                               ; preds = %44
-  store i32 24, ptr %19, align 8, !tbaa !18
+  store i32 24, ptr %19, align 8, !tbaa !19
   br label %108
 
 84:                                               ; preds = %44
@@ -889,7 +889,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
 
 .loopexit.sink.split:                             ; preds = %98, %84, %88, %93
   %.sink = phi i32 [ %97, %93 ], [ %92, %88 ], [ %87, %84 ], [ %102, %98 ]
-  store i32 %.sink, ptr %19, align 8, !tbaa !18
+  store i32 %.sink, ptr %19, align 8, !tbaa !19
   br label %.critedge.sink.split
 
 103:                                              ; preds = %40
@@ -950,7 +950,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
 .lr.ph.backedge:                                  ; preds = %120, %171
   %.5130210.be = phi ptr [ %121, %120 ], [ %184, %171 ]
   %.5138209.be = phi i32 [ %122, %120 ], [ %185, %171 ]
-  br label %.lr.ph, !llvm.loop !32
+  br label %.lr.ph, !llvm.loop !33
 
 .preheaderthread-pre-split:                       ; preds = %.preheader.preheader
   %123 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 1
@@ -963,7 +963,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   %.6131213295 = phi ptr [ %123, %.preheaderthread-pre-split ], [ %.5130210, %.lr.ph ]
   %124 = add i32 %.6139212296, -1
   %cond174 = icmp eq i32 %124, 0
-  br i1 %cond174, label %.critedge, label %.preheaderthread-pre-split, !llvm.loop !33
+  br i1 %cond174, label %.critedge, label %.preheaderthread-pre-split, !llvm.loop !34
 
 125:                                              ; preds = %.preheaderthread-pre-split
   %.off = add i8 %.pr, 39
@@ -1005,7 +1005,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   %150 = zext i8 %149 to i32
   %151 = or disjoint i32 %147, %150
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %151, ptr %152, align 8, !tbaa !15
+  store i32 %151, ptr %152, align 8, !tbaa !16
   %153 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 5
   %154 = load i8, ptr %153, align 1, !tbaa !9
   %155 = zext i8 %154 to i32
@@ -1015,7 +1015,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   %159 = zext i8 %158 to i32
   %160 = or disjoint i32 %156, %159
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %160, ptr %161, align 4, !tbaa !16
+  store i32 %160, ptr %161, align 4, !tbaa !17
   %162 = getelementptr inbounds nuw i8, ptr %.6131213295, i64 4
   %163 = load i8, ptr %162, align 1, !tbaa !9
   %164 = zext i8 %163 to i32
@@ -1024,7 +1024,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   %167 = zext i8 %166 to i32
   %168 = mul nuw nsw i32 %167, %164
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %168, ptr %169, align 8, !tbaa !18
+  store i32 %168, ptr %169, align 8, !tbaa !19
   br label %.critedge.sink.split
 
 170:                                              ; preds = %126
@@ -1072,14 +1072,14 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   %194 = load i16, ptr %193, align 1
   %195 = zext i16 %194 to i32
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %195, ptr %196, align 8, !tbaa !15
+  store i32 %195, ptr %196, align 8, !tbaa !16
   %197 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %198 = load i16, ptr %197, align 1
   %199 = zext i16 %198 to i32
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %199, ptr %200, align 4, !tbaa !16
+  store i32 %199, ptr %200, align 4, !tbaa !17
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 24, ptr %201, align 8, !tbaa !18
+  store i32 24, ptr %201, align 8, !tbaa !19
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %203 = load i8, ptr %202, align 1, !tbaa !9
   %204 = and i8 %203, 7
@@ -1091,7 +1091,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
 .critedge.sink.split:                             ; preds = %44, %.loopexit.sink.split, %192, %143, %106
   %.sink271 = phi i32 [ %107, %106 ], [ 0, %143 ], [ %206, %192 ], [ 0, %.loopexit.sink.split ], [ 0, %44 ]
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.sink271, ptr %207, align 4, !tbaa !19
+  store i32 %.sink271, ptr %207, align 4, !tbaa !20
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %171, %170, %120, %.preheader.preheader, %108, %20, %.critedge.sink.split, %13, %10, %12, %186, %191, %131, %130, %113, %115
@@ -1145,24 +1145,25 @@ attributes #14 = { nounwind allocsize(0) }
 !10 = !{!11, !12, i64 0}
 !11 = !{!"", !12, i64 0, !5, i64 8, !5, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !5, i64 48}
 !12 = !{!"int", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!11, !12, i64 24}
-!16 = !{!11, !12, i64 28}
-!17 = distinct !{!17, !14}
-!18 = !{!11, !12, i64 32}
-!19 = !{!11, !12, i64 36}
-!20 = distinct !{!20, !14}
-!21 = !{!12, !12, i64 0}
-!22 = !{!23, !12, i64 8}
-!23 = !{!"FLAC__StreamMetadata", !12, i64 0, !12, i64 4, !12, i64 8, !7, i64 16}
-!24 = !{!25, !12, i64 0}
-!25 = !{!"PictureResolution", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12}
-!26 = !{!25, !12, i64 4}
-!27 = !{!25, !12, i64 8}
-!28 = !{!25, !12, i64 12}
-!29 = !{!11, !5, i64 48}
-!30 = !{!11, !12, i64 40}
-!31 = !{!11, !5, i64 8}
-!32 = distinct !{!32, !14}
-!33 = distinct !{!33, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!11, !12, i64 24}
+!17 = !{!11, !12, i64 28}
+!18 = distinct !{!18, !14, !15}
+!19 = !{!11, !12, i64 32}
+!20 = !{!11, !12, i64 36}
+!21 = distinct !{!21, !14, !15}
+!22 = !{!12, !12, i64 0}
+!23 = !{!24, !12, i64 8}
+!24 = !{!"FLAC__StreamMetadata", !12, i64 0, !12, i64 4, !12, i64 8, !7, i64 16}
+!25 = !{!26, !12, i64 0}
+!26 = !{!"PictureResolution", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12}
+!27 = !{!26, !12, i64 4}
+!28 = !{!26, !12, i64 8}
+!29 = !{!26, !12, i64 12}
+!30 = !{!11, !5, i64 48}
+!31 = !{!11, !12, i64 40}
+!32 = !{!11, !5, i64 8}
+!33 = distinct !{!33, !15}
+!34 = distinct !{!34, !14, !15}

@@ -51,7 +51,7 @@ _ZN12actix_router6quoter11AsciiBitmap7set_bit17hc49d8f36105148d1E.exit: ; preds 
   store i8 %25, ptr %23, align 1
   %26 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde1bdfa01caa1a22E"(ptr nonnull align 8 %7)
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %._crit_edge, label %.lr.ph
+  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -76,14 +76,14 @@ define void @_ZN12actix_router6quoter6Quoter7requote17h0f7b2ad503a8c37dE(ptr wri
   %14 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17ha0c0a32dac252f31E"(i64 %.sroa.01.0.i1070, i64 1)
   call void @llvm.assume(i1 %8)
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h5a5857dd9afe3f25E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr nonnull align 1 %2, i64 %3, i64 %.sroa.01.0.i1070, ptr nonnull align 8 @anon.4f8d80af8df40338868d006e3e6bb169.2)
-  %15 = load ptr, ptr %9, align 8, !nonnull !3, !align !5, !noundef !3
+  %15 = load ptr, ptr %9, align 8, !nonnull !3, !align !7, !noundef !3
   %16 = load i64, ptr %10, align 8, !noundef !3
   %17 = icmp ugt i64 %16, 2
   br i1 %17, label %18, label %.backedge55
 
 .backedge55:                                      ; preds = %13, %18, %_ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit
   %.not.i11 = icmp ult i64 %14, %3
-  br i1 %.not.i11, label %13, label %._crit_edge
+  br i1 %.not.i11, label %13, label %._crit_edge, !llvm.loop !8
 
 18:                                               ; preds = %13
   %19 = load i8, ptr %15, align 1, !noundef !3
@@ -91,7 +91,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17h0f7b2ad503a8c37dE(ptr wri
   br i1 %20, label %21, label %.backedge55
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
+  %22 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
   %23 = load i64, ptr %11, align 8, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %25 = load i8, ptr %24, align 1, !noundef !3
@@ -195,14 +195,14 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %.noexc
-  %57 = load ptr, ptr %52, align 8, !nonnull !3, !align !5, !noundef !3
+  %57 = load ptr, ptr %52, align 8, !nonnull !3, !align !7, !noundef !3
   %58 = load i64, ptr %53, align 8, !noundef !3
   %59 = icmp ugt i64 %58, 2
   br i1 %59, label %60, label %.backedge
 
 .backedge:                                        ; preds = %.noexc7, %60, %.noexc9
   %.not.i = icmp ult i64 %56, %.sroa.6.0
-  br i1 %.not.i, label %.lr.ph74, label %._crit_edge75
+  br i1 %.not.i, label %.lr.ph74, label %._crit_edge75, !llvm.loop !8
 
 60:                                               ; preds = %.noexc7
   %61 = load i8, ptr %57, align 1, !noundef !3
@@ -210,7 +210,7 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
   br i1 %62, label %63, label %.backedge
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr %6, align 8, !nonnull !3, !align !5, !noundef !3
+  %64 = load ptr, ptr %6, align 8, !nonnull !3, !align !7, !noundef !3
   %65 = load i64, ptr %54, align 8, !noundef !3
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %67 = load i8, ptr %66, align 1, !noundef !3
@@ -267,7 +267,7 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
 
 89:                                               ; preds = %90, %86
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf605a0ff206a26c2E"(ptr nonnull align 8 %7, i8 %87)
-          to label %55 unwind label %.loopexit.split-lp.loopexit
+          to label %55 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !9
 
 90:                                               ; preds = %86
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h291d18f3299bf193E"(ptr nonnull align 8 %7, ptr nonnull align 1 %64, i64 %65)
@@ -296,7 +296,7 @@ define void @_ZN12actix_router6quoter6Quoter17requote_str_lossy17h67379eef7d7509
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   call void @_ZN12actix_router6quoter6Quoter7requote17h0f7b2ad503a8c37dE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %7, ptr align 1 %1, ptr align 1 %2, i64 %3)
-  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !10, !noundef !3
   %9 = icmp eq i64 %8, -9223372036854775808
   br i1 %9, label %10, label %11
 
@@ -408,5 +408,9 @@ attributes #9 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!5 = !{i64 1}
-!6 = !{i64 0, i64 -9223372036854775807}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i64 1}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = !{i64 0, i64 -9223372036854775807}

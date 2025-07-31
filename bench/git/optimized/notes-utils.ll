@@ -618,7 +618,7 @@ define dso_local void @finish_copy_notes_for_rewrite(ptr noundef %0, ptr noundef
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.lcssa = phi ptr [ %4, %3 ], [ %13, %.lr.ph ]
@@ -724,6 +724,7 @@ attributes #14 = { nounwind willreturn memory(read) }
 !39 = !{!28, !29, i64 0}
 !40 = !{!41, !41, i64 0}
 !41 = !{!"p1 _ZTS10notes_tree", !6, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !43, !44}

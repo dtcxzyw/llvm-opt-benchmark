@@ -147,7 +147,7 @@ DependencyGenerator_next.exit:                    ; preds = %DependencyGenerator
   call void @multi_sort_add_dimension(ptr noundef %38, i32 noundef %67, i32 noundef %57, i32 noundef %66) #8
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count.i
-  br i1 %exitcond81.not.i, label %._crit_edge.i, label %.lr.ph65.i, !llvm.loop !6
+  br i1 %exitcond81.not.i, label %._crit_edge.i, label %.lr.ph65.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %64, %36
   %68 = call ptr @build_sorted_items(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %38, i32 noundef %.03855, ptr noundef %39) #8
@@ -195,7 +195,7 @@ DependencyGenerator_next.exit:                    ; preds = %DependencyGenerator
   %87 = add i32 %.270.i, 1
   %88 = load i32, ptr %2, align 4
   %.not.i = icmp sgt i32 %87, %88
-  br i1 %.not.i, label %._crit_edge74.loopexit.i, label %.lr.ph73.i, !llvm.loop !7
+  br i1 %.not.i, label %._crit_edge74.loopexit.i, label %.lr.ph73.i, !llvm.loop !8
 
 ._crit_edge74.loopexit.i:                         ; preds = %86
   %89 = sitofp i32 %.252.i to double
@@ -210,7 +210,7 @@ dependency_degree.exit:                           ; preds = %._crit_edge.i, %._c
   store ptr %37, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextReset(ptr noundef %4) #8
   %93 = fcmp oeq double %92, 0.000000e+00
-  br i1 %93, label %125, label %94, !llvm.loop !8
+  br i1 %93, label %125, label %94, !llvm.loop !9
 
 94:                                               ; preds = %dependency_degree.exit
   %95 = call ptr @palloc0(i64 noundef %27) #8
@@ -235,7 +235,7 @@ dependency_degree.exit:                           ; preds = %._crit_edge.i, %._c
   store i16 %104, ptr %105, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %98, %94
   %106 = icmp eq ptr %.151, null
@@ -280,7 +280,7 @@ dependency_degree.exit:                           ; preds = %._crit_edge.i, %._c
   %127 = load i16, ptr %16, align 4
   %128 = sext i16 %127 to i32
   %129 = icmp eq i32 %126, %128
-  br i1 %129, label %DependencyGenerator_next.exit.thread, label %DependencyGenerator_next.exit
+  br i1 %129, label %DependencyGenerator_next.exit.thread, label %DependencyGenerator_next.exit, !llvm.loop !11
 
 DependencyGenerator_next.exit.thread:             ; preds = %DependencyGenerator_next.exit, %125, %9
   %.1.lcssa = phi ptr [ %.03954, %9 ], [ %.2, %125 ], [ %.151, %DependencyGenerator_next.exit ]
@@ -290,7 +290,7 @@ DependencyGenerator_next.exit.thread:             ; preds = %DependencyGenerator
   %131 = add i32 %.03855, 1
   %132 = load i32, ptr %5, align 4
   %.not = icmp sgt i32 %131, %132
-  br i1 %.not, label %._crit_edge58, label %9, !llvm.loop !10
+  br i1 %.not, label %._crit_edge58, label %9, !llvm.loop !12
 
 ._crit_edge58:                                    ; preds = %DependencyGenerator_next.exit.thread, %1
   %.039.lcssa = phi ptr [ null, %1 ], [ %.1.lcssa, %DependencyGenerator_next.exit.thread ]
@@ -339,7 +339,7 @@ define dso_local noundef ptr @statext_dependencies_serialize(ptr noundef readonl
   %14 = add i64 %13, %12
   %15 = add nuw i32 %.038, 1
   %exitcond.not = icmp eq i32 %15, %3
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %5, %1
   %.035.lcssa = phi i64 [ 16, %1 ], [ %14, %5 ]
@@ -391,7 +391,7 @@ define dso_local noundef ptr @statext_dependencies_serialize(ptr noundef readonl
   %46 = add nuw i32 %.140, 1
   %47 = load i32, ptr %2, align 8
   %48 = icmp ult i32 %46, %47
-  br i1 %48, label %29, label %._crit_edge43, !llvm.loop !12
+  br i1 %48, label %29, label %._crit_edge43, !llvm.loop !14
 
 ._crit_edge43:                                    ; preds = %29, %._crit_edge
   ret ptr %16
@@ -664,7 +664,7 @@ define dso_local ptr @statext_dependencies_deserialize(ptr noundef readonly capt
   %159 = add nuw i32 %.073100, 1
   %160 = load i32, ptr %144, align 8
   %161 = icmp ult i32 %159, %160
-  br i1 %161, label %147, label %.loopexit, !llvm.loop !13
+  br i1 %161, label %147, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %147, %139, %1
   %.0 = phi ptr [ null, %1 ], [ %143, %139 ], [ %143, %147 ]
@@ -697,7 +697,7 @@ define dso_local ptr @statext_dependencies_load(i32 noundef %0, i1 noundef zeroe
 
 10:                                               ; preds = %2
   %11 = call i64 @SysCacheGetAttr(i32 noundef 62, ptr noundef nonnull %6, i16 noundef signext 4, ptr noundef nonnull %3) #8
-  %12 = load i8, ptr %3, align 1, !range !14, !noundef !15
+  %12 = load i8, ptr %3, align 1, !range !16, !noundef !17
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %17
 
@@ -810,7 +810,7 @@ define dso_local i64 @pg_dependencies_out(ptr noundef readonly captures(none) %0
   %34 = sext i16 %33 to i64
   %35 = sext i16 %33 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %23, label %._crit_edge, !llvm.loop !16
+  br i1 %36, label %23, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %29, %17
   %37 = load double, ptr %14, align 8
@@ -818,7 +818,7 @@ define dso_local i64 @pg_dependencies_out(ptr noundef readonly captures(none) %0
   %38 = add nuw i32 %.019, 1
   %39 = load i32, ptr %8, align 8
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %11, label %._crit_edge22, !llvm.loop !17
+  br i1 %40, label %11, label %._crit_edge22, !llvm.loop !19
 
 ._crit_edge22:                                    ; preds = %._crit_edge, %1
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #8
@@ -981,7 +981,7 @@ list_length.exit264.lr.ph:                        ; preds = %89, %.lr.ph315
 79:                                               ; preds = %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %thread-pre-split.thread, label %75, !llvm.loop !18
+  br i1 %exitcond.not, label %thread-pre-split.thread, label %75, !llvm.loop !20
 
 thread-pre-split:                                 ; preds = %75
   %80 = trunc i64 %indvars.iv to i16
@@ -1111,8 +1111,8 @@ list_length.exit266:                              ; preds = %110, %112
 
 134:                                              ; preds = %.lr.ph478
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %136 = load i8, ptr %135, align 8, !range !14, !noundef !15
-  %137 = load i8, ptr %122, align 8, !range !14, !noundef !15
+  %136 = load i8, ptr %135, align 8, !range !16, !noundef !17
+  %137 = load i8, ptr %122, align 8, !range !16, !noundef !17
   %.not246 = icmp eq i8 %136, %137
   br i1 %.not246, label %.preheader305, label %253
 
@@ -1138,7 +1138,7 @@ list_length.exit266:                              ; preds = %110, %112
   %.0220327 = phi i32 [ %.1221, %153 ], [ 0, %.preheader305 ]
   %146 = trunc i32 %145 to i16
   %147 = icmp sgt i16 %146, 0
-  br i1 %147, label %148, label %153, !llvm.loop !19
+  br i1 %147, label %148, label %153, !llvm.loop !21
 
 148:                                              ; preds = %.lr.ph328
   %149 = add nsw i32 %145, %.0215442
@@ -1154,7 +1154,7 @@ list_length.exit266:                              ; preds = %110, %112
   %154 = load ptr, ptr %138, align 8
   %155 = tail call i32 @bms_next_member(ptr noundef %154, i32 noundef %145) #8
   %156 = icmp sgt i32 %155, -1
-  br i1 %156, label %.lr.ph328, label %.preheader
+  br i1 %156, label %.lr.ph328, label %.preheader, !llvm.loop !22
 
 .lr.ph344.splitthread-pre-split:                  ; preds = %.critedge257
   %.pr = load ptr, ptr %142, align 8
@@ -1195,7 +1195,7 @@ list_length.exit266:                              ; preds = %110, %112
   %.1218.lcssa = phi i32 [ %.0217342, %.lr.ph344.split ], [ %.0217342, %.lr.ph332 ], [ %.2219, %.lr.ph340 ]
   %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 1
   %exitcond418.not = icmp eq i64 %indvars.iv.next415, %wide.trip.count417
-  br i1 %exitcond418.not, label %._crit_edge, label %.lr.ph344.splitthread-pre-split, !llvm.loop !20
+  br i1 %exitcond418.not, label %._crit_edge, label %.lr.ph344.splitthread-pre-split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.critedge257, %.lr.ph344, %.preheader
   %.0217.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph344 ], [ %.1218.lcssa, %.critedge257 ]
@@ -1206,7 +1206,7 @@ list_length.exit266:                              ; preds = %110, %112
 174:                                              ; preds = %._crit_edge
   %175 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %176 = load i32, ptr %175, align 4
-  %177 = load i8, ptr %122, align 8, !range !14, !noundef !15
+  %177 = load i8, ptr %122, align 8, !range !16, !noundef !17
   %178 = trunc nuw i8 %177 to i1
   %179 = tail call ptr @statext_dependencies_load(i32 noundef %176, i1 noundef zeroext %178)
   br i1 %104, label %183, label %180
@@ -1275,7 +1275,7 @@ list_length.exit266:                              ; preds = %110, %112
 209:                                              ; preds = %205
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
   %exitcond425.not = icmp eq i64 %indvars.iv.next422, %wide.trip.count424
-  br i1 %exitcond425.not, label %.thread290, label %205, !llvm.loop !22
+  br i1 %exitcond425.not, label %.thread290, label %205, !llvm.loop !25
 
 210:                                              ; preds = %205
   %211 = trunc nuw nsw i64 %indvars.iv421 to i32
@@ -1301,7 +1301,7 @@ list_length.exit266:                              ; preds = %110, %112
   %221 = load i16, ptr %192, align 8
   %222 = sext i16 %221 to i64
   %223 = icmp slt i64 %indvars.iv.next427, %222
-  br i1 %223, label %.lr.ph354.split.us, label %.critedge390, !llvm.loop !23
+  br i1 %223, label %.lr.ph354.split.us, label %.critedge390, !llvm.loop !26
 
 .lr.ph354.split:                                  ; preds = %.lr.ph354, %231
   %indvars.iv419 = phi i64 [ %indvars.iv.next420, %231 ], [ 0, %.lr.ph354 ]
@@ -1322,7 +1322,7 @@ list_length.exit266:                              ; preds = %110, %112
   %232 = load i16, ptr %192, align 8
   %233 = sext i16 %232 to i64
   %234 = icmp slt i64 %indvars.iv.next420, %233
-  br i1 %234, label %.lr.ph354.split, label %.critedge390, !llvm.loop !25
+  br i1 %234, label %.lr.ph354.split, label %.critedge390, !llvm.loop !28
 
 .critedge390:                                     ; preds = %231, %220, %188
   %.not249 = icmp eq i32 %.0203365, %.3213364
@@ -1344,7 +1344,7 @@ list_length.exit266:                              ; preds = %110, %112
   %241 = add nuw i32 %.3213364, 1
   %242 = load i32, ptr %184, align 8
   %243 = icmp ult i32 %241, %242
-  br i1 %243, label %188, label %._crit_edge369, !llvm.loop !26
+  br i1 %243, label %188, label %._crit_edge369, !llvm.loop !29
 
 ._crit_edge369:                                   ; preds = %.thread290, %183
   %.0203.lcssa = phi i32 [ 0, %183 ], [ %.1204, %.thread290 ]
@@ -1454,7 +1454,7 @@ list_length.exit266:                              ; preds = %110, %112
   %290 = load i16, ptr %271, align 8
   %291 = sext i16 %290 to i64
   %.not.i.i = icmp slt i64 %indvars.iv.next.i.i, %291
-  br i1 %.not.i.i, label %292, label %dependency_is_fully_matched.exit.loopexit.i, !llvm.loop !27
+  br i1 %.not.i.i, label %292, label %dependency_is_fully_matched.exit.loopexit.i, !llvm.loop !30
 
 292:                                              ; preds = %289, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %289 ]
@@ -1476,13 +1476,13 @@ dependency_is_fully_matched.exit.i:               ; preds = %dependency_is_fully
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %300 = load i32, ptr %299, align 8
   %301 = icmp ult i32 %298, %300
-  br i1 %301, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !28
+  br i1 %301, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %dependency_is_fully_matched.exit.i, %.preheader.i
   %.1.lcssa.i = phi ptr [ %.02430.i, %.preheader.i ], [ %.2.i, %dependency_is_fully_matched.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %find_strongest_dependency.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %find_strongest_dependency.exit, label %.preheader.i, !llvm.loop !32
 
 find_strongest_dependency.exit:                   ; preds = %._crit_edge.i
   %.not243 = icmp eq ptr %.1.lcssa.i, null
@@ -1542,13 +1542,13 @@ find_strongest_dependency.exit.thread:            ; preds = %find_strongest_depe
   %331 = load i16, ptr %330, align 8
   %332 = sext i16 %331 to i64
   %333 = icmp slt i64 %indvars.iv.next.i277, %332
-  br i1 %333, label %.lr.ph.i275, label %._crit_edge.i272, !llvm.loop !30
+  br i1 %333, label %.lr.ph.i275, label %._crit_edge.i272, !llvm.loop !33
 
 ._crit_edge.i272:                                 ; preds = %.lr.ph.i275, %.preheader105.i
   %.1.lcssa.i273 = phi ptr [ %.0109.i, %.preheader105.i ], [ %328, %.lr.ph.i275 ]
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
   %exitcond.not.i274 = icmp eq i64 %indvars.iv.next147.i, %wide.trip.count.i271
-  br i1 %exitcond.not.i274, label %._crit_edge110.i, label %.preheader105.i, !llvm.loop !31
+  br i1 %exitcond.not.i274, label %._crit_edge110.i, label %.preheader105.i, !llvm.loop !34
 
 ._crit_edge110.i:                                 ; preds = %._crit_edge.i272, %316
   %.0.lcssa.i = phi ptr [ null, %316 ], [ %.1.lcssa.i273, %._crit_edge.i272 ]
@@ -1574,7 +1574,7 @@ find_strongest_dependency.exit.thread:            ; preds = %find_strongest_depe
   store double %342, ptr %345, align 8
   %346 = tail call i32 @bms_next_member(ptr noundef %.0.lcssa.i, i32 noundef %341) #8
   %347 = icmp sgt i32 %346, -1
-  br i1 %347, label %.preheader104.us.i, label %.preheader103.i, !llvm.loop !32
+  br i1 %347, label %.preheader104.us.i, label %.preheader103.i, !llvm.loop !35
 
 .preheader104.i:                                  ; preds = %.preheader104.lr.ph.i, %..critedge_crit_edge117.split.i
   %348 = phi i32 [ %362, %..critedge_crit_edge117.split.i ], [ %338, %.preheader104.lr.ph.i ]
@@ -1613,7 +1613,7 @@ find_strongest_dependency.exit.thread:            ; preds = %find_strongest_depe
   store double %358, ptr %361, align 8
   %362 = tail call i32 @bms_next_member(ptr noundef %.0.lcssa.i, i32 noundef %348) #8
   %363 = icmp sgt i32 %362, -1
-  br i1 %363, label %.preheader104.i, label %.preheader103.i, !llvm.loop !33
+  br i1 %363, label %.preheader104.i, label %.preheader103.i, !llvm.loop !36
 
 364:                                              ; preds = %.lr.ph123.i
   %365 = load ptr, ptr %340, align 8
@@ -1672,7 +1672,7 @@ find_strongest_dependency.exit.thread:            ; preds = %find_strongest_depe
   %393 = sext i16 %392 to i64
   %394 = add nsw i64 %393, -1
   %395 = icmp slt i64 %indvars.iv.next157.i, %394
-  br i1 %395, label %383, label %._crit_edge130.loopexit.i, !llvm.loop !34
+  br i1 %395, label %383, label %._crit_edge130.loopexit.i, !llvm.loop !37
 
 ._crit_edge130.loopexit.i:                        ; preds = %383
   %396 = and i64 %indvars.iv.next157.i, 4294967295
@@ -1699,7 +1699,7 @@ find_strongest_dependency.exit.thread:            ; preds = %find_strongest_depe
   store double %410, ptr %403, align 8
   %indvars.iv.next160.i = add nsw i64 %indvars.iv159.i, -1
   %411 = icmp sgt i64 %indvars.iv159.i, 0
-  br i1 %411, label %.lr.ph135.i, label %.preheader.i268, !llvm.loop !35
+  br i1 %411, label %.lr.ph135.i, label %.preheader.i268, !llvm.loop !38
 
 .lr.ph138.i:                                      ; preds = %.lr.ph138.i, %.lr.ph138.preheader.i
   %indvars.iv162.i = phi i64 [ 0, %.lr.ph138.preheader.i ], [ %indvars.iv.next163.i, %.lr.ph138.i ]
@@ -1709,7 +1709,7 @@ find_strongest_dependency.exit.thread:            ; preds = %find_strongest_depe
   %414 = fmul double %.193136.i, %413
   %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 1
   %exitcond166.not.i = icmp eq i64 %indvars.iv.next163.i, %wide.trip.count165.i
-  br i1 %exitcond166.not.i, label %._crit_edge139.i, label %.lr.ph138.i, !llvm.loop !36
+  br i1 %exitcond166.not.i, label %._crit_edge139.i, label %.lr.ph138.i, !llvm.loop !39
 
 ._crit_edge139.i:                                 ; preds = %.lr.ph138.i
   %415 = fcmp olt double %414, 0.000000e+00
@@ -1740,7 +1740,7 @@ clauselist_apply_dependencies.exit:               ; preds = %.preheader.i268, %.
   tail call void @pfree(ptr noundef %420) #8
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count434
-  br i1 %exitcond435.not, label %._crit_edge389, label %.lr.ph388, !llvm.loop !37
+  br i1 %exitcond435.not, label %._crit_edge389, label %.lr.ph388, !llvm.loop !40
 
 ._crit_edge389:                                   ; preds = %.lr.ph388, %257
   %.0189452 = phi double [ 1.000000e+00, %257 ], [ %.0189, %.lr.ph388 ]
@@ -1777,7 +1777,7 @@ define internal fastcc noundef zeroext i1 @dependency_is_compatible_clause(ptr n
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %9 = load i8, ptr %8, align 2, !range !14, !noundef !15
+  %9 = load i8, ptr %8, align 2, !range !16, !noundef !17
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %.critedge, label %11
 
@@ -1854,7 +1854,7 @@ list_length.exit:                                 ; preds = %19
 is_opclause.exit.thread.thread:                   ; preds = %is_opclause.exit, %15
   %.055100102124 = phi ptr [ null, %15 ], [ %.05599, %is_opclause.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %.055100102124, i64 20
-  %43 = load i8, ptr %42, align 4, !range !14, !noundef !15
+  %43 = load i8, ptr %42, align 4, !range !16, !noundef !17
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %.critedge
 
@@ -2014,7 +2014,7 @@ define internal fastcc noundef zeroext i1 @dependency_is_compatible_expression(p
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %9 = load i8, ptr %8, align 2, !range !14, !noundef !15
+  %9 = load i8, ptr %8, align 2, !range !16, !noundef !17
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %.critedge, label %11
 
@@ -2091,7 +2091,7 @@ list_length.exit:                                 ; preds = %19
 is_opclause.exit.thread.thread:                   ; preds = %is_opclause.exit, %15
   %.078135137197 = phi ptr [ null, %15 ], [ %.078134, %is_opclause.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %.078135137197, i64 20
-  %43 = load i8, ptr %42, align 4, !range !14, !noundef !15
+  %43 = load i8, ptr %42, align 4, !range !16, !noundef !17
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %.critedge
 
@@ -2328,7 +2328,7 @@ define internal fastcc void @generate_dependencies_recurse(ptr noundef captures(
 17:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..critedge_crit_edge.us, label %18, !llvm.loop !38
+  br i1 %exitcond.not, label %..critedge_crit_edge.us, label %18, !llvm.loop !41
 
 18:                                               ; preds = %.lr.ph.us, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %17 ]
@@ -2342,7 +2342,7 @@ define internal fastcc void @generate_dependencies_recurse(ptr noundef captures(
   %23 = add nuw nsw i32 %.03644.us, 1
   %24 = load i32, ptr %8, align 4
   %25 = icmp slt i32 %23, %24
-  br i1 %25, label %.lr.ph.us, label %.loopexit, !llvm.loop !39
+  br i1 %25, label %.lr.ph.us, label %.loopexit, !llvm.loop !42
 
 ..critedge_crit_edge.us:                          ; preds = %17
   %26 = load ptr, ptr %14, align 8
@@ -2389,7 +2389,7 @@ define internal fastcc void @generate_dependencies_recurse(ptr noundef captures(
   %53 = sext i16 %52 to i32
   %54 = load i32, ptr %8, align 4
   %55 = icmp sgt i32 %54, %53
-  br i1 %55, label %51, label %.loopexit, !llvm.loop !40
+  br i1 %55, label %51, label %.loopexit, !llvm.loop !43
 
 .critedge:                                        ; preds = %.lr.ph46, %.critedge
   %.03644 = phi i32 [ %76, %.critedge ], [ 0, %.lr.ph46 ]
@@ -2420,7 +2420,7 @@ define internal fastcc void @generate_dependencies_recurse(ptr noundef captures(
   %76 = add nuw nsw i32 %.03644, 1
   %77 = load i32, ptr %8, align 4
   %78 = icmp slt i32 %76, %77
-  br i1 %78, label %.critedge, label %.loopexit, !llvm.loop !41
+  br i1 %78, label %.critedge, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit40.us, %51, %.preheader41, %.preheader
   ret void
@@ -2473,41 +2473,44 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5, !21}
-!21 = !{!"llvm.loop.unswitch.partial.disable"}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5, !24}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5, !24}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !5, !6, !24}
+!24 = !{!"llvm.loop.unswitch.partial.disable"}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6, !27}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6}
+!42 = distinct !{!42, !5, !6, !27}
+!43 = distinct !{!43, !5, !6}
+!44 = distinct !{!44, !5, !6}

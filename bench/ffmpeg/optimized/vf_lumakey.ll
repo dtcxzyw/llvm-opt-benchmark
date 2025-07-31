@@ -352,7 +352,7 @@ define internal noundef i32 @do_lumakey_slice8(ptr noundef readonly captures(non
   %73 = getelementptr inbounds i8, ptr %.06070, i64 %72
   %74 = add nsw i32 %.071, 1
   %exitcond.not = icmp eq i32 %74, %13
-  br i1 %exitcond.not, label %._crit_edge72, label %.preheader, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge72, label %.preheader, !llvm.loop !59
 
 ._crit_edge72:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %4
   ret i32 0
@@ -419,7 +419,7 @@ define internal noundef i32 @do_lumakey_slice16(ptr noundef readonly captures(no
 46:                                               ; preds = %.preheader.us, %66
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %66 ]
   %47 = getelementptr inbounds nuw i16, ptr %.06573.us, i64 %indvars.iv
-  %48 = load i16, ptr %47, align 2, !tbaa !60
+  %48 = load i16, ptr %47, align 2, !tbaa !61
   %49 = zext i16 %48 to i32
   %.not.us = icmp sgt i32 %19, %49
   %.not69.us = icmp slt i32 %17, %49
@@ -453,20 +453,20 @@ define internal noundef i32 @do_lumakey_slice16(ptr noundef readonly captures(no
 .sink.split:                                      ; preds = %46, %54, %59
   %.sink = phi i16 [ %64, %59 ], [ %58, %54 ], [ 0, %46 ]
   %65 = getelementptr inbounds nuw i16, ptr %.06474.us, i64 %indvars.iv
-  store i16 %.sink, ptr %65, align 2, !tbaa !60
+  store i16 %.sink, ptr %65, align 2, !tbaa !61
   br label %66
 
 66:                                               ; preds = %.sink.split, %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %46, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge.us, label %46, !llvm.loop !63
 
 ._crit_edge.us:                                   ; preds = %66
   %67 = getelementptr inbounds i16, ptr %.06573.us, i64 %34
   %68 = getelementptr inbounds i16, ptr %.06474.us, i64 %36
   %69 = add nsw i32 %.075.us, 1
   %exitcond79.not = icmp eq i32 %69, %13
-  br i1 %exitcond79.not, label %._crit_edge76, label %.preheader.us, !llvm.loop !63
+  br i1 %exitcond79.not, label %._crit_edge76, label %.preheader.us, !llvm.loop !64
 
 ._crit_edge76:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -545,12 +545,13 @@ attributes #6 = { nounwind willreturn memory(read) }
 !53 = !{!11, !11, i64 0}
 !54 = !{!15, !15, i64 0}
 !55 = !{!8, !8, i64 0}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = distinct !{!58, !57, !59}
-!59 = !{!"llvm.loop.unswitch.partial.disable"}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"short", !8, i64 0}
-!62 = distinct !{!62, !57}
-!63 = distinct !{!63, !57, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = distinct !{!59, !57, !58, !60}
+!60 = !{!"llvm.loop.unswitch.partial.disable"}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"short", !8, i64 0}
+!63 = distinct !{!63, !57, !58}
+!64 = distinct !{!64, !57, !58, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}

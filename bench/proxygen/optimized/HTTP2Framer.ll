@@ -674,7 +674,7 @@ if.then.i.i:                                      ; preds = %if.else.i
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit: ; preds = %if.then.i, %if.else.i
   %sub = sub i8 %length.addr.014, %conv3
   %cmp.not = icmp eq i8 %sub, 0
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !9
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !10
 
 return:                                           ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4peekEv.exit, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit, %entry
   %retval.0 = phi i8 [ 0, %entry ], [ 0, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit ], [ 1, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4peekEv.exit ]
@@ -1003,7 +1003,7 @@ if.then.i.i:                                      ; preds = %if.end53
           to label %call.i.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i
-  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i12) #25, !noalias !10
+  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i12) #25, !noalias !11
   %21 = load ptr, ptr %outBuf, align 8
   store ptr %call.i.i.i12, ptr %outBuf, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %21, null
@@ -1353,7 +1353,7 @@ if.then.i.i:                                      ; preds = %if.end70
           to label %call.i.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i
-  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i27) #25, !noalias !13
+  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i27) #25, !noalias !14
   %31 = load ptr, ptr %outBuf, align 8
   store ptr %call.i.i.i27, ptr %outBuf, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %31, null
@@ -1653,7 +1653,7 @@ if.else.i.i25:                                    ; preds = %invoke.cont38
 for.inc:                                          ; preds = %if.then.i.i24, %if.else.i.i25
   %sub = add i32 %length28.028, -6
   %cmp30.not = icmp eq i32 %sub, 0
-  br i1 %cmp30.not, label %return, label %for.body, !llvm.loop !16
+  br i1 %cmp30.not, label %return, label %for.body, !llvm.loop !17
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.end23, %if.then18, %entry
   %retval.0 = phi i8 [ 1, %entry ], [ %., %if.then18 ], [ 6, %if.end23 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
@@ -1856,7 +1856,7 @@ if.then.i.i:                                      ; preds = %if.end53
           to label %call.i.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i
-  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i26) #25, !noalias !17
+  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i26) #25, !noalias !18
   %23 = load ptr, ptr %outBuf, align 8
   store ptr %call.i.i.i26, ptr %outBuf, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %23, null
@@ -2109,7 +2109,7 @@ if.then.i.i:                                      ; preds = %if.then52
           to label %call.i.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i
-  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i27) #25, !noalias !20
+  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i27) #25, !noalias !21
   %22 = load ptr, ptr %outDebugData, align 8
   store ptr %call.i.i.i27, ptr %outDebugData, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %22, null
@@ -2235,7 +2235,7 @@ if.then.i.i:                                      ; preds = %if.end
           to label %call.i.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i
-  tail call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i2) #25, !noalias !23
+  tail call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i2) #25, !noalias !24
   %3 = load ptr, ptr %outBuf, align 8
   store ptr %call.i.i.i2, ptr %outBuf, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -2401,8 +2401,8 @@ if.end29:                                         ; preds = %invoke.cont23
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.end29
-  %23 = load ptr, ptr %crtEnd_.i.i, align 8, !noalias !26
-  %24 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !26
+  %23 = load ptr, ptr %crtEnd_.i.i, align 8, !noalias !27
+  %24 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !27
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2414,9 +2414,9 @@ invoke.cont3.i:                                   ; preds = %invoke.cont2.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont3.i
-  %25 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !26
+  %25 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !27
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 %conv31
-  store ptr %add.ptr.i, ptr %crtPos_.i.i, align 8, !noalias !26
+  store ptr %add.ptr.i, ptr %crtPos_.i.i, align 8, !noalias !27
   br label %invoke.cont32
 
 lpad.i:                                           ; preds = %if.else.i, %invoke.cont3.i, %if.end29
@@ -2482,8 +2482,8 @@ if.end43:                                         ; preds = %invoke.cont34
           to label %invoke.cont2.i63 unwind label %lpad.i62
 
 invoke.cont2.i63:                                 ; preds = %if.end43
-  %34 = load ptr, ptr %crtEnd_.i.i, align 8, !noalias !29
-  %35 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !29
+  %34 = load ptr, ptr %crtEnd_.i.i, align 8, !noalias !30
+  %35 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !30
   %sub.ptr.lhs.cast.i.i66 = ptrtoint ptr %34 to i64
   %sub.ptr.rhs.cast.i.i67 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i68 = sub i64 %sub.ptr.lhs.cast.i.i66, %sub.ptr.rhs.cast.i.i67
@@ -2495,9 +2495,9 @@ invoke.cont3.i70:                                 ; preds = %invoke.cont2.i63
           to label %invoke.cont5.i72 unwind label %lpad.i62
 
 invoke.cont5.i72:                                 ; preds = %invoke.cont3.i70
-  %36 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !29
+  %36 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !30
   %add.ptr.i73 = getelementptr inbounds nuw i8, ptr %36, i64 %conv45
-  store ptr %add.ptr.i73, ptr %crtPos_.i.i, align 8, !noalias !29
+  store ptr %add.ptr.i73, ptr %crtPos_.i.i, align 8, !noalias !30
   br label %invoke.cont46
 
 lpad.i62:                                         ; preds = %if.else.i74, %invoke.cont3.i70, %if.end43
@@ -2521,8 +2521,8 @@ invoke.cont46:                                    ; preds = %if.else.i74, %invok
           to label %invoke.cont2.i79 unwind label %lpad.i78
 
 invoke.cont2.i79:                                 ; preds = %invoke.cont46
-  %39 = load ptr, ptr %crtEnd_.i.i, align 8, !noalias !32
-  %40 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !32
+  %39 = load ptr, ptr %crtEnd_.i.i, align 8, !noalias !33
+  %40 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !33
   %sub.ptr.lhs.cast.i.i82 = ptrtoint ptr %39 to i64
   %sub.ptr.rhs.cast.i.i83 = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i.i84 = sub i64 %sub.ptr.lhs.cast.i.i82, %sub.ptr.rhs.cast.i.i83
@@ -2534,9 +2534,9 @@ invoke.cont3.i86:                                 ; preds = %invoke.cont2.i79
           to label %invoke.cont5.i88 unwind label %lpad.i78
 
 invoke.cont5.i88:                                 ; preds = %invoke.cont3.i86
-  %41 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !32
+  %41 = load ptr, ptr %crtPos_.i.i, align 8, !noalias !33
   %add.ptr.i89 = getelementptr inbounds nuw i8, ptr %41, i64 %conv54
-  store ptr %add.ptr.i89, ptr %crtPos_.i.i, align 8, !noalias !32
+  store ptr %add.ptr.i89, ptr %crtPos_.i.i, align 8, !noalias !33
   br label %invoke.cont55
 
 lpad.i78:                                         ; preds = %if.else.i90, %invoke.cont3.i86, %invoke.cont46
@@ -2659,7 +2659,7 @@ if.then.i.i7:                                     ; preds = %if.then27
           to label %call.i.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i7
-  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i8) #25, !noalias !35
+  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i8) #25, !noalias !36
   %12 = load ptr, ptr %outAuthRequest, align 8
   store ptr %call.i.i.i8, ptr %outAuthRequest, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -2765,7 +2765,7 @@ if.then.i.i7:                                     ; preds = %if.then27
           to label %call.i.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i7
-  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i8) #25, !noalias !38
+  call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i8) #25, !noalias !39
   %12 = load ptr, ptr %outAuthenticator, align 8
   store ptr %call.i.i.i8, ptr %outAuthenticator, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -3055,16 +3055,16 @@ _ZN5folly5IOBuf7retreatEm.exit:                   ; preds = %entry.if.end_crit_e
   store ptr %add.ptr6.i, ptr %data_4.i, align 8
   %25 = load ptr, ptr %payload, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %26 = load ptr, ptr %next_.i, align 8, !noalias !41
+  %26 = load ptr, ptr %next_.i, align 8, !noalias !42
   %prev_.i = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load ptr, ptr %prev_.i, align 8, !noalias !41
+  %27 = load ptr, ptr %prev_.i, align 8, !noalias !42
   %prev_3.i = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %27, ptr %prev_3.i, align 8, !noalias !41
-  %28 = load ptr, ptr %next_.i, align 8, !noalias !41
+  store ptr %27, ptr %prev_3.i, align 8, !noalias !42
+  %28 = load ptr, ptr %next_.i, align 8, !noalias !42
   %next_6.i = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr %28, ptr %next_6.i, align 8, !noalias !41
-  store ptr %25, ptr %prev_.i, align 8, !noalias !41
-  store ptr %25, ptr %next_.i, align 8, !noalias !41
+  store ptr %28, ptr %next_6.i, align 8, !noalias !42
+  store ptr %25, ptr %prev_.i, align 8, !noalias !42
+  store ptr %25, ptr %next_.i, align 8, !noalias !42
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr noundef nonnull align 8 dereferenceable(8) %payload, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont23 unwind label %terminate.lpad
 
@@ -3176,7 +3176,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %45 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %45 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -3238,7 +3238,7 @@ if.then.i.i.i.i.i45:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i45, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i43
-  %58 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %58 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %invoke.cont26
@@ -3306,7 +3306,7 @@ if.then.i.i.i.i.i75:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i81
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i81: ; preds = %if.then.i.i.i.i.i75, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i73
-  %70 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %70 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i81, %invoke.cont27
@@ -3374,7 +3374,7 @@ if.then.i.i.i.i.i115:                             ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i121
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i121: ; preds = %if.then.i.i.i.i.i115, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i113
-  %85 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %85 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIhEEvT_.exit128
 
 _ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIhEEvT_.exit128: ; preds = %invoke.cont31, %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i121
@@ -3536,7 +3536,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i.i
-  %106 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %106 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit.i
 
 _ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit.i: ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i, %if.then.i.i.i161
@@ -3598,7 +3598,7 @@ if.then.i.i.i.i.i19.i:                            ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i: ; preds = %if.then.i.i.i.i.i19.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i17.i
-  %119 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %119 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %_ZN8proxygen5http212_GLOBAL__N_117writePriorityBodyERN5folly2io13QueueAppenderEjbh.exit
 
 _ZN8proxygen5http212_GLOBAL__N_117writePriorityBodyERN5folly2io13QueueAppenderEjbh.exit: ; preds = %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit.i, %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i
@@ -4630,7 +4630,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %16 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %16 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -4799,14 +4799,14 @@ _ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit: ; preds = %_ZNSt10unique_
   %12 = phi ptr [ null, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %8, %if.then.i.i.i.i ]
   %growth_.i = getelementptr inbounds nuw i8, ptr %appender, i64 32
   store i64 %mul, ptr %growth_.i, align 8
-  %13 = load ptr, ptr %_M_start.i, align 8, !noalias !45
-  %14 = load ptr, ptr %_M_finish.i, align 8, !noalias !48
+  %13 = load ptr, ptr %_M_start.i, align 8, !noalias !46
+  %14 = load ptr, ptr %_M_finish.i, align 8, !noalias !49
   %cmp.i.i.not70 = icmp eq ptr %13, %14
   br i1 %cmp.i.i.not70, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit
-  %15 = load ptr, ptr %_M_node1.i.i, align 8, !noalias !45
-  %16 = load ptr, ptr %_M_last.i.i, align 8, !noalias !45
+  %15 = load ptr, ptr %_M_node1.i.i, align 8, !noalias !46
+  %16 = load ptr, ptr %_M_last.i.i, align 8, !noalias !46
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %appender, i64 8
   %attached3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %appender, i64 16
   br label %for.body
@@ -4880,7 +4880,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %30 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %30 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont27
 
 lpad:                                             ; preds = %if.end.i.i.i.i48, %if.end.i.i.i.i
@@ -4955,7 +4955,7 @@ if.then.i.i.i.i.i39:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i39, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i37
-  %45 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %45 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %invoke.cont27
@@ -4980,7 +4980,7 @@ _ZNSt15_Deque_iteratorISt4pairIN8proxygen10SettingsIdEjERKS3_PS4_EppEv.exit: ; p
   %__begin2.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %__begin2.sroa.8.072, %for.inc ]
   %__begin2.sroa.11.1 = phi ptr [ %add.ptr.i, %if.then.i ], [ %__begin2.sroa.11.073, %for.inc ]
   %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.1, %14
-  br i1 %cmp.i.i.not, label %for.end.loopexit, label %for.body
+  br i1 %cmp.i.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !52
 
 for.end.loopexit:                                 ; preds = %_ZNSt15_Deque_iteratorISt4pairIN8proxygen10SettingsIdEjERKS3_PS4_EppEv.exit
   %.pre = load i8, ptr %attached3.i.i.i.i.i.i, align 8
@@ -5348,7 +5348,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %17 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %17 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -5417,7 +5417,7 @@ if.then.i.i.i.i.i25:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i31
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i31: ; preds = %if.then.i.i.i.i.i25, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i23
-  %30 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %30 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i31, %invoke.cont24
@@ -5622,7 +5622,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %16 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %16 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont42
 
 invoke.cont42:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -5890,7 +5890,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %21 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %21 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -5958,7 +5958,7 @@ if.then.i.i.i.i.i38:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i38, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i36
-  %34 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %34 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %invoke.cont12
@@ -6021,7 +6021,7 @@ if.then.i.i.i.i.i71:                              ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i71, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i69
-  %47 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %47 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %invoke.cont13
@@ -6098,7 +6098,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i:  ; preds = %if.end.i.i.i, %if.t
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %buf.addr.131.i.i, i64 %57
   %sub16.i.i = sub i64 %storemerge30.i.i, %57
   %cmp4.not.i.i = icmp eq i64 %sub16.i.i, 0
-  br i1 %cmp4.not.i.i, label %invoke.cont18.loopexit, label %while.body.i.i, !llvm.loop !51
+  br i1 %cmp4.not.i.i, label %invoke.cont18.loopexit, label %while.body.i.i, !llvm.loop !53
 
 invoke.cont18.loopexit:                           ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i
   %.pre227 = load ptr, ptr %appender, align 8
@@ -6164,7 +6164,7 @@ if.then.i.i.i.i.i108:                             ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i114
 
 _ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i114: ; preds = %if.then.i.i.i.i.i108, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i106
-  %73 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %73 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowIhEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i114, %if.then.i.i93
@@ -6241,7 +6241,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i154: ; preds = %if.end.i.i.i161, 
   %add.ptr14.i.i158 = getelementptr inbounds i8, ptr %buf.addr.131.i.i139, i64 %83
   %sub16.i.i159 = sub i64 %storemerge30.i.i140, %83
   %cmp4.not.i.i160 = icmp eq i64 %sub16.i.i159, 0
-  br i1 %cmp4.not.i.i160, label %invoke.cont23.loopexit, label %while.body.i.i138, !llvm.loop !51
+  br i1 %cmp4.not.i.i160, label %invoke.cont23.loopexit, label %while.body.i.i138, !llvm.loop !53
 
 invoke.cont23.loopexit:                           ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i154
   %.pre228 = load ptr, ptr %appender, align 8
@@ -6316,7 +6316,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i197: ; preds = %if.end.i.i.i204, 
   %add.ptr14.i.i201 = getelementptr inbounds i8, ptr %buf.addr.131.i.i182, i64 %96
   %sub16.i.i202 = sub i64 %storemerge30.i.i183, %96
   %cmp4.not.i.i203 = icmp eq i64 %sub16.i.i202, 0
-  br i1 %cmp4.not.i.i203, label %invoke.cont26, label %while.body.i.i181, !llvm.loop !51
+  br i1 %cmp4.not.i.i203, label %invoke.cont26, label %while.body.i.i181, !llvm.loop !53
 
 invoke.cont26:                                    ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i197, %if.end.i.i174
   %100 = load i32, ptr @_ZN8proxygen5http216kFrameHeaderSizeE, align 4
@@ -6538,7 +6538,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %19 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %19 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -6752,7 +6752,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %19 = load ptr, ptr %appender, align 8, !nonnull !44, !noundef !44
+  %19 = load ptr, ptr %appender, align 8, !nonnull !45, !noundef !45
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
@@ -6895,7 +6895,7 @@ for.body:                                         ; preds = %if.end
   %cmp.i = icmp eq ptr %2, %0
   %cmp2.i = icmp eq i64 %sub.i43, 0
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp2.i
-  br i1 %or.cond, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE16tryAdvanceBufferEv.exit, label %if.end.i, !llvm.loop !52
+  br i1 %or.cond, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE16tryAdvanceBufferEv.exit, label %if.end.i, !llvm.loop !54
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.body
   %3 = phi ptr [ %1, %if.end.i.lr.ph ], [ %2, %for.body ]
@@ -6955,7 +6955,7 @@ if.end:                                           ; preds = %if.end.i, %if.end23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i28 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre
   %cmp = icmp ult i64 %sub.ptr.sub.i, %sub
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !52
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !54
 
 for.end:                                          ; preds = %if.end, %entry
   %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %sub, %if.end ]
@@ -7290,7 +7290,7 @@ if.end6:                                          ; preds = %if.end.i, %if.end23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre51
   %cmp = icmp ult i64 %sub.ptr.sub.i, %sub
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !53
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !55
 
 for.end:                                          ; preds = %if.end6, %entry
   %17 = phi ptr [ %0, %entry ], [ %16, %if.end6 ]
@@ -7776,7 +7776,7 @@ if.end55:                                         ; preds = %if.end.i, %if.end23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre
   %cmp.not = icmp ult i64 %sub.ptr.sub.i, %sub56
-  br i1 %cmp.not, label %if.end26, label %if.else, !llvm.loop !54
+  br i1 %cmp.not, label %if.end26, label %if.else, !llvm.loop !56
 
 cleanup:                                          ; preds = %invoke.cont52, %invoke.cont25
   %retval.0 = phi i64 [ %add, %invoke.cont25 ], [ %add51, %invoke.cont52 ]
@@ -8112,7 +8112,7 @@ if.end:                                           ; preds = %if.end.i, %if.end23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre
   %cmp = icmp ult i64 %sub.ptr.sub.i, %sub
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !55
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !57
 
 for.end:                                          ; preds = %if.end, %entry
   %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %sub, %if.end ]
@@ -8252,52 +8252,54 @@ attributes #29 = { builtin allocsize(0) }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !6 = distinct !{!6, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!12 = distinct !{!12, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!15 = distinct !{!15, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!16 = distinct !{!16, !8}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!19 = distinct !{!19, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!22 = distinct !{!22, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!25 = distinct !{!25, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em: %agg.result"}
-!28 = distinct !{!28, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em: %agg.result"}
-!31 = distinct !{!31, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em: %agg.result"}
-!34 = distinct !{!34, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!37 = distinct !{!37, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!40 = distinct !{!40, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN5folly5IOBuf3popEv: %agg.result"}
-!43 = distinct !{!43, !"_ZN5folly5IOBuf3popEv"}
-!44 = !{}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE5beginEv: %agg.result"}
-!47 = distinct !{!47, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE5beginEv"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE3endEv: %agg.result"}
-!50 = distinct !{!50, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE3endEv"}
-!51 = distinct !{!51, !8}
-!52 = distinct !{!52, !8}
-!53 = distinct !{!53, !8}
-!54 = distinct !{!54, !8}
-!55 = distinct !{!55, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!13 = distinct !{!13, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!16 = distinct !{!16, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!17 = distinct !{!17, !8, !9}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!20 = distinct !{!20, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!23 = distinct !{!23, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!26 = distinct !{!26, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em: %agg.result"}
+!29 = distinct !{!29, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em: %agg.result"}
+!32 = distinct !{!32, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em: %agg.result"}
+!35 = distinct !{!35, !"_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE15readFixedStringB5cxx11Em"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!38 = distinct !{!38, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!41 = distinct !{!41, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN5folly5IOBuf3popEv: %agg.result"}
+!44 = distinct !{!44, !"_ZN5folly5IOBuf3popEv"}
+!45 = !{}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE5beginEv: %agg.result"}
+!48 = distinct !{!48, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE5beginEv"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE3endEv: %agg.result"}
+!51 = distinct !{!51, !"_ZNKSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EE3endEv"}
+!52 = distinct !{!52, !9}
+!53 = distinct !{!53, !8, !9}
+!54 = distinct !{!54, !8, !9}
+!55 = distinct !{!55, !8, !9}
+!56 = distinct !{!56, !8, !9}
+!57 = distinct !{!57, !8, !9}

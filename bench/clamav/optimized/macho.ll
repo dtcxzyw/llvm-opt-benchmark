@@ -747,7 +747,7 @@ fmap_readn.exit273.thread:                        ; preds = %215, %214, %fmap_re
 
 .preheader.backedge:                              ; preds = %279, %.thread
   %.2212453.be = phi i32 [ %280, %279 ], [ %281, %.thread ]
-  br label %.preheader
+  br label %.preheader, !llvm.loop !52
 
 .thread:                                          ; preds = %259
   %281 = add i32 %.2212453, 1
@@ -936,7 +936,7 @@ default.unreachable:                              ; preds = %285
   %350 = add nuw i32 %.0214456, 1
   %.16..16..16.323 = load i32, ptr %.16..16..16..sroa_idx572, align 4, !tbaa !36
   %351 = icmp ult i32 %350, %.16..16..16.323
-  br i1 %351, label %95, label %._crit_edge
+  br i1 %351, label %95, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.thread491
   %.not = icmp eq i32 %.1201, 0
@@ -979,7 +979,7 @@ default.unreachable:                              ; preds = %285
 364:                                              ; preds = %359, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !55
 
 .loopexit:                                        ; preds = %364, %355
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.44) #8
@@ -1003,11 +1003,11 @@ default.unreachable:                              ; preds = %285
 .thread388:                                       ; preds = %365, %370
   %.4204390 = phi i32 [ %.1201, %370 ], [ %369, %365 ]
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %.4204390, ptr %371, align 4, !tbaa !52
+  store i32 %.4204390, ptr %371, align 4, !tbaa !56
   %372 = trunc i32 %.1211 to i16
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 %372, ptr %373, align 8, !tbaa !53
-  store ptr %.1199, ptr %1, align 8, !tbaa !54
+  store i16 %372, ptr %373, align 8, !tbaa !57
+  store ptr %.1199, ptr %1, align 8, !tbaa !58
   br label %.thread359
 
 374:                                              ; preds = %.thread386, %370
@@ -1083,7 +1083,7 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
   br label %.loopexit
 
 12:                                               ; preds = %fmap_readn.exit
-  %.0..0..0. = load i32, ptr %2, align 4, !tbaa !55
+  %.0..0..0. = load i32, ptr %2, align 4, !tbaa !59
   %13 = icmp eq i32 %.0..0..0., -889275714
   br i1 %13, label %.critedge, label %14
 
@@ -1097,13 +1097,13 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
 
 17:                                               ; preds = %14
   %.4..4..4..sroa_idx71 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.4..4..4.55 = load i32, ptr %.4..4..4..sroa_idx71, align 4, !tbaa !57
+  %.4..4..4.55 = load i32, ptr %.4..4..4..sroa_idx71, align 4, !tbaa !61
   %18 = tail call i32 @llvm.bswap.i32(i32 %.4..4..4.55)
   br label %19
 
 .critedge:                                        ; preds = %12
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.4..4..4. = load i32, ptr %.4..4..4..sroa_idx, align 4, !tbaa !57
+  %.4..4..4. = load i32, ptr %.4..4..4..sroa_idx, align 4, !tbaa !61
   br label %19
 
 19:                                               ; preds = %.critedge, %17
@@ -1175,11 +1175,11 @@ fmap_readn.exit39.thread:                         ; preds = %30, %28, %fmap_read
   %.8..8..8.41 = load i32, ptr %.8..8..8..sroa_idx, align 4
   %45 = tail call i32 @llvm.bswap.i32(i32 %.8..8..8.41)
   %46 = select i1 %13, i32 %.8..8..8.41, i32 %45
-  store i32 %46, ptr %.8..8..8..sroa_idx69, align 4, !tbaa !58
+  store i32 %46, ptr %.8..8..8..sroa_idx69, align 4, !tbaa !62
   %.12..12..12.48 = load i32, ptr %.12..12..12..sroa_idx, align 4
   %47 = tail call i32 @llvm.bswap.i32(i32 %.12..12..12.48)
   %48 = select i1 %13, i32 %.12..12..12.48, i32 %47
-  store i32 %48, ptr %.12..12..12..sroa_idx70, align 4, !tbaa !60
+  store i32 %48, ptr %.12..12..12..sroa_idx70, align 4, !tbaa !64
   %49 = add nuw nsw i32 %.022, 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.51, i32 noundef %49, i32 noundef %20) #8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.52, i32 noundef %46) #8
@@ -1210,7 +1210,7 @@ fmap_readn.exit39.thread:                         ; preds = %30, %28, %fmap_read
   %63 = zext i32 %48 to i64
   %64 = tail call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %5, i64 noundef %50, i64 noundef %63, ptr noundef %0, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
   %.not32 = icmp eq i32 %64, 0
-  br i1 %.not32, label %27, label %.loopexit
+  br i1 %.not32, label %27, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %27, %62, %58, %39, %19, %61, %42, %25, %16, %fmap_readn.exit.thread
   %.020 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 26, %25 ], [ 26, %42 ], [ 26, %61 ], [ 26, %16 ], [ 0, %19 ], [ 1, %39 ], [ 1, %58 ], [ 0, %27 ], [ %64, %62 ]
@@ -1225,7 +1225,7 @@ declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 nound
 define i32 @cli_unpackmacho(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store ptr null, ptr %2, align 8, !tbaa !61
+  store ptr null, ptr %2, align 8, !tbaa !66
   %3 = tail call ptr @cli_bytecode_context_alloc() #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread47, label %4
@@ -1238,7 +1238,7 @@ define i32 @cli_unpackmacho(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @cli_bytecode_context_setctx(ptr noundef nonnull %3, ptr noundef %0) #8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.56) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !62
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = tail call i32 @cli_bytecode_runhook(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %3, i32 noundef 262, ptr noundef %8) #8
@@ -1258,7 +1258,7 @@ define i32 @cli_unpackmacho(ptr noundef %0) local_unnamed_addr #0 {
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.58, ptr noundef nonnull %14) #8
   %16 = call i64 @lseek(i32 noundef %12, i64 noundef 0, i32 noundef 0) #8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59) #8
-  %17 = load ptr, ptr %2, align 8, !tbaa !61
+  %17 = load ptr, ptr %2, align 8, !tbaa !66
   %18 = call i32 @cli_magic_scan_desc(i32 noundef %12, ptr noundef %17, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #8
   br label %20
 
@@ -1269,7 +1269,7 @@ define i32 @cli_unpackmacho(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %.thread33, %19
   %.038 = phi i32 [ %18, %.thread33 ], [ 0, %19 ]
   %21 = call i32 @close(i32 noundef %12) #8
-  %.pre = load ptr, ptr %2, align 8, !tbaa !61
+  %.pre = load ptr, ptr %2, align 8, !tbaa !66
   br label %.thread
 
 .thread:                                          ; preds = %20, %19
@@ -1280,15 +1280,15 @@ define i32 @cli_unpackmacho(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %.thread
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !62
+  %25 = load ptr, ptr %24, align 8, !tbaa !67
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load i32, ptr %26, align 8, !tbaa !63
+  %27 = load i32, ptr %26, align 8, !tbaa !68
   %.not28 = icmp eq i32 %27, 0
   br i1 %.not28, label %28, label %30
 
 28:                                               ; preds = %23
   %29 = call i32 @cli_unlink(ptr noundef nonnull %22) #8
-  %.pre39 = load ptr, ptr %2, align 8, !tbaa !61
+  %.pre39 = load ptr, ptr %2, align 8, !tbaa !66
   br label %30
 
 30:                                               ; preds = %28, %23
@@ -1402,32 +1402,37 @@ attributes #8 = { nounwind }
 !49 = !{!50, !14, i64 44}
 !50 = !{!"macho_section", !7, i64 0, !7, i64 16, !14, i64 32, !14, i64 36, !14, i64 40, !14, i64 44, !14, i64 48, !14, i64 52, !14, i64 56, !14, i64 60, !14, i64 64}
 !51 = !{!44, !14, i64 12}
-!52 = !{!24, !14, i64 12}
-!53 = !{!24, !26, i64 16}
-!54 = !{!24, !25, i64 0}
-!55 = !{!56, !14, i64 0}
-!56 = !{!"macho_fat_header", !14, i64 0, !14, i64 4}
-!57 = !{!56, !14, i64 4}
-!58 = !{!59, !14, i64 8}
-!59 = !{!"macho_fat_arch", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16}
-!60 = !{!59, !14, i64 12}
-!61 = !{!5, !5, i64 0}
-!62 = !{!4, !11, i64 48}
-!63 = !{!64, !14, i64 40}
-!64 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !7, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !5, i64 32, !14, i64 40, !12, i64 48, !14, i64 56, !14, i64 60, !12, i64 64, !12, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !65, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !66, i64 136, !67, i64 144, !67, i64 152, !68, i64 160, !17, i64 168, !69, i64 176, !69, i64 184, !70, i64 192, !10, i64 200, !10, i64 208, !5, i64 216, !71, i64 224, !72, i64 232, !73, i64 240, !12, i64 248, !29, i64 256, !74, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !76, i64 416, !7, i64 936, !7, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !12, i64 1040, !12, i64 1048, !12, i64 1056, !12, i64 1064, !12, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !12, i64 1168, !12, i64 1176, !12, i64 1184, !80, i64 1192}
-!65 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
-!66 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
-!67 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
-!68 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
-!69 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
-!70 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
-!71 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
-!72 = !{!"p1 _ZTS5CACHE", !6, i64 0}
-!73 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
-!74 = !{!"", !75, i64 0, !14, i64 8}
-!75 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
-!76 = !{!"cli_all_bc", !77, i64 0, !14, i64 8, !78, i64 16, !79, i64 24, !14, i64 516}
-!77 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
-!78 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
-!79 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
-!80 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = distinct !{!54, !53}
+!55 = distinct !{!55, !53}
+!56 = !{!24, !14, i64 12}
+!57 = !{!24, !26, i64 16}
+!58 = !{!24, !25, i64 0}
+!59 = !{!60, !14, i64 0}
+!60 = !{!"macho_fat_header", !14, i64 0, !14, i64 4}
+!61 = !{!60, !14, i64 4}
+!62 = !{!63, !14, i64 8}
+!63 = !{!"macho_fat_arch", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16}
+!64 = !{!63, !14, i64 12}
+!65 = distinct !{!65, !53}
+!66 = !{!5, !5, i64 0}
+!67 = !{!4, !11, i64 48}
+!68 = !{!69, !14, i64 40}
+!69 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !7, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !5, i64 32, !14, i64 40, !12, i64 48, !14, i64 56, !14, i64 60, !12, i64 64, !12, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !70, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !71, i64 136, !72, i64 144, !72, i64 152, !73, i64 160, !17, i64 168, !74, i64 176, !74, i64 184, !75, i64 192, !10, i64 200, !10, i64 208, !5, i64 216, !76, i64 224, !77, i64 232, !78, i64 240, !12, i64 248, !29, i64 256, !79, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !81, i64 416, !7, i64 936, !7, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !12, i64 1040, !12, i64 1048, !12, i64 1056, !12, i64 1064, !12, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !12, i64 1168, !12, i64 1176, !12, i64 1184, !85, i64 1192}
+!70 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
+!71 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
+!72 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
+!73 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
+!74 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
+!75 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
+!76 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
+!77 = !{!"p1 _ZTS5CACHE", !6, i64 0}
+!78 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
+!79 = !{!"", !80, i64 0, !14, i64 8}
+!80 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
+!81 = !{!"cli_all_bc", !82, i64 0, !14, i64 8, !83, i64 16, !84, i64 24, !14, i64 516}
+!82 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
+!83 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
+!84 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
+!85 = !{!"p1 _ZTS12_yara_global", !6, i64 0}

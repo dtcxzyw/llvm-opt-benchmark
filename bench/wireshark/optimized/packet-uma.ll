@@ -967,7 +967,7 @@ define internal i32 @dissect_uma(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %31 = add nsw i32 %.06673, 1
   %32 = tail call fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %31)
   %.not68 = icmp sgt i32 %32, %30
-  br i1 %.not68, label %.loopexit, label %.lr.ph74, !llvm.loop !10
+  br i1 %.not68, label %.loopexit, label %.lr.ph74, !llvm.loop !11
 
 33:                                               ; preds = %20
   %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
@@ -990,7 +990,7 @@ define internal i32 @dissect_uma(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %44 = add nsw i32 %.171, 1
   %45 = tail call fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %44)
   %.not67 = icmp sgt i32 %45, %43
-  br i1 %.not67, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not67, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 46:                                               ; preds = %20
   %47 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_uma_unknown_protocol)
@@ -1715,7 +1715,7 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %382 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %381, ptr noundef %0, i32 noundef %.1625, i32 noundef 1, i32 noundef 0)
   %383 = add i32 %.1625, 1
   %exitcond632.not = icmp eq i32 %.1625, %44
-  br i1 %exitcond632.not, label %.loopexit, label %.lr.ph626, !llvm.loop !12
+  br i1 %exitcond632.not, label %.loopexit, label %.lr.ph626, !llvm.loop !13
 
 384:                                              ; preds = %37
   %385 = load i32, ptr @hf_uma_urr_cbs, align 4
@@ -1970,7 +1970,7 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %543 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %542, ptr noundef %0, i32 noundef %.3622, i32 noundef 1, i32 noundef 0)
   %544 = add i32 %.3622, 1
   %exitcond630.not = icmp eq i32 %.3622, %42
-  br i1 %exitcond630.not, label %.loopexit, label %.lr.ph623, !llvm.loop !13
+  br i1 %exitcond630.not, label %.loopexit, label %.lr.ph623, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader617, %.lr.ph
   %.4620 = phi i32 [ %547, %.lr.ph ], [ %38, %.preheader617 ]
@@ -1978,7 +1978,7 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %546 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %545, ptr noundef %0, i32 noundef %.4620, i32 noundef 1, i32 noundef 0)
   %547 = add i32 %.4620, 1
   %exitcond.not = icmp eq i32 %.4620, %40
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 548:                                              ; preds = %37
   %549 = load i32, ptr @hf_uma_data, align 4
@@ -2133,10 +2133,11 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

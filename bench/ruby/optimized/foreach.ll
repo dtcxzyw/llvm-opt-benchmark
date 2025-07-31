@@ -378,7 +378,7 @@ define internal fastcc void @force_unpack_check(ptr noundef captures(none) %0, i
   tail call void @rb_st_add_direct(ptr noundef %12, i64 noundef %.021, i64 noundef %.021) #5
   %13 = add nuw nsw i64 %.021, 1
   %exitcond.not = icmp eq i64 %13, 32
-  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !24
+  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !25
 
 14:                                               ; preds = %.preheader
   %15 = load ptr, ptr %0, align 8, !tbaa !6
@@ -549,6 +549,7 @@ attributes #7 = { noreturn nounwind }
 !19 = !{!"p1 long", !9, i64 0}
 !20 = !{!"p1 _ZTS14st_table_entry", !9, i64 0}
 !21 = !{!12, !12, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}

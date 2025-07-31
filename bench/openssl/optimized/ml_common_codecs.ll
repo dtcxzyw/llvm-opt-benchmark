@@ -37,7 +37,7 @@ define ptr @ossl_ml_common_pkcs8_fmt_order(ptr noundef %0, ptr noundef %1, ptr n
   %.040 = phi ptr [ %18, %.loopexit ], [ %3, %10 ]
   %12 = tail call i64 @strspn(ptr noundef %.040, ptr noundef nonnull @.str) #6
   %13 = getelementptr inbounds nuw i8, ptr %.040, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !12
+  %14 = load i8, ptr %13, align 1, !tbaa !13
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %33, label %16
 
@@ -56,7 +56,7 @@ define ptr @ossl_ml_common_pkcs8_fmt_order(ptr noundef %0, ptr noundef %1, ptr n
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %20, align 8, !tbaa !3
-  %26 = load ptr, ptr %25, align 8, !tbaa !13
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
   %27 = tail call i32 @OPENSSL_strncasecmp(ptr noundef %26, ptr noundef nonnull %13, i64 noundef %17) #5
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %28, label %31
@@ -70,12 +70,12 @@ define ptr @ossl_ml_common_pkcs8_fmt_order(ptr noundef %0, ptr noundef %1, ptr n
 31:                                               ; preds = %19, %24
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 6
-  br i1 %exitcond58.not, label %.loopexit, label %19, !llvm.loop !18
+  br i1 %exitcond58.not, label %.loopexit, label %19, !llvm.loop !19
 
 .loopexit:                                        ; preds = %31, %28
   %.2 = phi i32 [ %30, %28 ], [ %.041, %31 ]
   %32 = icmp slt i32 %.2, 6
-  br i1 %32, label %.preheader, label %.thread, !llvm.loop !19
+  br i1 %32, label %.preheader, label %.thread, !llvm.loop !20
 
 33:                                               ; preds = %.preheader
   %34 = icmp eq i32 %.041, 0
@@ -157,13 +157,14 @@ attributes #6 = { nounwind willreturn memory(read) }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"int", !6, i64 0}
 !9 = !{!4, !8, i64 8}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!6, !6, i64 0}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"", !15, i64 0, !16, i64 8, !8, i64 16, !8, i64 20, !17, i64 24, !16, i64 32, !16, i64 40, !8, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80}
-!15 = !{!"p1 omnipotent char", !5, i64 0}
-!16 = !{!"long", !6, i64 0}
-!17 = !{!"short", !6, i64 0}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!6, !6, i64 0}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"", !16, i64 0, !17, i64 8, !8, i64 16, !8, i64 20, !18, i64 24, !17, i64 32, !17, i64 40, !8, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80}
+!16 = !{!"p1 omnipotent char", !5, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!"short", !6, i64 0}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}

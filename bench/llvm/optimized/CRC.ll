@@ -54,9 +54,9 @@ _ZN4llvm5crc32EjNS_8ArrayRefIhEE.exit:            ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
-  %4 = load i32, ptr %0, align 4, !tbaa !5
+  %4 = load i32, ptr %0, align 4, !tbaa !6
   %5 = xor i32 %4, -1
-  store i32 %5, ptr %0, align 4, !tbaa !5
+  store i32 %5, ptr %0, align 4, !tbaa !6
   br label %6
 
 6:                                                ; preds = %6, %3
@@ -75,7 +75,7 @@ define dso_local void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnu
 
 _ZN4llvm5crc32EjNS_8ArrayRefIhEE.exit:            ; preds = %6
   %13 = xor i32 %10, -1
-  store i32 %13, ptr %0, align 4, !tbaa !5
+  store i32 %13, ptr %0, align 4, !tbaa !6
   ret void
 }
 
@@ -92,10 +92,11 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !7, i64 0}
-!6 = !{!"_ZTSN4llvm6JamCRCE", !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C++ TBAA"}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"_ZTSN4llvm6JamCRCE", !8, i64 0}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}

@@ -89,16 +89,16 @@ define dso_local noundef i32 @cmd_check_mailmap(i32 noundef %0, ptr noundef %1, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
-  %27 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %27 = load ptr, ptr @stdout, align 8, !tbaa !14
   call void @maybe_flush_or_die(ptr noundef %27, ptr noundef nonnull @.str.1) #10
-  %28 = load i32, ptr @use_stdin, align 4, !tbaa !15
+  %28 = load i32, ptr @use_stdin, align 4, !tbaa !16
   %.not12 = icmp eq i32 %28, 0
   br i1 %.not12, label %38, label %29
 
 29:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_check_mailmap.buf, i64 24, i1 false)
-  %30 = load ptr, ptr @stdin, align 8, !tbaa !13
+  %30 = load ptr, ptr @stdin, align 8, !tbaa !14
   %31 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef %30) #10
   %.not1315 = icmp eq i32 %31, -1
   br i1 %.not1315, label %._crit_edge18, label %.lr.ph17
@@ -108,14 +108,14 @@ define dso_local noundef i32 @cmd_check_mailmap(i32 noundef %0, ptr noundef %1, 
   br label %33
 
 33:                                               ; preds = %.lr.ph17, %33
-  %34 = load ptr, ptr %32, align 8, !tbaa !17
+  %34 = load ptr, ptr %32, align 8, !tbaa !18
   call fastcc void @check_mailmap(ptr noundef %5, ptr noundef %34)
-  %35 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %35 = load ptr, ptr @stdout, align 8, !tbaa !14
   call void @maybe_flush_or_die(ptr noundef %35, ptr noundef nonnull @.str.1) #10
-  %36 = load ptr, ptr @stdin, align 8, !tbaa !13
+  %36 = load ptr, ptr @stdin, align 8, !tbaa !14
   %37 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef %36) #10
   %.not13 = icmp eq i32 %37, -1
-  br i1 %.not13, label %._crit_edge18, label %33, !llvm.loop !20
+  br i1 %.not13, label %._crit_edge18, label %33, !llvm.loop !21
 
 ._crit_edge18:                                    ; preds = %33, %29
   call void @strbuf_release(ptr noundef nonnull %6) #10
@@ -143,7 +143,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_() unnamed_addr #5 {
-  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !15
+  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -181,16 +181,16 @@ define internal fastcc void @check_mailmap(ptr noundef nonnull %0, ptr noundef %
   br i1 %.not, label %11, label %25
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %7, align 8, !tbaa !21
+  %12 = load ptr, ptr %7, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %12 to i64
   %17 = sub i64 %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !24
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %21 = load ptr, ptr %20, align 8, !tbaa !26
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %19 to i64
   %24 = sub i64 %22, %23
@@ -206,11 +206,11 @@ define internal fastcc void @check_mailmap(ptr noundef nonnull %0, ptr noundef %
   %.sink = phi ptr [ %19, %11 ], [ %1, %25 ]
   %storemerge = phi i64 [ %24, %11 ], [ %26, %25 ]
   store ptr %.sink7, ptr %3, align 8, !tbaa !9
-  store i64 %.sink6, ptr %5, align 8, !tbaa !26
+  store i64 %.sink6, ptr %5, align 8, !tbaa !27
   store ptr %.sink, ptr %4, align 8, !tbaa !9
-  store i64 %storemerge, ptr %6, align 8, !tbaa !26
+  store i64 %storemerge, ptr %6, align 8, !tbaa !27
   %28 = call i32 @map_user(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %5) #10
-  %29 = load i64, ptr %5, align 8, !tbaa !26
+  %29 = load i64, ptr %5, align 8, !tbaa !27
   %.not5 = icmp eq i64 %29, 0
   br i1 %.not5, label %34, label %30
 
@@ -221,7 +221,7 @@ define internal fastcc void @check_mailmap(ptr noundef nonnull %0, ptr noundef %
   br label %34
 
 34:                                               ; preds = %30, %27
-  %35 = load i64, ptr %6, align 8, !tbaa !26
+  %35 = load i64, ptr %6, align 8, !tbaa !27
   %36 = trunc i64 %35 to i32
   %37 = load ptr, ptr %4, align 8, !tbaa !9
   %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %36, ptr noundef %37)
@@ -289,19 +289,20 @@ attributes #12 = { nounwind willreturn memory(read) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !7, i64 0}
-!17 = !{!18, !10, i64 16}
-!18 = !{!"strbuf", !19, i64 0, !19, i64 8, !10, i64 16}
-!19 = !{!"long", !7, i64 0}
-!20 = distinct !{!20, !12}
-!21 = !{!22, !10, i64 0}
-!22 = !{!"ident_split", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56}
-!23 = !{!22, !10, i64 8}
-!24 = !{!22, !10, i64 16}
-!25 = !{!22, !10, i64 24}
-!26 = !{!19, !19, i64 0}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !7, i64 0}
+!18 = !{!19, !10, i64 16}
+!19 = !{!"strbuf", !20, i64 0, !20, i64 8, !10, i64 16}
+!20 = !{!"long", !7, i64 0}
+!21 = distinct !{!21, !12, !13}
+!22 = !{!23, !10, i64 0}
+!23 = !{!"ident_split", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56}
+!24 = !{!23, !10, i64 8}
+!25 = !{!23, !10, i64 16}
+!26 = !{!23, !10, i64 24}
+!27 = !{!20, !20, i64 0}

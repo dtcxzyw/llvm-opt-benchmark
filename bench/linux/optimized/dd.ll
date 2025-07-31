@@ -234,7 +234,7 @@ define dso_local void @wait_for_device_probe() #0 align 16 {
   %10 = call i64 @prepare_to_wait_event(ptr noundef nonnull @probe_waitqueue, ptr noundef nonnull %1, i32 noundef 2) #9
   %11 = load volatile i32, ptr @probe_count, align 4
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.loopexit, label %.preheader
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %6
   call void @finish_wait(ptr noundef nonnull @probe_waitqueue, ptr noundef nonnull %1) #9
@@ -727,7 +727,7 @@ define internal fastcc i32 @__device_attach(ptr noundef %0, i1 noundef zeroext %
   %38 = call i32 @bus_for_each_drv(ptr noundef %37, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull @__device_attach_driver) #9
   %39 = icmp eq i32 %38, 0
   %.not = and i1 %1, %39
-  %40 = load i8, ptr %29, align 2, !range !7
+  %40 = load i8, ptr %29, align 2, !range !9
   %41 = icmp ne i8 %40, 0
   %.not4 = select i1 %.not, i1 %41, i1 false
   br i1 %.not4, label %42, label %44
@@ -787,7 +787,7 @@ define dso_local range(i32 -2147483648, 1) i32 @device_driver_attach(ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %10 = load i8, ptr %9, align 8, !range !7, !noundef !8
+  %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %14, label %12
 
@@ -809,7 +809,7 @@ define dso_local range(i32 -2147483648, 1) i32 @device_driver_attach(ptr noundef
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 152
-  %23 = load i8, ptr %22, align 8, !range !7, !noundef !8
+  %23 = load i8, ptr %22, align 8, !range !9, !noundef !10
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %27, label %25
 
@@ -866,7 +866,7 @@ define internal fastcc i32 @__driver_probe_device(ptr noundef %0, ptr noundef %1
 
 27:                                               ; preds = %25, %18
   %28 = tail call i32 @pm_runtime_barrier(ptr noundef %1) #9
-  %29 = load i8, ptr @initcall_debug, align 1, !range !7, !noundef !8
+  %29 = load i8, ptr @initcall_debug, align 1, !range !9, !noundef !10
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %45, label %31
 
@@ -982,7 +982,7 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
 27:                                               ; preds = %.thread5
   %28 = load ptr, ptr %1, align 8
   %29 = tail call zeroext i1 @parse_option_str(ptr noundef nonnull @async_probe_drv_names, ptr noundef %28) #9
-  %30 = load i8, ptr @async_probe_default, align 1, !range !7, !noundef !8
+  %30 = load i8, ptr @async_probe_default, align 1, !range !9, !noundef !10
   %31 = zext i1 %29 to i8
   %32 = icmp eq i8 %30, %31
   br i1 %32, label %33, label %41
@@ -995,7 +995,7 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 297
-  %39 = load i8, ptr %38, align 1, !range !7, !noundef !8
+  %39 = load i8, ptr %38, align 1, !range !9, !noundef !10
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %60, label %41
 
@@ -1040,7 +1040,7 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 152
-  %68 = load i8, ptr %67, align 8, !range !7, !noundef !8
+  %68 = load i8, ptr %67, align 8, !range !9, !noundef !10
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %72, label %70
 
@@ -1062,7 +1062,7 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 152
-  %81 = load i8, ptr %80, align 8, !range !7, !noundef !8
+  %81 = load i8, ptr %80, align 8, !range !9, !noundef !10
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %85, label %83
 
@@ -1084,7 +1084,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  %9 = load i8, ptr %8, align 8, !range !7, !noundef !8
+  %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %13, label %11
 
@@ -1127,7 +1127,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   tail call void @mutex_lock(ptr noundef nonnull %14) #9
   %27 = load ptr, ptr %21, align 8
   %28 = icmp eq ptr %27, %20
-  br i1 %28, label %.split.us, label %.split14.us, !llvm.loop !9
+  br i1 %28, label %.split.us, label %.split14.us, !llvm.loop !11
 
 .split:                                           ; preds = %.thread, %42
   %29 = tail call zeroext i1 @device_links_busy(ptr noundef %0) #9
@@ -1137,7 +1137,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   tail call void @mutex_unlock(ptr noundef nonnull %14) #9
   %31 = load ptr, ptr %23, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 152
-  %33 = load i8, ptr %32, align 8, !range !7, !noundef !8
+  %33 = load i8, ptr %32, align 8, !range !9, !noundef !10
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %36, label %35
 
@@ -1149,7 +1149,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   tail call void @device_links_unbind_consumers(ptr noundef %0) #9
   %37 = load ptr, ptr %23, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 152
-  %39 = load i8, ptr %38, align 8, !range !7, !noundef !8
+  %39 = load i8, ptr %38, align 8, !range !9, !noundef !10
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %42, label %41
 
@@ -1161,7 +1161,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   tail call void @mutex_lock(ptr noundef nonnull %14) #9
   %43 = load ptr, ptr %21, align 8
   %44 = icmp eq ptr %43, %20
-  br i1 %44, label %.split, label %.split14.us, !llvm.loop !13
+  br i1 %44, label %.split, label %.split14.us, !llvm.loop !15
 
 .split14.us:                                      ; preds = %42, %26
   %45 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 5) #9
@@ -1284,7 +1284,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 152
-  %108 = load i8, ptr %107, align 8, !range !7, !noundef !8
+  %108 = load i8, ptr %107, align 8, !range !9, !noundef !10
   %109 = icmp eq i8 %108, 0
   br i1 %109, label %112, label %110
 
@@ -1323,7 +1323,7 @@ define dso_local void @driver_detach(ptr noundef readonly captures(address) %0) 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
   %6 = tail call zeroext i1 @parse_option_str(ptr noundef nonnull @async_probe_drv_names, ptr noundef %5) #9
-  %7 = load i8, ptr @async_probe_default, align 1, !range !7, !noundef !8
+  %7 = load i8, ptr @async_probe_default, align 1, !range !9, !noundef !10
   %8 = zext i1 %6 to i8
   %9 = icmp eq i8 %7, %8
   br i1 %9, label %10, label %18
@@ -1336,7 +1336,7 @@ define dso_local void @driver_detach(ptr noundef readonly captures(address) %0) 
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 297
-  %16 = load i8, ptr %15, align 1, !range !7, !noundef !8
+  %16 = load i8, ptr %15, align 1, !range !9, !noundef !10
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %19, label %18
 
@@ -1382,7 +1382,7 @@ define dso_local void @driver_detach(ptr noundef readonly captures(address) %0) 
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %42
-  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !16
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1432,7 +1432,7 @@ define internal void @deferred_probe_work_func(ptr readnone captures(none) %0) #
   tail call void @put_device(ptr noundef %6) #9
   %18 = load volatile ptr, ptr @deferred_probe_active_list, align 8
   %19 = icmp eq ptr %18, @deferred_probe_active_list
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %1
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
@@ -1498,7 +1498,7 @@ define internal void @deferred_probe_timeout_work_func(ptr readnone captures(non
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef nonnull %23) #10
   %24 = load ptr, ptr %17, align 8
   %25 = icmp eq ptr %24, @deferred_probe_pending_list
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %13
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
@@ -1575,7 +1575,7 @@ define internal noundef i32 @deferred_devs_show(ptr noundef %0, ptr readnone cap
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %14, ptr noundef nonnull %20) #9
   %21 = load ptr, ptr %5, align 8
   %22 = icmp eq ptr %21, @deferred_probe_pending_list
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %13, %2
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
@@ -1679,7 +1679,7 @@ define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(pt
 28:                                               ; preds = %.thread6
   %29 = load ptr, ptr %0, align 8
   %30 = tail call zeroext i1 @parse_option_str(ptr noundef nonnull @async_probe_drv_names, ptr noundef %29) #9
-  %31 = load i8, ptr @async_probe_default, align 1, !range !7, !noundef !8
+  %31 = load i8, ptr @async_probe_default, align 1, !range !9, !noundef !10
   %32 = zext i1 %30 to i8
   %33 = icmp eq i8 %31, %32
   br i1 %33, label %34, label %.thread7
@@ -1692,7 +1692,7 @@ define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(pt
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 297
-  %40 = load i8, ptr %39, align 1, !range !7, !noundef !8
+  %40 = load i8, ptr %39, align 1, !range !9, !noundef !10
   %.not = icmp eq i8 %40, 0
   br i1 %.not, label %.thread9, label %.thread7
 
@@ -1704,13 +1704,13 @@ define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(pt
 .thread9:                                         ; preds = %.thread6, %34, %.thread7, %38
   %42 = phi i8 [ 1, %.thread7 ], [ 0, %38 ], [ 0, %34 ], [ 0, %.thread6 ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load i8, ptr %43, align 8, !range !7, !noundef !8
+  %44 = load i8, ptr %43, align 8, !range !9, !noundef !10
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %50, label %46
 
 46:                                               ; preds = %.thread9
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %48 = load i8, ptr %47, align 1, !range !7, !noundef !8
+  %48 = load i8, ptr %47, align 1, !range !9, !noundef !10
   %49 = icmp eq i8 %48, %42
   br i1 %49, label %50, label %56
 
@@ -1867,7 +1867,7 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
   br label %37
 
 37:                                               ; preds = %34, %25, %23, %20, %2
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @probe_count, ptr nonnull elementtype(i32) @probe_count) #9, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @probe_count, ptr nonnull elementtype(i32) @probe_count) #9, !srcloc !20
   %38 = tail call i32 @__wake_up(ptr noundef nonnull @probe_waitqueue, i32 noundef 3, i32 noundef 0, ptr noundef null) #9
   ret i32 %4
 }
@@ -2352,7 +2352,7 @@ define internal void @__driver_attach_async_helper(ptr noundef %0, i64 %1) #0 al
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %10 = load i8, ptr %9, align 8, !range !7, !noundef !8
+  %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %14, label %12
 
@@ -2379,7 +2379,7 @@ define internal void @__driver_attach_async_helper(ptr noundef %0, i64 %1) #0 al
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
-  %27 = load i8, ptr %26, align 8, !range !7, !noundef !8
+  %27 = load i8, ptr %26, align 8, !range !9, !noundef !10
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %31, label %29
 
@@ -2435,15 +2435,17 @@ attributes #10 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2149076494, i64 2149076533, i64 2149076554, i64 2149076591, i64 2149076614, i64 2149076484}
 !6 = !{!"auto-init"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !10, !11, !12}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = !{i64 2149076857, i64 2149076896, i64 2149076917, i64 2149076954, i64 2149076977, i64 2149076847}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !12, !13, !8, !14}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!"llvm.loop.unroll.disable"}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !12, !13, !8}
+!16 = distinct !{!16, !13, !8}
+!17 = distinct !{!17, !12, !13, !8}
+!18 = distinct !{!18, !12, !13, !8}
+!19 = distinct !{!19, !12, !13, !8}
+!20 = !{i64 2149076857, i64 2149076896, i64 2149076917, i64 2149076954, i64 2149076977, i64 2149076847}

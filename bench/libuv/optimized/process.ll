@@ -120,7 +120,7 @@ define hidden void @uv__wait_children(ptr noundef readonly captures(address) %0)
 
 .backedge40:                                      ; preds = %7, %10, %14
   %.not = icmp eq ptr %.0.val, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.backedge40
   %.val39.pre = load ptr, ptr %3, align 8
@@ -185,7 +185,7 @@ define hidden void @uv__wait_children(ptr noundef readonly captures(address) %0)
 
 .backedge:                                        ; preds = %45, %41
   %.not36 = icmp eq ptr %.1.val, %3
-  br i1 %.not36, label %._crit_edge47, label %.lr.ph46
+  br i1 %.not36, label %._crit_edge47, label %.lr.ph46, !llvm.loop !6
 
 ._crit_edge47:                                    ; preds = %.backedge, %1, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
@@ -334,7 +334,7 @@ uv__process_init_stdio.exit.thread:               ; preds = %42, %47, %65, %36
   %70 = load i32, ptr %23, align 4
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %36, label %._crit_edge
+  br i1 %72, label %36, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %69, %.preheader114.preheader
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -449,7 +449,7 @@ uv__spawn_and_init_child.exit.thread108:          ; preds = %.preheader27.i
   %117 = tail call ptr @__errno_location() #13
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %118, 4
-  br i1 %119, label %.preheader26.i, label %.critedge2.i
+  br i1 %119, label %.preheader26.i, label %.critedge2.i, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %116, %.preheader26.i
   %120 = load i32, ptr %8, align 4
@@ -463,7 +463,7 @@ uv__spawn_and_init_child.exit.thread108:          ; preds = %.preheader27.i
 123:                                              ; preds = %.preheader.i93
   %124 = load i32, ptr %112, align 4
   %125 = icmp eq i32 %124, 4
-  br i1 %125, label %.preheader.i93, label %uv__spawn_and_init_child.exit.thread106
+  br i1 %125, label %.preheader.i93, label %uv__spawn_and_init_child.exit.thread106, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %111, %.preheader27.i
   call void @abort() #14
@@ -600,14 +600,14 @@ uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge: ; pr
 
 uv__process_close_stream.exit:                    ; preds = %.lr.ph127, %182
   %185 = icmp eq i64 %indvars.iv.next140, 0
-  br i1 %185, label %.loopexit, label %.lr.ph127
+  br i1 %185, label %.loopexit, label %.lr.ph127, !llvm.loop !10
 
 uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge, %152, %159
   %186 = phi i32 [ %.pre, %uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge ], [ %153, %152 ], [ %153, %159 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %187 = sext i32 %186 to i64
   %188 = icmp slt i64 %indvars.iv.next135, %187
-  br i1 %188, label %152, label %._crit_edge124
+  br i1 %188, label %152, label %._crit_edge124, !llvm.loop !11
 
 ._crit_edge124:                                   ; preds = %uv__process_open_stream.exit.thread, %148
   %.not84 = icmp eq ptr %.079147, %10
@@ -656,7 +656,7 @@ uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_st
 209:                                              ; preds = %204, %207, %194
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next143, %31
-  br i1 %exitcond.not, label %210, label %190
+  br i1 %exitcond.not, label %210, label %190, !llvm.loop !12
 
 210:                                              ; preds = %209
   %.not88 = icmp eq ptr %.079147, %10
@@ -850,7 +850,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 25:                                               ; preds = %22
   %26 = load i32, ptr %19, align 4
   %27 = icmp eq i32 %26, 4
-  br i1 %27, label %22, label %.critedge.i.i
+  br i1 %27, label %22, label %.critedge.i.i, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %25, %22
   tail call void @_exit(i32 noundef 127) #14
@@ -859,7 +859,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 28:                                               ; preds = %15, %15, %16
   %29 = add nuw nsw i32 %.069140, 1
   %exitcond.not = icmp eq i32 %29, 32
-  br i1 %exitcond.not, label %30, label %15
+  br i1 %exitcond.not, label %30, label %15, !llvm.loop !14
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -910,7 +910,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 51:                                               ; preds = %48
   %52 = load i32, ptr %45, align 4
   %53 = icmp eq i32 %52, 4
-  br i1 %53, label %48, label %.critedge.i.i94
+  br i1 %53, label %48, label %.critedge.i.i94, !llvm.loop !13
 
 .critedge.i.i94:                                  ; preds = %51, %48
   tail call void @_exit(i32 noundef 127) #14
@@ -919,7 +919,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 54:                                               ; preds = %41, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond145.not, label %.lr.ph143, label %.lr.ph
+  br i1 %exitcond145.not, label %.lr.ph143, label %.lr.ph, !llvm.loop !15
 
 .lr.ph143:                                        ; preds = %54, %108
   %.1142 = phi i32 [ %109, %108 ], [ 0, %54 ]
@@ -957,7 +957,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 74:                                               ; preds = %71
   %75 = load i32, ptr %68, align 4
   %76 = icmp eq i32 %75, 4
-  br i1 %76, label %71, label %.critedge.i.i96
+  br i1 %76, label %71, label %.critedge.i.i96, !llvm.loop !13
 
 .critedge.i.i96:                                  ; preds = %74, %71
   tail call void @_exit(i32 noundef 127) #14
@@ -990,7 +990,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
   %87 = tail call ptr @__errno_location() #13
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 4
-  br i1 %89, label %83, label %.critedge.i
+  br i1 %89, label %83, label %.critedge.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %86, %83
   tail call void @_exit(i32 noundef 127) #14
@@ -1019,7 +1019,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 100:                                              ; preds = %97
   %101 = load i32, ptr %94, align 4
   %102 = icmp eq i32 %101, 4
-  br i1 %102, label %97, label %.critedge.i.i98
+  br i1 %102, label %97, label %.critedge.i.i98, !llvm.loop !13
 
 .critedge.i.i98:                                  ; preds = %100, %97
   tail call void @_exit(i32 noundef 127) #14
@@ -1051,7 +1051,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
   %.2 = phi i32 [ %.1142, %59 ], [ %.3124129, %.thread131 ], [ %.3124129, %.thread121.thread ]
   %109 = add nsw i32 %.2, 1
   %110 = icmp slt i32 %109, %1
-  br i1 %110, label %.lr.ph143, label %._crit_edge
+  br i1 %110, label %.lr.ph143, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %108, %36
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1080,7 +1080,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 122:                                              ; preds = %119
   %123 = load i32, ptr %116, align 4
   %124 = icmp eq i32 %123, 4
-  br i1 %124, label %119, label %.critedge.i.i100
+  br i1 %124, label %119, label %.critedge.i.i100, !llvm.loop !13
 
 .critedge.i.i100:                                 ; preds = %122, %119
   tail call void @_exit(i32 noundef 127) #14
@@ -1133,7 +1133,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 146:                                              ; preds = %143
   %147 = load i32, ptr %140, align 4
   %148 = icmp eq i32 %147, 4
-  br i1 %148, label %143, label %.critedge.i.i102
+  br i1 %148, label %143, label %.critedge.i.i102, !llvm.loop !13
 
 .critedge.i.i102:                                 ; preds = %146, %143
   tail call void @_exit(i32 noundef 127) #14
@@ -1168,7 +1168,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 163:                                              ; preds = %160
   %164 = load i32, ptr %157, align 4
   %165 = icmp eq i32 %164, 4
-  br i1 %165, label %160, label %.critedge.i.i104
+  br i1 %165, label %160, label %.critedge.i.i104, !llvm.loop !13
 
 .critedge.i.i104:                                 ; preds = %163, %160
   tail call void @_exit(i32 noundef 127) #14
@@ -1215,7 +1215,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 186:                                              ; preds = %183
   %187 = load i32, ptr %180, align 4
   %188 = icmp eq i32 %187, 4
-  br i1 %188, label %183, label %.critedge.i.i106
+  br i1 %188, label %183, label %.critedge.i.i106, !llvm.loop !13
 
 .critedge.i.i106:                                 ; preds = %186, %183
   call void @_exit(i32 noundef 127) #14
@@ -1301,3 +1301,16 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

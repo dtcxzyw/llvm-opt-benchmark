@@ -20,13 +20,13 @@ define ptr @Cudd_addNegate(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !26
+  %3 = load i32, ptr %1, align 8, !tbaa !27
   %4 = icmp eq i32 %3, 2147483647
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load double, ptr %6, align 8, !tbaa !27
+  %7 = load double, ptr %6, align 8, !tbaa !28
   %8 = fneg double %7
   %9 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %8) #4
   br label %47
@@ -38,9 +38,9 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !27
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = tail call ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %14)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %47, label %19
@@ -50,9 +50,9 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %24 = load i32, ptr %23, align 4, !tbaa !29
   %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4, !tbaa !28
+  store i32 %25, ptr %23, align 4, !tbaa !29
   %26 = tail call ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %16)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
@@ -66,14 +66,14 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !28
+  %34 = load i32, ptr %33, align 4, !tbaa !29
   %35 = add i32 %34, 1
-  store i32 %35, ptr %33, align 4, !tbaa !28
+  store i32 %35, ptr %33, align 4, !tbaa !29
   %36 = icmp eq ptr %17, %26
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %29
-  %38 = load i32, ptr %1, align 8, !tbaa !26
+  %38 = load i32, ptr %1, align 8, !tbaa !27
   %39 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %38, ptr noundef nonnull %17, ptr noundef nonnull %26) #4
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %.thread
@@ -85,12 +85,12 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 .thread:                                          ; preds = %29, %37
   %42 = phi ptr [ %39, %37 ], [ %17, %29 ]
-  %43 = load i32, ptr %23, align 4, !tbaa !28
+  %43 = load i32, ptr %23, align 4, !tbaa !29
   %44 = add i32 %43, -1
-  store i32 %44, ptr %23, align 4, !tbaa !28
-  %45 = load i32, ptr %33, align 4, !tbaa !28
+  store i32 %44, ptr %23, align 4, !tbaa !29
+  %45 = load i32, ptr %33, align 4, !tbaa !29
   %46 = add i32 %45, -1
-  store i32 %46, ptr %33, align 4, !tbaa !28
+  store i32 %46, ptr %33, align 4, !tbaa !29
   tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @Cudd_addNegate, ptr noundef nonnull %1, ptr noundef nonnull %42) #4
   br label %47
 
@@ -102,7 +102,7 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addRoundOff(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = sitofp i32 %2 to double
-  %5 = tail call double @pow(double noundef 1.000000e+01, double noundef %4) #4, !tbaa !29
+  %5 = tail call double @pow(double noundef 1.000000e+01, double noundef %4) #4, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %7
 
@@ -110,7 +110,7 @@ define ptr @Cudd_addRoundOff(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 
   %8 = tail call ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef %5)
   %9 = load i32, ptr %6, align 8, !tbaa !3
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %7, label %11, !llvm.loop !30
+  br i1 %10, label %7, label %11, !llvm.loop !31
 
 11:                                               ; preds = %7
   ret ptr %8
@@ -121,13 +121,13 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr %1, align 8, !tbaa !26
+  %4 = load i32, ptr %1, align 8, !tbaa !27
   %5 = icmp eq i32 %4, 2147483647
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load double, ptr %7, align 8, !tbaa !27
+  %8 = load double, ptr %7, align 8, !tbaa !28
   %9 = fmul double %2, %8
   %10 = tail call double @llvm.ceil.f64(double %9)
   %11 = fdiv double %10, %2
@@ -141,9 +141,9 @@ define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef 
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !27
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
   %20 = tail call ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %17, double noundef %2)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %50, label %22
@@ -153,9 +153,9 @@ define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef 
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !28
+  %27 = load i32, ptr %26, align 4, !tbaa !29
   %28 = add i32 %27, 1
-  store i32 %28, ptr %26, align 4, !tbaa !28
+  store i32 %28, ptr %26, align 4, !tbaa !29
   %29 = tail call ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %19, double noundef %2)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
@@ -169,14 +169,14 @@ define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef 
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !28
+  %37 = load i32, ptr %36, align 4, !tbaa !29
   %38 = add i32 %37, 1
-  store i32 %38, ptr %36, align 4, !tbaa !28
+  store i32 %38, ptr %36, align 4, !tbaa !29
   %39 = icmp eq ptr %20, %29
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %32
-  %41 = load i32, ptr %1, align 8, !tbaa !26
+  %41 = load i32, ptr %1, align 8, !tbaa !27
   %42 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %41, ptr noundef nonnull %20, ptr noundef nonnull %29) #4
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %.thread
@@ -188,12 +188,12 @@ define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef 
 
 .thread:                                          ; preds = %32, %40
   %45 = phi ptr [ %42, %40 ], [ %20, %32 ]
-  %46 = load i32, ptr %26, align 4, !tbaa !28
+  %46 = load i32, ptr %26, align 4, !tbaa !29
   %47 = add i32 %46, -1
-  store i32 %47, ptr %26, align 4, !tbaa !28
-  %48 = load i32, ptr %36, align 4, !tbaa !28
+  store i32 %47, ptr %26, align 4, !tbaa !29
+  %48 = load i32, ptr %36, align 4, !tbaa !29
   %49 = add i32 %48, -1
-  store i32 %49, ptr %36, align 4, !tbaa !28
+  store i32 %49, ptr %36, align 4, !tbaa !29
   tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @Cudd_addRoundOff, ptr noundef nonnull %1, ptr noundef nonnull %45) #4
   br label %50
 
@@ -247,10 +247,11 @@ attributes #4 = { nounwind }
 !21 = !{!"p1 _ZTS12DdLocalCache", !10, i64 0}
 !22 = !{!"p1 _ZTS6DdHook", !10, i64 0}
 !23 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!5, !6, i64 0}
-!27 = !{!7, !7, i64 0}
-!28 = !{!5, !6, i64 4}
-!29 = !{!6, !6, i64 0}
-!30 = distinct !{!30, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!5, !6, i64 0}
+!28 = !{!7, !7, i64 0}
+!29 = !{!5, !6, i64 4}
+!30 = !{!6, !6, i64 0}
+!31 = distinct !{!31, !25, !26}

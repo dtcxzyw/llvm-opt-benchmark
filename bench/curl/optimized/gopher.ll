@@ -124,7 +124,7 @@ define internal i32 @gopher_do(ptr noundef %0, ptr noundef writeonly captures(no
 
 54:                                               ; preds = %51
   %.not62 = icmp eq i32 %52, 0
-  br i1 %.not62, label %.thread68, label %33
+  br i1 %.not62, label %.thread68, label %33, !llvm.loop !83
 
 .thread68:                                        ; preds = %54, %51, %48, %38, %36
   %.2.ph = phi i32 [ 28, %54 ], [ 55, %51 ], [ 28, %48 ], [ %41, %38 ], [ %37, %36 ]
@@ -307,3 +307,5 @@ attributes #6 = { nounwind willreturn memory(read) }
 !80 = !{!"_Bool", !6, i64 0}
 !81 = !{!10, !10, i64 0}
 !82 = !{!8, !8, i64 0}
+!83 = distinct !{!83, !84}
+!84 = !{!"llvm.loop.estimated_trip_count"}

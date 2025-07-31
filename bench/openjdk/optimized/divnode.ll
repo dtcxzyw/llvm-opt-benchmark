@@ -641,7 +641,7 @@ _ZN4NodenwEm.exit126:                             ; preds = %208, %210
 
 .critedge.i.backedge:                             ; preds = %236, %.critedge.i
   %.047.i.be = phi i32 [ 0, %236 ], [ %.148.i, %.critedge.i ]
-  br label %.critedge.i, !llvm.loop !8
+  br label %.critedge.i, !llvm.loop !9
 
 _ZL26magic_int_divide_constantsiRiS_.exit:        ; preds = %236
   %240 = add i32 %.146.i, 1
@@ -1921,7 +1921,7 @@ _ZN4NodenwEm.exit109:                             ; preds = %210, %212
 
 .critedge.i.backedge:                             ; preds = %242, %.critedge.i
   %.047.i.be = phi i64 [ 0, %242 ], [ %.148.i, %.critedge.i ]
-  br label %.critedge.i, !llvm.loop !9
+  br label %.critedge.i, !llvm.loop !10
 
 246:                                              ; preds = %242
   %247 = add i64 %.146.i, 1
@@ -4246,7 +4246,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %194, %182, %176
 _ZN4Node7set_reqEjPS_.exit138:                    ; preds = %_ZN4Node7del_outEPS_.exit.i, %199, %210
   %216 = add nuw nsw i32 %.099145, 1
   %exitcond.not = icmp eq i32 %216, %.096
-  br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN4Node7set_reqEjPS_.exit138, %96
   %.097.lcssa = phi ptr [ %99, %96 ], [ %179, %_ZN4Node7set_reqEjPS_.exit138 ]
@@ -5157,7 +5157,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %194, %182, %176
 _ZN4Node7set_reqEjPS_.exit138:                    ; preds = %_ZN4Node7del_outEPS_.exit.i, %199, %210
   %216 = add nuw nsw i32 %.099145, 1
   %exitcond.not = icmp eq i32 %216, %.096
-  br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN4Node7set_reqEjPS_.exit138, %96
   %.097.lcssa = phi ptr [ %99, %96 ], [ %179, %_ZN4Node7set_reqEjPS_.exit138 ]
@@ -7199,9 +7199,10 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

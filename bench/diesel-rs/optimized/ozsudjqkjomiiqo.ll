@@ -53,7 +53,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hcee2332a
   store <2 x i64> %26, ptr %10, align 16
   call void @_ZN4core9core_arch3x864sse215_mm_store_si12817h0d72d300a3926958E(ptr nonnull %28, ptr nonnull align 16 %10)
   %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.exit, label %20
+  br i1 %.not.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.exit, label %20, !llvm.loop !4
 
 _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.exit: ; preds = %20, %5
   %29 = load i64, ptr %16, align 8, !noundef !3
@@ -149,7 +149,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
           to label %60 unwind label %.loopexit.split-lp.loopexit
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr %15, align 8, !nonnull !3, !align !4, !noundef !3
+  %61 = load ptr, ptr %15, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8, !noundef !3
@@ -194,7 +194,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 .noexc22:                                         ; preds = %.noexc21
   %79 = trunc i32 %78 to i16
   %80 = icmp eq i16 %79, 0
-  br i1 %80, label %.lr.ph.i19, label %._crit_edge.i
+  br i1 %80, label %.lr.ph.i19, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.noexc22, %.noexc20
   %.sroa.0.0.lcssa.i = phi i64 [ %64, %.noexc20 ], [ %74, %.noexc22 ]
@@ -280,7 +280,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 
 125:                                              ; preds = %102
   invoke void @_ZN4core3ptr19swap_nonoverlapping17hab33e2f76980e193E(ptr nonnull %55, ptr nonnull %104, i64 %3)
-          to label %57 unwind label %.loopexit.split-lp.loopexit
+          to label %57 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !8
 
 126:                                              ; preds = %102
   %127 = add i64 %.sroa.03.038, -16
@@ -299,7 +299,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 135:                                              ; preds = %50, %126, %115
   %136 = phi ptr [ %39, %50 ], [ %61, %126 ], [ %61, %115 ]
   %.not = icmp ult i64 %40, %36
-  br i1 %.not, label %38, label %.critedge.loopexit
+  br i1 %.not, label %38, label %.critedge.loopexit, !llvm.loop !9
 
 137:                                              ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %lpad.phi
@@ -349,7 +349,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %23 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %5)
   %24 = trunc i32 %23 to i16
   %25 = icmp eq i16 %24, 0
-  br i1 %25, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
   %.sroa.0.0.lcssa.i = phi i64 [ %9, %2 ], [ %19, %.lr.ph.i ]
@@ -468,7 +468,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   %41 = and i64 %40, %39
   %42 = load ptr, ptr %25, align 8, !invariant.load !3, !nonnull !3
   %43 = call zeroext i1 %42(ptr align 1 %2, i64 %41)
-  br i1 %43, label %.loopexit, label %34
+  br i1 %43, label %.loopexit, label %34, !llvm.loop !10
 
 44:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -512,7 +512,7 @@ _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h06ac551774210734E.
   %61 = add i64 %.sroa.6.0, 16
   %62 = add i64 %.sroa.0.018, %61
   %63 = and i64 %60, %62
-  br label %26
+  br label %26, !llvm.loop !11
 
 64:                                               ; preds = %54
   %65 = icmp eq i64 %.sroa.01.1, 1
@@ -636,4 +636,11 @@ attributes #10 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !3 = !{}
-!4 = !{i64 8}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i64 8}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

@@ -150,7 +150,7 @@ _ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   %54 = phi ptr [ %51, %_ZNSt6vectorISt4pairIddESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %25, %31 ]
   %55 = getelementptr inbounds nuw i8, ptr %.01335, i64 8
   %.not = icmp eq ptr %55, %3
-  br i1 %.not, label %._crit_edge, label %23
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !39
 
 .loopexit:                                        ; preds = %23, %_ZNKSt6vectorISt4pairIddESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -273,5 +273,7 @@ attributes #11 = { builtin nounwind }
 !33 = distinct !{!33, !34, !"_ZSt19__relocate_object_aISt4pairIddES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !34 = distinct !{!34, !"_ZSt19__relocate_object_aISt4pairIddES1_SaIS1_EEvPT_PT0_RT1_"}
 !35 = distinct !{!35, !34, !"_ZSt19__relocate_object_aISt4pairIddES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !38}

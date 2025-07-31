@@ -174,7 +174,7 @@ define dso_local void @acpi_disable_wakeup_devices(i8 noundef zeroext %0) local_
 
 48:                                               ; preds = %46, %42, %33, %29, %15, %6
   %49 = icmp eq ptr %9, @acpi_wakeup_device_list
-  br i1 %49, label %.loopexit, label %6, !llvm.loop !8
+  br i1 %49, label %.loopexit, label %6, !llvm.loop !9
 
 .loopexit:                                        ; preds = %48, %1
   ret void
@@ -212,7 +212,7 @@ define dso_local noundef i32 @acpi_wakeup_device_init() local_unnamed_addr #2 se
 
 18:                                               ; preds = %9, %.preheader
   %19 = icmp eq ptr %4, @acpi_wakeup_device_list
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %18, %0
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_lock) #4
@@ -301,7 +301,7 @@ define dso_local void @acpi_unregister_wakeup_handler(ptr noundef readnone captu
 18:                                               ; preds = %9, %.preheader
   %19 = load ptr, ptr %5, align 8
   %20 = icmp eq ptr %19, @acpi_wakeup_handler_head
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %18, %13, %2
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_wakeup_handler_mutex) #4
@@ -327,7 +327,7 @@ define dso_local noundef zeroext i1 @acpi_check_wakeup_handlers() local_unnamed_
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i1 %6(ptr noundef %8) #4
-  br i1 %9, label %10, label %1, !llvm.loop !11
+  br i1 %9, label %10, label %1, !llvm.loop !12
 
 10:                                               ; preds = %4, %1
   ret i1 %.not.not.not.not.not
@@ -350,10 +350,11 @@ attributes #5 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}

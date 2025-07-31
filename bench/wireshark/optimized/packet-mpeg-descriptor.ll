@@ -2943,7 +2943,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_service_list(ptr noun
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %.017, 3
   %17 = icmp ult i32 %16, %5
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -3235,7 +3235,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_vbi_data(ptr noundef 
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %27, ptr noundef %0, i32 noundef %.141, i32 noundef 1, i32 noundef 0)
   %29 = add i32 %.141, 1
   %exitcond.not = icmp eq i32 %29, %21
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 30:                                               ; preds = %.lr.ph43
   %31 = load i32, ptr @hf_mpeg_descr_vbi_data_reserved2, align 4
@@ -3246,7 +3246,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_vbi_data(ptr noundef 
 .loopexit:                                        ; preds = %.lr.ph, %20, %30
   %.2 = phi i32 [ %33, %30 ], [ %19, %20 ], [ %21, %.lr.ph ]
   %34 = icmp ult i32 %.2, %5
-  br i1 %34, label %.lr.ph43, label %._crit_edge, !llvm.loop !10
+  br i1 %34, label %.lr.ph43, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   ret void
@@ -3346,7 +3346,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_country_availability_
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %0, i32 noundef %.019, i32 noundef 3, i32 noundef 0)
   %17 = add i32 %.019, 3
   %18 = icmp ult i32 %17, %5
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -3457,7 +3457,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_linkage(ptr noundef %
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %79, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0)
   %81 = add i32 %.2112, 4
   %.not = icmp eq i32 %65, 0
-  br i1 %.not, label %.loopexit, label %64, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %64, !llvm.loop !13
 
 .loopexit:                                        ; preds = %64, %4, %41, %36, %37
   %.1 = phi i32 [ %40, %37 ], [ %.0, %36 ], [ %44, %41 ], [ %18, %4 ], [ %81, %64 ]
@@ -3500,7 +3500,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_nvod_reference(ptr no
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef %12, i32 noundef 2, i32 noundef 0)
   %23 = add i32 %.027, 6
   %24 = icmp ult i32 %23, %5
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -3604,7 +3604,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_extended_event(ptr no
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef %35, i32 noundef 0)
   %37 = add i32 %33, %35
   %38 = icmp ult i32 %37, %18
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ %16, %3 ], [ %37, %.lr.ph ]
@@ -3821,7 +3821,7 @@ proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit: ; preds = %.lr.ph9
   %51 = add i32 %.191, 1
   %52 = add i8 %.08490, -1
   %.not87 = icmp eq i8 %52, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit
   %.1.lcssa = phi i32 [ %18, %proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit ], [ %51, %.lr.ph ]
@@ -3861,7 +3861,7 @@ proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit: ; preds = %.lr.ph9
 .thread:                                          ; preds = %.thread.sink.split, %._crit_edge, %57
   %.3 = phi i32 [ %66, %57 ], [ %56, %._crit_edge ], [ %70, %.thread.sink.split ]
   %71 = icmp ult i32 %.3, %5
-  br i1 %71, label %.lr.ph94, label %._crit_edge95, !llvm.loop !16
+  br i1 %71, label %.lr.ph94, label %._crit_edge95, !llvm.loop !17
 
 ._crit_edge95:                                    ; preds = %.thread, %4
   ret void
@@ -3879,7 +3879,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_ca_identifier(ptr nou
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %.07, i32 noundef 2, i32 noundef 0)
   %9 = add i32 %.07, 2
   %10 = icmp ult i32 %9, %5
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -3906,7 +3906,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_content(ptr noundef %
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %16, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0)
   %18 = add i32 %.018, 2
   %19 = icmp ult i32 %18, %5
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -3942,7 +3942,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_teletext(ptr noundef 
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0)
   %17 = add i32 %.018, 5
   %18 = icmp ult i32 %17, %5
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -4158,7 +4158,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_local_time_offset(ptr
   %67 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %3, i32 noundef %66, ptr noundef %0, i32 noundef %48, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull @.str.756, i32 noundef %60, i32 noundef %62)
   %68 = add i32 %.061, 13
   %69 = icmp ult i32 %68, %8
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %47, %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
@@ -4188,7 +4188,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_subtitling(ptr nounde
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %16, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef 0)
   %18 = add i32 %.019, 8
   %19 = icmp ult i32 %18, %5
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -4295,7 +4295,7 @@ proto_mpeg_descriptor_dissect_multilng_network_name_desc_measure_lng_len.exit: ;
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %.loopexit, label %8, !llvm.loop !22
+  br i1 %.not, label %.loopexit, label %8, !llvm.loop !23
 
 .critedge56.critedge:                             ; preds = %10
   %44 = load i32, ptr @ett_mpeg_descriptor_multilng_network_name_desc_lng, align 4
@@ -4376,7 +4376,7 @@ proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc_measure_lng_len.exit: ;
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %.loopexit, label %8, !llvm.loop !23
+  br i1 %.not, label %.loopexit, label %8, !llvm.loop !24
 
 .critedge56.critedge:                             ; preds = %10
   %44 = load i32, ptr @ett_mpeg_descriptor_multilng_bouquet_name_desc_lng, align 4
@@ -4497,7 +4497,7 @@ proto_mpeg_descriptor_dissect_multilng_srv_name_desc_measure_lng_len.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %.loopexit, label %8, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %8, !llvm.loop !25
 
 .critedge.critedge:                               ; preds = %10
   %73 = load i32, ptr @ett_mpeg_descriptor_multilng_srv_name_desc_lng, align 4
@@ -4590,7 +4590,7 @@ proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .critedge63.critedge:                             ; preds = %13
   %47 = load i32, ptr @ett_mpeg_descriptor_multilng_component_desc_lng, align 4
@@ -4868,7 +4868,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_app_sig(ptr noundef %
   %11 = add i32 %.011, 3
   %12 = sub i32 %11, %1
   %13 = icmp ult i32 %12, %2
-  br i1 %13, label %5, label %14, !llvm.loop !26
+  br i1 %13, label %5, label %14, !llvm.loop !27
 
 14:                                               ; preds = %5
   ret void
@@ -4894,7 +4894,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_service_availability(
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %0, i32 noundef %.019, i32 noundef 2, i32 noundef 0)
   %17 = add i32 %.019, 2
   %18 = icmp ult i32 %17, %5
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -4923,7 +4923,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_tva_id(ptr noundef %0
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0)
   %19 = add i32 %.024, 3
   %20 = icmp ult i32 %19, %5
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -4991,7 +4991,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_content_identifier(pt
 40:                                               ; preds = %35, %37, %26
   %.1 = phi i32 [ %34, %26 ], [ %.pre-phi, %37 ], [ %.pre-phi, %35 ]
   %41 = icmp ult i32 %.1, %5
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %40, %4
   ret void
@@ -5239,7 +5239,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_nordig_lcd_v1(ptr nou
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0)
   %21 = add i32 %.024, 4
   %22 = icmp ult i32 %21, %5
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %4
   ret void
@@ -5366,14 +5366,14 @@ proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit: ; preds = %7, 
   %84 = add i8 %.0101126, -4
   %.3 = add i32 %.3129, 4
   %.not115 = icmp eq i8 %84, 0
-  br i1 %.not115, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not115, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %75, %56
   %.399.lcssa = phi i32 [ %61, %56 ], [ %83, %75 ]
   %.3.lcssa = phi i32 [ %.3124, %56 ], [ %.3, %75 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %.not = icmp eq i32 %.399.lcssa, 0
-  br i1 %.not, label %.critedge, label %7, !llvm.loop !32
+  br i1 %.not, label %.critedge, label %7, !llvm.loop !33
 
 .critedge.critedge:                               ; preds = %52, %31, %66, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
@@ -5518,7 +5518,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_rcs_content(ptr nound
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %.07, i32 noundef 1, i32 noundef 0)
   %9 = add i32 %.07, 1
   %exitcond.not = icmp eq i32 %9, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -5653,7 +5653,7 @@ define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 nounde
   %83 = add i32 %.2121.i, 2
   %84 = add nuw i8 %.0114122.i, 1
   %exitcond.not.i = icmp eq i8 %84, %77
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !35
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %76, %68
   %.1.i = phi i32 [ %75, %68 ], [ %80, %76 ], [ %83, %.lr.ph.i ]
@@ -5686,7 +5686,7 @@ define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 nounde
   %97 = add i32 %.024, %.033
   %98 = sub i32 %97, %1
   %99 = icmp ult i32 %98, %2
-  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %96, %4
   %.lcssa31 = phi i32 [ 0, %4 ], [ %98, %96 ]
@@ -5824,33 +5824,34 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}

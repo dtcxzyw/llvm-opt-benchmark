@@ -286,11 +286,11 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z13lua_newthreadP9lua_State(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %5 = load i64, ptr %4, align 8, !tbaa !31
+  %5 = load i64, ptr %4, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %7 = load i64, ptr %6, align 8, !tbaa !46
+  %7 = load i64, ptr %6, align 8, !tbaa !47
   %.not = icmp ult i64 %5, %7
   br i1 %.not, label %10, label %8
 
@@ -316,13 +316,13 @@ define dso_local noundef ptr @_Z13lua_newthreadP9lua_State(ptr noundef %0) local
   %19 = load ptr, ptr %18, align 8, !tbaa !19
   store ptr %17, ptr %19, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store i32 9, ptr %20, align 4, !tbaa !47
+  store i32 9, ptr %20, align 4, !tbaa !48
   %21 = load ptr, ptr %18, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %22, ptr %18, align 8, !tbaa !19
-  %23 = load ptr, ptr %2, align 8, !tbaa !30
+  %23 = load ptr, ptr %2, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3312
-  %25 = load ptr, ptr %24, align 8, !tbaa !48
+  %25 = load ptr, ptr %24, align 8, !tbaa !49
   %.not20 = icmp eq ptr %25, null
   br i1 %.not20, label %27, label %26
 
@@ -341,9 +341,9 @@ declare hidden noundef ptr @_Z14luaE_newthreadP9lua_State(ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_Z14lua_mainthreadP9lua_State(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2808
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   ret ptr %5
 }
 
@@ -405,9 +405,9 @@ define dso_local void @_Z10lua_settopP9lua_Statei(ptr noundef captures(none) %0,
   %10 = phi ptr [ %11, %.lr.ph ], [ %.promoted, %.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %12, align 4, !tbaa !47
+  store i32 0, ptr %12, align 4, !tbaa !48
   %13 = icmp ult ptr %11, %8
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %4, align 8, !tbaa !19
@@ -471,7 +471,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %22, align 8, !tbaa !19
   %28 = icmp ult ptr %26, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZL10index2addrP9lua_Statei.exit
   %.lcssa = phi ptr [ %21, %_ZL10index2addrP9lua_Statei.exit ], [ %27, %.lr.ph ]
@@ -543,7 +543,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %31 = getelementptr inbounds i8, ptr %.018, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.018, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !20
   %32 = icmp ugt ptr %31, %.1.i
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -601,16 +601,16 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !53
+  %31 = load ptr, ptr %30, align 8, !tbaa !54
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
   %36 = load ptr, ptr %35, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %36, ptr %37, align 8, !tbaa !54
+  store ptr %36, ptr %37, align 8, !tbaa !55
   %38 = getelementptr inbounds i8, ptr %34, i64 -4
-  %39 = load i32, ptr %38, align 4, !tbaa !47
+  %39 = load i32, ptr %38, align 4, !tbaa !48
   %40 = icmp sgt i32 %39, 4
   br i1 %40, label %41, label %82
 
@@ -638,7 +638,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %53 = getelementptr inbounds i8, ptr %52, i64 -16
   %54 = load ptr, ptr %53, align 8, !tbaa !21
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %54, ptr %55, align 8, !tbaa !56
+  store ptr %54, ptr %55, align 8, !tbaa !57
   br label %82
 
 56:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
@@ -653,7 +653,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %62 = load ptr, ptr %57, align 8, !tbaa !19
   %63 = getelementptr inbounds i8, ptr %62, i64 -16
   %64 = getelementptr inbounds i8, ptr %62, i64 -4
-  %65 = load i32, ptr %64, align 4, !tbaa !47
+  %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = icmp sgt i32 %65, 4
   br i1 %66, label %67, label %82
 
@@ -661,7 +661,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !24
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !53
+  %71 = load ptr, ptr %70, align 8, !tbaa !54
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !21
@@ -786,7 +786,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
 
 22:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !47
+  %24 = load i32, ptr %23, align 4, !tbaa !48
   br label %_ZL10index2addrP9lua_Statei.exit.thread
 
 _ZL10index2addrP9lua_Statei.exit.thread:          ; preds = %4, %_ZL10index2addrP9lua_Statei.exit, %22
@@ -802,7 +802,7 @@ define dso_local noundef ptr @_Z12lua_typenameP9lua_Statei(ptr noundef readnone 
 4:                                                ; preds = %2
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !57
+  %7 = load ptr, ptr %6, align 8, !tbaa !58
   br label %8
 
 8:                                                ; preds = %2, %4
@@ -845,14 +845,14 @@ define dso_local noundef range(i32 0, 2) i32 @_Z15lua_iscfunctionP9lua_Statei(pt
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = icmp eq i32 %22, 7
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %25 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !59
+  %27 = load i8, ptr %26, align 1, !tbaa !60
   %28 = icmp ne i8 %27, 0
   %29 = zext i1 %28 to i32
   br label %30
@@ -897,14 +897,14 @@ define dso_local noundef range(i32 0, 2) i32 @_Z15lua_isLfunctionP9lua_Statei(pt
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = icmp eq i32 %22, 7
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %25 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !59
+  %27 = load i8, ptr %26, align 1, !tbaa !60
   %.not = icmp eq i8 %27, 0
   %28 = zext i1 %.not to i32
   br label %29
@@ -951,7 +951,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z12lua_isnumberP9lua_Statei(ptr n
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %21, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !47
+  %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = icmp eq i32 %23, 3
   br i1 %24, label %29, label %25
 
@@ -1007,7 +1007,7 @@ _ZL10index2addrP9lua_Statei.exit.i:               ; preds = %19, %14, %4
 
 22:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !47
+  %24 = load i32, ptr %23, align 4, !tbaa !48
   br label %_Z8lua_typeP9lua_Statei.exit
 
 _Z8lua_typeP9lua_Statei.exit:                     ; preds = %4, %_ZL10index2addrP9lua_Statei.exit.i, %22
@@ -1054,7 +1054,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z14lua_isuserdataP9lua_Statei(ptr
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = icmp eq i32 %22, 8
   %24 = icmp eq i32 %22, 2
   %narrow = or i1 %23, %24
@@ -1217,9 +1217,9 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %23, %33, %38
 
 42:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %43 = getelementptr inbounds nuw i8, ptr %.1.i13, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !47
+  %44 = load i32, ptr %43, align 4, !tbaa !48
   %45 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !47
+  %46 = load i32, ptr %45, align 4, !tbaa !48
   %47 = icmp eq i32 %44, %46
   br i1 %47, label %48, label %52
 
@@ -1355,7 +1355,7 @@ define dso_local noundef double @_Z13lua_tonumberxP9lua_StateiPi(ptr noundef rea
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !47
+  %24 = load i32, ptr %23, align 4, !tbaa !48
   %25 = icmp eq i32 %24, 3
   br i1 %25, label %28, label %26
 
@@ -1428,7 +1428,7 @@ define dso_local noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef reado
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !47
+  %24 = load i32, ptr %23, align 4, !tbaa !48
   %25 = icmp eq i32 %24, 3
   br i1 %25, label %28, label %26
 
@@ -1497,7 +1497,7 @@ define dso_local noundef i32 @_Z15lua_tounsignedxP9lua_StateiPi(ptr noundef read
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !47
+  %24 = load i32, ptr %23, align 4, !tbaa !48
   %25 = icmp eq i32 %24, 3
   br i1 %25, label %28, label %26
 
@@ -1565,7 +1565,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z13lua_tobooleanP9lua_Statei(ptr 
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   switch i32 %22, label %.fold.split [
     i32 0, label %27
     i32 1, label %23
@@ -1620,7 +1620,7 @@ define dso_local noundef ptr @_Z13lua_tolstringP9lua_StateiPm(ptr noundef %0, i3
 _ZL10index2addrP9lua_Statei.exit29:               ; preds = %5, %15, %20
   %.1.i26 = phi ptr [ %.luaO_nilobject_.i28, %5 ], [ %19, %15 ], [ %21, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i26, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !47
+  %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = icmp eq i32 %23, 5
   br i1 %24, label %_ZL10index2addrP9lua_Statei.exit, label %25
 
@@ -1646,16 +1646,16 @@ _ZL10index2addrP9lua_Statei.exit29:               ; preds = %5, %15, %20
   br i1 %.not23, label %70, label %34
 
 34:                                               ; preds = %33
-  store i64 0, ptr %2, align 8, !tbaa !60
+  store i64 0, ptr %2, align 8, !tbaa !61
   br label %70
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !30
+  %37 = load ptr, ptr %36, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %39 = load i64, ptr %38, align 8, !tbaa !31
+  %39 = load i64, ptr %38, align 8, !tbaa !32
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %41 = load i64, ptr %40, align 8, !tbaa !46
+  %41 = load i64, ptr %40, align 8, !tbaa !47
   %.not24 = icmp ult i64 %39, %41
   br i1 %.not24, label %44, label %42
 
@@ -1701,9 +1701,9 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %60, %55, %45, %_ZL1
 62:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %63 = load ptr, ptr %.0, align 8, !tbaa !21
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 20
-  %65 = load i32, ptr %64, align 4, !tbaa !61
+  %65 = load i32, ptr %64, align 4, !tbaa !62
   %66 = zext i32 %65 to i64
-  store i64 %66, ptr %2, align 8, !tbaa !60
+  store i64 %66, ptr %2, align 8, !tbaa !61
   br label %67
 
 67:                                               ; preds = %62, %_ZL10index2addrP9lua_Statei.exit
@@ -1753,7 +1753,7 @@ define dso_local noundef ptr @_Z16lua_tostringatomP9lua_StateiPi(ptr noundef rea
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %21, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !47
+  %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = icmp eq i32 %23, 5
   br i1 %24, label %25, label %49
 
@@ -1764,29 +1764,29 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %29 = load i16, ptr %28, align 4, !tbaa !63
+  %29 = load i16, ptr %28, align 4, !tbaa !64
   %30 = icmp eq i16 %29, -32768
   br i1 %30, label %31, label %44
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !30
+  %33 = load ptr, ptr %32, align 8, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 3320
-  %35 = load ptr, ptr %34, align 8, !tbaa !64
+  %35 = load ptr, ptr %34, align 8, !tbaa !65
   %.not16 = icmp eq ptr %35, null
   br i1 %.not16, label %42, label %36
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 20
-  %39 = load i32, ptr %38, align 4, !tbaa !61
+  %39 = load i32, ptr %38, align 4, !tbaa !62
   %40 = zext i32 %39 to i64
   %41 = tail call noundef signext i16 %35(ptr noundef nonnull %37, i64 noundef %40)
   br label %42
 
 42:                                               ; preds = %31, %36
   %43 = phi i16 [ %41, %36 ], [ -1, %31 ]
-  store i16 %43, ptr %28, align 4, !tbaa !63
+  store i16 %43, ptr %28, align 4, !tbaa !64
   br label %44
 
 44:                                               ; preds = %42, %27
@@ -1839,7 +1839,7 @@ define dso_local noundef ptr @_Z17lua_tolstringatomP9lua_StateiPmPi(ptr noundef 
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !47
+  %24 = load i32, ptr %23, align 4, !tbaa !48
   %25 = icmp eq i32 %24, 5
   br i1 %25, label %28, label %26
 
@@ -1848,7 +1848,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
   br i1 %.not, label %57, label %27
 
 27:                                               ; preds = %26
-  store i64 0, ptr %2, align 8, !tbaa !60
+  store i64 0, ptr %2, align 8, !tbaa !61
   br label %57
 
 28:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
@@ -1858,9 +1858,9 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  %32 = load i32, ptr %31, align 4, !tbaa !61
+  %32 = load i32, ptr %31, align 4, !tbaa !62
   %33 = zext i32 %32 to i64
-  store i64 %33, ptr %2, align 8, !tbaa !60
+  store i64 %33, ptr %2, align 8, !tbaa !61
   br label %34
 
 34:                                               ; preds = %30, %28
@@ -1869,29 +1869,29 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %37 = load i16, ptr %36, align 4, !tbaa !63
+  %37 = load i16, ptr %36, align 4, !tbaa !64
   %38 = icmp eq i16 %37, -32768
   br i1 %38, label %39, label %52
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !30
+  %41 = load ptr, ptr %40, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 3320
-  %43 = load ptr, ptr %42, align 8, !tbaa !64
+  %43 = load ptr, ptr %42, align 8, !tbaa !65
   %.not24 = icmp eq ptr %43, null
   br i1 %.not24, label %50, label %44
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  %47 = load i32, ptr %46, align 4, !tbaa !61
+  %47 = load i32, ptr %46, align 4, !tbaa !62
   %48 = zext i32 %47 to i64
   %49 = tail call noundef signext i16 %43(ptr noundef nonnull %45, i64 noundef %48)
   br label %50
 
 50:                                               ; preds = %39, %44
   %51 = phi i16 [ %49, %44 ], [ -1, %39 ]
-  store i16 %51, ptr %36, align 4, !tbaa !63
+  store i16 %51, ptr %36, align 4, !tbaa !64
   br label %52
 
 52:                                               ; preds = %50, %35
@@ -1912,7 +1912,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z16lua_namecallatomP9lua_StatePi(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %4 = load ptr, ptr %3, align 8, !tbaa !66
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %28, label %5
 
@@ -1922,29 +1922,29 @@ define dso_local noundef ptr @_Z16lua_namecallatomP9lua_StatePi(ptr noundef read
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %8 = load i16, ptr %7, align 4, !tbaa !63
+  %8 = load i16, ptr %7, align 4, !tbaa !64
   %9 = icmp eq i16 %8, -32768
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 3320
-  %14 = load ptr, ptr %13, align 8, !tbaa !64
+  %14 = load ptr, ptr %13, align 8, !tbaa !65
   %.not17 = icmp eq ptr %14, null
   br i1 %.not17, label %21, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %18 = load i32, ptr %17, align 4, !tbaa !61
+  %18 = load i32, ptr %17, align 4, !tbaa !62
   %19 = zext i32 %18 to i64
   %20 = tail call noundef signext i16 %14(ptr noundef nonnull %16, i64 noundef %19)
   br label %21
 
 21:                                               ; preds = %10, %15
   %22 = phi i16 [ %20, %15 ], [ -1, %10 ]
-  store i16 %22, ptr %7, align 4, !tbaa !63
+  store i16 %22, ptr %7, align 4, !tbaa !64
   br label %23
 
 23:                                               ; preds = %21, %6
@@ -1997,7 +1997,7 @@ define dso_local noundef ptr @_Z12lua_tovectorP9lua_Statei(ptr noundef readonly 
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = icmp eq i32 %22, 4
   %. = select i1 %23, ptr %.1.i, ptr null
   ret ptr %.
@@ -2038,7 +2038,7 @@ define dso_local noundef i32 @_Z10lua_objlenP9lua_Statei(ptr noundef readonly ca
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   switch i32 %22, label %38 [
     i32 5, label %23
     i32 8, label %27
@@ -2049,19 +2049,19 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
 23:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %24 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %26 = load i32, ptr %25, align 4, !tbaa !61
+  %26 = load i32, ptr %25, align 4, !tbaa !62
   br label %38
 
 27:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %28 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !66
+  %30 = load i32, ptr %29, align 4, !tbaa !67
   br label %38
 
 31:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %32 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !68
+  %34 = load i32, ptr %33, align 4, !tbaa !69
   br label %38
 
 35:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
@@ -2111,14 +2111,14 @@ define dso_local noundef ptr @_Z15lua_tocfunctionP9lua_Statei(ptr noundef readon
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = icmp eq i32 %22, 7
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %25 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !59
+  %27 = load i8, ptr %26, align 1, !tbaa !60
   %.not = icmp eq i8 %27, 0
   br i1 %.not, label %31, label %28
 
@@ -2167,7 +2167,7 @@ define dso_local noundef ptr @_Z19lua_tolightuserdataP9lua_Statei(ptr noundef re
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = icmp eq i32 %22, 2
   br i1 %23, label %24, label %26
 
@@ -2215,7 +2215,7 @@ define dso_local noundef ptr @_Z25lua_tolightuserdatataggedP9lua_Stateii(ptr nou
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %21, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !47
+  %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = icmp eq i32 %23, 2
   br i1 %24, label %25, label %30
 
@@ -2269,7 +2269,7 @@ define dso_local noundef ptr @_Z14lua_touserdataP9lua_Statei(ptr noundef readonl
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   switch i32 %22, label %28 [
     i32 8, label %23
     i32 2, label %26
@@ -2324,14 +2324,14 @@ define dso_local noundef ptr @_Z20lua_touserdatataggedP9lua_Stateii(ptr noundef 
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %21, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !47
+  %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = icmp eq i32 %23, 8
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %26 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3
-  %28 = load i8, ptr %27, align 1, !tbaa !70
+  %28 = load i8, ptr %27, align 1, !tbaa !71
   %29 = zext i8 %28 to i32
   %30 = icmp eq i32 %2, %29
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -2378,14 +2378,14 @@ define dso_local noundef range(i32 -1, 256) i32 @_Z15lua_userdatatagP9lua_Statei
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = icmp eq i32 %22, 8
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %25 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !70
+  %27 = load i8, ptr %26, align 1, !tbaa !71
   %28 = zext i8 %27 to i32
   br label %29
 
@@ -2429,7 +2429,7 @@ define dso_local noundef i32 @_Z20lua_lightuserdatatagP9lua_Statei(ptr noundef r
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = icmp eq i32 %22, 2
   br i1 %23, label %24, label %27
 
@@ -2478,7 +2478,7 @@ define dso_local noundef ptr @_Z12lua_tothreadP9lua_Statei(ptr noundef readonly 
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = icmp eq i32 %22, 9
   br i1 %23, label %24, label %26
 
@@ -2526,7 +2526,7 @@ define dso_local noundef ptr @_Z12lua_tobufferP9lua_StateiPm(ptr noundef readonl
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %21, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !47
+  %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = icmp eq i32 %23, 10
   br i1 %24, label %25, label %33
 
@@ -2537,9 +2537,9 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !68
+  %29 = load i32, ptr %28, align 4, !tbaa !69
   %30 = zext i32 %29 to i64
-  store i64 %30, ptr %2, align 8, !tbaa !60
+  store i64 %30, ptr %2, align 8, !tbaa !61
   br label %31
 
 31:                                               ; preds = %27, %25
@@ -2586,7 +2586,7 @@ define dso_local noundef ptr @_Z13lua_topointerP9lua_Statei(ptr noundef readonly
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   switch i32 %22, label %28 [
     i32 8, label %23
     i32 2, label %26
@@ -2619,7 +2619,7 @@ define dso_local void @_Z11lua_pushnilP9lua_State(ptr noundef captures(none) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %4, align 4, !tbaa !47
+  store i32 0, ptr %4, align 4, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %2, align 8, !tbaa !19
   ret void
@@ -2631,7 +2631,7 @@ define dso_local void @_Z14lua_pushnumberP9lua_Stated(ptr noundef captures(none)
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   store double %1, ptr %4, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 3, ptr %5, align 4, !tbaa !47
+  store i32 3, ptr %5, align 4, !tbaa !48
   %6 = load ptr, ptr %3, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %7, ptr %3, align 8, !tbaa !19
@@ -2645,7 +2645,7 @@ define dso_local void @_Z15lua_pushintegerP9lua_Statei(ptr noundef captures(none
   %5 = sitofp i32 %1 to double
   store double %5, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 3, ptr %6, align 4, !tbaa !47
+  store i32 3, ptr %6, align 4, !tbaa !48
   %7 = load ptr, ptr %3, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !19
@@ -2659,7 +2659,7 @@ define dso_local void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef captures(non
   %5 = uitofp i32 %1 to double
   store double %5, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 3, ptr %6, align 4, !tbaa !47
+  store i32 3, ptr %6, align 4, !tbaa !48
   %7 = load ptr, ptr %3, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !19
@@ -2670,13 +2670,13 @@ define dso_local void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef captures(non
 define dso_local void @_Z14lua_pushvectorP9lua_Statefff(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #10 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !19
-  store float %1, ptr %6, align 4, !tbaa !71
+  store float %1, ptr %6, align 4, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store float %2, ptr %7, align 4, !tbaa !71
+  store float %2, ptr %7, align 4, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store float %3, ptr %8, align 4, !tbaa !71
+  store float %3, ptr %8, align 4, !tbaa !72
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 4, ptr %9, align 4, !tbaa !47
+  store i32 4, ptr %9, align 4, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %10, ptr %5, align 8, !tbaa !19
   ret void
@@ -2685,11 +2685,11 @@ define dso_local void @_Z14lua_pushvectorP9lua_Statefff(ptr noundef captures(non
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load i64, ptr %8, align 8, !tbaa !46
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %12, label %10
 
@@ -2715,7 +2715,7 @@ define dso_local void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr no
   %21 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   store ptr %21, ptr %20, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i32 5, ptr %22, align 4, !tbaa !47
+  store i32 5, ptr %22, align 4, !tbaa !48
   %23 = load ptr, ptr %19, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %24, ptr %19, align 8, !tbaa !19
@@ -2733,7 +2733,7 @@ define dso_local void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %0, ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %7, align 4, !tbaa !47
+  store i32 0, ptr %7, align 4, !tbaa !48
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %5, align 8, !tbaa !19
   br label %31
@@ -2741,11 +2741,11 @@ define dso_local void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %0, ptr noun
 9:                                                ; preds = %2
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %14 = load i64, ptr %13, align 8, !tbaa !31
+  %14 = load i64, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %16 = load i64, ptr %15, align 8, !tbaa !46
+  %16 = load i64, ptr %15, align 8, !tbaa !47
   %.not.i = icmp ult i64 %14, %16
   br i1 %.not.i, label %19, label %17
 
@@ -2771,7 +2771,7 @@ _Z15lua_pushlstringP9lua_StatePKcm.exit:          ; preds = %19, %23
   %27 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %10)
   store ptr %27, ptr %26, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  store i32 5, ptr %28, align 4, !tbaa !47
+  store i32 5, ptr %28, align 4, !tbaa !48
   %29 = load ptr, ptr %25, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %30, ptr %25, align 8, !tbaa !19
@@ -2787,11 +2787,11 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z16lua_pushvfstringP9lua_StatePKcP13__va_list_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load i64, ptr %8, align 8, !tbaa !46
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %12, label %10
 
@@ -2822,11 +2822,11 @@ declare hidden noundef ptr @_Z17luaO_pushvfstringP9lua_StatePKcP13__va_list_tag(
 define dso_local noundef ptr @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load i64, ptr %8, align 8, !tbaa !46
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %12, label %10
 
@@ -2864,11 +2864,11 @@ declare void @llvm.va_end.p0(ptr) #12
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z17lua_pushcclosurekP9lua_StatePFiS0_EPKciPFiS0_iE(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %9 = load i64, ptr %8, align 8, !tbaa !31
+  %9 = load i64, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %11 = load i64, ptr %10, align 8, !tbaa !46
+  %11 = load i64, ptr %10, align 8, !tbaa !47
   %.not = icmp ult i64 %9, %11
   br i1 %.not, label %14, label %12
 
@@ -2892,7 +2892,7 @@ define dso_local void @_Z17lua_pushcclosurekP9lua_StatePFiS0_EPKciPFiS0_iE(ptr n
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !73
+  %24 = load ptr, ptr %23, align 8, !tbaa !74
   %25 = icmp eq ptr %22, %24
   br i1 %25, label %26, label %28
 
@@ -2902,14 +2902,14 @@ define dso_local void @_Z17lua_pushcclosurekP9lua_StatePFiS0_EPKciPFiS0_iE(ptr n
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !53
+  %30 = load ptr, ptr %29, align 8, !tbaa !54
   %31 = load ptr, ptr %30, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   br label %_ZL10getcurrenvP9lua_State.exit
 
 _ZL10getcurrenvP9lua_State.exit:                  ; preds = %26, %28
   %.0.in.i = phi ptr [ %27, %26 ], [ %32, %28 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !74
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !75
   %33 = tail call noundef ptr @_Z16luaF_newCclosureP9lua_StateiP8LuaTable(ptr noundef nonnull %0, i32 noundef %3, ptr noundef %.0.i)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %1, ptr %34, align 8, !tbaa !21
@@ -2938,7 +2938,7 @@ _ZL10getcurrenvP9lua_State.exit:                  ; preds = %26, %28
   %46 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %42, i64 0, i64 %indvars.iv.next
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !20
   %.not30 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not30, label %._crit_edge.loopexit, label %43, !llvm.loop !75
+  br i1 %.not30, label %._crit_edge.loopexit, label %43, !llvm.loop !76
 
 ._crit_edge.loopexit:                             ; preds = %43
   %.pre = load ptr, ptr %37, align 8, !tbaa !19
@@ -2948,7 +2948,7 @@ _ZL10getcurrenvP9lua_State.exit:                  ; preds = %26, %28
   %47 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %41, %_ZL10getcurrenvP9lua_State.exit ]
   store ptr %33, ptr %47, align 8, !tbaa !21
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  store i32 7, ptr %48, align 4, !tbaa !47
+  store i32 7, ptr %48, align 4, !tbaa !48
   %49 = load ptr, ptr %37, align 8, !tbaa !19
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %50, ptr %37, align 8, !tbaa !19
@@ -2965,7 +2965,7 @@ define dso_local void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef captures(none
   %6 = zext i1 %5 to i32
   store i32 %6, ptr %4, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 1, ptr %7, align 4, !tbaa !47
+  store i32 1, ptr %7, align 4, !tbaa !48
   %8 = load ptr, ptr %3, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %9, ptr %3, align 8, !tbaa !19
@@ -2980,7 +2980,7 @@ define dso_local void @_Z27lua_pushlightuserdatataggedP9lua_StatePvi(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 2, ptr %7, align 4, !tbaa !47
+  store i32 2, ptr %7, align 4, !tbaa !48
   %8 = load ptr, ptr %4, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %9, ptr %4, align 8, !tbaa !19
@@ -3005,14 +3005,14 @@ define dso_local noundef range(i32 0, 2) i32 @_Z14lua_pushthreadP9lua_State(ptr 
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   store ptr %0, ptr %9, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 9, ptr %10, align 4, !tbaa !47
+  store i32 9, ptr %10, align 4, !tbaa !48
   %11 = load ptr, ptr %8, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %12, ptr %8, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2808
-  %16 = load ptr, ptr %15, align 8, !tbaa !49
+  %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = icmp eq ptr %16, %0
   %18 = zext i1 %17 to i32
   ret i32 %18
@@ -3072,7 +3072,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   tail call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef nonnull %0, ptr noundef %.1.i, ptr noundef nonnull %29, ptr noundef nonnull %29)
   %30 = load ptr, ptr %28, align 8, !tbaa !19
   %31 = getelementptr inbounds i8, ptr %30, i64 -4
-  %32 = load i32, ptr %31, align 4, !tbaa !47
+  %32 = load i32, ptr %31, align 4, !tbaa !48
   ret i32 %32
 }
 
@@ -3130,7 +3130,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %12, %22, %27
   %30 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %29)
   store ptr %30, ptr %4, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 5, ptr %31, align 4, !tbaa !47
+  store i32 5, ptr %31, align 4, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !19
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef nonnull %0, ptr noundef %.1.i, ptr noundef nonnull %4, ptr noundef %33)
@@ -3138,7 +3138,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %12, %22, %27
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %35, ptr %32, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %37 = load i32, ptr %36, align 4, !tbaa !47
+  %37 = load i32, ptr %36, align 4, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   ret i32 %37
 }
@@ -3200,7 +3200,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %35, ptr %32, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %37 = load i32, ptr %36, align 4, !tbaa !47
+  %37 = load i32, ptr %36, align 4, !tbaa !48
   ret i32 %37
 }
 
@@ -3264,7 +3264,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !20
   %34 = load ptr, ptr %29, align 8, !tbaa !19
   %35 = getelementptr inbounds i8, ptr %34, i64 -4
-  %36 = load i32, ptr %35, align 4, !tbaa !47
+  %36 = load i32, ptr %35, align 4, !tbaa !48
   ret i32 %36
 }
 
@@ -3325,7 +3325,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %33, ptr %30, align 8, !tbaa !19
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  %35 = load i32, ptr %34, align 4, !tbaa !47
+  %35 = load i32, ptr %34, align 4, !tbaa !48
   ret i32 %35
 }
 
@@ -3334,11 +3334,11 @@ declare hidden noundef ptr @_Z11luaH_getnumP8LuaTablei(ptr noundef, i32 noundef)
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z15lua_createtableP9lua_Stateii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load i64, ptr %8, align 8, !tbaa !46
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %12, label %10
 
@@ -3364,7 +3364,7 @@ define dso_local void @_Z15lua_createtableP9lua_Stateii(ptr noundef %0, i32 noun
   %21 = tail call noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2)
   store ptr %21, ptr %20, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i32 6, ptr %22, align 4, !tbaa !47
+  store i32 6, ptr %22, align 4, !tbaa !48
   %23 = load ptr, ptr %19, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %24, ptr %19, align 8, !tbaa !19
@@ -3411,7 +3411,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %23 = icmp ne i32 %2, 0
   %24 = zext i1 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i8 %24, ptr %25, align 4, !tbaa !76
+  store i8 %24, ptr %25, align 4, !tbaa !77
   ret void
 }
 
@@ -3451,7 +3451,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i8, ptr %22, align 4, !tbaa !76
+  %23 = load i8, ptr %22, align 4, !tbaa !77
   %24 = zext i8 %23 to i32
   ret i32 %24
 }
@@ -3494,7 +3494,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %23 = icmp ne i32 %2, 0
   %24 = zext i1 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 5
-  store i8 %24, ptr %25, align 1, !tbaa !79
+  store i8 %24, ptr %25, align 1, !tbaa !80
   ret void
 }
 
@@ -3545,7 +3545,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z16lua_getmetatableP9lua_Statei(p
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %10 ], [ %24, %20 ], [ %26, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !47
+  %28 = load i32, ptr %27, align 4, !tbaa !48
   switch i32 %28, label %35 [
     i32 6, label %29
     i32 8, label %32
@@ -3563,7 +3563,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
 
 35:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !30
+  %37 = load ptr, ptr %36, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2856
   %39 = sext i32 %28 to i64
   %40 = getelementptr inbounds [11 x ptr], ptr %38, i64 0, i64 %39
@@ -3571,7 +3571,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
 
 41:                                               ; preds = %35, %32, %29
   %.0.in = phi ptr [ %40, %35 ], [ %31, %29 ], [ %34, %32 ]
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !74
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !75
   %42 = icmp ne ptr %.0, null
   br i1 %42, label %43, label %49
 
@@ -3580,7 +3580,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %45 = load ptr, ptr %44, align 8, !tbaa !19
   store ptr %.0, ptr %45, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  store i32 6, ptr %46, align 4, !tbaa !47
+  store i32 6, ptr %46, align 4, !tbaa !48
   %47 = load ptr, ptr %44, align 8, !tbaa !19
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %48, ptr %44, align 8, !tbaa !19
@@ -3638,7 +3638,7 @@ define dso_local void @_Z11lua_getfenvP9lua_Statei(ptr noundef %0, i32 noundef %
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %10 ], [ %24, %20 ], [ %26, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !47
+  %28 = load i32, ptr %27, align 4, !tbaa !48
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   switch i32 %28, label %35 [
@@ -3653,14 +3653,14 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %.sink20 = phi i64 [ 88, %31 ], [ 16, %_ZL10index2addrP9lua_Statei.exit ]
   %32 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.sink20
-  %34 = load ptr, ptr %33, align 8, !tbaa !74
+  %34 = load ptr, ptr %33, align 8, !tbaa !75
   store ptr %34, ptr %30, align 8, !tbaa !21
   br label %35
 
 35:                                               ; preds = %.sink.split, %_ZL10index2addrP9lua_Statei.exit
   %.sink = phi i32 [ 0, %_ZL10index2addrP9lua_Statei.exit ], [ 6, %.sink.split ]
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  store i32 %.sink, ptr %36, align 4, !tbaa !47
+  store i32 %.sink, ptr %36, align 4, !tbaa !48
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -3757,7 +3757,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
   %24 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %23)
   store ptr %24, ptr %4, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 5, ptr %25, align 4, !tbaa !47
+  store i32 5, ptr %25, align 4, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !19
   %28 = getelementptr inbounds i8, ptr %27, i64 -16
@@ -3805,7 +3805,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %21, %20 ]
   %22 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = load i8, ptr %23, align 4, !tbaa !76
+  %24 = load i8, ptr %23, align 4, !tbaa !77
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %26, label %25
 
@@ -3824,7 +3824,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %33 = load ptr, ptr %27, align 8, !tbaa !19
   %34 = getelementptr inbounds i8, ptr %33, i64 -16
   %35 = getelementptr inbounds i8, ptr %33, i64 -4
-  %36 = load i32, ptr %35, align 4, !tbaa !47
+  %36 = load i32, ptr %35, align 4, !tbaa !48
   %37 = icmp sgt i32 %36, 4
   br i1 %37, label %38, label %49
 
@@ -3899,7 +3899,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i8, ptr %22, align 4, !tbaa !76
+  %23 = load i8, ptr %22, align 4, !tbaa !77
   %.not = icmp eq i8 %23, 0
   br i1 %.not, label %25, label %24
 
@@ -3917,7 +3917,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %31 = load ptr, ptr %26, align 8, !tbaa !19
   %32 = getelementptr inbounds i8, ptr %31, i64 -16
   %33 = getelementptr inbounds i8, ptr %31, i64 -4
-  %34 = load i32, ptr %33, align 4, !tbaa !47
+  %34 = load i32, ptr %33, align 4, !tbaa !48
   %35 = icmp sgt i32 %34, 4
   br i1 %35, label %36, label %47
 
@@ -3987,7 +3987,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %21, %20 ]
   %22 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = load i8, ptr %23, align 4, !tbaa !76
+  %24 = load i8, ptr %23, align 4, !tbaa !77
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %26, label %25
 
@@ -4004,7 +4004,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %31 = load ptr, ptr %27, align 8, !tbaa !19
   %32 = getelementptr inbounds i8, ptr %31, i64 -16
   %33 = getelementptr inbounds i8, ptr %31, i64 -4
-  %34 = load i32, ptr %33, align 4, !tbaa !47
+  %34 = load i32, ptr %33, align 4, !tbaa !48
   %35 = icmp sgt i32 %34, 4
   br i1 %35, label %36, label %47
 
@@ -4076,7 +4076,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %21 = phi ptr [ %11, %4 ], [ %16, %14 ], [ %.pre, %19 ]
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 -4
-  %23 = load i32, ptr %22, align 4, !tbaa !47
+  %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %28, label %25
 
@@ -4088,7 +4088,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
 28:                                               ; preds = %25, %_ZL10index2addrP9lua_Statei.exit
   %.0 = phi ptr [ null, %_ZL10index2addrP9lua_Statei.exit ], [ %27, %25 ]
   %29 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !47
+  %30 = load i32, ptr %29, align 4, !tbaa !48
   switch i32 %30, label %61 [
     i32 6, label %31
     i32 8, label %48
@@ -4097,7 +4097,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
 31:                                               ; preds = %28
   %32 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %34 = load i8, ptr %33, align 4, !tbaa !76
+  %34 = load i8, ptr %33, align 4, !tbaa !77
   %.not28 = icmp eq i8 %34, 0
   br i1 %.not28, label %36, label %35
 
@@ -4107,7 +4107,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %.0, ptr %37, align 8, !tbaa !80
+  store ptr %.0, ptr %37, align 8, !tbaa !81
   %.not29 = icmp eq ptr %.0, null
   br i1 %.not29, label %67, label %38
 
@@ -4133,7 +4133,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
 48:                                               ; preds = %28
   %49 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %.0, ptr %50, align 8, !tbaa !81
+  store ptr %.0, ptr %50, align 8, !tbaa !82
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %67, label %51
 
@@ -4158,11 +4158,11 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
 
 61:                                               ; preds = %28
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !30
+  %63 = load ptr, ptr %62, align 8, !tbaa !31
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2856
   %65 = sext i32 %30 to i64
   %66 = getelementptr inbounds [11 x ptr], ptr %64, i64 0, i64 %65
-  store ptr %.0, ptr %66, align 8, !tbaa !74
+  store ptr %.0, ptr %66, align 8, !tbaa !75
   br label %67
 
 67:                                               ; preds = %48, %60, %56, %51, %36, %47, %43, %38, %61
@@ -4208,7 +4208,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11lua_setfenvP9lua_Statei(ptr no
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   switch i32 %22, label %40 [
     i32 7, label %24
     i32 9, label %23
@@ -4225,7 +4225,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %28 = load ptr, ptr %27, align 8, !tbaa !21
   %29 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink22
-  store ptr %28, ptr %30, align 8, !tbaa !74
+  store ptr %28, ptr %30, align 8, !tbaa !75
   %31 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !21
@@ -4291,7 +4291,7 @@ define dso_local noundef i32 @_Z9lua_pcallP9lua_Stateiii(ptr noundef %0, i32 nou
 
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !82
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !83
   %.pre19 = ptrtoint ptr %.pre to i64
   br label %30
 
@@ -4329,7 +4329,7 @@ define dso_local noundef i32 @_Z9lua_pcallP9lua_Stateiii(ptr noundef %0, i32 nou
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %8, %18, %23
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %8 ], [ %22, %18 ], [ %24, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !82
+  %26 = load ptr, ptr %25, align 8, !tbaa !83
   %27 = ptrtoint ptr %.1.i to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -4344,9 +4344,9 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %8, %18, %23
   %narrow = xor i32 %1, -1
   %33 = sext i32 %narrow to i64
   %34 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 %33
-  store ptr %34, ptr %5, align 8, !tbaa !83
+  store ptr %34, ptr %5, align 8, !tbaa !84
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %2, ptr %35, align 8, !tbaa !85
+  store i32 %2, ptr %35, align 8, !tbaa !86
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %36, %.pre-phi
   %38 = call noundef i32 @_Z10luaD_pcallP9lua_StatePFvS0_PvES1_ll(ptr noundef nonnull %0, ptr noundef nonnull @_ZL6f_callP9lua_StatePv, ptr noundef nonnull %5, i64 noundef %37, i64 noundef %.0)
@@ -4375,9 +4375,9 @@ declare hidden noundef i32 @_Z10luaD_pcallP9lua_StatePFvS0_PvES1_ll(ptr noundef,
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL6f_callP9lua_StatePv(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !83
+  %3 = load ptr, ptr %1, align 8, !tbaa !84
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !85
+  %5 = load i32, ptr %4, align 8, !tbaa !86
   tail call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef %0, ptr noundef %3, i32 noundef %5)
   ret void
 }
@@ -4385,7 +4385,7 @@ define internal void @_ZL6f_callP9lua_StatePv(ptr noundef %0, ptr noundef readon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 256) i32 @_Z10lua_statusP9lua_State(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %3 = load i8, ptr %2, align 1, !tbaa !86
+  %3 = load i8, ptr %2, align 1, !tbaa !87
   %4 = zext i8 %3 to i32
   ret i32 %4
 }
@@ -4397,7 +4397,7 @@ define dso_local noundef range(i32 0, 5) i32 @_Z12lua_costatusP9lua_StateS0_(ptr
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %6 = load i8, ptr %5, align 1, !tbaa !86
+  %6 = load i8, ptr %5, align 1, !tbaa !87
   switch i8 %6, label %8 [
     i8 1, label %20
     i8 6, label %7
@@ -4414,7 +4414,7 @@ define dso_local noundef range(i32 0, 5) i32 @_Z12lua_costatusP9lua_StateS0_(ptr
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !73
+  %13 = load ptr, ptr %12, align 8, !tbaa !74
   %.not11 = icmp eq ptr %11, %13
   br i1 %.not11, label %14, label %20
 
@@ -4435,21 +4435,21 @@ define dso_local noundef range(i32 0, 5) i32 @_Z12lua_costatusP9lua_StateS0_(ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_Z17lua_getthreaddataP9lua_State(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_Z17lua_setthreaddataP9lua_StatePv(ptr noundef writeonly captures(none) initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %1, ptr %3, align 8, !tbaa !87
+  store ptr %1, ptr %3, align 8, !tbaa !88
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   switch i32 %1, label %.thread [
     i32 0, label %6
     i32 1, label %8
@@ -4465,14 +4465,14 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 -1, ptr %7, align 8, !tbaa !46
+  store i64 -1, ptr %7, align 8, !tbaa !47
   br label %.thread
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %10 = load i64, ptr %9, align 8, !tbaa !31
+  %10 = load i64, ptr %9, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %10, ptr %11, align 8, !tbaa !46
+  store i64 %10, ptr %11, align 8, !tbaa !47
   br label %.thread
 
 12:                                               ; preds = %3
@@ -4481,21 +4481,21 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %15 = load i64, ptr %14, align 8, !tbaa !31
+  %15 = load i64, ptr %14, align 8, !tbaa !32
   %16 = lshr i64 %15, 10
   %17 = trunc i64 %16 to i32
   br label %.thread
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %20 = load i64, ptr %19, align 8, !tbaa !31
+  %20 = load i64, ptr %19, align 8, !tbaa !32
   %21 = trunc i64 %20 to i32
   %22 = and i32 %21, 1023
   br label %.thread
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %25 = load i64, ptr %24, align 8, !tbaa !46
+  %25 = load i64, ptr %24, align 8, !tbaa !47
   %26 = icmp ne i64 %25, -1
   %27 = zext i1 %26 to i32
   br label %.thread
@@ -4504,20 +4504,20 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
   %29 = sext i32 %2 to i64
   %30 = shl nsw i64 %29, 10
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  %32 = load i8, ptr %31, align 1, !tbaa !88
+  %32 = load i8, ptr %31, align 1, !tbaa !89
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !31
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !32
   br label %40
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %36 = load i64, ptr %35, align 8, !tbaa !46
+  %36 = load i64, ptr %35, align 8, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %38 = load i64, ptr %37, align 8, !tbaa !31
+  %38 = load i64, ptr %37, align 8, !tbaa !32
   %39 = sub i64 %36, %38
   br label %40
 
@@ -4527,25 +4527,25 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %41, i64 %30)
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %spec.select, ptr %44, align 8, !tbaa !46
+  store i64 %spec.select, ptr %44, align 8, !tbaa !47
   %45 = icmp eq i8 %32, 0
-  %46 = load i64, ptr %43, align 8, !tbaa !31
+  %46 = load i64, ptr %43, align 8, !tbaa !32
   %.not4762 = icmp ugt i64 %spec.select, %46
   br i1 %.not4762, label %._crit_edge65, label %.lr.ph
 
 47:                                               ; preds = %.lr.ph
   %48 = add i64 %51, %.04363
-  %49 = load i64, ptr %44, align 8, !tbaa !46
-  %50 = load i64, ptr %43, align 8, !tbaa !31
+  %49 = load i64, ptr %44, align 8, !tbaa !47
+  %50 = load i64, ptr %43, align 8, !tbaa !32
   %.not47 = icmp ugt i64 %49, %50
-  br i1 %.not47, label %._crit_edge65, label %.lr.ph
+  br i1 %.not47, label %._crit_edge65, label %.lr.ph, !llvm.loop !90
 
 .lr.ph:                                           ; preds = %40, %47
   %.04363 = phi i64 [ %48, %47 ], [ 0, %40 ]
   %51 = tail call noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef %0, i1 noundef zeroext false)
-  %52 = load i8, ptr %31, align 1, !tbaa !88
+  %52 = load i8, ptr %31, align 1, !tbaa !89
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %.thread, label %47
+  br i1 %53, label %.thread, label %47, !llvm.loop !90
 
 ._crit_edge65:                                    ; preds = %47, %40
   %.pr.lcssa = phi i1 [ %45, %40 ], [ false, %47 ]
@@ -4557,27 +4557,27 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
   %55 = add i64 %.043.lcssa, %42
   %56 = add i64 %55, %.lcssa
   %57 = tail call i64 @llvm.smax.i64(i64 %56, i64 0)
-  store i64 %57, ptr %44, align 8, !tbaa !46
+  store i64 %57, ptr %44, align 8, !tbaa !47
   br label %.thread
 
 58:                                               ; preds = %3
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %60 = load i32, ptr %59, align 8, !tbaa !89
-  store i32 %2, ptr %59, align 8, !tbaa !89
+  %60 = load i32, ptr %59, align 8, !tbaa !91
+  store i32 %2, ptr %59, align 8, !tbaa !91
   br label %.thread
 
 61:                                               ; preds = %3
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %63 = load i32, ptr %62, align 4, !tbaa !90
-  store i32 %2, ptr %62, align 4, !tbaa !90
+  %63 = load i32, ptr %62, align 4, !tbaa !92
+  store i32 %2, ptr %62, align 4, !tbaa !92
   br label %.thread
 
 64:                                               ; preds = %3
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %66 = load i32, ptr %65, align 8, !tbaa !91
+  %66 = load i32, ptr %65, align 8, !tbaa !93
   %67 = ashr i32 %66, 10
   %68 = shl i32 %2, 10
-  store i32 %68, ptr %65, align 8, !tbaa !91
+  store i32 %68, ptr %65, align 8, !tbaa !93
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %3, %._crit_edge65, %54, %64, %61, %58, %23, %18, %13, %12, %8, %6
@@ -4707,13 +4707,13 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %11 ], [ %25, %21 ], [ %27, %26 ]
   %28 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !92
+  %30 = load i32, ptr %29, align 8, !tbaa !94
   %31 = icmp ult i32 %2, %30
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZL10index2addrP9lua_Statei.exit
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !93
+  %33 = load ptr, ptr %32, align 8, !tbaa !95
   %34 = sext i32 %2 to i64
   br label %35
 
@@ -4721,7 +4721,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %36 = getelementptr inbounds %struct.lua_TValue, ptr %33, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !47
+  %38 = load i32, ptr %37, align 4, !tbaa !48
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %49, label %40
 
@@ -4733,7 +4733,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %45 = sitofp i32 %44 to double
   store double %45, ptr %43, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  store i32 3, ptr %46, align 4, !tbaa !47
+  store i32 3, ptr %46, align 4, !tbaa !48
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !20
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -4744,12 +4744,12 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = trunc nsw i64 %indvars.iv.next to i32
   %51 = icmp ugt i32 %30, %50
-  br i1 %51, label %35, label %._crit_edge, !llvm.loop !94
+  br i1 %51, label %35, label %._crit_edge, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %49, %_ZL10index2addrP9lua_Statei.exit
   %.054.lcssa = phi i32 [ %2, %_ZL10index2addrP9lua_Statei.exit ], [ %50, %49 ]
   %52 = getelementptr inbounds nuw i8, ptr %28, i64 6
-  %53 = load i8, ptr %52, align 2, !tbaa !95
+  %53 = load i8, ptr %52, align 2, !tbaa !97
   %54 = zext nneg i8 %53 to i32
   %55 = sub nsw i32 %.054.lcssa, %30
   %.highbits69 = lshr i32 %55, %54
@@ -4758,7 +4758,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
 
 .lr.ph72:                                         ; preds = %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %58 = load ptr, ptr %57, align 8, !tbaa !96
+  %58 = load ptr, ptr %57, align 8, !tbaa !98
   %59 = zext i32 %.054.lcssa to i64
   br label %60
 
@@ -4768,7 +4768,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds %struct.LuaNode, ptr %58, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !97
+  %65 = load i32, ptr %64, align 4, !tbaa !99
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %83, label %67
 
@@ -4787,7 +4787,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 15
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  store i32 %78, ptr %79, align 4, !tbaa !47
+  store i32 %78, ptr %79, align 4, !tbaa !48
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !20
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 32
@@ -4801,7 +4801,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %85 = sub i32 %84, %30
   %.highbits = lshr i32 %85, %54
   %86 = icmp eq i32 %.highbits, 0
-  br i1 %86, label %60, label %.loopexit, !llvm.loop !100
+  br i1 %86, label %60, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %83, %._crit_edge, %67, %40
   %.2 = phi i32 [ %44, %40 ], [ %82, %67 ], [ -1, %._crit_edge ], [ -1, %83 ]
@@ -4815,11 +4815,11 @@ define dso_local void @_Z10lua_concatP9lua_Statei(ptr noundef %0, i32 noundef %1
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %8 = load i64, ptr %7, align 8, !tbaa !31
+  %8 = load i64, ptr %7, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %10 = load i64, ptr %9, align 8, !tbaa !46
+  %10 = load i64, ptr %9, align 8, !tbaa !47
   %.not23 = icmp ult i64 %8, %10
   br i1 %.not23, label %13, label %11
 
@@ -4881,7 +4881,7 @@ define dso_local void @_Z10lua_concatP9lua_Statei(ptr noundef %0, i32 noundef %1
   %46 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i64 noundef 0)
   store ptr %46, ptr %45, align 8, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  store i32 5, ptr %47, align 4, !tbaa !47
+  store i32 5, ptr %47, align 4, !tbaa !48
   %48 = load ptr, ptr %44, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %49, ptr %44, align 8, !tbaa !19
@@ -4896,11 +4896,11 @@ declare hidden void @_Z11luaV_concatP9lua_Stateii(ptr noundef, i32 noundef, i32 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load i64, ptr %8, align 8, !tbaa !46
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %12, label %10
 
@@ -4926,7 +4926,7 @@ define dso_local noundef nonnull ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   store ptr %19, ptr %21, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i32 8, ptr %22, align 4, !tbaa !47
+  store i32 8, ptr %22, align 4, !tbaa !48
   %23 = load ptr, ptr %20, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %24, ptr %20, align 8, !tbaa !19
@@ -4939,11 +4939,11 @@ declare hidden noundef ptr @_Z13luaU_newudataP9lua_Statemi(ptr noundef, i64 noun
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_Z34lua_newuserdatataggedwithmetatableP9lua_Statemi(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load i64, ptr %8, align 8, !tbaa !46
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %12, label %10
 
@@ -4965,18 +4965,18 @@ define dso_local noundef nonnull ptr @_Z34lua_newuserdatataggedwithmetatableP9lu
 
 18:                                               ; preds = %16, %12
   %19 = tail call noundef ptr @_Z13luaU_newudataP9lua_Statemi(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2)
-  %20 = load ptr, ptr %4, align 8, !tbaa !30
+  %20 = load ptr, ptr %4, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4448
   %22 = sext i32 %2 to i64
   %23 = getelementptr inbounds [128 x ptr], ptr %21, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !74
+  %24 = load ptr, ptr %23, align 8, !tbaa !75
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %24, ptr %25, align 8, !tbaa !81
+  store ptr %24, ptr %25, align 8, !tbaa !82
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !19
   store ptr %19, ptr %27, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  store i32 8, ptr %28, align 4, !tbaa !47
+  store i32 8, ptr %28, align 4, !tbaa !48
   %29 = load ptr, ptr %26, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %30, ptr %26, align 8, !tbaa !19
@@ -4987,11 +4987,11 @@ define dso_local noundef nonnull ptr @_Z34lua_newuserdatataggedwithmetatableP9lu
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_Z19lua_newuserdatadtorP9lua_StatemPFvPvE(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load i64, ptr %8, align 8, !tbaa !46
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %12, label %10
 
@@ -5021,7 +5021,7 @@ define dso_local noundef nonnull ptr @_Z19lua_newuserdatadtorP9lua_StatemPFvPvE(
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   store ptr %20, ptr %24, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  store i32 8, ptr %25, align 4, !tbaa !47
+  store i32 8, ptr %25, align 4, !tbaa !48
   %26 = load ptr, ptr %23, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %27, ptr %23, align 8, !tbaa !19
@@ -5031,11 +5031,11 @@ define dso_local noundef nonnull ptr @_Z19lua_newuserdatadtorP9lua_StatemPFvPvE(
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_Z13lua_newbufferP9lua_Statem(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %6 = load i64, ptr %5, align 8, !tbaa !31
+  %6 = load i64, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %8 = load i64, ptr %7, align 8, !tbaa !46
+  %8 = load i64, ptr %7, align 8, !tbaa !47
   %.not = icmp ult i64 %6, %8
   br i1 %.not, label %11, label %9
 
@@ -5061,7 +5061,7 @@ define dso_local noundef nonnull ptr @_Z13lua_newbufferP9lua_Statem(ptr noundef 
   %20 = load ptr, ptr %19, align 8, !tbaa !19
   store ptr %18, ptr %20, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i32 10, ptr %21, align 4, !tbaa !47
+  store i32 10, ptr %21, align 4, !tbaa !48
   %22 = load ptr, ptr %19, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %23, ptr %19, align 8, !tbaa !19
@@ -5118,14 +5118,14 @@ define dso_local noundef ptr @_Z14lua_getupvalueP9lua_Stateii(ptr noundef %0, i3
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %11 ], [ %25, %21 ], [ %27, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %29 = load i32, ptr %28, align 4, !tbaa !47
+  %29 = load i32, ptr %28, align 4, !tbaa !48
   %30 = icmp eq i32 %29, 7
   br i1 %30, label %31, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
 31:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %32 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 3
-  %34 = load i8, ptr %33, align 1, !tbaa !59
+  %34 = load i8, ptr %33, align 1, !tbaa !60
   %.not.i13 = icmp eq i8 %34, 0
   br i1 %.not.i13, label %46, label %35
 
@@ -5135,7 +5135,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %39 = load i8, ptr %38, align 4, !tbaa !101
+  %39 = load i8, ptr %38, align 4, !tbaa !103
   %40 = zext i8 %39 to i32
   %.not28.i = icmp samesign ugt i32 %2, %40
   br i1 %.not28.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %41
@@ -5155,7 +5155,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 3
-  %52 = load i8, ptr %51, align 1, !tbaa !102
+  %52 = load i8, ptr %51, align 1, !tbaa !104
   %53 = zext i8 %52 to i32
   %.not26.i = icmp samesign ugt i32 %2, %53
   br i1 %.not26.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %54
@@ -5166,28 +5166,28 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %55, i64 0, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
-  %60 = load i32, ptr %59, align 4, !tbaa !47
+  %60 = load i32, ptr %59, align 4, !tbaa !48
   %61 = icmp eq i32 %60, 12
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %54
   %63 = load ptr, ptr %58, align 8, !tbaa !21
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !106
+  %65 = load ptr, ptr %64, align 8, !tbaa !108
   br label %66
 
 66:                                               ; preds = %62, %54
   %67 = phi ptr [ %65, %62 ], [ %58, %54 ]
   %68 = getelementptr inbounds nuw i8, ptr %48, i64 148
-  %69 = load i32, ptr %68, align 4, !tbaa !107
+  %69 = load i32, ptr %68, align 4, !tbaa !109
   %.not27.i = icmp sgt i32 %2, %69
   br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, label %70
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %48, i64 80
-  %72 = load ptr, ptr %71, align 8, !tbaa !108
+  %72 = load ptr, ptr %71, align 8, !tbaa !110
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %57
-  %74 = load ptr, ptr %73, align 8, !tbaa !109
+  %74 = load ptr, ptr %73, align 8, !tbaa !111
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
@@ -5242,14 +5242,14 @@ define dso_local noundef ptr @_Z14lua_setupvalueP9lua_Stateii(ptr noundef %0, i3
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %21, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !47
+  %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = icmp eq i32 %23, 7
   br i1 %24, label %25, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
 25:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
   %26 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3
-  %28 = load i8, ptr %27, align 1, !tbaa !59
+  %28 = load i8, ptr %27, align 1, !tbaa !60
   %.not.i17 = icmp eq i8 %28, 0
   br i1 %.not.i17, label %40, label %29
 
@@ -5259,7 +5259,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %33 = load i8, ptr %32, align 4, !tbaa !101
+  %33 = load i8, ptr %32, align 4, !tbaa !103
   %34 = zext i8 %33 to i32
   %.not28.i = icmp samesign ugt i32 %2, %34
   br i1 %.not28.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %35
@@ -5279,7 +5279,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 3
-  %46 = load i8, ptr %45, align 1, !tbaa !102
+  %46 = load i8, ptr %45, align 1, !tbaa !104
   %47 = zext i8 %46 to i32
   %.not26.i = icmp samesign ugt i32 %2, %47
   br i1 %.not26.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %48
@@ -5290,28 +5290,28 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %49, i64 0, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  %54 = load i32, ptr %53, align 4, !tbaa !47
+  %54 = load i32, ptr %53, align 4, !tbaa !48
   %55 = icmp eq i32 %54, 12
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %48
   %57 = load ptr, ptr %52, align 8, !tbaa !21
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !106
+  %59 = load ptr, ptr %58, align 8, !tbaa !108
   br label %60
 
 60:                                               ; preds = %56, %48
   %61 = phi ptr [ %59, %56 ], [ %52, %48 ]
   %62 = getelementptr inbounds nuw i8, ptr %42, i64 148
-  %63 = load i32, ptr %62, align 4, !tbaa !107
+  %63 = load i32, ptr %62, align 4, !tbaa !109
   %.not27.i = icmp sgt i32 %2, %63
   br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, label %64
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %42, i64 80
-  %66 = load ptr, ptr %65, align 8, !tbaa !108
+  %66 = load ptr, ptr %65, align 8, !tbaa !110
   %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %51
-  %68 = load ptr, ptr %67, align 8, !tbaa !109
+  %68 = load ptr, ptr %67, align 8, !tbaa !111
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
@@ -5325,7 +5325,7 @@ _ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %64, %60, %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !20
   %73 = load ptr, ptr %70, align 8, !tbaa !19
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
-  %75 = load i32, ptr %74, align 4, !tbaa !47
+  %75 = load i32, ptr %74, align 4, !tbaa !48
   %76 = icmp sgt i32 %75, 4
   br i1 %76, label %77, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
@@ -5357,18 +5357,18 @@ _ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread:   ; preds = %40, %44, %29, %31, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_Z17lua_encodepointerP9lua_Statem(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3256
-  %6 = load i64, ptr %5, align 8, !tbaa !60
+  %6 = load i64, ptr %5, align 8, !tbaa !61
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 3272
-  %9 = load i64, ptr %8, align 8, !tbaa !60
+  %9 = load i64, ptr %8, align 8, !tbaa !61
   %10 = add i64 %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 3264
-  %12 = load i64, ptr %11, align 8, !tbaa !60
+  %12 = load i64, ptr %11, align 8, !tbaa !61
   %13 = mul i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 3280
-  %15 = load i64, ptr %14, align 8, !tbaa !60
+  %15 = load i64, ptr %14, align 8, !tbaa !61
   %16 = add i64 %13, %15
   %17 = xor i64 %16, %10
   ret i64 %17
@@ -5377,7 +5377,7 @@ define dso_local noundef i64 @_Z17lua_encodepointerP9lua_Statem(ptr noundef read
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_Z7lua_refP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %14
 
@@ -5411,16 +5411,16 @@ define dso_local noundef i32 @_Z7lua_refP9lua_Statei(ptr noundef %0, i32 noundef
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !47
+  %24 = load i32, ptr %23, align 4, !tbaa !48
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %54, label %26
 
 26:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit
-  %27 = load ptr, ptr %3, align 8, !tbaa !30
+  %27 = load ptr, ptr %3, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 3216
   %29 = load ptr, ptr %28, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 3232
-  %31 = load i32, ptr %30, align 8, !tbaa !110
+  %31 = load i32, ptr %30, align 8, !tbaa !112
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %32, label %35
 
@@ -5432,19 +5432,19 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %6, %16, %21
 35:                                               ; preds = %26, %32
   %.1 = phi i32 [ %34, %32 ], [ %31, %26 ]
   %36 = tail call noundef ptr @_Z11luaH_setnumP9lua_StateP8LuaTablei(ptr noundef nonnull %0, ptr noundef %29, i32 noundef %.1)
-  %37 = load i32, ptr %30, align 8, !tbaa !110
+  %37 = load i32, ptr %30, align 8, !tbaa !112
   %.not26 = icmp eq i32 %37, 0
   br i1 %.not26, label %41, label %38
 
 38:                                               ; preds = %35
   %39 = load double, ptr %36, align 8, !tbaa !21
   %40 = fptosi double %39 to i32
-  store i32 %40, ptr %30, align 8, !tbaa !110
+  store i32 %40, ptr %30, align 8, !tbaa !112
   br label %41
 
 41:                                               ; preds = %38, %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %.1.i, i64 16, i1 false), !tbaa.struct !20
-  %42 = load i32, ptr %23, align 4, !tbaa !47
+  %42 = load i32, ptr %23, align 4, !tbaa !48
   %43 = icmp sgt i32 %42, 4
   br i1 %43, label %44, label %54
 
@@ -5479,17 +5479,17 @@ define dso_local void @_Z9lua_unrefP9lua_Statei(ptr noundef %0, i32 noundef %1) 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3216
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = tail call noundef ptr @_Z11luaH_setnumP9lua_StateP8LuaTablei(ptr noundef %0, ptr noundef %8, i32 noundef %1)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 3232
-  %11 = load i32, ptr %10, align 8, !tbaa !110
+  %11 = load i32, ptr %10, align 8, !tbaa !112
   %12 = sitofp i32 %11 to double
   store double %12, ptr %9, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 3, ptr %13, align 4, !tbaa !47
-  store i32 %1, ptr %10, align 8, !tbaa !110
+  store i32 3, ptr %13, align 4, !tbaa !48
+  store i32 %1, ptr %10, align 8, !tbaa !112
   br label %14
 
 14:                                               ; preds = %2, %4
@@ -5533,29 +5533,29 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %22 = trunc i32 %2 to i8
   %23 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3
-  store i8 %22, ptr %24, align 1, !tbaa !70
+  store i8 %22, ptr %24, align 1, !tbaa !71
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_Z19lua_setuserdatadtorP9lua_StateiPFvS0_PvE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3424
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds [128 x ptr], ptr %6, i64 0, i64 %7
-  store ptr %2, ptr %8, align 8, !tbaa !111
+  store ptr %2, ptr %8, align 8, !tbaa !113
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_Z19lua_getuserdatadtorP9lua_Statei(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3424
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds [128 x ptr], ptr %5, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !111
+  %8 = load ptr, ptr %7, align 8, !tbaa !113
   ret ptr %8
 }
 
@@ -5598,11 +5598,11 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %21, %20 ]
   %23 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !30
+  %25 = load ptr, ptr %24, align 8, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4448
   %27 = sext i32 %1 to i64
   %28 = getelementptr inbounds [128 x ptr], ptr %26, i64 0, i64 %27
-  store ptr %23, ptr %28, align 8, !tbaa !74
+  store ptr %23, ptr %28, align 8, !tbaa !75
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
   store ptr %30, ptr %29, align 8, !tbaa !19
@@ -5624,11 +5624,11 @@ define dso_local void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, 
 
 8:                                                ; preds = %6, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4448
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds [128 x ptr], ptr %11, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !74
+  %14 = load ptr, ptr %13, align 8, !tbaa !75
   %.not12 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !19
@@ -5637,13 +5637,13 @@ define dso_local void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, 
 17:                                               ; preds = %8
   store ptr %14, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 6, ptr %18, align 4, !tbaa !47
+  store i32 6, ptr %18, align 4, !tbaa !48
   %.pre = load ptr, ptr %15, align 8, !tbaa !19
   br label %21
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 0, ptr %20, align 4, !tbaa !47
+  store i32 0, ptr %20, align 4, !tbaa !48
   br label %21
 
 21:                                               ; preds = %19, %17
@@ -5657,25 +5657,25 @@ define dso_local void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z24lua_setlightuserdatanameP9lua_StateiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 5472
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds [128 x ptr], ptr %6, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !109
+  %9 = load ptr, ptr %8, align 8, !tbaa !111
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %19
 
 10:                                               ; preds = %3
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
   %12 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %11)
-  %13 = load ptr, ptr %4, align 8, !tbaa !30
+  %13 = load ptr, ptr %4, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 5472
   %15 = getelementptr inbounds [128 x ptr], ptr %14, i64 0, i64 %7
-  store ptr %12, ptr %15, align 8, !tbaa !109
+  store ptr %12, ptr %15, align 8, !tbaa !111
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !112
+  %17 = load i8, ptr %16, align 1, !tbaa !114
   %18 = or i8 %17, 8
-  store i8 %18, ptr %16, align 1, !tbaa !112
+  store i8 %18, ptr %16, align 1, !tbaa !114
   br label %19
 
 19:                                               ; preds = %10, %3
@@ -5685,11 +5685,11 @@ define dso_local void @_Z24lua_setlightuserdatanameP9lua_StateiPKc(ptr noundef %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_Z24lua_getlightuserdatanameP9lua_Statei(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 5472
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds [128 x ptr], ptr %5, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !109
+  %8 = load ptr, ptr %7, align 8, !tbaa !111
   %.not = icmp eq ptr %8, null
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = select i1 %.not, ptr null, ptr %9
@@ -5699,11 +5699,11 @@ define dso_local noundef ptr @_Z24lua_getlightuserdatanameP9lua_Statei(ptr nound
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z17lua_clonefunctionP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %6 = load i64, ptr %5, align 8, !tbaa !31
+  %6 = load i64, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %8 = load i64, ptr %7, align 8, !tbaa !46
+  %8 = load i64, ptr %7, align 8, !tbaa !47
   %.not = icmp ult i64 %6, %8
   br i1 %.not, label %11, label %9
 
@@ -5758,14 +5758,14 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %19, %29, %34
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %19 ], [ %33, %29 ], [ %35, %34 ]
   %36 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %38 = load i8, ptr %37, align 4, !tbaa !101
+  %38 = load i8, ptr %37, align 4, !tbaa !103
   %39 = zext i8 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %41 = load ptr, ptr %40, align 8, !tbaa !56
+  %41 = load ptr, ptr %40, align 8, !tbaa !57
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !21
   %44 = tail call noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr noundef nonnull %0, i32 noundef %39, ptr noundef %41, ptr noundef %43)
-  %45 = load i8, ptr %37, align 4, !tbaa !101
+  %45 = load i8, ptr %37, align 4, !tbaa !103
   %.not29 = icmp eq i8 %45, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -5779,7 +5779,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %19, %29, %34
   %49 = load ptr, ptr %48, align 8, !tbaa !19
   store ptr %44, ptr %49, align 8, !tbaa !21
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  store i32 7, ptr %50, align 4, !tbaa !47
+  store i32 7, ptr %50, align 4, !tbaa !48
   %51 = load ptr, ptr %48, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %52, ptr %48, align 8, !tbaa !19
@@ -5791,10 +5791,10 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %19, %29, %34
   %55 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %47, i64 0, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load i8, ptr %37, align 4, !tbaa !101
+  %56 = load i8, ptr %37, align 4, !tbaa !103
   %57 = zext i8 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next, %57
-  br i1 %58, label %53, label %._crit_edge, !llvm.loop !113
+  br i1 %58, label %53, label %._crit_edge, !llvm.loop !115
 }
 
 declare hidden noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -5835,7 +5835,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %20, %19 ]
   %21 = load ptr, ptr %.1.i, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i8, ptr %22, align 4, !tbaa !76
+  %23 = load i8, ptr %22, align 4, !tbaa !77
   %.not = icmp eq i8 %23, 0
   br i1 %.not, label %25, label %24
 
@@ -5890,7 +5890,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   store ptr %22, ptr %24, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  store i32 6, ptr %25, align 4, !tbaa !47
+  store i32 6, ptr %25, align 4, !tbaa !48
   %26 = load ptr, ptr %23, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %27, ptr %23, align 8, !tbaa !19
@@ -5902,7 +5902,7 @@ declare hidden noundef ptr @_Z10luaH_cloneP9lua_StateP8LuaTable(ptr noundef, ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull ptr @_Z13lua_callbacksP9lua_State(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3288
   ret ptr %4
 }
@@ -5911,7 +5911,7 @@ define dso_local noundef nonnull ptr @_Z13lua_callbacksP9lua_State(ptr noundef r
 define dso_local void @_Z13lua_setmemcatP9lua_Statei(ptr noundef writeonly captures(none) initializes((4, 5)) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %3, ptr %4, align 4, !tbaa !114
+  store i8 %3, ptr %4, align 4, !tbaa !116
   ret void
 }
 
@@ -5919,29 +5919,29 @@ define dso_local void @_Z13lua_setmemcatP9lua_Statei(ptr noundef writeonly captu
 define dso_local noundef i64 @_Z14lua_totalbytesP9lua_Statei(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp slt i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 760
   %8 = zext nneg i32 %1 to i64
   %9 = getelementptr inbounds nuw [256 x i64], ptr %7, i64 0, i64 %8
   %.in = select i1 %3, ptr %6, ptr %9
-  %10 = load i64, ptr %.in, align 8, !tbaa !60
+  %10 = load i64, ptr %.in, align 8, !tbaa !61
   ret i64 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_Z13lua_getallocfP9lua_StatePPv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !115
+  %6 = load ptr, ptr %5, align 8, !tbaa !117
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !116
-  store ptr %9, ptr %1, align 8, !tbaa !111
+  %9 = load ptr, ptr %8, align 8, !tbaa !118
+  store ptr %9, ptr %1, align 8, !tbaa !113
   br label %10
 
 10:                                               ; preds = %7, %2
@@ -5958,18 +5958,18 @@ define internal fastcc noundef nonnull ptr @_ZL11pseudo2addrP9lua_Statei(ptr nou
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3216
   br label %50
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %9 = load ptr, ptr %8, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 3200
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !73
+  %14 = load ptr, ptr %13, align 8, !tbaa !74
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %16, label %18
 
@@ -5979,31 +5979,31 @@ define internal fastcc noundef nonnull ptr @_ZL11pseudo2addrP9lua_Statei(ptr nou
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !53
+  %20 = load ptr, ptr %19, align 8, !tbaa !54
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br label %_ZL10getcurrenvP9lua_State.exit
 
 _ZL10getcurrenvP9lua_State.exit:                  ; preds = %16, %18
   %.0.in.i = phi ptr [ %17, %16 ], [ %22, %18 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !74
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !75
   store ptr %.0.i, ptr %10, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 3212
-  store i32 6, ptr %23, align 4, !tbaa !47
-  %24 = load ptr, ptr %8, align 8, !tbaa !30
+  store i32 6, ptr %23, align 4, !tbaa !48
+  %24 = load ptr, ptr %8, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 3200
   br label %50
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !30
+  %28 = load ptr, ptr %27, align 8, !tbaa !31
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 3200
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %31 = load ptr, ptr %30, align 8, !tbaa !56
+  %31 = load ptr, ptr %30, align 8, !tbaa !57
   store ptr %31, ptr %29, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 3212
-  store i32 6, ptr %32, align 4, !tbaa !47
-  %33 = load ptr, ptr %27, align 8, !tbaa !30
+  store i32 6, ptr %32, align 4, !tbaa !48
+  %33 = load ptr, ptr %27, align 8, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 3200
   br label %50
 
@@ -6011,11 +6011,11 @@ _ZL10getcurrenvP9lua_State.exit:                  ; preds = %16, %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !53
+  %39 = load ptr, ptr %38, align 8, !tbaa !54
   %40 = load ptr, ptr %39, align 8, !tbaa !21
   %41 = sub nuw nsw i32 -10002, %1
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %43 = load i8, ptr %42, align 4, !tbaa !101
+  %43 = load i8, ptr %42, align 4, !tbaa !103
   %44 = zext i8 %43 to i32
   %.not = icmp samesign ugt i32 %41, %44
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 48
@@ -6092,92 +6092,94 @@ attributes #21 = { noreturn }
 !25 = !{!26, !9, i64 16}
 !26 = !{!"_ZTS8CallInfo", !9, i64 0, !9, i64 8, !9, i64 16, !27, i64 24, !13, i64 32, !13, i64 36}
 !27 = !{!"p1 int", !10, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!5, !11, i64 24}
-!31 = !{!32, !36, i64 72}
-!32 = !{!"_ZTS12global_State", !33, i64 0, !10, i64 16, !10, i64 24, !6, i64 32, !6, i64 33, !17, i64 40, !17, i64 48, !17, i64 56, !36, i64 64, !36, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !6, i64 96, !6, i64 416, !37, i64 736, !37, i64 744, !37, i64 752, !6, i64 760, !38, i64 2808, !39, i64 2816, !6, i64 2856, !6, i64 2944, !6, i64 3032, !40, i64 3200, !40, i64 3216, !13, i64 3232, !41, i64 3240, !36, i64 3248, !6, i64 3256, !42, i64 3288, !43, i64 3368, !6, i64 3424, !6, i64 4448, !6, i64 5472, !44, i64 6496}
-!33 = !{!"_ZTS11stringtable", !34, i64 0, !13, i64 8, !13, i64 12}
-!34 = !{!"p2 _ZTS7TString", !35, i64 0}
-!35 = !{!"any p2 pointer", !10, i64 0}
-!36 = !{!"long", !6, i64 0}
-!37 = !{!"p1 _ZTS8lua_Page", !10, i64 0}
-!38 = !{!"p1 _ZTS9lua_State", !10, i64 0}
-!39 = !{!"_ZTS5UpVal", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !9, i64 8, !6, i64 16}
-!40 = !{!"_ZTS10lua_TValue", !6, i64 0, !6, i64 8, !13, i64 12}
-!41 = !{!"p1 _ZTS10lua_jmpbuf", !10, i64 0}
-!42 = !{!"_ZTS13lua_Callbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72}
-!43 = !{!"_ZTS22lua_ExecutionCallbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
-!44 = !{!"_ZTS7GCStats", !6, i64 0, !13, i64 128, !13, i64 132, !36, i64 136, !36, i64 144, !36, i64 152, !45, i64 160, !45, i64 168, !45, i64 176}
-!45 = !{!"double", !6, i64 0}
-!46 = !{!32, !36, i64 64}
-!47 = !{!40, !13, i64 12}
-!48 = !{!32, !10, i64 3312}
-!49 = !{!32, !38, i64 2808}
-!50 = distinct !{!50, !29}
-!51 = distinct !{!51, !29}
-!52 = distinct !{!52, !29}
-!53 = !{!26, !9, i64 8}
-!54 = !{!55, !15, i64 16}
-!55 = !{!"_ZTS7Closure", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !17, i64 8, !15, i64 16, !6, i64 24}
-!56 = !{!5, !15, i64 88}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 omnipotent char", !10, i64 0}
-!59 = !{!55, !6, i64 3}
-!60 = !{!36, !36, i64 0}
-!61 = !{!62, !13, i64 20}
-!62 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !14, i64 4, !18, i64 8, !13, i64 16, !13, i64 20, !6, i64 24}
-!63 = !{!62, !14, i64 4}
-!64 = !{!32, !10, i64 3320}
-!65 = !{!5, !18, i64 112}
-!66 = !{!67, !13, i64 4}
-!67 = !{!"_ZTS5Udata", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !13, i64 4, !15, i64 8, !6, i64 16}
-!68 = !{!69, !13, i64 4}
-!69 = !{!"_ZTS6Buffer", !6, i64 0, !6, i64 1, !6, i64 2, !13, i64 4, !6, i64 8}
-!70 = !{!67, !6, i64 3}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"float", !6, i64 0}
-!73 = !{!5, !12, i64 64}
-!74 = !{!15, !15, i64 0}
-!75 = distinct !{!75, !29}
-!76 = !{!77, !6, i64 4}
-!77 = !{!"_ZTS8LuaTable", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !13, i64 8, !6, i64 12, !15, i64 16, !9, i64 24, !78, i64 32, !17, i64 40}
-!78 = !{!"p1 _ZTS7LuaNode", !10, i64 0}
-!79 = !{!77, !6, i64 5}
-!80 = !{!77, !15, i64 16}
-!81 = !{!67, !15, i64 8}
-!82 = !{!5, !9, i64 48}
-!83 = !{!84, !9, i64 0}
-!84 = !{!"_ZTS5CallS", !9, i64 0, !13, i64 8}
-!85 = !{!84, !13, i64 8}
-!86 = !{!5, !6, i64 3}
-!87 = !{!5, !10, i64 120}
-!88 = !{!32, !6, i64 33}
-!89 = !{!32, !13, i64 80}
-!90 = !{!32, !13, i64 84}
-!91 = !{!32, !13, i64 88}
-!92 = !{!77, !13, i64 8}
-!93 = !{!77, !9, i64 24}
-!94 = distinct !{!94, !29}
-!95 = !{!77, !6, i64 6}
-!96 = !{!77, !78, i64 32}
-!97 = !{!98, !13, i64 12}
-!98 = !{!"_ZTS7LuaNode", !40, i64 0, !99, i64 16}
-!99 = !{!"_ZTS4TKey", !6, i64 0, !6, i64 8, !13, i64 12, !13, i64 12}
-!100 = distinct !{!100, !29}
-!101 = !{!55, !6, i64 4}
-!102 = !{!103, !6, i64 3}
-!103 = !{!"_ZTS5Proto", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !9, i64 8, !27, i64 16, !104, i64 24, !27, i64 32, !10, i64 40, !36, i64 48, !58, i64 56, !27, i64 64, !105, i64 72, !34, i64 80, !18, i64 88, !18, i64 96, !58, i64 104, !58, i64 112, !10, i64 120, !17, i64 128, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
-!104 = !{!"p2 _ZTS5Proto", !35, i64 0}
-!105 = !{!"p1 _ZTS6LocVar", !10, i64 0}
-!106 = !{!39, !9, i64 8}
-!107 = !{!103, !13, i64 148}
-!108 = !{!103, !34, i64 80}
-!109 = !{!18, !18, i64 0}
-!110 = !{!32, !13, i64 3232}
-!111 = !{!10, !10, i64 0}
-!112 = !{!62, !6, i64 1}
-!113 = distinct !{!113, !29}
-!114 = !{!5, !6, i64 4}
-!115 = !{!32, !10, i64 16}
-!116 = !{!32, !10, i64 24}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!5, !11, i64 24}
+!32 = !{!33, !37, i64 72}
+!33 = !{!"_ZTS12global_State", !34, i64 0, !10, i64 16, !10, i64 24, !6, i64 32, !6, i64 33, !17, i64 40, !17, i64 48, !17, i64 56, !37, i64 64, !37, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !6, i64 96, !6, i64 416, !38, i64 736, !38, i64 744, !38, i64 752, !6, i64 760, !39, i64 2808, !40, i64 2816, !6, i64 2856, !6, i64 2944, !6, i64 3032, !41, i64 3200, !41, i64 3216, !13, i64 3232, !42, i64 3240, !37, i64 3248, !6, i64 3256, !43, i64 3288, !44, i64 3368, !6, i64 3424, !6, i64 4448, !6, i64 5472, !45, i64 6496}
+!34 = !{!"_ZTS11stringtable", !35, i64 0, !13, i64 8, !13, i64 12}
+!35 = !{!"p2 _ZTS7TString", !36, i64 0}
+!36 = !{!"any p2 pointer", !10, i64 0}
+!37 = !{!"long", !6, i64 0}
+!38 = !{!"p1 _ZTS8lua_Page", !10, i64 0}
+!39 = !{!"p1 _ZTS9lua_State", !10, i64 0}
+!40 = !{!"_ZTS5UpVal", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !9, i64 8, !6, i64 16}
+!41 = !{!"_ZTS10lua_TValue", !6, i64 0, !6, i64 8, !13, i64 12}
+!42 = !{!"p1 _ZTS10lua_jmpbuf", !10, i64 0}
+!43 = !{!"_ZTS13lua_Callbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72}
+!44 = !{!"_ZTS22lua_ExecutionCallbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!45 = !{!"_ZTS7GCStats", !6, i64 0, !13, i64 128, !13, i64 132, !37, i64 136, !37, i64 144, !37, i64 152, !46, i64 160, !46, i64 168, !46, i64 176}
+!46 = !{!"double", !6, i64 0}
+!47 = !{!33, !37, i64 64}
+!48 = !{!41, !13, i64 12}
+!49 = !{!33, !10, i64 3312}
+!50 = !{!33, !39, i64 2808}
+!51 = distinct !{!51, !29, !30}
+!52 = distinct !{!52, !29, !30}
+!53 = distinct !{!53, !29, !30}
+!54 = !{!26, !9, i64 8}
+!55 = !{!56, !15, i64 16}
+!56 = !{!"_ZTS7Closure", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !17, i64 8, !15, i64 16, !6, i64 24}
+!57 = !{!5, !15, i64 88}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 omnipotent char", !10, i64 0}
+!60 = !{!56, !6, i64 3}
+!61 = !{!37, !37, i64 0}
+!62 = !{!63, !13, i64 20}
+!63 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !14, i64 4, !18, i64 8, !13, i64 16, !13, i64 20, !6, i64 24}
+!64 = !{!63, !14, i64 4}
+!65 = !{!33, !10, i64 3320}
+!66 = !{!5, !18, i64 112}
+!67 = !{!68, !13, i64 4}
+!68 = !{!"_ZTS5Udata", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !13, i64 4, !15, i64 8, !6, i64 16}
+!69 = !{!70, !13, i64 4}
+!70 = !{!"_ZTS6Buffer", !6, i64 0, !6, i64 1, !6, i64 2, !13, i64 4, !6, i64 8}
+!71 = !{!68, !6, i64 3}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"float", !6, i64 0}
+!74 = !{!5, !12, i64 64}
+!75 = !{!15, !15, i64 0}
+!76 = distinct !{!76, !29, !30}
+!77 = !{!78, !6, i64 4}
+!78 = !{!"_ZTS8LuaTable", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !13, i64 8, !6, i64 12, !15, i64 16, !9, i64 24, !79, i64 32, !17, i64 40}
+!79 = !{!"p1 _ZTS7LuaNode", !10, i64 0}
+!80 = !{!78, !6, i64 5}
+!81 = !{!78, !15, i64 16}
+!82 = !{!68, !15, i64 8}
+!83 = !{!5, !9, i64 48}
+!84 = !{!85, !9, i64 0}
+!85 = !{!"_ZTS5CallS", !9, i64 0, !13, i64 8}
+!86 = !{!85, !13, i64 8}
+!87 = !{!5, !6, i64 3}
+!88 = !{!5, !10, i64 120}
+!89 = !{!33, !6, i64 33}
+!90 = distinct !{!90, !30}
+!91 = !{!33, !13, i64 80}
+!92 = !{!33, !13, i64 84}
+!93 = !{!33, !13, i64 88}
+!94 = !{!78, !13, i64 8}
+!95 = !{!78, !9, i64 24}
+!96 = distinct !{!96, !29, !30}
+!97 = !{!78, !6, i64 6}
+!98 = !{!78, !79, i64 32}
+!99 = !{!100, !13, i64 12}
+!100 = !{!"_ZTS7LuaNode", !41, i64 0, !101, i64 16}
+!101 = !{!"_ZTS4TKey", !6, i64 0, !6, i64 8, !13, i64 12, !13, i64 12}
+!102 = distinct !{!102, !29, !30}
+!103 = !{!56, !6, i64 4}
+!104 = !{!105, !6, i64 3}
+!105 = !{!"_ZTS5Proto", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !9, i64 8, !27, i64 16, !106, i64 24, !27, i64 32, !10, i64 40, !37, i64 48, !59, i64 56, !27, i64 64, !107, i64 72, !35, i64 80, !18, i64 88, !18, i64 96, !59, i64 104, !59, i64 112, !10, i64 120, !17, i64 128, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
+!106 = !{!"p2 _ZTS5Proto", !36, i64 0}
+!107 = !{!"p1 _ZTS6LocVar", !10, i64 0}
+!108 = !{!40, !9, i64 8}
+!109 = !{!105, !13, i64 148}
+!110 = !{!105, !35, i64 80}
+!111 = !{!18, !18, i64 0}
+!112 = !{!33, !13, i64 3232}
+!113 = !{!10, !10, i64 0}
+!114 = !{!63, !6, i64 1}
+!115 = distinct !{!115, !29, !30}
+!116 = !{!5, !6, i64 4}
+!117 = !{!33, !10, i64 16}
+!118 = !{!33, !10, i64 24}

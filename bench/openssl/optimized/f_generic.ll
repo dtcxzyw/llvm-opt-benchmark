@@ -60,7 +60,7 @@ gf_weak_reduce.exit.i:                            ; preds = %11
   %33 = ashr i128 %30, 56
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, 8
-  br i1 %exitcond.not.i, label %34, label %22, !llvm.loop !11
+  br i1 %exitcond.not.i, label %34, label %22, !llvm.loop !12
 
 34:                                               ; preds = %22
   %35 = trunc nsw i128 %33 to i64
@@ -84,7 +84,7 @@ gf_weak_reduce.exit.i:                            ; preds = %11
   %48 = lshr i128 %45, 56
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond38.not.i, label %gf_strong_reduce.exit.preheader, label %36, !llvm.loop !12
+  br i1 %exitcond38.not.i, label %gf_strong_reduce.exit.preheader, label %36, !llvm.loop !13
 
 gf_strong_reduce.exit.preheader:                  ; preds = %36, %gf_strong_reduce.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %gf_strong_reduce.exit ], [ 0, %36 ]
@@ -119,7 +119,7 @@ gf_strong_reduce.exit:                            ; preds = %51, %gf_strong_redu
   %64 = lshr i128 %.1, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 56
-  br i1 %exitcond.not, label %65, label %gf_strong_reduce.exit.preheader, !llvm.loop !13
+  br i1 %exitcond.not, label %65, label %gf_strong_reduce.exit.preheader, !llvm.loop !14
 
 65:                                               ; preds = %gf_strong_reduce.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
@@ -178,7 +178,7 @@ gf_weak_reduce.exit:                              ; preds = %8
   %30 = ashr i128 %27, 56
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next33, 8
-  br i1 %exitcond.not, label %31, label %19, !llvm.loop !11
+  br i1 %exitcond.not, label %31, label %19, !llvm.loop !12
 
 31:                                               ; preds = %19
   %32 = trunc nsw i128 %30 to i64
@@ -202,7 +202,7 @@ gf_weak_reduce.exit:                              ; preds = %8
   %45 = lshr i128 %42, 56
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 8
-  br i1 %exitcond38.not, label %46, label %33, !llvm.loop !12
+  br i1 %exitcond38.not, label %46, label %33, !llvm.loop !13
 
 46:                                               ; preds = %33
   ret void
@@ -226,7 +226,7 @@ define range(i64 -1, 1) i64 @gf_hibit(ptr noundef readonly captures(none) %0) lo
   store i64 %6, ptr %7, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !14
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !15
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -326,7 +326,7 @@ gf_weak_reduce.exit.i:                            ; preds = %44
   %65 = ashr i128 %62, 56
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i5 = icmp eq i64 %indvars.iv.next33.i, 8
-  br i1 %exitcond.not.i5, label %66, label %54, !llvm.loop !11
+  br i1 %exitcond.not.i5, label %66, label %54, !llvm.loop !12
 
 66:                                               ; preds = %54
   %67 = trunc nsw i128 %65 to i64
@@ -350,7 +350,7 @@ gf_weak_reduce.exit.i:                            ; preds = %44
   %80 = lshr i128 %77, 56
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond38.not.i, label %gf_strong_reduce.exit, label %68, !llvm.loop !12
+  br i1 %exitcond38.not.i, label %gf_strong_reduce.exit, label %68, !llvm.loop !13
 
 gf_strong_reduce.exit:                            ; preds = %68
   %81 = load i64, ptr %2, align 16, !tbaa !7
@@ -375,7 +375,7 @@ define void @gf_add(ptr noundef captures(none) %0, ptr noundef readonly captures
   store i64 %9, ptr %10, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %11, label %4, !llvm.loop !14
+  br i1 %exitcond.not, label %11, label %4, !llvm.loop !15
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -486,7 +486,7 @@ gf_weak_reduce.exit.i:                            ; preds = %9
   %31 = ashr i128 %28, 56
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, 8
-  br i1 %exitcond.not.i, label %32, label %20, !llvm.loop !11
+  br i1 %exitcond.not.i, label %32, label %20, !llvm.loop !12
 
 32:                                               ; preds = %20
   %33 = trunc nsw i128 %31 to i64
@@ -510,7 +510,7 @@ gf_weak_reduce.exit.i:                            ; preds = %9
   %46 = lshr i128 %43, 56
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond38.not.i, label %gf_strong_reduce.exit, label %34, !llvm.loop !12
+  br i1 %exitcond38.not.i, label %gf_strong_reduce.exit, label %34, !llvm.loop !13
 
 gf_strong_reduce.exit:                            ; preds = %34
   %47 = load i64, ptr %2, align 16, !tbaa !7
@@ -558,7 +558,7 @@ define range(i64 -1, 1) i64 @gf_deserialize(ptr noundef captures(none) %0, ptr n
   %19 = icmp samesign ult i32 %.13543, 48
   %20 = icmp samesign ult i64 %indvars.iv, 55
   %21 = and i1 %19, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %22 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -585,7 +585,7 @@ define range(i64 -1, 1) i64 @gf_deserialize(ptr noundef captures(none) %0, ptr n
   %35 = ashr i128 %34, 64
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next58, 8
-  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !17
 
 36:                                               ; preds = %._crit_edge
   %.not = icmp eq i32 %2, 0
@@ -625,7 +625,7 @@ define void @gf_sub(ptr noundef captures(none) %0, ptr noundef readonly captures
   store i64 %12, ptr %13, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %14, label %4, !llvm.loop !17
+  br i1 %exitcond.not, label %14, label %4, !llvm.loop !18
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -704,7 +704,7 @@ define range(i64 -1, 1) i64 @gf_eq(ptr noundef readonly captures(none) %0, ptr n
   store i64 %12, ptr %13, align 8, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %14, label %4, !llvm.loop !17
+  br i1 %exitcond.not.i, label %14, label %4, !llvm.loop !18
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -804,7 +804,7 @@ gf_weak_reduce.exit.i:                            ; preds = %50
   %71 = ashr i128 %68, 56
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next33.i, 8
-  br i1 %exitcond.not.i11, label %72, label %60, !llvm.loop !11
+  br i1 %exitcond.not.i11, label %72, label %60, !llvm.loop !12
 
 72:                                               ; preds = %60
   %73 = trunc nsw i128 %71 to i64
@@ -828,7 +828,7 @@ gf_weak_reduce.exit.i:                            ; preds = %50
   %86 = lshr i128 %83, 56
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond38.not.i, label %gf_strong_reduce.exit, label %74, !llvm.loop !12
+  br i1 %exitcond38.not.i, label %gf_strong_reduce.exit, label %74, !llvm.loop !13
 
 gf_strong_reduce.exit:                            ; preds = %74, %gf_strong_reduce.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %gf_strong_reduce.exit ], [ 0, %74 ]
@@ -838,7 +838,7 @@ gf_strong_reduce.exit:                            ; preds = %74, %gf_strong_redu
   %89 = or i64 %88, %.0613
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %90, label %gf_strong_reduce.exit, !llvm.loop !18
+  br i1 %exitcond.not, label %90, label %gf_strong_reduce.exit, !llvm.loop !19
 
 90:                                               ; preds = %gf_strong_reduce.exit
   %91 = icmp eq i64 %89, 0
@@ -868,19 +868,19 @@ define range(i64 -1, 1) i64 @gf_isr(ptr noundef writeonly captures(none) %0, ptr
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %11) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %12) #6
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6, !noalias !19
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6, !noalias !20
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %12) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %9, ptr noundef nonnull %11) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6, !noalias !19
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6, !noalias !20
   call void @ossl_gf_mul(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6, !noalias !22
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6, !noalias !23
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %10) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %8, ptr noundef nonnull %11) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6, !noalias !22
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6, !noalias !23
   call void @ossl_gf_mul(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6, !noalias !25
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6, !noalias !26
   call void @ossl_gf_sqr(ptr noundef nonnull %12, ptr noundef nonnull %10) #6
   br label %.lr.ph.i11
 
@@ -890,15 +890,15 @@ define range(i64 -1, 1) i64 @gf_isr(ptr noundef writeonly captures(none) %0, ptr
   call void @ossl_gf_sqr(ptr noundef nonnull %12, ptr noundef nonnull %7) #6
   %13 = add nsw i32 %.112.i12, -2
   %.not10.i13 = icmp eq i32 %13, 0
-  br i1 %.not10.i13, label %gf_sqrn.exit14, label %.lr.ph.i11, !llvm.loop !28
+  br i1 %.not10.i13, label %gf_sqrn.exit14, label %.lr.ph.i11, !llvm.loop !29
 
 gf_sqrn.exit14:                                   ; preds = %.lr.ph.i11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6, !noalias !25
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6, !noalias !26
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %12) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6, !noalias !29
-  call void @ossl_gf_sqr(ptr noundef nonnull %6, ptr noundef nonnull %12) #6, !noalias !29
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6, !noalias !30
+  call void @ossl_gf_sqr(ptr noundef nonnull %6, ptr noundef nonnull %12) #6, !noalias !30
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %6) #6
   br label %.lr.ph.i15
 
@@ -908,12 +908,12 @@ gf_sqrn.exit14:                                   ; preds = %.lr.ph.i11
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %6) #6
   %14 = add nsw i32 %.112.i16, -2
   %.not10.i17 = icmp eq i32 %14, 0
-  br i1 %.not10.i17, label %gf_sqrn.exit18, label %.lr.ph.i15, !llvm.loop !28
+  br i1 %.not10.i17, label %gf_sqrn.exit18, label %.lr.ph.i15, !llvm.loop !29
 
 gf_sqrn.exit18:                                   ; preds = %.lr.ph.i15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6, !noalias !29
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6, !noalias !30
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6, !noalias !32
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6, !noalias !33
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %12) #6
   br label %.lr.ph.i19
 
@@ -923,12 +923,12 @@ gf_sqrn.exit18:                                   ; preds = %.lr.ph.i15
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %5) #6
   %15 = add nsw i32 %.112.i20, -2
   %.not10.i21 = icmp eq i32 %15, 0
-  br i1 %.not10.i21, label %gf_sqrn.exit22, label %.lr.ph.i19, !llvm.loop !28
+  br i1 %.not10.i21, label %gf_sqrn.exit22, label %.lr.ph.i19, !llvm.loop !29
 
 gf_sqrn.exit22:                                   ; preds = %.lr.ph.i19
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6, !noalias !32
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6, !noalias !33
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6, !noalias !35
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6, !noalias !36
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   br label %.lr.ph.i23
 
@@ -938,12 +938,12 @@ gf_sqrn.exit22:                                   ; preds = %.lr.ph.i19
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %4) #6
   %16 = add nsw i32 %.112.i24, -2
   %.not10.i25 = icmp eq i32 %16, 0
-  br i1 %.not10.i25, label %gf_sqrn.exit26, label %.lr.ph.i23, !llvm.loop !28
+  br i1 %.not10.i25, label %gf_sqrn.exit26, label %.lr.ph.i23, !llvm.loop !29
 
 gf_sqrn.exit26:                                   ; preds = %.lr.ph.i23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6, !noalias !35
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6, !noalias !36
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6, !noalias !38
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6, !noalias !39
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   br label %.lr.ph.i27
 
@@ -953,14 +953,14 @@ gf_sqrn.exit26:                                   ; preds = %.lr.ph.i23
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %3) #6
   %17 = add nsw i32 %.112.i28, -2
   %.not10.i29 = icmp eq i32 %17, 0
-  br i1 %.not10.i29, label %gf_sqrn.exit30, label %.lr.ph.i27, !llvm.loop !28
+  br i1 %.not10.i29, label %gf_sqrn.exit30, label %.lr.ph.i27, !llvm.loop !29
 
 gf_sqrn.exit30:                                   ; preds = %.lr.ph.i27
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6, !noalias !38
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6, !noalias !39
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %12) #6
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6, !noalias !41
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6, !noalias !42
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   br label %.lr.ph.i31
 
@@ -970,10 +970,10 @@ gf_sqrn.exit30:                                   ; preds = %.lr.ph.i27
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %2) #6
   %18 = add nsw i32 %.112.i32, -2
   %.not10.i33 = icmp eq i32 %18, 0
-  br i1 %.not10.i33, label %gf_sqrn.exit34, label %.lr.ph.i31, !llvm.loop !28
+  br i1 %.not10.i33, label %gf_sqrn.exit34, label %.lr.ph.i31, !llvm.loop !29
 
 gf_sqrn.exit34:                                   ; preds = %.lr.ph.i31
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6, !noalias !41
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6, !noalias !42
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %12, ptr noundef nonnull %11) #6
   call void @ossl_gf_mul(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %1) #6
@@ -1011,38 +1011,39 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"long", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"gf_sqrn: argument 0"}
-!21 = distinct !{!21, !"gf_sqrn"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"gf_sqrn: argument 0"}
-!24 = distinct !{!24, !"gf_sqrn"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"gf_sqrn: argument 0"}
-!27 = distinct !{!27, !"gf_sqrn"}
-!28 = distinct !{!28, !10}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"gf_sqrn: argument 0"}
-!31 = distinct !{!31, !"gf_sqrn"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"gf_sqrn: argument 0"}
-!34 = distinct !{!34, !"gf_sqrn"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"gf_sqrn: argument 0"}
-!37 = distinct !{!37, !"gf_sqrn"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"gf_sqrn: argument 0"}
-!40 = distinct !{!40, !"gf_sqrn"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"gf_sqrn: argument 0"}
-!43 = distinct !{!43, !"gf_sqrn"}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"gf_sqrn: argument 0"}
+!22 = distinct !{!22, !"gf_sqrn"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"gf_sqrn: argument 0"}
+!25 = distinct !{!25, !"gf_sqrn"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"gf_sqrn: argument 0"}
+!28 = distinct !{!28, !"gf_sqrn"}
+!29 = distinct !{!29, !10, !11}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"gf_sqrn: argument 0"}
+!32 = distinct !{!32, !"gf_sqrn"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"gf_sqrn: argument 0"}
+!35 = distinct !{!35, !"gf_sqrn"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"gf_sqrn: argument 0"}
+!38 = distinct !{!38, !"gf_sqrn"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"gf_sqrn: argument 0"}
+!41 = distinct !{!41, !"gf_sqrn"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"gf_sqrn: argument 0"}
+!44 = distinct !{!44, !"gf_sqrn"}

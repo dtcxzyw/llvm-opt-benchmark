@@ -45,9 +45,9 @@ define range(i32 -1, 65536) i32 @FT_Get_Gasp(ptr noundef readonly captures(addre
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %.019, i64 2
-  %23 = load i16, ptr %22, align 2, !tbaa !57
+  %23 = load i16, ptr %22, align 2, !tbaa !58
   %24 = zext i16 %23 to i32
-  %25 = load i16, ptr %8, align 8, !tbaa !58
+  %25 = load i16, ptr %8, align 8, !tbaa !59
   %26 = icmp eq i16 %25, 0
   %27 = and i32 %24, 3
   %spec.select = select i1 %26, i32 %27, i32 %24
@@ -117,7 +117,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 !52 = !{!26, !40, i64 936}
 !53 = !{!54, !15, i64 0}
 !54 = !{!"TT_GaspRangeRec_", !15, i64 0, !15, i64 2}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!54, !15, i64 2}
-!58 = !{!26, !15, i64 928}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!54, !15, i64 2}
+!59 = !{!26, !15, i64 928}

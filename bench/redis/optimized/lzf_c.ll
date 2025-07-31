@@ -348,7 +348,7 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
   %218 = getelementptr inbounds nuw i8, ptr %.0217303, i64 1
   store i8 %217, ptr %.0217303, align 1, !tbaa !5
   %219 = icmp eq i32 %215, 32
-  br i1 %219, label %220, label %.thread, !prof !16
+  br i1 %219, label %220, label %.thread, !prof !17
 
 220:                                              ; preds = %214
   %221 = trunc nuw nsw i32 %.0202306 to i8
@@ -387,7 +387,7 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
   %231 = getelementptr inbounds nuw i8, ptr %.6223313, i64 1
   store i8 %230, ptr %.6223313, align 1, !tbaa !5
   %232 = icmp eq i32 %228, 32
-  br i1 %232, label %233, label %237, !prof !16
+  br i1 %232, label %233, label %237, !prof !17
 
 233:                                              ; preds = %.lr.ph316
   %234 = trunc nuw nsw i32 %.5315 to i8
@@ -400,7 +400,7 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
   %.7 = phi ptr [ %236, %233 ], [ %231, %.lr.ph316 ]
   %.6 = phi i32 [ 0, %233 ], [ %228, %.lr.ph316 ]
   %238 = icmp ult ptr %229, %6
-  br i1 %238, label %.lr.ph316, label %._crit_edge, !llvm.loop !17
+  br i1 %238, label %.lr.ph316, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %237, %.preheader
   %.6223.lcssa = phi ptr [ %.1218, %.preheader ], [ %.7, %237 ]
@@ -455,7 +455,8 @@ attributes #3 = { nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !6, i64 0}
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = distinct !{!17, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = distinct !{!18, !15, !16}

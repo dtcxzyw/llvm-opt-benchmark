@@ -915,7 +915,7 @@ define dso_local noundef i64 @pg_stat_get_progress_info(ptr noundef %0) local_un
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %2) #9
   %70 = add i32 %.03037, 1
   %.not = icmp sgt i32 %70, %4
-  br i1 %.not, label %._crit_edge, label %39, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %39, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %69, %33
   ret i64 0
@@ -955,7 +955,7 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   %5 = alloca [32 x i8], align 16
   %6 = tail call i32 @pgstat_fetch_stat_numbackends() #9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i8, ptr %7, align 8, !range !7, !noundef !8
+  %8 = load i8, ptr %7, align 8, !range !8, !noundef !9
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %14, label %10
 
@@ -1056,7 +1056,7 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
 
 .backedge.backedge:                               ; preds = %.thread155, %358
   %.0163.be = phi i32 [ %.old, %.thread155 ], [ %361, %358 ]
-  br label %.backedge, !llvm.loop !9
+  br label %.backedge, !llvm.loop !10
 
 77:                                               ; preds = %74, %.backedge
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 48
@@ -1384,7 +1384,7 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   %.4.add.i = add nuw nsw i64 %.4.idx.i, 1
   %218 = load i8, ptr %.4.ptr.i, align 1
   %.not50.i = icmp eq i8 %218, 0
-  br i1 %.not50.i, label %214, label %.loopexit, !llvm.loop !10
+  br i1 %.not50.i, label %214, label %.loopexit, !llvm.loop !11
 
 .preheader51.i:                                   ; preds = %242, %.preheader53.i
   %.5.idx.lcssa.i = phi i64 [ %213, %.preheader53.i ], [ %.5.add.i, %242 ]
@@ -1424,7 +1424,7 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   %.5.add.i = add nuw nsw i64 %.5.idx61.i, 64
   %.5.ptr.i = getelementptr inbounds nuw i8, ptr %206, i64 %.5.add.i
   %243 = icmp ult ptr %.5.ptr.i, %215
-  br i1 %243, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !11
+  br i1 %243, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !12
 
 .lr.ph66.i:                                       ; preds = %.preheader51.i, %245
   %.6.ptr65.i = phi ptr [ %.6.ptr.i, %245 ], [ %.6.ptr63.i, %.preheader51.i ]
@@ -1437,7 +1437,7 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   %.6.add.i = add nuw nsw i64 %.6.idx64.i, 8
   %.6.ptr.i = getelementptr inbounds nuw i8, ptr %206, i64 %.6.add.i
   %246 = icmp ult ptr %.6.ptr.i, %211
-  br i1 %246, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !12
+  br i1 %246, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !13
 
 .preheader.i.preheader:                           ; preds = %245, %.preheader51.i
   %.7.idx.i.ph = phi i64 [ %.5.idx.lcssa.i, %.preheader51.i ], [ %.6.add.i, %245 ]
@@ -1453,7 +1453,7 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   %.7.add.i = add nuw nsw i64 %.7.idx.i, 1
   %249 = load i8, ptr %.7.ptr.i, align 1
   %.not47.i = icmp eq i8 %249, 0
-  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !13
+  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !14
 
 pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   store i8 1, ptr %35, align 4
@@ -1566,7 +1566,7 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
 
 289:                                              ; preds = %281, %284, %285
   %290 = getelementptr inbounds nuw i8, ptr %73, i64 200
-  %291 = load i8, ptr %290, align 8, !range !7, !noundef !8
+  %291 = load i8, ptr %290, align 8, !range !8, !noundef !9
   %292 = trunc nuw i8 %291 to i1
   br i1 %292, label %293, label %328
 
@@ -1645,7 +1645,7 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
 
 329:                                              ; preds = %324, %327, %328
   %330 = getelementptr inbounds nuw i8, ptr %73, i64 216
-  %331 = load i8, ptr %330, align 8, !range !7, !noundef !8
+  %331 = load i8, ptr %330, align 8, !range !8, !noundef !9
   %332 = trunc nuw i8 %331 to i1
   br i1 %332, label %333, label %348
 
@@ -1653,7 +1653,7 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   %334 = getelementptr inbounds nuw i8, ptr %73, i64 224
   %335 = load ptr, ptr %334, align 8
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 64
-  %337 = load i8, ptr %336, align 1, !range !7, !noundef !8
+  %337 = load i8, ptr %336, align 1, !range !8, !noundef !9
   %338 = zext nneg i8 %337 to i64
   store i64 %338, ptr %66, align 8
   %339 = call ptr @cstring_to_text(ptr noundef %335) #9
@@ -1661,11 +1661,11 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   store i64 %340, ptr %69, align 16
   %341 = load ptr, ptr %334, align 8
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 65
-  %343 = load i8, ptr %342, align 1, !range !7, !noundef !8
+  %343 = load i8, ptr %342, align 1, !range !8, !noundef !9
   %344 = zext nneg i8 %343 to i64
   store i64 %344, ptr %67, align 8
   %345 = getelementptr inbounds nuw i8, ptr %341, i64 66
-  %346 = load i8, ptr %345, align 1, !range !7, !noundef !8
+  %346 = load i8, ptr %345, align 1, !range !8, !noundef !9
   %347 = zext nneg i8 %346 to i64
   br label %349
 
@@ -1856,7 +1856,7 @@ define dso_local i64 @pg_stat_get_backend_subxact(ptr noundef readonly captures(
   %13 = sext i32 %12 to i64
   store i64 %13, ptr %2, align 16
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 448
-  %15 = load i8, ptr %14, align 8, !range !7, !noundef !8
+  %15 = load i8, ptr %14, align 8, !range !8, !noundef !9
   %16 = zext nneg i8 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %16, ptr %17, align 8
@@ -2199,7 +2199,7 @@ define dso_local i64 @pg_stat_get_backend_client_addr(ptr noundef captures(none)
   %.4.add.i = add nuw nsw i64 %.4.idx.i, 1
   %33 = load i8, ptr %.4.ptr.i, align 1
   %.not50.i = icmp eq i8 %33, 0
-  br i1 %.not50.i, label %29, label %.loopexit, !llvm.loop !10
+  br i1 %.not50.i, label %29, label %.loopexit, !llvm.loop !11
 
 .preheader51.i:                                   ; preds = %57, %.preheader53.i
   %.5.idx.lcssa.i = phi i64 [ %28, %.preheader53.i ], [ %.5.add.i, %57 ]
@@ -2239,7 +2239,7 @@ define dso_local i64 @pg_stat_get_backend_client_addr(ptr noundef captures(none)
   %.5.add.i = add nuw nsw i64 %.5.idx61.i, 64
   %.5.ptr.i = getelementptr inbounds nuw i8, ptr %21, i64 %.5.add.i
   %58 = icmp ult ptr %.5.ptr.i, %30
-  br i1 %58, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !11
+  br i1 %58, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !12
 
 .lr.ph66.i:                                       ; preds = %.preheader51.i, %60
   %.6.ptr65.i = phi ptr [ %.6.ptr.i, %60 ], [ %.6.ptr63.i, %.preheader51.i ]
@@ -2252,7 +2252,7 @@ define dso_local i64 @pg_stat_get_backend_client_addr(ptr noundef captures(none)
   %.6.add.i = add nuw nsw i64 %.6.idx64.i, 8
   %.6.ptr.i = getelementptr inbounds nuw i8, ptr %21, i64 %.6.add.i
   %61 = icmp ult ptr %.6.ptr.i, %26
-  br i1 %61, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !12
+  br i1 %61, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !13
 
 .preheader.i.preheader:                           ; preds = %60, %.preheader51.i
   %.7.idx.i.ph = phi i64 [ %.5.idx.lcssa.i, %.preheader51.i ], [ %.6.add.i, %60 ]
@@ -2268,7 +2268,7 @@ define dso_local i64 @pg_stat_get_backend_client_addr(ptr noundef captures(none)
   %.7.add.i = add nuw nsw i64 %.7.idx.i, 1
   %64 = load i8, ptr %.7.ptr.i, align 1
   %.not47.i = icmp eq i8 %64, 0
-  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !13
+  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !14
 
 pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2374,7 +2374,7 @@ define dso_local i64 @pg_stat_get_backend_client_port(ptr noundef captures(none)
   %.4.add.i = add nuw nsw i64 %.4.idx.i, 1
   %33 = load i8, ptr %.4.ptr.i, align 1
   %.not50.i = icmp eq i8 %33, 0
-  br i1 %.not50.i, label %29, label %.loopexit, !llvm.loop !10
+  br i1 %.not50.i, label %29, label %.loopexit, !llvm.loop !11
 
 .preheader51.i:                                   ; preds = %57, %.preheader53.i
   %.5.idx.lcssa.i = phi i64 [ %28, %.preheader53.i ], [ %.5.add.i, %57 ]
@@ -2414,7 +2414,7 @@ define dso_local i64 @pg_stat_get_backend_client_port(ptr noundef captures(none)
   %.5.add.i = add nuw nsw i64 %.5.idx61.i, 64
   %.5.ptr.i = getelementptr inbounds nuw i8, ptr %21, i64 %.5.add.i
   %58 = icmp ult ptr %.5.ptr.i, %30
-  br i1 %58, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !11
+  br i1 %58, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !12
 
 .lr.ph66.i:                                       ; preds = %.preheader51.i, %60
   %.6.ptr65.i = phi ptr [ %.6.ptr.i, %60 ], [ %.6.ptr63.i, %.preheader51.i ]
@@ -2427,7 +2427,7 @@ define dso_local i64 @pg_stat_get_backend_client_port(ptr noundef captures(none)
   %.6.add.i = add nuw nsw i64 %.6.idx64.i, 8
   %.6.ptr.i = getelementptr inbounds nuw i8, ptr %21, i64 %.6.add.i
   %61 = icmp ult ptr %.6.ptr.i, %26
-  br i1 %61, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !12
+  br i1 %61, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !13
 
 .preheader.i.preheader:                           ; preds = %60, %.preheader51.i
   %.7.idx.i.ph = phi i64 [ %.5.idx.lcssa.i, %.preheader51.i ], [ %.6.add.i, %60 ]
@@ -2443,7 +2443,7 @@ define dso_local i64 @pg_stat_get_backend_client_port(ptr noundef captures(none)
   %.7.add.i = add nuw nsw i64 %.7.idx.i, 1
   %64 = load i8, ptr %.7.ptr.i, align 1
   %.not47.i = icmp eq i8 %64, 0
-  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !13
+  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !14
 
 pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2509,7 +2509,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_db_numbacke
   %spec.select = add i32 %.011, %10
   %11 = add i32 %.0810, 1
   %.not = icmp sgt i32 %11, %5
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = sext i32 %spec.select to i64
@@ -3358,7 +3358,7 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
 13:                                               ; preds = %7, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %6, label %7, !llvm.loop !15
+  br i1 %exitcond.not, label %6, label %7, !llvm.loop !16
 }
 
 declare ptr @pgstat_fetch_stat_io() local_unnamed_addr #2
@@ -3434,7 +3434,7 @@ define internal fastcc void @pg_stat_io_build_tuples(ptr noundef readonly captur
 27:                                               ; preds = %74
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 3
-  br i1 %exitcond102.not, label %20, label %21, !llvm.loop !16
+  br i1 %exitcond102.not, label %20, label %21, !llvm.loop !17
 
 28:                                               ; preds = %21, %74
   %indvars.iv95 = phi i64 [ 0, %21 ], [ %indvars.iv.next96, %74 ]
@@ -3535,7 +3535,7 @@ pgstat_get_io_byte_index.exit:                    ; preds = %51, %pgstat_get_io_
   %54 = getelementptr inbounds nuw [8 x i64], ptr %40, i64 0, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %.0.i6580.sroa.phi133, align 8
-  %.pre = load i8, ptr %.0.i6580.sroa.phi, align 1, !range !7
+  %.pre = load i8, ptr %.0.i6580.sroa.phi, align 1, !range !8
   %56 = trunc nuw i8 %.pre to i1
   br i1 %56, label %69, label %57
 
@@ -3580,14 +3580,14 @@ pgstat_get_io_byte_index.exit:                    ; preds = %51, %pgstat_get_io_
 73:                                               ; preds = %71, %72, %63, %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %43, label %46, !llvm.loop !17
+  br i1 %exitcond.not, label %43, label %46, !llvm.loop !18
 
 74:                                               ; preds = %28, %43
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #9
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 5
-  br i1 %exitcond98.not, label %27, label %28, !llvm.loop !18
+  br i1 %exitcond98.not, label %27, label %28, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3789,7 +3789,7 @@ define dso_local noundef i64 @pg_stat_get_slru(ptr noundef %0) local_unnamed_add
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, i8 0, i64 9, i1 false)
   %27 = call ptr @pgstat_get_slru_name(i32 noundef %26) #9
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %._crit_edge, label %18
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %18, %1
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #9
@@ -4077,7 +4077,7 @@ define dso_local i64 @pg_stat_get_snapshot_timestamp(ptr noundef writeonly captu
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #9
   %3 = call i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef nonnull %2) #9
-  %4 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %4 = load i8, ptr %2, align 1, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %8, label %6
 
@@ -4121,7 +4121,7 @@ declare void @pgstat_reset_counters() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset_shared(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -4290,7 +4290,7 @@ define dso_local noundef i64 @pg_stat_reset_backend_stats(ptr noundef readonly c
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset_slru(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -4316,7 +4316,7 @@ declare void @pgstat_reset_slru(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset_replication_slot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -4342,7 +4342,7 @@ declare void @pgstat_reset_replslot(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset_subscription_stats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -4666,7 +4666,7 @@ define dso_local i64 @pg_stat_get_subscription_stats(ptr noundef readonly captur
   store i64 %26, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %20, label %24, !llvm.loop !19
+  br i1 %exitcond.not, label %20, label %24, !llvm.loop !21
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 9
@@ -4748,19 +4748,21 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !5, !6}

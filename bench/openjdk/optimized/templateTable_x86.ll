@@ -6544,23 +6544,23 @@ define hidden void @_ZN13TemplateTable6istoreEi(i32 noundef %0) local_unnamed_ad
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %1, %6
   %.neg.i.i = mul i32 %0, -8
-  store i32 14, ptr %2, align 8, !alias.scope !223
+  store i32 14, ptr %2, align 8, !alias.scope !224
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %7, align 4, !alias.scope !223
+  store i32 -1, ptr %7, align 4, !alias.scope !224
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %8, align 8, !alias.scope !223
+  store i32 -1, ptr %8, align 8, !alias.scope !224
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %9, align 4, !alias.scope !223
+  store i32 -1, ptr %9, align 4, !alias.scope !224
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.neg.i.i, ptr %10, align 8, !alias.scope !223
+  store i32 %.neg.i.i, ptr %10, align 8, !alias.scope !224
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 0, ptr %11, align 4, !alias.scope !223
+  store i8 0, ptr %11, align 4, !alias.scope !224
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !223
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !224
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %13, align 8, !alias.scope !223
+  store ptr null, ptr %13, align 8, !alias.scope !224
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %14, align 8, !alias.scope !223
+  store i32 0, ptr %14, align 8, !alias.scope !224
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %2, i32 0) #8
   ret void
 }
@@ -6581,23 +6581,23 @@ define hidden void @_ZN13TemplateTable6lstoreEi(i32 noundef %0) local_unnamed_ad
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %1, %6
   %.neg.i = xor i32 %0, -1
   %.neg.i.i.i = shl i32 %.neg.i, 3
-  store i32 14, ptr %2, align 8, !alias.scope !226
+  store i32 14, ptr %2, align 8, !alias.scope !227
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %7, align 4, !alias.scope !226
+  store i32 -1, ptr %7, align 4, !alias.scope !227
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %8, align 8, !alias.scope !226
+  store i32 -1, ptr %8, align 8, !alias.scope !227
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %9, align 4, !alias.scope !226
+  store i32 -1, ptr %9, align 4, !alias.scope !227
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.neg.i.i.i, ptr %10, align 8, !alias.scope !226
+  store i32 %.neg.i.i.i, ptr %10, align 8, !alias.scope !227
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 0, ptr %11, align 4, !alias.scope !226
+  store i8 0, ptr %11, align 4, !alias.scope !227
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !226
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !227
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %13, align 8, !alias.scope !226
+  store ptr null, ptr %13, align 8, !alias.scope !227
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %14, align 8, !alias.scope !226
+  store i32 0, ptr %14, align 8, !alias.scope !227
   call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %2, i32 0) #8
   ret void
 }
@@ -6617,23 +6617,23 @@ define hidden void @_ZN13TemplateTable6fstoreEi(i32 noundef %0) local_unnamed_ad
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %1, %6
   %.neg.i.i.i = mul i32 %0, -8
-  store i32 14, ptr %2, align 8, !alias.scope !231
+  store i32 14, ptr %2, align 8, !alias.scope !232
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %7, align 4, !alias.scope !231
+  store i32 -1, ptr %7, align 4, !alias.scope !232
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %8, align 8, !alias.scope !231
+  store i32 -1, ptr %8, align 8, !alias.scope !232
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %9, align 4, !alias.scope !231
+  store i32 -1, ptr %9, align 4, !alias.scope !232
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.neg.i.i.i, ptr %10, align 8, !alias.scope !231
+  store i32 %.neg.i.i.i, ptr %10, align 8, !alias.scope !232
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 0, ptr %11, align 4, !alias.scope !231
+  store i8 0, ptr %11, align 4, !alias.scope !232
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !231
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !232
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %13, align 8, !alias.scope !231
+  store ptr null, ptr %13, align 8, !alias.scope !232
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %14, align 8, !alias.scope !231
+  store i32 0, ptr %14, align 8, !alias.scope !232
   call void @_ZN14MacroAssembler11store_floatE7Address(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %2) #8
   ret void
 }
@@ -6654,23 +6654,23 @@ define hidden void @_ZN13TemplateTable6dstoreEi(i32 noundef %0) local_unnamed_ad
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %1, %6
   %.neg.i.i = xor i32 %0, -1
   %.neg.i.i.i.i = shl i32 %.neg.i.i, 3
-  store i32 14, ptr %2, align 8, !alias.scope !236
+  store i32 14, ptr %2, align 8, !alias.scope !237
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %7, align 4, !alias.scope !236
+  store i32 -1, ptr %7, align 4, !alias.scope !237
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %8, align 8, !alias.scope !236
+  store i32 -1, ptr %8, align 8, !alias.scope !237
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %9, align 4, !alias.scope !236
+  store i32 -1, ptr %9, align 4, !alias.scope !237
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.neg.i.i.i.i, ptr %10, align 8, !alias.scope !236
+  store i32 %.neg.i.i.i.i, ptr %10, align 8, !alias.scope !237
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 0, ptr %11, align 4, !alias.scope !236
+  store i8 0, ptr %11, align 4, !alias.scope !237
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !236
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !237
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %13, align 8, !alias.scope !236
+  store ptr null, ptr %13, align 8, !alias.scope !237
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %14, align 8, !alias.scope !236
+  store i32 0, ptr %14, align 8, !alias.scope !237
   call void @_ZN14MacroAssembler12store_doubleE7Address(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %2) #8
   ret void
 }
@@ -6701,23 +6701,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit2: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit, %10
   %.neg.i.i.i = mul i32 %0, -8
-  store i32 14, ptr %2, align 8, !alias.scope !243
+  store i32 14, ptr %2, align 8, !alias.scope !244
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %11, align 4, !alias.scope !243
+  store i32 -1, ptr %11, align 4, !alias.scope !244
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %12, align 8, !alias.scope !243
+  store i32 -1, ptr %12, align 8, !alias.scope !244
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %13, align 4, !alias.scope !243
+  store i32 -1, ptr %13, align 4, !alias.scope !244
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.neg.i.i.i, ptr %14, align 8, !alias.scope !243
+  store i32 %.neg.i.i.i, ptr %14, align 8, !alias.scope !244
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 0, ptr %15, align 4, !alias.scope !243
+  store i8 0, ptr %15, align 4, !alias.scope !244
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %16, align 8, !alias.scope !243
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %16, align 8, !alias.scope !244
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %17, align 8, !alias.scope !243
+  store ptr null, ptr %17, align 8, !alias.scope !244
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %18, align 8, !alias.scope !243
+  store i32 0, ptr %18, align 8, !alias.scope !244
   call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %2, i32 0) #8
   ret void
 }
@@ -8166,23 +8166,23 @@ define hidden void @_ZN13TemplateTable4fop2ENS_9OperationE(i32 noundef %0) local
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %9, %13
-  store i32 4, ptr %4, align 8, !alias.scope !248
+  store i32 4, ptr %4, align 8, !alias.scope !249
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 -1, ptr %14, align 4, !alias.scope !248
+  store i32 -1, ptr %14, align 4, !alias.scope !249
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 -1, ptr %15, align 8, !alias.scope !248
+  store i32 -1, ptr %15, align 8, !alias.scope !249
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 -1, ptr %16, align 4, !alias.scope !248
+  store i32 -1, ptr %16, align 4, !alias.scope !249
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %17, align 8, !alias.scope !248
+  store i32 0, ptr %17, align 8, !alias.scope !249
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i8 0, ptr %18, align 4, !alias.scope !248
+  store i8 0, ptr %18, align 4, !alias.scope !249
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %19, align 8, !alias.scope !248
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %19, align 8, !alias.scope !249
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %20, align 8, !alias.scope !248
+  store ptr null, ptr %20, align 8, !alias.scope !249
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %21, align 8, !alias.scope !248
+  store i32 0, ptr %21, align 8, !alias.scope !249
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -8262,23 +8262,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit20: ; preds =
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit21
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit21: ; preds = %45, %49
-  store i32 4, ptr %5, align 8, !alias.scope !251
+  store i32 4, ptr %5, align 8, !alias.scope !252
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 -1, ptr %50, align 4, !alias.scope !251
+  store i32 -1, ptr %50, align 4, !alias.scope !252
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 -1, ptr %51, align 8, !alias.scope !251
+  store i32 -1, ptr %51, align 8, !alias.scope !252
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 -1, ptr %52, align 4, !alias.scope !251
+  store i32 -1, ptr %52, align 4, !alias.scope !252
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %53, align 8, !alias.scope !251
+  store i32 0, ptr %53, align 8, !alias.scope !252
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 0, ptr %54, align 4, !alias.scope !251
+  store i8 0, ptr %54, align 4, !alias.scope !252
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %55, align 8, !alias.scope !251
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %55, align 8, !alias.scope !252
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %56, align 8, !alias.scope !251
+  store ptr null, ptr %56, align 8, !alias.scope !252
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %57, align 8, !alias.scope !251
+  store i32 0, ptr %57, align 8, !alias.scope !252
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -8446,23 +8446,23 @@ define hidden void @_ZN13TemplateTable4dop2ENS_9OperationE(i32 noundef %0) local
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %9, %13
-  store i32 4, ptr %4, align 8, !alias.scope !254
+  store i32 4, ptr %4, align 8, !alias.scope !255
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 -1, ptr %14, align 4, !alias.scope !254
+  store i32 -1, ptr %14, align 4, !alias.scope !255
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 -1, ptr %15, align 8, !alias.scope !254
+  store i32 -1, ptr %15, align 8, !alias.scope !255
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 -1, ptr %16, align 4, !alias.scope !254
+  store i32 -1, ptr %16, align 4, !alias.scope !255
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %17, align 8, !alias.scope !254
+  store i32 0, ptr %17, align 8, !alias.scope !255
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i8 0, ptr %18, align 4, !alias.scope !254
+  store i8 0, ptr %18, align 4, !alias.scope !255
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %19, align 8, !alias.scope !254
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %19, align 8, !alias.scope !255
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %20, align 8, !alias.scope !254
+  store ptr null, ptr %20, align 8, !alias.scope !255
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %21, align 8, !alias.scope !254
+  store i32 0, ptr %21, align 8, !alias.scope !255
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -8542,23 +8542,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit20: ; preds =
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit21
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit21: ; preds = %45, %49
-  store i32 4, ptr %5, align 8, !alias.scope !257
+  store i32 4, ptr %5, align 8, !alias.scope !258
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 -1, ptr %50, align 4, !alias.scope !257
+  store i32 -1, ptr %50, align 4, !alias.scope !258
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 -1, ptr %51, align 8, !alias.scope !257
+  store i32 -1, ptr %51, align 8, !alias.scope !258
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 -1, ptr %52, align 4, !alias.scope !257
+  store i32 -1, ptr %52, align 4, !alias.scope !258
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %53, align 8, !alias.scope !257
+  store i32 0, ptr %53, align 8, !alias.scope !258
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 0, ptr %54, align 4, !alias.scope !257
+  store i8 0, ptr %54, align 4, !alias.scope !258
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %55, align 8, !alias.scope !257
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %55, align 8, !alias.scope !258
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %56, align 8, !alias.scope !257
+  store ptr null, ptr %56, align 8, !alias.scope !258
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %57, align 8, !alias.scope !257
+  store i32 0, ptr %57, align 8, !alias.scope !258
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -8743,7 +8743,7 @@ define hidden void @_ZN13TemplateTable4fnegEv() local_unnamed_addr #0 align 2 {
 5:                                                ; preds = %0
   %6 = load atomic i8, ptr @_ZGVZN13TemplateTable4fnegEvE14float_signflip acquire, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %14, !prof !260
+  br i1 %7, label %8, label %14, !prof !261
 
 8:                                                ; preds = %5
   %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13TemplateTable4fnegEvE14float_signflip) #8
@@ -8812,7 +8812,7 @@ define hidden void @_ZN13TemplateTable4dnegEv() local_unnamed_addr #0 align 2 {
 5:                                                ; preds = %0
   %6 = load atomic i8, ptr @_ZGVZN13TemplateTable4dnegEvE15double_signflip acquire, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %14, !prof !260
+  br i1 %7, label %8, label %14, !prof !261
 
 8:                                                ; preds = %5
   %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13TemplateTable4dnegEvE15double_signflip) #8
@@ -8879,23 +8879,23 @@ define hidden void @_ZN13TemplateTable4iincEv() local_unnamed_addr #0 align 2 {
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %0, %7
-  store i32 13, ptr %2, align 8, !alias.scope !261
+  store i32 13, ptr %2, align 8, !alias.scope !262
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %8, align 4, !alias.scope !261
+  store i32 -1, ptr %8, align 4, !alias.scope !262
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %9, align 8, !alias.scope !261
+  store i32 -1, ptr %9, align 8, !alias.scope !262
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %10, align 4, !alias.scope !261
+  store i32 -1, ptr %10, align 4, !alias.scope !262
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 2, ptr %11, align 8, !alias.scope !261
+  store i32 2, ptr %11, align 8, !alias.scope !262
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 0, ptr %12, align 4, !alias.scope !261
+  store i8 0, ptr %12, align 4, !alias.scope !262
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %13, align 8, !alias.scope !261
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %13, align 8, !alias.scope !262
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %14, align 8, !alias.scope !261
+  store ptr null, ptr %14, align 8, !alias.scope !262
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %15, align 8, !alias.scope !261
+  store i32 0, ptr %15, align 8, !alias.scope !262
   %16 = call noundef i32 @_ZN14MacroAssembler16load_signed_byteE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 2, ptr noundef nonnull %2) #8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1)
   %17 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
@@ -8908,23 +8908,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit.i
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit.i: ; preds = %20, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
-  store i32 13, ptr %1, align 8, !alias.scope !264
+  store i32 13, ptr %1, align 8, !alias.scope !265
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 -1, ptr %21, align 4, !alias.scope !264
+  store i32 -1, ptr %21, align 4, !alias.scope !265
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 -1, ptr %22, align 8, !alias.scope !264
+  store i32 -1, ptr %22, align 8, !alias.scope !265
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 -1, ptr %23, align 4, !alias.scope !264
+  store i32 -1, ptr %23, align 4, !alias.scope !265
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 1, ptr %24, align 8, !alias.scope !264
+  store i32 1, ptr %24, align 8, !alias.scope !265
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 0, ptr %25, align 4, !alias.scope !264
+  store i8 0, ptr %25, align 4, !alias.scope !265
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %26, align 8, !alias.scope !264
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %26, align 8, !alias.scope !265
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr null, ptr %27, align 8, !alias.scope !264
+  store ptr null, ptr %27, align 8, !alias.scope !265
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 0, ptr %28, align 8, !alias.scope !264
+  store i32 0, ptr %28, align 8, !alias.scope !265
   %29 = call noundef i32 @_ZN14MacroAssembler18load_unsigned_byteE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 3, ptr noundef nonnull %1) #8
   %30 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %31 = load i8, ptr @PrintInterpreter, align 1
@@ -8948,23 +8948,23 @@ _ZN13TemplateTable12locals_indexE8Registeri.exit: ; preds = %_ZN12Disassembler4h
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit4
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit4: ; preds = %_ZN13TemplateTable12locals_indexE8Registeri.exit, %37
-  store i32 14, ptr %3, align 8, !alias.scope !267
+  store i32 14, ptr %3, align 8, !alias.scope !268
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 3, ptr %38, align 4, !alias.scope !267
+  store i32 3, ptr %38, align 4, !alias.scope !268
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 -1, ptr %39, align 8, !alias.scope !267
+  store i32 -1, ptr %39, align 8, !alias.scope !268
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 3, ptr %40, align 4, !alias.scope !267
+  store i32 3, ptr %40, align 4, !alias.scope !268
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %41, align 8, !alias.scope !267
+  store i32 0, ptr %41, align 8, !alias.scope !268
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i8 0, ptr %42, align 4, !alias.scope !267
+  store i8 0, ptr %42, align 4, !alias.scope !268
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %43, align 8, !alias.scope !267
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %43, align 8, !alias.scope !268
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %44, align 8, !alias.scope !267
+  store ptr null, ptr %44, align 8, !alias.scope !268
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 0, ptr %45, align 8, !alias.scope !267
+  store i32 0, ptr %45, align 8, !alias.scope !268
   call void @_ZN9Assembler4addlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull %3, i32 2) #8
   ret void
 }
@@ -8986,23 +8986,23 @@ define hidden void @_ZN13TemplateTable9wide_iincEv() local_unnamed_addr #0 align
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %0, %6
-  store i32 13, ptr %1, align 8, !alias.scope !270
+  store i32 13, ptr %1, align 8, !alias.scope !271
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 -1, ptr %7, align 4, !alias.scope !270
+  store i32 -1, ptr %7, align 4, !alias.scope !271
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 -1, ptr %8, align 8, !alias.scope !270
+  store i32 -1, ptr %8, align 8, !alias.scope !271
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 -1, ptr %9, align 4, !alias.scope !270
+  store i32 -1, ptr %9, align 4, !alias.scope !271
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 4, ptr %10, align 8, !alias.scope !270
+  store i32 4, ptr %10, align 8, !alias.scope !271
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 0, ptr %11, align 4, !alias.scope !270
+  store i8 0, ptr %11, align 4, !alias.scope !271
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !270
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8, !alias.scope !271
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr null, ptr %13, align 8, !alias.scope !270
+  store ptr null, ptr %13, align 8, !alias.scope !271
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 0, ptr %14, align 8, !alias.scope !270
+  store i32 0, ptr %14, align 8, !alias.scope !271
   call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 2, ptr noundef nonnull %1) #8
   call void @_ZN13TemplateTable17locals_index_wideE8Register(i32 3)
   %15 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
@@ -9037,23 +9037,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit7: ; preds = 
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit8
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit8: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit7, %26
-  store i32 14, ptr %2, align 8, !alias.scope !273
+  store i32 14, ptr %2, align 8, !alias.scope !274
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 3, ptr %27, align 4, !alias.scope !273
+  store i32 3, ptr %27, align 4, !alias.scope !274
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %28, align 8, !alias.scope !273
+  store i32 -1, ptr %28, align 8, !alias.scope !274
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 3, ptr %29, align 4, !alias.scope !273
+  store i32 3, ptr %29, align 4, !alias.scope !274
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %30, align 8, !alias.scope !273
+  store i32 0, ptr %30, align 8, !alias.scope !274
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 0, ptr %31, align 4, !alias.scope !273
+  store i8 0, ptr %31, align 4, !alias.scope !274
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8, !alias.scope !273
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8, !alias.scope !274
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %33, align 8, !alias.scope !273
+  store ptr null, ptr %33, align 8, !alias.scope !274
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %34, align 8, !alias.scope !273
+  store i32 0, ptr %34, align 8, !alias.scope !274
   call void @_ZN9Assembler4addlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull %2, i32 2) #8
   ret void
 }
@@ -9962,23 +9962,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81: ; preds =
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82: ; preds = %49, %50
-  store i32 13, ptr %6, align 8, !alias.scope !276
+  store i32 13, ptr %6, align 8, !alias.scope !277
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 -1, ptr %51, align 4, !alias.scope !276
+  store i32 -1, ptr %51, align 4, !alias.scope !277
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 -1, ptr %52, align 8, !alias.scope !276
+  store i32 -1, ptr %52, align 8, !alias.scope !277
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 -1, ptr %53, align 4, !alias.scope !276
+  store i32 -1, ptr %53, align 4, !alias.scope !277
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 1, ptr %54, align 8, !alias.scope !276
+  store i32 1, ptr %54, align 8, !alias.scope !277
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i8 0, ptr %55, align 4, !alias.scope !276
+  store i8 0, ptr %55, align 4, !alias.scope !277
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %56, align 8, !alias.scope !276
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %56, align 8, !alias.scope !277
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %57, align 8, !alias.scope !276
+  store ptr null, ptr %57, align 8, !alias.scope !277
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 0, ptr %58, align 8, !alias.scope !276
+  store i32 0, ptr %58, align 8, !alias.scope !277
   call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %46, i32 2, ptr noundef nonnull %6) #8
   br label %70
 
@@ -9990,23 +9990,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82: ; preds =
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83: ; preds = %59, %60
-  store i32 13, ptr %7, align 8, !alias.scope !279
+  store i32 13, ptr %7, align 8, !alias.scope !280
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 -1, ptr %61, align 4, !alias.scope !279
+  store i32 -1, ptr %61, align 4, !alias.scope !280
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 -1, ptr %62, align 8, !alias.scope !279
+  store i32 -1, ptr %62, align 8, !alias.scope !280
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 -1, ptr %63, align 4, !alias.scope !279
+  store i32 -1, ptr %63, align 4, !alias.scope !280
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 1, ptr %64, align 8, !alias.scope !279
+  store i32 1, ptr %64, align 8, !alias.scope !280
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i8 0, ptr %65, align 4, !alias.scope !279
+  store i8 0, ptr %65, align 4, !alias.scope !280
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %66, align 8, !alias.scope !279
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %66, align 8, !alias.scope !280
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %67, align 8, !alias.scope !279
+  store ptr null, ptr %67, align 8, !alias.scope !280
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 0, ptr %68, align 8, !alias.scope !279
+  store i32 0, ptr %68, align 8, !alias.scope !280
   %69 = call noundef i32 @_ZN14MacroAssembler17load_signed_shortE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %46, i32 2, ptr noundef nonnull %7) #8
   br label %70
 
@@ -10088,23 +10088,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87: ; preds =
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87, %100
   %101 = select i1 %1, i32 -51, i32 -53
-  store i32 13, ptr %9, align 8, !alias.scope !282
+  store i32 13, ptr %9, align 8, !alias.scope !283
   %102 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 -1, ptr %102, align 4, !alias.scope !282
+  store i32 -1, ptr %102, align 4, !alias.scope !283
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 -1, ptr %103, align 8, !alias.scope !282
+  store i32 -1, ptr %103, align 8, !alias.scope !283
   %104 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 -1, ptr %104, align 4, !alias.scope !282
+  store i32 -1, ptr %104, align 4, !alias.scope !283
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %101, ptr %105, align 8, !alias.scope !282
+  store i32 %101, ptr %105, align 8, !alias.scope !283
   %106 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i8 0, ptr %106, align 4, !alias.scope !282
+  store i8 0, ptr %106, align 4, !alias.scope !283
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8, !alias.scope !282
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8, !alias.scope !283
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %108, align 8, !alias.scope !282
+  store ptr null, ptr %108, align 8, !alias.scope !283
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %109, align 8, !alias.scope !282
+  store i32 0, ptr %109, align 8, !alias.scope !283
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11300,23 +11300,23 @@ define hidden void @_ZN13TemplateTable3retEv() local_unnamed_addr #0 align 2 {
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit.i
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit.i: ; preds = %10, %0
-  store i32 13, ptr %3, align 8, !alias.scope !285
+  store i32 13, ptr %3, align 8, !alias.scope !286
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %11, align 4, !alias.scope !285
+  store i32 -1, ptr %11, align 4, !alias.scope !286
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 -1, ptr %12, align 8, !alias.scope !285
+  store i32 -1, ptr %12, align 8, !alias.scope !286
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 -1, ptr %13, align 4, !alias.scope !285
+  store i32 -1, ptr %13, align 4, !alias.scope !286
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 1, ptr %14, align 8, !alias.scope !285
+  store i32 1, ptr %14, align 8, !alias.scope !286
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i8 0, ptr %15, align 4, !alias.scope !285
+  store i8 0, ptr %15, align 4, !alias.scope !286
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %16, align 8, !alias.scope !285
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %16, align 8, !alias.scope !286
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %17, align 8, !alias.scope !285
+  store ptr null, ptr %17, align 8, !alias.scope !286
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 0, ptr %18, align 8, !alias.scope !285
+  store i32 0, ptr %18, align 8, !alias.scope !286
   %19 = call noundef i32 @_ZN14MacroAssembler18load_unsigned_byteE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 3, ptr noundef nonnull %3) #8
   %20 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %21 = load i8, ptr @PrintInterpreter, align 1
@@ -11340,23 +11340,23 @@ _ZN13TemplateTable12locals_indexE8Registeri.exit: ; preds = %_ZN12Disassembler4h
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %_ZN13TemplateTable12locals_indexE8Registeri.exit, %27
-  store i32 14, ptr %4, align 8, !alias.scope !288
+  store i32 14, ptr %4, align 8, !alias.scope !289
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 3, ptr %28, align 4, !alias.scope !288
+  store i32 3, ptr %28, align 4, !alias.scope !289
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 -1, ptr %29, align 8, !alias.scope !288
+  store i32 -1, ptr %29, align 8, !alias.scope !289
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 3, ptr %30, align 4, !alias.scope !288
+  store i32 3, ptr %30, align 4, !alias.scope !289
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %31, align 8, !alias.scope !288
+  store i32 0, ptr %31, align 8, !alias.scope !289
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i8 0, ptr %32, align 4, !alias.scope !288
+  store i8 0, ptr %32, align 4, !alias.scope !289
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %33, align 8, !alias.scope !288
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %33, align 8, !alias.scope !289
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %34, align 8, !alias.scope !288
+  store ptr null, ptr %34, align 8, !alias.scope !289
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %35, align 8, !alias.scope !288
+  store i32 0, ptr %35, align 8, !alias.scope !289
   call void @_ZN9Assembler6movslqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %24, i32 3, ptr noundef nonnull %4) #8
   %36 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %37 = load i8, ptr @PrintInterpreter, align 1
@@ -11500,23 +11500,23 @@ define hidden void @_ZN13TemplateTable8wide_retEv() local_unnamed_addr #0 align 
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %0, %9
-  store i32 14, ptr %3, align 8, !alias.scope !291
+  store i32 14, ptr %3, align 8, !alias.scope !292
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 3, ptr %10, align 4, !alias.scope !291
+  store i32 3, ptr %10, align 4, !alias.scope !292
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 -1, ptr %11, align 8, !alias.scope !291
+  store i32 -1, ptr %11, align 8, !alias.scope !292
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 3, ptr %12, align 4, !alias.scope !291
+  store i32 3, ptr %12, align 4, !alias.scope !292
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %13, align 8, !alias.scope !291
+  store i32 0, ptr %13, align 8, !alias.scope !292
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i8 0, ptr %14, align 4, !alias.scope !291
+  store i8 0, ptr %14, align 4, !alias.scope !292
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %15, align 8, !alias.scope !291
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %15, align 8, !alias.scope !292
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %16, align 8, !alias.scope !291
+  store ptr null, ptr %16, align 8, !alias.scope !292
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 0, ptr %17, align 8, !alias.scope !291
+  store i32 0, ptr %17, align 8, !alias.scope !292
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 3, ptr noundef nonnull %3) #8
   %18 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %19 = load i8, ptr @PrintInterpreter, align 1
@@ -11671,23 +11671,23 @@ define hidden void @_ZN13TemplateTable11tableswitchEv() local_unnamed_addr #0 al
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %0, %19
-  store i32 13, ptr %4, align 8, !alias.scope !296
+  store i32 13, ptr %4, align 8, !alias.scope !297
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 -1, ptr %20, align 4, !alias.scope !296
+  store i32 -1, ptr %20, align 4, !alias.scope !297
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 -1, ptr %21, align 8, !alias.scope !296
+  store i32 -1, ptr %21, align 8, !alias.scope !297
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 -1, ptr %22, align 4, !alias.scope !296
+  store i32 -1, ptr %22, align 4, !alias.scope !297
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 4, ptr %23, align 8, !alias.scope !296
+  store i32 4, ptr %23, align 8, !alias.scope !297
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i8 0, ptr %24, align 4, !alias.scope !296
+  store i8 0, ptr %24, align 4, !alias.scope !297
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %25, align 8, !alias.scope !296
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %25, align 8, !alias.scope !297
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %26, align 8, !alias.scope !296
+  store ptr null, ptr %26, align 8, !alias.scope !297
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %27, align 8, !alias.scope !296
+  store i32 0, ptr %27, align 8, !alias.scope !297
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -12105,23 +12105,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit27
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit27: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit, %31
-  store i32 13, ptr %6, align 8, !alias.scope !299
+  store i32 13, ptr %6, align 8, !alias.scope !300
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 -1, ptr %32, align 4, !alias.scope !299
+  store i32 -1, ptr %32, align 4, !alias.scope !300
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 -1, ptr %33, align 8, !alias.scope !299
+  store i32 -1, ptr %33, align 8, !alias.scope !300
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 -1, ptr %34, align 4, !alias.scope !299
+  store i32 -1, ptr %34, align 4, !alias.scope !300
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 4, ptr %35, align 8, !alias.scope !299
+  store i32 4, ptr %35, align 8, !alias.scope !300
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i8 0, ptr %36, align 4, !alias.scope !299
+  store i8 0, ptr %36, align 4, !alias.scope !300
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %37, align 8, !alias.scope !299
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %37, align 8, !alias.scope !300
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %38, align 8, !alias.scope !299
+  store ptr null, ptr %38, align 8, !alias.scope !300
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 0, ptr %39, align 8, !alias.scope !299
+  store i32 0, ptr %39, align 8, !alias.scope !300
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -12482,23 +12482,23 @@ define hidden void @_ZN13TemplateTable17fast_binaryswitchEv() local_unnamed_addr
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %0, %18
-  store i32 13, ptr %2, align 8, !alias.scope !302
+  store i32 13, ptr %2, align 8, !alias.scope !303
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %19, align 4, !alias.scope !302
+  store i32 -1, ptr %19, align 4, !alias.scope !303
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %20, align 8, !alias.scope !302
+  store i32 -1, ptr %20, align 8, !alias.scope !303
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %21, align 4, !alias.scope !302
+  store i32 -1, ptr %21, align 4, !alias.scope !303
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 12, ptr %22, align 8, !alias.scope !302
+  store i32 12, ptr %22, align 8, !alias.scope !303
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 0, ptr %23, align 4, !alias.scope !302
+  store i8 0, ptr %23, align 4, !alias.scope !303
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %24, align 8, !alias.scope !302
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %24, align 8, !alias.scope !303
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %25, align 8, !alias.scope !302
+  store ptr null, ptr %25, align 8, !alias.scope !303
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %26, align 8, !alias.scope !302
+  store i32 0, ptr %26, align 8, !alias.scope !303
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 21, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -13095,23 +13095,23 @@ define hidden void @_ZN13TemplateTable7_returnE8TosState(i32 noundef %0) local_u
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %10, %14
-  store i32 14, ptr %2, align 8, !alias.scope !305
+  store i32 14, ptr %2, align 8, !alias.scope !306
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %15, align 4, !alias.scope !305
+  store i32 -1, ptr %15, align 4, !alias.scope !306
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %16, align 8, !alias.scope !305
+  store i32 -1, ptr %16, align 8, !alias.scope !306
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %17, align 4, !alias.scope !305
+  store i32 -1, ptr %17, align 4, !alias.scope !306
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %18, align 8, !alias.scope !305
+  store i32 0, ptr %18, align 8, !alias.scope !306
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 0, ptr %19, align 4, !alias.scope !305
+  store i8 0, ptr %19, align 4, !alias.scope !306
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %20, align 8, !alias.scope !305
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %20, align 8, !alias.scope !306
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %21, align 8, !alias.scope !305
+  store ptr null, ptr %21, align 8, !alias.scope !306
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %22, align 8, !alias.scope !305
+  store i32 0, ptr %22, align 8, !alias.scope !306
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %11, i32 6, ptr noundef nonnull %2) #8
   %23 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %24 = load i8, ptr @PrintInterpreter, align 1
@@ -16238,23 +16238,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit48: ; preds =
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit49
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit49: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit48, %61
-  store i32 4, ptr %10, align 8, !alias.scope !310
+  store i32 4, ptr %10, align 8, !alias.scope !311
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 -1, ptr %62, align 4, !alias.scope !310
+  store i32 -1, ptr %62, align 4, !alias.scope !311
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 -1, ptr %63, align 8, !alias.scope !310
+  store i32 -1, ptr %63, align 8, !alias.scope !311
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 -1, ptr %64, align 4, !alias.scope !310
+  store i32 -1, ptr %64, align 4, !alias.scope !311
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 8, ptr %65, align 8, !alias.scope !310
+  store i32 8, ptr %65, align 8, !alias.scope !311
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i8 0, ptr %66, align 4, !alias.scope !310
+  store i8 0, ptr %66, align 4, !alias.scope !311
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %67, align 8, !alias.scope !310
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %67, align 8, !alias.scope !311
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr null, ptr %68, align 8, !alias.scope !310
+  store ptr null, ptr %68, align 8, !alias.scope !311
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 0, ptr %69, align 8, !alias.scope !310
+  store i32 0, ptr %69, align 8, !alias.scope !311
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %58, i32 6, ptr noundef nonnull %10) #8
   %70 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %71 = load i8, ptr @PrintInterpreter, align 1
@@ -16277,23 +16277,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit50: ; preds =
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit51
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit51: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit50, %77
-  store i32 4, ptr %11, align 8, !alias.scope !313
+  store i32 4, ptr %11, align 8, !alias.scope !314
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 -1, ptr %78, align 4, !alias.scope !313
+  store i32 -1, ptr %78, align 4, !alias.scope !314
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 -1, ptr %79, align 8, !alias.scope !313
+  store i32 -1, ptr %79, align 8, !alias.scope !314
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 -1, ptr %80, align 4, !alias.scope !313
+  store i32 -1, ptr %80, align 4, !alias.scope !314
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 16, ptr %81, align 8, !alias.scope !313
+  store i32 16, ptr %81, align 8, !alias.scope !314
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i8 0, ptr %82, align 4, !alias.scope !313
+  store i8 0, ptr %82, align 4, !alias.scope !314
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %83, align 8, !alias.scope !313
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %83, align 8, !alias.scope !314
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr null, ptr %84, align 8, !alias.scope !313
+  store ptr null, ptr %84, align 8, !alias.scope !314
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 0, ptr %85, align 8, !alias.scope !313
+  store i32 0, ptr %85, align 8, !alias.scope !314
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 21, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -16322,23 +16322,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit52: ; preds =
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit53
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit53: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit52, %95
-  store i32 4, ptr %12, align 8, !alias.scope !316
+  store i32 4, ptr %12, align 8, !alias.scope !317
   %96 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 -1, ptr %96, align 4, !alias.scope !316
+  store i32 -1, ptr %96, align 4, !alias.scope !317
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 -1, ptr %97, align 8, !alias.scope !316
+  store i32 -1, ptr %97, align 8, !alias.scope !317
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 -1, ptr %98, align 4, !alias.scope !316
+  store i32 -1, ptr %98, align 4, !alias.scope !317
   %99 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 16, ptr %99, align 8, !alias.scope !316
+  store i32 16, ptr %99, align 8, !alias.scope !317
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i8 0, ptr %100, align 4, !alias.scope !316
+  store i8 0, ptr %100, align 4, !alias.scope !317
   %101 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8, !alias.scope !316
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8, !alias.scope !317
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr null, ptr %102, align 8, !alias.scope !316
+  store ptr null, ptr %102, align 8, !alias.scope !317
   %103 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 0, ptr %103, align 8, !alias.scope !316
+  store i32 0, ptr %103, align 8, !alias.scope !317
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 21, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -18847,23 +18847,23 @@ define hidden void @_ZN13TemplateTable12fast_xaccessE8TosState(i32 noundef %0) l
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %1, %12
-  store i32 14, ptr %3, align 8, !alias.scope !319
+  store i32 14, ptr %3, align 8, !alias.scope !320
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %13, align 4, !alias.scope !319
+  store i32 -1, ptr %13, align 4, !alias.scope !320
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 -1, ptr %14, align 8, !alias.scope !319
+  store i32 -1, ptr %14, align 8, !alias.scope !320
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 -1, ptr %15, align 4, !alias.scope !319
+  store i32 -1, ptr %15, align 4, !alias.scope !320
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %16, align 8, !alias.scope !319
+  store i32 0, ptr %16, align 8, !alias.scope !320
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i8 0, ptr %17, align 4, !alias.scope !319
+  store i8 0, ptr %17, align 4, !alias.scope !320
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %18, align 8, !alias.scope !319
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %18, align 8, !alias.scope !320
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %19, align 8, !alias.scope !319
+  store ptr null, ptr %19, align 8, !alias.scope !320
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 0, ptr %20, align 8, !alias.scope !319
+  store i32 0, ptr %20, align 8, !alias.scope !320
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 0, ptr noundef nonnull %3) #8
   %21 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %22 = load i8, ptr @PrintInterpreter, align 1
@@ -21280,23 +21280,23 @@ define hidden void @_ZN13TemplateTable8newarrayEv() local_unnamed_addr #0 align 
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %0, %5
-  store i32 13, ptr %1, align 8, !alias.scope !324
+  store i32 13, ptr %1, align 8, !alias.scope !325
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 -1, ptr %6, align 4, !alias.scope !324
+  store i32 -1, ptr %6, align 4, !alias.scope !325
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 -1, ptr %7, align 8, !alias.scope !324
+  store i32 -1, ptr %7, align 8, !alias.scope !325
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 -1, ptr %8, align 4, !alias.scope !324
+  store i32 -1, ptr %8, align 4, !alias.scope !325
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 1, ptr %9, align 8, !alias.scope !324
+  store i32 1, ptr %9, align 8, !alias.scope !325
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 0, ptr %10, align 4, !alias.scope !324
+  store i8 0, ptr %10, align 4, !alias.scope !325
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %11, align 8, !alias.scope !324
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %11, align 8, !alias.scope !325
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr null, ptr %12, align 8, !alias.scope !324
+  store ptr null, ptr %12, align 8, !alias.scope !325
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 0, ptr %13, align 8, !alias.scope !324
+  store i32 0, ptr %13, align 8, !alias.scope !325
   %14 = call noundef i32 @_ZN14MacroAssembler18load_unsigned_byteE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 6, ptr noundef nonnull %1) #8
   call void @_ZN13TemplateTable7call_VME8RegisterPhS0_S0_(i32 0, ptr noundef nonnull @_ZN18InterpreterRuntime8newarrayEP10JavaThread9BasicTypei, i32 6, i32 0) #8
   ret void
@@ -23577,23 +23577,23 @@ define hidden void @_ZN13TemplateTable4wideEv() local_unnamed_addr #0 align 2 {
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %0, %9
-  store i32 13, ptr %1, align 8, !alias.scope !327
+  store i32 13, ptr %1, align 8, !alias.scope !328
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 -1, ptr %10, align 4, !alias.scope !327
+  store i32 -1, ptr %10, align 4, !alias.scope !328
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 -1, ptr %11, align 8, !alias.scope !327
+  store i32 -1, ptr %11, align 8, !alias.scope !328
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 -1, ptr %12, align 4, !alias.scope !327
+  store i32 -1, ptr %12, align 4, !alias.scope !328
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 1, ptr %13, align 8, !alias.scope !327
+  store i32 1, ptr %13, align 8, !alias.scope !328
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 0, ptr %14, align 4, !alias.scope !327
+  store i8 0, ptr %14, align 4, !alias.scope !328
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %15, align 8, !alias.scope !327
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %15, align 8, !alias.scope !328
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr null, ptr %16, align 8, !alias.scope !327
+  store ptr null, ptr %16, align 8, !alias.scope !328
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 0, ptr %17, align 8, !alias.scope !327
+  store i32 0, ptr %17, align 8, !alias.scope !328
   %18 = call noundef i32 @_ZN14MacroAssembler18load_unsigned_byteE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 3, ptr noundef nonnull %1) #8
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @_ZN19TemplateInterpreter13_wentry_pointE, i32 noundef 7) #8
   %19 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
@@ -23666,23 +23666,23 @@ define hidden void @_ZN13TemplateTable14multianewarrayEv() local_unnamed_addr #0
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %0, %10
-  store i32 13, ptr %3, align 8, !alias.scope !330
+  store i32 13, ptr %3, align 8, !alias.scope !331
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %11, align 4, !alias.scope !330
+  store i32 -1, ptr %11, align 4, !alias.scope !331
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 -1, ptr %12, align 8, !alias.scope !330
+  store i32 -1, ptr %12, align 8, !alias.scope !331
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 -1, ptr %13, align 4, !alias.scope !330
+  store i32 -1, ptr %13, align 4, !alias.scope !331
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 3, ptr %14, align 8, !alias.scope !330
+  store i32 3, ptr %14, align 8, !alias.scope !331
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i8 0, ptr %15, align 4, !alias.scope !330
+  store i8 0, ptr %15, align 4, !alias.scope !331
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %16, align 8, !alias.scope !330
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %16, align 8, !alias.scope !331
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %17, align 8, !alias.scope !330
+  store ptr null, ptr %17, align 8, !alias.scope !331
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 0, ptr %18, align 8, !alias.scope !330
+  store i32 0, ptr %18, align 8, !alias.scope !331
   %19 = call noundef i32 @_ZN14MacroAssembler18load_unsigned_byteE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 0, ptr noundef nonnull %3) #8
   %20 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %21 = load i8, ptr @PrintInterpreter, align 1
@@ -23729,23 +23729,23 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit12: ; preds =
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit13
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit13: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit12, %37
-  store i32 13, ptr %5, align 8, !alias.scope !333
+  store i32 13, ptr %5, align 8, !alias.scope !334
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 -1, ptr %38, align 4, !alias.scope !333
+  store i32 -1, ptr %38, align 4, !alias.scope !334
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 -1, ptr %39, align 8, !alias.scope !333
+  store i32 -1, ptr %39, align 8, !alias.scope !334
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 -1, ptr %40, align 4, !alias.scope !333
+  store i32 -1, ptr %40, align 4, !alias.scope !334
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 3, ptr %41, align 8, !alias.scope !333
+  store i32 3, ptr %41, align 8, !alias.scope !334
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 0, ptr %42, align 4, !alias.scope !333
+  store i8 0, ptr %42, align 4, !alias.scope !334
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %43, align 8, !alias.scope !333
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %43, align 8, !alias.scope !334
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %44, align 8, !alias.scope !333
+  store ptr null, ptr %44, align 8, !alias.scope !334
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %45, align 8, !alias.scope !333
+  store i32 0, ptr %45, align 8, !alias.scope !334
   %46 = call noundef i32 @_ZN14MacroAssembler18load_unsigned_byteE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %34, i32 3, ptr noundef nonnull %5) #8
   %47 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %48 = load i8, ptr @PrintInterpreter, align 1
@@ -24186,118 +24186,119 @@ attributes #9 = { noreturn nounwind }
 !218 = !{!219}
 !219 = distinct !{!219, !220, !"_ZL9at_tos_p1v: argument 0"}
 !220 = distinct !{!220, !"_ZL9at_tos_p1v"}
-!221 = distinct !{!221, !222}
+!221 = distinct !{!221, !222, !223}
 !222 = !{!"llvm.loop.mustprogress"}
-!223 = !{!224}
-!224 = distinct !{!224, !225, !"_ZL8iaddressi: argument 0"}
-!225 = distinct !{!225, !"_ZL8iaddressi"}
-!226 = !{!227, !229}
-!227 = distinct !{!227, !228, !"_ZL8iaddressi: argument 0"}
-!228 = distinct !{!228, !"_ZL8iaddressi"}
-!229 = distinct !{!229, !230, !"_ZL8laddressi: argument 0"}
-!230 = distinct !{!230, !"_ZL8laddressi"}
-!231 = !{!232, !234}
-!232 = distinct !{!232, !233, !"_ZL8iaddressi: argument 0"}
-!233 = distinct !{!233, !"_ZL8iaddressi"}
-!234 = distinct !{!234, !235, !"_ZL8faddressi: argument 0"}
-!235 = distinct !{!235, !"_ZL8faddressi"}
-!236 = !{!237, !239, !241}
-!237 = distinct !{!237, !238, !"_ZL8iaddressi: argument 0"}
-!238 = distinct !{!238, !"_ZL8iaddressi"}
-!239 = distinct !{!239, !240, !"_ZL8laddressi: argument 0"}
-!240 = distinct !{!240, !"_ZL8laddressi"}
-!241 = distinct !{!241, !242, !"_ZL8daddressi: argument 0"}
-!242 = distinct !{!242, !"_ZL8daddressi"}
-!243 = !{!244, !246}
-!244 = distinct !{!244, !245, !"_ZL8iaddressi: argument 0"}
-!245 = distinct !{!245, !"_ZL8iaddressi"}
-!246 = distinct !{!246, !247, !"_ZL8aaddressi: argument 0"}
-!247 = distinct !{!247, !"_ZL8aaddressi"}
-!248 = !{!249}
-!249 = distinct !{!249, !250, !"_ZL6at_rspv: argument 0"}
-!250 = distinct !{!250, !"_ZL6at_rspv"}
-!251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZL6at_rspv: argument 0"}
-!253 = distinct !{!253, !"_ZL6at_rspv"}
-!254 = !{!255}
-!255 = distinct !{!255, !256, !"_ZL6at_rspv: argument 0"}
-!256 = distinct !{!256, !"_ZL6at_rspv"}
-!257 = !{!258}
-!258 = distinct !{!258, !259, !"_ZL6at_rspv: argument 0"}
-!259 = distinct !{!259, !"_ZL6at_rspv"}
-!260 = !{!"branch_weights", i32 1, i32 1048575}
-!261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!263 = distinct !{!263, !"_ZN13TemplateTable6at_bcpEi"}
-!264 = !{!265}
-!265 = distinct !{!265, !266, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!266 = distinct !{!266, !"_ZN13TemplateTable6at_bcpEi"}
-!267 = !{!268}
-!268 = distinct !{!268, !269, !"_ZL8iaddress8Register: argument 0"}
-!269 = distinct !{!269, !"_ZL8iaddress8Register"}
-!270 = !{!271}
-!271 = distinct !{!271, !272, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!272 = distinct !{!272, !"_ZN13TemplateTable6at_bcpEi"}
-!273 = !{!274}
-!274 = distinct !{!274, !275, !"_ZL8iaddress8Register: argument 0"}
-!275 = distinct !{!275, !"_ZL8iaddress8Register"}
-!276 = !{!277}
-!277 = distinct !{!277, !278, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!278 = distinct !{!278, !"_ZN13TemplateTable6at_bcpEi"}
-!279 = !{!280}
-!280 = distinct !{!280, !281, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!281 = distinct !{!281, !"_ZN13TemplateTable6at_bcpEi"}
-!282 = !{!283}
-!283 = distinct !{!283, !284, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!284 = distinct !{!284, !"_ZN13TemplateTable6at_bcpEi"}
-!285 = !{!286}
-!286 = distinct !{!286, !287, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!287 = distinct !{!287, !"_ZN13TemplateTable6at_bcpEi"}
-!288 = !{!289}
-!289 = distinct !{!289, !290, !"_ZL8iaddress8Register: argument 0"}
-!290 = distinct !{!290, !"_ZL8iaddress8Register"}
-!291 = !{!292, !294}
-!292 = distinct !{!292, !293, !"_ZL8iaddress8Register: argument 0"}
-!293 = distinct !{!293, !"_ZL8iaddress8Register"}
-!294 = distinct !{!294, !295, !"_ZL8aaddress8Register: argument 0"}
-!295 = distinct !{!295, !"_ZL8aaddress8Register"}
-!296 = !{!297}
-!297 = distinct !{!297, !298, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!298 = distinct !{!298, !"_ZN13TemplateTable6at_bcpEi"}
-!299 = !{!300}
-!300 = distinct !{!300, !301, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!301 = distinct !{!301, !"_ZN13TemplateTable6at_bcpEi"}
-!302 = !{!303}
-!303 = distinct !{!303, !304, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!304 = distinct !{!304, !"_ZN13TemplateTable6at_bcpEi"}
-!305 = !{!306, !308}
-!306 = distinct !{!306, !307, !"_ZL8iaddressi: argument 0"}
-!307 = distinct !{!307, !"_ZL8iaddressi"}
-!308 = distinct !{!308, !309, !"_ZL8aaddressi: argument 0"}
-!309 = distinct !{!309, !"_ZL8aaddressi"}
-!310 = !{!311}
-!311 = distinct !{!311, !312, !"_ZL9at_tos_p1v: argument 0"}
-!312 = distinct !{!312, !"_ZL9at_tos_p1v"}
-!313 = !{!314}
-!314 = distinct !{!314, !315, !"_ZL9at_tos_p2v: argument 0"}
-!315 = distinct !{!315, !"_ZL9at_tos_p2v"}
-!316 = !{!317}
-!317 = distinct !{!317, !318, !"_ZL9at_tos_p2v: argument 0"}
-!318 = distinct !{!318, !"_ZL9at_tos_p2v"}
-!319 = !{!320, !322}
-!320 = distinct !{!320, !321, !"_ZL8iaddressi: argument 0"}
-!321 = distinct !{!321, !"_ZL8iaddressi"}
-!322 = distinct !{!322, !323, !"_ZL8aaddressi: argument 0"}
-!323 = distinct !{!323, !"_ZL8aaddressi"}
-!324 = !{!325}
-!325 = distinct !{!325, !326, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!326 = distinct !{!326, !"_ZN13TemplateTable6at_bcpEi"}
-!327 = !{!328}
-!328 = distinct !{!328, !329, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!329 = distinct !{!329, !"_ZN13TemplateTable6at_bcpEi"}
-!330 = !{!331}
-!331 = distinct !{!331, !332, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!332 = distinct !{!332, !"_ZN13TemplateTable6at_bcpEi"}
-!333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
-!335 = distinct !{!335, !"_ZN13TemplateTable6at_bcpEi"}
+!223 = !{!"llvm.loop.estimated_trip_count"}
+!224 = !{!225}
+!225 = distinct !{!225, !226, !"_ZL8iaddressi: argument 0"}
+!226 = distinct !{!226, !"_ZL8iaddressi"}
+!227 = !{!228, !230}
+!228 = distinct !{!228, !229, !"_ZL8iaddressi: argument 0"}
+!229 = distinct !{!229, !"_ZL8iaddressi"}
+!230 = distinct !{!230, !231, !"_ZL8laddressi: argument 0"}
+!231 = distinct !{!231, !"_ZL8laddressi"}
+!232 = !{!233, !235}
+!233 = distinct !{!233, !234, !"_ZL8iaddressi: argument 0"}
+!234 = distinct !{!234, !"_ZL8iaddressi"}
+!235 = distinct !{!235, !236, !"_ZL8faddressi: argument 0"}
+!236 = distinct !{!236, !"_ZL8faddressi"}
+!237 = !{!238, !240, !242}
+!238 = distinct !{!238, !239, !"_ZL8iaddressi: argument 0"}
+!239 = distinct !{!239, !"_ZL8iaddressi"}
+!240 = distinct !{!240, !241, !"_ZL8laddressi: argument 0"}
+!241 = distinct !{!241, !"_ZL8laddressi"}
+!242 = distinct !{!242, !243, !"_ZL8daddressi: argument 0"}
+!243 = distinct !{!243, !"_ZL8daddressi"}
+!244 = !{!245, !247}
+!245 = distinct !{!245, !246, !"_ZL8iaddressi: argument 0"}
+!246 = distinct !{!246, !"_ZL8iaddressi"}
+!247 = distinct !{!247, !248, !"_ZL8aaddressi: argument 0"}
+!248 = distinct !{!248, !"_ZL8aaddressi"}
+!249 = !{!250}
+!250 = distinct !{!250, !251, !"_ZL6at_rspv: argument 0"}
+!251 = distinct !{!251, !"_ZL6at_rspv"}
+!252 = !{!253}
+!253 = distinct !{!253, !254, !"_ZL6at_rspv: argument 0"}
+!254 = distinct !{!254, !"_ZL6at_rspv"}
+!255 = !{!256}
+!256 = distinct !{!256, !257, !"_ZL6at_rspv: argument 0"}
+!257 = distinct !{!257, !"_ZL6at_rspv"}
+!258 = !{!259}
+!259 = distinct !{!259, !260, !"_ZL6at_rspv: argument 0"}
+!260 = distinct !{!260, !"_ZL6at_rspv"}
+!261 = !{!"branch_weights", i32 1, i32 1048575}
+!262 = !{!263}
+!263 = distinct !{!263, !264, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!264 = distinct !{!264, !"_ZN13TemplateTable6at_bcpEi"}
+!265 = !{!266}
+!266 = distinct !{!266, !267, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!267 = distinct !{!267, !"_ZN13TemplateTable6at_bcpEi"}
+!268 = !{!269}
+!269 = distinct !{!269, !270, !"_ZL8iaddress8Register: argument 0"}
+!270 = distinct !{!270, !"_ZL8iaddress8Register"}
+!271 = !{!272}
+!272 = distinct !{!272, !273, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!273 = distinct !{!273, !"_ZN13TemplateTable6at_bcpEi"}
+!274 = !{!275}
+!275 = distinct !{!275, !276, !"_ZL8iaddress8Register: argument 0"}
+!276 = distinct !{!276, !"_ZL8iaddress8Register"}
+!277 = !{!278}
+!278 = distinct !{!278, !279, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!279 = distinct !{!279, !"_ZN13TemplateTable6at_bcpEi"}
+!280 = !{!281}
+!281 = distinct !{!281, !282, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!282 = distinct !{!282, !"_ZN13TemplateTable6at_bcpEi"}
+!283 = !{!284}
+!284 = distinct !{!284, !285, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!285 = distinct !{!285, !"_ZN13TemplateTable6at_bcpEi"}
+!286 = !{!287}
+!287 = distinct !{!287, !288, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!288 = distinct !{!288, !"_ZN13TemplateTable6at_bcpEi"}
+!289 = !{!290}
+!290 = distinct !{!290, !291, !"_ZL8iaddress8Register: argument 0"}
+!291 = distinct !{!291, !"_ZL8iaddress8Register"}
+!292 = !{!293, !295}
+!293 = distinct !{!293, !294, !"_ZL8iaddress8Register: argument 0"}
+!294 = distinct !{!294, !"_ZL8iaddress8Register"}
+!295 = distinct !{!295, !296, !"_ZL8aaddress8Register: argument 0"}
+!296 = distinct !{!296, !"_ZL8aaddress8Register"}
+!297 = !{!298}
+!298 = distinct !{!298, !299, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!299 = distinct !{!299, !"_ZN13TemplateTable6at_bcpEi"}
+!300 = !{!301}
+!301 = distinct !{!301, !302, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!302 = distinct !{!302, !"_ZN13TemplateTable6at_bcpEi"}
+!303 = !{!304}
+!304 = distinct !{!304, !305, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!305 = distinct !{!305, !"_ZN13TemplateTable6at_bcpEi"}
+!306 = !{!307, !309}
+!307 = distinct !{!307, !308, !"_ZL8iaddressi: argument 0"}
+!308 = distinct !{!308, !"_ZL8iaddressi"}
+!309 = distinct !{!309, !310, !"_ZL8aaddressi: argument 0"}
+!310 = distinct !{!310, !"_ZL8aaddressi"}
+!311 = !{!312}
+!312 = distinct !{!312, !313, !"_ZL9at_tos_p1v: argument 0"}
+!313 = distinct !{!313, !"_ZL9at_tos_p1v"}
+!314 = !{!315}
+!315 = distinct !{!315, !316, !"_ZL9at_tos_p2v: argument 0"}
+!316 = distinct !{!316, !"_ZL9at_tos_p2v"}
+!317 = !{!318}
+!318 = distinct !{!318, !319, !"_ZL9at_tos_p2v: argument 0"}
+!319 = distinct !{!319, !"_ZL9at_tos_p2v"}
+!320 = !{!321, !323}
+!321 = distinct !{!321, !322, !"_ZL8iaddressi: argument 0"}
+!322 = distinct !{!322, !"_ZL8iaddressi"}
+!323 = distinct !{!323, !324, !"_ZL8aaddressi: argument 0"}
+!324 = distinct !{!324, !"_ZL8aaddressi"}
+!325 = !{!326}
+!326 = distinct !{!326, !327, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!327 = distinct !{!327, !"_ZN13TemplateTable6at_bcpEi"}
+!328 = !{!329}
+!329 = distinct !{!329, !330, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!330 = distinct !{!330, !"_ZN13TemplateTable6at_bcpEi"}
+!331 = !{!332}
+!332 = distinct !{!332, !333, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!333 = distinct !{!333, !"_ZN13TemplateTable6at_bcpEi"}
+!334 = !{!335}
+!335 = distinct !{!335, !336, !"_ZN13TemplateTable6at_bcpEi: argument 0"}
+!336 = distinct !{!336, !"_ZN13TemplateTable6at_bcpEi"}

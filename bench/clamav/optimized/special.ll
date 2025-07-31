@@ -72,7 +72,7 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %19, ptr noundef nonnull dereferenceable(4) %2, i64 4)
   %.not85.not = icmp eq i32 %bcmp, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
-  br i1 %.not85.not, label %.loopexit, label %.preheader
+  br i1 %.not85.not, label %.loopexit, label %.preheader, !llvm.loop !27
 
 20:                                               ; preds = %.preheader
   %.sroa.0.0.copyload = load i32, ptr %15, align 4
@@ -262,8 +262,8 @@ define range(i32 0, 3) i32 @cli_check_riff_exploit(ptr noundef readonly captures
 36:                                               ; preds = %34, %32, %30, %28
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %38 = load ptr, ptr %4, align 8, !tbaa !25
-  %.val.i.i = load ptr, ptr %13, align 8, !tbaa !27
-  %.val4.i.i = load i64, ptr %14, align 8, !tbaa !28
+  %.val.i.i = load ptr, ptr %13, align 8, !tbaa !29
+  %.val4.i.i = load i64, ptr %14, align 8, !tbaa !30
   %39 = ptrtoint ptr %37 to i64
   %40 = ptrtoint ptr %.val.i.i to i64
   %41 = add i64 %.val4.i.i, %40
@@ -281,7 +281,7 @@ tailrecurse.i:                                    ; preds = %36
 .backedge:                                        ; preds = %tailrecurse.i, %riff_read_chunk.exit
   %.be = phi i64 [ %44, %tailrecurse.i ], [ %51, %riff_read_chunk.exit ]
   %.tr4348.i.be = phi i32 [ %45, %tailrecurse.i ], [ 1, %riff_read_chunk.exit ]
-  br label %15
+  br label %15, !llvm.loop !31
 
 riff_read_chunk.exit:                             ; preds = %34
   %46 = add nsw i64 %16, 8
@@ -312,9 +312,9 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   call void @llvm.lifetime.start.p0(i64 17576, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 35172
-  %9 = load i32, ptr %8, align 4, !tbaa !29
+  %9 = load i32, ptr %8, align 4, !tbaa !32
   %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 4, !tbaa !29
+  store i32 %10, ptr %8, align 4, !tbaa !32
   %11 = zext i32 %1 to i64
   %12 = add nsw i64 %11, -1
   %.not109 = icmp eq i64 %12, 0
@@ -326,9 +326,9 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %.06696 = phi i32 [ %.167, %40 ], [ 0, %4 ]
   %.06895 = phi i32 [ %.169, %40 ], [ 0, %4 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.098
-  %14 = load i8, ptr %13, align 1, !tbaa !31
+  %14 = load i8, ptr %13, align 1, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %16 = load i8, ptr %15, align 1, !tbaa !31
+  %16 = load i8, ptr %15, align 1, !tbaa !34
   %17 = icmp eq i8 %16, 0
   %18 = icmp ne i8 %14, 0
   %or.cond = select i1 %17, i1 %18, i1 false
@@ -340,10 +340,10 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
 
 21:                                               ; preds = %.lr.ph
   %22 = tail call ptr @__ctype_b_loc() #8
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !35
   %24 = zext i8 %14 to i64
   %25 = getelementptr inbounds nuw i16, ptr %23, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !34
+  %26 = load i16, ptr %25, align 2, !tbaa !37
   %27 = zext i16 %26 to i32
   %28 = and i32 %27, 8
   %.not89 = icmp eq i32 %28, 0
@@ -362,14 +362,14 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %.071 = phi i8 [ %14, %30 ], [ 32, %29 ]
   %.270 = phi i32 [ 1, %30 ], [ 0, %29 ]
   %32 = tail call ptr @__ctype_tolower_loc() #8
-  %33 = load ptr, ptr %32, align 8, !tbaa !36
+  %33 = load ptr, ptr %32, align 8, !tbaa !39
   %34 = zext i8 %.071 to i64
   %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !26
   %37 = trunc i32 %36 to i8
   %38 = add nuw nsw i64 %.06497, 1
   %39 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.06497
-  store i8 %37, ptr %39, align 1, !tbaa !31
+  store i8 %37, ptr %39, align 1, !tbaa !34
   br label %40
 
 40:                                               ; preds = %30, %29, %._crit_edge113, %19
@@ -380,13 +380,13 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %42 = icmp ult i64 %41, %12
   %43 = icmp samesign ult i64 %.165, 4094
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph, label %._crit_edge
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %40
   %45 = icmp sgt i32 %.167, 7
   %46 = add nuw nsw i64 %.165, 1
   %47 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.165
-  store i8 0, ptr %47, align 1, !tbaa !31
+  store i8 0, ptr %47, align 1, !tbaa !34
   %48 = icmp eq i32 %3, 0
   %or.cond3 = select i1 %48, i1 %45, i1 false
   %49 = icmp ult i64 %.165, 3
@@ -403,7 +403,7 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %.1101 = phi i64 [ %.pre116, %79 ], [ 0, %.lr.ph104.preheader ]
   %.074100 = phi i16 [ %.175, %79 ], [ 0, %.lr.ph104.preheader ]
   %51 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.1101
-  %52 = load i8, ptr %51, align 1, !tbaa !31
+  %52 = load i8, ptr %51, align 1, !tbaa !34
   %53 = zext i8 %52 to i64
   %.not86 = icmp eq i8 %52, 32
   %.pre116 = add nuw i64 %.1101, 1
@@ -411,7 +411,7 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
 
 54:                                               ; preds = %.lr.ph104
   %55 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.pre116
-  %56 = load i8, ptr %55, align 1, !tbaa !31
+  %56 = load i8, ptr %55, align 1, !tbaa !34
   %57 = zext i8 %56 to i64
   %.not87 = icmp eq i8 %56, 32
   br i1 %.not87, label %.lr.ph104._crit_edge, label %58
@@ -419,7 +419,7 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
 58:                                               ; preds = %54
   %59 = add nuw i64 %.1101, 2
   %60 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %59
-  %61 = load i8, ptr %60, align 1, !tbaa !31
+  %61 = load i8, ptr %60, align 1, !tbaa !34
   %.not88 = icmp eq i8 %61, 32
   br i1 %.not88, label %.lr.ph104._crit_edge, label %62
 
@@ -436,13 +436,13 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
 
 71:                                               ; preds = %62
   %72 = getelementptr inbounds nuw [17576 x i8], ptr %6, i64 0, i64 %69
-  %73 = load i8, ptr %72, align 1, !tbaa !31
+  %73 = load i8, ptr %72, align 1, !tbaa !34
   %74 = add i8 %73, 1
-  store i8 %74, ptr %72, align 1, !tbaa !31
+  store i8 %74, ptr %72, align 1, !tbaa !34
   %75 = getelementptr inbounds nuw [17576 x i16], ptr %2, i64 0, i64 %69
-  %76 = load i16, ptr %75, align 2, !tbaa !34
+  %76 = load i16, ptr %75, align 2, !tbaa !37
   %77 = add i16 %76, 1
-  store i16 %77, ptr %75, align 2, !tbaa !34
+  store i16 %77, ptr %75, align 2, !tbaa !37
   br label %79
 
 .lr.ph104._crit_edge:                             ; preds = %.lr.ph104, %58, %54
@@ -453,13 +453,13 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
 79:                                               ; preds = %.lr.ph104._crit_edge, %62, %71
   %.175 = phi i16 [ %spec.select, %.lr.ph104._crit_edge ], [ %.074100, %62 ], [ %.074100, %71 ]
   %exitcond.not = icmp eq i64 %.1101, %50
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph104
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph104, !llvm.loop !42
 
 .preheader:                                       ; preds = %79, %90
   %.2107 = phi i64 [ %91, %90 ], [ 0, %79 ]
   %.072106 = phi i16 [ %.173, %90 ], [ 0, %79 ]
   %80 = getelementptr inbounds nuw [17576 x i8], ptr %6, i64 0, i64 %.2107
-  %81 = load i8, ptr %80, align 1, !tbaa !31
+  %81 = load i8, ptr %80, align 1, !tbaa !34
   %.not85 = icmp eq i8 %81, 0
   br i1 %.not85, label %90, label %82
 
@@ -469,9 +469,9 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %84 = add nuw nsw i64 %83, 4294967295
   %85 = and i64 %84, 4294967295
   %86 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %85
-  %87 = load i16, ptr %86, align 2, !tbaa !34
+  %87 = load i16, ptr %86, align 2, !tbaa !37
   %88 = add i16 %87, 1
-  store i16 %88, ptr %86, align 2, !tbaa !34
+  store i16 %88, ptr %86, align 2, !tbaa !37
   %89 = add i16 %.072106, 1
   br label %90
 
@@ -479,20 +479,20 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %.173 = phi i16 [ %89, %82 ], [ %.072106, %.preheader ]
   %91 = add nuw nsw i64 %.2107, 1
   %exitcond111.not = icmp eq i64 %91, 17576
-  br i1 %exitcond111.not, label %92, label %.preheader
+  br i1 %exitcond111.not, label %92, label %.preheader, !llvm.loop !43
 
 92:                                               ; preds = %90
   %.not = icmp eq i16 %.173, 0
   br i1 %.not, label %._crit_edge.thread, label %93
 
 93:                                               ; preds = %92
-  %94 = load i16, ptr %7, align 2, !tbaa !34
+  %94 = load i16, ptr %7, align 2, !tbaa !37
   %95 = zext i16 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %97 = load i16, ptr %96, align 2, !tbaa !34
+  %97 = load i16, ptr %96, align 2, !tbaa !37
   %98 = zext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %100 = load i16, ptr %99, align 2, !tbaa !34
+  %100 = load i16, ptr %99, align 2, !tbaa !37
   %101 = zext i16 %100 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, i32 noundef %95, i32 noundef %98, i32 noundef %101) #7
   %102 = zext i16 %.173 to i32
@@ -501,22 +501,22 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
 103:                                              ; preds = %93, %103
   %.3108 = phi i64 [ 0, %93 ], [ %110, %103 ]
   %104 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %.3108
-  %105 = load i16, ptr %104, align 2, !tbaa !34
+  %105 = load i16, ptr %104, align 2, !tbaa !37
   %106 = zext i16 %105 to i32
   %107 = shl nuw nsw i32 %106, 10
   %108 = udiv i32 %107, %102
   %109 = trunc i32 %108 to i16
-  store i16 %109, ptr %104, align 2, !tbaa !34
+  store i16 %109, ptr %104, align 2, !tbaa !37
   %110 = add nuw nsw i64 %.3108, 1
   %exitcond112.not = icmp eq i64 %110, 3
-  br i1 %exitcond112.not, label %111, label %103
+  br i1 %exitcond112.not, label %111, label %103, !llvm.loop !44
 
 111:                                              ; preds = %103
-  %112 = load i16, ptr %7, align 2, !tbaa !34
+  %112 = load i16, ptr %7, align 2, !tbaa !37
   %113 = zext i16 %112 to i32
-  %114 = load i16, ptr %96, align 2, !tbaa !34
+  %114 = load i16, ptr %96, align 2, !tbaa !37
   %115 = zext i16 %114 to i32
-  %116 = load i16, ptr %99, align 2, !tbaa !34
+  %116 = load i16, ptr %99, align 2, !tbaa !37
   %117 = zext i16 %116 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, i32 noundef %113, i32 noundef %115, i32 noundef %117) #7
   %118 = icmp ult i16 %112, 962
@@ -554,19 +554,19 @@ swizz_j48.exit._crit_edge:                        ; preds = %swizz_j48.exit
 
 129:                                              ; preds = %swizz_j48.exit
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 35156
-  %131 = load i32, ptr %130, align 4, !tbaa !38
+  %131 = load i32, ptr %130, align 4, !tbaa !45
   %132 = trunc i64 %46 to i32
   %133 = add i32 %131, %132
-  store i32 %133, ptr %130, align 4, !tbaa !38
+  store i32 %133, ptr %130, align 4, !tbaa !45
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %5) #7
   br label %134
 
 134:                                              ; preds = %swizz_j48.exit._crit_edge, %129
   %.pre-phi115 = phi i32 [ %.pre114, %swizz_j48.exit._crit_edge ], [ %132, %129 ]
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 35152
-  %136 = load i32, ptr %135, align 4, !tbaa !39
+  %136 = load i32, ptr %135, align 4, !tbaa !46
   %137 = add i32 %136, %.pre-phi115
-  store i32 %137, ptr %135, align 4, !tbaa !39
+  store i32 %137, ptr %135, align 4, !tbaa !46
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %92, %._crit_edge, %134
@@ -590,15 +590,15 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
   %2 = alloca [10 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 35156
-  %4 = load i32, ptr %3, align 4, !tbaa !38
+  %4 = load i32, ptr %3, align 4, !tbaa !45
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 35152
-  %7 = load i32, ptr %6, align 4, !tbaa !39
+  %7 = load i32, ptr %6, align 4, !tbaa !46
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 35160
-  %10 = load i32, ptr %9, align 4, !tbaa !40
+  %10 = load i32, ptr %9, align 4, !tbaa !47
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 35164
-  %12 = load i32, ptr %11, align 4, !tbaa !41
+  %12 = load i32, ptr %11, align 4, !tbaa !48
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, i64 noundef %5, i64 noundef %8, i32 noundef %10, i32 noundef %12) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   br label %13
@@ -607,7 +607,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
   %.03041 = phi i64 [ 0, %1 ], [ %27, %26 ]
   %.03140 = phi i32 [ 0, %1 ], [ %.132, %26 ]
   %14 = getelementptr inbounds nuw [17576 x i16], ptr %0, i64 0, i64 %.03041
-  %15 = load i16, ptr %14, align 2, !tbaa !34
+  %15 = load i16, ptr %14, align 2, !tbaa !37
   %16 = trunc i16 %15 to i8
   %.mask = and i16 %15, 255
   %17 = icmp samesign ugt i16 %.mask, 10
@@ -630,7 +630,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
   %.132 = phi i32 [ %25, %18 ], [ %.03140, %13 ]
   %27 = add nuw nsw i64 %.03041, 1
   %exitcond.not = icmp eq i64 %27, 17576
-  br i1 %exitcond.not, label %28, label %13
+  br i1 %exitcond.not, label %28, label %13, !llvm.loop !49
 
 28:                                               ; preds = %26
   %.not = icmp eq i32 %.132, 0
@@ -638,7 +638,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
 
 29:                                               ; preds = %28
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #7
-  %30 = load i8, ptr @cli_debug_flag, align 1, !tbaa !31
+  %30 = load i8, ptr @cli_debug_flag, align 1, !tbaa !34
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %.split.us, label %.split
 
@@ -651,7 +651,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
   store i32 %35, ptr %32, align 4, !tbaa !26
   %36 = add nuw nsw i64 %.142.us, 1
   %exitcond47.not = icmp eq i64 %36, 10
-  br i1 %exitcond47.not, label %.split44.us, label %.split.us, !llvm.loop !42
+  br i1 %exitcond47.not, label %.split44.us, label %.split.us, !llvm.loop !50
 
 .split:                                           ; preds = %29, %46
   %37 = phi i8 [ %47, %46 ], [ %30, %29 ]
@@ -668,7 +668,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
 43:                                               ; preds = %.split
   %44 = zext i32 %42 to i64
   %45 = tail call i64 (ptr, ...) @cli_eprintf(ptr noundef nonnull @.str.13, i64 noundef %44) #7
-  %.pre = load i8, ptr @cli_debug_flag, align 1, !tbaa !31
+  %.pre = load i8, ptr @cli_debug_flag, align 1, !tbaa !34
   br label %46
 
 46:                                               ; preds = %43, %.split
@@ -676,7 +676,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
   %48 = phi i8 [ %.pre, %43 ], [ 0, %.split ]
   %49 = add nuw nsw i64 %.142, 1
   %exitcond46.not = icmp eq i64 %49, 10
-  br i1 %exitcond46.not, label %.split44.us.loopexit45, label %.split, !llvm.loop !44
+  br i1 %exitcond46.not, label %.split44.us.loopexit45, label %.split, !llvm.loop !52
 
 .split44.us.loopexit45:                           ; preds = %46
   %50 = icmp eq i8 %47, 0
@@ -771,9 +771,9 @@ swizz_j48_global.exit:                            ; preds = %53, %55, %59, %62, 
 94:                                               ; preds = %swizz_j48_global.exit, %91, %28
   %.029.shrunk = phi i1 [ %.0.shrunk.i, %91 ], [ %.0.shrunk.i, %swizz_j48_global.exit ], [ false, %28 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 35168
-  %96 = load i32, ptr %95, align 4, !tbaa !46
+  %96 = load i32, ptr %95, align 4, !tbaa !54
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 35172
-  %98 = load i32, ptr %97, align 4, !tbaa !29
+  %98 = load i32, ptr %97, align 4, !tbaa !32
   %99 = icmp sgt i32 %96, %98
   %100 = icmp sgt i32 %96, 1999
   %or.cond = or i1 %100, %99
@@ -784,12 +784,12 @@ swizz_j48_global.exit:                            ; preds = %53, %55, %59, %62, 
   br label %111
 
 102:                                              ; preds = %94
-  %103 = load i32, ptr %6, align 4, !tbaa !39
+  %103 = load i32, ptr %6, align 4, !tbaa !46
   %104 = icmp ult i32 %103, 338
   br i1 %104, label %111, label %105
 
 105:                                              ; preds = %102
-  %106 = load i32, ptr %3, align 4, !tbaa !38
+  %106 = load i32, ptr %3, align 4, !tbaa !45
   %107 = shl i32 %106, 10
   %108 = mul i32 %103, 40
   %109 = icmp ugt i32 %107, %108
@@ -863,23 +863,31 @@ attributes #8 = { nounwind willreturn memory(none) }
 !24 = !{!"cl_fmap", !6, i64 0, !6, i64 8, !6, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !22, i64 56, !22, i64 57, !22, i64 58, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !22, i64 152, !7, i64 153, !22, i64 169, !7, i64 170, !22, i64 190, !7, i64 191, !9, i64 224, !5, i64 232}
 !25 = !{!24, !6, i64 104}
 !26 = !{!14, !14, i64 0}
-!27 = !{!24, !6, i64 16}
-!28 = !{!24, !12, i64 72}
-!29 = !{!30, !14, i64 35172}
-!30 = !{!"swizz_stats", !7, i64 0, !14, i64 35152, !14, i64 35156, !14, i64 35160, !14, i64 35164, !14, i64 35168, !14, i64 35172}
-!31 = !{!7, !7, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 short", !6, i64 0}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"short", !7, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 int", !6, i64 0}
-!38 = !{!30, !14, i64 35156}
-!39 = !{!30, !14, i64 35152}
-!40 = !{!30, !14, i64 35160}
-!41 = !{!30, !14, i64 35164}
-!42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !45}
-!45 = !{!"llvm.loop.unswitch.partial.disable"}
-!46 = !{!30, !14, i64 35168}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!24, !6, i64 16}
+!30 = !{!24, !12, i64 72}
+!31 = distinct !{!31, !28}
+!32 = !{!33, !14, i64 35172}
+!33 = !{!"swizz_stats", !7, i64 0, !14, i64 35152, !14, i64 35156, !14, i64 35160, !14, i64 35164, !14, i64 35168, !14, i64 35172}
+!34 = !{!7, !7, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 short", !6, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"short", !7, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 int", !6, i64 0}
+!41 = distinct !{!41, !28}
+!42 = distinct !{!42, !28}
+!43 = distinct !{!43, !28}
+!44 = distinct !{!44, !28}
+!45 = !{!33, !14, i64 35156}
+!46 = !{!33, !14, i64 35152}
+!47 = !{!33, !14, i64 35160}
+!48 = !{!33, !14, i64 35164}
+!49 = distinct !{!49, !28}
+!50 = distinct !{!50, !28, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = distinct !{!52, !28, !53}
+!53 = !{!"llvm.loop.unswitch.partial.disable"}
+!54 = !{!33, !14, i64 35168}

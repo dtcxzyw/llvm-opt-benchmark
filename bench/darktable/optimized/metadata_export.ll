@@ -80,7 +80,7 @@ define ptr @dt_lib_export_metadata_get_conf() local_unnamed_addr #2 {
   %16 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str, ptr noundef nonnull @formula_keyword, i32 noundef %15) #6
   %17 = call i32 @dt_conf_key_exists(ptr noundef %16) #6
   %.not17 = icmp eq i32 %17, 0
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %14, %3
   %.015.lcssa = phi ptr [ %5, %3 ], [ %16, %14 ]
@@ -120,7 +120,7 @@ define void @dt_lib_export_metadata_set_conf(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = load ptr, ptr %2, align 8, !tbaa !14
   tail call void @dt_conf_set_string(ptr noundef nonnull @flags_keyword, ptr noundef %4) #6
   %5 = tail call ptr @g_list_remove(ptr noundef nonnull %2, ptr noundef %4) #6
   tail call void @g_free(ptr noundef %4) #6
@@ -131,13 +131,13 @@ define void @dt_lib_export_metadata_set_conf(ptr noundef %0) local_unnamed_addr 
   %.148 = phi i32 [ %13, %8 ], [ 0, %3 ]
   %.03547 = phi ptr [ %15, %8 ], [ %5, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %.03547, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !17
   %.not44.not = icmp eq ptr %7, null
   br i1 %.not44.not, label %.thread, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = load ptr, ptr %.03547, align 8, !tbaa !12
-  %10 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = load ptr, ptr %.03547, align 8, !tbaa !14
+  %10 = load ptr, ptr %7, align 8, !tbaa !14
   %11 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, ptr noundef %9, ptr noundef %10) #6
   %12 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str, ptr noundef nonnull @formula_keyword, i32 noundef %.148) #6
   tail call void @dt_conf_set_string(ptr noundef %12, ptr noundef %11) #6
@@ -145,9 +145,9 @@ define void @dt_lib_export_metadata_set_conf(ptr noundef %0) local_unnamed_addr 
   tail call void @g_free(ptr noundef %12) #6
   %13 = add nuw nsw i32 %.148, 1
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !15
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
   %.not43 = icmp eq ptr %15, null
-  br i1 %.not43, label %.thread, label %.preheader
+  br i1 %.not43, label %.thread, label %.preheader, !llvm.loop !18
 
 16:                                               ; preds = %1
   tail call void @dt_conf_set_string(ptr noundef nonnull @flags_keyword, ptr noundef nonnull @.str.6) #6
@@ -171,7 +171,7 @@ define void @dt_lib_export_metadata_set_conf(ptr noundef %0) local_unnamed_addr 
   %20 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str, ptr noundef nonnull @formula_keyword, i32 noundef %19) #6
   %21 = tail call i32 @dt_conf_key_exists(ptr noundef %20) #6
   %.not45 = icmp eq i32 %21, 0
-  br i1 %.not45, label %._crit_edge, label %.lr.ph
+  br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread
   %.036.lcssa = phi ptr [ %17, %.thread ], [ %20, %.lr.ph ]
@@ -210,7 +210,11 @@ attributes #7 = { nounwind willreturn memory(read) }
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
 !11 = !{!9, !9, i64 0}
-!12 = !{!13, !8, i64 0}
-!13 = !{!"_GList", !8, i64 0, !14, i64 8, !14, i64 16}
-!14 = !{!"p1 _ZTS6_GList", !8, i64 0}
-!15 = !{!13, !14, i64 8}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !8, i64 0}
+!15 = !{!"_GList", !8, i64 0, !16, i64 8, !16, i64 16}
+!16 = !{!"p1 _ZTS6_GList", !8, i64 0}
+!17 = !{!15, !16, i64 8}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}

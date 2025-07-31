@@ -139,23 +139,23 @@ define dso_local void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyS1_RK11btTra
   store i8 0, ptr %46, align 4, !tbaa !35
   %.add16 = add nuw nsw i64 %.idx15, 64
   %47 = icmp eq i64 %.add16, 1084
-  br i1 %47, label %.preheader.preheader, label %32
+  br i1 %47, label %.preheader.preheader, label %32, !llvm.loop !36
 
 .preheader.preheader:                             ; preds = %32
   %48 = zext i1 %5 to i8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1324
-  store i8 %48, ptr %49, align 4, !tbaa !36
+  store i8 %48, ptr %49, align 4, !tbaa !38
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1325
-  store i8 1, ptr %50, align 1, !tbaa !45
+  store i8 1, ptr %50, align 1, !tbaa !47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  store i32 0, ptr %51, align 8, !tbaa !46
+  store i32 0, ptr %51, align 8, !tbaa !48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1332
-  store i8 0, ptr %52, align 4, !tbaa !47
+  store i8 0, ptr %52, align 4, !tbaa !49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = load ptr, ptr %53, align 8, !tbaa !48
+  %54 = load ptr, ptr %53, align 8, !tbaa !50
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %57 = load ptr, ptr %56, align 8, !tbaa !49
+  %57 = load ptr, ptr %56, align 8, !tbaa !51
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef nonnull align 4 dereferenceable(64) %55, ptr noundef nonnull align 4 dereferenceable(64) %58)
   ret void
@@ -168,10 +168,10 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1333) initializes((1088, 1216), (1280, 1296)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %7)
   ret void
@@ -254,57 +254,57 @@ define dso_local void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyRK11btTransf
   store i8 0, ptr %38, align 4, !tbaa !35
   %.add17 = add nuw nsw i64 %.idx16, 64
   %39 = icmp eq i64 %.add17, 1084
-  br i1 %39, label %.preheader.preheader, label %24
+  br i1 %39, label %.preheader.preheader, label %24, !llvm.loop !52
 
 .preheader.preheader:                             ; preds = %24
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = zext i1 %3 to i8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1324
-  store i8 %41, ptr %42, align 4, !tbaa !36
+  store i8 %41, ptr %42, align 4, !tbaa !38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1325
-  store i8 1, ptr %43, align 1, !tbaa !45
+  store i8 1, ptr %43, align 1, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  store i32 0, ptr %44, align 8, !tbaa !46
+  store i32 0, ptr %44, align 8, !tbaa !48
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1332
-  store i8 0, ptr %45, align 4, !tbaa !47
+  store i8 0, ptr %45, align 4, !tbaa !49
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load float, ptr %5, align 8, !tbaa !10, !noalias !50
-  %48 = load float, ptr %46, align 8, !tbaa !10, !noalias !50
-  %49 = load float, ptr %7, align 8, !tbaa !10, !noalias !50
+  %47 = load float, ptr %5, align 8, !tbaa !10, !noalias !53
+  %48 = load float, ptr %46, align 8, !tbaa !10, !noalias !53
+  %49 = load float, ptr %7, align 8, !tbaa !10, !noalias !53
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %51 = load float, ptr %50, align 4, !tbaa !10, !noalias !50
+  %51 = load float, ptr %50, align 4, !tbaa !10, !noalias !53
   %52 = fmul float %49, %51
   %53 = tail call float @llvm.fmuladd.f32(float %47, float %48, float %52)
-  %54 = load float, ptr %9, align 8, !tbaa !10, !noalias !50
+  %54 = load float, ptr %9, align 8, !tbaa !10, !noalias !53
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %56 = load float, ptr %55, align 8, !tbaa !10, !noalias !50
+  %56 = load float, ptr %55, align 8, !tbaa !10, !noalias !53
   %57 = tail call noundef float @llvm.fmuladd.f32(float %54, float %56, float %53)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %59 = load float, ptr %58, align 4, !tbaa !10, !noalias !50
+  %59 = load float, ptr %58, align 4, !tbaa !10, !noalias !53
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %61 = load float, ptr %60, align 4, !tbaa !10, !noalias !50
+  %61 = load float, ptr %60, align 4, !tbaa !10, !noalias !53
   %62 = fmul float %51, %61
   %63 = tail call float @llvm.fmuladd.f32(float %59, float %48, float %62)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %65 = load float, ptr %64, align 4, !tbaa !10, !noalias !50
+  %65 = load float, ptr %64, align 4, !tbaa !10, !noalias !53
   %66 = tail call noundef float @llvm.fmuladd.f32(float %65, float %56, float %63)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %68 = load float, ptr %67, align 8, !tbaa !10, !noalias !50
+  %68 = load float, ptr %67, align 8, !tbaa !10, !noalias !53
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %70 = load float, ptr %69, align 8, !tbaa !10, !noalias !50
+  %70 = load float, ptr %69, align 8, !tbaa !10, !noalias !53
   %71 = fmul float %51, %70
   %72 = tail call float @llvm.fmuladd.f32(float %68, float %48, float %71)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %74 = load float, ptr %73, align 8, !tbaa !10, !noalias !50
+  %74 = load float, ptr %73, align 8, !tbaa !10, !noalias !53
   %75 = tail call noundef float @llvm.fmuladd.f32(float %74, float %56, float %72)
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %77 = load float, ptr %76, align 8, !tbaa !10, !noalias !50
+  %77 = load float, ptr %76, align 8, !tbaa !10, !noalias !53
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %79 = load float, ptr %78, align 4, !tbaa !10, !noalias !50
+  %79 = load float, ptr %78, align 4, !tbaa !10, !noalias !53
   %80 = fmul float %49, %79
   %81 = tail call float @llvm.fmuladd.f32(float %47, float %77, float %80)
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %83 = load float, ptr %82, align 8, !tbaa !10, !noalias !50
+  %83 = load float, ptr %82, align 8, !tbaa !10, !noalias !53
   %84 = tail call noundef float @llvm.fmuladd.f32(float %54, float %83, float %81)
   %85 = fmul float %61, %79
   %86 = tail call float @llvm.fmuladd.f32(float %59, float %77, float %85)
@@ -313,13 +313,13 @@ define dso_local void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyRK11btTransf
   %89 = tail call float @llvm.fmuladd.f32(float %68, float %77, float %88)
   %90 = tail call noundef float @llvm.fmuladd.f32(float %74, float %83, float %89)
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %92 = load float, ptr %91, align 8, !tbaa !10, !noalias !50
+  %92 = load float, ptr %91, align 8, !tbaa !10, !noalias !53
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %94 = load float, ptr %93, align 4, !tbaa !10, !noalias !50
+  %94 = load float, ptr %93, align 4, !tbaa !10, !noalias !53
   %95 = fmul float %49, %94
   %96 = tail call float @llvm.fmuladd.f32(float %47, float %92, float %95)
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %98 = load float, ptr %97, align 8, !tbaa !10, !noalias !50
+  %98 = load float, ptr %97, align 8, !tbaa !10, !noalias !53
   %99 = tail call noundef float @llvm.fmuladd.f32(float %54, float %98, float %96)
   %100 = fmul float %61, %94
   %101 = tail call float @llvm.fmuladd.f32(float %59, float %92, float %100)
@@ -327,13 +327,13 @@ define dso_local void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyRK11btTransf
   %103 = fmul float %70, %94
   %104 = tail call float @llvm.fmuladd.f32(float %68, float %92, float %103)
   %105 = tail call noundef float @llvm.fmuladd.f32(float %74, float %98, float %104)
-  %106 = load float, ptr %10, align 8, !tbaa !10, !noalias !55
+  %106 = load float, ptr %10, align 8, !tbaa !10, !noalias !58
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %108 = load float, ptr %107, align 4, !tbaa !10, !noalias !55
+  %108 = load float, ptr %107, align 4, !tbaa !10, !noalias !58
   %109 = fmul float %51, %108
   %110 = tail call float @llvm.fmuladd.f32(float %106, float %48, float %109)
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %112 = load float, ptr %111, align 8, !tbaa !10, !noalias !55
+  %112 = load float, ptr %111, align 8, !tbaa !10, !noalias !58
   %113 = tail call noundef float @llvm.fmuladd.f32(float %112, float %56, float %110)
   %114 = fmul float %79, %108
   %115 = tail call float @llvm.fmuladd.f32(float %106, float %77, float %114)
@@ -342,13 +342,13 @@ define dso_local void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyRK11btTransf
   %118 = tail call float @llvm.fmuladd.f32(float %106, float %92, float %117)
   %119 = tail call noundef float @llvm.fmuladd.f32(float %112, float %98, float %118)
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %121 = load float, ptr %120, align 8, !tbaa !10, !noalias !55
+  %121 = load float, ptr %120, align 8, !tbaa !10, !noalias !58
   %122 = fadd float %121, %113
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %124 = load float, ptr %123, align 4, !tbaa !10, !noalias !55
+  %124 = load float, ptr %123, align 4, !tbaa !10, !noalias !58
   %125 = fadd float %116, %124
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %127 = load float, ptr %126, align 8, !tbaa !10, !noalias !55
+  %127 = load float, ptr %126, align 8, !tbaa !10, !noalias !58
   %128 = fadd float %119, %127
   %.sroa.0.0.vec.insert.i2.i.i = insertelement <2 x float> poison, float %122, i64 0
   %.sroa.0.4.vec.insert.i3.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i.i, float %125, i64 1
@@ -381,10 +381,10 @@ define dso_local void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyRK11btTransf
   %.sroa.20.48..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i, ptr %.sroa.20.48..sroa_idx, align 8, !tbaa !8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %133 = load ptr, ptr %132, align 8, !tbaa !48
+  %133 = load ptr, ptr %132, align 8, !tbaa !50
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %136 = load ptr, ptr %135, align 8, !tbaa !49
+  %136 = load ptr, ptr %135, align 8, !tbaa !51
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef nonnull align 4 dereferenceable(64) %134, ptr noundef nonnull align 4 dereferenceable(64) %137)
   ret void
@@ -427,21 +427,21 @@ define dso_local noundef zeroext i1 @_Z16matrixToEulerXYZRK11btMatrix3x3R9btVect
   %11 = fneg float %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load float, ptr %12, align 4, !tbaa !10
-  %14 = tail call noundef float @atan2f(float noundef %11, float noundef %13) #25, !tbaa !56
+  %14 = tail call noundef float @atan2f(float noundef %11, float noundef %13) #25, !tbaa !59
   store float %14, ptr %1, align 4, !tbaa !10
   %15 = load float, ptr %3, align 4, !tbaa !10
   %16 = fcmp olt float %15, -1.000000e+00
   %.0.i = select i1 %16, float -1.000000e+00, float %15
   %17 = fcmp ogt float %.0.i, 1.000000e+00
   %.1.i = select i1 %17, float 1.000000e+00, float %.0.i
-  %18 = tail call noundef float @asinf(float noundef %.1.i) #25, !tbaa !56
+  %18 = tail call noundef float @asinf(float noundef %.1.i) #25, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %18, ptr %19, align 4, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load float, ptr %20, align 4, !tbaa !10
   %22 = fneg float %21
   %23 = load float, ptr %0, align 4, !tbaa !10
-  %24 = tail call noundef float @atan2f(float noundef %22, float noundef %23) #25, !tbaa !56
+  %24 = tail call noundef float @atan2f(float noundef %22, float noundef %23) #25, !tbaa !59
   br label %40
 
 25:                                               ; preds = %6
@@ -449,7 +449,7 @@ define dso_local noundef zeroext i1 @_Z16matrixToEulerXYZRK11btMatrix3x3R9btVect
   %27 = load float, ptr %26, align 4, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load float, ptr %28, align 4, !tbaa !10
-  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #25, !tbaa !56
+  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #25, !tbaa !59
   %31 = fneg float %30
   store float %31, ptr %1, align 4, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -461,7 +461,7 @@ define dso_local noundef zeroext i1 @_Z16matrixToEulerXYZRK11btMatrix3x3R9btVect
   %35 = load float, ptr %34, align 4, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %37 = load float, ptr %36, align 4, !tbaa !10
-  %38 = tail call noundef float @atan2f(float noundef %35, float noundef %37) #25, !tbaa !56
+  %38 = tail call noundef float @atan2f(float noundef %35, float noundef %37) #25, !tbaa !59
   store float %38, ptr %1, align 4, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float 0x3FF921FB60000000, ptr %39, align 4, !tbaa !10
@@ -557,7 +557,7 @@ define dso_local noundef float @_ZN22btRotationalLimitMotor18solveAngularLimitsE
   %8 = load i32, ptr %7, align 4, !tbaa !33
   %9 = icmp ne i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %11 = load i8, ptr %10, align 4, !range !57
+  %11 = load i8, ptr %10, align 4, !range !60
   %12 = icmp ne i8 %11, 0
   %or.cond.not.i = select i1 %9, i1 true, i1 %12
   br i1 %or.cond.not.i, label %13, label %164
@@ -775,7 +775,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN25btTranslationalLimitMotor14te
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = getelementptr inbounds [3 x i32], ptr %12, i64 0, i64 %4
-  store i32 0, ptr %13, align 4, !tbaa !56
+  store i32 0, ptr %13, align 4, !tbaa !59
   br label %27
 
 14:                                               ; preds = %3
@@ -785,7 +785,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN25btTranslationalLimitMotor14te
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = getelementptr inbounds [3 x i32], ptr %17, i64 0, i64 %4
-  store i32 2, ptr %18, align 4, !tbaa !56
+  store i32 2, ptr %18, align 4, !tbaa !59
   %19 = fsub float %2, %6
   br label %27
 
@@ -796,12 +796,12 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN25btTranslationalLimitMotor14te
   br i1 %21, label %24, label %26
 
 24:                                               ; preds = %20
-  store i32 1, ptr %23, align 4, !tbaa !56
+  store i32 1, ptr %23, align 4, !tbaa !59
   %25 = fsub float %2, %9
   br label %27
 
 26:                                               ; preds = %20
-  store i32 0, ptr %23, align 4, !tbaa !56
+  store i32 0, ptr %23, align 4, !tbaa !59
   br label %27
 
 27:                                               ; preds = %26, %24, %16, %11
@@ -1026,7 +1026,7 @@ define dso_local noundef float @_ZN25btTranslationalLimitMotor15solveLinearAxisE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11btRigidBody12applyImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  %5 = load float, ptr %4, align 4, !tbaa !58
+  %5 = load float, ptr %4, align 4, !tbaa !61
   %6 = fcmp une float %5, 0.000000e+00
   br i1 %6, label %7, label %99
 
@@ -1139,32 +1139,32 @@ define dso_local void @_ZN23btGeneric6DofConstraint18calculateAngleInfoEv(ptr no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1108
-  %5 = load float, ptr %4, align 4, !tbaa !10, !noalias !70
+  %5 = load float, ptr %4, align 4, !tbaa !10, !noalias !73
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %8 = load float, ptr %7, align 8, !tbaa !10, !noalias !70
+  %8 = load float, ptr %7, align 8, !tbaa !10, !noalias !73
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %10 = load float, ptr %9, align 8, !tbaa !10, !noalias !70
+  %10 = load float, ptr %9, align 8, !tbaa !10, !noalias !73
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1124
-  %12 = load float, ptr %11, align 4, !tbaa !10, !noalias !70
+  %12 = load float, ptr %11, align 4, !tbaa !10, !noalias !73
   %13 = fneg float %12
   %14 = fmul float %10, %13
   %15 = tail call noundef float @llvm.fmuladd.f32(float %5, float %8, float %14)
-  %16 = load float, ptr %6, align 8, !tbaa !10, !noalias !70
-  %17 = load float, ptr %3, align 8, !tbaa !10, !noalias !70
+  %16 = load float, ptr %6, align 8, !tbaa !10, !noalias !73
+  %17 = load float, ptr %3, align 8, !tbaa !10, !noalias !73
   %18 = fneg float %8
   %19 = fmul float %17, %18
   %20 = tail call noundef float @llvm.fmuladd.f32(float %10, float %16, float %19)
   %21 = fneg float %16
   %22 = fmul float %5, %21
   %23 = tail call noundef float @llvm.fmuladd.f32(float %17, float %12, float %22)
-  %24 = load float, ptr %2, align 8, !tbaa !10, !noalias !70
+  %24 = load float, ptr %2, align 8, !tbaa !10, !noalias !73
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1092
-  %26 = load float, ptr %25, align 4, !tbaa !10, !noalias !70
+  %26 = load float, ptr %25, align 4, !tbaa !10, !noalias !73
   %27 = fmul float %26, %20
   %28 = tail call float @llvm.fmuladd.f32(float %24, float %15, float %27)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %30 = load float, ptr %29, align 8, !tbaa !10, !noalias !70
+  %30 = load float, ptr %29, align 8, !tbaa !10, !noalias !73
   %31 = tail call noundef float @llvm.fmuladd.f32(float %30, float %23, float %28)
   %32 = fdiv float 1.000000e+00, %31
   %33 = fmul float %15, %32
@@ -1192,29 +1192,29 @@ define dso_local void @_ZN23btGeneric6DofConstraint18calculateAngleInfoEv(ptr no
   %55 = tail call noundef float @llvm.fmuladd.f32(float %24, float %5, float %54)
   %56 = fmul float %55, %32
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  %58 = load float, ptr %57, align 8, !tbaa !10, !noalias !73
+  %58 = load float, ptr %57, align 8, !tbaa !10, !noalias !76
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  %60 = load float, ptr %59, align 8, !tbaa !10, !noalias !73
+  %60 = load float, ptr %59, align 8, !tbaa !10, !noalias !76
   %61 = fmul float %60, %36
   %62 = tail call float @llvm.fmuladd.f32(float %58, float %33, float %61)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %64 = load float, ptr %63, align 8, !tbaa !10, !noalias !73
+  %64 = load float, ptr %63, align 8, !tbaa !10, !noalias !76
   %65 = tail call noundef float @llvm.fmuladd.f32(float %64, float %40, float %62)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1156
-  %67 = load float, ptr %66, align 4, !tbaa !10, !noalias !73
+  %67 = load float, ptr %66, align 4, !tbaa !10, !noalias !76
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1172
-  %69 = load float, ptr %68, align 4, !tbaa !10, !noalias !73
+  %69 = load float, ptr %68, align 4, !tbaa !10, !noalias !76
   %70 = fmul float %36, %69
   %71 = tail call float @llvm.fmuladd.f32(float %67, float %33, float %70)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1188
-  %73 = load float, ptr %72, align 4, !tbaa !10, !noalias !73
+  %73 = load float, ptr %72, align 4, !tbaa !10, !noalias !76
   %74 = tail call noundef float @llvm.fmuladd.f32(float %73, float %40, float %71)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  %76 = load float, ptr %75, align 8, !tbaa !10, !noalias !73
+  %76 = load float, ptr %75, align 8, !tbaa !10, !noalias !76
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 1176
-  %78 = load float, ptr %77, align 8, !tbaa !10, !noalias !73
+  %78 = load float, ptr %77, align 8, !tbaa !10, !noalias !76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %80 = load float, ptr %79, align 8, !tbaa !10, !noalias !73
+  %80 = load float, ptr %79, align 8, !tbaa !10, !noalias !76
   %81 = fmul float %60, %44
   %82 = tail call float @llvm.fmuladd.f32(float %58, float %41, float %81)
   %83 = tail call noundef float @llvm.fmuladd.f32(float %64, float %48, float %82)
@@ -1240,21 +1240,21 @@ define dso_local void @_ZN23btGeneric6DofConstraint18calculateAngleInfoEv(ptr no
 
 100:                                              ; preds = %98
   %101 = fneg float %92
-  %102 = tail call noundef float @atan2f(float noundef %101, float noundef %95) #25, !tbaa !56
+  %102 = tail call noundef float @atan2f(float noundef %101, float noundef %95) #25, !tbaa !59
   store float %102, ptr %96, align 8, !tbaa !10
   %103 = fcmp olt float %89, -1.000000e+00
   %.0.i.i = select i1 %103, float -1.000000e+00, float %89
   %104 = fcmp ogt float %.0.i.i, 1.000000e+00
   %.1.i.i = select i1 %104, float 1.000000e+00, float %.0.i.i
-  %105 = tail call noundef float @asinf(float noundef %.1.i.i) #25, !tbaa !56
+  %105 = tail call noundef float @asinf(float noundef %.1.i.i) #25, !tbaa !59
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 1220
   store float %105, ptr %106, align 4, !tbaa !10
   %107 = fneg float %83
-  %108 = tail call noundef float @atan2f(float noundef %107, float noundef %65) #25, !tbaa !56
+  %108 = tail call noundef float @atan2f(float noundef %107, float noundef %65) #25, !tbaa !59
   br label %_Z16matrixToEulerXYZRK11btMatrix3x3R9btVector3.exit
 
 109:                                              ; preds = %98
-  %110 = tail call noundef float @atan2f(float noundef %74, float noundef %86) #25, !tbaa !56
+  %110 = tail call noundef float @atan2f(float noundef %74, float noundef %86) #25, !tbaa !59
   %111 = fneg float %110
   store float %111, ptr %96, align 8, !tbaa !10
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 1220
@@ -1262,7 +1262,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint18calculateAngleInfoEv(ptr no
   br label %_Z16matrixToEulerXYZRK11btMatrix3x3R9btVector3.exit
 
 113:                                              ; preds = %1
-  %114 = tail call noundef float @atan2f(float noundef %74, float noundef %86) #25, !tbaa !56
+  %114 = tail call noundef float @atan2f(float noundef %74, float noundef %86) #25, !tbaa !59
   store float %114, ptr %96, align 8, !tbaa !10
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 1220
   store float 0x3FF921FB60000000, ptr %115, align 4, !tbaa !10
@@ -1351,45 +1351,45 @@ _Z16matrixToEulerXYZRK11btMatrix3x3R9btVector3.exit: ; preds = %100, %109, %113
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(1333) initializes((1088, 1216), (1280, 1296)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load float, ptr %4, align 8, !tbaa !10, !noalias !76
-  %6 = load float, ptr %1, align 4, !tbaa !10, !noalias !76
+  %5 = load float, ptr %4, align 8, !tbaa !10, !noalias !79
+  %6 = load float, ptr %1, align 4, !tbaa !10, !noalias !79
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = load float, ptr %7, align 8, !tbaa !10, !noalias !76
+  %8 = load float, ptr %7, align 8, !tbaa !10, !noalias !79
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load float, ptr %9, align 4, !tbaa !10, !noalias !76
+  %10 = load float, ptr %9, align 4, !tbaa !10, !noalias !79
   %11 = fmul float %8, %10
   %12 = tail call float @llvm.fmuladd.f32(float %5, float %6, float %11)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = load float, ptr %13, align 8, !tbaa !10, !noalias !76
+  %14 = load float, ptr %13, align 8, !tbaa !10, !noalias !79
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load float, ptr %15, align 4, !tbaa !10, !noalias !76
+  %16 = load float, ptr %15, align 4, !tbaa !10, !noalias !79
   %17 = tail call noundef float @llvm.fmuladd.f32(float %14, float %16, float %12)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %19 = load float, ptr %18, align 4, !tbaa !10, !noalias !76
+  %19 = load float, ptr %18, align 4, !tbaa !10, !noalias !79
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %21 = load float, ptr %20, align 4, !tbaa !10, !noalias !76
+  %21 = load float, ptr %20, align 4, !tbaa !10, !noalias !79
   %22 = fmul float %10, %21
   %23 = tail call float @llvm.fmuladd.f32(float %19, float %6, float %22)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %25 = load float, ptr %24, align 4, !tbaa !10, !noalias !76
+  %25 = load float, ptr %24, align 4, !tbaa !10, !noalias !79
   %26 = tail call noundef float @llvm.fmuladd.f32(float %25, float %16, float %23)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %28 = load float, ptr %27, align 8, !tbaa !10, !noalias !76
+  %28 = load float, ptr %27, align 8, !tbaa !10, !noalias !79
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %30 = load float, ptr %29, align 8, !tbaa !10, !noalias !76
+  %30 = load float, ptr %29, align 8, !tbaa !10, !noalias !79
   %31 = fmul float %10, %30
   %32 = tail call float @llvm.fmuladd.f32(float %28, float %6, float %31)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %34 = load float, ptr %33, align 8, !tbaa !10, !noalias !76
+  %34 = load float, ptr %33, align 8, !tbaa !10, !noalias !79
   %35 = tail call noundef float @llvm.fmuladd.f32(float %34, float %16, float %32)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = load float, ptr %36, align 4, !tbaa !10, !noalias !76
+  %37 = load float, ptr %36, align 4, !tbaa !10, !noalias !79
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %39 = load float, ptr %38, align 4, !tbaa !10, !noalias !76
+  %39 = load float, ptr %38, align 4, !tbaa !10, !noalias !79
   %40 = fmul float %8, %39
   %41 = tail call float @llvm.fmuladd.f32(float %5, float %37, float %40)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %43 = load float, ptr %42, align 4, !tbaa !10, !noalias !76
+  %43 = load float, ptr %42, align 4, !tbaa !10, !noalias !79
   %44 = tail call noundef float @llvm.fmuladd.f32(float %14, float %43, float %41)
   %45 = fmul float %21, %39
   %46 = tail call float @llvm.fmuladd.f32(float %19, float %37, float %45)
@@ -1398,13 +1398,13 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btT
   %49 = tail call float @llvm.fmuladd.f32(float %28, float %37, float %48)
   %50 = tail call noundef float @llvm.fmuladd.f32(float %34, float %43, float %49)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %52 = load float, ptr %51, align 4, !tbaa !10, !noalias !76
+  %52 = load float, ptr %51, align 4, !tbaa !10, !noalias !79
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %54 = load float, ptr %53, align 4, !tbaa !10, !noalias !76
+  %54 = load float, ptr %53, align 4, !tbaa !10, !noalias !79
   %55 = fmul float %8, %54
   %56 = tail call float @llvm.fmuladd.f32(float %5, float %52, float %55)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %58 = load float, ptr %57, align 4, !tbaa !10, !noalias !76
+  %58 = load float, ptr %57, align 4, !tbaa !10, !noalias !79
   %59 = tail call noundef float @llvm.fmuladd.f32(float %14, float %58, float %56)
   %60 = fmul float %21, %54
   %61 = tail call float @llvm.fmuladd.f32(float %19, float %52, float %60)
@@ -1413,13 +1413,13 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btT
   %64 = tail call float @llvm.fmuladd.f32(float %28, float %52, float %63)
   %65 = tail call noundef float @llvm.fmuladd.f32(float %34, float %58, float %64)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %67 = load float, ptr %66, align 8, !tbaa !10, !noalias !81
+  %67 = load float, ptr %66, align 8, !tbaa !10, !noalias !84
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %69 = load float, ptr %68, align 4, !tbaa !10, !noalias !81
+  %69 = load float, ptr %68, align 4, !tbaa !10, !noalias !84
   %70 = fmul float %10, %69
   %71 = tail call float @llvm.fmuladd.f32(float %67, float %6, float %70)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %73 = load float, ptr %72, align 8, !tbaa !10, !noalias !81
+  %73 = load float, ptr %72, align 8, !tbaa !10, !noalias !84
   %74 = tail call noundef float @llvm.fmuladd.f32(float %73, float %16, float %71)
   %75 = fmul float %39, %69
   %76 = tail call float @llvm.fmuladd.f32(float %67, float %37, float %75)
@@ -1428,13 +1428,13 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btT
   %79 = tail call float @llvm.fmuladd.f32(float %67, float %52, float %78)
   %80 = tail call noundef float @llvm.fmuladd.f32(float %73, float %58, float %79)
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %82 = load float, ptr %81, align 4, !tbaa !10, !noalias !81
+  %82 = load float, ptr %81, align 4, !tbaa !10, !noalias !84
   %83 = fadd float %82, %74
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %85 = load float, ptr %84, align 4, !tbaa !10, !noalias !81
+  %85 = load float, ptr %84, align 4, !tbaa !10, !noalias !84
   %86 = fadd float %77, %85
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %88 = load float, ptr %87, align 4, !tbaa !10, !noalias !81
+  %88 = load float, ptr %87, align 4, !tbaa !10, !noalias !84
   %89 = fadd float %80, %88
   %.sroa.0.0.vec.insert.i2.i.i = insertelement <2 x float> poison, float %83, i64 0
   %.sroa.0.4.vec.insert.i3.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i.i, float %86, i64 1
@@ -1468,45 +1468,45 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btT
   %.sroa.1936.48..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i, ptr %.sroa.1936.48..sroa_idx, align 8, !tbaa !8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %95 = load float, ptr %94, align 8, !tbaa !10, !noalias !82
-  %96 = load float, ptr %2, align 4, !tbaa !10, !noalias !82
+  %95 = load float, ptr %94, align 8, !tbaa !10, !noalias !85
+  %96 = load float, ptr %2, align 4, !tbaa !10, !noalias !85
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %98 = load float, ptr %97, align 8, !tbaa !10, !noalias !82
+  %98 = load float, ptr %97, align 8, !tbaa !10, !noalias !85
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %100 = load float, ptr %99, align 4, !tbaa !10, !noalias !82
+  %100 = load float, ptr %99, align 4, !tbaa !10, !noalias !85
   %101 = fmul float %98, %100
   %102 = tail call float @llvm.fmuladd.f32(float %95, float %96, float %101)
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %104 = load float, ptr %103, align 8, !tbaa !10, !noalias !82
+  %104 = load float, ptr %103, align 8, !tbaa !10, !noalias !85
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %106 = load float, ptr %105, align 4, !tbaa !10, !noalias !82
+  %106 = load float, ptr %105, align 4, !tbaa !10, !noalias !85
   %107 = tail call noundef float @llvm.fmuladd.f32(float %104, float %106, float %102)
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %109 = load float, ptr %108, align 4, !tbaa !10, !noalias !82
+  %109 = load float, ptr %108, align 4, !tbaa !10, !noalias !85
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %111 = load float, ptr %110, align 4, !tbaa !10, !noalias !82
+  %111 = load float, ptr %110, align 4, !tbaa !10, !noalias !85
   %112 = fmul float %100, %111
   %113 = tail call float @llvm.fmuladd.f32(float %109, float %96, float %112)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %115 = load float, ptr %114, align 4, !tbaa !10, !noalias !82
+  %115 = load float, ptr %114, align 4, !tbaa !10, !noalias !85
   %116 = tail call noundef float @llvm.fmuladd.f32(float %115, float %106, float %113)
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %118 = load float, ptr %117, align 8, !tbaa !10, !noalias !82
+  %118 = load float, ptr %117, align 8, !tbaa !10, !noalias !85
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %120 = load float, ptr %119, align 8, !tbaa !10, !noalias !82
+  %120 = load float, ptr %119, align 8, !tbaa !10, !noalias !85
   %121 = fmul float %100, %120
   %122 = tail call float @llvm.fmuladd.f32(float %118, float %96, float %121)
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %124 = load float, ptr %123, align 8, !tbaa !10, !noalias !82
+  %124 = load float, ptr %123, align 8, !tbaa !10, !noalias !85
   %125 = tail call noundef float @llvm.fmuladd.f32(float %124, float %106, float %122)
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %127 = load float, ptr %126, align 4, !tbaa !10, !noalias !82
+  %127 = load float, ptr %126, align 4, !tbaa !10, !noalias !85
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %129 = load float, ptr %128, align 4, !tbaa !10, !noalias !82
+  %129 = load float, ptr %128, align 4, !tbaa !10, !noalias !85
   %130 = fmul float %98, %129
   %131 = tail call float @llvm.fmuladd.f32(float %95, float %127, float %130)
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %133 = load float, ptr %132, align 4, !tbaa !10, !noalias !82
+  %133 = load float, ptr %132, align 4, !tbaa !10, !noalias !85
   %134 = tail call noundef float @llvm.fmuladd.f32(float %104, float %133, float %131)
   %135 = fmul float %111, %129
   %136 = tail call float @llvm.fmuladd.f32(float %109, float %127, float %135)
@@ -1515,13 +1515,13 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btT
   %139 = tail call float @llvm.fmuladd.f32(float %118, float %127, float %138)
   %140 = tail call noundef float @llvm.fmuladd.f32(float %124, float %133, float %139)
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %142 = load float, ptr %141, align 4, !tbaa !10, !noalias !82
+  %142 = load float, ptr %141, align 4, !tbaa !10, !noalias !85
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %144 = load float, ptr %143, align 4, !tbaa !10, !noalias !82
+  %144 = load float, ptr %143, align 4, !tbaa !10, !noalias !85
   %145 = fmul float %98, %144
   %146 = tail call float @llvm.fmuladd.f32(float %95, float %142, float %145)
   %147 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %148 = load float, ptr %147, align 4, !tbaa !10, !noalias !82
+  %148 = load float, ptr %147, align 4, !tbaa !10, !noalias !85
   %149 = tail call noundef float @llvm.fmuladd.f32(float %104, float %148, float %146)
   %150 = fmul float %111, %144
   %151 = tail call float @llvm.fmuladd.f32(float %109, float %142, float %150)
@@ -1530,13 +1530,13 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btT
   %154 = tail call float @llvm.fmuladd.f32(float %118, float %142, float %153)
   %155 = tail call noundef float @llvm.fmuladd.f32(float %124, float %148, float %154)
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %157 = load float, ptr %156, align 8, !tbaa !10, !noalias !87
+  %157 = load float, ptr %156, align 8, !tbaa !10, !noalias !90
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %159 = load float, ptr %158, align 4, !tbaa !10, !noalias !87
+  %159 = load float, ptr %158, align 4, !tbaa !10, !noalias !90
   %160 = fmul float %100, %159
   %161 = tail call float @llvm.fmuladd.f32(float %157, float %96, float %160)
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %163 = load float, ptr %162, align 8, !tbaa !10, !noalias !87
+  %163 = load float, ptr %162, align 8, !tbaa !10, !noalias !90
   %164 = tail call noundef float @llvm.fmuladd.f32(float %163, float %106, float %161)
   %165 = fmul float %129, %159
   %166 = tail call float @llvm.fmuladd.f32(float %157, float %127, float %165)
@@ -1545,13 +1545,13 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btT
   %169 = tail call float @llvm.fmuladd.f32(float %157, float %142, float %168)
   %170 = tail call noundef float @llvm.fmuladd.f32(float %163, float %148, float %169)
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %172 = load float, ptr %171, align 4, !tbaa !10, !noalias !87
+  %172 = load float, ptr %171, align 4, !tbaa !10, !noalias !90
   %173 = fadd float %172, %164
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %175 = load float, ptr %174, align 4, !tbaa !10, !noalias !87
+  %175 = load float, ptr %174, align 4, !tbaa !10, !noalias !90
   %176 = fadd float %167, %175
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %178 = load float, ptr %177, align 4, !tbaa !10, !noalias !87
+  %178 = load float, ptr %177, align 4, !tbaa !10, !noalias !90
   %179 = fadd float %170, %178
   %.sroa.0.0.vec.insert.i2.i.i10 = insertelement <2 x float> poison, float %173, i64 0
   %.sroa.0.4.vec.insert.i3.i.i11 = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i.i10, float %176, i64 1
@@ -1587,34 +1587,34 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btT
   tail call void @_ZN23btGeneric6DofConstraint19calculateLinearInfoEv(ptr noundef nonnull align 8 dereferenceable(1333) %0)
   tail call void @_ZN23btGeneric6DofConstraint18calculateAngleInfoEv(ptr noundef nonnull align 8 dereferenceable(1333) %0)
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 1325
-  %185 = load i8, ptr %184, align 1, !tbaa !45, !range !57, !noundef !88
+  %185 = load i8, ptr %184, align 1, !tbaa !47, !range !60, !noundef !91
   %186 = trunc nuw i8 %185 to i1
   br i1 %186, label %187, label %207
 
 187:                                              ; preds = %3
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %189 = load ptr, ptr %188, align 8, !tbaa !48
+  %189 = load ptr, ptr %188, align 8, !tbaa !50
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 452
-  %191 = load float, ptr %190, align 4, !tbaa !58
+  %191 = load float, ptr %190, align 4, !tbaa !61
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %193 = load ptr, ptr %192, align 8, !tbaa !49
+  %193 = load ptr, ptr %192, align 8, !tbaa !51
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 452
-  %195 = load float, ptr %194, align 4, !tbaa !58
+  %195 = load float, ptr %194, align 4, !tbaa !61
   %196 = fcmp olt float %191, 0x3E80000000000000
   %197 = fcmp olt float %195, 0x3E80000000000000
   %198 = or i1 %196, %197
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %200 = zext i1 %198 to i8
-  store i8 %200, ptr %199, align 8, !tbaa !89
+  store i8 %200, ptr %199, align 8, !tbaa !92
   %201 = fadd float %191, %195
   %202 = fcmp ogt float %201, 0.000000e+00
   %203 = fdiv float %195, %201
   %.sink = select i1 %202, float %203, float 5.000000e-01
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  store float %.sink, ptr %204, align 8, !tbaa !90
+  store float %.sink, ptr %204, align 8, !tbaa !93
   %205 = fsub float 1.000000e+00, %.sink
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 1300
-  store float %205, ptr %206, align 4, !tbaa !91
+  store float %205, ptr %206, align 4, !tbaa !94
   br label %207
 
 207:                                              ; preds = %187, %3
@@ -1643,32 +1643,32 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateLinearInfoEv(ptr n
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1108
-  %21 = load float, ptr %20, align 4, !tbaa !10, !noalias !92
+  %21 = load float, ptr %20, align 4, !tbaa !10, !noalias !95
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %24 = load float, ptr %23, align 8, !tbaa !10, !noalias !92
+  %24 = load float, ptr %23, align 8, !tbaa !10, !noalias !95
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %26 = load float, ptr %25, align 8, !tbaa !10, !noalias !92
+  %26 = load float, ptr %25, align 8, !tbaa !10, !noalias !95
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1124
-  %28 = load float, ptr %27, align 4, !tbaa !10, !noalias !92
+  %28 = load float, ptr %27, align 4, !tbaa !10, !noalias !95
   %29 = fneg float %28
   %30 = fmul float %26, %29
   %31 = tail call noundef float @llvm.fmuladd.f32(float %21, float %24, float %30)
-  %32 = load float, ptr %22, align 8, !tbaa !10, !noalias !92
-  %33 = load float, ptr %19, align 8, !tbaa !10, !noalias !92
+  %32 = load float, ptr %22, align 8, !tbaa !10, !noalias !95
+  %33 = load float, ptr %19, align 8, !tbaa !10, !noalias !95
   %34 = fneg float %24
   %35 = fmul float %33, %34
   %36 = tail call noundef float @llvm.fmuladd.f32(float %26, float %32, float %35)
   %37 = fneg float %32
   %38 = fmul float %21, %37
   %39 = tail call noundef float @llvm.fmuladd.f32(float %33, float %28, float %38)
-  %40 = load float, ptr %3, align 8, !tbaa !10, !noalias !92
+  %40 = load float, ptr %3, align 8, !tbaa !10, !noalias !95
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1092
-  %42 = load float, ptr %41, align 4, !tbaa !10, !noalias !92
+  %42 = load float, ptr %41, align 4, !tbaa !10, !noalias !95
   %43 = fmul float %42, %36
   %44 = tail call float @llvm.fmuladd.f32(float %40, float %31, float %43)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %46 = load float, ptr %45, align 8, !tbaa !10, !noalias !92
+  %46 = load float, ptr %45, align 8, !tbaa !10, !noalias !95
   %47 = tail call noundef float @llvm.fmuladd.f32(float %46, float %39, float %44)
   %48 = fdiv float 1.000000e+00, %47
   %49 = fmul float %31, %48
@@ -1734,7 +1734,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateLinearInfoEv(ptr n
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds nuw [3 x i32], ptr %86, i64 0, i64 %indvars.iv
-  store i32 0, ptr %98, align 4, !tbaa !56
+  store i32 0, ptr %98, align 4, !tbaa !59
   br label %_ZN25btTranslationalLimitMotor14testLimitValueEif.exit
 
 99:                                               ; preds = %88
@@ -1743,7 +1743,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateLinearInfoEv(ptr n
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw [3 x i32], ptr %86, i64 0, i64 %indvars.iv
-  store i32 2, ptr %102, align 4, !tbaa !56
+  store i32 2, ptr %102, align 4, !tbaa !59
   %103 = fsub float %90, %93
   br label %_ZN25btTranslationalLimitMotor14testLimitValueEif.exit
 
@@ -1753,12 +1753,12 @@ define dso_local void @_ZN23btGeneric6DofConstraint19calculateLinearInfoEv(ptr n
   br i1 %105, label %107, label %109
 
 107:                                              ; preds = %104
-  store i32 1, ptr %106, align 4, !tbaa !56
+  store i32 1, ptr %106, align 4, !tbaa !59
   %108 = fsub float %90, %95
   br label %_ZN25btTranslationalLimitMotor14testLimitValueEif.exit
 
 109:                                              ; preds = %104
-  store i32 0, ptr %106, align 4, !tbaa !56
+  store i32 0, ptr %106, align 4, !tbaa !59
   br label %_ZN25btTranslationalLimitMotor14testLimitValueEif.exit
 
 _ZN25btTranslationalLimitMotor14testLimitValueEif.exit: ; preds = %97, %101, %107, %109
@@ -1767,13 +1767,13 @@ _ZN25btTranslationalLimitMotor14testLimitValueEif.exit: ; preds = %97, %101, %10
   store float %.sink.i, ptr %110, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %87, label %88, !llvm.loop !95
+  br i1 %exitcond.not, label %87, label %88, !llvm.loop !98
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btGeneric6DofConstraint19buildLinearJacobianER15btJacobianEntryRK9btVector3S4_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1333) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(84) initializes((0, 84)) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4) local_unnamed_addr #14 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %7 = load ptr, ptr %6, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1783,17 +1783,17 @@ define dso_local void @_ZN23btGeneric6DofConstraint19buildLinearJacobianER15btJa
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %17 = load float, ptr %8, align 4, !tbaa !10, !noalias !97
-  %18 = load float, ptr %9, align 4, !tbaa !10, !noalias !97
-  %19 = load float, ptr %10, align 4, !tbaa !10, !noalias !97
-  %20 = load float, ptr %11, align 4, !tbaa !10, !noalias !97
-  %21 = load float, ptr %12, align 4, !tbaa !10, !noalias !97
-  %22 = load float, ptr %13, align 4, !tbaa !10, !noalias !97
-  %23 = load float, ptr %14, align 4, !tbaa !10, !noalias !97
-  %24 = load float, ptr %15, align 4, !tbaa !10, !noalias !97
-  %25 = load float, ptr %16, align 4, !tbaa !10, !noalias !97
+  %17 = load float, ptr %8, align 4, !tbaa !10, !noalias !100
+  %18 = load float, ptr %9, align 4, !tbaa !10, !noalias !100
+  %19 = load float, ptr %10, align 4, !tbaa !10, !noalias !100
+  %20 = load float, ptr %11, align 4, !tbaa !10, !noalias !100
+  %21 = load float, ptr %12, align 4, !tbaa !10, !noalias !100
+  %22 = load float, ptr %13, align 4, !tbaa !10, !noalias !100
+  %23 = load float, ptr %14, align 4, !tbaa !10, !noalias !100
+  %24 = load float, ptr %15, align 4, !tbaa !10, !noalias !100
+  %25 = load float, ptr %16, align 4, !tbaa !10, !noalias !100
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = load ptr, ptr %26, align 8, !tbaa !49
+  %27 = load ptr, ptr %26, align 8, !tbaa !51
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -1803,15 +1803,15 @@ define dso_local void @_ZN23btGeneric6DofConstraint19buildLinearJacobianER15btJa
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %37 = load float, ptr %28, align 4, !tbaa !10, !noalias !100
-  %38 = load float, ptr %29, align 4, !tbaa !10, !noalias !100
-  %39 = load float, ptr %30, align 4, !tbaa !10, !noalias !100
-  %40 = load float, ptr %31, align 4, !tbaa !10, !noalias !100
-  %41 = load float, ptr %32, align 4, !tbaa !10, !noalias !100
-  %42 = load float, ptr %33, align 4, !tbaa !10, !noalias !100
-  %43 = load float, ptr %34, align 4, !tbaa !10, !noalias !100
-  %44 = load float, ptr %35, align 4, !tbaa !10, !noalias !100
-  %45 = load float, ptr %36, align 4, !tbaa !10, !noalias !100
+  %37 = load float, ptr %28, align 4, !tbaa !10, !noalias !103
+  %38 = load float, ptr %29, align 4, !tbaa !10, !noalias !103
+  %39 = load float, ptr %30, align 4, !tbaa !10, !noalias !103
+  %40 = load float, ptr %31, align 4, !tbaa !10, !noalias !103
+  %41 = load float, ptr %32, align 4, !tbaa !10, !noalias !103
+  %42 = load float, ptr %33, align 4, !tbaa !10, !noalias !103
+  %43 = load float, ptr %34, align 4, !tbaa !10, !noalias !103
+  %44 = load float, ptr %35, align 4, !tbaa !10, !noalias !103
+  %45 = load float, ptr %36, align 4, !tbaa !10, !noalias !103
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %47 = load float, ptr %3, align 4, !tbaa !10
   %48 = load float, ptr %46, align 4, !tbaa !10
@@ -1842,10 +1842,10 @@ define dso_local void @_ZN23btGeneric6DofConstraint19buildLinearJacobianER15btJa
   %73 = fsub float %70, %72
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 504
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 452
-  %76 = load float, ptr %75, align 4, !tbaa !58
+  %76 = load float, ptr %75, align 4, !tbaa !61
   %77 = getelementptr inbounds nuw i8, ptr %27, i64 504
   %78 = getelementptr inbounds nuw i8, ptr %27, i64 452
-  %79 = load float, ptr %78, align 4, !tbaa !58
+  %79 = load float, ptr %78, align 4, !tbaa !61
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !7
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1939,14 +1939,14 @@ define dso_local void @_ZN23btGeneric6DofConstraint19buildLinearJacobianER15btJa
   %145 = tail call noundef float @llvm.fmuladd.f32(float %137, float %121, float %144)
   %146 = fadd float %142, %145
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store float %146, ptr %147, align 4, !tbaa !103
+  store float %146, ptr %147, align 4, !tbaa !106
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btGeneric6DofConstraint20buildAngularJacobianER15btJacobianEntryRK9btVector3(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1333) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(84) initializes((0, 84)) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -1956,17 +1956,17 @@ define dso_local void @_ZN23btGeneric6DofConstraint20buildAngularJacobianER15btJ
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %15 = load float, ptr %6, align 4, !tbaa !10, !noalias !105
-  %16 = load float, ptr %7, align 4, !tbaa !10, !noalias !105
-  %17 = load float, ptr %8, align 4, !tbaa !10, !noalias !105
-  %18 = load float, ptr %9, align 4, !tbaa !10, !noalias !105
-  %19 = load float, ptr %10, align 4, !tbaa !10, !noalias !105
-  %20 = load float, ptr %11, align 4, !tbaa !10, !noalias !105
-  %21 = load float, ptr %12, align 4, !tbaa !10, !noalias !105
-  %22 = load float, ptr %13, align 4, !tbaa !10, !noalias !105
-  %23 = load float, ptr %14, align 4, !tbaa !10, !noalias !105
+  %15 = load float, ptr %6, align 4, !tbaa !10, !noalias !108
+  %16 = load float, ptr %7, align 4, !tbaa !10, !noalias !108
+  %17 = load float, ptr %8, align 4, !tbaa !10, !noalias !108
+  %18 = load float, ptr %9, align 4, !tbaa !10, !noalias !108
+  %19 = load float, ptr %10, align 4, !tbaa !10, !noalias !108
+  %20 = load float, ptr %11, align 4, !tbaa !10, !noalias !108
+  %21 = load float, ptr %12, align 4, !tbaa !10, !noalias !108
+  %22 = load float, ptr %13, align 4, !tbaa !10, !noalias !108
+  %23 = load float, ptr %14, align 4, !tbaa !10, !noalias !108
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !49
+  %25 = load ptr, ptr %24, align 8, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -1976,15 +1976,15 @@ define dso_local void @_ZN23btGeneric6DofConstraint20buildAngularJacobianER15btJ
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %35 = load float, ptr %26, align 4, !tbaa !10, !noalias !108
-  %36 = load float, ptr %27, align 4, !tbaa !10, !noalias !108
-  %37 = load float, ptr %28, align 4, !tbaa !10, !noalias !108
-  %38 = load float, ptr %29, align 4, !tbaa !10, !noalias !108
-  %39 = load float, ptr %30, align 4, !tbaa !10, !noalias !108
-  %40 = load float, ptr %31, align 4, !tbaa !10, !noalias !108
-  %41 = load float, ptr %32, align 4, !tbaa !10, !noalias !108
-  %42 = load float, ptr %33, align 4, !tbaa !10, !noalias !108
-  %43 = load float, ptr %34, align 4, !tbaa !10, !noalias !108
+  %35 = load float, ptr %26, align 4, !tbaa !10, !noalias !111
+  %36 = load float, ptr %27, align 4, !tbaa !10, !noalias !111
+  %37 = load float, ptr %28, align 4, !tbaa !10, !noalias !111
+  %38 = load float, ptr %29, align 4, !tbaa !10, !noalias !111
+  %39 = load float, ptr %30, align 4, !tbaa !10, !noalias !111
+  %40 = load float, ptr %31, align 4, !tbaa !10, !noalias !111
+  %41 = load float, ptr %32, align 4, !tbaa !10, !noalias !111
+  %42 = load float, ptr %33, align 4, !tbaa !10, !noalias !111
+  %43 = load float, ptr %34, align 4, !tbaa !10, !noalias !111
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 504
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 504
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2069,7 +2069,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint20buildAngularJacobianER15btJ
   %100 = tail call noundef float @llvm.fmuladd.f32(float %94, float %78, float %99)
   %101 = fadd float %97, %100
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store float %101, ptr %102, align 4, !tbaa !103
+  store float %101, ptr %102, align 4, !tbaa !106
   ret void
 }
 
@@ -2086,7 +2086,7 @@ define dso_local noundef zeroext i1 @_ZN23btGeneric6DofConstraint21testAngularLi
   %11 = load float, ptr %10, align 8, !tbaa !26
   %12 = tail call noundef float @_Z21btAdjustAngleToLimitsfff(float noundef %6, float noundef %9, float noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  store float %12, ptr %13, align 8, !tbaa !111
+  store float %12, ptr %13, align 8, !tbaa !114
   %14 = load float, ptr %8, align 4, !tbaa !25
   %15 = load float, ptr %10, align 8, !tbaa !26
   %16 = fcmp ogt float %14, %15
@@ -2158,7 +2158,7 @@ define dso_local noundef zeroext i1 @_ZN23btGeneric6DofConstraint21testAngularLi
 _ZN22btRotationalLimitMotor14testLimitValueEf.exit: ; preds = %17, %26, %28, %30, %39, %41, %43, %45
   %46 = phi i1 [ false, %17 ], [ true, %26 ], [ true, %28 ], [ true, %30 ], [ true, %39 ], [ true, %41 ], [ true, %43 ], [ false, %45 ]
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %48 = load i8, ptr %47, align 8, !range !57
+  %48 = load i8, ptr %47, align 8, !range !60
   %49 = icmp ne i8 %48, 0
   %or.cond.not.i = select i1 %46, i1 true, i1 %49
   ret i1 %or.cond.not.i
@@ -2175,7 +2175,7 @@ define linkonce_odr dso_local noundef float @_Z21btAdjustAngleToLimitsfff(float 
 
 7:                                                ; preds = %5
   %8 = fsub float %1, %0
-  %9 = tail call noundef float @fmodf(float noundef %8, float noundef 0x401921FB60000000) #25, !tbaa !56
+  %9 = tail call noundef float @fmodf(float noundef %8, float noundef 0x401921FB60000000) #25, !tbaa !59
   %10 = fcmp olt float %9, 0xC00921FB60000000
   br i1 %10, label %11, label %13
 
@@ -2195,7 +2195,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %11, %13, %15
   %.0.i = phi float [ %12, %11 ], [ %16, %15 ], [ %9, %13 ]
   %17 = tail call noundef float @llvm.fabs.f32(float %.0.i)
   %18 = fsub float %2, %0
-  %19 = tail call noundef float @fmodf(float noundef %18, float noundef 0x401921FB60000000) #25, !tbaa !56
+  %19 = tail call noundef float @fmodf(float noundef %18, float noundef 0x401921FB60000000) #25, !tbaa !59
   %20 = fcmp olt float %19, 0xC00921FB60000000
   br i1 %20, label %21, label %23
 
@@ -2225,7 +2225,7 @@ _Z16btNormalizeAnglef.exit29:                     ; preds = %21, %23, %25
 
 33:                                               ; preds = %31
   %34 = fsub float %0, %2
-  %35 = tail call noundef float @fmodf(float noundef %34, float noundef 0x401921FB60000000) #25, !tbaa !56
+  %35 = tail call noundef float @fmodf(float noundef %34, float noundef 0x401921FB60000000) #25, !tbaa !59
   %36 = fcmp olt float %35, 0xC00921FB60000000
   br i1 %36, label %37, label %39
 
@@ -2245,7 +2245,7 @@ _Z16btNormalizeAnglef.exit31:                     ; preds = %37, %39, %41
   %.0.i30 = phi float [ %38, %37 ], [ %42, %41 ], [ %35, %39 ]
   %43 = tail call noundef float @llvm.fabs.f32(float %.0.i30)
   %44 = fsub float %0, %1
-  %45 = tail call noundef float @fmodf(float noundef %44, float noundef 0x401921FB60000000) #25, !tbaa !56
+  %45 = tail call noundef float @fmodf(float noundef %44, float noundef 0x401921FB60000000) #25, !tbaa !59
   %46 = fcmp olt float %45, 0xC00921FB60000000
   br i1 %46, label %47, label %49
 
@@ -2280,7 +2280,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint13buildJacobianEv(ptr noundef
   %3 = alloca %class.btVector3, align 4
   %4 = alloca %class.btVector3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1332
-  %6 = load i8, ptr %5, align 4, !tbaa !47, !range !57, !noundef !88
+  %6 = load i8, ptr %5, align 4, !tbaa !49, !range !60, !noundef !91
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %187
 
@@ -2297,15 +2297,15 @@ define dso_local void @_ZN23btGeneric6DofConstraint13buildJacobianEv(ptr noundef
   store float 0.000000e+00, ptr %gep, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %12, label %10, !llvm.loop !112
+  br i1 %exitcond.not, label %12, label %10, !llvm.loop !115
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !48
+  %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !49
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef nonnull align 4 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(64) %19)
   %20 = load ptr, ptr %0, align 8, !tbaa !4
@@ -2341,7 +2341,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint13buildJacobianEv(ptr noundef
   br i1 %36, label %47, label %37
 
 37:                                               ; preds = %31
-  %38 = load i8, ptr %25, align 4, !tbaa !36, !range !57, !noundef !88
+  %38 = load i8, ptr %25, align 4, !tbaa !38, !range !60, !noundef !91
   %39 = trunc nuw i8 %38 to i1
   %..v = select i1 %39, i64 1088, i64 1152
   %. = getelementptr inbounds nuw i8, ptr %0, i64 %..v
@@ -2367,7 +2367,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint13buildJacobianEv(ptr noundef
 47:                                               ; preds = %31, %37
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 3
-  br i1 %exitcond35.not, label %.preheader, label %31, !llvm.loop !113
+  br i1 %exitcond35.not, label %.preheader, label %31, !llvm.loop !116
 
 48:                                               ; preds = %.preheader, %185
   %indvars.iv36 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next37, %185 ]
@@ -2379,7 +2379,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint13buildJacobianEv(ptr noundef
   %54 = load float, ptr %53, align 8, !tbaa !26
   %55 = tail call noundef float @_Z21btAdjustAngleToLimitsfff(float noundef %50, float noundef %52, float noundef %54)
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 52
-  store float %55, ptr %56, align 8, !tbaa !111
+  store float %55, ptr %56, align 8, !tbaa !114
   %57 = load float, ptr %51, align 4, !tbaa !25
   %58 = load float, ptr %53, align 8, !tbaa !26
   %59 = fcmp ogt float %57, %58
@@ -2450,7 +2450,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint13buildJacobianEv(ptr noundef
 
 _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %60, %88
   %89 = getelementptr inbounds nuw i8, ptr %51, i64 44
-  %90 = load i8, ptr %89, align 8, !range !57
+  %90 = load i8, ptr %89, align 8, !range !60
   %.not = icmp eq i8 %90, 0
   br i1 %.not, label %185, label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread
 
@@ -2460,7 +2460,7 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread: ; preds = %86
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !8
   %92 = getelementptr inbounds nuw [3 x %class.btJacobianEntry], ptr %30, i64 0, i64 %indvars.iv36
-  %93 = load ptr, ptr %14, align 8, !tbaa !48
+  %93 = load ptr, ptr %14, align 8, !tbaa !50
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 40
@@ -2470,16 +2470,16 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread: ; preds = %86
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %101 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %102 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  %103 = load float, ptr %94, align 4, !tbaa !10, !noalias !114
-  %104 = load float, ptr %95, align 4, !tbaa !10, !noalias !114
-  %105 = load float, ptr %96, align 4, !tbaa !10, !noalias !114
-  %106 = load float, ptr %97, align 4, !tbaa !10, !noalias !114
-  %107 = load float, ptr %98, align 4, !tbaa !10, !noalias !114
-  %108 = load float, ptr %99, align 4, !tbaa !10, !noalias !114
-  %109 = load float, ptr %100, align 4, !tbaa !10, !noalias !114
-  %110 = load float, ptr %101, align 4, !tbaa !10, !noalias !114
-  %111 = load float, ptr %102, align 4, !tbaa !10, !noalias !114
-  %112 = load ptr, ptr %17, align 8, !tbaa !49
+  %103 = load float, ptr %94, align 4, !tbaa !10, !noalias !117
+  %104 = load float, ptr %95, align 4, !tbaa !10, !noalias !117
+  %105 = load float, ptr %96, align 4, !tbaa !10, !noalias !117
+  %106 = load float, ptr %97, align 4, !tbaa !10, !noalias !117
+  %107 = load float, ptr %98, align 4, !tbaa !10, !noalias !117
+  %108 = load float, ptr %99, align 4, !tbaa !10, !noalias !117
+  %109 = load float, ptr %100, align 4, !tbaa !10, !noalias !117
+  %110 = load float, ptr %101, align 4, !tbaa !10, !noalias !117
+  %111 = load float, ptr %102, align 4, !tbaa !10, !noalias !117
+  %112 = load ptr, ptr %17, align 8, !tbaa !51
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 40
@@ -2489,15 +2489,15 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread: ; preds = %86
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 48
-  %122 = load float, ptr %113, align 4, !tbaa !10, !noalias !117
-  %123 = load float, ptr %114, align 4, !tbaa !10, !noalias !117
-  %124 = load float, ptr %115, align 4, !tbaa !10, !noalias !117
-  %125 = load float, ptr %116, align 4, !tbaa !10, !noalias !117
-  %126 = load float, ptr %117, align 4, !tbaa !10, !noalias !117
-  %127 = load float, ptr %118, align 4, !tbaa !10, !noalias !117
-  %128 = load float, ptr %119, align 4, !tbaa !10, !noalias !117
-  %129 = load float, ptr %120, align 4, !tbaa !10, !noalias !117
-  %130 = load float, ptr %121, align 4, !tbaa !10, !noalias !117
+  %122 = load float, ptr %113, align 4, !tbaa !10, !noalias !120
+  %123 = load float, ptr %114, align 4, !tbaa !10, !noalias !120
+  %124 = load float, ptr %115, align 4, !tbaa !10, !noalias !120
+  %125 = load float, ptr %116, align 4, !tbaa !10, !noalias !120
+  %126 = load float, ptr %117, align 4, !tbaa !10, !noalias !120
+  %127 = load float, ptr %118, align 4, !tbaa !10, !noalias !120
+  %128 = load float, ptr %119, align 4, !tbaa !10, !noalias !120
+  %129 = load float, ptr %120, align 4, !tbaa !10, !noalias !120
+  %130 = load float, ptr %121, align 4, !tbaa !10, !noalias !120
   %131 = getelementptr inbounds nuw i8, ptr %93, i64 504
   %132 = getelementptr inbounds nuw i8, ptr %112, i64 504
   %133 = getelementptr inbounds nuw i8, ptr %92, i64 16
@@ -2577,13 +2577,13 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread: ; preds = %86
   %182 = tail call noundef float @llvm.fmuladd.f32(float %176, float %160, float %181)
   %183 = fadd float %179, %182
   %184 = getelementptr inbounds nuw i8, ptr %92, i64 80
-  store float %183, ptr %184, align 4, !tbaa !103
+  store float %183, ptr %184, align 4, !tbaa !106
   br label %185
 
 185:                                              ; preds = %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit, %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 3
-  br i1 %exitcond39.not, label %186, label %48, !llvm.loop !120
+  br i1 %exitcond39.not, label %186, label %48, !llvm.loop !123
 
 186:                                              ; preds = %185
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
@@ -2611,27 +2611,27 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK23btGeneric6DofConstraint7get
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btGeneric6DofConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull align 8 captures(none) dereferenceable(1333) %0, ptr noundef captures(none) initializes((0, 8)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1332
-  %4 = load i8, ptr %3, align 4, !tbaa !47, !range !57, !noundef !88
+  %4 = load i8, ptr %3, align 4, !tbaa !49, !range !60, !noundef !91
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  store i32 0, ptr %1, align 4, !tbaa !121
+  store i32 0, ptr %1, align 4, !tbaa !124
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %7, align 4, !tbaa !123
+  store i32 0, ptr %7, align 4, !tbaa !126
   br label %.loopexit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !48
+  %10 = load ptr, ptr %9, align 8, !tbaa !50
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !49
+  %13 = load ptr, ptr %12, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %14)
-  store i32 0, ptr %1, align 4, !tbaa !121
+  store i32 0, ptr %1, align 4, !tbaa !124
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 6, ptr %15, align 4, !tbaa !123
+  store i32 6, ptr %15, align 4, !tbaa !126
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 812
   br label %20
@@ -2646,21 +2646,21 @@ define dso_local void @_ZN23btGeneric6DofConstraint8getInfo1EPN17btTypedConstrai
   %22 = phi i32 [ 0, %8 ], [ %34, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit ]
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit ]
   %23 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 4, !tbaa !56
+  %24 = load i32, ptr %23, align 4, !tbaa !59
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw [3 x i8], ptr %17, i64 0, i64 %indvars.iv
-  %28 = load i8, ptr %27, align 1, !tbaa !17, !range !57, !noundef !88
+  %28 = load i8, ptr %27, align 1, !tbaa !17, !range !60, !noundef !91
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit, label %30
 
 30:                                               ; preds = %20, %26
   %31 = add nsw i32 %22, 1
-  store i32 %31, ptr %1, align 4, !tbaa !121
+  store i32 %31, ptr %1, align 4, !tbaa !124
   %32 = add nsw i32 %21, -1
-  store i32 %32, ptr %15, align 4, !tbaa !123
+  store i32 %32, ptr %15, align 4, !tbaa !126
   br label %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit
 
 _ZNK25btTranslationalLimitMotor14needApplyForceEi.exit: ; preds = %26, %30
@@ -2668,7 +2668,7 @@ _ZNK25btTranslationalLimitMotor14needApplyForceEi.exit: ; preds = %26, %30
   %34 = phi i32 [ %22, %26 ], [ %31, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !124
+  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !127
 
 35:                                               ; preds = %.preheader, %82
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %82 ]
@@ -2680,7 +2680,7 @@ _ZNK25btTranslationalLimitMotor14needApplyForceEi.exit: ; preds = %26, %30
   %41 = load float, ptr %40, align 8, !tbaa !26
   %42 = tail call noundef float @_Z21btAdjustAngleToLimitsfff(float noundef %37, float noundef %39, float noundef %41)
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 52
-  store float %42, ptr %43, align 8, !tbaa !111
+  store float %42, ptr %43, align 8, !tbaa !114
   %44 = load float, ptr %38, align 4, !tbaa !25
   %45 = load float, ptr %40, align 8, !tbaa !26
   %46 = fcmp ogt float %44, %45
@@ -2751,23 +2751,23 @@ _ZNK25btTranslationalLimitMotor14needApplyForceEi.exit: ; preds = %26, %30
 
 _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %47, %75
   %76 = getelementptr inbounds nuw i8, ptr %38, i64 44
-  %77 = load i8, ptr %76, align 8, !range !57
+  %77 = load i8, ptr %76, align 8, !range !60
   %.not = icmp eq i8 %77, 0
   br i1 %.not, label %82, label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread
 
 _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread: ; preds = %73, %71, %69, %60, %58, %56, %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
-  %78 = load i32, ptr %1, align 4, !tbaa !121
+  %78 = load i32, ptr %1, align 4, !tbaa !124
   %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %1, align 4, !tbaa !121
-  %80 = load i32, ptr %15, align 4, !tbaa !123
+  store i32 %79, ptr %1, align 4, !tbaa !124
+  %80 = load i32, ptr %15, align 4, !tbaa !126
   %81 = add nsw i32 %80, -1
-  store i32 %81, ptr %15, align 4, !tbaa !123
+  store i32 %81, ptr %15, align 4, !tbaa !126
   br label %82
 
 82:                                               ; preds = %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit, %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 3
-  br i1 %exitcond22.not, label %.loopexit, label %35, !llvm.loop !125
+  br i1 %exitcond22.not, label %.loopexit, label %35, !llvm.loop !128
 
 .loopexit:                                        ; preds = %82, %6
   ret void
@@ -2776,12 +2776,12 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit.thread: ; preds = %73
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN23btGeneric6DofConstraint18getInfo1NonVirtualEPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1333) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1332
-  %4 = load i8, ptr %3, align 4, !tbaa !47, !range !57, !noundef !88
+  %4 = load i8, ptr %3, align 4, !tbaa !49, !range !60, !noundef !91
   %5 = trunc nuw i8 %4 to i1
   %spec.select = select i1 %5, i32 0, i32 6
-  store i32 %spec.select, ptr %1, align 4, !tbaa !121
+  store i32 %spec.select, ptr %1, align 4, !tbaa !124
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %6, align 4, !tbaa !123
+  store i32 0, ptr %6, align 4, !tbaa !126
   ret void
 }
 
@@ -2790,17 +2790,17 @@ define dso_local void @_ZN23btGeneric6DofConstraint8getInfo2EPN17btTypedConstrai
   %3 = alloca %class.btVector3, align 8
   %4 = alloca %class.btVector3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !48
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !49
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 420
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 420
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 436
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 436
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1325
-  %16 = load i8, ptr %15, align 1, !tbaa !45, !range !57, !noundef !88
+  %16 = load i8, ptr %15, align 1, !tbaa !47, !range !60, !noundef !91
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %61
 
@@ -2824,7 +2824,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint8getInfo2EPN17btTypedConstrai
   %28 = load i32, ptr %27, align 4, !tbaa !33
   %29 = icmp ne i32 %28, 0
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 44
-  %31 = load i8, ptr %30, align 8, !range !57
+  %31 = load i8, ptr %30, align 8, !range !60
   %32 = icmp ne i8 %31, 0
   %or.cond.not.i.i = select i1 %29, i1 true, i1 %32
   br i1 %or.cond.not.i.i, label %33, label %59
@@ -2837,7 +2837,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint8getInfo2EPN17btTypedConstrai
   %.sroa.2.0.copyload.i.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !8
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %4, align 8
   store <2 x float> %.sroa.2.0.copyload.i.i, ptr %21, align 8
-  %35 = load i32, ptr %22, align 8, !tbaa !46
+  %35 = load i32, ptr %22, align 8, !tbaa !48
   %36 = trunc i64 %indvars.iv.i to i32
   %37 = mul i32 %36, 3
   %38 = add i32 %37, 9
@@ -2847,7 +2847,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint8getInfo2EPN17btTypedConstrai
   br i1 %.not.i, label %41, label %45
 
 41:                                               ; preds = %33
-  %42 = load ptr, ptr %23, align 8, !tbaa !126
+  %42 = load ptr, ptr %23, align 8, !tbaa !129
   %43 = load float, ptr %42, align 4, !tbaa !10
   %44 = shl nuw nsw i64 %indvars.iv.i, 6
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %44
@@ -2860,7 +2860,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint8getInfo2EPN17btTypedConstrai
   br i1 %.not30.i, label %47, label %51
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %23, align 8, !tbaa !126
+  %48 = load ptr, ptr %23, align 8, !tbaa !129
   %49 = load float, ptr %48, align 4, !tbaa !10
   %50 = shl nuw nsw i64 %indvars.iv.i, 6
   %gep33.i = getelementptr inbounds nuw i8, ptr %invariant.gep32.i, i64 %50
@@ -2873,7 +2873,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint8getInfo2EPN17btTypedConstrai
   br i1 %.not31.i, label %53, label %56
 
 53:                                               ; preds = %51
-  %54 = load float, ptr %24, align 4, !tbaa !129
+  %54 = load float, ptr %24, align 4, !tbaa !132
   %55 = shl nuw nsw i64 %indvars.iv.i, 6
   %gep35.i = getelementptr inbounds nuw i8, ptr %invariant.gep34.i, i64 %55
   store float %54, ptr %gep35.i, align 4, !tbaa !28
@@ -2889,7 +2889,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint8getInfo2EPN17btTypedConstrai
   %.1.i = phi i32 [ %58, %56 ], [ %.038.i, %25 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit, label %25, !llvm.loop !130
+  br i1 %exitcond.not.i, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit, label %25, !llvm.loop !133
 
 _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit: ; preds = %59
   %60 = tail call noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef %1, i32 noundef %.1.i, ptr noundef nonnull align 4 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %14)
@@ -2916,7 +2916,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   %72 = load i32, ptr %71, align 4, !tbaa !33
   %73 = icmp ne i32 %72, 0
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 44
-  %75 = load i8, ptr %74, align 8, !range !57
+  %75 = load i8, ptr %74, align 8, !range !60
   %76 = icmp ne i8 %75, 0
   %or.cond.not.i.i35 = select i1 %73, i1 true, i1 %76
   br i1 %or.cond.not.i.i35, label %77, label %103
@@ -2929,7 +2929,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   %.sroa.2.0.copyload.i.i41 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i.i40, align 8, !tbaa !8
   store <2 x float> %.sroa.0.0.copyload.i.i39, ptr %3, align 8
   store <2 x float> %.sroa.2.0.copyload.i.i41, ptr %65, align 8
-  %79 = load i32, ptr %66, align 8, !tbaa !46
+  %79 = load i32, ptr %66, align 8, !tbaa !48
   %80 = trunc i64 %indvars.iv.i33 to i32
   %81 = mul i32 %80, 3
   %82 = add i32 %81, 9
@@ -2939,7 +2939,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   br i1 %.not.i42, label %85, label %89
 
 85:                                               ; preds = %77
-  %86 = load ptr, ptr %67, align 8, !tbaa !126
+  %86 = load ptr, ptr %67, align 8, !tbaa !129
   %87 = load float, ptr %86, align 4, !tbaa !10
   %88 = shl nuw nsw i64 %indvars.iv.i33, 6
   %gep.i47 = getelementptr inbounds nuw i8, ptr %invariant.gep.i30, i64 %88
@@ -2952,7 +2952,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   br i1 %.not30.i43, label %91, label %95
 
 91:                                               ; preds = %89
-  %92 = load ptr, ptr %67, align 8, !tbaa !126
+  %92 = load ptr, ptr %67, align 8, !tbaa !129
   %93 = load float, ptr %92, align 4, !tbaa !10
   %94 = shl nuw nsw i64 %indvars.iv.i33, 6
   %gep33.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep32.i31, i64 %94
@@ -2965,7 +2965,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   br i1 %.not31.i44, label %97, label %100
 
 97:                                               ; preds = %95
-  %98 = load float, ptr %68, align 4, !tbaa !129
+  %98 = load float, ptr %68, align 4, !tbaa !132
   %99 = shl nuw nsw i64 %indvars.iv.i33, 6
   %gep35.i45 = getelementptr inbounds nuw i8, ptr %invariant.gep34.i32, i64 %99
   store float %98, ptr %gep35.i45, align 4, !tbaa !28
@@ -2981,7 +2981,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   %.1.i36 = phi i32 [ %102, %100 ], [ %.038.i34, %69 ]
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 3
-  br i1 %exitcond.not.i38, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit48, label %69, !llvm.loop !130
+  br i1 %exitcond.not.i38, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit48, label %69, !llvm.loop !133
 
 _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit48: ; preds = %103, %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit
   ret void
@@ -3012,7 +3012,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint16setAngularLimitsEPN1
   %21 = load i32, ptr %20, align 4, !tbaa !33
   %22 = icmp ne i32 %21, 0
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 44
-  %24 = load i8, ptr %23, align 8, !range !57
+  %24 = load i8, ptr %23, align 8, !range !60
   %25 = icmp ne i8 %24, 0
   %or.cond.not.i = select i1 %22, i1 true, i1 %25
   br i1 %or.cond.not.i, label %26, label %52
@@ -3025,7 +3025,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint16setAngularLimitsEPN1
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !8
   store <2 x float> %.sroa.0.0.copyload.i, ptr %10, align 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %13, align 8
-  %28 = load i32, ptr %14, align 8, !tbaa !46
+  %28 = load i32, ptr %14, align 8, !tbaa !48
   %29 = trunc i64 %indvars.iv to i32
   %30 = mul i32 %29, 3
   %31 = add i32 %30, 9
@@ -3035,7 +3035,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint16setAngularLimitsEPN1
   br i1 %.not, label %34, label %38
 
 34:                                               ; preds = %26
-  %35 = load ptr, ptr %15, align 8, !tbaa !126
+  %35 = load ptr, ptr %15, align 8, !tbaa !129
   %36 = load float, ptr %35, align 4, !tbaa !10
   %37 = shl nuw nsw i64 %indvars.iv, 6
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %37
@@ -3048,7 +3048,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint16setAngularLimitsEPN1
   br i1 %.not30, label %40, label %44
 
 40:                                               ; preds = %38
-  %41 = load ptr, ptr %15, align 8, !tbaa !126
+  %41 = load ptr, ptr %15, align 8, !tbaa !129
   %42 = load float, ptr %41, align 4, !tbaa !10
   %43 = shl nuw nsw i64 %indvars.iv, 6
   %gep33 = getelementptr inbounds nuw i8, ptr %invariant.gep32, i64 %43
@@ -3061,7 +3061,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint16setAngularLimitsEPN1
   br i1 %.not31, label %46, label %49
 
 46:                                               ; preds = %44
-  %47 = load float, ptr %16, align 4, !tbaa !129
+  %47 = load float, ptr %16, align 4, !tbaa !132
   %48 = shl nuw nsw i64 %indvars.iv, 6
   %gep35 = getelementptr inbounds nuw i8, ptr %invariant.gep34, i64 %48
   store float %47, ptr %gep35, align 4, !tbaa !28
@@ -3077,7 +3077,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint16setAngularLimitsEPN1
   %.1 = phi i32 [ %51, %49 ], [ %.038, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %17, label %18, !llvm.loop !130
+  br i1 %exitcond.not, label %17, label %18, !llvm.loop !133
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3135,10 +3135,10 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit ]
   %.04661 = phi i32 [ %2, %9 ], [ %.2, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit ]
   %50 = getelementptr inbounds nuw [3 x i32], ptr %27, i64 0, i64 %indvars.iv
-  %51 = load i32, ptr %50, align 4, !tbaa !56
+  %51 = load i32, ptr %50, align 4, !tbaa !59
   %52 = icmp eq i32 %51, 0
   %53 = getelementptr inbounds nuw [3 x i8], ptr %28, i64 0, i64 %indvars.iv
-  %54 = load i8, ptr %53, align 1, !tbaa !17, !range !57
+  %54 = load i8, ptr %53, align 1, !tbaa !17, !range !60
   br i1 %52, label %55, label %._crit_edge
 
 55:                                               ; preds = %49
@@ -3151,17 +3151,17 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17
   store i32 %51, ptr %23, align 4, !tbaa !33
   %58 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   %59 = load float, ptr %58, align 4, !tbaa !10
-  store float %59, ptr %30, align 4, !tbaa !111
+  store float %59, ptr %30, align 4, !tbaa !114
   %60 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
   %61 = load float, ptr %60, align 4, !tbaa !10
   store float %61, ptr %24, align 4, !tbaa !34
-  %62 = load float, ptr %32, align 4, !tbaa !131
+  %62 = load float, ptr %32, align 4, !tbaa !134
   store float %62, ptr %21, align 4, !tbaa !31
   store i8 %57, ptr %25, align 4, !tbaa !35
   %63 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
   %64 = load float, ptr %63, align 4, !tbaa !10
   store float %64, ptr %16, align 4, !tbaa !26
-  %65 = load float, ptr %34, align 8, !tbaa !132
+  %65 = load float, ptr %34, align 8, !tbaa !135
   store float %65, ptr %22, align 4, !tbaa !32
   %66 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
   %67 = load float, ptr %66, align 4, !tbaa !10
@@ -3185,7 +3185,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %77, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %11, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %40, align 8
-  %78 = load i32, ptr %41, align 8, !tbaa !46
+  %78 = load i32, ptr %41, align 8, !tbaa !48
   %79 = trunc i64 %indvars.iv to i32
   %80 = mul i32 %79, 3
   %81 = ashr i32 %78, %80
@@ -3198,7 +3198,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17
   br label %87
 
 85:                                               ; preds = %._crit_edge
-  %86 = load ptr, ptr %43, align 8, !tbaa !126
+  %86 = load ptr, ptr %43, align 8, !tbaa !129
   br label %87
 
 87:                                               ; preds = %85, %83
@@ -3214,7 +3214,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17
   br label %94
 
 92:                                               ; preds = %87
-  %93 = load ptr, ptr %43, align 8, !tbaa !126
+  %93 = load ptr, ptr %43, align 8, !tbaa !129
   br label %94
 
 94:                                               ; preds = %92, %90
@@ -3227,7 +3227,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17
   %.in51 = select i1 %.not50, ptr %46, ptr %97
   %98 = load float, ptr %.in51, align 4, !tbaa !10
   store float %98, ptr %18, align 4, !tbaa !28
-  %99 = load i8, ptr %47, align 1, !tbaa !45, !range !57, !noundef !88
+  %99 = load i8, ptr %47, align 1, !tbaa !47, !range !60, !noundef !91
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %112
 
@@ -3264,7 +3264,7 @@ _ZNK25btTranslationalLimitMotor14needApplyForceEi.exit: ; preds = %55, %112
   %.2 = phi i32 [ %.1, %112 ], [ %.04661, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %48, label %49, !llvm.loop !133
+  br i1 %exitcond.not, label %48, label %49, !llvm.loop !136
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3286,7 +3286,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint18getInfo2NonVirtualEPN17btTy
   %19 = load float, ptr %18, align 8, !tbaa !26
   %20 = tail call noundef float @_Z21btAdjustAngleToLimitsfff(float noundef %15, float noundef %17, float noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 52
-  store float %20, ptr %21, align 8, !tbaa !111
+  store float %20, ptr %21, align 8, !tbaa !114
   %22 = load float, ptr %16, align 4, !tbaa !25
   %23 = load float, ptr %18, align 8, !tbaa !26
   %24 = fcmp ogt float %22, %23
@@ -3358,11 +3358,11 @@ define dso_local void @_ZN23btGeneric6DofConstraint18getInfo2NonVirtualEPN17btTy
 _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %25, %34, %36, %38, %47, %49, %51, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %54, label %13, !llvm.loop !134
+  br i1 %exitcond.not, label %54, label %13, !llvm.loop !137
 
 54:                                               ; preds = %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1325
-  %56 = load i8, ptr %55, align 1, !tbaa !45, !range !57, !noundef !88
+  %56 = load i8, ptr %55, align 1, !tbaa !47, !range !60, !noundef !91
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %58, label %100
 
@@ -3385,7 +3385,7 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %25, %34, 
   %67 = load i32, ptr %66, align 4, !tbaa !33
   %68 = icmp ne i32 %67, 0
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 44
-  %70 = load i8, ptr %69, align 8, !range !57
+  %70 = load i8, ptr %69, align 8, !range !60
   %71 = icmp ne i8 %70, 0
   %or.cond.not.i.i35 = select i1 %68, i1 true, i1 %71
   br i1 %or.cond.not.i.i35, label %72, label %98
@@ -3398,7 +3398,7 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %25, %34, 
   %.sroa.2.0.copyload.i.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !8
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %10, align 8
   store <2 x float> %.sroa.2.0.copyload.i.i, ptr %60, align 8
-  %74 = load i32, ptr %61, align 8, !tbaa !46
+  %74 = load i32, ptr %61, align 8, !tbaa !48
   %75 = trunc i64 %indvars.iv.i to i32
   %76 = mul i32 %75, 3
   %77 = add i32 %76, 9
@@ -3408,7 +3408,7 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %25, %34, 
   br i1 %.not.i, label %80, label %84
 
 80:                                               ; preds = %72
-  %81 = load ptr, ptr %62, align 8, !tbaa !126
+  %81 = load ptr, ptr %62, align 8, !tbaa !129
   %82 = load float, ptr %81, align 4, !tbaa !10
   %83 = shl nuw nsw i64 %indvars.iv.i, 6
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %83
@@ -3421,7 +3421,7 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %25, %34, 
   br i1 %.not30.i, label %86, label %90
 
 86:                                               ; preds = %84
-  %87 = load ptr, ptr %62, align 8, !tbaa !126
+  %87 = load ptr, ptr %62, align 8, !tbaa !129
   %88 = load float, ptr %87, align 4, !tbaa !10
   %89 = shl nuw nsw i64 %indvars.iv.i, 6
   %gep33.i = getelementptr inbounds nuw i8, ptr %invariant.gep32.i, i64 %89
@@ -3434,7 +3434,7 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %25, %34, 
   br i1 %.not31.i, label %92, label %95
 
 92:                                               ; preds = %90
-  %93 = load float, ptr %63, align 4, !tbaa !129
+  %93 = load float, ptr %63, align 4, !tbaa !132
   %94 = shl nuw nsw i64 %indvars.iv.i, 6
   %gep35.i = getelementptr inbounds nuw i8, ptr %invariant.gep34.i, i64 %94
   store float %93, ptr %gep35.i, align 4, !tbaa !28
@@ -3450,7 +3450,7 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %25, %34, 
   %.1.i = phi i32 [ %97, %95 ], [ %.038.i, %64 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit, label %64, !llvm.loop !130
+  br i1 %exitcond.not.i, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit, label %64, !llvm.loop !133
 
 _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit: ; preds = %98
   %99 = tail call noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef %1, i32 noundef %.1.i, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
@@ -3476,7 +3476,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   %110 = load i32, ptr %109, align 4, !tbaa !33
   %111 = icmp ne i32 %110, 0
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 44
-  %113 = load i8, ptr %112, align 8, !range !57
+  %113 = load i8, ptr %112, align 8, !range !60
   %114 = icmp ne i8 %113, 0
   %or.cond.not.i.i41 = select i1 %111, i1 true, i1 %114
   br i1 %or.cond.not.i.i41, label %115, label %141
@@ -3489,7 +3489,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   %.sroa.2.0.copyload.i.i47 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i.i46, align 8, !tbaa !8
   store <2 x float> %.sroa.0.0.copyload.i.i45, ptr %9, align 8
   store <2 x float> %.sroa.2.0.copyload.i.i47, ptr %103, align 8
-  %117 = load i32, ptr %104, align 8, !tbaa !46
+  %117 = load i32, ptr %104, align 8, !tbaa !48
   %118 = trunc i64 %indvars.iv.i39 to i32
   %119 = mul i32 %118, 3
   %120 = add i32 %119, 9
@@ -3499,7 +3499,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   br i1 %.not.i48, label %123, label %127
 
 123:                                              ; preds = %115
-  %124 = load ptr, ptr %105, align 8, !tbaa !126
+  %124 = load ptr, ptr %105, align 8, !tbaa !129
   %125 = load float, ptr %124, align 4, !tbaa !10
   %126 = shl nuw nsw i64 %indvars.iv.i39, 6
   %gep.i53 = getelementptr inbounds nuw i8, ptr %invariant.gep.i36, i64 %126
@@ -3512,7 +3512,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   br i1 %.not30.i49, label %129, label %133
 
 129:                                              ; preds = %127
-  %130 = load ptr, ptr %105, align 8, !tbaa !126
+  %130 = load ptr, ptr %105, align 8, !tbaa !129
   %131 = load float, ptr %130, align 4, !tbaa !10
   %132 = shl nuw nsw i64 %indvars.iv.i39, 6
   %gep33.i52 = getelementptr inbounds nuw i8, ptr %invariant.gep32.i37, i64 %132
@@ -3525,7 +3525,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   br i1 %.not31.i50, label %135, label %138
 
 135:                                              ; preds = %133
-  %136 = load float, ptr %106, align 4, !tbaa !129
+  %136 = load float, ptr %106, align 4, !tbaa !132
   %137 = shl nuw nsw i64 %indvars.iv.i39, 6
   %gep35.i51 = getelementptr inbounds nuw i8, ptr %invariant.gep34.i38, i64 %137
   store float %136, ptr %gep35.i51, align 4, !tbaa !28
@@ -3541,7 +3541,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   %.1.i42 = phi i32 [ %140, %138 ], [ %.038.i40, %107 ]
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 3
-  br i1 %exitcond.not.i44, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit54, label %107, !llvm.loop !130
+  br i1 %exitcond.not.i44, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit54, label %107, !llvm.loop !133
 
 _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit54: ; preds = %141, %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit
   ret void
@@ -3551,7 +3551,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
 define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %7, ptr noundef readonly captures(none) %8, i32 noundef %9, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #3 align 2 {
   %14 = alloca %class.btVector3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %16 = load i8, ptr %15, align 4, !tbaa !35, !range !57, !noundef !88
+  %16 = load i8, ptr %15, align 4, !tbaa !35, !range !60, !noundef !91
   %17 = trunc nuw i8 %16 to i1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i32, ptr %18, align 4, !tbaa !33
@@ -3561,17 +3561,17 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %23 = load i32, ptr %22, align 8, !tbaa !135
+  %23 = load i32, ptr %22, align 8, !tbaa !138
   %24 = mul i32 %23, %9
   %.not189 = icmp eq i32 %11, 0
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.in = select i1 %.not189, ptr %26, ptr %25
-  %27 = load ptr, ptr %.in, align 8, !tbaa !136
+  %27 = load ptr, ptr %.in, align 8, !tbaa !139
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.in190 = select i1 %.not189, ptr %29, ptr %28
-  %30 = load ptr, ptr %.in190, align 8, !tbaa !136
+  %30 = load ptr, ptr %.in190, align 8, !tbaa !139
   %31 = load float, ptr %10, align 4, !tbaa !10
   %32 = sext i32 %24 to i64
   %33 = getelementptr inbounds float, ptr %27, i64 %32
@@ -3604,7 +3604,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
 
 53:                                               ; preds = %21
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1325
-  %55 = load i8, ptr %54, align 1, !tbaa !45, !range !57, !noundef !88
+  %55 = load i8, ptr %54, align 1, !tbaa !47, !range !60, !noundef !91
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %174
 
@@ -3662,7 +3662,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %107 = fsub float %94, %104
   %108 = fsub float %99, %105
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %110 = load float, ptr %109, align 4, !tbaa !111
+  %110 = load float, ptr %109, align 4, !tbaa !114
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %112 = load float, ptr %111, align 4, !tbaa !34
   %113 = fsub float %110, %112
@@ -3716,7 +3716,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i259, ptr %.sroa.429.0..sroa_idx, align 8, !tbaa !8
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1304
-  %155 = load i8, ptr %154, align 8, !tbaa !89, !range !57, !noundef !88
+  %155 = load i8, ptr %154, align 8, !tbaa !92, !range !60, !noundef !91
   %156 = trunc nuw i8 %155 to i1
   %157 = icmp eq i32 %12, 0
   %or.cond3.not = and i1 %157, %156
@@ -3741,14 +3741,14 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
 .preheader:                                       ; preds = %158, %57
   %.sroa.8.0 = phi <2 x float> [ %.sroa.8.8.vec.insert, %158 ], [ %.sroa.3.12.vec.insert.i254, %57 ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %158 ], [ %.sroa.0.4.vec.insert.i253, %57 ]
-  %166 = load ptr, ptr %25, align 8, !tbaa !137
+  %166 = load ptr, ptr %25, align 8, !tbaa !140
   %167 = shl nsw i64 %32, 2
   %scevgep = getelementptr i8, ptr %166, i64 %167
   store <2 x float> %.sroa.0.0, ptr %scevgep, align 4, !tbaa !10
   %.sroa.8.0.scevgep.sroa_idx = getelementptr inbounds nuw i8, ptr %scevgep, i64 8
   %.sroa.8.0.vec.extract = extractelement <2 x float> %.sroa.8.0, i64 0
   store float %.sroa.8.0.vec.extract, ptr %.sroa.8.0.scevgep.sroa_idx, align 4, !tbaa !10
-  %168 = load ptr, ptr %28, align 8, !tbaa !138
+  %168 = load ptr, ptr %28, align 8, !tbaa !141
   %invariant.gep = getelementptr float, ptr %168, i64 %32
   br label %169
 
@@ -3761,7 +3761,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   store float %172, ptr %gep, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %173, label %169, !llvm.loop !139
+  br i1 %exitcond.not, label %173, label %169, !llvm.loop !142
 
 173:                                              ; preds = %169
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #25
@@ -3795,7 +3795,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %199 = fneg float %195
   %200 = fmul float %184, %199
   %201 = tail call float @llvm.fmuladd.f32(float %179, float %191, float %200)
-  %202 = load ptr, ptr %25, align 8, !tbaa !137
+  %202 = load ptr, ptr %25, align 8, !tbaa !140
   %203 = getelementptr inbounds float, ptr %202, i64 %32
   store float %194, ptr %203, align 4, !tbaa !10
   %204 = getelementptr inbounds float, ptr %202, i64 %37
@@ -3829,7 +3829,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %230 = fneg float %222
   %231 = fneg float %226
   %232 = fneg float %229
-  %233 = load ptr, ptr %28, align 8, !tbaa !138
+  %233 = load ptr, ptr %28, align 8, !tbaa !141
   %234 = getelementptr inbounds float, ptr %233, i64 %32
   store float %230, ptr %234, align 4, !tbaa !10
   %235 = getelementptr inbounds float, ptr %233, i64 %37
@@ -3847,7 +3847,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %241 = load float, ptr %240, align 4, !tbaa !26
   %242 = fcmp une float %239, %241
   %243 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %244 = load ptr, ptr %243, align 8, !tbaa !140
+  %244 = load ptr, ptr %243, align 8, !tbaa !143
   %245 = getelementptr inbounds float, ptr %244, i64 %32
   store float 0.000000e+00, ptr %245, align 4, !tbaa !10
   %brmerge.not = and i1 %242, %17
@@ -3855,7 +3855,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
 
 .thread367:                                       ; preds = %237
   %246 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %247 = load ptr, ptr %246, align 8, !tbaa !140
+  %247 = load ptr, ptr %246, align 8, !tbaa !143
   %248 = getelementptr inbounds float, ptr %247, i64 %32
   store float 0.000000e+00, ptr %248, align 4, !tbaa !10
   br i1 %17, label %255, label %.thread370
@@ -3864,7 +3864,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %251 = load float, ptr %250, align 4, !tbaa !27
   %252 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %253 = load ptr, ptr %252, align 8, !tbaa !126
+  %253 = load ptr, ptr %252, align 8, !tbaa !129
   %254 = getelementptr inbounds float, ptr %253, i64 %32
   store float %251, ptr %254, align 4, !tbaa !10
   br label %.critedge
@@ -3873,7 +3873,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %257 = load float, ptr %256, align 4, !tbaa !27
   %258 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %259 = load ptr, ptr %258, align 8, !tbaa !126
+  %259 = load ptr, ptr %258, align 8, !tbaa !129
   %260 = getelementptr inbounds float, ptr %259, i64 %32
   store float %257, ptr %260, align 4, !tbaa !10
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3881,18 +3881,18 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %263 = fneg float %262
   %264 = select i1 %.not189, float %263, float %262
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %266 = load float, ptr %265, align 4, !tbaa !111
+  %266 = load float, ptr %265, align 4, !tbaa !114
   %267 = load float, ptr %1, align 4, !tbaa !25
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %269 = load float, ptr %268, align 4, !tbaa !26
-  %270 = load float, ptr %8, align 8, !tbaa !141
+  %270 = load float, ptr %8, align 8, !tbaa !144
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %272 = load float, ptr %271, align 4, !tbaa !28
   %273 = fmul float %270, %272
   %274 = tail call noundef float @_ZN17btTypedConstraint14getMotorFactorEfffff(ptr noundef nonnull align 8 dereferenceable(72) %0, float noundef %266, float noundef %267, float noundef %269, float noundef %264, float noundef %273)
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %276 = load float, ptr %275, align 4, !tbaa !22
-  %277 = load ptr, ptr %246, align 8, !tbaa !140
+  %277 = load ptr, ptr %246, align 8, !tbaa !143
   %278 = getelementptr inbounds float, ptr %277, i64 %32
   %279 = load float, ptr %278, align 4, !tbaa !10
   %280 = tail call float @llvm.fmuladd.f32(float %274, float %276, float %279)
@@ -3900,23 +3900,23 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %282 = load float, ptr %281, align 4, !tbaa !23
   %283 = fneg float %282
-  %284 = load float, ptr %8, align 8, !tbaa !141
+  %284 = load float, ptr %8, align 8, !tbaa !144
   %285 = fdiv float %283, %284
   %286 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %287 = load ptr, ptr %286, align 8, !tbaa !142
+  %287 = load ptr, ptr %286, align 8, !tbaa !145
   %288 = getelementptr inbounds float, ptr %287, i64 %32
   store float %285, ptr %288, align 4, !tbaa !10
   %289 = load float, ptr %281, align 4, !tbaa !23
-  %290 = load float, ptr %8, align 8, !tbaa !141
+  %290 = load float, ptr %8, align 8, !tbaa !144
   %291 = fdiv float %289, %290
   %292 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %293 = load ptr, ptr %292, align 8, !tbaa !143
+  %293 = load ptr, ptr %292, align 8, !tbaa !146
   %294 = getelementptr inbounds float, ptr %293, i64 %32
   store float %291, ptr %294, align 4, !tbaa !10
   br label %.thread370
 
 .critedge:                                        ; preds = %238, %249
-  %295 = load float, ptr %8, align 8, !tbaa !141
+  %295 = load float, ptr %8, align 8, !tbaa !144
   %296 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %297 = load float, ptr %296, align 4, !tbaa !28
   %298 = fmul float %295, %297
@@ -3931,7 +3931,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %306 = load float, ptr %305, align 4, !tbaa !29
   %307 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %308 = load ptr, ptr %307, align 8, !tbaa !126
+  %308 = load ptr, ptr %307, align 8, !tbaa !129
   %309 = getelementptr inbounds float, ptr %308, i64 %32
   store float %306, ptr %309, align 4, !tbaa !10
   %310 = load float, ptr %1, align 4, !tbaa !25
@@ -3942,10 +3942,10 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
 
 314:                                              ; preds = %.critedge
   %315 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %316 = load ptr, ptr %315, align 8, !tbaa !142
+  %316 = load ptr, ptr %315, align 8, !tbaa !145
   %317 = getelementptr inbounds float, ptr %316, i64 %32
   store float 0xC7EFFFFFE0000000, ptr %317, align 4, !tbaa !10
-  %318 = load ptr, ptr %313, align 8, !tbaa !143
+  %318 = load ptr, ptr %313, align 8, !tbaa !146
   %319 = getelementptr inbounds float, ptr %318, i64 %32
   store float 0x47EFFFFFE0000000, ptr %319, align 4, !tbaa !10
   br label %.thread370
@@ -3953,12 +3953,12 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
 320:                                              ; preds = %.critedge
   %321 = icmp eq i32 %19, 1
   %322 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %323 = load ptr, ptr %322, align 8, !tbaa !142
+  %323 = load ptr, ptr %322, align 8, !tbaa !145
   %324 = getelementptr inbounds float, ptr %323, i64 %32
   %. = select i1 %321, float 0.000000e+00, float 0xC7EFFFFFE0000000
   %.409 = select i1 %321, float 0x47EFFFFFE0000000, float 0.000000e+00
   store float %., ptr %324, align 4, !tbaa !10
-  %325 = load ptr, ptr %313, align 8, !tbaa !143
+  %325 = load ptr, ptr %313, align 8, !tbaa !146
   %326 = getelementptr inbounds float, ptr %325, i64 %32
   store float %.409, ptr %326, align 4, !tbaa !10
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4062,10 +4062,10 @@ define dso_local void @_ZN23btGeneric6DofConstraint9setFramesERK11btTransformS2_
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(1333) %0)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !48
+  %22 = load ptr, ptr %21, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !49
+  %25 = load ptr, ptr %24, align 8, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef nonnull align 4 dereferenceable(64) %23, ptr noundef nonnull align 4 dereferenceable(64) %26)
   ret void
@@ -4092,13 +4092,13 @@ define dso_local noundef float @_ZNK23btGeneric6DofConstraint8getAngleEi(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btGeneric6DofConstraint13calcAnchorPosEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1333) initializes((1308, 1324)) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 452
-  %5 = load float, ptr %4, align 4, !tbaa !58
+  %5 = load float, ptr %4, align 4, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %7 = load ptr, ptr %6, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 452
-  %9 = load float, ptr %8, align 4, !tbaa !58
+  %9 = load float, ptr %8, align 4, !tbaa !61
   %10 = fcmp oeq float %9, 0.000000e+00
   %11 = fadd float %5, %9
   %12 = fdiv float %5, %11
@@ -4211,9 +4211,9 @@ define dso_local void @_ZN23btGeneric6DofConstraint8setParamEifi(ptr noundef non
   %33 = mul nuw nsw i32 %3, 3
   %34 = shl nuw nsw i32 %.sink, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  %36 = load i32, ptr %35, align 8, !tbaa !46
+  %36 = load i32, ptr %35, align 8, !tbaa !48
   %37 = or i32 %36, %34
-  store i32 %37, ptr %35, align 8, !tbaa !46
+  store i32 %37, ptr %35, align 8, !tbaa !48
   br label %38
 
 38:                                               ; preds = %.sink.split, %20, %18, %5
@@ -4334,7 +4334,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint7setAxisERK9btVector3S2_(ptr 
   %25 = fmul float %16, %24
   %26 = tail call float @llvm.fmuladd.f32(float %15, float %9, float %25)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !48
+  %28 = load ptr, ptr %27, align 8, !tbaa !50
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -4344,23 +4344,23 @@ define dso_local void @_ZN23btGeneric6DofConstraint7setAxisERK9btVector3S2_(ptr 
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %38 = load float, ptr %29, align 4, !tbaa !10, !noalias !144
-  %39 = load float, ptr %30, align 4, !tbaa !10, !noalias !144
-  %40 = load float, ptr %31, align 4, !tbaa !10, !noalias !144
-  %41 = load float, ptr %32, align 4, !tbaa !10, !noalias !144
-  %42 = load float, ptr %33, align 4, !tbaa !10, !noalias !144
-  %43 = load float, ptr %34, align 4, !tbaa !10, !noalias !144
-  %44 = load float, ptr %35, align 4, !tbaa !10, !noalias !144
-  %45 = load float, ptr %36, align 4, !tbaa !10, !noalias !144
-  %46 = load float, ptr %37, align 4, !tbaa !10, !noalias !144
+  %38 = load float, ptr %29, align 4, !tbaa !10, !noalias !147
+  %39 = load float, ptr %30, align 4, !tbaa !10, !noalias !147
+  %40 = load float, ptr %31, align 4, !tbaa !10, !noalias !147
+  %41 = load float, ptr %32, align 4, !tbaa !10, !noalias !147
+  %42 = load float, ptr %33, align 4, !tbaa !10, !noalias !147
+  %43 = load float, ptr %34, align 4, !tbaa !10, !noalias !147
+  %44 = load float, ptr %35, align 4, !tbaa !10, !noalias !147
+  %45 = load float, ptr %36, align 4, !tbaa !10, !noalias !147
+  %46 = load float, ptr %37, align 4, !tbaa !10, !noalias !147
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %48 = load float, ptr %47, align 4, !tbaa !10, !noalias !149
+  %48 = load float, ptr %47, align 4, !tbaa !10, !noalias !152
   %49 = fneg float %48
   %50 = getelementptr inbounds nuw i8, ptr %28, i64 60
-  %51 = load float, ptr %50, align 4, !tbaa !10, !noalias !149
+  %51 = load float, ptr %50, align 4, !tbaa !10, !noalias !152
   %52 = fneg float %51
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %54 = load float, ptr %53, align 4, !tbaa !10, !noalias !149
+  %54 = load float, ptr %53, align 4, !tbaa !10, !noalias !152
   %55 = fneg float %54
   %56 = fmul float %39, %52
   %57 = tail call float @llvm.fmuladd.f32(float %38, float %49, float %56)
@@ -4442,7 +4442,7 @@ define dso_local void @_ZN23btGeneric6DofConstraint7setAxisERK9btVector3S2_(ptr 
   %.sroa.1980.48..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i, ptr %.sroa.1980.48..sroa_idx, align 8, !tbaa !8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %109 = load ptr, ptr %108, align 8, !tbaa !49
+  %109 = load ptr, ptr %108, align 8, !tbaa !51
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 40
@@ -4452,23 +4452,23 @@ define dso_local void @_ZN23btGeneric6DofConstraint7setAxisERK9btVector3S2_(ptr 
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 48
-  %119 = load float, ptr %110, align 4, !tbaa !10, !noalias !150
-  %120 = load float, ptr %111, align 4, !tbaa !10, !noalias !150
-  %121 = load float, ptr %112, align 4, !tbaa !10, !noalias !150
-  %122 = load float, ptr %113, align 4, !tbaa !10, !noalias !150
-  %123 = load float, ptr %114, align 4, !tbaa !10, !noalias !150
-  %124 = load float, ptr %115, align 4, !tbaa !10, !noalias !150
-  %125 = load float, ptr %116, align 4, !tbaa !10, !noalias !150
-  %126 = load float, ptr %117, align 4, !tbaa !10, !noalias !150
-  %127 = load float, ptr %118, align 4, !tbaa !10, !noalias !150
+  %119 = load float, ptr %110, align 4, !tbaa !10, !noalias !153
+  %120 = load float, ptr %111, align 4, !tbaa !10, !noalias !153
+  %121 = load float, ptr %112, align 4, !tbaa !10, !noalias !153
+  %122 = load float, ptr %113, align 4, !tbaa !10, !noalias !153
+  %123 = load float, ptr %114, align 4, !tbaa !10, !noalias !153
+  %124 = load float, ptr %115, align 4, !tbaa !10, !noalias !153
+  %125 = load float, ptr %116, align 4, !tbaa !10, !noalias !153
+  %126 = load float, ptr %117, align 4, !tbaa !10, !noalias !153
+  %127 = load float, ptr %118, align 4, !tbaa !10, !noalias !153
   %128 = getelementptr inbounds nuw i8, ptr %109, i64 56
-  %129 = load float, ptr %128, align 4, !tbaa !10, !noalias !155
+  %129 = load float, ptr %128, align 4, !tbaa !10, !noalias !158
   %130 = fneg float %129
   %131 = getelementptr inbounds nuw i8, ptr %109, i64 60
-  %132 = load float, ptr %131, align 4, !tbaa !10, !noalias !155
+  %132 = load float, ptr %131, align 4, !tbaa !10, !noalias !158
   %133 = fneg float %132
   %134 = getelementptr inbounds nuw i8, ptr %109, i64 64
-  %135 = load float, ptr %134, align 4, !tbaa !10, !noalias !155
+  %135 = load float, ptr %134, align 4, !tbaa !10, !noalias !158
   %136 = fneg float %135
   %137 = fmul float %120, %133
   %138 = tail call float @llvm.fmuladd.f32(float %119, float %130, float %137)
@@ -4612,12 +4612,12 @@ define linkonce_odr dso_local noundef ptr @_ZNK23btGeneric6DofConstraint9seriali
   store float %12, ptr %13, align 4, !tbaa !10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i, label %10, !llvm.loop !156
+  br i1 %exitcond.not.i.i.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i, label %10, !llvm.loop !159
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit.i.i: ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i, label %7, !llvm.loop !157
+  br i1 %exitcond.not.i.i, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i, label %7, !llvm.loop !160
 
 _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -4632,7 +4632,7 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVe
   store float %18, ptr %19, align 4, !tbaa !10
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
-  br i1 %exitcond.not.i5.i, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit, label %16, !llvm.loop !156
+  br i1 %exitcond.not.i5.i, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit, label %16, !llvm.loop !159
 
 _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -4653,12 +4653,12 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %16
   store float %27, ptr %28, align 4, !tbaa !10
   %indvars.iv.next.i.i.i23 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
   %exitcond.not.i.i.i24 = icmp eq i64 %indvars.iv.next.i.i.i23, 4
-  br i1 %exitcond.not.i.i.i24, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i25, label %25, !llvm.loop !156
+  br i1 %exitcond.not.i.i.i24, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i25, label %25, !llvm.loop !159
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit.i.i25: ; preds = %25
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i21, 1
   %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.next.i.i26, 3
-  br i1 %exitcond.not.i.i27, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i28, label %22, !llvm.loop !157
+  br i1 %exitcond.not.i.i27, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i28, label %22, !llvm.loop !160
 
 _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i28: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4673,7 +4673,7 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i28: ; preds = %_ZNK9bt
   store float %33, ptr %34, align 4, !tbaa !10
   %indvars.iv.next.i4.i30 = add nuw nsw i64 %indvars.iv.i3.i29, 1
   %exitcond.not.i5.i31 = icmp eq i64 %indvars.iv.next.i4.i30, 4
-  br i1 %exitcond.not.i5.i31, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit32.preheader, label %31, !llvm.loop !156
+  br i1 %exitcond.not.i5.i31, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit32.preheader, label %31, !llvm.loop !159
 
 _ZNK11btTransform9serializeER20btTransformFloatData.exit32.preheader: ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 892
@@ -4705,26 +4705,26 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit32: ; preds = %_ZNK11btT
   store float %52, ptr %53, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %54, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit32, !llvm.loop !158
+  br i1 %exitcond.not, label %54, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit32, !llvm.loop !161
 
 54:                                               ; preds = %_ZNK11btTransform9serializeER20btTransformFloatData.exit32
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1324
-  %56 = load i8, ptr %55, align 4, !tbaa !36, !range !57, !noundef !88
+  %56 = load i8, ptr %55, align 4, !tbaa !38, !range !60, !noundef !91
   %57 = zext nneg i8 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  store i32 %57, ptr %58, align 8, !tbaa !159
+  store i32 %57, ptr %58, align 8, !tbaa !162
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1325
-  %60 = load i8, ptr %59, align 1, !tbaa !45, !range !57, !noundef !88
+  %60 = load i8, ptr %59, align 1, !tbaa !47, !range !60, !noundef !91
   %61 = zext nneg i8 %60 to i32
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 260
-  store i32 %61, ptr %62, align 4, !tbaa !167
+  store i32 %61, ptr %62, align 4, !tbaa !170
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK23btGeneric6DofConstraint8getFlagsEv(ptr noundef nonnull align 8 dereferenceable(1333) %0) unnamed_addr #18 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  %3 = load i32, ptr %2, align 8, !tbaa !46
+  %3 = load i32, ptr %2, align 8, !tbaa !48
   ret i32 %3
 }
 
@@ -4826,135 +4826,138 @@ attributes #26 = { noreturn nounwind }
 !33 = !{!20, !21, i64 56}
 !34 = !{!20, !11, i64 48}
 !35 = !{!20, !18, i64 44}
-!36 = !{!37, !18, i64 1324}
-!37 = !{!"_ZTS23btGeneric6DofConstraint", !38, i64 0, !43, i64 72, !43, i64 136, !9, i64 200, !9, i64 452, !13, i64 704, !9, i64 892, !11, i64 1084, !43, i64 1088, !43, i64 1152, !14, i64 1216, !9, i64 1232, !14, i64 1280, !11, i64 1296, !11, i64 1300, !18, i64 1304, !14, i64 1308, !18, i64 1324, !18, i64 1325, !21, i64 1328, !18, i64 1332}
-!38 = !{!"_ZTS17btTypedConstraint", !39, i64 8, !21, i64 12, !9, i64 16, !11, i64 24, !18, i64 28, !18, i64 29, !21, i64 32, !40, i64 40, !40, i64 48, !11, i64 56, !11, i64 60, !42, i64 64}
-!39 = !{!"_ZTS13btTypedObject", !21, i64 0}
-!40 = !{!"p1 _ZTS11btRigidBody", !41, i64 0}
-!41 = !{!"any pointer", !9, i64 0}
-!42 = !{!"p1 _ZTS15btJointFeedback", !41, i64 0}
-!43 = !{!"_ZTS11btTransform", !44, i64 0, !14, i64 48}
-!44 = !{!"_ZTS11btMatrix3x3", !9, i64 0}
-!45 = !{!37, !18, i64 1325}
-!46 = !{!37, !21, i64 1328}
-!47 = !{!37, !18, i64 1332}
-!48 = !{!38, !40, i64 40}
-!49 = !{!38, !40, i64 48}
-!50 = !{!51, !53}
-!51 = distinct !{!51, !52, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
-!52 = distinct !{!52, !"_ZmlRK11btMatrix3x3S1_"}
-!53 = distinct !{!53, !54, !"_ZNK11btTransformmlERKS_: argument 0"}
-!54 = distinct !{!54, !"_ZNK11btTransformmlERKS_"}
-!55 = !{!53}
-!56 = !{!21, !21, i64 0}
-!57 = !{i8 0, i8 2}
-!58 = !{!59, !11, i64 452}
-!59 = !{!"_ZTS11btRigidBody", !60, i64 0, !44, i64 372, !14, i64 420, !14, i64 436, !11, i64 452, !14, i64 456, !14, i64 472, !14, i64 488, !14, i64 504, !14, i64 520, !14, i64 536, !11, i64 552, !11, i64 556, !18, i64 560, !11, i64 564, !11, i64 568, !11, i64 572, !11, i64 576, !11, i64 580, !11, i64 584, !66, i64 592, !67, i64 600, !21, i64 632, !21, i64 636, !14, i64 640, !14, i64 656, !14, i64 672, !14, i64 688, !14, i64 704, !14, i64 720, !21, i64 736, !21, i64 740}
-!60 = !{!"_ZTS17btCollisionObject", !43, i64 8, !43, i64 72, !14, i64 136, !14, i64 152, !14, i64 168, !21, i64 184, !11, i64 188, !61, i64 192, !62, i64 200, !41, i64 208, !62, i64 216, !21, i64 224, !21, i64 228, !21, i64 232, !21, i64 236, !21, i64 240, !11, i64 244, !11, i64 248, !11, i64 252, !11, i64 256, !11, i64 260, !11, i64 264, !11, i64 268, !21, i64 272, !41, i64 280, !21, i64 288, !21, i64 292, !21, i64 296, !11, i64 300, !11, i64 304, !11, i64 308, !21, i64 312, !63, i64 320, !21, i64 352, !14, i64 356}
-!61 = !{!"p1 _ZTS17btBroadphaseProxy", !41, i64 0}
-!62 = !{!"p1 _ZTS16btCollisionShape", !41, i64 0}
-!63 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !64, i64 0, !21, i64 4, !21, i64 8, !65, i64 16, !18, i64 24}
-!64 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
-!65 = !{!"p2 _ZTS17btCollisionObject", !41, i64 0}
-!66 = !{!"p1 _ZTS13btMotionState", !41, i64 0}
-!67 = !{!"_ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !68, i64 0, !21, i64 4, !21, i64 8, !69, i64 16, !18, i64 24}
-!68 = !{!"_ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE"}
-!69 = !{!"p2 _ZTS17btTypedConstraint", !41, i64 0}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZNK11btMatrix3x37inverseEv: argument 0"}
-!72 = distinct !{!72, !"_ZNK11btMatrix3x37inverseEv"}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !18, i64 1324}
+!39 = !{!"_ZTS23btGeneric6DofConstraint", !40, i64 0, !45, i64 72, !45, i64 136, !9, i64 200, !9, i64 452, !13, i64 704, !9, i64 892, !11, i64 1084, !45, i64 1088, !45, i64 1152, !14, i64 1216, !9, i64 1232, !14, i64 1280, !11, i64 1296, !11, i64 1300, !18, i64 1304, !14, i64 1308, !18, i64 1324, !18, i64 1325, !21, i64 1328, !18, i64 1332}
+!40 = !{!"_ZTS17btTypedConstraint", !41, i64 8, !21, i64 12, !9, i64 16, !11, i64 24, !18, i64 28, !18, i64 29, !21, i64 32, !42, i64 40, !42, i64 48, !11, i64 56, !11, i64 60, !44, i64 64}
+!41 = !{!"_ZTS13btTypedObject", !21, i64 0}
+!42 = !{!"p1 _ZTS11btRigidBody", !43, i64 0}
+!43 = !{!"any pointer", !9, i64 0}
+!44 = !{!"p1 _ZTS15btJointFeedback", !43, i64 0}
+!45 = !{!"_ZTS11btTransform", !46, i64 0, !14, i64 48}
+!46 = !{!"_ZTS11btMatrix3x3", !9, i64 0}
+!47 = !{!39, !18, i64 1325}
+!48 = !{!39, !21, i64 1328}
+!49 = !{!39, !18, i64 1332}
+!50 = !{!40, !42, i64 40}
+!51 = !{!40, !42, i64 48}
+!52 = distinct !{!52, !37}
+!53 = !{!54, !56}
+!54 = distinct !{!54, !55, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
+!55 = distinct !{!55, !"_ZmlRK11btMatrix3x3S1_"}
+!56 = distinct !{!56, !57, !"_ZNK11btTransformmlERKS_: argument 0"}
+!57 = distinct !{!57, !"_ZNK11btTransformmlERKS_"}
+!58 = !{!56}
+!59 = !{!21, !21, i64 0}
+!60 = !{i8 0, i8 2}
+!61 = !{!62, !11, i64 452}
+!62 = !{!"_ZTS11btRigidBody", !63, i64 0, !46, i64 372, !14, i64 420, !14, i64 436, !11, i64 452, !14, i64 456, !14, i64 472, !14, i64 488, !14, i64 504, !14, i64 520, !14, i64 536, !11, i64 552, !11, i64 556, !18, i64 560, !11, i64 564, !11, i64 568, !11, i64 572, !11, i64 576, !11, i64 580, !11, i64 584, !69, i64 592, !70, i64 600, !21, i64 632, !21, i64 636, !14, i64 640, !14, i64 656, !14, i64 672, !14, i64 688, !14, i64 704, !14, i64 720, !21, i64 736, !21, i64 740}
+!63 = !{!"_ZTS17btCollisionObject", !45, i64 8, !45, i64 72, !14, i64 136, !14, i64 152, !14, i64 168, !21, i64 184, !11, i64 188, !64, i64 192, !65, i64 200, !43, i64 208, !65, i64 216, !21, i64 224, !21, i64 228, !21, i64 232, !21, i64 236, !21, i64 240, !11, i64 244, !11, i64 248, !11, i64 252, !11, i64 256, !11, i64 260, !11, i64 264, !11, i64 268, !21, i64 272, !43, i64 280, !21, i64 288, !21, i64 292, !21, i64 296, !11, i64 300, !11, i64 304, !11, i64 308, !21, i64 312, !66, i64 320, !21, i64 352, !14, i64 356}
+!64 = !{!"p1 _ZTS17btBroadphaseProxy", !43, i64 0}
+!65 = !{!"p1 _ZTS16btCollisionShape", !43, i64 0}
+!66 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !67, i64 0, !21, i64 4, !21, i64 8, !68, i64 16, !18, i64 24}
+!67 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
+!68 = !{!"p2 _ZTS17btCollisionObject", !43, i64 0}
+!69 = !{!"p1 _ZTS13btMotionState", !43, i64 0}
+!70 = !{!"_ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !71, i64 0, !21, i64 4, !21, i64 8, !72, i64 16, !18, i64 24}
+!71 = !{!"_ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE"}
+!72 = !{!"p2 _ZTS17btTypedConstraint", !43, i64 0}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
-!75 = distinct !{!75, !"_ZmlRK11btMatrix3x3S1_"}
-!76 = !{!77, !79}
+!74 = distinct !{!74, !75, !"_ZNK11btMatrix3x37inverseEv: argument 0"}
+!75 = distinct !{!75, !"_ZNK11btMatrix3x37inverseEv"}
+!76 = !{!77}
 !77 = distinct !{!77, !78, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
 !78 = distinct !{!78, !"_ZmlRK11btMatrix3x3S1_"}
-!79 = distinct !{!79, !80, !"_ZNK11btTransformmlERKS_: argument 0"}
-!80 = distinct !{!80, !"_ZNK11btTransformmlERKS_"}
-!81 = !{!79}
-!82 = !{!83, !85}
-!83 = distinct !{!83, !84, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
-!84 = distinct !{!84, !"_ZmlRK11btMatrix3x3S1_"}
-!85 = distinct !{!85, !86, !"_ZNK11btTransformmlERKS_: argument 0"}
-!86 = distinct !{!86, !"_ZNK11btTransformmlERKS_"}
-!87 = !{!85}
-!88 = !{}
-!89 = !{!37, !18, i64 1304}
-!90 = !{!37, !11, i64 1296}
-!91 = !{!37, !11, i64 1300}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZNK11btMatrix3x37inverseEv: argument 0"}
-!94 = distinct !{!94, !"_ZNK11btMatrix3x37inverseEv"}
-!95 = distinct !{!95, !96}
-!96 = !{!"llvm.loop.mustprogress"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
-!99 = distinct !{!99, !"_ZNK11btMatrix3x39transposeEv"}
+!79 = !{!80, !82}
+!80 = distinct !{!80, !81, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
+!81 = distinct !{!81, !"_ZmlRK11btMatrix3x3S1_"}
+!82 = distinct !{!82, !83, !"_ZNK11btTransformmlERKS_: argument 0"}
+!83 = distinct !{!83, !"_ZNK11btTransformmlERKS_"}
+!84 = !{!82}
+!85 = !{!86, !88}
+!86 = distinct !{!86, !87, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
+!87 = distinct !{!87, !"_ZmlRK11btMatrix3x3S1_"}
+!88 = distinct !{!88, !89, !"_ZNK11btTransformmlERKS_: argument 0"}
+!89 = distinct !{!89, !"_ZNK11btTransformmlERKS_"}
+!90 = !{!88}
+!91 = !{}
+!92 = !{!39, !18, i64 1304}
+!93 = !{!39, !11, i64 1296}
+!94 = !{!39, !11, i64 1300}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZNK11btMatrix3x37inverseEv: argument 0"}
+!97 = distinct !{!97, !"_ZNK11btMatrix3x37inverseEv"}
+!98 = distinct !{!98, !99, !37}
+!99 = !{!"llvm.loop.mustprogress"}
 !100 = !{!101}
 !101 = distinct !{!101, !102, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
 !102 = distinct !{!102, !"_ZNK11btMatrix3x39transposeEv"}
-!103 = !{!104, !11, i64 80}
-!104 = !{!"_ZTS15btJacobianEntry", !14, i64 0, !14, i64 16, !14, i64 32, !14, i64 48, !14, i64 64, !11, i64 80}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
-!107 = distinct !{!107, !"_ZNK11btMatrix3x39transposeEv"}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
+!105 = distinct !{!105, !"_ZNK11btMatrix3x39transposeEv"}
+!106 = !{!107, !11, i64 80}
+!107 = !{!"_ZTS15btJacobianEntry", !14, i64 0, !14, i64 16, !14, i64 32, !14, i64 48, !14, i64 64, !11, i64 80}
 !108 = !{!109}
 !109 = distinct !{!109, !110, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
 !110 = distinct !{!110, !"_ZNK11btMatrix3x39transposeEv"}
-!111 = !{!20, !11, i64 52}
-!112 = distinct !{!112, !96}
-!113 = distinct !{!113, !96}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
-!116 = distinct !{!116, !"_ZNK11btMatrix3x39transposeEv"}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
+!113 = distinct !{!113, !"_ZNK11btMatrix3x39transposeEv"}
+!114 = !{!20, !11, i64 52}
+!115 = distinct !{!115, !99, !37}
+!116 = distinct !{!116, !99, !37}
 !117 = !{!118}
 !118 = distinct !{!118, !119, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
 !119 = distinct !{!119, !"_ZNK11btMatrix3x39transposeEv"}
-!120 = distinct !{!120, !96}
-!121 = !{!122, !21, i64 0}
-!122 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo1E", !21, i64 0, !21, i64 4}
-!123 = !{!122, !21, i64 4}
-!124 = distinct !{!124, !96}
-!125 = distinct !{!125, !96}
-!126 = !{!127, !128, i64 56}
-!127 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo2E", !11, i64 0, !11, i64 4, !128, i64 8, !128, i64 16, !128, i64 24, !128, i64 32, !21, i64 40, !128, i64 48, !128, i64 56, !128, i64 64, !128, i64 72, !21, i64 80, !11, i64 84}
-!128 = !{!"p1 float", !41, i64 0}
-!129 = !{!127, !11, i64 4}
-!130 = distinct !{!130, !96}
-!131 = !{!37, !11, i64 756}
-!132 = !{!37, !11, i64 752}
-!133 = distinct !{!133, !96}
-!134 = distinct !{!134, !96}
-!135 = !{!127, !21, i64 40}
-!136 = !{!128, !128, i64 0}
-!137 = !{!127, !128, i64 16}
-!138 = !{!127, !128, i64 32}
-!139 = distinct !{!139, !96}
-!140 = !{!127, !128, i64 48}
-!141 = !{!127, !11, i64 0}
-!142 = !{!127, !128, i64 64}
-!143 = !{!127, !128, i64 72}
-!144 = !{!145, !147}
-!145 = distinct !{!145, !146, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
-!146 = distinct !{!146, !"_ZNK11btMatrix3x39transposeEv"}
-!147 = distinct !{!147, !148, !"_ZNK11btTransform7inverseEv: argument 0"}
-!148 = distinct !{!148, !"_ZNK11btTransform7inverseEv"}
-!149 = !{!147}
-!150 = !{!151, !153}
-!151 = distinct !{!151, !152, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
-!152 = distinct !{!152, !"_ZNK11btMatrix3x39transposeEv"}
-!153 = distinct !{!153, !154, !"_ZNK11btTransform7inverseEv: argument 0"}
-!154 = distinct !{!154, !"_ZNK11btTransform7inverseEv"}
-!155 = !{!153}
-!156 = distinct !{!156, !96}
-!157 = distinct !{!157, !96}
-!158 = distinct !{!158, !96}
-!159 = !{!160, !21, i64 256}
-!160 = !{!"_ZTS27btGeneric6DofConstraintData", !161, i64 0, !164, i64 64, !164, i64 128, !166, i64 192, !166, i64 208, !166, i64 224, !166, i64 240, !21, i64 256, !21, i64 260}
-!161 = !{!"_ZTS21btTypedConstraintData", !162, i64 0, !162, i64 8, !163, i64 16, !21, i64 24, !21, i64 28, !21, i64 32, !21, i64 36, !11, i64 40, !11, i64 44, !21, i64 48, !21, i64 52, !11, i64 56, !21, i64 60}
-!162 = !{!"p1 _ZTS20btRigidBodyFloatData", !41, i64 0}
-!163 = !{!"p1 omnipotent char", !41, i64 0}
-!164 = !{!"_ZTS20btTransformFloatData", !165, i64 0, !166, i64 48}
-!165 = !{!"_ZTS20btMatrix3x3FloatData", !9, i64 0}
-!166 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
-!167 = !{!160, !21, i64 260}
+!120 = !{!121}
+!121 = distinct !{!121, !122, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
+!122 = distinct !{!122, !"_ZNK11btMatrix3x39transposeEv"}
+!123 = distinct !{!123, !99, !37}
+!124 = !{!125, !21, i64 0}
+!125 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo1E", !21, i64 0, !21, i64 4}
+!126 = !{!125, !21, i64 4}
+!127 = distinct !{!127, !99, !37}
+!128 = distinct !{!128, !99, !37}
+!129 = !{!130, !131, i64 56}
+!130 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo2E", !11, i64 0, !11, i64 4, !131, i64 8, !131, i64 16, !131, i64 24, !131, i64 32, !21, i64 40, !131, i64 48, !131, i64 56, !131, i64 64, !131, i64 72, !21, i64 80, !11, i64 84}
+!131 = !{!"p1 float", !43, i64 0}
+!132 = !{!130, !11, i64 4}
+!133 = distinct !{!133, !99, !37}
+!134 = !{!39, !11, i64 756}
+!135 = !{!39, !11, i64 752}
+!136 = distinct !{!136, !99, !37}
+!137 = distinct !{!137, !99, !37}
+!138 = !{!130, !21, i64 40}
+!139 = !{!131, !131, i64 0}
+!140 = !{!130, !131, i64 16}
+!141 = !{!130, !131, i64 32}
+!142 = distinct !{!142, !99, !37}
+!143 = !{!130, !131, i64 48}
+!144 = !{!130, !11, i64 0}
+!145 = !{!130, !131, i64 64}
+!146 = !{!130, !131, i64 72}
+!147 = !{!148, !150}
+!148 = distinct !{!148, !149, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
+!149 = distinct !{!149, !"_ZNK11btMatrix3x39transposeEv"}
+!150 = distinct !{!150, !151, !"_ZNK11btTransform7inverseEv: argument 0"}
+!151 = distinct !{!151, !"_ZNK11btTransform7inverseEv"}
+!152 = !{!150}
+!153 = !{!154, !156}
+!154 = distinct !{!154, !155, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
+!155 = distinct !{!155, !"_ZNK11btMatrix3x39transposeEv"}
+!156 = distinct !{!156, !157, !"_ZNK11btTransform7inverseEv: argument 0"}
+!157 = distinct !{!157, !"_ZNK11btTransform7inverseEv"}
+!158 = !{!156}
+!159 = distinct !{!159, !99, !37}
+!160 = distinct !{!160, !99, !37}
+!161 = distinct !{!161, !99, !37}
+!162 = !{!163, !21, i64 256}
+!163 = !{!"_ZTS27btGeneric6DofConstraintData", !164, i64 0, !167, i64 64, !167, i64 128, !169, i64 192, !169, i64 208, !169, i64 224, !169, i64 240, !21, i64 256, !21, i64 260}
+!164 = !{!"_ZTS21btTypedConstraintData", !165, i64 0, !165, i64 8, !166, i64 16, !21, i64 24, !21, i64 28, !21, i64 32, !21, i64 36, !11, i64 40, !11, i64 44, !21, i64 48, !21, i64 52, !11, i64 56, !21, i64 60}
+!165 = !{!"p1 _ZTS20btRigidBodyFloatData", !43, i64 0}
+!166 = !{!"p1 omnipotent char", !43, i64 0}
+!167 = !{!"_ZTS20btTransformFloatData", !168, i64 0, !169, i64 48}
+!168 = !{!"_ZTS20btMatrix3x3FloatData", !9, i64 0}
+!169 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
+!170 = !{!163, !21, i64 260}

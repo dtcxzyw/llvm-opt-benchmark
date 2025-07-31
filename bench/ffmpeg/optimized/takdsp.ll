@@ -59,7 +59,7 @@ define internal void @decorrelate_sr(ptr noundef captures(none) %0, ptr noundef 
   store i32 %9, ptr %5, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -87,7 +87,7 @@ define internal void @decorrelate_sm(ptr noundef captures(none) %0, ptr noundef 
   store i32 %11, ptr %7, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -117,7 +117,7 @@ define internal void @decorrelate_sf(ptr noundef captures(none) %0, ptr noundef 
   store i32 %16, ptr %7, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -142,8 +142,9 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !11 = !{!5, !6, i64 24}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}

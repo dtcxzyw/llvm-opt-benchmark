@@ -436,7 +436,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not70 = icmp eq ptr %63, %19
-  br i1 %.not70, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not70, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .thread:                                          ; preds = %57, %59
   %64 = phi i32 [ %48, %59 ], [ %52, %57 ]
@@ -445,7 +445,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not7094 = icmp eq ptr %66, %19
-  br i1 %.not7094, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !6
+  br i1 %.not7094, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %61
   br i1 %.084.ph, label %._crit_edge.thread, label %.critedge
@@ -487,7 +487,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.187, i64 8
   %83 = load ptr, ptr %82, align 8
   %.not72 = icmp eq ptr %83, %19
-  br i1 %.not72, label %._crit_edge90, label %.lr.ph89, !llvm.loop !7
+  br i1 %.not72, label %._crit_edge90, label %.lr.ph89, !llvm.loop !8
 
 ._crit_edge90:                                    ; preds = %81, %._crit_edge.thread
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -612,7 +612,7 @@ BufferGetPage.exit.i:                             ; preds = %110, %104
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.0.039.i, i64 8
   %149 = load ptr, ptr %148, align 8
   %.not35.i = icmp eq ptr %149, %19
-  br i1 %.not35.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not35.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %147
   %150 = trunc i32 %.130.i to i16
@@ -736,7 +736,7 @@ dlist_push_tail.exit:                             ; preds = %.lr.ph, %26
   %35 = getelementptr inbounds nuw i8, ptr %.036, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = icmp ult ptr %36, %17
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 38:                                               ; preds = %1
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -823,7 +823,7 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef captures(a
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.093, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not66 = icmp eq ptr %8, %0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.057.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %.lr.ph ]
@@ -945,7 +945,7 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef captures(a
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.197, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not68 = icmp eq ptr %68, %0
-  br i1 %.not68, label %._crit_edge101, label %.lr.ph100, !llvm.loop !11
+  br i1 %.not68, label %._crit_edge101, label %.lr.ph100, !llvm.loop !12
 
 ._crit_edge101:                                   ; preds = %66, %._crit_edge
   %.058.lcssa = phi ptr [ %13, %._crit_edge ], [ %.159, %66 ]
@@ -1083,7 +1083,7 @@ define dso_local i32 @createPostingTree(ptr noundef %0, ptr noundef %1, i32 noun
   call void @pfree(ptr noundef nonnull %20) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   %34 = icmp ult i32 %33, %2
-  br i1 %34, label %.lr.ph, label %.loopexit
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %29, %5, %.thread
   %.06478 = phi i32 [ %.06479, %.thread ], [ 0, %5 ], [ %27, %29 ]
@@ -1254,7 +1254,7 @@ BufferGetPage.exit:                               ; preds = %40, %46
   %120 = load i32, ptr %112, align 4
   %121 = load i32, ptr %111, align 8
   %122 = icmp ult i32 %120, %121
-  br i1 %122, label %114, label %ginInsertItemPointers.exit, !llvm.loop !12
+  br i1 %122, label %114, label %ginInsertItemPointers.exit, !llvm.loop !14
 
 ginInsertItemPointers.exit:                       ; preds = %114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
@@ -1336,7 +1336,7 @@ define dso_local void @ginInsertItemPointers(ptr noundef %0, i32 noundef %1, ptr
   %31 = load i32, ptr %23, align 4
   %32 = load i32, ptr %22, align 8
   %33 = icmp ult i32 %31, %32
-  br i1 %33, label %25, label %._crit_edge, !llvm.loop !12
+  br i1 %33, label %25, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %25, %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
@@ -1411,7 +1411,7 @@ define internal i32 @dataLocateItem(ptr noundef %0, ptr noundef captures(none) %
 BufferGetPage.exit:                               ; preds = %6, %12
   %.0.i.i = phi ptr [ %11, %6 ], [ %17, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = load i8, ptr %18, align 8, !range !13, !noundef !14
+  %19 = load i8, ptr %18, align 8, !range !15, !noundef !16
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %36
 
@@ -1657,7 +1657,7 @@ define internal zeroext i16 @dataFindChildPtr(ptr readnone captures(none) %0, pt
   %35 = zext i16 %.val41 to i32
   %36 = or disjoint i32 %34, %35
   %37 = icmp eq i32 %36, %2
-  br i1 %37, label %.loopexit, label %27, !llvm.loop !15
+  br i1 %37, label %.loopexit, label %27, !llvm.loop !17
 
 38:                                               ; preds = %27
   %39 = trunc nuw i32 %16 to i16
@@ -1690,7 +1690,7 @@ define internal zeroext i16 @dataFindChildPtr(ptr readnone captures(none) %0, pt
 52:                                               ; preds = %42
   %53 = add i16 %.147, 1
   %.not38 = icmp ugt i16 %53, %.0
-  br i1 %.not38, label %.loopexit, label %42, !llvm.loop !16
+  br i1 %.not38, label %.loopexit, label %42, !llvm.loop !18
 
 .loopexit:                                        ; preds = %28, %42, %52, %40, %13
   %.030 = phi i16 [ %3, %13 ], [ 0, %40 ], [ %.147, %42 ], [ 0, %52 ], [ %.029, %28 ]
@@ -1802,7 +1802,7 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
 75:                                               ; preds = %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %62
-  br i1 %exitcond.not.i, label %.loopexit15.i, label %63, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.loopexit15.i, label %63, !llvm.loop !19
 
 .loopexit15.i.loopexit.split.loop.exit:           ; preds = %63
   %76 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2011,7 +2011,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %152, %144
 185:                                              ; preds = %173
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %172
-  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %173, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %173, !llvm.loop !20
 
 .critedge.loopexit.split.loop.exit.i.i:           ; preds = %173
   %186 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -2180,7 +2180,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %152, %144
   %.177127.i.i = phi i32 [ %.076136.i.i, %.thread119.i.i ], [ %261, %._crit_edge143.i.i ]
   %.2126.i.i = phi i1 [ %.080135.i.i, %.thread119.i.i ], [ %.3.i.i, %._crit_edge143.i.i ]
   %.not91.i.i = icmp eq ptr %266, %77
-  br i1 %.not91.i.i, label %addItemsToLeaf.exit.i, label %.preheader.i.i, !llvm.loop !19
+  br i1 %.not91.i.i, label %addItemsToLeaf.exit.i, label %.preheader.i.i, !llvm.loop !21
 
 addItemsToLeaf.exit.i:                            ; preds = %265, %260
   %.0.i.i19 = phi i1 [ %.2126.i.i, %265 ], [ %.3.i.i, %260 ]
@@ -2415,7 +2415,7 @@ addItemsToLeaf.exit.thread.i:                     ; preds = %addItemsToLeaf.exit
   store ptr %372, ptr %369, align 8
   %.0112.val129.i.i = load ptr, ptr %272, align 8
   %.not146.i.i = icmp eq ptr %.0112.val129.i.i, %77
-  br i1 %.not146.i.i, label %.loopexit.thread.i.i, label %.lr.ph161.i.i, !llvm.loop !20
+  br i1 %.not146.i.i, label %.loopexit.thread.i.i, label %.lr.ph161.i.i, !llvm.loop !22
 
 .loopexit.thread.i.i:                             ; preds = %.lr.ph161.i.i, %367
   %.0112.val129.lcssa.i.i = phi ptr [ %.0112.val129158.i.i, %367 ], [ %.0112.val129.i.i, %.lr.ph161.i.i ]
@@ -2495,7 +2495,7 @@ addItemsToLeaf.exit.thread.i:                     ; preds = %addItemsToLeaf.exit
   %399 = getelementptr inbounds nuw i8, ptr %.sroa.0.0165.i.i, i64 8
   %400 = load ptr, ptr %399, align 8
   %.not126.i.i = icmp eq ptr %400, %77
-  br i1 %.not126.i.i, label %leafRepackItems.exit.i, label %.lr.ph166.i.i, !llvm.loop !21
+  br i1 %.not126.i.i, label %leafRepackItems.exit.i, label %.lr.ph166.i.i, !llvm.loop !23
 
 leafRepackItems.exit.i:                           ; preds = %398, %380
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
@@ -2557,7 +2557,7 @@ leafRepackItems.exit.i:                           ; preds = %398, %380
 428:                                              ; preds = %417
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next50, %413
-  br i1 %exitcond40.not.i, label %._crit_edge.thread44.i, label %417, !llvm.loop !22
+  br i1 %exitcond40.not.i, label %._crit_edge.thread44.i, label %417, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %417
   %429 = trunc nuw nsw i64 %indvars.iv49 to i32
@@ -2604,7 +2604,7 @@ leafRepackItems.exit.i:                           ; preds = %398, %380
 
 452:                                              ; preds = %448, %441
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %454 = load i8, ptr %453, align 1, !range !13, !noundef !14
+  %454 = load i8, ptr %453, align 1, !range !15, !noundef !16
   %455 = trunc nuw i8 %454 to i1
   br i1 %455, label %457, label %456
 
@@ -2647,7 +2647,7 @@ leafRepackItems.exit.i:                           ; preds = %398, %380
 
 479:                                              ; preds = %._crit_edge.thread44.i
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %481 = load i8, ptr %480, align 1, !range !13, !noundef !14
+  %481 = load i8, ptr %480, align 1, !range !15, !noundef !16
   %482 = trunc nuw i8 %481 to i1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %77, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
@@ -2701,7 +2701,7 @@ leafRepackItems.exit.i:                           ; preds = %398, %380
   store ptr %.val139.i, ptr %.phi.trans.insert.i, align 8
   %.val140.i = load ptr, ptr %.val139.i, align 8
   %.not5.i = icmp eq ptr %.val140.i, %77
-  br i1 %.not5.i, label %.loopexit.i, label %484, !llvm.loop !23
+  br i1 %.not5.i, label %.loopexit.i, label %484, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %505, %488, %.preheader.i, %479
   %506 = phi ptr [ %.pre.i, %.preheader.i ], [ %.pre.i, %479 ], [ %485, %488 ], [ %.val139.i, %505 ]
@@ -2782,7 +2782,7 @@ leafRepackItems.exit.i:                           ; preds = %398, %380
   %.046.in.i.i = getelementptr i8, ptr %.04659.i.i, i64 8
   %.046.i.i = load ptr, ptr %.046.in.i.i, align 8
   %.not.i163.i = icmp eq ptr %.046.i.i, %.val.i161.i
-  br i1 %.not.i163.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i162.i, !llvm.loop !24
+  br i1 %.not.i163.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i162.i, !llvm.loop !26
 
 ._crit_edge.loopexit.i.i:                         ; preds = %542
   %543 = trunc i32 %.143.i.i to i16
@@ -2827,7 +2827,7 @@ leafRepackItems.exit.i:                           ; preds = %398, %380
   %563 = getelementptr i8, ptr %.147.i.i, i64 8
   %.147.val.i.i = load ptr, ptr %563, align 8
   %.not53.i.i = icmp eq ptr %.147.val.i.i, %77
-  br i1 %.not53.i.i, label %dataPlaceToPageLeafSplit.exit.i, label %547
+  br i1 %.not53.i.i, label %dataPlaceToPageLeafSplit.exit.i, label %547, !llvm.loop !27
 
 dataPlaceToPageLeafSplit.exit.i:                  ; preds = %562
   %564 = getelementptr inbounds nuw i8, ptr %522, i64 24
@@ -2957,7 +2957,7 @@ BufferGetPage.exit.i.i:                           ; preds = %BufferGetPage.exit.
   %641 = getelementptr inbounds nuw i8, ptr %633, i64 2
   store i16 %640, ptr %641, align 2
   %642 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %643 = load i8, ptr %642, align 1, !range !13, !noundef !14
+  %643 = load i8, ptr %642, align 1, !range !15, !noundef !16
   %644 = trunc nuw i8 %643 to i1
   br i1 %644, label %645, label %662
 
@@ -3150,7 +3150,7 @@ BufferGetPage.exit.i.i:                           ; preds = %BufferGetPage.exit.
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.039.i.i, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not35.i.i = icmp eq ptr %64, %5
-  br i1 %.not35.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not35.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i:                         ; preds = %62
   %65 = trunc i32 %.130.i.i to i16
@@ -3190,7 +3190,7 @@ dataPlaceToPageLeafRecompress.exit.i:             ; preds = %._crit_edge.loopexi
 
 86:                                               ; preds = %82, %75
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %88 = load i8, ptr %87, align 1, !range !13, !noundef !14
+  %88 = load i8, ptr %87, align 1, !range !15, !noundef !16
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %dataExecPlaceToPageLeaf.exit, label %90
 
@@ -3289,7 +3289,7 @@ GinDataPageAddPostingItem.exit.i:                 ; preds = %122, %115, %111
 
 149:                                              ; preds = %145, %138
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %151 = load i8, ptr %150, align 1, !range !13, !noundef !14
+  %151 = load i8, ptr %150, align 1, !range !15, !noundef !16
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %dataExecPlaceToPageLeaf.exit, label %153
 
@@ -3378,24 +3378,27 @@ attributes #12 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !6}

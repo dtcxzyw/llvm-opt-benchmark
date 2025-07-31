@@ -334,7 +334,7 @@ define internal fastcc zeroext i1 @parse_vms_packet(ptr noundef %0, ptr noundef 
   %49 = getelementptr i8, ptr %.074147, i64 1
   %50 = load i8, ptr %49, align 1
   %.not86 = icmp eq i8 %50, 0
-  br i1 %.not86, label %._crit_edge150, label %.lr.ph149, !llvm.loop !8
+  br i1 %.not86, label %._crit_edge150, label %.lr.ph149, !llvm.loop !9
 
 ._crit_edge150:                                   ; preds = %48, %40
   store i32 -13, ptr %2, align 4
@@ -385,7 +385,7 @@ define internal fastcc zeroext i1 @parse_vms_packet(ptr noundef %0, ptr noundef 
   %71 = getelementptr i8, ptr %.01528.i, i64 1
   %72 = load i8, ptr %71, align 1
   %.not.i = icmp eq i8 %72, 0
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %70, %.lr.ph.i, %63
   %.015.lcssa.i = phi ptr [ %6, %63 ], [ %.01528.i, %.lr.ph.i ], [ %71, %70 ]
@@ -413,7 +413,7 @@ define internal fastcc zeroext i1 @parse_vms_packet(ptr noundef %0, ptr noundef 
   %80 = add nuw nsw i32 %.01432.i, 1
   %81 = getelementptr i8, ptr %.231.i, i64 1
   %exitcond.not.i = icmp eq i32 %80, 8
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %73, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %73, !llvm.loop !11
 
 .preheader.preheader.i:                           ; preds = %79
   %scevgep39.i = getelementptr i8, ptr %.11635.i, i64 11
@@ -430,12 +430,12 @@ define internal fastcc zeroext i1 @parse_vms_packet(ptr noundef %0, ptr noundef 
   %84 = add nuw nsw i32 %.134.i, 1
   %85 = getelementptr i8, ptr %.333.i, i64 1
   %exitcond40.not.i = icmp eq i32 %84, 3
-  br i1 %exitcond40.not.i, label %86, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond40.not.i, label %86, label %.preheader.i, !llvm.loop !12
 
 86:                                               ; preds = %83
   %87 = add nuw nsw i32 %.036.i, 1
   %exitcond42.not.i = icmp eq i32 %87, 4
-  br i1 %exitcond42.not.i, label %isdumpline.exit, label %.preheader21.i, !llvm.loop !12
+  br i1 %exitcond42.not.i, label %isdumpline.exit, label %.preheader21.i, !llvm.loop !13
 
 isdumpline.exit:                                  ; preds = %86
   %88 = load i8, ptr %scevgep41.i, align 1
@@ -449,7 +449,7 @@ isdumpline.exit:                                  ; preds = %86
 .backedge:                                        ; preds = %73, %.preheader.i, %isdumpline.exit
   %94 = call ptr @file_gets(ptr noundef nonnull %6, i32 noundef 240, ptr noundef %0)
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %._crit_edge, label %25, !llvm.loop !13
+  br i1 %95, label %._crit_edge, label %25, !llvm.loop !14
 
 .loopexit:                                        ; preds = %isdumpline.exit, %53, %56
   br i1 %.not84.not, label %96, label %98
@@ -529,7 +529,7 @@ isdumpline.exit:                                  ; preds = %86
   %134 = add i32 %.073156, 16
   %135 = load i32, ptr %7, align 4
   %136 = icmp ult i32 %134, %135
-  br i1 %136, label %137, label %._crit_edge160, !llvm.loop !14
+  br i1 %136, label %137, label %._crit_edge160, !llvm.loop !15
 
 137:                                              ; preds = %.lr.ph159, %133
   %.072157 = phi i32 [ 0, %.lr.ph159 ], [ %.1, %133 ]
@@ -569,7 +569,7 @@ isdumpline.exit:                                  ; preds = %86
   %152 = getelementptr i8, ptr %.01528.i104, i64 1
   %153 = load i8, ptr %152, align 1
   %.not.i127 = icmp eq i8 %153, 0
-  br i1 %.not.i127, label %.critedge.i106, label %.lr.ph.i103, !llvm.loop !9
+  br i1 %.not.i127, label %.critedge.i106, label %.lr.ph.i103, !llvm.loop !10
 
 .critedge.i106:                                   ; preds = %151, %.lr.ph.i103, %.preheader136
   %.015.lcssa.i107 = phi ptr [ %6, %.preheader136 ], [ %.01528.i104, %.lr.ph.i103 ], [ %152, %151 ]
@@ -597,7 +597,7 @@ isdumpline.exit:                                  ; preds = %86
   %161 = add nuw nsw i32 %.01432.i113, 1
   %162 = getelementptr i8, ptr %.231.i114, i64 1
   %exitcond.not.i116 = icmp eq i32 %161, 8
-  br i1 %exitcond.not.i116, label %.preheader.preheader.i117, label %154, !llvm.loop !10
+  br i1 %exitcond.not.i116, label %.preheader.preheader.i117, label %154, !llvm.loop !11
 
 .preheader.preheader.i117:                        ; preds = %160
   %scevgep39.i118 = getelementptr i8, ptr %.11635.i111, i64 11
@@ -614,12 +614,12 @@ isdumpline.exit:                                  ; preds = %86
   %165 = add nuw nsw i32 %.134.i120, 1
   %166 = getelementptr i8, ptr %.333.i121, i64 1
   %exitcond40.not.i124 = icmp eq i32 %165, 3
-  br i1 %exitcond40.not.i124, label %167, label %.preheader.i119, !llvm.loop !11
+  br i1 %exitcond40.not.i124, label %167, label %.preheader.i119, !llvm.loop !12
 
 167:                                              ; preds = %164
   %168 = add nuw nsw i32 %.036.i110, 1
   %exitcond42.not.i125 = icmp eq i32 %168, 4
-  br i1 %exitcond42.not.i125, label %isdumpline.exit128, label %.preheader21.i109, !llvm.loop !12
+  br i1 %exitcond42.not.i125, label %isdumpline.exit128, label %.preheader21.i109, !llvm.loop !13
 
 isdumpline.exit128:                               ; preds = %167
   %169 = load i8, ptr %scevgep41.i108, align 1
@@ -651,7 +651,7 @@ isdumpline.exit128.thread:                        ; preds = %154, %.preheader.i1
 
 182:                                              ; preds = %isdumpline.exit128.thread
   store i8 0, ptr %20, align 16
-  br label %.preheader136, !llvm.loop !15
+  br label %.preheader136, !llvm.loop !16
 
 .lr.ph153:                                        ; preds = %.preheader, %188
   %183 = phi i8 [ %192, %188 ], [ %176, %.preheader ]
@@ -669,7 +669,7 @@ isdumpline.exit128.thread:                        ; preds = %154, %.preheader.i1
   %191 = getelementptr [241 x i8], ptr %6, i64 0, i64 %190
   %192 = load i8, ptr %191, align 1
   %.not94 = icmp eq i8 %192, 0
-  br i1 %.not94, label %.critedge3, label %.lr.ph153, !llvm.loop !16
+  br i1 %.not94, label %.critedge3, label %.lr.ph153, !llvm.loop !17
 
 .critedge3:                                       ; preds = %188, %.lr.ph153, %.preheader, %143
   %.1 = phi i32 [ %.072157, %143 ], [ %.072157, %.preheader ], [ %189, %188 ], [ %.2152, %.lr.ph153 ]
@@ -715,7 +715,7 @@ isdumpline.exit128.thread:                        ; preds = %154, %.preheader.i1
   store i8 %216, ptr %217, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i131 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i131, label %parse_single_hex_dump_line.exit, label %204, !llvm.loop !17
+  br i1 %exitcond.not.i131, label %parse_single_hex_dump_line.exit, label %204, !llvm.loop !18
 
 parse_single_hex_dump_line.exit:                  ; preds = %204, %.critedge3
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #8
@@ -796,15 +796,16 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

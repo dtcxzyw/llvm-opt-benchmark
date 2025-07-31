@@ -286,7 +286,7 @@ define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) 
   br i1 %.not2425, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %35 = load i8, ptr %4, align 1, !range !8
+  %35 = load i8, ptr %4, align 1, !range !9
   %.fr27 = freeze i8 %35
   %36 = icmp eq i8 %.fr27, 0
   br i1 %36, label %.lr.ph.split.us, label %.lr.ph.split
@@ -309,7 +309,7 @@ modify_time_perform.exit.us:                      ; preds = %40, %.lr.ph.split.u
   %43 = add i32 %.01726.us, 1
   %44 = load i32, ptr %33, align 8
   %.not24.us = icmp ugt i32 %43, %44
-  br i1 %.not24.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %.not24.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %modify_time_perform.exit
   %.01726 = phi i32 [ %51, %modify_time_perform.exit ], [ 1, %.lr.ph ]
@@ -329,7 +329,7 @@ modify_time_perform.exit:                         ; preds = %48, %.lr.ph.split
   %51 = add i32 %.01726, 1
   %52 = load i32, ptr %33, align 8
   %.not24 = icmp ugt i32 %51, %52
-  br i1 %.not24, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not24, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %modify_time_perform.exit, %modify_time_perform.exit.us, %.preheader
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -429,7 +429,7 @@ define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_nu
   %35 = add i32 %.02030, 1
   %36 = load i32, ptr %12, align 8
   %.not28 = icmp ugt i32 %35, %36
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %34, %.preheader
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -682,7 +682,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   %76 = fadd x86_fp80 %.0325.i, 0xK3FFF8000000000000000
   %77 = fadd x86_fp80 %.06.i, 0xKC01CEE6B280000000000
   %78 = fcmp ogt x86_fp80 %77, 0xK401CEE6B280000000000
-  br i1 %78, label %.lr.ph.i, label %.preheader.i, !llvm.loop !13
+  br i1 %78, label %.lr.ph.i, label %.preheader.i, !llvm.loop !14
 
 .lr.ph10.i:                                       ; preds = %.preheader.i, %.lr.ph10.i
   %.19.i = phi x86_fp80 [ %80, %.lr.ph10.i ], [ %.0.lcssa.i, %.preheader.i ]
@@ -690,7 +690,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   %79 = fadd x86_fp80 %.1338.i, 0xKBFFF8000000000000000
   %80 = fadd x86_fp80 %.19.i, 0xK401CEE6B280000000000
   %81 = fcmp olt x86_fp80 %80, 0xK00000000000000000000
-  br i1 %81, label %.lr.ph10.i, label %calcNT3.exit, !llvm.loop !14
+  br i1 %81, label %.lr.ph10.i, label %calcNT3.exit, !llvm.loop !15
 
 calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.preheader.i
   %.133.lcssa.i = phi x86_fp80 [ %.032.lcssa.i, %.preheader.i ], [ %79, %.lr.ph10.i ]
@@ -712,7 +712,7 @@ calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.prehe
   %85 = add i32 %.063, 1
   %86 = load i32, ptr %20, align 8
   %.not54 = icmp ugt i32 %85, %86
-  br i1 %.not54, label %._crit_edge, label %49, !llvm.loop !15
+  br i1 %.not54, label %._crit_edge, label %49, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %84, %.preheader
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -779,7 +779,7 @@ define hidden noundef ptr @time_shift_undo(ptr noundef readonly captures(address
   %17 = add i32 %.0814, 1
   %18 = load i32, ptr %8, align 8
   %.not12 = icmp ugt i32 %17, %18
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   call void @packet_list_queue_draw()
@@ -830,14 +830,15 @@ attributes #11 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = distinct !{!10, !7, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

@@ -848,7 +848,7 @@ define hidden void @_ZN6Assimp11HMPImporter19InternReadFile_HMP5Ev(ptr noundef n
 ._crit_edge.us:                                   ; preds = %61
   %82 = add nuw i32 %.04256.us, 1
   %exitcond66.not = icmp eq i32 %82, %47
-  br i1 %exitcond66.not, label %._crit_edge59, label %.preheader.us, !llvm.loop !5
+  br i1 %exitcond66.not, label %._crit_edge59, label %.preheader.us, !llvm.loop !6
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %.loopexit
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -900,12 +900,12 @@ define hidden void @_ZN6Assimp11HMPImporter19InternReadFile_HMP5Ev(ptr noundef n
   %109 = add nuw i32 %.028.us.i, 1
   %110 = getelementptr inbounds nuw i8, ptr %.127.us.i, i64 12
   %exitcond.not.i = icmp eq i32 %109, %48
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %104, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %104, !llvm.loop !8
 
 ._crit_edge.us.i:                                 ; preds = %104
   %111 = add nuw i32 %.02330.us.i, 1
   %exitcond31.not.i = icmp eq i32 %111, %47
-  br i1 %exitcond31.not.i, label %_ZN6Assimp11HMPImporter21GenerateTextureCoordsEjj.exit, label %.preheader.us.i, !llvm.loop !8
+  br i1 %exitcond31.not.i, label %_ZN6Assimp11HMPImporter21GenerateTextureCoordsEjj.exit, label %.preheader.us.i, !llvm.loop !9
 
 _ZN6Assimp11HMPImporter21GenerateTextureCoordsEjj.exit: ; preds = %._crit_edge.us.i, %85, %._crit_edge59
   tail call void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef nonnull align 8 dereferenceable(159) %0, i32 noundef %48, i32 noundef %47)
@@ -1119,12 +1119,12 @@ _ZN10aiVector3tIfE9NormalizeEv.exit.us:           ; preds = %_ZN10aiVector3tIfEd
   %95 = getelementptr inbounds nuw i8, ptr %.14853.us, i64 4
   %96 = add nuw i32 %.04554.us, 1
   %exitcond.not = icmp eq i32 %96, %48
-  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit.us
   %97 = add nuw i32 %.04660.us, 1
   %exitcond70.not = icmp eq i32 %97, %47
-  br i1 %exitcond70.not, label %._crit_edge63, label %.preheader.us, !llvm.loop !10
+  br i1 %exitcond70.not, label %._crit_edge63, label %.preheader.us, !llvm.loop !11
 
 ._crit_edge63:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %.loopexit
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1176,12 +1176,12 @@ _ZN10aiVector3tIfE9NormalizeEv.exit.us:           ; preds = %_ZN10aiVector3tIfEd
   %124 = add nuw i32 %.028.us.i, 1
   %125 = getelementptr inbounds nuw i8, ptr %.127.us.i, i64 12
   %exitcond.not.i = icmp eq i32 %124, %48
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %119, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %119, !llvm.loop !8
 
 ._crit_edge.us.i:                                 ; preds = %119
   %126 = add nuw i32 %.02330.us.i, 1
   %exitcond31.not.i = icmp eq i32 %126, %47
-  br i1 %exitcond31.not.i, label %_ZN6Assimp11HMPImporter21GenerateTextureCoordsEjj.exit, label %.preheader.us.i, !llvm.loop !8
+  br i1 %exitcond31.not.i, label %_ZN6Assimp11HMPImporter21GenerateTextureCoordsEjj.exit, label %.preheader.us.i, !llvm.loop !9
 
 _ZN6Assimp11HMPImporter21GenerateTextureCoordsEjj.exit: ; preds = %._crit_edge.us.i, %100, %._crit_edge63
   tail call void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef nonnull align 8 dereferenceable(159) %0, i32 noundef %48, i32 noundef %47)
@@ -1278,13 +1278,13 @@ define linkonce_odr hidden void @_Z18ai_str_toprintableB5cxx11PKcic(ptr dead_on_
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %25, ptr %0, align 8, !alias.scope !11
-  %26 = load ptr, ptr %7, align 8, !noalias !11
-  %27 = load i64, ptr %22, align 8, !noalias !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22, !noalias !11
-  store i64 %27, ptr %5, align 8, !noalias !11
+  store ptr %25, ptr %0, align 8, !alias.scope !12
+  %26 = load ptr, ptr %7, align 8, !noalias !12
+  %27 = load i64, ptr %22, align 8, !noalias !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22, !noalias !12
+  store i64 %27, ptr %5, align 8, !noalias !12
   %28 = icmp ugt i64 %27, 15
   br i1 %28, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -1293,9 +1293,9 @@ define linkonce_odr hidden void @_Z18ai_str_toprintableB5cxx11PKcic(ptr dead_on_
           to label %.noexc26 unwind label %55
 
 .noexc26:                                         ; preds = %.noexc.i.i
-  store ptr %29, ptr %0, align 8, !alias.scope !11
-  %30 = load i64, ptr %5, align 8, !noalias !11
-  store i64 %30, ptr %25, align 8, !alias.scope !11
+  store ptr %29, ptr %0, align 8, !alias.scope !12
+  %30 = load i64, ptr %5, align 8, !noalias !12
+  store i64 %30, ptr %25, align 8, !alias.scope !12
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc26, %20
@@ -1315,15 +1315,15 @@ define linkonce_odr hidden void @_Z18ai_str_toprintableB5cxx11PKcic(ptr dead_on_
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = %34, %32, %._crit_edge.i.i.i
-  %35 = load i64, ptr %5, align 8, !noalias !11
+  %35 = load i64, ptr %5, align 8, !noalias !12
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %35, ptr %36, align 8, !alias.scope !11
-  %37 = load ptr, ptr %0, align 8, !alias.scope !11
+  store i64 %35, ptr %36, align 8, !alias.scope !12
+  %37 = load ptr, ptr %0, align 8, !alias.scope !12
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
   store i8 0, ptr %38, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22, !noalias !11
-  %39 = load ptr, ptr %0, align 8, !alias.scope !11
-  %40 = load i64, ptr %36, align 8, !alias.scope !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22, !noalias !12
+  %39 = load ptr, ptr %0, align 8, !alias.scope !12
+  %40 = load i64, ptr %36, align 8, !alias.scope !12
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
   %.not7.i.i = icmp samesign eq i64 %40, 0
   br i1 %.not7.i.i, label %.critedge, label %.lr.ph.i.i
@@ -1338,7 +1338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   store i8 %45, ptr %.sroa.04.09.i.i, align 1
   %46 = getelementptr i8, ptr %.sroa.04.09.i.i, i64 1
   %.not.i.i = icmp eq ptr %46, %41
-  br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !15
 
 _Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit: ; preds = %4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1764,12 +1764,12 @@ define hidden void @_ZN6Assimp11HMPImporter21GenerateTextureCoordsEjj(ptr nounde
   %30 = add nuw i32 %.028.us, 1
   %31 = getelementptr inbounds nuw i8, ptr %.127.us, i64 12
   %exitcond.not = icmp eq i32 %30, %1
-  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %25
   %32 = add nuw i32 %.02330.us, 1
   %exitcond31.not = icmp eq i32 %32, %2
-  br i1 %exitcond31.not, label %.loopexit, label %.preheader.us, !llvm.loop !8
+  br i1 %exitcond31.not, label %.loopexit, label %.preheader.us, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge.us, %12, %3
   ret void
@@ -1807,7 +1807,7 @@ define hidden void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = icmp eq ptr %24, %20
-  br i1 %25, label %.loopexit133, label %21
+  br i1 %25, label %.loopexit133, label %21, !llvm.loop !16
 
 .loopexit133:                                     ; preds = %21, %3
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 208
@@ -1981,7 +1981,7 @@ define hidden void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %112 = getelementptr inbounds nuw i8, ptr %.1140.us, i64 16
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count
-  br i1 %exitcond161.not, label %..loopexit129_crit_edge.us, label %65, !llvm.loop !15
+  br i1 %exitcond161.not, label %..loopexit129_crit_edge.us, label %65, !llvm.loop !17
 
 113:                                              ; preds = %113, %111
   %indvars.iv = phi i64 [ %indvars.iv.next, %113 ], [ 0, %111 ]
@@ -1992,11 +1992,11 @@ define hidden void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef
   store i32 %.3134.us, ptr %116, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit.us, label %113, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit.us, label %113, !llvm.loop !18
 
 ..loopexit129_crit_edge.us:                       ; preds = %.loopexit.us
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !17
+  br i1 %exitcond166.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %..loopexit129_crit_edge.us, %.lr.ph152, %.loopexit130
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2136,7 +2136,7 @@ define hidden void @_ZN6Assimp11HMPImporter13ReadFirstSkinEjPKhPS2_(ptr noundef 
 48:                                               ; preds = %46
   %49 = add nuw i32 %.024, 1
   %exitcond.not = icmp eq i32 %49, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 50:                                               ; preds = %46, %38, %.lr.ph
   %51 = landingpad { ptr, i32 }
@@ -2342,19 +2342,19 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr %3, align 8, !alias.scope !28
+  store ptr %4, ptr %3, align 8, !alias.scope !30
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !28
-  store i8 0, ptr %4, align 8, !alias.scope !28
+  store i64 0, ptr %5, align 8, !alias.scope !30
+  store i8 0, ptr %4, align 8, !alias.scope !30
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load ptr, ptr %6, align 8, !noalias !28
+  %7 = load ptr, ptr %6, align 8, !noalias !30
   %.not.i.not.i.i.i = icmp eq ptr %7, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load ptr, ptr %8, align 8, !noalias !28
+  %9 = load ptr, ptr %8, align 8, !noalias !30
   %10 = icmp ugt ptr %7, %9
   %.08.i.i.i.i = select i1 %10, ptr %7, ptr %9
   %.not5.i.i.i = icmp eq ptr %.08.i.i.i.i, null
@@ -2363,7 +2363,7 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !noalias !28
+  %13 = load ptr, ptr %12, align 8, !noalias !30
   %14 = ptrtoint ptr %.08.i.i.i.i to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -2373,18 +2373,18 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
 18:                                               ; preds = %26, %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %3, align 8, !alias.scope !28
+  %20 = load ptr, ptr %3, align 8, !alias.scope !30
   %21 = icmp eq ptr %20, %4
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %18
-  %22 = load i64, ptr %5, align 8, !alias.scope !28
+  %22 = load i64, ptr %5, align 8, !alias.scope !30
   %23 = icmp ult i64 %22, 16
   call void @llvm.assume(i1 %23)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %18
-  %24 = load i64, ptr %4, align 8, !alias.scope !28
+  %24 = load i64, ptr %4, align 8, !alias.scope !30
   %25 = add i64 %24, 1
   call void @_ZdlPvm(ptr noundef %20, i64 noundef %25) #21
   br label %.body
@@ -2953,29 +2953,31 @@ attributes #25 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4, !6}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4, !6}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc: argument 0"}
-!13 = distinct !{!13, !"_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc"}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4, !6}
-!18 = distinct !{!18, !4}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv: argument 0"}
-!21 = distinct !{!21, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!24 = distinct !{!24, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!27 = distinct !{!27, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!28 = !{!26, !23, !20}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5, !7}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5, !7}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc: argument 0"}
+!14 = distinct !{!14, !"_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc"}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5, !7}
+!20 = distinct !{!20, !4, !5}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv: argument 0"}
+!23 = distinct !{!23, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!26 = distinct !{!26, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!29 = distinct !{!29, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!30 = !{!28, !25, !22}

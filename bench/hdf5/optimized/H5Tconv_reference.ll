@@ -402,7 +402,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly captures(address
 224:                                              ; preds = %219
   %225 = sub i64 %.1186353, %.2203
   %.not243 = icmp eq i64 %225, 0
-  br i1 %.not243, label %.thread263, label %77, !llvm.loop !39
+  br i1 %.not243, label %.thread263, label %77, !llvm.loop !40
 
 226:                                              ; preds = %19
   %227 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !14
@@ -443,7 +443,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly captures(address
   %238 = getelementptr inbounds nuw i8, ptr %.4224356, i64 %.1208
   %239 = add i64 %.1357, -1
   %.not247 = icmp eq i64 %239, 0
-  br i1 %.not247, label %.loopexit279, label %.lr.ph358, !llvm.loop !40
+  br i1 %.not247, label %.loopexit279, label %.lr.ph358, !llvm.loop !41
 
 .loopexit279:                                     ; preds = %.lr.ph358, %233, %231
   %.not249359 = icmp eq i64 %.2190344, 0
@@ -466,7 +466,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly captures(address
   %242 = getelementptr inbounds nuw i8, ptr %.6360, i64 %.1208
   %243 = add i64 %.2361, -1
   %.not249 = icmp eq i64 %243, 0
-  br i1 %.not249, label %.loopexit, label %.lr.ph362, !llvm.loop !41
+  br i1 %.not249, label %.loopexit, label %.lr.ph362, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph362, %.loopexit279
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #5
@@ -553,8 +553,9 @@ attributes #5 = { nounwind }
 !34 = !{!32, !13, i64 16}
 !35 = !{!32, !13, i64 24}
 !36 = !{!32, !13, i64 32}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
-!40 = distinct !{!40, !38}
-!41 = distinct !{!41, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !38, !39}
+!41 = distinct !{!41, !38, !39}
+!42 = distinct !{!42, !38, !39}

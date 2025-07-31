@@ -306,12 +306,12 @@ WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
   store double %94, ptr %92, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i33.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i33.i, label %95, label %91, !llvm.loop !8
+  br i1 %exitcond.not.i33.i, label %95, label %91, !llvm.loop !9
 
 95:                                               ; preds = %91
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 3
-  br i1 %exitcond28.not.i.i, label %96, label %.preheader.i.i, !llvm.loop !9
+  br i1 %exitcond28.not.i.i, label %96, label %.preheader.i.i, !llvm.loop !10
 
 96:                                               ; preds = %95
   %97 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %82) #9
@@ -365,7 +365,7 @@ GammaTableEquals.exit.thread.i.i.i.i:             ; preds = %GammaTableEquals.ex
 122:                                              ; preds = %GammaTableEquals.exit.thread.i.i.i.i, %120
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i, label %EmitNGamma.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i, label %EmitNGamma.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 EmitNGamma.exit.i.i.i:                            ; preds = %122, %.lr.ph.i.i.i.i
   %123 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.16) #9
@@ -383,7 +383,7 @@ EmitNGamma.exit.i.i.i:                            ; preds = %122, %.lr.ph.i.i.i.
   %132 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.52, double noundef %127, double noundef %129, double noundef %131) #9
   %indvars.iv.next25.i.i.i = add nuw nsw i64 %indvars.iv24.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next25.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %EmitCIEBasedABC.exit.i.i, label %125, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %EmitCIEBasedABC.exit.i.i, label %125, !llvm.loop !12
 
 EmitCIEBasedABC.exit.i.i:                         ; preds = %125
   %133 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.16) #9
@@ -504,7 +504,7 @@ _cmsQuickSaturateWord.exit.i.i.i:                 ; preds = %187, %185, %179
   store i16 %.0.i.i.i.i, ptr %194, align 2
   %indvars.iv.next.i.i46.i = add nuw nsw i64 %indvars.iv.i.i45.i, 1
   %exitcond.not.i.i47.i = icmp eq i64 %indvars.iv.next.i.i46.i, 256
-  br i1 %exitcond.not.i.i47.i, label %.thread.i.i.i, label %179, !llvm.loop !12
+  br i1 %exitcond.not.i.i47.i, label %.thread.i.i.i, label %179, !llvm.loop !13
 
 195:                                              ; preds = %170
   br i1 %176, label %.thread.i.i.i, label %196
@@ -625,7 +625,7 @@ GammaTableEquals.exit.thread.i.i.i39.i:           ; preds = %GammaTableEquals.ex
 240:                                              ; preds = %GammaTableEquals.exit.thread.i.i.i39.i, %238
   %indvars.iv.next.i30.i.i = add nuw nsw i64 %indvars.iv.i29.i.i, 1
   %exitcond.not.i.i.i40.i = icmp eq i64 %indvars.iv.next.i30.i.i, %221
-  br i1 %exitcond.not.i.i.i40.i, label %EmitNGamma.exit.i.i41.i, label %.lr.ph.i.i.i36.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i40.i, label %EmitNGamma.exit.i.i41.i, label %.lr.ph.i.i.i36.i, !llvm.loop !11
 
 EmitNGamma.exit.i.i41.i:                          ; preds = %240, %.lr.ph.i.i.i36.i, %217
   %241 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
@@ -788,7 +788,7 @@ GenerateCSA.exit:                                 ; preds = %WriteNamedColorCSA.
 
 312:                                              ; preds = %311, %309
   %313 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 1
-  br label %309, !llvm.loop !13
+  br label %309, !llvm.loop !14
 
 RemoveCR.exit.i.i:                                ; preds = %309
   %314 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.86, ptr noundef nonnull @RemoveCR.Buffer) #9
@@ -811,7 +811,7 @@ RemoveCR.exit.i.i:                                ; preds = %309
 
 319:                                              ; preds = %318, %316
   %320 = getelementptr inbounds nuw i8, ptr %.0.i17.i.i, i64 1
-  br label %316, !llvm.loop !13
+  br label %316, !llvm.loop !14
 
 EmitHeader.exit.i:                                ; preds = %316
   %321 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.87, ptr noundef nonnull @RemoveCR.Buffer) #9
@@ -886,7 +886,7 @@ BuildColorantList.exit.us.i.i:                    ; preds = %.lr.ph.split.us.i.i
 351:                                              ; preds = %BuildColorantList.exit.us.i.i, %.lr.ph.split.us.i.i
   %352 = add nuw i32 %.02832.us.i.i, 1
   %exitcond35.not.i.i = icmp eq i32 %352, %344
-  br i1 %exitcond35.not.i.i, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !14
+  br i1 %exitcond35.not.i.i, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !15
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i13, %366
   %.02832.i.i = phi i32 [ %367, %366 ], [ 0, %.lr.ph.i.i13 ]
@@ -923,7 +923,7 @@ BuildColorantList.exit.us.i.i:                    ; preds = %.lr.ph.split.us.i.i
 364:                                              ; preds = %363, %355
   %indvars.iv.next.i.i.i16 = add nuw nsw i64 %indvars.iv.i.i.i15, 1
   %exitcond.not.i.i.i17 = icmp eq i64 %indvars.iv.next.i.i.i16, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i17, label %BuildColorantList.exit.loopexit.i.i, label %355, !llvm.loop !16
+  br i1 %exitcond.not.i.i.i17, label %BuildColorantList.exit.loopexit.i.i, label %355, !llvm.loop !17
 
 BuildColorantList.exit.loopexit.i.i:              ; preds = %364
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -933,7 +933,7 @@ BuildColorantList.exit.loopexit.i.i:              ; preds = %364
 366:                                              ; preds = %BuildColorantList.exit.loopexit.i.i, %.lr.ph.split.i.i
   %367 = add nuw i32 %.02832.i.i, 1
   %exitcond.not.i.i18 = icmp eq i32 %367, %344
-  br i1 %exitcond.not.i.i18, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i18, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !18
 
 ._crit_edge.i.i:                                  ; preds = %366, %351, %339
   %368 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.93) #9
@@ -1100,7 +1100,7 @@ EmitPQRStage.exit.i.i:                            ; preds = %434, %432, %419
   %458 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.24) #9
   %459 = add nuw nsw i32 %.04754.i.i, 1
   %exitcond.not.i25.i = icmp eq i32 %459, %382
-  br i1 %exitcond.not.i25.i, label %._crit_edge.i21.i, label %.lr.ph.i24.i, !llvm.loop !18
+  br i1 %exitcond.not.i25.i, label %._crit_edge.i21.i, label %.lr.ph.i24.i, !llvm.loop !19
 
 ._crit_edge.i21.i:                                ; preds = %.lr.ph.i24.i, %455
   %460 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
@@ -1355,7 +1355,7 @@ define internal fastcc void @Emit1Gamma(ptr noundef %0, ptr noundef %1) unnamed_
   %35 = load i32, ptr %5, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %23, label %._crit_edge, !llvm.loop !19
+  br i1 %37, label %23, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %29, %17
   %38 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.23) #9
@@ -1476,7 +1476,7 @@ define internal fastcc void @WriteCLUT(ptr noundef %0, ptr noundef %1, ptr nound
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %39 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.65) #9
@@ -1546,7 +1546,7 @@ define internal range(i32 0, 2) i32 @OutputValueSampler(ptr noundef readonly cap
   store i16 %28, ptr %29, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit53, label %26, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit53, label %26, !llvm.loop !22
 
 .loopexit53:                                      ; preds = %26, %.preheader, %9, %16, %12, %3
   %30 = load i16, ptr %0, align 2
@@ -1663,7 +1663,7 @@ WriteByte.exit:                                   ; preds = %82, %96
   %102 = load i32, ptr %101, align 8
   %103 = zext i32 %102 to i64
   %104 = icmp samesign ult i64 %indvars.iv.next61, %103
-  br i1 %104, label %82, label %.loopexit, !llvm.loop !22
+  br i1 %104, label %82, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %WriteByte.exit, %75, %20
   %.0 = phi i32 [ 0, %20 ], [ 1, %75 ], [ 1, %WriteByte.exit ]
@@ -1731,20 +1731,21 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

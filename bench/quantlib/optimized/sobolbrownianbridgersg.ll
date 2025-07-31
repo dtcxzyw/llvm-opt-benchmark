@@ -414,5 +414,6 @@ attributes #12 = { nounwind }
 !17 = !{!18, !18, i64 0}
 !18 = !{!"vtable pointer", !6, i64 0}
 !19 = !{!9, !9, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!"llvm.loop.estimated_trip_count"}

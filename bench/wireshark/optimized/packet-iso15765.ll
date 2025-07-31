@@ -1394,7 +1394,7 @@ define internal fastcc i32 @dissect_iso15765(ptr noundef %0, ptr noundef %1, ptr
 102:                                              ; preds = %103
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %find_pdu_transport_config.exit.thread.i, label %103, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %find_pdu_transport_config.exit.thread.i, label %103, !llvm.loop !11
 
 103:                                              ; preds = %102, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %102 ]
@@ -1616,7 +1616,7 @@ find_pdu_transport_config.exit.i:                 ; preds = %103
 209:                                              ; preds = %201, %197
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.sink.split.i, label %197, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.sink.split.i, label %197, !llvm.loop !12
 
 210:                                              ; preds = %201
   %.not.i373 = icmp eq ptr %198, null
@@ -2514,7 +2514,8 @@ attributes #15 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

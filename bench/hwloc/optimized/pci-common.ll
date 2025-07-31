@@ -365,7 +365,7 @@ hwloc_pci_forced_locality_parse_one.exit:         ; preds = %26, %30, %._crit_ed
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #22
   %.not19 = icmp eq ptr %.016, null
-  br i1 %.not19, label %56, label %10
+  br i1 %.not19, label %56, label %10, !llvm.loop !46
 
 56:                                               ; preds = %hwloc_pci_forced_locality_parse_one.exit
   call void @free(ptr noundef %7) #22
@@ -406,27 +406,27 @@ define hidden void @hwloc_pci_discovery_exit(ptr noundef captures(none) %0) loca
   %9 = load i32, ptr %2, align 4, !tbaa !38
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %11, label %5, label %._crit_edge, !llvm.loop !46
+  br i1 %11, label %5, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %5, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %13 = load ptr, ptr %12, align 8, !tbaa !40
   tail call void @free(ptr noundef %13) #22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %15 = load ptr, ptr %14, align 8, !tbaa !48
+  %15 = load ptr, ptr %14, align 8, !tbaa !50
   %.not14 = icmp eq ptr %15, null
   br i1 %.not14, label %._crit_edge18, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %._crit_edge, %.lr.ph17
   %.015 = phi ptr [ %17, %.lr.ph17 ], [ %15, %._crit_edge ]
   %16 = getelementptr inbounds nuw i8, ptr %.015, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
+  %17 = load ptr, ptr %16, align 8, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %.015, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
+  %19 = load ptr, ptr %18, align 8, !tbaa !54
   tail call void @hwloc_bitmap_free(ptr noundef %19) #22
   tail call void @free(ptr noundef nonnull %.015) #22
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !53
+  br i1 %.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !55
 
 ._crit_edge18:                                    ; preds = %.lr.ph17, %._crit_edge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -441,13 +441,13 @@ declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !54
+  %3 = load ptr, ptr %0, align 8, !tbaa !56
   %.not102107.i = icmp eq ptr %3, null
   br i1 %.not102107.i, label %tailrecurse._crit_edge.i, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = load i32, ptr %5, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -467,13 +467,13 @@ define void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef captures(none) %0, p
   %15 = phi ptr [ %13, %.lr.ph.i ], [ %188, %select.unfold.i ]
   %.0103.i = phi ptr [ %.tr84109.i, %.lr.ph.i ], [ %187, %select.unfold.i ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !55
+  %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = icmp ult i32 %6, %18
   br i1 %19, label %._crit_edge127.i, label %20
 
 ._crit_edge127.i:                                 ; preds = %14
-  %.pre128.i = load i32, ptr %1, align 8, !tbaa !60
+  %.pre128.i = load i32, ptr %1, align 8, !tbaa !62
   br label %split.i
 
 20:                                               ; preds = %14
@@ -481,7 +481,7 @@ define void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef captures(none) %0, p
   br i1 %21, label %select.unfold.i, label %22
 
 22:                                               ; preds = %20
-  %23 = load i32, ptr %1, align 8, !tbaa !60
+  %23 = load i32, ptr %1, align 8, !tbaa !62
   %24 = icmp eq i32 %23, 16
   br i1 %24, label %25, label %36
 
@@ -504,14 +504,14 @@ define void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef captures(none) %0, p
 
 split.thread.i:                                   ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %15, ptr %34, align 8, !tbaa !61
-  store ptr %1, ptr %.0103.i, align 8, !tbaa !54
+  store ptr %15, ptr %34, align 8, !tbaa !63
+  store ptr %1, ptr %.0103.i, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %.tr108.i, ptr %35, align 8, !tbaa !62
+  store ptr %.tr108.i, ptr %35, align 8, !tbaa !64
   br label %76
 
 36:                                               ; preds = %32, %28, %25, %22
-  %37 = load i32, ptr %15, align 8, !tbaa !60
+  %37 = load i32, ptr %15, align 8, !tbaa !62
   %38 = icmp eq i32 %37, 16
   br i1 %38, label %39, label %._crit_edge.i
 
@@ -573,17 +573,17 @@ split.thread.i:                                   ; preds = %32
 
 tailrecurse.i:                                    ; preds = %46
   %70 = getelementptr inbounds nuw i8, ptr %15, i64 160
-  %71 = load ptr, ptr %70, align 8, !tbaa !54
+  %71 = load ptr, ptr %70, align 8, !tbaa !56
   %.not102.i = icmp eq ptr %71, null
   br i1 %.not102.i, label %tailrecurse._crit_edge.i, label %.lr.ph.i
 
 split.i:                                          ; preds = %63, %56, %49, %._crit_edge127.i
   %72 = phi i32 [ %.pre128.i, %._crit_edge127.i ], [ %23, %49 ], [ %23, %56 ], [ %23, %63 ]
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %15, ptr %73, align 8, !tbaa !61
-  store ptr %1, ptr %.0103.i, align 8, !tbaa !54
+  store ptr %15, ptr %73, align 8, !tbaa !63
+  store ptr %1, ptr %.0103.i, align 8, !tbaa !56
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %.tr108.i, ptr %74, align 8, !tbaa !62
+  store ptr %.tr108.i, ptr %74, align 8, !tbaa !64
   %75 = icmp eq i32 %72, 16
   br i1 %75, label %76, label %hwloc_pci_add_object.exit
 
@@ -604,14 +604,14 @@ split.i:                                          ; preds = %63, %56, %49, %._cr
 
 82:                                               ; preds = %hwloc_pci_compare_busids.exit66.i, %.outer.i
   %.3.i = phi ptr [ %143, %hwloc_pci_compare_busids.exit66.i ], [ %.3.ph.i, %.outer.i ]
-  %83 = load ptr, ptr %.3.i, align 8, !tbaa !54
+  %83 = load ptr, ptr %.3.i, align 8, !tbaa !56
   %.not58.i = icmp eq ptr %83, null
   br i1 %.not58.i, label %hwloc_pci_add_object.exit, label %84
 
 84:                                               ; preds = %82
   %85 = load i32, ptr %5, align 8, !tbaa !35
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  %87 = load ptr, ptr %86, align 8, !tbaa !55
+  %87 = load ptr, ptr %86, align 8, !tbaa !57
   %88 = load i32, ptr %87, align 8, !tbaa !35
   %89 = icmp ult i32 %85, %88
   br i1 %89, label %hwloc_pci_add_object.exit, label %90
@@ -638,7 +638,7 @@ split.i:                                          ; preds = %63, %56, %49, %._cr
   br i1 %.not38.i65.i, label %101, label %133
 
 101:                                              ; preds = %99, %95, %92
-  %102 = load i32, ptr %83, align 8, !tbaa !60
+  %102 = load i32, ptr %83, align 8, !tbaa !62
   %103 = icmp eq i32 %102, 16
   br i1 %103, label %104, label %._crit_edge129.i
 
@@ -695,25 +695,25 @@ split.i:                                          ; preds = %63, %56, %49, %._cr
   br i1 %132, label %hwloc_pci_compare_busids.exit66.i, label %133
 
 133:                                              ; preds = %128, %126, %119, %111, %99, %90
-  store ptr %83, ptr %.053.ph.i, align 8, !tbaa !54
+  store ptr %83, ptr %.053.ph.i, align 8, !tbaa !56
   %134 = getelementptr inbounds nuw i8, ptr %83, i64 88
-  %135 = load ptr, ptr %134, align 8, !tbaa !61
-  store ptr %135, ptr %.3.i, align 8, !tbaa !54
-  %136 = load ptr, ptr %.053.ph.i, align 8, !tbaa !54
+  %135 = load ptr, ptr %134, align 8, !tbaa !63
+  store ptr %135, ptr %.3.i, align 8, !tbaa !56
+  %136 = load ptr, ptr %.053.ph.i, align 8, !tbaa !56
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 72
-  store ptr %1, ptr %137, align 8, !tbaa !62
-  %138 = load ptr, ptr %.053.ph.i, align 8, !tbaa !54
+  store ptr %1, ptr %137, align 8, !tbaa !64
+  %138 = load ptr, ptr %.053.ph.i, align 8, !tbaa !56
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 88
-  store ptr null, ptr %139, align 8, !tbaa !61
-  %140 = load ptr, ptr %.053.ph.i, align 8, !tbaa !54
+  store ptr null, ptr %139, align 8, !tbaa !63
+  %140 = load ptr, ptr %.053.ph.i, align 8, !tbaa !56
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 88
-  br label %.outer.i, !llvm.loop !63
+  br label %.outer.i, !llvm.loop !65
 
 hwloc_pci_compare_busids.exit66.i:                ; preds = %128, %121, %114
   %142 = load i8, ptr %9, align 1, !tbaa !35
   %.not83.i = icmp ugt i8 %117, %142
   %143 = getelementptr inbounds nuw i8, ptr %83, i64 88
-  br i1 %.not83.i, label %hwloc_pci_add_object.exit, label %82, !llvm.loop !63
+  br i1 %.not83.i, label %hwloc_pci_add_object.exit, label %82, !llvm.loop !65
 
 hwloc_pci_compare_busids.exit.i:                  ; preds = %68
   %.b.i = load i1, ptr @hwloc_pci_add_object.reported, align 4
@@ -732,7 +732,7 @@ hwloc_pci_compare_busids.exit.i:                  ; preds = %68
   %152 = load ptr, ptr @stderr, align 8, !tbaa !36
   %153 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 2, i64 1, ptr %152) #27
   %154 = load ptr, ptr @stderr, align 8, !tbaa !36
-  %155 = load ptr, ptr %4, align 8, !tbaa !55
+  %155 = load ptr, ptr %4, align 8, !tbaa !57
   %156 = load i32, ptr %155, align 8, !tbaa !35
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %158 = load i8, ptr %157, align 4, !tbaa !35
@@ -743,9 +743,9 @@ hwloc_pci_compare_busids.exit.i:                  ; preds = %68
   %163 = getelementptr inbounds nuw i8, ptr %155, i64 6
   %164 = load i8, ptr %163, align 2, !tbaa !35
   %165 = zext i8 %164 to i32
-  %166 = load ptr, ptr %.0103.i, align 8, !tbaa !54
+  %166 = load ptr, ptr %.0103.i, align 8, !tbaa !56
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 40
-  %168 = load ptr, ptr %167, align 8, !tbaa !55
+  %168 = load ptr, ptr %167, align 8, !tbaa !57
   %169 = load i32, ptr %168, align 8, !tbaa !35
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = load i8, ptr %170, align 4, !tbaa !35
@@ -772,7 +772,7 @@ hwloc_pci_compare_busids.exit.i:                  ; preds = %68
 
 select.unfold.i:                                  ; preds = %68, %61, %54, %20
   %187 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %188 = load ptr, ptr %187, align 8, !tbaa !54
+  %188 = load ptr, ptr %187, align 8, !tbaa !56
   %.not.i = icmp eq ptr %188, null
   br i1 %.not.i, label %tailrecurse._crit_edge.i, label %14
 
@@ -780,10 +780,10 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %sel
   %.tr.lcssa.i = phi ptr [ null, %2 ], [ %.tr108.i, %select.unfold.i ], [ %15, %tailrecurse.i ]
   %.0.lcssa.i = phi ptr [ %0, %2 ], [ %187, %select.unfold.i ], [ %70, %tailrecurse.i ]
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %.tr.lcssa.i, ptr %189, align 8, !tbaa !62
+  store ptr %.tr.lcssa.i, ptr %189, align 8, !tbaa !64
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr null, ptr %190, align 8, !tbaa !61
-  store ptr %1, ptr %.0.lcssa.i, align 8, !tbaa !54
+  store ptr null, ptr %190, align 8, !tbaa !63
+  store ptr %1, ptr %.0.lcssa.i, align 8, !tbaa !56
   br label %hwloc_pci_add_object.exit
 
 hwloc_pci_add_object.exit:                        ; preds = %82, %84, %hwloc_pci_compare_busids.exit66.i, %split.i, %76, %186, %tailrecurse._crit_edge.i
@@ -804,7 +804,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr null, ptr %3, align 8, !tbaa !54
+  store ptr null, ptr %3, align 8, !tbaa !56
   br label %8
 
 8:                                                ; preds = %41, %7
@@ -815,13 +815,13 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not60.not.i, label %.thread.i, label %10
 
 .thread.i:                                        ; preds = %8
-  store ptr %.05667.i, ptr %.04768.i, align 8, !tbaa !54
+  store ptr %.05667.i, ptr %.04768.i, align 8, !tbaa !56
   br label %.loopexit106
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %12 = getelementptr inbounds nuw i8, ptr %.05667.i, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !57
   %14 = load i32, ptr %13, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i8, ptr %15, align 4, !tbaa !35
@@ -833,12 +833,12 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   %.049.i = phi ptr [ %.05667.i, %10 ], [ %20, %37 ]
   %.044.i = phi i8 [ %16, %10 ], [ %.1.i, %37 ]
   %19 = getelementptr inbounds nuw i8, ptr %.049.i, i64 88
-  %20 = load ptr, ptr %19, align 8, !tbaa !61
-  store ptr %.049.i, ptr %.050.i, align 8, !tbaa !54
+  %20 = load ptr, ptr %19, align 8, !tbaa !63
+  store ptr %.049.i, ptr %.050.i, align 8, !tbaa !56
   %21 = getelementptr inbounds nuw i8, ptr %.049.i, i64 72
-  store ptr %9, ptr %21, align 8, !tbaa !62
-  store ptr null, ptr %19, align 8, !tbaa !61
-  %22 = load i32, ptr %.049.i, align 8, !tbaa !60
+  store ptr %9, ptr %21, align 8, !tbaa !64
+  store ptr null, ptr %19, align 8, !tbaa !63
+  %22 = load i32, ptr %.049.i, align 8, !tbaa !62
   %23 = icmp eq i32 %22, 16
   br i1 %23, label %24, label %31
 
@@ -861,7 +861,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !55
+  %34 = load ptr, ptr %33, align 8, !tbaa !57
   %35 = load i32, ptr %34, align 8, !tbaa !35
   %36 = icmp eq i32 %35, %14
   br i1 %36, label %37, label %41
@@ -870,31 +870,31 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %39 = load i8, ptr %38, align 4, !tbaa !35
   %40 = icmp eq i8 %39, %16
-  br i1 %40, label %17, label %41
+  br i1 %40, label %17, label %41, !llvm.loop !66
 
 41:                                               ; preds = %37, %32, %31
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !55
+  %43 = load ptr, ptr %42, align 8, !tbaa !57
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i32 0, ptr %44, align 8, !tbaa !35
-  %45 = load ptr, ptr %42, align 8, !tbaa !55
+  %45 = load ptr, ptr %42, align 8, !tbaa !57
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 36
   store i32 1, ptr %46, align 4, !tbaa !35
-  %47 = load ptr, ptr %42, align 8, !tbaa !55
+  %47 = load ptr, ptr %42, align 8, !tbaa !57
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   store i32 %14, ptr %48, align 4, !tbaa !35
-  %49 = load ptr, ptr %42, align 8, !tbaa !55
+  %49 = load ptr, ptr %42, align 8, !tbaa !57
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i8 %16, ptr %50, align 4, !tbaa !35
-  %51 = load ptr, ptr %42, align 8, !tbaa !55
+  %51 = load ptr, ptr %42, align 8, !tbaa !57
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 33
   store i8 %.1.i, ptr %52, align 1, !tbaa !35
-  store ptr %9, ptr %.04768.i, align 8, !tbaa !54
+  store ptr %9, ptr %.04768.i, align 8, !tbaa !56
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  br i1 %.not61.i, label %.loopexit106, label %8, !llvm.loop !64
+  br i1 %.not61.i, label %.loopexit106, label %8, !llvm.loop !67
 
 .loopexit106:                                     ; preds = %41, %.thread.i
-  %.0..0..0..0..2.i = load ptr, ptr %3, align 8, !tbaa !54
+  %.0..0..0..0..2.i = load ptr, ptr %3, align 8, !tbaa !56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not8698 = icmp eq ptr %.0..0..0..0..2.i, null
   br i1 %.not8698, label %.loopexit, label %.lr.ph
@@ -907,13 +907,13 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
 
 56:                                               ; preds = %.lr.ph, %125
   %.199 = phi ptr [ %.078105, %.lr.ph ], [ %127, %125 ]
-  %57 = load i32, ptr %.199, align 8, !tbaa !60
+  %57 = load i32, ptr %.199, align 8, !tbaa !62
   %58 = icmp eq i32 %57, 16
   br i1 %58, label %59, label %80
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %.199, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !55
+  %61 = load ptr, ptr %60, align 8, !tbaa !57
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load i32, ptr %62, align 8, !tbaa !35
   %64 = icmp eq i32 %63, 0
@@ -921,7 +921,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %.199, i64 160
-  %67 = load ptr, ptr %66, align 8, !tbaa !65
+  %67 = load ptr, ptr %66, align 8, !tbaa !68
   br label %68
 
 68:                                               ; preds = %59, %65
@@ -940,13 +940,13 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   %78 = load i8, ptr %77, align 1, !tbaa !35
   %79 = zext i8 %78 to i32
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.077.ph, i64 40
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !55
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !57
   br label %86
 
 80:                                               ; preds = %56, %68
   %.07793 = phi ptr [ %.077.ph, %68 ], [ %.199, %56 ]
   %81 = getelementptr inbounds nuw i8, ptr %.07793, i64 40
-  %82 = load ptr, ptr %81, align 8, !tbaa !55
+  %82 = load ptr, ptr %81, align 8, !tbaa !57
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %84 = load i8, ptr %83, align 4, !tbaa !35
   %85 = zext i8 %84 to i32
@@ -959,24 +959,24 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   %.0 = phi i32 [ %79, %72 ], [ %85, %80 ]
   %.074 = load i32, ptr %.074.in, align 4, !tbaa !35
   %88 = tail call fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr noundef %87)
-  %89 = load ptr, ptr %54, align 8, !tbaa !66
+  %89 = load ptr, ptr %54, align 8, !tbaa !69
   %.not87 = icmp eq ptr %89, null
   br i1 %.not87, label %104, label %90
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %92 = load ptr, ptr %91, align 8, !tbaa !67
+  %92 = load ptr, ptr %91, align 8, !tbaa !70
   %93 = icmp eq ptr %88, %92
   br i1 %93, label %94, label %104
 
 94:                                               ; preds = %90
-  %95 = load i32, ptr %89, align 8, !tbaa !68
+  %95 = load i32, ptr %89, align 8, !tbaa !71
   %96 = icmp eq i32 %.074, %95
   br i1 %96, label %97, label %104
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !69
+  %99 = load i32, ptr %98, align 8, !tbaa !72
   %100 = icmp eq i32 %.073, %99
   %101 = add i32 %99, 1
   %102 = icmp eq i32 %.073, %101
@@ -984,7 +984,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   br i1 %or.cond, label %103, label %104
 
 103:                                              ; preds = %97
-  store i32 %.0, ptr %98, align 8, !tbaa !69
+  store i32 %.0, ptr %98, align 8, !tbaa !72
   br label %125
 
 104:                                              ; preds = %97, %94, %90, %86
@@ -997,18 +997,18 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   br label %125
 
 108:                                              ; preds = %104
-  store i32 %.074, ptr %105, align 8, !tbaa !68
+  store i32 %.074, ptr %105, align 8, !tbaa !71
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  store i32 %.073, ptr %109, align 4, !tbaa !70
+  store i32 %.073, ptr %109, align 4, !tbaa !73
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i32 %.0, ptr %110, align 8, !tbaa !69
+  store i32 %.0, ptr %110, align 8, !tbaa !72
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  store ptr %88, ptr %111, align 8, !tbaa !67
+  store ptr %88, ptr %111, align 8, !tbaa !70
   %112 = getelementptr inbounds nuw i8, ptr %88, i64 184
-  %113 = load ptr, ptr %112, align 8, !tbaa !71
+  %113 = load ptr, ptr %112, align 8, !tbaa !74
   %114 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef %113) #22
   %115 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store ptr %114, ptr %115, align 8, !tbaa !52
+  store ptr %114, ptr %115, align 8, !tbaa !54
   %.not89 = icmp eq ptr %114, null
   br i1 %.not89, label %116, label %118
 
@@ -1018,34 +1018,34 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   br label %125
 
 118:                                              ; preds = %108
-  %119 = load ptr, ptr %54, align 8, !tbaa !66
+  %119 = load ptr, ptr %54, align 8, !tbaa !69
   %.not90 = icmp eq ptr %119, null
   %120 = getelementptr inbounds nuw i8, ptr %105, i64 32
   br i1 %.not90, label %124, label %121
 
 121:                                              ; preds = %118
-  store ptr %119, ptr %120, align 8, !tbaa !72
+  store ptr %119, ptr %120, align 8, !tbaa !75
   %122 = getelementptr inbounds nuw i8, ptr %105, i64 40
-  store ptr null, ptr %122, align 8, !tbaa !49
+  store ptr null, ptr %122, align 8, !tbaa !51
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  store ptr %105, ptr %123, align 8, !tbaa !49
-  store ptr %105, ptr %54, align 8, !tbaa !66
+  store ptr %105, ptr %123, align 8, !tbaa !51
+  store ptr %105, ptr %54, align 8, !tbaa !69
   br label %125
 
 124:                                              ; preds = %118
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
-  store ptr %105, ptr %55, align 8, !tbaa !48
-  store ptr %105, ptr %54, align 8, !tbaa !66
+  store ptr %105, ptr %55, align 8, !tbaa !50
+  store ptr %105, ptr %54, align 8, !tbaa !69
   br label %125
 
 125:                                              ; preds = %121, %124, %116, %106, %103
   %.076 = phi ptr [ %88, %103 ], [ %88, %121 ], [ %88, %124 ], [ %117, %116 ], [ %107, %106 ]
   %126 = getelementptr inbounds nuw i8, ptr %.199, i64 88
-  %127 = load ptr, ptr %126, align 8, !tbaa !61
-  store ptr null, ptr %126, align 8, !tbaa !61
+  %127 = load ptr, ptr %126, align 8, !tbaa !63
+  store ptr null, ptr %126, align 8, !tbaa !63
   tail call void @hwloc_insert_object_by_parent(ptr noundef nonnull %0, ptr noundef %.076, ptr noundef nonnull %.199) #22
   %.not86 = icmp eq ptr %127, null
-  br i1 %.not86, label %.loopexit, label %56, !llvm.loop !73
+  br i1 %.not86, label %.loopexit, label %56, !llvm.loop !76
 
 .loopexit:                                        ; preds = %125, %.loopexit106, %2
   ret i32 0
@@ -1055,7 +1055,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
 define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call noalias ptr @hwloc_bitmap_alloc() #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i8, ptr %4, align 4, !tbaa !74
+  %5 = load i8, ptr %4, align 4, !tbaa !77
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %7 = load i32, ptr %6, align 8, !tbaa !31
   %.not.not = icmp eq i32 %7, 0
@@ -1068,7 +1068,7 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
   br i1 %.not, label %hwloc__pci_find_busid_parent_quirk.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = load i32, ptr %1, align 4, !tbaa !78
+  %10 = load i32, ptr %1, align 4, !tbaa !81
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = zext i8 %5 to i32
@@ -1103,7 +1103,7 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
 27:                                               ; preds = %14, %18, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %hwloc__pci_find_busid_parent_quirk.exit, label %14, !llvm.loop !79
+  br i1 %exitcond.not, label %hwloc__pci_find_busid_parent_quirk.exit, label %14, !llvm.loop !82
 
 .critedge70:                                      ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 896
@@ -1117,32 +1117,32 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
   store i64 0, ptr %28, align 8, !tbaa !3
   %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #25
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 224
-  %33 = load i32, ptr %32, align 8, !tbaa !80
+  %33 = load i32, ptr %32, align 8, !tbaa !83
   %.not.i.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i.i, label %hwloc_obj_get_info_by_name.exit.thread.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 216
-  %35 = load ptr, ptr %34, align 8, !tbaa !81
+  %35 = load ptr, ptr %34, align 8, !tbaa !84
   %wide.trip.count.i.i.i = zext i32 %33 to i64
   br label %37
 
 36:                                               ; preds = %37
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %hwloc_obj_get_info_by_name.exit.thread.i, label %37, !llvm.loop !82
+  br i1 %exitcond.not.i.i.i, label %hwloc_obj_get_info_by_name.exit.thread.i, label %37, !llvm.loop !85
 
 37:                                               ; preds = %36, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %36 ]
   %38 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %35, i64 %indvars.iv.i.i.i
-  %39 = load ptr, ptr %38, align 8, !tbaa !83
+  %39 = load ptr, ptr %38, align 8, !tbaa !86
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(13) @.str.126) #25
   %.not.not.i.i.i = icmp eq i32 %40, 0
   br i1 %.not.not.i.i.i, label %hwloc_obj_get_info_by_name.exit.i, label %36
 
 hwloc_obj_get_info_by_name.exit.i:                ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !85
+  %42 = load ptr, ptr %41, align 8, !tbaa !88
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %hwloc_obj_get_info_by_name.exit.thread.i, label %43
 
@@ -1191,12 +1191,12 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
   br i1 %.not61.i, label %hwloc__pci_find_busid_parent_quirk.exit, label %62
 
 62:                                               ; preds = %60
-  %63 = load i32, ptr %1, align 4, !tbaa !78
+  %63 = load i32, ptr %1, align 4, !tbaa !81
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %hwloc__pci_find_busid_parent_quirk.exit
 
 65:                                               ; preds = %62
-  %66 = load i8, ptr %4, align 4, !tbaa !74
+  %66 = load i8, ptr %4, align 4, !tbaa !77
   %67 = and i8 %66, -2
   %or.cond.i = icmp eq i8 %67, -48
   br i1 %or.cond.i, label %68, label %71
@@ -1275,13 +1275,13 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
 
 hwloc__pci_find_busid_parent_quirk.exit:          ; preds = %27, %.preheader, %60, %62, %98, %.critedge70
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %104 = load ptr, ptr %103, align 8, !tbaa !86
+  %104 = load ptr, ptr %103, align 8, !tbaa !89
   %.not58 = icmp eq ptr %104, null
   br i1 %.not58, label %.critedge, label %105
 
 105:                                              ; preds = %hwloc__pci_find_busid_parent_quirk.exit
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 72
-  %107 = load ptr, ptr %106, align 8, !tbaa !87
+  %107 = load ptr, ptr %106, align 8, !tbaa !90
   %108 = tail call i32 %107(ptr noundef nonnull %104, ptr noundef nonnull %1, ptr noundef %3) #22
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %.critedge, label %hwloc__pci_find_busid_parent_quirk.exit.thread66
@@ -1319,16 +1319,16 @@ define ptr @hwloc_pci_find_parent_by_busid(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not, label %8, label %16
 
 8:                                                ; preds = %5
-  store i32 %1, ptr %6, align 4, !tbaa !78
+  store i32 %1, ptr %6, align 4, !tbaa !81
   %9 = trunc i32 %2 to i8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %9, ptr %10, align 4, !tbaa !74
+  store i8 %9, ptr %10, align 4, !tbaa !77
   %11 = trunc i32 %3 to i8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 %11, ptr %12, align 1, !tbaa !91
+  store i8 %11, ptr %12, align 1, !tbaa !94
   %13 = trunc i32 %4 to i8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  store i8 %13, ptr %14, align 2, !tbaa !92
+  store i8 %13, ptr %14, align 2, !tbaa !95
   %15 = call fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr noundef nonnull %6)
   br label %16
 
@@ -1342,51 +1342,51 @@ define ptr @hwloc_pci_find_parent_by_busid(ptr noundef %0, i32 noundef %1, i32 n
 define ptr @hwloc_pci_find_by_busid(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 {
   %6 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %.04457 = load ptr, ptr %7, align 8, !tbaa !93
+  %.04457 = load ptr, ptr %7, align 8, !tbaa !96
   %.not58 = icmp eq ptr %.04457, null
   br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %19
   %.04459 = phi ptr [ %.044, %19 ], [ %.04457, %5 ]
-  %8 = load i32, ptr %.04459, align 8, !tbaa !68
+  %8 = load i32, ptr %.04459, align 8, !tbaa !71
   %9 = icmp eq i32 %8, %1
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.04459, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !70
+  %12 = load i32, ptr %11, align 4, !tbaa !73
   %.not51 = icmp ugt i32 %12, %2
   br i1 %.not51, label %19, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %.04459, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !69
+  %15 = load i32, ptr %14, align 8, !tbaa !72
   %.not52 = icmp ult i32 %15, %2
   br i1 %.not52, label %19, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %.04459, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !67
+  %18 = load ptr, ptr %17, align 8, !tbaa !70
   br label %.loopexit
 
 19:                                               ; preds = %13, %10, %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %.04459, i64 40
-  %.044 = load ptr, ptr %20, align 8, !tbaa !93
+  %.044 = load ptr, ptr %20, align 8, !tbaa !96
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !94
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !97
 
 .loopexit:                                        ; preds = %19, %5, %16
   %.0 = phi ptr [ %18, %16 ], [ null, %5 ], [ null, %19 ]
   %.not53 = icmp eq ptr %.0, null
   %spec.select = select i1 %.not53, ptr %6, ptr %.0
   %21 = getelementptr inbounds nuw i8, ptr %spec.select, i64 160
-  %.06877.i = load ptr, ptr %21, align 8, !tbaa !54
+  %.06877.i = load ptr, ptr %21, align 8, !tbaa !56
   %.not6978.i = icmp eq ptr %.06877.i, null
   br i1 %.not6978.i, label %hwloc__pci_find_by_busid.exit, label %.lr.ph.i
 
 tailrecurse.loopexit.i:                           ; preds = %82, %66
   %22 = getelementptr inbounds nuw i8, ptr %.070.i, i64 160
-  %.068.i = load ptr, ptr %22, align 8, !tbaa !54
+  %.068.i = load ptr, ptr %22, align 8, !tbaa !56
   %.not69.i = icmp eq ptr %.068.i, null
   br i1 %.not69.i, label %hwloc__pci_find_by_busid.exit, label %.lr.ph.i
 
@@ -1397,7 +1397,7 @@ tailrecurse.loopexit.i:                           ; preds = %82, %66
 
 23:                                               ; preds = %86, %.lr.ph.i
   %.070.i = phi ptr [ %.06880.i, %.lr.ph.i ], [ %.0.i, %86 ]
-  %24 = load i32, ptr %.070.i, align 8, !tbaa !60
+  %24 = load i32, ptr %.070.i, align 8, !tbaa !62
   switch i32 %24, label %86 [
     i32 17, label %._crit_edge84.i
     i32 16, label %25
@@ -1405,12 +1405,12 @@ tailrecurse.loopexit.i:                           ; preds = %82, %66
 
 ._crit_edge84.i:                                  ; preds = %23
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.070.i, i64 40
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !55
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !57
   br label %31
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %.070.i, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !55
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !35
   %30 = icmp eq i32 %29, 1
@@ -1509,9 +1509,9 @@ tailrecurse.loopexit.i:                           ; preds = %82, %66
 
 86:                                               ; preds = %82, %78, %74, %70, %66, %62, %58, %54, %.thread61.i, %23
   %87 = getelementptr inbounds nuw i8, ptr %.070.i, i64 88
-  %.0.i = load ptr, ptr %87, align 8, !tbaa !54
+  %.0.i = load ptr, ptr %87, align 8, !tbaa !56
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %hwloc__pci_find_by_busid.exit, label %23, !llvm.loop !95
+  br i1 %.not.i, label %hwloc__pci_find_by_busid.exit, label %23, !llvm.loop !98
 
 hwloc__pci_find_by_busid.exit:                    ; preds = %tailrecurse.loopexit.i, %45, %50, %.thread.i, %86, %.loopexit
   %.050.i = phi ptr [ %spec.select, %.loopexit ], [ %.070.i, %45 ], [ %.tr79.i, %50 ], [ %.tr79.i, %86 ], [ %.tr79.i, %.thread.i ], [ %.070.i, %tailrecurse.loopexit.i ]
@@ -1568,7 +1568,7 @@ define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonly captur
   %.015.in = load i8, ptr %gep, align 1, !tbaa !35
   %.015 = and i8 %.015.in, -4
   %.not17 = icmp eq i8 %.015, 0
-  br i1 %.not17, label %.thread, label %.lr.ph, !llvm.loop !96
+  br i1 %.not17, label %.thread, label %.lr.ph, !llvm.loop !99
 
 .thread:                                          ; preds = %20, %.lr.ph, %18, %7, %.thread21, %2
   %.0 = phi i32 [ 0, %2 ], [ %17, %.thread21 ], [ 0, %7 ], [ 0, %18 ], [ 0, %.lr.ph ], [ 0, %20 ]
@@ -1620,7 +1620,7 @@ hwloc__pci_link_speed.exit:                       ; preds = %9, %19, %22
   %27 = uitofp nneg i32 %26 to float
   %28 = fmul float %.0.i, %27
   %29 = fmul float %28, 1.250000e-01
-  store float %29, ptr %2, align 4, !tbaa !97
+  store float %29, ptr %2, align 4, !tbaa !100
   ret i32 0
 }
 
@@ -2034,54 +2034,57 @@ attributes #27 = { cold }
 !44 = !{!42, !5, i64 8}
 !45 = !{!42, !12, i64 16}
 !46 = distinct !{!46, !47}
-!47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!4, !30, i64 920}
-!49 = !{!50, !30, i64 40}
-!50 = !{!"hwloc_pci_locality_s", !5, i64 0, !5, i64 4, !5, i64 8, !12, i64 16, !51, i64 24, !30, i64 32, !30, i64 40}
-!51 = !{!"p1 _ZTS9hwloc_obj", !9, i64 0}
-!52 = !{!50, !12, i64 16}
-!53 = distinct !{!53, !47}
-!54 = !{!51, !51, i64 0}
-!55 = !{!56, !58, i64 40}
-!56 = !{!"hwloc_obj", !5, i64 0, !57, i64 8, !5, i64 16, !57, i64 24, !11, i64 32, !58, i64 40, !5, i64 48, !5, i64 52, !51, i64 56, !51, i64 64, !51, i64 72, !5, i64 80, !51, i64 88, !51, i64 96, !5, i64 104, !59, i64 112, !51, i64 120, !51, i64 128, !5, i64 136, !5, i64 140, !51, i64 144, !5, i64 152, !51, i64 160, !5, i64 168, !51, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !19, i64 216, !9, i64 232, !11, i64 240}
-!57 = !{!"p1 omnipotent char", !9, i64 0}
-!58 = !{!"p1 _ZTS16hwloc_obj_attr_u", !9, i64 0}
-!59 = !{!"p2 _ZTS9hwloc_obj", !9, i64 0}
-!60 = !{!56, !5, i64 0}
-!61 = !{!56, !51, i64 88}
-!62 = !{!56, !51, i64 72}
-!63 = distinct !{!63, !47}
-!64 = distinct !{!64, !47}
-!65 = !{!56, !51, i64 160}
-!66 = !{!4, !30, i64 928}
-!67 = !{!50, !51, i64 24}
-!68 = !{!50, !5, i64 0}
-!69 = !{!50, !5, i64 8}
-!70 = !{!50, !5, i64 4}
-!71 = !{!56, !12, i64 184}
-!72 = !{!50, !30, i64 32}
-!73 = distinct !{!73, !47}
-!74 = !{!75, !6, i64 4}
-!75 = !{!"hwloc_pcidev_attr_s", !5, i64 0, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !76, i64 8, !76, i64 10, !76, i64 12, !76, i64 14, !76, i64 16, !6, i64 18, !77, i64 20}
-!76 = !{!"short", !6, i64 0}
-!77 = !{!"float", !6, i64 0}
-!78 = !{!75, !5, i64 0}
-!79 = distinct !{!79, !47}
-!80 = !{!19, !5, i64 8}
-!81 = !{!19, !20, i64 0}
-!82 = distinct !{!82, !47}
-!83 = !{!84, !57, i64 0}
-!84 = !{!"hwloc_info_s", !57, i64 0, !57, i64 8}
-!85 = !{!84, !57, i64 8}
-!86 = !{!4, !24, i64 824}
-!87 = !{!88, !9, i64 72}
-!88 = !{!"hwloc_backend", !89, i64 0, !90, i64 8, !5, i64 16, !24, i64 24, !5, i64 32, !11, i64 40, !5, i64 48, !9, i64 56, !9, i64 64, !9, i64 72}
-!89 = !{!"p1 _ZTS20hwloc_disc_component", !9, i64 0}
-!90 = !{!"p1 _ZTS14hwloc_topology", !9, i64 0}
-!91 = !{!75, !6, i64 5}
-!92 = !{!75, !6, i64 6}
-!93 = !{!30, !30, i64 0}
-!94 = distinct !{!94, !47}
-!95 = distinct !{!95, !47}
-!96 = distinct !{!96, !47}
-!97 = !{!77, !77, i64 0}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !49, !47}
+!49 = !{!"llvm.loop.mustprogress"}
+!50 = !{!4, !30, i64 920}
+!51 = !{!52, !30, i64 40}
+!52 = !{!"hwloc_pci_locality_s", !5, i64 0, !5, i64 4, !5, i64 8, !12, i64 16, !53, i64 24, !30, i64 32, !30, i64 40}
+!53 = !{!"p1 _ZTS9hwloc_obj", !9, i64 0}
+!54 = !{!52, !12, i64 16}
+!55 = distinct !{!55, !49, !47}
+!56 = !{!53, !53, i64 0}
+!57 = !{!58, !60, i64 40}
+!58 = !{!"hwloc_obj", !5, i64 0, !59, i64 8, !5, i64 16, !59, i64 24, !11, i64 32, !60, i64 40, !5, i64 48, !5, i64 52, !53, i64 56, !53, i64 64, !53, i64 72, !5, i64 80, !53, i64 88, !53, i64 96, !5, i64 104, !61, i64 112, !53, i64 120, !53, i64 128, !5, i64 136, !5, i64 140, !53, i64 144, !5, i64 152, !53, i64 160, !5, i64 168, !53, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !19, i64 216, !9, i64 232, !11, i64 240}
+!59 = !{!"p1 omnipotent char", !9, i64 0}
+!60 = !{!"p1 _ZTS16hwloc_obj_attr_u", !9, i64 0}
+!61 = !{!"p2 _ZTS9hwloc_obj", !9, i64 0}
+!62 = !{!58, !5, i64 0}
+!63 = !{!58, !53, i64 88}
+!64 = !{!58, !53, i64 72}
+!65 = distinct !{!65, !49, !47}
+!66 = distinct !{!66, !47}
+!67 = distinct !{!67, !49, !47}
+!68 = !{!58, !53, i64 160}
+!69 = !{!4, !30, i64 928}
+!70 = !{!52, !53, i64 24}
+!71 = !{!52, !5, i64 0}
+!72 = !{!52, !5, i64 8}
+!73 = !{!52, !5, i64 4}
+!74 = !{!58, !12, i64 184}
+!75 = !{!52, !30, i64 32}
+!76 = distinct !{!76, !49, !47}
+!77 = !{!78, !6, i64 4}
+!78 = !{!"hwloc_pcidev_attr_s", !5, i64 0, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !79, i64 8, !79, i64 10, !79, i64 12, !79, i64 14, !79, i64 16, !6, i64 18, !80, i64 20}
+!79 = !{!"short", !6, i64 0}
+!80 = !{!"float", !6, i64 0}
+!81 = !{!78, !5, i64 0}
+!82 = distinct !{!82, !49, !47}
+!83 = !{!19, !5, i64 8}
+!84 = !{!19, !20, i64 0}
+!85 = distinct !{!85, !49, !47}
+!86 = !{!87, !59, i64 0}
+!87 = !{!"hwloc_info_s", !59, i64 0, !59, i64 8}
+!88 = !{!87, !59, i64 8}
+!89 = !{!4, !24, i64 824}
+!90 = !{!91, !9, i64 72}
+!91 = !{!"hwloc_backend", !92, i64 0, !93, i64 8, !5, i64 16, !24, i64 24, !5, i64 32, !11, i64 40, !5, i64 48, !9, i64 56, !9, i64 64, !9, i64 72}
+!92 = !{!"p1 _ZTS20hwloc_disc_component", !9, i64 0}
+!93 = !{!"p1 _ZTS14hwloc_topology", !9, i64 0}
+!94 = !{!78, !6, i64 5}
+!95 = !{!78, !6, i64 6}
+!96 = !{!30, !30, i64 0}
+!97 = distinct !{!97, !49, !47}
+!98 = distinct !{!98, !49, !47}
+!99 = distinct !{!99, !49, !47}
+!100 = !{!80, !80, i64 0}

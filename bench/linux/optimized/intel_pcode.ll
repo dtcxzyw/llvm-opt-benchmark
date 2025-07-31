@@ -383,12 +383,12 @@ define dso_local range(i32 -110, 1) i32 @skl_pcode_request(ptr noundef %0, i32 n
 
 78:                                               ; preds = %75
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !29
-  br label %67
+  br label %67, !llvm.loop !30
 
 79:                                               ; preds = %67, %75
   %.ph = phi i32 [ 0, %67 ], [ -110, %75 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !30
-  %80 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !32
+  %80 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !33
   %81 = icmp ult i8 %80, 2
   tail call void @llvm.assume(i1 %81)
   %82 = icmp eq i8 %80, 0
@@ -396,7 +396,7 @@ define dso_local range(i32 -110, 1) i32 @skl_pcode_request(ptr noundef %0, i32 n
 
 83:                                               ; preds = %79
   %84 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %85 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %84) #8, !srcloc !32
+  %85 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %84) #8, !srcloc !34
   tail call void @llvm.write_register.i64(metadata !0, i64 %85)
   br label %86
 
@@ -661,6 +661,8 @@ attributes #9 = { cold nounwind }
 !27 = !{i64 2158464316}
 !28 = !{i64 2158473580}
 !29 = !{i64 2318736}
-!30 = !{i64 2158486275}
-!31 = !{i64 2149400745, i64 2149400838}
-!32 = !{i64 2158486457}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{i64 2158486275}
+!33 = !{i64 2149400745, i64 2149400838}
+!34 = !{i64 2158486457}

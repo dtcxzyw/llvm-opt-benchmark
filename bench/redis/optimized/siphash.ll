@@ -75,7 +75,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
 
 34:                                               ; preds = %._crit_edge
   %35 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 6
-  %36 = load i8, ptr %35, align 1, !tbaa !11
+  %36 = load i8, ptr %35, align 1, !tbaa !12
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 48
   %39 = or disjoint i64 %38, %11
@@ -84,7 +84,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
 40:                                               ; preds = %34, %._crit_edge
   %.1 = phi i64 [ %39, %34 ], [ %11, %._crit_edge ]
   %41 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 5
-  %42 = load i8, ptr %41, align 1, !tbaa !11
+  %42 = load i8, ptr %41, align 1, !tbaa !12
   %43 = zext i8 %42 to i64
   %44 = shl nuw nsw i64 %43, 40
   %45 = or i64 %44, %.1
@@ -93,7 +93,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
 46:                                               ; preds = %40, %._crit_edge
   %.2 = phi i64 [ %45, %40 ], [ %11, %._crit_edge ]
   %47 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 4
-  %48 = load i8, ptr %47, align 1, !tbaa !11
+  %48 = load i8, ptr %47, align 1, !tbaa !12
   %49 = zext i8 %48 to i64
   %50 = shl nuw nsw i64 %49, 32
   %51 = or i64 %50, %.2
@@ -102,7 +102,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
 52:                                               ; preds = %46, %._crit_edge
   %.3 = phi i64 [ %51, %46 ], [ %11, %._crit_edge ]
   %53 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 3
-  %54 = load i8, ptr %53, align 1, !tbaa !11
+  %54 = load i8, ptr %53, align 1, !tbaa !12
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 24
   %57 = or i64 %56, %.3
@@ -111,7 +111,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
 58:                                               ; preds = %52, %._crit_edge
   %.4 = phi i64 [ %57, %52 ], [ %11, %._crit_edge ]
   %59 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 2
-  %60 = load i8, ptr %59, align 1, !tbaa !11
+  %60 = load i8, ptr %59, align 1, !tbaa !12
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 16
   %63 = or i64 %62, %.4
@@ -120,7 +120,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
 64:                                               ; preds = %58, %._crit_edge
   %.5 = phi i64 [ %63, %58 ], [ %11, %._crit_edge ]
   %65 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 1
-  %66 = load i8, ptr %65, align 1, !tbaa !11
+  %66 = load i8, ptr %65, align 1, !tbaa !12
   %67 = zext i8 %66 to i64
   %68 = shl nuw nsw i64 %67, 8
   %69 = or i64 %68, %.5
@@ -128,7 +128,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
 
 70:                                               ; preds = %64, %._crit_edge
   %.6 = phi i64 [ %69, %64 ], [ %11, %._crit_edge ]
-  %71 = load i8, ptr %.0159.lcssa, align 1, !tbaa !11
+  %71 = load i8, ptr %.0159.lcssa, align 1, !tbaa !12
   %72 = zext i8 %71 to i64
   %73 = or i64 %.6, %72
   br label %74
@@ -208,14 +208,14 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %.0168202 = phi i64 [ %90, %.lr.ph ], [ %14, %3 ]
   %.0169201 = phi i64 [ %91, %.lr.ph ], [ %13, %3 ]
   %.0170200 = phi i64 [ %87, %.lr.ph ], [ %12, %3 ]
-  %16 = load i8, ptr %.0166204, align 1, !tbaa !11
+  %16 = load i8, ptr %.0166204, align 1, !tbaa !12
   %17 = zext i8 %16 to i32
   %18 = add i8 %16, -65
   %or.cond.i = icmp ult i8 %18, 26
   %19 = or disjoint i32 %17, 32
   %.0.i = select i1 %or.cond.i, i32 %19, i32 %17
   %20 = getelementptr inbounds nuw i8, ptr %.0166204, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !11
+  %21 = load i8, ptr %20, align 1, !tbaa !12
   %22 = zext i8 %21 to i32
   %23 = add i8 %21, -65
   %or.cond.i171 = icmp ult i8 %23, 26
@@ -224,7 +224,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %26 = select i1 %or.cond.i171, i32 %25, i32 %24
   %27 = or disjoint i32 %26, %.0.i
   %28 = getelementptr inbounds nuw i8, ptr %.0166204, i64 2
-  %29 = load i8, ptr %28, align 1, !tbaa !11
+  %29 = load i8, ptr %28, align 1, !tbaa !12
   %30 = zext i8 %29 to i32
   %31 = add i8 %29, -65
   %or.cond.i173 = icmp ult i8 %31, 26
@@ -233,7 +233,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %34 = select i1 %or.cond.i173, i32 %33, i32 %32
   %35 = or disjoint i32 %27, %34
   %36 = getelementptr inbounds nuw i8, ptr %.0166204, i64 3
-  %37 = load i8, ptr %36, align 1, !tbaa !11
+  %37 = load i8, ptr %36, align 1, !tbaa !12
   %38 = zext i8 %37 to i32
   %39 = add i8 %37, -65
   %or.cond.i175 = icmp ult i8 %39, 26
@@ -243,7 +243,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %43 = or i32 %35, %42
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %.0166204, i64 4
-  %46 = load i8, ptr %45, align 1, !tbaa !11
+  %46 = load i8, ptr %45, align 1, !tbaa !12
   %47 = zext i8 %46 to i32
   %48 = add i8 %46, -65
   %or.cond.i177 = icmp ult i8 %48, 26
@@ -253,7 +253,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %51 = shl nuw nsw i64 %50, 32
   %52 = or disjoint i64 %51, %44
   %53 = getelementptr inbounds nuw i8, ptr %.0166204, i64 5
-  %54 = load i8, ptr %53, align 1, !tbaa !11
+  %54 = load i8, ptr %53, align 1, !tbaa !12
   %55 = zext i8 %54 to i32
   %56 = add i8 %54, -65
   %or.cond.i179 = icmp ult i8 %56, 26
@@ -263,7 +263,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %59 = shl nuw nsw i64 %58, 40
   %60 = or disjoint i64 %52, %59
   %61 = getelementptr inbounds nuw i8, ptr %.0166204, i64 6
-  %62 = load i8, ptr %61, align 1, !tbaa !11
+  %62 = load i8, ptr %61, align 1, !tbaa !12
   %63 = zext i8 %62 to i32
   %64 = add i8 %62, -65
   %or.cond.i181 = icmp ult i8 %64, 26
@@ -273,7 +273,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %67 = shl nuw nsw i64 %66, 48
   %68 = or i64 %60, %67
   %69 = getelementptr inbounds nuw i8, ptr %.0166204, i64 7
-  %70 = load i8, ptr %69, align 1, !tbaa !11
+  %70 = load i8, ptr %69, align 1, !tbaa !12
   %71 = zext i8 %70 to i32
   %72 = add i8 %70, -65
   %or.cond.i183 = icmp ult i8 %72, 26
@@ -300,7 +300,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %92 = xor i64 %85, %76
   %93 = getelementptr inbounds nuw i8, ptr %.0166204, i64 8
   %.not = icmp eq ptr %93, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0170.lcssa = phi i64 [ %12, %3 ], [ %87, %.lr.ph ]
@@ -321,7 +321,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
 
 94:                                               ; preds = %._crit_edge
   %95 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 6
-  %96 = load i8, ptr %95, align 1, !tbaa !11
+  %96 = load i8, ptr %95, align 1, !tbaa !12
   %97 = zext i8 %96 to i32
   %98 = add i8 %96, -65
   %or.cond.i185 = icmp ult i8 %98, 26
@@ -335,7 +335,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
 103:                                              ; preds = %94, %._crit_edge
   %.1 = phi i64 [ %102, %94 ], [ %11, %._crit_edge ]
   %104 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 5
-  %105 = load i8, ptr %104, align 1, !tbaa !11
+  %105 = load i8, ptr %104, align 1, !tbaa !12
   %106 = zext i8 %105 to i32
   %107 = add i8 %105, -65
   %or.cond.i187 = icmp ult i8 %107, 26
@@ -349,7 +349,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
 112:                                              ; preds = %103, %._crit_edge
   %.2 = phi i64 [ %111, %103 ], [ %11, %._crit_edge ]
   %113 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 4
-  %114 = load i8, ptr %113, align 1, !tbaa !11
+  %114 = load i8, ptr %113, align 1, !tbaa !12
   %115 = zext i8 %114 to i32
   %116 = add i8 %114, -65
   %or.cond.i189 = icmp ult i8 %116, 26
@@ -363,7 +363,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
 121:                                              ; preds = %112, %._crit_edge
   %.3 = phi i64 [ %120, %112 ], [ %11, %._crit_edge ]
   %122 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 3
-  %123 = load i8, ptr %122, align 1, !tbaa !11
+  %123 = load i8, ptr %122, align 1, !tbaa !12
   %124 = zext i8 %123 to i32
   %125 = add i8 %123, -65
   %or.cond.i191 = icmp ult i8 %125, 26
@@ -377,7 +377,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
 131:                                              ; preds = %121, %._crit_edge
   %.4 = phi i64 [ %130, %121 ], [ %11, %._crit_edge ]
   %132 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 2
-  %133 = load i8, ptr %132, align 1, !tbaa !11
+  %133 = load i8, ptr %132, align 1, !tbaa !12
   %134 = zext i8 %133 to i32
   %135 = add i8 %133, -65
   %or.cond.i193 = icmp ult i8 %135, 26
@@ -391,7 +391,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
 141:                                              ; preds = %131, %._crit_edge
   %.5 = phi i64 [ %140, %131 ], [ %11, %._crit_edge ]
   %142 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 1
-  %143 = load i8, ptr %142, align 1, !tbaa !11
+  %143 = load i8, ptr %142, align 1, !tbaa !12
   %144 = zext i8 %143 to i32
   %145 = add i8 %143, -65
   %or.cond.i195 = icmp ult i8 %145, 26
@@ -404,7 +404,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
 
 151:                                              ; preds = %141, %._crit_edge
   %.6 = phi i64 [ %150, %141 ], [ %11, %._crit_edge ]
-  %152 = load i8, ptr %.0166.lcssa, align 1, !tbaa !11
+  %152 = load i8, ptr %.0166.lcssa, align 1, !tbaa !12
   %153 = zext i8 %152 to i32
   %154 = add i8 %152, -65
   %or.cond.i197 = icmp ult i8 %154, 26
@@ -484,7 +484,8 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !6 = !{!"long", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!7, !7, i64 0}
+!13 = distinct !{!13, !10, !11}

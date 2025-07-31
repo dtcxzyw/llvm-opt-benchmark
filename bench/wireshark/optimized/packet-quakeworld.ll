@@ -333,7 +333,7 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
 .preheader71.i.i.i.backedge:                      ; preds = %.preheader69.i.i.i, %.preheader69.i.i.i, %77
   %.142.i.i.be = phi i32 [ %79, %77 ], [ %.3.i.i, %.preheader69.i.i.i ], [ %.3.i.i, %.preheader69.i.i.i ]
   %.155.i.i.i.be = phi ptr [ %78, %77 ], [ %.256.i.i.i, %.preheader69.i.i.i ], [ %.256.i.i.i, %.preheader69.i.i.i ]
-  br label %.preheader71.i.i.i
+  br label %.preheader71.i.i.i, !llvm.loop !9
 
 80:                                               ; preds = %72
   switch i8 %71, label %.loopexit.i.i.i [
@@ -354,13 +354,13 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
   switch i8 %85, label %86 [
     i8 0, label %.preheader71.i.i.i.backedge
     i8 10, label %.preheader71.i.i.i.backedge
-  ]
+  ], !llvm.loop !10
 
 86:                                               ; preds = %.preheader69.i.i.i
   %87 = getelementptr i8, ptr %.256.i.i.i, i64 1
   %88 = add i32 %.3.i.i, 1
   %.pre.i.i.i = load i8, ptr %87, align 1
-  br label %.preheader69.i.i.i, !llvm.loop !8
+  br label %.preheader69.i.i.i, !llvm.loop !11
 
 89:                                               ; preds = %80
   %90 = getelementptr i8, ptr %.155.i.i.i, i64 1
@@ -387,7 +387,7 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
   store i8 %94, ptr %96, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %COM_Parse.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %COM_Parse.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 .loopexit.i.i.i:                                  ; preds = %81, %80, %89
   %.243.i.i = phi i32 [ %91, %89 ], [ %.142.i.i, %80 ], [ %.142.i.i, %81 ]
@@ -415,7 +415,7 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
   %.not66.i.i.i = icmp eq i16 %105, 0
   %106 = icmp slt i64 %indvars.iv.next.i, %97
   %or.cond.i.i.i = and i1 %106, %.not66.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %COM_Parse.exit.i.loopexit.i, !llvm.loop !10
+  br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %COM_Parse.exit.i.loopexit.i, !llvm.loop !13
 
 COM_Parse.exit.loopexit83.i.i:                    ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i
   %indvars103.i.i = trunc i64 %indvars.iv.i.i.i to i32
@@ -458,7 +458,7 @@ COM_Parse.exit.i.i:                               ; preds = %95, %COM_Parse.exit
   %.pre-phi.i.i = phi i32 [ %.pre.i.i, %._crit_edge.i.i ], [ %114, %111 ]
   %119 = add i32 %.pre-phi.i.i, %.2.i.i
   %120 = icmp slt i32 %119, %52
-  br i1 %120, label %.preheader.i.i, label %Cmd_TokenizeString.exit.i, !llvm.loop !11
+  br i1 %120, label %.preheader.i.i, label %Cmd_TokenizeString.exit.i, !llvm.loop !14
 
 Cmd_TokenizeString.exit.i:                        ; preds = %118, %COM_Parse.exit.i.i, %64, %62, %.critedge.i.i, %.critedge.i.i, %.preheader71.i.i.i, %51
   %121 = load i32, ptr @cmd_argc, align 4
@@ -668,15 +668,15 @@ Cmd_Argv_length.exit150.i:                        ; preds = %165
   store i8 61, ptr %220, align 1
   store i8 0, ptr %226, align 1
   %228 = getelementptr i8, ptr %226, i64 1
-  br i1 %227, label %dissect_id_infostring.exit.i, label %.split.us.i.i, !llvm.loop !12
+  br i1 %227, label %dissect_id_infostring.exit.i, label %.split.us.i.i, !llvm.loop !15
 
 229:                                              ; preds = %222
   %230 = add i32 %.061.us.i.i, 1
-  br label %222, !llvm.loop !14
+  br label %222, !llvm.loop !17
 
 231:                                              ; preds = %215
   %232 = add i32 %.062.us.i.i, 1
-  br label %215, !llvm.loop !15
+  br label %215, !llvm.loop !18
 
 .split.i.i:                                       ; preds = %Cmd_Argv_length.exit150.i, %.critedge2.i.i
   %.082.i.i = phi ptr [ %268, %.critedge2.i.i ], [ %205, %Cmd_Argv_length.exit150.i ]
@@ -706,7 +706,7 @@ Cmd_Argv_length.exit150.i:                        ; preds = %165
 
 241:                                              ; preds = %237
   %242 = add i32 %.062.i.i, 1
-  br label %237, !llvm.loop !15
+  br label %237, !llvm.loop !18
 
 243:                                              ; preds = %237
   %244 = getelementptr i8, ptr %.060.i.i, i64 %238
@@ -725,7 +725,7 @@ Cmd_Argv_length.exit150.i:                        ; preds = %165
 
 250:                                              ; preds = %246
   %251 = add i32 %.061.i.i, 1
-  br label %246, !llvm.loop !14
+  br label %246, !llvm.loop !17
 
 .critedge2.i.i:                                   ; preds = %246, %246
   %252 = getelementptr i8, ptr %245, i64 %247
@@ -748,7 +748,7 @@ Cmd_Argv_length.exit150.i:                        ; preds = %165
   %266 = add i32 %203, %265
   %267 = call ptr @proto_tree_add_string(ptr noundef %261, i32 noundef %209, ptr noundef %0, i32 noundef %266, i32 noundef %.061.i.i, ptr noundef %245)
   %268 = getelementptr i8, ptr %252, i64 1
-  br i1 %253, label %dissect_id_infostring.exit.i, label %.split.i.i
+  br i1 %253, label %dissect_id_infostring.exit.i, label %.split.i.i, !llvm.loop !19
 
 dissect_id_infostring.exit.i:                     ; preds = %.critedge2.i.i, %.split.i.i, %237, %.critedge2.us.i.i, %.split.us.i.i, %215, %165
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
@@ -856,7 +856,7 @@ Cmd_Argv.exit198.i:                               ; preds = %Cmd_Argv.exit189.th
   %313 = load i32, ptr @cmd_argc, align 4
   %314 = sext i32 %313 to i64
   %315 = icmp slt i64 %indvars.iv.next324.i, %314
-  br i1 %315, label %Cmd_Argv.exit198.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %315, label %Cmd_Argv.exit198.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %Cmd_Argv.exit198.i, %Cmd_Argv.exit189.thread.thread.i
   %.lcssa272.i = phi i32 [ %307, %Cmd_Argv.exit189.thread.thread.i ], [ %313, %Cmd_Argv.exit198.i ]
@@ -1187,14 +1187,18 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !8, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !7, !8}

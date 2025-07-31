@@ -533,7 +533,7 @@ define dso_local ptr @start_msg_tree(ptr noundef %0, ptr noundef %1, i32 noundef
   tail call void @free(ptr noundef nonnull %30) #10
   %44 = tail call ptr @hostlist_next(ptr noundef %26) #10
   %.not25.i = icmp eq ptr %44, null
-  br i1 %.not25.i, label %._crit_edge.i, label %29, !llvm.loop !11
+  br i1 %.not25.i, label %._crit_edge.i, label %29, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %43, %22
   %.2 = phi i32 [ %17, %22 ], [ %.1, %43 ]
@@ -608,10 +608,10 @@ _get_alias_addrs.exit:                            ; preds = %3, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
   %76 = call i32 @slurm_conf_check_addr(ptr noundef nonnull %75, ptr noundef nonnull %6) #10
   %77 = icmp ne i32 %76, 0
-  %78 = load i8, ptr %6, align 1, !range !12
+  %78 = load i8, ptr %6, align 1, !range !13
   %79 = trunc nuw i8 %78 to i1
   %or.cond.i = select i1 %77, i1 true, i1 %79
-  br i1 %or.cond.i, label %80, label %95, !llvm.loop !13
+  br i1 %or.cond.i, label %80, label %95, !llvm.loop !14
 
 80:                                               ; preds = %.lr.ph.i50
   br i1 %.142.i, label %81, label %87
@@ -625,7 +625,7 @@ _get_alias_addrs.exit:                            ; preds = %3, %._crit_edge.i
   %85 = load i16, ptr %19, align 8
   %86 = or i16 %85, 128
   store i16 %86, ptr %19, align 8
-  br label %95, !llvm.loop !13
+  br label %95, !llvm.loop !14
 
 87:                                               ; preds = %81, %80
   %88 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %0) #10
@@ -795,7 +795,7 @@ _get_dynamic_addrs.exit:                          ; preds = %_get_alias_addrs.ex
 153:                                              ; preds = %152, %148
   %154 = load i32, ptr %10, align 4
   %155 = icmp sgt i32 %154, 0
-  br i1 %155, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %155, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %153, %141
   %156 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #10
@@ -1029,7 +1029,7 @@ define internal fastcc void @_start_msg_tree_internal(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %69, %14
   ret void
@@ -1189,7 +1189,7 @@ define dso_local void @forward_wait(ptr noundef captures(none) %0) local_unnamed
   %51 = load i16, ptr %50, align 4
   %52 = zext i16 %51 to i32
   %53 = icmp slt i32 %.2, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %48, %27
   %54 = tail call i32 @get_log_level() #10
@@ -1458,7 +1458,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
 46:                                               ; preds = %43
   %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #10
   %.not252 = icmp eq i32 %47, 0
-  br i1 %.not252, label %17, label %48, !llvm.loop !17
+  br i1 %.not252, label %17, label %48, !llvm.loop !18
 
 48:                                               ; preds = %46
   %49 = tail call ptr @__errno_location() #11
@@ -1505,7 +1505,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   %65 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %66 = call i32 @hostlist_count(ptr noundef %9) #10
   call fastcc void @_forward_msg_internal(ptr noundef %9, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %65, i32 noundef 0, i32 noundef %66)
-  br label %.outer, !llvm.loop !17
+  br label %.outer, !llvm.loop !18
 
 67:                                               ; preds = %.loopexit275
   %68 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %9) #10
@@ -1684,7 +1684,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   call void @free(ptr noundef nonnull %152) #10
   %157 = call ptr @hostlist_shift(ptr noundef %9) #10
   %.not242 = icmp eq ptr %157, null
-  br i1 %.not242, label %.thread269, label %.lr.ph, !llvm.loop !18
+  br i1 %.not242, label %.thread269, label %.lr.ph, !llvm.loop !19
 
 158:                                              ; preds = %138
   %159 = load i16, ptr %15, align 2
@@ -1755,7 +1755,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
 
 .outer.outer.backedge:                            ; preds = %185, %133
   %.0.ph.ph.be = phi ptr [ %130, %133 ], [ %182, %185 ]
-  br label %.outer.outer, !llvm.loop !17
+  br label %.outer.outer, !llvm.loop !18
 
 split:                                            ; preds = %163, %._crit_edge440
   %187 = phi i32 [ %169, %._crit_edge440 ], [ 1, %163 ]
@@ -1806,7 +1806,7 @@ split:                                            ; preds = %163, %._crit_edge44
   %.3 = phi i32 [ %.1185, %201 ], [ 1, %204 ]
   %208 = call i32 @xstrcmp(ptr noundef nonnull %197, ptr noundef %207) #10
   %.not234 = icmp eq i32 %208, 0
-  br i1 %.not234, label %209, label %199, !llvm.loop !19
+  br i1 %.not234, label %209, label %199, !llvm.loop !20
 
 209:                                              ; preds = %206
   call void @list_iterator_destroy(ptr noundef %198) #10
@@ -1841,7 +1841,7 @@ split:                                            ; preds = %163, %._crit_edge44
   call void @free(ptr noundef nonnull %197) #10
   %219 = call ptr @hostlist_next(ptr noundef %190) #10
   %.not224 = icmp eq ptr %219, null
-  br i1 %.not224, label %._crit_edge, label %.lr.ph361, !llvm.loop !20
+  br i1 %.not224, label %._crit_edge, label %.lr.ph361, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %218
   %220 = icmp eq i32 %.2186256, 0
@@ -1920,7 +1920,7 @@ split:                                            ; preds = %163, %._crit_edge44
 247:                                              ; preds = %245, %241
   %248 = call ptr @list_pop(ptr noundef nonnull %162) #10
   %.not230 = icmp eq ptr %248, null
-  br i1 %.not230, label %._crit_edge364, label %.lr.ph363, !llvm.loop !21
+  br i1 %.not230, label %._crit_edge364, label %.lr.ph363, !llvm.loop !22
 
 ._crit_edge364:                                   ; preds = %247, %.preheader
   call void @list_destroy(ptr noundef nonnull %162) #10
@@ -2083,7 +2083,7 @@ define internal noalias noundef ptr @_fwd_tree_thread(ptr noundef %0) #0 {
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 214
   store i16 %15, ptr %16, align 2
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 156
-  %18 = load i8, ptr %17, align 4, !range !12, !noundef !22
+  %18 = load i8, ptr %17, align 4, !range !13, !noundef !23
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %23
 
@@ -2201,7 +2201,7 @@ _fwd_tree_get_addr.exit:                          ; preds = %72, %46
   %77 = load ptr, ptr %24, align 8
   %78 = call ptr @hostlist_shift(ptr noundef %77) #10
   %.not = icmp eq ptr %78, null
-  br i1 %.not, label %._crit_edge113, label %37, !llvm.loop !23
+  br i1 %.not, label %._crit_edge113, label %37, !llvm.loop !24
 
 79:                                               ; preds = %._crit_edge123, %.thread.i
   %80 = phi ptr [ %.pre, %._crit_edge123 ], [ %52, %.thread.i ]
@@ -2316,7 +2316,7 @@ _fwd_tree_get_addr.exit:                          ; preds = %72, %46
 134:                                              ; preds = %130, %.lr.ph
   %135 = call ptr @list_next(ptr noundef %124) #10
   %.not91 = icmp eq ptr %135, null
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %134, %123
   call void @list_iterator_destroy(ptr noundef %124) #10
@@ -2462,20 +2462,21 @@ attributes #12 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{i8 0, i8 2}
-!13 = distinct !{!13, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = !{i8 0, i8 2}
 !14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = !{}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = !{}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !9, !10, !11}

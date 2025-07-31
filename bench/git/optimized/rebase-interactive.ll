@@ -577,7 +577,7 @@ commit_seen_at.exit42:                            ; preds = %._crit_edge3.i.i40,
   %75 = load i32, ptr @default_abbrev, align 4, !tbaa !4
   %76 = call ptr @repo_find_unique_abbrev(ptr noundef %73, ptr noundef nonnull %74, i32 noundef %75) #10
   %77 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  %78 = load i32, ptr %77, align 4, !tbaa !38
+  %78 = load i32, ptr %77, align 4, !tbaa !39
   %79 = call ptr @todo_item_get_arg(ptr noundef nonnull %0, ptr noundef nonnull %47) #10
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef %76, i32 noundef %78, ptr noundef %79) #10
   %.val31 = load i32, ptr %51, align 8, !tbaa !30
@@ -626,7 +626,7 @@ commit_seen_at.exit53:                            ; preds = %._crit_edge3.i.i51,
   %.sroa.16.4 = phi i32 [ %.sroa.16.393, %45 ], [ %.sroa.16.7, %commit_seen_at.exit53 ], [ %.sroa.16.6, %commit_seen_at.exit42 ]
   %.sroa.2977.4 = phi ptr [ %.sroa.2977.394, %45 ], [ %.sroa.2977.7, %commit_seen_at.exit53 ], [ %.sroa.2977.6, %commit_seen_at.exit42 ]
   %100 = icmp samesign ugt i64 %indvars.iv111, 1
-  br i1 %100, label %45, label %._crit_edge98, !llvm.loop !39
+  br i1 %100, label %45, label %._crit_edge98, !llvm.loop !40
 
 ._crit_edge98:                                    ; preds = %99
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -698,7 +698,7 @@ _.exit59:                                         ; preds = %_.exit56, %120
   call void @free(ptr noundef %125) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %123
-  br i1 %exitcond.not, label %clear_commit_seen.exit, label %.lr.ph.i, !llvm.loop !40
+  br i1 %exitcond.not, label %clear_commit_seen.exit, label %.lr.ph.i, !llvm.loop !41
 
 clear_commit_seen.exit:                           ; preds = %.lr.ph.i, %2, %._crit_edge98.thread
   %.087 = phi i32 [ %.0, %._crit_edge98.thread ], [ 0, %2 ], [ %.0, %.lr.ph.i ]
@@ -806,8 +806,9 @@ attributes #13 = { cold }
 !33 = !{!"object_id", !6, i64 0, !5, i64 32}
 !34 = !{!"p1 _ZTS11commit_list", !12, i64 0}
 !35 = !{!"p1 _ZTS4tree", !12, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!28, !5, i64 20}
-!39 = distinct !{!39, !37}
-!40 = distinct !{!40, !37}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!28, !5, i64 20}
+!40 = distinct !{!40, !37, !38}
+!41 = distinct !{!41, !37, !38}

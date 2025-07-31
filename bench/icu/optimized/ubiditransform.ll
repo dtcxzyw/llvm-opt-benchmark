@@ -199,22 +199,22 @@ ubiditransform_open_77.exit:                      ; preds = %45
 
 _ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread: ; preds = %69
   %70 = getelementptr inbounds nuw i8, ptr %.083, i64 8
-  store ptr null, ptr %70, align 8, !tbaa !25
+  store ptr null, ptr %70, align 8, !tbaa !26
   br label %121
 
 71:                                               ; preds = %65
   %72 = getelementptr inbounds nuw i8, ptr %.083, i64 8
-  store ptr %54, ptr %72, align 8, !tbaa !25
+  store ptr %54, ptr %72, align 8, !tbaa !26
   %.not92 = icmp eq i32 %9, 0
   %73 = select i1 %.not92, i32 0, i32 2
   %74 = getelementptr inbounds nuw i8, ptr %.083, i64 56
-  store i32 %73, ptr %74, align 8, !tbaa !26
+  store i32 %73, ptr %74, align 8, !tbaa !27
   %75 = and i32 %10, -29
   %76 = getelementptr inbounds nuw i8, ptr %.083, i64 60
-  store i32 %75, ptr %76, align 4, !tbaa !27
+  store i32 %75, ptr %76, align 4, !tbaa !28
   %77 = and i32 %10, -229
   %78 = getelementptr inbounds nuw i8, ptr %.083, i64 64
-  store i32 %77, ptr %78, align 8, !tbaa !28
+  store i32 %77, ptr %78, align 8, !tbaa !29
   %79 = tail call i32 @llvm.smax.i32(i32 %.085, i32 %.084)
   tail call fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(ptr noundef nonnull %.083, ptr noundef nonnull %1, i32 noundef %.084, i32 noundef %79, ptr noundef nonnull %11)
   %80 = load i32, ptr %11, align 4, !tbaa !3
@@ -236,14 +236,14 @@ _ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread: ; preds = %69
 89:                                               ; preds = %85, %82
   %90 = phi ptr [ %86, %85 ], [ %83, %82 ]
   %91 = getelementptr inbounds nuw i8, ptr %.083, i64 24
-  store ptr %3, ptr %91, align 8, !tbaa !29
+  store ptr %3, ptr %91, align 8, !tbaa !30
   %92 = getelementptr inbounds nuw i8, ptr %.083, i64 40
-  store i32 %.085, ptr %92, align 8, !tbaa !30
+  store i32 %.085, ptr %92, align 8, !tbaa !31
   %93 = getelementptr inbounds nuw i8, ptr %.083, i64 48
-  store ptr %15, ptr %93, align 8, !tbaa !31
-  %94 = load ptr, ptr %72, align 8, !tbaa !25
+  store ptr %15, ptr %93, align 8, !tbaa !32
+  %94 = load ptr, ptr %72, align 8, !tbaa !26
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  %96 = load ptr, ptr %95, align 8, !tbaa !32
+  %96 = load ptr, ptr %95, align 8, !tbaa !33
   %.not95105 = icmp eq ptr %96, null
   br i1 %.not95105, label %.critedge.thread, label %.lr.ph
 
@@ -266,13 +266,13 @@ _ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread: ; preds = %69
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %.0107, i64 8
-  %104 = load ptr, ptr %103, align 8, !tbaa !32
+  %104 = load ptr, ptr %103, align 8, !tbaa !33
   %.not100 = icmp eq ptr %104, null
   br i1 %.not100, label %109, label %105
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr %91, align 8, !tbaa !29
-  %107 = load ptr, ptr %93, align 8, !tbaa !31
+  %106 = load ptr, ptr %91, align 8, !tbaa !30
+  %107 = load ptr, ptr %93, align 8, !tbaa !32
   %108 = load i32, ptr %107, align 4, !tbaa !16
   call fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(ptr noundef nonnull %.083, ptr noundef %106, i32 noundef %108, i32 noundef %108, ptr noundef nonnull %11)
   br label %109
@@ -280,9 +280,9 @@ _ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread: ; preds = %69
 109:                                              ; preds = %102, %105, %100
   %.1 = phi i8 [ %.082106, %100 ], [ 1, %105 ], [ 1, %102 ]
   %110 = getelementptr inbounds nuw i8, ptr %.0107, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !32
+  %111 = load ptr, ptr %110, align 8, !tbaa !33
   %.not95 = icmp eq ptr %111, null
-  br i1 %.not95, label %.critedge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not95, label %.critedge, label %.lr.ph, !llvm.loop !34
 
 .critedge:                                        ; preds = %.lr.ph, %109
   %.082.lcssa.ph = phi i8 [ %.082106, %.lr.ph ], [ %.1, %109 ]
@@ -319,13 +319,13 @@ _ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread: ; preds = %69
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %.083, i64 24
-  store ptr null, ptr %124, align 8, !tbaa !29
+  store ptr null, ptr %124, align 8, !tbaa !30
   %125 = getelementptr inbounds nuw i8, ptr %.083, i64 48
-  store ptr null, ptr %125, align 8, !tbaa !31
+  store ptr null, ptr %125, align 8, !tbaa !32
   %126 = getelementptr inbounds nuw i8, ptr %.083, i64 32
-  store i32 0, ptr %126, align 8, !tbaa !34
+  store i32 0, ptr %126, align 8, !tbaa !35
   %127 = getelementptr inbounds nuw i8, ptr %.083, i64 40
-  store i32 0, ptr %127, align 8, !tbaa !30
+  store i32 0, ptr %127, align 8, !tbaa !31
   br label %128
 
 128:                                              ; preds = %123, %122
@@ -391,7 +391,7 @@ define internal fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(p
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !35
+  %10 = load i32, ptr %9, align 4, !tbaa !36
   %11 = icmp ugt i32 %3, %10
   br i1 %11, label %12, label %._crit_edge
 
@@ -425,7 +425,7 @@ define internal fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(p
   br label %32
 
 23:                                               ; preds = %17
-  store i32 %13, ptr %9, align 4, !tbaa !35
+  store i32 %13, ptr %9, align 4, !tbaa !36
   br label %24
 
 24:                                               ; preds = %._crit_edge, %23
@@ -433,10 +433,10 @@ define internal fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(p
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = tail call ptr @u_strncpy_77(ptr noundef %25, ptr noundef %1, i32 noundef %2)
   %28 = load ptr, ptr %26, align 8, !tbaa !14
-  %29 = load i32, ptr %9, align 4, !tbaa !35
+  %29 = load i32, ptr %9, align 4, !tbaa !36
   %30 = tail call i32 @u_terminateUChars_77(ptr noundef %28, i32 noundef %29, i32 noundef %2, ptr noundef %4)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %30, ptr %31, align 8, !tbaa !34
+  store i32 %30, ptr %31, align 8, !tbaa !35
   br label %32
 
 32:                                               ; preds = %24, %22, %7
@@ -454,29 +454,29 @@ declare i32 @ubidi_getBaseDirection_77(ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load i32, ptr %3, align 8, !tbaa !28
+  %4 = load i32, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %6 = load i32, ptr %5, align 4, !tbaa !27
+  %6 = load i32, ptr %5, align 4, !tbaa !28
   %7 = or i32 %6, %4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %68, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !36
+  %13 = load i32, ptr %12, align 4, !tbaa !37
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !37
+  %15 = load i32, ptr %14, align 8, !tbaa !38
   %16 = icmp eq i32 %13, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load i32, ptr %19, align 8, !tbaa !34
+  %20 = load i32, ptr %19, align 8, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
+  %22 = load ptr, ptr %21, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load i32, ptr %23, align 8, !tbaa !30
+  %24 = load i32, ptr %23, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %16, label %26, label %29
 
@@ -488,16 +488,16 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL18action_shapeArabicP14UBi
 29:                                               ; preds = %9
   %30 = or i32 %15, %6
   %31 = tail call i32 @u_shapeArabic_77(ptr noundef %18, i32 noundef %20, ptr noundef %22, i32 noundef %24, i32 noundef %30, ptr noundef %1)
-  %32 = load ptr, ptr %25, align 8, !tbaa !31
+  %32 = load ptr, ptr %25, align 8, !tbaa !32
   store i32 %31, ptr %32, align 4, !tbaa !16
   %33 = load i32, ptr %1, align 4, !tbaa !3
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %68, label %35
 
 35:                                               ; preds = %29
-  %36 = load ptr, ptr %21, align 8, !tbaa !29
+  %36 = load ptr, ptr %21, align 8, !tbaa !30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %38 = load i32, ptr %37, align 4, !tbaa !35
+  %38 = load i32, ptr %37, align 4, !tbaa !36
   %39 = icmp ugt i32 %31, %38
   br i1 %39, label %40, label %._crit_edge.i
 
@@ -526,39 +526,39 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL18action_shapeArabicP14UBi
 
 49:                                               ; preds = %44
   store i32 7, ptr %1, align 4, !tbaa !3
-  %.pre26 = load i32, ptr %19, align 8, !tbaa !34
+  %.pre26 = load i32, ptr %19, align 8, !tbaa !35
   br label %_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode.exit
 
 50:                                               ; preds = %44
-  store i32 %41, ptr %37, align 4, !tbaa !35
+  store i32 %41, ptr %37, align 4, !tbaa !36
   br label %51
 
 51:                                               ; preds = %50, %._crit_edge.i
   %52 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %47, %50 ]
   %53 = tail call ptr @u_strncpy_77(ptr noundef %52, ptr noundef %36, i32 noundef %31)
   %54 = load ptr, ptr %17, align 8, !tbaa !14
-  %55 = load i32, ptr %37, align 4, !tbaa !35
+  %55 = load i32, ptr %37, align 4, !tbaa !36
   %56 = tail call i32 @u_terminateUChars_77(ptr noundef %54, i32 noundef %55, i32 noundef %31, ptr noundef nonnull %1)
-  store i32 %56, ptr %19, align 8, !tbaa !34
+  store i32 %56, ptr %19, align 8, !tbaa !35
   %.pre = load ptr, ptr %17, align 8, !tbaa !14
   br label %_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode.exit
 
 _ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode.exit: ; preds = %49, %51
   %57 = phi i32 [ %.pre26, %49 ], [ %56, %51 ]
   %58 = phi ptr [ null, %49 ], [ %.pre, %51 ]
-  %59 = load i32, ptr %3, align 8, !tbaa !28
-  %60 = load ptr, ptr %10, align 8, !tbaa !25
+  %59 = load i32, ptr %3, align 8, !tbaa !29
+  %60 = load ptr, ptr %10, align 8, !tbaa !26
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 20
-  %62 = load i32, ptr %61, align 4, !tbaa !36
+  %62 = load i32, ptr %61, align 4, !tbaa !37
   %63 = or i32 %62, %59
-  %64 = load ptr, ptr %21, align 8, !tbaa !29
-  %65 = load i32, ptr %23, align 8, !tbaa !30
+  %64 = load ptr, ptr %21, align 8, !tbaa !30
+  %65 = load i32, ptr %23, align 8, !tbaa !31
   %66 = tail call i32 @u_shapeArabic_77(ptr noundef %58, i32 noundef %57, ptr noundef %64, i32 noundef %65, i32 noundef %63, ptr noundef nonnull %1)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode.exit, %26
   %.sink = phi i32 [ %28, %26 ], [ %66, %_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode.exit ]
-  %67 = load ptr, ptr %25, align 8, !tbaa !31
+  %67 = load ptr, ptr %25, align 8, !tbaa !32
   store i32 %.sink, ptr %67, align 4, !tbaa !16
   br label %68
 
@@ -573,11 +573,11 @@ define internal noundef signext i8 @_ZL14action_resolveP14UBiDiTransformP10UErro
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i32, ptr %6, align 8, !tbaa !34
+  %7 = load i32, ptr %6, align 8, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load i8, ptr %10, align 8, !tbaa !38
+  %11 = load i8, ptr %10, align 8, !tbaa !39
   tail call void @ubidi_setPara_77(ptr noundef %3, ptr noundef %5, i32 noundef %7, i8 noundef zeroext %11, ptr noundef null, ptr noundef %1)
   ret i8 0
 }
@@ -586,19 +586,19 @@ define internal noundef signext i8 @_ZL14action_resolveP14UBiDiTransformP10UErro
 define internal noundef signext i8 @_ZL14action_reorderP14UBiDiTransformP10UErrorCode(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i32, ptr %6, align 8, !tbaa !30
+  %7 = load i32, ptr %6, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load i32, ptr %8, align 8, !tbaa !26
+  %9 = load i32, ptr %8, align 8, !tbaa !27
   %10 = trunc i32 %9 to i16
   %11 = tail call i32 @ubidi_writeReordered_77(ptr noundef %3, ptr noundef %5, i32 noundef %7, i16 noundef zeroext %10, ptr noundef %1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load i32, ptr %12, align 8, !tbaa !34
+  %13 = load i32, ptr %12, align 8, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !31
+  %15 = load ptr, ptr %14, align 8, !tbaa !32
   store i32 %13, ptr %15, align 4, !tbaa !16
-  store i32 0, ptr %8, align 8, !tbaa !26
+  store i32 0, ptr %8, align 8, !tbaa !27
   ret i8 1
 }
 
@@ -607,15 +607,15 @@ define internal noundef signext i8 @_ZL14action_reverseP14UBiDiTransformP10UErro
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !34
+  %6 = load i32, ptr %5, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load i32, ptr %9, align 8, !tbaa !30
+  %10 = load i32, ptr %9, align 8, !tbaa !31
   %11 = tail call i32 @ubidi_writeReverse_77(ptr noundef %4, i32 noundef %6, ptr noundef %8, i32 noundef %10, i16 noundef zeroext 0, ptr noundef %1)
-  %12 = load i32, ptr %5, align 8, !tbaa !34
+  %12 = load i32, ptr %5, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !31
+  %14 = load ptr, ptr %13, align 8, !tbaa !32
   store i32 %12, ptr %14, align 4, !tbaa !16
   ret i8 1
 }
@@ -632,16 +632,16 @@ define internal noundef signext i8 @_ZL17action_setInverseP14UBiDiTransformP10UE
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load i32, ptr %3, align 8, !tbaa !26
+  %4 = load i32, ptr %3, align 8, !tbaa !27
   %5 = and i32 %4, 2
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %83, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load i32, ptr %8, align 8, !tbaa !30
+  %9 = load i32, ptr %8, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !34
+  %11 = load i32, ptr %10, align 8, !tbaa !35
   %12 = icmp ult i32 %9, %11
   br i1 %12, label %15, label %.preheader
 
@@ -664,21 +664,21 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
   %21 = add nuw i32 %.042, 1
   %22 = zext i32 %.042 to i64
   %23 = getelementptr inbounds nuw i16, ptr %20, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !39
+  %24 = load i16, ptr %23, align 2, !tbaa !40
   %25 = zext i16 %24 to i32
   %26 = and i32 %25, 64512
   %27 = icmp eq i32 %26, 55296
   br i1 %27, label %28, label %42
 
 28:                                               ; preds = %16
-  %29 = load i32, ptr %10, align 8, !tbaa !34
+  %29 = load i32, ptr %10, align 8, !tbaa !35
   %.not = icmp eq i32 %21, %29
   br i1 %.not, label %42, label %30
 
 30:                                               ; preds = %28
   %31 = zext i32 %21 to i64
   %32 = getelementptr inbounds nuw i16, ptr %20, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !39
+  %33 = load i16, ptr %32, align 2, !tbaa !40
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 64512
   %36 = icmp eq i32 %35, 56320
@@ -710,29 +710,29 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
 48:                                               ; preds = %.thread, %43
   %49 = phi i32 [ %.1, %43 ], [ %47, %.thread ]
   %50 = trunc i32 %49 to i16
-  %51 = load ptr, ptr %14, align 8, !tbaa !29
+  %51 = load ptr, ptr %14, align 8, !tbaa !30
   br label %74
 
 52:                                               ; preds = %43
   %53 = lshr i32 %.1, 10
   %54 = trunc nuw nsw i32 %53 to i16
   %55 = add nsw i16 %54, -10304
-  %56 = load ptr, ptr %14, align 8, !tbaa !29
+  %56 = load ptr, ptr %14, align 8, !tbaa !30
   %57 = zext i32 %.040 to i64
   %58 = getelementptr inbounds nuw i16, ptr %56, i64 %57
-  store i16 %55, ptr %58, align 2, !tbaa !39
+  store i16 %55, ptr %58, align 2, !tbaa !40
   br label %67
 
 59:                                               ; preds = %.thread
   %60 = lshr i32 %47, 10
   %61 = trunc i32 %60 to i16
   %62 = add i16 %61, -10304
-  %63 = load ptr, ptr %14, align 8, !tbaa !29
+  %63 = load ptr, ptr %14, align 8, !tbaa !30
   %64 = zext i32 %.040 to i64
   %65 = getelementptr inbounds nuw i16, ptr %63, i64 %64
-  store i16 %62, ptr %65, align 2, !tbaa !39
+  store i16 %62, ptr %65, align 2, !tbaa !40
   %66 = tail call i32 @u_charMirror_77(i32 noundef %.1)
-  %.pre = load ptr, ptr %14, align 8, !tbaa !29
+  %.pre = load ptr, ptr %14, align 8, !tbaa !30
   br label %67
 
 67:                                               ; preds = %52, %59
@@ -752,16 +752,16 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
   %75 = add i32 %.040, %.sink55
   %76 = zext i32 %.sink54 to i64
   %77 = getelementptr inbounds nuw i16, ptr %.sink52, i64 %76
-  store i16 %.sink, ptr %77, align 2, !tbaa !39
-  %78 = load i32, ptr %10, align 8, !tbaa !34
+  store i16 %.sink, ptr %77, align 2, !tbaa !40
+  %78 = load i32, ptr %10, align 8, !tbaa !35
   %79 = icmp ult i32 %.2, %78
-  br i1 %79, label %16, label %80, !llvm.loop !41
+  br i1 %79, label %16, label %80, !llvm.loop !42
 
 80:                                               ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %82 = load ptr, ptr %81, align 8, !tbaa !31
+  %82 = load ptr, ptr %81, align 8, !tbaa !32
   store i32 %78, ptr %82, align 4, !tbaa !16
-  store i32 0, ptr %3, align 8, !tbaa !26
+  store i32 0, ptr %3, align 8, !tbaa !27
   br label %83
 
 83:                                               ; preds = %2, %80, %15
@@ -833,22 +833,23 @@ attributes #8 = { allocsize(0) }
 !20 = !{!18, !5, i64 8}
 !21 = !{!18, !19, i64 4}
 !22 = !{!18, !19, i64 12}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!8, !10, i64 8}
-!26 = !{!8, !12, i64 56}
-!27 = !{!8, !12, i64 60}
-!28 = !{!8, !12, i64 64}
-!29 = !{!8, !11, i64 24}
-!30 = !{!8, !12, i64 40}
-!31 = !{!8, !13, i64 48}
-!32 = !{!10, !10, i64 0}
-!33 = distinct !{!33, !24}
-!34 = !{!8, !12, i64 32}
-!35 = !{!8, !12, i64 36}
-!36 = !{!18, !12, i64 20}
-!37 = !{!18, !12, i64 16}
-!38 = !{!18, !5, i64 24}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"char16_t", !5, i64 0}
-!41 = distinct !{!41, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!8, !10, i64 8}
+!27 = !{!8, !12, i64 56}
+!28 = !{!8, !12, i64 60}
+!29 = !{!8, !12, i64 64}
+!30 = !{!8, !11, i64 24}
+!31 = !{!8, !12, i64 40}
+!32 = !{!8, !13, i64 48}
+!33 = !{!10, !10, i64 0}
+!34 = distinct !{!34, !24, !25}
+!35 = !{!8, !12, i64 32}
+!36 = !{!8, !12, i64 36}
+!37 = !{!18, !12, i64 20}
+!38 = !{!18, !12, i64 16}
+!39 = !{!18, !5, i64 24}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"char16_t", !5, i64 0}
+!42 = distinct !{!42, !24, !25}

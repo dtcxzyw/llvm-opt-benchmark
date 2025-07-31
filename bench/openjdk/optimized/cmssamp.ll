@@ -406,7 +406,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   store double %., ptr %67, align 8
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, -1
   %70 = icmp samesign ugt i64 %indvars.iv144, 1
-  br i1 %70, label %.preheader134, label %71, !llvm.loop !8
+  br i1 %70, label %.preheader134, label %71, !llvm.loop !9
 
 71:                                               ; preds = %.preheader134
   %72 = load double, ptr %9, align 16
@@ -450,12 +450,12 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
 89:                                               ; preds = %79, %83
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 256
-  br i1 %exitcond150.not, label %90, label %79, !llvm.loop !9
+  br i1 %exitcond150.not, label %90, label %79, !llvm.loop !10
 
 .thread:                                          ; preds = %83
   %indvars.iv.next148161 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not162 = icmp eq i64 %indvars.iv.next148161, 256
-  br i1 %exitcond150.not162, label %.thread164.preheader, label %.outer, !llvm.loop !9
+  br i1 %exitcond150.not162, label %.thread164.preheader, label %.outer, !llvm.loop !10
 
 90:                                               ; preds = %89
   br i1 %.not129, label %.thread164.preheader, label %91
@@ -478,7 +478,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   store double %95, ptr %96, align 8
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 256
-  br i1 %exitcond154.not, label %97, label %.thread164, !llvm.loop !10
+  br i1 %exitcond154.not, label %97, label %.thread164, !llvm.loop !11
 
 97:                                               ; preds = %.thread164
   %.131 = select i1 %36, double 1.000000e-01, double 3.000000e-02
@@ -510,7 +510,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   %.1111 = phi i32 [ %109, %103 ], [ %.0110141, %98 ]
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next156, 256
-  br i1 %exitcond158.not, label %111, label %98, !llvm.loop !11
+  br i1 %exitcond158.not, label %111, label %98, !llvm.loop !12
 
 111:                                              ; preds = %110
   %112 = icmp slt i32 %.1111, 3
@@ -621,7 +621,7 @@ define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef r
   %21 = tail call double @llvm.fmuladd.f64(double %20, double %9, double %.07378)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %22, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %22, label %.preheader, !llvm.loop !13
 
 22:                                               ; preds = %.preheader
   %23 = uitofp nneg i32 %0 to double
@@ -737,10 +737,11 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

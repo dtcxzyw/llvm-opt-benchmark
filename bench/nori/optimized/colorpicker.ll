@@ -347,7 +347,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %97
   store float %105, ptr %107, align 4
   %108 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %108, 3
-  br i1 %exitcond.not.i.i.i, label %109, label %106, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %109, label %106, !llvm.loop !8
 
 109:                                              ; preds = %106
   %110 = load float, ptr %13, align 4
@@ -458,7 +458,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i49: ; preds = %136
   store float %144, ptr %146, align 4
   %147 = add nuw nsw i64 %.04.i.i.i50, 1
   %exitcond.not.i.i.i51 = icmp eq i64 %147, 3
-  br i1 %exitcond.not.i.i.i51, label %_ZNSt8functionIFvbEEC2ERKS1_.exit.i.i, label %145, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i51, label %_ZNSt8functionIFvbEEC2ERKS1_.exit.i.i, label %145, !llvm.loop !8
 
 _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i:            ; preds = %145
   %148 = load float, ptr %11, align 4
@@ -870,7 +870,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %11
   store float %19, ptr %21, align 4
   %22 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %22, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNK7nanogui5Color17contrasting_colorEv.exit, label %20, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %_ZNK7nanogui5Color17contrasting_colorEv.exit, label %20, !llvm.loop !8
 
 _ZNK7nanogui5Color17contrasting_colorEv.exit:     ; preds = %20
   %23 = load float, ptr %3, align 4
@@ -1209,7 +1209,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i: ; preds = %18
   store float %26, ptr %28, align 4
   %29 = add nuw nsw i64 %.04.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNK7nanogui5Color17contrasting_colorEv.exit.i.i.i.i, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNK7nanogui5Color17contrasting_colorEv.exit.i.i.i.i, label %27, !llvm.loop !8
 
 _ZNK7nanogui5Color17contrasting_colorEv.exit.i.i.i.i: ; preds = %27
   %30 = load float, ptr %3, align 4
@@ -1342,7 +1342,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i: ; preds = %11
   store float %19, ptr %21, align 4
   %22 = add nuw nsw i64 %.04.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %22, 3
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK7nanogui5Color17contrasting_colorEv.exit.i.i.i, label %20, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK7nanogui5Color17contrasting_colorEv.exit.i.i.i, label %20, !llvm.loop !8
 
 _ZNK7nanogui5Color17contrasting_colorEv.exit.i.i.i: ; preds = %20
   %23 = load float, ptr %3, align 4
@@ -1458,7 +1458,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i: ; preds = %17
   store float %25, ptr %27, align 4
   %28 = add nuw nsw i64 %.04.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %28, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE.exit.i.i.i, label %26, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE.exit.i.i.i, label %26, !llvm.loop !8
 
 _ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE.exit.i.i.i: ; preds = %26
   %29 = load float, ptr %2, align 4
@@ -1663,6 +1663,7 @@ attributes #22 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

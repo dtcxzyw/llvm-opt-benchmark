@@ -487,7 +487,7 @@ list_length.exit441:                              ; preds = %list_length.exit439
 list_length.exit443:                              ; preds = %284, %292, %298
   %302 = add i32 %.0375484, 1
   %.not401 = icmp sgt i32 %302, %283
-  br i1 %.not401, label %.thread470, label %284, !llvm.loop !8
+  br i1 %.not401, label %.thread470, label %284, !llvm.loop !9
 
 .split481:                                        ; preds = %298
   %303 = icmp slt i32 %.0375484, 1
@@ -710,7 +710,7 @@ list_length.exit451:                              ; preds = %list_length.exit451
   store ptr %445, ptr %397, align 8
   %446 = load ptr, ptr %59, align 8
   %.not.i450 = icmp eq ptr %446, null
-  br i1 %.not.i450, label %.critedge473, label %list_length.exit451, !llvm.loop !9
+  br i1 %.not.i450, label %.critedge473, label %list_length.exit451, !llvm.loop !10
 
 447:                                              ; preds = %.critedge473
   %448 = getelementptr inbounds nuw i8, ptr %403, i64 16
@@ -1354,7 +1354,8 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

@@ -222,17 +222,17 @@ define internal range(i32 -2147483648, 1) i32 @iamf_init(ptr noundef %0) #0 {
 .critedge:                                        ; preds = %29, %.preheader131
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %.critedge113, label %8, !llvm.loop !58
+  br i1 %exitcond170.not, label %.critedge113, label %8, !llvm.loop !59
 
 .critedge113:                                     ; preds = %.critedge, %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = load i32, ptr %37, align 8, !tbaa !59
+  %38 = load i32, ptr %37, align 8, !tbaa !60
   %39 = icmp ult i32 %38, 2
   br i1 %39, label %42, label %.preheader130
 
 .preheader130:                                    ; preds = %.critedge113
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %41 = load ptr, ptr %40, align 8, !tbaa !60
+  %41 = load ptr, ptr %40, align 8, !tbaa !61
   %wide.trip.count = zext i32 %38 to i64
   br label %46
 
@@ -252,9 +252,9 @@ define internal range(i32 -2147483648, 1) i32 @iamf_init(ptr noundef %0) #0 {
   %.084147 = phi i32 [ 0, %.preheader130 ], [ %spec.select, %46 ]
   %.087146 = phi i32 [ 0, %.preheader130 ], [ %.188, %46 ]
   %47 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv171
-  %48 = load ptr, ptr %47, align 8, !tbaa !61
+  %48 = load ptr, ptr %47, align 8, !tbaa !62
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %50 = load i32, ptr %49, align 8, !tbaa !63
+  %50 = load i32, ptr %49, align 8, !tbaa !64
   %51 = icmp eq i32 %50, 1
   %52 = zext i1 %51 to i32
   %spec.select = add nuw nsw i32 %.084147, %52
@@ -263,7 +263,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_init(ptr noundef %0) #0 {
   %.188 = add nuw nsw i32 %.087146, %54
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count
-  br i1 %exitcond174.not, label %43, label %46, !llvm.loop !65
+  br i1 %exitcond174.not, label %43, label %46, !llvm.loop !66
 
 55:                                               ; preds = %43
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6) #2
@@ -276,11 +276,11 @@ define internal range(i32 -2147483648, 1) i32 @iamf_init(ptr noundef %0) #0 {
 .lr.ph150:                                        ; preds = %43, %65
   %56 = phi i32 [ %66, %65 ], [ %38, %43 ]
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %65 ], [ 0, %43 ]
-  %57 = load ptr, ptr %40, align 8, !tbaa !60
+  %57 = load ptr, ptr %40, align 8, !tbaa !61
   %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv175
-  %59 = load ptr, ptr %58, align 8, !tbaa !61
+  %59 = load ptr, ptr %58, align 8, !tbaa !62
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !63
+  %61 = load i32, ptr %60, align 8, !tbaa !64
   %.not108 = icmp eq i32 %61, 1
   br i1 %.not108, label %62, label %65
 
@@ -290,7 +290,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_init(ptr noundef %0) #0 {
   br i1 %64, label %.thread118, label %._crit_edge181
 
 ._crit_edge181:                                   ; preds = %62
-  %.pre = load i32, ptr %37, align 8, !tbaa !59
+  %.pre = load i32, ptr %37, align 8, !tbaa !60
   br label %65
 
 65:                                               ; preds = %._crit_edge181, %.lr.ph150
@@ -298,16 +298,16 @@ define internal range(i32 -2147483648, 1) i32 @iamf_init(ptr noundef %0) #0 {
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %67 = zext i32 %66 to i64
   %.not109 = icmp samesign ult i64 %indvars.iv.next176, %67
-  br i1 %.not109, label %.lr.ph150, label %.preheader, !llvm.loop !66
+  br i1 %.not109, label %.lr.ph150, label %.preheader, !llvm.loop !67
 
 .lr.ph153:                                        ; preds = %.preheader, %77
   %68 = phi i32 [ %78, %77 ], [ %66, %.preheader ]
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %77 ], [ 0, %.preheader ]
-  %69 = load ptr, ptr %40, align 8, !tbaa !60
+  %69 = load ptr, ptr %40, align 8, !tbaa !61
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv178
-  %71 = load ptr, ptr %70, align 8, !tbaa !61
+  %71 = load ptr, ptr %70, align 8, !tbaa !62
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %73 = load i32, ptr %72, align 8, !tbaa !63
+  %73 = load i32, ptr %72, align 8, !tbaa !64
   %.not110 = icmp eq i32 %73, 2
   br i1 %.not110, label %74, label %77
 
@@ -317,7 +317,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_init(ptr noundef %0) #0 {
   br i1 %76, label %.thread118, label %._crit_edge182
 
 ._crit_edge182:                                   ; preds = %74
-  %.pre183 = load i32, ptr %37, align 8, !tbaa !59
+  %.pre183 = load i32, ptr %37, align 8, !tbaa !60
   br label %77
 
 77:                                               ; preds = %._crit_edge182, %.lr.ph153
@@ -325,7 +325,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_init(ptr noundef %0) #0 {
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %79 = zext i32 %78 to i64
   %.not111 = icmp samesign ult i64 %indvars.iv.next179, %79
-  br i1 %.not111, label %.lr.ph153, label %._crit_edge, !llvm.loop !67
+  br i1 %.not111, label %.lr.ph153, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %77, %.preheader
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -430,15 +430,16 @@ attributes #2 = { nounwind }
 !53 = !{!51, !13, i64 8}
 !54 = !{!51, !13, i64 4}
 !55 = !{!51, !13, i64 132}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = distinct !{!58, !57}
-!59 = !{!5, !13, i64 56}
-!60 = !{!5, !16, i64 64}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS13AVStreamGroup", !7, i64 0}
-!63 = !{!64, !13, i64 32}
-!64 = !{!"AVStreamGroup", !6, i64 0, !7, i64 8, !13, i64 16, !19, i64 24, !13, i64 32, !8, i64 40, !21, i64 48, !13, i64 56, !14, i64 64, !13, i64 72}
-!65 = distinct !{!65, !57}
-!66 = distinct !{!66, !57}
-!67 = distinct !{!67, !57}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = distinct !{!59, !57, !58}
+!60 = !{!5, !13, i64 56}
+!61 = !{!5, !16, i64 64}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS13AVStreamGroup", !7, i64 0}
+!64 = !{!65, !13, i64 32}
+!65 = !{!"AVStreamGroup", !6, i64 0, !7, i64 8, !13, i64 16, !19, i64 24, !13, i64 32, !8, i64 40, !21, i64 48, !13, i64 56, !14, i64 64, !13, i64 72}
+!66 = distinct !{!66, !57, !58}
+!67 = distinct !{!67, !57, !58}
+!68 = distinct !{!68, !57, !58}

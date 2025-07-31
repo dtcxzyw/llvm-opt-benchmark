@@ -318,7 +318,7 @@ X11_XInput2PenIsEraser.exit:                      ; preds = %86, %89
   store i32 %113, ptr %114, align 4
   %indvars.iv.next12.i.i = add nuw nsw i64 %indvars.iv11.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next12.i.i, %109
-  br i1 %exitcond15.not.i.i, label %X11_XInput2PenGetIntProperty.exit.i, label %.preheader.i.i, !llvm.loop !5
+  br i1 %exitcond15.not.i.i, label %X11_XInput2PenGetIntProperty.exit.i, label %.preheader.i.i, !llvm.loop !6
 
 .preheader5.i.i:                                  ; preds = %108, %.preheader5.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader5.i.i ], [ 0, %108 ]
@@ -329,7 +329,7 @@ X11_XInput2PenIsEraser.exit:                      ; preds = %86, %89
   store i32 %117, ptr %118, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %109
-  br i1 %exitcond.not.i.i, label %X11_XInput2PenGetIntProperty.exit.i, label %.preheader5.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %X11_XInput2PenGetIntProperty.exit.i, label %.preheader5.i.i, !llvm.loop !7
 
 119:                                              ; preds = %108
   %120 = shl nuw nsw i64 %109, 2
@@ -444,7 +444,7 @@ X11_XInput2PenWacomDeviceID.exit:                 ; preds = %X11_XInput2PenGetIn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next, %170
-  br i1 %171, label %132, label %._crit_edge, !llvm.loop !7
+  br i1 %171, label %132, label %._crit_edge, !llvm.loop !8
 
 172:                                              ; preds = %X11_XInput2PenWacomDeviceID.exit
   %173 = or i32 %.066.lcssa, 128
@@ -565,7 +565,7 @@ define hidden void @X11_InitPen(ptr noundef readonly captures(none) %0) local_un
   %37 = load i32, ptr %2, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 40:                                               ; preds = %._crit_edge, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
@@ -684,7 +684,7 @@ define hidden void @X11_PenAxesFromValuators(ptr noundef readonly captures(none)
 57:                                               ; preds = %56, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %X11_XInput2NormalizePenAxes.exit, label %13, !llvm.loop !9
+  br i1 %exitcond.not.i, label %X11_XInput2NormalizePenAxes.exit, label %13, !llvm.loop !10
 
 X11_XInput2NormalizePenAxes.exit:                 ; preds = %57
   ret void
@@ -723,7 +723,7 @@ X11_XInput2NormalizePenAxes.exit:                 ; preds = %57
   store float %.sink, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %8, label %58, !llvm.loop !10
+  br i1 %exitcond.not, label %8, label %58, !llvm.loop !11
 }
 
 ; Function Attrs: allocsize(0,1)
@@ -763,11 +763,12 @@ attributes #10 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}

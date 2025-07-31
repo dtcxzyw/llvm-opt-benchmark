@@ -283,7 +283,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr noundef reado
 .thread15:                                        ; preds = %164, %.preheader16, %128, %123, %118
   %176 = add nuw nsw i64 %119, 1
   %177 = icmp samesign ult i64 %176, %117
-  br i1 %177, label %118, label %.thread, !llvm.loop !13
+  br i1 %177, label %118, label %.thread, !llvm.loop !14
 
 .thread.sink.split:                               ; preds = %155, %84
   %.sink.in = phi ptr [ %85, %84 ], [ %156, %155 ]
@@ -293,20 +293,20 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr noundef reado
 
 .thread:                                          ; preds = %.thread15, %.thread11, %.thread.sink.split, %155, %84, %111, %107, %39, %35, %32, %27, %12
   %178 = phi i32 [ -22, %12 ], [ -22, %27 ], [ -22, %32 ], [ -22, %35 ], [ -22, %39 ], [ -22, %107 ], [ -22, %111 ], [ 0, %84 ], [ 0, %155 ], [ 0, %.thread.sink.split ], [ -22, %.thread11 ], [ -22, %.thread15 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
   %179 = load i32, ptr %15, align 4
   %180 = add i32 %179, -1
   store i32 %180, ptr %15, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
-  %181 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
+  %181 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !17
   %182 = icmp ult i8 %181, 2
   tail call void @llvm.assume(i1 %182)
   %183 = icmp eq i8 %181, 0
-  br i1 %183, label %187, label %184, !prof !17
+  br i1 %183, label %187, label %184, !prof !18
 
 184:                                              ; preds = %.thread
   %185 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %186 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %185) #12, !srcloc !18
+  %186 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %185) #12, !srcloc !19
   tail call void @llvm.write_register.i64(metadata !0, i64 %186)
   br label %187
 
@@ -315,7 +315,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr noundef reado
   %189 = load volatile i64, ptr %188, align 8
   %190 = and i64 %189, 1
   %191 = icmp eq i64 %190, 0
-  br i1 %191, label %195, label %192, !prof !17
+  br i1 %191, label %195, label %192, !prof !18
 
 192:                                              ; preds = %187
   %193 = add nsw i64 %189, -1
@@ -324,7 +324,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr noundef reado
 
 195:                                              ; preds = %187
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %211 [label %196], !srcloc !19
+          to label %211 [label %196], !srcloc !20
 
 196:                                              ; preds = %195
   %197 = and i64 %19, 4095
@@ -352,7 +352,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr noundef reado
 211:                                              ; preds = %210, %203, %195, %192
   %212 = phi ptr [ %194, %192 ], [ %209, %203 ], [ %10, %210 ], [ %10, %195 ]
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 52
-  %214 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %213, ptr nonnull elementtype(i32) %213) #12, !srcloc !20
+  %214 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %213, ptr nonnull elementtype(i32) %213) #12, !srcloc !21
   %215 = icmp ult i8 %214, 2
   tail call void @llvm.assume(i1 %215)
   %216 = icmp eq i8 %214, 0
@@ -498,14 +498,15 @@ attributes #13 = { nounwind memory(none) }
 !7 = !{i64 2154233170}
 !8 = !{i64 2147917011}
 !9 = !{i64 2152919685}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = !{i64 2152919888}
-!15 = !{i64 2154234696}
-!16 = !{i64 2149669684, i64 2149669777}
-!17 = !{!"branch_weights", i32 2000, i32 1}
-!18 = !{i64 2154234878}
-!19 = !{i64 856048, i64 856092, i64 2148340775, i64 2148340796, i64 2148340822, i64 2148340855, i64 2148340889, i64 2148340913}
-!20 = !{i64 2148674271, i64 2148674310, i64 2148674331, i64 2148674368, i64 2148674391, i64 2148674400, i64 2148674474}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = !{i64 2152919888}
+!16 = !{i64 2154234696}
+!17 = !{i64 2149669684, i64 2149669777}
+!18 = !{!"branch_weights", i32 2000, i32 1}
+!19 = !{i64 2154234878}
+!20 = !{i64 856048, i64 856092, i64 2148340775, i64 2148340796, i64 2148340822, i64 2148340855, i64 2148340889, i64 2148340913}
+!21 = !{i64 2148674271, i64 2148674310, i64 2148674331, i64 2148674368, i64 2148674391, i64 2148674400, i64 2148674474}

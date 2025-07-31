@@ -329,7 +329,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h28ae3ef23
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   %20 = icmp eq i64 %18, 0
-  br i1 %20, label %8, label %21
+  br i1 %20, label %8, label %21, !llvm.loop !3
 
 21:                                               ; preds = %13
   %22 = call { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hede92a196337e750E"(i64 %19)
@@ -374,7 +374,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h28b1c2f4c
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   %20 = icmp eq i64 %18, 0
-  br i1 %20, label %8, label %21
+  br i1 %20, label %8, label %21, !llvm.loop !5
 
 21:                                               ; preds = %13
   %22 = call { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hede92a196337e750E"(i64 %19)
@@ -419,7 +419,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf8f641b05
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   %20 = icmp eq i64 %18, 0
-  br i1 %20, label %8, label %21
+  br i1 %20, label %8, label %21, !llvm.loop !6
 
 21:                                               ; preds = %13
   %22 = call { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hede92a196337e750E"(i64 %19)
@@ -501,7 +501,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table28_$u7b$$u7b$closure$u7d$$u7d$17h996928c9044b7ec7E"(ptr nonnull align 1 %2, ptr nonnull align 1 %4)
-  br i1 %6, label %7, label %3
+  br i1 %6, label %7, label %3, !llvm.loop !7
 
 7:                                                ; preds = %5, %3
   ret i1 %.not.not.not.not.not.not
@@ -528,7 +528,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 10:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94480c43d2e3ddc5E.exit"
   %11 = call zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd7ab88820f15a0baE"(ptr nonnull align 8 %3, ptr nonnull align 4 %7)
-  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94480c43d2e3ddc5E.exit.thread", label %5
+  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94480c43d2e3ddc5E.exit.thread", label %5, !llvm.loop !8
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94480c43d2e3ddc5E.exit.thread": ; preds = %5, %10, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94480c43d2e3ddc5E.exit"
   %.not7 = phi i1 [ true, %10 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94480c43d2e3ddc5E.exit" ], [ false, %5 ]
@@ -547,7 +547,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN13logos_codegen9generator4rope18byte_slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17hcca21f094ee0b825E"(ptr nonnull align 1 %2, ptr nonnull align 1 %4)
-  br i1 %6, label %7, label %3
+  br i1 %6, label %7, label %3, !llvm.loop !9
 
 7:                                                ; preds = %5, %3
   ret i1 %.not.not.not.not.not.not
@@ -576,7 +576,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 11:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h462fa40278459250E.exit"
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN13logos_codegen6parser10subpattern11Subpatterns3fix28_$u7b$$u7b$closure$u7d$$u7d$17hb475f5d2cd93e479E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6
+  br i1 %12, label %13, label %6, !llvm.loop !10
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %3, align 8
@@ -610,7 +610,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 11:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h462fa40278459250E.exit"
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN13logos_codegen6parser10subpattern11Subpatterns3add28_$u7b$$u7b$closure$u7d$$u7d$17hae62c37d2e5fd192E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6
+  br i1 %12, label %13, label %6, !llvm.loop !11
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %3, align 8
@@ -654,7 +654,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !12
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr786drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$u8$C$logos_codegen..mir..Mir$C$$LP$$RP$$C$$LT$regex_syntax..hir..Literal$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$..make_ascii_case_insensitive..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$logos_codegen..mir..Mir$C$alloc..vec..Vec$LT$logos_codegen..mir..Mir$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$u8$GT$$C$$LT$regex_syntax..hir..Literal$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$..make_ascii_case_insensitive..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h47e9ddb48455a0a3E"(ptr align 8 %2)
@@ -703,7 +703,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !13
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr910drop_in_place$LT$core..iter..adapters..copied..copy_fold$LT$regex_syntax..utf8..Utf8Range$C$$LP$$RP$$C$core..iter..adapters..map..map_fold$LT$regex_syntax..utf8..Utf8Range$C$logos_codegen..graph..range..Range$C$$LP$$RP$$C$$LT$regex_syntax..utf8..Utf8Range$u20$as$u20$core..convert..Into$LT$logos_codegen..graph..range..Range$GT$$GT$..into$C$core..iter..traits..iterator..Iterator..for_each..call$LT$logos_codegen..graph..range..Range$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$regex_syntax..utf8..Utf8Range$GT$$GT$$C$$LT$regex_syntax..utf8..Utf8Range$u20$as$u20$core..convert..Into$LT$logos_codegen..graph..range..Range$GT$$GT$..into$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd3a820f3c4dc3a8E"(ptr align 8 %2)
@@ -736,7 +736,7 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   %10 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb4d35d9c2e3aa063E"(ptr nonnull align 1 %4, i64 %.sroa.07.0, ptr align 8 %9)
   %11 = add nuw i64 %.sroa.09.0, 1
   %12 = icmp eq i64 %11, %7
-  br i1 %12, label %.loopexit, label %8
+  br i1 %12, label %.loopexit, label %8, !llvm.loop !14
 
 .loopexit:                                        ; preds = %8, %3
   %.sroa.04.0 = phi i64 [ %2, %3 ], [ %10, %8 ]
@@ -776,7 +776,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !15
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr935drop_in_place$LT$core..iter..adapters..copied..copy_fold$LT$logos_codegen..graph..range..Range$C$$LP$$RP$$C$core..iter..adapters..map..map_fold$LT$logos_codegen..graph..range..Range$C$logos_codegen..graph..range..Range$C$$LP$$RP$$C$$LT$logos_codegen..graph..range..Range$u20$as$u20$core..convert..Into$LT$logos_codegen..graph..range..Range$GT$$GT$..into$C$core..iter..traits..iterator..Iterator..for_each..call$LT$logos_codegen..graph..range..Range$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$logos_codegen..graph..range..Range$GT$$GT$$C$$LT$logos_codegen..graph..range..Range$u20$as$u20$core..convert..Into$LT$logos_codegen..graph..range..Range$GT$$GT$..into$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h394ffedbf3c3347fE"(ptr align 8 %2)
@@ -809,7 +809,7 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   %10 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e27605a382bd12dE"(ptr nonnull align 1 %4, i64 %.sroa.07.0, ptr align 8 %9)
   %11 = add nuw i64 %.sroa.09.0, 1
   %12 = icmp eq i64 %11, %7
-  br i1 %12, label %.loopexit, label %8
+  br i1 %12, label %.loopexit, label %8, !llvm.loop !16
 
 .loopexit:                                        ; preds = %8, %3
   %.sroa.04.0 = phi i64 [ %2, %3 ], [ %10, %8 ]
@@ -849,7 +849,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !17
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr775drop_in_place$LT$core..iter..adapters..copied..copy_fold$LT$u8$C$$LP$$RP$$C$core..iter..adapters..map..map_fold$LT$u8$C$logos_codegen..graph..range..Range$C$$LP$$RP$$C$$LT$u8$u20$as$u20$core..convert..Into$LT$logos_codegen..graph..range..Range$GT$$GT$..into$C$core..iter..traits..iterator..Iterator..for_each..call$LT$logos_codegen..graph..range..Range$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$u8$GT$$GT$$C$$LT$u8$u20$as$u20$core..convert..Into$LT$logos_codegen..graph..range..Range$GT$$GT$..into$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdbada589dd4fc350E"(ptr align 8 %2)
@@ -1193,7 +1193,7 @@ define align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$co
 11:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d728b05251aec01E.exit"
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN13logos_codegen6parser11type_params10TypeParams3set28_$u7b$$u7b$closure$u7d$$u7d$17h37940d007325a8e3E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6
+  br i1 %12, label %13, label %6, !llvm.loop !18
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %3, align 8
@@ -1455,3 +1455,19 @@ attributes #7 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}

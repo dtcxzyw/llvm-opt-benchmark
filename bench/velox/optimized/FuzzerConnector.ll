@@ -854,35 +854,35 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %split, align 8, !noalias !9
+  %1 = load ptr, ptr %split, align 8, !noalias !10
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.end
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN8facebook5velox9connector14ConnectorSplitE, ptr nonnull @_ZTIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitE, i64 0) #19, !noalias !9
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN8facebook5velox9connector14ConnectorSplitE, ptr nonnull @_ZTIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitE, i64 0) #19, !noalias !10
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %dynamic_cast.end.i
   %_M_refcount2.i.i.i = getelementptr inbounds nuw i8, ptr %split, i64 8
-  %4 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !9
+  %4 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !10
   %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %6 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !9
+  %6 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !10
   %add.i.i.i.i.i.i = add nsw i32 %6, 1
-  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !9
+  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !10
   br label %_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !9
+  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !10
   br label %_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E.exit
 
 _ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E.exit: ; preds = %if.end, %dynamic_cast.end.i, %if.then.i, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
@@ -1803,20 +1803,20 @@ define linkonce_odr void @_ZN8facebook5velox9connector6fuzzer22FuzzerConnectorFa
 entry:
   %executor.addr = alloca ptr, align 8
   store ptr %executor, ptr %executor.addr, align 8
-  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21, !noalias !12
+  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21, !noalias !13
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !12
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !13
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !12
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer15FuzzerConnectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer15FuzzerConnectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !13
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox9connector6fuzzer15FuzzerConnectorEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS1_6ConfigEERPN5folly8ExecutorEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %id, ptr noundef nonnull align 8 dereferenceable(16) %config, ptr noundef nonnull align 8 dereferenceable(8) %executor.addr)
-          to label %_ZNSt10shared_ptrIN8facebook5velox9connector6fuzzer15FuzzerConnectorEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer15FuzzerConnectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !12
+          to label %_ZNSt10shared_ptrIN8facebook5velox9connector6fuzzer15FuzzerConnectorEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer15FuzzerConnectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !13
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer15FuzzerConnectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #20, !noalias !12
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #20, !noalias !13
   resume { ptr, i32 } %0
 
 _ZNSt10shared_ptrIN8facebook5velox9connector6fuzzer15FuzzerConnectorEED2Ev.exit: ; preds = %entry
@@ -2250,14 +2250,14 @@ entry:
 define linkonce_odr void @_ZN8facebook5velox9connector6fuzzer15FuzzerConnector16createDataSourceERKSt10shared_ptrIKNS0_7RowTypeEERKS4_INS1_20ConnectorTableHandleEERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_INS1_12ColumnHandleEESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_SM_EEEPNS1_17ConnectorQueryCtxE(ptr noalias sret(%"class.std::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(16) %tableHandle, ptr noundef nonnull align 1 %0, ptr noundef %connectorQueryCtx) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %connectorQueryCtx, align 8
-  %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #21, !noalias !15
+  %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #21, !noalias !16
   invoke void @_ZN8facebook5velox9connector6fuzzer16FuzzerDataSourceC1ERKSt10shared_ptrIKNS0_7RowTypeEERKS4_INS1_20ConnectorTableHandleEEPNS0_6memory10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(88) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(16) %tableHandle, ptr noundef %1)
-          to label %_ZNSt10unique_ptrIN8facebook5velox9connector6fuzzer16FuzzerDataSourceESt14default_deleteIS4_EED2Ev.exit unwind label %lpad.i, !noalias !15
+          to label %_ZNSt10unique_ptrIN8facebook5velox9connector6fuzzer16FuzzerDataSourceESt14default_deleteIS4_EED2Ev.exit unwind label %lpad.i, !noalias !16
 
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #20, !noalias !15
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #20, !noalias !16
   resume { ptr, i32 } %2
 
 _ZNSt10unique_ptrIN8facebook5velox9connector6fuzzer16FuzzerDataSourceESt14default_deleteIS4_EED2Ev.exit: ; preds = %entry
@@ -2314,15 +2314,15 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %call5.i.i.i3.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21, !noalias !18
+  %call5.i.i.i3.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21, !noalias !19
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !18
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !19
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !18
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i, align 8, !noalias !18
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !19
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i, align 8, !noalias !19
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i, i64 16
   invoke void @_ZN8facebook5velox9connector16ConnectorFactoryC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull @.str)
-          to label %_ZSt11make_sharedIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !18
+          to label %_ZSt11make_sharedIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !19
 
 common.resume.i:                                  ; preds = %lpad.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i
   %common.resume.op.i = phi { ptr, i32 } [ %1, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i ], [ %24, %lpad.i ]
@@ -2331,12 +2331,12 @@ common.resume.i:                                  ; preds = %lpad.i, %_ZNSt15__a
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i) #20, !noalias !18
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i) #20, !noalias !19
   br label %common.resume.i
 
 _ZSt11make_sharedIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit.i: ; preds = %entry
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !19
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %agg.tmp.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i, align 8
@@ -2550,17 +2550,18 @@ attributes #23 = { noreturn nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer17FuzzerTableHandleENS2_20ConnectorTableHandleEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
 !6 = distinct !{!6, !"_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer17FuzzerTableHandleENS2_20ConnectorTableHandleEESt10shared_ptrIT_ERKS6_IT0_E"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!11 = distinct !{!11, !"_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZSt11make_sharedIN8facebook5velox9connector6fuzzer15FuzzerConnectorEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS1_6ConfigEERPN5folly8ExecutorEEESD_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_: %agg.result"}
-!14 = distinct !{!14, !"_ZSt11make_sharedIN8facebook5velox9connector6fuzzer15FuzzerConnectorEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS1_6ConfigEERPN5folly8ExecutorEEESD_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZSt11make_uniqueIN8facebook5velox9connector6fuzzer16FuzzerDataSourceEJRKSt10shared_ptrIKNS1_7RowTypeEERKS5_INS2_20ConnectorTableHandleEEPNS1_6memory10MemoryPoolEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!17 = distinct !{!17, !"_ZSt11make_uniqueIN8facebook5velox9connector6fuzzer16FuzzerDataSourceEJRKSt10shared_ptrIKNS1_7RowTypeEERKS5_INS2_20ConnectorTableHandleEEPNS1_6memory10MemoryPoolEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZSt11make_sharedIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: %agg.result"}
-!20 = distinct !{!20, !"_ZSt11make_sharedIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
+!12 = distinct !{!12, !"_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZSt11make_sharedIN8facebook5velox9connector6fuzzer15FuzzerConnectorEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS1_6ConfigEERPN5folly8ExecutorEEESD_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_: %agg.result"}
+!15 = distinct !{!15, !"_ZSt11make_sharedIN8facebook5velox9connector6fuzzer15FuzzerConnectorEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS1_6ConfigEERPN5folly8ExecutorEEESD_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZSt11make_uniqueIN8facebook5velox9connector6fuzzer16FuzzerDataSourceEJRKSt10shared_ptrIKNS1_7RowTypeEERKS5_INS2_20ConnectorTableHandleEEPNS1_6memory10MemoryPoolEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!18 = distinct !{!18, !"_ZSt11make_uniqueIN8facebook5velox9connector6fuzzer16FuzzerDataSourceEJRKSt10shared_ptrIKNS1_7RowTypeEERKS5_INS2_20ConnectorTableHandleEEPNS1_6memory10MemoryPoolEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZSt11make_sharedIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: %agg.result"}
+!21 = distinct !{!21, !"_ZSt11make_sharedIN8facebook5velox9connector6fuzzer22FuzzerConnectorFactoryEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}

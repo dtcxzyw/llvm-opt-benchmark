@@ -1348,23 +1348,23 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseScan
   br i1 %.not.i, label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread32, label %.lr.ph.i, !llvm.loop !559
 
 _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread32: ; preds = %53
-  store ptr null, ptr %11, align 8, !tbaa !561, !alias.scope !554
+  store ptr null, ptr %11, align 8, !tbaa !562, !alias.scope !554
   store i32 0, ptr %29, align 8, !tbaa !22, !alias.scope !554
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false), !alias.scope !554
   %55 = load i8, ptr %31, align 4, !alias.scope !554
   %56 = and i8 %55, -2
   store i8 %56, ptr %31, align 4, !alias.scope !554
-  store i8 0, ptr %32, align 1, !tbaa !562, !alias.scope !554
-  store i8 0, ptr %33, align 8, !tbaa !563, !alias.scope !554
+  store i8 0, ptr %32, align 1, !tbaa !563, !alias.scope !554
+  store i8 0, ptr %33, align 8, !tbaa !564, !alias.scope !554
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, i8 0, i64 20, i1 false), !alias.scope !554
-  store ptr null, ptr %35, align 8, !tbaa !564, !alias.scope !554
-  store i32 0, ptr %36, align 8, !tbaa !565, !alias.scope !554
-  store i32 3, ptr %37, align 4, !tbaa !566, !alias.scope !554
-  store i32 0, ptr %38, align 8, !tbaa !567, !alias.scope !554
+  store ptr null, ptr %35, align 8, !tbaa !565, !alias.scope !554
+  store i32 0, ptr %36, align 8, !tbaa !566, !alias.scope !554
+  store i32 3, ptr %37, align 4, !tbaa !567, !alias.scope !554
+  store i32 0, ptr %38, align 8, !tbaa !568, !alias.scope !554
   %57 = load i8, ptr %39, align 4, !alias.scope !554
   %58 = and i8 %57, -2
   store i8 %58, ptr %39, align 4, !alias.scope !554
-  store i8 0, ptr %40, align 1, !tbaa !562, !alias.scope !554
+  store i8 0, ptr %40, align 1, !tbaa !563, !alias.scope !554
   store i8 0, ptr %41, align 8, !tbaa !546, !alias.scope !554
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8, !noalias !554
   br label %select.unfold
@@ -1387,20 +1387,20 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
 
 69:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #8, !noalias !554
-  store ptr null, ptr %7, align 8, !tbaa !561, !noalias !554
+  store ptr null, ptr %7, align 8, !tbaa !562, !noalias !554
   store i32 0, ptr %12, align 8, !tbaa !22, !noalias !554
-  store i8 0, ptr %14, align 8, !tbaa !563, !noalias !554
+  store i8 0, ptr %14, align 8, !tbaa !564, !noalias !554
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false), !noalias !554
-  store ptr null, ptr %16, align 8, !tbaa !564, !noalias !554
-  store i32 0, ptr %17, align 8, !tbaa !565, !noalias !554
+  store ptr null, ptr %16, align 8, !tbaa !565, !noalias !554
+  store i32 0, ptr %17, align 8, !tbaa !566, !noalias !554
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %13, i8 0, i64 22, i1 false), !noalias !554
-  store i32 3, ptr %18, align 4, !tbaa !566, !noalias !554
-  store i32 0, ptr %19, align 8, !tbaa !567, !noalias !554
+  store i32 3, ptr %18, align 4, !tbaa !567, !noalias !554
+  store i32 0, ptr %19, align 8, !tbaa !568, !noalias !554
   store i8 0, ptr %20, align 4, !noalias !554
-  store i8 0, ptr %21, align 1, !tbaa !562, !noalias !554
+  store i8 0, ptr %21, align 1, !tbaa !563, !noalias !554
   store i8 0, ptr %22, align 8, !tbaa !546, !noalias !554
   store i32 0, ptr %23, align 4, !tbaa !551, !noalias !554
-  store ptr @.str.13, ptr %24, align 8, !tbaa !568, !noalias !554
+  store ptr @.str.13, ptr %24, align 8, !tbaa !569, !noalias !554
   store i8 0, ptr %25, align 8, !tbaa !552, !noalias !554
   %70 = call noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgPositionERNS0_19FormatStringHandlerERNS0_15FormatSpecifierEPKcRS6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull %storemerge99.i, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2) #8
   br i1 %70, label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread36, label %71
@@ -1417,7 +1417,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
 
 77:                                               ; preds = %74
   store i8 1, ptr %25, align 8, !tbaa !552, !noalias !554
-  store ptr %72, ptr %26, align 8, !tbaa !569, !noalias !554
+  store ptr %72, ptr %26, align 8, !tbaa !570, !noalias !554
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 1
   store ptr %78, ptr %6, align 8, !tbaa !27, !noalias !554
   %79 = icmp eq ptr %78, %2
@@ -1426,12 +1426,12 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
 80:                                               ; preds = %77, %74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8, !noalias !554
   call void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr dead_on_unwind nonnull writable sret(%"class.clang::analyze_format_string::OptionalAmount") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2) #8
-  %81 = load i32, ptr %27, align 4, !tbaa !566, !noalias !554
+  %81 = load i32, ptr %27, align 4, !tbaa !567, !noalias !554
   %.not67.i = icmp eq i32 %81, 0
   br i1 %.not67.i, label %92, label %82
 
 82:                                               ; preds = %80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %13, ptr noundef nonnull align 8 dereferenceable(22) %8, i64 22, i1 false), !tbaa.struct !570, !noalias !554
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %13, ptr noundef nonnull align 8 dereferenceable(22) %8, i64 22, i1 false), !tbaa.struct !571, !noalias !554
   %83 = load ptr, ptr %6, align 8, !tbaa !27, !noalias !554
   %84 = icmp eq ptr %83, %2
   br i1 %84, label %85, label %92
@@ -1632,17 +1632,17 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.thread91.i:   ; preds = %149, %148, %144, %1
   %.ph.i = phi i1 [ true, %148 ], [ false, %149 ], [ true, %143 ], [ false, %144 ], [ true, %138 ], [ false, %139 ], [ false, %134 ], [ false, %133 ], [ false, %132 ], [ false, %131 ], [ false, %130 ], [ false, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ false, %123 ], [ false, %122 ], [ false, %121 ], [ false, %120 ], [ false, %119 ], [ false, %118 ], [ false, %117 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ true, %110 ]
   %.0.ph.i = phi i32 [ 0, %148 ], [ 10, %149 ], [ 0, %143 ], [ 8, %144 ], [ 0, %138 ], [ 3, %139 ], [ 22, %134 ], [ 21, %133 ], [ 7, %132 ], [ 11, %131 ], [ 9, %130 ], [ 26, %129 ], [ 25, %128 ], [ 1, %127 ], [ 23, %126 ], [ 4, %125 ], [ 17, %124 ], [ 13, %123 ], [ 15, %122 ], [ 2, %121 ], [ 19, %120 ], [ 12, %119 ], [ 18, %118 ], [ 14, %117 ], [ 16, %116 ], [ 20, %115 ], [ 5, %114 ], [ 24, %113 ], [ 0, %110 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8, !noalias !554
-  store i8 0, ptr %9, align 8, !tbaa !563, !noalias !554
-  store ptr %94, ptr %45, align 8, !tbaa !571, !noalias !554
-  store ptr null, ptr %46, align 8, !tbaa !572, !noalias !554
+  store i8 0, ptr %9, align 8, !tbaa !564, !noalias !554
+  store ptr %94, ptr %45, align 8, !tbaa !572, !noalias !554
+  store ptr null, ptr %46, align 8, !tbaa !573, !noalias !554
   store i32 %.0.ph.i, ptr %47, align 8, !tbaa !3, !noalias !554
   br label %152
 
 150:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8, !noalias !554
-  store i8 0, ptr %9, align 8, !tbaa !563, !noalias !554
-  store ptr %94, ptr %45, align 8, !tbaa !571, !noalias !554
-  store ptr null, ptr %46, align 8, !tbaa !572, !noalias !554
+  store i8 0, ptr %9, align 8, !tbaa !564, !noalias !554
+  store ptr %94, ptr %45, align 8, !tbaa !572, !noalias !554
+  store ptr null, ptr %46, align 8, !tbaa !573, !noalias !554
   store i32 39, ptr %47, align 8, !tbaa !3, !noalias !554
   %151 = call fastcc noundef zeroext i1 @_ZL13ParseScanListRN5clang21analyze_format_string19FormatStringHandlerERNS_13analyze_scanf24ScanfConversionSpecifierERPKcS7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2)
   br i1 %151, label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread43, label %thread-pre-split.i
@@ -1660,7 +1660,7 @@ thread-pre-split.i:                               ; preds = %150
 152:                                              ; preds = %thread-pre-split.i, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread91.i
   %153 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %.0.ph.i, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread91.i ]
   %154 = phi i1 [ false, %thread-pre-split.i ], [ %.ph.i, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread91.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false), !tbaa.struct !573, !noalias !554
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false), !tbaa.struct !574, !noalias !554
   switch i32 %153, label %155 [
     i32 38, label %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i
     i32 24, label %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i
@@ -1699,8 +1699,8 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
 169:                                              ; preds = %162
   %170 = zext i32 %.pre102.i to i64
   %171 = getelementptr inbounds nuw i8, ptr %.01826, i64 %170
-  store ptr %171, ptr %46, align 8, !tbaa !572, !noalias !554
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false), !tbaa.struct !573, !noalias !554
+  store ptr %171, ptr %46, align 8, !tbaa !573, !noalias !554
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false), !tbaa.struct !574, !noalias !554
   br label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit
 
 _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread36.sink.split: ; preds = %77, %71
@@ -1727,23 +1727,23 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 104
   %180 = load ptr, ptr %179, align 8
   %181 = call noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef %.01826, i32 noundef %.pre102.i) #8
-  store ptr null, ptr %11, align 8, !tbaa !561
+  store ptr null, ptr %11, align 8, !tbaa !562
   store i32 0, ptr %29, align 8, !tbaa !22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false)
   %182 = load i8, ptr %31, align 4
   %183 = and i8 %182, -2
   store i8 %183, ptr %31, align 4
-  store i8 0, ptr %32, align 1, !tbaa !562
-  store i8 0, ptr %33, align 8, !tbaa !563
+  store i8 0, ptr %32, align 1, !tbaa !563
+  store i8 0, ptr %33, align 8, !tbaa !564
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, i8 0, i64 20, i1 false)
-  store ptr null, ptr %35, align 8, !tbaa !564
-  store i32 0, ptr %36, align 8, !tbaa !565
-  store i32 3, ptr %37, align 4, !tbaa !566
-  store i32 0, ptr %38, align 8, !tbaa !567
+  store ptr null, ptr %35, align 8, !tbaa !565
+  store i32 0, ptr %36, align 8, !tbaa !566
+  store i32 3, ptr %37, align 4, !tbaa !567
+  store i32 0, ptr %38, align 8, !tbaa !568
   %184 = load i8, ptr %39, align 4
   %185 = and i8 %184, -2
   store i8 %185, ptr %39, align 4
-  store i8 0, ptr %40, align 1, !tbaa !562
+  store i8 0, ptr %40, align 1, !tbaa !563
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8, !noalias !554
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8, !noalias !554
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8, !noalias !554
@@ -1754,8 +1754,8 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
 
 186:                                              ; preds = %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(137) %11, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
-  store ptr %storemerge99.i, ptr %42, align 8, !tbaa !575, !alias.scope !554
-  store i8 0, ptr %43, align 8, !tbaa !578, !alias.scope !554
+  store ptr %storemerge99.i, ptr %42, align 8, !tbaa !576, !alias.scope !554
+  store i8 0, ptr %43, align 8, !tbaa !579, !alias.scope !554
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8, !noalias !554
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8, !noalias !554
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #8, !noalias !554
@@ -1889,7 +1889,7 @@ define internal fastcc noundef zeroext i1 @_ZL13ParseScanListRN5clang21analyze_f
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %44 = icmp eq ptr %43, %3
-  br i1 %44, label %45, label %40, !llvm.loop !579
+  br i1 %44, label %45, label %40, !llvm.loop !580
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %0, align 8, !tbaa !557
@@ -1900,7 +1900,7 @@ define internal fastcc noundef zeroext i1 @_ZL13ParseScanListRN5clang21analyze_f
 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.3, ptr %50, align 8, !tbaa !572
+  store ptr %.3, ptr %50, align 8, !tbaa !573
   br label %51
 
 51:                                               ; preds = %49, %45, %34, %19, %9
@@ -2489,24 +2489,25 @@ attributes #8 = { nounwind }
 !556 = distinct !{!556, !"_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE"}
 !557 = !{!558, !558, i64 0}
 !558 = !{!"vtable pointer", !7, i64 0}
-!559 = distinct !{!559, !560}
+!559 = distinct !{!559, !560, !561}
 !560 = !{!"llvm.loop.mustprogress"}
-!561 = !{!23, !8, i64 0}
-!562 = !{!548, !5, i64 21}
-!563 = !{!4, !5, i64 0}
-!564 = !{!548, !8, i64 0}
-!565 = !{!548, !120, i64 8}
-!566 = !{!548, !539, i64 12}
-!567 = !{!548, !120, i64 16}
-!568 = !{!553, !8, i64 0}
-!569 = !{!553, !8, i64 8}
-!570 = !{i64 0, i64 8, !27, i64 8, i64 4, !537, i64 12, i64 4, !538, i64 16, i64 4, !537, i64 20, i64 1, !25, i64 21, i64 1, !540}
-!571 = !{!4, !8, i64 8}
-!572 = !{!4, !8, i64 16}
-!573 = !{i64 0, i64 1, !540, i64 8, i64 8, !27, i64 16, i64 8, !27, i64 24, i64 4, !574}
-!574 = !{!10, !10, i64 0}
-!575 = !{!576, !8, i64 128}
-!576 = !{!"_ZTSN5clang21analyze_format_string15SpecifierResultINS_13analyze_scanf14ScanfSpecifierEEE", !577, i64 0, !8, i64 128, !5, i64 136}
-!577 = !{!"_ZTSN5clang13analyze_scanf14ScanfSpecifierE", !547, i64 0, !553, i64 104}
-!578 = !{!576, !5, i64 136}
-!579 = distinct !{!579, !560}
+!561 = !{!"llvm.loop.estimated_trip_count"}
+!562 = !{!23, !8, i64 0}
+!563 = !{!548, !5, i64 21}
+!564 = !{!4, !5, i64 0}
+!565 = !{!548, !8, i64 0}
+!566 = !{!548, !120, i64 8}
+!567 = !{!548, !539, i64 12}
+!568 = !{!548, !120, i64 16}
+!569 = !{!553, !8, i64 0}
+!570 = !{!553, !8, i64 8}
+!571 = !{i64 0, i64 8, !27, i64 8, i64 4, !537, i64 12, i64 4, !538, i64 16, i64 4, !537, i64 20, i64 1, !25, i64 21, i64 1, !540}
+!572 = !{!4, !8, i64 8}
+!573 = !{!4, !8, i64 16}
+!574 = !{i64 0, i64 1, !540, i64 8, i64 8, !27, i64 16, i64 8, !27, i64 24, i64 4, !575}
+!575 = !{!10, !10, i64 0}
+!576 = !{!577, !8, i64 128}
+!577 = !{!"_ZTSN5clang21analyze_format_string15SpecifierResultINS_13analyze_scanf14ScanfSpecifierEEE", !578, i64 0, !8, i64 128, !5, i64 136}
+!578 = !{!"_ZTSN5clang13analyze_scanf14ScanfSpecifierE", !547, i64 0, !553, i64 104}
+!579 = !{!577, !5, i64 136}
+!580 = distinct !{!580, !560, !561}

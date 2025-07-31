@@ -66,7 +66,7 @@ define noundef ptr @SUNBandMatrix(i64 noundef %0, i64 noundef %1, i64 noundef %2
   store ptr %34, ptr %35, align 8, !tbaa !34
   %36 = add nuw nsw i64 %.045.i, 1
   %exitcond.not.i = icmp eq i64 %36, %0
-  br i1 %exitcond.not.i, label %SUNBandMatrixStorage.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %SUNBandMatrixStorage.exit, label %.lr.ph.i, !llvm.loop !35
 
 SUNBandMatrixStorage.exit:                        ; preds = %.lr.ph.i, %4
   ret ptr %6
@@ -130,7 +130,7 @@ define noundef ptr @SUNBandMatrixStorage(i64 noundef %0, i64 noundef %1, i64 nou
   store ptr %34, ptr %35, align 8, !tbaa !34
   %36 = add nuw nsw i64 %.045, 1
   %exitcond.not = icmp eq i64 %36, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret ptr %6
@@ -155,7 +155,7 @@ define noundef ptr @SUNMatClone_Band(ptr noundef readonly captures(none) %0) #0 
   %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !29
-  %12 = load ptr, ptr %2, align 8, !tbaa !35
+  %12 = load ptr, ptr %2, align 8, !tbaa !37
   %13 = tail call ptr @SUNMatNewEmpty(ptr noundef %12) #18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -212,7 +212,7 @@ define noundef ptr @SUNMatClone_Band(ptr noundef readonly captures(none) %0) #0 
   store ptr %41, ptr %42, align 8, !tbaa !34
   %43 = add nuw nsw i64 %.045.i, 1
   %exitcond.not.i = icmp eq i64 %43, %5
-  br i1 %exitcond.not.i, label %SUNBandMatrixStorage.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %SUNBandMatrixStorage.exit, label %.lr.ph.i, !llvm.loop !35
 
 SUNBandMatrixStorage.exit:                        ; preds = %.lr.ph.i, %1
   ret ptr %13
@@ -291,7 +291,7 @@ define noundef i32 @SUNMatZero_Band(ptr noundef readonly captures(none) %0) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !32
   %8 = shl nuw i64 %4, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %8, i1 false), !tbaa !36
+  tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %8, i1 false), !tbaa !38
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %1
@@ -373,7 +373,7 @@ define noundef i32 @SUNMatCopy_Band(ptr noundef readonly captures(none) %0, ptr 
   store ptr %47, ptr %48, align 8, !tbaa !34
   %49 = add nuw nsw i64 %.05966, 1
   %exitcond.not = icmp eq i64 %49, %40
-  br i1 %exitcond.not, label %.loopexit, label %44
+  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !40
 
 .loopexit:                                        ; preds = %44, %16, %10
   %50 = phi ptr [ %37, %16 ], [ %6, %10 ], [ %37, %44 ]
@@ -386,7 +386,7 @@ define noundef i32 @SUNMatCopy_Band(ptr noundef readonly captures(none) %0, ptr 
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %55 = load ptr, ptr %54, align 8, !tbaa !32
   %56 = shl nuw i64 %52, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %56, i1 false), !tbaa !36
+  tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %56, i1 false), !tbaa !38
   br label %SUNMatZero_Band.exit
 
 SUNMatZero_Band.exit:                             ; preds = %.loopexit, %.lr.ph.preheader.i
@@ -426,17 +426,17 @@ SUNMatZero_Band.exit:                             ; preds = %.loopexit, %.lr.ph.
 80:                                               ; preds = %.lr.ph69, %80
   %.068 = phi i64 [ %71, %.lr.ph69 ], [ %84, %80 ]
   %81 = getelementptr inbounds double, ptr %79, i64 %.068
-  %82 = load double, ptr %81, align 8, !tbaa !36
+  %82 = load double, ptr %81, align 8, !tbaa !38
   %83 = getelementptr inbounds double, ptr %76, i64 %.068
-  store double %82, ptr %83, align 8, !tbaa !36
+  store double %82, ptr %83, align 8, !tbaa !38
   %84 = add i64 %.068, 1
   %exitcond75.not = icmp eq i64 %.068, %73
-  br i1 %exitcond75.not, label %._crit_edge, label %80
+  br i1 %exitcond75.not, label %._crit_edge, label %80, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %80
   %85 = add nuw nsw i64 %.170, 1
   %exitcond76.not = icmp eq i64 %85, %58
-  br i1 %exitcond76.not, label %._crit_edge72, label %.lr.ph69
+  br i1 %exitcond76.not, label %._crit_edge72, label %.lr.ph69, !llvm.loop !42
 
 ._crit_edge72:                                    ; preds = %._crit_edge, %.lr.ph71, %SUNMatZero_Band.exit
   ret i32 0
@@ -498,7 +498,7 @@ define noundef i32 @SUNMatScaleAdd_Band(double noundef %0, ptr noundef captures(
   %36 = add nsw i64 %..i, %33
   %37 = add nsw i64 %35, -1
   %38 = tail call i64 @llvm.smin.i64(i64 %36, i64 %37)
-  %39 = load ptr, ptr %32, align 8, !tbaa !35
+  %39 = load ptr, ptr %32, align 8, !tbaa !37
   %40 = tail call ptr @SUNMatNewEmpty(ptr noundef %39) #18
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !3
@@ -555,7 +555,7 @@ define noundef i32 @SUNMatScaleAdd_Band(double noundef %0, ptr noundef captures(
   store ptr %68, ptr %69, align 8, !tbaa !34
   %70 = add nuw nsw i64 %.045.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %70, %35
-  br i1 %exitcond.not.i.i, label %SUNBandMatrixStorage.exit.i, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %SUNBandMatrixStorage.exit.i, label %.lr.ph.i.i, !llvm.loop !35
 
 SUNBandMatrixStorage.exit.i:                      ; preds = %.lr.ph.i.i, %29
   %71 = load ptr, ptr %1, align 8, !tbaa !20
@@ -610,18 +610,18 @@ SUNBandMatrixStorage.exit.i:                      ; preds = %.lr.ph.i.i, %29
 103:                                              ; preds = %103, %.lr.ph.i
   %.075.i = phi i64 [ %81, %.lr.ph.i ], [ %108, %103 ]
   %104 = getelementptr inbounds double, ptr %99, i64 %.075.i
-  %105 = load double, ptr %104, align 8, !tbaa !36
+  %105 = load double, ptr %104, align 8, !tbaa !38
   %106 = fmul double %0, %105
   %107 = getelementptr inbounds double, ptr %102, i64 %.075.i
-  store double %106, ptr %107, align 8, !tbaa !36
+  store double %106, ptr %107, align 8, !tbaa !38
   %108 = add i64 %.075.i, 1
   %exitcond.not.i = icmp eq i64 %.075.i, %83
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %103
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %103, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %103
   %109 = add nuw nsw i64 %.06476.i, 1
   %exitcond88.not.i = icmp eq i64 %109, %73
-  br i1 %exitcond88.not.i, label %.preheader.i, label %.lr.ph.i
+  br i1 %exitcond88.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !44
 
 .lr.ph81.i:                                       ; preds = %.lr.ph84.i, %._crit_edge82.i
   %.16583.i = phi i64 [ %123, %._crit_edge82.i ], [ 0, %.lr.ph84.i ]
@@ -636,19 +636,19 @@ SUNBandMatrixStorage.exit.i:                      ; preds = %.lr.ph.i.i, %29
 116:                                              ; preds = %116, %.lr.ph81.i
   %.179.i = phi i64 [ %94, %.lr.ph81.i ], [ %122, %116 ]
   %117 = getelementptr inbounds double, ptr %112, i64 %.179.i
-  %118 = load double, ptr %117, align 8, !tbaa !36
+  %118 = load double, ptr %117, align 8, !tbaa !38
   %119 = getelementptr inbounds double, ptr %115, i64 %.179.i
-  %120 = load double, ptr %119, align 8, !tbaa !36
+  %120 = load double, ptr %119, align 8, !tbaa !38
   %121 = fadd double %118, %120
-  store double %121, ptr %119, align 8, !tbaa !36
+  store double %121, ptr %119, align 8, !tbaa !38
   %122 = add i64 %.179.i, 1
   %exitcond89.not.i = icmp eq i64 %.179.i, %96
-  br i1 %exitcond89.not.i, label %._crit_edge82.i, label %116
+  br i1 %exitcond89.not.i, label %._crit_edge82.i, label %116, !llvm.loop !45
 
 ._crit_edge82.i:                                  ; preds = %116
   %123 = add nuw nsw i64 %.16583.i, 1
   %exitcond90.not.i = icmp eq i64 %123, %86
-  br i1 %exitcond90.not.i, label %._crit_edge85.i, label %.lr.ph81.i
+  br i1 %exitcond90.not.i, label %._crit_edge85.i, label %.lr.ph81.i, !llvm.loop !46
 
 ._crit_edge85.i:                                  ; preds = %._crit_edge82.i, %.lr.ph84.i, %.preheader.i
   %124 = getelementptr inbounds nuw i8, ptr %71, i64 48
@@ -691,19 +691,19 @@ SMScaleAddNew_Band.exit:                          ; preds = %._crit_edge85.i, %1
 140:                                              ; preds = %.lr.ph, %140
   %.02831 = phi i64 [ %28, %.lr.ph ], [ %146, %140 ]
   %141 = getelementptr inbounds double, ptr %136, i64 %.02831
-  %142 = load double, ptr %141, align 8, !tbaa !36
+  %142 = load double, ptr %141, align 8, !tbaa !38
   %143 = getelementptr inbounds double, ptr %139, i64 %.02831
-  %144 = load double, ptr %143, align 8, !tbaa !36
+  %144 = load double, ptr %143, align 8, !tbaa !38
   %145 = tail call double @llvm.fmuladd.f64(double %0, double %142, double %144)
-  store double %145, ptr %141, align 8, !tbaa !36
+  store double %145, ptr %141, align 8, !tbaa !38
   %146 = add i64 %.02831, 1
   %exitcond.not = icmp eq i64 %.02831, %13
-  br i1 %exitcond.not, label %._crit_edge, label %140
+  br i1 %exitcond.not, label %._crit_edge, label %140, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %140
   %147 = add nuw nsw i64 %.02932, 1
   %exitcond35.not = icmp eq i64 %147, %18
-  br i1 %exitcond35.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond35.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph33, %.preheader, %SMScaleAddNew_Band.exit
   ret i32 0
@@ -735,12 +735,12 @@ define noundef i32 @SUNMatScaleAddI_Band(double noundef %0, ptr noundef readonly
   %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01821.us
   %17 = load ptr, ptr %16, align 8, !tbaa !34
   %18 = getelementptr inbounds double, ptr %17, i64 %10
-  %19 = load double, ptr %18, align 8, !tbaa !36
+  %19 = load double, ptr %18, align 8, !tbaa !38
   %20 = fadd double %19, 1.000000e+00
-  store double %20, ptr %18, align 8, !tbaa !36
+  store double %20, ptr %18, align 8, !tbaa !38
   %21 = add nuw nsw i64 %.01821.us, 1
   %exitcond27.not = icmp eq i64 %21, %5
-  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph23.split.us, !llvm.loop !38
+  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph23.split.us, !llvm.loop !49
 
 .lr.ph:                                           ; preds = %.lr.ph23, %._crit_edge
   %.01821 = phi i64 [ %32, %._crit_edge ], [ 0, %.lr.ph23 ]
@@ -752,20 +752,20 @@ define noundef i32 @SUNMatScaleAddI_Band(double noundef %0, ptr noundef readonly
 25:                                               ; preds = %.lr.ph, %25
   %.020 = phi i64 [ %13, %.lr.ph ], [ %29, %25 ]
   %26 = getelementptr inbounds double, ptr %24, i64 %.020
-  %27 = load double, ptr %26, align 8, !tbaa !36
+  %27 = load double, ptr %26, align 8, !tbaa !38
   %28 = fmul double %0, %27
-  store double %28, ptr %26, align 8, !tbaa !36
+  store double %28, ptr %26, align 8, !tbaa !38
   %29 = add i64 %.020, 1
   %exitcond.not = icmp eq i64 %.020, %15
-  br i1 %exitcond.not, label %._crit_edge, label %25
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %25
-  %30 = load double, ptr %24, align 8, !tbaa !36
+  %30 = load double, ptr %24, align 8, !tbaa !38
   %31 = fadd double %30, 1.000000e+00
-  store double %31, ptr %24, align 8, !tbaa !36
+  store double %31, ptr %24, align 8, !tbaa !38
   %32 = add nuw nsw i64 %.01821, 1
   %exitcond26.not = icmp eq i64 %32, %5
-  br i1 %exitcond26.not, label %._crit_edge24, label %.lr.ph
+  br i1 %exitcond26.not, label %._crit_edge24, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge24:                                    ; preds = %._crit_edge, %.lr.ph23.split.us, %2
   ret i32 0
@@ -782,7 +782,7 @@ define noundef i32 @SUNMatMatvec_Band(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph.preheader:                                 ; preds = %3
   %9 = shl nuw i64 %7, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %9, i1 false), !tbaa !36
+  tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %9, i1 false), !tbaa !38
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph.preheader, %3
@@ -823,20 +823,20 @@ define noundef i32 @SUNMatMatvec_Band(ptr noundef readonly captures(none) %0, pt
   %.143 = phi i64 [ %spec.select, %.lr.ph44 ], [ %38, %30 ]
   %31 = sub nsw i64 %.143, %.03445
   %32 = getelementptr inbounds double, ptr %25, i64 %31
-  %33 = load double, ptr %32, align 8, !tbaa !36
-  %34 = load double, ptr %29, align 8, !tbaa !36
+  %33 = load double, ptr %32, align 8, !tbaa !38
+  %34 = load double, ptr %29, align 8, !tbaa !38
   %35 = getelementptr inbounds nuw double, ptr %5, i64 %.143
-  %36 = load double, ptr %35, align 8, !tbaa !36
+  %36 = load double, ptr %35, align 8, !tbaa !38
   %37 = tail call double @llvm.fmuladd.f64(double %33, double %34, double %36)
-  store double %37, ptr %35, align 8, !tbaa !36
+  store double %37, ptr %35, align 8, !tbaa !38
   %38 = add nuw nsw i64 %.143, 1
   %.not38.not = icmp slt i64 %.143, %28
-  br i1 %.not38.not, label %30, label %._crit_edge
+  br i1 %.not38.not, label %30, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %30, %22
   %39 = add nuw nsw i64 %.03445, 1
   %exitcond.not = icmp eq i64 %39, %11
-  br i1 %exitcond.not, label %._crit_edge47, label %22
+  br i1 %exitcond.not, label %._crit_edge47, label %22, !llvm.loop !54
 
 ._crit_edge47:                                    ; preds = %._crit_edge, %.preheader
   ret i32 0
@@ -854,10 +854,10 @@ define noundef i32 @SUNMatSpace_Band(ptr noundef readonly captures(none) %0, ptr
   %11 = add i64 %8, 1
   %12 = add i64 %11, %10
   %13 = mul nsw i64 %12, %6
-  store i64 %13, ptr %1, align 8, !tbaa !40
+  store i64 %13, ptr %1, align 8, !tbaa !55
   %14 = load i64, ptr %5, align 8, !tbaa !26
   %15 = add nsw i64 %14, 7
-  store i64 %15, ptr %2, align 8, !tbaa !40
+  store i64 %15, ptr %2, align 8, !tbaa !55
   ret i32 0
 }
 
@@ -901,7 +901,7 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #18
   %19 = add nuw nsw i64 %.03038, 1
   %exitcond.not = icmp eq i64 %19, %9
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !56
 
 .lr.ph41:                                         ; preds = %.preheader, %.lr.ph41
   %.140 = phi i64 [ %32, %.lr.ph41 ], [ %spec.select, %.preheader ]
@@ -915,11 +915,11 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
   %27 = load i64, ptr %26, align 8, !tbaa !29
   %28 = getelementptr double, ptr %24, i64 %25
   %29 = getelementptr double, ptr %28, i64 %27
-  %30 = load double, ptr %29, align 8, !tbaa !36
+  %30 = load double, ptr %29, align 8, !tbaa !38
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %30) #18
   %32 = add nuw nsw i64 %.140, 1
   %.not36.not = icmp slt i64 %.140, %16
-  br i1 %.not36.not, label %.lr.ph41, label %._crit_edge
+  br i1 %.not36.not, label %.lr.ph41, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph41, %.preheader
   %fputc37 = tail call i32 @fputc(i32 10, ptr %1)
@@ -927,7 +927,7 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
   %34 = load ptr, ptr %0, align 8, !tbaa !20
   %35 = load i64, ptr %34, align 8, !tbaa !21
   %36 = icmp slt i64 %33, %35
-  br i1 %36, label %.lr.ph44, label %._crit_edge45
+  br i1 %36, label %.lr.ph44, label %._crit_edge45, !llvm.loop !58
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %2
   %fputc35 = tail call i32 @fputc(i32 10, ptr %1)
@@ -1104,9 +1104,27 @@ attributes #21 = { nounwind allocsize(1) }
 !32 = !{!22, !24, i64 48}
 !33 = !{!22, !25, i64 64}
 !34 = !{!24, !24, i64 0}
-!35 = !{!4, !9, i64 16}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"double", !6, i64 0}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = !{!23, !23, i64 0}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!4, !9, i64 16}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"double", !6, i64 0}
+!40 = distinct !{!40, !36}
+!41 = distinct !{!41, !36}
+!42 = distinct !{!42, !36}
+!43 = distinct !{!43, !36}
+!44 = distinct !{!44, !36}
+!45 = distinct !{!45, !36}
+!46 = distinct !{!46, !36}
+!47 = distinct !{!47, !36}
+!48 = distinct !{!48, !36}
+!49 = distinct !{!49, !36, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !36}
+!52 = distinct !{!52, !36}
+!53 = distinct !{!53, !36}
+!54 = distinct !{!54, !36}
+!55 = !{!23, !23, i64 0}
+!56 = distinct !{!56, !36}
+!57 = distinct !{!57, !36}
+!58 = distinct !{!58, !36}

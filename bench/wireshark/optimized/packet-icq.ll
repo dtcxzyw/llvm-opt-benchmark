@@ -684,7 +684,7 @@ icqv5_cmd_send_text_code.exit.i.i:                ; preds = %154, %149
   %181 = add nuw nsw i32 %.021.i.i.i, 4
   %182 = add nuw nsw i32 %.01820.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %182, %177
-  br i1 %exitcond.not.i.i.i, label %dissect_icqv5.exit, label %.lr.ph.i82.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %dissect_icqv5.exit, label %.lr.ph.i82.i.i, !llvm.loop !9
 
 183:                                              ; preds = %proto_item_set_generated.exit78.i.i, %proto_item_set_generated.exit78.i.i, %proto_item_set_generated.exit78.i.i, %proto_item_set_generated.exit78.i.i
   %184 = load i32, ptr @hf_icq_no_parameters, align 4
@@ -1102,7 +1102,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   %268 = add i32 %266, %267
   %269 = add nuw nsw i32 %.0.i7577, 1
   %exitcond.not = icmp eq i32 %269, %263
-  br i1 %exitcond.not, label %icqv5_srv_rand_user.exit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %icqv5_srv_rand_user.exit, label %.lr.ph, !llvm.loop !10
 
 270:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit
   %271 = load i32, ptr @hf_icq_no_parameters, align 4
@@ -1223,7 +1223,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
 37:                                               ; preds = %35, %33
   %38 = add i32 %.0192, %.1244
   %39 = sub i32 %.1177243, %.0192
-  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !11
 
 .preheader219:                                    ; preds = %14, %51
   %indvars.iv257 = phi i64 [ %indvars.iv.next258, %51 ], [ 0, %14 ]
@@ -1259,7 +1259,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   %53 = sub i32 %.2178240, %.1193
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next258, 6
-  br i1 %exitcond260.not, label %.loopexit, label %.preheader219, !llvm.loop !11
+  br i1 %exitcond260.not, label %.loopexit, label %.preheader219, !llvm.loop !12
 
 .thread:                                          ; preds = %5
   %54 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %13)
@@ -1307,7 +1307,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   %76 = sub i32 %.3179231, %.2194
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond256.not = icmp eq i64 %indvars.iv.next254, 6
-  br i1 %exitcond256.not, label %.loopexit, label %.preheader223, !llvm.loop !12
+  br i1 %exitcond256.not, label %.loopexit, label %.preheader223, !llvm.loop !13
 
 .preheader225:                                    ; preds = %14, %88
   %indvars.iv = phi i64 [ %indvars.iv.next, %88 ], [ 0, %14 ]
@@ -1343,7 +1343,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   %90 = sub i32 %.4180228, %.3195
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader225, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.preheader225, !llvm.loop !14
 
 91:                                               ; preds = %.backedge, %.preheader221
   %.5.neg238 = phi i32 [ %.5.neg233, %.preheader221 ], [ %.5.neg238.be, %.backedge ]
@@ -1393,7 +1393,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   %.0186234.be = phi i32 [ %113, %101 ], [ 1, %96 ]
   %.5237.be = add nuw i32 %.5.neg238.be.in, 1
   %.5.neg238.be = xor i32 %.5.neg238.be.in, -1
-  br label %91, !llvm.loop !14
+  br label %91, !llvm.loop !15
 
 .loopexit:                                        ; preds = %88, %74, %100, %101, %96, %51, %37, %.thread, %22, %20, %14
   ret void
@@ -1450,12 +1450,13 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

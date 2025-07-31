@@ -350,7 +350,7 @@ _ZN4llvm8codeview25AppendingTypeTableBuilder17insertRecordBytesERNS_8ArrayRefIhE
   store i32 %51, ptr %4, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 16
   %.not = icmp eq ptr %52, %9
-  br i1 %.not, label %._crit_edge, label %23
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !51
 }
 
 declare void @_ZN4llvm8codeview25ContinuationRecordBuilder3endENS0_9TypeIndexE(ptr dead_on_unwind writable sret(%"class.std::vector.12") align 8, ptr noundef nonnull align 8 dereferenceable(248), i32) local_unnamed_addr #2
@@ -584,3 +584,5 @@ attributes #15 = { builtin nounwind }
 !48 = !{!49, !47, i64 0}
 !49 = !{!"_ZTSNSt12_Vector_baseIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE17_Vector_impl_dataE", !47, i64 0, !47, i64 8, !47, i64 16}
 !50 = !{!49, !47, i64 16}
+!51 = distinct !{!51, !52}
+!52 = !{!"llvm.loop.estimated_trip_count"}

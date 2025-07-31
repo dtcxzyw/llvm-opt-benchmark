@@ -6491,7 +6491,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %16, %18, %20
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit: ; preds = %55, %64
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 8
   %.not12 = icmp eq ptr %65, %25
-  br i1 %.not12, label %._crit_edge, label %39
+  br i1 %.not12, label %._crit_edge, label %39, !llvm.loop !52
 
 66:                                               ; preds = %._crit_edge
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 %37
@@ -6501,7 +6501,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit: ;
 68:                                               ; preds = %66, %._crit_edge
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %38)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i8 1, ptr %69, align 8, !tbaa !52
+  store i8 1, ptr %69, align 8, !tbaa !54
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 145
   %71 = load i8, ptr %70, align 1, !tbaa !50, !range !46, !noundef !47
   %72 = trunc nuw i8 %71 to i1
@@ -6614,7 +6614,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS0_5LabelE(
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !53
+  %3 = load i32, ptr %1, align 4, !tbaa !55
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -6623,7 +6623,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5L
   %7 = load i32, ptr %6, align 8, !tbaa !33
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 8, !tbaa !33
-  store i32 %7, ptr %1, align 4, !tbaa !53
+  store i32 %7, ptr %1, align 4, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !37
@@ -6697,9 +6697,9 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %43 = lshr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %44, ptr %45, align 4, !tbaa !55
+  store i32 %44, ptr %45, align 4, !tbaa !57
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %47 = load i32, ptr %1, align 4, !tbaa !53
+  %47 = load i32, ptr %1, align 4, !tbaa !55
   %48 = add i32 %47, -1
   %49 = zext i32 %48 to i64
   %50 = load ptr, ptr %46, align 8, !tbaa !38
@@ -7041,12 +7041,12 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0
   %12 = trunc i64 %11 to i32
   %13 = add i32 %12, -1
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !55
+  %15 = load i32, ptr %14, align 4, !tbaa !57
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %83
 
 17:                                               ; preds = %3
-  %18 = load i32, ptr %1, align 4, !tbaa !53
+  %18 = load i32, ptr %1, align 4, !tbaa !55
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -7055,7 +7055,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0
   %22 = load i32, ptr %21, align 8, !tbaa !33
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 8, !tbaa !33
-  store i32 %22, ptr %1, align 4, !tbaa !53
+  store i32 %22, ptr %1, align 4, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %26 = load ptr, ptr %25, align 8, !tbaa !37
@@ -7121,11 +7121,11 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %29, %17
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %52 = and i32 %2, 3
-  %53 = load i32, ptr %1, align 4, !tbaa !53
+  %53 = load i32, ptr %1, align 4, !tbaa !55
   %54 = shl i32 %53, 2
   %55 = or disjoint i32 %54, %52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %57 = load ptr, ptr %56, align 8, !tbaa !56
+  %57 = load ptr, ptr %56, align 8, !tbaa !58
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %59 = load ptr, ptr %58, align 8, !tbaa !43
   %.not.i.i11 = icmp eq ptr %57, %59
@@ -7137,9 +7137,9 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %.sroa.0.0.insert.ext = zext i32 %55 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %57, align 4
-  %61 = load ptr, ptr %56, align 8, !tbaa !56
+  %61 = load ptr, ptr %56, align 8, !tbaa !58
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %62, ptr %56, align 8, !tbaa !56
+  store ptr %62, ptr %56, align 8, !tbaa !58
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE9push_backEOS4_.exit
 
 63:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
@@ -7189,7 +7189,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateE
 
 _ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %81, %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %76, ptr %51, align 8, !tbaa !42
-  store ptr %80, ptr %56, align 8, !tbaa !56
+  store ptr %80, ptr %56, align 8, !tbaa !58
   %82 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::AssemblyBuilderA64::Patch", ptr %76, i64 %74
   store ptr %82, ptr %58, align 8, !tbaa !43
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE9push_backEOS4_.exit
@@ -7968,8 +7968,10 @@ attributes #23 = { nounwind }
 !49 = !{!6, !6, i64 0}
 !50 = !{!15, !25, i64 145}
 !51 = !{!31, !31, i64 0}
-!52 = !{!15, !25, i64 144}
-!53 = !{!54, !26, i64 0}
-!54 = !{!"_ZTSN4Luau7CodeGen5LabelE", !26, i64 0, !26, i64 4}
-!55 = !{!54, !26, i64 4}
-!56 = !{!30, !31, i64 8}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!15, !25, i64 144}
+!55 = !{!56, !26, i64 0}
+!56 = !{!"_ZTSN4Luau7CodeGen5LabelE", !26, i64 0, !26, i64 4}
+!57 = !{!56, !26, i64 4}
+!58 = !{!30, !31, i64 8}

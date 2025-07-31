@@ -1770,9 +1770,9 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge
   %.sroa.025.042 = phi ptr [ %25, %.critedge ], [ %.sroa.029.0, %.preheader ]
-  %15 = load i32, ptr %.sroa.025.042, align 8, !tbaa !45
+  %15 = load i32, ptr %.sroa.025.042, align 8, !tbaa !46
   %16 = invoke noundef zeroext i1 %0(i32 noundef %15)
-          to label %17 unwind label %23, !callees !47
+          to label %17 unwind label %23, !callees !48
 
 17:                                               ; preds = %.lr.ph
   br i1 %16, label %.critedge, label %18
@@ -1780,7 +1780,7 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i
 18:                                               ; preds = %17
   %19 = load ptr, ptr @stderr, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !48
+  %21 = load ptr, ptr %20, align 8, !tbaa !49
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.13, ptr noundef %21) #24
   br label %.critedge21
 
@@ -1792,7 +1792,7 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i
 .critedge:                                        ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 16
   %.not = icmp eq ptr %25, %.0.i.i.i.i.i
-  br i1 %.not, label %.critedge21, label %.lr.ph
+  br i1 %.not, label %.critedge21, label %.lr.ph, !llvm.loop !50
 
 .critedge21:                                      ; preds = %.critedge, %.preheader, %18
   %.not38 = phi i1 [ false, %18 ], [ true, %.preheader ], [ true, %.critedge ]
@@ -2520,9 +2520,9 @@ _ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.ex
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %4, align 8, !tbaa !42
-  %23 = load i64, ptr %5, align 8, !tbaa !49
+  %23 = load i64, ptr %5, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !51
+  %25 = load ptr, ptr %24, align 8, !tbaa !53
   %26 = load ptr, ptr %0, align 8, !tbaa !18
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
@@ -2559,7 +2559,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i.i: ; preds = %36, %.noex
   store ptr %34, ptr %0, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %23
   store ptr %37, ptr %35, align 8, !tbaa !21
-  store ptr %37, ptr %24, align 8, !tbaa !51
+  store ptr %37, ptr %24, align 8, !tbaa !53
   br label %_ZNSt6vectorIhSaIhEE6assignIPhvEEvT_S4_.exit
 
 38:                                               ; preds = %21
@@ -3023,12 +3023,14 @@ attributes #25 = { noreturn }
 !40 = !{!41, !41, i64 0}
 !41 = !{!"int", !12, i64 0}
 !42 = !{!20, !20, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!46, !41, i64 0}
-!46 = !{!"_ZTS16EC_builtin_curve", !41, i64 0, !20, i64 8}
-!47 = !{ptr @_ZL13TestSetAffinei, ptr @_ZL21TestAddingEqualPointsi}
-!48 = !{!46, !20, i64 8}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"long", !12, i64 0}
-!51 = !{!19, !20, i64 16}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!47, !41, i64 0}
+!47 = !{!"_ZTS16EC_builtin_curve", !41, i64 0, !20, i64 8}
+!48 = !{ptr @_ZL13TestSetAffinei, ptr @_ZL21TestAddingEqualPointsi}
+!49 = !{!47, !20, i64 8}
+!50 = distinct !{!50, !45}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"long", !12, i64 0}
+!53 = !{!19, !20, i64 16}

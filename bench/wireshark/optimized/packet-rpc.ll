@@ -702,7 +702,7 @@ define void @rpc_init_prog(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 n
 ._crit_edge:                                      ; preds = %75, %21
   %79 = add nuw i64 %.062, 1
   %exitcond.not = icmp eq i64 %79, %3
-  br i1 %exitcond.not, label %._crit_edge65, label %21, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge65, label %21, !llvm.loop !11
 
 ._crit_edge65:                                    ; preds = %._crit_edge, %5
   ret void
@@ -1113,7 +1113,7 @@ define noundef i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef
   %18 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %14, i32 noundef 4, i64 noundef %17)
   %19 = add i32 %14, 4
   %20 = icmp eq i32 %15, 1
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.lcssa = phi i32 [ %11, %6 ], [ %19, %.lr.ph ]
@@ -1149,7 +1149,7 @@ define noundef i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %1, ptr nounde
   %20 = add i32 %.033, -1
   %21 = tail call i32 %4(ptr noundef %0, i32 noundef %.03032, ptr noundef %1, ptr noundef %10, ptr noundef null)
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %.loopexit, label %19, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %19, !llvm.loop !13
 
 .loopexit:                                        ; preds = %19, %13
   %.lcssa.sink = phi i32 [ %12, %13 ], [ %21, %19 ]
@@ -1378,7 +1378,7 @@ rpc_roundup.exit:                                 ; preds = %4
   %127 = add nuw i32 %.03640.us.i.i, 1
   %.0.us.i.i = add i32 %.041.us.i.i, 4
   %exitcond.not.i.i = icmp eq i32 %127, %117
-  br i1 %exitcond.not.i.i, label %dissect_rpc_authunix_groups.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %dissect_rpc_authunix_groups.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !14
 
 dissect_rpc_authunix_groups.exit.i:               ; preds = %126, %.split.i
   %.0.lcssa63.i.i = phi i32 [ %.039.i.i, %.split.i ], [ %.0.us.i.i, %126 ]
@@ -1964,7 +1964,7 @@ define internal range(i32 0, 2) i32 @rpc_prog_stat_packet(ptr noundef readonly c
   %29 = add nuw i32 %.06376, 1
   %30 = load i32, ptr %13, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %16, label %._crit_edge, !llvm.loop !14
+  br i1 %31, label %16, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %28, %.._crit_edge_crit_edge
   %32 = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %19, %28 ]
@@ -2105,7 +2105,7 @@ define internal void @rpc_prog_stat_reset(ptr noundef %0) #0 {
   %12 = add nuw i32 %.026, 1
   %13 = load i32, ptr %2, align 4
   %14 = icmp ult i32 %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -2443,7 +2443,7 @@ rpc_prog_hf.exit:                                 ; preds = %5, %14
   %36 = add nuw nsw i32 %.021, 1
   %37 = load i32, ptr %30, align 8
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rpc_prog_hf.exit
   ret void
@@ -2700,7 +2700,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   %19 = add nuw i32 %.03640.us, 1
   %.0.us = add i32 %.041.us, 4
   %exitcond.not = icmp eq i32 %19, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
@@ -2747,7 +2747,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   %32 = add nuw i32 %.03640.us43, 1
   %.0.us44 = add i32 %.041.us42, 4
   %exitcond52.not = icmp eq i32 %32, %5
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !19
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %46
   %.041 = phi i32 [ %.0, %46 ], [ %.041.ph, %.lr.ph.split.split.preheader ]
@@ -2785,7 +2785,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   %47 = add nuw i32 %.03640, 1
   %.0 = add i32 %.041, 4
   %exitcond51.not = icmp eq i32 %47, %5
-  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !18
+  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %18, %46, %31
   %.0.lcssa = phi i32 [ %.0.us44, %31 ], [ %.0, %46 ], [ %.0.us, %18 ]
@@ -4700,7 +4700,7 @@ define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0
   %34 = getelementptr i8, ptr %.03039.i.i, i64 -1
   %35 = add nsw i32 %.040.i.i, -1
   %36 = icmp samesign ugt i32 %.040.i.i, 1
-  br i1 %36, label %30, label %.loopexit.i.i, !llvm.loop !19
+  br i1 %36, label %30, label %.loopexit.i.i, !llvm.loop !21
 
 .loopexit.i.i:                                    ; preds = %33
   %37 = icmp eq ptr %scevgep45.i.i, null
@@ -4760,7 +4760,7 @@ define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0
   %.029.be.i.i = phi i32 [ %.02941.i.i, %.loopexit.i.i ], [ %77, %76 ], [ %32, %.loopexit.thread.i.i ]
   %78 = sub i32 %22, %.029.be.i.i
   %79 = icmp sgt i32 %78, 16
-  br i1 %79, label %28, label %.thread, !llvm.loop !20
+  br i1 %79, label %28, label %.thread, !llvm.loop !22
 
 find_rpc_over_tcp_reply_start.exit.i:             ; preds = %59
   %80 = add i32 %.03950, -12
@@ -4815,7 +4815,7 @@ find_and_dissect_rpc_fragment.exit:               ; preds = %86, %12
   %106 = add i32 %.0, %.03950
   %107 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %106)
   %.not = icmp eq i32 %107, 0
-  br i1 %.not, label %.thread, label %12, !llvm.loop !21
+  br i1 %.not, label %.thread, label %12, !llvm.loop !23
 
 .thread:                                          ; preds = %find_and_dissect_rpc_fragment.exit, %91, %105, %.preheader.i.i, %24, %19, %83, %find_rpc_over_tcp_reply_start.exit.i, %.backedge.i.i, %6
   %.040 = phi i1 [ false, %6 ], [ %.03851, %.backedge.i.i ], [ true, %find_and_dissect_rpc_fragment.exit ], [ %.03851, %91 ], [ true, %105 ], [ %.03851, %.preheader.i.i ], [ %.03851, %24 ], [ %.03851, %19 ], [ %.03851, %83 ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
@@ -5431,17 +5431,19 @@ attributes #22 = { nounwind returns_twice }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9, !13}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10, !15}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}

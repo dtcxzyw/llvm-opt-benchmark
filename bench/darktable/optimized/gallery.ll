@@ -428,7 +428,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 68:                                               ; preds = %.lr.ph
   %69 = getelementptr inbounds i8, ptr %.0163207, i64 -1
   %70 = icmp ugt ptr %69, %16
-  br i1 %70, label %.lr.ph, label %.critedge
+  br i1 %70, label %.lr.ph, label %.critedge, !llvm.loop !82
 
 .critedge:                                        ; preds = %68, %55
   %.0163.lcssa = phi ptr [ %66, %55 ], [ %69, %68 ]
@@ -470,7 +470,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 83:                                               ; preds = %.lr.ph209
   %84 = getelementptr inbounds i8, ptr %.1164208, i64 -1
   %85 = icmp ugt ptr %84, %15
-  br i1 %85, label %.lr.ph209, label %.critedge2
+  br i1 %85, label %.lr.ph209, label %.critedge2, !llvm.loop !84
 
 86:                                               ; preds = %.lr.ph209
   %87 = icmp eq i8 %81, 47
@@ -483,7 +483,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.2165 = phi ptr [ %80, %.critedge2 ], [ %.1164208, %86 ]
   %89 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.2165, ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %64) #16
   %90 = call noalias dereferenceable_or_null(8196) ptr @malloc(i64 noundef 8196) #17
-  %91 = load i32, ptr %13, align 8, !tbaa !82
+  %91 = load i32, ptr %13, align 8, !tbaa !85
   %92 = and i32 %91, 524290
   %or.cond = icmp eq i32 %92, 2
   br i1 %or.cond, label %93, label %101
@@ -494,7 +494,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not186, label %97, label %95
 
 95:                                               ; preds = %93
-  %96 = load ptr, ptr %94, align 8, !tbaa !84
+  %96 = load ptr, ptr %94, align 8, !tbaa !87
   br label %97
 
 97:                                               ; preds = %95, %93
@@ -504,7 +504,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not187, label %101, label %99
 
 99:                                               ; preds = %97
-  %100 = load ptr, ptr %98, align 8, !tbaa !84
+  %100 = load ptr, ptr %98, align 8, !tbaa !87
   br label %101
 
 101:                                              ; preds = %97, %99, %88
@@ -530,7 +530,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 105:                                              ; preds = %.lr.ph211
   %106 = getelementptr inbounds i8, ptr %.3210, i64 -1
   %107 = icmp ugt ptr %106, %15
-  br i1 %107, label %.lr.ph211, label %.critedge4
+  br i1 %107, label %.lr.ph211, label %.critedge4, !llvm.loop !89
 
 .critedge4:                                       ; preds = %.lr.ph211, %105, %101
   %.3.lcssa = phi ptr [ %103, %101 ], [ %106, %105 ], [ %.3210, %.lr.ph211 ]
@@ -556,7 +556,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 115:                                              ; preds = %.lr.ph216
   %116 = getelementptr inbounds i8, ptr %.6215, i64 -1
   %117 = icmp ugt ptr %116, %19
-  br i1 %117, label %.lr.ph216, label %.critedge6
+  br i1 %117, label %.lr.ph216, label %.critedge6, !llvm.loop !90
 
 .critedge6:                                       ; preds = %115, %.lr.ph216, %.critedge4
   %.7 = phi ptr [ %113, %.critedge4 ], [ %.6215, %.lr.ph216 ], [ %113, %115 ]
@@ -610,18 +610,18 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %90, i64 4096
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %140 = load i32, ptr %139, align 4, !tbaa !86
+  %140 = load i32, ptr %139, align 4, !tbaa !91
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %142 = load i32, ptr %141, align 4, !tbaa !87
+  %142 = load i32, ptr %141, align 4, !tbaa !92
   %143 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %138, i64 noundef 4096, ptr noundef nonnull @.str.27, ptr noundef %124, i32 noundef %140, i32 noundef %142, ptr noundef %125) #16
   call void @g_free(ptr noundef %124) #16
   call void @g_free(ptr noundef %125) #16
   %144 = getelementptr inbounds nuw i8, ptr %90, i64 8192
-  store i32 %5, ptr %144, align 4, !tbaa !88
+  store i32 %5, ptr %144, align 4, !tbaa !93
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 9224
-  %146 = load ptr, ptr %145, align 8, !tbaa !90
+  %146 = load ptr, ptr %145, align 8, !tbaa !95
   %147 = call ptr @g_list_insert_sorted(ptr noundef %146, ptr noundef nonnull %90, ptr noundef nonnull @sort_pos) #16
-  store ptr %147, ptr %145, align 8, !tbaa !90
+  store ptr %147, ptr %145, align 8, !tbaa !95
   %148 = load i32, ptr %4, align 4, !tbaa !71
   %149 = load i32, ptr %25, align 4, !tbaa !73
   store i32 200, ptr %4, align 4, !tbaa !71
@@ -641,7 +641,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 154:                                              ; preds = %.lr.ph221
   %155 = getelementptr inbounds i8, ptr %.8220, i64 -1
   %156 = icmp ugt ptr %155, %15
-  br i1 %156, label %.lr.ph221, label %.critedge8
+  br i1 %156, label %.lr.ph221, label %.critedge8, !llvm.loop !96
 
 157:                                              ; preds = %.lr.ph221
   %158 = icmp eq i8 %152, 47
@@ -737,9 +737,9 @@ declare ptr @g_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @sort_pos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8192
-  %4 = load i32, ptr %3, align 4, !tbaa !88
+  %4 = load i32, ptr %3, align 4, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8192
-  %6 = load i32, ptr %5, align 4, !tbaa !88
+  %6 = load i32, ptr %5, align 4, !tbaa !93
   %7 = sub nsw i32 %4, %6
   ret i32 %7
 }
@@ -791,39 +791,39 @@ define void @finalize_store(ptr noundef readnone captures(none) %0, ptr noundef 
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4096
   %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.45, ptr noundef nonnull %12, ptr noundef nonnull %12) #16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 9224
-  %.04046 = load ptr, ptr %14, align 8, !tbaa !91
+  %.04046 = load ptr, ptr %14, align 8, !tbaa !97
   %.not4347 = icmp eq ptr %.04046, null
   br i1 %.not4347, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.0.lcssa = phi i64 [ 0, %11 ], [ %17, %.lr.ph ]
   %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.47, i64 noundef %.0.lcssa, ptr noundef nonnull @darktable_package_string) #16
-  %.pr = load ptr, ptr %14, align 8, !tbaa !90
+  %.pr = load ptr, ptr %14, align 8, !tbaa !95
   %.not4450 = icmp eq ptr %.pr, null
   br i1 %.not4450, label %._crit_edge53, label %.lr.ph52
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.04049 = phi ptr [ %.040, %.lr.ph ], [ %.04046, %11 ]
   %.048 = phi i64 [ %17, %.lr.ph ], [ 0, %11 ]
-  %16 = load ptr, ptr %.04049, align 8, !tbaa !84
+  %16 = load ptr, ptr %.04049, align 8, !tbaa !87
   %fputs45 = call i32 @fputs(ptr %16, ptr nonnull %10)
   %17 = add i64 %.048, 1
   %18 = getelementptr inbounds nuw i8, ptr %.04049, i64 8
-  %.040 = load ptr, ptr %18, align 8, !tbaa !91
+  %.040 = load ptr, ptr %18, align 8, !tbaa !97
   %.not43 = icmp eq ptr %.040, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 .lr.ph52:                                         ; preds = %._crit_edge, %.lr.ph52
   %19 = phi ptr [ %23, %.lr.ph52 ], [ %.pr, %._crit_edge ]
-  %20 = load ptr, ptr %19, align 8, !tbaa !84
+  %20 = load ptr, ptr %19, align 8, !tbaa !87
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4096
   %fputs = call i32 @fputs(ptr nonnull %21, ptr nonnull %10)
   call void @free(ptr noundef %20) #16
-  %22 = load ptr, ptr %14, align 8, !tbaa !90
+  %22 = load ptr, ptr %14, align 8, !tbaa !95
   %23 = call ptr @g_list_delete_link(ptr noundef %22, ptr noundef %22) #16
-  store ptr %23, ptr %14, align 8, !tbaa !90
+  store ptr %23, ptr %14, align 8, !tbaa !95
   %.not44 = icmp eq ptr %23, null
-  br i1 %.not44, label %._crit_edge53, label %.lr.ph52
+  br i1 %.not44, label %._crit_edge53, label %.lr.ph52, !llvm.loop !99
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %._crit_edge
   %24 = call i64 @fwrite(ptr nonnull @.str.48, i64 301, i64 1, ptr nonnull %10)
@@ -898,7 +898,7 @@ declare void @dt_variables_params_destroy(ptr noundef) local_unnamed_addr #5
 define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %6 = load ptr, ptr %5, align 8, !tbaa !92
+  %6 = load ptr, ptr %5, align 8, !tbaa !100
   %7 = tail call i64 %6(ptr noundef %0) #16
   %.not = icmp eq i64 %7, %4
   br i1 %.not, label %8, label %18
@@ -927,7 +927,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @supported(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %4 = load ptr, ptr %3, align 8, !tbaa !93
+  %4 = load ptr, ptr %3, align 8, !tbaa !101
   %5 = tail call ptr %4(ptr noundef null) #16
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(11) @.str.49) #19
   %7 = icmp eq i32 %6, 0
@@ -1109,15 +1109,23 @@ attributes #20 = { nounwind allocsize(0,1) }
 !79 = !{!75, !7, i64 20}
 !80 = !{!81, !16, i64 152}
 !81 = !{!"dt_imageio_module_format_t", !14, i64 0, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !16, i64 104, !16, i64 112, !16, i64 120, !16, i64 128, !16, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !8, i64 208, !18, i64 336, !19, i64 344, !16, i64 352, !7, i64 360, !7, i64 364}
-!82 = !{!83, !7, i64 0}
-!83 = !{!"dt_export_metadata_t", !7, i64 0, !29, i64 8}
-!84 = !{!85, !16, i64 0}
-!85 = !{!"_GList", !16, i64 0, !29, i64 8, !29, i64 16}
-!86 = !{!72, !7, i64 8}
-!87 = !{!72, !7, i64 12}
-!88 = !{!89, !7, i64 8192}
-!89 = !{!"pair_t", !8, i64 0, !8, i64 4096, !7, i64 8192}
-!90 = !{!69, !29, i64 9224}
-!91 = !{!29, !29, i64 0}
-!92 = !{!13, !16, i64 152}
-!93 = !{!81, !16, i64 144}
+!82 = distinct !{!82, !83}
+!83 = !{!"llvm.loop.estimated_trip_count"}
+!84 = distinct !{!84, !83}
+!85 = !{!86, !7, i64 0}
+!86 = !{!"dt_export_metadata_t", !7, i64 0, !29, i64 8}
+!87 = !{!88, !16, i64 0}
+!88 = !{!"_GList", !16, i64 0, !29, i64 8, !29, i64 16}
+!89 = distinct !{!89, !83}
+!90 = distinct !{!90, !83}
+!91 = !{!72, !7, i64 8}
+!92 = !{!72, !7, i64 12}
+!93 = !{!94, !7, i64 8192}
+!94 = !{!"pair_t", !8, i64 0, !8, i64 4096, !7, i64 8192}
+!95 = !{!69, !29, i64 9224}
+!96 = distinct !{!96, !83}
+!97 = !{!29, !29, i64 0}
+!98 = distinct !{!98, !83}
+!99 = distinct !{!99, !83}
+!100 = !{!13, !16, i64 152}
+!101 = !{!81, !16, i64 144}

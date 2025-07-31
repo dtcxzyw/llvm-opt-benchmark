@@ -153250,7 +153250,7 @@ lean_inc.exit:                                    ; preds = %3595, %3594, %3592,
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %3604, %3603, %3601, %lean_inc.exit
-  br label %lean_dec.exit
+  br label %lean_dec.exit, !llvm.loop !20
 }
 
 declare ptr @l_Lean_KVMap_findCore(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -157215,3 +157215,5 @@ attributes #6 = { noreturn nounwind }
 !17 = !{!"short", !6, i64 0}
 !18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !19 = !{!"branch_weights", i32 4000000, i32 4001}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}

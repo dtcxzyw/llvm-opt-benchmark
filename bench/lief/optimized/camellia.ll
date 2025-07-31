@@ -114,15 +114,15 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %.0.copyload.i = load i32, ptr %22, align 8
   %23 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   %24 = getelementptr inbounds nuw [6 x [2 x i32]], ptr %5, i64 0, i64 %.2198
-  store i32 %23, ptr %24, align 8, !tbaa !11
+  store i32 %23, ptr %24, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.0.copyload.i162 = load i32, ptr %25, align 4
   %26 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i162)
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i32 %26, ptr %27, align 4, !tbaa !11
+  store i32 %26, ptr %27, align 4, !tbaa !12
   %28 = add nuw nsw i64 %.2198, 1
   %exitcond215.not = icmp eq i64 %28, 6
-  br i1 %exitcond215.not, label %29, label %21, !llvm.loop !12
+  br i1 %exitcond215.not, label %29, label %21, !llvm.loop !13
 
 29:                                               ; preds = %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
@@ -135,35 +135,35 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %.0.copyload.i163 = load i32, ptr %32, align 4
   %33 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i163)
   %34 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %.3199
-  store i32 %33, ptr %34, align 4, !tbaa !11
+  store i32 %33, ptr %34, align 4, !tbaa !12
   %35 = add nuw nsw i64 %.3199, 1
   %exitcond216.not = icmp eq i64 %35, 8
-  br i1 %exitcond216.not, label %.preheader193, label %30, !llvm.loop !13
+  br i1 %exitcond216.not, label %.preheader193, label %30, !llvm.loop !14
 
 .preheader193:                                    ; preds = %30, %.preheader193
   %.4200 = phi i64 [ %44, %.preheader193 ], [ 0, %30 ]
   %36 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %.4200
-  %37 = load i32, ptr %36, align 4, !tbaa !11
+  %37 = load i32, ptr %36, align 4, !tbaa !12
   %38 = or disjoint i64 %.4200, 4
   %39 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !11
+  %40 = load i32, ptr %39, align 4, !tbaa !12
   %41 = xor i32 %40, %37
   %42 = or disjoint i64 %.4200, 8
   %43 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %42
-  store i32 %41, ptr %43, align 4, !tbaa !11
+  store i32 %41, ptr %43, align 4, !tbaa !12
   %44 = add nuw nsw i64 %.4200, 1
   %exitcond217.not = icmp eq i64 %44, 4
-  br i1 %exitcond217.not, label %45, label %.preheader193, !llvm.loop !14
+  br i1 %exitcond217.not, label %45, label %.preheader193, !llvm.loop !15
 
 45:                                               ; preds = %.preheader193
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.val = load i32, ptr %46, align 16, !tbaa !11
+  %.val = load i32, ptr %46, align 16, !tbaa !12
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %.val164 = load i32, ptr %48, align 4, !tbaa !11
-  %.val165 = load i32, ptr %5, align 16, !tbaa !11
+  %.val164 = load i32, ptr %48, align 4, !tbaa !12
+  %.val165 = load i32, ptr %5, align 16, !tbaa !12
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.val166 = load i32, ptr %49, align 4, !tbaa !11
+  %.val166 = load i32, ptr %49, align 4, !tbaa !12
   %50 = xor i32 %.val165, %.val
   %51 = xor i32 %.val166, %.val164
   %52 = lshr i32 %50, 24
@@ -229,18 +229,18 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %112 = tail call i32 @llvm.fshl.i32(i32 %111, i32 %111, i32 24)
   %113 = xor i32 %112, %109
   %114 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 24)
-  %115 = load i32, ptr %47, align 8, !tbaa !11
+  %115 = load i32, ptr %47, align 8, !tbaa !12
   %116 = xor i32 %115, %114
   %117 = xor i32 %116, %111
-  store i32 %117, ptr %47, align 8, !tbaa !11
+  store i32 %117, ptr %47, align 8, !tbaa !12
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %119 = load i32, ptr %118, align 4, !tbaa !11
+  %119 = load i32, ptr %118, align 4, !tbaa !12
   %120 = xor i32 %113, %119
-  store i32 %120, ptr %118, align 4, !tbaa !11
+  store i32 %120, ptr %118, align 4, !tbaa !12
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.val169 = load i32, ptr %121, align 8, !tbaa !11
+  %.val169 = load i32, ptr %121, align 8, !tbaa !12
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.val170 = load i32, ptr %122, align 4, !tbaa !11
+  %.val170 = load i32, ptr %122, align 4, !tbaa !12
   %123 = xor i32 %117, %.val169
   %124 = xor i32 %120, %.val170
   %125 = lshr i32 %123, 24
@@ -308,31 +308,31 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %187 = tail call i32 @llvm.fshl.i32(i32 %186, i32 %186, i32 24)
   %188 = xor i32 %.val, %187
   %189 = xor i32 %188, %184
-  store i32 %189, ptr %46, align 16, !tbaa !11
+  store i32 %189, ptr %46, align 16, !tbaa !12
   %190 = xor i32 %186, %.val164
-  store i32 %190, ptr %48, align 4, !tbaa !11
+  store i32 %190, ptr %48, align 4, !tbaa !12
   br label %191
 
 191:                                              ; preds = %45, %191
   %.5201 = phi i64 [ 0, %45 ], [ %198, %191 ]
   %192 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %.5201
-  %193 = load i32, ptr %192, align 4, !tbaa !11
+  %193 = load i32, ptr %192, align 4, !tbaa !12
   %194 = or disjoint i64 %.5201, 8
   %195 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %194
-  %196 = load i32, ptr %195, align 4, !tbaa !11
+  %196 = load i32, ptr %195, align 4, !tbaa !12
   %197 = xor i32 %196, %193
-  store i32 %197, ptr %195, align 4, !tbaa !11
+  store i32 %197, ptr %195, align 4, !tbaa !12
   %198 = add nuw nsw i64 %.5201, 1
   %exitcond218.not = icmp eq i64 %198, 4
-  br i1 %exitcond218.not, label %199, label %191, !llvm.loop !15
+  br i1 %exitcond218.not, label %199, label %191, !llvm.loop !16
 
 199:                                              ; preds = %191
   %200 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val171 = load i32, ptr %46, align 16, !tbaa !11
-  %.val172 = load i32, ptr %48, align 4, !tbaa !11
-  %.val173 = load i32, ptr %200, align 16, !tbaa !11
+  %.val171 = load i32, ptr %46, align 16, !tbaa !12
+  %.val172 = load i32, ptr %48, align 4, !tbaa !12
+  %.val173 = load i32, ptr %200, align 16, !tbaa !12
   %201 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %.val174 = load i32, ptr %201, align 4, !tbaa !11
+  %.val174 = load i32, ptr %201, align 4, !tbaa !12
   %202 = xor i32 %.val173, %.val171
   %203 = xor i32 %.val174, %.val172
   %204 = lshr i32 %202, 24
@@ -398,17 +398,17 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %264 = tail call i32 @llvm.fshl.i32(i32 %263, i32 %263, i32 24)
   %265 = xor i32 %264, %261
   %266 = tail call i32 @llvm.fshl.i32(i32 %265, i32 %265, i32 24)
-  %267 = load i32, ptr %47, align 8, !tbaa !11
+  %267 = load i32, ptr %47, align 8, !tbaa !12
   %268 = xor i32 %267, %266
   %269 = xor i32 %268, %263
-  store i32 %269, ptr %47, align 8, !tbaa !11
-  %270 = load i32, ptr %118, align 4, !tbaa !11
+  store i32 %269, ptr %47, align 8, !tbaa !12
+  %270 = load i32, ptr %118, align 4, !tbaa !12
   %271 = xor i32 %265, %270
-  store i32 %271, ptr %118, align 4, !tbaa !11
+  store i32 %271, ptr %118, align 4, !tbaa !12
   %272 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.val177 = load i32, ptr %272, align 8, !tbaa !11
+  %.val177 = load i32, ptr %272, align 8, !tbaa !12
   %273 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %.val178 = load i32, ptr %273, align 4, !tbaa !11
+  %.val178 = load i32, ptr %273, align 4, !tbaa !12
   %274 = xor i32 %269, %.val177
   %275 = xor i32 %271, %.val178
   %276 = lshr i32 %274, 24
@@ -476,9 +476,9 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %338 = tail call i32 @llvm.fshl.i32(i32 %337, i32 %337, i32 24)
   %339 = xor i32 %.val171, %338
   %340 = xor i32 %339, %335
-  store i32 %340, ptr %46, align 16, !tbaa !11
+  store i32 %340, ptr %46, align 16, !tbaa !12
   %341 = xor i32 %337, %.val172
-  store i32 %341, ptr %48, align 4, !tbaa !11
+  store i32 %341, ptr %48, align 4, !tbaa !12
   %342 = icmp samesign ugt i32 %2, 128
   br i1 %342, label %.preheader192, label %500
 
@@ -486,28 +486,28 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %.6202 = phi i64 [ %352, %.preheader192 ], [ 0, %199 ]
   %343 = or disjoint i64 %.6202, 4
   %344 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %343
-  %345 = load i32, ptr %344, align 4, !tbaa !11
+  %345 = load i32, ptr %344, align 4, !tbaa !12
   %346 = or disjoint i64 %.6202, 8
   %347 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %346
-  %348 = load i32, ptr %347, align 4, !tbaa !11
+  %348 = load i32, ptr %347, align 4, !tbaa !12
   %349 = xor i32 %348, %345
   %350 = or disjoint i64 %.6202, 12
   %351 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %350
-  store i32 %349, ptr %351, align 4, !tbaa !11
+  store i32 %349, ptr %351, align 4, !tbaa !12
   %352 = add nuw nsw i64 %.6202, 1
   %exitcond219.not = icmp eq i64 %352, 4
-  br i1 %exitcond219.not, label %353, label %.preheader192, !llvm.loop !16
+  br i1 %exitcond219.not, label %353, label %.preheader192, !llvm.loop !17
 
 353:                                              ; preds = %.preheader192
   %354 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %355 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %356 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %.val179 = load i32, ptr %354, align 16, !tbaa !11
+  %.val179 = load i32, ptr %354, align 16, !tbaa !12
   %357 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %.val180 = load i32, ptr %357, align 4, !tbaa !11
-  %.val181 = load i32, ptr %355, align 16, !tbaa !11
+  %.val180 = load i32, ptr %357, align 4, !tbaa !12
+  %.val181 = load i32, ptr %355, align 16, !tbaa !12
   %358 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %.val182 = load i32, ptr %358, align 4, !tbaa !11
+  %.val182 = load i32, ptr %358, align 4, !tbaa !12
   %359 = xor i32 %.val181, %.val179
   %360 = xor i32 %.val182, %.val180
   %361 = lshr i32 %359, 24
@@ -573,18 +573,18 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %421 = tail call i32 @llvm.fshl.i32(i32 %420, i32 %420, i32 24)
   %422 = xor i32 %421, %418
   %423 = tail call i32 @llvm.fshl.i32(i32 %422, i32 %422, i32 24)
-  %424 = load i32, ptr %356, align 8, !tbaa !11
+  %424 = load i32, ptr %356, align 8, !tbaa !12
   %425 = xor i32 %424, %423
   %426 = xor i32 %425, %420
-  store i32 %426, ptr %356, align 8, !tbaa !11
+  store i32 %426, ptr %356, align 8, !tbaa !12
   %427 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  %428 = load i32, ptr %427, align 4, !tbaa !11
+  %428 = load i32, ptr %427, align 4, !tbaa !12
   %429 = xor i32 %422, %428
-  store i32 %429, ptr %427, align 4, !tbaa !11
+  store i32 %429, ptr %427, align 4, !tbaa !12
   %430 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %.val185 = load i32, ptr %430, align 8, !tbaa !11
+  %.val185 = load i32, ptr %430, align 8, !tbaa !12
   %431 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %.val186 = load i32, ptr %431, align 4, !tbaa !11
+  %.val186 = load i32, ptr %431, align 4, !tbaa !12
   %432 = xor i32 %426, %.val185
   %433 = xor i32 %429, %.val186
   %434 = lshr i32 %432, 24
@@ -652,26 +652,26 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %496 = tail call i32 @llvm.fshl.i32(i32 %495, i32 %495, i32 24)
   %497 = xor i32 %.val179, %496
   %498 = xor i32 %497, %493
-  store i32 %498, ptr %354, align 16, !tbaa !11
+  store i32 %498, ptr %354, align 16, !tbaa !12
   %499 = xor i32 %495, %.val180
-  store i32 %499, ptr %357, align 4, !tbaa !11
+  store i32 %499, ptr %357, align 4, !tbaa !12
   br label %500
 
 500:                                              ; preds = %353, %199
-  %501 = load i32, ptr %6, align 16, !tbaa !11
-  store i32 %501, ptr %7, align 16, !tbaa !11
+  %501 = load i32, ptr %6, align 16, !tbaa !12
+  store i32 %501, ptr %7, align 16, !tbaa !12
   %502 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %503 = load i32, ptr %502, align 4, !tbaa !11
+  %503 = load i32, ptr %502, align 4, !tbaa !12
   %504 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %503, ptr %504, align 4, !tbaa !11
+  store i32 %503, ptr %504, align 4, !tbaa !12
   %505 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %506 = load i32, ptr %505, align 8, !tbaa !11
+  %506 = load i32, ptr %505, align 8, !tbaa !12
   %507 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %506, ptr %507, align 8, !tbaa !11
+  store i32 %506, ptr %507, align 8, !tbaa !12
   %508 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %509 = load i32, ptr %508, align 4, !tbaa !11
+  %509 = load i32, ptr %508, align 4, !tbaa !12
   %510 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %509, ptr %510, align 4, !tbaa !11
+  store i32 %509, ptr %510, align 4, !tbaa !12
   %511 = zext nneg i32 %.0150231 to i64
   %512 = getelementptr inbounds nuw [2 x [4 x [4 x i8]]], ptr @shifts, i64 0, i64 %511
   br label %514
@@ -698,28 +698,28 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %525 = xor i32 %524, %522
   %.idx161 = shl nuw nsw i64 %.7203, 4
   %526 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx161
-  store i32 %525, ptr %526, align 16, !tbaa !11
+  store i32 %525, ptr %526, align 16, !tbaa !12
   %527 = shl i32 %503, %521
   %528 = lshr i32 %506, %523
   %529 = xor i32 %528, %527
   %530 = getelementptr inbounds nuw i8, ptr %526, i64 4
-  store i32 %529, ptr %530, align 4, !tbaa !11
+  store i32 %529, ptr %530, align 4, !tbaa !12
   %531 = shl i32 %506, %521
   %532 = lshr i32 %509, %523
   %533 = xor i32 %532, %531
   %534 = getelementptr inbounds nuw i8, ptr %526, i64 8
-  store i32 %533, ptr %534, align 8, !tbaa !11
+  store i32 %533, ptr %534, align 8, !tbaa !12
   %535 = shl i32 %509, %521
   %536 = lshr i32 %501, %523
   %537 = xor i32 %536, %535
   %538 = getelementptr inbounds nuw i8, ptr %526, i64 12
-  store i32 %537, ptr %538, align 4, !tbaa !11
+  store i32 %537, ptr %538, align 4, !tbaa !12
   br label %539
 
 539:                                              ; preds = %514, %518
   %540 = add nuw nsw i64 %.7203, 1
   %exitcond220.not = icmp eq i64 %540, 5
-  br i1 %exitcond220.not, label %.preheader191, label %514, !llvm.loop !17
+  br i1 %exitcond220.not, label %.preheader191, label %514, !llvm.loop !18
 
 541:                                              ; preds = %.preheader191, %549
   %.8204 = phi i64 [ 0, %.preheader191 ], [ %550, %549 ]
@@ -730,33 +730,33 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 544:                                              ; preds = %541
   %545 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %.8204
-  %546 = load i32, ptr %545, align 4, !tbaa !11
+  %546 = load i32, ptr %545, align 4, !tbaa !12
   %547 = sext i8 %543 to i64
   %548 = getelementptr inbounds i32, ptr %8, i64 %547
-  store i32 %546, ptr %548, align 4, !tbaa !11
+  store i32 %546, ptr %548, align 4, !tbaa !12
   br label %549
 
 549:                                              ; preds = %541, %544
   %550 = add nuw nsw i64 %.8204, 1
   %exitcond221.not = icmp eq i64 %550, 20
-  br i1 %exitcond221.not, label %551, label %541, !llvm.loop !18
+  br i1 %exitcond221.not, label %551, label %541, !llvm.loop !19
 
 551:                                              ; preds = %549
   br i1 %342, label %552, label %.loopexit190
 
 552:                                              ; preds = %551
   %553 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %554 = load i32, ptr %553, align 16, !tbaa !11
-  store i32 %554, ptr %7, align 16, !tbaa !11
+  %554 = load i32, ptr %553, align 16, !tbaa !12
+  store i32 %554, ptr %7, align 16, !tbaa !12
   %555 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %556 = load i32, ptr %555, align 4, !tbaa !11
-  store i32 %556, ptr %504, align 4, !tbaa !11
+  %556 = load i32, ptr %555, align 4, !tbaa !12
+  store i32 %556, ptr %504, align 4, !tbaa !12
   %557 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %558 = load i32, ptr %557, align 8, !tbaa !11
-  store i32 %558, ptr %507, align 8, !tbaa !11
+  %558 = load i32, ptr %557, align 8, !tbaa !12
+  store i32 %558, ptr %507, align 8, !tbaa !12
   %559 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %560 = load i32, ptr %559, align 4, !tbaa !11
-  store i32 %560, ptr %510, align 4, !tbaa !11
+  %560 = load i32, ptr %559, align 4, !tbaa !12
+  store i32 %560, ptr %510, align 4, !tbaa !12
   %561 = getelementptr inbounds nuw [2 x [4 x [4 x i8]]], ptr @shifts, i64 0, i64 %511, i64 1
   br label %563
 
@@ -782,28 +782,28 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %574 = xor i32 %573, %571
   %.idx158 = shl nuw nsw i64 %.9205, 4
   %575 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx158
-  store i32 %574, ptr %575, align 16, !tbaa !11
+  store i32 %574, ptr %575, align 16, !tbaa !12
   %576 = shl i32 %556, %570
   %577 = lshr i32 %558, %572
   %578 = xor i32 %577, %576
   %579 = getelementptr inbounds nuw i8, ptr %575, i64 4
-  store i32 %578, ptr %579, align 4, !tbaa !11
+  store i32 %578, ptr %579, align 4, !tbaa !12
   %580 = shl i32 %558, %570
   %581 = lshr i32 %560, %572
   %582 = xor i32 %581, %580
   %583 = getelementptr inbounds nuw i8, ptr %575, i64 8
-  store i32 %582, ptr %583, align 8, !tbaa !11
+  store i32 %582, ptr %583, align 8, !tbaa !12
   %584 = shl i32 %560, %570
   %585 = lshr i32 %554, %572
   %586 = xor i32 %585, %584
   %587 = getelementptr inbounds nuw i8, ptr %575, i64 12
-  store i32 %586, ptr %587, align 4, !tbaa !11
+  store i32 %586, ptr %587, align 4, !tbaa !12
   br label %588
 
 588:                                              ; preds = %563, %567
   %589 = add nuw nsw i64 %.9205, 1
   %exitcond222.not = icmp eq i64 %589, 5
-  br i1 %exitcond222.not, label %.preheader189, label %563, !llvm.loop !19
+  br i1 %exitcond222.not, label %.preheader189, label %563, !llvm.loop !20
 
 590:                                              ; preds = %.preheader189, %598
   %.10206 = phi i64 [ 0, %.preheader189 ], [ %599, %598 ]
@@ -814,24 +814,24 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 593:                                              ; preds = %590
   %594 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %.10206
-  %595 = load i32, ptr %594, align 4, !tbaa !11
+  %595 = load i32, ptr %594, align 4, !tbaa !12
   %596 = sext i8 %592 to i64
   %597 = getelementptr inbounds i32, ptr %8, i64 %596
-  store i32 %595, ptr %597, align 4, !tbaa !11
+  store i32 %595, ptr %597, align 4, !tbaa !12
   br label %598
 
 598:                                              ; preds = %590, %593
   %599 = add nuw nsw i64 %.10206, 1
   %exitcond223.not = icmp eq i64 %599, 20
-  br i1 %exitcond223.not, label %.loopexit190, label %590, !llvm.loop !20
+  br i1 %exitcond223.not, label %.loopexit190, label %590, !llvm.loop !21
 
 .loopexit190:                                     ; preds = %598, %551
-  store i32 %340, ptr %7, align 16, !tbaa !11
-  %600 = load i32, ptr %48, align 4, !tbaa !11
-  store i32 %600, ptr %504, align 4, !tbaa !11
-  store i32 %269, ptr %507, align 8, !tbaa !11
-  %601 = load i32, ptr %118, align 4, !tbaa !11
-  store i32 %601, ptr %510, align 4, !tbaa !11
+  store i32 %340, ptr %7, align 16, !tbaa !12
+  %600 = load i32, ptr %48, align 4, !tbaa !12
+  store i32 %600, ptr %504, align 4, !tbaa !12
+  store i32 %269, ptr %507, align 8, !tbaa !12
+  %601 = load i32, ptr %118, align 4, !tbaa !12
+  store i32 %601, ptr %510, align 4, !tbaa !12
   %602 = getelementptr inbounds nuw [2 x [4 x [4 x i8]]], ptr @shifts, i64 0, i64 %511, i64 2
   br label %604
 
@@ -857,28 +857,28 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %615 = xor i32 %614, %612
   %.idx155 = shl nuw nsw i64 %.11207, 4
   %616 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx155
-  store i32 %615, ptr %616, align 16, !tbaa !11
+  store i32 %615, ptr %616, align 16, !tbaa !12
   %617 = shl i32 %600, %611
   %618 = lshr i32 %269, %613
   %619 = xor i32 %618, %617
   %620 = getelementptr inbounds nuw i8, ptr %616, i64 4
-  store i32 %619, ptr %620, align 4, !tbaa !11
+  store i32 %619, ptr %620, align 4, !tbaa !12
   %621 = shl i32 %269, %611
   %622 = lshr i32 %601, %613
   %623 = xor i32 %622, %621
   %624 = getelementptr inbounds nuw i8, ptr %616, i64 8
-  store i32 %623, ptr %624, align 8, !tbaa !11
+  store i32 %623, ptr %624, align 8, !tbaa !12
   %625 = shl i32 %601, %611
   %626 = lshr i32 %340, %613
   %627 = xor i32 %626, %625
   %628 = getelementptr inbounds nuw i8, ptr %616, i64 12
-  store i32 %627, ptr %628, align 4, !tbaa !11
+  store i32 %627, ptr %628, align 4, !tbaa !12
   br label %629
 
 629:                                              ; preds = %604, %608
   %630 = add nuw nsw i64 %.11207, 1
   %exitcond224.not = icmp eq i64 %630, 5
-  br i1 %exitcond224.not, label %.preheader188, label %604, !llvm.loop !21
+  br i1 %exitcond224.not, label %.preheader188, label %604, !llvm.loop !22
 
 631:                                              ; preds = %.preheader188, %639
   %.12208 = phi i64 [ 0, %.preheader188 ], [ %640, %639 ]
@@ -889,33 +889,33 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 634:                                              ; preds = %631
   %635 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %.12208
-  %636 = load i32, ptr %635, align 4, !tbaa !11
+  %636 = load i32, ptr %635, align 4, !tbaa !12
   %637 = sext i8 %633 to i64
   %638 = getelementptr inbounds i32, ptr %8, i64 %637
-  store i32 %636, ptr %638, align 4, !tbaa !11
+  store i32 %636, ptr %638, align 4, !tbaa !12
   br label %639
 
 639:                                              ; preds = %631, %634
   %640 = add nuw nsw i64 %.12208, 1
   %exitcond225.not = icmp eq i64 %640, 20
-  br i1 %exitcond225.not, label %641, label %631, !llvm.loop !22
+  br i1 %exitcond225.not, label %641, label %631, !llvm.loop !23
 
 641:                                              ; preds = %639
   br i1 %342, label %642, label %.loopexit187
 
 642:                                              ; preds = %641
   %643 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %644 = load i32, ptr %643, align 16, !tbaa !11
-  store i32 %644, ptr %7, align 16, !tbaa !11
+  %644 = load i32, ptr %643, align 16, !tbaa !12
+  store i32 %644, ptr %7, align 16, !tbaa !12
   %645 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %646 = load i32, ptr %645, align 4, !tbaa !11
-  store i32 %646, ptr %504, align 4, !tbaa !11
+  %646 = load i32, ptr %645, align 4, !tbaa !12
+  store i32 %646, ptr %504, align 4, !tbaa !12
   %647 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %648 = load i32, ptr %647, align 8, !tbaa !11
-  store i32 %648, ptr %507, align 8, !tbaa !11
+  %648 = load i32, ptr %647, align 8, !tbaa !12
+  store i32 %648, ptr %507, align 8, !tbaa !12
   %649 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  %650 = load i32, ptr %649, align 4, !tbaa !11
-  store i32 %650, ptr %510, align 4, !tbaa !11
+  %650 = load i32, ptr %649, align 4, !tbaa !12
+  store i32 %650, ptr %510, align 4, !tbaa !12
   %651 = getelementptr inbounds nuw [2 x [4 x [4 x i8]]], ptr @shifts, i64 0, i64 %511, i64 3
   br label %653
 
@@ -941,28 +941,28 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %664 = xor i32 %663, %661
   %.idx = shl nuw nsw i64 %.13209, 4
   %665 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  store i32 %664, ptr %665, align 16, !tbaa !11
+  store i32 %664, ptr %665, align 16, !tbaa !12
   %666 = shl i32 %646, %660
   %667 = lshr i32 %648, %662
   %668 = xor i32 %667, %666
   %669 = getelementptr inbounds nuw i8, ptr %665, i64 4
-  store i32 %668, ptr %669, align 4, !tbaa !11
+  store i32 %668, ptr %669, align 4, !tbaa !12
   %670 = shl i32 %648, %660
   %671 = lshr i32 %650, %662
   %672 = xor i32 %671, %670
   %673 = getelementptr inbounds nuw i8, ptr %665, i64 8
-  store i32 %672, ptr %673, align 8, !tbaa !11
+  store i32 %672, ptr %673, align 8, !tbaa !12
   %674 = shl i32 %650, %660
   %675 = lshr i32 %644, %662
   %676 = xor i32 %675, %674
   %677 = getelementptr inbounds nuw i8, ptr %665, i64 12
-  store i32 %676, ptr %677, align 4, !tbaa !11
+  store i32 %676, ptr %677, align 4, !tbaa !12
   br label %678
 
 678:                                              ; preds = %653, %657
   %679 = add nuw nsw i64 %.13209, 1
   %exitcond226.not = icmp eq i64 %679, 5
-  br i1 %exitcond226.not, label %.preheader, label %653, !llvm.loop !23
+  br i1 %exitcond226.not, label %.preheader, label %653, !llvm.loop !24
 
 680:                                              ; preds = %.preheader, %688
   %.14210 = phi i64 [ 0, %.preheader ], [ %689, %688 ]
@@ -973,16 +973,16 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 683:                                              ; preds = %680
   %684 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %.14210
-  %685 = load i32, ptr %684, align 4, !tbaa !11
+  %685 = load i32, ptr %684, align 4, !tbaa !12
   %686 = sext i8 %682 to i64
   %687 = getelementptr inbounds i32, ptr %8, i64 %686
-  store i32 %685, ptr %687, align 4, !tbaa !11
+  store i32 %685, ptr %687, align 4, !tbaa !12
   br label %688
 
 688:                                              ; preds = %680, %683
   %689 = add nuw nsw i64 %.14210, 1
   %exitcond227.not = icmp eq i64 %689, 20
-  br i1 %exitcond227.not, label %.loopexit187, label %680, !llvm.loop !24
+  br i1 %exitcond227.not, label %.loopexit187, label %680, !llvm.loop !25
 
 .loopexit187:                                     ; preds = %688, %641
   %690 = getelementptr inbounds nuw [2 x [20 x i8]], ptr @transposes, i64 0, i64 %511
@@ -1002,15 +1002,15 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 696:                                              ; preds = %693
   %697 = sext i8 %695 to i64
   %698 = getelementptr inbounds i32, ptr %8, i64 %697
-  %699 = load i32, ptr %698, align 4, !tbaa !11
+  %699 = load i32, ptr %698, align 4, !tbaa !12
   %gep213 = getelementptr inbounds nuw i32, ptr %invariant.gep212, i64 %.15211
-  store i32 %699, ptr %gep213, align 4, !tbaa !11
+  store i32 %699, ptr %gep213, align 4, !tbaa !12
   br label %700
 
 700:                                              ; preds = %693, %696
   %701 = add nuw nsw i64 %.15211, 1
   %exitcond228.not = icmp eq i64 %701, 20
-  br i1 %exitcond228.not, label %.loopexit, label %693, !llvm.loop !25
+  br i1 %exitcond228.not, label %.loopexit, label %693, !llvm.loop !26
 
 .loopexit:                                        ; preds = %700, %3
   %.0 = phi i32 [ -36, %3 ], [ 0, %700 ]
@@ -1050,20 +1050,20 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_dec(ptr noundef wri
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i32, ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %14, align 4, !tbaa !11
+  %16 = load i32, ptr %14, align 4, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %16, ptr %9, align 4, !tbaa !11
+  store i32 %16, ptr %9, align 4, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load i32, ptr %15, align 4, !tbaa !11
+  %19 = load i32, ptr %15, align 4, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %19, ptr %17, align 4, !tbaa !11
+  store i32 %19, ptr %17, align 4, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %22 = load i32, ptr %18, align 4, !tbaa !11
+  %22 = load i32, ptr %18, align 4, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %22, ptr %20, align 4, !tbaa !11
-  %24 = load i32, ptr %21, align 4, !tbaa !11
+  store i32 %22, ptr %20, align 4, !tbaa !12
+  %24 = load i32, ptr %21, align 4, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %24, ptr %23, align 4, !tbaa !11
+  store i32 %24, ptr %23, align 4, !tbaa !12
   %26 = or disjoint i32 %11, 22
   %27 = zext nneg i32 %26 to i64
   %.035 = getelementptr inbounds i8, ptr %14, i64 -8
@@ -1075,32 +1075,32 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_dec(ptr noundef wri
   %.03237 = phi ptr [ %25, %6 ], [ %33, %28 ]
   %.03336 = phi i64 [ %27, %6 ], [ %34, %28 ]
   %29 = getelementptr inbounds i8, ptr %.pn38, i64 -4
-  %30 = load i32, ptr %.039, align 4, !tbaa !11
+  %30 = load i32, ptr %.039, align 4, !tbaa !12
   %31 = getelementptr inbounds nuw i8, ptr %.03237, i64 4
-  store i32 %30, ptr %.03237, align 4, !tbaa !11
-  %32 = load i32, ptr %29, align 4, !tbaa !11
+  store i32 %30, ptr %.03237, align 4, !tbaa !12
+  %32 = load i32, ptr %29, align 4, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %.03237, i64 8
-  store i32 %32, ptr %31, align 4, !tbaa !11
+  store i32 %32, ptr %31, align 4, !tbaa !12
   %34 = add nsw i64 %.03336, -1
   %.0 = getelementptr inbounds i8, ptr %.039, i64 -8
   %.not34 = icmp eq i64 %34, 0
-  br i1 %.not34, label %35, label %28, !llvm.loop !26
+  br i1 %.not34, label %35, label %28, !llvm.loop !27
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds i8, ptr %.039, i64 -16
   %37 = getelementptr inbounds i8, ptr %.039, i64 -12
-  %38 = load i32, ptr %36, align 4, !tbaa !11
+  %38 = load i32, ptr %36, align 4, !tbaa !12
   %39 = getelementptr inbounds nuw i8, ptr %.03237, i64 12
-  store i32 %38, ptr %33, align 4, !tbaa !11
-  %40 = load i32, ptr %37, align 4, !tbaa !11
+  store i32 %38, ptr %33, align 4, !tbaa !12
+  %40 = load i32, ptr %37, align 4, !tbaa !12
   %41 = getelementptr inbounds nuw i8, ptr %.03237, i64 16
-  store i32 %40, ptr %39, align 4, !tbaa !11
+  store i32 %40, ptr %39, align 4, !tbaa !12
   %42 = getelementptr inbounds i8, ptr %.039, i64 -4
-  %43 = load i32, ptr %.0, align 4, !tbaa !11
+  %43 = load i32, ptr %.0, align 4, !tbaa !12
   %44 = getelementptr inbounds nuw i8, ptr %.03237, i64 20
-  store i32 %43, ptr %41, align 4, !tbaa !11
-  %45 = load i32, ptr %42, align 4, !tbaa !11
-  store i32 %45, ptr %44, align 4, !tbaa !11
+  store i32 %43, ptr %41, align 4, !tbaa !12
+  %45 = load i32, ptr %42, align 4, !tbaa !12
+  store i32 %45, ptr %44, align 4, !tbaa !12
   br label %46
 
 46:                                               ; preds = %3, %35
@@ -1129,16 +1129,16 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
   %.0.copyload.i = load i32, ptr %13, align 1
   %14 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i32, ptr %7, align 4, !tbaa !11
+  %16 = load i32, ptr %7, align 4, !tbaa !12
   %17 = xor i32 %16, %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %19 = load i32, ptr %15, align 4, !tbaa !11
+  %19 = load i32, ptr %15, align 4, !tbaa !12
   %20 = xor i32 %19, %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i32, ptr %18, align 4, !tbaa !11
+  %22 = load i32, ptr %18, align 4, !tbaa !12
   %23 = xor i32 %22, %12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %25 = load i32, ptr %21, align 4, !tbaa !11
+  %25 = load i32, ptr %21, align 4, !tbaa !12
   %26 = xor i32 %25, %14
   %.not110 = icmp eq i32 %6, 0
   br i1 %.not110, label %._crit_edge, label %.lr.ph
@@ -1151,9 +1151,9 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
   %.sroa.37.0112 = phi i32 [ %461, %448 ], [ %23, %5 ]
   %.sroa.54.0111 = phi i32 [ %465, %448 ], [ %26, %5 ]
   %27 = add nsw i32 %.044115, -1
-  %.0.val = load i32, ptr %.0116, align 4, !tbaa !11
+  %.0.val = load i32, ptr %.0116, align 4, !tbaa !12
   %28 = getelementptr i8, ptr %.0116, i64 4
-  %.0.val71 = load i32, ptr %28, align 4, !tbaa !11
+  %.0.val71 = load i32, ptr %28, align 4, !tbaa !12
   %29 = xor i32 %.0.val, %.sroa.0.0114
   %30 = xor i32 %.0.val71, %.sroa.20.0113
   %31 = lshr i32 %29, 24
@@ -1223,9 +1223,9 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
   %95 = xor i32 %94, %90
   %96 = xor i32 %92, %.sroa.54.0111
   %97 = getelementptr inbounds nuw i8, ptr %.0116, i64 8
-  %.val67 = load i32, ptr %97, align 4, !tbaa !11
+  %.val67 = load i32, ptr %97, align 4, !tbaa !12
   %98 = getelementptr i8, ptr %.0116, i64 12
-  %.val68 = load i32, ptr %98, align 4, !tbaa !11
+  %.val68 = load i32, ptr %98, align 4, !tbaa !12
   %99 = xor i32 %95, %.val67
   %100 = xor i32 %96, %.val68
   %101 = lshr i32 %99, 24
@@ -1295,9 +1295,9 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
   %165 = xor i32 %164, %160
   %166 = xor i32 %162, %.sroa.20.0113
   %167 = getelementptr inbounds nuw i8, ptr %.0116, i64 16
-  %.val63 = load i32, ptr %167, align 4, !tbaa !11
+  %.val63 = load i32, ptr %167, align 4, !tbaa !12
   %168 = getelementptr i8, ptr %.0116, i64 20
-  %.val64 = load i32, ptr %168, align 4, !tbaa !11
+  %.val64 = load i32, ptr %168, align 4, !tbaa !12
   %169 = xor i32 %165, %.val63
   %170 = xor i32 %166, %.val64
   %171 = lshr i32 %169, 24
@@ -1367,9 +1367,9 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
   %235 = xor i32 %234, %230
   %236 = xor i32 %232, %96
   %237 = getelementptr inbounds nuw i8, ptr %.0116, i64 24
-  %.val59 = load i32, ptr %237, align 4, !tbaa !11
+  %.val59 = load i32, ptr %237, align 4, !tbaa !12
   %238 = getelementptr i8, ptr %.0116, i64 28
-  %.val60 = load i32, ptr %238, align 4, !tbaa !11
+  %.val60 = load i32, ptr %238, align 4, !tbaa !12
   %239 = xor i32 %235, %.val59
   %240 = xor i32 %236, %.val60
   %241 = lshr i32 %239, 24
@@ -1439,9 +1439,9 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
   %305 = xor i32 %304, %300
   %306 = xor i32 %302, %166
   %307 = getelementptr inbounds nuw i8, ptr %.0116, i64 32
-  %.val55 = load i32, ptr %307, align 4, !tbaa !11
+  %.val55 = load i32, ptr %307, align 4, !tbaa !12
   %308 = getelementptr i8, ptr %.0116, i64 36
-  %.val56 = load i32, ptr %308, align 4, !tbaa !11
+  %.val56 = load i32, ptr %308, align 4, !tbaa !12
   %309 = xor i32 %305, %.val55
   %310 = xor i32 %306, %.val56
   %311 = lshr i32 %309, 24
@@ -1511,9 +1511,9 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
   %375 = xor i32 %374, %370
   %376 = xor i32 %372, %236
   %377 = getelementptr inbounds nuw i8, ptr %.0116, i64 40
-  %.val51 = load i32, ptr %377, align 4, !tbaa !11
+  %.val51 = load i32, ptr %377, align 4, !tbaa !12
   %378 = getelementptr i8, ptr %.0116, i64 44
-  %.val52 = load i32, ptr %378, align 4, !tbaa !11
+  %.val52 = load i32, ptr %378, align 4, !tbaa !12
   %379 = xor i32 %375, %.val51
   %380 = xor i32 %376, %.val52
   %381 = lshr i32 %379, 24
@@ -1587,25 +1587,25 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
   br i1 %.not46, label %._crit_edge, label %448
 
 448:                                              ; preds = %.lr.ph
-  %449 = load i32, ptr %447, align 4, !tbaa !11
+  %449 = load i32, ptr %447, align 4, !tbaa !12
   %450 = and i32 %449, %445
   %451 = tail call i32 @llvm.fshl.i32(i32 %450, i32 %450, i32 1)
   %452 = xor i32 %451, %446
   %453 = getelementptr inbounds nuw i8, ptr %.0116, i64 52
-  %454 = load i32, ptr %453, align 4, !tbaa !11
+  %454 = load i32, ptr %453, align 4, !tbaa !12
   %455 = or i32 %452, %454
   %456 = xor i32 %455, %445
   %457 = getelementptr inbounds nuw i8, ptr %.0116, i64 56
   %458 = getelementptr inbounds nuw i8, ptr %.0116, i64 60
-  %459 = load i32, ptr %458, align 4, !tbaa !11
+  %459 = load i32, ptr %458, align 4, !tbaa !12
   %460 = or i32 %459, %376
   %461 = xor i32 %460, %375
-  %462 = load i32, ptr %457, align 4, !tbaa !11
+  %462 = load i32, ptr %457, align 4, !tbaa !12
   %463 = and i32 %461, %462
   %464 = tail call i32 @llvm.fshl.i32(i32 %463, i32 %463, i32 1)
   %465 = xor i32 %464, %376
   %466 = getelementptr inbounds nuw i8, ptr %.0116, i64 64
-  br label %.lr.ph, !llvm.loop !27
+  br label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.sroa.54.0.lcssa = phi i32 [ %26, %5 ], [ %376, %.lr.ph ]
@@ -1614,15 +1614,15 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
   %.sroa.0.0.lcssa = phi i32 [ %17, %5 ], [ %445, %.lr.ph ]
   %.0.lcssa = phi ptr [ %24, %5 ], [ %447, %.lr.ph ]
   %467 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
-  %468 = load i32, ptr %.0.lcssa, align 4, !tbaa !11
+  %468 = load i32, ptr %.0.lcssa, align 4, !tbaa !12
   %469 = xor i32 %468, %.sroa.37.0.lcssa
   %470 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
-  %471 = load i32, ptr %467, align 4, !tbaa !11
+  %471 = load i32, ptr %467, align 4, !tbaa !12
   %472 = xor i32 %471, %.sroa.54.0.lcssa
   %473 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 12
-  %474 = load i32, ptr %470, align 4, !tbaa !11
+  %474 = load i32, ptr %470, align 4, !tbaa !12
   %475 = xor i32 %474, %.sroa.0.0.lcssa
-  %476 = load i32, ptr %473, align 4, !tbaa !11
+  %476 = load i32, ptr %473, align 4, !tbaa !12
   %477 = xor i32 %476, %.sroa.20.0.lcssa
   %478 = tail call i32 @llvm.bswap.i32(i32 %469)
   store i32 %478, ptr %3, align 1
@@ -1693,7 +1693,7 @@ define hidden range(i32 -38, 1) i32 @mbedtls_camellia_crypt_cbc(ptr noundef read
   %19 = getelementptr inbounds nuw i8, ptr %.061, i64 16
   %20 = add i64 %.03459, -16
   %.not37 = icmp eq i64 %20, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph62, !llvm.loop !28
+  br i1 %.not37, label %.loopexit, label %.lr.ph62, !llvm.loop !29
 
 .preheader46:                                     ; preds = %.preheader46.preheader, %.preheader46
   %.154 = phi ptr [ %27, %.preheader46 ], [ %5, %.preheader46.preheader ]
@@ -1715,7 +1715,7 @@ define hidden range(i32 -38, 1) i32 @mbedtls_camellia_crypt_cbc(ptr noundef read
   %27 = getelementptr inbounds nuw i8, ptr %.154, i64 16
   %28 = add i64 %.13552, -16
   %.not36 = icmp eq i64 %28, 0
-  br i1 %.not36, label %.loopexit, label %.preheader46, !llvm.loop !29
+  br i1 %.not36, label %.loopexit, label %.preheader46, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader46, %.lr.ph62, %.preheader47, %.preheader44, %8, %6
   %.033 = phi i32 [ -36, %6 ], [ -38, %8 ], [ 0, %.preheader44 ], [ 0, %.preheader47 ], [ 0, %.lr.ph62 ], [ 0, %.preheader46 ]
@@ -1732,7 +1732,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr noundef r
   br i1 %or.cond, label %39, label %8
 
 8:                                                ; preds = %7
-  %9 = load i64, ptr %3, align 8, !tbaa !30
+  %9 = load i64, ptr %3, align 8, !tbaa !31
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %39, label %11
 
@@ -1772,7 +1772,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr noundef r
   %24 = add nuw nsw i64 %.052, 1
   %25 = and i64 %24, 15
   %.not42 = icmp eq i64 %13, 0
-  br i1 %.not42, label %.loopexit, label %.lr.ph53, !llvm.loop !32
+  br i1 %.not42, label %.loopexit, label %.lr.ph53, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.preheader43, %30
   %.in = phi i64 [ %26, %30 ], [ %2, %.preheader43 ]
@@ -1799,11 +1799,11 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr noundef r
   %37 = add nuw nsw i64 %.248, 1
   %38 = and i64 %37, 15
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %30, %17, %.preheader43, %.preheader
   %.1 = phi i64 [ %9, %.preheader ], [ %9, %.preheader43 ], [ %25, %17 ], [ %38, %30 ]
-  store i64 %.1, ptr %3, align 8, !tbaa !30
+  store i64 %.1, ptr %3, align 8, !tbaa !31
   br label %39
 
 39:                                               ; preds = %8, %7, %.loopexit
@@ -1813,7 +1813,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr noundef r
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ctr(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #4 {
-  %8 = load i64, ptr %2, align 8, !tbaa !30
+  %8 = load i64, ptr %2, align 8, !tbaa !31
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %29, label %.preheader
 
@@ -1849,7 +1849,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ctr(ptr noundef read
   %19 = add nsw i32 %.01926, -1
   %20 = icmp samesign ugt i32 %.01926, 1
   %or.cond = and i1 %.not25, %20
-  br i1 %or.cond, label %15, label %.loopexit, !llvm.loop !34
+  br i1 %or.cond, label %15, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %15, %10
   %21 = getelementptr inbounds nuw i8, ptr %.02228, i64 1
@@ -1862,11 +1862,11 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ctr(ptr noundef read
   %27 = add nuw nsw i64 %.030, 1
   %28 = and i64 %27, 15
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.0.lcssa = phi i64 [ %8, %.preheader ], [ %28, %.loopexit ]
-  store i64 %.0.lcssa, ptr %2, align 8, !tbaa !30
+  store i64 %.0.lcssa, ptr %2, align 8, !tbaa !31
   br label %29
 
 29:                                               ; preds = %7, %._crit_edge
@@ -1937,7 +1937,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_camellia_self_test(i32 noundef %0) lo
   br i1 %.not.i.us, label %33, label %mbedtls_camellia_setkey_dec.exit.us
 
 32:                                               ; preds = %mbedtls_camellia_setkey_dec.exit.us
-  br i1 %29, label %.split.us, label %.split151.us, !llvm.loop !36
+  br i1 %29, label %.split.us, label %.split151.us, !llvm.loop !37
 
 33:                                               ; preds = %.split.us
   %34 = load i32, ptr %3, align 4, !tbaa !3
@@ -1948,16 +1948,16 @@ define hidden range(i32 0, 2) i32 @mbedtls_camellia_self_test(i32 noundef %0) lo
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw i32, ptr %11, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %41 = load i32, ptr %39, align 4, !tbaa !11
-  store i32 %41, ptr %10, align 4, !tbaa !11
+  %41 = load i32, ptr %39, align 4, !tbaa !12
+  store i32 %41, ptr %10, align 4, !tbaa !12
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = load i32, ptr %40, align 4, !tbaa !11
-  store i32 %43, ptr %12, align 4, !tbaa !11
+  %43 = load i32, ptr %40, align 4, !tbaa !12
+  store i32 %43, ptr %12, align 4, !tbaa !12
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  %45 = load i32, ptr %42, align 4, !tbaa !11
-  store i32 %45, ptr %13, align 4, !tbaa !11
-  %46 = load i32, ptr %44, align 4, !tbaa !11
-  store i32 %46, ptr %14, align 4, !tbaa !11
+  %45 = load i32, ptr %42, align 4, !tbaa !12
+  store i32 %45, ptr %13, align 4, !tbaa !12
+  %46 = load i32, ptr %44, align 4, !tbaa !12
+  store i32 %46, ptr %14, align 4, !tbaa !12
   %47 = or disjoint i32 %36, 22
   %48 = zext nneg i32 %47 to i64
   %.035.i.us = getelementptr inbounds i8, ptr %39, i64 -8
@@ -1969,32 +1969,32 @@ define hidden range(i32 0, 2) i32 @mbedtls_camellia_self_test(i32 noundef %0) lo
   %.03237.i.us = phi ptr [ %15, %33 ], [ %54, %49 ]
   %.03336.i.us = phi i64 [ %48, %33 ], [ %55, %49 ]
   %50 = getelementptr inbounds i8, ptr %.pn38.i.us, i64 -4
-  %51 = load i32, ptr %.039.i.us, align 4, !tbaa !11
+  %51 = load i32, ptr %.039.i.us, align 4, !tbaa !12
   %52 = getelementptr inbounds nuw i8, ptr %.03237.i.us, i64 4
-  store i32 %51, ptr %.03237.i.us, align 4, !tbaa !11
-  %53 = load i32, ptr %50, align 4, !tbaa !11
+  store i32 %51, ptr %.03237.i.us, align 4, !tbaa !12
+  %53 = load i32, ptr %50, align 4, !tbaa !12
   %54 = getelementptr inbounds nuw i8, ptr %.03237.i.us, i64 8
-  store i32 %53, ptr %52, align 4, !tbaa !11
+  store i32 %53, ptr %52, align 4, !tbaa !12
   %55 = add nsw i64 %.03336.i.us, -1
   %.0.i.us = getelementptr inbounds i8, ptr %.039.i.us, i64 -8
   %.not34.i.us = icmp eq i64 %55, 0
-  br i1 %.not34.i.us, label %56, label %49, !llvm.loop !26
+  br i1 %.not34.i.us, label %56, label %49, !llvm.loop !27
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds i8, ptr %.039.i.us, i64 -16
   %58 = getelementptr inbounds i8, ptr %.039.i.us, i64 -12
-  %59 = load i32, ptr %57, align 4, !tbaa !11
+  %59 = load i32, ptr %57, align 4, !tbaa !12
   %60 = getelementptr inbounds nuw i8, ptr %.03237.i.us, i64 12
-  store i32 %59, ptr %54, align 4, !tbaa !11
-  %61 = load i32, ptr %58, align 4, !tbaa !11
+  store i32 %59, ptr %54, align 4, !tbaa !12
+  %61 = load i32, ptr %58, align 4, !tbaa !12
   %62 = getelementptr inbounds nuw i8, ptr %.03237.i.us, i64 16
-  store i32 %61, ptr %60, align 4, !tbaa !11
+  store i32 %61, ptr %60, align 4, !tbaa !12
   %63 = getelementptr inbounds i8, ptr %.039.i.us, i64 -4
-  %64 = load i32, ptr %.0.i.us, align 4, !tbaa !11
+  %64 = load i32, ptr %.0.i.us, align 4, !tbaa !12
   %65 = getelementptr inbounds nuw i8, ptr %.03237.i.us, i64 20
-  store i32 %64, ptr %62, align 4, !tbaa !11
-  %66 = load i32, ptr %63, align 4, !tbaa !11
-  store i32 %66, ptr %65, align 4, !tbaa !11
+  store i32 %64, ptr %62, align 4, !tbaa !12
+  %66 = load i32, ptr %63, align 4, !tbaa !12
+  store i32 %66, ptr %65, align 4, !tbaa !12
   br label %mbedtls_camellia_setkey_dec.exit.us
 
 mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
@@ -2009,7 +2009,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   br i1 %.not101.us, label %32, label %.split153.us
 
 70:                                               ; preds = %.split80
-  br i1 %71, label %.split80, label %.split151.us, !llvm.loop !38
+  br i1 %71, label %.split80, label %.split151.us, !llvm.loop !39
 
 .split80:                                         ; preds = %._crit_edge, %70
   %71 = phi i1 [ false, %70 ], [ true, %._crit_edge ]
@@ -2042,7 +2042,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
 
 .backedge200.backedge:                            ; preds = %78, %.thread
   %.076154.be = phi i32 [ %79, %78 ], [ %80, %.thread ]
-  br label %.backedge200, !llvm.loop !39
+  br label %.backedge200, !llvm.loop !40
 
 .thread:                                          ; preds = %.split151.us
   %puts99 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -2104,16 +2104,16 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw i32, ptr %82, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
-  %112 = load i32, ptr %110, align 4, !tbaa !11
-  store i32 %112, ptr %10, align 4, !tbaa !11
+  %112 = load i32, ptr %110, align 4, !tbaa !12
+  store i32 %112, ptr %10, align 4, !tbaa !12
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %114 = load i32, ptr %111, align 4, !tbaa !11
-  store i32 %114, ptr %12, align 4, !tbaa !11
+  %114 = load i32, ptr %111, align 4, !tbaa !12
+  store i32 %114, ptr %12, align 4, !tbaa !12
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 12
-  %116 = load i32, ptr %113, align 4, !tbaa !11
-  store i32 %116, ptr %13, align 4, !tbaa !11
-  %117 = load i32, ptr %115, align 4, !tbaa !11
-  store i32 %117, ptr %14, align 4, !tbaa !11
+  %116 = load i32, ptr %113, align 4, !tbaa !12
+  store i32 %116, ptr %13, align 4, !tbaa !12
+  %117 = load i32, ptr %115, align 4, !tbaa !12
+  store i32 %117, ptr %14, align 4, !tbaa !12
   %118 = or disjoint i32 %107, 22
   %119 = zext nneg i32 %118 to i64
   %.035.i104 = getelementptr inbounds i8, ptr %110, i64 -8
@@ -2125,32 +2125,32 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   %.03237.i107 = phi ptr [ %15, %104 ], [ %125, %120 ]
   %.03336.i108 = phi i64 [ %119, %104 ], [ %126, %120 ]
   %121 = getelementptr inbounds i8, ptr %.pn38.i106, i64 -4
-  %122 = load i32, ptr %.039.i105, align 4, !tbaa !11
+  %122 = load i32, ptr %.039.i105, align 4, !tbaa !12
   %123 = getelementptr inbounds nuw i8, ptr %.03237.i107, i64 4
-  store i32 %122, ptr %.03237.i107, align 4, !tbaa !11
-  %124 = load i32, ptr %121, align 4, !tbaa !11
+  store i32 %122, ptr %.03237.i107, align 4, !tbaa !12
+  %124 = load i32, ptr %121, align 4, !tbaa !12
   %125 = getelementptr inbounds nuw i8, ptr %.03237.i107, i64 8
-  store i32 %124, ptr %123, align 4, !tbaa !11
+  store i32 %124, ptr %123, align 4, !tbaa !12
   %126 = add nsw i64 %.03336.i108, -1
   %.0.i109 = getelementptr inbounds i8, ptr %.039.i105, i64 -8
   %.not34.i110 = icmp eq i64 %126, 0
-  br i1 %.not34.i110, label %127, label %120, !llvm.loop !26
+  br i1 %.not34.i110, label %127, label %120, !llvm.loop !27
 
 127:                                              ; preds = %120
   %128 = getelementptr inbounds i8, ptr %.039.i105, i64 -16
   %129 = getelementptr inbounds i8, ptr %.039.i105, i64 -12
-  %130 = load i32, ptr %128, align 4, !tbaa !11
+  %130 = load i32, ptr %128, align 4, !tbaa !12
   %131 = getelementptr inbounds nuw i8, ptr %.03237.i107, i64 12
-  store i32 %130, ptr %125, align 4, !tbaa !11
-  %132 = load i32, ptr %129, align 4, !tbaa !11
+  store i32 %130, ptr %125, align 4, !tbaa !12
+  %132 = load i32, ptr %129, align 4, !tbaa !12
   %133 = getelementptr inbounds nuw i8, ptr %.03237.i107, i64 16
-  store i32 %132, ptr %131, align 4, !tbaa !11
+  store i32 %132, ptr %131, align 4, !tbaa !12
   %134 = getelementptr inbounds i8, ptr %.039.i105, i64 -4
-  %135 = load i32, ptr %.0.i109, align 4, !tbaa !11
+  %135 = load i32, ptr %.0.i109, align 4, !tbaa !12
   %136 = getelementptr inbounds nuw i8, ptr %.03237.i107, i64 20
-  store i32 %135, ptr %133, align 4, !tbaa !11
-  %137 = load i32, ptr %134, align 4, !tbaa !11
-  store i32 %137, ptr %136, align 4, !tbaa !11
+  store i32 %135, ptr %133, align 4, !tbaa !12
+  %137 = load i32, ptr %134, align 4, !tbaa !12
+  store i32 %137, ptr %136, align 4, !tbaa !12
   br label %.split82.us.preheader
 
 .split84.preheader:                               ; preds = %93
@@ -2188,12 +2188,12 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
 146:                                              ; preds = %.split82.us
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next177, 3
-  br i1 %exitcond179.not, label %.split158.us, label %.split82.us, !llvm.loop !40
+  br i1 %exitcond179.not, label %.split158.us, label %.split82.us, !llvm.loop !41
 
 147:                                              ; preds = %.split84
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next173, 3
-  br i1 %exitcond175.not, label %.split158.us, label %.split84, !llvm.loop !41
+  br i1 %exitcond175.not, label %.split158.us, label %.split84, !llvm.loop !42
 
 .split84:                                         ; preds = %.split84.preheader, %147
   %indvars.iv172 = phi i64 [ 0, %.split84.preheader ], [ %indvars.iv.next173, %147 ]
@@ -2231,7 +2231,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
 
 .backedge196.backedge:                            ; preds = %154, %.thread187
   %.1161.be = phi i32 [ %155, %154 ], [ %156, %.thread187 ]
-  br label %.backedge196, !llvm.loop !42
+  br label %.backedge196, !llvm.loop !43
 
 .thread187:                                       ; preds = %.split158.us
   %puts94 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -2268,7 +2268,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   %168 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %9, ptr noundef nonnull %4, i32 noundef 128)
   %169 = icmp eq i32 %159, 0
   %170 = getelementptr inbounds nuw [3 x i32], ptr @camellia_test_ctr_len, i64 0, i64 %165
-  %171 = load i32, ptr %170, align 4, !tbaa !11
+  %171 = load i32, ptr %170, align 4, !tbaa !12
   %172 = sext i32 %171 to i64
   br i1 %169, label %.preheader.i, label %.preheader.i114
 
@@ -2300,7 +2300,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   %183 = add nsw i32 %.01926.i, -1
   %184 = icmp samesign ugt i32 %.01926.i, 1
   %or.cond.i = and i1 %184, %.not25.i
-  br i1 %or.cond.i, label %179, label %.loopexit.i, !llvm.loop !34
+  br i1 %or.cond.i, label %179, label %.loopexit.i, !llvm.loop !35
 
 .loopexit.i:                                      ; preds = %179, %174
   %185 = getelementptr i8, ptr %.02129.i, i64 1
@@ -2312,7 +2312,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   %190 = add nuw nsw i64 %.030.i, 1
   %191 = and i64 %190, 15
   %.not.i113 = icmp eq i64 %175, 0
-  br i1 %.not.i113, label %mbedtls_camellia_crypt_ctr.exit, label %174, !llvm.loop !35
+  br i1 %.not.i113, label %mbedtls_camellia_crypt_ctr.exit, label %174, !llvm.loop !36
 
 mbedtls_camellia_crypt_ctr.exit:                  ; preds = %.loopexit.i
   %192 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @camellia_test_ctr_pt, i64 0, i64 %165
@@ -2355,7 +2355,7 @@ mbedtls_camellia_crypt_ctr.exit:                  ; preds = %.loopexit.i
   %205 = add nsw i32 %.01926.i127, -1
   %206 = icmp samesign ugt i32 %.01926.i127, 1
   %or.cond.i130 = and i1 %206, %.not25.i129
-  br i1 %or.cond.i130, label %201, label %.loopexit.i122, !llvm.loop !34
+  br i1 %or.cond.i130, label %201, label %.loopexit.i122, !llvm.loop !35
 
 .loopexit.i122:                                   ; preds = %201, %196
   %207 = getelementptr i8, ptr %.02129.i120, i64 1
@@ -2367,7 +2367,7 @@ mbedtls_camellia_crypt_ctr.exit:                  ; preds = %.loopexit.i
   %212 = add nuw nsw i64 %.030.i119, 1
   %213 = and i64 %212, 15
   %.not.i123 = icmp eq i64 %197, 0
-  br i1 %.not.i123, label %mbedtls_camellia_crypt_ctr.exit131, label %196, !llvm.loop !35
+  br i1 %.not.i123, label %mbedtls_camellia_crypt_ctr.exit131, label %196, !llvm.loop !36
 
 mbedtls_camellia_crypt_ctr.exit131:               ; preds = %.loopexit.i122
   %214 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @camellia_test_ctr_ct, i64 0, i64 %165
@@ -2392,7 +2392,7 @@ mbedtls_camellia_crypt_ctr.exit131:               ; preds = %.loopexit.i122
 
 .backedge.backedge:                               ; preds = %218, %.thread190
   %.2162.be = phi i32 [ %219, %218 ], [ %220, %.thread190 ]
-  br label %.backedge, !llvm.loop !43
+  br label %.backedge, !llvm.loop !44
 
 .thread190:                                       ; preds = %217
   %puts92 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -2456,38 +2456,39 @@ attributes #12 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"long", !6, i64 0}
-!32 = distinct !{!32, !10}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !10, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !10}
-!39 = distinct !{!39, !10}
-!40 = distinct !{!40, !10, !37}
-!41 = distinct !{!41, !10}
-!42 = distinct !{!42, !10}
-!43 = distinct !{!43, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!5, !5, i64 0}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"long", !6, i64 0}
+!33 = distinct !{!33, !10, !11}
+!34 = distinct !{!34, !10, !11}
+!35 = distinct !{!35, !10, !11}
+!36 = distinct !{!36, !10, !11}
+!37 = distinct !{!37, !10, !11, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = distinct !{!39, !10, !11}
+!40 = distinct !{!40, !10, !11}
+!41 = distinct !{!41, !10, !11, !38}
+!42 = distinct !{!42, !10, !11}
+!43 = distinct !{!43, !10, !11}
+!44 = distinct !{!44, !10, !11}

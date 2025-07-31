@@ -722,7 +722,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal19SygusTermEnumerator9increme
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %24, %30, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  br i1 %26, label %3, label %40, !llvm.loop !60
+  br i1 %26, label %3, label %40, !llvm.loop !61
 
 40:                                               ; preds = %3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   ret i1 %8
@@ -737,7 +737,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i8, ptr %6, align 8, !tbaa !43, !range !61, !noundef !62
+  %7 = load i8, ptr %6, align 8, !tbaa !43, !range !62, !noundef !63
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %.loopexit
 
@@ -782,7 +782,7 @@ _ZNSt8ios_base5iwordEi.exit:                      ; preds = %18, %23
   store ptr %32, ptr %0, align 8, !tbaa !37
   %33 = add nuw nsw i64 %.04, 1
   %exitcond.not = icmp eq i64 %33, %27
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt8ios_base5iwordEi.exit, %5
   %34 = phi ptr [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %4, %5 ], [ %32, %.lr.ph ]
@@ -800,7 +800,7 @@ _ZNSt8ios_base5iwordEi.exit:                      ; preds = %18, %23
           to label %43 unwind label %45
 
 43:                                               ; preds = %.loopexit
-  %44 = load ptr, ptr %1, align 8, !tbaa !64
+  %44 = load ptr, ptr %1, align 8, !tbaa !65
   invoke void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(8) %34)
           to label %_ZN4cvc58internallsERSoRKNS0_8TypeNodeE.exit unwind label %45
 
@@ -828,7 +828,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 8, !tbaa !43, !range !61, !noundef !62
+  %6 = load i8, ptr %5, align 8, !tbaa !43, !range !62, !noundef !63
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %.loopexit
 
@@ -873,7 +873,7 @@ _ZNSt8ios_base5iwordEi.exit:                      ; preds = %17, %22
   store ptr %31, ptr %0, align 8, !tbaa !37
   %32 = add nuw nsw i64 %.04, 1
   %exitcond.not = icmp eq i64 %32, %26
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt8ios_base5iwordEi.exit, %4
   %33 = phi ptr [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %3, %4 ], [ %31, %.lr.ph ]
@@ -1286,12 +1286,13 @@ attributes #18 = { builtin nounwind }
 !55 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}
 !56 = !{!48, !53, i64 200}
 !57 = !{!18, !18, i64 0}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = distinct !{!60, !59}
-!61 = !{i8 0, i8 2}
-!62 = !{}
-!63 = distinct !{!63, !59}
-!64 = !{!65, !10, i64 0}
-!65 = !{!"_ZTSN4cvc58internal8TypeNodeE", !10, i64 0}
-!66 = distinct !{!66, !59}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = distinct !{!61, !59, !60}
+!62 = !{i8 0, i8 2}
+!63 = !{}
+!64 = distinct !{!64, !59, !60}
+!65 = !{!66, !10, i64 0}
+!66 = !{!"_ZTSN4cvc58internal8TypeNodeE", !10, i64 0}
+!67 = distinct !{!67, !59, !60}

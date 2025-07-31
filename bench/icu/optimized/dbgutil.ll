@@ -529,7 +529,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
   %.add44.i = add nuw nsw i64 %.idx43.i, 64
   %26 = add nuw nsw i64 %.idx43.i, 56
   %27 = icmp eq i64 %26, %17
-  br i1 %27, label %.loopexit54.i, label %.preheader.i
+  br i1 %27, label %.loopexit54.i, label %.preheader.i, !llvm.loop !23
 
 .loopexit54.i:                                    ; preds = %.preheader.i, %11
   %28 = phi ptr [ null, %11 ], [ %.ptr46.i, %.preheader.i ]
@@ -545,7 +545,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
 ._crit_edge.i:                                    ; preds = %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i, %.loopexit54.i, %.loopexit54.thread.i
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 6
-  br i1 %exitcond62.not.i, label %8, label %11, !llvm.loop !23
+  br i1 %exitcond62.not.i, label %8, label %11, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i ]
@@ -576,7 +576,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
 _ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i: ; preds = %39, %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
 
 .loopexit.loopexit.i:                             ; preds = %8
   store i64 1, ptr %9, align 8
@@ -702,7 +702,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %20, %16, %_ZNK6icu_
   %42 = tail call i32 @udbg_enumCount(i32 noundef %0)
   %43 = sext i32 %42 to i64
   %.not17 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %.not17, label %9, label %.loopexit, !llvm.loop !26
+  br i1 %.not17, label %9, label %.loopexit, !llvm.loop !28
 
 .loopexit.loopexit.split.loop.exit24:             ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %44 = trunc nuw nsw i64 %indvars.iv to i32
@@ -743,7 +743,7 @@ define i32 @udbg_stoi(ptr noundef nonnull align 8 dereferenceable(64) %0) local_
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %1, %8, %10
   %.0.i = phi ptr [ %9, %8 ], [ %12, %10 ], [ null, %1 ]
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #15, !srcloc !27
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #15, !srcloc !29
   %13 = load i16, ptr %3, align 8, !tbaa !22
   %14 = icmp slt i16 %13, 0
   %15 = ashr i16 %13, 5
@@ -789,7 +789,7 @@ define double @udbg_stod(ptr noundef nonnull align 8 dereferenceable(64) %0) loc
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %1, %8, %10
   %.0.i = phi ptr [ %9, %8 ], [ %12, %10 ], [ null, %1 ]
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #15, !srcloc !27
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #15, !srcloc !29
   %13 = load i16, ptr %3, align 8, !tbaa !22
   %14 = icmp slt i16 %13, 0
   %15 = ashr i16 %13, 5
@@ -849,7 +849,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %_ZNK6icu_7713Unicod
   %27 = load ptr, ptr %20, align 8
   %28 = select i1 %.not.i.i.i, ptr %27, ptr %19
   %29 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
-  %30 = load i16, ptr %29, align 2, !tbaa !28
+  %30 = load i16, ptr %29, align 2, !tbaa !30
   %31 = zext i16 %30 to i32
   %32 = call noundef signext i8 @_ZN6icu_7711ICU_Utility13isUnprintableEi(i32 noundef %31)
   %.not = icmp eq i8 %32, 0
@@ -903,7 +903,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit18:         ; preds = %_ZN6icu_7713Unicode
 
 53:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
-  store i16 %30, ptr %3, align 2, !tbaa !28
+  store i16 %30, ptr %3, align 2, !tbaa !30
   %54 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   br label %55
@@ -918,7 +918,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit18:         ; preds = %_ZN6icu_7713Unicode
   %61 = select i1 %57, i32 %60, i32 %59
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %_ZNK6icu_7713UnicodeStringixEi.exit, label %._crit_edge, !llvm.loop !30
+  br i1 %63, label %_ZNK6icu_7713UnicodeStringixEi.exit, label %._crit_edge, !llvm.loop !32
 
 64:                                               ; preds = %51, %49
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
@@ -979,7 +979,7 @@ define internal noundef signext i8 @_ZL10tu_cleanupv() #0 {
   %14 = getelementptr inbounds i8, ptr %13, i64 -64
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #15
   %15 = icmp eq ptr %14, %6
-  br i1 %15, label %.loopexit.i, label %.preheader.i
+  br i1 %15, label %.loopexit.i, label %.preheader.i, !llvm.loop !33
 
 .loopexit.i:                                      ; preds = %.preheader.i, %8
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %9) #15
@@ -990,7 +990,7 @@ define internal noundef signext i8 @_ZL10tu_cleanupv() #0 {
   %17 = phi ptr [ %4, %.preheader6.i ], [ %.pre.i, %.loopexit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %2, label %.preheader6.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %2, label %.preheader6.i, !llvm.loop !34
 
 18:                                               ; preds = %2
   tail call void @_ZdaPv(ptr noundef nonnull %17) #19
@@ -1076,11 +1076,14 @@ attributes #19 = { builtin nounwind }
 !21 = !{!"vtable pointer", !8, i64 0}
 !22 = !{!7, !7, i64 0}
 !23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}
-!27 = !{i64 2148897660}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"char16_t", !7, i64 0}
-!30 = distinct !{!30, !24}
-!31 = distinct !{!31, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !26, !24}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = distinct !{!27, !26, !24}
+!28 = distinct !{!28, !26, !24}
+!29 = !{i64 2148897660}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"char16_t", !7, i64 0}
+!32 = distinct !{!32, !26, !24}
+!33 = distinct !{!33, !24}
+!34 = distinct !{!34, !26, !24}

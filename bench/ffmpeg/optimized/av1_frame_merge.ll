@@ -153,7 +153,7 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 59:                                               ; preds = %54, %20
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !32
+  %61 = load ptr, ptr %60, align 8, !tbaa !33
   %62 = tail call i32 @ff_cbs_write_packet(ptr noundef %61, ptr noundef %15, ptr noundef nonnull %11) #2
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %65
@@ -183,7 +183,7 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
   %72 = load i32, ptr %30, align 8, !tbaa !20
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next85, %73
-  br i1 %74, label %75, label %.loopexit, !llvm.loop !33
+  br i1 %74, label %75, label %.loopexit, !llvm.loop !34
 
 75:                                               ; preds = %.lr.ph81, %71
   %indvars.iv84 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next85, %71 ]
@@ -191,9 +191,9 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
   %77 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %76, i64 %indvars.iv84
   %78 = load i32, ptr %77, align 8, !tbaa !28
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %80 = load ptr, ptr %79, align 8, !tbaa !34
+  %80 = load ptr, ptr %79, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  %82 = load ptr, ptr %81, align 8, !tbaa !35
+  %82 = load ptr, ptr %81, align 8, !tbaa !36
   %83 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %11, i32 noundef -1, i32 noundef %78, ptr noundef %80, ptr noundef %82) #2
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %.loopexit77, label %71
@@ -201,19 +201,19 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
 .loopexit:                                        ; preds = %71, %68, %65
   %.166 = phi i32 [ %62, %65 ], [ -11, %68 ], [ -11, %71 ]
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !36
+  %86 = load ptr, ptr %85, align 8, !tbaa !37
   %.not75 = icmp eq ptr %86, null
   br i1 %.not75, label %94, label %87
 
 87:                                               ; preds = %.loopexit
   %88 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %89 = load i64, ptr %88, align 8, !tbaa !39
+  %89 = load i64, ptr %88, align 8, !tbaa !40
   %.not76 = icmp eq i64 %89, -9223372036854775808
   br i1 %.not76, label %95, label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %92 = load i64, ptr %91, align 8, !tbaa !39
+  %92 = load i64, ptr %91, align 8, !tbaa !40
   %93 = icmp eq i64 %92, -9223372036854775808
   br i1 %93, label %94, label %95
 
@@ -356,13 +356,14 @@ attributes #2 = { nounwind }
 !27 = !{!21, !25, i64 40}
 !28 = !{!29, !13, i64 0}
 !29 = !{!"CodedBitstreamUnit", !13, i64 0, !22, i64 8, !23, i64 16, !23, i64 24, !24, i64 32, !7, i64 40, !7, i64 48}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!15, !16, i64 8}
-!33 = distinct !{!33, !31}
-!34 = !{!29, !7, i64 40}
-!35 = !{!29, !7, i64 48}
-!36 = !{!37, !22, i64 24}
-!37 = !{!"AVPacket", !24, i64 0, !23, i64 8, !23, i64 16, !22, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !38, i64 48, !13, i64 56, !23, i64 64, !23, i64 72, !7, i64 80, !24, i64 88, !12, i64 96}
-!38 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!39 = !{!37, !23, i64 8}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!15, !16, i64 8}
+!34 = distinct !{!34, !31, !32}
+!35 = !{!29, !7, i64 40}
+!36 = !{!29, !7, i64 48}
+!37 = !{!38, !22, i64 24}
+!38 = !{!"AVPacket", !24, i64 0, !23, i64 8, !23, i64 16, !22, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !39, i64 48, !13, i64 56, !23, i64 64, !23, i64 72, !7, i64 80, !24, i64 88, !12, i64 96}
+!39 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!40 = !{!38, !23, i64 8}

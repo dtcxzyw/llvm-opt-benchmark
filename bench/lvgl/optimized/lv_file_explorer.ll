@@ -289,7 +289,7 @@ define internal void @lv_file_explorer_constructor(ptr readnone captures(none) %
 .loopexit.i:                                      ; preds = %117, %112, %.lr.ph66.i
   %119 = add nuw i32 %.065.i, 1
   %exitcond68.not.i = icmp eq i32 %119, %108
-  br i1 %exitcond68.not.i, label %init_style.exit, label %.lr.ph66.i, !llvm.loop !27
+  br i1 %exitcond68.not.i, label %init_style.exit, label %.lr.ph66.i, !llvm.loop !28
 
 init_style.exit:                                  ; preds = %.loopexit.i, %2
   ret void
@@ -318,7 +318,7 @@ define void @lv_file_explorer_set_quick_access_path(ptr noundef captures(address
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !29
 
 4:                                                ; preds = %3
   %5 = icmp eq ptr %2, null
@@ -336,18 +336,18 @@ switch.lookup:                                    ; preds = %6
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
   %.not18 = icmp eq ptr %14, null
   br i1 %.not18, label %16, label %15
 
 15:                                               ; preds = %switch.lookup
   tail call void @lv_free(ptr noundef nonnull %14) #6
-  store ptr null, ptr %13, align 8, !tbaa !28
+  store ptr null, ptr %13, align 8, !tbaa !30
   br label %16
 
 16:                                               ; preds = %15, %switch.lookup
   %17 = tail call ptr @lv_strdup(ptr noundef nonnull %2) #6
-  store ptr %17, ptr %13, align 8, !tbaa !28
+  store ptr %17, ptr %13, align 8, !tbaa !30
   br label %18
 
 18:                                               ; preds = %16, %4, %6
@@ -366,7 +366,7 @@ define void @lv_file_explorer_set_sort(ptr noundef captures(address_is_null) %0,
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !31
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -400,11 +400,11 @@ define ptr @lv_file_explorer_get_selected_file_name(ptr noundef readonly capture
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !32
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
   ret ptr %4
 }
 
@@ -414,7 +414,7 @@ define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone captu
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !34
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -427,7 +427,7 @@ define ptr @lv_file_explorer_get_file_table(ptr noundef readonly captures(addres
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !35
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -441,7 +441,7 @@ define ptr @lv_file_explorer_get_header(ptr noundef readonly captures(address_is
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !36
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -455,7 +455,7 @@ define ptr @lv_file_explorer_get_path_label(ptr noundef readonly captures(addres
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !37
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -469,7 +469,7 @@ define ptr @lv_file_explorer_get_quick_access_area(ptr noundef readonly captures
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !38
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -483,7 +483,7 @@ define ptr @lv_file_explorer_get_places_list(ptr noundef readonly captures(addre
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !39
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -497,7 +497,7 @@ define ptr @lv_file_explorer_get_device_list(ptr noundef readonly captures(addre
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !40
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -511,7 +511,7 @@ define i32 @lv_file_explorer_get_sort(ptr noundef readonly captures(address_is_n
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !41
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -525,7 +525,7 @@ define void @lv_file_explorer_open_dir(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !42
 
 3:                                                ; preds = %2
   tail call fastcc void @show_dir(ptr noundef nonnull %0, ptr noundef %1)
@@ -551,10 +551,10 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   br i1 %.not48, label %.preheader, label %10
 
 .preheader:                                       ; preds = %6, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !43
 
 10:                                               ; preds = %6
-  store i32 0, ptr %9, align 4, !tbaa !30
+  store i32 0, ptr %9, align 4, !tbaa !44
   %11 = load ptr, ptr %7, align 8, !tbaa !24
   call void @lv_table_set_cell_user_data(ptr noundef %11, i16 noundef zeroext 0, i16 noundef zeroext 0, ptr noundef nonnull %9) #6
   %12 = call i32 @lv_fs_dir_read(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 128) #6
@@ -581,7 +581,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   br i1 %.not50, label %.preheader131, label %19
 
 .preheader131:                                    ; preds = %17, %.preheader131
-  br label %.preheader131
+  br label %.preheader131, !llvm.loop !46
 
 19:                                               ; preds = %17
   %20 = call i64 @lv_strlen(ptr noundef nonnull %3) #6
@@ -594,9 +594,9 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %.032.i = phi i64 [ %26, %25 ], [ %21, %19 ]
   %.02031.i = phi i64 [ %27, %25 ], [ %20, %19 ]
   %gep.i = getelementptr i8, ptr getelementptr (i8, ptr @.str.13, i64 -1), i64 %.032.i
-  %23 = load i8, ptr %gep.i, align 1, !tbaa !32
+  %23 = load i8, ptr %gep.i, align 1, !tbaa !47
   %gep29.i = getelementptr i8, ptr %invariant.gep28.i, i64 %.02031.i
-  %24 = load i8, ptr %gep29.i, align 1, !tbaa !32
+  %24 = load i8, ptr %gep29.i, align 1, !tbaa !47
   %.not27.i = icmp eq i8 %23, %24
   br i1 %.not27.i, label %25, label %.loopexit142
 
@@ -604,7 +604,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %26 = add i64 %.032.i, -1
   %27 = add i64 %.02031.i, -1
   %.not26.i = icmp eq i64 %26, 0
-  br i1 %.not26.i, label %is_end_with.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not26.i, label %is_end_with.exit, label %.lr.ph.i, !llvm.loop !48
 
 .loopexit142:                                     ; preds = %.lr.ph.i, %19
   %28 = call i64 @lv_strlen(ptr noundef nonnull %3) #6
@@ -617,9 +617,9 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %.032.i56 = phi i64 [ %34, %33 ], [ %29, %.loopexit142 ]
   %.02031.i57 = phi i64 [ %35, %33 ], [ %28, %.loopexit142 ]
   %gep.i58 = getelementptr i8, ptr getelementptr (i8, ptr @.str.14, i64 -1), i64 %.032.i56
-  %31 = load i8, ptr %gep.i58, align 1, !tbaa !32
+  %31 = load i8, ptr %gep.i58, align 1, !tbaa !47
   %gep29.i59 = getelementptr i8, ptr %invariant.gep28.i, i64 %.02031.i57
-  %32 = load i8, ptr %gep29.i59, align 1, !tbaa !32
+  %32 = load i8, ptr %gep29.i59, align 1, !tbaa !47
   %.not27.i60 = icmp eq i8 %31, %32
   br i1 %.not27.i60, label %33, label %.loopexit140
 
@@ -627,7 +627,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %34 = add i64 %.032.i56, -1
   %35 = add i64 %.02031.i57, -1
   %.not26.i61 = icmp eq i64 %34, 0
-  br i1 %.not26.i61, label %is_end_with.exit, label %.lr.ph.i55, !llvm.loop !33
+  br i1 %.not26.i61, label %is_end_with.exit, label %.lr.ph.i55, !llvm.loop !48
 
 .loopexit140:                                     ; preds = %.lr.ph.i55, %.loopexit142
   %36 = call i64 @lv_strlen(ptr noundef nonnull %3) #6
@@ -640,9 +640,9 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %.032.i68 = phi i64 [ %42, %41 ], [ %37, %.loopexit140 ]
   %.02031.i69 = phi i64 [ %43, %41 ], [ %36, %.loopexit140 ]
   %gep.i70 = getelementptr i8, ptr getelementptr (i8, ptr @.str.15, i64 -1), i64 %.032.i68
-  %39 = load i8, ptr %gep.i70, align 1, !tbaa !32
+  %39 = load i8, ptr %gep.i70, align 1, !tbaa !47
   %gep29.i71 = getelementptr i8, ptr %invariant.gep28.i, i64 %.02031.i69
-  %40 = load i8, ptr %gep29.i71, align 1, !tbaa !32
+  %40 = load i8, ptr %gep29.i71, align 1, !tbaa !47
   %.not27.i72 = icmp eq i8 %39, %40
   br i1 %.not27.i72, label %41, label %.loopexit138
 
@@ -650,7 +650,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %42 = add i64 %.032.i68, -1
   %43 = add i64 %.02031.i69, -1
   %.not26.i73 = icmp eq i64 %42, 0
-  br i1 %.not26.i73, label %is_end_with.exit, label %.lr.ph.i67, !llvm.loop !33
+  br i1 %.not26.i73, label %is_end_with.exit, label %.lr.ph.i67, !llvm.loop !48
 
 .loopexit138:                                     ; preds = %.lr.ph.i67, %.loopexit140
   %44 = call i64 @lv_strlen(ptr noundef nonnull %3) #6
@@ -663,9 +663,9 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %.032.i80 = phi i64 [ %50, %49 ], [ %45, %.loopexit138 ]
   %.02031.i81 = phi i64 [ %51, %49 ], [ %44, %.loopexit138 ]
   %gep.i82 = getelementptr i8, ptr getelementptr (i8, ptr @.str.16, i64 -1), i64 %.032.i80
-  %47 = load i8, ptr %gep.i82, align 1, !tbaa !32
+  %47 = load i8, ptr %gep.i82, align 1, !tbaa !47
   %gep29.i83 = getelementptr i8, ptr %invariant.gep28.i, i64 %.02031.i81
-  %48 = load i8, ptr %gep29.i83, align 1, !tbaa !32
+  %48 = load i8, ptr %gep29.i83, align 1, !tbaa !47
   %.not27.i84 = icmp eq i8 %47, %48
   br i1 %.not27.i84, label %49, label %.loopexit136
 
@@ -673,7 +673,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %50 = add i64 %.032.i80, -1
   %51 = add i64 %.02031.i81, -1
   %.not26.i85 = icmp eq i64 %50, 0
-  br i1 %.not26.i85, label %is_end_with.exit, label %.lr.ph.i79, !llvm.loop !33
+  br i1 %.not26.i85, label %is_end_with.exit, label %.lr.ph.i79, !llvm.loop !48
 
 .loopexit136:                                     ; preds = %.lr.ph.i79, %.loopexit138
   %52 = call i64 @lv_strlen(ptr noundef nonnull %3) #6
@@ -686,9 +686,9 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %.032.i92 = phi i64 [ %58, %57 ], [ %53, %.loopexit136 ]
   %.02031.i93 = phi i64 [ %59, %57 ], [ %52, %.loopexit136 ]
   %gep.i94 = getelementptr i8, ptr getelementptr (i8, ptr @.str.17, i64 -1), i64 %.032.i92
-  %55 = load i8, ptr %gep.i94, align 1, !tbaa !32
+  %55 = load i8, ptr %gep.i94, align 1, !tbaa !47
   %gep29.i95 = getelementptr i8, ptr %invariant.gep28.i, i64 %.02031.i93
-  %56 = load i8, ptr %gep29.i95, align 1, !tbaa !32
+  %56 = load i8, ptr %gep29.i95, align 1, !tbaa !47
   %.not27.i96 = icmp eq i8 %55, %56
   br i1 %.not27.i96, label %57, label %.loopexit134
 
@@ -696,7 +696,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %58 = add i64 %.032.i92, -1
   %59 = add i64 %.02031.i93, -1
   %.not26.i97 = icmp eq i64 %58, 0
-  br i1 %.not26.i97, label %is_end_with.exit, label %.lr.ph.i91, !llvm.loop !33
+  br i1 %.not26.i97, label %is_end_with.exit, label %.lr.ph.i91, !llvm.loop !48
 
 .loopexit134:                                     ; preds = %.lr.ph.i91, %.loopexit136
   %60 = call i64 @lv_strlen(ptr noundef nonnull %3) #6
@@ -709,9 +709,9 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %.032.i104 = phi i64 [ %66, %65 ], [ %61, %.loopexit134 ]
   %.02031.i105 = phi i64 [ %67, %65 ], [ %60, %.loopexit134 ]
   %gep.i106 = getelementptr i8, ptr getelementptr (i8, ptr @.str.18, i64 -1), i64 %.032.i104
-  %63 = load i8, ptr %gep.i106, align 1, !tbaa !32
+  %63 = load i8, ptr %gep.i106, align 1, !tbaa !47
   %gep29.i107 = getelementptr i8, ptr %invariant.gep28.i, i64 %.02031.i105
-  %64 = load i8, ptr %gep29.i107, align 1, !tbaa !32
+  %64 = load i8, ptr %gep29.i107, align 1, !tbaa !47
   %.not27.i108 = icmp eq i8 %63, %64
   br i1 %.not27.i108, label %65, label %.loopexit132
 
@@ -719,7 +719,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %66 = add i64 %.032.i104, -1
   %67 = add i64 %.02031.i105, -1
   %.not26.i109 = icmp eq i64 %66, 0
-  br i1 %.not26.i109, label %is_end_with.exit, label %.lr.ph.i103, !llvm.loop !33
+  br i1 %.not26.i109, label %is_end_with.exit, label %.lr.ph.i103, !llvm.loop !48
 
 .loopexit132:                                     ; preds = %.lr.ph.i103, %.loopexit134
   %68 = call i64 @lv_strlen(ptr noundef nonnull %3) #6
@@ -732,9 +732,9 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %.032.i116 = phi i64 [ %74, %73 ], [ %69, %.loopexit132 ]
   %.02031.i117 = phi i64 [ %75, %73 ], [ %68, %.loopexit132 ]
   %gep.i118 = getelementptr i8, ptr getelementptr (i8, ptr @.str.19, i64 -1), i64 %.032.i116
-  %71 = load i8, ptr %gep.i118, align 1, !tbaa !32
+  %71 = load i8, ptr %gep.i118, align 1, !tbaa !47
   %gep29.i119 = getelementptr i8, ptr %invariant.gep28.i, i64 %.02031.i117
-  %72 = load i8, ptr %gep29.i119, align 1, !tbaa !32
+  %72 = load i8, ptr %gep29.i119, align 1, !tbaa !47
   %.not27.i120 = icmp eq i8 %71, %72
   br i1 %.not27.i120, label %73, label %.loopexit
 
@@ -742,7 +742,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %74 = add i64 %.032.i116, -1
   %75 = add i64 %.02031.i117, -1
   %.not26.i121 = icmp eq i64 %74, 0
-  br i1 %.not26.i121, label %is_end_with.exit, label %.lr.ph.i115, !llvm.loop !33
+  br i1 %.not26.i121, label %is_end_with.exit, label %.lr.ph.i115, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph.i115, %.loopexit132
   %76 = call fastcc zeroext i1 @is_end_with(ptr noundef %3, ptr noundef nonnull @.str.20)
@@ -801,10 +801,10 @@ is_end_with.exit:                                 ; preds = %.loopexit, %25, %33
 101:                                              ; preds = %99, %97
   %102 = call i32 @lv_fs_dir_read(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 128) #6
   %.not49 = icmp eq i32 %102, 0
-  br i1 %.not49, label %14, label %.outer._crit_edge
+  br i1 %.not49, label %14, label %.outer._crit_edge, !llvm.loop !49
 
 103:                                              ; preds = %99
-  %104 = load i8, ptr %3, align 16, !tbaa !32
+  %104 = load i8, ptr %3, align 16, !tbaa !47
   %105 = icmp eq i8 %104, 47
   %106 = load ptr, ptr %7, align 8, !tbaa !24
   %107 = zext i16 %.0.ph162 to i32
@@ -820,13 +820,13 @@ is_end_with.exit:                                 ; preds = %.loopexit, %25, %33
 
 .outer:                                           ; preds = %87, %109, %108, %94, %is_end_with.exit
   %.sink = phi i32 [ 2, %87 ], [ 4, %109 ], [ 0, %108 ], [ 3, %94 ], [ 1, %is_end_with.exit ]
-  store i32 %.sink, ptr %18, align 4, !tbaa !30
+  store i32 %.sink, ptr %18, align 4, !tbaa !44
   %110 = load ptr, ptr %7, align 8, !tbaa !24
   call void @lv_table_set_cell_user_data(ptr noundef %110, i16 noundef zeroext %.0.ph162, i16 noundef zeroext 0, ptr noundef nonnull %18) #6
   %111 = add i16 %.0.ph162, 1
   %112 = call i32 @lv_fs_dir_read(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 128) #6
   %.not49157 = icmp eq i32 %112, 0
-  br i1 %.not49157, label %.lr.ph, label %.outer._crit_edge
+  br i1 %.not49157, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !49
 
 .outer._crit_edge:                                ; preds = %.outer, %14, %101, %10
   %.0.ph.lcssa = phi i16 [ 1, %10 ], [ %.0.ph162, %101 ], [ %.0.ph162, %14 ], [ %111, %.outer ]
@@ -865,7 +865,7 @@ file_explorer_sort.exit:                          ; preds = %.outer._crit_edge, 
   %132 = call i64 @lv_strlen(ptr noundef nonnull %128) #6
   %133 = add i64 %132, -1
   %134 = getelementptr inbounds nuw [128 x i8], ptr %128, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !32
+  %135 = load i8, ptr %134, align 1, !tbaa !47
   %136 = icmp ne i8 %135, 47
   %137 = icmp ult i64 %132, 128
   %or.cond = and i1 %137, %136
@@ -873,7 +873,7 @@ file_explorer_sort.exit:                          ; preds = %.outer._crit_edge, 
 
 138:                                              ; preds = %file_explorer_sort.exit
   %139 = getelementptr inbounds nuw i8, ptr %128, i64 %132
-  store i8 47, ptr %139, align 1, !tbaa !32
+  store i8 47, ptr %139, align 1, !tbaa !47
   br label %140
 
 140:                                              ; preds = %file_explorer_sort.exit, %138, %2
@@ -989,7 +989,7 @@ define internal void @quick_access_event_handler(ptr noundef %0) #0 {
 
 select.unfold:                                    ; preds = %33, %11, %16, %21, %26, %31
   %.0.ph = phi ptr [ %32, %31 ], [ %27, %26 ], [ %22, %21 ], [ %17, %16 ], [ %12, %11 ], [ %36, %33 ]
-  %37 = load ptr, ptr %.0.ph, align 8, !tbaa !28
+  %37 = load ptr, ptr %.0.ph, align 8, !tbaa !30
   tail call fastcc void @show_dir(ptr noundef %4, ptr noundef %37)
   br label %38
 
@@ -1034,13 +1034,13 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   call void @lv_table_get_selected_cell(ptr noundef %16, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %17 = load ptr, ptr %15, align 8, !tbaa !24
-  %18 = load i32, ptr %3, align 4, !tbaa !34
-  %19 = load i32, ptr %4, align 4, !tbaa !34
+  %18 = load i32, ptr %3, align 4, !tbaa !50
+  %19 = load i32, ptr %4, align 4, !tbaa !50
   %20 = call ptr @lv_table_get_cell_value(ptr noundef %17, i32 noundef %18, i32 noundef %19) #6
   %21 = load ptr, ptr %15, align 8, !tbaa !24
-  %22 = load i32, ptr %3, align 4, !tbaa !34
+  %22 = load i32, ptr %3, align 4, !tbaa !50
   %23 = trunc i32 %22 to i16
-  %24 = load i32, ptr %4, align 4, !tbaa !34
+  %24 = load i32, ptr %4, align 4, !tbaa !50
   %25 = trunc i32 %24 to i16
   %26 = call ptr @lv_table_get_cell_user_data(ptr noundef %21, i16 noundef zeroext %23, i16 noundef zeroext %25) #6
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 5
@@ -1062,14 +1062,14 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
 
 .lr.ph.i:                                         ; preds = %38, %33
   %.015.i = phi ptr [ %39, %38 ], [ %36, %33 ]
-  %37 = load i8, ptr %.015.i, align 1, !tbaa !32
+  %37 = load i8, ptr %.015.i, align 1, !tbaa !47
   %.not13.i = icmp eq i8 %37, 47
   br i1 %.not13.i, label %.critedge.i, label %38
 
 38:                                               ; preds = %.lr.ph.i
   %39 = getelementptr inbounds i8, ptr %.015.i, i64 -1
   %.not.i = icmp ult ptr %39, %2
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !51
 
 .critedge.i:                                      ; preds = %38, %.lr.ph.i
   %.0.lcssa.ph.i = phi ptr [ %.015.i, %.lr.ph.i ], [ %39, %38 ]
@@ -1077,7 +1077,7 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %.critedge.i
-  store i8 0, ptr %.0.lcssa.ph.i, align 1, !tbaa !32
+  store i8 0, ptr %.0.lcssa.ph.i, align 1, !tbaa !47
   br label %strip_ext.exit
 
 42:                                               ; preds = %.critedge.i
@@ -1086,7 +1086,7 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 0, ptr %45, align 1, !tbaa !32
+  store i8 0, ptr %45, align 1, !tbaa !47
   br label %strip_ext.exit
 
 strip_ext.exit:                                   ; preds = %41, %42, %44
@@ -1096,14 +1096,14 @@ strip_ext.exit:                                   ; preds = %41, %42, %44
 
 .lr.ph.i36:                                       ; preds = %49, %strip_ext.exit
   %.015.i37 = phi ptr [ %50, %49 ], [ %47, %strip_ext.exit ]
-  %48 = load i8, ptr %.015.i37, align 1, !tbaa !32
+  %48 = load i8, ptr %.015.i37, align 1, !tbaa !47
   %.not13.i38 = icmp eq i8 %48, 47
   br i1 %.not13.i38, label %.critedge.i40, label %49
 
 49:                                               ; preds = %.lr.ph.i36
   %50 = getelementptr inbounds i8, ptr %.015.i37, i64 -1
   %.not.i39 = icmp ult ptr %50, %2
-  br i1 %.not.i39, label %.critedge.i40, label %.lr.ph.i36, !llvm.loop !35
+  br i1 %.not.i39, label %.critedge.i40, label %.lr.ph.i36, !llvm.loop !51
 
 .critedge.i40:                                    ; preds = %49, %.lr.ph.i36
   %.0.lcssa.ph.i41 = phi ptr [ %.015.i37, %.lr.ph.i36 ], [ %50, %49 ]
@@ -1111,7 +1111,7 @@ strip_ext.exit:                                   ; preds = %41, %42, %44
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %.critedge.i40
-  store i8 0, ptr %.0.lcssa.ph.i41, align 1, !tbaa !32
+  store i8 0, ptr %.0.lcssa.ph.i41, align 1, !tbaa !47
   br label %strip_ext.exit42
 
 53:                                               ; preds = %.critedge.i40
@@ -1120,30 +1120,30 @@ strip_ext.exit:                                   ; preds = %41, %42, %44
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 0, ptr %56, align 1, !tbaa !32
+  store i8 0, ptr %56, align 1, !tbaa !47
   br label %strip_ext.exit42
 
 strip_ext.exit42:                                 ; preds = %52, %53, %55
   %57 = call i64 @lv_strlen(ptr noundef nonnull %2) #6
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 %57
-  store i8 47, ptr %58, align 1, !tbaa !32
+  store i8 47, ptr %58, align 1, !tbaa !47
   %59 = add i64 %57, 1
   %60 = icmp ult i64 %59, 128
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %strip_ext.exit42
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  store i8 0, ptr %62, align 1, !tbaa !32
+  store i8 0, ptr %62, align 1, !tbaa !47
   br label %63
 
 63:                                               ; preds = %strip_ext.exit42, %61
-  %64 = load i32, ptr %26, align 4, !tbaa !30
+  %64 = load i32, ptr %26, align 4, !tbaa !44
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %69, label %77
 
 .thread:                                          ; preds = %14
   %66 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %2, i64 noundef 128, ptr noundef nonnull @.str.11, ptr noundef nonnull %29, ptr noundef nonnull %27) #6
-  %67 = load i32, ptr %26, align 4, !tbaa !30
+  %67 = load i32, ptr %26, align 4, !tbaa !44
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %.thread43
 
@@ -1164,7 +1164,7 @@ strip_ext.exit42:                                 ; preds = %52, %53, %55
 
 .thread43:                                        ; preds = %.thread
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  store ptr %27, ptr %75, align 8, !tbaa !29
+  store ptr %27, ptr %75, align 8, !tbaa !33
   %76 = call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 35, ptr noundef null) #6
   br label %77
 
@@ -1302,9 +1302,9 @@ define internal fastcc noundef zeroext i1 @is_end_with(ptr noundef nonnull %0, p
   %.032 = phi i64 [ %11, %10 ], [ %6, %.lr.ph.preheader ]
   %.02031 = phi i64 [ %12, %10 ], [ %5, %.lr.ph.preheader ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.032
-  %8 = load i8, ptr %gep, align 1, !tbaa !32
+  %8 = load i8, ptr %gep, align 1, !tbaa !47
   %gep29 = getelementptr i8, ptr %invariant.gep28, i64 %.02031
-  %9 = load i8, ptr %gep29, align 1, !tbaa !32
+  %9 = load i8, ptr %gep29, align 1, !tbaa !47
   %.not27 = icmp eq i8 %8, %9
   br i1 %.not27, label %10, label %.loopexit
 
@@ -1312,7 +1312,7 @@ define internal fastcc noundef zeroext i1 @is_end_with(ptr noundef nonnull %0, p
   %11 = add i64 %.032, -1
   %12 = add i64 %.02031, -1
   %.not26 = icmp eq i64 %11, 0
-  br i1 %.not26, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not26, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 .loopexit:                                        ; preds = %10, %.lr.ph, %4, %2
   %.021 = phi i1 [ false, %2 ], [ false, %4 ], [ %.not27, %.lr.ph ], [ %.not27, %10 ]
@@ -1351,8 +1351,8 @@ define internal fastcc void @sort_by_file_kind(ptr noundef %0, i16 noundef signe
   %.02740 = phi i16 [ %.128, %19 ], [ %5, %.lr.ph.preheader ]
   %.02939 = phi i16 [ %.130, %19 ], [ %2, %.lr.ph.preheader ]
   %6 = tail call ptr @lv_table_get_cell_user_data(ptr noundef %0, i16 noundef zeroext %.02740, i16 noundef zeroext 0) #6
-  %7 = load i32, ptr %6, align 4, !tbaa !30
-  %8 = load i32, ptr %4, align 4, !tbaa !30
+  %7 = load i32, ptr %6, align 4, !tbaa !44
+  %8 = load i32, ptr %4, align 4, !tbaa !44
   %9 = icmp ult i32 %7, %8
   br i1 %9, label %10, label %13
 
@@ -1380,7 +1380,7 @@ define internal fastcc void @sort_by_file_kind(ptr noundef %0, i16 noundef signe
   %.128 = phi i16 [ %12, %10 ], [ %.02740, %15 ], [ %18, %17 ]
   %.1 = phi i16 [ %11, %10 ], [ %.041, %15 ], [ %.041, %17 ]
   %.not35 = icmp sgt i16 %.128, %.130
-  br i1 %.not35, label %tailrecurse, label %.lr.ph, !llvm.loop !36
+  br i1 %.not35, label %tailrecurse, label %.lr.ph, !llvm.loop !52
 
 tailrecurse:                                      ; preds = %19, %.lr.ph46
   %.029.lcssa = phi i16 [ %2, %.lr.ph46 ], [ %.130, %19 ]
@@ -1411,7 +1411,7 @@ define internal fastcc void @exch_table_item(ptr noundef %0, i16 noundef signext
   br i1 %.not, label %.preheader, label %12
 
 .preheader:                                       ; preds = %7, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !53
 
 12:                                               ; preds = %7
   %13 = tail call ptr @lv_strcpy(ptr noundef nonnull %11, ptr noundef %8) #6
@@ -1420,7 +1420,7 @@ define internal fastcc void @exch_table_item(ptr noundef %0, i16 noundef signext
   br i1 %.not33, label %.preheader35, label %15
 
 .preheader35:                                     ; preds = %12, %.preheader35
-  br label %.preheader35
+  br label %.preheader35, !llvm.loop !54
 
 15:                                               ; preds = %12
   %16 = tail call ptr @lv_table_get_cell_user_data(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext 0) #6
@@ -1430,7 +1430,7 @@ define internal fastcc void @exch_table_item(ptr noundef %0, i16 noundef signext
   br i1 %.not34, label %.preheader36, label %19
 
 .preheader36:                                     ; preds = %15, %.preheader36
-  br label %.preheader36
+  br label %.preheader36, !llvm.loop !55
 
 19:                                               ; preds = %15
   %20 = tail call ptr @lv_table_get_cell_user_data(ptr noundef %0, i16 noundef zeroext %2, i16 noundef zeroext 0) #6
@@ -1489,15 +1489,34 @@ attributes #6 = { nounwind }
 !22 = !{!4, !10, i64 120}
 !23 = !{!4, !10, i64 96}
 !24 = !{!4, !10, i64 88}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = !{!16, !16, i64 0}
-!29 = !{!4, !16, i64 176}
-!30 = !{!31, !14, i64 0}
-!31 = !{!"", !14, i64 0}
-!32 = !{!8, !8, i64 0}
-!33 = distinct !{!33, !26}
-!34 = !{!14, !14, i64 0}
-!35 = distinct !{!35, !26}
-!36 = distinct !{!36, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = distinct !{!29, !27}
+!30 = !{!16, !16, i64 0}
+!31 = distinct !{!31, !27}
+!32 = distinct !{!32, !27}
+!33 = !{!4, !16, i64 176}
+!34 = distinct !{!34, !27}
+!35 = distinct !{!35, !27}
+!36 = distinct !{!36, !27}
+!37 = distinct !{!37, !27}
+!38 = distinct !{!38, !27}
+!39 = distinct !{!39, !27}
+!40 = distinct !{!40, !27}
+!41 = distinct !{!41, !27}
+!42 = distinct !{!42, !27}
+!43 = distinct !{!43, !27}
+!44 = !{!45, !14, i64 0}
+!45 = !{!"", !14, i64 0}
+!46 = distinct !{!46, !27}
+!47 = !{!8, !8, i64 0}
+!48 = distinct !{!48, !26, !27}
+!49 = distinct !{!49, !27}
+!50 = !{!14, !14, i64 0}
+!51 = distinct !{!51, !26, !27}
+!52 = distinct !{!52, !26, !27}
+!53 = distinct !{!53, !27}
+!54 = distinct !{!54, !27}
+!55 = distinct !{!55, !27}

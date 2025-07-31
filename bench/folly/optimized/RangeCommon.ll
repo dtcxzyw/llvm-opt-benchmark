@@ -38,7 +38,7 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   store i64 %16, ptr %12, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %.01423, i64 1
   %.not = icmp eq ptr %17, %3
-  br i1 %.not, label %.preheader, label %.lr.ph
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !12
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %27
   %.01225 = phi i64 [ %28, %27 ], [ 0, %.lr.ph26.preheader ]
@@ -57,7 +57,7 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
 27:                                               ; preds = %.lr.ph26
   %28 = add nuw i64 %.01225, 1
   %exitcond.not = icmp eq i64 %28, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph26, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph26, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph26, %.preheader
   %spec.select = phi i64 [ -1, %.preheader ], [ %.01225, %.lr.ph26 ], [ -1, %27 ]
@@ -130,7 +130,7 @@ _ZN5folly13SparseByteSet3addEh.exit:              ; preds = %_ZNK5folly13SparseB
   %30 = phi i16 [ %15, %_ZNK5folly13SparseByteSet8containsEh.exit.i ], [ %29, %_ZNK5folly13SparseByteSet8containsEh.exit.thread.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.01419, i64 1
   %.not = icmp eq ptr %31, %3
-  br i1 %.not, label %.preheader, label %14
+  br i1 %.not, label %.preheader, label %14, !llvm.loop !16
 
 32:                                               ; preds = %.lr.ph22, %_ZNK5folly13SparseByteSet8containsEh.exit.thread
   %.01221 = phi i64 [ 0, %.lr.ph22 ], [ %44, %_ZNK5folly13SparseByteSet8containsEh.exit.thread ]
@@ -153,7 +153,7 @@ _ZNK5folly13SparseByteSet8containsEh.exit:        ; preds = %32
 _ZNK5folly13SparseByteSet8containsEh.exit.thread: ; preds = %32, %_ZNK5folly13SparseByteSet8containsEh.exit
   %44 = add nuw i64 %.01221, 1
   %exitcond.not = icmp eq i64 %44, %12
-  br i1 %exitcond.not, label %_ZNK5folly13SparseByteSet8containsEh.exit._crit_edge, label %32, !llvm.loop !14
+  br i1 %exitcond.not, label %_ZNK5folly13SparseByteSet8containsEh.exit._crit_edge, label %32, !llvm.loop !17
 
 _ZNK5folly13SparseByteSet8containsEh.exit._crit_edge: ; preds = %_ZNK5folly13SparseByteSet8containsEh.exit.thread, %_ZNK5folly13SparseByteSet8containsEh.exit, %.preheader
   %spec.select = phi i64 [ -1, %.preheader ], [ %.01221, %_ZNK5folly13SparseByteSet8containsEh.exit ], [ -1, %_ZNK5folly13SparseByteSet8containsEh.exit.thread ]
@@ -181,5 +181,8 @@ attributes #3 = { nounwind }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !8, i64 0}
 !12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !15, !13}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !15, !13}

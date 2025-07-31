@@ -7490,7 +7490,7 @@ dissect_DIS_PARSER_ENTITY_STATE_PDU.exit:         ; preds = %.lr.ph.i, %186
   %381 = add i32 %.22.i, 8
   %382 = add nuw i8 %.01641.i, 1
   %exitcond.not.i140 = icmp eq i8 %382, %352
-  br i1 %exitcond.not.i140, label %._crit_edge.i, label %.lr.ph.i139, !llvm.loop !8
+  br i1 %exitcond.not.i140, label %._crit_edge.i, label %.lr.ph.i139, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i139, %.lr.ph6.i
   %.2.lcssa.i = phi i32 [ %364, %.lr.ph6.i ], [ %381, %.lr.ph.i139 ]
@@ -7498,7 +7498,7 @@ dissect_DIS_PARSER_ENTITY_STATE_PDU.exit:         ; preds = %.lr.ph.i, %186
   call void @proto_item_set_end(ptr noundef %383, ptr noundef %0, i32 noundef %.2.lcssa.i)
   %384 = add nuw i8 %.01653.i, 1
   %exitcond17.not.i = icmp eq i8 %384, %277
-  br i1 %exitcond17.not.i, label %._crit_edge7.i, label %.lr.ph6.i, !llvm.loop !9
+  br i1 %exitcond17.not.i, label %._crit_edge7.i, label %.lr.ph6.i, !llvm.loop !10
 
 ._crit_edge7.i:                                   ; preds = %._crit_edge.i, %.lr.ph12.i
   %.1.lcssa.i = phi i32 [ %305, %.lr.ph12.i ], [ %.2.lcssa.i, %._crit_edge.i ]
@@ -7506,7 +7506,7 @@ dissect_DIS_PARSER_ENTITY_STATE_PDU.exit:         ; preds = %.lr.ph.i, %186
   call void @proto_item_set_end(ptr noundef %385, ptr noundef %0, i32 noundef %.1.lcssa.i)
   %386 = add nuw i8 %.01639.i, 1
   %exitcond18.not.i = icmp eq i8 %386, %267
-  br i1 %exitcond18.not.i, label %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit, label %.lr.ph12.i, !llvm.loop !10
+  br i1 %exitcond18.not.i, label %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit, label %.lr.ph12.i, !llvm.loop !11
 
 dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i, %248
   %.0.lcssa.i = phi i32 [ 28, %248 ], [ %.1.lcssa.i, %._crit_edge7.i ]
@@ -7579,7 +7579,7 @@ dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i,
   %436 = tail call ptr @proto_tree_add_item(ptr noundef %428, i32 noundef %435, ptr noundef %0, i32 noundef %434, i32 noundef 4, i32 noundef 0)
   %.0180.i = add nuw nsw i32 %.0180197.i, 8
   %exitcond.not.i143 = icmp eq i32 %427, %423
-  br i1 %exitcond.not.i143, label %.preheader194.i, label %.lr.ph.i142, !llvm.loop !11
+  br i1 %exitcond.not.i143, label %.preheader194.i, label %.lr.ph.i142, !llvm.loop !12
 
 .preheader193.i:                                  ; preds = %.lr.ph200.i, %.preheader194.i
   %.1.lcssa.i144 = phi i32 [ %.0180.lcssa.i, %.preheader194.i ], [ %445, %.lr.ph200.i ]
@@ -7599,7 +7599,7 @@ dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i,
   %444 = tail call ptr @proto_tree_add_item(ptr noundef %439, i32 noundef %443, ptr noundef %0, i32 noundef %442, i32 noundef 2, i32 noundef 0)
   %445 = add nuw nsw i32 %.1199.i, 4
   %exitcond224.not.i = icmp eq i32 %438, %424
-  br i1 %exitcond224.not.i, label %.preheader193.i, label %.lr.ph200.i, !llvm.loop !12
+  br i1 %exitcond224.not.i, label %.preheader193.i, label %.lr.ph200.i, !llvm.loop !13
 
 .preheader.i:                                     ; preds = %.lr.ph205.i
   %.not214.i = icmp eq i8 %454, 0
@@ -7650,7 +7650,7 @@ dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i,
   %481 = tail call ptr @proto_tree_add_item(ptr noundef %473, i32 noundef %480, ptr noundef %0, i32 noundef %479, i32 noundef 4, i32 noundef 0)
   %482 = add nuw nsw i32 %.2203.i, 20
   %exitcond229.not.i = icmp eq i32 %448, %425
-  br i1 %exitcond229.not.i, label %.preheader.i, label %.lr.ph205.i, !llvm.loop !13
+  br i1 %exitcond229.not.i, label %.preheader.i, label %.lr.ph205.i, !llvm.loop !14
 
 483:                                              ; preds = %483, %.lr.ph210.i
   %indvars.iv230.i = phi i32 [ 0, %.lr.ph210.i ], [ %485, %483 ]
@@ -7688,7 +7688,7 @@ dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i,
   %514 = tail call ptr @proto_tree_add_item(ptr noundef %497, i32 noundef %513, ptr noundef %0, i32 noundef %512, i32 noundef 4, i32 noundef 0)
   %515 = add nuw nsw i32 %.3209.i, 24
   %exitcond234.not.i = icmp eq i32 %485, %446
-  br i1 %exitcond234.not.i, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %483, !llvm.loop !14
+  br i1 %exitcond234.not.i, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %483, !llvm.loop !15
 
 516:                                              ; preds = %4
   %517 = load i32, ptr @ett_entity, align 4
@@ -8096,7 +8096,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %784, %780
   %833 = call i32 @call_dissector_with_data(ptr noundef %832, ptr noundef %831, ptr noundef %1, ptr noundef %790, ptr noundef nonnull %15)
   %834 = add nuw nsw i32 %.08990.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %834, %805
-  br i1 %exitcond.not.i.i, label %parse_Link16_Message_Data.exit.i, label %807, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %parse_Link16_Message_Data.exit.i, label %807, !llvm.loop !16
 
 parse_Link16_Message_Data.exit.i:                 ; preds = %830, %791, %parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i
   %.0.i.i149 = phi i32 [ 52, %parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i ], [ 60, %791 ], [ %.2.i.i, %830 ]
@@ -8342,7 +8342,7 @@ parse_Link16_Message_Data.exit.i:                 ; preds = %830, %791, %parse_D
   call void @proto_item_set_end(ptr noundef %1051, ptr noundef %0, i32 noundef %1050)
   %1052 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i152 = icmp eq i32 %1052, %1043
-  br i1 %exitcond.not.i152, label %dissect_DIS_PARSER_DETONATION_PDU.exit, label %.lr.ph.i151, !llvm.loop !16
+  br i1 %exitcond.not.i152, label %dissect_DIS_PARSER_DETONATION_PDU.exit, label %.lr.ph.i151, !llvm.loop !17
 
 dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %972
   %.092.lcssa.i = phi i32 [ %1042, %972 ], [ %1050, %.lr.ph.i151 ]
@@ -8617,7 +8617,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %972
   %1274 = add i32 %.01213.i.i, 4
   %1275 = add nuw i32 %.014.i.i, 1
   %exitcond.not.i.i160 = icmp eq i32 %1275, %1263
-  br i1 %exitcond.not.i.i160, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, label %.lr.ph.i.i159, !llvm.loop !17
+  br i1 %exitcond.not.i.i160, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, label %.lr.ph.i.i159, !llvm.loop !18
 
 parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %1242
   %.012.lcssa.i.i = phi i32 [ 40, %1242 ], [ %1274, %.lr.ph.i.i159 ]
@@ -8635,7 +8635,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %124
   %1281 = add i32 %.01213.i.i.i, 4
   %1282 = add nuw i32 %.014.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %1282, %1266
-  br i1 %exitcond.not.i.i.i, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %.lr.ph.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %.lr.ph.i.i.i, !llvm.loop !18
 
 1283:                                             ; preds = %4
   %1284 = tail call fastcc i32 @dissect_DIS_PARSER_COMMENT_PDU(ptr noundef %0, ptr noundef %2)
@@ -8915,7 +8915,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %124
   %1512 = add i32 %.01213.i.i170, 4
   %1513 = add nuw i32 %.014.i.i169, 1
   %exitcond.not.i.i171 = icmp eq i32 %1513, %1501
-  br i1 %exitcond.not.i.i171, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172, label %.lr.ph.i.i168, !llvm.loop !17
+  br i1 %exitcond.not.i.i171, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172, label %.lr.ph.i.i168, !llvm.loop !18
 
 parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172:  ; preds = %.lr.ph.i.i168, %1476
   %.012.lcssa.i.i173 = phi i32 [ 44, %1476 ], [ %1512, %.lr.ph.i.i168 ]
@@ -8933,7 +8933,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172:  ; preds = %.lr.ph.i.i168, %147
   %1519 = add i32 %.01213.i.i.i177, 4
   %1520 = add nuw i32 %.014.i.i.i176, 1
   %exitcond.not.i.i.i178 = icmp eq i32 %1520, %1504
-  br i1 %exitcond.not.i.i.i178, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %.lr.ph.i.i.i175, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i178, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %.lr.ph.i.i.i175, !llvm.loop !18
 
 1521:                                             ; preds = %4
   %1522 = tail call fastcc i32 @dissect_DIS_PARSER_COMMENT_PDU(ptr noundef %0, ptr noundef %2)
@@ -9089,7 +9089,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172:  ; preds = %.lr.ph.i.i168, %147
   call void @proto_item_set_end(ptr noundef %1632, ptr noundef %0, i32 noundef %1631)
   %1633 = add nuw nsw i32 %.0107110.i, 1
   %exitcond.not.i182 = icmp eq i32 %1633, %1624
-  br i1 %exitcond.not.i182, label %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, label %.lr.ph.i181, !llvm.loop !18
+  br i1 %exitcond.not.i182, label %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, label %.lr.ph.i181, !llvm.loop !19
 
 dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit:  ; preds = %.lr.ph.i181, %1623
   %.0.lcssa.i184 = phi i32 [ 72, %1623 ], [ %1631, %.lr.ph.i181 ]
@@ -9217,7 +9217,7 @@ dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit:  ; preds = %.lr.ph.i181, %1623
   %1729 = add i32 %.01213.i.i.i.i, 4
   %1730 = add nuw nsw i32 %.014.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %1730, %1720
-  br i1 %exitcond.not.i.i.i.i, label %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i.i, label %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
 
 1731:                                             ; preds = %.lr.ph.i186
   %1732 = icmp ugt i16 %1679, 6
@@ -9251,7 +9251,7 @@ parseField_VariableRecord.exit.i:                 ; preds = %1740, %dissect_DIS_
   call void @proto_item_set_end(ptr noundef %1745, ptr noundef %0, i32 noundef %.2.i.i190)
   %1746 = add nuw nsw i32 %.0731.i, 1
   %exitcond.not.i191 = icmp eq i32 %1746, %1672
-  br i1 %exitcond.not.i191, label %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, label %.lr.ph.i186, !llvm.loop !19
+  br i1 %exitcond.not.i191, label %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, label %.lr.ph.i186, !llvm.loop !20
 
 dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit:  ; preds = %parseField_VariableRecord.exit.i, %1634
   %.0.lcssa.i193 = phi i32 [ 40, %1634 ], [ %.2.i.i190, %parseField_VariableRecord.exit.i ]
@@ -9428,7 +9428,7 @@ dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit:  ; preds = %parseField_Variable
   %1901 = add i32 %.0161165.i, 6
   %1902 = add nuw nsw i32 %.0166.i, 1
   %exitcond.not.i196 = icmp eq i32 %1902, %1887
-  br i1 %exitcond.not.i196, label %._crit_edge.i197, label %.lr.ph.i195, !llvm.loop !20
+  br i1 %exitcond.not.i196, label %._crit_edge.i197, label %.lr.ph.i195, !llvm.loop !21
 
 ._crit_edge.i197:                                 ; preds = %.lr.ph.i195, %1781
   %.0161.lcssa.i = phi i32 [ %1886, %1781 ], [ %1901, %.lr.ph.i195 ]
@@ -9455,7 +9455,7 @@ dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit:  ; preds = %parseField_Variable
   %1917 = add i32 %.1162167.i, 6
   %1918 = add nuw nsw i32 %.1168.i, 1
   %exitcond175.not.i = icmp eq i32 %1918, %1903
-  br i1 %exitcond175.not.i, label %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit, label %.lr.ph170.i, !llvm.loop !21
+  br i1 %exitcond175.not.i, label %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit, label %.lr.ph170.i, !llvm.loop !22
 
 dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit:      ; preds = %.lr.ph170.i, %._crit_edge.i197
   %.1162.lcssa.i = phi i32 [ %.0161.lcssa.i, %._crit_edge.i197 ], [ %1917, %.lr.ph170.i ]
@@ -9885,7 +9885,7 @@ define internal fastcc noundef i32 @parseField_DIS_FIELDS_FIXED_DATUM(ptr nounde
   %18 = add i32 %.0241, 8
   %19 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %19, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.024.lcssa = phi i32 [ %2, %4 ], [ %18, %.lr.ph ]
@@ -9930,7 +9930,7 @@ define internal fastcc noundef i32 @parseField_DIS_FIELDS_VARIABLE_DATUM(ptr nou
   call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %26)
   %28 = add nuw i32 %.03942, 1
   %exitcond.not = icmp eq i32 %28, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.038.lcssa = phi i32 [ %2, %5 ], [ %26, %.lr.ph ]
@@ -9961,21 +9961,22 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}

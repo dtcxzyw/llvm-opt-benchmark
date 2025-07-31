@@ -1141,7 +1141,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %.1.i = phi ptr [ %150, %148 ], [ %152, %151 ]
   %154 = tail call i32 @bms_next_member(ptr noundef %133, i32 noundef %138) #6
   %155 = icmp sgt i32 %154, -1
-  br i1 %155, label %137, label %alias_relid_set.exit, !llvm.loop !8
+  br i1 %155, label %137, label %alias_relid_set.exit, !llvm.loop !9
 
 alias_relid_set.exit:                             ; preds = %153, %129
   %.0.lcssa.i = phi ptr [ null, %129 ], [ %.1.i, %153 ]
@@ -1755,6 +1755,7 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

@@ -231,7 +231,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store double %103, ptr %104, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not314.not336.not = icmp eq i32 %51, 1
@@ -255,7 +255,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %109 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv387
   store double %108, ptr %109, align 8, !tbaa !7
   %exitcond391.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count390
-  br i1 %exitcond391.not, label %.loopexit328, label %.lr.ph335, !llvm.loop !12
+  br i1 %exitcond391.not, label %.loopexit328, label %.lr.ph335, !llvm.loop !13
 
 110:                                              ; preds = %._crit_edge
   br i1 %.not314.not336.not, label %.loopexit328, label %.lr.ph339.preheader
@@ -275,7 +275,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store double %113, ptr %114, align 8, !tbaa !7
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next393, %wide.trip.count395
-  br i1 %exitcond396.not, label %.loopexit328, label %.lr.ph339, !llvm.loop !13
+  br i1 %exitcond396.not, label %.loopexit328, label %.lr.ph339, !llvm.loop !14
 
 .loopexit328:                                     ; preds = %.lr.ph335, %.lr.ph339, %105, %110
   store double 1.000000e+00, ptr %9, align 8, !tbaa !7
@@ -416,19 +416,19 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %180 = add nsw i32 %179, 1
   store i32 %180, ptr %23, align 4, !tbaa !3
   %.not307.not = icmp slt i32 %179, %148
-  br i1 %.not307.not, label %.lr.ph355, label %._crit_edge356, !llvm.loop !14
+  br i1 %.not307.not, label %.lr.ph355, label %._crit_edge356, !llvm.loop !15
 
 ._crit_edge356:                                   ; preds = %.critedge, %.preheader
   %181 = phi i32 [ %150, %.preheader ], [ %176, %.critedge ]
   %.2.lcssa = phi i32 [ %.1358, %.preheader ], [ %.3, %.critedge ]
   %182 = add nuw nsw i32 %.0277357, 1
   %exitcond405.not = icmp eq i32 %182, 4
-  br i1 %exitcond405.not, label %183, label %.preheader, !llvm.loop !15
+  br i1 %exitcond405.not, label %183, label %.preheader, !llvm.loop !16
 
 183:                                              ; preds = %._crit_edge356
   %184 = add i32 %.5360, 1
   %exitcond406.not = icmp eq i32 %184, %140
-  br i1 %exitcond406.not, label %._crit_edge364.loopexit, label %.lr.ph363, !llvm.loop !16
+  br i1 %exitcond406.not, label %._crit_edge364.loopexit, label %.lr.ph363, !llvm.loop !17
 
 ._crit_edge364.loopexit:                          ; preds = %183, %.lr.ph363
   %185 = phi i32 [ %181, %183 ], [ %147, %.lr.ph363 ]
@@ -440,7 +440,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %187 = phi i32 [ %185, %._crit_edge364.loopexit ], [ %140, %138 ]
   %188 = add nuw nsw i32 %.0266367, 1
   %.not300.not = icmp slt i32 %.0266367, %186
-  br i1 %.not300.not, label %138, label %._crit_edge370, !llvm.loop !17
+  br i1 %.not300.not, label %138, label %._crit_edge370, !llvm.loop !18
 
 ._crit_edge370:                                   ; preds = %._crit_edge364, %130
   %189 = phi i32 [ %.pre423, %130 ], [ %187, %._crit_edge364 ]
@@ -465,7 +465,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store double %196, ptr %197, align 8, !tbaa !7
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond411.not = icmp eq i64 %indvars.iv.next408, %wide.trip.count410
-  br i1 %exitcond411.not, label %._crit_edge375, label %193, !llvm.loop !18
+  br i1 %exitcond411.not, label %._crit_edge375, label %193, !llvm.loop !19
 
 ._crit_edge375:                                   ; preds = %193, %._crit_edge370
   %.not302.not380 = icmp sgt i32 %189, 1
@@ -490,7 +490,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store double %203, ptr %204, align 8, !tbaa !7
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond416.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count415
-  br i1 %exitcond416.not, label %.loopexit, label %201, !llvm.loop !19
+  br i1 %exitcond416.not, label %.loopexit, label %201, !llvm.loop !20
 
 205:                                              ; preds = %._crit_edge375
   br i1 %.not302.not380, label %.lr.ph383, label %.loopexit
@@ -512,7 +512,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store double %211, ptr %212, align 8, !tbaa !7
   %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   %exitcond421.not = icmp eq i64 %indvars.iv.next418, %wide.trip.count420
-  br i1 %exitcond421.not, label %.loopexit, label %208, !llvm.loop !20
+  br i1 %exitcond421.not, label %.loopexit, label %208, !llvm.loop !21
 
 .loopexit:                                        ; preds = %201, %208, %198, %205
   store double %69, ptr %9, align 8, !tbaa !7
@@ -577,15 +577,16 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}

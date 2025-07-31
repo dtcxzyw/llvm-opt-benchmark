@@ -471,16 +471,16 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph96 ], [ 0, %.preheader ]
   %.494 = phi i64 [ %42, %.lr.ph96 ], [ %.243101, %.preheader ]
   %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv122
-  %41 = load i8, ptr %40, align 1, !tbaa !48
+  %41 = load i8, ptr %40, align 1, !tbaa !49
   %42 = add i64 %.494, 1
   %43 = load ptr, ptr %11, align 8, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.494
-  store i8 %41, ptr %44, align 1, !tbaa !48
+  store i8 %41, ptr %44, align 1, !tbaa !49
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %45 = load i8, ptr %10, align 8, !tbaa !17
   %46 = zext i8 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next123, %46
-  br i1 %47, label %.lr.ph96, label %._crit_edge97, !llvm.loop !49
+  br i1 %47, label %.lr.ph96, label %._crit_edge97, !llvm.loop !50
 
 48:                                               ; preds = %._crit_edge97
   %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9, i64 noundef 21)
@@ -512,7 +512,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
 63:                                               ; preds = %._crit_edge
   %64 = add nuw nsw i32 %.03791, 1
   %exitcond.not = icmp eq i32 %64, %umax
-  br i1 %exitcond.not, label %.thread65, label %.preheader77, !llvm.loop !50
+  br i1 %exitcond.not, label %.thread65, label %.preheader77, !llvm.loop !51
 
 .preheader77:                                     ; preds = %.preheader77.preheader, %63
   %65 = phi i8 [ %66, %63 ], [ %.pre, %.preheader77.preheader ]
@@ -533,16 +533,16 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader77 ]
   %.886 = phi i64 [ %71, %.lr.ph ], [ %.690, %.preheader77 ]
   %69 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
-  %70 = load i8, ptr %69, align 1, !tbaa !48
+  %70 = load i8, ptr %69, align 1, !tbaa !49
   %71 = add i64 %.886, 1
   %72 = load ptr, ptr %11, align 8, !tbaa !18
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.886
-  store i8 %70, ptr %73, align 1, !tbaa !48
+  store i8 %70, ptr %73, align 1, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i8, ptr %10, align 8, !tbaa !17
   %75 = zext i8 %74 to i64
   %76 = icmp samesign ult i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 77:                                               ; preds = %._crit_edge
   %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9, i64 noundef 21)
@@ -552,7 +552,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   %.448 = phi i64 [ %38, %25 ], [ %67, %63 ]
   %.5 = phi i64 [ %.4.lcssa, %25 ], [ %.8.lcssa, %63 ]
   %79 = icmp ult i64 %.448, %8
-  br i1 %79, label %12, label %.thread71, !llvm.loop !52
+  br i1 %79, label %12, label %.thread71, !llvm.loop !53
 
 .thread71:                                        ; preds = %.thread65, %48, %77, %.thread, %19, %61
   %cond76 = phi i1 [ false, %48 ], [ false, %77 ], [ false, %61 ], [ false, %19 ], [ false, %.thread ], [ true, %.thread65 ]
@@ -612,7 +612,7 @@ define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr noundef nonnull reado
   %17 = phi i32 [ %20, %._crit_edge18.loopexit ], [ %9, %.preheader15 ]
   %18 = add nuw nsw i32 %.01319, 1
   %19 = icmp slt i32 %18, %15
-  br i1 %19, label %.preheader15, label %._crit_edge20, !llvm.loop !53
+  br i1 %19, label %.preheader15, label %._crit_edge20, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %25
   %.pre22 = load i32, ptr %4, align 4, !tbaa !16
@@ -624,7 +624,7 @@ define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr noundef nonnull reado
   %22 = add nuw nsw i32 %.01217, 1
   %23 = sdiv i32 %20, 2
   %24 = icmp slt i32 %22, %23
-  br i1 %24, label %.preheader, label %._crit_edge18.loopexit, !llvm.loop !54
+  br i1 %24, label %.preheader, label %._crit_edge18.loopexit, !llvm.loop !55
 
 25:                                               ; preds = %.lr.ph, %25
   %26 = phi i32 [ %13, %.lr.ph ], [ %47, %25 ]
@@ -645,15 +645,15 @@ define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr noundef nonnull reado
   %40 = add nsw i32 %39, %.016
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 %41
-  %43 = load i8, ptr %34, align 1, !tbaa !48
-  %44 = load i8, ptr %42, align 1, !tbaa !48
-  store i8 %44, ptr %34, align 1, !tbaa !48
-  store i8 %43, ptr %42, align 1, !tbaa !48
+  %43 = load i8, ptr %34, align 1, !tbaa !49
+  %44 = load i8, ptr %42, align 1, !tbaa !49
+  store i8 %44, ptr %34, align 1, !tbaa !49
+  store i8 %43, ptr %42, align 1, !tbaa !49
   %45 = add nuw nsw i32 %.016, 1
   %46 = load i8, ptr %5, align 8, !tbaa !17
   %47 = zext i8 %46 to i32
   %48 = icmp samesign ult i32 %45, %47
-  br i1 %48, label %25, label %._crit_edge.loopexit, !llvm.loop !55
+  br i1 %48, label %25, label %._crit_edge.loopexit, !llvm.loop !56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -708,7 +708,7 @@ define dso_local void @_ZN8TGAImage17flip_horizontallyEv(ptr noundef nonnull rea
   %20 = add nuw nsw i32 %.01319, 1
   %21 = sdiv i32 %17, 2
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %.preheader15, label %._crit_edge20, !llvm.loop !56
+  br i1 %22, label %.preheader15, label %._crit_edge20, !llvm.loop !57
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre22 = load i32, ptr %4, align 4, !tbaa !16
@@ -719,7 +719,7 @@ define dso_local void @_ZN8TGAImage17flip_horizontallyEv(ptr noundef nonnull rea
   %24 = phi i8 [ %45, %._crit_edge.loopexit ], [ 0, %.preheader ]
   %25 = add nuw nsw i32 %.01217, 1
   %26 = icmp slt i32 %25, %23
-  br i1 %26, label %.preheader, label %._crit_edge18.loopexit, !llvm.loop !58
+  br i1 %26, label %.preheader, label %._crit_edge18.loopexit, !llvm.loop !59
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %27 = phi i32 [ %46, %.lr.ph ], [ %16, %.lr.ph.preheader ]
@@ -738,15 +738,15 @@ define dso_local void @_ZN8TGAImage17flip_horizontallyEv(ptr noundef nonnull rea
   %39 = add nsw i32 %38, %.016
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 %40
-  %42 = load i8, ptr %35, align 1, !tbaa !48
-  %43 = load i8, ptr %41, align 1, !tbaa !48
-  store i8 %43, ptr %35, align 1, !tbaa !48
-  store i8 %42, ptr %41, align 1, !tbaa !48
+  %42 = load i8, ptr %35, align 1, !tbaa !49
+  %43 = load i8, ptr %41, align 1, !tbaa !49
+  store i8 %43, ptr %35, align 1, !tbaa !49
+  store i8 %42, ptr %41, align 1, !tbaa !49
   %44 = add nuw nsw i32 %.016, 1
   %45 = load i8, ptr %5, align 8, !tbaa !17
   %46 = zext i8 %45 to i32
   %47 = icmp samesign ult i32 %44, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !59
+  br i1 %47, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1030,20 +1030,20 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %22 = add i64 %.049.us, %12
   %or.cond3.us = or i1 %27, %32
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  br i1 %or.cond3.us, label %.split.us, label %.thread.thread104, !llvm.loop !60
+  br i1 %or.cond3.us, label %.split.us, label %.thread.thread104, !llvm.loop !61
 
 .preheader.us:                                    ; preds = %.split.us, %.preheader.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.split.us ]
   %23 = add i64 %.049.us, %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !48
+  %25 = load i8, ptr %24, align 1, !tbaa !49
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %23
-  %26 = load i8, ptr %gep.us, align 1, !tbaa !48
+  %26 = load i8, ptr %gep.us, align 1, !tbaa !49
   %27 = icmp eq i8 %25, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = icmp samesign ult i64 %indvars.iv.next, %15
   %or.cond58.us = select i1 %27, i1 %28, i1 false
-  br i1 %or.cond58.us, label %.preheader.us, label %..critedge_crit_edge.us, !llvm.loop !62
+  br i1 %or.cond58.us, label %.preheader.us, label %..critedge_crit_edge.us, !llvm.loop !63
 
 ..critedge_crit_edge.us:                          ; preds = %.preheader.us
   %29 = icmp eq i64 %indvars.iv87, 1
@@ -1101,7 +1101,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %gep = getelementptr i8, ptr %invariant.gep75, i64 %51
   %52 = load i32, ptr %gep, align 8, !tbaa !27
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %69, !llvm.loop !63
+  br i1 %53, label %54, label %69, !llvm.loop !64
 
 54:                                               ; preds = %.thread.thread104
   %55 = zext i8 %.14796 to i64
@@ -1119,7 +1119,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %gep77 = getelementptr i8, ptr %invariant.gep75, i64 %66
   %67 = load i32, ptr %gep77, align 8, !tbaa !27
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.critedge60, label %69, !llvm.loop !63
+  br i1 %68, label %.critedge60, label %69, !llvm.loop !65
 
 69:                                               ; preds = %.critedge60, %.thread.thread104, %54
   ret i1 %.not.not.not.not.not
@@ -1180,7 +1180,7 @@ define dso_local i40 @_ZNK8TGAImage3getEii(ptr noundef nonnull readonly align 8 
   %31 = getelementptr i8, ptr %8, i64 %24
   %32 = getelementptr i8, ptr %31, i64 %25
   %scevgep25 = getelementptr i8, ptr %32, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %scevgep25, i64 %25, i1 false), !tbaa !48
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %scevgep25, i64 %25, i1 false), !tbaa !49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %17, %16
@@ -1319,21 +1319,23 @@ attributes #21 = { builtin nounwind }
 !43 = !{!38, !8, i64 17}
 !44 = !{!45, !8, i64 4}
 !45 = !{!"_ZTS8TGAColor", !8, i64 0, !8, i64 4}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!8, !8, i64 0}
-!49 = distinct !{!49, !47}
-!50 = distinct !{!50, !47}
-!51 = distinct !{!51, !47}
-!52 = distinct !{!52, !47}
-!53 = distinct !{!53, !47}
-!54 = distinct !{!54, !47}
-!55 = distinct !{!55, !47}
-!56 = distinct !{!56, !47, !57}
-!57 = !{!"llvm.loop.unswitch.partial.disable"}
-!58 = distinct !{!58, !47}
-!59 = distinct !{!59, !47}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !47}
-!63 = distinct !{!63, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!8, !8, i64 0}
+!50 = distinct !{!50, !47, !48}
+!51 = distinct !{!51, !47, !48}
+!52 = distinct !{!52, !47, !48}
+!53 = distinct !{!53, !47, !48}
+!54 = distinct !{!54, !47, !48}
+!55 = distinct !{!55, !47, !48}
+!56 = distinct !{!56, !47, !48}
+!57 = distinct !{!57, !47, !48, !58}
+!58 = !{!"llvm.loop.unswitch.partial.disable"}
+!59 = distinct !{!59, !47, !48}
+!60 = distinct !{!60, !47, !48}
+!61 = distinct !{!61, !48, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !47, !48}
+!64 = distinct !{!64, !47}
+!65 = distinct !{!65, !47, !48}

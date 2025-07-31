@@ -139,7 +139,7 @@ _ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit.i.i: ; preds = %16
   %38 = load i64, ptr @ZAddressOffsetMax, align 8
   %39 = icmp ult i64 %36, %38
   %40 = select i1 %37, i1 %39, i1 false
-  br i1 %40, label %.lr.ph.i1.i, label %"_ZZN21ZVirtualMemoryManager7reserveEmENK3$_0clEv.exit", !llvm.loop !8
+  br i1 %40, label %.lr.ph.i1.i, label %"_ZZN21ZVirtualMemoryManager7reserveEmENK3$_0clEv.exit", !llvm.loop !9
 
 "_ZZN21ZVirtualMemoryManager7reserveEmENK3$_0clEv.exit": ; preds = %.lr.ph.i1.i, %22, %.loopexit.i
   %.0.i = phi i64 [ %9, %22 ], [ 0, %.loopexit.i ], [ %35, %.lr.ph.i1.i ]
@@ -268,7 +268,7 @@ define hidden noundef i64 @_ZN21ZVirtualMemoryManager21reserve_discontiguousEm(p
   %18 = load i64, ptr @ZAddressOffsetMax, align 8
   %19 = icmp ult i64 %16, %18
   %20 = select i1 %17, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.014.lcssa = phi i64 [ 0, %2 ], [ %15, %.lr.ph ]
@@ -460,6 +460,7 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

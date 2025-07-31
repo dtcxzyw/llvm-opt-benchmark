@@ -682,7 +682,7 @@ fdt_check_node_offset_.exit:                      ; preds = %9
   switch i32 %16, label %.split.us [
     i32 9, label %.split25.us
     i32 1, label %.thread
-  ], !llvm.loop !10
+  ], !llvm.loop !11
 
 .split:                                           ; preds = %13, %.backedge
   %17 = phi i32 [ %.pre, %.backedge ], [ %14, %13 ]
@@ -695,7 +695,7 @@ fdt_check_node_offset_.exit:                      ; preds = %9
 
 .backedge:                                        ; preds = %21, %.split
   %.pre = load i32, ptr %5, align 4, !tbaa !6
-  br label %.split, !llvm.loop !12
+  br label %.split, !llvm.loop !13
 
 .split27.us:                                      ; preds = %.split
   %19 = load i32, ptr %2, align 4, !tbaa !6
@@ -776,7 +776,7 @@ fdt_check_node_offset_.exit.i:                    ; preds = %8
 
 .backedge.i:                                      ; preds = %.split.i
   %.pre.i = load i32, ptr %4, align 4, !tbaa !6
-  br label %.split.i, !llvm.loop !12
+  br label %.split.i, !llvm.loop !13
 
 14:                                               ; preds = %.split.i
   %15 = load i32, ptr %4, align 4, !tbaa !6
@@ -1048,7 +1048,7 @@ fdt_next_tag.exit:                                ; preds = %.critedge.i
   %154 = icmp ult i32 %153, %152
   %155 = icmp ugt i32 %153, -5
   %or.cond31 = or i1 %154, %155
-  br i1 %or.cond31, label %fdt_next_node.exit.thread, label %72, !llvm.loop !12
+  br i1 %or.cond31, label %fdt_next_node.exit.thread, label %72, !llvm.loop !13
 
 156:                                              ; preds = %fdt_next_tag.exit
   %157 = add nsw i32 %.142, -1
@@ -1064,7 +1064,7 @@ fdt_next_node.exit:                               ; preds = %fdt_next_tag.exit
 161:                                              ; preds = %fdt_next_node.exit
   %162 = add nuw nsw i32 %.142, 1
   %.not = icmp eq i32 %.142, 0
-  br i1 %.not, label %fdt_next_node.exit.thread, label %20, !llvm.loop !13
+  br i1 %.not, label %fdt_next_node.exit.thread, label %20, !llvm.loop !14
 
 fdt_next_node.exit.thread:                        ; preds = %fdt_check_node_offset_.exit.i, %161, %fdt_next_node.exit, %28, %156, %94, %.backedge.i, %72, %.critedge.i, %fdt_offset_ptr.exit11._crit_edge, %137, %fdt_next_tag.exit, %.preheader.i, %120, %118, %fdt_check_node_offset_.exit.thread.i
   %.05 = phi i32 [ -1, %fdt_check_node_offset_.exit.thread.i ], [ -1, %118 ], [ -1, %120 ], [ -1, %.preheader.i ], [ -1, %fdt_next_tag.exit ], [ -1, %137 ], [ -1, %fdt_offset_ptr.exit11._crit_edge ], [ -1, %.critedge.i ], [ -1, %72 ], [ -1, %.backedge.i ], [ -1, %94 ], [ -1, %156 ], [ -1, %28 ], [ -1, %fdt_check_node_offset_.exit.i ], [ %74, %161 ], [ -1, %fdt_next_node.exit ]
@@ -1092,7 +1092,7 @@ define ptr @fdt_find_string_(ptr noundef readonly captures(address, ret: address
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %.not = icmp ugt ptr %12, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %3
   %.012 = phi ptr [ null, %3 ], [ null, %11 ], [ %.014, %.lr.ph ]
@@ -1175,10 +1175,11 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

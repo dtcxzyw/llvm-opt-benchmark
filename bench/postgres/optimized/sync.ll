@@ -280,7 +280,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   store i16 %14, ptr %15, align 8
   %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
   %.not49 = icmp eq ptr %16, null
-  br i1 %.not49, label %.loopexit59, label %.lr.ph, !llvm.loop !8
+  br i1 %.not49, label %.loopexit59, label %.lr.ph, !llvm.loop !9
 
 .loopexit59:                                      ; preds = %.lr.ph, %10, %9
   %17 = load i16, ptr @sync_cycle_ctr, align 2
@@ -308,7 +308,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %26 = load i16, ptr %25, align 8
   %27 = load i16, ptr @sync_cycle_ctr, align 2
   %28 = icmp eq i16 %26, %27
-  br i1 %28, label %99, label %29, !llvm.loop !9
+  br i1 %28, label %99, label %29, !llvm.loop !10
 
 29:                                               ; preds = %23
   %30 = load i8, ptr @enableFsync, align 1, !range !4, !noundef !5
@@ -364,7 +364,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 %57(ptr noundef nonnull %24, ptr noundef nonnull %4) #9
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.lr.ph68._crit_edge, label %.lr.ph90, !llvm.loop !10
+  br i1 %59, label %.lr.ph68._crit_edge, label %.lr.ph90, !llvm.loop !11
 
 .lr.ph68._crit_edge:                              ; preds = %.lr.ph68, %.lr.ph68.preheader
   %.467.lcssa = phi i32 [ %.3, %.lr.ph68.preheader ], [ 10, %.lr.ph68 ]
@@ -439,7 +439,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #9
   %91 = load i8, ptr %37, align 2, !range !4, !noundef !5
   %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %.loopexit, label %.lr.ph68, !llvm.loop !10
+  br i1 %92, label %.loopexit, label %.lr.ph68, !llvm.loop !11
 
 .loopexit:                                        ; preds = %90, %36, %.thread, %29
   %.241 = phi i32 [ %.03970, %29 ], [ %67, %.thread ], [ %.03970, %36 ], [ %.03970, %90 ]
@@ -465,7 +465,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %.1 = phi i32 [ %.073, %23 ], [ %.2, %.loopexit ]
   %100 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
   %.not50 = icmp eq ptr %100, null
-  br i1 %.not50, label %._crit_edge, label %23
+  br i1 %.not50, label %._crit_edge, label %23, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %99, %.loopexit59
   %.039.lcssa = phi i32 [ 0, %.loopexit59 ], [ %.140, %99 ]
@@ -543,7 +543,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
 24:                                               ; preds = %22, %17, %.lr.ph
   %25 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %24, %10
   %26 = load ptr, ptr @pendingUnlinks, align 8
@@ -672,7 +672,7 @@ define dso_local zeroext i1 @RegisterSyncRequest(ptr noundef %0, i32 noundef %1,
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %9 = tail call i32 @WaitLatch(ptr noundef null, i32 noundef 40, i64 noundef 10, i32 noundef 150994949) #9
   %10 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #9
-  br i1 %10, label %.loopexit, label %.lr.ph.split
+  br i1 %10, label %.loopexit, label %.lr.ph.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.preheader, %.lr.ph.split.us, %8
   %.0 = phi i1 [ true, %8 ], [ %5, %.preheader ], [ %7, %.lr.ph.split.us ], [ true, %.lr.ph.split ]
@@ -727,9 +727,12 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}

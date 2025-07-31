@@ -58,7 +58,7 @@ define void @lv_lru_delete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8, !tbaa !18
@@ -83,29 +83,29 @@ define void @lv_lru_delete(ptr noundef %0) local_unnamed_addr #0 {
   %.036 = phi i32 [ 0, %.lr.ph37 ], [ %27, %._crit_edge ]
   %12 = load ptr, ptr %0, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
-  %14 = load ptr, ptr %13, align 8, !tbaa !19
+  %14 = load ptr, ptr %13, align 8, !tbaa !21
   %.not3134 = icmp eq ptr %14, null
   br i1 %.not3134, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %.02435 = phi ptr [ %16, %.lr.ph ], [ %14, %9 ]
   %15 = getelementptr inbounds nuw i8, ptr %.02435, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   %17 = load ptr, ptr %6, align 8, !tbaa !16
-  %18 = load ptr, ptr %.02435, align 8, !tbaa !22
+  %18 = load ptr, ptr %.02435, align 8, !tbaa !24
   tail call void %17(ptr noundef %18) #2
   %19 = load ptr, ptr %7, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %.02435, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !23
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
   tail call void %19(ptr noundef %21) #2
   %22 = getelementptr inbounds nuw i8, ptr %.02435, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !24
+  %23 = load i64, ptr %22, align 8, !tbaa !26
   %24 = load i64, ptr %8, align 8, !tbaa !13
   %25 = add i64 %24, %23
   store i64 %25, ptr %8, align 8, !tbaa !13
   tail call void @lv_free(ptr noundef nonnull %.02435) #2
   %.not31 = icmp eq ptr %16, null
-  br i1 %.not31, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not31, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i64, ptr %4, align 8, !tbaa !3
@@ -116,7 +116,7 @@ define void @lv_lru_delete(ptr noundef %0) local_unnamed_addr #0 {
   %27 = add i32 %.036, 1
   %28 = zext i32 %27 to i64
   %29 = icmp ugt i64 %26, %28
-  br i1 %29, label %9, label %._crit_edge38.loopexit, !llvm.loop !27
+  br i1 %29, label %9, label %._crit_edge38.loopexit, !llvm.loop !29
 
 ._crit_edge38.loopexit:                           ; preds = %._crit_edge
   %.pre41 = load ptr, ptr %0, align 8, !tbaa !18
@@ -129,17 +129,17 @@ define void @lv_lru_delete(ptr noundef %0) local_unnamed_addr #0 {
 
 31:                                               ; preds = %._crit_edge38, %2
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %33 = load ptr, ptr %32, align 8, !tbaa !28
+  %33 = load ptr, ptr %32, align 8, !tbaa !30
   %.not29 = icmp eq ptr %33, null
   br i1 %.not29, label %.loopexit, label %.preheader32
 
 .preheader32:                                     ; preds = %31, %.preheader32
   %.139 = phi ptr [ %35, %.preheader32 ], [ %33, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %.139, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  %35 = load ptr, ptr %34, align 8, !tbaa !22
   tail call void @lv_free(ptr noundef nonnull %.139) #2
   %.not30 = icmp eq ptr %35, null
-  br i1 %.not30, label %.loopexit, label %.preheader32, !llvm.loop !29
+  br i1 %.not30, label %.loopexit, label %.preheader32, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader32, %31
   tail call void @lv_free(ptr noundef nonnull %0) #2
@@ -179,7 +179,7 @@ define range(i32 0, 6) i32 @lv_lru_set(ptr noundef captures(address_is_null) %0,
   %.046.i = phi i32 [ %28, %.lr.ph.i ], [ %15, %14 ]
   %.03645.i = phi ptr [ %27, %.lr.ph.i ], [ %1, %14 ]
   %.03744.i = phi i32 [ %26, %.lr.ph.i ], [ %18, %14 ]
-  %20 = load i32, ptr %.03645.i, align 4, !tbaa !30
+  %20 = load i32, ptr %.03645.i, align 4, !tbaa !32
   %21 = mul i32 %20, 1540483477
   %22 = lshr i32 %21, 24
   %23 = xor i32 %22, %21
@@ -189,7 +189,7 @@ define range(i32 0, 6) i32 @lv_lru_set(ptr noundef captures(address_is_null) %0,
   %27 = getelementptr inbounds nuw i8, ptr %.03645.i, i64 4
   %28 = add i32 %.046.i, -4
   %29 = icmp ugt i32 %28, 3
-  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !31
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
   %.037.lcssa.i = phi i32 [ %18, %14 ], [ %26, %.lr.ph.i ]
@@ -200,7 +200,7 @@ define range(i32 0, 6) i32 @lv_lru_set(ptr noundef captures(address_is_null) %0,
 
 .thread.i:                                        ; preds = %._crit_edge.i
   %31 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 2
-  %32 = load i8, ptr %31, align 1, !tbaa !32
+  %32 = load i8, ptr %31, align 1, !tbaa !34
   %33 = sext i8 %32 to i32
   %34 = shl nsw i32 %33, 16
   %35 = xor i32 %34, %.037.lcssa.i
@@ -213,7 +213,7 @@ define range(i32 0, 6) i32 @lv_lru_set(ptr noundef captures(address_is_null) %0,
 .thread40.i:                                      ; preds = %36, %.thread.i
   %.139.i = phi i32 [ %35, %.thread.i ], [ %.037.lcssa.i, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 1
-  %39 = load i8, ptr %38, align 1, !tbaa !32
+  %39 = load i8, ptr %38, align 1, !tbaa !34
   %40 = sext i8 %39 to i32
   %41 = shl nsw i32 %40, 8
   %42 = xor i32 %41, %.139.i
@@ -225,7 +225,7 @@ define range(i32 0, 6) i32 @lv_lru_set(ptr noundef captures(address_is_null) %0,
 
 44:                                               ; preds = %43, %.thread40.i
   %.243.i = phi i32 [ %42, %.thread40.i ], [ %.037.lcssa.i, %43 ]
-  %45 = load i8, ptr %.036.lcssa.i, align 1, !tbaa !32
+  %45 = load i8, ptr %.036.lcssa.i, align 1, !tbaa !34
   %46 = sext i8 %45 to i32
   %47 = xor i32 %.243.i, %46
   %48 = mul i32 %47, 1540483477
@@ -244,7 +244,7 @@ lv_lru_hash.exit:                                 ; preds = %43, %44
   %57 = urem i64 %54, %56
   %58 = load ptr, ptr %0, align 8, !tbaa !18
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %57
-  %.05680 = load ptr, ptr %59, align 8, !tbaa !19
+  %.05680 = load ptr, ptr %59, align 8, !tbaa !21
   %.not6481 = icmp eq ptr %.05680, null
   br i1 %.not6481, label %.critedge67, label %.lr.ph
 
@@ -255,46 +255,46 @@ lv_lru_hash.exit:                                 ; preds = %43, %44
 61:                                               ; preds = %.lr.ph, %lv_lru_cmp_keys.exit.thread
   %.05682 = phi ptr [ %.05680, %.lr.ph ], [ %.056, %lv_lru_cmp_keys.exit.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %.05682, i64 24
-  %63 = load i64, ptr %62, align 8, !tbaa !33
+  %63 = load i64, ptr %62, align 8, !tbaa !35
   %.not.i68 = icmp eq i64 %63, %60
   br i1 %.not.i68, label %lv_lru_cmp_keys.exit, label %lv_lru_cmp_keys.exit.thread
 
 lv_lru_cmp_keys.exit:                             ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %.05682, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !23
+  %65 = load ptr, ptr %64, align 8, !tbaa !25
   %66 = tail call i32 @lv_memcmp(ptr noundef nonnull %1, ptr noundef %65, i64 noundef %60) #2
   %.not65 = icmp eq i32 %66, 0
   br i1 %.not65, label %.critedge, label %lv_lru_cmp_keys.exit.thread
 
 lv_lru_cmp_keys.exit.thread:                      ; preds = %61, %lv_lru_cmp_keys.exit
   %67 = getelementptr inbounds nuw i8, ptr %.05682, i64 40
-  %.056 = load ptr, ptr %67, align 8, !tbaa !19
+  %.056 = load ptr, ptr %67, align 8, !tbaa !21
   %.not64 = icmp eq ptr %.056, null
-  br i1 %.not64, label %.critedge67, label %61, !llvm.loop !34
+  br i1 %.not64, label %.critedge67, label %61, !llvm.loop !36
 
 .critedge:                                        ; preds = %lv_lru_cmp_keys.exit
   %68 = getelementptr inbounds nuw i8, ptr %.05682, i64 16
-  %69 = load i64, ptr %68, align 8, !tbaa !24
+  %69 = load i64, ptr %68, align 8, !tbaa !26
   %70 = sub i64 %4, %69
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !tbaa !16
-  %73 = load ptr, ptr %.05682, align 8, !tbaa !22
+  %73 = load ptr, ptr %.05682, align 8, !tbaa !24
   tail call void %72(ptr noundef %73) #2
-  store ptr %3, ptr %.05682, align 8, !tbaa !22
-  store i64 %4, ptr %68, align 8, !tbaa !24
+  store ptr %3, ptr %.05682, align 8, !tbaa !24
+  store i64 %4, ptr %68, align 8, !tbaa !26
   br label %91
 
 .critedge67:                                      ; preds = %lv_lru_cmp_keys.exit.thread, %lv_lru_hash.exit
   %.0.lcssa = phi ptr [ null, %lv_lru_hash.exit ], [ %.05682, %lv_lru_cmp_keys.exit.thread ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %75 = load ptr, ptr %74, align 8, !tbaa !28
+  %75 = load ptr, ptr %74, align 8, !tbaa !30
   %.not.i69 = icmp eq ptr %75, null
   br i1 %.not.i69, label %79, label %76
 
 76:                                               ; preds = %.critedge67
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  %78 = load ptr, ptr %77, align 8, !tbaa !20
-  store ptr %78, ptr %74, align 8, !tbaa !28
+  %78 = load ptr, ptr %77, align 8, !tbaa !22
+  store ptr %78, ptr %74, align 8, !tbaa !30
   tail call void @lv_memset(ptr noundef nonnull %75, i8 noundef zeroext 0, i64 noundef 48) #2
   br label %lv_lru_pop_or_create_item.exit
 
@@ -304,27 +304,27 @@ lv_lru_cmp_keys.exit.thread:                      ; preds = %61, %lv_lru_cmp_key
 
 lv_lru_pop_or_create_item.exit:                   ; preds = %76, %79
   %.0.i70 = phi ptr [ %75, %76 ], [ %80, %79 ]
-  store ptr %3, ptr %.0.i70, align 8, !tbaa !22
+  store ptr %3, ptr %.0.i70, align 8, !tbaa !24
   %81 = tail call ptr @lv_malloc(i64 noundef %2) #2
   %82 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 8
-  store ptr %81, ptr %82, align 8, !tbaa !23
+  store ptr %81, ptr %82, align 8, !tbaa !25
   %83 = tail call ptr @lv_memcpy(ptr noundef %81, ptr noundef nonnull %1, i64 noundef %2) #2
   %84 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 16
-  store i64 %4, ptr %84, align 8, !tbaa !24
+  store i64 %4, ptr %84, align 8, !tbaa !26
   %85 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 24
-  store i64 %2, ptr %85, align 8, !tbaa !33
+  store i64 %2, ptr %85, align 8, !tbaa !35
   %.not66 = icmp eq ptr %.0.lcssa, null
   br i1 %.not66, label %88, label %86
 
 86:                                               ; preds = %lv_lru_pop_or_create_item.exit
   %87 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 40
-  store ptr %.0.i70, ptr %87, align 8, !tbaa !20
+  store ptr %.0.i70, ptr %87, align 8, !tbaa !22
   br label %91
 
 88:                                               ; preds = %lv_lru_pop_or_create_item.exit
   %89 = load ptr, ptr %0, align 8, !tbaa !18
   %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %57
-  store ptr %.0.i70, ptr %90, align 8, !tbaa !19
+  store ptr %.0.i70, ptr %90, align 8, !tbaa !21
   br label %91
 
 91:                                               ; preds = %86, %88, %.critedge
@@ -332,11 +332,11 @@ lv_lru_pop_or_create_item.exit:                   ; preds = %76, %79
   %.1 = phi ptr [ %.05682, %.critedge ], [ %.0.i70, %86 ], [ %.0.i70, %88 ]
   %.057 = trunc i64 %.057.in to i32
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %93 = load i64, ptr %92, align 8, !tbaa !35
+  %93 = load i64, ptr %92, align 8, !tbaa !37
   %94 = add i64 %93, 1
-  store i64 %94, ptr %92, align 8, !tbaa !35
+  store i64 %94, ptr %92, align 8, !tbaa !37
   %95 = getelementptr inbounds nuw i8, ptr %.1, i64 32
-  store i64 %94, ptr %95, align 8, !tbaa !36
+  store i64 %94, ptr %95, align 8, !tbaa !38
   %96 = icmp sgt i32 %.057, 0
   br i1 %96, label %97, label %..loopexit_crit_edge
 
@@ -385,7 +385,7 @@ lv_lru_remove_lru_item.exit.us:                   ; preds = %.lr.ph83, %lv_lru_r
   %.02646.i = phi ptr [ null, %.lr.ph51.i ], [ %.127.lcssa.i, %._crit_edge.i72 ]
   %.02945.i = phi ptr [ null, %.lr.ph51.i ], [ %.130.lcssa.i, %._crit_edge.i72 ]
   %112 = getelementptr inbounds nuw ptr, ptr %109, i64 %111
-  %.02534.i = load ptr, ptr %112, align 8, !tbaa !19
+  %.02534.i = load ptr, ptr %112, align 8, !tbaa !21
   %.not3335.i = icmp eq ptr %.02534.i, null
   br i1 %.not3335.i, label %._crit_edge.i72, label %.lr.ph.i71
 
@@ -397,7 +397,7 @@ lv_lru_remove_lru_item.exit.us:                   ; preds = %.lr.ph83, %lv_lru_r
   %.12737.i = phi ptr [ %.228.i, %118 ], [ %.02646.i, %110 ]
   %.13036.i = phi ptr [ %.231.i, %118 ], [ %.02945.i, %110 ]
   %113 = getelementptr inbounds nuw i8, ptr %.02541.i, i64 32
-  %114 = load i64, ptr %113, align 8, !tbaa !36
+  %114 = load i64, ptr %113, align 8, !tbaa !38
   %115 = icmp ult i64 %114, %.140.i
   %116 = icmp eq i64 %.140.i, -1
   %or.cond.i = or i1 %116, %115
@@ -412,9 +412,9 @@ lv_lru_remove_lru_item.exit.us:                   ; preds = %.lr.ph83, %lv_lru_r
   %.222.i = phi i32 [ %.02347.i, %117 ], [ %.12139.i, %.lr.ph.i71 ]
   %.2.i = phi i64 [ %114, %117 ], [ %.140.i, %.lr.ph.i71 ]
   %119 = getelementptr inbounds nuw i8, ptr %.02541.i, i64 40
-  %.025.i = load ptr, ptr %119, align 8, !tbaa !19
+  %.025.i = load ptr, ptr %119, align 8, !tbaa !21
   %.not33.i = icmp eq ptr %.025.i, null
-  br i1 %.not33.i, label %._crit_edge.i72, label %.lr.ph.i71, !llvm.loop !37
+  br i1 %.not33.i, label %._crit_edge.i72, label %.lr.ph.i71, !llvm.loop !39
 
 ._crit_edge.i72:                                  ; preds = %118, %110
   %.130.lcssa.i = phi ptr [ %.02945.i, %110 ], [ %.231.i, %118 ]
@@ -424,7 +424,7 @@ lv_lru_remove_lru_item.exit.us:                   ; preds = %.lr.ph83, %lv_lru_r
   %120 = add i32 %.02347.i, 1
   %121 = zext i32 %120 to i64
   %122 = icmp ugt i64 %107, %121
-  br i1 %122, label %110, label %._crit_edge52.i, !llvm.loop !38
+  br i1 %122, label %110, label %._crit_edge52.i, !llvm.loop !40
 
 ._crit_edge52.i:                                  ; preds = %._crit_edge.i72
   %123 = zext i32 %.121.lcssa.i to i64
@@ -434,42 +434,42 @@ lv_lru_remove_lru_item.exit.us:                   ; preds = %.lr.ph83, %lv_lru_r
 124:                                              ; preds = %._crit_edge52.i
   %.not.i.i = icmp eq ptr %.127.lcssa.i, null
   %125 = getelementptr inbounds nuw i8, ptr %.130.lcssa.i, i64 40
-  %126 = load ptr, ptr %125, align 8, !tbaa !20
+  %126 = load ptr, ptr %125, align 8, !tbaa !22
   br i1 %.not.i.i, label %129, label %127
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %.127.lcssa.i, i64 40
-  store ptr %126, ptr %128, align 8, !tbaa !20
+  store ptr %126, ptr %128, align 8, !tbaa !22
   br label %lv_lru_remove_item.exit.i
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw ptr, ptr %109, i64 %123
-  store ptr %126, ptr %130, align 8, !tbaa !19
+  store ptr %126, ptr %130, align 8, !tbaa !21
   br label %lv_lru_remove_item.exit.i
 
 lv_lru_remove_item.exit.i:                        ; preds = %129, %127
   %131 = getelementptr inbounds nuw i8, ptr %.130.lcssa.i, i64 16
-  %132 = load i64, ptr %131, align 8, !tbaa !24
+  %132 = load i64, ptr %131, align 8, !tbaa !26
   %133 = add i64 %132, %108
   store i64 %133, ptr %99, align 8, !tbaa !13
   %134 = load ptr, ptr %102, align 8, !tbaa !16
-  %135 = load ptr, ptr %.130.lcssa.i, align 8, !tbaa !22
+  %135 = load ptr, ptr %.130.lcssa.i, align 8, !tbaa !24
   tail call void %134(ptr noundef %135) #2
   %136 = load ptr, ptr %103, align 8, !tbaa !17
   %137 = getelementptr inbounds nuw i8, ptr %.130.lcssa.i, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !23
+  %138 = load ptr, ptr %137, align 8, !tbaa !25
   tail call void %136(ptr noundef %138) #2
   tail call void @lv_memset(ptr noundef nonnull %.130.lcssa.i, i8 noundef zeroext 0, i64 noundef 48) #2
-  %139 = load ptr, ptr %104, align 8, !tbaa !28
-  store ptr %139, ptr %125, align 8, !tbaa !20
-  store ptr %.130.lcssa.i, ptr %104, align 8, !tbaa !28
+  %139 = load ptr, ptr %104, align 8, !tbaa !30
+  store ptr %139, ptr %125, align 8, !tbaa !22
+  store ptr %.130.lcssa.i, ptr %104, align 8, !tbaa !30
   %.pre = load i64, ptr %99, align 8, !tbaa !13
   br label %lv_lru_remove_lru_item.exit
 
 lv_lru_remove_lru_item.exit:                      ; preds = %.lr.ph83.split, %._crit_edge52.i, %lv_lru_remove_item.exit.i
   %140 = phi i64 [ %108, %.lr.ph83.split ], [ %108, %._crit_edge52.i ], [ %.pre, %lv_lru_remove_item.exit.i ]
   %141 = icmp ult i64 %140, %98
-  br i1 %141, label %.lr.ph83.splitthread-pre-split, label %.loopexit, !llvm.loop !39
+  br i1 %141, label %.lr.ph83.splitthread-pre-split, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %lv_lru_remove_lru_item.exit, %..loopexit_crit_edge, %97
   %142 = phi i64 [ %.pre87, %..loopexit_crit_edge ], [ %100, %97 ], [ %140, %lv_lru_remove_lru_item.exit ]
@@ -508,7 +508,7 @@ define void @lv_lru_remove_lru_item(ptr noundef captures(none) %0) local_unnamed
   %.02646 = phi ptr [ null, %.lr.ph51 ], [ %.127.lcssa, %._crit_edge ]
   %.02945 = phi ptr [ null, %.lr.ph51 ], [ %.130.lcssa, %._crit_edge ]
   %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
-  %.02534 = load ptr, ptr %7, align 8, !tbaa !19
+  %.02534 = load ptr, ptr %7, align 8, !tbaa !21
   %.not3335 = icmp eq ptr %.02534, null
   br i1 %.not3335, label %._crit_edge, label %.lr.ph
 
@@ -520,7 +520,7 @@ define void @lv_lru_remove_lru_item(ptr noundef captures(none) %0) local_unnamed
   %.12737 = phi ptr [ %.228, %13 ], [ %.02646, %5 ]
   %.13036 = phi ptr [ %.231, %13 ], [ %.02945, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %.02541, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !36
+  %9 = load i64, ptr %8, align 8, !tbaa !38
   %10 = icmp ult i64 %9, %.140
   %11 = icmp eq i64 %.140, -1
   %or.cond = or i1 %11, %10
@@ -535,9 +535,9 @@ define void @lv_lru_remove_lru_item(ptr noundef captures(none) %0) local_unnamed
   %.222 = phi i32 [ %.02347, %12 ], [ %.12139, %.lr.ph ]
   %.2 = phi i64 [ %9, %12 ], [ %.140, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %.02541, i64 40
-  %.025 = load ptr, ptr %14, align 8, !tbaa !19
+  %.025 = load ptr, ptr %14, align 8, !tbaa !21
   %.not33 = icmp eq ptr %.025, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %13, %5
   %.130.lcssa = phi ptr [ %.02945, %5 ], [ %.231, %13 ]
@@ -547,7 +547,7 @@ define void @lv_lru_remove_lru_item(ptr noundef captures(none) %0) local_unnamed
   %15 = add i32 %.02347, 1
   %16 = zext i32 %15 to i64
   %17 = icmp ugt i64 %3, %16
-  br i1 %17, label %5, label %._crit_edge52, !llvm.loop !38
+  br i1 %17, label %5, label %._crit_edge52, !llvm.loop !40
 
 ._crit_edge52:                                    ; preds = %._crit_edge
   %18 = zext i32 %.121.lcssa to i64
@@ -557,41 +557,41 @@ define void @lv_lru_remove_lru_item(ptr noundef captures(none) %0) local_unnamed
 19:                                               ; preds = %._crit_edge52
   %.not.i = icmp eq ptr %.127.lcssa, null
   %20 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
   br i1 %.not.i, label %24, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.127.lcssa, i64 40
-  store ptr %21, ptr %23, align 8, !tbaa !20
+  store ptr %21, ptr %23, align 8, !tbaa !22
   br label %lv_lru_remove_item.exit
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %0, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %18
-  store ptr %21, ptr %26, align 8, !tbaa !19
+  store ptr %21, ptr %26, align 8, !tbaa !21
   br label %lv_lru_remove_item.exit
 
 lv_lru_remove_item.exit:                          ; preds = %22, %24
   %27 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !24
+  %28 = load i64, ptr %27, align 8, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !13
   %31 = add i64 %30, %28
   store i64 %31, ptr %29, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !16
-  %34 = load ptr, ptr %.130.lcssa, align 8, !tbaa !22
+  %34 = load ptr, ptr %.130.lcssa, align 8, !tbaa !24
   tail call void %33(ptr noundef %34) #2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load ptr, ptr %35, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !23
+  %38 = load ptr, ptr %37, align 8, !tbaa !25
   tail call void %36(ptr noundef %38) #2
   tail call void @lv_memset(ptr noundef nonnull %.130.lcssa, i8 noundef zeroext 0, i64 noundef 48) #2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %40 = load ptr, ptr %39, align 8, !tbaa !28
-  store ptr %40, ptr %20, align 8, !tbaa !20
-  store ptr %.130.lcssa, ptr %39, align 8, !tbaa !28
+  %40 = load ptr, ptr %39, align 8, !tbaa !30
+  store ptr %40, ptr %20, align 8, !tbaa !22
+  store ptr %.130.lcssa, ptr %39, align 8, !tbaa !30
   br label %._crit_edge52.thread
 
 ._crit_edge52.thread:                             ; preds = %1, %lv_lru_remove_item.exit, %._crit_edge52
@@ -619,7 +619,7 @@ define range(i32 0, 3) i32 @lv_lru_get(ptr noundef captures(address_is_null) %0,
   %.046.i = phi i32 [ %20, %.lr.ph.i ], [ %7, %6 ]
   %.03645.i = phi ptr [ %19, %.lr.ph.i ], [ %1, %6 ]
   %.03744.i = phi i32 [ %18, %.lr.ph.i ], [ %10, %6 ]
-  %12 = load i32, ptr %.03645.i, align 4, !tbaa !30
+  %12 = load i32, ptr %.03645.i, align 4, !tbaa !32
   %13 = mul i32 %12, 1540483477
   %14 = lshr i32 %13, 24
   %15 = xor i32 %14, %13
@@ -629,7 +629,7 @@ define range(i32 0, 3) i32 @lv_lru_get(ptr noundef captures(address_is_null) %0,
   %19 = getelementptr inbounds nuw i8, ptr %.03645.i, i64 4
   %20 = add i32 %.046.i, -4
   %21 = icmp ugt i32 %20, 3
-  br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !31
+  br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %6
   %.037.lcssa.i = phi i32 [ %10, %6 ], [ %18, %.lr.ph.i ]
@@ -640,7 +640,7 @@ define range(i32 0, 3) i32 @lv_lru_get(ptr noundef captures(address_is_null) %0,
 
 .thread.i:                                        ; preds = %._crit_edge.i
   %23 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 2
-  %24 = load i8, ptr %23, align 1, !tbaa !32
+  %24 = load i8, ptr %23, align 1, !tbaa !34
   %25 = sext i8 %24 to i32
   %26 = shl nsw i32 %25, 16
   %27 = xor i32 %26, %.037.lcssa.i
@@ -653,7 +653,7 @@ define range(i32 0, 3) i32 @lv_lru_get(ptr noundef captures(address_is_null) %0,
 .thread40.i:                                      ; preds = %28, %.thread.i
   %.139.i = phi i32 [ %27, %.thread.i ], [ %.037.lcssa.i, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 1
-  %31 = load i8, ptr %30, align 1, !tbaa !32
+  %31 = load i8, ptr %30, align 1, !tbaa !34
   %32 = sext i8 %31 to i32
   %33 = shl nsw i32 %32, 8
   %34 = xor i32 %33, %.139.i
@@ -665,7 +665,7 @@ define range(i32 0, 3) i32 @lv_lru_get(ptr noundef captures(address_is_null) %0,
 
 36:                                               ; preds = %35, %.thread40.i
   %.243.i = phi i32 [ %34, %.thread40.i ], [ %.037.lcssa.i, %35 ]
-  %37 = load i8, ptr %.036.lcssa.i, align 1, !tbaa !32
+  %37 = load i8, ptr %.036.lcssa.i, align 1, !tbaa !34
   %38 = sext i8 %37 to i32
   %39 = xor i32 %.243.i, %38
   %40 = mul i32 %39, 1540483477
@@ -684,7 +684,7 @@ lv_lru_hash.exit:                                 ; preds = %35, %36
   %49 = urem i64 %46, %48
   %50 = load ptr, ptr %0, align 8, !tbaa !18
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
-  %.031 = load ptr, ptr %51, align 8, !tbaa !19
+  %.031 = load ptr, ptr %51, align 8, !tbaa !21
   %.not2232 = icmp eq ptr %.031, null
   br i1 %.not2232, label %.critedge24, label %.lr.ph
 
@@ -695,36 +695,36 @@ lv_lru_hash.exit:                                 ; preds = %35, %36
 53:                                               ; preds = %.lr.ph, %lv_lru_cmp_keys.exit.thread
   %.033 = phi ptr [ %.031, %.lr.ph ], [ %.0, %lv_lru_cmp_keys.exit.thread ]
   %54 = getelementptr inbounds nuw i8, ptr %.033, i64 24
-  %55 = load i64, ptr %54, align 8, !tbaa !33
+  %55 = load i64, ptr %54, align 8, !tbaa !35
   %.not.i25 = icmp eq i64 %55, %52
   br i1 %.not.i25, label %lv_lru_cmp_keys.exit, label %lv_lru_cmp_keys.exit.thread
 
 lv_lru_cmp_keys.exit:                             ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %.033, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !23
+  %57 = load ptr, ptr %56, align 8, !tbaa !25
   %58 = tail call i32 @lv_memcmp(ptr noundef nonnull %1, ptr noundef %57, i64 noundef %52) #2
   %.not23 = icmp eq i32 %58, 0
   br i1 %.not23, label %.critedge, label %lv_lru_cmp_keys.exit.thread
 
 lv_lru_cmp_keys.exit.thread:                      ; preds = %53, %lv_lru_cmp_keys.exit
   %59 = getelementptr inbounds nuw i8, ptr %.033, i64 40
-  %.0 = load ptr, ptr %59, align 8, !tbaa !19
+  %.0 = load ptr, ptr %59, align 8, !tbaa !21
   %.not22 = icmp eq ptr %.0, null
-  br i1 %.not22, label %.critedge24, label %53, !llvm.loop !41
+  br i1 %.not22, label %.critedge24, label %53, !llvm.loop !43
 
 .critedge:                                        ; preds = %lv_lru_cmp_keys.exit
-  %60 = load ptr, ptr %.033, align 8, !tbaa !22
-  store ptr %60, ptr %3, align 8, !tbaa !42
+  %60 = load ptr, ptr %.033, align 8, !tbaa !24
+  store ptr %60, ptr %3, align 8, !tbaa !44
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %62 = load i64, ptr %61, align 8, !tbaa !35
+  %62 = load i64, ptr %61, align 8, !tbaa !37
   %63 = add i64 %62, 1
-  store i64 %63, ptr %61, align 8, !tbaa !35
+  store i64 %63, ptr %61, align 8, !tbaa !37
   %64 = getelementptr inbounds nuw i8, ptr %.033, i64 32
-  store i64 %63, ptr %64, align 8, !tbaa !36
+  store i64 %63, ptr %64, align 8, !tbaa !38
   br label %65
 
 .critedge24:                                      ; preds = %lv_lru_cmp_keys.exit.thread, %lv_lru_hash.exit
-  store ptr null, ptr %3, align 8, !tbaa !42
+  store ptr null, ptr %3, align 8, !tbaa !44
   br label %65
 
 65:                                               ; preds = %.critedge, %.critedge24, %5, %4
@@ -753,7 +753,7 @@ define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef captures(address_is_null) 
   %.046.i = phi i32 [ %19, %.lr.ph.i ], [ %6, %5 ]
   %.03645.i = phi ptr [ %18, %.lr.ph.i ], [ %1, %5 ]
   %.03744.i = phi i32 [ %17, %.lr.ph.i ], [ %9, %5 ]
-  %11 = load i32, ptr %.03645.i, align 4, !tbaa !30
+  %11 = load i32, ptr %.03645.i, align 4, !tbaa !32
   %12 = mul i32 %11, 1540483477
   %13 = lshr i32 %12, 24
   %14 = xor i32 %13, %12
@@ -763,7 +763,7 @@ define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef captures(address_is_null) 
   %18 = getelementptr inbounds nuw i8, ptr %.03645.i, i64 4
   %19 = add i32 %.046.i, -4
   %20 = icmp ugt i32 %19, 3
-  br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !31
+  br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %5
   %.037.lcssa.i = phi i32 [ %9, %5 ], [ %17, %.lr.ph.i ]
@@ -774,7 +774,7 @@ define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef captures(address_is_null) 
 
 .thread.i:                                        ; preds = %._crit_edge.i
   %22 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 2
-  %23 = load i8, ptr %22, align 1, !tbaa !32
+  %23 = load i8, ptr %22, align 1, !tbaa !34
   %24 = sext i8 %23 to i32
   %25 = shl nsw i32 %24, 16
   %26 = xor i32 %25, %.037.lcssa.i
@@ -787,7 +787,7 @@ define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef captures(address_is_null) 
 .thread40.i:                                      ; preds = %27, %.thread.i
   %.139.i = phi i32 [ %26, %.thread.i ], [ %.037.lcssa.i, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 1
-  %30 = load i8, ptr %29, align 1, !tbaa !32
+  %30 = load i8, ptr %29, align 1, !tbaa !34
   %31 = sext i8 %30 to i32
   %32 = shl nsw i32 %31, 8
   %33 = xor i32 %32, %.139.i
@@ -799,7 +799,7 @@ define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef captures(address_is_null) 
 
 35:                                               ; preds = %34, %.thread40.i
   %.243.i = phi i32 [ %33, %.thread40.i ], [ %.037.lcssa.i, %34 ]
-  %36 = load i8, ptr %.036.lcssa.i, align 1, !tbaa !32
+  %36 = load i8, ptr %.036.lcssa.i, align 1, !tbaa !34
   %37 = sext i8 %36 to i32
   %38 = xor i32 %.243.i, %37
   %39 = mul i32 %38, 1540483477
@@ -818,7 +818,7 @@ lv_lru_hash.exit:                                 ; preds = %34, %35
   %48 = urem i64 %45, %47
   %49 = load ptr, ptr %0, align 8, !tbaa !18
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
-  %.01934 = load ptr, ptr %50, align 8, !tbaa !19
+  %.01934 = load ptr, ptr %50, align 8, !tbaa !21
   %.not2335 = icmp eq ptr %.01934, null
   br i1 %.not2335, label %.critedge25, label %.lr.ph
 
@@ -830,61 +830,61 @@ lv_lru_hash.exit:                                 ; preds = %34, %35
   %.01937 = phi ptr [ %.01934, %.lr.ph ], [ %.019, %lv_lru_cmp_keys.exit.thread ]
   %.01836 = phi ptr [ null, %.lr.ph ], [ %.01937, %lv_lru_cmp_keys.exit.thread ]
   %53 = getelementptr inbounds nuw i8, ptr %.01937, i64 24
-  %54 = load i64, ptr %53, align 8, !tbaa !33
+  %54 = load i64, ptr %53, align 8, !tbaa !35
   %.not.i26 = icmp eq i64 %54, %51
   br i1 %.not.i26, label %lv_lru_cmp_keys.exit, label %lv_lru_cmp_keys.exit.thread
 
 lv_lru_cmp_keys.exit:                             ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %.01937, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !23
+  %56 = load ptr, ptr %55, align 8, !tbaa !25
   %57 = tail call i32 @lv_memcmp(ptr noundef nonnull %1, ptr noundef %56, i64 noundef %51) #2
   %.not24 = icmp eq i32 %57, 0
   br i1 %.not24, label %.critedge, label %lv_lru_cmp_keys.exit.thread
 
 lv_lru_cmp_keys.exit.thread:                      ; preds = %52, %lv_lru_cmp_keys.exit
   %58 = getelementptr inbounds nuw i8, ptr %.01937, i64 40
-  %.019 = load ptr, ptr %58, align 8, !tbaa !19
+  %.019 = load ptr, ptr %58, align 8, !tbaa !21
   %.not23 = icmp eq ptr %.019, null
-  br i1 %.not23, label %.critedge25, label %52, !llvm.loop !43
+  br i1 %.not23, label %.critedge25, label %52, !llvm.loop !45
 
 .critedge:                                        ; preds = %lv_lru_cmp_keys.exit
   %59 = getelementptr inbounds nuw i8, ptr %.01937, i64 8
   %.not.i27 = icmp eq ptr %.01836, null
   %60 = getelementptr inbounds nuw i8, ptr %.01937, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !20
+  %61 = load ptr, ptr %60, align 8, !tbaa !22
   br i1 %.not.i27, label %64, label %62
 
 62:                                               ; preds = %.critedge
   %63 = getelementptr inbounds nuw i8, ptr %.01836, i64 40
-  store ptr %61, ptr %63, align 8, !tbaa !20
+  store ptr %61, ptr %63, align 8, !tbaa !22
   br label %lv_lru_remove_item.exit
 
 64:                                               ; preds = %.critedge
   %65 = load ptr, ptr %0, align 8, !tbaa !18
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %48
-  store ptr %61, ptr %66, align 8, !tbaa !19
+  store ptr %61, ptr %66, align 8, !tbaa !21
   br label %lv_lru_remove_item.exit
 
 lv_lru_remove_item.exit:                          ; preds = %62, %64
   %67 = getelementptr inbounds nuw i8, ptr %.01937, i64 16
-  %68 = load i64, ptr %67, align 8, !tbaa !24
+  %68 = load i64, ptr %67, align 8, !tbaa !26
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load i64, ptr %69, align 8, !tbaa !13
   %71 = add i64 %70, %68
   store i64 %71, ptr %69, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %73 = load ptr, ptr %72, align 8, !tbaa !16
-  %74 = load ptr, ptr %.01937, align 8, !tbaa !22
+  %74 = load ptr, ptr %.01937, align 8, !tbaa !24
   tail call void %73(ptr noundef %74) #2
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %76 = load ptr, ptr %75, align 8, !tbaa !17
-  %77 = load ptr, ptr %59, align 8, !tbaa !23
+  %77 = load ptr, ptr %59, align 8, !tbaa !25
   tail call void %76(ptr noundef %77) #2
   tail call void @lv_memset(ptr noundef nonnull %.01937, i8 noundef zeroext 0, i64 noundef 48) #2
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %79 = load ptr, ptr %78, align 8, !tbaa !28
-  store ptr %79, ptr %60, align 8, !tbaa !20
-  store ptr %.01937, ptr %78, align 8, !tbaa !28
+  %79 = load ptr, ptr %78, align 8, !tbaa !30
+  store ptr %79, ptr %60, align 8, !tbaa !22
+  store ptr %.01937, ptr %78, align 8, !tbaa !30
   br label %.critedge25
 
 .critedge25:                                      ; preds = %lv_lru_cmp_keys.exit.thread, %lv_lru_hash.exit, %lv_lru_remove_item.exit, %4, %3
@@ -921,28 +921,30 @@ attributes #2 = { nounwind }
 !16 = !{!4, !6, i64 56}
 !17 = !{!4, !6, i64 64}
 !18 = !{!4, !5, i64 0}
-!19 = !{!11, !11, i64 0}
-!20 = !{!21, !11, i64 40}
-!21 = !{!"_lv_lru_item_t", !6, i64 0, !6, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !11, i64 40}
-!22 = !{!21, !6, i64 0}
-!23 = !{!21, !6, i64 8}
-!24 = !{!21, !9, i64 16}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = !{!4, !11, i64 72}
-!29 = distinct !{!29, !26}
-!30 = !{!10, !10, i64 0}
-!31 = distinct !{!31, !26}
-!32 = !{!7, !7, i64 0}
-!33 = !{!21, !9, i64 24}
-!34 = distinct !{!34, !26}
-!35 = !{!4, !9, i64 8}
-!36 = !{!21, !9, i64 32}
-!37 = distinct !{!37, !26}
-!38 = distinct !{!38, !26}
-!39 = distinct !{!39, !26, !40}
-!40 = !{!"llvm.loop.unswitch.partial.disable"}
-!41 = distinct !{!41, !26}
-!42 = !{!6, !6, i64 0}
-!43 = distinct !{!43, !26}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!11, !11, i64 0}
+!22 = !{!23, !11, i64 40}
+!23 = !{!"_lv_lru_item_t", !6, i64 0, !6, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !11, i64 40}
+!24 = !{!23, !6, i64 0}
+!25 = !{!23, !6, i64 8}
+!26 = !{!23, !9, i64 16}
+!27 = distinct !{!27, !28, !20}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = distinct !{!29, !28, !20}
+!30 = !{!4, !11, i64 72}
+!31 = distinct !{!31, !28, !20}
+!32 = !{!10, !10, i64 0}
+!33 = distinct !{!33, !28, !20}
+!34 = !{!7, !7, i64 0}
+!35 = !{!23, !9, i64 24}
+!36 = distinct !{!36, !28, !20}
+!37 = !{!4, !9, i64 8}
+!38 = !{!23, !9, i64 32}
+!39 = distinct !{!39, !28, !20}
+!40 = distinct !{!40, !28, !20}
+!41 = distinct !{!41, !28, !20, !42}
+!42 = !{!"llvm.loop.unswitch.partial.disable"}
+!43 = distinct !{!43, !28, !20}
+!44 = !{!6, !6, i64 0}
+!45 = distinct !{!45, !28, !20}

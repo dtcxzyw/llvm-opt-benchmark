@@ -143,7 +143,7 @@ _ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit: ; preds = %13, %15
   %19 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %4, i64 %.val37, i32 %9)
   %.sroa.021.0.copyload.pre = load i64, ptr %4, align 8
   %.sroa.222.0.copyload.pre = load i32, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !11
-  br label %6, !llvm.loop !15
+  br label %6, !llvm.loop !16
 
 20:                                               ; preds = %7, %_ZN4abslgtENS_8DurationES0_.exit
   ret void
@@ -187,6 +187,7 @@ attributes #6 = { nounwind willreturn memory(none) }
 !10 = !{!6, !7, i64 8}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !8, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}

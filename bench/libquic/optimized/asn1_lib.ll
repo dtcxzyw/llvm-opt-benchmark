@@ -133,8 +133,8 @@ define hidden range(i32 0, 192) i32 @ASN1_get_object(ptr noundef captures(none) 
   %.164 = phi i64 [ %27, %33 ], [ %31, %29 ]
   %.03463 = phi i32 [ %37, %33 ], [ %12, %29 ]
   %.15762 = phi ptr [ %38, %33 ], [ %30, %29 ]
-  store i32 %.03463, ptr %2, align 4, !tbaa !14
-  store i32 %11, ptr %3, align 4, !tbaa !14
+  store i32 %.03463, ptr %2, align 4, !tbaa !15
+  store i32 %11, ptr %3, align 4, !tbaa !15
   %41 = icmp slt i64 %.164, 1
   br i1 %41, label %asn1_get_length.exit.thread, label %42
 
@@ -171,7 +171,7 @@ define hidden range(i32 0, 192) i32 @ASN1_get_object(ptr noundef captures(none) 
   %55 = zext i8 %54 to i64
   %56 = or disjoint i64 %52, %55
   %.not27.i = icmp eq i64 %51, 0
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %57 = getelementptr i8, ptr %.15762, i64 %47
@@ -182,12 +182,12 @@ define hidden range(i32 0, 192) i32 @ASN1_get_object(ptr noundef captures(none) 
 .thread69:                                        ; preds = %45, %.preheader.i, %._crit_edge.i
   %.02131.i.ph = phi i64 [ 0, %.preheader.i ], [ %47, %45 ], [ %56, %._crit_edge.i ]
   %.02230.i.ph = phi ptr [ %48, %.preheader.i ], [ %48, %45 ], [ %scevgep.i, %._crit_edge.i ]
-  store i64 %.02131.i.ph, ptr %1, align 8, !tbaa !17
+  store i64 %.02131.i.ph, ptr %1, align 8, !tbaa !18
   br label %61
 
 59:                                               ; preds = %42
   %60 = getelementptr inbounds nuw i8, ptr %.15762, i64 1
-  store i64 0, ptr %1, align 8, !tbaa !17
+  store i64 0, ptr %1, align 8, !tbaa !18
   %.not47 = icmp eq i32 %10, 0
   br i1 %.not47, label %asn1_get_length.exit.thread, label %61
 
@@ -260,7 +260,7 @@ define hidden void @ASN1_put_object(ptr noundef captures(none) %0, i32 noundef %
   %22 = add nuw nsw i32 %.02335, 1
   %.not39 = icmp ult i32 %.036, 128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not39, label %.preheader, label %20, !llvm.loop !19
+  br i1 %.not39, label %.preheader, label %20, !llvm.loop !20
 
 23:                                               ; preds = %.preheader, %23
   %indvars.iv41 = phi i64 [ %indvars.iv, %.preheader ], [ %indvars.iv.next42, %23 ]
@@ -277,7 +277,7 @@ define hidden void @ASN1_put_object(ptr noundef captures(none) %0, i32 noundef %
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, -1
   %28 = icmp sgt i64 %indvars.iv41, 0
   %29 = trunc nuw nsw i64 %indvars.iv41 to i32
-  br i1 %28, label %23, label %30, !llvm.loop !20
+  br i1 %28, label %23, label %30, !llvm.loop !21
 
 30:                                               ; preds = %23
   %31 = zext nneg i32 %22 to i64
@@ -312,7 +312,7 @@ define hidden void @ASN1_put_object(ptr noundef captures(none) %0, i32 noundef %
   %43 = add nuw nsw i32 %.01924.i, 1
   %.not.i = icmp samesign ult i32 %.025.i, 256
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %44, label %.preheader.i, !llvm.loop !21
+  br i1 %.not.i, label %44, label %.preheader.i, !llvm.loop !22
 
 44:                                               ; preds = %.preheader.i
   %45 = trunc i32 %43 to i8
@@ -329,7 +329,7 @@ define hidden void @ASN1_put_object(ptr noundef captures(none) %0, i32 noundef %
   store i8 %48, ptr %49, align 1, !tbaa !11
   %50 = lshr i32 %.02126.i, 8
   %51 = icmp sgt i64 %indvars.iv28.i, 1
-  br i1 %51, label %47, label %52, !llvm.loop !22
+  br i1 %51, label %47, label %52, !llvm.loop !23
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %.033, i64 1
@@ -366,7 +366,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @ASN1_object_size(i32 noun
   %6 = lshr i32 %.021, 7
   %7 = add nsw i32 %.1, 1
   %.old1.not = icmp samesign ult i32 %.021, 128
-  br i1 %.old1.not, label %.loopexit27, label %.preheader26
+  br i1 %.old1.not, label %.loopexit27, label %.preheader26, !llvm.loop !24
 
 .loopexit27:                                      ; preds = %.preheader26, %3
   %.0 = phi i32 [ %4, %3 ], [ %7, %.preheader26 ]
@@ -388,7 +388,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @ASN1_object_size(i32 noun
   %14 = lshr i32 %.022, 8
   %15 = add nsw i32 %.3, 1
   %.old3.not = icmp samesign ult i32 %.022, 256
-  br i1 %.old3.not, label %.loopexit, label %.preheader
+  br i1 %.old3.not, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %11, %9
   %.023 = phi i32 [ %10, %9 ], [ %12, %11 ], [ %15, %.preheader ]
@@ -398,19 +398,19 @@ define hidden range(i32 -2147483646, -2147483648) i32 @ASN1_object_size(i32 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @asn1_Finish(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !23
+  %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = icmp eq i32 %3, 33
   br i1 %4, label %5, label %ASN1_const_check_infinite_end.exit.i
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !26
+  %7 = load i32, ptr %6, align 8, !tbaa !29
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %ASN1_const_check_infinite_end.exit.i
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !27
+  %10 = load i64, ptr %9, align 8, !tbaa !30
   %11 = icmp slt i64 %10, 1
   br i1 %11, label %ASN1_const_check_infinite_end.exit.i, label %12
 
@@ -437,7 +437,7 @@ define hidden range(i32 0, 2) i32 @asn1_Finish(ptr noundef captures(none) %0) lo
 
 ASN1_const_check_infinite_end.exit.i:             ; preds = %21, %8, %5, %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !27
+  %24 = load i64, ptr %23, align 8, !tbaa !30
   %.not11.i = icmp eq i64 %24, 0
   br i1 %.not11.i, label %_asn1_Finish.exit, label %25
 
@@ -451,7 +451,7 @@ ASN1_const_check_infinite_end.exit.i:             ; preds = %21, %8, %5, %1
 .thread.sink.split.i:                             ; preds = %25, %17, %13, %12
   %.sink.i = phi i32 [ 152, %12 ], [ 152, %13 ], [ 152, %17 ], [ 100, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink.i, ptr %28, align 4, !tbaa !28
+  store i32 %.sink.i, ptr %28, align 4, !tbaa !31
   br label %_asn1_Finish.exit
 
 _asn1_Finish.exit:                                ; preds = %ASN1_const_check_infinite_end.exit.i, %25, %.thread.sink.split.i
@@ -462,19 +462,19 @@ _asn1_Finish.exit:                                ; preds = %ASN1_const_check_in
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @asn1_const_Finish(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !23
+  %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = icmp eq i32 %3, 33
   br i1 %4, label %5, label %ASN1_const_check_infinite_end.exit.i
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !26
+  %7 = load i32, ptr %6, align 8, !tbaa !29
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %ASN1_const_check_infinite_end.exit.i
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !27
+  %10 = load i64, ptr %9, align 8, !tbaa !30
   %11 = icmp slt i64 %10, 1
   br i1 %11, label %ASN1_const_check_infinite_end.exit.i, label %12
 
@@ -501,7 +501,7 @@ define hidden range(i32 0, 2) i32 @asn1_const_Finish(ptr noundef captures(none) 
 
 ASN1_const_check_infinite_end.exit.i:             ; preds = %21, %8, %5, %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !27
+  %24 = load i64, ptr %23, align 8, !tbaa !30
   %.not11.i = icmp eq i64 %24, 0
   br i1 %.not11.i, label %_asn1_Finish.exit, label %25
 
@@ -515,7 +515,7 @@ ASN1_const_check_infinite_end.exit.i:             ; preds = %21, %8, %5, %1
 .thread.sink.split.i:                             ; preds = %25, %17, %13, %12
   %.sink.i = phi i32 [ 152, %12 ], [ 152, %13 ], [ 152, %17 ], [ 100, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink.i, ptr %28, align 4, !tbaa !28
+  store i32 %.sink.i, ptr %28, align 4, !tbaa !31
   br label %_asn1_Finish.exit
 
 _asn1_Finish.exit:                                ; preds = %ASN1_const_check_infinite_end.exit.i, %25, %.thread.sink.split.i
@@ -525,42 +525,42 @@ _asn1_Finish.exit:                                ; preds = %ASN1_const_check_in
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @asn1_GetSequence(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !29
+  %3 = load ptr, ptr %0, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %1, align 8, !tbaa !17
+  %7 = load i64, ptr %1, align 8, !tbaa !18
   %8 = tail call i32 @ASN1_get_object(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %8, ptr %9, align 8, !tbaa !23
+  store i32 %8, ptr %9, align 8, !tbaa !26
   %.not = icmp samesign ult i32 %8, 128
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 102, ptr %11, align 4, !tbaa !28
+  store i32 102, ptr %11, align 4, !tbaa !31
   br label %38
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr %5, align 4, !tbaa !30
+  %13 = load i32, ptr %5, align 4, !tbaa !33
   %.not23 = icmp eq i32 %13, 16
   br i1 %.not23, label %16, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 114, ptr %15, align 4, !tbaa !28
+  store i32 114, ptr %15, align 4, !tbaa !31
   br label %38
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %0, align 8, !tbaa !29
+  %17 = load ptr, ptr %0, align 8, !tbaa !32
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %3 to i64
   %.neg = sub i64 %19, %18
-  %20 = load i64, ptr %1, align 8, !tbaa !17
+  %20 = load i64, ptr %1, align 8, !tbaa !18
   %21 = add i64 %.neg, %20
-  store i64 %21, ptr %1, align 8, !tbaa !17
+  store i64 %21, ptr %1, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !31
+  %23 = load ptr, ptr %22, align 8, !tbaa !34
   %.not24 = icmp ne ptr %23, null
   %24 = icmp slt i64 %21, 0
   %or.cond = select i1 %.not24, i1 %24, i1 false
@@ -568,7 +568,7 @@ define hidden range(i32 0, 2) i32 @asn1_GetSequence(ptr noundef captures(none) %
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 100, ptr %26, align 4, !tbaa !28
+  store i32 100, ptr %26, align 4, !tbaa !31
   br label %38
 
 27:                                               ; preds = %16
@@ -577,17 +577,17 @@ define hidden range(i32 0, 2) i32 @asn1_GetSequence(ptr noundef captures(none) %
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load ptr, ptr %30, align 8, !tbaa !32
+  %31 = load ptr, ptr %30, align 8, !tbaa !35
   %32 = load ptr, ptr %31, align 8, !tbaa !6
   %33 = getelementptr inbounds i8, ptr %32, i64 %21
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %34, %18
-  store i64 %35, ptr %4, align 8, !tbaa !27
+  store i64 %35, ptr %4, align 8, !tbaa !30
   br label %36
 
 36:                                               ; preds = %29, %27
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %37, align 8, !tbaa !26
+  store i32 0, ptr %37, align 8, !tbaa !29
   br label %38
 
 38:                                               ; preds = %36, %25, %14, %10
@@ -602,21 +602,21 @@ define hidden range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !33
+  %6 = load i32, ptr %5, align 4, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %6, ptr %7, align 4, !tbaa !33
+  store i32 %6, ptr %7, align 4, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !35
-  %10 = load i32, ptr %1, align 8, !tbaa !36
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
+  %10 = load i32, ptr %1, align 8, !tbaa !39
   %11 = tail call i32 @ASN1_STRING_set(ptr noundef %0, ptr noundef %9, i32 noundef %10)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !37
+  %14 = load i64, ptr %13, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %14, ptr %15, align 8, !tbaa !37
+  store i64 %14, ptr %15, align 8, !tbaa !40
   br label %16
 
 16:                                               ; preds = %4, %2, %12
@@ -640,10 +640,10 @@ define hidden range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0
 
 10:                                               ; preds = %7, %3
   %.025 = phi i32 [ %9, %7 ], [ %2, %3 ]
-  %11 = load i32, ptr %0, align 8, !tbaa !36
+  %11 = load i32, ptr %0, align 8, !tbaa !39
   %12 = icmp slt i32 %11, %.025
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !38
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %10
@@ -676,18 +676,18 @@ define hidden range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0
   %29 = phi ptr [ %17, %24 ], [ %20, %19 ]
   %30 = phi ptr [ %.pre, %24 ], [ null, %19 ]
   %storemerge = phi ptr [ %27, %24 ], [ %23, %19 ]
-  store ptr %storemerge, ptr %29, align 8, !tbaa !35
+  store ptr %storemerge, ptr %29, align 8, !tbaa !38
   %31 = icmp eq ptr %storemerge, null
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
   tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 419) #16
-  store ptr %30, ptr %29, align 8, !tbaa !35
+  store ptr %30, ptr %29, align 8, !tbaa !38
   br label %40
 
 33:                                               ; preds = %28, %13
   %34 = phi ptr [ %storemerge, %28 ], [ %.pre, %13 ]
-  store i32 %.025, ptr %0, align 8, !tbaa !36
+  store i32 %.025, ptr %0, align 8, !tbaa !39
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %40, label %35
 
@@ -695,7 +695,7 @@ define hidden range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = sext i32 %.025 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %1, i64 %37, i1 false)
-  %38 = load ptr, ptr %36, align 8, !tbaa !35
+  %38 = load ptr, ptr %36, align 8, !tbaa !38
   %39 = getelementptr inbounds i8, ptr %38, i64 %37
   store i8 0, ptr %39, align 1, !tbaa !11
   br label %40
@@ -720,35 +720,35 @@ ASN1_STRING_new.exit.thread:                      ; preds = %2
   br label %24
 
 5:                                                ; preds = %2
-  store i32 0, ptr %3, align 8, !tbaa !36
+  store i32 0, ptr %3, align 8, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !33
-  store i32 %9, ptr %6, align 4, !tbaa !33
+  %9 = load i32, ptr %8, align 4, !tbaa !36
+  store i32 %9, ptr %6, align 4, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !35
-  %12 = load i32, ptr %0, align 8, !tbaa !36
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %12 = load i32, ptr %0, align 8, !tbaa !39
   %13 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %3, ptr noundef %11, i32 noundef %12)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %17, label %ASN1_STRING_copy.exit
 
 ASN1_STRING_copy.exit:                            ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !37
+  %15 = load i64, ptr %14, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %15, ptr %16, align 8, !tbaa !37
+  store i64 %15, ptr %16, align 8, !tbaa !40
   br label %24
 
 17:                                               ; preds = %5
-  %18 = load ptr, ptr %7, align 8, !tbaa !35
+  %18 = load ptr, ptr %7, align 8, !tbaa !38
   %.not.i11 = icmp eq ptr %18, null
   br i1 %.not.i11, label %ASN1_STRING_free.exit, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !37
+  %21 = load i64, ptr %20, align 8, !tbaa !40
   %22 = and i64 %21, 16
   %.not6.i = icmp eq i64 %22, 0
   br i1 %.not6.i, label %23, label %ASN1_STRING_free.exit
@@ -777,9 +777,9 @@ define hidden noalias noundef ptr @ASN1_STRING_new() local_unnamed_addr #1 {
   br label %ASN1_STRING_type_new.exit
 
 4:                                                ; preds = %0
-  store i32 0, ptr %1, align 8, !tbaa !36
+  store i32 0, ptr %1, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 4, ptr %5, align 4, !tbaa !33
+  store i32 4, ptr %5, align 4, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %ASN1_STRING_type_new.exit
@@ -795,13 +795,13 @@ define hidden void @ASN1_STRING_free(ptr noundef captures(address_is_null) %0) l
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !37
+  %8 = load i64, ptr %7, align 8, !tbaa !40
   %9 = and i64 %8, 16
   %.not6 = icmp eq i64 %9, 0
   br i1 %.not6, label %10, label %11
@@ -833,7 +833,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @ASN1_STRING_set0(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
@@ -842,8 +842,8 @@ define hidden void @ASN1_STRING_set0(ptr noundef captures(none) initializes((0, 
   br label %7
 
 7:                                                ; preds = %6, %3
-  store ptr %1, ptr %4, align 8, !tbaa !35
-  store i32 %2, ptr %0, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !38
+  store i32 %2, ptr %0, align 8, !tbaa !39
   ret void
 }
 
@@ -861,9 +861,9 @@ define hidden noalias noundef ptr @ASN1_STRING_type_new(i32 noundef %0) local_un
   br label %8
 
 5:                                                ; preds = %1
-  store i32 0, ptr %2, align 8, !tbaa !36
+  store i32 0, ptr %2, align 8, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %0, ptr %6, align 4, !tbaa !33
+  store i32 %0, ptr %6, align 4, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %8
@@ -874,17 +874,17 @@ define hidden noalias noundef ptr @ASN1_STRING_type_new(i32 noundef %0) local_un
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @ASN1_STRING_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
-  %3 = load i32, ptr %0, align 8, !tbaa !36
-  %4 = load i32, ptr %1, align 8, !tbaa !36
+  %3 = load i32, ptr %0, align 8, !tbaa !39
+  %4 = load i32, ptr %1, align 8, !tbaa !39
   %5 = sub nsw i32 %3, %4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !35
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = sext i32 %3 to i64
   %13 = tail call i32 @memcmp(ptr noundef %9, ptr noundef %11, i64 noundef %12) #17
   %14 = icmp eq i32 %13, 0
@@ -892,9 +892,9 @@ define hidden i32 @ASN1_STRING_cmp(ptr noundef readonly captures(none) %0, ptr n
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !33
+  %17 = load i32, ptr %16, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !33
+  %19 = load i32, ptr %18, align 4, !tbaa !36
   %20 = sub nsw i32 %17, %19
   br label %21
 
@@ -908,27 +908,27 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @ASN1_STRING_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
-  %2 = load i32, ptr %0, align 8, !tbaa !36
+  %2 = load i32, ptr %0, align 8, !tbaa !39
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @ASN1_STRING_length_set(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #14 {
-  store i32 %1, ptr %0, align 8, !tbaa !36
+  store i32 %1, ptr %0, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @ASN1_STRING_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !33
+  %3 = load i32, ptr %2, align 4, !tbaa !36
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @ASN1_STRING_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   ret ptr %3
 }
 
@@ -970,29 +970,32 @@ attributes #19 = { nounwind allocsize(1) }
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
 !11 = !{!9, !9, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !9, i64 0}
-!16 = distinct !{!16, !13}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !9, i64 0}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13}
-!21 = distinct !{!21, !13}
-!22 = distinct !{!22, !13}
-!23 = !{!24, !15, i64 16}
-!24 = !{!"asn1_const_ctx_st", !7, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !18, i64 32, !7, i64 40, !7, i64 48, !25, i64 56, !15, i64 64}
-!25 = !{!"p2 omnipotent char", !8, i64 0}
-!26 = !{!24, !15, i64 8}
-!27 = !{!24, !18, i64 32}
-!28 = !{!24, !15, i64 12}
-!29 = !{!24, !7, i64 0}
-!30 = !{!24, !15, i64 20}
-!31 = !{!24, !7, i64 40}
-!32 = !{!24, !25, i64 56}
-!33 = !{!34, !15, i64 4}
-!34 = !{!"asn1_string_st", !15, i64 0, !15, i64 4, !7, i64 8, !18, i64 16}
-!35 = !{!34, !7, i64 8}
-!36 = !{!34, !15, i64 0}
-!37 = !{!34, !18, i64 16}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !9, i64 0}
+!17 = distinct !{!17, !13, !14}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !9, i64 0}
+!20 = distinct !{!20, !13, !14}
+!21 = distinct !{!21, !13, !14}
+!22 = distinct !{!22, !13, !14}
+!23 = distinct !{!23, !13, !14}
+!24 = distinct !{!24, !14}
+!25 = distinct !{!25, !14}
+!26 = !{!27, !16, i64 16}
+!27 = !{!"asn1_const_ctx_st", !7, i64 0, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !16, i64 24, !19, i64 32, !7, i64 40, !7, i64 48, !28, i64 56, !16, i64 64}
+!28 = !{!"p2 omnipotent char", !8, i64 0}
+!29 = !{!27, !16, i64 8}
+!30 = !{!27, !19, i64 32}
+!31 = !{!27, !16, i64 12}
+!32 = !{!27, !7, i64 0}
+!33 = !{!27, !16, i64 20}
+!34 = !{!27, !7, i64 40}
+!35 = !{!27, !28, i64 56}
+!36 = !{!37, !16, i64 4}
+!37 = !{!"asn1_string_st", !16, i64 0, !16, i64 4, !7, i64 8, !19, i64 16}
+!38 = !{!37, !7, i64 8}
+!39 = !{!37, !16, i64 0}
+!40 = !{!37, !19, i64 16}

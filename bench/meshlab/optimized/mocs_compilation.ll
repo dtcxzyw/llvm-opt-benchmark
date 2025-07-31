@@ -321,7 +321,7 @@ define linkonce_odr void @_ZNK12FilterPlugin7actionsB5cxx11Ev(ptr dead_on_unwind
   %17 = load ptr, ptr %.09.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #23
   %.not.i.i.i = icmp eq ptr %17, %0
-  br i1 %.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIP7QActionSaIS2_EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIP7QActionSaIS2_EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZNSt7__cxx1110_List_baseIP7QActionSaIS2_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i, %14
   resume { ptr, i32 } %15
@@ -358,7 +358,7 @@ define linkonce_odr void @_ZNK12FilterPlugin5typesB5cxx11Ev(ptr dead_on_unwind n
   store i64 %12, ptr %5, align 8
   %13 = load ptr, ptr %.sroa.01.05.i.i, align 8
   %.not.i.i = icmp eq ptr %13, %3
-  br i1 %.not.i.i, label %_ZNSt7__cxx114listIiSaIiEEC2ERKS2_.exit, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %_ZNSt7__cxx114listIiSaIiEEC2ERKS2_.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 14:                                               ; preds = %.lr.ph.i.i
   %15 = landingpad { ptr, i32 }
@@ -372,7 +372,7 @@ define linkonce_odr void @_ZNK12FilterPlugin5typesB5cxx11Ev(ptr dead_on_unwind n
   %17 = load ptr, ptr %.09.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #23
   %.not.i.i.i = icmp eq ptr %17, %0
-  br i1 %.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit.i:     ; preds = %.lr.ph.i.i.i, %14
   resume { ptr, i32 } %15
@@ -479,7 +479,7 @@ define linkonce_odr void @_ZN12FilterCreateD1Ev(ptr noundef nonnull align 8 dere
   %7 = load ptr, ptr %.09.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #23
   %.not.i.i.i.i.i = icmp eq ptr %7, %5
-  br i1 %.not.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -492,7 +492,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i, %
   %10 = load ptr, ptr %.09.i.i.i4.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i) #23
   %.not.i.i.i5.i.i = icmp eq ptr %10, %8
-  br i1 %.not.i.i.i5.i.i, label %_ZN12FilterCreateD2Ev.exit, label %.lr.ph.i.i.i3.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i5.i.i, label %_ZN12FilterCreateD2Ev.exit, label %.lr.ph.i.i.i3.i.i, !llvm.loop !8
 
 _ZN12FilterCreateD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
@@ -520,7 +520,7 @@ define linkonce_odr void @_ZN12FilterCreateD0Ev(ptr noundef nonnull align 8 dere
   %7 = load ptr, ptr %.09.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i = icmp eq ptr %7, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -533,7 +533,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
   %10 = load ptr, ptr %.09.i.i.i4.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i) #23
   %.not.i.i.i5.i.i.i = icmp eq ptr %10, %8
-  br i1 %.not.i.i.i5.i.i.i, label %_ZN12FilterCreateD1Ev.exit, label %.lr.ph.i.i.i3.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i5.i.i.i, label %_ZN12FilterCreateD1Ev.exit, label %.lr.ph.i.i.i3.i.i.i, !llvm.loop !8
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
@@ -563,7 +563,7 @@ define linkonce_odr void @_ZNK12FilterCreate12getMLVersionB5cxx11Ev(ptr dead_on_
   %3 = alloca %"class.std::allocator.10", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22, !noalias !10
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22, !noalias !11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZN7meshlab14meshlabVersionB5cxx11Ev.exit unwind label %5
 
@@ -587,7 +587,7 @@ _ZN7meshlab14meshlabVersionB5cxx11Ev.exit:        ; preds = %2
   %9 = zext i1 %7 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %9, ptr %10, align 8, !alias.scope !13
+  store i8 %9, ptr %10, align 8, !alias.scope !14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   ret void
 
@@ -636,7 +636,7 @@ define linkonce_odr void @_ZThn16_N12FilterCreateD1Ev(ptr noundef %0) unnamed_ad
   %6 = load ptr, ptr %.09.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -649,7 +649,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
   %9 = load ptr, ptr %.09.i.i.i4.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i) #23
   %.not.i.i.i5.i.i.i = icmp eq ptr %9, %7
-  br i1 %.not.i.i.i5.i.i.i, label %_ZN12FilterCreateD1Ev.exit, label %.lr.ph.i.i.i3.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i5.i.i.i, label %_ZN12FilterCreateD1Ev.exit, label %.lr.ph.i.i.i3.i.i.i, !llvm.loop !8
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -677,7 +677,7 @@ define linkonce_odr void @_ZThn16_N12FilterCreateD0Ev(ptr noundef %0) unnamed_ad
   %6 = load ptr, ptr %.09.i.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.i, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -690,7 +690,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
   %9 = load ptr, ptr %.09.i.i.i4.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i.i) #23
   %.not.i.i.i5.i.i.i.i = icmp eq ptr %9, %7
-  br i1 %.not.i.i.i5.i.i.i.i, label %_ZN12FilterCreateD0Ev.exit, label %.lr.ph.i.i.i3.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i5.i.i.i.i, label %_ZN12FilterCreateD0Ev.exit, label %.lr.ph.i.i.i3.i.i.i.i, !llvm.loop !8
 
 _ZN12FilterCreateD0Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -743,7 +743,7 @@ define linkonce_odr void @_ZTv0_n24_N12FilterCreateD1Ev(ptr noundef %0) unnamed_
   %11 = load ptr, ptr %.09.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i = icmp eq ptr %11, %9
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i, %1
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -756,7 +756,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
   %14 = load ptr, ptr %.09.i.i.i4.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i) #23
   %.not.i.i.i5.i.i.i = icmp eq ptr %14, %12
-  br i1 %.not.i.i.i5.i.i.i, label %_ZN12FilterCreateD1Ev.exit, label %.lr.ph.i.i.i3.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i5.i.i.i, label %_ZN12FilterCreateD1Ev.exit, label %.lr.ph.i.i.i3.i.i.i, !llvm.loop !8
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #22
@@ -788,7 +788,7 @@ define linkonce_odr void @_ZTv0_n24_N12FilterCreateD0Ev(ptr noundef %0) unnamed_
   %11 = load ptr, ptr %.09.i.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i.i = icmp eq ptr %11, %9
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.i, %1
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -801,7 +801,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
   %14 = load ptr, ptr %.09.i.i.i4.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i.i) #23
   %.not.i.i.i5.i.i.i.i = icmp eq ptr %14, %12
-  br i1 %.not.i.i.i5.i.i.i.i, label %_ZN12FilterCreateD0Ev.exit, label %.lr.ph.i.i.i3.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i5.i.i.i.i, label %_ZN12FilterCreateD0Ev.exit, label %.lr.ph.i.i.i3.i.i.i.i, !llvm.loop !8
 
 _ZN12FilterCreateD0Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #22
@@ -921,7 +921,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   %.in.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i, i64 %.in.v.i.i
   %.020.i.i = load ptr, ptr %.in.i.i, align 8
   %.not.i.i9 = icmp eq ptr %.020.i.i, null
-  br i1 %.not.i.i9, label %._crit_edge.i.i, label %20, !llvm.loop !16
+  br i1 %.not.i.i9, label %._crit_edge.i.i, label %20, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %20
   br i1 %23, label %._crit_edge.thread.i.i, label %28
@@ -978,7 +978,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
   %.pr = phi i64 [ %.pr20, %28 ], [ %41, %.noexc7 ]
   %42 = getelementptr inbounds nuw i8, ptr %.08.i, i64 32
   %.not.i = icmp eq ptr %42, %11
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !18
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit: ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i, %5
   ret void
@@ -1092,7 +1092,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i:
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i.i, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %24, %22
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 26:                                               ; preds = %_ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i
   %27 = landingpad { ptr, i32 }
@@ -1152,7 +1152,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %.lr.ph, %9
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #23
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, %2
   ret void
@@ -1181,7 +1181,7 @@ define noundef nonnull ptr @qt_plugin_query_metadata() local_unnamed_addr #15 {
 define ptr @qt_plugin_instance() local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZ18qt_plugin_instanceE9_instance acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %7, !prof !20
+  br i1 %2, label %3, label %7, !prof !21
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ18qt_plugin_instanceE9_instance) #22
@@ -2824,7 +2824,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i120.i
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; preds = %53, %48
   %54 = icmp eq ptr %50, %1
-  br i1 %54, label %__cxx_global_var_init.5.exit, label %48
+  br i1 %54, label %__cxx_global_var_init.5.exit, label %48, !llvm.loop !22
 
 .body.thread724.i:                                ; preds = %0
   %55 = landingpad { ptr, i32 }
@@ -2872,7 +2872,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; pred
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i: ; preds = %72, %67
   %73 = icmp eq ptr %69, %1
-  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67
+  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67, !llvm.loop !23
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i, %62
   %.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %65, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i ]
@@ -2924,7 +2924,7 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; preds = %80, %.preheader.i
   %81 = icmp eq ptr %77, %1
-  br i1 %81, label %.body.thread.i, label %.preheader.i
+  br i1 %81, label %.body.thread.i, label %.preheader.i, !llvm.loop !24
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
@@ -2989,19 +2989,23 @@ attributes #25 = { noreturn }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN7meshlab14meshlabVersionB5cxx11Ev: argument 0"}
-!12 = distinct !{!12, !"_ZN7meshlab14meshlabVersionB5cxx11Ev"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_: argument 0"}
-!15 = distinct !{!15, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_"}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = !{!"branch_weights", i32 1, i32 1048575}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN7meshlab14meshlabVersionB5cxx11Ev: argument 0"}
+!13 = distinct !{!13, !"_ZN7meshlab14meshlabVersionB5cxx11Ev"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_: argument 0"}
+!16 = distinct !{!16, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_"}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = !{!"branch_weights", i32 1, i32 1048575}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

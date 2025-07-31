@@ -930,7 +930,7 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired17MagnoRetinaFilter31Parall
   store float %53, ptr %.03034, align 4, !tbaa !22
   %55 = add nsw i32 %.02737, 1
   %.not = icmp eq i32 %55, %5
-  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !70
+  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !71
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -1033,6 +1033,7 @@ attributes #15 = { builtin nounwind }
 !65 = !{!60, !10, i64 40}
 !66 = !{!60, !10, i64 48}
 !67 = !{!60, !18, i64 56}
-!68 = distinct !{!68, !69}
+!68 = distinct !{!68, !69, !70}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = distinct !{!70, !69}
+!70 = !{!"llvm.loop.estimated_trip_count"}
+!71 = distinct !{!71, !69, !70}

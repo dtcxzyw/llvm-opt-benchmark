@@ -3070,7 +3070,7 @@ get_object_id_string.exit2374:                    ; preds = %get_object_id_strin
   %809 = add nuw i32 %.020032830, 1
   %810 = load i32, ptr %40, align 4
   %811 = icmp ult i32 %809, %810
-  br i1 %811, label %.lr.ph2833, label %._crit_edge2834, !llvm.loop !8
+  br i1 %811, label %.lr.ph2833, label %._crit_edge2834, !llvm.loop !9
 
 ._crit_edge2834:                                  ; preds = %get_object_id_string.exit2374, %.lr.ph2839
   %.1.lcssa = phi i32 [ %763, %.lr.ph2839 ], [ %797, %get_object_id_string.exit2374 ]
@@ -3081,7 +3081,7 @@ get_object_id_string.exit2374:                    ; preds = %get_object_id_strin
   %812 = add nuw i32 %.020012836, 1
   %813 = load i32, ptr %38, align 4
   %814 = icmp ult i32 %812, %813
-  br i1 %814, label %.lr.ph2839, label %._crit_edge2840, !llvm.loop !9
+  br i1 %814, label %.lr.ph2839, label %._crit_edge2840, !llvm.loop !10
 
 ._crit_edge2840:                                  ; preds = %._crit_edge2834, %749
   %815 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3754,7 +3754,7 @@ get_object_id_string.exit2422:                    ; preds = %proto_item_set_gene
   %1119 = add nuw i32 %.020062819, 1
   %1120 = load i32, ptr %64, align 4
   %1121 = icmp ult i32 %1119, %1120
-  br i1 %1121, label %.lr.ph2822, label %._crit_edge2823, !llvm.loop !10
+  br i1 %1121, label %.lr.ph2822, label %._crit_edge2823, !llvm.loop !11
 
 ._crit_edge2823:                                  ; preds = %.lr.ph2822, %.lr.ph2828
   %.4.lcssa = phi i32 [ %1095, %.lr.ph2828 ], [ %1113, %.lr.ph2822 ]
@@ -3764,7 +3764,7 @@ get_object_id_string.exit2422:                    ; preds = %proto_item_set_gene
   %1122 = add nuw i32 %.020052825, 1
   %1123 = load i32, ptr %62, align 4
   %1124 = icmp ult i32 %1122, %1123
-  br i1 %1124, label %.lr.ph2828, label %._crit_edge2829, !llvm.loop !11
+  br i1 %1124, label %.lr.ph2828, label %._crit_edge2829, !llvm.loop !12
 
 ._crit_edge2829:                                  ; preds = %._crit_edge2823, %1084
   %1125 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7608,7 +7608,7 @@ get_object_id_string.exit2671:                    ; preds = %proto_item_set_hidd
   %2789 = add nuw i32 %.020092813, 1
   %2790 = load i32, ptr %173, align 4
   %2791 = icmp ult i32 %2789, %2790
-  br i1 %2791, label %.lr.ph2816, label %._crit_edge2817, !llvm.loop !12
+  br i1 %2791, label %.lr.ph2816, label %._crit_edge2817, !llvm.loop !13
 
 ._crit_edge2817:                                  ; preds = %.lr.ph2816, %2774
   %.lcssa = phi i32 [ 0, %2774 ], [ %2790, %.lr.ph2816 ]
@@ -8693,7 +8693,7 @@ get_object_id_string.exit2732:                    ; preds = %3210, %3211
   %3268 = add nuw i32 %.020122808, 1
   %3269 = load i32, ptr %210, align 4
   %3270 = icmp ult i32 %3268, %3269
-  br i1 %3270, label %.lr.ph2811, label %._crit_edge2812, !llvm.loop !13
+  br i1 %3270, label %.lr.ph2811, label %._crit_edge2812, !llvm.loop !14
 
 ._crit_edge2812:                                  ; preds = %.lr.ph2811, %3253
   %.lcssa2794 = phi i32 [ 0, %3253 ], [ %3269, %.lr.ph2811 ]
@@ -8906,7 +8906,7 @@ get_object_id_string.exit2732:                    ; preds = %3210, %3211
   %3401 = add nuw i32 %.020042802, 1
   %3402 = load i32, ptr %219, align 4
   %3403 = icmp ult i32 %3401, %3402
-  br i1 %3403, label %.lr.ph2805, label %._crit_edge2806, !llvm.loop !14
+  br i1 %3403, label %.lr.ph2805, label %._crit_edge2806, !llvm.loop !15
 
 ._crit_edge2806:                                  ; preds = %3397, %.lr.ph2805, %3391
   %3404 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9188,7 +9188,7 @@ get_object_id_string.exit2732:                    ; preds = %3210, %3211
   %3537 = add nuw i32 %.019992797, 1
   %3538 = load i32, ptr %229, align 4
   %3539 = icmp ult i32 %3537, %3538
-  br i1 %3539, label %.lr.ph2800, label %._crit_edge2801, !llvm.loop !15
+  br i1 %3539, label %.lr.ph2800, label %._crit_edge2801, !llvm.loop !16
 
 ._crit_edge2801:                                  ; preds = %.lr.ph2800, %3530
   %3540 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9420,7 +9420,7 @@ get_object_id_string.exit2732:                    ; preds = %3210, %3211
   %3636 = add nuw i32 %.019982795, 1
   %3637 = load i32, ptr %236, align 4
   %3638 = icmp ult i32 %3636, %3637
-  br i1 %3638, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %3638, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3629
   %3639 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9663,14 +9663,15 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

@@ -475,7 +475,7 @@ define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3If
   %62 = fmul float %6, %.06887
   %63 = add nuw nsw i32 %.07086, 1
   %exitcond.not = icmp eq i32 %63, %30
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge97:                                    ; preds = %.lr.ph96, %._crit_edge
   %.1.lcssa = phi float [ %52, %._crit_edge ], [ %65, %.lr.ph96 ]
@@ -490,7 +490,7 @@ define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3If
   %66 = fmul float %6, %.16992
   %67 = add nsw i32 %.094, 1
   %exitcond102.not = icmp eq i32 %67, %7
-  br i1 %exitcond102.not, label %._crit_edge97, label %.lr.ph96, !llvm.loop !11
+  br i1 %exitcond102.not, label %._crit_edge97, label %.lr.ph96, !llvm.loop !12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -522,7 +522,8 @@ attributes #5 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

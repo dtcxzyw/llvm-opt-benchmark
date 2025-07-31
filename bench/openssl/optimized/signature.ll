@@ -941,7 +941,7 @@ define i32 @EVP_PKEY_sign_init(ptr noundef %0) local_unnamed_addr #0 {
 define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 32769) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store ptr null, ptr %5, align 8, !tbaa !57
+  store ptr null, ptr %5, align 8, !tbaa !58
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -953,13 +953,13 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %4
   tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %0) #6
-  store i32 %2, ptr %0, align 8, !tbaa !59
+  store i32 %2, ptr %0, align 8, !tbaa !60
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %57, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %11 = load ptr, ptr %10, align 8, !tbaa !69
+  %11 = load ptr, ptr %10, align 8, !tbaa !70
   %12 = icmp eq ptr %11, null
   br i1 %12, label %56, label %13
 
@@ -967,22 +967,22 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !70
+  %17 = load ptr, ptr %16, align 8, !tbaa !71
   %18 = tail call ptr @EVP_KEYMGMT_get0_name(ptr noundef %17) #6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !71
+  %20 = load ptr, ptr %19, align 8, !tbaa !72
   %21 = tail call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %15, ptr noundef %18, ptr noundef %20) #6
-  store ptr %21, ptr %5, align 8, !tbaa !57
+  store ptr %21, ptr %5, align 8, !tbaa !58
   %.not179 = icmp eq ptr %21, null
   br i1 %.not179, label %.thread, label %22
 
 22:                                               ; preds = %13
-  %23 = load ptr, ptr %10, align 8, !tbaa !69
+  %23 = load ptr, ptr %10, align 8, !tbaa !70
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !72
-  %26 = load ptr, ptr %19, align 8, !tbaa !71
+  %25 = load ptr, ptr %24, align 8, !tbaa !73
+  %26 = load ptr, ptr %19, align 8, !tbaa !72
   %27 = call ptr @evp_pkey_export_to_provider(ptr noundef %23, ptr noundef %25, ptr noundef nonnull %5, ptr noundef %26) #6
-  %.pr = load ptr, ptr %5, align 8, !tbaa !57
+  %.pr = load ptr, ptr %5, align 8, !tbaa !58
   %28 = icmp eq ptr %.pr, null
   br i1 %28, label %.thread, label %29
 
@@ -1004,7 +1004,7 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
 
 34:                                               ; preds = %31
   %35 = call ptr %33() #6
-  %36 = load ptr, ptr %35, align 8, !tbaa !73
+  %36 = load ptr, ptr %35, align 8, !tbaa !74
   %.not183243 = icmp eq ptr %36, null
   br i1 %.not183243, label %.thread200, label %.lr.ph
 
@@ -1017,12 +1017,12 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
 
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr inbounds nuw i8, ptr %.0134244, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !73
+  %41 = load ptr, ptr %40, align 8, !tbaa !74
   %.not183 = icmp eq ptr %41, null
-  br i1 %.not183, label %.thread200, label %.lr.ph, !llvm.loop !74
+  br i1 %.not183, label %.thread200, label %.lr.ph, !llvm.loop !75
 
 42:                                               ; preds = %.lr.ph
-  %.pr199 = load ptr, ptr %.0134244, align 8, !tbaa !73
+  %.pr199 = load ptr, ptr %.0134244, align 8, !tbaa !74
   %.not185 = icmp eq ptr %.pr199, null
   br i1 %.not185, label %.thread200, label %.thread205
 
@@ -1033,7 +1033,7 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
   br label %.thread202
 
 EVP_SIGNATURE_is_a.exit:                          ; preds = %31
-  %43 = load ptr, ptr %16, align 8, !tbaa !70
+  %43 = load ptr, ptr %16, align 8, !tbaa !71
   %44 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %43) #6
   %45 = load ptr, ptr %14, align 8, !tbaa !12
   %46 = load i32, ptr %1, align 8, !tbaa !17
@@ -1042,7 +1042,7 @@ EVP_SIGNATURE_is_a.exit:                          ; preds = %31
   br i1 %.not236, label %EVP_SIGNATURE_is_a.exit195, label %.thread205
 
 EVP_SIGNATURE_is_a.exit195:                       ; preds = %EVP_SIGNATURE_is_a.exit
-  %48 = load ptr, ptr %16, align 8, !tbaa !70
+  %48 = load ptr, ptr %16, align 8, !tbaa !71
   %49 = call ptr @evp_keymgmt_util_query_operation_name(ptr noundef %48, i32 noundef 12) #6
   %50 = load ptr, ptr %14, align 8, !tbaa !12
   %51 = load i32, ptr %1, align 8, !tbaa !17
@@ -1070,13 +1070,13 @@ EVP_SIGNATURE_is_a.exit195:                       ; preds = %EVP_SIGNATURE_is_a.
 57:                                               ; preds = %8
   %58 = tail call i32 @ERR_set_mark() #6
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %60 = load ptr, ptr %59, align 8, !tbaa !70
+  %60 = load ptr, ptr %59, align 8, !tbaa !71
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %64 = load ptr, ptr %63, align 8, !tbaa !69
+  %64 = load ptr, ptr %63, align 8, !tbaa !70
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %68
 
@@ -1089,11 +1089,11 @@ EVP_SIGNATURE_is_a.exit195:                       ; preds = %EVP_SIGNATURE_is_a.
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 96
-  %70 = load ptr, ptr %69, align 8, !tbaa !75
+  %70 = load ptr, ptr %69, align 8, !tbaa !76
   %71 = icmp eq ptr %70, null
   %72 = icmp eq ptr %70, %60
   %spec.select = or i1 %71, %72
-  br i1 %spec.select, label %75, label %73, !prof !83
+  br i1 %spec.select, label %75, label %73, !prof !84
 
 73:                                               ; preds = %68
   %74 = tail call i32 @ERR_clear_last_mark() #6
@@ -1150,14 +1150,14 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %84
   br label %EVP_SIGNATURE_free.exit
 
 EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_REF.exit.i, %89
-  %94 = load ptr, ptr %5, align 8, !tbaa !57
+  %94 = load ptr, ptr %5, align 8, !tbaa !58
   call void @EVP_KEYMGMT_free(ptr noundef %94) #6
   %switch = icmp eq i32 %.0139245, 1
   br i1 %switch, label %95, label %102
 
 95:                                               ; preds = %EVP_SIGNATURE_free.exit
-  %96 = load ptr, ptr %79, align 8, !tbaa !72
-  %97 = load ptr, ptr %78, align 8, !tbaa !71
+  %96 = load ptr, ptr %79, align 8, !tbaa !73
+  %97 = load ptr, ptr %78, align 8, !tbaa !72
   %98 = call ptr @evp_generic_fetch(ptr noundef %96, i32 noundef 12, ptr noundef nonnull %76, ptr noundef %97, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #6
   %.not177 = icmp eq ptr %98, null
   br i1 %.not177, label %119, label %99
@@ -1168,9 +1168,9 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   br label %108
 
 102:                                              ; preds = %EVP_SIGNATURE_free.exit
-  %103 = load ptr, ptr %59, align 8, !tbaa !70
+  %103 = load ptr, ptr %59, align 8, !tbaa !71
   %104 = call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %103) #6
-  %105 = load ptr, ptr %78, align 8, !tbaa !71
+  %105 = load ptr, ptr %78, align 8, !tbaa !72
   %106 = call ptr @evp_generic_fetch_from_prov(ptr noundef %104, i32 noundef 12, ptr noundef nonnull %76, ptr noundef %105, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #6
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.loopexit, label %108
@@ -1178,20 +1178,20 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
 108:                                              ; preds = %99, %102
   %.1141.ph = phi ptr [ %104, %102 ], [ %101, %99 ]
   %.2132.ph = phi ptr [ %106, %102 ], [ %98, %99 ]
-  %109 = load ptr, ptr %59, align 8, !tbaa !70
+  %109 = load ptr, ptr %59, align 8, !tbaa !71
   %110 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %109) #6
-  %111 = load ptr, ptr %78, align 8, !tbaa !71
+  %111 = load ptr, ptr %78, align 8, !tbaa !72
   %112 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %.1141.ph, ptr noundef %110, ptr noundef %111) #6
-  store ptr %112, ptr %5, align 8, !tbaa !57
+  store ptr %112, ptr %5, align 8, !tbaa !58
   %.not178 = icmp eq ptr %112, null
   br i1 %.not178, label %.thread218, label %113
 
 113:                                              ; preds = %108
-  %114 = load ptr, ptr %63, align 8, !tbaa !69
-  %115 = load ptr, ptr %79, align 8, !tbaa !72
-  %116 = load ptr, ptr %78, align 8, !tbaa !71
+  %114 = load ptr, ptr %63, align 8, !tbaa !70
+  %115 = load ptr, ptr %79, align 8, !tbaa !73
+  %116 = load ptr, ptr %78, align 8, !tbaa !72
   %117 = call ptr @evp_pkey_export_to_provider(ptr noundef %114, ptr noundef %115, ptr noundef nonnull %5, ptr noundef %116) #6
-  %.pr217 = load ptr, ptr %5, align 8, !tbaa !57
+  %.pr217 = load ptr, ptr %5, align 8, !tbaa !58
   %118 = icmp eq ptr %.pr217, null
   br i1 %118, label %.thread218, label %119
 
@@ -1207,7 +1207,7 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   %121 = icmp samesign ult i32 %.0139245, 2
   %122 = icmp eq ptr %.4147.ph, null
   %123 = select i1 %121, i1 %122, i1 false
-  br i1 %123, label %82, label %124, !llvm.loop !84
+  br i1 %123, label %82, label %124, !llvm.loop !85
 
 124:                                              ; preds = %119
   br i1 %122, label %125, label %126
@@ -1224,17 +1224,17 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   %.2145 = phi ptr [ %.4147.ph, %126 ], [ %.1144197, %.thread205 ]
   %.0130 = phi ptr [ %.3133.ph, %126 ], [ %1, %.thread205 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.0130, ptr %129, align 8, !tbaa !85
+  store ptr %.0130, ptr %129, align 8, !tbaa !86
   %130 = getelementptr inbounds nuw i8, ptr %.0130, i64 40
   %131 = load ptr, ptr %130, align 8, !tbaa !22
   %132 = getelementptr inbounds nuw i8, ptr %.0130, i64 24
   %133 = load ptr, ptr %132, align 8, !tbaa !12
   %134 = call ptr @ossl_provider_ctx(ptr noundef %133) #6
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %136 = load ptr, ptr %135, align 8, !tbaa !71
+  %136 = load ptr, ptr %135, align 8, !tbaa !72
   %137 = call ptr %131(ptr noundef %134, ptr noundef %136) #6
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %137, ptr %138, align 8, !tbaa !85
+  store ptr %137, ptr %138, align 8, !tbaa !86
   %139 = icmp eq ptr %137, null
   br i1 %139, label %140, label %141
 
@@ -1329,18 +1329,18 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
 171:                                              ; preds = %168
   %172 = getelementptr inbounds nuw i8, ptr %.0130, i64 208
   %173 = load ptr, ptr %172, align 8, !tbaa !44
-  %174 = load ptr, ptr %138, align 8, !tbaa !85
+  %174 = load ptr, ptr %138, align 8, !tbaa !86
   call void %173(ptr noundef %174) #6
-  store ptr null, ptr %138, align 8, !tbaa !85
+  store ptr null, ptr %138, align 8, !tbaa !86
   br label %209
 
 .loopexit:                                        ; preds = %102, %57, %125
   %175 = call i32 @ERR_pop_to_mark() #6
-  %176 = load ptr, ptr %5, align 8, !tbaa !57
+  %176 = load ptr, ptr %5, align 8, !tbaa !58
   call void @EVP_KEYMGMT_free(ptr noundef %176) #6
-  store ptr null, ptr %5, align 8, !tbaa !57
+  store ptr null, ptr %5, align 8, !tbaa !58
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %178 = load ptr, ptr %177, align 8, !tbaa !86
+  %178 = load ptr, ptr %177, align 8, !tbaa !87
   %179 = icmp eq ptr %178, null
   br i1 %179, label %193, label %180
 
@@ -1354,19 +1354,19 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
 
 181:                                              ; preds = %180
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 72
-  %183 = load ptr, ptr %182, align 8, !tbaa !87
+  %183 = load ptr, ptr %182, align 8, !tbaa !88
   %184 = icmp eq ptr %183, null
   br i1 %184, label %193, label %.thread230
 
 185:                                              ; preds = %180
   %186 = getelementptr inbounds nuw i8, ptr %178, i64 88
-  %187 = load ptr, ptr %186, align 8, !tbaa !89
+  %187 = load ptr, ptr %186, align 8, !tbaa !90
   %188 = icmp eq ptr %187, null
   br i1 %188, label %193, label %.thread232
 
 189:                                              ; preds = %180
   %190 = getelementptr inbounds nuw i8, ptr %178, i64 104
-  %191 = load ptr, ptr %190, align 8, !tbaa !90
+  %191 = load ptr, ptr %190, align 8, !tbaa !91
   %192 = icmp eq ptr %191, null
   br i1 %192, label %193, label %.thread234
 
@@ -1378,19 +1378,19 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
 
 .thread230:                                       ; preds = %181
   %194 = getelementptr inbounds nuw i8, ptr %178, i64 64
-  %195 = load ptr, ptr %194, align 8, !tbaa !91
+  %195 = load ptr, ptr %194, align 8, !tbaa !92
   %196 = icmp eq ptr %195, null
   br i1 %196, label %.thread202, label %204
 
 .thread232:                                       ; preds = %185
   %197 = getelementptr inbounds nuw i8, ptr %178, i64 80
-  %198 = load ptr, ptr %197, align 8, !tbaa !92
+  %198 = load ptr, ptr %197, align 8, !tbaa !93
   %199 = icmp eq ptr %198, null
   br i1 %199, label %.thread202, label %204
 
 .thread234:                                       ; preds = %189
   %200 = getelementptr inbounds nuw i8, ptr %178, i64 96
-  %201 = load ptr, ptr %200, align 8, !tbaa !93
+  %201 = load ptr, ptr %200, align 8, !tbaa !94
   %202 = icmp eq ptr %201, null
   br i1 %202, label %.thread202, label %204
 
@@ -1412,15 +1412,15 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
 
 .thread208:                                       ; preds = %29, %.critedge192
   %.4152 = phi i32 [ %207, %.critedge192 ], [ 0, %29 ]
-  %208 = load ptr, ptr %5, align 8, !tbaa !57
+  %208 = load ptr, ptr %5, align 8, !tbaa !58
   call void @EVP_KEYMGMT_free(ptr noundef %208) #6
   br label %.thread202
 
 209:                                              ; preds = %56, %204, %203, %171, %167, %166, %161, %156, %151, %146, %140, %80, %73, %66
   %.1149 = phi i32 [ 0, %140 ], [ 0, %167 ], [ -2, %146 ], [ %169, %171 ], [ -2, %151 ], [ -2, %156 ], [ -2, %161 ], [ -2, %166 ], [ 0, %56 ], [ 0, %203 ], [ %205, %204 ], [ 0, %66 ], [ 0, %80 ], [ 0, %73 ]
   call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %0) #6
-  store i32 0, ptr %0, align 8, !tbaa !59
-  %210 = load ptr, ptr %5, align 8, !tbaa !57
+  store i32 0, ptr %0, align 8, !tbaa !60
+  %210 = load ptr, ptr %5, align 8, !tbaa !58
   call void @EVP_KEYMGMT_free(ptr noundef %210) #6
   br label %.thread202
 
@@ -1460,7 +1460,7 @@ define i32 @EVP_PKEY_sign_message_update(ptr noundef readonly captures(address_i
   br label %20
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %0, align 8, !tbaa !59
+  %7 = load i32, ptr %0, align 8, !tbaa !60
   %.not = icmp eq i32 %7, 16384
   br i1 %.not, label %9, label %8
 
@@ -1472,7 +1472,7 @@ define i32 @EVP_PKEY_sign_message_update(ptr noundef readonly captures(address_i
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !85
+  %11 = load ptr, ptr %10, align 8, !tbaa !86
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = icmp eq ptr %13, null
@@ -1486,7 +1486,7 @@ define i32 @EVP_PKEY_sign_message_update(ptr noundef readonly captures(address_i
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !85
+  %18 = load ptr, ptr %17, align 8, !tbaa !86
   %19 = tail call i32 %13(ptr noundef %18, ptr noundef %1, i64 noundef %2) #6
   br label %20
 
@@ -1513,7 +1513,7 @@ define i32 @EVP_PKEY_sign_message_final(ptr noundef readonly captures(address_is
   br label %25
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %0, align 8, !tbaa !59
+  %7 = load i32, ptr %0, align 8, !tbaa !60
   %.not = icmp eq i32 %7, 16384
   br i1 %.not, label %9, label %8
 
@@ -1525,7 +1525,7 @@ define i32 @EVP_PKEY_sign_message_final(ptr noundef readonly captures(address_is
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !85
+  %11 = load ptr, ptr %10, align 8, !tbaa !86
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = icmp eq ptr %13, null
@@ -1539,12 +1539,12 @@ define i32 @EVP_PKEY_sign_message_final(ptr noundef readonly captures(address_is
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !85
+  %18 = load ptr, ptr %17, align 8, !tbaa !86
   %19 = icmp eq ptr %1, null
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = load i64, ptr %2, align 8, !tbaa !94
+  %21 = load i64, ptr %2, align 8, !tbaa !95
   br label %22
 
 22:                                               ; preds = %16, %20
@@ -1569,7 +1569,7 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %.thread
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %0, align 8, !tbaa !59
+  %9 = load i32, ptr %0, align 8, !tbaa !60
   switch i32 %9, label %10 [
     i32 16, label %11
     i32 16384, label %11
@@ -1583,13 +1583,13 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 11:                                               ; preds = %8, %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !85
+  %13 = load ptr, ptr %12, align 8, !tbaa !86
   %14 = icmp eq ptr %13, null
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !85
+  %17 = load ptr, ptr %16, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = icmp eq ptr %19, null
@@ -1606,7 +1606,7 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %22
-  %25 = load i64, ptr %2, align 8, !tbaa !94
+  %25 = load i64, ptr %2, align 8, !tbaa !95
   br label %26
 
 26:                                               ; preds = %22, %24
@@ -1616,13 +1616,13 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 29:                                               ; preds = %11
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %31 = load ptr, ptr %30, align 8, !tbaa !86
+  %31 = load ptr, ptr %30, align 8, !tbaa !87
   %32 = icmp eq ptr %31, null
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  %35 = load ptr, ptr %34, align 8, !tbaa !87
+  %35 = load ptr, ptr %34, align 8, !tbaa !88
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
 
@@ -1634,14 +1634,14 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !95
+  %40 = load i32, ptr %39, align 4, !tbaa !96
   %41 = and i32 %40, 2
   %.not39 = icmp eq i32 %41, 0
   br i1 %.not39, label %56, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %44 = load ptr, ptr %43, align 8, !tbaa !69
+  %44 = load ptr, ptr %43, align 8, !tbaa !70
   %45 = tail call i32 @EVP_PKEY_get_size(ptr noundef %44) #6
   %46 = sext i32 %45 to i64
   %47 = icmp eq i32 %45, 0
@@ -1658,18 +1658,18 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %49
-  store i64 %46, ptr %2, align 8, !tbaa !94
+  store i64 %46, ptr %2, align 8, !tbaa !95
   br label %.thread
 
 52:                                               ; preds = %49
-  %53 = load i64, ptr %2, align 8, !tbaa !94
+  %53 = load i64, ptr %2, align 8, !tbaa !95
   %54 = icmp ult i64 %53, %46
   br i1 %54, label %55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %52
-  %.pre = load ptr, ptr %30, align 8, !tbaa !86
+  %.pre = load ptr, ptr %30, align 8, !tbaa !87
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 72
-  %.pre42 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !87
+  %.pre42 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !88
   br label %56
 
 55:                                               ; preds = %52
@@ -1733,7 +1733,7 @@ define i32 @EVP_PKEY_CTX_set_signature(ptr noundef %0, ptr noundef %1, i64 nound
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.1, ptr noundef %1, i64 noundef %2) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !97
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %10 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
   br label %11
@@ -1765,7 +1765,7 @@ define i32 @EVP_PKEY_verify_message_update(ptr noundef readonly captures(address
   br label %20
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %0, align 8, !tbaa !59
+  %7 = load i32, ptr %0, align 8, !tbaa !60
   %.not = icmp eq i32 %7, 32768
   br i1 %.not, label %9, label %8
 
@@ -1777,7 +1777,7 @@ define i32 @EVP_PKEY_verify_message_update(ptr noundef readonly captures(address
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !85
+  %11 = load ptr, ptr %10, align 8, !tbaa !86
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = icmp eq ptr %13, null
@@ -1791,7 +1791,7 @@ define i32 @EVP_PKEY_verify_message_update(ptr noundef readonly captures(address
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !85
+  %18 = load ptr, ptr %17, align 8, !tbaa !86
   %19 = tail call i32 %13(ptr noundef %18, ptr noundef %1, i64 noundef %2) #6
   br label %20
 
@@ -1812,7 +1812,7 @@ define i32 @EVP_PKEY_verify_message_final(ptr noundef readonly captures(address_
   br label %18
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr %0, align 8, !tbaa !59
+  %5 = load i32, ptr %0, align 8, !tbaa !60
   %.not = icmp eq i32 %5, 32768
   br i1 %.not, label %7, label %6
 
@@ -1824,7 +1824,7 @@ define i32 @EVP_PKEY_verify_message_final(ptr noundef readonly captures(address_
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !85
+  %9 = load ptr, ptr %8, align 8, !tbaa !86
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8, !tbaa !33
   %12 = icmp eq ptr %11, null
@@ -1838,7 +1838,7 @@ define i32 @EVP_PKEY_verify_message_final(ptr noundef readonly captures(address_
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !85
+  %16 = load ptr, ptr %15, align 8, !tbaa !86
   %17 = tail call i32 %11(ptr noundef %16) #6
   br label %18
 
@@ -1859,7 +1859,7 @@ define i32 @EVP_PKEY_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
   br label %35
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %0, align 8, !tbaa !59
+  %9 = load i32, ptr %0, align 8, !tbaa !60
   switch i32 %9, label %10 [
     i32 32, label %11
     i32 32768, label %11
@@ -1873,13 +1873,13 @@ define i32 @EVP_PKEY_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
 
 11:                                               ; preds = %8, %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !85
+  %13 = load ptr, ptr %12, align 8, !tbaa !86
   %14 = icmp eq ptr %13, null
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !85
+  %17 = load ptr, ptr %16, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %20 = icmp eq ptr %19, null
@@ -1897,13 +1897,13 @@ define i32 @EVP_PKEY_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %26 = load ptr, ptr %25, align 8, !tbaa !86
+  %26 = load ptr, ptr %25, align 8, !tbaa !87
   %27 = icmp eq ptr %26, null
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 88
-  %30 = load ptr, ptr %29, align 8, !tbaa !89
+  %30 = load ptr, ptr %29, align 8, !tbaa !90
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
 
@@ -1952,7 +1952,7 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %0, align 8, !tbaa !59
+  %9 = load i32, ptr %0, align 8, !tbaa !60
   %.not = icmp eq i32 %9, 64
   br i1 %.not, label %11, label %10
 
@@ -1964,13 +1964,13 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !85
+  %13 = load ptr, ptr %12, align 8, !tbaa !86
   %14 = icmp eq ptr %13, null
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !85
+  %17 = load ptr, ptr %16, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 136
   %19 = load ptr, ptr %18, align 8, !tbaa !35
   %20 = icmp eq ptr %19, null
@@ -1987,7 +1987,7 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %22
-  %25 = load i64, ptr %2, align 8, !tbaa !94
+  %25 = load i64, ptr %2, align 8, !tbaa !95
   br label %26
 
 26:                                               ; preds = %22, %24
@@ -1997,13 +1997,13 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 29:                                               ; preds = %11
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %31 = load ptr, ptr %30, align 8, !tbaa !86
+  %31 = load ptr, ptr %30, align 8, !tbaa !87
   %32 = icmp eq ptr %31, null
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 104
-  %35 = load ptr, ptr %34, align 8, !tbaa !90
+  %35 = load ptr, ptr %34, align 8, !tbaa !91
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
 
@@ -2015,14 +2015,14 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !95
+  %40 = load i32, ptr %39, align 4, !tbaa !96
   %41 = and i32 %40, 2
   %.not36 = icmp eq i32 %41, 0
   br i1 %.not36, label %56, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %44 = load ptr, ptr %43, align 8, !tbaa !69
+  %44 = load ptr, ptr %43, align 8, !tbaa !70
   %45 = tail call i32 @EVP_PKEY_get_size(ptr noundef %44) #6
   %46 = sext i32 %45 to i64
   %47 = icmp eq i32 %45, 0
@@ -2039,18 +2039,18 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %49
-  store i64 %46, ptr %2, align 8, !tbaa !94
+  store i64 %46, ptr %2, align 8, !tbaa !95
   br label %.thread
 
 52:                                               ; preds = %49
-  %53 = load i64, ptr %2, align 8, !tbaa !94
+  %53 = load i64, ptr %2, align 8, !tbaa !95
   %54 = icmp ult i64 %53, %46
   br i1 %54, label %55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %52
-  %.pre = load ptr, ptr %30, align 8, !tbaa !86
+  %.pre = load ptr, ptr %30, align 8, !tbaa !87
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 104
-  %.pre39 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !90
+  %.pre39 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !91
   br label %56
 
 55:                                               ; preds = %52
@@ -2164,47 +2164,48 @@ attributes #6 = { nounwind }
 !52 = !{!4, !9, i64 272}
 !53 = !{!4, !9, i64 280}
 !54 = !{!4, !9, i64 288}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 _ZTS14evp_keymgmt_st", !9, i64 0}
-!59 = !{!60, !5, i64 0}
-!60 = !{!"evp_pkey_ctx_st", !5, i64 0, !61, i64 8, !8, i64 16, !8, i64 24, !58, i64 32, !6, i64 40, !62, i64 56, !9, i64 88, !9, i64 96, !64, i64 104, !5, i64 112, !5, i64 116, !65, i64 120, !66, i64 128, !67, i64 136, !67, i64 144, !9, i64 152, !5, i64 160, !68, i64 168}
-!61 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
-!62 = !{!"", !8, i64 0, !9, i64 8, !63, i64 16, !5, i64 24}
-!63 = !{!"long", !6, i64 0}
-!64 = !{!"p1 int", !9, i64 0}
-!65 = !{!"p1 _ZTS18evp_pkey_method_st", !9, i64 0}
-!66 = !{!"p1 _ZTS9engine_st", !9, i64 0}
-!67 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!68 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
-!69 = !{!60, !67, i64 136}
-!70 = !{!60, !58, i64 32}
-!71 = !{!60, !8, i64 16}
-!72 = !{!60, !61, i64 8}
-!73 = !{!8, !8, i64 0}
-!74 = distinct !{!74, !56}
-!75 = !{!76, !58, i64 96}
-!76 = !{!"evp_pkey_st", !5, i64 0, !5, i64 4, !77, i64 8, !66, i64 16, !66, i64 24, !6, i64 32, !6, i64 40, !11, i64 48, !9, i64 56, !78, i64 64, !5, i64 72, !5, i64 76, !79, i64 80, !58, i64 96, !9, i64 104, !63, i64 112, !81, i64 120, !63, i64 128, !82, i64 136}
-!77 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !9, i64 0}
-!78 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !9, i64 0}
-!79 = !{!"crypto_ex_data_st", !61, i64 0, !80, i64 8}
-!80 = !{!"p1 _ZTS13stack_st_void", !9, i64 0}
-!81 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !9, i64 0}
-!82 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8}
-!83 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!84 = distinct !{!84, !56}
-!85 = !{!6, !6, i64 0}
-!86 = !{!60, !65, i64 120}
-!87 = !{!88, !9, i64 72}
-!88 = !{!"evp_pkey_method_st", !5, i64 0, !5, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248}
-!89 = !{!88, !9, i64 88}
-!90 = !{!88, !9, i64 104}
-!91 = !{!88, !9, i64 64}
-!92 = !{!88, !9, i64 80}
-!93 = !{!88, !9, i64 96}
-!94 = !{!63, !63, i64 0}
-!95 = !{!88, !5, i64 4}
-!96 = !{i64 0, i64 8, !73, i64 8, i64 4, !97, i64 16, i64 8, !98, i64 24, i64 8, !94, i64 32, i64 8, !94}
-!97 = !{!5, !5, i64 0}
-!98 = !{!9, !9, i64 0}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS14evp_keymgmt_st", !9, i64 0}
+!60 = !{!61, !5, i64 0}
+!61 = !{!"evp_pkey_ctx_st", !5, i64 0, !62, i64 8, !8, i64 16, !8, i64 24, !59, i64 32, !6, i64 40, !63, i64 56, !9, i64 88, !9, i64 96, !65, i64 104, !5, i64 112, !5, i64 116, !66, i64 120, !67, i64 128, !68, i64 136, !68, i64 144, !9, i64 152, !5, i64 160, !69, i64 168}
+!62 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
+!63 = !{!"", !8, i64 0, !9, i64 8, !64, i64 16, !5, i64 24}
+!64 = !{!"long", !6, i64 0}
+!65 = !{!"p1 int", !9, i64 0}
+!66 = !{!"p1 _ZTS18evp_pkey_method_st", !9, i64 0}
+!67 = !{!"p1 _ZTS9engine_st", !9, i64 0}
+!68 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!69 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
+!70 = !{!61, !68, i64 136}
+!71 = !{!61, !59, i64 32}
+!72 = !{!61, !8, i64 16}
+!73 = !{!61, !62, i64 8}
+!74 = !{!8, !8, i64 0}
+!75 = distinct !{!75, !56, !57}
+!76 = !{!77, !59, i64 96}
+!77 = !{!"evp_pkey_st", !5, i64 0, !5, i64 4, !78, i64 8, !67, i64 16, !67, i64 24, !6, i64 32, !6, i64 40, !11, i64 48, !9, i64 56, !79, i64 64, !5, i64 72, !5, i64 76, !80, i64 80, !59, i64 96, !9, i64 104, !64, i64 112, !82, i64 120, !64, i64 128, !83, i64 136}
+!78 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !9, i64 0}
+!79 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !9, i64 0}
+!80 = !{!"crypto_ex_data_st", !62, i64 0, !81, i64 8}
+!81 = !{!"p1 _ZTS13stack_st_void", !9, i64 0}
+!82 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !9, i64 0}
+!83 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8}
+!84 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!85 = distinct !{!85, !56, !57}
+!86 = !{!6, !6, i64 0}
+!87 = !{!61, !66, i64 120}
+!88 = !{!89, !9, i64 72}
+!89 = !{!"evp_pkey_method_st", !5, i64 0, !5, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248}
+!90 = !{!89, !9, i64 88}
+!91 = !{!89, !9, i64 104}
+!92 = !{!89, !9, i64 64}
+!93 = !{!89, !9, i64 80}
+!94 = !{!89, !9, i64 96}
+!95 = !{!64, !64, i64 0}
+!96 = !{!89, !5, i64 4}
+!97 = !{i64 0, i64 8, !74, i64 8, i64 4, !98, i64 16, i64 8, !99, i64 24, i64 8, !95, i64 32, i64 8, !95}
+!98 = !{!5, !5, i64 0}
+!99 = !{!9, !9, i64 0}

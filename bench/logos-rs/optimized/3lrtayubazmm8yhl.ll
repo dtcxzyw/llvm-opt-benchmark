@@ -34,7 +34,7 @@ define i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17h63acabb5468ca6
   %8 = call i8 @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h525025bf7d854130E"(ptr nonnull align 8 %3, i64 %5)
   %9 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h71444cfb85e14f1eE"(i8 %8)
   %10 = icmp eq i8 %9, 3
-  br i1 %10, label %4, label %11
+  br i1 %10, label %4, label %11, !llvm.loop !3
 
 11:                                               ; preds = %7
   %12 = call i8 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hffdcbd52cbb4f5eeE"(i8 %9)
@@ -72,7 +72,7 @@ define i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd4486bf195de736E(p
   %8 = call i8 @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h525025bf7d854130E"(ptr nonnull align 8 %3, i64 %5)
   %9 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h71444cfb85e14f1eE"(i8 %8)
   %10 = icmp eq i8 %9, 3
-  br i1 %10, label %4, label %11
+  br i1 %10, label %4, label %11, !llvm.loop !3
 
 11:                                               ; preds = %7
   %12 = call i8 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hffdcbd52cbb4f5eeE"(i8 %9)
@@ -199,7 +199,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork10add_branch17h9a6dba12fc6
   store i32 %storemerge, ptr %17, align 4
   %19 = call { i1, i8 } @"_ZN93_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06f4f6669fe50ce3E"(ptr nonnull align 1 %6)
   %20 = extractvalue { i1, i8 } %19, 0
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 21:                                               ; preds = %.lr.ph
   %22 = call i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1612bbee2E"(ptr align 8 %4, i32 %18, i32 %3)
@@ -285,7 +285,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E
   br i1 %33, label %.backedge.backedge, label %38
 
 .backedge.backedge:                               ; preds = %34, %38
-  br label %.backedge
+  br label %.backedge, !llvm.loop !6
 
 35:                                               ; preds = %28
   br i1 %33, label %38, label %36
@@ -355,7 +355,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
   %29 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %17, %30
-  br i1 %.not, label %23, label %.loopexit
+  br i1 %.not, label %23, label %.loopexit, !llvm.loop !7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -420,7 +420,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork6branch17hd9705e15
 
 29:                                               ; preds = %23
   store i32 %4, ptr %26, align 4
-  br label %16
+  br label %16, !llvm.loop !8
 
 30:                                               ; preds = %23
   store ptr @anon.33164be75a3287a3b2008a53950c9b90.12, ptr %6, align 8
@@ -456,7 +456,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
 8:                                                ; preds = %4
   %9 = tail call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %7)
   %10 = icmp ult i64 %9, %3
-  br i1 %10, label %18, label %22, !prof !3
+  br i1 %10, label %18, label %22, !prof !9
 
 11:                                               ; preds = %26, %18, %4
   %12 = tail call { ptr, i64 } @_ZN13logos_codegen5graph4fork4Fork8branches17h4bd8d98ad8ac2dcfE(ptr nonnull align 8 %0)
@@ -482,7 +482,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
 23:                                               ; preds = %18
   %24 = tail call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %7)
   %25 = icmp ult i64 %24, %3
-  br i1 %25, label %26, label %29, !prof !3
+  br i1 %25, label %26, label %29, !prof !9
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %24
@@ -504,7 +504,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
   %.sroa.2.0.extract.trunc14 = trunc nuw i64 %.sroa.2.0.extract.trunc14.in to i32
   %30 = call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %.sroa.2.0.extract.trunc14)
   %31 = icmp ult i64 %30, %3
-  br i1 %31, label %32, label %38, !prof !3
+  br i1 %31, label %32, label %38, !prof !9
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %30
@@ -515,7 +515,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
 .backedge:                                        ; preds = %32, %42
   %36 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %5)
   %37 = icmp ult i64 %36, 4294967296
-  br i1 %37, label %._crit_edge, label %.lr.ph
+  br i1 %37, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 38:                                               ; preds = %.lr.ph
   call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 %30, i64 %3, ptr nonnull align 8 @anon.33164be75a3287a3b2008a53950c9b90.17) #12
@@ -524,7 +524,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
 39:                                               ; preds = %32
   %40 = call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %.sroa.2.0.extract.trunc14)
   %41 = icmp ult i64 %40, %3
-  br i1 %41, label %42, label %45, !prof !3
+  br i1 %41, label %42, label %45, !prof !9
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %40
@@ -594,7 +594,7 @@ define void @"_ZN13logos_codegen5graph5impls79_$LT$impl$u20$core..hash..Hash$u20
   call void @"_ZN65_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..hash..Hash$GT$4hash17h79ec2b4850dda206E"(ptr nonnull align 4 %.sroa.2.0..sroa_idx2, ptr align 8 %1)
   %20 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %4)
   %21 = icmp ult i64 %20, 4294967296
-  br i1 %21, label %._crit_edge, label %16
+  br i1 %21, label %._crit_edge, label %16, !llvm.loop !11
 
 22:                                               ; preds = %._crit_edge
   %23 = load i32, ptr %12, align 8
@@ -721,4 +721,12 @@ attributes #12 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}

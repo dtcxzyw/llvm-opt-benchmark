@@ -61,7 +61,7 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
     i32 104, label %17
     i32 118, label %19
     i32 63, label %20
-  ]
+  ], !llvm.loop !7
 
 17:                                               ; preds = %14
   call void @show_help_header(ptr noundef nonnull @.str.7)
@@ -134,7 +134,7 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %50 = load i32, ptr %3, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %49
   call void @wtap_cleanup()
@@ -265,4 +265,6 @@ attributes #7 = { cold noreturn nounwind }
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}

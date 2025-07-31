@@ -80,7 +80,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13cons
   %44 = tail call i32 @llvm.fshl.i32(i32 %.022, i32 %.022, i32 26)
   %45 = add i32 %43, %44
   %46 = icmp eq ptr %.sroa.0.1.ph19, %3
-  br i1 %46, label %.thread.loopexit, label %.lr.ph
+  br i1 %46, label %.thread.loopexit, label %.lr.ph, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -104,3 +104,5 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = distinct !{!5, !6, !"_ZN4core3str11validations15next_code_point17h0e01386b95ecf82aE: argument 0"}
 !6 = distinct !{!6, !"_ZN4core3str11validations15next_code_point17h0e01386b95ecf82aE"}
 !7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}

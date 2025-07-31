@@ -265,7 +265,7 @@ typeIsOfTypedTable.exit:                          ; preds = %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %45
   br i1 %.162, label %46, label %.critedge77
@@ -366,7 +366,7 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %48 = zext i1 %46 to i8
   store i8 %48, ptr %47, align 1
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %50 = load i8, ptr %49, align 8, !range !7, !noundef !8
+  %50 = load i8, ptr %49, align 8, !range !8, !noundef !9
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i8 %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -374,7 +374,7 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 36
   store i32 %53, ptr %54, align 4
   call void @setup_parser_errposition_callback(ptr noundef nonnull %11, ptr noundef %0, i32 noundef %53) #5
-  %55 = load i8, ptr %49, align 8, !range !7, !noundef !8
+  %55 = load i8, ptr %49, align 8, !range !8, !noundef !9
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %61, label %57
 
@@ -389,7 +389,7 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %62 = call i64 @stringTypeDatum(ptr noundef %38, ptr noundef %.sink, i32 noundef %.0205) #5
   %63 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 %62, ptr %63, align 8
-  %64 = load i8, ptr %49, align 8, !range !7, !noundef !8
+  %64 = load i8, ptr %49, align 8, !range !8, !noundef !9
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %73, label %66
 
@@ -1171,7 +1171,7 @@ list_head.exit:                                   ; preds = %32, %36
   %gep = getelementptr i8, ptr %invariant.gep, i64 %47
   %48 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 91
-  %50 = load i8, ptr %49, align 1, !range !7, !noundef !8
+  %50 = load i8, ptr %49, align 1, !range !8, !noundef !9
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %55
 
@@ -1243,7 +1243,7 @@ list_head.exit:                                   ; preds = %32, %36
   %94 = load i32, ptr %35, align 8
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %44, label %._crit_edge, !llvm.loop !9
+  br i1 %96, label %44, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %93, %list_head.exit
   %.087.lcssa = phi ptr [ %39, %list_head.exit ], [ %.188, %93 ]
@@ -1552,7 +1552,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   %.2201302 = phi i32 [ %.0199355, %29 ], [ %.0199355, %41 ], [ %.0199355, %34 ], [ %.0199355, %27 ], [ %.0199355, %22 ], [ %.0199355, %18 ], [ %.0199355, %14 ], [ %.0199355, %11 ], [ %.0199355, %38 ], [ %.0199355, %45 ], [ %.0199355, %46 ], [ %.0199355, %13 ], [ %.0199355, %16 ], [ %.0199355, %20 ], [ %.0199355, %24 ], [ %.0199355, %.lr.ph ], [ %.2201302.ph, %.thread288.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.thread288
   %51 = icmp eq i32 %.2192304, 0
@@ -1674,7 +1674,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
 86:                                               ; preds = %87
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %exitcond384.not = icmp eq i64 %indvars.iv.next381, %wide.trip.count383
-  br i1 %exitcond384.not, label %90, label %87, !llvm.loop !11
+  br i1 %exitcond384.not, label %90, label %87, !llvm.loop !12
 
 87:                                               ; preds = %85, %86
   %indvars.iv380 = phi i64 [ 0, %85 ], [ %indvars.iv.next381, %86 ]
@@ -1955,7 +1955,7 @@ for_each_cell_setup.exit:                         ; preds = %17
   %26 = load i32, ptr %12, align 4
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
@@ -2048,7 +2048,7 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   unreachable
 
 64:                                               ; preds = %51
-  %65 = load i8, ptr %6, align 1, !range !7, !noundef !8
+  %65 = load i8, ptr %6, align 1, !range !8, !noundef !9
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %.thread92, label %67
 
@@ -2064,7 +2064,7 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   store i32 %48, ptr %4, align 4
   %71 = load i8, ptr %8, align 1
   store i8 %71, ptr %5, align 1
-  %72 = load i8, ptr %9, align 1, !range !7, !noundef !8
+  %72 = load i8, ptr %9, align 1, !range !8, !noundef !9
   store i8 %72, ptr %6, align 1
   br label %.thread92
 
@@ -2083,7 +2083,7 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   %74 = load i32, ptr %12, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next125, %75
-  br i1 %76, label %.lr.ph109, label %._crit_edge110, !llvm.loop !13
+  br i1 %76, label %.lr.ph109, label %._crit_edge110, !llvm.loop !14
 
 77:                                               ; preds = %54
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #5
@@ -2278,7 +2278,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
 14:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2342,7 +2342,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   unreachable
 
 37:                                               ; preds = %27
-  %38 = load i8, ptr %6, align 1, !range !7, !noundef !8
+  %38 = load i8, ptr %6, align 1, !range !8, !noundef !9
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %46, label %40
 
@@ -2358,7 +2358,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   store i32 %24, ptr %4, align 4
   %44 = load i8, ptr %8, align 1
   store i8 %44, ptr %5, align 1
-  %45 = load i8, ptr %9, align 1, !range !7, !noundef !8
+  %45 = load i8, ptr %9, align 1, !range !8, !noundef !9
   store i8 %45, ptr %6, align 1
   br label %46
 
@@ -2379,7 +2379,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !15
+  br i1 %exitcond41.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !16
 
 ._crit_edge35:                                    ; preds = %48, %17
   %50 = phi i32 [ %18, %17 ], [ %49, %48 ]
@@ -2758,7 +2758,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   %.1 = phi i1 [ %.0342771, %27 ], [ %.0342771, %29 ], [ %.0342771, %39 ], [ %.0342771, %42 ], [ %.0342771, %53 ], [ %.0342771, %56 ], [ %.0342771, %67 ], [ %.0342771, %70 ], [ true, %82 ], [ true, %96 ], [ true, %116 ], [ true, %101 ], [ true, %121 ], [ true, %129 ], [ %.0342771, %31 ], [ %.0342771, %44 ], [ %.0342771, %58 ], [ %.0342771, %72 ], [ true, %85 ], [ %.0342771, %.lr.ph ], [ true, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 140:                                              ; preds = %._crit_edge
   br i1 %19, label %141, label %.thread554
@@ -3047,7 +3047,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond.not.i = select i1 %254, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond.not.i, label %252, label %verify_common_type_from_oids.exit, !llvm.loop !11
+  br i1 %or.cond.not.i, label %252, label %verify_common_type_from_oids.exit, !llvm.loop !12
 
 verify_common_type_from_oids.exit:                ; preds = %252
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -3221,7 +3221,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
 321:                                              ; preds = %.sink.split963, %318
   %indvars.iv.next871 = add nuw nsw i64 %indvars.iv870, 1
   %exitcond874.not = icmp eq i64 %indvars.iv.next871, %wide.trip.count873
-  br i1 %exitcond874.not, label %.loopexit560, label %.lr.ph792, !llvm.loop !17
+  br i1 %exitcond874.not, label %.loopexit560, label %.lr.ph792, !llvm.loop !18
 
 .loopexit560:                                     ; preds = %321, %.thread554
   %.0430 = phi i32 [ 0, %.thread554 ], [ %.1431, %321 ]
@@ -3307,7 +3307,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   %.7357 = phi i32 [ %.6356793, %322 ], [ %.6356793, %326 ], [ %.7357.ph, %.sink.split964 ]
   %indvars.iv.next876 = add nuw nsw i64 %indvars.iv875, 1
   %exitcond879.not = icmp eq i64 %indvars.iv.next876, %wide.trip.count878
-  br i1 %exitcond879.not, label %.loopexit, label %322, !llvm.loop !18
+  br i1 %exitcond879.not, label %.loopexit, label %322, !llvm.loop !19
 
 .loopexit:                                        ; preds = %346, %314, %.loopexit560
   %.3414888 = phi i32 [ %.3414, %.loopexit560 ], [ %.5416, %314 ], [ %.3414, %346 ]
@@ -3476,7 +3476,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
 8:                                                ; preds = %.lr.ph149
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %.thread108.sink.split, label %.lr.ph149, !llvm.loop !19
+  br i1 %exitcond167.not, label %.thread108.sink.split, label %.lr.ph149, !llvm.loop !20
 
 9:                                                ; preds = %3, %3
   %10 = icmp sgt i32 %2, 0
@@ -3498,7 +3498,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
 13:                                               ; preds = %.lr.ph145
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
-  br i1 %exitcond162.not, label %.thread108.sink.split, label %.lr.ph145, !llvm.loop !20
+  br i1 %exitcond162.not, label %.thread108.sink.split, label %.lr.ph145, !llvm.loop !21
 
 14:                                               ; preds = %3, %3, %3, %3
   %15 = icmp sgt i32 %2, 0
@@ -3524,7 +3524,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread108.sink.split, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.thread108.sink.split, label %.lr.ph, !llvm.loop !22
 
 19:                                               ; preds = %3
   %20 = add i32 %0, -5077
@@ -3554,7 +3554,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
 24:                                               ; preds = %.lr.ph152
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %.thread108.sink.split, label %.lr.ph152, !llvm.loop !22
+  br i1 %exitcond172.not, label %.thread108.sink.split, label %.lr.ph152, !llvm.loop !23
 
 .thread108.sink.split:                            ; preds = %18, %13, %8, %24, %.preheader, %14, %9, %4
   %.str.38.sink = phi ptr [ @.str.35, %4 ], [ @.str.36, %9 ], [ @.str.37, %14 ], [ @.str.38, %.preheader ], [ @.str.38, %24 ], [ @.str.35, %8 ], [ @.str.36, %13 ], [ @.str.37, %18 ]
@@ -3585,7 +3585,7 @@ define dso_local ptr @check_valid_internal_signature(i32 noundef %0, ptr noundef
 6:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
@@ -3632,7 +3632,7 @@ define dso_local zeroext i1 @IsPreferredType(i8 noundef signext %0, i32 noundef 
   br i1 %or.cond, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load i8, ptr %4, align 1, !range !7, !noundef !8
+  %9 = load i8, ptr %4, align 1, !range !8, !noundef !9
   %10 = trunc nuw i8 %9 to i1
   br label %11
 
@@ -3887,23 +3887,24 @@ attributes #6 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}

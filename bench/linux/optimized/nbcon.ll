@@ -159,7 +159,7 @@ define dso_local noundef zeroext i1 @nbcon_enter_unsafe(ptr noundef captures(non
 12:                                               ; preds = %.preheader
   %13 = extractvalue { i8, i32 } %8, 1
   %14 = tail call fastcc zeroext i1 @nbcon_context_can_proceed(ptr noundef %0, i32 %13)
-  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !17
 
 15:                                               ; preds = %.preheader
   %16 = tail call fastcc zeroext i1 @nbcon_context_can_proceed(ptr noundef %0, i32 %7)
@@ -197,7 +197,7 @@ define dso_local noundef zeroext i1 @nbcon_exit_unsafe(ptr noundef captures(none
   %15 = extractvalue { i8, i32 } %10, 1
   %16 = and i32 %15, 32
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.preheader, label %.loopexit3, !llvm.loop !16
+  br i1 %17, label %.preheader, label %.loopexit3, !llvm.loop !18
 
 .loopexit3:                                       ; preds = %8, %14, %1
   %.sroa.0.1 = phi i32 [ %4, %1 ], [ %9, %8 ], [ %15, %14 ]
@@ -261,8 +261,8 @@ define dso_local void @nbcon_init(ptr noundef %0) local_unnamed_addr #1 align 16
   br i1 %4, label %5, label %6, !prof !12
 
 5:                                                ; preds = %1
-  tail call void asm sideeffect "227: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 227b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 227) #7, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1008, i32 0, i64 12) #7, !srcloc !18
+  tail call void asm sideeffect "227: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 227b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 227) #7, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1008, i32 0, i64 12) #7, !srcloc !20
   unreachable
 
 6:                                                ; preds = %1
@@ -340,9 +340,11 @@ attributes #10 = { cold nounwind }
 !10 = !{i64 2151931759}
 !11 = !{i64 2148137131, i64 2148137170, i64 2148137191, i64 2148137228, i64 2148137251, i64 2148137260, i64 2148137558}
 !12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = distinct !{!16, !14, !15}
-!17 = !{i64 2151961516, i64 2151961325, i64 2151961377, i64 2151961423, i64 2151961451}
-!18 = !{i64 2151961590, i64 2151961619, i64 2151961665, i64 2151961723, i64 2151961777, i64 2151961831, i64 2151961886, i64 2151961917}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !14, !15, !16}
+!18 = distinct !{!18, !14, !15, !16}
+!19 = !{i64 2151961516, i64 2151961325, i64 2151961377, i64 2151961423, i64 2151961451}
+!20 = !{i64 2151961590, i64 2151961619, i64 2151961665, i64 2151961723, i64 2151961777, i64 2151961831, i64 2151961886, i64 2151961917}

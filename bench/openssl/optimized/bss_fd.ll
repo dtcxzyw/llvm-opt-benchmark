@@ -277,13 +277,13 @@ define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 nound
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %18 = load i32, ptr %17, align 4, !tbaa !22
+  %18 = load i32, ptr %17, align 4, !tbaa !23
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %fd_free.exit, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load i32, ptr %20, align 8, !tbaa !23
+  %21 = load i32, ptr %20, align 8, !tbaa !24
   %.not7.i = icmp eq i32 %21, 0
   br i1 %.not7.i, label %26, label %22
 
@@ -294,7 +294,7 @@ define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 nound
   br label %26
 
 26:                                               ; preds = %22, %19
-  store i32 0, ptr %20, align 8, !tbaa !23
+  store i32 0, ptr %20, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %27, align 8, !tbaa !18
   br label %fd_free.exit
@@ -305,14 +305,14 @@ fd_free.exit:                                     ; preds = %14, %16, %26
   store i32 %28, ptr %29, align 8, !tbaa !7
   %30 = trunc i64 %2 to i32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %30, ptr %31, align 4, !tbaa !22
+  store i32 %30, ptr %31, align 4, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %32, align 8, !tbaa !23
+  store i32 1, ptr %32, align 8, !tbaa !24
   br label %52
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load i32, ptr %34, align 8, !tbaa !23
+  %35 = load i32, ptr %34, align 8, !tbaa !24
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %52, label %36
 
@@ -332,14 +332,14 @@ fd_free.exit:                                     ; preds = %14, %16, %26
 
 39:                                               ; preds = %4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !22
+  %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = sext i32 %41 to i64
   br label %52
 
 43:                                               ; preds = %4
   %44 = trunc i64 %2 to i32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %44, ptr %45, align 4, !tbaa !22
+  store i32 %44, ptr %45, align 4, !tbaa !23
   br label %52
 
 46:                                               ; preds = %4
@@ -361,11 +361,11 @@ fd_free.exit:                                     ; preds = %14, %16, %26
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @fd_new(ptr noundef writeonly captures(none) initializes((40, 44), (48, 52), (56, 60), (64, 72)) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %2, align 8, !tbaa !23
+  store i32 0, ptr %2, align 8, !tbaa !24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 -1, ptr %3, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr null, ptr %4, align 8, !tbaa !24
+  store ptr null, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %5, align 8, !tbaa !18
   ret i32 1
@@ -378,13 +378,13 @@ define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_nul
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !22
+  %5 = load i32, ptr %4, align 4, !tbaa !23
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !23
+  %8 = load i32, ptr %7, align 8, !tbaa !24
   %.not7 = icmp eq i32 %8, 0
   br i1 %.not7, label %13, label %9
 
@@ -395,7 +395,7 @@ define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_nul
   br label %13
 
 13:                                               ; preds = %9, %6
-  store i32 0, ptr %7, align 8, !tbaa !23
+  store i32 0, ptr %7, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %14, align 8, !tbaa !18
   br label %15
@@ -458,8 +458,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !17 = !{!"p1 _ZTS13stack_st_void", !10, i64 0}
 !18 = !{!8, !4, i64 48}
 !19 = !{!5, !5, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!8, !4, i64 44}
-!23 = !{!8, !4, i64 40}
-!24 = !{!8, !10, i64 64}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!8, !4, i64 44}
+!24 = !{!8, !4, i64 40}
+!25 = !{!8, !10, i64 64}

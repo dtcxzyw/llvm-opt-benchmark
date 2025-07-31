@@ -443,7 +443,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %171, i32 %.0205242.i)
   %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next265.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph248.i, label %.lr.ph243.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.lr.ph248.i, label %.lr.ph243.i, !llvm.loop !9
 
 172:                                              ; preds = %184, %.lr.ph248.i
   %indvars.iv267.i = phi i64 [ 1, %.lr.ph248.i ], [ %indvars.iv.next268.i, %184 ]
@@ -476,7 +476,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %.1.i = phi i32 [ %.0203247.i, %180 ], [ %spec.select228.i, %182 ]
   %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
   %exitcond271.not.i = icmp eq i64 %indvars.iv.next268.i, %wide.trip.count.i
-  br i1 %exitcond271.not.i, label %._crit_edge.loopexit.i, label %172, !llvm.loop !9
+  br i1 %exitcond271.not.i, label %._crit_edge.loopexit.i, label %172, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %184
   %185 = icmp eq i32 %.1.i, 1
@@ -538,7 +538,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %216 = load i32, ptr %58, align 4
   %217 = sext i32 %216 to i64
   %218 = icmp slt i64 %indvars.iv.next276.i, %217
-  br i1 %218, label %.lr.ph256.i, label %.loopexit, !llvm.loop !10
+  br i1 %218, label %.lr.ph256.i, label %.loopexit, !llvm.loop !11
 
 219:                                              ; preds = %201
   br i1 %.0203.lcssa.i, label %220, label %setHints.exit
@@ -570,7 +570,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %237 = load i32, ptr %58, align 4
   %238 = sext i32 %237 to i64
   %239 = icmp slt i64 %indvars.iv.next273.i, %238
-  br i1 %239, label %.lr.ph253.i, label %.loopexit, !llvm.loop !11
+  br i1 %239, label %.lr.ph253.i, label %.loopexit, !llvm.loop !12
 
 240:                                              ; preds = %.thread231.i, %.thread231.i
   %241 = getelementptr inbounds nuw i8, ptr %8, i64 420
@@ -606,7 +606,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %256 = load i32, ptr %52, align 4
   %257 = sext i32 %256 to i64
   %258 = icmp slt i64 %indvars.iv.next.i, %257
-  br i1 %258, label %248, label %.loopexit237.i.loopexit, !llvm.loop !12
+  br i1 %258, label %248, label %.loopexit237.i.loopexit, !llvm.loop !13
 
 .loopexit237.sink.split.i:                        ; preds = %248, %243
   %.sink292.i = phi i32 [ %245, %243 ], [ 8, %248 ]
@@ -1393,7 +1393,7 @@ thread-pre-split:                                 ; preds = %55
   %80 = phi i32 [ %74, %73 ], [ %76, %78 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %79, %65
   %81 = load ptr, ptr %0, align 8
@@ -1584,7 +1584,7 @@ getColorModelType.exit:                           ; preds = %._crit_edge, %101, 
 186:                                              ; preds = %187
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %.loopexit176, label %187, !llvm.loop !14
+  br i1 %exitcond190.not, label %.loopexit176, label %187, !llvm.loop !15
 
 187:                                              ; preds = %.lr.ph181, %186
   %indvars.iv186 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next187, %186 ]
@@ -1659,7 +1659,7 @@ getColorModelType.exit:                           ; preds = %._crit_edge, %101, 
 227:                                              ; preds = %.lr.ph183
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
-  br i1 %exitcond195.not, label %.loopexit, label %.lr.ph183, !llvm.loop !15
+  br i1 %exitcond195.not, label %.loopexit, label %.lr.ph183, !llvm.loop !16
 
 .loopexit:                                        ; preds = %227, %.preheader, %225
   %228 = load ptr, ptr %0, align 8
@@ -1831,7 +1831,7 @@ define internal fastcc range(i32 0, 2) i32 @checkChannelOffsets(ptr noundef read
 42:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !17
 
 43:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
@@ -2016,7 +2016,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef re
   store i8 %89, ptr %90, align 1
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit.loopexit, label %.lr.ph122, !llvm.loop !17
+  br i1 %exitcond144.not, label %.loopexit.loopexit, label %.lr.ph122, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv131 = phi i64 [ %84, %.lr.ph.preheader ], [ %indvars.iv.next132, %.lr.ph ]
@@ -2029,7 +2029,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef re
   store i16 %93, ptr %94, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit129, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit.loopexit129, label %.lr.ph, !llvm.loop !19
 
 .loopexit.loopexit:                               ; preds = %.lr.ph122
   %95 = trunc nsw i64 %indvars.iv.next139 to i32
@@ -2047,7 +2047,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef re
   tail call void %99(ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef nonnull %75, i32 noundef 2) #8
   %100 = add nsw i32 %.2101, %.094126
   %101 = icmp slt i32 %100, %7
-  br i1 %101, label %.lr.ph128, label %._crit_edge, !llvm.loop !19
+  br i1 %101, label %.lr.ph128, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader117
   %102 = load ptr, ptr %0, align 8
@@ -2150,7 +2150,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef re
 55:                                               ; preds = %.loopexit
   %56 = add nsw i32 %.2101, %.094126
   %57 = icmp slt i32 %56, %7
-  br i1 %57, label %.lr.ph128, label %._crit_edge, !llvm.loop !20
+  br i1 %57, label %.lr.ph128, label %._crit_edge, !llvm.loop !21
 
 .lr.ph128:                                        ; preds = %.preheader117, %55
   %.093127 = phi i32 [ %.1, %55 ], [ %33, %.preheader117 ]
@@ -2213,7 +2213,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef re
   store i32 %79, ptr %80, align 4
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit.loopexit, label %.lr.ph122, !llvm.loop !21
+  br i1 %exitcond144.not, label %.loopexit.loopexit, label %.lr.ph122, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv131 = phi i64 [ %74, %.lr.ph.preheader ], [ %indvars.iv.next132, %.lr.ph ]
@@ -2226,7 +2226,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef re
   store i32 %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit129, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit.loopexit129, label %.lr.ph, !llvm.loop !23
 
 .loopexit.loopexit:                               ; preds = %.lr.ph122
   %85 = trunc nsw i64 %indvars.iv.next139 to i32
@@ -2296,20 +2296,21 @@ attributes #10 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

@@ -66,7 +66,7 @@ define range(i32 -2147483648, 1) i32 @ff_tee_parse_slave_options(ptr noundef %0,
   store ptr %25, ptr %5, align 8, !tbaa !4
   %27 = call i32 @av_opt_get_key_value(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %._crit_edge, label %.lr.ph
+  br i1 %28, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 29:                                               ; preds = %22
   store ptr %25, ptr %3, align 8, !tbaa !4
@@ -120,3 +120,5 @@ attributes #5 = { nounwind willreturn memory(read) }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}

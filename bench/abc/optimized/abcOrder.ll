@@ -86,11 +86,11 @@ define internal fastcc void @Abc_NtkChangeCiOrder(ptr noundef readonly captures(
   store ptr %21, ptr %24, align 8, !tbaa !10
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %.critedge, label %19, !llvm.loop !30
+  br i1 %exitcond57.not, label %.critedge, label %19, !llvm.loop !31
 
 .critedge:                                        ; preds = %11, %19, %.preheader41, %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !31
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 0, ptr %27, align 4, !tbaa !9
   %28 = getelementptr i8, ptr %0, i64 56
@@ -114,10 +114,10 @@ define internal fastcc void @Abc_NtkChangeCiOrder(ptr noundef readonly captures(
   br i1 %.not40, label %36, label %69
 
 36:                                               ; preds = %.lr.ph50
-  %37 = load ptr, ptr %25, align 8, !tbaa !31
+  %37 = load ptr, ptr %25, align 8, !tbaa !32
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !9
-  %40 = load i32, ptr %37, align 8, !tbaa !32
+  %40 = load i32, ptr %37, align 8, !tbaa !33
   %41 = icmp eq i32 %39, %40
   br i1 %41, label %42, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -147,7 +147,7 @@ define internal fastcc void @Abc_NtkChangeCiOrder(ptr noundef readonly captures(
 Vec_PtrGrow.exit.i:                               ; preds = %49, %47
   %51 = phi ptr [ %48, %47 ], [ %50, %49 ]
   store ptr %51, ptr %45, align 8, !tbaa !3
-  store i32 16, ptr %37, align 8, !tbaa !32
+  store i32 16, ptr %37, align 8, !tbaa !33
   br label %Vec_PtrPush.exit
 
 52:                                               ; preds = %42
@@ -170,7 +170,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %49, %47
 62:                                               ; preds = %60, %58
   %63 = phi ptr [ %59, %58 ], [ %61, %60 ]
   store ptr %63, ptr %54, align 8, !tbaa !3
-  store i32 %53, ptr %37, align 8, !tbaa !32
+  store i32 %53, ptr %37, align 8, !tbaa !33
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %62
@@ -191,7 +191,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val37.val = load i32, ptr %70, align 4, !tbaa !9
   %71 = sext i32 %.val37.val to i64
   %72 = icmp slt i64 %indvars.iv.next59, %71
-  br i1 %72, label %.lr.ph50, label %.critedge4, !llvm.loop !33
+  br i1 %72, label %.lr.ph50, label %.critedge4, !llvm.loop !34
 
 .critedge4:                                       ; preds = %69, %.critedge
   ret void
@@ -215,7 +215,7 @@ define void @Abc_NtkImplementCiOrder(ptr noundef %0, ptr noundef readonly captur
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %.val21.val
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %11, align 4, !tbaa !9
-  store i32 %spec.store.select.i, ptr %9, align 8, !tbaa !32
+  store i32 %spec.store.select.i, ptr %9, align 8, !tbaa !33
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_PtrAlloc.exit, label %12
 
@@ -292,7 +292,7 @@ Vec_PtrFree.exit:                                 ; preds = %27, %30
 Vec_PtrGrow.exit.i:                               ; preds = %40, %38
   %42 = phi ptr [ %39, %38 ], [ %41, %40 ]
   store ptr %42, ptr %17, align 8, !tbaa !3
-  store i32 16, ptr %9, align 8, !tbaa !32
+  store i32 16, ptr %9, align 8, !tbaa !33
   br label %Vec_PtrPush.exit
 
 43:                                               ; preds = %34
@@ -314,7 +314,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %40, %38
 52:                                               ; preds = %50, %48
   %53 = phi ptr [ %49, %48 ], [ %51, %50 ]
   store ptr %53, ptr %17, align 8, !tbaa !3
-  store i32 %44, ptr %9, align 8, !tbaa !32
+  store i32 %44, ptr %9, align 8, !tbaa !33
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %52
@@ -327,7 +327,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %22, ptr %58, align 8, !tbaa !10
   %59 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %6, ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #7
   %60 = icmp eq i32 %59, 1
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %Vec_PtrAlloc.exit
   %.val = phi i32 [ 0, %Vec_PtrAlloc.exit ], [ %56, %Vec_PtrPush.exit ]
@@ -434,10 +434,11 @@ attributes #9 = { nounwind allocsize(0) }
 !25 = !{!"p1 _ZTS10Vec_Int_t_", !8, i64 0}
 !26 = !{!"p1 _ZTS10Abc_Cex_t_", !8, i64 0}
 !27 = !{!"p1 float", !8, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = !{!12, !15, i64 40}
-!32 = !{!4, !5, i64 0}
-!33 = distinct !{!33, !29}
-!34 = distinct !{!34, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = !{!12, !15, i64 40}
+!33 = !{!4, !5, i64 0}
+!34 = distinct !{!34, !29, !30}
+!35 = distinct !{!35, !29, !30}

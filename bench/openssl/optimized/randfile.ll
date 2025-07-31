@@ -101,7 +101,7 @@ define i32 @RAND_load_file(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
 39:                                               ; preds = %35
   call void @clearerr(ptr noundef nonnull %7) #10
   %cond = icmp eq i32 %33, 0
-  br i1 %cond, label %31, label %.loopexit
+  br i1 %cond, label %31, label %.loopexit, !llvm.loop !12
 
 40:                                               ; preds = %35, %31
   %41 = icmp eq i32 %33, 0
@@ -111,14 +111,14 @@ define i32 @RAND_load_file(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %42 = sitofp i32 %33 to double
   call void @RAND_add(ptr noundef nonnull %3, i32 noundef %33, double noundef %42) #10
   %43 = add nsw i32 %.027.ph, %33
-  br i1 %27, label %44, label %.outer
+  br i1 %27, label %44, label %.outer, !llvm.loop !12
 
 44:                                               ; preds = %.loopexit
   %sext35 = shl i64 %32, 32
   %45 = ashr exact i64 %sext35, 32
   %46 = sub nsw i64 %.130.ph.ph, %45
   %47 = icmp slt i64 %46, 1
-  br i1 %47, label %.loopexit51, label %.outer.outer
+  br i1 %47, label %.loopexit51, label %.outer.outer, !llvm.loop !12
 
 .loopexit51:                                      ; preds = %44, %40
   %.1 = phi i32 [ %.027.ph, %40 ], [ %43, %44 ]
@@ -283,7 +283,7 @@ define noundef ptr @RAND_file_name(ptr noundef %0, i64 noundef %1) local_unnamed
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i8, ptr %3, align 1, !tbaa !12
+  %6 = load i8, ptr %3, align 1, !tbaa !14
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %13
 
@@ -293,7 +293,7 @@ define noundef ptr @RAND_file_name(ptr noundef %0, i64 noundef %1) local_unnamed
   br i1 %10, label %23, label %11
 
 11:                                               ; preds = %8
-  %.pr = load i8, ptr %9, align 1, !tbaa !12
+  %.pr = load i8, ptr %9, align 1, !tbaa !14
   %12 = icmp eq i8 %.pr, 0
   br i1 %12, label %23, label %18
 
@@ -367,4 +367,6 @@ attributes #12 = { nounwind willreturn memory(read) }
 !9 = !{!"timespec", !5, i64 0, !5, i64 8}
 !10 = !{!4, !5, i64 48}
 !11 = !{!8, !8, i64 0}
-!12 = !{!6, !6, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!6, !6, i64 0}

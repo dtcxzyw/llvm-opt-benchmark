@@ -482,7 +482,7 @@ define dso_local noundef ptr @_ZN4llvm28createPrivateGlobalForStringERNS_6Module
   %7 = tail call noundef ptr @_ZN4llvm17ConstantDataArray9getStringERNS_11LLVMContextENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr %1, i64 %2, i1 noundef zeroext true) #14
   %8 = tail call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 88, i32 1) #14
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !201
+  %10 = load ptr, ptr %9, align 8, !tbaa !202
   call void @_ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(81) %8, ptr noundef nonnull align 8 dereferenceable(841) %0, ptr noundef %10, i1 noundef zeroext true, i32 noundef 8, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef null, i32 noundef 0, i64 0, i1 noundef zeroext false) #14
   br i1 %3, label %11, label %16
 
@@ -508,19 +508,19 @@ declare void @_ZN4llvm12GlobalObject12setAlignmentENS_5AlignE(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm25getOrCreateFunctionComdatERNS_8FunctionERNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !202
+  %4 = load ptr, ptr %3, align 8, !tbaa !203
   %.not.not = icmp eq ptr %4, null
   br i1 %.not.not, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !205
+  %7 = load ptr, ptr %6, align 8, !tbaa !206
   %8 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   %11 = tail call noundef ptr @_ZN4llvm6Module17getOrInsertComdatENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %7, ptr %9, i64 %10) #14
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %13 = load i32, ptr %12, align 4, !tbaa !206
+  %13 = load i32, ptr %12, align 4, !tbaa !207
   switch i32 %13, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.thread [
     i32 3, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
     i32 1, label %14
@@ -541,7 +541,7 @@ define dso_local noundef ptr @_ZN4llvm25getOrCreateFunctionComdatERNS_8FunctionE
 
 _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:   ; preds = %5, %14
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 3, ptr %18, align 8, !tbaa !214
+  store i32 3, ptr %18, align 8, !tbaa !215
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.thread
 
 _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.thread: ; preds = %5, %14, %14, %14, %14, %14, %14, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
@@ -562,7 +562,7 @@ declare void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm29setGlobalVariableLargeSectionERKNS_6TripleERNS_14GlobalVariableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(81) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !220
+  %4 = load i32, ptr %3, align 8, !tbaa !221
   %.not = icmp eq i32 %4, 38
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i32, ptr %5, align 4
@@ -572,7 +572,7 @@ define dso_local void @_ZN4llvm29setGlobalVariableLargeSectionERKNS_6TripleERNS_
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !205
+  %9 = load ptr, ptr %8, align 8, !tbaa !206
   %10 = tail call i64 @_ZNK4llvm6Module12getCodeModelEv(ptr noundef nonnull align 8 dereferenceable(841) %9) #14
   %.sroa.0.0.extract.trunc = trunc i64 %10 to i32
   %11 = and i64 %10, 4294967296
@@ -664,7 +664,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFvRKbEN4
 
 _ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIbLb0ENS2_6parserIbEEEUlRKbE_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit.sink.split: ; preds = %3, %.sink.split.i
   %.sink = phi ptr [ null, %.sink.split.i ], [ %1, %3 ]
-  store ptr %.sink, ptr %0, align 8, !tbaa !221
+  store ptr %.sink, ptr %0, align 8, !tbaa !222
   br label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIbLb0ENS2_6parserIbEEEUlRKbE_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIbLb0ENS2_6parserIbEEEUlRKbE_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit: ; preds = %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIbLb0ENS2_6parserIbEEEUlRKbE_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit.sink.split, %3
@@ -925,26 +925,27 @@ attributes #16 = { builtin nounwind }
 !196 = !{!"p1 _ZTSN4llvm12FunctionTypeE", !12, i64 0}
 !197 = !{!174, !19, i64 36}
 !198 = !{!185, !186, i64 8}
-!199 = distinct !{!199, !200}
+!199 = distinct !{!199, !200, !201}
 !200 = !{!"llvm.loop.mustprogress"}
-!201 = !{!165, !166, i64 8}
-!202 = !{!203, !204, i64 48}
-!203 = !{!"_ZTSN4llvm12GlobalObjectE", !174, i64 0, !204, i64 48}
-!204 = !{!"p1 _ZTSN4llvm6ComdatE", !12, i64 0}
-!205 = !{!174, !177, i64 40}
-!206 = !{!207, !213, i64 52}
-!207 = !{!"_ZTSN4llvm6TripleE", !59, i64 0, !208, i64 32, !209, i64 36, !210, i64 40, !211, i64 44, !212, i64 48, !213, i64 52}
-!208 = !{!"_ZTSN4llvm6Triple8ArchTypeE", !9, i64 0}
-!209 = !{!"_ZTSN4llvm6Triple11SubArchTypeE", !9, i64 0}
-!210 = !{!"_ZTSN4llvm6Triple10VendorTypeE", !9, i64 0}
-!211 = !{!"_ZTSN4llvm6Triple6OSTypeE", !9, i64 0}
-!212 = !{!"_ZTSN4llvm6Triple15EnvironmentTypeE", !9, i64 0}
-!213 = !{!"_ZTSN4llvm6Triple16ObjectFormatTypeE", !9, i64 0}
-!214 = !{!215, !217, i64 8}
-!215 = !{!"_ZTSN4llvm6ComdatE", !216, i64 0, !217, i64 8, !218, i64 16}
-!216 = !{!"p1 _ZTSN4llvm14StringMapEntryINS_6ComdatEEE", !12, i64 0}
-!217 = !{!"_ZTSN4llvm6Comdat13SelectionKindE", !9, i64 0}
-!218 = !{!"_ZTSN4llvm11SmallPtrSetIPNS_12GlobalObjectELj2EEE", !219, i64 0, !9, i64 24}
-!219 = !{!"_ZTSN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEEE", !23, i64 0}
-!220 = !{!207, !208, i64 32}
-!221 = !{!12, !12, i64 0}
+!201 = !{!"llvm.loop.estimated_trip_count"}
+!202 = !{!165, !166, i64 8}
+!203 = !{!204, !205, i64 48}
+!204 = !{!"_ZTSN4llvm12GlobalObjectE", !174, i64 0, !205, i64 48}
+!205 = !{!"p1 _ZTSN4llvm6ComdatE", !12, i64 0}
+!206 = !{!174, !177, i64 40}
+!207 = !{!208, !214, i64 52}
+!208 = !{!"_ZTSN4llvm6TripleE", !59, i64 0, !209, i64 32, !210, i64 36, !211, i64 40, !212, i64 44, !213, i64 48, !214, i64 52}
+!209 = !{!"_ZTSN4llvm6Triple8ArchTypeE", !9, i64 0}
+!210 = !{!"_ZTSN4llvm6Triple11SubArchTypeE", !9, i64 0}
+!211 = !{!"_ZTSN4llvm6Triple10VendorTypeE", !9, i64 0}
+!212 = !{!"_ZTSN4llvm6Triple6OSTypeE", !9, i64 0}
+!213 = !{!"_ZTSN4llvm6Triple15EnvironmentTypeE", !9, i64 0}
+!214 = !{!"_ZTSN4llvm6Triple16ObjectFormatTypeE", !9, i64 0}
+!215 = !{!216, !218, i64 8}
+!216 = !{!"_ZTSN4llvm6ComdatE", !217, i64 0, !218, i64 8, !219, i64 16}
+!217 = !{!"p1 _ZTSN4llvm14StringMapEntryINS_6ComdatEEE", !12, i64 0}
+!218 = !{!"_ZTSN4llvm6Comdat13SelectionKindE", !9, i64 0}
+!219 = !{!"_ZTSN4llvm11SmallPtrSetIPNS_12GlobalObjectELj2EEE", !220, i64 0, !9, i64 24}
+!220 = !{!"_ZTSN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEEE", !23, i64 0}
+!221 = !{!208, !209, i64 32}
+!222 = !{!12, !12, i64 0}

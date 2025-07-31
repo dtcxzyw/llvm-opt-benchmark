@@ -247,7 +247,7 @@ use_hole.exit.thread114:                          ; preds = %92, %use_hole.exit,
 
 use_hole.exit84.sink.split:                       ; preds = %100, %105, %73, %77, %57, %61, %40, %44
   %.sink.i73.sink = phi i64 [ %42, %40 ], [ %spec.select.i, %44 ], [ %59, %57 ], [ %spec.select.i69, %61 ], [ %75, %73 ], [ %spec.select.i76, %77 ], [ %102, %100 ], [ %spec.select.i83, %105 ]
-  store i64 %.sink.i73.sink, ptr %1, align 8, !tbaa !11
+  store i64 %.sink.i73.sink, ptr %1, align 8, !tbaa !12
   br label %use_hole.exit84
 
 use_hole.exit84:                                  ; preds = %use_hole.exit84.sink.split, %67, %51, %36, %96, %use_hole.exit.thread114, %3
@@ -303,7 +303,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !6, i64 0}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !6, i64 0}

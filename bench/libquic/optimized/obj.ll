@@ -1767,11 +1767,11 @@ define hidden ptr @OBJ_txt2obj(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %OBJ_nid2obj.exit
 
 34:                                               ; preds = %28
-  store ptr %31, ptr %4, align 8, !tbaa !23
+  store ptr %31, ptr %4, align 8, !tbaa !24
   call void @ASN1_put_object(ptr noundef nonnull %4, i32 noundef 0, i32 noundef %26, i32 noundef 6, i32 noundef 0) #10
-  %35 = load ptr, ptr %4, align 8, !tbaa !23
+  %35 = load ptr, ptr %4, align 8, !tbaa !24
   %36 = call i32 @a2d_ASN1_OBJECT(ptr noundef %35, i32 noundef %26, ptr noundef %0, i32 noundef -1) #10
-  store ptr %31, ptr %5, align 8, !tbaa !23
+  store ptr %31, ptr %5, align 8, !tbaa !24
   %37 = call ptr @d2i_ASN1_OBJECT(ptr noundef null, ptr noundef nonnull %5, i64 noundef %30) #10
   call void @free(ptr noundef nonnull %31) #10
   br label %OBJ_nid2obj.exit
@@ -2078,7 +2078,7 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br i1 %or.cond, label %8, label %9
 
 8:                                                ; preds = %4
-  store i8 0, ptr %0, align 1, !tbaa !24
+  store i8 0, ptr %0, align 1, !tbaa !25
   br label %9
 
 9:                                                ; preds = %8, %4
@@ -2142,7 +2142,7 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   %.0130236 = phi i32 [ %.6136, %122 ], [ %1, %.preheader.preheader ]
   %.0138235 = phi i32 [ %36, %122 ], [ %30, %.preheader.preheader ]
   %.0140234 = phi i32 [ %.3143, %122 ], [ 0, %.preheader.preheader ]
-  %33 = load i8, ptr %.0112239, align 1, !tbaa !24
+  %33 = load i8, ptr %.0112239, align 1, !tbaa !25
   %34 = add nsw i32 %.0138235, -1
   %35 = icmp ne i32 %34, 0
   %.not157220 = icmp sgt i8 %33, -1
@@ -2214,7 +2214,7 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   %.1126 = phi i32 [ 0, %55 ], [ %.2127187, %.thread183 ]
   %.2122 = phi ptr [ %.1121223, %55 ], [ %.3123188, %.thread183 ]
   %.1115 = phi i64 [ %56, %55 ], [ %.2116, %.thread183 ]
-  %58 = load i8, ptr %38, align 1, !tbaa !24
+  %58 = load i8, ptr %38, align 1, !tbaa !25
   %59 = add nsw i32 %36, -1
   %60 = icmp ne i32 %59, 0
   %.not157 = icmp sgt i8 %58, -1
@@ -2258,8 +2258,8 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %.0105240, i64 1
-  store i8 %.0144, ptr %.0105240, align 1, !tbaa !24
-  store i8 48, ptr %77, align 1, !tbaa !24
+  store i8 %.0144, ptr %.0105240, align 1, !tbaa !25
+  store i8 48, ptr %77, align 1, !tbaa !25
   %78 = add nsw i32 %.0130236, -1
   br label %79
 
@@ -2293,8 +2293,8 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %.1106, i64 1
-  store i8 46, ptr %.1106, align 1, !tbaa !24
-  store i8 0, ptr %90, align 1, !tbaa !24
+  store i8 46, ptr %.1106, align 1, !tbaa !25
+  store i8 0, ptr %90, align 1, !tbaa !25
   %91 = add nsw i32 %.1131, -1
   br label %92
 
@@ -2362,7 +2362,7 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   %.6136 = phi i32 [ %.7137, %120 ], [ %.4134, %.thread205 ]
   %.6 = phi ptr [ %.7, %120 ], [ %.4, %.thread205 ]
   %123 = icmp sgt i32 %36, 0
-  br i1 %123, label %.preheader, label %._crit_edge, !llvm.loop !25
+  br i1 %123, label %.preheader, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %122, %.thread180
   %.0140.lcssa = phi i32 [ 0, %.thread180 ], [ %.3143, %122 ]
@@ -2659,8 +2659,9 @@ attributes #12 = { nounwind willreturn memory(read) }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS20lhash_st_ASN1_OBJECT", !9, i64 0}
 !20 = !{!12, !12, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!8, !8, i64 0}
-!24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!8, !8, i64 0}
+!25 = !{!10, !10, i64 0}
+!26 = distinct !{!26, !22, !23}

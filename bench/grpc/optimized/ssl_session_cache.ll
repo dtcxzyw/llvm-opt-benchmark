@@ -276,7 +276,7 @@ define noundef i64 @_ZN3tsi18SslSessionLRUCache4SizeEv(ptr noundef nonnull align
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i64, ptr %3, align 8, !tbaa !52
+  %4 = load i64, ptr %3, align 8, !tbaa !53
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %5
 
@@ -335,9 +335,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.19.i.i.i = select i1 %18, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %18, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !53
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !54
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %10, !llvm.loop !54
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %10, !llvm.loop !55
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %19 = icmp eq ptr %.19.i.i.i, %6
@@ -371,9 +371,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSession
 
 29:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit
   %30 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !55
+  %31 = load ptr, ptr %30, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !57
+  %33 = load ptr, ptr %32, align 8, !tbaa !58
   %34 = icmp eq ptr %33, null
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !34
@@ -395,19 +395,19 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSession
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %33, ptr %44, align 8, !tbaa !58
+  store ptr %33, ptr %44, align 8, !tbaa !59
   br label %47
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  store ptr %33, ptr %46, align 8, !tbaa !57
+  store ptr %33, ptr %46, align 8, !tbaa !58
   br label %47
 
 47:                                               ; preds = %45, %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %49 = load i64, ptr %48, align 8, !tbaa !52
+  %49 = load i64, ptr %48, align 8, !tbaa !53
   %.not.i.i = icmp eq i64 %49, 0
-  br i1 %.not.i.i, label %50, label %_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit, !prof !59
+  br i1 %.not.i.i, label %50, label %_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit, !prof !60
 
 50:                                               ; preds = %47
   %51 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef 0, i64 noundef 1, ptr noundef nonnull @.str.4)
@@ -427,19 +427,19 @@ _ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit: ; preds = %47
 
 58:                                               ; preds = %_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %31, ptr %59, align 8, !tbaa !58
+  store ptr %31, ptr %59, align 8, !tbaa !59
   br label %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit
 
 60:                                               ; preds = %_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE.exit
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  store ptr %31, ptr %61, align 8, !tbaa !57
+  store ptr %31, ptr %61, align 8, !tbaa !58
   br label %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit
 
 _ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit: ; preds = %58, %60
   store ptr %31, ptr %55, align 8, !tbaa !33
   store ptr %56, ptr %35, align 8, !tbaa !34
-  store ptr null, ptr %32, align 8, !tbaa !57
-  store i64 %49, ptr %48, align 8, !tbaa !52
+  store ptr null, ptr %32, align 8, !tbaa !58
+  store i64 %49, ptr %48, align 8, !tbaa !53
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread: ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit, %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit
@@ -451,7 +451,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSession
 define void @_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !58
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !34
@@ -473,23 +473,23 @@ define void @_ZN3tsi18SslSessionLRUCache6RemoveEPNS0_4NodeE(ptr noundef nonnull 
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %5, ptr %16, align 8, !tbaa !58
+  store ptr %5, ptr %16, align 8, !tbaa !59
   br label %19
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %5, ptr %18, align 8, !tbaa !57
+  store ptr %5, ptr %18, align 8, !tbaa !58
   br label %19
 
 19:                                               ; preds = %15, %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load i64, ptr %20, align 8, !tbaa !52
+  %21 = load i64, ptr %20, align 8, !tbaa !53
   %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %24, label %22, !prof !59
+  br i1 %.not.i, label %24, label %22, !prof !60
 
 22:                                               ; preds = %19
   %23 = add i64 %21, -1
-  store i64 %23, ptr %20, align 8, !tbaa !52
+  store i64 %23, ptr %20, align 8, !tbaa !53
   ret void
 
 24:                                               ; preds = %19
@@ -512,12 +512,12 @@ define void @_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE(ptr noundef nonnu
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %7, align 8, !tbaa !58
+  store ptr %1, ptr %7, align 8, !tbaa !59
   br label %10
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %1, ptr %9, align 8, !tbaa !57
+  store ptr %1, ptr %9, align 8, !tbaa !58
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -525,11 +525,11 @@ define void @_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE(ptr noundef nonnu
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %4, ptr %11, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr null, ptr %12, align 8, !tbaa !57
+  store ptr null, ptr %12, align 8, !tbaa !58
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !52
+  %14 = load i64, ptr %13, align 8, !tbaa !53
   %15 = add i64 %14, 1
-  store i64 %15, ptr %13, align 8, !tbaa !52
+  store i64 %15, ptr %13, align 8, !tbaa !53
   ret void
 }
 
@@ -552,8 +552,8 @@ define void @_ZN3tsi18SslSessionLRUCache3PutEPKcSt10unique_ptrI14ssl_session_stN
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::unique_ptr.13", align 8
   %15 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
-  store ptr %1, ptr %8, align 8, !tbaa !60
-  %16 = load ptr, ptr %2, align 8, !tbaa !61
+  store ptr %1, ptr %8, align 8, !tbaa !61
+  %16 = load ptr, ptr %2, align 8, !tbaa !62
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %20
 
@@ -581,7 +581,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi52EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #22
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %22, ptr %11, align 8, !tbaa !63
+  store ptr %22, ptr %11, align 8, !tbaa !64
   %23 = icmp eq ptr %1, null
   br i1 %23, label %24, label %25
 
@@ -595,7 +595,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi52EEERS2_RAT__Kc.exit: ; pr
 25:                                               ; preds = %20
   %26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
-  store i64 %26, ptr %7, align 8, !tbaa !64
+  store i64 %26, ptr %7, align 8, !tbaa !65
   %27 = icmp ugt i64 %26, 15
   br i1 %27, label %.noexc.i, label %._crit_edge.i.i
 
@@ -605,7 +605,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi52EEERS2_RAT__Kc.exit: ; pr
 
 .noexc22:                                         ; preds = %.noexc.i
   store ptr %28, ptr %11, align 8, !tbaa !47
-  %29 = load i64, ptr %7, align 8, !tbaa !64
+  %29 = load i64, ptr %7, align 8, !tbaa !65
   store i64 %29, ptr %22, align 8, !tbaa !49
   br label %._crit_edge.i.i
 
@@ -626,7 +626,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi52EEERS2_RAT__Kc.exit: ; pr
   br label %34
 
 34:                                               ; preds = %33, %31, %._crit_edge.i.i
-  %35 = load i64, ptr %7, align 8, !tbaa !64
+  %35 = load i64, ptr %7, align 8, !tbaa !65
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %35, ptr %36, align 8, !tbaa !48
   %37 = load ptr, ptr %11, align 8, !tbaa !47
@@ -655,17 +655,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
-  store ptr %39, ptr %10, align 8, !tbaa !65
+  store ptr %39, ptr %10, align 8, !tbaa !66
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %75, label %47
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %48 = load i64, ptr %2, align 8, !tbaa !61
-  store ptr null, ptr %2, align 8, !tbaa !61
+  %48 = load i64, ptr %2, align 8, !tbaa !62
+  store ptr null, ptr %2, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store i64 %48, ptr %6, align 8, !tbaa !61
-  store ptr null, ptr %12, align 8, !tbaa !61
+  store i64 %48, ptr %6, align 8, !tbaa !62
+  store ptr null, ptr %12, align 8, !tbaa !62
   invoke void @_ZN3tsi16SslCachedSession6CreateESt10unique_ptrI14ssl_session_stNS_17SslSessionDeleterEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.5") align 8 %5, ptr noundef nonnull %6)
           to label %49 unwind label %.body
 
@@ -696,7 +696,7 @@ _ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i: ; preds = %_ZN
 
 _ZNSt10unique_ptrIN3tsi16SslCachedSessionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN3tsi16SslCachedSessionESt14default_deleteIS1_EEaSEOS4_.exit.i, %49
   store ptr null, ptr %5, align 8, !tbaa !46
-  %59 = load ptr, ptr %6, align 8, !tbaa !61
+  %59 = load ptr, ptr %6, align 8, !tbaa !62
   %.not.i2.i = icmp eq ptr %59, null
   br i1 %.not.i2.i, label %_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev.exit, label %60
 
@@ -759,9 +759,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 
 77:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #22
-  %78 = load ptr, ptr %8, align 8, !tbaa !60
+  %78 = load ptr, ptr %8, align 8, !tbaa !61
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %79, ptr %13, align 8, !tbaa !63
+  store ptr %79, ptr %13, align 8, !tbaa !64
   %80 = icmp eq ptr %78, null
   br i1 %80, label %81, label %82
 
@@ -775,7 +775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 82:                                               ; preds = %77
   %83 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  store i64 %83, ptr %4, align 8, !tbaa !64
+  store i64 %83, ptr %4, align 8, !tbaa !65
   %84 = icmp ugt i64 %83, 15
   br i1 %84, label %.noexc.i28, label %._crit_edge.i.i27
 
@@ -785,7 +785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 
 .noexc30:                                         ; preds = %.noexc.i28
   store ptr %85, ptr %13, align 8, !tbaa !47
-  %86 = load i64, ptr %4, align 8, !tbaa !64
+  %86 = load i64, ptr %4, align 8, !tbaa !65
   store i64 %86, ptr %79, align 8, !tbaa !49
   br label %._crit_edge.i.i27
 
@@ -806,22 +806,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   br label %91
 
 91:                                               ; preds = %90, %88, %._crit_edge.i.i27
-  %92 = load i64, ptr %4, align 8, !tbaa !64
+  %92 = load i64, ptr %4, align 8, !tbaa !65
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %92, ptr %93, align 8, !tbaa !48
   %94 = load ptr, ptr %13, align 8, !tbaa !47
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 %92
   store i8 0, ptr %95, align 1, !tbaa !49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  %96 = load i64, ptr %2, align 8, !tbaa !61
-  store i64 %96, ptr %14, align 8, !tbaa !61
-  store ptr null, ptr %2, align 8, !tbaa !61
+  %96 = load i64, ptr %2, align 8, !tbaa !62
+  store i64 %96, ptr %14, align 8, !tbaa !62
+  store ptr null, ptr %2, align 8, !tbaa !62
   invoke void @_ZN3tsi18SslSessionLRUCache4NodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrI14ssl_session_stNS_17SslSessionDeleterEE(ptr noundef nonnull align 8 dereferenceable(56) %76, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %14)
           to label %97 unwind label %137
 
 97:                                               ; preds = %91
-  store ptr %76, ptr %10, align 8, !tbaa !65
-  %98 = load ptr, ptr %14, align 8, !tbaa !61
+  store ptr %76, ptr %10, align 8, !tbaa !66
+  %98 = load ptr, ptr %14, align 8, !tbaa !62
   %.not.i32 = icmp eq ptr %98, null
   br i1 %.not.i32, label %_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev.exit33, label %99
 
@@ -837,7 +837,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   unreachable
 
 _ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev.exit33: ; preds = %97, %99
-  store ptr null, ptr %14, align 8, !tbaa !61
+  store ptr null, ptr %14, align 8, !tbaa !62
   %103 = load ptr, ptr %13, align 8, !tbaa !47
   %104 = icmp eq ptr %103, %79
   br i1 %104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
@@ -856,7 +856,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #22
-  %109 = load ptr, ptr %10, align 8, !tbaa !65
+  %109 = load ptr, ptr %10, align 8, !tbaa !66
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %111 = load ptr, ptr %110, align 8, !tbaa !33
   %112 = icmp eq ptr %111, null
@@ -864,12 +864,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 
 113:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %109, ptr %114, align 8, !tbaa !58
+  store ptr %109, ptr %114, align 8, !tbaa !59
   br label %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit
 
 115:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 48
-  store ptr %109, ptr %116, align 8, !tbaa !57
+  store ptr %109, ptr %116, align 8, !tbaa !58
   br label %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit
 
 _ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit: ; preds = %113, %115
@@ -877,17 +877,17 @@ _ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit: ; preds = %113, %115
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 40
   store ptr %111, ptr %117, align 8, !tbaa !34
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 48
-  store ptr null, ptr %118, align 8, !tbaa !57
+  store ptr null, ptr %118, align 8, !tbaa !58
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %120 = load i64, ptr %119, align 8, !tbaa !52
+  %120 = load i64, ptr %119, align 8, !tbaa !53
   %121 = add i64 %120, 1
-  store i64 %121, ptr %119, align 8, !tbaa !52
+  store i64 %121, ptr %119, align 8, !tbaa !53
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %123 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_emplace_uniqueIJRPKcRSB_EEES6_ISt17_Rb_tree_iteratorISC_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeESt4lessIS5_ESaISt4pairIKS5_S9_EEE7emplaceIJRPKcRS9_EEESC_ISt17_Rb_tree_iteratorISE_EbEDpOT_.exit unwind label %133
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeESt4lessIS5_ESaISt4pairIKS5_S9_EEE7emplaceIJRPKcRS9_EEESC_ISt17_Rb_tree_iteratorISE_EbEDpOT_.exit: ; preds = %_ZN3tsi18SslSessionLRUCache9PushFrontEPNS0_4NodeE.exit
-  %124 = load i64, ptr %119, align 8, !tbaa !52
+  %124 = load i64, ptr %119, align 8, !tbaa !53
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %126 = load i64, ptr %125, align 8, !tbaa !10
   %127 = icmp ugt i64 %124, %126
@@ -895,9 +895,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSession
 
 128:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeESt4lessIS5_ESaISt4pairIKS5_S9_EEE7emplaceIJRPKcRS9_EEESC_ISt17_Rb_tree_iteratorISE_EbEDpOT_.exit
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %130 = load ptr, ptr %129, align 8, !tbaa !58
+  %130 = load ptr, ptr %129, align 8, !tbaa !59
   %.not17 = icmp eq ptr %130, null
-  br i1 %.not17, label %131, label %.critedge, !prof !59
+  br i1 %.not17, label %131, label %.critedge, !prof !60
 
 131:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
@@ -951,9 +951,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br label %186
 
 .critedge:                                        ; preds = %128
-  store ptr %130, ptr %10, align 8, !tbaa !65
+  store ptr %130, ptr %10, align 8, !tbaa !66
   %147 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  %148 = load ptr, ptr %147, align 8, !tbaa !57
+  %148 = load ptr, ptr %147, align 8, !tbaa !58
   %149 = icmp eq ptr %148, null
   %150 = getelementptr inbounds nuw i8, ptr %130, i64 40
   %151 = load ptr, ptr %150, align 8, !tbaa !34
@@ -973,17 +973,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %156, label %157, label %158
 
 157:                                              ; preds = %155
-  store ptr %148, ptr %129, align 8, !tbaa !58
+  store ptr %148, ptr %129, align 8, !tbaa !59
   br label %160
 
 158:                                              ; preds = %155
   %159 = getelementptr inbounds nuw i8, ptr %151, i64 48
-  store ptr %148, ptr %159, align 8, !tbaa !57
+  store ptr %148, ptr %159, align 8, !tbaa !58
   br label %160
 
 160:                                              ; preds = %157, %158
   %161 = add i64 %124, -1
-  store i64 %161, ptr %119, align 8, !tbaa !52
+  store i64 %161, ptr %119, align 8, !tbaa !53
   %162 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(32) %130)
           to label %.noexc44 unwind label %133
 
@@ -994,7 +994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
           to label %165 unwind label %133
 
 165:                                              ; preds = %.noexc44
-  %166 = load ptr, ptr %10, align 8, !tbaa !65
+  %166 = load ptr, ptr %10, align 8, !tbaa !66
   %167 = icmp eq ptr %166, null
   br i1 %167, label %182, label %168
 
@@ -1070,7 +1070,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit49:      ; preds = %186, %18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !61
+  %2 = load ptr, ptr %0, align 8, !tbaa !62
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3tsi17SslSessionDeleterclEP14ssl_session_st.exit, label %3
 
@@ -1079,7 +1079,7 @@ define linkonce_odr void @_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDel
           to label %_ZN3tsi17SslSessionDeleterclEP14ssl_session_st.exit unwind label %4
 
 _ZN3tsi17SslSessionDeleterclEP14ssl_session_st.exit: ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !61
+  store ptr null, ptr %0, align 8, !tbaa !62
   ret void
 
 4:                                                ; preds = %3
@@ -1100,19 +1100,19 @@ define linkonce_odr void @_ZN3tsi18SslSessionLRUCache4NodeC2ERKNSt7__cxx1112basi
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::unique_ptr.13", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %0, align 8, !tbaa !63
+  store ptr %8, ptr %0, align 8, !tbaa !64
   %9 = load ptr, ptr %1, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store i64 %11, ptr %6, align 8, !tbaa !64
+  store i64 %11, ptr %6, align 8, !tbaa !65
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %3
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
   store ptr %13, ptr %0, align 8, !tbaa !47
-  %14 = load i64, ptr %6, align 8, !tbaa !64
+  %14 = load i64, ptr %6, align 8, !tbaa !65
   store i64 %14, ptr %8, align 8, !tbaa !49
   br label %._crit_edge.i.i
 
@@ -1133,7 +1133,7 @@ define linkonce_odr void @_ZN3tsi18SslSessionLRUCache4NodeC2ERKNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i, %16, %18
-  %19 = load i64, ptr %6, align 8, !tbaa !64
+  %19 = load i64, ptr %6, align 8, !tbaa !65
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %19, ptr %20, align 8, !tbaa !48
   %21 = load ptr, ptr %0, align 8, !tbaa !47
@@ -1142,12 +1142,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %24 = load i64, ptr %2, align 8, !tbaa !61
-  store ptr null, ptr %2, align 8, !tbaa !61
+  %24 = load i64, ptr %2, align 8, !tbaa !62
+  store ptr null, ptr %2, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  store i64 %24, ptr %5, align 8, !tbaa !61
-  store ptr null, ptr %7, align 8, !tbaa !61
+  store i64 %24, ptr %5, align 8, !tbaa !62
+  store ptr null, ptr %7, align 8, !tbaa !62
   invoke void @_ZN3tsi16SslCachedSession6CreateESt10unique_ptrI14ssl_session_stNS_17SslSessionDeleterEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.5") align 8 %4, ptr noundef nonnull %5)
           to label %25 unwind label %.body
 
@@ -1177,7 +1177,7 @@ _ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i: ; preds = %_ZN
 
 _ZNSt10unique_ptrIN3tsi16SslCachedSessionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN3tsi16SslCachedSessionEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN3tsi16SslCachedSessionESt14default_deleteIS1_EEaSEOS4_.exit.i, %25
   store ptr null, ptr %4, align 8, !tbaa !46
-  %34 = load ptr, ptr %5, align 8, !tbaa !61
+  %34 = load ptr, ptr %5, align 8, !tbaa !62
   %.not.i2.i = icmp eq ptr %34, null
   br i1 %.not.i2.i, label %_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev.exit, label %35
 
@@ -1250,7 +1250,7 @@ define void @_ZN3tsi18SslSessionLRUCache3GetEPKc(ptr dead_on_unwind noalias writ
   tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %7, ptr %5, align 8, !tbaa !63
+  store ptr %7, ptr %5, align 8, !tbaa !64
   %8 = icmp eq ptr %2, null
   br i1 %8, label %9, label %10
 
@@ -1264,7 +1264,7 @@ define void @_ZN3tsi18SslSessionLRUCache3GetEPKc(ptr dead_on_unwind noalias writ
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  store i64 %11, ptr %4, align 8, !tbaa !64
+  store i64 %11, ptr %4, align 8, !tbaa !65
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
 
@@ -1274,7 +1274,7 @@ define void @_ZN3tsi18SslSessionLRUCache3GetEPKc(ptr dead_on_unwind noalias writ
 
 .noexc11:                                         ; preds = %.noexc.i
   store ptr %13, ptr %5, align 8, !tbaa !47
-  %14 = load i64, ptr %4, align 8, !tbaa !64
+  %14 = load i64, ptr %4, align 8, !tbaa !65
   store i64 %14, ptr %7, align 8, !tbaa !49
   br label %._crit_edge.i.i
 
@@ -1295,7 +1295,7 @@ define void @_ZN3tsi18SslSessionLRUCache3GetEPKc(ptr dead_on_unwind noalias writ
   br label %19
 
 19:                                               ; preds = %18, %16, %._crit_edge.i.i
-  %20 = load i64, ptr %4, align 8, !tbaa !64
+  %20 = load i64, ptr %4, align 8, !tbaa !65
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %20, ptr %21, align 8, !tbaa !48
   %22 = load ptr, ptr %5, align 8, !tbaa !47
@@ -1328,7 +1328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %32, label %33, label %44
 
 33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  store ptr null, ptr %0, align 8, !tbaa !66
+  store ptr null, ptr %0, align 8, !tbaa !67
   br label %_ZNK3tsi18SslSessionLRUCache4Node11CopySessionEv.exit
 
 34:                                               ; preds = %.noexc.i, %9
@@ -1362,10 +1362,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 
 44:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %46 = load ptr, ptr %45, align 8, !tbaa !46, !noalias !68
-  %47 = load ptr, ptr %46, align 8, !tbaa !8, !noalias !68
+  %46 = load ptr, ptr %45, align 8, !tbaa !46, !noalias !69
+  %47 = load ptr, ptr %46, align 8, !tbaa !8, !noalias !69
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8, !noalias !68
+  %49 = load ptr, ptr %48, align 8, !noalias !69
   invoke void %49(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.13") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %46)
           to label %_ZNK3tsi18SslSessionLRUCache4Node11CopySessionEv.exit unwind label %50
 
@@ -1424,10 +1424,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8, !tbaa !72
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !73
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !47
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 48
@@ -1450,7 +1450,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit, %2
   ret void
@@ -1608,11 +1608,11 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_emplace_uniqueIJRPKcRSB_EEES6_ISt17_Rb_tree_iteratorISC_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, tsi::SslSessionLRUCache::Node *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, tsi::SslSessionLRUCache::Node *>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
-  store ptr %0, ptr %4, align 8, !tbaa !74
+  store ptr %0, ptr %4, align 8, !tbaa !75
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #28
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_construct_nodeIJRPKcRSB_EEEvPSt13_Rb_tree_nodeISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  store ptr %6, ptr %5, align 8, !tbaa !76
+  store ptr %6, ptr %5, align 8, !tbaa !77
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE24_M_get_insert_unique_posERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %9 unwind label %31
@@ -1711,7 +1711,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE24_M_get_insert_unique_posERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.02931 = load ptr, ptr %3, align 8, !tbaa !53
+  %.02931 = load ptr, ptr %3, align 8, !tbaa !54
   %.not32 = icmp eq ptr %.02931, null
   br i1 %.not32, label %._crit_edge.thread, label %.lr.ph
 
@@ -1748,9 +1748,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %16 = icmp slt i32 %.0.i.i.i, 0
   %.in.v = select i1 %16, i64 16, i64 24
   %.in = getelementptr inbounds nuw i8, ptr %.02933, i64 %.in.v
-  %.029 = load ptr, ptr %.in, align 8, !tbaa !53
+  %.029 = load ptr, ptr %.in, align 8, !tbaa !54
   %.not = icmp eq ptr %.029, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !79
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
   br i1 %16, label %._crit_edge.thread, label %22
@@ -1810,7 +1810,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
@@ -1846,9 +1846,9 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_construct_nodeIJRPKcRSB_EEEvPSt13_Rb_tree_nodeISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = load ptr, ptr %2, align 8, !tbaa !60
+  %7 = load ptr, ptr %2, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %8, ptr %6, align 8, !tbaa !63
+  store ptr %8, ptr %6, align 8, !tbaa !64
   %9 = icmp eq ptr %7, null
   br i1 %9, label %.noexc.i.i.i, label %10
 
@@ -1862,7 +1862,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 10:                                               ; preds = %4
   %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store i64 %11, ptr %5, align 8, !tbaa !64
+  store i64 %11, ptr %5, align 8, !tbaa !65
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
@@ -1872,7 +1872,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 .noexc7:                                          ; preds = %.noexc.i.i.i.i
   store ptr %13, ptr %6, align 8, !tbaa !47
-  %14 = load i64, ptr %5, align 8, !tbaa !64
+  %14 = load i64, ptr %5, align 8, !tbaa !65
   store i64 %14, ptr %8, align 8, !tbaa !49
   br label %._crit_edge.i.i.i.i.i
 
@@ -1908,7 +1908,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %32 unwind label %33
 
 25:                                               ; preds = %18, %16, %._crit_edge.i.i.i.i.i
-  %26 = load i64, ptr %5, align 8, !tbaa !64
+  %26 = load i64, ptr %5, align 8, !tbaa !65
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %26, ptr %27, align 8, !tbaa !48
   %28 = load ptr, ptr %6, align 8, !tbaa !47
@@ -1916,8 +1916,8 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   store i8 0, ptr %29, align 1, !tbaa !49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %31 = load ptr, ptr %3, align 8, !tbaa !65
-  store ptr %31, ptr %30, align 8, !tbaa !55
+  %31 = load ptr, ptr %3, align 8, !tbaa !66
+  store ptr %31, ptr %30, align 8, !tbaa !56
   ret void
 
 32:                                               ; preds = %23
@@ -1948,7 +1948,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.065 = load ptr, ptr %3, align 8, !tbaa !53
+  %.065 = load ptr, ptr %3, align 8, !tbaa !54
   %.not66 = icmp eq ptr %.065, null
   br i1 %.not66, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph
 
@@ -2007,9 +2007,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 23:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit32
   %24 = getelementptr inbounds nuw i8, ptr %.068, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !72
+  %25 = load ptr, ptr %24, align 8, !tbaa !73
   %26 = getelementptr inbounds nuw i8, ptr %.068, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !71
+  %27 = load ptr, ptr %26, align 8, !tbaa !72
   %.not10.i = icmp eq ptr %25, null
   br i1 %.not10.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph.i
 
@@ -2042,9 +2042,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.19.i = select i1 %35, ptr %.0811.i, ptr %.012.i
   %.1.in.v.i = select i1 %35, i64 24, i64 16
   %.1.in.i = getelementptr inbounds nuw i8, ptr %.012.i, i64 %.1.in.v.i
-  %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !53
+  %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !54
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph.i, !llvm.loop !54
+  br i1 %.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph.i, !llvm.loop !55
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %23
   %.08.lcssa.i = phi ptr [ %.068, %23 ], [ %.19.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
@@ -2080,17 +2080,17 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.19.i42 = select i1 %43, ptr %.012.i35, ptr %.0811.i36
   %.1.in.v.i43 = select i1 %43, i64 16, i64 24
   %.1.in.i44 = getelementptr inbounds nuw i8, ptr %.012.i35, i64 %.1.in.v.i43
-  %.1.i45 = load ptr, ptr %.1.in.i44, align 8, !tbaa !53
+  %.1.i45 = load ptr, ptr %.1.in.i44, align 8, !tbaa !54
   %.not.i46 = icmp eq ptr %.1.i45, null
-  br i1 %.not.i46, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph.i34, !llvm.loop !80
+  br i1 %.not.i46, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph.i34, !llvm.loop !81
 
 44:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit32, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread57
   %.sink = phi i64 [ 24, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread57 ], [ 24, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread ], [ 24, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ 16, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit32 ]
   %.123 = phi ptr [ %.02267, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread57 ], [ %.02267, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread ], [ %.02267, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %.068, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit32 ]
   %45 = getelementptr inbounds nuw i8, ptr %.068, i64 %.sink
-  %.0 = load ptr, ptr %45, align 8, !tbaa !53
+  %.0 = load ptr, ptr %45, align 8, !tbaa !54
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %8, !llvm.loop !81
+  br i1 %.not, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %8, !llvm.loop !82
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit: ; preds = %44, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40, %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit
   %.sroa.055.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.123, %44 ]
@@ -2172,7 +2172,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %33 = add i64 %32, -1
   store i64 %33, ptr %19, align 8, !tbaa !32
   %.not = icmp eq ptr %21, %2
-  br i1 %.not, label %.loopexit, label %20, !llvm.loop !82
+  br i1 %.not, label %.loopexit, label %20, !llvm.loop !83
 
 .loopexit:                                        ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISC_E.exit, %.critedge, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE5clearEv.exit
   ret void
@@ -2279,36 +2279,37 @@ attributes #29 = { nounwind willreturn memory(read) }
 !47 = !{!36, !38, i64 0}
 !48 = !{!36, !5, i64 8}
 !49 = !{!6, !6, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!11, !5, i64 48}
-!53 = !{!27, !27, i64 0}
-!54 = distinct !{!54, !51}
-!55 = !{!56, !17, i64 32}
-!56 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeEE", !36, i64 0, !17, i64 32}
-!57 = !{!35, !17, i64 48}
-!58 = !{!11, !17, i64 40}
-!59 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!60 = !{!38, !38, i64 0}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS14ssl_session_st", !18, i64 0}
-!63 = !{!37, !38, i64 0}
-!64 = !{!5, !5, i64 0}
-!65 = !{!17, !17, i64 0}
-!66 = !{!67, !62, i64 0}
-!67 = !{!"_ZTSSt10_Head_baseILm0EP14ssl_session_stLb0EE", !62, i64 0}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZNK3tsi18SslSessionLRUCache4Node11CopySessionEv: argument 0"}
-!70 = distinct !{!70, !"_ZNK3tsi18SslSessionLRUCache4Node11CopySessionEv"}
-!71 = !{!25, !27, i64 24}
-!72 = !{!25, !27, i64 16}
-!73 = distinct !{!73, !51}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"p1 _ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE", !18, i64 0}
-!76 = !{!77, !78, i64 8}
-!77 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeE", !75, i64 0, !78, i64 8}
-!78 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeEEE", !18, i64 0}
-!79 = distinct !{!79, !51}
-!80 = distinct !{!80, !51}
-!81 = distinct !{!81, !51}
-!82 = distinct !{!82, !51}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!11, !5, i64 48}
+!54 = !{!27, !27, i64 0}
+!55 = distinct !{!55, !51, !52}
+!56 = !{!57, !17, i64 32}
+!57 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeEE", !36, i64 0, !17, i64 32}
+!58 = !{!35, !17, i64 48}
+!59 = !{!11, !17, i64 40}
+!60 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!61 = !{!38, !38, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS14ssl_session_st", !18, i64 0}
+!64 = !{!37, !38, i64 0}
+!65 = !{!5, !5, i64 0}
+!66 = !{!17, !17, i64 0}
+!67 = !{!68, !63, i64 0}
+!68 = !{!"_ZTSSt10_Head_baseILm0EP14ssl_session_stLb0EE", !63, i64 0}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZNK3tsi18SslSessionLRUCache4Node11CopySessionEv: argument 0"}
+!71 = distinct !{!71, !"_ZNK3tsi18SslSessionLRUCache4Node11CopySessionEv"}
+!72 = !{!25, !27, i64 24}
+!73 = !{!25, !27, i64 16}
+!74 = distinct !{!74, !51, !52}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE", !18, i64 0}
+!77 = !{!78, !79, i64 8}
+!78 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3tsi18SslSessionLRUCache4NodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeE", !76, i64 0, !79, i64 8}
+!79 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeEEE", !18, i64 0}
+!80 = distinct !{!80, !51, !52}
+!81 = distinct !{!81, !51, !52}
+!82 = distinct !{!82, !51, !52}
+!83 = distinct !{!83, !51, !52}

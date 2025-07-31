@@ -447,5 +447,6 @@ attributes #10 = { noreturn nounwind }
 !33 = !{!34, !32, i64 0}
 !34 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !32, i64 0}
 !35 = !{i64 2149252868}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
+!38 = !{!"llvm.loop.estimated_trip_count"}

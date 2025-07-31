@@ -140,22 +140,22 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %3
   br label %7
 
 7:                                                ; preds = %6, %malloc_mutex_trylock_final.exit.i
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !7
   %9 = add i64 %8, 1
-  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !7
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %10, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %11
 
 11:                                               ; preds = %7
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !17
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !18
   %13 = add i64 %12, 1
-  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !18
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %7, %11
-  %14 = load i8, ptr @je_opt_prof_pid_namespace, align 1, !tbaa !18, !range !20, !noundef !21
+  %14 = load i8, ptr @je_opt_prof_pid_namespace, align 1, !tbaa !19, !range !21, !noundef !22
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %26
 
@@ -168,7 +168,7 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
 19:                                               ; preds = %16
   %20 = add nsw i64 %17, -1
   %21 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %20
-  store i8 0, ptr %21, align 1, !tbaa !22
+  store i8 0, ptr %21, align 1, !tbaa !23
   %22 = call ptr @strtok(ptr noundef nonnull %4, ptr noundef nonnull @.str.5) #12
   %23 = call i64 @strtol(ptr noundef nonnull captures(none) %22, ptr noundef null, i32 noundef 10) #12
   br label %prof_get_pid_namespace.exit
@@ -222,22 +222,22 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %1
   br label %4
 
 4:                                                ; preds = %3, %malloc_mutex_trylock_final.exit.i
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !7
   %6 = add i64 %5, 1
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !7
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %7, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %8
 
 8:                                                ; preds = %4
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !17
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !18
   %10 = add i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
+  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !18
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %4, %8
-  %11 = load i8, ptr @je_opt_prof_prefix, align 1, !tbaa !22
+  %11 = load i8, ptr @je_opt_prof_prefix, align 1, !tbaa !23
   %12 = icmp eq i8 %11, 0
   tail call void @llvm.assume(i1 %12)
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64) monotonic, align 8
@@ -262,22 +262,22 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %2
   br label %6
 
 6:                                                ; preds = %5, %malloc_mutex_trylock_final.exit.i
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !7
   %8 = add i64 %7, 1
-  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !7
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %9, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %10
 
 10:                                               ; preds = %6
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
-  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !17
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !18
   %12 = add i64 %11, 1
-  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
+  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !18
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %6, %10
-  %13 = load i8, ptr @je_opt_prof_prefix, align 1, !tbaa !22
+  %13 = load i8, ptr @je_opt_prof_prefix, align 1, !tbaa !23
   %14 = icmp eq i8 %13, 0
   tail call void @llvm.assume(i1 %14)
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64) monotonic, align 8
@@ -300,22 +300,22 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %1
   br label %4
 
 4:                                                ; preds = %3, %malloc_mutex_trylock_final.exit.i
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !7
   %6 = add i64 %5, 1
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !7
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %7, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %8
 
 8:                                                ; preds = %4
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !17
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !18
   %10 = add i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
+  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !18
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %4, %8
-  %11 = load i8, ptr @je_opt_prof_prefix, align 1, !tbaa !22
+  %11 = load i8, ptr @je_opt_prof_prefix, align 1, !tbaa !23
   %12 = icmp eq i8 %11, 0
   tail call void @llvm.assume(i1 %12)
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64) monotonic, align 8
@@ -375,22 +375,23 @@ attributes #13 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !9, i64 56}
-!7 = !{!"", !8, i64 0, !8, i64 8, !9, i64 16, !9, i64 24, !12, i64 32, !13, i64 36, !9, i64 40, !14, i64 48, !9, i64 56}
-!8 = !{!"", !9, i64 0}
-!9 = !{!"long", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!"", !12, i64 0}
-!14 = !{!"p1 _ZTS6tsdn_s", !15, i64 0}
-!15 = !{!"any pointer", !10, i64 0}
-!16 = !{!7, !14, i64 48}
-!17 = !{!7, !9, i64 40}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"_Bool", !10, i64 0}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = !{!10, !10, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !10, i64 56}
+!8 = !{!"", !9, i64 0, !9, i64 8, !10, i64 16, !10, i64 24, !13, i64 32, !14, i64 36, !10, i64 40, !15, i64 48, !10, i64 56}
+!9 = !{!"", !10, i64 0}
+!10 = !{!"long", !11, i64 0}
+!11 = !{!"omnipotent char", !12, i64 0}
+!12 = !{!"Simple C/C++ TBAA"}
+!13 = !{!"int", !11, i64 0}
+!14 = !{!"", !13, i64 0}
+!15 = !{!"p1 _ZTS6tsdn_s", !16, i64 0}
+!16 = !{!"any pointer", !11, i64 0}
+!17 = !{!8, !15, i64 48}
+!18 = !{!8, !10, i64 40}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"_Bool", !11, i64 0}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = !{!11, !11, i64 0}

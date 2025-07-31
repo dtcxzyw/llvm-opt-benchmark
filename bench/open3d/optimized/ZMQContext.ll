@@ -350,7 +350,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3zmq9context_tE
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -385,7 +385,7 @@ define linkonce_odr void @_ZN3zmq7error_tC2Ev(ptr noundef nonnull align 8 derefe
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %4, align 8, !tbaa !33
+  store i32 %2, ptr %4, align 8, !tbaa !34
   ret void
 
 5:                                                ; preds = %1
@@ -414,7 +414,7 @@ define linkonce_odr void @_ZN3zmq7error_tD0Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr noundef ptr @_ZNK3zmq7error_t4whatEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !33
+  %3 = load i32, ptr %2, align 8, !tbaa !34
   %4 = invoke ptr @zmq_strerror(i32 noundef %3)
           to label %5 unwind label %6
 
@@ -625,11 +625,12 @@ attributes #21 = { nounwind willreturn memory(none) }
 !25 = !{!13, !13, i64 0}
 !26 = !{!15, !16, i64 0}
 !27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!31, !32, i64 8}
-!31 = !{!"_ZTSSt9type_info", !32, i64 8}
-!32 = !{!"p1 omnipotent char", !14, i64 0}
-!33 = !{!34, !10, i64 8}
-!34 = !{!"_ZTSN3zmq7error_tE", !35, i64 0, !10, i64 8}
-!35 = !{!"_ZTSSt9exception"}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!32, !33, i64 8}
+!32 = !{!"_ZTSSt9type_info", !33, i64 8}
+!33 = !{!"p1 omnipotent char", !14, i64 0}
+!34 = !{!35, !10, i64 8}
+!35 = !{!"_ZTSN3zmq7error_tE", !36, i64 0, !10, i64 8}
+!36 = !{!"_ZTSSt9exception"}

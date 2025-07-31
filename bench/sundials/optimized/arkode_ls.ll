@@ -654,7 +654,7 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %10
   %33 = fmul double %.02544, 2.500000e-01
   %34 = add nuw nsw i32 %.02345, 1
   %exitcond.not = icmp eq i32 %34, 3
-  br i1 %exitcond.not, label %arkLs_AccessARKODELMem.exit.thread, label %23
+  br i1 %exitcond.not, label %arkLs_AccessARKODELMem.exit.thread, label %23, !llvm.loop !75
 
 .thread:                                          ; preds = %23
   %35 = fdiv double 1.000000e+00, %.02544
@@ -830,7 +830,7 @@ define i32 @arkLsATimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 arkLs_AccessARKODELMem.exit:                      ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %17 = load ptr, ptr %16, align 8, !tbaa !75
+  %17 = load ptr, ptr %16, align 8, !tbaa !77
   %.not28 = icmp eq ptr %17, null
   br i1 %.not28, label %21, label %18
 
@@ -855,20 +855,20 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 256
   %28 = load ptr, ptr %27, align 8, !tbaa !47
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %30 = load double, ptr %29, align 8, !tbaa !76
+  %30 = load double, ptr %29, align 8, !tbaa !78
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %32 = load ptr, ptr %31, align 8, !tbaa !77
+  %32 = load ptr, ptr %31, align 8, !tbaa !79
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  %34 = load ptr, ptr %33, align 8, !tbaa !78
+  %34 = load ptr, ptr %33, align 8, !tbaa !80
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 272
   %36 = load ptr, ptr %35, align 8, !tbaa !48
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %38 = load ptr, ptr %37, align 8, !tbaa !62
   %39 = call i32 %28(ptr noundef %1, ptr noundef %2, double noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %36, ptr noundef %38) #13
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 192
-  %41 = load i64, ptr %40, align 8, !tbaa !79
+  %41 = load i64, ptr %40, align 8, !tbaa !81
   %42 = add nsw i64 %41, 1
-  store i64 %42, ptr %40, align 8, !tbaa !79
+  store i64 %42, ptr %40, align 8, !tbaa !81
   %.not30 = icmp eq i32 %39, 0
   br i1 %.not30, label %43, label %arkLs_AccessARKODELMem.exit.thread
 
@@ -883,13 +883,13 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %10
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %37, align 8, !tbaa !62
-  %49 = load double, ptr %4, align 8, !tbaa !80
+  %49 = load double, ptr %4, align 8, !tbaa !82
   %50 = fneg double %49
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %48, double noundef %50, ptr noundef %2, ptr noundef %2) #13
   br label %arkLs_AccessARKODELMem.exit.thread
 
 51:                                               ; preds = %43
-  %52 = load double, ptr %4, align 8, !tbaa !80
+  %52 = load double, ptr %4, align 8, !tbaa !82
   %53 = fneg double %52
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef %53, ptr noundef %2, ptr noundef %2) #13
   br label %arkLs_AccessARKODELMem.exit.thread
@@ -928,7 +928,7 @@ arkLs_AccessLMem.exit:                            ; preds = %1
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %8 = load ptr, ptr %7, align 8, !tbaa !75
+  %8 = load ptr, ptr %7, align 8, !tbaa !77
   %.not36 = icmp eq ptr %8, null
   br i1 %.not36, label %arkLs_AccessMassMem.exit.thread, label %9
 
@@ -938,7 +938,7 @@ arkLs_AccessLMem.exit:                            ; preds = %1
   br i1 %.not37, label %arkLs_AccessMassMem.exit.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %7, align 8, !tbaa !75
+  %12 = load ptr, ptr %7, align 8, !tbaa !77
   %13 = tail call ptr %12(ptr noundef nonnull %0) #13
   %14 = icmp eq ptr %13, null
   br i1 %14, label %arkLs_AccessMassMem.exit, label %arkLs_AccessMassMem.exit.thread
@@ -972,8 +972,8 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %11, %9, %6
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !81
-  %28 = load ptr, ptr %27, align 8, !tbaa !84
+  %27 = load ptr, ptr %26, align 8, !tbaa !83
+  %28 = load ptr, ptr %27, align 8, !tbaa !86
   %.not42 = icmp eq ptr %28, null
   br i1 %.not42, label %38, label %29
 
@@ -1039,7 +1039,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %11, %9, %6
   %57 = load ptr, ptr %15, align 8, !tbaa !60
   %58 = icmp eq ptr %57, null
   %59 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !86
+  %60 = load ptr, ptr %59, align 8, !tbaa !88
   %61 = icmp eq ptr %60, null
   %62 = xor i1 %58, %61
   br i1 %62, label %63, label %65
@@ -1055,19 +1055,19 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %11, %9, %6
 
 66:                                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !81
-  %69 = load ptr, ptr %68, align 8, !tbaa !84
+  %68 = load ptr, ptr %67, align 8, !tbaa !83
+  %69 = load ptr, ptr %68, align 8, !tbaa !86
   %70 = icmp eq ptr %69, null
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !81
-  %73 = load ptr, ptr %72, align 8, !tbaa !84
+  %72 = load ptr, ptr %71, align 8, !tbaa !83
+  %73 = load ptr, ptr %72, align 8, !tbaa !86
   %74 = icmp eq ptr %73, null
   %75 = xor i1 %70, %74
   br i1 %70, label %select.unfold, label %76
 
 76:                                               ; preds = %66
   %77 = tail call i32 @SUNMatGetID(ptr noundef nonnull %57) #13
-  %78 = load ptr, ptr %59, align 8, !tbaa !86
+  %78 = load ptr, ptr %59, align 8, !tbaa !88
   %79 = tail call i32 @SUNMatGetID(ptr noundef %78) #13
   %.not47 = icmp ne i32 %77, %79
   %or.cond.not = select i1 %.not47, i1 true, i1 %75
@@ -1091,7 +1091,7 @@ select.unfold:                                    ; preds = %66
 
 86:                                               ; preds = %81
   %87 = getelementptr inbounds nuw i8, ptr %.0, i64 144
-  %88 = load ptr, ptr %87, align 8, !tbaa !88
+  %88 = load ptr, ptr %87, align 8, !tbaa !90
   %89 = tail call i32 @SUNLinSolGetType(ptr noundef %88) #13
   %.not49 = icmp eq i32 %89, 3
   br i1 %.not49, label %92, label %90
@@ -1110,7 +1110,7 @@ select.unfold:                                    ; preds = %66
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %.0, i64 144
-  %97 = load ptr, ptr %96, align 8, !tbaa !88
+  %97 = load ptr, ptr %96, align 8, !tbaa !90
   %98 = tail call i32 @SUNLinSolGetType(ptr noundef %97) #13
   %99 = icmp eq i32 %98, 3
   br i1 %99, label %100, label %102
@@ -1145,13 +1145,13 @@ select.unfold:                                    ; preds = %66
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 208
-  %115 = load ptr, ptr %114, align 8, !tbaa !89
+  %115 = load ptr, ptr %114, align 8, !tbaa !91
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %121
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %119 = load ptr, ptr %118, align 8, !tbaa !90
+  %119 = load ptr, ptr %118, align 8, !tbaa !92
   %.not52 = icmp eq ptr %119, null
   br i1 %.not52, label %121, label %120
 
@@ -1168,7 +1168,7 @@ select.unfold:                                    ; preds = %66
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %128 = load ptr, ptr %127, align 8, !tbaa !90
+  %128 = load ptr, ptr %127, align 8, !tbaa !92
   tail call void %128(ptr noundef nonnull %0) #13
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %129, align 4, !tbaa !65
@@ -1220,11 +1220,11 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  store double %2, ptr %26, align 8, !tbaa !76
+  store double %2, ptr %26, align 8, !tbaa !78
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  store ptr %3, ptr %27, align 8, !tbaa !77
+  store ptr %3, ptr %27, align 8, !tbaa !79
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  store ptr %4, ptr %28, align 8, !tbaa !78
+  store ptr %4, ptr %28, align 8, !tbaa !80
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %30 = load ptr, ptr %29, align 8, !tbaa !35
   %31 = call i32 %30(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %12) #13
@@ -1240,15 +1240,15 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 964
-  %37 = load i32, ptr %36, align 4, !tbaa !91
+  %37 = load i32, ptr %36, align 4, !tbaa !93
   %.not53 = icmp eq i32 %37, 0
   br i1 %.not53, label %38, label %53
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %40 = load i64, ptr %39, align 8, !tbaa !92
+  %40 = load i64, ptr %39, align 8, !tbaa !94
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  %42 = load i64, ptr %41, align 8, !tbaa !93
+  %42 = load i64, ptr %41, align 8, !tbaa !95
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %44 = load i64, ptr %43, align 8, !tbaa !55
   %45 = add nsw i64 %44, %42
@@ -1272,7 +1272,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 %54, ptr %55, align 8, !tbaa !56
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %57 = load ptr, ptr %56, align 8, !tbaa !75
+  %57 = load ptr, ptr %56, align 8, !tbaa !77
   %.not55 = icmp eq ptr %57, null
   br i1 %.not55, label %.thread, label %58
 
@@ -1283,7 +1283,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !86
+  %62 = load ptr, ptr %61, align 8, !tbaa !88
   %63 = call i32 @arkLsMassSetup(ptr noundef nonnull %0, double noundef %2, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   store i32 %63, ptr %32, align 8, !tbaa !58
   %.not57 = icmp eq i32 %63, 0
@@ -1307,7 +1307,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   %71 = load i32, ptr %55, align 8, !tbaa !56
   %.not59 = icmp eq i32 %71, 0
   %72 = zext i1 %.not59 to i32
-  %73 = load double, ptr %10, align 8, !tbaa !80
+  %73 = load double, ptr %10, align 8, !tbaa !82
   %74 = getelementptr inbounds nuw i8, ptr %16, i64 296
   %75 = load ptr, ptr %74, align 8, !tbaa !52
   %76 = call i32 %70(double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %67, ptr noundef %.0, i32 noundef %72, ptr noundef %5, double noundef %73, ptr noundef %75, ptr noundef %6, ptr noundef %7, ptr noundef %8) #13
@@ -1317,15 +1317,15 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 78:                                               ; preds = %68
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  %80 = load i64, ptr %79, align 8, !tbaa !94
+  %80 = load i64, ptr %79, align 8, !tbaa !96
   %81 = add nsw i64 %80, 1
-  store i64 %81, ptr %79, align 8, !tbaa !94
+  store i64 %81, ptr %79, align 8, !tbaa !96
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %83 = load i64, ptr %82, align 8, !tbaa !92
+  %83 = load i64, ptr %82, align 8, !tbaa !94
   %84 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  store i64 %83, ptr %84, align 8, !tbaa !93
+  store i64 %83, ptr %84, align 8, !tbaa !95
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 200
-  store double %2, ptr %85, align 8, !tbaa !95
+  store double %2, ptr %85, align 8, !tbaa !97
   br label %86
 
 86:                                               ; preds = %78, %68
@@ -1376,15 +1376,15 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  %106 = load i64, ptr %105, align 8, !tbaa !96
+  %106 = load i64, ptr %105, align 8, !tbaa !98
   %107 = add nsw i64 %106, 1
-  store i64 %107, ptr %105, align 8, !tbaa !96
+  store i64 %107, ptr %105, align 8, !tbaa !98
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %109 = load i64, ptr %108, align 8, !tbaa !92
+  %109 = load i64, ptr %108, align 8, !tbaa !94
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  store i64 %109, ptr %110, align 8, !tbaa !93
+  store i64 %109, ptr %110, align 8, !tbaa !95
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 200
-  store double %2, ptr %111, align 8, !tbaa !95
+  store double %2, ptr %111, align 8, !tbaa !97
   br label %112
 
 112:                                              ; preds = %104, %102
@@ -1428,11 +1428,11 @@ arkLs_AccessLMem.exit:                            ; preds = %7
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 120
-  store double %2, ptr %17, align 8, !tbaa !76
+  store double %2, ptr %17, align 8, !tbaa !78
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  store ptr %3, ptr %18, align 8, !tbaa !77
+  store ptr %3, ptr %18, align 8, !tbaa !79
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  store ptr %4, ptr %19, align 8, !tbaa !78
+  store ptr %4, ptr %19, align 8, !tbaa !80
   %20 = load i32, ptr %14, align 8, !tbaa !40
   %.not50 = icmp eq i32 %20, 0
   br i1 %.not50, label %38, label %21
@@ -1442,7 +1442,7 @@ arkLs_AccessLMem.exit:                            ; preds = %7
   %23 = load double, ptr %22, align 8, !tbaa !57
   %24 = fmul double %5, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %26 = load ptr, ptr %25, align 8, !tbaa !97
+  %26 = load ptr, ptr %25, align 8, !tbaa !99
   %27 = tail call double @N_VWrmsNorm(ptr noundef %1, ptr noundef %26) #13
   %28 = fcmp ugt double %27, %24
   br i1 %28, label %34, label %29
@@ -1473,13 +1473,13 @@ arkLs_AccessLMem.exit:                            ; preds = %7
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !17
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !98
+  %44 = load ptr, ptr %43, align 8, !tbaa !100
   %.not51 = icmp eq ptr %44, null
   br i1 %.not51, label %53, label %45
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %47 = load ptr, ptr %46, align 8, !tbaa !97
+  %47 = load ptr, ptr %46, align 8, !tbaa !99
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %49 = load ptr, ptr %48, align 8, !tbaa !73
   %50 = tail call i32 @SUNLinSolSetScalingVectors(ptr noundef nonnull %40, ptr noundef %47, ptr noundef %49) #13
@@ -1502,7 +1502,7 @@ arkLs_AccessLMem.exit:                            ; preds = %7
   %57 = load ptr, ptr %56, align 8, !tbaa !66
   tail call void @N_VConst(double noundef 1.000000e+00, ptr noundef %57) #13
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %59 = load ptr, ptr %58, align 8, !tbaa !97
+  %59 = load ptr, ptr %58, align 8, !tbaa !99
   %60 = load ptr, ptr %56, align 8, !tbaa !66
   %61 = tail call double @N_VWrmsNorm(ptr noundef %59, ptr noundef %60) #13
   %62 = fdiv double %.043, %61
@@ -1531,9 +1531,9 @@ arkLs_AccessLMem.exit:                            ; preds = %7
   %75 = getelementptr inbounds nuw i8, ptr %14, i64 304
   store i32 %74, ptr %75, align 8, !tbaa !58
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 184
-  %77 = load i64, ptr %76, align 8, !tbaa !99
+  %77 = load i64, ptr %76, align 8, !tbaa !101
   %78 = add nsw i64 %77, 1
-  store i64 %78, ptr %76, align 8, !tbaa !99
+  store i64 %78, ptr %76, align 8, !tbaa !101
   %.not56 = icmp eq i32 %74, 0
   br i1 %.not56, label %81, label %79
 
@@ -1570,7 +1570,7 @@ arkLs_AccessLMem.exit:                            ; preds = %7
   br label %138
 
 97:                                               ; preds = %90
-  %98 = load double, ptr %9, align 8, !tbaa !80
+  %98 = load double, ptr %9, align 8, !tbaa !82
   %99 = fcmp une double %98, 1.000000e+00
   br i1 %99, label %100, label %103
 
@@ -1590,7 +1590,7 @@ arkLs_AccessLMem.exit:                            ; preds = %7
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !17
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 80
-  %110 = load ptr, ptr %109, align 8, !tbaa !100
+  %110 = load ptr, ptr %109, align 8, !tbaa !102
   %.not60 = icmp eq ptr %110, null
   br i1 %.not60, label %113, label %111
 
@@ -1605,7 +1605,7 @@ arkLs_AccessLMem.exit:                            ; preds = %7
   %114 = phi ptr [ %.pre88, %111 ], [ %108, %105 ]
   %115 = phi ptr [ %.pre, %111 ], [ %106, %105 ]
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 72
-  %117 = load ptr, ptr %116, align 8, !tbaa !101
+  %117 = load ptr, ptr %116, align 8, !tbaa !103
   %.not61 = icmp eq ptr %117, null
   br i1 %.not61, label %121, label %118
 
@@ -1617,9 +1617,9 @@ arkLs_AccessLMem.exit:                            ; preds = %7
 121:                                              ; preds = %113, %118, %103
   %.042 = phi i64 [ %120, %118 ], [ 0, %113 ], [ 0, %103 ]
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 160
-  %123 = load i64, ptr %122, align 8, !tbaa !102
+  %123 = load i64, ptr %122, align 8, !tbaa !104
   %124 = add nsw i64 %123, %.042
-  store i64 %124, ptr %122, align 8, !tbaa !102
+  store i64 %124, ptr %122, align 8, !tbaa !104
   %.not62 = icmp eq i32 %86, 0
   br i1 %.not62, label %.thread, label %126
 
@@ -1630,9 +1630,9 @@ arkLs_AccessLMem.exit:                            ; preds = %7
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds nuw i8, ptr %14, i64 176
-  %128 = load i64, ptr %127, align 8, !tbaa !103
+  %128 = load i64, ptr %127, align 8, !tbaa !105
   %129 = add nsw i64 %128, 1
-  store i64 %129, ptr %127, align 8, !tbaa !103
+  store i64 %129, ptr %127, align 8, !tbaa !105
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 304
   store i32 %86, ptr %130, align 8, !tbaa !58
   switch i32 %86, label %137 [
@@ -1736,7 +1736,7 @@ define noundef i32 @arkLsFree(ptr noundef %0) #0 {
   store ptr null, ptr %22, align 8, !tbaa !60
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  %24 = load ptr, ptr %23, align 8, !tbaa !104
+  %24 = load ptr, ptr %23, align 8, !tbaa !106
   %.not28 = icmp eq ptr %24, null
   br i1 %.not28, label %27, label %25
 
@@ -1768,7 +1768,7 @@ define i32 @ARKodeSetMassLinearSolver(ptr noundef %0, ptr noundef %1, ptr nounde
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %9 = load i32, ptr %8, align 8, !tbaa !105
+  %9 = load i32, ptr %8, align 8, !tbaa !107
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %11
 
@@ -1890,13 +1890,13 @@ switch.early.test:                                ; preds = %61
 
 67:                                               ; preds = %switch.early.test, %switch.early.test, %61, %64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %69 = load ptr, ptr %68, align 8, !tbaa !106
+  %69 = load ptr, ptr %68, align 8, !tbaa !108
   %70 = icmp eq ptr %69, null
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %73 = load ptr, ptr %72, align 8, !tbaa !75
+  %73 = load ptr, ptr %72, align 8, !tbaa !77
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %76
 
@@ -1915,20 +1915,20 @@ switch.early.test:                                ; preds = %61
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %calloc, i64 144
-  store ptr %1, ptr %80, align 8, !tbaa !88
-  store i32 %27, ptr %calloc, align 8, !tbaa !107
+  store ptr %1, ptr %80, align 8, !tbaa !90
+  store i32 %27, ptr %calloc, align 8, !tbaa !109
   %81 = getelementptr inbounds nuw i8, ptr %calloc, i64 4
-  store i32 %31, ptr %81, align 4, !tbaa !108
+  store i32 %31, ptr %81, align 4, !tbaa !110
   %82 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
-  store i32 %3, ptr %82, align 8, !tbaa !109
+  store i32 %3, ptr %82, align 8, !tbaa !111
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !53
   %85 = getelementptr inbounds nuw i8, ptr %calloc, i64 192
-  store ptr %84, ptr %85, align 8, !tbaa !110
+  store ptr %84, ptr %85, align 8, !tbaa !112
   %86 = getelementptr inbounds nuw i8, ptr %calloc, i64 64
-  store double 0xFFEFFFFFFFFFFFFF, ptr %86, align 8, !tbaa !111
+  store double 0xFFEFFFFFFFFFFFFF, ptr %86, align 8, !tbaa !113
   %87 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
-  store double 5.000000e-02, ptr %87, align 8, !tbaa !112
+  store double 5.000000e-02, ptr %87, align 8, !tbaa !114
   %88 = load ptr, ptr %15, align 8, !tbaa !17
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !31
@@ -1971,13 +1971,13 @@ switch.early.test:                                ; preds = %61
 
 102:                                              ; preds = %101
   %103 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store ptr %2, ptr %103, align 8, !tbaa !86
+  store ptr %2, ptr %103, align 8, !tbaa !88
   br i1 %26, label %.thread123, label %104
 
 104:                                              ; preds = %102
   %105 = tail call ptr @SUNMatClone(ptr noundef nonnull %2) #13
   %106 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store ptr %105, ptr %106, align 8, !tbaa !113
+  store ptr %105, ptr %106, align 8, !tbaa !115
   %107 = icmp eq ptr %105, null
   br i1 %107, label %108, label %.thread
 
@@ -1995,7 +1995,7 @@ switch.early.test:                                ; preds = %61
 
 .thread123:                                       ; preds = %102
   %113 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store ptr %2, ptr %113, align 8, !tbaa !113
+  store ptr %2, ptr %113, align 8, !tbaa !115
   %114 = load ptr, ptr %32, align 8, !tbaa !23
   %115 = getelementptr inbounds nuw i8, ptr %calloc, i64 152
   %116 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %114, ptr noundef nonnull %115) #13
@@ -2023,7 +2023,7 @@ switch.early.test:                                ; preds = %61
 
 121:                                              ; preds = %.thread127, %120
   %122 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  %123 = load ptr, ptr %122, align 8, !tbaa !113
+  %123 = load ptr, ptr %122, align 8, !tbaa !115
   tail call void @SUNMatDestroy(ptr noundef %123) #13
   br label %124
 
@@ -2036,13 +2036,13 @@ switch.early.test:                                ; preds = %61
 
 .thread125:                                       ; preds = %.thread123, %125
   %126 = phi ptr [ %111, %125 ], [ %115, %.thread123 ]
-  %127 = load ptr, ptr %126, align 8, !tbaa !114
+  %127 = load ptr, ptr %126, align 8, !tbaa !116
   %128 = tail call i64 @N_VGetLength(ptr noundef %127) #13
   %129 = icmp slt i64 %128, 1
   br i1 %129, label %135, label %130
 
 130:                                              ; preds = %.thread125
-  %131 = load ptr, ptr %126, align 8, !tbaa !114
+  %131 = load ptr, ptr %126, align 8, !tbaa !116
   %132 = tail call i64 @N_VGetLength(ptr noundef %131) #13
   %133 = sitofp i64 %132 to double
   %134 = tail call double @sqrt(double noundef %133) #13, !tbaa !63
@@ -2051,25 +2051,25 @@ switch.early.test:                                ; preds = %61
 135:                                              ; preds = %.thread125, %130
   %136 = phi double [ %134, %130 ], [ 0.000000e+00, %.thread125 ]
   %137 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
-  store double %136, ptr %137, align 8, !tbaa !115
+  store double %136, ptr %137, align 8, !tbaa !117
   br label %.thread122
 
 .thread122:                                       ; preds = %.thread, %135, %125
   %138 = phi ptr [ %126, %135 ], [ %111, %125 ], [ %118, %.thread ]
-  %139 = load ptr, ptr %68, align 8, !tbaa !106
+  %139 = load ptr, ptr %68, align 8, !tbaa !108
   %140 = tail call i32 %139(ptr noundef nonnull %0, ptr noundef nonnull @arkLsMassInitialize, ptr noundef nonnull @arkLsMassSetup, ptr noundef nonnull @arkLsMTimes, ptr noundef nonnull @arkLsMassSolve, ptr noundef nonnull @arkLsMassFree, i32 noundef %3, i32 noundef %25, ptr noundef nonnull %calloc) #13
   %.not120 = icmp eq i32 %140, 0
   br i1 %.not120, label %147, label %141
 
 141:                                              ; preds = %.thread122
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef %140, i32 noundef 527, ptr noundef nonnull @__func__.ARKodeSetMassLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15) #13
-  %142 = load ptr, ptr %138, align 8, !tbaa !114
+  %142 = load ptr, ptr %138, align 8, !tbaa !116
   tail call void @N_VDestroy(ptr noundef %142) #13
   br i1 %26, label %146, label %143
 
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  %145 = load ptr, ptr %144, align 8, !tbaa !113
+  %145 = load ptr, ptr %144, align 8, !tbaa !115
   tail call void @SUNMatDestroy(ptr noundef %145) #13
   br label %146
 
@@ -2087,7 +2087,7 @@ define noundef i32 @arkLsInitializeMassCounters(ptr noundef writeonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
-  store double 0xFFEFFFFFFFFFFFFF, ptr %3, align 8, !tbaa !111
+  store double 0xFFEFFFFFFFFFFFFF, ptr %3, align 8, !tbaa !113
   ret i32 0
 }
 
@@ -2098,7 +2098,7 @@ declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @arkLsMassInitialize(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
   %4 = tail call ptr %3(ptr noundef %0) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %arkLs_AccessMassMem.exit, label %6
@@ -2111,53 +2111,53 @@ arkLs_AccessMassMem.exit:                         ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
-  store double 0xFFEFFFFFFFFFFFFF, ptr %8, align 8, !tbaa !111
+  store double 0xFFEFFFFFFFFFFFFF, ptr %8, align 8, !tbaa !113
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !86
+  %10 = load ptr, ptr %9, align 8, !tbaa !88
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %29, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !116
+  %13 = load ptr, ptr %12, align 8, !tbaa !118
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 3575, ptr noundef nonnull @__func__.arkLsMassInitialize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55) #13
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store i32 -3, ptr %16, align 8, !tbaa !117
+  store i32 -3, ptr %16, align 8, !tbaa !119
   br label %70
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 208
-  %19 = load ptr, ptr %18, align 8, !tbaa !118
+  %19 = load ptr, ptr %18, align 8, !tbaa !120
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !81
+  %23 = load ptr, ptr %22, align 8, !tbaa !83
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !119
+  %25 = load ptr, ptr %24, align 8, !tbaa !121
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %21
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 3583, ptr noundef nonnull @__func__.arkLsMassInitialize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.56) #13
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store i32 -3, ptr %28, align 8, !tbaa !117
+  store i32 -3, ptr %28, align 8, !tbaa !119
   br label %70
 
 29:                                               ; preds = %6
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 208
-  %31 = load ptr, ptr %30, align 8, !tbaa !118
+  %31 = load ptr, ptr %30, align 8, !tbaa !120
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %35 = load ptr, ptr %34, align 8, !tbaa !88
+  %35 = load ptr, ptr %34, align 8, !tbaa !90
   %36 = tail call i32 @SUNLinSolGetType(ptr noundef %35) #13
   %.not16 = icmp eq i32 %36, 3
   br i1 %.not16, label %.thread, label %37
@@ -2165,47 +2165,47 @@ arkLs_AccessMassMem.exit:                         ; preds = %1
 37:                                               ; preds = %33
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 3594, ptr noundef nonnull @__func__.arkLsMassInitialize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.57) #13
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store i32 -3, ptr %38, align 8, !tbaa !117
+  store i32 -3, ptr %38, align 8, !tbaa !119
   br label %70
 
 .thread:                                          ; preds = %21, %17, %33, %29
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %40 = load ptr, ptr %39, align 8, !tbaa !88
+  %40 = load ptr, ptr %39, align 8, !tbaa !90
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 3603, ptr noundef nonnull @__func__.arkLsMassInitialize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.58) #13
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store i32 -3, ptr %43, align 8, !tbaa !117
+  store i32 -3, ptr %43, align 8, !tbaa !119
   br label %70
 
 44:                                               ; preds = %.thread
-  %45 = load ptr, ptr %9, align 8, !tbaa !86
+  %45 = load ptr, ptr %9, align 8, !tbaa !88
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %59
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %49 = load ptr, ptr %48, align 8, !tbaa !120
+  %49 = load ptr, ptr %48, align 8, !tbaa !122
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  %53 = load ptr, ptr %52, align 8, !tbaa !121
+  %53 = load ptr, ptr %52, align 8, !tbaa !123
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %57 = load ptr, ptr %56, align 8, !tbaa !122
+  %57 = load ptr, ptr %56, align 8, !tbaa !124
   %.not17 = icmp eq ptr %57, null
   br i1 %.not17, label %59, label %58
 
 58:                                               ; preds = %55
   tail call void %57(ptr noundef nonnull %0) #13
-  %.pre = load ptr, ptr %39, align 8, !tbaa !88
+  %.pre = load ptr, ptr %39, align 8, !tbaa !90
   br label %59
 
 59:                                               ; preds = %58, %55, %51, %47, %44
@@ -2216,15 +2216,15 @@ arkLs_AccessMassMem.exit:                         ; preds = %1
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %65 = load ptr, ptr %64, align 8, !tbaa !122
+  %65 = load ptr, ptr %64, align 8, !tbaa !124
   tail call void %65(ptr noundef nonnull %0) #13
   br label %66
 
 66:                                               ; preds = %63, %59
-  %67 = load ptr, ptr %39, align 8, !tbaa !88
+  %67 = load ptr, ptr %39, align 8, !tbaa !90
   %68 = tail call i32 @SUNLinSolInitialize(ptr noundef %67) #13
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store i32 %68, ptr %69, align 8, !tbaa !117
+  store i32 %68, ptr %69, align 8, !tbaa !119
   br label %70
 
 70:                                               ; preds = %arkLs_AccessMassMem.exit, %66, %42, %37, %27, %15
@@ -2235,7 +2235,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %1
 ; Function Attrs: nounwind uwtable
 define i32 @arkLsMassSetup(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !77
   %8 = tail call ptr %7(ptr noundef %0) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %arkLs_AccessMassMem.exit, label %10
@@ -2246,94 +2246,94 @@ arkLs_AccessMassMem.exit:                         ; preds = %5
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %12 = load ptr, ptr %11, align 8, !tbaa !88
+  %12 = load ptr, ptr %11, align 8, !tbaa !90
   %13 = tail call i32 @SUNLinSolGetType(ptr noundef %12) #13
   %14 = icmp eq i32 %13, 3
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 0, ptr %16, align 8, !tbaa !117
+  store i32 0, ptr %16, align 8, !tbaa !119
   br label %115
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %19 = load double, ptr %18, align 8, !tbaa !111
+  %19 = load double, ptr %18, align 8, !tbaa !113
   %20 = fsub double %19, %1
   %21 = tail call double @llvm.fabs.f64(double %20)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load double, ptr %22, align 8, !tbaa !123
+  %23 = load double, ptr %22, align 8, !tbaa !125
   %24 = fmul double %23, 1.000000e+02
   %25 = fcmp olt double %21, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 0, ptr %27, align 8, !tbaa !117
+  store i32 0, ptr %27, align 8, !tbaa !119
   br label %115
 
 28:                                               ; preds = %17
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 200
-  %30 = load ptr, ptr %29, align 8, !tbaa !121
+  %30 = load ptr, ptr %29, align 8, !tbaa !123
   %.not31 = icmp eq ptr %30, null
   br i1 %.not31, label %47, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %33 = load i32, ptr %32, align 8, !tbaa !109
+  %33 = load i32, ptr %32, align 8, !tbaa !111
   %.not32 = icmp eq i32 %33, 0
   br i1 %.not32, label %34, label %.critedge
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %36 = load i64, ptr %35, align 8, !tbaa !124
+  %36 = load i64, ptr %35, align 8, !tbaa !126
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %.critedge, label %47
 
 .critedge:                                        ; preds = %34, %31
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  %39 = load ptr, ptr %38, align 8, !tbaa !125
+  %39 = load ptr, ptr %38, align 8, !tbaa !127
   %40 = tail call i32 %30(double noundef %1, ptr noundef %39) #13
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 %40, ptr %41, align 8, !tbaa !117
+  store i32 %40, ptr %41, align 8, !tbaa !119
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %43 = load i64, ptr %42, align 8, !tbaa !124
+  %43 = load i64, ptr %42, align 8, !tbaa !126
   %44 = add nsw i64 %43, 1
-  store i64 %44, ptr %42, align 8, !tbaa !124
-  store double %1, ptr %18, align 8, !tbaa !111
+  store i64 %44, ptr %42, align 8, !tbaa !126
+  store double %1, ptr %18, align 8, !tbaa !113
   %.not34 = icmp eq i32 %40, 0
   br i1 %.not34, label %47, label %45
 
 45:                                               ; preds = %.critedge
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef %40, i32 noundef 3674, ptr noundef nonnull @__func__.arkLsMassSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.59) #13
-  %46 = load i32, ptr %41, align 8, !tbaa !117
+  %46 = load i32, ptr %41, align 8, !tbaa !119
   br label %115
 
 47:                                               ; preds = %28, %34, %.critedge
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !86
+  %49 = load ptr, ptr %48, align 8, !tbaa !88
   %50 = icmp eq ptr %49, null
   br i1 %50, label %104, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %53 = load i32, ptr %52, align 8, !tbaa !109
+  %53 = load i32, ptr %52, align 8, !tbaa !111
   %.not35 = icmp eq i32 %53, 0
   br i1 %.not35, label %54, label %60
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %56 = load i64, ptr %55, align 8, !tbaa !126
+  %56 = load i64, ptr %55, align 8, !tbaa !128
   %57 = icmp sgt i64 %56, 0
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 0, ptr %59, align 8, !tbaa !117
+  store i32 0, ptr %59, align 8, !tbaa !119
   br label %115
 
 60:                                               ; preds = %54, %51
-  %61 = load i32, ptr %8, align 8, !tbaa !107
+  %61 = load i32, ptr %8, align 8, !tbaa !109
   %.not36 = icmp eq i32 %61, 0
   br i1 %.not36, label %62, label %66
 
@@ -2343,30 +2343,30 @@ arkLs_AccessMassMem.exit:                         ; preds = %5
   br i1 %.not37, label %._crit_edge, label %64
 
 ._crit_edge:                                      ; preds = %62
-  %.pre = load ptr, ptr %48, align 8, !tbaa !86
+  %.pre = load ptr, ptr %48, align 8, !tbaa !88
   br label %66
 
 64:                                               ; preds = %62
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -11, i32 noundef 3706, ptr noundef nonnull @__func__.arkLsMassSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.60) #13
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 -11, ptr %65, align 8, !tbaa !117
+  store i32 -11, ptr %65, align 8, !tbaa !119
   br label %115
 
 66:                                               ; preds = %._crit_edge, %60
   %67 = phi ptr [ %.pre, %._crit_edge ], [ %49, %60 ]
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !116
+  %69 = load ptr, ptr %68, align 8, !tbaa !118
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !127
+  %71 = load ptr, ptr %70, align 8, !tbaa !129
   %72 = tail call i32 %69(double noundef %1, ptr noundef %67, ptr noundef %71, ptr noundef %2, ptr noundef %3, ptr noundef %4) #13
-  store double %1, ptr %18, align 8, !tbaa !111
+  store double %1, ptr %18, align 8, !tbaa !113
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %66
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -9, i32 noundef 3719, ptr noundef nonnull @__func__.arkLsMassSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.61) #13
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 -9, ptr %75, align 8, !tbaa !117
+  store i32 -9, ptr %75, align 8, !tbaa !119
   br label %115
 
 76:                                               ; preds = %66
@@ -2375,18 +2375,18 @@ arkLs_AccessMassMem.exit:                         ; preds = %5
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 -10, ptr %78, align 8, !tbaa !117
+  store i32 -10, ptr %78, align 8, !tbaa !119
   br label %115
 
 79:                                               ; preds = %76
-  %80 = load i32, ptr %8, align 8, !tbaa !107
+  %80 = load i32, ptr %8, align 8, !tbaa !109
   %.not39 = icmp eq i32 %80, 0
   br i1 %.not39, label %81, label %88
 
 81:                                               ; preds = %79
-  %82 = load ptr, ptr %48, align 8, !tbaa !86
+  %82 = load ptr, ptr %48, align 8, !tbaa !88
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %84 = load ptr, ptr %83, align 8, !tbaa !113
+  %84 = load ptr, ptr %83, align 8, !tbaa !115
   %85 = tail call i32 @SUNMatCopy(ptr noundef %82, ptr noundef %84) #13
   %.not40 = icmp eq i32 %85, 0
   br i1 %.not40, label %88, label %86
@@ -2394,61 +2394,61 @@ arkLs_AccessMassMem.exit:                         ; preds = %5
 86:                                               ; preds = %81
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -11, i32 noundef 3736, ptr noundef nonnull @__func__.arkLsMassSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.60) #13
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 -11, ptr %87, align 8, !tbaa !117
+  store i32 -11, ptr %87, align 8, !tbaa !119
   br label %115
 
 88:                                               ; preds = %81, %79
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 208
-  %90 = load ptr, ptr %89, align 8, !tbaa !118
+  %90 = load ptr, ptr %89, align 8, !tbaa !120
   %.not41 = icmp eq ptr %90, null
   br i1 %.not41, label %91, label %.thread79
 
 91:                                               ; preds = %88
-  %92 = load ptr, ptr %48, align 8, !tbaa !86
+  %92 = load ptr, ptr %48, align 8, !tbaa !88
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !81
+  %94 = load ptr, ptr %93, align 8, !tbaa !83
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
-  %96 = load ptr, ptr %95, align 8, !tbaa !128
+  %96 = load ptr, ptr %95, align 8, !tbaa !130
   %.not42 = icmp eq ptr %96, null
   br i1 %.not42, label %.thread79, label %97
 
 97:                                               ; preds = %91
   %98 = tail call i32 @SUNMatMatvecSetup(ptr noundef nonnull %92) #13
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %100 = load i64, ptr %99, align 8, !tbaa !129
+  %100 = load i64, ptr %99, align 8, !tbaa !131
   %101 = add nsw i64 %100, 1
-  store i64 %101, ptr %99, align 8, !tbaa !129
+  store i64 %101, ptr %99, align 8, !tbaa !131
   %.not44 = icmp eq i32 %98, 0
   br i1 %.not44, label %.thread79, label %102
 
 102:                                              ; preds = %97
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -11, i32 noundef 3762, ptr noundef nonnull @__func__.arkLsMassSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.60) #13
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 -11, ptr %103, align 8, !tbaa !117
+  store i32 -11, ptr %103, align 8, !tbaa !119
   br label %115
 
 104:                                              ; preds = %47
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %106 = load ptr, ptr %105, align 8, !tbaa !120
+  %106 = load ptr, ptr %105, align 8, !tbaa !122
   %.not46 = icmp eq ptr %106, null
   br i1 %.not46, label %._crit_edge81, label %.thread79
 
 ._crit_edge81:                                    ; preds = %104
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 224
-  %.pre82 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !117
+  %.pre82 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !119
   br label %115
 
 .thread79:                                        ; preds = %97, %91, %88, %104
-  %107 = load ptr, ptr %11, align 8, !tbaa !88
+  %107 = load ptr, ptr %11, align 8, !tbaa !90
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !113
+  %109 = load ptr, ptr %108, align 8, !tbaa !115
   %110 = tail call i32 @SUNLinSolSetup(ptr noundef %107, ptr noundef %109) #13
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 %110, ptr %111, align 8, !tbaa !117
+  store i32 %110, ptr %111, align 8, !tbaa !119
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %113 = load i64, ptr %112, align 8, !tbaa !126
+  %113 = load i64, ptr %112, align 8, !tbaa !128
   %114 = add nsw i64 %113, 1
-  store i64 %114, ptr %112, align 8, !tbaa !126
+  store i64 %114, ptr %112, align 8, !tbaa !128
   br label %115
 
 115:                                              ; preds = %.thread79, %._crit_edge81, %arkLs_AccessMassMem.exit, %102, %86, %77, %74, %64, %58, %45, %26, %15
@@ -2467,7 +2467,7 @@ define i32 @arkLsMTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %8 = load ptr, ptr %7, align 8, !tbaa !75
+  %8 = load ptr, ptr %7, align 8, !tbaa !77
   %9 = tail call ptr %8(ptr noundef nonnull %0) #13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %arkLs_AccessARKODEMassMem.exit
@@ -2478,24 +2478,24 @@ define i32 @arkLsMTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 arkLs_AccessARKODEMassMem.exit:                   ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 208
-  %13 = load ptr, ptr %12, align 8, !tbaa !118
+  %13 = load ptr, ptr %12, align 8, !tbaa !120
   %.not19 = icmp eq ptr %13, null
   br i1 %.not19, label %26, label %14
 
 14:                                               ; preds = %arkLs_AccessARKODEMassMem.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %16 = load double, ptr %15, align 8, !tbaa !130
+  %16 = load double, ptr %15, align 8, !tbaa !132
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 216
-  %18 = load ptr, ptr %17, align 8, !tbaa !125
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = tail call i32 %13(ptr noundef %1, ptr noundef %2, double noundef %16, ptr noundef %18) #13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %23 = load i64, ptr %22, align 8, !tbaa !131
+  %23 = load i64, ptr %22, align 8, !tbaa !133
   %24 = add nsw i64 %23, 1
-  store i64 %24, ptr %22, align 8, !tbaa !131
+  store i64 %24, ptr %22, align 8, !tbaa !133
   br label %arkLs_AccessARKODEMassMem.exit.thread
 
 25:                                               ; preds = %14
@@ -2504,15 +2504,15 @@ arkLs_AccessARKODEMassMem.exit:                   ; preds = %6
 
 26:                                               ; preds = %arkLs_AccessARKODEMassMem.exit
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !86
+  %28 = load ptr, ptr %27, align 8, !tbaa !88
   %.not20 = icmp eq ptr %28, null
   br i1 %.not20, label %42, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !81
+  %31 = load ptr, ptr %30, align 8, !tbaa !83
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !119
+  %33 = load ptr, ptr %32, align 8, !tbaa !121
   %.not21 = icmp eq ptr %33, null
   br i1 %.not21, label %42, label %34
 
@@ -2523,9 +2523,9 @@ arkLs_AccessARKODEMassMem.exit:                   ; preds = %6
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %39 = load i64, ptr %38, align 8, !tbaa !131
+  %39 = load i64, ptr %38, align 8, !tbaa !133
   %40 = add nsw i64 %39, 1
-  store i64 %40, ptr %38, align 8, !tbaa !131
+  store i64 %40, ptr %38, align 8, !tbaa !133
   br label %arkLs_AccessARKODEMassMem.exit.thread
 
 41:                                               ; preds = %34
@@ -2544,7 +2544,7 @@ arkLs_AccessARKODEMassMem.exit.thread:            ; preds = %11, %5, %37, %41, %
 ; Function Attrs: nounwind uwtable
 define range(i32 -12, 2) i32 @arkLsMassSolve(ptr noundef %0, ptr noundef %1, double noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   %6 = tail call ptr %5(ptr noundef %0) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %arkLs_AccessMassMem.exit, label %8
@@ -2554,36 +2554,36 @@ arkLs_AccessMassMem.exit:                         ; preds = %3
   br label %89
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr %6, align 8, !tbaa !107
+  %9 = load i32, ptr %6, align 8, !tbaa !109
   %.not25 = icmp eq i32 %9, 0
   br i1 %.not25, label %17, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %12 = load double, ptr %11, align 8, !tbaa !112
+  %12 = load double, ptr %11, align 8, !tbaa !114
   %13 = fmul double %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %15 = load double, ptr %14, align 8, !tbaa !115
+  %15 = load double, ptr %14, align 8, !tbaa !117
   %16 = fmul double %13, %15
   br label %17
 
 17:                                               ; preds = %8, %10
   %.023 = phi double [ %16, %10 ], [ 0.000000e+00, %8 ]
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %19 = load ptr, ptr %18, align 8, !tbaa !114
+  %19 = load ptr, ptr %18, align 8, !tbaa !116
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %19) #13
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %21 = load ptr, ptr %20, align 8, !tbaa !88
+  %21 = load ptr, ptr %20, align 8, !tbaa !90
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !98
+  %25 = load ptr, ptr %24, align 8, !tbaa !100
   %.not26 = icmp eq ptr %25, null
   br i1 %.not26, label %34, label %26
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %28 = load ptr, ptr %27, align 8, !tbaa !99
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %30 = load ptr, ptr %29, align 8, !tbaa !73
   %31 = tail call i32 @SUNLinSolSetScalingVectors(ptr noundef nonnull %21, ptr noundef %28, ptr noundef %30) #13
@@ -2593,61 +2593,61 @@ arkLs_AccessMassMem.exit:                         ; preds = %3
 32:                                               ; preds = %26
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -12, i32 noundef 3824, ptr noundef nonnull @__func__.arkLsMassSolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.50) #13
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  store i32 -12, ptr %33, align 8, !tbaa !117
+  store i32 -12, ptr %33, align 8, !tbaa !119
   br label %89
 
 34:                                               ; preds = %17
-  %35 = load i32, ptr %6, align 8, !tbaa !107
+  %35 = load i32, ptr %6, align 8, !tbaa !109
   %.not27 = icmp eq i32 %35, 0
   br i1 %.not27, label %43, label %36
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr %18, align 8, !tbaa !114
+  %37 = load ptr, ptr %18, align 8, !tbaa !116
   tail call void @N_VConst(double noundef 1.000000e+00, ptr noundef %37) #13
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %39 = load ptr, ptr %38, align 8, !tbaa !97
-  %40 = load ptr, ptr %18, align 8, !tbaa !114
+  %39 = load ptr, ptr %38, align 8, !tbaa !99
+  %40 = load ptr, ptr %18, align 8, !tbaa !116
   %41 = tail call double @N_VWrmsNorm(ptr noundef %39, ptr noundef %40) #13
   %42 = fdiv double %.023, %41
   br label %43
 
 43:                                               ; preds = %34, %36, %26
   %.1 = phi double [ %.023, %26 ], [ %42, %36 ], [ %.023, %34 ]
-  %44 = load ptr, ptr %18, align 8, !tbaa !114
+  %44 = load ptr, ptr %18, align 8, !tbaa !116
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %44) #13
-  %45 = load ptr, ptr %20, align 8, !tbaa !88
+  %45 = load ptr, ptr %20, align 8, !tbaa !90
   %46 = tail call i32 @SUNLinSolSetZeroGuess(ptr noundef %45, i32 noundef 1) #13
   %.not29 = icmp eq i32 %46, 0
   br i1 %.not29, label %47, label %89
 
 47:                                               ; preds = %43
-  %48 = load ptr, ptr %20, align 8, !tbaa !88
+  %48 = load ptr, ptr %20, align 8, !tbaa !90
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !113
-  %51 = load ptr, ptr %18, align 8, !tbaa !114
+  %50 = load ptr, ptr %49, align 8, !tbaa !115
+  %51 = load ptr, ptr %18, align 8, !tbaa !116
   %52 = tail call i32 @SUNLinSolSolve(ptr noundef %48, ptr noundef %50, ptr noundef %51, ptr noundef %1, double noundef %.1) #13
-  %53 = load ptr, ptr %18, align 8, !tbaa !114
+  %53 = load ptr, ptr %18, align 8, !tbaa !116
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %53, ptr noundef %1) #13
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %55 = load i64, ptr %54, align 8, !tbaa !132
+  %55 = load i64, ptr %54, align 8, !tbaa !134
   %56 = add nsw i64 %55, 1
-  store i64 %56, ptr %54, align 8, !tbaa !132
-  %57 = load i32, ptr %6, align 8, !tbaa !107
+  store i64 %56, ptr %54, align 8, !tbaa !134
+  %57 = load i32, ptr %6, align 8, !tbaa !109
   %.not30 = icmp eq i32 %57, 0
   br i1 %.not30, label %74, label %58
 
 58:                                               ; preds = %47
-  %59 = load ptr, ptr %20, align 8, !tbaa !88
+  %59 = load ptr, ptr %20, align 8, !tbaa !90
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !17
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 80
-  %63 = load ptr, ptr %62, align 8, !tbaa !100
+  %63 = load ptr, ptr %62, align 8, !tbaa !102
   %.not31 = icmp eq ptr %63, null
   br i1 %.not31, label %66, label %64
 
 64:                                               ; preds = %58
   %65 = tail call double @SUNLinSolResNorm(ptr noundef nonnull %59) #13
-  %.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre = load ptr, ptr %20, align 8, !tbaa !90
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre50 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
   br label %66
@@ -2656,7 +2656,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %3
   %67 = phi ptr [ %.pre50, %64 ], [ %61, %58 ]
   %68 = phi ptr [ %.pre, %64 ], [ %59, %58 ]
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 72
-  %70 = load ptr, ptr %69, align 8, !tbaa !101
+  %70 = load ptr, ptr %69, align 8, !tbaa !103
   %.not32 = icmp eq ptr %70, null
   br i1 %.not32, label %74, label %71
 
@@ -2668,24 +2668,24 @@ arkLs_AccessMassMem.exit:                         ; preds = %3
 74:                                               ; preds = %66, %71, %47
   %.022 = phi i64 [ %73, %71 ], [ 0, %66 ], [ 0, %47 ]
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %76 = load i64, ptr %75, align 8, !tbaa !133
+  %76 = load i64, ptr %75, align 8, !tbaa !135
   %77 = add nsw i64 %76, %.022
-  store i64 %77, ptr %75, align 8, !tbaa !133
+  store i64 %77, ptr %75, align 8, !tbaa !135
   %.not33 = icmp eq i32 %52, 0
   br i1 %.not33, label %.thread, label %79
 
 .thread:                                          ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  store i32 0, ptr %78, align 8, !tbaa !117
+  store i32 0, ptr %78, align 8, !tbaa !119
   br label %88
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %81 = load i64, ptr %80, align 8, !tbaa !134
+  %81 = load i64, ptr %80, align 8, !tbaa !136
   %82 = add nsw i64 %81, 1
-  store i64 %82, ptr %80, align 8, !tbaa !134
+  store i64 %82, ptr %80, align 8, !tbaa !136
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  store i32 %52, ptr %83, align 8, !tbaa !117
+  store i32 %52, ptr %83, align 8, !tbaa !119
   switch i32 %52, label %88 [
     i32 -808, label %87
     i32 801, label %89
@@ -2734,14 +2734,14 @@ define noundef i32 @arkLsMassFree(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   %6 = tail call ptr %5(ptr noundef nonnull %0) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %44, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %10 = load ptr, ptr %9, align 8, !tbaa !88
+  %10 = load ptr, ptr %9, align 8, !tbaa !90
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %26, label %11
 
@@ -2759,7 +2759,7 @@ define noundef i32 @arkLsMassFree(ptr noundef %0) #0 {
 
 17:                                               ; preds = %14
   %18 = tail call i32 @SUNLinSolSetATimes(ptr noundef nonnull %10, ptr noundef null, ptr noundef null) #13
-  %.pre = load ptr, ptr %9, align 8, !tbaa !88
+  %.pre = load ptr, ptr %9, align 8, !tbaa !90
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre37 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
   br label %19
@@ -2778,23 +2778,23 @@ define noundef i32 @arkLsMassFree(ptr noundef %0) #0 {
 
 26:                                               ; preds = %11, %24, %19, %8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %28 = load ptr, ptr %27, align 8, !tbaa !114
+  %28 = load ptr, ptr %27, align 8, !tbaa !116
   %.not33 = icmp eq ptr %28, null
   br i1 %.not33, label %30, label %29
 
 29:                                               ; preds = %26
   tail call void @N_VDestroy(ptr noundef nonnull %28) #13
-  store ptr null, ptr %27, align 8, !tbaa !114
+  store ptr null, ptr %27, align 8, !tbaa !116
   br label %30
 
 30:                                               ; preds = %29, %26
-  %31 = load i32, ptr %6, align 8, !tbaa !107
+  %31 = load i32, ptr %6, align 8, !tbaa !109
   %.not34 = icmp eq i32 %31, 0
   br i1 %.not34, label %32, label %36
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !113
+  %34 = load ptr, ptr %33, align 8, !tbaa !115
   %.not35 = icmp eq ptr %34, null
   br i1 %.not35, label %36, label %35
 
@@ -2804,11 +2804,11 @@ define noundef i32 @arkLsMassFree(ptr noundef %0) #0 {
 
 36:                                               ; preds = %35, %32, %30
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  store ptr null, ptr %37, align 8, !tbaa !135
+  store ptr null, ptr %37, align 8, !tbaa !137
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %40 = load ptr, ptr %39, align 8, !tbaa !136
+  %40 = load ptr, ptr %39, align 8, !tbaa !138
   %.not36 = icmp eq ptr %40, null
   br i1 %.not36, label %43, label %41
 
@@ -2914,7 +2914,7 @@ define range(i32 -2, 1) i32 @arkLs_AccessLMem(ptr noundef %0, ptr noundef %1, pt
   br label %10
 
 9:                                                ; preds = %3
-  store ptr %6, ptr %2, align 8, !tbaa !137
+  store ptr %6, ptr %2, align 8, !tbaa !139
   br label %10
 
 10:                                               ; preds = %9, %8
@@ -2933,7 +2933,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassFn(ptr noundef %0, ptr noundef %1) lo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
@@ -2943,7 +2943,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassFn(ptr noundef %0, ptr noundef %1) lo
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -2962,7 +2962,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !86
+  %19 = load ptr, ptr %18, align 8, !tbaa !88
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
 
@@ -2972,11 +2972,11 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %1, ptr %23, align 8, !tbaa !116
+  store ptr %1, ptr %23, align 8, !tbaa !118
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !53
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %25, ptr %26, align 8, !tbaa !127
+  store ptr %25, ptr %26, align 8, !tbaa !129
   br label %27
 
 27:                                               ; preds = %arkLs_AccessMassMem.exit, %22, %21, %16, %8, %4
@@ -2987,7 +2987,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 ; Function Attrs: nounwind uwtable
 define range(i32 -6, 1) i32 @arkLs_AccessMassMem(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   %6 = tail call ptr %5(ptr noundef %0) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -2997,7 +2997,7 @@ define range(i32 -6, 1) i32 @arkLs_AccessMassMem(ptr noundef %0, ptr noundef %1,
   br label %10
 
 9:                                                ; preds = %3
-  store ptr %6, ptr %2, align 8, !tbaa !139
+  store ptr %6, ptr %2, align 8, !tbaa !141
   br label %10
 
 10:                                               ; preds = %9, %8
@@ -3272,9 +3272,9 @@ arkLs_AccessLMem.exit:                            ; preds = %10
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 208
-  store ptr %1, ptr %25, align 8, !tbaa !89
+  store ptr %1, ptr %25, align 8, !tbaa !91
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 216
-  store ptr %2, ptr %26, align 8, !tbaa !141
+  store ptr %2, ptr %26, align 8, !tbaa !143
   %27 = icmp eq ptr %1, null
   %28 = select i1 %27, ptr null, ptr @arkLsPSetup
   %29 = icmp eq ptr %2, null
@@ -3333,19 +3333,19 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %8
 
 18:                                               ; preds = %arkLs_AccessARKODELMem.exit
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 208
-  %20 = load ptr, ptr %19, align 8, !tbaa !89
+  %20 = load ptr, ptr %19, align 8, !tbaa !91
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 120
-  %22 = load double, ptr %21, align 8, !tbaa !76
+  %22 = load double, ptr %21, align 8, !tbaa !78
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %24 = load ptr, ptr %23, align 8, !tbaa !77
+  %24 = load ptr, ptr %23, align 8, !tbaa !79
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %26 = load ptr, ptr %25, align 8, !tbaa !78
+  %26 = load ptr, ptr %25, align 8, !tbaa !80
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !56
   %.not11 = icmp eq i32 %28, 0
   %29 = zext i1 %.not11 to i32
-  %30 = load ptr, ptr %5, align 8, !tbaa !142
-  %31 = load double, ptr %2, align 8, !tbaa !80
+  %30 = load ptr, ptr %5, align 8, !tbaa !144
+  %31 = load double, ptr %2, align 8, !tbaa !82
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 232
   %33 = load ptr, ptr %32, align 8, !tbaa !54
   %34 = call i32 %20(double noundef %22, ptr noundef %24, ptr noundef %26, i32 noundef %29, ptr noundef %30, double noundef %31, ptr noundef %33) #13
@@ -3401,21 +3401,21 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %12
 
 22:                                               ; preds = %arkLs_AccessARKODELMem.exit
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 216
-  %24 = load ptr, ptr %23, align 8, !tbaa !141
+  %24 = load ptr, ptr %23, align 8, !tbaa !143
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %26 = load double, ptr %25, align 8, !tbaa !76
+  %26 = load double, ptr %25, align 8, !tbaa !78
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %28 = load ptr, ptr %27, align 8, !tbaa !77
+  %28 = load ptr, ptr %27, align 8, !tbaa !79
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  %30 = load ptr, ptr %29, align 8, !tbaa !78
-  %31 = load double, ptr %6, align 8, !tbaa !80
+  %30 = load ptr, ptr %29, align 8, !tbaa !80
+  %31 = load double, ptr %6, align 8, !tbaa !82
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %33 = load ptr, ptr %32, align 8, !tbaa !54
   %34 = call i32 %24(double noundef %26, ptr noundef %28, ptr noundef %30, ptr noundef %1, ptr noundef %2, double noundef %31, double noundef %3, i32 noundef %4, ptr noundef %33) #13
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 168
-  %36 = load i64, ptr %35, align 8, !tbaa !144
+  %36 = load i64, ptr %35, align 8, !tbaa !146
   %37 = add nsw i64 %36, 1
-  store i64 %37, ptr %35, align 8, !tbaa !144
+  store i64 %37, ptr %35, align 8, !tbaa !146
   br label %arkLs_AccessARKODELMem.exit.thread
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %17, %11, %22, %21
@@ -3663,7 +3663,7 @@ define range(i32 -21, 1) i32 @ARKodeGetJac(ptr noundef %0, ptr noundef writeonly
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store ptr null, ptr %1, align 8, !tbaa !145
+  store ptr null, ptr %1, align 8, !tbaa !147
   br label %17
 
 9:                                                ; preds = %5
@@ -3680,7 +3680,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !61
-  store ptr %16, ptr %1, align 8, !tbaa !145
+  store ptr %16, ptr %1, align 8, !tbaa !147
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -3720,8 +3720,8 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 200
-  %16 = load double, ptr %15, align 8, !tbaa !95
-  store double %16, ptr %1, align 8, !tbaa !80
+  %16 = load double, ptr %15, align 8, !tbaa !97
+  store double %16, ptr %1, align 8, !tbaa !82
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -3745,7 +3745,7 @@ define range(i32 -21, 1) i32 @ARKodeGetJacNumSteps(ptr noundef %0, ptr noundef w
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
@@ -3761,8 +3761,8 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %16 = load i64, ptr %15, align 8, !tbaa !93
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !95
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -3794,8 +3794,8 @@ define range(i32 -21, 1) i32 @ARKodeGetLinWorkSpace(ptr noundef %0, ptr noundef 
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %10
-  store i64 0, ptr %2, align 8, !tbaa !146
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %2, align 8, !tbaa !148
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %70
 
 14:                                               ; preds = %10
@@ -3810,29 +3810,29 @@ arkLs_AccessLMem.exit:                            ; preds = %14
   br label %70
 
 19:                                               ; preds = %14
-  store i64 3, ptr %1, align 8, !tbaa !146
-  store i64 30, ptr %2, align 8, !tbaa !146
+  store i64 3, ptr %1, align 8, !tbaa !148
+  store i64 30, ptr %2, align 8, !tbaa !148
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %21 = load ptr, ptr %20, align 8, !tbaa !66
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !147
+  %25 = load ptr, ptr %24, align 8, !tbaa !149
   %.not22 = icmp eq ptr %25, null
   br i1 %.not22, label %35, label %26
 
 26:                                               ; preds = %19
   call void @N_VSpace(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
-  %27 = load i64, ptr %4, align 8, !tbaa !146
+  %27 = load i64, ptr %4, align 8, !tbaa !148
   %28 = shl nsw i64 %27, 1
-  %29 = load i64, ptr %1, align 8, !tbaa !146
+  %29 = load i64, ptr %1, align 8, !tbaa !148
   %30 = add nsw i64 %29, %28
-  store i64 %30, ptr %1, align 8, !tbaa !146
-  %31 = load i64, ptr %5, align 8, !tbaa !146
+  store i64 %30, ptr %1, align 8, !tbaa !148
+  %31 = load i64, ptr %5, align 8, !tbaa !148
   %32 = shl nsw i64 %31, 1
-  %33 = load i64, ptr %2, align 8, !tbaa !146
+  %33 = load i64, ptr %2, align 8, !tbaa !148
   %34 = add nsw i64 %33, %32
-  store i64 %34, ptr %2, align 8, !tbaa !146
+  store i64 %34, ptr %2, align 8, !tbaa !148
   br label %35
 
 35:                                               ; preds = %26, %19
@@ -3843,9 +3843,9 @@ arkLs_AccessLMem.exit:                            ; preds = %14
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !81
+  %40 = load ptr, ptr %39, align 8, !tbaa !83
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 72
-  %42 = load ptr, ptr %41, align 8, !tbaa !148
+  %42 = load ptr, ptr %41, align 8, !tbaa !150
   %.not24 = icmp eq ptr %42, null
   br i1 %.not24, label %53, label %43
 
@@ -3855,14 +3855,14 @@ arkLs_AccessLMem.exit:                            ; preds = %14
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %43
-  %47 = load i64, ptr %6, align 8, !tbaa !146
-  %48 = load i64, ptr %1, align 8, !tbaa !146
+  %47 = load i64, ptr %6, align 8, !tbaa !148
+  %48 = load i64, ptr %1, align 8, !tbaa !148
   %49 = add nsw i64 %48, %47
-  store i64 %49, ptr %1, align 8, !tbaa !146
-  %50 = load i64, ptr %7, align 8, !tbaa !146
-  %51 = load i64, ptr %2, align 8, !tbaa !146
+  store i64 %49, ptr %1, align 8, !tbaa !148
+  %50 = load i64, ptr %7, align 8, !tbaa !148
+  %51 = load i64, ptr %2, align 8, !tbaa !148
   %52 = add nsw i64 %51, %50
-  store i64 %52, ptr %2, align 8, !tbaa !146
+  store i64 %52, ptr %2, align 8, !tbaa !148
   br label %53
 
 53:                                               ; preds = %38, %46, %43, %35
@@ -3871,7 +3871,7 @@ arkLs_AccessLMem.exit:                            ; preds = %14
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
-  %59 = load ptr, ptr %58, align 8, !tbaa !149
+  %59 = load ptr, ptr %58, align 8, !tbaa !151
   %.not25 = icmp eq ptr %59, null
   br i1 %.not25, label %70, label %60
 
@@ -3881,14 +3881,14 @@ arkLs_AccessLMem.exit:                            ; preds = %14
   br i1 %62, label %63, label %70
 
 63:                                               ; preds = %60
-  %64 = load i64, ptr %6, align 8, !tbaa !146
-  %65 = load i64, ptr %1, align 8, !tbaa !146
+  %64 = load i64, ptr %6, align 8, !tbaa !148
+  %65 = load i64, ptr %1, align 8, !tbaa !148
   %66 = add nsw i64 %65, %64
-  store i64 %66, ptr %1, align 8, !tbaa !146
-  %67 = load i64, ptr %7, align 8, !tbaa !146
-  %68 = load i64, ptr %2, align 8, !tbaa !146
+  store i64 %66, ptr %1, align 8, !tbaa !148
+  %67 = load i64, ptr %7, align 8, !tbaa !148
+  %68 = load i64, ptr %2, align 8, !tbaa !148
   %69 = add nsw i64 %68, %67
-  store i64 %69, ptr %2, align 8, !tbaa !146
+  store i64 %69, ptr %2, align 8, !tbaa !148
   br label %70
 
 70:                                               ; preds = %arkLs_AccessLMem.exit, %53, %63, %60, %13, %9
@@ -3922,7 +3922,7 @@ define range(i32 -21, 1) i32 @ARKodeGetNumJacEvals(ptr noundef %0, ptr noundef w
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
@@ -3938,8 +3938,8 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %16 = load i64, ptr %15, align 8, !tbaa !94
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !96
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -3963,7 +3963,7 @@ define range(i32 -21, 1) i32 @ARKodeGetNumLinRhsEvals(ptr noundef %0, ptr nounde
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
@@ -3980,7 +3980,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %16 = load i64, ptr %15, align 8, !tbaa !74
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -4004,7 +4004,7 @@ define range(i32 -21, 1) i32 @ARKodeGetNumPrecEvals(ptr noundef %0, ptr noundef 
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
@@ -4020,8 +4020,8 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  %16 = load i64, ptr %15, align 8, !tbaa !96
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !98
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -4045,7 +4045,7 @@ define range(i32 -21, 1) i32 @ARKodeGetNumPrecSolves(ptr noundef %0, ptr noundef
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
@@ -4061,8 +4061,8 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %16 = load i64, ptr %15, align 8, !tbaa !144
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !146
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -4086,7 +4086,7 @@ define range(i32 -21, 1) i32 @ARKodeGetNumLinIters(ptr noundef %0, ptr noundef w
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
@@ -4102,8 +4102,8 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 160
-  %16 = load i64, ptr %15, align 8, !tbaa !102
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !104
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -4127,7 +4127,7 @@ define range(i32 -21, 1) i32 @ARKodeGetNumLinConvFails(ptr noundef %0, ptr nound
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
@@ -4143,8 +4143,8 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 176
-  %16 = load i64, ptr %15, align 8, !tbaa !103
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !105
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -4168,7 +4168,7 @@ define range(i32 -21, 1) i32 @ARKodeGetNumJTSetupEvals(ptr noundef %0, ptr nound
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
@@ -4184,8 +4184,8 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 184
-  %16 = load i64, ptr %15, align 8, !tbaa !99
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !101
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -4209,7 +4209,7 @@ define range(i32 -21, 1) i32 @ARKodeGetNumJtimesEvals(ptr noundef %0, ptr nounde
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
@@ -4225,8 +4225,8 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 192
-  %16 = load i64, ptr %15, align 8, !tbaa !79
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !81
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -4245,17 +4245,17 @@ define range(i32 -21, 1) i32 @ARKodeGetNumMassMultSetups(ptr noundef %0, ptr nou
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -4266,8 +4266,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  %16 = load i64, ptr %15, align 8, !tbaa !129
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !131
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -4291,7 +4291,7 @@ define range(i32 -21, 1) i32 @ARKodeGetLastLinFlag(ptr noundef %0, ptr noundef w
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %18
 
 9:                                                ; preds = %5
@@ -4309,7 +4309,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %16 = load i32, ptr %15, align 8, !tbaa !58
   %17 = sext i32 %16 to i64
-  store i64 %17, ptr %1, align 8, !tbaa !146
+  store i64 %17, ptr %1, align 8, !tbaa !148
   br label %18
 
 18:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
@@ -4402,7 +4402,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassEpsLin(ptr noundef %0, double noundef
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
@@ -4412,7 +4412,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassEpsLin(ptr noundef %0, double noundef
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -4425,7 +4425,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   %15 = fcmp ole double %1, 0.000000e+00
   %16 = select i1 %15, double 5.000000e-02, double %1
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store double %16, ptr %17, align 8, !tbaa !112
+  store double %16, ptr %17, align 8, !tbaa !114
   br label %18
 
 18:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -4444,7 +4444,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassLSNormFactor(ptr noundef %0, double n
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
@@ -4454,7 +4454,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassLSNormFactor(ptr noundef %0, double n
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -4469,7 +4469,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store double %1, ptr %17, align 8, !tbaa !115
+  store double %1, ptr %17, align 8, !tbaa !117
   br label %44
 
 18:                                               ; preds = %14
@@ -4494,7 +4494,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 30:                                               ; preds = %22, %26
   %31 = phi double [ %29, %26 ], [ 0.000000e+00, %22 ]
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store double %31, ptr %32, align 8, !tbaa !115
+  store double %31, ptr %32, align 8, !tbaa !117
   br label %44
 
 33:                                               ; preds = %18
@@ -4512,7 +4512,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 41:                                               ; preds = %33, %36
   %42 = phi double [ %40, %36 ], [ 0.000000e+00, %33 ]
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store double %42, ptr %43, align 8, !tbaa !115
+  store double %42, ptr %43, align 8, !tbaa !117
   br label %44
 
 44:                                               ; preds = %arkLs_AccessMassMem.exit, %16, %41, %30, %8, %4
@@ -4531,7 +4531,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassPreconditioner(ptr noundef %0, ptr no
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %8 = load i32, ptr %7, align 8, !tbaa !105
+  %8 = load i32, ptr %7, align 8, !tbaa !107
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %10
 
@@ -4541,7 +4541,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassPreconditioner(ptr noundef %0, ptr no
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %12 = load ptr, ptr %11, align 8, !tbaa !75
+  %12 = load ptr, ptr %11, align 8, !tbaa !77
   %13 = tail call ptr %12(ptr noundef nonnull %0) #13
   %14 = icmp eq ptr %13, null
   br i1 %14, label %arkLs_AccessMassMem.exit, label %15
@@ -4552,7 +4552,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %10
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  %17 = load ptr, ptr %16, align 8, !tbaa !88
+  %17 = load ptr, ptr %16, align 8, !tbaa !90
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -4566,9 +4566,9 @@ arkLs_AccessMassMem.exit:                         ; preds = %10
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 168
-  store ptr %1, ptr %25, align 8, !tbaa !120
+  store ptr %1, ptr %25, align 8, !tbaa !122
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 176
-  store ptr %2, ptr %26, align 8, !tbaa !150
+  store ptr %2, ptr %26, align 8, !tbaa !152
   %27 = icmp eq ptr %1, null
   %28 = select i1 %27, ptr null, ptr @arkLsMPSetup
   %29 = icmp eq ptr %2, null
@@ -4597,7 +4597,7 @@ define i32 @arkLsMPSetup(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !77
   %7 = tail call ptr %6(ptr noundef nonnull %0) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %arkLs_AccessARKODEMassMem.exit
@@ -4608,28 +4608,28 @@ define i32 @arkLsMPSetup(ptr noundef %0) #0 {
 
 arkLs_AccessARKODEMassMem.exit:                   ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %11 = load i32, ptr %10, align 8, !tbaa !109
+  %11 = load i32, ptr %10, align 8, !tbaa !111
   %.not5 = icmp eq i32 %11, 0
   br i1 %.not5, label %12, label %15
 
 12:                                               ; preds = %arkLs_AccessARKODEMassMem.exit
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %14 = load i64, ptr %13, align 8, !tbaa !151
+  %14 = load i64, ptr %13, align 8, !tbaa !153
   %.not6 = icmp eq i64 %14, 0
   br i1 %.not6, label %15, label %arkLs_AccessARKODEMassMem.exit.thread
 
 15:                                               ; preds = %12, %arkLs_AccessARKODEMassMem.exit
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %17 = load ptr, ptr %16, align 8, !tbaa !120
+  %17 = load ptr, ptr %16, align 8, !tbaa !122
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %19 = load double, ptr %18, align 8, !tbaa !130
+  %19 = load double, ptr %18, align 8, !tbaa !132
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %21 = load ptr, ptr %20, align 8, !tbaa !110
+  %21 = load ptr, ptr %20, align 8, !tbaa !112
   %22 = tail call i32 %17(double noundef %19, ptr noundef %21) #13
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %24 = load i64, ptr %23, align 8, !tbaa !151
+  %24 = load i64, ptr %23, align 8, !tbaa !153
   %25 = add nsw i64 %24, 1
-  store i64 %25, ptr %23, align 8, !tbaa !151
+  store i64 %25, ptr %23, align 8, !tbaa !153
   br label %arkLs_AccessARKODEMassMem.exit.thread
 
 arkLs_AccessARKODEMassMem.exit.thread:            ; preds = %9, %3, %12, %15
@@ -4648,7 +4648,7 @@ define i32 @arkLsMPSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, double 
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %10 = load ptr, ptr %9, align 8, !tbaa !75
+  %10 = load ptr, ptr %9, align 8, !tbaa !77
   %11 = tail call ptr %10(ptr noundef nonnull %0) #13
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %arkLs_AccessARKODEMassMem.exit
@@ -4659,16 +4659,16 @@ define i32 @arkLsMPSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, double 
 
 arkLs_AccessARKODEMassMem.exit:                   ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 176
-  %15 = load ptr, ptr %14, align 8, !tbaa !150
+  %15 = load ptr, ptr %14, align 8, !tbaa !152
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %17 = load double, ptr %16, align 8, !tbaa !130
+  %17 = load double, ptr %16, align 8, !tbaa !132
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 192
-  %19 = load ptr, ptr %18, align 8, !tbaa !110
+  %19 = load ptr, ptr %18, align 8, !tbaa !112
   %20 = tail call i32 %15(double noundef %17, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef %4, ptr noundef %19) #13
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %22 = load i64, ptr %21, align 8, !tbaa !152
+  %22 = load i64, ptr %21, align 8, !tbaa !154
   %23 = add nsw i64 %22, 1
-  store i64 %23, ptr %21, align 8, !tbaa !152
+  store i64 %23, ptr %21, align 8, !tbaa !154
   br label %arkLs_AccessARKODEMassMem.exit.thread
 
 arkLs_AccessARKODEMassMem.exit.thread:            ; preds = %13, %7, %arkLs_AccessARKODEMassMem.exit
@@ -4687,7 +4687,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassTimes(ptr noundef %0, ptr noundef %1,
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %9 = load i32, ptr %8, align 8, !tbaa !105
+  %9 = load i32, ptr %8, align 8, !tbaa !107
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %11
 
@@ -4697,7 +4697,7 @@ define range(i32 -48, 1) i32 @ARKodeSetMassTimes(ptr noundef %0, ptr noundef %1,
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %13 = load ptr, ptr %12, align 8, !tbaa !75
+  %13 = load ptr, ptr %12, align 8, !tbaa !77
   %14 = tail call ptr %13(ptr noundef nonnull %0) #13
   %15 = icmp eq ptr %14, null
   br i1 %15, label %arkLs_AccessMassMem.exit, label %16
@@ -4716,7 +4716,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %11
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %21 = load ptr, ptr %20, align 8, !tbaa !88
+  %21 = load ptr, ptr %20, align 8, !tbaa !90
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -4730,11 +4730,11 @@ arkLs_AccessMassMem.exit:                         ; preds = %11
 
 28:                                               ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 200
-  store ptr %1, ptr %29, align 8, !tbaa !121
+  store ptr %1, ptr %29, align 8, !tbaa !123
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 208
-  store ptr %2, ptr %30, align 8, !tbaa !118
+  store ptr %2, ptr %30, align 8, !tbaa !120
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 216
-  store ptr %3, ptr %31, align 8, !tbaa !125
+  store ptr %3, ptr %31, align 8, !tbaa !127
   %32 = tail call i32 @SUNLinSolSetATimes(ptr noundef nonnull %21, ptr noundef nonnull %0, ptr noundef nonnull @arkLsMTimes) #13
   %.not20 = icmp eq i32 %32, 0
   br i1 %.not20, label %34, label %33
@@ -4767,18 +4767,18 @@ define range(i32 -21, 1) i32 @ARKodeGetMassWorkSpace(ptr noundef %0, ptr noundef
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %12 = load i32, ptr %11, align 8, !tbaa !105
+  %12 = load i32, ptr %11, align 8, !tbaa !107
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %10
-  store i64 0, ptr %2, align 8, !tbaa !146
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %2, align 8, !tbaa !148
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %70
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %16 = load ptr, ptr %15, align 8, !tbaa !75
+  %16 = load ptr, ptr %15, align 8, !tbaa !77
   %17 = tail call ptr %16(ptr noundef nonnull %0) #13
   %18 = icmp eq ptr %17, null
   br i1 %18, label %arkLs_AccessMassMem.exit, label %19
@@ -4788,45 +4788,45 @@ arkLs_AccessMassMem.exit:                         ; preds = %14
   br label %70
 
 19:                                               ; preds = %14
-  store i64 2, ptr %1, align 8, !tbaa !146
-  store i64 23, ptr %2, align 8, !tbaa !146
+  store i64 2, ptr %1, align 8, !tbaa !148
+  store i64 23, ptr %2, align 8, !tbaa !148
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !147
+  %25 = load ptr, ptr %24, align 8, !tbaa !149
   %.not24 = icmp eq ptr %25, null
   br i1 %.not24, label %33, label %26
 
 26:                                               ; preds = %19
   call void @N_VSpace(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
-  %27 = load i64, ptr %4, align 8, !tbaa !146
-  %28 = load i64, ptr %1, align 8, !tbaa !146
+  %27 = load i64, ptr %4, align 8, !tbaa !148
+  %28 = load i64, ptr %1, align 8, !tbaa !148
   %29 = add nsw i64 %28, %27
-  store i64 %29, ptr %1, align 8, !tbaa !146
-  %30 = load i64, ptr %5, align 8, !tbaa !146
-  %31 = load i64, ptr %2, align 8, !tbaa !146
+  store i64 %29, ptr %1, align 8, !tbaa !148
+  %30 = load i64, ptr %5, align 8, !tbaa !148
+  %31 = load i64, ptr %2, align 8, !tbaa !148
   %32 = add nsw i64 %31, %30
-  store i64 %32, ptr %2, align 8, !tbaa !146
+  store i64 %32, ptr %2, align 8, !tbaa !148
   br label %33
 
 33:                                               ; preds = %26, %19
-  %34 = load i32, ptr %17, align 8, !tbaa !107
+  %34 = load i32, ptr %17, align 8, !tbaa !109
   %.not25 = icmp eq i32 %34, 0
   br i1 %.not25, label %35, label %53
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !113
+  %37 = load ptr, ptr %36, align 8, !tbaa !115
   %.not26 = icmp eq ptr %37, null
   br i1 %.not26, label %53, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !81
+  %40 = load ptr, ptr %39, align 8, !tbaa !83
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 72
-  %42 = load ptr, ptr %41, align 8, !tbaa !148
+  %42 = load ptr, ptr %41, align 8, !tbaa !150
   %.not27 = icmp eq ptr %42, null
   br i1 %.not27, label %53, label %43
 
@@ -4836,23 +4836,23 @@ arkLs_AccessMassMem.exit:                         ; preds = %14
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %43
-  %47 = load i64, ptr %6, align 8, !tbaa !146
-  %48 = load i64, ptr %1, align 8, !tbaa !146
+  %47 = load i64, ptr %6, align 8, !tbaa !148
+  %48 = load i64, ptr %1, align 8, !tbaa !148
   %49 = add nsw i64 %48, %47
-  store i64 %49, ptr %1, align 8, !tbaa !146
-  %50 = load i64, ptr %7, align 8, !tbaa !146
-  %51 = load i64, ptr %2, align 8, !tbaa !146
+  store i64 %49, ptr %1, align 8, !tbaa !148
+  %50 = load i64, ptr %7, align 8, !tbaa !148
+  %51 = load i64, ptr %2, align 8, !tbaa !148
   %52 = add nsw i64 %51, %50
-  store i64 %52, ptr %2, align 8, !tbaa !146
+  store i64 %52, ptr %2, align 8, !tbaa !148
   br label %53
 
 53:                                               ; preds = %38, %46, %43, %35, %33
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  %55 = load ptr, ptr %54, align 8, !tbaa !88
+  %55 = load ptr, ptr %54, align 8, !tbaa !90
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
-  %59 = load ptr, ptr %58, align 8, !tbaa !149
+  %59 = load ptr, ptr %58, align 8, !tbaa !151
   %.not28 = icmp eq ptr %59, null
   br i1 %.not28, label %70, label %60
 
@@ -4862,14 +4862,14 @@ arkLs_AccessMassMem.exit:                         ; preds = %14
   br i1 %62, label %63, label %70
 
 63:                                               ; preds = %60
-  %64 = load i64, ptr %6, align 8, !tbaa !146
-  %65 = load i64, ptr %1, align 8, !tbaa !146
+  %64 = load i64, ptr %6, align 8, !tbaa !148
+  %65 = load i64, ptr %1, align 8, !tbaa !148
   %66 = add nsw i64 %65, %64
-  store i64 %66, ptr %1, align 8, !tbaa !146
-  %67 = load i64, ptr %7, align 8, !tbaa !146
-  %68 = load i64, ptr %2, align 8, !tbaa !146
+  store i64 %66, ptr %1, align 8, !tbaa !148
+  %67 = load i64, ptr %7, align 8, !tbaa !148
+  %68 = load i64, ptr %2, align 8, !tbaa !148
   %69 = add nsw i64 %68, %67
-  store i64 %69, ptr %2, align 8, !tbaa !146
+  store i64 %69, ptr %2, align 8, !tbaa !148
   br label %70
 
 70:                                               ; preds = %arkLs_AccessMassMem.exit, %53, %63, %60, %13, %9
@@ -4892,17 +4892,17 @@ define range(i32 -21, 1) i32 @ARKodeGetNumMassSetups(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -4913,8 +4913,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %16 = load i64, ptr %15, align 8, !tbaa !126
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !128
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -4933,17 +4933,17 @@ define range(i32 -21, 1) i32 @ARKodeGetNumMassMult(ptr noundef %0, ptr noundef w
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -4954,8 +4954,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %16 = load i64, ptr %15, align 8, !tbaa !131
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !133
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -4974,17 +4974,17 @@ define range(i32 -21, 1) i32 @ARKodeGetNumMassSolves(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -4995,8 +4995,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %16 = load i64, ptr %15, align 8, !tbaa !132
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !134
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -5015,17 +5015,17 @@ define range(i32 -21, 1) i32 @ARKodeGetNumMassPrecEvals(ptr noundef %0, ptr noun
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -5036,8 +5036,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  %16 = load i64, ptr %15, align 8, !tbaa !151
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !153
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -5056,17 +5056,17 @@ define range(i32 -21, 1) i32 @ARKodeGetNumMassPrecSolves(ptr noundef %0, ptr nou
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -5077,8 +5077,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %16 = load i64, ptr %15, align 8, !tbaa !152
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !154
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -5097,17 +5097,17 @@ define range(i32 -21, 1) i32 @ARKodeGetNumMassIters(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -5118,8 +5118,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  %16 = load i64, ptr %15, align 8, !tbaa !133
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !135
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -5138,17 +5138,17 @@ define range(i32 -21, 1) i32 @ARKodeGetNumMassConvFails(ptr noundef %0, ptr noun
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -5159,8 +5159,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  %16 = load i64, ptr %15, align 8, !tbaa !134
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !136
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -5179,17 +5179,17 @@ define range(i32 -21, 1) i32 @ARKodeGetCurrentMassMatrix(ptr noundef %0, ptr nou
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store ptr null, ptr %1, align 8, !tbaa !145
+  store ptr null, ptr %1, align 8, !tbaa !147
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -5200,8 +5200,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !86
-  store ptr %16, ptr %1, align 8, !tbaa !145
+  %16 = load ptr, ptr %15, align 8, !tbaa !88
+  store ptr %16, ptr %1, align 8, !tbaa !147
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -5220,17 +5220,17 @@ define range(i32 -21, 1) i32 @ARKodeGetNumMTSetups(ptr noundef %0, ptr noundef w
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %17
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -5241,8 +5241,8 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %16 = load i64, ptr %15, align 8, !tbaa !124
-  store i64 %16, ptr %1, align 8, !tbaa !146
+  %16 = load i64, ptr %15, align 8, !tbaa !126
+  store i64 %16, ptr %1, align 8, !tbaa !148
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -5261,17 +5261,17 @@ define range(i32 -21, 1) i32 @ARKodeGetLastMassFlag(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %7 = load i32, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 0, ptr %1, align 8, !tbaa !146
+  store i64 0, ptr %1, align 8, !tbaa !148
   br label %18
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call ptr %11(ptr noundef nonnull %0) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %arkLs_AccessMassMem.exit, label %14
@@ -5282,9 +5282,9 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 224
-  %16 = load i32, ptr %15, align 8, !tbaa !117
+  %16 = load i32, ptr %15, align 8, !tbaa !119
   %17 = sext i32 %16 to i64
-  store i64 %17, ptr %1, align 8, !tbaa !146
+  store i64 %17, ptr %1, align 8, !tbaa !148
   br label %18
 
 18:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
@@ -5350,7 +5350,7 @@ arkLs_AccessLMem.exit:                            ; preds = %2
 ; Function Attrs: nounwind uwtable
 define range(i32 -6, 1) i32 @arkLSSetMassUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
   %5 = tail call ptr %4(ptr noundef %0) #13
   %6 = icmp eq ptr %5, null
   br i1 %6, label %arkLs_AccessMassMem.exit, label %7
@@ -5361,18 +5361,18 @@ arkLs_AccessMassMem.exit:                         ; preds = %2
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !116
+  %9 = load ptr, ptr %8, align 8, !tbaa !118
   %.not6 = icmp eq ptr %9, null
   br i1 %.not6, label %12, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %1, ptr %11, align 8, !tbaa !127
+  store ptr %1, ptr %11, align 8, !tbaa !129
   br label %12
 
 12:                                               ; preds = %10, %7
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  store ptr %1, ptr %13, align 8, !tbaa !110
+  store ptr %1, ptr %13, align 8, !tbaa !112
   br label %14
 
 14:                                               ; preds = %arkLs_AccessMassMem.exit, %12
@@ -5390,7 +5390,7 @@ define range(i32 -2, 1) i32 @arkLs_AccessARKODELMem(ptr noundef %0, ptr noundef 
   br label %15
 
 7:                                                ; preds = %4
-  store ptr %0, ptr %2, align 8, !tbaa !153
+  store ptr %0, ptr %2, align 8, !tbaa !155
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %9 = load ptr, ptr %8, align 8, !tbaa !33
   %10 = tail call ptr %9(ptr noundef nonnull %0) #13
@@ -5398,12 +5398,12 @@ define range(i32 -2, 1) i32 @arkLs_AccessARKODELMem(ptr noundef %0, ptr noundef 
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr %2, align 8, !tbaa !153
+  %13 = load ptr, ptr %2, align 8, !tbaa !155
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %13, i32 noundef -2, i32 noundef 4058, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.64) #13
   br label %15
 
 14:                                               ; preds = %7
-  store ptr %10, ptr %3, align 8, !tbaa !137
+  store ptr %10, ptr %3, align 8, !tbaa !139
   br label %15
 
 15:                                               ; preds = %14, %12, %6
@@ -5423,20 +5423,20 @@ define range(i32 -6, 1) i32 @arkLs_AccessARKODEMassMem(ptr noundef %0, ptr nound
   br label %15
 
 7:                                                ; preds = %4
-  store ptr %0, ptr %2, align 8, !tbaa !153
+  store ptr %0, ptr %2, align 8, !tbaa !155
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !77
   %10 = tail call ptr %9(ptr noundef nonnull %0) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr %2, align 8, !tbaa !153
+  %13 = load ptr, ptr %2, align 8, !tbaa !155
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %13, i32 noundef -6, i32 noundef 4094, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.65) #13
   br label %15
 
 14:                                               ; preds = %7
-  store ptr %10, ptr %3, align 8, !tbaa !139
+  store ptr %10, ptr %3, align 8, !tbaa !141
   br label %15
 
 15:                                               ; preds = %14, %12, %6
@@ -5457,20 +5457,20 @@ define i32 @arkLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, p
   %13 = tail call ptr @N_VGetArrayPointer(ptr noundef %12) #13
   %14 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #13
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %16 = load i32, ptr %15, align 8, !tbaa !155
+  %16 = load i32, ptr %15, align 8, !tbaa !157
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %21, label %17
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 656
-  %19 = load ptr, ptr %18, align 8, !tbaa !156
+  %19 = load ptr, ptr %18, align 8, !tbaa !158
   %20 = tail call ptr @N_VGetArrayPointer(ptr noundef %19) #13
   br label %21
 
 21:                                               ; preds = %8, %17
   %22 = phi ptr [ %20, %17 ], [ null, %8 ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %24 = load double, ptr %23, align 8, !tbaa !123
+  %24 = load double, ptr %23, align 8, !tbaa !125
   %25 = fcmp ugt double %24, 0.000000e+00
   br i1 %25, label %26, label %28
 
@@ -5481,17 +5481,17 @@ define i32 @arkLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, p
 28:                                               ; preds = %21, %26
   %29 = phi double [ %27, %26 ], [ 0.000000e+00, %21 ]
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 568
-  %31 = load ptr, ptr %30, align 8, !tbaa !97
+  %31 = load ptr, ptr %30, align 8, !tbaa !99
   %32 = tail call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %31) #13
   %33 = fcmp une double %32, 0.000000e+00
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 704
-  %36 = load double, ptr %35, align 8, !tbaa !157
+  %36 = load double, ptr %35, align 8, !tbaa !159
   %37 = tail call double @llvm.fabs.f64(double %36)
   %38 = fmul double %37, 1.000000e+03
-  %39 = load double, ptr %23, align 8, !tbaa !123
+  %39 = load double, ptr %23, align 8, !tbaa !125
   %40 = fmul double %39, %38
   %41 = sitofp i64 %9 to double
   %42 = fmul double %40, %41
@@ -5513,21 +5513,21 @@ define i32 @arkLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, p
   %50 = tail call ptr @SUNDenseMatrix_Column(ptr noundef %3, i64 noundef %.06979) #13
   tail call void @N_VSetArrayPointer(ptr noundef %50, ptr noundef %10) #13
   %51 = getelementptr inbounds nuw double, ptr %14, i64 %.06979
-  %52 = load double, ptr %51, align 8, !tbaa !80
+  %52 = load double, ptr %51, align 8, !tbaa !82
   %53 = tail call double @llvm.fabs.f64(double %52)
   %54 = fmul double %29, %53
   %55 = getelementptr inbounds nuw double, ptr %13, i64 %.06979
-  %56 = load double, ptr %55, align 8, !tbaa !80
+  %56 = load double, ptr %55, align 8, !tbaa !82
   %57 = fdiv double %45, %56
   %58 = fcmp ogt double %54, %57
   %. = select i1 %58, double %54, double %57
-  %59 = load i32, ptr %15, align 8, !tbaa !155
+  %59 = load i32, ptr %15, align 8, !tbaa !157
   %.not77 = icmp eq i32 %59, 0
   br i1 %.not77, label %79, label %60
 
 60:                                               ; preds = %49
   %61 = getelementptr inbounds nuw double, ptr %22, i64 %.06979
-  %62 = load double, ptr %61, align 8, !tbaa !80
+  %62 = load double, ptr %61, align 8, !tbaa !82
   %63 = tail call double @llvm.fabs.f64(double %62)
   %64 = fcmp oeq double %63, 1.000000e+00
   br i1 %64, label %65, label %71
@@ -5559,7 +5559,7 @@ define i32 @arkLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, p
 79:                                               ; preds = %69, %65, %73, %77, %71, %49
   %.068 = phi double [ %70, %69 ], [ %., %65 ], [ %78, %77 ], [ %., %73 ], [ %., %71 ], [ %., %49 ]
   %80 = fadd double %52, %.068
-  store double %80, ptr %51, align 8, !tbaa !80
+  store double %80, ptr %51, align 8, !tbaa !82
   %81 = load ptr, ptr %47, align 8, !tbaa !53
   %82 = tail call i32 %6(double noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %81) #13
   %83 = load i64, ptr %48, align 8, !tbaa !74
@@ -5569,13 +5569,13 @@ define i32 @arkLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %.not78, label %85, label %._crit_edge
 
 85:                                               ; preds = %79
-  store double %52, ptr %51, align 8, !tbaa !80
+  store double %52, ptr %51, align 8, !tbaa !82
   %86 = fdiv double 1.000000e+00, %.068
   %87 = fneg double %86
   tail call void @N_VLinearSum(double noundef %86, ptr noundef %7, double noundef %87, ptr noundef %2, ptr noundef %10) #13
   %88 = add nuw nsw i64 %.06979, 1
   %exitcond.not = icmp eq i64 %88, %9
-  br i1 %exitcond.not, label %._crit_edge, label %49
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %85, %79, %44
   %.1 = phi i32 [ 0, %44 ], [ %82, %79 ], [ 0, %85 ]
@@ -5597,13 +5597,13 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
   %18 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #13
   %19 = tail call ptr @N_VGetArrayPointer(ptr noundef %8) #13
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %21 = load i32, ptr %20, align 8, !tbaa !155
+  %21 = load i32, ptr %20, align 8, !tbaa !157
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 656
-  %24 = load ptr, ptr %23, align 8, !tbaa !156
+  %24 = load ptr, ptr %23, align 8, !tbaa !158
   %25 = tail call ptr @N_VGetArrayPointer(ptr noundef %24) #13
   br label %26
 
@@ -5611,7 +5611,7 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
   %27 = phi ptr [ %25, %22 ], [ null, %9 ]
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %8) #13
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %29 = load double, ptr %28, align 8, !tbaa !123
+  %29 = load double, ptr %28, align 8, !tbaa !125
   %30 = fcmp ugt double %29, 0.000000e+00
   br i1 %30, label %31, label %33
 
@@ -5622,17 +5622,17 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
 33:                                               ; preds = %26, %31
   %34 = phi double [ %32, %31 ], [ 0.000000e+00, %26 ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 568
-  %36 = load ptr, ptr %35, align 8, !tbaa !97
+  %36 = load ptr, ptr %35, align 8, !tbaa !99
   %37 = tail call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %36) #13
   %38 = fcmp une double %37, 0.000000e+00
   br i1 %38, label %39, label %49
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 704
-  %41 = load double, ptr %40, align 8, !tbaa !157
+  %41 = load double, ptr %40, align 8, !tbaa !159
   %42 = tail call double @llvm.fabs.f64(double %41)
   %43 = fmul double %42, 1.000000e+03
-  %44 = load double, ptr %28, align 8, !tbaa !123
+  %44 = load double, ptr %28, align 8, !tbaa !125
   %45 = fmul double %44, %43
   %46 = sitofp i64 %10 to double
   %47 = fmul double %45, %46
@@ -5656,49 +5656,49 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
 .lr.ph:                                           ; preds = %._crit_edge169, %.lr.ph173
   %.0137171 = phi i64 [ 1, %.lr.ph173 ], [ %160, %._crit_edge169 ]
   %57 = add nsw i64 %.0137171, -1
-  %58 = load i32, ptr %20, align 8, !tbaa !155
+  %58 = load i32, ptr %20, align 8, !tbaa !157
   %.not158 = icmp eq i32 %58, 0
   br i1 %.not158, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.0139161.us = phi i64 [ %70, %.lr.ph.split.us ], [ %57, %.lr.ph ]
   %59 = getelementptr inbounds double, ptr %18, i64 %.0139161.us
-  %60 = load double, ptr %59, align 8, !tbaa !80
+  %60 = load double, ptr %59, align 8, !tbaa !82
   %61 = tail call double @llvm.fabs.f64(double %60)
   %62 = fmul double %34, %61
   %63 = getelementptr inbounds double, ptr %15, i64 %.0139161.us
-  %64 = load double, ptr %63, align 8, !tbaa !80
+  %64 = load double, ptr %63, align 8, !tbaa !82
   %65 = fdiv double %50, %64
   %66 = fcmp ogt double %62, %65
   %..us = select i1 %66, double %62, double %65
   %67 = getelementptr inbounds double, ptr %19, i64 %.0139161.us
-  %68 = load double, ptr %67, align 8, !tbaa !80
+  %68 = load double, ptr %67, align 8, !tbaa !82
   %69 = fadd double %..us, %68
-  store double %69, ptr %67, align 8, !tbaa !80
+  store double %69, ptr %67, align 8, !tbaa !82
   %70 = add nsw i64 %.0139161.us, %52
   %71 = icmp slt i64 %70, %10
-  br i1 %71, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !158
+  br i1 %71, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !161
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %._crit_edge180
   %.0139161 = phi i64 [ %105, %._crit_edge180 ], [ %57, %.lr.ph ]
   %72 = getelementptr inbounds double, ptr %18, i64 %.0139161
-  %73 = load double, ptr %72, align 8, !tbaa !80
+  %73 = load double, ptr %72, align 8, !tbaa !82
   %74 = tail call double @llvm.fabs.f64(double %73)
   %75 = fmul double %34, %74
   %76 = getelementptr inbounds double, ptr %15, i64 %.0139161
-  %77 = load double, ptr %76, align 8, !tbaa !80
+  %77 = load double, ptr %76, align 8, !tbaa !82
   %78 = fdiv double %50, %77
   %79 = fcmp ogt double %75, %78
   %. = select i1 %79, double %75, double %78
   %80 = getelementptr inbounds double, ptr %27, i64 %.0139161
-  %81 = load double, ptr %80, align 8, !tbaa !80
+  %81 = load double, ptr %80, align 8, !tbaa !82
   %82 = tail call double @llvm.fabs.f64(double %81)
   %83 = fcmp oeq double %82, 1.000000e+00
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %.lr.ph.split
   %85 = getelementptr inbounds double, ptr %19, i64 %.0139161
-  %86 = load double, ptr %85, align 8, !tbaa !80
+  %86 = load double, ptr %85, align 8, !tbaa !82
   %87 = fadd double %., %86
   %88 = fmul double %81, %87
   %89 = fcmp olt double %88, 0.000000e+00
@@ -5711,7 +5711,7 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
 92:                                               ; preds = %.lr.ph.split
   %93 = fcmp oeq double %82, 2.000000e+00
   %94 = getelementptr inbounds double, ptr %19, i64 %.0139161
-  %95 = load double, ptr %94, align 8, !tbaa !80
+  %95 = load double, ptr %94, align 8, !tbaa !82
   br i1 %93, label %96, label %._crit_edge180
 
 96:                                               ; preds = %92
@@ -5729,10 +5729,10 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.0135 = phi double [ %91, %90 ], [ %., %84 ], [ %101, %100 ], [ %., %96 ], [ %., %92 ]
   %103 = getelementptr inbounds double, ptr %19, i64 %.0139161
   %104 = fadd double %.0135, %102
-  store double %104, ptr %103, align 8, !tbaa !80
+  store double %104, ptr %103, align 8, !tbaa !82
   %105 = add nsw i64 %.0139161, %52
   %106 = icmp slt i64 %105, %10
-  br i1 %106, label %.lr.ph.split, label %._crit_edge
+  br i1 %106, label %.lr.ph.split, label %._crit_edge, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %._crit_edge180, %.lr.ph.split.us
   %107 = load ptr, ptr %54, align 8, !tbaa !53
@@ -5746,31 +5746,31 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
 .lr.ph168:                                        ; preds = %._crit_edge, %._crit_edge166
   %.1140167 = phi i64 [ %158, %._crit_edge166 ], [ %57, %._crit_edge ]
   %111 = getelementptr inbounds double, ptr %18, i64 %.1140167
-  %112 = load double, ptr %111, align 8, !tbaa !80
+  %112 = load double, ptr %111, align 8, !tbaa !82
   %113 = getelementptr inbounds double, ptr %19, i64 %.1140167
-  store double %112, ptr %113, align 8, !tbaa !80
+  store double %112, ptr %113, align 8, !tbaa !82
   %114 = tail call ptr @SUNBandMatrix_Column(ptr noundef %3, i64 noundef %.1140167) #13
-  %115 = load double, ptr %111, align 8, !tbaa !80
+  %115 = load double, ptr %111, align 8, !tbaa !82
   %116 = tail call double @llvm.fabs.f64(double %115)
   %117 = fmul double %34, %116
   %118 = getelementptr inbounds double, ptr %15, i64 %.1140167
-  %119 = load double, ptr %118, align 8, !tbaa !80
+  %119 = load double, ptr %118, align 8, !tbaa !82
   %120 = fdiv double %50, %119
   %121 = fcmp ogt double %117, %120
   %.159 = select i1 %121, double %117, double %120
-  %122 = load i32, ptr %20, align 8, !tbaa !155
+  %122 = load i32, ptr %20, align 8, !tbaa !157
   %.not156 = icmp eq i32 %122, 0
   br i1 %.not156, label %144, label %123
 
 123:                                              ; preds = %.lr.ph168
   %124 = getelementptr inbounds double, ptr %27, i64 %.1140167
-  %125 = load double, ptr %124, align 8, !tbaa !80
+  %125 = load double, ptr %124, align 8, !tbaa !82
   %126 = tail call double @llvm.fabs.f64(double %125)
   %127 = fcmp oeq double %126, 1.000000e+00
   br i1 %127, label %128, label %135
 
 128:                                              ; preds = %123
-  %129 = load double, ptr %113, align 8, !tbaa !80
+  %129 = load double, ptr %113, align 8, !tbaa !82
   %130 = fadd double %.159, %129
   %131 = fmul double %125, %130
   %132 = fcmp olt double %131, 0.000000e+00
@@ -5785,7 +5785,7 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %136, label %137, label %144
 
 137:                                              ; preds = %135
-  %138 = load double, ptr %113, align 8, !tbaa !80
+  %138 = load double, ptr %113, align 8, !tbaa !82
   %139 = fadd double %.159, %138
   %140 = fmul double %125, %139
   %141 = fcmp ugt double %140, 0.000000e+00
@@ -5808,27 +5808,27 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
 .lr.ph165:                                        ; preds = %144, %.lr.ph165
   %.0138163 = phi i64 [ %157, %.lr.ph165 ], [ %147, %144 ]
   %149 = getelementptr inbounds nuw double, ptr %17, i64 %.0138163
-  %150 = load double, ptr %149, align 8, !tbaa !80
+  %150 = load double, ptr %149, align 8, !tbaa !82
   %151 = getelementptr inbounds nuw double, ptr %16, i64 %.0138163
-  %152 = load double, ptr %151, align 8, !tbaa !80
+  %152 = load double, ptr %151, align 8, !tbaa !82
   %153 = fsub double %150, %152
   %154 = fmul double %145, %153
   %155 = sub nsw i64 %.0138163, %.1140167
   %156 = getelementptr inbounds double, ptr %114, i64 %155
-  store double %154, ptr %156, align 8, !tbaa !80
+  store double %154, ptr %156, align 8, !tbaa !82
   %157 = add nuw nsw i64 %.0138163, 1
   %.not157.not = icmp slt i64 %.0138163, %.160
-  br i1 %.not157.not, label %.lr.ph165, label %._crit_edge166
+  br i1 %.not157.not, label %.lr.ph165, label %._crit_edge166, !llvm.loop !164
 
 ._crit_edge166:                                   ; preds = %.lr.ph165, %144
   %158 = add nsw i64 %.1140167, %52
   %159 = icmp slt i64 %158, %10
-  br i1 %159, label %.lr.ph168, label %._crit_edge169
+  br i1 %159, label %.lr.ph168, label %._crit_edge169, !llvm.loop !165
 
 ._crit_edge169:                                   ; preds = %._crit_edge166
   %160 = add nuw i64 %.0137171, 1
   %exitcond.not = icmp eq i64 %.0137171, %53
-  br i1 %exitcond.not, label %._crit_edge174, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge174, label %.lr.ph, !llvm.loop !166
 
 ._crit_edge174:                                   ; preds = %._crit_edge169, %._crit_edge, %49
   %.1 = phi i32 [ 0, %49 ], [ %108, %._crit_edge ], [ 0, %._crit_edge169 ]
@@ -5989,88 +5989,95 @@ attributes #14 = { nounwind allocsize(0) }
 !72 = !{!28, !6, i64 56}
 !73 = !{!4, !11, i64 560}
 !74 = !{!37, !14, i64 136}
-!75 = !{!4, !6, i64 536}
-!76 = !{!37, !9, i64 120}
-!77 = !{!37, !11, i64 96}
-!78 = !{!37, !11, i64 104}
-!79 = !{!37, !14, i64 192}
-!80 = !{!9, !9, i64 0}
-!81 = !{!82, !83, i64 8}
-!82 = !{!"_generic_SUNMatrix", !6, i64 0, !83, i64 8, !5, i64 16}
-!83 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!84 = !{!85, !6, i64 0}
-!85 = !{!"_generic_SUNMatrix_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72}
-!86 = !{!87, !39, i64 16}
-!87 = !{!"ARKLsMassMemRec", !10, i64 0, !10, i64 4, !6, i64 8, !39, i64 16, !39, i64 24, !6, i64 32, !9, i64 40, !9, i64 48, !10, i64 56, !9, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !14, i64 104, !14, i64 112, !14, i64 120, !14, i64 128, !14, i64 136, !38, i64 144, !11, i64 152, !11, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !10, i64 224}
-!88 = !{!87, !38, i64 144}
-!89 = !{!37, !6, i64 208}
-!90 = !{!4, !6, i64 312}
-!91 = !{!4, !10, i64 964}
-!92 = !{!4, !14, i64 816}
-!93 = !{!37, !14, i64 144}
-!94 = !{!37, !14, i64 128}
-!95 = !{!37, !9, i64 200}
-!96 = !{!37, !14, i64 152}
-!97 = !{!4, !11, i64 568}
-!98 = !{!21, !6, i64 32}
-!99 = !{!37, !14, i64 184}
-!100 = !{!21, !6, i64 80}
-!101 = !{!21, !6, i64 72}
-!102 = !{!37, !14, i64 160}
-!103 = !{!37, !14, i64 176}
-!104 = !{!37, !6, i64 224}
-!105 = !{!4, !10, i64 512}
-!106 = !{!4, !6, i64 520}
-!107 = !{!87, !10, i64 0}
-!108 = !{!87, !10, i64 4}
-!109 = !{!87, !10, i64 56}
-!110 = !{!87, !6, i64 192}
-!111 = !{!87, !9, i64 64}
-!112 = !{!87, !9, i64 40}
-!113 = !{!87, !39, i64 24}
-!114 = !{!87, !11, i64 152}
-!115 = !{!87, !9, i64 48}
-!116 = !{!87, !6, i64 8}
-!117 = !{!87, !10, i64 224}
-!118 = !{!87, !6, i64 208}
-!119 = !{!85, !6, i64 64}
-!120 = !{!87, !6, i64 168}
-!121 = !{!87, !6, i64 200}
-!122 = !{!4, !6, i64 528}
-!123 = !{!4, !9, i64 8}
-!124 = !{!87, !14, i64 88}
-!125 = !{!87, !6, i64 216}
-!126 = !{!87, !14, i64 72}
-!127 = !{!87, !6, i64 32}
-!128 = !{!85, !6, i64 56}
-!129 = !{!87, !14, i64 104}
-!130 = !{!4, !9, i64 752}
-!131 = !{!87, !14, i64 96}
-!132 = !{!87, !14, i64 80}
-!133 = !{!87, !14, i64 120}
-!134 = !{!87, !14, i64 136}
-!135 = !{!87, !11, i64 160}
-!136 = !{!87, !6, i64 184}
-!137 = !{!138, !138, i64 0}
-!138 = !{!"p1 _ZTS11ARKLsMemRec", !6, i64 0}
+!75 = distinct !{!75, !76}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = !{!4, !6, i64 536}
+!78 = !{!37, !9, i64 120}
+!79 = !{!37, !11, i64 96}
+!80 = !{!37, !11, i64 104}
+!81 = !{!37, !14, i64 192}
+!82 = !{!9, !9, i64 0}
+!83 = !{!84, !85, i64 8}
+!84 = !{!"_generic_SUNMatrix", !6, i64 0, !85, i64 8, !5, i64 16}
+!85 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!86 = !{!87, !6, i64 0}
+!87 = !{!"_generic_SUNMatrix_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72}
+!88 = !{!89, !39, i64 16}
+!89 = !{!"ARKLsMassMemRec", !10, i64 0, !10, i64 4, !6, i64 8, !39, i64 16, !39, i64 24, !6, i64 32, !9, i64 40, !9, i64 48, !10, i64 56, !9, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !14, i64 104, !14, i64 112, !14, i64 120, !14, i64 128, !14, i64 136, !38, i64 144, !11, i64 152, !11, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !10, i64 224}
+!90 = !{!89, !38, i64 144}
+!91 = !{!37, !6, i64 208}
+!92 = !{!4, !6, i64 312}
+!93 = !{!4, !10, i64 964}
+!94 = !{!4, !14, i64 816}
+!95 = !{!37, !14, i64 144}
+!96 = !{!37, !14, i64 128}
+!97 = !{!37, !9, i64 200}
+!98 = !{!37, !14, i64 152}
+!99 = !{!4, !11, i64 568}
+!100 = !{!21, !6, i64 32}
+!101 = !{!37, !14, i64 184}
+!102 = !{!21, !6, i64 80}
+!103 = !{!21, !6, i64 72}
+!104 = !{!37, !14, i64 160}
+!105 = !{!37, !14, i64 176}
+!106 = !{!37, !6, i64 224}
+!107 = !{!4, !10, i64 512}
+!108 = !{!4, !6, i64 520}
+!109 = !{!89, !10, i64 0}
+!110 = !{!89, !10, i64 4}
+!111 = !{!89, !10, i64 56}
+!112 = !{!89, !6, i64 192}
+!113 = !{!89, !9, i64 64}
+!114 = !{!89, !9, i64 40}
+!115 = !{!89, !39, i64 24}
+!116 = !{!89, !11, i64 152}
+!117 = !{!89, !9, i64 48}
+!118 = !{!89, !6, i64 8}
+!119 = !{!89, !10, i64 224}
+!120 = !{!89, !6, i64 208}
+!121 = !{!87, !6, i64 64}
+!122 = !{!89, !6, i64 168}
+!123 = !{!89, !6, i64 200}
+!124 = !{!4, !6, i64 528}
+!125 = !{!4, !9, i64 8}
+!126 = !{!89, !14, i64 88}
+!127 = !{!89, !6, i64 216}
+!128 = !{!89, !14, i64 72}
+!129 = !{!89, !6, i64 32}
+!130 = !{!87, !6, i64 56}
+!131 = !{!89, !14, i64 104}
+!132 = !{!4, !9, i64 752}
+!133 = !{!89, !14, i64 96}
+!134 = !{!89, !14, i64 80}
+!135 = !{!89, !14, i64 120}
+!136 = !{!89, !14, i64 136}
+!137 = !{!89, !11, i64 160}
+!138 = !{!89, !6, i64 184}
 !139 = !{!140, !140, i64 0}
-!140 = !{!"p1 _ZTS15ARKLsMassMemRec", !6, i64 0}
-!141 = !{!37, !6, i64 216}
-!142 = !{!143, !143, i64 0}
-!143 = !{!"p1 int", !6, i64 0}
-!144 = !{!37, !14, i64 168}
-!145 = !{!39, !39, i64 0}
-!146 = !{!14, !14, i64 0}
-!147 = !{!28, !6, i64 32}
-!148 = !{!85, !6, i64 72}
-!149 = !{!21, !6, i64 96}
-!150 = !{!87, !6, i64 176}
-!151 = !{!87, !14, i64 112}
-!152 = !{!87, !14, i64 128}
-!153 = !{!154, !154, i64 0}
-!154 = !{!"p1 _ZTS12ARKodeMemRec", !6, i64 0}
-!155 = !{!4, !10, i64 128}
-!156 = !{!4, !11, i64 656}
-!157 = !{!4, !9, i64 704}
-!158 = distinct !{!158, !159}
-!159 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!140 = !{!"p1 _ZTS11ARKLsMemRec", !6, i64 0}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"p1 _ZTS15ARKLsMassMemRec", !6, i64 0}
+!143 = !{!37, !6, i64 216}
+!144 = !{!145, !145, i64 0}
+!145 = !{!"p1 int", !6, i64 0}
+!146 = !{!37, !14, i64 168}
+!147 = !{!39, !39, i64 0}
+!148 = !{!14, !14, i64 0}
+!149 = !{!28, !6, i64 32}
+!150 = !{!87, !6, i64 72}
+!151 = !{!21, !6, i64 96}
+!152 = !{!89, !6, i64 176}
+!153 = !{!89, !14, i64 112}
+!154 = !{!89, !14, i64 128}
+!155 = !{!156, !156, i64 0}
+!156 = !{!"p1 _ZTS12ARKodeMemRec", !6, i64 0}
+!157 = !{!4, !10, i64 128}
+!158 = !{!4, !11, i64 656}
+!159 = !{!4, !9, i64 704}
+!160 = distinct !{!160, !76}
+!161 = distinct !{!161, !76, !162}
+!162 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!163 = distinct !{!163, !76}
+!164 = distinct !{!164, !76}
+!165 = distinct !{!165, !76}
+!166 = distinct !{!166, !76}

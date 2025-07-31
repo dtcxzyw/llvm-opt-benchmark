@@ -14140,7 +14140,7 @@ lean_int_dec_eq.exit:                             ; preds = %11
   br i1 %23, label %24, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %lean_int_dec_eq.exit, %21
-  br label %.backedge
+  br label %.backedge, !llvm.loop !16
 
 24:                                               ; preds = %21, %lean_int_dec_eq.exit, %lean_obj_tag.exit
   %.1 = phi i8 [ 0, %lean_int_dec_eq.exit ], [ 1, %lean_obj_tag.exit ], [ 0, %21 ]
@@ -14196,7 +14196,7 @@ lean_int_dec_eq.exit.i:                           ; preds = %11
   br i1 %23, label %l_Lean_Grind_CommRing_Poly_checkCoeffs.exit, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %lean_int_dec_eq.exit.i, %21
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !16
 
 l_Lean_Grind_CommRing_Poly_checkCoeffs.exit:      ; preds = %lean_obj_tag.exit.i, %21, %lean_int_dec_eq.exit.i
   %.1.i = phi i64 [ 1, %lean_int_dec_eq.exit.i ], [ 3, %lean_obj_tag.exit.i ], [ 1, %21 ]
@@ -15996,3 +15996,5 @@ attributes #7 = { noreturn nounwind }
 !13 = !{!"branch_weights", i32 4001, i32 4000000}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"short", !8, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}

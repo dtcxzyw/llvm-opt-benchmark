@@ -276,7 +276,7 @@ define internal i32 @mtrr_close(ptr noundef %0, ptr noundef %1) #4 align 16 {
 .loopexit:                                        ; preds = %20, %13
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp eq i64 %25, %12
-  br i1 %26, label %.loopexit3, label %13, !llvm.loop !9
+  br i1 %26, label %.loopexit3, label %13, !llvm.loop !10
 
 .loopexit3:                                       ; preds = %.loopexit, %8
   tail call void @kfree(ptr noundef nonnull %6) #12
@@ -298,13 +298,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   %7 = alloca %struct.mtrr_sentry, align 8
   %8 = alloca %struct.mtrr_gentry, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
-  store i8 0, ptr %4, align 1, !annotation !10
+  store i8 0, ptr %4, align 1, !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store i64 0, ptr %5, align 8, !annotation !10
+  store i64 0, ptr %5, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  store i64 0, ptr %6, align 8, !annotation !10
+  store i64 0, ptr %6, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
   %9 = inttoptr i64 %2 to ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -343,7 +343,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
 
 16:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3
   %17 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %18 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %9, i64 4, i64 %17) #12, !srcloc !11
+  %18 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %9, i64 4, i64 %17) #12, !srcloc !12
   %19 = extractvalue { ptr, i32, i64 } %18, 0
   %20 = extractvalue { ptr, i32, i64 } %18, 1
   %21 = extractvalue { ptr, i32, i64 } %18, 2
@@ -353,7 +353,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   store i64 %23, ptr %7, align 8
   %24 = tail call i64 @llvm.read_register.i64(metadata !0)
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %26 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %25, i64 4, i64 %24) #12, !srcloc !12
+  %26 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %25, i64 4, i64 %24) #12, !srcloc !13
   %27 = extractvalue { ptr, i32, i64 } %26, 0
   %28 = extractvalue { ptr, i32, i64 } %26, 1
   %29 = extractvalue { ptr, i32, i64 } %26, 2
@@ -364,7 +364,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   %32 = or i64 %30, %22
   %33 = tail call i64 @llvm.read_register.i64(metadata !0)
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %35 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34, i64 4, i64 %33) #12, !srcloc !13
+  %35 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34, i64 4, i64 %33) #12, !srcloc !14
   %36 = extractvalue { ptr, i32, i64 } %35, 0
   %37 = extractvalue { ptr, i32, i64 } %35, 1
   %38 = extractvalue { ptr, i32, i64 } %35, 2
@@ -381,7 +381,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
 
 46:                                               ; preds = %3, %3
   %47 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %48 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %9, i64 4, i64 %47) #12, !srcloc !14
+  %48 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %9, i64 4, i64 %47) #12, !srcloc !15
   %49 = extractvalue { ptr, i32, i64 } %48, 0
   %50 = extractvalue { ptr, i32, i64 } %48, 1
   %51 = extractvalue { ptr, i32, i64 } %48, 2
@@ -391,7 +391,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   store i32 %50, ptr %53, align 4
   %54 = tail call i64 @llvm.read_register.i64(metadata !0)
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %56 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55, i64 4, i64 %54) #12, !srcloc !15
+  %56 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55, i64 4, i64 %54) #12, !srcloc !16
   %57 = extractvalue { ptr, i32, i64 } %56, 0
   %58 = extractvalue { ptr, i32, i64 } %56, 1
   %59 = extractvalue { ptr, i32, i64 } %56, 2
@@ -402,7 +402,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   %62 = or i64 %60, %52
   %63 = tail call i64 @llvm.read_register.i64(metadata !0)
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %65 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %64, i64 4, i64 %63) #12, !srcloc !16
+  %65 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %64, i64 4, i64 %63) #12, !srcloc !17
   %66 = extractvalue { ptr, i32, i64 } %65, 0
   %67 = extractvalue { ptr, i32, i64 } %65, 1
   %68 = extractvalue { ptr, i32, i64 } %65, 2
@@ -413,7 +413,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   %71 = or i64 %62, %69
   %72 = tail call i64 @llvm.read_register.i64(metadata !0)
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %74 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %73, i64 4, i64 %72) #12, !srcloc !17
+  %74 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %73, i64 4, i64 %72) #12, !srcloc !18
   %75 = extractvalue { ptr, i32, i64 } %74, 0
   %76 = extractvalue { ptr, i32, i64 } %74, 1
   %77 = extractvalue { ptr, i32, i64 } %74, 2
@@ -469,7 +469,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
 98:                                               ; preds = %86
   %99 = load i32, ptr @num_var_ranges, align 4
   %100 = icmp slt i32 %99, 0
-  br i1 %100, label %.thread23, label %101, !prof !18
+  br i1 %100, label %.thread23, label %101, !prof !19
 
 101:                                              ; preds = %98
   %102 = zext nneg i32 %99 to i64
@@ -618,7 +618,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
 203:                                              ; preds = %191
   %204 = load i32, ptr @num_var_ranges, align 4
   %205 = icmp slt i32 %204, 0
-  br i1 %205, label %.thread23, label %206, !prof !18
+  br i1 %205, label %.thread23, label %206, !prof !19
 
 206:                                              ; preds = %203
   %207 = zext nneg i32 %204 to i64
@@ -757,7 +757,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   %289 = trunc i64 %288 to i32
   %290 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %291 = call i64 @llvm.read_register.i64(metadata !0)
-  %292 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %290, i32 %289, i64 4, i64 %291) #12, !srcloc !19
+  %292 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %290, i32 %289, i64 4, i64 %291) #12, !srcloc !20
   %293 = extractvalue { ptr, i64 } %292, 0
   %294 = extractvalue { ptr, i64 } %292, 1
   %295 = ptrtoint ptr %293 to i64
@@ -766,7 +766,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   %297 = load i32, ptr %296, align 8
   %298 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %299 = call i64 @llvm.read_register.i64(metadata !0)
-  %300 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %298, i32 %297, i64 4, i64 %299) #12, !srcloc !20
+  %300 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %298, i32 %297, i64 4, i64 %299) #12, !srcloc !21
   %301 = extractvalue { ptr, i64 } %300, 0
   %302 = extractvalue { ptr, i64 } %300, 1
   %303 = ptrtoint ptr %301 to i64
@@ -775,7 +775,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   %305 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %306 = load i32, ptr %305, align 4
   %307 = call i64 @llvm.read_register.i64(metadata !0)
-  %308 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %9, i32 %306, i64 4, i64 %307) #12, !srcloc !21
+  %308 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %9, i32 %306, i64 4, i64 %307) #12, !srcloc !22
   %309 = extractvalue { ptr, i64 } %308, 0
   %310 = extractvalue { ptr, i64 } %308, 1
   %311 = ptrtoint ptr %309 to i64
@@ -785,7 +785,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr noundef r
   %314 = load i32, ptr %313, align 8
   %315 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %316 = call i64 @llvm.read_register.i64(metadata !0)
-  %317 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %315, i32 %314, i64 4, i64 %316) #12, !srcloc !22
+  %317 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %315, i32 %314, i64 4, i64 %316) #12, !srcloc !23
   %318 = extractvalue { ptr, i64 } %317, 0
   %319 = extractvalue { ptr, i64 } %317, 1
   %320 = ptrtoint ptr %318 to i64
@@ -824,9 +824,9 @@ define internal noundef i32 @mtrr_seq_show(ptr noundef %0, ptr readnone captures
   br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %2
-  store i8 0, ptr %3, align 1, !annotation !10
-  store i64 0, ptr %4, align 8, !annotation !10
-  store i64 0, ptr %5, align 8, !annotation !10
+  store i8 0, ptr %3, align 1, !annotation !11
+  store i64 0, ptr %4, align 8, !annotation !11
+  store i64 0, ptr %5, align 8, !annotation !11
   %9 = zext nneg i32 %6 to i64
   br label %10
 
@@ -875,7 +875,7 @@ define internal noundef i32 @mtrr_seq_show(ptr noundef %0, ptr readnone captures
 38:                                               ; preds = %36, %18
   %39 = add nuw nsw i64 %11, 1
   %40 = icmp eq i64 %39, %9
-  br i1 %40, label %.loopexit, label %10, !llvm.loop !23
+  br i1 %40, label %.loopexit, label %10, !llvm.loop !24
 
 .loopexit:                                        ; preds = %38, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
@@ -974,21 +974,22 @@ attributes #13 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!"auto-init"}
-!11 = !{i64 2153575572}
-!12 = !{i64 2153577548}
-!13 = !{i64 2153579524}
-!14 = !{i64 2153583338}
-!15 = !{i64 2153585354}
-!16 = !{i64 2153587330}
-!17 = !{i64 2153589306}
-!18 = !{!"branch_weights", i32 1, i32 2000}
-!19 = !{i64 2153612561}
-!20 = !{i64 2153613652}
-!21 = !{i64 2153614747}
-!22 = !{i64 2153615852}
-!23 = distinct !{!23, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = !{!"auto-init"}
+!12 = !{i64 2153575572}
+!13 = !{i64 2153577548}
+!14 = !{i64 2153579524}
+!15 = !{i64 2153583338}
+!16 = !{i64 2153585354}
+!17 = !{i64 2153587330}
+!18 = !{i64 2153589306}
+!19 = !{!"branch_weights", i32 1, i32 2000}
+!20 = !{i64 2153612561}
+!21 = !{i64 2153613652}
+!22 = !{i64 2153614747}
+!23 = !{i64 2153615852}
+!24 = distinct !{!24, !7, !8, !9}

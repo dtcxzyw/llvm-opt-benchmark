@@ -168,11 +168,11 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %31
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %38 ]
   %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.011.i.i.i.i.i.i.i.i
   %49 = getelementptr inbounds nuw i32, ptr %25, i64 %.011.i.i.i.i.i.i.i.i
-  %50 = load <2 x i64>, ptr %49, align 1, !tbaa !45
-  store <2 x i64> %50, ptr %48, align 16, !tbaa !45
+  %50 = load <2 x i64>, ptr %49, align 1, !tbaa !46
+  store <2 x i64> %50, ptr %48, align 16, !tbaa !46
   %51 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4
   %52 = icmp slt i64 %51, %41
-  br i1 %52, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !46
+  br i1 %52, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !47
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %53 = call ptr @cs_di_free(ptr noundef nonnull %25)
@@ -209,11 +209,11 @@ define void @_ZN3g2o7csparse7CSparse10sparseViewEv(ptr dead_on_unwind noalias wr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %12, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %7, ptr %13, align 8, !tbaa !47
+  store ptr %7, ptr %13, align 8, !tbaa !48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %8, ptr %14, align 8, !tbaa !47
+  store ptr %8, ptr %14, align 8, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %9, ptr %15, align 8, !tbaa !48
+  store ptr %9, ptr %15, align 8, !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %10, ptr %16, align 8, !tbaa !32
   ret void
@@ -224,21 +224,21 @@ define void @_ZN3g2o7csparse7CSparse6factorEv(ptr dead_on_unwind noalias writabl
   %3 = load ptr, ptr %1, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !16
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %11 = load ptr, ptr %3, align 8, !tbaa !52
+  %11 = load ptr, ptr %3, align 8, !tbaa !53
   store ptr %7, ptr %0, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %12, align 8, !tbaa !47
+  store ptr %8, ptr %12, align 8, !tbaa !48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %9, ptr %13, align 8, !tbaa !47
+  store ptr %9, ptr %13, align 8, !tbaa !48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %10, ptr %14, align 8, !tbaa !48
+  store ptr %10, ptr %14, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %11, ptr %15, align 8, !tbaa !47
+  store ptr %11, ptr %15, align 8, !tbaa !48
   ret void
 }
 
@@ -246,7 +246,7 @@ define void @_ZN3g2o7csparse7CSparse6factorEv(ptr dead_on_unwind noalias writabl
 define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse5solveEPdS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !53
+  %6 = load i32, ptr %5, align 8, !tbaa !54
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load i32, ptr %7, align 8, !tbaa !30
   %9 = icmp slt i32 %6, %8
@@ -256,15 +256,15 @@ define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse5solveEPdS2_(ptr noundef nonn
   %11 = icmp ne i32 %6, 0
   %12 = zext i1 %11 to i32
   %13 = shl nsw i32 %8, %12
-  store i32 %13, ptr %5, align 8, !tbaa !53
+  store i32 %13, ptr %5, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !55
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %10
   tail call void @_ZdaPv(ptr noundef nonnull %15) #21
-  %.pre.i = load i32, ptr %5, align 8, !tbaa !53
+  %.pre.i = load i32, ptr %5, align 8, !tbaa !54
   br label %18
 
 18:                                               ; preds = %17, %10
@@ -274,15 +274,15 @@ define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse5solveEPdS2_(ptr noundef nonn
   %22 = shl nsw i64 %20, 3
   %23 = select i1 %21, i64 -1, i64 %22
   %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #19
-  store ptr %24, ptr %14, align 8, !tbaa !54
+  store ptr %24, ptr %14, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %18
   tail call void @_ZdaPv(ptr noundef nonnull %26) #21
-  %.pre4.i = load i32, ptr %5, align 8, !tbaa !53
+  %.pre4.i = load i32, ptr %5, align 8, !tbaa !54
   br label %29
 
 29:                                               ; preds = %28, %18
@@ -293,7 +293,7 @@ define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse5solveEPdS2_(ptr noundef nonn
   %34 = shl nsw i64 %32, 2
   %35 = select i1 %33, i64 -1, i64 %34
   %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #19
-  store ptr %36, ptr %25, align 8, !tbaa !55
+  store ptr %36, ptr %25, align 8, !tbaa !56
   %.pre7.pre = load ptr, ptr %0, align 8, !tbaa !14
   br label %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit
 
@@ -314,11 +314,11 @@ _ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit: ; preds = %3, %29
 42:                                               ; preds = %37, %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit
   %43 = phi ptr [ %.pre, %37 ], [ %.pre7, %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %45 = load ptr, ptr %43, align 8, !tbaa !52
+  %45 = load ptr, ptr %43, align 8, !tbaa !53
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !54
+  %47 = load ptr, ptr %46, align 8, !tbaa !55
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !55
+  %49 = load ptr, ptr %48, align 8, !tbaa !56
   %50 = tail call noundef i32 @_ZN3g2o17csparse_extension14cs_cholsolsymbEPK12cs_di_sparsePdPK14cs_di_symbolicS4_Pi(ptr noundef nonnull %44, ptr noundef %1, ptr noundef %45, ptr noundef %47, ptr noundef %49)
   %51 = icmp ne i32 %50, 0
   ret i1 %51
@@ -332,14 +332,14 @@ declare noundef i32 @_ZN3g2o17csparse_extension14cs_cholsolsymbEPK12cs_di_sparse
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o7csparse7CSparse7analyzeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
-  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN3g2o7csparse7CSparse12freeSymbolicEv.exit, label %4
 
 4:                                                ; preds = %1
   %5 = tail call ptr @cs_di_sfree(ptr noundef nonnull %3)
   %6 = load ptr, ptr %0, align 8, !tbaa !14
-  store ptr null, ptr %6, align 8, !tbaa !52
+  store ptr null, ptr %6, align 8, !tbaa !53
   br label %_ZN3g2o7csparse7CSparse12freeSymbolicEv.exit
 
 _ZN3g2o7csparse7CSparse12freeSymbolicEv.exit:     ; preds = %1, %4
@@ -347,7 +347,7 @@ _ZN3g2o7csparse7CSparse12freeSymbolicEv.exit:     ; preds = %1, %4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = tail call ptr @cs_di_schol(i32 noundef 1, ptr noundef nonnull %8)
   %10 = load ptr, ptr %0, align 8, !tbaa !14
-  store ptr %9, ptr %10, align 8, !tbaa !52
+  store ptr %9, ptr %10, align 8, !tbaa !53
   %11 = icmp ne ptr %9, null
   ret i1 %11
 }
@@ -355,14 +355,14 @@ _ZN3g2o7csparse7CSparse12freeSymbolicEv.exit:     ; preds = %1, %4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o7csparse7CSparse12freeSymbolicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
-  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = tail call ptr @cs_di_sfree(ptr noundef nonnull %3)
   %6 = load ptr, ptr %0, align 8, !tbaa !14
-  store ptr null, ptr %6, align 8, !tbaa !52
+  store ptr null, ptr %6, align 8, !tbaa !53
   br label %7
 
 7:                                                ; preds = %4, %1
@@ -374,66 +374,66 @@ declare ptr @cs_di_schol(i32 noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9analyze_pEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !14
-  %4 = load ptr, ptr %3, align 8, !tbaa !52
+  %4 = load ptr, ptr %3, align 8, !tbaa !53
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN3g2o7csparse7CSparse12freeSymbolicEv.exit, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @cs_di_sfree(ptr noundef nonnull %4)
   %7 = load ptr, ptr %0, align 8, !tbaa !14
-  store ptr null, ptr %7, align 8, !tbaa !52
+  store ptr null, ptr %7, align 8, !tbaa !53
   br label %_ZN3g2o7csparse7CSparse12freeSymbolicEv.exit
 
 _ZN3g2o7csparse7CSparse12freeSymbolicEv.exit:     ; preds = %2, %5
   %8 = tail call ptr @cs_di_calloc(i32 noundef 1, i64 noundef 64)
   %9 = load ptr, ptr %0, align 8, !tbaa !14
-  store ptr %8, ptr %9, align 8, !tbaa !52
+  store ptr %8, ptr %9, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load i32, ptr %10, align 8, !tbaa !30
   %12 = tail call ptr @cs_di_pinv(ptr noundef %1, i32 noundef %11)
   %13 = load ptr, ptr %0, align 8, !tbaa !14
-  %14 = load ptr, ptr %13, align 8, !tbaa !52
-  store ptr %12, ptr %14, align 8, !tbaa !56
+  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  store ptr %12, ptr %14, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %16 = tail call ptr @cs_di_symperm(ptr noundef nonnull %15, ptr noundef %12, i32 noundef 0)
   %17 = tail call ptr @cs_di_etree(ptr noundef %16, i32 noundef 0)
   %18 = load ptr, ptr %0, align 8, !tbaa !14
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %17, ptr %20, align 8, !tbaa !59
+  store ptr %17, ptr %20, align 8, !tbaa !60
   %21 = tail call ptr @cs_di_post(ptr noundef %17, i32 noundef %11)
   %22 = load ptr, ptr %0, align 8, !tbaa !14
-  %23 = load ptr, ptr %22, align 8, !tbaa !52
+  %23 = load ptr, ptr %22, align 8, !tbaa !53
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !59
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
   %26 = tail call ptr @cs_di_counts(ptr noundef %16, ptr noundef %25, ptr noundef %21, i32 noundef 0)
   %27 = tail call ptr @cs_di_free(ptr noundef %21)
   %28 = tail call ptr @cs_di_spfree(ptr noundef %16)
   %29 = add nsw i32 %11, 1
   %30 = tail call ptr @cs_di_malloc(i32 noundef %29, i64 noundef 4)
   %31 = load ptr, ptr %0, align 8, !tbaa !14
-  %32 = load ptr, ptr %31, align 8, !tbaa !52
+  %32 = load ptr, ptr %31, align 8, !tbaa !53
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr %30, ptr %33, align 8, !tbaa !60
+  store ptr %30, ptr %33, align 8, !tbaa !61
   %34 = tail call double @cs_di_cumsum(ptr noundef %30, ptr noundef %26, i32 noundef %11)
   %35 = load ptr, ptr %0, align 8, !tbaa !14
-  %36 = load ptr, ptr %35, align 8, !tbaa !52
+  %36 = load ptr, ptr %35, align 8, !tbaa !53
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  store double %34, ptr %37, align 8, !tbaa !61
+  store double %34, ptr %37, align 8, !tbaa !62
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  store double %34, ptr %38, align 8, !tbaa !62
+  store double %34, ptr %38, align 8, !tbaa !63
   %39 = tail call ptr @cs_di_free(ptr noundef %26)
   %40 = load ptr, ptr %0, align 8, !tbaa !14
-  %41 = load ptr, ptr %40, align 8, !tbaa !52
+  %41 = load ptr, ptr %40, align 8, !tbaa !53
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %43 = load double, ptr %42, align 8, !tbaa !61
+  %43 = load double, ptr %42, align 8, !tbaa !62
   %44 = fcmp olt double %43, 0.000000e+00
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %_ZN3g2o7csparse7CSparse12freeSymbolicEv.exit
   %46 = tail call ptr @cs_di_sfree(ptr noundef nonnull %41)
   %47 = load ptr, ptr %0, align 8, !tbaa !14
-  store ptr null, ptr %47, align 8, !tbaa !52
+  store ptr null, ptr %47, align 8, !tbaa !53
   br label %48
 
 48:                                               ; preds = %45, %_ZN3g2o7csparse7CSparse12freeSymbolicEv.exit
@@ -465,13 +465,13 @@ declare ptr @cs_di_sfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK3g2o7csparse7CSparse10choleskyNzEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
-  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %6 = load double, ptr %5, align 8, !tbaa !61
+  %6 = load double, ptr %5, align 8, !tbaa !62
   %7 = fptosi double %6 to i32
   br label %8
 
@@ -484,7 +484,7 @@ define noundef i32 @_ZNK3g2o7csparse7CSparse10choleskyNzEv(ptr noundef nonnull r
 define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9factorizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !53
+  %4 = load i32, ptr %3, align 8, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load i32, ptr %5, align 8, !tbaa !30
   %7 = icmp slt i32 %4, %6
@@ -494,15 +494,15 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9factorizeEv(ptr noundef nonnu
   %9 = icmp ne i32 %4, 0
   %10 = zext i1 %9 to i32
   %11 = shl nsw i32 %6, %10
-  store i32 %11, ptr %3, align 8, !tbaa !53
+  store i32 %11, ptr %3, align 8, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !54
+  %13 = load ptr, ptr %12, align 8, !tbaa !55
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %8
   tail call void @_ZdaPv(ptr noundef nonnull %13) #21
-  %.pre.i = load i32, ptr %3, align 8, !tbaa !53
+  %.pre.i = load i32, ptr %3, align 8, !tbaa !54
   br label %16
 
 16:                                               ; preds = %15, %8
@@ -512,15 +512,15 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9factorizeEv(ptr noundef nonnu
   %20 = shl nsw i64 %18, 3
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #19
-  store ptr %22, ptr %12, align 8, !tbaa !54
+  store ptr %22, ptr %12, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !55
+  %24 = load ptr, ptr %23, align 8, !tbaa !56
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %16
   tail call void @_ZdaPv(ptr noundef nonnull %24) #21
-  %.pre4.i = load i32, ptr %3, align 8, !tbaa !53
+  %.pre4.i = load i32, ptr %3, align 8, !tbaa !54
   br label %27
 
 27:                                               ; preds = %26, %16
@@ -531,7 +531,7 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9factorizeEv(ptr noundef nonnu
   %32 = shl nsw i64 %30, 2
   %33 = select i1 %31, i64 -1, i64 %32
   %34 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #19
-  store ptr %34, ptr %23, align 8, !tbaa !55
+  store ptr %34, ptr %23, align 8, !tbaa !56
   %.pre = load ptr, ptr %0, align 8, !tbaa !14
   br label %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit
 
@@ -552,11 +552,11 @@ _ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit: ; preds = %1, %27
 _ZN3g2o7csparse7CSparse10freeFactorEv.exit:       ; preds = %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit, %38
   %42 = phi ptr [ %35, %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit ], [ %40, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %44 = load ptr, ptr %42, align 8, !tbaa !52
+  %44 = load ptr, ptr %42, align 8, !tbaa !53
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !55
+  %46 = load ptr, ptr %45, align 8, !tbaa !56
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !54
+  %48 = load ptr, ptr %47, align 8, !tbaa !55
   %49 = tail call noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_sparsePK14cs_di_symbolicPiPd(ptr noundef nonnull %43, ptr noundef %44, ptr noundef %46, ptr noundef %48)
   %50 = load ptr, ptr %0, align 8, !tbaa !14
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -570,14 +570,14 @@ declare noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse11hasSymbolicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
-  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = icmp ne ptr %3, null
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse11writeSparseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !63
+  %3 = load ptr, ptr %1, align 8, !tbaa !64
   %4 = load ptr, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = tail call noundef zeroext i1 @_ZN3g2o17csparse_extension14writeCs2OctaveEPKcPK12cs_di_sparseb(ptr noundef %3, ptr noundef nonnull %5, i1 noundef zeroext true)
@@ -617,7 +617,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !52
+  %2 = load ptr, ptr %0, align 8, !tbaa !53
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
 
@@ -626,7 +626,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
           to label %5 unwind label %37
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !52
+  store ptr null, ptr %0, align 8, !tbaa !53
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -645,7 +645,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
 
 12:                                               ; preds = %11, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !54
+  %14 = load ptr, ptr %13, align 8, !tbaa !55
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
 
@@ -654,9 +654,9 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
   br label %17
 
 17:                                               ; preds = %16, %12
-  store ptr null, ptr %13, align 8, !tbaa !54
+  store ptr null, ptr %13, align 8, !tbaa !55
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !55
+  %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
 
@@ -665,7 +665,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
   br label %22
 
 22:                                               ; preds = %21, %17
-  store ptr null, ptr %18, align 8, !tbaa !55
+  store ptr null, ptr %18, align 8, !tbaa !56
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8, !tbaa !33
   %25 = icmp eq ptr %24, null
@@ -794,27 +794,28 @@ attributes #24 = { noreturn nounwind }
 !40 = !{!38, !11, i64 0}
 !41 = !{!42, !42, i64 0}
 !42 = !{!"vtable pointer", !10, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!9, !9, i64 0}
-!46 = distinct !{!46, !44}
-!47 = !{!23, !23, i64 0}
-!48 = !{!24, !24, i64 0}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"_ZTS13cs_di_numeric", !51, i64 0, !51, i64 8, !11, i64 16, !13, i64 24}
-!51 = !{!"p1 _ZTS12cs_di_sparse", !12, i64 0}
-!52 = !{!17, !18, i64 0}
-!53 = !{!17, !8, i64 8}
-!54 = !{!17, !13, i64 16}
-!55 = !{!17, !11, i64 24}
-!56 = !{!57, !11, i64 0}
-!57 = !{!"_ZTS14cs_di_symbolic", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !8, i64 40, !58, i64 48, !58, i64 56}
-!58 = !{!"double", !9, i64 0}
-!59 = !{!57, !11, i64 16}
-!60 = !{!57, !11, i64 24}
-!61 = !{!57, !58, i64 48}
-!62 = !{!57, !58, i64 56}
-!63 = !{!64, !66, i64 0}
-!64 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !65, i64 0, !39, i64 8, !9, i64 16}
-!65 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !66, i64 0}
-!66 = !{!"p1 omnipotent char", !12, i64 0}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!9, !9, i64 0}
+!47 = distinct !{!47, !44, !45}
+!48 = !{!23, !23, i64 0}
+!49 = !{!24, !24, i64 0}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTS13cs_di_numeric", !52, i64 0, !52, i64 8, !11, i64 16, !13, i64 24}
+!52 = !{!"p1 _ZTS12cs_di_sparse", !12, i64 0}
+!53 = !{!17, !18, i64 0}
+!54 = !{!17, !8, i64 8}
+!55 = !{!17, !13, i64 16}
+!56 = !{!17, !11, i64 24}
+!57 = !{!58, !11, i64 0}
+!58 = !{!"_ZTS14cs_di_symbolic", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !8, i64 40, !59, i64 48, !59, i64 56}
+!59 = !{!"double", !9, i64 0}
+!60 = !{!58, !11, i64 16}
+!61 = !{!58, !11, i64 24}
+!62 = !{!58, !59, i64 48}
+!63 = !{!58, !59, i64 56}
+!64 = !{!65, !67, i64 0}
+!65 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !66, i64 0, !39, i64 8, !9, i64 16}
+!66 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !67, i64 0}
+!67 = !{!"p1 omnipotent char", !12, i64 0}

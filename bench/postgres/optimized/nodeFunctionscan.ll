@@ -239,7 +239,7 @@ list_length.exit:                                 ; preds = %3, %8
   %.197.lcssa = phi i16 [ %.096116, %.lr.ph119 ], [ %116, %.lr.ph114 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge120.loopexit, label %.lr.ph119, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge120.loopexit, label %.lr.ph119, !llvm.loop !9
 
 ._crit_edge120.loopexit:                          ; preds = %._crit_edge
   %119 = add i16 %.197.lcssa, 1
@@ -358,7 +358,7 @@ define dso_local void @ExecEndFunctionScan(ptr noundef readonly captures(none) %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %6, label %._crit_edge, !llvm.loop !9
+  br i1 %15, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %12, %1
   ret void
@@ -418,7 +418,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %18, label %._crit_edge, !llvm.loop !10
+  br i1 %31, label %18, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %28, %13
   tail call void @ExecScanReScan(ptr noundef nonnull %0) #6
@@ -507,7 +507,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next69, %72
-  br i1 %73, label %64, label %._crit_edge61, !llvm.loop !11
+  br i1 %73, label %64, label %._crit_edge61, !llvm.loop !12
 
 ._crit_edge61:                                    ; preds = %70, %.critedge
   ret void
@@ -691,7 +691,7 @@ define internal ptr @FunctionNext(ptr noundef captures(none) %0) #0 {
   %108 = add nuw nsw i32 %.07892, 1
   %109 = load i32, ptr %99, align 8
   %110 = icmp slt i32 %108, %109
-  br i1 %110, label %.lr.ph93, label %.loopexit, !llvm.loop !12
+  br i1 %110, label %.lr.ph93, label %.loopexit, !llvm.loop !13
 
 111:                                              ; preds = %88
   %112 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -738,7 +738,7 @@ slot_getallattrs.exit:                            ; preds = %111, %119
   %139 = load i32, ptr %120, align 8
   %140 = sext i32 %139 to i64
   %141 = icmp slt i64 %indvars.iv.next, %140
-  br i1 %141, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %141, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph93, %slot_getallattrs.exit, %98
   %.2 = phi i32 [ %.08296, %98 ], [ %.08296, %slot_getallattrs.exit ], [ %107, %.lr.ph93 ], [ %138, %.lr.ph ]
@@ -747,7 +747,7 @@ slot_getallattrs.exit:                            ; preds = %111, %119
   %142 = load i32, ptr %43, align 8
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next105, %143
-  br i1 %144, label %52, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %144, label %52, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %145 = sext i32 %.2 to i64
@@ -817,12 +817,13 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

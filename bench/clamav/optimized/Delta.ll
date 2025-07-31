@@ -52,7 +52,7 @@ MyMemCpy.exit.thread:                             ; preds = %4
   %14 = icmp ult i64 %12, %3
   %15 = and i1 %13, %14
   %indvars.iv.next.mux = select i1 %15, i64 %indvars.iv.next, i64 0
-  br i1 %14, label %.preheader.us, label %._crit_edge.loopexit
+  br i1 %14, label %.preheader.us, label %._crit_edge.loopexit, !llvm.loop !6
 
 .preheader:                                       ; preds = %MyMemCpy.exit, %.preheader
   br label %.preheader
@@ -130,7 +130,7 @@ MyMemCpy.exit.thread:                             ; preds = %4
   %14 = icmp ult i64 %12, %3
   %15 = and i1 %13, %14
   %indvars.iv.next.mux = select i1 %15, i64 %indvars.iv.next, i64 0
-  br i1 %14, label %.preheader.us, label %._crit_edge.loopexit
+  br i1 %14, label %.preheader.us, label %._crit_edge.loopexit, !llvm.loop !8
 
 .preheader:                                       ; preds = %MyMemCpy.exit, %.preheader
   br label %.preheader
@@ -192,3 +192,6 @@ attributes #5 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}

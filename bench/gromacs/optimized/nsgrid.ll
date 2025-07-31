@@ -56,7 +56,7 @@ define void @_Z21get_nsgrid_boundariesiPA3_fP12gmx_domdec_tP11gmx_ddbox_tPN3gmx1
 31:                                               ; preds = %19
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
-  br i1 %exitcond36.not.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond36.not.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !13
 
 ._crit_edge.loopexit.i:                           ; preds = %31
   %.pre.i = load double, ptr %11, align 16, !tbaa !8
@@ -109,13 +109,13 @@ define void @_Z21get_nsgrid_boundariesiPA3_fP12gmx_domdec_tP11gmx_ddbox_tPN3gmx1
   %56 = load double, ptr %55, align 8, !tbaa !8
   %57 = fneg double %52
   %58 = tail call double @llvm.fmuladd.f64(double %57, double %52, double %56)
-  %59 = tail call double @sqrt(double noundef %58) #6, !tbaa !13
+  %59 = tail call double @sqrt(double noundef %58) #6, !tbaa !14
   %60 = fptrunc double %59 to float
   %61 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv37.i
   store float %60, ptr %61, align 4, !tbaa !4
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next38.i, 3
-  br i1 %exitcond40.not.i, label %_ZL16calc_x_av_stddeviPA3_fPfS1_.exit, label %50, !llvm.loop !15
+  br i1 %exitcond40.not.i, label %_ZL16calc_x_av_stddeviPA3_fPfS1_.exit, label %50, !llvm.loop !16
 
 _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #6
@@ -158,7 +158,7 @@ _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
 
 82:                                               ; preds = %73
   %83 = getelementptr inbounds nuw [3 x i32], ptr %68, i64 0, i64 %indvars.iv82
-  %84 = load i32, ptr %83, align 4, !tbaa !13
+  %84 = load i32, ptr %83, align 4, !tbaa !14
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %86, label %89
 
@@ -173,9 +173,9 @@ _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
 
 90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw [3 x i32], ptr %68, i64 0, i64 %indvars.iv82
-  %92 = load i32, ptr %91, align 4, !tbaa !13
+  %92 = load i32, ptr %91, align 4, !tbaa !14
   %93 = getelementptr inbounds nuw [3 x i32], ptr %70, i64 0, i64 %indvars.iv82
-  %94 = load i32, ptr %93, align 4, !tbaa !13
+  %94 = load i32, ptr %93, align 4, !tbaa !14
   %95 = add nsw i32 %94, -1
   %96 = icmp slt i32 %92, %95
   br i1 %96, label %97, label %112
@@ -208,7 +208,7 @@ _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
   br label %112
 
 112:                                              ; preds = %104, %97, %90, %89
-  %113 = load ptr, ptr @debug, align 8, !tbaa !16
+  %113 = load ptr, ptr @debug, align 8, !tbaa !17
   %.not76.us = icmp eq ptr %113, null
   br i1 %.not76.us, label %123, label %114
 
@@ -226,7 +226,7 @@ _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
 123:                                              ; preds = %114, %112
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 3
-  br i1 %exitcond85.not, label %.split79.us, label %.split.us, !llvm.loop !19
+  br i1 %exitcond85.not, label %.split79.us, label %.split.us, !llvm.loop !20
 
 .split:                                           ; preds = %62, %182
   %indvars.iv = phi i64 [ %indvars.iv.next, %182 ], [ 0, %62 ]
@@ -276,7 +276,7 @@ _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
 
 153:                                              ; preds = %137
   %154 = getelementptr inbounds nuw [3 x i32], ptr %68, i64 0, i64 %indvars.iv
-  %155 = load i32, ptr %154, align 4, !tbaa !13
+  %155 = load i32, ptr %154, align 4, !tbaa !14
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %157, label %160
 
@@ -291,9 +291,9 @@ _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
 
 161:                                              ; preds = %160
   %162 = getelementptr inbounds nuw [3 x i32], ptr %68, i64 0, i64 %indvars.iv
-  %163 = load i32, ptr %162, align 4, !tbaa !13
+  %163 = load i32, ptr %162, align 4, !tbaa !14
   %164 = getelementptr inbounds nuw [3 x i32], ptr %70, i64 0, i64 %indvars.iv
-  %165 = load i32, ptr %164, align 4, !tbaa !13
+  %165 = load i32, ptr %164, align 4, !tbaa !14
   %166 = add nsw i32 %165, -1
   %167 = icmp slt i32 %163, %166
   br i1 %167, label %168, label %171
@@ -305,7 +305,7 @@ _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
   br label %171
 
 171:                                              ; preds = %160, %161, %168, %129
-  %172 = load ptr, ptr @debug, align 8, !tbaa !16
+  %172 = load ptr, ptr @debug, align 8, !tbaa !17
   %.not76 = icmp eq ptr %172, null
   br i1 %.not76, label %182, label %173
 
@@ -323,7 +323,7 @@ _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
 182:                                              ; preds = %171, %173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split79.us, label %.split, !llvm.loop !21
+  br i1 %exitcond.not, label %.split79.us, label %.split, !llvm.loop !22
 
 .split79.us:                                      ; preds = %182, %123
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #6
@@ -372,15 +372,16 @@ attributes #6 = { nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"double", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !6, i64 0}
-!15 = distinct !{!15, !11}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS8_IO_FILE", !18, i64 0}
-!18 = !{!"any pointer", !6, i64 0}
-!19 = distinct !{!19, !11, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = distinct !{!16, !11, !12}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS8_IO_FILE", !19, i64 0}
+!19 = !{!"any pointer", !6, i64 0}
+!20 = distinct !{!20, !11, !12, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !11, !12}

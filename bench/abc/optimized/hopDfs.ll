@@ -190,7 +190,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next22, %43
-  br i1 %44, label %31, label %._crit_edge, !llvm.loop !26
+  br i1 %44, label %31, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %41, %Vec_PtrAlloc.exit, %.preheader
   ret ptr %5
@@ -223,7 +223,7 @@ define noundef ptr @Hop_ManDfsNode(ptr noundef readnone captures(none) %0, ptr n
   %.val = load i32, ptr %4, align 4, !tbaa !11
   %13 = sext i32 %.val to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %.critedge, !llvm.loop !27
+  br i1 %14, label %.lr.ph, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph, %2
   ret ptr %3
@@ -232,9 +232,9 @@ define noundef ptr @Hop_ManDfsNode(ptr noundef readnone captures(none) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define range(i32 0, -2147483648) i32 @Hop_ManCountLevels(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
-  %.val40 = load ptr, ptr %2, align 8, !tbaa !28
-  store ptr null, ptr %.val40, align 8, !tbaa !29
-  %3 = load ptr, ptr %0, align 8, !tbaa !30
+  %.val40 = load ptr, ptr %2, align 8, !tbaa !29
+  store ptr null, ptr %.val40, align 8, !tbaa !30
+  %3 = load ptr, ptr %0, align 8, !tbaa !31
   %4 = getelementptr i8, ptr %3, i64 4
   %.val3642 = load i32, ptr %4, align 4, !tbaa !11
   %5 = icmp sgt i32 %.val3642, 0
@@ -247,14 +247,14 @@ define range(i32 0, -2147483648) i32 @Hop_ManCountLevels(ptr noundef readonly ca
   %.val39 = load ptr, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw ptr, ptr %.val39, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  store ptr null, ptr %9, align 8, !tbaa !29
+  store ptr null, ptr %9, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load ptr, ptr %0, align 8, !tbaa !30
+  %10 = load ptr, ptr %0, align 8, !tbaa !31
   %11 = getelementptr i8, ptr %10, i64 4
   %.val36 = load i32, ptr %11, align 4, !tbaa !11
   %12 = sext i32 %.val36 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %.critedge, !llvm.loop !31
+  br i1 %13, label %.lr.ph, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph, %1
   %14 = tail call ptr @Hop_ManDfs(ptr noundef nonnull %0)
@@ -277,7 +277,7 @@ define range(i32 0, -2147483648) i32 @Hop_ManCountLevels(ptr noundef readonly ca
   %22 = ptrtoint ptr %.val32 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i32
   %28 = getelementptr i8, ptr %20, i64 24
@@ -285,7 +285,7 @@ define range(i32 0, -2147483648) i32 @Hop_ManCountLevels(ptr noundef readonly ca
   %29 = ptrtoint ptr %.val33 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = load ptr, ptr %31, align 8, !tbaa !29
+  %32 = load ptr, ptr %31, align 8, !tbaa !30
   %33 = ptrtoint ptr %32 to i64
   %34 = trunc i64 %33 to i32
   %35 = getelementptr i8, ptr %20, i64 32
@@ -297,12 +297,12 @@ define range(i32 0, -2147483648) i32 @Hop_ManCountLevels(ptr noundef readonly ca
   %40 = add nsw i32 %38, %39
   %41 = sext i32 %40 to i64
   %42 = inttoptr i64 %41 to ptr
-  store ptr %42, ptr %20, align 8, !tbaa !29
+  store ptr %42, ptr %20, align 8, !tbaa !30
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %.val35 = load i32, ptr %15, align 4, !tbaa !11
   %43 = sext i32 %.val35 to i64
   %44 = icmp slt i64 %indvars.iv.next52, %43
-  br i1 %44, label %18, label %.critedge2, !llvm.loop !32
+  br i1 %44, label %18, label %.critedge2, !llvm.loop !33
 
 .critedge2:                                       ; preds = %18, %.critedge
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -317,7 +317,7 @@ define range(i32 0, -2147483648) i32 @Hop_ManCountLevels(ptr noundef readonly ca
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %47
   tail call void @free(ptr noundef nonnull %14) #11
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !33
+  %49 = load ptr, ptr %48, align 8, !tbaa !34
   %50 = getelementptr i8, ptr %49, i64 4
   %.val34 = load i32, ptr %50, align 4, !tbaa !11
   %51 = icmp sgt i32 %.val34, 0
@@ -339,13 +339,13 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %47
   %57 = ptrtoint ptr %.val to i64
   %58 = and i64 %57, -2
   %59 = inttoptr i64 %58 to ptr
-  %60 = load ptr, ptr %59, align 8, !tbaa !29
+  %60 = load ptr, ptr %59, align 8, !tbaa !30
   %61 = ptrtoint ptr %60 to i64
   %62 = trunc i64 %61 to i32
   %63 = tail call noundef i32 @llvm.smax.i32(i32 %.03147, i32 %62)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4, label %53, !llvm.loop !34
+  br i1 %exitcond.not, label %.critedge4, label %53, !llvm.loop !35
 
 .critedge4:                                       ; preds = %53, %Vec_PtrFree.exit
   %.031.lcssa = phi i32 [ 0, %Vec_PtrFree.exit ], [ %63, %53 ]
@@ -355,19 +355,19 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %47
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Hop_ManCreateRefs(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %3 = load i32, ptr %2, align 4, !tbaa !35
+  %3 = load i32, ptr %2, align 4, !tbaa !36
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.critedge4
 
 4:                                                ; preds = %1
-  store i32 1, ptr %2, align 4, !tbaa !35
+  store i32 1, ptr %2, align 4, !tbaa !36
   %5 = getelementptr i8, ptr %0, i64 24
-  %.val47 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val47 = load ptr, ptr %5, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %.val47, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 63
   store i32 %8, ptr %6, align 8
-  %9 = load ptr, ptr %0, align 8, !tbaa !30
+  %9 = load ptr, ptr %0, align 8, !tbaa !31
   %10 = getelementptr i8, ptr %9, i64 4
   %.val4350 = load i32, ptr %10, align 4, !tbaa !11
   %11 = icmp sgt i32 %.val4350, 0
@@ -395,17 +395,17 @@ define void @Hop_ManCreateRefs(ptr noundef captures(none) %0) local_unnamed_addr
   %22 = and i32 %21, 63
   store i32 %22, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load ptr, ptr %0, align 8, !tbaa !30
+  %23 = load ptr, ptr %0, align 8, !tbaa !31
   %24 = getelementptr i8, ptr %23, i64 4
   %.val43 = load i32, ptr %24, align 4, !tbaa !11
   %25 = sext i32 %.val43 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.critedge.preheader, !llvm.loop !36
+  br i1 %26, label %.lr.ph, label %.critedge.preheader, !llvm.loop !37
 
 .preheader48:                                     ; preds = %.critedge, %.critedge.preheader
   %27 = phi i32 [ %13, %.critedge.preheader ], [ %42, %.critedge ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !33
+  %29 = load ptr, ptr %28, align 8, !tbaa !34
   %30 = getelementptr i8, ptr %29, i64 4
   %.val4254 = load i32, ptr %30, align 4, !tbaa !11
   %31 = icmp sgt i32 %.val4254, 0
@@ -433,7 +433,7 @@ define void @Hop_ManCreateRefs(ptr noundef captures(none) %0) local_unnamed_addr
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next64, %43
-  br i1 %44, label %32, label %.preheader48, !llvm.loop !37
+  br i1 %44, label %32, label %.preheader48, !llvm.loop !38
 
 .critedge2.preheader.loopexit:                    ; preds = %.lr.ph56
   %.pre75 = load i32, ptr %12, align 8, !tbaa !17
@@ -461,15 +461,15 @@ define void @Hop_ManCreateRefs(ptr noundef captures(none) %0) local_unnamed_addr
   %55 = and i32 %54, 63
   store i32 %55, ptr %53, align 8
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %56 = load ptr, ptr %28, align 8, !tbaa !33
+  %56 = load ptr, ptr %28, align 8, !tbaa !34
   %57 = getelementptr i8, ptr %56, i64 4
   %.val42 = load i32, ptr %57, align 4, !tbaa !11
   %58 = sext i32 %.val42 to i64
   %59 = icmp slt i64 %indvars.iv.next67, %58
-  br i1 %59, label %.lr.ph56, label %.critedge2.preheader.loopexit, !llvm.loop !38
+  br i1 %59, label %.lr.ph56, label %.critedge2.preheader.loopexit, !llvm.loop !39
 
 .preheader.loopexit:                              ; preds = %.critedge2
-  %.pre77 = load ptr, ptr %28, align 8, !tbaa !33
+  %.pre77 = load ptr, ptr %28, align 8, !tbaa !34
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.critedge2.preheader
@@ -521,7 +521,7 @@ define void @Hop_ManCreateRefs(ptr noundef captures(none) %0) local_unnamed_addr
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next70, %91
-  br i1 %92, label %63, label %.preheader.loopexit, !llvm.loop !39
+  br i1 %92, label %63, label %.preheader.loopexit, !llvm.loop !40
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph61 ], [ 0, %.preheader ]
@@ -543,12 +543,12 @@ define void @Hop_ManCreateRefs(ptr noundef captures(none) %0) local_unnamed_addr
   %106 = or disjoint i32 %104, %105
   store i32 %106, ptr %101, align 8
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %107 = load ptr, ptr %28, align 8, !tbaa !33
+  %107 = load ptr, ptr %28, align 8, !tbaa !34
   %108 = getelementptr i8, ptr %107, i64 4
   %.val41 = load i32, ptr %108, align 4, !tbaa !11
   %109 = sext i32 %.val41 to i64
   %110 = icmp slt i64 %indvars.iv.next73, %109
-  br i1 %110, label %.lr.ph61, label %.critedge4, !llvm.loop !40
+  br i1 %110, label %.lr.ph61, label %.critedge4, !llvm.loop !41
 
 .critedge4:                                       ; preds = %.lr.ph61, %.preheader, %1
   ret void
@@ -611,7 +611,7 @@ common.ret10:                                     ; preds = %1, %4
   %13 = load i32, ptr %2, align 8
   %14 = or i32 %13, 16
   store i32 %14, ptr %2, align 8
-  store ptr null, ptr %0, align 8, !tbaa !29
+  store ptr null, ptr %0, align 8, !tbaa !30
   br label %common.ret10
 }
 
@@ -764,7 +764,7 @@ define void @Hop_Transfer_rec(ptr noundef %0, ptr noundef captures(none) %1) loc
 
 16:                                               ; preds = %5
   %17 = inttoptr i64 %15 to ptr
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
   %19 = and i64 %14, 1
   %20 = ptrtoint ptr %18 to i64
   %21 = xor i64 %19, %20
@@ -781,7 +781,7 @@ Hop_ObjChild0Copy.exit:                           ; preds = %5, %16
 
 26:                                               ; preds = %Hop_ObjChild0Copy.exit
   %27 = inttoptr i64 %25 to ptr
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
   %29 = and i64 %24, 1
   %30 = ptrtoint ptr %28 to i64
   %31 = xor i64 %29, %30
@@ -791,7 +791,7 @@ Hop_ObjChild0Copy.exit:                           ; preds = %5, %16
 Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.exit, %26
   %33 = phi ptr [ %32, %26 ], [ null, %Hop_ObjChild0Copy.exit ]
   %34 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %23, ptr noundef %33) #11
-  store ptr %34, ptr %1, align 8, !tbaa !29
+  store ptr %34, ptr %1, align 8, !tbaa !30
   %35 = load i32, ptr %3, align 8
   %36 = or i32 %35, 16
   store i32 %36, ptr %3, align 8
@@ -819,7 +819,7 @@ define ptr @Hop_Transfer(ptr noundef readonly captures(address) %0, ptr noundef 
   br i1 %.not, label %17, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %12 = load ptr, ptr %0, align 8, !tbaa !30
+  %12 = load ptr, ptr %0, align 8, !tbaa !31
   %13 = getelementptr i8, ptr %12, i64 4
   %.val27 = load i32, ptr %13, align 4, !tbaa !11
   %14 = icmp slt i32 %.val27, 1
@@ -833,7 +833,7 @@ define ptr @Hop_Transfer(ptr noundef readonly captures(address) %0, ptr noundef 
 
 17:                                               ; preds = %6
   %18 = getelementptr i8, ptr %1, i64 24
-  %.val25 = load ptr, ptr %18, align 8, !tbaa !28
+  %.val25 = load ptr, ptr %18, align 8, !tbaa !29
   %19 = and i64 %7, 1
   %20 = ptrtoint ptr %.val25 to i64
   %21 = xor i64 %19, %20
@@ -849,21 +849,21 @@ define ptr @Hop_Transfer(ptr noundef readonly captures(address) %0, ptr noundef 
   %26 = load ptr, ptr %25, align 8, !tbaa !15
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call ptr @Hop_IthVar(ptr noundef %1, i32 noundef %27) #11
-  store ptr %28, ptr %26, align 8, !tbaa !29
+  store ptr %28, ptr %26, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load ptr, ptr %0, align 8, !tbaa !30
+  %29 = load ptr, ptr %0, align 8, !tbaa !31
   %30 = getelementptr i8, ptr %29, i64 4
   %.val = load i32, ptr %30, align 4, !tbaa !11
   %31 = sext i32 %.val to i64
   %32 = icmp sge i64 %indvars.iv.next, %31
   %33 = icmp eq i64 %indvars.iv.next, %16
   %or.cond = or i1 %33, %32
-  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !41
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !42
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
   tail call void @Hop_Transfer_rec(ptr noundef %1, ptr noundef nonnull %9)
   tail call void @Hop_ConeUnmark_rec(ptr noundef nonnull %9)
-  %34 = load ptr, ptr %9, align 8, !tbaa !29
+  %34 = load ptr, ptr %9, align 8, !tbaa !30
   %35 = and i64 %7, 1
   %36 = ptrtoint ptr %34 to i64
   %37 = xor i64 %35, %36
@@ -894,7 +894,7 @@ define void @Hop_Compose_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 9:                                                ; preds = %7
   %10 = icmp eq ptr %1, %3
   %11 = select i1 %10, ptr %2, ptr %1
-  store ptr %11, ptr %1, align 8, !tbaa !29
+  store ptr %11, ptr %1, align 8, !tbaa !30
   br label %44
 
 12:                                               ; preds = %7
@@ -918,7 +918,7 @@ define void @Hop_Compose_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 23:                                               ; preds = %12
   %24 = inttoptr i64 %22 to ptr
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = and i64 %21, 1
   %27 = ptrtoint ptr %25 to i64
   %28 = xor i64 %26, %27
@@ -935,7 +935,7 @@ Hop_ObjChild0Copy.exit:                           ; preds = %12, %23
 
 33:                                               ; preds = %Hop_ObjChild0Copy.exit
   %34 = inttoptr i64 %32 to ptr
-  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  %35 = load ptr, ptr %34, align 8, !tbaa !30
   %36 = and i64 %31, 1
   %37 = ptrtoint ptr %35 to i64
   %38 = xor i64 %36, %37
@@ -945,7 +945,7 @@ Hop_ObjChild0Copy.exit:                           ; preds = %12, %23
 Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.exit, %33
   %40 = phi ptr [ %39, %33 ], [ null, %Hop_ObjChild0Copy.exit ]
   %41 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %30, ptr noundef %40) #11
-  store ptr %41, ptr %1, align 8, !tbaa !29
+  store ptr %41, ptr %1, align 8, !tbaa !30
   %42 = load i32, ptr %5, align 8
   %43 = or i32 %42, 16
   store i32 %43, ptr %5, align 8
@@ -970,7 +970,7 @@ define ptr @Hop_Compose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
   %9 = ptrtoint ptr %1 to i64
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
-  %.val12 = load ptr, ptr %0, align 8, !tbaa !30
+  %.val12 = load ptr, ptr %0, align 8, !tbaa !31
   %12 = getelementptr i8, ptr %.val12, i64 8
   %.val12.val = load ptr, ptr %12, align 8, !tbaa !14
   %13 = sext i32 %3 to i64
@@ -978,7 +978,7 @@ define ptr @Hop_Compose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
   %15 = load ptr, ptr %14, align 8, !tbaa !15
   tail call void @Hop_Compose_rec(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %2, ptr noundef %15)
   tail call void @Hop_ConeUnmark_rec(ptr noundef %11)
-  %16 = load ptr, ptr %11, align 8, !tbaa !29
+  %16 = load ptr, ptr %11, align 8, !tbaa !30
   %17 = and i64 %9, 1
   %18 = ptrtoint ptr %16 to i64
   %19 = xor i64 %17, %18
@@ -1013,7 +1013,7 @@ define void @Hop_Complement_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %11 = xor i64 %10, 1
   %12 = inttoptr i64 %11 to ptr
   %13 = select i1 %9, ptr %12, ptr %1
-  store ptr %13, ptr %1, align 8, !tbaa !29
+  store ptr %13, ptr %1, align 8, !tbaa !30
   br label %46
 
 14:                                               ; preds = %6
@@ -1037,7 +1037,7 @@ define void @Hop_Complement_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 25:                                               ; preds = %14
   %26 = inttoptr i64 %24 to ptr
-  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
   %28 = and i64 %23, 1
   %29 = ptrtoint ptr %27 to i64
   %30 = xor i64 %28, %29
@@ -1054,7 +1054,7 @@ Hop_ObjChild0Copy.exit:                           ; preds = %14, %25
 
 35:                                               ; preds = %Hop_ObjChild0Copy.exit
   %36 = inttoptr i64 %34 to ptr
-  %37 = load ptr, ptr %36, align 8, !tbaa !29
+  %37 = load ptr, ptr %36, align 8, !tbaa !30
   %38 = and i64 %33, 1
   %39 = ptrtoint ptr %37 to i64
   %40 = xor i64 %38, %39
@@ -1064,7 +1064,7 @@ Hop_ObjChild0Copy.exit:                           ; preds = %14, %25
 Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.exit, %35
   %42 = phi ptr [ %41, %35 ], [ null, %Hop_ObjChild0Copy.exit ]
   %43 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %32, ptr noundef %42) #11
-  store ptr %43, ptr %1, align 8, !tbaa !29
+  store ptr %43, ptr %1, align 8, !tbaa !30
   %44 = load i32, ptr %4, align 8
   %45 = or i32 %44, 16
   store i32 %45, ptr %4, align 8
@@ -1089,7 +1089,7 @@ define ptr @Hop_Complement(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  %.val11 = load ptr, ptr %0, align 8, !tbaa !30
+  %.val11 = load ptr, ptr %0, align 8, !tbaa !31
   %11 = getelementptr i8, ptr %.val11, i64 8
   %.val11.val = load ptr, ptr %11, align 8, !tbaa !14
   %12 = sext i32 %2 to i64
@@ -1097,7 +1097,7 @@ define ptr @Hop_Complement(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   tail call void @Hop_Complement_rec(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %14)
   tail call void @Hop_ConeUnmark_rec(ptr noundef %10)
-  %15 = load ptr, ptr %10, align 8, !tbaa !29
+  %15 = load ptr, ptr %10, align 8, !tbaa !30
   %16 = and i64 %8, 1
   %17 = ptrtoint ptr %15 to i64
   %18 = xor i64 %16, %17
@@ -1138,7 +1138,7 @@ define void @Hop_Remap_rec(ptr noundef %0, ptr noundef captures(none) %1) local_
 
 16:                                               ; preds = %5
   %17 = inttoptr i64 %15 to ptr
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
   %19 = and i64 %14, 1
   %20 = ptrtoint ptr %18 to i64
   %21 = xor i64 %19, %20
@@ -1155,7 +1155,7 @@ Hop_ObjChild0Copy.exit:                           ; preds = %5, %16
 
 26:                                               ; preds = %Hop_ObjChild0Copy.exit
   %27 = inttoptr i64 %25 to ptr
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
   %29 = and i64 %24, 1
   %30 = ptrtoint ptr %28 to i64
   %31 = xor i64 %29, %30
@@ -1165,7 +1165,7 @@ Hop_ObjChild0Copy.exit:                           ; preds = %5, %16
 Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.exit, %26
   %33 = phi ptr [ %32, %26 ], [ null, %Hop_ObjChild0Copy.exit ]
   %34 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %23, ptr noundef %33) #11
-  store ptr %34, ptr %1, align 8, !tbaa !29
+  store ptr %34, ptr %1, align 8, !tbaa !30
   %35 = load i32, ptr %3, align 8
   %36 = or i32 %35, 16
   store i32 %36, ptr %3, align 8
@@ -1201,7 +1201,7 @@ define ptr @Hop_Remap(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
   br i1 %16, label %22, label %.preheader
 
 .preheader:                                       ; preds = %15
-  %17 = load ptr, ptr %0, align 8, !tbaa !30
+  %17 = load ptr, ptr %0, align 8, !tbaa !31
   %18 = getelementptr i8, ptr %17, i64 4
   %.val40 = load i32, ptr %18, align 4, !tbaa !11
   %19 = icmp sgt i32 %.val40, 0
@@ -1214,7 +1214,7 @@ define ptr @Hop_Remap(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
 
 22:                                               ; preds = %15
   %23 = getelementptr i8, ptr %0, i64 24
-  %.val38 = load ptr, ptr %23, align 8, !tbaa !28
+  %.val38 = load ptr, ptr %23, align 8, !tbaa !29
   %24 = ptrtoint ptr %.val38 to i64
   %25 = and i64 %10, 1
   %.not.i = icmp eq i64 %25, 0
@@ -1265,7 +1265,7 @@ Hop_ObjPhaseCompl.exit:                           ; preds = %26, %29
   br label %56
 
 52:                                               ; preds = %45
-  %.val39 = load ptr, ptr %20, align 8, !tbaa !28
+  %.val39 = load ptr, ptr %20, align 8, !tbaa !29
   %53 = ptrtoint ptr %.val39 to i64
   %54 = xor i64 %53, 1
   %55 = inttoptr i64 %54 to ptr
@@ -1274,19 +1274,19 @@ Hop_ObjPhaseCompl.exit:                           ; preds = %26, %29
 56:                                               ; preds = %49, %52
   %storemerge = phi ptr [ %55, %52 ], [ %51, %49 ]
   %.1 = phi i32 [ %.042, %52 ], [ %50, %49 ]
-  store ptr %storemerge, ptr %43, align 8, !tbaa !29
+  store ptr %storemerge, ptr %43, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = load ptr, ptr %0, align 8, !tbaa !30
+  %57 = load ptr, ptr %0, align 8, !tbaa !31
   %58 = getelementptr i8, ptr %57, i64 4
   %.val = load i32, ptr %58, align 4, !tbaa !11
   %59 = sext i32 %.val to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %39, label %.critedge, !llvm.loop !42
+  br i1 %60, label %39, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %39, %56, %.preheader
   tail call void @Hop_Remap_rec(ptr noundef nonnull %0, ptr noundef %12)
   tail call void @Hop_ConeUnmark_rec(ptr noundef %12)
-  %61 = load ptr, ptr %12, align 8, !tbaa !29
+  %61 = load ptr, ptr %12, align 8, !tbaa !30
   %62 = and i64 %10, 1
   %63 = ptrtoint ptr %61 to i64
   %64 = xor i64 %62, %63
@@ -1310,7 +1310,7 @@ define ptr @Hop_Permute(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br i1 %.not, label %32, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %10 = load ptr, ptr %0, align 8, !tbaa !30
+  %10 = load ptr, ptr %0, align 8, !tbaa !31
   %11 = getelementptr i8, ptr %10, i64 4
   %.val21 = load i32, ptr %11, align 4, !tbaa !11
   %12 = icmp slt i32 %.val21, 1
@@ -1332,21 +1332,21 @@ define ptr @Hop_Permute(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !16
   %21 = tail call ptr @Hop_IthVar(ptr noundef nonnull %0, i32 noundef %20) #11
-  store ptr %21, ptr %18, align 8, !tbaa !29
+  store ptr %21, ptr %18, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load ptr, ptr %0, align 8, !tbaa !30
+  %22 = load ptr, ptr %0, align 8, !tbaa !31
   %23 = getelementptr i8, ptr %22, i64 4
   %.val = load i32, ptr %23, align 4, !tbaa !11
   %24 = sext i32 %.val to i64
   %25 = icmp sge i64 %indvars.iv.next, %24
   %26 = icmp eq i64 %indvars.iv.next, %14
   %or.cond = or i1 %26, %25
-  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !43
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !44
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
   tail call void @Hop_Remap_rec(ptr noundef nonnull %0, ptr noundef nonnull %7)
   tail call void @Hop_ConeUnmark_rec(ptr noundef nonnull %7)
-  %27 = load ptr, ptr %7, align 8, !tbaa !29
+  %27 = load ptr, ptr %7, align 8, !tbaa !30
   %28 = and i64 %5, 1
   %29 = ptrtoint ptr %27 to i64
   %30 = xor i64 %28, %29
@@ -1409,23 +1409,24 @@ attributes #11 = { nounwind }
 !21 = !{!"long", !5, i64 0}
 !22 = !{!18, !20, i64 104}
 !23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
-!27 = distinct !{!27, !25}
-!28 = !{!18, !7, i64 24}
-!29 = !{!5, !5, i64 0}
-!30 = !{!18, !19, i64 0}
-!31 = distinct !{!31, !25}
-!32 = distinct !{!32, !25}
-!33 = !{!18, !19, i64 8}
-!34 = distinct !{!34, !25}
-!35 = !{!18, !9, i64 132}
-!36 = distinct !{!36, !25}
-!37 = distinct !{!37, !25}
-!38 = distinct !{!38, !25}
-!39 = distinct !{!39, !25}
-!40 = distinct !{!40, !25}
-!41 = distinct !{!41, !25}
-!42 = distinct !{!42, !25}
-!43 = distinct !{!43, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !25, !26}
+!28 = distinct !{!28, !25, !26}
+!29 = !{!18, !7, i64 24}
+!30 = !{!5, !5, i64 0}
+!31 = !{!18, !19, i64 0}
+!32 = distinct !{!32, !25, !26}
+!33 = distinct !{!33, !25, !26}
+!34 = !{!18, !19, i64 8}
+!35 = distinct !{!35, !25, !26}
+!36 = !{!18, !9, i64 132}
+!37 = distinct !{!37, !25, !26}
+!38 = distinct !{!38, !25, !26}
+!39 = distinct !{!39, !25, !26}
+!40 = distinct !{!40, !25, !26}
+!41 = distinct !{!41, !25, !26}
+!42 = distinct !{!42, !25, !26}
+!43 = distinct !{!43, !25, !26}
+!44 = distinct !{!44, !25, !26}

@@ -86,7 +86,7 @@ define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef captures(ad
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = tail call i32 @ungetc(i32 noundef %23, ptr noundef nonnull %0)
   %25 = icmp samesign ugt i64 %indvars.iv25, 1
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #8
@@ -113,18 +113,18 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_UTF8Util.cpp() #7 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca i64, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, i64 16), ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, i64 16), ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
-  store i64 24, ptr %1, align 8, !tbaa !14
+  store i64 24, ptr %1, align 8, !tbaa !15
   %2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
-  store ptr %2, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, align 8, !tbaa !16
-  %3 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, i64 16), align 8, !tbaa !18
+  store ptr %2, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, align 8, !tbaa !17
+  %3 = load i64, ptr %1, align 8, !tbaa !15
+  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, i64 16), align 8, !tbaa !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(24) @.str, i64 24, i1 false)
-  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, i64 8), align 8, !tbaa !19
-  %4 = load ptr, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, align 8, !tbaa !16
+  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, i64 8), align 8, !tbaa !20
+  %4 = load ptr, ptr @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %3
-  store i8 0, ptr %5, align 1, !tbaa !18
+  store i8 0, ptr %5, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
   %6 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZL22PACKAGE_DATA_DIRECTORYB5cxx11, ptr nonnull @__dso_handle) #8
   ret void
@@ -149,16 +149,17 @@ attributes #8 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11, !12, i64 0}
-!11 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !12, i64 0}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !5, i64 0}
-!16 = !{!17, !12, i64 0}
-!17 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !11, i64 0, !15, i64 8, !5, i64 16}
-!18 = !{!5, !5, i64 0}
-!19 = !{!17, !15, i64 8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = !{!18, !13, i64 0}
+!18 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !12, i64 0, !16, i64 8, !5, i64 16}
+!19 = !{!5, !5, i64 0}
+!20 = !{!18, !16, i64 8}

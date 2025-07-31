@@ -706,7 +706,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_read(ptr noundef %0, i32 %1, i6
   %47 = sub i64 %.05894, %31
   %48 = getelementptr inbounds i8, ptr %.05695, i64 %31
   %.not67 = icmp eq i64 %47, 0
-  br i1 %.not67, label %.thread, label %28
+  br i1 %.not67, label %.thread, label %28, !llvm.loop !39
 
 .thread:                                          ; preds = %46, %.preheader, %.critedge, %45, %6, %24, %15
   %.048 = phi i32 [ -1, %24 ], [ -1, %15 ], [ 0, %6 ], [ -1, %.critedge ], [ 0, %45 ], [ 0, %.preheader ], [ 0, %46 ]
@@ -777,7 +777,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
   %35 = tail call ptr @__errno_location() #16
   %36 = load i32, ptr %35, align 4, !tbaa !16
   %37 = icmp eq i32 %36, 4
-  br i1 %37, label %29, label %.thread, !llvm.loop !38
+  br i1 %37, label %29, label %.thread, !llvm.loop !40
 
 .thread:                                          ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
@@ -798,7 +798,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
   %48 = add i64 %31, %.05691
   %49 = getelementptr inbounds i8, ptr %.05890, i64 %31
   %.not68 = icmp eq i64 %47, 0
-  br i1 %.not68, label %._crit_edge, label %28
+  br i1 %.not68, label %._crit_edge, label %28, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %46, %.preheader
   %.056.lcssa = phi i64 [ %3, %.preheader ], [ %48, %46 ]
@@ -998,7 +998,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_ctl(ptr readnone captures(none)
   %10 = and i64 %2, 1
   %.not = icmp eq i64 %10, 0
   %or.cond = or i1 %.not, %.not3
-  br i1 %or.cond, label %15, label %11, !prof !39
+  br i1 %or.cond, label %15, label %11, !prof !42
 
 11:                                               ; preds = %5
   %12 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
@@ -1119,7 +1119,10 @@ attributes #16 = { nounwind willreturn memory(none) }
 !33 = !{!19, !4, i64 1152}
 !34 = !{!19, !11, i64 88}
 !35 = !{!22, !22, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = distinct !{!38, !37}
-!39 = !{!"branch_weights", i32 2002, i32 2000}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !38}
+!40 = distinct !{!40, !37, !38}
+!41 = distinct !{!41, !38}
+!42 = !{!"branch_weights", i32 2002, i32 2000}

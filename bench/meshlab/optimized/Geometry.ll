@@ -274,7 +274,7 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr noundef nonnu
 23:                                               ; preds = %15
   %24 = getelementptr inbounds i8, ptr %.01730, i64 %.031
   %.not22 = icmp ugt i64 %21, %22
-  br i1 %.not22, label %._crit_edge.thread, label %12, !llvm.loop !7
+  br i1 %.not22, label %._crit_edge.thread, label %12, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %4
   %.not23 = icmp eq i64 %6, 0
@@ -325,6 +325,7 @@ attributes #15 = { nounwind allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

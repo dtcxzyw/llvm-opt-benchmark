@@ -136,20 +136,20 @@ gv_calloc.exit31.i:                               ; preds = %29, %.thread.i30.i
   %.02436.i = phi ptr [ %58, %.lr.ph38.i ], [ %51, %.lr.ph43.i ]
   %52 = tail call ptr @agbindrec(ptr noundef nonnull %.02436.i, ptr noundef nonnull @.str.2, i32 noundef 240, i32 noundef 1) #8
   tail call void @common_init_edge(ptr noundef nonnull %.02436.i) #8
-  %53 = load ptr, ptr @E_weight, align 8, !tbaa !46
+  %53 = load ptr, ptr @E_weight, align 8, !tbaa !47
   %54 = tail call double @late_double(ptr noundef nonnull %.02436.i, ptr noundef %53, double noundef 1.000000e+00, double noundef 0.000000e+00) #8
   %55 = getelementptr inbounds nuw i8, ptr %.02436.i, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 176
-  store double %54, ptr %57, align 8, !tbaa !48
+  store double %54, ptr %57, align 8, !tbaa !49
   %58 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.02436.i) #8
   %.not26.i = icmp eq ptr %58, null
-  br i1 %.not26.i, label %._crit_edge39.i, label %.lr.ph38.i, !llvm.loop !54
+  br i1 %.not26.i, label %._crit_edge39.i, label %.lr.ph38.i, !llvm.loop !55
 
 ._crit_edge39.i:                                  ; preds = %.lr.ph38.i, %.lr.ph43.i
   %59 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.141.i) #8
   %.not25.i = icmp eq ptr %59, null
-  br i1 %.not25.i, label %circular_init_node_edge.exit, label %.lr.ph43.i, !llvm.loop !55
+  br i1 %.not25.i, label %circular_init_node_edge.exit, label %.lr.ph43.i, !llvm.loop !56
 
 circular_init_node_edge.exit:                     ; preds = %._crit_edge39.i, %._crit_edge.i
   ret void
@@ -175,7 +175,7 @@ define void @circoLayout(ptr noundef %0) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
-  store ptr %8, ptr %12, align 8, !tbaa !56
+  store ptr %8, ptr %12, align 8, !tbaa !57
   %13 = tail call ptr @agfstnode(ptr noundef %0) #8
   %.not89.i = icmp eq ptr %13, null
   br i1 %.not89.i, label %._crit_edge.i, label %.lr.ph.i
@@ -186,7 +186,7 @@ define void @circoLayout(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %17 = load ptr, ptr %16, align 8, !tbaa !36
-  %18 = load ptr, ptr %17, align 8, !tbaa !57
+  %18 = load ptr, ptr %17, align 8, !tbaa !58
   %.not88.i = icmp eq ptr %18, null
   br i1 %.not88.i, label %19, label %56
 
@@ -233,31 +233,31 @@ gv_alloc.exit.i.i:                                ; preds = %19
 makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
   %41 = phi ptr [ %32, %.thread.i.i.i ], [ %35, %33 ]
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 176
-  store ptr %41, ptr %42, align 8, !tbaa !59
+  store ptr %41, ptr %42, align 8, !tbaa !60
   %43 = load ptr, ptr %14, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 104
-  %45 = load double, ptr %44, align 8, !tbaa !60
+  %45 = load double, ptr %44, align 8, !tbaa !61
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 104
-  store double %45, ptr %46, align 8, !tbaa !60
+  store double %45, ptr %46, align 8, !tbaa !61
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 112
-  %48 = load double, ptr %47, align 8, !tbaa !61
+  %48 = load double, ptr %47, align 8, !tbaa !62
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 112
-  store double %48, ptr %49, align 8, !tbaa !61
+  store double %48, ptr %49, align 8, !tbaa !62
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 96
-  %51 = load double, ptr %50, align 8, !tbaa !62
+  %51 = load double, ptr %50, align 8, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 96
-  store double %51, ptr %52, align 8, !tbaa !62
-  store ptr %.07190.i, ptr %23, align 8, !tbaa !63
+  store double %51, ptr %52, align 8, !tbaa !63
+  store ptr %.07190.i, ptr %23, align 8, !tbaa !64
   %53 = load ptr, ptr %14, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 152
   %55 = load ptr, ptr %54, align 8, !tbaa !36
-  store ptr %21, ptr %55, align 8, !tbaa !57
+  store ptr %21, ptr %55, align 8, !tbaa !58
   br label %56
 
 56:                                               ; preds = %makeDerivedNode.exit.i, %.lr.ph.i
   %57 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.07190.i) #8
   %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !65
 
 ._crit_edge.i:                                    ; preds = %56, %6
   %58 = tail call ptr @agfstnode(ptr noundef %0) #8
@@ -278,22 +278,22 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
   %.idx85.i = select i1 %62, i64 0, i64 64
   %63 = getelementptr inbounds nuw i8, ptr %.07392.i, i64 %.idx85.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
-  %65 = load ptr, ptr %64, align 8, !tbaa !65
+  %65 = load ptr, ptr %64, align 8, !tbaa !66
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 152
   %69 = load ptr, ptr %68, align 8, !tbaa !36
-  %70 = load ptr, ptr %69, align 8, !tbaa !57
+  %70 = load ptr, ptr %69, align 8, !tbaa !58
   %71 = icmp eq i32 %61, 2
   %.idx86.i = select i1 %71, i64 0, i64 -64
   %72 = getelementptr inbounds i8, ptr %.07392.i, i64 %.idx86.i
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %74 = load ptr, ptr %73, align 8, !tbaa !65
+  %74 = load ptr, ptr %73, align 8, !tbaa !66
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !3
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 152
   %78 = load ptr, ptr %77, align 8, !tbaa !36
-  %79 = load ptr, ptr %78, align 8, !tbaa !57
+  %79 = load ptr, ptr %78, align 8, !tbaa !58
   %.not87.i = icmp eq ptr %70, %79
   br i1 %.not87.i, label %83, label %80
 
@@ -305,17 +305,17 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
 83:                                               ; preds = %80, %.lr.ph94.i
   %84 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.07392.i) #8
   %.not84.i = icmp eq ptr %84, null
-  br i1 %.not84.i, label %._crit_edge95.i, label %.lr.ph94.i, !llvm.loop !69
+  br i1 %.not84.i, label %._crit_edge95.i, label %.lr.ph94.i, !llvm.loop !70
 
 ._crit_edge95.i:                                  ; preds = %83, %.lr.ph99.i
   %85 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.17297.i) #8
   %.not78.i = icmp eq ptr %85, null
-  br i1 %.not78.i, label %._crit_edge100.i, label %.lr.ph99.i, !llvm.loop !70
+  br i1 %.not78.i, label %._crit_edge100.i, label %.lr.ph99.i, !llvm.loop !71
 
 ._crit_edge100.i:                                 ; preds = %._crit_edge95.i, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   %86 = call ptr @ccomps(ptr noundef %8, ptr noundef nonnull %2, ptr noundef null) #8
-  %87 = load i64, ptr %2, align 8, !tbaa !71
+  %87 = load i64, ptr %2, align 8, !tbaa !72
   %.not125.i = icmp eq i64 %87, 0
   br i1 %.not125.i, label %._crit_edge114.i, label %.lr.ph113.i
 
@@ -327,7 +327,7 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
 .lr.ph113.i:                                      ; preds = %._crit_edge100.i, %._crit_edge110.i
   %.0111.i = phi i64 [ %116, %._crit_edge110.i ], [ 0, %._crit_edge100.i ]
   %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %.0111.i
-  %90 = load ptr, ptr %89, align 8, !tbaa !72
+  %90 = load ptr, ptr %89, align 8, !tbaa !73
   %91 = call ptr @agfstnode(ptr noundef %90) #8
   %.not81106.i = icmp eq ptr %91, null
   br i1 %.not81106.i, label %._crit_edge110.i, label %.lr.ph109.i
@@ -338,7 +338,7 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
   %93 = load ptr, ptr %92, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 152
   %95 = load ptr, ptr %94, align 8, !tbaa !36
-  %96 = load ptr, ptr %95, align 8, !tbaa !63
+  %96 = load ptr, ptr %95, align 8, !tbaa !64
   %97 = call ptr @agfstout(ptr noundef %0, ptr noundef %96) #8
   %.not82101.i = icmp eq ptr %97, null
   br i1 %.not82101.i, label %._crit_edge105.i, label %.lr.ph104.i
@@ -351,12 +351,12 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
   %.idx.i = select i1 %100, i64 0, i64 -64
   %101 = getelementptr inbounds i8, ptr %.174102.i, i64 %.idx.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 56
-  %103 = load ptr, ptr %102, align 8, !tbaa !65
+  %103 = load ptr, ptr %102, align 8, !tbaa !66
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load ptr, ptr %104, align 8, !tbaa !3
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 152
   %107 = load ptr, ptr %106, align 8, !tbaa !36
-  %108 = load ptr, ptr %107, align 8, !tbaa !57
+  %108 = load ptr, ptr %107, align 8, !tbaa !58
   %.not83.i = icmp eq ptr %.070107.i, %108
   br i1 %.not83.i, label %113, label %109
 
@@ -369,18 +369,18 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
 113:                                              ; preds = %109, %.lr.ph104.i
   %114 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.174102.i) #8
   %.not82.i = icmp eq ptr %114, null
-  br i1 %.not82.i, label %._crit_edge105.i, label %.lr.ph104.i, !llvm.loop !73
+  br i1 %.not82.i, label %._crit_edge105.i, label %.lr.ph104.i, !llvm.loop !74
 
 ._crit_edge105.i:                                 ; preds = %113, %.lr.ph109.i
   %115 = call ptr @agnxtnode(ptr noundef %90, ptr noundef nonnull %.070107.i) #8
   %.not81.i = icmp eq ptr %115, null
-  br i1 %.not81.i, label %._crit_edge110.i, label %.lr.ph109.i, !llvm.loop !74
+  br i1 %.not81.i, label %._crit_edge110.i, label %.lr.ph109.i, !llvm.loop !75
 
 ._crit_edge110.i:                                 ; preds = %._crit_edge105.i, %.lr.ph113.i
   %116 = add nuw i64 %.0111.i, 1
-  %117 = load i64, ptr %2, align 8, !tbaa !71
+  %117 = load i64, ptr %2, align 8, !tbaa !72
   %118 = icmp ult i64 %116, %117
-  br i1 %118, label %.lr.ph113.i, label %._crit_edge114.i, !llvm.loop !75
+  br i1 %118, label %.lr.ph113.i, label %._crit_edge114.i, !llvm.loop !76
 
 .lr.ph123.i:                                      ; preds = %._crit_edge114.i, %._crit_edge119.i
   %.1121.i = phi ptr [ %129, %._crit_edge119.i ], [ %88, %._crit_edge114.i ]
@@ -404,28 +404,28 @@ gv_alloc.exit.i:                                  ; preds = %.lr.ph118.i
   %125 = getelementptr inbounds nuw i8, ptr %.2116.i, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !3
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 168
-  store ptr %120, ptr %127, align 8, !tbaa !76
+  store ptr %120, ptr %127, align 8, !tbaa !77
   %128 = call ptr @agnxtout(ptr noundef %8, ptr noundef nonnull %.2116.i) #8
   %.not80.i = icmp eq ptr %128, null
-  br i1 %.not80.i, label %._crit_edge119.i, label %.lr.ph118.i, !llvm.loop !77
+  br i1 %.not80.i, label %._crit_edge119.i, label %.lr.ph118.i, !llvm.loop !78
 
 ._crit_edge119.i:                                 ; preds = %gv_alloc.exit.i, %.lr.ph123.i
   %129 = call ptr @agnxtnode(ptr noundef %8, ptr noundef nonnull %.1121.i) #8
   %.not79.i = icmp eq ptr %129, null
-  br i1 %.not79.i, label %circomps.exit, label %.lr.ph123.i, !llvm.loop !78
+  br i1 %.not79.i, label %circomps.exit, label %.lr.ph123.i, !llvm.loop !79
 
 circomps.exit:                                    ; preds = %._crit_edge119.i, %._crit_edge114.i
-  %130 = load i64, ptr %2, align 8, !tbaa !71
+  %130 = load i64, ptr %2, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
-  store i32 0, ptr %3, align 4, !tbaa !79
+  store i32 0, ptr %3, align 4, !tbaa !80
   %131 = icmp eq i64 %130, 1
-  %132 = load ptr, ptr %86, align 8, !tbaa !72
+  %132 = load ptr, ptr %86, align 8, !tbaa !73
   br i1 %131, label %133, label %153
 
 133:                                              ; preds = %circomps.exit
   call void @circularLayout(ptr noundef %132, ptr noundef %0, ptr noundef nonnull %3) #8
-  %134 = load ptr, ptr %86, align 8, !tbaa !72
+  %134 = load ptr, ptr %86, align 8, !tbaa !73
   %135 = call ptr @agfstnode(ptr noundef %134) #8
   %.not9.i = icmp eq ptr %135, null
   br i1 %.not9.i, label %copyPosns.exit, label %.lr.ph.i23
@@ -436,22 +436,22 @@ circomps.exit:                                    ; preds = %._crit_edge119.i, %
   %137 = load ptr, ptr %136, align 8, !tbaa !3
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 152
   %139 = load ptr, ptr %138, align 8, !tbaa !36
-  %140 = load ptr, ptr %139, align 8, !tbaa !63
+  %140 = load ptr, ptr %139, align 8, !tbaa !64
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 176
-  %142 = load ptr, ptr %141, align 8, !tbaa !59
-  %143 = load double, ptr %142, align 8, !tbaa !80
+  %142 = load ptr, ptr %141, align 8, !tbaa !60
+  %143 = load double, ptr %142, align 8, !tbaa !81
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %145 = load ptr, ptr %144, align 8, !tbaa !3
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 176
-  %147 = load ptr, ptr %146, align 8, !tbaa !59
-  store double %143, ptr %147, align 8, !tbaa !80
+  %147 = load ptr, ptr %146, align 8, !tbaa !60
+  store double %143, ptr %147, align 8, !tbaa !81
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %149 = load double, ptr %148, align 8, !tbaa !80
+  %149 = load double, ptr %148, align 8, !tbaa !81
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store double %149, ptr %150, align 8, !tbaa !80
+  store double %149, ptr %150, align 8, !tbaa !81
   %151 = call ptr @agnxtnode(ptr noundef %134, ptr noundef nonnull %.010.i) #8
   %.not.i24 = icmp eq ptr %151, null
-  br i1 %.not.i24, label %copyPosns.exit, label %.lr.ph.i23, !llvm.loop !81
+  br i1 %.not.i24, label %copyPosns.exit, label %.lr.ph.i23, !llvm.loop !82
 
 copyPosns.exit:                                   ; preds = %.lr.ph.i23, %133
   %152 = call i32 @adjustNodes(ptr noundef %0) #8
@@ -459,7 +459,7 @@ copyPosns.exit:                                   ; preds = %.lr.ph.i23, %133
 
 153:                                              ; preds = %circomps.exit
   %154 = getelementptr inbounds nuw i8, ptr %132, i64 120
-  %155 = load ptr, ptr %154, align 8, !tbaa !82
+  %155 = load ptr, ptr %154, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
   %156 = call i32 @getPackInfo(ptr noundef %0, i32 noundef 2, i32 noundef 8, ptr noundef nonnull %4) #8
   %.not39 = icmp eq i64 %130, 0
@@ -476,12 +476,12 @@ copyPosns.exit:                                   ; preds = %.lr.ph.i23, %133
 .lr.ph:                                           ; preds = %153, %.lr.ph
   %.02134 = phi i64 [ %162, %.lr.ph ], [ 0, %153 ]
   %159 = getelementptr inbounds nuw ptr, ptr %86, i64 %.02134
-  %160 = load ptr, ptr %159, align 8, !tbaa !72
+  %160 = load ptr, ptr %159, align 8, !tbaa !73
   call void @circularLayout(ptr noundef %160, ptr noundef %0, ptr noundef nonnull %3) #8
   %161 = call i32 @adjustNodes(ptr noundef %160) #8
   %162 = add nuw i64 %.02134, 1
   %exitcond.not = icmp eq i64 %162, %130
-  br i1 %exitcond.not, label %.lr.ph37.preheader, label %.lr.ph, !llvm.loop !88
+  br i1 %exitcond.not, label %.lr.ph37.preheader, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge38:                                    ; preds = %copyPosns.exit31, %._crit_edge.thread
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
@@ -490,7 +490,7 @@ copyPosns.exit:                                   ; preds = %.lr.ph.i23, %133
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %copyPosns.exit31
   %.035 = phi i64 [ %182, %copyPosns.exit31 ], [ 0, %.lr.ph37.preheader ]
   %163 = getelementptr inbounds nuw ptr, ptr %86, i64 %.035
-  %164 = load ptr, ptr %163, align 8, !tbaa !72
+  %164 = load ptr, ptr %163, align 8, !tbaa !73
   %165 = call ptr @agfstnode(ptr noundef %164) #8
   %.not9.i26 = icmp eq ptr %165, null
   br i1 %.not9.i26, label %copyPosns.exit31, label %.lr.ph.i27
@@ -501,27 +501,27 @@ copyPosns.exit:                                   ; preds = %.lr.ph.i23, %133
   %167 = load ptr, ptr %166, align 8, !tbaa !3
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 152
   %169 = load ptr, ptr %168, align 8, !tbaa !36
-  %170 = load ptr, ptr %169, align 8, !tbaa !63
+  %170 = load ptr, ptr %169, align 8, !tbaa !64
   %171 = getelementptr inbounds nuw i8, ptr %167, i64 176
-  %172 = load ptr, ptr %171, align 8, !tbaa !59
-  %173 = load double, ptr %172, align 8, !tbaa !80
+  %172 = load ptr, ptr %171, align 8, !tbaa !60
+  %173 = load double, ptr %172, align 8, !tbaa !81
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %175 = load ptr, ptr %174, align 8, !tbaa !3
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 176
-  %177 = load ptr, ptr %176, align 8, !tbaa !59
-  store double %173, ptr %177, align 8, !tbaa !80
+  %177 = load ptr, ptr %176, align 8, !tbaa !60
+  store double %173, ptr %177, align 8, !tbaa !81
   %178 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %179 = load double, ptr %178, align 8, !tbaa !80
+  %179 = load double, ptr %178, align 8, !tbaa !81
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  store double %179, ptr %180, align 8, !tbaa !80
+  store double %179, ptr %180, align 8, !tbaa !81
   %181 = call ptr @agnxtnode(ptr noundef %164, ptr noundef nonnull %.010.i28) #8
   %.not.i29 = icmp eq ptr %181, null
-  br i1 %.not.i29, label %copyPosns.exit31, label %.lr.ph.i27, !llvm.loop !81
+  br i1 %.not.i29, label %copyPosns.exit31, label %.lr.ph.i27, !llvm.loop !82
 
 copyPosns.exit31:                                 ; preds = %.lr.ph.i27, %.lr.ph37
   %182 = add nuw i64 %.035, 1
   %exitcond41.not = icmp eq i64 %182, %130
-  br i1 %exitcond41.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !89
+  br i1 %exitcond41.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !90
 
 183:                                              ; preds = %._crit_edge38, %copyPosns.exit
   call void @free(ptr noundef nonnull %86) #8
@@ -590,7 +590,7 @@ define void @circo_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %8 = load ptr, ptr %7, align 8, !tbaa !56
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
   %9 = tail call ptr @agfstnode(ptr noundef %8) #8
   %.not17.i = icmp eq ptr %9, null
   br i1 %.not17.i, label %closeDerivedGraph.exit, label %.lr.ph20.i
@@ -606,11 +606,11 @@ define void @circo_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %14 = load ptr, ptr %13, align 8, !tbaa !76
+  %14 = load ptr, ptr %13, align 8, !tbaa !77
   tail call void @free(ptr noundef %14) #8
   %15 = tail call ptr @agnxtout(ptr noundef %8, ptr noundef nonnull %.016.i) #8
   %.not14.i = icmp eq ptr %15, null
-  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !90
+  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !91
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph20.i
   %16 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 16
@@ -620,11 +620,11 @@ define void @circo_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef %19) #8
   %20 = load ptr, ptr %16, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
-  %22 = load ptr, ptr %21, align 8, !tbaa !59
+  %22 = load ptr, ptr %21, align 8, !tbaa !60
   tail call void @free(ptr noundef %22) #8
   %23 = tail call ptr @agnxtnode(ptr noundef %8, ptr noundef nonnull %.01318.i) #8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %closeDerivedGraph.exit, label %.lr.ph20.i, !llvm.loop !91
+  br i1 %.not.i, label %closeDerivedGraph.exit, label %.lr.ph20.i, !llvm.loop !92
 
 closeDerivedGraph.exit:                           ; preds = %._crit_edge.i, %4
   %24 = tail call i32 @agclose(ptr noundef %8) #8
@@ -641,13 +641,13 @@ closeDerivedGraph.exit:                           ; preds = %._crit_edge.i, %4
   tail call void @gv_cleanup_edge(ptr noundef nonnull %.018) #8
   %27 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.018) #8
   %.not16 = icmp eq ptr %27, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !92
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   tail call void @gv_cleanup_node(ptr noundef nonnull %.01419) #8
   %28 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01419) #8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %25, !llvm.loop !93
+  br i1 %.not, label %29, label %25, !llvm.loop !94
 
 29:                                               ; preds = %._crit_edge
   %30 = load ptr, ptr %5, align 8, !tbaa !3
@@ -767,53 +767,54 @@ attributes #12 = { cold noreturn nounwind }
 !41 = !{!"p2 _ZTS8Agedge_s", !11, i64 0}
 !42 = !{!"p1 _ZTS8Agedge_s", !11, i64 0}
 !43 = !{!29, !29, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTS7Agsym_s", !11, i64 0}
-!48 = !{!49, !20, i64 176}
-!49 = !{!"Agedgeinfo_t", !14, i64 0, !50, i64 16, !51, i64 24, !51, i64 72, !17, i64 120, !17, i64 128, !17, i64 136, !17, i64 144, !7, i64 152, !7, i64 153, !7, i64 154, !7, i64 155, !7, i64 156, !42, i64 160, !11, i64 168, !20, i64 176, !20, i64 184, !52, i64 192, !7, i64 208, !21, i64 209, !22, i64 210, !6, i64 212, !6, i64 216, !6, i64 220, !22, i64 224, !6, i64 228, !42, i64 232}
-!50 = !{!"p1 _ZTS7splines", !11, i64 0}
-!51 = !{!"port", !19, i64 0, !20, i64 16, !11, i64 24, !21, i64 32, !21, i64 33, !21, i64 34, !21, i64 35, !7, i64 36, !7, i64 37, !15, i64 40}
-!52 = !{!"Ppoly_t", !53, i64 0, !9, i64 8}
-!53 = !{!"p1 _ZTS8pointf_s", !11, i64 0}
-!54 = distinct !{!54, !45}
-!55 = distinct !{!55, !45}
-!56 = !{!13, !11, i64 160}
-!57 = !{!58, !29, i64 0}
-!58 = !{!"", !29, i64 0}
-!59 = !{!37, !39, i64 176}
-!60 = !{!37, !20, i64 104}
-!61 = !{!37, !20, i64 112}
-!62 = !{!37, !20, i64 96}
-!63 = !{!7, !7, i64 0}
-!64 = distinct !{!64, !45}
-!65 = !{!66, !29, i64 56}
-!66 = !{!"Agedge_s", !4, i64 0, !67, i64 24, !67, i64 40, !29, i64 56}
-!67 = !{!"dtlink_s_", !68, i64 0, !7, i64 8}
-!68 = !{!"p1 _ZTS9dtlink_s_", !11, i64 0}
-!69 = distinct !{!69, !45}
-!70 = distinct !{!70, !45}
-!71 = !{!9, !9, i64 0}
-!72 = !{!28, !28, i64 0}
-!73 = distinct !{!73, !45}
-!74 = distinct !{!74, !45}
-!75 = distinct !{!75, !45}
-!76 = !{!49, !11, i64 168}
-!77 = distinct !{!77, !45}
-!78 = distinct !{!78, !45}
-!79 = !{!6, !6, i64 0}
-!80 = !{!20, !20, i64 0}
-!81 = distinct !{!81, !45}
-!82 = !{!83, !28, i64 120}
-!83 = !{!"Agraph_s", !4, i64 0, !84, i64 24, !67, i64 32, !67, i64 48, !85, i64 64, !86, i64 72, !85, i64 80, !85, i64 88, !85, i64 96, !85, i64 104, !28, i64 112, !28, i64 120, !87, i64 128}
-!84 = !{!"Agdesc_s", !6, i64 0, !6, i64 0, !6, i64 0, !6, i64 0, !6, i64 0, !6, i64 0, !6, i64 0}
-!85 = !{!"p1 _ZTS5dt_s_", !11, i64 0}
-!86 = !{!"p1 _ZTS17graphviz_node_set", !11, i64 0}
-!87 = !{!"p1 _ZTS8Agclos_s", !11, i64 0}
-!88 = distinct !{!88, !45}
-!89 = distinct !{!89, !45}
-!90 = distinct !{!90, !45}
-!91 = distinct !{!91, !45}
-!92 = distinct !{!92, !45}
-!93 = distinct !{!93, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS7Agsym_s", !11, i64 0}
+!49 = !{!50, !20, i64 176}
+!50 = !{!"Agedgeinfo_t", !14, i64 0, !51, i64 16, !52, i64 24, !52, i64 72, !17, i64 120, !17, i64 128, !17, i64 136, !17, i64 144, !7, i64 152, !7, i64 153, !7, i64 154, !7, i64 155, !7, i64 156, !42, i64 160, !11, i64 168, !20, i64 176, !20, i64 184, !53, i64 192, !7, i64 208, !21, i64 209, !22, i64 210, !6, i64 212, !6, i64 216, !6, i64 220, !22, i64 224, !6, i64 228, !42, i64 232}
+!51 = !{!"p1 _ZTS7splines", !11, i64 0}
+!52 = !{!"port", !19, i64 0, !20, i64 16, !11, i64 24, !21, i64 32, !21, i64 33, !21, i64 34, !21, i64 35, !7, i64 36, !7, i64 37, !15, i64 40}
+!53 = !{!"Ppoly_t", !54, i64 0, !9, i64 8}
+!54 = !{!"p1 _ZTS8pointf_s", !11, i64 0}
+!55 = distinct !{!55, !45, !46}
+!56 = distinct !{!56, !45, !46}
+!57 = !{!13, !11, i64 160}
+!58 = !{!59, !29, i64 0}
+!59 = !{!"", !29, i64 0}
+!60 = !{!37, !39, i64 176}
+!61 = !{!37, !20, i64 104}
+!62 = !{!37, !20, i64 112}
+!63 = !{!37, !20, i64 96}
+!64 = !{!7, !7, i64 0}
+!65 = distinct !{!65, !45, !46}
+!66 = !{!67, !29, i64 56}
+!67 = !{!"Agedge_s", !4, i64 0, !68, i64 24, !68, i64 40, !29, i64 56}
+!68 = !{!"dtlink_s_", !69, i64 0, !7, i64 8}
+!69 = !{!"p1 _ZTS9dtlink_s_", !11, i64 0}
+!70 = distinct !{!70, !45, !46}
+!71 = distinct !{!71, !45, !46}
+!72 = !{!9, !9, i64 0}
+!73 = !{!28, !28, i64 0}
+!74 = distinct !{!74, !45, !46}
+!75 = distinct !{!75, !45, !46}
+!76 = distinct !{!76, !45, !46}
+!77 = !{!50, !11, i64 168}
+!78 = distinct !{!78, !45, !46}
+!79 = distinct !{!79, !45, !46}
+!80 = !{!6, !6, i64 0}
+!81 = !{!20, !20, i64 0}
+!82 = distinct !{!82, !45, !46}
+!83 = !{!84, !28, i64 120}
+!84 = !{!"Agraph_s", !4, i64 0, !85, i64 24, !68, i64 32, !68, i64 48, !86, i64 64, !87, i64 72, !86, i64 80, !86, i64 88, !86, i64 96, !86, i64 104, !28, i64 112, !28, i64 120, !88, i64 128}
+!85 = !{!"Agdesc_s", !6, i64 0, !6, i64 0, !6, i64 0, !6, i64 0, !6, i64 0, !6, i64 0, !6, i64 0}
+!86 = !{!"p1 _ZTS5dt_s_", !11, i64 0}
+!87 = !{!"p1 _ZTS17graphviz_node_set", !11, i64 0}
+!88 = !{!"p1 _ZTS8Agclos_s", !11, i64 0}
+!89 = distinct !{!89, !45, !46}
+!90 = distinct !{!90, !45, !46}
+!91 = distinct !{!91, !45, !46}
+!92 = distinct !{!92, !45, !46}
+!93 = distinct !{!93, !45, !46}
+!94 = distinct !{!94, !45, !46}

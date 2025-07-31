@@ -2303,9 +2303,9 @@ define internal ptr @socket_getaddrinfo(ptr noundef readonly captures(none) %0, 
 .lr.ph:                                           ; preds = %.preheader, %92
   %.041107 = phi ptr [ %.041, %92 ], [ %.041105, %.preheader ]
   %94 = getelementptr inbounds nuw i8, ptr %.041107, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !59
+  %95 = load ptr, ptr %94, align 8, !tbaa !60
   %96 = getelementptr inbounds nuw i8, ptr %.041107, i64 16
-  %97 = load i32, ptr %96, align 8, !tbaa !60
+  %97 = load i32, ptr %96, align 8, !tbaa !61
   %98 = zext i32 %97 to i64
   %99 = load i32, ptr %10, align 4, !tbaa !35
   %100 = call fastcc ptr @makesockaddr(i32 noundef -1, ptr noundef %95, i64 noundef %98, i32 noundef %99)
@@ -2320,7 +2320,7 @@ define internal ptr @socket_getaddrinfo(ptr noundef readonly captures(none) %0, 
   %107 = getelementptr inbounds nuw i8, ptr %.041107, i64 12
   %108 = load i32, ptr %107, align 4, !tbaa !55
   %109 = getelementptr inbounds nuw i8, ptr %.041107, i64 32
-  %110 = load ptr, ptr %109, align 8, !tbaa !61
+  %110 = load ptr, ptr %109, align 8, !tbaa !62
   %.not71 = icmp eq ptr %110, null
   %spec.select = select i1 %.not71, ptr @.str.91, ptr %110
   %111 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.90, i32 noundef %104, i32 noundef %106, i32 noundef %108, ptr noundef nonnull %spec.select, ptr noundef nonnull %100) #13
@@ -2569,7 +2569,7 @@ define internal ptr @socket_getnameinfo(ptr noundef readonly captures(none) %0, 
 56:                                               ; preds = %32
   %57 = load ptr, ptr %12, align 8, !tbaa !49
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !62
+  %59 = load ptr, ptr %58, align 8, !tbaa !63
   %.not27 = icmp eq ptr %59, null
   br i1 %.not27, label %62, label %60
 
@@ -2589,7 +2589,7 @@ define internal ptr @socket_getnameinfo(ptr noundef readonly captures(none) %0, 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %3, align 8, !tbaa !19
   %67 = getelementptr i8, ptr %66, i64 16
-  %.val32 = load i64, ptr %67, align 8, !tbaa !63
+  %.val32 = load i64, ptr %67, align 8, !tbaa !64
   %.not28 = icmp eq i64 %.val32, 2
   br i1 %.not28, label %78, label %68
 
@@ -2600,23 +2600,23 @@ define internal ptr @socket_getnameinfo(ptr noundef readonly captures(none) %0, 
 
 70:                                               ; preds = %62
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %72 = load ptr, ptr %71, align 8, !tbaa !59
+  %72 = load ptr, ptr %71, align 8, !tbaa !60
   %73 = load i32, ptr %7, align 4, !tbaa !35
   %74 = call noundef i32 @llvm.bswap.i32(i32 %73)
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 %74, ptr %75, align 4, !tbaa !64
+  store i32 %74, ptr %75, align 4, !tbaa !65
   %76 = load i32, ptr %8, align 4, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i32 %76, ptr %77, align 4, !tbaa !67
+  store i32 %76, ptr %77, align 4, !tbaa !68
   br label %78
 
 78:                                               ; preds = %65, %70, %62
   %79 = call ptr @PyEval_SaveThread() #13
   %80 = load ptr, ptr %12, align 8, !tbaa !49
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
+  %82 = load ptr, ptr %81, align 8, !tbaa !60
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %84 = load i32, ptr %83, align 8, !tbaa !60
+  %84 = load i32, ptr %83, align 8, !tbaa !61
   %85 = load i32, ptr %4, align 4, !tbaa !35
   %86 = call i32 @getnameinfo(ptr noundef %82, i32 noundef %84, ptr noundef nonnull %9, i32 noundef 1025, ptr noundef nonnull %10, i32 noundef 32, i32 noundef %85) #13
   call void @PyEval_RestoreThread(ptr noundef %79) #13
@@ -2734,7 +2734,7 @@ define internal ptr @socket_if_nameindex(ptr readnone captures(none) %0, ptr rea
   br i1 %7, label %9, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %8 = load i32, ptr %6, align 8, !tbaa !68
+  %8 = load i32, ptr %6, align 8, !tbaa !69
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2759,7 +2759,7 @@ define internal ptr @socket_if_nameindex(ptr readnone captures(none) %0, ptr rea
   %indvars.iv = phi i64 [ %indvars.iv.next, %Py_DECREF.exit31 ], [ 0, %.preheader ]
   %17 = phi i32 [ %41, %Py_DECREF.exit31 ], [ %8, %.preheader ]
   %18 = getelementptr %struct.if_nameindex, ptr %6, i64 %indvars.iv, i32 1
-  %19 = load ptr, ptr %18, align 8, !tbaa !70
+  %19 = load ptr, ptr %18, align 8, !tbaa !71
   %20 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.117, i32 noundef %17, ptr noundef nonnull @PyUnicode_DecodeFSDefault, ptr noundef %19) #13
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.critedge, label %22
@@ -2819,11 +2819,11 @@ Py_DECREF.exit29:                                 ; preds = %.critedge, %31, %34
 Py_DECREF.exit31:                                 ; preds = %35, %36, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = getelementptr %struct.if_nameindex, ptr %6, i64 %indvars.iv.next
-  %41 = load i32, ptr %40, align 8, !tbaa !68
+  %41 = load i32, ptr %40, align 8, !tbaa !69
   %42 = icmp ne i32 %41, 0
   %43 = icmp ne i64 %indvars.iv.next, 2147483647
   %44 = and i1 %43, %42
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !71
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %Py_DECREF.exit31, %.preheader
   tail call void @if_freenameindex(ptr noundef nonnull %6) #13
@@ -3078,7 +3078,7 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
 39:                                               ; preds = %32, %36
   %.054 = phi i32 [ 16, %36 ], [ 4, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !62
+  %41 = load ptr, ptr %40, align 8, !tbaa !63
   %.not65 = icmp eq ptr %41, null
   br i1 %.not65, label %44, label %42
 
@@ -3090,11 +3090,11 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !60
+  %46 = load i32, ptr %45, align 8, !tbaa !61
   %47 = zext i32 %46 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %3, i64 %47)
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !59
+  %49 = load ptr, ptr %48, align 8, !tbaa !60
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %2, ptr align 2 %49, i64 %spec.select, i1 false)
   call void @freeaddrinfo(ptr noundef nonnull %33) #13
   br label %set_gaierror.exit
@@ -3122,9 +3122,9 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %61, i8 0, i64 14, i1 false)
-  store i16 2, ptr %2, align 4, !tbaa !72
+  store i16 2, ptr %2, align 4, !tbaa !73
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1, ptr %62, align 4, !tbaa !75
+  store i32 -1, ptr %62, align 4, !tbaa !76
   br label %set_gaierror.exit
 
 63:                                               ; preds = %53
@@ -3141,7 +3141,7 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
   br i1 %67, label %.critedge, label %68
 
 68:                                               ; preds = %64
-  store i16 2, ptr %2, align 4, !tbaa !72
+  store i16 2, ptr %2, align 4, !tbaa !73
   br label %set_gaierror.exit
 
 .critedge:                                        ; preds = %64
@@ -3161,7 +3161,7 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %71
-  store i16 10, ptr %2, align 4, !tbaa !76
+  store i16 10, ptr %2, align 4, !tbaa !77
   br label %set_gaierror.exit
 
 .thread:                                          ; preds = %.critedge, %71, %63, %69
@@ -3211,11 +3211,11 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
 95:                                               ; preds = %.thread
   %96 = load ptr, ptr %7, align 8, !tbaa !49
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load i32, ptr %97, align 8, !tbaa !60
+  %98 = load i32, ptr %97, align 8, !tbaa !61
   %99 = zext i32 %98 to i64
   %spec.select66 = call i64 @llvm.umin.i64(i64 %3, i64 %99)
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !59
+  %101 = load ptr, ptr %100, align 8, !tbaa !60
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 2 %101, i64 %spec.select66, i1 false)
   call void @freeaddrinfo(ptr noundef %96) #13
   %102 = load i16, ptr %2, align 2, !tbaa !24
@@ -3370,7 +3370,7 @@ define internal fastcc ptr @gethost_common(ptr noundef readonly captures(none) %
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !77
+  %25 = load i32, ptr %24, align 8, !tbaa !78
   %.not = icmp eq i32 %25, %3
   br i1 %.not, label %30, label %26
 
@@ -3393,7 +3393,7 @@ define internal fastcc ptr @gethost_common(ptr noundef readonly captures(none) %
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !79
+  %38 = load ptr, ptr %37, align 8, !tbaa !80
   %.not69 = icmp eq ptr %38, null
   br i1 %.not69, label %.loopexit, label %.preheader
 
@@ -3406,7 +3406,7 @@ define internal fastcc ptr @gethost_common(ptr noundef readonly captures(none) %
   %41 = getelementptr i8, ptr %.054114, i64 8
   %.0.copyload8 = load ptr, ptr %41, align 8
   %42 = icmp eq ptr %.0.copyload8, null
-  br i1 %42, label %.loopexit, label %.lr.ph
+  br i1 %42, label %.loopexit, label %.lr.ph, !llvm.loop !81
 
 .lr.ph:                                           ; preds = %.preheader, %40
   %.0.copyload8115 = phi ptr [ %.0.copyload8, %40 ], [ %.0.copyload8113, %.preheader ]
@@ -3437,7 +3437,7 @@ Py_DECREF.exit75:                                 ; preds = %45, %48, %51
 
 .loopexit:                                        ; preds = %40, %.preheader, %36
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !80
+  %53 = load ptr, ptr %52, align 8, !tbaa !82
   %.0.copyload116 = load ptr, ptr %53, align 8
   %54 = icmp eq ptr %.0.copyload116, null
   br i1 %54, label %._crit_edge, label %.lr.ph119
@@ -3456,7 +3456,7 @@ Py_DECREF.exit75:                                 ; preds = %45, %48, %51
   %.155117.us = phi ptr [ %61, %60 ], [ %53, %.lr.ph119 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store i16 2, ptr %7, align 4, !tbaa !72
+  store i16 2, ptr %7, align 4, !tbaa !73
   %57 = load i32, ptr %.0.copyload118.us, align 1
   store i32 %57, ptr %56, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
@@ -3468,7 +3468,7 @@ Py_DECREF.exit75:                                 ; preds = %45, %48, %51
   %61 = getelementptr i8, ptr %.155117.us, i64 8
   %.0.copyload.us = load ptr, ptr %61, align 8
   %62 = icmp eq ptr %.0.copyload.us, null
-  br i1 %62, label %._crit_edge, label %.lr.ph119.split.split.us, !llvm.loop !81
+  br i1 %62, label %._crit_edge, label %.lr.ph119.split.split.us, !llvm.loop !83
 
 63:                                               ; preds = %.lr.ph119.split.split.us
   %64 = call ptr @PyUnicode_FromString(ptr noundef nonnull %6) #13
@@ -3482,7 +3482,7 @@ Py_DECREF.exit75:                                 ; preds = %45, %48, %51
 make_ipv4_addr.exit.us:                           ; preds = %65, %63
   %.0.i.us = phi ptr [ null, %65 ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
-  %68 = load ptr, ptr %52, align 8, !tbaa !80
+  %68 = load ptr, ptr %52, align 8, !tbaa !82
   %69 = icmp eq ptr %.155117.us, %68
   br i1 %69, label %70, label %71
 
@@ -3519,14 +3519,14 @@ Py_DECREF.exit.us:                                ; preds = %79, %76, %73
   %81 = getelementptr i8, ptr %.155117, i64 8
   %.0.copyload = load ptr, ptr %81, align 8
   %82 = icmp eq ptr %.0.copyload, null
-  br i1 %82, label %._crit_edge, label %.lr.ph119.split.split
+  br i1 %82, label %._crit_edge, label %.lr.ph119.split.split, !llvm.loop !85
 
 .lr.ph119.split.split:                            ; preds = %.lr.ph119, %80
   %.0.copyload118 = phi ptr [ %.0.copyload, %80 ], [ %.0.copyload116, %.lr.ph119 ]
   %.155117 = phi ptr [ %81, %80 ], [ %53, %.lr.ph119 ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
-  store i16 10, ptr %8, align 4, !tbaa !76
+  store i16 10, ptr %8, align 4, !tbaa !77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %55, ptr noundef nonnull align 1 dereferenceable(16) %.0.copyload118, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %5) #13
   %83 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %55, ptr noundef nonnull %5, i32 noundef 46) #13
@@ -3545,7 +3545,7 @@ Py_DECREF.exit.us:                                ; preds = %79, %76, %73
 make_ipv6_addr.exit:                              ; preds = %85, %88
   %.0.i78 = phi ptr [ null, %85 ], [ %89, %88 ]
   call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %5) #13
-  %90 = load ptr, ptr %52, align 8, !tbaa !80
+  %90 = load ptr, ptr %52, align 8, !tbaa !82
   %91 = icmp eq ptr %.155117, %90
   br i1 %91, label %92, label %93
 
@@ -3584,7 +3584,7 @@ Py_DECREF.exit:                                   ; preds = %96, %99, %102
   br i1 %.not72, label %80, label %.thread96
 
 ._crit_edge:                                      ; preds = %80, %60, %.loopexit
-  %103 = load ptr, ptr %1, align 8, !tbaa !83
+  %103 = load ptr, ptr %1, align 8, !tbaa !86
   %104 = call ptr @PyUnicode_FromString(ptr noundef %103) #13
   %105 = icmp eq ptr %104, null
   br i1 %105, label %.thread96, label %106
@@ -3714,37 +3714,37 @@ define internal fastcc ptr @new_sockobject(ptr noundef %0, i32 noundef %1, i32 n
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 304
-  %9 = load ptr, ptr %8, align 8, !tbaa !84
+  %9 = load ptr, ptr %8, align 8, !tbaa !87
   %10 = tail call ptr %9(ptr noundef %7, i64 noundef 0) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %Py_DECREF.exit, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %1, ptr %13, align 8, !tbaa !85
+  store i32 %1, ptr %13, align 8, !tbaa !88
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 %2, ptr %14, align 4, !tbaa !88
+  store i32 %2, ptr %14, align 4, !tbaa !91
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = and i32 %3, -526337
-  store i32 %16, ptr %15, align 8, !tbaa !89
+  store i32 %16, ptr %15, align 8, !tbaa !92
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  store i32 %4, ptr %17, align 4, !tbaa !90
+  store i32 %4, ptr %17, align 4, !tbaa !93
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr @set_error, ptr %18, align 8, !tbaa !91
+  store ptr @set_error, ptr %18, align 8, !tbaa !94
   %19 = and i32 %3, 2048
   %.not.i13 = icmp eq i32 %19, 0
   br i1 %.not.i13, label %22, label %20
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 0, ptr %21, align 8, !tbaa !92
+  store i64 0, ptr %21, align 8, !tbaa !95
   br label %init_sockobject.exit
 
 22:                                               ; preds = %12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load atomic i64, ptr %23 monotonic, align 8
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 %24, ptr %25, align 8, !tbaa !92
+  store i64 %24, ptr %25, align 8, !tbaa !95
   %26 = icmp sgt i64 %24, -1
   br i1 %26, label %27, label %init_sockobject.exit
 
@@ -3752,7 +3752,7 @@ define internal fastcc ptr @new_sockobject(ptr noundef %0, i32 noundef %1, i32 n
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %28 = tail call ptr @PyEval_SaveThread() #13
   store i32 1, ptr %6, align 4, !tbaa !35
-  %.val.i.i = load i32, ptr %13, align 8, !tbaa !85
+  %.val.i.i = load i32, ptr %13, align 8, !tbaa !88
   %29 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val.i.i, i64 noundef 21537, ptr noundef nonnull %6) #13
   %.not4.i.i = icmp eq i32 %29, -1
   call void @PyEval_RestoreThread(ptr noundef %28) #13
@@ -3764,7 +3764,7 @@ internal_setblocking.exit.i:                      ; preds = %27
 
 init_sockobject.exit:                             ; preds = %20, %22, %internal_setblocking.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %0, ptr %30, align 8, !tbaa !93
+  store ptr %0, ptr %30, align 8, !tbaa !96
   br label %Py_DECREF.exit
 
 31:                                               ; preds = %27
@@ -3874,7 +3874,7 @@ make_ipv4_addr.exit:                              ; preds = %12
 
 19:                                               ; preds = %make_ipv4_addr.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %21 = load i16, ptr %20, align 2, !tbaa !94
+  %21 = load i16, ptr %20, align 2, !tbaa !97
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %21)
   %22 = zext i16 %rev.i to i32
   %23 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.92, ptr noundef nonnull %18, i32 noundef %22) #13
@@ -3914,25 +3914,25 @@ make_ipv4_addr.exit:                              ; preds = %12
 
 40:                                               ; preds = %10
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !95
+  %42 = load i32, ptr %41, align 4, !tbaa !98
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load i32, ptr %43, align 4, !tbaa !97
+  %44 = load i32, ptr %43, align 4, !tbaa !100
   %45 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.93, i32 noundef %42, i32 noundef %44) #13
   br label %Py_DECREF.exit132
 
 46:                                               ; preds = %10
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !98
+  %48 = load i32, ptr %47, align 4, !tbaa !101
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load i32, ptr %49, align 4, !tbaa !100
+  %50 = load i32, ptr %49, align 4, !tbaa !103
   %51 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.93, i32 noundef %48, i32 noundef %50) #13
   br label %Py_DECREF.exit132
 
 52:                                               ; preds = %10
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load i32, ptr %53, align 4, !tbaa !101
+  %54 = load i32, ptr %53, align 4, !tbaa !104
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %56 = load i32, ptr %55, align 4, !tbaa !103
+  %56 = load i32, ptr %55, align 4, !tbaa !106
   %57 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.93, i32 noundef %54, i32 noundef %56) #13
   br label %Py_DECREF.exit132
 
@@ -3957,14 +3957,14 @@ make_ipv6_addr.exit:                              ; preds = %58
 
 65:                                               ; preds = %make_ipv6_addr.exit
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %67 = load i16, ptr %66, align 2, !tbaa !104
+  %67 = load i16, ptr %66, align 2, !tbaa !107
   %rev.i137 = call noundef i16 @llvm.bswap.i16(i16 %67)
   %68 = zext i16 %rev.i137 to i32
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %70 = load i32, ptr %69, align 4, !tbaa !64
+  %70 = load i32, ptr %69, align 4, !tbaa !65
   %71 = call noundef i32 @llvm.bswap.i32(i32 %70)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %73 = load i32, ptr %72, align 4, !tbaa !67
+  %73 = load i32, ptr %72, align 4, !tbaa !68
   %74 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.94, ptr noundef nonnull %64, i32 noundef %68, i32 noundef %71, i32 noundef %73) #13
   %75 = load i32, ptr %64, align 8, !tbaa !18
   %.not.i129 = icmp sgt i32 %75, -1
@@ -3996,7 +3996,7 @@ make_ipv6_addr.exit:                              ; preds = %58
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %86 = load i16, ptr %85, align 2, !tbaa !105
+  %86 = load i16, ptr %85, align 2, !tbaa !108
   %87 = zext i16 %86 to i32
   %88 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.92, ptr noundef nonnull %83, i32 noundef %87) #13
   %89 = load i32, ptr %83, align 8, !tbaa !18
@@ -4021,7 +4021,7 @@ make_ipv6_addr.exit:                              ; preds = %58
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %99 = load i8, ptr %98, align 2, !tbaa !108
+  %99 = load i8, ptr %98, align 2, !tbaa !111
   %100 = zext i8 %99 to i32
   %101 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.92, ptr noundef nonnull %96, i32 noundef %100) #13
   %102 = load i32, ptr %96, align 8, !tbaa !18
@@ -4040,7 +4040,7 @@ make_ipv6_addr.exit:                              ; preds = %58
 
 107:                                              ; preds = %80
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %109 = load i16, ptr %108, align 2, !tbaa !110
+  %109 = load i16, ptr %108, align 2, !tbaa !113
   %110 = zext i16 %109 to i32
   %111 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.95, i32 noundef %110) #13
   br label %Py_DECREF.exit132
@@ -4058,7 +4058,7 @@ make_ipv6_addr.exit:                              ; preds = %58
 117:                                              ; preds = %10
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #13
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %119 = load i32, ptr %118, align 4, !tbaa !112
+  %119 = load i32, ptr %118, align 4, !tbaa !115
   %.not120 = icmp eq i32 %119, 0
   br i1 %.not120, label %124, label %120
 
@@ -4073,18 +4073,18 @@ make_ipv6_addr.exit:                              ; preds = %58
 124:                                              ; preds = %120, %117
   %.0106 = phi ptr [ @.str.91, %117 ], [ %spec.select, %120 ]
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %126 = load i16, ptr %125, align 2, !tbaa !114
+  %126 = load i16, ptr %125, align 2, !tbaa !117
   %rev.i138 = call noundef i16 @llvm.bswap.i16(i16 %126)
   %127 = zext i16 %rev.i138 to i32
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %129 = load i8, ptr %128, align 2, !tbaa !115
+  %129 = load i8, ptr %128, align 2, !tbaa !118
   %130 = zext i8 %129 to i32
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %132 = load i16, ptr %131, align 4, !tbaa !116
+  %132 = load i16, ptr %131, align 4, !tbaa !119
   %133 = zext i16 %132 to i32
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %136 = load i8, ptr %135, align 1, !tbaa !117
+  %136 = load i8, ptr %135, align 1, !tbaa !120
   %137 = zext i8 %136 to i64
   %138 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.97, ptr noundef nonnull %.0106, i32 noundef %127, i32 noundef %130, i32 noundef %133, ptr noundef nonnull %134, i64 noundef %137) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #13
@@ -4092,7 +4092,7 @@ make_ipv6_addr.exit:                              ; preds = %58
 
 139:                                              ; preds = %10
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %141 = load i8, ptr %140, align 2, !tbaa !118
+  %141 = load i8, ptr %140, align 2, !tbaa !121
   switch i8 %141, label %171 [
     i8 1, label %142
     i8 2, label %153
@@ -4107,7 +4107,7 @@ make_ipv6_addr.exit:                              ; preds = %58
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %148 = load i32, ptr %147, align 4, !tbaa !18
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %150 = load i8, ptr %149, align 1, !tbaa !120
+  %150 = load i8, ptr %149, align 1, !tbaa !123
   %151 = sext i8 %150 to i32
   %152 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.98, i32 noundef 1, i32 noundef %144, i32 noundef %146, i32 noundef %148, i32 noundef %151) #13
   br label %Py_DECREF.exit132
@@ -4118,7 +4118,7 @@ make_ipv6_addr.exit:                              ; preds = %58
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %157 = load i32, ptr %156, align 4, !tbaa !18
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %159 = load i8, ptr %158, align 1, !tbaa !120
+  %159 = load i8, ptr %158, align 1, !tbaa !123
   %160 = sext i8 %159 to i32
   %161 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.98, i32 noundef 2, i32 noundef %155, i32 noundef %157, i32 noundef %157, i32 noundef %160) #13
   br label %Py_DECREF.exit132
@@ -4129,7 +4129,7 @@ make_ipv6_addr.exit:                              ; preds = %58
   %165 = load i32, ptr %164, align 4, !tbaa !18
   %166 = load i32, ptr %163, align 4, !tbaa !18
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %168 = load i8, ptr %167, align 1, !tbaa !120
+  %168 = load i8, ptr %167, align 1, !tbaa !123
   %169 = sext i8 %168 to i32
   %170 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.98, i32 noundef 3, i32 noundef %165, i32 noundef %166, i32 noundef 0, i32 noundef %169) #13
   br label %Py_DECREF.exit132
@@ -4142,7 +4142,7 @@ make_ipv6_addr.exit:                              ; preds = %58
 173:                                              ; preds = %10
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #13
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %175 = load i32, ptr %174, align 4, !tbaa !121
+  %175 = load i32, ptr %174, align 4, !tbaa !124
   %.not = icmp eq i32 %175, 0
   br i1 %.not, label %180, label %176
 
@@ -4195,9 +4195,9 @@ make_ipv6_addr.exit:                              ; preds = %58
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %203 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %202, i64 noundef 64) #15
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %205 = load i32, ptr %204, align 4, !tbaa !123
+  %205 = load i32, ptr %204, align 4, !tbaa !126
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %207 = load i32, ptr %206, align 4, !tbaa !125
+  %207 = load i32, ptr %206, align 4, !tbaa !128
   %208 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.103, ptr noundef nonnull %200, i64 noundef %201, ptr noundef nonnull %202, i64 noundef %203, i32 noundef %205, i32 noundef %207) #13
   br label %Py_DECREF.exit132
 
@@ -6338,7 +6338,7 @@ define internal fastcc ptr @sock_get_api(ptr noundef readonly captures(none) %0)
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %6, %10
-  store ptr %7, ptr %2, align 8, !tbaa !126
+  store ptr %7, ptr %2, align 8, !tbaa !129
   %12 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
   %13 = load i32, ptr %12, align 8, !tbaa !18
   %14 = icmp slt i32 %13, 0
@@ -6351,7 +6351,7 @@ _Py_NewRef.exit:                                  ; preds = %6, %10
 
 _Py_NewRef.exit8:                                 ; preds = %_Py_NewRef.exit, %15
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %12, ptr %17, align 8, !tbaa !128
+  store ptr %12, ptr %17, align 8, !tbaa !131
   %18 = load ptr, ptr @PyExc_TimeoutError, align 8, !tbaa !19
   %19 = load i32, ptr %18, align 8, !tbaa !18
   %20 = icmp slt i32 %19, 0
@@ -6364,7 +6364,7 @@ _Py_NewRef.exit8:                                 ; preds = %_Py_NewRef.exit, %1
 
 _Py_NewRef.exit9:                                 ; preds = %_Py_NewRef.exit8, %21
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %18, ptr %23, align 8, !tbaa !129
+  store ptr %18, ptr %23, align 8, !tbaa !132
   br label %24
 
 24:                                               ; preds = %_Py_NewRef.exit9, %4
@@ -6376,7 +6376,7 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal void @sock_capi_destroy(ptr noundef %0) #0 {
   %2 = tail call ptr @PyCapsule_GetPointer(ptr noundef %0, ptr noundef nonnull @.str.133) #13
-  %3 = load ptr, ptr %2, align 8, !tbaa !126
+  %3 = load ptr, ptr %2, align 8, !tbaa !129
   %.not.i7.i = icmp eq ptr %3, null
   br i1 %.not.i7.i, label %Py_XDECREF.exit.i, label %4
 
@@ -6397,7 +6397,7 @@ define internal void @sock_capi_destroy(ptr noundef %0) #0 {
 
 Py_XDECREF.exit.i:                                ; preds = %9, %6, %4, %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !128
+  %11 = load ptr, ptr %10, align 8, !tbaa !131
   %12 = load i32, ptr %11, align 8, !tbaa !18
   %.not.i4.i = icmp sgt i32 %12, -1
   br i1 %.not.i4.i, label %13, label %Py_DECREF.exit5.i
@@ -6414,7 +6414,7 @@ Py_XDECREF.exit.i:                                ; preds = %9, %6, %4, %1
 
 Py_DECREF.exit5.i:                                ; preds = %16, %13, %Py_XDECREF.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !129
+  %18 = load ptr, ptr %17, align 8, !tbaa !132
   %19 = load i32, ptr %18, align 8, !tbaa !18
   %.not.i.i = icmp sgt i32 %19, -1
   br i1 %.not.i.i, label %20, label %sock_capi_free.exit
@@ -6436,7 +6436,7 @@ sock_capi_free.exit:                              ; preds = %Py_DECREF.exit5.i, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sock_capi_free(ptr noundef %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !126
+  %2 = load ptr, ptr %0, align 8, !tbaa !129
   %.not.i7 = icmp eq ptr %2, null
   br i1 %.not.i7, label %Py_XDECREF.exit, label %3
 
@@ -6457,7 +6457,7 @@ define internal fastcc void @sock_capi_free(ptr noundef %0) unnamed_addr #0 {
 
 Py_XDECREF.exit:                                  ; preds = %1, %3, %5, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !128
+  %10 = load ptr, ptr %9, align 8, !tbaa !131
   %11 = load i32, ptr %10, align 8, !tbaa !18
   %.not.i4 = icmp sgt i32 %11, -1
   br i1 %.not.i4, label %12, label %Py_DECREF.exit5
@@ -6474,7 +6474,7 @@ Py_XDECREF.exit:                                  ; preds = %1, %3, %5, %8
 
 Py_DECREF.exit5:                                  ; preds = %Py_XDECREF.exit, %12, %15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !129
+  %17 = load ptr, ptr %16, align 8, !tbaa !132
   %18 = load i32, ptr %17, align 8, !tbaa !18
   %.not.i = icmp sgt i32 %18, -1
   br i1 %.not.i, label %19, label %Py_DECREF.exit
@@ -6499,7 +6499,7 @@ declare i32 @_PyCapsule_SetTraverse(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal i32 @sock_capi_traverse(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call ptr @PyCapsule_GetPointer(ptr noundef %0, ptr noundef nonnull @.str.133) #13
-  %5 = load ptr, ptr %4, align 8, !tbaa !126
+  %5 = load ptr, ptr %4, align 8, !tbaa !129
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
@@ -6560,7 +6560,7 @@ define internal void @sock_dealloc(ptr noundef %0) #0 {
   %.val = load ptr, ptr %5, align 8, !tbaa !39
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #13
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %7 = load ptr, ptr %6, align 8, !tbaa !130
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   tail call void %7(ptr noundef %0) #13
   %8 = load i32, ptr %.val, align 8, !tbaa !18
   %.not.i = icmp sgt i32 %8, -1
@@ -6603,14 +6603,14 @@ define internal i32 @sock_traverse(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_repr(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 16
-  %.val6 = load i32, ptr %2, align 8, !tbaa !85
+  %.val6 = load i32, ptr %2, align 8, !tbaa !88
   %3 = sext i32 %.val6 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !88
+  %5 = load i32, ptr %4, align 4, !tbaa !91
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !89
+  %7 = load i32, ptr %6, align 8, !tbaa !92
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !90
+  %9 = load i32, ptr %8, align 4, !tbaa !93
   %10 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.529, i64 noundef %3, i32 noundef %5, i32 noundef %7, i32 noundef %9) #13
   ret ptr %10
 }
@@ -6627,13 +6627,13 @@ define internal range(i32 -1, 1) i32 @sock_initobj(ptr noundef %0, ptr noundef %
   %11 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #13
   %12 = getelementptr i8, ptr %1, i64 16
-  %.val = load i64, ptr %12, align 8, !tbaa !63
+  %.val = load i64, ptr %12, align 8, !tbaa !64
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %.thread
 
 .thread:                                          ; preds = %3
   %13 = getelementptr i8, ptr %2, i64 16
-  %.val66 = load i64, ptr %13, align 8, !tbaa !131
+  %.val66 = load i64, ptr %13, align 8, !tbaa !134
   %14 = add i64 %.val66, %.val
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %19
@@ -6928,30 +6928,30 @@ define internal range(i32 -1, 1) i32 @sock_initobj(ptr noundef %0, ptr noundef %
   %.359.i = phi i32 [ %.157.i, %107 ], [ %spec.store.select5.i, %132 ]
   %.252.i = phi i32 [ %.050.i, %107 ], [ %spec.store.select.i, %132 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.064.i, ptr %138, align 8, !tbaa !85
+  store i32 %.064.i, ptr %138, align 8, !tbaa !88
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.252.i, ptr %139, align 4, !tbaa !88
+  store i32 %.252.i, ptr %139, align 4, !tbaa !91
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %141 = and i32 %.359.i, -526337
-  store i32 %141, ptr %140, align 8, !tbaa !89
+  store i32 %141, ptr %140, align 8, !tbaa !92
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.363.i, ptr %142, align 4, !tbaa !90
+  store i32 %.363.i, ptr %142, align 4, !tbaa !93
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @set_error, ptr %143, align 8, !tbaa !91
+  store ptr @set_error, ptr %143, align 8, !tbaa !94
   %144 = and i32 %.359.i, 2048
   %.not.i.i = icmp eq i32 %144, 0
   br i1 %.not.i.i, label %147, label %145
 
 145:                                              ; preds = %137
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 0, ptr %146, align 8, !tbaa !92
+  store i64 0, ptr %146, align 8, !tbaa !95
   br label %init_sockobject.exit.i
 
 147:                                              ; preds = %137
   %148 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %149 = load atomic i64, ptr %148 monotonic, align 8
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %149, ptr %150, align 8, !tbaa !92
+  store i64 %149, ptr %150, align 8, !tbaa !95
   %151 = icmp sgt i64 %149, -1
   br i1 %151, label %152, label %init_sockobject.exit.i
 
@@ -6959,7 +6959,7 @@ define internal range(i32 -1, 1) i32 @sock_initobj(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %153 = call ptr @PyEval_SaveThread() #13
   store i32 1, ptr %4, align 4, !tbaa !35
-  %.val.i.i.i = load i32, ptr %138, align 8, !tbaa !85
+  %.val.i.i.i = load i32, ptr %138, align 8, !tbaa !88
   %154 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val.i.i.i, i64 noundef 21537, ptr noundef nonnull %4) #13
   %.not4.i.i.i = icmp eq i32 %154, -1
   call void @PyEval_RestoreThread(ptr noundef %153) #13
@@ -6971,7 +6971,7 @@ internal_setblocking.exit.i.i:                    ; preds = %152
 
 init_sockobject.exit.i:                           ; preds = %internal_setblocking.exit.i.i, %147, %145
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.val.i.i, ptr %155, align 8, !tbaa !93
+  store ptr %.val.i.i, ptr %155, align 8, !tbaa !96
   br label %sock_initobj_impl.exit
 
 156:                                              ; preds = %152
@@ -6995,19 +6995,19 @@ sock_initobj_impl.exit:                           ; preds = %.critedge.i, %156, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_new(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %5 = load ptr, ptr %4, align 8, !tbaa !84
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
   %6 = tail call ptr %5(ptr noundef %0, i64 noundef 0) #13
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 -1, ptr %8, align 8, !tbaa !85
+  store i32 -1, ptr %8, align 8, !tbaa !88
   %9 = tail call i64 @_PyTime_FromSeconds(i32 noundef -1) #13
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 %9, ptr %10, align 8, !tbaa !92
+  store i64 %9, ptr %10, align 8, !tbaa !95
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr @set_error, ptr %11, align 8, !tbaa !91
+  store ptr @set_error, ptr %11, align 8, !tbaa !94
   br label %12
 
 12:                                               ; preds = %7, %3
@@ -7018,7 +7018,7 @@ define internal ptr @sock_new(ptr noundef %0, ptr readnone captures(none) %1, pt
 define internal void @sock_finalize(ptr noundef %0) #0 {
   %2 = tail call ptr @PyErr_GetRaisedException() #13
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val11 = load i32, ptr %3, align 8, !tbaa !85
+  %.val11 = load i32, ptr %3, align 8, !tbaa !88
   %.not = icmp eq i32 %.val11, -1
   br i1 %.not, label %13, label %4
 
@@ -7038,8 +7038,8 @@ define internal void @sock_finalize(ptr noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %6, %9, %4
-  %.val = load i32, ptr %3, align 8, !tbaa !85
-  store i32 -1, ptr %3, align 8, !tbaa !85
+  %.val = load i32, ptr %3, align 8, !tbaa !88
+  store i32 -1, ptr %3, align 8, !tbaa !88
   %11 = tail call ptr @PyEval_SaveThread() #13
   %12 = tail call i32 @close(i32 noundef %.val) #13
   tail call void @PyEval_RestoreThread(ptr noundef %11) #13
@@ -7070,19 +7070,19 @@ define internal ptr @sock_accept(ptr noundef %0, ptr readnone captures(none) %1)
   %8 = load i32, ptr %4, align 4, !tbaa !35
   %9 = zext i32 %8 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %9, i1 false)
-  store ptr %4, ptr %5, align 8, !tbaa !135
+  store ptr %4, ptr %5, align 8, !tbaa !138
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %3, ptr %10, align 8, !tbaa !139
+  store ptr %3, ptr %10, align 8, !tbaa !142
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 -1, ptr %11, align 8, !tbaa !140
+  store i32 -1, ptr %11, align 8, !tbaa !143
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load i64, ptr %12, align 8, !tbaa !92
+  %13 = load i64, ptr %12, align 8, !tbaa !95
   %14 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @sock_accept_impl, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, i64 noundef %13)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %Py_XDECREF.exit25, label %16
 
 16:                                               ; preds = %7
-  %17 = load i32, ptr %11, align 8, !tbaa !140
+  %17 = load i32, ptr %11, align 8, !tbaa !143
   %18 = load atomic i32, ptr @accept4_works monotonic, align 4
   %.not22 = icmp eq i32 %18, 0
   br i1 %.not22, label %19, label %24
@@ -7108,11 +7108,11 @@ define internal ptr @sock_accept(ptr noundef %0, ptr readnone captures(none) %1)
 
 30:                                               ; preds = %24
   %31 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %31, align 8, !tbaa !85
+  %.val = load i32, ptr %31, align 8, !tbaa !88
   %32 = load i32, ptr %4, align 4, !tbaa !35
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %35 = load i32, ptr %34, align 4, !tbaa !90
+  %35 = load i32, ptr %34, align 4, !tbaa !93
   %36 = call fastcc ptr @makesockaddr(i32 noundef %.val, ptr noundef nonnull %3, i64 noundef %33, i32 noundef %35)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %40, label %38
@@ -7181,7 +7181,7 @@ define internal ptr @sock_bind(ptr noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %6
   %10 = call ptr @PyEval_SaveThread() #13
   %11 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %11, align 8, !tbaa !85
+  %.val = load i32, ptr %11, align 8, !tbaa !88
   %12 = load i32, ptr %4, align 4, !tbaa !35
   %13 = call i32 @bind(i32 noundef %.val, ptr nonnull %3, i32 noundef %12) #13
   call void @PyEval_RestoreThread(ptr noundef %10) #13
@@ -7190,7 +7190,7 @@ define internal ptr @sock_bind(ptr noundef %0, ptr noundef %1) #0 {
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !91
+  %17 = load ptr, ptr %16, align 8, !tbaa !94
   %18 = call ptr %17() #13
   br label %19
 
@@ -7204,12 +7204,12 @@ define internal ptr @sock_bind(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @_socket_socket_close(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load i32, ptr %3, align 8, !tbaa !85
+  %.val.i = load i32, ptr %3, align 8, !tbaa !88
   %.not.i = icmp eq i32 %.val.i, -1
   br i1 %.not.i, label %_socket_socket_close_impl.exit, label %4
 
 4:                                                ; preds = %2
-  store i32 -1, ptr %3, align 8, !tbaa !85
+  store i32 -1, ptr %3, align 8, !tbaa !88
   %5 = tail call ptr @PyEval_SaveThread() #13
   %6 = tail call i32 @close(i32 noundef %.val.i) #13
   tail call void @PyEval_RestoreThread(ptr noundef %5) #13
@@ -7224,7 +7224,7 @@ define internal ptr @_socket_socket_close(ptr noundef captures(none) %0, ptr rea
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !91
+  %13 = load ptr, ptr %12, align 8, !tbaa !94
   %14 = tail call ptr %13() #13
   br label %_socket_socket_close_impl.exit
 
@@ -7303,8 +7303,8 @@ define internal ptr @sock_connect_ex(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_detach(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %3, align 8, !tbaa !85
-  store i32 -1, ptr %3, align 8, !tbaa !85
+  %.val = load i32, ptr %3, align 8, !tbaa !88
+  store i32 -1, ptr %3, align 8, !tbaa !88
   %4 = sext i32 %.val to i64
   %5 = tail call ptr @PyLong_FromLong(i64 noundef %4) #13
   ret ptr %5
@@ -7313,7 +7313,7 @@ define internal ptr @sock_detach(ptr noundef captures(none) %0, ptr readnone cap
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_fileno(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %3, align 8, !tbaa !85
+  %.val = load i32, ptr %3, align 8, !tbaa !88
   %4 = sext i32 %.val to i64
   %5 = tail call ptr @PyLong_FromLong(i64 noundef %4) #13
   ret ptr %5
@@ -7335,7 +7335,7 @@ define internal ptr @sock_getpeername(ptr noundef readonly captures(none) %0, pt
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %8, i1 false)
   %9 = tail call ptr @PyEval_SaveThread() #13
   %10 = getelementptr i8, ptr %0, i64 16
-  %.val8 = load i32, ptr %10, align 8, !tbaa !85
+  %.val8 = load i32, ptr %10, align 8, !tbaa !88
   %11 = call i32 @getpeername(i32 noundef %.val8, ptr nonnull %3, ptr noundef nonnull %4) #13
   call void @PyEval_RestoreThread(ptr noundef %9) #13
   %12 = icmp slt i32 %11, 0
@@ -7343,16 +7343,16 @@ define internal ptr @sock_getpeername(ptr noundef readonly captures(none) %0, pt
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !91
+  %15 = load ptr, ptr %14, align 8, !tbaa !94
   %16 = call ptr %15() #13
   br label %23
 
 17:                                               ; preds = %6
-  %.val = load i32, ptr %10, align 8, !tbaa !85
+  %.val = load i32, ptr %10, align 8, !tbaa !88
   %18 = load i32, ptr %4, align 4, !tbaa !35
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !90
+  %21 = load i32, ptr %20, align 4, !tbaa !93
   %22 = call fastcc ptr @makesockaddr(i32 noundef %.val, ptr noundef nonnull %3, i64 noundef %19, i32 noundef %21)
   br label %23
 
@@ -7379,7 +7379,7 @@ define internal ptr @sock_getsockname(ptr noundef readonly captures(none) %0, pt
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %8, i1 false)
   %9 = tail call ptr @PyEval_SaveThread() #13
   %10 = getelementptr i8, ptr %0, i64 16
-  %.val8 = load i32, ptr %10, align 8, !tbaa !85
+  %.val8 = load i32, ptr %10, align 8, !tbaa !88
   %11 = call i32 @getsockname(i32 noundef %.val8, ptr nonnull %3, ptr noundef nonnull %4) #13
   call void @PyEval_RestoreThread(ptr noundef %9) #13
   %12 = icmp slt i32 %11, 0
@@ -7387,16 +7387,16 @@ define internal ptr @sock_getsockname(ptr noundef readonly captures(none) %0, pt
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !91
+  %15 = load ptr, ptr %14, align 8, !tbaa !94
   %16 = call ptr %15() #13
   br label %23
 
 17:                                               ; preds = %6
-  %.val = load i32, ptr %10, align 8, !tbaa !85
+  %.val = load i32, ptr %10, align 8, !tbaa !88
   %18 = load i32, ptr %4, align 4, !tbaa !35
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !90
+  %21 = load i32, ptr %20, align 4, !tbaa !93
   %22 = call fastcc ptr @makesockaddr(i32 noundef %.val, ptr noundef nonnull %3, i64 noundef %19, i32 noundef %21)
   br label %23
 
@@ -7432,7 +7432,7 @@ define internal ptr @sock_getsockopt(ptr noundef readonly captures(none) %0, ptr
   %12 = load i32, ptr %6, align 4, !tbaa !35
   %13 = icmp eq i32 %12, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !88
+  %15 = load i32, ptr %14, align 4, !tbaa !91
   %16 = icmp eq i32 %15, 40
   br i1 %13, label %17, label %46
 
@@ -7444,7 +7444,7 @@ define internal ptr @sock_getsockopt(ptr noundef readonly captures(none) %0, ptr
   store i64 0, ptr %9, align 8, !tbaa !47
   store i32 8, ptr %8, align 4, !tbaa !35
   %19 = getelementptr i8, ptr %0, i64 16
-  %.val16 = load i32, ptr %19, align 8, !tbaa !85
+  %.val16 = load i32, ptr %19, align 8, !tbaa !88
   %20 = load i32, ptr %3, align 4, !tbaa !35
   %21 = load i32, ptr %4, align 4, !tbaa !35
   %22 = call i32 @getsockopt(i32 noundef %.val16, i32 noundef %20, i32 noundef %21, ptr noundef nonnull %9, ptr noundef nonnull %8) #13
@@ -7453,7 +7453,7 @@ define internal ptr @sock_getsockopt(ptr noundef readonly captures(none) %0, ptr
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !91
+  %26 = load ptr, ptr %25, align 8, !tbaa !94
   %27 = call ptr %26() #13
   br label %31
 
@@ -7470,7 +7470,7 @@ define internal ptr @sock_getsockopt(ptr noundef readonly captures(none) %0, ptr
 32:                                               ; preds = %17
   store i32 4, ptr %8, align 4, !tbaa !35
   %33 = getelementptr i8, ptr %0, i64 16
-  %.val15 = load i32, ptr %33, align 8, !tbaa !85
+  %.val15 = load i32, ptr %33, align 8, !tbaa !88
   %34 = load i32, ptr %3, align 4, !tbaa !35
   %35 = load i32, ptr %4, align 4, !tbaa !35
   %36 = call i32 @getsockopt(i32 noundef %.val15, i32 noundef %34, i32 noundef %35, ptr noundef nonnull %7, ptr noundef nonnull %8) #13
@@ -7479,7 +7479,7 @@ define internal ptr @sock_getsockopt(ptr noundef readonly captures(none) %0, ptr
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !91
+  %40 = load ptr, ptr %39, align 8, !tbaa !94
   %41 = call ptr %40() #13
   br label %78
 
@@ -7515,7 +7515,7 @@ define internal ptr @sock_getsockopt(ptr noundef readonly captures(none) %0, ptr
 
 57:                                               ; preds = %53
   %58 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %58, align 8, !tbaa !85
+  %.val = load i32, ptr %58, align 8, !tbaa !88
   %59 = load i32, ptr %3, align 4, !tbaa !35
   %60 = load i32, ptr %4, align 4, !tbaa !35
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 32
@@ -7540,7 +7540,7 @@ define internal ptr @sock_getsockopt(ptr noundef readonly captures(none) %0, ptr
 
 Py_DECREF.exit:                                   ; preds = %64, %66, %69
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !91
+  %71 = load ptr, ptr %70, align 8, !tbaa !94
   %72 = call ptr %71() #13
   br label %78
 
@@ -7584,7 +7584,7 @@ define internal ptr @sock_listen(ptr noundef readonly captures(none) %0, ptr nou
 10:                                               ; preds = %9, %5
   %11 = phi i32 [ 0, %9 ], [ %7, %5 ]
   %12 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %12, align 8, !tbaa !85
+  %.val = load i32, ptr %12, align 8, !tbaa !88
   %13 = call i32 @listen(i32 noundef %.val, i32 noundef %11) #13
   call void @PyEval_RestoreThread(ptr noundef %6) #13
   %14 = icmp slt i32 %13, 0
@@ -7592,7 +7592,7 @@ define internal ptr @sock_listen(ptr noundef readonly captures(none) %0, ptr nou
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !91
+  %17 = load ptr, ptr %16, align 8, !tbaa !94
   %18 = call ptr %17() #13
   br label %19
 
@@ -7645,13 +7645,13 @@ define internal ptr @sock_recv(ptr noundef %0, ptr noundef %1) #0 {
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %21, ptr %3, align 8, !tbaa !141
+  store ptr %21, ptr %3, align 8, !tbaa !144
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %17, ptr %22, align 8, !tbaa !143
+  store i64 %17, ptr %22, align 8, !tbaa !146
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %18, ptr %23, align 8, !tbaa !144
+  store i32 %18, ptr %23, align 8, !tbaa !147
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load i64, ptr %24, align 8, !tbaa !92
+  %25 = load i64, ptr %24, align 8, !tbaa !95
   %26 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @sock_recv_impl, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i64 noundef %25)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %sock_recv_guts.exit.thread, label %sock_recv_guts.exit
@@ -7662,7 +7662,7 @@ sock_recv_guts.exit.thread:                       ; preds = %20
 
 sock_recv_guts.exit:                              ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !145
+  %29 = load i64, ptr %28, align 8, !tbaa !148
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   %30 = icmp slt i64 %29, 0
   br i1 %30, label %31, label %37
@@ -7762,13 +7762,13 @@ sock_recv_guts.exit.thread13:                     ; preds = %24
 27:                                               ; preds = %.thread16, %24
   %28 = phi i32 [ %21, %.thread16 ], [ %25, %24 ]
   %29 = phi i64 [ %13, %.thread16 ], [ %12, %24 ]
-  store ptr %10, ptr %4, align 8, !tbaa !141
+  store ptr %10, ptr %4, align 8, !tbaa !144
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %29, ptr %30, align 8, !tbaa !143
+  store i64 %29, ptr %30, align 8, !tbaa !146
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %28, ptr %31, align 8, !tbaa !144
+  store i32 %28, ptr %31, align 8, !tbaa !147
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load i64, ptr %32, align 8, !tbaa !92
+  %33 = load i64, ptr %32, align 8, !tbaa !95
   %34 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @sock_recv_impl, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, i64 noundef %33)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %sock_recv_guts.exit.thread, label %sock_recv_guts.exit
@@ -7779,7 +7779,7 @@ sock_recv_guts.exit.thread:                       ; preds = %27
 
 sock_recv_guts.exit:                              ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !145
+  %37 = load i64, ptr %36, align 8, !tbaa !148
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
   %38 = icmp slt i64 %37, 0
   br i1 %38, label %39, label %40
@@ -7846,28 +7846,28 @@ define internal ptr @sock_recvfrom(ptr noundef %0, ptr noundef %1) #0 {
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %23, ptr %5, align 8, !tbaa !146
+  store ptr %23, ptr %5, align 8, !tbaa !149
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %19, ptr %24, align 8, !tbaa !148
+  store i64 %19, ptr %24, align 8, !tbaa !151
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %20, ptr %25, align 8, !tbaa !149
+  store i32 %20, ptr %25, align 8, !tbaa !152
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %3, ptr %26, align 8, !tbaa !150
+  store ptr %3, ptr %26, align 8, !tbaa !153
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %4, ptr %27, align 8, !tbaa !151
+  store ptr %4, ptr %27, align 8, !tbaa !154
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load i64, ptr %28, align 8, !tbaa !92
+  %29 = load i64, ptr %28, align 8, !tbaa !95
   %30 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @sock_recvfrom_impl, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, i64 noundef %29)
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %sock_recvfrom_guts.exit.thread, label %32
 
 32:                                               ; preds = %22
   %33 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load i32, ptr %33, align 8, !tbaa !85
+  %.val.i = load i32, ptr %33, align 8, !tbaa !88
   %34 = load i32, ptr %4, align 4, !tbaa !35
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %37 = load i32, ptr %36, align 4, !tbaa !90
+  %37 = load i32, ptr %36, align 4, !tbaa !93
   %38 = call fastcc ptr @makesockaddr(i32 noundef %.val.i, ptr noundef nonnull %3, i64 noundef %35, i32 noundef %37)
   %39 = icmp eq ptr %38, null
   br i1 %39, label %sock_recvfrom_guts.exit.thread, label %sock_recvfrom_guts.exit
@@ -7880,7 +7880,7 @@ sock_recvfrom_guts.exit.thread:                   ; preds = %18, %22, %32
 
 sock_recvfrom_guts.exit:                          ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %41 = load i64, ptr %40, align 8, !tbaa !152
+  %41 = load i64, ptr %40, align 8, !tbaa !155
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
@@ -8017,28 +8017,28 @@ define internal ptr @sock_recvfrom_into(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %.thread, label %30
 
 30:                                               ; preds = %26
-  store ptr %12, ptr %6, align 8, !tbaa !146
+  store ptr %12, ptr %6, align 8, !tbaa !149
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %27, ptr %31, align 8, !tbaa !148
+  store i64 %27, ptr %31, align 8, !tbaa !151
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %28, ptr %32, align 8, !tbaa !149
+  store i32 %28, ptr %32, align 8, !tbaa !152
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %4, ptr %33, align 8, !tbaa !150
+  store ptr %4, ptr %33, align 8, !tbaa !153
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %5, ptr %34, align 8, !tbaa !151
+  store ptr %5, ptr %34, align 8, !tbaa !154
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load i64, ptr %35, align 8, !tbaa !92
+  %36 = load i64, ptr %35, align 8, !tbaa !95
   %37 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @sock_recvfrom_impl, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, i64 noundef %36)
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %30
   %40 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load i32, ptr %40, align 8, !tbaa !85
+  %.val.i = load i32, ptr %40, align 8, !tbaa !88
   %41 = load i32, ptr %5, align 4, !tbaa !35
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %44 = load i32, ptr %43, align 4, !tbaa !90
+  %44 = load i32, ptr %43, align 4, !tbaa !93
   %45 = call fastcc ptr @makesockaddr(i32 noundef %.val.i, ptr noundef nonnull %4, i64 noundef %42, i32 noundef %44)
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread, label %sock_recvfrom_guts.exit
@@ -8052,7 +8052,7 @@ define internal ptr @sock_recvfrom_into(ptr noundef %0, ptr noundef %1, ptr noun
 
 sock_recvfrom_guts.exit:                          ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %48 = load i64, ptr %47, align 8, !tbaa !152
+  %48 = load i64, ptr %47, align 8, !tbaa !155
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #13
@@ -8102,16 +8102,16 @@ define internal ptr @sock_send(ptr noundef %0, ptr noundef %1) #0 {
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %4, align 8, !tbaa !27
-  store ptr %8, ptr %5, align 8, !tbaa !153
+  store ptr %8, ptr %5, align 8, !tbaa !156
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %10, ptr %11, align 8, !tbaa !155
+  store i64 %10, ptr %11, align 8, !tbaa !158
   %12 = load i32, ptr %3, align 4, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %12, ptr %13, align 8, !tbaa !156
+  store i32 %12, ptr %13, align 8, !tbaa !159
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !92
+  %15 = load i64, ptr %14, align 8, !tbaa !95
   %16 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @sock_send_impl, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, i64 noundef %15)
   %17 = icmp slt i32 %16, 0
   call void @PyBuffer_Release(ptr noundef nonnull %4) #13
@@ -8119,7 +8119,7 @@ define internal ptr @sock_send(ptr noundef %0, ptr noundef %1) #0 {
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !157
+  %20 = load i64, ptr %19, align 8, !tbaa !160
   %21 = call ptr @PyLong_FromSsize_t(i64 noundef %20) #13
   br label %22
 
@@ -8141,7 +8141,7 @@ define internal noundef ptr @sock_sendall(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i64, ptr %6, align 8, !tbaa !92
+  %7 = load i64, ptr %6, align 8, !tbaa !95
   %8 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.619, ptr noundef nonnull %4, ptr noundef nonnull %3) #13
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %47, label %9
@@ -8176,16 +8176,16 @@ define internal noundef ptr @sock_sendall(ptr noundef %0, ptr noundef %1) #0 {
 21:                                               ; preds = %.thread, %18
   %.222.us41 = phi i64 [ %17, %.thread ], [ %.020.us, %18 ]
   %.225.us40 = phi i64 [ %.023.us, %.thread ], [ %19, %18 ]
-  store ptr %.027.us, ptr %5, align 8, !tbaa !153
-  store i64 %.028.us, ptr %14, align 8, !tbaa !155
+  store ptr %.027.us, ptr %5, align 8, !tbaa !156
+  store i64 %.028.us, ptr %14, align 8, !tbaa !158
   %22 = load i32, ptr %3, align 4, !tbaa !35
-  store i32 %22, ptr %15, align 8, !tbaa !156
+  store i32 %22, ptr %15, align 8, !tbaa !159
   %23 = call fastcc i32 @sock_call_ex(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @sock_send_impl, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, i64 noundef %.225.us40)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %_Py_NewRef.exit, label %25
 
 25:                                               ; preds = %21
-  %26 = load i64, ptr %16, align 8, !tbaa !157
+  %26 = load i64, ptr %16, align 8, !tbaa !160
   %27 = call i32 @PyErr_CheckSignals() #13
   %.not31.us = icmp eq i32 %27, 0
   br i1 %.not31.us, label %28, label %_Py_NewRef.exit
@@ -8194,15 +8194,15 @@ define internal noundef ptr @sock_sendall(ptr noundef %0, ptr noundef %1) #0 {
   %29 = sub i64 %.028.us, %26
   %30 = getelementptr i8, ptr %.027.us, i64 %26
   %31 = icmp sgt i64 %29, 0
-  br i1 %31, label %.split.us, label %.split35.us, !llvm.loop !158
+  br i1 %31, label %.split.us, label %.split35.us, !llvm.loop !161
 
 .split:                                           ; preds = %9, %39
   %.028 = phi i64 [ %40, %39 ], [ %13, %9 ]
   %.027 = phi ptr [ %41, %39 ], [ %11, %9 ]
-  store ptr %.027, ptr %5, align 8, !tbaa !153
-  store i64 %.028, ptr %14, align 8, !tbaa !155
+  store ptr %.027, ptr %5, align 8, !tbaa !156
+  store i64 %.028, ptr %14, align 8, !tbaa !158
   %32 = load i32, ptr %3, align 4, !tbaa !35
-  store i32 %32, ptr %15, align 8, !tbaa !156
+  store i32 %32, ptr %15, align 8, !tbaa !159
   %33 = call fastcc i32 @sock_call_ex(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @sock_send_impl, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, i64 noundef %7)
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %_Py_NewRef.exit, label %36
@@ -8213,7 +8213,7 @@ define internal noundef ptr @sock_sendall(ptr noundef %0, ptr noundef %1) #0 {
   br label %_Py_NewRef.exit
 
 36:                                               ; preds = %.split
-  %37 = load i64, ptr %16, align 8, !tbaa !157
+  %37 = load i64, ptr %16, align 8, !tbaa !160
   %38 = call i32 @PyErr_CheckSignals() #13
   %.not31 = icmp eq i32 %38, 0
   br i1 %.not31, label %39, label %_Py_NewRef.exit
@@ -8222,7 +8222,7 @@ define internal noundef ptr @sock_sendall(ptr noundef %0, ptr noundef %1) #0 {
   %40 = sub i64 %.028, %37
   %41 = getelementptr i8, ptr %.027, i64 %37
   %42 = icmp sgt i64 %40, 0
-  br i1 %42, label %.split, label %.split35.us, !llvm.loop !159
+  br i1 %42, label %.split, label %.split35.us, !llvm.loop !162
 
 .split35.us:                                      ; preds = %39, %28
   call void @PyBuffer_Release(ptr noundef nonnull %4) #13
@@ -8302,21 +8302,21 @@ define internal ptr @sock_sendto(ptr noundef %0, ptr noundef %1) #0 {
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %3, align 8, !tbaa !27
-  store ptr %26, ptr %8, align 8, !tbaa !160
+  store ptr %26, ptr %8, align 8, !tbaa !163
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !31
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %28, ptr %29, align 8, !tbaa !162
+  store i64 %28, ptr %29, align 8, !tbaa !165
   %30 = load i32, ptr %7, align 4, !tbaa !35
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %30, ptr %31, align 8, !tbaa !163
+  store i32 %30, ptr %31, align 8, !tbaa !166
   %32 = load i32, ptr %6, align 4, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %32, ptr %33, align 4, !tbaa !164
+  store i32 %32, ptr %33, align 4, !tbaa !167
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %5, ptr %34, align 8, !tbaa !165
+  store ptr %5, ptr %34, align 8, !tbaa !168
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load i64, ptr %35, align 8, !tbaa !92
+  %36 = load i64, ptr %35, align 8, !tbaa !95
   %37 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @sock_sendto_impl, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null, i64 noundef %36)
   %38 = icmp slt i32 %37, 0
   call void @PyBuffer_Release(ptr noundef nonnull %3) #13
@@ -8324,7 +8324,7 @@ define internal ptr @sock_sendto(ptr noundef %0, ptr noundef %1) #0 {
 
 39:                                               ; preds = %25
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %41 = load i64, ptr %40, align 8, !tbaa !166
+  %41 = load i64, ptr %40, align 8, !tbaa !169
   %42 = call ptr @PyLong_FromSsize_t(i64 noundef %41) #13
   br label %43
 
@@ -8351,14 +8351,14 @@ define internal noundef ptr @sock_setblocking(ptr noundef captures(none) %0, ptr
   %7 = sext i1 %.not to i32
   %8 = tail call i64 @_PyTime_FromSeconds(i32 noundef %7) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %8, ptr %9, align 8, !tbaa !92
+  store i64 %8, ptr %9, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %10 = tail call ptr @PyEval_SaveThread() #13
   %.not.i = icmp eq i32 %4, 0
   %11 = zext i1 %.not.i to i32
   store i32 %11, ptr %3, align 4, !tbaa !35
   %12 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load i32, ptr %12, align 8, !tbaa !85
+  %.val.i = load i32, ptr %12, align 8, !tbaa !88
   %13 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val.i, i64 noundef 21537, ptr noundef nonnull %3) #13
   %.not4.i = icmp eq i32 %13, -1
   call void @PyEval_RestoreThread(ptr noundef %10) #13
@@ -8382,7 +8382,7 @@ internal_setblocking.exit:                        ; preds = %6, %14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @sock_getblocking(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !92
+  %4 = load i64, ptr %3, align 8, !tbaa !95
   %.not = icmp eq i64 %4, 0
   %_Py_FalseStruct._Py_TrueStruct = select i1 %.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   ret ptr %_Py_FalseStruct._Py_TrueStruct
@@ -8419,14 +8419,14 @@ define internal noundef ptr @sock_settimeout(ptr noundef captures(none) %0, ptr 
 socket_parse_timeout.exit:                        ; preds = %11, %6
   %16 = phi i64 [ %12, %11 ], [ %7, %6 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %16, ptr %17, align 8, !tbaa !92
+  store i64 %16, ptr %17, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %18 = call ptr @PyEval_SaveThread() #13
   %.not.i = icmp sgt i64 %16, -1
   %19 = zext i1 %.not.i to i32
   store i32 %19, ptr %3, align 4, !tbaa !35
   %20 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load i32, ptr %20, align 8, !tbaa !85
+  %.val.i = load i32, ptr %20, align 8, !tbaa !88
   %21 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val.i, i64 noundef 21537, ptr noundef nonnull %3) #13
   %.not4.i = icmp eq i32 %21, -1
   call void @PyEval_RestoreThread(ptr noundef %18) #13
@@ -8451,7 +8451,7 @@ socket_parse_timeout.exit.thread:                 ; preds = %8, %14, %internal_s
 ; Function Attrs: inlinehint nounwind uwtable
 define internal ptr @sock_gettimeout_method(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = getelementptr i8, ptr %0, i64 40
-  %.val = load i64, ptr %3, align 8, !tbaa !92
+  %.val = load i64, ptr %3, align 8, !tbaa !95
   %4 = icmp slt i64 %.val, 0
   br i1 %4, label %sock_gettimeout_impl.exit, label %5
 
@@ -8481,7 +8481,7 @@ define internal ptr @sock_setsockopt(ptr noundef readonly captures(none) %0, ptr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !88
+  %11 = load i32, ptr %10, align 4, !tbaa !91
   %12 = icmp eq i32 %11, 40
   br i1 %12, label %13, label %20
 
@@ -8493,7 +8493,7 @@ define internal ptr @sock_setsockopt(ptr noundef readonly captures(none) %0, ptr
 
 15:                                               ; preds = %13
   %16 = getelementptr i8, ptr %0, i64 16
-  %.val21 = load i32, ptr %16, align 8, !tbaa !85
+  %.val21 = load i32, ptr %16, align 8, !tbaa !88
   %17 = load i32, ptr %3, align 4, !tbaa !35
   %18 = load i32, ptr %4, align 4, !tbaa !35
   %19 = call i32 @setsockopt(i32 noundef %.val21, i32 noundef %17, i32 noundef %18, ptr noundef nonnull %9, i32 noundef 8) #13
@@ -8507,7 +8507,7 @@ define internal ptr @sock_setsockopt(ptr noundef readonly captures(none) %0, ptr
 
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %0, i64 16
-  %.val20 = load i32, ptr %23, align 8, !tbaa !85
+  %.val20 = load i32, ptr %23, align 8, !tbaa !88
   %24 = load i32, ptr %3, align 4, !tbaa !35
   %25 = load i32, ptr %4, align 4, !tbaa !35
   %26 = call i32 @setsockopt(i32 noundef %.val20, i32 noundef %24, i32 noundef %25, ptr noundef nonnull %6, i32 noundef 4) #13
@@ -8522,7 +8522,7 @@ define internal ptr @sock_setsockopt(ptr noundef readonly captures(none) %0, ptr
 
 29:                                               ; preds = %27
   %30 = getelementptr i8, ptr %0, i64 16
-  %.val19 = load i32, ptr %30, align 8, !tbaa !85
+  %.val19 = load i32, ptr %30, align 8, !tbaa !88
   %31 = load i32, ptr %3, align 4, !tbaa !35
   %32 = load i32, ptr %4, align 4, !tbaa !35
   %33 = load i32, ptr %7, align 4, !tbaa !35
@@ -8537,7 +8537,7 @@ define internal ptr @sock_setsockopt(ptr noundef readonly captures(none) %0, ptr
 
 37:                                               ; preds = %35
   %38 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %38, align 8, !tbaa !85
+  %.val = load i32, ptr %38, align 8, !tbaa !88
   %39 = load i32, ptr %3, align 4, !tbaa !35
   %40 = load i32, ptr %4, align 4, !tbaa !35
   %41 = load ptr, ptr %5, align 8, !tbaa !27
@@ -8555,7 +8555,7 @@ define internal ptr @sock_setsockopt(ptr noundef readonly captures(none) %0, ptr
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !91
+  %50 = load ptr, ptr %49, align 8, !tbaa !94
   %51 = call ptr %50() #13
   br label %52
 
@@ -8588,7 +8588,7 @@ define internal ptr @sock_shutdown(ptr noundef readonly captures(none) %0, ptr n
 7:                                                ; preds = %5, %2
   %8 = tail call ptr @PyEval_SaveThread() #13
   %9 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %9, align 8, !tbaa !85
+  %.val = load i32, ptr %9, align 8, !tbaa !88
   %10 = tail call i32 @shutdown(i32 noundef %.val, i32 noundef %3) #13
   tail call void @PyEval_RestoreThread(ptr noundef %8) #13
   %11 = icmp slt i32 %10, 0
@@ -8596,7 +8596,7 @@ define internal ptr @sock_shutdown(ptr noundef readonly captures(none) %0, ptr n
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !91
+  %14 = load ptr, ptr %13, align 8, !tbaa !94
   %15 = tail call ptr %14() #13
   br label %16
 
@@ -8641,10 +8641,10 @@ define internal ptr @sock_recvmsg(ptr noundef %0, ptr noundef %1) #0 {
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr %18, ptr %6, align 8, !tbaa !167
+  store ptr %18, ptr %6, align 8, !tbaa !170
   %19 = load i64, ptr %3, align 8, !tbaa !47
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %19, ptr %20, align 8, !tbaa !169
+  store i64 %19, ptr %20, align 8, !tbaa !172
   %21 = load i32, ptr %5, align 4, !tbaa !35
   %22 = load i64, ptr %4, align 8, !tbaa !47
   %23 = call fastcc ptr @sock_recvmsg_guts(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 1, i32 noundef %21, i64 noundef %22, ptr noundef nonnull @makeval_recvmsg, ptr noundef nonnull %7)
@@ -8700,7 +8700,7 @@ define internal ptr @sock_recvmsg_into(ptr noundef %0, ptr noundef %1) #0 {
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %9, i64 8
   %.in61 = getelementptr i8, ptr %9, i64 16
-  %13 = load i64, ptr %.in61, align 8, !tbaa !63
+  %13 = load i64, ptr %.in61, align 8, !tbaa !64
   %14 = icmp sgt i64 %13, 2147483647
   br i1 %14, label %15, label %17
 
@@ -8743,7 +8743,7 @@ define internal ptr @sock_recvmsg_into(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not54, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = load ptr, ptr %29, align 8, !tbaa !170
+  %34 = load ptr, ptr %29, align 8, !tbaa !173
   %35 = getelementptr ptr, ptr %34, i64 %.14463
   br label %38
 
@@ -8762,14 +8762,14 @@ define internal ptr @sock_recvmsg_into(ptr noundef %0, ptr noundef %1) #0 {
 42:                                               ; preds = %38
   %43 = load ptr, ptr %40, align 8, !tbaa !27
   %44 = getelementptr %struct.iovec, ptr %21, i64 %.14463
-  store ptr %43, ptr %44, align 8, !tbaa !167
+  store ptr %43, ptr %44, align 8, !tbaa !170
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i64 %46, ptr %47, align 8, !tbaa !169
+  store i64 %46, ptr %47, align 8, !tbaa !172
   %48 = add nuw nsw i64 %.14463, 1
   %exitcond.not = icmp eq i64 %48, %13
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !173
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !176
 
 ._crit_edge:                                      ; preds = %42, %17
   %.176 = phi ptr [ null, %17 ], [ %25, %42 ]
@@ -8795,7 +8795,7 @@ define internal ptr @sock_recvmsg_into(ptr noundef %0, ptr noundef %1) #0 {
   call void @PyBuffer_Release(ptr noundef %53) #13
   %54 = add nuw nsw i64 %.04764, 1
   %exitcond70.not = icmp eq i64 %54, %.043
-  br i1 %exitcond70.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !174
+  br i1 %exitcond70.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !177
 
 ._crit_edge67:                                    ; preds = %.lr.ph66, %27, %15, %.loopexit
   %.084 = phi ptr [ %.0, %.loopexit ], [ null, %15 ], [ null, %27 ], [ %.0, %.lr.ph66 ]
@@ -8840,7 +8840,7 @@ define internal ptr @sock_sendmsg(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   store i64 0, ptr %3, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store ptr null, ptr %4, align 8, !tbaa !175
+  store ptr null, ptr %4, align 8, !tbaa !178
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #13
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
@@ -8876,10 +8876,10 @@ define internal ptr @sock_sendmsg(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %23, label %179, label %24
 
 24:                                               ; preds = %20
-  store ptr %5, ptr %6, align 8, !tbaa !176
+  store ptr %5, ptr %6, align 8, !tbaa !179
   %25 = load i32, ptr %7, align 4, !tbaa !35
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %25, ptr %26, align 8, !tbaa !179
+  store i32 %25, ptr %26, align 8, !tbaa !182
   br label %30
 
 27:                                               ; preds = %14
@@ -8905,7 +8905,7 @@ define internal ptr @sock_sendmsg(ptr noundef %0, ptr noundef %1) #0 {
 
 40:                                               ; preds = %37
   %.0103.in = getelementptr i8, ptr %38, i64 16
-  %.0103 = load i64, ptr %.0103.in, align 8, !tbaa !63
+  %.0103 = load i64, ptr %.0103.in, align 8, !tbaa !64
   %41 = icmp sgt i64 %.0103, 0
   br i1 %41, label %42, label %.thread
 
@@ -8947,7 +8947,7 @@ define internal ptr @sock_sendmsg(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not120, label %58, label %55
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr %50, align 8, !tbaa !170
+  %56 = load ptr, ptr %50, align 8, !tbaa !173
   %57 = getelementptr ptr, ptr %56, i64 %.1101
   br label %60
 
@@ -8968,7 +8968,7 @@ define internal ptr @sock_sendmsg(ptr noundef %0, ptr noundef %1) #0 {
 66:                                               ; preds = %60
   %67 = add nuw i64 %.1101, 1
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %69 = load i64, ptr %68, align 8, !tbaa !180
+  %69 = load i64, ptr %68, align 8, !tbaa !183
   %70 = icmp ugt i64 %69, 2147483623
   br i1 %70, label %76, label %71
 
@@ -8987,7 +8987,7 @@ define internal ptr @sock_sendmsg(ptr noundef %0, ptr noundef %1) #0 {
 get_CMSG_SPACE.exit:                              ; preds = %71
   %78 = add nuw nsw i64 %74, %.094
   %79 = icmp samesign ugt i64 %78, 2147483647
-  br i1 %79, label %80, label %51
+  br i1 %79, label %80, label %51, !llvm.loop !185
 
 80:                                               ; preds = %get_CMSG_SPACE.exit
   %81 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
@@ -9009,9 +9009,9 @@ get_CMSG_SPACE.exit:                              ; preds = %71
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %84, ptr %89, align 8, !tbaa !182
+  store ptr %84, ptr %89, align 8, !tbaa !186
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 %.094, ptr %90, align 8, !tbaa !183
+  store i64 %.094, ptr %90, align 8, !tbaa !187
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %84, i8 0, i64 %.094, i1 false)
   br label %91
 
@@ -9021,12 +9021,12 @@ get_CMSG_SPACE.exit:                              ; preds = %71
   %92 = getelementptr %struct.cmsginfo, ptr %.199, i64 %.084197
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %95 = load i64, ptr %94, align 8, !tbaa !180
+  %95 = load i64, ptr %94, align 8, !tbaa !183
   %96 = icmp eq i64 %.084197, 0
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %91
-  %98 = load i64, ptr %90, align 8, !tbaa !183
+  %98 = load i64, ptr %90, align 8, !tbaa !187
   %99 = icmp ugt i64 %98, 15
   %100 = load ptr, ptr %89, align 8
   br i1 %99, label %__cmsg_nxthdr.exit, label %__cmsg_nxthdr.exit.thread.thread219
@@ -9041,8 +9041,8 @@ get_CMSG_SPACE.exit:                              ; preds = %71
   %106 = and i64 %105, -8
   %107 = getelementptr i8, ptr %.083198, i64 %106
   %108 = getelementptr i8, ptr %107, i64 16
-  %109 = load ptr, ptr %89, align 8, !tbaa !182
-  %110 = load i64, ptr %90, align 8, !tbaa !183
+  %109 = load ptr, ptr %89, align 8, !tbaa !186
+  %110 = load i64, ptr %90, align 8, !tbaa !187
   %111 = getelementptr i8, ptr %109, i64 %110
   %112 = icmp ugt ptr %108, %111
   br i1 %112, label %__cmsg_nxthdr.exit.thread.thread219, label %113
@@ -9099,7 +9099,7 @@ cmsg_min_space.exit:                              ; preds = %130
 
 139:                                              ; preds = %cmsg_min_space.exit
   store i64 %131, ptr %121, align 8, !tbaa !47
-  %.val130 = load i64, ptr %90, align 8, !tbaa !183
+  %.val130 = load i64, ptr %90, align 8, !tbaa !187
   %140 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %141 = ptrtoint ptr %140 to i64
   %142 = sub i64 %141, %134
@@ -9115,34 +9115,34 @@ cmsg_min_space.exit:                              ; preds = %130
   br label %.thread156
 
 146:                                              ; preds = %139
-  %147 = load i32, ptr %92, align 8, !tbaa !184
+  %147 = load i32, ptr %92, align 8, !tbaa !188
   %148 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i32 %147, ptr %148, align 8, !tbaa !35
   %149 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %150 = load i32, ptr %149, align 4, !tbaa !185
+  %150 = load i32, ptr %149, align 4, !tbaa !189
   %151 = getelementptr inbounds nuw i8, ptr %121, i64 12
   store i32 %150, ptr %151, align 4, !tbaa !35
-  %152 = load ptr, ptr %93, align 8, !tbaa !186
+  %152 = load ptr, ptr %93, align 8, !tbaa !190
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %140, ptr align 1 %152, i64 %95, i1 false)
   %153 = add nuw nsw i64 %.084197, 1
   %exitcond215.not = icmp eq i64 %.0103149, %153
-  br i1 %exitcond215.not, label %.loopexit, label %91, !llvm.loop !187
+  br i1 %exitcond215.not, label %.loopexit, label %91, !llvm.loop !191
 
 .loopexit:                                        ; preds = %146, %82
   %.197 = phi ptr [ null, %82 ], [ %84, %146 ]
-  store ptr %6, ptr %12, align 8, !tbaa !188
+  store ptr %6, ptr %12, align 8, !tbaa !192
   %154 = load i32, ptr %8, align 4, !tbaa !35
   %155 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %154, ptr %155, align 8, !tbaa !191
+  store i32 %154, ptr %155, align 8, !tbaa !195
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %157 = load i64, ptr %156, align 8, !tbaa !92
+  %157 = load i64, ptr %156, align 8, !tbaa !95
   %158 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @sock_sendmsg_impl, ptr noundef nonnull %12, i32 noundef 0, ptr noundef null, i64 noundef %157)
   %159 = icmp slt i32 %158, 0
   br i1 %159, label %.thread156, label %160
 
 160:                                              ; preds = %.loopexit
   %161 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %162 = load i64, ptr %161, align 8, !tbaa !192
+  %162 = load i64, ptr %161, align 8, !tbaa !196
   %163 = call ptr @PyLong_FromSsize_t(i64 noundef %162) #13
   br label %.thread156
 
@@ -9165,7 +9165,7 @@ cmsg_min_space.exit:                              ; preds = %130
   call void @PyBuffer_Release(ptr noundef %165) #13
   %166 = add nuw nsw i64 %.185199, 1
   %exitcond216.not = icmp eq i64 %166, %.0100
-  br i1 %exitcond216.not, label %._crit_edge, label %.lr.ph, !llvm.loop !193
+  br i1 %exitcond216.not, label %._crit_edge, label %.lr.ph, !llvm.loop !197
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread156.thread, %.thread156
   %.089228 = phi ptr [ null, %.thread156.thread ], [ %.089, %.thread156 ], [ %.089, %.lr.ph ]
@@ -9192,11 +9192,11 @@ cmsg_min_space.exit:                              ; preds = %130
 
 Py_XDECREF.exit:                                  ; preds = %._crit_edge, %167, %169, %172
   %173 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %174 = load ptr, ptr %173, align 8, !tbaa !194
+  %174 = load ptr, ptr %173, align 8, !tbaa !198
   call void @PyMem_Free(ptr noundef %174) #13
   %175 = load i64, ptr %3, align 8, !tbaa !47
   %176 = icmp sgt i64 %175, 0
-  %.pre = load ptr, ptr %4, align 8, !tbaa !175
+  %.pre = load ptr, ptr %4, align 8, !tbaa !178
   br i1 %176, label %.lr.ph201, label %._crit_edge202
 
 .lr.ph201:                                        ; preds = %Py_XDECREF.exit, %.lr.ph201
@@ -9205,7 +9205,7 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge, %167, 
   call void @PyBuffer_Release(ptr noundef %177) #13
   %178 = add nuw nsw i64 %.2200, 1
   %exitcond217.not = icmp eq i64 %178, %175
-  br i1 %exitcond217.not, label %._crit_edge202, label %.lr.ph201, !llvm.loop !195
+  br i1 %exitcond217.not, label %._crit_edge202, label %.lr.ph201, !llvm.loop !199
 
 ._crit_edge202:                                   ; preds = %.lr.ph201, %Py_XDECREF.exit
   call void @PyMem_Free(ptr noundef %.pre) #13
@@ -9240,7 +9240,7 @@ define internal ptr @sock_sendmsg_afalg(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   store i64 0, ptr %4, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  store ptr null, ptr %5, align 8, !tbaa !175
+  store ptr null, ptr %5, align 8, !tbaa !178
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   store ptr null, ptr %6, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #13
@@ -9254,7 +9254,7 @@ define internal ptr @sock_sendmsg_afalg(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !88
+  %14 = load i32, ptr %13, align 4, !tbaa !91
   %.not = icmp eq i32 %14, 38
   br i1 %.not, label %17, label %15
 
@@ -9332,9 +9332,9 @@ define internal ptr @sock_sendmsg_afalg(ptr noundef %0, ptr noundef %1, ptr noun
 48:                                               ; preds = %35
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %44, i8 0, i64 %.1, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i64 %.1, ptr %49, align 8, !tbaa !183
+  store i64 %.1, ptr %49, align 8, !tbaa !187
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %44, ptr %50, align 8, !tbaa !182
+  store ptr %44, ptr %50, align 8, !tbaa !186
   %51 = load ptr, ptr %6, align 8, !tbaa !19
   %.not68 = icmp eq ptr %51, null
   br i1 %.not68, label %55, label %52
@@ -9345,7 +9345,7 @@ define internal ptr @sock_sendmsg_afalg(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %54, label %120, label %._crit_edge81
 
 ._crit_edge81:                                    ; preds = %52
-  %.pre = load i64, ptr %49, align 8, !tbaa !183
+  %.pre = load i64, ptr %49, align 8, !tbaa !187
   %.pre82 = load ptr, ptr %50, align 8
   br label %55
 
@@ -9406,7 +9406,7 @@ __cmsg_nxthdr.exit.thread:                        ; preds = %73, %68
   store i64 %86, ptr %69, align 8, !tbaa !47
   %87 = load i64, ptr %37, align 8, !tbaa !31
   %88 = trunc i64 %87 to i32
-  store i32 %88, ptr %70, align 4, !tbaa !196
+  store i32 %88, ptr %70, align 4, !tbaa !200
   %89 = getelementptr i8, ptr %56, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %89, ptr nonnull align 1 %67, i64 %87, i1 false)
   br i1 %42, label %90, label %109
@@ -9452,19 +9452,19 @@ __cmsg_nxthdr.exit73.thread:                      ; preds = %99, %.thread87, %90
   br label %109
 
 109:                                              ; preds = %.thread84, %106, %80
-  store ptr %11, ptr %12, align 8, !tbaa !188
+  store ptr %11, ptr %12, align 8, !tbaa !192
   %110 = load i32, ptr %10, align 4, !tbaa !35
   %111 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %110, ptr %111, align 8, !tbaa !191
+  store i32 %110, ptr %111, align 8, !tbaa !195
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %113 = load i64, ptr %112, align 8, !tbaa !92
+  %113 = load i64, ptr %112, align 8, !tbaa !95
   %114 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @sock_sendmsg_impl, ptr noundef nonnull %12, i32 noundef 0, ptr noundef null, i64 noundef %113)
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %120, label %116
 
 116:                                              ; preds = %109
   %117 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %118 = load i64, ptr %117, align 8, !tbaa !192
+  %118 = load i64, ptr %117, align 8, !tbaa !196
   %119 = call ptr @PyLong_FromSsize_t(i64 noundef %118) #13
   br label %120
 
@@ -9482,11 +9482,11 @@ __cmsg_nxthdr.exit73.thread:                      ; preds = %99, %.thread87, %90
 
 123:                                              ; preds = %122, %120
   %124 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !194
+  %125 = load ptr, ptr %124, align 8, !tbaa !198
   call void @PyMem_Free(ptr noundef %125) #13
   %126 = load i64, ptr %4, align 8, !tbaa !47
   %127 = icmp sgt i64 %126, 0
-  %.pre83 = load ptr, ptr %5, align 8, !tbaa !175
+  %.pre83 = load ptr, ptr %5, align 8, !tbaa !178
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %123, %.lr.ph
@@ -9495,7 +9495,7 @@ __cmsg_nxthdr.exit73.thread:                      ; preds = %99, %.thread87, %90
   call void @PyBuffer_Release(ptr noundef %128) #13
   %129 = add nuw nsw i64 %.05180, 1
   %exitcond.not = icmp eq i64 %129, %126
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !198
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !202
 
 ._crit_edge:                                      ; preds = %.lr.ph, %123
   call void @PyMem_Free(ptr noundef %.pre83) #13
@@ -9518,7 +9518,7 @@ __cmsg_nxthdr.exit73.thread:                      ; preds = %99, %.thread87, %90
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @getsockaddrlen(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !88
+  %4 = load i32, ptr %3, align 4, !tbaa !91
   switch i32 %4, label %24 [
     i32 1, label %5
     i32 16, label %6
@@ -9560,7 +9560,7 @@ define internal fastcc range(i32 0, 2) i32 @getsockaddrlen(ptr noundef readonly 
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !90
+  %13 = load i32, ptr %12, align 4, !tbaa !93
   switch i32 %13, label %18 [
     i32 0, label %14
     i32 3, label %15
@@ -9618,10 +9618,10 @@ define internal fastcc range(i32 0, 2) i32 @getsockaddrlen(ptr noundef readonly 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sock_accept_impl(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !139
-  %5 = load ptr, ptr %1, align 8, !tbaa !135
+  %4 = load ptr, ptr %3, align 8, !tbaa !142
+  %5 = load ptr, ptr %1, align 8, !tbaa !138
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !88
+  %7 = load i32, ptr %6, align 4, !tbaa !91
   %8 = icmp eq i32 %7, 38
   br i1 %8, label %9, label %10
 
@@ -9638,10 +9638,10 @@ define internal range(i32 0, 2) i32 @sock_accept_impl(ptr noundef readonly captu
 
 12:                                               ; preds = %10
   %13 = getelementptr i8, ptr %0, i64 16
-  %.val17 = load i32, ptr %13, align 8, !tbaa !85
+  %.val17 = load i32, ptr %13, align 8, !tbaa !88
   %14 = tail call i32 @accept4(i32 noundef %.val17, ptr %.0, ptr noundef %.016, i32 noundef 524288) #13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %14, ptr %15, align 8, !tbaa !140
+  store i32 %14, ptr %15, align 8, !tbaa !143
   %16 = icmp eq i32 %14, -1
   br i1 %16, label %17, label %25
 
@@ -9665,15 +9665,15 @@ define internal range(i32 0, 2) i32 @sock_accept_impl(ptr noundef readonly captu
 
 ._crit_edge:                                      ; preds = %25
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !140
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !143
   br label %32
 
 28:                                               ; preds = %25
   %29 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %29, align 8, !tbaa !85
+  %.val = load i32, ptr %29, align 8, !tbaa !88
   %30 = tail call i32 @accept(i32 noundef %.val, ptr %.0, ptr noundef %.016) #13
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %30, ptr %31, align 8, !tbaa !140
+  store i32 %30, ptr %31, align 8, !tbaa !143
   br label %32
 
 32:                                               ; preds = %._crit_edge, %28
@@ -9708,14 +9708,14 @@ define internal fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 no
   br i1 %10, label %29, label %18
 
 18:                                               ; preds = %.split91.us
-  %.val64.us = load i32, ptr %12, align 8, !tbaa !85
+  %.val64.us = load i32, ptr %12, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
   %19 = icmp eq i32 %.val64.us, -1
   br i1 %19, label %internal_select.exit71.us, label %20
 
 20:                                               ; preds = %18
-  store i32 %.val64.us, ptr %8, align 4, !tbaa !199
-  store i16 %spec.select.i67, ptr %14, align 4, !tbaa !201
+  store i32 %.val64.us, ptr %8, align 4, !tbaa !203
+  store i16 %spec.select.i67, ptr %14, align 4, !tbaa !205
   %21 = call i64 @_PyTime_AsMilliseconds(i64 noundef %6, i32 noundef 1) #13
   %22 = call i64 @llvm.smax.i64(i64 %21, i64 -1)
   %spec.store.select1.i68.us = call i64 @llvm.smin.i64(i64 %22, i64 2147483647)
@@ -9752,14 +9752,14 @@ internal_select.exit71.us:                        ; preds = %27, %20, %18
 34:                                               ; preds = %.thread.us, %30
   %.04175.us = phi i64 [ %6, %.thread.us ], [ %31, %30 ]
   %.24774.us = phi i64 [ %33, %.thread.us ], [ %.045.us, %30 ]
-  %.val.us = load i32, ptr %12, align 8, !tbaa !85
+  %.val.us = load i32, ptr %12, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
   %35 = icmp eq i32 %.val.us, -1
   br i1 %35, label %internal_select.exit.us, label %36
 
 36:                                               ; preds = %34
-  store i32 %.val.us, ptr %9, align 4, !tbaa !199
-  store i16 %spec.select.i67, ptr %16, align 4, !tbaa !201
+  store i32 %.val.us, ptr %9, align 4, !tbaa !203
+  store i16 %spec.select.i67, ptr %16, align 4, !tbaa !205
   %37 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.04175.us, i32 noundef 1) #13
   %38 = call i64 @llvm.smax.i64(i64 %37, i64 -1)
   %spec.store.select1.i.us = call i64 @llvm.smin.i64(i64 %38, i64 2147483647)
@@ -9828,18 +9828,18 @@ internal_select.exit.us:                          ; preds = %43, %36, %34
 60:                                               ; preds = %56
   %61 = call i32 @PyErr_CheckSignals() #13
   %.not58.us95 = icmp eq i32 %61, 0
-  br i1 %.not58.us95, label %.split.us96, label %.split89.us
+  br i1 %.not58.us95, label %.split.us96, label %.split89.us, !llvm.loop !206
 
 .split86.us93:                                    ; preds = %56, %67
   %.us-phi.us = phi i32 [ %69, %67 ], [ %58, %56 ]
-  %62 = load i64, ptr %17, align 8, !tbaa !92
+  %62 = load i64, ptr %17, align 8, !tbaa !95
   %63 = icmp sgt i64 %62, 0
   %64 = icmp eq i32 %.us-phi.us, 11
   %or.cond63.us = and i1 %64, %63
   br i1 %or.cond63.us, label %.split91.us.backedge, label %.split105.us
 
 .split91.us.backedge:                             ; preds = %.split86.us93, %51
-  br label %.split91.us, !llvm.loop !202
+  br label %.split91.us, !llvm.loop !207
 
 .split.us.us:                                     ; preds = %53, %71
   %65 = call ptr @PyEval_SaveThread() #13
@@ -9857,7 +9857,7 @@ internal_select.exit.us:                          ; preds = %43, %36, %34
 71:                                               ; preds = %67
   %72 = call i32 @PyErr_CheckSignals() #13
   %.not58.us.us = icmp eq i32 %72, 0
-  br i1 %.not58.us.us, label %.split.us.us, label %.critedge, !llvm.loop !203
+  br i1 %.not58.us.us, label %.split.us.us, label %.critedge, !llvm.loop !208
 
 .split91:                                         ; preds = %7
   br i1 %.not61, label %.split.us.us112, label %.split
@@ -9881,10 +9881,10 @@ internal_select.exit.us:                          ; preds = %43, %36, %34
   br i1 %.not58.us.us114, label %.split.us.us112.backedge, label %.critedge
 
 .split.us.us112.backedge:                         ; preds = %79, %.split86.us.us115
-  br label %.split.us.us112, !llvm.loop !204
+  br label %.split.us.us112, !llvm.loop !209
 
 .split86.us.us115:                                ; preds = %75
-  %81 = load i64, ptr %17, align 8, !tbaa !92
+  %81 = load i64, ptr %17, align 8, !tbaa !95
   %82 = icmp sgt i64 %81, 0
   %83 = icmp eq i32 %77, 11
   %or.cond63.us111 = and i1 %83, %82
@@ -9899,7 +9899,7 @@ internal_select.exit.us:                          ; preds = %43, %36, %34
 
 .split98.us:                                      ; preds = %._crit_edge
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !91
+  %86 = load ptr, ptr %85, align 8, !tbaa !94
   %87 = call ptr %86() #13
   br label %.critedge
 
@@ -9942,14 +9942,14 @@ internal_select.exit.us:                          ; preds = %43, %36, %34
   br i1 %.not58, label %.split.backedge, label %.split89.us
 
 .split.backedge:                                  ; preds = %97, %.split86
-  br label %.split
+  br label %.split, !llvm.loop !210
 
 .split89.us:                                      ; preds = %97, %60
   store i32 -1, ptr %5, align 4, !tbaa !35
   br label %.critedge
 
 .split86:                                         ; preds = %93
-  %99 = load i64, ptr %17, align 8, !tbaa !92
+  %99 = load i64, ptr %17, align 8, !tbaa !95
   %100 = icmp sgt i64 %99, 0
   %101 = icmp eq i32 %95, 11
   %or.cond63 = and i1 %101, %100
@@ -9960,7 +9960,7 @@ internal_select.exit.us:                          ; preds = %43, %36, %34
 
 .critedge121:                                     ; preds = %.split86.us.us115, %.split105.us
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %103 = load ptr, ptr %102, align 8, !tbaa !91
+  %103 = load ptr, ptr %102, align 8, !tbaa !94
   %104 = call ptr %103() #13
   br label %.critedge
 
@@ -10025,7 +10025,7 @@ define internal fastcc range(i32 0, 2) i32 @getsockaddrarg(ptr noundef readonly 
   %43 = alloca ptr, align 8
   %44 = alloca ptr, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %46 = load i32, ptr %45, align 4, !tbaa !88
+  %46 = load i32, ptr %45, align 4, !tbaa !91
   switch i32 %46, label %574 [
     i32 1, label %47
     i32 16, label %93
@@ -10124,9 +10124,9 @@ Py_INCREF.exit:                                   ; preds = %57, %54, %51
   %83 = trunc nuw nsw i64 %67 to i32
   %84 = add nuw nsw i32 %.sink320, %83
   store i32 %84, ptr %3, align 4, !tbaa !35
-  %85 = load i32, ptr %45, align 4, !tbaa !88
+  %85 = load i32, ptr %45, align 4, !tbaa !91
   %86 = trunc i32 %85 to i16
-  store i16 %86, ptr %2, align 2, !tbaa !205
+  store i16 %86, ptr %2, align 2, !tbaa !211
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %87, ptr align 1 %.pre318.pre, i64 %67, i1 false)
   br label %88
@@ -10178,13 +10178,13 @@ Py_DECREF.exit255:                                ; preds = %Py_DECREF.exit255.s
   br i1 %.not233, label %109, label %104
 
 104:                                              ; preds = %102
-  store i16 16, ptr %2, align 4, !tbaa !207
+  store i16 16, ptr %2, align 4, !tbaa !213
   %105 = load i32, ptr %7, align 4, !tbaa !35
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %105, ptr %106, align 4, !tbaa !95
+  store i32 %105, ptr %106, align 4, !tbaa !98
   %107 = load i32, ptr %8, align 4, !tbaa !35
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %107, ptr %108, align 4, !tbaa !97
+  store i32 %107, ptr %108, align 4, !tbaa !100
   store i32 12, ptr %3, align 4, !tbaa !35
   br label %109
 
@@ -10218,13 +10218,13 @@ Py_DECREF.exit255:                                ; preds = %Py_DECREF.exit255.s
   br i1 %.not231, label %126, label %121
 
 121:                                              ; preds = %119
-  store i16 42, ptr %2, align 4, !tbaa !208
+  store i16 42, ptr %2, align 4, !tbaa !214
   %122 = load i32, ptr %9, align 4, !tbaa !35
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %122, ptr %123, align 4, !tbaa !98
+  store i32 %122, ptr %123, align 4, !tbaa !101
   %124 = load i32, ptr %10, align 4, !tbaa !35
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %124, ptr %125, align 4, !tbaa !100
+  store i32 %124, ptr %125, align 4, !tbaa !103
   store i32 12, ptr %3, align 4, !tbaa !35
   br label %126
 
@@ -10259,15 +10259,15 @@ Py_DECREF.exit255:                                ; preds = %Py_DECREF.exit255.s
   br i1 %.not229, label %145, label %138
 
 138:                                              ; preds = %136
-  %139 = load i32, ptr %45, align 4, !tbaa !88
+  %139 = load i32, ptr %45, align 4, !tbaa !91
   %140 = trunc i32 %139 to i16
-  store i16 %140, ptr %2, align 4, !tbaa !209
+  store i16 %140, ptr %2, align 4, !tbaa !215
   %141 = load i32, ptr %11, align 4, !tbaa !35
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %141, ptr %142, align 4, !tbaa !103
+  store i32 %141, ptr %142, align 4, !tbaa !106
   %143 = load i32, ptr %12, align 4, !tbaa !35
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %143, ptr %144, align 4, !tbaa !101
+  store i32 %143, ptr %144, align 4, !tbaa !104
   store i32 16, ptr %3, align 4, !tbaa !35
   br label %145
 
@@ -10314,9 +10314,9 @@ Py_DECREF.exit255:                                ; preds = %Py_DECREF.exit255.s
 
 163:                                              ; preds = %155
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %165 = load ptr, ptr %164, align 8, !tbaa !93
+  %165 = load ptr, ptr %164, align 8, !tbaa !96
   %166 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %167 = load ptr, ptr %166, align 8, !tbaa !210
+  %167 = load ptr, ptr %166, align 8, !tbaa !216
   %168 = call fastcc i32 @setipaddr(ptr noundef %165, ptr noundef %167, ptr noundef %2, i64 noundef 16, i32 noundef 2)
   %169 = load ptr, ptr %13, align 8, !tbaa !19
   %.not.i303 = icmp eq ptr %169, null
@@ -10353,11 +10353,11 @@ idna_cleanup.exit:                                ; preds = %163, %170, %172, %1
   br label %185
 
 182:                                              ; preds = %177
-  store i16 2, ptr %2, align 4, !tbaa !72
+  store i16 2, ptr %2, align 4, !tbaa !73
   %183 = trunc nuw i32 %178 to i16
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %183)
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i, ptr %184, align 2, !tbaa !94
+  store i16 %rev.i, ptr %184, align 2, !tbaa !97
   store i32 16, ptr %3, align 4, !tbaa !35
   br label %185
 
@@ -10408,9 +10408,9 @@ idna_cleanup.exit:                                ; preds = %163, %170, %172, %1
 
 203:                                              ; preds = %195
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %205 = load ptr, ptr %204, align 8, !tbaa !93
+  %205 = load ptr, ptr %204, align 8, !tbaa !96
   %206 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %207 = load ptr, ptr %206, align 8, !tbaa !210
+  %207 = load ptr, ptr %206, align 8, !tbaa !216
   %208 = call fastcc i32 @setipaddr(ptr noundef %205, ptr noundef %207, ptr noundef %2, i64 noundef 28, i32 noundef 10)
   %209 = load ptr, ptr %15, align 8, !tbaa !19
   %.not.i304 = icmp eq ptr %209, null
@@ -10457,19 +10457,19 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
   br label %237
 
 228:                                              ; preds = %222
-  %229 = load i32, ptr %45, align 4, !tbaa !88
+  %229 = load i32, ptr %45, align 4, !tbaa !91
   %230 = trunc i32 %229 to i16
-  store i16 %230, ptr %2, align 4, !tbaa !76
+  store i16 %230, ptr %2, align 4, !tbaa !77
   %231 = trunc nuw i32 %218 to i16
   %rev.i307 = call noundef i16 @llvm.bswap.i16(i16 %231)
   %232 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i307, ptr %232, align 2, !tbaa !104
+  store i16 %rev.i307, ptr %232, align 2, !tbaa !107
   %233 = call noundef i32 @llvm.bswap.i32(i32 %223)
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %233, ptr %234, align 4, !tbaa !64
+  store i32 %233, ptr %234, align 4, !tbaa !65
   %235 = load i32, ptr %18, align 4, !tbaa !35
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %235, ptr %236, align 4, !tbaa !67
+  store i32 %235, ptr %236, align 4, !tbaa !68
   store i32 28, ptr %3, align 4, !tbaa !35
   br label %237
 
@@ -10483,7 +10483,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 
 238:                                              ; preds = %5
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %240 = load i32, ptr %239, align 4, !tbaa !90
+  %240 = load i32, ptr %239, align 4, !tbaa !93
   switch i32 %240, label %288 [
     i32 0, label %241
     i32 3, label %255
@@ -10495,7 +10495,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #13
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %242, i8 0, i64 12, i1 false)
-  store i16 31, ptr %2, align 2, !tbaa !212
+  store i16 31, ptr %2, align 2, !tbaa !218
   %243 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %244 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.576, ptr noundef nonnull %19, ptr noundef nonnull %243) #13
   %.not221 = icmp eq i32 %244, 0
@@ -10524,7 +10524,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 
 255:                                              ; preds = %238
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #13
-  store i16 31, ptr %2, align 2, !tbaa !213
+  store i16 31, ptr %2, align 2, !tbaa !219
   %256 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %257 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.576, ptr noundef nonnull %20, ptr noundef nonnull %256) #13
   %.not220 = icmp eq i32 %257, 0
@@ -10552,7 +10552,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
   br label %577
 
 268:                                              ; preds = %238
-  store i16 31, ptr %2, align 2, !tbaa !214
+  store i16 31, ptr %2, align 2, !tbaa !220
   %269 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %270 = tail call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.95, ptr noundef nonnull %269) #13
   %.not219 = icmp eq i32 %270, 0
@@ -10568,7 +10568,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
   br label %577
 
 275:                                              ; preds = %238
-  store i16 31, ptr %2, align 2, !tbaa !215
+  store i16 31, ptr %2, align 2, !tbaa !221
   %276 = getelementptr i8, ptr %1, i64 8
   %.val277 = load ptr, ptr %276, align 8, !tbaa !39
   %277 = getelementptr i8, ptr %.val277, i64 168
@@ -10645,14 +10645,14 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
   %311 = getelementptr inbounds nuw i8, ptr %21, i64 15
   store i8 0, ptr %311, align 1, !tbaa !18
   %312 = getelementptr i8, ptr %0, i64 16
-  %.val268 = load i32, ptr %312, align 8, !tbaa !85
+  %.val268 = load i32, ptr %312, align 8, !tbaa !88
   %313 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val268, i64 noundef 35123, ptr noundef nonnull %21) #13
   %314 = icmp slt i32 %313, 0
   br i1 %314, label %315, label %319
 
 315:                                              ; preds = %308
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %317 = load ptr, ptr %316, align 8, !tbaa !91
+  %317 = load ptr, ptr %316, align 8, !tbaa !94
   %318 = call ptr %317() #13
   call void @PyBuffer_Release(ptr noundef nonnull %26) #13
   br label %349
@@ -10684,23 +10684,23 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
   br label %349
 
 332:                                              ; preds = %327
-  store i16 17, ptr %2, align 4, !tbaa !217
+  store i16 17, ptr %2, align 4, !tbaa !223
   %333 = trunc nuw i32 %328 to i16
   %rev.i308 = call noundef i16 @llvm.bswap.i16(i16 %333)
   %334 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i308, ptr %334, align 2, !tbaa !114
+  store i16 %rev.i308, ptr %334, align 2, !tbaa !117
   %335 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %336 = load i32, ptr %335, align 8, !tbaa !18
   %337 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %336, ptr %337, align 4, !tbaa !112
+  store i32 %336, ptr %337, align 4, !tbaa !115
   %338 = load i32, ptr %25, align 4, !tbaa !35
   %339 = trunc i32 %338 to i8
   %340 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %339, ptr %340, align 2, !tbaa !115
+  store i8 %339, ptr %340, align 2, !tbaa !118
   %341 = load i32, ptr %24, align 4, !tbaa !35
   %342 = trunc i32 %341 to i16
   %343 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i16 %342, ptr %343, align 4, !tbaa !116
+  store i16 %342, ptr %343, align 4, !tbaa !119
   %.not217 = icmp eq ptr %320, null
   br i1 %.not217, label %347, label %344
 
@@ -10713,7 +10713,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 347:                                              ; preds = %332, %344
   %.sink = phi i8 [ %346, %344 ], [ 0, %332 ]
   %348 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  store i8 %.sink, ptr %348, align 1, !tbaa !117
+  store i8 %.sink, ptr %348, align 1, !tbaa !120
   store i32 20, ptr %3, align 4, !tbaa !35
   call void @PyBuffer_Release(ptr noundef nonnull %26) #13
   br label %349
@@ -10758,15 +10758,15 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 361:                                              ; preds = %359
   %362 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %362, i8 0, i64 12, i1 false)
-  store i16 30, ptr %2, align 4, !tbaa !218
+  store i16 30, ptr %2, align 4, !tbaa !224
   %363 = load i32, ptr %31, align 4, !tbaa !35
   %364 = trunc i32 %363 to i8
   %365 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 %364, ptr %365, align 1, !tbaa !120
+  store i8 %364, ptr %365, align 1, !tbaa !123
   %366 = load i32, ptr %27, align 4, !tbaa !35
   %367 = trunc i32 %366 to i8
   %368 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %367, ptr %368, align 2, !tbaa !118
+  store i8 %367, ptr %368, align 2, !tbaa !121
   switch i32 %366, label %386 [
     i32 1, label %369
     i32 2, label %376
@@ -10823,7 +10823,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 
 390:                                              ; preds = %5
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %392 = load i32, ptr %391, align 4, !tbaa !90
+  %392 = load i32, ptr %391, align 4, !tbaa !93
   switch i32 %392, label %540 [
     i32 1, label %393
     i32 2, label %393
@@ -10857,7 +10857,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 404:                                              ; preds = %402
   %405 = load ptr, ptr %32, align 8, !tbaa !19
   %406 = getelementptr i8, ptr %405, i64 16
-  %.val300 = load i64, ptr %406, align 8, !tbaa !63
+  %.val300 = load i64, ptr %406, align 8, !tbaa !64
   %407 = icmp eq i64 %.val300, 0
   br i1 %407, label %408, label %410
 
@@ -10876,7 +10876,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
   %415 = getelementptr inbounds nuw i8, ptr %33, i64 15
   store i8 0, ptr %415, align 1, !tbaa !18
   %416 = getelementptr i8, ptr %0, i64 16
-  %.val267 = load i32, ptr %416, align 8, !tbaa !85
+  %.val267 = load i32, ptr %416, align 8, !tbaa !88
   %417 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val267, i64 noundef 35123, ptr noundef nonnull %33) #13
   %418 = icmp slt i32 %417, 0
   br i1 %418, label %419, label %._crit_edge314
@@ -10889,7 +10889,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 
 419:                                              ; preds = %412
   %420 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %421 = load ptr, ptr %420, align 8, !tbaa !91
+  %421 = load ptr, ptr %420, align 8, !tbaa !94
   %422 = call ptr %421() #13
   %423 = load ptr, ptr %32, align 8, !tbaa !19
   %424 = load i32, ptr %423, align 8, !tbaa !18
@@ -10927,9 +10927,9 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 437:                                              ; preds = %._crit_edge314, %408
   %438 = phi ptr [ %.pre317, %._crit_edge314 ], [ %405, %408 ]
   %439 = phi i32 [ %.pre316, %._crit_edge314 ], [ 0, %408 ]
-  store i16 29, ptr %2, align 8, !tbaa !219
+  store i16 29, ptr %2, align 8, !tbaa !225
   %440 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %439, ptr %440, align 4, !tbaa !121
+  store i32 %439, ptr %440, align 4, !tbaa !124
   store i32 24, ptr %3, align 4, !tbaa !35
   %441 = load i32, ptr %438, align 8, !tbaa !18
   %.not.i246 = icmp sgt i32 %441, -1
@@ -10963,7 +10963,7 @@ Py_DECREF.exit251:                                ; preds = %445, %442, %437, %4
 448:                                              ; preds = %446
   %449 = load ptr, ptr %34, align 8, !tbaa !19
   %450 = getelementptr i8, ptr %449, i64 16
-  %.val301 = load i64, ptr %450, align 8, !tbaa !63
+  %.val301 = load i64, ptr %450, align 8, !tbaa !64
   %451 = icmp eq i64 %.val301, 0
   br i1 %451, label %452, label %454
 
@@ -10982,7 +10982,7 @@ Py_DECREF.exit251:                                ; preds = %445, %442, %437, %4
   %459 = getelementptr inbounds nuw i8, ptr %35, i64 15
   store i8 0, ptr %459, align 1, !tbaa !18
   %460 = getelementptr i8, ptr %0, i64 16
-  %.val266 = load i32, ptr %460, align 8, !tbaa !85
+  %.val266 = load i32, ptr %460, align 8, !tbaa !88
   %461 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val266, i64 noundef 35123, ptr noundef nonnull %35) #13
   %462 = icmp slt i32 %461, 0
   br i1 %462, label %463, label %._crit_edge310
@@ -10995,7 +10995,7 @@ Py_DECREF.exit251:                                ; preds = %445, %442, %437, %4
 
 463:                                              ; preds = %456
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %465 = load ptr, ptr %464, align 8, !tbaa !91
+  %465 = load ptr, ptr %464, align 8, !tbaa !94
   %466 = call ptr %465() #13
   %467 = load ptr, ptr %34, align 8, !tbaa !19
   %468 = load i32, ptr %467, align 8, !tbaa !18
@@ -11025,9 +11025,9 @@ Py_DECREF.exit251:                                ; preds = %445, %442, %437, %4
 479:                                              ; preds = %._crit_edge310, %452
   %480 = phi ptr [ %.pre313, %._crit_edge310 ], [ %449, %452 ]
   %481 = phi i32 [ %.pre312, %._crit_edge310 ], [ 0, %452 ]
-  store i16 29, ptr %2, align 8, !tbaa !219
+  store i16 29, ptr %2, align 8, !tbaa !225
   %482 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %481, ptr %482, align 4, !tbaa !121
+  store i32 %481, ptr %482, align 4, !tbaa !124
   %483 = load i64, ptr %36, align 8, !tbaa !47
   %484 = trunc i64 %483 to i32
   %485 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11074,7 +11074,7 @@ Py_DECREF.exit245:                                ; preds = %Py_DECREF.exit245.s
 495:                                              ; preds = %493
   %496 = load ptr, ptr %38, align 8, !tbaa !19
   %497 = getelementptr i8, ptr %496, i64 16
-  %.val302 = load i64, ptr %497, align 8, !tbaa !63
+  %.val302 = load i64, ptr %497, align 8, !tbaa !64
   %498 = icmp eq i64 %.val302, 0
   br i1 %498, label %499, label %501
 
@@ -11093,7 +11093,7 @@ Py_DECREF.exit245:                                ; preds = %Py_DECREF.exit245.s
   %506 = getelementptr inbounds nuw i8, ptr %39, i64 15
   store i8 0, ptr %506, align 1, !tbaa !18
   %507 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %507, align 8, !tbaa !85
+  %.val = load i32, ptr %507, align 8, !tbaa !88
   %508 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val, i64 noundef 35123, ptr noundef nonnull %39) #13
   %509 = icmp slt i32 %508, 0
   br i1 %509, label %510, label %._crit_edge
@@ -11106,7 +11106,7 @@ Py_DECREF.exit245:                                ; preds = %Py_DECREF.exit245.s
 
 510:                                              ; preds = %503
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %512 = load ptr, ptr %511, align 8, !tbaa !91
+  %512 = load ptr, ptr %511, align 8, !tbaa !94
   %513 = call ptr %512() #13
   %514 = load ptr, ptr %38, align 8, !tbaa !19
   %515 = load i32, ptr %514, align 8, !tbaa !18
@@ -11136,10 +11136,10 @@ Py_DECREF.exit245:                                ; preds = %Py_DECREF.exit245.s
 526:                                              ; preds = %._crit_edge, %499
   %527 = phi ptr [ %.pre309, %._crit_edge ], [ %496, %499 ]
   %528 = phi i32 [ %.pre, %._crit_edge ], [ 0, %499 ]
-  store i16 29, ptr %2, align 8, !tbaa !219
+  store i16 29, ptr %2, align 8, !tbaa !225
   %529 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %528, ptr %529, align 4, !tbaa !121
-  %530 = load i64, ptr %40, align 8, !tbaa !220
+  store i32 %528, ptr %529, align 4, !tbaa !124
+  %530 = load i64, ptr %40, align 8, !tbaa !226
   %531 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %530, ptr %531, align 8, !tbaa !18
   %532 = load i32, ptr %41, align 4, !tbaa !35
@@ -11183,7 +11183,7 @@ Py_DECREF.exit239:                                ; preds = %Py_DECREF.exit239.s
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %2, i8 0, i64 88, i1 false)
-  store i16 38, ptr %2, align 4, !tbaa !222
+  store i16 38, ptr %2, align 4, !tbaa !228
   %544 = getelementptr i8, ptr %1, i64 8
   %.val270 = load ptr, ptr %544, align 8, !tbaa !39
   %545 = getelementptr i8, ptr %.val270, i64 168
@@ -11286,7 +11286,7 @@ define internal range(i32 0, 131073) i32 @idna_converter(ptr noundef %0, ptr nou
   br label %idna_cleanup.exit
 
 12:                                               ; preds = %2
-  store ptr null, ptr %1, align 8, !tbaa !223
+  store ptr null, ptr %1, align 8, !tbaa !229
   %13 = getelementptr i8, ptr %0, i64 8
   %.val42 = load ptr, ptr %13, align 8, !tbaa !39
   %14 = getelementptr i8, ptr %.val42, i64 168
@@ -11298,7 +11298,7 @@ define internal range(i32 0, 131073) i32 @idna_converter(ptr noundef %0, ptr nou
 16:                                               ; preds = %12
   %17 = tail call ptr @PyBytes_AsString(ptr noundef nonnull %0) #13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %17, ptr %18, align 8, !tbaa !210
+  store ptr %17, ptr %18, align 8, !tbaa !216
   %19 = tail call i64 @PyBytes_Size(ptr noundef nonnull %0) #13
   br label %46
 
@@ -11314,7 +11314,7 @@ PyObject_TypeCheck.exit:                          ; preds = %20
 PyObject_TypeCheck.exit.thread:                   ; preds = %20, %PyObject_TypeCheck.exit
   %22 = tail call ptr @PyByteArray_AsString(ptr noundef nonnull %0) #13
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %22, ptr %23, align 8, !tbaa !210
+  store ptr %22, ptr %23, align 8, !tbaa !216
   %24 = tail call i64 @PyByteArray_Size(ptr noundef nonnull %0) #13
   br label %46
 
@@ -11336,9 +11336,9 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %20, %PyObject_TypeC
 _PyUnicode_DATA.exit:                             ; preds = %28
   %.0.i.i = getelementptr i8, ptr %0, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %.0.i.i, ptr %31, align 8, !tbaa !210
+  store ptr %.0.i.i, ptr %31, align 8, !tbaa !216
   %32 = getelementptr i8, ptr %0, i64 16
-  %.val48 = load i64, ptr %32, align 8, !tbaa !224
+  %.val48 = load i64, ptr %32, align 8, !tbaa !230
   br label %46
 
 33:                                               ; preds = %28
@@ -11352,12 +11352,12 @@ _PyUnicode_DATA.exit:                             ; preds = %28
   br label %idna_cleanup.exit
 
 37:                                               ; preds = %33
-  store ptr %34, ptr %1, align 8, !tbaa !223
+  store ptr %34, ptr %1, align 8, !tbaa !229
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %38, ptr %39, align 8, !tbaa !210
+  store ptr %38, ptr %39, align 8, !tbaa !216
   %40 = getelementptr i8, ptr %34, i64 16
-  %.val45 = load i64, ptr %40, align 8, !tbaa !63
+  %.val45 = load i64, ptr %40, align 8, !tbaa !64
   br label %46
 
 41:                                               ; preds = %25
@@ -11370,7 +11370,7 @@ _PyUnicode_DATA.exit:                             ; preds = %28
 46:                                               ; preds = %PyObject_TypeCheck.exit.thread, %_PyUnicode_DATA.exit, %37, %16
   %.031 = phi i64 [ %19, %16 ], [ %24, %PyObject_TypeCheck.exit.thread ], [ %.val48, %_PyUnicode_DATA.exit ], [ %.val45, %37 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !210
+  %48 = load ptr, ptr %47, align 8, !tbaa !216
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #15
   %.not39 = icmp eq i64 %49, %.031
   br i1 %.not39, label %idna_cleanup.exit, label %50
@@ -11500,7 +11500,7 @@ define internal fastcc i32 @internal_connect(ptr noundef %0, ptr noundef nonnull
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   %6 = tail call ptr @PyEval_SaveThread() #13
   %7 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %7, align 8, !tbaa !85
+  %.val = load i32, ptr %7, align 8, !tbaa !88
   %8 = tail call i32 @connect(i32 noundef %.val, ptr nonnull %1, i32 noundef %2) #13
   tail call void @PyEval_RestoreThread(ptr noundef %6) #13
   %.not = icmp eq i32 %8, 0
@@ -11520,13 +11520,13 @@ define internal fastcc i32 @internal_connect(ptr noundef %0, ptr noundef nonnull
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load i64, ptr %16, align 8, !tbaa !92
+  %17 = load i64, ptr %16, align 8, !tbaa !95
   %.not21 = icmp eq i64 %17, 0
   br i1 %.not21, label %23, label %28
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i64, ptr %19, align 8, !tbaa !92
+  %20 = load i64, ptr %19, align 8, !tbaa !95
   %21 = icmp sgt i64 %20, 0
   %22 = icmp eq i32 %11, 115
   %or.cond = and i1 %22, %21
@@ -11539,7 +11539,7 @@ define internal fastcc i32 @internal_connect(ptr noundef %0, ptr noundef nonnull
 24:                                               ; preds = %23
   store i32 %11, ptr %10, align 4, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !91
+  %26 = load ptr, ptr %25, align 8, !tbaa !94
   %27 = tail call ptr %26() #13
   br label %39
 
@@ -11581,7 +11581,7 @@ define internal range(i32 0, 2) i32 @sock_connect_impl(ptr noundef readonly capt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 4, ptr %4, align 4, !tbaa !35
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %5, align 8, !tbaa !85
+  %.val = load i32, ptr %5, align 8, !tbaa !88
   %6 = call i32 @getsockopt(i32 noundef %.val, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %11
@@ -11622,15 +11622,15 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sock_recv_impl(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((24, 32)) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %3, align 8, !tbaa !85
-  %4 = load ptr, ptr %1, align 8, !tbaa !141
+  %.val = load i32, ptr %3, align 8, !tbaa !88
+  %4 = load ptr, ptr %1, align 8, !tbaa !144
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !143
+  %6 = load i64, ptr %5, align 8, !tbaa !146
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !144
+  %8 = load i32, ptr %7, align 8, !tbaa !147
   %9 = tail call i64 @recv(i32 noundef %.val, ptr noundef %4, i64 noundef %6, i32 noundef %8) #13
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %9, ptr %10, align 8, !tbaa !145
+  store i64 %9, ptr %10, align 8, !tbaa !148
   %11 = icmp sgt i64 %9, -1
   %12 = zext i1 %11 to i32
   ret i32 %12
@@ -11643,24 +11643,24 @@ declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sock_recvfrom_impl(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((40, 48)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !150
+  %4 = load ptr, ptr %3, align 8, !tbaa !153
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !151
+  %6 = load ptr, ptr %5, align 8, !tbaa !154
   %7 = load i32, ptr %6, align 4, !tbaa !35
   %8 = zext i32 %7 to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %8, i1 false)
   %9 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %9, align 8, !tbaa !85
-  %10 = load ptr, ptr %1, align 8, !tbaa !146
+  %.val = load i32, ptr %9, align 8, !tbaa !88
+  %10 = load ptr, ptr %1, align 8, !tbaa !149
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !148
+  %12 = load i64, ptr %11, align 8, !tbaa !151
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !149
-  %15 = load ptr, ptr %3, align 8, !tbaa !150
-  %16 = load ptr, ptr %5, align 8, !tbaa !151
+  %14 = load i32, ptr %13, align 8, !tbaa !152
+  %15 = load ptr, ptr %3, align 8, !tbaa !153
+  %16 = load ptr, ptr %5, align 8, !tbaa !154
   %17 = tail call i64 @recvfrom(i32 noundef %.val, ptr noundef %10, i64 noundef %12, i32 noundef %14, ptr %15, ptr noundef %16) #13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %17, ptr %18, align 8, !tbaa !152
+  store i64 %17, ptr %18, align 8, !tbaa !155
   %19 = icmp sgt i64 %17, -1
   %20 = zext i1 %19 to i32
   ret i32 %20
@@ -11671,15 +11671,15 @@ declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, p
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sock_send_impl(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((24, 32)) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %3, align 8, !tbaa !85
-  %4 = load ptr, ptr %1, align 8, !tbaa !153
+  %.val = load i32, ptr %3, align 8, !tbaa !88
+  %4 = load ptr, ptr %1, align 8, !tbaa !156
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !155
+  %6 = load i64, ptr %5, align 8, !tbaa !158
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !156
+  %8 = load i32, ptr %7, align 8, !tbaa !159
   %9 = tail call i64 @send(i32 noundef %.val, ptr noundef %4, i64 noundef %6, i32 noundef %8) #13
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %9, ptr %10, align 8, !tbaa !157
+  store i64 %9, ptr %10, align 8, !tbaa !160
   %11 = icmp sgt i64 %9, -1
   %12 = zext i1 %11 to i32
   ret i32 %12
@@ -11692,19 +11692,19 @@ declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sock_sendto_impl(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((32, 40)) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %3, align 8, !tbaa !85
-  %4 = load ptr, ptr %1, align 8, !tbaa !160
+  %.val = load i32, ptr %3, align 8, !tbaa !88
+  %4 = load ptr, ptr %1, align 8, !tbaa !163
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !162
+  %6 = load i64, ptr %5, align 8, !tbaa !165
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !163
+  %8 = load i32, ptr %7, align 8, !tbaa !166
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !165
+  %10 = load ptr, ptr %9, align 8, !tbaa !168
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !164
+  %12 = load i32, ptr %11, align 4, !tbaa !167
   %13 = tail call i64 @sendto(i32 noundef %.val, ptr noundef %4, i64 noundef %6, i32 noundef %8, ptr %10, i32 noundef %12) #13
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %13, ptr %14, align 8, !tbaa !166
+  store i64 %13, ptr %14, align 8, !tbaa !169
   %15 = icmp sgt i64 %13, -1
   %16 = zext i1 %15 to i32
   ret i32 %16
@@ -11764,23 +11764,23 @@ define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %0, ptr noundef %1, i3
 
 25:                                               ; preds = %20, %19
   %.054 = phi ptr [ %21, %20 ], [ null, %19 ]
-  store ptr %8, ptr %10, align 8, !tbaa !176
+  store ptr %8, ptr %10, align 8, !tbaa !179
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %15, ptr %26, align 8, !tbaa !179
+  store i32 %15, ptr %26, align 8, !tbaa !182
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %1, ptr %27, align 8, !tbaa !194
+  store ptr %1, ptr %27, align 8, !tbaa !198
   %28 = sext i32 %2 to i64
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %28, ptr %29, align 8, !tbaa !227
+  store i64 %28, ptr %29, align 8, !tbaa !233
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %.054, ptr %30, align 8, !tbaa !182
+  store ptr %.054, ptr %30, align 8, !tbaa !186
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 %4, ptr %31, align 8, !tbaa !183
-  store ptr %10, ptr %11, align 8, !tbaa !228
+  store i64 %4, ptr %31, align 8, !tbaa !187
+  store ptr %10, ptr %11, align 8, !tbaa !234
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %3, ptr %32, align 8, !tbaa !230
+  store i32 %3, ptr %32, align 8, !tbaa !236
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load i64, ptr %33, align 8, !tbaa !92
+  %34 = load i64, ptr %33, align 8, !tbaa !95
   %35 = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @sock_recvmsg_impl, ptr noundef nonnull %11, i32 noundef 0, ptr noundef null, i64 noundef %34)
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %Py_XDECREF.exit, label %37
@@ -11791,7 +11791,7 @@ define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %0, ptr noundef %1, i3
   br i1 %39, label %.thread109, label %40
 
 40:                                               ; preds = %37
-  %41 = load i64, ptr %31, align 8, !tbaa !183
+  %41 = load i64, ptr %31, align 8, !tbaa !187
   %42 = icmp ult i64 %41, 16
   %43 = load ptr, ptr %30, align 8
   %.not65130146159 = icmp eq ptr %43, null
@@ -11803,7 +11803,7 @@ define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %0, ptr noundef %1, i3
   br label %cmsg_min_space.exit.i
 
 .lr.phthread-pre-split:                           ; preds = %98
-  %.val72.pr = load ptr, ptr %30, align 8, !tbaa !182
+  %.val72.pr = load ptr, ptr %30, align 8, !tbaa !186
   %.val73 = load i64, ptr %31, align 8
   %44 = icmp eq ptr %.val72.pr, null
   br i1 %44, label %get_cmsg_data_len.exit.thread, label %cmsg_min_space.exit.i
@@ -11905,8 +11905,8 @@ Py_DECREF.exit:                                   ; preds = %78, %81, %84
   %91 = and i64 %90, -8
   %92 = getelementptr i8, ptr %.052132163, i64 %91
   %93 = getelementptr i8, ptr %92, i64 16
-  %94 = load ptr, ptr %30, align 8, !tbaa !182
-  %95 = load i64, ptr %31, align 8, !tbaa !183
+  %94 = load ptr, ptr %30, align 8, !tbaa !186
+  %95 = load i64, ptr %31, align 8, !tbaa !187
   %96 = getelementptr i8, ptr %94, i64 %95
   %97 = icmp ugt ptr %93, %96
   br i1 %97, label %.thread112.loopexit, label %98
@@ -11917,7 +11917,7 @@ Py_DECREF.exit:                                   ; preds = %78, %81, %84
   %101 = and i64 %100, -8
   %102 = getelementptr i8, ptr %92, i64 %101
   %103 = icmp ugt ptr %102, %96
-  br i1 %103, label %.thread112.loopexit, label %.lr.phthread-pre-split, !llvm.loop !231
+  br i1 %103, label %.thread112.loopexit, label %.lr.phthread-pre-split, !llvm.loop !237
 
 .thread112.loopexit:                              ; preds = %98, %89, %86, %85, %get_cmsg_data_len.exit.thread
   %.pre = load i32, ptr %9, align 4, !tbaa !35
@@ -11926,17 +11926,17 @@ Py_DECREF.exit:                                   ; preds = %78, %81, %84
 .thread112:                                       ; preds = %.thread112.loopexit, %40
   %104 = phi i32 [ %.pre, %.thread112.loopexit ], [ %15, %40 ]
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %106 = load i64, ptr %105, align 8, !tbaa !232
-  %107 = call ptr %5(i64 noundef %106, ptr noundef %6) #13, !callees !233
+  %106 = load i64, ptr %105, align 8, !tbaa !238
+  %107 = call ptr %5(i64 noundef %106, ptr noundef %6) #13, !callees !239
   %108 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %109 = load i32, ptr %108, align 8, !tbaa !234
+  %109 = load i32, ptr %108, align 8, !tbaa !240
   %110 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %110, align 8, !tbaa !85
-  %111 = load i32, ptr %26, align 8, !tbaa !179
+  %.val = load i32, ptr %110, align 8, !tbaa !88
+  %111 = load i32, ptr %26, align 8, !tbaa !182
   %112 = call i32 @llvm.umin.i32(i32 %111, i32 %104)
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %115 = load i32, ptr %114, align 4, !tbaa !90
+  %115 = load i32, ptr %114, align 4, !tbaa !93
   %116 = call fastcc ptr @makesockaddr(i32 noundef %.val, ptr noundef nonnull %8, i64 noundef %113, i32 noundef %115)
   %117 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.634, ptr noundef %107, ptr noundef nonnull %38, i32 noundef %109, ptr noundef %116) #13
   %118 = icmp eq ptr %117, null
@@ -11967,7 +11967,7 @@ Py_XDECREF.exit:                                  ; preds = %25, %get_cmsg_data_
   br label %173
 
 .thread109:                                       ; preds = %Py_DECREF.exit, %69, %get_cmsg_data_len.exit.thread.thread, %get_cmsg_data_len.exit.thread, %67, %.thread112, %37
-  %124 = load i64, ptr %31, align 8, !tbaa !183
+  %124 = load i64, ptr %31, align 8, !tbaa !187
   %125 = icmp ult i64 %124, 16
   %126 = load ptr, ptr %30, align 8
   %.not69138147160 = icmp eq ptr %126, null
@@ -11979,7 +11979,7 @@ Py_XDECREF.exit:                                  ; preds = %25, %get_cmsg_data_
   br label %cmsg_min_space.exit.i79
 
 .lr.ph140thread-pre-split:                        ; preds = %167
-  %.val74.pr = load ptr, ptr %30, align 8, !tbaa !182
+  %.val74.pr = load ptr, ptr %30, align 8, !tbaa !186
   %.val75 = load i64, ptr %31, align 8
   %127 = icmp eq ptr %.val74.pr, null
   br i1 %127, label %get_cmsg_data_len.exit87.thread, label %cmsg_min_space.exit.i79
@@ -12039,7 +12039,7 @@ get_cmsg_data_len.exit87:                         ; preds = %136
   %153 = load i32, ptr %.0136, align 4, !tbaa !35
   %154 = call i32 @close(i32 noundef %153) #13
   %.not70 = icmp eq i64 %151, 0
-  br i1 %.not70, label %.loopexit, label %.lr.ph137, !llvm.loop !235
+  br i1 %.not70, label %.loopexit, label %.lr.ph137, !llvm.loop !241
 
 .loopexit:                                        ; preds = %.lr.ph137, %146, %get_cmsg_data_len.exit87
   br i1 %.not14.i83.not, label %get_cmsg_data_len.exit87.thread, label %155
@@ -12054,8 +12054,8 @@ get_cmsg_data_len.exit87:                         ; preds = %136
   %160 = and i64 %159, -8
   %161 = getelementptr i8, ptr %.153139167, i64 %160
   %162 = getelementptr i8, ptr %161, i64 16
-  %163 = load ptr, ptr %30, align 8, !tbaa !182
-  %164 = load i64, ptr %31, align 8, !tbaa !183
+  %163 = load ptr, ptr %30, align 8, !tbaa !186
+  %164 = load i64, ptr %31, align 8, !tbaa !187
   %165 = getelementptr i8, ptr %163, i64 %164
   %166 = icmp ugt ptr %162, %165
   br i1 %166, label %get_cmsg_data_len.exit87.thread, label %167
@@ -12066,7 +12066,7 @@ get_cmsg_data_len.exit87:                         ; preds = %136
   %170 = and i64 %169, -8
   %171 = getelementptr i8, ptr %161, i64 %170
   %172 = icmp ugt ptr %171, %165
-  br i1 %172, label %get_cmsg_data_len.exit87.thread, label %.lr.ph140thread-pre-split, !llvm.loop !236
+  br i1 %172, label %get_cmsg_data_len.exit87.thread, label %.lr.ph140thread-pre-split, !llvm.loop !242
 
 173:                                              ; preds = %7, %Py_XDECREF.exit, %23, %17
   %.048 = phi ptr [ null, %17 ], [ %24, %23 ], [ %.050119, %Py_XDECREF.exit ], [ null, %7 ]
@@ -12081,7 +12081,7 @@ get_cmsg_data_len.exit87:                         ; preds = %136
 define internal noundef ptr @makeval_recvmsg(i64 noundef %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !19
   %4 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %4, align 8, !tbaa !63
+  %.val = load i64, ptr %4, align 8, !tbaa !64
   %5 = icmp slt i64 %0, %.val
   br i1 %5, label %6, label %.thread
 
@@ -12114,13 +12114,13 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sock_recvmsg_impl(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((16, 24)) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %3, align 8, !tbaa !85
-  %4 = load ptr, ptr %1, align 8, !tbaa !228
+  %.val = load i32, ptr %3, align 8, !tbaa !88
+  %4 = load ptr, ptr %1, align 8, !tbaa !234
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !230
+  %6 = load i32, ptr %5, align 8, !tbaa !236
   %7 = tail call i64 @recvmsg(i32 noundef %.val, ptr noundef %4, i32 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %7, ptr %8, align 8, !tbaa !232
+  store i64 %7, ptr %8, align 8, !tbaa !238
   %9 = icmp sgt i64 %7, -1
   %10 = zext i1 %9 to i32
   ret i32 %10
@@ -12147,7 +12147,7 @@ define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %0, 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %5, i64 8
   %.in6 = getelementptr i8, ptr %5, i64 16
-  %9 = load i64, ptr %.in6, align 8, !tbaa !63
+  %9 = load i64, ptr %.in6, align 8, !tbaa !64
   %10 = icmp sgt i64 %9, 2147483647
   br i1 %10, label %11, label %13
 
@@ -12158,7 +12158,7 @@ define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %0, 
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %9, ptr %14, align 8, !tbaa !227
+  store i64 %9, ptr %14, align 8, !tbaa !233
   %15 = icmp sgt i64 %9, 0
   br i1 %15, label %16, label %.loopexit
 
@@ -12174,7 +12174,7 @@ define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %0, 
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %18, ptr %23, align 8, !tbaa !194
+  store ptr %18, ptr %23, align 8, !tbaa !198
   %24 = mul nuw nsw i64 %9, 80
   %25 = tail call ptr @PyMem_Malloc(i64 noundef %24) #13
   %26 = icmp eq ptr %25, null
@@ -12198,7 +12198,7 @@ define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %0, 
   br i1 %.not49, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = load ptr, ptr %29, align 8, !tbaa !170
+  %34 = load ptr, ptr %29, align 8, !tbaa !173
   %35 = getelementptr ptr, ptr %34, i64 %.1437
   br label %38
 
@@ -12217,17 +12217,17 @@ define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %0, 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %40, align 8, !tbaa !27
   %44 = getelementptr %struct.iovec, ptr %18, i64 %.1437
-  store ptr %43, ptr %44, align 8, !tbaa !167
+  store ptr %43, ptr %44, align 8, !tbaa !170
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i64 %46, ptr %47, align 8, !tbaa !169
+  store i64 %46, ptr %47, align 8, !tbaa !172
   %48 = add nuw nsw i64 %.1437, 1
   %exitcond.not = icmp eq i64 %48, %9
-  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !237
+  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !243
 
 49:                                               ; preds = %4
-  store ptr null, ptr %2, align 8, !tbaa !175
+  store ptr null, ptr %2, align 8, !tbaa !178
   store i64 0, ptr %3, align 8, !tbaa !47
   br label %Py_XDECREF.exit
 
@@ -12235,7 +12235,7 @@ define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %0, 
   %.042.ph = phi i64 [ 0, %27 ], [ 0, %20 ], [ 0, %11 ], [ 0, %13 ], [ %.1437, %38 ], [ %9, %42 ]
   %.041.ph = phi i32 [ -1, %27 ], [ -1, %20 ], [ -1, %11 ], [ 0, %13 ], [ -1, %38 ], [ 0, %42 ]
   %.0.ph = phi ptr [ null, %27 ], [ null, %20 ], [ null, %11 ], [ null, %13 ], [ %25, %42 ], [ %25, %38 ]
-  store ptr %.0.ph, ptr %2, align 8, !tbaa !175
+  store ptr %.0.ph, ptr %2, align 8, !tbaa !178
   store i64 %.042.ph, ptr %3, align 8, !tbaa !47
   %50 = load i32, ptr %5, align 8, !tbaa !18
   %.not.i.i = icmp sgt i32 %50, -1
@@ -12259,13 +12259,13 @@ Py_XDECREF.exit:                                  ; preds = %49, %.loopexit, %51
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sock_sendmsg_impl(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((16, 24)) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %3, align 8, !tbaa !85
-  %4 = load ptr, ptr %1, align 8, !tbaa !188
+  %.val = load i32, ptr %3, align 8, !tbaa !88
+  %4 = load ptr, ptr %1, align 8, !tbaa !192
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !191
+  %6 = load i32, ptr %5, align 8, !tbaa !195
   %7 = tail call i64 @sendmsg(i32 noundef %.val, ptr noundef %4, i32 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %7, ptr %8, align 8, !tbaa !192
+  store i64 %7, ptr %8, align 8, !tbaa !196
   %9 = icmp sgt i64 %7, -1
   %10 = zext i1 %9 to i32
   ret i32 %10
@@ -12276,7 +12276,7 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: inlinehint nounwind uwtable
 define internal ptr @sock_gettimeout_getter(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = getelementptr i8, ptr %0, i64 40
-  %.val = load i64, ptr %3, align 8, !tbaa !92
+  %.val = load i64, ptr %3, align 8, !tbaa !95
   %4 = icmp slt i64 %.val, 0
   br i1 %4, label %sock_gettimeout_impl.exit, label %5
 
@@ -12401,184 +12401,190 @@ attributes #15 = { nounwind willreturn memory(read) }
 !54 = !{!52, !29, i64 8}
 !55 = !{!52, !29, i64 12}
 !56 = !{!52, !29, i64 0}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!52, !53, i64 24}
-!60 = !{!52, !29, i64 16}
-!61 = !{!52, !21, i64 32}
-!62 = !{!52, !50, i64 40}
-!63 = !{!42, !14, i64 16}
-!64 = !{!65, !29, i64 4}
-!65 = !{!"sockaddr_in6", !26, i64 0, !26, i64 2, !29, i64 4, !66, i64 8, !29, i64 24}
-!66 = !{!"in6_addr", !6, i64 0}
-!67 = !{!65, !29, i64 24}
-!68 = !{!69, !29, i64 0}
-!69 = !{!"if_nameindex", !29, i64 0, !21, i64 8}
-!70 = !{!69, !21, i64 8}
-!71 = distinct !{!71, !58}
-!72 = !{!73, !26, i64 0}
-!73 = !{!"sockaddr_in", !26, i64 0, !26, i64 2, !74, i64 4, !6, i64 8}
-!74 = !{!"in_addr", !29, i64 0}
-!75 = !{!73, !29, i64 4}
-!76 = !{!65, !26, i64 0}
-!77 = !{!78, !29, i64 16}
-!78 = !{!"hostent", !21, i64 0, !34, i64 8, !29, i64 16, !29, i64 20, !34, i64 24}
-!79 = !{!78, !34, i64 8}
-!80 = !{!78, !34, i64 24}
-!81 = distinct !{!81, !82}
-!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!83 = !{!78, !21, i64 0}
-!84 = !{!41, !9, i64 304}
-!85 = !{!86, !29, i64 16}
-!86 = !{!"", !5, i64 0, !29, i64 16, !29, i64 20, !29, i64 24, !29, i64 28, !9, i64 32, !14, i64 40, !87, i64 48}
-!87 = !{!"p1 _ZTS13_socket_state", !9, i64 0}
-!88 = !{!86, !29, i64 20}
-!89 = !{!86, !29, i64 24}
-!90 = !{!86, !29, i64 28}
-!91 = !{!86, !9, i64 32}
-!92 = !{!86, !14, i64 40}
-!93 = !{!86, !87, i64 48}
-!94 = !{!73, !26, i64 2}
-!95 = !{!96, !29, i64 4}
-!96 = !{!"sockaddr_nl", !26, i64 0, !26, i64 2, !29, i64 4, !29, i64 8}
-!97 = !{!96, !29, i64 8}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = !{!52, !53, i64 24}
+!61 = !{!52, !29, i64 16}
+!62 = !{!52, !21, i64 32}
+!63 = !{!52, !50, i64 40}
+!64 = !{!42, !14, i64 16}
+!65 = !{!66, !29, i64 4}
+!66 = !{!"sockaddr_in6", !26, i64 0, !26, i64 2, !29, i64 4, !67, i64 8, !29, i64 24}
+!67 = !{!"in6_addr", !6, i64 0}
+!68 = !{!66, !29, i64 24}
+!69 = !{!70, !29, i64 0}
+!70 = !{!"if_nameindex", !29, i64 0, !21, i64 8}
+!71 = !{!70, !21, i64 8}
+!72 = distinct !{!72, !58, !59}
+!73 = !{!74, !26, i64 0}
+!74 = !{!"sockaddr_in", !26, i64 0, !26, i64 2, !75, i64 4, !6, i64 8}
+!75 = !{!"in_addr", !29, i64 0}
+!76 = !{!74, !29, i64 4}
+!77 = !{!66, !26, i64 0}
+!78 = !{!79, !29, i64 16}
+!79 = !{!"hostent", !21, i64 0, !34, i64 8, !29, i64 16, !29, i64 20, !34, i64 24}
+!80 = !{!79, !34, i64 8}
+!81 = distinct !{!81, !59}
+!82 = !{!79, !34, i64 24}
+!83 = distinct !{!83, !59, !84}
+!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!85 = distinct !{!85, !59}
+!86 = !{!79, !21, i64 0}
+!87 = !{!41, !9, i64 304}
+!88 = !{!89, !29, i64 16}
+!89 = !{!"", !5, i64 0, !29, i64 16, !29, i64 20, !29, i64 24, !29, i64 28, !9, i64 32, !14, i64 40, !90, i64 48}
+!90 = !{!"p1 _ZTS13_socket_state", !9, i64 0}
+!91 = !{!89, !29, i64 20}
+!92 = !{!89, !29, i64 24}
+!93 = !{!89, !29, i64 28}
+!94 = !{!89, !9, i64 32}
+!95 = !{!89, !14, i64 40}
+!96 = !{!89, !90, i64 48}
+!97 = !{!74, !26, i64 2}
 !98 = !{!99, !29, i64 4}
-!99 = !{!"sockaddr_qrtr", !26, i64 0, !29, i64 4, !29, i64 8}
+!99 = !{!"sockaddr_nl", !26, i64 0, !26, i64 2, !29, i64 4, !29, i64 8}
 !100 = !{!99, !29, i64 8}
-!101 = !{!102, !29, i64 8}
-!102 = !{!"sockaddr_vm", !26, i64 0, !26, i64 2, !29, i64 4, !29, i64 8, !6, i64 12, !6, i64 13}
-!103 = !{!102, !29, i64 4}
-!104 = !{!65, !26, i64 2}
-!105 = !{!106, !26, i64 2}
-!106 = !{!"sockaddr_l2", !26, i64 0, !26, i64 2, !107, i64 4, !26, i64 10, !6, i64 12}
-!107 = !{!"", !6, i64 0}
-!108 = !{!109, !6, i64 8}
-!109 = !{!"sockaddr_rc", !26, i64 0, !107, i64 2, !6, i64 8}
-!110 = !{!111, !26, i64 2}
-!111 = !{!"sockaddr_hci", !26, i64 0, !26, i64 2, !26, i64 4}
-!112 = !{!113, !29, i64 4}
-!113 = !{!"sockaddr_ll", !26, i64 0, !26, i64 2, !29, i64 4, !26, i64 8, !6, i64 10, !6, i64 11, !6, i64 12}
-!114 = !{!113, !26, i64 2}
-!115 = !{!113, !6, i64 10}
-!116 = !{!113, !26, i64 8}
-!117 = !{!113, !6, i64 11}
-!118 = !{!119, !6, i64 2}
-!119 = !{!"sockaddr_tipc", !26, i64 0, !6, i64 2, !6, i64 3, !6, i64 4}
-!120 = !{!119, !6, i64 3}
-!121 = !{!122, !29, i64 4}
-!122 = !{!"sockaddr_can", !26, i64 0, !29, i64 4, !6, i64 8}
-!123 = !{!124, !29, i64 16}
-!124 = !{!"sockaddr_alg", !26, i64 0, !6, i64 2, !29, i64 16, !29, i64 20, !6, i64 24}
-!125 = !{!124, !29, i64 20}
-!126 = !{!127, !8, i64 0}
-!127 = !{!"", !8, i64 0, !10, i64 8, !10, i64 16}
-!128 = !{!127, !10, i64 8}
-!129 = !{!127, !10, i64 16}
-!130 = !{!41, !9, i64 320}
-!131 = !{!132, !14, i64 16}
-!132 = !{!"", !5, i64 0, !14, i64 16, !14, i64 24, !133, i64 32, !134, i64 40}
-!133 = !{!"p1 _ZTS15_dictkeysobject", !9, i64 0}
-!134 = !{!"p1 _ZTS11_dictvalues", !9, i64 0}
-!135 = !{!136, !137, i64 0}
-!136 = !{!"sock_accept", !137, i64 0, !138, i64 8, !29, i64 16}
-!137 = !{!"p1 int", !9, i64 0}
-!138 = !{!"p1 _ZTS9sock_addr", !9, i64 0}
-!139 = !{!136, !138, i64 8}
-!140 = !{!136, !29, i64 16}
-!141 = !{!142, !21, i64 0}
-!142 = !{!"sock_recv", !21, i64 0, !14, i64 8, !29, i64 16, !14, i64 24}
-!143 = !{!142, !14, i64 8}
-!144 = !{!142, !29, i64 16}
-!145 = !{!142, !14, i64 24}
-!146 = !{!147, !21, i64 0}
-!147 = !{!"sock_recvfrom", !21, i64 0, !14, i64 8, !29, i64 16, !137, i64 24, !138, i64 32, !14, i64 40}
-!148 = !{!147, !14, i64 8}
-!149 = !{!147, !29, i64 16}
-!150 = !{!147, !138, i64 32}
-!151 = !{!147, !137, i64 24}
-!152 = !{!147, !14, i64 40}
-!153 = !{!154, !21, i64 0}
-!154 = !{!"sock_send", !21, i64 0, !14, i64 8, !29, i64 16, !14, i64 24}
-!155 = !{!154, !14, i64 8}
-!156 = !{!154, !29, i64 16}
-!157 = !{!154, !14, i64 24}
-!158 = distinct !{!158, !58, !82}
-!159 = distinct !{!159, !58}
-!160 = !{!161, !21, i64 0}
-!161 = !{!"sock_sendto", !21, i64 0, !14, i64 8, !29, i64 16, !29, i64 20, !138, i64 24, !14, i64 32}
-!162 = !{!161, !14, i64 8}
-!163 = !{!161, !29, i64 16}
-!164 = !{!161, !29, i64 20}
-!165 = !{!161, !138, i64 24}
-!166 = !{!161, !14, i64 32}
-!167 = !{!168, !9, i64 0}
-!168 = !{!"iovec", !9, i64 0, !14, i64 8}
-!169 = !{!168, !14, i64 8}
-!170 = !{!171, !172, i64 24}
-!171 = !{!"", !42, i64 0, !172, i64 24, !14, i64 32}
-!172 = !{!"p2 _ZTS7_object", !9, i64 0}
-!173 = distinct !{!173, !58}
-!174 = distinct !{!174, !58}
-!175 = !{!9, !9, i64 0}
-!176 = !{!177, !9, i64 0}
-!177 = !{!"msghdr", !9, i64 0, !29, i64 8, !178, i64 16, !14, i64 24, !9, i64 32, !14, i64 40, !29, i64 48}
-!178 = !{!"p1 _ZTS5iovec", !9, i64 0}
-!179 = !{!177, !29, i64 8}
-!180 = !{!181, !14, i64 24}
-!181 = !{!"cmsginfo", !29, i64 0, !29, i64 4, !28, i64 8}
-!182 = !{!177, !9, i64 32}
-!183 = !{!177, !14, i64 40}
-!184 = !{!181, !29, i64 0}
-!185 = !{!181, !29, i64 4}
-!186 = !{!181, !9, i64 8}
-!187 = distinct !{!187, !58}
-!188 = !{!189, !190, i64 0}
-!189 = !{!"sock_sendmsg", !190, i64 0, !29, i64 8, !14, i64 16}
-!190 = !{!"p1 _ZTS6msghdr", !9, i64 0}
-!191 = !{!189, !29, i64 8}
-!192 = !{!189, !14, i64 16}
-!193 = distinct !{!193, !58}
-!194 = !{!177, !178, i64 16}
-!195 = distinct !{!195, !58}
-!196 = !{!197, !29, i64 0}
-!197 = !{!"af_alg_iv", !29, i64 0, !6, i64 4}
-!198 = distinct !{!198, !58}
-!199 = !{!200, !29, i64 0}
-!200 = !{!"pollfd", !29, i64 0, !26, i64 4, !26, i64 6}
-!201 = !{!200, !26, i64 4}
-!202 = distinct !{!202, !82}
-!203 = distinct !{!203, !82}
-!204 = distinct !{!204, !82}
-!205 = !{!206, !26, i64 0}
-!206 = !{!"sockaddr_un", !26, i64 0, !6, i64 2}
-!207 = !{!96, !26, i64 0}
-!208 = !{!99, !26, i64 0}
-!209 = !{!102, !26, i64 0}
-!210 = !{!211, !21, i64 8}
-!211 = !{!"maybe_idna", !10, i64 0, !21, i64 8}
-!212 = !{!106, !26, i64 0}
-!213 = !{!109, !26, i64 0}
-!214 = !{!111, !26, i64 0}
-!215 = !{!216, !26, i64 0}
-!216 = !{!"sockaddr_sco", !26, i64 0, !107, i64 2}
-!217 = !{!113, !26, i64 0}
-!218 = !{!119, !26, i64 0}
-!219 = !{!122, !26, i64 0}
-!220 = !{!221, !221, i64 0}
-!221 = !{!"long long", !6, i64 0}
-!222 = !{!124, !26, i64 0}
-!223 = !{!211, !10, i64 0}
-!224 = !{!225, !14, i64 16}
-!225 = !{!"", !5, i64 0, !14, i64 16, !14, i64 24, !226, i64 32}
-!226 = !{!"", !26, i64 0, !26, i64 2, !26, i64 2, !26, i64 2, !26, i64 2}
-!227 = !{!177, !14, i64 24}
-!228 = !{!229, !190, i64 0}
-!229 = !{!"sock_recvmsg", !190, i64 0, !29, i64 8, !14, i64 16}
-!230 = !{!229, !29, i64 8}
-!231 = distinct !{!231, !58}
-!232 = !{!229, !14, i64 16}
-!233 = !{ptr @makeval_recvmsg, ptr @makeval_recvmsg_into}
-!234 = !{!177, !29, i64 48}
-!235 = distinct !{!235, !58}
-!236 = distinct !{!236, !58}
-!237 = distinct !{!237, !58}
+!101 = !{!102, !29, i64 4}
+!102 = !{!"sockaddr_qrtr", !26, i64 0, !29, i64 4, !29, i64 8}
+!103 = !{!102, !29, i64 8}
+!104 = !{!105, !29, i64 8}
+!105 = !{!"sockaddr_vm", !26, i64 0, !26, i64 2, !29, i64 4, !29, i64 8, !6, i64 12, !6, i64 13}
+!106 = !{!105, !29, i64 4}
+!107 = !{!66, !26, i64 2}
+!108 = !{!109, !26, i64 2}
+!109 = !{!"sockaddr_l2", !26, i64 0, !26, i64 2, !110, i64 4, !26, i64 10, !6, i64 12}
+!110 = !{!"", !6, i64 0}
+!111 = !{!112, !6, i64 8}
+!112 = !{!"sockaddr_rc", !26, i64 0, !110, i64 2, !6, i64 8}
+!113 = !{!114, !26, i64 2}
+!114 = !{!"sockaddr_hci", !26, i64 0, !26, i64 2, !26, i64 4}
+!115 = !{!116, !29, i64 4}
+!116 = !{!"sockaddr_ll", !26, i64 0, !26, i64 2, !29, i64 4, !26, i64 8, !6, i64 10, !6, i64 11, !6, i64 12}
+!117 = !{!116, !26, i64 2}
+!118 = !{!116, !6, i64 10}
+!119 = !{!116, !26, i64 8}
+!120 = !{!116, !6, i64 11}
+!121 = !{!122, !6, i64 2}
+!122 = !{!"sockaddr_tipc", !26, i64 0, !6, i64 2, !6, i64 3, !6, i64 4}
+!123 = !{!122, !6, i64 3}
+!124 = !{!125, !29, i64 4}
+!125 = !{!"sockaddr_can", !26, i64 0, !29, i64 4, !6, i64 8}
+!126 = !{!127, !29, i64 16}
+!127 = !{!"sockaddr_alg", !26, i64 0, !6, i64 2, !29, i64 16, !29, i64 20, !6, i64 24}
+!128 = !{!127, !29, i64 20}
+!129 = !{!130, !8, i64 0}
+!130 = !{!"", !8, i64 0, !10, i64 8, !10, i64 16}
+!131 = !{!130, !10, i64 8}
+!132 = !{!130, !10, i64 16}
+!133 = !{!41, !9, i64 320}
+!134 = !{!135, !14, i64 16}
+!135 = !{!"", !5, i64 0, !14, i64 16, !14, i64 24, !136, i64 32, !137, i64 40}
+!136 = !{!"p1 _ZTS15_dictkeysobject", !9, i64 0}
+!137 = !{!"p1 _ZTS11_dictvalues", !9, i64 0}
+!138 = !{!139, !140, i64 0}
+!139 = !{!"sock_accept", !140, i64 0, !141, i64 8, !29, i64 16}
+!140 = !{!"p1 int", !9, i64 0}
+!141 = !{!"p1 _ZTS9sock_addr", !9, i64 0}
+!142 = !{!139, !141, i64 8}
+!143 = !{!139, !29, i64 16}
+!144 = !{!145, !21, i64 0}
+!145 = !{!"sock_recv", !21, i64 0, !14, i64 8, !29, i64 16, !14, i64 24}
+!146 = !{!145, !14, i64 8}
+!147 = !{!145, !29, i64 16}
+!148 = !{!145, !14, i64 24}
+!149 = !{!150, !21, i64 0}
+!150 = !{!"sock_recvfrom", !21, i64 0, !14, i64 8, !29, i64 16, !140, i64 24, !141, i64 32, !14, i64 40}
+!151 = !{!150, !14, i64 8}
+!152 = !{!150, !29, i64 16}
+!153 = !{!150, !141, i64 32}
+!154 = !{!150, !140, i64 24}
+!155 = !{!150, !14, i64 40}
+!156 = !{!157, !21, i64 0}
+!157 = !{!"sock_send", !21, i64 0, !14, i64 8, !29, i64 16, !14, i64 24}
+!158 = !{!157, !14, i64 8}
+!159 = !{!157, !29, i64 16}
+!160 = !{!157, !14, i64 24}
+!161 = distinct !{!161, !58, !59, !84}
+!162 = distinct !{!162, !58, !59}
+!163 = !{!164, !21, i64 0}
+!164 = !{!"sock_sendto", !21, i64 0, !14, i64 8, !29, i64 16, !29, i64 20, !141, i64 24, !14, i64 32}
+!165 = !{!164, !14, i64 8}
+!166 = !{!164, !29, i64 16}
+!167 = !{!164, !29, i64 20}
+!168 = !{!164, !141, i64 24}
+!169 = !{!164, !14, i64 32}
+!170 = !{!171, !9, i64 0}
+!171 = !{!"iovec", !9, i64 0, !14, i64 8}
+!172 = !{!171, !14, i64 8}
+!173 = !{!174, !175, i64 24}
+!174 = !{!"", !42, i64 0, !175, i64 24, !14, i64 32}
+!175 = !{!"p2 _ZTS7_object", !9, i64 0}
+!176 = distinct !{!176, !58, !59}
+!177 = distinct !{!177, !58, !59}
+!178 = !{!9, !9, i64 0}
+!179 = !{!180, !9, i64 0}
+!180 = !{!"msghdr", !9, i64 0, !29, i64 8, !181, i64 16, !14, i64 24, !9, i64 32, !14, i64 40, !29, i64 48}
+!181 = !{!"p1 _ZTS5iovec", !9, i64 0}
+!182 = !{!180, !29, i64 8}
+!183 = !{!184, !14, i64 24}
+!184 = !{!"cmsginfo", !29, i64 0, !29, i64 4, !28, i64 8}
+!185 = distinct !{!185, !59}
+!186 = !{!180, !9, i64 32}
+!187 = !{!180, !14, i64 40}
+!188 = !{!184, !29, i64 0}
+!189 = !{!184, !29, i64 4}
+!190 = !{!184, !9, i64 8}
+!191 = distinct !{!191, !58, !59}
+!192 = !{!193, !194, i64 0}
+!193 = !{!"sock_sendmsg", !194, i64 0, !29, i64 8, !14, i64 16}
+!194 = !{!"p1 _ZTS6msghdr", !9, i64 0}
+!195 = !{!193, !29, i64 8}
+!196 = !{!193, !14, i64 16}
+!197 = distinct !{!197, !58, !59}
+!198 = !{!180, !181, i64 16}
+!199 = distinct !{!199, !58, !59}
+!200 = !{!201, !29, i64 0}
+!201 = !{!"af_alg_iv", !29, i64 0, !6, i64 4}
+!202 = distinct !{!202, !58, !59}
+!203 = !{!204, !29, i64 0}
+!204 = !{!"pollfd", !29, i64 0, !26, i64 4, !26, i64 6}
+!205 = !{!204, !26, i64 4}
+!206 = distinct !{!206, !59}
+!207 = distinct !{!207, !59, !84}
+!208 = distinct !{!208, !59, !84}
+!209 = distinct !{!209, !59, !84}
+!210 = distinct !{!210, !59}
+!211 = !{!212, !26, i64 0}
+!212 = !{!"sockaddr_un", !26, i64 0, !6, i64 2}
+!213 = !{!99, !26, i64 0}
+!214 = !{!102, !26, i64 0}
+!215 = !{!105, !26, i64 0}
+!216 = !{!217, !21, i64 8}
+!217 = !{!"maybe_idna", !10, i64 0, !21, i64 8}
+!218 = !{!109, !26, i64 0}
+!219 = !{!112, !26, i64 0}
+!220 = !{!114, !26, i64 0}
+!221 = !{!222, !26, i64 0}
+!222 = !{!"sockaddr_sco", !26, i64 0, !110, i64 2}
+!223 = !{!116, !26, i64 0}
+!224 = !{!122, !26, i64 0}
+!225 = !{!125, !26, i64 0}
+!226 = !{!227, !227, i64 0}
+!227 = !{!"long long", !6, i64 0}
+!228 = !{!127, !26, i64 0}
+!229 = !{!217, !10, i64 0}
+!230 = !{!231, !14, i64 16}
+!231 = !{!"", !5, i64 0, !14, i64 16, !14, i64 24, !232, i64 32}
+!232 = !{!"", !26, i64 0, !26, i64 2, !26, i64 2, !26, i64 2, !26, i64 2}
+!233 = !{!180, !14, i64 24}
+!234 = !{!235, !194, i64 0}
+!235 = !{!"sock_recvmsg", !194, i64 0, !29, i64 8, !14, i64 16}
+!236 = !{!235, !29, i64 8}
+!237 = distinct !{!237, !58, !59}
+!238 = !{!235, !14, i64 16}
+!239 = !{ptr @makeval_recvmsg, ptr @makeval_recvmsg_into}
+!240 = !{!180, !29, i64 48}
+!241 = distinct !{!241, !58, !59}
+!242 = distinct !{!242, !58, !59}
+!243 = distinct !{!243, !58, !59}

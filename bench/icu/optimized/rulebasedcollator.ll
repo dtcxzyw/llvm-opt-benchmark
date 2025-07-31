@@ -1754,13 +1754,13 @@ define noundef ptr @_ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDa
 18:                                               ; preds = %15, %7
   %.08 = phi ptr [ %14, %7 ], [ %16, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08, i64 216
-  %20 = load i8, ptr %19, align 8, !tbaa !86
+  %20 = load i8, ptr %19, align 8, !tbaa !87
   %.not10 = icmp eq i8 %20, 0
   br i1 %.not10, label %21, label %27
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.08, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !87
+  %23 = load ptr, ptr %22, align 8, !tbaa !88
   %24 = load i8, ptr %23, align 1, !tbaa !65
   %25 = icmp eq i8 %24, 0
   %26 = select i1 %25, ptr @.str.1, ptr %23
@@ -1866,15 +1866,15 @@ define void @_ZNK6icu_7717RuleBasedCollator36internalGetContractionsAndExpansion
 
 .split:                                           ; preds = %12
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %6) #20
-  store ptr null, ptr %6, align 8, !tbaa !88
+  store ptr null, ptr %6, align 8, !tbaa !89
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %13, align 8, !tbaa !98
+  store ptr %1, ptr %13, align 8, !tbaa !99
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store i8 %3, ptr %15, align 8, !tbaa !99
+  store i8 %3, ptr %15, align 8, !tbaa !100
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 0, ptr %16, align 1, !tbaa !100
+  store i8 0, ptr %16, align 1, !tbaa !101
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %17)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 240
@@ -1894,17 +1894,17 @@ common.resume:                                    ; preds = %42, %29, %19
 .split12:                                         ; preds = %12
   %21 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %6) #20
-  store ptr null, ptr %6, align 8, !tbaa !88
+  store ptr null, ptr %6, align 8, !tbaa !89
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %22, align 8, !tbaa !98
+  store ptr %1, ptr %22, align 8, !tbaa !99
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %2, ptr %23, align 8, !tbaa !101
+  store ptr %2, ptr %23, align 8, !tbaa !102
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr null, ptr %24, align 8, !tbaa !102
+  store ptr null, ptr %24, align 8, !tbaa !103
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 %3, ptr %25, align 8, !tbaa !99
+  store i8 %3, ptr %25, align 8, !tbaa !100
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 0, ptr %26, align 1, !tbaa !100
+  store i8 0, ptr %26, align 1, !tbaa !101
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %27)
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 240
@@ -1923,9 +1923,9 @@ _ZN6icu_7725ContractionsAndExpansionsC2EPNS_10UnicodeSetES2_PNS0_6CESinkEa.exit:
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 448
   store i16 2, ptr %32, align 8, !tbaa !65
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 504
-  store ptr null, ptr %33, align 8, !tbaa !103
+  store ptr null, ptr %33, align 8, !tbaa !104
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 760
-  store i32 0, ptr %34, align 8, !tbaa !104
+  store i32 0, ptr %34, align 8, !tbaa !105
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !24
   invoke void @_ZN6icu_7725ContractionsAndExpansions7forDataEPKNS_13CollationDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(764) %6, ptr noundef %36, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -1976,9 +1976,9 @@ define void @_ZNK6icu_7717RuleBasedCollator23internalAddContractionsEiRNS_10Unic
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #20
-  store ptr null, ptr %5, align 8, !tbaa !88
+  store ptr null, ptr %5, align 8, !tbaa !89
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %2, ptr %9, align 8, !tbaa !98
+  store ptr %2, ptr %9, align 8, !tbaa !99
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %10, i8 0, i64 18, i1 false)
@@ -2003,9 +2003,9 @@ _ZN6icu_7725ContractionsAndExpansionsC2EPNS_10UnicodeSetES2_PNS0_6CESinkEa.exit:
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 448
   store i16 2, ptr %16, align 8, !tbaa !65
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 504
-  store ptr null, ptr %17, align 8, !tbaa !103
+  store ptr null, ptr %17, align 8, !tbaa !104
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 760
-  store i32 0, ptr %18, align 8, !tbaa !104
+  store i32 0, ptr %18, align 8, !tbaa !105
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   invoke void @_ZN6icu_7725ContractionsAndExpansions12forCodePointEPKNS_13CollationDataEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(764) %5, ptr noundef %20, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -2062,7 +2062,7 @@ define noundef range(i32 -524288, 524288) i32 @_ZNK6icu_7717RuleBasedCollator12g
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !105
+  %11 = load i32, ptr %10, align 8, !tbaa !106
   %12 = and i32 %11, 12
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %13, i32 21, i32 20
@@ -2072,7 +2072,7 @@ define noundef range(i32 -524288, 524288) i32 @_ZNK6icu_7717RuleBasedCollator12g
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !105
+  %19 = load i32, ptr %18, align 8, !tbaa !106
   %20 = and i32 %19, 768
   %21 = icmp eq i32 %20, 0
   %22 = icmp eq i32 %20, 512
@@ -2090,7 +2090,7 @@ define noundef range(i32 -524288, 524288) i32 @_ZNK6icu_7717RuleBasedCollator12g
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load i32, ptr %30, align 8, !tbaa !105
+  %31 = load i32, ptr %30, align 8, !tbaa !106
   %32 = ashr i32 %31, 12
   br label %43
 
@@ -2106,7 +2106,7 @@ define noundef range(i32 -524288, 524288) i32 @_ZNK6icu_7717RuleBasedCollator12g
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = load i32, ptr %38, align 8, !tbaa !105
+  %39 = load i32, ptr %38, align 8, !tbaa !106
   %40 = and i32 %39, %.0
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i32 16, i32 17
@@ -2139,7 +2139,7 @@ define void @_ZN6icu_7717RuleBasedCollator12setAttributeE13UColAttribute18UColAt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !105
+  %12 = load i32, ptr %11, align 8, !tbaa !106
   %13 = and i32 %12, 12
   %14 = icmp eq i32 %13, 0
   %15 = select i1 %14, i32 21, i32 20
@@ -2149,7 +2149,7 @@ define void @_ZN6icu_7717RuleBasedCollator12setAttributeE13UColAttribute18UColAt
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !105
+  %20 = load i32, ptr %19, align 8, !tbaa !106
   %21 = and i32 %20, 768
   %22 = icmp eq i32 %21, 0
   %23 = icmp eq i32 %21, 512
@@ -2167,7 +2167,7 @@ define void @_ZN6icu_7717RuleBasedCollator12setAttributeE13UColAttribute18UColAt
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !33
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !105
+  %32 = load i32, ptr %31, align 8, !tbaa !106
   %33 = ashr i32 %32, 12
   br label %44
 
@@ -2183,7 +2183,7 @@ define void @_ZN6icu_7717RuleBasedCollator12setAttributeE13UColAttribute18UColAt
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = load i32, ptr %39, align 8, !tbaa !105
+  %40 = load i32, ptr %39, align 8, !tbaa !106
   %41 = and i32 %40, %.0.i
   %42 = icmp eq i32 %41, 0
   %43 = select i1 %42, i32 16, i32 17
@@ -2268,37 +2268,37 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %79 = load i32, ptr %78, align 8, !tbaa !105
+  %79 = load i32, ptr %78, align 8, !tbaa !106
   tail call void @_ZN6icu_7717CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %.0.i57.ph, i32 noundef 2048, i32 noundef %2, i32 noundef %79, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %100
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %82 = load i32, ptr %81, align 8, !tbaa !105
+  %82 = load i32, ptr %81, align 8, !tbaa !106
   tail call void @_ZN6icu_7717CollationSettings20setAlternateHandlingE18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %.0.i57.ph, i32 noundef %2, i32 noundef %82, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %100
 
 83:                                               ; preds = %76
   %84 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %85 = load i32, ptr %84, align 8, !tbaa !105
+  %85 = load i32, ptr %84, align 8, !tbaa !106
   tail call void @_ZN6icu_7717CollationSettings12setCaseFirstE18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %.0.i57.ph, i32 noundef %2, i32 noundef %85, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %100
 
 86:                                               ; preds = %76
   %87 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %88 = load i32, ptr %87, align 8, !tbaa !105
+  %88 = load i32, ptr %87, align 8, !tbaa !106
   tail call void @_ZN6icu_7717CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %.0.i57.ph, i32 noundef 1024, i32 noundef %2, i32 noundef %88, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %100
 
 89:                                               ; preds = %76
   %90 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %91 = load i32, ptr %90, align 8, !tbaa !105
+  %91 = load i32, ptr %90, align 8, !tbaa !106
   tail call void @_ZN6icu_7717CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %.0.i57.ph, i32 noundef 1, i32 noundef %2, i32 noundef %91, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %100
 
 92:                                               ; preds = %76
   %93 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %94 = load i32, ptr %93, align 8, !tbaa !105
+  %94 = load i32, ptr %93, align 8, !tbaa !106
   tail call void @_ZN6icu_7717CollationSettings11setStrengthEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %.0.i57.ph, i32 noundef %2, i32 noundef %94, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %100
 
@@ -2315,7 +2315,7 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
 
 97:                                               ; preds = %76
   %98 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %99 = load i32, ptr %98, align 8, !tbaa !105
+  %99 = load i32, ptr %98, align 8, !tbaa !106
   tail call void @_ZN6icu_7717CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %.0.i57.ph, i32 noundef 2, i32 noundef %2, i32 noundef %99, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %100
 
@@ -2333,7 +2333,7 @@ default.unreachable:                              ; preds = %76
   %105 = getelementptr inbounds nuw i8, ptr %.0.i57.ph, i64 84
   %106 = tail call noundef i32 @_ZN6icu_7718CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %104, ptr noundef nonnull align 8 dereferenceable(852) %.0.i57.ph, ptr noundef nonnull %105, i32 noundef 384)
   %107 = getelementptr inbounds nuw i8, ptr %.0.i57.ph, i64 80
-  store i32 %106, ptr %107, align 8, !tbaa !107
+  store i32 %106, ptr %107, align 8, !tbaa !108
   %108 = shl nuw nsw i32 1, %1
   br i1 %59, label %109, label %114
 
@@ -2404,7 +2404,7 @@ define void @_ZNK6icu_7717RuleBasedCollator19setFastLatinOptionsERNS_17Collation
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %6 = tail call noundef i32 @_ZN6icu_7718CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(852) %1, ptr noundef nonnull %5, i32 noundef 384)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i32 %6, ptr %7, align 8, !tbaa !107
+  store i32 %6, ptr %7, align 8, !tbaa !108
   ret void
 }
 
@@ -2432,7 +2432,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_7717RuleBasedColl
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !105
+  %16 = load i32, ptr %15, align 8, !tbaa !106
   %17 = lshr i32 %16, 4
   %18 = and i32 %17, 7
   %19 = icmp eq i32 %12, %18
@@ -2509,7 +2509,7 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %56 = load i32, ptr %55, align 8, !tbaa !105
+  %56 = load i32, ptr %55, align 8, !tbaa !106
   %57 = lshr i32 %56, 4
   %58 = and i32 %57, 7
   %59 = or disjoint i32 %58, 4096
@@ -2521,7 +2521,7 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
   %62 = load ptr, ptr %61, align 8, !tbaa !24
   %63 = tail call noundef i32 @_ZNK6icu_7713CollationData22getLastPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140) %62, i32 noundef %.028)
   %64 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %65 = load i32, ptr %64, align 8, !tbaa !105
+  %65 = load i32, ptr %64, align 8, !tbaa !106
   tail call void @_ZN6icu_7717CollationSettings14setMaxVariableEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %.0.i.ph, i32 noundef %.0293337, i32 noundef %65, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %66 = load i32, ptr %2, align 4, !tbaa !13
   %67 = icmp slt i32 %66, 1
@@ -2529,12 +2529,12 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
 
 68:                                               ; preds = %60
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 28
-  store i32 %63, ptr %69, align 4, !tbaa !108
+  store i32 %63, ptr %69, align 4, !tbaa !109
   %70 = load ptr, ptr %61, align 8, !tbaa !24
   %71 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 84
   %72 = tail call noundef i32 @_ZN6icu_7718CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(852) %.0.i.ph, ptr noundef nonnull %71, i32 noundef 384)
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 80
-  store i32 %72, ptr %73, align 8, !tbaa !107
+  store i32 %72, ptr %73, align 8, !tbaa !108
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %75 = load i32, ptr %74, align 8, !tbaa !36
   br i1 %7, label %76, label %78
@@ -2562,7 +2562,7 @@ define noundef range(i32 4096, 4104) i32 @_ZNK6icu_7717RuleBasedCollator14getMax
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !105
+  %5 = load i32, ptr %4, align 8, !tbaa !106
   %6 = lshr i32 %5, 4
   %7 = and i32 %6, 7
   %8 = or disjoint i32 %7, 4096
@@ -2574,7 +2574,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator14getVariableTopER10UErrorCode
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %6 = load i32, ptr %5, align 4, !tbaa !108
+  %6 = load i32, ptr %5, align 4, !tbaa !109
   ret i32 %6
 }
 
@@ -2617,7 +2617,7 @@ define noundef i32 @_ZN6icu_7717RuleBasedCollator14setVariableTopEPKDsiR10UError
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !105
+  %24 = load i32, ptr %23, align 8, !tbaa !106
   %25 = trunc i32 %24 to i8
   %26 = lshr i8 %25, 1
   %27 = and i8 %26, 1
@@ -2633,33 +2633,33 @@ define noundef i32 @_ZN6icu_7717RuleBasedCollator14setVariableTopEPKDsiR10UError
   %33 = load ptr, ptr %29, align 8, !tbaa !24
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %35 = load ptr, ptr %33, align 8, !tbaa !75
-  store ptr %35, ptr %34, align 8, !tbaa !109
+  store ptr %35, ptr %34, align 8, !tbaa !110
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %33, ptr %36, align 8, !tbaa !114
+  store ptr %33, ptr %36, align 8, !tbaa !115
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 0, ptr %37, align 8, !tbaa !115
+  store i32 0, ptr %37, align 8, !tbaa !116
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %39, ptr %38, align 8, !tbaa !116
+  store ptr %39, ptr %38, align 8, !tbaa !117
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 40, ptr %40, align 8, !tbaa !117
+  store i32 40, ptr %40, align 8, !tbaa !118
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i8 0, ptr %41, align 4, !tbaa !118
+  store i8 0, ptr %41, align 4, !tbaa !119
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  store i32 0, ptr %42, align 8, !tbaa !119
+  store i32 0, ptr %42, align 8, !tbaa !120
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 376
-  store ptr null, ptr %43, align 8, !tbaa !120
+  store ptr null, ptr %43, align 8, !tbaa !121
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  store i32 -1, ptr %44, align 8, !tbaa !121
+  store i32 -1, ptr %44, align 8, !tbaa !122
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 388
-  store i8 %27, ptr %45, align 4, !tbaa !122
+  store i8 %27, ptr %45, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UTF16CollationIteratorE, i64 16), ptr %5, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  store ptr %1, ptr %46, align 8, !tbaa !123
+  store ptr %1, ptr %46, align 8, !tbaa !124
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  store ptr %1, ptr %47, align 8, !tbaa !125
+  store ptr %1, ptr %47, align 8, !tbaa !126
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 408
-  store ptr %31, ptr %48, align 8, !tbaa !126
+  store ptr %31, ptr %48, align 8, !tbaa !127
   %49 = invoke noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %50 unwind label %53
 
@@ -2684,51 +2684,51 @@ define noundef i32 @_ZN6icu_7717RuleBasedCollator14setVariableTopEPKDsiR10UError
   %56 = load ptr, ptr %29, align 8, !tbaa !24
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %58 = load ptr, ptr %56, align 8, !tbaa !75
-  store ptr %58, ptr %57, align 8, !tbaa !109
+  store ptr %58, ptr %57, align 8, !tbaa !110
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %56, ptr %59, align 8, !tbaa !114
+  store ptr %56, ptr %59, align 8, !tbaa !115
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 0, ptr %60, align 8, !tbaa !115
+  store i32 0, ptr %60, align 8, !tbaa !116
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %62, ptr %61, align 8, !tbaa !116
+  store ptr %62, ptr %61, align 8, !tbaa !117
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 40, ptr %63, align 8, !tbaa !117
+  store i32 40, ptr %63, align 8, !tbaa !118
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store i8 0, ptr %64, align 4, !tbaa !118
+  store i8 0, ptr %64, align 4, !tbaa !119
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 368
-  store i32 0, ptr %65, align 8, !tbaa !119
+  store i32 0, ptr %65, align 8, !tbaa !120
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 376
-  store ptr null, ptr %66, align 8, !tbaa !120
+  store ptr null, ptr %66, align 8, !tbaa !121
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 384
-  store i32 -1, ptr %67, align 8, !tbaa !121
+  store i32 -1, ptr %67, align 8, !tbaa !122
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 388
-  store i8 %27, ptr %68, align 4, !tbaa !122
+  store i8 %27, ptr %68, align 4, !tbaa !123
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 392
-  store ptr %1, ptr %69, align 8, !tbaa !123
+  store ptr %1, ptr %69, align 8, !tbaa !124
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 400
-  store ptr %1, ptr %70, align 8, !tbaa !125
+  store ptr %1, ptr %70, align 8, !tbaa !126
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 408
-  store ptr %31, ptr %71, align 8, !tbaa !126
+  store ptr %31, ptr %71, align 8, !tbaa !127
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUTF16CollationIteratorE, i64 16), ptr %6, align 8, !tbaa !15
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 416
-  store ptr %1, ptr %72, align 8, !tbaa !127
+  store ptr %1, ptr %72, align 8, !tbaa !128
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 424
-  store ptr %1, ptr %73, align 8, !tbaa !129
+  store ptr %1, ptr %73, align 8, !tbaa !130
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 432
-  store ptr null, ptr %74, align 8, !tbaa !130
+  store ptr null, ptr %74, align 8, !tbaa !131
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 440
-  store ptr %31, ptr %75, align 8, !tbaa !131
+  store ptr %31, ptr %75, align 8, !tbaa !132
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 448
   %77 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %78 = load ptr, ptr %77, align 8, !tbaa !132
-  store ptr %78, ptr %76, align 8, !tbaa !133
+  %78 = load ptr, ptr %77, align 8, !tbaa !133
+  store ptr %78, ptr %76, align 8, !tbaa !134
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 456
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %79, align 8, !tbaa !15
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 464
   store i16 2, ptr %80, align 8, !tbaa !65
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 520
-  store i8 1, ptr %81, align 8, !tbaa !134
+  store i8 1, ptr %81, align 8, !tbaa !135
   %82 = invoke noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %6, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %83 unwind label %86
 
@@ -2766,7 +2766,7 @@ define noundef i32 @_ZN6icu_7717RuleBasedCollator14setVariableTopEPKDsiR10UError
   call void @_ZN6icu_7717RuleBasedCollator14setVariableTopEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %94, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %95 = load ptr, ptr %21, align 8, !tbaa !33
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 28
-  %97 = load i32, ptr %96, align 4, !tbaa !108
+  %97 = load i32, ptr %96, align 4, !tbaa !109
   br label %99
 
 98:                                               ; preds = %86, %53
@@ -2784,20 +2784,20 @@ declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #9
 define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #2 comdat align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %5 = load i32, ptr %4, align 8, !tbaa !119
+  %5 = load i32, ptr %4, align 8, !tbaa !120
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !135
+  %7 = load i32, ptr %6, align 8, !tbaa !136
   %8 = icmp slt i32 %5, %7
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
   %10 = add nsw i32 %5, 1
-  store i32 %10, ptr %4, align 8, !tbaa !119
+  store i32 %10, ptr %4, align 8, !tbaa !120
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = sext i32 %5 to i64
-  %13 = load ptr, ptr %11, align 8, !tbaa !116
+  %13 = load ptr, ptr %11, align 8, !tbaa !117
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
-  %15 = load i64, ptr %14, align 8, !tbaa !136
+  %15 = load i64, ptr %14, align 8, !tbaa !137
   br label %_ZN6icu_7717CollationIterator8CEBuffer9incLengthER10UErrorCode.exit.thread
 
 16:                                               ; preds = %2
@@ -2810,13 +2810,13 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   br i1 %.not.i, label %_ZN6icu_7717CollationIterator8CEBuffer9incLengthER10UErrorCode.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %18
-  %.pre.i = load i32, ptr %6, align 8, !tbaa !115
+  %.pre.i = load i32, ptr %6, align 8, !tbaa !116
   br label %20
 
 20:                                               ; preds = %._crit_edge.i, %16
   %21 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %7, %16 ]
   %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %6, align 8, !tbaa !115
+  store i32 %22, ptr %6, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
   %23 = load ptr, ptr %0, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -2827,9 +2827,9 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   br i1 %28, label %29, label %46
 
 29:                                               ; preds = %20
-  %30 = load i32, ptr %4, align 8, !tbaa !119
+  %30 = load i32, ptr %4, align 8, !tbaa !120
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %4, align 8, !tbaa !119
+  store i32 %31, ptr %4, align 8, !tbaa !120
   %32 = and i32 %26, -65536
   %33 = zext i32 %32 to i64
   %34 = shl nuw i64 %33, 32
@@ -2842,9 +2842,9 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %41 = or disjoint i64 %38, %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = sext i32 %30 to i64
-  %44 = load ptr, ptr %42, align 8, !tbaa !116
+  %44 = load ptr, ptr %42, align 8, !tbaa !117
   %45 = getelementptr inbounds i64, ptr %44, i64 %43
-  store i64 %41, ptr %45, align 8, !tbaa !136
+  store i64 %41, ptr %45, align 8, !tbaa !137
   br label %160
 
 46:                                               ; preds = %20
@@ -2857,19 +2857,19 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %48
-  %52 = load i32, ptr %4, align 8, !tbaa !119
+  %52 = load i32, ptr %4, align 8, !tbaa !120
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %4, align 8, !tbaa !119
+  store i32 %53, ptr %4, align 8, !tbaa !120
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = sext i32 %52 to i64
-  %56 = load ptr, ptr %54, align 8, !tbaa !116
+  %56 = load ptr, ptr %54, align 8, !tbaa !117
   %57 = getelementptr inbounds i64, ptr %56, i64 %55
-  store i64 4311744768, ptr %57, align 8, !tbaa !136
+  store i64 4311744768, ptr %57, align 8, !tbaa !137
   br label %160
 
 58:                                               ; preds = %48
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !114
+  %60 = load ptr, ptr %59, align 8, !tbaa !115
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !58
   %63 = load ptr, ptr %62, align 8, !tbaa !75
@@ -2954,9 +2954,9 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
   br i1 %123, label %124, label %144
 
 124:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit
-  %125 = load i32, ptr %4, align 8, !tbaa !119
+  %125 = load i32, ptr %4, align 8, !tbaa !120
   %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %4, align 8, !tbaa !119
+  store i32 %126, ptr %4, align 8, !tbaa !120
   %127 = and i32 %121, -65536
   %128 = zext i32 %127 to i64
   %129 = shl nuw i64 %128, 32
@@ -2969,14 +2969,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
   %136 = or disjoint i64 %133, %135
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %138 = sext i32 %125 to i64
-  %139 = load ptr, ptr %137, align 8, !tbaa !116
+  %139 = load ptr, ptr %137, align 8, !tbaa !117
   %140 = getelementptr inbounds i64, ptr %139, i64 %138
-  store i64 %136, ptr %140, align 8, !tbaa !136
+  store i64 %136, ptr %140, align 8, !tbaa !137
   br label %160
 
 141:                                              ; preds = %46
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %143 = load ptr, ptr %142, align 8, !tbaa !114
+  %143 = load ptr, ptr %142, align 8, !tbaa !115
   br label %144
 
 144:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit, %141
@@ -2987,18 +2987,18 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
   br i1 %145, label %146, label %157
 
 146:                                              ; preds = %144
-  %147 = load i32, ptr %4, align 8, !tbaa !119
+  %147 = load i32, ptr %4, align 8, !tbaa !120
   %148 = add nsw i32 %147, 1
-  store i32 %148, ptr %4, align 8, !tbaa !119
+  store i32 %148, ptr %4, align 8, !tbaa !120
   %149 = add i32 %.022, -193
   %150 = zext i32 %149 to i64
   %151 = shl nuw i64 %150, 32
   %152 = or disjoint i64 %151, 83887360
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %154 = sext i32 %147 to i64
-  %155 = load ptr, ptr %153, align 8, !tbaa !116
+  %155 = load ptr, ptr %153, align 8, !tbaa !117
   %156 = getelementptr inbounds i64, ptr %155, i64 %154
-  store i64 %152, ptr %156, align 8, !tbaa !136
+  store i64 %152, ptr %156, align 8, !tbaa !137
   br label %160
 
 157:                                              ; preds = %144
@@ -3032,7 +3032,7 @@ define void @_ZN6icu_7717RuleBasedCollator14setVariableTopEjR10UErrorCode(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !108
+  %10 = load i32, ptr %9, align 4, !tbaa !109
   %.not29 = icmp eq i32 %1, %10
   br i1 %.not29, label %.critedge, label %11
 
@@ -3053,7 +3053,7 @@ define void @_ZN6icu_7717RuleBasedCollator14setVariableTopEjR10UErrorCode(ptr no
   %19 = tail call noundef i32 @_ZNK6icu_7713CollationData22getLastPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140) %18, i32 noundef %14)
   %20 = load ptr, ptr %7, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
-  %22 = load i32, ptr %21, align 4, !tbaa !108
+  %22 = load i32, ptr %21, align 4, !tbaa !109
   %.not30 = icmp eq i32 %19, %22
   br i1 %.not30, label %.critedge, label %23
 
@@ -3095,7 +3095,7 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !38
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = load i32, ptr %39, align 8, !tbaa !105
+  %40 = load i32, ptr %39, align 8, !tbaa !106
   tail call void @_ZN6icu_7717CollationSettings14setMaxVariableEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %.0.i.ph, i32 noundef %34, i32 noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %41 = load i32, ptr %2, align 4, !tbaa !13
   %42 = icmp slt i32 %41, 1
@@ -3103,12 +3103,12 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
 
 43:                                               ; preds = %33
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 28
-  store i32 %19, ptr %44, align 4, !tbaa !108
+  store i32 %19, ptr %44, align 4, !tbaa !109
   %45 = load ptr, ptr %12, align 8, !tbaa !24
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 84
   %47 = tail call noundef i32 @_ZN6icu_7718CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(852) %.0.i.ph, ptr noundef nonnull %46, i32 noundef 384)
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 80
-  store i32 %47, ptr %48, align 8, !tbaa !107
+  store i32 %47, ptr %48, align 8, !tbaa !108
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %43, %6
@@ -3118,7 +3118,7 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8, !tbaa !38
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 28
-  %54 = load i32, ptr %53, align 4, !tbaa !108
+  %54 = load i32, ptr %53, align 4, !tbaa !109
   %55 = icmp eq i32 %.0, %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %57 = load i32, ptr %56, align 8, !tbaa !36
@@ -3198,7 +3198,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator15getReorderCodesEPiiR10UError
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %17 = load i32, ptr %16, align 8, !tbaa !138
+  %17 = load i32, ptr %16, align 8, !tbaa !139
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %27, label %19
 
@@ -3212,7 +3212,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator15getReorderCodesEPiiR10UError
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !139
+  %24 = load ptr, ptr %23, align 8, !tbaa !140
   %25 = shl nsw i32 %17, 2
   %26 = sext i32 %25 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 4 %24, i64 %26, i1 false)
@@ -3258,13 +3258,13 @@ define void @_ZN6icu_7717RuleBasedCollator15setReorderCodesEPKiiR10UErrorCode(pt
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %22 = load i32, ptr %21, align 8, !tbaa !138
+  %22 = load i32, ptr %21, align 8, !tbaa !139
   %23 = icmp eq i32 %.0, %22
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !139
+  %26 = load ptr, ptr %25, align 8, !tbaa !140
   %27 = shl nsw i32 %.0, 2
   %28 = zext nneg i32 %27 to i64
   %bcmp = tail call i32 @bcmp(ptr %1, ptr %26, i64 %28)
@@ -3304,7 +3304,7 @@ define void @_ZN6icu_7717RuleBasedCollator15setReorderCodesEPKiiR10UErrorCode(pt
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 84
   %47 = tail call noundef i32 @_ZN6icu_7718CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(852) %41, ptr noundef nonnull %46, i32 noundef 384)
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  store i32 %47, ptr %48, align 8, !tbaa !107
+  store i32 %47, ptr %48, align 8, !tbaa !108
   br label %66
 
 49:                                               ; preds = %36, %30
@@ -3346,7 +3346,7 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 84
   %64 = tail call noundef i32 @_ZN6icu_7718CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(852) %.0.i.ph, ptr noundef nonnull %63, i32 noundef 384)
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 80
-  store i32 %64, ptr %65, align 8, !tbaa !107
+  store i32 %64, ptr %65, align 8, !tbaa !108
   br label %66
 
 66:                                               ; preds = %42, %43, %39, %59, %_ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit, %24, %4, %12
@@ -3450,8 +3450,8 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   br i1 %18, label %.preheader, label %35
 
 .preheader:                                       ; preds = %17
-  %19 = load i16, ptr %1, align 2, !tbaa !140
-  %20 = load i16, ptr %3, align 2, !tbaa !140
+  %19 = load i16, ptr %1, align 2, !tbaa !141
+  %20 = load i16, ptr %3, align 2, !tbaa !141
   %.not137166 = icmp eq i16 %19, %20
   br i1 %.not137166, label %.lr.ph168, label %.critedge158.thread
 
@@ -3459,7 +3459,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !105
+  %24 = load i32, ptr %23, align 8, !tbaa !106
   %25 = trunc i32 %24 to i8
   %26 = lshr i8 %25, 1
   %27 = and i8 %26, 1
@@ -3474,11 +3474,11 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 30:                                               ; preds = %.lr.ph168
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %31 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next175
-  %32 = load i16, ptr %31, align 2, !tbaa !140
+  %32 = load i16, ptr %31, align 2, !tbaa !141
   %33 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.next175
-  %34 = load i16, ptr %33, align 2, !tbaa !140
+  %34 = load i16, ptr %33, align 2, !tbaa !141
   %.not137 = icmp eq i16 %32, %34
-  br i1 %.not137, label %.lr.ph168, label %.critedge158.thread185, !llvm.loop !142
+  br i1 %.not137, label %.lr.ph168, label %.critedge158.thread185, !llvm.loop !143
 
 35:                                               ; preds = %17
   %36 = zext nneg i32 %2 to i64
@@ -3503,23 +3503,23 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 
 44:                                               ; preds = %.lr.ph
   %45 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  %46 = load i16, ptr %45, align 2, !tbaa !140
+  %46 = load i16, ptr %45, align 2, !tbaa !141
   %47 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
-  %48 = load i16, ptr %47, align 2, !tbaa !140
+  %48 = load i16, ptr %47, align 2, !tbaa !141
   %.not = icmp eq i16 %46, %48
   br i1 %.not, label %49, label %.critedge158.loopexit.split.loop.exit193
 
 49:                                               ; preds = %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = icmp eq i64 %indvars.iv.next, %36
-  br i1 %50, label %._crit_edge, label %.lr.ph, !llvm.loop !143
+  br i1 %50, label %._crit_edge, label %.lr.ph, !llvm.loop !144
 
 .critedge158.thread185:                           ; preds = %30
   %51 = trunc nuw i64 %indvars.iv.next175 to i32
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load i32, ptr %54, align 8, !tbaa !105
+  %55 = load i32, ptr %54, align 8, !tbaa !106
   %56 = trunc i32 %55 to i8
   %57 = lshr i8 %56, 1
   %58 = and i8 %57, 1
@@ -3534,7 +3534,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %63 = load i32, ptr %62, align 8, !tbaa !105
+  %63 = load i32, ptr %62, align 8, !tbaa !106
   %64 = trunc i32 %63 to i8
   %65 = lshr i8 %64, 1
   %66 = and i8 %65, 1
@@ -3555,7 +3555,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %72 = load ptr, ptr %71, align 8, !tbaa !24
   %73 = zext i32 %.1127191 to i64
   %74 = getelementptr inbounds nuw i16, ptr %1, i64 %73
-  %75 = load i16, ptr %74, align 2, !tbaa !140
+  %75 = load i16, ptr %74, align 2, !tbaa !141
   %76 = zext i16 %75 to i32
   %77 = tail call noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBackwardEia(ptr noundef nonnull align 8 dereferenceable(140) %72, i32 noundef %76, i8 noundef signext %68)
   %.not140 = icmp eq i8 %77, 0
@@ -3570,7 +3570,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %81 = load ptr, ptr %80, align 8, !tbaa !24
   %82 = zext i32 %.1127191 to i64
   %83 = getelementptr inbounds nuw i16, ptr %3, i64 %82
-  %84 = load i16, ptr %83, align 2, !tbaa !140
+  %84 = load i16, ptr %83, align 2, !tbaa !141
   %85 = zext i16 %84 to i32
   %86 = tail call noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBackwardEia(ptr noundef nonnull align 8 dereferenceable(140) %81, i32 noundef %85, i8 noundef signext %68)
   %.not142 = icmp eq i8 %86, 0
@@ -3592,11 +3592,11 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %93 = load ptr, ptr %88, align 8, !tbaa !24
   %94 = and i64 %indvars.iv.next177, 4294967295
   %95 = getelementptr inbounds nuw i16, ptr %1, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !140
+  %96 = load i16, ptr %95, align 2, !tbaa !141
   %97 = zext i16 %96 to i32
   %98 = tail call noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBackwardEia(ptr noundef nonnull align 8 dereferenceable(140) %93, i32 noundef %97, i8 noundef signext %68)
   %.not143 = icmp eq i8 %98, 0
-  br i1 %.not143, label %.critedge.loopexit.split.loop.exit, label %89, !llvm.loop !144
+  br i1 %.not143, label %.critedge.loopexit.split.loop.exit, label %89, !llvm.loop !145
 
 .critedge.loopexit.split.loop.exit:               ; preds = %92
   %indvars.le = trunc i64 %indvars.iv.next177 to i32
@@ -3610,7 +3610,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %.3129 = phi i32 [ %.1127191, %79 ], [ %4, %78 ], [ 0, %.critedge158 ], [ 0, %.critedge158.thread ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ 0, %89 ]
   %101 = load ptr, ptr %100, align 8, !tbaa !33
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
-  %103 = load i32, ptr %102, align 8, !tbaa !107
+  %103 = load i32, ptr %102, align 8, !tbaa !108
   %104 = icmp sgt i32 %103, -1
   br i1 %104, label %105, label %.thread
 
@@ -3621,7 +3621,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 107:                                              ; preds = %105
   %108 = sext i32 %.3129 to i64
   %109 = getelementptr inbounds i16, ptr %1, i64 %108
-  %110 = load i16, ptr %109, align 2, !tbaa !140
+  %110 = load i16, ptr %109, align 2, !tbaa !141
   %111 = icmp ult i16 %110, 384
   br i1 %111, label %112, label %.thread
 
@@ -3632,7 +3632,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 114:                                              ; preds = %112
   %115 = sext i32 %.3129 to i64
   %116 = getelementptr inbounds i16, ptr %3, i64 %115
-  %117 = load i16, ptr %116, align 2, !tbaa !140
+  %117 = load i16, ptr %116, align 2, !tbaa !141
   %118 = icmp ult i16 %117, 384
   br i1 %118, label %119, label %.thread
 
@@ -3641,7 +3641,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !24
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 88
-  %124 = load ptr, ptr %123, align 8, !tbaa !145
+  %124 = load ptr, ptr %123, align 8, !tbaa !146
   %125 = getelementptr inbounds nuw i8, ptr %101, i64 84
   %126 = sext i32 %.3129 to i64
   %127 = getelementptr inbounds i16, ptr %1, i64 %126
@@ -3671,7 +3671,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 .thread:                                          ; preds = %..thread_crit_edge, %.critedge, %107, %114
   %138 = phi ptr [ %.pre, %..thread_crit_edge ], [ %101, %.critedge ], [ %101, %107 ], [ %101, %114 ]
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %140 = load i32, ptr %139, align 8, !tbaa !105
+  %140 = load i32, ptr %139, align 8, !tbaa !106
   %141 = and i32 %140, 1
   %.not144.not = icmp eq i32 %141, 0
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3684,63 +3684,63 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %146 = load ptr, ptr %142, align 8, !tbaa !24
   %147 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %148 = load ptr, ptr %146, align 8, !tbaa !75
-  store ptr %148, ptr %147, align 8, !tbaa !109
+  store ptr %148, ptr %147, align 8, !tbaa !110
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %146, ptr %149, align 8, !tbaa !114
+  store ptr %146, ptr %149, align 8, !tbaa !115
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %150, align 8, !tbaa !115
+  store i32 0, ptr %150, align 8, !tbaa !116
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %152, ptr %151, align 8, !tbaa !116
+  store ptr %152, ptr %151, align 8, !tbaa !117
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 40, ptr %153, align 8, !tbaa !117
+  store i32 40, ptr %153, align 8, !tbaa !118
   %154 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i8 0, ptr %154, align 4, !tbaa !118
+  store i8 0, ptr %154, align 4, !tbaa !119
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 368
-  store i32 0, ptr %155, align 8, !tbaa !119
+  store i32 0, ptr %155, align 8, !tbaa !120
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 376
-  store ptr null, ptr %156, align 8, !tbaa !120
+  store ptr null, ptr %156, align 8, !tbaa !121
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 384
-  store i32 -1, ptr %157, align 8, !tbaa !121
+  store i32 -1, ptr %157, align 8, !tbaa !122
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 388
-  store i8 %99, ptr %158, align 4, !tbaa !122
+  store i8 %99, ptr %158, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UTF16CollationIteratorE, i64 16), ptr %7, align 8, !tbaa !15
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 392
-  store ptr %1, ptr %159, align 8, !tbaa !123
+  store ptr %1, ptr %159, align 8, !tbaa !124
   %160 = getelementptr inbounds nuw i8, ptr %7, i64 400
-  store ptr %144, ptr %160, align 8, !tbaa !125
+  store ptr %144, ptr %160, align 8, !tbaa !126
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 408
-  store ptr %.0125184, ptr %161, align 8, !tbaa !126
+  store ptr %.0125184, ptr %161, align 8, !tbaa !127
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %8) #20
   %162 = getelementptr inbounds i16, ptr %3, i64 %143
   %163 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %148, ptr %163, align 8, !tbaa !109
+  store ptr %148, ptr %163, align 8, !tbaa !110
   %164 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %146, ptr %164, align 8, !tbaa !114
+  store ptr %146, ptr %164, align 8, !tbaa !115
   %165 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 0, ptr %165, align 8, !tbaa !115
+  store i32 0, ptr %165, align 8, !tbaa !116
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %167 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %167, ptr %166, align 8, !tbaa !116
+  store ptr %167, ptr %166, align 8, !tbaa !117
   %168 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 40, ptr %168, align 8, !tbaa !117
+  store i32 40, ptr %168, align 8, !tbaa !118
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  store i8 0, ptr %169, align 4, !tbaa !118
+  store i8 0, ptr %169, align 4, !tbaa !119
   %170 = getelementptr inbounds nuw i8, ptr %8, i64 368
-  store i32 0, ptr %170, align 8, !tbaa !119
+  store i32 0, ptr %170, align 8, !tbaa !120
   %171 = getelementptr inbounds nuw i8, ptr %8, i64 376
-  store ptr null, ptr %171, align 8, !tbaa !120
+  store ptr null, ptr %171, align 8, !tbaa !121
   %172 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  store i32 -1, ptr %172, align 8, !tbaa !121
+  store i32 -1, ptr %172, align 8, !tbaa !122
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 388
-  store i8 %99, ptr %173, align 4, !tbaa !122
+  store i8 %99, ptr %173, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UTF16CollationIteratorE, i64 16), ptr %8, align 8, !tbaa !15
   %174 = getelementptr inbounds nuw i8, ptr %8, i64 392
-  store ptr %3, ptr %174, align 8, !tbaa !123
+  store ptr %3, ptr %174, align 8, !tbaa !124
   %175 = getelementptr inbounds nuw i8, ptr %8, i64 400
-  store ptr %162, ptr %175, align 8, !tbaa !125
+  store ptr %162, ptr %175, align 8, !tbaa !126
   %176 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  store ptr %.0131183, ptr %176, align 8, !tbaa !126
+  store ptr %.0131183, ptr %176, align 8, !tbaa !127
   %177 = invoke noundef i32 @_ZN6icu_7716CollationCompare21compareUpToQuaternaryERNS_17CollationIteratorES2_RKNS_17CollationSettingsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %7, ptr noundef nonnull align 8 dereferenceable(389) %8, ptr noundef nonnull align 8 dereferenceable(852) %138, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %178 unwind label %179
 
@@ -3765,97 +3765,97 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %182 = load ptr, ptr %142, align 8, !tbaa !24
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %184 = load ptr, ptr %182, align 8, !tbaa !75
-  store ptr %184, ptr %183, align 8, !tbaa !109
+  store ptr %184, ptr %183, align 8, !tbaa !110
   %185 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %182, ptr %185, align 8, !tbaa !114
+  store ptr %182, ptr %185, align 8, !tbaa !115
   %186 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 0, ptr %186, align 8, !tbaa !115
+  store i32 0, ptr %186, align 8, !tbaa !116
   %187 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %188 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %188, ptr %187, align 8, !tbaa !116
+  store ptr %188, ptr %187, align 8, !tbaa !117
   %189 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 40, ptr %189, align 8, !tbaa !117
+  store i32 40, ptr %189, align 8, !tbaa !118
   %190 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  store i8 0, ptr %190, align 4, !tbaa !118
+  store i8 0, ptr %190, align 4, !tbaa !119
   %191 = getelementptr inbounds nuw i8, ptr %9, i64 368
-  store i32 0, ptr %191, align 8, !tbaa !119
+  store i32 0, ptr %191, align 8, !tbaa !120
   %192 = getelementptr inbounds nuw i8, ptr %9, i64 376
-  store ptr null, ptr %192, align 8, !tbaa !120
+  store ptr null, ptr %192, align 8, !tbaa !121
   %193 = getelementptr inbounds nuw i8, ptr %9, i64 384
-  store i32 -1, ptr %193, align 8, !tbaa !121
+  store i32 -1, ptr %193, align 8, !tbaa !122
   %194 = getelementptr inbounds nuw i8, ptr %9, i64 388
-  store i8 %99, ptr %194, align 4, !tbaa !122
+  store i8 %99, ptr %194, align 4, !tbaa !123
   %195 = getelementptr inbounds nuw i8, ptr %9, i64 392
-  store ptr %1, ptr %195, align 8, !tbaa !123
+  store ptr %1, ptr %195, align 8, !tbaa !124
   %196 = getelementptr inbounds nuw i8, ptr %9, i64 400
-  store ptr %144, ptr %196, align 8, !tbaa !125
+  store ptr %144, ptr %196, align 8, !tbaa !126
   %197 = getelementptr inbounds nuw i8, ptr %9, i64 408
-  store ptr %.0125184, ptr %197, align 8, !tbaa !126
+  store ptr %.0125184, ptr %197, align 8, !tbaa !127
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUTF16CollationIteratorE, i64 16), ptr %9, align 8, !tbaa !15
   %198 = getelementptr inbounds nuw i8, ptr %9, i64 416
-  store ptr %1, ptr %198, align 8, !tbaa !127
+  store ptr %1, ptr %198, align 8, !tbaa !128
   %199 = getelementptr inbounds nuw i8, ptr %9, i64 424
-  store ptr %144, ptr %199, align 8, !tbaa !129
+  store ptr %144, ptr %199, align 8, !tbaa !130
   %200 = getelementptr inbounds nuw i8, ptr %9, i64 432
-  store ptr null, ptr %200, align 8, !tbaa !130
+  store ptr null, ptr %200, align 8, !tbaa !131
   %201 = getelementptr inbounds nuw i8, ptr %9, i64 440
-  store ptr %.0125184, ptr %201, align 8, !tbaa !131
+  store ptr %.0125184, ptr %201, align 8, !tbaa !132
   %202 = getelementptr inbounds nuw i8, ptr %9, i64 448
   %203 = getelementptr inbounds nuw i8, ptr %182, i64 48
-  %204 = load ptr, ptr %203, align 8, !tbaa !132
-  store ptr %204, ptr %202, align 8, !tbaa !133
+  %204 = load ptr, ptr %203, align 8, !tbaa !133
+  store ptr %204, ptr %202, align 8, !tbaa !134
   %205 = getelementptr inbounds nuw i8, ptr %9, i64 456
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %205, align 8, !tbaa !15
   %206 = getelementptr inbounds nuw i8, ptr %9, i64 464
   store i16 2, ptr %206, align 8, !tbaa !65
   %207 = getelementptr inbounds nuw i8, ptr %9, i64 520
-  store i8 1, ptr %207, align 8, !tbaa !134
+  store i8 1, ptr %207, align 8, !tbaa !135
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %10) #20
   %208 = getelementptr inbounds i16, ptr %3, i64 %143
   %209 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %184, ptr %209, align 8, !tbaa !109
+  store ptr %184, ptr %209, align 8, !tbaa !110
   %210 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %182, ptr %210, align 8, !tbaa !114
+  store ptr %182, ptr %210, align 8, !tbaa !115
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 0, ptr %211, align 8, !tbaa !115
+  store i32 0, ptr %211, align 8, !tbaa !116
   %212 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %213 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %213, ptr %212, align 8, !tbaa !116
+  store ptr %213, ptr %212, align 8, !tbaa !117
   %214 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 40, ptr %214, align 8, !tbaa !117
+  store i32 40, ptr %214, align 8, !tbaa !118
   %215 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  store i8 0, ptr %215, align 4, !tbaa !118
+  store i8 0, ptr %215, align 4, !tbaa !119
   %216 = getelementptr inbounds nuw i8, ptr %10, i64 368
-  store i32 0, ptr %216, align 8, !tbaa !119
+  store i32 0, ptr %216, align 8, !tbaa !120
   %217 = getelementptr inbounds nuw i8, ptr %10, i64 376
-  store ptr null, ptr %217, align 8, !tbaa !120
+  store ptr null, ptr %217, align 8, !tbaa !121
   %218 = getelementptr inbounds nuw i8, ptr %10, i64 384
-  store i32 -1, ptr %218, align 8, !tbaa !121
+  store i32 -1, ptr %218, align 8, !tbaa !122
   %219 = getelementptr inbounds nuw i8, ptr %10, i64 388
-  store i8 %99, ptr %219, align 4, !tbaa !122
+  store i8 %99, ptr %219, align 4, !tbaa !123
   %220 = getelementptr inbounds nuw i8, ptr %10, i64 392
-  store ptr %3, ptr %220, align 8, !tbaa !123
+  store ptr %3, ptr %220, align 8, !tbaa !124
   %221 = getelementptr inbounds nuw i8, ptr %10, i64 400
-  store ptr %208, ptr %221, align 8, !tbaa !125
+  store ptr %208, ptr %221, align 8, !tbaa !126
   %222 = getelementptr inbounds nuw i8, ptr %10, i64 408
-  store ptr %.0131183, ptr %222, align 8, !tbaa !126
+  store ptr %.0131183, ptr %222, align 8, !tbaa !127
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUTF16CollationIteratorE, i64 16), ptr %10, align 8, !tbaa !15
   %223 = getelementptr inbounds nuw i8, ptr %10, i64 416
-  store ptr %3, ptr %223, align 8, !tbaa !127
+  store ptr %3, ptr %223, align 8, !tbaa !128
   %224 = getelementptr inbounds nuw i8, ptr %10, i64 424
-  store ptr %208, ptr %224, align 8, !tbaa !129
+  store ptr %208, ptr %224, align 8, !tbaa !130
   %225 = getelementptr inbounds nuw i8, ptr %10, i64 432
-  store ptr null, ptr %225, align 8, !tbaa !130
+  store ptr null, ptr %225, align 8, !tbaa !131
   %226 = getelementptr inbounds nuw i8, ptr %10, i64 440
-  store ptr %.0131183, ptr %226, align 8, !tbaa !131
+  store ptr %.0131183, ptr %226, align 8, !tbaa !132
   %227 = getelementptr inbounds nuw i8, ptr %10, i64 448
-  store ptr %204, ptr %227, align 8, !tbaa !133
+  store ptr %204, ptr %227, align 8, !tbaa !134
   %228 = getelementptr inbounds nuw i8, ptr %10, i64 456
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %228, align 8, !tbaa !15
   %229 = getelementptr inbounds nuw i8, ptr %10, i64 464
   store i16 2, ptr %229, align 8, !tbaa !65
   %230 = getelementptr inbounds nuw i8, ptr %10, i64 520
-  store i8 1, ptr %230, align 8, !tbaa !134
+  store i8 1, ptr %230, align 8, !tbaa !135
   %231 = invoke noundef i32 @_ZN6icu_7716CollationCompare21compareUpToQuaternaryERNS_17CollationIteratorES2_RKNS_17CollationSettingsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %9, ptr noundef nonnull align 8 dereferenceable(389) %10, ptr noundef nonnull align 8 dereferenceable(852) %138, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %232 unwind label %233
 
@@ -3883,7 +3883,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 236:                                              ; preds = %235
   %237 = load ptr, ptr %100, align 8, !tbaa !33
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  %239 = load i32, ptr %238, align 8, !tbaa !105
+  %239 = load i32, ptr %238, align 8, !tbaa !106
   %240 = icmp sgt i32 %239, 61439
   %241 = load i32, ptr %5, align 4
   %242 = icmp slt i32 %241, 1
@@ -3894,7 +3894,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %245 = load ptr, ptr %244, align 8, !tbaa !24
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 48
-  %247 = load ptr, ptr %246, align 8, !tbaa !132
+  %247 = load ptr, ptr %246, align 8, !tbaa !133
   %248 = sext i32 %.3129 to i64
   %249 = getelementptr inbounds i16, ptr %1, i64 %248
   %250 = getelementptr inbounds i16, ptr %3, i64 %248
@@ -3905,24 +3905,24 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 252:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #20
   %253 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 -1, ptr %253, align 8, !tbaa !146
+  store i32 -1, ptr %253, align 8, !tbaa !147
   %254 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  store i32 0, ptr %254, align 4, !tbaa !148
+  store i32 0, ptr %254, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_116UTF16NFDIteratorE, i64 16), ptr %11, align 8, !tbaa !15
   %255 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %249, ptr %255, align 8, !tbaa !149
+  store ptr %249, ptr %255, align 8, !tbaa !150
   %256 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %.0125184, ptr %256, align 8, !tbaa !151
+  store ptr %.0125184, ptr %256, align 8, !tbaa !152
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #20
   %257 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 -1, ptr %257, align 8, !tbaa !146
+  store i32 -1, ptr %257, align 8, !tbaa !147
   %258 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  store i32 0, ptr %258, align 4, !tbaa !148
+  store i32 0, ptr %258, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_116UTF16NFDIteratorE, i64 16), ptr %12, align 8, !tbaa !15
   %259 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %250, ptr %259, align 8, !tbaa !149
+  store ptr %250, ptr %259, align 8, !tbaa !150
   %260 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %.0131183, ptr %260, align 8, !tbaa !151
+  store ptr %.0131183, ptr %260, align 8, !tbaa !152
   %261 = invoke fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114compareNFDIterERKNS_15Normalizer2ImplERNS0_11NFDIteratorES5_(ptr noundef nonnull align 8 dereferenceable(80) %247, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %262 unwind label %263
 
@@ -4142,8 +4142,8 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator11compareUTF8ERKNS_11StringPie
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %1, align 8, !tbaa !152
-  %9 = load ptr, ptr %2, align 8, !tbaa !152
+  %8 = load ptr, ptr %1, align 8, !tbaa !153
+  %9 = load ptr, ptr %2, align 8, !tbaa !153
   %10 = icmp ne ptr %8, null
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
@@ -4154,7 +4154,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator11compareUTF8ERKNS_11StringPie
 13:                                               ; preds = %7
   %14 = icmp eq ptr %9, null
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !154
+  %16 = load i32, ptr %15, align 8, !tbaa !155
   br i1 %14, label %18, label %.split
 
 .split:                                           ; preds = %13
@@ -4219,7 +4219,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = load i32, ptr %26, align 8, !tbaa !105
+  %27 = load i32, ptr %26, align 8, !tbaa !106
   %28 = trunc i32 %27 to i8
   %29 = lshr i8 %28, 1
   %30 = and i8 %29, 1
@@ -4240,7 +4240,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next268
   %38 = load i8, ptr %37, align 1, !tbaa !65
   %.not210 = icmp eq i8 %36, %38
-  br i1 %.not210, label %.lr.ph257, label %.critedge241, !llvm.loop !155
+  br i1 %.not210, label %.lr.ph257, label %.critedge241, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %45, %.preheader251
   %39 = icmp eq i32 %2, %4
@@ -4248,7 +4248,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
 
 .lr.ph:                                           ; preds = %45
   %40 = icmp eq i64 %indvars.iv.next, %sext
-  br i1 %40, label %.critedge241, label %.lr.ph286, !llvm.loop !156
+  br i1 %40, label %.critedge241, label %.lr.ph286, !llvm.loop !157
 
 .lr.ph286:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv285 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -4265,7 +4265,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %46 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %46, ptr %7, align 4, !tbaa !12
   %47 = icmp eq i32 %2, %46
-  br i1 %47, label %._crit_edge, label %.lr.ph, !llvm.loop !156
+  br i1 %47, label %._crit_edge, label %.lr.ph, !llvm.loop !157
 
 .critedge241:                                     ; preds = %.lr.ph286, %.lr.ph, %33, %.lr.ph.preheader, %._crit_edge
   %.promoted258 = phi i32 [ %2, %._crit_edge ], [ 0, %.lr.ph.preheader ], [ %34, %33 ], [ %46, %.lr.ph ], [ %.pr273284, %.lr.ph286 ]
@@ -4313,7 +4313,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !65
   %72 = icmp slt i8 %71, -64
-  br i1 %72, label %65, label %.critedge.loopexit.split.loop.exit280, !llvm.loop !157
+  br i1 %72, label %65, label %.critedge.loopexit.split.loop.exit280, !llvm.loop !158
 
 .critedge.loopexit.split.loop.exit280:            ; preds = %68
   %indvars.le = trunc i64 %indvars.iv.next270 to i32
@@ -4329,7 +4329,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !33
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load i32, ptr %76, align 8, !tbaa !105
+  %77 = load i32, ptr %76, align 8, !tbaa !106
   %78 = trunc i32 %77 to i8
   %79 = lshr i8 %78, 1
   %80 = and i8 %79, 1
@@ -4614,14 +4614,14 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %252 = load ptr, ptr %237, align 8, !tbaa !24
   %253 = call noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBackwardEia(ptr noundef nonnull align 8 dereferenceable(140) %252, i32 noundef %.0161, i8 noundef signext %80)
   %.not227 = icmp eq i8 %253, 0
-  br i1 %.not227, label %.critedge2, label %238, !llvm.loop !158
+  br i1 %.not227, label %.critedge2, label %238, !llvm.loop !159
 
 .critedge2:                                       ; preds = %248, %251, %.critedge.thread, %232, %.critedge243, %.critedge
   %254 = phi i8 [ %30, %.critedge.thread ], [ %80, %232 ], [ %80, %.critedge243 ], [ %80, %.critedge ], [ %80, %251 ], [ %80, %248 ]
   %255 = phi ptr [ %24, %.critedge.thread ], [ %74, %232 ], [ %74, %.critedge243 ], [ %74, %.critedge ], [ %74, %251 ], [ %74, %248 ]
   %256 = load ptr, ptr %255, align 8, !tbaa !33
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 80
-  %258 = load i32, ptr %257, align 8, !tbaa !107
+  %258 = load i32, ptr %257, align 8, !tbaa !108
   %259 = icmp sgt i32 %258, -1
   br i1 %259, label %260, label %.thread
 
@@ -4653,7 +4653,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %278 = load ptr, ptr %277, align 8, !tbaa !24
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 88
-  %280 = load ptr, ptr %279, align 8, !tbaa !145
+  %280 = load ptr, ptr %279, align 8, !tbaa !146
   %281 = getelementptr inbounds nuw i8, ptr %256, i64 84
   %282 = sext i32 %261 to i64
   %283 = getelementptr inbounds i8, ptr %1, i64 %282
@@ -4683,7 +4683,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
 .thread:                                          ; preds = %..thread_crit_edge, %.critedge2, %263, %270
   %294 = phi ptr [ %.pre276, %..thread_crit_edge ], [ %256, %.critedge2 ], [ %256, %263 ], [ %256, %270 ]
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 24
-  %296 = load i32, ptr %295, align 8, !tbaa !105
+  %296 = load i32, ptr %295, align 8, !tbaa !106
   %297 = and i32 %296, 1
   %.not228.not = icmp eq i32 %297, 0
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4695,62 +4695,62 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %301 = load i32, ptr %7, align 4, !tbaa !12
   %302 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %303 = load ptr, ptr %300, align 8, !tbaa !75
-  store ptr %303, ptr %302, align 8, !tbaa !109
+  store ptr %303, ptr %302, align 8, !tbaa !110
   %304 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %300, ptr %304, align 8, !tbaa !114
+  store ptr %300, ptr %304, align 8, !tbaa !115
   %305 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 0, ptr %305, align 8, !tbaa !115
+  store i32 0, ptr %305, align 8, !tbaa !116
   %306 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %307 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %307, ptr %306, align 8, !tbaa !116
+  store ptr %307, ptr %306, align 8, !tbaa !117
   %308 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 40, ptr %308, align 8, !tbaa !117
+  store i32 40, ptr %308, align 8, !tbaa !118
   %309 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  store i8 0, ptr %309, align 4, !tbaa !118
+  store i8 0, ptr %309, align 4, !tbaa !119
   %310 = getelementptr inbounds nuw i8, ptr %8, i64 368
-  store i32 0, ptr %310, align 8, !tbaa !119
+  store i32 0, ptr %310, align 8, !tbaa !120
   %311 = getelementptr inbounds nuw i8, ptr %8, i64 376
-  store ptr null, ptr %311, align 8, !tbaa !120
+  store ptr null, ptr %311, align 8, !tbaa !121
   %312 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  store i32 -1, ptr %312, align 8, !tbaa !121
+  store i32 -1, ptr %312, align 8, !tbaa !122
   %313 = getelementptr inbounds nuw i8, ptr %8, i64 388
-  store i8 %254, ptr %313, align 4, !tbaa !122
+  store i8 %254, ptr %313, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7721UTF8CollationIteratorE, i64 16), ptr %8, align 8, !tbaa !15
   %314 = getelementptr inbounds nuw i8, ptr %8, i64 392
-  store ptr %1, ptr %314, align 8, !tbaa !159
+  store ptr %1, ptr %314, align 8, !tbaa !160
   %315 = getelementptr inbounds nuw i8, ptr %8, i64 400
-  store i32 %301, ptr %315, align 8, !tbaa !161
+  store i32 %301, ptr %315, align 8, !tbaa !162
   %316 = getelementptr inbounds nuw i8, ptr %8, i64 404
-  store i32 %2, ptr %316, align 4, !tbaa !162
+  store i32 %2, ptr %316, align 4, !tbaa !163
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %9) #20
   %317 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %303, ptr %317, align 8, !tbaa !109
+  store ptr %303, ptr %317, align 8, !tbaa !110
   %318 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %300, ptr %318, align 8, !tbaa !114
+  store ptr %300, ptr %318, align 8, !tbaa !115
   %319 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 0, ptr %319, align 8, !tbaa !115
+  store i32 0, ptr %319, align 8, !tbaa !116
   %320 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %321 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %321, ptr %320, align 8, !tbaa !116
+  store ptr %321, ptr %320, align 8, !tbaa !117
   %322 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 40, ptr %322, align 8, !tbaa !117
+  store i32 40, ptr %322, align 8, !tbaa !118
   %323 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  store i8 0, ptr %323, align 4, !tbaa !118
+  store i8 0, ptr %323, align 4, !tbaa !119
   %324 = getelementptr inbounds nuw i8, ptr %9, i64 368
-  store i32 0, ptr %324, align 8, !tbaa !119
+  store i32 0, ptr %324, align 8, !tbaa !120
   %325 = getelementptr inbounds nuw i8, ptr %9, i64 376
-  store ptr null, ptr %325, align 8, !tbaa !120
+  store ptr null, ptr %325, align 8, !tbaa !121
   %326 = getelementptr inbounds nuw i8, ptr %9, i64 384
-  store i32 -1, ptr %326, align 8, !tbaa !121
+  store i32 -1, ptr %326, align 8, !tbaa !122
   %327 = getelementptr inbounds nuw i8, ptr %9, i64 388
-  store i8 %254, ptr %327, align 4, !tbaa !122
+  store i8 %254, ptr %327, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7721UTF8CollationIteratorE, i64 16), ptr %9, align 8, !tbaa !15
   %328 = getelementptr inbounds nuw i8, ptr %9, i64 392
-  store ptr %3, ptr %328, align 8, !tbaa !159
+  store ptr %3, ptr %328, align 8, !tbaa !160
   %329 = getelementptr inbounds nuw i8, ptr %9, i64 400
-  store i32 %301, ptr %329, align 8, !tbaa !161
+  store i32 %301, ptr %329, align 8, !tbaa !162
   %330 = getelementptr inbounds nuw i8, ptr %9, i64 404
-  store i32 %4, ptr %330, align 4, !tbaa !162
+  store i32 %4, ptr %330, align 4, !tbaa !163
   %331 = invoke noundef i32 @_ZN6icu_7716CollationCompare21compareUpToQuaternaryERNS_17CollationIteratorES2_RKNS_17CollationSettingsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %8, ptr noundef nonnull align 8 dereferenceable(389) %9, ptr noundef nonnull align 8 dereferenceable(852) %294, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %332 unwind label %333
 
@@ -4776,80 +4776,80 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %337 = load i32, ptr %7, align 4, !tbaa !12
   %338 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %339 = load ptr, ptr %336, align 8, !tbaa !75
-  store ptr %339, ptr %338, align 8, !tbaa !109
+  store ptr %339, ptr %338, align 8, !tbaa !110
   %340 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %336, ptr %340, align 8, !tbaa !114
+  store ptr %336, ptr %340, align 8, !tbaa !115
   %341 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 0, ptr %341, align 8, !tbaa !115
+  store i32 0, ptr %341, align 8, !tbaa !116
   %342 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %343 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %343, ptr %342, align 8, !tbaa !116
+  store ptr %343, ptr %342, align 8, !tbaa !117
   %344 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 40, ptr %344, align 8, !tbaa !117
+  store i32 40, ptr %344, align 8, !tbaa !118
   %345 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  store i8 0, ptr %345, align 4, !tbaa !118
+  store i8 0, ptr %345, align 4, !tbaa !119
   %346 = getelementptr inbounds nuw i8, ptr %10, i64 368
-  store i32 0, ptr %346, align 8, !tbaa !119
+  store i32 0, ptr %346, align 8, !tbaa !120
   %347 = getelementptr inbounds nuw i8, ptr %10, i64 376
-  store ptr null, ptr %347, align 8, !tbaa !120
+  store ptr null, ptr %347, align 8, !tbaa !121
   %348 = getelementptr inbounds nuw i8, ptr %10, i64 384
-  store i32 -1, ptr %348, align 8, !tbaa !121
+  store i32 -1, ptr %348, align 8, !tbaa !122
   %349 = getelementptr inbounds nuw i8, ptr %10, i64 388
-  store i8 %254, ptr %349, align 4, !tbaa !122
+  store i8 %254, ptr %349, align 4, !tbaa !123
   %350 = getelementptr inbounds nuw i8, ptr %10, i64 392
-  store ptr %1, ptr %350, align 8, !tbaa !159
+  store ptr %1, ptr %350, align 8, !tbaa !160
   %351 = getelementptr inbounds nuw i8, ptr %10, i64 400
-  store i32 %337, ptr %351, align 8, !tbaa !161
+  store i32 %337, ptr %351, align 8, !tbaa !162
   %352 = getelementptr inbounds nuw i8, ptr %10, i64 404
-  store i32 %2, ptr %352, align 4, !tbaa !162
+  store i32 %2, ptr %352, align 4, !tbaa !163
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7724FCDUTF8CollationIteratorE, i64 16), ptr %10, align 8, !tbaa !15
   %353 = getelementptr inbounds nuw i8, ptr %10, i64 408
-  store i32 0, ptr %353, align 8, !tbaa !163
+  store i32 0, ptr %353, align 8, !tbaa !164
   %354 = getelementptr inbounds nuw i8, ptr %10, i64 412
-  store i32 %337, ptr %354, align 4, !tbaa !166
+  store i32 %337, ptr %354, align 4, !tbaa !167
   %355 = getelementptr inbounds nuw i8, ptr %10, i64 424
   %356 = getelementptr inbounds nuw i8, ptr %336, i64 48
-  %357 = load ptr, ptr %356, align 8, !tbaa !132
-  store ptr %357, ptr %355, align 8, !tbaa !133
+  %357 = load ptr, ptr %356, align 8, !tbaa !133
+  store ptr %357, ptr %355, align 8, !tbaa !134
   %358 = getelementptr inbounds nuw i8, ptr %10, i64 432
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %358, align 8, !tbaa !15
   %359 = getelementptr inbounds nuw i8, ptr %10, i64 440
   store i16 2, ptr %359, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %11) #20
   %360 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %339, ptr %360, align 8, !tbaa !109
+  store ptr %339, ptr %360, align 8, !tbaa !110
   %361 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %336, ptr %361, align 8, !tbaa !114
+  store ptr %336, ptr %361, align 8, !tbaa !115
   %362 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 0, ptr %362, align 8, !tbaa !115
+  store i32 0, ptr %362, align 8, !tbaa !116
   %363 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %364 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr %364, ptr %363, align 8, !tbaa !116
+  store ptr %364, ptr %363, align 8, !tbaa !117
   %365 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 40, ptr %365, align 8, !tbaa !117
+  store i32 40, ptr %365, align 8, !tbaa !118
   %366 = getelementptr inbounds nuw i8, ptr %11, i64 44
-  store i8 0, ptr %366, align 4, !tbaa !118
+  store i8 0, ptr %366, align 4, !tbaa !119
   %367 = getelementptr inbounds nuw i8, ptr %11, i64 368
-  store i32 0, ptr %367, align 8, !tbaa !119
+  store i32 0, ptr %367, align 8, !tbaa !120
   %368 = getelementptr inbounds nuw i8, ptr %11, i64 376
-  store ptr null, ptr %368, align 8, !tbaa !120
+  store ptr null, ptr %368, align 8, !tbaa !121
   %369 = getelementptr inbounds nuw i8, ptr %11, i64 384
-  store i32 -1, ptr %369, align 8, !tbaa !121
+  store i32 -1, ptr %369, align 8, !tbaa !122
   %370 = getelementptr inbounds nuw i8, ptr %11, i64 388
-  store i8 %254, ptr %370, align 4, !tbaa !122
+  store i8 %254, ptr %370, align 4, !tbaa !123
   %371 = getelementptr inbounds nuw i8, ptr %11, i64 392
-  store ptr %3, ptr %371, align 8, !tbaa !159
+  store ptr %3, ptr %371, align 8, !tbaa !160
   %372 = getelementptr inbounds nuw i8, ptr %11, i64 400
-  store i32 %337, ptr %372, align 8, !tbaa !161
+  store i32 %337, ptr %372, align 8, !tbaa !162
   %373 = getelementptr inbounds nuw i8, ptr %11, i64 404
-  store i32 %4, ptr %373, align 4, !tbaa !162
+  store i32 %4, ptr %373, align 4, !tbaa !163
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7724FCDUTF8CollationIteratorE, i64 16), ptr %11, align 8, !tbaa !15
   %374 = getelementptr inbounds nuw i8, ptr %11, i64 408
-  store i32 0, ptr %374, align 8, !tbaa !163
+  store i32 0, ptr %374, align 8, !tbaa !164
   %375 = getelementptr inbounds nuw i8, ptr %11, i64 412
-  store i32 %337, ptr %375, align 4, !tbaa !166
+  store i32 %337, ptr %375, align 4, !tbaa !167
   %376 = getelementptr inbounds nuw i8, ptr %11, i64 424
-  store ptr %357, ptr %376, align 8, !tbaa !133
+  store ptr %357, ptr %376, align 8, !tbaa !134
   %377 = getelementptr inbounds nuw i8, ptr %11, i64 432
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %377, align 8, !tbaa !15
   %378 = getelementptr inbounds nuw i8, ptr %11, i64 440
@@ -4881,7 +4881,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
 384:                                              ; preds = %383
   %385 = load ptr, ptr %255, align 8, !tbaa !33
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 24
-  %387 = load i32, ptr %386, align 8, !tbaa !105
+  %387 = load i32, ptr %386, align 8, !tbaa !106
   %388 = icmp sgt i32 %387, 61439
   %389 = load i32, ptr %5, align 4
   %390 = icmp slt i32 %389, 1
@@ -4892,7 +4892,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %393 = load ptr, ptr %392, align 8, !tbaa !24
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 48
-  %395 = load ptr, ptr %394, align 8, !tbaa !132
+  %395 = load ptr, ptr %394, align 8, !tbaa !133
   %396 = load i32, ptr %7, align 4, !tbaa !12
   %397 = sext i32 %396 to i64
   %398 = getelementptr inbounds i8, ptr %1, i64 %397
@@ -4908,28 +4908,28 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
 403:                                              ; preds = %391
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #20
   %404 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 -1, ptr %404, align 8, !tbaa !146
+  store i32 -1, ptr %404, align 8, !tbaa !147
   %405 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  store i32 0, ptr %405, align 4, !tbaa !148
+  store i32 0, ptr %405, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_115UTF8NFDIteratorE, i64 16), ptr %12, align 8, !tbaa !15
   %406 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %398, ptr %406, align 8, !tbaa !167
+  store ptr %398, ptr %406, align 8, !tbaa !168
   %407 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 0, ptr %407, align 8, !tbaa !169
+  store i32 0, ptr %407, align 8, !tbaa !170
   %408 = getelementptr inbounds nuw i8, ptr %12, i64 44
-  store i32 %.0178, ptr %408, align 4, !tbaa !170
+  store i32 %.0178, ptr %408, align 4, !tbaa !171
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #20
   %409 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i32 -1, ptr %409, align 8, !tbaa !146
+  store i32 -1, ptr %409, align 8, !tbaa !147
   %410 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  store i32 0, ptr %410, align 4, !tbaa !148
+  store i32 0, ptr %410, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_115UTF8NFDIteratorE, i64 16), ptr %13, align 8, !tbaa !15
   %411 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr %399, ptr %411, align 8, !tbaa !167
+  store ptr %399, ptr %411, align 8, !tbaa !168
   %412 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 0, ptr %412, align 8, !tbaa !169
+  store i32 0, ptr %412, align 8, !tbaa !170
   %413 = getelementptr inbounds nuw i8, ptr %13, i64 44
-  store i32 %.0180, ptr %413, align 4, !tbaa !170
+  store i32 %.0180, ptr %413, align 4, !tbaa !171
   %414 = invoke fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114compareNFDIterERKNS_15Normalizer2ImplERNS0_11NFDIteratorES5_(ptr noundef nonnull align 8 dereferenceable(80) %395, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %415 unwind label %416
 
@@ -4952,91 +4952,91 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
 418:                                              ; preds = %391
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %14) #20
   %419 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i32 -1, ptr %419, align 8, !tbaa !146
+  store i32 -1, ptr %419, align 8, !tbaa !147
   %420 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  store i32 0, ptr %420, align 4, !tbaa !148
+  store i32 0, ptr %420, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %14, align 8, !tbaa !15
   %421 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %422 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %423 = load ptr, ptr %393, align 8, !tbaa !75
-  store ptr %423, ptr %422, align 8, !tbaa !109
+  store ptr %423, ptr %422, align 8, !tbaa !110
   %424 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr %393, ptr %424, align 8, !tbaa !114
+  store ptr %393, ptr %424, align 8, !tbaa !115
   %425 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store i32 0, ptr %425, align 8, !tbaa !115
+  store i32 0, ptr %425, align 8, !tbaa !116
   %426 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %427 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  store ptr %427, ptr %426, align 8, !tbaa !116
+  store ptr %427, ptr %426, align 8, !tbaa !117
   %428 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store i32 40, ptr %428, align 8, !tbaa !117
+  store i32 40, ptr %428, align 8, !tbaa !118
   %429 = getelementptr inbounds nuw i8, ptr %14, i64 76
-  store i8 0, ptr %429, align 4, !tbaa !118
+  store i8 0, ptr %429, align 4, !tbaa !119
   %430 = getelementptr inbounds nuw i8, ptr %14, i64 400
-  store i32 0, ptr %430, align 8, !tbaa !119
+  store i32 0, ptr %430, align 8, !tbaa !120
   %431 = getelementptr inbounds nuw i8, ptr %14, i64 408
-  store ptr null, ptr %431, align 8, !tbaa !120
+  store ptr null, ptr %431, align 8, !tbaa !121
   %432 = getelementptr inbounds nuw i8, ptr %14, i64 416
-  store i32 -1, ptr %432, align 8, !tbaa !121
+  store i32 -1, ptr %432, align 8, !tbaa !122
   %433 = getelementptr inbounds nuw i8, ptr %14, i64 420
-  store i8 0, ptr %433, align 4, !tbaa !122
+  store i8 0, ptr %433, align 4, !tbaa !123
   %434 = getelementptr inbounds nuw i8, ptr %14, i64 424
-  store ptr %398, ptr %434, align 8, !tbaa !159
+  store ptr %398, ptr %434, align 8, !tbaa !160
   %435 = getelementptr inbounds nuw i8, ptr %14, i64 432
-  store i32 0, ptr %435, align 8, !tbaa !161
+  store i32 0, ptr %435, align 8, !tbaa !162
   %436 = getelementptr inbounds nuw i8, ptr %14, i64 436
-  store i32 %.0178, ptr %436, align 4, !tbaa !162
+  store i32 %.0178, ptr %436, align 4, !tbaa !163
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7724FCDUTF8CollationIteratorE, i64 16), ptr %421, align 8, !tbaa !15
   %437 = getelementptr inbounds nuw i8, ptr %14, i64 440
-  store i32 0, ptr %437, align 8, !tbaa !163
+  store i32 0, ptr %437, align 8, !tbaa !164
   %438 = getelementptr inbounds nuw i8, ptr %14, i64 444
-  store i32 0, ptr %438, align 4, !tbaa !166
+  store i32 0, ptr %438, align 4, !tbaa !167
   %439 = getelementptr inbounds nuw i8, ptr %14, i64 456
-  store ptr %395, ptr %439, align 8, !tbaa !133
+  store ptr %395, ptr %439, align 8, !tbaa !134
   %440 = getelementptr inbounds nuw i8, ptr %14, i64 464
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %440, align 8, !tbaa !15
   %441 = getelementptr inbounds nuw i8, ptr %14, i64 472
   store i16 2, ptr %441, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %15) #20
   %442 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store i32 -1, ptr %442, align 8, !tbaa !146
+  store i32 -1, ptr %442, align 8, !tbaa !147
   %443 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  store i32 0, ptr %443, align 4, !tbaa !148
+  store i32 0, ptr %443, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %15, align 8, !tbaa !15
   %444 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %445 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr %423, ptr %445, align 8, !tbaa !109
+  store ptr %423, ptr %445, align 8, !tbaa !110
   %446 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store ptr %393, ptr %446, align 8, !tbaa !114
+  store ptr %393, ptr %446, align 8, !tbaa !115
   %447 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store i32 0, ptr %447, align 8, !tbaa !115
+  store i32 0, ptr %447, align 8, !tbaa !116
   %448 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %449 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  store ptr %449, ptr %448, align 8, !tbaa !116
+  store ptr %449, ptr %448, align 8, !tbaa !117
   %450 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store i32 40, ptr %450, align 8, !tbaa !117
+  store i32 40, ptr %450, align 8, !tbaa !118
   %451 = getelementptr inbounds nuw i8, ptr %15, i64 76
-  store i8 0, ptr %451, align 4, !tbaa !118
+  store i8 0, ptr %451, align 4, !tbaa !119
   %452 = getelementptr inbounds nuw i8, ptr %15, i64 400
-  store i32 0, ptr %452, align 8, !tbaa !119
+  store i32 0, ptr %452, align 8, !tbaa !120
   %453 = getelementptr inbounds nuw i8, ptr %15, i64 408
-  store ptr null, ptr %453, align 8, !tbaa !120
+  store ptr null, ptr %453, align 8, !tbaa !121
   %454 = getelementptr inbounds nuw i8, ptr %15, i64 416
-  store i32 -1, ptr %454, align 8, !tbaa !121
+  store i32 -1, ptr %454, align 8, !tbaa !122
   %455 = getelementptr inbounds nuw i8, ptr %15, i64 420
-  store i8 0, ptr %455, align 4, !tbaa !122
+  store i8 0, ptr %455, align 4, !tbaa !123
   %456 = getelementptr inbounds nuw i8, ptr %15, i64 424
-  store ptr %399, ptr %456, align 8, !tbaa !159
+  store ptr %399, ptr %456, align 8, !tbaa !160
   %457 = getelementptr inbounds nuw i8, ptr %15, i64 432
-  store i32 0, ptr %457, align 8, !tbaa !161
+  store i32 0, ptr %457, align 8, !tbaa !162
   %458 = getelementptr inbounds nuw i8, ptr %15, i64 436
-  store i32 %.0180, ptr %458, align 4, !tbaa !162
+  store i32 %.0180, ptr %458, align 4, !tbaa !163
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7724FCDUTF8CollationIteratorE, i64 16), ptr %444, align 8, !tbaa !15
   %459 = getelementptr inbounds nuw i8, ptr %15, i64 440
-  store i32 0, ptr %459, align 8, !tbaa !163
+  store i32 0, ptr %459, align 8, !tbaa !164
   %460 = getelementptr inbounds nuw i8, ptr %15, i64 444
-  store i32 0, ptr %460, align 4, !tbaa !166
+  store i32 0, ptr %460, align 4, !tbaa !167
   %461 = getelementptr inbounds nuw i8, ptr %15, i64 456
-  store ptr %395, ptr %461, align 8, !tbaa !133
+  store ptr %395, ptr %461, align 8, !tbaa !134
   %462 = getelementptr inbounds nuw i8, ptr %15, i64 464
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %462, align 8, !tbaa !15
   %463 = getelementptr inbounds nuw i8, ptr %15, i64 472
@@ -5144,7 +5144,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBackwardEia(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !171
+  %5 = load ptr, ptr %4, align 8, !tbaa !172
   %6 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %5, i32 noundef %1)
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %7, label %75
@@ -5271,26 +5271,26 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN6icu_7712_GLOBAL__N_114c
   br label %12
 
 12:                                               ; preds = %.backedge, %3
-  %13 = load i32, ptr %4, align 8, !tbaa !146
+  %13 = load i32, ptr %4, align 8, !tbaa !147
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %37
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %5, align 4, !tbaa !148
+  %16 = load i32, ptr %5, align 4, !tbaa !149
   %17 = icmp eq i32 %13, %16
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
-  store i32 -1, ptr %4, align 8, !tbaa !146
+  store i32 -1, ptr %4, align 8, !tbaa !147
   br label %37
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %6, align 8, !tbaa !172
+  %20 = load ptr, ptr %6, align 8, !tbaa !173
   %21 = add nuw nsw i32 %13, 1
-  store i32 %21, ptr %4, align 8, !tbaa !146
+  store i32 %21, ptr %4, align 8, !tbaa !147
   %22 = zext nneg i32 %13 to i64
   %23 = getelementptr inbounds nuw i16, ptr %20, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !140
+  %24 = load i16, ptr %23, align 2, !tbaa !141
   %25 = zext i16 %24 to i32
   %26 = and i32 %25, 64512
   %27 = icmp eq i32 %26, 55296
@@ -5299,10 +5299,10 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN6icu_7712_GLOBAL__N_114c
 28:                                               ; preds = %19
   %29 = shl nuw nsw i32 %25, 10
   %30 = add nuw nsw i32 %13, 2
-  store i32 %30, ptr %4, align 8, !tbaa !146
+  store i32 %30, ptr %4, align 8, !tbaa !147
   %31 = zext nneg i32 %21 to i64
   %32 = getelementptr inbounds nuw i16, ptr %20, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !140
+  %33 = load i16, ptr %32, align 2, !tbaa !141
   %34 = zext i16 %33 to i32
   %35 = add nsw i32 %29, -56613888
   %36 = add nuw nsw i32 %35, %34
@@ -5317,26 +5317,26 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN6icu_7712_GLOBAL__N_114c
 
 _ZN6icu_7712_GLOBAL__N_111NFDIterator13nextCodePointEv.exit: ; preds = %19, %28, %37
   %.04.i = phi i32 [ %41, %37 ], [ %36, %28 ], [ %25, %19 ]
-  %42 = load i32, ptr %7, align 8, !tbaa !146
+  %42 = load i32, ptr %7, align 8, !tbaa !147
   %43 = icmp sgt i32 %42, -1
   br i1 %43, label %44, label %66
 
 44:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_111NFDIterator13nextCodePointEv.exit
-  %45 = load i32, ptr %8, align 4, !tbaa !148
+  %45 = load i32, ptr %8, align 4, !tbaa !149
   %46 = icmp eq i32 %42, %45
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %44
-  store i32 -1, ptr %7, align 8, !tbaa !146
+  store i32 -1, ptr %7, align 8, !tbaa !147
   br label %66
 
 48:                                               ; preds = %44
-  %49 = load ptr, ptr %9, align 8, !tbaa !172
+  %49 = load ptr, ptr %9, align 8, !tbaa !173
   %50 = add nuw nsw i32 %42, 1
-  store i32 %50, ptr %7, align 8, !tbaa !146
+  store i32 %50, ptr %7, align 8, !tbaa !147
   %51 = zext nneg i32 %42 to i64
   %52 = getelementptr inbounds nuw i16, ptr %49, i64 %51
-  %53 = load i16, ptr %52, align 2, !tbaa !140
+  %53 = load i16, ptr %52, align 2, !tbaa !141
   %54 = zext i16 %53 to i32
   %55 = and i32 %54, 64512
   %56 = icmp eq i32 %55, 55296
@@ -5345,10 +5345,10 @@ _ZN6icu_7712_GLOBAL__N_111NFDIterator13nextCodePointEv.exit: ; preds = %19, %28,
 57:                                               ; preds = %48
   %58 = shl nuw nsw i32 %54, 10
   %59 = add nuw nsw i32 %42, 2
-  store i32 %59, ptr %7, align 8, !tbaa !146
+  store i32 %59, ptr %7, align 8, !tbaa !147
   %60 = zext nneg i32 %50 to i64
   %61 = getelementptr inbounds nuw i16, ptr %49, i64 %60
-  %62 = load i16, ptr %61, align 2, !tbaa !140
+  %62 = load i16, ptr %61, align 2, !tbaa !141
   %63 = zext i16 %62 to i32
   %64 = add nsw i32 %58, -56613888
   %65 = add nuw nsw i32 %64, %63
@@ -5378,19 +5378,19 @@ _ZN6icu_7712_GLOBAL__N_111NFDIterator13nextCodePointEv.exit28: ; preds = %48, %5
   br i1 %76, label %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit, label %77
 
 77:                                               ; preds = %75
-  %78 = load i32, ptr %4, align 8, !tbaa !146
+  %78 = load i32, ptr %4, align 8, !tbaa !147
   %79 = icmp sgt i32 %78, -1
   br i1 %79, label %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit, label %80
 
 80:                                               ; preds = %77
   %81 = tail call noundef ptr @_ZNK6icu_7715Normalizer2Impl16getDecompositionEiPDsRi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef range(i32 0, -2147483648) %.04.i, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  store ptr %81, ptr %6, align 8, !tbaa !172
+  store ptr %81, ptr %6, align 8, !tbaa !173
   %82 = icmp eq ptr %81, null
   br i1 %82, label %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit, label %83
 
 83:                                               ; preds = %80
-  store i32 1, ptr %4, align 8, !tbaa !146
-  %84 = load i16, ptr %81, align 2, !tbaa !140
+  store i32 1, ptr %4, align 8, !tbaa !147
+  %84 = load i16, ptr %81, align 2, !tbaa !141
   %85 = zext i16 %84 to i32
   %86 = and i32 %85, 64512
   %87 = icmp eq i32 %86, 55296
@@ -5398,9 +5398,9 @@ _ZN6icu_7712_GLOBAL__N_111NFDIterator13nextCodePointEv.exit28: ; preds = %48, %5
 
 88:                                               ; preds = %83
   %89 = shl nuw nsw i32 %85, 10
-  store i32 2, ptr %4, align 8, !tbaa !146
+  store i32 2, ptr %4, align 8, !tbaa !147
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 2
-  %91 = load i16, ptr %90, align 2, !tbaa !140
+  %91 = load i16, ptr %90, align 2, !tbaa !141
   %92 = zext i16 %91 to i32
   %93 = add nsw i32 %89, -56613888
   %94 = add nuw nsw i32 %93, %92
@@ -5416,19 +5416,19 @@ _ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer
   br i1 %97, label %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit30, label %98
 
 98:                                               ; preds = %96
-  %99 = load i32, ptr %7, align 8, !tbaa !146
+  %99 = load i32, ptr %7, align 8, !tbaa !147
   %100 = icmp sgt i32 %99, -1
   br i1 %100, label %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit30, label %101
 
 101:                                              ; preds = %98
   %102 = tail call noundef ptr @_ZNK6icu_7715Normalizer2Impl16getDecompositionEiPDsRi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef range(i32 0, -2147483648) %.04.i27, ptr noundef nonnull %11, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  store ptr %102, ptr %9, align 8, !tbaa !172
+  store ptr %102, ptr %9, align 8, !tbaa !173
   %103 = icmp eq ptr %102, null
   br i1 %103, label %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit30, label %104
 
 104:                                              ; preds = %101
-  store i32 1, ptr %7, align 8, !tbaa !146
-  %105 = load i16, ptr %102, align 2, !tbaa !140
+  store i32 1, ptr %7, align 8, !tbaa !147
+  %105 = load i16, ptr %102, align 2, !tbaa !141
   %106 = zext i16 %105 to i32
   %107 = and i32 %106, 64512
   %108 = icmp eq i32 %107, 55296
@@ -5436,9 +5436,9 @@ _ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer
 
 109:                                              ; preds = %104
   %110 = shl nuw nsw i32 %106, 10
-  store i32 2, ptr %7, align 8, !tbaa !146
+  store i32 2, ptr %7, align 8, !tbaa !147
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 2
-  %112 = load i16, ptr %111, align 2, !tbaa !140
+  %112 = load i16, ptr %111, align 2, !tbaa !141
   %113 = zext i16 %112 to i32
   %114 = add nsw i32 %110, -56613888
   %115 = add nuw nsw i32 %114, %113
@@ -5466,9 +5466,9 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKN
   %5 = alloca i32, align 4
   %6 = alloca %"class.icu_77::ReorderingBuffer", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 -1, ptr %7, align 8, !tbaa !146
+  store i32 -1, ptr %7, align 8, !tbaa !147
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 0, ptr %8, align 4, !tbaa !148
+  store i32 0, ptr %8, align 4, !tbaa !149
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -5501,12 +5501,12 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKN
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = load i16, ptr %13, align 2, !tbaa !140
+  %24 = load i16, ptr %13, align 2, !tbaa !141
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %23, %19
-  store ptr %2, ptr %9, align 8, !tbaa !149
+  store ptr %2, ptr %9, align 8, !tbaa !150
   br label %.sink.split
 
 27:                                               ; preds = %23, %21
@@ -5531,9 +5531,9 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKN
 
 41:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #20
-  store ptr %1, ptr %6, align 8, !tbaa !133
+  store ptr %1, ptr %6, align 8, !tbaa !134
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %11, ptr %42, align 8, !tbaa !173
+  store ptr %11, ptr %42, align 8, !tbaa !174
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %43, i8 0, i64 29, i1 false)
   %44 = load i16, ptr %12, align 8, !tbaa !65
@@ -5561,14 +5561,14 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKN
   br label %91
 
 56:                                               ; preds = %52, %51
-  %57 = load ptr, ptr %43, align 8, !tbaa !174
+  %57 = load ptr, ptr %43, align 8, !tbaa !175
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %_ZN6icu_7716ReorderingBufferD2Ev.exit, label %58
 
 58:                                               ; preds = %56
-  %59 = load ptr, ptr %42, align 8, !tbaa !176
+  %59 = load ptr, ptr %42, align 8, !tbaa !177
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !177
+  %61 = load ptr, ptr %60, align 8, !tbaa !178
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %57 to i64
   %64 = sub i64 %62, %63
@@ -5612,7 +5612,7 @@ _ZN6icu_7716ReorderingBufferD2Ev.exit:            ; preds = %56, %58
 
 82:                                               ; preds = %79, %77, %72
   %.0.i = phi ptr [ %78, %77 ], [ %81, %79 ], [ null, %72 ]
-  store ptr %.0.i, ptr %9, align 8, !tbaa !149
+  store ptr %.0.i, ptr %9, align 8, !tbaa !150
   %83 = icmp slt i16 %73, 0
   %84 = ashr i16 %73, 5
   %85 = sext i16 %84 to i32
@@ -5624,7 +5624,7 @@ _ZN6icu_7716ReorderingBufferD2Ev.exit:            ; preds = %56, %58
 
 .sink.split:                                      ; preds = %82, %26
   %.sink = phi ptr [ %13, %26 ], [ %89, %82 ]
-  store ptr %.sink, ptr %10, align 8, !tbaa !151
+  store ptr %.sink, ptr %10, align 8, !tbaa !152
   br label %90
 
 90:                                               ; preds = %.sink.split, %_ZN6icu_7716ReorderingBufferD2Ev.exit, %14
@@ -5687,15 +5687,15 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !105
+  %20 = load i32, ptr %19, align 8, !tbaa !106
   %21 = trunc i32 %20 to i8
   %22 = lshr i8 %21, 1
   %23 = and i8 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %25 = load ptr, ptr %24, align 8, !tbaa !178
+  %25 = load ptr, ptr %24, align 8, !tbaa !179
   %26 = tail call noundef i32 %25(ptr noundef nonnull %1)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %28 = load ptr, ptr %27, align 8, !tbaa !178
+  %28 = load ptr, ptr %27, align 8, !tbaa !179
   %29 = tail call noundef i32 %28(ptr noundef nonnull %2)
   %.not89112 = icmp eq i32 %26, %29
   br i1 %.not89112, label %.lr.ph, label %._crit_edge
@@ -5708,12 +5708,12 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
 
 32:                                               ; preds = %.lr.ph
   %33 = add nuw nsw i32 %.075113, 1
-  %34 = load ptr, ptr %24, align 8, !tbaa !178
+  %34 = load ptr, ptr %24, align 8, !tbaa !179
   %35 = tail call noundef i32 %34(ptr noundef nonnull %1)
-  %36 = load ptr, ptr %27, align 8, !tbaa !178
+  %36 = load ptr, ptr %27, align 8, !tbaa !179
   %37 = tail call noundef i32 %36(ptr noundef nonnull %2)
   %.not89 = icmp eq i32 %35, %37
-  br i1 %.not89, label %.lr.ph, label %._crit_edge, !llvm.loop !180
+  br i1 %.not89, label %.lr.ph, label %._crit_edge, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %32, %16
   %.075.lcssa = phi i32 [ 0, %16 ], [ %33, %32 ]
@@ -5724,7 +5724,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
 
 39:                                               ; preds = %._crit_edge
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %41 = load ptr, ptr %40, align 8, !tbaa !181
+  %41 = load ptr, ptr %40, align 8, !tbaa !182
   %42 = tail call noundef i32 %41(ptr noundef nonnull %1)
   br label %43
 
@@ -5734,7 +5734,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %47 = load ptr, ptr %46, align 8, !tbaa !181
+  %47 = load ptr, ptr %46, align 8, !tbaa !182
   %48 = tail call noundef i32 %47(ptr noundef nonnull %2)
   br label %49
 
@@ -5770,9 +5770,9 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
 
 64:                                               ; preds = %70, %60
   %.378 = phi i32 [ %.075.lcssa, %60 ], [ %71, %70 ]
-  %65 = load ptr, ptr %61, align 8, !tbaa !181
+  %65 = load ptr, ptr %61, align 8, !tbaa !182
   %66 = tail call noundef i32 %65(ptr noundef nonnull %1)
-  %67 = load ptr, ptr %62, align 8, !tbaa !181
+  %67 = load ptr, ptr %62, align 8, !tbaa !182
   %68 = tail call noundef i32 %67(ptr noundef nonnull %2)
   %69 = icmp sgt i32 %.378, 1
   br i1 %69, label %70, label %.critedge.thread
@@ -5782,13 +5782,13 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
   %72 = load ptr, ptr %63, align 8, !tbaa !24
   %73 = tail call noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBackwardEia(ptr noundef nonnull align 8 dereferenceable(140) %72, i32 noundef %66, i8 noundef signext %23)
   %.not88 = icmp eq i8 %73, 0
-  br i1 %.not88, label %.critedge.thread, label %64, !llvm.loop !182
+  br i1 %.not88, label %.critedge.thread, label %64, !llvm.loop !183
 
 .critedge.thread:                                 ; preds = %64, %70, %55, %56, %49
   %.176103 = phi i32 [ 0, %49 ], [ %.075.lcssa, %56 ], [ %.075.lcssa, %55 ], [ 0, %64 ], [ %71, %70 ]
   %74 = load ptr, ptr %17, align 8, !tbaa !33
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load i32, ptr %75, align 8, !tbaa !105
+  %76 = load i32, ptr %75, align 8, !tbaa !106
   %77 = and i32 %76, 1
   %.not90.not = icmp eq i32 %77, 0
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5799,54 +5799,54 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
   %80 = load ptr, ptr %78, align 8, !tbaa !24
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %82 = load ptr, ptr %80, align 8, !tbaa !75
-  store ptr %82, ptr %81, align 8, !tbaa !109
+  store ptr %82, ptr %81, align 8, !tbaa !110
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %80, ptr %83, align 8, !tbaa !114
+  store ptr %80, ptr %83, align 8, !tbaa !115
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 0, ptr %84, align 8, !tbaa !115
+  store i32 0, ptr %84, align 8, !tbaa !116
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %86, ptr %85, align 8, !tbaa !116
+  store ptr %86, ptr %85, align 8, !tbaa !117
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 40, ptr %87, align 8, !tbaa !117
+  store i32 40, ptr %87, align 8, !tbaa !118
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i8 0, ptr %88, align 4, !tbaa !118
+  store i8 0, ptr %88, align 4, !tbaa !119
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  store i32 0, ptr %89, align 8, !tbaa !119
+  store i32 0, ptr %89, align 8, !tbaa !120
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 376
-  store ptr null, ptr %90, align 8, !tbaa !120
+  store ptr null, ptr %90, align 8, !tbaa !121
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  store i32 -1, ptr %91, align 8, !tbaa !121
+  store i32 -1, ptr %91, align 8, !tbaa !122
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 388
-  store i8 %23, ptr %92, align 4, !tbaa !122
+  store i8 %23, ptr %92, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UIterCollationIteratorE, i64 16), ptr %5, align 8, !tbaa !15
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  store ptr %1, ptr %93, align 8, !tbaa !183
+  store ptr %1, ptr %93, align 8, !tbaa !184
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6) #20
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %82, ptr %94, align 8, !tbaa !109
+  store ptr %82, ptr %94, align 8, !tbaa !110
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %80, ptr %95, align 8, !tbaa !114
+  store ptr %80, ptr %95, align 8, !tbaa !115
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 0, ptr %96, align 8, !tbaa !115
+  store i32 0, ptr %96, align 8, !tbaa !116
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %98, ptr %97, align 8, !tbaa !116
+  store ptr %98, ptr %97, align 8, !tbaa !117
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 40, ptr %99, align 8, !tbaa !117
+  store i32 40, ptr %99, align 8, !tbaa !118
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store i8 0, ptr %100, align 4, !tbaa !118
+  store i8 0, ptr %100, align 4, !tbaa !119
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 368
-  store i32 0, ptr %101, align 8, !tbaa !119
+  store i32 0, ptr %101, align 8, !tbaa !120
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 376
-  store ptr null, ptr %102, align 8, !tbaa !120
+  store ptr null, ptr %102, align 8, !tbaa !121
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 384
-  store i32 -1, ptr %103, align 8, !tbaa !121
+  store i32 -1, ptr %103, align 8, !tbaa !122
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 388
-  store i8 %23, ptr %104, align 4, !tbaa !122
+  store i8 %23, ptr %104, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UIterCollationIteratorE, i64 16), ptr %6, align 8, !tbaa !15
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 392
-  store ptr %2, ptr %105, align 8, !tbaa !183
+  store ptr %2, ptr %105, align 8, !tbaa !184
   %106 = invoke noundef i32 @_ZN6icu_7716CollationCompare21compareUpToQuaternaryERNS_17CollationIteratorES2_RKNS_17CollationSettingsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %5, ptr noundef nonnull align 8 dereferenceable(389) %6, ptr noundef nonnull align 8 dereferenceable(852) %74, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %107 unwind label %108
 
@@ -5871,72 +5871,72 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
   %111 = load ptr, ptr %78, align 8, !tbaa !24
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %113 = load ptr, ptr %111, align 8, !tbaa !75
-  store ptr %113, ptr %112, align 8, !tbaa !109
+  store ptr %113, ptr %112, align 8, !tbaa !110
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %111, ptr %114, align 8, !tbaa !114
+  store ptr %111, ptr %114, align 8, !tbaa !115
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %115, align 8, !tbaa !115
+  store i32 0, ptr %115, align 8, !tbaa !116
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %117, ptr %116, align 8, !tbaa !116
+  store ptr %117, ptr %116, align 8, !tbaa !117
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 40, ptr %118, align 8, !tbaa !117
+  store i32 40, ptr %118, align 8, !tbaa !118
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i8 0, ptr %119, align 4, !tbaa !118
+  store i8 0, ptr %119, align 4, !tbaa !119
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 368
-  store i32 0, ptr %120, align 8, !tbaa !119
+  store i32 0, ptr %120, align 8, !tbaa !120
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 376
-  store ptr null, ptr %121, align 8, !tbaa !120
+  store ptr null, ptr %121, align 8, !tbaa !121
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 384
-  store i32 -1, ptr %122, align 8, !tbaa !121
+  store i32 -1, ptr %122, align 8, !tbaa !122
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 388
-  store i8 %23, ptr %123, align 4, !tbaa !122
+  store i8 %23, ptr %123, align 4, !tbaa !123
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 392
-  store ptr %1, ptr %124, align 8, !tbaa !183
+  store ptr %1, ptr %124, align 8, !tbaa !184
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUIterCollationIteratorE, i64 16), ptr %7, align 8, !tbaa !15
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 400
-  store i32 0, ptr %125, align 8, !tbaa !185
+  store i32 0, ptr %125, align 8, !tbaa !186
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 404
-  store i32 %.176103, ptr %126, align 4, !tbaa !189
+  store i32 %.176103, ptr %126, align 4, !tbaa !190
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 416
   %128 = getelementptr inbounds nuw i8, ptr %111, i64 48
-  %129 = load ptr, ptr %128, align 8, !tbaa !132
-  store ptr %129, ptr %127, align 8, !tbaa !133
+  %129 = load ptr, ptr %128, align 8, !tbaa !133
+  store ptr %129, ptr %127, align 8, !tbaa !134
   %130 = getelementptr inbounds nuw i8, ptr %7, i64 424
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %130, align 8, !tbaa !15
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 432
   store i16 2, ptr %131, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 488, ptr nonnull %8) #20
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %113, ptr %132, align 8, !tbaa !109
+  store ptr %113, ptr %132, align 8, !tbaa !110
   %133 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %111, ptr %133, align 8, !tbaa !114
+  store ptr %111, ptr %133, align 8, !tbaa !115
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 0, ptr %134, align 8, !tbaa !115
+  store i32 0, ptr %134, align 8, !tbaa !116
   %135 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %136, ptr %135, align 8, !tbaa !116
+  store ptr %136, ptr %135, align 8, !tbaa !117
   %137 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 40, ptr %137, align 8, !tbaa !117
+  store i32 40, ptr %137, align 8, !tbaa !118
   %138 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  store i8 0, ptr %138, align 4, !tbaa !118
+  store i8 0, ptr %138, align 4, !tbaa !119
   %139 = getelementptr inbounds nuw i8, ptr %8, i64 368
-  store i32 0, ptr %139, align 8, !tbaa !119
+  store i32 0, ptr %139, align 8, !tbaa !120
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 376
-  store ptr null, ptr %140, align 8, !tbaa !120
+  store ptr null, ptr %140, align 8, !tbaa !121
   %141 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  store i32 -1, ptr %141, align 8, !tbaa !121
+  store i32 -1, ptr %141, align 8, !tbaa !122
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 388
-  store i8 %23, ptr %142, align 4, !tbaa !122
+  store i8 %23, ptr %142, align 4, !tbaa !123
   %143 = getelementptr inbounds nuw i8, ptr %8, i64 392
-  store ptr %2, ptr %143, align 8, !tbaa !183
+  store ptr %2, ptr %143, align 8, !tbaa !184
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUIterCollationIteratorE, i64 16), ptr %8, align 8, !tbaa !15
   %144 = getelementptr inbounds nuw i8, ptr %8, i64 400
-  store i32 0, ptr %144, align 8, !tbaa !185
+  store i32 0, ptr %144, align 8, !tbaa !186
   %145 = getelementptr inbounds nuw i8, ptr %8, i64 404
-  store i32 %.176103, ptr %145, align 4, !tbaa !189
+  store i32 %.176103, ptr %145, align 4, !tbaa !190
   %146 = getelementptr inbounds nuw i8, ptr %8, i64 416
-  store ptr %129, ptr %146, align 8, !tbaa !133
+  store ptr %129, ptr %146, align 8, !tbaa !134
   %147 = getelementptr inbounds nuw i8, ptr %8, i64 424
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %147, align 8, !tbaa !15
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 432
@@ -5968,7 +5968,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
 154:                                              ; preds = %153
   %155 = load ptr, ptr %17, align 8, !tbaa !33
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
-  %157 = load i32, ptr %156, align 8, !tbaa !105
+  %157 = load i32, ptr %156, align 8, !tbaa !106
   %158 = icmp sgt i32 %157, 61439
   %159 = load i32, ptr %3, align 4
   %160 = icmp slt i32 %159, 1
@@ -5977,18 +5977,18 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
 
 161:                                              ; preds = %154
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %163 = load ptr, ptr %162, align 8, !tbaa !190
+  %163 = load ptr, ptr %162, align 8, !tbaa !191
   %164 = call noundef i32 %163(ptr noundef nonnull %1, i32 noundef %.176103, i32 noundef 3)
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %166 = load ptr, ptr %165, align 8, !tbaa !190
+  %166 = load ptr, ptr %165, align 8, !tbaa !191
   %167 = call noundef i32 %166(ptr noundef nonnull %2, i32 noundef %.176103, i32 noundef 3)
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %169 = load ptr, ptr %168, align 8, !tbaa !24
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 48
-  %171 = load ptr, ptr %170, align 8, !tbaa !132
+  %171 = load ptr, ptr %170, align 8, !tbaa !133
   %172 = load ptr, ptr %17, align 8, !tbaa !33
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
-  %174 = load i32, ptr %173, align 8, !tbaa !105
+  %174 = load i32, ptr %173, align 8, !tbaa !106
   %175 = and i32 %174, 1
   %.not96.not = icmp eq i32 %175, 0
   br i1 %.not96.not, label %176, label %187
@@ -5996,20 +5996,20 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
 176:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #20
   %177 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 -1, ptr %177, align 8, !tbaa !146
+  store i32 -1, ptr %177, align 8, !tbaa !147
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 0, ptr %178, align 4, !tbaa !148
+  store i32 0, ptr %178, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_116UIterNFDIteratorE, i64 16), ptr %9, align 8, !tbaa !15
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %1, ptr %179, align 8, !tbaa !183
+  store ptr %1, ptr %179, align 8, !tbaa !184
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #20
   %180 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 -1, ptr %180, align 8, !tbaa !146
+  store i32 -1, ptr %180, align 8, !tbaa !147
   %181 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  store i32 0, ptr %181, align 4, !tbaa !148
+  store i32 0, ptr %181, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_116UIterNFDIteratorE, i64 16), ptr %10, align 8, !tbaa !15
   %182 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %2, ptr %182, align 8, !tbaa !183
+  store ptr %2, ptr %182, align 8, !tbaa !184
   %183 = invoke fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114compareNFDIterERKNS_15Normalizer2ImplERNS0_11NFDIteratorES5_(ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %184 unwind label %185
 
@@ -6032,83 +6032,83 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
 187:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %11) #20
   %188 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 -1, ptr %188, align 8, !tbaa !146
+  store i32 -1, ptr %188, align 8, !tbaa !147
   %189 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  store i32 0, ptr %189, align 4, !tbaa !148
+  store i32 0, ptr %189, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %11, align 8, !tbaa !15
   %190 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %191 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %192 = load ptr, ptr %169, align 8, !tbaa !75
-  store ptr %192, ptr %191, align 8, !tbaa !109
+  store ptr %192, ptr %191, align 8, !tbaa !110
   %193 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr %169, ptr %193, align 8, !tbaa !114
+  store ptr %169, ptr %193, align 8, !tbaa !115
   %194 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store i32 0, ptr %194, align 8, !tbaa !115
+  store i32 0, ptr %194, align 8, !tbaa !116
   %195 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %196 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store ptr %196, ptr %195, align 8, !tbaa !116
+  store ptr %196, ptr %195, align 8, !tbaa !117
   %197 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store i32 40, ptr %197, align 8, !tbaa !117
+  store i32 40, ptr %197, align 8, !tbaa !118
   %198 = getelementptr inbounds nuw i8, ptr %11, i64 76
-  store i8 0, ptr %198, align 4, !tbaa !118
+  store i8 0, ptr %198, align 4, !tbaa !119
   %199 = getelementptr inbounds nuw i8, ptr %11, i64 400
-  store i32 0, ptr %199, align 8, !tbaa !119
+  store i32 0, ptr %199, align 8, !tbaa !120
   %200 = getelementptr inbounds nuw i8, ptr %11, i64 408
-  store ptr null, ptr %200, align 8, !tbaa !120
+  store ptr null, ptr %200, align 8, !tbaa !121
   %201 = getelementptr inbounds nuw i8, ptr %11, i64 416
-  store i32 -1, ptr %201, align 8, !tbaa !121
+  store i32 -1, ptr %201, align 8, !tbaa !122
   %202 = getelementptr inbounds nuw i8, ptr %11, i64 420
-  store i8 0, ptr %202, align 4, !tbaa !122
+  store i8 0, ptr %202, align 4, !tbaa !123
   %203 = getelementptr inbounds nuw i8, ptr %11, i64 424
-  store ptr %1, ptr %203, align 8, !tbaa !183
+  store ptr %1, ptr %203, align 8, !tbaa !184
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUIterCollationIteratorE, i64 16), ptr %190, align 8, !tbaa !15
   %204 = getelementptr inbounds nuw i8, ptr %11, i64 432
-  store i32 0, ptr %204, align 8, !tbaa !185
+  store i32 0, ptr %204, align 8, !tbaa !186
   %205 = getelementptr inbounds nuw i8, ptr %11, i64 436
-  store i32 %.176103, ptr %205, align 4, !tbaa !189
+  store i32 %.176103, ptr %205, align 4, !tbaa !190
   %206 = getelementptr inbounds nuw i8, ptr %11, i64 448
-  store ptr %171, ptr %206, align 8, !tbaa !133
+  store ptr %171, ptr %206, align 8, !tbaa !134
   %207 = getelementptr inbounds nuw i8, ptr %11, i64 456
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %207, align 8, !tbaa !15
   %208 = getelementptr inbounds nuw i8, ptr %11, i64 464
   store i16 2, ptr %208, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %12) #20
   %209 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 -1, ptr %209, align 8, !tbaa !146
+  store i32 -1, ptr %209, align 8, !tbaa !147
   %210 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  store i32 0, ptr %210, align 4, !tbaa !148
+  store i32 0, ptr %210, align 4, !tbaa !149
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %12, align 8, !tbaa !15
   %211 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %212 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %192, ptr %212, align 8, !tbaa !109
+  store ptr %192, ptr %212, align 8, !tbaa !110
   %213 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %169, ptr %213, align 8, !tbaa !114
+  store ptr %169, ptr %213, align 8, !tbaa !115
   %214 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store i32 0, ptr %214, align 8, !tbaa !115
+  store i32 0, ptr %214, align 8, !tbaa !116
   %215 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %216 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store ptr %216, ptr %215, align 8, !tbaa !116
+  store ptr %216, ptr %215, align 8, !tbaa !117
   %217 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store i32 40, ptr %217, align 8, !tbaa !117
+  store i32 40, ptr %217, align 8, !tbaa !118
   %218 = getelementptr inbounds nuw i8, ptr %12, i64 76
-  store i8 0, ptr %218, align 4, !tbaa !118
+  store i8 0, ptr %218, align 4, !tbaa !119
   %219 = getelementptr inbounds nuw i8, ptr %12, i64 400
-  store i32 0, ptr %219, align 8, !tbaa !119
+  store i32 0, ptr %219, align 8, !tbaa !120
   %220 = getelementptr inbounds nuw i8, ptr %12, i64 408
-  store ptr null, ptr %220, align 8, !tbaa !120
+  store ptr null, ptr %220, align 8, !tbaa !121
   %221 = getelementptr inbounds nuw i8, ptr %12, i64 416
-  store i32 -1, ptr %221, align 8, !tbaa !121
+  store i32 -1, ptr %221, align 8, !tbaa !122
   %222 = getelementptr inbounds nuw i8, ptr %12, i64 420
-  store i8 0, ptr %222, align 4, !tbaa !122
+  store i8 0, ptr %222, align 4, !tbaa !123
   %223 = getelementptr inbounds nuw i8, ptr %12, i64 424
-  store ptr %2, ptr %223, align 8, !tbaa !183
+  store ptr %2, ptr %223, align 8, !tbaa !184
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUIterCollationIteratorE, i64 16), ptr %211, align 8, !tbaa !15
   %224 = getelementptr inbounds nuw i8, ptr %12, i64 432
-  store i32 0, ptr %224, align 8, !tbaa !185
+  store i32 0, ptr %224, align 8, !tbaa !186
   %225 = getelementptr inbounds nuw i8, ptr %12, i64 436
-  store i32 %.176103, ptr %225, align 4, !tbaa !189
+  store i32 %.176103, ptr %225, align 4, !tbaa !190
   %226 = getelementptr inbounds nuw i8, ptr %12, i64 448
-  store ptr %171, ptr %226, align 8, !tbaa !133
+  store ptr %171, ptr %226, align 8, !tbaa !134
   %227 = getelementptr inbounds nuw i8, ptr %12, i64 456
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %227, align 8, !tbaa !15
   %228 = getelementptr inbounds nuw i8, ptr %12, i64 464
@@ -6227,7 +6227,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK6icu_7717RuleBasedCo
   %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7712CollationKey5resetEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #20
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !191
+  %19 = load i32, ptr %18, align 8, !tbaa !192
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp slt i32 %19, 0
@@ -6241,12 +6241,12 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK6icu_7717RuleBasedCo
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %27, ptr %29, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %30, align 4, !tbaa !193
+  store i32 0, ptr %30, align 4, !tbaa !194
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 0, ptr %31, align 8, !tbaa !194
+  store i32 0, ptr %31, align 8, !tbaa !195
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_7720CollationKeyByteSinkE, i64 16), ptr %6, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %3, ptr %32, align 8, !tbaa !195
+  store ptr %3, ptr %32, align 8, !tbaa !196
   invoke void @_ZNK6icu_7717RuleBasedCollator12writeSortKeyEPKDsiRNS_15SortKeyByteSinkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %33 unwind label %38
 
@@ -6268,7 +6268,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK6icu_7717RuleBasedCo
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !196
+  %42 = load i32, ptr %41, align 4, !tbaa !197
   %.not = icmp eq i32 %42, 2
   br i1 %.not, label %43, label %44
 
@@ -6277,7 +6277,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK6icu_7717RuleBasedCo
   br label %46
 
 44:                                               ; preds = %40
-  %45 = load i32, ptr %30, align 4, !tbaa !193
+  %45 = load i32, ptr %30, align 4, !tbaa !194
   invoke void @_ZN6icu_7712CollationKey9setLengthEi(ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef %45)
           to label %46 unwind label %38
 
@@ -6312,7 +6312,7 @@ define void @_ZNK6icu_7717RuleBasedCollator12writeSortKeyEPKDsiRNS_15SortKeyByte
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !105
+  %19 = load i32, ptr %18, align 8, !tbaa !106
   %20 = trunc i32 %19 to i8
   %21 = lshr i8 %20, 1
   %22 = and i8 %21, 1
@@ -6328,35 +6328,35 @@ define void @_ZNK6icu_7717RuleBasedCollator12writeSortKeyEPKDsiRNS_15SortKeyByte
   %26 = load ptr, ptr %24, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = load ptr, ptr %26, align 8, !tbaa !75
-  store ptr %28, ptr %27, align 8, !tbaa !109
+  store ptr %28, ptr %27, align 8, !tbaa !110
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %26, ptr %29, align 8, !tbaa !114
+  store ptr %26, ptr %29, align 8, !tbaa !115
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %30, align 8, !tbaa !115
+  store i32 0, ptr %30, align 8, !tbaa !116
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %32, ptr %31, align 8, !tbaa !116
+  store ptr %32, ptr %31, align 8, !tbaa !117
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 40, ptr %33, align 8, !tbaa !117
+  store i32 40, ptr %33, align 8, !tbaa !118
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i8 0, ptr %34, align 4, !tbaa !118
+  store i8 0, ptr %34, align 4, !tbaa !119
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 368
-  store i32 0, ptr %35, align 8, !tbaa !119
+  store i32 0, ptr %35, align 8, !tbaa !120
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 376
-  store ptr null, ptr %36, align 8, !tbaa !120
+  store ptr null, ptr %36, align 8, !tbaa !121
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 384
-  store i32 -1, ptr %37, align 8, !tbaa !121
+  store i32 -1, ptr %37, align 8, !tbaa !122
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 388
-  store i8 %22, ptr %38, align 4, !tbaa !122
+  store i8 %22, ptr %38, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UTF16CollationIteratorE, i64 16), ptr %7, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 392
-  store ptr %1, ptr %39, align 8, !tbaa !123
+  store ptr %1, ptr %39, align 8, !tbaa !124
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 400
-  store ptr %1, ptr %40, align 8, !tbaa !125
+  store ptr %1, ptr %40, align 8, !tbaa !126
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 408
-  store ptr %15, ptr %41, align 8, !tbaa !126
+  store ptr %15, ptr %41, align 8, !tbaa !127
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %43 = load ptr, ptr %42, align 8, !tbaa !197
+  %43 = load ptr, ptr %42, align 8, !tbaa !198
   invoke void @_ZN6icu_7713CollationKeys26writeSortKeyUpToQuaternaryERNS_17CollationIteratorEPKaRKNS_17CollationSettingsERNS_15SortKeyByteSinkENS_9Collation5LevelERNS0_13LevelCallbackEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %7, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(852) %17, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %44 unwind label %47
 
@@ -6382,53 +6382,53 @@ define void @_ZNK6icu_7717RuleBasedCollator12writeSortKeyEPKDsiRNS_15SortKeyByte
   %50 = load ptr, ptr %24, align 8, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %52 = load ptr, ptr %50, align 8, !tbaa !75
-  store ptr %52, ptr %51, align 8, !tbaa !109
+  store ptr %52, ptr %51, align 8, !tbaa !110
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %50, ptr %53, align 8, !tbaa !114
+  store ptr %50, ptr %53, align 8, !tbaa !115
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 0, ptr %54, align 8, !tbaa !115
+  store i32 0, ptr %54, align 8, !tbaa !116
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %56, ptr %55, align 8, !tbaa !116
+  store ptr %56, ptr %55, align 8, !tbaa !117
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 40, ptr %57, align 8, !tbaa !117
+  store i32 40, ptr %57, align 8, !tbaa !118
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  store i8 0, ptr %58, align 4, !tbaa !118
+  store i8 0, ptr %58, align 4, !tbaa !119
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 368
-  store i32 0, ptr %59, align 8, !tbaa !119
+  store i32 0, ptr %59, align 8, !tbaa !120
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 376
-  store ptr null, ptr %60, align 8, !tbaa !120
+  store ptr null, ptr %60, align 8, !tbaa !121
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  store i32 -1, ptr %61, align 8, !tbaa !121
+  store i32 -1, ptr %61, align 8, !tbaa !122
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 388
-  store i8 %22, ptr %62, align 4, !tbaa !122
+  store i8 %22, ptr %62, align 4, !tbaa !123
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 392
-  store ptr %1, ptr %63, align 8, !tbaa !123
+  store ptr %1, ptr %63, align 8, !tbaa !124
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 400
-  store ptr %1, ptr %64, align 8, !tbaa !125
+  store ptr %1, ptr %64, align 8, !tbaa !126
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  store ptr %15, ptr %65, align 8, !tbaa !126
+  store ptr %15, ptr %65, align 8, !tbaa !127
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUTF16CollationIteratorE, i64 16), ptr %8, align 8, !tbaa !15
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 416
-  store ptr %1, ptr %66, align 8, !tbaa !127
+  store ptr %1, ptr %66, align 8, !tbaa !128
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 424
-  store ptr %1, ptr %67, align 8, !tbaa !129
+  store ptr %1, ptr %67, align 8, !tbaa !130
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 432
-  store ptr null, ptr %68, align 8, !tbaa !130
+  store ptr null, ptr %68, align 8, !tbaa !131
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 440
-  store ptr %15, ptr %69, align 8, !tbaa !131
+  store ptr %15, ptr %69, align 8, !tbaa !132
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 448
   %71 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %72 = load ptr, ptr %71, align 8, !tbaa !132
-  store ptr %72, ptr %70, align 8, !tbaa !133
+  %72 = load ptr, ptr %71, align 8, !tbaa !133
+  store ptr %72, ptr %70, align 8, !tbaa !134
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 456
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %73, align 8, !tbaa !15
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 464
   store i16 2, ptr %74, align 8, !tbaa !65
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 520
-  store i8 1, ptr %75, align 8, !tbaa !134
+  store i8 1, ptr %75, align 8, !tbaa !135
   %76 = getelementptr inbounds nuw i8, ptr %50, i64 72
-  %77 = load ptr, ptr %76, align 8, !tbaa !197
+  %77 = load ptr, ptr %76, align 8, !tbaa !198
   invoke void @_ZN6icu_7713CollationKeys26writeSortKeyUpToQuaternaryERNS_17CollationIteratorEPKaRKNS_17CollationSettingsERNS_15SortKeyByteSinkENS_9Collation5LevelERNS0_13LevelCallbackEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %8, ptr noundef %77, ptr noundef nonnull align 8 dereferenceable(852) %17, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %78 unwind label %79
 
@@ -6447,7 +6447,7 @@ define void @_ZNK6icu_7717RuleBasedCollator12writeSortKeyEPKDsiRNS_15SortKeyByte
 81:                                               ; preds = %44, %78
   %82 = load ptr, ptr %16, align 8, !tbaa !33
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %84 = load i32, ptr %83, align 8, !tbaa !105
+  %84 = load i32, ptr %83, align 8, !tbaa !106
   %.mask = and i32 %84, -4096
   %85 = icmp eq i32 %.mask, 61440
   br i1 %85, label %86, label %87
@@ -6537,9 +6537,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %4, %13, %15
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %spec.select.i, ptr %32, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %33, align 4, !tbaa !193
+  store i32 0, ptr %33, align 4, !tbaa !194
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 0, ptr %34, align 8, !tbaa !194
+  store i32 0, ptr %34, align 8, !tbaa !195
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_120FixedSortKeyByteSinkE, i64 16), ptr %6, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
   store i32 0, ptr %7, align 4, !tbaa !13
@@ -6600,9 +6600,9 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator10getSortKeyEPKDsiPhi(ptr noun
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %spec.select, ptr %17, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 0, ptr %18, align 4, !tbaa !193
+  store i32 0, ptr %18, align 4, !tbaa !194
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %19, align 8, !tbaa !194
+  store i32 0, ptr %19, align 8, !tbaa !195
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_120FixedSortKeyByteSinkE, i64 16), ptr %7, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
   store i32 0, ptr %8, align 4, !tbaa !13
@@ -6648,7 +6648,7 @@ define void @_ZNK6icu_7717RuleBasedCollator19writeIdenticalLevelEPKDsS2_RNS_15So
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !132
+  %10 = load ptr, ptr %9, align 8, !tbaa !133
   %11 = tail call noundef ptr @_ZNK6icu_7715Normalizer2Impl9decomposeEPKDsS2_PNS_16ReorderingBufferER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %12 = load i32, ptr %4, align 4, !tbaa !13
   %13 = icmp slt i32 %12, 1
@@ -6656,18 +6656,18 @@ define void @_ZNK6icu_7717RuleBasedCollator19writeIdenticalLevelEPKDsS2_RNS_15So
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !194
+  %16 = load i32, ptr %15, align 8, !tbaa !195
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
   %19 = add nsw i32 %16, -1
-  store i32 %19, ptr %15, align 8, !tbaa !194
+  store i32 %19, ptr %15, align 8, !tbaa !195
   br label %_ZN6icu_7715SortKeyByteSink6AppendEj.exit
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !193
+  %22 = load i32, ptr %21, align 4, !tbaa !194
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !20
   %25 = icmp slt i32 %22, %24
@@ -6682,7 +6682,7 @@ define void @_ZNK6icu_7717RuleBasedCollator19writeIdenticalLevelEPKDsS2_RNS_15So
   br i1 %.not.i, label %37, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %26
-  %.pre.i = load i32, ptr %21, align 4, !tbaa !193
+  %.pre.i = load i32, ptr %21, align 4, !tbaa !194
   br label %31
 
 31:                                               ; preds = %._crit_edge.i, %20
@@ -6695,9 +6695,9 @@ define void @_ZNK6icu_7717RuleBasedCollator19writeIdenticalLevelEPKDsS2_RNS_15So
   br label %37
 
 37:                                               ; preds = %31, %26
-  %38 = load i32, ptr %21, align 4, !tbaa !193
+  %38 = load i32, ptr %21, align 4, !tbaa !194
   %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %21, align 4, !tbaa !193
+  store i32 %39, ptr %21, align 4, !tbaa !194
   br label %_ZN6icu_7715SortKeyByteSink6AppendEj.exit
 
 _ZN6icu_7715SortKeyByteSink6AppendEj.exit:        ; preds = %18, %37
@@ -6731,7 +6731,7 @@ _ZN6icu_7715SortKeyByteSink6AppendEj.exit:        ; preds = %18, %37
   br label %59
 
 56:                                               ; preds = %47
-  %57 = load i16, ptr %11, align 2, !tbaa !140
+  %57 = load i16, ptr %11, align 2, !tbaa !141
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %83, label %59
 
@@ -6743,7 +6743,7 @@ _ZN6icu_7715SortKeyByteSink6AppendEj.exit:        ; preds = %18, %37
   store i16 2, ptr %60, align 8, !tbaa !65
   %61 = load ptr, ptr %7, align 8, !tbaa !24
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
-  %63 = load ptr, ptr %62, align 8, !tbaa !132
+  %63 = load ptr, ptr %62, align 8, !tbaa !133
   invoke void @_ZNK6icu_7715Normalizer2Impl9decomposeEPKDsS2_RNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %63, ptr noundef %11, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %.026, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %64 unwind label %84
 
@@ -6847,14 +6847,14 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %4, ptr %27, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 0, ptr %28, align 4, !tbaa !193
+  store i32 0, ptr %28, align 4, !tbaa !194
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_120FixedSortKeyByteSinkE, i64 16), ptr %8, align 8, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !12
-  store i32 %31, ptr %29, align 8, !tbaa !194
+  store i32 %31, ptr %29, align 8, !tbaa !195
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !190
+  %33 = load ptr, ptr %32, align 8, !tbaa !191
   %34 = invoke noundef i32 %33(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0)
           to label %35 unwind label %74
 
@@ -6867,23 +6867,23 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load i32, ptr %41, align 8, !tbaa !105
+  %42 = load i32, ptr %41, align 8, !tbaa !106
   %43 = trunc i32 %42 to i8
   %44 = lshr i8 %43, 1
   %45 = and i8 %44, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_117PartLevelCallbackE, i64 16), ptr %9, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %8, ptr %46, align 8, !tbaa !198
+  store ptr %8, ptr %46, align 8, !tbaa !199
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 1, ptr %47, align 8, !tbaa !200
-  %48 = load i32, ptr %29, align 8, !tbaa !194
+  store i32 1, ptr %47, align 8, !tbaa !201
+  %48 = load i32, ptr %29, align 8, !tbaa !195
   %49 = load i32, ptr %27, align 8, !tbaa !20
   %50 = add nsw i32 %49, %48
-  %51 = load i32, ptr %28, align 4, !tbaa !193
+  %51 = load i32, ptr %28, align 4, !tbaa !194
   %52 = sub i32 %50, %51
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %52, ptr %53, align 4, !tbaa !204
+  store i32 %52, ptr %53, align 4, !tbaa !205
   %54 = and i8 %43, 1
   %.not91.not = icmp eq i8 %54, 0
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6894,31 +6894,31 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   %57 = load ptr, ptr %55, align 8, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %59 = load ptr, ptr %57, align 8, !tbaa !75
-  store ptr %59, ptr %58, align 8, !tbaa !109
+  store ptr %59, ptr %58, align 8, !tbaa !110
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %57, ptr %60, align 8, !tbaa !114
+  store ptr %57, ptr %60, align 8, !tbaa !115
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 0, ptr %61, align 8, !tbaa !115
+  store i32 0, ptr %61, align 8, !tbaa !116
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %63, ptr %62, align 8, !tbaa !116
+  store ptr %63, ptr %62, align 8, !tbaa !117
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 40, ptr %64, align 8, !tbaa !117
+  store i32 40, ptr %64, align 8, !tbaa !118
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  store i8 0, ptr %65, align 4, !tbaa !118
+  store i8 0, ptr %65, align 4, !tbaa !119
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 368
-  store i32 0, ptr %66, align 8, !tbaa !119
+  store i32 0, ptr %66, align 8, !tbaa !120
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 376
-  store ptr null, ptr %67, align 8, !tbaa !120
+  store ptr null, ptr %67, align 8, !tbaa !121
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 384
-  store i32 -1, ptr %68, align 8, !tbaa !121
+  store i32 -1, ptr %68, align 8, !tbaa !122
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 388
-  store i8 %45, ptr %69, align 4, !tbaa !122
+  store i8 %45, ptr %69, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UIterCollationIteratorE, i64 16), ptr %10, align 8, !tbaa !15
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 392
-  store ptr %1, ptr %70, align 8, !tbaa !183
+  store ptr %1, ptr %70, align 8, !tbaa !184
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 72
-  %72 = load ptr, ptr %71, align 8, !tbaa !197
+  %72 = load ptr, ptr %71, align 8, !tbaa !198
   invoke void @_ZN6icu_7713CollationKeys26writeSortKeyUpToQuaternaryERNS_17CollationIteratorEPKaRKNS_17CollationSettingsERNS_15SortKeyByteSinkENS_9Collation5LevelERNS0_13LevelCallbackEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %10, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(852) %40, ptr noundef nonnull align 8 dereferenceable(28) %8, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %9, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %73 unwind label %78
 
@@ -6949,43 +6949,43 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   %81 = load ptr, ptr %55, align 8, !tbaa !24
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %83 = load ptr, ptr %81, align 8, !tbaa !75
-  store ptr %83, ptr %82, align 8, !tbaa !109
+  store ptr %83, ptr %82, align 8, !tbaa !110
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %81, ptr %84, align 8, !tbaa !114
+  store ptr %81, ptr %84, align 8, !tbaa !115
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 0, ptr %85, align 8, !tbaa !115
+  store i32 0, ptr %85, align 8, !tbaa !116
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr %87, ptr %86, align 8, !tbaa !116
+  store ptr %87, ptr %86, align 8, !tbaa !117
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 40, ptr %88, align 8, !tbaa !117
+  store i32 40, ptr %88, align 8, !tbaa !118
   %89 = getelementptr inbounds nuw i8, ptr %11, i64 44
-  store i8 0, ptr %89, align 4, !tbaa !118
+  store i8 0, ptr %89, align 4, !tbaa !119
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 368
-  store i32 0, ptr %90, align 8, !tbaa !119
+  store i32 0, ptr %90, align 8, !tbaa !120
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 376
-  store ptr null, ptr %91, align 8, !tbaa !120
+  store ptr null, ptr %91, align 8, !tbaa !121
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 384
-  store i32 -1, ptr %92, align 8, !tbaa !121
+  store i32 -1, ptr %92, align 8, !tbaa !122
   %93 = getelementptr inbounds nuw i8, ptr %11, i64 388
-  store i8 %45, ptr %93, align 4, !tbaa !122
+  store i8 %45, ptr %93, align 4, !tbaa !123
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 392
-  store ptr %1, ptr %94, align 8, !tbaa !183
+  store ptr %1, ptr %94, align 8, !tbaa !184
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUIterCollationIteratorE, i64 16), ptr %11, align 8, !tbaa !15
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 400
-  store i32 0, ptr %95, align 8, !tbaa !185
+  store i32 0, ptr %95, align 8, !tbaa !186
   %96 = getelementptr inbounds nuw i8, ptr %11, i64 404
-  store i32 0, ptr %96, align 4, !tbaa !189
+  store i32 0, ptr %96, align 4, !tbaa !190
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 416
   %98 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  %99 = load ptr, ptr %98, align 8, !tbaa !132
-  store ptr %99, ptr %97, align 8, !tbaa !133
+  %99 = load ptr, ptr %98, align 8, !tbaa !133
+  store ptr %99, ptr %97, align 8, !tbaa !134
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 424
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %100, align 8, !tbaa !15
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 432
   store i16 2, ptr %101, align 8, !tbaa !65
   %102 = getelementptr inbounds nuw i8, ptr %81, i64 72
-  %103 = load ptr, ptr %102, align 8, !tbaa !197
+  %103 = load ptr, ptr %102, align 8, !tbaa !198
   invoke void @_ZN6icu_7713CollationKeys26writeSortKeyUpToQuaternaryERNS_17CollationIteratorEPKaRKNS_17CollationSettingsERNS_15SortKeyByteSinkENS_9Collation5LevelERNS0_13LevelCallbackEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %11, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(852) %40, ptr noundef nonnull align 8 dereferenceable(28) %8, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %9, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %104 unwind label %105
 
@@ -7007,27 +7007,27 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   br i1 %109, label %110, label %122
 
 110:                                              ; preds = %107
-  %111 = load i32, ptr %28, align 4, !tbaa !193
+  %111 = load i32, ptr %28, align 4, !tbaa !194
   %112 = icmp sgt i32 %111, %4
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %110
-  %.val = load i32, ptr %47, align 8, !tbaa !200
+  %.val = load i32, ptr %47, align 8, !tbaa !201
   store i32 %.val, ptr %2, align 4, !tbaa !12
-  %.val105 = load i32, ptr %53, align 4, !tbaa !204
+  %.val105 = load i32, ptr %53, align 4, !tbaa !205
   store i32 %.val105, ptr %30, align 4, !tbaa !12
   br label %122
 
 114:                                              ; preds = %110
   %115 = load ptr, ptr %39, align 8, !tbaa !33
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %117 = load i32, ptr %116, align 8, !tbaa !105
+  %117 = load i32, ptr %116, align 8, !tbaa !106
   %.mask = and i32 %117, -4096
   %118 = icmp eq i32 %.mask, 61440
   br i1 %118, label %119, label %.thread
 
 119:                                              ; preds = %114
-  %120 = load ptr, ptr %32, align 8, !tbaa !190
+  %120 = load ptr, ptr %32, align 8, !tbaa !191
   %121 = invoke noundef i32 %120(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0)
           to label %.thread unwind label %76
 
@@ -7055,10 +7055,10 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   br i1 %125, label %126, label %175
 
 126:                                              ; preds = %124
-  %127 = load i32, ptr %29, align 8, !tbaa !194
+  %127 = load i32, ptr %29, align 8, !tbaa !195
   %128 = load i32, ptr %27, align 8, !tbaa !20
   %129 = add nsw i32 %128, %127
-  %130 = load i32, ptr %28, align 4, !tbaa !193
+  %130 = load i32, ptr %28, align 4, !tbaa !194
   %131 = sub i32 %129, %130
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %12, align 8, !tbaa !15
@@ -7068,7 +7068,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   br label %134
 
 134:                                              ; preds = %144, %126
-  %135 = load ptr, ptr %133, align 8, !tbaa !178
+  %135 = load ptr, ptr %133, align 8, !tbaa !179
   %136 = invoke noundef i32 %135(ptr noundef nonnull %1)
           to label %137 unwind label %139
 
@@ -7084,13 +7084,13 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
 141:                                              ; preds = %137
   %142 = trunc i32 %136 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  store i16 %142, ptr %7, align 2, !tbaa !140
+  store i16 %142, ptr %7, align 2, !tbaa !141
   %143 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1)
           to label %144 unwind label %139
 
 144:                                              ; preds = %141
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  br label %134
+  br label %134, !llvm.loop !206
 
 145:                                              ; preds = %137
   %146 = load i16, ptr %132, align 8, !tbaa !65
@@ -7136,7 +7136,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   br label %174
 
 169:                                              ; preds = %164
-  %170 = load i32, ptr %28, align 4, !tbaa !193
+  %170 = load i32, ptr %28, align 4, !tbaa !194
   %171 = icmp sgt i32 %170, %4
   br i1 %171, label %172, label %173
 
@@ -7165,7 +7165,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
 175:                                              ; preds = %173, %124
   store i32 7, ptr %2, align 4, !tbaa !12
   store i32 0, ptr %30, align 4, !tbaa !12
-  %176 = load i32, ptr %28, align 4, !tbaa !193
+  %176 = load i32, ptr %28, align 4, !tbaa !194
   %177 = icmp slt i32 %176, %4
   br i1 %177, label %.lr.ph.preheader, label %.loopexit
 
@@ -7241,7 +7241,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %15, %17
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load i32, ptr %30, align 8, !tbaa !105
+  %31 = load i32, ptr %30, align 8, !tbaa !106
   %32 = trunc i32 %31 to i8
   %33 = lshr i8 %32, 1
   %34 = and i8 %33, 1
@@ -7255,33 +7255,33 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %15, %17
   %38 = load ptr, ptr %36, align 8, !tbaa !24
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = load ptr, ptr %38, align 8, !tbaa !75
-  store ptr %40, ptr %39, align 8, !tbaa !109
+  store ptr %40, ptr %39, align 8, !tbaa !110
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %38, ptr %41, align 8, !tbaa !114
+  store ptr %38, ptr %41, align 8, !tbaa !115
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 0, ptr %42, align 8, !tbaa !115
+  store i32 0, ptr %42, align 8, !tbaa !116
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %44, ptr %43, align 8, !tbaa !116
+  store ptr %44, ptr %43, align 8, !tbaa !117
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 40, ptr %45, align 8, !tbaa !117
+  store i32 40, ptr %45, align 8, !tbaa !118
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i8 0, ptr %46, align 4, !tbaa !118
+  store i8 0, ptr %46, align 4, !tbaa !119
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  store i32 0, ptr %47, align 8, !tbaa !119
+  store i32 0, ptr %47, align 8, !tbaa !120
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 376
-  store ptr null, ptr %48, align 8, !tbaa !120
+  store ptr null, ptr %48, align 8, !tbaa !121
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  store i32 -1, ptr %49, align 8, !tbaa !121
+  store i32 -1, ptr %49, align 8, !tbaa !122
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 388
-  store i8 %34, ptr %50, align 4, !tbaa !122
+  store i8 %34, ptr %50, align 4, !tbaa !123
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UTF16CollationIteratorE, i64 16), ptr %5, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  store ptr %.0.i, ptr %51, align 8, !tbaa !123
+  store ptr %.0.i, ptr %51, align 8, !tbaa !124
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  store ptr %.0.i, ptr %52, align 8, !tbaa !125
+  store ptr %.0.i, ptr %52, align 8, !tbaa !126
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 408
-  store ptr %27, ptr %53, align 8, !tbaa !126
+  store ptr %27, ptr %53, align 8, !tbaa !127
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -7296,7 +7296,7 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
   br i1 %.not27, label %72, label %59
 
 59:                                               ; preds = %58
-  %60 = load i32, ptr %54, align 8, !tbaa !205
+  %60 = load i32, ptr %54, align 8, !tbaa !207
   %61 = icmp slt i32 %60, -1
   %62 = load i32, ptr %55, align 4
   %.not.i.i = icmp sle i32 %62, %60
@@ -7316,17 +7316,17 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit.backedge: ; preds = %.noexc
   br label %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit
 
 _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i: ; preds = %.noexc
-  %.pre.i = load i32, ptr %54, align 8, !tbaa !205
+  %.pre.i = load i32, ptr %54, align 8, !tbaa !207
   br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i
 
 _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i, %59
   %65 = phi i32 [ %.pre.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i ], [ %60, %59 ]
-  %66 = load ptr, ptr %56, align 8, !tbaa !207
+  %66 = load ptr, ptr %56, align 8, !tbaa !209
   %67 = sext i32 %65 to i64
   %68 = getelementptr inbounds i64, ptr %66, i64 %67
-  store i64 %57, ptr %68, align 8, !tbaa !136
+  store i64 %57, ptr %68, align 8, !tbaa !137
   %69 = add nsw i32 %65, 1
-  store i32 %69, ptr %54, align 8, !tbaa !205
+  store i32 %69, ptr %54, align 8, !tbaa !207
   br label %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.backedge
 
 70:                                               ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit
@@ -7346,51 +7346,51 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %74 = load ptr, ptr %36, align 8, !tbaa !24
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %76 = load ptr, ptr %74, align 8, !tbaa !75
-  store ptr %76, ptr %75, align 8, !tbaa !109
+  store ptr %76, ptr %75, align 8, !tbaa !110
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %74, ptr %77, align 8, !tbaa !114
+  store ptr %74, ptr %77, align 8, !tbaa !115
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 0, ptr %78, align 8, !tbaa !115
+  store i32 0, ptr %78, align 8, !tbaa !116
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %80, ptr %79, align 8, !tbaa !116
+  store ptr %80, ptr %79, align 8, !tbaa !117
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 40, ptr %81, align 8, !tbaa !117
+  store i32 40, ptr %81, align 8, !tbaa !118
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store i8 0, ptr %82, align 4, !tbaa !118
+  store i8 0, ptr %82, align 4, !tbaa !119
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 368
-  store i32 0, ptr %83, align 8, !tbaa !119
+  store i32 0, ptr %83, align 8, !tbaa !120
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 376
-  store ptr null, ptr %84, align 8, !tbaa !120
+  store ptr null, ptr %84, align 8, !tbaa !121
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 384
-  store i32 -1, ptr %85, align 8, !tbaa !121
+  store i32 -1, ptr %85, align 8, !tbaa !122
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 388
-  store i8 %34, ptr %86, align 4, !tbaa !122
+  store i8 %34, ptr %86, align 4, !tbaa !123
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 392
-  store ptr %.0.i, ptr %87, align 8, !tbaa !123
+  store ptr %.0.i, ptr %87, align 8, !tbaa !124
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 400
-  store ptr %.0.i, ptr %88, align 8, !tbaa !125
+  store ptr %.0.i, ptr %88, align 8, !tbaa !126
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 408
-  store ptr %27, ptr %89, align 8, !tbaa !126
+  store ptr %27, ptr %89, align 8, !tbaa !127
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUTF16CollationIteratorE, i64 16), ptr %6, align 8, !tbaa !15
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 416
-  store ptr %.0.i, ptr %90, align 8, !tbaa !127
+  store ptr %.0.i, ptr %90, align 8, !tbaa !128
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 424
-  store ptr %.0.i, ptr %91, align 8, !tbaa !129
+  store ptr %.0.i, ptr %91, align 8, !tbaa !130
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 432
-  store ptr null, ptr %92, align 8, !tbaa !130
+  store ptr null, ptr %92, align 8, !tbaa !131
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 440
-  store ptr %27, ptr %93, align 8, !tbaa !131
+  store ptr %27, ptr %93, align 8, !tbaa !132
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 448
   %95 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  %96 = load ptr, ptr %95, align 8, !tbaa !132
-  store ptr %96, ptr %94, align 8, !tbaa !133
+  %96 = load ptr, ptr %95, align 8, !tbaa !133
+  store ptr %96, ptr %94, align 8, !tbaa !134
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 456
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %97, align 8, !tbaa !15
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 464
   store i16 2, ptr %98, align 8, !tbaa !65
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 520
-  store i8 1, ptr %99, align 8, !tbaa !134
+  store i8 1, ptr %99, align 8, !tbaa !135
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -7405,7 +7405,7 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit38: ; preds = %_ZN6icu_779UV
   br i1 %.not26, label %118, label %105
 
 105:                                              ; preds = %104
-  %106 = load i32, ptr %100, align 8, !tbaa !205
+  %106 = load i32, ptr %100, align 8, !tbaa !207
   %107 = icmp slt i32 %106, -1
   %108 = load i32, ptr %101, align 4
   %.not.i.i30 = icmp sle i32 %108, %106
@@ -7425,17 +7425,17 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit38.backedge: ; preds = %.noe
   br label %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit38
 
 _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i35: ; preds = %.noexc37
-  %.pre.i36 = load i32, ptr %100, align 8, !tbaa !205
+  %.pre.i36 = load i32, ptr %100, align 8, !tbaa !207
   br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i32
 
 _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i32: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i35, %105
   %111 = phi i32 [ %.pre.i36, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i35 ], [ %106, %105 ]
-  %112 = load ptr, ptr %102, align 8, !tbaa !207
+  %112 = load ptr, ptr %102, align 8, !tbaa !209
   %113 = sext i32 %111 to i64
   %114 = getelementptr inbounds i64, ptr %112, i64 %113
-  store i64 %103, ptr %114, align 8, !tbaa !136
+  store i64 %103, ptr %114, align 8, !tbaa !137
   %115 = add nsw i32 %111, 1
-  store i32 %115, ptr %100, align 8, !tbaa !205
+  store i32 %115, ptr %100, align 8, !tbaa !207
   br label %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit38.backedge
 
 116:                                              ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i33, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit38
@@ -7493,13 +7493,13 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator32internalGetShortDefinitionSt
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %25 = load i8, ptr %24, align 8, !tbaa !86
+  %25 = load i8, ptr %24, align 8, !tbaa !87
   %.not10.i = icmp eq i8 %25, 0
   br i1 %.not10.i, label %26, label %_ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErrorCode.exit
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %28 = load ptr, ptr %27, align 8, !tbaa !87
+  %28 = load ptr, ptr %27, align 8, !tbaa !88
   %29 = load i8, ptr %28, align 1, !tbaa !65
   %30 = icmp eq i8 %29, 0
   %31 = select i1 %30, ptr @.str.1, ptr %28
@@ -7520,7 +7520,7 @@ _ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErro
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #20
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7)
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 0, ptr %38, align 8, !tbaa !208
+  store i32 0, ptr %38, align 8, !tbaa !210
   %39 = load ptr, ptr %7, align 8, !tbaa !3
   store i8 0, ptr %39, align 1, !tbaa !65
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -7536,11 +7536,11 @@ _ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErro
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !33
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load i32, ptr %48, align 8, !tbaa !105
+  %49 = load i32, ptr %48, align 8, !tbaa !106
   %50 = and i32 %49, 12
   %51 = icmp eq i32 %50, 0
   %52 = select i1 %51, i64 21, i64 20
-  %53 = load i32, ptr %38, align 8, !tbaa !208
+  %53 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i = icmp eq i32 %53, 0
   br i1 %.not.i, label %.noexc, label %54
 
@@ -7581,13 +7581,13 @@ _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValue
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !33
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %70 = load i32, ptr %69, align 8, !tbaa !105
+  %70 = load i32, ptr %69, align 8, !tbaa !106
   %71 = and i32 %70, 768
   %72 = icmp eq i32 %71, 0
   %73 = icmp eq i32 %71, 512
   %74 = select i1 %73, i64 24, i64 25
   %75 = select i1 %72, i64 16, i64 %74
-  %76 = load i32, ptr %38, align 8, !tbaa !208
+  %76 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i74 = icmp eq i32 %76, 0
   br i1 %.not.i74, label %.noexc75, label %77
 
@@ -7623,11 +7623,11 @@ _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValue
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !33
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %91 = load i32, ptr %90, align 8, !tbaa !105
+  %91 = load i32, ptr %90, align 8, !tbaa !106
   %92 = and i32 %91, 2
   %93 = icmp eq i32 %92, 0
   %94 = select i1 %93, i64 16, i64 17
-  %95 = load i32, ptr %38, align 8, !tbaa !208
+  %95 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i82 = icmp eq i32 %95, 0
   br i1 %.not.i82, label %.noexc83, label %96
 
@@ -7663,11 +7663,11 @@ _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValue
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !33
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %110 = load i32, ptr %109, align 8, !tbaa !105
+  %110 = load i32, ptr %109, align 8, !tbaa !106
   %111 = and i32 %110, 1024
   %112 = icmp eq i32 %111, 0
   %113 = select i1 %112, i64 16, i64 17
-  %114 = load i32, ptr %38, align 8, !tbaa !208
+  %114 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i90 = icmp eq i32 %114, 0
   br i1 %.not.i90, label %.noexc91, label %115
 
@@ -7703,11 +7703,11 @@ _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValue
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !33
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %129 = load i32, ptr %128, align 8, !tbaa !105
+  %129 = load i32, ptr %128, align 8, !tbaa !106
   %130 = and i32 %129, 2048
   %131 = icmp eq i32 %130, 0
   %132 = select i1 %131, i64 16, i64 17
-  %133 = load i32, ptr %38, align 8, !tbaa !208
+  %133 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i98 = icmp eq i32 %133, 0
   br i1 %.not.i98, label %.noexc99, label %134
 
@@ -7733,7 +7733,7 @@ _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValue
 140:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit102
   %141 = load ptr, ptr %8, align 8, !tbaa !3
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %143 = load i32, ptr %142, align 8, !tbaa !208
+  %143 = load i32, ptr %142, align 8, !tbaa !210
   %144 = load i32, ptr %4, align 4, !tbaa !13
   %145 = icmp sgt i32 %144, 0
   %146 = icmp eq i32 %143, 0
@@ -7741,7 +7741,7 @@ _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValue
   br i1 %or.cond.i, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit, label %147
 
 147:                                              ; preds = %140
-  %148 = load i32, ptr %38, align 8, !tbaa !208
+  %148 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i103 = icmp eq i32 %148, 0
   br i1 %.not.i103, label %.noexc104, label %149
 
@@ -7775,7 +7775,7 @@ _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValue
 .noexc107:                                        ; preds = %.noexc106
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit, label %.lr.ph.i, !llvm.loop !210
+  br i1 %exitcond.not.i, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit, label %.lr.ph.i, !llvm.loop !212
 
 _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit: ; preds = %.noexc107, %.noexc105, %140
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #20
@@ -7784,7 +7784,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
 
 157:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit
   %158 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i32 0, ptr %158, align 8, !tbaa !208
+  store i32 0, ptr %158, align 8, !tbaa !210
   %159 = load ptr, ptr %9, align 8, !tbaa !3
   store i8 0, ptr %159, align 1, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #20
@@ -7793,7 +7793,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
 
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i32 0, ptr %161, align 8, !tbaa !208
+  store i32 0, ptr %161, align 8, !tbaa !210
   %162 = load ptr, ptr %10, align 8, !tbaa !3
   store i8 0, ptr %162, align 1, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #20
@@ -7802,7 +7802,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
 
 163:                                              ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store i32 0, ptr %164, align 8, !tbaa !208
+  store i32 0, ptr %164, align 8, !tbaa !210
   %165 = load ptr, ptr %11, align 8, !tbaa !3
   store i8 0, ptr %165, align 1, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #20
@@ -7811,7 +7811,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
 
 166:                                              ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store i32 0, ptr %167, align 8, !tbaa !208
+  store i32 0, ptr %167, align 8, !tbaa !210
   %168 = load ptr, ptr %12, align 8, !tbaa !3
   store i8 0, ptr %168, align 1, !tbaa !65
   %169 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #20
@@ -7819,7 +7819,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
           to label %170 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 170:                                              ; preds = %166
-  %171 = load i32, ptr %158, align 8, !tbaa !208
+  %171 = load i32, ptr %158, align 8, !tbaa !210
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %173, label %195
 
@@ -7829,7 +7829,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
   br i1 %175, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit126, label %176
 
 176:                                              ; preds = %173
-  %177 = load i32, ptr %38, align 8, !tbaa !208
+  %177 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i116 = icmp eq i32 %177, 0
   br i1 %.not.i116, label %.noexc122, label %178
 
@@ -7855,7 +7855,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
 .noexc125:                                        ; preds = %.noexc124
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, 4
-  br i1 %exitcond.not.i121, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit126, label %.lr.ph.i118, !llvm.loop !210
+  br i1 %exitcond.not.i121, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit126, label %.lr.ph.i118, !llvm.loop !212
 
 185:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit102
   %186 = landingpad { ptr, i32 }
@@ -7934,7 +7934,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
   br i1 %198, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit126, label %199
 
 199:                                              ; preds = %195
-  %200 = load i32, ptr %38, align 8, !tbaa !208
+  %200 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i128 = icmp eq i32 %200, 0
   br i1 %.not.i128, label %.noexc135, label %201
 
@@ -7968,7 +7968,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
 .noexc138:                                        ; preds = %.noexc137
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i132, 1
   %exitcond.not.i134 = icmp eq i64 %indvars.iv.next.i133, %wide.trip.count.i130
-  br i1 %exitcond.not.i134, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit126, label %.lr.ph.i131, !llvm.loop !210
+  br i1 %exitcond.not.i134, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit126, label %.lr.ph.i131, !llvm.loop !212
 
 _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit126: ; preds = %.noexc138, %.noexc125, %.noexc136, %195, %173
   %209 = load i32, ptr %40, align 8, !tbaa !36
@@ -7983,9 +7983,9 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit1
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %215 = load ptr, ptr %214, align 8, !tbaa !33
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
-  %217 = load i32, ptr %216, align 8, !tbaa !105
+  %217 = load i32, ptr %216, align 8, !tbaa !106
   %218 = and i32 %217, 1
-  %219 = load i32, ptr %38, align 8, !tbaa !208
+  %219 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i143 = icmp eq i32 %219, 0
   br i1 %.not.i143, label %.noexc144, label %220
 
@@ -8012,14 +8012,14 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit1
 _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit147: ; preds = %.noexc145._ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit147_crit_edge, %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit126
   %228 = phi i32 [ %.pre247, %.noexc145._ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit147_crit_edge ], [ %211, %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit126 ]
   %229 = load ptr, ptr %11, align 8, !tbaa !3
-  %230 = load i32, ptr %164, align 8, !tbaa !208
+  %230 = load i32, ptr %164, align 8, !tbaa !210
   %231 = icmp sgt i32 %228, 0
   %232 = icmp eq i32 %230, 0
   %or.cond.i148 = or i1 %232, %231
   br i1 %or.cond.i148, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit160, label %233
 
 233:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit147
-  %234 = load i32, ptr %38, align 8, !tbaa !208
+  %234 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i149 = icmp eq i32 %234, 0
   br i1 %.not.i149, label %.noexc156, label %235
 
@@ -8053,7 +8053,7 @@ _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValue
 .noexc159:                                        ; preds = %.noexc158
   %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, %wide.trip.count.i151
-  br i1 %exitcond.not.i155, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit160, label %.lr.ph.i152, !llvm.loop !210
+  br i1 %exitcond.not.i155, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit160, label %.lr.ph.i152, !llvm.loop !212
 
 _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit160: ; preds = %.noexc159, %.noexc157, %_ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit147
   %243 = load i32, ptr %40, align 8, !tbaa !36
@@ -8068,9 +8068,9 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit1
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %249 = load ptr, ptr %248, align 8, !tbaa !33
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 24
-  %251 = load i32, ptr %250, align 8, !tbaa !105
+  %251 = load i32, ptr %250, align 8, !tbaa !106
   %252 = ashr i32 %251, 12
-  %253 = load i32, ptr %38, align 8, !tbaa !208
+  %253 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i163 = icmp eq i32 %253, 0
   br i1 %.not.i163, label %.noexc164, label %254
 
@@ -8096,14 +8096,14 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit1
 _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit167: ; preds = %.noexc165._ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit167_crit_edge, %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit160
   %261 = phi i32 [ %.pre248, %.noexc165._ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit167_crit_edge ], [ %245, %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit160 ]
   %262 = load ptr, ptr %12, align 8, !tbaa !3
-  %263 = load i32, ptr %167, align 8, !tbaa !208
+  %263 = load i32, ptr %167, align 8, !tbaa !210
   %264 = icmp sgt i32 %261, 0
   %265 = icmp eq i32 %263, 0
   %or.cond.i168 = or i1 %265, %264
   br i1 %or.cond.i168, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit180, label %266
 
 266:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit167
-  %267 = load i32, ptr %38, align 8, !tbaa !208
+  %267 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i169 = icmp eq i32 %267, 0
   br i1 %.not.i169, label %.noexc176, label %268
 
@@ -8137,11 +8137,11 @@ _ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValue
 .noexc179:                                        ; preds = %.noexc178
   %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i173, 1
   %exitcond.not.i175 = icmp eq i64 %indvars.iv.next.i174, %wide.trip.count.i171
-  br i1 %exitcond.not.i175, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit180, label %.lr.ph.i172, !llvm.loop !210
+  br i1 %exitcond.not.i175, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit180, label %.lr.ph.i172, !llvm.loop !212
 
 _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit180: ; preds = %.noexc179, %.noexc177, %_ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit167
   %276 = load ptr, ptr %10, align 8, !tbaa !3
-  %277 = load i32, ptr %161, align 8, !tbaa !208
+  %277 = load i32, ptr %161, align 8, !tbaa !210
   %278 = load i32, ptr %4, align 4, !tbaa !13
   %279 = icmp sgt i32 %278, 0
   %280 = icmp eq i32 %277, 0
@@ -8149,7 +8149,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit1
   br i1 %or.cond.i181, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit193, label %281
 
 281:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit180
-  %282 = load i32, ptr %38, align 8, !tbaa !208
+  %282 = load i32, ptr %38, align 8, !tbaa !210
   %.not.i182 = icmp eq i32 %282, 0
   br i1 %.not.i182, label %.noexc189, label %283
 
@@ -8183,7 +8183,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit1
 .noexc192:                                        ; preds = %.noexc191
   %indvars.iv.next.i187 = add nuw nsw i64 %indvars.iv.i186, 1
   %exitcond.not.i188 = icmp eq i64 %indvars.iv.next.i187, %wide.trip.count.i184
-  br i1 %exitcond.not.i188, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit193thread-pre-split, label %.lr.ph.i185, !llvm.loop !210
+  br i1 %exitcond.not.i188, label %_ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit193thread-pre-split, label %.lr.ph.i185, !llvm.loop !212
 
 _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit193thread-pre-split: ; preds = %.noexc192, %.noexc190
   %.pr = load i32, ptr %4, align 4, !tbaa !13
@@ -8279,7 +8279,7 @@ define noundef signext i8 @_ZNK6icu_7717RuleBasedCollator8isUnsafeEi(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !105
+  %8 = load i32, ptr %7, align 8, !tbaa !106
   %9 = trunc i32 %8 to i8
   %10 = lshr i8 %9, 1
   %11 = and i8 %10, 1
@@ -8293,7 +8293,7 @@ define void @_ZN6icu_7717RuleBasedCollator20computeMaxExpansionsEPKNS_18Collatio
   %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = tail call noundef ptr @_ZN6icu_7724CollationElementIterator20computeMaxExpansionsEPKNS_13CollationDataER10UErrorCode(ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store ptr %5, ptr %6, align 8, !tbaa !211
+  store ptr %5, ptr %6, align 8, !tbaa !213
   ret void
 }
 
@@ -8323,16 +8323,16 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedCollator17initMa
   %14 = load ptr, ptr %13, align 8, !tbaa !55
   %15 = tail call noundef ptr @_ZN6icu_7724CollationElementIterator20computeMaxExpansionsEPKNS_13CollationDataER10UErrorCode(ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 384
-  store ptr %15, ptr %16, align 8, !tbaa !211
+  store ptr %15, ptr %16, align 8, !tbaa !213
   %17 = load i32, ptr %1, align 4, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 396
-  store i32 %17, ptr %18, align 4, !tbaa !212
+  store i32 %17, ptr %18, align 4, !tbaa !214
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %5)
   br label %_ZN6icu_7713umtx_initOnceIPKNS_18CollationTailoringEEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES6_S8_.exit
 
 19:                                               ; preds = %10, %8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 396
-  %21 = load i32, ptr %20, align 4, !tbaa !212
+  %21 = load i32, ptr %20, align 4, !tbaa !214
   %22 = icmp slt i32 %21, 1
   br i1 %22, label %_ZN6icu_7713umtx_initOnceIPKNS_18CollationTailoringEEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES6_S8_.exit, label %23
 
@@ -8369,10 +8369,10 @@ _ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit: ; preds = 
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = call noundef ptr @_ZN6icu_7724CollationElementIterator20computeMaxExpansionsEPKNS_13CollationDataER10UErrorCode(ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  store ptr %12, ptr %13, align 8, !tbaa !211
+  store ptr %12, ptr %13, align 8, !tbaa !213
   %14 = load i32, ptr %3, align 4, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 396
-  store i32 %14, ptr %15, align 4, !tbaa !212
+  store i32 %14, ptr %15, align 4, !tbaa !214
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %6)
   %.pr.old = load i32, ptr %3, align 4, !tbaa !13
   %.old = icmp sgt i32 %.pr.old, 0
@@ -8380,7 +8380,7 @@ _ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit: ; preds = 
 
 16:                                               ; preds = %8, %2
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 396
-  %18 = load i32, ptr %17, align 4, !tbaa !212
+  %18 = load i32, ptr %17, align 4, !tbaa !214
   %19 = icmp sgt i32 %18, 0
   %.pr = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %.pr, 0
@@ -8446,10 +8446,10 @@ _ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit: ; preds = 
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = call noundef ptr @_ZN6icu_7724CollationElementIterator20computeMaxExpansionsEPKNS_13CollationDataER10UErrorCode(ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  store ptr %12, ptr %13, align 8, !tbaa !211
+  store ptr %12, ptr %13, align 8, !tbaa !213
   %14 = load i32, ptr %3, align 4, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 396
-  store i32 %14, ptr %15, align 4, !tbaa !212
+  store i32 %14, ptr %15, align 4, !tbaa !214
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %6)
   %.pr.old = load i32, ptr %3, align 4, !tbaa !13
   %.old = icmp sgt i32 %.pr.old, 0
@@ -8457,7 +8457,7 @@ _ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit: ; preds = 
 
 16:                                               ; preds = %8, %2
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 396
-  %18 = load i32, ptr %17, align 4, !tbaa !212
+  %18 = load i32, ptr %17, align 4, !tbaa !214
   %19 = icmp sgt i32 %18, 0
   %.pr = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %.pr, 0
@@ -8520,16 +8520,16 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator15getMaxExpansionEi(ptr nounde
   %12 = load ptr, ptr %11, align 8, !tbaa !55
   %13 = call noundef ptr @_ZN6icu_7724CollationElementIterator20computeMaxExpansionsEPKNS_13CollationDataER10UErrorCode(ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  store ptr %13, ptr %14, align 8, !tbaa !211
+  store ptr %13, ptr %14, align 8, !tbaa !213
   %15 = load i32, ptr %3, align 4, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 396
-  store i32 %15, ptr %16, align 4, !tbaa !212
+  store i32 %15, ptr %16, align 4, !tbaa !214
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %6)
   br label %_ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit
 
 17:                                               ; preds = %8, %2
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 396
-  %19 = load i32, ptr %18, align 4, !tbaa !212
+  %19 = load i32, ptr %18, align 4, !tbaa !214
   %20 = icmp slt i32 %19, 1
   br i1 %20, label %_ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit, label %21
 
@@ -8540,7 +8540,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator15getMaxExpansionEi(ptr nounde
 _ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit: ; preds = %10, %17, %21
   %22 = load ptr, ptr %4, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 384
-  %24 = load ptr, ptr %23, align 8, !tbaa !211
+  %24 = load ptr, ptr %23, align 8, !tbaa !213
   %25 = call noundef i32 @_ZN6icu_7724CollationElementIterator15getMaxExpansionEPK10UHashtablei(ptr noundef %24, i32 noundef %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
   ret i32 %25
@@ -8597,16 +8597,16 @@ define internal void @_ZN6icu_7712_GLOBAL__N_116UTF16NFDIteratorD0Ev(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -1, 10559488) i32 @_ZN6icu_7712_GLOBAL__N_116UTF16NFDIterator16nextRawCodePointEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !149
+  %3 = load ptr, ptr %2, align 8, !tbaa !150
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !151
+  %5 = load ptr, ptr %4, align 8, !tbaa !152
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %27, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store ptr %8, ptr %2, align 8, !tbaa !149
-  %9 = load i16, ptr %3, align 2, !tbaa !140
+  store ptr %8, ptr %2, align 8, !tbaa !150
+  %9 = load i16, ptr %3, align 2, !tbaa !141
   %10 = zext i16 %9 to i32
   %11 = icmp eq ptr %5, null
   %12 = icmp eq i16 %9, 0
@@ -8614,7 +8614,7 @@ define internal noundef range(i32 -1, 10559488) i32 @_ZN6icu_7712_GLOBAL__N_116U
   br i1 %or.cond, label %13, label %14
 
 13:                                               ; preds = %7
-  store ptr null, ptr %2, align 8, !tbaa !149
+  store ptr null, ptr %2, align 8, !tbaa !150
   br label %27
 
 14:                                               ; preds = %7
@@ -8625,7 +8625,7 @@ define internal noundef range(i32 -1, 10559488) i32 @_ZN6icu_7712_GLOBAL__N_116U
   br i1 %or.cond10, label %27, label %17
 
 17:                                               ; preds = %14
-  %18 = load i16, ptr %8, align 2, !tbaa !140
+  %18 = load i16, ptr %8, align 2, !tbaa !141
   %19 = zext i16 %18 to i32
   %20 = and i32 %19, 64512
   %21 = icmp eq i32 %20, 56320
@@ -8633,7 +8633,7 @@ define internal noundef range(i32 -1, 10559488) i32 @_ZN6icu_7712_GLOBAL__N_116U
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store ptr %23, ptr %2, align 8, !tbaa !149
+  store ptr %23, ptr %2, align 8, !tbaa !150
   %24 = shl nuw nsw i32 %10, 10
   %25 = add nsw i32 %24, -56613888
   %26 = add nuw nsw i32 %25, %19
@@ -8653,15 +8653,15 @@ declare noundef signext i8 @_ZN6icu_7716ReorderingBuffer4initEiR10UErrorCode(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7716ReorderingBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !174
+  %3 = load ptr, ptr %2, align 8, !tbaa !175
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !176
+  %6 = load ptr, ptr %5, align 8, !tbaa !177
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !177
+  %8 = load ptr, ptr %7, align 8, !tbaa !178
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %3 to i64
   %11 = sub i64 %9, %10
@@ -8709,15 +8709,15 @@ define internal void @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIteratorD0Ev(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIterator16nextRawCodePointEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !169
+  %3 = load i32, ptr %2, align 8, !tbaa !170
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !170
+  %5 = load i32, ptr %4, align 4, !tbaa !171
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %88, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !167
+  %9 = load ptr, ptr %8, align 8, !tbaa !168
   %10 = sext i32 %3 to i64
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !65
@@ -8728,7 +8728,7 @@ define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIterator16nextRawC
 
 15:                                               ; preds = %7
   %16 = add nsw i32 %3, 1
-  store i32 %16, ptr %2, align 8, !tbaa !169
+  store i32 %16, ptr %2, align 8, !tbaa !170
   %17 = load i8, ptr %11, align 1, !tbaa !65
   %18 = zext i8 %17 to i32
   %19 = icmp sgt i8 %17, -1
@@ -8788,7 +8788,7 @@ define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIterator16nextRawC
 
 55:                                               ; preds = %43
   %56 = add nsw i32 %3, 2
-  store i32 %56, ptr %2, align 8, !tbaa !169
+  store i32 %56, ptr %2, align 8, !tbaa !170
   %.not28 = icmp eq i32 %56, %5
   br i1 %.not28, label %88, label %57
 
@@ -8811,7 +8811,7 @@ define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIterator16nextRawC
   %69 = zext nneg i8 %.0 to i32
   %70 = or disjoint i32 %68, %69
   %71 = add nsw i32 %67, 1
-  store i32 %71, ptr %2, align 8, !tbaa !169
+  store i32 %71, ptr %2, align 8, !tbaa !170
   %.not30 = icmp eq i32 %71, %5
   br i1 %.not30, label %88, label %76
 
@@ -8838,7 +8838,7 @@ define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIterator16nextRawC
   %85 = shl nuw nsw i32 %.1, 6
   %86 = or disjoint i32 %85, %84
   %87 = add nsw i32 %77, 1
-  store i32 %87, ptr %2, align 8, !tbaa !169
+  store i32 %87, ptr %2, align 8, !tbaa !170
   br label %88
 
 88:                                               ; preds = %15, %20, %25, %40, %43, %55, %57, %66, %72, %76, %83, %1, %7
@@ -8879,7 +8879,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_116UIterNFDIteratorD0Ev(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_116UIterNFDIterator16nextRawCodePointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !213
+  %3 = load ptr, ptr %2, align 8, !tbaa !215
   %4 = tail call i32 @uiter_next32_77(ptr noundef %3)
   ret i32 %4
 }
@@ -8950,9 +8950,9 @@ define internal void @_ZN6icu_7712_GLOBAL__N_117PartLevelCallbackD0Ev(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_7712_GLOBAL__N_117PartLevelCallback11needToWriteENS_9Collation5LevelE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !215
+  %4 = load ptr, ptr %3, align 8, !tbaa !217
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !193
+  %6 = load i32, ptr %5, align 4, !tbaa !194
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !20
   %.not = icmp sgt i32 %6, %8
@@ -8960,13 +8960,13 @@ define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_7712_GLOBAL__N_117Par
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %10, align 8, !tbaa !200
+  store i32 %1, ptr %10, align 8, !tbaa !201
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !194
+  %12 = load i32, ptr %11, align 8, !tbaa !195
   %13 = sub i32 %8, %6
   %14 = add i32 %13, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %14, ptr %15, align 4, !tbaa !204
+  store i32 %14, ptr %15, align 4, !tbaa !205
   br label %16
 
 16:                                               ; preds = %2, %9
@@ -9112,135 +9112,137 @@ attributes #23 = { nounwind willreturn memory(read) }
 !81 = !{!78, !78, i64 0}
 !82 = !{!77, !9, i64 44}
 !83 = !{!77, !9, i64 48}
-!84 = distinct !{!84, !85}
+!84 = distinct !{!84, !85, !86}
 !85 = !{!"llvm.loop.mustprogress"}
-!86 = !{!32, !7, i64 216}
-!87 = !{!32, !5, i64 40}
-!88 = !{!89, !28, i64 0}
-!89 = !{!"_ZTSN6icu_7725ContractionsAndExpansionsE", !28, i64 0, !50, i64 8, !50, i64 16, !90, i64 24, !7, i64 32, !7, i64 33, !91, i64 40, !91, i64 240, !44, i64 440, !70, i64 504, !7, i64 512, !14, i64 760}
-!90 = !{!"p1 _ZTSN6icu_7725ContractionsAndExpansions6CESinkE", !6, i64 0}
-!91 = !{!"_ZTSN6icu_7710UnicodeSetE", !92, i64 0, !60, i64 16, !9, i64 24, !9, i64 28, !7, i64 32, !95, i64 40, !60, i64 48, !9, i64 56, !62, i64 64, !9, i64 72, !96, i64 80, !97, i64 88, !7, i64 96}
-!92 = !{!"_ZTSN6icu_7713UnicodeFilterE", !93, i64 0, !94, i64 8}
-!93 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !27, i64 0}
-!94 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
-!95 = !{!"p1 _ZTSN6icu_776BMPSetE", !6, i64 0}
-!96 = !{!"p1 _ZTSN6icu_777UVectorE", !6, i64 0}
-!97 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !6, i64 0}
-!98 = !{!89, !50, i64 8}
-!99 = !{!89, !7, i64 32}
-!100 = !{!89, !7, i64 33}
-!101 = !{!89, !50, i64 16}
-!102 = !{!89, !90, i64 24}
-!103 = !{!89, !70, i64 504}
-!104 = !{!89, !14, i64 760}
-!105 = !{!106, !9, i64 24}
-!106 = !{!"_ZTSN6icu_7717CollationSettingsE", !40, i64 0, !9, i64 24, !9, i64 28, !5, i64 32, !9, i64 40, !60, i64 48, !9, i64 56, !60, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !7, i64 84}
-!107 = !{!106, !9, i64 80}
-!108 = !{!106, !9, i64 28}
-!109 = !{!110, !49, i64 8}
-!110 = !{!"_ZTSN6icu_7717CollationIteratorE", !27, i64 0, !49, i64 8, !28, i64 16, !111, i64 24, !9, i64 368, !113, i64 376, !9, i64 384, !7, i64 388}
-!111 = !{!"_ZTSN6icu_7717CollationIterator8CEBufferE", !9, i64 0, !112, i64 8}
-!112 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi40EEE", !61, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
-!113 = !{!"p1 _ZTSN6icu_7712SkippedStateE", !6, i64 0}
-!114 = !{!110, !28, i64 16}
-!115 = !{!111, !9, i64 0}
-!116 = !{!112, !61, i64 0}
-!117 = !{!112, !9, i64 8}
-!118 = !{!112, !7, i64 12}
-!119 = !{!110, !9, i64 368}
-!120 = !{!110, !113, i64 376}
-!121 = !{!110, !9, i64 384}
-!122 = !{!110, !7, i64 388}
-!123 = !{!124, !62, i64 392}
-!124 = !{!"_ZTSN6icu_7722UTF16CollationIteratorE", !110, i64 0, !62, i64 392, !62, i64 400, !62, i64 408}
-!125 = !{!124, !62, i64 400}
-!126 = !{!124, !62, i64 408}
-!127 = !{!128, !62, i64 416}
-!128 = !{!"_ZTSN6icu_7725FCDUTF16CollationIteratorE", !124, i64 0, !62, i64 416, !62, i64 424, !62, i64 432, !62, i64 440, !63, i64 448, !44, i64 456, !7, i64 520}
-!129 = !{!128, !62, i64 424}
-!130 = !{!128, !62, i64 432}
-!131 = !{!128, !62, i64 440}
-!132 = !{!59, !63, i64 48}
-!133 = !{!63, !63, i64 0}
-!134 = !{!128, !7, i64 520}
-!135 = !{!110, !9, i64 24}
-!136 = !{!137, !137, i64 0}
-!137 = !{!"long", !7, i64 0}
-!138 = !{!106, !9, i64 72}
-!139 = !{!106, !60, i64 64}
-!140 = !{!141, !141, i64 0}
-!141 = !{!"char16_t", !7, i64 0}
-!142 = distinct !{!142, !85}
-!143 = distinct !{!143, !85}
-!144 = distinct !{!144, !85}
-!145 = !{!59, !64, i64 88}
-!146 = !{!147, !9, i64 24}
-!147 = !{!"_ZTSN6icu_7712_GLOBAL__N_111NFDIteratorE", !27, i64 0, !62, i64 8, !7, i64 16, !9, i64 24, !9, i64 28}
-!148 = !{!147, !9, i64 28}
-!149 = !{!150, !62, i64 32}
-!150 = !{!"_ZTSN6icu_7712_GLOBAL__N_116UTF16NFDIteratorE", !147, i64 0, !62, i64 32, !62, i64 40}
-!151 = !{!150, !62, i64 40}
-!152 = !{!153, !5, i64 0}
-!153 = !{!"_ZTSN6icu_7711StringPieceE", !5, i64 0, !9, i64 8}
-!154 = !{!153, !9, i64 8}
-!155 = distinct !{!155, !85}
-!156 = distinct !{!156, !85}
-!157 = distinct !{!157, !85}
-!158 = distinct !{!158, !85}
-!159 = !{!160, !5, i64 392}
-!160 = !{!"_ZTSN6icu_7721UTF8CollationIteratorE", !110, i64 0, !5, i64 392, !9, i64 400, !9, i64 404}
-!161 = !{!160, !9, i64 400}
-!162 = !{!160, !9, i64 404}
-!163 = !{!164, !165, i64 408}
-!164 = !{!"_ZTSN6icu_7724FCDUTF8CollationIteratorE", !160, i64 0, !165, i64 408, !9, i64 412, !9, i64 416, !63, i64 424, !44, i64 432}
-!165 = !{!"_ZTSN6icu_7724FCDUTF8CollationIterator5StateE", !7, i64 0}
-!166 = !{!164, !9, i64 412}
-!167 = !{!168, !5, i64 32}
-!168 = !{!"_ZTSN6icu_7712_GLOBAL__N_115UTF8NFDIteratorE", !147, i64 0, !5, i64 32, !9, i64 40, !9, i64 44}
-!169 = !{!168, !9, i64 40}
-!170 = !{!168, !9, i64 44}
-!171 = !{!59, !50, i64 80}
-!172 = !{!147, !62, i64 8}
-!173 = !{!70, !70, i64 0}
-!174 = !{!175, !62, i64 16}
-!175 = !{!"_ZTSN6icu_7716ReorderingBufferE", !63, i64 0, !70, i64 8, !62, i64 16, !62, i64 24, !62, i64 32, !9, i64 40, !7, i64 44, !62, i64 48, !62, i64 56}
-!176 = !{!175, !70, i64 8}
-!177 = !{!175, !62, i64 32}
-!178 = !{!179, !6, i64 72}
-!179 = !{!"_ZTS13UCharIterator", !6, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104}
-!180 = distinct !{!180, !85}
-!181 = !{!179, !6, i64 80}
-!182 = distinct !{!182, !85}
-!183 = !{!184, !184, i64 0}
-!184 = !{!"p1 _ZTS13UCharIterator", !6, i64 0}
-!185 = !{!186, !188, i64 400}
-!186 = !{!"_ZTSN6icu_7725FCDUIterCollationIteratorE", !187, i64 0, !188, i64 400, !9, i64 404, !9, i64 408, !9, i64 412, !63, i64 416, !44, i64 424}
-!187 = !{!"_ZTSN6icu_7722UIterCollationIteratorE", !110, i64 0, !184, i64 392}
-!188 = !{!"_ZTSN6icu_7725FCDUIterCollationIterator5StateE", !7, i64 0}
-!189 = !{!186, !9, i64 404}
-!190 = !{!179, !6, i64 40}
-!191 = !{!192, !9, i64 8}
-!192 = !{!"_ZTSN6icu_7712CollationKeyE", !27, i64 0, !9, i64 8, !9, i64 12, !7, i64 16}
-!193 = !{!18, !9, i64 20}
-!194 = !{!18, !9, i64 24}
-!195 = !{!23, !23, i64 0}
-!196 = !{!192, !9, i64 12}
-!197 = !{!59, !5, i64 72}
-!198 = !{!199, !199, i64 0}
-!199 = !{!"p1 _ZTSN6icu_7715SortKeyByteSinkE", !6, i64 0}
-!200 = !{!201, !203, i64 16}
-!201 = !{!"_ZTSN6icu_7712_GLOBAL__N_117PartLevelCallbackE", !202, i64 0, !199, i64 8, !203, i64 16, !9, i64 20}
-!202 = !{!"_ZTSN6icu_7713CollationKeys13LevelCallbackE"}
-!203 = !{!"_ZTSN6icu_779Collation5LevelE", !7, i64 0}
-!204 = !{!201, !9, i64 20}
-!205 = !{!206, !9, i64 8}
-!206 = !{!"_ZTSN6icu_779UVector64E", !27, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !61, i64 24}
-!207 = !{!206, !61, i64 24}
-!208 = !{!209, !9, i64 56}
-!209 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!210 = distinct !{!210, !85}
-!211 = !{!39, !51, i64 384}
-!212 = !{!52, !14, i64 4}
-!213 = !{!214, !184, i64 32}
-!214 = !{!"_ZTSN6icu_7712_GLOBAL__N_116UIterNFDIteratorE", !147, i64 0, !184, i64 32}
-!215 = !{!201, !199, i64 8}
+!86 = !{!"llvm.loop.estimated_trip_count"}
+!87 = !{!32, !7, i64 216}
+!88 = !{!32, !5, i64 40}
+!89 = !{!90, !28, i64 0}
+!90 = !{!"_ZTSN6icu_7725ContractionsAndExpansionsE", !28, i64 0, !50, i64 8, !50, i64 16, !91, i64 24, !7, i64 32, !7, i64 33, !92, i64 40, !92, i64 240, !44, i64 440, !70, i64 504, !7, i64 512, !14, i64 760}
+!91 = !{!"p1 _ZTSN6icu_7725ContractionsAndExpansions6CESinkE", !6, i64 0}
+!92 = !{!"_ZTSN6icu_7710UnicodeSetE", !93, i64 0, !60, i64 16, !9, i64 24, !9, i64 28, !7, i64 32, !96, i64 40, !60, i64 48, !9, i64 56, !62, i64 64, !9, i64 72, !97, i64 80, !98, i64 88, !7, i64 96}
+!93 = !{!"_ZTSN6icu_7713UnicodeFilterE", !94, i64 0, !95, i64 8}
+!94 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !27, i64 0}
+!95 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
+!96 = !{!"p1 _ZTSN6icu_776BMPSetE", !6, i64 0}
+!97 = !{!"p1 _ZTSN6icu_777UVectorE", !6, i64 0}
+!98 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !6, i64 0}
+!99 = !{!90, !50, i64 8}
+!100 = !{!90, !7, i64 32}
+!101 = !{!90, !7, i64 33}
+!102 = !{!90, !50, i64 16}
+!103 = !{!90, !91, i64 24}
+!104 = !{!90, !70, i64 504}
+!105 = !{!90, !14, i64 760}
+!106 = !{!107, !9, i64 24}
+!107 = !{!"_ZTSN6icu_7717CollationSettingsE", !40, i64 0, !9, i64 24, !9, i64 28, !5, i64 32, !9, i64 40, !60, i64 48, !9, i64 56, !60, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !7, i64 84}
+!108 = !{!107, !9, i64 80}
+!109 = !{!107, !9, i64 28}
+!110 = !{!111, !49, i64 8}
+!111 = !{!"_ZTSN6icu_7717CollationIteratorE", !27, i64 0, !49, i64 8, !28, i64 16, !112, i64 24, !9, i64 368, !114, i64 376, !9, i64 384, !7, i64 388}
+!112 = !{!"_ZTSN6icu_7717CollationIterator8CEBufferE", !9, i64 0, !113, i64 8}
+!113 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi40EEE", !61, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
+!114 = !{!"p1 _ZTSN6icu_7712SkippedStateE", !6, i64 0}
+!115 = !{!111, !28, i64 16}
+!116 = !{!112, !9, i64 0}
+!117 = !{!113, !61, i64 0}
+!118 = !{!113, !9, i64 8}
+!119 = !{!113, !7, i64 12}
+!120 = !{!111, !9, i64 368}
+!121 = !{!111, !114, i64 376}
+!122 = !{!111, !9, i64 384}
+!123 = !{!111, !7, i64 388}
+!124 = !{!125, !62, i64 392}
+!125 = !{!"_ZTSN6icu_7722UTF16CollationIteratorE", !111, i64 0, !62, i64 392, !62, i64 400, !62, i64 408}
+!126 = !{!125, !62, i64 400}
+!127 = !{!125, !62, i64 408}
+!128 = !{!129, !62, i64 416}
+!129 = !{!"_ZTSN6icu_7725FCDUTF16CollationIteratorE", !125, i64 0, !62, i64 416, !62, i64 424, !62, i64 432, !62, i64 440, !63, i64 448, !44, i64 456, !7, i64 520}
+!130 = !{!129, !62, i64 424}
+!131 = !{!129, !62, i64 432}
+!132 = !{!129, !62, i64 440}
+!133 = !{!59, !63, i64 48}
+!134 = !{!63, !63, i64 0}
+!135 = !{!129, !7, i64 520}
+!136 = !{!111, !9, i64 24}
+!137 = !{!138, !138, i64 0}
+!138 = !{!"long", !7, i64 0}
+!139 = !{!107, !9, i64 72}
+!140 = !{!107, !60, i64 64}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"char16_t", !7, i64 0}
+!143 = distinct !{!143, !85, !86}
+!144 = distinct !{!144, !85, !86}
+!145 = distinct !{!145, !85, !86}
+!146 = !{!59, !64, i64 88}
+!147 = !{!148, !9, i64 24}
+!148 = !{!"_ZTSN6icu_7712_GLOBAL__N_111NFDIteratorE", !27, i64 0, !62, i64 8, !7, i64 16, !9, i64 24, !9, i64 28}
+!149 = !{!148, !9, i64 28}
+!150 = !{!151, !62, i64 32}
+!151 = !{!"_ZTSN6icu_7712_GLOBAL__N_116UTF16NFDIteratorE", !148, i64 0, !62, i64 32, !62, i64 40}
+!152 = !{!151, !62, i64 40}
+!153 = !{!154, !5, i64 0}
+!154 = !{!"_ZTSN6icu_7711StringPieceE", !5, i64 0, !9, i64 8}
+!155 = !{!154, !9, i64 8}
+!156 = distinct !{!156, !85, !86}
+!157 = distinct !{!157, !85, !86}
+!158 = distinct !{!158, !85, !86}
+!159 = distinct !{!159, !85, !86}
+!160 = !{!161, !5, i64 392}
+!161 = !{!"_ZTSN6icu_7721UTF8CollationIteratorE", !111, i64 0, !5, i64 392, !9, i64 400, !9, i64 404}
+!162 = !{!161, !9, i64 400}
+!163 = !{!161, !9, i64 404}
+!164 = !{!165, !166, i64 408}
+!165 = !{!"_ZTSN6icu_7724FCDUTF8CollationIteratorE", !161, i64 0, !166, i64 408, !9, i64 412, !9, i64 416, !63, i64 424, !44, i64 432}
+!166 = !{!"_ZTSN6icu_7724FCDUTF8CollationIterator5StateE", !7, i64 0}
+!167 = !{!165, !9, i64 412}
+!168 = !{!169, !5, i64 32}
+!169 = !{!"_ZTSN6icu_7712_GLOBAL__N_115UTF8NFDIteratorE", !148, i64 0, !5, i64 32, !9, i64 40, !9, i64 44}
+!170 = !{!169, !9, i64 40}
+!171 = !{!169, !9, i64 44}
+!172 = !{!59, !50, i64 80}
+!173 = !{!148, !62, i64 8}
+!174 = !{!70, !70, i64 0}
+!175 = !{!176, !62, i64 16}
+!176 = !{!"_ZTSN6icu_7716ReorderingBufferE", !63, i64 0, !70, i64 8, !62, i64 16, !62, i64 24, !62, i64 32, !9, i64 40, !7, i64 44, !62, i64 48, !62, i64 56}
+!177 = !{!176, !70, i64 8}
+!178 = !{!176, !62, i64 32}
+!179 = !{!180, !6, i64 72}
+!180 = !{!"_ZTS13UCharIterator", !6, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104}
+!181 = distinct !{!181, !85, !86}
+!182 = !{!180, !6, i64 80}
+!183 = distinct !{!183, !85, !86}
+!184 = !{!185, !185, i64 0}
+!185 = !{!"p1 _ZTS13UCharIterator", !6, i64 0}
+!186 = !{!187, !189, i64 400}
+!187 = !{!"_ZTSN6icu_7725FCDUIterCollationIteratorE", !188, i64 0, !189, i64 400, !9, i64 404, !9, i64 408, !9, i64 412, !63, i64 416, !44, i64 424}
+!188 = !{!"_ZTSN6icu_7722UIterCollationIteratorE", !111, i64 0, !185, i64 392}
+!189 = !{!"_ZTSN6icu_7725FCDUIterCollationIterator5StateE", !7, i64 0}
+!190 = !{!187, !9, i64 404}
+!191 = !{!180, !6, i64 40}
+!192 = !{!193, !9, i64 8}
+!193 = !{!"_ZTSN6icu_7712CollationKeyE", !27, i64 0, !9, i64 8, !9, i64 12, !7, i64 16}
+!194 = !{!18, !9, i64 20}
+!195 = !{!18, !9, i64 24}
+!196 = !{!23, !23, i64 0}
+!197 = !{!193, !9, i64 12}
+!198 = !{!59, !5, i64 72}
+!199 = !{!200, !200, i64 0}
+!200 = !{!"p1 _ZTSN6icu_7715SortKeyByteSinkE", !6, i64 0}
+!201 = !{!202, !204, i64 16}
+!202 = !{!"_ZTSN6icu_7712_GLOBAL__N_117PartLevelCallbackE", !203, i64 0, !200, i64 8, !204, i64 16, !9, i64 20}
+!203 = !{!"_ZTSN6icu_7713CollationKeys13LevelCallbackE"}
+!204 = !{!"_ZTSN6icu_779Collation5LevelE", !7, i64 0}
+!205 = !{!202, !9, i64 20}
+!206 = distinct !{!206, !86}
+!207 = !{!208, !9, i64 8}
+!208 = !{!"_ZTSN6icu_779UVector64E", !27, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !61, i64 24}
+!209 = !{!208, !61, i64 24}
+!210 = !{!211, !9, i64 56}
+!211 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!212 = distinct !{!212, !85, !86}
+!213 = !{!39, !51, i64 384}
+!214 = !{!52, !14, i64 4}
+!215 = !{!216, !185, i64 32}
+!216 = !{!"_ZTSN6icu_7712_GLOBAL__N_116UIterNFDIteratorE", !148, i64 0, !185, i64 32}
+!217 = !{!202, !200, i64 8}

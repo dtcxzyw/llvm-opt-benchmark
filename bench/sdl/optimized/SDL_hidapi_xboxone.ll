@@ -747,7 +747,7 @@ HIDAPI_GIP_AcknowledgePacket.exit.i.i:            ; preds = %SendProtocolPacket.
   %300 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 %299
   %301 = sub i32 %.01524.i, %298
   %302 = icmp slt i32 %301, 4
-  br i1 %302, label %HIDAPI_GIP_ProcessData.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %302, label %HIDAPI_GIP_ProcessData.exit, label %.lr.ph.i, !llvm.loop !8
 
 HIDAPI_GIP_ProcessData.exit:                      ; preds = %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i, %282, %284, %297, %208, %HIDAPI_GIP_AcknowledgePacket.exit.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %5) #9
@@ -757,7 +757,7 @@ HIDAPI_GIP_ProcessData.exit:                      ; preds = %HIDAPI_GIP_DestroyC
   %304 = load ptr, ptr %17, align 8
   %305 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %304, ptr noundef nonnull %6, i64 noundef 64, i32 noundef 0) #9
   %306 = icmp sgt i32 %305, 0
-  br i1 %306, label %53, label %._crit_edge, !llvm.loop !8
+  br i1 %306, label %53, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %303, %12
   %.lcssa44 = phi i32 [ %19, %12 ], [ %305, %303 ]
@@ -917,7 +917,7 @@ SendProtocolPacket.exit.thread.i14.i:             ; preds = %SendProtocolPacket.
 373:                                              ; preds = %371, %369, %336, %333
   %374 = add nuw nsw i64 %.02134.i.i, 1
   %exitcond.i.i = icmp eq i64 %374, 7
-  br i1 %exitcond.i.i, label %SendControllerStartup.exit.i, label %333, !llvm.loop !9
+  br i1 %exitcond.i.i, label %SendControllerStartup.exit.i, label %333, !llvm.loop !10
 
 SendControllerStartup.exit.i:                     ; preds = %373, %SendProtocolPacket.exit.thread.i14.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
@@ -938,7 +938,7 @@ SendControllerStartup.exit.i:                     ; preds = %373, %SendProtocolP
 379:                                              ; preds = %.sink.split.i, %375, %326, %316
   %380 = load i32, ptr %307, align 4
   %.not12.i = icmp eq i32 %380, %317
-  br i1 %.not12.i, label %HIDAPI_DriverXboxOne_UpdateInitState.exit, label %316, !llvm.loop !10
+  br i1 %.not12.i, label %HIDAPI_DriverXboxOne_UpdateInitState.exit, label %316, !llvm.loop !11
 
 HIDAPI_DriverXboxOne_UpdateInitState.exit:        ; preds = %379
   %381 = call fastcc zeroext i1 @HIDAPI_DriverXboxOne_UpdateRumble(ptr noundef nonnull %8)
@@ -1386,7 +1386,7 @@ define internal fastcc void @HIDAPI_GIP_DispatchPacket(ptr noundef %0, ptr nound
   %32 = call ptr @SDL_uitoa_REAL(i32 noundef %29, ptr noundef nonnull %31, i32 noundef 16) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 14
-  br i1 %exitcond.not.i, label %HIDAPI_DriverXboxOne_HandleSerialIDPacket.exit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i, label %HIDAPI_DriverXboxOne_HandleSerialIDPacket.exit, label %27, !llvm.loop !12
 
 HIDAPI_DriverXboxOne_HandleSerialIDPacket.exit:   ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -1951,10 +1951,11 @@ attributes #10 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}

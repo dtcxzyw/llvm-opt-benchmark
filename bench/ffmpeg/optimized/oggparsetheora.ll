@@ -439,7 +439,7 @@ define internal noundef i32 @theora_packet(ptr noundef readonly captures(none) %
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %31 = load i64, ptr %30, align 8, !tbaa !78
+  %31 = load i64, ptr %30, align 8, !tbaa !79
   %32 = load i32, ptr %28, align 4, !tbaa !54
   %33 = zext nneg i32 %32 to i64
   %34 = lshr i64 %31, %33
@@ -456,9 +456,9 @@ define internal noundef i32 @theora_packet(ptr noundef readonly captures(none) %
 
 43:                                               ; preds = %29
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %45 = load i32, ptr %44, align 8, !tbaa !79
+  %45 = load i32, ptr %44, align 8, !tbaa !80
   %46 = or i32 %45, 1
-  store i32 %46, ptr %44, align 8, !tbaa !79
+  store i32 %46, ptr %44, align 8, !tbaa !80
   br label %theora_gptopts.exit
 
 theora_gptopts.exit:                              ; preds = %29, %43
@@ -479,23 +479,23 @@ theora_gptopts.exit:                              ; preds = %29, %43
 theora_gptopts.exit.thread:                       ; preds = %._crit_edge, %47, %theora_gptopts.exit
   %.0 = phi i64 [ %53, %47 ], [ -9223372036854775808, %theora_gptopts.exit ], [ -9223372036854775808, %._crit_edge ]
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 %.0, ptr %54, align 8, !tbaa !80
+  store i64 %.0, ptr %54, align 8, !tbaa !81
   store i64 %.0, ptr %8, align 8, !tbaa !72
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %56 = load ptr, ptr %55, align 8, !tbaa !28
   %57 = getelementptr inbounds ptr, ptr %56, i64 %6
   %58 = load ptr, ptr %57, align 8, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %60 = load i64, ptr %59, align 8, !tbaa !81
+  %60 = load i64, ptr %59, align 8, !tbaa !82
   %61 = icmp ne i64 %60, -9223372036854775808
   %.not45 = icmp eq i64 %.0, -9223372036854775808
   %or.cond = select i1 %61, i1 true, i1 %.not45
   br i1 %or.cond, label %73, label %62
 
 62:                                               ; preds = %theora_gptopts.exit.thread
-  store i64 %.0, ptr %59, align 8, !tbaa !81
+  store i64 %.0, ptr %59, align 8, !tbaa !82
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %64 = load i64, ptr %63, align 8, !tbaa !82
+  %64 = load i64, ptr %63, align 8, !tbaa !83
   %65 = icmp sgt i64 %64, 0
   br i1 %65, label %66, label %73
 
@@ -506,7 +506,7 @@ theora_gptopts.exit.thread:                       ; preds = %._crit_edge, %47, %
   %70 = icmp slt i64 %69, 0
   %71 = select i1 %70, i64 9223372036854775807, i64 -9223372036854775808
   %72 = select i1 %68, i64 %71, i64 %69
-  store i64 %72, ptr %63, align 8, !tbaa !82
+  store i64 %72, ptr %63, align 8, !tbaa !83
   br label %73
 
 73:                                               ; preds = %theora_gptopts.exit.thread, %66, %62, %2, %10
@@ -517,7 +517,7 @@ theora_gptopts.exit.thread:                       ; preds = %._crit_edge, %47, %
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 1, ptr %77, align 4, !tbaa !83
+  store i32 1, ptr %77, align 4, !tbaa !84
   br label %78
 
 78:                                               ; preds = %76, %73
@@ -554,9 +554,9 @@ define internal i64 @theora_gptopts(ptr noundef readonly captures(none) %0, i32 
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %26 = load i32, ptr %25, align 8, !tbaa !79
+  %26 = load i32, ptr %25, align 8, !tbaa !80
   %27 = or i32 %26, 1
-  store i32 %27, ptr %25, align 8, !tbaa !79
+  store i32 %27, ptr %25, align 8, !tbaa !80
   br label %28
 
 28:                                               ; preds = %24, %12
@@ -565,7 +565,7 @@ define internal i64 @theora_gptopts(ptr noundef readonly captures(none) %0, i32 
   br i1 %.not23, label %._crit_edge, label %29
 
 29:                                               ; preds = %28
-  store i64 %.pre, ptr %3, align 8, !tbaa !84
+  store i64 %.pre, ptr %3, align 8, !tbaa !85
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28, %29, %4
@@ -689,12 +689,13 @@ attributes #8 = { nounwind }
 !73 = !{!42, !13, i64 88}
 !74 = !{!42, !13, i64 112}
 !75 = !{!42, !13, i64 108}
-!76 = distinct !{!76, !77}
+!76 = distinct !{!76, !77, !78}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = !{!42, !19, i64 40}
-!79 = !{!42, !13, i64 24}
-!80 = !{!42, !19, i64 64}
-!81 = !{!32, !19, i64 40}
-!82 = !{!32, !19, i64 48}
-!83 = !{!42, !13, i64 28}
-!84 = !{!19, !19, i64 0}
+!78 = !{!"llvm.loop.estimated_trip_count"}
+!79 = !{!42, !19, i64 40}
+!80 = !{!42, !13, i64 24}
+!81 = !{!42, !19, i64 64}
+!82 = !{!32, !19, i64 40}
+!83 = !{!32, !19, i64 48}
+!84 = !{!42, !13, i64 28}
+!85 = !{!19, !19, i64 0}

@@ -10848,5 +10848,6 @@ attributes #17 = { noreturn }
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv: argument 0"}
 !38 = distinct !{!38, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv"}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
+!41 = !{!"llvm.loop.estimated_trip_count"}

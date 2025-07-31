@@ -1036,7 +1036,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit37
   %.032.be = phi ptr [ %.0, %lean_inc.exit37 ], [ %70, %lean_alloc_ctor.exit ]
-  br label %6
+  br label %6, !llvm.loop !15
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -1358,7 +1358,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_alloc_closure.exit
   %.043.be = phi ptr [ %.0, %lean_alloc_closure.exit ], [ %110, %lean_alloc_ctor.exit ]
-  br label %9
+  br label %9, !llvm.loop !17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2630,7 +2630,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit37
   %.032.be = phi ptr [ %.0, %lean_inc.exit37 ], [ %70, %lean_alloc_ctor.exit ]
-  br label %6
+  br label %6, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2950,7 +2950,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_alloc_closure.exit
   %.043.be = phi ptr [ %.0, %lean_alloc_closure.exit ], [ %110, %lean_alloc_ctor.exit ]
-  br label %9
+  br label %9, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4153,7 +4153,7 @@ lean_inc.exit390:                                 ; preds = %168, %167, %165, %l
 
 lean_inc.exit389:                                 ; preds = %178, %177, %175, %lean_inc.exit390
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %180 = load i8, ptr %179, align 1, !tbaa !15
+  %180 = load i8, ptr %179, align 1, !tbaa !20
   br i1 %.not, label %181, label %lean_dec.exit346
 
 181:                                              ; preds = %lean_inc.exit389
@@ -4635,7 +4635,7 @@ lean_inc.exit380:                                 ; preds = %339, %338, %336, %l
 
 lean_inc.exit379:                                 ; preds = %349, %348, %346, %lean_inc.exit380
   %350 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %351 = load i8, ptr %350, align 1, !tbaa !15
+  %351 = load i8, ptr %350, align 1, !tbaa !20
   br i1 %.not, label %352, label %lean_dec.exit336
 
 352:                                              ; preds = %lean_inc.exit379
@@ -5143,7 +5143,7 @@ lean_inc.exit369:                                 ; preds = %520, %519, %517, %l
 
 lean_inc.exit368:                                 ; preds = %530, %529, %527, %lean_inc.exit369
   %531 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %532 = load i8, ptr %531, align 1, !tbaa !15
+  %532 = load i8, ptr %531, align 1, !tbaa !20
   br i1 %.not682, label %533, label %lean_inc.exit367
 
 533:                                              ; preds = %lean_inc.exit368
@@ -6269,14 +6269,14 @@ define ptr @l___private_Lean_Util_InstantiateLevelParams_0__Lean_Expr_getParamSu
 
 lean_dec.exit46:                                  ; preds = %lean_dec.exit46.backedge, %4
   %.033 = phi ptr [ %3, %4 ], [ %.033.be, %lean_dec.exit46.backedge ]
-  %.val69 = load i64, ptr %5, align 8, !tbaa !16
+  %.val69 = load i64, ptr %5, align 8, !tbaa !21
   %9 = shl i64 %.val69, 1
   %10 = or disjoint i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
   %12 = ptrtoint ptr %.033 to i64
   %13 = and i64 %12, 1
   %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %lean_dec.exit47.thread, label %lean_dec.exit47, !prof !18
+  br i1 %.not, label %lean_dec.exit47.thread, label %lean_dec.exit47, !prof !23
 
 lean_dec.exit47:                                  ; preds = %lean_dec.exit46
   %.not84 = icmp ult ptr %.033, %11
@@ -6332,11 +6332,11 @@ lean_dec.exit47.thread:                           ; preds = %lean_dec.exit46
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %21, %29, %31, %32
-  %.val = load i64, ptr %7, align 8, !tbaa !16
+  %.val = load i64, ptr %7, align 8, !tbaa !21
   %33 = shl i64 %.val, 1
   %34 = or disjoint i64 %33, 1
   %35 = inttoptr i64 %34 to ptr
-  br i1 %.not, label %lean_dec.exit45, label %36, !prof !18
+  br i1 %.not, label %lean_dec.exit45, label %36, !prof !23
 
 36:                                               ; preds = %lean_array_fget.exit
   %37 = icmp ult ptr %.033, %35
@@ -6462,7 +6462,7 @@ lean_dec.exit42:                                  ; preds = %72, %71, %69, %lean
   br label %lean_dec.exit41
 
 lean_dec.exit41:                                  ; preds = %81, %80, %78, %74
-  br i1 %.not, label %91, label %82, !prof !18
+  br i1 %.not, label %91, label %82, !prof !23
 
 82:                                               ; preds = %lean_dec.exit41
   %83 = add nuw i64 %22, 1
@@ -6829,7 +6829,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit37
   %.032.be = phi ptr [ %.0, %lean_inc.exit37 ], [ %70, %lean_alloc_ctor.exit ]
-  br label %6
+  br label %6, !llvm.loop !24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7155,7 +7155,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_alloc_closure.exit
   %.043.be = phi ptr [ %.0, %lean_alloc_closure.exit ], [ %110, %lean_alloc_ctor.exit ]
-  br label %9
+  br label %9, !llvm.loop !25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8410,7 +8410,14 @@ attributes #4 = { noreturn nounwind }
 !12 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"short", !7, i64 0}
-!15 = !{!7, !7, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
+!20 = !{!7, !7, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !7, i64 0}
+!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}

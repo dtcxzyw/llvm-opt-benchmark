@@ -859,7 +859,7 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
           to label %.backedge.backedge unwind label %85
 
 .backedge.backedge:                               ; preds = %.invoke, %36, %43, %21, %56
-  br label %.backedge
+  br label %.backedge, !llvm.loop !6
 
 .thread:                                          ; preds = %25, %17, %85
   %.pn29 = phi { ptr, i32 } [ %lpad.thr_comm, %85 ], [ %lpad.thr_comm.split-lp, %17 ], [ %26, %25 ]
@@ -1070,3 +1070,5 @@ attributes #7 = { cold noreturn nounwind }
 !3 = !{!4}
 !4 = distinct !{!4, !5, !"_ZN12regex_syntax3hir3Hir4fail17he2ee867dce36e74dE: argument 0"}
 !5 = distinct !{!5, !"_ZN12regex_syntax3hir3Hir4fail17he2ee867dce36e74dE"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

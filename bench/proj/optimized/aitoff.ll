@@ -391,7 +391,7 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
 145:                                              ; preds = %141, %137
   %146 = add nuw nsw i32 %.0145, 1
   %exitcond190.not = icmp eq i32 %146, 21
-  br i1 %exitcond190.not, label %.critedge2.thread, label %11, !llvm.loop !53
+  br i1 %exitcond190.not, label %.critedge2.thread, label %11, !llvm.loop !54
 
 .critedge2:                                       ; preds = %141
   %147 = icmp eq i32 %.1144, 10
@@ -546,6 +546,7 @@ attributes #7 = { nounwind }
 !48 = !{!4, !10, i64 24}
 !49 = !{!13, !13, i64 0}
 !50 = !{!45, !14, i64 0}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = distinct !{!53, !52}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = distinct !{!54, !52, !53}

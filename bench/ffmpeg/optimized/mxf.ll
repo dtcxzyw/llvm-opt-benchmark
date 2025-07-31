@@ -37,8 +37,8 @@ define range(i32 -1, 1) i32 @ff_mxf_decode_pixel_layout(ptr noundef readonly cap
   br i1 %.not, label %7, label %3
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %5, align 4, !tbaa !6
-  store i32 %8, ptr %1, align 4, !tbaa !11
+  %8 = load i32, ptr %5, align 4, !tbaa !7
+  store i32 %8, ptr %1, align 4, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %7
@@ -83,9 +83,9 @@ define i32 @ff_mxf_get_content_package_rate(i64 %0) local_unnamed_addr #1 {
 av_cmp_q.exit.thread.us:                          ; preds = %14, %.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = getelementptr inbounds nuw [21 x %struct.MXFContentPackageRate], ptr @mxf_content_package_rates, i64 0, i64 %indvars.iv.next
-  %18 = load i32, ptr %17, align 4, !tbaa !12
+  %18 = load i32, ptr %17, align 4, !tbaa !13
   %exitcond = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond, label %av_cmp_q.exit.thread11, label %.split.us, !llvm.loop !15
+  br i1 %exitcond, label %av_cmp_q.exit.thread11, label %.split.us, !llvm.loop !16
 
 .split:                                           ; preds = %1
   br i1 %5, label %.split.split, label %.split.split.us.preheader
@@ -106,14 +106,14 @@ av_cmp_q.exit.thread.us:                          ; preds = %14, %.split.us
   %.not.i.us18 = icmp eq i64 %23, %25
   %26 = icmp ugt i64 %21, 4294967295
   %or.cond28 = and i1 %.not.i.us18, %26
-  br i1 %or.cond28, label %av_cmp_q.exit.thread11.loopexit54, label %av_cmp_q.exit.thread.us23, !llvm.loop !17
+  br i1 %or.cond28, label %av_cmp_q.exit.thread11.loopexit54, label %av_cmp_q.exit.thread.us23, !llvm.loop !18
 
 av_cmp_q.exit.thread.us23:                        ; preds = %.split.split.us.preheader, %.split.split.us
   %indvars.iv3552 = phi i64 [ %indvars.iv.next36, %.split.split.us ], [ 0, %.split.split.us.preheader ]
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv3552, 1
   %27 = getelementptr inbounds nuw [21 x %struct.MXFContentPackageRate], ptr @mxf_content_package_rates, i64 0, i64 %indvars.iv.next36
   %exitcond38 = icmp eq i64 %indvars.iv.next36, 20
-  br i1 %exitcond38, label %av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit47_crit_edge, label %.split.split.us, !llvm.loop !17
+  br i1 %exitcond38, label %av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit47_crit_edge, label %.split.split.us, !llvm.loop !18
 
 .split.split:                                     ; preds = %.split, %av_cmp_q.exit.thread
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %av_cmp_q.exit.thread ], [ 0, %.split ]
@@ -144,16 +144,16 @@ av_cmp_q.exit.thread.us23:                        ; preds = %.split.split.us.pre
 av_cmp_q.exit.thread:                             ; preds = %.split.split, %38
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %40 = getelementptr inbounds nuw [21 x %struct.MXFContentPackageRate], ptr @mxf_content_package_rates, i64 0, i64 %indvars.iv.next40
-  %41 = load i32, ptr %40, align 4, !tbaa !12
+  %41 = load i32, ptr %40, align 4, !tbaa !13
   %exitcond42 = icmp eq i64 %indvars.iv.next40, 20
-  br i1 %exitcond42, label %av_cmp_q.exit.thread11, label %.split.split, !llvm.loop !18
+  br i1 %exitcond42, label %av_cmp_q.exit.thread11, label %.split.split, !llvm.loop !19
 
 av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit47_crit_edge: ; preds = %av_cmp_q.exit.thread.us23
-  %42 = load i32, ptr %27, align 4, !tbaa !12
-  br label %av_cmp_q.exit.thread11, !llvm.loop !17
+  %42 = load i32, ptr %27, align 4, !tbaa !13
+  br label %av_cmp_q.exit.thread11, !llvm.loop !18
 
 av_cmp_q.exit.thread11.loopexit54:                ; preds = %.split.split.us
-  %43 = load i32, ptr %27, align 4, !tbaa !12
+  %43 = load i32, ptr %27, align 4, !tbaa !13
   br label %av_cmp_q.exit.thread11
 
 av_cmp_q.exit.thread11:                           ; preds = %14, %av_cmp_q.exit.thread.us, %38, %36, %av_cmp_q.exit.thread, %av_cmp_q.exit.thread11.loopexit54, %.split.split.us.preheader, %av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit47_crit_edge
@@ -174,18 +174,19 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"", !8, i64 0, !9, i64 4}
-!8 = !{!"int", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!8, !8, i64 0}
-!12 = !{!13, !8, i64 0}
-!13 = !{!"MXFContentPackageRate", !8, i64 0, !14, i64 4}
-!14 = !{!"AVRational", !8, i64 0, !8, i64 4}
-!15 = distinct !{!15, !5, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !5, !16}
-!18 = distinct !{!18, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"", !9, i64 0, !10, i64 4}
+!9 = !{!"int", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!9, !9, i64 0}
+!13 = !{!14, !9, i64 0}
+!14 = !{!"MXFContentPackageRate", !9, i64 0, !15, i64 4}
+!15 = !{!"AVRational", !9, i64 0, !9, i64 4}
+!16 = distinct !{!16, !5, !6, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !5, !6, !17}
+!19 = distinct !{!19, !5, !6}

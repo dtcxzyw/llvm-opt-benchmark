@@ -164,7 +164,7 @@ define void @flex_loader_obj_update(ptr noundef %0, ptr noundef readonly capture
 24:                                               ; preds = %16
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 6
-  br i1 %exitcond53.not, label %.loopexit35, label %16, !llvm.loop !23
+  br i1 %exitcond53.not, label %.loopexit35, label %16, !llvm.loop !24
 
 .loopexit35:                                      ; preds = %24, %20
   %25 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 127) #2
@@ -189,7 +189,7 @@ define void @flex_loader_obj_update(ptr noundef %0, ptr noundef readonly capture
 35:                                               ; preds = %27
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 6
-  br i1 %exitcond57.not, label %.loopexit34, label %27, !llvm.loop !24
+  br i1 %exitcond57.not, label %.loopexit34, label %27, !llvm.loop !25
 
 .loopexit34:                                      ; preds = %35, %31
   %36 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext -128) #2
@@ -214,7 +214,7 @@ define void @flex_loader_obj_update(ptr noundef %0, ptr noundef readonly capture
 46:                                               ; preds = %38
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 6
-  br i1 %exitcond61.not, label %.loopexit, label %38, !llvm.loop !25
+  br i1 %exitcond61.not, label %.loopexit, label %38, !llvm.loop !26
 
 .loopexit:                                        ; preds = %46, %42
   ret void
@@ -267,8 +267,9 @@ attributes #2 = { nounwind }
 !18 = !{!4, !5, i64 112}
 !19 = !{!4, !5, i64 8}
 !20 = !{!10, !10, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = distinct !{!25, !22, !23}
+!26 = distinct !{!26, !22, !23}

@@ -387,7 +387,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   %113 = load i32, ptr %93, align 8
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %121, %114
-  br i1 %115, label %116, label %.loopexit.loopexit
+  br i1 %115, label %116, label %.loopexit.loopexit, !llvm.loop !7
 
 116:                                              ; preds = %112, %107
   %117 = phi i64 [ 0, %107 ], [ %121, %112 ]
@@ -410,7 +410,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %94, ptr noundef nonnull @.str.21) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  br label %.thread20, !llvm.loop !7
+  br label %.thread20, !llvm.loop !9
 
 .thread20:                                        ; preds = %89, %125, %111
   %.ph = phi i32 [ -12, %111 ], [ %123, %125 ], [ -22, %89 ]
@@ -484,7 +484,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
 
 156:                                              ; preds = %155, %143, %133
   %157 = phi i32 [ %145, %143 ], [ %153, %155 ], [ %131, %133 ]
-  %158 = load i8, ptr %15, align 8, !range !10, !noundef !11
+  %158 = load i8, ptr %15, align 8, !range !12, !noundef !13
   %159 = icmp eq i8 %158, 0
   br i1 %159, label %161, label %160
 
@@ -501,7 +501,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
 define internal noundef i32 @acpi_fan_remove(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
-  %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
+  %4 = load i8, ptr %3, align 8, !range !12, !noundef !13
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %12, label %6
 
@@ -582,7 +582,7 @@ define internal noundef i32 @fan_get_max_state(ptr noundef readonly captures(non
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %6 = load ptr, ptr %5, align 8
-  %7 = load i8, ptr %6, align 8, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 8, !range !12, !noundef !13
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %23, label %9
 
@@ -620,7 +620,7 @@ define internal i32 @fan_get_cur_state(ptr noundef readonly captures(none) %0, p
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 608
   %8 = load ptr, ptr %7, align 8
-  %9 = load i8, ptr %8, align 8, !range !10, !noundef !11
+  %9 = load i8, ptr %8, align 8, !range !12, !noundef !13
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %71, label %11
 
@@ -714,7 +714,7 @@ acpi_fan_get_fst.exit:                            ; preds = %18, %21, %24, %28
 60:                                               ; preds = %55
   %61 = add nuw nsw i64 %56, 1
   %62 = icmp eq i64 %61, %50
-  br i1 %62, label %.thread, label %55, !llvm.loop !12
+  br i1 %62, label %.thread, label %55, !llvm.loop !14
 
 63:                                               ; preds = %55
   %64 = trunc i64 %56 to i32
@@ -763,7 +763,7 @@ define internal i32 @fan_set_cur_state(ptr noundef readonly captures(none) %0, i
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %6 = load ptr, ptr %5, align 8
-  %7 = load i8, ptr %6, align 8, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 8, !range !12, !noundef !13
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %41, label %9
 
@@ -844,7 +844,7 @@ declare dso_local void @thermal_cooling_device_unregister(ptr noundef) local_unn
 define internal i32 @acpi_fan_resume(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
+  %4 = load i8, ptr %3, align 8, !range !12, !noundef !13
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %15
 
@@ -871,7 +871,7 @@ define internal i32 @acpi_fan_resume(ptr noundef %0) #0 align 16 {
 define internal noundef i32 @acpi_fan_suspend(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
+  %4 = load i8, ptr %3, align 8, !range !12, !noundef !13
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %13
 
@@ -912,9 +912,11 @@ attributes #13 = { nounwind allocsize(1) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{!"branch_weights", i32 1, i32 2000}
-!7 = distinct !{!7, !8, !9}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !8, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !11}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.unroll.disable"}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !10, !11, !8}

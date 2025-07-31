@@ -261,7 +261,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef captures(address_is
   store i8 %43, ptr %45, align 1, !tbaa !10
   %46 = add nuw nsw i64 %.16073, 1
   %exitcond75.not = icmp eq i64 %46, %38
-  br i1 %exitcond75.not, label %47, label %41, !llvm.loop !13
+  br i1 %exitcond75.not, label %47, label %41, !llvm.loop !14
 
 47:                                               ; preds = %41
   %48 = add i64 %40, %38
@@ -356,7 +356,7 @@ define internal fastcc void @poly1305_blocks(ptr noundef nonnull captures(none) 
   %74 = getelementptr inbounds nuw i8, ptr %.081, i64 16
   %75 = add nsw i64 %.07380, -16
   %76 = icmp ugt i64 %75, 15
-  br i1 %76, label %25, label %77, !llvm.loop !14
+  br i1 %76, label %25, label %77, !llvm.loop !15
 
 77:                                               ; preds = %25
   store i64 %72, ptr %12, align 8, !tbaa !3
@@ -453,7 +453,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef captures(address_is_n
   store i8 %36, ptr %38, align 1, !tbaa !10
   %39 = add nuw nsw i64 %.16073.i, 1
   %exitcond75.not.i = icmp eq i64 %39, %32
-  br i1 %exitcond75.not.i, label %40, label %34, !llvm.loop !13
+  br i1 %exitcond75.not.i, label %40, label %34, !llvm.loop !14
 
 40:                                               ; preds = %34
   %41 = add i64 %31, %32
@@ -695,7 +695,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef captures(address_is_n
   store i8 %51, ptr %53, align 1, !tbaa !10
   %54 = add nuw nsw i64 %.16073.i, 1
   %exitcond75.not.i = icmp eq i64 %54, %46
-  br i1 %exitcond75.not.i, label %55, label %49, !llvm.loop !13
+  br i1 %exitcond75.not.i, label %55, label %49, !llvm.loop !14
 
 55:                                               ; preds = %49
   %56 = add i64 %48, %46
@@ -779,7 +779,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef captures(address_is_n
   store i8 %85, ptr %87, align 1, !tbaa !10
   %88 = add nuw nsw i64 %.16073.i.i, 1
   %exitcond75.not.i.i = icmp eq i64 %88, %81
-  br i1 %exitcond75.not.i.i, label %89, label %83, !llvm.loop !13
+  br i1 %exitcond75.not.i.i, label %89, label %83, !llvm.loop !14
 
 89:                                               ; preds = %83
   %90 = add i64 %80, %81
@@ -877,7 +877,7 @@ wc_Poly1305_Pad.exit:                             ; preds = %57, %._crit_edge.i.
   store i8 %124, ptr %126, align 1, !tbaa !10
   %127 = add nuw nsw i64 %.16073.i.i65, 1
   %exitcond75.not.i.i66 = icmp eq i64 %127, %120
-  br i1 %exitcond75.not.i.i66, label %128, label %122, !llvm.loop !13
+  br i1 %exitcond75.not.i.i66, label %128, label %122, !llvm.loop !14
 
 128:                                              ; preds = %122
   %129 = add i64 %119, %120
@@ -977,7 +977,8 @@ attributes #6 = { nounwind }
 !8 = !{!"Poly1305", !5, i64 0, !5, i64 24, !5, i64 48, !4, i64 64, !5, i64 72, !5, i64 88}
 !9 = !{!8, !5, i64 88}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}

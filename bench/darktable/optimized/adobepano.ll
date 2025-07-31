@@ -253,7 +253,7 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %45, %50, %51, %53
   %133 = add i32 %.5162, 8
   %134 = add nuw i16 %.0121161, 1
   %exitcond.not = icmp eq i16 %134, %105
-  br i1 %exitcond.not, label %.backedge, label %.lr.ph, !llvm.loop !80
+  br i1 %exitcond.not, label %.backedge, label %.lr.ph, !llvm.loop !81
 
 135:                                              ; preds = %57
   %136 = add i32 %.0169, 12
@@ -264,7 +264,7 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %45, %50, %51, %53
   %139 = zext nneg i32 %28 to i64
   %140 = getelementptr inbounds nuw i8, ptr %9, i64 %139
   %141 = tail call noundef i32 @_ZN6LibRaw5sget4EPh(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %140)
-  store i32 %141, ptr %24, align 8, !tbaa !81
+  store i32 %141, ptr %24, align 8, !tbaa !82
   br label %.backedge
 
 142:                                              ; preds = %57
@@ -298,7 +298,7 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %45, %50, %51, %53
   %.0123.be = phi i32 [ 1, %30 ], [ %.0123168, %138 ], [ %.0123168, %144 ], [ 1, %151 ], [ 1, %153 ], [ 0, %147 ], [ %.0123., %61 ], [ %.0123168, %.preheader ], [ %.0123168, %.preheader155 ], [ %.0123168, %96 ], [ %.0123168, %132 ]
   %.0.be = phi i32 [ %28, %30 ], [ %136, %138 ], [ %145, %144 ], [ %152, %151 ], [ %154, %153 ], [ %148, %147 ], [ %., %61 ], [ %67, %.preheader ], [ %100, %.preheader155 ], [ %97, %96 ], [ %133, %132 ]
   %.not140 = icmp eq i32 %27, 0
-  br i1 %.not140, label %.thread.sink.split, label %26, !llvm.loop !82
+  br i1 %.not140, label %.thread.sink.split, label %26, !llvm.loop !83
 
 .thread.sink.split:                               ; preds = %102, %69, %.backedge, %135, %99, %66, %58, %_ZNK21libraw_static_table_tixEj.exit, %26, %114, %.lr.ph, %81, %.lr.ph165, %23, %10, %22
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %9)
@@ -401,8 +401,9 @@ attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" 
 !75 = !{!"_ZTS21libraw_static_table_t", !63, i64 0, !15, i64 8}
 !76 = !{!75, !63, i64 0}
 !77 = !{!15, !15, i64 0}
-!78 = distinct !{!78, !79}
+!78 = distinct !{!78, !79, !80}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = distinct !{!80, !79}
-!81 = !{!7, !15, i64 3976}
-!82 = distinct !{!82, !79}
+!80 = !{!"llvm.loop.estimated_trip_count"}
+!81 = distinct !{!81, !79, !80}
+!82 = !{!7, !15, i64 3976}
+!83 = distinct !{!83, !79, !80}

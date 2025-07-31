@@ -469,7 +469,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_
   %119 = sub i64 %117, %118
   %120 = ashr exact i64 %119, 3
   %121 = icmp ult i64 %114, %120
-  br i1 %121, label %.lr.ph.i, label %_Z11merge_factsRSt6vectorIPK4FactSaIS2_EERKS4_.exit, !llvm.loop !116
+  br i1 %121, label %.lr.ph.i, label %_Z11merge_factsRSt6vectorIPK4FactSaIS2_EERKS4_.exit, !llvm.loop !117
 
 _Z11merge_factsRSt6vectorIPK4FactSaIS2_EERKS4_.exit: ; preds = %.noexc, %46
   %122 = phi ptr [ %48, %46 ], [ %116, %.noexc ]
@@ -494,7 +494,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %_Z11merge_factsRSt6
   %133 = sub i64 %131, %132
   %134 = ashr exact i64 %133, 3
   %135 = icmp ult i64 %128, %134
-  br i1 %135, label %38, label %.loopexit62, !llvm.loop !117
+  br i1 %135, label %38, label %.loopexit62, !llvm.loop !118
 
 .loopexit:                                        ; preds = %.lr.ph.i33
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -621,7 +621,7 @@ define dso_local noundef zeroext i1 @_Z11merge_factsRSt6vectorIPK4FactSaIS2_EERK
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 3
   %17 = icmp ult i64 %10, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !116
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i1 [ false, %2 ], [ %spec.select, %.lr.ph ]
@@ -630,8 +630,8 @@ define dso_local noundef zeroext i1 @_Z11merge_factsRSt6vectorIPK4FactSaIS2_EERK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4Fact14doFinalizationEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr @_ZN4Fact6facts_E, align 8, !tbaa !118
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8, !tbaa !118
+  %1 = load ptr, ptr @_ZN4Fact6facts_E, align 8, !tbaa !119
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8, !tbaa !119
   %.not4 = icmp eq ptr %1, %2
   br i1 %.not4, label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit, label %.lr.ph
 
@@ -647,14 +647,14 @@ define dso_local void @_ZN4Fact14doFinalizationEv() local_unnamed_addr #3 align 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %4) #22
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8, !tbaa !118
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8, !tbaa !119
   br label %10
 
 10:                                               ; preds = %.lr.ph, %6
   %11 = phi ptr [ %3, %.lr.ph ], [ %.pre, %6 ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 8
   %.not = icmp eq ptr %12, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !119
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %10
   %.pre7 = load ptr, ptr @_ZN4Fact6facts_E, align 8, !tbaa !4
@@ -662,7 +662,7 @@ define dso_local void @_ZN4Fact14doFinalizationEv() local_unnamed_addr #3 align 
   br i1 %13, label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit, label %14
 
 14:                                               ; preds = %._crit_edge
-  store ptr %.pre7, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8, !tbaa !120
+  store ptr %.pre7, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8, !tbaa !121
   br label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit:         ; preds = %0, %._crit_edge, %14
@@ -701,7 +701,7 @@ define dso_local noundef i32 @_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_(ptr nou
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
   %23 = icmp ult i64 %16, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !121
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !122
 
 .loopexit:                                        ; preds = %15, %2, %13
   %.07 = phi i32 [ %14, %13 ], [ -1, %2 ], [ -1, %15 ]
@@ -742,7 +742,7 @@ define dso_local noundef ptr @_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
   %25 = icmp ult i64 %18, %24
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !122
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !123
 
 .loopexit:                                        ; preds = %17, %2, %13
   %.08 = phi ptr [ %16, %13 ], [ null, %2 ], [ null, %17 ]
@@ -752,7 +752,7 @@ define dso_local noundef ptr @_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z17find_related_factRKSt6vectorIP4FactSaIS1_EEPKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !120
+  %4 = load ptr, ptr %3, align 8, !tbaa !121
   %5 = load ptr, ptr %0, align 8, !tbaa !4
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -776,14 +776,14 @@ define dso_local noundef ptr @_Z17find_related_factRKSt6vectorIP4FactSaIS1_EEPKS
 
 17:                                               ; preds = %.lr.ph
   %18 = add nuw i64 %.010, 1
-  %19 = load ptr, ptr %3, align 8, !tbaa !120
+  %19 = load ptr, ptr %3, align 8, !tbaa !121
   %20 = load ptr, ptr %0, align 8, !tbaa !4
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
   %25 = icmp ult i64 %18, %24
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !123
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !124
 
 .loopexit:                                        ; preds = %17, %2, %13
   %.08 = phi ptr [ %16, %13 ], [ null, %2 ], [ null, %17 ]
@@ -962,7 +962,7 @@ define dso_local noundef zeroext i1 @_Z10renew_factRSt6vectorIPK4FactSaIS2_EES2_
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 3
   %32 = icmp ult i64 %25, %31
-  br i1 %32, label %.lr.ph, label %thread-pre-split, !llvm.loop !124
+  br i1 %32, label %.lr.ph, label %thread-pre-split, !llvm.loop !125
 
 thread-pre-split:                                 ; preds = %24, %2, %21
   %33 = phi ptr [ %.pre, %21 ], [ %4, %2 ], [ %26, %24 ]
@@ -1059,7 +1059,7 @@ define dso_local noundef zeroext i1 @_Z11renew_factsRSt6vectorIPK4FactSaIS2_EERK
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 3
   %17 = icmp ult i64 %10, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !125
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i1 [ false, %2 ], [ %spec.select, %.lr.ph ]
@@ -1101,7 +1101,7 @@ define dso_local void @_Z10copy_factsRKSt6vectorIPK4FactSaIS2_EE(ptr dead_on_unw
 20:                                               ; preds = %19
   store ptr %18, ptr %10, align 8, !tbaa !112
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %21, ptr %6, align 8, !tbaa !120
+  store ptr %21, ptr %6, align 8, !tbaa !121
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backERKS1_.exit
 
 22:                                               ; preds = %19
@@ -1152,7 +1152,7 @@ _ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %3
   br label %_ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %38, ptr %6, align 8, !tbaa !120
+  store ptr %38, ptr %6, align 8, !tbaa !121
   %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
   store ptr %40, ptr %7, align 8, !tbaa !10
   br label %_ZNSt6vectorIP4FactSaIS1_EE9push_backERKS1_.exit
@@ -1169,7 +1169,7 @@ _ZNSt6vectorIP4FactSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4Fact
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 3
   %51 = icmp ult i64 %44, %50
-  br i1 %51, label %8, label %._crit_edge, !llvm.loop !126
+  br i1 %51, label %8, label %._crit_edge, !llvm.loop !127
 
 .loopexit:                                        ; preds = %8, %_ZNKSt6vectorIP4FactSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1220,21 +1220,21 @@ define dso_local void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6
   %.01419 = phi i64 [ 0, %.lr.ph20 ], [ %34, %.loopexit ]
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01419
   %10 = load ptr, ptr %9, align 8, !tbaa !112
-  %11 = load ptr, ptr %6, align 8, !tbaa !120
+  %11 = load ptr, ptr %6, align 8, !tbaa !121
   %12 = load ptr, ptr %0, align 8, !tbaa !4
   %.not21 = icmp eq ptr %11, %12
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
   %14 = add nuw i64 %.01518, 1
-  %15 = load ptr, ptr %6, align 8, !tbaa !120
+  %15 = load ptr, ptr %6, align 8, !tbaa !121
   %16 = load ptr, ptr %0, align 8, !tbaa !4
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %21 = icmp ult i64 %14, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !127
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !128
 
 .lr.ph:                                           ; preds = %7, %13
   %22 = phi ptr [ %16, %13 ], [ %12, %7 ]
@@ -1263,7 +1263,7 @@ define dso_local void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
   %41 = icmp ult i64 %34, %40
-  br i1 %41, label %7, label %._crit_edge, !llvm.loop !128
+  br i1 %41, label %7, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   ret void
@@ -1299,7 +1299,7 @@ define dso_local noundef zeroext i1 @_Z10same_factsRKSt6vectorIPK4FactSaIS2_EES6
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 3
   %.not = icmp ult i64 %17, %23
-  br i1 %.not, label %.lr.ph, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !129
+  br i1 %.not, label %.lr.ph, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !130
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %24 = phi ptr [ %19, %16 ], [ %5, %.preheader ]
@@ -1331,7 +1331,7 @@ define dso_local noundef zeroext i1 @_Z10same_factsRKSt6vectorIPK4FactSaIS2_EES6
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 3
   %44 = icmp ult i64 %37, %43
-  br i1 %44, label %.lr.ph.i, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !121
+  br i1 %44, label %.lr.ph.i, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !122
 
 _Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit:  ; preds = %.lr.ph.i
   %45 = and i64 %.09.i, 4294967295
@@ -1373,7 +1373,7 @@ define dso_local noundef zeroext i1 @_Z12subset_factsRKSt6vectorIPK4FactSaIS2_EE
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 3
   %.not = icmp ult i64 %17, %23
-  br i1 %.not, label %.lr.ph, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !130
+  br i1 %.not, label %.lr.ph, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !131
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %24 = phi ptr [ %19, %16 ], [ %5, %.preheader ]
@@ -1405,7 +1405,7 @@ define dso_local noundef zeroext i1 @_Z12subset_factsRKSt6vectorIPK4FactSaIS2_EE
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 3
   %44 = icmp ult i64 %37, %43
-  br i1 %44, label %.lr.ph.i, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !122
+  br i1 %44, label %.lr.ph.i, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !123
 
 _Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit: ; preds = %.lr.ph.i
   %45 = load ptr, ptr %1, align 8, !tbaa !66
@@ -1454,7 +1454,7 @@ define dso_local void @_Z11print_factsRKSt6vectorIPK4FactSaIS2_EE(ptr noundef no
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
   %18 = icmp ult i64 %11, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !131
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !132
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1498,7 +1498,7 @@ define dso_local void @_Z14print_var_factRKSt6vectorIPK4FactSaIS2_EEPKc(ptr noun
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
   %28 = icmp ult i64 %21, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !132
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !133
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
@@ -1742,22 +1742,23 @@ attributes #23 = { builtin allocsize(0) }
 !111 = !{!67, !6, i64 8}
 !112 = !{!113, !113, i64 0}
 !113 = !{!"p1 _ZTS4Fact", !7, i64 0}
-!114 = distinct !{!114, !115}
+!114 = distinct !{!114, !115, !116}
 !115 = !{!"llvm.loop.mustprogress"}
-!116 = distinct !{!116, !115}
-!117 = distinct !{!117, !115}
-!118 = !{!6, !6, i64 0}
-!119 = distinct !{!119, !115}
-!120 = !{!5, !6, i64 8}
-!121 = distinct !{!121, !115}
-!122 = distinct !{!122, !115}
-!123 = distinct !{!123, !115}
-!124 = distinct !{!124, !115}
-!125 = distinct !{!125, !115}
-!126 = distinct !{!126, !115}
-!127 = distinct !{!127, !115}
-!128 = distinct !{!128, !115}
-!129 = distinct !{!129, !115}
-!130 = distinct !{!130, !115}
-!131 = distinct !{!131, !115}
-!132 = distinct !{!132, !115}
+!116 = !{!"llvm.loop.estimated_trip_count"}
+!117 = distinct !{!117, !115, !116}
+!118 = distinct !{!118, !115, !116}
+!119 = !{!6, !6, i64 0}
+!120 = distinct !{!120, !115, !116}
+!121 = !{!5, !6, i64 8}
+!122 = distinct !{!122, !115, !116}
+!123 = distinct !{!123, !115, !116}
+!124 = distinct !{!124, !115, !116}
+!125 = distinct !{!125, !115, !116}
+!126 = distinct !{!126, !115, !116}
+!127 = distinct !{!127, !115, !116}
+!128 = distinct !{!128, !115, !116}
+!129 = distinct !{!129, !115, !116}
+!130 = distinct !{!130, !115, !116}
+!131 = distinct !{!131, !115, !116}
+!132 = distinct !{!132, !115, !116}
+!133 = distinct !{!133, !115, !116}

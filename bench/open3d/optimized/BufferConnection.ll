@@ -627,7 +627,7 @@ define linkonce_odr void @_ZNK7msgpack2v14type10define_mapIJA7_KcKNSt7__cxx1112b
 13:                                               ; preds = %11
   %.not17.i.i.i = icmp sgt i64 %.0.i.i.i, 0
   %14 = shl nuw i64 %.0.i.i.i, 1
-  br i1 %.not17.i.i.i, label %11, label %15
+  br i1 %.not17.i.i.i, label %11, label %15, !llvm.loop !52
 
 15:                                               ; preds = %13, %11
   %.1.i.i.i = phi i64 [ %10, %13 ], [ %.0.i.i.i, %11 ]
@@ -664,7 +664,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE8pack_mapEj.exit: ; preds = %._crit_edge.i.i
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZN7msgpack2v14type14define_map_impISt5tupleIJRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELm2EE4packINS0_6packerINS0_7sbufferEEEEEvRT_RKSF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !52
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = tail call noundef ptr @memchr(ptr noundef nonnull align 1 dereferenceable(7) %4, i32 noundef 0, i64 noundef 7) #27
   %.not.i.i.i.i = icmp eq ptr %5, null
   %6 = ptrtoint ptr %5 to i64
@@ -676,7 +676,7 @@ define linkonce_odr void @_ZN7msgpack2v14type14define_map_impISt5tupleIJRA7_KcRK
   %12 = zext i32 %10 to i64
   %13 = load ptr, ptr %0, align 8, !tbaa !50
   tail call void @_ZN7msgpack2v17sbuffer5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 dereferenceable(7) %4, i64 noundef %12)
-  %14 = load ptr, ptr %1, align 8, !tbaa !54
+  %14 = load ptr, ptr %1, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !14
   %17 = icmp ugt i64 %16, 4294967295
@@ -735,7 +735,7 @@ define linkonce_odr void @_ZN7msgpack2v17sbuffer5writeEPKcm(ptr noundef nonnull 
 14:                                               ; preds = %12
   %.not17.i = icmp sgt i64 %.0.i, 0
   %15 = shl nuw i64 %.0.i, 1
-  br i1 %.not17.i, label %12, label %16
+  br i1 %.not17.i, label %12, label %16, !llvm.loop !52
 
 16:                                               ; preds = %14, %12
   %.1.i = phi i64 [ %11, %14 ], [ %.0.i, %12 ]
@@ -809,7 +809,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7msgpack2
 17:                                               ; preds = %15
   %.not17.i.i = icmp sgt i64 %.0.i.i, 0
   %18 = shl nuw i64 %.0.i.i, 1
-  br i1 %.not17.i.i, label %15, label %19
+  br i1 %.not17.i.i, label %15, label %19, !llvm.loop !52
 
 19:                                               ; preds = %17, %15
   %.1.i.i = phi i64 [ %14, %17 ], [ %.0.i.i, %15 ]
@@ -875,7 +875,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit:           ; preds = %._crit_edge.i, %_ZN
 44:                                               ; preds = %42
   %.not17.i.i18 = icmp sgt i64 %.0.i.i13, 0
   %45 = shl nuw i64 %.0.i.i13, 1
-  br i1 %.not17.i.i18, label %42, label %46
+  br i1 %.not17.i.i18, label %42, label %46, !llvm.loop !52
 
 46:                                               ; preds = %44, %42
   %.1.i.i14 = phi i64 [ %41, %44 ], [ %.0.i.i13, %42 ]
@@ -944,7 +944,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit19:         ; preds = %._crit_edge.i8, %_Z
 72:                                               ; preds = %70
   %.not17.i.i30 = icmp sgt i64 %.0.i.i25, 0
   %73 = shl nuw i64 %.0.i.i25, 1
-  br i1 %.not17.i.i30, label %70, label %74
+  br i1 %.not17.i.i30, label %70, label %74, !llvm.loop !52
 
 74:                                               ; preds = %72, %70
   %.1.i.i26 = phi i64 [ %69, %72 ], [ %.0.i.i25, %70 ]
@@ -1008,7 +1008,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit31:         ; preds = %._crit_edge.i20, %_
 98:                                               ; preds = %96
   %.not17.i.i42 = icmp sgt i64 %.0.i.i37, 0
   %99 = shl nuw i64 %.0.i.i37, 1
-  br i1 %.not17.i.i42, label %96, label %100
+  br i1 %.not17.i.i42, label %96, label %100, !llvm.loop !52
 
 100:                                              ; preds = %98, %96
   %.1.i.i38 = phi i64 [ %95, %98 ], [ %.0.i.i37, %96 ]
@@ -1099,7 +1099,7 @@ define linkonce_odr void @_ZNK7msgpack2v14type10define_mapIJA5_KcKiA4_S3_KNSt7__
 13:                                               ; preds = %11
   %.not17.i.i.i = icmp sgt i64 %.0.i.i.i, 0
   %14 = shl nuw i64 %.0.i.i.i, 1
-  br i1 %.not17.i.i.i, label %11, label %15
+  br i1 %.not17.i.i.i, label %11, label %15, !llvm.loop !52
 
 15:                                               ; preds = %13, %11
   %.1.i.i.i = phi i64 [ %10, %13 ], [ %.0.i.i.i, %11 ]
@@ -1136,7 +1136,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE8pack_mapEj.exit: ; preds = %._crit_edge.i.i
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZN7msgpack2v14type14define_map_impISt5tupleIJRA5_KcRKiRA4_S4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELm4EE4packINS0_6packerINS0_7sbufferEEEEEvRT_RKSJ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = tail call noundef ptr @memchr(ptr noundef nonnull align 1 dereferenceable(5) %4, i32 noundef 0, i64 noundef 5) #27
   %.not.i.i.i.i.i.i = icmp eq ptr %5, null
   %6 = ptrtoint ptr %5 to i64
@@ -1149,11 +1149,11 @@ define linkonce_odr void @_ZN7msgpack2v14type14define_map_impISt5tupleIJRA5_KcRK
   %13 = load ptr, ptr %0, align 8, !tbaa !50
   tail call void @_ZN7msgpack2v17sbuffer5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 dereferenceable(5) %4, i64 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !58
-  %16 = load i32, ptr %15, align 4, !tbaa !60
+  %15 = load ptr, ptr %14, align 8, !tbaa !60
+  %16 = load i32, ptr %15, align 4, !tbaa !62
   tail call void @_ZN7msgpack2v16packerINS0_7sbufferEE14pack_imp_int32IiEEvT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %16)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !61
+  %18 = load ptr, ptr %17, align 8, !tbaa !63
   %19 = tail call noundef ptr @memchr(ptr noundef nonnull align 1 dereferenceable(4) %18, i32 noundef 0, i64 noundef 4) #27
   %.not.i.i.i.i = icmp eq ptr %19, null
   %20 = ptrtoint ptr %19 to i64
@@ -1165,7 +1165,7 @@ define linkonce_odr void @_ZN7msgpack2v14type14define_map_impISt5tupleIJRA5_KcRK
   %26 = zext i32 %24 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !50
   tail call void @_ZN7msgpack2v17sbuffer5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 1 dereferenceable(4) %18, i64 noundef %26)
-  %28 = load ptr, ptr %1, align 8, !tbaa !63
+  %28 = load ptr, ptr %1, align 8, !tbaa !65
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !14
   %31 = icmp ugt i64 %30, 4294967295
@@ -1234,7 +1234,7 @@ define linkonce_odr void @_ZN7msgpack2v16packerINS0_7sbufferEE14pack_imp_int32Ii
 19:                                               ; preds = %17
   %.not17.i.i = icmp sgt i64 %.0.i.i, 0
   %20 = shl nuw i64 %.0.i.i, 1
-  br i1 %.not17.i.i, label %17, label %21
+  br i1 %.not17.i.i, label %17, label %21, !llvm.loop !52
 
 21:                                               ; preds = %19, %17
   %.1.i.i = phi i64 [ %16, %19 ], [ %.0.i.i, %17 ]
@@ -1303,7 +1303,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit:           ; preds = %._crit_edge.i, %_ZN
 47:                                               ; preds = %45
   %.not17.i.i26 = icmp sgt i64 %.0.i.i21, 0
   %48 = shl nuw i64 %.0.i.i21, 1
-  br i1 %.not17.i.i26, label %45, label %49
+  br i1 %.not17.i.i26, label %45, label %49, !llvm.loop !52
 
 49:                                               ; preds = %47, %45
   %.1.i.i22 = phi i64 [ %44, %47 ], [ %.0.i.i21, %45 ]
@@ -1367,7 +1367,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit27:         ; preds = %._crit_edge.i16, %_
 72:                                               ; preds = %70
   %.not17.i.i38 = icmp sgt i64 %.0.i.i33, 0
   %73 = shl nuw i64 %.0.i.i33, 1
-  br i1 %.not17.i.i38, label %70, label %74
+  br i1 %.not17.i.i38, label %70, label %74, !llvm.loop !52
 
 74:                                               ; preds = %72, %70
   %.1.i.i34 = phi i64 [ %69, %72 ], [ %.0.i.i33, %70 ]
@@ -1434,7 +1434,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit39:         ; preds = %._crit_edge.i28, %_
 98:                                               ; preds = %96
   %.not17.i.i50 = icmp sgt i64 %.0.i.i45, 0
   %99 = shl nuw i64 %.0.i.i45, 1
-  br i1 %.not17.i.i50, label %96, label %100
+  br i1 %.not17.i.i50, label %96, label %100, !llvm.loop !52
 
 100:                                              ; preds = %98, %96
   %.1.i.i46 = phi i64 [ %95, %98 ], [ %.0.i.i45, %96 ]
@@ -1500,7 +1500,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit51:         ; preds = %._crit_edge.i40, %_
 125:                                              ; preds = %123
   %.not17.i.i62 = icmp sgt i64 %.0.i.i57, 0
   %126 = shl nuw i64 %.0.i.i57, 1
-  br i1 %.not17.i.i62, label %123, label %127
+  br i1 %.not17.i.i62, label %123, label %127, !llvm.loop !52
 
 127:                                              ; preds = %125, %123
   %.1.i.i58 = phi i64 [ %122, %125 ], [ %.0.i.i57, %123 ]
@@ -1569,7 +1569,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit63:         ; preds = %._crit_edge.i52, %_
 153:                                              ; preds = %151
   %.not17.i.i74 = icmp sgt i64 %.0.i.i69, 0
   %154 = shl nuw i64 %.0.i.i69, 1
-  br i1 %.not17.i.i74, label %151, label %155
+  br i1 %.not17.i.i74, label %151, label %155, !llvm.loop !52
 
 155:                                              ; preds = %153, %151
   %.1.i.i70 = phi i64 [ %150, %153 ], [ %.0.i.i69, %151 ]
@@ -1633,7 +1633,7 @@ _ZN7msgpack2v17sbuffer5writeEPKcm.exit75:         ; preds = %._crit_edge.i64, %_
 179:                                              ; preds = %177
   %.not17.i.i86 = icmp sgt i64 %.0.i.i81, 0
   %180 = shl nuw i64 %.0.i.i81, 1
-  br i1 %.not17.i.i86, label %177, label %181
+  br i1 %.not17.i.i86, label %177, label %181, !llvm.loop !52
 
 181:                                              ; preds = %179, %177
   %.1.i.i82 = phi i64 [ %176, %179 ], [ %.0.i.i81, %177 ]
@@ -1681,7 +1681,7 @@ define linkonce_odr void @_ZN3zmq7error_tC2Ev(ptr noundef nonnull align 8 derefe
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %4, align 8, !tbaa !65
+  store i32 %2, ptr %4, align 8, !tbaa !67
   ret void
 
 5:                                                ; preds = %1
@@ -1707,7 +1707,7 @@ define linkonce_odr void @_ZN3zmq7error_tD0Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr noundef ptr @_ZNK3zmq7error_t4whatEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !65
+  %3 = load i32, ptr %2, align 8, !tbaa !67
   %4 = invoke ptr @zmq_strerror(i32 noundef %3)
           to label %5 unwind label %6
 
@@ -1726,19 +1726,19 @@ declare ptr @zmq_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3zmq9message_tEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8, !tbaa !68
+  store ptr null, ptr %0, align 8, !tbaa !70
   %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %4 unwind label %8
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8, !tbaa !69
+  store i32 1, ptr %5, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4, !tbaa !71
+  store i32 1, ptr %6, align 4, !tbaa !73
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3zmq9message_tELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8, !tbaa !72
-  store ptr %3, ptr %0, align 8, !tbaa !68
+  store ptr %1, ptr %7, align 8, !tbaa !74
+  store ptr %3, ptr %0, align 8, !tbaa !70
   ret void
 
 8:                                                ; preds = %2
@@ -1806,7 +1806,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3zmq9message_tELN9__gnu_cxx12
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3zmq9message_tELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
 
@@ -1957,25 +1957,27 @@ attributes #27 = { nounwind willreturn memory(read) }
 !49 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !11, i64 0}
 !50 = !{!51, !33, i64 0}
 !51 = !{!"_ZTSN7msgpack2v16packerINS0_7sbufferEEE", !33, i64 0}
-!52 = !{!53, !10, i64 0}
-!53 = !{!"_ZTSSt10_Head_baseILm0ERA7_KcLb0EE", !10, i64 0}
-!54 = !{!55, !35, i64 0}
-!55 = !{!"_ZTSSt10_Head_baseILm1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE", !35, i64 0}
-!56 = !{!57, !10, i64 0}
-!57 = !{!"_ZTSSt10_Head_baseILm0ERA5_KcLb0EE", !10, i64 0}
-!58 = !{!59, !44, i64 0}
-!59 = !{!"_ZTSSt10_Head_baseILm1ERKiLb0EE", !44, i64 0}
-!60 = !{!20, !20, i64 0}
-!61 = !{!62, !10, i64 0}
-!62 = !{!"_ZTSSt10_Head_baseILm2ERA4_KcLb0EE", !10, i64 0}
-!63 = !{!64, !35, i64 0}
-!64 = !{!"_ZTSSt10_Head_baseILm3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE", !35, i64 0}
-!65 = !{!66, !20, i64 8}
-!66 = !{!"_ZTSN3zmq7error_tE", !67, i64 0, !20, i64 8}
-!67 = !{!"_ZTSSt9exception"}
-!68 = !{!48, !49, i64 0}
-!69 = !{!70, !20, i64 8}
-!70 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !20, i64 8, !20, i64 12}
-!71 = !{!70, !20, i64 12}
-!72 = !{!73, !47, i64 16}
-!73 = !{!"_ZTSSt15_Sp_counted_ptrIPN3zmq9message_tELN9__gnu_cxx12_Lock_policyE2EE", !70, i64 0, !47, i64 16}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!55, !10, i64 0}
+!55 = !{!"_ZTSSt10_Head_baseILm0ERA7_KcLb0EE", !10, i64 0}
+!56 = !{!57, !35, i64 0}
+!57 = !{!"_ZTSSt10_Head_baseILm1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE", !35, i64 0}
+!58 = !{!59, !10, i64 0}
+!59 = !{!"_ZTSSt10_Head_baseILm0ERA5_KcLb0EE", !10, i64 0}
+!60 = !{!61, !44, i64 0}
+!61 = !{!"_ZTSSt10_Head_baseILm1ERKiLb0EE", !44, i64 0}
+!62 = !{!20, !20, i64 0}
+!63 = !{!64, !10, i64 0}
+!64 = !{!"_ZTSSt10_Head_baseILm2ERA4_KcLb0EE", !10, i64 0}
+!65 = !{!66, !35, i64 0}
+!66 = !{!"_ZTSSt10_Head_baseILm3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE", !35, i64 0}
+!67 = !{!68, !20, i64 8}
+!68 = !{!"_ZTSN3zmq7error_tE", !69, i64 0, !20, i64 8}
+!69 = !{!"_ZTSSt9exception"}
+!70 = !{!48, !49, i64 0}
+!71 = !{!72, !20, i64 8}
+!72 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !20, i64 8, !20, i64 12}
+!73 = !{!72, !20, i64 12}
+!74 = !{!75, !47, i64 16}
+!75 = !{!"_ZTSSt15_Sp_counted_ptrIPN3zmq9message_tELN9__gnu_cxx12_Lock_policyE2EE", !72, i64 0, !47, i64 16}

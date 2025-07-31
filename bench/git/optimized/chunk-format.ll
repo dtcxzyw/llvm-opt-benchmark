@@ -204,7 +204,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %38 = load i64, ptr %12, align 8, !tbaa !13
   %39 = icmp ugt i64 %38, %indvars.iv.next79
-  br i1 %39, label %40, label %._crit_edge68, !llvm.loop !34
+  br i1 %39, label %40, label %._crit_edge68, !llvm.loop !35
 
 40:                                               ; preds = %.lr.ph67, %37
   %41 = phi ptr [ %.pre85, %.lr.ph67 ], [ %55, %37 ]
@@ -301,57 +301,57 @@ st_mult.exit:                                     ; preds = %12
   %.in = phi i32 [ %4, %.lr.ph105 ], [ %29, %._crit_edge ]
   %.054103 = phi ptr [ %7, %.lr.ph105 ], [ %98, %._crit_edge ]
   %29 = add nsw i32 %.in, -1
-  %30 = load i8, ptr %.054103, align 1, !tbaa !35
+  %30 = load i8, ptr %.054103, align 1, !tbaa !36
   %31 = zext i8 %30 to i32
   %32 = shl nuw i32 %31, 24
   %33 = getelementptr inbounds nuw i8, ptr %.054103, i64 1
-  %34 = load i8, ptr %33, align 1, !tbaa !35
+  %34 = load i8, ptr %33, align 1, !tbaa !36
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 16
   %37 = or disjoint i32 %36, %32
   %38 = getelementptr inbounds nuw i8, ptr %.054103, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !35
+  %39 = load i8, ptr %38, align 1, !tbaa !36
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 8
   %42 = or disjoint i32 %37, %41
   %43 = getelementptr inbounds nuw i8, ptr %.054103, i64 3
-  %44 = load i8, ptr %43, align 1, !tbaa !35
+  %44 = load i8, ptr %43, align 1, !tbaa !36
   %45 = zext i8 %44 to i32
   %46 = or disjoint i32 %42, %45
   %47 = getelementptr inbounds nuw i8, ptr %.054103, i64 4
-  %48 = load i8, ptr %47, align 1, !tbaa !35
+  %48 = load i8, ptr %47, align 1, !tbaa !36
   %49 = zext i8 %48 to i64
   %50 = shl nuw nsw i64 %49, 24
   %51 = getelementptr inbounds nuw i8, ptr %.054103, i64 5
-  %52 = load i8, ptr %51, align 1, !tbaa !35
+  %52 = load i8, ptr %51, align 1, !tbaa !36
   %53 = zext i8 %52 to i64
   %54 = shl nuw nsw i64 %53, 16
   %55 = or disjoint i64 %54, %50
   %56 = getelementptr inbounds nuw i8, ptr %.054103, i64 6
-  %57 = load i8, ptr %56, align 1, !tbaa !35
+  %57 = load i8, ptr %56, align 1, !tbaa !36
   %58 = zext i8 %57 to i64
   %59 = shl nuw nsw i64 %58, 8
   %60 = or disjoint i64 %55, %59
   %61 = getelementptr inbounds nuw i8, ptr %.054103, i64 7
-  %62 = load i8, ptr %61, align 1, !tbaa !35
+  %62 = load i8, ptr %61, align 1, !tbaa !36
   %63 = zext i8 %62 to i64
   %64 = or disjoint i64 %60, %63
   %65 = shl nuw i64 %64, 32
   %66 = getelementptr inbounds nuw i8, ptr %.054103, i64 8
-  %67 = load i8, ptr %66, align 1, !tbaa !35
+  %67 = load i8, ptr %66, align 1, !tbaa !36
   %68 = zext i8 %67 to i64
   %69 = shl nuw nsw i64 %68, 24
   %70 = getelementptr inbounds nuw i8, ptr %.054103, i64 9
-  %71 = load i8, ptr %70, align 1, !tbaa !35
+  %71 = load i8, ptr %70, align 1, !tbaa !36
   %72 = zext i8 %71 to i64
   %73 = shl nuw nsw i64 %72, 16
   %74 = or disjoint i64 %73, %69
   %75 = getelementptr inbounds nuw i8, ptr %.054103, i64 10
-  %76 = load i8, ptr %75, align 1, !tbaa !35
+  %76 = load i8, ptr %75, align 1, !tbaa !36
   %77 = zext i8 %76 to i64
   %78 = shl nuw nsw i64 %77, 8
   %79 = getelementptr inbounds nuw i8, ptr %.054103, i64 11
-  %80 = load i8, ptr %79, align 1, !tbaa !35
+  %80 = load i8, ptr %79, align 1, !tbaa !36
   %81 = zext i8 %80 to i64
   %82 = or disjoint i64 %74, %65
   %83 = or disjoint i64 %82, %78
@@ -395,39 +395,39 @@ _.exit71:                                         ; preds = %92, %94
 97:                                               ; preds = %90
   %98 = getelementptr inbounds nuw i8, ptr %.054103, i64 12
   %99 = getelementptr inbounds nuw i8, ptr %.054103, i64 16
-  %100 = load i8, ptr %99, align 1, !tbaa !35
+  %100 = load i8, ptr %99, align 1, !tbaa !36
   %101 = zext i8 %100 to i64
   %102 = shl nuw nsw i64 %101, 24
   %103 = getelementptr inbounds nuw i8, ptr %.054103, i64 17
-  %104 = load i8, ptr %103, align 1, !tbaa !35
+  %104 = load i8, ptr %103, align 1, !tbaa !36
   %105 = zext i8 %104 to i64
   %106 = shl nuw nsw i64 %105, 16
   %107 = or disjoint i64 %106, %102
   %108 = getelementptr inbounds nuw i8, ptr %.054103, i64 18
-  %109 = load i8, ptr %108, align 1, !tbaa !35
+  %109 = load i8, ptr %108, align 1, !tbaa !36
   %110 = zext i8 %109 to i64
   %111 = shl nuw nsw i64 %110, 8
   %112 = or disjoint i64 %107, %111
   %113 = getelementptr inbounds nuw i8, ptr %.054103, i64 19
-  %114 = load i8, ptr %113, align 1, !tbaa !35
+  %114 = load i8, ptr %113, align 1, !tbaa !36
   %115 = zext i8 %114 to i64
   %116 = or disjoint i64 %112, %115
   %117 = shl nuw i64 %116, 32
   %118 = getelementptr inbounds nuw i8, ptr %.054103, i64 20
-  %119 = load i8, ptr %118, align 1, !tbaa !35
+  %119 = load i8, ptr %118, align 1, !tbaa !36
   %120 = zext i8 %119 to i64
   %121 = shl nuw nsw i64 %120, 24
   %122 = getelementptr inbounds nuw i8, ptr %.054103, i64 21
-  %123 = load i8, ptr %122, align 1, !tbaa !35
+  %123 = load i8, ptr %122, align 1, !tbaa !36
   %124 = zext i8 %123 to i64
   %125 = shl nuw nsw i64 %124, 16
   %126 = or disjoint i64 %125, %121
   %127 = getelementptr inbounds nuw i8, ptr %.054103, i64 22
-  %128 = load i8, ptr %127, align 1, !tbaa !35
+  %128 = load i8, ptr %127, align 1, !tbaa !36
   %129 = zext i8 %128 to i64
   %130 = shl nuw nsw i64 %129, 8
   %131 = getelementptr inbounds nuw i8, ptr %.054103, i64 23
-  %132 = load i8, ptr %131, align 1, !tbaa !35
+  %132 = load i8, ptr %131, align 1, !tbaa !36
   %133 = zext i8 %132 to i64
   %134 = or disjoint i64 %126, %117
   %135 = or disjoint i64 %134, %130
@@ -436,9 +436,9 @@ _.exit71:                                         ; preds = %92, %94
   br i1 %137, label %145, label %138
 
 138:                                              ; preds = %97
-  %139 = load ptr, ptr %25, align 8, !tbaa !36
+  %139 = load ptr, ptr %25, align 8, !tbaa !37
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = load i64, ptr %140, align 8, !tbaa !53
+  %141 = load i64, ptr %140, align 8, !tbaa !54
   %142 = sub i64 %2, %141
   %143 = icmp ugt i64 %136, %142
   br i1 %143, label %145, label %.preheader
@@ -466,7 +466,7 @@ _.exit74:                                         ; preds = %145, %147
 150:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %144
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 .lr.ph:                                           ; preds = %.preheader, %150
   %indvars.iv = phi i64 [ %indvars.iv.next, %150 ], [ 0, %.preheader ]
@@ -494,32 +494,32 @@ _.exit77:                                         ; preds = %154, %156
   store i32 %46, ptr %159, align 8, !tbaa !15
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 %84
   %161 = getelementptr inbounds nuw %struct.chunk_info, ptr %.pre, i64 %144, i32 3
-  store ptr %160, ptr %161, align 8, !tbaa !57
+  store ptr %160, ptr %161, align 8, !tbaa !58
   %162 = sub i64 %136, %84
   %163 = getelementptr inbounds nuw %struct.chunk_info, ptr %.pre, i64 %144, i32 1
   store i64 %162, ptr %163, align 8, !tbaa !19
   %164 = add nuw nsw i64 %144, 1
   store i64 %164, ptr %26, align 8, !tbaa !13
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %._crit_edge106, label %28, !llvm.loop !58
+  br i1 %.not, label %._crit_edge106, label %28, !llvm.loop !59
 
 ._crit_edge106:                                   ; preds = %._crit_edge, %22
   %.054.lcssa = phi ptr [ %7, %22 ], [ %98, %._crit_edge ]
-  %165 = load i8, ptr %.054.lcssa, align 1, !tbaa !35
+  %165 = load i8, ptr %.054.lcssa, align 1, !tbaa !36
   %166 = zext i8 %165 to i32
   %167 = shl nuw i32 %166, 24
   %168 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
-  %169 = load i8, ptr %168, align 1, !tbaa !35
+  %169 = load i8, ptr %168, align 1, !tbaa !36
   %170 = zext i8 %169 to i32
   %171 = shl nuw nsw i32 %170, 16
   %172 = or disjoint i32 %171, %167
   %173 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 2
-  %174 = load i8, ptr %173, align 1, !tbaa !35
+  %174 = load i8, ptr %173, align 1, !tbaa !36
   %175 = zext i8 %174 to i32
   %176 = shl nuw nsw i32 %175, 8
   %177 = or disjoint i32 %172, %176
   %178 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 3
-  %179 = load i8, ptr %178, align 1, !tbaa !35
+  %179 = load i8, ptr %178, align 1, !tbaa !36
   %180 = zext i8 %179 to i32
   %181 = or disjoint i32 %177, %180
   %.not66 = icmp eq i32 %181, 0
@@ -548,7 +548,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #7 {
-  %2 = load i8, ptr %0, align 1, !tbaa !35
+  %2 = load i8, ptr %0, align 1, !tbaa !36
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -581,7 +581,7 @@ define dso_local range(i32 -2, 1) i32 @pair_chunk(ptr noundef readonly captures(
 9:                                                ; preds = %10
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %6
-  br i1 %exitcond.not.i, label %read_chunk.exit, label %10, !llvm.loop !59
+  br i1 %exitcond.not.i, label %read_chunk.exit, label %10, !llvm.loop !60
 
 10:                                               ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
@@ -592,10 +592,10 @@ define dso_local range(i32 -2, 1) i32 @pair_chunk(ptr noundef readonly captures(
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !57
+  %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !19
-  store ptr %16, ptr %2, align 8, !tbaa !60
+  store ptr %16, ptr %2, align 8, !tbaa !61
   store i64 %18, ptr %3, align 8, !tbaa !31
   br label %read_chunk.exit
 
@@ -619,7 +619,7 @@ define dso_local i32 @read_chunk(ptr noundef readonly captures(none) %0, i32 nou
 9:                                                ; preds = %10
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !59
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !60
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
@@ -630,7 +630,7 @@ define dso_local i32 @read_chunk(ptr noundef readonly captures(none) %0, i32 nou
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !57
+  %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !19
   %19 = tail call i32 %2(ptr noundef %16, i64 noundef %18, ptr noundef %3) #11
@@ -654,7 +654,7 @@ define dso_local zeroext range(i8 1, 3) i8 @oid_version(ptr noundef readnone cap
 4:                                                ; preds = %2
   %5 = add nuw nsw i64 %.0811.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit.thread, label %2, !llvm.loop !61
+  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit.thread, label %2, !llvm.loop !62
 
 hash_algo_by_ptr.exit:                            ; preds = %2
   %6 = trunc nuw nsw i64 %.0811.i to i32
@@ -736,33 +736,34 @@ attributes #13 = { nounwind memory(none) }
 !29 = !{!17, !17, i64 0}
 !30 = !{i64 3460802}
 !31 = !{!11, !11, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = !{!8, !8, i64 0}
-!36 = !{!37, !24, i64 400}
-!37 = !{!"repository", !23, i64 0, !23, i64 8, !38, i64 16, !39, i64 24, !40, i64 32, !41, i64 40, !41, i64 104, !45, i64 168, !23, i64 224, !23, i64 232, !23, i64 240, !23, i64 248, !46, i64 256, !48, i64 368, !49, i64 376, !50, i64 384, !51, i64 392, !24, i64 400, !24, i64 408, !17, i64 416, !17, i64 420, !17, i64 424, !23, i64 432, !52, i64 440, !17, i64 448, !17, i64 452, !17, i64 456}
-!38 = !{!"p1 _ZTS16raw_object_store", !7, i64 0}
-!39 = !{!"p1 _ZTS18parsed_object_pool", !7, i64 0}
-!40 = !{!"p1 _ZTS9ref_store", !7, i64 0}
-!41 = !{!"strmap", !42, i64 0, !44, i64 48, !17, i64 56}
-!42 = !{!"hashmap", !43, i64 0, !7, i64 8, !7, i64 16, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !17, i64 40}
-!43 = !{!"p2 _ZTS13hashmap_entry", !7, i64 0}
-!44 = !{!"p1 _ZTS8mem_pool", !7, i64 0}
-!45 = !{!"repo_path_cache", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !23, i64 48}
-!46 = !{!"repo_settings", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !17, i64 16, !17, i64 20, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !17, i64 40, !17, i64 44, !47, i64 48, !17, i64 56, !17, i64 60, !17, i64 64, !17, i64 68, !17, i64 72, !17, i64 76, !17, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
-!47 = !{!"p1 _ZTS18fsmonitor_settings", !7, i64 0}
-!48 = !{!"p1 _ZTS10config_set", !7, i64 0}
-!49 = !{!"p1 _ZTS15submodule_cache", !7, i64 0}
-!50 = !{!"p1 _ZTS11index_state", !7, i64 0}
-!51 = !{!"p1 _ZTS12remote_state", !7, i64 0}
-!52 = !{!"p1 _ZTS22promisor_remote_config", !7, i64 0}
-!53 = !{!54, !11, i64 16}
-!54 = !{!"git_hash_algo", !23, i64 0, !17, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !55, i64 80, !55, i64 88, !55, i64 96, !24, i64 104}
-!55 = !{!"p1 _ZTS9object_id", !7, i64 0}
-!56 = distinct !{!56, !33}
-!57 = !{!16, !7, i64 24}
-!58 = distinct !{!58, !33}
-!59 = distinct !{!59, !33}
-!60 = !{!23, !23, i64 0}
-!61 = distinct !{!61, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}
+!36 = !{!8, !8, i64 0}
+!37 = !{!38, !24, i64 400}
+!38 = !{!"repository", !23, i64 0, !23, i64 8, !39, i64 16, !40, i64 24, !41, i64 32, !42, i64 40, !42, i64 104, !46, i64 168, !23, i64 224, !23, i64 232, !23, i64 240, !23, i64 248, !47, i64 256, !49, i64 368, !50, i64 376, !51, i64 384, !52, i64 392, !24, i64 400, !24, i64 408, !17, i64 416, !17, i64 420, !17, i64 424, !23, i64 432, !53, i64 440, !17, i64 448, !17, i64 452, !17, i64 456}
+!39 = !{!"p1 _ZTS16raw_object_store", !7, i64 0}
+!40 = !{!"p1 _ZTS18parsed_object_pool", !7, i64 0}
+!41 = !{!"p1 _ZTS9ref_store", !7, i64 0}
+!42 = !{!"strmap", !43, i64 0, !45, i64 48, !17, i64 56}
+!43 = !{!"hashmap", !44, i64 0, !7, i64 8, !7, i64 16, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !17, i64 40}
+!44 = !{!"p2 _ZTS13hashmap_entry", !7, i64 0}
+!45 = !{!"p1 _ZTS8mem_pool", !7, i64 0}
+!46 = !{!"repo_path_cache", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !23, i64 48}
+!47 = !{!"repo_settings", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !17, i64 16, !17, i64 20, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !17, i64 40, !17, i64 44, !48, i64 48, !17, i64 56, !17, i64 60, !17, i64 64, !17, i64 68, !17, i64 72, !17, i64 76, !17, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
+!48 = !{!"p1 _ZTS18fsmonitor_settings", !7, i64 0}
+!49 = !{!"p1 _ZTS10config_set", !7, i64 0}
+!50 = !{!"p1 _ZTS15submodule_cache", !7, i64 0}
+!51 = !{!"p1 _ZTS11index_state", !7, i64 0}
+!52 = !{!"p1 _ZTS12remote_state", !7, i64 0}
+!53 = !{!"p1 _ZTS22promisor_remote_config", !7, i64 0}
+!54 = !{!55, !11, i64 16}
+!55 = !{!"git_hash_algo", !23, i64 0, !17, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !56, i64 80, !56, i64 88, !56, i64 96, !24, i64 104}
+!56 = !{!"p1 _ZTS9object_id", !7, i64 0}
+!57 = distinct !{!57, !33, !34}
+!58 = !{!16, !7, i64 24}
+!59 = distinct !{!59, !33, !34}
+!60 = distinct !{!60, !33, !34}
+!61 = !{!23, !23, i64 0}
+!62 = distinct !{!62, !33, !34}

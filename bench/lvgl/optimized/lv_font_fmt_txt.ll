@@ -233,7 +233,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %93 = add nuw nsw i32 %.0141248, 1
   %94 = zext i8 %89 to i32
   %95 = icmp samesign ult i32 %93, %94
-  br i1 %95, label %.preheader, label %.loopexit, !llvm.loop !28
+  br i1 %95, label %.preheader, label %.loopexit, !llvm.loop !29
 
 .preheader195:                                    ; preds = %.preheader195.lr.ph, %._crit_edge231
   %96 = phi i8 [ %52, %.preheader195.lr.ph ], [ %132, %._crit_edge231 ]
@@ -304,7 +304,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %129 = load i8, ptr %25, align 4, !tbaa !23
   %130 = zext i8 %129 to i64
   %131 = icmp samesign ult i64 %indvars.iv.next269, %130
-  br i1 %131, label %.lr.ph230, label %._crit_edge231.loopexit, !llvm.loop !29
+  br i1 %131, label %.lr.ph230, label %._crit_edge231.loopexit, !llvm.loop !30
 
 ._crit_edge231.loopexit:                          ; preds = %127
   %.pre278 = load i8, ptr %28, align 1, !tbaa !25
@@ -324,7 +324,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %136 = add nuw nsw i32 %.1142237, 1
   %137 = zext i8 %132 to i32
   %138 = icmp samesign ult i32 %136, %137
-  br i1 %138, label %.preheader195, label %.loopexit, !llvm.loop !30
+  br i1 %138, label %.preheader195, label %.loopexit, !llvm.loop !31
 
 .preheader198:                                    ; preds = %.preheader198.lr.ph, %._crit_edge220
   %139 = phi i8 [ %50, %.preheader198.lr.ph ], [ %150, %._crit_edge220 ]
@@ -358,7 +358,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %147 = load i8, ptr %25, align 4, !tbaa !23
   %148 = zext i8 %147 to i64
   %149 = icmp samesign ult i64 %indvars.iv.next266, %148
-  br i1 %149, label %.lr.ph219, label %._crit_edge220.loopexit, !llvm.loop !31
+  br i1 %149, label %.lr.ph219, label %._crit_edge220.loopexit, !llvm.loop !32
 
 ._crit_edge220.loopexit:                          ; preds = %.lr.ph219
   %.pre276 = load i8, ptr %28, align 1, !tbaa !25
@@ -378,7 +378,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %154 = add nuw nsw i32 %.2143226, 1
   %155 = zext i8 %150 to i32
   %156 = icmp samesign ult i32 %154, %155
-  br i1 %156, label %.preheader198, label %.loopexit, !llvm.loop !32
+  br i1 %156, label %.preheader198, label %.loopexit, !llvm.loop !33
 
 .preheader201:                                    ; preds = %.preheader201.lr.ph, %._crit_edge
   %157 = phi i8 [ %48, %.preheader201.lr.ph ], [ %165, %._crit_edge ]
@@ -400,7 +400,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %162 = load i8, ptr %25, align 4, !tbaa !23
   %163 = zext i8 %162 to i64
   %164 = icmp samesign ult i64 %indvars.iv.next, %163
-  br i1 %164, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
+  br i1 %164, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre274 = load i8, ptr %28, align 1, !tbaa !25
@@ -414,7 +414,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %168 = add nuw nsw i32 %.3144215, 1
   %169 = zext i8 %165 to i32
   %170 = icmp samesign ult i32 %168, %169
-  br i1 %170, label %.preheader201, label %.loopexit, !llvm.loop !34
+  br i1 %170, label %.preheader201, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge220, %._crit_edge231, %._crit_edge242, %.preheader202, %.preheader199, %.preheader196, %.preheader194, %18, %38, %33, %24, %2
   %.0 = phi ptr [ null, %2 ], [ %23, %18 ], [ null, %24 ], [ %1, %38 ], [ null, %33 ], [ %1, %.preheader194 ], [ %1, %.preheader196 ], [ %1, %.preheader199 ], [ %1, %.preheader202 ], [ %1, %._crit_edge242 ], [ %1, %._crit_edge231 ], [ %1, %._crit_edge220 ], [ %1, %._crit_edge ]
@@ -443,7 +443,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !35
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
   %.not49 = icmp eq ptr %13, null
   br i1 %.not49, label %88, label %14
 
@@ -459,7 +459,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   %19 = and i16 %18, 8192
   %20 = icmp eq i16 %19, 0
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
   br i1 %20, label %23, label %60
 
 23:                                               ; preds = %16
@@ -469,11 +469,11 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   br i1 %26, label %27, label %42
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %22, align 8, !tbaa !36
+  %28 = load ptr, ptr %22, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store i32 %10, ptr %5, align 4, !tbaa !38
+  store i32 %10, ptr %5, align 4, !tbaa !39
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %15, ptr %29, align 4, !tbaa !40
+  store i32 %15, ptr %29, align 4, !tbaa !41
   %30 = zext nneg i32 %25 to i64
   %31 = call ptr @lv_utils_bsearch(ptr noundef nonnull %5, ptr noundef %28, i64 noundef %30, i64 noundef 2, ptr noundef nonnull @kern_pair_8_compare) #4
   %.not43.i = icmp eq ptr %31, null
@@ -485,7 +485,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 1
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !41
+  %38 = load ptr, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %36
   %40 = load i8, ptr %39, align 1, !tbaa !19
   br label %41
@@ -501,11 +501,11 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   br i1 %43, label %44, label %get_kern_value.exit
 
 44:                                               ; preds = %42
-  %45 = load ptr, ptr %22, align 8, !tbaa !36
+  %45 = load ptr, ptr %22, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  store i32 %10, ptr %6, align 4, !tbaa !38
+  store i32 %10, ptr %6, align 4, !tbaa !39
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %15, ptr %46, align 4, !tbaa !40
+  store i32 %15, ptr %46, align 4, !tbaa !41
   %47 = and i32 %25, 1073741823
   %48 = zext nneg i32 %47 to i64
   %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %6, ptr noundef %45, i64 noundef %48, i64 noundef 4, ptr noundef nonnull @kern_pair_16_compare) #4
@@ -518,7 +518,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 2
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !41
+  %56 = load ptr, ptr %55, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %54
   %58 = load i8, ptr %57, align 1, !tbaa !19
   br label %59
@@ -530,12 +530,12 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
 
 60:                                               ; preds = %16
   %61 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !42
+  %62 = load ptr, ptr %61, align 8, !tbaa !43
   %63 = zext i32 %10 to i64
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !19
   %66 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !44
+  %67 = load ptr, ptr %66, align 8, !tbaa !45
   %68 = zext i32 %15 to i64
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !19
@@ -547,10 +547,10 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
 73:                                               ; preds = %60
   %74 = zext i8 %70 to i64
   %75 = zext i8 %65 to i64
-  %76 = load ptr, ptr %22, align 8, !tbaa !45
+  %76 = load ptr, ptr %22, align 8, !tbaa !46
   %77 = add nuw nsw i64 %75, 4294967295
   %78 = getelementptr inbounds nuw i8, ptr %22, i64 25
-  %79 = load i8, ptr %78, align 1, !tbaa !46
+  %79 = load i8, ptr %78, align 1, !tbaa !47
   %80 = zext i8 %79 to i64
   %81 = mul nuw nsw i64 %77, %80
   %82 = add nuw nsw i64 %74, 4294967295
@@ -572,7 +572,7 @@ get_kern_value.exit:                              ; preds = %41, %42, %59, %60, 
   %91 = zext i32 %10 to i64
   %92 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_glyph_dsc_t, ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %94 = load i16, ptr %93, align 8, !tbaa !47
+  %94 = load i16, ptr %93, align 8, !tbaa !48
   %95 = zext i16 %94 to i32
   %96 = mul nsw i32 %.045, %95
   %97 = lshr i32 %96, 4
@@ -585,41 +585,41 @@ get_kern_value.exit:                              ; preds = %41, %42, %59, %60, 
   %103 = lshr i32 %102, 4
   %104 = trunc i32 %103 to i16
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i16 %104, ptr %105, align 8, !tbaa !48
+  store i16 %104, ptr %105, align 8, !tbaa !49
   %106 = getelementptr inbounds nuw i8, ptr %92, i64 5
   %107 = load i8, ptr %106, align 1, !tbaa !25
   %108 = zext i8 %107 to i16
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i16 %108, ptr %109, align 4, !tbaa !49
+  store i16 %108, ptr %109, align 4, !tbaa !50
   %110 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %111 = load i8, ptr %110, align 4, !tbaa !23
   %112 = zext i8 %111 to i16
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i16 %112, ptr %113, align 2, !tbaa !50
+  store i16 %112, ptr %113, align 2, !tbaa !51
   %114 = getelementptr inbounds nuw i8, ptr %92, i64 6
-  %115 = load i8, ptr %114, align 2, !tbaa !51
+  %115 = load i8, ptr %114, align 2, !tbaa !52
   %116 = sext i8 %115 to i16
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i16 %116, ptr %117, align 2, !tbaa !52
+  store i16 %116, ptr %117, align 2, !tbaa !53
   %118 = getelementptr inbounds nuw i8, ptr %92, i64 7
-  %119 = load i8, ptr %118, align 1, !tbaa !53
+  %119 = load i8, ptr %118, align 1, !tbaa !54
   %120 = sext i8 %119 to i16
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 %120, ptr %121, align 8, !tbaa !54
+  store i16 %120, ptr %121, align 8, !tbaa !55
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 34
   %123 = load i16, ptr %122, align 2
   %124 = lshr i16 %123, 9
   %125 = and i16 %124, 15
   %126 = zext nneg i16 %125 to i32
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %126, ptr %127, align 4, !tbaa !55
+  store i32 %126, ptr %127, align 4, !tbaa !56
   %128 = load i16, ptr %122, align 2
   %129 = icmp ugt i16 %128, -16385
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %88
   %131 = or disjoint i32 %126, 16
-  store i32 %131, ptr %127, align 4, !tbaa !55
+  store i32 %131, ptr %127, align 4, !tbaa !56
   br label %132
 
 132:                                              ; preds = %130, %88
@@ -633,7 +633,7 @@ get_kern_value.exit:                              ; preds = %41, %42, %59, %60, 
 
 137:                                              ; preds = %132
   %138 = shl nuw nsw i16 %112, 1
-  store i16 %138, ptr %113, align 2, !tbaa !50
+  store i16 %138, ptr %113, align 2, !tbaa !51
   br label %139
 
 139:                                              ; preds = %132, %137, %4
@@ -658,24 +658,24 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 
 .lr.ph:                                           ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !56
+  %13 = load ptr, ptr %12, align 8, !tbaa !57
   %wide.trip.count = zext nneg i16 %11 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %.thread92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread92 ]
   %15 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %13, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 8, !tbaa !57
+  %16 = load i32, ptr %15, align 8, !tbaa !58
   %17 = sub i32 %1, %16
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %19 = load i16, ptr %18, align 4, !tbaa !60
+  %19 = load i16, ptr %18, align 4, !tbaa !61
   %20 = zext i16 %19 to i32
   %.not = icmp ult i32 %17, %20
   br i1 %.not, label %21, label %.thread92
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  %23 = load i32, ptr %22, align 4, !tbaa !61
+  %23 = load i32, ptr %22, align 4, !tbaa !62
   switch i32 %23, label %.thread96 [
     i32 2, label %24
     i32 0, label %29
@@ -685,14 +685,14 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !62
+  %26 = load i16, ptr %25, align 2, !tbaa !63
   %27 = zext i16 %26 to i32
   %28 = add nuw nsw i32 %17, %27
   br label %.thread96
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !63
+  %31 = load ptr, ptr %30, align 8, !tbaa !64
   %32 = zext nneg i32 %17 to i64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !19
@@ -703,7 +703,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %13, i64 %indvars.iv, i32 2
-  %38 = load i16, ptr %37, align 2, !tbaa !62
+  %38 = load i16, ptr %37, align 2, !tbaa !63
   %39 = zext i16 %38 to i32
   %40 = zext i8 %34 to i32
   %41 = add nuw nsw i32 %39, %40
@@ -712,27 +712,27 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 42:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #4
   %43 = trunc nuw i32 %17 to i16
-  store i16 %43, ptr %3, align 2, !tbaa !64
+  store i16 %43, ptr %3, align 2, !tbaa !65
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !65
+  %45 = load ptr, ptr %44, align 8, !tbaa !66
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %47 = load i16, ptr %46, align 8, !tbaa !66
+  %47 = load i16, ptr %46, align 8, !tbaa !67
   %48 = zext i16 %47 to i64
   %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %3, ptr noundef %45, i64 noundef %48, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #4
   %.not78 = icmp eq ptr %49, null
   br i1 %.not78, label %64, label %50
 
 50:                                               ; preds = %42
-  %51 = load ptr, ptr %12, align 8, !tbaa !56
+  %51 = load ptr, ptr %12, align 8, !tbaa !57
   %52 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !65
+  %54 = load ptr, ptr %53, align 8, !tbaa !66
   %55 = ptrtoint ptr %49 to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   %58 = lshr exact i64 %57, 1
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 6
-  %60 = load i16, ptr %59, align 2, !tbaa !62
+  %60 = load i16, ptr %59, align 2, !tbaa !63
   %61 = zext i16 %60 to i32
   %62 = trunc i64 %58 to i32
   %63 = add i32 %62, %61
@@ -746,31 +746,31 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 65:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #4
   %66 = trunc nuw i32 %17 to i16
-  store i16 %66, ptr %4, align 2, !tbaa !64
+  store i16 %66, ptr %4, align 2, !tbaa !65
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !65
+  %68 = load ptr, ptr %67, align 8, !tbaa !66
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %70 = load i16, ptr %69, align 8, !tbaa !66
+  %70 = load i16, ptr %69, align 8, !tbaa !67
   %71 = zext i16 %70 to i64
   %72 = call ptr @lv_utils_bsearch(ptr noundef nonnull %4, ptr noundef %68, i64 noundef %71, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #4
   %.not77 = icmp eq ptr %72, null
   br i1 %.not77, label %90, label %73
 
 73:                                               ; preds = %65
-  %74 = load ptr, ptr %12, align 8, !tbaa !56
+  %74 = load ptr, ptr %12, align 8, !tbaa !57
   %75 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %74, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !65
+  %77 = load ptr, ptr %76, align 8, !tbaa !66
   %78 = ptrtoint ptr %72 to i64
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !63
+  %82 = load ptr, ptr %81, align 8, !tbaa !64
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 6
-  %84 = load i16, ptr %83, align 2, !tbaa !62
+  %84 = load i16, ptr %83, align 2, !tbaa !63
   %85 = zext i16 %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 %80
-  %87 = load i16, ptr %86, align 2, !tbaa !64
+  %87 = load i16, ptr %86, align 2, !tbaa !65
   %88 = zext i16 %87 to i32
   %89 = add nuw nsw i32 %88, %85
   br label %90
@@ -783,7 +783,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 .thread92:                                        ; preds = %14, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread96, label %14, !llvm.loop !67
+  br i1 %exitcond.not, label %.thread96, label %14, !llvm.loop !68
 
 .thread96:                                        ; preds = %.thread92, %21, %6, %36, %24, %64, %90, %2
   %.0 = phi i32 [ 0, %2 ], [ %41, %36 ], [ %.371, %90 ], [ %.270, %64 ], [ %28, %24 ], [ 0, %6 ], [ 0, %21 ], [ 0, %.thread92 ]
@@ -794,9 +794,9 @@ declare ptr @lv_utils_bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -65535, 65536) i32 @unicode_list_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load i16, ptr %0, align 2, !tbaa !64
+  %3 = load i16, ptr %0, align 2, !tbaa !65
   %4 = zext i16 %3 to i32
-  %5 = load i16, ptr %1, align 2, !tbaa !64
+  %5 = load i16, ptr %1, align 2, !tbaa !65
   %6 = zext i16 %5 to i32
   %7 = sub nsw i32 %4, %6
   ret i32 %7
@@ -804,7 +804,7 @@ define internal range(i32 -65535, 65536) i32 @unicode_list_compare(ptr noundef r
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @kern_pair_8_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load i32, ptr %0, align 4, !tbaa !38
+  %3 = load i32, ptr %0, align 4, !tbaa !39
   %4 = load i8, ptr %1, align 1, !tbaa !19
   %5 = zext i8 %4 to i32
   %.not = icmp eq i32 %3, %5
@@ -816,7 +816,7 @@ define internal i32 @kern_pair_8_compare(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !40
+  %10 = load i32, ptr %9, align 4, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !19
   %13 = zext i8 %12 to i32
@@ -830,8 +830,8 @@ define internal i32 @kern_pair_8_compare(ptr noundef readonly captures(none) %0,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @kern_pair_16_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load i32, ptr %0, align 4, !tbaa !38
-  %4 = load i16, ptr %1, align 2, !tbaa !64
+  %3 = load i32, ptr %0, align 4, !tbaa !39
+  %4 = load i16, ptr %1, align 2, !tbaa !65
   %5 = zext i16 %4 to i32
   %.not = icmp eq i32 %3, %5
   br i1 %.not, label %8, label %6
@@ -842,9 +842,9 @@ define internal i32 @kern_pair_16_compare(ptr noundef readonly captures(none) %0
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !40
+  %10 = load i32, ptr %9, align 4, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %12 = load i16, ptr %11, align 2, !tbaa !64
+  %12 = load i16, ptr %11, align 2, !tbaa !65
   %13 = zext i16 %12 to i32
   %14 = sub i32 %10, %13
   br label %15
@@ -888,45 +888,46 @@ attributes #4 = { nounwind }
 !23 = !{!24, !7, i64 4}
 !24 = !{!"", !10, i64 0, !10, i64 2, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7}
 !25 = !{!24, !7, i64 5}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = distinct !{!29, !27}
-!30 = distinct !{!30, !27}
-!31 = distinct !{!31, !27}
-!32 = distinct !{!32, !27}
-!33 = distinct !{!33, !27}
-!34 = distinct !{!34, !27}
-!35 = !{!21, !6, i64 24}
-!36 = !{!37, !6, i64 0}
-!37 = !{!"", !6, i64 0, !15, i64 8, !10, i64 16, !10, i64 19}
-!38 = !{!39, !10, i64 0}
-!39 = !{!"", !10, i64 0, !10, i64 4}
-!40 = !{!39, !10, i64 4}
-!41 = !{!37, !15, i64 8}
-!42 = !{!43, !15, i64 8}
-!43 = !{!"", !15, i64 0, !15, i64 8, !15, i64 16, !7, i64 24, !7, i64 25}
-!44 = !{!43, !15, i64 16}
-!45 = !{!43, !15, i64 0}
-!46 = !{!43, !7, i64 25}
-!47 = !{!21, !9, i64 32}
-!48 = !{!4, !9, i64 8}
-!49 = !{!4, !9, i64 12}
-!50 = !{!4, !9, i64 10}
-!51 = !{!24, !7, i64 6}
-!52 = !{!4, !9, i64 14}
-!53 = !{!24, !7, i64 7}
-!54 = !{!4, !9, i64 16}
-!55 = !{!4, !10, i64 20}
-!56 = !{!21, !6, i64 16}
-!57 = !{!58, !10, i64 0}
-!58 = !{!"", !10, i64 0, !9, i64 4, !9, i64 6, !59, i64 8, !6, i64 16, !9, i64 24, !10, i64 28}
-!59 = !{!"p1 short", !6, i64 0}
-!60 = !{!58, !9, i64 4}
-!61 = !{!58, !10, i64 28}
-!62 = !{!58, !9, i64 6}
-!63 = !{!58, !6, i64 16}
-!64 = !{!9, !9, i64 0}
-!65 = !{!58, !59, i64 8}
-!66 = !{!58, !9, i64 24}
-!67 = distinct !{!67, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = distinct !{!30, !27, !28}
+!31 = distinct !{!31, !27, !28}
+!32 = distinct !{!32, !27, !28}
+!33 = distinct !{!33, !27, !28}
+!34 = distinct !{!34, !27, !28}
+!35 = distinct !{!35, !27, !28}
+!36 = !{!21, !6, i64 24}
+!37 = !{!38, !6, i64 0}
+!38 = !{!"", !6, i64 0, !15, i64 8, !10, i64 16, !10, i64 19}
+!39 = !{!40, !10, i64 0}
+!40 = !{!"", !10, i64 0, !10, i64 4}
+!41 = !{!40, !10, i64 4}
+!42 = !{!38, !15, i64 8}
+!43 = !{!44, !15, i64 8}
+!44 = !{!"", !15, i64 0, !15, i64 8, !15, i64 16, !7, i64 24, !7, i64 25}
+!45 = !{!44, !15, i64 16}
+!46 = !{!44, !15, i64 0}
+!47 = !{!44, !7, i64 25}
+!48 = !{!21, !9, i64 32}
+!49 = !{!4, !9, i64 8}
+!50 = !{!4, !9, i64 12}
+!51 = !{!4, !9, i64 10}
+!52 = !{!24, !7, i64 6}
+!53 = !{!4, !9, i64 14}
+!54 = !{!24, !7, i64 7}
+!55 = !{!4, !9, i64 16}
+!56 = !{!4, !10, i64 20}
+!57 = !{!21, !6, i64 16}
+!58 = !{!59, !10, i64 0}
+!59 = !{!"", !10, i64 0, !9, i64 4, !9, i64 6, !60, i64 8, !6, i64 16, !9, i64 24, !10, i64 28}
+!60 = !{!"p1 short", !6, i64 0}
+!61 = !{!59, !9, i64 4}
+!62 = !{!59, !10, i64 28}
+!63 = !{!59, !9, i64 6}
+!64 = !{!59, !6, i64 16}
+!65 = !{!9, !9, i64 0}
+!66 = !{!59, !60, i64 8}
+!67 = !{!59, !9, i64 24}
+!68 = distinct !{!68, !27, !28}

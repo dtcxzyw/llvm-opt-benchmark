@@ -95,7 +95,7 @@ define internal { double, double } @_ZL16comill_s_inverse5PJ_XYP8PJconsts(double
   br i1 %22, label %.loopexit, label %10
 
 23:                                               ; preds = %10
-  %24 = load ptr, ptr %2, align 8, !tbaa !45
+  %24 = load ptr, ptr %2, align 8, !tbaa !46
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %24, i32 noundef 2050)
   br label %.loopexit
 
@@ -175,6 +175,7 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !40 = !{!4, !13, i64 360}
 !41 = !{!4, !15, i64 380}
 !42 = !{!4, !15, i64 384}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!4, !5, i64 0}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!4, !5, i64 0}

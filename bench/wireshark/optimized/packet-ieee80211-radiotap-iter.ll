@@ -251,7 +251,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nounde
 81:                                               ; preds = %82
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %find_override.exit.thread, label %82, !llvm.loop !8
+  br i1 %exitcond.not.i, label %find_override.exit.thread, label %82, !llvm.loop !9
 
 82:                                               ; preds = %81, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %81 ]
@@ -428,7 +428,7 @@ switch.lookup:                                    ; preds = %.thread
 164:                                              ; preds = %159, %155
   %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i150, 1
   %exitcond.not.i152 = icmp eq i64 %indvars.iv.next.i151, %wide.trip.count.i149
-  br i1 %exitcond.not.i152, label %find_ns.exit, label %155, !llvm.loop !9
+  br i1 %exitcond.not.i152, label %find_ns.exit, label %155, !llvm.loop !10
 
 find_ns.exit:                                     ; preds = %164, %135, %.preheader.i147, %162
   %.not129 = phi i1 [ true, %135 ], [ true, %.preheader.i147 ], [ %163, %162 ], [ true, %164 ]
@@ -545,7 +545,8 @@ attributes #1 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstro
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

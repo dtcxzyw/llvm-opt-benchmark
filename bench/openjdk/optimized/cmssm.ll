@@ -239,14 +239,14 @@ define hidden noundef i32 @cmsGDBCompute(ptr noundef %0, i32 noundef %1) local_u
   tail call fastcc void @InterpolateMissingSector(ptr noundef %0, i32 noundef %.01720, i32 noundef 0)
   %4 = add nuw nsw i32 %.01720, 1
   %exitcond.not = icmp eq i32 %4, 16
-  br i1 %exitcond.not, label %.preheader19, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %.preheader19, label %3, !llvm.loop !9
 
 .preheader19:                                     ; preds = %3, %.preheader19
   %.121 = phi i32 [ %5, %.preheader19 ], [ 0, %3 ]
   tail call fastcc void @InterpolateMissingSector(ptr noundef %0, i32 noundef %.121, i32 noundef 15)
   %5 = add nuw nsw i32 %.121, 1
   %exitcond24.not = icmp eq i32 %5, 16
-  br i1 %exitcond24.not, label %.preheader, label %.preheader19, !llvm.loop !9
+  br i1 %exitcond24.not, label %.preheader, label %.preheader19, !llvm.loop !10
 
 .preheader:                                       ; preds = %.preheader19, %8
   %.01623 = phi i32 [ %9, %8 ], [ 1, %.preheader19 ]
@@ -257,12 +257,12 @@ define hidden noundef i32 @cmsGDBCompute(ptr noundef %0, i32 noundef %1) local_u
   tail call fastcc void @InterpolateMissingSector(ptr noundef %0, i32 noundef %.222, i32 noundef %.01623)
   %7 = add nuw nsw i32 %.222, 1
   %exitcond25.not = icmp eq i32 %7, 16
-  br i1 %exitcond25.not, label %8, label %6, !llvm.loop !10
+  br i1 %exitcond25.not, label %8, label %6, !llvm.loop !11
 
 8:                                                ; preds = %6
   %9 = add nuw nsw i32 %.01623, 1
   %exitcond26.not = icmp eq i32 %9, 16
-  br i1 %exitcond26.not, label %10, label %.preheader, !llvm.loop !11
+  br i1 %exitcond26.not, label %10, label %.preheader, !llvm.loop !12
 
 10:                                               ; preds = %8
   ret i32 1
@@ -314,7 +314,7 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
   %.1.i = phi i32 [ %27, %26 ], [ %.028.i, %.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 24
-  br i1 %exitcond.not.i, label %FindNearSectors.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i, label %FindNearSectors.exit, label %.preheader, !llvm.loop !13
 
 FindNearSectors.exit:                             ; preds = %30
   %31 = sitofp i32 %1 to double
@@ -380,7 +380,7 @@ FindNearSectors.exit:                             ; preds = %30
   %.sroa.0.1.lcssa = phi double [ %.sroa.0.071, %79 ], [ %.sroa.0.2, %ToSpherical.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count89
-  br i1 %exitcond90.not, label %._crit_edge, label %79, !llvm.loop !13
+  br i1 %exitcond90.not, label %._crit_edge, label %79, !llvm.loop !14
 
 79:                                               ; preds = %.lr.ph73, %.loopexit
   %indvars.iv85 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next86, %.loopexit ]
@@ -604,7 +604,7 @@ ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cms
   %.sroa.0.2 = select i1 %or.cond79, double %.sroa.0.165, double %sqrt.i
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count89
-  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %FindNearSectors.exit
   %.sroa.5.0.lcssa = phi double [ 0.000000e+00, %FindNearSectors.exit ], [ %.sroa.5.1.lcssa, %.loopexit ]
@@ -682,12 +682,13 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

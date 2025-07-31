@@ -74,7 +74,7 @@ define dso_local range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef readonly 
   %35 = load ptr, ptr @stdin, align 8, !tbaa !4
   %36 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 20, ptr noundef %35)
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.split18.us, label %.lr.ph
+  br i1 %37, label %.split18.us, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph21, %28, %.split18.us
   %.1.ph = phi i32 [ 1, %.split18.us ], [ 0, %28 ], [ 2, %.lr.ph21 ], [ 2, %.lr.ph ]
@@ -122,5 +122,7 @@ attributes #4 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !6, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !12, !13}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !12}

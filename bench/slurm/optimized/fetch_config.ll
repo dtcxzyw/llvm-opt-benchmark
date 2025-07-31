@@ -360,7 +360,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %113, %110
-  br label %.lr.ph.i, !llvm.loop !11
+  br label %.lr.ph.i, !llvm.loop !12
 
 .outer69._crit_edge.i:                            ; preds = %.split83.us.i
   %114 = load i32, ptr %3, align 4
@@ -509,7 +509,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.lr.ph111.i.backedge
 
 .lr.ph111.i.backedge:                             ; preds = %169, %166
-  br label %.lr.ph111.i, !llvm.loop !12
+  br label %.lr.ph111.i, !llvm.loop !13
 
 .outer._crit_edge.i:                              ; preds = %.split117.us.i
   %170 = call i32 @waitpid(i32 noundef range(i32 1, -2147483648) %56, ptr noundef nonnull %5, i32 noundef 0) #12
@@ -656,13 +656,13 @@ define internal fastcc void @_fetch_child(ptr noundef %0, i32 noundef %1) unname
   tail call void @slurm_conf_unlock() #12
   %6 = tail call ptr @list_peek(ptr noundef %0) #12
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1029
-  %8 = load i8, ptr %7, align 1, !range !13, !noundef !14
+  %8 = load i8, ptr %7, align 1, !range !14, !noundef !15
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1028
-  %12 = load i8, ptr %11, align 2, !range !13, !noundef !14
+  %12 = load i8, ptr %11, align 2, !range !14, !noundef !15
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
@@ -677,13 +677,13 @@ define internal fastcc void @_fetch_child(ptr noundef %0, i32 noundef %1) unname
   br i1 %.not, label %17, label %.thread85
 
 17:                                               ; preds = %15
-  %18 = load i8, ptr %7, align 1, !range !13, !noundef !14
+  %18 = load i8, ptr %7, align 1, !range !14, !noundef !15
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 1028
-  %22 = load i8, ptr %21, align 2, !range !13, !noundef !14
+  %22 = load i8, ptr %21, align 2, !range !14, !noundef !15
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %.thread
 
@@ -748,7 +748,7 @@ define internal fastcc void @_fetch_child(ptr noundef %0, i32 noundef %1) unname
   br label %.lr.ph144.split.backedge
 
 .lr.ph144.split.backedge:                         ; preds = %45, %42
-  br label %.lr.ph144.split, !llvm.loop !15
+  br label %.lr.ph144.split, !llvm.loop !16
 
 .outer._crit_edge:                                ; preds = %.split147.us
   tail call void @_exit(i32 noundef 1) #15
@@ -812,7 +812,7 @@ define internal fastcc void @_fetch_child(ptr noundef %0, i32 noundef %1) unname
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %66, %63
-  br label %.lr.ph.split, !llvm.loop !16
+  br label %.lr.ph.split, !llvm.loop !17
 
 .outer102._crit_edge:                             ; preds = %.split.us
   %.not76138 = icmp eq i32 %47, 0
@@ -874,7 +874,7 @@ define internal fastcc void @_fetch_child(ptr noundef %0, i32 noundef %1) unname
   br label %.lr.ph124.split.backedge
 
 .lr.ph124.split.backedge:                         ; preds = %88, %85
-  br label %.lr.ph124.split, !llvm.loop !17
+  br label %.lr.ph124.split, !llvm.loop !18
 
 .outer101._crit_edge:                             ; preds = %.split127.us, %.outer102._crit_edge
   tail call void @_exit(i32 noundef 0) #15
@@ -1039,7 +1039,7 @@ define dso_local range(i32 0, -2147483648) i32 @dump_to_memfd(ptr noundef %0, pt
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %31, %28
-  br label %.lr.ph.split, !llvm.loop !18
+  br label %.lr.ph.split, !llvm.loop !19
 
 34:                                               ; preds = %22, %.split41.us
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.dump_to_memfd) #15
@@ -1090,10 +1090,10 @@ define dso_local range(i32 -1, 1) i32 @write_one_config(ptr noundef readonly cap
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = load i8, ptr %0, align 8, !range !13, !noundef !14
+  %9 = load i8, ptr %0, align 8, !range !14, !noundef !15
   %10 = trunc nuw i8 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %12 = load i8, ptr %11, align 1, !range !13, !noundef !14
+  %12 = load i8, ptr %11, align 1, !range !14, !noundef !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
@@ -1185,7 +1185,7 @@ define dso_local range(i32 -1, 1) i32 @write_one_config(ptr noundef readonly cap
   br label %.lr.ph.split.i.backedge
 
 .lr.ph.split.i.backedge:                          ; preds = %47, %44
-  br label %.lr.ph.split.i, !llvm.loop !19
+  br label %.lr.ph.split.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %.split.us.i, %26, %25
   %50 = call i32 @close(i32 noundef %20) #12
@@ -1222,7 +1222,7 @@ _write_conf.exit.thread:                          ; preds = %.thread.i, %57, %59
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @write_config_to_memfd(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr %0, align 8, !range !13, !noundef !14
+  %3 = load i8, ptr %0, align 8, !range !14, !noundef !15
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %13
 
@@ -1308,7 +1308,7 @@ define dso_local ptr @new_config_response(i1 noundef zeroext %0) local_unnamed_a
   %16 = getelementptr inbounds nuw ptr, ptr %spec.store.select, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 .preheader:                                       ; preds = %25, %.preheader36
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 360), align 8
@@ -1341,7 +1341,7 @@ define dso_local ptr @new_config_response(i1 noundef zeroext %0) local_unnamed_a
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %28 = zext i32 %26 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next47, %28
-  br i1 %29, label %.lr.ph40, label %.preheader, !llvm.loop !21
+  br i1 %29, label %.lr.ph40, label %.preheader, !llvm.loop !22
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %36
   %30 = phi i32 [ %18, %.lr.ph42.preheader ], [ %37, %36 ]
@@ -1365,7 +1365,7 @@ define dso_local ptr @new_config_response(i1 noundef zeroext %0) local_unnamed_a
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %39 = zext i32 %37 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next50, %39
-  br i1 %40, label %.lr.ph42, label %.loopexit, !llvm.loop !22
+  br i1 %40, label %.lr.ph42, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %36, %.preheader, %._crit_edge
   ret ptr %2
@@ -1524,7 +1524,7 @@ define dso_local void @grab_include_directives() local_unnamed_addr #0 {
   %16 = getelementptr inbounds nuw [13 x ptr], ptr @slurmd_config_files, i64 0, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %.not, label %3, label %4, !llvm.loop !23
+  br i1 %.not, label %3, label %4, !llvm.loop !24
 }
 
 declare i32 @s_p_parse_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -1666,19 +1666,20 @@ attributes #15 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}

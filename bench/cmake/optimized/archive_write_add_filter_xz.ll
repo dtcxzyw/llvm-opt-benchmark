@@ -518,24 +518,24 @@ split.i:                                          ; preds = %.preheader.i, %._cr
   %112 = and i32 %.1.i, 31
   %113 = or disjoint i32 %.051.i, %112
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 320
-  store i32 0, ptr %114, align 8, !tbaa !61
-  store i8 76, ptr %66, align 1, !tbaa !62
+  store i32 0, ptr %114, align 8, !tbaa !62
+  store i8 76, ptr %66, align 1, !tbaa !63
   %115 = load ptr, ptr %5, align 8, !tbaa !27
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
-  store i8 90, ptr %116, align 1, !tbaa !62
+  store i8 90, ptr %116, align 1, !tbaa !63
   %117 = load ptr, ptr %5, align 8, !tbaa !27
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
-  store i8 73, ptr %118, align 1, !tbaa !62
+  store i8 73, ptr %118, align 1, !tbaa !63
   %119 = load ptr, ptr %5, align 8, !tbaa !27
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 3
-  store i8 80, ptr %120, align 1, !tbaa !62
+  store i8 80, ptr %120, align 1, !tbaa !63
   %121 = load ptr, ptr %5, align 8, !tbaa !27
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  store i8 1, ptr %122, align 1, !tbaa !62
+  store i8 1, ptr %122, align 1, !tbaa !63
   %123 = trunc nuw i32 %113 to i8
   %124 = load ptr, ptr %5, align 8, !tbaa !27
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 5
-  store i8 %123, ptr %125, align 1, !tbaa !62
+  store i8 %123, ptr %125, align 1, !tbaa !63
   %126 = load ptr, ptr %68, align 8, !tbaa !52
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 6
   store ptr %127, ptr %68, align 8, !tbaa !52
@@ -594,11 +594,11 @@ define internal i32 @archive_compressor_xz_close(ptr noundef readonly captures(n
   %10 = load i64, ptr %9, align 8, !tbaa !53
   %11 = sub i64 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 312
-  %13 = load i64, ptr %12, align 8, !tbaa !63
+  %13 = load i64, ptr %12, align 8, !tbaa !64
   %14 = add i64 %13, %11
-  store i64 %14, ptr %12, align 8, !tbaa !63
+  store i64 %14, ptr %12, align 8, !tbaa !64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !65
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %18 = load ptr, ptr %17, align 8, !tbaa !27
   %19 = tail call i32 @__archive_write_filter(ptr noundef %16, ptr noundef %18, i64 noundef %11) #13
@@ -612,19 +612,19 @@ define internal i32 @archive_compressor_xz_close(ptr noundef readonly captures(n
 24:                                               ; preds = %6
   %25 = load ptr, ptr %17, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 320
-  %27 = load i32, ptr %26, align 8, !tbaa !61
+  %27 = load i32, ptr %26, align 8, !tbaa !62
   store i32 %27, ptr %25, align 1
   %28 = load ptr, ptr %17, align 8, !tbaa !27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  %31 = load i64, ptr %30, align 8, !tbaa !65
+  %31 = load i64, ptr %30, align 8, !tbaa !66
   store i64 %31, ptr %29, align 1
   %32 = load ptr, ptr %17, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  %34 = load i64, ptr %12, align 8, !tbaa !63
+  %34 = load i64, ptr %12, align 8, !tbaa !64
   %35 = add nsw i64 %34, 20
   store i64 %35, ptr %33, align 1
-  %36 = load ptr, ptr %15, align 8, !tbaa !64
+  %36 = load ptr, ptr %15, align 8, !tbaa !65
   %37 = load ptr, ptr %17, align 8, !tbaa !27
   %38 = tail call i32 @__archive_write_filter(ptr noundef %36, ptr noundef %37, i64 noundef 20) #13
   br label %39
@@ -662,14 +662,14 @@ define internal range(i32 -20, 1) i32 @archive_compressor_xz_options(ptr noundef
   br i1 %10, label %38, label %11
 
 11:                                               ; preds = %9
-  %12 = load i8, ptr %2, align 1, !tbaa !62
+  %12 = load i8, ptr %2, align 1, !tbaa !63
   %13 = add i8 %12, -48
   %or.cond = icmp ult i8 %13, 10
   br i1 %or.cond, label %14, label %38
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %16 = load i8, ptr %15, align 1, !tbaa !62
+  %16 = load i8, ptr %15, align 1, !tbaa !63
   %.not21 = icmp eq i8 %16, 0
   br i1 %.not21, label %17, label %38
 
@@ -690,18 +690,18 @@ define internal range(i32 -20, 1) i32 @archive_compressor_xz_options(ptr noundef
 
 24:                                               ; preds = %22
   %25 = tail call ptr @__errno_location() #17
-  store i32 0, ptr %25, align 4, !tbaa !66
+  store i32 0, ptr %25, align 4, !tbaa !67
   %26 = call i64 @strtoul(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 10) #13
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %27, ptr %28, align 4, !tbaa !20
-  %29 = load i32, ptr %25, align 4, !tbaa !66
+  %29 = load i32, ptr %25, align 4, !tbaa !67
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %.sink.split
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr %4, align 8, !tbaa !67
-  %32 = load i8, ptr %31, align 1, !tbaa !62
+  %31 = load ptr, ptr %4, align 8, !tbaa !68
+  %32 = load i8, ptr %31, align 1, !tbaa !63
   %.not20 = icmp eq i8 %32, 0
   br i1 %.not20, label %33, label %.sink.split
 
@@ -739,9 +739,9 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_write(ptr noundef r
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 288
-  %7 = load i64, ptr %6, align 8, !tbaa !65
+  %7 = load i64, ptr %6, align 8, !tbaa !66
   %8 = add i64 %7, %2
-  store i64 %8, ptr %6, align 8, !tbaa !65
+  store i64 %8, ptr %6, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i32, ptr %9, align 8, !tbaa !25
   %11 = icmp eq i32 %10, 9
@@ -749,16 +749,16 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_write(ptr noundef r
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 320
-  %14 = load i32, ptr %13, align 8, !tbaa !61
+  %14 = load i32, ptr %13, align 8, !tbaa !62
   %15 = tail call i32 @lzma_crc32(ptr noundef %1, i64 noundef %2, i32 noundef %14) #16
-  store i32 %15, ptr %13, align 8, !tbaa !61
+  store i32 %15, ptr %13, align 8, !tbaa !62
   br label %16
 
 16:                                               ; preds = %12, %3
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %17, align 8, !tbaa !68
+  store ptr %1, ptr %17, align 8, !tbaa !69
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %2, ptr %18, align 8, !tbaa !69
+  store i64 %2, ptr %18, align 8, !tbaa !70
   %19 = tail call fastcc i32 @drive_compressor(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 0)
   ret i32 %19
 }
@@ -789,10 +789,10 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
 
 14:                                               ; preds = %.split.us
   %15 = load i64, ptr %6, align 8, !tbaa !33
-  %16 = load i64, ptr %7, align 8, !tbaa !63
+  %16 = load i64, ptr %7, align 8, !tbaa !64
   %17 = add i64 %16, %15
-  store i64 %17, ptr %7, align 8, !tbaa !63
-  %18 = load ptr, ptr %8, align 8, !tbaa !64
+  store i64 %17, ptr %7, align 8, !tbaa !64
+  %18 = load ptr, ptr %8, align 8, !tbaa !65
   %19 = load ptr, ptr %9, align 8, !tbaa !27
   %20 = tail call i32 @__archive_write_filter(ptr noundef %18, ptr noundef %19, i64 noundef %15) #13
   %.not.us = icmp eq i32 %20, 0
@@ -806,7 +806,7 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
   br label %24
 
 24:                                               ; preds = %21, %.split.us
-  %25 = load i64, ptr %11, align 8, !tbaa !69
+  %25 = load i64, ptr %11, align 8, !tbaa !70
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %.split37.us, label %27
 
@@ -819,9 +819,9 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
   ]
 
 29:                                               ; preds = %27
-  %30 = load i64, ptr %11, align 8, !tbaa !69
+  %30 = load i64, ptr %11, align 8, !tbaa !70
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.split37.us, label %.split.us, !llvm.loop !70
+  br i1 %31, label %.split37.us, label %.split.us, !llvm.loop !71
 
 .split:                                           ; preds = %3, %44
   %32 = load i64, ptr %5, align 8, !tbaa !53
@@ -830,10 +830,10 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
 
 34:                                               ; preds = %.split
   %35 = load i64, ptr %6, align 8, !tbaa !33
-  %36 = load i64, ptr %7, align 8, !tbaa !63
+  %36 = load i64, ptr %7, align 8, !tbaa !64
   %37 = add i64 %36, %35
-  store i64 %37, ptr %7, align 8, !tbaa !63
-  %38 = load ptr, ptr %8, align 8, !tbaa !64
+  store i64 %37, ptr %7, align 8, !tbaa !64
+  %38 = load ptr, ptr %8, align 8, !tbaa !65
   %39 = load ptr, ptr %9, align 8, !tbaa !27
   %40 = tail call i32 @__archive_write_filter(ptr noundef %38, ptr noundef %39, i64 noundef %35) #13
   %.not = icmp eq i32 %40, 0
@@ -852,7 +852,7 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
     i32 0, label %.split
     i32 1, label %.split37.us
     i32 6, label %.split40.us
-  ]
+  ], !llvm.loop !73
 
 .critedge:                                        ; preds = %27
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1002,16 +1002,18 @@ attributes #17 = { nounwind willreturn memory(none) }
 !56 = !{!55, !13, i64 16}
 !57 = !{!55, !10, i64 24}
 !58 = !{!55, !13, i64 32}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!16, !13, i64 320}
-!62 = !{!7, !7, i64 0}
-!63 = !{!16, !6, i64 312}
-!64 = !{!5, !11, i64 16}
-!65 = !{!16, !6, i64 288}
-!66 = !{!13, !13, i64 0}
-!67 = !{!12, !12, i64 0}
-!68 = !{!16, !12, i64 8}
-!69 = !{!16, !6, i64 16}
-!70 = distinct !{!70, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!16, !13, i64 320}
+!63 = !{!7, !7, i64 0}
+!64 = !{!16, !6, i64 312}
+!65 = !{!5, !11, i64 16}
+!66 = !{!16, !6, i64 288}
+!67 = !{!13, !13, i64 0}
+!68 = !{!12, !12, i64 0}
+!69 = !{!16, !12, i64 8}
+!70 = !{!16, !6, i64 16}
+!71 = distinct !{!71, !61, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !61}

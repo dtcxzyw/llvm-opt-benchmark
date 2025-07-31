@@ -204,16 +204,16 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unname
 define dso_local void @pq_sendfloat4(ptr noundef %0, float noundef %1) local_unnamed_addr #0 {
   %3 = bitcast float %1 to i32
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 4) #9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
-  %5 = load ptr, ptr %0, align 8, !alias.scope !12
+  %5 = load ptr, ptr %0, align 8, !alias.scope !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !alias.scope !12
+  %7 = load i32, ptr %6, align 8, !alias.scope !13
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
-  store i32 %4, ptr %9, align 1, !noalias !12
+  store i32 %4, ptr %9, align 1, !noalias !13
   %10 = add i32 %7, 4
-  store i32 %10, ptr %6, align 8, !alias.scope !12
+  store i32 %10, ptr %6, align 8, !alias.scope !13
   ret void
 }
 
@@ -221,16 +221,16 @@ define dso_local void @pq_sendfloat4(ptr noundef %0, float noundef %1) local_unn
 define dso_local void @pq_sendfloat8(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = bitcast double %1 to i64
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 8) #9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
-  %5 = load ptr, ptr %0, align 8, !alias.scope !15
+  %5 = load ptr, ptr %0, align 8, !alias.scope !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !alias.scope !15
+  %7 = load i32, ptr %6, align 8, !alias.scope !16
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
-  store i64 %4, ptr %9, align 1, !noalias !15
+  store i64 %4, ptr %9, align 1, !noalias !16
   %10 = add i32 %7, 8
-  store i32 %10, ptr %6, align 8, !alias.scope !15
+  store i32 %10, ptr %6, align 8, !alias.scope !16
   ret void
 }
 
@@ -903,11 +903,12 @@ attributes #11 = { cold nounwind }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"pq_writeint32: argument 0"}
 !9 = distinct !{!9, !"pq_writeint32"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"pq_writeint32: argument 0"}
-!14 = distinct !{!14, !"pq_writeint32"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"pq_writeint64: argument 0"}
-!17 = distinct !{!17, !"pq_writeint64"}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"pq_writeint32: argument 0"}
+!15 = distinct !{!15, !"pq_writeint32"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"pq_writeint64: argument 0"}
+!18 = distinct !{!18, !"pq_writeint64"}

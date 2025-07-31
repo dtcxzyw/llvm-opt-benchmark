@@ -197,7 +197,7 @@ define i32 @udispopt_fromPluralCategoryIdentifier_77(ptr noundef readonly captur
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !33
+  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !34
 
 .split.loop.exit:                                 ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -239,7 +239,7 @@ define i32 @udispopt_fromNounClassIdentifier_77(ptr noundef readonly captures(no
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !34
+  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !35
 
 .split.loop.exit:                                 ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -295,7 +295,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !28 = !{!29, !29, i64 0}
 !29 = !{!"p1 omnipotent char", !30, i64 0}
 !30 = !{!"any pointer", !6, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32}
-!34 = distinct !{!34, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !32, !33}
+!35 = distinct !{!35, !32, !33}

@@ -206,7 +206,7 @@ test_string_null_empty.exit134:                   ; preds = %33, %35
   store i8 %spec.select132, ptr %81, align 1, !tbaa !8
   %82 = add nuw i64 %.1111143, 1
   %exitcond162.not = icmp eq i64 %82, %70
-  br i1 %exitcond162.not, label %._crit_edge.thread, label %73, !llvm.loop !15
+  br i1 %exitcond162.not, label %._crit_edge.thread, label %73, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %69
   %83 = icmp ne i64 %.0114, 0
@@ -236,7 +236,7 @@ test_string_null_empty.exit134:                   ; preds = %33, %35
   store i8 %spec.select166, ptr %91, align 1, !tbaa !8
   %92 = add nuw i64 %.3145, 1
   %exitcond163.not = icmp eq i64 %92, %85
-  br i1 %exitcond163.not, label %._crit_edge149.loopexit, label %.lr.ph148, !llvm.loop !16
+  br i1 %exitcond163.not, label %._crit_edge149.loopexit, label %.lr.ph148, !llvm.loop !17
 
 ._crit_edge149.loopexit:                          ; preds = %.lr.ph148
   %93 = icmp ne i32 %spec.select167, 0
@@ -339,7 +339,7 @@ test_string_null_empty.exit137:                   ; preds = %116
   %132 = icmp ne i64 %129, 0
   %133 = icmp ne i64 %130, 0
   %134 = select i1 %132, i1 true, i1 %133
-  br i1 %134, label %51, label %test_string_null_empty.exit, !llvm.loop !17
+  br i1 %134, label %51, label %test_string_null_empty.exit, !llvm.loop !18
 
 test_string_null_empty.exit:                      ; preds = %126, %39, %37, %28, %26
   %135 = call i32 @test_flush_stderr() #8
@@ -376,9 +376,9 @@ define internal fastcc void @test_fail_bignum_common(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %11) #8
   call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %12) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
-  store i32 1, ptr %13, align 4, !tbaa !18
+  store i32 1, ptr %13, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
-  store i32 1, ptr %14, align 4, !tbaa !18
+  store i32 1, ptr %14, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4000, ptr nonnull %15) #8
   tail call void @test_fail_message_prefix(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #8
   %16 = icmp eq ptr %7, null
@@ -574,7 +574,7 @@ test_bignum_zero_print.exit154:                   ; preds = %test_bignum_zero_pr
   %108 = getelementptr inbounds nuw [81 x i8], ptr %10, i64 0, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !8
   %.not137 = icmp eq i8 %109, 0
-  br i1 %.not137, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not137, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %110 = icmp eq i32 %.1116, 0
@@ -651,7 +651,7 @@ test_bignum_zero_print.exit154:                   ; preds = %test_bignum_zero_pr
   %140 = getelementptr inbounds nuw i8, ptr %.1109174, i64 32
   %.2 = select i1 %.not141, ptr null, ptr %140
   %.not136 = icmp eq i64 %93, 0
-  br i1 %.not136, label %._crit_edge177, label %92, !llvm.loop !21
+  br i1 %.not136, label %._crit_edge177, label %92, !llvm.loop !22
 
 .thread156:                                       ; preds = %test_bignum_zero_print.exit, %test_bignum_zero_print.exit154
   %141 = tail call i32 @test_flush_stderr() #8
@@ -757,7 +757,7 @@ test_bignum_zero_null.exit:                       ; preds = %6
   %.1.i = phi ptr [ %35, %34 ], [ %31, %18 ]
   %37 = add nuw i64 %.01418.i, 1
   %exitcond.not.i = icmp eq i64 %37, %16
-  br i1 %exitcond.not.i, label %hex_convert_memory.exit, label %18, !llvm.loop !22
+  br i1 %exitcond.not.i, label %hex_convert_memory.exit, label %18, !llvm.loop !23
 
 hex_convert_memory.exit:                          ; preds = %36, %14
   %.015.lcssa.i = phi ptr [ %4, %14 ], [ %.1.i, %36 ]
@@ -775,7 +775,7 @@ hex_convert_memory.exit:                          ; preds = %36, %14
   %42 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %43 = load i8, ptr %42, align 1, !tbaa !8
   %.not17 = icmp eq i8 %43, 0
-  br i1 %.not17, label %.critedge, label %38, !llvm.loop !23
+  br i1 %.not17, label %.critedge, label %38, !llvm.loop !24
 
 .critedge:                                        ; preds = %38, %41
   %.1 = phi ptr [ %42, %41 ], [ %.0, %38 ]
@@ -944,7 +944,7 @@ test_memory_null_empty.exit126:                   ; preds = %28, %30
   %.1.i = phi ptr [ %65, %64 ], [ %61, %48 ]
   %67 = add nuw i64 %.01418.i, 1
   %exitcond.not.i = icmp eq i64 %67, %46
-  br i1 %exitcond.not.i, label %hex_convert_memory.exit, label %48, !llvm.loop !22
+  br i1 %exitcond.not.i, label %hex_convert_memory.exit, label %48, !llvm.loop !23
 
 hex_convert_memory.exit:                          ; preds = %66
   store i8 0, ptr %.1.i, align 1, !tbaa !8
@@ -997,7 +997,7 @@ hex_convert_memory.exit:                          ; preds = %66
   %.1.i135 = phi ptr [ %89, %88 ], [ %85, %72 ]
   %91 = add nuw i64 %.01418.i131, 1
   %exitcond.not.i136 = icmp eq i64 %91, %70
-  br i1 %exitcond.not.i136, label %92, label %72, !llvm.loop !22
+  br i1 %exitcond.not.i136, label %92, label %72, !llvm.loop !23
 
 92:                                               ; preds = %90
   store i8 0, ptr %.1.i135, align 1, !tbaa !8
@@ -1039,7 +1039,7 @@ hex_convert_memory.exit:                          ; preds = %66
   %.2109 = phi ptr [ %106, %105 ], [ %.1108, %96 ]
   %108 = add nuw nsw i64 %.1104146, 1
   %exitcond.not = icmp eq i64 %108, %94
-  br i1 %exitcond.not, label %109, label %96, !llvm.loop !24
+  br i1 %exitcond.not, label %109, label %96, !llvm.loop !25
 
 109:                                              ; preds = %107
   store i8 0, ptr %.2109, align 1, !tbaa !8
@@ -1135,7 +1135,7 @@ test_memory_null_empty.exit140:                   ; preds = %134, %132, %136, %1
   %147 = icmp ne i64 %144, 0
   %148 = icmp ne i64 %145, 0
   %149 = select i1 %147, i1 true, i1 %148
-  br i1 %149, label %.lr.ph, label %test_memory_null_empty.exit, !llvm.loop !25
+  br i1 %149, label %.lr.ph, label %test_memory_null_empty.exit, !llvm.loop !26
 
 test_memory_null_empty.exit:                      ; preds = %141, %34, %32, %23, %21
   %150 = call i32 @test_flush_stderr() #8
@@ -1216,11 +1216,11 @@ define internal fastcc i32 @convert_bn_memory(ptr noundef readonly captures(none
   %.1.i = phi ptr [ %23, %22 ], [ %19, %.preheader60 ]
   %25 = add nuw nsw i64 %.01418.i, 1
   %exitcond.not.i = icmp eq i64 %25, 32
-  br i1 %exitcond.not.i, label %hex_convert_memory.exit, label %.preheader60, !llvm.loop !22
+  br i1 %exitcond.not.i, label %hex_convert_memory.exit, label %.preheader60, !llvm.loop !23
 
 hex_convert_memory.exit:                          ; preds = %24
   store i8 0, ptr %.1.i, align 1, !tbaa !8
-  %26 = load i32, ptr %2, align 4, !tbaa !18
+  %26 = load i32, ptr %2, align 4, !tbaa !19
   %.not54 = icmp eq i32 %26, 0
   br i1 %.not54, label %60, label %.preheader
 
@@ -1244,7 +1244,7 @@ hex_convert_memory.exit:                          ; preds = %24
   %.247 = phi i32 [ %29, %28 ], [ %.146, %.preheader ]
   %.1 = phi ptr [ %.042, %28 ], [ %.041, %.preheader ]
   %31 = getelementptr inbounds nuw i8, ptr %.042, i64 1
-  br label %.preheader, !llvm.loop !26
+  br label %.preheader, !llvm.loop !27
 
 32:                                               ; preds = %.preheader
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1258,13 +1258,13 @@ hex_convert_memory.exit:                          ; preds = %24
   br i1 %.not57, label %60, label %37
 
 37:                                               ; preds = %35
-  store i32 0, ptr %2, align 4, !tbaa !18
+  store i32 0, ptr %2, align 4, !tbaa !19
   store i8 45, ptr %.041, align 1, !tbaa !8
   %38 = add nsw i32 %.146, 1
   br label %60
 
 39:                                               ; preds = %.preheader
-  store i32 0, ptr %2, align 4, !tbaa !18
+  store i32 0, ptr %2, align 4, !tbaa !19
   %40 = tail call i32 @BN_is_negative(ptr noundef nonnull %3) #8
   %.not55 = icmp eq i32 %40, 0
   br i1 %.not55, label %60, label %41
@@ -1294,7 +1294,7 @@ hex_convert_memory.exit:                          ; preds = %24
   %.2 = phi ptr [ %48, %47 ], [ %44, %43 ]
   %50 = add nuw nsw i32 %.04463, 1
   %exitcond.not = icmp eq i32 %50, 64
-  br i1 %exitcond.not, label %51, label %43, !llvm.loop !27
+  br i1 %exitcond.not, label %51, label %43, !llvm.loop !28
 
 51:                                               ; preds = %49
   store i8 0, ptr %.2, align 1, !tbaa !8
@@ -1363,18 +1363,19 @@ attributes #10 = { nounwind willreturn memory(none) }
 !10 = !{!"p1 short", !5, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !6, i64 0}
-!20 = distinct !{!20, !14}
-!21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !6, i64 0}
+!21 = distinct !{!21, !14, !15}
+!22 = distinct !{!22, !14, !15}
+!23 = distinct !{!23, !14, !15}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}
+!26 = distinct !{!26, !14, !15}
+!27 = distinct !{!27, !14, !15}
+!28 = distinct !{!28, !14, !15}

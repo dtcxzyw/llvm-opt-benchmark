@@ -69,10 +69,10 @@ define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, p
 22:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %24 = load i8, ptr %23, align 1, !tbaa !17
+  %24 = load i8, ptr %23, align 1, !tbaa !18
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i16, ptr %16, i64 %25
-  %27 = load i16, ptr %26, align 2, !tbaa !18
+  %27 = load i16, ptr %26, align 2, !tbaa !19
   %28 = and i16 %27, 2048
   %.not = icmp eq i16 %28, 0
   br i1 %.not, label %29, label %21
@@ -86,82 +86,82 @@ define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, p
 33:                                               ; preds = %21
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
-  %35 = load i8, ptr %5, align 1, !tbaa !17
+  %35 = load i8, ptr %5, align 1, !tbaa !18
   %36 = zext i8 %35 to i32
   %37 = mul nuw nsw i32 %36, 1000
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %39 = load i8, ptr %38, align 1, !tbaa !17
+  %39 = load i8, ptr %38, align 1, !tbaa !18
   %40 = zext i8 %39 to i32
   %41 = mul nuw nsw i32 %40, 100
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %43 = load i8, ptr %42, align 1, !tbaa !17
+  %43 = load i8, ptr %42, align 1, !tbaa !18
   %44 = zext i8 %43 to i32
   %45 = mul nuw nsw i32 %44, 10
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %47 = load i8, ptr %46, align 1, !tbaa !17
+  %47 = load i8, ptr %46, align 1, !tbaa !18
   %48 = zext i8 %47 to i32
   %49 = add nsw i32 %37, -55228
   %50 = add nsw i32 %49, %41
   %51 = add nsw i32 %50, %45
   %52 = add nsw i32 %51, %48
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %52, ptr %53, align 4, !tbaa !20
+  store i32 %52, ptr %53, align 4, !tbaa !21
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %55 = load i8, ptr %54, align 1, !tbaa !17
+  %55 = load i8, ptr %54, align 1, !tbaa !18
   %56 = zext i8 %55 to i32
   %57 = mul nuw nsw i32 %56, 10
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %59 = load i8, ptr %58, align 1, !tbaa !17
+  %59 = load i8, ptr %58, align 1, !tbaa !18
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %60, -529
   %62 = add nsw i32 %61, %57
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %62, ptr %63, align 8, !tbaa !24
+  store i32 %62, ptr %63, align 8, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %65 = load i8, ptr %64, align 1, !tbaa !17
+  %65 = load i8, ptr %64, align 1, !tbaa !18
   %66 = zext i8 %65 to i32
   %67 = mul nuw nsw i32 %66, 10
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %69 = load i8, ptr %68, align 1, !tbaa !17
+  %69 = load i8, ptr %68, align 1, !tbaa !18
   %70 = zext i8 %69 to i32
   %71 = add nuw nsw i32 %70, -528
   %72 = add nsw i32 %71, %67
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %72, ptr %73, align 4, !tbaa !25
+  store i32 %72, ptr %73, align 4, !tbaa !26
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %75 = load i8, ptr %74, align 1, !tbaa !17
+  %75 = load i8, ptr %74, align 1, !tbaa !18
   %76 = zext i8 %75 to i32
   %77 = mul nuw nsw i32 %76, 10
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %79 = load i8, ptr %78, align 1, !tbaa !17
+  %79 = load i8, ptr %78, align 1, !tbaa !18
   %80 = zext i8 %79 to i32
   %81 = add nuw nsw i32 %80, -528
   %82 = add nsw i32 %81, %77
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %82, ptr %83, align 8, !tbaa !26
+  store i32 %82, ptr %83, align 8, !tbaa !27
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %85 = load i8, ptr %84, align 1, !tbaa !17
+  %85 = load i8, ptr %84, align 1, !tbaa !18
   %86 = zext i8 %85 to i32
   %87 = mul nuw nsw i32 %86, 10
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  %89 = load i8, ptr %88, align 1, !tbaa !17
+  %89 = load i8, ptr %88, align 1, !tbaa !18
   %90 = zext i8 %89 to i32
   %91 = add nuw nsw i32 %90, -528
   %92 = add nsw i32 %91, %87
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %92, ptr %93, align 4, !tbaa !27
+  store i32 %92, ptr %93, align 4, !tbaa !28
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %95 = load i8, ptr %94, align 1, !tbaa !17
+  %95 = load i8, ptr %94, align 1, !tbaa !18
   %96 = zext i8 %95 to i32
   %97 = mul nuw nsw i32 %96, 10
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 13
-  %99 = load i8, ptr %98, align 1, !tbaa !17
+  %99 = load i8, ptr %98, align 1, !tbaa !18
   %100 = zext i8 %99 to i32
   %101 = add nuw nsw i32 %100, -528
   %102 = add nsw i32 %101, %97
-  store i32 %102, ptr %7, align 8, !tbaa !28
+  store i32 %102, ptr %7, align 8, !tbaa !29
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 -1, ptr %103, align 8, !tbaa !29
+  store i32 -1, ptr %103, align 8, !tbaa !30
   %104 = call i64 @H5_make_time(ptr noundef nonnull %7) #9
   %105 = icmp eq i64 %104, -1
   br i1 %105, label %106, label %110
@@ -206,18 +206,18 @@ define internal noundef i32 @H5O__mtime_encode(ptr readnone captures(none) %0, i
 12:                                               ; preds = %5
   %13 = tail call ptr @gmtime(ptr noundef %4) #9
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !20
+  %15 = load i32, ptr %14, align 4, !tbaa !21
   %16 = add nsw i32 %15, 1900
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !24
+  %18 = load i32, ptr %17, align 8, !tbaa !25
   %19 = add nsw i32 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !25
+  %21 = load i32, ptr %20, align 4, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !26
+  %23 = load i32, ptr %22, align 8, !tbaa !27
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !27
-  %26 = load i32, ptr %13, align 8, !tbaa !28
+  %25 = load i32, ptr %24, align 4, !tbaa !28
+  %26 = load i32, ptr %13, align 8, !tbaa !29
   %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3, i64 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %16, i32 noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %26) #9
   br label %28
 
@@ -330,7 +330,7 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr readnone captures(none) %
   br label %54
 
 21:                                               ; preds = %15
-  %22 = load i8, ptr %5, align 1, !tbaa !17
+  %22 = load i8, ptr %5, align 1, !tbaa !18
   %.not = icmp eq i8 %22, 1
   br i1 %.not, label %27, label %23
 
@@ -401,31 +401,31 @@ define internal noundef i32 @H5O__mtime_new_encode(ptr readnone captures(none) %
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 1, ptr %3, align 1, !tbaa !17
+  store i8 1, ptr %3, align 1, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 0, ptr %13, align 1, !tbaa !17
+  store i8 0, ptr %13, align 1, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 0, ptr %14, align 1, !tbaa !17
+  store i8 0, ptr %14, align 1, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 0, ptr %15, align 1, !tbaa !17
+  store i8 0, ptr %15, align 1, !tbaa !18
   %17 = load i64, ptr %4, align 8, !tbaa !13
   %18 = trunc i64 %17 to i8
-  store i8 %18, ptr %16, align 1, !tbaa !17
+  store i8 %18, ptr %16, align 1, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %20 = load i64, ptr %4, align 8, !tbaa !13
   %21 = lshr i64 %20, 8
   %22 = trunc i64 %21 to i8
-  store i8 %22, ptr %19, align 1, !tbaa !17
+  store i8 %22, ptr %19, align 1, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %24 = load i64, ptr %4, align 8, !tbaa !13
   %25 = lshr i64 %24, 16
   %26 = trunc i64 %25 to i8
-  store i8 %26, ptr %23, align 1, !tbaa !17
+  store i8 %26, ptr %23, align 1, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %28 = load i64, ptr %4, align 8, !tbaa !13
   %29 = lshr i64 %28, 24
   %30 = trunc i64 %29 to i8
-  store i8 %30, ptr %27, align 1, !tbaa !17
+  store i8 %30, ptr %27, align 1, !tbaa !18
   br label %31
 
 31:                                               ; preds = %12, %5
@@ -501,18 +501,19 @@ attributes #10 = { nounwind willreturn memory(none) }
 !12 = !{!"any pointer", !5, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !5, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!5, !5, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"short", !5, i64 0}
-!20 = !{!21, !22, i64 20}
-!21 = !{!"tm", !22, i64 0, !22, i64 4, !22, i64 8, !22, i64 12, !22, i64 16, !22, i64 20, !22, i64 24, !22, i64 28, !22, i64 32, !14, i64 40, !23, i64 48}
-!22 = !{!"int", !5, i64 0}
-!23 = !{!"p1 omnipotent char", !12, i64 0}
-!24 = !{!21, !22, i64 16}
-!25 = !{!21, !22, i64 12}
-!26 = !{!21, !22, i64 8}
-!27 = !{!21, !22, i64 4}
-!28 = !{!21, !22, i64 0}
-!29 = !{!21, !22, i64 32}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!5, !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !5, i64 0}
+!21 = !{!22, !23, i64 20}
+!22 = !{!"tm", !23, i64 0, !23, i64 4, !23, i64 8, !23, i64 12, !23, i64 16, !23, i64 20, !23, i64 24, !23, i64 28, !23, i64 32, !14, i64 40, !24, i64 48}
+!23 = !{!"int", !5, i64 0}
+!24 = !{!"p1 omnipotent char", !12, i64 0}
+!25 = !{!22, !23, i64 16}
+!26 = !{!22, !23, i64 12}
+!27 = !{!22, !23, i64 8}
+!28 = !{!22, !23, i64 4}
+!29 = !{!22, !23, i64 0}
+!30 = !{!22, !23, i64 32}

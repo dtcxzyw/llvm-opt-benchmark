@@ -1193,7 +1193,7 @@ define internal fastcc ptr @extcap_tokenize_sentences(ptr noundef %0) unnamed_ad
   %115 = load ptr, ptr %2, align 8
   %116 = call i32 @g_match_info_matches(ptr noundef %115)
   %.not65.i = icmp eq i32 %116, 0
-  br i1 %.not65.i, label %.thread.i, label %.lr.ph.i
+  br i1 %.not65.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !9
 
 .thread.i:                                        ; preds = %109, %.lr.ph.i, %28
   %117 = load ptr, ptr %2, align 8
@@ -1221,7 +1221,7 @@ extcap_tokenize_sentence.exit:                    ; preds = %24, %.thread.i
   %121 = getelementptr i8, ptr %.017, i64 8
   %122 = load ptr, ptr %121, align 8
   %.not = icmp eq ptr %122, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %120, %1
   %.09.lcssa = phi ptr [ null, %1 ], [ %.1, %120 ]
@@ -1255,7 +1255,7 @@ define hidden ptr @extcap_parse_values(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %.01115, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %7
   tail call void @g_list_foreach(ptr noundef nonnull %2, ptr noundef nonnull @extcap_free_tokenized_sentence, ptr noundef null)
@@ -1850,7 +1850,7 @@ extcap_parse_interface_sentence.exit.thread:      ; preds = %19, %35, %28, %extc
   %231 = getelementptr inbounds nuw i8, ptr %.02242, i64 8
   %232 = load ptr, ptr %231, align 8
   %.not = icmp eq ptr %232, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %extcap_parse_interface_sentence.exit.thread
   call void @g_list_foreach(ptr noundef nonnull %4, ptr noundef nonnull @extcap_free_tokenized_sentence, ptr noundef null)
@@ -1952,7 +1952,7 @@ extcap_parse_dlt_sentence.exit.thread:            ; preds = %5, %.lr.ph, %33, %2
   %39 = getelementptr inbounds nuw i8, ptr %.01016, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %extcap_parse_dlt_sentence.exit.thread
   tail call void @g_list_foreach(ptr noundef nonnull %2, ptr noundef nonnull @extcap_free_tokenized_sentence, ptr noundef null)
@@ -2110,9 +2110,11 @@ attributes #9 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

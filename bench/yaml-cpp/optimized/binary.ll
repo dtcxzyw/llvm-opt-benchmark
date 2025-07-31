@@ -298,7 +298,7 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
   %.132 = phi i64 [ %.03177, %.lr.ph ], [ %51, %50 ]
   %54 = add nuw i64 %.03375, 1
   %.not46 = icmp ult i64 %54, %53
-  br i1 %.not46, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %.not46, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %52
   %55 = ptrtoint ptr %.239 to i64
@@ -391,11 +391,11 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %85, %_ZSt2
   %.sroa.13.0 = phi ptr [ %86, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %.0.i.i.i.i.i, %88 ], [ %69, %68 ], [ %73, %72 ], [ %spec.select, %90 ]
   %.sroa.19.0 = phi ptr [ %87, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %11, %88 ], [ %11, %68 ], [ %11, %72 ], [ %11, %90 ]
   %.sroa.053.1 = phi ptr [ %79, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %10, %88 ], [ %10, %68 ], [ %10, %72 ], [ %10, %90 ]
-  store ptr %.sroa.053.1, ptr %0, align 8, !tbaa !17
+  store ptr %.sroa.053.1, ptr %0, align 8, !tbaa !18
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.13.0, ptr %92, align 8, !tbaa !19
+  store ptr %.sroa.13.0, ptr %92, align 8, !tbaa !20
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.19.0, ptr %93, align 8, !tbaa !20
+  store ptr %.sroa.19.0, ptr %93, align 8, !tbaa !21
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit52
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i, %76
@@ -473,10 +473,11 @@ attributes #13 = { noreturn }
 !11 = !{!"long", !7, i64 0}
 !12 = !{!7, !7, i64 0}
 !13 = !{!10, !5, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = !{!18, !5, i64 0}
-!18 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!19 = !{!18, !5, i64 8}
-!20 = !{!18, !5, i64 16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = !{!19, !5, i64 0}
+!19 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!20 = !{!19, !5, i64 8}
+!21 = !{!19, !5, i64 16}

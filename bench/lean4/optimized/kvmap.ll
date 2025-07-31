@@ -471,7 +471,7 @@ _ZN4lean8list_refINS_8pair_refINS_4nameENS_10data_valueEEEEC2ERKS5_.exit: ; pred
   unreachable
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
-  %29 = load i8, ptr %4, align 8, !tbaa !13, !range !18, !noundef !19
+  %29 = load i8, ptr %4, align 8, !tbaa !13, !range !19, !noundef !20
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit
 
@@ -484,12 +484,12 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
   br i1 %35, label %36, label %_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread9
 
 _ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread9: ; preds = %31
-  store i8 0, ptr %0, align 8, !tbaa !20
+  store i8 0, ptr %0, align 8, !tbaa !21
   br label %_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i8 1, ptr %0, align 8, !tbaa !20
+  store i8 1, ptr %0, align 8, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %37, align 8, !tbaa !3
   store ptr %39, ptr %38, align 8, !tbaa !3
@@ -529,7 +529,7 @@ _ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread9: ; preds = %31
   br label %66
 
 _ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit: ; preds = %_ZN4lean10object_refD2Ev.exit
-  store i8 0, ptr %0, align 8, !tbaa !20
+  store i8 0, ptr %0, align 8, !tbaa !21
   br label %_ZN4lean8optionalINS_10data_valueEED2Ev.exit
 
 _ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread: ; preds = %47, %36, %44, %46, %_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread9
@@ -582,7 +582,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4lean8optionalINS_10data_valueEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i8, ptr %0, align 8, !tbaa !13, !range !18, !noundef !19
+  %2 = load i8, ptr %0, align 8, !tbaa !13, !range !19, !noundef !20
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %_ZN4lean10object_refD2Ev.exit
 
@@ -693,7 +693,7 @@ _ZN4lean8list_refINS_8pair_refINS_4nameENS_10data_valueEEEEC2ERKS5_.exit: ; pred
   unreachable
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
-  %29 = load i8, ptr %4, align 8, !tbaa !13, !range !18, !noundef !19
+  %29 = load i8, ptr %4, align 8, !tbaa !13, !range !19, !noundef !20
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %_ZN4lean8optionalINS_3natEEC2ERKS1_.exit
 
@@ -707,12 +707,12 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
   br i1 %35, label %36, label %_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread9
 
 _ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread9: ; preds = %31
-  store i8 0, ptr %0, align 8, !tbaa !22
+  store i8 0, ptr %0, align 8, !tbaa !23
   br label %_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i8 1, ptr %0, align 8, !tbaa !22
+  store i8 1, ptr %0, align 8, !tbaa !23
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %37, align 8, !tbaa !3
   store ptr %39, ptr %38, align 8, !tbaa !3
@@ -752,7 +752,7 @@ _ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread9: ; preds = %31
   br label %66
 
 _ZN4lean8optionalINS_3natEEC2ERKS1_.exit:         ; preds = %_ZN4lean10object_refD2Ev.exit
-  store i8 0, ptr %0, align 8, !tbaa !22
+  store i8 0, ptr %0, align 8, !tbaa !23
   br label %_ZN4lean8optionalINS_10data_valueEED2Ev.exit
 
 _ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread:  ; preds = %47, %36, %44, %46, %_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread9
@@ -865,7 +865,7 @@ _ZN4lean8list_refINS_8pair_refINS_4nameENS_10data_valueEEEEC2ERKS5_.exit: ; pred
   unreachable
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
-  %29 = load i8, ptr %4, align 8, !tbaa !13, !range !18, !noundef !19
+  %29 = load i8, ptr %4, align 8, !tbaa !13, !range !19, !noundef !20
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %53
 
@@ -879,7 +879,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
   br i1 %35, label %36, label %.thread14
 
 .thread14:                                        ; preds = %31
-  store i8 0, ptr %0, align 1, !tbaa !24
+  store i8 0, ptr %0, align 1, !tbaa !25
   br label %54
 
 36:                                               ; preds = %31
@@ -913,9 +913,9 @@ _ZNK4lean10object_ref10to_obj_argEv.exit.i:       ; preds = %44, %43, %41, %36
 .thread:                                          ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit.i
   %46 = icmp ne i8 %45, 0
   %47 = zext i1 %46 to i8
-  store i8 1, ptr %0, align 1, !tbaa !24
+  store i8 1, ptr %0, align 1, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !26
+  store i8 %47, ptr %48, align 1, !tbaa !27
   br label %54
 
 49:                                               ; preds = %_ZN4lean8list_refINS_8pair_refINS_4nameENS_10data_valueEEEEC2ERKS5_.exit
@@ -931,7 +931,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit.i:       ; preds = %44, %43, %41, %36
   br label %69
 
 53:                                               ; preds = %_ZN4lean10object_refD2Ev.exit
-  store i8 0, ptr %0, align 1, !tbaa !24
+  store i8 0, ptr %0, align 1, !tbaa !25
   br label %_ZN4lean8optionalINS_10data_valueEED2Ev.exit
 
 54:                                               ; preds = %.thread14, %.thread
@@ -1044,7 +1044,7 @@ _ZN4lean8list_refINS_8pair_refINS_4nameENS_10data_valueEEEEC2ERKS5_.exit: ; pred
   unreachable
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
-  %29 = load i8, ptr %4, align 8, !tbaa !13, !range !18, !noundef !19
+  %29 = load i8, ptr %4, align 8, !tbaa !13, !range !19, !noundef !20
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit
 
@@ -1058,12 +1058,12 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
   br i1 %35, label %36, label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread9
 
 _ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread9: ; preds = %31
-  store i8 0, ptr %0, align 8, !tbaa !27
+  store i8 0, ptr %0, align 8, !tbaa !28
   br label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i8 1, ptr %0, align 8, !tbaa !27
+  store i8 1, ptr %0, align 8, !tbaa !28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %37, align 8, !tbaa !3
   store ptr %39, ptr %38, align 8, !tbaa !3
@@ -1103,7 +1103,7 @@ _ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread9: ; preds = %31
   br label %66
 
 _ZN4lean8optionalINS_4nameEEC2ERKS1_.exit:        ; preds = %_ZN4lean10object_refD2Ev.exit
-  store i8 0, ptr %0, align 8, !tbaa !27
+  store i8 0, ptr %0, align 8, !tbaa !28
   br label %_ZN4lean8optionalINS_10data_valueEED2Ev.exit
 
 _ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread: ; preds = %47, %36, %44, %46, %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread9
@@ -1156,7 +1156,7 @@ define void @_ZN4lean10set_stringERKNS_8list_refINS_8pair_refINS_4nameENS_10data
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %7, ptr %5, align 8, !tbaa !29, !noalias !30
+  store ptr %7, ptr %5, align 8, !tbaa !30, !noalias !31
   call void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %6, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %8 = load ptr, ptr %3, align 8, !tbaa !3
@@ -1259,15 +1259,15 @@ define internal fastcc void @_ZN4leanL6insertERKNS_8list_refINS_8pair_refINS_4na
   call void @_ZN4lean8pair_refINS_4nameENS_10data_valueEEC2ERKS1_RKS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %14 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6, !noalias !33
-  store ptr %14, ptr %5, align 16, !tbaa !29, !noalias !33
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6, !noalias !34
+  store ptr %14, ptr %5, align 16, !tbaa !30, !noalias !34
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %15, align 8, !tbaa !29, !noalias !33
+  store ptr inttoptr (i64 1 to ptr), ptr %15, align 8, !tbaa !30, !noalias !34
   invoke void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %6, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 0)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6, !noalias !33
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6, !noalias !34
   %16 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %16, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
@@ -1571,7 +1571,7 @@ define void @_ZN4lean8set_nameERKNS_8list_refINS_8pair_refINS_4nameENS_10data_va
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %7, ptr %5, align 8, !tbaa !29, !noalias !36
+  store ptr %7, ptr %5, align 8, !tbaa !30, !noalias !37
   call void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %6, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %8 = load ptr, ptr %3, align 8, !tbaa !3
@@ -1663,7 +1663,7 @@ define void @_ZN4lean7set_natERKNS_8list_refINS_8pair_refINS_4nameENS_10data_val
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %7, ptr %5, align 8, !tbaa !29, !noalias !39
+  store ptr %7, ptr %5, align 8, !tbaa !30, !noalias !40
   call void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %6, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %8 = load ptr, ptr %3, align 8, !tbaa !3
@@ -1780,12 +1780,12 @@ _ZN4lean10object_refD2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = load ptr, ptr %2, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6, !noalias !42
-  store ptr %5, ptr %3, align 16, !tbaa !29, !noalias !42
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6, !noalias !43
+  store ptr %5, ptr %3, align 16, !tbaa !30, !noalias !43
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !29, !noalias !42
+  store ptr %6, ptr %7, align 8, !tbaa !30, !noalias !43
   call void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %4, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6, !noalias !42
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6, !noalias !43
   %8 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %8, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
@@ -1856,12 +1856,12 @@ _ZN4lean10object_refD2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = load ptr, ptr %2, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6, !noalias !45
-  store ptr %5, ptr %3, align 16, !tbaa !29, !noalias !45
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6, !noalias !46
+  store ptr %5, ptr %3, align 16, !tbaa !30, !noalias !46
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !29, !noalias !45
+  store ptr %6, ptr %7, align 8, !tbaa !30, !noalias !46
   call void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %4, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6, !noalias !45
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6, !noalias !46
   %8 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %8, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
@@ -1953,35 +1953,36 @@ attributes #7 = { noreturn nounwind }
 !13 = !{!14, !15, i64 0}
 !14 = !{!"_ZTSN4lean8optionalINS_10data_valueEEE", !15, i64 0, !6, i64 8}
 !15 = !{!"bool", !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = !{!21, !15, i64 0}
-!21 = !{!"_ZTSN4lean8optionalINS_10string_refEEE", !15, i64 0, !6, i64 8}
-!22 = !{!23, !15, i64 0}
-!23 = !{!"_ZTSN4lean8optionalINS_3natEEE", !15, i64 0, !6, i64 8}
-!24 = !{!25, !15, i64 0}
-!25 = !{!"_ZTSN4lean8optionalIbEE", !15, i64 0, !6, i64 1}
-!26 = !{!15, !15, i64 0}
-!27 = !{!28, !15, i64 0}
-!28 = !{!"_ZTSN4lean8optionalINS_4nameEEE", !15, i64 0, !6, i64 8}
-!29 = !{!5, !5, i64 0}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
-!32 = distinct !{!32, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j: argument 0"}
-!35 = distinct !{!35, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
-!38 = distinct !{!38, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
-!41 = distinct !{!41, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j: argument 0"}
-!44 = distinct !{!44, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j: argument 0"}
-!47 = distinct !{!47, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j"}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!22, !15, i64 0}
+!22 = !{!"_ZTSN4lean8optionalINS_10string_refEEE", !15, i64 0, !6, i64 8}
+!23 = !{!24, !15, i64 0}
+!24 = !{!"_ZTSN4lean8optionalINS_3natEEE", !15, i64 0, !6, i64 8}
+!25 = !{!26, !15, i64 0}
+!26 = !{!"_ZTSN4lean8optionalIbEE", !15, i64 0, !6, i64 1}
+!27 = !{!15, !15, i64 0}
+!28 = !{!29, !15, i64 0}
+!29 = !{!"_ZTSN4lean8optionalINS_4nameEEE", !15, i64 0, !6, i64 8}
+!30 = !{!5, !5, i64 0}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
+!33 = distinct !{!33, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j: argument 0"}
+!36 = distinct !{!36, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
+!39 = distinct !{!39, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
+!42 = distinct !{!42, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j: argument 0"}
+!45 = distinct !{!45, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j: argument 0"}
+!48 = distinct !{!48, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j"}

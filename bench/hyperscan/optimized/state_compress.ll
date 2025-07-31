@@ -389,7 +389,7 @@ define hidden void @storecompressed128(ptr noundef writeonly captures(none) %0, 
   %.2.i = phi i64 [ %51, %46 ], [ %64, %61 ], [ 0, %55 ]
   %.126.i = phi i32 [ %53, %46 ], [ %57, %61 ], [ %57, %55 ]
   %.1.i = phi ptr [ %.0.i6, %46 ], [ %56, %61 ], [ %56, %55 ]
-  br i1 %47, label %46, label %13
+  br i1 %47, label %46, label %13, !llvm.loop !5
 
 pack_bits_64.exit:                                ; preds = %13, %16, %17, %25, %30, %35, %37, %42, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
@@ -462,14 +462,14 @@ define hidden void @loadcompressed128(ptr noundef writeonly captures(none) %0, p
   %31 = sub nuw i32 %.039.i5, %15
   %32 = getelementptr inbounds nuw i8, ptr %.1.i8, i64 1
   %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %25, %16, %10
   %.042.i.lcssa = phi i64 [ 0, %10 ], [ %22, %16 ], [ %29, %25 ]
   %.133.i.lcssa = phi i32 [ %.032.i12, %10 ], [ %spec.select, %16 ], [ 0, %25 ]
   %.1.i.lcssa = phi ptr [ %.0.i13, %10 ], [ %spec.select37, %16 ], [ %32, %25 ]
   store i64 %.042.i.lcssa, ptr %indvars.iv.sroa.phi, align 8
-  br i1 %11, label %10, label %unpack_bits_64.exit
+  br i1 %11, label %10, label %unpack_bits_64.exit, !llvm.loop !8
 
 unpack_bits_64.exit:                              ; preds = %._crit_edge
   %.sroa.0.0..sroa.0.0. = load i64, ptr %.sroa.0, align 16
@@ -642,7 +642,7 @@ define hidden void @storecompressed256(ptr noundef writeonly captures(none) %0, 
   %.1.i = phi ptr [ %.0.i6, %64 ], [ %75, %80 ], [ %75, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %31, label %64
+  br i1 %exitcond.not, label %31, label %64, !llvm.loop !5
 
 pack_bits_64.exit:                                ; preds = %31, %34, %35, %43, %48, %53, %55, %60, %62
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
@@ -726,7 +726,7 @@ define hidden void @loadcompressed256(ptr noundef writeonly captures(none) %0, p
   %43 = sub nuw i32 %.039.i5, %27
   %44 = getelementptr inbounds nuw i8, ptr %.1.i8, i64 1
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %37, %28, %21
   %.042.i.lcssa = phi i64 [ 0, %21 ], [ %34, %28 ], [ %41, %37 ]
@@ -736,7 +736,7 @@ define hidden void @loadcompressed256(ptr noundef writeonly captures(none) %0, p
   store i64 %.042.i.lcssa, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %unpack_bits_64.exit, label %21
+  br i1 %exitcond.not, label %unpack_bits_64.exit, label %21, !llvm.loop !8
 
 unpack_bits_64.exit:                              ; preds = %._crit_edge
   %46 = load i64, ptr %6, align 16
@@ -940,7 +940,7 @@ define hidden void @storecompressed384(ptr noundef writeonly captures(none) %0, 
   %.1.i = phi ptr [ %.0.i12, %68 ], [ %79, %84 ], [ %79, %78 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %35, label %68
+  br i1 %exitcond.not, label %35, label %68, !llvm.loop !5
 
 pack_bits_64.exit:                                ; preds = %35, %38, %39, %47, %52, %57, %59, %64, %66
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
@@ -963,31 +963,31 @@ define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, p
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7, !noalias !5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7, !noalias !9
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.copyload)
   %8 = trunc nuw nsw i64 %7 to i32
-  store i32 %8, ptr %5, align 16, !noalias !5
+  store i32 %8, ptr %5, align 16, !noalias !9
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.44.0.copyload)
   %11 = trunc nuw nsw i64 %10 to i32
-  store i32 %11, ptr %9, align 4, !noalias !5
+  store i32 %11, ptr %9, align 4, !noalias !9
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.55.0.copyload)
   %14 = trunc nuw nsw i64 %13 to i32
-  store i32 %14, ptr %12, align 8, !noalias !5
+  store i32 %14, ptr %12, align 8, !noalias !9
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.6.0.copyload)
   %17 = trunc nuw nsw i64 %16 to i32
-  store i32 %17, ptr %15, align 4, !noalias !5
+  store i32 %17, ptr %15, align 4, !noalias !9
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.7.0.copyload)
   %20 = trunc nuw nsw i64 %19 to i32
-  store i32 %20, ptr %18, align 16, !noalias !5
+  store i32 %20, ptr %18, align 16, !noalias !9
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.8.0.copyload)
   %23 = trunc nuw nsw i64 %22 to i32
-  store i32 %23, ptr %21, align 4, !noalias !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7, !noalias !5
+  store i32 %23, ptr %21, align 4, !noalias !9
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7, !noalias !9
   br label %24
 
 24:                                               ; preds = %4, %._crit_edge
@@ -995,7 +995,7 @@ define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, p
   %.0.i16 = phi ptr [ %1, %4 ], [ %.1.i.lcssa, %._crit_edge ]
   %.032.i15 = phi i32 [ 0, %4 ], [ %.133.i.lcssa, %._crit_edge ]
   %25 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
-  %26 = load i32, ptr %25, align 4, !noalias !5
+  %26 = load i32, ptr %25, align 4, !noalias !9
   %.not.i6 = icmp eq i32 %26, 0
   br i1 %.not.i6, label %._crit_edge, label %.lr.ph
 
@@ -1005,7 +1005,7 @@ define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, p
   %.036.i9 = phi i32 [ %45, %40 ], [ 0, %24 ]
   %.039.i8 = phi i32 [ %46, %40 ], [ %26, %24 ]
   %.042.i7 = phi i64 [ %44, %40 ], [ 0, %24 ]
-  %27 = load i8, ptr %.1.i11, align 1, !noalias !5
+  %27 = load i8, ptr %.1.i11, align 1, !noalias !9
   %28 = zext i8 %27 to i32
   %29 = lshr i32 %28, %.133.i10
   %30 = sub i32 8, %.133.i10
@@ -1036,35 +1036,35 @@ define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, p
   %46 = sub nuw i32 %.039.i8, %30
   %47 = getelementptr inbounds nuw i8, ptr %.1.i11, i64 1
   %.not.i = icmp eq i32 %46, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %40, %31, %24
   %.042.i.lcssa = phi i64 [ 0, %24 ], [ %37, %31 ], [ %44, %40 ]
   %.133.i.lcssa = phi i32 [ %.032.i15, %24 ], [ %spec.select, %31 ], [ 0, %40 ]
   %.1.i.lcssa = phi ptr [ %.0.i16, %24 ], [ %spec.select40, %31 ], [ %47, %40 ]
   %48 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
-  store i64 %.042.i.lcssa, ptr %48, align 8, !noalias !5
+  store i64 %.042.i.lcssa, ptr %48, align 8, !noalias !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %unpack_bits_64.exit, label %24
+  br i1 %exitcond.not, label %unpack_bits_64.exit, label %24, !llvm.loop !8
 
 unpack_bits_64.exit:                              ; preds = %._crit_edge
-  %49 = load i64, ptr %6, align 16, !noalias !5
+  %49 = load i64, ptr %6, align 16, !noalias !9
   %50 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %49, i64 %.sroa.03.0.copyload)
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %52 = load i64, ptr %51, align 8, !noalias !5
+  %52 = load i64, ptr %51, align 8, !noalias !9
   %53 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %52, i64 %.sroa.44.0.copyload)
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %55 = load i64, ptr %54, align 16, !noalias !5
+  %55 = load i64, ptr %54, align 16, !noalias !9
   %56 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %55, i64 %.sroa.55.0.copyload)
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %58 = load i64, ptr %57, align 8, !noalias !5
+  %58 = load i64, ptr %57, align 8, !noalias !9
   %59 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %58, i64 %.sroa.6.0.copyload)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %61 = load i64, ptr %60, align 16, !noalias !5
+  %61 = load i64, ptr %60, align 16, !noalias !9
   %62 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %61, i64 %.sroa.7.0.copyload)
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %64 = load i64, ptr %63, align 8, !noalias !5
+  %64 = load i64, ptr %63, align 8, !noalias !9
   %65 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %64, i64 %.sroa.8.0.copyload)
   %66 = insertelement <2 x i64> poison, i64 %50, i64 0
   %67 = insertelement <2 x i64> %66, i64 %53, i64 1
@@ -1072,8 +1072,8 @@ unpack_bits_64.exit:                              ; preds = %._crit_edge
   %69 = insertelement <2 x i64> %68, i64 %59, i64 1
   %70 = insertelement <2 x i64> poison, i64 %62, i64 0
   %71 = insertelement <2 x i64> %70, i64 %65, i64 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7, !noalias !5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7, !noalias !5
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7, !noalias !9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7, !noalias !9
   store <2 x i64> %67, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x i64> %69, ptr %.sroa.4.0..sroa_idx, align 16
@@ -1284,7 +1284,7 @@ define hidden void @storecompressed512(ptr noundef writeonly captures(none) %0, 
   %.1.i = phi ptr [ %.0.i14, %78 ], [ %89, %94 ], [ %89, %88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %45, label %78
+  br i1 %exitcond.not, label %45, label %78, !llvm.loop !5
 
 pack_bits_64.exit:                                ; preds = %45, %48, %49, %57, %62, %67, %69, %74, %76
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
@@ -1311,39 +1311,39 @@ define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, p
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 16
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7, !noalias !12
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.copyload)
   %8 = trunc nuw nsw i64 %7 to i32
-  store i32 %8, ptr %5, align 16, !noalias !8
+  store i32 %8, ptr %5, align 16, !noalias !12
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.44.0.copyload)
   %11 = trunc nuw nsw i64 %10 to i32
-  store i32 %11, ptr %9, align 4, !noalias !8
+  store i32 %11, ptr %9, align 4, !noalias !12
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.5.0.copyload)
   %14 = trunc nuw nsw i64 %13 to i32
-  store i32 %14, ptr %12, align 8, !noalias !8
+  store i32 %14, ptr %12, align 8, !noalias !12
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.6.0.copyload)
   %17 = trunc nuw nsw i64 %16 to i32
-  store i32 %17, ptr %15, align 4, !noalias !8
+  store i32 %17, ptr %15, align 4, !noalias !12
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.7.0.copyload)
   %20 = trunc nuw nsw i64 %19 to i32
-  store i32 %20, ptr %18, align 16, !noalias !8
+  store i32 %20, ptr %18, align 16, !noalias !12
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.8.0.copyload)
   %23 = trunc nuw nsw i64 %22 to i32
-  store i32 %23, ptr %21, align 4, !noalias !8
+  store i32 %23, ptr %21, align 4, !noalias !12
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.9.0.copyload)
   %26 = trunc nuw nsw i64 %25 to i32
-  store i32 %26, ptr %24, align 8, !noalias !8
+  store i32 %26, ptr %24, align 8, !noalias !12
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.10.0.copyload)
   %29 = trunc nuw nsw i64 %28 to i32
-  store i32 %29, ptr %27, align 4, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7, !noalias !8
+  store i32 %29, ptr %27, align 4, !noalias !12
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7, !noalias !12
   br label %30
 
 30:                                               ; preds = %4, %._crit_edge
@@ -1351,7 +1351,7 @@ define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, p
   %.0.i15 = phi ptr [ %1, %4 ], [ %.1.i.lcssa, %._crit_edge ]
   %.032.i14 = phi i32 [ 0, %4 ], [ %.133.i.lcssa, %._crit_edge ]
   %31 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
-  %32 = load i32, ptr %31, align 4, !noalias !8
+  %32 = load i32, ptr %31, align 4, !noalias !12
   %.not.i5 = icmp eq i32 %32, 0
   br i1 %.not.i5, label %._crit_edge, label %.lr.ph
 
@@ -1361,7 +1361,7 @@ define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, p
   %.036.i8 = phi i32 [ %51, %46 ], [ 0, %30 ]
   %.039.i7 = phi i32 [ %52, %46 ], [ %32, %30 ]
   %.042.i6 = phi i64 [ %50, %46 ], [ 0, %30 ]
-  %33 = load i8, ptr %.1.i10, align 1, !noalias !8
+  %33 = load i8, ptr %.1.i10, align 1, !noalias !12
   %34 = zext i8 %33 to i32
   %35 = lshr i32 %34, %.133.i9
   %36 = sub i32 8, %.133.i9
@@ -1392,41 +1392,41 @@ define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, p
   %52 = sub nuw i32 %.039.i7, %36
   %53 = getelementptr inbounds nuw i8, ptr %.1.i10, i64 1
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %46, %37, %30
   %.042.i.lcssa = phi i64 [ 0, %30 ], [ %43, %37 ], [ %50, %46 ]
   %.133.i.lcssa = phi i32 [ %.032.i14, %30 ], [ %spec.select, %37 ], [ 0, %46 ]
   %.1.i.lcssa = phi ptr [ %.0.i15, %30 ], [ %spec.select39, %37 ], [ %53, %46 ]
   %54 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
-  store i64 %.042.i.lcssa, ptr %54, align 8, !noalias !8
+  store i64 %.042.i.lcssa, ptr %54, align 8, !noalias !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %unpack_bits_64.exit, label %30
+  br i1 %exitcond.not, label %unpack_bits_64.exit, label %30, !llvm.loop !8
 
 unpack_bits_64.exit:                              ; preds = %._crit_edge
-  %55 = load i64, ptr %6, align 16, !noalias !8
+  %55 = load i64, ptr %6, align 16, !noalias !12
   %56 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %55, i64 %.sroa.03.0.copyload)
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %58 = load i64, ptr %57, align 8, !noalias !8
+  %58 = load i64, ptr %57, align 8, !noalias !12
   %59 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %58, i64 %.sroa.44.0.copyload)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %61 = load i64, ptr %60, align 16, !noalias !8
+  %61 = load i64, ptr %60, align 16, !noalias !12
   %62 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %61, i64 %.sroa.5.0.copyload)
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %64 = load i64, ptr %63, align 8, !noalias !8
+  %64 = load i64, ptr %63, align 8, !noalias !12
   %65 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %64, i64 %.sroa.6.0.copyload)
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %67 = load i64, ptr %66, align 16, !noalias !8
+  %67 = load i64, ptr %66, align 16, !noalias !12
   %68 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %67, i64 %.sroa.7.0.copyload)
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %70 = load i64, ptr %69, align 8, !noalias !8
+  %70 = load i64, ptr %69, align 8, !noalias !12
   %71 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %70, i64 %.sroa.8.0.copyload)
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %73 = load i64, ptr %72, align 16, !noalias !8
+  %73 = load i64, ptr %72, align 16, !noalias !12
   %74 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %73, i64 %.sroa.9.0.copyload)
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %76 = load i64, ptr %75, align 8, !noalias !8
+  %76 = load i64, ptr %75, align 8, !noalias !12
   %77 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %76, i64 %.sroa.10.0.copyload)
   %78 = insertelement <4 x i64> poison, i64 %56, i64 0
   %79 = insertelement <4 x i64> %78, i64 %59, i64 1
@@ -1436,8 +1436,8 @@ unpack_bits_64.exit:                              ; preds = %._crit_edge
   %83 = insertelement <4 x i64> %82, i64 %71, i64 1
   %84 = insertelement <4 x i64> %83, i64 %74, i64 2
   %85 = insertelement <4 x i64> %84, i64 %77, i64 3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7, !noalias !12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7, !noalias !12
   store <4 x i64> %81, ptr %0, align 64
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %85, ptr %.sroa.4.0..sroa_idx, align 32
@@ -1475,9 +1475,13 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"loadcompressed384_64bit: argument 0"}
-!7 = distinct !{!7, !"loadcompressed384_64bit"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"loadcompressed512_64bit: argument 0"}
-!10 = distinct !{!10, !"loadcompressed512_64bit"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"loadcompressed384_64bit: argument 0"}
+!11 = distinct !{!11, !"loadcompressed384_64bit"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"loadcompressed512_64bit: argument 0"}
+!14 = distinct !{!14, !"loadcompressed512_64bit"}

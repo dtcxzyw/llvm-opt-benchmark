@@ -286,7 +286,7 @@ flat_escape_key_str.exit:                         ; preds = %.lr.ph.i, %3
 
 34:                                               ; preds = %33, %32, %31, %30, %29, %28, %27
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %25, !llvm.loop !39
+  br label %25, !llvm.loop !40
 
 flat_escape_value_str.exit:                       ; preds = %25
   %36 = load ptr, ptr %4, align 8, !tbaa !22
@@ -323,7 +323,7 @@ define internal void @writer_printf(ptr noundef readonly captures(none) %0, ptr 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   call void %9(ptr noundef %5, ptr noundef %1, ptr noundef nonnull %3) #8
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
@@ -391,7 +391,8 @@ attributes #8 = { nounwind }
 !34 = !{!"p1 _ZTS12AVTextWriter", !7, i64 0}
 !35 = !{!36, !7, i64 48}
 !36 = !{!"AVTextWriter", !6, i64 0, !14, i64 8, !12, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
-!40 = !{!36, !7, i64 56}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !38, !39}
+!41 = !{!36, !7, i64 56}

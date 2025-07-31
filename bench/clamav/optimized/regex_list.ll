@@ -332,7 +332,7 @@ validate_subdomain.exit.thread107:                ; preds = %95, %117, %validate
   %storemerge96 = load ptr, ptr %125, align 8, !tbaa !37
   store ptr %storemerge96, ptr %8, align 8, !tbaa !38
   %.not127 = icmp eq ptr %storemerge96, null
-  br i1 %.not127, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not127, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge.loopexit:                             ; preds = %validate_subdomain.exit.thread107, %validate_subdomain.exit.thread107.thread
   %.3105123 = phi i32 [ 1, %validate_subdomain.exit.thread107.thread ], [ 0, %validate_subdomain.exit.thread107 ]
@@ -347,7 +347,7 @@ validate_subdomain.exit.thread107:                ; preds = %95, %117, %validate
 
 127:                                              ; preds = %._crit_edge
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %129 = load ptr, ptr %128, align 8, !tbaa !43
+  %129 = load ptr, ptr %128, align 8, !tbaa !45
   store ptr %129, ptr %10, align 8, !tbaa !3
   call void @free(ptr noundef nonnull %126) #14
   %.pre119 = load ptr, ptr %10, align 8, !tbaa !3
@@ -358,7 +358,7 @@ validate_subdomain.exit.thread107:                ; preds = %95, %117, %validate
   %132 = icmp ne ptr %131, null
   %133 = icmp ne i32 %.1, 0
   %134 = select i1 %132, i1 true, i1 %133
-  br i1 %134, label %81, label %._crit_edge117
+  br i1 %134, label %81, label %._crit_edge117, !llvm.loop !47
 
 ._crit_edge117:                                   ; preds = %130
   %135 = icmp eq i32 %.2.lcssa, 0
@@ -422,7 +422,7 @@ define internal fastcc void @reverse_string(ptr noundef nonnull captures(none) %
   store i8 %7, ptr %9, align 1, !tbaa !10
   %11 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %11, %3
-  br i1 %exitcond.not, label %._crit_edge, label %5
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %5, %1
   ret void
@@ -453,7 +453,7 @@ define i32 @init_regex_list(ptr noundef %0, i8 noundef zeroext %1) local_unnamed
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 132440
-  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -466,10 +466,10 @@ define i32 @init_regex_list(ptr noundef %0, i8 noundef zeroext %1) local_unnamed
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 132448
   store i8 1, ptr %11, align 8
   %12 = tail call i32 @cli_hashtab_init(ptr noundef nonnull %0, i64 noundef 512) #14
-  store ptr %7, ptr %6, align 8, !tbaa !45
+  store ptr %7, ptr %6, align 8, !tbaa !49
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr %7, ptr %14, align 8, !tbaa !46
+  store ptr %7, ptr %14, align 8, !tbaa !50
   %15 = tail call i32 @cli_ac_init(ptr noundef nonnull %13, i8 noundef zeroext 2, i8 noundef zeroext 32, i8 noundef zeroext %1) #14
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %26
@@ -477,9 +477,9 @@ define i32 @init_regex_list(ptr noundef %0, i8 noundef zeroext %1) local_unnamed
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  store ptr %7, ptr %18, align 8, !tbaa !47
+  store ptr %7, ptr %18, align 8, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store ptr %7, ptr %19, align 8, !tbaa !48
+  store ptr %7, ptr %19, align 8, !tbaa !52
   %20 = tail call i32 @cli_bm_init(ptr noundef nonnull %17) #14
   %.not26 = icmp eq i32 %20, 0
   br i1 %.not26, label %21, label %26
@@ -608,7 +608,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph.i:                                         ; preds = %48
   %51 = tail call ptr @__ctype_b_loc() #16
-  %52 = load ptr, ptr %51, align 8, !tbaa !49
+  %52 = load ptr, ptr %51, align 8, !tbaa !53
   %53 = xor i64 %43, -1
   %54 = add i64 %47, %53
   br label %60
@@ -616,7 +616,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
 55:                                               ; preds = %60
   %56 = add i64 %.02737.i, 1
   %exitcond.not.i = icmp eq i64 %56, %54
-  br i1 %exitcond.not.i, label %.preheader.i, label %60
+  br i1 %exitcond.not.i, label %.preheader.i, label %60, !llvm.loop !55
 
 .preheader.i:                                     ; preds = %55, %48
   %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #15
@@ -625,7 +625,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph39.i:                                       ; preds = %.preheader.i
   %58 = tail call ptr @__ctype_b_loc() #16
-  %59 = load ptr, ptr %58, align 8, !tbaa !49
+  %59 = load ptr, ptr %58, align 8, !tbaa !53
   br label %69
 
 60:                                               ; preds = %55, %.lr.ph.i
@@ -634,7 +634,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
   %62 = load i8, ptr %61, align 1, !tbaa !10
   %63 = sext i8 %62 to i64
   %64 = getelementptr inbounds i16, ptr %52, i64 %63
-  %65 = load i16, ptr %64, align 2, !tbaa !51
+  %65 = load i16, ptr %64, align 2, !tbaa !56
   %66 = and i16 %65, 2048
   %.not34.i = icmp eq i16 %66, 0
   br i1 %.not34.i, label %.loopexit, label %55
@@ -642,7 +642,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
 67:                                               ; preds = %69
   %68 = add nuw i64 %.12838.i, 1
   %exitcond42.not.i = icmp eq i64 %68, %57
-  br i1 %exitcond42.not.i, label %._crit_edge.i, label %69
+  br i1 %exitcond42.not.i, label %._crit_edge.i, label %69, !llvm.loop !57
 
 69:                                               ; preds = %67, %.lr.ph39.i
   %.12838.i = phi i64 [ 0, %.lr.ph39.i ], [ %68, %67 ]
@@ -650,7 +650,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
   %71 = load i8, ptr %70, align 1, !tbaa !10
   %72 = sext i8 %71 to i64
   %73 = getelementptr inbounds i16, ptr %59, i64 %72
-  %74 = load i16, ptr %73, align 2, !tbaa !51
+  %74 = load i16, ptr %73, align 2, !tbaa !56
   %75 = and i16 %74, 2048
   %.not33.i = icmp eq i16 %75, 0
   br i1 %.not33.i, label %.loopexit, label %67
@@ -693,12 +693,12 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %69, %41, %44, %92
-  %93 = load ptr, ptr %30, align 8, !tbaa !52
+  %93 = load ptr, ptr %30, align 8, !tbaa !58
   %.not98 = icmp eq ptr %93, null
   br i1 %.not98, label %98, label %94
 
 94:                                               ; preds = %.loopexit
-  %95 = load ptr, ptr %33, align 8, !tbaa !72
+  %95 = load ptr, ptr %33, align 8, !tbaa !78
   %96 = call i32 %93(ptr noundef nonnull @.str.14, ptr noundef nonnull %9, i32 noundef %32, ptr noundef %95) #14
   %.not99 = icmp eq i32 %96, 0
   br i1 %.not99, label %98, label %97
@@ -851,9 +851,9 @@ functionality_level_check.exit:                   ; preds = %88, %87, %121, %148
   br i1 %.not95, label %functionality_level_check.exit.thread108, label %163
 
 163:                                              ; preds = %._crit_edge
-  %164 = load i32, ptr %3, align 4, !tbaa !73
+  %164 = load i32, ptr %3, align 4, !tbaa !79
   %165 = add i32 %164, %.079.lcssa
-  store i32 %165, ptr %3, align 4, !tbaa !73
+  store i32 %165, ptr %3, align 4, !tbaa !79
   br label %functionality_level_check.exit.thread108
 
 functionality_level_check.exit.thread108:         ; preds = %132, %135, %101, %116, %157, %154, %129, %123, %._crit_edge, %163, %12, %25, %19, %11
@@ -910,16 +910,16 @@ define i32 @regex_list_add_pattern(ptr noundef %0, ptr noundef %1) local_unnamed
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   store i8 0, ptr %21, align 1, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 132440
-  %23 = load ptr, ptr %22, align 8, !tbaa !45
+  %23 = load ptr, ptr %22, align 8, !tbaa !49
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !74
+  %25 = load ptr, ptr %24, align 8, !tbaa !80
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load i64, ptr %26, align 8, !tbaa !75
+  %27 = load i64, ptr %26, align 8, !tbaa !81
   %28 = add i64 %27, 1
-  store i64 %28, ptr %26, align 8, !tbaa !75
+  store i64 %28, ptr %26, align 8, !tbaa !81
   %29 = shl i64 %28, 3
   %30 = tail call ptr @mpool_realloc(ptr noundef %23, ptr noundef %25, i64 noundef %29) #14
-  store ptr %30, ptr %24, align 8, !tbaa !74
+  store ptr %30, ptr %24, align 8, !tbaa !80
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %31, label %32
 
@@ -928,7 +928,7 @@ define i32 @regex_list_add_pattern(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %new_preg.exit.thread
 
 32:                                               ; preds = %20
-  %33 = load ptr, ptr %22, align 8, !tbaa !45
+  %33 = load ptr, ptr %22, align 8, !tbaa !49
   %34 = tail call ptr @mpool_malloc(ptr noundef %33, i64 noundef 32) #14
   %.not13.i = icmp eq ptr %34, null
   br i1 %.not13.i, label %35, label %36
@@ -938,8 +938,8 @@ define i32 @regex_list_add_pattern(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %new_preg.exit.thread
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr %24, align 8, !tbaa !74
-  %38 = load i64, ptr %26, align 8, !tbaa !75
+  %37 = load ptr, ptr %24, align 8, !tbaa !80
+  %38 = load i64, ptr %26, align 8, !tbaa !81
   %39 = getelementptr ptr, ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -8
   store ptr %34, ptr %40, align 8, !tbaa !37
@@ -980,11 +980,11 @@ define internal fastcc i32 @add_static_pattern(ptr noundef nonnull %0, ptr nound
   store i8 %9, ptr %11, align 1, !tbaa !10
   %13 = add nuw nsw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %13, %5
-  br i1 %exitcond.not.i, label %reverse_string.exit, label %7
+  br i1 %exitcond.not.i, label %reverse_string.exit, label %7, !llvm.loop !48
 
 reverse_string.exit:                              ; preds = %7, %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %14, align 8, !tbaa !76
+  store ptr null, ptr %14, align 8, !tbaa !82
   %15 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %1) #14
   store ptr %15, ptr %3, align 8, !tbaa !42
   %16 = icmp eq ptr %15, null
@@ -1022,15 +1022,15 @@ define internal fastcc i32 @add_hash(ptr noundef nonnull %0, ptr noundef nonnull
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 132440
-  %10 = load ptr, ptr %9, align 8, !tbaa !45
+  %10 = load ptr, ptr %9, align 8, !tbaa !49
   %11 = tail call ptr @mpool_calloc(ptr noundef %10, i64 noundef 1, i64 noundef 72) #14
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %60, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr %9, align 8, !tbaa !45
+  %13 = load ptr, ptr %9, align 8, !tbaa !49
   %14 = tail call ptr @cli_mpool_hex2str(ptr noundef %13, ptr noundef nonnull %1) #14
-  store ptr %14, ptr %11, align 8, !tbaa !77
+  store ptr %14, ptr %11, align 8, !tbaa !83
   %.not48 = icmp eq ptr %14, null
   br i1 %.not48, label %.thread64, label %15
 
@@ -1042,7 +1042,7 @@ define internal fastcc i32 @add_hash(ptr noundef nonnull %0, ptr noundef nonnull
   %spec.select = select i1 %.not49, i64 488, i64 944
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %19 = load ptr, ptr %18, align 8, !tbaa !80
+  %19 = load ptr, ptr %18, align 8, !tbaa !86
   %.not50 = icmp eq ptr %19, null
   br i1 %.not50, label %20, label %22
 
@@ -1056,18 +1056,18 @@ define internal fastcc i32 @add_hash(ptr noundef nonnull %0, ptr noundef nonnull
   br i1 %.not52, label %40, label %23
 
 23:                                               ; preds = %22
-  %24 = load i16, ptr %16, align 8, !tbaa !81
+  %24 = load i16, ptr %16, align 8, !tbaa !87
   %25 = icmp eq i16 %24, 32
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %11, align 8, !tbaa !77
+  %27 = load ptr, ptr %11, align 8, !tbaa !83
   %28 = load i32, ptr %27, align 1, !tbaa !10
   %29 = tail call zeroext i1 @cli_hashset_contains(ptr noundef nonnull %18, i32 noundef %28) #14
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %11, align 8, !tbaa !77
+  %31 = load ptr, ptr %11, align 8, !tbaa !83
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %33 = call i32 @cli_bm_scanbuff(ptr noundef %31, i32 noundef 32, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %32, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #14
   %34 = icmp eq i32 %33, 1
@@ -1084,10 +1084,10 @@ define internal fastcc i32 @add_hash(ptr noundef nonnull %0, ptr noundef nonnull
   br label %51
 
 40:                                               ; preds = %35, %30, %26, %23, %22
-  %41 = load ptr, ptr %9, align 8, !tbaa !45
+  %41 = load ptr, ptr %9, align 8, !tbaa !49
   %42 = call ptr @mpool_malloc(ptr noundef %41, i64 noundef 1) #14
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %42, ptr %43, align 8, !tbaa !82
+  store ptr %42, ptr %43, align 8, !tbaa !88
   %.not53 = icmp eq ptr %42, null
   br i1 %.not53, label %44, label %45
 
@@ -1097,7 +1097,7 @@ define internal fastcc i32 @add_hash(ptr noundef nonnull %0, ptr noundef nonnull
 
 45:                                               ; preds = %40
   store i8 %2, ptr %42, align 1, !tbaa !10
-  %46 = load ptr, ptr %11, align 8, !tbaa !77
+  %46 = load ptr, ptr %11, align 8, !tbaa !83
   %47 = load i32, ptr %46, align 1, !tbaa !10
   %48 = call i32 @cli_hashset_addkey(ptr noundef nonnull %18, i32 noundef %47) #14
   %49 = call i32 @cli_bm_addpatt(ptr noundef nonnull %17, ptr noundef nonnull %11, ptr noundef nonnull @.str.35) #14
@@ -1110,29 +1110,29 @@ define internal fastcc i32 @add_hash(ptr noundef nonnull %0, ptr noundef nonnull
 
 51:                                               ; preds = %39, %50, %44, %20
   %.041.ph.ph = phi i32 [ 0, %39 ], [ 4, %50 ], [ 20, %44 ], [ %21, %20 ]
-  %.pr = load ptr, ptr %11, align 8, !tbaa !77
+  %.pr = load ptr, ptr %11, align 8, !tbaa !83
   %.not56 = icmp eq ptr %.pr, null
   br i1 %.not56, label %.thread64, label %52
 
 52:                                               ; preds = %51
-  %53 = load ptr, ptr %9, align 8, !tbaa !45
+  %53 = load ptr, ptr %9, align 8, !tbaa !49
   call void @mpool_free(ptr noundef %53, ptr noundef nonnull %.pr) #14
   br label %.thread64
 
 .thread64:                                        ; preds = %12, %52, %51
   %.041.ph67 = phi i32 [ %.041.ph.ph, %52 ], [ %.041.ph.ph, %51 ], [ 4, %12 ]
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !82
+  %55 = load ptr, ptr %54, align 8, !tbaa !88
   %.not57 = icmp eq ptr %55, null
   br i1 %.not57, label %58, label %56
 
 56:                                               ; preds = %.thread64
-  %57 = load ptr, ptr %9, align 8, !tbaa !45
+  %57 = load ptr, ptr %9, align 8, !tbaa !49
   call void @mpool_free(ptr noundef %57, ptr noundef nonnull %55) #14
   br label %58
 
 58:                                               ; preds = %56, %.thread64
-  %59 = load ptr, ptr %9, align 8, !tbaa !45
+  %59 = load ptr, ptr %9, align 8, !tbaa !49
   call void @mpool_free(ptr noundef %59, ptr noundef nonnull %11) #14
   br label %60
 
@@ -1215,7 +1215,7 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader33:                                     ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load i64, ptr %12, align 8, !tbaa !83
+  %13 = load i64, ptr %12, align 8, !tbaa !89
   %.not42 = icmp eq i64 %13, 0
   br i1 %.not42, label %._crit_edge38, label %.lr.ph37
 
@@ -1224,29 +1224,29 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
   %.036 = phi i64 [ %22, %._crit_edge ], [ 0, %.preheader33 ]
   %15 = load ptr, ptr %10, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %15, i64 %.036
-  %17 = load ptr, ptr %16, align 8, !tbaa !84
+  %17 = load ptr, ptr %16, align 8, !tbaa !90
   %.not3234 = icmp eq ptr %17, null
   br i1 %.not3234, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph37, %.lr.ph
   %.02935 = phi ptr [ %19, %.lr.ph ], [ %17, %.lr.ph37 ]
   %18 = getelementptr inbounds nuw i8, ptr %.02935, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !82
   %20 = load ptr, ptr %.02935, align 8, !tbaa !42
   tail call void @free(ptr noundef %20) #14
   tail call void @free(ptr noundef nonnull %.02935) #14
   %.not32 = icmp eq ptr %19, null
-  br i1 %.not32, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not32, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i64, ptr %12, align 8, !tbaa !83
+  %.pre = load i64, ptr %12, align 8, !tbaa !89
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph37
   %21 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %14, %.lr.ph37 ]
   %22 = add nuw i64 %.036, 1
   %23 = icmp ult i64 %22, %21
-  br i1 %23, label %.lr.ph37, label %._crit_edge38.loopexit
+  br i1 %23, label %.lr.ph37, label %._crit_edge38.loopexit, !llvm.loop !93
 
 ._crit_edge38.loopexit:                           ; preds = %._crit_edge
   %.pre44 = load ptr, ptr %10, align 8, !tbaa !36
@@ -1260,13 +1260,13 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %._crit_edge38, %8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %27 = load ptr, ptr %26, align 8, !tbaa !74
+  %27 = load ptr, ptr %26, align 8, !tbaa !80
   %.not31 = icmp eq ptr %27, null
   br i1 %.not31, label %42, label %.preheader
 
 .preheader:                                       ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = load i64, ptr %28, align 8, !tbaa !75
+  %29 = load i64, ptr %28, align 8, !tbaa !81
   %.not43 = icmp eq i64 %29, 0
   br i1 %.not43, label %._crit_edge41, label %.lr.ph40
 
@@ -1276,25 +1276,25 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
 
 31:                                               ; preds = %.lr.ph40, %31
   %.139 = phi i64 [ 0, %.lr.ph40 ], [ %36, %31 ]
-  %32 = load ptr, ptr %26, align 8, !tbaa !74
+  %32 = load ptr, ptr %26, align 8, !tbaa !80
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.139
   %34 = load ptr, ptr %33, align 8, !tbaa !37
   tail call void @cli_regfree(ptr noundef %34) #14
-  %35 = load ptr, ptr %30, align 8, !tbaa !45
+  %35 = load ptr, ptr %30, align 8, !tbaa !49
   tail call void @mpool_free(ptr noundef %35, ptr noundef %34) #14
   %36 = add nuw i64 %.139, 1
-  %37 = load i64, ptr %28, align 8, !tbaa !75
+  %37 = load i64, ptr %28, align 8, !tbaa !81
   %38 = icmp ult i64 %36, %37
-  br i1 %38, label %31, label %._crit_edge41.loopexit
+  br i1 %38, label %31, label %._crit_edge41.loopexit, !llvm.loop !94
 
 ._crit_edge41.loopexit:                           ; preds = %31
-  %.pre45 = load ptr, ptr %26, align 8, !tbaa !74
+  %.pre45 = load ptr, ptr %26, align 8, !tbaa !80
   br label %._crit_edge41
 
 ._crit_edge41:                                    ; preds = %._crit_edge41.loopexit, %.preheader
   %39 = phi ptr [ %.pre45, %._crit_edge41.loopexit ], [ %27, %.preheader ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 132440
-  %41 = load ptr, ptr %40, align 8, !tbaa !45
+  %41 = load ptr, ptr %40, align 8, !tbaa !49
   tail call void @mpool_free(ptr noundef %41, ptr noundef %39) #14
   br label %42
 
@@ -1404,16 +1404,16 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %27, ptr %28, align 8, !tbaa !40
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr null, ptr %29, align 8, !tbaa !76
+  store ptr null, ptr %29, align 8, !tbaa !82
   %30 = tail call ptr @cli_hashtab_find(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #14
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %48, label %31
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !86
+  %33 = load i64, ptr %32, align 8, !tbaa !95
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load i64, ptr %34, align 8, !tbaa !83
+  %35 = load i64, ptr %34, align 8, !tbaa !89
   %.not87 = icmp ult i64 %33, %35
   br i1 %.not87, label %37, label %36
 
@@ -1425,32 +1425,32 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !36
   %40 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %39, i64 %33
-  %41 = load ptr, ptr %40, align 8, !tbaa !84
+  %41 = load ptr, ptr %40, align 8, !tbaa !90
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %42, label %43
 
 42:                                               ; preds = %37
-  store ptr %14, ptr %40, align 8, !tbaa !84
+  store ptr %14, ptr %40, align 8, !tbaa !90
   br label %43
 
 43:                                               ; preds = %42, %37
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !88
+  %45 = load ptr, ptr %44, align 8, !tbaa !97
   %.not8.i = icmp eq ptr %45, null
   br i1 %.not8.i, label %list_add_tail.exit, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store ptr %14, ptr %47, align 8, !tbaa !76
+  store ptr %14, ptr %47, align 8, !tbaa !82
   br label %list_add_tail.exit
 
 list_add_tail.exit:                               ; preds = %43, %46
-  store ptr %14, ptr %44, align 8, !tbaa !88
+  store ptr %14, ptr %44, align 8, !tbaa !97
   br label %124
 
 48:                                               ; preds = %25
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %50 = load i64, ptr %49, align 8, !tbaa !83
+  %50 = load i64, ptr %49, align 8, !tbaa !89
   %51 = tail call ptr @cli_hashtab_insert(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %50) #14
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !36
@@ -1467,9 +1467,9 @@ list_add_tail.exit:                               ; preds = %43, %46
 57:                                               ; preds = %48
   store ptr %56, ptr %52, align 8, !tbaa !36
   %58 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %56, i64 %50, i32 1
-  store ptr %14, ptr %58, align 8, !tbaa !88
+  store ptr %14, ptr %58, align 8, !tbaa !97
   %59 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %56, i64 %50
-  store ptr %14, ptr %59, align 8, !tbaa !84
+  store ptr %14, ptr %59, align 8, !tbaa !90
   %60 = load i8, ptr %1, align 1, !tbaa !10
   %61 = icmp eq i8 %60, 47
   br i1 %61, label %62, label %68
@@ -1488,7 +1488,7 @@ list_add_tail.exit:                               ; preds = %43, %46
 68:                                               ; preds = %66, %62, %57
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 132440
-  %71 = load ptr, ptr %70, align 8, !tbaa !45
+  %71 = load ptr, ptr %70, align 8, !tbaa !49
   %72 = tail call ptr @mpool_calloc(ptr noundef %71, i64 noundef 1, i64 noundef 136) #14
   %.not.i90 = icmp eq ptr %72, null
   br i1 %.not.i90, label %73, label %74
@@ -1499,44 +1499,44 @@ list_add_tail.exit:                               ; preds = %43, %46
 
 74:                                               ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 96
-  store i16 0, ptr %75, align 8, !tbaa !89
+  store i16 0, ptr %75, align 8, !tbaa !98
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 98
-  store i16 0, ptr %76, align 2, !tbaa !92
+  store i16 0, ptr %76, align 2, !tbaa !101
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 36
-  store i32 0, ptr %77, align 4, !tbaa !93
+  store i32 0, ptr %77, align 4, !tbaa !102
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 80
-  store i16 0, ptr %78, align 8, !tbaa !94
+  store i16 0, ptr %78, align 8, !tbaa !103
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 82
-  store i16 0, ptr %79, align 2, !tbaa !95
+  store i16 0, ptr %79, align 2, !tbaa !104
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 28
-  store i32 0, ptr %80, align 4, !tbaa !96
+  store i32 0, ptr %80, align 4, !tbaa !105
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store i32 0, ptr %81, align 8, !tbaa !97
+  store i32 0, ptr %81, align 8, !tbaa !106
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 116
-  store i32 -1, ptr %82, align 4, !tbaa !98
+  store i32 -1, ptr %82, align 4, !tbaa !107
   %83 = trunc i64 %2 to i16
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store i16 %83, ptr %84, align 8, !tbaa !51
+  store i16 %83, ptr %84, align 8, !tbaa !56
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 52
   %86 = getelementptr inbounds nuw i8, ptr %72, i64 54
-  %87 = load i16, ptr %86, align 2, !tbaa !51
+  %87 = load i16, ptr %86, align 2, !tbaa !56
   %88 = or i16 %87, 256
-  store i16 %88, ptr %86, align 2, !tbaa !51
-  store i16 %88, ptr %85, align 4, !tbaa !51
+  store i16 %88, ptr %86, align 2, !tbaa !56
+  store i16 %88, ptr %85, align 4, !tbaa !56
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %90 = load i16, ptr %89, align 8, !tbaa !99
+  %90 = load i16, ptr %89, align 8, !tbaa !108
   %91 = icmp ult i16 %90, %83
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %74
-  store i16 %83, ptr %89, align 8, !tbaa !99
+  store i16 %83, ptr %89, align 8, !tbaa !108
   br label %93
 
 93:                                               ; preds = %92, %74
-  %94 = load ptr, ptr %70, align 8, !tbaa !45
+  %94 = load ptr, ptr %70, align 8, !tbaa !49
   %95 = shl i64 %2, 1
   %96 = tail call ptr @mpool_malloc(ptr noundef %94, i64 noundef %95) #14
-  store ptr %96, ptr %72, align 8, !tbaa !100
+  store ptr %96, ptr %72, align 8, !tbaa !109
   %.not58.i = icmp eq ptr %96, null
   br i1 %.not58.i, label %.sink.split.i, label %.preheader.i
 
@@ -1550,16 +1550,16 @@ list_add_tail.exit:                               ; preds = %43, %46
   %98 = load i8, ptr %97, align 1, !tbaa !10
   %99 = sext i8 %98 to i16
   %100 = getelementptr inbounds nuw i16, ptr %96, i64 %.04965.i
-  store i16 %99, ptr %100, align 2, !tbaa !51
+  store i16 %99, ptr %100, align 2, !tbaa !56
   %101 = add nuw i64 %.04965.i, 1
   %exitcond.not.i = icmp eq i64 %101, %2
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !110
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %102 = getelementptr inbounds nuw i8, ptr %72, i64 64
-  store ptr %14, ptr %102, align 8, !tbaa !101
+  store ptr %14, ptr %102, align 8, !tbaa !111
   %103 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  store ptr null, ptr %103, align 8, !tbaa !102
+  store ptr null, ptr %103, align 8, !tbaa !112
   %104 = tail call i32 @cli_ac_addpatt(ptr noundef nonnull %69, ptr noundef nonnull %72) #14
   %.not59.i = icmp eq i32 %104, 0
   br i1 %.not59.i, label %105, label %109
@@ -1578,17 +1578,17 @@ list_add_tail.exit:                               ; preds = %43, %46
 
 109:                                              ; preds = %.sink.split.i, %._crit_edge.i
   %.0.i = phi i32 [ %104, %._crit_edge.i ], [ %.0.ph.i, %.sink.split.i ]
-  %110 = load ptr, ptr %72, align 8, !tbaa !100
+  %110 = load ptr, ptr %72, align 8, !tbaa !109
   %.not60.i = icmp eq ptr %110, null
   br i1 %.not60.i, label %113, label %111
 
 111:                                              ; preds = %109
-  %112 = load ptr, ptr %70, align 8, !tbaa !45
+  %112 = load ptr, ptr %70, align 8, !tbaa !49
   tail call void @mpool_free(ptr noundef %112, ptr noundef nonnull %110) #14
   br label %113
 
 113:                                              ; preds = %111, %109
-  %114 = load ptr, ptr %70, align 8, !tbaa !45
+  %114 = load ptr, ptr %70, align 8, !tbaa !49
   tail call void @mpool_free(ptr noundef %114, ptr noundef nonnull %72) #14
   br label %115
 
@@ -1605,9 +1605,9 @@ list_add_tail.exit:                               ; preds = %43, %46
   br label %.thread97
 
 add_newsuffix.exit:                               ; preds = %105
-  %119 = load i64, ptr %49, align 8, !tbaa !83
+  %119 = load i64, ptr %49, align 8, !tbaa !89
   %120 = add i64 %119, 1
-  store i64 %120, ptr %49, align 8, !tbaa !83
+  store i64 %120, ptr %49, align 8, !tbaa !89
   br label %124
 
 .thread97:                                        ; preds = %115, %6, %9, %12, %16, %36, %24, %.thread, %118
@@ -1642,13 +1642,13 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !103
+  %8 = load ptr, ptr %7, align 8, !tbaa !113
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !107
+  %10 = load i64, ptr %9, align 8, !tbaa !117
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i64, ptr %11, align 8, !tbaa !108
+  %12 = load i64, ptr %11, align 8, !tbaa !118
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, i64 noundef %2, i64 noundef %10, i64 noundef %12, ptr noundef %8, ptr noundef nonnull %1) #14
-  %13 = load i64, ptr %9, align 8, !tbaa !107
+  %13 = load i64, ptr %9, align 8, !tbaa !117
   %14 = add i64 %13, %2
   %15 = load i8, ptr %8, align 1, !tbaa !10
   %.not4551 = icmp eq i8 %15, 0
@@ -1656,7 +1656,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
 
 .lr.ph:                                           ; preds = %6
   %16 = tail call ptr @__ctype_b_loc() #16
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
+  %17 = load ptr, ptr %16, align 8, !tbaa !53
   br label %18
 
 18:                                               ; preds = %.lr.ph, %23
@@ -1664,7 +1664,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   %.052 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
   %19 = sext i8 %.pre.pre to i64
   %20 = getelementptr inbounds i16, ptr %17, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !51
+  %21 = load i16, ptr %20, align 2, !tbaa !56
   %22 = and i16 %21, 8
   %.not46.not = icmp eq i16 %22, 0
   br i1 %.not46.not, label %23, label %.critedge
@@ -1674,7 +1674,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !10
   %.not45 = icmp eq i8 %26, 0
-  br i1 %.not45, label %.critedge.thread, label %18
+  br i1 %.not45, label %.critedge.thread, label %18, !llvm.loop !119
 
 .critedge.thread:                                 ; preds = %23, %6
   %.0.lcssa.ph = phi i64 [ 0, %6 ], [ %24, %23 ]
@@ -1701,7 +1701,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   %30 = load i8, ptr %29, align 1, !tbaa !10
   %31 = icmp eq i8 %30, 32
   %32 = add i64 %.2, 1
-  br i1 %31, label %28, label %33
+  br i1 %31, label %28, label %33, !llvm.loop !120
 
 33:                                               ; preds = %28
   %34 = add i64 %.03955, -1
@@ -1710,7 +1710,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   %37 = icmp ne i8 %36, 0
   %38 = icmp ne i64 %34, 0
   %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %.preheader49, label %.preheader
+  br i1 %39, label %.preheader49, label %.preheader, !llvm.loop !121
 
 40:                                               ; preds = %40, %.preheader
   %.3 = phi i64 [ %44, %40 ], [ %.1.lcssa, %.preheader ]
@@ -1718,7 +1718,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   %42 = load i8, ptr %41, align 1, !tbaa !10
   %43 = icmp eq i8 %42, 32
   %44 = add i64 %.3, 1
-  br i1 %43, label %40, label %45
+  br i1 %43, label %40, label %45, !llvm.loop !122
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 %.3
@@ -1857,69 +1857,83 @@ attributes #17 = { nounwind allocsize(0) }
 !40 = !{!41, !5, i64 8}
 !41 = !{!"regex_list", !9, i64 0, !5, i64 8, !39, i64 16}
 !42 = !{!41, !9, i64 0}
-!43 = !{!44, !4, i64 24}
-!44 = !{!"cli_ac_result", !9, i64 0, !5, i64 8, !15, i64 16, !4, i64 24}
-!45 = !{!12, !33, i64 132440}
-!46 = !{!12, !33, i64 480}
-!47 = !{!12, !33, i64 896}
-!48 = !{!12, !33, i64 1352}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"p1 short", !5, i64 0}
-!51 = !{!29, !29, i64 0}
-!52 = !{!53, !5, i64 320}
-!53 = !{!"cl_engine", !18, i64 0, !18, i64 4, !18, i64 8, !6, i64 12, !18, i64 20, !18, i64 24, !18, i64 28, !9, i64 32, !18, i64 40, !15, i64 48, !18, i64 56, !18, i64 60, !15, i64 64, !15, i64 72, !18, i64 80, !18, i64 84, !18, i64 88, !18, i64 92, !54, i64 96, !55, i64 104, !55, i64 112, !55, i64 120, !55, i64 128, !56, i64 136, !57, i64 144, !57, i64 152, !58, i64 160, !59, i64 168, !60, i64 176, !60, i64 184, !61, i64 192, !55, i64 200, !55, i64 208, !9, i64 216, !62, i64 224, !63, i64 232, !64, i64 240, !15, i64 248, !33, i64 256, !65, i64 264, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !67, i64 416, !6, i64 936, !6, i64 992, !18, i64 1020, !18, i64 1024, !18, i64 1028, !18, i64 1032, !15, i64 1040, !15, i64 1048, !15, i64 1056, !15, i64 1064, !15, i64 1072, !5, i64 1080, !5, i64 1088, !5, i64 1096, !5, i64 1104, !5, i64 1112, !5, i64 1120, !5, i64 1128, !5, i64 1136, !5, i64 1144, !18, i64 1152, !18, i64 1156, !18, i64 1160, !15, i64 1168, !15, i64 1176, !15, i64 1184, !71, i64 1192}
-!54 = !{!"p2 _ZTS11cli_matcher", !5, i64 0}
-!55 = !{!"p1 _ZTS11cli_matcher", !5, i64 0}
-!56 = !{!"p1 _ZTS7cli_cdb", !5, i64 0}
-!57 = !{!"p1 _ZTS13regex_matcher", !5, i64 0}
-!58 = !{!"p1 _ZTS10phishcheck", !5, i64 0}
-!59 = !{!"p1 _ZTS9cli_dconf", !5, i64 0}
-!60 = !{!"p1 _ZTS9cli_ftype", !5, i64 0}
-!61 = !{!"p2 _ZTS8cli_pwdb", !5, i64 0}
-!62 = !{!"p1 _ZTS12icon_matcher", !5, i64 0}
-!63 = !{!"p1 _ZTS5CACHE", !5, i64 0}
-!64 = !{!"p1 _ZTS10cli_dbinfo", !5, i64 0}
-!65 = !{!"", !66, i64 0, !18, i64 8}
-!66 = !{!"p1 _ZTS9cli_crt_t", !5, i64 0}
-!67 = !{!"cli_all_bc", !68, i64 0, !18, i64 8, !69, i64 16, !70, i64 24, !18, i64 516}
-!68 = !{!"p1 _ZTS6cli_bc", !5, i64 0}
-!69 = !{!"p1 _ZTS12cli_bcengine", !5, i64 0}
-!70 = !{!"cli_environment", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !6, i64 28, !6, i64 93, !6, i64 158, !6, i64 223, !6, i64 288, !6, i64 353, !6, i64 418, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491}
-!71 = !{!"p1 _ZTS12_yara_global", !5, i64 0}
-!72 = !{!53, !5, i64 328}
-!73 = !{!18, !18, i64 0}
-!74 = !{!12, !5, i64 64}
-!75 = !{!12, !15, i64 56}
-!76 = !{!41, !39, i64 16}
-!77 = !{!78, !9, i64 0}
-!78 = !{!"cli_bm_patt", !9, i64 0, !9, i64 8, !9, i64 16, !6, i64 24, !18, i64 40, !18, i64 44, !79, i64 48, !29, i64 56, !29, i64 58, !29, i64 60, !6, i64 62, !18, i64 64, !18, i64 68}
-!79 = !{!"p1 _ZTS11cli_bm_patt", !5, i64 0}
-!80 = !{!12, !20, i64 904}
-!81 = !{!78, !29, i64 56}
-!82 = !{!78, !9, i64 16}
-!83 = !{!12, !15, i64 32}
-!84 = !{!85, !39, i64 0}
-!85 = !{!"regex_list_ht", !39, i64 0, !39, i64 8}
-!86 = !{!87, !15, i64 8}
-!87 = !{!"cli_element", !9, i64 0, !15, i64 8, !15, i64 16}
-!88 = !{!85, !39, i64 8}
-!89 = !{!90, !29, i64 96}
-!90 = !{!"cli_ac_patt", !50, i64 0, !50, i64 8, !6, i64 16, !6, i64 22, !18, i64 28, !18, i64 32, !18, i64 36, !6, i64 40, !6, i64 52, !9, i64 56, !5, i64 64, !6, i64 72, !6, i64 76, !29, i64 80, !29, i64 82, !29, i64 84, !29, i64 86, !91, i64 88, !29, i64 96, !29, i64 98, !6, i64 100, !18, i64 116, !18, i64 120, !18, i64 124, !6, i64 128, !6, i64 129}
-!91 = !{!"p2 _ZTS14cli_ac_special", !5, i64 0}
-!92 = !{!90, !29, i64 98}
-!93 = !{!90, !18, i64 36}
-!94 = !{!90, !29, i64 80}
-!95 = !{!90, !29, i64 82}
-!96 = !{!90, !18, i64 28}
-!97 = !{!90, !18, i64 32}
-!98 = !{!90, !18, i64 116}
-!99 = !{!17, !29, i64 328}
-!100 = !{!90, !50, i64 0}
-!101 = !{!90, !5, i64 64}
-!102 = !{!90, !9, i64 56}
-!103 = !{!104, !9, i64 8}
-!104 = !{!"pre_fixup_info", !105, i64 0, !15, i64 24, !15, i64 32}
-!105 = !{!"string", !106, i64 0, !9, i64 8, !18, i64 16}
-!106 = !{!"p1 _ZTS6string", !5, i64 0}
-!107 = !{!104, !15, i64 24}
-!108 = !{!104, !15, i64 32}
+!43 = distinct !{!43, !44}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!46, !4, i64 24}
+!46 = !{!"cli_ac_result", !9, i64 0, !5, i64 8, !15, i64 16, !4, i64 24}
+!47 = distinct !{!47, !44}
+!48 = distinct !{!48, !44}
+!49 = !{!12, !33, i64 132440}
+!50 = !{!12, !33, i64 480}
+!51 = !{!12, !33, i64 896}
+!52 = !{!12, !33, i64 1352}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 short", !5, i64 0}
+!55 = distinct !{!55, !44}
+!56 = !{!29, !29, i64 0}
+!57 = distinct !{!57, !44}
+!58 = !{!59, !5, i64 320}
+!59 = !{!"cl_engine", !18, i64 0, !18, i64 4, !18, i64 8, !6, i64 12, !18, i64 20, !18, i64 24, !18, i64 28, !9, i64 32, !18, i64 40, !15, i64 48, !18, i64 56, !18, i64 60, !15, i64 64, !15, i64 72, !18, i64 80, !18, i64 84, !18, i64 88, !18, i64 92, !60, i64 96, !61, i64 104, !61, i64 112, !61, i64 120, !61, i64 128, !62, i64 136, !63, i64 144, !63, i64 152, !64, i64 160, !65, i64 168, !66, i64 176, !66, i64 184, !67, i64 192, !61, i64 200, !61, i64 208, !9, i64 216, !68, i64 224, !69, i64 232, !70, i64 240, !15, i64 248, !33, i64 256, !71, i64 264, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !73, i64 416, !6, i64 936, !6, i64 992, !18, i64 1020, !18, i64 1024, !18, i64 1028, !18, i64 1032, !15, i64 1040, !15, i64 1048, !15, i64 1056, !15, i64 1064, !15, i64 1072, !5, i64 1080, !5, i64 1088, !5, i64 1096, !5, i64 1104, !5, i64 1112, !5, i64 1120, !5, i64 1128, !5, i64 1136, !5, i64 1144, !18, i64 1152, !18, i64 1156, !18, i64 1160, !15, i64 1168, !15, i64 1176, !15, i64 1184, !77, i64 1192}
+!60 = !{!"p2 _ZTS11cli_matcher", !5, i64 0}
+!61 = !{!"p1 _ZTS11cli_matcher", !5, i64 0}
+!62 = !{!"p1 _ZTS7cli_cdb", !5, i64 0}
+!63 = !{!"p1 _ZTS13regex_matcher", !5, i64 0}
+!64 = !{!"p1 _ZTS10phishcheck", !5, i64 0}
+!65 = !{!"p1 _ZTS9cli_dconf", !5, i64 0}
+!66 = !{!"p1 _ZTS9cli_ftype", !5, i64 0}
+!67 = !{!"p2 _ZTS8cli_pwdb", !5, i64 0}
+!68 = !{!"p1 _ZTS12icon_matcher", !5, i64 0}
+!69 = !{!"p1 _ZTS5CACHE", !5, i64 0}
+!70 = !{!"p1 _ZTS10cli_dbinfo", !5, i64 0}
+!71 = !{!"", !72, i64 0, !18, i64 8}
+!72 = !{!"p1 _ZTS9cli_crt_t", !5, i64 0}
+!73 = !{!"cli_all_bc", !74, i64 0, !18, i64 8, !75, i64 16, !76, i64 24, !18, i64 516}
+!74 = !{!"p1 _ZTS6cli_bc", !5, i64 0}
+!75 = !{!"p1 _ZTS12cli_bcengine", !5, i64 0}
+!76 = !{!"cli_environment", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !6, i64 28, !6, i64 93, !6, i64 158, !6, i64 223, !6, i64 288, !6, i64 353, !6, i64 418, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491}
+!77 = !{!"p1 _ZTS12_yara_global", !5, i64 0}
+!78 = !{!59, !5, i64 328}
+!79 = !{!18, !18, i64 0}
+!80 = !{!12, !5, i64 64}
+!81 = !{!12, !15, i64 56}
+!82 = !{!41, !39, i64 16}
+!83 = !{!84, !9, i64 0}
+!84 = !{!"cli_bm_patt", !9, i64 0, !9, i64 8, !9, i64 16, !6, i64 24, !18, i64 40, !18, i64 44, !85, i64 48, !29, i64 56, !29, i64 58, !29, i64 60, !6, i64 62, !18, i64 64, !18, i64 68}
+!85 = !{!"p1 _ZTS11cli_bm_patt", !5, i64 0}
+!86 = !{!12, !20, i64 904}
+!87 = !{!84, !29, i64 56}
+!88 = !{!84, !9, i64 16}
+!89 = !{!12, !15, i64 32}
+!90 = !{!91, !39, i64 0}
+!91 = !{!"regex_list_ht", !39, i64 0, !39, i64 8}
+!92 = distinct !{!92, !44}
+!93 = distinct !{!93, !44}
+!94 = distinct !{!94, !44}
+!95 = !{!96, !15, i64 8}
+!96 = !{!"cli_element", !9, i64 0, !15, i64 8, !15, i64 16}
+!97 = !{!91, !39, i64 8}
+!98 = !{!99, !29, i64 96}
+!99 = !{!"cli_ac_patt", !54, i64 0, !54, i64 8, !6, i64 16, !6, i64 22, !18, i64 28, !18, i64 32, !18, i64 36, !6, i64 40, !6, i64 52, !9, i64 56, !5, i64 64, !6, i64 72, !6, i64 76, !29, i64 80, !29, i64 82, !29, i64 84, !29, i64 86, !100, i64 88, !29, i64 96, !29, i64 98, !6, i64 100, !18, i64 116, !18, i64 120, !18, i64 124, !6, i64 128, !6, i64 129}
+!100 = !{!"p2 _ZTS14cli_ac_special", !5, i64 0}
+!101 = !{!99, !29, i64 98}
+!102 = !{!99, !18, i64 36}
+!103 = !{!99, !29, i64 80}
+!104 = !{!99, !29, i64 82}
+!105 = !{!99, !18, i64 28}
+!106 = !{!99, !18, i64 32}
+!107 = !{!99, !18, i64 116}
+!108 = !{!17, !29, i64 328}
+!109 = !{!99, !54, i64 0}
+!110 = distinct !{!110, !44}
+!111 = !{!99, !5, i64 64}
+!112 = !{!99, !9, i64 56}
+!113 = !{!114, !9, i64 8}
+!114 = !{!"pre_fixup_info", !115, i64 0, !15, i64 24, !15, i64 32}
+!115 = !{!"string", !116, i64 0, !9, i64 8, !18, i64 16}
+!116 = !{!"p1 _ZTS6string", !5, i64 0}
+!117 = !{!114, !15, i64 24}
+!118 = !{!114, !15, i64 32}
+!119 = distinct !{!119, !44}
+!120 = distinct !{!120, !44}
+!121 = distinct !{!121, !44}
+!122 = distinct !{!122, !44}

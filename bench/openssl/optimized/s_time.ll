@@ -168,7 +168,7 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
   br label %6, !llvm.loop !4
 
 .loopexit212:                                     ; preds = %6, %57
-  %8 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %8 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.60, ptr noundef %5) #8
   br label %.loopexit206
 
@@ -188,8 +188,8 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
 
 15:                                               ; preds = %6
   %16 = tail call i32 @opt_int_arg() #8
-  store i32 %16, ptr @verify_args, align 4, !tbaa !11
-  %17 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  store i32 %16, ptr @verify_args, align 4, !tbaa !12
+  %17 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.61, ptr noundef %5, i32 noundef %16) #8
   br label %.backedge
 
@@ -251,7 +251,7 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
   br i1 %46, label %47, label %.backedge
 
 47:                                               ; preds = %42
-  %48 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %48 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %49 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %48, ptr noundef nonnull @.str.62, ptr noundef %5) #8
   br label %.loopexit206
 
@@ -344,7 +344,7 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
   br i1 %.not187, label %87, label %89
 
 87:                                               ; preds = %85
-  %88 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %88 = load ptr, ptr @bio_err, align 8, !tbaa !7
   tail call void @ERR_print_errors(ptr noundef %88) #8
   br label %.loopexit206
 
@@ -393,7 +393,7 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
   %110 = icmp sgt i32 %109, 0
   %111 = zext nneg i32 %109 to i64
   %112 = add nsw i64 %.2128, %111
-  br i1 %110, label %.preheader209, label %.loopexit210, !llvm.loop !14
+  br i1 %110, label %.preheader209, label %.loopexit210, !llvm.loop !15
 
 .loopexit210:                                     ; preds = %.preheader209, %102
   %.1127 = phi i64 [ %.0126287, %102 ], [ %.2128, %.preheader209 ]
@@ -415,14 +415,14 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
 
 119:                                              ; preds = %117, %.loopexit210
   %.0119 = phi i32 [ 114, %.loopexit210 ], [ %switch.select200, %117 ]
-  %120 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %120 = load ptr, ptr @stdout, align 8, !tbaa !16
   %121 = call i32 @fputc(i32 noundef %.0119, ptr noundef %120)
-  %122 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %122 = load ptr, ptr @stdout, align 8, !tbaa !16
   %123 = call i32 @fflush(ptr noundef %122)
   call void @SSL_free(ptr noundef nonnull %100) #8
   %124 = call i64 @time(ptr noundef null) #8
   %125 = icmp slt i64 %95, %124
-  br i1 %125, label %._crit_edge, label %99
+  br i1 %125, label %._crit_edge, label %99, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %119, %91
   %.0134.lcssa = phi i32 [ 0, %91 ], [ %115, %119 ]
@@ -458,7 +458,7 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
   br i1 %142, label %143, label %146
 
 143:                                              ; preds = %140
-  %144 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %144 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %145 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %144, ptr noundef nonnull @.str.68) #8
   br label %.loopexit206
 
@@ -479,7 +479,7 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
 .preheader207:                                    ; preds = %150, %.preheader207
   %153 = call i32 @SSL_read(ptr noundef nonnull %141, ptr noundef nonnull %3, i32 noundef 8192) #8
   %154 = icmp sgt i32 %153, 0
-  br i1 %154, label %.preheader207, label %.loopexit208, !llvm.loop !17
+  br i1 %154, label %.preheader207, label %.loopexit208, !llvm.loop !19
 
 .loopexit208:                                     ; preds = %.preheader207, %146
   call void @SSL_set_shutdown(ptr noundef nonnull %141, i32 noundef 3) #8
@@ -527,7 +527,7 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
   %176 = icmp sgt i32 %175, 0
   %177 = zext nneg i32 %175 to i64
   %178 = add nsw i64 %.5, %177
-  br i1 %176, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %176, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %168
   %.4 = phi i64 [ %.3290, %168 ], [ %.5, %.preheader ]
@@ -556,13 +556,13 @@ define dso_local range(i32 0, 2) i32 @s_time_main(i32 noundef %0, ptr noundef %1
 
 188:                                              ; preds = %186, %183
   %.1120 = phi i32 [ 114, %183 ], [ %switch.select204, %186 ]
-  %189 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %189 = load ptr, ptr @stdout, align 8, !tbaa !16
   %190 = call i32 @fputc(i32 noundef %.1120, ptr noundef %189)
-  %191 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %191 = load ptr, ptr @stdout, align 8, !tbaa !16
   %192 = call i32 @fflush(ptr noundef %191)
   %193 = call i64 @time(ptr noundef null) #8
   %194 = icmp slt i64 %162, %193
-  br i1 %194, label %._crit_edge293, label %.lr.ph292
+  br i1 %194, label %._crit_edge293, label %.lr.ph292, !llvm.loop !21
 
 ._crit_edge293:                                   ; preds = %188, %159
   %.1135.lcssa = phi i32 [ 0, %159 ], [ %184, %188 ]
@@ -697,11 +697,11 @@ define internal fastcc noundef ptr @doConnection(ptr noundef %0, ptr noundef %1,
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %28 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.71) #8
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 8), align 4, !tbaa !19
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 8), align 4, !tbaa !22
   %.not = icmp eq i32 %30, 0
-  %31 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %31 = load ptr, ptr @bio_err, align 8, !tbaa !7
   br i1 %.not, label %36, label %32
 
 32:                                               ; preds = %27
@@ -723,9 +723,9 @@ define internal fastcc noundef ptr @doConnection(ptr noundef %0, ptr noundef %1,
 
 39:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store i32 1, ptr %4, align 4, !tbaa !20
+  store i32 1, ptr %4, align 4, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %40, align 4, !tbaa !22
+  store i32 0, ptr %40, align 4, !tbaa !25
   %41 = tail call i32 @SSL_get_fd(ptr noundef nonnull %.021) #8
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %45
@@ -815,22 +815,25 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 _ZTS6bio_st", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !13, i64 0}
-!12 = !{!"verify_options_st", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12}
-!13 = !{!"int", !9, i64 0}
-!14 = distinct !{!14, !5}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = !{!12, !13, i64 8}
-!20 = !{!21, !13, i64 0}
-!21 = !{!"linger", !13, i64 0, !13, i64 4}
-!22 = !{!21, !13, i64 4}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS6bio_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"verify_options_st", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
+!14 = !{!"int", !10, i64 0}
+!15 = distinct !{!15, !5, !6}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !6}
+!22 = !{!13, !14, i64 8}
+!23 = !{!24, !14, i64 0}
+!24 = !{!"linger", !14, i64 0, !14, i64 4}
+!25 = !{!24, !14, i64 4}

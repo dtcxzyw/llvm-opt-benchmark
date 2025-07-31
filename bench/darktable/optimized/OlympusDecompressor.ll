@@ -401,10 +401,10 @@ _ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImplC2ENS_8RawImageE.exit: ; pred
   %62 = load ptr, ptr %4, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 44
-  %65 = load i32, ptr %64, align 4, !tbaa !100
+  %65 = load i32, ptr %64, align 4, !tbaa !101
   %66 = icmp sgt i32 %65, 0
   tail call void @llvm.assume(i1 %66)
-  %67 = load i32, ptr %63, align 8, !tbaa !101
+  %67 = load i32, ptr %63, align 8, !tbaa !102
   %68 = icmp sgt i32 %67, 0
   tail call void @llvm.assume(i1 %68)
   %69 = and i32 %67, 1
@@ -442,16 +442,16 @@ _ZNK8rawspeed10ByteStream19peekRemainingBufferEv.exit.i: ; preds = %_ZN8rawspeed
 
 _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.preheader.i: ; preds = %_ZNK8rawspeed10ByteStream19peekRemainingBufferEv.exit.i
   %86 = getelementptr inbounds nuw i8, ptr %62, i64 560
-  %87 = load ptr, ptr %86, align 8, !tbaa !102, !noalias !103, !nonnull !106, !noundef !106
+  %87 = load ptr, ptr %86, align 8, !tbaa !103, !noalias !104, !nonnull !107, !noundef !107
   %88 = getelementptr inbounds nuw i8, ptr %62, i64 584
-  %89 = load i32, ptr %88, align 8, !tbaa !15, !noalias !103
+  %89 = load i32, ptr %88, align 8, !tbaa !15, !noalias !104
   %90 = getelementptr inbounds nuw i8, ptr %62, i64 600
-  %91 = load i32, ptr %90, align 8, !tbaa !107, !noalias !103
+  %91 = load i32, ptr %90, align 8, !tbaa !108, !noalias !104
   %92 = mul nsw i32 %91, %89
   %93 = getelementptr inbounds nuw i8, ptr %62, i64 604
-  %94 = load i32, ptr %93, align 4, !tbaa !108, !noalias !103
+  %94 = load i32, ptr %93, align 4, !tbaa !109, !noalias !104
   %95 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %96 = load i32, ptr %95, align 8, !tbaa !109, !noalias !103
+  %96 = load i32, ptr %95, align 8, !tbaa !110, !noalias !104
   %97 = ashr i32 %96, 1
   %98 = mul nuw nsw i32 %97, %94
   %99 = icmp sgt i32 %92, -1
@@ -491,9 +491,9 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %.sroa.9.021.i = phi i32 [ 0, %_ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.preheader.i ], [ %.sroa.9.1.i, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl13decompressRowERNS_14BitStreamerMSBEi.exit.i ]
   %.sroa.012.020.i = phi i64 [ 0, %_ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.preheader.i ], [ %.sroa.012.2.i, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl13decompressRowERNS_14BitStreamerMSBEi.exit.i ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #20
-  store ptr %21, ptr %3, align 8, !tbaa !110
+  store ptr %21, ptr %3, align 8, !tbaa !111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %scevgep.i.i.i, i8 0, i64 12, i1 false), !tbaa !92
-  store ptr %21, ptr %108, align 8, !tbaa !110
+  store ptr %21, ptr %108, align 8, !tbaa !111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %scevgep.i29.i.i, i8 0, i64 12, i1 false), !tbaa !92
   %117 = icmp samesign ult i64 %indvars.iv.i, 2
   %118 = add nsw i64 %indvars.iv.i, -2
@@ -588,7 +588,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %166 = trunc nuw nsw i64 %165 to i32
   %167 = lshr i32 %166, 14
   %168 = sub nsw i32 0, %167
-  %169 = load ptr, ptr %132, align 8, !tbaa !112
+  %169 = load ptr, ptr %132, align 8, !tbaa !113
   %170 = and i64 %165, 4095
   %171 = load ptr, ptr %169, align 8, !tbaa !94
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 %170
@@ -664,7 +664,7 @@ _ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMS
   call void @llvm.assume(i1 %119)
   call void @llvm.assume(i1 %122)
   %217 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv.i.i
-  %218 = load i16, ptr %217, align 2, !tbaa !115
+  %218 = load i16, ptr %217, align 2, !tbaa !116
   %219 = zext i16 %218 to i32
   br label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit25.i.i
 
@@ -677,10 +677,10 @@ _ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEi
   call void @llvm.assume(i1 %124)
   call void @llvm.assume(i1 %127)
   %223 = getelementptr inbounds nuw i16, ptr %128, i64 %indvars.iv.i.i
-  store i16 %221, ptr %223, align 2, !tbaa !115
+  store i16 %221, ptr %223, align 2, !tbaa !116
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i10.i = icmp eq i64 %indvars.iv.next.i.i, 2
-  br i1 %.not.i.i10.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit.preheader.i.i, label %129, !llvm.loop !117
+  br i1 %.not.i.i10.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit.preheader.i.i, label %129, !llvm.loop !118
 
 .preheader.i.i:                                   ; preds = %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit.preheader.i.i, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i
   %.sroa.012.1.i = phi i64 [ %300, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i ], [ %200, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit.preheader.i.i ]
@@ -779,7 +779,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %266 = trunc nuw nsw i64 %265 to i32
   %267 = lshr i32 %266, 14
   %268 = sub nsw i32 0, %267
-  %269 = load ptr, ptr %229, align 8, !tbaa !112
+  %269 = load ptr, ptr %229, align 8, !tbaa !113
   %270 = and i64 %265, 4095
   %271 = load ptr, ptr %269, align 8, !tbaa !94
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 %270
@@ -851,7 +851,7 @@ _ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMS
   %316 = icmp samesign ult i64 %315, %111
   call void @llvm.assume(i1 %316)
   %317 = getelementptr inbounds nuw i16, ptr %128, i64 %315
-  %318 = load i16, ptr %317, align 2, !tbaa !115
+  %318 = load i16, ptr %317, align 2, !tbaa !116
   %319 = zext i16 %318 to i32
   br i1 %117, label %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit.i.i, label %320
 
@@ -861,10 +861,10 @@ _ZN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoder7getDiffERNS_14BitStreamerMS
   call void @llvm.assume(i1 %119)
   call void @llvm.assume(i1 %122)
   %322 = getelementptr inbounds nuw i16, ptr %123, i64 %228
-  %323 = load i16, ptr %322, align 2, !tbaa !115
+  %323 = load i16, ptr %322, align 2, !tbaa !116
   %324 = zext i16 %323 to i32
   %325 = getelementptr inbounds nuw i16, ptr %123, i64 %315
-  %326 = load i16, ptr %325, align 2, !tbaa !115
+  %326 = load i16, ptr %325, align 2, !tbaa !116
   %327 = zext i16 %326 to i32
   %328 = sub nsw i32 %319, %327
   %329 = sub nsw i32 %324, %327
@@ -906,15 +906,15 @@ _ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEi
   %350 = icmp samesign ult i64 %228, %111
   call void @llvm.assume(i1 %350)
   %351 = getelementptr inbounds nuw i16, ptr %128, i64 %228
-  store i16 %349, ptr %351, align 2, !tbaa !115
+  store i16 %349, ptr %351, align 2, !tbaa !116
   %indvars.iv.next265.i.i = add nuw nsw i64 %indvars.iv264.i.i, 1
   %.not.i11.i.i = icmp eq i64 %indvars.iv.next265.i.i, 2
-  br i1 %.not.i11.i.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i, label %225, !llvm.loop !117
+  br i1 %.not.i11.i.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i, label %225, !llvm.loop !118
 
 _ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i: ; preds = %_ZN8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl7getPredENS_10Array2DRefItEEii.exit.i.i
   %indvars.iv.next268.i.i = add nuw nsw i64 %indvars.iv267.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next268.i.i, %112
-  br i1 %.not.i.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl13decompressRowERNS_14BitStreamerMSBEi.exit.i, label %.preheader.i.i, !llvm.loop !118
+  br i1 %.not.i.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl13decompressRowERNS_14BitStreamerMSBEi.exit.i, label %.preheader.i.i, !llvm.loop !119
 
 _ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl13decompressRowERNS_14BitStreamerMSBEi.exit.i: ; preds = %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit.preheader.i.i
   %.sroa.012.2.i = phi i64 [ %200, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit.preheader.i.i ], [ %300, %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl15decompressGroupERSt5arrayINS0_24OlympusDifferenceDecoderELm2EERNS_14BitStreamerMSBEii.exit12.i.i ]
@@ -923,7 +923,7 @@ _ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl13decompressRowERNS_14BitStr
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl10decompressENS_10ByteStreamE.exit, label %116, !llvm.loop !119
+  br i1 %exitcond.not.i, label %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl10decompressENS_10ByteStreamE.exit, label %116, !llvm.loop !120
 
 _ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl10decompressENS_10ByteStreamE.exit: ; preds = %_ZNK8rawspeed12_GLOBAL__N_123OlympusDecompressorImpl13decompressRowERNS_14BitStreamerMSBEi.exit.i
   %352 = load ptr, ptr %21, align 8, !tbaa !94
@@ -1426,25 +1426,26 @@ attributes #24 = { cold }
 !95 = !{!"_ZTSNSt12_Vector_baseIaSaIaEE17_Vector_impl_dataE", !57, i64 0, !57, i64 8, !57, i64 16}
 !96 = !{!95, !57, i64 8}
 !97 = !{!95, !57, i64 16}
-!98 = distinct !{!98, !99}
+!98 = distinct !{!98, !99, !100}
 !99 = !{!"llvm.loop.mustprogress"}
-!100 = !{!16, !25, i64 44}
-!101 = !{!16, !25, i64 40}
-!102 = !{!75, !57, i64 0}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
-!105 = distinct !{!105, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
-!106 = !{}
-!107 = !{!16, !25, i64 600}
-!108 = !{!16, !25, i64 604}
-!109 = !{!16, !25, i64 48}
-!110 = !{!111, !111, i64 0}
-!111 = !{!"p1 _ZTSN8rawspeed9SimpleLUTIaLi12EEE", !9, i64 0}
-!112 = !{!113, !111, i64 0}
-!113 = !{!"_ZTSN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoderE", !111, i64 0, !114, i64 8}
-!114 = !{!"_ZTSSt5arrayIiLm3EE", !10, i64 0}
-!115 = !{!116, !116, i64 0}
-!116 = !{!"short", !10, i64 0}
-!117 = distinct !{!117, !99}
-!118 = distinct !{!118, !99}
-!119 = distinct !{!119, !99}
+!100 = !{!"llvm.loop.estimated_trip_count"}
+!101 = !{!16, !25, i64 44}
+!102 = !{!16, !25, i64 40}
+!103 = !{!75, !57, i64 0}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
+!106 = distinct !{!106, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
+!107 = !{}
+!108 = !{!16, !25, i64 600}
+!109 = !{!16, !25, i64 604}
+!110 = !{!16, !25, i64 48}
+!111 = !{!112, !112, i64 0}
+!112 = !{!"p1 _ZTSN8rawspeed9SimpleLUTIaLi12EEE", !9, i64 0}
+!113 = !{!114, !112, i64 0}
+!114 = !{!"_ZTSN8rawspeed12_GLOBAL__N_124OlympusDifferenceDecoderE", !112, i64 0, !115, i64 8}
+!115 = !{!"_ZTSSt5arrayIiLm3EE", !10, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"short", !10, i64 0}
+!118 = distinct !{!118, !99, !100}
+!119 = distinct !{!119, !99, !100}
+!120 = distinct !{!120, !99, !100}

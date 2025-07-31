@@ -121,11 +121,11 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
 
 x509_attr_descr_from_name.exit:                   ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #8
-  store i64 %32, ptr %8, align 8, !tbaa !17
+  store i64 %32, ptr %8, align 8, !tbaa !18
   %33 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %32) #10
-  store ptr %33, ptr %9, align 8, !tbaa !19
+  store ptr %33, ptr %9, align 8, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %31, i64 %32, i1 false)
   br label %34
 
@@ -161,7 +161,7 @@ x509_attr_descr_from_name.exit:                   ; preds = %22
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
-  %47 = load ptr, ptr %9, align 8, !tbaa !19
+  %47 = load ptr, ptr %9, align 8, !tbaa !20
   br label %.critedge85.sink.split
 
 48:                                               ; preds = %44
@@ -266,14 +266,14 @@ hexpair_to_int.exit.i:                            ; preds = %90, %88, %84
   store i8 %101, ptr %102, align 1, !tbaa !7
   %103 = add nuw nsw i64 %.04059.i, 1
   %exitcond.not.i = icmp eq i64 %103, %59
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %100
   %.pre.i = load i8, ptr %62, align 1, !tbaa !7
   %104 = zext i8 %.pre.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   %105 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  store ptr %105, ptr %2, align 8, !tbaa !21
+  store ptr %105, ptr %2, align 8, !tbaa !22
   %106 = getelementptr inbounds nuw i8, ptr %62, i64 %59
   %107 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %2, ptr noundef nonnull %106, ptr noundef nonnull %5) #9
   %.not49.i = icmp eq i32 %107, 0
@@ -289,7 +289,7 @@ hexpair_to_int.exit.i:                            ; preds = %90, %88, %84
   br i1 %112, label %113, label %..loopexit_crit_edge.i
 
 ..loopexit_crit_edge.i:                           ; preds = %111
-  %.pre66.i = load ptr, ptr %2, align 8, !tbaa !21
+  %.pre66.i = load ptr, ptr %2, align 8, !tbaa !22
   br label %parse_attribute_value_hex_der_encoded.exit
 
 113:                                              ; preds = %111
@@ -298,13 +298,13 @@ hexpair_to_int.exit.i:                            ; preds = %90, %88, %84
   %.not50.i = icmp ne i32 %115, 0
   %.not5160.i = icmp ne i64 %109, 0
   %or.cond63.i = and i1 %.not50.i, %.not5160.i
-  %.pre67.i = load ptr, ptr %2, align 8, !tbaa !21
+  %.pre67.i = load ptr, ptr %2, align 8, !tbaa !22
   br i1 %or.cond63.i, label %.lr.ph62.i, label %parse_attribute_value_hex_der_encoded.exit
 
 116:                                              ; preds = %.lr.ph62.i
   %117 = add nuw nsw i64 %.061.i, 1
   %exitcond65.not.i = icmp eq i64 %117, %109
-  br i1 %exitcond65.not.i, label %parse_attribute_value_hex_der_encoded.exit, label %.lr.ph62.i, !llvm.loop !22
+  br i1 %exitcond65.not.i, label %parse_attribute_value_hex_der_encoded.exit, label %.lr.ph62.i, !llvm.loop !23
 
 .lr.ph62.i:                                       ; preds = %113, %116
   %.061.i = phi i64 [ %117, %116 ], [ 0, %113 ]
@@ -330,7 +330,7 @@ parse_attribute_value_hex_der_encoded.exit.thread.sink.split: ; preds = %hexpair
 
 parse_attribute_value_hex_der_encoded.exit.thread: ; preds = %61, %58, %51, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
   %.039.i117 = phi i32 [ -9088, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split ], [ -9088, %51 ], [ -9088, %58 ], [ -10368, %61 ]
-  %122 = load ptr, ptr %9, align 8, !tbaa !19
+  %122 = load ptr, ptr %9, align 8, !tbaa !20
   br label %.critedge85.sink.split
 
 123:                                              ; preds = %48
@@ -338,7 +338,7 @@ parse_attribute_value_hex_der_encoded.exit.thread: ; preds = %61, %58, %51, %par
   br i1 %.not80, label %126, label %124
 
 124:                                              ; preds = %123
-  %125 = load ptr, ptr %9, align 8, !tbaa !19
+  %125 = load ptr, ptr %9, align 8, !tbaa !20
   br label %.critedge85.sink.split
 
 126:                                              ; preds = %123
@@ -356,7 +356,7 @@ parse_attribute_value_hex_der_encoded.exit.thread: ; preds = %61, %58, %51, %par
   %.02838.i.add = add nuw nsw i64 %.02838.i.idx, 1
   %135 = getelementptr inbounds nuw i8, ptr %.130.i, i64 1
   %136 = icmp ult ptr %135, %132
-  br i1 %136, label %.lr.ph.i89, label %.loopexit, !llvm.loop !23
+  br i1 %136, label %.lr.ph.i89, label %.loopexit, !llvm.loop !24
 
 .lr.ph.i89:                                       ; preds = %126, %134
   %.02838.i.idx = phi i64 [ %.02838.i.add, %134 ], [ 0, %126 ]
@@ -463,31 +463,31 @@ hexpair_to_int.exit.i97:                          ; preds = %167, %165, %161
   br i1 %exitcond, label %184, label %134
 
 184:                                              ; preds = %hexpair_to_int.exit.i97, %180, %178, %183
-  %185 = load ptr, ptr %9, align 8, !tbaa !19
+  %185 = load ptr, ptr %9, align 8, !tbaa !20
   br label %.critedge85.sink.split
 
 .loopexit:                                        ; preds = %134, %126
   %.pre-phi40.i = phi i64 [ 0, %126 ], [ %.02838.i.add, %134 ]
   store i64 %.pre-phi40.i, ptr %5, align 8, !tbaa !3
   %186 = getelementptr inbounds nuw i8, ptr %.157.ph, i64 24
-  %187 = load i32, ptr %186, align 8, !tbaa !24
+  %187 = load i32, ptr %186, align 8, !tbaa !25
   br label %188
 
 188:                                              ; preds = %parse_attribute_value_hex_der_encoded.exit, %.loopexit
   %189 = phi i64 [ %109, %parse_attribute_value_hex_der_encoded.exit ], [ %.pre-phi40.i, %.loopexit ]
   %.2 = phi i32 [ %104, %parse_attribute_value_hex_der_encoded.exit ], [ %187, %.loopexit ]
-  %190 = load ptr, ptr %9, align 8, !tbaa !19
-  %191 = load i64, ptr %8, align 8, !tbaa !17
+  %190 = load ptr, ptr %9, align 8, !tbaa !20
+  %191 = load i64, ptr %8, align 8, !tbaa !18
   %192 = call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %190, i64 noundef %191, ptr noundef nonnull %4, i64 noundef %189) #9
-  %193 = load ptr, ptr %9, align 8, !tbaa !19
+  %193 = load ptr, ptr %9, align 8, !tbaa !20
   call void @free(ptr noundef %193) #9
-  store ptr null, ptr %9, align 8, !tbaa !19
+  store ptr null, ptr %9, align 8, !tbaa !20
   %.not83 = icmp eq ptr %192, null
   br i1 %.not83, label %.critedge85, label %194
 
 194:                                              ; preds = %188
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  store i32 %.2, ptr %195, align 8, !tbaa !25
+  store i32 %.2, ptr %195, align 8, !tbaa !26
   br label %196
 
 196:                                              ; preds = %198, %194
@@ -499,7 +499,7 @@ hexpair_to_int.exit.i97:                          ; preds = %167, %165, %161
   %199 = getelementptr inbounds nuw i8, ptr %.364, i64 1
   %200 = load i8, ptr %199, align 1, !tbaa !7
   %201 = icmp eq i8 %200, 32
-  br i1 %201, label %196, label %.critedge, !llvm.loop !28
+  br i1 %201, label %196, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %196, %198
   %202 = getelementptr inbounds nuw i8, ptr %.364, i64 1
@@ -514,10 +514,10 @@ hexpair_to_int.exit.i97:                          ; preds = %167, %165, %161
   %.254 = phi i32 [ 1, %.critedge ], [ 0, %39 ], [ 0, %43 ], [ 1, %11 ]
   %204 = getelementptr inbounds nuw i8, ptr %.162, i64 1
   %.not = icmp ugt ptr %204, %7
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %203
-  %.pre155 = load ptr, ptr %9, align 8, !tbaa !19
+  %.pre155 = load ptr, ptr %9, align 8, !tbaa !20
   %.not75 = icmp eq ptr %.pre155, null
   br i1 %.not75, label %.critedge85, label %.critedge85.sink.split
 
@@ -573,9 +573,9 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %
 12:                                               ; preds = %8
   %13 = trunc i32 %3 to i8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !30
+  %15 = load ptr, ptr %14, align 8, !tbaa !31
   store i8 %13, ptr %15, align 1, !tbaa !7
-  %16 = load ptr, ptr %14, align 8, !tbaa !30
+  %16 = load ptr, ptr %14, align 8, !tbaa !31
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %4, i64 %5, i1 false)
   br label %18
@@ -594,15 +594,15 @@ define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr 
   %.032 = phi ptr [ %44, %40 ], [ %2, %3 ]
   %.02131 = phi i64 [ %42, %40 ], [ 0, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.032, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !32
+  %7 = load i64, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %.032, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %.032, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %.032, i64 32
-  %12 = load i64, ptr %11, align 8, !tbaa !33
-  %13 = load i32, ptr %8, align 8, !tbaa !25
+  %12 = load i64, ptr %11, align 8, !tbaa !34
+  %13 = load i32, ptr %8, align 8, !tbaa !26
   %14 = tail call i32 @mbedtls_asn1_write_tagged_string(ptr noundef %0, ptr noundef %1, i32 noundef %13, ptr noundef %10, i64 noundef %12) #9
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %x509_write_name.exit.thread, label %16
@@ -649,9 +649,9 @@ x509_write_name.exit:                             ; preds = %33
   %41 = zext nneg i32 %38 to i64
   %42 = add i64 %.02131, %41
   %43 = getelementptr inbounds nuw i8, ptr %.032, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !34
+  %44 = load ptr, ptr %43, align 8, !tbaa !35
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %40, %3
   %.021.lcssa = phi i64 [ 0, %3 ], [ %42, %40 ]
@@ -681,7 +681,7 @@ declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  %8 = load ptr, ptr %0, align 8, !tbaa !21
+  %8 = load ptr, ptr %0, align 8, !tbaa !22
   %9 = icmp ult ptr %8, %1
   br i1 %9, label %39, label %10
 
@@ -695,9 +695,9 @@ define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr no
 15:                                               ; preds = %10
   %16 = sub i64 0, %5
   %17 = getelementptr inbounds i8, ptr %8, i64 %16
-  store ptr %17, ptr %0, align 8, !tbaa !21
+  store ptr %17, ptr %0, align 8, !tbaa !22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %4, i64 %5, i1 false)
-  %18 = load ptr, ptr %0, align 8, !tbaa !21
+  %18 = load ptr, ptr %0, align 8, !tbaa !22
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %12
   %21 = icmp slt i64 %20, 1
@@ -705,7 +705,7 @@ define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr no
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %18, i64 -1
-  store ptr %23, ptr %0, align 8, !tbaa !21
+  store ptr %23, ptr %0, align 8, !tbaa !22
   store i8 0, ptr %23, align 1, !tbaa !7
   %24 = add i64 %5, 1
   %25 = tail call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %24) #9
@@ -747,17 +747,17 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
   %.016 = phi ptr [ %65, %62 ], [ %2, %3 ]
   %.01015 = phi i32 [ %63, %62 ], [ 0, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.016, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = getelementptr inbounds nuw i8, ptr %.016, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !33
+  %8 = load i64, ptr %7, align 8, !tbaa !34
   %9 = add i64 %8, -1
   %10 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i64 noundef %9) #9
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %x509_write_extension.exit.thread, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = load i64, ptr %7, align 8, !tbaa !33
+  %13 = load i64, ptr %7, align 8, !tbaa !34
   %14 = add i64 %13, -1
   %15 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %14) #9
   %16 = icmp slt i32 %15, 0
@@ -773,7 +773,7 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
   %21 = zext i32 %narrow.i to i64
   %22 = zext nneg i32 %18 to i64
   %23 = add nuw nsw i64 %22, %21
-  %24 = load ptr, ptr %4, align 8, !tbaa !30
+  %24 = load ptr, ptr %4, align 8, !tbaa !31
   %25 = load i8, ptr %24, align 1, !tbaa !7
   %.not.i = icmp eq i8 %25, 0
   br i1 %.not.i, label %32, label %26
@@ -791,15 +791,15 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
 32:                                               ; preds = %29, %20
   %.0.i = phi i64 [ %31, %29 ], [ %23, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %.016, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !31
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !32
+  %36 = load i64, ptr %35, align 8, !tbaa !33
   %37 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %34, i64 noundef %36) #9
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %x509_write_extension.exit.thread, label %39
 
 39:                                               ; preds = %32
-  %40 = load i64, ptr %35, align 8, !tbaa !32
+  %40 = load i64, ptr %35, align 8, !tbaa !33
   %41 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %40) #9
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %x509_write_extension.exit.thread, label %43
@@ -835,9 +835,9 @@ x509_write_extension.exit:                        ; preds = %55
 62:                                               ; preds = %x509_write_extension.exit
   %63 = add i32 %60, %.01015
   %64 = getelementptr inbounds nuw i8, ptr %.016, i64 48
-  %65 = load ptr, ptr %64, align 8, !tbaa !34
+  %65 = load ptr, ptr %64, align 8, !tbaa !35
   %.not = icmp eq ptr %65, null
-  br i1 %.not, label %x509_write_extension.exit.thread, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %x509_write_extension.exit.thread, label %.lr.ph, !llvm.loop !37
 
 x509_write_extension.exit.thread:                 ; preds = %x509_write_extension.exit, %.lr.ph, %12, %17, %26, %32, %39, %43, %46, %55, %62, %3
   %.011 = phi i32 [ 0, %3 ], [ %63, %62 ], [ %56, %55 ], [ %53, %46 ], [ %44, %43 ], [ %41, %39 ], [ %37, %32 ], [ %27, %26 ], [ %18, %17 ], [ %15, %12 ], [ %10, %.lr.ph ], [ %60, %x509_write_extension.exit ]
@@ -888,26 +888,27 @@ attributes #10 = { nounwind allocsize(0,1) }
 !11 = !{!"any pointer", !5, i64 0}
 !12 = !{!"int", !5, i64 0}
 !13 = !{!9, !10, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!9, !10, i64 16}
-!17 = !{!18, !4, i64 8}
-!18 = !{!"mbedtls_asn1_buf", !12, i64 0, !4, i64 8, !10, i64 16}
-!19 = !{!18, !10, i64 16}
-!20 = distinct !{!20, !15}
-!21 = !{!10, !10, i64 0}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
-!24 = !{!9, !12, i64 24}
-!25 = !{!26, !12, i64 24}
-!26 = !{!"mbedtls_asn1_named_data", !18, i64 0, !18, i64 24, !27, i64 48, !5, i64 56}
-!27 = !{!"p1 _ZTS23mbedtls_asn1_named_data", !11, i64 0}
-!28 = distinct !{!28, !15}
-!29 = distinct !{!29, !15}
-!30 = !{!26, !10, i64 40}
-!31 = !{!26, !10, i64 16}
-!32 = !{!26, !4, i64 8}
-!33 = !{!26, !4, i64 32}
-!34 = !{!26, !27, i64 48}
-!35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!9, !10, i64 16}
+!18 = !{!19, !4, i64 8}
+!19 = !{!"mbedtls_asn1_buf", !12, i64 0, !4, i64 8, !10, i64 16}
+!20 = !{!19, !10, i64 16}
+!21 = distinct !{!21, !15, !16}
+!22 = !{!10, !10, i64 0}
+!23 = distinct !{!23, !15, !16}
+!24 = distinct !{!24, !15, !16}
+!25 = !{!9, !12, i64 24}
+!26 = !{!27, !12, i64 24}
+!27 = !{!"mbedtls_asn1_named_data", !19, i64 0, !19, i64 24, !28, i64 48, !5, i64 56}
+!28 = !{!"p1 _ZTS23mbedtls_asn1_named_data", !11, i64 0}
+!29 = distinct !{!29, !15, !16}
+!30 = distinct !{!30, !15, !16}
+!31 = !{!27, !10, i64 40}
+!32 = !{!27, !10, i64 16}
+!33 = !{!27, !4, i64 8}
+!34 = !{!27, !4, i64 32}
+!35 = !{!27, !28, i64 48}
+!36 = distinct !{!36, !15, !16}
+!37 = distinct !{!37, !15, !16}

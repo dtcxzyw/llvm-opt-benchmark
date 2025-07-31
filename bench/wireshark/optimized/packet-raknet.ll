@@ -417,7 +417,7 @@ define hidden void @proto_register_raknet() local_unnamed_addr #0 {
   store ptr %14, ptr %15, align 8
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 5
-  br i1 %exitcond20.not.i, label %raknet_init_message_names.exit, label %9, !llvm.loop !8
+  br i1 %exitcond20.not.i, label %raknet_init_message_names.exit, label %9, !llvm.loop !9
 
 raknet_init_message_names.exit:                   ; preds = %9
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @raknet_system_message_names, i64 80), align 16
@@ -510,7 +510,7 @@ define internal i32 @dissect_raknet(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 raknet_get_session_state.exit.i:                  ; preds = %25, %20
   %.0.i.i = phi ptr [ %27, %25 ], [ %23, %20 ]
-  %30 = load i8, ptr %.0.i.i, align 8, !range !9, !noundef !10
+  %30 = load i8, ptr %.0.i.i, align 8, !range !10, !noundef !11
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %37
 
@@ -714,7 +714,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   %144 = load i32, ptr @hf_raknet_split_packet_index, align 4
   %145 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %100, i32 noundef %144, ptr noundef %95, i32 noundef %143, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %10)
   %146 = add nuw nsw i32 %.2.i.i, 10
-  %147 = load i8, ptr %91, align 8, !range !9, !noundef !10
+  %147 = load i8, ptr %91, align 8, !range !10, !noundef !11
   store i8 1, ptr %91, align 8
   %148 = load i32, ptr %9, align 4
   %149 = load i32, ptr %10, align 4
@@ -768,7 +768,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
 174:                                              ; preds = %172, %171
   %.0203.i.i = phi ptr [ %154, %171 ], [ %173, %172 ]
   %.3.i.i = phi i32 [ %146, %171 ], [ %.2.i.i, %172 ]
-  %175 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %175 = load i8, ptr %12, align 1, !range !10, !noundef !11
   %176 = trunc nuw i8 %175 to i1
   br i1 %176, label %181, label %177
 
@@ -848,7 +848,7 @@ raknet_get_session_state.exit.i.i:                ; preds = %211, %206
   %216 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %217 = load ptr, ptr %216, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %98, ptr noundef nonnull @.str.188, i32 noundef %187)
-  %218 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %218 = load i8, ptr %12, align 1, !range !10, !noundef !11
   %219 = trunc nuw i8 %218 to i1
   br i1 %219, label %222, label %220
 
@@ -899,7 +899,7 @@ raknet_get_session_state.exit.i.i:                ; preds = %211, %206
   br label %243
 
 243:                                              ; preds = %240, %237, %232, %223
-  %244 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %244 = load i8, ptr %12, align 1, !range !10, !noundef !11
   %245 = trunc nuw i8 %244 to i1
   %or.cond11.not.i.i = or i1 %.not212.i.i, %245
   %.not.i.i = icmp eq ptr %96, null
@@ -977,7 +977,7 @@ define hidden void @proto_reg_handoff_raknet() local_unnamed_addr #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.3, i32 noundef %7, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !12
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %1 ]
@@ -990,7 +990,7 @@ define hidden void @proto_reg_handoff_raknet() local_unnamed_addr #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.104, i32 noundef %13, ptr noundef %12)
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, 5
-  br i1 %exitcond17.not, label %14, label %.preheader, !llvm.loop !12
+  br i1 %exitcond17.not, label %14, label %.preheader, !llvm.loop !13
 
 14:                                               ; preds = %.preheader
   %15 = load i32, ptr @proto_raknet, align 4
@@ -1153,7 +1153,7 @@ define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr noundef read
   %44 = add nuw i32 %.0571, 1
   %45 = load i32, ptr %4, align 4
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %12, label %._crit_edge, !llvm.loop !13
+  br i1 %46, label %12, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %42, %3
   %47 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1328,7 +1328,7 @@ raknet_get_session_state.exit:                    ; preds = %4, %24
   store i8 %31, ptr %.0.i, align 8
   %32 = load i32, ptr @hf_raknet_use_encryption, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %32, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %34 = load i8, ptr %.0.i, align 8, !range !9, !noundef !10
+  %34 = load i8, ptr %.0.i, align 8, !range !10, !noundef !11
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %41
 
@@ -1385,7 +1385,7 @@ define internal noundef i32 @raknet_dissect_open_connection_request_2(ptr nounde
 
 raknet_get_session_state.exit:                    ; preds = %4, %23
   %.0.i = phi ptr [ %25, %23 ], [ %21, %4 ]
-  %28 = load i8, ptr %.0.i, align 8, !range !9, !noundef !10
+  %28 = load i8, ptr %.0.i, align 8, !range !10, !noundef !11
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %39
 
@@ -1472,7 +1472,7 @@ raknet_get_session_state.exit:                    ; preds = %4, %30
   %38 = load i32, ptr @hf_raknet_use_encryption, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %38, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %40 = add i32 %23, 3
-  %41 = load i8, ptr %.0.i, align 8, !range !9, !noundef !10
+  %41 = load i8, ptr %.0.i, align 8, !range !10, !noundef !11
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %47
 
@@ -1748,7 +1748,7 @@ define internal noundef i32 @raknet_dissect_connection_request_accepted(ptr noun
   call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %12, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   %13 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %13, 10
-  br i1 %exitcond.not, label %14, label %11, !llvm.loop !14
+  br i1 %exitcond.not, label %14, label %11, !llvm.loop !15
 
 14:                                               ; preds = %11
   %15 = load i32, ptr @hf_raknet_timestamp, align 4
@@ -1777,7 +1777,7 @@ define internal noundef i32 @raknet_dissect_new_incoming_connection(ptr noundef 
   call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %8, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   %9 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %9, 10
-  br i1 %exitcond.not, label %10, label %7, !llvm.loop !15
+  br i1 %exitcond.not, label %10, label %7, !llvm.loop !16
 
 10:                                               ; preds = %7
   %11 = load i32, ptr @hf_raknet_timestamp, align 4
@@ -1812,13 +1812,14 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

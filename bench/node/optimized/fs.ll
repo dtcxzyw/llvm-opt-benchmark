@@ -485,7 +485,7 @@ if.end97.i:                                       ; preds = %if.end90.i
   %sub98.i = sub nsw i64 %bytes_to_send.0.i514, %34
   %add.i = add nuw nsw i64 %34, %in_offset.0.i515
   %cond = icmp eq i64 %sub98.i, 0
-  br i1 %cond, label %out.i.thread, label %if.end90.i
+  br i1 %cond, label %out.i.thread, label %if.end90.i, !llvm.loop !5
 
 out.i:                                            ; preds = %if.then95.i, %if.then79.i, %if.then52.i, %if.then35.i, %if.then20.i, %if.then2.i
   %dstfd.0.i = phi i32 [ -1, %if.then2.i ], [ %conv.i410, %if.then20.i ], [ %conv.i410, %if.then35.i ], [ %conv.i410, %if.then52.i ], [ %conv.i410, %if.then79.i ], [ %conv.i410, %if.then95.i ]
@@ -1142,7 +1142,7 @@ lor.lhs.false.tail.i:                             ; preds = %if.end10.tail.i
 if.then19.i:                                      ; preds = %if.end10.tail.i, %lor.lhs.false.tail.i
   %129 = load i64, ptr %nentries.i, align 8
   %cmp.i212 = icmp ugt i64 %129, %conv17.i
-  br i1 %cmp.i212, label %while.body.i, label %uv__fs_readdir.exit
+  br i1 %cmp.i212, label %while.body.i, label %uv__fs_readdir.exit, !llvm.loop !7
 
 if.end20.i:                                       ; preds = %if.end10.tail.i, %lor.lhs.false.tail.i, %if.end10.i
   %d_name.i.le = getelementptr inbounds nuw i8, ptr %call3.i205, i64 19
@@ -1161,7 +1161,7 @@ if.end28.i:                                       ; preds = %if.end20.i
   %conv.i209 = zext i32 %inc.i to i64
   %131 = load i64, ptr %nentries.i, align 8
   %cmp13.i = icmp ugt i64 %131, %conv.i209
-  br i1 %cmp13.i, label %while.body.lr.ph.i, label %uv__fs_readdir.exit
+  br i1 %cmp13.i, label %while.body.lr.ph.i, label %uv__fs_readdir.exit, !llvm.loop !7
 
 error.i211:                                       ; preds = %if.end20.i, %if.then.i213
   %cmp3019.not.i = icmp eq i32 %dirent_idx.0.ph16.i, 0
@@ -1182,7 +1182,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store ptr null, ptr %arrayidx38.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %uv__fs_readdir.exit, label %for.body.i
+  br i1 %exitcond.not.i, label %uv__fs_readdir.exit, label %for.body.i, !llvm.loop !8
 
 uv__fs_readdir.exit:                              ; preds = %if.end28.i, %for.body.i, %if.then19.i, %sw.bb79, %if.then.i213, %error.i211
   %retval.0.i210 = phi i32 [ %dirent_idx.0.ph16.i, %if.then.i213 ], [ -1, %error.i211 ], [ 0, %sw.bb79 ], [ %dirent_idx.0.ph16.i, %if.then19.i ], [ -1, %for.body.i ], [ %inc.i, %if.end28.i ]
@@ -1413,7 +1413,7 @@ do.body.us80.i.i:                                 ; preds = %for.body.us.i.i, %l
 land.rhs.us81.i.i:                                ; preds = %do.body.us80.i.i
   %162 = load i32, ptr %call, align 4
   %cmp9.us83.i.i = icmp eq i32 %162, 4
-  br i1 %cmp9.us83.i.i, label %do.body.us80.i.i, label %if.then14.us.i.i
+  br i1 %cmp9.us83.i.i, label %do.body.us80.i.i, label %if.then14.us.i.i, !llvm.loop !9
 
 land.lhs.true17.us.i.i:                           ; preds = %if.then14.us.i.i
   switch i32 %163, label %uv__fs_sendfile_emul.exit.i [
@@ -1422,7 +1422,7 @@ land.lhs.true17.us.i.i:                           ; preds = %if.then14.us.i.i
   ]
 
 for.body.us.i.i.backedge:                         ; preds = %land.lhs.true17.us.i.i, %land.lhs.true17.us.i.i
-  br label %for.body.us.i.i, !llvm.loop !5
+  br label %for.body.us.i.i, !llvm.loop !10
 
 if.then14.us.i.i:                                 ; preds = %land.rhs.us81.i.i, %land.rhs.us.us.i.i
   %163 = phi i32 [ %164, %land.rhs.us.us.i.i ], [ %162, %land.rhs.us81.i.i ]
@@ -1440,7 +1440,7 @@ do.body.us.us.i.i:                                ; preds = %for.body.us.i.i, %l
 land.rhs.us.us.i.i:                               ; preds = %do.body.us.us.i.i
   %164 = load i32, ptr %call, align 4
   %cmp9.us.us.i.i = icmp eq i32 %164, 4
-  br i1 %cmp9.us.us.i.i, label %do.body.us.us.i.i, label %if.then14.us.i.i, !llvm.loop !7
+  br i1 %cmp9.us.us.i.i, label %do.body.us.us.i.i, label %if.then14.us.i.i, !llvm.loop !12
 
 for.cond28.preheader.i.i:                         ; preds = %do.body.us80.i.i, %do.body.us.us.i.i
   %use_pread.076.us152.i.i = phi i32 [ %use_pread.076.us.i.i, %do.body.us.us.i.i ], [ 0, %do.body.us80.i.i ]
@@ -1467,13 +1467,13 @@ land.rhs37.i.i:                                   ; preds = %do.body31.i.i
   ]
 
 do.body31.i.i.backedge:                           ; preds = %land.rhs37.i.i, %lor.lhs.false65.i.i
-  br label %do.body31.i.i
+  br label %do.body31.i.i, !llvm.loop !13
 
 if.then43.i.i:                                    ; preds = %do.body31.i.i
   %add.i.i252 = add nsw i64 %call34.i.i, %nwritten.0.ph121.i.i
   %cmp29.i.i = icmp slt i64 %add.i.i252, %.us-phi70.i.i
   %sub33.i.i = sub nsw i64 %.us-phi70.i.i, %add.i.i252
-  br i1 %cmp29.i.i, label %for.cond28.outer.split.i.i, label %for.end.i.i
+  br i1 %cmp29.i.i, label %for.cond28.outer.split.i.i, label %for.end.i.i, !llvm.loop !13
 
 for.cond28.outer.split.i.i:                       ; preds = %for.cond28.preheader.i.i, %if.then43.i.i
   %sub33123.i.i = phi i64 [ %sub33.i.i, %if.then43.i.i ], [ %.us-phi70.i.i, %for.cond28.preheader.i.i ]
@@ -1495,7 +1495,7 @@ do.body52.i.i:                                    ; preds = %land.rhs57.i.i, %if
 land.rhs57.i.i:                                   ; preds = %do.body52.i.i
   %166 = load i32, ptr %call, align 4
   %cmp59.i.i = icmp eq i32 %166, 4
-  br i1 %cmp59.i.i, label %do.body52.i.i, label %if.then70.i.i
+  br i1 %cmp59.i.i, label %do.body52.i.i, label %if.then70.i.i, !llvm.loop !14
 
 lor.lhs.false65.i.i:                              ; preds = %do.body52.i.i
   %167 = load i16, ptr %revents.i.i, align 2
@@ -1511,7 +1511,7 @@ for.end.i.i:                                      ; preds = %if.then43.i.i, %for
   %add73.i.i = add nsw i64 %.us-phi70.i.i, %offset.0.ph126.i.i
   %add74.i.i = add nsw i64 %.us-phi70.i.i, %nsent.075.us.i.i
   %cmp74.i.i = icmp ult i64 %add74.i.i, %158
-  br i1 %cmp74.i.i, label %for.body.lr.ph.i.i, label %out.i.i
+  br i1 %cmp74.i.i, label %for.body.lr.ph.i.i, label %out.i.i, !llvm.loop !15
 
 out.i.i:                                          ; preds = %for.end.i.i, %do.body.us80.i.i, %do.body.us.us.i.i
   %offset.0.ph68.i.i = phi i64 [ %offset.0.ph126.i.i, %do.body.us.us.i.i ], [ %offset.0.ph126.i.i, %do.body.us80.i.i ], [ %add73.i.i, %for.end.i.i ]
@@ -1795,7 +1795,7 @@ uv__fs_write.exit.i:                              ; preds = %if.then24.i.i, %if.
 land.rhs.i375:                                    ; preds = %uv__fs_write.exit.i
   %213 = load i32, ptr %call, align 4
   %cmp10.i = icmp eq i32 %213, 4
-  br i1 %cmp10.i, label %do.bodythread-pre-split.i, label %if.then12.i359
+  br i1 %cmp10.i, label %do.bodythread-pre-split.i, label %if.then12.i359, !llvm.loop !16
 
 do.end.i:                                         ; preds = %uv__fs_write.exit.i
   %cmp11.i364 = icmp eq i64 %r.0.i.i, 0
@@ -1833,7 +1833,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   %sub.i.i367 = sub nuw i64 %size.addr.017.i.i, %216
   %inc.i.i = add i64 %offset.018.i.i, 1
   %cmp.not.i.i368 = icmp eq i64 %sub.i.i367, 0
-  br i1 %cmp.not.i.i368, label %uv__fs_buf_offset.exit.i, label %land.rhs.i.i
+  br i1 %cmp.not.i.i368, label %uv__fs_buf_offset.exit.i, label %land.rhs.i.i, !llvm.loop !17
 
 if.then.i29.i:                                    ; preds = %land.rhs.i.i
   %arrayidx5.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %215, i64 %offset.018.i.i
@@ -1857,7 +1857,7 @@ uv__fs_buf_offset.exit.i:                         ; preds = %for.body.i.i, %if.t
   %sub.i371 = sub i32 %nbufs.046.i, %conv.i369
   %add27.i = add nuw nsw i64 %r.0.i.i, %total.045.i
   %cmp.not.i372 = icmp eq i32 %sub.i371, 0
-  br i1 %cmp.not.i372, label %while.end.i, label %while.body.i356
+  br i1 %cmp.not.i372, label %while.end.i, label %while.body.i356, !llvm.loop !18
 
 while.end.i:                                      ; preds = %uv__fs_buf_offset.exit.i, %if.then12.i359, %sw.bb119
   %total.1.i = phi i64 [ %spec.select28.i, %if.then12.i359 ], [ 0, %sw.bb119 ], [ %add27.i, %uv__fs_buf_offset.exit.i ]
@@ -1893,7 +1893,7 @@ land.lhs.true:                                    ; preds = %sw.bb87, %if.then9.
   %219 = load i32, ptr %call, align 4
   %cmp124 = icmp eq i32 %219, 4
   %or.cond = and i1 %spec.select, %cmp124
-  br i1 %or.cond, label %do.body, label %if.end.thread
+  br i1 %or.cond, label %do.body, label %if.end.thread, !llvm.loop !19
 
 if.end.thread:                                    ; preds = %land.lhs.true
   %sub = sub nsw i32 0, %219
@@ -4470,5 +4470,17 @@ attributes #18 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
 !7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !6, !11}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}

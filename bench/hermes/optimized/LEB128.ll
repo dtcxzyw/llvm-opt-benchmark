@@ -186,7 +186,7 @@ if.end.i:                                         ; preds = %lor.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  br i1 %lnot, label %do.body, label %do.end, !llvm.loop !6
+  br i1 %lnot, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   br i1 %cmp8, label %if.then13, label %if.end24
@@ -222,7 +222,7 @@ if.end.i28:                                       ; preds = %for.body
 _ZN4llvh11raw_ostreamlsEc.exit30:                 ; preds = %if.then.i25, %if.end.i28
   %inc21 = add i32 %Count.241, 1
   %exitcond.not = icmp eq i32 %inc21, %sub
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit30, %if.then13
   %Count.2.lcssa = phi i32 [ %inc, %if.then13 ], [ %sub, %_ZN4llvh11raw_ostreamlsEc.exit30 ]
@@ -270,7 +270,7 @@ do.body.us.i:                                     ; preds = %do.body.us.i, %entr
   %or.us.i = or i64 %shl.us.i, %Value.0.us.i
   %add.us.i = add i32 %Shift.0.us.i, 7
   %cmp10.us.i = icmp slt i8 %0, 0
-  br i1 %cmp10.us.i, label %do.body.us.i, label %_ZN4llvh13decodeSLEB128EPKhPjS1_PPKc.exit, !llvm.loop !8
+  br i1 %cmp10.us.i, label %do.body.us.i, label %_ZN4llvh13decodeSLEB128EPKhPjS1_PPKc.exit, !llvm.loop !9
 
 _ZN4llvh13decodeSLEB128EPKhPjS1_PPKc.exit:        ; preds = %do.body.us.i
   %p25.i = ptrtoint ptr %arrayidx.i to i64
@@ -313,7 +313,7 @@ if.then:                                          ; preds = %entry, %if.then
   %add = add nuw nsw i64 %add15, 1
   %cmp3 = icmp ult i64 %add, %minBytes
   %or.cond = select i1 %cmp2.not, i1 true, i1 %cmp3
-  br i1 %or.cond, label %if.then, label %if.else, !llvm.loop !10
+  br i1 %or.cond, label %if.then, label %if.else, !llvm.loop !11
 
 if.else:                                          ; preds = %if.then, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %add15, %if.then ]
@@ -386,10 +386,11 @@ attributes #15 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5, !6}

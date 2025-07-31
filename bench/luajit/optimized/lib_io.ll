@@ -774,7 +774,7 @@ define internal fastcc i32 @io_file_read(ptr noundef %0, ptr %.0.val, i32 nounde
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %38
-  %42 = load double, ptr %3, align 8, !tbaa !29
+  %42 = load double, ptr %3, align 8, !tbaa !30
   %43 = load ptr, ptr %4, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %44, ptr %4, align 8, !tbaa !4
@@ -821,7 +821,7 @@ io_file_readnum.exit:                             ; preds = %41, %45
   %64 = add i32 %.021.i, %63
   %.not.i = icmp eq i32 %64, %.020.i
   %65 = shl i32 %.020.i, 1
-  br i1 %.not.i, label %.critedge.i, label %66
+  br i1 %.not.i, label %.critedge.i, label %66, !llvm.loop !32
 
 66:                                               ; preds = %.critedge.i
   %67 = load ptr, ptr %4, align 8, !tbaa !4
@@ -835,11 +835,11 @@ io_file_readnum.exit:                             ; preds = %41, %45
   %73 = load i64, ptr %20, align 8, !tbaa !23
   %74 = inttoptr i64 %73 to ptr
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load i64, ptr %75, align 8, !tbaa !31
+  %76 = load i64, ptr %75, align 8, !tbaa !33
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %78 = load i64, ptr %77, align 8, !tbaa !42
+  %78 = load i64, ptr %77, align 8, !tbaa !44
   %.not23.i = icmp ult i64 %76, %78
-  br i1 %.not23.i, label %io_file_readall.exit, label %79, !prof !43
+  br i1 %.not23.i, label %io_file_readall.exit, label %79, !prof !45
 
 79:                                               ; preds = %66
   %80 = call i32 @lj_gc_step(ptr noundef nonnull %0) #10
@@ -877,11 +877,11 @@ io_file_readnum.exit:                             ; preds = %41, %45
   %100 = load i64, ptr %20, align 8, !tbaa !23
   %101 = inttoptr i64 %100 to ptr
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = load i64, ptr %102, align 8, !tbaa !31
+  %103 = load i64, ptr %102, align 8, !tbaa !33
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  %105 = load i64, ptr %104, align 8, !tbaa !42
+  %105 = load i64, ptr %104, align 8, !tbaa !44
   %.not23.i57 = icmp ult i64 %103, %105
-  br i1 %.not23.i57, label %108, label %106, !prof !43
+  br i1 %.not23.i57, label %108, label %106, !prof !45
 
 106:                                              ; preds = %90
   %107 = call i32 @lj_gc_step(ptr noundef nonnull %0) #10
@@ -919,7 +919,7 @@ io_file_readall.exit:                             ; preds = %79, %66, %io_file_r
   %120 = icmp ne i32 %23, 0
   %121 = icmp ne i32 %.3, 0
   %122 = select i1 %120, i1 %121, i1 false
-  br i1 %122, label %22, label %.loopexit.loopexit, !llvm.loop !44
+  br i1 %122, label %22, label %.loopexit.loopexit, !llvm.loop !46
 
 .loopexit.loopexit:                               ; preds = %io_file_readall.exit
   %123 = trunc nuw i64 %indvars.iv.next to i32
@@ -1001,7 +1001,7 @@ define internal fastcc i32 @io_file_readline(ptr noundef %0, ptr noundef capture
   %27 = sub i32 %spec.select, %11
   %28 = tail call ptr @fgets(ptr noundef %26, i32 noundef %27, ptr noundef %1)
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit, label %.lr.ph
+  br i1 %29, label %.loopexit, label %.lr.ph, !llvm.loop !47
 
 .loopexit:                                        ; preds = %21, %3, %19
   %30 = phi ptr [ %8, %19 ], [ %4, %3 ], [ %24, %21 ]
@@ -1020,11 +1020,11 @@ define internal fastcc i32 @io_file_readline(ptr noundef %0, ptr noundef capture
   %39 = load i64, ptr %38, align 8, !tbaa !23
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !31
+  %42 = load i64, ptr %41, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %44 = load i64, ptr %43, align 8, !tbaa !42
+  %44 = load i64, ptr %43, align 8, !tbaa !44
   %.not35 = icmp ult i64 %42, %44
-  br i1 %.not35, label %47, label %45, !prof !43
+  br i1 %.not35, label %47, label %45, !prof !45
 
 45:                                               ; preds = %.loopexit
   %46 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #10
@@ -1126,7 +1126,7 @@ define internal i32 @io_file_iter(ptr noundef %0) #0 {
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = load i64, ptr %23, align 8, !tbaa !45
+  %24 = load i64, ptr %23, align 8, !tbaa !48
   %25 = ptrtoint ptr %3 to i64
   %26 = sub i64 %24, %25
   %27 = zext i32 %16 to i64
@@ -1862,22 +1862,25 @@ attributes #13 = { nounwind willreturn memory(none) }
 !24 = !{!6, !7, i64 0}
 !25 = !{!5, !11, i64 32}
 !26 = !{!13, !13, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"double", !8, i64 0}
-!31 = !{!32, !7, i64 16}
-!32 = !{!"global_State", !12, i64 0, !12, i64 8, !33, i64 16, !34, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !35, i64 152, !13, i64 184, !6, i64 192, !37, i64 200, !8, i64 232, !8, i64 240, !39, i64 248, !8, i64 272, !40, i64 280, !13, i64 328, !13, i64 332, !12, i64 336, !12, i64 344, !12, i64 352, !13, i64 360, !13, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !41, i64 392, !8, i64 424}
-!33 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !13, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !13, i64 88, !13, i64 92, !10, i64 96}
-!34 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
-!35 = !{!"StrInternState", !36, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
-!36 = !{!"p1 _ZTS5GCRef", !12, i64 0}
-!37 = !{!"SBuf", !38, i64 0, !38, i64 8, !38, i64 16, !10, i64 24}
-!38 = !{!"p1 omnipotent char", !12, i64 0}
-!39 = !{!"Node", !8, i64 0, !8, i64 8, !10, i64 16}
-!40 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !13, i64 40}
-!41 = !{!"PRNGState", !8, i64 0}
-!42 = !{!32, !7, i64 24}
-!43 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!44 = distinct !{!44, !28}
-!45 = !{!5, !7, i64 48}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"double", !8, i64 0}
+!32 = distinct !{!32, !29}
+!33 = !{!34, !7, i64 16}
+!34 = !{!"global_State", !12, i64 0, !12, i64 8, !35, i64 16, !36, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !37, i64 152, !13, i64 184, !6, i64 192, !39, i64 200, !8, i64 232, !8, i64 240, !41, i64 248, !8, i64 272, !42, i64 280, !13, i64 328, !13, i64 332, !12, i64 336, !12, i64 344, !12, i64 352, !13, i64 360, !13, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !43, i64 392, !8, i64 424}
+!35 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !13, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !13, i64 88, !13, i64 92, !10, i64 96}
+!36 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
+!37 = !{!"StrInternState", !38, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
+!38 = !{!"p1 _ZTS5GCRef", !12, i64 0}
+!39 = !{!"SBuf", !40, i64 0, !40, i64 8, !40, i64 16, !10, i64 24}
+!40 = !{!"p1 omnipotent char", !12, i64 0}
+!41 = !{!"Node", !8, i64 0, !8, i64 8, !10, i64 16}
+!42 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !13, i64 40}
+!43 = !{!"PRNGState", !8, i64 0}
+!44 = !{!34, !7, i64 24}
+!45 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!46 = distinct !{!46, !28, !29}
+!47 = distinct !{!47, !29}
+!48 = !{!5, !7, i64 48}

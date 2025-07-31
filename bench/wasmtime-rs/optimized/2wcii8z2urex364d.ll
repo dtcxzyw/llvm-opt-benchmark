@@ -559,7 +559,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_
 
 77:                                               ; preds = %75
   %78 = icmp eq ptr %76, null
-  br i1 %78, label %.loopexit14.i.i, label %79
+  br i1 %78, label %.loopexit14.i.i, label %79, !llvm.loop !12
 
 79:                                               ; preds = %77
   %80 = load i16, ptr %76, align 2, !noalias !9, !noundef !3
@@ -574,7 +574,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_
 
 85:                                               ; preds = %82
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac58b065ea89af43E"(ptr nonnull align 8 %22, ptr nonnull align 8 %3)
-          to label %75 unwind label %.loopexit.i.i, !noalias !9
+          to label %75 unwind label %.loopexit.i.i, !noalias !9, !llvm.loop !14
 
 86:                                               ; preds = %71
   %87 = extractvalue { i1, i8 } %73, 0
@@ -584,7 +584,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_
 
 89:                                               ; preds = %86
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac58b065ea89af43E"(ptr nonnull align 8 %22, ptr nonnull align 8 %6)
-          to label %66 unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !9
+          to label %66 unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !9, !llvm.loop !15
 
 90:                                               ; preds = %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(72) %19, i64 72, i1 false), !noalias !9
@@ -638,12 +638,12 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_
 
 111:                                              ; preds = %109
   %112 = icmp eq ptr %110, null
-  br i1 %112, label %.loopexit23.i.i, label %113
+  br i1 %112, label %.loopexit23.i.i, label %113, !llvm.loop !16
 
 113:                                              ; preds = %111
   %114 = load i16, ptr %110, align 2, !noalias !9, !noundef !3
   %115 = invoke i8 @_ZN22cranelift_codegen_meta4cdsl5types13ReferenceType13ref_from_bits17h32f944ee20ce01a6E(i16 %114)
-          to label %116 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !range !12, !noalias !9
+          to label %116 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !range !17, !noalias !9
 
 116:                                              ; preds = %113
   invoke void @"_ZN144_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..ReferenceType$GT$$GT$4from17h3771c48bd958e1adE"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %11, i8 %115)
@@ -651,7 +651,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_
 
 117:                                              ; preds = %116
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac58b065ea89af43E"(ptr nonnull align 8 %22, ptr nonnull align 8 %11)
-          to label %109 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !9
+          to label %109 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !9, !llvm.loop !18
 
 118:                                              ; preds = %105
   %119 = extractvalue { i1, i8 } %107, 0
@@ -661,7 +661,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_
 
 121:                                              ; preds = %118
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac58b065ea89af43E"(ptr nonnull align 8 %22, ptr nonnull align 8 %14)
-          to label %100 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !9
+          to label %100 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !9, !llvm.loop !19
 
 122:                                              ; preds = %96
   %123 = extractvalue { i1, i8 } %98, 0
@@ -671,7 +671,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_
 
 125:                                              ; preds = %122
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac58b065ea89af43E"(ptr nonnull align 8 %22, ptr nonnull align 8 %17)
-          to label %91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !9
+          to label %91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !9, !llvm.loop !20
 
 126:                                              ; preds = %.loopexit.split-lp.i.i
   %127 = landingpad { ptr, i32 }
@@ -776,7 +776,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %1
 
 8:                                                ; preds = %tailrecurse
   call void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_type17hf0a47470d9c0aa61E(ptr nonnull sret({ i8, [23 x i8] }) align 8 %2, ptr nonnull align 8 %.tr)
-  %9 = load i8, ptr %2, align 8, !range !13, !noundef !3
+  %9 = load i8, ptr %2, align 8, !range !21, !noundef !3
   %10 = icmp eq i8 %9, 4
   br i1 %10, label %11, label %13
 
@@ -1526,7 +1526,7 @@ define nonnull ptr @"_ZN140_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u
   store i16 0, ptr %25, align 2
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i16 0, ptr %26, align 2
-  %27 = load i8, ptr %0, align 8, !range !14, !noundef !3
+  %27 = load i8, ptr %0, align 8, !range !22, !noundef !3
   switch i8 %27, label %default.unreachable [
     i8 0, label %28
     i8 1, label %34
@@ -1539,7 +1539,7 @@ default.unreachable:                              ; preds = %21
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %30 = load i8, ptr %29, align 1, !range !15, !noundef !3
+  %30 = load i8, ptr %29, align 1, !range !23, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %32 = load i8, ptr %31, align 2, !noundef !3
   %33 = trunc nuw i8 %30 to i1
@@ -1547,7 +1547,7 @@ default.unreachable:                              ; preds = %21
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %36 = load i8, ptr %35, align 1, !range !12, !noundef !3
+  %36 = load i8, ptr %35, align 1, !range !17, !noundef !3
   %37 = zext nneg i8 %36 to i16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
@@ -1813,14 +1813,14 @@ default.unreachable9:                             ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %20)
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %20, ptr nonnull align 8 %1), !noalias !16
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %20, ptr nonnull align 8 %1), !noalias !24
   %24 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb7db822585aad40aE(i64 2, i64 2)
-          to label %28 unwind label %26, !noalias !16
+          to label %28 unwind label %26, !noalias !24
 
 25:                                               ; preds = %31, %26
   %.pn.i = phi { ptr, i32 } [ %32, %31 ], [ %27, %26 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$GT$17hf6c09c6f1c0b6e45E"(ptr nonnull align 8 %20) #15
-          to label %common.resume unwind label %33, !noalias !16
+          to label %common.resume unwind label %33, !noalias !24
 
 26:                                               ; preds = %29, %28, %23
   %27 = landingpad { ptr, i32 }
@@ -1828,28 +1828,28 @@ default.unreachable9:                             ; preds = %3
   br label %25
 
 28:                                               ; preds = %23
-  store i16 1, ptr %24, align 2, !noalias !16
+  store i16 1, ptr %24, align 2, !noalias !24
   invoke void @_ZN5alloc5slice4hack8into_vec17hada948946c9030dcE(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %18, ptr nonnull align 2 %24, i64 1)
-          to label %29 unwind label %26, !noalias !16
+          to label %29 unwind label %26, !noalias !24
 
 29:                                               ; preds = %28
   invoke void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17he04324f0e1e03b46E"(ptr nonnull sret({ { { ptr, [1 x i64] }, i64, { {} }, {} } }) align 8 %19, ptr nonnull align 8 %18)
-          to label %30 unwind label %26, !noalias !16
+          to label %30 unwind label %26, !noalias !24
 
 30:                                               ; preds = %29
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE"(ptr nonnull align 8 %20)
-          to label %_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E.exit unwind label %31, !noalias !16
+          to label %_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E.exit unwind label %31, !noalias !24
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !24
   br label %25
 
 33:                                               ; preds = %25
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !24
   unreachable
 
 common.resume:                                    ; preds = %.body, %.body6, %88, %44, %25
@@ -1857,7 +1857,7 @@ common.resume:                                    ; preds = %.body, %.body6, %88
   resume { ptr, i32 } %common.resume.op
 
 _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E.exit: ; preds = %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %20, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
@@ -1867,26 +1867,26 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E.exi
 35:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17)
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %17, ptr nonnull align 8 %1), !noalias !19
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %17, ptr nonnull align 8 %1), !noalias !27
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = load i64, ptr %36, align 8, !noalias !19, !noundef !3
+  %37 = load i64, ptr %36, align 8, !noalias !27, !noundef !3
   %38 = icmp eq i64 %37, 1
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %35
   %40 = invoke align 1 ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h5c301ff188550463E"(ptr nonnull align 8 %1, ptr nonnull align 2 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.46)
-          to label %47 unwind label %45, !noalias !19
+          to label %47 unwind label %45, !noalias !27
 
 41:                                               ; preds = %47, %35
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
   invoke void @"_ZN122_$LT$alloc..collections..btree..set..BTreeSet$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$RF$T$GT$$GT$6extend17hb02232340cede2e5E"(ptr nonnull align 8 %42, ptr nonnull align 8 %43)
-          to label %54 unwind label %45, !noalias !19
+          to label %54 unwind label %45, !noalias !27
 
 44:                                               ; preds = %60, %56, %51, %45
   %.pn.i2 = phi { ptr, i32 } [ %61, %60 ], [ %57, %56 ], [ %52, %51 ], [ %46, %45 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$GT$17hf6c09c6f1c0b6e45E"(ptr nonnull align 8 %17) #15
-          to label %common.resume unwind label %62, !noalias !19
+          to label %common.resume unwind label %62, !noalias !27
 
 45:                                               ; preds = %48, %41, %39
   %46 = landingpad { ptr, i32 }
@@ -1899,62 +1899,62 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E.exi
 
 48:                                               ; preds = %47
   invoke void @"_ZN119_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17hbec0fb3dbdb98f1bE"(ptr nonnull sret({ { { ptr, [1 x i64] }, i64, { {} }, {} } }) align 8 %16, i16 8)
-          to label %49 unwind label %45, !noalias !19
+          to label %49 unwind label %45, !noalias !27
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 48
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE"(ptr nonnull align 8 %50)
-          to label %53 unwind label %51, !noalias !19
+          to label %53 unwind label %51, !noalias !27
 
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !27
   br label %44
 
 53:                                               ; preds = %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !27
   br label %54
 
 54:                                               ; preds = %53, %41
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 72
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE"(ptr nonnull align 8 %55)
-          to label %58 unwind label %56, !noalias !19
+          to label %58 unwind label %56, !noalias !27
 
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %55, align 8, !noalias !19
+  store ptr null, ptr %55, align 8, !noalias !27
   %.sroa.01.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store i64 0, ptr %.sroa.01.sroa.6.0..sroa_idx.i, align 8, !noalias !19
+  store i64 0, ptr %.sroa.01.sroa.6.0..sroa_idx.i, align 8, !noalias !27
   br label %44
 
 58:                                               ; preds = %54
-  store ptr null, ptr %55, align 8, !noalias !19
+  store ptr null, ptr %55, align 8, !noalias !27
   %.sroa.01.sroa.6.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store i64 0, ptr %.sroa.01.sroa.6.0..sroa_idx12.i, align 8, !noalias !19
+  store i64 0, ptr %.sroa.01.sroa.6.0..sroa_idx12.i, align 8, !noalias !27
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 96
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE"(ptr nonnull align 8 %59)
-          to label %_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.exit unwind label %60, !noalias !19
+          to label %_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.exit unwind label %60, !noalias !27
 
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %59, align 8, !noalias !19
+  store ptr null, ptr %59, align 8, !noalias !27
   %.sroa.01.sroa.6.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %17, i64 112
-  store i64 0, ptr %.sroa.01.sroa.6.0..sroa_idx14.i, align 8, !noalias !19
+  store i64 0, ptr %.sroa.01.sroa.6.0..sroa_idx14.i, align 8, !noalias !27
   br label %44
 
 62:                                               ; preds = %44
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !19
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !27
   unreachable
 
 _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.exit: ; preds = %58
-  store ptr null, ptr %59, align 8, !noalias !19
+  store ptr null, ptr %59, align 8, !noalias !27
   %.sroa.01.sroa.6.0..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %17, i64 112
-  store i64 0, ptr %.sroa.01.sroa.6.0..sroa_idx16.i, align 8, !noalias !19
+  store i64 0, ptr %.sroa.01.sroa.6.0..sroa_idx16.i, align 8, !noalias !27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %17, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %17)
@@ -1979,12 +1979,12 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
 
 .noexc:                                           ; preds = %66
   invoke void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %12, ptr nonnull align 8 %22)
-          to label %70 unwind label %68, !noalias !22
+          to label %70 unwind label %68, !noalias !30
 
 67:                                               ; preds = %72, %68
   %.pn.i3 = phi { ptr, i32 } [ %73, %72 ], [ %69, %68 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$GT$17hf6c09c6f1c0b6e45E"(ptr nonnull align 8 %15) #15
-          to label %.body unwind label %74, !noalias !22
+          to label %.body unwind label %74, !noalias !30
 
 68:                                               ; preds = %70, %.noexc
   %69 = landingpad { ptr, i32 }
@@ -1992,24 +1992,24 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   br label %67
 
 70:                                               ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false), !noalias !30
   invoke void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hc24a81a26e892055E"(ptr nonnull sret({ { { ptr, [1 x i64] }, i64, { {} }, {} } }) align 8 %14, ptr nonnull align 8 %13)
-          to label %71 unwind label %68, !noalias !22
+          to label %71 unwind label %68, !noalias !30
 
 71:                                               ; preds = %70
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE"(ptr nonnull align 8 %15)
-          to label %106 unwind label %72, !noalias !22
+          to label %106 unwind label %72, !noalias !30
 
 72:                                               ; preds = %71
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !30
   br label %67
 
 74:                                               ; preds = %67
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !22
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !30
   unreachable
 
 76:                                               ; preds = %3
@@ -2023,12 +2023,12 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
 
 .noexc5:                                          ; preds = %76
   invoke void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %8, ptr nonnull align 8 %21)
-          to label %80 unwind label %78, !noalias !25
+          to label %80 unwind label %78, !noalias !33
 
 77:                                               ; preds = %82, %78
   %.pn.i4 = phi { ptr, i32 } [ %83, %82 ], [ %79, %78 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$GT$17hf6c09c6f1c0b6e45E"(ptr nonnull align 8 %11) #15
-          to label %.body6 unwind label %84, !noalias !25
+          to label %.body6 unwind label %84, !noalias !33
 
 78:                                               ; preds = %80, %.noexc5
   %79 = landingpad { ptr, i32 }
@@ -2036,24 +2036,24 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   br label %77
 
 80:                                               ; preds = %.noexc5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false), !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false), !noalias !33
   invoke void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hac1b896e55e9fc18E"(ptr nonnull sret({ { { ptr, [1 x i64] }, i64, { {} }, {} } }) align 8 %10, ptr nonnull align 8 %9)
-          to label %81 unwind label %78, !noalias !25
+          to label %81 unwind label %78, !noalias !33
 
 81:                                               ; preds = %80
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE"(ptr nonnull align 8 %11)
-          to label %111 unwind label %82, !noalias !25
+          to label %111 unwind label %82, !noalias !33
 
 82:                                               ; preds = %81
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !33
   br label %77
 
 84:                                               ; preds = %77
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !25
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !33
   unreachable
 
 86:                                               ; preds = %3
@@ -2061,15 +2061,15 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7)
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %7, ptr nonnull align 8 %1), !noalias !28
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %7, ptr nonnull align 8 %1), !noalias !36
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %4, ptr nonnull align 8 %87)
-          to label %91 unwind label %89, !noalias !28
+          to label %91 unwind label %89, !noalias !36
 
 88:                                               ; preds = %97, %93, %89
   %.pn.i8 = phi { ptr, i32 } [ %98, %97 ], [ %94, %93 ], [ %90, %89 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$GT$17hf6c09c6f1c0b6e45E"(ptr nonnull align 8 %7) #15
-          to label %common.resume unwind label %99, !noalias !28
+          to label %common.resume unwind label %99, !noalias !36
 
 89:                                               ; preds = %91, %86
   %90 = landingpad { ptr, i32 }
@@ -2077,44 +2077,44 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   br label %88
 
 91:                                               ; preds = %86
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !36
   invoke void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hbf50b2fa49507266E"(ptr nonnull sret({ { { ptr, [1 x i64] }, i64, { {} }, {} } }) align 8 %6, ptr nonnull align 8 %5)
-          to label %92 unwind label %89, !noalias !28
+          to label %92 unwind label %89, !noalias !36
 
 92:                                               ; preds = %91
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE"(ptr nonnull align 8 %7)
-          to label %95 unwind label %93, !noalias !28
+          to label %95 unwind label %93, !noalias !36
 
 93:                                               ; preds = %92
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !36
   br label %88
 
 95:                                               ; preds = %92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !36
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 24
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$GT$17h3c3ed4a0b66d014dE"(ptr nonnull align 8 %96)
-          to label %_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb414f08fE.exit unwind label %97, !noalias !28
+          to label %_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb414f08fE.exit unwind label %97, !noalias !36
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %96, align 8, !noalias !28
+  store ptr null, ptr %96, align 8, !noalias !36
   %.sroa.01.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i64 0, ptr %.sroa.01.sroa.4.0..sroa_idx.i, align 8, !noalias !28
+  store i64 0, ptr %.sroa.01.sroa.4.0..sroa_idx.i, align 8, !noalias !36
   br label %88
 
 99:                                               ; preds = %88
   %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !28
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !36
   unreachable
 
 _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb414f08fE.exit: ; preds = %95
-  store ptr null, ptr %96, align 8, !noalias !28
+  store ptr null, ptr %96, align 8, !noalias !36
   %.sroa.01.sroa.4.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i64 0, ptr %.sroa.01.sroa.4.0..sroa_idx6.i, align 8, !noalias !28
+  store i64 0, ptr %.sroa.01.sroa.4.0..sroa_idx6.i, align 8, !noalias !36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %7, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
@@ -2144,7 +2144,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb4
           to label %common.resume unwind label %107
 
 106:                                              ; preds = %71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %15, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
@@ -2170,7 +2170,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb4
           to label %common.resume unwind label %107
 
 111:                                              ; preds = %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
@@ -2897,7 +2897,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
   %6 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %7 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %9 = load i8, ptr %8, align 2, !range !15, !noundef !3
+  %9 = load i8, ptr %8, align 2, !range !23, !noundef !3
   %10 = trunc nuw i8 %9 to i1
   %. = select i1 %10, i16 1, i16 2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 18
@@ -2997,7 +2997,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc range(i48 4294967296, 1103806595072) i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr readonly align 2 captures(none) %0, i16 range(i16 1, 33) %1, i16 range(i16 64, 257) %2, i16 range(i16 0, 2) %3) unnamed_addr #0 {
-  %5 = load i16, ptr %0, align 2, !range !31, !noundef !3
+  %5 = load i16, ptr %0, align 2, !range !39, !noundef !3
   switch i16 %5, label %default.unreachable11 [
     i16 0, label %6
     i16 1, label %14
@@ -3166,7 +3166,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_
   %31 = and i16 %30, 15
   %32 = shl nuw i16 1, %31
   %33 = invoke zeroext i1 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h7a1da2d6e4109096E"(ptr nonnull align 8 %4, i16 %32)
-          to label %23 unwind label %.loopexit
+          to label %23 unwind label %.loopexit, !llvm.loop !40
 
 34:                                               ; preds = %22
   %35 = landingpad { ptr, i32 }
@@ -3349,8 +3349,8 @@ define hidden zeroext i1 @"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..Type
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2c2d85edc3e40a84E"(ptr align 2 %0, ptr align 2 %1) unnamed_addr #6 {
-  %3 = load i16, ptr %0, align 2, !range !31, !noundef !3
-  %4 = load i16, ptr %1, align 2, !range !31, !noundef !3
+  %3 = load i16, ptr %0, align 2, !range !39, !noundef !3
+  %4 = load i16, ptr %1, align 2, !range !39, !noundef !3
   %5 = icmp eq i16 %3, %4
   br i1 %5, label %6, label %8
 
@@ -3674,23 +3674,32 @@ attributes #16 = { cold noreturn nounwind }
 !9 = !{!10, !7}
 !10 = distinct !{!10, !11, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet14concrete_types17h6b235b1af0488031E: argument 0"}
 !11 = distinct !{!11, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet14concrete_types17h6b235b1af0488031E"}
-!12 = !{i8 32, i8 65}
-!13 = !{i8 0, i8 5}
-!14 = !{i8 0, i8 4}
-!15 = !{i8 0, i8 2}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E: argument 0"}
-!18 = distinct !{!18, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE: argument 0"}
-!21 = distinct !{!21, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet13double_vector17h454a76a5379546beE: argument 0"}
-!24 = distinct !{!24, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet13double_vector17h454a76a5379546beE"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet11half_vector17h7c94ae03128e0e15E: argument 0"}
-!27 = distinct !{!27, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet11half_vector17h7c94ae03128e0e15E"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb414f08fE: argument 0"}
-!30 = distinct !{!30, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb414f08fE"}
-!31 = !{i16 0, i16 3}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = !{i8 32, i8 65}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}
+!21 = !{i8 0, i8 5}
+!22 = !{i8 0, i8 4}
+!23 = !{i8 0, i8 2}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E: argument 0"}
+!26 = distinct !{!26, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE: argument 0"}
+!29 = distinct !{!29, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet13double_vector17h454a76a5379546beE: argument 0"}
+!32 = distinct !{!32, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet13double_vector17h454a76a5379546beE"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet11half_vector17h7c94ae03128e0e15E: argument 0"}
+!35 = distinct !{!35, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet11half_vector17h7c94ae03128e0e15E"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb414f08fE: argument 0"}
+!38 = distinct !{!38, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb414f08fE"}
+!39 = !{i16 0, i16 3}
+!40 = distinct !{!40, !13}

@@ -60,7 +60,7 @@ define hidden noundef double @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES
 ._crit_edge.us:                                   ; preds = %30
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !25
+  br i1 %exitcond34.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !26
 
 ._crit_edge26:                                    ; preds = %._crit_edge.us, %.lr.ph25, %6
   %.018.lcssa = phi double [ 0.000000e+00, %6 ], [ 0.000000e+00, %.lr.ph25 ], [ %35, %._crit_edge.us ]
@@ -121,7 +121,7 @@ define hidden void @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iRS2_(pt
 ._crit_edge.us:                                   ; preds = %._crit_edge37.us.us, %.preheader.us47.preheader
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond68.not = icmp eq i64 %indvar.next, %wide.trip.count67
-  br i1 %exitcond68.not, label %._crit_edge46, label %.preheader.lr.ph.us, !llvm.loop !27
+  br i1 %exitcond68.not, label %._crit_edge46, label %.preheader.lr.ph.us, !llvm.loop !28
 
 .preheader.lr.ph.split.us.us:                     ; preds = %.preheader.lr.ph.us
   %33 = load ptr, ptr %23, align 8
@@ -143,7 +143,7 @@ define hidden void @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iRS2_(pt
   store double %.us-phi.us.us, ptr %38, align 8, !tbaa !21
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %25
-  br i1 %exitcond65.not, label %._crit_edge.us, label %.preheader.us.us, !llvm.loop !28
+  br i1 %exitcond65.not, label %._crit_edge.us, label %.preheader.us.us, !llvm.loop !29
 
 .lr.ph.us.us.us:                                  ; preds = %.preheader.us.us, %._crit_edge.us.us.us
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
@@ -165,12 +165,12 @@ define hidden void @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iRS2_(pt
   %48 = tail call double @llvm.fmuladd.f64(double %45, double %47, double %.132.us.us.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %43, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %43, !llvm.loop !30
 
 ._crit_edge.us.us.us:                             ; preds = %43
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge37.us.us, label %.lr.ph.us.us.us, !llvm.loop !30
+  br i1 %exitcond60.not, label %._crit_edge37.us.us, label %.lr.ph.us.us.us, !llvm.loop !31
 
 ._crit_edge46:                                    ; preds = %._crit_edge.us, %.lr.ph, %5
   ret void
@@ -209,11 +209,12 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !20 = !{!4, !5, i64 12}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"double", !6, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !24, !26}
-!28 = distinct !{!28, !24, !26}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24, !26}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !24, !25, !27}
+!29 = distinct !{!29, !24, !25, !27}
+!30 = distinct !{!30, !24, !25}
+!31 = distinct !{!31, !24, !25, !27}

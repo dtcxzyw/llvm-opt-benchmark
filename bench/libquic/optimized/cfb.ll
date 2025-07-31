@@ -65,23 +65,23 @@ define hidden void @CRYPTO_cfb128_encrypt(ptr noundef readonly captures(none) %0
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
   %indvars.iv = phi i64 [ %29, %.lr.ph119.preheader ], [ %indvars.iv.next, %.lr.ph119 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1123, i64 %indvars.iv
-  %31 = load i64, ptr %30, align 8, !tbaa !13
+  %31 = load i64, ptr %30, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %33 = load i64, ptr %32, align 8, !tbaa !13
+  %33 = load i64, ptr %32, align 8, !tbaa !14
   %34 = xor i64 %33, %31
-  store i64 %34, ptr %32, align 8, !tbaa !13
+  store i64 %34, ptr %32, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %.190122, i64 %indvars.iv
-  store i64 %34, ptr %35, align 8, !tbaa !13
+  store i64 %34, ptr %35, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %36 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %36, label %.lr.ph119, label %._crit_edge, !llvm.loop !15
+  br i1 %36, label %.lr.ph119, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph119, %.lr.ph124
   %37 = add i64 %.194121, -16
   %38 = getelementptr inbounds nuw i8, ptr %.190122, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.1123, i64 16
   %40 = icmp ugt i64 %37, 15
-  br i1 %40, label %.lr.ph124, label %._crit_edge125, !llvm.loop !16
+  br i1 %40, label %.lr.ph124, label %._crit_edge125, !llvm.loop !17
 
 ._crit_edge125:                                   ; preds = %._crit_edge, %.preheader109
   %.198.lcssa = phi i32 [ %.097.lcssa, %.preheader109 ], [ 0, %._crit_edge ]
@@ -110,7 +110,7 @@ define hidden void @CRYPTO_cfb128_encrypt(ptr noundef readonly captures(none) %0
   store i8 %49, ptr %50, align 1, !tbaa !10
   %51 = add i32 %.4101130, 1
   %.not106 = icmp eq i64 %43, 0
-  br i1 %.not106, label %.loopexit, label %42, !llvm.loop !17
+  br i1 %.not106, label %.loopexit, label %42, !llvm.loop !18
 
 .preheader:                                       ; preds = %.lr.ph136, %.preheader107
   %.5102.lcssa = phi i32 [ %9, %.preheader107 ], [ %62, %.lr.ph136 ]
@@ -141,7 +141,7 @@ define hidden void @CRYPTO_cfb128_encrypt(ptr noundef readonly captures(none) %0
   %64 = icmp ne i32 %63, 15
   %65 = icmp ne i64 %60, 0
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %.lr.ph136, label %.preheader, !llvm.loop !18
+  br i1 %66, label %.lr.ph136, label %.preheader, !llvm.loop !19
 
 .lr.ph149:                                        ; preds = %.preheader, %._crit_edge144
   %.3148 = phi ptr [ %78, %._crit_edge144 ], [ %.2.lcssa, %.preheader ]
@@ -159,23 +159,23 @@ define hidden void @CRYPTO_cfb128_encrypt(ptr noundef readonly captures(none) %0
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv174 = phi i64 [ %68, %.lr.ph143.preheader ], [ %indvars.iv.next175, %.lr.ph143 ]
   %69 = getelementptr inbounds nuw i8, ptr %.3148, i64 %indvars.iv174
-  %70 = load i64, ptr %69, align 8, !tbaa !13
+  %70 = load i64, ptr %69, align 8, !tbaa !14
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv174
-  %72 = load i64, ptr %71, align 8, !tbaa !13
+  %72 = load i64, ptr %71, align 8, !tbaa !14
   %73 = xor i64 %72, %70
   %74 = getelementptr inbounds nuw i8, ptr %.392147, i64 %indvars.iv174
-  store i64 %73, ptr %74, align 8, !tbaa !13
-  store i64 %70, ptr %71, align 8, !tbaa !13
+  store i64 %73, ptr %74, align 8, !tbaa !14
+  store i64 %70, ptr %71, align 8, !tbaa !14
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 8
   %75 = icmp samesign ult i64 %indvars.iv174, 8
-  br i1 %75, label %.lr.ph143, label %._crit_edge144, !llvm.loop !19
+  br i1 %75, label %.lr.ph143, label %._crit_edge144, !llvm.loop !20
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.lr.ph149
   %76 = add i64 %.4146, -16
   %77 = getelementptr inbounds nuw i8, ptr %.392147, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %.3148, i64 16
   %79 = icmp ugt i64 %76, 15
-  br i1 %79, label %.lr.ph149, label %._crit_edge150, !llvm.loop !20
+  br i1 %79, label %.lr.ph149, label %._crit_edge150, !llvm.loop !21
 
 ._crit_edge150:                                   ; preds = %._crit_edge144, %.preheader
   %.6.lcssa = phi i32 [ %.5102.lcssa, %.preheader ], [ 0, %._crit_edge144 ]
@@ -204,7 +204,7 @@ define hidden void @CRYPTO_cfb128_encrypt(ptr noundef readonly captures(none) %0
   store i8 %87, ptr %84, align 1, !tbaa !10
   %90 = add i32 %.9155, 1
   %.not104 = icmp eq i64 %82, 0
-  br i1 %.not104, label %.loopexit, label %81, !llvm.loop !21
+  br i1 %.not104, label %.loopexit, label %81, !llvm.loop !22
 
 .loopexit:                                        ; preds = %42, %81, %._crit_edge150, %._crit_edge125
   %storemerge = phi i32 [ %.198.lcssa, %._crit_edge125 ], [ %.6.lcssa, %._crit_edge150 ], [ %90, %81 ], [ %51, %42 ]
@@ -260,7 +260,7 @@ define hidden void @CRYPTO_cfb128_1_encrypt(ptr noundef readonly captures(none) 
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.us
   store i8 %27, ptr %28, align 1, !tbaa !10
   %exitcond.not.i.us = icmp eq i64 %24, 16
-  br i1 %exitcond.not.i.us, label %cfbr_encrypt_block.exit.us, label %22, !llvm.loop !22
+  br i1 %exitcond.not.i.us, label %cfbr_encrypt_block.exit.us, label %22, !llvm.loop !23
 
 cfbr_encrypt_block.exit.us:                       ; preds = %22
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %9) #4
@@ -278,7 +278,7 @@ cfbr_encrypt_block.exit.us:                       ; preds = %22
   store i8 %38, ptr %29, align 1, !tbaa !10
   %39 = add nuw i64 %.016.us, 1
   %exitcond19.not = icmp eq i64 %39, %2
-  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %cfbr_encrypt_block.exit
   %.016 = phi i64 [ %69, %cfbr_encrypt_block.exit ], [ 0, %.lr.ph ]
@@ -312,7 +312,7 @@ cfbr_encrypt_block.exit.us:                       ; preds = %22
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %57, ptr %58, align 1, !tbaa !10
   %exitcond.not.i = icmp eq i64 %54, 16
-  br i1 %exitcond.not.i, label %cfbr_encrypt_block.exit, label %52, !llvm.loop !22
+  br i1 %exitcond.not.i, label %cfbr_encrypt_block.exit, label %52, !llvm.loop !23
 
 cfbr_encrypt_block.exit:                          ; preds = %52
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %9) #4
@@ -329,7 +329,7 @@ cfbr_encrypt_block.exit:                          ; preds = %52
   store i8 %68, ptr %59, align 1, !tbaa !10
   %69 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %69, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %cfbr_encrypt_block.exit, %cfbr_encrypt_block.exit.us, %8
   ret void
@@ -363,7 +363,7 @@ define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   %14 = add nuw i64 %.010.us, 1
   %exitcond12.not = icmp eq i64 %14, %2
-  br i1 %exitcond12.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
+  br i1 %exitcond12.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.010 = phi i64 [ %20, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -381,7 +381,7 @@ define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   %20 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %20, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %8
   ret void
@@ -412,20 +412,21 @@ attributes #4 = { nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!8, !8, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !8, i64 0}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !12}
-!26 = distinct !{!26, !12, !24}
-!27 = distinct !{!27, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !8, i64 0}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !12, !13}
+!24 = distinct !{!24, !12, !13, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !12, !13}
+!27 = distinct !{!27, !12, !13, !25}
+!28 = distinct !{!28, !12, !13}

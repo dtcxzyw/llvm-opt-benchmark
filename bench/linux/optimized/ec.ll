@@ -264,7 +264,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
   br i1 %82, label %.loopexit, label %.preheader, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader, %70, %.preheader6
-  br i1 %61, label %.preheader6, label %.loopexit7, !llvm.loop !8
+  br i1 %61, label %.preheader6, label %.loopexit7, !llvm.loop !9
 
 .preheader8:                                      ; preds = %45, %.preheader8
   %83 = phi i64 [ %87, %.preheader8 ], [ 0, %45 ]
@@ -274,7 +274,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
   store ptr %85, ptr %86, align 8
   %87 = add nuw nsw i64 %83, 1
   %88 = icmp eq i64 %87, 11
-  br i1 %88, label %.loopexit7, label %.preheader8, !llvm.loop !9
+  br i1 %88, label %.loopexit7, label %.preheader8, !llvm.loop !10
 
 .loopexit7:                                       ; preds = %.preheader8, %.loopexit
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -358,7 +358,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
   store i32 %141, ptr %142, align 4
   %143 = add nuw nsw i64 %134, 1
   %144 = icmp eq i64 %143, 11
-  br i1 %144, label %.critedge, label %133, !llvm.loop !10
+  br i1 %144, label %.critedge, label %133, !llvm.loop !11
 
 145:                                              ; preds = %99
   tail call void @mpi_free(ptr noundef nonnull %97) #9
@@ -366,7 +366,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
   %146 = getelementptr [3 x %struct.field_table], ptr @field_table, i64 0, i64 %indvars.iv.next
   %147 = load ptr, ptr %146, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond, label %.critedge, label %94, !llvm.loop !11
+  br i1 %exitcond, label %.critedge, label %94, !llvm.loop !12
 
 .critedge:                                        ; preds = %94, %145, %133, %138
   ret void
@@ -426,7 +426,7 @@ define internal void @ec_subm(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   tail call void @mpi_add(ptr noundef %0, ptr noundef %0, ptr noundef %11) #9
   %12 = load i32, ptr %5, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit, label %10, !llvm.loop !12
+  br i1 %13, label %.loopexit, label %10, !llvm.loop !13
 
 .loopexit:                                        ; preds = %10, %4
   ret void
@@ -576,7 +576,7 @@ define dso_local void @mpi_ec_deinit(ptr noundef readonly captures(none) %0) #0 
   tail call void @mpi_free(ptr noundef %40) #9
   %41 = add nuw nsw i64 %38, 1
   %42 = icmp eq i64 %41, 11
-  br i1 %42, label %43, label %37, !llvm.loop !13
+  br i1 %42, label %43, label %37, !llvm.loop !14
 
 43:                                               ; preds = %37
   ret void
@@ -996,7 +996,7 @@ define dso_local void @mpi_ec_add_points(ptr noundef readonly captures(none) %0,
   tail call void @mpi_add(ptr noundef %119, ptr noundef %119, ptr noundef %128) #9
   %129 = load i32, ptr %122, align 4
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %.loopexit23, label %127, !llvm.loop !12
+  br i1 %130, label %.loopexit23, label %127, !llvm.loop !15
 
 .loopexit23:                                      ; preds = %127, %117
   %131 = getelementptr i8, ptr %3, i64 136
@@ -1064,7 +1064,7 @@ define dso_local void @mpi_ec_add_points(ptr noundef readonly captures(none) %0,
   tail call void @mpi_add(ptr noundef %164, ptr noundef %164, ptr noundef %170) #9
   %171 = load i32, ptr %167, align 4
   %172 = icmp eq i32 %171, 0
-  br i1 %172, label %.loopexit22, label %.preheader21, !llvm.loop !12
+  br i1 %172, label %.loopexit22, label %.preheader21, !llvm.loop !16
 
 .loopexit22:                                      ; preds = %.preheader21, %162
   %173 = load ptr, ptr %118, align 8
@@ -1235,7 +1235,7 @@ define dso_local void @mpi_ec_add_points(ptr noundef readonly captures(none) %0,
   tail call void @mpi_add(ptr noundef %255, ptr noundef %255, ptr noundef %261) #9
   %262 = load i32, ptr %258, align 4
   %263 = icmp eq i32 %262, 0
-  br i1 %263, label %.loopexit20, label %.preheader19, !llvm.loop !12
+  br i1 %263, label %.loopexit20, label %.preheader19, !llvm.loop !17
 
 .loopexit20:                                      ; preds = %.preheader19, %254
   %264 = load ptr, ptr %229, align 8
@@ -1270,7 +1270,7 @@ define dso_local void @mpi_ec_add_points(ptr noundef readonly captures(none) %0,
   tail call void @mpi_add(ptr noundef %273, ptr noundef %273, ptr noundef %279) #9
   %280 = load i32, ptr %276, align 4
   %281 = icmp eq i32 %280, 0
-  br i1 %281, label %.loopexit18, label %.preheader17, !llvm.loop !12
+  br i1 %281, label %.loopexit18, label %.preheader17, !llvm.loop !18
 
 .loopexit18:                                      ; preds = %.preheader17, %271
   %282 = load ptr, ptr %272, align 8
@@ -1327,7 +1327,7 @@ define dso_local void @mpi_ec_add_points(ptr noundef readonly captures(none) %0,
   tail call void @mpi_add(ptr noundef %304, ptr noundef %304, ptr noundef %310) #9
   %311 = load i32, ptr %307, align 4
   %312 = icmp eq i32 %311, 0
-  br i1 %312, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %312, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %302
   %313 = load ptr, ptr %303, align 8
@@ -1552,11 +1552,11 @@ define dso_local void @mpi_ec_mul_point(ptr noundef readonly captures(none) %0, 
   %8 = alloca %struct.gcry_mpi_point, align 8
   %9 = alloca %struct.gcry_mpi_point, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !20
   %10 = load i32, ptr %3, align 8
   switch i32 %10, label %340 [
     i32 2, label %11
@@ -1684,7 +1684,7 @@ define dso_local void @mpi_ec_mul_point(ptr noundef readonly captures(none) %0, 
 95:                                               ; preds = %94, %.preheader13
   %96 = add nsw i32 %91, -1
   %97 = icmp sgt i32 %91, 0
-  br i1 %97, label %.preheader13, label %.loopexit14, !llvm.loop !15
+  br i1 %97, label %.preheader13, label %.loopexit14, !llvm.loop !21
 
 98:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
@@ -1959,7 +1959,7 @@ define dso_local void @mpi_ec_mul_point(ptr noundef readonly captures(none) %0, 
   tail call void @mpi_swap_cond(ptr noundef %287, ptr noundef %288, i64 noundef %202) #9
   %289 = add nsw i32 %196, -1
   %290 = icmp sgt i32 %196, 0
-  br i1 %290, label %195, label %.loopexit15, !llvm.loop !16
+  br i1 %290, label %195, label %.loopexit15, !llvm.loop !22
 
 .loopexit15:                                      ; preds = %286, %176
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1999,7 +1999,7 @@ define dso_local void @mpi_ec_mul_point(ptr noundef readonly captures(none) %0, 
 311:                                              ; preds = %305
   %312 = add nsw i32 %306, -1
   %313 = icmp sgt i32 %306, 1
-  br i1 %313, label %305, label %.thread, !llvm.loop !17
+  br i1 %313, label %305, label %.thread, !llvm.loop !23
 
 314:                                              ; preds = %298
   %315 = icmp eq i32 %299, 0
@@ -2271,7 +2271,7 @@ define dso_local void @mpi_ec_mul_point(ptr noundef readonly captures(none) %0, 
   tail call void @mpi_add(ptr noundef %448, ptr noundef %448, ptr noundef %459) #9
   %460 = load i32, ptr %456, align 4
   %461 = icmp eq i32 %460, 0
-  br i1 %461, label %.loopexit12, label %.preheader, !llvm.loop !12
+  br i1 %461, label %.loopexit12, label %.preheader, !llvm.loop !24
 
 .loopexit12:                                      ; preds = %.preheader, %438
   %462 = icmp eq i32 %439, 0
@@ -2327,7 +2327,7 @@ define dso_local void @mpi_ec_mul_point(ptr noundef readonly captures(none) %0, 
 493:                                              ; preds = %486, %483, %480
   %494 = add i32 %467, -1
   %495 = icmp eq i32 %494, 0
-  br i1 %495, label %.loopexit, label %466, !llvm.loop !18
+  br i1 %495, label %.loopexit, label %466, !llvm.loop !25
 
 .loopexit:                                        ; preds = %493, %.loopexit12
   tail call void @mpi_free(ptr noundef %343) #9
@@ -2461,7 +2461,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr noundef readonly captures(none
   tail call void @mpi_add(ptr noundef %59, ptr noundef %59, ptr noundef %68) #9
   %69 = load i32, ptr %62, align 4
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.loopexit20, label %67, !llvm.loop !12
+  br i1 %70, label %.loopexit20, label %67, !llvm.loop !26
 
 .loopexit20:                                      ; preds = %67, %57
   %71 = load ptr, ptr %58, align 8
@@ -2748,7 +2748,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr noundef readonly captures(none
   tail call void @mpi_add(ptr noundef %212, ptr noundef %212, ptr noundef %220) #9
   %221 = load i32, ptr %214, align 4
   %222 = icmp eq i32 %221, 0
-  br i1 %222, label %.loopexit19, label %219, !llvm.loop !12
+  br i1 %222, label %.loopexit19, label %219, !llvm.loop !27
 
 .loopexit19:                                      ; preds = %219, %211
   %223 = load ptr, ptr %163, align 8
@@ -2807,7 +2807,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr noundef readonly captures(none
   tail call void @mpi_add(ptr noundef %243, ptr noundef %243, ptr noundef %252) #9
   %253 = load i32, ptr %246, align 4
   %254 = icmp eq i32 %253, 0
-  br i1 %254, label %.loopexit18, label %251, !llvm.loop !12
+  br i1 %254, label %.loopexit18, label %251, !llvm.loop !28
 
 .loopexit18:                                      ; preds = %251, %241
   %255 = load ptr, ptr %242, align 8
@@ -2845,7 +2845,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr noundef readonly captures(none
   tail call void @mpi_add(ptr noundef %264, ptr noundef %264, ptr noundef %272) #9
   %273 = load i32, ptr %266, align 4
   %274 = icmp eq i32 %273, 0
-  br i1 %274, label %.loopexit, label %271, !llvm.loop !12
+  br i1 %274, label %.loopexit, label %271, !llvm.loop !29
 
 275:                                              ; preds = %3
   %276 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.2) #10
@@ -2995,7 +2995,7 @@ define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr noundef readonly ca
   ]
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @mpi_ec_get_affine(ptr noundef %3, ptr noundef %4, ptr noundef %0, ptr noundef %1), !range !19
+  %26 = tail call i32 @mpi_ec_get_affine(ptr noundef %3, ptr noundef %4, ptr noundef %0, ptr noundef %1), !range !30
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %87
 
@@ -3016,7 +3016,7 @@ define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr noundef readonly ca
   br label %87
 
 36:                                               ; preds = %23
-  %37 = tail call i32 @mpi_ec_get_affine(ptr noundef %3, ptr noundef null, ptr noundef %0, ptr noundef %1), !range !19
+  %37 = tail call i32 @mpi_ec_get_affine(ptr noundef %3, ptr noundef null, ptr noundef %0, ptr noundef %1), !range !30
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %87
 
@@ -3047,7 +3047,7 @@ define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr noundef readonly ca
   br label %87
 
 53:                                               ; preds = %23
-  %54 = tail call i32 @mpi_ec_get_affine(ptr noundef %3, ptr noundef %4, ptr noundef %0, ptr noundef %1), !range !19
+  %54 = tail call i32 @mpi_ec_get_affine(ptr noundef %3, ptr noundef %4, ptr noundef %0, ptr noundef %1), !range !30
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %87
 
@@ -3194,7 +3194,7 @@ define internal void @ec_addm_25519(ptr noundef readonly captures(none) %0, ptr 
   store i64 %39, ptr %37, align 8
   %40 = add nuw nsw i64 %36, 1
   %41 = icmp eq i64 %40, 4
-  br i1 %41, label %.split2.us, label %.split, !llvm.loop !20
+  br i1 %41, label %.split2.us, label %.split, !llvm.loop !31
 
 .split2.us:                                       ; preds = %.split, %19
   %42 = call i64 @mpihelp_add_n(ptr noundef %25, ptr noundef %25, ptr noundef nonnull %5, i32 noundef 4) #9
@@ -3256,7 +3256,7 @@ define internal void @ec_subm_25519(ptr noundef readonly captures(none) %0, ptr 
   store i64 %35, ptr %33, align 8
   %36 = add nuw nsw i64 %32, 1
   %37 = icmp eq i64 %36, 4
-  br i1 %37, label %.split2.us, label %.split, !llvm.loop !20
+  br i1 %37, label %.split2.us, label %.split, !llvm.loop !32
 
 .split2.us:                                       ; preds = %.split, %19
   %38 = call i64 @mpihelp_add_n(ptr noundef %25, ptr noundef %25, ptr noundef nonnull %5, i32 noundef 4) #9
@@ -3296,7 +3296,7 @@ define internal void @ec_mulm_25519(ptr noundef readonly captures(none) %0, ptr 
   br label %20
 
 20:                                               ; preds = %18, %14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !20
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3361,7 +3361,7 @@ define internal void @ec_mulm_25519(ptr noundef readonly captures(none) %0, ptr 
   store i64 %63, ptr %61, align 8
   %64 = add nuw nsw i64 %60, 1
   %65 = icmp eq i64 %64, 4
-  br i1 %65, label %.split2.us, label %.split, !llvm.loop !20
+  br i1 %65, label %.split2.us, label %.split, !llvm.loop !33
 
 .split2.us:                                       ; preds = %.split, %20
   %66 = call i64 @mpihelp_add_n(ptr noundef %26, ptr noundef %26, ptr noundef nonnull %6, i32 noundef 4) #9
@@ -3432,7 +3432,7 @@ define internal void @ec_addm_448(ptr noundef readonly captures(none) %0, ptr no
   store i64 %35, ptr %33, align 8
   %36 = add nuw nsw i64 %32, 1
   %37 = icmp eq i64 %36, 7
-  br i1 %37, label %.split2.us, label %.split, !llvm.loop !20
+  br i1 %37, label %.split2.us, label %.split, !llvm.loop !34
 
 .split2.us:                                       ; preds = %.split, %19
   %38 = call i64 @mpihelp_sub_n(ptr noundef %25, ptr noundef %25, ptr noundef nonnull %5, i32 noundef 7) #9
@@ -3490,7 +3490,7 @@ define internal void @ec_subm_448(ptr noundef readonly captures(none) %0, ptr no
   store i64 %35, ptr %33, align 8
   %36 = add nuw nsw i64 %32, 1
   %37 = icmp eq i64 %36, 7
-  br i1 %37, label %.split2.us, label %.split, !llvm.loop !20
+  br i1 %37, label %.split2.us, label %.split, !llvm.loop !35
 
 .split2.us:                                       ; preds = %.split, %19
   %38 = call i64 @mpihelp_add_n(ptr noundef %25, ptr noundef %25, ptr noundef nonnull %5, i32 noundef 7) #9
@@ -3532,7 +3532,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %5, i8 0, i64 112, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %5, i8 0, i64 112, i1 false), !annotation !20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3571,7 +3571,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   store i64 %48, ptr %45, align 8
   %49 = add nsw i64 %40, -1
   %50 = icmp eq i64 %40, 0
-  br i1 %50, label %51, label %39, !llvm.loop !21
+  br i1 %50, label %51, label %39, !llvm.loop !36
 
 51:                                               ; preds = %39
   %52 = call i64 @mpihelp_add_n(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef 4) #9
@@ -3586,7 +3586,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   store i64 %57, ptr %58, align 8
   %59 = add nuw nsw i64 %55, 1
   %60 = icmp eq i64 %59, 4
-  br i1 %60, label %61, label %54, !llvm.loop !22
+  br i1 %60, label %61, label %54, !llvm.loop !37
 
 61:                                               ; preds = %54
   %62 = getelementptr i8, ptr %29, i64 24
@@ -3618,7 +3618,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   %80 = add i64 %79, 1
   store i64 %80, ptr %73, align 8
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %72, label %.loopexit, !llvm.loop !23
+  br i1 %81, label %72, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %77, %72, %61
   %82 = call i64 @mpihelp_add_n(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 4) #9
@@ -3636,7 +3636,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   %91 = and i64 %89, 4294967295
   %92 = add nsw i64 %86, -1
   %93 = icmp eq i64 %86, 0
-  br i1 %93, label %94, label %85, !llvm.loop !24
+  br i1 %93, label %94, label %85, !llvm.loop !39
 
 94:                                               ; preds = %85
   %95 = shl nuw i64 %91, 32
@@ -3654,7 +3654,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   store i64 %101, ptr %gep, align 8
   %102 = add nuw nsw i64 %99, 1
   %103 = icmp eq i64 %102, 3
-  br i1 %103, label %104, label %98, !llvm.loop !25
+  br i1 %103, label %104, label %98, !llvm.loop !40
 
 104:                                              ; preds = %98
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -3685,7 +3685,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   store i64 %121, ptr %119, align 8
   %122 = add nuw nsw i64 %118, 1
   %123 = icmp eq i64 %122, 7
-  br i1 %123, label %.split2.us, label %.split, !llvm.loop !20
+  br i1 %123, label %.split2.us, label %.split, !llvm.loop !41
 
 .split2.us:                                       ; preds = %.split, %104
   %124 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
@@ -3739,7 +3739,7 @@ define internal void @ec_mul2_448(ptr noundef readonly captures(none) %0, ptr no
   store i64 %28, ptr %26, align 8
   %29 = add nuw nsw i64 %25, 1
   %30 = icmp eq i64 %29, 7
-  br i1 %30, label %.split2.us, label %.split, !llvm.loop !20
+  br i1 %30, label %.split2.us, label %.split, !llvm.loop !42
 
 .split2.us:                                       ; preds = %.split, %14
   %31 = call i64 @mpihelp_sub_n(ptr noundef %18, ptr noundef %18, ptr noundef nonnull %4, i32 noundef 7) #9
@@ -3802,24 +3802,41 @@ attributes #10 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = !{!"auto-init"}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = !{i32 -1, i32 1}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = !{!"auto-init"}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !6, !7, !8}
+!30 = !{i32 -1, i32 1}
+!31 = distinct !{!31, !6, !7, !8}
+!32 = distinct !{!32, !6, !7, !8}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}
+!38 = distinct !{!38, !6, !7, !8}
+!39 = distinct !{!39, !6, !7, !8}
+!40 = distinct !{!40, !6, !7, !8}
+!41 = distinct !{!41, !6, !7, !8}
+!42 = distinct !{!42, !6, !7, !8}

@@ -169,7 +169,7 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
   %55 = load volatile i64, ptr %54, align 8
   %56 = and i64 %55, 1
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %61, label %58, !prof !8
+  br i1 %57, label %61, label %58, !prof !9
 
 58:                                               ; preds = %.loopexit
   %59 = add nsw i64 %55, -1
@@ -178,7 +178,7 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
 
 61:                                               ; preds = %.loopexit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %77 [label %62], !srcloc !9
+          to label %77 [label %62], !srcloc !10
 
 62:                                               ; preds = %61
   %63 = and i64 %8, 4095
@@ -206,7 +206,7 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
 77:                                               ; preds = %76, %69, %61, %58
   %78 = phi ptr [ %60, %58 ], [ %75, %69 ], [ %4, %76 ], [ %4, %61 ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 52
-  %80 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %79, ptr nonnull elementtype(i32) %79) #9, !srcloc !10
+  %80 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %79, ptr nonnull elementtype(i32) %79) #9, !srcloc !11
   %81 = icmp ult i8 %80, 2
   tail call void @llvm.assume(i1 %81)
   %82 = icmp eq i8 %80, 0
@@ -316,7 +316,7 @@ define dso_local i32 @nfs4_submount(ptr noundef %0, ptr noundef readnone capture
 
 64:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store ptr null, ptr %3, align 8, !annotation !11
+  store ptr null, ptr %3, align 8, !annotation !12
   %65 = call ptr @nfs_path(ptr noundef nonnull %3, ptr noundef %60, ptr noundef nonnull %62, i64 noundef 4096, i32 noundef 1) #9
   %66 = icmp ugt ptr %65, inttoptr (i64 -4096 to ptr)
   br i1 %66, label %.thread, label %67
@@ -377,7 +377,7 @@ select.unfold:                                    ; preds = %81, %77
 97:                                               ; preds = %100
   %98 = add nuw i32 %101, 1
   %99 = icmp eq i32 %98, %93
-  br i1 %99, label %.loopexit70, label %100, !llvm.loop !12
+  br i1 %99, label %.loopexit70, label %100, !llvm.loop !13
 
 100:                                              ; preds = %97, %95
   %101 = phi i32 [ 0, %95 ], [ %98, %97 ]
@@ -424,7 +424,7 @@ select.unfold:                                    ; preds = %81, %77
   %130 = getelementptr i8, ptr %125, i64 %129
   %131 = add nuw i32 %121, 1
   %132 = icmp eq i32 %131, %116
-  br i1 %132, label %.loopexit69, label %120, !llvm.loop !13
+  br i1 %132, label %.loopexit69, label %120, !llvm.loop !14
 
 .loopexit69:                                      ; preds = %120, %115
   %133 = phi ptr [ %113, %115 ], [ %130, %120 ]
@@ -490,7 +490,7 @@ select.unfold:                                    ; preds = %81, %77
   %167 = call i32 @llvm.umax.i32(i32 %166, i32 %164)
   %168 = add nuw nsw i64 %163, 1
   %169 = icmp eq i64 %168, %161
-  br i1 %169, label %170, label %162, !llvm.loop !14
+  br i1 %169, label %170, label %162, !llvm.loop !15
 
 170:                                              ; preds = %162
   %171 = getelementptr inbounds nuw i8, ptr %159, i64 312
@@ -517,7 +517,7 @@ select.unfold:                                    ; preds = %81, %77
 184:                                              ; preds = %187
   %185 = add nuw i32 %188, 1
   %186 = icmp eq i32 %185, %180
-  br i1 %186, label %.loopexit65, label %187, !llvm.loop !12
+  br i1 %186, label %.loopexit65, label %187, !llvm.loop !16
 
 187:                                              ; preds = %184, %182
   %188 = phi i32 [ 0, %182 ], [ %185, %184 ]
@@ -566,7 +566,7 @@ select.unfold:                                    ; preds = %81, %77
   %218 = getelementptr i8, ptr %213, i64 %217
   %219 = add nuw i32 %209, 1
   %220 = icmp eq i32 %219, %204
-  br i1 %220, label %.loopexit64, label %208, !llvm.loop !13
+  br i1 %220, label %.loopexit64, label %208, !llvm.loop !17
 
 .loopexit64:                                      ; preds = %208, %203
   %221 = phi ptr [ %201, %203 ], [ %218, %208 ]
@@ -689,7 +689,7 @@ select.unfold:                                    ; preds = %81, %77
   %290 = load i32, ptr %149, align 16
   %291 = zext i32 %290 to i64
   %292 = icmp samesign ult i64 %289, %291
-  br i1 %292, label %243, label %.loopexit, !llvm.loop !15
+  br i1 %292, label %243, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread54, %.thread49
   %293 = phi i32 [ %225, %.thread49 ], [ %288, %.thread54 ]
@@ -702,7 +702,7 @@ select.unfold:                                    ; preds = %81, %77
   %296 = load i32, ptr %50, align 8
   %297 = sext i32 %296 to i64
   %298 = icmp slt i64 %295, %297
-  br i1 %298, label %146, label %.thread44, !llvm.loop !16
+  br i1 %298, label %146, label %.thread44, !llvm.loop !19
 
 .thread44:                                        ; preds = %.loopexit, %.thread56, %267, %135, %57, %.thread45, %.thread40, %53, %49, %40
   %299 = phi i32 [ %47, %40 ], [ -2, %49 ], [ -2, %53 ], [ %138, %.thread40 ], [ -2, %.thread45 ], [ -2, %135 ], [ -12, %57 ], [ 0, %267 ], [ 0, %.loopexit ], [ %294, %.thread56 ]
@@ -786,7 +786,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   %22 = load i32, ptr %5, align 8
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %21, %23
-  br i1 %24, label %25, label %.loopexit, !llvm.loop !17
+  br i1 %24, label %25, label %.loopexit, !llvm.loop !20
 
 25:                                               ; preds = %.thread17, %17
   %26 = phi i64 [ 0, %17 ], [ %21, %.thread17 ]
@@ -830,7 +830,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   %51 = load i32, ptr %28, align 8
   %52 = zext i32 %51 to i64
   %53 = icmp samesign ult i64 %50, %52
-  br i1 %53, label %54, label %89, !llvm.loop !18
+  br i1 %53, label %54, label %89, !llvm.loop !21
 
 54:                                               ; preds = %.thread13, %46
   %55 = phi i64 [ 0, %46 ], [ %50, %.thread13 ]
@@ -1020,17 +1020,20 @@ attributes #11 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"branch_weights", i32 2000, i32 1}
-!9 = !{i64 680735, i64 680779, i64 2148165462, i64 2148165483, i64 2148165509, i64 2148165542, i64 2148165576, i64 2148165600}
-!10 = !{i64 2148822935, i64 2148822974, i64 2148822995, i64 2148823032, i64 2148823055, i64 2148823064, i64 2148823138}
-!11 = !{!"auto-init"}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", i32 2000, i32 1}
+!10 = !{i64 680735, i64 680779, i64 2148165462, i64 2148165483, i64 2148165509, i64 2148165542, i64 2148165576, i64 2148165600}
+!11 = !{i64 2148822935, i64 2148822974, i64 2148822995, i64 2148823032, i64 2148823055, i64 2148823064, i64 2148823138}
+!12 = !{!"auto-init"}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}

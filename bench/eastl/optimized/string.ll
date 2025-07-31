@@ -86,7 +86,7 @@ while.body:                                       ; preds = %land.rhs
   %2 = load ptr, ptr %pSrc, align 8
   %cmp = icmp ult ptr %2, %pSrcEnd
   %or.cond = select i1 %call, i1 %cmp, i1 false
-  br i1 %or.cond, label %land.rhs, label %while.end, !llvm.loop !7
+  br i1 %or.cond, label %land.rhs, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
   %success.0.lcssa = phi i1 [ true, %entry ], [ %call, %while.body ], [ true, %land.rhs ]
@@ -267,7 +267,7 @@ while.body:                                       ; preds = %land.lhs.true
   %2 = load i16, ptr %0, align 2
   %conv.i = zext i16 %2 to i32
   %call.i = tail call noundef zeroext i1 @_ZN5eastl10UCS4ToUTF8EjRPc(i32 noundef %conv.i, ptr noundef nonnull align 8 dereferenceable(8) %pDest)
-  br i1 %call.i, label %land.lhs.true, label %while.end, !llvm.loop !8
+  br i1 %call.i, label %land.lhs.true, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %land.lhs.true, %while.body
   ret i1 %or.cond.not
@@ -329,7 +329,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i32 %conv, ptr %4, align 4
   %5 = load ptr, ptr %pSrc, align 8
   %cmp5.not = icmp eq ptr %5, %spec.select
-  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %entry
   ret i1 true
@@ -354,7 +354,7 @@ while.body:                                       ; preds = %land.lhs.true
   store ptr %incdec.ptr, ptr %pSrc, align 8
   %2 = load i32, ptr %0, align 4
   %call = tail call noundef zeroext i1 @_ZN5eastl10UCS4ToUTF8EjRPc(i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %pDest)
-  br i1 %call, label %land.lhs.true, label %while.end, !llvm.loop !10
+  br i1 %call, label %land.lhs.true, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %land.lhs.true, %while.body
   ret i1 %or.cond.not
@@ -575,7 +575,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i16 %conv, ptr %4, align 2
   %5 = load ptr, ptr %pSrc, align 8
   %cmp5.not = icmp eq ptr %5, %spec.select
-  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !11
+  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %entry
   ret i1 true
@@ -625,7 +625,7 @@ while.body:                                       ; preds = %land.lhs.true
   store ptr %incdec.ptr, ptr %pSrc, align 8
   %2 = load i32, ptr %0, align 4
   %call = tail call noundef zeroext i1 @_ZN5eastl10UCS4ToUTF8EjRPc(i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %pDest)
-  br i1 %call, label %land.lhs.true, label %while.end, !llvm.loop !12
+  br i1 %call, label %land.lhs.true, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %land.lhs.true, %while.body
   ret i1 %or.cond.not
@@ -662,7 +662,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i16 %conv, ptr %4, align 2
   %5 = load ptr, ptr %pSrc, align 8
   %cmp5.not = icmp eq ptr %5, %spec.select
-  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %while.body, %entry
   ret i1 true
@@ -696,7 +696,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i32 %3, ptr %4, align 4
   %5 = load ptr, ptr %pSrc, align 8
   %cmp5.not = icmp eq ptr %5, %spec.select
-  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.end:                                        ; preds = %while.body, %entry
   ret i1 true
@@ -725,13 +725,14 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}

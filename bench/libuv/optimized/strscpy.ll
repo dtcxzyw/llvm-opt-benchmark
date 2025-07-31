@@ -25,7 +25,7 @@ define hidden range(i64 0, -1) i64 @uv__strscpy(ptr noundef writeonly captures(n
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %12, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %11
   %13 = getelementptr i8, ptr %0, i64 %2
@@ -46,3 +46,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}

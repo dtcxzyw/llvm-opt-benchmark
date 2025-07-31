@@ -490,7 +490,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_device_once(ptr noundef nonnull
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7) #10
   store ptr null, ptr %6, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store i32 0, ptr %8, align 8, !tbaa !32
+  store i32 0, ptr %8, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = call i32 @sigemptyset(ptr noundef nonnull %9) #10
   %11 = call i32 @posix_openpt(i32 noundef 524546) #10
@@ -679,7 +679,7 @@ define internal noundef i64 @pty_close_pty(i64 noundef %0) #0 {
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %2
   %9 = inttoptr i64 %4 to ptr
-  %10 = load i64, ptr %9, align 8, !tbaa !35
+  %10 = load i64, ptr %9, align 8, !tbaa !36
   %11 = and i64 %10, 31
   %12 = icmp eq i64 %11, 11
   br i1 %12, label %13, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -689,7 +689,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %2
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %2, %rbimpl_RB_TYPE_P_fastpath.exit, %13
-  br i1 %3, label %2, label %15, !llvm.loop !37
+  br i1 %3, label %2, label %15, !llvm.loop !38
 
 15:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
   ret i64 4
@@ -751,11 +751,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !27 = !{!28, !28, i64 0}
 !28 = !{!"p1 long", !15, i64 0}
 !29 = !{i64 2151103572}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!33, !11, i64 136}
-!33 = !{!"sigaction", !8, i64 0, !34, i64 8, !11, i64 136, !15, i64 144}
-!34 = !{!"", !8, i64 0}
-!35 = !{!36, !7, i64 0}
-!36 = !{!"RBasic", !7, i64 0, !7, i64 8}
-!37 = distinct !{!37, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!34, !11, i64 136}
+!34 = !{!"sigaction", !8, i64 0, !35, i64 8, !11, i64 136, !15, i64 144}
+!35 = !{!"", !8, i64 0}
+!36 = !{!37, !7, i64 0}
+!37 = !{!"RBasic", !7, i64 0, !7, i64 8}
+!38 = distinct !{!38, !31, !32}

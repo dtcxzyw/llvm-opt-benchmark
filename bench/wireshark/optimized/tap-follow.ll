@@ -578,7 +578,7 @@ switch.lookup:                                    ; preds = %22
   %.0148 = phi i32 [ 0, %.lr.ph153 ], [ %.1127, %.cont ]
   %.0129147 = phi i32 [ 0, %.lr.ph153 ], [ %.1130, %.cont ]
   %59 = load ptr, ptr %.0112149, align 8
-  %60 = load i8, ptr %59, align 8, !range !9, !noundef !10
+  %60 = load i8, ptr %59, align 8, !range !10, !noundef !11
   %61 = trunc nuw i8 %60 to i1
   %62 = load i32, ptr %54, align 8
   %63 = icmp ult i32 %.0111150, %62
@@ -648,7 +648,7 @@ thread-pre-split:                                 ; preds = %75, %83
   ]
 
 89:                                               ; preds = %87
-  %90 = load i8, ptr %59, align 8, !range !9, !noundef !10
+  %90 = load i8, ptr %59, align 8, !range !10, !noundef !11
   %91 = trunc nuw i8 %90 to i1
   %92 = select i1 %91, ptr @.str.38, ptr @.str.39
   %.sroa.speculated118 = select i1 %61, i32 %.0148, i32 %.0129147
@@ -748,7 +748,7 @@ thread-pre-split:                                 ; preds = %75, %83
 148:                                              ; preds = %141, %137
   %.3.i = phi i32 [ %spec.select.i, %141 ], [ %.2.i, %137 ]
   %.1.i = phi i32 [ %147, %141 ], [ %.038.i, %137 ]
-  br i1 %140, label %follow_print_hex.exit, label %100, !llvm.loop !11
+  br i1 %140, label %follow_print_hex.exit, label %100, !llvm.loop !12
 
 follow_print_hex.exit:                            ; preds = %148, %89
   call void @llvm.lifetime.end.p0(i64 78, ptr nonnull %2) #11
@@ -804,7 +804,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %177 = load i32, ptr %176, align 8
   %178 = zext i32 %177 to i64
   %179 = icmp samesign ult i64 %indvars.iv.next161, %178
-  br i1 %179, label %.lr.ph143, label %._crit_edge144.loopexit, !llvm.loop !12
+  br i1 %179, label %.lr.ph143, label %._crit_edge144.loopexit, !llvm.loop !13
 
 ._crit_edge144.loopexit:                          ; preds = %173
   %180 = trunc nuw i64 %indvars.iv.next161 to i32
@@ -840,7 +840,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %196 = load i32, ptr %195, align 8
   %197 = zext i32 %196 to i64
   %198 = call ptr @ws_utf8_make_valid_strbuf(ptr noundef null, ptr noundef %194, i64 noundef %197)
-  %199 = load i8, ptr %59, align 8, !range !9, !noundef !10
+  %199 = load i8, ptr %59, align 8, !range !10, !noundef !11
   %200 = trunc nuw i8 %199 to i1
   %201 = select i1 %200, ptr @.str.38, ptr @.str.39
   %202 = call i64 @wmem_strbuf_get_len(ptr noundef %198)
@@ -902,7 +902,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %245 = load i32, ptr %244, align 8
   %246 = zext i32 %245 to i64
   %247 = icmp samesign ult i64 %indvars.iv.next, %246
-  br i1 %247, label %.lr.ph140, label %._crit_edge, !llvm.loop !13
+  br i1 %247, label %.lr.ph140, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph140, %.thread
   %.0110.lcssa = phi i32 [ 0, %.thread ], [ %240, %.lr.ph140 ]
@@ -921,7 +921,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %255 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %256 = load i32, ptr %255, align 4
   %257 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.44, i32 noundef %256)
-  %258 = load i8, ptr %59, align 8, !range !9, !noundef !10
+  %258 = load i8, ptr %59, align 8, !range !10, !noundef !11
   %259 = zext nneg i8 %258 to i32
   %260 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.45, i32 noundef %259)
   %261 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -955,7 +955,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i32, ptr %282, align 8
   %284 = icmp ult i32 %280, %283
-  br i1 %284, label %.lr.ph, label %.cont, !llvm.loop !14
+  br i1 %284, label %.lr.ph, label %.cont, !llvm.loop !15
 
 285:                                              ; preds = %87
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 356, ptr noundef nonnull @__func__.follow_draw, ptr noundef nonnull @.str.41) #14
@@ -968,7 +968,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %287 = load ptr, ptr %286, align 8
   %288 = add i32 %.0111150, 1
   %.not = icmp eq ptr %287, null
-  br i1 %.not, label %._crit_edge154, label %58, !llvm.loop !15
+  br i1 %.not, label %._crit_edge154, label %58, !llvm.loop !16
 
 ._crit_edge154:                                   ; preds = %.cont, %50
   %289 = load i32, ptr %5, align 8
@@ -1091,12 +1091,13 @@ attributes #15 = { cold noreturn nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}

@@ -192,7 +192,7 @@ define internal void @fill_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %5, i32 noundef 10, i32 noundef 0) #6
   %6 = add nuw nsw i32 %.160, 1
   %exitcond66.not = icmp eq i32 %6, 8
-  br i1 %exitcond66.not, label %.preheader57, label %.preheader58, !llvm.loop !13
+  br i1 %exitcond66.not, label %.preheader57, label %.preheader58, !llvm.loop !14
 
 .preheader57:                                     ; preds = %.preheader58, %.preheader57
   %.261 = phi i32 [ %8, %.preheader57 ], [ 0, %.preheader58 ]
@@ -200,7 +200,7 @@ define internal void @fill_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %7, i32 noundef 100, i32 noundef 0) #6
   %8 = add nuw nsw i32 %.261, 1
   %exitcond67.not = icmp eq i32 %8, 8
-  br i1 %exitcond67.not, label %.preheader56, label %.preheader57, !llvm.loop !14
+  br i1 %exitcond67.not, label %.preheader56, label %.preheader57, !llvm.loop !15
 
 .preheader56:                                     ; preds = %.preheader57, %.preheader56
   %.362 = phi i32 [ %11, %.preheader56 ], [ 0, %.preheader57 ]
@@ -212,7 +212,7 @@ define internal void @fill_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_bg_grad_stop(ptr noundef %9, i32 noundef 200, i32 noundef 0) #6
   %11 = add nuw nsw i32 %.362, 1
   %exitcond68.not = icmp eq i32 %11, 8
-  br i1 %exitcond68.not, label %.preheader55, label %.preheader56, !llvm.loop !15
+  br i1 %exitcond68.not, label %.preheader55, label %.preheader56, !llvm.loop !16
 
 .preheader55:                                     ; preds = %.preheader56, %.preheader55
   %.463 = phi i32 [ %14, %.preheader55 ], [ 0, %.preheader56 ]
@@ -224,7 +224,7 @@ define internal void @fill_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_bg_grad_stop(ptr noundef %12, i32 noundef 200, i32 noundef 0) #6
   %14 = add nuw nsw i32 %.463, 1
   %exitcond69.not = icmp eq i32 %14, 8
-  br i1 %exitcond69.not, label %.preheader54, label %.preheader55, !llvm.loop !16
+  br i1 %exitcond69.not, label %.preheader54, label %.preheader55, !llvm.loop !17
 
 .preheader54:                                     ; preds = %.preheader55, %.preheader54
   %.564 = phi i32 [ %17, %.preheader54 ], [ 0, %.preheader55 ]
@@ -237,7 +237,7 @@ define internal void @fill_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_bg_grad_stop(ptr noundef %15, i32 noundef 200, i32 noundef 0) #6
   %17 = add nuw nsw i32 %.564, 1
   %exitcond70.not = icmp eq i32 %17, 8
-  br i1 %exitcond70.not, label %.preheader, label %.preheader54, !llvm.loop !17
+  br i1 %exitcond70.not, label %.preheader, label %.preheader54, !llvm.loop !18
 
 .preheader:                                       ; preds = %.preheader54, %.preheader
   %.665 = phi i32 [ %20, %.preheader ], [ 0, %.preheader54 ]
@@ -250,7 +250,7 @@ define internal void @fill_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_bg_grad_stop(ptr noundef %18, i32 noundef 200, i32 noundef 0) #6
   %20 = add nuw nsw i32 %.665, 1
   %exitcond71.not = icmp eq i32 %20, 8
-  br i1 %exitcond71.not, label %21, label %.preheader, !llvm.loop !18
+  br i1 %exitcond71.not, label %21, label %.preheader, !llvm.loop !19
 
 21:                                               ; preds = %.preheader
   ret void
@@ -274,13 +274,13 @@ define internal void @border_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_grid_cell(ptr noundef %3, i32 noundef 1, i32 noundef range(i32 0, 8) %6, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 0, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %3, i32 noundef 0, i32 noundef 0) #6
   %7 = getelementptr inbounds nuw [16 x i32], ptr @__const.border_cb.sides, i64 0, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 4, !tbaa !19
+  %8 = load i32, ptr %7, align 4, !tbaa !20
   tail call void @lv_obj_set_style_border_side(ptr noundef %3, i32 noundef %8, i32 noundef 0) #6
   %9 = tail call i24 @lv_color_hex3(i32 noundef 3840) #6
   tail call void @lv_obj_set_style_border_color(ptr noundef %3, i24 %9, i32 noundef 0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader85, label %2, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader85, label %2, !llvm.loop !22
 
 .preheader85:                                     ; preds = %2, %.preheader85
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.preheader85 ], [ 0, %2 ]
@@ -297,13 +297,13 @@ define internal void @border_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %10, i32 noundef 0, i32 noundef 0) #6
   %14 = or disjoint i64 %indvars.iv95, 8
   %15 = getelementptr inbounds nuw [16 x i32], ptr @__const.border_cb.sides, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %16 = load i32, ptr %15, align 4, !tbaa !20
   tail call void @lv_obj_set_style_border_side(ptr noundef %10, i32 noundef %16, i32 noundef 0) #6
   %17 = tail call i24 @lv_color_hex3(i32 noundef 3840) #6
   tail call void @lv_obj_set_style_border_color(ptr noundef %10, i24 %17, i32 noundef 0) #6
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 8
-  br i1 %exitcond98.not, label %.preheader84, label %.preheader85, !llvm.loop !22
+  br i1 %exitcond98.not, label %.preheader84, label %.preheader85, !llvm.loop !23
 
 .preheader84:                                     ; preds = %.preheader85, %.preheader84
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.preheader84 ], [ 0, %.preheader85 ]
@@ -319,13 +319,13 @@ define internal void @border_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_grid_cell(ptr noundef %18, i32 noundef 1, i32 noundef range(i32 0, 8) %21, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 2, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %18, i32 noundef 10, i32 noundef 0) #6
   %22 = getelementptr inbounds nuw [16 x i32], ptr @__const.border_cb.sides, i64 0, i64 %indvars.iv99
-  %23 = load i32, ptr %22, align 4, !tbaa !19
+  %23 = load i32, ptr %22, align 4, !tbaa !20
   tail call void @lv_obj_set_style_border_side(ptr noundef %18, i32 noundef %23, i32 noundef 0) #6
   %24 = tail call i24 @lv_color_hex3(i32 noundef 240) #6
   tail call void @lv_obj_set_style_border_color(ptr noundef %18, i24 %24, i32 noundef 0) #6
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 8
-  br i1 %exitcond102.not, label %.preheader83, label %.preheader84, !llvm.loop !23
+  br i1 %exitcond102.not, label %.preheader83, label %.preheader84, !llvm.loop !24
 
 .preheader83:                                     ; preds = %.preheader84, %.preheader83
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.preheader83 ], [ 0, %.preheader84 ]
@@ -342,13 +342,13 @@ define internal void @border_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %25, i32 noundef 10, i32 noundef 0) #6
   %29 = or disjoint i64 %indvars.iv103, 8
   %30 = getelementptr inbounds nuw [16 x i32], ptr @__const.border_cb.sides, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !19
+  %31 = load i32, ptr %30, align 4, !tbaa !20
   tail call void @lv_obj_set_style_border_side(ptr noundef %25, i32 noundef %31, i32 noundef 0) #6
   %32 = tail call i24 @lv_color_hex3(i32 noundef 240) #6
   tail call void @lv_obj_set_style_border_color(ptr noundef %25, i24 %32, i32 noundef 0) #6
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, 8
-  br i1 %exitcond106.not, label %.preheader82, label %.preheader83, !llvm.loop !24
+  br i1 %exitcond106.not, label %.preheader82, label %.preheader83, !llvm.loop !25
 
 .preheader82:                                     ; preds = %.preheader83, %.preheader82
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.preheader82 ], [ 0, %.preheader83 ]
@@ -364,13 +364,13 @@ define internal void @border_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_grid_cell(ptr noundef %33, i32 noundef 1, i32 noundef range(i32 0, 8) %36, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 4, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %33, i32 noundef 100, i32 noundef 0) #6
   %37 = getelementptr inbounds nuw [16 x i32], ptr @__const.border_cb.sides, i64 0, i64 %indvars.iv107
-  %38 = load i32, ptr %37, align 4, !tbaa !19
+  %38 = load i32, ptr %37, align 4, !tbaa !20
   tail call void @lv_obj_set_style_border_side(ptr noundef %33, i32 noundef %38, i32 noundef 0) #6
   %39 = tail call i24 @lv_color_hex3(i32 noundef 15) #6
   tail call void @lv_obj_set_style_border_color(ptr noundef %33, i24 %39, i32 noundef 0) #6
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 8
-  br i1 %exitcond110.not, label %.preheader81, label %.preheader82, !llvm.loop !25
+  br i1 %exitcond110.not, label %.preheader81, label %.preheader82, !llvm.loop !26
 
 .preheader81:                                     ; preds = %.preheader82, %.preheader81
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader81 ], [ 0, %.preheader82 ]
@@ -387,13 +387,13 @@ define internal void @border_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %40, i32 noundef 100, i32 noundef 0) #6
   %44 = or disjoint i64 %indvars.iv111, 8
   %45 = getelementptr inbounds nuw [16 x i32], ptr @__const.border_cb.sides, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4, !tbaa !19
+  %46 = load i32, ptr %45, align 4, !tbaa !20
   tail call void @lv_obj_set_style_border_side(ptr noundef %40, i32 noundef %46, i32 noundef 0) #6
   %47 = tail call i24 @lv_color_hex3(i32 noundef 15) #6
   tail call void @lv_obj_set_style_border_color(ptr noundef %40, i24 %47, i32 noundef 0) #6
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 8
-  br i1 %exitcond114.not, label %.preheader80, label %.preheader81, !llvm.loop !26
+  br i1 %exitcond114.not, label %.preheader80, label %.preheader81, !llvm.loop !27
 
 .preheader80:                                     ; preds = %.preheader81, %.preheader80
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader80 ], [ 0, %.preheader81 ]
@@ -409,14 +409,14 @@ define internal void @border_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_grid_cell(ptr noundef %48, i32 noundef 1, i32 noundef range(i32 0, 8) %51, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 6, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %48, i32 noundef 100, i32 noundef 0) #6
   %52 = getelementptr inbounds nuw [16 x i32], ptr @__const.border_cb.sides, i64 0, i64 %indvars.iv115
-  %53 = load i32, ptr %52, align 4, !tbaa !19
+  %53 = load i32, ptr %52, align 4, !tbaa !20
   tail call void @lv_obj_set_style_border_side(ptr noundef %48, i32 noundef %53, i32 noundef 0) #6
   %54 = tail call i24 @lv_color_hex3(i32 noundef 2184) #6
   tail call void @lv_obj_set_style_border_color(ptr noundef %48, i24 %54, i32 noundef 0) #6
   tail call void @lv_obj_set_style_border_width(ptr noundef %48, i32 noundef 10, i32 noundef 0) #6
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 8
-  br i1 %exitcond118.not, label %.preheader, label %.preheader80, !llvm.loop !27
+  br i1 %exitcond118.not, label %.preheader, label %.preheader80, !llvm.loop !28
 
 .preheader:                                       ; preds = %.preheader80, %.preheader
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.preheader ], [ 0, %.preheader80 ]
@@ -433,14 +433,14 @@ define internal void @border_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %55, i32 noundef 100, i32 noundef 0) #6
   %59 = or disjoint i64 %indvars.iv119, 8
   %60 = getelementptr inbounds nuw [16 x i32], ptr @__const.border_cb.sides, i64 0, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !19
+  %61 = load i32, ptr %60, align 4, !tbaa !20
   tail call void @lv_obj_set_style_border_side(ptr noundef %55, i32 noundef %61, i32 noundef 0) #6
   %62 = tail call i24 @lv_color_hex3(i32 noundef 2184) #6
   tail call void @lv_obj_set_style_border_color(ptr noundef %55, i24 %62, i32 noundef 0) #6
   tail call void @lv_obj_set_style_border_width(ptr noundef %55, i32 noundef 10, i32 noundef 0) #6
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 8
-  br i1 %exitcond122.not, label %63, label %.preheader, !llvm.loop !28
+  br i1 %exitcond122.not, label %63, label %.preheader, !llvm.loop !29
 
 63:                                               ; preds = %.preheader
   ret void
@@ -458,14 +458,14 @@ define internal void @box_shadow_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %4, i32 noundef 0, i32 noundef 0) #6
   tail call void @lv_obj_set_style_shadow_width(ptr noundef %4, i32 noundef 10, i32 noundef 0) #6
   %5 = getelementptr inbounds nuw [7 x %struct.lv_point_t], ptr @__const.box_shadow_cb.ofs, i64 0, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 8, !tbaa !29
+  %6 = load i32, ptr %5, align 8, !tbaa !30
   tail call void @lv_obj_set_style_shadow_offset_x(ptr noundef %4, i32 noundef %6, i32 noundef 0) #6
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !31
+  %8 = load i32, ptr %7, align 4, !tbaa !32
   tail call void @lv_obj_set_style_shadow_offset_y(ptr noundef %4, i32 noundef %8, i32 noundef 0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.preheader42, label %2, !llvm.loop !32
+  br i1 %exitcond.not, label %.preheader42, label %2, !llvm.loop !33
 
 .preheader42:                                     ; preds = %2, %.preheader42
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader42 ], [ 0, %2 ]
@@ -474,14 +474,14 @@ define internal void @box_shadow_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %10, i32 noundef 5, i32 noundef 0) #6
   tail call void @lv_obj_set_style_shadow_width(ptr noundef %10, i32 noundef 10, i32 noundef 0) #6
   %11 = getelementptr inbounds nuw [7 x %struct.lv_point_t], ptr @__const.box_shadow_cb.ofs, i64 0, i64 %indvars.iv48
-  %12 = load i32, ptr %11, align 8, !tbaa !29
+  %12 = load i32, ptr %11, align 8, !tbaa !30
   tail call void @lv_obj_set_style_shadow_offset_x(ptr noundef %10, i32 noundef %12, i32 noundef 0) #6
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !31
+  %14 = load i32, ptr %13, align 4, !tbaa !32
   tail call void @lv_obj_set_style_shadow_offset_y(ptr noundef %10, i32 noundef %14, i32 noundef 0) #6
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 7
-  br i1 %exitcond51.not, label %.preheader41, label %.preheader42, !llvm.loop !33
+  br i1 %exitcond51.not, label %.preheader41, label %.preheader42, !llvm.loop !34
 
 .preheader41:                                     ; preds = %.preheader42, %.preheader41
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.preheader41 ], [ 0, %.preheader42 ]
@@ -490,14 +490,14 @@ define internal void @box_shadow_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %16, i32 noundef 100, i32 noundef 0) #6
   tail call void @lv_obj_set_style_shadow_width(ptr noundef %16, i32 noundef 10, i32 noundef 0) #6
   %17 = getelementptr inbounds nuw [7 x %struct.lv_point_t], ptr @__const.box_shadow_cb.ofs, i64 0, i64 %indvars.iv52
-  %18 = load i32, ptr %17, align 8, !tbaa !29
+  %18 = load i32, ptr %17, align 8, !tbaa !30
   tail call void @lv_obj_set_style_shadow_offset_x(ptr noundef %16, i32 noundef %18, i32 noundef 0) #6
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !31
+  %20 = load i32, ptr %19, align 4, !tbaa !32
   tail call void @lv_obj_set_style_shadow_offset_y(ptr noundef %16, i32 noundef %20, i32 noundef 0) #6
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 7
-  br i1 %exitcond55.not, label %.preheader, label %.preheader41, !llvm.loop !34
+  br i1 %exitcond55.not, label %.preheader, label %.preheader41, !llvm.loop !35
 
 .preheader:                                       ; preds = %.preheader41, %.preheader
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.preheader ], [ 0, %.preheader41 ]
@@ -507,14 +507,14 @@ define internal void @box_shadow_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_shadow_width(ptr noundef %22, i32 noundef 10, i32 noundef 0) #6
   tail call void @lv_obj_set_style_shadow_spread(ptr noundef %22, i32 noundef 3, i32 noundef 0) #6
   %23 = getelementptr inbounds nuw [7 x %struct.lv_point_t], ptr @__const.box_shadow_cb.ofs, i64 0, i64 %indvars.iv56
-  %24 = load i32, ptr %23, align 8, !tbaa !29
+  %24 = load i32, ptr %23, align 8, !tbaa !30
   tail call void @lv_obj_set_style_shadow_offset_x(ptr noundef %22, i32 noundef %24, i32 noundef 0) #6
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !31
+  %26 = load i32, ptr %25, align 4, !tbaa !32
   tail call void @lv_obj_set_style_shadow_offset_y(ptr noundef %22, i32 noundef %26, i32 noundef 0) #6
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 7
-  br i1 %exitcond59.not, label %27, label %.preheader, !llvm.loop !35
+  br i1 %exitcond59.not, label %27, label %.preheader, !llvm.loop !36
 
 27:                                               ; preds = %.preheader
   ret void
@@ -624,20 +624,20 @@ define internal void @line_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_opa(ptr noundef %9, i8 noundef zeroext %11, i32 noundef 0) #6
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @lv_obj_set_grid_cell(ptr noundef %9, i32 noundef 1, i32 noundef range(i32 0, 8) %12, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 8) %6, i32 noundef 1) #6
-  %13 = load i32, ptr %5, align 4, !tbaa !19
+  %13 = load i32, ptr %5, align 4, !tbaa !20
   tail call void @lv_obj_set_style_line_width(ptr noundef %9, i32 noundef %13, i32 noundef 0) #6
   tail call void @lv_obj_set_style_line_rounded(ptr noundef %9, i1 noundef zeroext %2, i32 noundef 0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !36
+  br i1 %exitcond.not, label %14, label %7, !llvm.loop !37
 
 14:                                               ; preds = %7
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 4
-  br i1 %exitcond24.not, label %15, label %.preheader, !llvm.loop !37
+  br i1 %exitcond24.not, label %15, label %.preheader, !llvm.loop !38
 
 15:                                               ; preds = %14
-  br i1 %3, label %.preheader16, label %16, !llvm.loop !38
+  br i1 %3, label %.preheader16, label %16, !llvm.loop !39
 
 16:                                               ; preds = %15
   ret void
@@ -676,7 +676,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_grid_cell(ptr noundef %7, i32 noundef 1, i32 noundef range(i32 0, 8) %4, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 8) %5, i32 noundef 1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader48, label %2, !llvm.loop !39
+  br i1 %exitcond.not, label %.preheader48, label %2, !llvm.loop !40
 
 .preheader48:                                     ; preds = %2, %.preheader48
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.preheader48 ], [ 0, %2 ]
@@ -699,7 +699,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_bg_grad_dir(ptr noundef %16, i32 noundef 1, i32 noundef 0) #6
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 16
-  br i1 %exitcond58.not, label %.preheader47, label %.preheader48, !llvm.loop !40
+  br i1 %exitcond58.not, label %.preheader47, label %.preheader48, !llvm.loop !41
 
 .preheader47:                                     ; preds = %.preheader48, %.preheader47
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.preheader47 ], [ 0, %.preheader48 ]
@@ -722,7 +722,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_bg_grad_dir(ptr noundef %26, i32 noundef 2, i32 noundef 0) #6
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 16
-  br i1 %exitcond62.not, label %.preheader46, label %.preheader47, !llvm.loop !41
+  br i1 %exitcond62.not, label %.preheader46, label %.preheader47, !llvm.loop !42
 
 .preheader46:                                     ; preds = %.preheader47, %.preheader46
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.preheader46 ], [ 0, %.preheader47 ]
@@ -743,7 +743,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_bg_grad_opa(ptr noundef %32, i8 noundef zeroext 0, i32 noundef 0) #6
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
-  br i1 %exitcond66.not, label %.preheader, label %.preheader46, !llvm.loop !42
+  br i1 %exitcond66.not, label %.preheader, label %.preheader46, !llvm.loop !43
 
 .preheader:                                       ; preds = %.preheader46, %.preheader
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.preheader ], [ 0, %.preheader46 ]
@@ -764,7 +764,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_bg_grad_opa(ptr noundef %39, i8 noundef zeroext 0, i32 noundef 0) #6
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 8
-  br i1 %exitcond70.not, label %45, label %.preheader, !llvm.loop !43
+  br i1 %exitcond70.not, label %45, label %.preheader, !llvm.loop !44
 
 45:                                               ; preds = %.preheader
   ret void
@@ -819,7 +819,7 @@ define internal void @layer_normal_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_transform_rotation(ptr noundef %16, i32 noundef 300, i32 noundef 0) #6
   tail call void @lv_obj_set_style_translate_y(ptr noundef %16, i32 noundef 10, i32 noundef 0) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %16, i32 noundef %6, i32 noundef 0) #6
-  br i1 %3, label %2, label %layer_core_cb.exit, !llvm.loop !44
+  br i1 %3, label %2, label %layer_core_cb.exit, !llvm.loop !45
 
 layer_core_cb.exit:                               ; preds = %2
   ret void
@@ -847,7 +847,7 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
   %12 = tail call ptr @lv_label_create(ptr noundef %0) #6
   %13 = getelementptr inbounds nuw [3 x ptr], ptr @__const.blend_mode_cb.mode_txt, i64 0, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
   tail call void @lv_label_set_text(ptr noundef %12, ptr noundef %14) #6
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %15 = shl i32 %indvars.iv.tr, 1
@@ -855,20 +855,20 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_grid_cell(ptr noundef %12, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef %16, i32 noundef 2) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !46
+  br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !47
 
 17:                                               ; preds = %.preheader, %56
   %indvars.iv67 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next68, %56 ]
   %18 = call ptr @lv_label_create(ptr noundef %0) #6
   %19 = getelementptr inbounds nuw [4 x ptr], ptr @__const.blend_mode_cb.cf_txt, i64 0, i64 %indvars.iv67
-  %20 = load ptr, ptr %19, align 8, !tbaa !45
+  %20 = load ptr, ptr %19, align 8, !tbaa !46
   call void @lv_label_set_text(ptr noundef %18, ptr noundef %20) #6
   %21 = shl nuw nsw i64 %indvars.iv67, 1
   %22 = trunc i64 %21 to i32
   %23 = or disjoint i32 %22, 1
   call void @lv_obj_set_grid_cell(ptr noundef %18, i32 noundef 1, i32 noundef %23, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 1) #6
   %24 = getelementptr inbounds nuw [4 x ptr], ptr @__const.blend_mode_cb.cf_bufs, i64 0, i64 %indvars.iv67
-  %25 = load ptr, ptr %24, align 8, !tbaa !47
+  %25 = load ptr, ptr %24, align 8, !tbaa !48
   call void @lv_canvas_set_draw_buf(ptr noundef %7, ptr noundef %25) #6
   %26 = call i24 @lv_color_hex3(i32 noundef 2116) #6
   call void @lv_canvas_fill_bg(ptr noundef %7, i24 %26, i8 noundef zeroext -1) #6
@@ -878,30 +878,30 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %3) #6
   %27 = call i24 @lv_color_hex(i32 noundef 16711680) #6
   store i24 %27, ptr %8, align 8
-  store ptr @.str.31, ptr %9, align 8, !tbaa !49
+  store ptr @.str.31, ptr %9, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) @__const.create_blend_mode_image_buffer.coords, i64 16, i1 false)
   call void @lv_draw_label(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %28 = call i24 @lv_color_hex(i32 noundef 65280) #6
   store i24 %28, ptr %8, align 8
-  store ptr @.str.32, ptr %9, align 8, !tbaa !49
-  store i32 11, ptr %4, align 4, !tbaa !58
+  store ptr @.str.32, ptr %9, align 8, !tbaa !50
+  store i32 11, ptr %4, align 4, !tbaa !59
   call void @lv_draw_label(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %29 = call i24 @lv_color_hex(i32 noundef 255) #6
   store i24 %29, ptr %8, align 8
-  store ptr @.str.33, ptr %9, align 8, !tbaa !49
-  store i32 23, ptr %4, align 4, !tbaa !58
+  store ptr @.str.33, ptr %9, align 8, !tbaa !50
+  store i32 23, ptr %4, align 4, !tbaa !59
   call void @lv_draw_label(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %30 = call i24 @lv_color_hex(i32 noundef 16777215) #6
   store i24 %30, ptr %8, align 8
-  store ptr @.str.34, ptr %9, align 8, !tbaa !49
-  store i32 14, ptr %10, align 4, !tbaa !60
-  store i32 4, ptr %4, align 4, !tbaa !58
+  store ptr @.str.34, ptr %9, align 8, !tbaa !50
+  store i32 14, ptr %10, align 4, !tbaa !61
+  store i32 4, ptr %4, align 4, !tbaa !59
   call void @lv_draw_label(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %31 = call i24 @lv_color_hex(i32 noundef 0) #6
   store i24 %31, ptr %8, align 8
-  store ptr @.str.35, ptr %9, align 8, !tbaa !49
-  store i32 20, ptr %4, align 4, !tbaa !58
+  store ptr @.str.35, ptr %9, align 8, !tbaa !50
+  store i32 20, ptr %4, align 4, !tbaa !59
   call void @lv_draw_label(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   call void @lv_canvas_finish_layer(ptr noundef %7, ptr noundef nonnull %2) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
@@ -909,7 +909,7 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #6
   %32 = call ptr @lv_canvas_get_draw_buf(ptr noundef %7) #6
   %33 = getelementptr inbounds nuw [4 x %struct._lv_draw_buf_t], ptr @blend_mode_cb.image_dscs, i64 0, i64 %indvars.iv67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false), !tbaa.struct !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false), !tbaa.struct !62
   %34 = trunc i64 %21 to i32
   %35 = add i32 %34, 2
   br label %36
@@ -918,7 +918,7 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
   %indvars.iv63 = phi i64 [ 0, %17 ], [ %indvars.iv.next64, %36 ]
   %37 = shl nuw nsw i64 %indvars.iv63, 1
   %38 = getelementptr inbounds nuw [3 x i32], ptr @__const.blend_mode_cb.mode_values, i64 0, i64 %indvars.iv63
-  %39 = load i32, ptr %38, align 4, !tbaa !19
+  %39 = load i32, ptr %38, align 4, !tbaa !20
   %40 = call ptr @lv_image_create(ptr noundef %0) #6
   call void @lv_image_set_src(ptr noundef %40, ptr noundef nonnull %33) #6
   call void @lv_image_set_blend_mode(ptr noundef %40, i32 noundef %39) #6
@@ -961,12 +961,12 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
   call void @lv_obj_set_style_image_recolor_opa(ptr noundef %53, i8 noundef zeroext 127, i32 noundef 0) #6
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 3
-  br i1 %exitcond66.not, label %56, label %36, !llvm.loop !65
+  br i1 %exitcond66.not, label %56, label %36, !llvm.loop !66
 
 56:                                               ; preds = %36
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 4
-  br i1 %exitcond70.not, label %57, label %17, !llvm.loop !66
+  br i1 %exitcond70.not, label %57, label %17, !llvm.loop !67
 
 57:                                               ; preds = %56
   %58 = call ptr @lv_image_create(ptr noundef %0) #6
@@ -1092,7 +1092,7 @@ define internal fastcc void @image_core_cb(ptr noundef %0, i1 noundef zeroext %1
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = tail call ptr @lv_label_create(ptr noundef %0) #6
   %9 = getelementptr inbounds nuw [7 x ptr], ptr @__const.image_core_cb.names, i64 0, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !62
+  %10 = load ptr, ptr %9, align 8, !tbaa !63
   tail call void @lv_label_set_text(ptr noundef %8, ptr noundef %10) #6
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %.tr = sub nsw i32 %11, %2
@@ -1100,7 +1100,7 @@ define internal fastcc void @image_core_cb(ptr noundef %0, i1 noundef zeroext %1
   tail call void @lv_obj_set_grid_cell(ptr noundef %8, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) %12, i32 noundef 1) #6
   %13 = tail call fastcc ptr @image_obj_create(ptr noundef %0, i32 noundef 1, i32 noundef %12, i1 noundef zeroext %1)
   %14 = getelementptr inbounds nuw [7 x ptr], ptr @__const.image_core_cb.srcs, i64 0, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !62
+  %15 = load ptr, ptr %14, align 8, !tbaa !63
   tail call void @lv_image_set_src(ptr noundef %13, ptr noundef %15) #6
   %16 = tail call fastcc ptr @image_obj_create(ptr noundef %0, i32 noundef 2, i32 noundef %12, i1 noundef zeroext %1)
   tail call void @lv_image_set_src(ptr noundef %16, ptr noundef %15) #6
@@ -1130,7 +1130,7 @@ define internal fastcc void @image_core_cb(ptr noundef %0, i1 noundef zeroext %1
   tail call void @lv_image_set_pivot(ptr noundef %21, i32 noundef 0, i32 noundef 0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = icmp samesign ult i64 %indvars.iv.next, %7
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !67
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph
   ret void
@@ -1197,16 +1197,16 @@ define internal fastcc void @arc_core_cb(ptr noundef %0, ptr noundef %1) unnamed
   %indvars.iv23 = phi i64 [ 0, %.preheader18 ], [ %indvars.iv.next24, %19 ]
   %5 = add nuw nsw i64 %indvars.iv23, %indvars.iv27
   %6 = getelementptr inbounds nuw [4 x i32], ptr @__const.arc_core_cb.widths, i64 0, i64 %indvars.iv23
-  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %7 = load i32, ptr %6, align 4, !tbaa !20
   %8 = trunc nuw nsw i64 %5 to i32
   br label %9
 
 9:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw [8 x [2 x float]], ptr @arc_core_cb.angles, i64 0, i64 %indvars.iv
-  %11 = load float, ptr %10, align 8, !tbaa !68
+  %11 = load float, ptr %10, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %13 = load float, ptr %12, align 4, !tbaa !68
+  %13 = load float, ptr %12, align 4, !tbaa !69
   %14 = tail call ptr @lv_arc_create(ptr noundef %0) #6
   tail call void @lv_obj_remove_style_all(ptr noundef %14) #6
   tail call void @lv_obj_set_style_arc_width(ptr noundef %14, i32 noundef %7, i32 noundef 0) #6
@@ -1224,15 +1224,15 @@ define internal fastcc void @arc_core_cb(ptr noundef %0, ptr noundef %1) unnamed
   tail call void @lv_obj_set_style_arc_image_src(ptr noundef %14, ptr noundef %1, i32 noundef 0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %19, label %9, !llvm.loop !70
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !71
 
 19:                                               ; preds = %9
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %20, label %.preheader, !llvm.loop !71
+  br i1 %exitcond26.not, label %20, label %.preheader, !llvm.loop !72
 
 20:                                               ; preds = %19
-  br i1 %4, label %.preheader18, label %21, !llvm.loop !72
+  br i1 %4, label %.preheader18, label %21, !llvm.loop !73
 
 21:                                               ; preds = %20
   ret void
@@ -1262,46 +1262,46 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %5 = call ptr @lv_event_get_user_data(ptr noundef %0) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   call void @lv_obj_get_coords(ptr noundef %4, ptr noundef nonnull %3) #6
-  %6 = load i32, ptr %5, align 4, !tbaa !29
-  %7 = load i32, ptr %3, align 4, !tbaa !58
+  %6 = load i32, ptr %5, align 4, !tbaa !30
+  %7 = load i32, ptr %3, align 4, !tbaa !59
   %8 = add i32 %7, 8
   %9 = add i32 %8, %6
   %10 = sitofp i32 %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store float %10, ptr %11, align 8, !tbaa !73
+  store float %10, ptr %11, align 8, !tbaa !74
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !31
+  %13 = load i32, ptr %12, align 4, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !60
+  %15 = load i32, ptr %14, align 4, !tbaa !61
   %16 = add i32 %15, 2
   %17 = add i32 %16, %13
   %18 = sitofp i32 %17 to float
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store float %18, ptr %19, align 4, !tbaa !75
+  store float %18, ptr %19, align 4, !tbaa !76
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = load i32, ptr %20, align 4, !tbaa !29
+  %21 = load i32, ptr %20, align 4, !tbaa !30
   %22 = add i32 %8, %21
   %23 = sitofp i32 %22 to float
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store float %23, ptr %24, align 8, !tbaa !73
+  store float %23, ptr %24, align 8, !tbaa !74
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !31
+  %26 = load i32, ptr %25, align 4, !tbaa !32
   %27 = add i32 %16, %26
   %28 = sitofp i32 %27 to float
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  store float %28, ptr %29, align 4, !tbaa !75
+  store float %28, ptr %29, align 4, !tbaa !76
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %31 = load i32, ptr %30, align 4, !tbaa !29
+  %31 = load i32, ptr %30, align 4, !tbaa !30
   %32 = add i32 %8, %31
   %33 = sitofp i32 %32 to float
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store float %33, ptr %34, align 8, !tbaa !73
+  store float %33, ptr %34, align 8, !tbaa !74
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %36 = load i32, ptr %35, align 4, !tbaa !31
+  %36 = load i32, ptr %35, align 4, !tbaa !32
   %37 = add i32 %16, %36
   %38 = sitofp i32 %37 to float
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  store float %38, ptr %39, align 4, !tbaa !75
+  store float %38, ptr %39, align 4, !tbaa !76
   %40 = call ptr @lv_obj_get_style_prop(ptr noundef %4, i32 noundef 0, i8 noundef zeroext 95) #6
   %41 = ptrtoint ptr %40 to i64
   %42 = trunc i64 %41 to i32
@@ -1323,7 +1323,7 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %55 = ptrtoint ptr %54 to i64
   %56 = trunc i64 %55 to i8
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i8 %56, ptr %57, align 8, !tbaa !76
+  store i8 %56, ptr %57, align 8, !tbaa !77
   %58 = call ptr @lv_obj_get_style_prop(ptr noundef %4, i32 noundef 0, i8 noundef zeroext 36) #6
   %59 = ptrtoint ptr %58 to i64
   %60 = trunc i64 %59 to i32
@@ -1333,7 +1333,7 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %64 = lshr i32 %63, 8
   %65 = trunc nuw i32 %64 to i8
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 55
-  store i8 %65, ptr %66, align 1, !tbaa !78
+  store i8 %65, ptr %66, align 1, !tbaa !79
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 57
   %68 = call ptr @lv_obj_get_style_prop(ptr noundef %4, i32 noundef 0, i8 noundef zeroext 35) #6
   %69 = ptrtoint ptr %68 to i64
@@ -1343,7 +1343,7 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %71 = ptrtoint ptr %70 to i64
   %72 = trunc i64 %71 to i8
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 61
-  store i8 %72, ptr %73, align 1, !tbaa !76
+  store i8 %72, ptr %73, align 1, !tbaa !77
   %74 = call ptr @lv_obj_get_style_prop(ptr noundef %4, i32 noundef 0, i8 noundef zeroext 37) #6
   %75 = ptrtoint ptr %74 to i64
   %76 = trunc i64 %75 to i32
@@ -1352,14 +1352,14 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %79 = lshr i32 %78, 8
   %80 = trunc nuw i32 %79 to i8
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store i8 %80, ptr %81, align 4, !tbaa !78
+  store i8 %80, ptr %81, align 4, !tbaa !79
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 62
-  store i8 2, ptr %82, align 2, !tbaa !79
+  store i8 2, ptr %82, align 2, !tbaa !80
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %83, ptr noundef nonnull align 4 dereferenceable(3) %45, i64 3, i1 false), !tbaa.struct !82
-  %84 = load i8, ptr %66, align 1, !tbaa !78
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %83, ptr noundef nonnull align 4 dereferenceable(3) %45, i64 3, i1 false), !tbaa.struct !83
+  %84 = load i8, ptr %66, align 1, !tbaa !79
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i8 %84, ptr %85, align 8, !tbaa !83
+  store i8 %84, ptr %85, align 8, !tbaa !84
   %86 = call ptr @lv_event_get_layer(ptr noundef %0) #6
   call void @lv_draw_triangle(ptr noundef %86, ptr noundef nonnull %2) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
@@ -1479,76 +1479,77 @@ attributes #6 = { nounwind }
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !4, i64 0}
 !10 = !{!7, !8, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !4, i64 0}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12}
-!25 = distinct !{!25, !12}
-!26 = distinct !{!26, !12}
-!27 = distinct !{!27, !12}
-!28 = distinct !{!28, !12}
-!29 = !{!30, !20, i64 0}
-!30 = !{!"", !20, i64 0, !20, i64 4}
-!31 = !{!30, !20, i64 4}
-!32 = distinct !{!32, !12}
-!33 = distinct !{!33, !12}
-!34 = distinct !{!34, !12}
-!35 = distinct !{!35, !12}
-!36 = distinct !{!36, !12}
-!37 = distinct !{!37, !12}
-!38 = distinct !{!38, !12}
-!39 = distinct !{!39, !12}
-!40 = distinct !{!40, !12}
-!41 = distinct !{!41, !12}
-!42 = distinct !{!42, !12}
-!43 = distinct !{!43, !12}
-!44 = distinct !{!44, !12}
-!45 = !{!8, !8, i64 0}
-!46 = distinct !{!46, !12}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTS14_lv_draw_buf_t", !9, i64 0}
-!49 = !{!50, !8, i64 48}
-!50 = !{!"", !51, i64 0, !8, i64 48, !20, i64 56, !55, i64 64, !20, i64 72, !20, i64 76, !56, i64 80, !56, i64 83, !56, i64 86, !20, i64 92, !20, i64 96, !20, i64 100, !20, i64 104, !20, i64 108, !4, i64 112, !20, i64 116, !20, i64 120, !20, i64 124, !20, i64 128, !20, i64 128, !4, i64 128, !4, i64 128, !57, i64 136}
-!51 = !{!"", !52, i64 0, !20, i64 8, !20, i64 12, !20, i64 16, !53, i64 24, !54, i64 32, !9, i64 40}
-!52 = !{!"p1 _ZTS9_lv_obj_t", !9, i64 0}
-!53 = !{!"p1 _ZTS11_lv_layer_t", !9, i64 0}
-!54 = !{!"long", !4, i64 0}
-!55 = !{!"p1 _ZTS10_lv_font_t", !9, i64 0}
-!56 = !{!"", !4, i64 0, !4, i64 1, !4, i64 2}
-!57 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !9, i64 0}
-!58 = !{!59, !20, i64 0}
-!59 = !{!"", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12}
-!60 = !{!59, !20, i64 4}
-!61 = !{i64 0, i64 8, !3, i64 8, i64 4, !3, i64 12, i64 4, !19, i64 16, i64 8, !45, i64 24, i64 8, !62, i64 32, i64 8, !63}
-!62 = !{!9, !9, i64 0}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !9, i64 0}
-!65 = distinct !{!65, !12}
-!66 = distinct !{!66, !12}
-!67 = distinct !{!67, !12}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"float", !4, i64 0}
-!70 = distinct !{!70, !12}
-!71 = distinct !{!71, !12}
-!72 = distinct !{!72, !12}
-!73 = !{!74, !69, i64 0}
-!74 = !{!"", !69, i64 0, !69, i64 4}
-!75 = !{!74, !69, i64 4}
-!76 = !{!77, !4, i64 4}
-!77 = !{!"", !56, i64 0, !4, i64 3, !4, i64 4}
-!78 = !{!77, !4, i64 3}
-!79 = !{!80, !4, i64 62}
-!80 = !{!"", !51, i64 0, !4, i64 48, !56, i64 49, !81, i64 52, !4, i64 64}
-!81 = !{!"", !4, i64 0, !4, i64 10, !20, i64 11, !20, i64 11}
-!82 = !{i64 0, i64 1, !3, i64 1, i64 1, !3, i64 2, i64 1, !3}
-!83 = !{!80, !4, i64 48}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !4, i64 0}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !12, !13}
+!24 = distinct !{!24, !12, !13}
+!25 = distinct !{!25, !12, !13}
+!26 = distinct !{!26, !12, !13}
+!27 = distinct !{!27, !12, !13}
+!28 = distinct !{!28, !12, !13}
+!29 = distinct !{!29, !12, !13}
+!30 = !{!31, !21, i64 0}
+!31 = !{!"", !21, i64 0, !21, i64 4}
+!32 = !{!31, !21, i64 4}
+!33 = distinct !{!33, !12, !13}
+!34 = distinct !{!34, !12, !13}
+!35 = distinct !{!35, !12, !13}
+!36 = distinct !{!36, !12, !13}
+!37 = distinct !{!37, !12, !13}
+!38 = distinct !{!38, !12, !13}
+!39 = distinct !{!39, !12, !13}
+!40 = distinct !{!40, !12, !13}
+!41 = distinct !{!41, !12, !13}
+!42 = distinct !{!42, !12, !13}
+!43 = distinct !{!43, !12, !13}
+!44 = distinct !{!44, !12, !13}
+!45 = distinct !{!45, !12, !13}
+!46 = !{!8, !8, i64 0}
+!47 = distinct !{!47, !12, !13}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS14_lv_draw_buf_t", !9, i64 0}
+!50 = !{!51, !8, i64 48}
+!51 = !{!"", !52, i64 0, !8, i64 48, !21, i64 56, !56, i64 64, !21, i64 72, !21, i64 76, !57, i64 80, !57, i64 83, !57, i64 86, !21, i64 92, !21, i64 96, !21, i64 100, !21, i64 104, !21, i64 108, !4, i64 112, !21, i64 116, !21, i64 120, !21, i64 124, !21, i64 128, !21, i64 128, !4, i64 128, !4, i64 128, !58, i64 136}
+!52 = !{!"", !53, i64 0, !21, i64 8, !21, i64 12, !21, i64 16, !54, i64 24, !55, i64 32, !9, i64 40}
+!53 = !{!"p1 _ZTS9_lv_obj_t", !9, i64 0}
+!54 = !{!"p1 _ZTS11_lv_layer_t", !9, i64 0}
+!55 = !{!"long", !4, i64 0}
+!56 = !{!"p1 _ZTS10_lv_font_t", !9, i64 0}
+!57 = !{!"", !4, i64 0, !4, i64 1, !4, i64 2}
+!58 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !9, i64 0}
+!59 = !{!60, !21, i64 0}
+!60 = !{!"", !21, i64 0, !21, i64 4, !21, i64 8, !21, i64 12}
+!61 = !{!60, !21, i64 4}
+!62 = !{i64 0, i64 8, !3, i64 8, i64 4, !3, i64 12, i64 4, !20, i64 16, i64 8, !46, i64 24, i64 8, !63, i64 32, i64 8, !64}
+!63 = !{!9, !9, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !9, i64 0}
+!66 = distinct !{!66, !12, !13}
+!67 = distinct !{!67, !12, !13}
+!68 = distinct !{!68, !12, !13}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"float", !4, i64 0}
+!71 = distinct !{!71, !12, !13}
+!72 = distinct !{!72, !12, !13}
+!73 = distinct !{!73, !12, !13}
+!74 = !{!75, !70, i64 0}
+!75 = !{!"", !70, i64 0, !70, i64 4}
+!76 = !{!75, !70, i64 4}
+!77 = !{!78, !4, i64 4}
+!78 = !{!"", !57, i64 0, !4, i64 3, !4, i64 4}
+!79 = !{!78, !4, i64 3}
+!80 = !{!81, !4, i64 62}
+!81 = !{!"", !52, i64 0, !4, i64 48, !57, i64 49, !82, i64 52, !4, i64 64}
+!82 = !{!"", !4, i64 0, !4, i64 10, !21, i64 11, !21, i64 11}
+!83 = !{i64 0, i64 1, !3, i64 1, i64 1, !3, i64 2, i64 1, !3}
+!84 = !{!81, !4, i64 48}

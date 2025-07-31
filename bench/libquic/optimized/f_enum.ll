@@ -101,7 +101,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @a2i_ASN1_ENUMERATED(ptr noundef %0, ptr noundef writeonly captures(none) initializes((4, 8)) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 10, ptr %5, align 4, !tbaa !18
+  store i32 10, ptr %5, align 4, !tbaa !19
   %6 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #6
   %invariant.gep = getelementptr i8, ptr %2, i64 -1
   %7 = icmp slt i32 %6, 1
@@ -192,7 +192,7 @@ switch.early.test:                                ; preds = %.lr.ph
 30:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre-phi191
-  br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !20
 
 switch.early.test._crit_edge.split.loop.exit200:  ; preds = %switch.early.test
   %31 = trunc nuw nsw i64 %indvars.iv to i32
@@ -324,13 +324,13 @@ switch.early.test._crit_edge:                     ; preds = %30, %switch.early.t
   %82 = shl i8 %81, 4
   %83 = or i8 %82, %.0112
   store i8 %83, ptr %gep205, align 1, !tbaa !15
-  br i1 %68, label %67, label %84, !llvm.loop !20
+  br i1 %68, label %67, label %84, !llvm.loop !21
 
 84:                                               ; preds = %80
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 2
   %exitcond190.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count189
-  br i1 %exitcond190.not, label %._crit_edge148, label %.preheader, !llvm.loop !21
+  br i1 %exitcond190.not, label %._crit_edge148, label %.preheader, !llvm.loop !22
 
 ._crit_edge148:                                   ; preds = %84, %64
   br i1 %26, label %85, label %88
@@ -338,7 +338,7 @@ switch.early.test._crit_edge:                     ; preds = %30, %switch.early.t
 85:                                               ; preds = %._crit_edge148
   %86 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #6
   %87 = icmp slt i32 %86, 1
-  br i1 %87, label %._crit_edge161, label %9
+  br i1 %87, label %._crit_edge161, label %9, !llvm.loop !23
 
 88:                                               ; preds = %._crit_edge148
   store i32 %49, ptr %1, align 8, !tbaa !6
@@ -406,9 +406,11 @@ attributes #8 = { nounwind allocsize(1) }
 !13 = !{!"long", !9, i64 0}
 !14 = !{!7, !11, i64 8}
 !15 = !{!9, !9, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!7, !8, i64 4}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!7, !8, i64 4}
+!20 = distinct !{!20, !17, !18}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !18}

@@ -205,7 +205,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
 .noexc12:                                         ; preds = %.noexc11
   %32 = load i8, ptr %20, align 8, !range !4, !noundef !3
   %33 = icmp eq i8 %32, 4
-  br i1 %33, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %33, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge11.i:                                  ; preds = %.noexc15, %.noexc10
   store ptr @anon.3c061c8455c5c731a73b3ba087a74295.5, ptr %15, align 8
@@ -241,7 +241,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
 .noexc15:                                         ; preds = %.noexc14
   %39 = load i8, ptr %17, align 8, !range !4, !noundef !3
   %40 = icmp eq i8 %39, 4
-  br i1 %40, label %._crit_edge11.i, label %.lr.ph10.i
+  br i1 %40, label %._crit_edge11.i, label %.lr.ph10.i, !llvm.loop !7
 
 41:                                               ; preds = %.noexc26, %.lr.ph13.i
   %42 = phi ptr [ %35, %.lr.ph13.i ], [ %59, %.noexc26 ]
@@ -267,7 +267,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc17:                                         ; preds = %.noexc16
-  %48 = load i8, ptr %37, align 8, !range !5, !noundef !3
+  %48 = load i8, ptr %37, align 8, !range !8, !noundef !3
   %49 = icmp eq i8 %48, 2
   br i1 %49, label %_ZN22cranelift_codegen_meta9gen_types12emit_vectors17h72679626038016a6E.exit.i, label %.lr.ph.i.i
 
@@ -285,9 +285,9 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
           to label %.noexc20 unwind label %.loopexit.split-lp.loopexit
 
 .noexc20:                                         ; preds = %.noexc19
-  %50 = load i8, ptr %37, align 8, !range !5, !noundef !3
+  %50 = load i8, ptr %37, align 8, !range !8, !noundef !3
   %51 = icmp eq i8 %50, 2
-  br i1 %51, label %_ZN22cranelift_codegen_meta9gen_types12emit_vectors17h72679626038016a6E.exit.i, label %.lr.ph.i.i
+  br i1 %51, label %_ZN22cranelift_codegen_meta9gen_types12emit_vectors17h72679626038016a6E.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZN22cranelift_codegen_meta9gen_types12emit_vectors17h72679626038016a6E.exit.i: ; preds = %.noexc20, %.noexc17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -315,7 +315,7 @@ _ZN22cranelift_codegen_meta9gen_types12emit_vectors17h72679626038016a6E.exit.i: 
           to label %.noexc22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc22:                                         ; preds = %.noexc21
-  %55 = load i8, ptr %38, align 8, !range !5, !noundef !3
+  %55 = load i8, ptr %38, align 8, !range !8, !noundef !3
   %56 = icmp eq i8 %55, 2
   br i1 %56, label %_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors17hf2283cf2bc3a12e6E.exit.i, label %.lr.ph.i8.i
 
@@ -333,9 +333,9 @@ _ZN22cranelift_codegen_meta9gen_types12emit_vectors17h72679626038016a6E.exit.i: 
           to label %.noexc25 unwind label %.loopexit
 
 .noexc25:                                         ; preds = %.noexc24
-  %57 = load i8, ptr %38, align 8, !range !5, !noundef !3
+  %57 = load i8, ptr %38, align 8, !range !8, !noundef !3
   %58 = icmp eq i8 %57, 2
-  br i1 %58, label %_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors17hf2283cf2bc3a12e6E.exit.i, label %.lr.ph.i8.i
+  br i1 %58, label %_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors17hf2283cf2bc3a12e6E.exit.i, label %.lr.ph.i8.i, !llvm.loop !10
 
 _ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors17hf2283cf2bc3a12e6E.exit.i: ; preds = %.noexc25, %.noexc22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -348,7 +348,7 @@ _ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors17hf2283cf2bc3a12e6E.
 
 .noexc26:                                         ; preds = %_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors17hf2283cf2bc3a12e6E.exit.i
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit32, label %41
+  br i1 %60, label %.loopexit32, label %41, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph.i8.i, %.noexc23, %.noexc24
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -507,4 +507,10 @@ attributes #6 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i8 0, i8 5}
-!5 = !{i8 0, i8 3}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = !{i8 0, i8 3}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

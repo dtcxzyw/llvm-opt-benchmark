@@ -65,7 +65,7 @@ define range(i32 0, 2) i32 @dt_apply_printer_profile(ptr noundef captures(none) 
   tail call void @cmsDoTransform(ptr noundef nonnull %19, ptr noundef %36, ptr noundef nonnull %37, i32 noundef %1) #4
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %24
-  br i1 %exitcond68.not, label %.loopexit, label %32
+  br i1 %exitcond68.not, label %.loopexit, label %32, !llvm.loop !10
 
 38:                                               ; preds = %28
   br i1 %.not61, label %.loopexit, label %.lr.ph
@@ -84,7 +84,7 @@ define range(i32 0, 2) i32 @dt_apply_printer_profile(ptr noundef captures(none) 
   tail call void @cmsDoTransform(ptr noundef nonnull %19, ptr noundef %44, ptr noundef nonnull %45, i32 noundef %1) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
-  br i1 %exitcond.not, label %.loopexit, label %40
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !12
 
 .loopexit:                                        ; preds = %40, %32, %38, %30
   tail call void @cmsDeleteTransform(ptr noundef nonnull %19) #4
@@ -135,3 +135,6 @@ attributes #5 = { nounwind allocsize(0) }
 !7 = !{!"any pointer", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}

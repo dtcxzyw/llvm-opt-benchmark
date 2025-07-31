@@ -899,7 +899,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %8 ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw [7 x [81 x i8]], ptr @md5_test_buf, i64 0, i64 %indvars.iv26
   %4 = getelementptr inbounds nuw [7 x i64], ptr @md5_test_buflen, i64 0, i64 %indvars.iv26
-  %5 = load i64, ptr %4, align 8, !tbaa !16
+  %5 = load i64, ptr %4, align 8, !tbaa !17
   %6 = call i32 @mbedtls_md5(ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull %2)
   %7 = getelementptr inbounds nuw [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv26
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %7, i64 16)
@@ -909,7 +909,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
 8:                                                ; preds = %.split.us
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next27, 7
-  br i1 %exitcond29.not, label %.split23.us, label %.split.us, !llvm.loop !18
+  br i1 %exitcond29.not, label %.split23.us, label %.split.us, !llvm.loop !19
 
 .split:                                           ; preds = %1, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %1 ]
@@ -918,7 +918,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9)
   %11 = getelementptr inbounds nuw [7 x [81 x i8]], ptr @md5_test_buf, i64 0, i64 %indvars.iv
   %12 = getelementptr inbounds nuw [7 x i64], ptr @md5_test_buflen, i64 0, i64 %indvars.iv
-  %13 = load i64, ptr %12, align 8, !tbaa !16
+  %13 = load i64, ptr %12, align 8, !tbaa !17
   %14 = call i32 @mbedtls_md5(ptr noundef nonnull %11, i64 noundef %13, ptr noundef nonnull %2)
   %15 = getelementptr inbounds nuw [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %15, i64 16)
@@ -928,7 +928,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
 16:                                               ; preds = %.split
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.split23.us, label %.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.split23.us, label %.split, !llvm.loop !21
 
 .split23.us:                                      ; preds = %16, %8
   br i1 %.not16, label %.critedge, label %17
@@ -991,10 +991,11 @@ attributes #11 = { nounwind }
 !11 = !{!10, !8, i64 76}
 !12 = !{!10, !8, i64 72}
 !13 = !{!10, !8, i64 68}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !5, i64 0}
-!18 = distinct !{!18, !15, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !5, i64 0}
+!19 = distinct !{!19, !15, !16, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !15, !16}

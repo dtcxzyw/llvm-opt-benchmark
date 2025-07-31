@@ -182,7 +182,7 @@ check_retval.exit70:                              ; preds = %63
   %81 = add nuw nsw i32 %.0, 1
   %82 = fmul double %.040, 1.000000e+01
   %83 = icmp eq i32 %81, 14
-  br i1 %83, label %84, label %69
+  br i1 %83, label %84, label %69, !llvm.loop !23
 
 84:                                               ; preds = %69
   call fastcc void @PrintFinalStats(ptr noundef nonnull %32)
@@ -214,7 +214,7 @@ check_retval.exit70:                              ; preds = %63
   %102 = add nuw nsw i32 %.1, 1
   %103 = fmul double %.141, 1.000000e+01
   %104 = icmp eq i32 %102, 14
-  br i1 %104, label %105, label %90
+  br i1 %104, label %105, label %90, !llvm.loop !25
 
 105:                                              ; preds = %90
   call fastcc void @PrintFinalStats(ptr noundef nonnull %32)
@@ -417,16 +417,16 @@ check_retval.exit22:                              ; preds = %check_retval.exit20
 
 check_retval.exit24:                              ; preds = %check_retval.exit22, %53
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %56 = load i64, ptr %2, align 8, !tbaa !23
-  %57 = load i64, ptr %3, align 8, !tbaa !23
-  %58 = load i64, ptr %4, align 8, !tbaa !23
-  %59 = load i64, ptr %6, align 8, !tbaa !23
-  %60 = load i64, ptr %5, align 8, !tbaa !23
+  %56 = load i64, ptr %2, align 8, !tbaa !26
+  %57 = load i64, ptr %3, align 8, !tbaa !26
+  %58 = load i64, ptr %4, align 8, !tbaa !26
+  %59 = load i64, ptr %6, align 8, !tbaa !26
+  %60 = load i64, ptr %5, align 8, !tbaa !26
   %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %56, i64 noundef %57, i64 noundef %58, i64 noundef %59, i64 noundef %60)
-  %62 = load i64, ptr %7, align 8, !tbaa !23
-  %63 = load i64, ptr %8, align 8, !tbaa !23
-  %64 = load i64, ptr %10, align 8, !tbaa !23
-  %65 = load i64, ptr %9, align 8, !tbaa !23
+  %62 = load i64, ptr %7, align 8, !tbaa !26
+  %63 = load i64, ptr %8, align 8, !tbaa !26
+  %64 = load i64, ptr %10, align 8, !tbaa !26
+  %65 = load i64, ptr %9, align 8, !tbaa !26
   %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i64 noundef %62, i64 noundef %63, i64 noundef %64, i64 noundef %65)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
@@ -521,4 +521,7 @@ attributes #9 = { cold nounwind }
 !20 = !{!"double", !7, i64 0}
 !21 = !{!6, !6, i64 0}
 !22 = !{!17, !17, i64 0}
-!23 = !{!16, !16, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !24}
+!26 = !{!16, !16, i64 0}

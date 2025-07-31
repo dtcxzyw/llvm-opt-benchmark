@@ -257,7 +257,7 @@ define i32 @u_shapeArabic_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %indvars.iv.next = add nsw i64 %indvars.iv, %81
   %107 = trunc nsw i64 %indvars.iv.next to i32
   %.not335 = icmp eq i32 %74, %107
-  br i1 %.not335, label %._crit_edge.loopexit403, label %.lr.ph.split, !llvm.loop !14
+  br i1 %.not335, label %._crit_edge.loopexit403, label %.lr.ph.split, !llvm.loop !15
 
 ._crit_edge.loopexit403:                          ; preds = %.lr.ph.split
   %108 = trunc nsw i64 %indvars.iv.next406 to i32
@@ -373,7 +373,7 @@ define i32 @u_shapeArabic_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %indvars.iv.next19.i = add nsw i64 %indvars.iv18.i, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %155 = icmp slt i64 %indvars.iv.next19.i, %indvars.iv.next.i
-  br i1 %155, label %.lr.ph.i, label %_ZL12invertBufferPDsijii.exit.thread, !llvm.loop !15
+  br i1 %155, label %.lr.ph.i, label %_ZL12invertBufferPDsijii.exit.thread, !llvm.loop !16
 
 _ZL12invertBufferPDsijii.exit:                    ; preds = %140
   %156 = and i32 %4, 67108864
@@ -509,7 +509,7 @@ default.unreachable:                              ; preds = %_ZL12invertBufferPD
   %indvars.iv.next19.i373 = add nsw i64 %indvars.iv18.i371, 1
   %indvars.iv.next.i374 = add nsw i64 %indvars.iv.i372, -1
   %184 = icmp slt i64 %indvars.iv.next19.i373, %indvars.iv.next.i374
-  br i1 %184, label %.lr.ph.i370, label %_ZL12invertBufferPDsijii.exit375, !llvm.loop !15
+  br i1 %184, label %.lr.ph.i370, label %_ZL12invertBufferPDsijii.exit375, !llvm.loop !16
 
 _ZL12invertBufferPDsijii.exit375:                 ; preds = %.lr.ph.i370, %172, %171
   %185 = call i32 @uprv_min_77(i32 noundef %.1302, i32 noundef %3)
@@ -607,7 +607,7 @@ _ZL12invertBufferPDsijii.exit375:                 ; preds = %.lr.ph.i370, %172, 
 213:                                              ; preds = %.lr.ph400, %211
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next416, %wide.trip.count418
-  br i1 %exitcond419.not, label %.loopexit, label %.lr.ph400, !llvm.loop !16
+  br i1 %exitcond419.not, label %.loopexit, label %.lr.ph400, !llvm.loop !17
 
 214:                                              ; preds = %.lr.ph397, %222
   %indvars.iv412 = phi i64 [ 0, %.lr.ph397 ], [ %indvars.iv.next413, %222 ]
@@ -626,7 +626,7 @@ _ZL12invertBufferPDsijii.exit375:                 ; preds = %.lr.ph.i370, %172, 
 222:                                              ; preds = %214, %220
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %214, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %214, !llvm.loop !18
 
 223:                                              ; preds = %198
   br label %.loopexit.sink.split
@@ -693,7 +693,7 @@ define internal fastcc noundef zeroext i16 @_ZL7getLinkDs(i16 noundef zeroext %0
   %16 = add nsw i32 %2, -64336
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !18
+  %19 = load i8, ptr %18, align 1, !tbaa !19
   %20 = zext i8 %19 to i16
   br label %29
 
@@ -706,7 +706,7 @@ define internal fastcc noundef zeroext i16 @_ZL7getLinkDs(i16 noundef zeroext %0
   %24 = add nsw i32 %2, -65136
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !18
+  %27 = load i8, ptr %26, align 1, !tbaa !19
   %28 = zext i8 %27 to i16
   br label %29
 
@@ -786,7 +786,7 @@ _ZL10isAlefCharDs.exit.thread:                    ; preds = %13, %_ZL10isAlefCha
   %.247 = phi i32 [ %22, %21 ], [ %.14681, %_ZL10isAlefCharDs.exit.thread ], [ %.14681, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit78, label %13, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit78, label %13, !llvm.loop !20
 
 24:                                               ; preds = %.lr.ph85, %.thread
   %indvars.iv95 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next96, %.thread ]
@@ -821,7 +821,7 @@ _ZL10isAlefCharDs.exit70.thread:                  ; preds = %29, %29, %29, %29, 
   %.4 = phi i32 [ %34, %_ZL10isAlefCharDs.exit70.thread ], [ %.383, %32 ], [ %.383, %29 ]
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %.loopexit78, label %24, !llvm.loop !20
+  br i1 %exitcond99.not, label %.loopexit78, label %24, !llvm.loop !21
 
 .loopexit78:                                      ; preds = %23, %.thread, %3
   %.045 = phi i32 [ %1, %3 ], [ %.4, %.thread ], [ %.247, %23 ]
@@ -846,7 +846,7 @@ _ZL10isAlefCharDs.exit70.thread:                  ; preds = %29, %29, %29, %29, 
   %spec.select = add nsw i32 %.687, %41
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph89, !llvm.loop !21
+  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph89, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph89, %.preheader77, %.preheader79, %.loopexit78
   %.5 = phi i32 [ %.045, %.loopexit78 ], [ %1, %.preheader79 ], [ %1, %.preheader77 ], [ %spec.select, %.lr.ph89 ]
@@ -877,7 +877,7 @@ define internal fastcc void @_ZL11countSpacesPDsijPiS0_(ptr noundef nonnull read
   %11 = icmp eq i16 %10, 32
   %12 = icmp sgt i32 %1, %indvars
   %13 = and i1 %11, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.015.lcssa = phi i32 [ 0, %4 ], [ %indvars, %.lr.ph ]
@@ -900,7 +900,7 @@ define internal fastcc void @_ZL11countSpacesPDsijPiS0_(ptr noundef nonnull read
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv.next34
   %18 = load i16, ptr %gep, align 2, !tbaa !9
   %19 = icmp eq i16 %18, 32
-  br i1 %19, label %.lr.ph25, label %.loopexit, !llvm.loop !23
+  br i1 %19, label %.lr.ph25, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph25, %.preheader, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %.preheader ], [ %17, %.lr.ph25 ]
@@ -958,7 +958,7 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
 26:                                               ; preds = %.sink.split, %19, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %26, %6
   %27 = add nsw i32 %1, -1
@@ -995,7 +995,7 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
   %45 = add nsw i32 %31, -64336
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !18
+  %48 = load i8, ptr %47, align 1, !tbaa !19
   %49 = zext i8 %48 to i16
   br label %_ZL7getLinkDs.exit
 
@@ -1008,7 +1008,7 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
   %53 = add nsw i32 %31, -65136
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !18
+  %56 = load i8, ptr %55, align 1, !tbaa !19
   %57 = zext i8 %56 to i16
   br label %_ZL7getLinkDs.exit
 
@@ -1072,7 +1072,7 @@ _ZL7getLinkDs.exit:                               ; preds = %33, %38, %40, %44, 
   %80 = add nsw i32 %66, -64336
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !18
+  %83 = load i8, ptr %82, align 1, !tbaa !19
   %84 = zext i8 %83 to i16
   br label %_ZL7getLinkDs.exit223
 
@@ -1085,7 +1085,7 @@ _ZL7getLinkDs.exit:                               ; preds = %33, %38, %40, %44, 
   %88 = add nsw i32 %66, -65136
   %89 = zext nneg i32 %88 to i64
   %90 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !18
+  %91 = load i8, ptr %90, align 1, !tbaa !19
   %92 = zext i8 %91 to i16
   br label %_ZL7getLinkDs.exit223
 
@@ -1147,7 +1147,7 @@ _ZL7getLinkDs.exit229.thread337:                  ; preds = %110
   %115 = add nsw i32 %101, -64336
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %116
-  %118 = load i8, ptr %117, align 1, !tbaa !18
+  %118 = load i8, ptr %117, align 1, !tbaa !19
   %119 = zext i8 %118 to i16
   br label %_ZL7getLinkDs.exit229
 
@@ -1160,7 +1160,7 @@ _ZL7getLinkDs.exit229.thread337:                  ; preds = %110
   %123 = add nsw i32 %101, -65136
   %124 = zext nneg i32 %123 to i64
   %125 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %124
-  %126 = load i8, ptr %125, align 1, !tbaa !18
+  %126 = load i8, ptr %125, align 1, !tbaa !19
   %127 = zext i8 %126 to i16
   br label %_ZL7getLinkDs.exit229
 
@@ -1178,7 +1178,7 @@ _ZL7getLinkDs.exit229.thread:                     ; preds = %_ZL7getLinkDs.exit2
   %.1180 = phi i32 [ %spec.select216339, %_ZL7getLinkDs.exit229.thread337 ], [ %.0179277, %108 ], [ %.0179277, %120 ], [ %spec.select216, %_ZL7getLinkDs.exit229 ]
   %.3156 = phi i16 [ 4, %_ZL7getLinkDs.exit229.thread337 ], [ 3, %108 ], [ 0, %120 ], [ %.0.i228, %_ZL7getLinkDs.exit229 ]
   %131 = icmp slt i32 %.3184, 0
-  br i1 %131, label %.lr.ph278, label %._crit_edge, !llvm.loop !25
+  br i1 %131, label %.lr.ph278, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph278, %_ZL7getLinkDs.exit229.thread, %_ZL7getLinkDs.exit223.thread257
   %.2183.lcssa = phi i32 [ %.0181281, %_ZL7getLinkDs.exit223.thread257 ], [ 3000, %.lr.ph278 ], [ %.3184, %_ZL7getLinkDs.exit229.thread ]
@@ -1274,7 +1274,7 @@ _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup
   %174 = and i32 %173, 3
   %175 = zext nneg i32 %174 to i64
   %176 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 0, i64 %175
-  %177 = load i8, ptr %176, align 1, !tbaa !18
+  %177 = load i8, ptr %176, align 1, !tbaa !19
   %178 = zext i8 %177 to i32
   %179 = icmp eq i32 %174, 1
   br i1 %179, label %180, label %182
@@ -1358,7 +1358,7 @@ _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup
   %213 = zext nneg i16 %212 to i64
   %214 = add nsw i64 %213, -1611
   %215 = getelementptr inbounds [8 x i8], ptr @_ZL13IrrelevantPos, i64 0, i64 %214
-  %216 = load i8, ptr %215, align 1, !tbaa !18
+  %216 = load i8, ptr %215, align 1, !tbaa !19
   %217 = zext i8 %216 to i32
   %218 = add nuw nsw i32 %.0178317320325, 65136
   %219 = add nuw nsw i32 %218, %217
@@ -1451,7 +1451,7 @@ _ZL7getLinkDs.exit223.thread:                     ; preds = %85, %73, %.thread27
   %259 = add nsw i32 %245, -64336
   %260 = zext nneg i32 %259 to i64
   %261 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %260
-  %262 = load i8, ptr %261, align 1, !tbaa !18
+  %262 = load i8, ptr %261, align 1, !tbaa !19
   %263 = zext i8 %262 to i16
   br label %_ZL7getLinkDs.exit245
 
@@ -1464,7 +1464,7 @@ _ZL7getLinkDs.exit223.thread:                     ; preds = %85, %73, %.thread27
   %267 = add nsw i32 %245, -65136
   %268 = zext nneg i32 %267 to i64
   %269 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %268
-  %270 = load i8, ptr %269, align 1, !tbaa !18
+  %270 = load i8, ptr %269, align 1, !tbaa !19
   %271 = zext i8 %270 to i16
   br label %_ZL7getLinkDs.exit245
 
@@ -1472,7 +1472,7 @@ _ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %2
   %.4185 = phi i32 [ -2, %_ZL7getLinkDs.exit223.thread ], [ %.1182, %247 ], [ %.1182, %252 ], [ %.1182, %254 ], [ %.1182, %258 ], [ %.1182, %264 ], [ %.1182, %266 ]
   %.3160 = phi i16 [ %.1154, %_ZL7getLinkDs.exit223.thread ], [ %251, %247 ], [ 3, %252 ], [ 4, %254 ], [ %263, %258 ], [ 0, %264 ], [ %271, %266 ]
   %.not = icmp eq i32 %.2, 0
-  br i1 %.not, label %._crit_edge295, label %61, !llvm.loop !26
+  br i1 %.not, label %._crit_edge295, label %61, !llvm.loop !27
 
 ._crit_edge295:                                   ; preds = %240, %_ZL7getLinkDs.exit245
   %272 = icmp ne i32 %.1176, 0
@@ -1560,7 +1560,7 @@ _ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %2
   %.1134.us.i = phi i32 [ %303, %302 ], [ %.0133170.us.i, %298 ]
   %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 1
   %exitcond222.not.i = icmp eq i64 %indvars.iv.next219.i, %wide.trip.count221.i
-  br i1 %exitcond222.not.i, label %.preheader166.i, label %.lr.ph.split.us.i, !llvm.loop !27
+  br i1 %exitcond222.not.i, label %.preheader166.i, label %.lr.ph.split.us.i, !llvm.loop !28
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   br i1 %282, label %.lr.ph.split.split.us.preheader.i, label %.lr.ph.split.split.preheader.i
@@ -1599,7 +1599,7 @@ _ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %2
   %.1134.us177.i = phi i32 [ %314, %313 ], [ %.0133170.us173.i, %309 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count217.i
-  br i1 %exitcond.not.i, label %.preheader166.i, label %.lr.ph.split.split.us.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %.preheader166.i, label %.lr.ph.split.split.us.i, !llvm.loop !29
 
 .preheader166.i:                                  ; preds = %315, %304
   %.0133.lcssa.i = phi i32 [ %.1134.us.i, %304 ], [ %.1134.us177.i, %315 ]
@@ -1651,7 +1651,7 @@ _ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %2
 332:                                              ; preds = %331, %.lr.ph186.i
   %indvars.iv.next227.i = add nuw nsw i64 %indvars.iv226.i, 1
   %exitcond230.not.i = icmp eq i64 %indvars.iv.next227.i, %wide.trip.count229.i
-  br i1 %exitcond230.not.i, label %.loopexit.i, label %.lr.ph186.i, !llvm.loop !29
+  br i1 %exitcond230.not.i, label %.loopexit.i, label %.lr.ph186.i, !llvm.loop !30
 
 .loopexit.i:                                      ; preds = %332, %327
   %.1154.i = phi i32 [ %.0153.i.mux, %327 ], [ %1, %332 ]
@@ -1720,7 +1720,7 @@ _ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %2
   %.4137.i = phi i32 [ %351, %350 ], [ %.3136189.i, %._crit_edge247.i ]
   %indvars.iv.next232.i = add nsw i64 %indvars.iv231.i, -1
   %356 = icmp sgt i64 %indvars.iv231.i, 0
-  br i1 %356, label %.lr.ph191.i, label %.preheader164.i, !llvm.loop !30
+  br i1 %356, label %.lr.ph191.i, label %.preheader164.i, !llvm.loop !31
 
 .lr.ph194.i:                                      ; preds = %.lr.ph194.i, %.lr.ph194.preheader.i
   %indvars.iv234.i = phi i64 [ 0, %.lr.ph194.preheader.i ], [ %indvars.iv.next235.i, %.lr.ph194.i ]
@@ -1728,7 +1728,7 @@ _ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %2
   store i16 32, ptr %357, align 2, !tbaa !9
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 1
   %exitcond238.not.i = icmp eq i64 %indvars.iv.next235.i, %wide.trip.count237.i
-  br i1 %exitcond238.not.i, label %._crit_edge195.i, label %.lr.ph194.i, !llvm.loop !31
+  br i1 %exitcond238.not.i, label %._crit_edge195.i, label %.lr.ph194.i, !llvm.loop !32
 
 ._crit_edge195.i:                                 ; preds = %.lr.ph194.i, %.preheader164.i, %340
   %358 = tail call ptr @u_memcpy_77(ptr noundef nonnull %0, ptr noundef nonnull %289, i32 noundef %1)
@@ -1801,7 +1801,7 @@ _ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %2
   %.6139.i = phi i32 [ %376, %375 ], [ %.5138199.i, %._crit_edge248.i ]
   %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
   %exitcond243.not.i = icmp eq i64 %indvars.iv.next240.i, %wide.trip.count242.i
-  br i1 %exitcond243.not.i, label %.preheader.i, label %.lr.ph201.i, !llvm.loop !32
+  br i1 %exitcond243.not.i, label %.preheader.i, label %.lr.ph201.i, !llvm.loop !33
 
 .lr.ph206.i:                                      ; preds = %.lr.ph206.i.preheader, %.lr.ph206.i
   %indvars.iv244.i = phi i64 [ %indvars.iv.next245.i, %.lr.ph206.i ], [ %indvars.iv244.i.ph, %.lr.ph206.i.preheader ]
@@ -1811,7 +1811,7 @@ _ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %2
   %indvars.iv.next245.i = add nsw i64 %indvars.iv244.i, -1
   %382 = add nsw i32 %.7205.i, -1
   %.not265.i = icmp eq i32 %.7205.i, 0
-  br i1 %.not265.i, label %._crit_edge207.i, label %.lr.ph206.i, !llvm.loop !33
+  br i1 %.not265.i, label %._crit_edge207.i, label %.lr.ph206.i, !llvm.loop !34
 
 ._crit_edge207.i:                                 ; preds = %.lr.ph206.i, %.preheader.i
   %383 = tail call ptr @u_memcpy_77(ptr noundef nonnull %0, ptr noundef nonnull %289, i32 noundef %1)
@@ -1898,7 +1898,7 @@ _ZL22isIsolatedTashkeelCharDs.exit:               ; preds = %switch.early.test.i
 14:                                               ; preds = %.sink.split, %_ZL22isIsolatedTashkeelCharDs.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %14, %2
   ret i32 %1
@@ -2019,7 +2019,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us:       ; preds = %_ZL20isSeenTailFami
   %spec.select.us = select i1 %52, i32 %.05974.us, i32 1
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !35
+  br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !36
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %7, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
@@ -2099,7 +2099,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us80:     ; preds = %61, %59, %58
   %spec.select.us83 = select i1 %80, i32 %.05974.us78, i32 1
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !36
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !37
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next, %96 ]
@@ -2143,7 +2143,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread:          ; preds = %.lr.ph.split.split
   %spec.select = select i1 %99, i32 %.05974, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %96, %77, %49
   %.059.lcssa = phi i32 [ %spec.select.us, %49 ], [ %spec.select.us83, %77 ], [ %spec.select, %96 ]
@@ -2220,7 +2220,7 @@ define internal fastcc void @_ZL31_shapeToArabicDigitsWithContextPDsiDsaa(ptr no
   %.125 = phi i8 [ %.02430, %.lr.ph ], [ 0, %13 ], [ 1, %14 ], [ 1, %19 ], [ 1, %16 ], [ 0, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %34
   %indvars.iv36 = phi i64 [ %8, %.lr.ph34.preheader ], [ %indvars.iv.next37, %34 ]
@@ -2260,7 +2260,7 @@ define internal fastcc void @_ZL31_shapeToArabicDigitsWithContextPDsiDsaa(ptr no
 34:                                               ; preds = %.lr.ph34, %28, %29, %32, %27, %26
   %.3 = phi i8 [ %.232, %.lr.ph34 ], [ 0, %26 ], [ 1, %27 ], [ 1, %32 ], [ 1, %29 ], [ 0, %28 ]
   %35 = icmp samesign ugt i64 %indvars.iv36, 1
-  br i1 %35, label %.lr.ph34, label %.loopexit, !llvm.loop !39
+  br i1 %35, label %.lr.ph34, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %21, %34, %.preheader28, %.preheader
   ret void
@@ -2276,7 +2276,7 @@ define internal fastcc noundef i32 @_ZL18expandCompositCharPDsiijP10UErrorCodei1
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !40
+  %12 = load i32, ptr %11, align 4, !tbaa !41
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %20
 
@@ -2347,7 +2347,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us.i:     ; preds = %43, %.lr.ph.i
 43:                                               ; preds = %38, %37, %_ZL20isSeenTailFamilyCharDs.exit.thread.us.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
-  br i1 %exitcond35.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us.i, !llvm.loop !42
+  br i1 %exitcond35.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us.i, !llvm.loop !43
 
 _ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit: ; preds = %43, %7
   %.0103 = phi i32 [ %2, %7 ], [ %1, %43 ]
@@ -2356,7 +2356,7 @@ _ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit: ; pred
 _ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit.thread: ; preds = %14, %20, %26, %28, %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit
   %.0103139 = phi i32 [ %.0103, %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit ], [ %1, %28 ], [ %.1104.ph, %26 ], [ %21, %20 ], [ %15, %14 ]
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %45 = load i32, ptr %44, align 8, !tbaa !43
+  %45 = load i32, ptr %44, align 8, !tbaa !44
   %46 = icmp eq i32 %8, %45
   br i1 %46, label %47, label %49
 
@@ -2367,7 +2367,7 @@ _ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit.thread:
 49:                                               ; preds = %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit.thread, %47
   %.2.ph = phi i32 [ %.0103139, %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit.thread ], [ %48, %47 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !44
+  %51 = load i32, ptr %50, align 4, !tbaa !45
   %52 = icmp eq i32 %8, %51
   br i1 %52, label %53, label %.thread145
 
@@ -2472,7 +2472,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us.i124:  ; preds = %.lr.ph.i122, %96
 96:                                               ; preds = %91, %90, %81, %80, %79, %74
   %indvars.iv.next32.i126 = add nuw nsw i64 %indvars.iv31.i125, 1
   %exitcond35.not.i127 = icmp eq i64 %indvars.iv.next32.i126, %wide.trip.count34.i123
-  br i1 %exitcond35.not.i127, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us.i124, !llvm.loop !42
+  br i1 %exitcond35.not.i127, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us.i124, !llvm.loop !43
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i122
   br i1 %.not41.i, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
@@ -2542,7 +2542,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us6.i:    ; preds = %_ZL20isSeenTailFami
 125:                                              ; preds = %120, %119, %112, %_ZL20isSeenTailFamilyCharDs.exit.thread.us6.i, %111, %110
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count34.i123
-  br i1 %exitcond30.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %.lr.ph.split.split.us.i, !llvm.loop !45
+  br i1 %exitcond30.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %.lr.ph.split.split.us.i, !llvm.loop !46
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i
   br i1 %or.cond112, label %.lr.ph.split.split.split.i, label %.lr.ph.split.split.split.us.i
@@ -2613,7 +2613,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us13.i:   ; preds = %.lr.ph.split.split.
 _ZL20isSeenTailFamilyCharDs.exit.thread.us13.thread.i: ; preds = %152, %147, %_ZL20isSeenTailFamilyCharDs.exit.thread.us13.i, %140, %139, %_ZL20isSeenTailFamilyCharDs.exit.us10.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count34.i123
-  br i1 %exitcond25.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %.lr.ph.split.split.split.us.i, !llvm.loop !46
+  br i1 %exitcond25.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %.lr.ph.split.split.split.us.i, !llvm.loop !47
 
 .lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.split.i, %192
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %192 ], [ 0, %.lr.ph.split.split.i ]
@@ -2705,7 +2705,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.thread.i: ; preds = %_ZL20isSeenTailFami
 192:                                              ; preds = %191, %186, %_ZL20isSeenTailFamilyCharDs.exit.thread.thread.i, %179, %174, %167, %166
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count34.i123
-  br i1 %exitcond.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %.lr.ph.split.split.split.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %.lr.ph.split.split.split.i, !llvm.loop !48
 
 _ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128: ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread.us13.thread.i, %192, %125, %96, %64, %.thread145
   %.4 = phi i32 [ %.3147, %.thread145 ], [ %1, %64 ], [ %1, %96 ], [ %1, %125 ], [ %1, %192 ], [ %1, %_ZL20isSeenTailFamilyCharDs.exit.thread.us13.thread.i ]
@@ -2777,7 +2777,7 @@ _ZL10isAlefCharDs.exit.thread.i:                  ; preds = %_ZL10isAlefCharDs.e
   %.247.i = phi i32 [ %212, %211 ], [ %.14681.i, %_ZL10isAlefCharDs.exit.thread.i ], [ %.14681.i, %207 ]
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
   %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, %wide.trip.count.i
-  br i1 %exitcond.not.i133, label %.loopexit78.i, label %203, !llvm.loop !19
+  br i1 %exitcond.not.i133, label %.loopexit78.i, label %203, !llvm.loop !20
 
 214:                                              ; preds = %.thread.i, %.lr.ph85.i
   %indvars.iv95.i = phi i64 [ 0, %.lr.ph85.i ], [ %indvars.iv.next96.i, %.thread.i ]
@@ -2812,7 +2812,7 @@ _ZL10isAlefCharDs.exit70.thread.i:                ; preds = %222, %219, %219, %2
   %.4.i = phi i32 [ %224, %_ZL10isAlefCharDs.exit70.thread.i ], [ %.383.i, %222 ], [ %.383.i, %219 ]
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count98.i
-  br i1 %exitcond99.not.i, label %.loopexit78.i, label %214, !llvm.loop !20
+  br i1 %exitcond99.not.i, label %.loopexit78.i, label %214, !llvm.loop !21
 
 .loopexit78.i:                                    ; preds = %213, %.thread.i, %194
   %.045.i = phi i32 [ %1, %194 ], [ %.4.i, %.thread.i ], [ %.247.i, %213 ]
@@ -2837,7 +2837,7 @@ _ZL10isAlefCharDs.exit70.thread.i:                ; preds = %222, %219, %219, %2
   %spec.select.i = add nsw i32 %.687.i, %231
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
   %exitcond104.not.i = icmp eq i64 %indvars.iv.next101.i, %wide.trip.count103.i
-  br i1 %exitcond104.not.i, label %_ZL13calculateSizePKDsiij.exit, label %.lr.ph89.i, !llvm.loop !21
+  br i1 %exitcond104.not.i, label %_ZL13calculateSizePKDsiij.exit, label %.lr.ph89.i, !llvm.loop !22
 
 _ZL13calculateSizePKDsiij.exit:                   ; preds = %.lr.ph89.i, %.preheader79.i, %.preheader77.i, %.loopexit78.i
   %.5.i = phi i32 [ %.045.i, %.loopexit78.i ], [ %1, %.preheader79.i ], [ %1, %.preheader77.i ], [ %spec.select.i, %.lr.ph89.i ]
@@ -2892,7 +2892,7 @@ _ZL13calculateSizePKDsiij.exit:                   ; preds = %.lr.ph89.i, %.prehe
   %257 = icmp samesign ult i64 %indvars.iv.next, %240
   %258 = icmp slt i32 %256, %.5.i
   %259 = select i1 %257, i1 %258, i1 false
-  br i1 %259, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  br i1 %259, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %253, %238
   %260 = tail call ptr @u_memcpy_77(ptr noundef nonnull %0, ptr noundef nonnull %235, i32 noundef %.5.i)
@@ -2934,7 +2934,7 @@ define internal fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCo
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv.next
   %15 = load i16, ptr %gep, align 2, !tbaa !9
   %16 = icmp eq i16 %15, 32
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.056.lcssa = phi i32 [ 0, %10 ], [ %14, %.lr.ph ]
@@ -3005,7 +3005,7 @@ define internal fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCo
   %50 = icmp sgt i64 %indvars.iv80, 0
   %51 = icmp sgt i32 %.158, 0
   %52 = select i1 %50, i1 %51, i1 false
-  br i1 %52, label %.lr.ph73, label %._crit_edge74, !llvm.loop !50
+  br i1 %52, label %.lr.ph73, label %._crit_edge74, !llvm.loop !51
 
 ._crit_edge74:                                    ; preds = %49, %._crit_edge
   %.1.lcssa = phi i32 [ %.056.lcssa, %._crit_edge ], [ %.2, %49 ]
@@ -3031,7 +3031,7 @@ define internal fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCo
   %62 = getelementptr inbounds i16, ptr %7, i64 %indvars.iv83
   store i16 32, ptr %62, align 2, !tbaa !9
   %.not.not = icmp sgt i64 %indvars.iv83, %61
-  br i1 %.not.not, label %.lr.ph78, label %.loopexit, !llvm.loop !51
+  br i1 %.not.not, label %.lr.ph78, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph78, %54, %._crit_edge74
   %63 = tail call ptr @u_memcpy_77(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %1)
@@ -3068,7 +3068,7 @@ define internal fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UError
   %13 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next
   %14 = load i16, ptr %13, align 2, !tbaa !9
   %15 = icmp eq i16 %14, 32
-  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !52
+  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -3140,7 +3140,7 @@ define internal fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UError
   %47 = icmp sgt i64 %indvars.iv57, 0
   %48 = icmp sgt i32 %.140, 0
   %49 = select i1 %47, i1 %48, i1 false
-  br i1 %49, label %.lr.ph52, label %._crit_edge53, !llvm.loop !53
+  br i1 %49, label %.lr.ph52, label %._crit_edge53, !llvm.loop !54
 
 ._crit_edge53:                                    ; preds = %45, %._crit_edge
   %50 = tail call ptr @u_memcpy_77(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %1)
@@ -3188,46 +3188,47 @@ attributes #11 = { allocsize(0) }
 !8 = !{!"int", !5, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"char16_t", !5, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12, !13, !14}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12}
-!25 = distinct !{!25, !12}
-!26 = distinct !{!26, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = !{!5, !5, i64 0}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !12, !13}
+!24 = distinct !{!24, !12, !13}
+!25 = distinct !{!25, !12, !13}
+!26 = distinct !{!26, !12, !13}
 !27 = distinct !{!27, !12, !13}
-!28 = distinct !{!28, !12, !13}
-!29 = distinct !{!29, !12}
-!30 = distinct !{!30, !12}
-!31 = distinct !{!31, !12}
-!32 = distinct !{!32, !12}
-!33 = distinct !{!33, !12}
-!34 = distinct !{!34, !12}
+!28 = distinct !{!28, !12, !13, !14}
+!29 = distinct !{!29, !12, !13, !14}
+!30 = distinct !{!30, !12, !13}
+!31 = distinct !{!31, !12, !13}
+!32 = distinct !{!32, !12, !13}
+!33 = distinct !{!33, !12, !13}
+!34 = distinct !{!34, !12, !13}
 !35 = distinct !{!35, !12, !13}
-!36 = distinct !{!36, !12, !13}
-!37 = distinct !{!37, !12}
-!38 = distinct !{!38, !12}
-!39 = distinct !{!39, !12}
-!40 = !{!41, !8, i64 20}
-!41 = !{!"_ZTS15uShapeVariables", !10, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20}
-!42 = distinct !{!42, !12, !13}
-!43 = !{!41, !8, i64 8}
-!44 = !{!41, !8, i64 4}
-!45 = distinct !{!45, !12, !13}
-!46 = distinct !{!46, !12, !13}
-!47 = distinct !{!47, !12}
-!48 = distinct !{!48, !12}
-!49 = distinct !{!49, !12}
-!50 = distinct !{!50, !12}
-!51 = distinct !{!51, !12}
-!52 = distinct !{!52, !12}
-!53 = distinct !{!53, !12}
+!36 = distinct !{!36, !12, !13, !14}
+!37 = distinct !{!37, !12, !13, !14}
+!38 = distinct !{!38, !12, !13}
+!39 = distinct !{!39, !12, !13}
+!40 = distinct !{!40, !12, !13}
+!41 = !{!42, !8, i64 20}
+!42 = !{!"_ZTS15uShapeVariables", !10, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20}
+!43 = distinct !{!43, !12, !13, !14}
+!44 = !{!42, !8, i64 8}
+!45 = !{!42, !8, i64 4}
+!46 = distinct !{!46, !12, !13, !14}
+!47 = distinct !{!47, !12, !13, !14}
+!48 = distinct !{!48, !12, !13}
+!49 = distinct !{!49, !12, !13}
+!50 = distinct !{!50, !12, !13}
+!51 = distinct !{!51, !12, !13}
+!52 = distinct !{!52, !12, !13}
+!53 = distinct !{!53, !12, !13}
+!54 = distinct !{!54, !12, !13}

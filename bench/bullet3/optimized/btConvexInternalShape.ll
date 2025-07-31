@@ -366,7 +366,7 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShapeC2Ev(ptr noundef non
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float 0.000000e+00, ptr %14, align 4, !tbaa !7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 0, ptr %15, align 8, !tbaa !20
+  store i8 0, ptr %15, align 8, !tbaa !21
   ret void
 }
 
@@ -403,31 +403,31 @@ define dso_local void @_ZNK32btConvexInternalAabbCachingShape7getAabbERK11btTran
   %33 = fmul float %30, 5.000000e-01
   %34 = fmul float %31, 5.000000e-01
   %35 = fmul float %32, 5.000000e-01
-  %36 = load float, ptr %1, align 4, !tbaa !7, !noalias !23
+  %36 = load float, ptr %1, align 4, !tbaa !7, !noalias !24
   %37 = tail call noundef float @llvm.fabs.f32(float %36)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %39 = load float, ptr %38, align 4, !tbaa !7, !noalias !23
+  %39 = load float, ptr %38, align 4, !tbaa !7, !noalias !24
   %40 = tail call noundef float @llvm.fabs.f32(float %39)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load float, ptr %41, align 4, !tbaa !7, !noalias !23
+  %42 = load float, ptr %41, align 4, !tbaa !7, !noalias !24
   %43 = tail call noundef float @llvm.fabs.f32(float %42)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load float, ptr %44, align 4, !tbaa !7, !noalias !23
+  %45 = load float, ptr %44, align 4, !tbaa !7, !noalias !24
   %46 = tail call noundef float @llvm.fabs.f32(float %45)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %48 = load float, ptr %47, align 4, !tbaa !7, !noalias !23
+  %48 = load float, ptr %47, align 4, !tbaa !7, !noalias !24
   %49 = tail call noundef float @llvm.fabs.f32(float %48)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load float, ptr %50, align 4, !tbaa !7, !noalias !23
+  %51 = load float, ptr %50, align 4, !tbaa !7, !noalias !24
   %52 = tail call noundef float @llvm.fabs.f32(float %51)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %54 = load float, ptr %53, align 4, !tbaa !7, !noalias !23
+  %54 = load float, ptr %53, align 4, !tbaa !7, !noalias !24
   %55 = tail call noundef float @llvm.fabs.f32(float %54)
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %57 = load float, ptr %56, align 4, !tbaa !7, !noalias !23
+  %57 = load float, ptr %56, align 4, !tbaa !7, !noalias !24
   %58 = tail call noundef float @llvm.fabs.f32(float %57)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %60 = load float, ptr %59, align 4, !tbaa !7, !noalias !23
+  %60 = load float, ptr %59, align 4, !tbaa !7, !noalias !24
   %61 = tail call noundef float @llvm.fabs.f32(float %60)
   %62 = fmul float %34, %39
   %63 = tail call float @llvm.fmuladd.f32(float %33, float %36, float %62)
@@ -496,10 +496,10 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShape15setLocalScalingERK
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 1, ptr %13, align 8, !tbaa !20
+  store i8 1, ptr %13, align 8, !tbaa !21
   %14 = load atomic i8, ptr @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions acquire, align 8
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %20, !prof !26
+  br i1 %15, label %16, label %20, !prof !27
 
 16:                                               ; preds = %2
   %17 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions) #14
@@ -553,7 +553,7 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShape15setLocalScalingERK
   store float %38, ptr %39, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit, label %28, !llvm.loop !27
+  br i1 %exitcond.not.i, label %_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit, label %28, !llvm.loop !28
 
 _ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit: ; preds = %28
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #14
@@ -564,10 +564,10 @@ _ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit: ; preds = %28
 define dso_local void @_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(105) initializes((104, 105)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [6 x %class.btVector3], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 1, ptr %3, align 8, !tbaa !20
+  store i8 1, ptr %3, align 8, !tbaa !21
   %4 = load atomic i8, ptr @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions acquire, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %10, !prof !26
+  br i1 %5, label %6, label %10, !prof !27
 
 6:                                                ; preds = %1
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions) #14
@@ -625,7 +625,7 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv(
   store float %29, ptr %30, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %18, label %19, !llvm.loop !27
+  br i1 %exitcond.not, label %18, label %19, !llvm.loop !28
 }
 
 ; Function Attrs: nofree nounwind
@@ -705,7 +705,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
   store float %9, ptr %10, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %7, !llvm.loop !28
+  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %7, !llvm.loop !29
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -720,15 +720,15 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
   store float %15, ptr %16, align 4, !tbaa !7
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
-  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %13, !llvm.loop !28
+  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %13, !llvm.loop !29
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load float, ptr %17, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %18, ptr %19, align 8, !tbaa !29
+  store float %18, ptr %19, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %20, align 4, !tbaa !34
+  store i32 0, ptr %20, align 4, !tbaa !35
   ret ptr @.str
 }
 
@@ -809,20 +809,21 @@ attributes #15 = { noreturn nounwind }
 !15 = !{!"any pointer", !9, i64 0}
 !16 = !{!"_ZTS9btVector3", !9, i64 0}
 !17 = !{!9, !9, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !22, i64 104}
-!21 = !{!"_ZTS32btConvexInternalAabbCachingShape", !11, i64 0, !16, i64 72, !16, i64 88, !22, i64 104}
-!22 = !{!"bool", !9, i64 0}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
-!25 = distinct !{!25, !"_ZNK11btMatrix3x38absoluteEv"}
-!26 = !{!"branch_weights", i32 1, i32 1048575}
-!27 = distinct !{!27, !19}
-!28 = distinct !{!28, !19}
-!29 = !{!30, !8, i64 48}
-!30 = !{!"_ZTS25btConvexInternalShapeData", !31, i64 0, !33, i64 16, !33, i64 32, !8, i64 48, !14, i64 52}
-!31 = !{!"_ZTS20btCollisionShapeData", !32, i64 0, !14, i64 8, !9, i64 12}
-!32 = !{!"p1 omnipotent char", !15, i64 0}
-!33 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
-!34 = !{!30, !14, i64 52}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !23, i64 104}
+!22 = !{!"_ZTS32btConvexInternalAabbCachingShape", !11, i64 0, !16, i64 72, !16, i64 88, !23, i64 104}
+!23 = !{!"bool", !9, i64 0}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
+!26 = distinct !{!26, !"_ZNK11btMatrix3x38absoluteEv"}
+!27 = !{!"branch_weights", i32 1, i32 1048575}
+!28 = distinct !{!28, !19, !20}
+!29 = distinct !{!29, !19, !20}
+!30 = !{!31, !8, i64 48}
+!31 = !{!"_ZTS25btConvexInternalShapeData", !32, i64 0, !34, i64 16, !34, i64 32, !8, i64 48, !14, i64 52}
+!32 = !{!"_ZTS20btCollisionShapeData", !33, i64 0, !14, i64 8, !9, i64 12}
+!33 = !{!"p1 omnipotent char", !15, i64 0}
+!34 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
+!35 = !{!31, !14, i64 52}

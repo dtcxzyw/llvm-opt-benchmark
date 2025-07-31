@@ -66,7 +66,7 @@ define dso_local noundef i32 @crypto_hash_sha512_update(ptr noundef nonnull capt
   store i8 %27, ptr %29, align 1
   %30 = add nuw nsw i64 %.151, 1
   %exitcond.not = icmp eq i64 %30, %18
-  br i1 %exitcond.not, label %31, label %.preheader50, !llvm.loop !6
+  br i1 %exitcond.not, label %31, label %.preheader50, !llvm.loop !7
 
 31:                                               ; preds = %.preheader50
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 640
@@ -89,7 +89,7 @@ define dso_local noundef i32 @crypto_hash_sha512_update(ptr noundef nonnull capt
   %36 = getelementptr i8, ptr %.04653, i64 128
   %37 = add i64 %.04752, -128
   %38 = icmp ugt i64 %37, 127
-  br i1 %38, label %.lr.ph, label %.preheader49, !llvm.loop !7
+  br i1 %38, label %.lr.ph, label %.preheader49, !llvm.loop !8
 
 .lr.ph56:                                         ; preds = %.preheader49, %.lr.ph56
   %.255 = phi i64 [ %42, %.lr.ph56 ], [ 0, %.preheader49 ]
@@ -99,7 +99,7 @@ define dso_local noundef i32 @crypto_hash_sha512_update(ptr noundef nonnull capt
   store i8 %40, ptr %41, align 1
   %42 = add nuw nsw i64 %.255, 1
   %exitcond59.not = icmp eq i64 %42, %.047.lcssa
-  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph56, !llvm.loop !8
+  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph56, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph56, %.preheader49
   call void @sodium_memzero(ptr noundef nonnull %4, i64 noundef 704) #7
@@ -162,7 +162,7 @@ define internal fastcc void @SHA512_Transform(ptr noundef nonnull captures(none)
   store i64 %44, ptr %45, align 8
   %46 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %46, 16
-  br i1 %exitcond.not.i, label %be64dec_vect.exit, label %5, !llvm.loop !9
+  br i1 %exitcond.not.i, label %be64dec_vect.exit, label %5, !llvm.loop !10
 
 be64dec_vect.exit:                                ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %3, ptr noundef nonnull align 1 dereferenceable(64) %0, i64 noundef 64, i1 noundef false) #7
@@ -974,7 +974,7 @@ split:                                            ; preds = %54, %split
   store i64 %793, ptr %791, align 8
   %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next656, 8
-  br i1 %exitcond.not, label %794, label %split, !llvm.loop !10
+  br i1 %exitcond.not, label %794, label %split, !llvm.loop !11
 
 794:                                              ; preds = %split
   ret void
@@ -1063,7 +1063,7 @@ define dso_local noundef i32 @crypto_hash_sha512_final(ptr noundef nonnull %0, p
   store i8 %46, ptr %22, align 1
   %47 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %47, 2
-  br i1 %exitcond.not.i.i, label %SHA512_Pad.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %SHA512_Pad.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 SHA512_Pad.exit:                                  ; preds = %.lr.ph.i.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1109,7 +1109,7 @@ SHA512_Pad.exit:                                  ; preds = %.lr.ph.i.i
   store i8 %75, ptr %51, align 1
   %76 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %76, 8
-  br i1 %exitcond.not.i, label %be64enc_vect.exit, label %.lr.ph.i4, !llvm.loop !11
+  br i1 %exitcond.not.i, label %be64enc_vect.exit, label %.lr.ph.i4, !llvm.loop !12
 
 be64enc_vect.exit:                                ; preds = %.lr.ph.i4
   call void @sodium_memzero(ptr noundef nonnull %3, i64 noundef 704) #7
@@ -1155,11 +1155,12 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

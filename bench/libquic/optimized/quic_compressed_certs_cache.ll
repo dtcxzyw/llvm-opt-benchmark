@@ -948,9 +948,9 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.i
   %.19.i.i.i.i = select i1 %44, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %44, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !54
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !55
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !56
 
 _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %45 = icmp eq ptr %.19.i.i.i.i, %41
@@ -964,7 +964,7 @@ _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCe
 
 49:                                               ; preds = %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit.i
   %50 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
-  %51 = load i64, ptr %50, align 8, !tbaa !56
+  %51 = load i64, ptr %50, align 8, !tbaa !57
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !30
@@ -1214,9 +1214,9 @@ define linkonce_odr ptr @_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache
   %.19.i.i.i = select i1 %14, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %14, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !54
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !55
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %11, !llvm.loop !55
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %11, !llvm.loop !56
 
 _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %11
   %15 = icmp eq ptr %.19.i.i.i, %9
@@ -1230,13 +1230,13 @@ _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCe
 
 19:                                               ; preds = %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit
   %20 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
-  %.sroa.02.0.copyload = load ptr, ptr %20, align 8, !tbaa !56
+  %.sroa.02.0.copyload = load ptr, ptr %20, align 8, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 16
   %22 = tail call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(8) %21)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !57
+  %24 = load i64, ptr %23, align 8, !tbaa !58
   %25 = add i64 %24, -1
-  store i64 %25, ptr %23, align 8, !tbaa !57
+  store i64 %25, ptr %23, align 8, !tbaa !58
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.02.0.copyload) #18
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 24
   tail call void @_ZN3net24QuicCompressedCertsCache11CachedCertsD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %26) #18
@@ -1263,25 +1263,25 @@ _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCe
 
 36:                                               ; preds = %36, %.lr.ph.i
   %.04.i = phi i64 [ %32, %.lr.ph.i ], [ %43, %36 ]
-  %37 = load ptr, ptr %34, align 8, !tbaa !27, !noalias !58
+  %37 = load ptr, ptr %34, align 8, !tbaa !27, !noalias !59
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = tail call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(8) %38), !noalias !58
-  %40 = load i64, ptr %35, align 8, !tbaa !57, !noalias !58
+  %39 = tail call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(8) %38), !noalias !59
+  %40 = load i64, ptr %35, align 8, !tbaa !58, !noalias !59
   %41 = add i64 %40, -1
-  store i64 %41, ptr %35, align 8, !tbaa !57, !noalias !58
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #18, !noalias !58
+  store i64 %41, ptr %35, align 8, !tbaa !58, !noalias !59
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #18, !noalias !59
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  tail call void @_ZN3net24QuicCompressedCertsCache11CachedCertsD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %42) #18, !noalias !58
-  tail call void @_ZdlPv(ptr noundef nonnull %37) #19, !noalias !58
+  tail call void @_ZN3net24QuicCompressedCertsCache11CachedCertsD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %42) #18, !noalias !59
+  tail call void @_ZdlPv(ptr noundef nonnull %37) #19, !noalias !59
   %43 = add i64 %.04.i, -1
   %44 = icmp ugt i64 %43, %30
-  br i1 %44, label %36, label %_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE12ShrinkToSizeEm.exit, !llvm.loop !61
+  br i1 %44, label %36, label %_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE12ShrinkToSizeEm.exit, !llvm.loop !62
 
 _ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE12ShrinkToSizeEm.exit: ; preds = %36, %29, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit.thread, %19
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #18
   %46 = load i64, ptr %1, align 8, !tbaa !26
-  store i64 %46, ptr %4, align 8, !tbaa !62
+  store i64 %46, ptr %4, align 8, !tbaa !63
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN3net24QuicCompressedCertsCache11CachedCertsC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %47, ptr noundef nonnull align 8 dereferenceable(104) %2)
   %48 = load ptr, ptr %45, align 8, !tbaa !30
@@ -1290,8 +1290,8 @@ _ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImEN
 
 .noexc:                                           ; preds = %_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE12ShrinkToSizeEm.exit
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i64, ptr %4, align 8, !tbaa !62
-  store i64 %51, ptr %50, align 8, !tbaa !62
+  %51 = load i64, ptr %4, align 8, !tbaa !63
+  store i64 %51, ptr %50, align 8, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
   invoke void @_ZN3net24QuicCompressedCertsCache11CachedCertsC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %52, ptr noundef nonnull align 8 dereferenceable(104) %47)
           to label %54 unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEEEED2Ev.exit9.i.i.i
@@ -1305,9 +1305,9 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCach
 54:                                               ; preds = %.noexc
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef %48) #18
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %56 = load i64, ptr %55, align 8, !tbaa !57
+  %56 = load i64, ptr %55, align 8, !tbaa !58
   %57 = add i64 %56, 1
-  store i64 %57, ptr %55, align 8, !tbaa !57
+  store i64 %57, ptr %55, align 8, !tbaa !58
   call void @_ZN3net24QuicCompressedCertsCache11CachedCertsD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %47) #18
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
@@ -1437,13 +1437,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3ne
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %4 = load ptr, ptr %3, align 8, !tbaa !66
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1456,7 +1456,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 define linkonce_odr noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.041.i = load ptr, ptr %3, align 8, !tbaa !54
+  %.041.i = load ptr, ptr %3, align 8, !tbaa !55
   %.not42.i = icmp eq ptr %.041.i, null
   br i1 %.not42.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %.lr.ph.i
 
@@ -1478,9 +1478,9 @@ define linkonce_odr noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.044.i, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !66
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %.044.i, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !65
+  %16 = load ptr, ptr %15, align 8, !tbaa !66
   %.not10.i.i = icmp eq ptr %14, null
   br i1 %.not10.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i, label %.lr.ph.i.i
 
@@ -1493,9 +1493,9 @@ define linkonce_odr noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0
   %.19.i.i = select i1 %19, ptr %.0811.i.i, ptr %.012.i.i
   %.1.in.v.i.i = select i1 %19, i64 24, i64 16
   %.1.in.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 %.1.in.v.i.i
-  %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !54
+  %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i, label %.lr.ph.i.i, !llvm.loop !55
+  br i1 %.not.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i, label %.lr.ph.i.i, !llvm.loop !56
 
 _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i: ; preds = %.lr.ph.i.i, %12
   %.08.lcssa.i.i = phi ptr [ %.044.i, %12 ], [ %.19.i.i, %.lr.ph.i.i ]
@@ -1511,17 +1511,17 @@ _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCach
   %.19.i28.i = select i1 %22, ptr %.012.i26.i, ptr %.0811.i27.i
   %.1.in.v.i29.i = select i1 %22, i64 16, i64 24
   %.1.in.i30.i = getelementptr inbounds nuw i8, ptr %.012.i26.i, i64 %.1.in.v.i29.i
-  %.1.i31.i = load ptr, ptr %.1.in.i30.i, align 8, !tbaa !54
+  %.1.i31.i = load ptr, ptr %.1.in.i30.i, align 8, !tbaa !55
   %.not.i32.i = icmp eq ptr %.1.i31.i, null
-  br i1 %.not.i32.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %.lr.ph.i25.i, !llvm.loop !68
+  br i1 %.not.i32.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %.lr.ph.i25.i, !llvm.loop !69
 
 23:                                               ; preds = %10, %6
   %.sink.i = phi i64 [ 24, %6 ], [ 16, %10 ]
   %.123.i = phi ptr [ %.02243.i, %6 ], [ %.044.i, %10 ]
   %24 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %.sink.i
-  %.0.i = load ptr, ptr %24, align 8, !tbaa !54
+  %.0.i = load ptr, ptr %24, align 8, !tbaa !55
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %6, !llvm.loop !69
+  br i1 %.not.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %6, !llvm.loop !70
 
 _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i
   %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
@@ -1567,7 +1567,7 @@ _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCach
   %39 = add i64 %38, -1
   store i64 %39, ptr %25, align 8, !tbaa !41
   %.not.i3 = icmp eq ptr %36, %.sroa.3.0.i
-  br i1 %.not.i3, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_ESG_.exit, label %.lr.ph.i2, !llvm.loop !70
+  br i1 %.not.i3, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_ESG_.exit, label %.lr.ph.i2, !llvm.loop !71
 
 _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_ESG_.exit: ; preds = %.lr.ph.i2, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5clearEv.exit.i, %.critedge.i
   %40 = phi i64 [ 0, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5clearEv.exit.i ], [ %26, %.critedge.i ], [ %39, %.lr.ph.i2 ]
@@ -1595,14 +1595,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i64, ptr %1, align 8, !tbaa !26
-  store i64 %5, ptr %4, align 8, !tbaa !71
+  store i64 %5, ptr %4, align 8, !tbaa !72
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !56
-  store i64 %8, ptr %6, align 8, !tbaa !56
+  %8 = load i64, ptr %7, align 8, !tbaa !57
+  store i64 %8, ptr %6, align 8, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.02022.i = load ptr, ptr %9, align 8, !tbaa !54
+  %.02022.i = load ptr, ptr %9, align 8, !tbaa !55
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -1613,9 +1613,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0
   %13 = icmp ult i64 %5, %12
   %.in.v.i = select i1 %13, i64 16, i64 24
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
-  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !54
+  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !55
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !74
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !75
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %13, label %._crit_edge.thread.i, label %19
@@ -1762,26 +1762,27 @@ attributes #22 = { nounwind willreturn memory(read) }
 !49 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !50, i64 0, !34, i64 8}
 !50 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessImEE", !51, i64 0}
 !51 = !{!"_ZTSSt4lessImE"}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!37, !37, i64 0}
-!55 = distinct !{!55, !53}
-!56 = !{!29, !29, i64 0}
-!57 = !{!45, !23, i64 16}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE5EraseESt16reverse_iteratorISt14_List_iteratorISt4pairImS3_EEE: argument 0"}
-!60 = distinct !{!60, !"_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE5EraseESt16reverse_iteratorISt14_List_iteratorISt4pairImS3_EEE"}
-!61 = distinct !{!61, !53}
-!62 = !{!63, !23, i64 0}
-!63 = !{!"_ZTSSt4pairImN3net24QuicCompressedCertsCache11CachedCertsEE", !23, i64 0, !64, i64 8}
-!64 = !{!"_ZTSN3net24QuicCompressedCertsCache11CachedCertsE", !4, i64 0, !22, i64 8, !22, i64 40, !22, i64 72}
-!65 = !{!35, !37, i64 24}
-!66 = !{!35, !37, i64 16}
-!67 = distinct !{!67, !53}
-!68 = distinct !{!68, !53}
-!69 = distinct !{!69, !53}
-!70 = distinct !{!70, !53}
-!71 = !{!72, !23, i64 0}
-!72 = !{!"_ZTSSt4pairIKmSt14_List_iteratorIS_ImN3net24QuicCompressedCertsCache11CachedCertsEEEE", !23, i64 0, !73, i64 8}
-!73 = !{!"_ZTSSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEE", !29, i64 0}
-!74 = distinct !{!74, !53}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!37, !37, i64 0}
+!56 = distinct !{!56, !53, !54}
+!57 = !{!29, !29, i64 0}
+!58 = !{!45, !23, i64 16}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE5EraseESt16reverse_iteratorISt14_List_iteratorISt4pairImS3_EEE: argument 0"}
+!61 = distinct !{!61, !"_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE5EraseESt16reverse_iteratorISt14_List_iteratorISt4pairImS3_EEE"}
+!62 = distinct !{!62, !53, !54}
+!63 = !{!64, !23, i64 0}
+!64 = !{!"_ZTSSt4pairImN3net24QuicCompressedCertsCache11CachedCertsEE", !23, i64 0, !65, i64 8}
+!65 = !{!"_ZTSN3net24QuicCompressedCertsCache11CachedCertsE", !4, i64 0, !22, i64 8, !22, i64 40, !22, i64 72}
+!66 = !{!35, !37, i64 24}
+!67 = !{!35, !37, i64 16}
+!68 = distinct !{!68, !53, !54}
+!69 = distinct !{!69, !53, !54}
+!70 = distinct !{!70, !53, !54}
+!71 = distinct !{!71, !53, !54}
+!72 = !{!73, !23, i64 0}
+!73 = !{!"_ZTSSt4pairIKmSt14_List_iteratorIS_ImN3net24QuicCompressedCertsCache11CachedCertsEEEE", !23, i64 0, !74, i64 8}
+!74 = !{!"_ZTSSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEE", !29, i64 0}
+!75 = distinct !{!75, !53, !54}

@@ -81,7 +81,7 @@ define void @jpeg_write_icc_profile(ptr noundef %0, ptr noundef readonly capture
   %31 = sub i32 %.04553, %spec.store.select
   %32 = add nuw nsw i32 %.04354, 1
   %.not47 = icmp eq i32 %31, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %30, %20
   ret void
@@ -132,6 +132,7 @@ attributes #3 = { nounwind }
 !28 = !{!25, !6, i64 0}
 !29 = !{!4, !11, i64 36}
 !30 = !{!7, !7, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !32, !33}

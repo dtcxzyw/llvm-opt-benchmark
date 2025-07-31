@@ -176,7 +176,7 @@ _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i7 = icmp eq ptr %22, %.val6
-  br i1 %.not.i7, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
+  br i1 %.not.i7, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %14, %_Z11do_per_stepll.exit
   ret void
@@ -190,9 +190,9 @@ define linkonce_odr void @_ZN3gmx23NeighborSearchSignaller5setupEv(ptr noundef n
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx23NeighborSearchSignallerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -217,10 +217,10 @@ define linkonce_odr void @_ZN3gmx23NeighborSearchSignallerD2Ev(ptr noundef nonnu
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %1
@@ -230,7 +230,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -244,9 +244,9 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx23NeighborSearchSignallerD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -271,10 +271,10 @@ define linkonce_odr void @_ZN3gmx23NeighborSearchSignallerD0Ev(ptr noundef nonnu
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %1
@@ -284,7 +284,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -301,16 +301,16 @@ define void @_ZN3gmx17LastStepSignaller6signalEld(ptr noundef nonnull align 8 ca
   %4 = alloca i64, align 8
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load i8, ptr %6, align 8, !tbaa !29, !range !34, !noundef !35
+  %7 = load i8, ptr %6, align 8, !tbaa !31, !range !36, !noundef !37
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !36
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %12 = load ptr, ptr %11, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !46
+  %14 = load i8, ptr %13, align 1, !tbaa !48
   %.0.i.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i8(i8 %14, i8 0)
   switch i32 %.0.i.i, label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit [
     i32 -1, label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit.thread
@@ -319,7 +319,7 @@ define void @_ZN3gmx17LastStepSignaller6signalEld(ptr noundef nonnull align 8 ca
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !48
+  %17 = load i32, ptr %16, align 8, !tbaa !50
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit.thread, label %19
 
@@ -330,15 +330,15 @@ define void @_ZN3gmx17LastStepSignaller6signalEld(ptr noundef nonnull align 8 ca
   br label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit
 
 _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit.thread: ; preds = %9, %15
-  store i8 1, ptr %6, align 8, !tbaa !29
+  store i8 1, ptr %6, align 8, !tbaa !31
   br label %28
 
 _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit: ; preds = %9, %19
   %23 = phi i1 [ %22, %19 ], [ false, %9 ]
   %24 = zext i1 %23 to i8
-  store i8 %24, ptr %6, align 8, !tbaa !29
+  store i8 %24, ptr %6, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load i64, ptr %25, align 8, !tbaa !49
+  %26 = load i64, ptr %25, align 8, !tbaa !51
   %27 = icmp eq i64 %1, %26
   %brmerge = or i1 %23, %27
   br i1 %brmerge, label %28, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
@@ -374,7 +374,7 @@ _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i = icmp eq ptr %36, %.val4
-  br i1 %.not.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %28, %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit, %3
   ret void
@@ -388,9 +388,9 @@ define void @_ZN3gmx17LastStepSignaller5setupEv(ptr nonnull readnone align 8 cap
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17LastStepSignallerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -415,10 +415,10 @@ define linkonce_odr void @_ZN3gmx17LastStepSignallerD2Ev(ptr noundef nonnull ali
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %1
@@ -428,7 +428,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -442,9 +442,9 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17LastStepSignallerD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -469,10 +469,10 @@ define linkonce_odr void @_ZN3gmx17LastStepSignallerD0Ev(ptr noundef nonnull ali
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %1
@@ -482,7 +482,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -497,26 +497,26 @@ _ZN3gmx17LastStepSignallerD2Ev.exit:              ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx17LastStepSignaller18registerNSCallbackEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(80) initializes((72, 73)) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i8 1, ptr %3, align 8, !tbaa !50
+  store i8 1, ptr %3, align 8, !tbaa !52
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %7, align 8
-  store i64 %4, ptr %0, align 8, !tbaa !51
+  store i64 %4, ptr %0, align 8, !tbaa !53
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !tbaa !22
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %8, align 8, !tbaa !53
+  store i8 1, ptr %8, align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N3gmx17LastStepSignallerD1Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -541,10 +541,10 @@ define linkonce_odr void @_ZThn8_N3gmx17LastStepSignallerD1Ev(ptr noundef %0) un
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %1
@@ -554,7 +554,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -568,9 +568,9 @@ _ZN3gmx17LastStepSignallerD2Ev.exit:              ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N3gmx17LastStepSignallerD0Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -595,10 +595,10 @@ define linkonce_odr void @_ZThn8_N3gmx17LastStepSignallerD0Ev(ptr noundef %0) un
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i.i
-  %.pr.i.i.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i.i.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, %1
@@ -608,7 +608,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -624,19 +624,19 @@ _ZN3gmx17LastStepSignallerD0Ev.exit:              ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @_ZThn8_N3gmx17LastStepSignaller18registerNSCallbackEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) initializes((0, 33)) %0, ptr noundef initializes((64, 65)) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i8 1, ptr %4, align 8, !tbaa !50, !noalias !55
+  store i8 1, ptr %4, align 8, !tbaa !52, !noalias !57
   %5 = ptrtoint ptr %3 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !alias.scope !55
-  store i64 %5, ptr %0, align 8, !tbaa !51, !alias.scope !55
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !tbaa !22, !alias.scope !55
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !tbaa !20, !alias.scope !55
+  store i64 0, ptr %8, align 8, !alias.scope !57
+  store i64 %5, ptr %0, align 8, !tbaa !53, !alias.scope !57
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !tbaa !22, !alias.scope !57
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !tbaa !20, !alias.scope !57
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %9, align 8, !tbaa !53, !alias.scope !55
+  store i8 1, ptr %9, align 8, !tbaa !55, !alias.scope !57
   ret void
 }
 
@@ -645,7 +645,7 @@ define void @_ZN3gmx16LoggingSignaller6signalEld(ptr noundef nonnull readonly al
   %4 = alloca i64, align 8
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i64, ptr %6, align 8, !tbaa !58
+  %7 = load i64, ptr %6, align 8, !tbaa !60
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %_Z11do_per_stepll.exit, label %8
 
@@ -664,7 +664,7 @@ _Z11do_per_stepll.exit:                           ; preds = %3, %8
 
 14:                                               ; preds = %_Z11do_per_stepll.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !62
+  %16 = load i64, ptr %15, align 8, !tbaa !64
   %17 = icmp eq i64 %1, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
@@ -703,7 +703,7 @@ _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i11 = icmp eq ptr %29, %.val10
-  br i1 %.not.i11, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
+  br i1 %.not.i11, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %21, %14
   ret void
@@ -717,9 +717,9 @@ define void @_ZN3gmx16LoggingSignaller5setupEv(ptr nonnull readnone align 8 capt
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx16LoggingSignallerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -744,10 +744,10 @@ define linkonce_odr void @_ZN3gmx16LoggingSignallerD2Ev(ptr noundef nonnull alig
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %1
@@ -757,7 +757,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -771,9 +771,9 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx16LoggingSignallerD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -798,10 +798,10 @@ define linkonce_odr void @_ZN3gmx16LoggingSignallerD0Ev(ptr noundef nonnull alig
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %1
@@ -811,7 +811,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -826,26 +826,26 @@ _ZN3gmx16LoggingSignallerD2Ev.exit:               ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx16LoggingSignaller24registerLastStepCallbackEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(80) initializes((72, 73)) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i8 1, ptr %3, align 8, !tbaa !63
+  store i8 1, ptr %3, align 8, !tbaa !65
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %7, align 8
-  store i64 %4, ptr %0, align 8, !tbaa !64
+  store i64 %4, ptr %0, align 8, !tbaa !66
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !tbaa !22
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %8, align 8, !tbaa !53
+  store i8 1, ptr %8, align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N3gmx16LoggingSignallerD1Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -870,10 +870,10 @@ define linkonce_odr void @_ZThn8_N3gmx16LoggingSignallerD1Ev(ptr noundef %0) unn
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %1
@@ -883,7 +883,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -897,9 +897,9 @@ _ZN3gmx16LoggingSignallerD2Ev.exit:               ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N3gmx16LoggingSignallerD0Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -924,10 +924,10 @@ define linkonce_odr void @_ZThn8_N3gmx16LoggingSignallerD0Ev(ptr noundef %0) unn
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i.i
-  %.pr.i.i.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i.i.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, %1
@@ -937,7 +937,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -953,19 +953,19 @@ _ZN3gmx16LoggingSignallerD0Ev.exit:               ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @_ZThn8_N3gmx16LoggingSignaller24registerLastStepCallbackEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) initializes((0, 33)) %0, ptr noundef initializes((64, 65)) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i8 1, ptr %4, align 8, !tbaa !63, !noalias !66
+  store i8 1, ptr %4, align 8, !tbaa !65, !noalias !68
   %5 = ptrtoint ptr %3 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !alias.scope !66
-  store i64 %5, ptr %0, align 8, !tbaa !64, !alias.scope !66
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !tbaa !22, !alias.scope !66
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !tbaa !20, !alias.scope !66
+  store i64 0, ptr %8, align 8, !alias.scope !68
+  store i64 %5, ptr %0, align 8, !tbaa !66, !alias.scope !68
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !tbaa !22, !alias.scope !68
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !tbaa !20, !alias.scope !68
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %9, align 8, !tbaa !53, !alias.scope !66
+  store i8 1, ptr %9, align 8, !tbaa !55, !alias.scope !68
   ret void
 }
 
@@ -976,7 +976,7 @@ define void @_ZN3gmx19TrajectorySignaller6signalEld(ptr noundef nonnull readonly
   %6 = alloca i64, align 8
   %7 = alloca double, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !69
+  %9 = load i32, ptr %8, align 8, !tbaa !71
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %_Z11do_per_stepll.exit.thread, label %_Z11do_per_stepll.exit
 
@@ -988,7 +988,7 @@ _Z11do_per_stepll.exit:                           ; preds = %3
 
 _Z11do_per_stepll.exit.thread:                    ; preds = %3, %_Z11do_per_stepll.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !71
+  %14 = load i32, ptr %13, align 4, !tbaa !73
   %.not.i22 = icmp eq i32 %14, 0
   br i1 %.not.i22, label %_Z11do_per_stepll.exit24.thread, label %_Z11do_per_stepll.exit24
 
@@ -1000,7 +1000,7 @@ _Z11do_per_stepll.exit24:                         ; preds = %_Z11do_per_stepll.e
 
 _Z11do_per_stepll.exit24.thread:                  ; preds = %_Z11do_per_stepll.exit.thread, %_Z11do_per_stepll.exit24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !72
+  %19 = load i32, ptr %18, align 8, !tbaa !74
   %.not.i25 = icmp eq i32 %19, 0
   br i1 %.not.i25, label %_Z11do_per_stepll.exit27.thread, label %_Z11do_per_stepll.exit27
 
@@ -1012,7 +1012,7 @@ _Z11do_per_stepll.exit27:                         ; preds = %_Z11do_per_stepll.e
 
 _Z11do_per_stepll.exit27.thread:                  ; preds = %_Z11do_per_stepll.exit24.thread, %_Z11do_per_stepll.exit27
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %24 = load i32, ptr %23, align 4, !tbaa !73
+  %24 = load i32, ptr %23, align 4, !tbaa !75
   %.not.i28 = icmp eq i32 %24, 0
   br i1 %.not.i28, label %_Z11do_per_stepll.exit30.thread, label %_Z11do_per_stepll.exit30
 
@@ -1024,7 +1024,7 @@ _Z11do_per_stepll.exit30:                         ; preds = %_Z11do_per_stepll.e
 
 _Z11do_per_stepll.exit30.thread:                  ; preds = %_Z11do_per_stepll.exit27.thread, %_Z11do_per_stepll.exit30
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = load i32, ptr %28, align 8, !tbaa !74
+  %29 = load i32, ptr %28, align 8, !tbaa !76
   %.not.i31 = icmp eq i32 %29, 0
   br i1 %.not.i31, label %_Z11do_per_stepll.exit33.thread, label %_Z11do_per_stepll.exit33
 
@@ -1036,7 +1036,7 @@ _Z11do_per_stepll.exit33:                         ; preds = %_Z11do_per_stepll.e
 
 _Z11do_per_stepll.exit33.thread:                  ; preds = %_Z11do_per_stepll.exit30.thread, %_Z11do_per_stepll.exit33
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %34 = load i32, ptr %33, align 4, !tbaa !75
+  %34 = load i32, ptr %33, align 4, !tbaa !77
   %.not.i34 = icmp eq i32 %34, 0
   br i1 %.not.i34, label %_Z11do_per_stepll.exit36.thread, label %_Z11do_per_stepll.exit36
 
@@ -1048,7 +1048,7 @@ _Z11do_per_stepll.exit36:                         ; preds = %_Z11do_per_stepll.e
 
 _Z11do_per_stepll.exit36.thread:                  ; preds = %_Z11do_per_stepll.exit33.thread, %_Z11do_per_stepll.exit36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !76
+  %39 = load i32, ptr %38, align 8, !tbaa !78
   %.not.i37 = icmp eq i32 %39, 0
   br i1 %.not.i37, label %_Z11do_per_stepll.exit39.thread, label %_Z11do_per_stepll.exit39
 
@@ -1060,7 +1060,7 @@ _Z11do_per_stepll.exit39:                         ; preds = %_Z11do_per_stepll.e
 
 _Z11do_per_stepll.exit39.thread:                  ; preds = %_Z11do_per_stepll.exit36.thread, %_Z11do_per_stepll.exit39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %44 = load i32, ptr %43, align 4, !tbaa !77
+  %44 = load i32, ptr %43, align 4, !tbaa !79
   %.not.i40 = icmp eq i32 %44, 0
   br i1 %.not.i40, label %_Z11do_per_stepll.exit42.thread, label %_Z11do_per_stepll.exit42
 
@@ -1101,11 +1101,11 @@ _ZNKSt8functionIFvldEEclEld.exit:                 ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.052.065, i64 32
   %.not = icmp eq ptr %58, %52
-  br i1 %.not, label %_Z11do_per_stepll.exit42.thread, label %.lr.ph
+  br i1 %.not, label %_Z11do_per_stepll.exit42.thread, label %.lr.ph, !llvm.loop !80
 
 _Z11do_per_stepll.exit42.thread:                  ; preds = %_ZNKSt8functionIFvldEEclEld.exit, %48, %_Z11do_per_stepll.exit39.thread, %_Z11do_per_stepll.exit42
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %60 = load i32, ptr %59, align 8, !tbaa !78
+  %60 = load i32, ptr %59, align 8, !tbaa !81
   %.not.i43 = icmp eq i32 %60, 0
   br i1 %.not.i43, label %_Z11do_per_stepll.exit45, label %61
 
@@ -1154,7 +1154,7 @@ _ZNKSt8functionIFvldEEclEld.exit47:               ; preds = %.lr.ph68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.048.067, i64 32
   %.not63 = icmp eq ptr %78, %72
-  br i1 %.not63, label %.loopexit, label %.lr.ph68
+  br i1 %.not63, label %.loopexit, label %.lr.ph68, !llvm.loop !82
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFvldEEclEld.exit47, %68, %_Z11do_per_stepll.exit45
   ret void
@@ -1168,9 +1168,9 @@ define void @_ZN3gmx19TrajectorySignaller5setupEv(ptr nonnull readnone align 8 c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx19TrajectorySignallerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1195,10 +1195,10 @@ define linkonce_odr void @_ZN3gmx19TrajectorySignallerD2Ev(ptr noundef nonnull a
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %1
@@ -1208,7 +1208,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1217,9 +1217,9 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i, %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
   %.not4.i.i.i.i1 = icmp eq ptr %22, %24
   br i1 %.not4.i.i.i.i1, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9, label %.lr.ph.i.i.i.i2
 
@@ -1244,10 +1244,10 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8f
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5: ; preds = %27, %.lr.ph.i.i.i.i2
   %32 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 32
   %.not.i.i.i.i6 = icmp eq ptr %32, %24
-  br i1 %.not.i.i.i.i6, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7, label %.lr.ph.i.i.i.i2, !llvm.loop !26
+  br i1 %.not.i.i.i.i6, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7, label %.lr.ph.i.i.i.i2, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5
-  %.pr.i8 = load ptr, ptr %21, align 8, !tbaa !24
+  %.pr.i8 = load ptr, ptr %21, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7, %_ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit
@@ -1257,7 +1257,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9: ; preds = %_ZSt8_De
 
 34:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !30
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
@@ -1271,9 +1271,9 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit11: ; preds = %_ZSt8_DestroyIPSt
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx19TrajectorySignallerD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -1298,10 +1298,10 @@ define linkonce_odr void @_ZN3gmx19TrajectorySignallerD0Ev(ptr noundef nonnull a
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %1
@@ -1311,7 +1311,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1320,9 +1320,9 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit.i: ; preds = %15, %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
   %.not4.i.i.i.i1.i = icmp eq ptr %22, %24
   br i1 %.not4.i.i.i.i1.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i, label %.lr.ph.i.i.i.i2.i
 
@@ -1347,10 +1347,10 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit.i: ; preds = %15, %_ZSt8_Destro
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5.i: ; preds = %27, %.lr.ph.i.i.i.i2.i
   %32 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 32
   %.not.i.i.i.i6.i = icmp eq ptr %32, %24
-  br i1 %.not.i.i.i.i6.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i6.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5.i
-  %.pr.i8.i = load ptr, ptr %21, align 8, !tbaa !24
+  %.pr.i8.i = load ptr, ptr %21, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7.i, %_ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit.i
@@ -1360,7 +1360,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i: ; preds = %_ZSt8_
 
 34:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !30
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
@@ -1375,26 +1375,26 @@ _ZN3gmx19TrajectorySignallerD2Ev.exit:            ; preds = %_ZSt8_DestroyIPSt8f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx19TrajectorySignaller24registerLastStepCallbackEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(120) initializes((112, 113)) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i8 1, ptr %3, align 8, !tbaa !79
+  store i8 1, ptr %3, align 8, !tbaa !83
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %7, align 8
-  store i64 %4, ptr %0, align 8, !tbaa !80
+  store i64 %4, ptr %0, align 8, !tbaa !84
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !tbaa !22
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %8, align 8, !tbaa !53
+  store i8 1, ptr %8, align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N3gmx19TrajectorySignallerD1Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -1419,10 +1419,10 @@ define linkonce_odr void @_ZThn8_N3gmx19TrajectorySignallerD1Ev(ptr noundef %0) 
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %1
@@ -1432,7 +1432,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1441,9 +1441,9 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit.i: ; preds = %15, %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
   %.not4.i.i.i.i1.i = icmp eq ptr %22, %24
   br i1 %.not4.i.i.i.i1.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i, label %.lr.ph.i.i.i.i2.i
 
@@ -1468,10 +1468,10 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit.i: ; preds = %15, %_ZSt8_Destro
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5.i: ; preds = %27, %.lr.ph.i.i.i.i2.i
   %32 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 32
   %.not.i.i.i.i6.i = icmp eq ptr %32, %24
-  br i1 %.not.i.i.i.i6.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i6.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5.i
-  %.pr.i8.i = load ptr, ptr %21, align 8, !tbaa !24
+  %.pr.i8.i = load ptr, ptr %21, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7.i, %_ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit.i
@@ -1481,7 +1481,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i: ; preds = %_ZSt8_
 
 34:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !30
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
@@ -1502,19 +1502,19 @@ define linkonce_odr void @_ZThn8_N3gmx19TrajectorySignallerD0Ev(ptr noundef %0) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @_ZThn8_N3gmx19TrajectorySignaller24registerLastStepCallbackEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) initializes((0, 33)) %0, ptr noundef initializes((104, 105)) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i8 1, ptr %4, align 8, !tbaa !79, !noalias !82
+  store i8 1, ptr %4, align 8, !tbaa !83, !noalias !86
   %5 = ptrtoint ptr %3 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !alias.scope !82
-  store i64 %5, ptr %0, align 8, !tbaa !80, !alias.scope !82
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !tbaa !22, !alias.scope !82
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !tbaa !20, !alias.scope !82
+  store i64 0, ptr %8, align 8, !alias.scope !86
+  store i64 %5, ptr %0, align 8, !tbaa !84, !alias.scope !86
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !tbaa !22, !alias.scope !86
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !tbaa !20, !alias.scope !86
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %9, align 8, !tbaa !53, !alias.scope !82
+  store i8 1, ptr %9, align 8, !tbaa !55, !alias.scope !86
   ret void
 }
 
@@ -1527,17 +1527,17 @@ define void @_ZN3gmx15EnergySignaller6signalEld(ptr noundef nonnull readonly ali
   %8 = alloca i64, align 8
   %9 = alloca double, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %11 = load i64, ptr %10, align 8, !tbaa !85
+  %11 = load i64, ptr %10, align 8, !tbaa !89
   %12 = icmp eq i64 %11, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = load i64, ptr %13, align 8, !tbaa !90
+  %14 = load i64, ptr %13, align 8, !tbaa !94
   %15 = icmp eq i64 %14, %1
   %or.cond = select i1 %12, i1 true, i1 %15
   br i1 %or.cond, label %_Z11do_per_stepll.exit31, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %18 = load i32, ptr %17, align 8, !tbaa !91
+  %18 = load i32, ptr %17, align 8, !tbaa !95
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %_Z11do_per_stepll.exit.thread50, label %_Z11do_per_stepll.exit
 
@@ -1549,14 +1549,14 @@ _Z11do_per_stepll.exit:                           ; preds = %16
 
 _Z11do_per_stepll.exit.thread50:                  ; preds = %16, %_Z11do_per_stepll.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %23 = load i32, ptr %22, align 4, !tbaa !92
+  %23 = load i32, ptr %22, align 4, !tbaa !96
   %.off = add i32 %23, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %24, label %_Z11do_per_stepll.exit31
 
 24:                                               ; preds = %_Z11do_per_stepll.exit.thread50
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %26 = load i32, ptr %25, align 8, !tbaa !93
+  %26 = load i32, ptr %25, align 8, !tbaa !97
   %.not.i26 = icmp eq i32 %26, 0
   br i1 %.not.i26, label %_Z11do_per_stepll.exit31, label %_Z11do_per_stepll.exit28
 
@@ -1581,7 +1581,7 @@ _Z11do_per_stepll.exit31:                         ; preds = %24, %_Z11do_per_ste
   %36 = phi i1 [ false, %_Z11do_per_stepll.exit28 ], [ true, %_Z11do_per_stepll.exit ], [ false, %31 ], [ true, %3 ], [ false, %_Z11do_per_stepll.exit.thread50 ], [ false, %_Z11do_per_stepll.exit28.thread.thread ], [ false, %24 ]
   %37 = phi i1 [ true, %_Z11do_per_stepll.exit28 ], [ true, %_Z11do_per_stepll.exit ], [ %35, %31 ], [ true, %3 ], [ false, %_Z11do_per_stepll.exit.thread50 ], [ false, %_Z11do_per_stepll.exit28.thread.thread ], [ false, %24 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %39 = load i32, ptr %38, align 4, !tbaa !94
+  %39 = load i32, ptr %38, align 4, !tbaa !98
   %.not.i32 = icmp eq i32 %39, 0
   br i1 %.not.i32, label %_Z11do_per_stepll.exit34, label %40
 
@@ -1627,7 +1627,7 @@ _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i35 = icmp eq ptr %53, %.val21
-  br i1 %.not.i35, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
+  br i1 %.not.i35, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %45, %_Z11do_per_stepll.exit34
   br i1 %37, label %54, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit42
@@ -1663,7 +1663,7 @@ _ZNKSt8functionIFvldEEclEld.exit.i40:             ; preds = %.lr.ph.i37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i38, i64 32
   %.not.i41 = icmp eq ptr %62, %.val23
-  br i1 %.not.i41, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit42, label %.lr.ph.i37
+  br i1 %.not.i41, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit42, label %.lr.ph.i37, !llvm.loop !24
 
 _ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit42: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i40, %54, %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
   br i1 %44, label %63, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit49
@@ -1699,7 +1699,7 @@ _ZNKSt8functionIFvldEEclEld.exit.i47:             ; preds = %.lr.ph.i44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i45, i64 32
   %.not.i48 = icmp eq ptr %71, %.val25
-  br i1 %.not.i48, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit49, label %.lr.ph.i44
+  br i1 %.not.i48, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit49, label %.lr.ph.i44, !llvm.loop !24
 
 _ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit49: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i47, %63, %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit42
   ret void
@@ -1713,9 +1713,9 @@ define void @_ZN3gmx15EnergySignaller5setupEv(ptr nonnull readnone align 8 captu
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx15EnergySignallerD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1740,10 +1740,10 @@ define linkonce_odr void @_ZN3gmx15EnergySignallerD2Ev(ptr noundef nonnull align
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !24
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %1
@@ -1753,7 +1753,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1762,9 +1762,9 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i, %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
   %.not4.i.i.i.i1 = icmp eq ptr %22, %24
   br i1 %.not4.i.i.i.i1, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9, label %.lr.ph.i.i.i.i2
 
@@ -1789,10 +1789,10 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8f
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5: ; preds = %27, %.lr.ph.i.i.i.i2
   %32 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 32
   %.not.i.i.i.i6 = icmp eq ptr %32, %24
-  br i1 %.not.i.i.i.i6, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7, label %.lr.ph.i.i.i.i2, !llvm.loop !26
+  br i1 %.not.i.i.i.i6, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7, label %.lr.ph.i.i.i.i2, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5
-  %.pr.i8 = load ptr, ptr %21, align 8, !tbaa !24
+  %.pr.i8 = load ptr, ptr %21, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i7, %_ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit
@@ -1802,7 +1802,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9: ; preds = %_ZSt8_De
 
 34:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !30
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
@@ -1811,9 +1811,9 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9: ; preds = %_ZSt8_De
 
 _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit11: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i9, %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !24
+  %41 = load ptr, ptr %40, align 8, !tbaa !26
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !25
+  %43 = load ptr, ptr %42, align 8, !tbaa !27
   %.not4.i.i.i.i12 = icmp eq ptr %41, %43
   br i1 %.not4.i.i.i.i12, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i20, label %.lr.ph.i.i.i.i13
 
@@ -1838,10 +1838,10 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit11: ; preds = %_ZSt8_DestroyIPSt
 _ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i16: ; preds = %46, %.lr.ph.i.i.i.i13
   %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i14, i64 32
   %.not.i.i.i.i17 = icmp eq ptr %51, %43
-  br i1 %.not.i.i.i.i17, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i18, label %.lr.ph.i.i.i.i13, !llvm.loop !26
+  br i1 %.not.i.i.i.i17, label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i18, label %.lr.ph.i.i.i.i13, !llvm.loop !28
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i18: ; preds = %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i16
-  %.pr.i19 = load ptr, ptr %40, align 8, !tbaa !24
+  %.pr.i19 = load ptr, ptr %40, align 8, !tbaa !26
   br label %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i20
 
 _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i20: ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i18, %_ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit11
@@ -1851,7 +1851,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i20: ; preds = %_ZSt8_D
 
 53:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i20
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %55 = load ptr, ptr %54, align 8, !tbaa !28
+  %55 = load ptr, ptr %54, align 8, !tbaa !30
   %56 = ptrtoint ptr %55 to i64
   %57 = ptrtoint ptr %52 to i64
   %58 = sub i64 %56, %57
@@ -1876,13 +1876,13 @@ define void @_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i8 1, ptr %6, align 8, !tbaa !95
+  store i8 1, ptr %6, align 8, !tbaa !99
   %7 = ptrtoint ptr %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %10, align 8
-  store i64 %7, ptr %0, align 8, !tbaa !96
+  store i64 %7, ptr %0, align 8, !tbaa !100
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %9, align 8, !tbaa !22
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %8, align 8, !tbaa !20
   br label %11
@@ -1890,24 +1890,24 @@ define void @_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15
 11:                                               ; preds = %3, %5
   %.sink = phi i8 [ 1, %5 ], [ 0, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink, ptr %12, align 8, !tbaa !53
+  store i8 %.sink, ptr %12, align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx15EnergySignaller23registerLoggingCallbackEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(144) initializes((136, 137)) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i8 1, ptr %3, align 8, !tbaa !98
+  store i8 1, ptr %3, align 8, !tbaa !102
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %7, align 8
-  store i64 %4, ptr %0, align 8, !tbaa !96
+  store i64 %4, ptr %0, align 8, !tbaa !100
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !tbaa !22
   store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %8, align 8, !tbaa !53
+  store i8 1, ptr %8, align 8, !tbaa !55
   ret void
 }
 
@@ -1928,28 +1928,28 @@ define linkonce_odr void @_ZThn8_N3gmx15EnergySignallerD0Ev(ptr noundef %0) unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @_ZThn8_N3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %5, label %_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 -8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i8 1, ptr %7, align 8, !tbaa !95, !noalias !99
+  store i8 1, ptr %7, align 8, !tbaa !99, !noalias !103
   %8 = ptrtoint ptr %6 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %11, align 8, !alias.scope !99
-  store i64 %8, ptr %0, align 8, !tbaa !96, !alias.scope !99
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %10, align 8, !tbaa !22, !alias.scope !99
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %9, align 8, !tbaa !20, !alias.scope !99
+  store i64 0, ptr %11, align 8, !alias.scope !103
+  store i64 %8, ptr %0, align 8, !tbaa !100, !alias.scope !103
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %10, align 8, !tbaa !22, !alias.scope !103
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %9, align 8, !tbaa !20, !alias.scope !103
   br label %_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit
 
 _ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit: ; preds = %3, %5
   %.sink.i = phi i8 [ 1, %5 ], [ 0, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink.i, ptr %12, align 8, !tbaa !53, !alias.scope !99
+  store i8 %.sink.i, ptr %12, align 8, !tbaa !55, !alias.scope !103
   ret void
 }
 
@@ -1971,43 +1971,43 @@ define linkonce_odr void @_ZThn16_N3gmx15EnergySignallerD0Ev(ptr noundef %0) unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @_ZThn16_N3gmx15EnergySignaller23registerLoggingCallbackEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) initializes((0, 33)) %0, ptr noundef initializes((120, 121)) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i8 1, ptr %4, align 8, !tbaa !98, !noalias !102
+  store i8 1, ptr %4, align 8, !tbaa !102, !noalias !106
   %5 = ptrtoint ptr %3 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !alias.scope !102
-  store i64 %5, ptr %0, align 8, !tbaa !96, !alias.scope !102
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !tbaa !22, !alias.scope !102
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !tbaa !20, !alias.scope !102
+  store i64 0, ptr %8, align 8, !alias.scope !106
+  store i64 %5, ptr %0, align 8, !tbaa !100, !alias.scope !106
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !tbaa !22, !alias.scope !106
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !tbaa !20, !alias.scope !106
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %9, align 8, !tbaa !53, !alias.scope !102
+  store i8 1, ptr %9, align 8, !tbaa !55, !alias.scope !106
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx23NeighborSearchSignallerC2ESt6vectorISt8functionIFvldEESaIS4_EElld(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, double noundef %4) unnamed_addr #7 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx23NeighborSearchSignallerE, i64 16), ptr %0, align 8, !tbaa !105
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx23NeighborSearchSignallerE, i64 16), ptr %0, align 8, !tbaa !109
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %1, align 8, !tbaa !24
-  store ptr %7, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %1, align 8, !tbaa !26
+  store ptr %7, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !25
-  store ptr %10, ptr %8, align 8, !tbaa !25
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  store ptr %10, ptr %8, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !28
-  store ptr %13, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  store ptr %13, ptr %11, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %2, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %3, ptr %15, align 8, !tbaa !107
+  store i64 %3, ptr %15, align 8, !tbaa !111
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %4, ptr %16, align 8, !tbaa !108
+  store double %4, ptr %16, align 8, !tbaa !112
   ret void
 }
 
@@ -2023,31 +2023,31 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx17LastStepSignallerC2ESt6vectorISt8functionIFvldEESaIS4_EEllPNS_11StopHandlerE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 49), (56, 73)) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #7 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx17LastStepSignallerE, i64 16), ptr %0, align 8, !tbaa !105
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx17LastStepSignallerE, i64 72), ptr %6, align 8, !tbaa !105
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx17LastStepSignallerE, i64 16), ptr %0, align 8, !tbaa !109
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx17LastStepSignallerE, i64 72), ptr %6, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %1, align 8, !tbaa !24
-  store ptr %8, ptr %7, align 8, !tbaa !24
+  %8 = load ptr, ptr %1, align 8, !tbaa !26
+  store ptr %8, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
-  store ptr %11, ptr %9, align 8, !tbaa !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  store ptr %11, ptr %9, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !28
-  store ptr %14, ptr %12, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  store ptr %14, ptr %12, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = add nsw i64 %3, %2
-  store i64 %16, ptr %15, align 8, !tbaa !49
+  store i64 %16, ptr %15, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 0, ptr %17, align 8, !tbaa !29
+  store i8 0, ptr %17, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %4, ptr %18, align 8, !tbaa !36
+  store ptr %4, ptr %18, align 8, !tbaa !38
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 -1, ptr %19, align 8, !tbaa !109
+  store i64 -1, ptr %19, align 8, !tbaa !113
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %20, align 8, !tbaa !50
+  store i8 0, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2070,10 +2070,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr nonnull readonly align 8 captures(none) %2) #13 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !110
+  %.val = load ptr, ptr %0, align 8, !tbaa !114
   %.val3 = load i64, ptr %1, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  store i64 %.val3, ptr %4, align 8, !tbaa !109
+  store i64 %.val3, ptr %4, align 8, !tbaa !113
   ret void
 }
 
@@ -2086,16 +2086,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastS
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0", ptr %0, align 8, !tbaa !112
+  store ptr @"_ZTIZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0", ptr %0, align 8, !tbaa !116
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !114
+  store ptr %1, ptr %0, align 8, !tbaa !118
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val.i = load i64, ptr %1, align 8, !tbaa !51
-  store i64 %.val.i, ptr %0, align 8, !tbaa !51
+  %.val.i = load i64, ptr %1, align 8, !tbaa !53
+  store i64 %.val.i, ptr %0, align 8, !tbaa !53
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -2105,39 +2105,39 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx16LoggingSignallerC2ESt6vectorISt8functionIFvldEESaIS4_EEllNS_16StartingBehaviorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 60), (64, 73)) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #7 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx16LoggingSignallerE, i64 16), ptr %0, align 8, !tbaa !105
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx16LoggingSignallerE, i64 72), ptr %6, align 8, !tbaa !105
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx16LoggingSignallerE, i64 16), ptr %0, align 8, !tbaa !109
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx16LoggingSignallerE, i64 72), ptr %6, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %1, align 8, !tbaa !24
-  store ptr %8, ptr %7, align 8, !tbaa !24
+  %8 = load ptr, ptr %1, align 8, !tbaa !26
+  store ptr %8, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
-  store ptr %11, ptr %9, align 8, !tbaa !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  store ptr %11, ptr %9, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !28
-  store ptr %14, ptr %12, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  store ptr %14, ptr %12, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %2, ptr %15, align 8, !tbaa !58
+  store i64 %2, ptr %15, align 8, !tbaa !60
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %3, ptr %16, align 8, !tbaa !62
+  store i64 %3, ptr %16, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %4, ptr %17, align 8, !tbaa !115
+  store i32 %4, ptr %17, align 8, !tbaa !119
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 -1, ptr %18, align 8, !tbaa !116
+  store i64 -1, ptr %18, align 8, !tbaa !120
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %19, align 8, !tbaa !63
+  store i8 0, ptr %19, align 8, !tbaa !65
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr nonnull readonly align 8 captures(none) %2) #13 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !117
+  %.val = load ptr, ptr %0, align 8, !tbaa !121
   %.val3 = load i64, ptr %1, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  store i64 %.val3, ptr %4, align 8, !tbaa !116
+  store i64 %.val3, ptr %4, align 8, !tbaa !120
   ret void
 }
 
@@ -2150,16 +2150,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx16Loggi
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0", ptr %0, align 8, !tbaa !112
+  store ptr @"_ZTIZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0", ptr %0, align 8, !tbaa !116
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !114
+  store ptr %1, ptr %0, align 8, !tbaa !118
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val.i = load i64, ptr %1, align 8, !tbaa !64
-  store i64 %.val.i, ptr %0, align 8, !tbaa !64
+  %.val.i = load i64, ptr %1, align 8, !tbaa !66
+  store i64 %.val.i, ptr %0, align 8, !tbaa !66
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -2169,63 +2169,63 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx16Loggi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx19TrajectorySignallerC2ESt6vectorISt8functionIFvldEESaIS4_EES6_iiiiiiiii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((0, 52), (56, 113)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #7 align 2 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx19TrajectorySignallerE, i64 16), ptr %0, align 8, !tbaa !105
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx19TrajectorySignallerE, i64 72), ptr %13, align 8, !tbaa !105
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx19TrajectorySignallerE, i64 16), ptr %0, align 8, !tbaa !109
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx19TrajectorySignallerE, i64 72), ptr %13, align 8, !tbaa !109
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %3, ptr %14, align 8, !tbaa !69
+  store i32 %3, ptr %14, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %4, ptr %15, align 4, !tbaa !71
+  store i32 %4, ptr %15, align 4, !tbaa !73
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %5, ptr %16, align 8, !tbaa !72
+  store i32 %5, ptr %16, align 8, !tbaa !74
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %6, ptr %17, align 4, !tbaa !73
+  store i32 %6, ptr %17, align 4, !tbaa !75
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %7, ptr %18, align 8, !tbaa !74
+  store i32 %7, ptr %18, align 8, !tbaa !76
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %8, ptr %19, align 4, !tbaa !75
+  store i32 %8, ptr %19, align 4, !tbaa !77
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %9, ptr %20, align 8, !tbaa !76
+  store i32 %9, ptr %20, align 8, !tbaa !78
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %10, ptr %21, align 4, !tbaa !77
+  store i32 %10, ptr %21, align 4, !tbaa !79
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %11, ptr %22, align 8, !tbaa !78
+  store i32 %11, ptr %22, align 8, !tbaa !81
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load ptr, ptr %1, align 8, !tbaa !24
-  store ptr %24, ptr %23, align 8, !tbaa !24
+  %24 = load ptr, ptr %1, align 8, !tbaa !26
+  store ptr %24, ptr %23, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !25
-  store ptr %27, ptr %25, align 8, !tbaa !25
+  %27 = load ptr, ptr %26, align 8, !tbaa !27
+  store ptr %27, ptr %25, align 8, !tbaa !27
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !28
-  store ptr %30, ptr %28, align 8, !tbaa !28
+  %30 = load ptr, ptr %29, align 8, !tbaa !30
+  store ptr %30, ptr %28, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %32 = load ptr, ptr %2, align 8, !tbaa !24
-  store ptr %32, ptr %31, align 8, !tbaa !24
+  %32 = load ptr, ptr %2, align 8, !tbaa !26
+  store ptr %32, ptr %31, align 8, !tbaa !26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !25
-  store ptr %35, ptr %33, align 8, !tbaa !25
+  %35 = load ptr, ptr %34, align 8, !tbaa !27
+  store ptr %35, ptr %33, align 8, !tbaa !27
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !28
-  store ptr %38, ptr %36, align 8, !tbaa !28
+  %38 = load ptr, ptr %37, align 8, !tbaa !30
+  store ptr %38, ptr %36, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 -1, ptr %39, align 8, !tbaa !119
+  store i64 -1, ptr %39, align 8, !tbaa !123
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %40, align 8, !tbaa !79
+  store i8 0, ptr %40, align 8, !tbaa !83
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr nonnull readonly align 8 captures(none) %2) #13 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !120
+  %.val = load ptr, ptr %0, align 8, !tbaa !124
   %.val3 = load i64, ptr %1, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 104
-  store i64 %.val3, ptr %4, align 8, !tbaa !119
+  store i64 %.val3, ptr %4, align 8, !tbaa !123
   ret void
 }
 
@@ -2238,16 +2238,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx19Traje
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0", ptr %0, align 8, !tbaa !112
+  store ptr @"_ZTIZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0", ptr %0, align 8, !tbaa !116
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !114
+  store ptr %1, ptr %0, align 8, !tbaa !118
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val.i = load i64, ptr %1, align 8, !tbaa !80
-  store i64 %.val.i, ptr %0, align 8, !tbaa !80
+  %.val.i = load i64, ptr %1, align 8, !tbaa !84
+  store i64 %.val.i, ptr %0, align 8, !tbaa !84
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -2258,70 +2258,70 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx19Traje
 define void @_ZN3gmx15EnergySignallerC2ESt6vectorISt8functionIFvldEESaIS4_EES6_S6_iiiNS_25EnergySignallerVirialModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) initializes((0, 121), (128, 137)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #7 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 16), ptr %0, align 8, !tbaa !105
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 80), ptr %9, align 8, !tbaa !105
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 120), ptr %10, align 8, !tbaa !105
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 16), ptr %0, align 8, !tbaa !109
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 80), ptr %9, align 8, !tbaa !109
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 120), ptr %10, align 8, !tbaa !109
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %1, align 8, !tbaa !24
-  store ptr %12, ptr %11, align 8, !tbaa !24
+  %12 = load ptr, ptr %1, align 8, !tbaa !26
+  store ptr %12, ptr %11, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !25
-  store ptr %15, ptr %13, align 8, !tbaa !25
+  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  store ptr %15, ptr %13, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
-  store ptr %18, ptr %16, align 8, !tbaa !28
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
+  store ptr %18, ptr %16, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %20 = load ptr, ptr %2, align 8, !tbaa !24
-  store ptr %20, ptr %19, align 8, !tbaa !24
+  %20 = load ptr, ptr %2, align 8, !tbaa !26
+  store ptr %20, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !25
-  store ptr %23, ptr %21, align 8, !tbaa !25
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
+  store ptr %23, ptr %21, align 8, !tbaa !27
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
-  store ptr %26, ptr %24, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  store ptr %26, ptr %24, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %28 = load ptr, ptr %3, align 8, !tbaa !24
-  store ptr %28, ptr %27, align 8, !tbaa !24
+  %28 = load ptr, ptr %3, align 8, !tbaa !26
+  store ptr %28, ptr %27, align 8, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !25
-  store ptr %31, ptr %29, align 8, !tbaa !25
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
+  store ptr %31, ptr %29, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !28
-  store ptr %34, ptr %32, align 8, !tbaa !28
+  %34 = load ptr, ptr %33, align 8, !tbaa !30
+  store ptr %34, ptr %32, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %4, ptr %35, align 8, !tbaa !91
+  store i32 %4, ptr %35, align 8, !tbaa !95
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %5, ptr %36, align 4, !tbaa !94
+  store i32 %5, ptr %36, align 4, !tbaa !98
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %6, ptr %37, align 8, !tbaa !93
+  store i32 %6, ptr %37, align 8, !tbaa !97
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %7, ptr %38, align 4, !tbaa !92
+  store i32 %7, ptr %38, align 4, !tbaa !96
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 -1, ptr %39, align 8, !tbaa !85
+  store i64 -1, ptr %39, align 8, !tbaa !89
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i8 0, ptr %40, align 8, !tbaa !95
+  store i8 0, ptr %40, align 8, !tbaa !99
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 -1, ptr %41, align 8, !tbaa !90
+  store i64 -1, ptr %41, align 8, !tbaa !94
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i8 0, ptr %42, align 8, !tbaa !98
+  store i8 0, ptr %42, align 8, !tbaa !102
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr nonnull readonly align 8 captures(none) %2) #13 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !122
+  %.val = load ptr, ptr %0, align 8, !tbaa !126
   %.val3 = load i64, ptr %1, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 112
-  store i64 %.val3, ptr %4, align 8, !tbaa !85
+  store i64 %.val3, ptr %4, align 8, !tbaa !89
   ret void
 }
 
@@ -2334,16 +2334,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx15Energ
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventEE3$_0", ptr %0, align 8, !tbaa !112
+  store ptr @"_ZTIZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventEE3$_0", ptr %0, align 8, !tbaa !116
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !114
+  store ptr %1, ptr %0, align 8, !tbaa !118
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val.i = load i64, ptr %1, align 8, !tbaa !96
-  store i64 %.val.i, ptr %0, align 8, !tbaa !96
+  %.val.i = load i64, ptr %1, align 8, !tbaa !100
+  store i64 %.val.i, ptr %0, align 8, !tbaa !100
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -2352,10 +2352,10 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx15Energ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr nonnull readonly align 8 captures(none) %2) #13 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !124
+  %.val = load ptr, ptr %0, align 8, !tbaa !128
   %.val3 = load i64, ptr %1, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  store i64 %.val3, ptr %4, align 8, !tbaa !90
+  store i64 %.val3, ptr %4, align 8, !tbaa !94
   ret void
 }
 
@@ -2368,16 +2368,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx15Energ
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0", ptr %0, align 8, !tbaa !112
+  store ptr @"_ZTIZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0", ptr %0, align 8, !tbaa !116
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !114
+  store ptr %1, ptr %0, align 8, !tbaa !118
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val.i = load i64, ptr %1, align 8, !tbaa !96
-  store i64 %.val.i, ptr %0, align 8, !tbaa !96
+  %.val.i = load i64, ptr %1, align 8, !tbaa !100
+  store i64 %.val.i, ptr %0, align 8, !tbaa !100
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -2441,105 +2441,109 @@ attributes #20 = { nounwind }
 !21 = !{!"_ZTSSt14_Function_base", !13, i64 0, !12, i64 16}
 !22 = !{!23, !12, i64 24}
 !23 = !{!"_ZTSSt8functionIFvldEE", !21, i64 0, !12, i64 24}
-!24 = !{!10, !11, i64 0}
-!25 = !{!10, !11, i64 8}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!10, !11, i64 16}
-!29 = !{!30, !32, i64 48}
-!30 = !{!"_ZTSN3gmx17LastStepSignallerE", !6, i64 0, !31, i64 8, !7, i64 16, !15, i64 40, !32, i64 48, !33, i64 56, !15, i64 64, !32, i64 72}
-!31 = !{!"_ZTSN3gmx30INeighborSearchSignallerClientE"}
-!32 = !{!"bool", !13, i64 0}
-!33 = !{!"p1 _ZTSN3gmx11StopHandlerE", !12, i64 0}
-!34 = !{i8 0, i8 2}
-!35 = !{}
-!36 = !{!30, !33, i64 56}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"_ZTSN3gmx11StopHandlerE", !39, i64 0, !40, i64 8, !45, i64 32}
-!39 = !{!"p1 _ZTSN3gmx16SimulationSignalE", !12, i64 0}
-!40 = !{!"_ZTSSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE", !41, i64 0}
-!41 = !{!"_ZTSSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE", !42, i64 0}
-!42 = !{!"_ZTSNSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE12_Vector_implE", !43, i64 0}
-!43 = !{!"_ZTSNSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE17_Vector_impl_dataE", !44, i64 0, !44, i64 8, !44, i64 16}
-!44 = !{!"p1 _ZTSSt8functionIFN3gmx10StopSignalEvEE", !12, i64 0}
-!45 = !{!"int", !13, i64 0}
-!46 = !{!47, !13, i64 1}
-!47 = !{!"_ZTSN3gmx16SimulationSignalE", !13, i64 0, !13, i64 1, !32, i64 2}
-!48 = !{!38, !45, i64 32}
-!49 = !{!30, !15, i64 40}
-!50 = !{!30, !32, i64 72}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTSN3gmx17LastStepSignallerE", !12, i64 0}
-!53 = !{!54, !32, i64 32}
-!54 = !{!"_ZTSSt22_Optional_payload_baseISt8functionIFvldEEE", !13, i64 0, !32, i64 32}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN3gmx17LastStepSignaller18registerNSCallbackEv: argument 0"}
-!57 = distinct !{!57, !"_ZN3gmx17LastStepSignaller18registerNSCallbackEv"}
-!58 = !{!59, !15, i64 40}
-!59 = !{!"_ZTSN3gmx16LoggingSignallerE", !6, i64 0, !60, i64 8, !7, i64 16, !15, i64 40, !15, i64 48, !61, i64 56, !15, i64 64, !32, i64 72}
-!60 = !{!"_ZTSN3gmx24ILastStepSignallerClientE"}
-!61 = !{!"_ZTSN3gmx16StartingBehaviorE", !13, i64 0}
-!62 = !{!59, !15, i64 48}
-!63 = !{!59, !32, i64 72}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTSN3gmx16LoggingSignallerE", !12, i64 0}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN3gmx16LoggingSignaller24registerLastStepCallbackEv: argument 0"}
-!68 = distinct !{!68, !"_ZN3gmx16LoggingSignaller24registerLastStepCallbackEv"}
-!69 = !{!70, !45, i64 16}
-!70 = !{!"_ZTSN3gmx19TrajectorySignallerE", !6, i64 0, !60, i64 8, !45, i64 16, !45, i64 20, !45, i64 24, !45, i64 28, !45, i64 32, !45, i64 36, !45, i64 40, !45, i64 44, !45, i64 48, !7, i64 56, !7, i64 80, !15, i64 104, !32, i64 112}
-!71 = !{!70, !45, i64 20}
-!72 = !{!70, !45, i64 24}
-!73 = !{!70, !45, i64 28}
-!74 = !{!70, !45, i64 32}
-!75 = !{!70, !45, i64 36}
-!76 = !{!70, !45, i64 40}
-!77 = !{!70, !45, i64 44}
-!78 = !{!70, !45, i64 48}
-!79 = !{!70, !32, i64 112}
-!80 = !{!81, !81, i64 0}
-!81 = !{!"p1 _ZTSN3gmx19TrajectorySignallerE", !12, i64 0}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN3gmx19TrajectorySignaller24registerLastStepCallbackEv: argument 0"}
-!84 = distinct !{!84, !"_ZN3gmx19TrajectorySignaller24registerLastStepCallbackEv"}
-!85 = !{!86, !15, i64 112}
-!86 = !{!"_ZTSN3gmx15EnergySignallerE", !6, i64 0, !87, i64 8, !88, i64 16, !7, i64 24, !7, i64 48, !7, i64 72, !45, i64 96, !45, i64 100, !45, i64 104, !89, i64 108, !15, i64 112, !32, i64 120, !15, i64 128, !32, i64 136}
-!87 = !{!"_ZTSN3gmx26ITrajectorySignallerClientE"}
-!88 = !{!"_ZTSN3gmx23ILoggingSignallerClientE"}
-!89 = !{!"_ZTSN3gmx25EnergySignallerVirialModeE", !13, i64 0}
-!90 = !{!86, !15, i64 128}
-!91 = !{!86, !45, i64 96}
-!92 = !{!86, !89, i64 108}
-!93 = !{!86, !45, i64 104}
-!94 = !{!86, !45, i64 100}
-!95 = !{!86, !32, i64 120}
-!96 = !{!97, !97, i64 0}
-!97 = !{!"p1 _ZTSN3gmx15EnergySignallerE", !12, i64 0}
-!98 = !{!86, !32, i64 136}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE: argument 0"}
-!101 = distinct !{!101, !"_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN3gmx15EnergySignaller23registerLoggingCallbackEv: argument 0"}
-!104 = distinct !{!104, !"_ZN3gmx15EnergySignaller23registerLoggingCallbackEv"}
-!105 = !{!106, !106, i64 0}
-!106 = !{!"vtable pointer", !14, i64 0}
-!107 = !{!5, !15, i64 40}
-!108 = !{!5, !16, i64 48}
-!109 = !{!30, !15, i64 64}
-!110 = !{!111, !52, i64 0}
-!111 = !{!"_ZTSZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0", !52, i64 0}
-!112 = !{!113, !113, i64 0}
-!113 = !{!"p1 _ZTSSt9type_info", !12, i64 0}
-!114 = !{!12, !12, i64 0}
-!115 = !{!59, !61, i64 56}
-!116 = !{!59, !15, i64 64}
-!117 = !{!118, !65, i64 0}
-!118 = !{!"_ZTSZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0", !65, i64 0}
-!119 = !{!70, !15, i64 104}
-!120 = !{!121, !81, i64 0}
-!121 = !{!"_ZTSZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0", !81, i64 0}
-!122 = !{!123, !97, i64 0}
-!123 = !{!"_ZTSZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventEE3$_0", !97, i64 0}
-!124 = !{!125, !97, i64 0}
-!125 = !{!"_ZTSZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0", !97, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!10, !11, i64 0}
+!27 = !{!10, !11, i64 8}
+!28 = distinct !{!28, !29, !25}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = !{!10, !11, i64 16}
+!31 = !{!32, !34, i64 48}
+!32 = !{!"_ZTSN3gmx17LastStepSignallerE", !6, i64 0, !33, i64 8, !7, i64 16, !15, i64 40, !34, i64 48, !35, i64 56, !15, i64 64, !34, i64 72}
+!33 = !{!"_ZTSN3gmx30INeighborSearchSignallerClientE"}
+!34 = !{!"bool", !13, i64 0}
+!35 = !{!"p1 _ZTSN3gmx11StopHandlerE", !12, i64 0}
+!36 = !{i8 0, i8 2}
+!37 = !{}
+!38 = !{!32, !35, i64 56}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"_ZTSN3gmx11StopHandlerE", !41, i64 0, !42, i64 8, !47, i64 32}
+!41 = !{!"p1 _ZTSN3gmx16SimulationSignalE", !12, i64 0}
+!42 = !{!"_ZTSSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE", !43, i64 0}
+!43 = !{!"_ZTSSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE", !44, i64 0}
+!44 = !{!"_ZTSNSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE12_Vector_implE", !45, i64 0}
+!45 = !{!"_ZTSNSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
+!46 = !{!"p1 _ZTSSt8functionIFN3gmx10StopSignalEvEE", !12, i64 0}
+!47 = !{!"int", !13, i64 0}
+!48 = !{!49, !13, i64 1}
+!49 = !{!"_ZTSN3gmx16SimulationSignalE", !13, i64 0, !13, i64 1, !34, i64 2}
+!50 = !{!40, !47, i64 32}
+!51 = !{!32, !15, i64 40}
+!52 = !{!32, !34, i64 72}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSN3gmx17LastStepSignallerE", !12, i64 0}
+!55 = !{!56, !34, i64 32}
+!56 = !{!"_ZTSSt22_Optional_payload_baseISt8functionIFvldEEE", !13, i64 0, !34, i64 32}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN3gmx17LastStepSignaller18registerNSCallbackEv: argument 0"}
+!59 = distinct !{!59, !"_ZN3gmx17LastStepSignaller18registerNSCallbackEv"}
+!60 = !{!61, !15, i64 40}
+!61 = !{!"_ZTSN3gmx16LoggingSignallerE", !6, i64 0, !62, i64 8, !7, i64 16, !15, i64 40, !15, i64 48, !63, i64 56, !15, i64 64, !34, i64 72}
+!62 = !{!"_ZTSN3gmx24ILastStepSignallerClientE"}
+!63 = !{!"_ZTSN3gmx16StartingBehaviorE", !13, i64 0}
+!64 = !{!61, !15, i64 48}
+!65 = !{!61, !34, i64 72}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTSN3gmx16LoggingSignallerE", !12, i64 0}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN3gmx16LoggingSignaller24registerLastStepCallbackEv: argument 0"}
+!70 = distinct !{!70, !"_ZN3gmx16LoggingSignaller24registerLastStepCallbackEv"}
+!71 = !{!72, !47, i64 16}
+!72 = !{!"_ZTSN3gmx19TrajectorySignallerE", !6, i64 0, !62, i64 8, !47, i64 16, !47, i64 20, !47, i64 24, !47, i64 28, !47, i64 32, !47, i64 36, !47, i64 40, !47, i64 44, !47, i64 48, !7, i64 56, !7, i64 80, !15, i64 104, !34, i64 112}
+!73 = !{!72, !47, i64 20}
+!74 = !{!72, !47, i64 24}
+!75 = !{!72, !47, i64 28}
+!76 = !{!72, !47, i64 32}
+!77 = !{!72, !47, i64 36}
+!78 = !{!72, !47, i64 40}
+!79 = !{!72, !47, i64 44}
+!80 = distinct !{!80, !25}
+!81 = !{!72, !47, i64 48}
+!82 = distinct !{!82, !25}
+!83 = !{!72, !34, i64 112}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 _ZTSN3gmx19TrajectorySignallerE", !12, i64 0}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN3gmx19TrajectorySignaller24registerLastStepCallbackEv: argument 0"}
+!88 = distinct !{!88, !"_ZN3gmx19TrajectorySignaller24registerLastStepCallbackEv"}
+!89 = !{!90, !15, i64 112}
+!90 = !{!"_ZTSN3gmx15EnergySignallerE", !6, i64 0, !91, i64 8, !92, i64 16, !7, i64 24, !7, i64 48, !7, i64 72, !47, i64 96, !47, i64 100, !47, i64 104, !93, i64 108, !15, i64 112, !34, i64 120, !15, i64 128, !34, i64 136}
+!91 = !{!"_ZTSN3gmx26ITrajectorySignallerClientE"}
+!92 = !{!"_ZTSN3gmx23ILoggingSignallerClientE"}
+!93 = !{!"_ZTSN3gmx25EnergySignallerVirialModeE", !13, i64 0}
+!94 = !{!90, !15, i64 128}
+!95 = !{!90, !47, i64 96}
+!96 = !{!90, !93, i64 108}
+!97 = !{!90, !47, i64 104}
+!98 = !{!90, !47, i64 100}
+!99 = !{!90, !34, i64 120}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTSN3gmx15EnergySignallerE", !12, i64 0}
+!102 = !{!90, !34, i64 136}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE: argument 0"}
+!105 = distinct !{!105, !"_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE"}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZN3gmx15EnergySignaller23registerLoggingCallbackEv: argument 0"}
+!108 = distinct !{!108, !"_ZN3gmx15EnergySignaller23registerLoggingCallbackEv"}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"vtable pointer", !14, i64 0}
+!111 = !{!5, !15, i64 40}
+!112 = !{!5, !16, i64 48}
+!113 = !{!32, !15, i64 64}
+!114 = !{!115, !54, i64 0}
+!115 = !{!"_ZTSZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0", !54, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTSSt9type_info", !12, i64 0}
+!118 = !{!12, !12, i64 0}
+!119 = !{!61, !63, i64 56}
+!120 = !{!61, !15, i64 64}
+!121 = !{!122, !67, i64 0}
+!122 = !{!"_ZTSZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0", !67, i64 0}
+!123 = !{!72, !15, i64 104}
+!124 = !{!125, !85, i64 0}
+!125 = !{!"_ZTSZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0", !85, i64 0}
+!126 = !{!127, !101, i64 0}
+!127 = !{!"_ZTSZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventEE3$_0", !101, i64 0}
+!128 = !{!129, !101, i64 0}
+!129 = !{!"_ZTSZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0", !101, i64 0}

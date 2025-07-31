@@ -465,7 +465,7 @@ define dso_local range(i32 0, 3) i32 @cmd_show_ref(i32 noundef %0, ptr noundef %
   %208 = sub i64 %206, %207
   %209 = trunc i64 %208 to i32
   %210 = icmp sgt i32 %162, %209
-  br i1 %210, label %.critedge.i, label %211, !llvm.loop !31
+  br i1 %210, label %.critedge.i, label %211, !llvm.loop !32
 
 211:                                              ; preds = %205
   %212 = call i32 @strncmp(ptr noundef nonnull %.024.i, ptr noundef nonnull %204, i64 noundef %168) #13
@@ -479,7 +479,7 @@ define dso_local range(i32 0, 3) i32 @cmd_show_ref(i32 noundef %0, ptr noundef %
 
 215:                                              ; preds = %213
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.35, ptr noundef nonnull %.024.i) #12
-  br label %.critedge.i, !llvm.loop !31
+  br label %.critedge.i, !llvm.loop !32
 
 216:                                              ; preds = %213
   %217 = call i32 @string_list_has_string(ptr noundef nonnull %11, ptr noundef nonnull %.024.i) #12
@@ -494,7 +494,7 @@ define dso_local range(i32 0, 3) i32 @cmd_show_ref(i32 noundef %0, ptr noundef %
   %219 = load ptr, ptr @stdin, align 8, !tbaa !26
   %220 = call ptr @fgets(ptr noundef nonnull %12, i32 noundef 1024, ptr noundef %219)
   %.not31.i = icmp eq ptr %220, null
-  br i1 %.not31.i, label %cmd_show_ref__exclude_existing.exit, label %169
+  br i1 %.not31.i, label %cmd_show_ref__exclude_existing.exit, label %169, !llvm.loop !33
 
 cmd_show_ref__exclude_existing.exit:              ; preds = %.critedge.i, %161
   call void @string_list_clear(ptr noundef nonnull %11, i32 noundef 0) #12
@@ -512,7 +512,7 @@ cmd_show_ref__exclude_existing.exit:              ; preds = %.critedge.i, %161
   br i1 %.not.i8, label %226, label %224
 
 224:                                              ; preds = %223
-  %225 = load ptr, ptr %1, align 8, !tbaa !32
+  %225 = load ptr, ptr %1, align 8, !tbaa !34
   %.not16.i = icmp eq ptr %225, null
   br i1 %.not16.i, label %226, label %.preheader.i
 
@@ -521,11 +521,11 @@ cmd_show_ref__exclude_existing.exit:              ; preds = %.critedge.i, %161
   unreachable
 
 thread-pre-split.i:                               ; preds = %234
-  %227 = load ptr, ptr %.01227.i, align 8, !tbaa !32
+  %227 = load ptr, ptr %.01227.i, align 8, !tbaa !34
   call fastcc void @show_one(ptr noundef nonnull readonly %15, ptr noundef %227, ptr noundef nonnull %10)
   %228 = getelementptr inbounds nuw i8, ptr %.01227.i, i64 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %10) #12
-  %.pr.i = load ptr, ptr %228, align 8, !tbaa !32
+  %.pr.i = load ptr, ptr %228, align 8, !tbaa !34
   %.not17.i = icmp eq ptr %.pr.i, null
   br i1 %.not17.i, label %cmd_show_ref__verify.exit, label %.preheader.i
 
@@ -538,7 +538,7 @@ thread-pre-split.i:                               ; preds = %234
   br i1 %.not18.i, label %231, label %234
 
 231:                                              ; preds = %.preheader.i
-  %232 = load ptr, ptr %.01227.i, align 8, !tbaa !32
+  %232 = load ptr, ptr %.01227.i, align 8, !tbaa !34
   %233 = call i32 @refname_is_safe(ptr noundef %232) #12
   %.not19.i = icmp eq i32 %233, 0
   br i1 %.not19.i, label %239, label %234
@@ -546,24 +546,24 @@ thread-pre-split.i:                               ; preds = %234
 234:                                              ; preds = %231, %.preheader.i
   %235 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %236 = call ptr @get_main_ref_store(ptr noundef %235) #12
-  %237 = load ptr, ptr %.01227.i, align 8, !tbaa !32
+  %237 = load ptr, ptr %.01227.i, align 8, !tbaa !34
   %238 = call i32 @refs_read_ref(ptr noundef %236, ptr noundef %237, ptr noundef nonnull %10) #12
   %.not20.i = icmp eq i32 %238, 0
   br i1 %.not20.i, label %thread-pre-split.i, label %239
 
 239:                                              ; preds = %234, %231
-  %240 = load i32, ptr %15, align 4, !tbaa !33
+  %240 = load i32, ptr %15, align 4, !tbaa !35
   %.not21.i = icmp eq i32 %240, 0
   br i1 %.not21.i, label %241, label %243
 
 241:                                              ; preds = %239
-  %242 = load ptr, ptr %.01227.i, align 8, !tbaa !32
+  %242 = load ptr, ptr %.01227.i, align 8, !tbaa !34
   call void (ptr, ...) @die(ptr noundef nonnull @.str.39, ptr noundef %242) #14
   unreachable
 
 243:                                              ; preds = %239
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %10) #12
-  br label %cmd_show_ref__verify.exit
+  br label %cmd_show_ref__verify.exit, !llvm.loop !37
 
 244:                                              ; preds = %221
   %245 = load i32, ptr %17, align 4, !tbaa !4
@@ -581,7 +581,7 @@ thread-pre-split.i:                               ; preds = %234
   br i1 %.not.i9, label %249, label %247
 
 247:                                              ; preds = %246
-  %248 = load ptr, ptr %1, align 8, !tbaa !32
+  %248 = load ptr, ptr %1, align 8, !tbaa !34
   %.not9.i = icmp eq ptr %248, null
   br i1 %.not9.i, label %249, label %250
 
@@ -591,7 +591,7 @@ thread-pre-split.i:                               ; preds = %234
 
 250:                                              ; preds = %247
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %252 = load ptr, ptr %251, align 8, !tbaa !32
+  %252 = load ptr, ptr %251, align 8, !tbaa !34
   %.not10.i = icmp eq ptr %252, null
   br i1 %.not10.i, label %254, label %253
 
@@ -654,24 +654,24 @@ cmd_show_ref__exists.exit:                        ; preds = %254, %_.exit.i, %_.
 
 271:                                              ; preds = %244
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
-  store ptr %15, ptr %5, align 8, !tbaa !35
+  store ptr %15, ptr %5, align 8, !tbaa !38
   %272 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %272, align 8, !tbaa !39
+  store ptr null, ptr %272, align 8, !tbaa !42
   %273 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %273, align 8, !tbaa !40
+  store i32 0, ptr %273, align 8, !tbaa !43
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %275 = load i32, ptr %14, align 4, !tbaa !41
-  store i32 %275, ptr %274, align 4, !tbaa !43
+  %275 = load i32, ptr %14, align 4, !tbaa !44
+  store i32 %275, ptr %274, align 4, !tbaa !46
   %.not.i10 = icmp eq ptr %1, null
   br i1 %.not.i10, label %279, label %276
 
 276:                                              ; preds = %271
-  %277 = load ptr, ptr %1, align 8, !tbaa !32
+  %277 = load ptr, ptr %1, align 8, !tbaa !34
   %.not11.i11 = icmp eq ptr %277, null
   br i1 %.not11.i11, label %279, label %278
 
 278:                                              ; preds = %276
-  store ptr %1, ptr %272, align 8, !tbaa !39
+  store ptr %1, ptr %272, align 8, !tbaa !42
   br label %279
 
 279:                                              ; preds = %278, %276, %271
@@ -685,12 +685,12 @@ cmd_show_ref__exists.exit:                        ; preds = %254, %_.exit.i, %_.
   br label %284
 
 284:                                              ; preds = %280, %279
-  %285 = load i32, ptr %34, align 4, !tbaa !44
+  %285 = load i32, ptr %34, align 4, !tbaa !47
   %.not13.i = icmp eq i32 %285, 0
   br i1 %.not13.i, label %286, label %.thread.i12
 
 286:                                              ; preds = %284
-  %287 = load i32, ptr %22, align 4, !tbaa !45
+  %287 = load i32, ptr %22, align 4, !tbaa !48
   %.not14.i = icmp eq i32 %287, 0
   br i1 %.not14.i, label %295, label %.thread.thread.i
 
@@ -698,7 +698,7 @@ cmd_show_ref__exists.exit:                        ; preds = %254, %_.exit.i, %_.
   %288 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %289 = call ptr @get_main_ref_store(ptr noundef %288) #12
   %290 = call i32 @refs_for_each_fullref_in(ptr noundef %289, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef nonnull @show_ref, ptr noundef nonnull %5) #12
-  %.pre.i = load i32, ptr %22, align 4, !tbaa !45
+  %.pre.i = load i32, ptr %22, align 4, !tbaa !48
   %291 = icmp eq i32 %.pre.i, 0
   br i1 %291, label %cmd_show_ref__patterns.exit, label %.thread.thread.i
 
@@ -715,7 +715,7 @@ cmd_show_ref__exists.exit:                        ; preds = %254, %_.exit.i, %_.
   br label %cmd_show_ref__patterns.exit
 
 cmd_show_ref__patterns.exit:                      ; preds = %.thread.i12, %.thread.thread.i, %295
-  %299 = load i32, ptr %273, align 8, !tbaa !40
+  %299 = load i32, ptr %273, align 8, !tbaa !43
   %.not17.i13 = icmp eq i32 %299, 0
   %..i = zext i1 %.not17.i13 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
@@ -744,9 +744,9 @@ define internal i32 @hash_callback(ptr noundef readonly captures(none) %0, ptr n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false), !tbaa.struct !46
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false), !tbaa.struct !49
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 1, ptr %7, align 4, !tbaa !49
+  store i32 1, ptr %7, align 4, !tbaa !52
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %8
 
@@ -859,17 +859,17 @@ define internal fastcc void @show_one(ptr noundef readonly captures(none) %0, pt
   unreachable
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %0, align 4, !tbaa !33
+  %10 = load i32, ptr %0, align 4, !tbaa !35
   %.not15 = icmp eq i32 %10, 0
   br i1 %.not15, label %11, label %32
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 4, !tbaa !50
+  %14 = load i32, ptr %13, align 4, !tbaa !53
   %15 = tail call ptr @repo_find_unique_abbrev(ptr noundef %12, ptr noundef %2, i32 noundef %14) #12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !49
+  %17 = load i32, ptr %16, align 4, !tbaa !52
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %19, label %18
 
@@ -883,7 +883,7 @@ define internal fastcc void @show_one(ptr noundef readonly captures(none) %0, pt
 
 21:                                               ; preds = %19, %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !51
+  %23 = load i32, ptr %22, align 4, !tbaa !54
   %.not17 = icmp eq i32 %23, 0
   br i1 %.not17, label %32, label %24
 
@@ -895,7 +895,7 @@ define internal fastcc void @show_one(ptr noundef readonly captures(none) %0, pt
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr @the_repository, align 8, !tbaa !21
-  %29 = load i32, ptr %13, align 4, !tbaa !50
+  %29 = load i32, ptr %13, align 4, !tbaa !53
   %30 = call ptr @repo_find_unique_abbrev(ptr noundef %28, ptr noundef nonnull %4, i32 noundef %29) #12
   %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %30, ptr noundef %1)
   br label %32
@@ -932,7 +932,7 @@ declare i32 @refs_head_ref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @show_ref(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 %3, ptr noundef captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !43
+  %7 = load i32, ptr %6, align 4, !tbaa !46
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -943,14 +943,14 @@ define internal noundef i32 @show_ref(ptr noundef %0, ptr readnone captures(none
 
 10:                                               ; preds = %8, %5
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !39
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
   %.not34 = icmp eq ptr %12, null
   br i1 %.not34, label %.thread40, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %15 = trunc i64 %14 to i32
-  %16 = load ptr, ptr %12, align 8, !tbaa !32
+  %16 = load ptr, ptr %12, align 8, !tbaa !34
   %.not3543 = icmp eq ptr %16, null
   br i1 %.not3543, label %.loopexit, label %.lr.ph
 
@@ -967,7 +967,7 @@ define internal noundef i32 @show_ref(ptr noundef %0, ptr readnone captures(none
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #13
   %23 = trunc i64 %22 to i32
   %24 = icmp sgt i32 %23, %15
-  br i1 %24, label %38, label %25, !llvm.loop !52
+  br i1 %24, label %38, label %25, !llvm.loop !55
 
 25:                                               ; preds = %19
   %sext36 = shl i64 %22, 32
@@ -976,7 +976,7 @@ define internal noundef i32 @show_ref(ptr noundef %0, ptr readnone captures(none
   %28 = getelementptr inbounds i8, ptr %18, i64 %27
   %bcmp = tail call i32 @bcmp(ptr nonnull %20, ptr nonnull %28, i64 %26)
   %.not37 = icmp eq i32 %bcmp, 0
-  br i1 %.not37, label %29, label %38, !llvm.loop !52
+  br i1 %.not37, label %29, label %38, !llvm.loop !55
 
 29:                                               ; preds = %25
   %30 = icmp eq i32 %23, %15
@@ -993,16 +993,16 @@ define internal noundef i32 @show_ref(ptr noundef %0, ptr readnone captures(none
   br i1 %37, label %.thread40, label %38
 
 38:                                               ; preds = %31, %25, %19
-  %39 = load ptr, ptr %21, align 8, !tbaa !32
+  %39 = load ptr, ptr %21, align 8, !tbaa !34
   %.not35 = icmp eq ptr %39, null
   br i1 %.not35, label %.loopexit, label %19
 
 .thread40:                                        ; preds = %29, %31, %10, %8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %41 = load i32, ptr %40, align 8, !tbaa !40
+  %41 = load i32, ptr %40, align 8, !tbaa !43
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %40, align 8, !tbaa !40
-  %43 = load ptr, ptr %4, align 8, !tbaa !35
+  store i32 %42, ptr %40, align 8, !tbaa !43
+  %43 = load ptr, ptr %4, align 8, !tbaa !38
   tail call fastcc void @show_one(ptr noundef %43, ptr noundef %0, ptr noundef %2)
   br label %.loopexit
 
@@ -1066,27 +1066,30 @@ attributes #15 = { nounwind willreturn memory(none) }
 !26 = !{!27, !27, i64 0}
 !27 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
 !28 = !{!6, !6, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
-!32 = !{!10, !10, i64 0}
-!33 = !{!34, !5, i64 0}
-!34 = !{!"show_one_options", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
-!35 = !{!36, !37, i64 0}
-!36 = !{!"show_ref_data", !37, i64 0, !38, i64 8, !5, i64 16, !5, i64 20}
-!37 = !{!"p1 _ZTS16show_one_options", !11, i64 0}
-!38 = !{!"p2 omnipotent char", !11, i64 0}
-!39 = !{!36, !38, i64 8}
-!40 = !{!36, !5, i64 16}
-!41 = !{!42, !5, i64 0}
-!42 = !{!"patterns_options", !5, i64 0, !5, i64 4, !5, i64 8}
-!43 = !{!36, !5, i64 20}
-!44 = !{!42, !5, i64 4}
-!45 = !{!42, !5, i64 8}
-!46 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 8, !32, i64 16, i64 8, !47, i64 24, i64 8, !32, i64 32, i64 8, !32, i64 40, i64 4, !4, i64 48, i64 8, !47, i64 56, i64 8, !48, i64 64, i64 8, !47, i64 72, i64 8, !48, i64 80, i64 8, !47}
-!47 = !{!11, !11, i64 0}
-!48 = !{!12, !12, i64 0}
-!49 = !{!34, !5, i64 4}
-!50 = !{!34, !5, i64 8}
-!51 = !{!34, !5, i64 12}
-!52 = distinct !{!52, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = distinct !{!32, !30}
+!33 = distinct !{!33, !31}
+!34 = !{!10, !10, i64 0}
+!35 = !{!36, !5, i64 0}
+!36 = !{!"show_one_options", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
+!37 = distinct !{!37, !31}
+!38 = !{!39, !40, i64 0}
+!39 = !{!"show_ref_data", !40, i64 0, !41, i64 8, !5, i64 16, !5, i64 20}
+!40 = !{!"p1 _ZTS16show_one_options", !11, i64 0}
+!41 = !{!"p2 omnipotent char", !11, i64 0}
+!42 = !{!39, !41, i64 8}
+!43 = !{!39, !5, i64 16}
+!44 = !{!45, !5, i64 0}
+!45 = !{!"patterns_options", !5, i64 0, !5, i64 4, !5, i64 8}
+!46 = !{!39, !5, i64 20}
+!47 = !{!45, !5, i64 4}
+!48 = !{!45, !5, i64 8}
+!49 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 8, !34, i64 16, i64 8, !50, i64 24, i64 8, !34, i64 32, i64 8, !34, i64 40, i64 4, !4, i64 48, i64 8, !50, i64 56, i64 8, !51, i64 64, i64 8, !50, i64 72, i64 8, !51, i64 80, i64 8, !50}
+!50 = !{!11, !11, i64 0}
+!51 = !{!12, !12, i64 0}
+!52 = !{!36, !5, i64 4}
+!53 = !{!36, !5, i64 8}
+!54 = !{!36, !5, i64 12}
+!55 = distinct !{!55, !30}

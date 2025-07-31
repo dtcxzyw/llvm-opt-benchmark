@@ -75,16 +75,16 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   %33 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next56
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store ptr %34, ptr %35, align 8, !tbaa !15
+  store ptr %34, ptr %35, align 8, !tbaa !16
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !16
+  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph53, %16
   %.pre6063 = phi ptr [ %calloc, %16 ], [ %.pre60.pre, %.lr.ph53 ]
   store ptr %.pre6063, ptr @s_CubesFree, align 8, !tbaa !3
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !17
-  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !21
-  store ptr %10, ptr @s_pCoverMemory, align 8, !tbaa !22
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !18
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !22
+  store ptr %10, ptr @s_pCoverMemory, align 8, !tbaa !23
   %36 = trunc i64 %9 to i32
   %37 = add i32 %13, %36
   br label %38
@@ -99,21 +99,21 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @DelocateCover() local_unnamed_addr #2 {
-  %1 = load ptr, ptr @s_pCoverMemory, align 8, !tbaa !22
+  %1 = load ptr, ptr @s_pCoverMemory, align 8, !tbaa !23
   %2 = load ptr, ptr %1, align 8, !tbaa !3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %.thread
 
 .thread:                                          ; preds = %0
   tail call void @free(ptr noundef nonnull %2) #8
-  %3 = load ptr, ptr @s_pCoverMemory, align 8, !tbaa !22
+  %3 = load ptr, ptr @s_pCoverMemory, align 8, !tbaa !23
   store ptr null, ptr %3, align 8, !tbaa !3
   br label %4
 
 4:                                                ; preds = %0, %.thread
   %5 = phi ptr [ %3, %.thread ], [ %1, %0 ]
   tail call void @free(ptr noundef nonnull %5) #8
-  store ptr null, ptr @s_pCoverMemory, align 8, !tbaa !22
+  store ptr null, ptr @s_pCoverMemory, align 8, !tbaa !23
   ret void
 }
 
@@ -124,13 +124,13 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 define void @AddToFreeCubes(ptr noundef initializes((32, 40)) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @s_CubesFree, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %2, ptr %3, align 8, !tbaa !15
+  store ptr %2, ptr %3, align 8, !tbaa !16
   store ptr %0, ptr @s_CubesFree, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %4, align 1, !tbaa !24
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !21
+  store i8 0, ptr %4, align 1, !tbaa !25
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !22
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !21
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !22
   ret void
 }
 
@@ -138,12 +138,12 @@ define void @AddToFreeCubes(ptr noundef initializes((32, 40)) %0) local_unnamed_
 define ptr @GetFreeCube() local_unnamed_addr #5 {
   %1 = load ptr, ptr @s_CubesFree, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !15
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   store ptr %3, ptr @s_CubesFree, align 8, !tbaa !3
-  store ptr null, ptr %2, align 8, !tbaa !15
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !21
+  store ptr null, ptr %2, align 8, !tbaa !16
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !22
   %5 = add nsw i32 %4, -1
-  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !21
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !22
   ret ptr %1
 }
 
@@ -175,15 +175,16 @@ attributes #8 = { nounwind }
 !10 = !{!"short", !6, i64 0}
 !11 = !{!"p1 int", !5, i64 0}
 !12 = !{!9, !11, i64 16}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!9, !4, i64 32}
-!16 = distinct !{!16, !14}
-!17 = !{!18, !19, i64 24}
-!18 = !{!"cinfo_tag", !19, i64 0, !19, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !19, i64 28, !19, i64 32, !19, i64 36, !19, i64 40, !19, i64 44, !19, i64 48, !19, i64 52, !19, i64 56, !19, i64 60, !19, i64 64, !20, i64 72, !20, i64 80, !20, i64 88}
-!19 = !{!"int", !6, i64 0}
-!20 = !{!"long", !6, i64 0}
-!21 = !{!18, !19, i64 28}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p2 _ZTS4cube", !5, i64 0}
-!24 = !{!9, !6, i64 1}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!9, !4, i64 32}
+!17 = distinct !{!17, !14, !15}
+!18 = !{!19, !20, i64 24}
+!19 = !{!"cinfo_tag", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !20, i64 36, !20, i64 40, !20, i64 44, !20, i64 48, !20, i64 52, !20, i64 56, !20, i64 60, !20, i64 64, !21, i64 72, !21, i64 80, !21, i64 88}
+!20 = !{!"int", !6, i64 0}
+!21 = !{!"long", !6, i64 0}
+!22 = !{!19, !20, i64 28}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p2 _ZTS4cube", !5, i64 0}
+!25 = !{!9, !6, i64 1}

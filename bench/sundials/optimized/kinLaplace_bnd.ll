@@ -351,12 +351,12 @@ define internal noundef i32 @func(ptr noundef %0, ptr noundef %1, ptr readnone c
   store double %68, ptr %69, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !17
 
 .split.us:                                        ; preds = %54, %22
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next64, 32
-  br i1 %exitcond68.not, label %70, label %.preheader
+  br i1 %exitcond68.not, label %70, label %.preheader, !llvm.loop !18
 
 70:                                               ; preds = %.split.us
   ret i32 0
@@ -393,7 +393,7 @@ define internal fastcc void @PrintOutput(ptr noundef %0) unnamed_addr #0 {
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, double noundef %6)
   %8 = add nuw nsw i32 %.016, 3
   %9 = icmp samesign ult i32 %.016, 29
-  br i1 %9, label %4, label %10
+  br i1 %9, label %4, label %10, !llvm.loop !19
 
 10:                                               ; preds = %4
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
@@ -417,13 +417,13 @@ define internal fastcc void @PrintOutput(ptr noundef %0) unnamed_addr #0 {
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, double noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %19 = icmp samesign ult i64 %indvars.iv, 29
-  br i1 %19, label %16, label %20
+  br i1 %19, label %16, label %20, !llvm.loop !20
 
 20:                                               ; preds = %16
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 3
   %21 = icmp samesign ult i64 %indvars.iv20, 29
-  br i1 %21, label %11, label %22
+  br i1 %21, label %11, label %22, !llvm.loop !21
 
 22:                                               ; preds = %20
   ret void
@@ -532,21 +532,21 @@ check_retval.exit19:                              ; preds = %check_retval.exit17
 
 check_retval.exit21:                              ; preds = %check_retval.exit19, %49
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %52 = load i64, ptr %2, align 8, !tbaa !16
-  %53 = load i64, ptr %3, align 8, !tbaa !16
+  %52 = load i64, ptr %2, align 8, !tbaa !22
+  %53 = load i64, ptr %3, align 8, !tbaa !22
   %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %52, i64 noundef %53)
-  %55 = load i64, ptr %10, align 8, !tbaa !16
-  %56 = load i64, ptr %11, align 8, !tbaa !16
+  %55 = load i64, ptr %10, align 8, !tbaa !22
+  %56 = load i64, ptr %11, align 8, !tbaa !22
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %55, i64 noundef %56)
-  %58 = load i64, ptr %4, align 8, !tbaa !16
-  %59 = load i64, ptr %5, align 8, !tbaa !16
+  %58 = load i64, ptr %4, align 8, !tbaa !22
+  %59 = load i64, ptr %5, align 8, !tbaa !22
   %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %58, i64 noundef %59)
   %putchar = call i32 @putchar(i32 10)
-  %61 = load i64, ptr %6, align 8, !tbaa !16
-  %62 = load i64, ptr %7, align 8, !tbaa !16
+  %61 = load i64, ptr %6, align 8, !tbaa !22
+  %62 = load i64, ptr %7, align 8, !tbaa !22
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i64 noundef %61, i64 noundef %62)
-  %64 = load i64, ptr %8, align 8, !tbaa !16
-  %65 = load i64, ptr %9, align 8, !tbaa !16
+  %64 = load i64, ptr %8, align 8, !tbaa !22
+  %65 = load i64, ptr %9, align 8, !tbaa !22
   %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %64, i64 noundef %65)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
@@ -629,7 +629,13 @@ attributes #7 = { cold nounwind }
 !11 = !{!6, !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"double", !7, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
+!14 = distinct !{!14, !15, !16}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = distinct !{!21, !15}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !7, i64 0}

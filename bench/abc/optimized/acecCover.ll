@@ -468,7 +468,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Vec_BitStart.exit, 
   %127 = sdiv i32 %.val133, 5
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next212, %128
-  br i1 %129, label %106, label %._crit_edge, !llvm.loop !40
+  br i1 %129, label %106, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %106, %.preheader170
   tail call void @Gia_ManCleanMark01(ptr noundef nonnull %0) #12
@@ -487,7 +487,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Vec_BitStart.exit, 
 .lr.ph182:                                        ; preds = %.lr.ph251
   %.val143 = load ptr, ptr %25, align 8, !tbaa !3
   %.not = icmp eq ptr %.val143, null
-  br i1 %.not, label %.critedge, label %.lr.ph251, !llvm.loop !41
+  br i1 %.not, label %.critedge, label %.lr.ph251, !llvm.loop !42
 
 .lr.ph251:                                        ; preds = %.lr.ph182.preheader, %.lr.ph182
   %.val143250 = phi ptr [ %.val143, %.lr.ph182 ], [ %.val143247, %.lr.ph182.preheader ]
@@ -514,10 +514,10 @@ Gia_ObjIsXor.exit:                                ; preds = %Vec_BitStart.exit, 
   %.val134 = load i32, ptr %148, align 4, !tbaa !29
   %149 = sext i32 %.val134 to i64
   %150 = icmp slt i64 %indvars.iv.next215, %149
-  br i1 %150, label %.lr.ph182, label %..critedge.loopexit_crit_edge, !llvm.loop !41
+  br i1 %150, label %.lr.ph182, label %..critedge.loopexit_crit_edge, !llvm.loop !42
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph251
-  br label %.critedge, !llvm.loop !41
+  br label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %.lr.ph182, %.lr.ph182.preheader, %..critedge.loopexit_crit_edge, %._crit_edge
   %.lcssa = phi ptr [ %131, %._crit_edge ], [ %147, %..critedge.loopexit_crit_edge ], [ %131, %.lr.ph182.preheader ], [ %147, %.lr.ph182 ]
@@ -570,7 +570,7 @@ Vec_BitFree.exit:                                 ; preds = %.critedge, %166
   %173 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %172)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %170
-  br i1 %exitcond.not, label %.lr.ph188.preheader, label %.lr.ph.i, !llvm.loop !42
+  br i1 %exitcond.not, label %.lr.ph188.preheader, label %.lr.ph.i, !llvm.loop !43
 
 Vec_IntPrint.exit:                                ; preds = %Vec_BitFree.exit
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -615,7 +615,7 @@ Vec_IntPrint.exit:                                ; preds = %Vec_BitFree.exit
   %193 = trunc nuw nsw i64 %indvars.iv.next218 to i32
   store i32 %193, ptr %3, align 4, !tbaa !28
   %exitcond220.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count
-  br i1 %exitcond220.not, label %.critedge2, label %.lr.ph188, !llvm.loop !43
+  br i1 %exitcond220.not, label %.critedge2, label %.lr.ph188, !llvm.loop !44
 
 .critedge2:                                       ; preds = %.lr.ph188, %174, %Vec_IntPrint.exit
   %.val136190 = load i32, ptr %80, align 4, !tbaa !29
@@ -670,7 +670,7 @@ Vec_IntPrint.exit:                                ; preds = %Vec_BitFree.exit
   %.val136 = load i32, ptr %80, align 4, !tbaa !29
   %224 = sdiv i32 %.val136, 5
   %225 = icmp slt i32 %223, %224
-  br i1 %225, label %197, label %.preheader169, !llvm.loop !44
+  br i1 %225, label %197, label %.preheader169, !llvm.loop !45
 
 226:                                              ; preds = %.preheader169, %._crit_edge199
   %.val137228 = phi i32 [ %.val137, %._crit_edge199 ], [ %.val137193.pre, %.preheader169 ]
@@ -743,11 +743,11 @@ Vec_IntPrint.exit:                                ; preds = %Vec_BitFree.exit
   %266 = add nuw nsw i32 %228, 1
   %267 = sdiv i32 %.val137, 2
   %268 = icmp slt i32 %266, %267
-  br i1 %268, label %.lr.ph198, label %._crit_edge199, !llvm.loop !45
+  br i1 %268, label %.lr.ph198, label %._crit_edge199, !llvm.loop !46
 
 ._crit_edge199:                                   ; preds = %265
   %269 = icmp eq i32 %.1, 0
-  br i1 %269, label %.preheader, label %226
+  br i1 %269, label %.preheader, label %226, !llvm.loop !47
 
 .preheader:                                       ; preds = %226, %._crit_edge199
   %.189.lcssa245 = phi i32 [ %.2, %._crit_edge199 ], [ %.088, %226 ]
@@ -842,7 +842,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %311 = add nsw i32 %310, 1
   store i32 %311, ptr %3, align 4, !tbaa !28
   %312 = icmp slt i32 %311, %309
-  br i1 %312, label %.lr.ph203, label %.critedge4.loopexit, !llvm.loop !46
+  br i1 %312, label %.lr.ph203, label %.critedge4.loopexit, !llvm.loop !48
 
 .critedge4.loopexit:                              ; preds = %308, %.lr.ph203
   %.val142238 = phi ptr [ %.pre.i232, %308 ], [ %273, %.lr.ph203 ]
@@ -882,7 +882,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %324 = trunc nuw nsw i64 %indvars.iv.next222 to i32
   store i32 %324, ptr %3, align 4, !tbaa !28
   %exitcond225.not = icmp eq i64 %indvars.iv.next222, %wide.trip.count224
-  br i1 %exitcond225.not, label %.critedge6, label %.lr.ph206, !llvm.loop !47
+  br i1 %exitcond225.not, label %.critedge6, label %.lr.ph206, !llvm.loop !49
 
 .critedge6:                                       ; preds = %.lr.ph206, %317, %.critedge4
   %325 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -936,7 +936,7 @@ declare i32 @Gia_ManConeSize(ptr noundef, ptr noundef, i32 noundef) local_unname
 define void @Gia_AcecCover(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store ptr null, ptr %2, align 8, !tbaa !48
+  store ptr null, ptr %2, align 8, !tbaa !50
   %3 = call ptr @Gia_ManDetectFullAdders(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #12
   call void @Gia_ManCleanMark01(ptr noundef %0) #12
   %4 = getelementptr i8, ptr %3, i64 4
@@ -950,7 +950,7 @@ define void @Gia_AcecCover(ptr noundef %0) local_unnamed_addr #2 {
   br label %12
 
 .preheader:                                       ; preds = %12, %1
-  %8 = load ptr, ptr %2, align 8, !tbaa !48
+  %8 = load ptr, ptr %2, align 8, !tbaa !50
   %9 = getelementptr i8, ptr %8, i64 4
   %.val1927 = load i32, ptr %9, align 4, !tbaa !29
   %10 = icmp sgt i32 %.val1927, 0
@@ -999,7 +999,7 @@ define void @Gia_AcecCover(ptr noundef %0) local_unnamed_addr #2 {
   %35 = sdiv i32 %.val20, 5
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %12, label %.preheader, !llvm.loop !49
+  br i1 %37, label %12, label %.preheader, !llvm.loop !51
 
 38:                                               ; preds = %.lr.ph29, %52
   %39 = phi ptr [ %8, %.lr.ph29 ], [ %53, %52 ]
@@ -1024,7 +1024,7 @@ define void @Gia_AcecCover(ptr noundef %0) local_unnamed_addr #2 {
 
 50:                                               ; preds = %45
   %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %42)
-  %.pre = load ptr, ptr %2, align 8, !tbaa !48
+  %.pre = load ptr, ptr %2, align 8, !tbaa !50
   br label %52
 
 52:                                               ; preds = %45, %38, %50
@@ -1034,7 +1034,7 @@ define void @Gia_AcecCover(ptr noundef %0) local_unnamed_addr #2 {
   %.val19 = load i32, ptr %54, align 4, !tbaa !29
   %55 = sext i32 %.val19 to i64
   %56 = icmp slt i64 %indvars.iv.next32, %55
-  br i1 %56, label %38, label %.critedge, !llvm.loop !50
+  br i1 %56, label %38, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %52, %.preheader
   %putchar = call i32 @putchar(i32 10)
@@ -1050,7 +1050,7 @@ define void @Gia_AcecCover(ptr noundef %0) local_unnamed_addr #2 {
 
 Vec_IntFree.exit:                                 ; preds = %.critedge, %59
   call void @free(ptr noundef nonnull %3) #12
-  %60 = load ptr, ptr %2, align 8, !tbaa !48
+  %60 = load ptr, ptr %2, align 8, !tbaa !50
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !31
   %.not.i23 = icmp eq ptr %62, null
@@ -1138,16 +1138,18 @@ attributes #12 = { nounwind }
 !35 = !{!"Vec_Bit_t_", !9, i64 0, !9, i64 4, !11, i64 8}
 !36 = !{!35, !11, i64 8}
 !37 = !{!35, !9, i64 4}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
-!41 = distinct !{!41, !39}
-!42 = distinct !{!42, !39}
-!43 = distinct !{!43, !39}
-!44 = distinct !{!44, !39}
-!45 = distinct !{!45, !39}
-!46 = distinct !{!46, !39}
-!47 = distinct !{!47, !39}
-!48 = !{!12, !12, i64 0}
-!49 = distinct !{!49, !39}
-!50 = distinct !{!50, !39}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = distinct !{!41, !39, !40}
+!42 = distinct !{!42, !39, !40}
+!43 = distinct !{!43, !39, !40}
+!44 = distinct !{!44, !39, !40}
+!45 = distinct !{!45, !39, !40}
+!46 = distinct !{!46, !39, !40}
+!47 = distinct !{!47, !40}
+!48 = distinct !{!48, !39, !40}
+!49 = distinct !{!49, !39, !40}
+!50 = !{!12, !12, i64 0}
+!51 = distinct !{!51, !39, !40}
+!52 = distinct !{!52, !39, !40}

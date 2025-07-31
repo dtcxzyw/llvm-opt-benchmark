@@ -2107,12 +2107,12 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit: ; preds = %114
   store ptr null, ptr %82, align 8
   %131 = load ptr, ptr %77, align 8
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %.loopexit, label %83, !llvm.loop !11
+  br i1 %132, label %.loopexit, label %83, !llvm.loop !12
 
 .loopexit:                                        ; preds = %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6, %54
   %.0 = phi i64 [ 0, %54 ], [ 0, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6 ], [ %85, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %134 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0, ptr nonnull %133) #13, !srcloc !12
+  %134 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0, ptr nonnull %133) #13, !srcloc !13
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %136 = load ptr, ptr %135, align 8
@@ -2133,7 +2133,7 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit: ; preds = %114
   %146 = load ptr, ptr %145, align 8
   call void %146(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i.i.i, i64 noundef %139) #13
   %.not.i.i.i = icmp eq ptr %143, null
-  br i1 %.not.i.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i
   %.pre.i = load i64, ptr %20, align 8
@@ -2160,7 +2160,7 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i: ; 
   %156 = load ptr, ptr %155, align 8
   call void %156(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #13
   %.not.i5.i.i = icmp eq ptr %153, null
-  br i1 %.not.i5.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i3.i.i, !llvm.loop !13
+  br i1 %.not.i5.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i3.i.i, !llvm.loop !14
 
 .loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i3.i.i
   %.pre.i.i = load i64, ptr %20, align 8
@@ -2352,9 +2352,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread:    ; preds = %_ZNK7oopDesc5klassE
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, label %_ZN10MarkBitMap8par_markEP7oopDesc.exit, label %55
 
 55:                                               ; preds = %53
-  %56 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %54, i64 %.017.i.i.i, ptr nonnull %49) #13, !srcloc !14
+  %56 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %54, i64 %.017.i.i.i, ptr nonnull %49) #13, !srcloc !15
   %57 = icmp eq i64 %56, %.017.i.i.i
-  br i1 %57, label %58, label %53, !llvm.loop !15
+  br i1 %57, label %58, label %53, !llvm.loop !16
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2783,7 +2783,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
 _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit102: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %224
   %.0 = add nuw i64 %.0167, 1
   %exitcond.not = icmp eq i64 %.0, %208
-  br i1 %exitcond.not, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit95, label %_ZNK14ShenandoahHeap10get_regionEm.exit, !llvm.loop !16
+  br i1 %exitcond.not, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit95, label %_ZNK14ShenandoahHeap10get_regionEm.exit, !llvm.loop !17
 
 _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit95: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit102, %_ZN7oopDesc4sizeEv.exit100, %143, %_ZN7oopDesc4sizeEv.exit
   %228 = load i32, ptr %84, align 8
@@ -2897,7 +2897,7 @@ _ZNK7oopDesc5klassEv.exit.i104:                   ; preds = %256, %246
 _ZN7oopDesc4sizeEv.exit108:                       ; preds = %263, %266, %273, %293
   %.0.i1.i106 = phi i64 [ %270, %266 ], [ %265, %263 ], [ %292, %273 ], [ %297, %293 ]
   %298 = trunc i64 %.0.i1.i106 to i32
-  %299 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %298, ptr %243) #13, !srcloc !17
+  %299 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %298, ptr %243) #13, !srcloc !18
   br label %300
 
 300:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit103, %_ZN7oopDesc4sizeEv.exit108
@@ -3521,9 +3521,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread:    ; preds = %_ZNK7oopDesc5klassE
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, label %_ZN10MarkBitMap8par_markEP7oopDesc.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %.017.i.i.i, ptr nonnull %57) #13, !srcloc !14
+  %64 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %.017.i.i.i, ptr nonnull %57) #13, !srcloc !15
   %65 = icmp eq i64 %64, %.017.i.i.i
-  br i1 %65, label %66, label %61, !llvm.loop !15
+  br i1 %65, label %66, label %61, !llvm.loop !16
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3669,7 +3669,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask4workEj(
 
 _ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit: ; preds = %2, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %31 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %30) #13, !srcloc !12
+  %31 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %30) #13, !srcloc !13
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 544
@@ -3705,12 +3705,12 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZN26ShenandoahVeri
   br label %49
 
 49:                                               ; preds = %.sink.split, %_ZNK14ShenandoahHeap10get_regionEm.exit, %_ZNK14ShenandoahHeap10get_regionEm.exit
-  %50 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %30) #13, !srcloc !12
+  %50 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %30) #13, !srcloc !13
   %51 = load ptr, ptr %32, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 544
   %53 = load i64, ptr %52, align 8
   %54 = icmp ult i64 %50, %53
-  br i1 %54, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %._crit_edge, !llvm.loop !18
+  br i1 %54, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %49, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
@@ -3733,7 +3733,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZN26ShenandoahVeri
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i.i.i, i64 noundef %59) #13
   %.not.i.i.i = icmp eq ptr %63, null
-  br i1 %.not.i.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i
   %.pre.i = load i64, ptr %6, align 8
@@ -3759,7 +3759,7 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i: ; 
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #13
   %.not.i5.i.i = icmp eq ptr %72, null
-  br i1 %.not.i5.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit, label %.lr.ph.i3.i.i, !llvm.loop !13
+  br i1 %.not.i5.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit, label %.lr.ph.i3.i.i, !llvm.loop !14
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit: ; preds = %.lr.ph.i3.i.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i
   ret void
@@ -3814,7 +3814,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %4, %_
 36:                                               ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit
   %37 = phi i64 [ %.pre, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread ], [ 0, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %39 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, ptr nonnull %38) #13, !srcloc !12
+  %39 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, ptr nonnull %38) #13, !srcloc !13
   ret void
 }
 
@@ -3855,7 +3855,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask12work_r
 25:                                               ; preds = %23, %.lr.ph
   %.1 = phi ptr [ %24, %23 ], [ %21, %.lr.ph ]
   %26 = icmp ult ptr %.1, %14
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %25, %18, %4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3948,12 +3948,12 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %50, %53, %60, %80
   %.0.i1.i = phi i64 [ %57, %53 ], [ %52, %50 ], [ %79, %60 ], [ %84, %80 ]
   %85 = getelementptr inbounds ptr, ptr %.034, i64 %.0.i1.i
   %86 = icmp ult ptr %85, %28
-  br i1 %86, label %.lr.ph35, label %._crit_edge, !llvm.loop !20
+  br i1 %86, label %.lr.ph35, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZN7oopDesc4sizeEv.exit, %.loopexit
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %88 = load i64, ptr %5, align 8
-  %89 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %88, ptr nonnull %87) #13, !srcloc !12
+  %89 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %88, ptr nonnull %87) #13, !srcloc !13
   ret void
 }
 
@@ -3991,9 +3991,9 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask17verify
   br i1 %.not.not.not.i.not.not.not.i.not, label %_ZN10MarkBitMap8par_markEPP12HeapWordImpl.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %28, i64 %.017.i.i, ptr nonnull %23) #13, !srcloc !14
+  %30 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %28, i64 %.017.i.i, ptr nonnull %23) #13, !srcloc !15
   %31 = icmp eq i64 %30, %.017.i.i
-  br i1 %31, label %32, label %27, !llvm.loop !15
+  br i1 %31, label %32, label %27, !llvm.loop !16
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -4170,7 +4170,7 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit14: ; preds = %1
   store i64 %133, ptr %4, align 8
   %134 = load ptr, ptr %75, align 8
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %_ZN10MarkBitMap8par_markEPP12HeapWordImpl.exit, label %85, !llvm.loop !21
+  br i1 %135, label %_ZN10MarkBitMap8par_markEPP12HeapWordImpl.exit, label %85, !llvm.loop !22
 
 _ZN10MarkBitMap8par_markEPP12HeapWordImpl.exit:   ; preds = %27, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit14, %74
   ret void
@@ -4564,9 +4564,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread.i:  ; preds = %61, %_ZL21is_instan
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit, label %89
 
 89:                                               ; preds = %87
-  %90 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %88, i64 %.017.i.i.i.i, ptr nonnull %83) #13, !srcloc !14
+  %90 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %88, i64 %.017.i.i.i.i, ptr nonnull %83) #13, !srcloc !15
   %91 = icmp eq i64 %90, %.017.i.i.i.i
-  br i1 %91, label %92, label %87, !llvm.loop !15
+  br i1 %91, label %92, label %87, !llvm.loop !16
 
 92:                                               ; preds = %89
   store ptr %.026, ptr %19, align 8
@@ -4641,12 +4641,12 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i: ; preds = %_ZN5
 _ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %87, %.lr.ph, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i
   %126 = getelementptr inbounds nuw i8, ptr %.026, i64 4
   %127 = icmp ult ptr %126, %29
-  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit, %21
   %128 = getelementptr inbounds nuw i8, ptr %.02527, i64 8
   %129 = icmp ult ptr %128, %16
-  br i1 %129, label %21, label %._crit_edge30, !llvm.loop !23
+  br i1 %129, label %21, label %._crit_edge30, !llvm.loop !24
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %3
   ret void
@@ -4777,9 +4777,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread.i:  ; preds = %53, %_ZL21is_instan
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit, label %81
 
 81:                                               ; preds = %79
-  %82 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %80, i64 %.017.i.i.i.i, ptr nonnull %75) #13, !srcloc !14
+  %82 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %80, i64 %.017.i.i.i.i, ptr nonnull %75) #13, !srcloc !15
   %83 = icmp eq i64 %82, %.017.i.i.i.i
-  br i1 %83, label %84, label %79, !llvm.loop !15
+  br i1 %83, label %84, label %79, !llvm.loop !16
 
 84:                                               ; preds = %81
   store ptr %.026, ptr %19, align 8
@@ -4854,12 +4854,12 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i: ; preds = %_ZN5
 _ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %79, %.lr.ph, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i
   %118 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %119 = icmp ult ptr %118, %29
-  br i1 %119, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %119, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit, %21
   %120 = getelementptr inbounds nuw i8, ptr %.02527, i64 8
   %121 = icmp ult ptr %120, %16
-  br i1 %121, label %21, label %._crit_edge30, !llvm.loop !25
+  br i1 %121, label %21, label %._crit_edge30, !llvm.loop !26
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %3
   ret void
@@ -5021,9 +5021,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread.i:  ; preds = %62, %_ZL21is_instan
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit, label %90
 
 90:                                               ; preds = %88
-  %91 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %89, i64 %.017.i.i.i.i, ptr nonnull %84) #13, !srcloc !14
+  %91 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %89, i64 %.017.i.i.i.i, ptr nonnull %84) #13, !srcloc !15
   %92 = icmp eq i64 %91, %.017.i.i.i.i
-  br i1 %92, label %93, label %88, !llvm.loop !15
+  br i1 %92, label %93, label %88, !llvm.loop !16
 
 93:                                               ; preds = %90
   store ptr %.028, ptr %20, align 8
@@ -5098,12 +5098,12 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i: ; preds = %_ZN5
 _ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %88, %.lr.ph, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i
   %127 = getelementptr inbounds nuw i8, ptr %.028, i64 4
   %128 = icmp ult ptr %127, %30
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit, %22
   %129 = getelementptr inbounds nuw i8, ptr %.02729, i64 8
   %130 = icmp ult ptr %129, %17
-  br i1 %130, label %22, label %._crit_edge32, !llvm.loop !27
+  br i1 %130, label %22, label %._crit_edge32, !llvm.loop !28
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -5863,7 +5863,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br i1 %or.cond, label %115, label %113
 
 113:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
-  %114 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %112, ptr nonnull %2, ptr nonnull %3) #13, !srcloc !14
+  %114 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %112, ptr nonnull %2, ptr nonnull %3) #13, !srcloc !15
   br label %115
 
 115:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
@@ -5892,7 +5892,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %or.cond.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split7.i.i
 
 .split7.i.i:                                      ; preds = %9
-  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !14
+  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !15
   %13 = icmp eq i64 %12, %5
   br i1 %13, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i
 
@@ -5904,9 +5904,9 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !14
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !15
   %17 = icmp eq i64 %16, %phi.call9.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !29
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i: ; preds = %.split.i.i, %.lr.ph.i.i, %.split7.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -5944,7 +5944,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %39, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split7.i.i.i
 
 .split7.i.i.i:                                    ; preds = %32
-  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %5, ptr nonnull %0) #13, !srcloc !14
+  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %5, ptr nonnull %0) #13, !srcloc !15
   %41 = icmp eq i64 %40, %5
   br i1 %41, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i
 
@@ -5956,9 +5956,9 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !14
+  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !15
   %45 = icmp eq i64 %44, %phi.call9.i.i.i
-  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
 
 _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %32, %30
   %46 = inttoptr i64 %31 to ptr
@@ -6097,7 +6097,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !14
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !15
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -6107,7 +6107,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !30
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !31
 
 _ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -6222,7 +6222,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !14
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !15
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -6230,7 +6230,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !30
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !31
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -6448,7 +6448,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %or.cond.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split7.i.i
 
 .split7.i.i:                                      ; preds = %9
-  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !14
+  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !15
   %13 = icmp eq i64 %12, %5
   br i1 %13, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i
 
@@ -6460,9 +6460,9 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !14
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !15
   %17 = icmp eq i64 %16, %phi.call9.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !29
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i: ; preds = %.split.i.i, %.lr.ph.i.i, %.split7.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -6500,7 +6500,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %39, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split7.i.i.i
 
 .split7.i.i.i:                                    ; preds = %32
-  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %5, ptr nonnull %0) #13, !srcloc !14
+  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %5, ptr nonnull %0) #13, !srcloc !15
   %41 = icmp eq i64 %40, %5
   br i1 %41, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i
 
@@ -6512,9 +6512,9 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !14
+  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !15
   %45 = icmp eq i64 %44, %phi.call9.i.i.i
-  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
 
 _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %32, %30
   %46 = inttoptr i64 %31 to ptr
@@ -6651,7 +6651,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !14
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !15
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -6661,7 +6661,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !30
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !31
 
 _ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -6796,9 +6796,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread.i:  ; preds = %54, %_ZL21is_instan
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %81, i64 %.017.i.i.i.i, ptr nonnull %76) #13, !srcloc !14
+  %83 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %81, i64 %.017.i.i.i.i, ptr nonnull %76) #13, !srcloc !15
   %84 = icmp eq i64 %83, %.017.i.i.i.i
-  br i1 %84, label %85, label %80, !llvm.loop !15
+  br i1 %84, label %85, label %80, !llvm.loop !16
 
 85:                                               ; preds = %82
   store ptr %.028, ptr %20, align 8
@@ -6873,12 +6873,12 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i: ; preds = %_ZN5
 _ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %80, %.lr.ph, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i
   %119 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %120 = icmp ult ptr %119, %30
-  br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit, %22
   %121 = getelementptr inbounds nuw i8, ptr %.02729, i64 8
   %122 = icmp ult ptr %121, %17
-  br i1 %122, label %22, label %._crit_edge32, !llvm.loop !32
+  br i1 %122, label %22, label %._crit_edge32, !llvm.loop !33
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -7140,9 +7140,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread.i:  ; preds = %60, %_ZL21is_instan
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit, label %88
 
 88:                                               ; preds = %86
-  %89 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %87, i64 %.017.i.i.i.i, ptr nonnull %82) #13, !srcloc !14
+  %89 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %87, i64 %.017.i.i.i.i, ptr nonnull %82) #13, !srcloc !15
   %90 = icmp eq i64 %89, %.017.i.i.i.i
-  br i1 %90, label %91, label %86, !llvm.loop !15
+  br i1 %90, label %91, label %86, !llvm.loop !16
 
 91:                                               ; preds = %88
   store ptr %.040, ptr %18, align 8
@@ -7217,12 +7217,12 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i: ; preds = %_ZN5
 _ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %86, %.lr.ph, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i
   %125 = getelementptr inbounds nuw i8, ptr %.040, i64 4
   %126 = icmp ult ptr %125, %28
-  br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit, %20
   %127 = getelementptr inbounds nuw i8, ptr %.03741, i64 8
   %128 = icmp ult ptr %127, %16
-  br i1 %128, label %20, label %._crit_edge44, !llvm.loop !34
+  br i1 %128, label %20, label %._crit_edge44, !llvm.loop !35
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %3
   %129 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
@@ -7241,7 +7241,7 @@ _ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %8
   tail call void @_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %.08.i)
   %137 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %138 = icmp ult ptr %137, %135
-  br i1 %138, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop26ShenandoahVerifyOopClosureEEvP7oopDescPT0_.exit, !llvm.loop !35
+  br i1 %138, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop26ShenandoahVerifyOopClosureEEvP7oopDescPT0_.exit, !llvm.loop !36
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop26ShenandoahVerifyOopClosureEEvP7oopDescPT0_.exit: ; preds = %.lr.ph.i, %._crit_edge44
   ret void
@@ -7374,9 +7374,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread.i:  ; preds = %52, %_ZL21is_instan
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit, label %80
 
 80:                                               ; preds = %78
-  %81 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %79, i64 %.017.i.i.i.i, ptr nonnull %74) #13, !srcloc !14
+  %81 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %79, i64 %.017.i.i.i.i, ptr nonnull %74) #13, !srcloc !15
   %82 = icmp eq i64 %81, %.017.i.i.i.i
-  br i1 %82, label %83, label %78, !llvm.loop !15
+  br i1 %82, label %83, label %78, !llvm.loop !16
 
 83:                                               ; preds = %80
   store ptr %.040, ptr %18, align 8
@@ -7451,12 +7451,12 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i: ; preds = %_ZN5
 _ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %78, %.lr.ph, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i
   %117 = getelementptr inbounds nuw i8, ptr %.040, i64 8
   %118 = icmp ult ptr %117, %28
-  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit, %20
   %119 = getelementptr inbounds nuw i8, ptr %.03741, i64 8
   %120 = icmp ult ptr %119, %16
-  br i1 %120, label %20, label %._crit_edge44, !llvm.loop !37
+  br i1 %120, label %20, label %._crit_edge44, !llvm.loop !38
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %3
   %121 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
@@ -7475,7 +7475,7 @@ _ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %78
   tail call void @_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %.08.i)
   %129 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %130 = icmp ult ptr %129, %127
-  br i1 %130, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc26ShenandoahVerifyOopClosureEEvS2_PT0_.exit, !llvm.loop !38
+  br i1 %130, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc26ShenandoahVerifyOopClosureEEvS2_PT0_.exit, !llvm.loop !39
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc26ShenandoahVerifyOopClosureEEvS2_PT0_.exit: ; preds = %.lr.ph.i, %._crit_edge44
   ret void
@@ -7636,9 +7636,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread.i:  ; preds = %61, %_ZL21is_instan
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit, label %89
 
 89:                                               ; preds = %87
-  %90 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %88, i64 %.017.i.i.i.i, ptr nonnull %83) #13, !srcloc !14
+  %90 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %88, i64 %.017.i.i.i.i, ptr nonnull %83) #13, !srcloc !15
   %91 = icmp eq i64 %90, %.017.i.i.i.i
-  br i1 %91, label %92, label %87, !llvm.loop !15
+  br i1 %91, label %92, label %87, !llvm.loop !16
 
 92:                                               ; preds = %89
   store ptr %.032, ptr %19, align 8
@@ -7713,12 +7713,12 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i: ; preds = %_ZN5
 _ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %87, %.lr.ph, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i
   %126 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %127 = icmp ult ptr %126, %29
-  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit, %21
   %128 = getelementptr inbounds nuw i8, ptr %.03033, i64 8
   %129 = icmp ult ptr %128, %16
-  br i1 %129, label %21, label %._crit_edge36, !llvm.loop !40
+  br i1 %129, label %21, label %._crit_edge36, !llvm.loop !41
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %3
   ret void
@@ -7849,9 +7849,9 @@ _ZL21is_instance_ref_klassP5Klass.exit.thread.i:  ; preds = %53, %_ZL21is_instan
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit, label %81
 
 81:                                               ; preds = %79
-  %82 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %80, i64 %.017.i.i.i.i, ptr nonnull %75) #13, !srcloc !14
+  %82 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %80, i64 %.017.i.i.i.i, ptr nonnull %75) #13, !srcloc !15
   %83 = icmp eq i64 %82, %.017.i.i.i.i
-  br i1 %83, label %84, label %79, !llvm.loop !15
+  br i1 %83, label %84, label %79, !llvm.loop !16
 
 84:                                               ; preds = %81
   store ptr %.032, ptr %19, align 8
@@ -7926,12 +7926,12 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i: ; preds = %_ZN5
 _ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %79, %.lr.ph, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE4pushES0_.exit.i
   %118 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %119 = icmp ult ptr %118, %29
-  br i1 %119, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %119, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit, %21
   %120 = getelementptr inbounds nuw i8, ptr %.03033, i64 8
   %121 = icmp ult ptr %120, %16
-  br i1 %121, label %21, label %._crit_edge36, !llvm.loop !42
+  br i1 %121, label %21, label %._crit_edge36, !llvm.loop !43
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %3
   ret void
@@ -8059,7 +8059,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %55 = getelementptr inbounds nuw i64, ptr %33, i64 %52
   %56 = load i64, ptr %55, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !43
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !44
 
 57:                                               ; preds = %54
   %58 = shl i64 %52, 6
@@ -8087,7 +8087,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %59, %43
   tail call void @_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %68)
   %69 = add nuw i64 %.0.i.i.i.i.i, 1
   %70 = icmp ult i64 %69, %39
-  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop26ShenandoahVerifyOopClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !44
+  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop26ShenandoahVerifyOopClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !45
 
 71:                                               ; preds = %3
   %72 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -8260,7 +8260,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %55 = getelementptr inbounds nuw i64, ptr %33, i64 %52
   %56 = load i64, ptr %55, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !43
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !44
 
 57:                                               ; preds = %54
   %58 = shl i64 %52, 6
@@ -8288,7 +8288,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %59, %43
   tail call void @_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %68)
   %69 = add nuw i64 %.0.i.i.i.i.i, 1
   %70 = icmp ult i64 %69, %39
-  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc26ShenandoahVerifyOopClosureEEvP17stackChunkOopDescPT0_PlS8_.exit, !llvm.loop !45
+  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc26ShenandoahVerifyOopClosureEEvP17stackChunkOopDescPT0_PlS8_.exit, !llvm.loop !46
 
 71:                                               ; preds = %3
   %72 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -8416,7 +8416,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOo
   tail call void @_ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %.08.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 4
   %22 = icmp ult ptr %21, %19
-  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop26ShenandoahVerifyOopClosureEEvP7oopDescPT0_.exit, !llvm.loop !46
+  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop26ShenandoahVerifyOopClosureEEvP7oopDescPT0_.exit, !llvm.loop !47
 
 _ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop26ShenandoahVerifyOopClosureEEvP7oopDescPT0_.exit: ; preds = %.lr.ph.i.i, %3
   ret void
@@ -8450,7 +8450,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOo
   tail call void @_ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %.08.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %22 = icmp ult ptr %21, %19
-  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc26ShenandoahVerifyOopClosureEEvS2_PT0_.exit, !llvm.loop !47
+  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc26ShenandoahVerifyOopClosureEEvS2_PT0_.exit, !llvm.loop !48
 
 _ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc26ShenandoahVerifyOopClosureEEvS2_PT0_.exit: ; preds = %.lr.ph.i.i, %3
   ret void
@@ -8515,42 +8515,43 @@ attributes #15 = { nounwind willreturn memory(read) }
 !6 = !{i64 2145392468}
 !7 = !{i64 2145411161}
 !8 = !{i64 2145392998}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{i64 2145411697}
-!13 = distinct !{!13, !10}
-!14 = !{i64 2145412694}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = !{i64 2145409567}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
-!31 = distinct !{!31, !10}
-!32 = distinct !{!32, !10}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !10}
-!37 = distinct !{!37, !10}
-!38 = distinct !{!38, !10}
-!39 = distinct !{!39, !10}
-!40 = distinct !{!40, !10}
-!41 = distinct !{!41, !10}
-!42 = distinct !{!42, !10}
-!43 = distinct !{!43, !10}
-!44 = distinct !{!44, !10}
-!45 = distinct !{!45, !10}
-!46 = distinct !{!46, !10}
-!47 = distinct !{!47, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = !{i64 2145411697}
+!14 = distinct !{!14, !10, !11}
+!15 = !{i64 2145412694}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = !{i64 2145409567}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}
+!31 = distinct !{!31, !10, !11}
+!32 = distinct !{!32, !10, !11}
+!33 = distinct !{!33, !10, !11}
+!34 = distinct !{!34, !10, !11}
+!35 = distinct !{!35, !10, !11}
+!36 = distinct !{!36, !10, !11}
+!37 = distinct !{!37, !10, !11}
+!38 = distinct !{!38, !10, !11}
+!39 = distinct !{!39, !10, !11}
+!40 = distinct !{!40, !10, !11}
+!41 = distinct !{!41, !10, !11}
+!42 = distinct !{!42, !10, !11}
+!43 = distinct !{!43, !10, !11}
+!44 = distinct !{!44, !10, !11}
+!45 = distinct !{!45, !10, !11}
+!46 = distinct !{!46, !10, !11}
+!47 = distinct !{!47, !10, !11}
+!48 = distinct !{!48, !10, !11}

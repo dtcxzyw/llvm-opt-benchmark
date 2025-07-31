@@ -56,7 +56,7 @@ define void @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm(ptr noundef no
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %storemerge.i, ptr %14, align 16, !tbaa !49
+  store i32 %storemerge.i, ptr %14, align 16, !tbaa !50
   %15 = zext nneg i32 %storemerge.i to i64
   %16 = icmp samesign ugt i32 %storemerge.i, 57
   %17 = shl i64 64, %15
@@ -72,16 +72,16 @@ define void @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm(ptr noundef no
 23:                                               ; preds = %23, %20
   %24 = phi ptr [ %19, %20 ], [ %27, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store i8 0, ptr %25, align 1, !tbaa !50
+  store i8 0, ptr %25, align 1, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %28 = icmp eq ptr %27, %22
-  br i1 %28, label %29, label %23
+  br i1 %28, label %29, label %23, !llvm.loop !52
 
 29:                                               ; preds = %23
-  %30 = load ptr, ptr %7, align 8, !tbaa !51
-  store ptr %19, ptr %7, align 8, !tbaa !51
+  %30 = load ptr, ptr %7, align 8, !tbaa !53
+  store ptr %19, ptr %7, align 8, !tbaa !53
   %.not.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i, label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
 
@@ -92,7 +92,7 @@ _ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_if
 31:                                               ; preds = %13
   %32 = landingpad { ptr, i32 }
           cleanup
-  %33 = load ptr, ptr %7, align 8, !tbaa !51
+  %33 = load ptr, ptr %7, align 8, !tbaa !53
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %.body, label %.body.sink.split
 
@@ -103,25 +103,25 @@ _ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit: ; preds = %_Z
 
 35:                                               ; preds = %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 2384
-  store i8 0, ptr %36, align 16, !tbaa !50
+  store i8 0, ptr %36, align 16, !tbaa !51
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %39 = load i64, ptr %38, align 16, !tbaa !52
+  %39 = load i64, ptr %38, align 16, !tbaa !54
   store atomic i64 %39, ptr %37 monotonic, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %42 = load i64, ptr %41, align 16, !tbaa !53
+  %42 = load i64, ptr %41, align 16, !tbaa !55
   store atomic i64 %42, ptr %40 monotonic, align 16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %45 = load i64, ptr %44, align 8, !tbaa !54
+  %45 = load i64, ptr %44, align 8, !tbaa !56
   store atomic i64 %45, ptr %43 monotonic, align 8
   ret void
 
 46:                                               ; preds = %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = load ptr, ptr %7, align 8, !tbaa !51
+  %48 = load ptr, ptr %7, align 8, !tbaa !53
   %.not.i.i10 = icmp eq ptr %48, null
   br i1 %.not.i.i10, label %.body, label %.body.sink.split
 
@@ -133,7 +133,7 @@ _ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit: ; preds = %_Z
 
 .body:                                            ; preds = %.body.sink.split, %46, %31
   %.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %47, %46 ], [ %.pn.pn.ph, %.body.sink.split ]
-  store ptr null, ptr %7, align 8, !tbaa !51
+  store ptr null, ptr %7, align 8, !tbaa !53
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -154,13 +154,13 @@ declare void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable
 define noundef ptr @_ZN7rocksdb15ConcurrentArena6RepickEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(2472) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %4, label %20, !prof !55
+  br i1 %3, label %4, label %20, !prof !57
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load i32, ptr %6, align 16, !tbaa !49
-  %8 = load i32, ptr %5, align 4, !tbaa !56
+  %7 = load i32, ptr %6, align 16, !tbaa !50
+  %8 = load i32, ptr %5, align 4, !tbaa !58
   %9 = zext i32 %8 to i64
   %10 = mul nuw nsw i64 %9, 16807
   %11 = lshr i64 %10, 31
@@ -170,7 +170,7 @@ define noundef ptr @_ZN7rocksdb15ConcurrentArena6RepickEv(ptr noundef nonnull re
   %15 = icmp slt i32 %14, 0
   %16 = add i32 %14, -2147483647
   %spec.select.i.i.i = select i1 %15, i32 %16, i32 %14
-  store i32 %spec.select.i.i.i, ptr %5, align 4, !tbaa !56
+  store i32 %spec.select.i.i.i, ptr %5, align 4, !tbaa !58
   %notmask.i = shl nsw i32 -1, %7
   %17 = xor i32 %notmask.i, -1
   %18 = and i32 %spec.select.i.i.i, %17
@@ -179,7 +179,7 @@ define noundef ptr @_ZN7rocksdb15ConcurrentArena6RepickEv(ptr noundef nonnull re
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %22 = load i32, ptr %21, align 16, !tbaa !49
+  %22 = load i32, ptr %21, align 16, !tbaa !50
   %23 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %2, i32 %22)
   %24 = sext i32 %23 to i64
   br label %_ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndexEv.exit
@@ -188,13 +188,13 @@ _ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndex
   %25 = phi i32 [ %22, %20 ], [ %7, %4 ]
   %storemerge.i = phi i64 [ %24, %20 ], [ %19, %4 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  %27 = load ptr, ptr %26, align 8, !tbaa !53
   %28 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %27, i64 %storemerge.i
   %29 = zext nneg i32 %25 to i64
   %30 = shl nuw i64 1, %29
   %31 = or i64 %30, %storemerge.i
   %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
-  store i64 %31, ptr %32, align 8, !tbaa !58
+  store i64 %31, ptr %32, align 8, !tbaa !60
   ret ptr %28
 }
 
@@ -207,7 +207,7 @@ define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD2Ev(ptr noundef nonnull a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %4 = load ptr, ptr %3, align 8, !tbaa !53
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
@@ -216,7 +216,7 @@ _ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_if
   br label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit
 
 _ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
-  store ptr null, ptr %3, align 8, !tbaa !51
+  store ptr null, ptr %3, align 8, !tbaa !53
   ret void
 }
 
@@ -226,7 +226,7 @@ define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD0Ev(ptr noundef nonnull a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %4 = load ptr, ptr %3, align 8, !tbaa !53
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZN7rocksdb15ConcurrentArenaD2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
 
@@ -243,9 +243,9 @@ _ZN7rocksdb15ConcurrentArenaD2Ev.exit:            ; preds = %1, %_ZNKSt14default
 define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena8AllocateEm(ptr noundef nonnull align 16 dereferenceable(2472) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.anon, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
-  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %0, ptr %3, align 8, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !62
+  store i64 %1, ptr %4, align 8, !tbaa !64
   %5 = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_8AllocateEmEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %0, i64 noundef %1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   ret ptr %5
@@ -259,13 +259,13 @@ define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena15AllocateAlignedEm
   %8 = add i64 %7, 1
   %9 = icmp ne i64 %2, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
-  store ptr %0, ptr %5, align 8, !tbaa !63
+  store ptr %0, ptr %5, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %8, ptr %10, align 8, !tbaa !66
+  store i64 %8, ptr %10, align 8, !tbaa !68
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %2, ptr %11, align 8, !tbaa !67
+  store i64 %2, ptr %11, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %3, ptr %12, align 8, !tbaa !68
+  store ptr %3, ptr %12, align 8, !tbaa !70
   %13 = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_15AllocateAlignedEmmPNS_6LoggerEEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %0, i64 noundef %8, i1 noundef zeroext %9, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
   ret ptr %13
@@ -274,7 +274,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena15AllocateAlignedEm
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb15ConcurrentArena9BlockSizeEv(ptr noundef nonnull align 16 dereferenceable(2472) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2160
-  %3 = load i64, ptr %2, align 16, !tbaa !69
+  %3 = load i64, ptr %2, align 16, !tbaa !71
   ret i64 %3
 }
 
@@ -312,13 +312,13 @@ define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
-  %12 = load i64, ptr %11, align 8, !tbaa !58
+  %12 = load i64, ptr %11, align 8, !tbaa !60
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !51
+  %16 = load ptr, ptr %15, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load atomic i64, ptr %17 monotonic, align 8
   %.not = icmp eq i64 %18, 0
@@ -346,7 +346,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i:        ; preds = %.preheader.i
   br i1 %28, label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %.preheader.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !72
   %29 = icmp ugt i64 %.0.i.i, 100
   br i1 %29, label %30, label %32
 
@@ -356,25 +356,25 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i: ; preds = %_ZN7rocksdb9SpinMut
 
 32:                                               ; preds = %30, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
   %33 = add i64 %.0.i.i, 1
-  br label %.preheader.i, !llvm.loop !71
+  br label %.preheader.i, !llvm.loop !73
 
 _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %22
-  %34 = load ptr, ptr %3, align 8, !tbaa !59
+  %34 = load ptr, ptr %3, align 8, !tbaa !61
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !62
+  %36 = load i64, ptr %35, align 8, !tbaa !64
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 2352
-  %38 = load i64, ptr %37, align 16, !tbaa !52
+  %38 = load i64, ptr %37, align 16, !tbaa !54
   %.not.i.i = icmp ugt i64 %36, %38
   br i1 %.not.i.i, label %45, label %39
 
 39:                                               ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 2336
-  %41 = load ptr, ptr %40, align 16, !tbaa !72
+  %41 = load ptr, ptr %40, align 16, !tbaa !74
   %42 = sub i64 0, %36
   %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  store ptr %43, ptr %40, align 16, !tbaa !72
+  store ptr %43, ptr %40, align 16, !tbaa !74
   %44 = sub nuw i64 %38, %36
-  store i64 %44, ptr %37, align 16, !tbaa !52
+  store i64 %44, ptr %37, align 16, !tbaa !54
   br label %.thread101
 
 45:                                               ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
@@ -386,15 +386,15 @@ _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9Spi
   %.0.i.i65 = phi ptr [ %43, %39 ], [ %47, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %50 = load i64, ptr %49, align 16, !tbaa !52
+  %50 = load i64, ptr %49, align 16, !tbaa !54
   store atomic i64 %50, ptr %48 monotonic, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %53 = load i64, ptr %52, align 16, !tbaa !53
+  %53 = load i64, ptr %52, align 16, !tbaa !55
   store atomic i64 %53, ptr %51 monotonic, align 16
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %56 = load i64, ptr %55, align 8, !tbaa !54
+  %56 = load i64, ptr %55, align 8, !tbaa !56
   store atomic i64 %56, ptr %54 monotonic, align 8
   store atomic i8 0, ptr %5 release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80
@@ -408,12 +408,12 @@ _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9Spi
 .thread:                                          ; preds = %19, %10, %14, %22
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %60 = load i32, ptr %59, align 16, !tbaa !49
+  %60 = load i32, ptr %59, align 16, !tbaa !50
   %61 = zext nneg i32 %60 to i64
   %notmask = shl nsw i64 -1, %61
   %62 = xor i64 %notmask, -1
   %63 = and i64 %12, %62
-  %64 = load ptr, ptr %58, align 8, !tbaa !51
+  %64 = load ptr, ptr %58, align 8, !tbaa !53
   %65 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %64, i64 %63
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %67 = load atomic i8, ptr %66 monotonic, align 1
@@ -428,12 +428,12 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %.thread
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
   %71 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
   %72 = icmp slt i32 %71, 0
-  br i1 %72, label %.noexc68, label %87, !prof !55
+  br i1 %72, label %.noexc68, label %87, !prof !57
 
 .noexc68:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
   %73 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %74 = load i32, ptr %59, align 16, !tbaa !49
-  %75 = load i32, ptr %73, align 4, !tbaa !56
+  %74 = load i32, ptr %59, align 16, !tbaa !50
+  %75 = load i32, ptr %73, align 4, !tbaa !58
   %76 = zext i32 %75 to i64
   %77 = mul nuw nsw i64 %76, 16807
   %78 = lshr i64 %77, 31
@@ -443,7 +443,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
   %82 = icmp slt i32 %81, 0
   %83 = add i32 %81, -2147483647
   %spec.select.i.i.i.i = select i1 %82, i32 %83, i32 %81
-  store i32 %spec.select.i.i.i.i, ptr %73, align 4, !tbaa !56
+  store i32 %spec.select.i.i.i.i, ptr %73, align 4, !tbaa !58
   %notmask.i.i = shl nsw i32 -1, %74
   %84 = xor i32 %notmask.i.i, -1
   %85 = and i32 %spec.select.i.i.i.i, %84
@@ -451,7 +451,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
   br label %91
 
 87:                                               ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
-  %88 = load i32, ptr %59, align 16, !tbaa !49
+  %88 = load i32, ptr %59, align 16, !tbaa !50
   %89 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %71, i32 %88)
   %90 = sext i32 %89 to i64
   br label %91
@@ -459,12 +459,12 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
 91:                                               ; preds = %87, %.noexc68
   %92 = phi i32 [ %88, %87 ], [ %74, %.noexc68 ]
   %storemerge.i.i = phi i64 [ %90, %87 ], [ %86, %.noexc68 ]
-  %93 = load ptr, ptr %58, align 8, !tbaa !51
+  %93 = load ptr, ptr %58, align 8, !tbaa !53
   %94 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %93, i64 %storemerge.i.i
   %95 = zext nneg i32 %92 to i64
   %96 = shl nuw i64 1, %95
   %97 = or i64 %96, %storemerge.i.i
-  store i64 %97, ptr %11, align 8, !tbaa !58
+  store i64 %97, ptr %11, align 8, !tbaa !60
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 40
   br label %99
 
@@ -480,7 +480,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %99
   br i1 %103, label %_ZN7rocksdb9SpinMutex4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i:   ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %99
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !72
   %104 = icmp ugt i64 %.0.i, 100
   br i1 %104, label %105, label %107
 
@@ -490,7 +490,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i:   ; preds = %_ZN7rocksdb9SpinMut
 
 107:                                              ; preds = %105, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
   %108 = add i64 %.0.i, 1
-  br label %99, !llvm.loop !71
+  br label %99, !llvm.loop !73
 
 _ZN7rocksdb9SpinMutex4lockEv.exit:                ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
   %.042 = phi ptr [ %65, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %94, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
@@ -512,7 +512,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i70:      ; preds = %.preheader
   br i1 %116, label %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i71
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i71: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i70, %.preheader
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !72
   %117 = icmp ugt i64 %.0.i.i69, 100
   br i1 %117, label %118, label %120
 
@@ -522,7 +522,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i71: ; preds = %_ZN7rocksdb9SpinM
 
 120:                                              ; preds = %118, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i71
   %121 = add i64 %.0.i.i69, 1
-  br label %.preheader, !llvm.loop !71
+  br label %.preheader, !llvm.loop !73
 
 _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i70
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 2392
@@ -533,8 +533,8 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
 124:                                              ; preds = %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  %127 = load ptr, ptr %125, align 8, !tbaa !73
-  %128 = load ptr, ptr %126, align 8, !tbaa !73
+  %127 = load ptr, ptr %125, align 8, !tbaa !75
+  %128 = load ptr, ptr %126, align 8, !tbaa !75
   %129 = icmp eq ptr %127, %128
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 2296
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 2264
@@ -545,22 +545,22 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   br i1 %135, label %136, label %155
 
 136:                                              ; preds = %124
-  %137 = load ptr, ptr %3, align 8, !tbaa !59
+  %137 = load ptr, ptr %3, align 8, !tbaa !61
   %138 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %139 = load i64, ptr %138, align 8, !tbaa !62
+  %139 = load i64, ptr %138, align 8, !tbaa !64
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 2352
-  %141 = load i64, ptr %140, align 16, !tbaa !52
+  %141 = load i64, ptr %140, align 16, !tbaa !54
   %.not.i.i72 = icmp ugt i64 %139, %141
   br i1 %.not.i.i72, label %148, label %142
 
 142:                                              ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 2336
-  %144 = load ptr, ptr %143, align 16, !tbaa !72
+  %144 = load ptr, ptr %143, align 16, !tbaa !74
   %145 = sub i64 0, %139
   %146 = getelementptr inbounds i8, ptr %144, i64 %145
-  store ptr %146, ptr %143, align 16, !tbaa !72
+  store ptr %146, ptr %143, align 16, !tbaa !74
   %147 = sub nuw i64 %141, %139
-  store i64 %147, ptr %140, align 16, !tbaa !52
+  store i64 %147, ptr %140, align 16, !tbaa !54
   br label %172
 
 148:                                              ; preds = %136
@@ -592,17 +592,17 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
 
 .thread97:                                        ; preds = %155
   %163 = getelementptr inbounds nuw i8, ptr %.042, i64 48
-  store ptr %162, ptr %163, align 8, !tbaa !74
+  store ptr %162, ptr %163, align 8, !tbaa !76
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %165 = load i64, ptr %164, align 16, !tbaa !52
+  %165 = load i64, ptr %164, align 16, !tbaa !54
   store atomic i64 %165, ptr %122 monotonic, align 8
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %168 = load i64, ptr %167, align 16, !tbaa !53
+  %168 = load i64, ptr %167, align 16, !tbaa !55
   store atomic i64 %168, ptr %166 monotonic, align 16
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %171 = load i64, ptr %170, align 8, !tbaa !54
+  %171 = load i64, ptr %170, align 8, !tbaa !56
   store atomic i64 %171, ptr %169 monotonic, align 8
   store atomic i8 0, ptr %5 release, align 16
   br label %182
@@ -610,15 +610,15 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
 172:                                              ; preds = %148, %142
   %.0.i.i73 = phi ptr [ %146, %142 ], [ %150, %148 ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %174 = load i64, ptr %173, align 16, !tbaa !52
+  %174 = load i64, ptr %173, align 16, !tbaa !54
   store atomic i64 %174, ptr %122 monotonic, align 8
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %177 = load i64, ptr %176, align 16, !tbaa !53
+  %177 = load i64, ptr %176, align 16, !tbaa !55
   store atomic i64 %177, ptr %175 monotonic, align 16
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %180 = load i64, ptr %179, align 8, !tbaa !54
+  %180 = load i64, ptr %179, align 8, !tbaa !56
   store atomic i64 %180, ptr %178 monotonic, align 8
   store atomic i8 0, ptr %5 release, align 16
   br label %194
@@ -636,12 +636,12 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   %184 = and i64 %1, 7
   %185 = icmp eq i64 %184, 0
   %186 = getelementptr inbounds nuw i8, ptr %.042, i64 48
-  %187 = load ptr, ptr %186, align 8, !tbaa !74
+  %187 = load ptr, ptr %186, align 8, !tbaa !76
   br i1 %185, label %188, label %190
 
 188:                                              ; preds = %182
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 %1
-  store ptr %189, ptr %186, align 8, !tbaa !74
+  store ptr %189, ptr %186, align 8, !tbaa !76
   br label %194
 
 190:                                              ; preds = %182
@@ -683,13 +683,13 @@ define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
-  %12 = load i64, ptr %11, align 8, !tbaa !58
+  %12 = load i64, ptr %11, align 8, !tbaa !60
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !51
+  %16 = load ptr, ptr %15, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load atomic i64, ptr %17 monotonic, align 8
   %.not = icmp eq i64 %18, 0
@@ -717,7 +717,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i:        ; preds = %.preheader.i
   br i1 %28, label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %.preheader.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !72
   %29 = icmp ugt i64 %.0.i.i, 100
   br i1 %29, label %30, label %32
 
@@ -727,32 +727,32 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i: ; preds = %_ZN7rocksdb9SpinMut
 
 32:                                               ; preds = %30, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
   %33 = add i64 %.0.i.i, 1
-  br label %.preheader.i, !llvm.loop !71
+  br label %.preheader.i, !llvm.loop !73
 
 _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %22
-  %34 = load ptr, ptr %3, align 8, !tbaa !63
+  %34 = load ptr, ptr %3, align 8, !tbaa !65
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !66
+  %37 = load i64, ptr %36, align 8, !tbaa !68
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !67
+  %39 = load i64, ptr %38, align 8, !tbaa !69
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !68
+  %41 = load ptr, ptr %40, align 8, !tbaa !70
   %42 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %35, i64 noundef %37, i64 noundef %39, ptr noundef %41)
           to label %.thread97 unwind label %.thread102
 
 .thread97:                                        ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %45 = load i64, ptr %44, align 16, !tbaa !52
+  %45 = load i64, ptr %44, align 16, !tbaa !54
   store atomic i64 %45, ptr %43 monotonic, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %48 = load i64, ptr %47, align 16, !tbaa !53
+  %48 = load i64, ptr %47, align 16, !tbaa !55
   store atomic i64 %48, ptr %46 monotonic, align 16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %51 = load i64, ptr %50, align 8, !tbaa !54
+  %51 = load i64, ptr %50, align 8, !tbaa !56
   store atomic i64 %51, ptr %49 monotonic, align 8
   store atomic i8 0, ptr %5 release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76
@@ -766,12 +766,12 @@ _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9Spi
 .thread:                                          ; preds = %19, %10, %14, %22
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %55 = load i32, ptr %54, align 16, !tbaa !49
+  %55 = load i32, ptr %54, align 16, !tbaa !50
   %56 = zext nneg i32 %55 to i64
   %notmask = shl nsw i64 -1, %56
   %57 = xor i64 %notmask, -1
   %58 = and i64 %12, %57
-  %59 = load ptr, ptr %53, align 8, !tbaa !51
+  %59 = load ptr, ptr %53, align 8, !tbaa !53
   %60 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %59, i64 %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load atomic i8, ptr %61 monotonic, align 1
@@ -786,12 +786,12 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %.thread
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
   %66 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.noexc67, label %82, !prof !55
+  br i1 %67, label %.noexc67, label %82, !prof !57
 
 .noexc67:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
   %68 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %69 = load i32, ptr %54, align 16, !tbaa !49
-  %70 = load i32, ptr %68, align 4, !tbaa !56
+  %69 = load i32, ptr %54, align 16, !tbaa !50
+  %70 = load i32, ptr %68, align 4, !tbaa !58
   %71 = zext i32 %70 to i64
   %72 = mul nuw nsw i64 %71, 16807
   %73 = lshr i64 %72, 31
@@ -801,7 +801,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
   %77 = icmp slt i32 %76, 0
   %78 = add i32 %76, -2147483647
   %spec.select.i.i.i.i = select i1 %77, i32 %78, i32 %76
-  store i32 %spec.select.i.i.i.i, ptr %68, align 4, !tbaa !56
+  store i32 %spec.select.i.i.i.i, ptr %68, align 4, !tbaa !58
   %notmask.i.i = shl nsw i32 -1, %69
   %79 = xor i32 %notmask.i.i, -1
   %80 = and i32 %spec.select.i.i.i.i, %79
@@ -809,7 +809,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
   br label %86
 
 82:                                               ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
-  %83 = load i32, ptr %54, align 16, !tbaa !49
+  %83 = load i32, ptr %54, align 16, !tbaa !50
   %84 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %66, i32 %83)
   %85 = sext i32 %84 to i64
   br label %86
@@ -817,12 +817,12 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
 86:                                               ; preds = %82, %.noexc67
   %87 = phi i32 [ %83, %82 ], [ %69, %.noexc67 ]
   %storemerge.i.i = phi i64 [ %85, %82 ], [ %81, %.noexc67 ]
-  %88 = load ptr, ptr %53, align 8, !tbaa !51
+  %88 = load ptr, ptr %53, align 8, !tbaa !53
   %89 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %88, i64 %storemerge.i.i
   %90 = zext nneg i32 %87 to i64
   %91 = shl nuw i64 1, %90
   %92 = or i64 %91, %storemerge.i.i
-  store i64 %92, ptr %11, align 8, !tbaa !58
+  store i64 %92, ptr %11, align 8, !tbaa !60
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 40
   br label %94
 
@@ -838,7 +838,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %94
   br i1 %98, label %_ZN7rocksdb9SpinMutex4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i:   ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %94
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !72
   %99 = icmp ugt i64 %.0.i, 100
   br i1 %99, label %100, label %102
 
@@ -848,7 +848,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i:   ; preds = %_ZN7rocksdb9SpinMut
 
 102:                                              ; preds = %100, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
   %103 = add i64 %.0.i, 1
-  br label %94, !llvm.loop !71
+  br label %94, !llvm.loop !73
 
 _ZN7rocksdb9SpinMutex4lockEv.exit:                ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
   %.042 = phi ptr [ %60, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %89, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
@@ -870,7 +870,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i69:      ; preds = %.preheader
   br i1 %111, label %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i70
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i70: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i69, %.preheader
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !72
   %112 = icmp ugt i64 %.0.i.i68, 100
   br i1 %112, label %113, label %115
 
@@ -880,7 +880,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i70: ; preds = %_ZN7rocksdb9SpinM
 
 115:                                              ; preds = %113, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i70
   %116 = add i64 %.0.i.i68, 1
-  br label %.preheader, !llvm.loop !71
+  br label %.preheader, !llvm.loop !73
 
 _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i69
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 2392
@@ -891,8 +891,8 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
 119:                                              ; preds = %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  %122 = load ptr, ptr %120, align 8, !tbaa !73
-  %123 = load ptr, ptr %121, align 8, !tbaa !73
+  %122 = load ptr, ptr %120, align 8, !tbaa !75
+  %123 = load ptr, ptr %121, align 8, !tbaa !75
   %124 = icmp eq ptr %122, %123
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 2296
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 2264
@@ -903,14 +903,14 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   br i1 %130, label %131, label %143
 
 131:                                              ; preds = %119
-  %132 = load ptr, ptr %3, align 8, !tbaa !63
+  %132 = load ptr, ptr %3, align 8, !tbaa !65
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 96
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %135 = load i64, ptr %134, align 8, !tbaa !66
+  %135 = load i64, ptr %134, align 8, !tbaa !68
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %137 = load i64, ptr %136, align 8, !tbaa !67
+  %137 = load i64, ptr %136, align 8, !tbaa !69
   %138 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %139 = load ptr, ptr %138, align 8, !tbaa !68
+  %139 = load ptr, ptr %138, align 8, !tbaa !70
   %140 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %133, i64 noundef %135, i64 noundef %137, ptr noundef %139)
           to label %160 unwind label %141
 
@@ -933,32 +933,32 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
 
 .thread93:                                        ; preds = %143
   %151 = getelementptr inbounds nuw i8, ptr %.042, i64 48
-  store ptr %150, ptr %151, align 8, !tbaa !74
+  store ptr %150, ptr %151, align 8, !tbaa !76
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %153 = load i64, ptr %152, align 16, !tbaa !52
+  %153 = load i64, ptr %152, align 16, !tbaa !54
   store atomic i64 %153, ptr %117 monotonic, align 8
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %156 = load i64, ptr %155, align 16, !tbaa !53
+  %156 = load i64, ptr %155, align 16, !tbaa !55
   store atomic i64 %156, ptr %154 monotonic, align 16
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %159 = load i64, ptr %158, align 8, !tbaa !54
+  %159 = load i64, ptr %158, align 8, !tbaa !56
   store atomic i64 %159, ptr %157 monotonic, align 8
   store atomic i8 0, ptr %5 release, align 16
   br label %172
 
 160:                                              ; preds = %131
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %162 = load i64, ptr %161, align 16, !tbaa !52
+  %162 = load i64, ptr %161, align 16, !tbaa !54
   store atomic i64 %162, ptr %117 monotonic, align 8
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %165 = load i64, ptr %164, align 16, !tbaa !53
+  %165 = load i64, ptr %164, align 16, !tbaa !55
   store atomic i64 %165, ptr %163 monotonic, align 16
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %168 = load i64, ptr %167, align 8, !tbaa !54
+  %168 = load i64, ptr %167, align 8, !tbaa !56
   store atomic i64 %168, ptr %166 monotonic, align 8
   store atomic i8 0, ptr %5 release, align 16
   br label %184
@@ -981,12 +981,12 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   %174 = and i64 %1, 7
   %175 = icmp eq i64 %174, 0
   %176 = getelementptr inbounds nuw i8, ptr %.042, i64 48
-  %177 = load ptr, ptr %176, align 8, !tbaa !74
+  %177 = load ptr, ptr %176, align 8, !tbaa !76
   br i1 %175, label %178, label %180
 
 178:                                              ; preds = %172
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 %1
-  store ptr %179, ptr %176, align 8, !tbaa !74
+  store ptr %179, ptr %176, align 8, !tbaa !76
   br label %184
 
 180:                                              ; preds = %172
@@ -1083,32 +1083,34 @@ attributes #14 = { builtin nounwind }
 !44 = !{!"_ZTSSt6atomicImE", !45, i64 0}
 !45 = !{!"_ZTSSt13__atomic_baseImE", !11, i64 0}
 !46 = !{!18, !19, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!12, !21, i64 8}
-!50 = !{!42, !43, i64 0}
-!51 = !{!19, !19, i64 0}
-!52 = !{!22, !11, i64 2256}
-!53 = !{!22, !11, i64 2272}
-!54 = !{!22, !11, i64 2232}
-!55 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!56 = !{!57, !21, i64 0}
-!57 = !{!"_ZTSN7rocksdb6RandomE", !21, i64 0}
-!58 = !{!11, !11, i64 0}
-!59 = !{!60, !61, i64 0}
-!60 = !{!"_ZTSZN7rocksdb15ConcurrentArena8AllocateEmEUlvE_", !61, i64 0, !11, i64 8}
-!61 = !{!"p1 _ZTSN7rocksdb15ConcurrentArenaE", !20, i64 0}
-!62 = !{!60, !11, i64 8}
-!63 = !{!64, !61, i64 0}
-!64 = !{!"_ZTSZN7rocksdb15ConcurrentArena15AllocateAlignedEmmPNS_6LoggerEEUlvE_", !61, i64 0, !11, i64 8, !11, i64 16, !65, i64 24}
-!65 = !{!"p1 _ZTSN7rocksdb6LoggerE", !20, i64 0}
-!66 = !{!64, !11, i64 8}
-!67 = !{!64, !11, i64 16}
-!68 = !{!64, !65, i64 24}
-!69 = !{!22, !11, i64 2064}
-!70 = !{i64 4099399}
-!71 = distinct !{!71, !48}
-!72 = !{!22, !38, i64 2240}
-!73 = !{!29, !30, i64 0}
-!74 = !{!75, !38, i64 48}
-!75 = !{!"_ZTSN7rocksdb15ConcurrentArena5ShardE", !10, i64 0, !40, i64 40, !38, i64 48, !44, i64 56}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!12, !21, i64 8}
+!51 = !{!42, !43, i64 0}
+!52 = distinct !{!52, !49}
+!53 = !{!19, !19, i64 0}
+!54 = !{!22, !11, i64 2256}
+!55 = !{!22, !11, i64 2272}
+!56 = !{!22, !11, i64 2232}
+!57 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!58 = !{!59, !21, i64 0}
+!59 = !{!"_ZTSN7rocksdb6RandomE", !21, i64 0}
+!60 = !{!11, !11, i64 0}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"_ZTSZN7rocksdb15ConcurrentArena8AllocateEmEUlvE_", !63, i64 0, !11, i64 8}
+!63 = !{!"p1 _ZTSN7rocksdb15ConcurrentArenaE", !20, i64 0}
+!64 = !{!62, !11, i64 8}
+!65 = !{!66, !63, i64 0}
+!66 = !{!"_ZTSZN7rocksdb15ConcurrentArena15AllocateAlignedEmmPNS_6LoggerEEUlvE_", !63, i64 0, !11, i64 8, !11, i64 16, !67, i64 24}
+!67 = !{!"p1 _ZTSN7rocksdb6LoggerE", !20, i64 0}
+!68 = !{!66, !11, i64 8}
+!69 = !{!66, !11, i64 16}
+!70 = !{!66, !67, i64 24}
+!71 = !{!22, !11, i64 2064}
+!72 = !{i64 4099399}
+!73 = distinct !{!73, !48, !49}
+!74 = !{!22, !38, i64 2240}
+!75 = !{!29, !30, i64 0}
+!76 = !{!77, !38, i64 48}
+!77 = !{!"_ZTSN7rocksdb15ConcurrentArena5ShardE", !10, i64 0, !40, i64 40, !38, i64 48, !44, i64 56}

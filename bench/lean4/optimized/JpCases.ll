@@ -1211,7 +1211,7 @@ lean_obj_tag.exit21:                              ; preds = %20, %23
   %30 = load ptr, ptr %29, align 8, !tbaa !4
   %31 = tail call zeroext i8 @l_Lean_RBNode_any___at_Lean_Compiler_LCNF_Simp_JpCasesInfoMap_isCandidate___spec__1(ptr noundef %28)
   %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %2, label %.thread
+  br i1 %.not, label %2, label %.thread, !llvm.loop !19
 
 .thread:                                          ; preds = %lean_obj_tag.exit21, %27, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %27 ], [ 0, %lean_obj_tag.exit ], [ 1, %lean_obj_tag.exit21 ]
@@ -2568,7 +2568,7 @@ lean_inc.exit593:                                 ; preds = %29, %28, %26, %19
   br label %lean_dec.exit683.backedge
 
 lean_dec.exit683.backedge:                        ; preds = %36, %35, %33, %lean_inc.exit593
-  br label %lean_dec.exit683
+  br label %lean_dec.exit683, !llvm.loop !21
 
 37:                                               ; preds = %lean_obj_tag.exit
   %38 = getelementptr inbounds nuw i8, ptr %.0522, i64 8
@@ -8207,7 +8207,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit23
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %14, ptr %29, align 8, !tbaa !4
   %30 = tail call ptr @lean_array_push(ptr noundef %.022, ptr noundef nonnull %25) #6
-  br label %3
+  br label %3, !llvm.loop !22
 
 31:                                               ; preds = %lean_obj_tag.exit
   %32 = getelementptr inbounds nuw i8, ptr %.021, i64 8
@@ -8675,7 +8675,7 @@ lean_dec.exit140:                                 ; preds = %45, %44, %42, %lean
 lean_array_fget.exit:                             ; preds = %49, %57, %59, %60
   %61 = and i64 %19, %25
   %brmerge.not.not = icmp eq i64 %61, 0
-  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %62, !prof !19
+  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %62, !prof !23
 
 62:                                               ; preds = %lean_array_fget.exit
   %63 = icmp eq ptr %1, %.0106
@@ -10240,9 +10240,9 @@ lean_alloc_ctor.exit222:                          ; preds = %253
   store i32 65560, ptr %257, align 4
   %259 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store ptr %252, ptr %259, align 8, !tbaa !4
-  store i8 %5, ptr %258, align 1, !tbaa !20
+  store i8 %5, ptr %258, align 1, !tbaa !24
   %260 = getelementptr inbounds nuw i8, ptr %254, i64 17
-  store i8 %.1139, ptr %260, align 1, !tbaa !20
+  store i8 %.1139, ptr %260, align 1, !tbaa !24
   store ptr %254, ptr %251, align 8, !tbaa !4
   br label %335
 
@@ -10335,9 +10335,9 @@ lean_alloc_ctor.exit230:                          ; preds = %lean_dec.exit151
   store i32 65560, ptr %290, align 4
   %292 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store ptr %252, ptr %292, align 8, !tbaa !4
-  store i8 %5, ptr %291, align 1, !tbaa !20
+  store i8 %5, ptr %291, align 1, !tbaa !24
   %293 = getelementptr inbounds nuw i8, ptr %287, i64 17
-  store i8 %.1139, ptr %293, align 1, !tbaa !20
+  store i8 %.1139, ptr %293, align 1, !tbaa !24
   tail call void @lean_inc_heartbeat() #6
   %294 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
   %295 = icmp eq ptr %294, null
@@ -13799,7 +13799,7 @@ lean_dec.exit2414:                                ; preds = %464, %463, %461, %l
 469:                                              ; preds = %465
   %470 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %471 = getelementptr inbounds nuw i8, ptr %468, i64 16
-  %472 = load i8, ptr %471, align 1, !tbaa !20
+  %472 = load i8, ptr %471, align 1, !tbaa !24
   %473 = icmp eq i8 %472, 0
   br i1 %473, label %474, label %1360
 
@@ -14015,7 +14015,7 @@ lean_dec.exit2409:                                ; preds = %545, %544, %542, %l
 
 lean_dec.exit2408:                                ; preds = %560, %559, %557, %lean_dec.exit2409
   %561 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %562 = load i8, ptr %561, align 1, !tbaa !20
+  %562 = load i8, ptr %561, align 1, !tbaa !24
   %563 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %551, i8 noundef zeroext %562)
   %564 = ptrtoint ptr %551 to i64
   %565 = and i64 %564, 1
@@ -14297,7 +14297,7 @@ lean_dec.exit2403:                                ; preds = %652, %651, %649, %l
 
 lean_dec.exit2402:                                ; preds = %667, %666, %664, %lean_dec.exit2403
   %668 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %669 = load i8, ptr %668, align 1, !tbaa !20
+  %669 = load i8, ptr %668, align 1, !tbaa !24
   %670 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %658, i8 noundef zeroext %669)
   %671 = ptrtoint ptr %658 to i64
   %672 = and i64 %671, 1
@@ -14555,7 +14555,7 @@ lean_inc.exit2078:                                ; preds = %770, %769, %767, %7
   store ptr inttoptr (i64 1 to ptr), ptr %773, align 8, !tbaa !4
   %774 = tail call ptr @lean_array_mk(ptr noundef nonnull %771) #6
   %775 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %776 = load i8, ptr %775, align 1, !tbaa !20
+  %776 = load i8, ptr %775, align 1, !tbaa !24
   %777 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %774, i8 noundef zeroext %776)
   %778 = ptrtoint ptr %774 to i64
   %779 = and i64 %778, 1
@@ -14797,7 +14797,7 @@ lean_inc.exit2073:                                ; preds = %863, %862, %860, %l
   store ptr inttoptr (i64 1 to ptr), ptr %866, align 8, !tbaa !4
   %867 = tail call ptr @lean_array_mk(ptr noundef nonnull %864) #6
   %868 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %869 = load i8, ptr %868, align 1, !tbaa !20
+  %869 = load i8, ptr %868, align 1, !tbaa !24
   %870 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %867, i8 noundef zeroext %869)
   %871 = ptrtoint ptr %867 to i64
   %872 = and i64 %871, 1
@@ -15217,7 +15217,7 @@ lean_dec.exit2383:                                ; preds = %1016, %1015, %1013,
 
 lean_dec.exit2382:                                ; preds = %1025, %1024, %1022, %lean_dec.exit2383
   %1026 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %1027 = load i8, ptr %1026, align 1, !tbaa !20
+  %1027 = load i8, ptr %1026, align 1, !tbaa !24
   %1028 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %1029 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %1028, i8 noundef zeroext %1027)
   %1030 = load ptr, ptr %470, align 8, !tbaa !4
@@ -15556,7 +15556,7 @@ lean_inc.exit2063:                                ; preds = %1150, %1149, %1147,
   store ptr inttoptr (i64 1 to ptr), ptr %1153, align 8, !tbaa !4
   %1154 = tail call ptr @lean_array_mk(ptr noundef nonnull %1151) #6
   %1155 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %1156 = load i8, ptr %1155, align 1, !tbaa !20
+  %1156 = load i8, ptr %1155, align 1, !tbaa !24
   %1157 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %1154, i8 noundef zeroext %1156)
   %1158 = ptrtoint ptr %1154 to i64
   %1159 = and i64 %1158, 1
@@ -15993,7 +15993,7 @@ lean_dec.exit2368:                                ; preds = %1308, %1307, %1305,
 
 lean_dec.exit2367:                                ; preds = %1317, %1316, %1314, %lean_dec.exit2368
   %1318 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %1319 = load i8, ptr %1318, align 1, !tbaa !20
+  %1319 = load i8, ptr %1318, align 1, !tbaa !24
   %1320 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %1321 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %1320, i8 noundef zeroext %1319)
   %1322 = load ptr, ptr %470, align 8, !tbaa !4
@@ -16225,7 +16225,7 @@ lean_dec.exit2361:                                ; preds = %1396, %1395, %1393,
 
 lean_dec.exit2360:                                ; preds = %1405, %1404, %1402, %lean_dec.exit2361
   %1406 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %1407 = load i8, ptr %1406, align 1, !tbaa !20
+  %1407 = load i8, ptr %1406, align 1, !tbaa !24
   %1408 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %1409 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %1408, i8 noundef zeroext %1407)
   %1410 = load ptr, ptr %470, align 8, !tbaa !4
@@ -16381,7 +16381,7 @@ lean_inc.exit2054:                                ; preds = %1456, %1455, %1453,
 lean_dec.exit2357:                                ; preds = %1463, %1462, %1460, %lean_inc.exit2054
   %1464 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %1465 = getelementptr inbounds nuw i8, ptr %468, i64 16
-  %1466 = load i8, ptr %1465, align 1, !tbaa !20
+  %1466 = load i8, ptr %1465, align 1, !tbaa !24
   %1467 = icmp eq i8 %1466, 0
   br i1 %1467, label %1468, label %1948
 
@@ -16665,7 +16665,7 @@ lean_dec.exit2352:                                ; preds = %1559, %1558, %1556,
 
 lean_dec.exit2351:                                ; preds = %1574, %1573, %1571, %lean_dec.exit2352
   %1575 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %1576 = load i8, ptr %1575, align 1, !tbaa !20
+  %1576 = load i8, ptr %1575, align 1, !tbaa !24
   %1577 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %1565, i8 noundef zeroext %1576)
   %1578 = ptrtoint ptr %1565 to i64
   %1579 = and i64 %1578, 1
@@ -17072,7 +17072,7 @@ lean_inc.exit2045:                                ; preds = %1729, %1728, %1726,
   store ptr inttoptr (i64 1 to ptr), ptr %1732, align 8, !tbaa !4
   %1733 = tail call ptr @lean_array_mk(ptr noundef nonnull %1730) #6
   %1734 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %1735 = load i8, ptr %1734, align 1, !tbaa !20
+  %1735 = load i8, ptr %1734, align 1, !tbaa !24
   %1736 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %1733, i8 noundef zeroext %1735)
   %1737 = ptrtoint ptr %1733 to i64
   %1738 = and i64 %1737, 1
@@ -17531,7 +17531,7 @@ lean_dec.exit2336:                                ; preds = %1896, %1895, %1893,
 
 lean_dec.exit2335:                                ; preds = %1905, %1904, %1902, %lean_dec.exit2336
   %1906 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %1907 = load i8, ptr %1906, align 1, !tbaa !20
+  %1907 = load i8, ptr %1906, align 1, !tbaa !24
   %1908 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %1909 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %1908, i8 noundef zeroext %1907)
   %1910 = load ptr, ptr %1464, align 8, !tbaa !4
@@ -17762,7 +17762,7 @@ lean_dec.exit2329:                                ; preds = %1984, %1983, %1981,
 
 lean_dec.exit2328:                                ; preds = %1993, %1992, %1990, %lean_dec.exit2329
   %1994 = getelementptr inbounds nuw i8, ptr %468, i64 17
-  %1995 = load i8, ptr %1994, align 1, !tbaa !20
+  %1995 = load i8, ptr %1994, align 1, !tbaa !24
   %1996 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %1997 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %1996, i8 noundef zeroext %1995)
   %1998 = load ptr, ptr %1464, align 8, !tbaa !4
@@ -18206,7 +18206,7 @@ lean_dec_ref.exit3218:                            ; preds = %2157, %2156, %2154,
   %.01862 = phi ptr [ %2053, %2151 ], [ inttoptr (i64 1 to ptr), %2154 ], [ inttoptr (i64 1 to ptr), %2156 ], [ inttoptr (i64 1 to ptr), %2157 ]
   %2158 = getelementptr inbounds nuw i8, ptr %2141, i64 8
   %2159 = getelementptr inbounds nuw i8, ptr %2141, i64 16
-  %2160 = load i8, ptr %2159, align 1, !tbaa !20
+  %2160 = load i8, ptr %2159, align 1, !tbaa !24
   %2161 = icmp eq i8 %2160, 0
   br i1 %2161, label %2162, label %2660
 
@@ -18486,7 +18486,7 @@ lean_dec.exit2311:                                ; preds = %2251, %2250, %2248,
 
 lean_dec.exit2310:                                ; preds = %2266, %2265, %2263, %lean_dec.exit2311
   %2267 = getelementptr inbounds nuw i8, ptr %2141, i64 17
-  %2268 = load i8, ptr %2267, align 1, !tbaa !20
+  %2268 = load i8, ptr %2267, align 1, !tbaa !24
   %2269 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %2257, i8 noundef zeroext %2268)
   %2270 = ptrtoint ptr %2257 to i64
   %2271 = and i64 %2270, 1
@@ -18901,7 +18901,7 @@ lean_inc.exit2026:                                ; preds = %2424, %2423, %2421,
   store ptr inttoptr (i64 1 to ptr), ptr %2427, align 8, !tbaa !4
   %2428 = tail call ptr @lean_array_mk(ptr noundef nonnull %2425) #6
   %2429 = getelementptr inbounds nuw i8, ptr %2141, i64 17
-  %2430 = load i8, ptr %2429, align 1, !tbaa !20
+  %2430 = load i8, ptr %2429, align 1, !tbaa !24
   %2431 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %2428, i8 noundef zeroext %2430)
   %2432 = ptrtoint ptr %2428 to i64
   %2433 = and i64 %2432, 1
@@ -19393,7 +19393,7 @@ lean_dec.exit2294:                                ; preds = %2604, %2603, %2601,
 
 lean_dec.exit2293:                                ; preds = %2613, %2612, %2610, %lean_dec.exit2294
   %2614 = getelementptr inbounds nuw i8, ptr %2141, i64 17
-  %2615 = load i8, ptr %2614, align 1, !tbaa !20
+  %2615 = load i8, ptr %2614, align 1, !tbaa !24
   %2616 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %2617 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %2616, i8 noundef zeroext %2615)
   %2618 = load ptr, ptr %2158, align 8, !tbaa !4
@@ -19630,7 +19630,7 @@ lean_dec.exit2287:                                ; preds = %2694, %2693, %2691,
 
 lean_dec.exit2286:                                ; preds = %2703, %2702, %2700, %lean_dec.exit2287
   %2704 = getelementptr inbounds nuw i8, ptr %2141, i64 17
-  %2705 = load i8, ptr %2704, align 1, !tbaa !20
+  %2705 = load i8, ptr %2704, align 1, !tbaa !24
   %2706 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %2707 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %2706, i8 noundef zeroext %2705)
   %2708 = load ptr, ptr %2158, align 8, !tbaa !4
@@ -20168,7 +20168,7 @@ lean_dec_ref.exit3206:                            ; preds = %2903, %2902, %2900,
   %.01880 = phi ptr [ %2787, %2897 ], [ inttoptr (i64 1 to ptr), %2900 ], [ inttoptr (i64 1 to ptr), %2902 ], [ inttoptr (i64 1 to ptr), %2903 ]
   %2904 = getelementptr inbounds nuw i8, ptr %2887, i64 8
   %2905 = getelementptr inbounds nuw i8, ptr %2887, i64 16
-  %2906 = load i8, ptr %2905, align 1, !tbaa !20
+  %2906 = load i8, ptr %2905, align 1, !tbaa !24
   %2907 = icmp eq i8 %2906, 0
   br i1 %2907, label %2908, label %3437
 
@@ -20472,7 +20472,7 @@ lean_dec.exit2267:                                ; preds = %3006, %3005, %3003,
 
 lean_dec.exit2266:                                ; preds = %3021, %3020, %3018, %lean_dec.exit2267
   %3022 = getelementptr inbounds nuw i8, ptr %2887, i64 17
-  %3023 = load i8, ptr %3022, align 1, !tbaa !20
+  %3023 = load i8, ptr %3022, align 1, !tbaa !24
   %3024 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %3012, i8 noundef zeroext %3023)
   %3025 = ptrtoint ptr %3012 to i64
   %3026 = and i64 %3025, 1
@@ -20906,7 +20906,7 @@ lean_inc.exit2006:                                ; preds = %3189, %3188, %3186,
   store ptr inttoptr (i64 1 to ptr), ptr %3192, align 8, !tbaa !4
   %3193 = tail call ptr @lean_array_mk(ptr noundef nonnull %3190) #6
   %3194 = getelementptr inbounds nuw i8, ptr %2887, i64 17
-  %3195 = load i8, ptr %3194, align 1, !tbaa !20
+  %3195 = load i8, ptr %3194, align 1, !tbaa !24
   %3196 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %3193, i8 noundef zeroext %3195)
   %3197 = ptrtoint ptr %3193 to i64
   %3198 = and i64 %3197, 1
@@ -21422,7 +21422,7 @@ lean_dec.exit2249:                                ; preds = %3378, %3377, %3375,
 
 lean_dec.exit2248:                                ; preds = %3387, %3386, %3384, %lean_dec.exit2249
   %3388 = getelementptr inbounds nuw i8, ptr %2887, i64 17
-  %3389 = load i8, ptr %3388, align 1, !tbaa !20
+  %3389 = load i8, ptr %3388, align 1, !tbaa !24
   %3390 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %3391 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %3390, i8 noundef zeroext %3389)
   %3392 = load ptr, ptr %2904, align 8, !tbaa !4
@@ -21687,7 +21687,7 @@ lean_dec.exit2241:                                ; preds = %3480, %3479, %3477,
 
 lean_dec.exit2240:                                ; preds = %3489, %3488, %3486, %lean_dec.exit2241
   %3490 = getelementptr inbounds nuw i8, ptr %2887, i64 17
-  %3491 = load i8, ptr %3490, align 1, !tbaa !20
+  %3491 = load i8, ptr %3490, align 1, !tbaa !24
   %3492 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %3493 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %3492, i8 noundef zeroext %3491)
   %3494 = load ptr, ptr %2904, align 8, !tbaa !4
@@ -22587,7 +22587,7 @@ lean_dec_ref.exit3190:                            ; preds = %3822, %3821, %3819,
   %.01908 = phi ptr [ %3702, %3816 ], [ inttoptr (i64 1 to ptr), %3819 ], [ inttoptr (i64 1 to ptr), %3821 ], [ inttoptr (i64 1 to ptr), %3822 ]
   %3823 = getelementptr inbounds nuw i8, ptr %3806, i64 8
   %3824 = getelementptr inbounds nuw i8, ptr %3806, i64 16
-  %3825 = load i8, ptr %3824, align 1, !tbaa !20
+  %3825 = load i8, ptr %3824, align 1, !tbaa !24
   %3826 = icmp eq i8 %3825, 0
   br i1 %3826, label %3827, label %4379
 
@@ -22890,7 +22890,7 @@ lean_dec.exit2213:                                ; preds = %3925, %3924, %3922,
 
 lean_dec.exit2212:                                ; preds = %3940, %3939, %3937, %lean_dec.exit2213
   %3941 = getelementptr inbounds nuw i8, ptr %3806, i64 17
-  %3942 = load i8, ptr %3941, align 1, !tbaa !20
+  %3942 = load i8, ptr %3941, align 1, !tbaa !24
   %3943 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %3931, i8 noundef zeroext %3942)
   %3944 = ptrtoint ptr %3931 to i64
   %3945 = and i64 %3944, 1
@@ -23363,7 +23363,7 @@ lean_inc.exit1983:                                ; preds = %4125, %4124, %4122,
   store ptr inttoptr (i64 1 to ptr), ptr %4130, align 8, !tbaa !4
   %4131 = tail call ptr @lean_array_mk(ptr noundef nonnull %4128) #6
   %4132 = getelementptr inbounds nuw i8, ptr %3806, i64 17
-  %4133 = load i8, ptr %4132, align 1, !tbaa !20
+  %4133 = load i8, ptr %4132, align 1, !tbaa !24
   %4134 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %4131, i8 noundef zeroext %4133)
   %4135 = ptrtoint ptr %4131 to i64
   %4136 = and i64 %4135, 1
@@ -23877,7 +23877,7 @@ lean_dec.exit2194:                                ; preds = %4316, %4315, %4313,
 
 lean_dec.exit2193:                                ; preds = %4325, %4324, %4322, %lean_dec.exit2194
   %4326 = getelementptr inbounds nuw i8, ptr %3806, i64 17
-  %4327 = load i8, ptr %4326, align 1, !tbaa !20
+  %4327 = load i8, ptr %4326, align 1, !tbaa !24
   %4328 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %4329 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %4328, i8 noundef zeroext %4327)
   %4330 = load ptr, ptr %3823, align 8, !tbaa !4
@@ -24151,7 +24151,7 @@ lean_dec.exit2186:                                ; preds = %4422, %4421, %4419,
 
 lean_dec.exit2185:                                ; preds = %4431, %4430, %4428, %lean_dec.exit2186
   %4432 = getelementptr inbounds nuw i8, ptr %3806, i64 17
-  %4433 = load i8, ptr %4432, align 1, !tbaa !20
+  %4433 = load i8, ptr %4432, align 1, !tbaa !24
   %4434 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %4435 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %183, ptr noundef %4434, i8 noundef zeroext %4433)
   %4436 = load ptr, ptr %3823, align 8, !tbaa !4
@@ -26068,7 +26068,7 @@ lean_dec_ref.exit3172:                            ; preds = %5143, %5142, %5140,
   %.01905 = phi ptr [ %5014, %5137 ], [ inttoptr (i64 1 to ptr), %5140 ], [ inttoptr (i64 1 to ptr), %5142 ], [ inttoptr (i64 1 to ptr), %5143 ]
   %5144 = getelementptr inbounds nuw i8, ptr %5127, i64 8
   %5145 = getelementptr inbounds nuw i8, ptr %5127, i64 16
-  %5146 = load i8, ptr %5145, align 1, !tbaa !20
+  %5146 = load i8, ptr %5145, align 1, !tbaa !24
   %5147 = icmp eq i8 %5146, 0
   br i1 %5147, label %5148, label %5731
 
@@ -26395,7 +26395,7 @@ lean_dec.exit2132:                                ; preds = %5255, %5254, %5252,
 
 lean_dec.exit2131:                                ; preds = %5270, %5269, %5267, %lean_dec.exit2132
   %5271 = getelementptr inbounds nuw i8, ptr %5127, i64 17
-  %5272 = load i8, ptr %5271, align 1, !tbaa !20
+  %5272 = load i8, ptr %5271, align 1, !tbaa !24
   %5273 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %4751, ptr noundef %5261, i8 noundef zeroext %5272)
   %5274 = ptrtoint ptr %5261 to i64
   %5275 = and i64 %5274, 1
@@ -26878,7 +26878,7 @@ lean_inc.exit1955:                                ; preds = %5455, %5454, %5452,
   store ptr inttoptr (i64 1 to ptr), ptr %5464, align 8, !tbaa !4
   %5465 = tail call ptr @lean_array_mk(ptr noundef nonnull %5462) #6
   %5466 = getelementptr inbounds nuw i8, ptr %5127, i64 17
-  %5467 = load i8, ptr %5466, align 1, !tbaa !20
+  %5467 = load i8, ptr %5466, align 1, !tbaa !24
   %5468 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %4751, ptr noundef %5465, i8 noundef zeroext %5467)
   %5469 = ptrtoint ptr %5465 to i64
   %5470 = and i64 %5469, 1
@@ -27440,7 +27440,7 @@ lean_dec.exit2111:                                ; preds = %5668, %5667, %5665,
 
 lean_dec.exit2110:                                ; preds = %5677, %5676, %5674, %lean_dec.exit2111
   %5678 = getelementptr inbounds nuw i8, ptr %5127, i64 17
-  %5679 = load i8, ptr %5678, align 1, !tbaa !20
+  %5679 = load i8, ptr %5678, align 1, !tbaa !24
   %5680 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %5681 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %4751, ptr noundef %5680, i8 noundef zeroext %5679)
   %5682 = load ptr, ptr %5144, align 8, !tbaa !4
@@ -27738,7 +27738,7 @@ lean_dec.exit2102:                                ; preds = %5783, %5782, %5780,
 
 lean_dec.exit2101:                                ; preds = %5792, %5791, %5789, %lean_dec.exit2102
   %5793 = getelementptr inbounds nuw i8, ptr %5127, i64 17
-  %5794 = load i8, ptr %5793, align 1, !tbaa !20
+  %5794 = load i8, ptr %5793, align 1, !tbaa !24
   %5795 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   %5796 = tail call ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_mkJmpNewArgs(ptr noundef %1, ptr noundef %4751, ptr noundef %5795, i8 noundef zeroext %5794)
   %5797 = load ptr, ptr %5144, align 8, !tbaa !4
@@ -37999,7 +37999,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 22:                                               ; preds = %13
   %23 = tail call zeroext i8 @l_Lean_RBNode_any___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f_visitJp_x3f___spec__1(ptr noundef %0, ptr noundef %15)
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %3, label %.thread
+  br i1 %24, label %3, label %.thread, !llvm.loop !25
 
 .thread:                                          ; preds = %13, %22, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %22 ], [ 0, %lean_obj_tag.exit ], [ 1, %13 ]
@@ -38375,7 +38375,7 @@ lean_inc.exit:                                    ; preds = %142, %141, %139, %1
 
 lean_dec.exit.backedge:                           ; preds = %144, %148, %150, %151, %lean_inc.exit
   %.050.be = phi ptr [ %118, %144 ], [ %118, %148 ], [ %118, %150 ], [ %118, %151 ], [ %143, %lean_inc.exit ]
-  br label %lean_dec.exit
+  br label %lean_dec.exit, !llvm.loop !26
 
 145:                                              ; preds = %144
   %146 = load i32, ptr %55, align 4, !tbaa !9
@@ -39697,7 +39697,7 @@ lean_dec.exit1634:                                ; preds = %485, %484, %482, %l
 
 .thread2805:                                      ; preds = %494
   %495 = getelementptr inbounds nuw i8, ptr %460, i64 17
-  %496 = load i8, ptr %495, align 1, !tbaa !20
+  %496 = load i8, ptr %495, align 1, !tbaa !24
   br label %lean_inc.exit1380
 
 497:                                              ; preds = %494
@@ -39707,13 +39707,13 @@ lean_dec.exit1634:                                ; preds = %485, %484, %482, %l
 
 lean_inc.exit1381:                                ; preds = %lean_dec.exit1634
   %498 = getelementptr inbounds nuw i8, ptr %460, i64 17
-  %499 = load i8, ptr %498, align 1, !tbaa !20
+  %499 = load i8, ptr %498, align 1, !tbaa !24
   br label %lean_inc.exit1380
 
 500:                                              ; preds = %497, %492
   %.val.i2287 = phi i32 [ %.val.i2287.pr, %497 ], [ %493, %492 ]
   %501 = getelementptr inbounds nuw i8, ptr %460, i64 17
-  %502 = load i8, ptr %501, align 1, !tbaa !20
+  %502 = load i8, ptr %501, align 1, !tbaa !24
   %503 = icmp sgt i32 %.val.i2287, 0
   br i1 %503, label %504, label %506, !prof !18
 
@@ -42482,7 +42482,7 @@ lean_dec.exit1564:                                ; preds = %1478, %1477, %1475,
 
 .thread2811:                                      ; preds = %1487
   %1488 = getelementptr inbounds nuw i8, ptr %1453, i64 17
-  %1489 = load i8, ptr %1488, align 1, !tbaa !20
+  %1489 = load i8, ptr %1488, align 1, !tbaa !24
   br label %lean_inc.exit1342
 
 1490:                                             ; preds = %1487
@@ -42492,13 +42492,13 @@ lean_dec.exit1564:                                ; preds = %1478, %1477, %1475,
 
 lean_inc.exit1343:                                ; preds = %lean_dec.exit1564
   %1491 = getelementptr inbounds nuw i8, ptr %1453, i64 17
-  %1492 = load i8, ptr %1491, align 1, !tbaa !20
+  %1492 = load i8, ptr %1491, align 1, !tbaa !24
   br label %lean_inc.exit1342
 
 1493:                                             ; preds = %1490, %1485
   %.val.i2428 = phi i32 [ %.val.i2428.pr, %1490 ], [ %1486, %1485 ]
   %1494 = getelementptr inbounds nuw i8, ptr %1453, i64 17
-  %1495 = load i8, ptr %1494, align 1, !tbaa !20
+  %1495 = load i8, ptr %1494, align 1, !tbaa !24
   %1496 = icmp sgt i32 %.val.i2428, 0
   br i1 %1496, label %1497, label %1499, !prof !18
 
@@ -45196,7 +45196,7 @@ lean_dec.exit1500:                                ; preds = %2448, %2447, %2445,
 
 .thread2828:                                      ; preds = %2457
   %2458 = getelementptr inbounds nuw i8, ptr %2423, i64 17
-  %2459 = load i8, ptr %2458, align 1, !tbaa !20
+  %2459 = load i8, ptr %2458, align 1, !tbaa !24
   br label %lean_inc.exit1313
 
 2460:                                             ; preds = %2457
@@ -45206,13 +45206,13 @@ lean_dec.exit1500:                                ; preds = %2448, %2447, %2445,
 
 lean_inc.exit1314:                                ; preds = %lean_dec.exit1500
   %2461 = getelementptr inbounds nuw i8, ptr %2423, i64 17
-  %2462 = load i8, ptr %2461, align 1, !tbaa !20
+  %2462 = load i8, ptr %2461, align 1, !tbaa !24
   br label %lean_inc.exit1313
 
 2463:                                             ; preds = %2460, %2455
   %.val.i2562 = phi i32 [ %.val.i2562.pr, %2460 ], [ %2456, %2455 ]
   %2464 = getelementptr inbounds nuw i8, ptr %2423, i64 17
-  %2465 = load i8, ptr %2464, align 1, !tbaa !20
+  %2465 = load i8, ptr %2464, align 1, !tbaa !24
   %2466 = icmp sgt i32 %.val.i2562, 0
   br i1 %2466, label %2467, label %2469, !prof !18
 
@@ -48032,7 +48032,7 @@ lean_dec.exit1447:                                ; preds = %3484, %3483, %3481,
 
 .thread2835:                                      ; preds = %3493
   %3494 = getelementptr inbounds nuw i8, ptr %3459, i64 17
-  %3495 = load i8, ptr %3494, align 1, !tbaa !20
+  %3495 = load i8, ptr %3494, align 1, !tbaa !24
   br label %lean_inc.exit1275
 
 3496:                                             ; preds = %3493
@@ -48042,13 +48042,13 @@ lean_dec.exit1447:                                ; preds = %3484, %3483, %3481,
 
 lean_inc.exit1276:                                ; preds = %lean_dec.exit1447
   %3497 = getelementptr inbounds nuw i8, ptr %3459, i64 17
-  %3498 = load i8, ptr %3497, align 1, !tbaa !20
+  %3498 = load i8, ptr %3497, align 1, !tbaa !24
   br label %lean_inc.exit1275
 
 3499:                                             ; preds = %3496, %3491
   %.val.i2731 = phi i32 [ %.val.i2731.pr, %3496 ], [ %3492, %3491 ]
   %3500 = getelementptr inbounds nuw i8, ptr %3459, i64 17
-  %3501 = load i8, ptr %3500, align 1, !tbaa !20
+  %3501 = load i8, ptr %3500, align 1, !tbaa !24
   %3502 = icmp sgt i32 %.val.i2731, 0
   br i1 %3502, label %3503, label %3505, !prof !18
 
@@ -54147,7 +54147,7 @@ lean_alloc_ctor.exit27:                           ; preds = %lean_alloc_ctor.exi
   store ptr %40, ptr %50, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %23, ptr %51, align 8, !tbaa !4
-  br label %3
+  br label %3, !llvm.loop !27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -54236,7 +54236,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   store ptr %18, ptr %34, align 8, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %21, ptr %35, align 8, !tbaa !4
-  br label %3
+  br label %3, !llvm.loop !28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -55080,7 +55080,7 @@ lean_alloc_ctor.exit178:                          ; preds = %lean_alloc_ctor.exi
   store ptr %.0136, ptr %325, align 8, !tbaa !4
   %326 = getelementptr inbounds nuw i8, ptr %.sink270, i64 16
   store ptr %.sink, ptr %326, align 8, !tbaa !4
-  br label %12
+  br label %12, !llvm.loop !29
 }
 
 declare ptr @l_Lean_Expr_fvar___override(ptr noundef) local_unnamed_addr #1
@@ -55481,7 +55481,7 @@ lean_dec.exit559:                                 ; preds = %161, %160, %158, %1
 163:                                              ; preds = %lean_dec.exit559
   %164 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %165 = load ptr, ptr %164, align 8, !tbaa !4
-  %166 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !21
+  %166 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !30
   %167 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__6___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %168 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -55503,9 +55503,9 @@ lean_alloc_ctor.exit648:                          ; preds = %163
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %167, ptr %174, align 8, !tbaa !4
   %175 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  store double %166, ptr %175, align 8, !tbaa !21
+  store double %166, ptr %175, align 8, !tbaa !30
   %176 = getelementptr inbounds nuw i8, ptr %168, i64 32
-  store double %166, ptr %176, align 8, !tbaa !21
+  store double %166, ptr %176, align 8, !tbaa !30
   %177 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %178 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -55709,7 +55709,7 @@ lean_inc.exit542:                                 ; preds = %245, %244, %242, %2
   br label %lean_dec.exit556
 
 lean_dec.exit556:                                 ; preds = %252, %251, %249, %lean_inc.exit542
-  %253 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !21
+  %253 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !30
   %254 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__6___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %255 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -55731,9 +55731,9 @@ lean_alloc_ctor.exit661:                          ; preds = %lean_dec.exit556
   %261 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr %254, ptr %261, align 8, !tbaa !4
   %262 = getelementptr inbounds nuw i8, ptr %255, i64 24
-  store double %253, ptr %262, align 8, !tbaa !21
+  store double %253, ptr %262, align 8, !tbaa !30
   %263 = getelementptr inbounds nuw i8, ptr %255, i64 32
-  store double %253, ptr %263, align 8, !tbaa !21
+  store double %253, ptr %263, align 8, !tbaa !30
   %264 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %265 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -56243,7 +56243,7 @@ lean_ctor_release.exit704:                        ; preds = %436, %443, %445, %4
 
 lean_dec_ref.exit608:                             ; preds = %452, %451, %449, %lean_ctor_release.exit704
   %.0487 = phi ptr [ %127, %lean_ctor_release.exit704 ], [ inttoptr (i64 1 to ptr), %449 ], [ inttoptr (i64 1 to ptr), %451 ], [ inttoptr (i64 1 to ptr), %452 ]
-  %453 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !21
+  %453 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !30
   %454 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__6___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %455 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -56265,9 +56265,9 @@ lean_alloc_ctor.exit706:                          ; preds = %lean_dec_ref.exit60
   %461 = getelementptr inbounds nuw i8, ptr %455, i64 16
   store ptr %454, ptr %461, align 8, !tbaa !4
   %462 = getelementptr inbounds nuw i8, ptr %455, i64 24
-  store double %453, ptr %462, align 8, !tbaa !21
+  store double %453, ptr %462, align 8, !tbaa !30
   %463 = getelementptr inbounds nuw i8, ptr %455, i64 32
-  store double %453, ptr %463, align 8, !tbaa !21
+  store double %453, ptr %463, align 8, !tbaa !30
   %464 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %465 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -57104,7 +57104,7 @@ lean_ctor_release.exit782:                        ; preds = %761, %768, %770, %7
 
 lean_dec_ref.exit602:                             ; preds = %777, %776, %774, %lean_ctor_release.exit782
   %.0492 = phi ptr [ %127, %lean_ctor_release.exit782 ], [ inttoptr (i64 1 to ptr), %774 ], [ inttoptr (i64 1 to ptr), %776 ], [ inttoptr (i64 1 to ptr), %777 ]
-  %778 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !21
+  %778 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !30
   %779 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__6___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %780 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -57126,9 +57126,9 @@ lean_alloc_ctor.exit784:                          ; preds = %lean_dec_ref.exit60
   %786 = getelementptr inbounds nuw i8, ptr %780, i64 16
   store ptr %779, ptr %786, align 8, !tbaa !4
   %787 = getelementptr inbounds nuw i8, ptr %780, i64 24
-  store double %778, ptr %787, align 8, !tbaa !21
+  store double %778, ptr %787, align 8, !tbaa !30
   %788 = getelementptr inbounds nuw i8, ptr %780, i64 32
-  store double %778, ptr %788, align 8, !tbaa !21
+  store double %778, ptr %788, align 8, !tbaa !30
   %789 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %790 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -58306,7 +58306,7 @@ lean_ctor_release.exit887:                        ; preds = %1214, %1221, %1223,
 
 lean_dec_ref.exit594:                             ; preds = %1230, %1229, %1227, %lean_ctor_release.exit887
   %.0493 = phi ptr [ %978, %lean_ctor_release.exit887 ], [ inttoptr (i64 1 to ptr), %1227 ], [ inttoptr (i64 1 to ptr), %1229 ], [ inttoptr (i64 1 to ptr), %1230 ]
-  %1231 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !21
+  %1231 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !30
   %1232 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__6___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %1233 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -58328,9 +58328,9 @@ lean_alloc_ctor.exit889:                          ; preds = %lean_dec_ref.exit59
   %1239 = getelementptr inbounds nuw i8, ptr %1233, i64 16
   store ptr %1232, ptr %1239, align 8, !tbaa !4
   %1240 = getelementptr inbounds nuw i8, ptr %1233, i64 24
-  store double %1231, ptr %1240, align 8, !tbaa !21
+  store double %1231, ptr %1240, align 8, !tbaa !30
   %1241 = getelementptr inbounds nuw i8, ptr %1233, i64 32
-  store double %1231, ptr %1241, align 8, !tbaa !21
+  store double %1231, ptr %1241, align 8, !tbaa !30
   %1242 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Simp_JpCases_0__Lean_Compiler_LCNF_Simp_extractJpCases___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %1243 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -60908,7 +60908,7 @@ lean_dec_ref.exit26:                              ; preds = %57, %59, %60
   store ptr %99, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %99) #6
   %100 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
-  store double %100, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !21
+  store double %100, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___spec__7___closed__2, align 8, !tbaa !30
   %101 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.7, i64 noundef 8, i64 noundef 8) #6
   store ptr %101, ptr @l_Lean_Compiler_LCNF_Simp_simpJpCases_x3f___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %101) #6
@@ -61388,7 +61388,16 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !6, i64 0}
 !18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!"branch_weights", i32 4001, i32 4000000}
-!20 = !{!6, !6, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"double", !6, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = !{!"branch_weights", i32 4001, i32 4000000}
+!24 = !{!6, !6, i64 0}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = distinct !{!29, !20}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"double", !6, i64 0}

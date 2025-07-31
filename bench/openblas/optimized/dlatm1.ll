@@ -113,7 +113,7 @@ define void @dlatm1_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double 1.000000e+00, ptr %38, align 8, !tbaa !7
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %._crit_edge, label %.lr.ph156, !llvm.loop !11
+  br i1 %exitcond187.not, label %._crit_edge, label %.lr.ph156, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph156
   %39 = load double, ptr %1, align 8, !tbaa !7
@@ -163,7 +163,7 @@ define void @dlatm1_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %58 = fmul double %spec.select24.i, %56
   %spec.select.i = select i1 %.not17.i, double %spec.select24.i, double %58
   %.not18.i = icmp samesign ult i64 %.023.i, 4
-  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i
+  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i, !llvm.loop !13
 
 dpow_ui.exit:                                     ; preds = %.lr.ph.i, %52
   %.011.i = phi double [ %spec.select20.i, %52 ], [ %spec.select.i, %.lr.ph.i ]
@@ -171,7 +171,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %52
   store double %.011.i, ptr %59, align 8, !tbaa !7
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %.loopexit145, label %52, !llvm.loop !12
+  br i1 %exitcond182.not, label %.loopexit145, label %52, !llvm.loop !14
 
 60:                                               ; preds = %31
   store double 1.000000e+00, ptr %5, align 8, !tbaa !7
@@ -199,7 +199,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %52
   store double %73, ptr %74, align 8, !tbaa !7
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %.loopexit145, label %69, !llvm.loop !13
+  br i1 %exitcond177.not, label %.loopexit145, label %69, !llvm.loop !15
 
 75:                                               ; preds = %31
   %76 = load double, ptr %1, align 8, !tbaa !7
@@ -223,7 +223,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %52
   store double %83, ptr %84, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit145, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit145, label %.lr.ph, !llvm.loop !16
 
 85:                                               ; preds = %31
   tail call void @dlarnv_(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6, ptr noundef %5) #6
@@ -268,7 +268,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %52
 99:                                               ; preds = %.lr.ph165, %95
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
-  br i1 %exitcond197.not, label %thread-pre-split143.loopexit, label %.lr.ph165, !llvm.loop !15
+  br i1 %exitcond197.not, label %thread-pre-split143.loopexit, label %.lr.ph165, !llvm.loop !17
 
 thread-pre-split143.loopexit:                     ; preds = %99
   %.pr144.pre = load i32, ptr %0, align 4, !tbaa !3
@@ -303,7 +303,7 @@ thread-pre-split143:                              ; preds = %90, %thread-pre-spl
   store double %110, ptr %112, align 8, !tbaa !7
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
-  br i1 %exitcond202.not, label %.loopexit, label %108, !llvm.loop !16
+  br i1 %exitcond202.not, label %.loopexit, label %108, !llvm.loop !18
 
 .loopexit:                                        ; preds = %108, %102, %30, %thread-pre-split143, %8, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
@@ -356,11 +356,13 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}

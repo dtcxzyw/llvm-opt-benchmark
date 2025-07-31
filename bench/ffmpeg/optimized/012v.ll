@@ -281,7 +281,7 @@ select.unfold.us:                                 ; preds = %108, %95, %82, %69,
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #5
   %133 = add nuw nsw i32 %.0133187.us, 1
   %134 = icmp slt i32 %133, %132
-  br i1 %134, label %.lr.ph.us, label %._crit_edge, !llvm.loop !41
+  br i1 %134, label %.lr.ph.us, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.critedge.us, %35
   store i32 1, ptr %2, align 4, !tbaa !35
@@ -356,7 +356,8 @@ attributes #5 = { nounwind }
 !36 = !{!8, !8, i64 0}
 !37 = !{!38, !38, i64 0}
 !38 = !{!"short", !8, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !40, !41, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -92,7 +92,7 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
   %.not37 = icmp ne i8 %38, 0
   %39 = icmp ult i64 %37, %16
   %or.cond39 = select i1 %.not37, i1 %39, i1 false
-  br i1 %or.cond39, label %.lr.ph49, label %.critedge, !llvm.loop !8
+  br i1 %or.cond39, label %.lr.ph49, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %34, %.preheader
   %.2.lcssa = phi i64 [ %.055, %.preheader ], [ %37, %34 ]
@@ -188,7 +188,7 @@ parse_memory_region.exit.thread22:                ; preds = %parse_memory_region
   %.not37.i = icmp ne i8 %37, 0
   %38 = icmp ult i64 %36, %19
   %or.cond39.i = select i1 %.not37.i, i1 %38, i1 false
-  br i1 %or.cond39.i, label %.lr.ph49.i, label %parse_memory_region.exit20, !llvm.loop !8
+  br i1 %or.cond39.i, label %.lr.ph49.i, label %parse_memory_region.exit20, !llvm.loop !9
 
 parse_memory_region.exit20:                       ; preds = %33, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -241,6 +241,7 @@ attributes #7 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

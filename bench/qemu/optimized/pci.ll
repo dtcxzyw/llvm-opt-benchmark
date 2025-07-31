@@ -968,7 +968,7 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
   store i64 %143, ptr %144, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %145, label %141, !llvm.loop !14
+  br i1 %exitcond.not, label %145, label %141, !llvm.loop !15
 
 145:                                              ; preds = %141
   call void @pci_default_write_config(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #26
@@ -1005,7 +1005,7 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
 161:                                              ; preds = %147, %152, %155, %159
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 6
-  br i1 %exitcond94.not, label %162, label %147, !llvm.loop !15
+  br i1 %exitcond94.not, label %162, label %147, !llvm.loop !16
 
 162:                                              ; preds = %161
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #26
@@ -1096,7 +1096,7 @@ vfio_add_kvm_msi_virq.exit:                       ; preds = %24, %28
   %31 = load i32, ptr %4, align 16
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %vfio_add_kvm_msi_virq.exit, %vfio_prepare_kvm_msi_virq_batch.exit
   tail call fastcc void @vfio_commit_kvm_msi_virq_batch(ptr noundef nonnull %0)
@@ -1148,7 +1148,7 @@ vfio_add_kvm_msi_virq.exit:                       ; preds = %24, %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %60 = sext i32 %58 to i64
   %61 = icmp slt i64 %indvars.iv.next.i, %60
-  br i1 %61, label %.lr.ph.split.i, label %vfio_enable_vectors.exit, !llvm.loop !17
+  br i1 %61, label %.lr.ph.split.i, label %vfio_enable_vectors.exit, !llvm.loop !18
 
 vfio_enable_vectors.exit:                         ; preds = %57, %._crit_edge
   %62 = load i32, ptr %11, align 8
@@ -1168,7 +1168,7 @@ vfio_enable_vectors.exit:                         ; preds = %57, %._crit_edge
   store i32 %63, ptr %4, align 16
   %68 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %._crit_edge50, label %vfio_prepare_kvm_msi_virq_batch.exit
+  br i1 %69, label %._crit_edge50, label %vfio_prepare_kvm_msi_virq_batch.exit, !llvm.loop !19
 
 70:                                               ; preds = %64
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30) #26
@@ -1378,7 +1378,7 @@ define internal fastcc void @vfio_msix_disable(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %8, label %._crit_edge, !llvm.loop !18
+  br i1 %19, label %8, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %16, %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2752
@@ -1713,7 +1713,7 @@ define dso_local void @vfio_pci_post_reset(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %24, label %13, !llvm.loop !19
+  br i1 %exitcond.not, label %24, label %13, !llvm.loop !21
 
 24:                                               ; preds = %23
   call void @vfio_quirk_reset(ptr noundef nonnull %0) #26
@@ -2151,7 +2151,7 @@ define internal void @vfio_msi_interrupt(ptr noundef %0) #0 {
 trace_vfio_msix_pba_enable.exit:                  ; preds = %49, %43, %37, %35, %19, %14, %17
   %.022 = phi ptr [ @msix_notify, %17 ], [ @msi_notify, %14 ], [ @msix_notify, %19 ], [ @msix_notify, %35 ], [ @msix_notify, %37 ], [ @msix_notify, %43 ], [ @msix_notify, %49 ]
   %.0 = phi ptr [ @msix_get_message, %17 ], [ @msi_get_message, %14 ], [ @msix_get_message, %19 ], [ @msix_get_message, %35 ], [ @msix_get_message, %37 ], [ @msix_get_message, %43 ], [ @msix_get_message, %49 ]
-  %51 = tail call { i64, i32 } %.0(ptr noundef nonnull %5, i32 noundef %12) #26, !callees !20
+  %51 = tail call { i64, i32 } %.0(ptr noundef nonnull %5, i32 noundef %12) #26, !callees !22
   %52 = extractvalue { i64, i32 } %51, 0
   %53 = extractvalue { i64, i32 } %51, 1
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 2824
@@ -2193,7 +2193,7 @@ trace_vfio_msix_pba_enable.exit:                  ; preds = %49, %43, %37, %35, 
   br label %trace_vfio_msi_interrupt.exit
 
 trace_vfio_msi_interrupt.exit:                    ; preds = %trace_vfio_msix_pba_enable.exit, %57, %59, %65, %71
-  tail call void %.022(ptr noundef nonnull %5, i32 noundef %12) #26, !callees !21
+  tail call void %.022(ptr noundef nonnull %5, i32 noundef %12) #26, !callees !23
   br label %72
 
 72:                                               ; preds = %1, %trace_vfio_msi_interrupt.exit
@@ -2271,7 +2271,7 @@ vfio_connect_kvm_msi_virq.exit:                   ; preds = %14, %23, %29
   %32 = load i32, ptr %10, align 16
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %14, label %._crit_edge, !llvm.loop !22
+  br i1 %34, label %14, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %vfio_connect_kvm_msi_virq.exit, %kvm_irqchip_commit_route_changes.exit
   ret void
@@ -2378,7 +2378,7 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
   %55 = load i32, ptr %21, align 16
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next45, %56
-  br i1 %57, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
+  br i1 %57, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.lr.ph ]
@@ -2406,7 +2406,7 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
   %70 = load i32, ptr %21, align 16
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
+  br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %68, %53, %19
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2840
@@ -2470,7 +2470,7 @@ define internal fastcc void @vfio_msi_disable_common(ptr noundef captures(none) 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %6, label %._crit_edge, !llvm.loop !25
+  br i1 %28, label %6, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %25, %1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 3072
@@ -2779,7 +2779,7 @@ vfio_add_kvm_msi_virq.exit.i:                     ; preds = %83, %77, %kvm_irqch
   %132 = getelementptr inbounds nuw i8, ptr %.01317.i.i, i64 8
   %133 = add i64 %.018.i.i, 64
   %134 = icmp ult i64 %133, %122
-  br i1 %134, label %.lr.ph.i.i, label %find_first_bit.exit.thread.i, !llvm.loop !26
+  br i1 %134, label %.lr.ph.i.i, label %find_first_bit.exit.thread.i, !llvm.loop !28
 
 find_first_bit.exit.i:                            ; preds = %127, %109
   %.012.i.i = phi i64 [ %130, %127 ], [ 0, %109 ]
@@ -2951,7 +2951,7 @@ define internal fastcc void @vfio_intx_disable(ptr noundef %0) unnamed_addr #0 {
   tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %9, i1 noundef zeroext true) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %vfio_mmap_set_enabled.exit, label %8, !llvm.loop !27
+  br i1 %exitcond.not.i, label %vfio_mmap_set_enabled.exit, label %8, !llvm.loop !29
 
 vfio_mmap_set_enabled.exit:                       ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2972
@@ -3073,7 +3073,7 @@ trace_vfio_intx_interrupt.exit:                   ; preds = %5, %13, %15, %21, %
   tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %32, i1 noundef zeroext false) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %vfio_mmap_set_enabled.exit, label %31, !llvm.loop !27
+  br i1 %exitcond.not.i, label %vfio_mmap_set_enabled.exit, label %31, !llvm.loop !29
 
 vfio_mmap_set_enabled.exit:                       ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3004
@@ -3162,7 +3162,7 @@ define internal void @vfio_instance_finalize(ptr noundef %0) #0 {
 15:                                               ; preds = %13, %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %16, label %4, !llvm.loop !28
+  br i1 %exitcond.not.i, label %16, label %4, !llvm.loop !30
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 3624
@@ -3182,7 +3182,7 @@ define internal void @vfio_instance_finalize(ptr noundef %0) #0 {
   tail call void @object_unparent(ptr noundef nonnull %23) #26
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 3
-  br i1 %exitcond28.not.i, label %24, label %20, !llvm.loop !29
+  br i1 %exitcond28.not.i, label %24, label %20, !llvm.loop !31
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %17, align 8
@@ -3361,7 +3361,7 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
   store i64 %7, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %9, label %5, !llvm.loop !30
+  br i1 %exitcond.not, label %9, label %5, !llvm.loop !32
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 -2752
@@ -3409,7 +3409,7 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
 32:                                               ; preds = %18, %23, %26, %30
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 6
-  br i1 %exitcond42.not, label %33, label %18, !llvm.loop !31
+  br i1 %exitcond42.not, label %33, label %18, !llvm.loop !33
 
 33:                                               ; preds = %32
   %34 = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %10) #26
@@ -3909,7 +3909,7 @@ trace_vfio_mdev.exit:                             ; preds = %41, %48, %50, %56, 
   store ptr null, ptr %109, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %110, label %100, !llvm.loop !32
+  br i1 %exitcond.not.i, label %110, label %100, !llvm.loop !34
 
 110:                                              ; preds = %108
   %111 = call i32 @vfio_get_region_info(ptr noundef nonnull %14, i32 noundef 7, ptr noundef nonnull %4) #26
@@ -4296,7 +4296,7 @@ vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112
   call void @vfio_bar_quirk_setup(ptr noundef nonnull %13, i32 noundef %.0182241) #26
   %313 = add nuw nsw i32 %.0182241, 1
   %exitcond.not = icmp eq i32 %313, 6
-  br i1 %exitcond.not, label %314, label %312, !llvm.loop !33
+  br i1 %exitcond.not, label %314, label %312, !llvm.loop !35
 
 314:                                              ; preds = %312
   %315 = getelementptr inbounds nuw i8, ptr %13, i64 3632
@@ -4732,7 +4732,7 @@ vfio_pci_disable_rp_atomics.exit:                 ; preds = %vfio_teardown_msi.e
 84:                                               ; preds = %79, %74
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %85, label %74, !llvm.loop !34
+  br i1 %exitcond.not.i, label %85, label %74, !llvm.loop !36
 
 85:                                               ; preds = %84
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 3624
@@ -5137,7 +5137,7 @@ vfio_bar_prepare.exit:                            ; preds = %6, %17, %19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %34, label %6, !llvm.loop !35
+  br i1 %exitcond.not, label %34, label %6, !llvm.loop !37
 
 34:                                               ; preds = %vfio_bar_prepare.exit
   ret void
@@ -5760,7 +5760,7 @@ define internal fastcc void @vfio_bars_register(ptr noundef %0) unnamed_addr #0 
 vfio_bar_register.exit:                           ; preds = %4, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %29, label %4, !llvm.loop !36
+  br i1 %exitcond.not, label %29, label %4, !llvm.loop !38
 
 29:                                               ; preds = %vfio_bar_register.exit
   ret void
@@ -5851,7 +5851,7 @@ define internal fastcc noundef zeroext i1 @vfio_add_capabilities(ptr noundef %0,
   %48 = trunc nuw nsw i32 %47 to i16
   %49 = and i16 %48, 4092
   %.not.i.i = icmp eq i16 %49, 0
-  br i1 %.not.i.i, label %vfio_ext_cap_max_size.exit.i, label %42, !llvm.loop !37
+  br i1 %.not.i.i, label %vfio_ext_cap_max_size.exit.i, label %42, !llvm.loop !39
 
 vfio_ext_cap_max_size.exit.i:                     ; preds = %42
   %50 = trunc i32 %.val41.i to i16
@@ -5971,7 +5971,7 @@ vfio_ext_cap_max_size.exit.i:                     ; preds = %42
   store i32 -1, ptr %116, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %90, !llvm.loop !38
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %90, !llvm.loop !40
 
 .loopexit.i:                                      ; preds = %102, %79
   tail call void @pcie_add_capability(ptr noundef nonnull %0, i16 noundef zeroext 21, i8 noundef zeroext %53, i16 noundef zeroext %.050.i, i16 noundef zeroext %54) #26
@@ -5987,7 +5987,7 @@ trace_vfio_add_ext_cap_dropped.exit.i:            ; preds = %90, %117, %.loopexi
   %119 = trunc nuw nsw i32 %118 to i16
   %120 = and i16 %119, 4092
   %.not39.i = icmp eq i16 %120, 0
-  br i1 %.not39.i, label %121, label %39, !llvm.loop !39
+  br i1 %.not39.i, label %121, label %39, !llvm.loop !41
 
 121:                                              ; preds = %trace_vfio_add_ext_cap_dropped.exit.i
   %122 = load ptr, ptr %4, align 16
@@ -6053,7 +6053,7 @@ define internal void @vfio_intx_mmap_enable(ptr noundef %0) #0 {
   tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %17, i1 noundef zeroext true) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %vfio_mmap_set_enabled.exit, label %16, !llvm.loop !27
+  br i1 %exitcond.not.i, label %vfio_mmap_set_enabled.exit, label %16, !llvm.loop !29
 
 vfio_mmap_set_enabled.exit:                       ; preds = %16, %5
   ret void
@@ -6280,7 +6280,7 @@ define internal fastcc void @vfio_bars_exit(ptr noundef %0) unnamed_addr #0 {
 13:                                               ; preds = %8, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %14, label %3, !llvm.loop !34
+  br i1 %exitcond.not, label %14, label %3, !llvm.loop !36
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 3624
@@ -6428,7 +6428,7 @@ define internal range(i64 0, 4294967296) i64 @vfio_rom_read(ptr noundef %0, i64 
   %20 = sub nuw nsw i64 %17, %1
   %21 = tail call i64 @llvm.umin.i64(i64 %20, i64 %19)
   %22 = select i1 %18, i64 %21, i64 0
-  %23 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef nonnull %14, i64 noundef range(i64 -4294967294, 4294967296) %22, i64 noundef 8) #26, !alias.scope !40
+  %23 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef nonnull %14, i64 noundef range(i64 -4294967294, 4294967296) %22, i64 noundef 8) #26, !alias.scope !42
   switch i32 %2, label %33 [
     i32 1, label %24
     i32 2, label %27
@@ -6617,7 +6617,7 @@ trace_vfio_pci_load_rom.exit:                     ; preds = %7, %19, %21, %27, %
   %58 = add i64 %56, %.051.ph72
   %59 = sub i64 %.0.ph73, %56
   %.not55 = icmp eq i64 %59, 0
-  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !44
+  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !46
 
 60:                                               ; preds = %.lr.ph70
   %61 = tail call ptr @__errno_location() #28
@@ -6699,7 +6699,7 @@ trace_vfio_pci_load_rom.exit:                     ; preds = %7, %19, %21, %27, %
   %100 = add i8 %99, %.04976
   %101 = add nuw i32 %.05075, 1
   %exitcond.not = icmp eq i32 %101, %96
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph77, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph77, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph77, %93
   %.049.lcssa = phi i8 [ 0, %93 ], [ %100, %.lr.ph77 ]
@@ -6814,7 +6814,7 @@ define internal fastcc noundef zeroext i1 @vfio_add_std_cap(ptr noundef %0, i8 n
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %24
   %.010.i = load i8, ptr %gep.i, align 1
   %.not.i = icmp eq i8 %.010.i, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !48
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %28 = trunc i16 %.1.i to i8
@@ -6863,7 +6863,7 @@ vfio_std_cap_max_size.exit:                       ; preds = %3, %._crit_edge.loo
   %gep.i88 = getelementptr inbounds nuw i8, ptr %invariant.gep.i81, i64 %43
   %.010.i89 = load i8, ptr %gep.i88, align 1
   %.not.i90 = icmp eq i8 %.010.i89, 0
-  br i1 %.not.i90, label %._crit_edge.loopexit.i91, label %.lr.ph.i84, !llvm.loop !46
+  br i1 %.not.i90, label %._crit_edge.loopexit.i91, label %.lr.ph.i84, !llvm.loop !48
 
 ._crit_edge.loopexit.i91:                         ; preds = %.lr.ph.i84
   %47 = trunc i16 %.1.i87 to i8
@@ -7089,7 +7089,7 @@ vfio_check_pcie_flr.exit:                         ; preds = %105, %trace_vfio_ch
   %.0.val.i = load i32, ptr %152, align 8
   %153 = and i32 %.0.val.i, 1
   %.not.i101 = icmp eq i32 %153, 0
-  br i1 %.not.i101, label %.lr.ph.i100, label %._crit_edge.i, !llvm.loop !47
+  br i1 %.not.i101, label %.lr.ph.i100, label %._crit_edge.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i100, %147
   %.0.lcssa.i99 = phi ptr [ %144, %147 ], [ %151, %.lr.ph.i100 ]
@@ -7844,39 +7844,41 @@ attributes #32 = { nounwind allocsize(1) }
 !9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
 !10 = distinct !{!10, !"memcpy.inline"}
 !11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
-!20 = !{ptr @msi_get_message, ptr @msix_get_message}
-!21 = !{ptr @msi_notify, ptr @msix_notify}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !13}
-!26 = distinct !{!26, !13}
-!27 = distinct !{!27, !13}
-!28 = distinct !{!28, !13}
-!29 = distinct !{!29, !13}
-!30 = distinct !{!30, !13}
-!31 = distinct !{!31, !13}
-!32 = distinct !{!32, !13}
-!33 = distinct !{!33, !13}
-!34 = distinct !{!34, !13}
-!35 = distinct !{!35, !13}
-!36 = distinct !{!36, !13}
-!37 = distinct !{!37, !13}
-!38 = distinct !{!38, !13}
-!39 = distinct !{!39, !13}
-!40 = !{!41, !43}
-!41 = distinct !{!41, !42, !"memcpy.inline: argument 0"}
-!42 = distinct !{!42, !"memcpy.inline"}
-!43 = distinct !{!43, !42, !"memcpy.inline: argument 1"}
-!44 = distinct !{!44, !13}
-!45 = distinct !{!45, !13}
-!46 = distinct !{!46, !13}
-!47 = distinct !{!47, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}
+!19 = distinct !{!19, !14}
+!20 = distinct !{!20, !13, !14}
+!21 = distinct !{!21, !13, !14}
+!22 = !{ptr @msi_get_message, ptr @msix_get_message}
+!23 = !{ptr @msi_notify, ptr @msix_notify}
+!24 = distinct !{!24, !13, !14}
+!25 = distinct !{!25, !13, !14, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !13, !14}
+!28 = distinct !{!28, !13, !14}
+!29 = distinct !{!29, !13, !14}
+!30 = distinct !{!30, !13, !14}
+!31 = distinct !{!31, !13, !14}
+!32 = distinct !{!32, !13, !14}
+!33 = distinct !{!33, !13, !14}
+!34 = distinct !{!34, !13, !14}
+!35 = distinct !{!35, !13, !14}
+!36 = distinct !{!36, !13, !14}
+!37 = distinct !{!37, !13, !14}
+!38 = distinct !{!38, !13, !14}
+!39 = distinct !{!39, !13, !14}
+!40 = distinct !{!40, !13, !14}
+!41 = distinct !{!41, !13, !14}
+!42 = !{!43, !45}
+!43 = distinct !{!43, !44, !"memcpy.inline: argument 0"}
+!44 = distinct !{!44, !"memcpy.inline"}
+!45 = distinct !{!45, !44, !"memcpy.inline: argument 1"}
+!46 = distinct !{!46, !13, !14}
+!47 = distinct !{!47, !13, !14}
+!48 = distinct !{!48, !13, !14}
+!49 = distinct !{!49, !13, !14}

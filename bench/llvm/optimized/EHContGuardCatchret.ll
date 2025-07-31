@@ -349,7 +349,7 @@ _ZN4llvm15MachineFunction17addCatchretTargetEPNS_8MCSymbolE.exit: ; preds = %_ZN
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.010.021, i64 8
   %.sroa.010.0 = load ptr, ptr %46, align 8, !tbaa !154
   %.not16 = icmp eq ptr %.sroa.010.0, %12
-  br i1 %.not16, label %.loopexit, label %16
+  br i1 %.not16, label %.loopexit, label %16, !llvm.loop !206
 
 .loopexit:                                        ; preds = %_ZN4llvm15MachineFunction17addCatchretTargetEPNS_8MCSymbolE.exit, %10, %2
   %.0 = phi i1 [ false, %2 ], [ false, %10 ], [ %.1, %_ZN4llvm15MachineFunction17addCatchretTargetEPNS_8MCSymbolE.exit ]
@@ -399,10 +399,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #5 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !206
+  %3 = load ptr, ptr %2, align 8, !tbaa !208
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !208
-  %6 = load ptr, ptr %5, align 8, !tbaa !209
+  %5 = load ptr, ptr %4, align 8, !tbaa !210
+  %6 = load ptr, ptr %5, align 8, !tbaa !211
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #14
   ret void
 }
@@ -645,9 +645,11 @@ attributes #17 = { builtin nounwind }
 !203 = !{!96, !97, i64 16}
 !204 = !{!200, !200, i64 0}
 !205 = !{!96, !97, i64 0}
-!206 = !{!207, !4, i64 0}
-!207 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
-!208 = !{!207, !8, i64 8}
-!209 = !{!210, !211, i64 0}
-!210 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !211, i64 0}
-!211 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}
+!206 = distinct !{!206, !207}
+!207 = !{!"llvm.loop.estimated_trip_count"}
+!208 = !{!209, !4, i64 0}
+!209 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
+!210 = !{!209, !8, i64 8}
+!211 = !{!212, !213, i64 0}
+!212 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !213, i64 0}
+!213 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}

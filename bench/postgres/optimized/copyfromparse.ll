@@ -242,7 +242,7 @@ define dso_local void @ReceiveCopyBinaryHeader(ptr noundef captures(none) %0) lo
   %41 = add nsw i32 %.0, -1
   %42 = call fastcc i32 @CopyReadBinaryData(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1)
   %.not = icmp eq i32 %42, 1
-  br i1 %.not, label %.preheader, label %43, !llvm.loop !17
+  br i1 %.not, label %.preheader, label %43, !llvm.loop !18
 
 43:                                               ; preds = %40
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -356,7 +356,7 @@ CopyLoadRawBuf.exit._crit_edge:                   ; preds = %CopyLoadRawBuf.exit
   %54 = getelementptr inbounds i8, ptr %.035, i64 %51
   %55 = add i32 %., %.137
   %56 = icmp slt i32 %55, %2
-  br i1 %56, label %22, label %.thread, !llvm.loop !18
+  br i1 %56, label %22, label %.thread, !llvm.loop !19
 
 .thread:                                          ; preds = %CopyLoadRawBuf.exit, %43, %CopyLoadRawBuf.exit.thread, %15
   %.036 = phi i32 [ %2, %15 ], [ %.137, %CopyLoadRawBuf.exit.thread ], [ %.137, %CopyLoadRawBuf.exit ], [ %55, %43 ]
@@ -897,7 +897,7 @@ CopyConvertBuf.exit.i.CopyLoadInputBuf.exit_crit_edge.i: ; preds = %CopyConvertB
   br label %CopyLoadRawBuf.exit.i.i.backedge
 
 CopyLoadRawBuf.exit.i.i.backedge:                 ; preds = %199, %186
-  br label %CopyLoadRawBuf.exit.i.i
+  br label %CopyLoadRawBuf.exit.i.i, !llvm.loop !20
 
 CopyLoadInputBuf.exit.i:                          ; preds = %165, %CopyConvertBuf.exit.i.CopyLoadInputBuf.exit_crit_edge.i
   %200 = phi i8 [ %.pre294.i, %CopyConvertBuf.exit.i.CopyLoadInputBuf.exit_crit_edge.i ], [ 1, %165 ]
@@ -1230,7 +1230,7 @@ CopyReadLineText.exit.thread:                     ; preds = %CopyLoadInputBuf.ex
   %354 = load ptr, ptr %18, align 8
   %355 = tail call fastcc i32 @CopyGetData(ptr noundef nonnull %0, ptr noundef %354, i32 noundef 65536)
   %356 = icmp sgt i32 %355, 0
-  br i1 %356, label %.preheader, label %357, !llvm.loop !19
+  br i1 %356, label %.preheader, label %357, !llvm.loop !21
 
 357:                                              ; preds = %.preheader
   store i32 0, ptr %20, align 8
@@ -1417,7 +1417,7 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
   %66 = getelementptr inbounds nuw i8, ptr %.2161, i64 1
   store i8 %61, ptr %.2161, align 1
   %.not124 = icmp ult ptr %60, %34
-  br i1 %.not124, label %59, label %._crit_edge
+  br i1 %.not124, label %59, label %._crit_edge, !llvm.loop !22
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.backedge
   %67 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -1461,7 +1461,7 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
   %.4100.be = phi ptr [ %70, %81 ], [ %79, %78 ]
   %.4.be = getelementptr inbounds nuw i8, ptr %.4181, i64 1
   %.not125 = icmp ult ptr %.4100.be, %34
-  br i1 %.not125, label %.lr.ph182, label %.preheader._crit_edge
+  br i1 %.not125, label %.lr.ph182, label %.preheader._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %59, %65
   %.298.lcssa = phi ptr [ %.298160, %59 ], [ %60, %65 ]
@@ -1586,7 +1586,7 @@ list_length.exit:                                 ; preds = %102, %107
   %.096.be = phi ptr [ %.399.ph218, %149 ], [ %.399.ph227, %98 ], [ %.399.ph218, %130 ]
   %.094.be = phi ptr [ %105, %149 ], [ %90, %98 ], [ %105, %130 ]
   %.093.be = phi i32 [ %150, %149 ], [ %101, %98 ], [ %133, %130 ]
-  br label %.backedge230
+  br label %.backedge230, !llvm.loop !24
 
 151:                                              ; preds = %130, %98, %149
   %152 = phi i32 [ %101, %98 ], [ %150, %149 ], [ %133, %130 ]
@@ -1882,7 +1882,7 @@ GetDecimalFromHex.exit173:                        ; preds = %117, %120
   %138 = getelementptr inbounds nuw i8, ptr %.1190, i64 1
   store i8 %.0126, ptr %.1190, align 1
   %.not158 = icmp ult ptr %.3, %28
-  br i1 %.not158, label %.lr.ph, label %._crit_edge
+  br i1 %.not158, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph, %137, %44
   %.0128.lcssa = phi i1 [ false, %44 ], [ %.2130, %137 ], [ %.0128188, %.lr.ph ], [ %.0128188, %53 ]
@@ -2001,7 +2001,7 @@ list_length.exit:                                 ; preds = %153, %155
   %207 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 1
   store i8 0, ptr %.1.lcssa, align 1
   %208 = add i32 %.0119, 1
-  br i1 %.1137.ph, label %37, label %209
+  br i1 %.1137.ph, label %37, label %209, !llvm.loop !26
 
 209:                                              ; preds = %206
   %210 = load ptr, ptr %16, align 8
@@ -2569,7 +2569,7 @@ CopyReadBinaryAttribute.exit:                     ; preds = %251, %277
   store i64 %291, ptr %294, align 8
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
-  br i1 %exitcond272.not, label %.critedge223, label %.lr.ph255, !llvm.loop !20
+  br i1 %exitcond272.not, label %.critedge223, label %.lr.ph255, !llvm.loop !27
 
 .critedge219:                                     ; preds = %67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
@@ -2674,7 +2674,7 @@ define internal fastcc i32 @CopyGetData(ptr noundef captures(none) %0, ptr nound
   br i1 %.not, label %.loopexit121, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %.loopexit, %55, %55
-  br label %.preheader, !llvm.loop !21
+  br label %.preheader, !llvm.loop !28
 
 .preheader:                                       ; preds = %.preheader65, %.preheader.backedge
   %36 = load volatile i32, ptr @QueryCancelHoldoffCount, align 4
@@ -2764,7 +2764,7 @@ define internal fastcc i32 @CopyGetData(ptr noundef captures(none) %0, ptr nound
   %69 = icmp sgt i32 %67, 0
   %70 = icmp slt i32 %68, 1
   %or.cond = select i1 %69, i1 %70, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !22
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !29
 
 71:                                               ; preds = %3
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2893,11 +2893,18 @@ attributes #20 = { nounwind willreturn memory(none) }
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"pq_writeint16: argument 0"}
 !14 = distinct !{!14, !"pq_writeint16"}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = distinct !{!19, !16, !17}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !16, !17}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !16, !17}
+!28 = distinct !{!28, !17}
+!29 = distinct !{!29, !16, !17}

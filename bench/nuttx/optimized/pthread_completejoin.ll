@@ -93,7 +93,7 @@ pthread_notifywaiters.exit:                       ; preds = %34, %37
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %51 = load i32, ptr %50, align 4
   %.not21.i.i = icmp eq i32 %51, %46
-  br i1 %.not21.i.i, label %.critedge.i.i, label %48, !llvm.loop !8
+  br i1 %.not21.i.i, label %.critedge.i.i, label %48, !llvm.loop !9
 
 .critedge.i.i:                                    ; preds = %49
   %.not22.i.i = icmp eq ptr %.018.i.i, null
@@ -168,7 +168,7 @@ define void @pthread_destroyjoin(ptr noundef captures(none) %0, ptr noundef %1) 
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %9 = load i32, ptr %8, align 4
   %.not21.i = icmp eq i32 %9, %4
-  br i1 %.not21.i, label %.critedge.i, label %6, !llvm.loop !8
+  br i1 %.not21.i, label %.critedge.i, label %6, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %7
   %.not22.i = icmp eq ptr %.018.i, null
@@ -250,6 +250,7 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

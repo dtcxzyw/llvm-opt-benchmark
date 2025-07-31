@@ -961,7 +961,7 @@ default.unreachable:                              ; preds = %424
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #10
   %464 = add i16 %.061120.i.i, 1
   %.not.i131.i = icmp ugt i16 %464, %419
-  br i1 %.not.i131.i, label %._crit_edge.i.i, label %424, !llvm.loop !8
+  br i1 %.not.i131.i, label %._crit_edge.i.i, label %424, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %463
   %.pre.i.i = load i32, ptr %17, align 4
@@ -1569,7 +1569,7 @@ lazy_scan_new_or_empty.exit.thread.i.backedge:    ; preds = %690, %688, %683, %6
   %762 = load i32, ptr %78, align 8
   %763 = sext i32 %762 to i64
   %764 = icmp slt i64 %indvars.iv.next.i.i, %763
-  br i1 %764, label %742, label %lazy_cleanup_all_indexes.exit.i, !llvm.loop !9
+  br i1 %764, label %742, label %lazy_cleanup_all_indexes.exit.i, !llvm.loop !10
 
 765:                                              ; preds = %723
   %766 = fptosi double %724 to i64
@@ -1642,7 +1642,7 @@ dead_items_cleanup.exit:                          ; preds = %lazy_scan_heap.exit
 790:                                              ; preds = %786, %782, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %update_relstats_all_indexes.exit.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %update_relstats_all_indexes.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 update_relstats_all_indexes.exit.loopexit:        ; preds = %790
   %.pre290 = load i32, ptr %78, align 8
@@ -1695,7 +1695,7 @@ should_attempt_truncation.exit:                   ; preds = %800
   %.051.i = phi i32 [ %822, %821 ], [ 0, %807 ]
   %810 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i250 = icmp eq i32 %810, 0
-  br i1 %.not.i250, label %812, label %811, !prof !11
+  br i1 %.not.i250, label %812, label %811, !prof !12
 
 811:                                              ; preds = %.lr.ph.i249
   call void @ProcessInterrupts() #10
@@ -1726,7 +1726,7 @@ should_attempt_truncation.exit:                   ; preds = %800
   call void @ResetLatch(ptr noundef %825) #10
   %826 = load ptr, ptr %58, align 8
   %827 = call zeroext i1 @ConditionalLockRelation(ptr noundef %826, i32 noundef 8) #10
-  br i1 %827, label %._crit_edge.i, label %.lr.ph.i249
+  br i1 %827, label %._crit_edge.i, label %.lr.ph.i249, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %821, %807
   %828 = load ptr, ptr %58, align 8
@@ -1797,7 +1797,7 @@ should_attempt_truncation.exit:                   ; preds = %800
   %.sroa.026.4.i.i = phi i64 [ %.sroa.026.090.i.i, %841 ], [ %849, %852 ], [ %.sroa.026.090.i.i, %844 ]
   %863 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i252 = icmp eq i32 %863, 0
-  br i1 %.not.i.i252, label %865, label %864, !prof !11
+  br i1 %.not.i.i252, label %865, label %864, !prof !12
 
 864:                                              ; preds = %.thread.i.i251
   call void @ProcessInterrupts() #10
@@ -1818,7 +1818,7 @@ should_attempt_truncation.exit:                   ; preds = %800
   %872 = call i64 @PrefetchBuffer(ptr noundef %871, i32 noundef 0, i32 noundef %.05587.i.i) #10
   %873 = load volatile i32, ptr @InterruptPending, align 4
   %.not72.i.i = icmp eq i32 %873, 0
-  br i1 %.not72.i.i, label %875, label %874, !prof !11
+  br i1 %.not72.i.i, label %875, label %874, !prof !12
 
 874:                                              ; preds = %870
   call void @ProcessInterrupts() #10
@@ -1827,7 +1827,7 @@ should_attempt_truncation.exit:                   ; preds = %800
 875:                                              ; preds = %874, %870
   %876 = add nuw i32 %.05587.i.i, 1
   %.not69.not.i.i = icmp ult i32 %.05587.i.i, %866
-  br i1 %.not69.not.i.i, label %870, label %.loopexit.i.i, !llvm.loop !12
+  br i1 %.not69.not.i.i, label %870, label %.loopexit.i.i, !llvm.loop !14
 
 .loopexit.i.i:                                    ; preds = %875, %865
   %.258.i.i = phi i32 [ %.05691.i.i, %865 ], [ %869, %875 ]
@@ -1859,13 +1859,13 @@ BufferGetPage.exit.i.i:                           ; preds = %887, %881
   %893 = getelementptr i8, ptr %.0.i.i.i.i, i64 14
   %.val74.i.i = load i16, ptr %893, align 2
   %894 = icmp eq i16 %.val74.i.i, 0
-  br i1 %894, label %.critedge.i.i, label %895, !llvm.loop !13
+  br i1 %894, label %.critedge.i.i, label %895, !llvm.loop !15
 
 895:                                              ; preds = %BufferGetPage.exit.i.i
   %896 = getelementptr i8, ptr %.0.i.i.i.i, i64 12
   %.val75.i.i = load i16, ptr %896, align 4
   %897 = icmp ult i16 %.val75.i.i, 25
-  br i1 %897, label %.critedge.i.i, label %898, !llvm.loop !13
+  br i1 %897, label %.critedge.i.i, label %898, !llvm.loop !15
 
 898:                                              ; preds = %895
   %899 = zext i16 %.val75.i.i to i32
@@ -1882,7 +1882,7 @@ BufferGetPage.exit.i.i:                           ; preds = %887, %881
 904:                                              ; preds = %906
   %905 = add i16 %.06289.i.i, 1
   %.not70.not.i.i = icmp ugt i16 %905, %902
-  br i1 %.not70.not.i.i, label %.critedge.i.i, label %906, !llvm.loop !14
+  br i1 %.not70.not.i.i, label %.critedge.i.i, label %906, !llvm.loop !16
 
 906:                                              ; preds = %904, %.lr.ph.i.i253
   %.06289.i.i = phi i16 [ 1, %.lr.ph.i.i253 ], [ %905, %904 ]
@@ -1941,7 +1941,7 @@ count_nondeletable_pages.exit.i:                  ; preds = %.critedge.i.i, %..t
   %929 = load i32, ptr %120, align 8
   %930 = icmp ugt i32 %.4.i.i, %929
   %931 = and i1 %.046.i, %930
-  br i1 %931, label %807, label %lazy_truncate_heap.exit, !llvm.loop !15
+  br i1 %931, label %807, label %lazy_truncate_heap.exit, !llvm.loop !17
 
 lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %update_relstats_all_indexes.exit, %915, %830, %818, %813
   %932 = load ptr, ptr %33, align 8
@@ -2192,7 +2192,7 @@ lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %u
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %1081 = sext i32 %1080 to i64
   %1082 = icmp slt i64 %indvars.iv.next282, %1081
-  br i1 %1082, label %.lr.ph266, label %._crit_edge, !llvm.loop !16
+  br i1 %1082, label %.lr.ph266, label %._crit_edge, !llvm.loop !18
 
 1083:                                             ; preds = %._crit_edge
   %1084 = load ptr, ptr @MyBEEntry, align 8
@@ -2313,7 +2313,7 @@ lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %u
   %1148 = load i32, ptr %78, align 8
   %1149 = sext i32 %1148 to i64
   %1150 = icmp slt i64 %indvars.iv.next288, %1149
-  br i1 %1150, label %.lr.ph269.split.us, label %._crit_edge270, !llvm.loop !17
+  br i1 %1150, label %.lr.ph269.split.us, label %._crit_edge270, !llvm.loop !19
 
 ._crit_edge270:                                   ; preds = %1156, %1145, %.thread297, %.thread296, %1133
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #10
@@ -2344,7 +2344,7 @@ lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %u
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %1158 = sext i32 %1157 to i64
   %1159 = icmp slt i64 %indvars.iv.next285, %1158
-  br i1 %1159, label %.lr.ph269.split, label %._crit_edge270, !llvm.loop !19
+  br i1 %1159, label %.lr.ph269.split, label %._crit_edge270, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2538,7 +2538,7 @@ define internal fastcc noundef zeroext i1 @lazy_check_wraparound_failsafe(ptr no
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = tail call zeroext i1 @vacuum_xid_failsafe_check(ptr noundef nonnull %7) #10
-  br i1 %8, label %9, label %28, !prof !20
+  br i1 %8, label %9, label %28, !prof !22
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
@@ -2962,7 +2962,7 @@ lazy_vacuum_all_indexes.exit.thread:              ; preds = %.critedge
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   call void @pgstat_progress_update_param(i32 noundef 9, i64 noundef %indvars.iv.next.i) #10
   %103 = call fastcc zeroext i1 @lazy_check_wraparound_failsafe(ptr noundef nonnull %0)
-  br i1 %103, label %lazy_vacuum_all_indexes.exit, label %78, !llvm.loop !21
+  br i1 %103, label %lazy_vacuum_all_indexes.exit, label %78, !llvm.loop !23
 
 104:                                              ; preds = %55
   %105 = fptosi float %52 to i64
@@ -3105,7 +3105,7 @@ BufferGetPage.exit.i.i:                           ; preds = %152, %146
   %178 = getelementptr inbounds nuw [291 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i
   store i16 %174, ptr %178, align 2
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %172, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %172, !llvm.loop !24
 
 179:                                              ; preds = %._crit_edge.i.i
   %180 = load i32, ptr @wal_level, align 4
@@ -3273,7 +3273,7 @@ HeapTupleHeaderGetXmin.exit.i.i.i:                ; preds = %244, %241
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
   %259 = add i16 %.055.i.i.i, 1
   %.not60.i.i.i = icmp ugt i16 %259, %212
-  br i1 %.not60.i.i.i, label %.loopexit.i.i, label %217, !llvm.loop !23
+  br i1 %.not60.i.i.i, label %.loopexit.i.i, label %217, !llvm.loop !25
 
 heap_page_is_all_visible.exit.i.i:                ; preds = %HeapTupleHeaderGetXmin.exit.i.i.i, %237, %227, %227, %227, %227, %224
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
@@ -3361,7 +3361,7 @@ lazy_vacuum_heap_page.exit.i:                     ; preds = %280, %277, %274, %2
   call void @vacuum_delay_point(i1 noundef zeroext false) #10
   %299 = call i32 @read_stream_next_buffer(ptr noundef %127, ptr noundef nonnull %5) #10
   %.not.i14 = icmp eq i32 %299, 0
-  br i1 %.not.i14, label %._crit_edge.i, label %138
+  br i1 %.not.i14, label %._crit_edge.i, label %138, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %295, %114
   %.030.lcssa.i = phi i32 [ 0, %114 ], [ %298, %295 ]
@@ -3596,21 +3596,24 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !7, !8}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7}
-!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !7, !8}
+!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !8}

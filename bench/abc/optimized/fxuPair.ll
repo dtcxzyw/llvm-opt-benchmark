@@ -28,7 +28,7 @@ define void @Fxu_PairCanonicize(ptr noundef captures(none) %0, ptr noundef captu
   %12 = load i32, ptr %.0, align 8, !tbaa !10
   %13 = load i32, ptr %.013, align 8, !tbaa !10
   %14 = icmp eq i32 %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.lcssa16 = phi i32 [ %7, %2 ], [ %12, %.lr.ph ]
@@ -48,9 +48,9 @@ define void @Fxu_PairCanonicize(ptr noundef captures(none) %0, ptr noundef captu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_PairCanonicize2(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
-  %4 = load i32, ptr %3, align 8, !tbaa !14
+  %4 = load i32, ptr %3, align 8, !tbaa !16
   %5 = load ptr, ptr %1, align 8, !tbaa !3
-  %6 = load i32, ptr %5, align 8, !tbaa !14
+  %6 = load i32, ptr %5, align 8, !tbaa !16
   %7 = icmp sgt i32 %4, %6
   br i1 %7, label %8, label %9
 
@@ -86,28 +86,28 @@ define i32 @Fxu_PairHashKeyArray(ptr noundef readnone captures(none) %0, ptr nou
   %.019 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
   %8 = add nuw nsw i64 %indvars.iv, 100
   %9 = getelementptr inbounds nuw [304 x i32], ptr @s_Primes, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !17
+  %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4, !tbaa !17
+  %12 = load i32, ptr %11, align 4, !tbaa !19
   %13 = mul nsw i32 %12, %10
   %14 = xor i32 %13, %.019
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !20
 
 .lr.ph22:                                         ; preds = %.lr.ph22.preheader, %.lr.ph22
   %indvars.iv26 = phi i64 [ 0, %.lr.ph22.preheader ], [ %indvars.iv.next27, %.lr.ph22 ]
   %.121 = phi i32 [ %.0.lcssa, %.lr.ph22.preheader ], [ %21, %.lr.ph22 ]
   %15 = add nuw nsw i64 %indvars.iv26, 200
   %16 = getelementptr inbounds nuw [304 x i32], ptr @s_Primes, i64 0, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !17
+  %17 = load i32, ptr %16, align 4, !tbaa !19
   %18 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv26
-  %19 = load i32, ptr %18, align 4, !tbaa !17
+  %19 = load i32, ptr %18, align 4, !tbaa !19
   %20 = mul nsw i32 %19, %17
   %21 = xor i32 %20, %.121
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph22, !llvm.loop !20
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph22, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph22, %.preheader
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %21, %.lr.ph22 ]
@@ -165,7 +165,7 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %.052.ph70, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   %19 = add nuw nsw i32 %.058.ph, 1
-  br label %.outer
+  br label %.outer, !llvm.loop !23
 
 20:                                               ; preds = %12
   %21 = icmp slt i32 %13, %14
@@ -175,7 +175,7 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   %23 = add nsw i32 %.056.ph63, 100
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !17
+  %26 = load i32, ptr %25, align 4, !tbaa !19
   %27 = mul nsw i32 %26, %13
   br label %.outer62.backedge
 
@@ -185,19 +185,19 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   %.0.ph67.be = xor i32 %.pn, %.0
   %.052.ph65.be.in = getelementptr inbounds nuw i8, ptr %.052.ph70, i64 32
   %.056.ph63.be = add nsw i32 %.056.ph63, 1
-  br label %.outer62
+  br label %.outer62, !llvm.loop !23
 
 28:                                               ; preds = %20
   %29 = add nsw i32 %.054, 200
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !17
+  %32 = load i32, ptr %31, align 4, !tbaa !19
   %33 = mul nsw i32 %32, %14
   %34 = xor i32 %33, %.0
   %35 = getelementptr inbounds nuw i8, ptr %.050, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !21
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
   %37 = add nsw i32 %.054, 1
-  br label %10
+  br label %10, !llvm.loop !23
 
 38:                                               ; preds = %10
   %39 = icmp eq ptr %.052.ph70, null
@@ -208,7 +208,7 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   %41 = add nsw i32 %.056.ph63, 100
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !17
+  %44 = load i32, ptr %43, align 4, !tbaa !19
   %45 = load i32, ptr %.052.ph70, align 8, !tbaa !10
   %46 = mul nsw i32 %45, %44
   br label %.outer62.backedge
@@ -221,54 +221,54 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   %49 = add nsw i32 %.054, 200
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !17
+  %52 = load i32, ptr %51, align 4, !tbaa !19
   %53 = load i32, ptr %.050, align 8, !tbaa !10
   %54 = mul nsw i32 %53, %52
   %55 = xor i32 %54, %.0
   %56 = getelementptr inbounds nuw i8, ptr %.050, i64 32
-  %57 = load ptr, ptr %56, align 8, !tbaa !21
+  %57 = load ptr, ptr %56, align 8, !tbaa !24
   %58 = add nsw i32 %.054, 1
-  br label %.outer68
+  br label %.outer68, !llvm.loop !23
 
 59:                                               ; preds = %47
-  store i32 %.058.ph, ptr %3, align 4, !tbaa !17
-  store i32 %.056.ph63, ptr %4, align 4, !tbaa !17
-  store i32 %.054, ptr %5, align 4, !tbaa !17
+  store i32 %.058.ph, ptr %3, align 4, !tbaa !19
+  store i32 %.056.ph63, ptr %4, align 4, !tbaa !19
+  store i32 %.054, ptr %5, align 4, !tbaa !19
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
-  %3 = load i32, ptr %0, align 8, !tbaa !22
-  %4 = load i32, ptr %1, align 8, !tbaa !22
+  %3 = load i32, ptr %0, align 8, !tbaa !25
+  %4 = load i32, ptr %1, align 8, !tbaa !25
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %5, label %.loopexit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !26
+  %7 = load i32, ptr %6, align 4, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !26
+  %9 = load i32, ptr %8, align 4, !tbaa !29
   %.not177 = icmp eq i32 %7, %9
   br i1 %.not177, label %10, label %.loopexit
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !27
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !29
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %18 = load ptr, ptr %17, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  %20 = load ptr, ptr %19, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !29
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !31
   br label %27
 
 27:                                               ; preds = %.backedge, %10
@@ -314,9 +314,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !21
+  %40 = load ptr, ptr %39, align 8, !tbaa !24
   %41 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !21
+  %42 = load ptr, ptr %41, align 8, !tbaa !24
   br label %.backedge
 
 43:                                               ; preds = %27
@@ -327,9 +327,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !21
+  %48 = load ptr, ptr %47, align 8, !tbaa !24
   %49 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !21
+  %50 = load ptr, ptr %49, align 8, !tbaa !24
   br label %.backedge
 
 51:                                               ; preds = %27
@@ -346,9 +346,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !21
+  %59 = load ptr, ptr %58, align 8, !tbaa !24
   %60 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !21
+  %61 = load ptr, ptr %60, align 8, !tbaa !24
   br label %.backedge
 
 62:                                               ; preds = %51
@@ -359,9 +359,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
-  %66 = load ptr, ptr %65, align 8, !tbaa !21
+  %66 = load ptr, ptr %65, align 8, !tbaa !24
   %67 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !21
+  %68 = load ptr, ptr %67, align 8, !tbaa !24
   br label %.backedge
 
 69:                                               ; preds = %27
@@ -372,9 +372,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
-  %74 = load ptr, ptr %73, align 8, !tbaa !21
+  %74 = load ptr, ptr %73, align 8, !tbaa !24
   %75 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
-  %76 = load ptr, ptr %75, align 8, !tbaa !21
+  %76 = load ptr, ptr %75, align 8, !tbaa !24
   br label %.backedge
 
 77:                                               ; preds = %27
@@ -391,9 +391,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !21
+  %86 = load ptr, ptr %85, align 8, !tbaa !24
   %87 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
-  %88 = load ptr, ptr %87, align 8, !tbaa !21
+  %88 = load ptr, ptr %87, align 8, !tbaa !24
   br label %.backedge
 
 89:                                               ; preds = %77
@@ -404,9 +404,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
-  %93 = load ptr, ptr %92, align 8, !tbaa !21
+  %93 = load ptr, ptr %92, align 8, !tbaa !24
   %94 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 32
-  %95 = load ptr, ptr %94, align 8, !tbaa !21
+  %95 = load ptr, ptr %94, align 8, !tbaa !24
   br label %.backedge
 
 96:                                               ; preds = %27
@@ -417,9 +417,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
-  %101 = load ptr, ptr %100, align 8, !tbaa !21
+  %101 = load ptr, ptr %100, align 8, !tbaa !24
   %102 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
-  %103 = load ptr, ptr %102, align 8, !tbaa !21
+  %103 = load ptr, ptr %102, align 8, !tbaa !24
   br label %.backedge
 
 104:                                              ; preds = %27
@@ -436,9 +436,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 110:                                              ; preds = %109
   %111 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
-  %112 = load ptr, ptr %111, align 8, !tbaa !21
+  %112 = load ptr, ptr %111, align 8, !tbaa !24
   %113 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 32
-  %114 = load ptr, ptr %113, align 8, !tbaa !21
+  %114 = load ptr, ptr %113, align 8, !tbaa !24
   br label %.backedge
 
 115:                                              ; preds = %104
@@ -449,9 +449,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
-  %119 = load ptr, ptr %118, align 8, !tbaa !21
+  %119 = load ptr, ptr %118, align 8, !tbaa !24
   %120 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
-  %121 = load ptr, ptr %120, align 8, !tbaa !21
+  %121 = load ptr, ptr %120, align 8, !tbaa !24
   br label %.backedge
 
 122:                                              ; preds = %27
@@ -468,9 +468,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
-  %131 = load ptr, ptr %130, align 8, !tbaa !21
+  %131 = load ptr, ptr %130, align 8, !tbaa !24
   %132 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
-  %133 = load ptr, ptr %132, align 8, !tbaa !21
+  %133 = load ptr, ptr %132, align 8, !tbaa !24
   br label %.backedge
 
 134:                                              ; preds = %122
@@ -481,9 +481,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 136:                                              ; preds = %134
   %137 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
-  %138 = load ptr, ptr %137, align 8, !tbaa !21
+  %138 = load ptr, ptr %137, align 8, !tbaa !24
   %139 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
-  %140 = load ptr, ptr %139, align 8, !tbaa !21
+  %140 = load ptr, ptr %139, align 8, !tbaa !24
   br label %.backedge
 
 141:                                              ; preds = %27
@@ -508,13 +508,13 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 153:                                              ; preds = %152
   %154 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
-  %155 = load ptr, ptr %154, align 8, !tbaa !21
+  %155 = load ptr, ptr %154, align 8, !tbaa !24
   %156 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
-  %157 = load ptr, ptr %156, align 8, !tbaa !21
+  %157 = load ptr, ptr %156, align 8, !tbaa !24
   %158 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
-  %159 = load ptr, ptr %158, align 8, !tbaa !21
+  %159 = load ptr, ptr %158, align 8, !tbaa !24
   %160 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 32
-  %161 = load ptr, ptr %160, align 8, !tbaa !21
+  %161 = load ptr, ptr %160, align 8, !tbaa !24
   br label %.backedge
 
 162:                                              ; preds = %150
@@ -529,9 +529,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 166:                                              ; preds = %164
   %167 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
-  %168 = load ptr, ptr %167, align 8, !tbaa !21
+  %168 = load ptr, ptr %167, align 8, !tbaa !24
   %169 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
-  %170 = load ptr, ptr %169, align 8, !tbaa !21
+  %170 = load ptr, ptr %169, align 8, !tbaa !24
   br label %.backedge
 
 .backedge:                                        ; preds = %166, %172, %153, %186, %180, %129, %136, %110, %117, %84, %91, %57, %64, %99, %72, %46, %38
@@ -539,16 +539,16 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %.1147.sink.be = phi ptr [ %.1147.sink, %38 ], [ %48, %46 ], [ %59, %57 ], [ %.1147.sink, %64 ], [ %.1147.sink, %72 ], [ %.1147.sink, %84 ], [ %.1147.sink, %91 ], [ %103, %99 ], [ %112, %110 ], [ %121, %117 ], [ %.1147.sink, %129 ], [ %140, %136 ], [ %157, %153 ], [ %.1147.sink, %166 ], [ %174, %172 ], [ %184, %180 ], [ %.1147.sink, %186 ]
   %.1145.sink.be = phi ptr [ %40, %38 ], [ %.1145.sink, %46 ], [ %.1145.sink, %57 ], [ %66, %64 ], [ %76, %72 ], [ %88, %84 ], [ %93, %91 ], [ %.1145.sink, %99 ], [ %.1145.sink, %110 ], [ %.1145.sink, %117 ], [ %133, %129 ], [ %.1145.sink, %136 ], [ %159, %153 ], [ %170, %166 ], [ %.1145.sink, %172 ], [ %.1145.sink, %180 ], [ %188, %186 ]
   %.1.sink.be = phi ptr [ %42, %38 ], [ %50, %46 ], [ %61, %57 ], [ %68, %64 ], [ %.1.sink, %72 ], [ %.1.sink, %84 ], [ %95, %91 ], [ %.1.sink, %99 ], [ %114, %110 ], [ %.1.sink, %117 ], [ %.1.sink, %129 ], [ %.1.sink, %136 ], [ %161, %153 ], [ %.1.sink, %166 ], [ %176, %172 ], [ %.1.sink, %180 ], [ %190, %186 ]
-  br label %27
+  br label %27, !llvm.loop !33
 
 171:                                              ; preds = %163
   br i1 %147, label %.loopexit.loopexit, label %172
 
 172:                                              ; preds = %171
   %173 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
-  %174 = load ptr, ptr %173, align 8, !tbaa !21
+  %174 = load ptr, ptr %173, align 8, !tbaa !24
   %175 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 32
-  %176 = load ptr, ptr %175, align 8, !tbaa !21
+  %176 = load ptr, ptr %175, align 8, !tbaa !24
   br label %.backedge
 
 177:                                              ; preds = %141
@@ -561,9 +561,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 180:                                              ; preds = %179
   %181 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
-  %182 = load ptr, ptr %181, align 8, !tbaa !21
+  %182 = load ptr, ptr %181, align 8, !tbaa !24
   %183 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
-  %184 = load ptr, ptr %183, align 8, !tbaa !21
+  %184 = load ptr, ptr %183, align 8, !tbaa !24
   br label %.backedge
 
 185:                                              ; preds = %177
@@ -572,9 +572,9 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 186:                                              ; preds = %185
   %187 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
-  %188 = load ptr, ptr %187, align 8, !tbaa !21
+  %188 = load ptr, ptr %187, align 8, !tbaa !24
   %189 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 32
-  %190 = load ptr, ptr %189, align 8, !tbaa !21
+  %190 = load ptr, ptr %189, align 8, !tbaa !24
   br label %.backedge
 
 default.unreachable209:                           ; preds = %27
@@ -592,17 +592,17 @@ default.unreachable209:                           ; preds = %27
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: write) uwtable
 define void @Fxu_PairAllocStorage(ptr noundef writeonly captures(none) initializes((4, 8), (16, 24)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %1, ptr %3, align 4, !tbaa !30
+  store i32 %1, ptr %3, align 4, !tbaa !34
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 3
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %7, align 8, !tbaa !33
+  store ptr %6, ptr %7, align 8, !tbaa !37
   %8 = mul nsw i32 %1, %1
   %9 = zext nneg i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 3
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #14
-  store ptr %11, ptr %6, align 8, !tbaa !34
+  store ptr %11, ptr %6, align 8, !tbaa !38
   %12 = mul i64 %5, %4
   tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %12, i1 false)
   %13 = icmp sgt i32 %1, 1
@@ -618,10 +618,10 @@ define void @Fxu_PairAllocStorage(ptr noundef writeonly captures(none) initializ
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %14 = getelementptr ptr, ptr %6, i64 %indvars.iv
   %15 = getelementptr inbounds nuw ptr, ptr %store_forwarded, i64 %4
-  store ptr %15, ptr %14, align 8, !tbaa !34
+  store ptr %15, ptr %14, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -636,33 +636,33 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_PairClearStorage(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !30
+  %5 = load i32, ptr %4, align 4, !tbaa !34
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !33
-  %9 = load i32, ptr %0, align 8, !tbaa !14
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
+  %9 = load i32, ptr %0, align 8, !tbaa !16
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %8, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !34
+  %12 = load ptr, ptr %11, align 8, !tbaa !38
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  store ptr null, ptr %14, align 8, !tbaa !38
+  store ptr null, ptr %14, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !34
+  %16 = load ptr, ptr %15, align 8, !tbaa !38
   %17 = getelementptr inbounds ptr, ptr %16, i64 %10
-  store ptr null, ptr %17, align 8, !tbaa !38
+  store ptr null, ptr %17, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %13, %1
   ret void
@@ -671,25 +671,25 @@ define void @Fxu_PairClearStorage(ptr noundef readonly captures(none) %0) local_
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Fxu_PairFreeStorage(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %3, align 8, !tbaa !34
+  %5 = load ptr, ptr %3, align 8, !tbaa !38
   %.not9 = icmp eq ptr %5, null
   br i1 %.not9, label %8, label %6
 
 6:                                                ; preds = %4
   tail call void @free(ptr noundef nonnull %5) #15
-  %7 = load ptr, ptr %2, align 8, !tbaa !33
-  store ptr null, ptr %7, align 8, !tbaa !34
+  %7 = load ptr, ptr %2, align 8, !tbaa !37
+  store ptr null, ptr %7, align 8, !tbaa !38
   br label %8
 
 8:                                                ; preds = %6, %4
   %9 = phi ptr [ %3, %4 ], [ %7, %6 ]
   tail call void @free(ptr noundef nonnull %9) #15
-  store ptr null, ptr %2, align 8, !tbaa !33
+  store ptr null, ptr %2, align 8, !tbaa !37
   br label %10
 
 10:                                               ; preds = %8, %1
@@ -704,15 +704,15 @@ define noundef ptr @Fxu_PairAlloc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %4 = tail call ptr @Fxu_MemFetch(ptr noundef %0, i32 noundef 64) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %1, ptr %5, align 8, !tbaa !27
+  store ptr %1, ptr %5, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %2, ptr %6, align 8, !tbaa !29
-  %7 = load i32, ptr %1, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load i32, ptr %1, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %7, ptr %8, align 8, !tbaa !40
-  %9 = load i32, ptr %2, align 8, !tbaa !14
+  store i32 %7, ptr %8, align 8, !tbaa !44
+  %9 = load i32, ptr %2, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 %9, ptr %10, align 4, !tbaa !41
+  store i32 %9, ptr %10, align 4, !tbaa !45
   ret ptr %4
 }
 
@@ -721,25 +721,25 @@ declare ptr @Fxu_MemFetch(ptr noundef, i32 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_PairAdd(ptr noundef %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !33
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load i32, ptr %8, align 8, !tbaa !40
+  %9 = load i32, ptr %8, align 8, !tbaa !44
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %7, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !34
+  %12 = load ptr, ptr %11, align 8, !tbaa !38
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %14 = load i32, ptr %13, align 4, !tbaa !41
+  %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds ptr, ptr %12, i64 %15
-  store ptr %0, ptr %16, align 8, !tbaa !38
+  store ptr %0, ptr %16, align 8, !tbaa !42
   %17 = getelementptr inbounds ptr, ptr %7, i64 %15
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !38
   %19 = getelementptr inbounds ptr, ptr %18, i64 %10
-  store ptr %0, ptr %19, align 8, !tbaa !38
+  store ptr %0, ptr %19, align 8, !tbaa !42
   ret void
 }
 
@@ -779,31 +779,35 @@ attributes #15 = { nounwind }
 !11 = !{!"FxuLit", !12, i64 0, !12, i64 4, !4, i64 8, !13, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
 !12 = !{!"int", !6, i64 0}
 !13 = !{!"p1 _ZTS6FxuVar", !5, i64 0}
-!14 = !{!15, !12, i64 0}
-!15 = !{!"FxuCube", !12, i64 0, !4, i64 8, !13, i64 16, !16, i64 24, !4, i64 48, !4, i64 56, !4, i64 64}
-!16 = !{!"FxuListLit", !9, i64 0, !9, i64 8, !12, i64 16}
-!17 = !{!12, !12, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = !{!11, !9, i64 32}
-!22 = !{!23, !12, i64 0}
-!23 = !{!"FxuPair", !12, i64 0, !12, i64 4, !12, i64 8, !24, i64 16, !4, i64 24, !4, i64 32, !12, i64 40, !12, i64 44, !25, i64 48, !25, i64 56}
-!24 = !{!"p1 _ZTS9FxuDouble", !5, i64 0}
-!25 = !{!"p1 _ZTS7FxuPair", !5, i64 0}
-!26 = !{!23, !12, i64 4}
-!27 = !{!23, !4, i64 24}
-!28 = !{!15, !9, i64 24}
-!29 = !{!23, !4, i64 32}
-!30 = !{!31, !12, i64 4}
-!31 = !{!"FxuVar", !12, i64 0, !12, i64 4, !4, i64 8, !32, i64 16, !16, i64 24, !13, i64 48, !13, i64 56, !13, i64 64}
-!32 = !{!"p3 _ZTS7FxuPair", !5, i64 0}
-!33 = !{!31, !32, i64 16}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p2 _ZTS7FxuPair", !5, i64 0}
-!36 = distinct !{!36, !19}
-!37 = !{!15, !13, i64 16}
-!38 = !{!25, !25, i64 0}
-!39 = distinct !{!39, !19}
-!40 = !{!23, !12, i64 40}
-!41 = !{!23, !12, i64 44}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !12, i64 0}
+!17 = !{!"FxuCube", !12, i64 0, !4, i64 8, !13, i64 16, !18, i64 24, !4, i64 48, !4, i64 56, !4, i64 64}
+!18 = !{!"FxuListLit", !9, i64 0, !9, i64 8, !12, i64 16}
+!19 = !{!12, !12, i64 0}
+!20 = distinct !{!20, !21, !15}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21, !15}
+!23 = distinct !{!23, !15}
+!24 = !{!11, !9, i64 32}
+!25 = !{!26, !12, i64 0}
+!26 = !{!"FxuPair", !12, i64 0, !12, i64 4, !12, i64 8, !27, i64 16, !4, i64 24, !4, i64 32, !12, i64 40, !12, i64 44, !28, i64 48, !28, i64 56}
+!27 = !{!"p1 _ZTS9FxuDouble", !5, i64 0}
+!28 = !{!"p1 _ZTS7FxuPair", !5, i64 0}
+!29 = !{!26, !12, i64 4}
+!30 = !{!26, !4, i64 24}
+!31 = !{!17, !9, i64 24}
+!32 = !{!26, !4, i64 32}
+!33 = distinct !{!33, !15}
+!34 = !{!35, !12, i64 4}
+!35 = !{!"FxuVar", !12, i64 0, !12, i64 4, !4, i64 8, !36, i64 16, !18, i64 24, !13, i64 48, !13, i64 56, !13, i64 64}
+!36 = !{!"p3 _ZTS7FxuPair", !5, i64 0}
+!37 = !{!35, !36, i64 16}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p2 _ZTS7FxuPair", !5, i64 0}
+!40 = distinct !{!40, !21, !15}
+!41 = !{!17, !13, i64 16}
+!42 = !{!28, !28, i64 0}
+!43 = distinct !{!43, !21, !15}
+!44 = !{!26, !12, i64 40}
+!45 = !{!26, !12, i64 44}

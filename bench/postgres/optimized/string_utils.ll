@@ -161,7 +161,7 @@ define dso_local ptr @fmtIdEnc(ptr noundef %0, i32 noundef %1) local_unnamed_add
   tail call void @appendPQExpBufferChar(ptr noundef %4, i8 noundef signext %32) #11
   %33 = add i64 %.06191, -1
   %34 = getelementptr inbounds nuw i8, ptr %.192, i64 1
-  br label %.loopexit, !llvm.loop !6
+  br label %.loopexit, !llvm.loop !7
 
 35:                                               ; preds = %26
   %36 = tail call i32 @pg_encoding_mblen(i32 noundef %1, ptr noundef nonnull %.192) #11
@@ -211,13 +211,13 @@ define dso_local ptr @fmtIdEnc(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %58 = getelementptr inbounds nuw i8, ptr %.486, i64 1
   %59 = add nuw nsw i32 %.087, 1
   %exitcond97.not = icmp eq i32 %59, %36
-  br i1 %exitcond97.not, label %.loopexit, label %.lr.ph88, !llvm.loop !7
+  br i1 %exitcond97.not, label %.loopexit, label %.lr.ph88, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph88, %.preheader, %53, %31
   %.162 = phi i64 [ %33, %31 ], [ %54, %53 ], [ %.06191, %.preheader ], [ %57, %.lr.ph88 ]
   %.2 = phi ptr [ %34, %31 ], [ %55, %53 ], [ %.192, %.preheader ], [ %58, %.lr.ph88 ]
   %.not70 = icmp eq i64 %.162, 0
-  br i1 %.not70, label %._crit_edge94, label %26
+  br i1 %.not70, label %._crit_edge94, label %26, !llvm.loop !9
 
 ._crit_edge94:                                    ; preds = %.loopexit, %.thread76
   tail call void @appendPQExpBufferChar(ptr noundef %4, i8 noundef signext 34) #11
@@ -387,7 +387,7 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
   store i8 %15, ptr %.145, align 1
   %23 = getelementptr inbounds nuw i8, ptr %.04365, i64 1
   %24 = add i64 %.04863, -1
-  br label %.loopexit, !llvm.loop !8
+  br label %.loopexit, !llvm.loop !10
 
 25:                                               ; preds = %.lr.ph66
   %26 = tail call i32 @PQmblen(ptr noundef nonnull %.04365, i32 noundef %2) #11
@@ -423,14 +423,14 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
   %40 = add i64 %.35156, -1
   %41 = add nuw nsw i32 %.059, 1
   %exitcond.not = icmp eq i32 %41, %26
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %33, %21
   %.149 = phi i64 [ %24, %21 ], [ %36, %33 ], [ %.04863, %.preheader ], [ %40, %.lr.ph ]
   %.246 = phi ptr [ %22, %21 ], [ %34, %33 ], [ %.04464, %.preheader ], [ %39, %.lr.ph ]
   %.1 = phi ptr [ %23, %21 ], [ %35, %33 ], [ %.04365, %.preheader ], [ %37, %.lr.ph ]
   %.not53 = icmp eq i64 %.149, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph66
+  br i1 %.not53, label %._crit_edge, label %.lr.ph66, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %9
   %.044.lcssa = phi ptr [ %14, %9 ], [ %.246, %.loopexit ]
@@ -547,7 +547,7 @@ define dso_local void @appendStringLiteralDQ(ptr noundef %0, ptr noundef %1, ptr
   %14 = load ptr, ptr %4, align 8
   %15 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %14) #12
   %.not17 = icmp eq ptr %15, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %4, i8 noundef signext 36) #11
@@ -616,7 +616,7 @@ define dso_local void @appendByteaLiteral(ptr noundef %0, ptr noundef readonly c
   store i8 %30, ptr %26, align 1
   %.1 = getelementptr inbounds nuw i8, ptr %.128, i64 2
   %.not22 = icmp eq i64 %18, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.020.pn.lcssa = phi ptr [ %.020, %16 ], [ %.128, %.lr.ph ]
@@ -692,7 +692,7 @@ define dso_local zeroext i1 @appendShellStringNoError(ptr noundef %0, ptr nounde
 14:                                               ; preds = %10, %10, %12, %13
   %.1 = phi i1 [ %.018, %12 ], [ %.018, %13 ], [ false, %10 ], [ false, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %10, !llvm.loop !12
+  br label %10, !llvm.loop !15
 
 16:                                               ; preds = %10
   tail call void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext 39) #11
@@ -738,7 +738,7 @@ define dso_local void @appendConnStrVal(ptr noundef %0, ptr noundef %1) local_un
   %10 = getelementptr inbounds nuw i8, ptr %.02238, i64 1
   %11 = load i8, ptr %10, align 1
   %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %8, %2
   tail call void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext 39) #11
@@ -762,7 +762,7 @@ define dso_local void @appendConnStrVal(ptr noundef %0, ptr noundef %1) local_un
   %16 = phi i8 [ %13, %12 ], [ %.pre, %14 ]
   tail call void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext %16) #11
   %17 = getelementptr inbounds nuw i8, ptr %.023, i64 1
-  br label %12, !llvm.loop !14
+  br label %12, !llvm.loop !17
 
 18:                                               ; preds = %12
   tail call void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext 39) #11
@@ -818,7 +818,7 @@ define dso_local void @appendPsqlMetaConnect(ptr noundef %0, ptr noundef %1) loc
 15:                                               ; preds = %13, %13, %9, %14
   %.1 = phi i1 [ %.0, %13 ], [ true, %14 ], [ %.0, %9 ], [ %.0, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %.022, i64 1
-  br label %4, !llvm.loop !15
+  br label %4, !llvm.loop !18
 
 17:                                               ; preds = %4
   br i1 %.0, label %18, label %21
@@ -942,7 +942,7 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr noundef readonly captures(
   %.4 = phi ptr [ %34, %33 ], [ %.346, %.preheader ]
   %39 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   store i8 %38, ptr %.3, align 1
-  br label %.preheader, !llvm.loop !16
+  br label %.preheader, !llvm.loop !19
 
 40:                                               ; preds = %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %.144.pn, i64 2
@@ -951,7 +951,7 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr noundef readonly captures(
 .backedge:                                        ; preds = %40, %29
   %.144.be = phi ptr [ %30, %29 ], [ %41, %40 ]
   %.1.be = phi ptr [ %31, %29 ], [ %.3, %40 ]
-  br label %27, !llvm.loop !17
+  br label %27, !llvm.loop !20
 
 .critedge:                                        ; preds = %27, %27
   %42 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -961,7 +961,7 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr noundef readonly captures(
   %spec.select.idx = zext i1 %44 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.144, i64 %spec.select.idx
   %45 = add i32 %.0, 1
-  br label %22, !llvm.loop !18
+  br label %22, !llvm.loop !21
 
 46:                                               ; preds = %22
   %47 = getelementptr inbounds nuw i8, ptr %.043, i64 1
@@ -1026,7 +1026,7 @@ define dso_local void @appendPGArray(ptr noundef %0, ptr noundef %1) local_unnam
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %.068, i64 1
-  br label %.preheader, !llvm.loop !19
+  br label %.preheader, !llvm.loop !22
 
 .thread80:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %10, %13
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 34) #11
@@ -1048,7 +1048,7 @@ define dso_local void @appendPGArray(ptr noundef %0, ptr noundef %1) local_unnam
 22:                                               ; preds = %19, %21
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext %20) #11
   %23 = getelementptr inbounds nuw i8, ptr %.169, i64 1
-  br label %19, !llvm.loop !20
+  br label %19, !llvm.loop !23
 
 24:                                               ; preds = %19
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 34) #11
@@ -1134,7 +1134,7 @@ define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr n
 30:                                               ; preds = %29, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %30, %.preheader, %11
   %.pre.sink = phi ptr [ %12, %11 ], [ %.pre, %.preheader ], [ %.pre, %30 ]
@@ -1509,7 +1509,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   call void @appendPQExpBufferChar(ptr noundef %.0141, i8 noundef signext %87) #11
   %88 = add i32 %84, -1
   %.not126.us = icmp eq i32 %84, 0
-  br i1 %.not126.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !22
+  br i1 %.not126.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %89 = phi i32 [ %92, %.lr.ph.split ], [ %82, %.lr.ph ]
@@ -1519,7 +1519,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   call void @appendPQExpBufferChar(ptr noundef %.0141, i8 noundef signext %91) #11
   %92 = add i32 %89, -1
   %.not126 = icmp eq i32 %89, 0
-  br i1 %.not126, label %.loopexit, label %.lr.ph.split, !llvm.loop !24
+  br i1 %.not126, label %.loopexit, label %.lr.ph.split, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %80, %44, %55, %71, %61, %64, %50, %29
   %.2111 = phi i8 [ %.1110, %29 ], [ 0, %50 ], [ 0, %55 ], [ 0, %61 ], [ 0, %64 ], [ %.0109138, %71 ], [ 0, %44 ], [ %.0109138, %80 ], [ %.0109138, %.lr.ph.split.us ], [ %.0109138, %.lr.ph.split ]
@@ -1528,7 +1528,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   %.1 = phi ptr [ %.0141, %29 ], [ %.0141, %50 ], [ %.0141, %55 ], [ %62, %61 ], [ %.0141, %64 ], [ %.0141, %71 ], [ %.0141, %44 ], [ %.0141, %80 ], [ %.0141, %.lr.ph.split.us ], [ %.0141, %.lr.ph.split ]
   %93 = load i8, ptr %.2104, align 1
   %.not120 = icmp eq i8 %93, 0
-  br i1 %.not120, label %._crit_edge, label %.lr.ph143, !llvm.loop !25
+  br i1 %.not120, label %._crit_edge, label %.lr.ph143, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.loopexit, %13
   %.0.lcssa = phi ptr [ %9, %13 ], [ %.1, %.loopexit ]
@@ -1618,25 +1618,28 @@ attributes #15 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}

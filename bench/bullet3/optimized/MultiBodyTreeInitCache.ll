@@ -230,7 +230,7 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %65, %_ZNK20b3Aligne
   %70 = load ptr, ptr %69, align 8, !tbaa !25
   %.not.i16.i.i = icmp ne ptr %70, null
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %72 = load i8, ptr %71, align 8, !range !56
+  %72 = load i8, ptr %71, align 8, !range !57
   %73 = trunc nuw i8 %72 to i1
   %or.cond.i.i = select i1 %.not.i16.i.i, i1 %73, i1 false
   br i1 %or.cond.i.i, label %74, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
@@ -296,11 +296,11 @@ _ZN20b3AlignedObjectArrayIPvE8allocateEi.exit.i.i: ; preds = %91
   %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i.i.i25
   %101 = load ptr, ptr %98, align 8, !tbaa !31
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i.i.i25
-  %103 = load ptr, ptr %102, align 8, !tbaa !57
-  store ptr %103, ptr %100, align 8, !tbaa !57
+  %103 = load ptr, ptr %102, align 8, !tbaa !58
+  store ptr %103, ptr %100, align 8, !tbaa !58
   %indvars.iv.next.i.i.i26 = add nuw nsw i64 %indvars.iv.i.i.i25, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %indvars.iv.next.i.i.i26, %wide.trip.count.i.i.i24
-  br i1 %exitcond.not.i.i.i27, label %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit.i.i, label %99, !llvm.loop !58
+  br i1 %exitcond.not.i.i.i27, label %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit.i.i, label %99, !llvm.loop !59
 
 _ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit15.i.i: ; preds = %_ZN20b3AlignedObjectArrayIPvE8allocateEi.exit.i.i, %91
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 301)
@@ -316,7 +316,7 @@ _ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit.i.i: ; preds = %99, %_ZNK20b3Ali
   %105 = load ptr, ptr %104, align 8, !tbaa !31
   %.not.i16.i.i20 = icmp ne ptr %105, null
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %107 = load i8, ptr %106, align 8, !range !56
+  %107 = load i8, ptr %106, align 8, !range !57
   %108 = trunc nuw i8 %107 to i1
   %or.cond.i.i21 = select i1 %.not.i16.i.i20, i1 %108, i1 false
   br i1 %or.cond.i.i21, label %109, label %_ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit.i.i
@@ -339,7 +339,7 @@ _ZN20b3AlignedObjectArrayIPvE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObj
   %112 = load ptr, ptr %111, align 8, !tbaa !31
   %113 = sext i32 %110 to i64
   %114 = getelementptr inbounds ptr, ptr %112, i64 %113
-  store ptr %11, ptr %114, align 8, !tbaa !57
+  store ptr %11, ptr %114, align 8, !tbaa !58
   %115 = add nsw i32 %110, 1
   store i32 %115, ptr %82, align 4, !tbaa !32
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %14) #7
@@ -410,7 +410,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8allocateEi.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !48
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4copyEiiPS1_.exit.i, label %20, !llvm.loop !59
+  br i1 %exitcond.not.i.i, label %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4copyEiiPS1_.exit.i, label %20, !llvm.loop !60
 
 _ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4copyEiiPS1_.exit15.i: ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8allocateEi.exit.i, %12
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 301)
@@ -425,7 +425,7 @@ _ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4copyEiiPS1
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %.not.i16.i = icmp ne ptr %31, null
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load i8, ptr %32, align 8, !range !56
+  %33 = load i8, ptr %32, align 8, !range !57
   %34 = trunc nuw i8 %33 to i1
   %or.cond.i = select i1 %.not.i16.i, i1 %34, i1 false
   br i1 %or.cond.i, label %35, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocateEv.exit.i
@@ -520,7 +520,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8allocateEi.exi
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %31, i64 16, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4copyEiiPS1_.exit.i, label %20, !llvm.loop !60
+  br i1 %exitcond.not.i.i, label %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4copyEiiPS1_.exit.i, label %20, !llvm.loop !61
 
 _ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4copyEiiPS1_.exit15.i: ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8allocateEi.exit.i, %12
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 301)
@@ -535,7 +535,7 @@ _ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4copyEiiPS1_.e
   %33 = load ptr, ptr %32, align 8, !tbaa !19
   %.not.i16.i = icmp ne ptr %33, null
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load i8, ptr %34, align 8, !range !56
+  %35 = load i8, ptr %34, align 8, !range !57
   %36 = trunc nuw i8 %35 to i1
   %or.cond.i = select i1 %.not.i16.i, i1 %36, i1 false
   br i1 %or.cond.i, label %37, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv.exit.i
@@ -659,8 +659,8 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %11 = load ptr, ptr %10, align 8, !tbaa !31
   %12 = zext nneg i32 %1 to i64
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !57
-  store ptr %14, ptr %2, align 8, !tbaa !57
+  %14 = load ptr, ptr %13, align 8, !tbaa !58
+  store ptr %14, ptr %2, align 8, !tbaa !58
   br label %15
 
 15:                                               ; preds = %9, %8
@@ -772,7 +772,7 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %20, %_ZNK20b3Aligne
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %.not.i16.i.i = icmp ne ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %27 = load i8, ptr %26, align 8, !range !56
+  %27 = load i8, ptr %26, align 8, !range !57
   %28 = trunc nuw i8 %27 to i1
   %or.cond.i.i = select i1 %.not.i16.i.i, i1 %28, i1 false
   br i1 %or.cond.i.i, label %29, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
@@ -829,7 +829,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %.lr.ph.i, %1
   %50 = load i32, ptr %35, align 4, !tbaa !35
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %42, label %._crit_edge, !llvm.loop !61
+  br i1 %52, label %42, label %._crit_edge, !llvm.loop !62
 }
 
 declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #4
@@ -901,11 +901,12 @@ attributes #7 = { nounwind }
 !51 = !{!"_ZTSN24btInverseDynamicsBullet311InertiaDataE", !52, i64 0, !42, i64 4, !44, i64 20}
 !52 = !{!"float", !8, i64 0}
 !53 = !{!7, !7, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{i8 0, i8 2}
-!57 = !{!11, !11, i64 0}
-!58 = distinct !{!58, !55}
-!59 = distinct !{!59, !55}
-!60 = distinct !{!60, !55}
-!61 = distinct !{!61, !55}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{i8 0, i8 2}
+!58 = !{!11, !11, i64 0}
+!59 = distinct !{!59, !55, !56}
+!60 = distinct !{!60, !55, !56}
+!61 = distinct !{!61, !55, !56}
+!62 = distinct !{!62, !55, !56}

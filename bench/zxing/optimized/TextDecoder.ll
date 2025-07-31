@@ -767,7 +767,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %.0 = phi i64 [ %spec.store.select.i, %26 ], [ %11, %23 ], [ %11, %21 ]
   %28 = add nuw i64 %.0, 1
   %29 = icmp slt i64 %28, 0
-  br i1 %29, label %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit, !prof !25
+  br i1 %29, label %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit, !prof !26
 
 30:                                               ; preds = %27
   tail call void @_ZSt17__throw_bad_allocv() #15
@@ -911,7 +911,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit: ; preds 
 27:                                               ; preds = %26, %23, %21
   %.0 = phi i64 [ %spec.store.select.i, %26 ], [ %11, %23 ], [ %11, %21 ]
   %28 = icmp samesign ugt i64 %.0, 2305843009213693950
-  br i1 %28, label %29, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_createERmm.exit, !prof !25
+  br i1 %28, label %29, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_createERmm.exit, !prof !26
 
 29:                                               ; preds = %27
   tail call void @_ZSt17__throw_bad_allocv() #15
@@ -1059,6 +1059,7 @@ attributes #17 = { builtin allocsize(0) }
 !20 = !{!17, !10, i64 8}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"wchar_t", !8, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!"branch_weights", !"expected", i32 1, i32 2000}

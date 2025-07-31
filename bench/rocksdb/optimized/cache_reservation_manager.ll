@@ -860,7 +860,7 @@ _ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14Cac
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
   %.not = icmp eq ptr %59, %5
-  br i1 %.not, label %._crit_edge.loopexit, label %52
+  br i1 %.not, label %._crit_edge.loopexit, label %52, !llvm.loop !61
 
 60:                                               ; preds = %52
   %61 = landingpad { ptr, i32 }
@@ -880,7 +880,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %2, ptr %4, align 8, !tbaa !61
+  store i64 %2, ptr %4, align 8, !tbaa !63
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = icmp eq i64 %2, %6
@@ -888,8 +888,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !62, !alias.scope !64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !64
+  store ptr null, ptr %9, align 8, !tbaa !64, !alias.scope !66
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !66
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm.exit
 
 10:                                               ; preds = %3
@@ -902,7 +902,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i8, ptr %14, align 8, !tbaa !35, !range !67, !noundef !68
+  %15 = load i8, ptr %14, align 8, !tbaa !35, !range !69, !noundef !70
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %22
 
@@ -914,17 +914,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !62, !alias.scope !69
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !69
+  store ptr null, ptr %21, align 8, !tbaa !64, !alias.scope !71
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !71
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm.exit
 
 22:                                               ; preds = %17, %13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !62, !alias.scope !75
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !75
+  store ptr null, ptr %23, align 8, !tbaa !64, !alias.scope !77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !77
   %24 = add i64 %2, 262144
-  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !72
+  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !74
   %.not5.i = icmp ugt i64 %24, %25
   br i1 %.not5.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm.exit, label %.lr.ph.i
 
@@ -934,38 +934,38 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %28
 
 28:                                               ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %.lr.ph.i
-  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !72
+  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !74
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !72
-  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !72
-  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !72
+  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !74
+  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !74
+  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !74
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
-  %35 = load ptr, ptr %34, align 8, !noalias !72
+  %35 = load ptr, ptr %34, align 8, !noalias !74
   %36 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef %31, i1 noundef zeroext true)
-          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !72
+          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !74
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i: ; preds = %28
-  %37 = load ptr, ptr %26, align 8, !tbaa !78, !noalias !72
+  %37 = load ptr, ptr %26, align 8, !tbaa !80, !noalias !74
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
-  store ptr %38, ptr %26, align 8, !tbaa !78, !noalias !72
-  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !72
-  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !72
+  store ptr %38, ptr %26, align 8, !tbaa !80, !noalias !74
+  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !74
+  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !74
   %.not.i = icmp ugt i64 %24, %40
-  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !79
+  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !81
 
 41:                                               ; preds = %28
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !72
+  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !74
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %41
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !72
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !74
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %41
-  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !72
+  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !74
   resume { ptr, i32 } %42
 
 _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm.exit: ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %22, %12, %20, %8
@@ -979,8 +979,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   %6 = alloca %"class.rocksdb::Status", align 8
   %7 = alloca %"class.rocksdb::Slice", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %8, align 8, !tbaa !62, !alias.scope !81
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !81
+  store ptr null, ptr %8, align 8, !tbaa !64, !alias.scope !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !83
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %11 = icmp ugt i64 %2, %10
@@ -1021,62 +1021,62 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 33:                                               ; preds = %30
   %34 = extractvalue { i64, i64 } %32, 0
   %35 = extractvalue { i64, i64 } %32, 1
-  store i64 %34, ptr %13, align 8, !tbaa !84
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !84
+  store i64 %34, ptr %13, align 8, !tbaa !86
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !86
   store ptr %13, ptr %7, align 8
   store i64 16, ptr %14, align 8
-  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !85
-  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !85
+  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !87
+  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !87
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !88
+  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !90
 
 39:                                               ; preds = %33
-  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !85
+  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !87
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, label %41
 
 41:                                               ; preds = %39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !85
-  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89, !noalias !85
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93, !noalias !85
-  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !85
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !87
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91, !noalias !87
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95, !noalias !87
+  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !87
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !87
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !85
-  store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !85
-  store i64 0, ptr %15, align 8, !tbaa !96, !noalias !85
-  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !85
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !87
+  store ptr @.str, ptr %4, align 8, !tbaa !96, !noalias !87
+  store i64 0, ptr %15, align 8, !tbaa !98, !noalias !87
+  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !87
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  %45 = load ptr, ptr %44, align 8, !noalias !85
+  %45 = load ptr, ptr %44, align 8, !noalias !87
   invoke void %45(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 noundef 262144, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %4, i8 noundef zeroext 0)
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !85
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !87
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %6, align 8, !tbaa !97
-  store i8 %48, ptr %0, align 8, !tbaa !99
-  store i8 0, ptr %6, align 8, !tbaa !99
-  %49 = load i8, ptr %16, align 1, !tbaa !108
-  store i8 %49, ptr %17, align 1, !tbaa !109
-  store i8 0, ptr %16, align 1, !tbaa !109
-  %50 = load i8, ptr %18, align 2, !tbaa !110
-  store i8 %50, ptr %19, align 2, !tbaa !111
-  store i8 0, ptr %18, align 2, !tbaa !111
-  %51 = load i8, ptr %20, align 1, !tbaa !112, !range !67, !noundef !68
-  store i8 %51, ptr %21, align 1, !tbaa !113
-  store i8 0, ptr %20, align 1, !tbaa !113
-  %52 = load i8, ptr %22, align 4, !tbaa !112, !range !67, !noundef !68
-  store i8 %52, ptr %23, align 4, !tbaa !114
-  store i8 0, ptr %22, align 4, !tbaa !114
+  %48 = load i8, ptr %6, align 8, !tbaa !99
+  store i8 %48, ptr %0, align 8, !tbaa !101
+  store i8 0, ptr %6, align 8, !tbaa !101
+  %49 = load i8, ptr %16, align 1, !tbaa !110
+  store i8 %49, ptr %17, align 1, !tbaa !111
+  store i8 0, ptr %16, align 1, !tbaa !111
+  %50 = load i8, ptr %18, align 2, !tbaa !112
+  store i8 %50, ptr %19, align 2, !tbaa !113
+  store i8 0, ptr %18, align 2, !tbaa !113
+  %51 = load i8, ptr %20, align 1, !tbaa !114, !range !69, !noundef !70
+  store i8 %51, ptr %21, align 1, !tbaa !115
+  store i8 0, ptr %20, align 1, !tbaa !115
+  %52 = load i8, ptr %22, align 4, !tbaa !114, !range !69, !noundef !70
+  store i8 %52, ptr %23, align 4, !tbaa !116
+  store i8 0, ptr %22, align 4, !tbaa !116
   %53 = load i8, ptr %24, align 1, !tbaa !20
-  store i8 %53, ptr %25, align 1, !tbaa !115
-  store i8 0, ptr %24, align 1, !tbaa !115
+  store i8 %53, ptr %25, align 1, !tbaa !117
+  store i8 0, ptr %24, align 1, !tbaa !117
   store ptr null, ptr %26, align 8, !tbaa !30
   %54 = load ptr, ptr %8, align 8, !tbaa !30
   store ptr %.pre32, ptr %8, align 8, !tbaa !30
@@ -1100,7 +1100,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
-  %56 = load i8, ptr %0, align 8, !tbaa !99
+  %56 = load i8, ptr %0, align 8, !tbaa !101
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
 
@@ -1112,7 +1112,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  %60 = load ptr, ptr %28, align 8, !tbaa !78
+  %60 = load ptr, ptr %28, align 8, !tbaa !80
   %61 = load ptr, ptr %29, align 8, !tbaa !57
   %.not.i20 = icmp eq ptr %60, %61
   br i1 %.not.i20, label %65, label %62
@@ -1121,7 +1121,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   %63 = load ptr, ptr %5, align 8, !tbaa !59
   store ptr %63, ptr %60, align 8, !tbaa !59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %64, ptr %28, align 8, !tbaa !78
+  store ptr %64, ptr %28, align 8, !tbaa !80
   br label %86
 
 65:                                               ; preds = %59
@@ -1174,7 +1174,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
-  store ptr %83, ptr %28, align 8, !tbaa !78
+  store ptr %83, ptr %28, align 8, !tbaa !80
   %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
@@ -1184,7 +1184,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
-  br i1 %89, label %30, label %.critedge, !llvm.loop !116
+  br i1 %89, label %30, label %.critedge, !llvm.loop !118
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1222,8 +1222,8 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !117
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !117
+  store ptr null, ptr %4, align 8, !tbaa !64, !alias.scope !119
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !119
   %5 = add i64 %2, 262144
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -1247,13 +1247,13 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
           to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit unwind label %23
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %10
-  %19 = load ptr, ptr %8, align 8, !tbaa !78
+  %19 = load ptr, ptr %8, align 8, !tbaa !80
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr %20, ptr %8, align 8, !tbaa !78
+  store ptr %20, ptr %8, align 8, !tbaa !80
   %21 = atomicrmw sub ptr %6, i64 262144 seq_cst, align 8
   %22 = load atomic i64, ptr %6 monotonic, align 8
   %.not = icmp ugt i64 %5, %22
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !79
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !81
 
 23:                                               ; preds = %10
   %24 = landingpad { ptr, i32 }
@@ -1276,13 +1276,13 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !120
+  store i8 3, ptr %0, align 8, !tbaa !101, !alias.scope !122
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !120
+  store i8 0, ptr %5, align 1, !tbaa !111, !alias.scope !122
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !62, !alias.scope !120
-  store i32 0, ptr %6, align 2, !alias.scope !120
+  store ptr null, ptr %7, align 8, !tbaa !64, !alias.scope !122
+  store i32 0, ptr %6, align 2, !alias.scope !122
   ret void
 }
 
@@ -1303,17 +1303,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !123
-  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !123
+  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !125
+  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !125
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !123
+  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !125
   br label %24
 
 24:                                               ; preds = %25, %21
@@ -1323,14 +1323,14 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 25:                                               ; preds = %24
   %26 = add nsw i32 %.06.i.i.i.i.i, 1
-  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !123
+  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !125
   %28 = extractvalue { i32, i1 } %27, 1
   %29 = extractvalue { i32, i1 } %27, 0
-  br i1 %28, label %31, label %24, !llvm.loop !126
+  br i1 %28, label %31, label %24, !llvm.loop !128
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %24, %15
-  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !123
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !123
+  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !125
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !125
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #21
           to label %.noexc unwind label %62
 
@@ -1338,14 +1338,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %16, align 8, !tbaa !127, !noalias !123
-  store ptr %32, ptr %5, align 8, !tbaa !18, !alias.scope !123
+  %32 = load ptr, ptr %16, align 8, !tbaa !129, !noalias !125
+  store ptr %32, ptr %5, align 8, !tbaa !18, !alias.scope !125
   invoke void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22CacheReservationHandleC1EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %2, ptr noundef nonnull %5)
           to label %33 unwind label %64
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %3, align 8, !tbaa !128
-  store ptr %14, ptr %3, align 8, !tbaa !128
+  %34 = load ptr, ptr %3, align 8, !tbaa !130
+  store ptr %14, ptr %3, align 8, !tbaa !130
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i.i
 
@@ -1458,7 +1458,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE18GetTotalMemoryUsedEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i64, ptr %2, align 8, !tbaa !61
+  %3 = load i64, ptr %2, align 8, !tbaa !63
   ret i64 %3
 }
 
@@ -1471,7 +1471,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
+  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !90
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
@@ -1480,8 +1480,8 @@ define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false)
-  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95
   %6 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit
@@ -1498,9 +1498,9 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %5, ptr %7, align 8, !tbaa !84
+  store i64 %5, ptr %7, align 8, !tbaa !86
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
+  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !86
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %7, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 16, 1
   ret { ptr, i64 } %.fca.1.insert.i
@@ -1512,11 +1512,11 @@ declare { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5Ca
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleC2EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleC5EmSt10shared_ptrIS2_E) align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !130
+  store i64 %1, ptr %4, align 8, !tbaa !132
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %2, align 8, !tbaa !135
-  store ptr %6, ptr %5, align 8, !tbaa !135
+  %6 = load ptr, ptr %2, align 8, !tbaa !137
+  store ptr %6, ptr %5, align 8, !tbaa !137
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !19
@@ -1599,20 +1599,20 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !135
+  %4 = load ptr, ptr %3, align 8, !tbaa !137
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !130
-  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !136
+  %6 = load i64, ptr %5, align 8, !tbaa !132
+  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !138
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !noalias !136
+  %9 = load ptr, ptr %8, align 8, !noalias !138
   %10 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(104) %4)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %1
   %11 = sub i64 %10, %6
-  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !136
+  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !138
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !136
+  %14 = load ptr, ptr %13, align 8, !noalias !138
   invoke void %14(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %2, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %11)
           to label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE23ReleaseCacheReservationEm.exit unwind label %40
 
@@ -1798,7 +1798,7 @@ _ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %18, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %17, ptr %19, align 8, !tbaa !139
+  store i8 %17, ptr %19, align 8, !tbaa !141
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   ret void
@@ -1936,7 +1936,7 @@ _ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14Cac
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
   %.not = icmp eq ptr %59, %5
-  br i1 %.not, label %._crit_edge.loopexit, label %52
+  br i1 %.not, label %._crit_edge.loopexit, label %52, !llvm.loop !147
 
 60:                                               ; preds = %52
   %61 = landingpad { ptr, i32 }
@@ -1956,7 +1956,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %2, ptr %4, align 8, !tbaa !145
+  store i64 %2, ptr %4, align 8, !tbaa !148
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = icmp eq i64 %2, %6
@@ -1964,8 +1964,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !62, !alias.scope !146
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !146
+  store ptr null, ptr %9, align 8, !tbaa !64, !alias.scope !149
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !149
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm.exit
 
 10:                                               ; preds = %3
@@ -1978,7 +1978,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i8, ptr %14, align 8, !tbaa !139, !range !67, !noundef !68
+  %15 = load i8, ptr %14, align 8, !tbaa !141, !range !69, !noundef !70
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %22
 
@@ -1990,17 +1990,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !62, !alias.scope !149
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !149
+  store ptr null, ptr %21, align 8, !tbaa !64, !alias.scope !152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !152
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm.exit
 
 22:                                               ; preds = %17, %13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !62, !alias.scope !155
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !155
+  store ptr null, ptr %23, align 8, !tbaa !64, !alias.scope !158
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !158
   %24 = add i64 %2, 262144
-  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !152
+  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !155
   %.not5.i = icmp ugt i64 %24, %25
   br i1 %.not5.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm.exit, label %.lr.ph.i
 
@@ -2010,38 +2010,38 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %28
 
 28:                                               ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %.lr.ph.i
-  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !152
+  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !155
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !152
-  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !152
-  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !152
+  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !155
+  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !155
+  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !155
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
-  %35 = load ptr, ptr %34, align 8, !noalias !152
+  %35 = load ptr, ptr %34, align 8, !noalias !155
   %36 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef %31, i1 noundef zeroext true)
-          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !152
+          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !155
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i: ; preds = %28
-  %37 = load ptr, ptr %26, align 8, !tbaa !78, !noalias !152
+  %37 = load ptr, ptr %26, align 8, !tbaa !80, !noalias !155
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
-  store ptr %38, ptr %26, align 8, !tbaa !78, !noalias !152
-  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !152
-  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !152
+  store ptr %38, ptr %26, align 8, !tbaa !80, !noalias !155
+  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !155
+  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !155
   %.not.i = icmp ugt i64 %24, %40
-  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !158
+  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !161
 
 41:                                               ; preds = %28
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !152
+  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !155
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %41
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !152
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !155
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %41
-  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !152
+  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !155
   resume { ptr, i32 } %42
 
 _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm.exit: ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %22, %12, %20, %8
@@ -2055,8 +2055,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   %6 = alloca %"class.rocksdb::Status", align 8
   %7 = alloca %"class.rocksdb::Slice", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %8, align 8, !tbaa !62, !alias.scope !159
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !159
+  store ptr null, ptr %8, align 8, !tbaa !64, !alias.scope !162
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !162
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %11 = icmp ugt i64 %2, %10
@@ -2097,62 +2097,62 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 33:                                               ; preds = %30
   %34 = extractvalue { i64, i64 } %32, 0
   %35 = extractvalue { i64, i64 } %32, 1
-  store i64 %34, ptr %13, align 8, !tbaa !84
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !84
+  store i64 %34, ptr %13, align 8, !tbaa !86
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !86
   store ptr %13, ptr %7, align 8
   store i64 16, ptr %14, align 8
-  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !162
-  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !162
+  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !165
+  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !165
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !88
+  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !90
 
 39:                                               ; preds = %33
-  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !162
+  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !165
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, label %41
 
 41:                                               ; preds = %39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !162
-  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89, !noalias !162
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93, !noalias !162
-  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !162
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !162
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !165
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91, !noalias !165
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95, !noalias !165
+  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !165
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !165
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !162
-  store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !162
-  store i64 0, ptr %15, align 8, !tbaa !96, !noalias !162
-  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !162
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !165
+  store ptr @.str, ptr %4, align 8, !tbaa !96, !noalias !165
+  store i64 0, ptr %15, align 8, !tbaa !98, !noalias !165
+  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !165
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  %45 = load ptr, ptr %44, align 8, !noalias !162
+  %45 = load ptr, ptr %44, align 8, !noalias !165
   invoke void %45(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 noundef 262144, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %4, i8 noundef zeroext 0)
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !162
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !165
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %6, align 8, !tbaa !97
-  store i8 %48, ptr %0, align 8, !tbaa !99
-  store i8 0, ptr %6, align 8, !tbaa !99
-  %49 = load i8, ptr %16, align 1, !tbaa !108
-  store i8 %49, ptr %17, align 1, !tbaa !109
-  store i8 0, ptr %16, align 1, !tbaa !109
-  %50 = load i8, ptr %18, align 2, !tbaa !110
-  store i8 %50, ptr %19, align 2, !tbaa !111
-  store i8 0, ptr %18, align 2, !tbaa !111
-  %51 = load i8, ptr %20, align 1, !tbaa !112, !range !67, !noundef !68
-  store i8 %51, ptr %21, align 1, !tbaa !113
-  store i8 0, ptr %20, align 1, !tbaa !113
-  %52 = load i8, ptr %22, align 4, !tbaa !112, !range !67, !noundef !68
-  store i8 %52, ptr %23, align 4, !tbaa !114
-  store i8 0, ptr %22, align 4, !tbaa !114
+  %48 = load i8, ptr %6, align 8, !tbaa !99
+  store i8 %48, ptr %0, align 8, !tbaa !101
+  store i8 0, ptr %6, align 8, !tbaa !101
+  %49 = load i8, ptr %16, align 1, !tbaa !110
+  store i8 %49, ptr %17, align 1, !tbaa !111
+  store i8 0, ptr %16, align 1, !tbaa !111
+  %50 = load i8, ptr %18, align 2, !tbaa !112
+  store i8 %50, ptr %19, align 2, !tbaa !113
+  store i8 0, ptr %18, align 2, !tbaa !113
+  %51 = load i8, ptr %20, align 1, !tbaa !114, !range !69, !noundef !70
+  store i8 %51, ptr %21, align 1, !tbaa !115
+  store i8 0, ptr %20, align 1, !tbaa !115
+  %52 = load i8, ptr %22, align 4, !tbaa !114, !range !69, !noundef !70
+  store i8 %52, ptr %23, align 4, !tbaa !116
+  store i8 0, ptr %22, align 4, !tbaa !116
   %53 = load i8, ptr %24, align 1, !tbaa !20
-  store i8 %53, ptr %25, align 1, !tbaa !115
-  store i8 0, ptr %24, align 1, !tbaa !115
+  store i8 %53, ptr %25, align 1, !tbaa !117
+  store i8 0, ptr %24, align 1, !tbaa !117
   store ptr null, ptr %26, align 8, !tbaa !30
   %54 = load ptr, ptr %8, align 8, !tbaa !30
   store ptr %.pre32, ptr %8, align 8, !tbaa !30
@@ -2176,7 +2176,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
-  %56 = load i8, ptr %0, align 8, !tbaa !99
+  %56 = load i8, ptr %0, align 8, !tbaa !101
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
 
@@ -2188,7 +2188,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  %60 = load ptr, ptr %28, align 8, !tbaa !78
+  %60 = load ptr, ptr %28, align 8, !tbaa !80
   %61 = load ptr, ptr %29, align 8, !tbaa !57
   %.not.i20 = icmp eq ptr %60, %61
   br i1 %.not.i20, label %65, label %62
@@ -2197,7 +2197,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   %63 = load ptr, ptr %5, align 8, !tbaa !59
   store ptr %63, ptr %60, align 8, !tbaa !59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %64, ptr %28, align 8, !tbaa !78
+  store ptr %64, ptr %28, align 8, !tbaa !80
   br label %86
 
 65:                                               ; preds = %59
@@ -2250,7 +2250,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
-  store ptr %83, ptr %28, align 8, !tbaa !78
+  store ptr %83, ptr %28, align 8, !tbaa !80
   %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
@@ -2260,7 +2260,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
-  br i1 %89, label %30, label %.critedge, !llvm.loop !165
+  br i1 %89, label %30, label %.critedge, !llvm.loop !168
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2298,8 +2298,8 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !166
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !166
+  store ptr null, ptr %4, align 8, !tbaa !64, !alias.scope !169
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !169
   %5 = add i64 %2, 262144
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -2323,13 +2323,13 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
           to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit unwind label %23
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %10
-  %19 = load ptr, ptr %8, align 8, !tbaa !78
+  %19 = load ptr, ptr %8, align 8, !tbaa !80
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr %20, ptr %8, align 8, !tbaa !78
+  store ptr %20, ptr %8, align 8, !tbaa !80
   %21 = atomicrmw sub ptr %6, i64 262144 seq_cst, align 8
   %22 = load atomic i64, ptr %6 monotonic, align 8
   %.not = icmp ugt i64 %5, %22
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !158
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !161
 
 23:                                               ; preds = %10
   %24 = landingpad { ptr, i32 }
@@ -2352,13 +2352,13 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !169
+  store i8 3, ptr %0, align 8, !tbaa !101, !alias.scope !172
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !169
+  store i8 0, ptr %5, align 1, !tbaa !111, !alias.scope !172
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !62, !alias.scope !169
-  store i32 0, ptr %6, align 2, !alias.scope !169
+  store ptr null, ptr %7, align 8, !tbaa !64, !alias.scope !172
+  store i32 0, ptr %6, align 2, !alias.scope !172
   ret void
 }
 
@@ -2379,17 +2379,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !172
-  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !172
+  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !175
+  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !175
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !172
+  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !175
   br label %24
 
 24:                                               ; preds = %25, %21
@@ -2399,14 +2399,14 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 25:                                               ; preds = %24
   %26 = add nsw i32 %.06.i.i.i.i.i, 1
-  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !172
+  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !175
   %28 = extractvalue { i32, i1 } %27, 1
   %29 = extractvalue { i32, i1 } %27, 0
-  br i1 %28, label %31, label %24, !llvm.loop !126
+  br i1 %28, label %31, label %24, !llvm.loop !128
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %24, %15
-  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !172
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !172
+  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !175
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !175
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #21
           to label %.noexc unwind label %62
 
@@ -2414,14 +2414,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %16, align 8, !tbaa !175, !noalias !172
-  store ptr %32, ptr %5, align 8, !tbaa !135, !alias.scope !172
+  %32 = load ptr, ptr %16, align 8, !tbaa !178, !noalias !175
+  store ptr %32, ptr %5, align 8, !tbaa !137, !alias.scope !175
   invoke void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleC1EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %2, ptr noundef nonnull %5)
           to label %33 unwind label %64
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %3, align 8, !tbaa !128
-  store ptr %14, ptr %3, align 8, !tbaa !128
+  %34 = load ptr, ptr %3, align 8, !tbaa !130
+  store ptr %14, ptr %3, align 8, !tbaa !130
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i.i
 
@@ -2531,7 +2531,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE18GetTotalMemoryUsedEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i64, ptr %2, align 8, !tbaa !145
+  %3 = load i64, ptr %2, align 8, !tbaa !148
   ret i64 %3
 }
 
@@ -2544,7 +2544,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
+  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !90
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
@@ -2553,8 +2553,8 @@ define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false)
-  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95
   %6 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit
@@ -2571,9 +2571,9 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %5, ptr %7, align 8, !tbaa !84
+  store i64 %5, ptr %7, align 8, !tbaa !86
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
+  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !86
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %7, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 16, 1
   ret { ptr, i64 } %.fca.1.insert.i
@@ -2583,11 +2583,11 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleC2EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleC5EmSt10shared_ptrIS2_E) align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !176
+  store i64 %1, ptr %4, align 8, !tbaa !179
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %2, align 8, !tbaa !181
-  store ptr %6, ptr %5, align 8, !tbaa !181
+  %6 = load ptr, ptr %2, align 8, !tbaa !184
+  store ptr %6, ptr %5, align 8, !tbaa !184
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !19
@@ -2670,20 +2670,20 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !181
+  %4 = load ptr, ptr %3, align 8, !tbaa !184
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !176
-  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !182
+  %6 = load i64, ptr %5, align 8, !tbaa !179
+  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !185
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !noalias !182
+  %9 = load ptr, ptr %8, align 8, !noalias !185
   %10 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(104) %4)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %1
   %11 = sub i64 %10, %6
-  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !182
+  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !185
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !182
+  %14 = load ptr, ptr %13, align 8, !noalias !185
   invoke void %14(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %2, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %11)
           to label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE23ReleaseCacheReservationEm.exit unwind label %40
 
@@ -2869,7 +2869,7 @@ _ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %18, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %17, ptr %19, align 8, !tbaa !185
+  store i8 %17, ptr %19, align 8, !tbaa !188
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   ret void
@@ -3007,7 +3007,7 @@ _ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14Cac
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
   %.not = icmp eq ptr %59, %5
-  br i1 %.not, label %._crit_edge.loopexit, label %52
+  br i1 %.not, label %._crit_edge.loopexit, label %52, !llvm.loop !194
 
 60:                                               ; preds = %52
   %61 = landingpad { ptr, i32 }
@@ -3027,7 +3027,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %2, ptr %4, align 8, !tbaa !191
+  store i64 %2, ptr %4, align 8, !tbaa !195
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = icmp eq i64 %2, %6
@@ -3035,8 +3035,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !62, !alias.scope !192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !192
+  store ptr null, ptr %9, align 8, !tbaa !64, !alias.scope !196
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !196
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm.exit
 
 10:                                               ; preds = %3
@@ -3049,7 +3049,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i8, ptr %14, align 8, !tbaa !185, !range !67, !noundef !68
+  %15 = load i8, ptr %14, align 8, !tbaa !188, !range !69, !noundef !70
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %22
 
@@ -3061,17 +3061,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !62, !alias.scope !195
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !195
+  store ptr null, ptr %21, align 8, !tbaa !64, !alias.scope !199
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !199
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm.exit
 
 22:                                               ; preds = %17, %13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !62, !alias.scope !201
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !201
+  store ptr null, ptr %23, align 8, !tbaa !64, !alias.scope !205
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !205
   %24 = add i64 %2, 262144
-  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !198
+  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !202
   %.not5.i = icmp ugt i64 %24, %25
   br i1 %.not5.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm.exit, label %.lr.ph.i
 
@@ -3081,38 +3081,38 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %28
 
 28:                                               ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %.lr.ph.i
-  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !198
+  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !202
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !198
-  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !198
-  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !198
+  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !202
+  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !202
+  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !202
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
-  %35 = load ptr, ptr %34, align 8, !noalias !198
+  %35 = load ptr, ptr %34, align 8, !noalias !202
   %36 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef %31, i1 noundef zeroext true)
-          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !198
+          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !202
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i: ; preds = %28
-  %37 = load ptr, ptr %26, align 8, !tbaa !78, !noalias !198
+  %37 = load ptr, ptr %26, align 8, !tbaa !80, !noalias !202
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
-  store ptr %38, ptr %26, align 8, !tbaa !78, !noalias !198
-  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !198
-  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !198
+  store ptr %38, ptr %26, align 8, !tbaa !80, !noalias !202
+  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !202
+  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !202
   %.not.i = icmp ugt i64 %24, %40
-  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !204
+  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !208
 
 41:                                               ; preds = %28
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !198
+  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !202
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %41
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !198
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !202
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %41
-  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !198
+  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !202
   resume { ptr, i32 } %42
 
 _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm.exit: ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %22, %12, %20, %8
@@ -3126,8 +3126,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   %6 = alloca %"class.rocksdb::Status", align 8
   %7 = alloca %"class.rocksdb::Slice", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %8, align 8, !tbaa !62, !alias.scope !205
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !205
+  store ptr null, ptr %8, align 8, !tbaa !64, !alias.scope !209
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !209
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %11 = icmp ugt i64 %2, %10
@@ -3168,62 +3168,62 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 33:                                               ; preds = %30
   %34 = extractvalue { i64, i64 } %32, 0
   %35 = extractvalue { i64, i64 } %32, 1
-  store i64 %34, ptr %13, align 8, !tbaa !84
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !84
+  store i64 %34, ptr %13, align 8, !tbaa !86
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !86
   store ptr %13, ptr %7, align 8
   store i64 16, ptr %14, align 8
-  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !208
-  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !208
+  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !212
+  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !212
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !88
+  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !90
 
 39:                                               ; preds = %33
-  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !208
+  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !212
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, label %41
 
 41:                                               ; preds = %39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !208
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89, !noalias !208
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93, !noalias !208
-  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !208
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !208
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !212
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91, !noalias !212
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95, !noalias !212
+  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !212
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !212
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !208
-  store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !208
-  store i64 0, ptr %15, align 8, !tbaa !96, !noalias !208
-  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !208
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !212
+  store ptr @.str, ptr %4, align 8, !tbaa !96, !noalias !212
+  store i64 0, ptr %15, align 8, !tbaa !98, !noalias !212
+  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !212
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  %45 = load ptr, ptr %44, align 8, !noalias !208
+  %45 = load ptr, ptr %44, align 8, !noalias !212
   invoke void %45(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 noundef 262144, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %4, i8 noundef zeroext 0)
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !208
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !212
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %6, align 8, !tbaa !97
-  store i8 %48, ptr %0, align 8, !tbaa !99
-  store i8 0, ptr %6, align 8, !tbaa !99
-  %49 = load i8, ptr %16, align 1, !tbaa !108
-  store i8 %49, ptr %17, align 1, !tbaa !109
-  store i8 0, ptr %16, align 1, !tbaa !109
-  %50 = load i8, ptr %18, align 2, !tbaa !110
-  store i8 %50, ptr %19, align 2, !tbaa !111
-  store i8 0, ptr %18, align 2, !tbaa !111
-  %51 = load i8, ptr %20, align 1, !tbaa !112, !range !67, !noundef !68
-  store i8 %51, ptr %21, align 1, !tbaa !113
-  store i8 0, ptr %20, align 1, !tbaa !113
-  %52 = load i8, ptr %22, align 4, !tbaa !112, !range !67, !noundef !68
-  store i8 %52, ptr %23, align 4, !tbaa !114
-  store i8 0, ptr %22, align 4, !tbaa !114
+  %48 = load i8, ptr %6, align 8, !tbaa !99
+  store i8 %48, ptr %0, align 8, !tbaa !101
+  store i8 0, ptr %6, align 8, !tbaa !101
+  %49 = load i8, ptr %16, align 1, !tbaa !110
+  store i8 %49, ptr %17, align 1, !tbaa !111
+  store i8 0, ptr %16, align 1, !tbaa !111
+  %50 = load i8, ptr %18, align 2, !tbaa !112
+  store i8 %50, ptr %19, align 2, !tbaa !113
+  store i8 0, ptr %18, align 2, !tbaa !113
+  %51 = load i8, ptr %20, align 1, !tbaa !114, !range !69, !noundef !70
+  store i8 %51, ptr %21, align 1, !tbaa !115
+  store i8 0, ptr %20, align 1, !tbaa !115
+  %52 = load i8, ptr %22, align 4, !tbaa !114, !range !69, !noundef !70
+  store i8 %52, ptr %23, align 4, !tbaa !116
+  store i8 0, ptr %22, align 4, !tbaa !116
   %53 = load i8, ptr %24, align 1, !tbaa !20
-  store i8 %53, ptr %25, align 1, !tbaa !115
-  store i8 0, ptr %24, align 1, !tbaa !115
+  store i8 %53, ptr %25, align 1, !tbaa !117
+  store i8 0, ptr %24, align 1, !tbaa !117
   store ptr null, ptr %26, align 8, !tbaa !30
   %54 = load ptr, ptr %8, align 8, !tbaa !30
   store ptr %.pre32, ptr %8, align 8, !tbaa !30
@@ -3247,7 +3247,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
-  %56 = load i8, ptr %0, align 8, !tbaa !99
+  %56 = load i8, ptr %0, align 8, !tbaa !101
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
 
@@ -3259,7 +3259,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  %60 = load ptr, ptr %28, align 8, !tbaa !78
+  %60 = load ptr, ptr %28, align 8, !tbaa !80
   %61 = load ptr, ptr %29, align 8, !tbaa !57
   %.not.i20 = icmp eq ptr %60, %61
   br i1 %.not.i20, label %65, label %62
@@ -3268,7 +3268,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   %63 = load ptr, ptr %5, align 8, !tbaa !59
   store ptr %63, ptr %60, align 8, !tbaa !59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %64, ptr %28, align 8, !tbaa !78
+  store ptr %64, ptr %28, align 8, !tbaa !80
   br label %86
 
 65:                                               ; preds = %59
@@ -3321,7 +3321,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
-  store ptr %83, ptr %28, align 8, !tbaa !78
+  store ptr %83, ptr %28, align 8, !tbaa !80
   %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
@@ -3331,7 +3331,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
-  br i1 %89, label %30, label %.critedge, !llvm.loop !211
+  br i1 %89, label %30, label %.critedge, !llvm.loop !215
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -3369,8 +3369,8 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !212
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !212
+  store ptr null, ptr %4, align 8, !tbaa !64, !alias.scope !216
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !216
   %5 = add i64 %2, 262144
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -3394,13 +3394,13 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
           to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit unwind label %23
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %10
-  %19 = load ptr, ptr %8, align 8, !tbaa !78
+  %19 = load ptr, ptr %8, align 8, !tbaa !80
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr %20, ptr %8, align 8, !tbaa !78
+  store ptr %20, ptr %8, align 8, !tbaa !80
   %21 = atomicrmw sub ptr %6, i64 262144 seq_cst, align 8
   %22 = load atomic i64, ptr %6 monotonic, align 8
   %.not = icmp ugt i64 %5, %22
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !204
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !208
 
 23:                                               ; preds = %10
   %24 = landingpad { ptr, i32 }
@@ -3423,13 +3423,13 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !215
+  store i8 3, ptr %0, align 8, !tbaa !101, !alias.scope !219
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !215
+  store i8 0, ptr %5, align 1, !tbaa !111, !alias.scope !219
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !62, !alias.scope !215
-  store i32 0, ptr %6, align 2, !alias.scope !215
+  store ptr null, ptr %7, align 8, !tbaa !64, !alias.scope !219
+  store i32 0, ptr %6, align 2, !alias.scope !219
   ret void
 }
 
@@ -3450,17 +3450,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !218
-  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !218
+  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !222
+  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !222
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !218
+  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !222
   br label %24
 
 24:                                               ; preds = %25, %21
@@ -3470,14 +3470,14 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 25:                                               ; preds = %24
   %26 = add nsw i32 %.06.i.i.i.i.i, 1
-  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !218
+  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !222
   %28 = extractvalue { i32, i1 } %27, 1
   %29 = extractvalue { i32, i1 } %27, 0
-  br i1 %28, label %31, label %24, !llvm.loop !126
+  br i1 %28, label %31, label %24, !llvm.loop !128
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %24, %15
-  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !218
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !218
+  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !222
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !222
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #21
           to label %.noexc unwind label %62
 
@@ -3485,14 +3485,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %16, align 8, !tbaa !221, !noalias !218
-  store ptr %32, ptr %5, align 8, !tbaa !181, !alias.scope !218
+  %32 = load ptr, ptr %16, align 8, !tbaa !225, !noalias !222
+  store ptr %32, ptr %5, align 8, !tbaa !184, !alias.scope !222
   invoke void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleC1EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %2, ptr noundef nonnull %5)
           to label %33 unwind label %64
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %3, align 8, !tbaa !128
-  store ptr %14, ptr %3, align 8, !tbaa !128
+  %34 = load ptr, ptr %3, align 8, !tbaa !130
+  store ptr %14, ptr %3, align 8, !tbaa !130
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i.i
 
@@ -3602,7 +3602,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE18GetTotalMemoryUsedEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i64, ptr %2, align 8, !tbaa !191
+  %3 = load i64, ptr %2, align 8, !tbaa !195
   ret i64 %3
 }
 
@@ -3615,7 +3615,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
+  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !90
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
@@ -3624,8 +3624,8 @@ define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false)
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95
   %6 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit
@@ -3642,9 +3642,9 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %5, ptr %7, align 8, !tbaa !84
+  store i64 %5, ptr %7, align 8, !tbaa !86
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
+  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !86
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %7, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 16, 1
   ret { ptr, i64 } %.fca.1.insert.i
@@ -3654,11 +3654,11 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleC2EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleC5EmSt10shared_ptrIS2_E) align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !222
+  store i64 %1, ptr %4, align 8, !tbaa !226
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %2, align 8, !tbaa !227
-  store ptr %6, ptr %5, align 8, !tbaa !227
+  %6 = load ptr, ptr %2, align 8, !tbaa !231
+  store ptr %6, ptr %5, align 8, !tbaa !231
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !19
@@ -3741,20 +3741,20 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !227
+  %4 = load ptr, ptr %3, align 8, !tbaa !231
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !222
-  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !228
+  %6 = load i64, ptr %5, align 8, !tbaa !226
+  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !232
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !noalias !228
+  %9 = load ptr, ptr %8, align 8, !noalias !232
   %10 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(104) %4)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %1
   %11 = sub i64 %10, %6
-  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !228
+  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !232
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !228
+  %14 = load ptr, ptr %13, align 8, !noalias !232
   invoke void %14(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %2, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %11)
           to label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE23ReleaseCacheReservationEm.exit unwind label %40
 
@@ -3940,7 +3940,7 @@ _ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %18, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %17, ptr %19, align 8, !tbaa !231
+  store i8 %17, ptr %19, align 8, !tbaa !235
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   ret void
@@ -4078,7 +4078,7 @@ _ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14Cac
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
   %.not = icmp eq ptr %59, %5
-  br i1 %.not, label %._crit_edge.loopexit, label %52
+  br i1 %.not, label %._crit_edge.loopexit, label %52, !llvm.loop !241
 
 60:                                               ; preds = %52
   %61 = landingpad { ptr, i32 }
@@ -4098,7 +4098,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %2, ptr %4, align 8, !tbaa !237
+  store i64 %2, ptr %4, align 8, !tbaa !242
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = icmp eq i64 %2, %6
@@ -4106,8 +4106,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !62, !alias.scope !238
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !238
+  store ptr null, ptr %9, align 8, !tbaa !64, !alias.scope !243
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !243
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm.exit
 
 10:                                               ; preds = %3
@@ -4120,7 +4120,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i8, ptr %14, align 8, !tbaa !231, !range !67, !noundef !68
+  %15 = load i8, ptr %14, align 8, !tbaa !235, !range !69, !noundef !70
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %22
 
@@ -4132,17 +4132,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !62, !alias.scope !241
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !241
+  store ptr null, ptr %21, align 8, !tbaa !64, !alias.scope !246
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !246
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm.exit
 
 22:                                               ; preds = %17, %13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !62, !alias.scope !247
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !247
+  store ptr null, ptr %23, align 8, !tbaa !64, !alias.scope !252
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !252
   %24 = add i64 %2, 262144
-  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !244
+  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !249
   %.not5.i = icmp ugt i64 %24, %25
   br i1 %.not5.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm.exit, label %.lr.ph.i
 
@@ -4152,38 +4152,38 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %28
 
 28:                                               ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %.lr.ph.i
-  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !244
+  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !249
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !244
-  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !244
-  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !244
+  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !249
+  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !249
+  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !249
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
-  %35 = load ptr, ptr %34, align 8, !noalias !244
+  %35 = load ptr, ptr %34, align 8, !noalias !249
   %36 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef %31, i1 noundef zeroext true)
-          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !244
+          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !249
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i: ; preds = %28
-  %37 = load ptr, ptr %26, align 8, !tbaa !78, !noalias !244
+  %37 = load ptr, ptr %26, align 8, !tbaa !80, !noalias !249
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
-  store ptr %38, ptr %26, align 8, !tbaa !78, !noalias !244
-  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !244
-  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !244
+  store ptr %38, ptr %26, align 8, !tbaa !80, !noalias !249
+  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !249
+  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !249
   %.not.i = icmp ugt i64 %24, %40
-  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !250
+  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !255
 
 41:                                               ; preds = %28
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !244
+  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !249
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %41
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !244
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !249
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %41
-  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !244
+  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !249
   resume { ptr, i32 } %42
 
 _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm.exit: ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %22, %12, %20, %8
@@ -4197,8 +4197,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   %6 = alloca %"class.rocksdb::Status", align 8
   %7 = alloca %"class.rocksdb::Slice", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %8, align 8, !tbaa !62, !alias.scope !251
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !251
+  store ptr null, ptr %8, align 8, !tbaa !64, !alias.scope !256
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !256
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %11 = icmp ugt i64 %2, %10
@@ -4239,62 +4239,62 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 33:                                               ; preds = %30
   %34 = extractvalue { i64, i64 } %32, 0
   %35 = extractvalue { i64, i64 } %32, 1
-  store i64 %34, ptr %13, align 8, !tbaa !84
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !84
+  store i64 %34, ptr %13, align 8, !tbaa !86
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !86
   store ptr %13, ptr %7, align 8
   store i64 16, ptr %14, align 8
-  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !254
-  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !254
+  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !259
+  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !259
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !88
+  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !90
 
 39:                                               ; preds = %33
-  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !254
+  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !259
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, label %41
 
 41:                                               ; preds = %39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !254
-  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89, !noalias !254
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93, !noalias !254
-  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !254
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !254
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !259
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91, !noalias !259
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95, !noalias !259
+  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !259
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !259
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !254
-  store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !254
-  store i64 0, ptr %15, align 8, !tbaa !96, !noalias !254
-  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !254
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !259
+  store ptr @.str, ptr %4, align 8, !tbaa !96, !noalias !259
+  store i64 0, ptr %15, align 8, !tbaa !98, !noalias !259
+  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !259
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  %45 = load ptr, ptr %44, align 8, !noalias !254
+  %45 = load ptr, ptr %44, align 8, !noalias !259
   invoke void %45(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 noundef 262144, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %4, i8 noundef zeroext 0)
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !254
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !259
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %6, align 8, !tbaa !97
-  store i8 %48, ptr %0, align 8, !tbaa !99
-  store i8 0, ptr %6, align 8, !tbaa !99
-  %49 = load i8, ptr %16, align 1, !tbaa !108
-  store i8 %49, ptr %17, align 1, !tbaa !109
-  store i8 0, ptr %16, align 1, !tbaa !109
-  %50 = load i8, ptr %18, align 2, !tbaa !110
-  store i8 %50, ptr %19, align 2, !tbaa !111
-  store i8 0, ptr %18, align 2, !tbaa !111
-  %51 = load i8, ptr %20, align 1, !tbaa !112, !range !67, !noundef !68
-  store i8 %51, ptr %21, align 1, !tbaa !113
-  store i8 0, ptr %20, align 1, !tbaa !113
-  %52 = load i8, ptr %22, align 4, !tbaa !112, !range !67, !noundef !68
-  store i8 %52, ptr %23, align 4, !tbaa !114
-  store i8 0, ptr %22, align 4, !tbaa !114
+  %48 = load i8, ptr %6, align 8, !tbaa !99
+  store i8 %48, ptr %0, align 8, !tbaa !101
+  store i8 0, ptr %6, align 8, !tbaa !101
+  %49 = load i8, ptr %16, align 1, !tbaa !110
+  store i8 %49, ptr %17, align 1, !tbaa !111
+  store i8 0, ptr %16, align 1, !tbaa !111
+  %50 = load i8, ptr %18, align 2, !tbaa !112
+  store i8 %50, ptr %19, align 2, !tbaa !113
+  store i8 0, ptr %18, align 2, !tbaa !113
+  %51 = load i8, ptr %20, align 1, !tbaa !114, !range !69, !noundef !70
+  store i8 %51, ptr %21, align 1, !tbaa !115
+  store i8 0, ptr %20, align 1, !tbaa !115
+  %52 = load i8, ptr %22, align 4, !tbaa !114, !range !69, !noundef !70
+  store i8 %52, ptr %23, align 4, !tbaa !116
+  store i8 0, ptr %22, align 4, !tbaa !116
   %53 = load i8, ptr %24, align 1, !tbaa !20
-  store i8 %53, ptr %25, align 1, !tbaa !115
-  store i8 0, ptr %24, align 1, !tbaa !115
+  store i8 %53, ptr %25, align 1, !tbaa !117
+  store i8 0, ptr %24, align 1, !tbaa !117
   store ptr null, ptr %26, align 8, !tbaa !30
   %54 = load ptr, ptr %8, align 8, !tbaa !30
   store ptr %.pre32, ptr %8, align 8, !tbaa !30
@@ -4318,7 +4318,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
-  %56 = load i8, ptr %0, align 8, !tbaa !99
+  %56 = load i8, ptr %0, align 8, !tbaa !101
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
 
@@ -4330,7 +4330,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  %60 = load ptr, ptr %28, align 8, !tbaa !78
+  %60 = load ptr, ptr %28, align 8, !tbaa !80
   %61 = load ptr, ptr %29, align 8, !tbaa !57
   %.not.i20 = icmp eq ptr %60, %61
   br i1 %.not.i20, label %65, label %62
@@ -4339,7 +4339,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   %63 = load ptr, ptr %5, align 8, !tbaa !59
   store ptr %63, ptr %60, align 8, !tbaa !59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %64, ptr %28, align 8, !tbaa !78
+  store ptr %64, ptr %28, align 8, !tbaa !80
   br label %86
 
 65:                                               ; preds = %59
@@ -4392,7 +4392,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
-  store ptr %83, ptr %28, align 8, !tbaa !78
+  store ptr %83, ptr %28, align 8, !tbaa !80
   %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
@@ -4402,7 +4402,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
-  br i1 %89, label %30, label %.critedge, !llvm.loop !257
+  br i1 %89, label %30, label %.critedge, !llvm.loop !262
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -4440,8 +4440,8 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !258
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !258
+  store ptr null, ptr %4, align 8, !tbaa !64, !alias.scope !263
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !263
   %5 = add i64 %2, 262144
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -4465,13 +4465,13 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
           to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit unwind label %23
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %10
-  %19 = load ptr, ptr %8, align 8, !tbaa !78
+  %19 = load ptr, ptr %8, align 8, !tbaa !80
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr %20, ptr %8, align 8, !tbaa !78
+  store ptr %20, ptr %8, align 8, !tbaa !80
   %21 = atomicrmw sub ptr %6, i64 262144 seq_cst, align 8
   %22 = load atomic i64, ptr %6 monotonic, align 8
   %.not = icmp ugt i64 %5, %22
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !250
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !255
 
 23:                                               ; preds = %10
   %24 = landingpad { ptr, i32 }
@@ -4494,13 +4494,13 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !261
+  store i8 3, ptr %0, align 8, !tbaa !101, !alias.scope !266
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !261
+  store i8 0, ptr %5, align 1, !tbaa !111, !alias.scope !266
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !62, !alias.scope !261
-  store i32 0, ptr %6, align 2, !alias.scope !261
+  store ptr null, ptr %7, align 8, !tbaa !64, !alias.scope !266
+  store i32 0, ptr %6, align 2, !alias.scope !266
   ret void
 }
 
@@ -4521,17 +4521,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !264
-  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !264
+  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !269
+  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !269
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !264
+  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !269
   br label %24
 
 24:                                               ; preds = %25, %21
@@ -4541,14 +4541,14 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 25:                                               ; preds = %24
   %26 = add nsw i32 %.06.i.i.i.i.i, 1
-  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !264
+  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !269
   %28 = extractvalue { i32, i1 } %27, 1
   %29 = extractvalue { i32, i1 } %27, 0
-  br i1 %28, label %31, label %24, !llvm.loop !126
+  br i1 %28, label %31, label %24, !llvm.loop !128
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %24, %15
-  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !264
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !264
+  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !269
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !269
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #21
           to label %.noexc unwind label %62
 
@@ -4556,14 +4556,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %16, align 8, !tbaa !267, !noalias !264
-  store ptr %32, ptr %5, align 8, !tbaa !227, !alias.scope !264
+  %32 = load ptr, ptr %16, align 8, !tbaa !272, !noalias !269
+  store ptr %32, ptr %5, align 8, !tbaa !231, !alias.scope !269
   invoke void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleC1EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %2, ptr noundef nonnull %5)
           to label %33 unwind label %64
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %3, align 8, !tbaa !128
-  store ptr %14, ptr %3, align 8, !tbaa !128
+  %34 = load ptr, ptr %3, align 8, !tbaa !130
+  store ptr %14, ptr %3, align 8, !tbaa !130
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i.i
 
@@ -4673,7 +4673,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE18GetTotalMemoryUsedEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i64, ptr %2, align 8, !tbaa !237
+  %3 = load i64, ptr %2, align 8, !tbaa !242
   ret i64 %3
 }
 
@@ -4686,7 +4686,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
+  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !90
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
@@ -4695,8 +4695,8 @@ define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false)
-  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95
   %6 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit
@@ -4713,9 +4713,9 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %5, ptr %7, align 8, !tbaa !84
+  store i64 %5, ptr %7, align 8, !tbaa !86
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
+  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !86
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %7, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 16, 1
   ret { ptr, i64 } %.fca.1.insert.i
@@ -4725,11 +4725,11 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleC2EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleC5EmSt10shared_ptrIS2_E) align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !268
+  store i64 %1, ptr %4, align 8, !tbaa !273
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %2, align 8, !tbaa !273
-  store ptr %6, ptr %5, align 8, !tbaa !273
+  %6 = load ptr, ptr %2, align 8, !tbaa !278
+  store ptr %6, ptr %5, align 8, !tbaa !278
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !19
@@ -4812,20 +4812,20 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !273
+  %4 = load ptr, ptr %3, align 8, !tbaa !278
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !268
-  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !274
+  %6 = load i64, ptr %5, align 8, !tbaa !273
+  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !279
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !noalias !274
+  %9 = load ptr, ptr %8, align 8, !noalias !279
   %10 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(104) %4)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %1
   %11 = sub i64 %10, %6
-  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !274
+  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !279
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !274
+  %14 = load ptr, ptr %13, align 8, !noalias !279
   invoke void %14(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %2, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %11)
           to label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE23ReleaseCacheReservationEm.exit unwind label %40
 
@@ -5011,7 +5011,7 @@ _ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %18, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %17, ptr %19, align 8, !tbaa !277
+  store i8 %17, ptr %19, align 8, !tbaa !282
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   ret void
@@ -5149,7 +5149,7 @@ _ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14Cac
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
   %.not = icmp eq ptr %59, %5
-  br i1 %.not, label %._crit_edge.loopexit, label %52
+  br i1 %.not, label %._crit_edge.loopexit, label %52, !llvm.loop !288
 
 60:                                               ; preds = %52
   %61 = landingpad { ptr, i32 }
@@ -5169,7 +5169,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %2, ptr %4, align 8, !tbaa !283
+  store i64 %2, ptr %4, align 8, !tbaa !289
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = icmp eq i64 %2, %6
@@ -5177,8 +5177,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !62, !alias.scope !284
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !284
+  store ptr null, ptr %9, align 8, !tbaa !64, !alias.scope !290
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !290
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm.exit
 
 10:                                               ; preds = %3
@@ -5191,7 +5191,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i8, ptr %14, align 8, !tbaa !277, !range !67, !noundef !68
+  %15 = load i8, ptr %14, align 8, !tbaa !282, !range !69, !noundef !70
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %22
 
@@ -5203,17 +5203,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !62, !alias.scope !287
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !287
+  store ptr null, ptr %21, align 8, !tbaa !64, !alias.scope !293
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !293
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm.exit
 
 22:                                               ; preds = %17, %13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !62, !alias.scope !293
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !293
+  store ptr null, ptr %23, align 8, !tbaa !64, !alias.scope !299
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !299
   %24 = add i64 %2, 262144
-  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !290
+  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !296
   %.not5.i = icmp ugt i64 %24, %25
   br i1 %.not5.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm.exit, label %.lr.ph.i
 
@@ -5223,38 +5223,38 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %28
 
 28:                                               ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %.lr.ph.i
-  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !290
+  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !296
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !290
-  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !290
-  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !290
+  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !296
+  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !296
+  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !296
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
-  %35 = load ptr, ptr %34, align 8, !noalias !290
+  %35 = load ptr, ptr %34, align 8, !noalias !296
   %36 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef %31, i1 noundef zeroext true)
-          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !290
+          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !296
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i: ; preds = %28
-  %37 = load ptr, ptr %26, align 8, !tbaa !78, !noalias !290
+  %37 = load ptr, ptr %26, align 8, !tbaa !80, !noalias !296
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
-  store ptr %38, ptr %26, align 8, !tbaa !78, !noalias !290
-  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !290
-  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !290
+  store ptr %38, ptr %26, align 8, !tbaa !80, !noalias !296
+  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !296
+  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !296
   %.not.i = icmp ugt i64 %24, %40
-  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !296
+  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !302
 
 41:                                               ; preds = %28
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !290
+  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !296
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %41
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !290
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !296
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %41
-  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !290
+  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !296
   resume { ptr, i32 } %42
 
 _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm.exit: ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %22, %12, %20, %8
@@ -5268,8 +5268,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   %6 = alloca %"class.rocksdb::Status", align 8
   %7 = alloca %"class.rocksdb::Slice", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %8, align 8, !tbaa !62, !alias.scope !297
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !297
+  store ptr null, ptr %8, align 8, !tbaa !64, !alias.scope !303
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !303
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %11 = icmp ugt i64 %2, %10
@@ -5310,62 +5310,62 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 33:                                               ; preds = %30
   %34 = extractvalue { i64, i64 } %32, 0
   %35 = extractvalue { i64, i64 } %32, 1
-  store i64 %34, ptr %13, align 8, !tbaa !84
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !84
+  store i64 %34, ptr %13, align 8, !tbaa !86
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !86
   store ptr %13, ptr %7, align 8
   store i64 16, ptr %14, align 8
-  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !300
-  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !300
+  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !306
+  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !306
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !88
+  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !90
 
 39:                                               ; preds = %33
-  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !300
+  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !306
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, label %41
 
 41:                                               ; preds = %39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !300
-  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89, !noalias !300
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93, !noalias !300
-  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !300
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !300
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !306
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91, !noalias !306
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95, !noalias !306
+  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !306
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !306
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !300
-  store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !300
-  store i64 0, ptr %15, align 8, !tbaa !96, !noalias !300
-  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !300
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !306
+  store ptr @.str, ptr %4, align 8, !tbaa !96, !noalias !306
+  store i64 0, ptr %15, align 8, !tbaa !98, !noalias !306
+  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !306
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  %45 = load ptr, ptr %44, align 8, !noalias !300
+  %45 = load ptr, ptr %44, align 8, !noalias !306
   invoke void %45(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 noundef 262144, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %4, i8 noundef zeroext 0)
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !300
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !306
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %6, align 8, !tbaa !97
-  store i8 %48, ptr %0, align 8, !tbaa !99
-  store i8 0, ptr %6, align 8, !tbaa !99
-  %49 = load i8, ptr %16, align 1, !tbaa !108
-  store i8 %49, ptr %17, align 1, !tbaa !109
-  store i8 0, ptr %16, align 1, !tbaa !109
-  %50 = load i8, ptr %18, align 2, !tbaa !110
-  store i8 %50, ptr %19, align 2, !tbaa !111
-  store i8 0, ptr %18, align 2, !tbaa !111
-  %51 = load i8, ptr %20, align 1, !tbaa !112, !range !67, !noundef !68
-  store i8 %51, ptr %21, align 1, !tbaa !113
-  store i8 0, ptr %20, align 1, !tbaa !113
-  %52 = load i8, ptr %22, align 4, !tbaa !112, !range !67, !noundef !68
-  store i8 %52, ptr %23, align 4, !tbaa !114
-  store i8 0, ptr %22, align 4, !tbaa !114
+  %48 = load i8, ptr %6, align 8, !tbaa !99
+  store i8 %48, ptr %0, align 8, !tbaa !101
+  store i8 0, ptr %6, align 8, !tbaa !101
+  %49 = load i8, ptr %16, align 1, !tbaa !110
+  store i8 %49, ptr %17, align 1, !tbaa !111
+  store i8 0, ptr %16, align 1, !tbaa !111
+  %50 = load i8, ptr %18, align 2, !tbaa !112
+  store i8 %50, ptr %19, align 2, !tbaa !113
+  store i8 0, ptr %18, align 2, !tbaa !113
+  %51 = load i8, ptr %20, align 1, !tbaa !114, !range !69, !noundef !70
+  store i8 %51, ptr %21, align 1, !tbaa !115
+  store i8 0, ptr %20, align 1, !tbaa !115
+  %52 = load i8, ptr %22, align 4, !tbaa !114, !range !69, !noundef !70
+  store i8 %52, ptr %23, align 4, !tbaa !116
+  store i8 0, ptr %22, align 4, !tbaa !116
   %53 = load i8, ptr %24, align 1, !tbaa !20
-  store i8 %53, ptr %25, align 1, !tbaa !115
-  store i8 0, ptr %24, align 1, !tbaa !115
+  store i8 %53, ptr %25, align 1, !tbaa !117
+  store i8 0, ptr %24, align 1, !tbaa !117
   store ptr null, ptr %26, align 8, !tbaa !30
   %54 = load ptr, ptr %8, align 8, !tbaa !30
   store ptr %.pre32, ptr %8, align 8, !tbaa !30
@@ -5389,7 +5389,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
-  %56 = load i8, ptr %0, align 8, !tbaa !99
+  %56 = load i8, ptr %0, align 8, !tbaa !101
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
 
@@ -5401,7 +5401,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  %60 = load ptr, ptr %28, align 8, !tbaa !78
+  %60 = load ptr, ptr %28, align 8, !tbaa !80
   %61 = load ptr, ptr %29, align 8, !tbaa !57
   %.not.i20 = icmp eq ptr %60, %61
   br i1 %.not.i20, label %65, label %62
@@ -5410,7 +5410,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   %63 = load ptr, ptr %5, align 8, !tbaa !59
   store ptr %63, ptr %60, align 8, !tbaa !59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %64, ptr %28, align 8, !tbaa !78
+  store ptr %64, ptr %28, align 8, !tbaa !80
   br label %86
 
 65:                                               ; preds = %59
@@ -5463,7 +5463,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
-  store ptr %83, ptr %28, align 8, !tbaa !78
+  store ptr %83, ptr %28, align 8, !tbaa !80
   %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
@@ -5473,7 +5473,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
-  br i1 %89, label %30, label %.critedge, !llvm.loop !303
+  br i1 %89, label %30, label %.critedge, !llvm.loop !309
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5511,8 +5511,8 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !304
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !304
+  store ptr null, ptr %4, align 8, !tbaa !64, !alias.scope !310
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !310
   %5 = add i64 %2, 262144
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -5536,13 +5536,13 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
           to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit unwind label %23
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %10
-  %19 = load ptr, ptr %8, align 8, !tbaa !78
+  %19 = load ptr, ptr %8, align 8, !tbaa !80
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr %20, ptr %8, align 8, !tbaa !78
+  store ptr %20, ptr %8, align 8, !tbaa !80
   %21 = atomicrmw sub ptr %6, i64 262144 seq_cst, align 8
   %22 = load atomic i64, ptr %6 monotonic, align 8
   %.not = icmp ugt i64 %5, %22
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !296
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !302
 
 23:                                               ; preds = %10
   %24 = landingpad { ptr, i32 }
@@ -5565,13 +5565,13 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !307
+  store i8 3, ptr %0, align 8, !tbaa !101, !alias.scope !313
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !307
+  store i8 0, ptr %5, align 1, !tbaa !111, !alias.scope !313
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !62, !alias.scope !307
-  store i32 0, ptr %6, align 2, !alias.scope !307
+  store ptr null, ptr %7, align 8, !tbaa !64, !alias.scope !313
+  store i32 0, ptr %6, align 2, !alias.scope !313
   ret void
 }
 
@@ -5592,17 +5592,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !310
-  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !310
+  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !316
+  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !316
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !310
+  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !316
   br label %24
 
 24:                                               ; preds = %25, %21
@@ -5612,14 +5612,14 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 25:                                               ; preds = %24
   %26 = add nsw i32 %.06.i.i.i.i.i, 1
-  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !310
+  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !316
   %28 = extractvalue { i32, i1 } %27, 1
   %29 = extractvalue { i32, i1 } %27, 0
-  br i1 %28, label %31, label %24, !llvm.loop !126
+  br i1 %28, label %31, label %24, !llvm.loop !128
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %24, %15
-  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !310
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !310
+  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !316
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !316
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #21
           to label %.noexc unwind label %62
 
@@ -5627,14 +5627,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %16, align 8, !tbaa !313, !noalias !310
-  store ptr %32, ptr %5, align 8, !tbaa !273, !alias.scope !310
+  %32 = load ptr, ptr %16, align 8, !tbaa !319, !noalias !316
+  store ptr %32, ptr %5, align 8, !tbaa !278, !alias.scope !316
   invoke void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleC1EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %2, ptr noundef nonnull %5)
           to label %33 unwind label %64
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %3, align 8, !tbaa !128
-  store ptr %14, ptr %3, align 8, !tbaa !128
+  %34 = load ptr, ptr %3, align 8, !tbaa !130
+  store ptr %14, ptr %3, align 8, !tbaa !130
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i.i
 
@@ -5744,7 +5744,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE18GetTotalMemoryUsedEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i64, ptr %2, align 8, !tbaa !283
+  %3 = load i64, ptr %2, align 8, !tbaa !289
   ret i64 %3
 }
 
@@ -5757,7 +5757,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
+  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !90
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
@@ -5766,8 +5766,8 @@ define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false)
-  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95
   %6 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit
@@ -5784,9 +5784,9 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %5, ptr %7, align 8, !tbaa !84
+  store i64 %5, ptr %7, align 8, !tbaa !86
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
+  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !86
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %7, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 16, 1
   ret { ptr, i64 } %.fca.1.insert.i
@@ -5796,11 +5796,11 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleC2EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleC5EmSt10shared_ptrIS2_E) align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !314
+  store i64 %1, ptr %4, align 8, !tbaa !320
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %2, align 8, !tbaa !319
-  store ptr %6, ptr %5, align 8, !tbaa !319
+  %6 = load ptr, ptr %2, align 8, !tbaa !325
+  store ptr %6, ptr %5, align 8, !tbaa !325
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !19
@@ -5883,20 +5883,20 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !319
+  %4 = load ptr, ptr %3, align 8, !tbaa !325
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !314
-  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !320
+  %6 = load i64, ptr %5, align 8, !tbaa !320
+  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !326
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !noalias !320
+  %9 = load ptr, ptr %8, align 8, !noalias !326
   %10 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(104) %4)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %1
   %11 = sub i64 %10, %6
-  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !320
+  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !326
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !320
+  %14 = load ptr, ptr %13, align 8, !noalias !326
   invoke void %14(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %2, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %11)
           to label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE23ReleaseCacheReservationEm.exit unwind label %40
 
@@ -6082,7 +6082,7 @@ _ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %18, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %17, ptr %19, align 8, !tbaa !323
+  store i8 %17, ptr %19, align 8, !tbaa !329
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   ret void
@@ -6220,7 +6220,7 @@ _ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14Cac
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
   %.not = icmp eq ptr %59, %5
-  br i1 %.not, label %._crit_edge.loopexit, label %52
+  br i1 %.not, label %._crit_edge.loopexit, label %52, !llvm.loop !335
 
 60:                                               ; preds = %52
   %61 = landingpad { ptr, i32 }
@@ -6240,7 +6240,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %2, ptr %4, align 8, !tbaa !329
+  store i64 %2, ptr %4, align 8, !tbaa !336
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = icmp eq i64 %2, %6
@@ -6248,8 +6248,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !62, !alias.scope !330
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !330
+  store ptr null, ptr %9, align 8, !tbaa !64, !alias.scope !337
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !337
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm.exit
 
 10:                                               ; preds = %3
@@ -6262,7 +6262,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i8, ptr %14, align 8, !tbaa !323, !range !67, !noundef !68
+  %15 = load i8, ptr %14, align 8, !tbaa !329, !range !69, !noundef !70
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %22
 
@@ -6274,17 +6274,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !62, !alias.scope !333
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !333
+  store ptr null, ptr %21, align 8, !tbaa !64, !alias.scope !340
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !340
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm.exit
 
 22:                                               ; preds = %17, %13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !62, !alias.scope !339
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !339
+  store ptr null, ptr %23, align 8, !tbaa !64, !alias.scope !346
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !346
   %24 = add i64 %2, 262144
-  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !336
+  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !343
   %.not5.i = icmp ugt i64 %24, %25
   br i1 %.not5.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm.exit, label %.lr.ph.i
 
@@ -6294,38 +6294,38 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %28
 
 28:                                               ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %.lr.ph.i
-  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !336
+  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !343
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !336
-  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !336
-  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !336
+  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !343
+  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !343
+  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !343
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
-  %35 = load ptr, ptr %34, align 8, !noalias !336
+  %35 = load ptr, ptr %34, align 8, !noalias !343
   %36 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef %31, i1 noundef zeroext true)
-          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !336
+          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !343
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i: ; preds = %28
-  %37 = load ptr, ptr %26, align 8, !tbaa !78, !noalias !336
+  %37 = load ptr, ptr %26, align 8, !tbaa !80, !noalias !343
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
-  store ptr %38, ptr %26, align 8, !tbaa !78, !noalias !336
-  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !336
-  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !336
+  store ptr %38, ptr %26, align 8, !tbaa !80, !noalias !343
+  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !343
+  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !343
   %.not.i = icmp ugt i64 %24, %40
-  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !342
+  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !349
 
 41:                                               ; preds = %28
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !336
+  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !343
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %41
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !336
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !343
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %41
-  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !336
+  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !343
   resume { ptr, i32 } %42
 
 _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm.exit: ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %22, %12, %20, %8
@@ -6339,8 +6339,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   %6 = alloca %"class.rocksdb::Status", align 8
   %7 = alloca %"class.rocksdb::Slice", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %8, align 8, !tbaa !62, !alias.scope !343
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !343
+  store ptr null, ptr %8, align 8, !tbaa !64, !alias.scope !350
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !350
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %11 = icmp ugt i64 %2, %10
@@ -6381,62 +6381,62 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 33:                                               ; preds = %30
   %34 = extractvalue { i64, i64 } %32, 0
   %35 = extractvalue { i64, i64 } %32, 1
-  store i64 %34, ptr %13, align 8, !tbaa !84
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !84
+  store i64 %34, ptr %13, align 8, !tbaa !86
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !86
   store ptr %13, ptr %7, align 8
   store i64 16, ptr %14, align 8
-  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !346
-  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !346
+  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !353
+  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !353
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !88
+  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !90
 
 39:                                               ; preds = %33
-  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !346
+  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !353
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, label %41
 
 41:                                               ; preds = %39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !346
-  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89, !noalias !346
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93, !noalias !346
-  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !346
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !346
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !353
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91, !noalias !353
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95, !noalias !353
+  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !353
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !353
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !346
-  store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !346
-  store i64 0, ptr %15, align 8, !tbaa !96, !noalias !346
-  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !346
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !353
+  store ptr @.str, ptr %4, align 8, !tbaa !96, !noalias !353
+  store i64 0, ptr %15, align 8, !tbaa !98, !noalias !353
+  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !353
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  %45 = load ptr, ptr %44, align 8, !noalias !346
+  %45 = load ptr, ptr %44, align 8, !noalias !353
   invoke void %45(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 noundef 262144, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %4, i8 noundef zeroext 0)
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !346
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !353
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %6, align 8, !tbaa !97
-  store i8 %48, ptr %0, align 8, !tbaa !99
-  store i8 0, ptr %6, align 8, !tbaa !99
-  %49 = load i8, ptr %16, align 1, !tbaa !108
-  store i8 %49, ptr %17, align 1, !tbaa !109
-  store i8 0, ptr %16, align 1, !tbaa !109
-  %50 = load i8, ptr %18, align 2, !tbaa !110
-  store i8 %50, ptr %19, align 2, !tbaa !111
-  store i8 0, ptr %18, align 2, !tbaa !111
-  %51 = load i8, ptr %20, align 1, !tbaa !112, !range !67, !noundef !68
-  store i8 %51, ptr %21, align 1, !tbaa !113
-  store i8 0, ptr %20, align 1, !tbaa !113
-  %52 = load i8, ptr %22, align 4, !tbaa !112, !range !67, !noundef !68
-  store i8 %52, ptr %23, align 4, !tbaa !114
-  store i8 0, ptr %22, align 4, !tbaa !114
+  %48 = load i8, ptr %6, align 8, !tbaa !99
+  store i8 %48, ptr %0, align 8, !tbaa !101
+  store i8 0, ptr %6, align 8, !tbaa !101
+  %49 = load i8, ptr %16, align 1, !tbaa !110
+  store i8 %49, ptr %17, align 1, !tbaa !111
+  store i8 0, ptr %16, align 1, !tbaa !111
+  %50 = load i8, ptr %18, align 2, !tbaa !112
+  store i8 %50, ptr %19, align 2, !tbaa !113
+  store i8 0, ptr %18, align 2, !tbaa !113
+  %51 = load i8, ptr %20, align 1, !tbaa !114, !range !69, !noundef !70
+  store i8 %51, ptr %21, align 1, !tbaa !115
+  store i8 0, ptr %20, align 1, !tbaa !115
+  %52 = load i8, ptr %22, align 4, !tbaa !114, !range !69, !noundef !70
+  store i8 %52, ptr %23, align 4, !tbaa !116
+  store i8 0, ptr %22, align 4, !tbaa !116
   %53 = load i8, ptr %24, align 1, !tbaa !20
-  store i8 %53, ptr %25, align 1, !tbaa !115
-  store i8 0, ptr %24, align 1, !tbaa !115
+  store i8 %53, ptr %25, align 1, !tbaa !117
+  store i8 0, ptr %24, align 1, !tbaa !117
   store ptr null, ptr %26, align 8, !tbaa !30
   %54 = load ptr, ptr %8, align 8, !tbaa !30
   store ptr %.pre32, ptr %8, align 8, !tbaa !30
@@ -6460,7 +6460,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
-  %56 = load i8, ptr %0, align 8, !tbaa !99
+  %56 = load i8, ptr %0, align 8, !tbaa !101
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
 
@@ -6472,7 +6472,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  %60 = load ptr, ptr %28, align 8, !tbaa !78
+  %60 = load ptr, ptr %28, align 8, !tbaa !80
   %61 = load ptr, ptr %29, align 8, !tbaa !57
   %.not.i20 = icmp eq ptr %60, %61
   br i1 %.not.i20, label %65, label %62
@@ -6481,7 +6481,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   %63 = load ptr, ptr %5, align 8, !tbaa !59
   store ptr %63, ptr %60, align 8, !tbaa !59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %64, ptr %28, align 8, !tbaa !78
+  store ptr %64, ptr %28, align 8, !tbaa !80
   br label %86
 
 65:                                               ; preds = %59
@@ -6534,7 +6534,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
-  store ptr %83, ptr %28, align 8, !tbaa !78
+  store ptr %83, ptr %28, align 8, !tbaa !80
   %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
@@ -6544,7 +6544,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
-  br i1 %89, label %30, label %.critedge, !llvm.loop !349
+  br i1 %89, label %30, label %.critedge, !llvm.loop !356
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -6582,8 +6582,8 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !350
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !350
+  store ptr null, ptr %4, align 8, !tbaa !64, !alias.scope !357
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !357
   %5 = add i64 %2, 262144
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -6607,13 +6607,13 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
           to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit unwind label %23
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %10
-  %19 = load ptr, ptr %8, align 8, !tbaa !78
+  %19 = load ptr, ptr %8, align 8, !tbaa !80
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr %20, ptr %8, align 8, !tbaa !78
+  store ptr %20, ptr %8, align 8, !tbaa !80
   %21 = atomicrmw sub ptr %6, i64 262144 seq_cst, align 8
   %22 = load atomic i64, ptr %6 monotonic, align 8
   %.not = icmp ugt i64 %5, %22
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !342
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !349
 
 23:                                               ; preds = %10
   %24 = landingpad { ptr, i32 }
@@ -6636,13 +6636,13 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !353
+  store i8 3, ptr %0, align 8, !tbaa !101, !alias.scope !360
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !353
+  store i8 0, ptr %5, align 1, !tbaa !111, !alias.scope !360
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !62, !alias.scope !353
-  store i32 0, ptr %6, align 2, !alias.scope !353
+  store ptr null, ptr %7, align 8, !tbaa !64, !alias.scope !360
+  store i32 0, ptr %6, align 2, !alias.scope !360
   ret void
 }
 
@@ -6663,17 +6663,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !356
-  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !356
+  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !363
+  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !363
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !356
+  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !363
   br label %24
 
 24:                                               ; preds = %25, %21
@@ -6683,14 +6683,14 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 25:                                               ; preds = %24
   %26 = add nsw i32 %.06.i.i.i.i.i, 1
-  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !356
+  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !363
   %28 = extractvalue { i32, i1 } %27, 1
   %29 = extractvalue { i32, i1 } %27, 0
-  br i1 %28, label %31, label %24, !llvm.loop !126
+  br i1 %28, label %31, label %24, !llvm.loop !128
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %24, %15
-  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !356
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !356
+  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !363
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !363
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #21
           to label %.noexc unwind label %62
 
@@ -6698,14 +6698,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %16, align 8, !tbaa !359, !noalias !356
-  store ptr %32, ptr %5, align 8, !tbaa !319, !alias.scope !356
+  %32 = load ptr, ptr %16, align 8, !tbaa !366, !noalias !363
+  store ptr %32, ptr %5, align 8, !tbaa !325, !alias.scope !363
   invoke void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleC1EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %2, ptr noundef nonnull %5)
           to label %33 unwind label %64
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %3, align 8, !tbaa !128
-  store ptr %14, ptr %3, align 8, !tbaa !128
+  %34 = load ptr, ptr %3, align 8, !tbaa !130
+  store ptr %14, ptr %3, align 8, !tbaa !130
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i.i
 
@@ -6815,7 +6815,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE18GetTotalMemoryUsedEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i64, ptr %2, align 8, !tbaa !329
+  %3 = load i64, ptr %2, align 8, !tbaa !336
   ret i64 %3
 }
 
@@ -6828,7 +6828,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
+  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !90
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
@@ -6837,8 +6837,8 @@ define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false)
-  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95
   %6 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit
@@ -6855,9 +6855,9 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %5, ptr %7, align 8, !tbaa !84
+  store i64 %5, ptr %7, align 8, !tbaa !86
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
+  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !86
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %7, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 16, 1
   ret { ptr, i64 } %.fca.1.insert.i
@@ -6867,11 +6867,11 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleC2EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleC5EmSt10shared_ptrIS2_E) align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !360
+  store i64 %1, ptr %4, align 8, !tbaa !367
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %2, align 8, !tbaa !365
-  store ptr %6, ptr %5, align 8, !tbaa !365
+  %6 = load ptr, ptr %2, align 8, !tbaa !372
+  store ptr %6, ptr %5, align 8, !tbaa !372
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !19
@@ -6954,20 +6954,20 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !365
+  %4 = load ptr, ptr %3, align 8, !tbaa !372
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !360
-  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !366
+  %6 = load i64, ptr %5, align 8, !tbaa !367
+  %7 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !373
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !noalias !366
+  %9 = load ptr, ptr %8, align 8, !noalias !373
   %10 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(104) %4)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %1
   %11 = sub i64 %10, %6
-  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !366
+  %12 = load ptr, ptr %4, align 8, !tbaa !4, !noalias !373
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !366
+  %14 = load ptr, ptr %13, align 8, !noalias !373
   invoke void %14(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %2, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %11)
           to label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE23ReleaseCacheReservationEm.exit unwind label %40
 
@@ -7153,7 +7153,7 @@ _ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %18, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %17, ptr %19, align 8, !tbaa !369
+  store i8 %17, ptr %19, align 8, !tbaa !376
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   ret void
@@ -7291,7 +7291,7 @@ _ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14Cac
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
   %.not = icmp eq ptr %59, %5
-  br i1 %.not, label %._crit_edge.loopexit, label %52
+  br i1 %.not, label %._crit_edge.loopexit, label %52, !llvm.loop !382
 
 60:                                               ; preds = %52
   %61 = landingpad { ptr, i32 }
@@ -7311,7 +7311,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %2, ptr %4, align 8, !tbaa !375
+  store i64 %2, ptr %4, align 8, !tbaa !383
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = icmp eq i64 %2, %6
@@ -7319,8 +7319,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !62, !alias.scope !376
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !376
+  store ptr null, ptr %9, align 8, !tbaa !64, !alias.scope !384
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !384
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm.exit
 
 10:                                               ; preds = %3
@@ -7333,7 +7333,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i8, ptr %14, align 8, !tbaa !369, !range !67, !noundef !68
+  %15 = load i8, ptr %14, align 8, !tbaa !376, !range !69, !noundef !70
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %22
 
@@ -7345,17 +7345,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !62, !alias.scope !379
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !379
+  store ptr null, ptr %21, align 8, !tbaa !64, !alias.scope !387
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !387
   br label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm.exit
 
 22:                                               ; preds = %17, %13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !390)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !62, !alias.scope !385
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !385
+  store ptr null, ptr %23, align 8, !tbaa !64, !alias.scope !393
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !393
   %24 = add i64 %2, 262144
-  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !382
+  %25 = load atomic i64, ptr %5 monotonic, align 8, !noalias !390
   %.not5.i = icmp ugt i64 %24, %25
   br i1 %.not5.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm.exit, label %.lr.ph.i
 
@@ -7365,38 +7365,38 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %28
 
 28:                                               ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %.lr.ph.i
-  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !382
+  %29 = load ptr, ptr %26, align 8, !tbaa !55, !noalias !390
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !382
-  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !382
-  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !382
+  %31 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !390
+  %32 = load ptr, ptr %27, align 8, !tbaa !32, !noalias !390
+  %33 = load ptr, ptr %32, align 8, !tbaa !4, !noalias !390
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
-  %35 = load ptr, ptr %34, align 8, !noalias !382
+  %35 = load ptr, ptr %34, align 8, !noalias !390
   %36 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef %31, i1 noundef zeroext true)
-          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !382
+          to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i unwind label %41, !noalias !390
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i: ; preds = %28
-  %37 = load ptr, ptr %26, align 8, !tbaa !78, !noalias !382
+  %37 = load ptr, ptr %26, align 8, !tbaa !80, !noalias !390
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
-  store ptr %38, ptr %26, align 8, !tbaa !78, !noalias !382
-  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !382
-  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !382
+  store ptr %38, ptr %26, align 8, !tbaa !80, !noalias !390
+  %39 = atomicrmw sub ptr %5, i64 262144 seq_cst, align 8, !noalias !390
+  %40 = load atomic i64, ptr %5 monotonic, align 8, !noalias !390
   %.not.i = icmp ugt i64 %24, %40
-  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !388
+  br i1 %.not.i, label %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm.exit, label %28, !llvm.loop !396
 
 41:                                               ; preds = %28
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !382
+  %43 = load ptr, ptr %23, align 8, !tbaa !30, !alias.scope !390
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %41
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !382
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #19, !noalias !390
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %41
-  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !382
+  store ptr null, ptr %23, align 8, !tbaa !30, !alias.scope !390
   resume { ptr, i32 } %42
 
 _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm.exit: ; preds = %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit.i, %22, %12, %20, %8
@@ -7410,8 +7410,8 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   %6 = alloca %"class.rocksdb::Status", align 8
   %7 = alloca %"class.rocksdb::Slice", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %8, align 8, !tbaa !62, !alias.scope !389
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !389
+  store ptr null, ptr %8, align 8, !tbaa !64, !alias.scope !397
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !397
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %11 = icmp ugt i64 %2, %10
@@ -7452,62 +7452,62 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 33:                                               ; preds = %30
   %34 = extractvalue { i64, i64 } %32, 0
   %35 = extractvalue { i64, i64 } %32, 1
-  store i64 %34, ptr %13, align 8, !tbaa !84
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !84
+  store i64 %34, ptr %13, align 8, !tbaa !86
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !86
   store ptr %13, ptr %7, align 8
   store i64 16, ptr %14, align 8
-  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !392
-  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !392
+  %36 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !400
+  %37 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8, !noalias !400
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !88
+  br i1 %38, label %39, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, !prof !90
 
 39:                                               ; preds = %33
-  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !392
+  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !400
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, label %41
 
 41:                                               ; preds = %39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !392
-  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89, !noalias !392
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93, !noalias !392
-  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !392
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !392
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false), !noalias !400
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91, !noalias !400
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95, !noalias !400
+  %42 = call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper), !noalias !400
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18, !noalias !400
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !392
-  store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !392
-  store i64 0, ptr %15, align 8, !tbaa !96, !noalias !392
-  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !392
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !400
+  store ptr @.str, ptr %4, align 8, !tbaa !96, !noalias !400
+  store i64 0, ptr %15, align 8, !tbaa !98, !noalias !400
+  %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !400
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  %45 = load ptr, ptr %44, align 8, !noalias !392
+  %45 = load ptr, ptr %44, align 8, !noalias !400
   invoke void %45(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 noundef 262144, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %4, i8 noundef zeroext 0)
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !392
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !400
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %6, align 8, !tbaa !97
-  store i8 %48, ptr %0, align 8, !tbaa !99
-  store i8 0, ptr %6, align 8, !tbaa !99
-  %49 = load i8, ptr %16, align 1, !tbaa !108
-  store i8 %49, ptr %17, align 1, !tbaa !109
-  store i8 0, ptr %16, align 1, !tbaa !109
-  %50 = load i8, ptr %18, align 2, !tbaa !110
-  store i8 %50, ptr %19, align 2, !tbaa !111
-  store i8 0, ptr %18, align 2, !tbaa !111
-  %51 = load i8, ptr %20, align 1, !tbaa !112, !range !67, !noundef !68
-  store i8 %51, ptr %21, align 1, !tbaa !113
-  store i8 0, ptr %20, align 1, !tbaa !113
-  %52 = load i8, ptr %22, align 4, !tbaa !112, !range !67, !noundef !68
-  store i8 %52, ptr %23, align 4, !tbaa !114
-  store i8 0, ptr %22, align 4, !tbaa !114
+  %48 = load i8, ptr %6, align 8, !tbaa !99
+  store i8 %48, ptr %0, align 8, !tbaa !101
+  store i8 0, ptr %6, align 8, !tbaa !101
+  %49 = load i8, ptr %16, align 1, !tbaa !110
+  store i8 %49, ptr %17, align 1, !tbaa !111
+  store i8 0, ptr %16, align 1, !tbaa !111
+  %50 = load i8, ptr %18, align 2, !tbaa !112
+  store i8 %50, ptr %19, align 2, !tbaa !113
+  store i8 0, ptr %18, align 2, !tbaa !113
+  %51 = load i8, ptr %20, align 1, !tbaa !114, !range !69, !noundef !70
+  store i8 %51, ptr %21, align 1, !tbaa !115
+  store i8 0, ptr %20, align 1, !tbaa !115
+  %52 = load i8, ptr %22, align 4, !tbaa !114, !range !69, !noundef !70
+  store i8 %52, ptr %23, align 4, !tbaa !116
+  store i8 0, ptr %22, align 4, !tbaa !116
   %53 = load i8, ptr %24, align 1, !tbaa !20
-  store i8 %53, ptr %25, align 1, !tbaa !115
-  store i8 0, ptr %24, align 1, !tbaa !115
+  store i8 %53, ptr %25, align 1, !tbaa !117
+  store i8 0, ptr %24, align 1, !tbaa !117
   store ptr null, ptr %26, align 8, !tbaa !30
   %54 = load ptr, ptr %8, align 8, !tbaa !30
   store ptr %.pre32, ptr %8, align 8, !tbaa !30
@@ -7531,7 +7531,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
-  %56 = load i8, ptr %0, align 8, !tbaa !99
+  %56 = load i8, ptr %0, align 8, !tbaa !101
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
 
@@ -7543,7 +7543,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  %60 = load ptr, ptr %28, align 8, !tbaa !78
+  %60 = load ptr, ptr %28, align 8, !tbaa !80
   %61 = load ptr, ptr %29, align 8, !tbaa !57
   %.not.i20 = icmp eq ptr %60, %61
   br i1 %.not.i20, label %65, label %62
@@ -7552,7 +7552,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
   %63 = load ptr, ptr %5, align 8, !tbaa !59
   store ptr %63, ptr %60, align 8, !tbaa !59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %64, ptr %28, align 8, !tbaa !78
+  store ptr %64, ptr %28, align 8, !tbaa !80
   br label %86
 
 65:                                               ; preds = %59
@@ -7605,7 +7605,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
-  store ptr %83, ptr %28, align 8, !tbaa !78
+  store ptr %83, ptr %28, align 8, !tbaa !80
   %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
@@ -7615,7 +7615,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
-  br i1 %89, label %30, label %.critedge, !llvm.loop !395
+  br i1 %89, label %30, label %.critedge, !llvm.loop !403
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7653,8 +7653,8 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !396
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !396
+  store ptr null, ptr %4, align 8, !tbaa !64, !alias.scope !404
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !404
   %5 = add i64 %2, 262144
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -7678,13 +7678,13 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
           to label %_ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit unwind label %23
 
 _ZN7rocksdb18BaseCacheInterfaceISt10shared_ptrINS_5CacheEEE24ReleaseAndEraseIfLastRefEPNS2_6HandleE.exit: ; preds = %10
-  %19 = load ptr, ptr %8, align 8, !tbaa !78
+  %19 = load ptr, ptr %8, align 8, !tbaa !80
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr %20, ptr %8, align 8, !tbaa !78
+  store ptr %20, ptr %8, align 8, !tbaa !80
   %21 = atomicrmw sub ptr %6, i64 262144 seq_cst, align 8
   %22 = load atomic i64, ptr %6 monotonic, align 8
   %.not = icmp ugt i64 %5, %22
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !388
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !396
 
 23:                                               ; preds = %10
   %24 = landingpad { ptr, i32 }
@@ -7707,13 +7707,13 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !399
+  store i8 3, ptr %0, align 8, !tbaa !101, !alias.scope !407
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !399
+  store i8 0, ptr %5, align 1, !tbaa !111, !alias.scope !407
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !62, !alias.scope !399
-  store i32 0, ptr %6, align 2, !alias.scope !399
+  store ptr null, ptr %7, align 8, !tbaa !64, !alias.scope !407
+  store i32 0, ptr %6, align 2, !alias.scope !407
   ret void
 }
 
@@ -7734,17 +7734,17 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !402
-  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !402
+  %19 = load ptr, ptr %18, align 8, !tbaa !58, !noalias !410
+  store ptr %19, ptr %17, align 8, !tbaa !19, !alias.scope !410
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !402
+  %23 = load atomic i32, ptr %22 monotonic, align 8, !noalias !410
   br label %24
 
 24:                                               ; preds = %25, %21
@@ -7754,14 +7754,14 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 
 25:                                               ; preds = %24
   %26 = add nsw i32 %.06.i.i.i.i.i, 1
-  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !402
+  %27 = cmpxchg weak ptr %22, i32 %.06.i.i.i.i.i, i32 %26 acq_rel monotonic, align 8, !noalias !410
   %28 = extractvalue { i32, i1 } %27, 1
   %29 = extractvalue { i32, i1 } %27, 0
-  br i1 %28, label %31, label %24, !llvm.loop !126
+  br i1 %28, label %31, label %24, !llvm.loop !128
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %24, %15
-  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !402
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !402
+  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !410
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %30, align 8, !tbaa !4, !noalias !410
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #21
           to label %.noexc unwind label %62
 
@@ -7769,14 +7769,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %16, align 8, !tbaa !405, !noalias !402
-  store ptr %32, ptr %5, align 8, !tbaa !365, !alias.scope !402
+  %32 = load ptr, ptr %16, align 8, !tbaa !413, !noalias !410
+  store ptr %32, ptr %5, align 8, !tbaa !372, !alias.scope !410
   invoke void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleC1EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %2, ptr noundef nonnull %5)
           to label %33 unwind label %64
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %3, align 8, !tbaa !128
-  store ptr %14, ptr %3, align 8, !tbaa !128
+  %34 = load ptr, ptr %3, align 8, !tbaa !130
+  store ptr %14, ptr %3, align 8, !tbaa !130
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i.i
 
@@ -7886,7 +7886,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE18GetTotalMemoryUsedEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i64, ptr %2, align 8, !tbaa !375
+  %3 = load i64, ptr %2, align 8, !tbaa !383
   ret i64 %3
 }
 
@@ -7899,7 +7899,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
+  br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !90
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
@@ -7908,8 +7908,8 @@ define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i8 0, i64 32, i1 false)
-  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !89
-  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !93
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 32), align 8, !tbaa !91
+  store ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper, i64 40), align 8, !tbaa !95
   %6 = tail call ptr @llvm.invariant.start.p0(i64 48, ptr nonnull @_ZZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper) #18
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit
@@ -7926,9 +7926,9 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %5, ptr %7, align 8, !tbaa !84
+  store i64 %5, ptr %7, align 8, !tbaa !86
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
+  store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !86
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %7, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 16, 1
   ret { ptr, i64 } %.fca.1.insert.i
@@ -8099,348 +8099,356 @@ attributes #22 = { builtin allocsize(0) }
 !58 = !{!41, !17, i64 0}
 !59 = !{!60, !60, i64 0}
 !60 = !{!"p1 _ZTSN7rocksdb5Cache6HandleE", !15, i64 0}
-!61 = !{!36, !10, i64 56}
-!62 = !{!63, !31, i64 0}
-!63 = !{!"_ZTSSt10_Head_baseILm0EPKcLb0EE", !31, i64 0}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!66 = distinct !{!66, !"_ZN7rocksdb6Status2OKEv"}
-!67 = !{i8 0, i8 2}
-!68 = !{}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!71 = distinct !{!71, !"_ZN7rocksdb6Status2OKEv"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm: argument 0"}
-!74 = distinct !{!74, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm"}
-!75 = !{!76, !73}
-!76 = distinct !{!76, !77, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!77 = distinct !{!77, !"_ZN7rocksdb6Status2OKEv"}
-!78 = !{!51, !52, i64 8}
-!79 = distinct !{!79, !80}
-!80 = !{!"llvm.loop.mustprogress"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!83 = distinct !{!83, !"_ZN7rocksdb6Status2OKEv"}
-!84 = !{!10, !10, i64 0}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
-!87 = distinct !{!87, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
-!88 = !{!"branch_weights", i32 1, i32 1048575}
-!89 = !{!90, !91, i64 32}
-!90 = !{!"_ZTSN7rocksdb5Cache15CacheItemHelperE", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !91, i64 32, !92, i64 40}
-!91 = !{!"_ZTSN7rocksdb14CacheEntryRoleE", !11, i64 0}
-!92 = !{!"p1 _ZTSN7rocksdb5Cache15CacheItemHelperE", !15, i64 0}
-!93 = !{!90, !92, i64 40}
-!94 = !{!95, !31, i64 0}
-!95 = !{!"_ZTSN7rocksdb5SliceE", !31, i64 0, !10, i64 8}
-!96 = !{!95, !10, i64 8}
-!97 = !{!98, !98, i64 0}
-!98 = !{!"_ZTSN7rocksdb6Status4CodeE", !11, i64 0}
-!99 = !{!100, !98, i64 0}
-!100 = !{!"_ZTSN7rocksdb6StatusE", !98, i64 0, !101, i64 1, !102, i64 2, !45, i64 3, !45, i64 4, !11, i64 5, !103, i64 8}
-!101 = !{!"_ZTSN7rocksdb6Status7SubCodeE", !11, i64 0}
-!102 = !{!"_ZTSN7rocksdb6Status8SeverityE", !11, i64 0}
-!103 = !{!"_ZTSSt10unique_ptrIA_KcSt14default_deleteIS1_EE", !104, i64 0}
-!104 = !{!"_ZTSSt15__uniq_ptr_dataIKcSt14default_deleteIA_S0_ELb1ELb1EE", !105, i64 0}
-!105 = !{!"_ZTSSt15__uniq_ptr_implIKcSt14default_deleteIA_S0_EE", !106, i64 0}
-!106 = !{!"_ZTSSt5tupleIJPKcSt14default_deleteIA_S0_EEE", !107, i64 0}
-!107 = !{!"_ZTSSt11_Tuple_implILm0EJPKcSt14default_deleteIA_S0_EEE", !63, i64 0}
-!108 = !{!101, !101, i64 0}
-!109 = !{!100, !101, i64 1}
-!110 = !{!102, !102, i64 0}
-!111 = !{!100, !102, i64 2}
-!112 = !{!45, !45, i64 0}
-!113 = !{!100, !45, i64 3}
-!114 = !{!100, !45, i64 4}
-!115 = !{!100, !11, i64 5}
-!116 = distinct !{!116, !80}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!119 = distinct !{!119, !"_ZN7rocksdb6Status2OKEv"}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
-!122 = distinct !{!122, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE9EEEE16shared_from_thisEv: argument 0"}
-!125 = distinct !{!125, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE9EEEE16shared_from_thisEv"}
-!126 = distinct !{!126, !80}
-!127 = !{!40, !14, i64 0}
-!128 = !{!129, !129, i64 0}
-!129 = !{!"p1 _ZTSN7rocksdb23CacheReservationManager22CacheReservationHandleE", !15, i64 0}
-!130 = !{!131, !10, i64 8}
-!131 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !132, i64 16}
-!132 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE", !133, i64 0}
-!133 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEELN9__gnu_cxx12_Lock_policyE2EE", !134, i64 0, !16, i64 8}
-!134 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEE", !15, i64 0}
-!135 = !{!133, !134, i64 0}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE23ReleaseCacheReservationEm: argument 0"}
-!138 = distinct !{!138, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE23ReleaseCacheReservationEm"}
-!139 = !{!140, !45, i64 40}
-!140 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEE", !37, i64 0, !141, i64 8, !144, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
-!141 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE", !142, i64 0}
-!142 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE", !143, i64 0}
-!143 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEELN9__gnu_cxx12_Lock_policyE2EE", !134, i64 0, !41, i64 8}
-!144 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
-!145 = !{!140, !10, i64 56}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!148 = distinct !{!148, !"_ZN7rocksdb6Status2OKEv"}
+!61 = distinct !{!61, !62}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = !{!36, !10, i64 56}
+!64 = !{!65, !31, i64 0}
+!65 = !{!"_ZTSSt10_Head_baseILm0EPKcLb0EE", !31, i64 0}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!68 = distinct !{!68, !"_ZN7rocksdb6Status2OKEv"}
+!69 = !{i8 0, i8 2}
+!70 = !{}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!73 = distinct !{!73, !"_ZN7rocksdb6Status2OKEv"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm: argument 0"}
+!76 = distinct !{!76, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm"}
+!77 = !{!78, !75}
+!78 = distinct !{!78, !79, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!79 = distinct !{!79, !"_ZN7rocksdb6Status2OKEv"}
+!80 = !{!51, !52, i64 8}
+!81 = distinct !{!81, !82, !62}
+!82 = !{!"llvm.loop.mustprogress"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!85 = distinct !{!85, !"_ZN7rocksdb6Status2OKEv"}
+!86 = !{!10, !10, i64 0}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
+!89 = distinct !{!89, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
+!90 = !{!"branch_weights", i32 1, i32 1048575}
+!91 = !{!92, !93, i64 32}
+!92 = !{!"_ZTSN7rocksdb5Cache15CacheItemHelperE", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !93, i64 32, !94, i64 40}
+!93 = !{!"_ZTSN7rocksdb14CacheEntryRoleE", !11, i64 0}
+!94 = !{!"p1 _ZTSN7rocksdb5Cache15CacheItemHelperE", !15, i64 0}
+!95 = !{!92, !94, i64 40}
+!96 = !{!97, !31, i64 0}
+!97 = !{!"_ZTSN7rocksdb5SliceE", !31, i64 0, !10, i64 8}
+!98 = !{!97, !10, i64 8}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"_ZTSN7rocksdb6Status4CodeE", !11, i64 0}
+!101 = !{!102, !100, i64 0}
+!102 = !{!"_ZTSN7rocksdb6StatusE", !100, i64 0, !103, i64 1, !104, i64 2, !45, i64 3, !45, i64 4, !11, i64 5, !105, i64 8}
+!103 = !{!"_ZTSN7rocksdb6Status7SubCodeE", !11, i64 0}
+!104 = !{!"_ZTSN7rocksdb6Status8SeverityE", !11, i64 0}
+!105 = !{!"_ZTSSt10unique_ptrIA_KcSt14default_deleteIS1_EE", !106, i64 0}
+!106 = !{!"_ZTSSt15__uniq_ptr_dataIKcSt14default_deleteIA_S0_ELb1ELb1EE", !107, i64 0}
+!107 = !{!"_ZTSSt15__uniq_ptr_implIKcSt14default_deleteIA_S0_EE", !108, i64 0}
+!108 = !{!"_ZTSSt5tupleIJPKcSt14default_deleteIA_S0_EEE", !109, i64 0}
+!109 = !{!"_ZTSSt11_Tuple_implILm0EJPKcSt14default_deleteIA_S0_EEE", !65, i64 0}
+!110 = !{!103, !103, i64 0}
+!111 = !{!102, !103, i64 1}
+!112 = !{!104, !104, i64 0}
+!113 = !{!102, !104, i64 2}
+!114 = !{!45, !45, i64 0}
+!115 = !{!102, !45, i64 3}
+!116 = !{!102, !45, i64 4}
+!117 = !{!102, !11, i64 5}
+!118 = distinct !{!118, !82, !62}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!121 = distinct !{!121, !"_ZN7rocksdb6Status2OKEv"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
+!124 = distinct !{!124, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE9EEEE16shared_from_thisEv: argument 0"}
+!127 = distinct !{!127, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE9EEEE16shared_from_thisEv"}
+!128 = distinct !{!128, !82, !62}
+!129 = !{!40, !14, i64 0}
+!130 = !{!131, !131, i64 0}
+!131 = !{!"p1 _ZTSN7rocksdb23CacheReservationManager22CacheReservationHandleE", !15, i64 0}
+!132 = !{!133, !10, i64 8}
+!133 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !134, i64 16}
+!134 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE", !135, i64 0}
+!135 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEELN9__gnu_cxx12_Lock_policyE2EE", !136, i64 0, !16, i64 8}
+!136 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEE", !15, i64 0}
+!137 = !{!135, !136, i64 0}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE23ReleaseCacheReservationEm: argument 0"}
+!140 = distinct !{!140, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE23ReleaseCacheReservationEm"}
+!141 = !{!142, !45, i64 40}
+!142 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEE", !37, i64 0, !143, i64 8, !146, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
+!143 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE", !144, i64 0}
+!144 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE", !145, i64 0}
+!145 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEELN9__gnu_cxx12_Lock_policyE2EE", !136, i64 0, !41, i64 8}
+!146 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
+!147 = distinct !{!147, !62}
+!148 = !{!142, !10, i64 56}
 !149 = !{!150}
 !150 = distinct !{!150, !151, !"_ZN7rocksdb6Status2OKEv: argument 0"}
 !151 = distinct !{!151, !"_ZN7rocksdb6Status2OKEv"}
 !152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm: argument 0"}
-!154 = distinct !{!154, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm"}
-!155 = !{!156, !153}
-!156 = distinct !{!156, !157, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!157 = distinct !{!157, !"_ZN7rocksdb6Status2OKEv"}
-!158 = distinct !{!158, !80}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!161 = distinct !{!161, !"_ZN7rocksdb6Status2OKEv"}
+!153 = distinct !{!153, !154, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!154 = distinct !{!154, !"_ZN7rocksdb6Status2OKEv"}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm: argument 0"}
+!157 = distinct !{!157, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm"}
+!158 = !{!159, !156}
+!159 = distinct !{!159, !160, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!160 = distinct !{!160, !"_ZN7rocksdb6Status2OKEv"}
+!161 = distinct !{!161, !82, !62}
 !162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
-!164 = distinct !{!164, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
-!165 = distinct !{!165, !80}
-!166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!168 = distinct !{!168, !"_ZN7rocksdb6Status2OKEv"}
+!163 = distinct !{!163, !164, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!164 = distinct !{!164, !"_ZN7rocksdb6Status2OKEv"}
+!165 = !{!166}
+!166 = distinct !{!166, !167, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
+!167 = distinct !{!167, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
+!168 = distinct !{!168, !82, !62}
 !169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
-!171 = distinct !{!171, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
+!170 = distinct !{!170, !171, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!171 = distinct !{!171, !"_ZN7rocksdb6Status2OKEv"}
 !172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE16shared_from_thisEv: argument 0"}
-!174 = distinct !{!174, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE16shared_from_thisEv"}
-!175 = !{!143, !134, i64 0}
-!176 = !{!177, !10, i64 8}
-!177 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !178, i64 16}
-!178 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE", !179, i64 0}
-!179 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEELN9__gnu_cxx12_Lock_policyE2EE", !180, i64 0, !16, i64 8}
-!180 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEE", !15, i64 0}
-!181 = !{!179, !180, i64 0}
-!182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE23ReleaseCacheReservationEm: argument 0"}
-!184 = distinct !{!184, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE23ReleaseCacheReservationEm"}
-!185 = !{!186, !45, i64 40}
-!186 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEE", !37, i64 0, !187, i64 8, !190, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
-!187 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE", !188, i64 0}
-!188 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE", !189, i64 0}
-!189 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEELN9__gnu_cxx12_Lock_policyE2EE", !180, i64 0, !41, i64 8}
-!190 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
-!191 = !{!186, !10, i64 56}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!194 = distinct !{!194, !"_ZN7rocksdb6Status2OKEv"}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!197 = distinct !{!197, !"_ZN7rocksdb6Status2OKEv"}
-!198 = !{!199}
-!199 = distinct !{!199, !200, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm: argument 0"}
-!200 = distinct !{!200, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm"}
-!201 = !{!202, !199}
-!202 = distinct !{!202, !203, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!203 = distinct !{!203, !"_ZN7rocksdb6Status2OKEv"}
-!204 = distinct !{!204, !80}
-!205 = !{!206}
+!173 = distinct !{!173, !174, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
+!174 = distinct !{!174, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE16shared_from_thisEv: argument 0"}
+!177 = distinct !{!177, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEE16shared_from_thisEv"}
+!178 = !{!145, !136, i64 0}
+!179 = !{!180, !10, i64 8}
+!180 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !181, i64 16}
+!181 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE", !182, i64 0}
+!182 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEELN9__gnu_cxx12_Lock_policyE2EE", !183, i64 0, !16, i64 8}
+!183 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEE", !15, i64 0}
+!184 = !{!182, !183, i64 0}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE23ReleaseCacheReservationEm: argument 0"}
+!187 = distinct !{!187, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE23ReleaseCacheReservationEm"}
+!188 = !{!189, !45, i64 40}
+!189 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEE", !37, i64 0, !190, i64 8, !193, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
+!190 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE", !191, i64 0}
+!191 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE", !192, i64 0}
+!192 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEELN9__gnu_cxx12_Lock_policyE2EE", !183, i64 0, !41, i64 8}
+!193 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
+!194 = distinct !{!194, !62}
+!195 = !{!189, !10, i64 56}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!198 = distinct !{!198, !"_ZN7rocksdb6Status2OKEv"}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!201 = distinct !{!201, !"_ZN7rocksdb6Status2OKEv"}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm: argument 0"}
+!204 = distinct !{!204, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm"}
+!205 = !{!206, !203}
 !206 = distinct !{!206, !207, !"_ZN7rocksdb6Status2OKEv: argument 0"}
 !207 = distinct !{!207, !"_ZN7rocksdb6Status2OKEv"}
-!208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
-!210 = distinct !{!210, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
-!211 = distinct !{!211, !80}
+!208 = distinct !{!208, !82, !62}
+!209 = !{!210}
+!210 = distinct !{!210, !211, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!211 = distinct !{!211, !"_ZN7rocksdb6Status2OKEv"}
 !212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!214 = distinct !{!214, !"_ZN7rocksdb6Status2OKEv"}
-!215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
-!217 = distinct !{!217, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
-!218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE16shared_from_thisEv: argument 0"}
-!220 = distinct !{!220, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE16shared_from_thisEv"}
-!221 = !{!189, !180, i64 0}
-!222 = !{!223, !10, i64 8}
-!223 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !224, i64 16}
-!224 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE", !225, i64 0}
-!225 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEELN9__gnu_cxx12_Lock_policyE2EE", !226, i64 0, !16, i64 8}
-!226 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEE", !15, i64 0}
-!227 = !{!225, !226, i64 0}
-!228 = !{!229}
-!229 = distinct !{!229, !230, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE23ReleaseCacheReservationEm: argument 0"}
-!230 = distinct !{!230, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE23ReleaseCacheReservationEm"}
-!231 = !{!232, !45, i64 40}
-!232 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEE", !37, i64 0, !233, i64 8, !236, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
-!233 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE", !234, i64 0}
-!234 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE", !235, i64 0}
-!235 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEELN9__gnu_cxx12_Lock_policyE2EE", !226, i64 0, !41, i64 8}
-!236 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
-!237 = !{!232, !10, i64 56}
-!238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!240 = distinct !{!240, !"_ZN7rocksdb6Status2OKEv"}
-!241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!243 = distinct !{!243, !"_ZN7rocksdb6Status2OKEv"}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm: argument 0"}
-!246 = distinct !{!246, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm"}
-!247 = !{!248, !245}
-!248 = distinct !{!248, !249, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!249 = distinct !{!249, !"_ZN7rocksdb6Status2OKEv"}
-!250 = distinct !{!250, !80}
-!251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!253 = distinct !{!253, !"_ZN7rocksdb6Status2OKEv"}
-!254 = !{!255}
-!255 = distinct !{!255, !256, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
-!256 = distinct !{!256, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
-!257 = distinct !{!257, !80}
-!258 = !{!259}
-!259 = distinct !{!259, !260, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!260 = distinct !{!260, !"_ZN7rocksdb6Status2OKEv"}
-!261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
-!263 = distinct !{!263, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
-!264 = !{!265}
-!265 = distinct !{!265, !266, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE16shared_from_thisEv: argument 0"}
-!266 = distinct !{!266, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE16shared_from_thisEv"}
-!267 = !{!235, !226, i64 0}
-!268 = !{!269, !10, i64 8}
-!269 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !270, i64 16}
-!270 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE", !271, i64 0}
-!271 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEELN9__gnu_cxx12_Lock_policyE2EE", !272, i64 0, !16, i64 8}
-!272 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEE", !15, i64 0}
-!273 = !{!271, !272, i64 0}
-!274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE23ReleaseCacheReservationEm: argument 0"}
-!276 = distinct !{!276, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE23ReleaseCacheReservationEm"}
-!277 = !{!278, !45, i64 40}
-!278 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEE", !37, i64 0, !279, i64 8, !282, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
-!279 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE", !280, i64 0}
-!280 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE", !281, i64 0}
-!281 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEELN9__gnu_cxx12_Lock_policyE2EE", !272, i64 0, !41, i64 8}
-!282 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
-!283 = !{!278, !10, i64 56}
-!284 = !{!285}
-!285 = distinct !{!285, !286, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!286 = distinct !{!286, !"_ZN7rocksdb6Status2OKEv"}
-!287 = !{!288}
-!288 = distinct !{!288, !289, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!289 = distinct !{!289, !"_ZN7rocksdb6Status2OKEv"}
+!213 = distinct !{!213, !214, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
+!214 = distinct !{!214, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
+!215 = distinct !{!215, !82, !62}
+!216 = !{!217}
+!217 = distinct !{!217, !218, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!218 = distinct !{!218, !"_ZN7rocksdb6Status2OKEv"}
+!219 = !{!220}
+!220 = distinct !{!220, !221, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
+!221 = distinct !{!221, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
+!222 = !{!223}
+!223 = distinct !{!223, !224, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE16shared_from_thisEv: argument 0"}
+!224 = distinct !{!224, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8EEEE16shared_from_thisEv"}
+!225 = !{!192, !183, i64 0}
+!226 = !{!227, !10, i64 8}
+!227 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !228, i64 16}
+!228 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE", !229, i64 0}
+!229 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEELN9__gnu_cxx12_Lock_policyE2EE", !230, i64 0, !16, i64 8}
+!230 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEE", !15, i64 0}
+!231 = !{!229, !230, i64 0}
+!232 = !{!233}
+!233 = distinct !{!233, !234, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE23ReleaseCacheReservationEm: argument 0"}
+!234 = distinct !{!234, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE23ReleaseCacheReservationEm"}
+!235 = !{!236, !45, i64 40}
+!236 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEE", !37, i64 0, !237, i64 8, !240, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
+!237 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE", !238, i64 0}
+!238 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE", !239, i64 0}
+!239 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEELN9__gnu_cxx12_Lock_policyE2EE", !230, i64 0, !41, i64 8}
+!240 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
+!241 = distinct !{!241, !62}
+!242 = !{!236, !10, i64 56}
+!243 = !{!244}
+!244 = distinct !{!244, !245, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!245 = distinct !{!245, !"_ZN7rocksdb6Status2OKEv"}
+!246 = !{!247}
+!247 = distinct !{!247, !248, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!248 = distinct !{!248, !"_ZN7rocksdb6Status2OKEv"}
+!249 = !{!250}
+!250 = distinct !{!250, !251, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm: argument 0"}
+!251 = distinct !{!251, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm"}
+!252 = !{!253, !250}
+!253 = distinct !{!253, !254, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!254 = distinct !{!254, !"_ZN7rocksdb6Status2OKEv"}
+!255 = distinct !{!255, !82, !62}
+!256 = !{!257}
+!257 = distinct !{!257, !258, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!258 = distinct !{!258, !"_ZN7rocksdb6Status2OKEv"}
+!259 = !{!260}
+!260 = distinct !{!260, !261, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
+!261 = distinct !{!261, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
+!262 = distinct !{!262, !82, !62}
+!263 = !{!264}
+!264 = distinct !{!264, !265, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!265 = distinct !{!265, !"_ZN7rocksdb6Status2OKEv"}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
+!268 = distinct !{!268, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
+!269 = !{!270}
+!270 = distinct !{!270, !271, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE16shared_from_thisEv: argument 0"}
+!271 = distinct !{!271, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEE16shared_from_thisEv"}
+!272 = !{!239, !230, i64 0}
+!273 = !{!274, !10, i64 8}
+!274 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !275, i64 16}
+!275 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE", !276, i64 0}
+!276 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEELN9__gnu_cxx12_Lock_policyE2EE", !277, i64 0, !16, i64 8}
+!277 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEE", !15, i64 0}
+!278 = !{!276, !277, i64 0}
+!279 = !{!280}
+!280 = distinct !{!280, !281, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE23ReleaseCacheReservationEm: argument 0"}
+!281 = distinct !{!281, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE23ReleaseCacheReservationEm"}
+!282 = !{!283, !45, i64 40}
+!283 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEE", !37, i64 0, !284, i64 8, !287, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
+!284 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE", !285, i64 0}
+!285 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE", !286, i64 0}
+!286 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEELN9__gnu_cxx12_Lock_policyE2EE", !277, i64 0, !41, i64 8}
+!287 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
+!288 = distinct !{!288, !62}
+!289 = !{!283, !10, i64 56}
 !290 = !{!291}
-!291 = distinct !{!291, !292, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm: argument 0"}
-!292 = distinct !{!292, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm"}
-!293 = !{!294, !291}
+!291 = distinct !{!291, !292, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!292 = distinct !{!292, !"_ZN7rocksdb6Status2OKEv"}
+!293 = !{!294}
 !294 = distinct !{!294, !295, !"_ZN7rocksdb6Status2OKEv: argument 0"}
 !295 = distinct !{!295, !"_ZN7rocksdb6Status2OKEv"}
-!296 = distinct !{!296, !80}
-!297 = !{!298}
-!298 = distinct !{!298, !299, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!299 = distinct !{!299, !"_ZN7rocksdb6Status2OKEv"}
-!300 = !{!301}
-!301 = distinct !{!301, !302, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
-!302 = distinct !{!302, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
-!303 = distinct !{!303, !80}
-!304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!306 = distinct !{!306, !"_ZN7rocksdb6Status2OKEv"}
-!307 = !{!308}
-!308 = distinct !{!308, !309, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
-!309 = distinct !{!309, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
+!296 = !{!297}
+!297 = distinct !{!297, !298, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm: argument 0"}
+!298 = distinct !{!298, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm"}
+!299 = !{!300, !297}
+!300 = distinct !{!300, !301, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!301 = distinct !{!301, !"_ZN7rocksdb6Status2OKEv"}
+!302 = distinct !{!302, !82, !62}
+!303 = !{!304}
+!304 = distinct !{!304, !305, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!305 = distinct !{!305, !"_ZN7rocksdb6Status2OKEv"}
+!306 = !{!307}
+!307 = distinct !{!307, !308, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
+!308 = distinct !{!308, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
+!309 = distinct !{!309, !82, !62}
 !310 = !{!311}
-!311 = distinct !{!311, !312, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE16shared_from_thisEv: argument 0"}
-!312 = distinct !{!312, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE16shared_from_thisEv"}
-!313 = !{!281, !272, i64 0}
-!314 = !{!315, !10, i64 8}
-!315 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !316, i64 16}
-!316 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE", !317, i64 0}
-!317 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEELN9__gnu_cxx12_Lock_policyE2EE", !318, i64 0, !16, i64 8}
-!318 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEE", !15, i64 0}
-!319 = !{!317, !318, i64 0}
-!320 = !{!321}
-!321 = distinct !{!321, !322, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE23ReleaseCacheReservationEm: argument 0"}
-!322 = distinct !{!322, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE23ReleaseCacheReservationEm"}
-!323 = !{!324, !45, i64 40}
-!324 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEE", !37, i64 0, !325, i64 8, !328, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
-!325 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE", !326, i64 0}
-!326 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE", !327, i64 0}
-!327 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEELN9__gnu_cxx12_Lock_policyE2EE", !318, i64 0, !41, i64 8}
-!328 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
-!329 = !{!324, !10, i64 56}
-!330 = !{!331}
-!331 = distinct !{!331, !332, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!332 = distinct !{!332, !"_ZN7rocksdb6Status2OKEv"}
-!333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!335 = distinct !{!335, !"_ZN7rocksdb6Status2OKEv"}
-!336 = !{!337}
-!337 = distinct !{!337, !338, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm: argument 0"}
-!338 = distinct !{!338, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm"}
-!339 = !{!340, !337}
-!340 = distinct !{!340, !341, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!341 = distinct !{!341, !"_ZN7rocksdb6Status2OKEv"}
-!342 = distinct !{!342, !80}
+!311 = distinct !{!311, !312, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!312 = distinct !{!312, !"_ZN7rocksdb6Status2OKEv"}
+!313 = !{!314}
+!314 = distinct !{!314, !315, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
+!315 = distinct !{!315, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
+!316 = !{!317}
+!317 = distinct !{!317, !318, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE16shared_from_thisEv: argument 0"}
+!318 = distinct !{!318, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6EEEE16shared_from_thisEv"}
+!319 = !{!286, !277, i64 0}
+!320 = !{!321, !10, i64 8}
+!321 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !322, i64 16}
+!322 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE", !323, i64 0}
+!323 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEELN9__gnu_cxx12_Lock_policyE2EE", !324, i64 0, !16, i64 8}
+!324 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEE", !15, i64 0}
+!325 = !{!323, !324, i64 0}
+!326 = !{!327}
+!327 = distinct !{!327, !328, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE23ReleaseCacheReservationEm: argument 0"}
+!328 = distinct !{!328, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE23ReleaseCacheReservationEm"}
+!329 = !{!330, !45, i64 40}
+!330 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEE", !37, i64 0, !331, i64 8, !334, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
+!331 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE", !332, i64 0}
+!332 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE", !333, i64 0}
+!333 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEELN9__gnu_cxx12_Lock_policyE2EE", !324, i64 0, !41, i64 8}
+!334 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
+!335 = distinct !{!335, !62}
+!336 = !{!330, !10, i64 56}
+!337 = !{!338}
+!338 = distinct !{!338, !339, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!339 = distinct !{!339, !"_ZN7rocksdb6Status2OKEv"}
+!340 = !{!341}
+!341 = distinct !{!341, !342, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!342 = distinct !{!342, !"_ZN7rocksdb6Status2OKEv"}
 !343 = !{!344}
-!344 = distinct !{!344, !345, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!345 = distinct !{!345, !"_ZN7rocksdb6Status2OKEv"}
-!346 = !{!347}
-!347 = distinct !{!347, !348, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
-!348 = distinct !{!348, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
-!349 = distinct !{!349, !80}
+!344 = distinct !{!344, !345, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm: argument 0"}
+!345 = distinct !{!345, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm"}
+!346 = !{!347, !344}
+!347 = distinct !{!347, !348, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!348 = distinct !{!348, !"_ZN7rocksdb6Status2OKEv"}
+!349 = distinct !{!349, !82, !62}
 !350 = !{!351}
 !351 = distinct !{!351, !352, !"_ZN7rocksdb6Status2OKEv: argument 0"}
 !352 = distinct !{!352, !"_ZN7rocksdb6Status2OKEv"}
 !353 = !{!354}
-!354 = distinct !{!354, !355, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
-!355 = distinct !{!355, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
-!356 = !{!357}
-!357 = distinct !{!357, !358, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE16shared_from_thisEv: argument 0"}
-!358 = distinct !{!358, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE16shared_from_thisEv"}
-!359 = !{!327, !318, i64 0}
-!360 = !{!361, !10, i64 8}
-!361 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !362, i64 16}
-!362 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE", !363, i64 0}
-!363 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEELN9__gnu_cxx12_Lock_policyE2EE", !364, i64 0, !16, i64 8}
-!364 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEE", !15, i64 0}
-!365 = !{!363, !364, i64 0}
-!366 = !{!367}
-!367 = distinct !{!367, !368, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE23ReleaseCacheReservationEm: argument 0"}
-!368 = distinct !{!368, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE23ReleaseCacheReservationEm"}
-!369 = !{!370, !45, i64 40}
-!370 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEE", !37, i64 0, !371, i64 8, !374, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
-!371 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE", !372, i64 0}
-!372 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE", !373, i64 0}
-!373 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEELN9__gnu_cxx12_Lock_policyE2EE", !364, i64 0, !41, i64 8}
-!374 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
-!375 = !{!370, !10, i64 56}
-!376 = !{!377}
-!377 = distinct !{!377, !378, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!378 = distinct !{!378, !"_ZN7rocksdb6Status2OKEv"}
-!379 = !{!380}
-!380 = distinct !{!380, !381, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!381 = distinct !{!381, !"_ZN7rocksdb6Status2OKEv"}
-!382 = !{!383}
-!383 = distinct !{!383, !384, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm: argument 0"}
-!384 = distinct !{!384, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm"}
-!385 = !{!386, !383}
-!386 = distinct !{!386, !387, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!387 = distinct !{!387, !"_ZN7rocksdb6Status2OKEv"}
-!388 = distinct !{!388, !80}
-!389 = !{!390}
-!390 = distinct !{!390, !391, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!391 = distinct !{!391, !"_ZN7rocksdb6Status2OKEv"}
-!392 = !{!393}
-!393 = distinct !{!393, !394, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
-!394 = distinct !{!394, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
-!395 = distinct !{!395, !80}
-!396 = !{!397}
-!397 = distinct !{!397, !398, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!398 = distinct !{!398, !"_ZN7rocksdb6Status2OKEv"}
-!399 = !{!400}
-!400 = distinct !{!400, !401, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
-!401 = distinct !{!401, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
-!402 = !{!403}
-!403 = distinct !{!403, !404, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE16shared_from_thisEv: argument 0"}
-!404 = distinct !{!404, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE16shared_from_thisEv"}
-!405 = !{!373, !364, i64 0}
+!354 = distinct !{!354, !355, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
+!355 = distinct !{!355, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
+!356 = distinct !{!356, !82, !62}
+!357 = !{!358}
+!358 = distinct !{!358, !359, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!359 = distinct !{!359, !"_ZN7rocksdb6Status2OKEv"}
+!360 = !{!361}
+!361 = distinct !{!361, !362, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
+!362 = distinct !{!362, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
+!363 = !{!364}
+!364 = distinct !{!364, !365, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE16shared_from_thisEv: argument 0"}
+!365 = distinct !{!365, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE10EEEE16shared_from_thisEv"}
+!366 = !{!333, !324, i64 0}
+!367 = !{!368, !10, i64 8}
+!368 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleE", !9, i64 0, !10, i64 8, !369, i64 16}
+!369 = !{!"_ZTSSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE", !370, i64 0}
+!370 = !{!"_ZTSSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEELN9__gnu_cxx12_Lock_policyE2EE", !371, i64 0, !16, i64 8}
+!371 = !{!"p1 _ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEE", !15, i64 0}
+!372 = !{!370, !371, i64 0}
+!373 = !{!374}
+!374 = distinct !{!374, !375, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE23ReleaseCacheReservationEm: argument 0"}
+!375 = distinct !{!375, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE23ReleaseCacheReservationEm"}
+!376 = !{!377, !45, i64 40}
+!377 = !{!"_ZTSN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEE", !37, i64 0, !378, i64 8, !381, i64 24, !45, i64 40, !46, i64 48, !10, i64 56, !48, i64 64, !54, i64 88}
+!378 = !{!"_ZTSSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE", !379, i64 0}
+!379 = !{!"_ZTSSt8weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE", !380, i64 0}
+!380 = !{!"_ZTSSt10__weak_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEELN9__gnu_cxx12_Lock_policyE2EE", !371, i64 0, !41, i64 8}
+!381 = !{!"_ZTSN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEEE", !43, i64 0}
+!382 = distinct !{!382, !62}
+!383 = !{!377, !10, i64 56}
+!384 = !{!385}
+!385 = distinct !{!385, !386, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!386 = distinct !{!386, !"_ZN7rocksdb6Status2OKEv"}
+!387 = !{!388}
+!388 = distinct !{!388, !389, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!389 = distinct !{!389, !"_ZN7rocksdb6Status2OKEv"}
+!390 = !{!391}
+!391 = distinct !{!391, !392, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm: argument 0"}
+!392 = distinct !{!392, !"_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm"}
+!393 = !{!394, !391}
+!394 = distinct !{!394, !395, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!395 = distinct !{!395, !"_ZN7rocksdb6Status2OKEv"}
+!396 = distinct !{!396, !82, !62}
+!397 = !{!398}
+!398 = distinct !{!398, !399, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!399 = distinct !{!399, !"_ZN7rocksdb6Status2OKEv"}
+!400 = !{!401}
+!401 = distinct !{!401, !402, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE: argument 0"}
+!402 = distinct !{!402, !"_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE6InsertERKNS_5SliceEmPPNS3_6HandleE"}
+!403 = distinct !{!403, !82, !62}
+!404 = !{!405}
+!405 = distinct !{!405, !406, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!406 = distinct !{!406, !"_ZN7rocksdb6Status2OKEv"}
+!407 = !{!408}
+!408 = distinct !{!408, !409, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE: argument 0"}
+!409 = distinct !{!409, !"_ZN7rocksdb6Status12NotSupportedENS0_7SubCodeE"}
+!410 = !{!411}
+!411 = distinct !{!411, !412, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE16shared_from_thisEv: argument 0"}
+!412 = distinct !{!412, !"_ZNSt23enable_shared_from_thisIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE12EEEE16shared_from_thisEv"}
+!413 = !{!380, !371, i64 0}

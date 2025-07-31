@@ -669,7 +669,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %28 = add i16 %.sroa.03.018.i.i, -1
   %29 = and i16 %28, %.sroa.03.018.i.i
   %.not.i.i = icmp eq i16 %29, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !70
 
 30:                                               ; preds = %._crit_edge.i.i
   %31 = icmp slt <16 x i8> %.sroa.0.0.copyload.i16.i.i, zeroinitializer
@@ -694,7 +694,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %.sroa.6.112.i.i = phi i64 [ %.sroa.6.113.i.i, %.thread.i.i ], [ undef, %30 ]
   %41 = add i64 %.sroa.8.0.i.i, 16
   %42 = add i64 %.sroa.0.09.i.i, %41
-  br label %14
+  br label %14, !llvm.loop !72
 
 43:                                               ; preds = %.thread.i.i
   %44 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.6.113.i.i
@@ -733,37 +733,37 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 
 61:                                               ; preds = %47, %43
   %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.113.i.i, %43 ], [ %53, %47 ]
-  %62 = load ptr, ptr %6, align 8, !nonnull !30, !align !70, !noundef !30
+  %62 = load ptr, ptr %6, align 8, !nonnull !30, !align !73, !noundef !30
   %63 = load i64, ptr %7, align 8, !noundef !30
-  call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %64 = load ptr, ptr %0, align 8, !alias.scope !71, !noalias !74, !nonnull !30, !noundef !30
+  call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  %64 = load ptr, ptr %0, align 8, !alias.scope !74, !noalias !77, !nonnull !30, !noundef !30
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.3.0.i.ph.i
-  %66 = load i8, ptr %65, align 1, !noalias !76, !noundef !30
+  %66 = load i8, ptr %65, align 1, !noalias !79, !noundef !30
   %67 = and i8 %66, 1
   %68 = zext nneg i8 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load i64, ptr %69, align 8, !alias.scope !71, !noalias !74, !noundef !30
+  %70 = load i64, ptr %69, align 8, !alias.scope !74, !noalias !77, !noundef !30
   %71 = sub i64 %70, %68
-  store i64 %71, ptr %69, align 8, !alias.scope !71, !noalias !74
+  store i64 %71, ptr %69, align 8, !alias.scope !74, !noalias !77
   %72 = add i64 %.sroa.3.0.i.ph.i, -16
-  %73 = load i64, ptr %11, align 8, !alias.scope !71, !noalias !74, !noundef !30
+  %73 = load i64, ptr %11, align 8, !alias.scope !74, !noalias !77, !noundef !30
   %74 = and i64 %73, %72
-  store i8 %13, ptr %65, align 1, !noalias !76
+  store i8 %13, ptr %65, align 1, !noalias !79
   %75 = getelementptr i8, ptr %64, i64 %74
   %76 = getelementptr i8, ptr %75, i64 16
-  store i8 %13, ptr %76, align 1, !noalias !76
+  store i8 %13, ptr %76, align 1, !noalias !79
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %78 = load i64, ptr %77, align 8, !alias.scope !71, !noalias !74, !noundef !30
+  %78 = load i64, ptr %77, align 8, !alias.scope !74, !noalias !77, !noundef !30
   %79 = add i64 %78, 1
-  store i64 %79, ptr %77, align 8, !alias.scope !71, !noalias !74
+  store i64 %79, ptr %77, align 8, !alias.scope !74, !noalias !77
   %80 = sub nsw i64 0, %.sroa.3.0.i.ph.i
   %81 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, ptr }, ptr %64, i64 %80
   %82 = getelementptr inbounds i8, ptr %81, i64 -24
-  store ptr %62, ptr %82, align 8, !noalias !71
+  store ptr %62, ptr %82, align 8, !noalias !74
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %81, i64 -16
-  store i64 %63, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !71
+  store i64 %63, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !74
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %81, i64 -8
-  store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !71
+  store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !74
   br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h527d0a78362d29a0E.exit"
 
 .loopexit:                                        ; preds = %.lr.ph.i.i
@@ -975,10 +975,13 @@ attributes #18 = { cold }
 !67 = distinct !{!67, !68, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h478043598718b465E: argument 0"}
 !68 = distinct !{!68, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h478043598718b465E"}
 !69 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!70 = !{i64 1}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h356726351d14b7e5E: argument 0"}
-!73 = distinct !{!73, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h356726351d14b7e5E"}
+!70 = distinct !{!70, !71}
+!71 = !{!"llvm.loop.estimated_trip_count"}
+!72 = distinct !{!72, !71}
+!73 = !{i64 1}
 !74 = !{!75}
-!75 = distinct !{!75, !73, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h356726351d14b7e5E: argument 1"}
-!76 = !{!72, !75}
+!75 = distinct !{!75, !76, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h356726351d14b7e5E: argument 0"}
+!76 = distinct !{!76, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h356726351d14b7e5E"}
+!77 = !{!78}
+!78 = distinct !{!78, !76, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h356726351d14b7e5E: argument 1"}
+!79 = !{!75, !78}

@@ -67,7 +67,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   %33 = shl nuw i64 %.011.i.i.i.i, 10
   %34 = add nsw i32 %.0810.i.i.i.i, -10
   %35 = icmp ult i64 %.011.i.i.i.i, 17592186044416
-  br i1 %35, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !6
+  br i1 %35, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !7
 
 .lr.ph15.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %.lr.ph15.i.i.i.i
   %.114.i.i.i.i = phi i64 [ %36, %.lr.ph15.i.i.i.i ], [ %33, %.preheader.i.i.i.i ]
@@ -75,7 +75,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   %36 = shl nuw i64 %.114.i.i.i.i, 1
   %37 = add nsw i32 %.1913.i.i.i.i, -1
   %38 = icmp sgt i64 %36, -1
-  br i1 %38, label %.lr.ph15.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, !llvm.loop !7
+  br i1 %38, label %.lr.ph15.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, !llvm.loop !8
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i: ; preds = %.lr.ph15.i.i.i.i, %.preheader.i.i.i.i
   %.19.lcssa.i.i.i.i = phi i32 [ %34, %.preheader.i.i.i.i ], [ %37, %.lr.ph15.i.i.i.i ]
@@ -119,7 +119,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20Normalized
   %61 = shl nuw i64 %.011.i.i.i44.i, 10
   %62 = add nsw i32 %.0810.i.i.i45.i, -10
   %63 = icmp ult i64 %.011.i.i.i44.i, 17592186044416
-  br i1 %63, label %.lr.ph.i.i.i43.i, label %.preheader.i.i.i46.i, !llvm.loop !6
+  br i1 %63, label %.lr.ph.i.i.i43.i, label %.preheader.i.i.i46.i, !llvm.loop !7
 
 .lr.ph15.i.i.i54.i:                               ; preds = %.preheader.i.i.i46.i, %.lr.ph15.i.i.i54.i
   %.114.i.i.i55.i = phi i64 [ %64, %.lr.ph15.i.i.i54.i ], [ %61, %.preheader.i.i.i46.i ]
@@ -127,7 +127,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20Normalized
   %64 = shl nuw i64 %.114.i.i.i55.i, 1
   %65 = add nsw i32 %.1913.i.i.i56.i, -1
   %66 = icmp sgt i64 %64, -1
-  br i1 %66, label %.lr.ph15.i.i.i54.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, !llvm.loop !7
+  br i1 %66, label %.lr.ph15.i.i.i54.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, !llvm.loop !8
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i: ; preds = %.lr.ph15.i.i.i54.i, %.preheader.i.i.i46.i
   %.19.lcssa.i.i.i47.i = phi i32 [ %62, %.preheader.i.i.i46.i ], [ %65, %.lr.ph15.i.i.i54.i ]
@@ -302,7 +302,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
   %194 = sub i64 %142, %186
   %.not.i.i.i = icmp ult i64 %194, %179
   %or.cond.i.i.i = or i1 %193, %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %185, !llvm.loop !8
+  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %185, !llvm.loop !9
 
 .critedge.i.i.i:                                  ; preds = %.critedge2.i.i.i, %188, %176
   %.040.lcssa.i.i.i = phi i64 [ %174, %176 ], [ %.04052.i.i.i, %188 ], [ %186, %.critedge2.i.i.i ]
@@ -336,7 +336,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
 209:                                              ; preds = %.lr.ph.i69.i
   %210 = udiv i32 %.03542.i.i, 10
   %211 = icmp samesign ugt i32 %.2.i, 1
-  br i1 %211, label %.lr.ph.i69.i, label %.preheader.i.i.preheader, !llvm.loop !9
+  br i1 %211, label %.lr.ph.i69.i, label %.preheader.i.i.preheader, !llvm.loop !10
 
 .preheader.i.i.preheader:                         ; preds = %209, %74
   %.ph = phi i32 [ 0, %74 ], [ %169, %209 ]
@@ -364,7 +364,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
   %223 = and i64 %213, %148
   %224 = add nsw i32 %.1.i, -1
   %225 = icmp ult i64 %223, %215
-  br i1 %225, label %226, label %.preheader.i.i, !llvm.loop !10
+  br i1 %225, label %226, label %.preheader.i.i, !llvm.loop !11
 
 226:                                              ; preds = %.preheader.i.i
   %227 = sub i64 %137, %103
@@ -403,7 +403,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
   %243 = sub i64 %215, %235
   %.not.i67.i.i = icmp ult i64 %243, %145
   %or.cond.i68.i.i = or i1 %242, %.not.i67.i.i
-  br i1 %or.cond.i68.i.i, label %.critedge.i69.i.i, label %234, !llvm.loop !8
+  br i1 %or.cond.i68.i.i, label %.critedge.i69.i.i, label %234, !llvm.loop !9
 
 .critedge.i69.i.i:                                ; preds = %.critedge2.i66.i.i, %237, %226
   %.040.lcssa.i70.i.i = phi i64 [ %223, %226 ], [ %.04052.i64.i.i, %237 ], [ %235, %.critedge2.i66.i.i ]
@@ -544,7 +544,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
 330:                                              ; preds = %.lr.ph.i22.i
   %331 = udiv i32 %.07787.i.i, 10
   %332 = icmp samesign ugt i32 %.4.i, 1
-  br i1 %332, label %.lr.ph.i22.i, label %._crit_edge.i.i, !llvm.loop !11
+  br i1 %332, label %.lr.ph.i22.i, label %._crit_edge.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %330, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormalizedDiyFpEv.exit.i14
   %.pr.i = phi i32 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormalizedDiyFpEv.exit.i14 ], [ %325, %330 ]
@@ -626,7 +626,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   %366 = add i8 %365, 1
   store i8 %366, ptr %364, align 1
   %367 = icmp sgt i64 %indvars.iv111.i.i, 1
-  br i1 %367, label %.lr.ph.i.i.i25, label %._crit_edge.i.i.i, !llvm.loop !12
+  br i1 %367, label %.lr.ph.i.i.i25, label %._crit_edge.i.i.i, !llvm.loop !13
 
 ._crit_edge.i.i.i:                                ; preds = %362, %.lr.ph.i.i.i25, %354
   %368 = load i8, ptr %3, align 1
@@ -656,7 +656,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   %383 = icmp samesign ugt i32 %.294.i.i, 1
   %384 = icmp ugt i64 %381, %372
   %385 = select i1 %383, i1 %384, i1 false
-  br i1 %385, label %.lr.ph95.i.i, label %._crit_edge96.i.i, !llvm.loop !13
+  br i1 %385, label %.lr.ph95.i.i, label %._crit_edge96.i.i, !llvm.loop !14
 
 ._crit_edge96.i.i:                                ; preds = %.lr.ph95.i.i
   %386 = icmp eq i32 %380, 0
@@ -719,7 +719,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   %411 = add i8 %410, 1
   store i8 %411, ptr %409, align 1
   %412 = icmp sgt i64 %indvars.iv.i.i, 1
-  br i1 %412, label %.lr.ph.i56.i.i, label %._crit_edge.i51.i.i, !llvm.loop !12
+  br i1 %412, label %.lr.ph.i56.i.i, label %._crit_edge.i51.i.i, !llvm.loop !13
 
 ._crit_edge.i51.i.i:                              ; preds = %407, %.lr.ph.i56.i.i, %400
   %413 = load i8, ptr %3, align 1
@@ -795,13 +795,14 @@ attributes #4 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

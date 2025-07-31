@@ -202,9 +202,9 @@ _ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
   br label %_ZNSt6vectorISt4pairImtESaIS1_EE9push_backEOS1_.exit
 
 65:                                               ; preds = %32
-  %66 = load ptr, ptr %.sroa.0124.0160, align 8, !tbaa !65
+  %66 = load ptr, ptr %.sroa.0124.0160, align 8, !tbaa !66
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0160, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !65
+  %68 = load ptr, ptr %67, align 8, !tbaa !66
   %69 = icmp ne ptr %66, %68
   %70 = load i64, ptr %1, align 8
   %71 = icmp eq i64 %70, %4
@@ -275,7 +275,7 @@ _ZNKSt6vectorISt4pairImtESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i67: ; preds = %84
 .lr.ph.i.i.i.i.i.i.i71:                           ; preds = %_ZNKSt6vectorISt4pairImtESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i67, %.lr.ph.i.i.i.i.i.i.i71
   %.012.i.i.i.i.i.i.i72 = phi ptr [ %100, %.lr.ph.i.i.i.i.i.i.i71 ], [ %97, %_ZNKSt6vectorISt4pairImtESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i67 ]
   %.0911.i.i.i.i.i.i.i73 = phi ptr [ %99, %.lr.ph.i.i.i.i.i.i.i71 ], [ %85, %_ZNKSt6vectorISt4pairImtESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i67 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i72, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i73, i64 16, i1 false), !alias.scope !66
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i72, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i73, i64 16, i1 false), !alias.scope !67
   %99 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i73, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i72, i64 16
   %.not.i.i.i.i.i.i.i74 = icmp eq ptr %99, %79
@@ -357,7 +357,7 @@ _ZNKSt6vectorISt4pairImtESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i88: ; preds = %11
 .lr.ph.i.i.i.i.i.i.i92:                           ; preds = %_ZNKSt6vectorISt4pairImtESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i88, %.lr.ph.i.i.i.i.i.i.i92
   %.012.i.i.i.i.i.i.i93 = phi ptr [ %133, %.lr.ph.i.i.i.i.i.i.i92 ], [ %130, %_ZNKSt6vectorISt4pairImtESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i88 ]
   %.0911.i.i.i.i.i.i.i94 = phi ptr [ %132, %.lr.ph.i.i.i.i.i.i.i92 ], [ %118, %_ZNKSt6vectorISt4pairImtESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i88 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i93, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i94, i64 16, i1 false), !alias.scope !70
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i93, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i94, i64 16, i1 false), !alias.scope !71
   %132 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i94, i64 16
   %133 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i93, i64 16
   %.not.i.i.i.i.i.i.i95 = icmp eq ptr %132, %112
@@ -387,7 +387,7 @@ _ZNSt6vectorISt4pairImtESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
 
 139:                                              ; preds = %_ZNSt6vectorISt4pairImtESaIS1_EE9push_backEOS1_.exit
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.19.0162, i64 8
-  %141 = load ptr, ptr %140, align 8, !tbaa !74
+  %141 = load ptr, ptr %140, align 8, !tbaa !75
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 480
   br label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
@@ -400,7 +400,7 @@ _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit: ; preds = %_
   %145 = icmp ne ptr %.sroa.0124.1, %144
   %146 = icmp ule i64 %143, %4
   %147 = select i1 %145, i1 %146, i1 false
-  br i1 %147, label %28, label %.loopexit, !llvm.loop !75
+  br i1 %147, label %28, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit, %6, %.thread
   ret void
@@ -432,13 +432,13 @@ define void @_ZN3net20GeneralLossAlgorithm26SpuriousRetransmitDetectedERKNS_20Qu
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !76
+  %14 = load i64, ptr %13, align 8, !tbaa !77
   %.not16 = icmp ugt i64 %4, %14
   br i1 %.not16, label %15, label %.critedge
 
 15:                                               ; preds = %12
-  %16 = load i64, ptr %1, align 8, !tbaa !77
-  store i64 %16, ptr %13, align 8, !tbaa !76
+  %16 = load i64, ptr %1, align 8, !tbaa !78
+  store i64 %16, ptr %13, align 8, !tbaa !77
   %17 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr noundef nonnull align 8 dereferenceable(120) %1, i64 noundef %4)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %.sroa.06.0.copyload = load i64, ptr %18, align 8, !tbaa !15
@@ -460,7 +460,7 @@ define void @_ZN3net20GeneralLossAlgorithm26SpuriousRetransmitDetectedERKNS_20Qu
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = icmp sgt i32 %24, 1
   %or.cond = and i1 %25, %23
-  br i1 %or.cond, label %21, label %.critedge.loopexit, !llvm.loop !83
+  br i1 %or.cond, label %21, label %.critedge.loopexit, !llvm.loop !84
 
 .critedge.loopexit:                               ; preds = %21
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -587,24 +587,25 @@ attributes #14 = { builtin nounwind }
 !60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !61 = distinct !{!61, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_"}
 !62 = distinct !{!62, !61, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!63 = distinct !{!63, !64}
+!63 = distinct !{!63, !64, !65}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!39, !39, i64 0}
-!66 = !{!67, !69}
-!67 = distinct !{!67, !68, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!68 = distinct !{!68, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_"}
-!69 = distinct !{!69, !68, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!70 = !{!71, !73}
-!71 = distinct !{!71, !72, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!72 = distinct !{!72, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_"}
-!73 = distinct !{!73, !72, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!74 = !{!18, !18, i64 0}
-!75 = distinct !{!75, !64}
-!76 = !{!7, !10, i64 16}
-!77 = !{!78, !10, i64 0}
-!78 = !{!"_ZTSN3net20QuicUnackedPacketMapE", !10, i64 0, !10, i64 8, !79, i64 16, !10, i64 96, !10, i64 104, !10, i64 112}
-!79 = !{!"_ZTSSt5dequeIN3net16TransmissionInfoESaIS1_EE", !80, i64 0}
-!80 = !{!"_ZTSSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE", !81, i64 0}
-!81 = !{!"_ZTSNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE11_Deque_implE", !82, i64 0}
-!82 = !{!"_ZTSNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_Deque_impl_dataE", !20, i64 0, !10, i64 8, !17, i64 16, !17, i64 48}
-!83 = distinct !{!83, !64}
+!65 = !{!"llvm.loop.estimated_trip_count"}
+!66 = !{!39, !39, i64 0}
+!67 = !{!68, !70}
+!68 = distinct !{!68, !69, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!69 = distinct !{!69, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_"}
+!70 = distinct !{!70, !69, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!71 = !{!72, !74}
+!72 = distinct !{!72, !73, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!73 = distinct !{!73, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_"}
+!74 = distinct !{!74, !73, !"_ZSt19__relocate_object_aISt4pairImtES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!75 = !{!18, !18, i64 0}
+!76 = distinct !{!76, !64, !65}
+!77 = !{!7, !10, i64 16}
+!78 = !{!79, !10, i64 0}
+!79 = !{!"_ZTSN3net20QuicUnackedPacketMapE", !10, i64 0, !10, i64 8, !80, i64 16, !10, i64 96, !10, i64 104, !10, i64 112}
+!80 = !{!"_ZTSSt5dequeIN3net16TransmissionInfoESaIS1_EE", !81, i64 0}
+!81 = !{!"_ZTSSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE", !82, i64 0}
+!82 = !{!"_ZTSNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE11_Deque_implE", !83, i64 0}
+!83 = !{!"_ZTSNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_Deque_impl_dataE", !20, i64 0, !10, i64 8, !17, i64 16, !17, i64 48}
+!84 = distinct !{!84, !64, !65}

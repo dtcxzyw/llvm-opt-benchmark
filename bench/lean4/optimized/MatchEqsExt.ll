@@ -562,7 +562,7 @@ lean_alloc_ctor.exit:                             ; preds = %l_repr___at___priva
   store ptr %.sink81, ptr %96, align 8, !tbaa !9
   %97 = getelementptr inbounds nuw i8, ptr %.sink86, i64 16
   store ptr %.sink, ptr %97, align 8, !tbaa !9
-  br label %6
+  br label %6, !llvm.loop !14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1521,7 +1521,7 @@ define ptr @l_Lean_PersistentHashMap_insertAux_traverse___at_Lean_Meta_Match_reg
   %17 = ptrtoint ptr %.030 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %lean_dec.exit36.thread, label %lean_dec.exit36, !prof !14
+  br i1 %.not, label %lean_dec.exit36.thread, label %lean_dec.exit36, !prof !16
 
 lean_dec.exit36:                                  ; preds = %13
   %.not58 = icmp ult ptr %.030, %16
@@ -1605,7 +1605,7 @@ lean_array_fget.exit:                             ; preds = %26, %34, %36, %37
 lean_array_fget.exit46:                           ; preds = %lean_array_fget.exit, %44, %46, %47
   %48 = tail call i64 @l_Lean_Name_hash___override(ptr noundef %29) #6
   %49 = lshr i64 %48, %12
-  br i1 %.not, label %59, label %50, !prof !14
+  br i1 %.not, label %59, label %50, !prof !16
 
 50:                                               ; preds = %lean_array_fget.exit46
   %51 = add nuw i64 %27, 1
@@ -2828,7 +2828,7 @@ lean_alloc_ctor.exit530:                          ; preds = %lean_array_fset.exi
   %460 = ptrtoint ptr %459 to i64
   %461 = and i64 %460, 1
   %.not561 = icmp eq i64 %461, 0
-  br i1 %.not561, label %463, label %lean_nat_lt.exit445.thread, !prof !14
+  br i1 %.not561, label %463, label %lean_nat_lt.exit445.thread, !prof !16
 
 lean_nat_lt.exit445.thread:                       ; preds = %458
   %462 = icmp ult ptr %459, inttoptr (i64 9 to ptr)
@@ -3076,7 +3076,7 @@ lean_alloc_ctor.exit543:                          ; preds = %lean_dec.exit316
   %555 = ptrtoint ptr %554 to i64
   %556 = and i64 %555, 1
   %.not557 = icmp eq i64 %556, 0
-  br i1 %.not557, label %558, label %lean_nat_lt.exit448.thread, !prof !14
+  br i1 %.not557, label %558, label %lean_nat_lt.exit448.thread, !prof !16
 
 lean_nat_lt.exit448.thread:                       ; preds = %553
   %557 = icmp ult ptr %554, inttoptr (i64 9 to ptr)
@@ -3295,7 +3295,7 @@ lean_inc.exit:                                    ; preds = %24, %23, %21, %lean
   %29 = ptrtoint ptr %.079 to i64
   %30 = and i64 %29, 1
   %.not167 = icmp eq i64 %30, 0
-  br i1 %.not167, label %lean_dec.exit98.thread, label %lean_dec.exit98, !prof !14
+  br i1 %.not167, label %lean_dec.exit98.thread, label %lean_dec.exit98, !prof !16
 
 lean_dec.exit98:                                  ; preds = %lean_inc.exit
   %.not168 = icmp ult ptr %.079, %28
@@ -3529,7 +3529,7 @@ lean_dec.exit92:                                  ; preds = %110, %109, %107, %1
   br label %lean_dec.exit91
 
 lean_dec.exit91:                                  ; preds = %117, %116, %114, %lean_dec.exit92
-  br i1 %.not167, label %127, label %118, !prof !14
+  br i1 %.not167, label %127, label %118, !prof !16
 
 118:                                              ; preds = %lean_dec.exit91
   %119 = add nuw i64 %80, 1
@@ -4562,16 +4562,16 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit108
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr @l_Lean_Meta_Match_registerMatchEqns___lambda__1, ptr %55, align 8, !tbaa !9
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i16 3, ptr %56, align 8, !tbaa !15
+  store i16 3, ptr %56, align 8, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 18
-  store i16 2, ptr %57, align 2, !tbaa !15
+  store i16 2, ptr %57, align 2, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr %0, ptr %58, align 8, !tbaa !9
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %1, ptr %59, align 8, !tbaa !9
   %60 = load ptr, ptr @l_Lean_Meta_Match_matchEqnsExt, align 8, !tbaa !9
   %61 = getelementptr i8, ptr %60, i64 32
-  %.val133 = load i8, ptr %61, align 1, !tbaa !17
+  %.val133 = load i8, ptr %61, align 1, !tbaa !19
   %62 = load ptr, ptr @l_Lean_Meta_Match_registerMatchEqns___closed__1, align 8, !tbaa !9
   %63 = tail call ptr @l_Lean_EnvExtension_modifyState___rarg(ptr noundef %62, ptr noundef %38, ptr noundef nonnull %51, i8 noundef zeroext %.val133) #6
   %64 = load ptr, ptr @l_Lean_Meta_Match_registerMatchEqns___closed__2, align 8, !tbaa !9
@@ -4926,16 +4926,16 @@ lean_alloc_closure.exit166:                       ; preds = %lean_dec.exit
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store ptr @l_Lean_Meta_Match_registerMatchEqns___lambda__1, ptr %195, align 8, !tbaa !9
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  store i16 3, ptr %196, align 8, !tbaa !15
+  store i16 3, ptr %196, align 8, !tbaa !17
   %197 = getelementptr inbounds nuw i8, ptr %191, i64 18
-  store i16 2, ptr %197, align 2, !tbaa !15
+  store i16 2, ptr %197, align 2, !tbaa !17
   %198 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store ptr %0, ptr %198, align 8, !tbaa !9
   %199 = getelementptr inbounds nuw i8, ptr %191, i64 32
   store ptr %1, ptr %199, align 8, !tbaa !9
   %200 = load ptr, ptr @l_Lean_Meta_Match_matchEqnsExt, align 8, !tbaa !9
   %201 = getelementptr i8, ptr %200, i64 32
-  %.val134 = load i8, ptr %201, align 1, !tbaa !17
+  %.val134 = load i8, ptr %201, align 1, !tbaa !19
   %202 = load ptr, ptr @l_Lean_Meta_Match_registerMatchEqns___closed__1, align 8, !tbaa !9
   %203 = tail call ptr @l_Lean_EnvExtension_modifyState___rarg(ptr noundef %202, ptr noundef %38, ptr noundef nonnull %191, i8 noundef zeroext %.val134) #6
   %204 = load ptr, ptr @l_Lean_Meta_Match_registerMatchEqns___closed__2, align 8, !tbaa !9
@@ -5980,9 +5980,9 @@ _init_l_Lean_Meta_Match_instReprMatchEqns___closed__1.exit: ; preds = %_init_l__
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store ptr @l___private_Lean_Meta_Match_MatchEqsExt_0__Lean_Meta_Match_reprMatchEqns____x40_Lean_Meta_Match_MatchEqsExt___hyg_45____boxed, ptr %153, align 8, !tbaa !9
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  store i16 2, ptr %154, align 8, !tbaa !15
+  store i16 2, ptr %154, align 8, !tbaa !17
   %155 = getelementptr inbounds nuw i8, ptr %149, i64 18
-  store i16 0, ptr %155, align 2, !tbaa !15
+  store i16 0, ptr %155, align 2, !tbaa !17
   store ptr %149, ptr @l_Lean_Meta_Match_instReprMatchEqns___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %149) #6
   %156 = load ptr, ptr @l_Lean_Meta_Match_instReprMatchEqns___closed__1, align 8, !tbaa !9
@@ -6071,9 +6071,9 @@ _init_l_Lean_Meta_Match_initFn____x40_Lean_Meta_Match_MatchEqsExt___hyg_181____c
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store ptr @l_EStateM_pure___rarg, ptr %186, align 8, !tbaa !9
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 16
-  store i16 2, ptr %187, align 8, !tbaa !15
+  store i16 2, ptr %187, align 8, !tbaa !17
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 18
-  store i16 1, ptr %188, align 2, !tbaa !15
+  store i16 1, ptr %188, align 2, !tbaa !17
   %189 = getelementptr inbounds nuw i8, ptr %182, i64 24
   store ptr %181, ptr %189, align 8, !tbaa !9
   store ptr %182, ptr @l_Lean_Meta_Match_initFn____x40_Lean_Meta_Match_MatchEqsExt___hyg_181____closed__2, align 8, !tbaa !9
@@ -6228,7 +6228,9 @@ attributes #7 = { noreturn nounwind }
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !7, i64 0}
-!17 = !{!7, !7, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !7, i64 0}
+!19 = !{!7, !7, i64 0}

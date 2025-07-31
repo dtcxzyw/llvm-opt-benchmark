@@ -514,11 +514,11 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %103 ]
   %.1100 = phi i32 [ %.051106, %37 ], [ %.3, %103 ]
   %44 = getelementptr inbounds nuw [4 x [2 x i16]], ptr @_ZN5zxing11UnicomBlock10SEARCH_POSE, i64 0, i64 %indvars.iv
-  %45 = load i16, ptr %44, align 4, !tbaa !63
+  %45 = load i16, ptr %44, align 4, !tbaa !64
   %46 = sext i16 %45 to i32
   %47 = add nsw i32 %41, %46
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 2
-  %49 = load i16, ptr %48, align 2, !tbaa !63
+  %49 = load i16, ptr %48, align 2, !tbaa !64
   %50 = sext i16 %49 to i32
   %51 = add nsw i32 %42, %50
   %52 = load i32, ptr %22, align 8, !tbaa !25
@@ -596,7 +596,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
   %.3 = phi i32 [ %.1100, %79 ], [ %.1100, %76 ], [ %.1100, %71 ], [ %99, %93 ], [ %.1100, %65 ], [ %.1100, %56 ], [ %.1100, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !66
 
 104:                                              ; preds = %.loopexit
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %34, i32 65535)
@@ -639,7 +639,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
   store i32 %108, ptr %128, align 4, !tbaa !32
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
-  br i1 %exitcond117.not, label %._crit_edge, label %117, !llvm.loop !66
+  br i1 %exitcond117.not, label %._crit_edge, label %117, !llvm.loop !67
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -910,9 +910,10 @@ attributes #12 = { builtin allocsize(0) }
 !58 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !59, i64 0, !59, i64 8, !59, i64 16}
 !59 = !{!"p1 omnipotent char", !18, i64 0}
 !60 = !{!6, !6, i64 0}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"short", !6, i64 0}
-!65 = distinct !{!65, !62}
-!66 = distinct !{!66, !62}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"short", !6, i64 0}
+!66 = distinct !{!66, !62, !63}
+!67 = distinct !{!67, !62, !63}

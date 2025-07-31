@@ -91,7 +91,7 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr noundef 
   store i32 %8, ptr %9, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !13
 
 .preheader.preheader:                             ; preds = %4
   %.pre = load i32, ptr %2, align 16, !tbaa !3
@@ -144,7 +144,7 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr noundef 
   store i32 %48, ptr %49, align 4, !tbaa !3
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 64
-  br i1 %exitcond91.not, label %10, label %.preheader, !llvm.loop !13
+  br i1 %exitcond91.not, label %10, label %.preheader, !llvm.loop !14
 
 50:                                               ; preds = %59
   %51 = add i32 %88, %11
@@ -207,7 +207,7 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr noundef 
   %88 = add i32 %87, %76
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 64
-  br i1 %exitcond95.not, label %50, label %59, !llvm.loop !14
+  br i1 %exitcond95.not, label %50, label %59, !llvm.loop !15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -223,7 +223,7 @@ define void @_Z11sha256_doneP14sha256_contextPh(ptr noundef captures(none) %0, p
   %8 = add nuw nsw i32 %6, 1
   %9 = and i64 %4, 63
   %10 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %9
-  store i8 -128, ptr %10, align 1, !tbaa !15
+  store i8 -128, ptr %10, align 1, !tbaa !16
   %.not = icmp eq i32 %8, 56
   br i1 %.not, label %21, label %11
 
@@ -241,7 +241,7 @@ define void @_Z11sha256_doneP14sha256_contextPh(ptr noundef captures(none) %0, p
   %scevgep = getelementptr i8, ptr %14, i64 41
   %narrow = xor i32 %6, 63
   %15 = zext nneg i32 %narrow to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %15, i1 false), !tbaa !15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %15, i1 false), !tbaa !16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader
@@ -352,9 +352,10 @@ attributes #7 = { nounwind }
 !7 = !{!8, !9, i64 32}
 !8 = !{!"_ZTS14sha256_context", !5, i64 0, !9, i64 32, !5, i64 40}
 !9 = !{!"long", !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = !{!5, !5, i64 0}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = !{!5, !5, i64 0}

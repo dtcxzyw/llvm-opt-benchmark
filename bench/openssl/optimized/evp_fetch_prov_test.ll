@@ -119,17 +119,17 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = tail call ptr @opt_arg() #7
-  store ptr %4, ptr @config_file, align 8, !tbaa !6
+  store ptr %4, ptr @config_file, align 8, !tbaa !7
   br label %.backedge
 
 5:                                                ; preds = %1
   %6 = tail call ptr @opt_arg() #7
-  store ptr %6, ptr @alg, align 8, !tbaa !6
+  store ptr %6, ptr @alg, align 8, !tbaa !7
   br label %.backedge
 
 7:                                                ; preds = %1
   %8 = tail call ptr @opt_arg() #7
-  store ptr %8, ptr @fetch_property, align 8, !tbaa !6
+  store ptr %8, ptr @fetch_property, align 8, !tbaa !7
   br label %.backedge
 
 9:                                                ; preds = %1
@@ -142,7 +142,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 11:                                               ; preds = %1
   tail call void @add_test(ptr noundef nonnull @.str.25, ptr noundef nonnull @test_legacy_provider_unloaded) #7
-  %12 = load ptr, ptr @alg, align 8, !tbaa !6
+  %12 = load ptr, ptr @alg, align 8, !tbaa !7
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(7) @.str.26) #8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
@@ -181,7 +181,7 @@ define internal range(i32 0, 2) i32 @test_legacy_provider_unloaded() #1 {
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @config_file, align 8, !tbaa !6
+  %4 = load ptr, ptr @config_file, align 8, !tbaa !7
   %5 = tail call i32 @OSSL_LIB_CTX_load_config(ptr noundef %1, ptr noundef %4) #7
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -210,7 +210,7 @@ define internal range(i32 0, 2) i32 @test_implicit_EVP_MD_fetch() #1 {
   %1 = alloca ptr, align 8
   %2 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !11
+  store ptr null, ptr %1, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %.b = load i1, ptr @use_default_ctx, align 4
@@ -229,7 +229,7 @@ define internal range(i32 0, 2) i32 @test_implicit_EVP_MD_fetch() #1 {
 8:                                                ; preds = %5, %3
   %9 = phi i32 [ 0, %3 ], [ %7, %5 ]
   %.val = load ptr, ptr %1, align 8
-  %.val1 = load ptr, ptr %2, align 16, !tbaa !13
+  %.val1 = load ptr, ptr %2, align 16, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val2 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.val1, null
@@ -309,14 +309,14 @@ make_algor.exit:                                  ; preds = %6
   ]
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr %2, align 8, !tbaa !15
+  %15 = load ptr, ptr %2, align 8, !tbaa !16
   %16 = call i32 @OBJ_obj2txt(ptr noundef nonnull %3, i32 noundef 50, ptr noundef %15, i32 noundef 0) #7
   %17 = call i32 @test_int_gt(ptr noundef nonnull @.str.33, i32 noundef 244, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.37, i32 noundef %16, i32 noundef 0) #7
   %.not7 = icmp eq i32 %17, 0
   br i1 %.not7, label %24, label %22
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %2, align 8, !tbaa !15
+  %19 = load ptr, ptr %2, align 8, !tbaa !16
   %20 = call i32 @OBJ_obj2txt(ptr noundef nonnull %3, i32 noundef 50, ptr noundef %19, i32 noundef 1) #7
   %21 = call i32 @test_int_gt(ptr noundef nonnull @.str.33, i32 noundef 248, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.37, i32 noundef %20, i32 noundef 0) #7
   %.not = icmp eq i32 %21, 0
@@ -343,7 +343,7 @@ define internal range(i32 0, 2) i32 @test_implicit_EVP_CIPHER_fetch() #1 {
   %1 = alloca ptr, align 8
   %2 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !11
+  store ptr null, ptr %1, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %.b = load i1, ptr @use_default_ctx, align 4
@@ -362,7 +362,7 @@ define internal range(i32 0, 2) i32 @test_implicit_EVP_CIPHER_fetch() #1 {
 8:                                                ; preds = %5, %3
   %9 = phi i32 [ 0, %3 ], [ %7, %5 ]
   %.val = load ptr, ptr %1, align 8
-  %.val1 = load ptr, ptr %2, align 16, !tbaa !13
+  %.val1 = load ptr, ptr %2, align 16, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val2 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.val1, null
@@ -440,14 +440,14 @@ make_algor.exit:                                  ; preds = %6
   ]
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr %2, align 8, !tbaa !15
+  %15 = load ptr, ptr %2, align 8, !tbaa !16
   %16 = call i32 @OBJ_obj2txt(ptr noundef nonnull %3, i32 noundef 50, ptr noundef %15, i32 noundef 0) #7
   %17 = call i32 @test_int_gt(ptr noundef nonnull @.str.33, i32 noundef 360, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.37, i32 noundef %16, i32 noundef 0) #7
   %.not7 = icmp eq i32 %17, 0
   br i1 %.not7, label %24, label %22
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %2, align 8, !tbaa !15
+  %19 = load ptr, ptr %2, align 8, !tbaa !16
   %20 = call i32 @OBJ_obj2txt(ptr noundef nonnull %3, i32 noundef 50, ptr noundef %19, i32 noundef 1) #7
   %21 = call i32 @test_int_gt(ptr noundef nonnull @.str.33, i32 noundef 364, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.37, i32 noundef %20, i32 noundef 0) #7
   %.not = icmp eq i32 %21, 0
@@ -497,7 +497,7 @@ define internal fastcc range(i32 0, 2) i32 @load_providers(ptr noundef nonnull w
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr @config_file, align 8, !tbaa !6
+  %6 = load ptr, ptr @config_file, align 8, !tbaa !7
   %7 = tail call i32 @OSSL_LIB_CTX_load_config(ptr noundef %3, ptr noundef %6) #7
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
@@ -519,20 +519,20 @@ define internal fastcc range(i32 0, 2) i32 @load_providers(ptr noundef nonnull w
   %16 = add nuw i64 %.01825, 1
   %17 = tail call i64 @test_get_argument_count() #7
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.preheader, %15
   %.01825 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %19 = tail call ptr @test_get_argument(i64 noundef %.01825) #7
   %20 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %3, ptr noundef %19) #7
   %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %.01825
-  store ptr %20, ptr %21, align 8, !tbaa !13
+  store ptr %20, ptr %21, align 8, !tbaa !14
   %22 = tail call i32 @test_ptr(ptr noundef nonnull @.str.33, i32 noundef 97, ptr noundef nonnull @.str.39, ptr noundef %20) #7
   %.not21 = icmp eq i32 %22, 0
   br i1 %.not21, label %.loopexit, label %15
 
 ._crit_edge:                                      ; preds = %15, %.preheader
-  store ptr %3, ptr %0, align 8, !tbaa !11
+  store ptr %3, ptr %0, align 8, !tbaa !12
   br label %23
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %5, %2
@@ -678,7 +678,7 @@ define internal fastcc range(i32 0, 2) i32 @test_explicit_EVP_MD_fetch(ptr nound
   %2 = alloca ptr, align 8
   %3 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !11
+  store ptr null, ptr %2, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %.b7 = load i1, ptr @use_default_ctx, align 4
@@ -692,7 +692,7 @@ define internal fastcc range(i32 0, 2) i32 @test_explicit_EVP_MD_fetch(ptr nound
 
 ._crit_edge:                                      ; preds = %4, %1
   %6 = phi ptr [ null, %1 ], [ %.val.pre, %4 ]
-  %7 = load ptr, ptr @fetch_property, align 8, !tbaa !6
+  %7 = load ptr, ptr @fetch_property, align 8, !tbaa !7
   %8 = tail call ptr @EVP_MD_fetch(ptr noundef %6, ptr noundef %0, ptr noundef %7) #7
   %.b = load i1, ptr @expected_fetch_result, align 4
   br i1 %.b, label %17, label %9
@@ -727,7 +727,7 @@ define internal fastcc range(i32 0, 2) i32 @test_explicit_EVP_MD_fetch(ptr nound
   %.06 = phi ptr [ %8, %19 ], [ %8, %11 ], [ %8, %9 ], [ %8, %17 ], [ null, %4 ]
   %.0 = phi i32 [ 1, %19 ], [ 0, %11 ], [ 0, %9 ], [ 0, %17 ], [ 0, %4 ]
   tail call void @EVP_MD_free(ptr noundef %.06) #7
-  %.val11 = load ptr, ptr %3, align 16, !tbaa !13
+  %.val11 = load ptr, ptr %3, align 16, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val12 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %.val11, null
@@ -841,7 +841,7 @@ define internal fastcc range(i32 0, 2) i32 @test_cipher(ptr noundef %0) unnamed_
   br i1 %.not16.i, label %encrypt_decrypt.exit, label %32
 
 32:                                               ; preds = %27
-  %33 = load i32, ptr %2, align 4, !tbaa !18
+  %33 = load i32, ptr %2, align 4, !tbaa !19
   %34 = call i32 @EVP_CipherUpdate(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %5, i32 noundef %33) #7
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i32
@@ -858,7 +858,7 @@ define internal fastcc range(i32 0, 2) i32 @test_cipher(ptr noundef %0) unnamed_
   br i1 %.not18.i, label %encrypt_decrypt.exit, label %43
 
 43:                                               ; preds = %38
-  %44 = load i32, ptr %3, align 4, !tbaa !18
+  %44 = load i32, ptr %3, align 4, !tbaa !19
   %45 = sext i32 %44 to i64
   %46 = call i32 @test_mem_eq(ptr noundef nonnull @.str.33, i32 noundef 278, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %6, i64 noundef %45, ptr noundef nonnull %7, i64 noundef 12) #7
   %.not19.i = icmp ne i32 %46, 0
@@ -901,7 +901,7 @@ define internal fastcc range(i32 0, 2) i32 @test_explicit_EVP_CIPHER_fetch(ptr n
   %2 = alloca ptr, align 8
   %3 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !11
+  store ptr null, ptr %2, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %.b7 = load i1, ptr @use_default_ctx, align 4
@@ -915,7 +915,7 @@ define internal fastcc range(i32 0, 2) i32 @test_explicit_EVP_CIPHER_fetch(ptr n
 
 ._crit_edge:                                      ; preds = %4, %1
   %6 = phi ptr [ null, %1 ], [ %.val.pre, %4 ]
-  %7 = load ptr, ptr @fetch_property, align 8, !tbaa !6
+  %7 = load ptr, ptr @fetch_property, align 8, !tbaa !7
   %8 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %6, ptr noundef %0, ptr noundef %7) #7
   %.b = load i1, ptr @expected_fetch_result, align 4
   br i1 %.b, label %17, label %9
@@ -950,7 +950,7 @@ define internal fastcc range(i32 0, 2) i32 @test_explicit_EVP_CIPHER_fetch(ptr n
   %.06 = phi ptr [ %8, %19 ], [ %8, %11 ], [ %8, %9 ], [ %8, %17 ], [ null, %4 ]
   %.0 = phi i32 [ 1, %19 ], [ 0, %11 ], [ 0, %9 ], [ 0, %17 ], [ 0, %4 ]
   tail call void @EVP_CIPHER_free(ptr noundef %.06) #7
-  %.val11 = load ptr, ptr %3, align 16, !tbaa !13
+  %.val11 = load ptr, ptr %3, align 16, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val12 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %.val11, null
@@ -1005,19 +1005,20 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 omnipotent char", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS16ossl_provider_st", !8, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
-!17 = distinct !{!17, !5}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !9, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS16ossl_provider_st", !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!18 = distinct !{!18, !5, !6}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !10, i64 0}

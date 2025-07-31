@@ -56,7 +56,7 @@ define hidden void @_ZNK9metaspace13FreeChunkList8print_onEP12outputStream(ptr n
   %5 = getelementptr inbounds nuw i8, ptr %.012, i64 48
   %.0 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %.0, null
-  br i1 %.not9, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not9, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %3, align 8
@@ -94,7 +94,7 @@ define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr n
   %8 = add i64 %7, %.067
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %9, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !10
 
 9:                                                ; preds = %2
   ret i64 %8
@@ -128,7 +128,7 @@ _ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa.exit: ;
   %8 = add i64 %.05.lcssa.i.i, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %9, label %2, !llvm.loop !10
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !11
 
 9:                                                ; preds = %_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa.exit
   ret i64 %8
@@ -170,7 +170,7 @@ define hidden noundef i32 @_ZNK9metaspace19FreeChunkListVector10num_chunksEv(ptr
   %5 = add nsw i32 %4, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !11
+  br i1 %exitcond.not, label %6, label %2, !llvm.loop !12
 
 6:                                                ; preds = %2
   ret i32 %5
@@ -204,7 +204,7 @@ define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector22search_chunk_asce
   %12 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
   %.0.i = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
 
 _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %.016.i, i64 40
@@ -258,7 +258,7 @@ _ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit: ; preds = %26, %30
 .loopexit:                                        ; preds = %10, %11, %.lr.ph
   %34 = add i8 %.01221, 1
   %.not = icmp sgt i8 %34, %2
-  br i1 %.not, label %.loopexit18, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.loopexit18, label %.lr.ph, !llvm.loop !14
 
 .loopexit18:                                      ; preds = %.loopexit, %4, %_ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit
   %.0 = phi ptr [ %.016.i, %_ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit ], [ null, %4 ], [ null, %.loopexit ]
@@ -296,7 +296,7 @@ define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector23search_chunk_desc
   %12 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
   %.0.i = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
 
 _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %.016.i, i64 40
@@ -350,7 +350,7 @@ _ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit: ; preds = %26, %30
 .loopexit:                                        ; preds = %10, %11, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %34 = icmp sgt i64 %indvars.iv, 0
-  br i1 %34, label %.lr.ph, label %.loopexit16, !llvm.loop !14
+  br i1 %34, label %.lr.ph, label %.loopexit16, !llvm.loop !15
 
 .loopexit16:                                      ; preds = %.loopexit, %3, %_ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit
   %.0 = phi ptr [ %.016.i, %_ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit ], [ null, %3 ], [ null, %.loopexit ]
@@ -384,7 +384,7 @@ define hidden void @_ZNK9metaspace19FreeChunkListVector8print_onEP12outputStream
   %8 = getelementptr inbounds nuw i8, ptr %.012.i, i64 48
   %.0.i = load ptr, ptr %8, align 8
   %.not9.i = icmp eq ptr %.0.i, null
-  br i1 %.not9.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not9.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load i32, ptr %6, align 8
@@ -403,7 +403,7 @@ _ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit: ; preds = %._crit_e
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !16
 
 .preheader:                                       ; preds = %_ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %_ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit ]
@@ -413,7 +413,7 @@ _ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit: ; preds = %._crit_e
   %13 = add nsw i32 %12, %.056.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit, label %.preheader, !llvm.loop !12
 
 _ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit: ; preds = %.preheader, %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i10, %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit ], [ 0, %.preheader ]
@@ -426,7 +426,7 @@ _ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit: ; preds = %.preheader, %
   %19 = add i64 %18, %.067.i
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 15
-  br i1 %exitcond.not.i11, label %_ZNK9metaspace19FreeChunkListVector9word_sizeEv.exit, label %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit, !llvm.loop !9
+  br i1 %exitcond.not.i11, label %_ZNK9metaspace19FreeChunkListVector9word_sizeEv.exit, label %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit, !llvm.loop !10
 
 _ZNK9metaspace19FreeChunkListVector9word_sizeEv.exit: ; preds = %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef %13, i64 noundef %19) #6
@@ -456,13 +456,14 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

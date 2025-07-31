@@ -6404,7 +6404,7 @@ define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 
   %3 = alloca %"struct.cv::Ptr.18", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
   call void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.18") align 8 %3, i32 noundef 0)
-  %4 = load ptr, ptr %3, align 8, !tbaa !124
+  %4 = load ptr, ptr %3, align 8, !tbaa !125
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -6412,7 +6412,7 @@ define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 
           to label %8 unwind label %69
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %2, align 8, !tbaa !127
+  %9 = load ptr, ptr %2, align 8, !tbaa !128
   %10 = load ptr, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -6420,7 +6420,7 @@ define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %8
-  %13 = load ptr, ptr %2, align 8, !tbaa !127
+  %13 = load ptr, ptr %2, align 8, !tbaa !128
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = load ptr, ptr %14, align 8
   %16 = invoke noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -6437,7 +6437,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %.noex
           to label %.noexc6 unwind label %.loopexit
 
 .noexc6:                                          ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i
-  %19 = load ptr, ptr %2, align 8, !tbaa !127
+  %19 = load ptr, ptr %2, align 8, !tbaa !128
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = load ptr, ptr %20, align 8
   %22 = invoke noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %19)
@@ -6445,7 +6445,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %.noex
 
 .noexc7:                                          ; preds = %.noexc6
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i, !llvm.loop !130
+  br i1 %.not.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i, !llvm.loop !131
 
 _ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit:        ; preds = %.noexc7, %.noexc5
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6688,7 +6688,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv3reg1
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %6, align 8, !tbaa !132
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -6960,7 +6960,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv3reg1
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %6, align 8, !tbaa !132
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -7070,7 +7070,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv3reg1
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %6, align 8, !tbaa !132
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -7180,7 +7180,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv3reg1
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %6, align 8, !tbaa !132
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -7300,7 +7300,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv3reg1
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %6, align 8, !tbaa !132
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -7507,14 +7507,15 @@ attributes #21 = { builtin allocsize(0) }
 !119 = !{!"_ZTSSt12__shared_ptrIN2cv3reg14MapperGradProjELN9__gnu_cxx12_Lock_policyE2EE", !120, i64 0, !67, i64 8}
 !120 = !{!"p1 _ZTSN2cv3reg14MapperGradProjE", !7, i64 0}
 !121 = !{}
-!122 = distinct !{!122, !123}
+!122 = distinct !{!122, !123, !124}
 !123 = !{!"llvm.loop.mustprogress"}
-!124 = !{!125, !126, i64 0}
-!125 = !{!"_ZTSSt12__shared_ptrIN2cv9FormatterELN9__gnu_cxx12_Lock_policyE2EE", !126, i64 0, !67, i64 8}
-!126 = !{!"p1 _ZTSN2cv9FormatterE", !7, i64 0}
-!127 = !{!128, !129, i64 0}
-!128 = !{!"_ZTSSt12__shared_ptrIN2cv9FormattedELN9__gnu_cxx12_Lock_policyE2EE", !129, i64 0, !67, i64 8}
-!129 = !{!"p1 _ZTSN2cv9FormattedE", !7, i64 0}
-!130 = distinct !{!130, !123}
-!131 = !{!132, !6, i64 8}
-!132 = !{!"_ZTSSt9type_info", !6, i64 8}
+!124 = !{!"llvm.loop.estimated_trip_count"}
+!125 = !{!126, !127, i64 0}
+!126 = !{!"_ZTSSt12__shared_ptrIN2cv9FormatterELN9__gnu_cxx12_Lock_policyE2EE", !127, i64 0, !67, i64 8}
+!127 = !{!"p1 _ZTSN2cv9FormatterE", !7, i64 0}
+!128 = !{!129, !130, i64 0}
+!129 = !{!"_ZTSSt12__shared_ptrIN2cv9FormattedELN9__gnu_cxx12_Lock_policyE2EE", !130, i64 0, !67, i64 8}
+!130 = !{!"p1 _ZTSN2cv9FormattedE", !7, i64 0}
+!131 = distinct !{!131, !123, !124}
+!132 = !{!133, !6, i64 8}
+!133 = !{!"_ZTSSt9type_info", !6, i64 8}

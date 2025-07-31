@@ -884,7 +884,7 @@ define hidden void @_ZN4LIEF11swap_endianINS_5MachO7details20ppc_thread_state64_
   tail call void @_ZN4LIEF11swap_endianImEEvPT_(ptr noundef nonnull %11) #2
   %12 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %12, 32
-  br i1 %exitcond.not, label %4, label %10, !llvm.loop !5
+  br i1 %exitcond.not, label %4, label %10, !llvm.loop !6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -916,7 +916,7 @@ define hidden void @_ZN4LIEF11swap_endianINS_5MachO7details18ppc_thread_state_tE
   tail call void @_ZN4LIEF11swap_endianIjEEvPT_(ptr noundef nonnull %12) #2
   %13 = add nuw nsw i64 %.011, 1
   %exitcond.not = icmp eq i64 %13, 32
-  br i1 %exitcond.not, label %4, label %11, !llvm.loop !6
+  br i1 %exitcond.not, label %4, label %11, !llvm.loop !7
 }
 
 declare void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef) local_unnamed_addr #1
@@ -932,7 +932,8 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}

@@ -207,7 +207,7 @@ ByteReverseWords64.exit65.i:                      ; preds = %.lr.ph.i61.i
   %42 = add i32 %.353.i, -128
   tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %0)
   %43 = icmp ugt i32 %42, 127
-  br i1 %43, label %.preheader.i, label %.loopexit.i, !llvm.loop !16
+  br i1 %43, label %.preheader.i, label %.loopexit.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %ByteReverseWords64.exit65.i, %37
   %.4.i = phi i32 [ %.050.i, %37 ], [ %42, %ByteReverseWords64.exit65.i ]
@@ -271,7 +271,7 @@ define range(i32 -192, 1) i32 @wc_Sha512Final(ptr noundef captures(address_is_nu
   store i32 %11, ptr %7, align 8, !tbaa !11
   %12 = zext nneg i32 %8 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
-  store i8 -128, ptr %13, align 1, !tbaa !17
+  store i8 -128, ptr %13, align 1, !tbaa !18
   %14 = load i32, ptr %7, align 8, !tbaa !11
   %15 = icmp ugt i32 %14, 112
   br i1 %15, label %16, label %27
@@ -443,9 +443,9 @@ define void @wc_Sha512Free(ptr noundef %0) local_unnamed_addr #1 {
   %.01625.i = phi ptr [ %10, %.lr.ph.i ], [ %0, %3 ]
   %9 = add nsw i32 %.126.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
-  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !17
+  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !18
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !19
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %12, 0
@@ -458,16 +458,16 @@ define void @wc_Sha512Free(ptr noundef %0) local_unnamed_addr #1 {
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !10
   %12 = add nsw i32 %.01827.i, -8
   %13 = icmp ugt i32 %12, 7
-  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !19
+  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !20
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %.11734.i = phi ptr [ %15, %.lr.ph35.i ], [ %11, %.preheader.i ]
   %.11933.i = phi i32 [ %14, %.lr.ph35.i ], [ %12, %.preheader.i ]
   %14 = add i32 %.11933.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !17
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !18
   %.not22.i = icmp eq i32 %14, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !20
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !21
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %1
   ret void
@@ -571,7 +571,7 @@ ByteReverseWords64.exit65.i:                      ; preds = %.lr.ph.i61.i
   %42 = add i32 %.353.i, -128
   tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %0)
   %43 = icmp ugt i32 %42, 127
-  br i1 %43, label %.preheader.i, label %.loopexit.i, !llvm.loop !16
+  br i1 %43, label %.preheader.i, label %.loopexit.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %ByteReverseWords64.exit65.i, %37
   %.4.i = phi i32 [ %.050.i, %37 ], [ %42, %ByteReverseWords64.exit65.i ]
@@ -638,7 +638,7 @@ define range(i32 -192, 1) i32 @wc_Sha384Final(ptr noundef captures(address_is_nu
   store i32 %11, ptr %7, align 8, !tbaa !11
   %12 = zext nneg i32 %8 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
-  store i8 -128, ptr %13, align 1, !tbaa !17
+  store i8 -128, ptr %13, align 1, !tbaa !18
   %14 = load i32, ptr %7, align 8, !tbaa !11
   %15 = icmp ugt i32 %14, 112
   br i1 %15, label %16, label %27
@@ -838,9 +838,9 @@ define void @wc_Sha384Free(ptr noundef %0) local_unnamed_addr #1 {
   %.01625.i = phi ptr [ %10, %.lr.ph.i ], [ %0, %3 ]
   %9 = add nsw i32 %.126.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
-  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !17
+  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !18
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !19
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %12, 0
@@ -853,16 +853,16 @@ define void @wc_Sha384Free(ptr noundef %0) local_unnamed_addr #1 {
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !10
   %12 = add nsw i32 %.01827.i, -8
   %13 = icmp ugt i32 %12, 7
-  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !19
+  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !20
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %.11734.i = phi ptr [ %15, %.lr.ph35.i ], [ %11, %.preheader.i ]
   %.11933.i = phi i32 [ %14, %.lr.ph35.i ], [ %12, %.preheader.i ]
   %14 = add i32 %.11933.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !17
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !18
   %.not22.i = icmp eq i32 %14, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !20
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !21
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %1
   ret void
@@ -879,7 +879,7 @@ define range(i32 -192, 1) i32 @wc_Sha512GetHash(ptr noundef readonly captures(ad
 
 .lr.ph29.preheader.i.i.i:                         ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %3, ptr noundef nonnull readonly align 8 dereferenceable(224) %0, i64 224, i1 false)
-  %6 = call i32 @wc_Sha512Final(ptr noundef nonnull %3, ptr noundef nonnull %1) #8, !callees !21
+  %6 = call i32 @wc_Sha512Final(ptr noundef nonnull %3, ptr noundef nonnull %1) #8, !callees !22
   br label %.lr.ph29.i.i.i
 
 .lr.ph29.i.i.i:                                   ; preds = %.lr.ph29.i.i.i, %.lr.ph29.preheader.i.i.i
@@ -889,7 +889,7 @@ define range(i32 -192, 1) i32 @wc_Sha512GetHash(ptr noundef readonly captures(ad
   store volatile i64 0, ptr %.01528.i.i.i, align 8, !tbaa !10
   %8 = add nsw i32 %.01827.i.i.i, -8
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %Sha512_Family_GetHash.exit, label %.lr.ph29.i.i.i, !llvm.loop !19
+  br i1 %.not.i, label %Sha512_Family_GetHash.exit, label %.lr.ph29.i.i.i, !llvm.loop !20
 
 Sha512_Family_GetHash.exit:                       ; preds = %.lr.ph29.i.i.i, %2
   %.08.i = phi i32 [ -173, %2 ], [ %6, %.lr.ph29.i.i.i ]
@@ -998,7 +998,7 @@ define range(i32 -192, 1) i32 @wc_Sha512_224Final(ptr noundef captures(address_i
   store i32 %11, ptr %7, align 8, !tbaa !11
   %12 = zext nneg i32 %8 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
-  store i8 -128, ptr %13, align 1, !tbaa !17
+  store i8 -128, ptr %13, align 1, !tbaa !18
   %14 = load i32, ptr %7, align 8, !tbaa !11
   %15 = icmp ugt i32 %14, 112
   br i1 %15, label %16, label %27
@@ -1130,9 +1130,9 @@ define void @wc_Sha512_224Free(ptr noundef %0) local_unnamed_addr #1 {
   %.01625.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %0, %3 ]
   %9 = add nsw i32 %.126.i.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
-  store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !17
+  store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !18
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !19
 
 .preheader.i.i:                                   ; preds = %.lr.ph29.i.i
   %.not2232.i.i = icmp eq i32 %12, 0
@@ -1145,16 +1145,16 @@ define void @wc_Sha512_224Free(ptr noundef %0) local_unnamed_addr #1 {
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !10
   %12 = add nsw i32 %.01827.i.i, -8
   %13 = icmp ugt i32 %12, 7
-  br i1 %13, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !19
+  br i1 %13, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !20
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %15, %.lr.ph35.i.i ], [ %11, %.preheader.i.i ]
   %.11933.i.i = phi i32 [ %14, %.lr.ph35.i.i ], [ %12, %.preheader.i.i ]
   %14 = add i32 %.11933.i.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
-  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !17
+  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !18
   %.not22.i.i = icmp eq i32 %14, 0
-  br i1 %.not22.i.i, label %wc_Sha512Free.exit, label %.lr.ph35.i.i, !llvm.loop !20
+  br i1 %.not22.i.i, label %wc_Sha512Free.exit, label %.lr.ph35.i.i, !llvm.loop !21
 
 wc_Sha512Free.exit:                               ; preds = %.lr.ph35.i.i, %1, %.preheader.i.i
   ret void
@@ -1171,7 +1171,7 @@ define range(i32 -192, 1) i32 @wc_Sha512_224GetHash(ptr noundef readonly capture
 
 .lr.ph29.preheader.i.i.i:                         ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %3, ptr noundef nonnull readonly align 8 dereferenceable(224) %0, i64 224, i1 false)
-  %6 = call i32 @wc_Sha512_224Final(ptr noundef nonnull %3, ptr noundef nonnull %1) #8, !callees !21
+  %6 = call i32 @wc_Sha512_224Final(ptr noundef nonnull %3, ptr noundef nonnull %1) #8, !callees !22
   br label %.lr.ph29.i.i.i
 
 .lr.ph29.i.i.i:                                   ; preds = %.lr.ph29.i.i.i, %.lr.ph29.preheader.i.i.i
@@ -1181,7 +1181,7 @@ define range(i32 -192, 1) i32 @wc_Sha512_224GetHash(ptr noundef readonly capture
   store volatile i64 0, ptr %.01528.i.i.i, align 8, !tbaa !10
   %8 = add nsw i32 %.01827.i.i.i, -8
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %Sha512_Family_GetHash.exit, label %.lr.ph29.i.i.i, !llvm.loop !19
+  br i1 %.not.i, label %Sha512_Family_GetHash.exit, label %.lr.ph29.i.i.i, !llvm.loop !20
 
 Sha512_Family_GetHash.exit:                       ; preds = %.lr.ph29.i.i.i, %2
   %.08.i = phi i32 [ -173, %2 ], [ %6, %.lr.ph29.i.i.i ]
@@ -1290,7 +1290,7 @@ define range(i32 -192, 1) i32 @wc_Sha512_256Final(ptr noundef captures(address_i
   store i32 %11, ptr %7, align 8, !tbaa !11
   %12 = zext nneg i32 %8 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
-  store i8 -128, ptr %13, align 1, !tbaa !17
+  store i8 -128, ptr %13, align 1, !tbaa !18
   %14 = load i32, ptr %7, align 8, !tbaa !11
   %15 = icmp ugt i32 %14, 112
   br i1 %15, label %16, label %27
@@ -1422,9 +1422,9 @@ define void @wc_Sha512_256Free(ptr noundef %0) local_unnamed_addr #1 {
   %.01625.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %0, %3 ]
   %9 = add nsw i32 %.126.i.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
-  store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !17
+  store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !18
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !19
 
 .preheader.i.i:                                   ; preds = %.lr.ph29.i.i
   %.not2232.i.i = icmp eq i32 %12, 0
@@ -1437,16 +1437,16 @@ define void @wc_Sha512_256Free(ptr noundef %0) local_unnamed_addr #1 {
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !10
   %12 = add nsw i32 %.01827.i.i, -8
   %13 = icmp ugt i32 %12, 7
-  br i1 %13, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !19
+  br i1 %13, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !20
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %15, %.lr.ph35.i.i ], [ %11, %.preheader.i.i ]
   %.11933.i.i = phi i32 [ %14, %.lr.ph35.i.i ], [ %12, %.preheader.i.i ]
   %14 = add i32 %.11933.i.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
-  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !17
+  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !18
   %.not22.i.i = icmp eq i32 %14, 0
-  br i1 %.not22.i.i, label %wc_Sha512Free.exit, label %.lr.ph35.i.i, !llvm.loop !20
+  br i1 %.not22.i.i, label %wc_Sha512Free.exit, label %.lr.ph35.i.i, !llvm.loop !21
 
 wc_Sha512Free.exit:                               ; preds = %.lr.ph35.i.i, %1, %.preheader.i.i
   ret void
@@ -1463,7 +1463,7 @@ define range(i32 -192, 1) i32 @wc_Sha512_256GetHash(ptr noundef readonly capture
 
 .lr.ph29.preheader.i.i.i:                         ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %3, ptr noundef nonnull readonly align 8 dereferenceable(224) %0, i64 224, i1 false)
-  %6 = call i32 @wc_Sha512_256Final(ptr noundef nonnull %3, ptr noundef nonnull %1) #8, !callees !21
+  %6 = call i32 @wc_Sha512_256Final(ptr noundef nonnull %3, ptr noundef nonnull %1) #8, !callees !22
   br label %.lr.ph29.i.i.i
 
 .lr.ph29.i.i.i:                                   ; preds = %.lr.ph29.i.i.i, %.lr.ph29.preheader.i.i.i
@@ -1473,7 +1473,7 @@ define range(i32 -192, 1) i32 @wc_Sha512_256GetHash(ptr noundef readonly capture
   store volatile i64 0, ptr %.01528.i.i.i, align 8, !tbaa !10
   %8 = add nsw i32 %.01827.i.i.i, -8
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %Sha512_Family_GetHash.exit, label %.lr.ph29.i.i.i, !llvm.loop !19
+  br i1 %.not.i, label %Sha512_Family_GetHash.exit, label %.lr.ph29.i.i.i, !llvm.loop !20
 
 Sha512_Family_GetHash.exit:                       ; preds = %.lr.ph29.i.i.i, %2
   %.08.i = phi i32 [ -173, %2 ], [ %6, %.lr.ph29.i.i.i ]
@@ -1518,7 +1518,7 @@ define range(i32 -192, 1) i32 @wc_Sha384GetHash(ptr noundef readonly captures(ad
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !10
   %8 = add nsw i32 %.01827.i.i, -8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %wc_Sha384Free.exit, label %.lr.ph29.i.i, !llvm.loop !19
+  br i1 %.not, label %wc_Sha384Free.exit, label %.lr.ph29.i.i, !llvm.loop !20
 
 wc_Sha384Free.exit:                               ; preds = %.lr.ph29.i.i, %2
   %.07 = phi i32 [ -173, %2 ], [ %6, %.lr.ph29.i.i ]
@@ -2411,7 +2411,7 @@ define internal fastcc void @_Transform_Sha512(ptr noundef nonnull captures(none
   %753 = add i64 %752, %741
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %754 = icmp samesign ult i64 %indvars.iv, 64
-  br i1 %754, label %27, label %.lr.ph29.preheader.i, !llvm.loop !22
+  br i1 %754, label %27, label %.lr.ph29.preheader.i, !llvm.loop !23
 
 .lr.ph29.preheader.i:                             ; preds = %736
   %755 = load i64, ptr %0, align 8, !tbaa !10
@@ -2454,7 +2454,7 @@ define internal fastcc void @_Transform_Sha512(ptr noundef nonnull captures(none
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !10
   %779 = add nsw i32 %.01827.i, -8
   %.not91 = icmp eq i32 %779, 0
-  br i1 %.not91, label %.lr.ph29.i81, label %.lr.ph29.i, !llvm.loop !19
+  br i1 %.not91, label %.lr.ph29.i81, label %.lr.ph29.i, !llvm.loop !20
 
 .lr.ph29.i81:                                     ; preds = %.lr.ph29.i, %.lr.ph29.i81
   %.01528.i82 = phi ptr [ %780, %.lr.ph29.i81 ], [ %2, %.lr.ph29.i ]
@@ -2463,7 +2463,7 @@ define internal fastcc void @_Transform_Sha512(ptr noundef nonnull captures(none
   store volatile i64 0, ptr %.01528.i82, align 8, !tbaa !10
   %781 = add nsw i32 %.01827.i83, -8
   %.not92 = icmp eq i32 %781, 0
-  br i1 %.not92, label %ForceZero.exit90, label %.lr.ph29.i81, !llvm.loop !19
+  br i1 %.not92, label %ForceZero.exit90, label %.lr.ph29.i81, !llvm.loop !20
 
 ForceZero.exit90:                                 ; preds = %.lr.ph29.i81
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
@@ -2509,12 +2509,13 @@ attributes #8 = { nounwind }
 !11 = !{!4, !7, i64 192}
 !12 = !{!4, !8, i64 200}
 !13 = !{!4, !8, i64 208}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = !{!5, !5, i64 0}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = !{ptr @wc_Sha512Final, ptr @wc_Sha512_224Final, ptr @wc_Sha512_256Final}
-!22 = distinct !{!22, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = !{!5, !5, i64 0}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}
+!21 = distinct !{!21, !15, !16}
+!22 = !{ptr @wc_Sha512Final, ptr @wc_Sha512_224Final, ptr @wc_Sha512_256Final}
+!23 = distinct !{!23, !15, !16}

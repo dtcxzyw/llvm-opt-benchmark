@@ -629,7 +629,7 @@ define internal fastcc ptr @xml_escape_the_name(ptr noundef readonly captures(ad
   %39 = getelementptr inbounds nuw i8, ptr %.169, i64 1
   %40 = add nuw i64 %.15668, 1
   %exitcond77.not = icmp eq i64 %40, %3
-  br i1 %exitcond77.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !47
+  br i1 %exitcond77.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !48
 
 ._crit_edge73:                                    ; preds = %36
   store i8 0, ptr %37, align 1, !tbaa !44
@@ -1198,7 +1198,7 @@ switch.lookup212:                                 ; preds = %221
   %362 = call zeroext i1 @h5tools_render_element(ptr noundef %359, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %12, i64 noundef %361, i64 noundef 0, i64 noundef 0) #14
   %363 = add nuw i32 %.0189, 1
   %exitcond196.not = icmp eq i32 %363, %302
-  br i1 %exitcond196.not, label %._crit_edge192.loopexit, label %.lr.ph191, !llvm.loop !48
+  br i1 %exitcond196.not, label %._crit_edge192.loopexit, label %.lr.ph191, !llvm.loop !49
 
 ._crit_edge192.loopexit:                          ; preds = %.lr.ph191
   %.pre197 = load i32, ptr @dump_indent, align 4, !tbaa !8
@@ -1430,7 +1430,7 @@ switch.lookup212:                                 ; preds = %221
   %531 = call zeroext i1 @h5tools_render_element(ptr noundef %528, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %12, i64 noundef %530, i64 noundef 0, i64 noundef 0) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %17, align 8, !tbaa !32
@@ -1732,7 +1732,7 @@ define dso_local void @xml_dump_dataspace(i64 noundef %0) local_unnamed_addr #0 
   %78 = call zeroext i1 @h5tools_render_element(ptr noundef %75, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %77, i64 noundef 0, i64 noundef 0) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge.loopexit:                             ; preds = %74
   %.pre = load i32, ptr %13, align 8, !tbaa !32
@@ -1856,17 +1856,17 @@ define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr noundef
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 320
   store i32 %.sink, ptr %35, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 200
-  store ptr @.str.14, ptr %36, align 8, !tbaa !51
+  store ptr @.str.14, ptr %36, align 8, !tbaa !52
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 208
-  store ptr @.str.15, ptr %37, align 8, !tbaa !52
+  store ptr @.str.15, ptr %37, align 8, !tbaa !53
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  store ptr @.str.15, ptr %38, align 8, !tbaa !53
+  store ptr @.str.15, ptr %38, align 8, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store ptr @.str.15, ptr %39, align 8, !tbaa !54
+  store ptr @.str.15, ptr %39, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  store i32 0, ptr %40, align 8, !tbaa !55
+  store i32 0, ptr %40, align 8, !tbaa !56
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  store ptr @.str.15, ptr %41, align 8, !tbaa !56
+  store ptr @.str.15, ptr %41, align 8, !tbaa !57
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %42, align 8, !tbaa !41
   %43 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #14
@@ -2218,7 +2218,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_refs(i64 noundef %0, i32 
   %94 = getelementptr inbounds nuw i8, ptr %.04679, i64 64
   %95 = add nuw i64 %.04778, 1
   %exitcond.not = icmp eq i64 %95, %.048
-  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %90, %66
   call void @h5tools_str_close(ptr noundef nonnull %3) #14
@@ -2259,7 +2259,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_refs(i64 noundef %0, i32 
   %110 = load i32, ptr %7, align 4, !tbaa !8
   %.not73 = icmp eq i32 %110, 0
   %111 = load ptr, ptr %8, align 8, !tbaa !44
-  %112 = load ptr, ptr %9, align 8, !tbaa !58
+  %112 = load ptr, ptr %9, align 8, !tbaa !59
   br i1 %.not73, label %115, label %113
 
 113:                                              ; preds = %107
@@ -2502,7 +2502,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   %103 = getelementptr inbounds nuw i8, ptr %.076134, i64 %.080
   %104 = add nuw i64 %.079133, 1
   %exitcond.not = icmp eq i64 %104, %.081
-  br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %102, %74
   %.175.lcssa = phi ptr [ %.074, %74 ], [ %.2119, %102 ]
@@ -2560,7 +2560,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   %124 = load i32, ptr %7, align 4, !tbaa !8
   %.not113 = icmp eq i32 %124, 0
   %125 = load ptr, ptr %8, align 8, !tbaa !44
-  %126 = load ptr, ptr %9, align 8, !tbaa !58
+  %126 = load ptr, ptr %9, align 8, !tbaa !59
   br i1 %.not113, label %129, label %127
 
 127:                                              ; preds = %121
@@ -2687,13 +2687,13 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %47 = call i64 @H5Aget_type(i64 noundef %44) #14
   %48 = call i64 @H5Aget_space(i64 noundef %44) #14
   %49 = call i32 @H5Sget_simple_extent_type(i64 noundef %48) #14
-  %50 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %50 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !62
+  %52 = load ptr, ptr %51, align 8, !tbaa !63
   call void %52(i64 noundef %48) #14
-  %53 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %53 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !64
+  %55 = load ptr, ptr %54, align 8, !tbaa !65
   call void %55(i64 noundef %47) #14
   %56 = load i32, ptr %13, align 8, !tbaa !32
   %57 = add i32 %56, 1
@@ -2701,7 +2701,7 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %58 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %59 = add i32 %58, 3
   store i32 %59, ptr @dump_indent, align 4, !tbaa !8
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 12), align 4, !tbaa !65
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 12), align 4, !tbaa !66
   %61 = icmp ne i32 %60, 0
   %62 = icmp ne i32 %49, 2
   %or.cond = select i1 %61, i1 %62, i1 false
@@ -2725,9 +2725,9 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   ]
 
 65:                                               ; preds = %63, %63, %63, %63, %63, %63, %63, %63
-  %66 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %66 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %68 = load ptr, ptr %67, align 8, !tbaa !66
+  %68 = load ptr, ptr %67, align 8, !tbaa !67
   call void %68(i64 noundef %44, i32 noundef 0, ptr noundef null, i32 noundef 0) #14
   br label %226
 
@@ -2792,9 +2792,9 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %115 = load i32, ptr %34, align 8, !tbaa !28
   %116 = zext i32 %115 to i64
   %117 = call zeroext i1 @h5tools_render_element(ptr noundef %114, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %116, i64 noundef 0, i64 noundef 0) #14
-  %118 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %118 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
-  %120 = load ptr, ptr %119, align 8, !tbaa !66
+  %120 = load ptr, ptr %119, align 8, !tbaa !67
   call void %120(i64 noundef %44, i32 noundef 0, ptr noundef null, i32 noundef 0) #14
   br label %226
 
@@ -2860,9 +2860,9 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %165 = load i32, ptr %34, align 8, !tbaa !28
   %166 = zext i32 %165 to i64
   %167 = call zeroext i1 @h5tools_render_element(ptr noundef %164, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %166, i64 noundef 0, i64 noundef 0) #14
-  %168 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %168 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 48
-  %170 = load ptr, ptr %169, align 8, !tbaa !66
+  %170 = load ptr, ptr %169, align 8, !tbaa !67
   call void %170(i64 noundef %44, i32 noundef 0, ptr noundef null, i32 noundef 0) #14
   br label %226
 
@@ -3139,7 +3139,7 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   %77 = call zeroext i1 @h5tools_render_element(ptr noundef %74, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %76, i64 noundef 0, i64 noundef 0) #14
   %78 = call i32 @H5Oget_info3(i64 noundef %0, ptr noundef nonnull %7, i32 noundef 1) #14
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %80 = load i32, ptr %79, align 4, !tbaa !67
+  %80 = load i32, ptr %79, align 4, !tbaa !68
   %81 = icmp ugt i32 %80, 1
   br i1 %81, label %82, label %.thread74
 
@@ -3159,7 +3159,7 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
 
 89:                                               ; preds = %82
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %91 = load i8, ptr %90, align 8, !tbaa !69, !range !39, !noundef !40
+  %91 = load i8, ptr %90, align 8, !tbaa !70, !range !39, !noundef !40
   %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %93, label %116
 
@@ -3197,7 +3197,7 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   br label %117
 
 116:                                              ; preds = %89
-  store i8 1, ptr %90, align 8, !tbaa !69
+  store i8 1, ptr %90, align 8, !tbaa !70
   br label %.thread74
 
 .thread74:                                        ; preds = %116, %67
@@ -3476,7 +3476,7 @@ sub_0:                                            ; preds = %47, %50
   %.0156 = phi ptr [ %60, %59 ], [ %66, %78 ], [ %66, %80 ], [ %66, %69 ]
   %83 = call i32 @H5Oget_info3(i64 noundef %0, ptr noundef nonnull %3, i32 noundef 1) #14
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %85 = load i32, ptr %84, align 4, !tbaa !67
+  %85 = load i32, ptr %84, align 4, !tbaa !68
   %86 = icmp ugt i32 %85, 1
   br i1 %86, label %87, label %240
 
@@ -3499,7 +3499,7 @@ sub_0:                                            ; preds = %47, %50
   %96 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
   %97 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
   %98 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  %99 = load i8, ptr %98, align 8, !tbaa !69, !range !39, !noundef !40
+  %99 = load i8, ptr %98, align 8, !tbaa !70, !range !39, !noundef !40
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %142
 
@@ -3602,7 +3602,7 @@ sub_0:                                            ; preds = %47, %50
   br label %163
 
 163:                                              ; preds = %152, %143
-  store i8 1, ptr %98, align 8, !tbaa !69
+  store i8 1, ptr %98, align 8, !tbaa !70
   %164 = load i32, ptr %32, align 8, !tbaa !32
   %165 = add i32 %164, 1
   store i32 %165, ptr %32, align 8, !tbaa !32
@@ -3621,18 +3621,18 @@ sub_0:                                            ; preds = %47, %50
 
 173:                                              ; preds = %170
   %174 = load i32, ptr @sort_order, align 4, !tbaa !8
-  %175 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %175 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
-  %177 = load ptr, ptr %176, align 8, !tbaa !70
+  %177 = load ptr, ptr %176, align 8, !tbaa !71
   %178 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %174, ptr noundef null, ptr noundef %177, ptr noundef null) #14
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %.sink.split, label %187
 
 180:                                              ; preds = %170, %163
   %181 = load i32, ptr @sort_order, align 4, !tbaa !8
-  %182 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %182 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  %184 = load ptr, ptr %183, align 8, !tbaa !70
+  %184 = load ptr, ptr %183, align 8, !tbaa !71
   %185 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %181, ptr noundef null, ptr noundef %184, ptr noundef null) #14
   %186 = icmp slt i32 %185, 0
   br i1 %186, label %.sink.split, label %187
@@ -3651,7 +3651,7 @@ sub_0:                                            ; preds = %47, %50
 .preheader:                                       ; preds = %187
   %190 = load ptr, ptr @type_table, align 8, !tbaa !33
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  %192 = load i64, ptr %191, align 8, !tbaa !71
+  %192 = load i64, ptr %191, align 8, !tbaa !72
   %.not190 = icmp eq i64 %192, 0
   br i1 %.not190, label %.loopexit, label %.lr.ph187
 
@@ -3660,7 +3660,7 @@ sub_0:                                            ; preds = %47, %50
   %194 = phi i64 [ %222, %219 ], [ 0, %.preheader ]
   %.0155186 = phi i32 [ %221, %219 ], [ 0, %.preheader ]
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 24
-  %196 = load ptr, ptr %195, align 8, !tbaa !74
+  %196 = load ptr, ptr %195, align 8, !tbaa !75
   %197 = getelementptr inbounds nuw %struct.obj_t, ptr %196, i64 %194, i32 3
   %198 = load i8, ptr %197, align 1, !tbaa !38, !range !39, !noundef !40
   %199 = trunc nuw i8 %198 to i1
@@ -3675,16 +3675,16 @@ sub_0:                                            ; preds = %47, %50
   %204 = call i64 @H5Dget_type(i64 noundef %203) #14
   %205 = load ptr, ptr @type_table, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
-  %207 = load ptr, ptr %206, align 8, !tbaa !74
+  %207 = load ptr, ptr %206, align 8, !tbaa !75
   %208 = getelementptr inbounds nuw %struct.obj_t, ptr %207, i64 %194
   %209 = call i32 @H5Otoken_to_str(i64 noundef %203, ptr noundef %208, ptr noundef nonnull %11) #14
   %210 = load ptr, ptr %11, align 8, !tbaa !18
   %211 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %210) #14
   %212 = load ptr, ptr %11, align 8, !tbaa !18
   %213 = call i32 @H5free_memory(ptr noundef %212) #14
-  %214 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %214 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %216 = load ptr, ptr %215, align 8, !tbaa !75
+  %216 = load ptr, ptr %215, align 8, !tbaa !76
   call void %216(i64 noundef %204, ptr noundef nonnull %6) #14
   %217 = call i32 @H5Tclose(i64 noundef %204) #14
   %218 = call i32 @H5Dclose(i64 noundef %203) #14
@@ -3697,9 +3697,9 @@ sub_0:                                            ; preds = %47, %50
   %221 = add i32 %.0155186, 1
   %222 = zext i32 %221 to i64
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 16
-  %224 = load i64, ptr %223, align 8, !tbaa !71
+  %224 = load i64, ptr %223, align 8, !tbaa !72
   %225 = icmp ugt i64 %224, %222
-  br i1 %225, label %.lr.ph187, label %.loopexit, !llvm.loop !76
+  br i1 %225, label %.lr.ph187, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %219, %.preheader, %187
   %226 = load i32, ptr @sort_by, align 4, !tbaa !8
@@ -3785,18 +3785,18 @@ sub_0:                                            ; preds = %47, %50
 
 268:                                              ; preds = %265
   %269 = load i32, ptr @sort_order, align 4, !tbaa !8
-  %270 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %270 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 40
-  %272 = load ptr, ptr %271, align 8, !tbaa !70
+  %272 = load ptr, ptr %271, align 8, !tbaa !71
   %273 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %269, ptr noundef null, ptr noundef %272, ptr noundef null) #14
   %274 = icmp slt i32 %273, 0
   br i1 %274, label %.sink.split194, label %282
 
 275:                                              ; preds = %265, %254
   %276 = load i32, ptr @sort_order, align 4, !tbaa !8
-  %277 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %277 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 40
-  %279 = load ptr, ptr %278, align 8, !tbaa !70
+  %279 = load ptr, ptr %278, align 8, !tbaa !71
   %280 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %276, ptr noundef null, ptr noundef %279, ptr noundef null) #14
   %281 = icmp slt i32 %280, 0
   br i1 %281, label %.sink.split194, label %282
@@ -3815,7 +3815,7 @@ sub_0:                                            ; preds = %47, %50
 .preheader183:                                    ; preds = %282
   %285 = load ptr, ptr @type_table, align 8, !tbaa !33
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  %287 = load i64, ptr %286, align 8, !tbaa !71
+  %287 = load i64, ptr %286, align 8, !tbaa !72
   %.not189 = icmp eq i64 %287, 0
   br i1 %.not189, label %.loopexit184, label %.lr.ph
 
@@ -3824,7 +3824,7 @@ sub_0:                                            ; preds = %47, %50
   %289 = phi i64 [ %317, %314 ], [ 0, %.preheader183 ]
   %.0185 = phi i32 [ %316, %314 ], [ 0, %.preheader183 ]
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 24
-  %291 = load ptr, ptr %290, align 8, !tbaa !74
+  %291 = load ptr, ptr %290, align 8, !tbaa !75
   %292 = getelementptr inbounds nuw %struct.obj_t, ptr %291, i64 %289, i32 3
   %293 = load i8, ptr %292, align 1, !tbaa !38, !range !39, !noundef !40
   %294 = trunc nuw i8 %293 to i1
@@ -3839,16 +3839,16 @@ sub_0:                                            ; preds = %47, %50
   %299 = call i64 @H5Dget_type(i64 noundef %298) #14
   %300 = load ptr, ptr @type_table, align 8, !tbaa !33
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 24
-  %302 = load ptr, ptr %301, align 8, !tbaa !74
+  %302 = load ptr, ptr %301, align 8, !tbaa !75
   %303 = getelementptr inbounds nuw %struct.obj_t, ptr %302, i64 %289
   %304 = call i32 @H5Otoken_to_str(i64 noundef %298, ptr noundef %303, ptr noundef nonnull %12) #14
   %305 = load ptr, ptr %12, align 8, !tbaa !18
   %306 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %305) #14
   %307 = load ptr, ptr %12, align 8, !tbaa !18
   %308 = call i32 @H5free_memory(ptr noundef %307) #14
-  %309 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %309 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %311 = load ptr, ptr %310, align 8, !tbaa !75
+  %311 = load ptr, ptr %310, align 8, !tbaa !76
   call void %311(i64 noundef %299, ptr noundef nonnull %6) #14
   %312 = call i32 @H5Tclose(i64 noundef %299) #14
   %313 = call i32 @H5Dclose(i64 noundef %298) #14
@@ -3861,9 +3861,9 @@ sub_0:                                            ; preds = %47, %50
   %316 = add i32 %.0185, 1
   %317 = zext i32 %316 to i64
   %318 = getelementptr inbounds nuw i8, ptr %315, i64 16
-  %319 = load i64, ptr %318, align 8, !tbaa !71
+  %319 = load i64, ptr %318, align 8, !tbaa !72
   %320 = icmp ugt i64 %319, %317
-  br i1 %320, label %.lr.ph, label %.loopexit184, !llvm.loop !77
+  br i1 %320, label %.lr.ph, label %.loopexit184, !llvm.loop !78
 
 .loopexit184:                                     ; preds = %314, %.preheader183, %282
   %321 = load i32, ptr @sort_by, align 4, !tbaa !8
@@ -4062,7 +4062,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %endptr = getelementptr inbounds i8, ptr %56, i64 %strlen
   store i16 47, ptr %endptr, align 1
   %59 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %1) #14
-  %60 = load i32, ptr %2, align 8, !tbaa !78
+  %60 = load i32, ptr %2, align 8, !tbaa !79
   switch i32 %60, label %296 [
     i32 0, label %61
     i32 1, label %198
@@ -4082,7 +4082,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %67 = load i32, ptr %66, align 8, !tbaa !80
+  %67 = load i32, ptr %66, align 8, !tbaa !81
   switch i32 %67, label %197 [
     i32 0, label %68
     i32 1, label %84
@@ -4112,8 +4112,8 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 
 77:                                               ; preds = %72
   call void @add_prefix(ptr noundef nonnull @prefix, ptr noundef nonnull @prefix_len, ptr noundef nonnull %1) #14
-  %78 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
-  %79 = load ptr, ptr %78, align 8, !tbaa !81
+  %78 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
+  %79 = load ptr, ptr %78, align 8, !tbaa !82
   call void %79(i64 noundef %69, ptr noundef nonnull %1) #14
   %80 = load ptr, ptr @prefix, align 8, !tbaa !18
   %81 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(1) %74) #14
@@ -4132,7 +4132,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %89 = load i32, ptr %88, align 4, !tbaa !67
+  %89 = load i32, ptr %88, align 4, !tbaa !68
   %90 = icmp ugt i32 %89, 1
   %91 = load i8, ptr @hit_elink, align 1, !range !39
   %92 = trunc nuw i8 %91 to i1
@@ -4153,11 +4153,11 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %101, align 8, !tbaa !41
   %102 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
-  %103 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !82
+  %103 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !83
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 56
-  %105 = load ptr, ptr %104, align 8, !tbaa !84
+  %105 = load ptr, ptr %104, align 8, !tbaa !85
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 312
-  %107 = load ptr, ptr %106, align 8, !tbaa !86
+  %107 = load ptr, ptr %106, align 8, !tbaa !87
   %108 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.164, ptr noundef %105, ptr noundef nonnull %1, ptr noundef %107) #14
   %109 = load ptr, ptr @rawoutstream, align 8, !tbaa !42
   %110 = load i32, ptr %48, align 8, !tbaa !28
@@ -4166,31 +4166,31 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 252) #14
   store i32 1, ptr %101, align 8, !tbaa !41
   %113 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
-  %114 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !82
+  %114 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !83
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 320
-  %116 = load ptr, ptr %115, align 8, !tbaa !87
+  %116 = load ptr, ptr %115, align 8, !tbaa !88
   %char0 = load i8, ptr %116, align 1
   %.not177 = icmp eq i8 %char0, 0
   br i1 %.not177, label %124, label %117
 
 117:                                              ; preds = %98
   %118 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.91, ptr noundef nonnull %116) #14
-  %119 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !82
+  %119 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !83
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 64
-  %121 = load ptr, ptr %120, align 8, !tbaa !88
+  %121 = load ptr, ptr %120, align 8, !tbaa !89
   %char0178 = load i8, ptr %121, align 1
   %.not179 = icmp eq i8 %char0178, 0
   br i1 %.not179, label %124, label %122
 
 122:                                              ; preds = %117
   %123 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.14) #14
-  %.pre = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !82
+  %.pre = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !83
   br label %124
 
 124:                                              ; preds = %117, %122, %98
   %125 = phi ptr [ %119, %117 ], [ %.pre, %122 ], [ %114, %98 ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 64
-  %127 = load ptr, ptr %126, align 8, !tbaa !88
+  %127 = load ptr, ptr %126, align 8, !tbaa !89
   %char0180 = load i8, ptr %127, align 1
   %.not181 = icmp eq i8 %char0180, 0
   br i1 %.not181, label %130, label %128
@@ -4213,7 +4213,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 
 138:                                              ; preds = %93
   %139 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %140 = load i8, ptr %139, align 8, !tbaa !69, !range !39, !noundef !40
+  %140 = load i8, ptr %139, align 8, !tbaa !70, !range !39, !noundef !40
   %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %142, label %181
 
@@ -4279,13 +4279,13 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %.thread
 
 181:                                              ; preds = %138
-  store i8 1, ptr %139, align 8, !tbaa !69
+  store i8 1, ptr %139, align 8, !tbaa !70
   br label %182
 
 182:                                              ; preds = %181, %87
-  %183 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %183 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %185 = load ptr, ptr %184, align 8, !tbaa !89
+  %185 = load ptr, ptr %184, align 8, !tbaa !90
   call void %185(i64 noundef %85, ptr noundef nonnull %1, ptr noundef null) #14
   %186 = call i32 @H5Dclose(i64 noundef %85) #14
   br label %.thread
@@ -4306,9 +4306,9 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %.thread
 
 192:                                              ; preds = %188
-  %193 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %193 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %195 = load ptr, ptr %194, align 8, !tbaa !75
+  %195 = load ptr, ptr %194, align 8, !tbaa !76
   call void %195(i64 noundef %189, ptr noundef nonnull %1) #14
   %196 = call i32 @H5Tclose(i64 noundef %189) #14
   br label %.thread
@@ -4545,7 +4545,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   store i32 1, ptr %303, align 8, !tbaa !41
   %304 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %305 = load ptr, ptr @xmlnsprefix, align 8, !tbaa !18
-  %306 = load i32, ptr %2, align 8, !tbaa !78
+  %306 = load i32, ptr %2, align 8, !tbaa !79
   %307 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.176, ptr noundef %305, ptr noundef %297, ptr noundef nonnull %22, ptr noundef %301, i32 noundef %306, ptr noundef nonnull %23, ptr noundef %300) #14
   %308 = load ptr, ptr @rawoutstream, align 8, !tbaa !42
   %309 = load i32, ptr %48, align 8, !tbaa !28
@@ -4808,7 +4808,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly cap
   %140 = call zeroext i1 @h5tools_render_element(ptr noundef %137, ptr noundef nonnull %32, ptr noundef nonnull %31, ptr noundef nonnull %30, ptr noundef nonnull %33, i64 noundef %139, i64 noundef 0, i64 noundef 0) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %99
   store i32 1, ptr %79, align 8, !tbaa !41
@@ -5058,7 +5058,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly cap
 259:                                              ; preds = %.sink.split37.i, %182
   %260 = add nuw nsw i32 %.034.i, 1
   %exitcond.not.i = icmp eq i32 %260, %178
-  br i1 %exitcond.not.i, label %261, label %182, !llvm.loop !91
+  br i1 %exitcond.not.i, label %261, label %182, !llvm.loop !92
 
 261:                                              ; preds = %259
   call void @h5tools_str_close(ptr noundef nonnull %22) #14
@@ -5408,7 +5408,7 @@ switch.lookup172:                                 ; preds = %377
   %475 = load i32, ptr %8, align 4, !tbaa !8
   %.not146.i = icmp eq i32 %475, 0
   %476 = load ptr, ptr %9, align 8, !tbaa !44
-  %477 = load ptr, ptr %10, align 8, !tbaa !58
+  %477 = load ptr, ptr %10, align 8, !tbaa !59
   br i1 %.not146.i, label %480, label %478
 
 478:                                              ; preds = %473
@@ -5559,7 +5559,7 @@ switch.lookup172:                                 ; preds = %377
   %572 = load ptr, ptr @rawoutstream, align 8, !tbaa !42
   call void @h5tools_simple_prefix(ptr noundef %572, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 0, i32 noundef 0) #14
   %573 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #14
-  %574 = load float, ptr %485, align 4, !tbaa !92
+  %574 = load float, ptr %485, align 4, !tbaa !93
   %575 = fpext float %574 to double
   %576 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.199, double noundef %575) #14
   %577 = load ptr, ptr @rawoutstream, align 8, !tbaa !42
@@ -5603,7 +5603,7 @@ switch.lookup172:                                 ; preds = %377
   %603 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.200, i32 noundef %602) #14
   %604 = add nuw i64 %.0150.i, 1
   %exitcond.not.i163 = icmp eq i64 %604, %596
-  br i1 %exitcond.not.i163, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !94
+  br i1 %exitcond.not.i163, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !95
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %588
   %605 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.75) #14
@@ -5932,13 +5932,13 @@ xml_dump_fill_value.exit:                         ; preds = %784, %800
   %823 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %824 = add i32 %823, -3
   store i32 %824, ptr @dump_indent, align 4, !tbaa !8
-  %825 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %825 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %826 = getelementptr inbounds nuw i8, ptr %825, i64 24
-  %827 = load ptr, ptr %826, align 8, !tbaa !62
+  %827 = load ptr, ptr %826, align 8, !tbaa !63
   call void %827(i64 noundef %91) #14
-  %828 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %828 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %829 = getelementptr inbounds nuw i8, ptr %828, i64 32
-  %830 = load ptr, ptr %829, align 8, !tbaa !64
+  %830 = load ptr, ptr %829, align 8, !tbaa !65
   call void %830(i64 noundef %90) #14
   %831 = load i32, ptr %50, align 8, !tbaa !32
   %832 = add i32 %831, 1
@@ -5958,18 +5958,18 @@ xml_dump_fill_value.exit:                         ; preds = %784, %800
 
 840:                                              ; preds = %837
   %841 = load i32, ptr @sort_order, align 4, !tbaa !8
-  %842 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %842 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %843 = getelementptr inbounds nuw i8, ptr %842, i64 40
-  %844 = load ptr, ptr %843, align 8, !tbaa !70
+  %844 = load ptr, ptr %843, align 8, !tbaa !71
   %845 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %841, ptr noundef null, ptr noundef %844, ptr noundef null) #14
   %846 = icmp slt i32 %845, 0
   br i1 %846, label %.sink.split, label %854
 
 847:                                              ; preds = %837, %802
   %848 = load i32, ptr @sort_order, align 4, !tbaa !8
-  %849 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %849 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 40
-  %851 = load ptr, ptr %850, align 8, !tbaa !70
+  %851 = load ptr, ptr %850, align 8, !tbaa !71
   %852 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %848, ptr noundef null, ptr noundef %851, ptr noundef null) #14
   %853 = icmp slt i32 %852, 0
   br i1 %853, label %.sink.split, label %854
@@ -5987,7 +5987,7 @@ xml_dump_fill_value.exit:                         ; preds = %784, %800
   %858 = add i32 %857, -3
   store i32 %858, ptr @dump_indent, align 4, !tbaa !8
   %859 = call i64 @H5Dget_storage_size(i64 noundef %0) #14
-  %860 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 8), align 4, !tbaa !95
+  %860 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 8), align 4, !tbaa !96
   %861 = icmp ne i32 %860, 0
   %862 = icmp ne i64 %859, 0
   %or.cond3 = select i1 %861, i1 %862, i1 false
@@ -6017,9 +6017,9 @@ xml_dump_fill_value.exit:                         ; preds = %784, %800
   %868 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %869 = add i32 %868, 3
   store i32 %869, ptr @dump_indent, align 4, !tbaa !8
-  %870 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %870 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %871 = getelementptr inbounds nuw i8, ptr %870, i64 48
-  %872 = load ptr, ptr %871, align 8, !tbaa !66
+  %872 = load ptr, ptr %871, align 8, !tbaa !67
   call void %872(i64 noundef %0, i32 noundef 1, ptr noundef null, i32 noundef 0) #14
   %873 = load i32, ptr %50, align 8, !tbaa !32
   %874 = add i32 %873, -1
@@ -6083,9 +6083,9 @@ xml_dump_fill_value.exit:                         ; preds = %784, %800
   %918 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %919 = add i32 %918, 3
   store i32 %919, ptr @dump_indent, align 4, !tbaa !8
-  %920 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %920 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %921 = getelementptr inbounds nuw i8, ptr %920, i64 48
-  %922 = load ptr, ptr %921, align 8, !tbaa !66
+  %922 = load ptr, ptr %921, align 8, !tbaa !67
   call void %922(i64 noundef %0, i32 noundef 1, ptr noundef null, i32 noundef 0) #14
   %923 = load i32, ptr %50, align 8, !tbaa !32
   %924 = add i32 %923, -1
@@ -6169,9 +6169,9 @@ xml_dump_fill_value.exit:                         ; preds = %784, %800
   store i32 %980, ptr %50, align 8, !tbaa !32
   %981 = add i32 %979, 6
   store i32 %981, ptr @dump_indent, align 4, !tbaa !8
-  %982 = load ptr, ptr @dump_function_table, align 8, !tbaa !60
+  %982 = load ptr, ptr @dump_function_table, align 8, !tbaa !61
   %983 = getelementptr inbounds nuw i8, ptr %982, i64 48
-  %984 = load ptr, ptr %983, align 8, !tbaa !66
+  %984 = load ptr, ptr %983, align 8, !tbaa !67
   call void %984(i64 noundef %0, i32 noundef 1, ptr noundef null, i32 noundef 0) #14
   %985 = load i32, ptr %50, align 8, !tbaa !32
   %986 = add i32 %985, -1
@@ -6471,7 +6471,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   %76 = call i32 @H5Tget_member_value(i64 noundef %0, i32 noundef %70, ptr noundef %75) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %61
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67
   %77 = icmp sgt i64 %.0, 0
@@ -6572,7 +6572,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   %134 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %2, ptr noundef nonnull @.str.157, i32 noundef %133) #14
   %135 = add nuw i64 %.08091, 1
   %exitcond107.not = icmp eq i64 %135, %.082
-  br i1 %exitcond107.not, label %.loopexit, label %130, !llvm.loop !97
+  br i1 %exitcond107.not, label %.loopexit, label %130, !llvm.loop !98
 
 .loopexit.sink.split:                             ; preds = %86
   %136 = call i32 @H5Tget_sign(i64 noundef %.0) #14
@@ -6602,7 +6602,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   %153 = call zeroext i1 @h5tools_render_element(ptr noundef %150, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %5, i64 noundef %152, i64 noundef 0, i64 noundef 0) #14
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %61
-  br i1 %exitcond112.not, label %._crit_edge97, label %86, !llvm.loop !98
+  br i1 %exitcond112.not, label %._crit_edge97, label %86, !llvm.loop !99
 
 ._crit_edge97:                                    ; preds = %.loopexit
   %.pre = load i32, ptr %9, align 8, !tbaa !32
@@ -6621,7 +6621,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   %158 = call i32 @H5free_memory(ptr noundef %157) #14
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %61
-  br i1 %exitcond117.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !99
+  br i1 %exitcond117.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !100
 
 ._crit_edge101:                                   ; preds = %.lr.ph100, %._crit_edge97.thread
   call void @free(ptr noundef %62) #14
@@ -6732,7 +6732,7 @@ define internal fastcc noundef ptr @xml_escape_the_string(ptr noundef nonnull re
   %23 = getelementptr inbounds nuw i8, ptr %.06378, i64 1
   %24 = add nuw i64 %.06577, 1
   %exitcond.not = icmp eq i64 %24, %.067
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %22, %8
   %.068.lcssa = phi i64 [ 0, %8 ], [ %.169, %22 ]
@@ -6805,7 +6805,7 @@ define internal fastcc noundef ptr @xml_escape_the_string(ptr noundef nonnull re
   %50 = getelementptr inbounds nuw i8, ptr %.16480, i64 1
   %51 = add nuw i64 %.16679, 1
   %exitcond87.not = icmp eq i64 %51, %.067
-  br i1 %exitcond87.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !101
+  br i1 %exitcond87.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !102
 
 ._crit_edge84:                                    ; preds = %47, %.preheader
   %.061.lcssa = phi ptr [ %27, %.preheader ], [ %48, %47 ]
@@ -6906,60 +6906,61 @@ attributes #17 = { nounwind allocsize(0,1) }
 !42 = !{!43, !43, i64 0}
 !43 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
 !44 = !{!6, !6, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = distinct !{!48, !46}
-!49 = distinct !{!49, !46}
-!50 = distinct !{!50, !46}
-!51 = !{!22, !19, i64 200}
-!52 = !{!22, !19, i64 208}
-!53 = !{!22, !19, i64 216}
-!54 = !{!22, !19, i64 224}
-!55 = !{!22, !9, i64 184}
-!56 = !{!22, !19, i64 160}
-!57 = distinct !{!57, !46}
-!58 = !{!13, !13, i64 0}
-!59 = distinct !{!59, !46}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"p1 _ZTS16dump_functions_t", !13, i64 0}
-!62 = !{!63, !13, i64 24}
-!63 = !{!"dump_functions_t", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
-!64 = !{!63, !13, i64 32}
-!65 = !{!30, !9, i64 12}
-!66 = !{!63, !13, i64 48}
-!67 = !{!68, !9, i64 28}
-!68 = !{!"H5O_info2_t", !5, i64 0, !37, i64 8, !9, i64 24, !9, i64 28, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64}
-!69 = !{!36, !17, i64 24}
-!70 = !{!63, !13, i64 40}
-!71 = !{!72, !5, i64 16}
-!72 = !{!"table_t", !5, i64 0, !5, i64 8, !5, i64 16, !73, i64 24}
-!73 = !{!"p1 _ZTS5obj_t", !13, i64 0}
-!74 = !{!72, !73, i64 24}
-!75 = !{!63, !13, i64 8}
-!76 = distinct !{!76, !46}
-!77 = distinct !{!77, !46}
-!78 = !{!79, !9, i64 0}
-!79 = !{!"", !9, i64 0, !17, i64 4, !5, i64 8, !9, i64 16, !6, i64 24}
-!80 = !{!68, !9, i64 24}
-!81 = !{!63, !13, i64 0}
-!82 = !{!83, !83, i64 0}
-!83 = !{!"p1 _ZTS21h5tools_dump_header_t", !13, i64 0}
-!84 = !{!85, !19, i64 56}
-!85 = !{!"h5tools_dump_header_t", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !19, i64 88, !19, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !19, i64 144, !19, i64 152, !19, i64 160, !19, i64 168, !19, i64 176, !19, i64 184, !19, i64 192, !19, i64 200, !19, i64 208, !19, i64 216, !19, i64 224, !19, i64 232, !19, i64 240, !19, i64 248, !19, i64 256, !19, i64 264, !19, i64 272, !19, i64 280, !19, i64 288, !19, i64 296, !19, i64 304, !19, i64 312, !19, i64 320, !19, i64 328, !19, i64 336, !19, i64 344, !19, i64 352, !19, i64 360, !19, i64 368, !19, i64 376, !19, i64 384, !19, i64 392, !19, i64 400, !19, i64 408, !19, i64 416, !19, i64 424, !19, i64 432, !19, i64 440, !19, i64 448, !19, i64 456, !19, i64 464, !19, i64 472, !19, i64 480, !19, i64 488, !19, i64 496, !19, i64 504, !19, i64 512, !19, i64 520, !19, i64 528, !19, i64 536, !19, i64 544, !19, i64 552, !19, i64 560, !19, i64 568, !19, i64 576, !19, i64 584, !19, i64 592, !19, i64 600, !19, i64 608, !19, i64 616, !19, i64 624, !19, i64 632, !19, i64 640, !19, i64 648, !19, i64 656, !19, i64 664, !19, i64 672, !19, i64 680, !19, i64 688, !19, i64 696, !19, i64 704, !19, i64 712, !19, i64 720, !19, i64 728, !19, i64 736, !19, i64 744, !19, i64 752}
-!86 = !{!85, !19, i64 312}
-!87 = !{!85, !19, i64 320}
-!88 = !{!85, !19, i64 64}
-!89 = !{!63, !13, i64 16}
-!90 = distinct !{!90, !46}
-!91 = distinct !{!91, !46}
-!92 = !{!93, !93, i64 0}
-!93 = !{!"float", !6, i64 0}
-!94 = distinct !{!94, !46}
-!95 = !{!30, !9, i64 8}
-!96 = distinct !{!96, !46}
-!97 = distinct !{!97, !46}
-!98 = distinct !{!98, !46}
-!99 = distinct !{!99, !46}
-!100 = distinct !{!100, !46}
-!101 = distinct !{!101, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !46, !47}
+!49 = distinct !{!49, !46, !47}
+!50 = distinct !{!50, !46, !47}
+!51 = distinct !{!51, !46, !47}
+!52 = !{!22, !19, i64 200}
+!53 = !{!22, !19, i64 208}
+!54 = !{!22, !19, i64 216}
+!55 = !{!22, !19, i64 224}
+!56 = !{!22, !9, i64 184}
+!57 = !{!22, !19, i64 160}
+!58 = distinct !{!58, !46, !47}
+!59 = !{!13, !13, i64 0}
+!60 = distinct !{!60, !46, !47}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTS16dump_functions_t", !13, i64 0}
+!63 = !{!64, !13, i64 24}
+!64 = !{!"dump_functions_t", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
+!65 = !{!64, !13, i64 32}
+!66 = !{!30, !9, i64 12}
+!67 = !{!64, !13, i64 48}
+!68 = !{!69, !9, i64 28}
+!69 = !{!"H5O_info2_t", !5, i64 0, !37, i64 8, !9, i64 24, !9, i64 28, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64}
+!70 = !{!36, !17, i64 24}
+!71 = !{!64, !13, i64 40}
+!72 = !{!73, !5, i64 16}
+!73 = !{!"table_t", !5, i64 0, !5, i64 8, !5, i64 16, !74, i64 24}
+!74 = !{!"p1 _ZTS5obj_t", !13, i64 0}
+!75 = !{!73, !74, i64 24}
+!76 = !{!64, !13, i64 8}
+!77 = distinct !{!77, !46, !47}
+!78 = distinct !{!78, !46, !47}
+!79 = !{!80, !9, i64 0}
+!80 = !{!"", !9, i64 0, !17, i64 4, !5, i64 8, !9, i64 16, !6, i64 24}
+!81 = !{!69, !9, i64 24}
+!82 = !{!64, !13, i64 0}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTS21h5tools_dump_header_t", !13, i64 0}
+!85 = !{!86, !19, i64 56}
+!86 = !{!"h5tools_dump_header_t", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !19, i64 88, !19, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !19, i64 144, !19, i64 152, !19, i64 160, !19, i64 168, !19, i64 176, !19, i64 184, !19, i64 192, !19, i64 200, !19, i64 208, !19, i64 216, !19, i64 224, !19, i64 232, !19, i64 240, !19, i64 248, !19, i64 256, !19, i64 264, !19, i64 272, !19, i64 280, !19, i64 288, !19, i64 296, !19, i64 304, !19, i64 312, !19, i64 320, !19, i64 328, !19, i64 336, !19, i64 344, !19, i64 352, !19, i64 360, !19, i64 368, !19, i64 376, !19, i64 384, !19, i64 392, !19, i64 400, !19, i64 408, !19, i64 416, !19, i64 424, !19, i64 432, !19, i64 440, !19, i64 448, !19, i64 456, !19, i64 464, !19, i64 472, !19, i64 480, !19, i64 488, !19, i64 496, !19, i64 504, !19, i64 512, !19, i64 520, !19, i64 528, !19, i64 536, !19, i64 544, !19, i64 552, !19, i64 560, !19, i64 568, !19, i64 576, !19, i64 584, !19, i64 592, !19, i64 600, !19, i64 608, !19, i64 616, !19, i64 624, !19, i64 632, !19, i64 640, !19, i64 648, !19, i64 656, !19, i64 664, !19, i64 672, !19, i64 680, !19, i64 688, !19, i64 696, !19, i64 704, !19, i64 712, !19, i64 720, !19, i64 728, !19, i64 736, !19, i64 744, !19, i64 752}
+!87 = !{!86, !19, i64 312}
+!88 = !{!86, !19, i64 320}
+!89 = !{!86, !19, i64 64}
+!90 = !{!64, !13, i64 16}
+!91 = distinct !{!91, !46, !47}
+!92 = distinct !{!92, !46, !47}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"float", !6, i64 0}
+!95 = distinct !{!95, !46, !47}
+!96 = !{!30, !9, i64 8}
+!97 = distinct !{!97, !46, !47}
+!98 = distinct !{!98, !46, !47}
+!99 = distinct !{!99, !46, !47}
+!100 = distinct !{!100, !46, !47}
+!101 = distinct !{!101, !46, !47}
+!102 = distinct !{!102, !46, !47}

@@ -1912,7 +1912,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !14
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2666,7 +2666,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %252, %247
 
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %262, %264, %265
   store ptr %.0282, ptr %255, align 8, !tbaa !10
-  br label %3
+  br label %3, !llvm.loop !16
 
 lean_dec.exit313:                                 ; preds = %lean_inc.exit330, %238, %240, %241, %lean_inc.exit334, %171, %173, %174
   %.pre-phi = phi i64 [ %217, %lean_inc.exit330 ], [ %217, %238 ], [ %217, %240 ], [ %217, %241 ], [ %150, %lean_inc.exit334 ], [ %150, %171 ], [ %150, %173 ], [ %150, %174 ]
@@ -3621,7 +3621,7 @@ lean_dec.exit29:                                  ; preds = %lean_dec.exit29.bac
   %8 = ptrtoint ptr %.022 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit31, label %10, !prof !14
+  br i1 %.not, label %lean_dec.exit31, label %10, !prof !17
 
 10:                                               ; preds = %lean_dec.exit29
   %11 = icmp ult ptr %.022, %7
@@ -3744,7 +3744,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %44, %lean_array_fge
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %54, %56, %57
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !10
   %58 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__6___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__7(ptr noundef %.026, ptr noundef %34)
-  br i1 %.not, label %68, label %59, !prof !14
+  br i1 %.not, label %68, label %59, !prof !17
 
 59:                                               ; preds = %lean_array_fset.exit
   %60 = add nuw i64 %31, 1
@@ -7192,7 +7192,7 @@ lean_inc.exit447:                                 ; preds = %255, %254, %252, %l
 263:                                              ; preds = %lean_inc.exit445
   %264 = load ptr, ptr @l_Std_DHashMap_Internal_AssocList_Const_alter___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__8___closed__1, align 8, !tbaa !10
   %265 = tail call ptr @lean_array_push(ptr noundef %264, ptr noundef %34) #4
-  br i1 %.not734, label %276, label %266, !prof !14
+  br i1 %.not734, label %276, label %266, !prof !17
 
 266:                                              ; preds = %263
   %267 = lshr i64 %58, 1
@@ -7291,7 +7291,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %306 = ptrtoint ptr %.0.i713 to i64
   %307 = and i64 %306, 1
   %.not772 = icmp eq i64 %307, 0
-  br i1 %.not772, label %.critedge.i390, label %308, !prof !14
+  br i1 %.not772, label %.critedge.i390, label %308, !prof !17
 
 308:                                              ; preds = %lean_array_uset.exit
   %309 = lshr i64 %306, 1
@@ -7324,7 +7324,7 @@ lean_nat_mul.exit:                                ; preds = %308, %314, %318, %.
   %321 = ptrtoint ptr %.2.i to i64
   %322 = and i64 %321, 1
   %.not.i600 = icmp eq i64 %322, 0
-  br i1 %.not.i600, label %327, label %lean_nat_div.exit.thread, !prof !14
+  br i1 %.not.i600, label %327, label %lean_nat_div.exit.thread, !prof !17
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit
   %323 = udiv i64 %321, 6
@@ -7362,7 +7362,7 @@ lean_dec.exit417:                                 ; preds = %334, %333, %331, %l
   %339 = ptrtoint ptr %.1.i601715 to i64
   %340 = and i64 %339, 1
   %.not773 = icmp eq i64 %340, 0
-  br i1 %.not773, label %341, label %lean_dec.exit416.thread, !prof !14
+  br i1 %.not773, label %341, label %lean_dec.exit416.thread, !prof !17
 
 lean_dec.exit416.thread:                          ; preds = %lean_dec.exit417
   %.not = icmp ugt ptr %.1.i601715, %338
@@ -7598,7 +7598,7 @@ lean_array_uset.exit626:                          ; preds = %lean_ensure_exclusi
   br i1 %431, label %432, label %452
 
 432:                                              ; preds = %lean_array_uset.exit626
-  br i1 %.not734, label %438, label %433, !prof !14
+  br i1 %.not734, label %438, label %433, !prof !17
 
 433:                                              ; preds = %432
   %434 = icmp ult ptr %57, inttoptr (i64 2 to ptr)
@@ -8587,7 +8587,7 @@ lean_dec.exit:                                    ; preds = %789, %788, %786, %l
 813:                                              ; preds = %809, %812
   %.val.i705 = phi i32 [ %810, %809 ], [ %.val.i705.pr, %812 ]
   %814 = icmp sgt i32 %.val.i705, 0
-  br i1 %814, label %815, label %817, !prof !15
+  br i1 %814, label %815, label %817, !prof !18
 
 815:                                              ; preds = %813
   %816 = add nuw i32 %.val.i705, 1
@@ -8771,7 +8771,7 @@ lean_inc.exit:                                    ; preds = %34, %33, %31, %lean
 
 lean_dec.exit:                                    ; preds = %41, %40, %38, %lean_inc.exit
   %42 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef %16) #4
-  br label %3
+  br label %3, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9284,7 +9284,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit37
   %.034.be = phi ptr [ %20, %lean_dec.exit37 ], [ %59, %lean_alloc_ctor.exit ]
   %.0.be = phi ptr [ %.034, %lean_dec.exit37 ], [ %121, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12164,7 +12164,7 @@ lean_inc.exit882:                                 ; preds = %562, %561, %559, %5
 
 lean_inc.exit881:                                 ; preds = %572, %571, %569, %lean_inc.exit882
   %573 = getelementptr i8, ptr %270, i64 40
-  %.val1136 = load i8, ptr %573, align 1, !tbaa !16
+  %.val1136 = load i8, ptr %573, align 1, !tbaa !21
   %574 = getelementptr inbounds nuw i8, ptr %270, i64 24
   %575 = load ptr, ptr %574, align 8, !tbaa !10
   %576 = ptrtoint ptr %575 to i64
@@ -19967,9 +19967,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr @l_instDecidableEqString___boxed, ptr %46, align 8, !tbaa !10
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i16 2, ptr %47, align 8, !tbaa !17
+  store i16 2, ptr %47, align 8, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 18
-  store i16 0, ptr %48, align 2, !tbaa !17
+  store i16 0, ptr %48, align 2, !tbaa !22
   store ptr %42, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %42) #4
   %49 = load ptr, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__1, align 8, !tbaa !10
@@ -19989,9 +19989,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr @l_instBEqOfDecidableEq___rarg, ptr %54, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i16 3, ptr %55, align 8, !tbaa !17
+  store i16 3, ptr %55, align 8, !tbaa !22
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 18
-  store i16 1, ptr %56, align 2, !tbaa !17
+  store i16 1, ptr %56, align 2, !tbaa !22
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %49, ptr %57, align 8, !tbaa !10
   store ptr %50, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__2, align 8, !tbaa !10
@@ -20013,9 +20013,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr @l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____rarg, ptr %63, align 8, !tbaa !10
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i16 3, ptr %64, align 8, !tbaa !17
+  store i16 3, ptr %64, align 8, !tbaa !22
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 18
-  store i16 1, ptr %65, align 2, !tbaa !17
+  store i16 1, ptr %65, align 2, !tbaa !22
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %58, ptr %66, align 8, !tbaa !10
   store ptr %59, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__3, align 8, !tbaa !10
@@ -20037,9 +20037,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr @l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____rarg, ptr %72, align 8, !tbaa !10
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i16 3, ptr %73, align 8, !tbaa !17
+  store i16 3, ptr %73, align 8, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 18
-  store i16 1, ptr %74, align 2, !tbaa !17
+  store i16 1, ptr %74, align 2, !tbaa !22
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store ptr %67, ptr %75, align 8, !tbaa !10
   store ptr %68, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__4, align 8, !tbaa !10
@@ -20060,9 +20060,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr @l_Lean_Lsp_instDecidableEqCompletionItemKind___boxed, ptr %80, align 8, !tbaa !10
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store i16 2, ptr %81, align 8, !tbaa !17
+  store i16 2, ptr %81, align 8, !tbaa !22
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 18
-  store i16 0, ptr %82, align 2, !tbaa !17
+  store i16 0, ptr %82, align 2, !tbaa !22
   store ptr %76, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__5, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %76) #4
   %83 = load ptr, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__5, align 8, !tbaa !10
@@ -20082,9 +20082,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr @l_instBEqOfDecidableEq___rarg, ptr %88, align 8, !tbaa !10
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store i16 3, ptr %89, align 8, !tbaa !17
+  store i16 3, ptr %89, align 8, !tbaa !22
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 18
-  store i16 1, ptr %90, align 2, !tbaa !17
+  store i16 1, ptr %90, align 2, !tbaa !22
   %91 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store ptr %83, ptr %91, align 8, !tbaa !10
   store ptr %84, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__6, align 8, !tbaa !10
@@ -20106,9 +20106,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr @l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____rarg, ptr %97, align 8, !tbaa !10
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store i16 3, ptr %98, align 8, !tbaa !17
+  store i16 3, ptr %98, align 8, !tbaa !22
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 18
-  store i16 1, ptr %99, align 2, !tbaa !17
+  store i16 1, ptr %99, align 2, !tbaa !22
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 24
   store ptr %92, ptr %100, align 8, !tbaa !10
   store ptr %93, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__7, align 8, !tbaa !10
@@ -20129,9 +20129,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr @l_Lean_Lsp_instDecidableEqCompletionItemTag___boxed, ptr %105, align 8, !tbaa !10
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store i16 2, ptr %106, align 8, !tbaa !17
+  store i16 2, ptr %106, align 8, !tbaa !22
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 18
-  store i16 0, ptr %107, align 2, !tbaa !17
+  store i16 0, ptr %107, align 2, !tbaa !22
   store ptr %101, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__8, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %101) #4
   %108 = load ptr, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__8, align 8, !tbaa !10
@@ -20151,9 +20151,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr @l_instBEqOfDecidableEq___rarg, ptr %113, align 8, !tbaa !10
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  store i16 3, ptr %114, align 8, !tbaa !17
+  store i16 3, ptr %114, align 8, !tbaa !22
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 18
-  store i16 1, ptr %115, align 2, !tbaa !17
+  store i16 1, ptr %115, align 2, !tbaa !22
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store ptr %108, ptr %116, align 8, !tbaa !10
   store ptr %109, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__9, align 8, !tbaa !10
@@ -20175,9 +20175,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store ptr @l_Array_instBEq___rarg___boxed, ptr %122, align 8, !tbaa !10
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store i16 3, ptr %123, align 8, !tbaa !17
+  store i16 3, ptr %123, align 8, !tbaa !22
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 18
-  store i16 1, ptr %124, align 2, !tbaa !17
+  store i16 1, ptr %124, align 2, !tbaa !22
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 24
   store ptr %117, ptr %125, align 8, !tbaa !10
   store ptr %118, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__10, align 8, !tbaa !10
@@ -20199,9 +20199,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr @l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____rarg, ptr %131, align 8, !tbaa !10
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store i16 3, ptr %132, align 8, !tbaa !17
+  store i16 3, ptr %132, align 8, !tbaa !22
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 18
-  store i16 1, ptr %133, align 2, !tbaa !17
+  store i16 1, ptr %133, align 2, !tbaa !22
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store ptr %126, ptr %134, align 8, !tbaa !10
   store ptr %127, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__11, align 8, !tbaa !10
@@ -20222,9 +20222,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store ptr @l_Lean_Lsp_instDecidableEqMarkupContent___boxed, ptr %139, align 8, !tbaa !10
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  store i16 2, ptr %140, align 8, !tbaa !17
+  store i16 2, ptr %140, align 8, !tbaa !22
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 18
-  store i16 0, ptr %141, align 2, !tbaa !17
+  store i16 0, ptr %141, align 2, !tbaa !22
   store ptr %135, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__12, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %135) #4
   %142 = load ptr, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__12, align 8, !tbaa !10
@@ -20244,9 +20244,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr @l_instBEqOfDecidableEq___rarg, ptr %147, align 8, !tbaa !10
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  store i16 3, ptr %148, align 8, !tbaa !17
+  store i16 3, ptr %148, align 8, !tbaa !22
   %149 = getelementptr inbounds nuw i8, ptr %143, i64 18
-  store i16 1, ptr %149, align 2, !tbaa !17
+  store i16 1, ptr %149, align 2, !tbaa !22
   %150 = getelementptr inbounds nuw i8, ptr %143, i64 24
   store ptr %142, ptr %150, align 8, !tbaa !10
   store ptr %143, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__13, align 8, !tbaa !10
@@ -20268,9 +20268,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr @l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____rarg, ptr %156, align 8, !tbaa !10
   %157 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  store i16 3, ptr %157, align 8, !tbaa !17
+  store i16 3, ptr %157, align 8, !tbaa !22
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 18
-  store i16 1, ptr %158, align 2, !tbaa !17
+  store i16 1, ptr %158, align 2, !tbaa !22
   %159 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store ptr %151, ptr %159, align 8, !tbaa !10
   store ptr %152, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__14, align 8, !tbaa !10
@@ -20293,9 +20293,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr @l_instBEqProd___rarg, ptr %166, align 8, !tbaa !10
   %167 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  store i16 4, ptr %167, align 8, !tbaa !17
+  store i16 4, ptr %167, align 8, !tbaa !22
   %168 = getelementptr inbounds nuw i8, ptr %162, i64 18
-  store i16 2, ptr %168, align 2, !tbaa !17
+  store i16 2, ptr %168, align 2, !tbaa !22
   %169 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store ptr %160, ptr %169, align 8, !tbaa !10
   %170 = getelementptr inbounds nuw i8, ptr %162, i64 32
@@ -20320,9 +20320,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %177 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store ptr @l_instBEqProd___rarg, ptr %177, align 8, !tbaa !10
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store i16 4, ptr %178, align 8, !tbaa !17
+  store i16 4, ptr %178, align 8, !tbaa !22
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 18
-  store i16 2, ptr %179, align 2, !tbaa !17
+  store i16 2, ptr %179, align 2, !tbaa !22
   %180 = getelementptr inbounds nuw i8, ptr %173, i64 24
   store ptr %171, ptr %180, align 8, !tbaa !10
   %181 = getelementptr inbounds nuw i8, ptr %173, i64 32
@@ -20347,9 +20347,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store ptr @l_instBEqProd___rarg, ptr %188, align 8, !tbaa !10
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  store i16 4, ptr %189, align 8, !tbaa !17
+  store i16 4, ptr %189, align 8, !tbaa !22
   %190 = getelementptr inbounds nuw i8, ptr %184, i64 18
-  store i16 2, ptr %190, align 2, !tbaa !17
+  store i16 2, ptr %190, align 2, !tbaa !22
   %191 = getelementptr inbounds nuw i8, ptr %184, i64 24
   store ptr %182, ptr %191, align 8, !tbaa !10
   %192 = getelementptr inbounds nuw i8, ptr %184, i64 32
@@ -20374,9 +20374,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store ptr @l_instBEqProd___rarg, ptr %199, align 8, !tbaa !10
   %200 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  store i16 4, ptr %200, align 8, !tbaa !17
+  store i16 4, ptr %200, align 8, !tbaa !22
   %201 = getelementptr inbounds nuw i8, ptr %195, i64 18
-  store i16 2, ptr %201, align 2, !tbaa !17
+  store i16 2, ptr %201, align 2, !tbaa !22
   %202 = getelementptr inbounds nuw i8, ptr %195, i64 24
   store ptr %193, ptr %202, align 8, !tbaa !10
   %203 = getelementptr inbounds nuw i8, ptr %195, i64 32
@@ -20401,9 +20401,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store ptr @l_instBEqProd___rarg, ptr %210, align 8, !tbaa !10
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  store i16 4, ptr %211, align 8, !tbaa !17
+  store i16 4, ptr %211, align 8, !tbaa !22
   %212 = getelementptr inbounds nuw i8, ptr %206, i64 18
-  store i16 2, ptr %212, align 2, !tbaa !17
+  store i16 2, ptr %212, align 2, !tbaa !22
   %213 = getelementptr inbounds nuw i8, ptr %206, i64 24
   store ptr %204, ptr %213, align 8, !tbaa !10
   %214 = getelementptr inbounds nuw i8, ptr %206, i64 32
@@ -20427,9 +20427,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store ptr @l_instHashableOption___rarg___boxed, ptr %220, align 8, !tbaa !10
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  store i16 2, ptr %221, align 8, !tbaa !17
+  store i16 2, ptr %221, align 8, !tbaa !22
   %222 = getelementptr inbounds nuw i8, ptr %216, i64 18
-  store i16 1, ptr %222, align 2, !tbaa !17
+  store i16 1, ptr %222, align 2, !tbaa !22
   %223 = getelementptr inbounds nuw i8, ptr %216, i64 24
   store ptr %215, ptr %223, align 8, !tbaa !10
   store ptr %216, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__20, align 8, !tbaa !10
@@ -20451,9 +20451,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %229 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store ptr @l_instHashableOption___rarg___boxed, ptr %229, align 8, !tbaa !10
   %230 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  store i16 2, ptr %230, align 8, !tbaa !17
+  store i16 2, ptr %230, align 8, !tbaa !22
   %231 = getelementptr inbounds nuw i8, ptr %225, i64 18
-  store i16 1, ptr %231, align 2, !tbaa !17
+  store i16 1, ptr %231, align 2, !tbaa !22
   %232 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store ptr %224, ptr %232, align 8, !tbaa !10
   store ptr %225, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__21, align 8, !tbaa !10
@@ -20475,9 +20475,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %238 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store ptr @l_instHashableOption___rarg___boxed, ptr %238, align 8, !tbaa !10
   %239 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  store i16 2, ptr %239, align 8, !tbaa !17
+  store i16 2, ptr %239, align 8, !tbaa !22
   %240 = getelementptr inbounds nuw i8, ptr %234, i64 18
-  store i16 1, ptr %240, align 2, !tbaa !17
+  store i16 1, ptr %240, align 2, !tbaa !22
   %241 = getelementptr inbounds nuw i8, ptr %234, i64 24
   store ptr %233, ptr %241, align 8, !tbaa !10
   store ptr %234, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__22, align 8, !tbaa !10
@@ -20499,9 +20499,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %247 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store ptr @l_instHashableArray___rarg___boxed, ptr %247, align 8, !tbaa !10
   %248 = getelementptr inbounds nuw i8, ptr %243, i64 16
-  store i16 2, ptr %248, align 8, !tbaa !17
+  store i16 2, ptr %248, align 8, !tbaa !22
   %249 = getelementptr inbounds nuw i8, ptr %243, i64 18
-  store i16 1, ptr %249, align 2, !tbaa !17
+  store i16 1, ptr %249, align 2, !tbaa !22
   %250 = getelementptr inbounds nuw i8, ptr %243, i64 24
   store ptr %242, ptr %250, align 8, !tbaa !10
   store ptr %243, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__23, align 8, !tbaa !10
@@ -20523,9 +20523,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 8
   store ptr @l_instHashableOption___rarg___boxed, ptr %256, align 8, !tbaa !10
   %257 = getelementptr inbounds nuw i8, ptr %252, i64 16
-  store i16 2, ptr %257, align 8, !tbaa !17
+  store i16 2, ptr %257, align 8, !tbaa !22
   %258 = getelementptr inbounds nuw i8, ptr %252, i64 18
-  store i16 1, ptr %258, align 2, !tbaa !17
+  store i16 1, ptr %258, align 2, !tbaa !22
   %259 = getelementptr inbounds nuw i8, ptr %252, i64 24
   store ptr %251, ptr %259, align 8, !tbaa !10
   store ptr %252, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__24, align 8, !tbaa !10
@@ -20547,9 +20547,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %265 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store ptr @l_instHashableOption___rarg___boxed, ptr %265, align 8, !tbaa !10
   %266 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  store i16 2, ptr %266, align 8, !tbaa !17
+  store i16 2, ptr %266, align 8, !tbaa !22
   %267 = getelementptr inbounds nuw i8, ptr %261, i64 18
-  store i16 1, ptr %267, align 2, !tbaa !17
+  store i16 1, ptr %267, align 2, !tbaa !22
   %268 = getelementptr inbounds nuw i8, ptr %261, i64 24
   store ptr %260, ptr %268, align 8, !tbaa !10
   store ptr %261, ptr @l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___spec__1___closed__25, align 8, !tbaa !10
@@ -20572,9 +20572,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %275 = getelementptr inbounds nuw i8, ptr %271, i64 8
   store ptr @l_instHashableProd___rarg___boxed, ptr %275, align 8, !tbaa !10
   %276 = getelementptr inbounds nuw i8, ptr %271, i64 16
-  store i16 3, ptr %276, align 8, !tbaa !17
+  store i16 3, ptr %276, align 8, !tbaa !22
   %277 = getelementptr inbounds nuw i8, ptr %271, i64 18
-  store i16 2, ptr %277, align 2, !tbaa !17
+  store i16 2, ptr %277, align 2, !tbaa !22
   %278 = getelementptr inbounds nuw i8, ptr %271, i64 24
   store ptr %269, ptr %278, align 8, !tbaa !10
   %279 = getelementptr inbounds nuw i8, ptr %271, i64 32
@@ -20599,9 +20599,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store ptr @l_instHashableProd___rarg___boxed, ptr %286, align 8, !tbaa !10
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 16
-  store i16 3, ptr %287, align 8, !tbaa !17
+  store i16 3, ptr %287, align 8, !tbaa !22
   %288 = getelementptr inbounds nuw i8, ptr %282, i64 18
-  store i16 2, ptr %288, align 2, !tbaa !17
+  store i16 2, ptr %288, align 2, !tbaa !22
   %289 = getelementptr inbounds nuw i8, ptr %282, i64 24
   store ptr %280, ptr %289, align 8, !tbaa !10
   %290 = getelementptr inbounds nuw i8, ptr %282, i64 32
@@ -20626,9 +20626,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %297 = getelementptr inbounds nuw i8, ptr %293, i64 8
   store ptr @l_instHashableProd___rarg___boxed, ptr %297, align 8, !tbaa !10
   %298 = getelementptr inbounds nuw i8, ptr %293, i64 16
-  store i16 3, ptr %298, align 8, !tbaa !17
+  store i16 3, ptr %298, align 8, !tbaa !22
   %299 = getelementptr inbounds nuw i8, ptr %293, i64 18
-  store i16 2, ptr %299, align 2, !tbaa !17
+  store i16 2, ptr %299, align 2, !tbaa !22
   %300 = getelementptr inbounds nuw i8, ptr %293, i64 24
   store ptr %291, ptr %300, align 8, !tbaa !10
   %301 = getelementptr inbounds nuw i8, ptr %293, i64 32
@@ -20653,9 +20653,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %308 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store ptr @l_instHashableProd___rarg___boxed, ptr %308, align 8, !tbaa !10
   %309 = getelementptr inbounds nuw i8, ptr %304, i64 16
-  store i16 3, ptr %309, align 8, !tbaa !17
+  store i16 3, ptr %309, align 8, !tbaa !22
   %310 = getelementptr inbounds nuw i8, ptr %304, i64 18
-  store i16 2, ptr %310, align 2, !tbaa !17
+  store i16 2, ptr %310, align 2, !tbaa !22
   %311 = getelementptr inbounds nuw i8, ptr %304, i64 24
   store ptr %302, ptr %311, align 8, !tbaa !10
   %312 = getelementptr inbounds nuw i8, ptr %304, i64 32
@@ -20680,9 +20680,9 @@ _init_l_Array_groupByKey___at___private_Lean_Server_Completion_0__Lean_Server_Co
   %319 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store ptr @l_instHashableProd___rarg___boxed, ptr %319, align 8, !tbaa !10
   %320 = getelementptr inbounds nuw i8, ptr %315, i64 16
-  store i16 3, ptr %320, align 8, !tbaa !17
+  store i16 3, ptr %320, align 8, !tbaa !22
   %321 = getelementptr inbounds nuw i8, ptr %315, i64 18
-  store i16 2, ptr %321, align 2, !tbaa !17
+  store i16 2, ptr %321, align 2, !tbaa !22
   %322 = getelementptr inbounds nuw i8, ptr %315, i64 24
   store ptr %313, ptr %322, align 8, !tbaa !10
   %323 = getelementptr inbounds nuw i8, ptr %315, i64 32
@@ -20732,9 +20732,9 @@ _init_l___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplica
   %338 = getelementptr inbounds nuw i8, ptr %334, i64 8
   store ptr @l___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___lambda__1___boxed, ptr %338, align 8, !tbaa !10
   %339 = getelementptr inbounds nuw i8, ptr %334, i64 16
-  store i16 1, ptr %339, align 8, !tbaa !17
+  store i16 1, ptr %339, align 8, !tbaa !22
   %340 = getelementptr inbounds nuw i8, ptr %334, i64 18
-  store i16 0, ptr %340, align 2, !tbaa !17
+  store i16 0, ptr %340, align 2, !tbaa !22
   store ptr %334, ptr @l___private_Lean_Server_Completion_0__Lean_Server_Completion_filterDuplicateCompletionItems___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %334) #4
   tail call void @lean_inc_heartbeat() #4
@@ -20753,9 +20753,9 @@ _init_l_Array_forIn_x27Unsafe_loop___at_Lean_Server_Completion_find_x3f___spec__
   %345 = getelementptr inbounds nuw i8, ptr %341, i64 8
   store ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_Completion_find_x3f___spec__1___lambda__1___boxed, ptr %345, align 8, !tbaa !10
   %346 = getelementptr inbounds nuw i8, ptr %341, i64 16
-  store i16 4, ptr %346, align 8, !tbaa !17
+  store i16 4, ptr %346, align 8, !tbaa !22
   %347 = getelementptr inbounds nuw i8, ptr %341, i64 18
-  store i16 0, ptr %347, align 2, !tbaa !17
+  store i16 0, ptr %347, align 2, !tbaa !22
   store ptr %341, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_Completion_find_x3f___spec__1___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %341) #4
   tail call void @lean_inc_heartbeat() #4
@@ -20875,8 +20875,13 @@ attributes #5 = { noreturn nounwind }
 !11 = !{!"any pointer", !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = !{!"branch_weights", !"expected", i32 2146812769, i32 670879}
-!16 = !{!7, !7, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !7, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = !{!"branch_weights", !"expected", i32 2146812769, i32 670879}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = !{!7, !7, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"short", !7, i64 0}

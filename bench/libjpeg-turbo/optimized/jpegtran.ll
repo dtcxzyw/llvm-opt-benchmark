@@ -1266,7 +1266,7 @@ split300:                                         ; preds = %280, %277
 ; Function Attrs: nounwind uwtable
 define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #3 {
   %3 = icmp slt i32 %1, 0
-  %4 = load ptr, ptr %0, align 8, !tbaa !84
+  %4 = load ptr, ptr %0, align 8, !tbaa !85
   br i1 %3, label %.sink.split, label %5
 
 5:                                                ; preds = %2
@@ -1281,7 +1281,7 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #3 {
 
 .sink.split:                                      ; preds = %2, %8
   %.sink.in = phi ptr [ %9, %8 ], [ %4, %2 ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !86
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !87
   tail call void %.sink(ptr noundef nonnull %0) #12
   br label %10
 
@@ -1574,8 +1574,9 @@ attributes #17 = { cold }
 !79 = !{!34, !15, i64 280}
 !80 = !{!34, !15, i64 284}
 !81 = !{!62, !15, i64 8}
-!82 = distinct !{!82, !83}
+!82 = distinct !{!82, !83, !84}
 !83 = !{!"llvm.loop.mustprogress"}
-!84 = !{!85, !12, i64 0}
-!85 = !{!"jpeg_common_struct", !12, i64 0, !13, i64 8, !14, i64 16, !6, i64 24, !15, i64 32, !15, i64 36}
-!86 = !{!6, !6, i64 0}
+!84 = !{!"llvm.loop.estimated_trip_count"}
+!85 = !{!86, !12, i64 0}
+!86 = !{!"jpeg_common_struct", !12, i64 0, !13, i64 8, !14, i64 16, !6, i64 24, !15, i64 32, !15, i64 36}
+!87 = !{!6, !6, i64 0}

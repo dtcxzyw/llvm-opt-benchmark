@@ -67,7 +67,7 @@ define void @test_random_seed(i32 noundef %0) local_unnamed_addr #1 {
   %21 = add i32 %spec.select.i, 1
   %22 = add nuw nsw i32 %.19, 1
   %exitcond11.not = icmp eq i32 %22, 344
-  br i1 %exitcond11.not, label %23, label %9, !llvm.loop !9
+  br i1 %exitcond11.not, label %23, label %9, !llvm.loop !10
 
 23:                                               ; preds = %9
   store i32 %21, ptr @test_random.pos, align 4, !tbaa !3
@@ -86,6 +86,7 @@ attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, argmem: non
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

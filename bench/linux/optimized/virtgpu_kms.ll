@@ -815,7 +815,7 @@ define dso_local void @virtio_gpu_release(ptr noundef readonly captures(none) %0
   tail call void @kfree(ptr noundef %12) #8
   tail call void @kfree(ptr noundef %9) #8
   %13 = icmp eq ptr %10, %6
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %5
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 62141
@@ -988,7 +988,8 @@ attributes #10 = { nounwind allocsize(2) }
 !10 = !{i64 2154759225, i64 2154759254, i64 2154759300, i64 2154759358, i64 2154759412, i64 2154759466, i64 2154759521, i64 2154759552, i64 2154759860, i64 2154759866, i64 2154759913, i64 2154759936, i64 2154759962}
 !11 = !{i64 2154760424, i64 2154760235, i64 2154760285, i64 2154760331, i64 2154760359}
 !12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = distinct !{!16, !14, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !14, !15, !16}

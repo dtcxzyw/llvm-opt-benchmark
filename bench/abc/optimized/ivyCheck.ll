@@ -283,12 +283,12 @@ Ivy_ObjFaninId1.exit110.thread:                   ; preds = %Ivy_ObjFaninId1.exi
 .critedge:                                        ; preds = %Ivy_ObjFaninId1.exit110.thread, %1
   %112 = tail call i32 @Ivy_TableCountEntries(ptr noundef nonnull %0) #7
   %113 = getelementptr i8, ptr %0, i64 140
-  %.val103 = load i32, ptr %113, align 4, !tbaa !27
+  %.val103 = load i32, ptr %113, align 4, !tbaa !28
   %114 = getelementptr i8, ptr %0, i64 144
-  %.val104 = load i32, ptr %114, align 8, !tbaa !27
+  %.val104 = load i32, ptr %114, align 8, !tbaa !28
   %115 = add nsw i32 %.val104, %.val103
   %116 = getelementptr i8, ptr %0, i64 136
-  %.val105 = load i32, ptr %116, align 8, !tbaa !27
+  %.val105 = load i32, ptr %116, align 8, !tbaa !28
   %117 = add nsw i32 %115, %.val105
   %.not = icmp eq i32 %112, %117
   br i1 %.not, label %119, label %118
@@ -362,7 +362,7 @@ define i32 @Ivy_ManCheckFanoutNums(ptr noundef readonly captures(none) %0) local
   %.1 = phi i32 [ %.018, %7 ], [ %19, %15 ], [ %.018, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !29
 
 .critedge:                                        ; preds = %20
   %.not = icmp eq i32 %.1, 0
@@ -388,7 +388,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4, !tbaa !16
-  store i32 100, ptr %5, align 8, !tbaa !29
+  store i32 100, ptr %5, align 8, !tbaa !30
   %7 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !18
@@ -446,7 +446,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 31:                                               ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2.thread, label %27, !llvm.loop !30
+  br i1 %exitcond.not, label %.critedge2.thread, label %27, !llvm.loop !31
 
 .critedge2.loopexit:                              ; preds = %27
   %32 = trunc nuw nsw i64 %indvars.iv to i32
@@ -496,7 +496,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 49:                                               ; preds = %45
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %.critedge4.thread, label %45, !llvm.loop !31
+  br i1 %exitcond189.not, label %.critedge4.thread, label %45, !llvm.loop !32
 
 .critedge4.loopexit:                              ; preds = %45
   %50 = trunc nuw nsw i64 %indvars.iv185 to i32
@@ -516,7 +516,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 55:                                               ; preds = %.critedge4.thread, %.critedge4
   %.3 = phi i32 [ 0, %.critedge4.thread ], [ %.2, %.critedge4 ]
   %56 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %57 = load ptr, ptr %56, align 8, !tbaa !32
+  %57 = load ptr, ptr %56, align 8, !tbaa !33
   %.not111 = icmp eq ptr %57, null
   br i1 %.not111, label %75, label %58
 
@@ -557,7 +557,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 75:                                               ; preds = %58, %64, %67, %71, %55
   %.4 = phi i32 [ 0, %71 ], [ %.3, %67 ], [ %.3, %64 ], [ %.3, %58 ], [ %.3, %55 ]
   %76 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %77 = load ptr, ptr %76, align 8, !tbaa !33
+  %77 = load ptr, ptr %76, align 8, !tbaa !34
   %.not116 = icmp eq ptr %77, null
   br i1 %.not116, label %95, label %78
 
@@ -603,7 +603,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   %.val127 = load i32, ptr %97, align 4, !tbaa !16
   %98 = sext i32 %.val127 to i64
   %99 = icmp slt i64 %indvars.iv.next191, %98
-  br i1 %99, label %.lr.ph170, label %.critedge.preheader, !llvm.loop !34
+  br i1 %99, label %.lr.ph170, label %.critedge.preheader, !llvm.loop !35
 
 .lr.ph182:                                        ; preds = %.critedge.preheader, %.critedge8
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.critedge8 ], [ 0, %.critedge.preheader ]
@@ -663,7 +663,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %124 = sext i32 %.val to i64
   %125 = icmp slt i64 %indvars.iv.next194, %124
-  br i1 %125, label %.lr.ph175, label %.critedge8, !llvm.loop !35
+  br i1 %125, label %.lr.ph175, label %.critedge8, !llvm.loop !36
 
 .critedge8:                                       ; preds = %.lr.ph175, %123, %105, %.lr.ph182
   %.8 = phi i32 [ %.5181, %.lr.ph182 ], [ %.5181, %105 ], [ %.6174, %.lr.ph175 ], [ %.7, %123 ]
@@ -673,7 +673,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   %.val122 = load i32, ptr %127, align 4, !tbaa !16
   %128 = sext i32 %.val122 to i64
   %129 = icmp slt i64 %indvars.iv.next197, %128
-  br i1 %129, label %.lr.ph182, label %.critedge6, !llvm.loop !36
+  br i1 %129, label %.lr.ph182, label %.critedge6, !llvm.loop !37
 
 .critedge6:                                       ; preds = %.critedge8, %4, %.critedge.preheader
   %.5.lcssa = phi i32 [ %.1, %.critedge.preheader ], [ 1, %4 ], [ %.8, %.critedge8 ]
@@ -699,7 +699,7 @@ declare void @Ivy_ObjCollectFanouts(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @Ivy_ManCheckChoices(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr i8, ptr %5, i64 4
@@ -726,7 +726,7 @@ define noundef i32 @Ivy_ManCheckChoices(ptr noundef readonly captures(none) %0) 
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %19 = load ptr, ptr %18, align 8, !tbaa !38
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
   %20 = icmp ne ptr %19, null
   %21 = icmp ne ptr %19, %12
   %22 = and i1 %20, %21
@@ -747,17 +747,17 @@ define noundef i32 @Ivy_ManCheckChoices(ptr noundef readonly captures(none) %0) 
 
 29:                                               ; preds = %.lr.ph, %25
   %30 = getelementptr inbounds nuw i8, ptr %.01520, i64 72
-  %31 = load ptr, ptr %30, align 8, !tbaa !38
+  %31 = load ptr, ptr %30, align 8, !tbaa !39
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, -2
   %34 = inttoptr i64 %33 to ptr
   %35 = icmp ne i64 %33, 0
   %36 = icmp ne ptr %12, %34
   %37 = and i1 %35, %36
-  br i1 %37, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !39
+  br i1 %37, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !40
 
 .loopexit.loopexit:                               ; preds = %29
-  %.pre = load ptr, ptr %2, align 8, !tbaa !37
+  %.pre = load ptr, ptr %2, align 8, !tbaa !38
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %17, %.lr.ph23, %14
@@ -769,7 +769,7 @@ define noundef i32 @Ivy_ManCheckChoices(ptr noundef readonly captures(none) %0) 
   %.val = load i32, ptr %41, align 4, !tbaa !16
   %42 = sext i32 %.val to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph23, label %.critedge, !llvm.loop !40
+  br i1 %43, label %.lr.ph23, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %.loopexit, %1
   ret i32 1
@@ -821,19 +821,20 @@ attributes #8 = { nounwind allocsize(0) }
 !22 = !{!10, !9, i64 24}
 !23 = !{!10, !11, i64 12}
 !24 = !{!4, !11, i64 192}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!11, !11, i64 0}
-!28 = distinct !{!28, !26}
-!29 = !{!17, !11, i64 0}
-!30 = distinct !{!30, !26}
-!31 = distinct !{!31, !26}
-!32 = !{!10, !9, i64 56}
-!33 = !{!10, !9, i64 64}
-!34 = distinct !{!34, !26}
-!35 = distinct !{!35, !26}
-!36 = distinct !{!36, !26}
-!37 = !{!4, !14, i64 216}
-!38 = !{!10, !9, i64 72}
-!39 = distinct !{!39, !26}
-!40 = distinct !{!40, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!11, !11, i64 0}
+!29 = distinct !{!29, !26, !27}
+!30 = !{!17, !11, i64 0}
+!31 = distinct !{!31, !26, !27}
+!32 = distinct !{!32, !26, !27}
+!33 = !{!10, !9, i64 56}
+!34 = !{!10, !9, i64 64}
+!35 = distinct !{!35, !26, !27}
+!36 = distinct !{!36, !26, !27}
+!37 = distinct !{!37, !26, !27}
+!38 = !{!4, !14, i64 216}
+!39 = !{!10, !9, i64 72}
+!40 = distinct !{!40, !26, !27}
+!41 = distinct !{!41, !26, !27}

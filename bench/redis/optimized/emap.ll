@@ -130,7 +130,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %12, %13
 rtree_leaf_elm_lookup.exit:                       ; preds = %46, %24, %34, %60
   %.0.i21 = phi ptr [ %29, %24 ], [ %41, %34 ], [ %61, %60 ], [ %59, %46 ]
   %62 = getelementptr i8, ptr %2, i64 16
-  %.val32 = load i64, ptr %62, align 8, !tbaa !19
+  %.val32 = load i64, ptr %62, align 8, !tbaa !20
   %63 = and i64 %.val32, -4096
   %64 = icmp eq i64 %63, 4096
   br i1 %64, label %atomic_store_p.exit27.thread, label %70
@@ -267,7 +267,7 @@ tsdn_witness_tsdp_get.exit:
 
 10:                                               ; preds = %tsdn_witness_tsdp_get.exit
   %11 = getelementptr i8, ptr %2, i64 16
-  %.val34 = load i64, ptr %11, align 8, !tbaa !19
+  %.val34 = load i64, ptr %11, align 8, !tbaa !20
   %12 = ptrtoint ptr %.val to i64
   %13 = and i64 %12, -4096
   br label %16
@@ -286,7 +286,7 @@ tsdn_witness_tsdp_get.exit:
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %7) #6
-  br i1 %8, label %21, label %22, !prof !20
+  br i1 %8, label %21, label %22, !prof !21
 
 21:                                               ; preds = %20
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %7) #6
@@ -378,7 +378,7 @@ rtree_leaf_elm_lookup.exit:                       ; preds = %52, %30, %40, %66
   br i1 %68, label %extent_can_acquire_neighbor.exit.thread, label %69
 
 69:                                               ; preds = %rtree_leaf_elm_lookup.exit
-  %70 = load atomic i64, ptr %.0.i31 monotonic, align 8, !noalias !21
+  %70 = load atomic i64, ptr %.0.i31 monotonic, align 8, !noalias !22
   %71 = trunc i64 %70 to i32
   %72 = lshr i32 %71, 2
   %73 = and i32 %72, 7
@@ -438,7 +438,7 @@ extent_neighbor_head_state_mergeable.exit:        ; preds = %82, %80
   br i1 %.not17.i, label %96, label %extent_can_acquire_neighbor.exit.thread
 
 96:                                               ; preds = %92
-  %97 = load i8, ptr @je_opt_retain, align 1, !tbaa !24, !range !26, !noundef !27
+  %97 = load i8, ptr @je_opt_retain, align 1, !tbaa !25, !range !27, !noundef !28
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %102, label %99
 
@@ -481,7 +481,7 @@ define hidden noundef zeroext i1 @je_emap_register_boundary(ptr noundef %0, ptr 
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #6
   %9 = icmp eq ptr %0, null
-  br i1 %9, label %10, label %11, !prof !20
+  br i1 %9, label %10, label %11, !prof !21
 
 10:                                               ; preds = %5
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %6) #6
@@ -499,8 +499,8 @@ tsdn_rtree_ctx.exit:                              ; preds = %10, %11
   br i1 %13, label %emap_rtree_write_acquired.exit, label %14
 
 14:                                               ; preds = %tsdn_rtree_ctx.exit
-  %15 = load ptr, ptr %7, align 8, !tbaa !28
-  %16 = load ptr, ptr %8, align 8, !tbaa !28
+  %15 = load ptr, ptr %7, align 8, !tbaa !29
+  %16 = load ptr, ptr %8, align 8, !tbaa !29
   %17 = icmp eq ptr %2, null
   br i1 %17, label %.critedge.i, label %18
 
@@ -621,7 +621,7 @@ define internal fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, p
 
 rtree_leaf_elm_lookup.exit23:                     ; preds = %40, %18, %28, %54
   %.0.i22 = phi ptr [ %23, %18 ], [ %35, %28 ], [ %55, %54 ], [ %53, %40 ]
-  store ptr %.0.i22, ptr %6, align 8, !tbaa !28
+  store ptr %.0.i22, ptr %6, align 8, !tbaa !29
   %.not = xor i1 %4, true
   %56 = icmp ne ptr %.0.i22, null
   %or.cond.not = select i1 %4, i1 true, i1 %56
@@ -630,7 +630,7 @@ rtree_leaf_elm_lookup.exit23:                     ; preds = %40, %18, %28, %54
 57:                                               ; preds = %rtree_leaf_elm_lookup.exit23
   %.val24 = load ptr, ptr %9, align 8, !tbaa !11
   %58 = getelementptr i8, ptr %3, i64 16
-  %.val25 = load i64, ptr %58, align 8, !tbaa !19
+  %.val25 = load i64, ptr %58, align 8, !tbaa !20
   %59 = ptrtoint ptr %.val24 to i64
   %60 = and i64 %59, -4096
   %61 = and i64 %.val25, -4096
@@ -712,7 +712,7 @@ rtree_leaf_elm_lookup.exit23:                     ; preds = %40, %18, %28, %54
 
 rtree_leaf_elm_lookup.exit:                       ; preds = %92, %70, %80, %106
   %.0.i = phi ptr [ %75, %70 ], [ %87, %80 ], [ %107, %106 ], [ %105, %92 ]
-  store ptr %.0.i, ptr %7, align 8, !tbaa !28
+  store ptr %.0.i, ptr %7, align 8, !tbaa !29
   %108 = icmp eq ptr %.0.i, null
   %or.cond19 = select i1 %.not, i1 %108, i1 false
   br label %109
@@ -727,7 +727,7 @@ define hidden void @je_emap_register_interior(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #6
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %7, label %8, !prof !20
+  br i1 %6, label %7, label %8, !prof !21
 
 7:                                                ; preds = %4
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #6
@@ -745,7 +745,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %7, %8
   %12 = and i64 %11, -4096
   %13 = add i64 %12, 4096
   %14 = getelementptr i8, ptr %2, i64 16
-  %.val9 = load i64, ptr %14, align 8, !tbaa !19
+  %.val9 = load i64, ptr %14, align 8, !tbaa !20
   %15 = and i64 %.val9, -4096
   %16 = add i64 %12, -8192
   %17 = add i64 %16, %15
@@ -851,7 +851,7 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %26, %37, %46, %71, 
   %73 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %74 = add i64 %.0.i738, 4096
   %.not.i = icmp ugt i64 %74, %17
-  br i1 %.not.i, label %rtree_write_range_impl.exit, label %26, !llvm.loop !29
+  br i1 %.not.i, label %rtree_write_range_impl.exit, label %26, !llvm.loop !30
 
 rtree_write_range_impl.exit:                      ; preds = %rtree_leaf_elm_lookup.exit.i, %tsdn_rtree_ctx.exit
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #6
@@ -880,8 +880,8 @@ tsdn_rtree_ctx.exit:                              ; preds = %8, %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %11 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i11, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %12 = load ptr, ptr %5, align 8, !tbaa !28
-  %13 = load ptr, ptr %6, align 8, !tbaa !28
+  %12 = load ptr, ptr %5, align 8, !tbaa !29
+  %13 = load ptr, ptr %6, align 8, !tbaa !29
   store atomic i64 66146619527004160, ptr %12 release, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %emap_rtree_write_acquired.exit, label %14
@@ -902,7 +902,7 @@ define hidden void @je_emap_deregister_interior(ptr noundef %0, ptr noundef %1, 
   %4 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %6, label %7, !prof !20
+  br i1 %5, label %6, label %7, !prof !21
 
 6:                                                ; preds = %3
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #6
@@ -915,7 +915,7 @@ define hidden void @je_emap_deregister_interior(ptr noundef %0, ptr noundef %1, 
 tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   %.0.i = phi ptr [ %4, %6 ], [ %8, %7 ]
   %9 = getelementptr i8, ptr %2, i64 16
-  %.val7 = load i64, ptr %9, align 8, !tbaa !19
+  %.val7 = load i64, ptr %9, align 8, !tbaa !20
   %10 = and i64 %.val7, -4096
   %11 = icmp ugt i64 %10, 8192
   br i1 %11, label %12, label %rtree_clear_range.exit
@@ -1024,7 +1024,7 @@ rtree_leaf_elm_lookup.exit.i.i:                   ; preds = %66, %52, %41, %32, 
   %68 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %69 = add i64 %.0.i26.i, 4096
   %.not.i.i = icmp ugt i64 %69, %18
-  br i1 %.not.i.i, label %rtree_clear_range.exit, label %21, !llvm.loop !29
+  br i1 %.not.i.i, label %rtree_clear_range.exit, label %21, !llvm.loop !30
 
 rtree_clear_range.exit:                           ; preds = %rtree_leaf_elm_lookup.exit.i.i, %12, %tsdn_rtree_ctx.exit
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
@@ -1036,7 +1036,7 @@ define hidden void @je_emap_remap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %6 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #6
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %8, label %9, !prof !20
+  br i1 %7, label %8, label %9, !prof !21
 
 8:                                                ; preds = %5
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %6) #6
@@ -1163,7 +1163,7 @@ rtree_write.exit:                                 ; preds = %rtree_leaf_elm_look
 
 79:                                               ; preds = %rtree_write.exit
   %80 = getelementptr i8, ptr %2, i64 16
-  %.val = load i64, ptr %80, align 8, !tbaa !19
+  %.val = load i64, ptr %80, align 8, !tbaa !20
   %81 = and i64 %.val, -4096
   %82 = icmp ugt i64 %81, 4096
   br i1 %82, label %83, label %rtree_write.exit21
@@ -1280,7 +1280,7 @@ define hidden zeroext i1 @je_emap_split_prepare(ptr noundef %0, ptr noundef %1, 
   %9 = alloca %struct.edata_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8) #6
   %10 = icmp eq ptr %0, null
-  br i1 %10, label %11, label %12, !prof !20
+  br i1 %10, label %11, label %12, !prof !21
 
 11:                                               ; preds = %7
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %8) #6
@@ -1300,29 +1300,29 @@ tsdn_rtree_ctx.exit:                              ; preds = %11, %12
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.val, ptr %16, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %4, ptr %17, align 8, !tbaa !19
+  store i64 %4, ptr %17, align 8, !tbaa !20
   store i64 0, ptr %9, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %2, ptr noundef nonnull %18)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %20, ptr noundef nonnull %21)
-  %23 = load ptr, ptr %2, align 8, !tbaa !30
+  %23 = load ptr, ptr %2, align 8, !tbaa !31
   %24 = icmp eq ptr %23, null
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %tsdn_rtree_ctx.exit
-  %26 = load ptr, ptr %18, align 8, !tbaa !32
+  %26 = load ptr, ptr %18, align 8, !tbaa !33
   %27 = icmp eq ptr %26, null
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %20, align 8, !tbaa !33
+  %29 = load ptr, ptr %20, align 8, !tbaa !34
   %30 = icmp eq ptr %29, null
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %21, align 8, !tbaa !34
+  %32 = load ptr, ptr %21, align 8, !tbaa !35
   %33 = icmp eq ptr %32, null
   br label %34
 
@@ -1338,9 +1338,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @je_emap_split_commit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #5 {
-  %8 = load ptr, ptr %2, align 8, !tbaa !30
+  %8 = load ptr, ptr %2, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !32
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = icmp eq ptr %3, null
   br i1 %11, label %.critedge.i, label %12
 
@@ -1369,9 +1369,9 @@ define hidden void @je_emap_split_commit(ptr noundef readnone captures(none) %0,
 
 emap_rtree_write_acquired.exit:                   ; preds = %.critedge.i, %22
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !33
+  %24 = load ptr, ptr %23, align 8, !tbaa !34
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !34
+  %26 = load ptr, ptr %25, align 8, !tbaa !35
   %27 = icmp eq ptr %5, null
   br i1 %27, label %.critedge.i12, label %28
 
@@ -1407,7 +1407,7 @@ define hidden void @je_emap_merge_prepare(ptr noundef %0, ptr noundef %1, ptr no
   %6 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #6
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %8, label %9, !prof !20
+  br i1 %7, label %8, label %9, !prof !21
 
 8:                                                ; preds = %5
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %6) #6
@@ -1431,7 +1431,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %8, %9
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @je_emap_merge_commit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #5 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
@@ -1441,20 +1441,20 @@ define hidden void @je_emap_merge_commit(ptr noundef readnone captures(none) %0,
 
 9:                                                ; preds = %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
   %.not16 = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %.not16, label %15, label %13
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr %12, align 8, !tbaa !33
+  %14 = load ptr, ptr %12, align 8, !tbaa !34
   store atomic i64 66146619527004160, ptr %14 release, align 8
   br label %15
 
 15:                                               ; preds = %9, %13
   %.0.in = phi ptr [ %10, %13 ], [ %12, %9 ]
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !28
-  %16 = load ptr, ptr %2, align 8, !tbaa !30
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !29
+  %16 = load ptr, ptr %2, align 8, !tbaa !31
   %17 = icmp eq ptr %3, null
   br i1 %17, label %.critedge.i, label %18
 
@@ -1490,7 +1490,7 @@ define hidden void @je_emap_do_assert_mapped(ptr noundef %0, ptr noundef %1, ptr
   %4 = alloca %struct.rtree_ctx_s, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %6, label %7, !prof !20
+  br i1 %5, label %6, label %7, !prof !21
 
 6:                                                ; preds = %3
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #6
@@ -1510,13 +1510,13 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   %13 = and i64 %12, 15
   %14 = and i64 %10, -1073741824
   %15 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %.0.i, i64 0, i64 %13
-  %16 = load i64, ptr %15, align 8, !tbaa !12, !noalias !35
+  %16 = load i64, ptr %15, align 8, !tbaa !12, !noalias !36
   %17 = icmp eq i64 %16, %14
   br i1 %17, label %18, label %24, !prof !15
 
 18:                                               ; preds = %tsdn_rtree_ctx.exit
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !16, !noalias !35
+  %20 = load ptr, ptr %19, align 8, !tbaa !16, !noalias !36
   %21 = lshr i64 %10, 12
   %22 = and i64 %21, 262143
   %23 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %20, i64 %22
@@ -1524,19 +1524,19 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
 
 24:                                               ; preds = %tsdn_rtree_ctx.exit
   %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 256
-  %26 = load i64, ptr %25, align 8, !tbaa !12, !noalias !35
+  %26 = load i64, ptr %25, align 8, !tbaa !12, !noalias !36
   %27 = icmp eq i64 %26, %14
   br i1 %27, label %28, label %.preheader.i, !prof !15
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 264
-  %30 = load ptr, ptr %29, align 8, !tbaa !16, !noalias !35
-  store i64 %16, ptr %25, align 8, !tbaa !12, !noalias !35
+  %30 = load ptr, ptr %29, align 8, !tbaa !16, !noalias !36
+  store i64 %16, ptr %25, align 8, !tbaa !12, !noalias !36
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !16, !noalias !35
-  store ptr %32, ptr %29, align 8, !tbaa !16, !noalias !35
-  store i64 %14, ptr %15, align 8, !tbaa !12, !noalias !35
-  store ptr %30, ptr %31, align 8, !tbaa !16, !noalias !35
+  %32 = load ptr, ptr %31, align 8, !tbaa !16, !noalias !36
+  store ptr %32, ptr %29, align 8, !tbaa !16, !noalias !36
+  store i64 %14, ptr %15, align 8, !tbaa !12, !noalias !36
+  store ptr %30, ptr %31, align 8, !tbaa !16, !noalias !36
   %33 = lshr i64 %10, 12
   %34 = and i64 %33, 262143
   %35 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %30, i64 %34
@@ -1545,7 +1545,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
 .preheader.i:                                     ; preds = %24, %39
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 1, %24 ]
   %36 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %25, i64 0, i64 %indvars.iv.i
-  %37 = load i64, ptr %36, align 8, !tbaa !12, !noalias !35
+  %37 = load i64, ptr %36, align 8, !tbaa !12, !noalias !36
   %38 = icmp eq i64 %37, %14
   br i1 %38, label %40, label %39, !prof !15
 
@@ -1556,33 +1556,33 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
 
 40:                                               ; preds = %.preheader.i
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !16, !noalias !35
+  %42 = load ptr, ptr %41, align 8, !tbaa !16, !noalias !36
   %43 = add nuw i64 %indvars.iv.i, 4294967295
   %44 = and i64 %43, 4294967295
   %45 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %25, i64 0, i64 %44
-  %46 = load i64, ptr %45, align 8, !tbaa !12, !noalias !35
-  store i64 %46, ptr %36, align 8, !tbaa !12, !noalias !35
+  %46 = load i64, ptr %45, align 8, !tbaa !12, !noalias !36
+  store i64 %46, ptr %36, align 8, !tbaa !12, !noalias !36
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !16, !noalias !35
-  store ptr %48, ptr %41, align 8, !tbaa !16, !noalias !35
-  store i64 %16, ptr %45, align 8, !tbaa !12, !noalias !35
+  %48 = load ptr, ptr %47, align 8, !tbaa !16, !noalias !36
+  store ptr %48, ptr %41, align 8, !tbaa !16, !noalias !36
+  store i64 %16, ptr %45, align 8, !tbaa !12, !noalias !36
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !16, !noalias !35
-  store ptr %50, ptr %47, align 8, !tbaa !16, !noalias !35
-  store i64 %14, ptr %15, align 8, !tbaa !12, !noalias !35
-  store ptr %42, ptr %49, align 8, !tbaa !16, !noalias !35
+  %50 = load ptr, ptr %49, align 8, !tbaa !16, !noalias !36
+  store ptr %50, ptr %47, align 8, !tbaa !16, !noalias !36
+  store i64 %14, ptr %15, align 8, !tbaa !12, !noalias !36
+  store ptr %42, ptr %49, align 8, !tbaa !16, !noalias !36
   %51 = lshr i64 %10, 12
   %52 = and i64 %51, 262143
   %53 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %42, i64 %52
   br label %rtree_read.exit
 
 54:                                               ; preds = %39
-  %55 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext false) #6, !noalias !35
+  %55 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext false) #6, !noalias !36
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %18, %28, %40, %54
   %.0.i.i = phi ptr [ %23, %18 ], [ %35, %28 ], [ %55, %54 ], [ %53, %40 ]
-  %56 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !38
+  %56 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !39
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
   ret void
 }
@@ -1597,7 +1597,7 @@ define hidden void @je_emap_do_assert_not_mapped(ptr noundef %0, ptr noundef %1,
   %8 = and i64 %7, -4096
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #6
   %9 = icmp eq ptr %0, null
-  br i1 %9, label %10, label %11, !prof !20
+  br i1 %9, label %10, label %11, !prof !21
 
 10:                                               ; preds = %3
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #6
@@ -1689,21 +1689,21 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %55, %41, %29, %19
   br i1 %57, label %emap_full_alloc_ctx_try_lookup.exit, label %58
 
 58:                                               ; preds = %rtree_leaf_elm_lookup.exit.i
-  %59 = load atomic i64, ptr %.0.i.i11 acquire, align 8, !noalias !41
+  %59 = load atomic i64, ptr %.0.i.i11 acquire, align 8, !noalias !42
   br label %emap_full_alloc_ctx_try_lookup.exit
 
 emap_full_alloc_ctx_try_lookup.exit:              ; preds = %rtree_leaf_elm_lookup.exit.i, %58
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #6
   %.val9 = load ptr, ptr %6, align 8, !tbaa !11
   %60 = getelementptr i8, ptr %2, i64 16
-  %.val10 = load i64, ptr %60, align 8, !tbaa !19
+  %.val10 = load i64, ptr %60, align 8, !tbaa !20
   %61 = ptrtoint ptr %.val9 to i64
   %62 = and i64 %61, -4096
   %63 = and i64 %.val10, -4096
   %64 = add i64 %62, -4096
   %65 = add i64 %64, %63
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
-  br i1 %9, label %66, label %67, !prof !20
+  br i1 %9, label %66, label %67, !prof !21
 
 66:                                               ; preds = %emap_full_alloc_ctx_try_lookup.exit
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #6
@@ -1795,7 +1795,7 @@ rtree_leaf_elm_lookup.exit.i16:                   ; preds = %111, %97, %85, %75
   br i1 %113, label %emap_full_alloc_ctx_try_lookup.exit8, label %114
 
 114:                                              ; preds = %rtree_leaf_elm_lookup.exit.i16
-  %115 = load atomic i64, ptr %.0.i.i17 acquire, align 8, !noalias !44
+  %115 = load atomic i64, ptr %.0.i.i17 acquire, align 8, !noalias !45
   br label %emap_full_alloc_ctx_try_lookup.exit8
 
 emap_full_alloc_ctx_try_lookup.exit8:             ; preds = %rtree_leaf_elm_lookup.exit.i16, %114
@@ -1834,33 +1834,34 @@ attributes #6 = { nounwind }
 !14 = !{!"p1 _ZTS16rtree_leaf_elm_s", !9, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !16 = !{!13, !14, i64 8}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!7, !7, i64 0}
-!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"rtree_leaf_elm_read: argument 0"}
-!23 = distinct !{!23, !"rtree_leaf_elm_read"}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"_Bool", !7, i64 0}
-!26 = !{i8 0, i8 2}
-!27 = !{}
-!28 = !{!14, !14, i64 0}
-!29 = distinct !{!29, !18}
-!30 = !{!31, !14, i64 0}
-!31 = !{!"emap_prepare_s", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24}
-!32 = !{!31, !14, i64 8}
-!33 = !{!31, !14, i64 16}
-!34 = !{!31, !14, i64 24}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"rtree_read: argument 0"}
-!37 = distinct !{!37, !"rtree_read"}
-!38 = !{!39, !36}
-!39 = distinct !{!39, !40, !"rtree_leaf_elm_read: argument 0"}
-!40 = distinct !{!40, !"rtree_leaf_elm_read"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"rtree_leaf_elm_read: argument 0"}
-!43 = distinct !{!43, !"rtree_leaf_elm_read"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"rtree_leaf_elm_read: argument 0"}
-!46 = distinct !{!46, !"rtree_leaf_elm_read"}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!7, !7, i64 0}
+!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"rtree_leaf_elm_read: argument 0"}
+!24 = distinct !{!24, !"rtree_leaf_elm_read"}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"_Bool", !7, i64 0}
+!27 = !{i8 0, i8 2}
+!28 = !{}
+!29 = !{!14, !14, i64 0}
+!30 = distinct !{!30, !18, !19}
+!31 = !{!32, !14, i64 0}
+!32 = !{!"emap_prepare_s", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24}
+!33 = !{!32, !14, i64 8}
+!34 = !{!32, !14, i64 16}
+!35 = !{!32, !14, i64 24}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"rtree_read: argument 0"}
+!38 = distinct !{!38, !"rtree_read"}
+!39 = !{!40, !37}
+!40 = distinct !{!40, !41, !"rtree_leaf_elm_read: argument 0"}
+!41 = distinct !{!41, !"rtree_leaf_elm_read"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"rtree_leaf_elm_read: argument 0"}
+!44 = distinct !{!44, !"rtree_leaf_elm_read"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"rtree_leaf_elm_read: argument 0"}
+!47 = distinct !{!47, !"rtree_leaf_elm_read"}

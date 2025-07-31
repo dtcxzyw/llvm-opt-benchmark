@@ -113,12 +113,12 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer13getHazardTypeEPNS
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.01622, i64 8
   %.not = icmp eq ptr %11, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %3, %10
   %.01622 = phi ptr [ %11, %10 ], [ %5, %3 ]
   %12 = load ptr, ptr %.01622, align 8, !tbaa !3
-  %13 = load ptr, ptr %12, align 8, !tbaa !18
+  %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef %1, i32 noundef %2) #8
@@ -148,13 +148,13 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer5ResetEv(ptr noundef nonnu
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
   %8 = load ptr, ptr %.09, align 8, !tbaa !3
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %8) #8
   %12 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -175,13 +175,13 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer15EmitInstructionEPNS_5SUn
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.010 = phi ptr [ %13, %.lr.ph ], [ %4, %2 ]
   %9 = load ptr, ptr %.010, align 8, !tbaa !3
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef %1) #8
   %13 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %13, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -202,13 +202,13 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer15EmitInstructionEPNS_12Ma
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.010 = phi ptr [ %13, %.lr.ph ], [ %4, %2 ]
   %9 = load ptr, ptr %.010, align 8, !tbaa !3
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef %1) #8
   %13 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %13, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -227,14 +227,14 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_
   %.08.i = phi i32 [ %.sroa.speculated.i.i, %.lr.ph.i ], [ 0, %2 ]
   %.057.i = phi ptr [ %13, %.lr.ph.i ], [ %4, %2 ]
   %.05.val.i = load ptr, ptr %.057.i, align 8, !tbaa !3
-  %9 = load ptr, ptr %.05.val.i, align 8, !tbaa !18
+  %9 = load ptr, ptr %.05.val.i, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(12) %.05.val.i, ptr noundef %1) #8
   %.sroa.speculated.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.08.i, i32 %12)
   %13 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %.not.i = icmp eq ptr %13, %8
-  br i1 %.not.i, label %"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_5SUnitEE3$_0ET0_T_SC_SB_T1_.exit", label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_5SUnitEE3$_0ET0_T_SC_SB_T1_.exit", label %.lr.ph.i, !llvm.loop !25
 
 "_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_5SUnitEE3$_0ET0_T_SC_SB_T1_.exit": ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi i32 [ 0, %2 ], [ %.sroa.speculated.i.i, %.lr.ph.i ]
@@ -257,14 +257,14 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_
   %.08.i = phi i32 [ %.sroa.speculated.i.i, %.lr.ph.i ], [ 0, %2 ]
   %.057.i = phi ptr [ %13, %.lr.ph.i ], [ %4, %2 ]
   %.05.val.i = load ptr, ptr %.057.i, align 8, !tbaa !3
-  %9 = load ptr, ptr %.05.val.i, align 8, !tbaa !18
+  %9 = load ptr, ptr %.05.val.i, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(12) %.05.val.i, ptr noundef %1) #8
   %.sroa.speculated.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.08.i, i32 %12)
   %13 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %.not.i = icmp eq ptr %13, %8
-  br i1 %.not.i, label %"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_12MachineInstrEE3$_0ET0_T_SC_SB_T1_.exit", label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_12MachineInstrEE3$_0ET0_T_SC_SB_T1_.exit", label %.lr.ph.i, !llvm.loop !27
 
 "_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_12MachineInstrEE3$_0ET0_T_SC_SB_T1_.exit": ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi i32 [ 0, %2 ], [ %.sroa.speculated.i.i, %.lr.ph.i ]
@@ -291,7 +291,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
   %.051.i.i.i.i.i.i = phi i64 [ %33, %31 ], [ %8, %.lr.ph.i.i.i.i.i.preheader.i ]
   %.02950.i.i.i.i.i.i = phi ptr [ %32, %31 ], [ %.val, %.lr.ph.i.i.i.i.i.preheader.i ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02950.i.i.i.i.i.i, align 8, !tbaa !3
-  %9 = load ptr, ptr %.029.val.i.i.i.i.i.i, align 8, !tbaa !18
+  %9 = load ptr, ptr %.029.val.i.i.i.i.i.i, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(12) %.029.val.i.i.i.i.i.i, ptr noundef %1) #8
@@ -300,7 +300,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
 13:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !3
-  %15 = load ptr, ptr %.val31.i.i.i.i.i.i, align 8, !tbaa !18
+  %15 = load ptr, ptr %.val31.i.i.i.i.i.i, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(12) %.val31.i.i.i.i.i.i, ptr noundef %1) #8
@@ -309,7 +309,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 16
   %.val33.i.i.i.i.i.i = load ptr, ptr %20, align 8, !tbaa !3
-  %21 = load ptr, ptr %.val33.i.i.i.i.i.i, align 8, !tbaa !18
+  %21 = load ptr, ptr %.val33.i.i.i.i.i.i, align 8, !tbaa !20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(12) %.val33.i.i.i.i.i.i, ptr noundef %1) #8
@@ -318,7 +318,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 24
   %.val35.i.i.i.i.i.i = load ptr, ptr %26, align 8, !tbaa !3
-  %27 = load ptr, ptr %.val35.i.i.i.i.i.i, align 8, !tbaa !18
+  %27 = load ptr, ptr %.val35.i.i.i.i.i.i, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(12) %.val35.i.i.i.i.i.i, ptr noundef %1) #8
@@ -328,7 +328,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
   %32 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 32
   %33 = add nsw i64 %.051.i.i.i.i.i.i, -1
   %34 = icmp sgt i64 %.051.i.i.i.i.i.i, 1
-  br i1 %34, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !23
+  br i1 %34, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !28
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %31
   %.pre.i.i.i.i.i.i = ptrtoint ptr %32 to i64
@@ -347,7 +347,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
 
 36:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   %.029.val37.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8, !tbaa !3
-  %37 = load ptr, ptr %.029.val37.i.i.i.i.i.i, align 8, !tbaa !18
+  %37 = load ptr, ptr %.029.val37.i.i.i.i.i.i, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(12) %.029.val37.i.i.i.i.i.i, ptr noundef %1) #8
@@ -360,7 +360,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !3
-  %44 = load ptr, ptr %.1.val.i.i.i.i.i.i, align 8, !tbaa !18
+  %44 = load ptr, ptr %.1.val.i.i.i.i.i.i, align 8, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(12) %.1.val.i.i.i.i.i.i, ptr noundef %1) #8
@@ -373,7 +373,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !3
-  %51 = load ptr, ptr %.2.val.i.i.i.i.i.i, align 8, !tbaa !18
+  %51 = load ptr, ptr %.2.val.i.i.i.i.i.i, align 8, !tbaa !20
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(12) %.2.val.i.i.i.i.i.i, ptr noundef %1) #8
@@ -418,13 +418,13 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer12AdvanceCycleEv(ptr nound
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
   %8 = load ptr, ptr %.09, align 8, !tbaa !3
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %8) #8
   %12 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -445,13 +445,13 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer11RecedeCycleEv(ptr nounde
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
   %8 = load ptr, ptr %.09, align 8, !tbaa !3
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %8) #8
   %12 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -472,18 +472,18 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer8EmitNoopEv(ptr noundef no
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
   %8 = load ptr, ptr %.09, align 8, !tbaa !3
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %8) #8
   %12 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm21MultiHazardRecognizerE, i64 16), ptr %0, align 8, !tbaa !18
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm21MultiHazardRecognizerE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -505,7 +505,7 @@ define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD2Ev(ptr noundef
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i: ; preds = %.lr.ph.i.i
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9) #8
@@ -514,7 +514,7 @@ _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i: ; p
 _ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i, %.lr.ph.i.i
   store ptr null, ptr %8, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %3, %8
-  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !32
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.loopexit.i: ; preds = %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i
   %.pre.i = load ptr, ptr %2, align 8, !tbaa !15
@@ -537,7 +537,7 @@ _ZN4llvm11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_d
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm21MultiHazardRecognizerE, i64 16), ptr %0, align 8, !tbaa !18
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm21MultiHazardRecognizerE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -559,7 +559,7 @@ define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD0Ev(ptr noundef
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9) #8
@@ -568,7 +568,7 @@ _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i.i: ;
 _ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i.i, %.lr.ph.i.i.i
   store ptr null, ptr %8, align 8, !tbaa !3
   %.not.i.i.i = icmp eq ptr %3, %8
-  br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !32
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.loopexit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i.i
   %.pre.i.i = load ptr, ptr %2, align 8, !tbaa !15
@@ -600,13 +600,13 @@ define linkonce_odr hidden void @_ZN4llvm24ScheduleHazardRecognizer9EmitNoopsEj(
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.03 = phi i32 [ %6, %.lr.ph ], [ 0, %2 ]
-  %3 = load ptr, ptr %0, align 8, !tbaa !18
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %0) #8
   %6 = add nuw i32 %.03, 1
   %exitcond.not = icmp eq i32 %6, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 }
 
 ; Function Attrs: nounwind
@@ -642,7 +642,7 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, %10
-  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !34
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i
   %.05.i.i = phi ptr [ %14, %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %10, %.lr.ph.i.i.i.i.i.i ]
@@ -652,7 +652,7 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i: ; preds = %.lr.ph.i.i
-  %16 = load ptr, ptr %15, align 8, !tbaa !18
+  %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(12) %15) #8
@@ -661,7 +661,7 @@ _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i: ; p
 _ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i, %.lr.ph.i.i
   store ptr null, ptr %14, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %6, %14
-  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !32
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit: ; preds = %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !15
@@ -669,7 +669,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerES
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit, %2
   %19 = phi ptr [ %.pre, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit ], [ %6, %2 ]
-  %20 = load i64, ptr %3, align 8, !tbaa !27
+  %20 = load i64, ptr %3, align 8, !tbaa !35
   %21 = icmp eq ptr %19, %4
   br i1 %21, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE21takeAllocationForGrowEPS5_m.exit, label %22
 
@@ -736,17 +736,17 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %28 = getelementptr inbounds nuw i8, ptr %.02991.us, i64 32
   %29 = add nsw i64 %.092.us, -1
   %30 = icmp sgt i64 %.092.us, 1
-  br i1 %30, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.us, label %._crit_edge, !llvm.loop !29
+  br i1 %30, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.us, label %._crit_edge, !llvm.loop !37
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.thread: ; preds = %.lr.ph, %62
   %.092 = phi i64 [ %64, %62 ], [ %8, %.lr.ph ]
   %.02991 = phi ptr [ %63, %62 ], [ %0, %.lr.ph ]
   %31 = load ptr, ptr %.02991, align 8, !tbaa !3
   %32 = getelementptr inbounds i8, ptr %31, i64 %3
-  %33 = load ptr, ptr %32, align 8, !tbaa !18
+  %33 = load ptr, ptr %32, align 8, !tbaa !20
   %34 = getelementptr i8, ptr %33, i64 %2
   %35 = getelementptr i8, ptr %34, i64 -1
-  %36 = load ptr, ptr %35, align 8, !nosanitize !31
+  %36 = load ptr, ptr %35, align 8, !nosanitize !39
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(12) %32) #8
   br i1 %37, label %.loopexit, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.thread
 
@@ -754,10 +754,10 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %38 = getelementptr inbounds nuw i8, ptr %.02991, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %40 = getelementptr inbounds i8, ptr %39, i64 %3
-  %41 = load ptr, ptr %40, align 8, !tbaa !18
+  %41 = load ptr, ptr %40, align 8, !tbaa !20
   %42 = getelementptr i8, ptr %41, i64 %2
   %43 = getelementptr i8, ptr %42, i64 -1
-  %44 = load ptr, ptr %43, align 8, !nosanitize !31
+  %44 = load ptr, ptr %43, align 8, !nosanitize !39
   %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(12) %40) #8
   br i1 %45, label %.loopexit.loopexit111.split.loop.exit115, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.thread
 
@@ -765,10 +765,10 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %46 = getelementptr inbounds nuw i8, ptr %.02991, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !3
   %48 = getelementptr inbounds i8, ptr %47, i64 %3
-  %49 = load ptr, ptr %48, align 8, !tbaa !18
+  %49 = load ptr, ptr %48, align 8, !tbaa !20
   %50 = getelementptr i8, ptr %49, i64 %2
   %51 = getelementptr i8, ptr %50, i64 -1
-  %52 = load ptr, ptr %51, align 8, !nosanitize !31
+  %52 = load ptr, ptr %51, align 8, !nosanitize !39
   %53 = tail call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(12) %48) #8
   br i1 %53, label %.loopexit.loopexit111.split.loop.exit117, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44
 
@@ -776,10 +776,10 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %54 = getelementptr inbounds nuw i8, ptr %.02991, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !3
   %56 = getelementptr inbounds i8, ptr %55, i64 %3
-  %57 = load ptr, ptr %56, align 8, !tbaa !18
+  %57 = load ptr, ptr %56, align 8, !tbaa !20
   %58 = getelementptr i8, ptr %57, i64 %2
   %59 = getelementptr i8, ptr %58, i64 -1
-  %60 = load ptr, ptr %59, align 8, !nosanitize !31
+  %60 = load ptr, ptr %59, align 8, !nosanitize !39
   %61 = tail call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(12) %56) #8
   br i1 %61, label %.loopexit.loopexit111.split.loop.exit, label %62
 
@@ -787,7 +787,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %63 = getelementptr inbounds nuw i8, ptr %.02991, i64 32
   %64 = add nsw i64 %.092, -1
   %65 = icmp sgt i64 %.092, 1
-  br i1 %65, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.thread, label %._crit_edge, !llvm.loop !32
+  br i1 %65, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.thread, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %62, %27, %4
   %.029.lcssa = phi ptr [ %0, %4 ], [ %28, %27 ], [ %63, %62 ]
@@ -816,10 +816,10 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %.not.i.i.i.i48, label %78, label %73
 
 73:                                               ; preds = %69
-  %74 = load ptr, ptr %71, align 8, !tbaa !18
+  %74 = load ptr, ptr %71, align 8, !tbaa !20
   %75 = getelementptr i8, ptr %74, i64 %2
   %76 = getelementptr i8, ptr %75, i64 -1
-  %77 = load ptr, ptr %76, align 8, !nosanitize !31
+  %77 = load ptr, ptr %76, align 8, !nosanitize !39
   br label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit49
 
 78:                                               ; preds = %69
@@ -844,10 +844,10 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %.not.i.i.i.i53, label %92, label %87
 
 87:                                               ; preds = %84
-  %88 = load ptr, ptr %86, align 8, !tbaa !18
+  %88 = load ptr, ptr %86, align 8, !tbaa !20
   %89 = getelementptr i8, ptr %88, i64 %2
   %90 = getelementptr i8, ptr %89, i64 -1
-  %91 = load ptr, ptr %90, align 8, !nosanitize !31
+  %91 = load ptr, ptr %90, align 8, !nosanitize !39
   br label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit54
 
 92:                                               ; preds = %84
@@ -872,10 +872,10 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %.not.i.i.i.i58, label %106, label %101
 
 101:                                              ; preds = %98
-  %102 = load ptr, ptr %100, align 8, !tbaa !18
+  %102 = load ptr, ptr %100, align 8, !tbaa !20
   %103 = getelementptr i8, ptr %102, i64 %2
   %104 = getelementptr i8, ptr %103, i64 -1
-  %105 = load ptr, ptr %104, align 8, !nosanitize !31
+  %105 = load ptr, ptr %104, align 8, !nosanitize !39
   br label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit59
 
 106:                                              ; preds = %98
@@ -953,18 +953,26 @@ attributes #9 = { builtin nounwind }
 !15 = !{!13, !5, i64 0}
 !16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"vtable pointer", !7, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"long", !6, i64 0}
-!29 = distinct !{!29, !21, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = !{}
-!32 = distinct !{!32, !21}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"vtable pointer", !7, i64 0}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !26, !19}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = distinct !{!27, !26, !19}
+!28 = distinct !{!28, !26, !19}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19}
+!32 = distinct !{!32, !26, !19}
+!33 = distinct !{!33, !26, !19}
+!34 = distinct !{!34, !26, !19}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long", !6, i64 0}
+!37 = distinct !{!37, !26, !19, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = !{}
+!40 = distinct !{!40, !26, !19}

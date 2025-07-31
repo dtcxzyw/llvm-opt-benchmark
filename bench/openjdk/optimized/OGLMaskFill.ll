@@ -45,7 +45,7 @@ define hidden void @OGLMaskFill_MaskFill(ptr noundef %0, i32 noundef %1, i32 nou
 ._crit_edge.us:                                   ; preds = %22
   %29 = add nsw i32 %.04554.us, 32
   %30 = icmp slt i32 %18, %15
-  br i1 %30, label %.lr.ph.us, label %.loopexit, !llvm.loop !8
+  br i1 %30, label %.lr.ph.us, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge.us, %11, %9
   ret void
@@ -108,7 +108,7 @@ define void @Java_sun_java2d_opengl_OGLMaskFill_maskFill(ptr noundef %0, ptr nou
 ._crit_edge.us.i:                                 ; preds = %30
   %37 = add nsw i32 %.04554.us.i, 32
   %38 = icmp slt i32 %26, %23
-  br i1 %38, label %.lr.ph.us.i, label %.loopexit, !llvm.loop !8
+  br i1 %38, label %.lr.ph.us.i, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge.us.i, %19
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #2
@@ -145,7 +145,8 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}

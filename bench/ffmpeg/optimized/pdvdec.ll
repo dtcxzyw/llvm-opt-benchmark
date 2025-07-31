@@ -159,7 +159,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %72 = add nuw nsw i32 %.05677, 1
   %73 = load i32, ptr %34, align 4, !tbaa !42
   %.not70 = icmp slt i32 %72, %73
-  br i1 %.not70, label %43, label %.critedge, !llvm.loop !50
+  br i1 %.not70, label %43, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %68, %28
   %74 = load ptr, ptr %6, align 8, !tbaa !28
@@ -176,15 +176,15 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %83 = load i32, ptr %82, align 4, !tbaa !51
+  %83 = load i32, ptr %82, align 4, !tbaa !52
   %84 = or i32 %83, 2
-  store i32 %84, ptr %82, align 4, !tbaa !51
+  store i32 %84, ptr %82, align 4, !tbaa !52
   br label %85
 
 85:                                               ; preds = %77, %81
   %.sink = phi i32 [ 1, %81 ], [ 2, %77 ]
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 %.sink, ptr %86, align 8, !tbaa !56
+  store i32 %.sink, ptr %86, align 8, !tbaa !57
   store i32 1, ptr %2, align 4, !tbaa !46
   %87 = load i32, ptr %31, align 8, !tbaa !38
   br label %88
@@ -288,12 +288,13 @@ attributes #3 = { nounwind }
 !45 = !{!32, !10, i64 32}
 !46 = !{!10, !10, i64 0}
 !47 = !{!8, !8, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = distinct !{!50, !49}
-!51 = !{!52, !10, i64 276}
-!52 = !{!"AVFrame", !8, i64 0, !8, i64 64, !53, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !54, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !55, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!53 = !{!"p2 omnipotent char", !26, i64 0}
-!54 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!55 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!56 = !{!52, !10, i64 120}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = distinct !{!51, !49, !50}
+!52 = !{!53, !10, i64 276}
+!53 = !{!"AVFrame", !8, i64 0, !8, i64 64, !54, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !55, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !56, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!54 = !{!"p2 omnipotent char", !26, i64 0}
+!55 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!56 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!57 = !{!53, !10, i64 120}

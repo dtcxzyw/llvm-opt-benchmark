@@ -374,7 +374,7 @@ define void @_ZN9RBDataMap4initEP15UResourceBundleS1_R10UErrorCode(ptr noundef n
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   tail call void @uhash_removeAll_77(ptr noundef %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
-  store i32 0, ptr %5, align 4, !tbaa !25
+  store i32 0, ptr %5, align 4, !tbaa !26
   %10 = tail call i32 @ures_getSize_77(ptr noundef %1)
   %11 = tail call i32 @ures_getSize_77(ptr noundef %2)
   %12 = icmp eq i32 %10, %11
@@ -392,7 +392,7 @@ define void @_ZN9RBDataMap4initEP15UResourceBundleS1_R10UErrorCode(ptr noundef n
   %16 = call ptr @ures_getStringByIndex_77(ptr noundef %1, i32 noundef %.02335, ptr noundef nonnull %5, ptr noundef nonnull %3)
   %17 = load ptr, ptr %7, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #16
-  %18 = load i32, ptr %5, align 4, !tbaa !25
+  %18 = load i32, ptr %5, align 4, !tbaa !26
   call void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %16, i32 noundef %18)
   %19 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #16
   %20 = icmp eq ptr %19, null
@@ -428,7 +428,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %2
   %31 = add nuw nsw i32 %.02335, 1
   %32 = call i32 @ures_getSize_77(ptr noundef %2)
   %33 = icmp slt i32 %31, %32
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 34:                                               ; preds = %21
   %35 = landingpad { ptr, i32 }
@@ -713,7 +713,7 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
 
 12:                                               ; preds = %4
   %13 = tail call noundef i32 @_ZNK6icu_7714ResourceBundle7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
-  store i32 %13, ptr %1, align 4, !tbaa !25
+  store i32 %13, ptr %1, align 4, !tbaa !26
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %.loopexit, label %15
 
@@ -738,7 +738,7 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
   %.add = add nuw nsw i64 %.idx, 64
   %24 = add nuw nsw i64 %.idx, 56
   %25 = icmp eq i64 %24, %17
-  br i1 %25, label %.loopexit36.loopexit, label %22
+  br i1 %25, label %.loopexit36.loopexit, label %22, !llvm.loop !28
 
 .loopexit36.loopexit:                             ; preds = %22
   %.ptr30 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -746,7 +746,7 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
 
 .loopexit36:                                      ; preds = %.loopexit36.loopexit, %15
   %26 = phi ptr [ null, %15 ], [ %.ptr30, %.loopexit36.loopexit ]
-  %27 = load i32, ptr %1, align 4, !tbaa !25
+  %27 = load i32, ptr %1, align 4, !tbaa !26
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.loopexit
 
@@ -760,10 +760,10 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = load i32, ptr %1, align 4, !tbaa !25
+  %32 = load i32, ptr %1, align 4, !tbaa !26
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit36, %4, %12
   %.1 = phi ptr [ null, %12 ], [ null, %4 ], [ %26, %.loopexit36 ], [ %26, %.lr.ph ]
@@ -795,7 +795,7 @@ define noalias noundef ptr @_ZNK9RBDataMap11getIntArrayERiPKcR10UErrorCode(ptr n
 
 14:                                               ; preds = %4
   %15 = tail call noundef i32 @_ZNK6icu_7714ResourceBundle7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
-  store i32 %15, ptr %1, align 4, !tbaa !25
+  store i32 %15, ptr %1, align 4, !tbaa !26
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %51, label %.lr.ph
 
@@ -850,12 +850,12 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %24
   %41 = trunc i64 %40 to i32
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #16
   %42 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
-  store i32 %41, ptr %42, align 4, !tbaa !25
+  store i32 %41, ptr %42, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %1, align 4, !tbaa !25
+  %43 = load i32, ptr %1, align 4, !tbaa !26
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %24, label %._crit_edge, !llvm.loop !28
+  br i1 %45, label %24, label %._crit_edge, !llvm.loop !30
 
 46:                                               ; preds = %24
   %47 = landingpad { ptr, i32 }
@@ -974,9 +974,11 @@ attributes #18 = { builtin allocsize(0) }
 !20 = !{!"float", !7, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"_ZTS10UErrorCode", !7, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!19, !19, i64 0}
-!26 = distinct !{!26, !24}
-!27 = distinct !{!27, !24}
-!28 = distinct !{!28, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!19, !19, i64 0}
+!27 = distinct !{!27, !24, !25}
+!28 = distinct !{!28, !25}
+!29 = distinct !{!29, !24, !25}
+!30 = distinct !{!30, !24, !25}

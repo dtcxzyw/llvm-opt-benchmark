@@ -514,9 +514,9 @@ define noundef i32 @_ZN6icu_7713PluralMapBase10toCategoryERKNS_13UnicodeStringE(
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #14
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i32 0, ptr %4, align 8, !tbaa !18
+  store i32 0, ptr %4, align 8, !tbaa !19
   %5 = load ptr, ptr %2, align 8, !tbaa !3
-  store i8 0, ptr %5, align 1, !tbaa !20
+  store i8 0, ptr %5, align 1, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   store i32 0, ptr %3, align 4, !tbaa !13
   %6 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -622,8 +622,9 @@ attributes #17 = { nounwind willreturn memory(read) }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"_ZTS10UErrorCode", !7, i64 0}
 !15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !9, i64 56}
-!19 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!20 = !{!7, !7, i64 0}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !9, i64 56}
+!20 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!21 = !{!7, !7, i64 0}

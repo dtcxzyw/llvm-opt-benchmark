@@ -619,10 +619,10 @@ strset_get_size.exit46.i:                         ; preds = %strset_get_size.exi
 .lr.ph.i:                                         ; preds = %242, %.lr.ph.i
   %.02451.i = phi ptr [ %246, %.lr.ph.i ], [ %243, %242 ]
   %244 = getelementptr inbounds nuw i8, ptr %.02451.i, i64 16
-  %245 = load ptr, ptr %244, align 8, !tbaa !91
+  %245 = load ptr, ptr %244, align 8, !tbaa !92
   %246 = call ptr @hashmap_iter_next(ptr noundef nonnull %22) #15
   %.not31.i = icmp eq ptr %246, null
-  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !95
+  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !96
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not.i47.i = icmp eq ptr %245, null
@@ -661,7 +661,7 @@ thread-pre-split.i:                               ; preds = %xstrdup_or_null.exi
 thread-pre-split.thread.i:                        ; preds = %254, %strset_get_size.exit.i, %thread-pre-split.i
   %.1109 = phi ptr [ %.0108, %thread-pre-split.i ], [ %.0.i.i, %strset_get_size.exit.i ], [ %spec.select, %254 ]
   %257 = call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %257, ptr noundef nonnull align 8 dereferenceable(64) %124, i64 64, i1 false), !tbaa.struct !96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %257, ptr noundef nonnull align 8 dereferenceable(64) %124, i64 64, i1 false), !tbaa.struct !97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %124, i8 0, i64 64, i1 false)
   br label %determine_replay_mode.exit
 
@@ -703,7 +703,7 @@ _.exit75:                                         ; preds = %262, %264
   call void @init_basic_merge_options(ptr noundef nonnull %27, ptr noundef %268) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
   %269 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  store i32 0, ptr %269, align 8, !tbaa !100
+  store i32 0, ptr %269, align 8, !tbaa !101
   %270 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
   %271 = call ptr @get_revision(ptr noundef nonnull %26) #15
   %.not49146 = icmp eq ptr %271, null
@@ -728,7 +728,7 @@ _.exit75:                                         ; preds = %262, %264
 284:                                              ; preds = %.lr.ph, %.loopexit
   %285 = phi ptr [ %271, %.lr.ph ], [ %594, %.loopexit ]
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 48
-  %287 = load ptr, ptr %286, align 8, !tbaa !103
+  %287 = load ptr, ptr %286, align 8, !tbaa !104
   %.not50 = icmp eq ptr %287, null
   br i1 %.not50, label %288, label %290
 
@@ -739,7 +739,7 @@ _.exit75:                                         ; preds = %262, %264
 
 290:                                              ; preds = %284
   %291 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  %292 = load ptr, ptr %291, align 8, !tbaa !108
+  %292 = load ptr, ptr %291, align 8, !tbaa !109
   %.not51 = icmp eq ptr %292, null
   br i1 %.not51, label %295, label %293
 
@@ -749,11 +749,11 @@ _.exit75:                                         ; preds = %262, %264
   unreachable
 
 295:                                              ; preds = %290
-  %296 = load ptr, ptr %287, align 8, !tbaa !110
+  %296 = load ptr, ptr %287, align 8, !tbaa !111
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull readonly align 4 dereferenceable(36) %297, i64 36, i1 false)
-  %298 = load i32, ptr %270, align 8, !tbaa !111
+  %298 = load i32, ptr %270, align 8, !tbaa !112
   %.not.i.i.i = icmp eq i32 %298, 0
   br i1 %.not.i.i.i, label %kh_get_oid_map.exit.i.i, label %299
 
@@ -761,7 +761,7 @@ _.exit75:                                         ; preds = %262, %264
   %300 = add i32 %298, -1
   %.val.i.i.i = load i32, ptr %14, align 8
   %301 = and i32 %.val.i.i.i, %300
-  %302 = load ptr, ptr %272, align 8, !tbaa !113
+  %302 = load ptr, ptr %272, align 8, !tbaa !114
   br label %303
 
 303:                                              ; preds = %.critedge2.i.i.i, %299
@@ -784,11 +784,11 @@ _.exit75:                                         ; preds = %262, %264
   br i1 %.not31.i.i.i, label %314, label %.critedge2.i.i.i
 
 314:                                              ; preds = %312
-  %315 = load ptr, ptr %273, align 8, !tbaa !114
+  %315 = load ptr, ptr %273, align 8, !tbaa !115
   %316 = zext i32 %.027.i.i.i to i64
   %317 = getelementptr inbounds nuw %struct.object_id, ptr %315, i64 %316
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %13) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull align 4 dereferenceable(36) %317, i64 36, i1 false), !tbaa.struct !115
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull align 4 dereferenceable(36) %317, i64 36, i1 false), !tbaa.struct !116
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32)
   %.not.i.i.not.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %13) #15
@@ -799,7 +799,7 @@ _.exit75:                                         ; preds = %262, %264
   %319 = add i32 %318, %.027.i.i.i
   %320 = and i32 %319, %300
   %321 = icmp eq i32 %320, %301
-  br i1 %321, label %kh_get_oid_map.exit.thread.i.i, label %303, !llvm.loop !116
+  br i1 %321, label %kh_get_oid_map.exit.thread.i.i, label %303, !llvm.loop !117
 
 kh_get_oid_map.exit.thread.i.i:                   ; preds = %.critedge2.i.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %14)
@@ -819,17 +819,17 @@ kh_get_oid_map.exit.i.i:                          ; preds = %.critedge.i.i.i, %2
   br i1 %324, label %mapped_commit.exit.i, label %325
 
 325:                                              ; preds = %kh_get_oid_map.exit.i.i
-  %326 = load ptr, ptr %274, align 8, !tbaa !117
+  %326 = load ptr, ptr %274, align 8, !tbaa !118
   %327 = zext i32 %.1.i.i.i to i64
   %328 = getelementptr inbounds nuw ptr, ptr %326, i64 %327
-  %329 = load ptr, ptr %328, align 8, !tbaa !98
+  %329 = load ptr, ptr %328, align 8, !tbaa !99
   br label %mapped_commit.exit.i
 
 mapped_commit.exit.i:                             ; preds = %325, %kh_get_oid_map.exit.i.i, %kh_get_oid_map.exit.thread.i.i
   %.0.i.i76 = phi ptr [ %329, %325 ], [ %.2110, %kh_get_oid_map.exit.i.i ], [ %.2110, %kh_get_oid_map.exit.thread.i.i ]
   %330 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %331 = call ptr @repo_get_commit_tree(ptr noundef %330, ptr noundef %.0.i.i76) #15
-  store ptr %331, ptr %275, align 8, !tbaa !118
+  store ptr %331, ptr %275, align 8, !tbaa !119
   %332 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %333 = call ptr @repo_get_commit_tree(ptr noundef %332, ptr noundef nonnull %285) #15
   %334 = load ptr, ptr @the_repository, align 8, !tbaa !22
@@ -838,28 +838,28 @@ mapped_commit.exit.i:                             ; preds = %325, %kh_get_oid_ma
   %337 = getelementptr inbounds nuw i8, ptr %.0.i.i76, i64 4
   %338 = load i32, ptr @default_abbrev, align 4, !tbaa !9
   %339 = call ptr @repo_find_unique_abbrev(ptr noundef %336, ptr noundef nonnull %337, i32 noundef %338) #15
-  store ptr %339, ptr %276, align 8, !tbaa !120
+  store ptr %339, ptr %276, align 8, !tbaa !121
   %340 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %341 = getelementptr inbounds nuw i8, ptr %285, i64 4
   %342 = load i32, ptr @default_abbrev, align 4, !tbaa !9
   %343 = call ptr @repo_find_unique_abbrev(ptr noundef %340, ptr noundef nonnull %341, i32 noundef %342) #15
-  store ptr %343, ptr %277, align 8, !tbaa !121
+  store ptr %343, ptr %277, align 8, !tbaa !122
   %344 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.37, ptr noundef %343) #15
-  store ptr %344, ptr %278, align 8, !tbaa !122
-  %345 = load ptr, ptr %275, align 8, !tbaa !118
+  store ptr %344, ptr %278, align 8, !tbaa !123
+  %345 = load ptr, ptr %275, align 8, !tbaa !119
   call void @merge_incore_nonrecursive(ptr noundef nonnull %27, ptr noundef %335, ptr noundef %345, ptr noundef %333, ptr noundef nonnull %28) #15
-  %346 = load ptr, ptr %278, align 8, !tbaa !122
+  %346 = load ptr, ptr %278, align 8, !tbaa !123
   call void @free(ptr noundef %346) #15
-  store ptr null, ptr %278, align 8, !tbaa !122
-  %347 = load i32, ptr %28, align 8, !tbaa !123
+  store ptr null, ptr %278, align 8, !tbaa !123
+  %347 = load i32, ptr %28, align 8, !tbaa !124
   %.not.i77 = icmp eq i32 %347, 0
   br i1 %.not.i77, label %.thread, label %348
 
 348:                                              ; preds = %mapped_commit.exit.i
-  %349 = load ptr, ptr %275, align 8, !tbaa !118
+  %349 = load ptr, ptr %275, align 8, !tbaa !119
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  store ptr null, ptr %9, align 8, !tbaa !124
+  store ptr null, ptr %9, align 8, !tbaa !125
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.create_commit.msg, i64 24, i1 false)
   %350 = call ptr @get_commit_output_encoding() #15
@@ -881,7 +881,7 @@ mapped_commit.exit.i:                             ; preds = %325, %kh_get_oid_ma
   br i1 %.not.i.i26.i, label %get_author.exit.i.i, label %359
 
 359:                                              ; preds = %348
-  %360 = load i64, ptr %7, align 8, !tbaa !125
+  %360 = load i64, ptr %7, align 8, !tbaa !126
   %361 = call ptr @xmemdupz(ptr noundef nonnull %358, i64 noundef %360) #15
   br label %get_author.exit.i.i
 
@@ -889,10 +889,10 @@ get_author.exit.i.i:                              ; preds = %359, %348
   %.0.i.i27.i = phi ptr [ %361, %359 ], [ null, %348 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   call void @reset_ident_date() #15
-  %362 = load ptr, ptr %279, align 8, !tbaa !126
-  %363 = load i64, ptr %280, align 8, !tbaa !127
+  %362 = load ptr, ptr %279, align 8, !tbaa !127
+  %363 = load i64, ptr %280, align 8, !tbaa !128
   %364 = getelementptr inbounds nuw i8, ptr %349, i64 4
-  %365 = load ptr, ptr %9, align 8, !tbaa !124
+  %365 = load ptr, ptr %9, align 8, !tbaa !125
   %366 = call i32 @commit_tree_extended(ptr noundef %362, i64 noundef %363, ptr noundef nonnull %364, ptr noundef %365, ptr noundef nonnull %8, ptr noundef %.0.i.i27.i, ptr noundef null, ptr noundef null, ptr noundef %354) #15
   %.not.i.i78 = icmp eq i32 %366, 0
   br i1 %.not.i.i78, label %372, label %367
@@ -919,7 +919,7 @@ _.exit.i.i:                                       ; preds = %369, %367
 pick_regular_commit.exit:                         ; preds = %_.exit.i.i, %372
   %.0.i28.i = phi ptr [ null, %_.exit.i.i ], [ %374, %372 ]
   call void @free_commit_extra_headers(ptr noundef %354) #15
-  %375 = load ptr, ptr %9, align 8, !tbaa !124
+  %375 = load ptr, ptr %9, align 8, !tbaa !125
   call void @free_commit_list(ptr noundef %375) #15
   call void @strbuf_release(ptr noundef nonnull %10) #15
   call void @free(ptr noundef %.0.i.i27.i) #15
@@ -934,14 +934,14 @@ pick_regular_commit.exit:                         ; preds = %_.exit.i.i, %372
 376:                                              ; preds = %pick_regular_commit.exit
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %341, i64 36, i1 false)
-  %377 = load i32, ptr %281, align 8, !tbaa !128
-  %378 = load i32, ptr %282, align 4, !tbaa !129
+  %377 = load i32, ptr %281, align 8, !tbaa !129
+  %378 = load i32, ptr %282, align 4, !tbaa !130
   %.not.i80 = icmp ult i32 %377, %378
-  %.pre173 = load i32, ptr %270, align 8, !tbaa !111
+  %.pre173 = load i32, ptr %270, align 8, !tbaa !112
   br i1 %.not.i80, label %kh_resize_oid_map.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %376
-  %379 = load i32, ptr %283, align 4, !tbaa !130
+  %379 = load i32, ptr %283, align 4, !tbaa !131
   %380 = shl i32 %379, 1
   %381 = icmp ugt i32 %.pre173, %380
   %..i = select i1 %381, i32 -1, i32 1
@@ -973,21 +973,21 @@ pick_regular_commit.exit:                         ; preds = %_.exit.i.i, %372
   %403 = zext nneg i32 %402 to i64
   %404 = call ptr @xmalloc(i64 noundef %403) #15
   call void @llvm.memset.p0.i64(ptr align 4 %404, i8 -86, i64 %403, i1 false)
-  %405 = load i32, ptr %270, align 8, !tbaa !111
+  %405 = load i32, ptr %270, align 8, !tbaa !112
   %406 = icmp ult i32 %405, %spec.store.select.i
   br i1 %406, label %407, label %.lr.ph132.i
 
 407:                                              ; preds = %398
-  %408 = load ptr, ptr %273, align 8, !tbaa !114
+  %408 = load ptr, ptr %273, align 8, !tbaa !115
   %409 = zext i32 %spec.store.select.i to i64
   %410 = mul nuw nsw i64 %409, 36
   %411 = call ptr @xrealloc(ptr noundef %408, i64 noundef %410) #15
-  store ptr %411, ptr %273, align 8, !tbaa !114
-  %412 = load ptr, ptr %274, align 8, !tbaa !117
+  store ptr %411, ptr %273, align 8, !tbaa !115
+  %412 = load ptr, ptr %274, align 8, !tbaa !118
   %413 = shl nuw nsw i64 %409, 3
   %414 = call ptr @xrealloc(ptr noundef %412, i64 noundef %413) #15
-  store ptr %414, ptr %274, align 8, !tbaa !117
-  %.pre.i90 = load i32, ptr %270, align 8, !tbaa !111
+  store ptr %414, ptr %274, align 8, !tbaa !118
+  %.pre.i90 = load i32, ptr %270, align 8, !tbaa !112
   %.not129.i = icmp eq i32 %.pre.i90, 0
   br i1 %.not129.i, label %._crit_edge133.thread.i, label %.lr.ph132.i
 
@@ -999,7 +999,7 @@ pick_regular_commit.exit:                         ; preds = %_.exit.i.i, %372
 417:                                              ; preds = %485, %.lr.ph132.i
   %418 = phi i32 [ %415, %.lr.ph132.i ], [ %486, %485 ]
   %.1130.i = phi i32 [ 0, %.lr.ph132.i ], [ %487, %485 ]
-  %419 = load ptr, ptr %272, align 8, !tbaa !113
+  %419 = load ptr, ptr %272, align 8, !tbaa !114
   %420 = lshr i32 %.1130.i, 4
   %421 = zext nneg i32 %420 to i64
   %422 = getelementptr inbounds nuw i32, ptr %419, i64 %421
@@ -1013,15 +1013,15 @@ pick_regular_commit.exit:                         ; preds = %_.exit.i.i, %372
 
 429:                                              ; preds = %417
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7.i)
-  %430 = load ptr, ptr %273, align 8, !tbaa !114
+  %430 = load ptr, ptr %273, align 8, !tbaa !115
   %431 = zext i32 %.1130.i to i64
   %432 = getelementptr inbounds nuw %struct.object_id, ptr %430, i64 %431
   %.sroa.0.0.copyload.i = load i32, ptr %432, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %432, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !131
-  %433 = load ptr, ptr %274, align 8, !tbaa !117
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !132
+  %433 = load ptr, ptr %274, align 8, !tbaa !118
   %434 = getelementptr inbounds nuw ptr, ptr %433, i64 %431
-  %435 = load ptr, ptr %434, align 8, !tbaa !98
+  %435 = load ptr, ptr %434, align 8, !tbaa !99
   %436 = shl nuw nsw i32 1, %425
   %437 = or i32 %436, %423
   store i32 %437, ptr %422, align 4, !tbaa !9
@@ -1058,7 +1058,7 @@ pick_regular_commit.exit:                         ; preds = %_.exit.i.i, %372
   %456 = shl nuw i32 2, %455
   %457 = and i32 %456, %453
   %.not102.i = icmp eq i32 %457, 0
-  br i1 %.not102.i, label %.lr.ph.i89, label %._crit_edge.i88, !llvm.loop !132
+  br i1 %.not102.i, label %.lr.ph.i89, label %._crit_edge.i88, !llvm.loop !133
 
 ._crit_edge.i88:                                  ; preds = %.lr.ph.i89, %438
   %.lcssa119.i = phi i64 [ %441, %438 ], [ %451, %.lr.ph.i89 ]
@@ -1070,12 +1070,12 @@ pick_regular_commit.exit:                         ; preds = %_.exit.i.i, %372
   %459 = xor i32 %.lcssa.i, -1
   %460 = and i32 %.lcssa115.i, %459
   store i32 %460, ptr %458, align 4, !tbaa !9
-  %461 = load i32, ptr %270, align 8, !tbaa !111
+  %461 = load i32, ptr %270, align 8, !tbaa !112
   %462 = icmp ult i32 %.095.lcssa.i, %461
   br i1 %462, label %463, label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i88
-  %.pre141.i = load ptr, ptr %273, align 8, !tbaa !114
+  %.pre141.i = load ptr, ptr %273, align 8, !tbaa !115
   br label %split.i
 
 463:                                              ; preds = %._crit_edge.i88
@@ -1084,7 +1084,7 @@ pick_regular_commit.exit:                         ; preds = %_.exit.i.i, %372
   %466 = shl nuw i32 3, %.lcssa114.i
   %467 = and i32 %465, %466
   %468 = icmp eq i32 %467, 0
-  %.pre142.i = load ptr, ptr %273, align 8, !tbaa !114
+  %.pre142.i = load ptr, ptr %273, align 8, !tbaa !115
   br i1 %468, label %469, label %split.i
 
 469:                                              ; preds = %463
@@ -1093,22 +1093,22 @@ pick_regular_commit.exit:                         ; preds = %_.exit.i.i, %372
   %471 = getelementptr inbounds nuw %struct.object_id, ptr %.pre142.i, i64 %470
   %.sroa.0109.0.copyload.i = load i32, ptr %471, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %471, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !131
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !132
   store i32 %.sroa.0.0.i, ptr %471, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !131
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, i64 32, i1 false), !tbaa.struct !131
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !132
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, i64 32, i1 false), !tbaa.struct !132
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4.i)
-  %472 = load ptr, ptr %274, align 8, !tbaa !117
+  %472 = load ptr, ptr %274, align 8, !tbaa !118
   %473 = getelementptr inbounds nuw ptr, ptr %472, i64 %470
-  %474 = load ptr, ptr %473, align 8, !tbaa !98
-  store ptr %.098.i, ptr %473, align 8, !tbaa !98
+  %474 = load ptr, ptr %473, align 8, !tbaa !99
+  store ptr %.098.i, ptr %473, align 8, !tbaa !99
   %475 = shl nuw nsw i32 1, %.lcssa114.i
-  %476 = load ptr, ptr %272, align 8, !tbaa !113
+  %476 = load ptr, ptr %272, align 8, !tbaa !114
   %477 = getelementptr inbounds nuw i32, ptr %476, i64 %.lcssa119.i
   %478 = load i32, ptr %477, align 4, !tbaa !9
   %479 = or i32 %478, %475
   store i32 %479, ptr %477, align 4, !tbaa !9
-  br label %438
+  br label %438, !llvm.loop !134
 
 split.i:                                          ; preds = %463, %._crit_edge._crit_edge.i
   %480 = phi ptr [ %.pre141.i, %._crit_edge._crit_edge.i ], [ %.pre142.i, %463 ]
@@ -1116,44 +1116,44 @@ split.i:                                          ; preds = %463, %._crit_edge._
   %482 = getelementptr inbounds nuw %struct.object_id, ptr %480, i64 %481
   store i32 %.sroa.0.0.i, ptr %482, align 4
   %.sroa.7.0..sroa_idx108.i = getelementptr inbounds nuw i8, ptr %482, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx108.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !131
-  %483 = load ptr, ptr %274, align 8, !tbaa !117
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx108.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !132
+  %483 = load ptr, ptr %274, align 8, !tbaa !118
   %484 = getelementptr inbounds nuw ptr, ptr %483, i64 %481
-  store ptr %.098.i, ptr %484, align 8, !tbaa !98
+  store ptr %.098.i, ptr %484, align 8, !tbaa !99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i)
-  %.pre143.i = load i32, ptr %270, align 8, !tbaa !111
+  %.pre143.i = load i32, ptr %270, align 8, !tbaa !112
   br label %485
 
 485:                                              ; preds = %split.i, %417
   %486 = phi i32 [ %418, %417 ], [ %.pre143.i, %split.i ]
   %487 = add i32 %.1130.i, 1
   %.not.i87 = icmp eq i32 %487, %486
-  br i1 %.not.i87, label %._crit_edge133.i, label %417, !llvm.loop !133
+  br i1 %.not.i87, label %._crit_edge133.i, label %417, !llvm.loop !135
 
 ._crit_edge133.i:                                 ; preds = %485
   %488 = icmp ugt i32 %486, %spec.store.select.i
   br i1 %488, label %489, label %._crit_edge133.thread.i
 
 489:                                              ; preds = %._crit_edge133.i
-  %490 = load ptr, ptr %273, align 8, !tbaa !114
+  %490 = load ptr, ptr %273, align 8, !tbaa !115
   %491 = zext i32 %spec.store.select.i to i64
   %492 = mul nuw nsw i64 %491, 36
   %493 = call ptr @xrealloc(ptr noundef %490, i64 noundef %492) #15
-  store ptr %493, ptr %273, align 8, !tbaa !114
-  %494 = load ptr, ptr %274, align 8, !tbaa !117
+  store ptr %493, ptr %273, align 8, !tbaa !115
+  %494 = load ptr, ptr %274, align 8, !tbaa !118
   %495 = shl nuw nsw i64 %491, 3
   %496 = call ptr @xrealloc(ptr noundef %494, i64 noundef %495) #15
-  store ptr %496, ptr %274, align 8, !tbaa !117
+  store ptr %496, ptr %274, align 8, !tbaa !118
   br label %._crit_edge133.thread.i
 
 ._crit_edge133.thread.i:                          ; preds = %489, %._crit_edge133.i, %407
-  %497 = load ptr, ptr %272, align 8, !tbaa !113
+  %497 = load ptr, ptr %272, align 8, !tbaa !114
   call void @free(ptr noundef %497) #15
-  store ptr %404, ptr %272, align 8, !tbaa !113
-  store i32 %spec.store.select.i, ptr %270, align 8, !tbaa !111
-  %498 = load i32, ptr %283, align 4, !tbaa !130
-  store i32 %498, ptr %281, align 8, !tbaa !128
-  store i32 %397, ptr %282, align 4, !tbaa !129
+  store ptr %404, ptr %272, align 8, !tbaa !114
+  store i32 %spec.store.select.i, ptr %270, align 8, !tbaa !112
+  %498 = load i32, ptr %283, align 4, !tbaa !131
+  store i32 %498, ptr %281, align 8, !tbaa !129
+  store i32 %397, ptr %282, align 4, !tbaa !130
   br label %kh_resize_oid_map.exit
 
 kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thread.i, %.sink.split.i, %376
@@ -1161,7 +1161,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
   %500 = add i32 %499, -1
   %.val.i81 = load i32, ptr %6, align 8
   %501 = and i32 %.val.i81, %500
-  %502 = load ptr, ptr %272, align 8, !tbaa !113
+  %502 = load ptr, ptr %272, align 8, !tbaa !114
   %503 = lshr i32 %501, 4
   %504 = zext nneg i32 %503 to i64
   %505 = getelementptr inbounds nuw i32, ptr %502, i64 %504
@@ -1194,11 +1194,11 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
   br i1 %.not80.i, label %521, label %.critedge2.i
 
 521:                                              ; preds = %519
-  %522 = load ptr, ptr %273, align 8, !tbaa !114
+  %522 = load ptr, ptr %273, align 8, !tbaa !115
   %523 = zext i32 %.069.i to i64
   %524 = getelementptr inbounds nuw %struct.object_id, ptr %522, i64 %523
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %524, i64 36, i1 false), !tbaa.struct !115
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %524, i64 36, i1 false), !tbaa.struct !116
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32)
   %.not.i.i.not.i = icmp eq i32 %bcmp.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #15
@@ -1213,7 +1213,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
   %528 = add i32 %527, %.069.i
   %529 = and i32 %528, %500
   %530 = icmp eq i32 %529, %501
-  br i1 %530, label %.critedge.i84, label %.preheader.i, !llvm.loop !134
+  br i1 %530, label %.critedge.i84, label %.preheader.i, !llvm.loop !136
 
 .critedge.i84:                                    ; preds = %.critedge2.i
   %531 = icmp eq i32 %spec.select.i, %499
@@ -1248,23 +1248,23 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
   br i1 %.not85.i, label %556, label %542
 
 542:                                              ; preds = %533
-  %543 = load ptr, ptr %273, align 8, !tbaa !114
+  %543 = load ptr, ptr %273, align 8, !tbaa !115
   %544 = zext i32 %.068.i to i64
   %545 = getelementptr inbounds nuw %struct.object_id, ptr %543, i64 %544
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %545, ptr noundef nonnull readonly align 8 dereferenceable(36) %6, i64 36, i1 false), !tbaa.struct !115
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %545, ptr noundef nonnull readonly align 8 dereferenceable(36) %6, i64 36, i1 false), !tbaa.struct !116
   %546 = shl nuw i32 3, %539
   %547 = xor i32 %546, -1
-  %548 = load ptr, ptr %272, align 8, !tbaa !113
+  %548 = load ptr, ptr %272, align 8, !tbaa !114
   %549 = getelementptr inbounds nuw i32, ptr %548, i64 %535
   %550 = load i32, ptr %549, align 4, !tbaa !9
   %551 = and i32 %550, %547
   store i32 %551, ptr %549, align 4, !tbaa !9
-  %552 = load i32, ptr %283, align 4, !tbaa !130
+  %552 = load i32, ptr %283, align 4, !tbaa !131
   %553 = add i32 %552, 1
-  store i32 %553, ptr %283, align 4, !tbaa !130
-  %554 = load i32, ptr %281, align 8, !tbaa !128
+  store i32 %553, ptr %283, align 4, !tbaa !131
+  %554 = load i32, ptr %281, align 8, !tbaa !129
   %555 = add i32 %554, 1
-  store i32 %555, ptr %281, align 8, !tbaa !128
+  store i32 %555, ptr %281, align 8, !tbaa !129
   br label %572
 
 556:                                              ; preds = %533
@@ -1273,20 +1273,20 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
   br i1 %.not86.i, label %570, label %558
 
 558:                                              ; preds = %556
-  %559 = load ptr, ptr %273, align 8, !tbaa !114
+  %559 = load ptr, ptr %273, align 8, !tbaa !115
   %560 = zext i32 %.068.i to i64
   %561 = getelementptr inbounds nuw %struct.object_id, ptr %559, i64 %560
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %561, ptr noundef nonnull readonly align 8 dereferenceable(36) %6, i64 36, i1 false), !tbaa.struct !115
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %561, ptr noundef nonnull readonly align 8 dereferenceable(36) %6, i64 36, i1 false), !tbaa.struct !116
   %562 = shl nuw i32 3, %539
   %563 = xor i32 %562, -1
-  %564 = load ptr, ptr %272, align 8, !tbaa !113
+  %564 = load ptr, ptr %272, align 8, !tbaa !114
   %565 = getelementptr inbounds nuw i32, ptr %564, i64 %535
   %566 = load i32, ptr %565, align 4, !tbaa !9
   %567 = and i32 %566, %563
   store i32 %567, ptr %565, align 4, !tbaa !9
-  %568 = load i32, ptr %283, align 4, !tbaa !130
+  %568 = load i32, ptr %283, align 4, !tbaa !131
   %569 = add i32 %568, 1
-  store i32 %569, ptr %283, align 4, !tbaa !130
+  store i32 %569, ptr %283, align 4, !tbaa !131
   br label %572
 
 570:                                              ; preds = %556
@@ -1298,15 +1298,15 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
 572:                                              ; preds = %558, %542
   %.pre-phi = phi i64 [ %560, %558 ], [ %544, %542 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6)
-  %573 = load ptr, ptr %274, align 8, !tbaa !117
+  %573 = load ptr, ptr %274, align 8, !tbaa !118
   %574 = getelementptr inbounds nuw ptr, ptr %573, i64 %.pre-phi
-  store ptr %.0.i28.i, ptr %574, align 8, !tbaa !98
-  br i1 %.not53, label %575, label %.loopexit, !llvm.loop !135
+  store ptr %.0.i28.i, ptr %574, align 8, !tbaa !99
+  br i1 %.not53, label %575, label %.loopexit, !llvm.loop !137
 
 575:                                              ; preds = %572
   %576 = call ptr @get_name_decoration(ptr noundef nonnull %285) #15
   %.not54 = icmp eq ptr %576, null
-  br i1 %.not54, label %.loopexit, label %.preheader, !llvm.loop !135
+  br i1 %.not54, label %.loopexit, label %.preheader, !llvm.loop !137
 
 .preheader:                                       ; preds = %575
   %577 = getelementptr inbounds nuw i8, ptr %.0.i28.i, i64 4
@@ -1338,9 +1338,9 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
   br label %592
 
 592:                                              ; preds = %587, %584, %578
-  %593 = load ptr, ptr %.037145, align 8, !tbaa !136
+  %593 = load ptr, ptr %.037145, align 8, !tbaa !138
   %.not55 = icmp eq ptr %593, null
-  br i1 %.not55, label %.loopexit, label %578, !llvm.loop !138
+  br i1 %.not55, label %.loopexit, label %578, !llvm.loop !140
 
 .loopexit:                                        ; preds = %592, %575, %572
   %594 = call ptr @get_revision(ptr noundef nonnull %26) #15
@@ -1349,7 +1349,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
 
 .thread:                                          ; preds = %.loopexit, %pick_regular_commit.exit, %mapped_commit.exit.i, %267
   %.1 = phi ptr [ %.2110, %267 ], [ null, %mapped_commit.exit.i ], [ null, %pick_regular_commit.exit ], [ %.0.i28.i, %.loopexit ]
-  %595 = load i32, ptr %28, align 8, !tbaa !123
+  %595 = load i32, ptr %28, align 8, !tbaa !124
   %596 = icmp eq i32 %595, 1
   %597 = icmp ne ptr %.3, null
   %or.cond5 = and i1 %597, %596
@@ -1370,13 +1370,13 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
 
 605:                                              ; preds = %604
   %606 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  %607 = load ptr, ptr %606, align 8, !tbaa !113
+  %607 = load ptr, ptr %606, align 8, !tbaa !114
   call void @free(ptr noundef %607) #15
   %608 = getelementptr inbounds nuw i8, ptr %270, i64 24
-  %609 = load ptr, ptr %608, align 8, !tbaa !114
+  %609 = load ptr, ptr %608, align 8, !tbaa !115
   call void @free(ptr noundef %609) #15
   %610 = getelementptr inbounds nuw i8, ptr %270, i64 32
-  %611 = load ptr, ptr %610, align 8, !tbaa !117
+  %611 = load ptr, ptr %610, align 8, !tbaa !118
   call void @free(ptr noundef %611) #15
   call void @free(ptr noundef nonnull %270) #15
   br label %kh_destroy_oid_map.exit
@@ -1391,7 +1391,7 @@ kh_destroy_oid_map.exit:                          ; preds = %604, %605
   br label %613
 
 613:                                              ; preds = %612, %kh_destroy_oid_map.exit
-  %614 = load i32, ptr %28, align 8, !tbaa !123
+  %614 = load i32, ptr %28, align 8, !tbaa !124
   br label %615
 
 615:                                              ; preds = %613, %_.exit75, %_.exit
@@ -1686,53 +1686,55 @@ attributes #17 = { nounwind willreturn memory(read) }
 !86 = !{!7, !7, i64 0}
 !87 = !{!84, !10, i64 20}
 !88 = !{!84, !85, i64 0}
-!89 = distinct !{!89, !90}
+!89 = distinct !{!89, !90, !91}
 !90 = !{!"llvm.loop.mustprogress"}
-!91 = !{!92, !5, i64 16}
-!92 = !{!"strmap_entry", !93, i64 0, !5, i64 16, !6, i64 24}
-!93 = !{!"hashmap_entry", !94, i64 0, !10, i64 8}
-!94 = !{!"p1 _ZTS13hashmap_entry", !6, i64 0}
-!95 = distinct !{!95, !90}
-!96 = !{i64 0, i64 8, !97, i64 8, i64 8, !98, i64 16, i64 8, !98, i64 24, i64 4, !9, i64 28, i64 4, !9, i64 32, i64 4, !9, i64 36, i64 4, !9, i64 40, i64 1, !86, i64 48, i64 8, !99, i64 56, i64 1, !86}
-!97 = !{!77, !77, i64 0}
-!98 = !{!6, !6, i64 0}
-!99 = !{!78, !78, i64 0}
-!100 = !{!101, !10, i64 48}
-!101 = !{!"merge_options", !23, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !13, i64 56, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !32, i64 80, !5, i64 104, !10, i64 112, !10, i64 112, !5, i64 120, !102, i64 128}
-!102 = !{!"p1 _ZTS22merge_options_internal", !6, i64 0}
-!103 = !{!104, !26, i64 48}
-!104 = !{!"commit", !105, i64 0, !13, i64 40, !26, i64 48, !107, i64 56, !10, i64 64}
-!105 = !{!"object", !10, i64 0, !10, i64 0, !10, i64 0, !106, i64 4}
-!106 = !{!"object_id", !7, i64 0, !10, i64 32}
-!107 = !{!"p1 _ZTS4tree", !6, i64 0}
-!108 = !{!109, !26, i64 8}
-!109 = !{!"commit_list", !73, i64 0, !26, i64 8}
-!110 = !{!109, !73, i64 0}
-!111 = !{!112, !10, i64 0}
-!112 = !{!"kh_oid_map", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !70, i64 16, !61, i64 24, !6, i64 32}
-!113 = !{!112, !70, i64 16}
-!114 = !{!112, !61, i64 24}
-!115 = !{i64 0, i64 32, !86, i64 32, i64 4, !9}
-!116 = distinct !{!116, !90}
-!117 = !{!112, !6, i64 32}
-!118 = !{!119, !107, i64 8}
-!119 = !{!"merge_result", !10, i64 0, !107, i64 8, !56, i64 16, !6, i64 24, !10, i64 32}
-!120 = !{!101, !5, i64 16}
-!121 = !{!101, !5, i64 24}
-!122 = !{!101, !5, i64 8}
-!123 = !{!119, !10, i64 0}
-!124 = !{!26, !26, i64 0}
-!125 = !{!13, !13, i64 0}
-!126 = !{!32, !5, i64 16}
-!127 = !{!32, !13, i64 8}
-!128 = !{!112, !10, i64 8}
-!129 = !{!112, !10, i64 12}
-!130 = !{!112, !10, i64 4}
-!131 = !{i64 0, i64 28, !86, i64 28, i64 4, !9}
-!132 = distinct !{!132, !90}
-!133 = distinct !{!133, !90}
-!134 = distinct !{!134, !90}
-!135 = distinct !{!135, !90}
-!136 = !{!137, !137, i64 0}
-!137 = !{!"p1 _ZTS15name_decoration", !6, i64 0}
-!138 = distinct !{!138, !90}
+!91 = !{!"llvm.loop.estimated_trip_count"}
+!92 = !{!93, !5, i64 16}
+!93 = !{!"strmap_entry", !94, i64 0, !5, i64 16, !6, i64 24}
+!94 = !{!"hashmap_entry", !95, i64 0, !10, i64 8}
+!95 = !{!"p1 _ZTS13hashmap_entry", !6, i64 0}
+!96 = distinct !{!96, !90, !91}
+!97 = !{i64 0, i64 8, !98, i64 8, i64 8, !99, i64 16, i64 8, !99, i64 24, i64 4, !9, i64 28, i64 4, !9, i64 32, i64 4, !9, i64 36, i64 4, !9, i64 40, i64 1, !86, i64 48, i64 8, !100, i64 56, i64 1, !86}
+!98 = !{!77, !77, i64 0}
+!99 = !{!6, !6, i64 0}
+!100 = !{!78, !78, i64 0}
+!101 = !{!102, !10, i64 48}
+!102 = !{!"merge_options", !23, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !13, i64 56, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !32, i64 80, !5, i64 104, !10, i64 112, !10, i64 112, !5, i64 120, !103, i64 128}
+!103 = !{!"p1 _ZTS22merge_options_internal", !6, i64 0}
+!104 = !{!105, !26, i64 48}
+!105 = !{!"commit", !106, i64 0, !13, i64 40, !26, i64 48, !108, i64 56, !10, i64 64}
+!106 = !{!"object", !10, i64 0, !10, i64 0, !10, i64 0, !107, i64 4}
+!107 = !{!"object_id", !7, i64 0, !10, i64 32}
+!108 = !{!"p1 _ZTS4tree", !6, i64 0}
+!109 = !{!110, !26, i64 8}
+!110 = !{!"commit_list", !73, i64 0, !26, i64 8}
+!111 = !{!110, !73, i64 0}
+!112 = !{!113, !10, i64 0}
+!113 = !{!"kh_oid_map", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !70, i64 16, !61, i64 24, !6, i64 32}
+!114 = !{!113, !70, i64 16}
+!115 = !{!113, !61, i64 24}
+!116 = !{i64 0, i64 32, !86, i64 32, i64 4, !9}
+!117 = distinct !{!117, !90, !91}
+!118 = !{!113, !6, i64 32}
+!119 = !{!120, !108, i64 8}
+!120 = !{!"merge_result", !10, i64 0, !108, i64 8, !56, i64 16, !6, i64 24, !10, i64 32}
+!121 = !{!102, !5, i64 16}
+!122 = !{!102, !5, i64 24}
+!123 = !{!102, !5, i64 8}
+!124 = !{!120, !10, i64 0}
+!125 = !{!26, !26, i64 0}
+!126 = !{!13, !13, i64 0}
+!127 = !{!32, !5, i64 16}
+!128 = !{!32, !13, i64 8}
+!129 = !{!113, !10, i64 8}
+!130 = !{!113, !10, i64 12}
+!131 = !{!113, !10, i64 4}
+!132 = !{i64 0, i64 28, !86, i64 28, i64 4, !9}
+!133 = distinct !{!133, !90, !91}
+!134 = distinct !{!134, !91}
+!135 = distinct !{!135, !90, !91}
+!136 = distinct !{!136, !90, !91}
+!137 = distinct !{!137, !90}
+!138 = !{!139, !139, i64 0}
+!139 = !{!"p1 _ZTS15name_decoration", !6, i64 0}
+!140 = distinct !{!140, !90, !91}

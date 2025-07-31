@@ -276,7 +276,7 @@ define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %0, ptr no
   store i32 %56, ptr %57, align 4, !tbaa !6
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 4
-  br i1 %exitcond54.not, label %58, label %.preheader, !llvm.loop !10
+  br i1 %exitcond54.not, label %58, label %.preheader, !llvm.loop !11
 
 58:                                               ; preds = %.preheader
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -307,7 +307,7 @@ define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %0, ptr no
   %.1 = or disjoint i32 %.pn, %73
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %.not = icmp eq i64 %indvars.iv55, 0
-  br i1 %.not, label %79, label %69, !llvm.loop !11
+  br i1 %.not, label %79, label %69, !llvm.loop !12
 
 79:                                               ; preds = %69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
@@ -351,7 +351,7 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %.1128 = select i1 %18, i32 %.0127154, i32 %spec.select
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %19 = icmp samesign ult i64 %indvars.iv, 60
-  br i1 %19, label %13, label %20, !llvm.loop !12
+  br i1 %19, label %13, label %20, !llvm.loop !13
 
 20:                                               ; preds = %13
   %21 = add nuw nsw i32 %17, 8
@@ -364,7 +364,7 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   store i32 %.1128, ptr %25, align 4, !tbaa !6
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next189, 3
-  br i1 %exitcond.not, label %.preheader150.preheader, label %9, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader150.preheader, label %9, !llvm.loop !14
 
 .preheader150.preheader:                          ; preds = %20
   %26 = load i32, ptr %6, align 4, !tbaa !6
@@ -423,7 +423,7 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %67 = add nuw nsw i32 %42, %66
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next195, 16
-  br i1 %exitcond197.not, label %.preheader, label %36, !llvm.loop !14
+  br i1 %exitcond197.not, label %.preheader, label %36, !llvm.loop !15
 
 68:                                               ; preds = %.preheader, %68
   %indvars.iv198 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next199, %68 ]
@@ -432,10 +432,10 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %71 = sitofp i32 %70 to float
   %72 = fdiv float %71, 2.550000e+02
   %73 = getelementptr inbounds nuw [6 x float], ptr %4, i64 0, i64 %indvars.iv198
-  store float %72, ptr %73, align 4, !tbaa !15
+  store float %72, ptr %73, align 4, !tbaa !16
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next199, 6
-  br i1 %exitcond201.not, label %74, label %68, !llvm.loop !17
+  br i1 %exitcond201.not, label %74, label %68, !llvm.loop !18
 
 74:                                               ; preds = %68
   %75 = load i32, ptr %8, align 4, !tbaa !6
@@ -454,17 +454,17 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %88 = load i32, ptr %87, align 4, !tbaa !6
   %89 = sub nsw i32 %86, %88
   %90 = sitofp i32 %89 to float
-  %91 = load float, ptr %4, align 16, !tbaa !15
+  %91 = load float, ptr %4, align 16, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %93 = load float, ptr %92, align 4, !tbaa !15
+  %93 = load float, ptr %92, align 4, !tbaa !16
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %95 = load float, ptr %94, align 8, !tbaa !15
+  %95 = load float, ptr %94, align 8, !tbaa !16
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %97 = load float, ptr %96, align 4, !tbaa !15
+  %97 = load float, ptr %96, align 4, !tbaa !16
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %99 = load float, ptr %98, align 16, !tbaa !15
+  %99 = load float, ptr %98, align 16, !tbaa !16
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %101 = load float, ptr %100, align 4, !tbaa !15
+  %101 = load float, ptr %100, align 4, !tbaa !16
   br label %102
 
 102:                                              ; preds = %74, %102
@@ -483,7 +483,7 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %111 = tail call float @llvm.fmuladd.f32(float %.0137171, float %101, float %110)
   %112 = add nuw nsw i32 %.0133172, 1
   %exitcond202.not = icmp eq i32 %112, 4
-  br i1 %exitcond202.not, label %113, label %102, !llvm.loop !18
+  br i1 %exitcond202.not, label %113, label %102, !llvm.loop !19
 
 113:                                              ; preds = %102
   %114 = fpext float %105 to double
@@ -557,7 +557,7 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %.1118 = tail call i32 @llvm.smax.i32(i32 %160, i32 %.0117176)
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next204, 16
-  br i1 %exitcond206.not, label %163, label %145, !llvm.loop !19
+  br i1 %exitcond206.not, label %163, label %145, !llvm.loop !20
 
 163:                                              ; preds = %145
   %164 = load i8, ptr %.1122, align 1, !tbaa !3
@@ -587,7 +587,7 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %188 = add nuw nsw i16 %187, %186
   %189 = lshr i16 %188, 8
   %190 = add nuw i16 %184, %189
-  store i16 %190, ptr %1, align 2, !tbaa !20
+  store i16 %190, ptr %1, align 2, !tbaa !21
   %191 = load i8, ptr %spec.select147, align 1, !tbaa !3
   %192 = zext i8 %191 to i16
   %193 = getelementptr inbounds nuw i8, ptr %spec.select147, i64 1
@@ -615,7 +615,7 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %215 = add nuw nsw i16 %214, %213
   %216 = lshr i16 %215, 8
   %217 = add nuw i16 %211, %216
-  store i16 %217, ptr %2, align 2, !tbaa !20
+  store i16 %217, ptr %2, align 2, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #10
@@ -640,7 +640,7 @@ define zeroext i16 @stb__Quantize5(float noundef %0) local_unnamed_addr #0 {
   %7 = fptoui float %6 to i16
   %8 = zext i16 %7 to i64
   %9 = getelementptr inbounds nuw [32 x float], ptr @stb__midpoints5, i64 0, i64 %8
-  %10 = load float, ptr %9, align 4, !tbaa !15
+  %10 = load float, ptr %9, align 4, !tbaa !16
   %11 = fcmp ogt float %5, %10
   %12 = zext i1 %11 to i16
   %13 = add i16 %12, %7
@@ -657,7 +657,7 @@ define zeroext i16 @stb__Quantize6(float noundef %0) local_unnamed_addr #0 {
   %7 = fptoui float %6 to i16
   %8 = zext i16 %7 to i64
   %9 = getelementptr inbounds nuw [64 x float], ptr @stb__midpoints6, i64 0, i64 %8
-  %10 = load float, ptr %9, align 4, !tbaa !15
+  %10 = load float, ptr %9, align 4, !tbaa !16
   %11 = fcmp ogt float %5, %10
   %12 = zext i1 %11 to i16
   %13 = add i16 %12, %7
@@ -666,8 +666,8 @@ define zeroext i16 @stb__Quantize6(float noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
-  %5 = load i16, ptr %2, align 2, !tbaa !20
-  %6 = load i16, ptr %1, align 2, !tbaa !20
+  %5 = load i16, ptr %2, align 2, !tbaa !21
+  %6 = load i16, ptr %1, align 2, !tbaa !21
   %7 = shl i32 %3, 2
   %8 = xor i32 %7, %3
   %9 = icmp ult i32 %8, 4
@@ -693,7 +693,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %22 = add nuw nsw i32 %.0111132, %21
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, 16
-  br i1 %exitcond147.not, label %23, label %.preheader, !llvm.loop !22
+  br i1 %exitcond147.not, label %23, label %.preheader, !llvm.loop !23
 
 23:                                               ; preds = %.preheader
   %24 = lshr i32 %14, 4
@@ -769,7 +769,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = lshr i32 %.0114126, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %83, label %.preheader120, !llvm.loop !23
+  br i1 %exitcond.not, label %83, label %.preheader120, !llvm.loop !24
 
 83:                                               ; preds = %.preheader120
   %84 = mul nuw nsw i32 %79, 3
@@ -800,7 +800,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %109 = fptoui float %108 to i16
   %110 = zext i16 %109 to i64
   %111 = getelementptr inbounds nuw [32 x float], ptr @stb__midpoints5, i64 0, i64 %110
-  %112 = load float, ptr %111, align 4, !tbaa !15
+  %112 = load float, ptr %111, align 4, !tbaa !16
   %113 = fcmp ogt float %107, %112
   %114 = zext i1 %113 to i16
   %115 = add i16 %114, %109
@@ -818,7 +818,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %127 = fptoui float %126 to i16
   %128 = zext i16 %127 to i64
   %129 = getelementptr inbounds nuw [64 x float], ptr @stb__midpoints6, i64 0, i64 %128
-  %130 = load float, ptr %129, align 4, !tbaa !15
+  %130 = load float, ptr %129, align 4, !tbaa !16
   %131 = fcmp ogt float %125, %130
   %132 = zext i1 %131 to i16
   %133 = add i16 %132, %127
@@ -837,7 +837,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %146 = fptoui float %145 to i16
   %147 = zext i16 %146 to i64
   %148 = getelementptr inbounds nuw [32 x float], ptr @stb__midpoints5, i64 0, i64 %147
-  %149 = load float, ptr %148, align 4, !tbaa !15
+  %149 = load float, ptr %148, align 4, !tbaa !16
   %150 = fcmp ogt float %144, %149
   %151 = zext i1 %150 to i16
   %152 = add i16 %151, %146
@@ -855,7 +855,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %164 = fptoui float %163 to i16
   %165 = zext i16 %164 to i64
   %166 = getelementptr inbounds nuw [32 x float], ptr @stb__midpoints5, i64 0, i64 %165
-  %167 = load float, ptr %166, align 4, !tbaa !15
+  %167 = load float, ptr %166, align 4, !tbaa !16
   %168 = fcmp ogt float %162, %167
   %169 = zext i1 %168 to i16
   %170 = add i16 %169, %164
@@ -873,7 +873,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %182 = fptoui float %181 to i16
   %183 = zext i16 %182 to i64
   %184 = getelementptr inbounds nuw [64 x float], ptr @stb__midpoints6, i64 0, i64 %183
-  %185 = load float, ptr %184, align 4, !tbaa !15
+  %185 = load float, ptr %184, align 4, !tbaa !16
   %186 = fcmp ogt float %180, %185
   %187 = zext i1 %186 to i16
   %188 = add i16 %187, %182
@@ -892,7 +892,7 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
   %201 = fptoui float %200 to i16
   %202 = zext i16 %201 to i64
   %203 = getelementptr inbounds nuw [32 x float], ptr @stb__midpoints5, i64 0, i64 %202
-  %204 = load float, ptr %203, align 4, !tbaa !15
+  %204 = load float, ptr %203, align 4, !tbaa !16
   %205 = fcmp ogt float %199, %204
   %206 = zext i1 %205 to i16
   %207 = add i16 %206, %201
@@ -902,8 +902,8 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
 209:                                              ; preds = %83, %23
   %.0107 = phi i16 [ %42, %23 ], [ %153, %83 ]
   %.0 = phi i16 [ %55, %23 ], [ %208, %83 ]
-  store i16 %.0, ptr %2, align 2, !tbaa !20
-  store i16 %.0107, ptr %1, align 2, !tbaa !20
+  store i16 %.0, ptr %2, align 2, !tbaa !21
+  store i16 %.0107, ptr %1, align 2, !tbaa !21
   %210 = icmp ne i16 %5, %.0
   %211 = icmp ne i16 %6, %.0107
   %212 = select i1 %210, i1 true, i1 %211
@@ -943,7 +943,7 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
 18:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %19, label %15, !llvm.loop !24
+  br i1 %exitcond.not, label %19, label %15, !llvm.loop !25
 
 19:                                               ; preds = %18
   %20 = and i32 %12, 255
@@ -982,8 +982,8 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
 
 .thread:                                          ; preds = %15
   call void @stb__OptimizeColorsBlock(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %52 = load i16, ptr %8, align 2, !tbaa !20
-  %53 = load i16, ptr %9, align 2, !tbaa !20
+  %52 = load i16, ptr %8, align 2, !tbaa !21
+  %53 = load i16, ptr %9, align 2, !tbaa !21
   %.not45 = icmp eq i16 %52, %53
   br i1 %.not45, label %171, label %54
 
@@ -1118,7 +1118,7 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
   store i32 %148, ptr %149, align 4, !tbaa !6
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next52.i, 4
-  br i1 %exitcond54.not.i, label %150, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond54.not.i, label %150, label %.preheader.i, !llvm.loop !11
 
 150:                                              ; preds = %.preheader.i
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1149,7 +1149,7 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
   %.1.i = or disjoint i32 %.pn.i, %165
   %indvars.iv.next56.i = add nsw i64 %indvars.iv55.i, -1
   %.not.i = icmp eq i64 %indvars.iv55.i, 0
-  br i1 %.not.i, label %stb__MatchColorsBlock.exit, label %161, !llvm.loop !11
+  br i1 %.not.i, label %stb__MatchColorsBlock.exit, label %161, !llvm.loop !12
 
 stb__MatchColorsBlock.exit:                       ; preds = %161
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
@@ -1176,15 +1176,15 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
 
 186:                                              ; preds = %295
   %187 = and i1 %.not, %189
-  br i1 %187, label %188, label %.thread70, !llvm.loop !25
+  br i1 %187, label %188, label %.thread70, !llvm.loop !26
 
 188:                                              ; preds = %171, %186
   %.280 = phi i32 [ %.1, %171 ], [ %.1.i66, %186 ]
   %189 = phi i1 [ true, %171 ], [ false, %186 ]
   %190 = call i32 @stb__RefineBlock(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.280)
   %.not46 = icmp eq i32 %190, 0
-  %.pre.pre = load i16, ptr %8, align 2, !tbaa !20
-  %.pre83.pre = load i16, ptr %9, align 2, !tbaa !20
+  %.pre.pre = load i16, ptr %8, align 2, !tbaa !21
+  %.pre83.pre = load i16, ptr %9, align 2, !tbaa !21
   br i1 %.not46, label %.thread70, label %191
 
 191:                                              ; preds = %188
@@ -1311,7 +1311,7 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   store i32 %275, ptr %276, align 4, !tbaa !6
   %indvars.iv.next52.i61 = add nuw nsw i64 %indvars.iv51.i60, 1
   %exitcond54.not.i62 = icmp eq i64 %indvars.iv.next52.i61, 4
-  br i1 %exitcond54.not.i62, label %277, label %.preheader.i59, !llvm.loop !10
+  br i1 %exitcond54.not.i62, label %277, label %.preheader.i59, !llvm.loop !11
 
 277:                                              ; preds = %.preheader.i59
   %278 = load i32, ptr %183, align 4, !tbaa !6
@@ -1339,7 +1339,7 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   %.1.i66 = or disjoint i32 %.pn.i65, %289
   %indvars.iv.next56.i67 = add nsw i64 %indvars.iv55.i63, -1
   %.not.i68 = icmp eq i64 %indvars.iv55.i63, 0
-  br i1 %.not.i68, label %295, label %285, !llvm.loop !11
+  br i1 %.not.i68, label %295, label %285, !llvm.loop !12
 
 295:                                              ; preds = %285
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -1388,7 +1388,7 @@ define void @stb__CompressAlphaBlock(ptr noundef writeonly captures(none) %0, pt
   %.166 = select i1 %12, i32 %.06586, i32 %spec.select
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %13, label %7, !llvm.loop !26
+  br i1 %exitcond.not, label %13, label %7, !llvm.loop !27
 
 13:                                               ; preds = %7
   %14 = trunc nuw i32 %.166 to i8
@@ -1455,7 +1455,7 @@ define void @stb__CompressAlphaBlock(ptr noundef writeonly captures(none) %0, pt
   %.1 = phi ptr [ %47, %45 ], [ %.091, %26 ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 16
-  br i1 %exitcond96.not, label %51, label %26, !llvm.loop !27
+  br i1 %exitcond96.not, label %51, label %26, !llvm.loop !28
 
 51:                                               ; preds = %50
   ret void
@@ -1488,7 +1488,7 @@ define void @stb_compress_dxt_block(ptr noundef writeonly captures(none) %0, ptr
   %.166.i = select i1 %15, i32 %.06586.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %16, label %10, !llvm.loop !26
+  br i1 %exitcond.not.i, label %16, label %10, !llvm.loop !27
 
 16:                                               ; preds = %10
   %17 = trunc nuw i32 %.166.i to i8
@@ -1555,7 +1555,7 @@ define void @stb_compress_dxt_block(ptr noundef writeonly captures(none) %0, ptr
   %.1.i = phi ptr [ %50, %48 ], [ %.091.i, %29 ]
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 16
-  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %29, !llvm.loop !27
+  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %29, !llvm.loop !28
 
 stb__CompressAlphaBlock.exit:                     ; preds = %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
@@ -1567,7 +1567,7 @@ stb__CompressAlphaBlock.exit:                     ; preds = %53
   store i8 -1, ptr %55, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %54, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %54, !llvm.loop !29
 
 .loopexit.loopexit:                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1600,7 +1600,7 @@ define void @stb_compress_bc4_block(ptr noundef writeonly captures(none) %0, ptr
   %.166.i = select i1 %9, i32 %.06586.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !27
 
 10:                                               ; preds = %5
   %11 = trunc nuw i32 %.166.i to i8
@@ -1666,7 +1666,7 @@ define void @stb_compress_bc4_block(ptr noundef writeonly captures(none) %0, ptr
   %.1.i = phi ptr [ %43, %41 ], [ %.091.i, %23 ]
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 16
-  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %23, !llvm.loop !27
+  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %23, !llvm.loop !28
 
 stb__CompressAlphaBlock.exit:                     ; preds = %46
   ret void
@@ -1692,7 +1692,7 @@ define void @stb_compress_bc5_block(ptr noundef writeonly captures(none) %0, ptr
   %.166.i = select i1 %10, i32 %.06586.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = trunc nuw i32 %.166.i to i8
@@ -1759,7 +1759,7 @@ define void @stb_compress_bc5_block(ptr noundef writeonly captures(none) %0, ptr
   %.1.i = phi ptr [ %45, %43 ], [ %.091.i, %24 ]
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 16
-  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %24, !llvm.loop !27
+  br i1 %exitcond96.not.i, label %stb__CompressAlphaBlock.exit, label %24, !llvm.loop !28
 
 stb__CompressAlphaBlock.exit:                     ; preds = %48
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1781,7 +1781,7 @@ stb__CompressAlphaBlock.exit:                     ; preds = %48
   %.166.i9 = select i1 %57, i32 %.06586.i5, i32 %spec.select.i7
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 16
-  br i1 %exitcond.not.i11, label %58, label %52, !llvm.loop !26
+  br i1 %exitcond.not.i11, label %58, label %52, !llvm.loop !27
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1849,7 +1849,7 @@ stb__CompressAlphaBlock.exit:                     ; preds = %48
   %.1.i27 = phi ptr [ %93, %91 ], [ %.091.i13, %72 ]
   %indvars.iv.next94.i28 = add nuw nsw i64 %indvars.iv93.i12, 1
   %exitcond96.not.i29 = icmp eq i64 %indvars.iv.next94.i28, 16
-  br i1 %exitcond96.not.i29, label %stb__CompressAlphaBlock.exit30, label %72, !llvm.loop !27
+  br i1 %exitcond96.not.i29, label %stb__CompressAlphaBlock.exit30, label %72, !llvm.loop !28
 
 stb__CompressAlphaBlock.exit30:                   ; preds = %96
   ret void
@@ -1892,24 +1892,25 @@ attributes #10 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"float", !4, i64 0}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"short", !4, i64 0}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"float", !4, i64 0}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !4, i64 0}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}

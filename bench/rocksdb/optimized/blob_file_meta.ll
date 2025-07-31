@@ -412,7 +412,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %23, %25
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, i64 noundef %18)
   %.sroa.013.0 = load ptr, ptr %.sroa.013.018, align 8, !tbaa !48
   %.not = icmp eq ptr %.sroa.013.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -524,3 +524,5 @@ attributes #10 = { builtin nounwind }
 !67 = !{!"_ZTSNSt8ios_base6_WordsE", !12, i64 0, !6, i64 8}
 !68 = !{!"int", !7, i64 0}
 !69 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !12, i64 0}
+!70 = distinct !{!70, !71}
+!71 = !{!"llvm.loop.estimated_trip_count"}

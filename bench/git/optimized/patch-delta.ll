@@ -261,7 +261,7 @@ get_delta_hdr_size.exit123:                       ; preds = %st_left_shift.exit.
   %.276 = sub nuw i64 %.074159, %spec.store.select.pn
   %.280 = getelementptr inbounds nuw i8, ptr %.078158, i64 %spec.store.select.pn
   %120 = icmp ult ptr %.9, %8
-  br i1 %120, label %40, label %._crit_edge, !llvm.loop !9
+  br i1 %120, label %40, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %119, %get_delta_hdr_size.exit123
   %.0133.lcssa = phi ptr [ %32, %get_delta_hdr_size.exit123 ], [ %.9, %119 ]
@@ -282,7 +282,7 @@ get_delta_hdr_size.exit123:                       ; preds = %st_left_shift.exit.
   %125 = ptrtoint ptr %.078.lcssa to i64
   %126 = ptrtoint ptr %38 to i64
   %127 = sub i64 %125, %126
-  store i64 %127, ptr %4, align 8, !tbaa !10
+  store i64 %127, ptr %4, align 8, !tbaa !11
   br label %128
 
 128:                                              ; preds = %get_delta_hdr_size.exit, %5, %124, %.thread
@@ -320,8 +320,9 @@ attributes #6 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"long", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !5, i64 0}

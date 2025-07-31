@@ -144,7 +144,7 @@ define internal noalias noundef ptr @executor_worker_task(ptr noundef %0) #0 {
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #5
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %19 = load i32, ptr %18, align 8, !tbaa !31
+  %19 = load i32, ptr %18, align 8, !tbaa !32
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %.lr.ph, label %._crit_edge
 
@@ -157,7 +157,7 @@ define internal noalias noundef ptr @executor_worker_task(ptr noundef %0) #0 {
   br label %25
 
 25:                                               ; preds = %.lr.ph, %run_one_task.exit
-  %26 = load ptr, ptr %20, align 8, !tbaa !32
+  %26 = load ptr, ptr %20, align 8, !tbaa !33
   %.not25.i = icmp eq ptr %26, null
   br i1 %.not25.i, label %.loopexit, label %.lr.ph.i
 
@@ -168,22 +168,22 @@ define internal noalias noundef ptr @executor_worker_task(ptr noundef %0) #0 {
   %29 = load ptr, ptr %2, align 8, !tbaa !4
   %30 = tail call i32 %28(ptr noundef nonnull %27, ptr noundef %29) #5
   %.not21.i = icmp eq i32 %30, 0
-  %31 = load ptr, ptr %.01826.i, align 8, !tbaa !32
+  %31 = load ptr, ptr %.01826.i, align 8, !tbaa !33
   br i1 %.not21.i, label %32, label %.critedge.i
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = load ptr, ptr %31, align 8, !tbaa !32
+  %33 = load ptr, ptr %31, align 8, !tbaa !33
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !34
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %.not22.i = icmp eq ptr %31, null
   br i1 %.not22.i, label %.loopexit, label %34
 
 34:                                               ; preds = %.critedge.i
-  %35 = load ptr, ptr %31, align 8, !tbaa !34
-  store ptr %35, ptr %.01826.i, align 8, !tbaa !32
-  store ptr null, ptr %31, align 8, !tbaa !34
+  %35 = load ptr, ptr %31, align 8, !tbaa !35
+  store ptr %35, ptr %.01826.i, align 8, !tbaa !33
+  store ptr null, ptr %31, align 8, !tbaa !35
   %36 = load i32, ptr %22, align 8, !tbaa !24
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %40
@@ -209,9 +209,9 @@ define internal noalias noundef ptr @executor_worker_task(ptr noundef %0) #0 {
   br label %run_one_task.exit
 
 run_one_task.exit:                                ; preds = %46, %40, %.loopexit
-  %49 = load i32, ptr %18, align 8, !tbaa !31
+  %49 = load i32, ptr %18, align 8, !tbaa !32
   %.not = icmp eq i32 %49, 0
-  br i1 %.not, label %25, label %._crit_edge
+  br i1 %.not, label %25, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %run_one_task.exit, %1
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #5
@@ -229,7 +229,7 @@ define internal fastcc void @executor_free(ptr noundef nonnull %0, i32 noundef %
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 1, ptr %9, align 8, !tbaa !31
+  store i32 1, ptr %9, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %10) #5
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #5
@@ -245,13 +245,13 @@ define internal fastcc void @executor_free(ptr noundef nonnull %0, i32 noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %17 = load ptr, ptr %15, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw %struct.ThreadInfo, ptr %17, i64 %indvars.iv, i32 1
-  %19 = load i64, ptr %18, align 8, !tbaa !36
+  %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = tail call i32 @pthread_join(i64 noundef %19, ptr noundef null) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %4, align 8, !tbaa !24
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %16, label %.loopexit, !llvm.loop !37
+  br i1 %23, label %16, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %16, %6, %3
   %.not16 = icmp eq i32 %2, 0
@@ -288,7 +288,7 @@ define void @av_executor_free(ptr noundef captures(address_is_null) %0) local_un
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !38
+  %3 = load ptr, ptr %0, align 8, !tbaa !40
   %.not7 = icmp eq ptr %3, null
   br i1 %.not7, label %7, label %4
 
@@ -296,7 +296,7 @@ define void @av_executor_free(ptr noundef captures(address_is_null) %0) local_un
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load i32, ptr %5, align 8, !tbaa !24
   tail call fastcc void @executor_free(ptr noundef %3, i32 noundef %6, i32 noundef %6)
-  store ptr null, ptr %0, align 8, !tbaa !38
+  store ptr null, ptr %0, align 8, !tbaa !40
   br label %7
 
 7:                                                ; preds = %1, %2, %4
@@ -322,7 +322,7 @@ define void @av_executor_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %10, align 8, !tbaa !32
+  %12 = load ptr, ptr %10, align 8, !tbaa !33
   %.not2434 = icmp eq ptr %12, null
   br i1 %.not2434, label %.critedge, label %.lr.ph
 
@@ -332,19 +332,19 @@ define void @av_executor_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %14 = load ptr, ptr %11, align 8, !tbaa !12
   %15 = tail call i32 %14(ptr noundef nonnull %13, ptr noundef nonnull %1) #5
   %.not25 = icmp eq i32 %15, 0
-  %.pre.pre = load ptr, ptr %.035, align 8, !tbaa !32
+  %.pre.pre = load ptr, ptr %.035, align 8, !tbaa !33
   br i1 %.not25, label %.critedge, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = load ptr, ptr %.pre.pre, align 8, !tbaa !32
+  %17 = load ptr, ptr %.pre.pre, align 8, !tbaa !33
   %.not24 = icmp eq ptr %17, null
-  br i1 %.not24, label %.critedge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not24, label %.critedge, label %.lr.ph, !llvm.loop !41
 
 .critedge:                                        ; preds = %16, %.lr.ph, %9
   %18 = phi ptr [ null, %9 ], [ null, %16 ], [ %.pre.pre, %.lr.ph ]
   %.0.lcssa = phi ptr [ %10, %9 ], [ %.pre.pre, %16 ], [ %.035, %.lr.ph ]
-  store ptr %18, ptr %1, align 8, !tbaa !34
-  store ptr %1, ptr %.0.lcssa, align 8, !tbaa !32
+  store ptr %18, ptr %1, align 8, !tbaa !35
+  store ptr %1, ptr %.0.lcssa, align 8, !tbaa !33
   br label %19
 
 19:                                               ; preds = %.critedge, %8
@@ -363,15 +363,15 @@ define void @av_executor_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 .thread:                                          ; preds = %19, %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %27 = load i8, ptr %26, align 4, !tbaa !40, !range !41, !noundef !42
+  %27 = load i8, ptr %26, align 4, !tbaa !42, !range !43, !noundef !44
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %61, label %29
 
 29:                                               ; preds = %.thread
-  store i8 1, ptr %26, align 4, !tbaa !40
+  store i8 1, ptr %26, align 4, !tbaa !42
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %32 = load ptr, ptr %31, align 8, !tbaa !32
+  %32 = load ptr, ptr %31, align 8, !tbaa !33
   %.not25.i38 = icmp eq ptr %32, null
   br i1 %.not25.i38, label %.loopexit, label %.lr.ph.i.lr.ph
 
@@ -393,22 +393,22 @@ define void @av_executor_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %41 = load ptr, ptr %0, align 8, !tbaa !4
   %42 = tail call i32 %40(ptr noundef nonnull %39, ptr noundef %41) #5
   %.not21.i = icmp eq i32 %42, 0
-  %43 = load ptr, ptr %.01826.i, align 8, !tbaa !32
+  %43 = load ptr, ptr %.01826.i, align 8, !tbaa !33
   br i1 %.not21.i, label %44, label %.critedge.i
 
 44:                                               ; preds = %38
-  %45 = load ptr, ptr %43, align 8, !tbaa !32
+  %45 = load ptr, ptr %43, align 8, !tbaa !33
   %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %.loopexit, label %38, !llvm.loop !33
+  br i1 %.not.i, label %.loopexit, label %38, !llvm.loop !34
 
 .critedge.i:                                      ; preds = %38
   %.not22.i = icmp eq ptr %43, null
   br i1 %.not22.i, label %.loopexit, label %46
 
 46:                                               ; preds = %.critedge.i
-  %47 = load ptr, ptr %43, align 8, !tbaa !34
-  store ptr %47, ptr %.01826.i, align 8, !tbaa !32
-  store ptr null, ptr %43, align 8, !tbaa !34
+  %47 = load ptr, ptr %43, align 8, !tbaa !35
+  store ptr %47, ptr %.01826.i, align 8, !tbaa !33
+  store ptr null, ptr %43, align 8, !tbaa !35
   %48 = load i32, ptr %3, align 8, !tbaa !24
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %50, label %52
@@ -430,12 +430,12 @@ define void @av_executor_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %run_one_task.exit
 
 run_one_task.exit:                                ; preds = %52, %58
-  %60 = load ptr, ptr %31, align 8, !tbaa !32
+  %60 = load ptr, ptr %31, align 8, !tbaa !33
   %.not25.i = icmp eq ptr %60, null
-  br i1 %.not25.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not25.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !45
 
 .loopexit:                                        ; preds = %run_one_task.exit, %.critedge.i, %44, %29
-  store i8 0, ptr %26, align 4, !tbaa !40
+  store i8 0, ptr %26, align 4, !tbaa !42
   br label %61
 
 61:                                               ; preds = %21, %.loopexit, %.thread
@@ -507,18 +507,20 @@ attributes #5 = { nounwind }
 !26 = !{!"ThreadInfo", !27, i64 0, !28, i64 8}
 !27 = !{!"p1 _ZTS10AVExecutor", !6, i64 0}
 !28 = !{!"long", !7, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!17, !9, i64 152}
-!32 = !{!21, !21, i64 0}
-!33 = distinct !{!33, !30}
-!34 = !{!35, !21, i64 0}
-!35 = !{!"AVTask", !21, i64 0}
-!36 = !{!26, !28, i64 8}
-!37 = distinct !{!37, !30}
-!38 = !{!27, !27, i64 0}
-!39 = distinct !{!39, !30}
-!40 = !{!17, !18, i64 44}
-!41 = !{i8 0, i8 2}
-!42 = !{}
-!43 = distinct !{!43, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!17, !9, i64 152}
+!33 = !{!21, !21, i64 0}
+!34 = distinct !{!34, !30, !31}
+!35 = !{!36, !21, i64 0}
+!36 = !{!"AVTask", !21, i64 0}
+!37 = distinct !{!37, !31}
+!38 = !{!26, !28, i64 8}
+!39 = distinct !{!39, !30, !31}
+!40 = !{!27, !27, i64 0}
+!41 = distinct !{!41, !30, !31}
+!42 = !{!17, !18, i64 44}
+!43 = !{i8 0, i8 2}
+!44 = !{}
+!45 = distinct !{!45, !30, !31}

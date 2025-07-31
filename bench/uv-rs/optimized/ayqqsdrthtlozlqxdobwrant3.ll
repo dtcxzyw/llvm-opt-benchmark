@@ -151,12 +151,12 @@ define noundef zeroext i1 @_ZN8uv_types6traits10BuildStack8contains17hd10e135838
   %30 = add i16 %.sroa.06.0.i26.i.i, -1
   %31 = and i16 %30, %.sroa.06.0.i26.i.i
   %32 = icmp eq i16 %31, 0
-  br i1 %32, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %32, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !37
 
 33:                                               ; preds = %._crit_edge.i.i
   %34 = add i64 %.sroa.9.0.i.i.i, 16
   %35 = add i64 %.sroa.01.0.i.i.i, %34
-  br label %15
+  br label %15, !llvm.loop !39
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb803bf9817d5d995E.exit": ; preds = %._crit_edge.i.i, %.lr.ph.i.i, %2
   %.sroa.0.0.i = phi i1 [ false, %2 ], [ true, %.lr.ph.i.i ], [ false, %._crit_edge.i.i ]
@@ -252,3 +252,6 @@ attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 !34 = distinct !{!34, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8cc1e91e483e69e1E"}
 !35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !38}

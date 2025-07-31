@@ -310,7 +310,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   %68 = add nuw nsw i32 %.066117, 1
   %exitcond.not = icmp eq i32 %68, 100
   %or.cond149 = select i1 %67, i1 true, i1 %exitcond.not
-  br i1 %or.cond149, label %69, label %12, !llvm.loop !8
+  br i1 %or.cond149, label %69, label %12, !llvm.loop !9
 
 69:                                               ; preds = %65, %12
   %.176 = phi i8 [ %.277, %65 ], [ %.075114, %12 ]
@@ -404,6 +404,7 @@ attributes #11 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

@@ -50,7 +50,7 @@ int_pow.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph
   %18 = add nsw i32 %.010.i.i, %.09.i
   %19 = add nuw nsw i32 %.078.i, 1
   %20 = icmp slt i32 %18, %13
-  br i1 %20, label %.lr.ph.i, label %dep.exit, !llvm.loop !11
+  br i1 %20, label %.lr.ph.i, label %dep.exit, !llvm.loop !12
 
 dep.exit:                                         ; preds = %int_pow.exit.i, %12
   %.07.lcssa.i = phi i32 [ 0, %12 ], [ %.078.i, %int_pow.exit.i ]
@@ -123,7 +123,7 @@ tailrecurse.loopexit.i:                           ; preds = %50
 45:                                               ; preds = %50
   %46 = add nuw i32 %.056.i, 1
   %exitcond.not.i = icmp eq i32 %.056.i, %2
-  br i1 %exitcond.not.i, label %search_tree.exit, label %47, !llvm.loop !12
+  br i1 %exitcond.not.i, label %search_tree.exit, label %47, !llvm.loop !13
 
 47:                                               ; preds = %45, %.preheader.i
   %.056.i = phi i32 [ 1, %.preheader.i ], [ %46, %45 ]
@@ -185,7 +185,7 @@ int_pow.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph
   %13 = add nsw i32 %.010.i.i, %.09.i
   %14 = add nuw nsw i32 %.078.i, 1
   %15 = icmp slt i32 %13, %8
-  br i1 %15, label %.lr.ph.i, label %dep.exit, !llvm.loop !11
+  br i1 %15, label %.lr.ph.i, label %dep.exit, !llvm.loop !12
 
 dep.exit:                                         ; preds = %int_pow.exit.i, %7
   %.07.lcssa.i = phi i32 [ 0, %7 ], [ %.078.i, %int_pow.exit.i ]
@@ -252,7 +252,7 @@ geometric_series.exit:                            ; preds = %20, %int_pow.exit.i
   %39 = icmp samesign ult i64 %indvars.iv.next, %36
   %40 = icmp slt i32 %38, %1
   %41 = select i1 %39, i1 %40, i1 false
-  br i1 %41, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !13
+  br i1 %41, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %42 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -275,9 +275,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}

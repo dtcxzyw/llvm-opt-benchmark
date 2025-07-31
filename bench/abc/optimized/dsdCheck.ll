@@ -32,7 +32,7 @@ define void @Dsd_CheckCacheAllocate(i32 noundef %0) local_unnamed_addr #0 {
   %6 = add nuw nsw i32 %.01116.i, 2
   %7 = mul nuw nsw i32 %6, %6
   %.not.i = icmp ugt i32 %7, %3
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %5
   %.01116.i = phi i32 [ %6, %5 ], [ 3, %.preheader.i ]
@@ -42,16 +42,16 @@ define void @Dsd_CheckCacheAllocate(i32 noundef %0) local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.preheader.i, %5
   %10 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  store i32 %3, ptr %10, align 8, !tbaa !11
+  store i32 %3, ptr %10, align 8, !tbaa !12
   %11 = sext i32 %3 to i64
   %12 = mul nsw i64 %11, 40
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #11
-  store ptr %13, ptr %calloc, align 8, !tbaa !15
+  store ptr %13, ptr %calloc, align 8, !tbaa !16
   %14 = icmp ult i32 %.012.i, 2147483647
   br i1 %14, label %.lr.ph.i7, label %Dsd_CheckCacheClear.exit
 
 .lr.ph.i7:                                        ; preds = %.loopexit
-  store ptr null, ptr %13, align 8, !tbaa !16
+  store ptr null, ptr %13, align 8, !tbaa !17
   br label %Dsd_CheckCacheClear.exit
 
 Dsd_CheckCacheClear.exit:                         ; preds = %.loopexit, %.lr.ph.i7
@@ -70,7 +70,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Dsd_CheckCacheDeallocate() local_unnamed_addr #3 {
   %1 = load ptr, ptr @pCache, align 8, !tbaa !3
-  %2 = load ptr, ptr %1, align 8, !tbaa !15
+  %2 = load ptr, ptr %1, align 8, !tbaa !16
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -91,13 +91,13 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 define void @Dsd_CheckCacheClear() local_unnamed_addr #5 {
   %1 = load ptr, ptr @pCache, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !11
+  %3 = load i32, ptr %2, align 8, !tbaa !12
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %0
-  %5 = load ptr, ptr %1, align 8, !tbaa !15
-  store ptr null, ptr %5, align 8, !tbaa !16
+  %5 = load ptr, ptr %1, align 8, !tbaa !16
+  store ptr null, ptr %5, align 8, !tbaa !17
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
@@ -118,7 +118,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %9 = alloca [4 x ptr], align 16
   %10 = alloca [4 x ptr], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = icmp eq ptr %3, %12
   %14 = icmp eq ptr %4, %12
   %or.cond = and i1 %13, %14
@@ -183,167 +183,167 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %53 = mul i64 %52, 741457
   %54 = load ptr, ptr @pCache, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !11
+  %56 = load i32, ptr %55, align 8, !tbaa !12
   %57 = sext i32 %56 to i64
   %58 = urem i64 %53, %57
-  %59 = load ptr, ptr %54, align 8, !tbaa !15
+  %59 = load ptr, ptr %54, align 8, !tbaa !16
   %60 = and i64 %58, 4294967295
   %61 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %59, i64 %60
-  %62 = load ptr, ptr %61, align 8, !tbaa !16
+  %62 = load ptr, ptr %61, align 8, !tbaa !17
   %63 = icmp eq ptr %62, %1
   br i1 %63, label %64, label %84
 
 64:                                               ; preds = %43
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !16
+  %66 = load ptr, ptr %65, align 8, !tbaa !17
   %67 = icmp eq ptr %66, %2
   br i1 %67, label %68, label %84
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !16
+  %70 = load ptr, ptr %69, align 8, !tbaa !17
   %71 = icmp eq ptr %70, %3
   br i1 %71, label %72, label %84
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !16
+  %74 = load ptr, ptr %73, align 8, !tbaa !17
   %75 = icmp eq ptr %74, %4
   br i1 %75, label %76, label %84
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  %78 = load i32, ptr %77, align 4, !tbaa !34
+  %78 = load i32, ptr %77, align 4, !tbaa !35
   %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %77, align 4, !tbaa !34
+  store i32 %79, ptr %77, align 4, !tbaa !35
   %80 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %59, i64 %60, i32 0, i64 4
-  %81 = load ptr, ptr %80, align 8, !tbaa !16
+  %81 = load ptr, ptr %80, align 8, !tbaa !17
   %82 = ptrtoint ptr %81 to i64
   %83 = trunc i64 %82 to i32
   br label %257
 
 84:                                               ; preds = %72, %68, %64, %43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
-  store ptr %1, ptr %6, align 16, !tbaa !16
+  store ptr %1, ptr %6, align 16, !tbaa !17
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %85, align 8, !tbaa !16
+  store ptr %2, ptr %85, align 8, !tbaa !17
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %3, ptr %86, align 16, !tbaa !16
+  store ptr %3, ptr %86, align 16, !tbaa !17
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %4, ptr %87, align 8, !tbaa !16
+  store ptr %4, ptr %87, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
   %88 = and i64 %44, -2
   %89 = inttoptr i64 %88 to ptr
-  store ptr %89, ptr %7, align 16, !tbaa !16
+  store ptr %89, ptr %7, align 16, !tbaa !17
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %91 = and i64 %45, -2
   %92 = inttoptr i64 %91 to ptr
-  store ptr %92, ptr %90, align 8, !tbaa !16
+  store ptr %92, ptr %90, align 8, !tbaa !17
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %94 = and i64 %48, -2
   %95 = inttoptr i64 %94 to ptr
-  store ptr %95, ptr %93, align 16, !tbaa !16
+  store ptr %95, ptr %93, align 16, !tbaa !17
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %97 = and i64 %51, -2
   %98 = inttoptr i64 %97 to ptr
-  store ptr %98, ptr %96, align 8, !tbaa !16
+  store ptr %98, ptr %96, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
-  %99 = load i32, ptr %89, align 8, !tbaa !35
+  %99 = load i32, ptr %89, align 8, !tbaa !36
   %100 = icmp eq i32 %99, 2147483647
   br i1 %100, label %107, label %101
 
 101:                                              ; preds = %84
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %103 = load ptr, ptr %102, align 8, !tbaa !36
+  %103 = load ptr, ptr %102, align 8, !tbaa !37
   %104 = zext i32 %99 to i64
   %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !37
+  %106 = load i32, ptr %105, align 4, !tbaa !38
   br label %107
 
 107:                                              ; preds = %84, %101
   %108 = phi i32 [ %106, %101 ], [ 2147483647, %84 ]
-  store i32 %108, ptr %8, align 16, !tbaa !37
+  store i32 %108, ptr %8, align 16, !tbaa !38
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %110 = load i32, ptr %92, align 8, !tbaa !35
+  %110 = load i32, ptr %92, align 8, !tbaa !36
   %111 = icmp eq i32 %110, 2147483647
   br i1 %111, label %118, label %112
 
 112:                                              ; preds = %107
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %114 = load ptr, ptr %113, align 8, !tbaa !36
+  %114 = load ptr, ptr %113, align 8, !tbaa !37
   %115 = zext i32 %110 to i64
   %116 = getelementptr inbounds nuw i32, ptr %114, i64 %115
-  %117 = load i32, ptr %116, align 4, !tbaa !37
+  %117 = load i32, ptr %116, align 4, !tbaa !38
   br label %118
 
 118:                                              ; preds = %107, %112
   %119 = phi i32 [ %117, %112 ], [ 2147483647, %107 ]
-  store i32 %119, ptr %109, align 4, !tbaa !37
+  store i32 %119, ptr %109, align 4, !tbaa !38
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %121 = load i32, ptr %95, align 8, !tbaa !35
+  %121 = load i32, ptr %95, align 8, !tbaa !36
   %122 = icmp eq i32 %121, 2147483647
   br i1 %122, label %129, label %123
 
 123:                                              ; preds = %118
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %125 = load ptr, ptr %124, align 8, !tbaa !36
+  %125 = load ptr, ptr %124, align 8, !tbaa !37
   %126 = zext i32 %121 to i64
   %127 = getelementptr inbounds nuw i32, ptr %125, i64 %126
-  %128 = load i32, ptr %127, align 4, !tbaa !37
+  %128 = load i32, ptr %127, align 4, !tbaa !38
   br label %129
 
 129:                                              ; preds = %118, %123
   %130 = phi i32 [ %128, %123 ], [ 2147483647, %118 ]
-  store i32 %130, ptr %120, align 8, !tbaa !37
+  store i32 %130, ptr %120, align 8, !tbaa !38
   %131 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %132 = load i32, ptr %98, align 8, !tbaa !35
+  %132 = load i32, ptr %98, align 8, !tbaa !36
   %133 = icmp eq i32 %132, 2147483647
   br i1 %133, label %140, label %134
 
 134:                                              ; preds = %129
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %136 = load ptr, ptr %135, align 8, !tbaa !36
+  %136 = load ptr, ptr %135, align 8, !tbaa !37
   %137 = zext i32 %132 to i64
   %138 = getelementptr inbounds nuw i32, ptr %136, i64 %137
-  %139 = load i32, ptr %138, align 4, !tbaa !37
+  %139 = load i32, ptr %138, align 4, !tbaa !38
   br label %140
 
 140:                                              ; preds = %129, %134
   %141 = phi i32 [ %139, %134 ], [ 2147483647, %129 ]
-  store i32 %141, ptr %131, align 4, !tbaa !37
+  store i32 %141, ptr %131, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #12
   %142 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %143 = load i32, ptr %142, align 8, !tbaa !38
+  %143 = load i32, ptr %142, align 8, !tbaa !39
   %144 = add nsw i32 %143, 1
-  store i32 %144, ptr %142, align 8, !tbaa !38
+  store i32 %144, ptr %142, align 8, !tbaa !39
   br label %145
 
 145:                                              ; preds = %140, %145
   %indvars.iv = phi i64 [ 0, %140 ], [ %indvars.iv.next, %145 ]
   %.0121161 = phi i32 [ 2147483647, %140 ], [ %spec.select, %145 ]
   %146 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv
-  %147 = load i32, ptr %146, align 4, !tbaa !37
+  %147 = load i32, ptr %146, align 4, !tbaa !38
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0121161, i32 %147)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader, label %145, !llvm.loop !39
+  br i1 %exitcond.not, label %.preheader, label %145, !llvm.loop !40
 
 .preheader:                                       ; preds = %145, %174
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %174 ], [ 0, %145 ]
   %148 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv166
-  %149 = load i32, ptr %148, align 4, !tbaa !37
+  %149 = load i32, ptr %148, align 4, !tbaa !38
   %150 = icmp eq i32 %spec.select, %149
   %151 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv166
-  %152 = load ptr, ptr %151, align 8, !tbaa !16
+  %152 = load ptr, ptr %151, align 8, !tbaa !17
   br i1 %150, label %153, label %172
 
 153:                                              ; preds = %.preheader
   %154 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv166
-  %155 = load ptr, ptr %154, align 8, !tbaa !16
+  %155 = load ptr, ptr %154, align 8, !tbaa !17
   %.not153 = icmp eq ptr %152, %155
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
-  %157 = load ptr, ptr %156, align 8, !tbaa !40
+  %157 = load ptr, ptr %156, align 8, !tbaa !41
   br i1 %.not153, label %168, label %158
 
 158:                                              ; preds = %153
@@ -351,9 +351,9 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %160 = xor i64 %159, 1
   %161 = inttoptr i64 %160 to ptr
   %162 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %indvars.iv166
-  store ptr %161, ptr %162, align 8, !tbaa !16
+  store ptr %161, ptr %162, align 8, !tbaa !17
   %163 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %164 = load ptr, ptr %163, align 8, !tbaa !40
+  %164 = load ptr, ptr %163, align 8, !tbaa !41
   %165 = ptrtoint ptr %164 to i64
   %166 = xor i64 %165, 1
   %167 = inttoptr i64 %166 to ptr
@@ -361,24 +361,24 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 
 168:                                              ; preds = %153
   %169 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %indvars.iv166
-  store ptr %157, ptr %169, align 8, !tbaa !16
+  store ptr %157, ptr %169, align 8, !tbaa !17
   %170 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %171 = load ptr, ptr %170, align 8, !tbaa !40
+  %171 = load ptr, ptr %170, align 8, !tbaa !41
   br label %174
 
 172:                                              ; preds = %.preheader
   %173 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %indvars.iv166
-  store ptr %152, ptr %173, align 8, !tbaa !16
+  store ptr %152, ptr %173, align 8, !tbaa !17
   br label %174
 
 174:                                              ; preds = %172, %168, %158
   %.sink174 = phi ptr [ %9, %172 ], [ %10, %168 ], [ %10, %158 ]
   %.sink = phi ptr [ %152, %172 ], [ %171, %168 ], [ %167, %158 ]
   %175 = getelementptr inbounds nuw [4 x ptr], ptr %.sink174, i64 0, i64 %indvars.iv166
-  store ptr %.sink, ptr %175, align 8, !tbaa !16
+  store ptr %.sink, ptr %175, align 8, !tbaa !17
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 4
-  br i1 %exitcond169.not, label %176, label %.preheader, !llvm.loop !41
+  br i1 %exitcond169.not, label %176, label %.preheader, !llvm.loop !42
 
 176:                                              ; preds = %174
   %177 = icmp eq i32 %spec.select, %130
@@ -388,7 +388,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %181 = load ptr, ptr %180, align 16, !tbaa !16
+  %181 = load ptr, ptr %180, align 16, !tbaa !17
   %.not151 = icmp eq ptr %181, %21
   %182 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %183 = load ptr, ptr %182, align 16
@@ -397,7 +397,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %.val160 = load ptr, ptr %9, align 16
   %.0117 = select i1 %.not151, ptr %.val159, ptr %.val160
   %184 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %185 = load ptr, ptr %184, align 8, !tbaa !16
+  %185 = load ptr, ptr %184, align 8, !tbaa !17
   %.not152 = icmp eq ptr %185, %21
   %186 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %187 = load ptr, ptr %186, align 8
@@ -417,7 +417,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 
 194:                                              ; preds = %193
   %195 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %196 = load ptr, ptr %195, align 16, !tbaa !16
+  %196 = load ptr, ptr %195, align 16, !tbaa !17
   %.not150 = icmp eq ptr %196, %21
   %197 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %198 = load ptr, ptr %197, align 16
@@ -426,18 +426,18 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %.val158 = load ptr, ptr %9, align 16
   %.1118 = select i1 %.not150, ptr %.val, ptr %.val158
   %199 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %200 = load ptr, ptr %199, align 8, !tbaa !16
+  %200 = load ptr, ptr %199, align 8, !tbaa !17
   %201 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %202 = load ptr, ptr %201, align 8, !tbaa !16
+  %202 = load ptr, ptr %201, align 8, !tbaa !17
   %203 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %.1118, ptr noundef %200, ptr noundef %.1114, ptr noundef %202)
   %204 = icmp eq i32 %203, 1
   br i1 %204, label %205, label %250
 
 205:                                              ; preds = %194
   %206 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %207 = load ptr, ptr %206, align 8, !tbaa !16
+  %207 = load ptr, ptr %206, align 8, !tbaa !17
   %208 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %209 = load ptr, ptr %208, align 8, !tbaa !16
+  %209 = load ptr, ptr %208, align 8, !tbaa !17
   %210 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %.1118, ptr noundef %207, ptr noundef %.1114, ptr noundef %209)
   br label %250
 
@@ -448,7 +448,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 
 212:                                              ; preds = %211
   %213 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %214 = load ptr, ptr %213, align 8, !tbaa !16
+  %214 = load ptr, ptr %213, align 8, !tbaa !17
   %.not149 = icmp eq ptr %214, %21
   %215 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %216 = load ptr, ptr %215, align 8
@@ -458,53 +458,53 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %220 = load ptr, ptr %219, align 8
   %.1116 = select i1 %.not149, ptr %218, ptr %216
   %.1 = select i1 %.not149, ptr %220, ptr %214
-  %221 = load ptr, ptr %9, align 16, !tbaa !16
+  %221 = load ptr, ptr %9, align 16, !tbaa !17
   %222 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %223 = load ptr, ptr %222, align 16, !tbaa !16
+  %223 = load ptr, ptr %222, align 16, !tbaa !17
   %224 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %221, ptr noundef %.1116, ptr noundef %223, ptr noundef %.1)
   %225 = icmp eq i32 %224, 1
   br i1 %225, label %226, label %250
 
 226:                                              ; preds = %212
-  %227 = load ptr, ptr %10, align 16, !tbaa !16
+  %227 = load ptr, ptr %10, align 16, !tbaa !17
   %228 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %229 = load ptr, ptr %228, align 16, !tbaa !16
+  %229 = load ptr, ptr %228, align 16, !tbaa !17
   %230 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %227, ptr noundef %.1116, ptr noundef %229, ptr noundef %.1)
   br label %250
 
 231:                                              ; preds = %211
-  %232 = load ptr, ptr %9, align 16, !tbaa !16
+  %232 = load ptr, ptr %9, align 16, !tbaa !17
   %233 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %234 = load ptr, ptr %233, align 8, !tbaa !16
+  %234 = load ptr, ptr %233, align 8, !tbaa !17
   %235 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %236 = load ptr, ptr %235, align 16, !tbaa !16
+  %236 = load ptr, ptr %235, align 16, !tbaa !17
   %237 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %238 = load ptr, ptr %237, align 8, !tbaa !16
+  %238 = load ptr, ptr %237, align 8, !tbaa !17
   %239 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %232, ptr noundef %234, ptr noundef %236, ptr noundef %238)
   %240 = icmp eq i32 %239, 1
   br i1 %240, label %241, label %250
 
 241:                                              ; preds = %231
-  %242 = load ptr, ptr %10, align 16, !tbaa !16
+  %242 = load ptr, ptr %10, align 16, !tbaa !17
   %243 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %244 = load ptr, ptr %243, align 8, !tbaa !16
+  %244 = load ptr, ptr %243, align 8, !tbaa !17
   %245 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %246 = load ptr, ptr %245, align 16, !tbaa !16
+  %246 = load ptr, ptr %245, align 16, !tbaa !17
   %247 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %248 = load ptr, ptr %247, align 8, !tbaa !16
+  %248 = load ptr, ptr %247, align 8, !tbaa !17
   %249 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %242, ptr noundef %244, ptr noundef %246, ptr noundef %248)
   br label %250
 
 250:                                              ; preds = %205, %194, %231, %241, %212, %226, %179
   %.0123 = phi i32 [ %192, %179 ], [ %210, %205 ], [ %203, %194 ], [ %230, %226 ], [ %224, %212 ], [ %249, %241 ], [ %239, %231 ]
   %251 = load ptr, ptr @pCache, align 8, !tbaa !3
-  %252 = load ptr, ptr %251, align 8, !tbaa !15
+  %252 = load ptr, ptr %251, align 8, !tbaa !16
   %253 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %252, i64 %60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !17
   %254 = sext i32 %.0123 to i64
   %255 = inttoptr i64 %254 to ptr
   %256 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %252, i64 %60, i32 0, i64 4
-  store ptr %255, ptr %256, align 8, !tbaa !16
+  store ptr %255, ptr %256, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
@@ -552,37 +552,38 @@ attributes #12 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !14, i64 8}
-!12 = !{!"Dsd_Cache_t_", !13, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
-!13 = !{!"p1 _ZTS12Dsd_Entry_t_", !5, i64 0}
-!14 = !{!"int", !6, i64 0}
-!15 = !{!12, !13, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS6DdNode", !5, i64 0}
-!18 = !{!19, !17, i64 40}
-!19 = !{!"DdManager", !20, i64 0, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !22, i64 80, !22, i64 88, !14, i64 96, !14, i64 100, !23, i64 104, !23, i64 112, !23, i64 120, !14, i64 128, !14, i64 132, !14, i64 136, !14, i64 140, !14, i64 144, !14, i64 148, !24, i64 152, !24, i64 160, !25, i64 168, !14, i64 224, !14, i64 228, !14, i64 232, !14, i64 236, !14, i64 240, !14, i64 244, !14, i64 248, !23, i64 256, !14, i64 264, !14, i64 268, !14, i64 272, !26, i64 280, !21, i64 288, !23, i64 296, !14, i64 304, !27, i64 312, !27, i64 320, !27, i64 328, !27, i64 336, !26, i64 344, !27, i64 352, !26, i64 360, !14, i64 368, !28, i64 376, !28, i64 384, !26, i64 392, !17, i64 400, !29, i64 408, !26, i64 416, !14, i64 424, !14, i64 428, !14, i64 432, !23, i64 440, !14, i64 448, !14, i64 452, !14, i64 456, !14, i64 460, !23, i64 464, !23, i64 472, !14, i64 480, !14, i64 484, !14, i64 488, !14, i64 492, !14, i64 496, !14, i64 500, !14, i64 504, !14, i64 508, !14, i64 512, !30, i64 520, !30, i64 528, !14, i64 536, !14, i64 540, !14, i64 544, !14, i64 548, !14, i64 552, !14, i64 556, !31, i64 560, !29, i64 568, !32, i64 576, !32, i64 584, !32, i64 592, !32, i64 600, !33, i64 608, !33, i64 616, !14, i64 624, !21, i64 632, !21, i64 640, !21, i64 648, !14, i64 656, !21, i64 664, !21, i64 672, !23, i64 680, !23, i64 688, !23, i64 696, !23, i64 704, !23, i64 712, !23, i64 720, !14, i64 728, !17, i64 736, !17, i64 744, !21, i64 752}
-!20 = !{!"DdNode", !14, i64 0, !14, i64 4, !17, i64 8, !6, i64 16, !21, i64 32}
-!21 = !{!"long", !6, i64 0}
-!22 = !{!"p1 _ZTS7DdCache", !5, i64 0}
-!23 = !{!"double", !6, i64 0}
-!24 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
-!25 = !{!"DdSubtable", !26, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !14, i64 40, !14, i64 44, !14, i64 48}
-!26 = !{!"p2 _ZTS6DdNode", !5, i64 0}
-!27 = !{!"p1 int", !5, i64 0}
-!28 = !{!"p1 long", !5, i64 0}
-!29 = !{!"p1 omnipotent char", !5, i64 0}
-!30 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
-!31 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
-!32 = !{!"p1 _ZTS6DdHook", !5, i64 0}
-!33 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!34 = !{!12, !14, i64 12}
-!35 = !{!20, !14, i64 0}
-!36 = !{!19, !27, i64 312}
-!37 = !{!14, !14, i64 0}
-!38 = !{!12, !14, i64 16}
-!39 = distinct !{!39, !9}
-!40 = !{!6, !6, i64 0}
-!41 = distinct !{!41, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !15, i64 8}
+!13 = !{!"Dsd_Cache_t_", !14, i64 0, !15, i64 8, !15, i64 12, !15, i64 16}
+!14 = !{!"p1 _ZTS12Dsd_Entry_t_", !5, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!13, !14, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS6DdNode", !5, i64 0}
+!19 = !{!20, !18, i64 40}
+!20 = !{!"DdManager", !21, i64 0, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !18, i64 72, !23, i64 80, !23, i64 88, !15, i64 96, !15, i64 100, !24, i64 104, !24, i64 112, !24, i64 120, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !15, i64 144, !15, i64 148, !25, i64 152, !25, i64 160, !26, i64 168, !15, i64 224, !15, i64 228, !15, i64 232, !15, i64 236, !15, i64 240, !15, i64 244, !15, i64 248, !24, i64 256, !15, i64 264, !15, i64 268, !15, i64 272, !27, i64 280, !22, i64 288, !24, i64 296, !15, i64 304, !28, i64 312, !28, i64 320, !28, i64 328, !28, i64 336, !27, i64 344, !28, i64 352, !27, i64 360, !15, i64 368, !29, i64 376, !29, i64 384, !27, i64 392, !18, i64 400, !30, i64 408, !27, i64 416, !15, i64 424, !15, i64 428, !15, i64 432, !24, i64 440, !15, i64 448, !15, i64 452, !15, i64 456, !15, i64 460, !24, i64 464, !24, i64 472, !15, i64 480, !15, i64 484, !15, i64 488, !15, i64 492, !15, i64 496, !15, i64 500, !15, i64 504, !15, i64 508, !15, i64 512, !31, i64 520, !31, i64 528, !15, i64 536, !15, i64 540, !15, i64 544, !15, i64 548, !15, i64 552, !15, i64 556, !32, i64 560, !30, i64 568, !33, i64 576, !33, i64 584, !33, i64 592, !33, i64 600, !34, i64 608, !34, i64 616, !15, i64 624, !22, i64 632, !22, i64 640, !22, i64 648, !15, i64 656, !22, i64 664, !22, i64 672, !24, i64 680, !24, i64 688, !24, i64 696, !24, i64 704, !24, i64 712, !24, i64 720, !15, i64 728, !18, i64 736, !18, i64 744, !22, i64 752}
+!21 = !{!"DdNode", !15, i64 0, !15, i64 4, !18, i64 8, !6, i64 16, !22, i64 32}
+!22 = !{!"long", !6, i64 0}
+!23 = !{!"p1 _ZTS7DdCache", !5, i64 0}
+!24 = !{!"double", !6, i64 0}
+!25 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
+!26 = !{!"DdSubtable", !27, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48}
+!27 = !{!"p2 _ZTS6DdNode", !5, i64 0}
+!28 = !{!"p1 int", !5, i64 0}
+!29 = !{!"p1 long", !5, i64 0}
+!30 = !{!"p1 omnipotent char", !5, i64 0}
+!31 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
+!32 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
+!33 = !{!"p1 _ZTS6DdHook", !5, i64 0}
+!34 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!35 = !{!13, !15, i64 12}
+!36 = !{!21, !15, i64 0}
+!37 = !{!20, !28, i64 312}
+!38 = !{!15, !15, i64 0}
+!39 = !{!13, !15, i64 16}
+!40 = distinct !{!40, !9, !10}
+!41 = !{!6, !6, i64 0}
+!42 = distinct !{!42, !9, !10}

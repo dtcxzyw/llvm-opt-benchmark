@@ -450,16 +450,16 @@ define dso_local { ptr, i64 } @_ZNK4llvm16FoldingSetNodeID6InternERNS_20BumpPtrA
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %8 = load i64, ptr %7, align 8, !tbaa !20
+  %8 = load i64, ptr %7, align 8, !tbaa !21
   %9 = add i64 %6, %8
-  store i64 %9, ptr %7, align 8, !tbaa !20
-  %10 = load ptr, ptr %1, align 8, !tbaa !32
+  store i64 %9, ptr %7, align 8, !tbaa !21
+  %10 = load ptr, ptr %1, align 8, !tbaa !33
   %11 = ptrtoint ptr %10 to i64
   %12 = add i64 %11, 3
   %13 = and i64 %12, -4
   %14 = add i64 %13, %6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !33
+  %16 = load ptr, ptr %15, align 8, !tbaa !34
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ule i64 %14, %17
   %18 = icmp ne ptr %10, null
@@ -468,7 +468,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm16FoldingSetNodeID6InternERNS_20BumpPtrA
 
 20:                                               ; preds = %2
   %21 = inttoptr i64 %14 to ptr
-  store ptr %21, ptr %1, align 8, !tbaa !32
+  store ptr %21, ptr %1, align 8, !tbaa !33
   %22 = inttoptr i64 %13 to ptr
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIjEEPT_m.exit
 
@@ -503,7 +503,7 @@ _ZSt18uninitialized_copyIPKjPjET0_T_S4_S3_.exit:  ; preds = %_ZN4llvm13Allocator
 define dso_local void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 12)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = shl nuw i32 1, %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %4, align 8, !tbaa !34
+  store i32 %3, ptr %4, align 8, !tbaa !35
   %5 = add nuw i32 %3, 1
   %6 = zext i32 %5 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #24
@@ -517,43 +517,43 @@ define dso_local void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull writeonl
 _ZL15AllocateBucketsj.exit:                       ; preds = %2
   %10 = zext i32 %3 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
-  store ptr inttoptr (i64 -1 to ptr), ptr %11, align 8, !tbaa !36
-  store ptr %7, ptr %0, align 8, !tbaa !37
+  store ptr inttoptr (i64 -1 to ptr), ptr %11, align 8, !tbaa !37
+  store ptr %7, ptr %0, align 8, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %12, align 4, !tbaa !38
+  store i32 0, ptr %12, align 4, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm14FoldingSetBaseC2EOS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !37
-  store ptr %3, ptr %0, align 8, !tbaa !37
+  %3 = load ptr, ptr %1, align 8, !tbaa !38
+  store ptr %3, ptr %0, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !34
-  store i32 %6, ptr %4, align 8, !tbaa !34
+  %6 = load i32, ptr %5, align 8, !tbaa !35
+  store i32 %6, ptr %4, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !38
-  store i32 %9, ptr %7, align 4, !tbaa !38
+  %9 = load i32, ptr %8, align 4, !tbaa !39
+  store i32 %9, ptr %7, align 4, !tbaa !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm14FoldingSetBaseaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) initializes((8, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !37
+  %3 = load ptr, ptr %0, align 8, !tbaa !38
   tail call void @free(ptr noundef %3) #23
-  %4 = load ptr, ptr %1, align 8, !tbaa !37
-  store ptr %4, ptr %0, align 8, !tbaa !37
+  %4 = load ptr, ptr %1, align 8, !tbaa !38
+  store ptr %4, ptr %0, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !34
+  %6 = load i32, ptr %5, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %6, ptr %7, align 8, !tbaa !34
+  store i32 %6, ptr %7, align 8, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !38
+  %9 = load i32, ptr %8, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %9, ptr %10, align 4, !tbaa !38
+  store i32 %9, ptr %10, align 4, !tbaa !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   ret ptr %0
 }
@@ -563,26 +563,26 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !37
+  %2 = load ptr, ptr %0, align 8, !tbaa !38
   tail call void @free(ptr noundef %2) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm14FoldingSetBase5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((12, 16)) %0) local_unnamed_addr #8 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !37
+  %2 = load ptr, ptr %0, align 8, !tbaa !38
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !34
+  %4 = load i32, ptr %3, align 8, !tbaa !35
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %6, i1 false)
-  %7 = load ptr, ptr %0, align 8, !tbaa !37
-  %8 = load i32, ptr %3, align 8, !tbaa !34
+  %7 = load ptr, ptr %0, align 8, !tbaa !38
+  %8 = load i32, ptr %3, align 8, !tbaa !35
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  store ptr inttoptr (i64 -1 to ptr), ptr %10, align 8, !tbaa !36
+  store ptr inttoptr (i64 -1 to ptr), ptr %10, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %11, align 4, !tbaa !38
+  store i32 0, ptr %11, align 4, !tbaa !39
   ret void
 }
 
@@ -593,9 +593,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local void @_ZN4llvm14FoldingSetBase15GrowBucketCountEjRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !37
+  %6 = load ptr, ptr %0, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !34
+  %8 = load i32, ptr %7, align 8, !tbaa !35
   %9 = add i32 %1, 1
   %10 = zext i32 %9 to i64
   %11 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 8) #24
@@ -623,11 +623,11 @@ _ZL15AllocateBucketsj.exit:                       ; preds = %3, %15
   %.0.i.i = phi ptr [ %11, %3 ], [ %16, %15 ]
   %20 = zext i32 %1 to i64
   %21 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %20
-  store ptr inttoptr (i64 -1 to ptr), ptr %21, align 8, !tbaa !36
-  store ptr %.0.i.i, ptr %0, align 8, !tbaa !37
-  store i32 %1, ptr %7, align 8, !tbaa !34
+  store ptr inttoptr (i64 -1 to ptr), ptr %21, align 8, !tbaa !37
+  store ptr %.0.i.i, ptr %0, align 8, !tbaa !38
+  store i32 %1, ptr %7, align 8, !tbaa !35
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %22, align 4, !tbaa !38
+  store i32 0, ptr %22, align 4, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #23
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %23, ptr %5, align 8, !tbaa !16
@@ -664,7 +664,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16FoldingSe
 32:                                               ; preds = %.lr.ph34, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next, %.thread ]
   %33 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %34 = load ptr, ptr %33, align 8, !tbaa !36
+  %34 = load ptr, ptr %33, align 8, !tbaa !37
   %.not22 = icmp eq ptr %34, null
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, 1
@@ -674,17 +674,17 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16FoldingSe
 
 .lr.ph:                                           ; preds = %32, %62
   %.01831 = phi ptr [ %37, %62 ], [ %34, %32 ]
-  %37 = load ptr, ptr %.01831, align 8, !tbaa !39
-  store ptr null, ptr %.01831, align 8, !tbaa !39
-  %38 = load ptr, ptr %26, align 8, !tbaa !41
+  %37 = load ptr, ptr %.01831, align 8, !tbaa !40
+  store ptr null, ptr %.01831, align 8, !tbaa !40
+  %38 = load ptr, ptr %26, align 8, !tbaa !42
   %39 = call noundef i32 %38(ptr noundef nonnull %0, ptr noundef nonnull %.01831, ptr noundef nonnull align 8 dereferenceable(144) %5) #23
-  %40 = load ptr, ptr %0, align 8, !tbaa !37
-  %41 = load i32, ptr %7, align 8, !tbaa !34
+  %40 = load ptr, ptr %0, align 8, !tbaa !38
+  %41 = load i32, ptr %7, align 8, !tbaa !35
   %42 = add i32 %41, -1
   %43 = and i32 %42, %39
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw ptr, ptr %40, i64 %44
-  %46 = load i32, ptr %22, align 4, !tbaa !38
+  %46 = load i32, ptr %22, align 4, !tbaa !39
   %47 = add i32 %46, 1
   %48 = shl i32 %41, 1
   %49 = icmp ugt i32 %47, %48
@@ -696,10 +696,10 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16FoldingSe
   store ptr %27, ptr %4, align 8, !tbaa !16
   store i32 0, ptr %28, align 8, !tbaa !11
   store i32 32, ptr %29, align 4, !tbaa !14
-  %51 = load ptr, ptr %26, align 8, !tbaa !41
+  %51 = load ptr, ptr %26, align 8, !tbaa !42
   %52 = call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.01831, ptr noundef nonnull align 8 dereferenceable(144) %4) #23
-  %53 = load ptr, ptr %0, align 8, !tbaa !37
-  %54 = load i32, ptr %7, align 8, !tbaa !34
+  %53 = load ptr, ptr %0, align 8, !tbaa !38
+  %54 = load i32, ptr %7, align 8, !tbaa !35
   %55 = add i32 %54, -1
   %56 = and i32 %55, %52
   %57 = zext i32 %56 to i64
@@ -714,44 +714,44 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16FoldingSe
 
 _ZN4llvm16FoldingSetNodeIDD2Ev.exit25:            ; preds = %50, %61
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #23
-  %.pre = load i32, ptr %22, align 4, !tbaa !38
+  %.pre = load i32, ptr %22, align 4, !tbaa !39
   %.pre38 = add i32 %.pre, 1
   br label %62
 
 62:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit25, %.lr.ph
   %.pre-phi = phi i32 [ %.pre38, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit25 ], [ %47, %.lr.ph ]
   %.012.i = phi ptr [ %58, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit25 ], [ %45, %.lr.ph ]
-  store i32 %.pre-phi, ptr %22, align 4, !tbaa !38
-  %63 = load ptr, ptr %.012.i, align 8, !tbaa !36
+  store i32 %.pre-phi, ptr %22, align 4, !tbaa !39
+  %63 = load ptr, ptr %.012.i, align 8, !tbaa !37
   %.not.i24 = icmp eq ptr %63, null
   %64 = ptrtoint ptr %.012.i to i64
   %65 = or i64 %64, 1
   %66 = inttoptr i64 %65 to ptr
   %.0.i = select i1 %.not.i24, ptr %66, ptr %63
-  store ptr %.0.i, ptr %.01831, align 8, !tbaa !39
-  store ptr %.01831, ptr %.012.i, align 8, !tbaa !36
+  store ptr %.0.i, ptr %.01831, align 8, !tbaa !40
+  store ptr %.01831, ptr %.012.i, align 8, !tbaa !37
   store i32 0, ptr %24, align 8, !tbaa !11
   %67 = ptrtoint ptr %37 to i64
   %68 = and i64 %67, 1
   %.not.i = icmp ne i64 %68, 0
   %.not2329 = icmp eq ptr %37, null
   %.not23 = or i1 %.not2329, %.not.i
-  br i1 %.not23, label %.thread, label %.lr.ph
+  br i1 %.not23, label %.thread, label %.lr.ph, !llvm.loop !44
 
 .thread:                                          ; preds = %62, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %30
-  br i1 %.not, label %._crit_edge, label %32, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %32, !llvm.loop !45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !38
+  %7 = load i32, ptr %6, align 4, !tbaa !39
   %8 = add i32 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !34
+  %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = shl i32 %10, 1
   %12 = icmp ugt i32 %8, %11
   br i1 %12, label %13, label %29
@@ -766,10 +766,10 @@ define dso_local void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_1
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 32, ptr %16, align 4, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %18 = load ptr, ptr %17, align 8, !tbaa !42
   %19 = call noundef i32 %18(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %5) #23
-  %20 = load ptr, ptr %0, align 8, !tbaa !37
-  %21 = load i32, ptr %9, align 8, !tbaa !34
+  %20 = load ptr, ptr %0, align 8, !tbaa !38
+  %21 = load i32, ptr %9, align 8, !tbaa !35
   %22 = add i32 %21, -1
   %23 = and i32 %22, %19
   %24 = zext i32 %23 to i64
@@ -784,29 +784,29 @@ define dso_local void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_1
 
 _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %13, %28
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #23
-  %.pre = load i32, ptr %6, align 4, !tbaa !38
+  %.pre = load i32, ptr %6, align 4, !tbaa !39
   %.pre14 = add i32 %.pre, 1
   br label %29
 
 29:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %4
   %.pre-phi = phi i32 [ %.pre14, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %8, %4 ]
   %.012 = phi ptr [ %25, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %2, %4 ]
-  store i32 %.pre-phi, ptr %6, align 4, !tbaa !38
-  %30 = load ptr, ptr %.012, align 8, !tbaa !36
+  store i32 %.pre-phi, ptr %6, align 4, !tbaa !39
+  %30 = load ptr, ptr %.012, align 8, !tbaa !37
   %.not = icmp eq ptr %30, null
   %31 = ptrtoint ptr %.012 to i64
   %32 = or i64 %31, 1
   %33 = inttoptr i64 %32 to ptr
   %.0 = select i1 %.not, ptr %33, ptr %30
-  store ptr %.0, ptr %1, align 8, !tbaa !39
-  store ptr %1, ptr %.012, align 8, !tbaa !36
+  store ptr %.0, ptr %1, align 8, !tbaa !40
+  store ptr %1, ptr %.012, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm14FoldingSetBase13GrowHashTableERKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !34
+  %4 = load i32, ptr %3, align 8, !tbaa !35
   %5 = shl i32 %4, 1
   tail call void @_ZN4llvm14FoldingSetBase15GrowBucketCountEjRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %1)
   ret void
@@ -815,7 +815,7 @@ define dso_local void @_ZN4llvm14FoldingSetBase13GrowHashTableERKNS0_14FoldingSe
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm14FoldingSetBase7reserveEjRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !34
+  %5 = load i32, ptr %4, align 8, !tbaa !35
   %6 = shl i32 %5, 1
   %7 = icmp ult i32 %1, %6
   br i1 %7, label %12, label %8
@@ -843,15 +843,15 @@ define dso_local noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS
   %10 = getelementptr inbounds nuw i32, ptr %6, i64 %9
   %11 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %6, ptr noundef %10)
   %12 = trunc i64 %11 to i32
-  %13 = load ptr, ptr %0, align 8, !tbaa !37
+  %13 = load ptr, ptr %0, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !34
+  %15 = load i32, ptr %14, align 8, !tbaa !35
   %16 = add i32 %15, -1
   %17 = and i32 %16, %12
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !36
-  store ptr null, ptr %2, align 8, !tbaa !36
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
+  store ptr null, ptr %2, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #23
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %21, ptr %5, align 8, !tbaa !16
@@ -872,13 +872,13 @@ define dso_local noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS
 
 27:                                               ; preds = %.lr.ph, %30
   %.01732 = phi ptr [ %20, %.lr.ph ], [ %31, %30 ]
-  %28 = load ptr, ptr %26, align 8, !tbaa !44
+  %28 = load ptr, ptr %26, align 8, !tbaa !46
   %29 = call noundef zeroext i1 %28(ptr noundef nonnull %0, ptr noundef nonnull %.01732, ptr noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(144) %5) #23
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %27
   store i32 0, ptr %22, align 8, !tbaa !11
-  %31 = load ptr, ptr %.01732, align 8, !tbaa !39
+  %31 = load ptr, ptr %.01732, align 8, !tbaa !40
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, 1
   %.not.i = icmp ne i64 %33, 0
@@ -887,7 +887,7 @@ define dso_local noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS
   br i1 %.not, label %._crit_edge, label %27
 
 ._crit_edge:                                      ; preds = %30, %4
-  store ptr %19, ptr %2, align 8, !tbaa !36
+  store ptr %19, ptr %2, align 8, !tbaa !37
   br label %.thread
 
 .thread:                                          ; preds = %27, %._crit_edge
@@ -907,16 +907,16 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %.thread, %36
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm14FoldingSetBase10RemoveNodeEPNS0_4NodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address) %1) local_unnamed_addr #10 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !39
+  %3 = load ptr, ptr %1, align 8, !tbaa !40
   %.not = icmp ne ptr %3, null
   br i1 %.not, label %4, label %.critedge33
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !38
+  %6 = load i32, ptr %5, align 4, !tbaa !39
   %7 = add i32 %6, -1
-  store i32 %7, ptr %5, align 4, !tbaa !38
-  store ptr null, ptr %1, align 8, !tbaa !39
+  store i32 %7, ptr %5, align 4, !tbaa !39
+  store ptr null, ptr %1, align 8, !tbaa !40
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %4
@@ -929,24 +929,24 @@ define dso_local noundef zeroext i1 @_ZN4llvm14FoldingSetBase10RemoveNodeEPNS0_4
   br i1 %.not30, label %13, label %10
 
 10:                                               ; preds = %.critedge
-  %11 = load ptr, ptr %.021, align 8, !tbaa !39
+  %11 = load ptr, ptr %.021, align 8, !tbaa !40
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.critedge33.sink.split, label %.critedge.backedge
 
 13:                                               ; preds = %.critedge
   %14 = and i64 %8, -2
   %15 = inttoptr i64 %14 to ptr
-  %16 = load ptr, ptr %15, align 8, !tbaa !36
+  %16 = load ptr, ptr %15, align 8, !tbaa !37
   %.not31 = icmp eq ptr %16, %1
   br i1 %.not31, label %.critedge33.sink.split, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %13, %10
   %.021.be = phi ptr [ %11, %10 ], [ %16, %13 ]
-  br label %.critedge, !llvm.loop !45
+  br label %.critedge, !llvm.loop !47
 
 .critedge33.sink.split:                           ; preds = %13, %10
   %.021.lcssa.sink = phi ptr [ %.021, %10 ], [ %15, %13 ]
-  store ptr %3, ptr %.021.lcssa.sink, align 8, !tbaa !36
+  store ptr %3, ptr %.021.lcssa.sink, align 8, !tbaa !37
   br label %.critedge33
 
 .critedge33:                                      ; preds = %.critedge33.sink.split, %2
@@ -965,7 +965,7 @@ define dso_local noundef ptr @_ZN4llvm14FoldingSetBase15GetOrInsertNodeEPNS0_4No
   store i32 0, ptr %8, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 32, ptr %9, align 4, !tbaa !14
-  %10 = load ptr, ptr %2, align 8, !tbaa !46
+  %10 = load ptr, ptr %2, align 8, !tbaa !48
   call void %10(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %6) #23
   %11 = load ptr, ptr %6, align 8, !tbaa !16
   %12 = load i32, ptr %8, align 8, !tbaa !11
@@ -973,14 +973,14 @@ define dso_local noundef ptr @_ZN4llvm14FoldingSetBase15GetOrInsertNodeEPNS0_4No
   %14 = getelementptr inbounds nuw i32, ptr %11, i64 %13
   %15 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %11, ptr noundef %14)
   %16 = trunc i64 %15 to i32
-  %17 = load ptr, ptr %0, align 8, !tbaa !37
+  %17 = load ptr, ptr %0, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !34
+  %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = add i32 %19, -1
   %21 = and i32 %20, %16
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %24 = load ptr, ptr %23, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #23
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %25, ptr %5, align 8, !tbaa !16
@@ -1005,13 +1005,13 @@ _ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_1
 
 31:                                               ; preds = %34, %.lr.ph.i
   %.01732.i = phi ptr [ %24, %.lr.ph.i ], [ %35, %34 ]
-  %32 = load ptr, ptr %30, align 8, !tbaa !44
+  %32 = load ptr, ptr %30, align 8, !tbaa !46
   %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.01732.i, ptr noundef nonnull align 8 dereferenceable(144) %6, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(144) %5) #23
   br i1 %33, label %.thread.i, label %34
 
 34:                                               ; preds = %31
   store i32 0, ptr %26, align 8, !tbaa !11
-  %35 = load ptr, ptr %.01732.i, align 8, !tbaa !39
+  %35 = load ptr, ptr %.01732.i, align 8, !tbaa !40
   %36 = ptrtoint ptr %35 to i64
   %37 = and i64 %36, 1
   %.not.i.i = icmp ne i64 %37, 0
@@ -1038,9 +1038,9 @@ _ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_1
 40:                                               ; preds = %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit.thread, %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit
   %.01419 = phi ptr [ %23, %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit.thread ], [ %.0.ph, %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !38
+  %42 = load i32, ptr %41, align 4, !tbaa !39
   %43 = add i32 %42, 1
-  %44 = load i32, ptr %18, align 8, !tbaa !34
+  %44 = load i32, ptr %18, align 8, !tbaa !35
   %45 = shl i32 %44, 1
   %46 = icmp ugt i32 %43, %45
   br i1 %46, label %47, label %_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE.exit
@@ -1055,10 +1055,10 @@ _ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_1
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 32, ptr %50, align 4, !tbaa !14
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !41
+  %52 = load ptr, ptr %51, align 8, !tbaa !42
   %53 = call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %4) #23
-  %54 = load ptr, ptr %0, align 8, !tbaa !37
-  %55 = load i32, ptr %18, align 8, !tbaa !34
+  %54 = load ptr, ptr %0, align 8, !tbaa !38
+  %55 = load i32, ptr %18, align 8, !tbaa !35
   %56 = add i32 %55, -1
   %57 = and i32 %56, %53
   %58 = zext i32 %57 to i64
@@ -1073,22 +1073,22 @@ _ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_1
 
 _ZN4llvm16FoldingSetNodeIDD2Ev.exit.i:            ; preds = %62, %47
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #23
-  %.pre.i = load i32, ptr %41, align 4, !tbaa !38
+  %.pre.i = load i32, ptr %41, align 4, !tbaa !39
   %.pre14.i = add i32 %.pre.i, 1
   br label %_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE.exit
 
 _ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE.exit: ; preds = %40, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i
   %.pre-phi.i = phi i32 [ %.pre14.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i ], [ %43, %40 ]
   %.012.i = phi ptr [ %59, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i ], [ %.01419, %40 ]
-  store i32 %.pre-phi.i, ptr %41, align 4, !tbaa !38
-  %63 = load ptr, ptr %.012.i, align 8, !tbaa !36
+  store i32 %.pre-phi.i, ptr %41, align 4, !tbaa !39
+  %63 = load ptr, ptr %.012.i, align 8, !tbaa !37
   %.not.i11 = icmp eq ptr %63, null
   %64 = ptrtoint ptr %.012.i to i64
   %65 = or i64 %64, 1
   %66 = inttoptr i64 %65 to ptr
   %.0.i = select i1 %.not.i11, ptr %66, ptr %63
-  store ptr %.0.i, ptr %1, align 8, !tbaa !39
-  store ptr %1, ptr %.012.i, align 8, !tbaa !36
+  store ptr %.0.i, ptr %1, align 8, !tbaa !40
+  store ptr %1, ptr %.012.i, align 8, !tbaa !37
   br label %67
 
 67:                                               ; preds = %_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE.exit, %_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE.exit
@@ -1112,7 +1112,7 @@ define dso_local void @_ZN4llvm22FoldingSetIteratorImplC2EPPv(ptr noundef nonnul
 
 3:                                                ; preds = %.critedge2, %2
   %.0 = phi ptr [ %1, %2 ], [ %7, %.critedge2 ]
-  %4 = load ptr, ptr %.0, align 8, !tbaa !36
+  %4 = load ptr, ptr %.0, align 8, !tbaa !37
   %magicptr = ptrtoint ptr %4 to i64
   switch i64 %magicptr, label %5 [
     i64 -1, label %.critedge
@@ -1128,17 +1128,17 @@ define dso_local void @_ZN4llvm22FoldingSetIteratorImplC2EPPv(ptr noundef nonnul
 
 .critedge2:                                       ; preds = %3, %5
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  br label %3, !llvm.loop !47
+  br label %3, !llvm.loop !49
 
 .critedge:                                        ; preds = %3, %5
-  store ptr %4, ptr %0, align 8, !tbaa !48
+  store ptr %4, ptr %0, align 8, !tbaa !50
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm22FoldingSetIteratorImpl7advanceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #12 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !48
-  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %2 = load ptr, ptr %0, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, 1
   %.not.i = icmp ne i64 %5, 0
@@ -1154,7 +1154,7 @@ define dso_local void @_ZN4llvm22FoldingSetIteratorImpl7advanceEv(ptr noundef no
 .critedge2:                                       ; preds = %.critedge2.backedge, %6
   %.0 = phi ptr [ %8, %6 ], [ %9, %.critedge2.backedge ]
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %11 [
     i64 -1, label %.critedge
@@ -1169,24 +1169,24 @@ define dso_local void @_ZN4llvm22FoldingSetIteratorImpl7advanceEv(ptr noundef no
   br i1 %.not16, label %.critedge2.backedge, label %.critedge
 
 .critedge2.backedge:                              ; preds = %11, %.critedge2
-  br label %.critedge2, !llvm.loop !51
+  br label %.critedge2, !llvm.loop !53
 
 .critedge:                                        ; preds = %11, %.critedge2, %1
   %storemerge = phi ptr [ %3, %1 ], [ %10, %.critedge2 ], [ %10, %11 ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !48
+  store ptr %storemerge, ptr %0, align 8, !tbaa !50
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm28FoldingSetBucketIteratorImplC2EPPv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !36
+  %3 = load ptr, ptr %1, align 8, !tbaa !37
   %.not = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, 1
   %.not.i.not = icmp eq i64 %5, 0
   %spec.select = select i1 %.not.i.not, ptr %3, ptr %1
   %6 = select i1 %.not, ptr %1, ptr %spec.select
-  store ptr %6, ptr %0, align 8, !tbaa !52
+  store ptr %6, ptr %0, align 8, !tbaa !54
   ret void
 }
 
@@ -1215,30 +1215,30 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENS
   %10 = and i64 %5, -64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0.copyload.i.i.i = load i64, ptr %12, align 1, !noalias !54
+  %.0.copyload.i.i.i = load i64, ptr %12, align 1, !noalias !56
   %13 = add i64 %.0.copyload.i.i.i, -8345775121483124050
   %.0.i.i.i = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 27)
   %14 = mul i64 %.0.i.i.i, -5435081209227447693
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.0.copyload.i7.i.i = load i64, ptr %15, align 1, !noalias !54
+  %.0.copyload.i7.i.i = load i64, ptr %15, align 1, !noalias !56
   %16 = add i64 %.0.copyload.i7.i.i, -4705135293385828636
   %.0.i8.i.i = tail call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 22)
   %17 = mul i64 %.0.i8.i.i, -5435081209227447693
   %18 = xor i64 %14, -599882191873993834
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.0.copyload.i9.i.i = load i64, ptr %19, align 1, !noalias !54
+  %.0.copyload.i9.i.i = load i64, ptr %19, align 1, !noalias !56
   %20 = add i64 %.0.copyload.i9.i.i, -8296710342493395487
   %21 = add i64 %20, %17
   %22 = add i64 %18, -49064778989800850
-  %.0.copyload.i.i.i.i = load i64, ptr %0, align 1, !noalias !54
+  %.0.copyload.i.i.i.i = load i64, ptr %0, align 1, !noalias !56
   %23 = add i64 %.0.copyload.i.i.i.i, 2994313307402683989
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.0.copyload.i15.i.i.i = load i64, ptr %24, align 1, !noalias !54
+  %.0.copyload.i15.i.i.i = load i64, ptr %24, align 1, !noalias !56
   %25 = add i64 %22, %23
   %26 = add i64 %25, %.0.copyload.i15.i.i.i
   %.0.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 43)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.copyload.i17.i.i.i = load i64, ptr %27, align 1, !noalias !54
+  %.0.copyload.i17.i.i.i = load i64, ptr %27, align 1, !noalias !56
   %28 = add i64 %23, %.0.copyload.i.i.i
   %29 = add i64 %28, %.0.copyload.i17.i.i.i
   %.0.i18.i.i.i = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 20)
@@ -1247,10 +1247,10 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENS
   %32 = add i64 %29, %.0.copyload.i15.i.i.i
   %33 = add i64 %21, %.0.copyload.i17.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.0.copyload.i.i12.i.i = load i64, ptr %34, align 1, !noalias !54
+  %.0.copyload.i.i12.i.i = load i64, ptr %34, align 1, !noalias !56
   %35 = add i64 %.0.copyload.i.i12.i.i, 5473611571550975290
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.0.copyload.i15.i13.i.i = load i64, ptr %36, align 1, !noalias !54
+  %.0.copyload.i15.i13.i.i = load i64, ptr %36, align 1, !noalias !56
   %37 = add i64 %33, %35
   %38 = add i64 %37, %.0.copyload.i15.i13.i.i
   %.0.i.i14.i.i = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 43)
@@ -1333,7 +1333,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENS
   %82 = add i64 %79, %.0.copyload.i15.i13.i
   %.0 = getelementptr inbounds nuw i8, ptr %.067, i64 64
   %.not = icmp eq ptr %.0, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %.sroa.58.0.lcssa = phi i64 [ %42, %9 ], [ %81, %.lr.ph ]
@@ -1730,13 +1730,13 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   store i32 %53, ptr %34, align 8, !tbaa !11
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !33
+  store ptr %54, ptr %55, align 8, !tbaa !34
   %56 = add i64 %7, %51
   %57 = sub i64 0, %6
   %58 = and i64 %56, %57
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %2
-  store ptr %60, ptr %0, align 8, !tbaa !32
+  store ptr %60, ptr %0, align 8, !tbaa !33
   br label %61
 
 61:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
@@ -1812,43 +1812,45 @@ attributes #26 = { nounwind allocsize(0) }
 !15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !16 = !{!12, !6, i64 0}
 !17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !9, i64 80}
-!21 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !22, i64 0, !22, i64 8, !23, i64 16, !28, i64 64, !9, i64 80, !9, i64 88}
-!22 = !{!"p1 omnipotent char", !6, i64 0}
-!23 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !24, i64 0, !27, i64 16}
-!24 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !25, i64 0}
-!25 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !26, i64 0}
-!26 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !12, i64 0}
-!27 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !7, i64 0}
-!28 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !29, i64 0}
-!29 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !30, i64 0}
-!30 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !31, i64 0}
-!31 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !12, i64 0}
-!32 = !{!21, !22, i64 0}
-!33 = !{!21, !22, i64 8}
-!34 = !{!35, !13, i64 8}
-!35 = !{!"_ZTSN4llvm14FoldingSetBaseE", !6, i64 0, !13, i64 8, !13, i64 12}
-!36 = !{!6, !6, i64 0}
-!37 = !{!35, !6, i64 0}
-!38 = !{!35, !13, i64 12}
-!39 = !{!40, !6, i64 0}
-!40 = !{!"_ZTSN4llvm14FoldingSetBase4NodeE", !6, i64 0}
-!41 = !{!42, !6, i64 16}
-!42 = !{!"_ZTSN4llvm14FoldingSetBase14FoldingSetInfoE", !6, i64 0, !6, i64 8, !6, i64 16}
-!43 = distinct !{!43, !19}
-!44 = !{!42, !6, i64 8}
-!45 = distinct !{!45, !19}
-!46 = !{!42, !6, i64 0}
-!47 = distinct !{!47, !19}
-!48 = !{!49, !50, i64 0}
-!49 = !{!"_ZTSN4llvm22FoldingSetIteratorImplE", !50, i64 0}
-!50 = !{!"p1 _ZTSN4llvm14FoldingSetBase4NodeE", !6, i64 0}
-!51 = distinct !{!51, !19}
-!52 = !{!53, !6, i64 0}
-!53 = !{!"_ZTSN4llvm28FoldingSetBucketIteratorImplE", !6, i64 0}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm: argument 0"}
-!56 = distinct !{!56, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm"}
-!57 = distinct !{!57, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !9, i64 80}
+!22 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !23, i64 0, !23, i64 8, !24, i64 16, !29, i64 64, !9, i64 80, !9, i64 88}
+!23 = !{!"p1 omnipotent char", !6, i64 0}
+!24 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !25, i64 0, !28, i64 16}
+!25 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !26, i64 0}
+!26 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !27, i64 0}
+!27 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !12, i64 0}
+!28 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !7, i64 0}
+!29 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !30, i64 0}
+!30 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !31, i64 0}
+!31 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !32, i64 0}
+!32 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !12, i64 0}
+!33 = !{!22, !23, i64 0}
+!34 = !{!22, !23, i64 8}
+!35 = !{!36, !13, i64 8}
+!36 = !{!"_ZTSN4llvm14FoldingSetBaseE", !6, i64 0, !13, i64 8, !13, i64 12}
+!37 = !{!6, !6, i64 0}
+!38 = !{!36, !6, i64 0}
+!39 = !{!36, !13, i64 12}
+!40 = !{!41, !6, i64 0}
+!41 = !{!"_ZTSN4llvm14FoldingSetBase4NodeE", !6, i64 0}
+!42 = !{!43, !6, i64 16}
+!43 = !{!"_ZTSN4llvm14FoldingSetBase14FoldingSetInfoE", !6, i64 0, !6, i64 8, !6, i64 16}
+!44 = distinct !{!44, !20}
+!45 = distinct !{!45, !19, !20}
+!46 = !{!43, !6, i64 8}
+!47 = distinct !{!47, !19, !20}
+!48 = !{!43, !6, i64 0}
+!49 = distinct !{!49, !19, !20}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTSN4llvm22FoldingSetIteratorImplE", !52, i64 0}
+!52 = !{!"p1 _ZTSN4llvm14FoldingSetBase4NodeE", !6, i64 0}
+!53 = distinct !{!53, !20}
+!54 = !{!55, !6, i64 0}
+!55 = !{!"_ZTSN4llvm28FoldingSetBucketIteratorImplE", !6, i64 0}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm: argument 0"}
+!58 = distinct !{!58, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm"}
+!59 = distinct !{!59, !19, !20}

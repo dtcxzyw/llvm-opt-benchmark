@@ -800,7 +800,7 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   %18 = load i8, ptr %30, align 1, !tbaa !10
   %19 = add i8 %18, -48
   %or.cond55 = icmp ult i8 %19, 10
-  br i1 %or.cond55, label %.lr.ph109, label %.critedge2, !llvm.loop !17
+  br i1 %or.cond55, label %.lr.ph109, label %.critedge2, !llvm.loop !18
 
 .lr.ph109:                                        ; preds = %.lr.ph77.preheader, %.lr.ph77
   %20 = phi i8 [ %18, %.lr.ph77 ], [ %16, %.lr.ph77.preheader ]
@@ -822,10 +822,10 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   %29 = add nsw i32 %22, %28
   %30 = getelementptr inbounds nuw i8, ptr %.14775108, i64 1
   %.not52 = icmp eq ptr %30, %11
-  br i1 %.not52, label %..critedge2_crit_edge, label %.lr.ph77, !llvm.loop !17
+  br i1 %.not52, label %..critedge2_crit_edge, label %.lr.ph77, !llvm.loop !18
 
 ..critedge2_crit_edge:                            ; preds = %27
-  br label %.critedge2, !llvm.loop !17
+  br label %.critedge2, !llvm.loop !18
 
 .critedge2:                                       ; preds = %.lr.ph77, %..critedge2_crit_edge, %.lr.ph77.preheader
   %.147.lcssa = phi ptr [ %30, %..critedge2_crit_edge ], [ %.046.lcssa, %.lr.ph77.preheader ], [ %30, %.lr.ph77 ]
@@ -850,7 +850,7 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
 32:                                               ; preds = %.lr.ph87
   %33 = getelementptr inbounds nuw i8, ptr %.286, i64 1
   %.not54 = icmp eq ptr %33, %11
-  br i1 %.not54, label %.critedge57, label %.lr.ph87, !llvm.loop !18
+  br i1 %.not54, label %.critedge57, label %.lr.ph87, !llvm.loop !19
 
 34:                                               ; preds = %.lr.ph87
   %35 = sdiv i32 %.0.lcssa, 1000000
@@ -898,7 +898,7 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
 61:                                               ; preds = %.lr.ph.i
   %62 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %.not.i59 = icmp eq ptr %62, %11
-  br i1 %.not.i59, label %.critedge57, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i59, label %.critedge57, label %.lr.ph.i, !llvm.loop !20
 
 .lr.ph.i:                                         ; preds = %59, %61
   %.07.i = phi ptr [ %62, %61 ], [ %60, %59 ]
@@ -961,8 +961,9 @@ attributes #11 = { nounwind }
 !12 = !{!"_ZTS10grpc_slice", !13, i64 0, !6, i64 8}
 !13 = !{!"p1 _ZTS19grpc_slice_refcount", !14, i64 0}
 !14 = !{!"any pointer", !6, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = distinct !{!19, !16, !17}
+!20 = distinct !{!20, !16, !17}

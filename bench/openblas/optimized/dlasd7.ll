@@ -151,7 +151,7 @@ define void @dlasd7_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   store double 0.000000e+00, ptr %100, align 8, !tbaa !7
   %indvars.iv.next486 = add nsw i64 %indvars.iv485, 1
   %.not417.not = icmp slt i64 %indvars.iv485, %98
-  br i1 %.not417.not, label %.lr.ph437, label %._crit_edge438, !llvm.loop !11
+  br i1 %.not417.not, label %.lr.ph437, label %._crit_edge438, !llvm.loop !12
 
 ._crit_edge438:                                   ; preds = %.lr.ph437, %._crit_edge
   %.not418439 = icmp sgt i32 %67, %51
@@ -171,7 +171,7 @@ define void @dlasd7_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %indvars.iv.next489 = add nsw i64 %indvars.iv488, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next489 to i32
   %exitcond = icmp eq i32 %105, %lftr.wideiv
-  br i1 %exitcond, label %._crit_edge443, label %.lr.ph442, !llvm.loop !12
+  br i1 %exitcond, label %._crit_edge443, label %.lr.ph442, !llvm.loop !13
 
 ._crit_edge443:                                   ; preds = %.lr.ph442, %._crit_edge438
   %.not419444 = icmp slt i32 %50, 1
@@ -205,7 +205,7 @@ define void @dlasd7_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   store double %123, ptr %124, align 8, !tbaa !7
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond494 = icmp eq i64 %indvars.iv.next492, %wide.trip.count
-  br i1 %exitcond494, label %.lr.ph452.preheader, label %.lr.ph447, !llvm.loop !13
+  br i1 %exitcond494, label %.lr.ph452.preheader, label %.lr.ph447, !llvm.loop !14
 
 ._crit_edge448.._crit_edge453_crit_edge:          ; preds = %._crit_edge443
   %125 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -246,7 +246,7 @@ define void @dlasd7_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   store double %144, ptr %145, align 8, !tbaa !7
   %indvars.iv.next496 = add nuw nsw i64 %indvars.iv495, 1
   %exitcond499 = icmp eq i64 %indvars.iv.next496, %wide.trip.count498
-  br i1 %exitcond499, label %._crit_edge453, label %.lr.ph452, !llvm.loop !14
+  br i1 %exitcond499, label %._crit_edge453, label %.lr.ph452, !llvm.loop !15
 
 ._crit_edge453:                                   ; preds = %.lr.ph452, %._crit_edge448.._crit_edge453_crit_edge
   %146 = phi ptr [ %125, %._crit_edge448.._crit_edge453_crit_edge ], [ %127, %.lr.ph452 ]
@@ -450,7 +450,7 @@ define void @dlasd7_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %.2 = phi i32 [ %193, %192 ], [ %252, %247 ], [ %.1467, %255 ]
   %266 = trunc nuw i64 %indvars.iv507 to i32
   %.not483 = icmp sgt i32 %50, %266
-  br i1 %.not483, label %187, label %._crit_edge470
+  br i1 %.not483, label %187, label %._crit_edge470, !llvm.loop !16
 
 ._crit_edge470:                                   ; preds = %265, %._crit_edge459
   %.1381.lcssa = phi i32 [ %.0384.lcssa, %._crit_edge459 ], [ %.2382, %265 ]
@@ -497,7 +497,7 @@ define void @dlasd7_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   store double %288, ptr %289, align 8, !tbaa !7
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
   %exitcond514 = icmp eq i64 %indvars.iv.next511, %wide.trip.count513
-  br i1 %exitcond514, label %._crit_edge476.thread, label %.lr.ph475, !llvm.loop !15
+  br i1 %exitcond514, label %._crit_edge476.thread, label %.lr.ph475, !llvm.loop !17
 
 ._crit_edge476.thread:                            ; preds = %.lr.ph475
   %290 = load i32, ptr %0, align 4, !tbaa !3
@@ -525,7 +525,7 @@ define void @dlasd7_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   store i32 %spec.select428, ptr %299, align 4, !tbaa !3
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
   %exitcond519 = icmp eq i64 %indvars.iv.next516, %wide.trip.count518
-  br i1 %exitcond519, label %.loopexit, label %.lr.ph482, !llvm.loop !16
+  br i1 %exitcond519, label %.loopexit, label %.lr.ph482, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph482, %.loopexit430, %._crit_edge476.thread
   %301 = load i32, ptr %4, align 4, !tbaa !3
@@ -657,11 +657,13 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}

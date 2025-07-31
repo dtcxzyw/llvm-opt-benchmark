@@ -680,7 +680,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit26:         ; preds = %37, %40
 
 _ZN4absl12lts_202407226StatusD2Ev.exit28:         ; preds = %47, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  br i1 %switch, label %9, label %56
+  br i1 %switch, label %9, label %56, !llvm.loop !36
 
 55:                                               ; preds = %45, %28
   %.pn21.pn = phi { ptr, i32 } [ %46, %45 ], [ %29, %28 ]
@@ -744,7 +744,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %13, %16
   br i1 %.not.i, label %.thread, label %26
 
 .thread:                                          ; preds = %23
-  store i64 1, ptr %4, align 8, !tbaa !17, !alias.scope !36
+  store i64 1, ptr %4, align 8, !tbaa !17, !alias.scope !38
   br label %34
 
 26:                                               ; preds = %23
@@ -846,7 +846,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit25:         ; preds = %45, %48
 
 _ZN4absl12lts_202407226StatusD2Ev.exit27:         ; preds = %55, %58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  br i1 %switch, label %23, label %64
+  br i1 %switch, label %23, label %64, !llvm.loop !43
 
 63:                                               ; preds = %53, %32
   %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %33, %32 ]
@@ -877,7 +877,7 @@ define internal void @__cxx_global_var_init.2() #12 section ".text.startup" comd
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 32, ptr %5, align 8
   %6 = call noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8, !tbaa !41
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8, !tbaa !44
   %7 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 6632)
   %8 = extractvalue { i64, i1 } %7, 1
   %9 = extractvalue { i64, i1 } %7, 0
@@ -894,7 +894,7 @@ define internal void @__cxx_global_var_init.2() #12 section ".text.startup" comd
   br label %_ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit
 
 _ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit: ; preds = %4, %.loopexit.loopexit.i.i.i
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8, !tbaa !51
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   br label %16
 
@@ -926,14 +926,14 @@ _ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIlEEvRSoRKT_.exit: ;
 
 10:                                               ; preds = %_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIlEEvRSoRKT_.exit
   %11 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  store ptr %11, ptr %4, align 8, !tbaa !52
+  store ptr %11, ptr %4, align 8, !tbaa !55
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %13 = getelementptr i8, ptr %11, i64 -24
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 %14
-  store ptr %12, ptr %15, align 8, !tbaa !52
+  store ptr %12, ptr %15, align 8, !tbaa !55
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %16, align 8, !tbaa !52
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %16, align 8, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -954,7 +954,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev.exit
 
 _ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %16, align 8, !tbaa !52
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %16, align 8, !tbaa !55
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #19
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -979,14 +979,14 @@ declare noundef ptr @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilder
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  store ptr %2, ptr %0, align 8, !tbaa !52
+  store ptr %2, ptr %0, align 8, !tbaa !55
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %4 = getelementptr i8, ptr %2, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  store ptr %3, ptr %6, align 8, !tbaa !52
+  store ptr %3, ptr %6, align 8, !tbaa !55
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %7, align 8, !tbaa !52
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %7, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1007,7 +1007,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !52
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #19
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1114,21 +1114,24 @@ attributes #23 = { builtin nounwind }
 !33 = !{!34}
 !34 = distinct !{!34, !35, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
 !35 = distinct !{!35, !"_ZN4absl12lts_202407228OkStatusEv"}
-!36 = !{!37, !39}
-!37 = distinct !{!37, !38, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!38 = distinct !{!38, !"_ZN4absl12lts_202407228OkStatusEv"}
-!39 = distinct !{!39, !40, !"_ZN9grpc_core12_GLOBAL__N_122DecodeCancelStateErrorEl: argument 0"}
-!40 = distinct !{!40, !"_ZN9grpc_core12_GLOBAL__N_122DecodeCancelStateErrorEl"}
-!41 = !{!42, !15, i64 8}
-!42 = !{!"_ZTSN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEEE", !43, i64 0, !15, i64 8, !44, i64 16}
-!43 = !{!"_ZTSN9grpc_core20PerCpuShardingHelperE"}
-!44 = !{!"_ZTSSt10unique_ptrIA_N9grpc_core20GlobalStatsCollector4DataESt14default_deleteIS3_EE", !45, i64 0}
-!45 = !{!"_ZTSSt15__uniq_ptr_dataIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_ELb1ELb1EE", !46, i64 0}
-!46 = !{!"_ZTSSt15__uniq_ptr_implIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EE", !47, i64 0}
-!47 = !{!"_ZTSSt5tupleIJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !48, i64 0}
-!48 = !{!"_ZTSSt11_Tuple_implILm0EJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !49, i64 0}
-!49 = !{!"_ZTSSt10_Head_baseILm0EPN9grpc_core20GlobalStatsCollector4DataELb0EE", !50, i64 0}
-!50 = !{!"p1 _ZTSN9grpc_core20GlobalStatsCollector4DataE", !6, i64 0}
-!51 = !{!50, !50, i64 0}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"vtable pointer", !8, i64 0}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!40 = distinct !{!40, !"_ZN4absl12lts_202407228OkStatusEv"}
+!41 = distinct !{!41, !42, !"_ZN9grpc_core12_GLOBAL__N_122DecodeCancelStateErrorEl: argument 0"}
+!42 = distinct !{!42, !"_ZN9grpc_core12_GLOBAL__N_122DecodeCancelStateErrorEl"}
+!43 = distinct !{!43, !37}
+!44 = !{!45, !15, i64 8}
+!45 = !{!"_ZTSN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEEE", !46, i64 0, !15, i64 8, !47, i64 16}
+!46 = !{!"_ZTSN9grpc_core20PerCpuShardingHelperE"}
+!47 = !{!"_ZTSSt10unique_ptrIA_N9grpc_core20GlobalStatsCollector4DataESt14default_deleteIS3_EE", !48, i64 0}
+!48 = !{!"_ZTSSt15__uniq_ptr_dataIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_ELb1ELb1EE", !49, i64 0}
+!49 = !{!"_ZTSSt15__uniq_ptr_implIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EE", !50, i64 0}
+!50 = !{!"_ZTSSt5tupleIJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !51, i64 0}
+!51 = !{!"_ZTSSt11_Tuple_implILm0EJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !52, i64 0}
+!52 = !{!"_ZTSSt10_Head_baseILm0EPN9grpc_core20GlobalStatsCollector4DataELb0EE", !53, i64 0}
+!53 = !{!"p1 _ZTSN9grpc_core20GlobalStatsCollector4DataE", !6, i64 0}
+!54 = !{!53, !53, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"vtable pointer", !8, i64 0}

@@ -57,12 +57,12 @@ define void @ubidi_addPropertyStarts_77(ptr noundef %0, ptr noundef readonly cap
   %.12634 = phi ptr [ %19, %24 ], [ %.025, %.lr.ph.preheader ]
   %.12933 = phi i32 [ %25, %24 ], [ %.028, %.lr.ph.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %.12634, i64 1
-  %20 = load i8, ptr %.12634, align 1, !tbaa !16
+  %20 = load i8, ptr %.12634, align 1, !tbaa !17
   %.not31 = icmp eq i8 %20, %.02435
   br i1 %.not31, label %24, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %7, align 8, !tbaa !17
+  %22 = load ptr, ptr %7, align 8, !tbaa !18
   %23 = load ptr, ptr %0, align 8, !tbaa !13
   tail call void %22(ptr noundef %23, i32 noundef %.12933)
   br label %24
@@ -71,20 +71,20 @@ define void @ubidi_addPropertyStarts_77(ptr noundef %0, ptr noundef readonly cap
   %.1 = phi i8 [ %20, %21 ], [ %.02435, %.lr.ph ]
   %25 = add nuw nsw i32 %.12933, 1
   %exitcond37.not = icmp eq ptr %.12634, %scevgep
-  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %24
   %.not30 = icmp eq i8 %.1, 0
   br i1 %.not30, label %29, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = load ptr, ptr %7, align 8, !tbaa !17
+  %27 = load ptr, ptr %7, align 8, !tbaa !18
   %28 = load ptr, ptr %0, align 8, !tbaa !13
   tail call void %27(ptr noundef %28, i32 noundef %.027)
   br label %29
 
 29:                                               ; preds = %26, %._crit_edge
-  br i1 %15, label %.lr.ph.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %15, label %.lr.ph.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %29, %2
   ret void
@@ -95,7 +95,7 @@ declare void @utrie2_enum_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL24_enumPropertyStartsRangePKviij(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !17
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = load ptr, ptr %0, align 8, !tbaa !13
   tail call void %6(ptr noundef %7, i32 noundef %1)
   ret i8 1
@@ -156,7 +156,7 @@ define range(i32 0, 32) i32 @ubidi_getClass_77(i32 noundef %0) local_unnamed_add
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -167,7 +167,7 @@ define range(i32 0, 32) i32 @ubidi_getClass_77(i32 noundef %0) local_unnamed_add
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -178,7 +178,7 @@ define range(i32 0, 32) i32 @ubidi_getClass_77(i32 noundef %0) local_unnamed_add
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
   ret i32 %37
@@ -213,7 +213,7 @@ define signext range(i8 0, 2) i8 @ubidi_isMirrored_77(i32 noundef %0) local_unna
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -224,7 +224,7 @@ define signext range(i8 0, 2) i8 @ubidi_isMirrored_77(i32 noundef %0) local_unna
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -235,7 +235,7 @@ define signext range(i8 0, 2) i8 @ubidi_isMirrored_77(i32 noundef %0) local_unna
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = lshr i16 %35, 12
   %37 = trunc nuw nsw i16 %36 to i8
   %38 = and i8 %37, 1
@@ -271,7 +271,7 @@ define i32 @ubidi_getMirror_77(i32 noundef %0) local_unnamed_addr #2 {
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -282,7 +282,7 @@ define i32 @ubidi_getMirror_77(i32 noundef %0) local_unnamed_addr #2 {
   %.sink20 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink20 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -293,7 +293,7 @@ define i32 @ubidi_getMirror_77(i32 noundef %0) local_unnamed_addr #2 {
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = ashr i16 %35, 13
   %.not.i = icmp eq i16 %36, -4
   br i1 %.not.i, label %.preheader.i, label %37
@@ -324,7 +324,7 @@ define i32 @ubidi_getMirror_77(i32 noundef %0) local_unnamed_addr #2 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 40
   %or.cond.i = select i1 %51, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %_ZL9getMirrorit.exit, label %.preheader.i, !llvm.loop !22
+  br i1 %or.cond.i, label %_ZL9getMirrorit.exit, label %.preheader.i, !llvm.loop !23
 
 _ZL9getMirrorit.exit:                             ; preds = %50, %37, %44
   %.0.i = phi i32 [ %39, %37 ], [ %49, %44 ], [ %0, %50 ]
@@ -360,7 +360,7 @@ define signext range(i8 0, 2) i8 @ubidi_isBidiControl_77(i32 noundef %0) local_u
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -371,7 +371,7 @@ define signext range(i8 0, 2) i8 @ubidi_isBidiControl_77(i32 noundef %0) local_u
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -382,7 +382,7 @@ define signext range(i8 0, 2) i8 @ubidi_isBidiControl_77(i32 noundef %0) local_u
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = lshr i16 %35, 11
   %37 = trunc nuw nsw i16 %36 to i8
   %38 = and i8 %37, 1
@@ -418,7 +418,7 @@ define signext range(i8 0, 2) i8 @ubidi_isJoinControl_77(i32 noundef %0) local_u
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -429,7 +429,7 @@ define signext range(i8 0, 2) i8 @ubidi_isJoinControl_77(i32 noundef %0) local_u
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -440,7 +440,7 @@ define signext range(i8 0, 2) i8 @ubidi_isJoinControl_77(i32 noundef %0) local_u
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = lshr i16 %35, 10
   %37 = trunc nuw nsw i16 %36 to i8
   %38 = and i8 %37, 1
@@ -476,7 +476,7 @@ define range(i32 0, 8) i32 @ubidi_getJoiningType_77(i32 noundef %0) local_unname
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -487,7 +487,7 @@ define range(i32 0, 8) i32 @ubidi_getJoiningType_77(i32 noundef %0) local_unname
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -498,7 +498,7 @@ define range(i32 0, 8) i32 @ubidi_getJoiningType_77(i32 noundef %0) local_unname
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = lshr i16 %35, 5
   %37 = and i16 %36, 7
   %38 = zext nneg i16 %37 to i32
@@ -522,7 +522,7 @@ define range(i32 0, 256) i32 @ubidi_getJoiningGroup_77(i32 noundef %0) local_unn
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr i8, ptr %_ZL20ubidi_props_jgArray2.sink, i64 %5
   %7 = getelementptr i8, ptr %6, i64 %.sink16
-  %8 = load i8, ptr %7, align 1, !tbaa !16
+  %8 = load i8, ptr %7, align 1, !tbaa !17
   %9 = zext i8 %8 to i32
   br label %10
 
@@ -560,7 +560,7 @@ define range(i32 0, 4) i32 @ubidi_getPairedBracketType_77(i32 noundef %0) local_
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -571,7 +571,7 @@ define range(i32 0, 4) i32 @ubidi_getPairedBracketType_77(i32 noundef %0) local_
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -582,7 +582,7 @@ define range(i32 0, 4) i32 @ubidi_getPairedBracketType_77(i32 noundef %0) local_
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = lshr i16 %35, 8
   %37 = and i16 %36, 3
   %38 = zext nneg i16 %37 to i32
@@ -618,7 +618,7 @@ define i32 @ubidi_getPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -629,7 +629,7 @@ define i32 @ubidi_getPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
   %.sink24 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink24 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -640,7 +640,7 @@ define i32 @ubidi_getPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = and i16 %35, 768
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %_ZL9getMirrorit.exit, label %38
@@ -676,7 +676,7 @@ define i32 @ubidi_getPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 40
   %or.cond.i = select i1 %54, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %_ZL9getMirrorit.exit, label %.preheader.i, !llvm.loop !22
+  br i1 %or.cond.i, label %_ZL9getMirrorit.exit, label %.preheader.i, !llvm.loop !23
 
 _ZL9getMirrorit.exit:                             ; preds = %53, %47, %40, %32
   %.0 = phi i32 [ %0, %32 ], [ %42, %40 ], [ %52, %47 ], [ %0, %53 ]
@@ -712,7 +712,7 @@ define range(i32 0, 32) i32 @u_charDirection_77(i32 noundef %0) local_unnamed_ad
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -723,7 +723,7 @@ define range(i32 0, 32) i32 @u_charDirection_77(i32 noundef %0) local_unnamed_ad
   %.sink16.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16.i to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -734,7 +734,7 @@ define range(i32 0, 32) i32 @u_charDirection_77(i32 noundef %0) local_unnamed_ad
 ubidi_getClass_77.exit:                           ; preds = %12, %.sink.split.i
   %32 = phi i64 [ 3796, %12 ], [ %31, %.sink.split.i ]
   %33 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %32
-  %34 = load i16, ptr %33, align 2, !tbaa !20
+  %34 = load i16, ptr %33, align 2, !tbaa !21
   %35 = and i16 %34, 31
   %36 = zext nneg i16 %35 to i32
   ret i32 %36
@@ -769,7 +769,7 @@ define signext range(i8 0, 2) i8 @u_isMirrored_77(i32 noundef %0) local_unnamed_
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -780,7 +780,7 @@ define signext range(i8 0, 2) i8 @u_isMirrored_77(i32 noundef %0) local_unnamed_
   %.sink16.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16.i to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -791,7 +791,7 @@ define signext range(i8 0, 2) i8 @u_isMirrored_77(i32 noundef %0) local_unnamed_
 ubidi_isMirrored_77.exit:                         ; preds = %12, %.sink.split.i
   %32 = phi i64 [ 3796, %12 ], [ %31, %.sink.split.i ]
   %33 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %32
-  %34 = load i16, ptr %33, align 2, !tbaa !20
+  %34 = load i16, ptr %33, align 2, !tbaa !21
   %35 = lshr i16 %34, 12
   %36 = trunc nuw nsw i16 %35 to i8
   %37 = and i8 %36, 1
@@ -827,7 +827,7 @@ define i32 @u_charMirror_77(i32 noundef %0) local_unnamed_addr #2 {
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -838,7 +838,7 @@ define i32 @u_charMirror_77(i32 noundef %0) local_unnamed_addr #2 {
   %.sink20.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink20.i to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -849,7 +849,7 @@ define i32 @u_charMirror_77(i32 noundef %0) local_unnamed_addr #2 {
 32:                                               ; preds = %.sink.split.i, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split.i ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = ashr i16 %35, 13
   %.not.i.i = icmp eq i16 %36, -4
   br i1 %.not.i.i, label %.preheader.i.i, label %37
@@ -880,7 +880,7 @@ define i32 @u_charMirror_77(i32 noundef %0) local_unnamed_addr #2 {
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 40
   %or.cond.i.i = select i1 %51, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %ubidi_getMirror_77.exit, label %.preheader.i.i, !llvm.loop !22
+  br i1 %or.cond.i.i, label %ubidi_getMirror_77.exit, label %.preheader.i.i, !llvm.loop !23
 
 ubidi_getMirror_77.exit:                          ; preds = %50, %37, %44
   %.0.i.i = phi i32 [ %39, %37 ], [ %49, %44 ], [ %0, %50 ]
@@ -916,7 +916,7 @@ define i32 @u_getBidiPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
-  %19 = load i16, ptr %18, align 2, !tbaa !20
+  %19 = load i16, ptr %18, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %21 = lshr i32 %0, 5
   %22 = and i32 %21, 63
@@ -927,7 +927,7 @@ define i32 @u_getBidiPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
   %.sink24.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink24.i to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !20
+  %26 = load i16, ptr %25, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
@@ -938,7 +938,7 @@ define i32 @u_getBidiPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
 32:                                               ; preds = %.sink.split.i, %12
   %33 = phi i64 [ 3796, %12 ], [ %31, %.sink.split.i ]
   %34 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !20
+  %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = and i16 %35, 768
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %ubidi_getPairedBracket_77.exit, label %38
@@ -974,7 +974,7 @@ define i32 @u_getBidiPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 40
   %or.cond.i.i = select i1 %54, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %ubidi_getPairedBracket_77.exit, label %.preheader.i.i, !llvm.loop !22
+  br i1 %or.cond.i.i, label %ubidi_getPairedBracket_77.exit, label %.preheader.i.i, !llvm.loop !23
 
 ubidi_getPairedBracket_77.exit:                   ; preds = %53, %32, %40, %47
   %.0.i = phi i32 [ %0, %32 ], [ %42, %40 ], [ %52, %47 ], [ %0, %53 ]
@@ -1001,12 +1001,13 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !11 = !{!"p1 _ZTS4USet", !12, i64 0}
 !12 = !{!"any pointer", !5, i64 0}
 !13 = !{!10, !11, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!5, !5, i64 0}
-!17 = !{!10, !12, i64 8}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"short", !5, i64 0}
-!22 = distinct !{!22, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!5, !5, i64 0}
+!18 = !{!10, !12, i64 8}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !5, i64 0}
+!23 = distinct !{!23, !15, !16}

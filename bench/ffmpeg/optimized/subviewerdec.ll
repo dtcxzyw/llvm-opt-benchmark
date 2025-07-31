@@ -80,10 +80,10 @@ define internal i32 @subviewer_decode_frame(ptr noundef readonly captures(none) 
   br label %34
 
 .loopexit:                                        ; preds = %.thread.i, %14
-  %28 = load ptr, ptr %5, align 8, !tbaa !33
-  %29 = load i32, ptr %9, align 4, !tbaa !35
+  %28 = load ptr, ptr %5, align 8, !tbaa !34
+  %29 = load i32, ptr %9, align 4, !tbaa !36
   %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %9, align 4, !tbaa !35
+  store i32 %30, ptr %9, align 4, !tbaa !36
   %31 = call i32 @ff_ass_add_rect(ptr noundef %1, ptr noundef %28, i32 noundef %29, i32 noundef 0, ptr noundef null, ptr noundef null) #4
   %32 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   %33 = icmp slt i32 %31, 0
@@ -91,10 +91,10 @@ define internal i32 @subviewer_decode_frame(ptr noundef readonly captures(none) 
 
 34:                                               ; preds = %.thread, %.loopexit
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !38
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
-  store i32 %38, ptr %2, align 4, !tbaa !41
+  store i32 %38, ptr %2, align 4, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %40 = load i32, ptr %39, align 8, !tbaa !29
   br label %41
@@ -166,14 +166,15 @@ attributes #5 = { nounwind willreturn memory(read) }
 !28 = !{!"any p2 pointer", !7, i64 0}
 !29 = !{!5, !12, i64 32}
 !30 = !{!8, !8, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!34, !11, i64 0}
-!34 = !{!"AVBPrint", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !8, i64 20, !8, i64 21}
-!35 = !{!36, !12, i64 0}
-!36 = !{!"FFASSDecoderContext", !12, i64 0}
-!37 = !{!38, !12, i64 12}
-!38 = !{!"AVSubtitle", !39, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !40, i64 16, !10, i64 24}
-!39 = !{!"short", !8, i64 0}
-!40 = !{!"p2 _ZTS14AVSubtitleRect", !28, i64 0}
-!41 = !{!12, !12, i64 0}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!35, !11, i64 0}
+!35 = !{!"AVBPrint", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !8, i64 20, !8, i64 21}
+!36 = !{!37, !12, i64 0}
+!37 = !{!"FFASSDecoderContext", !12, i64 0}
+!38 = !{!39, !12, i64 12}
+!39 = !{!"AVSubtitle", !40, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !41, i64 16, !10, i64 24}
+!40 = !{!"short", !8, i64 0}
+!41 = !{!"p2 _ZTS14AVSubtitleRect", !28, i64 0}
+!42 = !{!12, !12, i64 0}

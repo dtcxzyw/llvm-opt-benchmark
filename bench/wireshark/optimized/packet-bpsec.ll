@@ -603,7 +603,7 @@ dissect_value.exit:                               ; preds = %183, %.thread.i
   %191 = add nuw i64 %.0269357, 1
   %192 = load i64, ptr %135, align 8
   %.not308.not = icmp ult i64 %191, %192
-  br i1 %.not308.not, label %139, label %.critedge315.critedge, !llvm.loop !8
+  br i1 %.not308.not, label %139, label %.critedge315.critedge, !llvm.loop !9
 
 .critedge315.critedge:                            ; preds = %.critedge311, %132
   %193 = load i32, ptr %6, align 4
@@ -771,7 +771,7 @@ dissect_value.exit331:                            ; preds = %278, %.thread.i330
   %286 = add nuw i64 %.0284361, 1
   %287 = load i64, ptr %233, align 8
   %.not309.not = icmp ult i64 %286, %287
-  br i1 %.not309.not, label %.lr.ph362, label %.critedge322.critedge, !llvm.loop !9
+  br i1 %.not309.not, label %.lr.ph362, label %.critedge322.critedge, !llvm.loop !10
 
 .critedge322.critedge:                            ; preds = %.critedge318, %proto_item_set_generated.exit
   %288 = load i32, ptr %6, align 4
@@ -784,7 +784,7 @@ dissect_value.exit331:                            ; preds = %278, %.thread.i330
 .critedge322:                                     ; preds = %.critedge322.critedge, %211
   %292 = add nuw i32 %.0283364, 1
   %exitcond.not = icmp eq i32 %292, %197
-  br i1 %exitcond.not, label %.critedge326, label %211, !llvm.loop !10
+  br i1 %exitcond.not, label %.critedge326, label %211, !llvm.loop !11
 
 .critedge326:                                     ; preds = %.critedge322, %206
   %293 = load i32, ptr %6, align 4
@@ -931,8 +931,9 @@ attributes #10 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

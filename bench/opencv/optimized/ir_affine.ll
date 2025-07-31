@@ -381,11 +381,11 @@ _ZNSt12__shared_ptrIN2cv8datasets9IR_affineELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %132 ]
   %133 = add nuw nsw i64 %indvars.iv, %100
   %134 = getelementptr inbounds nuw [9 x double], ptr %99, i64 0, i64 %133
-  %135 = load double, ptr %134, align 8, !tbaa !43
+  %135 = load double, ptr %134, align 8, !tbaa !44
   %136 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %135)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %131, label %132, !llvm.loop !45
+  br i1 %exitcond.not, label %131, label %132, !llvm.loop !46
 
 137:                                              ; preds = %129, %127
   %.pn29 = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ]
@@ -642,8 +642,9 @@ attributes #12 = { builtin nounwind }
 !38 = !{!36, !37, i64 12}
 !39 = !{!37, !37, i64 0}
 !40 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"double", !8, i64 0}
-!45 = distinct !{!45, !42}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"double", !8, i64 0}
+!46 = distinct !{!46, !42, !43}

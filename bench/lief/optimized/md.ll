@@ -883,7 +883,7 @@ define hidden noundef ptr @mbedtls_md_info_from_string(ptr noundef readonly capt
 .critedge:                                        ; preds = %5, %.preheader
   %.0.lcssa = phi ptr [ getelementptr inbounds nuw (i8, ptr @md_names, i64 192), %5 ], [ %.011, %.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !21
+  %9 = load i32, ptr %8, align 8, !tbaa !22
   %switch.tableidx = add i32 %9, -3
   %10 = icmp ult i32 %switch.tableidx, 17
   br i1 %10, label %switch.lookup, label %mbedtls_md_info_from_type.exit
@@ -926,9 +926,9 @@ define hidden ptr @mbedtls_md_get_name(ptr noundef readonly captures(address_is_
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %.011, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !21
+  %9 = load i32, ptr %8, align 8, !tbaa !22
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.critedge, label %4, !llvm.loop !22
+  br i1 %.not, label %.critedge, label %4, !llvm.loop !23
 
 .critedge:                                        ; preds = %6, %4
   %.0.lcssa = phi ptr [ getelementptr inbounds nuw (i8, ptr @md_names, i64 192), %6 ], [ %.011, %4 ]
@@ -988,7 +988,7 @@ define hidden i32 @mbedtls_md_file(ptr noundef %0, ptr noundef readonly captures
 15:                                               ; preds = %.preheader
   %16 = call i32 @mbedtls_md_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %14)
   %.not20 = icmp eq i32 %16, 0
-  br i1 %.not20, label %.preheader, label %.loopexit, !llvm.loop !23
+  br i1 %.not20, label %.preheader, label %.loopexit, !llvm.loop !24
 
 17:                                               ; preds = %.preheader
   %18 = call i32 @ferror(ptr noundef nonnull %8) #14
@@ -1110,7 +1110,7 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef readonly captures(address_
   store i64 %40, ptr %38, align 1
   %41 = add nuw nsw i64 %37, 8
   %.not.i = icmp ugt i64 %41, %.033
-  br i1 %.not.i, label %.preheader51, label %.lr.ph, !llvm.loop !24
+  br i1 %.not.i, label %.preheader51, label %.lr.ph, !llvm.loop !25
 
 mbedtls_xor.exit.preheader:                       ; preds = %.lr.ph55, %.preheader51
   br i1 %.not.i52, label %.preheader, label %mbedtls_xor.exit
@@ -1118,14 +1118,14 @@ mbedtls_xor.exit.preheader:                       ; preds = %.lr.ph55, %.prehead
 .lr.ph55:                                         ; preds = %.preheader51, %.lr.ph55
   %.1.i54 = phi i64 [ %47, %.lr.ph55 ], [ %.0.i.lcssa, %.preheader51 ]
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i54
-  %43 = load i8, ptr %42, align 1, !tbaa !25
+  %43 = load i8, ptr %42, align 1, !tbaa !26
   %44 = getelementptr inbounds nuw i8, ptr %.031, i64 %.1.i54
-  %45 = load i8, ptr %44, align 1, !tbaa !25
+  %45 = load i8, ptr %44, align 1, !tbaa !26
   %46 = xor i8 %45, %43
-  store i8 %46, ptr %42, align 1, !tbaa !25
+  store i8 %46, ptr %42, align 1, !tbaa !26
   %47 = add nuw nsw i64 %.1.i54, 1
   %exitcond.not = icmp eq i64 %47, %.033
-  br i1 %exitcond.not, label %mbedtls_xor.exit.preheader, label %.lr.ph55, !llvm.loop !26
+  br i1 %exitcond.not, label %mbedtls_xor.exit.preheader, label %.lr.ph55, !llvm.loop !27
 
 .preheader:                                       ; preds = %mbedtls_xor.exit, %mbedtls_xor.exit.preheader
   %.0.i44.lcssa = phi i64 [ 0, %mbedtls_xor.exit.preheader ], [ %49, %mbedtls_xor.exit ]
@@ -1143,19 +1143,19 @@ mbedtls_xor.exit:                                 ; preds = %mbedtls_xor.exit.pr
   store i64 %52, ptr %50, align 1
   %53 = add nuw nsw i64 %49, 8
   %.not.i45 = icmp ugt i64 %53, %.033
-  br i1 %.not.i45, label %.preheader, label %mbedtls_xor.exit, !llvm.loop !24
+  br i1 %.not.i45, label %.preheader, label %mbedtls_xor.exit, !llvm.loop !25
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
   %.1.i4660 = phi i64 [ %59, %.lr.ph61 ], [ %.0.i44.lcssa, %.preheader ]
   %54 = getelementptr inbounds nuw i8, ptr %31, i64 %.1.i4660
-  %55 = load i8, ptr %54, align 1, !tbaa !25
+  %55 = load i8, ptr %54, align 1, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %.031, i64 %.1.i4660
-  %57 = load i8, ptr %56, align 1, !tbaa !25
+  %57 = load i8, ptr %56, align 1, !tbaa !26
   %58 = xor i8 %57, %55
-  store i8 %58, ptr %54, align 1, !tbaa !25
+  store i8 %58, ptr %54, align 1, !tbaa !26
   %59 = add nuw nsw i64 %.1.i4660, 1
   %exitcond64.not = icmp eq i64 %59, %.033
-  br i1 %exitcond64.not, label %mbedtls_xor.exit47, label %.lr.ph61, !llvm.loop !26
+  br i1 %exitcond64.not, label %mbedtls_xor.exit47, label %.lr.ph61, !llvm.loop !27
 
 mbedtls_xor.exit47:                               ; preds = %.lr.ph61, %.preheader
   %60 = call i32 @mbedtls_md_starts(ptr noundef nonnull %0)
@@ -1386,11 +1386,12 @@ attributes #16 = { nounwind willreturn memory(read) }
 !16 = !{!17, !18, i64 0}
 !17 = !{!"", !18, i64 0, !12, i64 8}
 !18 = !{!"p1 omnipotent char", !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!17, !12, i64 8}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
-!25 = !{!7, !7, i64 0}
-!26 = distinct !{!26, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!17, !12, i64 8}
+!23 = distinct !{!23, !20, !21}
+!24 = distinct !{!24, !20, !21}
+!25 = distinct !{!25, !20, !21}
+!26 = !{!7, !7, i64 0}
+!27 = distinct !{!27, !20, !21}

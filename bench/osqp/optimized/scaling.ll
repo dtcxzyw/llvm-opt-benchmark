@@ -188,7 +188,7 @@ define noundef i64 @scale_data(ptr noundef readonly captures(none) %0) local_unn
   %105 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %98, %27 ]
   %106 = fdiv double 1.000000e+00, %104
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  store double %106, ptr %107, align 8, !tbaa !39
+  store double %106, ptr %107, align 8, !tbaa !40
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %109 = load ptr, ptr %108, align 8, !tbaa !25
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -202,14 +202,14 @@ define noundef i64 @scale_data(ptr noundef readonly captures(none) %0) local_unn
   tail call void @OSQPVectorf_ew_reciprocal(ptr noundef %114, ptr noundef %116) #3
   %117 = load ptr, ptr %4, align 8, !tbaa !10
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 40
-  %119 = load ptr, ptr %118, align 8, !tbaa !40
+  %119 = load ptr, ptr %118, align 8, !tbaa !41
   %120 = load ptr, ptr %7, align 8, !tbaa !21
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !26
   tail call void @OSQPVectorf_ew_prod(ptr noundef %119, ptr noundef %119, ptr noundef %122) #3
   %123 = load ptr, ptr %4, align 8, !tbaa !10
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 48
-  %125 = load ptr, ptr %124, align 8, !tbaa !41
+  %125 = load ptr, ptr %124, align 8, !tbaa !42
   %126 = load ptr, ptr %7, align 8, !tbaa !21
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8, !tbaa !26
@@ -247,7 +247,7 @@ define noundef i64 @unscale_data(ptr noundef readonly captures(none) %0) local_u
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load double, ptr %9, align 8, !tbaa !39
+  %10 = load double, ptr %9, align 8, !tbaa !40
   tail call void @OSQPMatrix_mult_scalar(ptr noundef %6, double noundef %10) #3
   %11 = load ptr, ptr %3, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -268,7 +268,7 @@ define noundef i64 @unscale_data(ptr noundef readonly captures(none) %0) local_u
   %25 = load ptr, ptr %24, align 8, !tbaa !36
   %26 = load ptr, ptr %7, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %28 = load double, ptr %27, align 8, !tbaa !39
+  %28 = load double, ptr %27, align 8, !tbaa !40
   tail call void @OSQPVectorf_mult_scalar(ptr noundef %25, double noundef %28) #3
   %29 = load ptr, ptr %3, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -293,14 +293,14 @@ define noundef i64 @unscale_data(ptr noundef readonly captures(none) %0) local_u
   tail call void @OSQPMatrix_rmult_diag(ptr noundef %43, ptr noundef %46) #3
   %47 = load ptr, ptr %3, align 8, !tbaa !10
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %49 = load ptr, ptr %48, align 8, !tbaa !40
+  %49 = load ptr, ptr %48, align 8, !tbaa !41
   %50 = load ptr, ptr %7, align 8, !tbaa !21
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load ptr, ptr %51, align 8, !tbaa !27
   tail call void @OSQPVectorf_ew_prod(ptr noundef %49, ptr noundef %49, ptr noundef %52) #3
   %53 = load ptr, ptr %3, align 8, !tbaa !10
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %55 = load ptr, ptr %54, align 8, !tbaa !41
+  %55 = load ptr, ptr %54, align 8, !tbaa !42
   %56 = load ptr, ptr %7, align 8, !tbaa !21
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8, !tbaa !27
@@ -321,7 +321,7 @@ define noundef i64 @unscale_solution(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @OSQPVectorf_ew_prod(ptr noundef %1, ptr noundef %3, ptr noundef %12) #3
   %13 = load ptr, ptr %6, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load double, ptr %14, align 8, !tbaa !39
+  %15 = load double, ptr %14, align 8, !tbaa !40
   tail call void @OSQPVectorf_mult_scalar(ptr noundef %1, double noundef %15) #3
   ret i64 0
 }
@@ -370,8 +370,9 @@ attributes #3 = { nounwind }
 !34 = !{!11, !13, i64 216}
 !35 = !{!11, !13, i64 224}
 !36 = !{!19, !13, i64 32}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!23, !15, i64 24}
-!40 = !{!19, !13, i64 40}
-!41 = !{!19, !13, i64 48}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!23, !15, i64 24}
+!41 = !{!19, !13, i64 40}
+!42 = !{!19, !13, i64 48}

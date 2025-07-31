@@ -1182,7 +1182,7 @@ define internal fastcc noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef %0, i
 .critedge:                                        ; preds = %98
   %99 = add nuw nsw i64 %.075, 1
   %exitcond76.not = icmp eq i64 %99, %3
-  br i1 %exitcond76.not, label %.loopexit, label %.critedge.preheader, !llvm.loop !35
+  br i1 %exitcond76.not, label %.loopexit, label %.critedge.preheader, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.critedge, %93, %81, %71, %62, %52, %39
   %.235 = phi i1 [ false, %39 ], [ false, %52 ], [ false, %62 ], [ false, %71 ], [ false, %81 ], [ false, %93 ], [ true, %.critedge ]
@@ -1238,7 +1238,7 @@ define internal fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 n
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca [256 x i8], align 16
   %8 = alloca i64, align 8
-  store ptr %1, ptr %5, align 8, !tbaa !36
+  store ptr %1, ptr %5, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   %9 = call ptr @d2i_RSAPrivateKey(ptr noundef null, ptr noundef nonnull %5, i64 noundef %2)
   store ptr %9, ptr %6, align 8, !tbaa !10
@@ -1508,7 +1508,7 @@ define internal fastcc noundef zeroext i1 @_ZL8TestASN1v() unnamed_addr #0 perso
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit33
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %2, align 8, !tbaa !36
+  %14 = load ptr, ptr %2, align 8, !tbaa !37
   %15 = load i64, ptr %3, align 8, !tbaa !30
   %.not12 = icmp eq i64 %15, 316
   br i1 %.not12, label %16, label %80
@@ -1534,9 +1534,9 @@ define internal fastcc noundef zeroext i1 @_ZL8TestASN1v() unnamed_addr #0 perso
   br label %81
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %20
-  %23 = load ptr, ptr %2, align 8, !tbaa !36
+  %23 = load ptr, ptr %2, align 8, !tbaa !37
   call void @free(ptr noundef nonnull %14) #12
-  %24 = load ptr, ptr %2, align 8, !tbaa !36
+  %24 = load ptr, ptr %2, align 8, !tbaa !37
   %25 = load i64, ptr %3, align 8, !tbaa !30
   %26 = invoke ptr @RSA_public_key_from_bytes(ptr noundef %24, i64 noundef %25)
           to label %27 unwind label %21
@@ -1575,7 +1575,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !37
+  %39 = load ptr, ptr %38, align 8, !tbaa !38
   %.not16 = icmp eq ptr %39, null
   br i1 %.not16, label %40, label %80
 
@@ -1595,14 +1595,14 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit29
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr %4, align 8, !tbaa !36
+  %46 = load ptr, ptr %4, align 8, !tbaa !37
   %47 = load i64, ptr %3, align 8, !tbaa !30
   %48 = load i64, ptr %5, align 8, !tbaa !30
   %.not18 = icmp eq i64 %47, %48
   br i1 %.not18, label %49, label %76
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr %2, align 8, !tbaa !36
+  %50 = load ptr, ptr %2, align 8, !tbaa !37
   %bcmp19 = call i32 @bcmp(ptr %50, ptr %46, i64 %47)
   %.not20 = icmp eq i32 %bcmp19, 0
   br i1 %.not20, label %51, label %76
@@ -1617,7 +1617,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit
   br i1 %.not21, label %59, label %55
 
 55:                                               ; preds = %54
-  %56 = load ptr, ptr %2, align 8, !tbaa !36
+  %56 = load ptr, ptr %2, align 8, !tbaa !37
   call void @free(ptr noundef %56) #12
   br label %76
 
@@ -2016,8 +2016,9 @@ attributes #15 = { cold nounwind }
 !30 = !{!31, !31, i64 0}
 !31 = !{!"long", !8, i64 0}
 !32 = !{!8, !8, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34}
-!36 = !{!24, !24, i64 0}
-!37 = !{!16, !18, i64 40}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = distinct !{!36, !34, !35}
+!37 = !{!24, !24, i64 0}
+!38 = !{!16, !18, i64 40}

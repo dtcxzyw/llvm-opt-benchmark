@@ -280,7 +280,7 @@ define void @_ZN7rocksdb23CompressionContextCacheD2Ev(ptr noundef nonnull readon
 
 _ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i: ; preds = %17, %.preheader.i.i.i.i
   %22 = icmp eq ptr %12, %5
-  br i1 %22, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, label %.preheader.i.i.i.i
+  br i1 %22, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !33
 
 _ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i, %6
   %23 = or disjoint i64 %.idx.i.i.i.i, 8
@@ -297,7 +297,7 @@ _ZN7rocksdb23CompressionContextCache3RepD2Ev.exit: ; preds = %4, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8, !tbaa !33
+  store ptr null, ptr %0, align 8, !tbaa !35
   %2 = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #15
   br label %3
 
@@ -306,7 +306,7 @@ define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZS
   %4 = shl nuw i32 1, %storemerge
   %5 = icmp slt i32 %4, %2
   %6 = add nuw nsw i32 %storemerge, 1
-  br i1 %5, label %3, label %7, !llvm.loop !34
+  br i1 %5, label %3, label %7, !llvm.loop !36
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -331,11 +331,11 @@ define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZS
   %18 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
   store i64 -1, ptr %18, align 8, !tbaa !32
   %19 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 16
-  store ptr %.ptr.ptr, ptr %19, align 8, !tbaa !36
+  store ptr %.ptr.ptr, ptr %19, align 8, !tbaa !38
   %.add = add nuw nsw i64 %.idx, 64
   %20 = add nuw nsw i64 %.idx, 56
   %21 = icmp eq i64 %20, %11
-  br i1 %21, label %22, label %17
+  br i1 %21, label %22, label %17, !llvm.loop !40
 
 22:                                               ; preds = %17
   %.ptr7 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -379,7 +379,7 @@ define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZS
 
 _ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i: ; preds = %35, %.preheader.i.i.i
   %40 = icmp eq ptr %30, %23
-  br i1 %40, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.i.i.i
+  br i1 %40, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.i.i.i, !llvm.loop !33
 
 _ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i, %24
   %41 = or disjoint i64 %.idx.i.i.i, 8
@@ -446,7 +446,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTD
 
 _ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i: ; preds = %14, %.preheader.i
   %19 = icmp eq ptr %9, %2
-  br i1 %19, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, label %.preheader.i
+  br i1 %19, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, label %.preheader.i, !llvm.loop !33
 
 _ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i, %3
   %20 = or disjoint i64 %.idx.i, 8
@@ -562,8 +562,11 @@ attributes #16 = { noreturn nounwind }
 !30 = !{!"p1 _ZTS11ZSTD_DCtx_s", !7, i64 0}
 !31 = !{!"long", !8, i64 0}
 !32 = !{!29, !31, i64 8}
-!33 = !{!19, !20, i64 0}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !7, i64 0}
-!37 = !{!"_ZTSSt13__atomic_baseIPvE", !7, i64 0}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!19, !20, i64 0}
+!36 = distinct !{!36, !37, !34}
+!37 = !{!"llvm.loop.mustprogress"}
+!38 = !{!39, !7, i64 0}
+!39 = !{!"_ZTSSt13__atomic_baseIPvE", !7, i64 0}
+!40 = distinct !{!40, !34}

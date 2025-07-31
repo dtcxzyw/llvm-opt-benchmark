@@ -87,33 +87,33 @@ define void @lv_draw_layer(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %.not, label %.preheader, label %15
 
 .preheader:                                       ; preds = %11, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !28
 
 15:                                               ; preds = %11
   %16 = tail call ptr @lv_memcpy(ptr noundef nonnull %13, ptr noundef nonnull %1, i64 noundef 144) #6
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 7, ptr %17, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  store volatile i32 0, ptr %18, align 8, !tbaa !28
+  store volatile i32 0, ptr %18, align 8, !tbaa !30
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %20 = tail call i32 @lv_area_get_width(ptr noundef %2) #6
   %21 = tail call i32 @lv_area_get_height(ptr noundef %2) #6
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %23 = load i32, ptr %22, align 4, !tbaa !29
+  %23 = load i32, ptr %22, align 4, !tbaa !31
   %24 = load i32, ptr %4, align 8, !tbaa !19
   %25 = trunc i32 %24 to i16
   %26 = load i32, ptr %8, align 4, !tbaa !20
   %27 = trunc i32 %26 to i16
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %19, i32 noundef %20, i32 noundef %21, i32 noundef %23, i16 noundef zeroext %25, i16 noundef zeroext %27, ptr noundef nonnull %28)
-  %29 = load i32, ptr %2, align 4, !tbaa !30
+  %29 = load i32, ptr %2, align 4, !tbaa !32
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !31
+  %31 = load i32, ptr %30, align 4, !tbaa !33
   tail call void @lv_area_move(ptr noundef nonnull %19, i32 noundef %29, i32 noundef %31) #6
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !32
+  %33 = load ptr, ptr %32, align 8, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  store i8 1, ptr %34, align 8, !tbaa !33
+  store i8 1, ptr %34, align 8, !tbaa !35
   tail call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %12) #6
   br label %35
 
@@ -141,40 +141,40 @@ define void @lv_image_buf_get_transformed_area(ptr noundef writeonly captures(no
   %13 = zext i16 %5 to i32
   %14 = zext i16 %4 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #6
-  store i32 0, ptr %8, align 16, !tbaa !37
+  store i32 0, ptr %8, align 16, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %15, align 4, !tbaa !38
+  store i32 0, ptr %15, align 4, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %1, ptr %16, align 8, !tbaa !37
+  store i32 %1, ptr %16, align 8, !tbaa !39
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %17, align 4, !tbaa !38
+  store i32 0, ptr %17, align 4, !tbaa !40
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 0, ptr %18, align 16, !tbaa !37
+  store i32 0, ptr %18, align 16, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %2, ptr %19, align 4, !tbaa !38
+  store i32 %2, ptr %19, align 4, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %1, ptr %20, align 8, !tbaa !37
+  store i32 %1, ptr %20, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %2, ptr %21, align 4, !tbaa !38
+  store i32 %2, ptr %21, align 4, !tbaa !40
   call void @lv_point_transform(ptr noundef nonnull %8, i32 noundef %3, i32 noundef %14, i32 noundef %13, ptr noundef %6, i1 noundef zeroext true) #6
   call void @lv_point_transform(ptr noundef nonnull %16, i32 noundef %3, i32 noundef %14, i32 noundef %13, ptr noundef %6, i1 noundef zeroext true) #6
   call void @lv_point_transform(ptr noundef nonnull %18, i32 noundef %3, i32 noundef %14, i32 noundef %13, ptr noundef %6, i1 noundef zeroext true) #6
   call void @lv_point_transform(ptr noundef nonnull %20, i32 noundef %3, i32 noundef %14, i32 noundef %13, ptr noundef %6, i1 noundef zeroext true) #6
-  %22 = load i32, ptr %8, align 16, !tbaa !37
-  %23 = load i32, ptr %16, align 8, !tbaa !37
+  %22 = load i32, ptr %8, align 16, !tbaa !39
+  %23 = load i32, ptr %16, align 8, !tbaa !39
   %24 = call i32 @llvm.smin.i32(i32 %22, i32 %23)
-  %25 = load i32, ptr %18, align 16, !tbaa !37
-  %26 = load i32, ptr %20, align 8, !tbaa !37
+  %25 = load i32, ptr %18, align 16, !tbaa !39
+  %26 = load i32, ptr %20, align 8, !tbaa !39
   %27 = call i32 @llvm.smin.i32(i32 %25, i32 %26)
   %. = call i32 @llvm.smin.i32(i32 %24, i32 %27)
   %28 = call i32 @llvm.smax.i32(i32 %22, i32 %23)
   %29 = call i32 @llvm.smax.i32(i32 %25, i32 %26)
   %30 = call i32 @llvm.smax.i32(i32 %28, i32 %29)
-  %31 = load i32, ptr %15, align 4, !tbaa !38
-  %32 = load i32, ptr %17, align 4, !tbaa !38
+  %31 = load i32, ptr %15, align 4, !tbaa !40
+  %32 = load i32, ptr %17, align 4, !tbaa !40
   %33 = call i32 @llvm.smin.i32(i32 %31, i32 %32)
-  %34 = load i32, ptr %19, align 4, !tbaa !38
-  %35 = load i32, ptr %21, align 4, !tbaa !38
+  %34 = load i32, ptr %19, align 4, !tbaa !40
+  %35 = load i32, ptr %21, align 4, !tbaa !40
   %36 = call i32 @llvm.smin.i32(i32 %34, i32 %35)
   %37 = call i32 @llvm.smin.i32(i32 %33, i32 %36)
   %38 = call i32 @llvm.smax.i32(i32 %31, i32 %32)
@@ -190,13 +190,13 @@ define void @lv_image_buf_get_transformed_area(ptr noundef writeonly captures(no
   %.sink.in = phi i32 [ %40, %12 ], [ %2, %7 ]
   %.sink = add nsw i32 %.sink.in, -1
   %.sink44 = add nsw i32 %.sink44.in, -1
-  store i32 %..sink, ptr %0, align 4, !tbaa !30
+  store i32 %..sink, ptr %0, align 4, !tbaa !32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink45, ptr %42, align 4, !tbaa !31
+  store i32 %.sink45, ptr %42, align 4, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink44, ptr %43, align 4, !tbaa !39
+  store i32 %.sink44, ptr %43, align 4, !tbaa !41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink, ptr %44, align 4, !tbaa !40
+  store i32 %.sink, ptr %44, align 4, !tbaa !42
   ret void
 }
 
@@ -215,7 +215,7 @@ define void @lv_draw_image(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %6 = alloca %struct.lv_area_t, align 4
   %7 = alloca %struct.lv_area_t, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
   %10 = icmp eq ptr %9, null
   br i1 %10, label %108, label %11
 
@@ -243,12 +243,12 @@ define void @lv_draw_image(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %.not, label %.preheader, label %25
 
 .preheader:                                       ; preds = %23, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !43
 
 25:                                               ; preds = %23
   %26 = tail call ptr @lv_memcpy(ptr noundef nonnull %24, ptr noundef nonnull %1, i64 noundef 144) #6
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !32
+  %28 = load ptr, ptr %27, align 8, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %30 = tail call i32 @lv_image_decoder_get_info(ptr noundef %28, ptr noundef nonnull %29) #6
   %.not69 = icmp eq i32 %30, 1
@@ -274,53 +274,53 @@ define void @lv_draw_image(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %40 = tail call i32 @lv_area_get_width(ptr noundef %2) #6
   %41 = tail call i32 @lv_area_get_height(ptr noundef %2) #6
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %43 = load i32, ptr %42, align 4, !tbaa !29
+  %43 = load i32, ptr %42, align 4, !tbaa !31
   %44 = load i32, ptr %16, align 8, !tbaa !19
   %45 = trunc i32 %44 to i16
   %46 = load i32, ptr %20, align 4, !tbaa !20
   %47 = trunc i32 %46 to i16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %39, i32 noundef %40, i32 noundef %41, i32 noundef %43, i16 noundef zeroext %45, i16 noundef zeroext %47, ptr noundef nonnull %48)
-  %49 = load i32, ptr %2, align 4, !tbaa !30
+  %49 = load i32, ptr %2, align 4, !tbaa !32
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !31
+  %51 = load i32, ptr %50, align 4, !tbaa !33
   tail call void @lv_area_move(ptr noundef nonnull %39, i32 noundef %49, i32 noundef %51) #6
   tail call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %36) #6
   br label %108
 
 52:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
-  %53 = load ptr, ptr %27, align 8, !tbaa !32
+  %53 = load ptr, ptr %27, align 8, !tbaa !34
   %54 = call i32 @lv_image_decoder_open(ptr noundef nonnull %4, ptr noundef %53, ptr noundef null) #6
   %.not71 = icmp eq i32 %54, 1
   br i1 %.not71, label %55, label %.critedge
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr %4, align 8, !tbaa !41
+  %56 = load ptr, ptr %4, align 8, !tbaa !44
   %.not72 = icmp eq ptr %56, null
   br i1 %.not72, label %107, label %57
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !51
+  %59 = load ptr, ptr %58, align 8, !tbaa !54
   %.not73 = icmp eq ptr %59, null
   br i1 %.not73, label %107, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0.copyload = load i32, ptr %61, align 8, !tbaa !53
+  %.sroa.0.0.copyload = load i32, ptr %61, align 8, !tbaa !56
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !53
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !56
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  %63 = load ptr, ptr %1, align 8, !tbaa !55
+  %63 = load ptr, ptr %1, align 8, !tbaa !58
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !57
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %66 = load ptr, ptr %65, align 8, !tbaa !56
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
   %.not74 = icmp eq ptr %66, null
   br i1 %.not74, label %76, label %67
 
@@ -333,18 +333,18 @@ define void @lv_draw_image(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %71 = sub nsw i32 0, %.sroa.5.0.copyload
   call void @lv_area_move(ptr noundef nonnull %5, i32 noundef %70, i32 noundef %71) #6
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !54
-  %73 = load ptr, ptr %4, align 8, !tbaa !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !57
+  %73 = load ptr, ptr %4, align 8, !tbaa !44
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %75 = load ptr, ptr %74, align 8, !tbaa !51
+  %75 = load ptr, ptr %74, align 8, !tbaa !54
   call void %75(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %24, ptr noundef nonnull %5) #6
   br label %106
 
 76:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
-  store i32 %.sroa.0.0.copyload, ptr %7, align 4, !tbaa !53
+  store i32 %.sroa.0.0.copyload, ptr %7, align 4, !tbaa !56
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx3, align 4, !tbaa !53
+  store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx3, align 4, !tbaa !56
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %62, ptr %.sroa.6.0..sroa_idx5, align 4
   %77 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %5) #6
@@ -354,35 +354,35 @@ define void @lv_draw_image(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %79 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #6
   %80 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #6
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %82 = load i32, ptr %81, align 4, !tbaa !29
+  %82 = load i32, ptr %81, align 4, !tbaa !31
   %83 = load i32, ptr %16, align 8, !tbaa !19
   %84 = trunc i32 %83 to i16
   %85 = load i32, ptr %20, align 4, !tbaa !20
   %86 = trunc i32 %85 to i16
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 88
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %5, i32 noundef %79, i32 noundef %80, i32 noundef %82, i16 noundef zeroext %84, i16 noundef zeroext %86, ptr noundef nonnull %87)
-  %88 = load i32, ptr %2, align 4, !tbaa !30
+  %88 = load i32, ptr %2, align 4, !tbaa !32
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !31
+  %90 = load i32, ptr %89, align 4, !tbaa !33
   call void @lv_area_move(ptr noundef nonnull %5, i32 noundef %88, i32 noundef %90) #6
   %91 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #6
   %92 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #6
-  %93 = load i32, ptr %81, align 4, !tbaa !29
+  %93 = load i32, ptr %81, align 4, !tbaa !31
   %94 = load i32, ptr %16, align 8, !tbaa !19
   %95 = trunc i32 %94 to i16
   %96 = load i32, ptr %20, align 4, !tbaa !20
   %97 = trunc i32 %96 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %7, i32 noundef %91, i32 noundef %92, i32 noundef %93, i16 noundef zeroext %95, i16 noundef zeroext %97, ptr noundef nonnull %87)
-  %98 = load i32, ptr %2, align 4, !tbaa !30
-  %99 = load i32, ptr %89, align 4, !tbaa !31
+  %98 = load i32, ptr %2, align 4, !tbaa !32
+  %99 = load i32, ptr %89, align 4, !tbaa !33
   call void @lv_area_move(ptr noundef nonnull %7, i32 noundef %98, i32 noundef %99) #6
   %100 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %6) #6
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %78
-  %102 = load ptr, ptr %4, align 8, !tbaa !41
+  %102 = load ptr, ptr %4, align 8, !tbaa !44
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  %104 = load ptr, ptr %103, align 8, !tbaa !51
+  %104 = load ptr, ptr %103, align 8, !tbaa !54
   call void %104(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %24, ptr noundef nonnull %7) #6
   br label %105
 
@@ -422,7 +422,7 @@ define range(i32 0, 4) i32 @lv_image_src_get_type(ptr noundef readonly captures(
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr %0, align 1, !tbaa !57
+  %4 = load i8, ptr %0, align 1, !tbaa !60
   %or.cond = icmp sgt i8 %4, 31
   br i1 %or.cond, label %7, label %5
 
@@ -446,22 +446,22 @@ define void @lv_draw_image_normal_helper(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  %10 = load i32, ptr %2, align 4, !tbaa !30
-  store i32 %10, ptr %5, align 4, !tbaa !30
+  %10 = load i32, ptr %2, align 4, !tbaa !32
+  store i32 %10, ptr %5, align 4, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !31
+  %12 = load i32, ptr %11, align 4, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %12, ptr %13, align 4, !tbaa !31
+  store i32 %12, ptr %13, align 4, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !39
+  %15 = load i32, ptr %14, align 4, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %15, ptr %16, align 4, !tbaa !39
+  store i32 %15, ptr %16, align 4, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !40
+  %18 = load i32, ptr %17, align 4, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %18, ptr %19, align 4, !tbaa !40
+  store i32 %18, ptr %19, align 4, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %21 = load i32, ptr %20, align 4, !tbaa !29
+  %21 = load i32, ptr %20, align 4, !tbaa !31
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %28
 
@@ -480,7 +480,7 @@ define void @lv_draw_image_normal_helper(ptr noundef %0, ptr noundef %1, ptr nou
 28:                                               ; preds = %25, %22, %9
   %29 = tail call i32 @lv_area_get_width(ptr noundef nonnull %2) #6
   %30 = tail call i32 @lv_area_get_height(ptr noundef nonnull %2) #6
-  %31 = load i32, ptr %20, align 4, !tbaa !29
+  %31 = load i32, ptr %20, align 4, !tbaa !31
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %33 = load i32, ptr %32, align 8, !tbaa !19
   %34 = trunc i32 %33 to i16
@@ -489,20 +489,20 @@ define void @lv_draw_image_normal_helper(ptr noundef %0, ptr noundef %1, ptr nou
   %37 = trunc i32 %36 to i16
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 88
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %5, i32 noundef %29, i32 noundef %30, i32 noundef %31, i16 noundef zeroext %34, i16 noundef zeroext %37, ptr noundef nonnull %38)
-  %39 = load i32, ptr %2, align 4, !tbaa !30
-  %40 = load i32, ptr %5, align 4, !tbaa !30
+  %39 = load i32, ptr %2, align 4, !tbaa !32
+  %40 = load i32, ptr %5, align 4, !tbaa !32
   %41 = add nsw i32 %40, %39
-  store i32 %41, ptr %5, align 4, !tbaa !30
-  %42 = load i32, ptr %11, align 4, !tbaa !31
-  %43 = load i32, ptr %13, align 4, !tbaa !31
+  store i32 %41, ptr %5, align 4, !tbaa !32
+  %42 = load i32, ptr %11, align 4, !tbaa !33
+  %43 = load i32, ptr %13, align 4, !tbaa !33
   %44 = add nsw i32 %43, %42
-  store i32 %44, ptr %13, align 4, !tbaa !31
-  %45 = load i32, ptr %16, align 4, !tbaa !39
+  store i32 %44, ptr %13, align 4, !tbaa !33
+  %45 = load i32, ptr %16, align 4, !tbaa !41
   %46 = add nsw i32 %45, %39
-  store i32 %46, ptr %16, align 4, !tbaa !39
-  %47 = load i32, ptr %19, align 4, !tbaa !40
+  store i32 %46, ptr %16, align 4, !tbaa !41
+  %47 = load i32, ptr %19, align 4, !tbaa !42
   %48 = add nsw i32 %47, %42
-  store i32 %48, ptr %19, align 4, !tbaa !40
+  store i32 %48, ptr %19, align 4, !tbaa !42
   br label %49
 
 49:                                               ; preds = %28, %25
@@ -514,7 +514,7 @@ define void @lv_draw_image_normal_helper(ptr noundef %0, ptr noundef %1, ptr nou
 52:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %54 = load ptr, ptr %53, align 8, !tbaa !32
+  %54 = load ptr, ptr %53, align 8, !tbaa !34
   %55 = call i32 @lv_image_decoder_open(ptr noundef nonnull %7, ptr noundef %54, ptr noundef null) #6
   %.not25 = icmp eq i32 %55, 1
   br i1 %.not25, label %56, label %57
@@ -546,19 +546,19 @@ define internal fastcc void @img_decode_and_draw(ptr noundef %0, ptr noundef %1,
   %12 = alloca %struct.lv_area_t, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %8, ptr noundef nonnull align 8 dereferenceable(3) %13, i64 3, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %8, ptr noundef nonnull align 8 dereferenceable(3) %13, i64 3, i1 false), !tbaa.struct !61
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !59
+  %15 = load ptr, ptr %14, align 8, !tbaa !62
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %15, ptr %16, align 8, !tbaa !60
+  store ptr %15, ptr %16, align 8, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %18 = load i32, ptr %17, align 8, !tbaa !62
+  %18 = load i32, ptr %17, align 8, !tbaa !65
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = trunc i32 %18 to i16
   %21 = and i16 %20, 511
   store i16 %21, ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
+  %23 = load ptr, ptr %22, align 8, !tbaa !66
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %30, label %24
 
@@ -567,7 +567,7 @@ define internal fastcc void @img_decode_and_draw(ptr noundef %0, ptr noundef %1,
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %24
-  %27 = load i32, ptr %3, align 4, !tbaa !30
+  %27 = load i32, ptr %3, align 4, !tbaa !32
   %28 = icmp eq i32 %27, -536870911
   br i1 %28, label %29, label %30
 
@@ -577,31 +577,31 @@ define internal fastcc void @img_decode_and_draw(ptr noundef %0, ptr noundef %1,
 
 30:                                               ; preds = %26, %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !54
-  %31 = load i32, ptr %4, align 4, !tbaa !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !57
+  %31 = load i32, ptr %4, align 4, !tbaa !32
   %32 = sub nsw i32 0, %31
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !31
+  %34 = load i32, ptr %33, align 4, !tbaa !33
   %35 = sub nsw i32 0, %34
   call void @lv_area_move(ptr noundef nonnull %9, i32 noundef %32, i32 noundef %35) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #6
   %36 = icmp eq ptr %3, null
   %spec.store.select = select i1 %36, ptr %10, ptr %3
-  store i32 -536870911, ptr %spec.store.select, align 4, !tbaa !30
+  store i32 -536870911, ptr %spec.store.select, align 4, !tbaa !32
   %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %36, ptr %10, ptr %3
   %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 4
-  store i32 -536870911, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !31
+  store i32 -536870911, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !33
   %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel.v = select i1 %36, ptr %10, ptr %3
   %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel.v, i64 8
-  store i32 -536870911, ptr %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
+  store i32 -536870911, ptr %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel, align 4, !tbaa !41
   %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel.v = select i1 %36, ptr %10, ptr %3
   %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel.v, i64 12
-  store i32 -536870911, ptr %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel, align 4, !tbaa !40
+  store i32 -536870911, ptr %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   %37 = call i32 @lv_image_decoder_get_area(ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %spec.store.select) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %spec.store.select, i64 16, i1 false), !tbaa.struct !54
-  %38 = load i32, ptr %4, align 4, !tbaa !30
-  %39 = load i32, ptr %33, align 4, !tbaa !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %spec.store.select, i64 16, i1 false), !tbaa.struct !57
+  %38 = load i32, ptr %4, align 4, !tbaa !32
+  %39 = load i32, ptr %33, align 4, !tbaa !33
   call void @lv_area_move(ptr noundef nonnull %11, i32 noundef %38, i32 noundef %39) #6
   %40 = icmp eq i32 %37, 1
   br i1 %40, label %.lr.ph, label %._crit_edge
@@ -620,12 +620,12 @@ define internal fastcc void @img_decode_and_draw(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
   %44 = call i32 @lv_image_decoder_get_area(ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %spec.store.select) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %spec.store.select, i64 16, i1 false), !tbaa.struct !54
-  %45 = load i32, ptr %4, align 4, !tbaa !30
-  %46 = load i32, ptr %33, align 4, !tbaa !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %spec.store.select, i64 16, i1 false), !tbaa.struct !57
+  %45 = load i32, ptr %4, align 4, !tbaa !32
+  %46 = load i32, ptr %33, align 4, !tbaa !33
   call void @lv_area_move(ptr noundef nonnull %11, i32 noundef %45, i32 noundef %46) #6
   %47 = icmp eq i32 %44, 1
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !64
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %43, %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
@@ -656,7 +656,7 @@ define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noun
 14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %16 = load ptr, ptr %15, align 8, !tbaa !34
   %17 = call i32 @lv_image_decoder_open(ptr noundef nonnull %9, ptr noundef %16, ptr noundef null) #6
   %.not = icmp eq i32 %17, 1
   br i1 %.not, label %18, label %86
@@ -677,13 +677,13 @@ define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %., i64 16, i1 false)
   call void @lv_area_set_width(ptr noundef nonnull %10, i32 noundef %23) #6
   call void @lv_area_set_height(ptr noundef nonnull %10, i32 noundef %25) #6
-  %29 = load i32, ptr %10, align 4, !tbaa !30
+  %29 = load i32, ptr %10, align 4, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) @__const.lv_draw_image_tiled_helper.relative_decoded_area, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %32 = load i32, ptr %30, align 4, !tbaa !31
-  %33 = load i32, ptr %31, align 4, !tbaa !40
+  %32 = load i32, ptr %30, align 4, !tbaa !33
+  %33 = load i32, ptr %31, align 4, !tbaa !42
   %.not2228 = icmp sgt i32 %32, %33
   br i1 %.not2228, label %._crit_edge29, label %.preheader.lr.ph
 
@@ -702,7 +702,7 @@ define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noun
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %43 = add nsw i32 %23, -1
   %44 = add i32 %43, %29
-  %.pre = load i32, ptr %34, align 4, !tbaa !39
+  %.pre = load i32, ptr %34, align 4, !tbaa !41
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge27
@@ -719,14 +719,14 @@ define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noun
 
 49:                                               ; preds = %.lr.ph26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5, ptr noundef nonnull align 8 dereferenceable(3) %35, i64 3, i1 false), !tbaa.struct !58
-  %50 = load ptr, ptr %36, align 8, !tbaa !59
-  store ptr %50, ptr %37, align 8, !tbaa !60
-  %51 = load i32, ptr %38, align 8, !tbaa !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5, ptr noundef nonnull align 8 dereferenceable(3) %35, i64 3, i1 false), !tbaa.struct !61
+  %50 = load ptr, ptr %36, align 8, !tbaa !62
+  store ptr %50, ptr %37, align 8, !tbaa !63
+  %51 = load i32, ptr %38, align 8, !tbaa !65
   %52 = trunc i32 %51 to i16
   %53 = and i16 %52, 511
   store i16 %53, ptr %39, align 8
-  %54 = load ptr, ptr %40, align 8, !tbaa !63
+  %54 = load ptr, ptr %40, align 8, !tbaa !66
   %.not.i = icmp ne ptr %54, null
   %55 = load i32, ptr %11, align 4
   %56 = icmp eq i32 %55, -536870911
@@ -739,21 +739,21 @@ define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noun
 
 58:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !54
-  %59 = load i32, ptr %10, align 4, !tbaa !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !57
+  %59 = load i32, ptr %10, align 4, !tbaa !32
   %60 = sub nsw i32 0, %59
-  %61 = load i32, ptr %30, align 4, !tbaa !31
+  %61 = load i32, ptr %30, align 4, !tbaa !33
   %62 = sub nsw i32 0, %61
   call void @lv_area_move(ptr noundef nonnull %6, i32 noundef %60, i32 noundef %62) #6
-  store i32 -536870911, ptr %11, align 4, !tbaa !30
-  store i32 -536870911, ptr %spec.store.select.sroa.sel.v.sroa.sel.i, align 4, !tbaa !31
-  store i32 -536870911, ptr %spec.store.select.sroa.sel35.v.sroa.sel.i, align 4, !tbaa !39
-  store i32 -536870911, ptr %spec.store.select.sroa.sel38.v.sroa.sel.i, align 4, !tbaa !40
+  store i32 -536870911, ptr %11, align 4, !tbaa !32
+  store i32 -536870911, ptr %spec.store.select.sroa.sel.v.sroa.sel.i, align 4, !tbaa !33
+  store i32 -536870911, ptr %spec.store.select.sroa.sel35.v.sroa.sel.i, align 4, !tbaa !41
+  store i32 -536870911, ptr %spec.store.select.sroa.sel38.v.sroa.sel.i, align 4, !tbaa !42
   %63 = call i32 @lv_image_decoder_get_area(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %11) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !54
-  %64 = load i32, ptr %10, align 4, !tbaa !30
-  %65 = load i32, ptr %30, align 4, !tbaa !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !57
+  %64 = load i32, ptr %10, align 4, !tbaa !32
+  %65 = load i32, ptr %30, align 4, !tbaa !33
   call void @lv_area_move(ptr noundef nonnull %7, i32 noundef %64, i32 noundef %65) #6
   %66 = icmp eq i32 %63, 1
   br i1 %66, label %.lr.ph, label %._crit_edge
@@ -772,12 +772,12 @@ define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
   %70 = call i32 @lv_image_decoder_get_area(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %11) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !54
-  %71 = load i32, ptr %10, align 4, !tbaa !30
-  %72 = load i32, ptr %30, align 4, !tbaa !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !57
+  %71 = load i32, ptr %10, align 4, !tbaa !32
+  %72 = load i32, ptr %30, align 4, !tbaa !33
   call void @lv_area_move(ptr noundef nonnull %7, i32 noundef %71, i32 noundef %72) #6
   %73 = icmp eq i32 %70, 1
-  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !64
+  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %69, %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
@@ -789,20 +789,20 @@ img_decode_and_draw.exit:                         ; preds = %57, %._crit_edge
   br label %74
 
 74:                                               ; preds = %img_decode_and_draw.exit, %.lr.ph26
-  %75 = load i32, ptr %10, align 4, !tbaa !30
+  %75 = load i32, ptr %10, align 4, !tbaa !32
   %76 = add nsw i32 %75, %23
-  store i32 %76, ptr %10, align 4, !tbaa !30
-  %77 = load i32, ptr %41, align 4, !tbaa !39
+  store i32 %76, ptr %10, align 4, !tbaa !32
+  %77 = load i32, ptr %41, align 4, !tbaa !41
   %78 = add nsw i32 %77, %23
-  store i32 %78, ptr %41, align 4, !tbaa !39
+  store i32 %78, ptr %41, align 4, !tbaa !41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6
-  %79 = load i32, ptr %34, align 4, !tbaa !39
+  %79 = load i32, ptr %34, align 4, !tbaa !41
   %.not23 = icmp sgt i32 %76, %79
-  br i1 %.not23, label %._crit_edge27.loopexit, label %.lr.ph26, !llvm.loop !66
+  br i1 %.not23, label %._crit_edge27.loopexit, label %.lr.ph26, !llvm.loop !69
 
 ._crit_edge27.loopexit:                           ; preds = %74
-  %.pre30 = load i32, ptr %30, align 4, !tbaa !31
-  %.pre31 = load i32, ptr %31, align 4, !tbaa !40
+  %.pre30 = load i32, ptr %30, align 4, !tbaa !33
+  %.pre31 = load i32, ptr %31, align 4, !tbaa !42
   br label %._crit_edge27
 
 ._crit_edge27:                                    ; preds = %._crit_edge27.loopexit, %.preheader
@@ -810,14 +810,14 @@ img_decode_and_draw.exit:                         ; preds = %57, %._crit_edge
   %81 = phi i32 [ %.pre30, %._crit_edge27.loopexit ], [ %46, %.preheader ]
   %82 = phi i32 [ %79, %._crit_edge27.loopexit ], [ %47, %.preheader ]
   %83 = add nsw i32 %81, %25
-  store i32 %83, ptr %30, align 4, !tbaa !31
-  %84 = load i32, ptr %42, align 4, !tbaa !40
+  store i32 %83, ptr %30, align 4, !tbaa !33
+  %84 = load i32, ptr %42, align 4, !tbaa !42
   %85 = add nsw i32 %84, %25
-  store i32 %85, ptr %42, align 4, !tbaa !40
-  store i32 %29, ptr %10, align 4, !tbaa !30
-  store i32 %44, ptr %41, align 4, !tbaa !39
+  store i32 %85, ptr %42, align 4, !tbaa !42
+  store i32 %29, ptr %10, align 4, !tbaa !32
+  store i32 %44, ptr %41, align 4, !tbaa !41
   %.not22 = icmp sgt i32 %83, %80
-  br i1 %.not22, label %._crit_edge29, label %.preheader, !llvm.loop !67
+  br i1 %.not22, label %._crit_edge29, label %.preheader, !llvm.loop !70
 
 ._crit_edge29:                                    ; preds = %._crit_edge27, %18
   call void @lv_image_decoder_close(ptr noundef nonnull %9) #6
@@ -887,43 +887,46 @@ attributes #6 = { nounwind }
 !25 = !{!"p1 _ZTS15_lv_draw_task_t", !7, i64 0}
 !26 = !{!"p1 _ZTS15_lv_draw_unit_t", !7, i64 0}
 !27 = !{!24, !7, i64 104}
-!28 = !{!24, !10, i64 96}
-!29 = !{!4, !10, i64 68}
-!30 = !{!18, !10, i64 0}
-!31 = !{!18, !10, i64 4}
-!32 = !{!4, !7, i64 48}
-!33 = !{!34, !36, i64 96}
-!34 = !{!"_lv_layer_t", !35, i64 0, !18, i64 8, !10, i64 24, !18, i64 28, !18, i64 44, !8, i64 60, !10, i64 64, !25, i64 72, !11, i64 80, !11, i64 88, !36, i64 96, !7, i64 104}
-!35 = !{!"p1 _ZTS14_lv_draw_buf_t", !7, i64 0}
-!36 = !{!"_Bool", !8, i64 0}
-!37 = !{!14, !10, i64 0}
-!38 = !{!14, !10, i64 4}
-!39 = !{!18, !10, i64 8}
-!40 = !{!18, !10, i64 12}
-!41 = !{!42, !43, i64 0}
-!42 = !{!"_lv_image_decoder_dsc_t", !43, i64 0, !44, i64 8, !7, i64 16, !10, i64 24, !45, i64 32, !13, i64 56, !35, i64 72, !7, i64 80, !10, i64 88, !10, i64 92, !48, i64 96, !49, i64 104, !50, i64 112, !7, i64 120}
-!43 = !{!"p1 _ZTS19_lv_image_decoder_t", !7, i64 0}
-!44 = !{!"_lv_image_decoder_args_t", !36, i64 0, !36, i64 1, !36, i64 2, !36, i64 3, !36, i64 4}
-!45 = !{!"", !7, i64 0, !46, i64 8, !47, i64 16}
-!46 = !{!"p1 _ZTS12_lv_fs_drv_t", !7, i64 0}
-!47 = !{!"p1 _ZTS19_lv_fs_file_cache_t", !7, i64 0}
-!48 = !{!"p1 omnipotent char", !7, i64 0}
-!49 = !{!"p1 _ZTS11_lv_cache_t", !7, i64 0}
-!50 = !{!"p1 _ZTS17_lv_cache_entry_t", !7, i64 0}
-!51 = !{!52, !7, i64 32}
-!52 = !{!"_lv_image_decoder_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !48, i64 40, !7, i64 48}
-!53 = !{!10, !10, i64 0}
-!54 = !{i64 0, i64 4, !53, i64 4, i64 4, !53, i64 8, i64 4, !53, i64 12, i64 4, !53}
-!55 = !{!4, !6, i64 0}
-!56 = !{!34, !11, i64 80}
-!57 = !{!8, !8, i64 0}
-!58 = !{i64 0, i64 1, !57, i64 1, i64 1, !57, i64 2, i64 1, !57}
-!59 = !{!42, !7, i64 80}
-!60 = !{!61, !7, i64 8}
-!61 = !{!"_lv_draw_image_sup_t", !15, i64 0, !7, i64 8, !10, i64 16}
-!62 = !{!42, !10, i64 88}
-!63 = !{!42, !35, i64 72}
-!64 = distinct !{!64, !65}
-!65 = !{!"llvm.loop.mustprogress"}
-!66 = distinct !{!66, !65}
-!67 = distinct !{!67, !65}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!24, !10, i64 96}
+!31 = !{!4, !10, i64 68}
+!32 = !{!18, !10, i64 0}
+!33 = !{!18, !10, i64 4}
+!34 = !{!4, !7, i64 48}
+!35 = !{!36, !38, i64 96}
+!36 = !{!"_lv_layer_t", !37, i64 0, !18, i64 8, !10, i64 24, !18, i64 28, !18, i64 44, !8, i64 60, !10, i64 64, !25, i64 72, !11, i64 80, !11, i64 88, !38, i64 96, !7, i64 104}
+!37 = !{!"p1 _ZTS14_lv_draw_buf_t", !7, i64 0}
+!38 = !{!"_Bool", !8, i64 0}
+!39 = !{!14, !10, i64 0}
+!40 = !{!14, !10, i64 4}
+!41 = !{!18, !10, i64 8}
+!42 = !{!18, !10, i64 12}
+!43 = distinct !{!43, !29}
+!44 = !{!45, !46, i64 0}
+!45 = !{!"_lv_image_decoder_dsc_t", !46, i64 0, !47, i64 8, !7, i64 16, !10, i64 24, !48, i64 32, !13, i64 56, !37, i64 72, !7, i64 80, !10, i64 88, !10, i64 92, !51, i64 96, !52, i64 104, !53, i64 112, !7, i64 120}
+!46 = !{!"p1 _ZTS19_lv_image_decoder_t", !7, i64 0}
+!47 = !{!"_lv_image_decoder_args_t", !38, i64 0, !38, i64 1, !38, i64 2, !38, i64 3, !38, i64 4}
+!48 = !{!"", !7, i64 0, !49, i64 8, !50, i64 16}
+!49 = !{!"p1 _ZTS12_lv_fs_drv_t", !7, i64 0}
+!50 = !{!"p1 _ZTS19_lv_fs_file_cache_t", !7, i64 0}
+!51 = !{!"p1 omnipotent char", !7, i64 0}
+!52 = !{!"p1 _ZTS11_lv_cache_t", !7, i64 0}
+!53 = !{!"p1 _ZTS17_lv_cache_entry_t", !7, i64 0}
+!54 = !{!55, !7, i64 32}
+!55 = !{!"_lv_image_decoder_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !51, i64 40, !7, i64 48}
+!56 = !{!10, !10, i64 0}
+!57 = !{i64 0, i64 4, !56, i64 4, i64 4, !56, i64 8, i64 4, !56, i64 12, i64 4, !56}
+!58 = !{!4, !6, i64 0}
+!59 = !{!36, !11, i64 80}
+!60 = !{!8, !8, i64 0}
+!61 = !{i64 0, i64 1, !60, i64 1, i64 1, !60, i64 2, i64 1, !60}
+!62 = !{!45, !7, i64 80}
+!63 = !{!64, !7, i64 8}
+!64 = !{!"_lv_draw_image_sup_t", !15, i64 0, !7, i64 8, !10, i64 16}
+!65 = !{!45, !10, i64 88}
+!66 = !{!45, !37, i64 72}
+!67 = distinct !{!67, !68, !29}
+!68 = !{!"llvm.loop.mustprogress"}
+!69 = distinct !{!69, !68, !29}
+!70 = distinct !{!70, !68, !29}

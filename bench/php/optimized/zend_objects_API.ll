@@ -119,7 +119,7 @@ define dso_local void @zend_objects_store_call_destructors(ptr noundef readonly 
   %34 = load i32, ptr %4, align 8, !tbaa !11
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %.loopexit
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %33, %1
   ret void
@@ -163,7 +163,7 @@ define dso_local void @zend_objects_store_mark_destructed(ptr noundef readonly c
 19:                                               ; preds = %15, %11
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %.not15 = icmp eq ptr %20, %10
-  br i1 %.not15, label %.loopexit, label %11
+  br i1 %.not15, label %.loopexit, label %11, !llvm.loop !68
 
 .loopexit:                                        ; preds = %19, %3, %1
   ret void
@@ -205,7 +205,7 @@ define dso_local void @zend_objects_store_free_object_storage(ptr noundef readon
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !66
+  %21 = load ptr, ptr %20, align 8, !tbaa !69
   %.not33 = icmp eq ptr %21, @zend_object_std_dtor
   br i1 %.not33, label %25, label %22
 
@@ -218,7 +218,7 @@ define dso_local void @zend_objects_store_free_object_storage(ptr noundef readon
 
 25:                                               ; preds = %.preheader, %16, %22, %12
   %.not34 = icmp eq i64 %.0.add, 8
-  br i1 %.not34, label %.loopexit, label %.preheader
+  br i1 %.not34, label %.loopexit, label %.preheader, !llvm.loop !70
 
 .preheader36:                                     ; preds = %6, %41
   %.1.idx = phi i64 [ %.1.add, %41 ], [ %.idx, %6 ]
@@ -246,13 +246,13 @@ define dso_local void @zend_objects_store_free_object_storage(ptr noundef readon
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !48
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !66
+  %40 = load ptr, ptr %39, align 8, !tbaa !69
   tail call void %40(ptr noundef nonnull %26) #8
   br label %41
 
 41:                                               ; preds = %.preheader36, %33, %29
   %.not29 = icmp eq i64 %.1.add, 8
-  br i1 %.not29, label %.loopexit, label %.preheader36
+  br i1 %.not29, label %.loopexit, label %.preheader36, !llvm.loop !71
 
 .loopexit:                                        ; preds = %41, %25, %2
   ret void
@@ -262,7 +262,7 @@ declare void @zend_object_std_dtor(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_objects_store_put(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 896), align 8, !tbaa !67
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 896), align 8, !tbaa !72
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %14, label %3
 
@@ -270,24 +270,24 @@ define dso_local void @zend_objects_store_put(ptr noundef initializes((8, 12)) %
   %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1089), align 1, !tbaa !14
   %5 = and i8 %4, 2
   %.not7 = icmp eq i8 %5, 0
-  br i1 %.not7, label %6, label %14, !prof !68
+  br i1 %.not7, label %6, label %14, !prof !73
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !69
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !74
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !46
   %11 = ptrtoint ptr %10 to i64
   %12 = lshr i64 %11, 1
   %13 = trunc i64 %12 to i32
-  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 896), align 8, !tbaa !67
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 896), align 8, !tbaa !72
   br label %21
 
 14:                                               ; preds = %3, %1
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 888), align 8, !tbaa !70
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 892), align 4, !tbaa !71
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 888), align 8, !tbaa !75
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 892), align 4, !tbaa !76
   %17 = icmp eq i32 %15, %16
-  br i1 %17, label %18, label %19, !prof !72
+  br i1 %17, label %18, label %19, !prof !77
 
 18:                                               ; preds = %14
   tail call fastcc void @zend_objects_store_put_cold(ptr noundef %0)
@@ -295,8 +295,8 @@ define dso_local void @zend_objects_store_put(ptr noundef initializes((8, 12)) %
 
 19:                                               ; preds = %14
   %20 = add i32 %15, 1
-  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 888), align 8, !tbaa !70
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !69
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 888), align 8, !tbaa !75
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !74
   %.pre8 = sext i32 %15 to i64
   br label %21
 
@@ -305,7 +305,7 @@ define dso_local void @zend_objects_store_put(ptr noundef initializes((8, 12)) %
   %22 = phi ptr [ %.pre, %19 ], [ %7, %6 ]
   %.0 = phi i32 [ %15, %19 ], [ %2, %6 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8, !tbaa !73
+  store i32 %.0, ptr %23, align 8, !tbaa !78
   %24 = getelementptr inbounds ptr, ptr %22, i64 %.pre-phi
   store ptr %0, ptr %24, align 8, !tbaa !46
   br label %25
@@ -316,19 +316,19 @@ define dso_local void @zend_objects_store_put(ptr noundef initializes((8, 12)) %
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc void @zend_objects_store_put_cold(ptr noundef initializes((8, 12)) %0) unnamed_addr #4 {
-  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 892), align 4, !tbaa !71
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 892), align 4, !tbaa !76
   %3 = shl i32 %2, 1
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !69
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !74
   %5 = zext i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 3
   %7 = tail call ptr @_erealloc(ptr noundef %4, i64 noundef %6) #9
-  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !69
-  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 892), align 4, !tbaa !71
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 888), align 8, !tbaa !70
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !74
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 892), align 4, !tbaa !76
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 888), align 8, !tbaa !75
   %9 = add i32 %8, 1
-  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 888), align 8, !tbaa !70
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 888), align 8, !tbaa !75
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %8, ptr %10, align 8, !tbaa !73
+  store i32 %8, ptr %10, align 8, !tbaa !78
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds ptr, ptr %7, i64 %11
   store ptr %0, ptr %12, align 8, !tbaa !46
@@ -341,7 +341,7 @@ define dso_local void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr
   %3 = load i32, ptr %2, align 4, !tbaa !47
   %4 = and i32 %3, 15
   %5 = icmp eq i32 %4, 1
-  br i1 %5, label %63, label %6, !prof !72
+  br i1 %5, label %63, label %6, !prof !77
 
 6:                                                ; preds = %1
   %7 = and i32 %3, 256
@@ -387,8 +387,8 @@ thread-pre-split:                                 ; preds = %6, %14
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !73
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !69, !nonnull !74, !noundef !74
+  %28 = load i32, ptr %27, align 8, !tbaa !78
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !74, !nonnull !79, !noundef !79
   %30 = zext i32 %28 to i64
   %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !46
@@ -412,7 +412,7 @@ thread-pre-split:                                 ; preds = %6, %14
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !48
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !66
+  %45 = load ptr, ptr %44, align 8, !tbaa !69
   tail call void %45(ptr noundef nonnull %0) #8
   %.pr31 = load i32, ptr %2, align 4, !tbaa !47
   br label %46
@@ -421,7 +421,7 @@ thread-pre-split:                                 ; preds = %6, %14
   %47 = phi i32 [ %.pr31, %40 ], [ %38, %26 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !48
-  %50 = load i32, ptr %49, align 8, !tbaa !75
+  %50 = load i32, ptr %49, align 8, !tbaa !80
   %51 = sext i32 %50 to i64
   %52 = sub nsw i64 0, %51
   %53 = getelementptr inbounds i8, ptr %0, i64 %52
@@ -434,15 +434,15 @@ thread-pre-split:                                 ; preds = %6, %14
 
 55:                                               ; preds = %54, %46
   tail call void @_efree(ptr noundef nonnull %53) #8
-  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 896), align 8, !tbaa !67
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 896), align 8, !tbaa !72
   %57 = sext i32 %56 to i64
   %58 = shl nsw i64 %57, 1
   %59 = or disjoint i64 %58, 1
   %60 = inttoptr i64 %59 to ptr
-  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !69
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !74
   %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %30
   store ptr %60, ptr %62, align 8, !tbaa !46
-  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 896), align 8, !tbaa !67
+  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 896), align 8, !tbaa !72
   br label %63
 
 63:                                               ; preds = %1, %55, %23
@@ -536,13 +536,18 @@ attributes #9 = { nounwind allocsize(1) }
 !63 = !{!"p2 _ZTS17_zend_trait_alias", !7, i64 0}
 !64 = !{!"p2 _ZTS22_zend_trait_precedence", !7, i64 0}
 !65 = !{!19, !10, i64 0}
-!66 = !{!52, !7, i64 8}
-!67 = !{!15, !10, i64 896}
-!68 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!69 = !{!15, !6, i64 880}
-!70 = !{!15, !10, i64 888}
-!71 = !{!15, !10, i64 892}
-!72 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!73 = !{!49, !10, i64 8}
-!74 = !{}
-!75 = !{!52, !10, i64 0}
+!66 = distinct !{!66, !67}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = distinct !{!68, !67}
+!69 = !{!52, !7, i64 8}
+!70 = distinct !{!70, !67}
+!71 = distinct !{!71, !67}
+!72 = !{!15, !10, i64 896}
+!73 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!74 = !{!15, !6, i64 880}
+!75 = !{!15, !10, i64 888}
+!76 = !{!15, !10, i64 892}
+!77 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!78 = !{!49, !10, i64 8}
+!79 = !{}
+!80 = !{!52, !10, i64 0}

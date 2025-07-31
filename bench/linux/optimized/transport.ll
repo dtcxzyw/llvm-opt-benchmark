@@ -826,7 +826,7 @@ thread-pre-split:                                 ; preds = %61, %19
   %135 = and i64 %134, -163841
   %136 = or disjoint i64 %135, 131072
   store i64 %136, ptr %75, align 8
-  br label %112
+  br label %112, !llvm.loop !11
 
 137:                                              ; preds = %129
   %138 = icmp eq i32 %119, 0
@@ -1715,7 +1715,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 64
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %16, label %14, !prof !11
+  br i1 %13, label %16, label %14, !prof !13
 
 14:                                               ; preds = %2
   %15 = getelementptr i8, ptr %7, i64 31
@@ -1803,7 +1803,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   %72 = load i64, ptr %10, align 8
   %73 = and i64 %72, 256
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %76, label %75, !prof !11
+  br i1 %74, label %76, label %75, !prof !13
 
 75:                                               ; preds = %71
   tail call void @usleep_range_state(i64 noundef 125, i64 noundef 150, i32 noundef 2) #9
@@ -2426,4 +2426,6 @@ attributes #10 = { cold nounwind }
 !8 = !{i64 2148352291, i64 2148352330, i64 2148352351, i64 2148352388, i64 2148352411, i64 2148352281}
 !9 = !{i32 0, i32 5}
 !10 = !{!"branch_weights", i32 1, i32 2000}
-!11 = !{!"branch_weights", i32 2000, i32 1}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!"branch_weights", i32 2000, i32 1}

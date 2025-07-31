@@ -510,7 +510,7 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
   %164 = load ptr, ptr %163, align 8, !tbaa !10
   %165 = load i64, ptr %14, align 8, !tbaa !16
   %166 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %164, i64 %165
-  store ptr %166, ptr %15, align 8, !tbaa !27
+  store ptr %166, ptr %15, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
   %167 = load ptr, ptr %10, align 8, !tbaa !19
@@ -548,7 +548,7 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
   %183 = load i64, ptr %18, align 8, !tbaa !16
   %184 = add i64 %183, 1
   store i64 %184, ptr %18, align 8, !tbaa !16
-  br label %171, !llvm.loop !28
+  br label %171, !llvm.loop !29
 
 185:                                              ; preds = %171
   %186 = load ptr, ptr %9, align 8, !tbaa !19
@@ -565,9 +565,9 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
 
 190:                                              ; preds = %189
   %191 = load i64, ptr %17, align 8, !tbaa !16
-  %192 = load ptr, ptr %15, align 8, !tbaa !27
+  %192 = load ptr, ptr %15, align 8, !tbaa !28
   %193 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %192, i32 0, i32 0
-  store i64 %191, ptr %193, align 8, !tbaa !29
+  store i64 %191, ptr %193, align 8, !tbaa !30
   br label %194
 
 194:                                              ; preds = %190
@@ -612,7 +612,7 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
   %214 = load i64, ptr %19, align 8, !tbaa !16
   %215 = add i64 %214, 1
   store i64 %215, ptr %19, align 8, !tbaa !16
-  br label %202, !llvm.loop !31
+  br label %202, !llvm.loop !32
 
 216:                                              ; preds = %202
   %217 = load ptr, ptr %9, align 8, !tbaa !19
@@ -629,9 +629,9 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
 
 221:                                              ; preds = %220
   %222 = load i64, ptr %16, align 8, !tbaa !16
-  %223 = load ptr, ptr %15, align 8, !tbaa !27
+  %223 = load ptr, ptr %15, align 8, !tbaa !28
   %224 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %223, i32 0, i32 1
-  store i64 %222, ptr %224, align 8, !tbaa !32
+  store i64 %222, ptr %224, align 8, !tbaa !33
   br label %225
 
 225:                                              ; preds = %221
@@ -650,9 +650,9 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
   %231 = load ptr, ptr %9, align 8, !tbaa !19
   %232 = load i8, ptr %231, align 1, !tbaa !24
   %233 = zext i8 %232 to i32
-  %234 = load ptr, ptr %15, align 8, !tbaa !27
+  %234 = load ptr, ptr %15, align 8, !tbaa !28
   %235 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %234, i32 0, i32 2
-  store i32 %233, ptr %235, align 8, !tbaa !33
+  store i32 %233, ptr %235, align 8, !tbaa !34
   %236 = load ptr, ptr %9, align 8, !tbaa !19
   %237 = getelementptr inbounds nuw i8, ptr %236, i32 1
   store ptr %237, ptr %9, align 8, !tbaa !19
@@ -660,11 +660,11 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
   %239 = load i8, ptr %238, align 1, !tbaa !24
   %240 = zext i8 %239 to i32
   %241 = shl nuw nsw i32 %240, 8
-  %242 = load ptr, ptr %15, align 8, !tbaa !27
+  %242 = load ptr, ptr %15, align 8, !tbaa !28
   %243 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %242, i32 0, i32 2
-  %244 = load i32, ptr %243, align 8, !tbaa !33
+  %244 = load i32, ptr %243, align 8, !tbaa !34
   %245 = or i32 %244, %241
-  store i32 %245, ptr %243, align 8, !tbaa !33
+  store i32 %245, ptr %243, align 8, !tbaa !34
   %246 = load ptr, ptr %9, align 8, !tbaa !19
   %247 = getelementptr inbounds nuw i8, ptr %246, i32 1
   store ptr %247, ptr %9, align 8, !tbaa !19
@@ -672,11 +672,11 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
   %249 = load i8, ptr %248, align 1, !tbaa !24
   %250 = zext i8 %249 to i32
   %251 = shl nuw nsw i32 %250, 16
-  %252 = load ptr, ptr %15, align 8, !tbaa !27
+  %252 = load ptr, ptr %15, align 8, !tbaa !28
   %253 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %252, i32 0, i32 2
-  %254 = load i32, ptr %253, align 8, !tbaa !33
+  %254 = load i32, ptr %253, align 8, !tbaa !34
   %255 = or i32 %254, %251
-  store i32 %255, ptr %253, align 8, !tbaa !33
+  store i32 %255, ptr %253, align 8, !tbaa !34
   %256 = load ptr, ptr %9, align 8, !tbaa !19
   %257 = getelementptr inbounds nuw i8, ptr %256, i32 1
   store ptr %257, ptr %9, align 8, !tbaa !19
@@ -684,11 +684,11 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
   %259 = load i8, ptr %258, align 1, !tbaa !24
   %260 = zext i8 %259 to i32
   %261 = shl nuw i32 %260, 24
-  %262 = load ptr, ptr %15, align 8, !tbaa !27
+  %262 = load ptr, ptr %15, align 8, !tbaa !28
   %263 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %262, i32 0, i32 2
-  %264 = load i32, ptr %263, align 8, !tbaa !33
+  %264 = load i32, ptr %263, align 8, !tbaa !34
   %265 = or i32 %264, %261
-  store i32 %265, ptr %263, align 8, !tbaa !33
+  store i32 %265, ptr %263, align 8, !tbaa !34
   %266 = load ptr, ptr %9, align 8, !tbaa !19
   %267 = getelementptr inbounds nuw i8, ptr %266, i32 1
   store ptr %267, ptr %9, align 8, !tbaa !19
@@ -710,7 +710,7 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef %1) local_unn
   %273 = load i64, ptr %14, align 8, !tbaa !16
   %274 = add i64 %273, 1
   store i64 %274, ptr %14, align 8, !tbaa !16
-  br label %156, !llvm.loop !34
+  br label %156, !llvm.loop !35
 
 275:                                              ; preds = %160
   br label %276
@@ -954,7 +954,7 @@ define i64 @H5FD__onion_history_encode(ptr noundef readonly captures(none) %0, p
   br label %85
 
 10:                                               ; preds = %3
-  %11 = load i8, ptr %0, align 8, !tbaa !35
+  %11 = load i8, ptr %0, align 8, !tbaa !36
   store i32 1397249871, ptr %1, align 1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %11, ptr %12, align 1, !tbaa !24
@@ -979,7 +979,7 @@ define i64 @H5FD__onion_history_encode(ptr noundef readonly captures(none) %0, p
   %22 = add nuw nsw i64 %.097103, 1
   %23 = lshr i64 %.096104, 8
   %exitcond.not = icmp eq i64 %22, 8
-  br i1 %exitcond.not, label %24, label %19, !llvm.loop !36
+  br i1 %exitcond.not, label %24, label %19, !llvm.loop !37
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -996,9 +996,9 @@ define i64 @H5FD__onion_history_encode(ptr noundef readonly captures(none) %0, p
   %.099111 = phi i64 [ 0, %.lr.ph ], [ %64, %46 ]
   %29 = load ptr, ptr %27, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %29, i64 %.099111
-  %31 = load i64, ptr %30, align 8, !tbaa !29
+  %31 = load i64, ptr %30, align 8, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !32
+  %33 = load i64, ptr %32, align 8, !tbaa !33
   br label %34
 
 34:                                               ; preds = %28, %34
@@ -1011,7 +1011,7 @@ define i64 @H5FD__onion_history_encode(ptr noundef readonly captures(none) %0, p
   %37 = add nuw nsw i64 %.091106, 1
   %38 = lshr i64 %.093105, 8
   %exitcond114.not = icmp eq i64 %37, 8
-  br i1 %exitcond114.not, label %39, label %34, !llvm.loop !37
+  br i1 %exitcond114.not, label %39, label %34, !llvm.loop !38
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %.2112, i64 8
@@ -1027,26 +1027,26 @@ define i64 @H5FD__onion_history_encode(ptr noundef readonly captures(none) %0, p
   %44 = add nuw nsw i64 %.086109, 1
   %45 = lshr i64 %.088108, 8
   %exitcond115.not = icmp eq i64 %44, 8
-  br i1 %exitcond115.not, label %46, label %41, !llvm.loop !38
+  br i1 %exitcond115.not, label %46, label %41, !llvm.loop !39
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %.2112, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %49 = load i32, ptr %48, align 8, !tbaa !33
+  %49 = load i32, ptr %48, align 8, !tbaa !34
   %50 = trunc i32 %49 to i8
   store i8 %50, ptr %47, align 1, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %.2112, i64 17
-  %52 = load i32, ptr %48, align 8, !tbaa !33
+  %52 = load i32, ptr %48, align 8, !tbaa !34
   %53 = lshr i32 %52, 8
   %54 = trunc i32 %53 to i8
   store i8 %54, ptr %51, align 1, !tbaa !24
   %55 = getelementptr inbounds nuw i8, ptr %.2112, i64 18
-  %56 = load i32, ptr %48, align 8, !tbaa !33
+  %56 = load i32, ptr %48, align 8, !tbaa !34
   %57 = lshr i32 %56, 16
   %58 = trunc i32 %57 to i8
   store i8 %58, ptr %55, align 1, !tbaa !24
   %59 = getelementptr inbounds nuw i8, ptr %.2112, i64 19
-  %60 = load i32, ptr %48, align 8, !tbaa !33
+  %60 = load i32, ptr %48, align 8, !tbaa !34
   %61 = lshr i32 %60, 24
   %62 = trunc nuw i32 %61 to i8
   store i8 %62, ptr %59, align 1, !tbaa !24
@@ -1054,7 +1054,7 @@ define i64 @H5FD__onion_history_encode(ptr noundef readonly captures(none) %0, p
   %64 = add nuw i64 %.099111, 1
   %65 = load i64, ptr %17, align 8, !tbaa !18
   %66 = icmp ult i64 %64, %65
-  br i1 %66, label %28, label %.loopexit, !llvm.loop !39
+  br i1 %66, label %28, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %46, %24
   %.195 = phi ptr [ %25, %24 ], [ %63, %46 ]
@@ -1140,18 +1140,19 @@ attributes #12 = { nounwind willreturn memory(read) }
 !22 = !{!"p1 _ZTS20H5FD_onion_history_t", !14, i64 0}
 !23 = !{!15, !15, i64 0}
 !24 = !{!5, !5, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!13, !13, i64 0}
-!28 = distinct !{!28, !26}
-!29 = !{!30, !12, i64 0}
-!30 = !{!"H5FD_onion_record_loc_t", !12, i64 0, !12, i64 8, !15, i64 16}
-!31 = distinct !{!31, !26}
-!32 = !{!30, !12, i64 8}
-!33 = !{!30, !15, i64 16}
-!34 = distinct !{!34, !26}
-!35 = !{!11, !5, i64 0}
-!36 = distinct !{!36, !26}
-!37 = distinct !{!37, !26}
-!38 = distinct !{!38, !26}
-!39 = distinct !{!39, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!13, !13, i64 0}
+!29 = distinct !{!29, !26, !27}
+!30 = !{!31, !12, i64 0}
+!31 = !{!"H5FD_onion_record_loc_t", !12, i64 0, !12, i64 8, !15, i64 16}
+!32 = distinct !{!32, !26, !27}
+!33 = !{!31, !12, i64 8}
+!34 = !{!31, !15, i64 16}
+!35 = distinct !{!35, !26, !27}
+!36 = !{!11, !5, i64 0}
+!37 = distinct !{!37, !26, !27}
+!38 = distinct !{!38, !26, !27}
+!39 = distinct !{!39, !26, !27}
+!40 = distinct !{!40, !26, !27}

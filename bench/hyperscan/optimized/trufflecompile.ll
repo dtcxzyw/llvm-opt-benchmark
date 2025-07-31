@@ -84,7 +84,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
   %35 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.0.i.i
   %36 = load i64, ptr %35, align 8
   %.not22.i.i = icmp eq i64 %36, 0
-  br i1 %.not22.i.i, label %32, label %37, !llvm.loop !7
+  br i1 %.not22.i.i, label %32, label %37, !llvm.loop !8
 
 37:                                               ; preds = %34
   %38 = shl nuw nsw i64 %.0.i.i, 6
@@ -109,7 +109,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %30, %37
   %51 = or i8 %49, %50
   store i8 %51, ptr %48, align 1
   %.not.i.i14 = icmp samesign ult i64 %.sink32, 256
-  br i1 %.not.i.i14, label %.lr.ph42, label %._crit_edge, !llvm.loop !8
+  br i1 %.not.i.i14, label %.lr.ph42, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -136,7 +136,7 @@ define hidden void @_ZN3ue210truffle2crEPKhS1_(ptr dead_on_unwind noalias writab
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01517 = phi i32 [ %11, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %9 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01517) #4, !srcloc !9
+  %9 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01517) #4, !srcloc !10
   %10 = extractvalue { i32, i32 } %9, 0
   %11 = extractvalue { i32, i32 } %9, 1
   %.tr11 = zext i32 %10 to i64
@@ -151,7 +151,7 @@ define hidden void @_ZN3ue210truffle2crEPKhS1_(ptr dead_on_unwind noalias writab
   %20 = or i64 %16, %19
   store i64 %20, ptr %18, align 8
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
@@ -165,7 +165,7 @@ define hidden void @_ZN3ue210truffle2crEPKhS1_(ptr dead_on_unwind noalias writab
 
 .lr.ph21:                                         ; preds = %.lr.ph21.preheader, %.lr.ph21
   %.119 = phi i32 [ %26, %.lr.ph21 ], [ %23, %.lr.ph21.preheader ]
-  %24 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.119) #4, !srcloc !9
+  %24 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.119) #4, !srcloc !10
   %25 = extractvalue { i32, i32 } %24, 0
   %26 = extractvalue { i32, i32 } %24, 1
   %.tr = zext i32 %25 to i64
@@ -181,12 +181,12 @@ define hidden void @_ZN3ue210truffle2crEPKhS1_(ptr dead_on_unwind noalias writab
   %36 = or i64 %30, %35
   store i64 %36, ptr %34, align 8
   %.not10 = icmp eq i32 %26, 0
-  br i1 %.not10, label %._crit_edge22, label %.lr.ph21, !llvm.loop !11
+  br i1 %.not10, label %._crit_edge22, label %.lr.ph21, !llvm.loop !12
 
 ._crit_edge22:                                    ; preds = %.lr.ph21, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !12
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -205,11 +205,12 @@ attributes #4 = { nounwind memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = !{i64 4622308, i64 4622337}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = !{i64 4622308, i64 4622337}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}

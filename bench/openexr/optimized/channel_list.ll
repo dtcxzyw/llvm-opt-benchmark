@@ -254,14 +254,14 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %70 = load i32, ptr %1, align 8, !tbaa !30
   %71 = add nsw i32 %70, 1
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %4, ptr %72, align 8, !tbaa !35
+  store i32 %4, ptr %72, align 8, !tbaa !36
   %73 = trunc nuw i32 %5 to i8
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i8 %73, ptr %74, align 4, !tbaa !36
+  store i8 %73, ptr %74, align 4, !tbaa !37
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %6, ptr %75, align 8, !tbaa !37
+  store i32 %6, ptr %75, align 8, !tbaa !38
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %7, ptr %76, align 4, !tbaa !38
+  store i32 %7, ptr %76, align 4, !tbaa !39
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !27
   %.not147 = icmp slt i32 %70, %78
@@ -313,7 +313,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
 ._crit_edge:                                      ; preds = %.lr.ph175, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %97, %.lr.ph175 ]
   %98 = getelementptr inbounds %struct.exr_attr_chlist_entry_t, ptr %.0125, i64 %.pre-phi
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !40
   %.not150 = icmp eq ptr %53, null
   %.not151 = icmp eq ptr %.0125, %53
   %or.cond152 = select i1 %.not150, i1 true, i1 %.not151
@@ -331,14 +331,14 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %indvars.iv183 = phi i64 [ %96, %.lr.ph175.preheader ], [ %indvars.iv.next184, %.lr.ph175 ]
   %100 = getelementptr inbounds %struct.exr_attr_chlist_entry_t, ptr %.0125, i64 %indvars.iv183
   %gep = getelementptr %struct.exr_attr_chlist_entry_t, ptr %invariant.gep, i64 %indvars.iv183
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %gep, i64 32, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %gep, i64 32, i1 false), !tbaa.struct !40
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, -1
   %101 = icmp sgt i64 %indvars.iv.next184, %97
-  br i1 %101, label %.lr.ph175, label %._crit_edge, !llvm.loop !42
+  br i1 %101, label %.lr.ph175, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge178:                                   ; preds = %.lr.ph177, %.preheader
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %103 = load ptr, ptr %102, align 8, !tbaa !43
+  %103 = load ptr, ptr %102, align 8, !tbaa !44
   call void %103(ptr noundef nonnull %53) #6
   br label %106
 
@@ -346,10 +346,10 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %indvars.iv186 = phi i64 [ 0, %.lr.ph177.preheader ], [ %indvars.iv.next187, %.lr.ph177 ]
   %104 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %.0125, i64 %indvars.iv186
   %105 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %53, i64 %indvars.iv186
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false), !tbaa.struct !40
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %._crit_edge178, label %.lr.ph177, !llvm.loop !44
+  br i1 %exitcond190.not, label %._crit_edge178, label %.lr.ph177, !llvm.loop !45
 
 106:                                              ; preds = %._crit_edge178, %._crit_edge
   store i32 %71, ptr %1, align 8, !tbaa !30
@@ -436,7 +436,7 @@ exr_attr_chlist_destroy.exit.lr.ph:               ; preds = %.preheader
 29:                                               ; preds = %exr_attr_chlist_destroy.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %exr_attr_chlist_init.exit.thread, label %exr_attr_chlist_destroy.exit, !llvm.loop !45
+  br i1 %exitcond.not, label %exr_attr_chlist_init.exit.thread, label %exr_attr_chlist_destroy.exit, !llvm.loop !46
 
 exr_attr_chlist_destroy.exit:                     ; preds = %exr_attr_chlist_destroy.exit.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %exr_attr_chlist_destroy.exit.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -444,16 +444,16 @@ exr_attr_chlist_destroy.exit:                     ; preds = %exr_attr_chlist_des
   %31 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !31
-  %34 = load i32, ptr %31, align 8, !tbaa !46
+  %34 = load i32, ptr %31, align 8, !tbaa !47
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !35
+  %36 = load i32, ptr %35, align 8, !tbaa !36
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  %38 = load i8, ptr %37, align 4, !tbaa !36
+  %38 = load i8, ptr %37, align 4, !tbaa !37
   %39 = zext i8 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %41 = load i32, ptr %40, align 8, !tbaa !37
+  %41 = load i32, ptr %40, align 8, !tbaa !38
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 28
-  %43 = load i32, ptr %42, align 4, !tbaa !38
+  %43 = load i32, ptr %42, align 4, !tbaa !39
   %44 = tail call i32 @exr_attr_chlist_add_with_length(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %33, i32 noundef %34, i32 noundef %36, i32 noundef %39, i32 noundef %41, i32 noundef %43)
   %.not40 = icmp eq i32 %44, 0
   br i1 %.not40, label %29, label %45
@@ -479,11 +479,11 @@ exr_attr_chlist_destroy.exit:                     ; preds = %exr_attr_chlist_des
   %51 = tail call i32 @exr_attr_string_destroy(ptr noundef nonnull %0, ptr noundef %50) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !48
 
 52:                                               ; preds = %._crit_edge.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %54 = load ptr, ptr %53, align 8, !tbaa !43
+  %54 = load ptr, ptr %53, align 8, !tbaa !44
   tail call void %54(ptr noundef nonnull %48) #6
   br label %55
 
@@ -526,11 +526,11 @@ define hidden range(i32 0, 3) i32 @exr_attr_chlist_destroy(ptr noundef %0, ptr n
   %10 = tail call i32 @exr_attr_string_destroy(ptr noundef nonnull %0, ptr noundef %9) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 11:                                               ; preds = %._crit_edge
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %13 = load ptr, ptr %12, align 8, !tbaa !43
+  %13 = load ptr, ptr %12, align 8, !tbaa !44
   tail call void %13(ptr noundef nonnull %7) #6
   br label %14
 
@@ -587,18 +587,19 @@ attributes #7 = { nounwind willreturn memory(read) }
 !30 = !{!26, !8, i64 0}
 !31 = !{!32, !9, i64 8}
 !32 = !{!"", !7, i64 0, !8, i64 16, !5, i64 20, !5, i64 21, !8, i64 24, !8, i64 28}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!32, !8, i64 16}
-!36 = !{!32, !5, i64 20}
-!37 = !{!32, !8, i64 24}
-!38 = !{!32, !8, i64 28}
-!39 = !{i64 0, i64 4, !40, i64 4, i64 4, !40, i64 8, i64 8, !41, i64 16, i64 4, !40, i64 20, i64 1, !29, i64 21, i64 3, !29, i64 24, i64 4, !40, i64 28, i64 4, !40}
-!40 = !{!8, !8, i64 0}
-!41 = !{!9, !9, i64 0}
-!42 = distinct !{!42, !34}
-!43 = !{!4, !10, i64 96}
-!44 = distinct !{!44, !34}
-!45 = distinct !{!45, !34}
-!46 = !{!32, !8, i64 0}
-!47 = distinct !{!47, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!32, !8, i64 16}
+!37 = !{!32, !5, i64 20}
+!38 = !{!32, !8, i64 24}
+!39 = !{!32, !8, i64 28}
+!40 = !{i64 0, i64 4, !41, i64 4, i64 4, !41, i64 8, i64 8, !42, i64 16, i64 4, !41, i64 20, i64 1, !29, i64 21, i64 3, !29, i64 24, i64 4, !41, i64 28, i64 4, !41}
+!41 = !{!8, !8, i64 0}
+!42 = !{!9, !9, i64 0}
+!43 = distinct !{!43, !34, !35}
+!44 = !{!4, !10, i64 96}
+!45 = distinct !{!45, !34, !35}
+!46 = distinct !{!46, !34, !35}
+!47 = !{!32, !8, i64 0}
+!48 = distinct !{!48, !34, !35}

@@ -383,5 +383,6 @@ attributes #6 = { nounwind }
 !7 = !{!"branch_weights", i32 1, i32 1048575}
 !8 = !{i64 2145392998}
 !9 = !{i64 2145392468}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"llvm.loop.estimated_trip_count"}

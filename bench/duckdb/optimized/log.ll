@@ -32,7 +32,7 @@ atomic_load_b.exit:
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 1
-  br label %6
+  br label %6, !llvm.loop !12
 
 log_var_extract_segment.exit:                     ; preds = %6, %6
   %10 = ptrtoint ptr %.0.i16 to i64
@@ -73,7 +73,7 @@ log_var_matches_segment.exit:                     ; preds = %24
 log_var_matches_segment.exit.thread:              ; preds = %22, %24, %19, %log_var_matches_segment.exit
   %30 = icmp eq i8 %7, 0
   %31 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 1
-  br i1 %30, label %.thread.sink.split, label %.preheader
+  br i1 %30, label %.thread.sink.split, label %.preheader, !llvm.loop !14
 
 .thread.sink.split:                               ; preds = %log_var_matches_segment.exit.thread, %log_var_matches_segment.exit, %19, %14
   %.sink = phi i32 [ 2, %14 ], [ 2, %19 ], [ 2, %log_var_matches_segment.exit ], [ 1, %log_var_matches_segment.exit.thread ]
@@ -109,3 +109,6 @@ attributes #2 = { nounwind willreturn memory(read) }
 !9 = !{!"p1 omnipotent char", !10, i64 0}
 !10 = !{!"any pointer", !7, i64 0}
 !11 = !{!7, !7, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !13}

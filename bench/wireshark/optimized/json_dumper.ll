@@ -1638,7 +1638,7 @@ jd_puts_len.exit:                                 ; preds = %27, %29
   %31 = getelementptr i8, ptr %.025, i64 %22
   %32 = sub i64 %.01824, %22
   %.not19 = icmp eq i64 %32, 0
-  br i1 %.not19, label %._crit_edge.loopexit, label %21, !llvm.loop !8
+  br i1 %.not19, label %._crit_edge.loopexit, label %21, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %jd_puts_len.exit
   %.pre = load i32, ptr %9, align 4
@@ -1747,7 +1747,7 @@ jd_putc.exit:                                     ; preds = %10, %20, %26
 jd_puts.exit:                                     ; preds = %31, %33
   %35 = add nuw i32 %.06, 1
   %exitcond.not = icmp eq i32 %35, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %jd_puts.exit, %jd_putc.exit, %2
   ret void
@@ -1806,7 +1806,8 @@ attributes #10 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

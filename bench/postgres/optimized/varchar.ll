@@ -247,7 +247,7 @@ define dso_local i64 @bpchar(ptr noundef readonly captures(none) %0) local_unnam
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %36, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ %46, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
@@ -405,7 +405,7 @@ define dso_local i64 @bpchar_name(ptr noundef readonly captures(none) %0) local_
 35:                                               ; preds = %.lr.ph
   %36 = add nsw i32 %.130, -1
   %37 = icmp sgt i32 %.130, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %35, %.lr.ph, %29
   %38 = phi ptr [ %30, %29 ], [ %32, %.lr.ph ], [ %32, %35 ]
@@ -552,7 +552,7 @@ define internal fastcc ptr @varchar_input(ptr noundef %0, i64 noundef %1, i32 no
 13:                                               ; preds = %.lr.ph
   %14 = add i64 %.02332, 1
   %exitcond.not = icmp eq i64 %14, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %9, %13
   %.02332 = phi i64 [ %14, %13 ], [ %12, %9 ]
@@ -647,7 +647,7 @@ define dso_local i64 @varchar_support(ptr noundef readonly captures(none) %0) lo
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %19 = load i8, ptr %18, align 8, !range !9, !noundef !10
+  %19 = load i8, ptr %18, align 8, !range !10, !noundef !11
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %35, label %21
 
@@ -753,7 +753,7 @@ define dso_local i64 @varchar(ptr noundef readonly captures(none) %0) local_unna
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %33, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
@@ -836,7 +836,7 @@ define dso_local i32 @bpchartruelen(ptr noundef readonly captures(none) %0, i32 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %12, 32
-  br i1 %.not, label %6, label %.split.loop.exit, !llvm.loop !12
+  br i1 %.not, label %6, label %.split.loop.exit, !llvm.loop !13
 
 .split.loop.exit:                                 ; preds = %9
   %13 = trunc nuw i64 %indvars.iv to i32
@@ -906,7 +906,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharlen(ptr noundef r
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 %37
   %39 = load i8, ptr %38, align 1
   %.not.i.i = icmp eq i8 %39, 32
-  br i1 %.not.i.i, label %33, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %33, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %36
   %40 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -1026,7 +1026,7 @@ check_collation_set.exit:                         ; preds = %1
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 %48
   %50 = load i8, ptr %49, align 1
   %.not.i.i = icmp eq i8 %50, 32
-  br i1 %.not.i.i, label %44, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %44, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %47
   %51 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -1087,7 +1087,7 @@ bcTruelen.exit:                                   ; preds = %44, %.split.loop.ex
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 %83
   %85 = load i8, ptr %84, align 1
   %.not.i.i49 = icmp eq i8 %85, 32
-  br i1 %.not.i.i49, label %79, label %.split.loop.exit.i.i50, !llvm.loop !12
+  br i1 %.not.i.i49, label %79, label %.split.loop.exit.i.i50, !llvm.loop !13
 
 .split.loop.exit.i.i50:                           ; preds = %82
   %86 = trunc nuw i64 %indvars.iv.i.i46 to i32
@@ -1097,7 +1097,7 @@ bcTruelen.exit52:                                 ; preds = %79, %.split.loop.ex
   %.0.in.lcssa.i.i48 = phi i32 [ %86, %.split.loop.exit.i.i50 ], [ %78, %79 ]
   %87 = tail call ptr @pg_newlocale_from_collation(i32 noundef %11) #13
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  %89 = load i8, ptr %88, align 1, !range !9, !noundef !10
+  %89 = load i8, ptr %88, align 1, !range !10, !noundef !11
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %101
 
@@ -1247,7 +1247,7 @@ check_collation_set.exit:                         ; preds = %1
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 %48
   %50 = load i8, ptr %49, align 1
   %.not.i.i = icmp eq i8 %50, 32
-  br i1 %.not.i.i, label %44, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %44, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %47
   %51 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -1308,7 +1308,7 @@ bcTruelen.exit:                                   ; preds = %44, %.split.loop.ex
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 %83
   %85 = load i8, ptr %84, align 1
   %.not.i.i49 = icmp eq i8 %85, 32
-  br i1 %.not.i.i49, label %79, label %.split.loop.exit.i.i50, !llvm.loop !12
+  br i1 %.not.i.i49, label %79, label %.split.loop.exit.i.i50, !llvm.loop !13
 
 .split.loop.exit.i.i50:                           ; preds = %82
   %86 = trunc nuw i64 %indvars.iv.i.i46 to i32
@@ -1318,7 +1318,7 @@ bcTruelen.exit52:                                 ; preds = %79, %.split.loop.ex
   %.0.in.lcssa.i.i48 = phi i32 [ %86, %.split.loop.exit.i.i50 ], [ %78, %79 ]
   %87 = tail call ptr @pg_newlocale_from_collation(i32 noundef %11) #13
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  %89 = load i8, ptr %88, align 1, !range !9, !noundef !10
+  %89 = load i8, ptr %88, align 1, !range !10, !noundef !11
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %101
 
@@ -1446,7 +1446,7 @@ define dso_local range(i64 0, 2) i64 @bpcharlt(ptr noundef readonly captures(non
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %40
   %44 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -1507,7 +1507,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !13
 
 .split.loop.exit.i.i29:                           ; preds = %75
   %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
@@ -1614,7 +1614,7 @@ define dso_local range(i64 0, 2) i64 @bpcharle(ptr noundef readonly captures(non
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %40
   %44 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -1675,7 +1675,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !13
 
 .split.loop.exit.i.i29:                           ; preds = %75
   %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
@@ -1782,7 +1782,7 @@ define dso_local range(i64 0, 2) i64 @bpchargt(ptr noundef readonly captures(non
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %40
   %44 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -1843,7 +1843,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !13
 
 .split.loop.exit.i.i29:                           ; preds = %75
   %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
@@ -1950,7 +1950,7 @@ define dso_local range(i64 0, 2) i64 @bpcharge(ptr noundef readonly captures(non
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %40
   %44 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -2011,7 +2011,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !13
 
 .split.loop.exit.i.i29:                           ; preds = %75
   %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
@@ -2118,7 +2118,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharcmp(ptr noundef r
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %40
   %44 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -2179,7 +2179,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !13
 
 .split.loop.exit.i.i29:                           ; preds = %75
   %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
@@ -2302,7 +2302,7 @@ define dso_local i64 @bpchar_larger(ptr noundef readonly captures(none) %0) loca
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %40
   %44 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -2363,7 +2363,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i21 = icmp eq i8 %78, 32
-  br i1 %.not.i.i21, label %72, label %.split.loop.exit.i.i22, !llvm.loop !12
+  br i1 %.not.i.i21, label %72, label %.split.loop.exit.i.i22, !llvm.loop !13
 
 .split.loop.exit.i.i22:                           ; preds = %75
   %79 = trunc nuw i64 %indvars.iv.i.i18 to i32
@@ -2451,7 +2451,7 @@ define dso_local i64 @bpchar_smaller(ptr noundef readonly captures(none) %0) loc
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %40
   %44 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -2512,7 +2512,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i21 = icmp eq i8 %78, 32
-  br i1 %.not.i.i21, label %72, label %.split.loop.exit.i.i22, !llvm.loop !12
+  br i1 %.not.i.i21, label %72, label %.split.loop.exit.i.i22, !llvm.loop !13
 
 .split.loop.exit.i.i22:                           ; preds = %75
   %79 = trunc nuw i64 %indvars.iv.i.i18 to i32
@@ -2615,7 +2615,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashbpchar(ptr noundef readonly c
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 %47
   %49 = load i8, ptr %48, align 1
   %.not.i.i = icmp eq i8 %49, 32
-  br i1 %.not.i.i, label %43, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %43, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %46
   %50 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -2625,7 +2625,7 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
   %.0.in.lcssa.i.i = phi i32 [ %50, %.split.loop.exit.i.i ], [ %42, %43 ]
   %51 = tail call ptr @pg_newlocale_from_collation(i32 noundef %7) #13
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  %53 = load i8, ptr %52, align 1, !range !9, !noundef !10
+  %53 = load i8, ptr %52, align 1, !range !10, !noundef !11
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %57
 
@@ -2755,7 +2755,7 @@ define dso_local i64 @hashbpcharextended(ptr noundef readonly captures(none) %0)
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 %47
   %49 = load i8, ptr %48, align 1
   %.not.i.i = icmp eq i8 %49, 32
-  br i1 %.not.i.i, label %43, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %43, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %46
   %50 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -2765,7 +2765,7 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
   %.0.in.lcssa.i.i = phi i32 [ %50, %.split.loop.exit.i.i ], [ %42, %43 ]
   %51 = tail call ptr @pg_newlocale_from_collation(i32 noundef %7) #13
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  %53 = load i8, ptr %52, align 1, !range !9, !noundef !10
+  %53 = load i8, ptr %52, align 1, !range !10, !noundef !11
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %59
 
@@ -2905,7 +2905,7 @@ define internal fastcc i32 @internal_bpchar_pattern_compare(ptr noundef readonly
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1
   %.not.i.i = icmp eq i8 %36, 32
-  br i1 %.not.i.i, label %30, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %30, label %.split.loop.exit.i.i, !llvm.loop !13
 
 .split.loop.exit.i.i:                             ; preds = %33
   %37 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -2966,7 +2966,7 @@ bcTruelen.exit:                                   ; preds = %30, %.split.loop.ex
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 %69
   %71 = load i8, ptr %70, align 1
   %.not.i.i28 = icmp eq i8 %71, 32
-  br i1 %.not.i.i28, label %65, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %65, label %.split.loop.exit.i.i29, !llvm.loop !13
 
 .split.loop.exit.i.i29:                           ; preds = %68
   %72 = trunc nuw i64 %indvars.iv.i.i25 to i32
@@ -3201,12 +3201,13 @@ attributes #14 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}

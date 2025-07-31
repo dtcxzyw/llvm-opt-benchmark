@@ -616,7 +616,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i10: ; pr
   store i8 0, ptr %56, align 1, !tbaa !41
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 1
   %.not = icmp eq ptr %57, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 58:                                               ; preds = %51, %32
   %59 = landingpad { ptr, i32 }
@@ -654,15 +654,15 @@ define dso_local void @_ZN12cmCryptoHash14ByteHashStringESt17basic_string_viewIc
   tail call void @rhash_reset(ptr noundef %6)
   %7 = load ptr, ptr %5, align 8, !tbaa !12
   %8 = tail call i32 @rhash_update(ptr noundef %7, ptr noundef %3, i64 noundef %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %9 = load i32, ptr %1, align 8, !tbaa !8, !noalias !47
-  %10 = tail call i32 @rhash_get_digest_size(i32 noundef %9), !noalias !47
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  %9 = load i32, ptr %1, align 8, !tbaa !8, !noalias !49
+  %10 = tail call i32 @rhash_get_digest_size(i32 noundef %9), !noalias !49
   %11 = sext i32 %10 to i64
   %12 = icmp slt i32 %10, 0
   br i1 %12, label %.noexc.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 .noexc.i:                                         ; preds = %4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #21, !noalias !47
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #21, !noalias !49
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
@@ -671,28 +671,28 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !47
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !49
   br label %18
 
 .noexc5.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #19, !noalias !47
-  store ptr %14, ptr %0, align 8, !tbaa !44, !alias.scope !47
+  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #19, !noalias !49
+  store ptr %14, ptr %0, align 8, !tbaa !44, !alias.scope !49
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !42, !alias.scope !47
+  store ptr %14, ptr %15, align 8, !tbaa !42, !alias.scope !49
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %16, ptr %17, align 8, !tbaa !50, !alias.scope !47
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %14, i8 0, i64 %11, i1 false), !noalias !47
+  store ptr %16, ptr %17, align 8, !tbaa !52, !alias.scope !49
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %14, i8 0, i64 %11, i1 false), !noalias !49
   br label %18
 
 18:                                               ; preds = %.noexc5.i, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i
   %19 = phi ptr [ %14, %.noexc5.i ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ]
   %20 = phi ptr [ %15, %.noexc5.i ], [ %13, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ]
   %21 = phi ptr [ %16, %.noexc5.i ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ]
-  store ptr %21, ptr %20, align 8, !tbaa !42, !alias.scope !47
-  %22 = load ptr, ptr %5, align 8, !tbaa !12, !noalias !47
+  store ptr %21, ptr %20, align 8, !tbaa !42, !alias.scope !49
+  %22 = load ptr, ptr %5, align 8, !tbaa !12, !noalias !49
   %23 = invoke i32 @rhash_final(ptr noundef %22, ptr noundef %19)
-          to label %_ZN12cmCryptoHash8FinalizeEv.exit unwind label %24, !noalias !47
+          to label %_ZN12cmCryptoHash8FinalizeEv.exit unwind label %24, !noalias !49
 
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
@@ -704,7 +704,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhS
   %27 = ptrtoint ptr %21 to i64
   %28 = ptrtoint ptr %19 to i64
   %29 = sub i64 %27, %28
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %29) #20, !noalias !47
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %29) #20, !noalias !49
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %26, %24
@@ -758,7 +758,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   store ptr %8, ptr %9, align 8, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !50
+  store ptr %10, ptr %11, align 8, !tbaa !52
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %8, i8 0, i64 %5, i1 false)
   br label %12
 
@@ -799,12 +799,12 @@ define dso_local void @_ZN12cmCryptoHash12ByteHashFileERKNSt7__cxx1112basic_stri
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %4) #18
   %6 = load ptr, ptr %2, align 8, !tbaa !46
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr noundef %6, i32 noundef 12)
-  %7 = load ptr, ptr %4, align 8, !tbaa !51
+  %7 = load ptr, ptr %4, align 8, !tbaa !53
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !53
+  %12 = load i32, ptr %11, align 8, !tbaa !55
   %13 = and i32 %12, 5
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %_ZNSt6vectorIhSaIhEED2Ev.exit
@@ -818,11 +818,11 @@ define dso_local void @_ZN12cmCryptoHash12ByteHashFileERKNSt7__cxx1112basic_stri
 _ZN12cmCryptoHash10InitializeEv.exit:             ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #18
   %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %17 = load ptr, ptr %4, align 8, !tbaa !51
+  %17 = load ptr, ptr %4, align 8, !tbaa !53
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8
   %gep32 = getelementptr i8, ptr %invariant.gep, i64 %19
-  %20 = load i32, ptr %gep32, align 8, !tbaa !53
+  %20 = load i32, ptr %gep32, align 8, !tbaa !55
   %21 = and i32 %20, 5
   %.not.i1233 = icmp eq i32 %21, 0
   br i1 %.not.i1233, label %.lr.ph, label %._crit_edge
@@ -836,7 +836,7 @@ _ZN12cmCryptoHash10InitializeEv.exit:             ; preds = %14
           to label %25 unwind label %34
 
 25:                                               ; preds = %23
-  %26 = load i64, ptr %22, align 8, !tbaa !62
+  %26 = load i64, ptr %22, align 8, !tbaa !64
   %27 = and i64 %26, 4294967295
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %_ZN12cmCryptoHash6AppendEPKvm.exit, label %28
@@ -864,14 +864,14 @@ _ZN12cmCryptoHash10InitializeEv.exit:             ; preds = %14
   br label %71
 
 _ZN12cmCryptoHash6AppendEPKvm.exit:               ; preds = %28, %25
-  %38 = load ptr, ptr %4, align 8, !tbaa !51
+  %38 = load ptr, ptr %4, align 8, !tbaa !53
   %39 = getelementptr i8, ptr %38, i64 -24
   %40 = load i64, ptr %39, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %40
-  %41 = load i32, ptr %gep, align 8, !tbaa !53
+  %41 = load i32, ptr %gep, align 8, !tbaa !55
   %42 = and i32 %41, 5
   %.not.i12 = icmp eq i32 %42, 0
-  br i1 %.not.i12, label %23, label %._crit_edge, !llvm.loop !64
+  br i1 %.not.i12, label %23, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %_ZN12cmCryptoHash6AppendEPKvm.exit, %_ZN12cmCryptoHash10InitializeEv.exit
   %.lcssa31 = phi ptr [ %17, %_ZN12cmCryptoHash10InitializeEv.exit ], [ %38, %_ZN12cmCryptoHash6AppendEPKvm.exit ]
@@ -880,14 +880,14 @@ _ZN12cmCryptoHash6AppendEPKvm.exit:               ; preds = %28, %25
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %4, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = load i32, ptr %46, align 8, !tbaa !53
+  %47 = load i32, ptr %46, align 8, !tbaa !55
   %48 = and i32 %47, 2
   %.not28 = icmp eq i32 %48, 0
   br i1 %.not28, label %72, label %49
 
 49:                                               ; preds = %._crit_edge
-  call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %50 = load i32, ptr %1, align 8, !tbaa !8, !noalias !66
+  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %50 = load i32, ptr %1, align 8, !tbaa !8, !noalias !68
   %51 = invoke i32 @rhash_get_digest_size(i32 noundef %50)
           to label %.noexc unwind label %32
 
@@ -902,7 +902,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.noexc
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !66
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !68
   br label %59
 
 .noexc5.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -910,23 +910,23 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhS
           to label %.noexc14 unwind label %32
 
 .noexc14:                                         ; preds = %.noexc5.i
-  store ptr %55, ptr %0, align 8, !tbaa !44, !alias.scope !66
+  store ptr %55, ptr %0, align 8, !tbaa !44, !alias.scope !68
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %55, ptr %56, align 8, !tbaa !42, !alias.scope !66
+  store ptr %55, ptr %56, align 8, !tbaa !42, !alias.scope !68
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 %52
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %57, ptr %58, align 8, !tbaa !50, !alias.scope !66
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %55, i8 0, i64 %52, i1 false), !noalias !66
+  store ptr %57, ptr %58, align 8, !tbaa !52, !alias.scope !68
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %55, i8 0, i64 %52, i1 false), !noalias !68
   br label %59
 
 59:                                               ; preds = %.noexc14, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i
   %60 = phi ptr [ %55, %.noexc14 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ]
   %61 = phi ptr [ %56, %.noexc14 ], [ %54, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ]
   %62 = phi ptr [ %57, %.noexc14 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ]
-  store ptr %62, ptr %61, align 8, !tbaa !42, !alias.scope !66
-  %63 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !66
+  store ptr %62, ptr %61, align 8, !tbaa !42, !alias.scope !68
+  %63 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !68
   %64 = invoke i32 @rhash_final(ptr noundef %63, ptr noundef %60)
-          to label %_ZN12cmCryptoHash8FinalizeEv.exit unwind label %65, !noalias !66
+          to label %_ZN12cmCryptoHash8FinalizeEv.exit unwind label %65, !noalias !68
 
 65:                                               ; preds = %59
   %66 = landingpad { ptr, i32 }
@@ -938,7 +938,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhS
   %68 = ptrtoint ptr %62 to i64
   %69 = ptrtoint ptr %60 to i64
   %70 = sub i64 %68, %69
-  call void @_ZdlPvm(ptr noundef nonnull %60, i64 noundef %70) #20, !noalias !66
+  call void @_ZdlPvm(ptr noundef nonnull %60, i64 noundef %70) #20, !noalias !68
   br label %.body
 
 71:                                               ; preds = %36, %34
@@ -947,7 +947,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhS
   br label %.body
 
 72:                                               ; preds = %._crit_edge
-  %73 = load i32, ptr %1, align 8, !tbaa !8, !noalias !69
+  %73 = load i32, ptr %1, align 8, !tbaa !8, !noalias !71
   %74 = invoke i32 @rhash_get_digest_size(i32 noundef %73)
           to label %.noexc22 unwind label %32
 
@@ -973,16 +973,16 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i15: ; preds = %.noexc22
 
 .noexc24:                                         ; preds = %.noexc5.i17
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %75
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %77, i8 0, i64 %75, i1 false), !noalias !69
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %77, i8 0, i64 %75, i1 false), !noalias !71
   %79 = ptrtoint ptr %78 to i64
   br label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i20
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i20: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i15, %.noexc24
   %.sroa.0.0 = phi ptr [ %77, %.noexc24 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i15 ]
   %.sroa.6.0 = phi i64 [ %79, %.noexc24 ], [ 0, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i15 ]
-  %80 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !69
+  %80 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !71
   %81 = invoke i32 @rhash_final(ptr noundef %80, ptr noundef %.sroa.0.0)
-          to label %_ZN12cmCryptoHash8FinalizeEv.exit27 unwind label %82, !noalias !69
+          to label %_ZN12cmCryptoHash8FinalizeEv.exit27 unwind label %82, !noalias !71
 
 82:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i20
   %83 = landingpad { ptr, i32 }
@@ -993,7 +993,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i20: ; preds = %_ZNSt6vectorI
 84:                                               ; preds = %82
   %85 = ptrtoint ptr %.sroa.0.0 to i64
   %86 = sub i64 %.sroa.6.0, %85
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %86) #20, !noalias !69
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %86) #20, !noalias !71
   br label %.body
 
 _ZN12cmCryptoHash8FinalizeEv.exit27:              ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i20
@@ -1056,7 +1056,7 @@ define dso_local void @_ZN12cmCryptoHash10HashStringB5cxx11ESt17basic_string_vie
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !50
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
@@ -1076,7 +1076,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %6, %8
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !50
+  %19 = load ptr, ptr %18, align 8, !tbaa !52
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
@@ -1103,7 +1103,7 @@ define dso_local void @_ZN12cmCryptoHash8HashFileERKNSt7__cxx1112basic_stringIcS
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !50
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
@@ -1123,7 +1123,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %5, %7
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  %18 = load ptr, ptr %17, align 8, !tbaa !52
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
@@ -1147,15 +1147,15 @@ declare i32 @rhash_final(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local void @_ZN12cmCryptoHash11FinalizeHexB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %4 = load i32, ptr %1, align 8, !tbaa !8, !noalias !72
-  %5 = tail call i32 @rhash_get_digest_size(i32 noundef %4), !noalias !72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  %4 = load i32, ptr %1, align 8, !tbaa !8, !noalias !74
+  %5 = tail call i32 @rhash_get_digest_size(i32 noundef %4), !noalias !74
   %6 = sext i32 %5 to i64
   %7 = icmp slt i32 %5, 0
   br i1 %7, label %.noexc.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 .noexc.i:                                         ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #21, !noalias !72
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #21, !noalias !74
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %2
@@ -1164,29 +1164,29 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %2
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !alias.scope !72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !alias.scope !74
   br label %13
 
 .noexc5.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #19, !noalias !72
-  store ptr %9, ptr %3, align 8, !tbaa !44, !alias.scope !72
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #19, !noalias !74
+  store ptr %9, ptr %3, align 8, !tbaa !44, !alias.scope !74
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %9, ptr %10, align 8, !tbaa !42, !alias.scope !72
+  store ptr %9, ptr %10, align 8, !tbaa !42, !alias.scope !74
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !50, !alias.scope !72
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 0, i64 %6, i1 false), !noalias !72
+  store ptr %11, ptr %12, align 8, !tbaa !52, !alias.scope !74
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 0, i64 %6, i1 false), !noalias !74
   br label %13
 
 13:                                               ; preds = %.noexc5.i, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i
   %14 = phi ptr [ %9, %.noexc5.i ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ]
   %15 = phi ptr [ %10, %.noexc5.i ], [ %8, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ]
   %16 = phi ptr [ %11, %.noexc5.i ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ]
-  store ptr %16, ptr %15, align 8, !tbaa !42, !alias.scope !72
+  store ptr %16, ptr %15, align 8, !tbaa !42, !alias.scope !74
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !12, !noalias !72
+  %18 = load ptr, ptr %17, align 8, !tbaa !12, !noalias !74
   %19 = invoke i32 @rhash_final(ptr noundef %18, ptr noundef %14)
-          to label %_ZN12cmCryptoHash8FinalizeEv.exit unwind label %20, !noalias !72
+          to label %_ZN12cmCryptoHash8FinalizeEv.exit unwind label %20, !noalias !74
 
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
@@ -1198,7 +1198,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhS
   %23 = ptrtoint ptr %16 to i64
   %24 = ptrtoint ptr %14 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %25) #20, !noalias !72
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %25) #20, !noalias !74
   br label %common.resume
 
 common.resume:                                    ; preds = %20, %22, %_ZNSt6vectorIhSaIhEED2Ev.exit3
@@ -1338,31 +1338,33 @@ attributes #21 = { noreturn }
 !44 = !{!43, !37, i64 0}
 !45 = !{!37, !37, i64 0}
 !46 = !{!39, !37, i64 0}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN12cmCryptoHash8FinalizeEv: argument 0"}
-!49 = distinct !{!49, !"_ZN12cmCryptoHash8FinalizeEv"}
-!50 = !{!43, !37, i64 16}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"vtable pointer", !7, i64 0}
-!53 = !{!54, !56, i64 32}
-!54 = !{!"_ZTSSt8ios_base", !40, i64 8, !40, i64 16, !55, i64 24, !56, i64 28, !56, i64 32, !57, i64 40, !58, i64 48, !6, i64 64, !5, i64 192, !59, i64 200, !60, i64 208}
-!55 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!56 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
-!57 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !11, i64 0}
-!58 = !{!"_ZTSNSt8ios_base6_WordsE", !11, i64 0, !40, i64 8}
-!59 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !11, i64 0}
-!60 = !{!"_ZTSSt6locale", !61, i64 0}
-!61 = !{!"p1 _ZTSNSt6locale5_ImplE", !11, i64 0}
-!62 = !{!63, !40, i64 8}
-!63 = !{!"_ZTSSi", !40, i64 8}
-!64 = distinct !{!64, !65}
-!65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN12cmCryptoHash8FinalizeEv: argument 0"}
-!68 = distinct !{!68, !"_ZN12cmCryptoHash8FinalizeEv"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN12cmCryptoHash8FinalizeEv: argument 0"}
-!71 = distinct !{!71, !"_ZN12cmCryptoHash8FinalizeEv"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN12cmCryptoHash8FinalizeEv: argument 0"}
-!74 = distinct !{!74, !"_ZN12cmCryptoHash8FinalizeEv"}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN12cmCryptoHash8FinalizeEv: argument 0"}
+!51 = distinct !{!51, !"_ZN12cmCryptoHash8FinalizeEv"}
+!52 = !{!43, !37, i64 16}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"vtable pointer", !7, i64 0}
+!55 = !{!56, !58, i64 32}
+!56 = !{!"_ZTSSt8ios_base", !40, i64 8, !40, i64 16, !57, i64 24, !58, i64 28, !58, i64 32, !59, i64 40, !60, i64 48, !6, i64 64, !5, i64 192, !61, i64 200, !62, i64 208}
+!57 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!58 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!59 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !11, i64 0}
+!60 = !{!"_ZTSNSt8ios_base6_WordsE", !11, i64 0, !40, i64 8}
+!61 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !11, i64 0}
+!62 = !{!"_ZTSSt6locale", !63, i64 0}
+!63 = !{!"p1 _ZTSNSt6locale5_ImplE", !11, i64 0}
+!64 = !{!65, !40, i64 8}
+!65 = !{!"_ZTSSi", !40, i64 8}
+!66 = distinct !{!66, !67, !48}
+!67 = !{!"llvm.loop.mustprogress"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN12cmCryptoHash8FinalizeEv: argument 0"}
+!70 = distinct !{!70, !"_ZN12cmCryptoHash8FinalizeEv"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN12cmCryptoHash8FinalizeEv: argument 0"}
+!73 = distinct !{!73, !"_ZN12cmCryptoHash8FinalizeEv"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN12cmCryptoHash8FinalizeEv: argument 0"}
+!76 = distinct !{!76, !"_ZN12cmCryptoHash8FinalizeEv"}

@@ -1243,12 +1243,12 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 373:                                              ; preds = %369
   %374 = add i64 %.061, 1
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %8)
-          to label %328 unwind label %.loopexit120
+          to label %328 unwind label %.loopexit120, !llvm.loop !8
 
 375:                                              ; preds = %377, %316
   %376 = add i64 %.062, 1
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %312, ptr nonnull align 8 %11)
-          to label %311 unwind label %.loopexit125
+          to label %311 unwind label %.loopexit125, !llvm.loop !10
 
 377:                                              ; preds = %316
   invoke void @_ZN5quote9__private8push_add17h7142d6c2d336a3d9E(ptr nonnull align 8 %11)
@@ -1747,12 +1747,12 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 509:                                              ; preds = %505
   %510 = add i64 %.063, 1
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %32)
-          to label %464 unwind label %.loopexit
+          to label %464 unwind label %.loopexit, !llvm.loop !11
 
 511:                                              ; preds = %513, %453
   %512 = add i64 %.064, 1
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %449, ptr nonnull align 8 %35)
-          to label %448 unwind label %.loopexit115
+          to label %448 unwind label %.loopexit115, !llvm.loop !12
 
 513:                                              ; preds = %453
   invoke void @_ZN5quote9__private8push_add17h7142d6c2d336a3d9E(ptr nonnull align 8 %35)
@@ -1771,7 +1771,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774ad632E(ptr readonly align 8 captures(none) %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !8, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !13, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1783,7 +1783,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774
   br i1 %10, label %.critedge, label %12
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %4, align 8, !nonnull !3, !align !8, !noundef !3
+  %13 = load ptr, ptr %4, align 8, !nonnull !3, !align !13, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5bf0edc67031becbE"(ptr nonnull align 8 %13, ptr nonnull align 8 %3)
   br label %14
@@ -1816,7 +1816,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %2 = alloca { { i64, [3 x i64] }, {} }, align 8
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !8, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !13, !noundef !3
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -1863,7 +1863,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !8, !noundef !3
+  %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !13, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   %24 = load i64, ptr %1, align 8, !range !7, !noundef !3
@@ -2194,7 +2194,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %193 = alloca { ptr, ptr, ptr }, align 8
   %194 = alloca { ptr, ptr }, align 8
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %196 = load ptr, ptr %195, align 8, !nonnull !3, !align !8, !noundef !3
+  %196 = load ptr, ptr %195, align 8, !nonnull !3, !align !13, !noundef !3
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %196, ptr %194, align 8
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 8
@@ -2204,7 +2204,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   store ptr %194, ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store ptr %3, ptr %200, align 8
-  %201 = load i64, ptr %1, align 8, !range !9, !noundef !3
+  %201 = load i64, ptr %1, align 8, !range !14, !noundef !3
   switch i64 %201, label %202 [
     i64 0, label %204
     i64 19, label %210
@@ -2251,7 +2251,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %208 = load i64, ptr %207, align 8, !noundef !3
   %209 = icmp ult i64 %206, %208
-  br i1 %209, label %265, label %269, !prof !10
+  br i1 %209, label %265, label %269, !prof !15
 
 210:                                              ; preds = %4
   %211 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2261,7 +2261,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   switch i64 %214, label %278 [
     i64 0, label %277
     i64 1, label %287
-  ], !prof !11
+  ], !prof !16
 
 215:                                              ; preds = %4
   store i64 0, ptr %169, align 8
@@ -2270,7 +2270,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %217 = getelementptr inbounds nuw i8, ptr %169, i64 16
   store i64 0, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %219 = load ptr, ptr %218, align 8, !nonnull !3, !align !8, !noundef !3
+  %219 = load ptr, ptr %218, align 8, !nonnull !3, !align !13, !noundef !3
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 32
   %221 = load ptr, ptr %220, align 8, !nonnull !3, !noundef !3
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 40
@@ -2382,7 +2382,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 265:                                              ; preds = %204
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %267 = load ptr, ptr %266, align 8, !nonnull !3, !align !8, !noundef !3
+  %267 = load ptr, ptr %266, align 8, !nonnull !3, !align !13, !noundef !3
   %268 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %267, i64 0, i64 %206
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %191)
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %268, ptr nonnull align 8 %191)
@@ -2423,11 +2423,11 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 278:                                              ; preds = %210
   %279 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %280 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %281 = load ptr, ptr %280, align 8, !nonnull !3, !align !8, !noundef !3
+  %281 = load ptr, ptr %280, align 8, !nonnull !3, !align !13, !noundef !3
   %282 = call align 8 ptr @_ZN4witx3ast7TypeRef5type_17ha6e3e5e2225256ffE(ptr nonnull align 8 %281)
   %283 = load ptr, ptr %282, align 8, !nonnull !3, !noundef !3
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
-  %285 = load i8, ptr %284, align 8, !range !12, !noundef !3
+  %285 = load i8, ptr %284, align 8, !range !17, !noundef !3
   %286 = icmp eq i8 %285, 6
   br i1 %286, label %288, label %292
 
@@ -2437,7 +2437,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 288:                                              ; preds = %278
   %289 = getelementptr inbounds nuw i8, ptr %283, i64 17
-  %290 = load i8, ptr %289, align 1, !range !13, !noundef !3
+  %290 = load i8, ptr %289, align 1, !range !18, !noundef !3
   %291 = icmp eq i8 %290, 0
   br i1 %291, label %293, label %292
 
@@ -2676,9 +2676,9 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 353:                                              ; preds = %349
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %355 = load ptr, ptr %354, align 8, !nonnull !3, !align !8, !noundef !3
+  %355 = load ptr, ptr %354, align 8, !nonnull !3, !align !13, !noundef !3
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 104
-  %357 = load ptr, ptr %195, align 8, !nonnull !3, !align !8, !noundef !3
+  %357 = load ptr, ptr %195, align 8, !nonnull !3, !align !13, !noundef !3
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
   %359 = load ptr, ptr %358, align 8, !nonnull !3, !noundef !3
   %360 = getelementptr inbounds nuw i8, ptr %357, i64 16
@@ -2700,7 +2700,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %or.cond, label %372, label %370
 
 370:                                              ; preds = %411, %368
-  %371 = load ptr, ptr %195, align 8, !nonnull !3, !align !8, !noundef !3
+  %371 = load ptr, ptr %195, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN15wiggle_generate5names10trait_name17hccac8be3402ee57fE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %154, ptr nonnull align 8 %371)
           to label %412 unwind label %.loopexit.split-lp250
 
@@ -2709,7 +2709,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %373 unwind label %.loopexit.split-lp250
 
 373:                                              ; preds = %372
-  %374 = load ptr, ptr %227, align 8, !nonnull !3, !align !8, !noundef !3
+  %374 = load ptr, ptr %227, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %158)
           to label %378 unwind label %376
 
@@ -2866,8 +2866,8 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %413
 
 416:                                              ; preds = %412
-  %417 = load ptr, ptr %354, align 8, !nonnull !3, !align !8, !noundef !3
-  %418 = load ptr, ptr %195, align 8, !nonnull !3, !align !8, !noundef !3
+  %417 = load ptr, ptr %354, align 8, !nonnull !3, !align !13, !noundef !3
+  %418 = load ptr, ptr %195, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN15wiggle_generate16codegen_settings15CodegenSettings9get_async17hcf1e16b36cb06e5eE(ptr nonnull sret({ i64, [3 x i64] }) align 8 %152, ptr nonnull align 8 %417, ptr nonnull align 8 %418, ptr nonnull align 8 %219)
           to label %422 unwind label %420
 
@@ -2903,7 +2903,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %474 unwind label %420
 
 429:                                              ; preds = %427
-  %430 = load ptr, ptr %227, align 8, !nonnull !3, !align !8, !noundef !3
+  %430 = load ptr, ptr %227, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %145)
           to label %431 unwind label %420
 
@@ -3015,9 +3015,9 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %.invoke
 
 460:                                              ; preds = %.invoke
-  %461 = load ptr, ptr %354, align 8, !nonnull !3, !align !8, !noundef !3
+  %461 = load ptr, ptr %354, align 8, !nonnull !3, !align !13, !noundef !3
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 104
-  %463 = load ptr, ptr %195, align 8, !nonnull !3, !align !8, !noundef !3
+  %463 = load ptr, ptr %195, align 8, !nonnull !3, !align !13, !noundef !3
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
   %465 = load ptr, ptr %464, align 8, !nonnull !3, !noundef !3
   %466 = getelementptr inbounds nuw i8, ptr %463, i64 16
@@ -3030,14 +3030,14 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 471:                                              ; preds = %473, %455
   %472 = add i64 %.0120, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %451, ptr nonnull align 8 %143)
-          to label %450 unwind label %.loopexit239
+          to label %450 unwind label %.loopexit239, !llvm.loop !19
 
 473:                                              ; preds = %455
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr nonnull align 8 %143)
           to label %471 unwind label %.loopexit239
 
 474:                                              ; preds = %428
-  %475 = load ptr, ptr %227, align 8, !nonnull !3, !align !8, !noundef !3
+  %475 = load ptr, ptr %227, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %150)
           to label %476 unwind label %420
 
@@ -3156,7 +3156,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %.not214, label %551, label %555
 
 509:                                              ; preds = %505
-  %510 = load ptr, ptr %227, align 8, !nonnull !3, !align !8, !noundef !3
+  %510 = load ptr, ptr %227, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %140)
           to label %511 unwind label %420
 
@@ -3332,7 +3332,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %575 unwind label %414
 
 557:                                              ; preds = %551
-  %558 = load ptr, ptr %227, align 8, !nonnull !3, !align !8, !noundef !3
+  %558 = load ptr, ptr %227, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %132)
           to label %559 unwind label %420
 
@@ -3408,7 +3408,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 577:                                              ; preds = %579, %500
   %578 = add i64 %.0121, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %496, ptr nonnull align 8 %148)
-          to label %495 unwind label %.loopexit
+          to label %495 unwind label %.loopexit, !llvm.loop !20
 
 579:                                              ; preds = %500
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr nonnull align 8 %148)
@@ -3417,7 +3417,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 580:                                              ; preds = %582, %408
   %581 = add i64 %.0122, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %404, ptr nonnull align 8 %156)
-          to label %403 unwind label %.loopexit244
+          to label %403 unwind label %.loopexit244, !llvm.loop !21
 
 582:                                              ; preds = %408
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr nonnull align 8 %156)
@@ -3426,12 +3426,12 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 583:                                              ; preds = %366
   %584 = load i64, ptr %225, align 8, !noundef !3
   %585 = icmp ult i64 %350, %584
-  br i1 %585, label %586, label %590, !prof !10
+  br i1 %585, label %586, label %590, !prof !15
 
 586:                                              ; preds = %583
   %587 = load ptr, ptr %226, align 8, !nonnull !3, !noundef !3
   %588 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %587, i64 0, i64 %350
-  %589 = load ptr, ptr %227, align 8, !nonnull !3, !align !8, !noundef !3
+  %589 = load ptr, ptr %227, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %165)
           to label %593 unwind label %.loopexit254
 
@@ -3530,7 +3530,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 615:                                              ; preds = %.invoke294
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %167)
-          to label %346 unwind label %.loopexit249
+          to label %346 unwind label %.loopexit249, !llvm.loop !22
 
 616:                                              ; preds = %609
   invoke void @_ZN5quote9__private8push_and17h4ba1c3b1ad451414E(ptr nonnull align 8 %163)
@@ -3713,7 +3713,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 663:                                              ; preds = %242
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
   %664 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %665 = load ptr, ptr %664, align 8, !nonnull !3, !align !8, !noundef !3
+  %665 = load ptr, ptr %664, align 8, !nonnull !3, !align !13, !noundef !3
   %666 = getelementptr inbounds nuw i8, ptr %665, i64 16
   invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %35, ptr nonnull align 8 %666)
           to label %670 unwind label %668
@@ -3809,7 +3809,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 692:                                              ; preds = %688
   %.0 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %189, i64 32, i1 false)
-  %693 = load ptr, ptr %.0, align 8, !nonnull !3, !align !8, !noundef !3
+  %693 = load ptr, ptr %.0, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN15wiggle_generate9lifetimes13anon_lifetime17h513aec478ec31ebdE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %187)
           to label %697 unwind label %695
 
@@ -3937,7 +3937,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 726:                                              ; preds = %4, %4, %4
   %.0119 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %727 = load ptr, ptr %.0119, align 8, !nonnull !3, !align !8, !noundef !3
+  %727 = load ptr, ptr %.0119, align 8, !nonnull !3, !align !13, !noundef !3
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 16
   call void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %12, ptr nonnull align 8 %728)
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %10)
@@ -3950,7 +3950,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 730:                                              ; preds = %245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 32, i1 false)
   %731 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %732 = load ptr, ptr %731, align 8, !nonnull !3, !align !8, !noundef !3
+  %732 = load ptr, ptr %731, align 8, !nonnull !3, !align !13, !noundef !3
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 16
   %734 = getelementptr inbounds nuw i8, ptr %732, i64 24
   %735 = load ptr, ptr %734, align 8, !nonnull !3, !noundef !3
@@ -4202,7 +4202,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 806:                                              ; preds = %802
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false)
   %807 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %808 = load ptr, ptr %807, align 8, !nonnull !3, !align !8, !noundef !3
+  %808 = load ptr, ptr %807, align 8, !nonnull !3, !align !13, !noundef !3
   %809 = getelementptr inbounds nuw i8, ptr %808, i64 16
   %810 = getelementptr inbounds nuw i8, ptr %808, i64 24
   %811 = load ptr, ptr %810, align 8, !nonnull !3, !noundef !3
@@ -4266,7 +4266,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 832:                                              ; preds = %831
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %834 = load ptr, ptr %833, align 8, !nonnull !3, !align !8, !noundef !3
+  %834 = load ptr, ptr %833, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %60)
           to label %838 unwind label %836
 
@@ -4499,7 +4499,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 897:                                              ; preds = %893
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false)
   %898 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %899 = load ptr, ptr %898, align 8, !align !8, !noundef !3
+  %899 = load ptr, ptr %898, align 8, !align !13, !noundef !3
   %900 = icmp eq ptr %899, null
   br i1 %900, label %901, label %902
 
@@ -4781,9 +4781,9 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 973:                                              ; preds = %255
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %128, i64 32, i1 false)
   %974 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %975 = load ptr, ptr %974, align 8, !nonnull !3, !align !8, !noundef !3
+  %975 = load ptr, ptr %974, align 8, !nonnull !3, !align !13, !noundef !3
   %976 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %977 = load ptr, ptr %976, align 8, !nonnull !3, !align !8, !noundef !3
+  %977 = load ptr, ptr %976, align 8, !nonnull !3, !align !13, !noundef !3
   %978 = invoke align 8 ptr @_ZN15wiggle_generate16codegen_settings14ErrorTransform8for_name17h24fa385e708be59eE(ptr nonnull align 8 %975, ptr nonnull align 8 %977)
           to label %983 unwind label %981
 
@@ -4804,7 +4804,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %984, label %.sink.split, label %985
 
 985:                                              ; preds = %983
-  %986 = load i64, ptr %978, align 8, !range !14, !noundef !3
+  %986 = load i64, ptr %978, align 8, !range !23, !noundef !3
   %.not = icmp eq i64 %986, -9223372036854775808
   br i1 %.not, label %989, label %988
 
@@ -5037,7 +5037,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 1051:                                             ; preds = %1047
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
   %1052 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %1053 = load ptr, ptr %1052, align 8, !nonnull !3, !align !8, !noundef !3
+  %1053 = load ptr, ptr %1052, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %76)
           to label %1057 unwind label %1055
 
@@ -5149,7 +5149,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1087:                                             ; preds = %1074
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr nonnull align 8 %74)
-          to label %1069 unwind label %.loopexit259
+          to label %1069 unwind label %.loopexit259, !llvm.loop !24
 
 1088:                                             ; preds = %261
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.38, i64 15, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.98) #8
@@ -5157,7 +5157,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1089:                                             ; preds = %261
   %1090 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %1091 = load ptr, ptr %1090, align 8, !nonnull !3, !align !8, !noundef !3
+  %1091 = load ptr, ptr %1090, align 8, !nonnull !3, !align !13, !noundef !3
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %90)
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr nonnull align 8 %90, ptr nonnull align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.55, i64 6)
           to label %1098 unwind label %1096
@@ -5217,7 +5217,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 1107:                                             ; preds = %1092
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %85, i64 32, i1 false)
   %1108 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %1109 = load ptr, ptr %1108, align 8, !nonnull !3, !align !8, !noundef !3
+  %1109 = load ptr, ptr %1108, align 8, !nonnull !3, !align !13, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %83)
           to label %1113 unwind label %1111
 
@@ -5572,10 +5572,20 @@ attributes #9 = { cold noreturn nounwind }
 !5 = !{i8 0, i8 2}
 !6 = !{i64 1}
 !7 = !{i64 0, i64 -9223372036854775806}
-!8 = !{i64 8}
-!9 = !{i64 0, i64 54}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{!"branch_weights", i32 4000000, i32 2001, i32 2000}
-!12 = !{i8 0, i8 7}
-!13 = !{i8 0, i8 11}
-!14 = !{i64 0, i64 -9223372036854775807}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = !{i64 8}
+!14 = !{i64 0, i64 54}
+!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!16 = !{!"branch_weights", i32 4000000, i32 2001, i32 2000}
+!17 = !{i8 0, i8 7}
+!18 = !{i8 0, i8 11}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = !{i64 0, i64 -9223372036854775807}
+!24 = distinct !{!24, !9}

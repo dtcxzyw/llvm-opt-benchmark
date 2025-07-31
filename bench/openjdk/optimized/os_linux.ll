@@ -1254,7 +1254,7 @@ define hidden noundef zeroext i1 @_ZN2os5Linux25query_process_memory_infoEPNS0_9
   %63 = icmp ne ptr %62, null
   %64 = icmp slt i32 %.1, 8
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %61, %.preheader
   %66 = call i32 @fclose(ptr noundef nonnull %3)
@@ -1356,7 +1356,7 @@ define hidden noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUP
   switch i32 %20, label %.preheader29 [
     i32 -1, label %_ZL9next_lineP8_IO_FILE.exit
     i32 10, label %_ZL9next_lineP8_IO_FILE.exit
-  ]
+  ], !llvm.loop !10
 
 _ZL9next_lineP8_IO_FILE.exit:                     ; preds = %.preheader29, %.preheader29
   %21 = icmp sgt i32 %1, 0
@@ -1371,12 +1371,12 @@ _ZL9next_lineP8_IO_FILE.exit:                     ; preds = %.preheader29, %.pre
   switch i32 %23, label %22 [
     i32 -1, label %_ZL9next_lineP8_IO_FILE.exit28
     i32 10, label %_ZL9next_lineP8_IO_FILE.exit28
-  ]
+  ], !llvm.loop !10
 
 _ZL9next_lineP8_IO_FILE.exit28:                   ; preds = %22, %22
   %24 = add nuw nsw i32 %.030, 1
   %exitcond.not = icmp eq i32 %24, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZL9next_lineP8_IO_FILE.exit28, %_ZL9next_lineP8_IO_FILE.exit
   %25 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.19, ptr noundef nonnull %12, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #26
@@ -1639,12 +1639,12 @@ _ZN2os27dll_address_to_library_nameEPhPciPi.exit: ; preds = %13
 30:                                               ; preds = %28
   %31 = load i8, ptr %.1, align 1
   %.not58 = icmp eq i8 %31, 47
-  br i1 %.not58, label %.critedge, label %28, !llvm.loop !10
+  br i1 %.not58, label %.critedge, label %28, !llvm.loop !12
 
 .critedge:                                        ; preds = %30
   %32 = add nuw nsw i32 %.05064, 1
   %33 = icmp samesign ult i32 %.05064, 4
-  br i1 %33, label %.preheader, label %._crit_edge, !llvm.loop !11
+  br i1 %33, label %.preheader, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.critedge, %28, %23
   %.049.lcssa = phi ptr [ %26, %23 ], [ %.1, %28 ], [ %.1, %.critedge ]
@@ -1997,7 +1997,7 @@ _ZL24get_static_tls_area_sizePK14pthread_attr_t.exit: ; preds = %43, %41, %44
   %94 = add nsw i32 %.056, -1
   %95 = icmp ne i32 %.056, 0
   %or.cond = select i1 %93, i1 %95, i1 false
-  br i1 %or.cond, label %91, label %.critedge, !llvm.loop !12
+  br i1 %or.cond, label %91, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %91
   %.not85 = icmp eq i32 %92, 0
@@ -2119,7 +2119,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %137
   %147 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %142, i64 noundef 0) #26
   %148 = load volatile i32, ptr %8, align 8
   %149 = icmp eq i32 %148, 0
-  br i1 %149, label %.lr.ph, label %._crit_edge.thread88, !llvm.loop !13
+  br i1 %149, label %.lr.ph, label %._crit_edge.thread88, !llvm.loop !15
 
 ._crit_edge.thread88:                             ; preds = %.lr.ph, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %142) #26
@@ -2284,7 +2284,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %27, %28
   %31 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 0) #26
   %32 = load volatile i32, ptr %3, align 8
   %33 = icmp eq i32 %32, 1
-  br i1 %33, label %.lr.ph, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !14
+  br i1 %33, label %.lr.ph, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !16
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %.lr.ph, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #26
@@ -2910,7 +2910,7 @@ define hidden void @_ZN2os5Linux21capture_initial_stackEm(i64 noundef %0) local_
   %51 = zext i8 %50 to i32
   %52 = call i32 @isspace(i32 noundef %51) #27
   %.not39 = icmp eq i32 %52, 0
-  br i1 %.not39, label %.critedge, label %.preheader, !llvm.loop !15
+  br i1 %.not39, label %.critedge, label %.preheader, !llvm.loop !17
 
 .critedge:                                        ; preds = %.preheader
   %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %49, ptr noundef nonnull @.str.37, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %5) #26
@@ -2968,12 +2968,12 @@ define hidden void @_ZN2os5Linux21capture_initial_stackEm(i64 noundef %0) local_
   switch i32 %70, label %69 [
     i32 -1, label %71
     i32 10, label %71
-  ]
+  ], !llvm.loop !18
 
 71:                                               ; preds = %69, %69
   %72 = call i32 @feof(ptr noundef nonnull %61) #26
   %.not19.i = icmp eq i32 %72, 0
-  br i1 %.not19.i, label %.lr.ph.i, label %_ZL8find_vmaPhPS_S0_.exit.thread48, !llvm.loop !16
+  br i1 %.not19.i, label %.lr.ph.i, label %_ZL8find_vmaPhPS_S0_.exit.thread48, !llvm.loop !19
 
 _ZL8find_vmaPhPS_S0_.exit.thread48:               ; preds = %71, %.preheader.i
   %73 = call i32 @fclose(ptr noundef nonnull %61)
@@ -3388,14 +3388,14 @@ define hidden noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef %0, ptr noundef %1
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %27
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !18
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !21
   br label %31
 
 31:                                               ; preds = %30, %27
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 1096
   %33 = load volatile i64, ptr %32, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !21
   %34 = and i64 %33, 1
   %.not.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %35
@@ -3435,7 +3435,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %spec.select88 = select i1 %46, ptr %47, ptr %.170
   %48 = getelementptr inbounds nuw i8, ptr %18, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %48) #26
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !21
   store volatile i32 4, ptr %19, align 4
   br label %51
 
@@ -3517,7 +3517,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %.sroa.3.1 = phi i16 [ %82, %80 ], [ %.sroa.3.090, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %86, label %76, !llvm.loop !19
+  br i1 %exitcond.not, label %86, label %76, !llvm.loop !22
 
 86:                                               ; preds = %85
   %.not82 = icmp eq i16 %.sroa.3.1, 62
@@ -3941,7 +3941,7 @@ _ZN2os12guard_memoryEPcm.exit:                    ; preds = %35, %58
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %.not.i = icmp ult i32 %65, %68
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !20
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !23
 
 69:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %9
   ret ptr %.0
@@ -4054,7 +4054,7 @@ define internal fastcc noundef zeroext i1 @_ZL17_print_ascii_filePKcP12outputStr
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %5, i64 noundef %14) #26
   %15 = call i64 @read(i32 noundef %6, ptr noundef nonnull %5, i64 noundef 32) #26
   %16 = icmp sgt i64 %15, 0
-  br i1 %16, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !21
+  br i1 %16, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZL14count_newlinesPKc.exit
   %17 = phi i64 [ %23, %_ZL14count_newlinesPKc.exit ], [ %12, %.lr.ph ]
@@ -4071,14 +4071,14 @@ define internal fastcc noundef zeroext i1 @_ZL17_print_ascii_filePKcP12outputStr
   %20 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %21 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 10) #27
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZL14count_newlinesPKc.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %_ZL14count_newlinesPKc.exit, label %.lr.ph.i, !llvm.loop !26
 
 _ZL14count_newlinesPKc.exit:                      ; preds = %.lr.ph.i, %.lr.ph.split
   %.04.lcssa.i = phi i32 [ 0, %.lr.ph.split ], [ %19, %.lr.ph.i ]
   %22 = add i32 %.04.lcssa.i, %.021
   %23 = call i64 @read(i32 noundef %6, ptr noundef nonnull %5, i64 noundef 32) #26
   %24 = icmp sgt i64 %23, 0
-  br i1 %24, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
+  br i1 %24, label %.lr.ph.split, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZL14count_newlinesPKc.exit, %10
   %.0.lcssa = phi i32 [ 0, %10 ], [ %22, %_ZL14count_newlinesPKc.exit ]
@@ -4174,7 +4174,7 @@ define internal noundef i32 @_ZL19dl_iterate_callbackP12dl_phdr_infomPv(ptr noun
   %.2 = phi ptr [ %.02937, %14 ], [ %.1, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %39, %.preheader
   %.030.lcssa = phi ptr [ null, %.preheader ], [ %.131, %39 ]
@@ -4231,7 +4231,7 @@ define hidden void @_ZN2os5Linux17print_distro_infoEP12outputStream(ptr noundef 
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %3, i64 noundef %12) #26
   %13 = call i64 @read(i32 noundef %7, ptr noundef nonnull %3, i64 noundef 32) #26
   %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, !llvm.loop !21
+  br i1 %14, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, !llvm.loop !24
 
 _ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %.lr.ph.split.us.i, %8
   %15 = call i32 @close(i32 noundef %7) #26
@@ -4244,7 +4244,7 @@ _ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %.lr.ph.spl
   %17 = getelementptr inbounds nuw [14 x ptr], ptr @distro_files, i64 0, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %16, %1
   %20 = tail call noundef zeroext i1 @_ZN2os11file_existsEPKc(ptr noundef nonnull @.str.103) #26
@@ -4269,7 +4269,7 @@ _ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %.lr.ph.spl
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2, i64 noundef %27) #26
   %28 = call i64 @read(i32 noundef %22, ptr noundef nonnull %2, i64 noundef 32) #26
   %29 = icmp sgt i64 %28, 0
-  br i1 %29, label %.lr.ph.split.us.i11, label %._crit_edge.thread.i9, !llvm.loop !21
+  br i1 %29, label %.lr.ph.split.us.i11, label %._crit_edge.thread.i9, !llvm.loop !24
 
 ._crit_edge.thread.i9:                            ; preds = %.lr.ph.split.us.i11, %23
   %30 = call i32 @close(i32 noundef %22) #26
@@ -4559,7 +4559,7 @@ _ZN2os5Linux12get_mallinfoEPNS0_14glibc_mallinfoEPb.exit: ; preds = %28, %37
   %64 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL27print_glibc_malloc_tunablesP12outputStreamE3var, i64 0, i64 %indvars.iv.next.i
   %65 = load ptr, ptr %64, align 8
   %.not.i13 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %.not.i13, label %66, label %57, !llvm.loop !27
+  br i1 %.not.i13, label %66, label %57, !llvm.loop !30
 
 66:                                               ; preds = %63
   %67 = trunc nuw i8 %.1.i to i1
@@ -4595,7 +4595,7 @@ define hidden noundef zeroext i1 @_ZN2os5Linux21print_ld_preload_fileEP12outputS
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2, i64 noundef %9) #26
   %10 = call i64 @read(i32 noundef %3, ptr noundef nonnull %2, i64 noundef 32) #26
   %11 = icmp sgt i64 %10, 0
-  br i1 %11, label %.lr.ph.split.us.i, label %._crit_edge.thread.i, !llvm.loop !21
+  br i1 %11, label %.lr.ph.split.us.i, label %._crit_edge.thread.i, !llvm.loop !24
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.split.us.i, %5
   %12 = call i32 @close(i32 noundef %3) #26
@@ -4659,7 +4659,7 @@ define hidden void @_ZN2os19get_summary_os_infoEPcm(ptr noundef %0, i64 noundef 
   %6 = getelementptr inbounds nuw [14 x ptr], ptr @distro_files, i64 0, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %2, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %2 ]
@@ -4707,7 +4707,7 @@ define internal fastcc void @_ZL13parse_os_infoPcmPKc(ptr noundef %0, i64 nounde
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
   %9 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 256, ptr noundef nonnull %5)
   %.not.us.i = icmp eq ptr %9, null
-  br i1 %8, label %.split.us.i, label %.split.i, !llvm.loop !29
+  br i1 %8, label %.split.us.i, label %.split.i, !llvm.loop !32
 
 .split.us.i:                                      ; preds = %6
   br i1 %.not.us.i, label %.split37.us.i, label %10
@@ -4807,7 +4807,7 @@ define internal fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr 
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %5, i64 noundef %12) #26
   %13 = call i64 @read(i32 noundef %7, ptr noundef nonnull %5, i64 noundef 32) #26
   %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, !llvm.loop !21
+  br i1 %14, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, !llvm.loop !24
 
 _ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %.lr.ph.split.us.i, %8
   %15 = call i32 @close(i32 noundef %7) #26
@@ -5031,7 +5031,7 @@ define hidden void @_ZN2os17pd_print_cpu_infoEP12outputStreamPcm(ptr noundef %0,
   %.1.i = phi i1 [ %.2.i, %18 ], [ %.023.i, %11 ]
   %23 = tail call i32 @feof(ptr noundef nonnull %8) #26
   %.not18.i = icmp eq i32 %23, 0
-  br i1 %.not18.i, label %11, label %_ZL26print_model_name_and_flagsP12outputStreamPcm.exit, !llvm.loop !30
+  br i1 %.not18.i, label %11, label %_ZL26print_model_name_and_flagsP12outputStreamPcm.exit, !llvm.loop !33
 
 _ZL26print_model_name_and_flagsP12outputStreamPcm.exit.thread7: ; preds = %15, %20
   %24 = tail call i32 @fclose(ptr noundef nonnull %8)
@@ -5076,7 +5076,7 @@ _ZL26print_model_name_and_flagsP12outputStreamPcm.exit.thread: ; preds = %3, %_Z
 35:                                               ; preds = %34, %.preheader.i5
   %36 = add nuw nsw i32 %.020.i, 1
   %exitcond.not.i = icmp eq i32 %36, 10
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i5, !llvm.loop !31
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i5, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %35, %26
   call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.317, ptr noundef nonnull @.str.318, ptr noundef nonnull %0, i1 noundef zeroext true)
@@ -5300,7 +5300,7 @@ define hidden void @_ZN2os20get_summary_cpu_infoEPcm(ptr noundef %0, i64 noundef
 16:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %.034, i64 1
   %.not27 = icmp eq ptr %17, %14
-  br i1 %.not27, label %.critedge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not27, label %.critedge, label %.lr.ph, !llvm.loop !35
 
 18:                                               ; preds = %.lr.ph
   %19 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 10) #27
@@ -5319,7 +5319,7 @@ define hidden void @_ZN2os20get_summary_cpu_infoEPcm(ptr noundef %0, i64 noundef
 .critedge:                                        ; preds = %16, %10, %7, %.lr.ph36
   %24 = call i32 @feof(ptr noundef nonnull %4) #26
   %.not24 = icmp eq i32 %24, 0
-  br i1 %.not24, label %.lr.ph36, label %._crit_edge, !llvm.loop !33
+  br i1 %.not24, label %.lr.ph36, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader
   %25 = call i32 @fclose(ptr noundef nonnull %4)
@@ -5365,7 +5365,7 @@ define hidden void @_Z15linux_wrap_codePcm(ptr noundef %0, i64 noundef %1) local
   br i1 %5, label %6, label %24
 
 6:                                                ; preds = %2
-  %7 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull @_ZZ15linux_wrap_codePcmE3cnt) #26, !srcloc !34
+  %7 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull @_ZZ15linux_wrap_codePcmE3cnt) #26, !srcloc !37
   %8 = add nsw i32 %7, 1
   %9 = tail call noundef i32 @getpid() #26
   %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4097, ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.45, i32 noundef %9, i32 noundef %8) #26
@@ -5944,7 +5944,7 @@ _ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread: ; preds = %_ZN2os5Linux25
   %14 = phi i32 [ %.011, %7 ], [ %spec.select, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit ]
   %15 = add nuw i32 %.0610, 1
   %exitcond.not = icmp eq i32 %.0610, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread, %0, %_ZN2os5Linux13numa_max_nodeEv.exit
   %.0.lcssa = phi i32 [ 0, %_ZN2os5Linux13numa_max_nodeEv.exit ], [ 0, %0 ], [ %14, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread ]
@@ -6006,7 +6006,7 @@ _ZN2os5Linux22is_node_in_bound_nodesEi.exit:      ; preds = %12, %14
 _ZN2os5Linux22is_node_in_bound_nodesEi.exit.thread: ; preds = %.lr.ph.split, %14, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit, %17
   %.1 = phi i64 [ %18, %17 ], [ %.0712, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit ], [ %.0712, %14 ], [ %.0712, %.lr.ph.split ]
   %exitcond.not = icmp eq i32 %.013, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZN2os5Linux22is_node_in_bound_nodesEi.exit.thread, %2, %_ZN2os5Linux13numa_max_nodeEv.exit
   %.07.lcssa = phi i64 [ 0, %_ZN2os5Linux13numa_max_nodeEv.exit ], [ 0, %2 ], [ %.1, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit.thread ]
@@ -6430,7 +6430,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
 _ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread: ; preds = %9, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit
   %33 = add nuw i32 %storemerge5, 1
   %exitcond.not = icmp eq i32 %storemerge5, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread, %_ZN2os5Linux13numa_max_nodeEv.exit.thread, %_ZN2os5Linux13numa_max_nodeEv.exit
   ret void
@@ -6486,7 +6486,7 @@ define hidden void @_ZN2os5Linux23rebuild_cpu_to_node_mapEv() local_unnamed_addr
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %2, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %22, !llvm.loop !39
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %22, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %22, %18
   store i32 %2, ptr %6, align 8
@@ -6539,7 +6539,7 @@ _ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i: ; preds = %_ZN2os5Linux
   %38 = phi i32 [ %.011.i, %31 ], [ %spec.select.i, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i ]
   %39 = add nuw i32 %.0610.i, 1
   %exitcond.not.i51 = icmp eq i32 %.0610.i, %26
-  br i1 %exitcond.not.i51, label %_ZN2os5Linux22get_existing_num_nodesEv.exit, label %.lr.ph.i50, !llvm.loop !35
+  br i1 %exitcond.not.i51, label %_ZN2os5Linux22get_existing_num_nodesEv.exit, label %.lr.ph.i50, !llvm.loop !38
 
 _ZN2os5Linux22get_existing_num_nodesEv.exit.thread: ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit.i, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE7at_growEiRKi.exit
   %40 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4096, i8 noundef zeroext 9, i32 noundef 0) #26
@@ -6703,7 +6703,7 @@ _ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread: ; preds = %84, %96, %
   %.1 = phi i32 [ %.04385, %.lr.ph ], [ %110, %112 ], [ %.04385, %_ZN2os5Linux13numa_distanceEii.exit ], [ %.04385, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit64 ], [ %.04385, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58 ], [ %.04385, %73 ], [ %.04385, %96 ], [ %.04385, %84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count107
-  br i1 %exitcond.not, label %.loopexit83, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit83, label %.lr.ph, !llvm.loop !43
 
 118:                                              ; preds = %_ZN2os5Linux22is_node_in_bound_nodesEi.exit
   %119 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
@@ -6782,17 +6782,17 @@ _ZN2os5Linux17numa_node_to_cpusEiPmi.exit:        ; preds = %130, %134
 148:                                              ; preds = %138, %142
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 64
-  br i1 %exitcond98.not, label %.loopexit, label %138, !llvm.loop !41
+  br i1 %exitcond98.not, label %.loopexit, label %138, !llvm.loop !44
 
 .loopexit:                                        ; preds = %148, %.lr.ph89
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %.loopexit82, label %.lr.ph89, !llvm.loop !42
+  br i1 %exitcond103.not, label %.loopexit82, label %.lr.ph89, !llvm.loop !45
 
 .loopexit82:                                      ; preds = %.loopexit, %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit, %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit.thread
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge, label %47, !llvm.loop !43
+  br i1 %exitcond108.not, label %._crit_edge, label %47, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.loopexit82, %_ZN2os5Linux22get_existing_num_nodesEv.exit.thread, %_ZN2os5Linux22get_existing_num_nodesEv.exit
   %149 = phi ptr [ %40, %_ZN2os5Linux22get_existing_num_nodesEv.exit.thread ], [ %41, %_ZN2os5Linux22get_existing_num_nodesEv.exit ], [ %41, %.loopexit82 ]
@@ -6939,7 +6939,7 @@ _ZN2os20is_primordial_threadEv.exit:              ; preds = %8
   %.127.i = phi i32 [ %41, %40 ], [ %.02629.i, %37 ]
   %.125.i = phi i32 [ %.02430.i, %40 ], [ %spec.select.i, %37 ]
   %43 = icmp ult i32 %.127.i, %.125.i
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !44
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !47
 
 ._crit_edge.loopexit.i:                           ; preds = %42
   %44 = select i1 %36, i64 %24, i64 0
@@ -7675,7 +7675,7 @@ _Z24exact_unit_for_byte_sizem.exit40.i:           ; preds = %231, %_Z23byte_size
   %237 = call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %.050.i) #26
   %238 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %239 = icmp ugt i64 %237, %238
-  br i1 %239, label %.lr.ph.i, label %.loopexit71, !llvm.loop !45
+  br i1 %239, label %.lr.ph.i, label %.loopexit71, !llvm.loop !48
 
 .loopexit71:                                      ; preds = %236, %207
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -7706,7 +7706,7 @@ _ZL30warn_no_large_pages_configuredv.exit60:      ; preds = %.loopexit71, %241, 
   call void @_ZN2os9PageSizes3addEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.075) #26
   %245 = call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.075) #26
   %.not = icmp eq i64 %245, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph, %244, %94
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
@@ -8479,12 +8479,12 @@ define hidden noundef i32 @_ZN2os5Linux17get_namespace_pidEi(i32 noundef %0) loc
   switch i32 %13, label %.preheader [
     i32 -1, label %14
     i32 10, label %14
-  ]
+  ], !llvm.loop !50
 
 14:                                               ; preds = %.preheader, %.preheader
   %15 = call i32 @feof(ptr noundef nonnull %6) #26
   %.not13 = icmp eq i32 %15, 0
-  br i1 %.not13, label %.lr.ph, label %.critedge, !llvm.loop !47
+  br i1 %.not13, label %.lr.ph, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %.lr.ph, %14, %9, %.preheader15, %11
   %.1 = phi i32 [ %12, %11 ], [ -1, %.preheader15 ], [ -1, %9 ], [ -1, %14 ], [ -1, %.lr.ph ]
@@ -8687,7 +8687,7 @@ _ZN2os5Linux13numa_max_nodeEv.exit:               ; preds = %9
   %spec.select.i = add nuw nsw i32 %.0913.i, %26
   %27 = add i32 %.014.i, 1
   %.not.i17 = icmp ugt i32 %27, %21
-  br i1 %.not.i17, label %_ZN2os5Linux23is_bound_to_single_nodeEv.exit, label %22, !llvm.loop !48
+  br i1 %.not.i17, label %_ZN2os5Linux23is_bound_to_single_nodeEv.exit, label %22, !llvm.loop !52
 
 _ZN2os5Linux23is_bound_to_single_nodeEv.exit:     ; preds = %22
   %28 = icmp eq i32 %spec.select.i, 1
@@ -8730,7 +8730,7 @@ _ZN2os5Linux13numa_max_nodeEv.exit.i:             ; preds = %33, %31
   %39 = call noundef i32 %37(ptr noundef %38, i32 noundef %.0.i) #26
   %.not5.i = icmp eq i32 %39, 0
   %40 = add nuw nsw i32 %.0.i, 1
-  br i1 %.not5.i, label %31, label %_ZN2os5Linux20identify_numa_policyEv.exit, !llvm.loop !49
+  br i1 %.not5.i, label %31, label %_ZN2os5Linux20identify_numa_policyEv.exit, !llvm.loop !53
 
 _ZN2os5Linux20identify_numa_policyEv.exit:        ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit.i, %36
   %spec.select16 = phi ptr [ @.str.229, %_ZN2os5Linux13numa_max_nodeEv.exit.i ], [ @.str.230, %36 ]
@@ -8769,7 +8769,7 @@ _ZN2os5Linux13numa_max_nodeEv.exit20:             ; preds = %43, %45
 
 52:                                               ; preds = %48, %51
   %53 = add nuw nsw i32 %.0, 1
-  br label %43, !llvm.loop !50
+  br label %43, !llvm.loop !54
 
 54:                                               ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit20
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #26
@@ -9405,7 +9405,7 @@ _ZN2os5Linux12sched_getcpuEv.exit:                ; preds = %0, %2
   br i1 %11, label %_ZL32should_warn_invalid_processor_idv.exit.thread, label %_ZL32should_warn_invalid_processor_idv.exit
 
 _ZL32should_warn_invalid_processor_idv.exit:      ; preds = %9
-  %12 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull @_ZZL32should_warn_invalid_processor_idvE9warn_once) #26, !srcloc !51
+  %12 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull @_ZZL32should_warn_invalid_processor_idvE9warn_once) #26, !srcloc !55
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %_ZL32should_warn_invalid_processor_idv.exit.thread, label %13
 
@@ -9678,7 +9678,7 @@ define internal fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb(i32 %.792
   %20 = zext i8 %19 to i32
   %21 = call i32 @isspace(i32 noundef %20) #27
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !52
+  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !56
 
 .critedge:                                        ; preds = %.preheader
   %22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %18, ptr noundef nonnull @.str.378, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %4) #26
@@ -10230,7 +10230,7 @@ define hidden void @_ZN2os21print_memory_mappingsEPcmP12outputStream(ptr noundef
   %.1 = phi i32 [ %21, %20 ], [ %.019, %.lr.ph ]
   %23 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 512, ptr noundef nonnull %9)
   %24 = icmp eq ptr %23, %4
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %22
   %25 = icmp eq i32 %.1, 0
@@ -11153,7 +11153,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !54
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !58
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11169,7 +11169,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !55
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !59
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -11234,7 +11234,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !56
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !60
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #26
@@ -12002,7 +12002,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !21
   store volatile ptr %31, ptr %34, align 8
   store ptr %31, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -12034,7 +12034,7 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i: ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !21
   store volatile ptr %43, ptr %46, align 8
   store ptr %43, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -12442,54 +12442,58 @@ attributes #29 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{i64 2145392998}
-!18 = !{i64 2145392468}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = !{i64 2145409567}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7, !37}
-!37 = !{!"llvm.loop.unswitch.partial.disable"}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = !{i64 2145410032}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = !{!"branch_weights", i32 1, i32 1048575}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = !{i64 2145392998}
+!21 = !{i64 2145392468}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = !{i64 2145409567}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8, !40}
+!40 = !{!"llvm.loop.unswitch.partial.disable"}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = !{i64 2145410032}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = !{!"branch_weights", i32 1, i32 1048575}

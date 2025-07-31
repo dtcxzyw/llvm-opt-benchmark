@@ -372,7 +372,7 @@ bytestream2_get_le16.exit222:                     ; preds = %bytestream2_get_le1
   %175 = add nsw i32 %174, %.0168347
   %176 = add nuw nsw i32 %.0167348, 1
   %exitcond.not = icmp eq i32 %176, %.0.i
-  br i1 %exitcond.not, label %177, label %148, !llvm.loop !46
+  br i1 %exitcond.not, label %177, label %148, !llvm.loop !47
 
 177:                                              ; preds = %172
   %178 = icmp sgt i32 %175, 65534
@@ -428,7 +428,7 @@ bytestream2_get_le16.exit222:                     ; preds = %bytestream2_get_le1
 
 205:                                              ; preds = %199
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %207 = load i64, ptr %206, align 8, !tbaa !47
+  %207 = load i64, ptr %206, align 8, !tbaa !48
   %.not205 = icmp eq i64 %207, 0
   br i1 %.not205, label %208, label %220
 
@@ -437,15 +437,15 @@ bytestream2_get_le16.exit222:                     ; preds = %bytestream2_get_le1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %209 = load ptr, ptr %28, align 8, !tbaa !35
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 64
-  %211 = load i32, ptr %210, align 8, !tbaa !48
+  %211 = load i32, ptr %210, align 8, !tbaa !49
   %212 = sext i32 %211 to i64
-  store i64 %212, ptr %5, align 16, !tbaa !49
+  store i64 %212, ptr %5, align 16, !tbaa !50
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %214 = load i32, ptr %213, align 8, !tbaa !28
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %216 = load i32, ptr %215, align 8, !tbaa !50
+  %216 = load i32, ptr %215, align 8, !tbaa !51
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %218 = load i32, ptr %217, align 4, !tbaa !51
+  %218 = load i32, ptr %217, align 4, !tbaa !52
   %219 = call i32 @av_image_fill_black(ptr noundef %209, ptr noundef nonnull %5, i32 noundef %214, i32 noundef 0, i32 noundef %216, i32 noundef %218) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
   br label %220
@@ -528,13 +528,13 @@ bytestream2_get_le16.exit230:                     ; preds = %bytestream2_get_le1
   %or.cond = select i1 %221, i1 %252, i1 false
   %253 = icmp eq i32 %.0.i225, 0
   %or.cond11 = select i1 %or.cond, i1 %253, i1 false
-  %.pre = load i32, ptr %222, align 8, !tbaa !50
+  %.pre = load i32, ptr %222, align 8, !tbaa !51
   %254 = icmp eq i32 %.0.i227, %.pre
   %or.cond391 = select i1 %or.cond11, i1 %254, i1 false
   br i1 %or.cond391, label %255, label %258
 
 255:                                              ; preds = %bytestream2_get_le16.exit230
-  %256 = load i32, ptr %223, align 4, !tbaa !51
+  %256 = load i32, ptr %223, align 4, !tbaa !52
   %257 = icmp eq i32 %.0.i229, %256
   %spec.select209 = select i1 %257, i32 1, i32 %.0163357
   br label %258
@@ -547,7 +547,7 @@ bytestream2_get_le16.exit230:                     ; preds = %bytestream2_get_le1
 
 261:                                              ; preds = %258
   %262 = add nuw nsw i32 %.0.i229, %.0.i225
-  %263 = load i32, ptr %223, align 4, !tbaa !51
+  %263 = load i32, ptr %223, align 4, !tbaa !52
   %264 = icmp sgt i32 %262, %263
   br i1 %264, label %.critedge, label %265
 
@@ -563,9 +563,9 @@ bytestream2_get_le16.exit230:                     ; preds = %bytestream2_get_le1
 
 .lr.ph:                                           ; preds = %268
   %269 = load ptr, ptr %28, align 8, !tbaa !35
-  %270 = load ptr, ptr %269, align 8, !tbaa !52
+  %270 = load ptr, ptr %269, align 8, !tbaa !53
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 64
-  %272 = load i32, ptr %271, align 8, !tbaa !48
+  %272 = load i32, ptr %271, align 8, !tbaa !49
   %273 = xor i32 %.0.i225, -1
   %274 = add nsw i32 %263, %273
   %275 = mul nsw i32 %272, %274
@@ -589,18 +589,18 @@ bytestream2_get_le16.exit230:                     ; preds = %bytestream2_get_le1
 284:                                              ; preds = %282
   %285 = load ptr, ptr %28, align 8, !tbaa !35
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 64
-  %287 = load i32, ptr %286, align 8, !tbaa !48
+  %287 = load i32, ptr %286, align 8, !tbaa !49
   %288 = sext i32 %287 to i64
   %289 = sub nsw i64 0, %288
   %290 = getelementptr inbounds i8, ptr %.0171353, i64 %289
   %291 = add nuw nsw i32 %.0354, 1
   %exitcond370.not = icmp eq i32 %291, %.0.i229
-  br i1 %exitcond370.not, label %._crit_edge, label %282, !llvm.loop !53
+  br i1 %exitcond370.not, label %._crit_edge, label %282, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %284, %268
   %292 = add nuw nsw i32 %.0162358, 1
   %exitcond371.not = icmp eq i32 %292, %.0.i
-  br i1 %exitcond371.not, label %.thread331, label %226, !llvm.loop !54
+  br i1 %exitcond371.not, label %.thread331, label %226, !llvm.loop !55
 
 293:                                              ; preds = %282
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %283) #7
@@ -613,30 +613,30 @@ bytestream2_get_le16.exit230:                     ; preds = %bytestream2_get_le1
 295:                                              ; preds = %.thread331
   %296 = load ptr, ptr %28, align 8, !tbaa !35
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 276
-  %298 = load i32, ptr %297, align 4, !tbaa !55
+  %298 = load i32, ptr %297, align 4, !tbaa !56
   %299 = or i32 %298, 2
-  store i32 %299, ptr %297, align 4, !tbaa !55
+  store i32 %299, ptr %297, align 4, !tbaa !56
   br label %304
 
 .thread331.thread:                                ; preds = %220, %.thread331
   %300 = load ptr, ptr %28, align 8, !tbaa !35
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 276
-  %302 = load i32, ptr %301, align 4, !tbaa !55
+  %302 = load i32, ptr %301, align 4, !tbaa !56
   %303 = and i32 %302, -3
-  store i32 %303, ptr %301, align 4, !tbaa !55
+  store i32 %303, ptr %301, align 4, !tbaa !56
   br label %304
 
 304:                                              ; preds = %.thread331.thread, %295
   %305 = phi ptr [ %300, %.thread331.thread ], [ %296, %295 ]
   %306 = phi i32 [ 2, %.thread331.thread ], [ 1, %295 ]
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 120
-  store i32 %306, ptr %307, align 8, !tbaa !60
+  store i32 %306, ptr %307, align 8, !tbaa !61
   %308 = call i32 @av_frame_ref(ptr noundef %1, ptr noundef nonnull %305) #7
   %309 = icmp slt i32 %308, 0
   br i1 %309, label %.critedge, label %310
 
 310:                                              ; preds = %304
-  store i32 1, ptr %2, align 4, !tbaa !48
+  store i32 1, ptr %2, align 4, !tbaa !49
   %311 = load i32, ptr %15, align 8, !tbaa !38
   br label %.critedge
 
@@ -750,20 +750,21 @@ attributes #8 = { noreturn nounwind }
 !41 = !{!32, !10, i64 8}
 !42 = !{!32, !14, i64 24}
 !43 = !{!32, !10, i64 32}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = !{!5, !13, i64 824}
-!48 = !{!10, !10, i64 0}
-!49 = !{!13, !13, i64 0}
-!50 = !{!5, !10, i64 112}
-!51 = !{!5, !10, i64 116}
-!52 = !{!14, !14, i64 0}
-!53 = distinct !{!53, !45}
-!54 = distinct !{!54, !45}
-!55 = !{!56, !10, i64 276}
-!56 = !{!"AVFrame", !8, i64 0, !8, i64 64, !57, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !58, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !59, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!57 = !{!"p2 omnipotent char", !26, i64 0}
-!58 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!59 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!60 = !{!56, !10, i64 120}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = !{!5, !13, i64 824}
+!49 = !{!10, !10, i64 0}
+!50 = !{!13, !13, i64 0}
+!51 = !{!5, !10, i64 112}
+!52 = !{!5, !10, i64 116}
+!53 = !{!14, !14, i64 0}
+!54 = distinct !{!54, !45, !46}
+!55 = distinct !{!55, !45, !46}
+!56 = !{!57, !10, i64 276}
+!57 = !{!"AVFrame", !8, i64 0, !8, i64 64, !58, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !59, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !60, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!58 = !{!"p2 omnipotent char", !26, i64 0}
+!59 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!60 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!61 = !{!57, !10, i64 120}

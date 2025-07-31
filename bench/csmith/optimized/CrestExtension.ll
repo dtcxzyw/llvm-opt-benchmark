@@ -803,5 +803,6 @@ attributes #18 = { noreturn }
 !84 = !{!"_ZTSNSt6locale5facetE", !29, i64 8}
 !85 = !{!"p1 _ZTS15__locale_struct", !10, i64 0}
 !86 = !{!"p1 short", !10, i64 0}
-!87 = distinct !{!87, !88}
+!87 = distinct !{!87, !88, !89}
 !88 = !{!"llvm.loop.mustprogress"}
+!89 = !{!"llvm.loop.estimated_trip_count"}

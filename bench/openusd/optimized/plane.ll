@@ -217,60 +217,60 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %4, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef null, double noundef 0.000000e+00)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12GetTransposeEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %3, ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %5 = load double, ptr %0, align 8, !noalias !12
+  %5 = load double, ptr %0, align 8, !noalias !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load double, ptr %6, align 8, !noalias !12
+  %7 = load double, ptr %6, align 8, !noalias !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load double, ptr %8, align 8, !noalias !12
+  %9 = load double, ptr %8, align 8, !noalias !13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load double, ptr %10, align 8, !noalias !12
+  %11 = load double, ptr %10, align 8, !noalias !13
   %12 = fneg double %11
-  %13 = load double, ptr %3, align 8, !noalias !15
+  %13 = load double, ptr %3, align 8, !noalias !16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %15 = load double, ptr %14, align 8, !noalias !15
+  %15 = load double, ptr %14, align 8, !noalias !16
   %16 = fmul double %7, %15
   %17 = call double @llvm.fmuladd.f64(double %5, double %13, double %16)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %19 = load double, ptr %18, align 8, !noalias !15
+  %19 = load double, ptr %18, align 8, !noalias !16
   %20 = call double @llvm.fmuladd.f64(double %9, double %19, double %17)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %22 = load double, ptr %21, align 8, !noalias !15
+  %22 = load double, ptr %21, align 8, !noalias !16
   %23 = call double @llvm.fmuladd.f64(double %12, double %22, double %20)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %25 = load double, ptr %24, align 8, !noalias !15
+  %25 = load double, ptr %24, align 8, !noalias !16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %27 = load double, ptr %26, align 8, !noalias !15
+  %27 = load double, ptr %26, align 8, !noalias !16
   %28 = fmul double %7, %27
   %29 = call double @llvm.fmuladd.f64(double %5, double %25, double %28)
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %31 = load double, ptr %30, align 8, !noalias !15
+  %31 = load double, ptr %30, align 8, !noalias !16
   %32 = call double @llvm.fmuladd.f64(double %9, double %31, double %29)
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %34 = load double, ptr %33, align 8, !noalias !15
+  %34 = load double, ptr %33, align 8, !noalias !16
   %35 = call double @llvm.fmuladd.f64(double %12, double %34, double %32)
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %37 = load double, ptr %36, align 8, !noalias !15
+  %37 = load double, ptr %36, align 8, !noalias !16
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %39 = load double, ptr %38, align 8, !noalias !15
+  %39 = load double, ptr %38, align 8, !noalias !16
   %40 = fmul double %7, %39
   %41 = call double @llvm.fmuladd.f64(double %5, double %37, double %40)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %43 = load double, ptr %42, align 8, !noalias !15
+  %43 = load double, ptr %42, align 8, !noalias !16
   %44 = call double @llvm.fmuladd.f64(double %9, double %43, double %41)
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %46 = load double, ptr %45, align 8, !noalias !15
+  %46 = load double, ptr %45, align 8, !noalias !16
   %47 = call double @llvm.fmuladd.f64(double %12, double %46, double %44)
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %49 = load double, ptr %48, align 8, !noalias !15
+  %49 = load double, ptr %48, align 8, !noalias !16
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %51 = load double, ptr %50, align 8, !noalias !15
+  %51 = load double, ptr %50, align 8, !noalias !16
   %52 = fmul double %7, %51
   %53 = call double @llvm.fmuladd.f64(double %5, double %49, double %52)
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %55 = load double, ptr %54, align 8, !noalias !15
+  %55 = load double, ptr %54, align 8, !noalias !16
   %56 = call double @llvm.fmuladd.f64(double %9, double %55, double %53)
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %58 = load double, ptr %57, align 8, !noalias !15
+  %58 = load double, ptr %57, align 8, !noalias !16
   %59 = call double @llvm.fmuladd.f64(double %12, double %58, double %56)
   %60 = fneg double %59
   store double %60, ptr %10, align 8
@@ -340,7 +340,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit: ; preds = %7
   %24 = tail call double @llvm.fmuladd.f64(double %19, double %23, double %.01415)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !19
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -415,7 +415,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18GfFitPlaneToPo
   %35 = fadd double %.sroa.7.0102, %34
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.095.0101, i64 24
   %.not = icmp eq ptr %36, %11
-  br i1 %.not, label %.lr.ph116.preheader, label %.lr.ph
+  br i1 %.not, label %.lr.ph116.preheader, label %.lr.ph, !llvm.loop !20
 
 .lr.ph116.preheader:                              ; preds = %.lr.ph
   %37 = uitofp i64 %16 to double
@@ -433,11 +433,11 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18GfFitPlaneToPo
   %.050110 = phi double [ %49, %.lr.ph116 ], [ 0.000000e+00, %.lr.ph116.preheader ]
   %.051109 = phi double [ %50, %.lr.ph116 ], [ 0.000000e+00, %.lr.ph116.preheader ]
   %.sroa.087.0108 = phi ptr [ %51, %.lr.ph116 ], [ %12, %.lr.ph116.preheader ]
-  %.sroa.0.0.copyload.i = load double, ptr %.sroa.087.0108, align 8, !noalias !19
+  %.sroa.0.0.copyload.i = load double, ptr %.sroa.087.0108, align 8, !noalias !21
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.087.0108, i64 8
-  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !19
+  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !21
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.087.0108, i64 16
-  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !19
+  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !21
   %42 = fsub double %.sroa.0.0.copyload.i, %39
   %43 = fsub double %.sroa.4.0.copyload.i, %40
   %44 = fsub double %.sroa.6.0.copyload.i, %41
@@ -449,7 +449,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18GfFitPlaneToPo
   %50 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %.051109)
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.087.0108, i64 24
   %.not99 = icmp eq ptr %51, %11
-  br i1 %.not99, label %._crit_edge117, label %.lr.ph116
+  br i1 %.not99, label %._crit_edge117, label %.lr.ph116, !llvm.loop !24
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %._crit_edge.thread
   %52 = phi double [ %22, %._crit_edge.thread ], [ %41, %.lr.ph116 ]
@@ -709,15 +709,18 @@ attributes #15 = { noreturn nounwind }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_: argument 0"}
 !9 = distinct !{!9, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfPlane11GetEquationEv: argument 0"}
-!14 = distinct !{!14, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfPlane11GetEquationEv"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfVec4dERKNS_10GfMatrix4dE: argument 0"}
-!17 = distinct !{!17, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfVec4dERKNS_10GfMatrix4dE"}
-!18 = distinct !{!18, !11}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_: argument 0"}
-!21 = distinct !{!21, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_"}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfPlane11GetEquationEv: argument 0"}
+!15 = distinct !{!15, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfPlane11GetEquationEv"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfVec4dERKNS_10GfMatrix4dE: argument 0"}
+!18 = distinct !{!18, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfVec4dERKNS_10GfMatrix4dE"}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !12}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_: argument 0"}
+!23 = distinct !{!23, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_"}
+!24 = distinct !{!24, !12}

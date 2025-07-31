@@ -141,13 +141,13 @@ do_table2string.exit:                             ; preds = %8, %5
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OCSP_REQUEST_print(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef 19) #3
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %1, align 8, !tbaa !21
+  %9 = load ptr, ptr %1, align 8, !tbaa !22
   %10 = tail call i64 @ASN1_INTEGER_get(ptr noundef %9) #3
   %11 = add nsw i64 %10, 1
   %12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i64 noundef %11, i64 noundef %10) #3
@@ -156,7 +156,7 @@ define range(i32 0, 2) i32 @OCSP_REQUEST_print(ptr noundef %0, ptr noundef reado
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %16 = load ptr, ptr %15, align 8, !tbaa !23
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %23, label %17
 
@@ -166,7 +166,7 @@ define range(i32 0, 2) i32 @OCSP_REQUEST_print(ptr noundef %0, ptr noundef reado
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %15, align 8, !tbaa !22
+  %21 = load ptr, ptr %15, align 8, !tbaa !23
   %22 = tail call i32 @GENERAL_NAME_print(ptr noundef %0, ptr noundef %21) #3
   br label %23
 
@@ -177,33 +177,33 @@ define range(i32 0, 2) i32 @OCSP_REQUEST_print(ptr noundef %0, ptr noundef reado
 
 .preheader:                                       ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !23
+  %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = tail call i32 @OPENSSL_sk_num(ptr noundef %27) #3
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 30:                                               ; preds = %.lr.ph
   %31 = add nuw nsw i32 %.03945, 1
-  %32 = load ptr, ptr %26, align 8, !tbaa !23
+  %32 = load ptr, ptr %26, align 8, !tbaa !24
   %33 = tail call i32 @OPENSSL_sk_num(ptr noundef %32) #3
   %34 = icmp slt i32 %31, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.preheader, %30
   %.03945 = phi i32 [ %31, %30 ], [ 0, %.preheader ]
-  %35 = load ptr, ptr %26, align 8, !tbaa !23
+  %35 = load ptr, ptr %26, align 8, !tbaa !24
   %36 = tail call ptr @OPENSSL_sk_value(ptr noundef %35, i32 noundef %.03945) #3
-  %37 = load ptr, ptr %36, align 8, !tbaa !25
+  %37 = load ptr, ptr %36, align 8, !tbaa !26
   tail call fastcc void @ocsp_certid_print(ptr noundef %0, ptr noundef %37, i32 noundef 8)
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !28
+  %39 = load ptr, ptr %38, align 8, !tbaa !29
   %40 = tail call i32 @X509V3_extensions_print(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef %39, i64 noundef %2, i32 noundef 8) #3
   %.not43 = icmp eq i32 %40, 0
   br i1 %.not43, label %.loopexit, label %30
 
 ._crit_edge:                                      ; preds = %30, %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !29
+  %42 = load ptr, ptr %41, align 8, !tbaa !30
   %43 = tail call i32 @X509V3_extensions_print(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef %42, i64 noundef %2, i32 noundef 4) #3
   %.not41 = icmp eq i32 %43, 0
   br i1 %.not41, label %.loopexit, label %44
@@ -214,27 +214,27 @@ define range(i32 0, 2) i32 @OCSP_REQUEST_print(ptr noundef %0, ptr noundef reado
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !30
+  %47 = load ptr, ptr %46, align 8, !tbaa !31
   %48 = tail call i32 @X509_signature_print(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %47) #3
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !36
+  %50 = load ptr, ptr %49, align 8, !tbaa !37
   %51 = tail call i32 @OPENSSL_sk_num(ptr noundef %50) #3
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %.lr.ph48, label %.loopexit
 
 .lr.ph48:                                         ; preds = %45, %.lr.ph48
   %.146 = phi i32 [ %59, %.lr.ph48 ], [ 0, %45 ]
-  %53 = load ptr, ptr %49, align 8, !tbaa !36
+  %53 = load ptr, ptr %49, align 8, !tbaa !37
   %54 = tail call ptr @OPENSSL_sk_value(ptr noundef %53, i32 noundef %.146) #3
   %55 = tail call i32 @X509_print(ptr noundef %0, ptr noundef %54) #3
-  %56 = load ptr, ptr %49, align 8, !tbaa !36
+  %56 = load ptr, ptr %49, align 8, !tbaa !37
   %57 = tail call ptr @OPENSSL_sk_value(ptr noundef %56, i32 noundef %.146) #3
   %58 = tail call i32 @PEM_write_bio_X509(ptr noundef %0, ptr noundef %57) #3
   %59 = add nuw nsw i32 %.146, 1
-  %60 = load ptr, ptr %49, align 8, !tbaa !36
+  %60 = load ptr, ptr %49, align 8, !tbaa !37
   %61 = tail call i32 @OPENSSL_sk_num(ptr noundef %60) #3
   %62 = icmp slt i32 %59, %61
-  br i1 %62, label %.lr.ph48, label %.loopexit, !llvm.loop !37
+  br i1 %62, label %.lr.ph48, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph48, %45, %3, %8, %17, %23, %._crit_edge, %44
   %.0 = phi i32 [ 1, %44 ], [ 0, %._crit_edge ], [ 0, %23 ], [ 0, %17 ], [ 0, %8 ], [ 0, %3 ], [ 1, %45 ], [ 1, %.lr.ph48 ], [ 0, %.lr.ph ]
@@ -258,7 +258,7 @@ define internal fastcc void @ocsp_certid_print(ptr noundef %0, ptr noundef %1, i
   %4 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %2, ptr noundef nonnull @.str.43) #3
   %5 = add nuw nsw i32 %2, 2
   %6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef %5, ptr noundef nonnull @.str.43) #3
-  %7 = load ptr, ptr %1, align 8, !tbaa !38
+  %7 = load ptr, ptr %1, align 8, !tbaa !39
   %8 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %7) #3
   %9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.45, i32 noundef %5, ptr noundef nonnull @.str.43) #3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -284,13 +284,13 @@ declare i32 @PEM_write_bio_X509(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OCSP_RESPONSE_print(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.25) #3
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %1, align 8, !tbaa !45
+  %9 = load ptr, ptr %1, align 8, !tbaa !46
   %10 = tail call i64 @ASN1_ENUMERATED_get(ptr noundef %9) #3
   br label %11
 
@@ -328,13 +328,13 @@ OCSP_response_status_str.exit:                    ; preds = %17, %14
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %5, align 8, !tbaa !46
+  %28 = load ptr, ptr %5, align 8, !tbaa !47
   %29 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %28) #3
   %30 = icmp slt i32 %29, 1
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr %5, align 8, !tbaa !46
+  %32 = load ptr, ptr %5, align 8, !tbaa !47
   %33 = tail call i32 @OBJ_obj2nid(ptr noundef %32) #3
   %.not = icmp eq i32 %33, 365
   br i1 %.not, label %36, label %34
@@ -349,7 +349,7 @@ OCSP_response_status_str.exit:                    ; preds = %17, %14
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %37, align 8, !tbaa !48
+  %40 = load ptr, ptr %37, align 8, !tbaa !49
   %41 = tail call i64 @ASN1_INTEGER_get(ptr noundef %40) #3
   %42 = add nsw i64 %41, 1
   %43 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %42, i64 noundef %41) #3
@@ -363,7 +363,7 @@ OCSP_response_status_str.exit:                    ; preds = %17, %14
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !52
+  %50 = load i32, ptr %49, align 8, !tbaa !53
   switch i32 %50, label %59 [
     i32 0, label %51
     i32 1, label %55
@@ -371,13 +371,13 @@ OCSP_response_status_str.exit:                    ; preds = %17, %14
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !53
+  %53 = load ptr, ptr %52, align 8, !tbaa !54
   %54 = tail call i32 @X509_NAME_print_ex(ptr noundef %0, ptr noundef %53, i32 noundef 0, i64 noundef 8520479) #3
   br label %59
 
 55:                                               ; preds = %48
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !53
+  %57 = load ptr, ptr %56, align 8, !tbaa !54
   %58 = tail call i32 @i2a_ASN1_STRING(ptr noundef %0, ptr noundef %57, i32 noundef 0) #3
   br label %59
 
@@ -388,7 +388,7 @@ OCSP_response_status_str.exit:                    ; preds = %17, %14
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !54
+  %64 = load ptr, ptr %63, align 8, !tbaa !55
   %65 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %64) #3
   %.not88 = icmp eq i32 %65, 0
   br i1 %.not88, label %.loopexit, label %66
@@ -400,26 +400,26 @@ OCSP_response_status_str.exit:                    ; preds = %17, %14
 
 .preheader105:                                    ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !55
+  %70 = load ptr, ptr %69, align 8, !tbaa !56
   %71 = tail call i32 @OPENSSL_sk_num(ptr noundef %70) #3
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader105, %147
   %.083110 = phi i32 [ %148, %147 ], [ 0, %.preheader105 ]
-  %73 = load ptr, ptr %69, align 8, !tbaa !55
+  %73 = load ptr, ptr %69, align 8, !tbaa !56
   %74 = tail call ptr @OPENSSL_sk_value(ptr noundef %73, i32 noundef %.083110) #3
   %.not90 = icmp eq ptr %74, null
   br i1 %.not90, label %147, label %75
 
 75:                                               ; preds = %.lr.ph
-  %76 = load ptr, ptr %69, align 8, !tbaa !55
+  %76 = load ptr, ptr %69, align 8, !tbaa !56
   %77 = tail call ptr @OPENSSL_sk_value(ptr noundef %76, i32 noundef %.083110) #3
-  %78 = load ptr, ptr %77, align 8, !tbaa !56
+  %78 = load ptr, ptr %77, align 8, !tbaa !57
   tail call fastcc void @ocsp_certid_print(ptr noundef %0, ptr noundef %78, i32 noundef 4)
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !59
-  %81 = load i32, ptr %80, align 8, !tbaa !60
+  %80 = load ptr, ptr %79, align 8, !tbaa !60
+  %81 = load i32, ptr %80, align 8, !tbaa !61
   %82 = sext i32 %81 to i64
   br label %83
 
@@ -448,26 +448,26 @@ OCSP_cert_status_str.exit:                        ; preds = %89, %86
   br i1 %93, label %.loopexit, label %94
 
 94:                                               ; preds = %OCSP_cert_status_str.exit
-  %95 = load i32, ptr %80, align 8, !tbaa !60
+  %95 = load i32, ptr %80, align 8, !tbaa !61
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %97, label %121
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !53
+  %99 = load ptr, ptr %98, align 8, !tbaa !54
   %100 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.34) #3
   %101 = icmp slt i32 %100, 1
   br i1 %101, label %.loopexit, label %102
 
 102:                                              ; preds = %97
-  %103 = load ptr, ptr %99, align 8, !tbaa !62
+  %103 = load ptr, ptr %99, align 8, !tbaa !63
   %104 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %103) #3
   %.not91 = icmp eq i32 %104, 0
   br i1 %.not91, label %.loopexit, label %105
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !64
+  %107 = load ptr, ptr %106, align 8, !tbaa !65
   %.not92 = icmp eq ptr %107, null
   br i1 %.not92, label %121, label %108
 
@@ -506,14 +506,14 @@ OCSP_crl_reason_str.exit:                         ; preds = %116, %113
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %126 = load ptr, ptr %125, align 8, !tbaa !65
+  %126 = load ptr, ptr %125, align 8, !tbaa !66
   %127 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %126) #3
   %.not93 = icmp eq i32 %127, 0
   br i1 %.not93, label %.loopexit, label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %130 = load ptr, ptr %129, align 8, !tbaa !66
+  %130 = load ptr, ptr %129, align 8, !tbaa !67
   %.not94 = icmp eq ptr %130, null
   br i1 %.not94, label %137, label %131
 
@@ -523,7 +523,7 @@ OCSP_crl_reason_str.exit:                         ; preds = %116, %113
   br i1 %133, label %.loopexit, label %134
 
 134:                                              ; preds = %131
-  %135 = load ptr, ptr %129, align 8, !tbaa !66
+  %135 = load ptr, ptr %129, align 8, !tbaa !67
   %136 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %135) #3
   %.not95 = icmp eq i32 %136, 0
   br i1 %.not95, label %.loopexit, label %137
@@ -535,7 +535,7 @@ OCSP_crl_reason_str.exit:                         ; preds = %116, %113
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %142 = load ptr, ptr %141, align 8, !tbaa !67
+  %142 = load ptr, ptr %141, align 8, !tbaa !68
   %143 = tail call i32 @X509V3_extensions_print(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %142, i64 noundef %2, i32 noundef 8) #3
   %.not96 = icmp eq i32 %143, 0
   br i1 %.not96, label %.loopexit, label %144
@@ -547,14 +547,14 @@ OCSP_crl_reason_str.exit:                         ; preds = %116, %113
 
 147:                                              ; preds = %144, %.lr.ph
   %148 = add nuw nsw i32 %.083110, 1
-  %149 = load ptr, ptr %69, align 8, !tbaa !55
+  %149 = load ptr, ptr %69, align 8, !tbaa !56
   %150 = tail call i32 @OPENSSL_sk_num(ptr noundef %149) #3
   %151 = icmp slt i32 %148, %150
-  br i1 %151, label %.lr.ph, label %._crit_edge, !llvm.loop !68
+  br i1 %151, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %147, %.preheader105
   %152 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %153 = load ptr, ptr %152, align 8, !tbaa !69
+  %153 = load ptr, ptr %152, align 8, !tbaa !70
   %154 = tail call i32 @X509V3_extensions_print(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %153, i64 noundef %2, i32 noundef 4) #3
   %.not89 = icmp eq i32 %154, 0
   br i1 %.not89, label %.loopexit, label %155
@@ -562,31 +562,31 @@ OCSP_crl_reason_str.exit:                         ; preds = %116, %113
 155:                                              ; preds = %._crit_edge
   %156 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %157 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %158 = load ptr, ptr %157, align 8, !tbaa !70
+  %158 = load ptr, ptr %157, align 8, !tbaa !71
   %159 = tail call i32 @X509_signature_print(ptr noundef %0, ptr noundef nonnull %156, ptr noundef %158) #3
   %160 = icmp slt i32 %159, 1
   br i1 %160, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %162 = load ptr, ptr %161, align 8, !tbaa !72
+  %162 = load ptr, ptr %161, align 8, !tbaa !73
   %163 = tail call i32 @OPENSSL_sk_num(ptr noundef %162) #3
   %164 = icmp sgt i32 %163, 0
   br i1 %164, label %.lr.ph112, label %.loopexit
 
 .lr.ph112:                                        ; preds = %.preheader, %.lr.ph112
   %.1111 = phi i32 [ %171, %.lr.ph112 ], [ 0, %.preheader ]
-  %165 = load ptr, ptr %161, align 8, !tbaa !72
+  %165 = load ptr, ptr %161, align 8, !tbaa !73
   %166 = tail call ptr @OPENSSL_sk_value(ptr noundef %165, i32 noundef %.1111) #3
   %167 = tail call i32 @X509_print(ptr noundef %0, ptr noundef %166) #3
-  %168 = load ptr, ptr %161, align 8, !tbaa !72
+  %168 = load ptr, ptr %161, align 8, !tbaa !73
   %169 = tail call ptr @OPENSSL_sk_value(ptr noundef %168, i32 noundef %.1111) #3
   %170 = tail call i32 @PEM_write_bio_X509(ptr noundef %0, ptr noundef %169) #3
   %171 = add nuw nsw i32 %.1111, 1
-  %172 = load ptr, ptr %161, align 8, !tbaa !72
+  %172 = load ptr, ptr %161, align 8, !tbaa !73
   %173 = tail call i32 @OPENSSL_sk_num(ptr noundef %172) #3
   %174 = icmp slt i32 %171, %173
-  br i1 %174, label %.lr.ph112, label %.loopexit, !llvm.loop !73
+  br i1 %174, label %.lr.ph112, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %144, %140, %137, %134, %131, %124, %121, %OCSP_crl_reason_str.exit, %102, %97, %OCSP_cert_status_str.exit, %.lr.ph112, %.preheader, %155, %._crit_edge, %66, %62, %59, %45, %39, %36, %27, %24, %OCSP_response_status_str.exit, %3
   %.082 = phi i32 [ 0, %3 ], [ 0, %OCSP_response_status_str.exit ], [ 0, %24 ], [ 0, %27 ], [ 0, %36 ], [ 0, %39 ], [ 0, %45 ], [ 0, %59 ], [ 0, %66 ], [ 0, %155 ], [ 0, %._crit_edge ], [ 0, %62 ], [ 1, %.preheader ], [ 1, %.lr.ph112 ], [ 0, %OCSP_cert_status_str.exit ], [ 0, %97 ], [ 0, %102 ], [ 0, %OCSP_crl_reason_str.exit ], [ 0, %121 ], [ 0, %124 ], [ 0, %131 ], [ 0, %134 ], [ 0, %137 ], [ 0, %140 ], [ 0, %144 ]
@@ -637,66 +637,67 @@ attributes #3 = { nounwind }
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !6, i64 0}
 !10 = !{!4, !8, i64 8}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !20, i64 32}
-!14 = !{!"ocsp_request_st", !15, i64 0, !20, i64 32}
-!15 = !{!"ocsp_req_info_st", !16, i64 0, !17, i64 8, !18, i64 16, !19, i64 24}
-!16 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
-!17 = !{!"p1 _ZTS15GENERAL_NAME_st", !9, i64 0}
-!18 = !{!"p1 _ZTS20stack_st_OCSP_ONEREQ", !9, i64 0}
-!19 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !9, i64 0}
-!20 = !{!"p1 _ZTS17ocsp_signature_st", !9, i64 0}
-!21 = !{!15, !16, i64 0}
-!22 = !{!15, !17, i64 8}
-!23 = !{!15, !18, i64 16}
-!24 = distinct !{!24, !12}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"ocsp_one_request_st", !27, i64 0, !19, i64 8}
-!27 = !{!"p1 _ZTS15ocsp_cert_id_st", !9, i64 0}
-!28 = !{!26, !19, i64 8}
-!29 = !{!15, !19, i64 24}
-!30 = !{!31, !16, i64 16}
-!31 = !{!"ocsp_signature_st", !32, i64 0, !16, i64 16, !35, i64 24}
-!32 = !{!"X509_algor_st", !33, i64 0, !34, i64 8}
-!33 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
-!34 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
-!35 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
-!36 = !{!31, !35, i64 24}
-!37 = distinct !{!37, !12}
-!38 = !{!39, !33, i64 0}
-!39 = !{!"ocsp_cert_id_st", !32, i64 0, !40, i64 16, !40, i64 40, !40, i64 64}
-!40 = !{!"asn1_string_st", !41, i64 0, !41, i64 4, !8, i64 8, !5, i64 16}
-!41 = !{!"int", !6, i64 0}
-!42 = !{!43, !44, i64 8}
-!43 = !{!"ocsp_response_st", !16, i64 0, !44, i64 8}
-!44 = !{!"p1 _ZTS18ocsp_resp_bytes_st", !9, i64 0}
-!45 = !{!43, !16, i64 0}
-!46 = !{!47, !33, i64 0}
-!47 = !{!"ocsp_resp_bytes_st", !33, i64 0, !16, i64 8}
-!48 = !{!49, !16, i64 0}
-!49 = !{!"ocsp_response_data_st", !16, i64 0, !50, i64 8, !16, i64 24, !51, i64 32, !19, i64 40}
-!50 = !{!"ocsp_responder_id_st", !41, i64 0, !6, i64 8}
-!51 = !{!"p1 _ZTS24stack_st_OCSP_SINGLERESP", !9, i64 0}
-!52 = !{!50, !41, i64 0}
-!53 = !{!6, !6, i64 0}
-!54 = !{!49, !16, i64 24}
-!55 = !{!49, !51, i64 32}
-!56 = !{!57, !27, i64 0}
-!57 = !{!"ocsp_single_response_st", !27, i64 0, !58, i64 8, !16, i64 16, !16, i64 24, !19, i64 32}
-!58 = !{!"p1 _ZTS19ocsp_cert_status_st", !9, i64 0}
-!59 = !{!57, !58, i64 8}
-!60 = !{!61, !41, i64 0}
-!61 = !{!"ocsp_cert_status_st", !41, i64 0, !6, i64 8}
-!62 = !{!63, !16, i64 0}
-!63 = !{!"ocsp_revoked_info_st", !16, i64 0, !16, i64 8}
-!64 = !{!63, !16, i64 8}
-!65 = !{!57, !16, i64 16}
-!66 = !{!57, !16, i64 24}
-!67 = !{!57, !19, i64 32}
-!68 = distinct !{!68, !12}
-!69 = !{!49, !19, i64 40}
-!70 = !{!71, !16, i64 64}
-!71 = !{!"ocsp_basic_response_st", !49, i64 0, !32, i64 48, !16, i64 64, !35, i64 72}
-!72 = !{!71, !35, i64 72}
-!73 = distinct !{!73, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !21, i64 32}
+!15 = !{!"ocsp_request_st", !16, i64 0, !21, i64 32}
+!16 = !{!"ocsp_req_info_st", !17, i64 0, !18, i64 8, !19, i64 16, !20, i64 24}
+!17 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
+!18 = !{!"p1 _ZTS15GENERAL_NAME_st", !9, i64 0}
+!19 = !{!"p1 _ZTS20stack_st_OCSP_ONEREQ", !9, i64 0}
+!20 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !9, i64 0}
+!21 = !{!"p1 _ZTS17ocsp_signature_st", !9, i64 0}
+!22 = !{!16, !17, i64 0}
+!23 = !{!16, !18, i64 8}
+!24 = !{!16, !19, i64 16}
+!25 = distinct !{!25, !12, !13}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"ocsp_one_request_st", !28, i64 0, !20, i64 8}
+!28 = !{!"p1 _ZTS15ocsp_cert_id_st", !9, i64 0}
+!29 = !{!27, !20, i64 8}
+!30 = !{!16, !20, i64 24}
+!31 = !{!32, !17, i64 16}
+!32 = !{!"ocsp_signature_st", !33, i64 0, !17, i64 16, !36, i64 24}
+!33 = !{!"X509_algor_st", !34, i64 0, !35, i64 8}
+!34 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!35 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
+!36 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
+!37 = !{!32, !36, i64 24}
+!38 = distinct !{!38, !12, !13}
+!39 = !{!40, !34, i64 0}
+!40 = !{!"ocsp_cert_id_st", !33, i64 0, !41, i64 16, !41, i64 40, !41, i64 64}
+!41 = !{!"asn1_string_st", !42, i64 0, !42, i64 4, !8, i64 8, !5, i64 16}
+!42 = !{!"int", !6, i64 0}
+!43 = !{!44, !45, i64 8}
+!44 = !{!"ocsp_response_st", !17, i64 0, !45, i64 8}
+!45 = !{!"p1 _ZTS18ocsp_resp_bytes_st", !9, i64 0}
+!46 = !{!44, !17, i64 0}
+!47 = !{!48, !34, i64 0}
+!48 = !{!"ocsp_resp_bytes_st", !34, i64 0, !17, i64 8}
+!49 = !{!50, !17, i64 0}
+!50 = !{!"ocsp_response_data_st", !17, i64 0, !51, i64 8, !17, i64 24, !52, i64 32, !20, i64 40}
+!51 = !{!"ocsp_responder_id_st", !42, i64 0, !6, i64 8}
+!52 = !{!"p1 _ZTS24stack_st_OCSP_SINGLERESP", !9, i64 0}
+!53 = !{!51, !42, i64 0}
+!54 = !{!6, !6, i64 0}
+!55 = !{!50, !17, i64 24}
+!56 = !{!50, !52, i64 32}
+!57 = !{!58, !28, i64 0}
+!58 = !{!"ocsp_single_response_st", !28, i64 0, !59, i64 8, !17, i64 16, !17, i64 24, !20, i64 32}
+!59 = !{!"p1 _ZTS19ocsp_cert_status_st", !9, i64 0}
+!60 = !{!58, !59, i64 8}
+!61 = !{!62, !42, i64 0}
+!62 = !{!"ocsp_cert_status_st", !42, i64 0, !6, i64 8}
+!63 = !{!64, !17, i64 0}
+!64 = !{!"ocsp_revoked_info_st", !17, i64 0, !17, i64 8}
+!65 = !{!64, !17, i64 8}
+!66 = !{!58, !17, i64 16}
+!67 = !{!58, !17, i64 24}
+!68 = !{!58, !20, i64 32}
+!69 = distinct !{!69, !12, !13}
+!70 = !{!50, !20, i64 40}
+!71 = !{!72, !17, i64 64}
+!72 = !{!"ocsp_basic_response_st", !50, i64 0, !33, i64 48, !17, i64 64, !36, i64 72}
+!73 = !{!72, !36, i64 72}
+!74 = distinct !{!74, !12, !13}

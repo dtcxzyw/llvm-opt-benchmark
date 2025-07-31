@@ -126,10 +126,10 @@ define hidden range(i32 -2147483647, 2147483647) i32 @X509v3_get_ext_by_critical
 12:                                               ; preds = %10
   %13 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %indvars.iv.next) #5
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !16
+  %15 = load i32, ptr %14, align 8, !tbaa !17
   %16 = icmp sgt i32 %15, 0
   %or.cond19 = xor i1 %7, %16
-  br i1 %or.cond19, label %10, label %.loopexit.loopexit.split.loop.exit, !llvm.loop !17
+  br i1 %or.cond19, label %10, label %.loopexit.loopexit.split.loop.exit, !llvm.loop !18
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %12
   %17 = trunc nsw i64 %indvars.iv.next to i32
@@ -196,7 +196,7 @@ define hidden noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) 
   br label %26
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr %0, align 8, !tbaa !18
+  %6 = load ptr, ptr %0, align 8, !tbaa !19
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %11
 
@@ -227,12 +227,12 @@ define hidden noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) 
   br i1 %.not, label %.thread47, label %21
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %0, align 8, !tbaa !18
+  %22 = load ptr, ptr %0, align 8, !tbaa !19
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
-  store ptr %.2, ptr %0, align 8, !tbaa !18
+  store ptr %.2, ptr %0, align 8, !tbaa !19
   br label %26
 
 .thread47:                                        ; preds = %15
@@ -286,7 +286,7 @@ define hidden ptr @X509_EXTENSION_create_by_OBJ(ptr noundef captures(address_is_
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr %0, align 8, !tbaa !20
+  %7 = load ptr, ptr %0, align 8, !tbaa !21
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13
 
@@ -316,12 +316,12 @@ X509_EXTENSION_set_object.exit:                   ; preds = %13
   %.not.i = icmp eq i32 %2, 0
   %18 = select i1 %.not.i, i32 -1, i32 255
   %19 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i32 %18, ptr %19, align 8, !tbaa !16
+  store i32 %18, ptr %19, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !22
+  %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !23
-  %24 = load i32, ptr %3, align 8, !tbaa !27
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
+  %24 = load i32, ptr %3, align 8, !tbaa !28
   %25 = tail call i32 @ASN1_STRING_set(ptr noundef %21, ptr noundef %23, i32 noundef %24) #5
   %.not.i27.not = icmp eq i32 %25, 0
   br i1 %.not.i27.not, label %X509_EXTENSION_set_object.exit.thread, label %26
@@ -330,19 +330,19 @@ X509_EXTENSION_set_object.exit:                   ; preds = %13
   br i1 %5, label %34, label %27
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr %0, align 8, !tbaa !20
+  %28 = load ptr, ptr %0, align 8, !tbaa !21
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
-  store ptr %.0, ptr %0, align 8, !tbaa !20
+  store ptr %.0, ptr %0, align 8, !tbaa !21
   br label %34
 
 X509_EXTENSION_set_object.exit.thread:            ; preds = %13, %17, %X509_EXTENSION_set_object.exit
   br i1 %5, label %33, label %31
 
 31:                                               ; preds = %X509_EXTENSION_set_object.exit.thread
-  %32 = load ptr, ptr %0, align 8, !tbaa !20
+  %32 = load ptr, ptr %0, align 8, !tbaa !21
   %.not24 = icmp eq ptr %.0, %32
   br i1 %.not24, label %34, label %33
 
@@ -387,7 +387,7 @@ define hidden range(i32 0, 2) i32 @X509_EXTENSION_set_critical(ptr noundef write
   %.not = icmp eq i32 %1, 0
   %5 = select i1 %.not, i32 -1, i32 255
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %5, ptr %6, align 8, !tbaa !16
+  store i32 %5, ptr %6, align 8, !tbaa !17
   br label %7
 
 7:                                                ; preds = %2, %4
@@ -402,10 +402,10 @@ define hidden range(i32 0, 2) i32 @X509_EXTENSION_set_data(ptr noundef readonly 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
-  %9 = load i32, ptr %1, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
+  %9 = load i32, ptr %1, align 8, !tbaa !28
   %10 = tail call i32 @ASN1_STRING_set(ptr noundef %6, ptr noundef %8, i32 noundef %9) #5
   %.not = icmp ne i32 %10, 0
   %. = zext i1 %.not to i32
@@ -443,7 +443,7 @@ define hidden ptr @X509_EXTENSION_get_data(ptr noundef readonly captures(address
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -458,7 +458,7 @@ define hidden range(i32 0, 2) i32 @X509_EXTENSION_get_critical(ptr noundef reado
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !16
+  %5 = load i32, ptr %4, align 8, !tbaa !17
   %6 = icmp sgt i32 %5, 0
   %. = zext i1 %6 to i32
   br label %7
@@ -497,17 +497,18 @@ attributes #5 = { nounwind }
 !11 = !{!"Simple C/C++ TBAA"}
 !12 = !{!"int", !10, i64 0}
 !13 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!7, !12, i64 8}
-!17 = distinct !{!17, !15}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !9, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS17X509_extension_st", !9, i64 0}
-!22 = !{!7, !13, i64 16}
-!23 = !{!24, !25, i64 8}
-!24 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !25, i64 8, !26, i64 16}
-!25 = !{!"p1 omnipotent char", !9, i64 0}
-!26 = !{!"long", !10, i64 0}
-!27 = !{!24, !12, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!7, !12, i64 8}
+!18 = distinct !{!18, !15, !16}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !9, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS17X509_extension_st", !9, i64 0}
+!23 = !{!7, !13, i64 16}
+!24 = !{!25, !26, i64 8}
+!25 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !26, i64 8, !27, i64 16}
+!26 = !{!"p1 omnipotent char", !9, i64 0}
+!27 = !{!"long", !10, i64 0}
+!28 = !{!25, !12, i64 0}

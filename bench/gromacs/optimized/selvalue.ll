@@ -56,7 +56,7 @@ define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr noundef captures(no
   %18 = getelementptr inbounds i8, ptr %17, i64 -152
   tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %18) #10
   %19 = icmp eq ptr %18, %9
-  br i1 %19, label %.loopexit, label %.preheader
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %12
   %20 = add i64 %.idx, 8
@@ -120,7 +120,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
 18:                                               ; preds = %10
   %19 = sext i32 %1 to i64
   %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 8)
-  store ptr %20, ptr %7, align 8, !tbaa !12
+  store ptr %20, ptr %7, align 8, !tbaa !14
   %21 = load i32, ptr %3, align 8, !tbaa !4
   %22 = icmp slt i32 %21, %1
   br i1 %22, label %.lr.ph48.preheader, label %.loopexit
@@ -133,10 +133,10 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   %indvars.iv52 = phi i64 [ %23, %.lr.ph48.preheader ], [ %indvars.iv.next53, %.lr.ph48 ]
   %24 = load ptr, ptr %7, align 8, !tbaa !11
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv52
-  store ptr null, ptr %25, align 8, !tbaa !16
+  store ptr null, ptr %25, align 8, !tbaa !18
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %19
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph48, !llvm.loop !18
+  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph48, !llvm.loop !20
 
 26:                                               ; preds = %10
   br i1 %.not, label %28, label %27
@@ -171,7 +171,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   %.add = add nuw nsw i64 %.idx, 152
   %41 = add nuw nsw i64 %.idx, 144
   %42 = icmp eq i64 %41, %32
-  br i1 %42, label %.loopexit.sink.split, label %.preheader58
+  br i1 %42, label %.loopexit.sink.split, label %.preheader58, !llvm.loop !22
 
 43:                                               ; preds = %.preheader58
   %44 = landingpad { ptr, i32 }
@@ -185,7 +185,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   %.ptr40 = getelementptr inbounds i8, ptr %38, i64 %.add38
   tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr40) #10
   %46 = icmp eq i64 %.add38, 8
-  br i1 %46, label %.loopexit42, label %.preheader
+  br i1 %46, label %.loopexit42, label %.preheader, !llvm.loop !23
 
 .loopexit42:                                      ; preds = %.preheader, %43
   tail call void @_ZdaPvm(ptr noundef nonnull %38, i64 noundef %37) #11
@@ -194,7 +194,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
 47:                                               ; preds = %10
   %48 = sext i32 %1 to i64
   %49 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %48, i64 noundef 24)
-  store ptr %49, ptr %7, align 8, !tbaa !20
+  store ptr %49, ptr %7, align 8, !tbaa !24
   %50 = load i32, ptr %3, align 8, !tbaa !4
   %51 = icmp slt i32 %50, %1
   br i1 %51, label %.lr.ph.preheader, label %.loopexit
@@ -211,7 +211,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit.sink.split:                             ; preds = %40, %28, %12, %15
   %.ptr36.sink = phi ptr [ %17, %15 ], [ %14, %12 ], [ %.ptr36, %28 ], [ %.ptr36, %40 ]
@@ -250,10 +250,10 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 define void @_Z34_gmx_selvalue_getstore_and_releaseP18gmx_ana_selvalue_tPPvPi(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !11
-  store ptr %5, ptr %1, align 8, !tbaa !23
+  store ptr %5, ptr %1, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !4
-  store i32 %7, ptr %2, align 4, !tbaa !24
+  store i32 %7, ptr %2, align 4, !tbaa !28
   store ptr null, ptr %4, align 8, !tbaa !11
   store i32 0, ptr %6, align 8, !tbaa !4
   ret void
@@ -311,16 +311,20 @@ attributes #13 = { builtin allocsize(0) }
 !9 = !{!"int", !7, i64 0}
 !10 = !{!5, !6, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p2 omnipotent char", !14, i64 0}
-!14 = !{!"any p2 pointer", !15, i64 0}
-!15 = !{!"any pointer", !7, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !15, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS15gmx_ana_index_t", !15, i64 0}
-!22 = distinct !{!22, !19}
-!23 = !{!15, !15, i64 0}
-!24 = !{!9, !9, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p2 omnipotent char", !16, i64 0}
+!16 = !{!"any p2 pointer", !17, i64 0}
+!17 = !{!"any pointer", !7, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 omnipotent char", !17, i64 0}
+!20 = distinct !{!20, !21, !13}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS15gmx_ana_index_t", !17, i64 0}
+!26 = distinct !{!26, !21, !13}
+!27 = !{!17, !17, i64 0}
+!28 = !{!9, !9, i64 0}

@@ -227,7 +227,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   store ptr null, ptr %61, align 8
   %.1.add.i = add nuw nsw i64 %.1.idx36.i, 32
   %62 = icmp samesign ult i64 %.1.idx36.i, 544
-  br i1 %62, label %53, label %InitPrimTypes.exit.thread, !llvm.loop !8
+  br i1 %62, label %53, label %InitPrimTypes.exit.thread, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %26, %86
   %.03542.i.i = phi ptr [ %89, %86 ], [ @SurfaceTypes, %26 ]
@@ -270,7 +270,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   %88 = add nsw i64 %87, 32
   %89 = inttoptr i64 %88 to ptr
   %90 = icmp ult i64 %88, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @SurfaceTypes, i64 960) to i64)
-  br i1 %90, label %.lr.ph.i.i, label %.lr.ph.i.i94, !llvm.loop !9
+  br i1 %90, label %.lr.ph.i.i, label %.lr.ph.i.i94, !llvm.loop !10
 
 .lr.ph44.i.i:                                     ; preds = %.lr.ph44.i.i.preheader, %97
   %.143.i.i = phi ptr [ %100, %97 ], [ @SurfaceTypes, %.lr.ph44.i.i.preheader ]
@@ -292,7 +292,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   %99 = add nsw i64 %98, 32
   %100 = inttoptr i64 %99 to ptr
   %101 = icmp ult i64 %99, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @SurfaceTypes, i64 960) to i64)
-  br i1 %101, label %.lr.ph44.i.i, label %InitPrimTypes.exit.thread, !llvm.loop !10
+  br i1 %101, label %.lr.ph44.i.i, label %InitPrimTypes.exit.thread, !llvm.loop !11
 
 .lr.ph.i.i94:                                     ; preds = %86, %125
   %.03542.i.i95 = phi ptr [ %128, %125 ], [ @CompositeTypes, %86 ]
@@ -335,7 +335,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   %127 = add nsw i64 %126, 32
   %128 = inttoptr i64 %127 to ptr
   %129 = icmp ult i64 %127, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @CompositeTypes, i64 224) to i64)
-  br i1 %129, label %.lr.ph.i.i94, label %InitCompositeTypes.exit, !llvm.loop !9
+  br i1 %129, label %.lr.ph.i.i94, label %InitCompositeTypes.exit, !llvm.loop !10
 
 .lr.ph44.i.i98:                                   ; preds = %.lr.ph44.i.i98.preheader, %136
   %.143.i.i99 = phi ptr [ %139, %136 ], [ @CompositeTypes, %.lr.ph44.i.i98.preheader ]
@@ -357,7 +357,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   %138 = add nsw i64 %137, 32
   %139 = inttoptr i64 %138 to ptr
   %140 = icmp ult i64 %138, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @CompositeTypes, i64 224) to i64)
-  br i1 %140, label %.lr.ph44.i.i98, label %InitPrimTypes.exit.thread, !llvm.loop !10
+  br i1 %140, label %.lr.ph44.i.i98, label %InitPrimTypes.exit.thread, !llvm.loop !11
 
 InitCompositeTypes.exit:                          ; preds = %125
   %141 = load ptr, ptr %0, align 8
@@ -643,7 +643,7 @@ define hidden void @GrPrim_RefineBounds(ptr noundef captures(none) %0, i32 nound
   %.1 = tail call i32 @llvm.smax.i32(i32 %.04968, i32 %30)
   %31 = add nsw i32 %.04869, -2
   %32 = icmp samesign ugt i32 %.04869, 3
-  br i1 %32, label %19, label %33, !llvm.loop !11
+  br i1 %32, label %19, label %33, !llvm.loop !12
 
 33:                                               ; preds = %19
   %34 = add nsw i32 %.151, 1
@@ -1014,7 +1014,7 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
   %80 = add nuw nsw i32 %.06575, 1
   %81 = getelementptr inbounds nuw i8, ptr %.06476, i64 56
   %exitcond.not = icmp eq i32 %80, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %79, %.preheader
   %82 = load ptr, ptr %0, align 8
@@ -1314,10 +1314,11 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

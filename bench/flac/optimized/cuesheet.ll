@@ -211,7 +211,7 @@ define dso_local ptr @grabbag__cuesheet_parse(ptr noundef captures(none) %0, ptr
   store ptr %49, ptr %8, align 8, !tbaa !8
   %50 = load i8, ptr %49, align 1, !tbaa !15
   %.not38.i.i = icmp eq i8 %50, 0
-  br i1 %.not38.i.i, label %.loopexit666.i, label %.lr.ph53.i.i, !llvm.loop !18
+  br i1 %.not38.i.i, label %.loopexit666.i, label %.lr.ph53.i.i, !llvm.loop !19
 
 .sink.split.sink.split.i.i:                       ; preds = %.lr.ph53.i.i
   store i8 0, ptr %44, align 1, !tbaa !15
@@ -304,7 +304,7 @@ local__get_field_.exit.thread.i:                  ; preds = %.lr.ph.i, %.prehead
   store ptr %82, ptr %8, align 8, !tbaa !8
   %83 = load i8, ptr %82, align 1, !tbaa !15
   %.not38.i378.i = icmp eq i8 %83, 0
-  br i1 %.not38.i378.i, label %.loopexit658.i, label %.lr.ph53.i373.i, !llvm.loop !18
+  br i1 %.not38.i378.i, label %.loopexit658.i, label %.lr.ph53.i373.i, !llvm.loop !19
 
 .sink.split.sink.split.i377.i:                    ; preds = %.lr.ph53.i373.i, %73
   %.lcssa.sink.i.i = phi ptr [ %74, %73 ], [ %77, %.lr.ph53.i373.i ]
@@ -411,7 +411,7 @@ local__get_field_.exit.thread.i:                  ; preds = %.lr.ph.i, %.prehead
   store ptr %117, ptr %8, align 8, !tbaa !8
   %118 = load i8, ptr %117, align 1, !tbaa !15
   %.not38.i399.i = icmp eq i8 %118, 0
-  br i1 %.not38.i399.i, label %.loopexit.i, label %.lr.ph53.i392.i, !llvm.loop !18
+  br i1 %.not38.i399.i, label %.loopexit.i, label %.lr.ph53.i392.i, !llvm.loop !19
 
 .sink.split.sink.split.i396.i:                    ; preds = %.lr.ph53.i392.i
   store i8 0, ptr %112, align 1, !tbaa !15
@@ -431,8 +431,8 @@ local__get_field_.exit400.thread596.i:            ; preds = %.preheader.i380.i, 
   br i1 %123, label %124, label %132
 
 124:                                              ; preds = %.loopexit.i
-  %125 = load ptr, ptr %23, align 8, !tbaa !19
-  %126 = load i32, ptr %22, align 4, !tbaa !20
+  %125 = load ptr, ptr %23, align 8, !tbaa !20
+  %126 = load i32, ptr %22, align 4, !tbaa !21
   %127 = add i32 %126, -1
   %128 = zext i32 %127 to i64
   %129 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %125, i64 %128, i32 3
@@ -443,7 +443,7 @@ local__get_field_.exit400.thread596.i:            ; preds = %.preheader.i380.i, 
 
 132:                                              ; preds = %124, %.loopexit.i
   %133 = icmp eq ptr %121, null
-  br i1 %133, label %local__get_field_.exit400.thread.i, label %.preheader.i380.i, !llvm.loop !21
+  br i1 %133, label %local__get_field_.exit400.thread.i, label %.preheader.i380.i, !llvm.loop !22
 
 134:                                              ; preds = %93
   %135 = call i32 @strcasecmp(ptr noundef nonnull %.lcssa930.i, ptr noundef nonnull @.str.25) #14
@@ -510,7 +510,7 @@ local__get_field_.exit400.thread596.i:            ; preds = %.preheader.i380.i, 
   store ptr %157, ptr %8, align 8, !tbaa !8
   %158 = load i8, ptr %157, align 1, !tbaa !15
   %.not38.i420.i = icmp eq i8 %158, 0
-  br i1 %.not38.i420.i, label %.loopexit661.i, label %.lr.ph53.i413.i, !llvm.loop !18
+  br i1 %.not38.i420.i, label %.loopexit661.i, label %.lr.ph53.i413.i, !llvm.loop !19
 
 .sink.split.sink.split.i417.i:                    ; preds = %.lr.ph53.i413.i
   store i8 0, ptr %152, align 1, !tbaa !15
@@ -543,7 +543,7 @@ local__get_field_.exit400.thread596.i:            ; preds = %.preheader.i380.i, 
   %.fr.i.i = freeze i64 %170
   %.pr.i.i.i = load i8, ptr %167, align 1, !tbaa !15
   %.not.i.i.i = icmp eq i8 %.pr.i.i.i, 0
-  br i1 %.not.i.i.i, label %local__parse_int64_.exit.i.i, label %.preheader.i.i.i, !llvm.loop !22
+  br i1 %.not.i.i.i, label %local__parse_int64_.exit.i.i, label %.preheader.i.i.i, !llvm.loop !23
 
 local__parse_int64_.exit.i.i:                     ; preds = %166
   %or.cond.i.i = icmp ugt i64 %.fr.i.i, 2147483647
@@ -551,13 +551,13 @@ local__parse_int64_.exit.i.i:                     ; preds = %166
   br i1 %or.cond.i.i, label %.loopexit, label %172
 
 172:                                              ; preds = %local__parse_int64_.exit.i.i
-  %173 = load ptr, ptr %23, align 8, !tbaa !19
-  %174 = load i32, ptr %22, align 4, !tbaa !20
+  %173 = load ptr, ptr %23, align 8, !tbaa !20
+  %174 = load i32, ptr %22, align 4, !tbaa !21
   %175 = add i32 %174, -1
   %176 = zext i32 %175 to i64
   %177 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %173, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 23
-  %179 = load i8, ptr %178, align 1, !tbaa !23
+  %179 = load i8, ptr %178, align 1, !tbaa !24
   %180 = icmp eq i8 %179, 0
   br i1 %180, label %181, label %183
 
@@ -568,11 +568,11 @@ local__parse_int64_.exit.i.i:                     ; preds = %166
 183:                                              ; preds = %172
   %184 = zext i8 %179 to i64
   %185 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %186 = load ptr, ptr %185, align 8, !tbaa !25
+  %186 = load ptr, ptr %185, align 8, !tbaa !26
   %187 = add nuw nsw i64 %184, 4294967295
   %188 = and i64 %187, 4294967295
   %189 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %186, i64 %188, i32 1
-  %190 = load i8, ptr %189, align 8, !tbaa !26
+  %190 = load i8, ptr %189, align 8, !tbaa !27
   %191 = zext i8 %190 to i32
   %192 = add nuw nsw i32 %191, 1
   %.not336.i = icmp eq i32 %192, %171
@@ -639,7 +639,7 @@ local__parse_int64_.exit.i.i:                     ; preds = %166
   store ptr %212, ptr %8, align 8, !tbaa !8
   %213 = load i8, ptr %212, align 1, !tbaa !15
   %.not38.i442.i = icmp eq i8 %213, 0
-  br i1 %.not38.i442.i, label %.loopexit660.i, label %.lr.ph53.i435.i, !llvm.loop !18
+  br i1 %.not38.i442.i, label %.loopexit660.i, label %.lr.ph53.i435.i, !llvm.loop !19
 
 .sink.split.sink.split.i439.i:                    ; preds = %.lr.ph53.i435.i
   store i8 0, ptr %207, align 1, !tbaa !15
@@ -684,7 +684,7 @@ local__parse_int64_.exit.i.i:                     ; preds = %166
   %232 = add nsw i64 %230, %231
   %.pr.i.i = load i8, ptr %229, align 1, !tbaa !15
   %.not.i446.i = icmp eq i8 %.pr.i.i, 0
-  br i1 %.not.i446.i, label %local__parse_int64_.exit.i, label %.preheader.i444.i, !llvm.loop !22
+  br i1 %.not.i446.i, label %local__parse_int64_.exit.i, label %.preheader.i444.i, !llvm.loop !23
 
 local__parse_int64_.exit.i:                       ; preds = %228
   %233 = icmp slt i64 %232, 0
@@ -700,68 +700,68 @@ local__parse_int64_.exit.i:                       ; preds = %228
   br i1 %14, label %237, label %.critedge349.i
 
 237:                                              ; preds = %236
-  %238 = load i32, ptr %22, align 4, !tbaa !20
+  %238 = load i32, ptr %22, align 4, !tbaa !21
   %239 = icmp eq i32 %238, 1
   br i1 %239, label %240, label %246
 
 240:                                              ; preds = %237
-  %241 = load ptr, ptr %23, align 8, !tbaa !19
+  %241 = load ptr, ptr %23, align 8, !tbaa !20
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 23
-  %243 = load i8, ptr %242, align 1, !tbaa !23
+  %243 = load i8, ptr %242, align 1, !tbaa !24
   %244 = icmp eq i8 %243, 0
   %245 = icmp ne i64 %.0263.i, 0
   %or.cond16.i = and i1 %245, %244
   br i1 %or.cond16.i, label %.loopexit, label %246
 
 246:                                              ; preds = %240, %237
-  %247 = load i8, ptr %178, align 1, !tbaa !23
+  %247 = load i8, ptr %178, align 1, !tbaa !24
   %.not337.i = icmp eq i8 %247, 0
   br i1 %.not337.i, label %.critedge349.thread.i, label %248
 
 248:                                              ; preds = %246
   %249 = zext i8 %247 to i64
   %250 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %251 = load ptr, ptr %250, align 8, !tbaa !25
+  %251 = load ptr, ptr %250, align 8, !tbaa !26
   %252 = add nuw nsw i64 %249, 4294967295
   %253 = and i64 %252, 4294967295
   %254 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %251, i64 %253
-  %255 = load i64, ptr %254, align 8, !tbaa !28
+  %255 = load i64, ptr %254, align 8, !tbaa !29
   %.not338.i = icmp ugt i64 %.0263.i, %255
   br i1 %.not338.i, label %.critedge349.i, label %.loopexit
 
 .critedge349.i:                                   ; preds = %248, %236, %219
   %.0263612.ph.i = phi i64 [ %.0263.i, %248 ], [ %.0263.i, %236 ], [ %220, %219 ]
-  %.pr.i = load i8, ptr %178, align 1, !tbaa !23
+  %.pr.i = load i8, ptr %178, align 1, !tbaa !24
   %256 = icmp eq i8 %.pr.i, 0
   br i1 %256, label %.critedge349.thread.i, label %257
 
 .critedge349.thread.i:                            ; preds = %.critedge349.i, %246
   %.0263612614.i = phi i64 [ %.0263612.ph.i, %.critedge349.i ], [ %.0263.i, %246 ]
-  store i64 %.0263612614.i, ptr %177, align 8, !tbaa !29
+  store i64 %.0263612614.i, ptr %177, align 8, !tbaa !30
   br label %257
 
 257:                                              ; preds = %.critedge349.thread.i, %.critedge349.i
   %.0263612615.i = phi i64 [ %.0263612614.i, %.critedge349.thread.i ], [ %.0263612.ph.i, %.critedge349.i ]
   %258 = phi i8 [ 0, %.critedge349.thread.i ], [ %.pr.i, %.critedge349.i ]
-  %.pre.i = load i32, ptr %22, align 4, !tbaa !20
+  %.pre.i = load i32, ptr %22, align 4, !tbaa !21
   %259 = icmp ugt i32 %.pre.i, 1
   %or.cond1190.i = select i1 %14, i1 %259, i1 false
   br i1 %or.cond1190.i, label %260, label %.critedge351.i
 
 260:                                              ; preds = %257
-  %261 = load ptr, ptr %23, align 8, !tbaa !19
+  %261 = load ptr, ptr %23, align 8, !tbaa !20
   %262 = add i32 %.pre.i, -2
   %263 = zext i32 %262 to i64
   %264 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %261, i64 %263
-  %265 = load i64, ptr %264, align 8, !tbaa !29
+  %265 = load i64, ptr %264, align 8, !tbaa !30
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 24
-  %267 = load ptr, ptr %266, align 8, !tbaa !25
+  %267 = load ptr, ptr %266, align 8, !tbaa !26
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 23
-  %269 = load i8, ptr %268, align 1, !tbaa !23
+  %269 = load i8, ptr %268, align 1, !tbaa !24
   %270 = zext i8 %269 to i64
   %271 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %267, i64 %270
   %272 = getelementptr i8, ptr %271, i64 -16
-  %273 = load i64, ptr %272, align 8, !tbaa !28
+  %273 = load i64, ptr %272, align 8, !tbaa !29
   %274 = add i64 %273, %265
   %.not339.i = icmp ugt i64 %.0263612615.i, %274
   br i1 %.not339.i, label %.critedge351.i, label %.loopexit
@@ -774,18 +774,18 @@ local__parse_int64_.exit.i:                       ; preds = %228
   br i1 %.not340.i, label %.loopexit, label %278
 
 278:                                              ; preds = %.critedge351.i
-  %279 = load i64, ptr %177, align 8, !tbaa !29
+  %279 = load i64, ptr %177, align 8, !tbaa !30
   %280 = sub i64 %.0263612615.i, %279
   %281 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %282 = load ptr, ptr %281, align 8, !tbaa !25
-  %283 = load i8, ptr %178, align 1, !tbaa !23
+  %282 = load ptr, ptr %281, align 8, !tbaa !26
+  %283 = load i8, ptr %178, align 1, !tbaa !24
   %284 = zext i8 %283 to i64
   %285 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %282, i64 %284
   %286 = getelementptr i8, ptr %285, i64 -16
-  store i64 %280, ptr %286, align 8, !tbaa !28
+  store i64 %280, ptr %286, align 8, !tbaa !29
   %287 = trunc i64 %.fr.i.i to i8
   %288 = getelementptr i8, ptr %285, i64 -8
-  store i8 %287, ptr %288, align 8, !tbaa !26
+  store i8 %287, ptr %288, align 8, !tbaa !27
   br label %local__get_field_.exit400.thread.i
 
 289:                                              ; preds = %134
@@ -873,7 +873,7 @@ local__parse_int64_.exit.i:                       ; preds = %228
   store ptr %322, ptr %8, align 8, !tbaa !8
   %323 = load i8, ptr %322, align 1, !tbaa !15
   %.not38.i467.i = icmp eq i8 %323, 0
-  br i1 %.not38.i467.i, label %local__get_field_.exit468.i, label %.lr.ph53.i460.i, !llvm.loop !18
+  br i1 %.not38.i467.i, label %local__get_field_.exit468.i, label %.lr.ph53.i460.i, !llvm.loop !19
 
 .sink.split.sink.split.i464.i:                    ; preds = %.lr.ph53.i460.i, %313
   %.lcssa.sink.i465.i = phi ptr [ %314, %313 ], [ %317, %.lr.ph53.i460.i ]
@@ -906,7 +906,7 @@ local__get_field_.exit468.i:                      ; preds = %321, %.sink.split.s
 330:                                              ; preds = %328, %326
   %.1257.i = phi ptr [ %329, %328 ], [ %.0256.i, %326 ]
   %331 = getelementptr inbounds nuw i8, ptr %.0255.i, i64 1
-  br label %326, !llvm.loop !30
+  br label %326, !llvm.loop !31
 
 332:                                              ; preds = %326
   store i8 0, ptr %.0256.i, align 1, !tbaa !15
@@ -926,8 +926,8 @@ local__get_field_.exit468.i:                      ; preds = %321, %.sink.split.s
   br i1 %.not334.i, label %340, label %.loopexit
 
 340:                                              ; preds = %337
-  %341 = load ptr, ptr %23, align 8, !tbaa !19
-  %342 = load i32, ptr %22, align 4, !tbaa !20
+  %341 = load ptr, ptr %23, align 8, !tbaa !20
+  %342 = load i32, ptr %22, align 4, !tbaa !21
   %343 = add i32 %342, -1
   %344 = zext i32 %343 to i64
   %345 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %341, i64 %344, i32 2
@@ -942,17 +942,17 @@ local__get_field_.exit468.i:                      ; preds = %321, %.sink.split.s
   br i1 %349, label %350, label %465
 
 350:                                              ; preds = %347
-  %351 = load i32, ptr %22, align 4, !tbaa !20
+  %351 = load i32, ptr %22, align 4, !tbaa !21
   %.not324.i = icmp eq i32 %351, 0
   br i1 %.not324.i, label %.thread627.i, label %352
 
 352:                                              ; preds = %350
-  %353 = load ptr, ptr %23, align 8, !tbaa !19
+  %353 = load ptr, ptr %23, align 8, !tbaa !20
   %354 = add i32 %351, -1
   %355 = zext i32 %354 to i64
   %356 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %353, i64 %355
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 23
-  %358 = load i8, ptr %357, align 1, !tbaa !23
+  %358 = load i8, ptr %357, align 1, !tbaa !24
   %359 = icmp eq i8 %358, 0
   br i1 %359, label %.critedge353.i, label %360
 
@@ -967,23 +967,23 @@ local__get_field_.exit468.i:                      ; preds = %321, %.sink.split.s
 
 362:                                              ; preds = %361
   %363 = getelementptr inbounds nuw i8, ptr %356, i64 24
-  %364 = load ptr, ptr %363, align 8, !tbaa !25
+  %364 = load ptr, ptr %363, align 8, !tbaa !26
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
-  %366 = load i8, ptr %365, align 8, !tbaa !26
+  %366 = load i8, ptr %365, align 8, !tbaa !27
   %.not325.i = icmp eq i8 %366, 1
   br i1 %.not325.i, label %.thread627.i, label %.critedge353.i
 
 367:                                              ; preds = %361
   %368 = getelementptr inbounds nuw i8, ptr %356, i64 24
-  %369 = load ptr, ptr %368, align 8, !tbaa !25
+  %369 = load ptr, ptr %368, align 8, !tbaa !26
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
-  %371 = load i8, ptr %370, align 8, !tbaa !26
+  %371 = load i8, ptr %370, align 8, !tbaa !27
   %.not326.i = icmp eq i8 %371, 1
   br i1 %.not326.i, label %.thread627.i, label %372
 
 372:                                              ; preds = %367
   %373 = getelementptr inbounds nuw i8, ptr %369, i64 24
-  %374 = load i8, ptr %373, align 8, !tbaa !26
+  %374 = load i8, ptr %373, align 8, !tbaa !27
   %.not327.i = icmp eq i8 %374, 1
   br i1 %.not327.i, label %.thread627.i, label %.critedge353.i
 
@@ -1047,7 +1047,7 @@ local__get_field_.exit468.i:                      ; preds = %321, %.sink.split.s
   store ptr %393, ptr %8, align 8, !tbaa !8
   %394 = load i8, ptr %393, align 1, !tbaa !15
   %.not38.i489.i = icmp eq i8 %394, 0
-  br i1 %.not38.i489.i, label %.loopexit663.i, label %.lr.ph53.i482.i, !llvm.loop !18
+  br i1 %.not38.i489.i, label %.loopexit663.i, label %.lr.ph53.i482.i, !llvm.loop !19
 
 .sink.split.sink.split.i486.i:                    ; preds = %.lr.ph53.i482.i
   store i8 0, ptr %388, align 1, !tbaa !15
@@ -1080,7 +1080,7 @@ local__get_field_.exit468.i:                      ; preds = %321, %.sink.split.s
   %.fr.i496.i = freeze i64 %406
   %.pr.i.i497.i = load i8, ptr %403, align 1, !tbaa !15
   %.not.i.i498.i = icmp eq i8 %.pr.i.i497.i, 0
-  br i1 %.not.i.i498.i, label %local__parse_int64_.exit.i499.i, label %.preheader.i.i491.i, !llvm.loop !22
+  br i1 %.not.i.i498.i, label %local__parse_int64_.exit.i499.i, label %.preheader.i.i491.i, !llvm.loop !23
 
 local__parse_int64_.exit.i499.i:                  ; preds = %402
   %or.cond.i500.i = icmp ugt i64 %.fr.i496.i, 2147483647
@@ -1107,16 +1107,16 @@ local__parse_int64_.exit.i499.i:                  ; preds = %402
   br i1 %416, label %.loopexit, label %427
 
 417:                                              ; preds = %411
-  %418 = load i32, ptr %22, align 4, !tbaa !20
+  %418 = load i32, ptr %22, align 4, !tbaa !21
   %.not328.i = icmp eq i32 %418, 0
   br i1 %.not328.i, label %427, label %419
 
 419:                                              ; preds = %417
-  %420 = load ptr, ptr %23, align 8, !tbaa !19
+  %420 = load ptr, ptr %23, align 8, !tbaa !20
   %421 = add i32 %418, -1
   %422 = zext i32 %421 to i64
   %423 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %420, i64 %422, i32 1
-  %424 = load i8, ptr %423, align 8, !tbaa !31
+  %424 = load i8, ptr %423, align 8, !tbaa !32
   %425 = zext i8 %424 to i32
   %426 = add nuw nsw i32 %425, 1
   %.not329.i = icmp eq i32 %426, %407
@@ -1178,7 +1178,7 @@ local__parse_int64_.exit.i499.i:                  ; preds = %402
   store ptr %445, ptr %8, align 8, !tbaa !8
   %446 = load i8, ptr %445, align 1, !tbaa !15
   %.not38.i523.i = icmp eq i8 %446, 0
-  br i1 %.not38.i523.i, label %.loopexit662.i, label %.lr.ph53.i516.i, !llvm.loop !18
+  br i1 %.not38.i523.i, label %.loopexit662.i, label %.lr.ph53.i516.i, !llvm.loop !19
 
 .sink.split.sink.split.i520.i:                    ; preds = %.lr.ph53.i516.i
   store i8 0, ptr %440, align 1, !tbaa !15
@@ -1189,19 +1189,19 @@ local__parse_int64_.exit.i499.i:                  ; preds = %402
 .loopexit662.i:                                   ; preds = %444, %.sink.split.sink.split.i520.i
   %.sink.i511.i = phi ptr [ %448, %.sink.split.sink.split.i520.i ], [ null, %444 ]
   store ptr %.sink.i511.i, ptr %8, align 8, !tbaa !8
-  %449 = load i32, ptr %22, align 4, !tbaa !20
+  %449 = load i32, ptr %22, align 4, !tbaa !21
   %450 = call i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef nonnull %9, i32 noundef %449) #13
   %.not330.i = icmp eq i32 %450, 0
   br i1 %.not330.i, label %.loopexit, label %451
 
 451:                                              ; preds = %.loopexit662.i
   %452 = trunc i64 %.fr.i496.i to i8
-  %453 = load ptr, ptr %23, align 8, !tbaa !19
-  %454 = load i32, ptr %22, align 4, !tbaa !20
+  %453 = load ptr, ptr %23, align 8, !tbaa !20
+  %454 = load i32, ptr %22, align 4, !tbaa !21
   %455 = add i32 %454, -1
   %456 = zext i32 %455 to i64
   %457 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %453, i64 %456, i32 1
-  store i8 %452, ptr %457, align 8, !tbaa !31
+  store i8 %452, ptr %457, align 8, !tbaa !32
   %458 = call i32 @strcasecmp(ptr noundef nonnull %.lcssa968.i, ptr noundef nonnull @.str.4) #14
   %459 = icmp ne i32 %458, 0
   %460 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %453, i64 %456, i32 3
@@ -1271,7 +1271,7 @@ local__parse_int64_.exit.i499.i:                  ; preds = %402
   store ptr %485, ptr %8, align 8, !tbaa !8
   %486 = load i8, ptr %485, align 1, !tbaa !15
   %.not38.i545.i = icmp eq i8 %486, 0
-  br i1 %.not38.i545.i, label %.loopexit665.i, label %.lr.ph53.i538.i, !llvm.loop !18
+  br i1 %.not38.i545.i, label %.loopexit665.i, label %.lr.ph53.i538.i, !llvm.loop !19
 
 .sink.split.sink.split.i542.i:                    ; preds = %.lr.ph53.i538.i
   store i8 0, ptr %480, align 1, !tbaa !15
@@ -1346,7 +1346,7 @@ local__get_field_.exit546.thread639.i:            ; preds = %.lr.ph943.i, %.preh
   store ptr %509, ptr %8, align 8, !tbaa !8
   %510 = load i8, ptr %509, align 1, !tbaa !15
   %.not38.i567.i = icmp eq i8 %510, 0
-  br i1 %.not38.i567.i, label %.loopexit664.i, label %.lr.ph53.i560.i, !llvm.loop !18
+  br i1 %.not38.i567.i, label %.loopexit664.i, label %.lr.ph53.i560.i, !llvm.loop !19
 
 .sink.split.sink.split.i564.i:                    ; preds = %.lr.ph53.i560.i
   store i8 0, ptr %504, align 1, !tbaa !15
@@ -1378,7 +1378,7 @@ local__get_field_.exit546.thread639.i:            ; preds = %.lr.ph943.i, %.preh
   %522 = add nsw i64 %520, %521
   %.pr.i574.i = load i8, ptr %519, align 1, !tbaa !15
   %.not.i575.i = icmp eq i8 %.pr.i574.i, 0
-  br i1 %.not.i575.i, label %local__parse_int64_.exit577.i, label %.preheader.i569.i, !llvm.loop !22
+  br i1 %.not.i575.i, label %local__parse_int64_.exit577.i, label %.preheader.i569.i, !llvm.loop !23
 
 local__parse_int64_.exit577.i:                    ; preds = %518
   %523 = icmp slt i64 %522, 0
@@ -1440,7 +1440,7 @@ local__parse_int64_.exit577.i:                    ; preds = %518
   %550 = add nsw i64 %548, %549
   %.pr.i583.i = load i8, ptr %547, align 1, !tbaa !15
   %.not.i584.i = icmp eq i8 %.pr.i583.i, 0
-  br i1 %.not.i584.i, label %local__parse_int64_.exit586.i, label %.preheader.i578.i, !llvm.loop !22
+  br i1 %.not.i584.i, label %local__parse_int64_.exit586.i, label %.preheader.i578.i, !llvm.loop !23
 
 local__parse_int64_.exit586.i:                    ; preds = %546
   %551 = icmp slt i64 %550, 0
@@ -1461,7 +1461,7 @@ local__get_field_.exit400.thread.i:               ; preds = %132, %552, %527, %5
   %.1246.i = phi i32 [ %.02451035.i, %92 ], [ %.02451035.i, %278 ], [ %.02451035.i, %340 ], [ %.02451035.i, %451 ], [ %.02451035.i, %526 ], [ %.02451035.i, %527 ], [ %.02451035.i, %465 ], [ %.02451035.i, %local__get_field_.exit.thread.i ], [ %.02451035.i, %local__get_field_.exit400.thread596.i ], [ %.02451035.i, %local__get_field_.exit546.thread639.i ], [ %535, %552 ], [ %.02451035.i, %.preheader.i ], [ %.02451035.i, %132 ]
   %553 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef %0)
   %.not.i = icmp eq ptr %553, null
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %27, !llvm.loop !32
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %27, !llvm.loop !33
 
 ._crit_edge.loopexit.i:                           ; preds = %local__get_field_.exit400.thread.i
   %554 = icmp eq i32 %.1278.i, 0
@@ -1472,18 +1472,18 @@ local__get_field_.exit400.thread.i:               ; preds = %132, %552, %527, %5
   %.0249.lcssa.i = phi i64 [ 0, %16 ], [ %.1250.i, %._crit_edge.loopexit.i ]
   %.0245.lcssa.i = phi i32 [ 0, %16 ], [ %.1246.i, %._crit_edge.loopexit.i ]
   %555 = getelementptr inbounds nuw i8, ptr %9, i64 164
-  %556 = load i32, ptr %555, align 4, !tbaa !20
+  %556 = load i32, ptr %555, align 4, !tbaa !21
   %557 = icmp eq i32 %556, 0
   br i1 %557, label %.loopexit, label %558
 
 558:                                              ; preds = %._crit_edge.i
   %559 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  %560 = load ptr, ptr %559, align 8, !tbaa !19
+  %560 = load ptr, ptr %559, align 8, !tbaa !20
   %561 = add i32 %556, -1
   %562 = zext i32 %561 to i64
   %563 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %560, i64 %562
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 23
-  %565 = load i8, ptr %564, align 1, !tbaa !23
+  %565 = load i8, ptr %564, align 1, !tbaa !24
   %566 = icmp eq i8 %565, 0
   br i1 %566, label %.critedge359.i, label %567
 
@@ -1498,23 +1498,23 @@ local__get_field_.exit400.thread.i:               ; preds = %132, %552, %527, %5
 
 569:                                              ; preds = %568
   %570 = getelementptr inbounds nuw i8, ptr %563, i64 24
-  %571 = load ptr, ptr %570, align 8, !tbaa !25
+  %571 = load ptr, ptr %570, align 8, !tbaa !26
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 8
-  %573 = load i8, ptr %572, align 8, !tbaa !26
+  %573 = load i8, ptr %572, align 8, !tbaa !27
   %.not312.i = icmp eq i8 %573, 1
   br i1 %.not312.i, label %.thread655.i, label %.critedge359.i
 
 574:                                              ; preds = %568
   %575 = getelementptr inbounds nuw i8, ptr %563, i64 24
-  %576 = load ptr, ptr %575, align 8, !tbaa !25
+  %576 = load ptr, ptr %575, align 8, !tbaa !26
   %577 = getelementptr inbounds nuw i8, ptr %576, i64 8
-  %578 = load i8, ptr %577, align 8, !tbaa !26
+  %578 = load i8, ptr %577, align 8, !tbaa !27
   %.not313.i = icmp eq i8 %578, 1
   br i1 %.not313.i, label %.thread655.i, label %579
 
 579:                                              ; preds = %574
   %580 = getelementptr inbounds nuw i8, ptr %576, i64 24
-  %581 = load i8, ptr %580, align 8, !tbaa !26
+  %581 = load i8, ptr %580, align 8, !tbaa !27
   %.not314.i = icmp eq i8 %581, 1
   br i1 %.not314.i, label %.thread655.i, label %.critedge359.i
 
@@ -1532,14 +1532,14 @@ local__get_field_.exit400.thread.i:               ; preds = %132, %552, %527, %5
   %spec.select360.i = select i1 %.0277.lcssa.i, i32 %583, i32 %.0245.lcssa.i
   %spec.select.i = select i1 %.0277.lcssa.i, i64 %5, i64 %.0249.lcssa.i
   %586 = trunc i32 %spec.select360.i to i8
-  %587 = load ptr, ptr %559, align 8, !tbaa !19
-  %588 = load i32, ptr %555, align 4, !tbaa !20
+  %587 = load ptr, ptr %559, align 8, !tbaa !20
+  %588 = load i32, ptr %555, align 4, !tbaa !21
   %589 = add i32 %588, -1
   %590 = zext i32 %589 to i64
   %591 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %587, i64 %590, i32 1
-  store i8 %586, ptr %591, align 8, !tbaa !31
+  store i8 %586, ptr %591, align 8, !tbaa !32
   %592 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %587, i64 %590
-  store i64 %spec.select.i, ptr %592, align 8, !tbaa !29
+  store i64 %spec.select.i, ptr %592, align 8, !tbaa !30
   %593 = call i32 @feof(ptr noundef %0) #13
   %.not317.i = icmp eq i32 %593, 0
   br i1 %.not317.i, label %.loopexit, label %local__cuesheet_parse_.exit
@@ -1586,7 +1586,7 @@ define dso_local void @grabbag__cuesheet_emit(ptr noundef %0, ptr noundef %1, pt
 8:                                                ; preds = %6, %3
   %9 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %2) #13
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %11 = load i32, ptr %10, align 4, !tbaa !20
+  %11 = load i32, ptr %10, align 4, !tbaa !21
   %.not51 = icmp eq i32 %11, 1
   br i1 %.not51, label %._crit_edge50, label %.lr.ph49
 
@@ -1597,10 +1597,10 @@ define dso_local void @grabbag__cuesheet_emit(ptr noundef %0, ptr noundef %1, pt
 
 14:                                               ; preds = %.lr.ph49, %._crit_edge
   %indvars.iv54 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next55, %._crit_edge ]
-  %15 = load ptr, ptr %12, align 8, !tbaa !19
+  %15 = load ptr, ptr %12, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %15, i64 %indvars.iv54
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !31
+  %18 = load i8, ptr %17, align 8, !tbaa !32
   %19 = zext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 22
   %21 = load i8, ptr %20, align 2
@@ -1629,7 +1629,7 @@ define dso_local void @grabbag__cuesheet_emit(ptr noundef %0, ptr noundef %1, pt
 
 35:                                               ; preds = %33, %30
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 23
-  %37 = load i8, ptr %36, align 1, !tbaa !23
+  %37 = load i8, ptr %36, align 1, !tbaa !24
   %.not52 = icmp eq i8 %37, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
@@ -1639,16 +1639,16 @@ define dso_local void @grabbag__cuesheet_emit(ptr noundef %0, ptr noundef %1, pt
 
 39:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %40 = load ptr, ptr %38, align 8, !tbaa !25
+  %40 = load ptr, ptr %38, align 8, !tbaa !26
   %41 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %40, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load i8, ptr %42, align 8, !tbaa !26
+  %43 = load i8, ptr %42, align 8, !tbaa !27
   %44 = zext i8 %43 to i32
   %45 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.8, i32 noundef %44) #13
   %46 = load i32, ptr %13, align 8, !tbaa !14
   %.not43 = icmp eq i32 %46, 0
-  %47 = load i64, ptr %16, align 8, !tbaa !29
-  %48 = load i64, ptr %41, align 8, !tbaa !28
+  %47 = load i64, ptr %16, align 8, !tbaa !30
+  %48 = load i64, ptr %41, align 8, !tbaa !29
   %49 = add i64 %48, %47
   br i1 %.not43, label %58, label %50
 
@@ -1668,18 +1668,18 @@ define dso_local void @grabbag__cuesheet_emit(ptr noundef %0, ptr noundef %1, pt
 
 60:                                               ; preds = %58, %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = load i8, ptr %36, align 1, !tbaa !23
+  %61 = load i8, ptr %36, align 1, !tbaa !24
   %62 = zext i8 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %39, label %._crit_edge, !llvm.loop !33
+  br i1 %63, label %39, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %60, %35
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %64 = load i32, ptr %10, align 4, !tbaa !20
+  %64 = load i32, ptr %10, align 4, !tbaa !21
   %65 = add i32 %64, -1
   %66 = zext i32 %65 to i64
   %67 = icmp samesign ult i64 %indvars.iv.next55, %66
-  br i1 %67, label %14, label %._crit_edge50.loopexit, !llvm.loop !34
+  br i1 %67, label %14, label %._crit_edge50.loopexit, !llvm.loop !35
 
 ._crit_edge50.loopexit:                           ; preds = %._crit_edge
   %68 = and i64 %indvars.iv.next55, 4294967295
@@ -1691,12 +1691,12 @@ define dso_local void @grabbag__cuesheet_emit(ptr noundef %0, ptr noundef %1, pt
   %70 = load i64, ptr %69, align 8, !tbaa !11
   %71 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %70) #13
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %73 = load ptr, ptr %72, align 8, !tbaa !19
+  %73 = load ptr, ptr %72, align 8, !tbaa !20
   %74 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %73, i64 %.0.lcssa
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load i8, ptr %75, align 8, !tbaa !31
+  %76 = load i8, ptr %75, align 8, !tbaa !32
   %77 = zext i8 %76 to i32
-  %78 = load i64, ptr %74, align 8, !tbaa !29
+  %78 = load i64, ptr %74, align 8, !tbaa !30
   %79 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.12, i32 noundef %77, i64 noundef %78) #13
   ret void
 }
@@ -1773,7 +1773,7 @@ define internal fastcc ptr @local__get_field_(ptr noundef nonnull captures(none)
   store ptr %28, ptr %0, align 8, !tbaa !8
   %29 = load i8, ptr %28, align 1, !tbaa !15
   %.not38 = icmp eq i8 %29, 0
-  br i1 %.not38, label %.sink.split, label %.lr.ph53, !llvm.loop !18
+  br i1 %.not38, label %.sink.split, label %.lr.ph53, !llvm.loop !19
 
 .sink.split.sink.split:                           ; preds = %.lr.ph53, %19
   %.lcssa.sink = phi ptr [ %20, %19 ], [ %23, %.lr.ph53 ]
@@ -1824,7 +1824,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @local__parse_int_(ptr nou
   %.fr = freeze i64 %11
   %.pr.i = load i8, ptr %8, align 1, !tbaa !15
   %.not.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i, label %local__parse_int64_.exit, label %.preheader.i, !llvm.loop !22
+  br i1 %.not.i, label %local__parse_int64_.exit, label %.preheader.i, !llvm.loop !23
 
 local__parse_int64_.exit:                         ; preds = %7
   %or.cond = icmp ugt i64 %.fr, 2147483647
@@ -1876,7 +1876,7 @@ define internal fastcc i64 @local__parse_msf_(ptr noundef nonnull readonly captu
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %22 = load i8, ptr %14, align 1, !tbaa !15
   %.not = icmp eq i8 %22, 58
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %17, %7
   %.077.lcssa = phi i64 [ %10, %7 ], [ %20, %17 ]
@@ -2016,7 +2016,7 @@ define internal fastcc i64 @local__parse_ms_(ptr noundef nonnull %0, i32 noundef
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %23 = load i8, ptr %15, align 1, !tbaa !15
   %.not = icmp eq i8 %23, 58
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %18, %8
   %.032.lcssa = phi i64 [ %11, %8 ], [ %21, %18 ]
@@ -2117,24 +2117,25 @@ attributes #14 = { nounwind willreturn memory(read) }
 !13 = !{!"long", !6, i64 0}
 !14 = !{!12, !5, i64 144}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!12, !10, i64 152}
-!20 = !{!12, !5, i64 148}
-!21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
-!23 = !{!24, !6, i64 23}
-!24 = !{!"", !13, i64 0, !6, i64 8, !6, i64 9, !5, i64 22, !5, i64 22, !6, i64 23, !10, i64 24}
-!25 = !{!24, !10, i64 24}
-!26 = !{!27, !6, i64 8}
-!27 = !{!"", !13, i64 0, !6, i64 8}
-!28 = !{!27, !13, i64 0}
-!29 = !{!24, !13, i64 0}
-!30 = distinct !{!30, !17}
-!31 = !{!24, !6, i64 8}
-!32 = distinct !{!32, !17}
-!33 = distinct !{!33, !17}
-!34 = distinct !{!34, !17}
-!35 = distinct !{!35, !17}
-!36 = distinct !{!36, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!12, !10, i64 152}
+!21 = !{!12, !5, i64 148}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !17, !18}
+!24 = !{!25, !6, i64 23}
+!25 = !{!"", !13, i64 0, !6, i64 8, !6, i64 9, !5, i64 22, !5, i64 22, !6, i64 23, !10, i64 24}
+!26 = !{!25, !10, i64 24}
+!27 = !{!28, !6, i64 8}
+!28 = !{!"", !13, i64 0, !6, i64 8}
+!29 = !{!28, !13, i64 0}
+!30 = !{!25, !13, i64 0}
+!31 = distinct !{!31, !17, !18}
+!32 = !{!25, !6, i64 8}
+!33 = distinct !{!33, !17, !18}
+!34 = distinct !{!34, !17, !18}
+!35 = distinct !{!35, !17, !18}
+!36 = distinct !{!36, !17, !18}
+!37 = distinct !{!37, !17, !18}

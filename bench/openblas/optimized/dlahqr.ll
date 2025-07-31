@@ -317,7 +317,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 199:                                              ; preds = %165, %171
   %.not784.not = icmp sgt i64 %indvars.iv.next881, %116
-  br i1 %.not784.not, label %.lr.ph817, label %._crit_edge818, !llvm.loop !11
+  br i1 %.not784.not, label %.lr.ph817, label %._crit_edge818, !llvm.loop !12
 
 ._crit_edge818:                                   ; preds = %.lr.ph817, %171, %199, %.preheader805
   %.0754.lcssa = phi i32 [ %.0751865, %.preheader805 ], [ %.0756857, %199 ], [ %indvars882, %171 ], [ %indvars882, %.lr.ph817 ]
@@ -572,7 +572,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %395 = fadd double %394, %391
   %396 = fmul double %381, %395
   %397 = fcmp ugt double %377, %396
-  br i1 %397, label %305, label %398, !llvm.loop !12
+  br i1 %397, label %305, label %398, !llvm.loop !13
 
 398:                                              ; preds = %305, %362, %306
   %.0765.lcssa = phi i32 [ %indvars886, %305 ], [ %indvars886, %362 ], [ %.0754.lcssa, %306 ]
@@ -682,7 +682,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next890.lver.orig = add nsw i64 %indvars.iv889.lver.orig, 1
   %lftr.wideiv893.lver.orig = trunc i64 %indvars.iv.next890.lver.orig to i32
   %exitcond894.not.lver.orig = icmp eq i32 %401, %lftr.wideiv893.lver.orig
-  br i1 %exitcond894.not.lver.orig, label %.preheader, label %.ph.lver.orig, !llvm.loop !13
+  br i1 %exitcond894.not.lver.orig, label %.preheader, label %.ph.lver.orig, !llvm.loop !14
 
 .ph:                                              ; preds = %.lver.check
   %load_initial = load double, ptr %gep1000, align 8
@@ -721,7 +721,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next908.lver.orig = add nsw i64 %indvars.iv907.lver.orig, 1
   %lftr.wideiv911.lver.orig = trunc i64 %indvars.iv.next908.lver.orig to i32
   %exitcond912.not.lver.orig = icmp eq i32 %401, %lftr.wideiv911.lver.orig
-  br i1 %exitcond912.not.lver.orig, label %._crit_edge838, label %.ph981.lver.orig, !llvm.loop !14
+  br i1 %exitcond912.not.lver.orig, label %._crit_edge838, label %.ph981.lver.orig, !llvm.loop !15
 
 .ph981:                                           ; preds = %.lver.check980
   %load_initial984 = load double, ptr %gep998, align 8
@@ -748,7 +748,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next908 = add nsw i64 %indvars.iv907, 1
   %lftr.wideiv911 = trunc i64 %indvars.iv.next908 to i32
   %exitcond912.not = icmp eq i32 %401, %lftr.wideiv911
-  br i1 %exitcond912.not, label %._crit_edge838, label %466, !llvm.loop !14
+  br i1 %exitcond912.not, label %._crit_edge838, label %466, !llvm.loop !15
 
 ._crit_edge838:                                   ; preds = %.ph981.lver.orig, %466, %451
   %478 = trunc i64 %indvars.iv887 to i32
@@ -790,7 +790,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %498, ptr %gep956, align 8, !tbaa !7
   %indvars.iv.next914 = add nsw i64 %indvars.iv913, 1
   %.not797.not = icmp slt i64 %indvars.iv913, %486
-  br i1 %.not797.not, label %487, label %._crit_edge843, !llvm.loop !15
+  br i1 %.not797.not, label %487, label %._crit_edge843, !llvm.loop !16
 
 ._crit_edge843:                                   ; preds = %487, %._crit_edge838
   %499 = load i32, ptr %1, align 4, !tbaa !3
@@ -838,7 +838,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next918 = add nsw i64 %indvars.iv917, 1
   %lftr.wideiv921 = trunc i64 %indvars.iv.next918 to i32
   %exitcond922.not = icmp eq i32 %509, %lftr.wideiv921
-  br i1 %exitcond922.not, label %.loopexit, label %510, !llvm.loop !16
+  br i1 %exitcond922.not, label %.loopexit, label %510, !llvm.loop !17
 
 .preheader:                                       ; preds = %.ph.lver.orig, %525, %.preheader804
   br i1 %.not792826, label %._crit_edge829, label %.lr.ph828
@@ -867,7 +867,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next890 = add nsw i64 %indvars.iv889, 1
   %lftr.wideiv893 = trunc i64 %indvars.iv.next890 to i32
   %exitcond894.not = icmp eq i32 %401, %lftr.wideiv893
-  br i1 %exitcond894.not, label %.preheader, label %525, !llvm.loop !13
+  br i1 %exitcond894.not, label %.preheader, label %525, !llvm.loop !14
 
 533:                                              ; preds = %.lr.ph828, %533
   %indvars.iv895 = phi i64 [ %402, %.lr.ph828 ], [ %indvars.iv.next896, %533 ]
@@ -885,7 +885,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next896 = add nsw i64 %indvars.iv895, 1
   %lftr.wideiv899 = trunc i64 %indvars.iv.next896 to i32
   %exitcond900.not = icmp eq i32 %114, %lftr.wideiv899
-  br i1 %exitcond900.not, label %._crit_edge829, label %533, !llvm.loop !17
+  br i1 %exitcond900.not, label %._crit_edge829, label %533, !llvm.loop !18
 
 ._crit_edge829:                                   ; preds = %533, %.preheader
   %541 = load i32, ptr %1, align 4, !tbaa !3
@@ -924,20 +924,20 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next902 = add nsw i64 %indvars.iv901, 1
   %lftr.wideiv905 = trunc i64 %indvars.iv.next902 to i32
   %exitcond906.not = icmp eq i32 %549, %lftr.wideiv905
-  br i1 %exitcond906.not, label %.loopexit, label %550, !llvm.loop !18
+  br i1 %exitcond906.not, label %.loopexit, label %550, !llvm.loop !19
 
 .loopexit:                                        ; preds = %550, %510, %542, %500, %438, %._crit_edge843, %._crit_edge829
   %indvars.iv.next888 = add nsw i64 %indvars.iv887, 1
   %lftr.wideiv925 = trunc i64 %indvars.iv.next888 to i32
   %exitcond926.not = icmp eq i32 %.0751865, %lftr.wideiv925
   %indvar.next = add i64 %indvar, 1
-  br i1 %exitcond926.not, label %._crit_edge853, label %404, !llvm.loop !19
+  br i1 %exitcond926.not, label %._crit_edge853, label %404, !llvm.loop !20
 
 ._crit_edge853:                                   ; preds = %.loopexit, %398
   %558 = add nuw nsw i32 %.0746858, 1
   %559 = load i32, ptr %15, align 4, !tbaa !3
   %.not783.not = icmp slt i32 %.0746858, %559
-  br i1 %.not783.not, label %.preheader805, label %._crit_edge859, !llvm.loop !20
+  br i1 %.not783.not, label %.preheader805, label %._crit_edge859, !llvm.loop !21
 
 ._crit_edge859:                                   ; preds = %._crit_edge853
   store i32 %.0751865, ptr %13, align 4, !tbaa !3
@@ -1021,7 +1021,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %607 = add nsw i32 %.0754.lcssa, -1
   %608 = load i32, ptr %3, align 4, !tbaa !3
   %.not = icmp sgt i32 %.0754.lcssa, %608
-  br i1 %.not, label %.preheader805.lr.ph, label %.loopexit806
+  br i1 %.not, label %.preheader805.lr.ph, label %.loopexit806, !llvm.loop !22
 
 .loopexit806:                                     ; preds = %606, %77, %14, %._crit_edge859, %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
@@ -1091,15 +1091,17 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !11}

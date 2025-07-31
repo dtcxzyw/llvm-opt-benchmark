@@ -594,7 +594,7 @@ define internal noundef i32 @cstate_cpu_exit(i32 noundef %0) #3 align 16 {
   %62 = icmp eq i32 %0, %60
   %63 = and i1 %61, %62
   %64 = add i64 %59, 1
-  br i1 %63, label %49, label %.thread10, !llvm.loop !13
+  br i1 %63, label %49, label %.thread10, !llvm.loop !17
 
 .thread10:                                        ; preds = %53, %49, %58
   %65 = phi i32 [ %60, %58 ], [ 64, %49 ], [ 64, %53 ]
@@ -646,7 +646,7 @@ define internal noundef i32 @cstate_cpu_exit(i32 noundef %0) #3 align 16 {
   %94 = icmp eq i32 %0, %92
   %95 = and i1 %93, %94
   %96 = add i64 %91, 1
-  br i1 %95, label %81, label %.thread12, !llvm.loop !13
+  br i1 %95, label %81, label %.thread12, !llvm.loop !18
 
 .thread12:                                        ; preds = %85, %81, %90
   %97 = phi i32 [ %92, %90 ], [ 64, %81 ], [ 64, %85 ]
@@ -714,7 +714,7 @@ define internal noundef range(i32 -22, 1) i32 @cstate_pmu_event_init(ptr noundef
   br i1 %22, label %109, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 4, i64 %4) #7, !srcloc !16
+  %24 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 4, i64 %4) #7, !srcloc !19
   %25 = and i64 %24, %4
   %26 = load i64, ptr @core_msr_mask, align 8
   %27 = trunc nuw nsw i64 %25 to i32
@@ -754,7 +754,7 @@ define internal noundef range(i32 -22, 1) i32 @cstate_pmu_event_init(ptr noundef
   br i1 %51, label %109, label %52
 
 52:                                               ; preds = %50
-  %53 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 7, i64 %4) #7, !srcloc !16
+  %53 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 7, i64 %4) #7, !srcloc !19
   %54 = and i64 %53, %4
   %55 = load i64, ptr @pkg_msr_mask, align 8
   %56 = trunc nuw nsw i64 %54 to i32
@@ -798,7 +798,7 @@ define internal noundef range(i32 -22, 1) i32 @cstate_pmu_event_init(ptr noundef
   br i1 %83, label %84, label %109
 
 84:                                               ; preds = %82
-  %85 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 1, i64 0) #7, !srcloc !16
+  %85 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 1, i64 0) #7, !srcloc !19
   %86 = load i64, ptr @module_msr_mask, align 8
   %87 = and i64 %86, 1
   %88 = icmp eq i64 %87, 0
@@ -851,13 +851,13 @@ define internal noundef i32 @cstate_pmu_event_add(ptr noundef %0, i32 noundef %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  %9 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !17
+  %9 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !20
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
   %12 = shl i64 %11, 32
   %13 = or i64 %12, %10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
-          to label %15 [label %14], !srcloc !18
+          to label %15 [label %14], !srcloc !21
 
 14:                                               ; preds = %5
   tail call void @do_trace_read_msr(i32 noundef %8, i64 noundef %13, i32 noundef 0) #7
@@ -883,20 +883,20 @@ define internal void @cstate_pmu_event_del(ptr noundef %0, i32 %1) #3 align 16 {
   %7 = phi i64 [ %4, %2 ], [ %22, %21 ]
   %8 = load i64, ptr %5, align 8
   %9 = trunc i64 %8 to i32
-  %10 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %9) #7, !srcloc !17
+  %10 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %9) #7, !srcloc !20
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   %13 = shl i64 %12, 32
   %14 = or i64 %13, %11
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
-          to label %16 [label %15], !srcloc !18
+          to label %16 [label %15], !srcloc !21
 
 15:                                               ; preds = %6
   tail call void @do_trace_read_msr(i32 noundef %9, i64 noundef %14, i32 noundef 0) #7
   br label %16
 
 16:                                               ; preds = %15, %6
-  %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %14, ptr nonnull elementtype(i64) %3, i64 %7) #7, !srcloc !19
+  %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %14, ptr nonnull elementtype(i64) %3, i64 %7) #7, !srcloc !22
   %18 = extractvalue { i8, i64 } %17, 0
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
@@ -905,12 +905,12 @@ define internal void @cstate_pmu_event_del(ptr noundef %0, i32 %1) #3 align 16 {
 
 21:                                               ; preds = %16
   %22 = extractvalue { i8, i64 } %17, 1
-  br label %6, !llvm.loop !20
+  br label %6, !llvm.loop !23
 
 23:                                               ; preds = %16
   %24 = sub i64 %14, %7
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %24, ptr nonnull elementtype(i64) %25) #7, !srcloc !21
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %24, ptr nonnull elementtype(i64) %25) #7, !srcloc !24
   ret void
 }
 
@@ -919,13 +919,13 @@ define internal void @cstate_pmu_event_start(ptr noundef %0, i32 %1) #3 align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
-  %6 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %5) #7, !srcloc !17
+  %6 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %5) #7, !srcloc !20
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = shl i64 %8, 32
   %10 = or i64 %9, %7
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
-          to label %12 [label %11], !srcloc !18
+          to label %12 [label %11], !srcloc !21
 
 11:                                               ; preds = %2
   tail call void @do_trace_read_msr(i32 noundef %5, i64 noundef %10, i32 noundef 0) #7
@@ -948,20 +948,20 @@ define internal void @cstate_pmu_event_stop(ptr noundef %0, i32 %1) #3 align 16 
   %7 = phi i64 [ %4, %2 ], [ %22, %21 ]
   %8 = load i64, ptr %5, align 8
   %9 = trunc i64 %8 to i32
-  %10 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %9) #7, !srcloc !17
+  %10 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %9) #7, !srcloc !20
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   %13 = shl i64 %12, 32
   %14 = or i64 %13, %11
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
-          to label %16 [label %15], !srcloc !18
+          to label %16 [label %15], !srcloc !21
 
 15:                                               ; preds = %6
   tail call void @do_trace_read_msr(i32 noundef %9, i64 noundef %14, i32 noundef 0) #7
   br label %16
 
 16:                                               ; preds = %15, %6
-  %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %14, ptr nonnull elementtype(i64) %3, i64 %7) #7, !srcloc !19
+  %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %14, ptr nonnull elementtype(i64) %3, i64 %7) #7, !srcloc !22
   %18 = extractvalue { i8, i64 } %17, 0
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
@@ -970,12 +970,12 @@ define internal void @cstate_pmu_event_stop(ptr noundef %0, i32 %1) #3 align 16 
 
 21:                                               ; preds = %16
   %22 = extractvalue { i8, i64 } %17, 1
-  br label %6, !llvm.loop !20
+  br label %6, !llvm.loop !25
 
 23:                                               ; preds = %16
   %24 = sub i64 %14, %7
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %24, ptr nonnull elementtype(i64) %25) #7, !srcloc !21
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %24, ptr nonnull elementtype(i64) %25) #7, !srcloc !24
   ret void
 }
 
@@ -990,20 +990,20 @@ define internal void @cstate_pmu_event_update(ptr noundef %0) #3 align 16 {
   %6 = phi i64 [ %3, %1 ], [ %21, %20 ]
   %7 = load i64, ptr %4, align 8
   %8 = trunc i64 %7 to i32
-  %9 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !17
+  %9 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !20
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
   %12 = shl i64 %11, 32
   %13 = or i64 %12, %10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
-          to label %15 [label %14], !srcloc !18
+          to label %15 [label %14], !srcloc !21
 
 14:                                               ; preds = %5
   tail call void @do_trace_read_msr(i32 noundef %8, i64 noundef %13, i32 noundef 0) #7
   br label %15
 
 15:                                               ; preds = %14, %5
-  %16 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %13, ptr nonnull elementtype(i64) %2, i64 %6) #7, !srcloc !19
+  %16 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %13, ptr nonnull elementtype(i64) %2, i64 %6) #7, !srcloc !22
   %17 = extractvalue { i8, i64 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -1012,12 +1012,12 @@ define internal void @cstate_pmu_event_update(ptr noundef %0) #3 align 16 {
 
 20:                                               ; preds = %15
   %21 = extractvalue { i8, i64 } %16, 1
-  br label %5, !llvm.loop !20
+  br label %5, !llvm.loop !26
 
 22:                                               ; preds = %15
   %23 = sub i64 %13, %6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %24, i64 %23, ptr nonnull elementtype(i64) %24) #7, !srcloc !21
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %24, i64 %23, ptr nonnull elementtype(i64) %24) #7, !srcloc !24
   ret void
 }
 
@@ -1096,12 +1096,17 @@ attributes #10 = { nounwind memory(read) }
 !10 = !{i64 2148483363, i64 2148483402, i64 2148483423, i64 2148483460, i64 2148483483, i64 2148483353}
 !11 = !{i64 2148492431, i64 2148492470, i64 2148492491, i64 2148492528, i64 2148492551, i64 2148492560, i64 2148492663}
 !12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = !{i64 270946}
-!17 = !{i64 1079379, i64 1079400, i64 2149382683, i64 2149382727, i64 2149382750, i64 2149382783, i64 2149382814, i64 2149382853}
-!18 = !{i64 694248, i64 694292, i64 2148178975, i64 2148178996, i64 2148179022, i64 2148179055, i64 2148179089, i64 2148179113}
-!19 = !{i64 2154911308, i64 2154911502}
-!20 = distinct !{!20, !14, !15}
-!21 = !{i64 2154901027}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !14, !15, !16}
+!18 = distinct !{!18, !14, !15, !16}
+!19 = !{i64 270946}
+!20 = !{i64 1079379, i64 1079400, i64 2149382683, i64 2149382727, i64 2149382750, i64 2149382783, i64 2149382814, i64 2149382853}
+!21 = !{i64 694248, i64 694292, i64 2148178975, i64 2148178996, i64 2148179022, i64 2148179055, i64 2148179089, i64 2148179113}
+!22 = !{i64 2154911308, i64 2154911502}
+!23 = distinct !{!23, !14, !15, !16}
+!24 = !{i64 2154901027}
+!25 = distinct !{!25, !14, !15, !16}
+!26 = distinct !{!26, !14, !15, !16}

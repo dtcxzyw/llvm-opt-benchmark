@@ -478,7 +478,7 @@ define internal fastcc void @print_address_prefix_buf(ptr noundef readonly captu
   %131 = sext i32 %130 to i64
   %132 = getelementptr i8, ptr %124, i64 %131
   %133 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %133, label %100, label %.preheader.loopexit, !llvm.loop !8
+  br i1 %133, label %100, label %.preheader.loopexit, !llvm.loop !9
 
 134:                                              ; preds = %.lr.ph144, %134
   %indvars.iv152 = phi i64 [ %99, %.lr.ph144 ], [ %indvars.iv.next153, %134 ]
@@ -493,7 +493,7 @@ define internal fastcc void @print_address_prefix_buf(ptr noundef readonly captu
   %141 = sext i32 %140 to i64
   %142 = getelementptr i8, ptr %.1120142, i64 %141
   %exitcond.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %134, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %134, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %134, %.preheader
   %.1120.lcssa = phi ptr [ %.0119.lcssa, %.preheader ], [ %142, %134 ]
@@ -583,7 +583,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

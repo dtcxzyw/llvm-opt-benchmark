@@ -179,7 +179,7 @@ _get_float.exit:                                  ; preds = %_get_float.exit, %.
   store i32 %80, ptr %81, align 4, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %_get_float.exit
+  br i1 %exitcond.not, label %._crit_edge, label %_get_float.exit, !llvm.loop !65
 
 82:                                               ; preds = %25
   %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !26
@@ -197,7 +197,7 @@ _get_float.exit:                                  ; preds = %_get_float.exit, %.
 88:                                               ; preds = %._crit_edge, %85, %82
   %89 = add i32 %.063132, -1
   %.not = icmp eq i32 %89, 0
-  br i1 %.not, label %.thread, label %.lr.ph133
+  br i1 %.not, label %.thread, label %.lr.ph133, !llvm.loop !67
 
 .thread:                                          ; preds = %88, %_get_long.exit, %24, %21
   ret void
@@ -219,9 +219,9 @@ define void @dt_dng_opcode_process_opcode_list_3(ptr noundef readonly captures(n
 _get_long.exit:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 564
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 676
-  store i32 0, ptr %4, align 4, !tbaa !65
+  store i32 0, ptr %4, align 4, !tbaa !68
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 680
-  store i32 0, ptr %5, align 4, !tbaa !65
+  store i32 0, ptr %5, align 4, !tbaa !68
   %.val84 = load i32, ptr %0, align 1
   %6 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val84) #5, !srcloc !25
   %.not116 = icmp eq i32 %6, 0
@@ -295,7 +295,7 @@ _get_long.exit96:                                 ; preds = %34
   br label %.critedge
 
 .preheader.lr.ph:                                 ; preds = %_get_long.exit96
-  store i32 %35, ptr %3, align 4, !tbaa !65
+  store i32 %35, ptr %3, align 4, !tbaa !68
   %invariant.gep109 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %wide.trip.count = zext nneg i32 %35 to i64
   br label %.preheader
@@ -310,7 +310,7 @@ _get_long.exit96:                                 ; preds = %34
   %44 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87) #5, !srcloc !61
   %45 = bitcast i64 %44 to double
   %46 = fptrunc reassoc nsz arcp contract afn double %45 to float
-  store float %46, ptr %11, align 4, !tbaa !65
+  store float %46, ptr %11, align 4, !tbaa !68
   %47 = shl nuw nsw i64 %42, 3
   %48 = getelementptr inbounds nuw i8, ptr %invariant.gep113, i64 %47
   %gep114.c = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -318,9 +318,9 @@ _get_long.exit96:                                 ; preds = %34
   %49 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87.c) #5, !srcloc !61
   %50 = bitcast i64 %49 to double
   %51 = fptrunc reassoc nsz arcp contract afn double %50 to float
-  store float %51, ptr %13, align 4, !tbaa !65
-  store i32 3, ptr %9, align 16, !tbaa !66
-  store i32 1, ptr %4, align 4, !tbaa !65
+  store float %51, ptr %13, align 4, !tbaa !68
+  store i32 3, ptr %9, align 16, !tbaa !69
+  store i32 1, ptr %4, align 4, !tbaa !68
   br label %79
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %54
@@ -332,7 +332,7 @@ _get_long.exit96:                                 ; preds = %34
 54:                                               ; preds = %_get_double.exit
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
-  br i1 %exitcond130.not, label %.preheader104, label %.preheader
+  br i1 %exitcond130.not, label %.preheader104, label %.preheader, !llvm.loop !70
 
 _get_double.exit:                                 ; preds = %_get_double.exit, %.preheader
   %indvars.iv123 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next124, %_get_double.exit ]
@@ -344,10 +344,10 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   %58 = bitcast i64 %57 to double
   %59 = fptrunc reassoc nsz arcp contract afn double %58 to float
   %60 = getelementptr inbounds nuw [6 x float], ptr %53, i64 0, i64 %indvars.iv123
-  store float %59, ptr %60, align 4, !tbaa !65
+  store float %59, ptr %60, align 4, !tbaa !68
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next124, 6
-  br i1 %exitcond126.not, label %54, label %_get_double.exit
+  br i1 %exitcond126.not, label %54, label %_get_double.exit, !llvm.loop !71
 
 .preheader105:                                    ; preds = %.preheader106
   %invariant.gep = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -355,15 +355,15 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   %61 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85) #5, !srcloc !61
   %62 = bitcast i64 %61 to double
   %63 = fptrunc reassoc nsz arcp contract afn double %62 to float
-  store float %63, ptr %8, align 4, !tbaa !65
+  store float %63, ptr %8, align 4, !tbaa !68
   %gep.c = getelementptr inbounds nuw i8, ptr %27, i64 48
   %.val85.c = load i64, ptr %gep.c, align 1
   %64 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85.c) #5, !srcloc !61
   %65 = bitcast i64 %64 to double
   %66 = fptrunc reassoc nsz arcp contract afn double %65 to float
-  store float %66, ptr %12, align 4, !tbaa !65
-  store i32 1, ptr %5, align 4, !tbaa !65
-  store i32 3, ptr %9, align 16, !tbaa !66
+  store float %66, ptr %12, align 4, !tbaa !68
+  store i32 1, ptr %5, align 4, !tbaa !68
+  store i32 3, ptr %9, align 16, !tbaa !69
   br label %79
 
 .preheader106:                                    ; preds = %34, %.preheader106
@@ -375,10 +375,10 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   %70 = bitcast i64 %69 to double
   %71 = fptrunc reassoc nsz arcp contract afn double %70 to float
   %72 = getelementptr inbounds nuw [5 x float], ptr %7, i64 0, i64 %indvars.iv
-  store float %71, ptr %72, align 4, !tbaa !65
+  store float %71, ptr %72, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.preheader105, label %.preheader106
+  br i1 %exitcond.not, label %.preheader105, label %.preheader106, !llvm.loop !72
 
 73:                                               ; preds = %34
   %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !26
@@ -396,7 +396,7 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
 79:                                               ; preds = %.preheader104, %.preheader105, %76, %73
   %80 = add i32 %.070118, -1
   %.not = icmp eq i32 %80, 0
-  br i1 %.not, label %.critedge, label %_get_long.exit90
+  br i1 %.not, label %.critedge, label %_get_long.exit90, !llvm.loop !73
 
 .critedge:                                        ; preds = %79, %_get_long.exit, %40, %37, %33, %30
   ret void
@@ -480,5 +480,12 @@ attributes #6 = { nounwind allocsize(0) }
 !62 = !{!21, !21, i64 0}
 !63 = !{i64 2158328671}
 !64 = !{!11, !11, i64 0}
-!65 = !{!9, !9, i64 0}
-!66 = !{!7, !8, i64 560}
+!65 = distinct !{!65, !66}
+!66 = !{!"llvm.loop.estimated_trip_count"}
+!67 = distinct !{!67, !66}
+!68 = !{!9, !9, i64 0}
+!69 = !{!7, !8, i64 560}
+!70 = distinct !{!70, !66}
+!71 = distinct !{!71, !66}
+!72 = distinct !{!72, !66}
+!73 = distinct !{!73, !66}

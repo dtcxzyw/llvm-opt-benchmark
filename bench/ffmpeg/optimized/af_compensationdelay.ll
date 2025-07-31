@@ -185,14 +185,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 ._crit_edge.us:                                   ; preds = %50
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %._crit_edge56, label %.lr.ph.us, !llvm.loop !59
+  br i1 %exitcond64.not, label %._crit_edge56, label %.lr.ph.us, !llvm.loop !60
 
 ._crit_edge56:                                    ; preds = %._crit_edge.us, %.lr.ph55, %25
   %.045.lcssa = phi i32 [ 0, %25 ], [ %39, %.lr.ph55 ], [ %62, %._crit_edge.us ]
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 %.045.lcssa, ptr %64, align 8, !tbaa !54
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %66 = load i32, ptr %65, align 8, !tbaa !61
+  %66 = load i32, ptr %65, align 8, !tbaa !62
   %.not49 = icmp eq i32 %66, 0
   br i1 %.not49, label %70, label %67
 
@@ -257,7 +257,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
   %.0 = phi i32 [ 1, %1 ], [ %39, %37 ]
   %38 = icmp ult i32 %.0, %36
   %39 = shl i32 %.0, 1
-  br i1 %38, label %37, label %40, !llvm.loop !62
+  br i1 %38, label %37, label %40, !llvm.loop !63
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 52
@@ -360,9 +360,10 @@ attributes #5 = { nounwind }
 !54 = !{!24, !15, i64 48}
 !55 = !{!11, !11, i64 0}
 !56 = !{!25, !25, i64 0}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = distinct !{!59, !58, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = !{!5, !15, i64 128}
-!62 = distinct !{!62, !58}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = distinct !{!60, !58, !59, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = !{!5, !15, i64 128}
+!63 = distinct !{!63, !58, !59}

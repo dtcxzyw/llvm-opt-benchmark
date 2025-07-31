@@ -205,7 +205,7 @@ define hidden ptr @lexbor_bst_insert(ptr noundef captures(none) %0, ptr noundef 
   %44 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %45 = load i64, ptr %44, align 8, !tbaa !11
   %46 = icmp eq i64 %2, %45
-  br i1 %46, label %._crit_edge, label %.lr.ph
+  br i1 %46, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 47:                                               ; preds = %4, %40, %33, %23, %18
   ret ptr %6
@@ -309,7 +309,7 @@ lexbor_bst_entry_make.exit35:                     ; preds = %39, %44
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %52 = load i64, ptr %51, align 8, !tbaa !11
   %53 = icmp eq i64 %2, %52
-  br i1 %53, label %.loopexit, label %.lr.ph
+  br i1 %53, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %50, %.preheader, %lexbor_bst_entry_make.exit35, %lexbor_bst_entry_make.exit34, %lexbor_bst_entry_make.exit
   %.028 = phi ptr [ %11, %lexbor_bst_entry_make.exit ], [ %27, %lexbor_bst_entry_make.exit34 ], [ %42, %lexbor_bst_entry_make.exit35 ], [ %4, %.preheader ], [ %.1, %50 ]
@@ -334,7 +334,7 @@ define hidden ptr @lexbor_bst_search(ptr noundef readnone captures(none) %0, ptr
   %.1.in = getelementptr inbounds nuw i8, ptr %.0812, i64 %.1.in.v
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !15
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %3
   %.08.lcssa = phi ptr [ null, %3 ], [ null, %7 ], [ %.0812, %.lr.ph ]
@@ -361,7 +361,7 @@ define hidden ptr @lexbor_bst_search_close(ptr noundef readnone captures(none) %
   %.1 = select i1 %8, ptr %.017, ptr %.01116
   %.112 = load ptr, ptr %.112.in, align 8, !tbaa !15
   %.not = icmp eq ptr %.112, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %3
   %.010 = phi ptr [ null, %3 ], [ %.1, %7 ], [ %.01116, %.lr.ph ]
@@ -391,7 +391,7 @@ define hidden ptr @lexbor_bst_remove(ptr noundef captures(none) %0, ptr noundef 
   %.1.in = getelementptr inbounds nuw i8, ptr %.017, i64 %.1.in.v
   %.0 = load ptr, ptr %.1.in, align 8, !tbaa !15
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %9, %3, %7
   %.011 = phi ptr [ %8, %7 ], [ null, %3 ], [ null, %9 ]
@@ -561,7 +561,7 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr noundef captures(none) %0, p
   %83 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !19
   %.not103 = icmp eq ptr %84, null
-  br i1 %.not103, label %85, label %.preheader
+  br i1 %.not103, label %85, label %.preheader, !llvm.loop !26
 
 85:                                               ; preds = %.preheader
   %86 = getelementptr inbounds nuw i8, ptr %.0, i64 40
@@ -626,7 +626,7 @@ define hidden ptr @lexbor_bst_remove_close(ptr noundef captures(none) %0, ptr no
   br i1 %.not35, label %10, label %9
 
 9:                                                ; preds = %8
-  store i64 %2, ptr %3, align 8, !tbaa !20
+  store i64 %2, ptr %3, align 8, !tbaa !27
   br label %10
 
 10:                                               ; preds = %9, %8
@@ -640,7 +640,7 @@ define hidden ptr @lexbor_bst_remove_close(ptr noundef captures(none) %0, ptr no
   %.1 = select i1 %13, ptr %.040, ptr %.02441
   %.024 = load ptr, ptr %.125.in, align 8, !tbaa !15
   %.not = icmp eq ptr %.024, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %12
   %.not32 = icmp eq ptr %.1, null
@@ -653,7 +653,7 @@ define hidden ptr @lexbor_bst_remove_close(ptr noundef captures(none) %0, ptr no
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %17 = load i64, ptr %16, align 8, !tbaa !11
-  store i64 %17, ptr %3, align 8, !tbaa !20
+  store i64 %17, ptr %3, align 8, !tbaa !27
   br label %18
 
 18:                                               ; preds = %15, %14
@@ -665,7 +665,7 @@ define hidden ptr @lexbor_bst_remove_close(ptr noundef captures(none) %0, ptr no
   br i1 %.not33, label %21, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  store i64 0, ptr %3, align 8, !tbaa !20
+  store i64 0, ptr %3, align 8, !tbaa !27
   br label %21
 
 21:                                               ; preds = %._crit_edge.thread, %20, %18, %10
@@ -681,7 +681,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define hidden void @lexbor_bst_serialize(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   tail call void @lexbor_bst_serialize_entry(ptr noundef %5, ptr noundef %1, ptr noundef %2, i64 noundef 0)
   ret void
 }
@@ -709,7 +709,7 @@ define hidden void @lexbor_bst_serialize_entry(ptr noundef readonly captures(add
   %10 = tail call i32 %1(ptr noundef nonnull @.str, i64 noundef 1, ptr noundef %2) #6
   %11 = add nuw i64 %.05663, 1
   %exitcond.not = icmp eq i64 %11, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 12:                                               ; preds = %._crit_edge
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -731,7 +731,7 @@ define hidden void @lexbor_bst_serialize_entry(ptr noundef readonly captures(add
   %21 = call i32 %1(ptr noundef nonnull @.str, i64 noundef 1, ptr noundef %2) #6
   %22 = add nuw i64 %.05564, 1
   %exitcond78.not = icmp eq i64 %22, %3
-  br i1 %exitcond78.not, label %.loopexit62.thread81, label %.lr.ph66
+  br i1 %exitcond78.not, label %.loopexit62.thread81, label %.lr.ph66, !llvm.loop !31
 
 .loopexit62.thread81:                             ; preds = %.lr.ph66
   %23 = call i32 %1(ptr noundef nonnull @.str.4, i64 noundef 8, ptr noundef %2) #6
@@ -757,7 +757,7 @@ define hidden void @lexbor_bst_serialize_entry(ptr noundef readonly captures(add
   %29 = call i32 %1(ptr noundef nonnull @.str, i64 noundef 1, ptr noundef %2) #6
   %30 = add nuw i64 %.05467, 1
   %exitcond79.not = icmp eq i64 %30, %3
-  br i1 %exitcond79.not, label %._crit_edge70, label %.lr.ph69
+  br i1 %exitcond79.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !32
 
 31:                                               ; preds = %._crit_edge70
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -775,7 +775,7 @@ define hidden void @lexbor_bst_serialize_entry(ptr noundef readonly captures(add
   %39 = call i32 %1(ptr noundef nonnull @.str, i64 noundef 1, ptr noundef %2) #6
   %40 = add nuw i64 %.071, 1
   %exitcond80.not = icmp eq i64 %40, %3
-  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph73
+  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph73, !llvm.loop !33
 
 41:                                               ; preds = %._crit_edge70
   %42 = call i32 %1(ptr noundef nonnull @.str.3, i64 noundef 5, ptr noundef %2) #6
@@ -825,5 +825,17 @@ attributes #6 = { nounwind }
 !17 = !{!12, !9, i64 32}
 !18 = !{!12, !9, i64 8}
 !19 = !{!12, !9, i64 16}
-!20 = !{!10, !10, i64 0}
-!21 = !{!5, !9, i64 8}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = distinct !{!24, !21}
+!25 = distinct !{!25, !21}
+!26 = distinct !{!26, !21}
+!27 = !{!10, !10, i64 0}
+!28 = distinct !{!28, !21}
+!29 = !{!5, !9, i64 8}
+!30 = distinct !{!30, !21}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !21}
+!33 = distinct !{!33, !21}

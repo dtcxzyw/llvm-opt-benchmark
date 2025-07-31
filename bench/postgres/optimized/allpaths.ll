@@ -182,7 +182,7 @@ set_base_rel_sizes.exit:                          ; preds = %54
   %76 = load i32, ptr %28, align 8
   %77 = zext i32 %76 to i64
   %78 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %78, label %60, label %._crit_edge, !llvm.loop !8
+  br i1 %78, label %60, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge.thread:                               ; preds = %set_base_rel_sizes.exit, %set_base_rel_consider_startup.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -229,7 +229,7 @@ set_base_rel_sizes.exit:                          ; preds = %54
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
   %100 = zext i32 %99 to i64
   %101 = icmp samesign ult i64 %indvars.iv.next.i28, %100
-  br i1 %101, label %84, label %set_base_rel_pathlists.exit, !llvm.loop !9
+  br i1 %101, label %84, label %set_base_rel_pathlists.exit, !llvm.loop !10
 
 set_base_rel_pathlists.exit:                      ; preds = %98, %._crit_edge.thread, %._crit_edge
   %102 = call fastcc ptr @make_rel_from_joinlist(ptr noundef nonnull %0, ptr noundef %1)
@@ -300,7 +300,7 @@ list_length.exit:                                 ; preds = %2
   %25 = load i32, ptr %3, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %7, label %.critedge, !llvm.loop !10
+  br i1 %27, label %7, label %.critedge, !llvm.loop !11
 
 28:                                               ; preds = %.critedge
   %29 = getelementptr i8, ptr %24, i64 16
@@ -799,7 +799,7 @@ accumulate_append_subpath.exit286:                ; preds = %134, %129, %124, %1
   %.0224. = call i32 @llvm.smax.i32(i32 %.0224413, i32 %200)
   %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next456, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge274, label %196, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge274, label %196, !llvm.loop !12
 
 .critedge274:                                     ; preds = %196, %.preheader
   %.0224.lcssa = phi i32 [ 0, %.preheader ], [ %.0224., %196 ]
@@ -1170,7 +1170,7 @@ accumulate_append_subpath.exit144.us.i:           ; preds = %get_singleton_appen
   %.1.us.i = phi ptr [ %.0172.us.i, %get_singleton_append_subpath.exit133.us.i ], [ %349, %get_singleton_append_subpath.exit142.us.i ]
   %350 = add i32 %.093174.us.i, %.094203208.i
   %.not111.us.i = icmp eq i32 %350, %.096201210.i
-  br i1 %.not111.us.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %.not111.us.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %list_length.exit124.i
   br i1 %276, label %._crit_edge.thread.i, label %._crit_edge.i.thread336
@@ -1333,7 +1333,7 @@ accumulate_append_subpath.exit144.i:              ; preds = %428, %424, %420, %a
   %.1.i = phi ptr [ %.0172.i, %accumulate_append_subpath.exit143.i ], [ %423, %420 ], [ %427, %424 ], [ %429, %428 ]
   %430 = add nuw i32 %.093174.i, 1
   %.not111.i = icmp eq i32 %430, %277
-  br i1 %.not111.i, label %._crit_edge.i.thread336, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %.not111.i, label %._crit_edge.i.thread336, label %.lr.ph.split.i, !llvm.loop !15
 
 ._crit_edge.thread.i:                             ; preds = %accumulate_append_subpath.exit144.us.i, %._crit_edge.i, %list_length.exit124.thread194.i, %list_length.exit124.thread.i, %.critedge121.i
   %.099.lcssa220.i = phi i1 [ false, %._crit_edge.i ], [ false, %list_length.exit124.thread.i ], [ false, %list_length.exit124.thread194.i ], [ false, %.critedge121.i ], [ %spec.select122.us.i, %accumulate_append_subpath.exit144.us.i ]
@@ -1838,7 +1838,7 @@ define dso_local void @generate_useful_gather_paths(ptr noundef %0, ptr noundef 
   %23 = load i32, ptr %12, align 4
   %24 = sext i32 %23 to i64
   %.not28.i = icmp slt i64 %indvars.iv.next.i, %24
-  br i1 %.not28.i, label %15, label %.critedge.i, !llvm.loop !15
+  br i1 %.not28.i, label %15, label %.critedge.i, !llvm.loop !16
 
 .critedge.i:                                      ; preds = %22, %15
   %.024.lcssa.ph.in.i = phi i64 [ %indvars.iv.i, %15 ], [ %indvars.iv.next.i, %22 ]
@@ -2030,7 +2030,7 @@ define dso_local ptr @standard_join_search(ptr noundef initializes((128, 136)) %
 .critedge:                                        ; preds = %29, %.lr.ph, %11
   %27 = add i32 %.040, 1
   %.not = icmp sgt i32 %27, %1
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !17
 
 28:                                               ; preds = %.lr.ph38
   tail call void @generate_useful_gather_paths(ptr noundef nonnull %0, ptr noundef nonnull %22, i1 noundef zeroext false)
@@ -2151,7 +2151,7 @@ define dso_local void @generate_partitionwise_join_paths(ptr noundef %0, ptr nou
   %.1.ph = phi ptr [ %.041, %31 ], [ %.041, %.lr.ph ], [ %34, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %36
   %.not35 = icmp eq ptr %.1.ph, null
@@ -2221,7 +2221,7 @@ define dso_local void @create_partial_bitmap_paths(ptr noundef %0, ptr noundef %
 25:                                               ; preds = %21
   %26 = add i32 %.032.i, 1
   %27 = icmp sgt i32 %22, 715827882
-  br i1 %27, label %compute_parallel_worker.exit, label %21, !llvm.loop !18
+  br i1 %27, label %compute_parallel_worker.exit, label %21, !llvm.loop !19
 
 compute_parallel_worker.exit:                     ; preds = %25, %21, %3, %17
   %.035.i = phi i32 [ %7, %3 ], [ 0, %17 ], [ %26, %25 ], [ %.032.i, %21 ]
@@ -2295,7 +2295,7 @@ define dso_local i32 @compute_parallel_worker(ptr noundef readonly captures(none
 32:                                               ; preds = %28
   %33 = add i32 %.032, 1
   %34 = icmp sgt i32 %29, 715827882
-  br i1 %34, label %.loopexit, label %28, !llvm.loop !18
+  br i1 %34, label %.loopexit, label %28, !llvm.loop !19
 
 .loopexit:                                        ; preds = %28, %32, %23
   %.136 = phi i32 [ 0, %23 ], [ %.032, %28 ], [ %33, %32 ]
@@ -2318,7 +2318,7 @@ define dso_local i32 @compute_parallel_worker(ptr noundef readonly captures(none
 43:                                               ; preds = %39
   %44 = add i32 %.031, 1
   %45 = icmp sgt i32 %40, 715827882
-  br i1 %45, label %46, label %39, !llvm.loop !19
+  br i1 %45, label %46, label %39, !llvm.loop !20
 
 46:                                               ; preds = %43, %39
   %.1 = phi i32 [ %44, %43 ], [ %.031, %39 ]
@@ -2835,7 +2835,7 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
 
 245:                                              ; preds = %239, %207, %201
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  br label %.split, !llvm.loop !20
+  br label %.split, !llvm.loop !21
 
 .thread:                                          ; preds = %196, %191, %160, %153, %93, %82, %.lr.ph128
   %.1133.i = phi double [ %.0132.i87127, %93 ], [ %.0132.i87127, %.lr.ph128 ], [ %.0132.i87127, %82 ], [ %.0132.i87127, %153 ], [ %171, %160 ], [ %171, %191 ], [ %171, %196 ]
@@ -2882,7 +2882,7 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %265, ptr %267, align 4
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
-  br i1 %exitcond.not, label %set_append_rel_size.exit, label %260, !llvm.loop !21
+  br i1 %exitcond.not, label %set_append_rel_size.exit, label %260, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph91, %51, %.critedge.i
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3659,7 +3659,7 @@ set_subquery_pathlist.exit:                       ; preds = %.lr.ph212.i, %552, 
   %653 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 32
   %654 = load ptr, ptr %653, align 8
   %.not24.i = icmp eq ptr %654, null
-  br i1 %.not24.i, label %655, label %.preheader.i52, !llvm.loop !22
+  br i1 %.not24.i, label %655, label %.preheader.i52, !llvm.loop !23
 
 655:                                              ; preds = %652
   %656 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -3706,7 +3706,7 @@ set_worktable_pathlist.exit:                      ; preds = %660
   %675 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 32
   %676 = load ptr, ptr %675, align 8
   %.not52.i = icmp eq ptr %676, null
-  br i1 %.not52.i, label %677, label %.preheader, !llvm.loop !23
+  br i1 %.not52.i, label %677, label %.preheader, !llvm.loop !24
 
 677:                                              ; preds = %673
   %678 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -4538,7 +4538,7 @@ define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nounde
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.078, i64 8
   %14 = load ptr, ptr %13, align 8
-  br label %10, !llvm.loop !24
+  br label %10, !llvm.loop !25
 
 15:                                               ; preds = %10
   %16 = tail call zeroext i1 @contain_subplans(ptr noundef nonnull %.078) #9
@@ -5097,7 +5097,7 @@ define internal fastcc void @set_plain_rel_pathlist(ptr noundef %0, ptr noundef 
 30:                                               ; preds = %27
   %31 = add i32 %.032.i.i, 1
   %32 = icmp sgt i32 %28, 715827882
-  br i1 %32, label %compute_parallel_worker.exit.i, label %27, !llvm.loop !18
+  br i1 %32, label %compute_parallel_worker.exit.i, label %27, !llvm.loop !19
 
 compute_parallel_worker.exit.i:                   ; preds = %30, %27, %12
   %.035.i.i = phi i32 [ %17, %12 ], [ %.032.i.i, %27 ], [ %31, %30 ]
@@ -5197,22 +5197,23 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}

@@ -475,13 +475,13 @@ ssl_ticket_select_key.exit:                       ; preds = %.preheader
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %42 = load i8, ptr %41, align 2, !tbaa !24
+  %42 = load i8, ptr %41, align 2, !tbaa !25
   %.not.i = icmp eq i8 %42, 1
   br i1 %.not.i, label %43, label %ssl_ticket_select_key.exit.thread
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %45 = load i64, ptr %44, align 8, !tbaa !29
+  %45 = load i64, ptr %44, align 8, !tbaa !30
   %46 = call i64 @mbedtls_ms_time() #8
   %47 = sub nsw i64 %46, %45
   %48 = icmp slt i64 %47, 0
@@ -560,11 +560,12 @@ attributes #8 = { nounwind }
 !19 = !{!4, !8, i64 256}
 !20 = !{!12, !12, i64 0}
 !21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!25, !5, i64 2}
-!25 = !{!"mbedtls_ssl_session", !5, i64 0, !5, i64 1, !5, i64 2, !7, i64 4, !12, i64 8, !7, i64 16, !12, i64 24, !5, i64 32, !5, i64 64, !26, i64 112, !7, i64 120, !27, i64 128, !12, i64 136, !7, i64 144, !12, i64 152, !7, i64 160, !5, i64 164, !5, i64 165, !5, i64 166, !27, i64 216, !12, i64 224, !7, i64 232, !28, i64 236}
-!26 = !{!"p1 _ZTS16mbedtls_x509_crt", !8, i64 0}
-!27 = !{!"p1 omnipotent char", !8, i64 0}
-!28 = !{!"", !5, i64 0, !5, i64 64, !5, i64 128, !5, i64 192}
-!29 = !{!25, !12, i64 152}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !5, i64 2}
+!26 = !{!"mbedtls_ssl_session", !5, i64 0, !5, i64 1, !5, i64 2, !7, i64 4, !12, i64 8, !7, i64 16, !12, i64 24, !5, i64 32, !5, i64 64, !27, i64 112, !7, i64 120, !28, i64 128, !12, i64 136, !7, i64 144, !12, i64 152, !7, i64 160, !5, i64 164, !5, i64 165, !5, i64 166, !28, i64 216, !12, i64 224, !7, i64 232, !29, i64 236}
+!27 = !{!"p1 _ZTS16mbedtls_x509_crt", !8, i64 0}
+!28 = !{!"p1 omnipotent char", !8, i64 0}
+!29 = !{!"", !5, i64 0, !5, i64 64, !5, i64 128, !5, i64 192}
+!30 = !{!26, !12, i64 152}

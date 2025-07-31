@@ -328,7 +328,7 @@ expand_.exit.i:                                   ; preds = %90, %86
   store ptr %109, ptr %113, align 8
   %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
   %exitcond576.not = icmp eq i64 %indvars.iv.next573, %wide.trip.count575
-  br i1 %exitcond576.not, label %copy_ast_list.exit478, label %.lr.ph537, !llvm.loop !9
+  br i1 %exitcond576.not, label %copy_ast_list.exit478, label %.lr.ph537, !llvm.loop !10
 
 copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75, %78
   %.021.i476.lcssa = phi ptr [ null, %78 ], [ null, %75 ], [ %106, %expand_.exit.i ]
@@ -472,7 +472,7 @@ expand_.exit485:                                  ; preds = %162, %166
   store ptr %185, ptr %189, align 8
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, 1
   %exitcond571.not = icmp eq i64 %indvars.iv.next568, %wide.trip.count570
-  br i1 %exitcond571.not, label %copy_expr_list.exit, label %.lr.ph533, !llvm.loop !10
+  br i1 %exitcond571.not, label %copy_expr_list.exit, label %.lr.ph533, !llvm.loop !11
 
 copy_expr_list.exit:                              ; preds = %expand_.exit485, %151, %154
   %.021.i445.lcssa = phi ptr [ null, %154 ], [ null, %151 ], [ %182, %expand_.exit485 ]
@@ -598,7 +598,7 @@ expand_.exit492:                                  ; preds = %229, %233
   store ptr %252, ptr %256, align 8
   %indvars.iv.next563 = add nuw nsw i64 %indvars.iv562, 1
   %exitcond566.not = icmp eq i64 %indvars.iv.next563, %wide.trip.count565
-  br i1 %exitcond566.not, label %copy_expr_list.exit451, label %.lr.ph529, !llvm.loop !10
+  br i1 %exitcond566.not, label %copy_expr_list.exit451, label %.lr.ph529, !llvm.loop !11
 
 copy_expr_list.exit451:                           ; preds = %expand_.exit492, %218, %221
   %.021.i449.lcssa = phi ptr [ null, %221 ], [ null, %218 ], [ %249, %expand_.exit492 ]
@@ -634,7 +634,7 @@ copy_expr_list.exit451:                           ; preds = %expand_.exit492, %2
   %271 = getelementptr inbounds i8, ptr %.09.i, i64 -16
   %272 = load ptr, ptr %271, align 8
   %273 = icmp eq ptr %267, %272
-  br i1 %273, label %fixup.exit, label %269, !llvm.loop !11
+  br i1 %273, label %fixup.exit, label %269, !llvm.loop !12
 
 fixup.exit:                                       ; preds = %270
   %274 = getelementptr inbounds i8, ptr %.09.i, i64 -8
@@ -998,7 +998,7 @@ expand_.exit499:                                  ; preds = %465, %469
   store ptr %488, ptr %492, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %copy_ast_list.exit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %copy_ast_list.exit, label %.lr.ph, !llvm.loop !10
 
 copy_ast_list.exit:                               ; preds = %expand_.exit499, %454, %457
   %.021.i456.lcssa = phi ptr [ null, %457 ], [ null, %454 ], [ %485, %expand_.exit499 ]
@@ -1077,7 +1077,7 @@ copy_reg_ref.exit458:                             ; preds = %516
   %531 = getelementptr inbounds i8, ptr %.09.i459, i64 -16
   %532 = load ptr, ptr %531, align 8
   %533 = icmp eq ptr %528, %532
-  br i1 %533, label %fixup.exit462, label %529, !llvm.loop !11
+  br i1 %533, label %fixup.exit462, label %529, !llvm.loop !12
 
 fixup.exit462:                                    ; preds = %530
   %534 = getelementptr inbounds i8, ptr %.09.i459, i64 -8
@@ -1694,7 +1694,7 @@ expand_.exit517:                                  ; preds = %883, %887
   store ptr %906, ptr %910, align 8
   %indvars.iv.next583 = add nuw nsw i64 %indvars.iv582, 1
   %exitcond586.not = icmp eq i64 %indvars.iv.next583, %wide.trip.count585
-  br i1 %exitcond586.not, label %copy_ast_list.exit471, label %.lr.ph545, !llvm.loop !9
+  br i1 %exitcond586.not, label %copy_ast_list.exit471, label %.lr.ph545, !llvm.loop !10
 
 copy_ast_list.exit471:                            ; preds = %expand_.exit517, %872, %875
   %.021.i469.lcssa = phi ptr [ null, %875 ], [ null, %872 ], [ %903, %expand_.exit517 ]
@@ -1712,7 +1712,7 @@ doc_ast_copy.exit:                                ; preds = %529, %269, %copy_as
   %914 = load ptr, ptr @ast_arena, align 8
   %915 = zext i32 %912 to i64
   %916 = getelementptr inbounds nuw %struct.Ast_, ptr %914, i64 %915
-  br label %6
+  br label %6, !llvm.loop !13
 
 .loopexit:                                        ; preds = %doc_ast_copy.exit, %2
   %.0340 = phi ptr [ null, %2 ], [ %4, %doc_ast_copy.exit ]
@@ -1849,7 +1849,7 @@ expand_.exit.i:                                   ; preds = %29, %25
   store ptr %48, ptr %52, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %copy_expr_list.exit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %copy_expr_list.exit, label %.lr.ph, !llvm.loop !11
 
 copy_expr_list.exit:                              ; preds = %expand_.exit.i, %11, %17
   %.021.i.lcssa = phi ptr [ null, %17 ], [ null, %11 ], [ %45, %expand_.exit.i ]
@@ -2335,7 +2335,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   %203 = getelementptr inbounds i8, ptr %.09.i, i64 -16
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %198, %204
-  br i1 %205, label %fixup.exit, label %201, !llvm.loop !11
+  br i1 %205, label %fixup.exit, label %201, !llvm.loop !12
 
 fixup.exit:                                       ; preds = %202
   %206 = getelementptr inbounds i8, ptr %.09.i, i64 -8
@@ -2724,7 +2724,7 @@ copy_range.exit:                                  ; preds = %278, %281
   %430 = getelementptr inbounds i8, ptr %.09.i504, i64 -16
   %431 = load ptr, ptr %430, align 8
   %432 = icmp eq ptr %425, %431
-  br i1 %432, label %fixup.exit507, label %428, !llvm.loop !11
+  br i1 %432, label %fixup.exit507, label %428, !llvm.loop !12
 
 fixup.exit507:                                    ; preds = %429
   %433 = getelementptr inbounds i8, ptr %.09.i504, i64 -8
@@ -2764,7 +2764,7 @@ fixup.exit507:                                    ; preds = %429
   %449 = getelementptr inbounds i8, ptr %.09.i508, i64 -16
   %450 = load ptr, ptr %449, align 8
   %451 = icmp eq ptr %444, %450
-  br i1 %451, label %fixup.exit511, label %447, !llvm.loop !11
+  br i1 %451, label %fixup.exit511, label %447, !llvm.loop !12
 
 fixup.exit511:                                    ; preds = %448
   %452 = getelementptr inbounds i8, ptr %.09.i508, i64 -8
@@ -2931,7 +2931,7 @@ fixup.exit511:                                    ; preds = %448
   %550 = getelementptr inbounds i8, ptr %.09.i512, i64 -16
   %551 = load ptr, ptr %550, align 8
   %552 = icmp eq ptr %545, %551
-  br i1 %552, label %fixup.exit515, label %548, !llvm.loop !11
+  br i1 %552, label %fixup.exit515, label %548, !llvm.loop !12
 
 fixup.exit515:                                    ; preds = %549
   %553 = getelementptr inbounds i8, ptr %.09.i512, i64 -8
@@ -3045,7 +3045,7 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
   %616 = getelementptr inbounds i8, ptr %.09.i516, i64 -16
   %617 = load ptr, ptr %616, align 8
   %618 = icmp eq ptr %610, %617
-  br i1 %618, label %fixup.exit519, label %614, !llvm.loop !11
+  br i1 %618, label %fixup.exit519, label %614, !llvm.loop !12
 
 fixup.exit519:                                    ; preds = %615
   %619 = getelementptr inbounds i8, ptr %.09.i516, i64 -8
@@ -3274,7 +3274,7 @@ define dso_local void @doc_ast_copy(ptr noundef %0, ptr noundef captures(none) %
   store ptr %44, ptr %48, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %copy_ast_list.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %copy_ast_list.exit, label %.lr.ph.i, !llvm.loop !10
 
 copy_ast_list.exit:                               ; preds = %38, %9, %12
   %.021.lcssa.i = phi ptr [ null, %12 ], [ null, %9 ], [ %41, %38 ]
@@ -3639,7 +3639,7 @@ define dso_local ptr @copy_attributes_single(ptr noundef readonly captures(addre
   store ptr %42, ptr %46, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %copy_expr_list.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %copy_expr_list.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 copy_expr_list.exit.i:                            ; preds = %36, %10, %.lr.ph.i
   %.021.lcssa.i.i = phi ptr [ null, %10 ], [ null, %.lr.ph.i ], [ %39, %36 ]
@@ -3697,7 +3697,7 @@ copy_expr_list.exit.i:                            ; preds = %36, %10, %.lr.ph.i
   store ptr %7, ptr %75, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %copy_attributes.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %copy_attributes.exit, label %.lr.ph.i, !llvm.loop !14
 
 copy_attributes.exit:                             ; preds = %70, %1, %2
   %.028.i = phi ptr [ null, %1 ], [ null, %2 ], [ %73, %70 ]
@@ -3953,7 +3953,7 @@ expand_.exit.i449:                                ; preds = %46, %42
   store ptr %65, ptr %69, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %copy_expr_list.exit452, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %copy_expr_list.exit452, label %.lr.ph, !llvm.loop !11
 
 copy_expr_list.exit452:                           ; preds = %expand_.exit.i449, %.lr.ph569, %34
   %.021.i443.lcssa = phi ptr [ null, %34 ], [ null, %.lr.ph569 ], [ %62, %expand_.exit.i449 ]
@@ -4011,7 +4011,7 @@ expand_.exit:                                     ; preds = %75, %79
   store ptr %31, ptr %97, align 8
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %exitcond725.not = icmp eq i64 %indvars.iv.next722, %wide.trip.count724
-  br i1 %exitcond725.not, label %copy_attributes.exit, label %.lr.ph569, !llvm.loop !12
+  br i1 %exitcond725.not, label %copy_attributes.exit, label %.lr.ph569, !llvm.loop !14
 
 copy_attributes.exit:                             ; preds = %expand_.exit, %26, %copy_reg_ref.exit
   %.028.i = phi ptr [ null, %copy_reg_ref.exit ], [ null, %26 ], [ %95, %expand_.exit ]
@@ -4123,7 +4123,7 @@ expand_.exit459:                                  ; preds = %113, %117
   store ptr %136, ptr %140, align 8
   %indvars.iv.next817 = add nuw nsw i64 %indvars.iv816, 1
   %exitcond820.not = icmp eq i64 %indvars.iv.next817, %wide.trip.count819
-  br i1 %exitcond820.not, label %type_info_copy_list_from_macro.exit, label %.lr.ph645, !llvm.loop !13
+  br i1 %exitcond820.not, label %type_info_copy_list_from_macro.exit, label %.lr.ph645, !llvm.loop !15
 
 type_info_copy_list_from_macro.exit:              ; preds = %expand_.exit459, %102, %105
   %.021.i.lcssa = phi ptr [ null, %105 ], [ null, %102 ], [ %133, %expand_.exit459 ]
@@ -4373,7 +4373,7 @@ expand_.exit466:                                  ; preds = %231, %235
   store ptr %254, ptr %258, align 8
   %indvars.iv.next812 = add nuw nsw i64 %indvars.iv811, 1
   %exitcond815.not = icmp eq i64 %indvars.iv.next812, %wide.trip.count814
-  br i1 %exitcond815.not, label %copy_expr_list.exit, label %.lr.ph641, !llvm.loop !10
+  br i1 %exitcond815.not, label %copy_expr_list.exit, label %.lr.ph641, !llvm.loop !11
 
 copy_expr_list.exit:                              ; preds = %expand_.exit466, %217, %223
   %.021.i262.lcssa = phi ptr [ null, %223 ], [ null, %217 ], [ %251, %expand_.exit466 ]
@@ -4573,7 +4573,7 @@ expand_.exit473:                                  ; preds = %324, %328
   store ptr %347, ptr %351, align 8
   %indvars.iv.next792 = add nuw nsw i64 %indvars.iv791, 1
   %exitcond795.not = icmp eq i64 %indvars.iv.next792, %wide.trip.count794
-  br i1 %exitcond795.not, label %type_info_copy_list_from_macro.exit281, label %.lr.ph625, !llvm.loop !13
+  br i1 %exitcond795.not, label %type_info_copy_list_from_macro.exit281, label %.lr.ph625, !llvm.loop !15
 
 type_info_copy_list_from_macro.exit281:           ; preds = %expand_.exit473, %copy_decl_type.exit, %316
   %.021.i279.lcssa = phi ptr [ null, %316 ], [ null, %copy_decl_type.exit ], [ %344, %expand_.exit473 ]
@@ -4848,7 +4848,7 @@ expand_.exit480:                                  ; preds = %451, %455
   store ptr %474, ptr %478, align 8
   %indvars.iv.next777 = add nuw nsw i64 %indvars.iv776, 1
   %exitcond780.not = icmp eq i64 %indvars.iv.next777, %wide.trip.count779
-  br i1 %exitcond780.not, label %type_info_copy_list_from_macro.exit312, label %.lr.ph613, !llvm.loop !13
+  br i1 %exitcond780.not, label %type_info_copy_list_from_macro.exit312, label %.lr.ph613, !llvm.loop !15
 
 type_info_copy_list_from_macro.exit312:           ; preds = %expand_.exit480, %copy_decl_type.exit307, %443
   %.021.i310.lcssa = phi ptr [ null, %443 ], [ null, %copy_decl_type.exit307 ], [ %471, %expand_.exit480 ]
@@ -5123,7 +5123,7 @@ expand_.exit487:                                  ; preds = %580, %584
   store ptr %603, ptr %607, align 8
   %indvars.iv.next757 = add nuw nsw i64 %indvars.iv756, 1
   %exitcond760.not = icmp eq i64 %indvars.iv.next757, %wide.trip.count759
-  br i1 %exitcond760.not, label %type_info_copy_list_from_macro.exit343, label %.lr.ph597, !llvm.loop !13
+  br i1 %exitcond760.not, label %type_info_copy_list_from_macro.exit343, label %.lr.ph597, !llvm.loop !15
 
 type_info_copy_list_from_macro.exit343:           ; preds = %expand_.exit487, %copy_decl_type.exit338, %572
   %.021.i341.lcssa = phi ptr [ null, %572 ], [ null, %copy_decl_type.exit338 ], [ %600, %expand_.exit487 ]
@@ -5762,7 +5762,7 @@ common.ret1025:                                   ; preds = %11, %copy_attribute
   %927 = getelementptr inbounds i8, ptr %.09.i, i64 -16
   %928 = load ptr, ptr %927, align 8
   %929 = icmp eq ptr %923, %928
-  br i1 %929, label %fixup.exit, label %925, !llvm.loop !11
+  br i1 %929, label %fixup.exit, label %925, !llvm.loop !12
 
 fixup.exit:                                       ; preds = %926
   %930 = getelementptr inbounds i8, ptr %.09.i, i64 -8
@@ -5855,7 +5855,7 @@ expand_.exit518:                                  ; preds = %947, %951
   store ptr %970, ptr %974, align 8
   %indvars.iv.next737 = add nuw nsw i64 %indvars.iv736, 1
   %exitcond740.not = icmp eq i64 %indvars.iv.next737, %wide.trip.count739
-  br i1 %exitcond740.not, label %copy_expr_list.exit393, label %.lr.ph581, !llvm.loop !10
+  br i1 %exitcond740.not, label %copy_expr_list.exit393, label %.lr.ph581, !llvm.loop !11
 
 copy_expr_list.exit393:                           ; preds = %expand_.exit518, %fixup.exit.thread, %939
   %.021.i391.lcssa = phi ptr [ null, %939 ], [ null, %fixup.exit.thread ], [ %967, %expand_.exit518 ]
@@ -5884,7 +5884,7 @@ copy_expr_list.exit393:                           ; preds = %expand_.exit518, %f
   %985 = getelementptr inbounds i8, ptr %.09.i394, i64 -16
   %986 = load ptr, ptr %985, align 8
   %987 = icmp eq ptr %981, %986
-  br i1 %987, label %fixup.exit397, label %983, !llvm.loop !11
+  br i1 %987, label %fixup.exit397, label %983, !llvm.loop !12
 
 fixup.exit397:                                    ; preds = %984
   %988 = getelementptr inbounds i8, ptr %.09.i394, i64 -8
@@ -6046,7 +6046,7 @@ expand_.exit525:                                  ; preds = %1039, %1043
   store ptr %1062, ptr %1066, align 8
   %indvars.iv.next727 = add nuw nsw i64 %indvars.iv726, 1
   %exitcond730.not = icmp eq i64 %indvars.iv.next727, %wide.trip.count729
-  br i1 %exitcond730.not, label %type_info_copy_list_from_macro.exit406, label %.lr.ph573, !llvm.loop !13
+  br i1 %exitcond730.not, label %type_info_copy_list_from_macro.exit406, label %.lr.ph573, !llvm.loop !15
 
 type_info_copy_list_from_macro.exit406:           ; preds = %expand_.exit525, %copy_decl_type.exit401, %1031
   %.021.i404.lcssa = phi ptr [ null, %1031 ], [ null, %copy_decl_type.exit401 ], [ %1059, %expand_.exit525 ]
@@ -6521,7 +6521,7 @@ expand_.exit.i553:                                ; preds = %1285, %1281
   store ptr %1304, ptr %1308, align 8
   %indvars.iv.next837 = add nuw nsw i64 %indvars.iv836, 1
   %exitcond840.not = icmp eq i64 %indvars.iv.next837, %wide.trip.count839
-  br i1 %exitcond840.not, label %copy_expr_list.exit556, label %.lr.ph661, !llvm.loop !10
+  br i1 %exitcond840.not, label %copy_expr_list.exit556, label %.lr.ph661, !llvm.loop !11
 
 copy_expr_list.exit556:                           ; preds = %expand_.exit.i553, %.lr.ph665, %1273
   %.021.i547.lcssa = phi ptr [ null, %1273 ], [ null, %.lr.ph665 ], [ %1301, %expand_.exit.i553 ]
@@ -6579,7 +6579,7 @@ expand_.exit544:                                  ; preds = %1314, %1318
   store ptr %1270, ptr %1336, align 8
   %indvars.iv.next842 = add nuw nsw i64 %indvars.iv841, 1
   %exitcond845.not = icmp eq i64 %indvars.iv.next842, %wide.trip.count844
-  br i1 %exitcond845.not, label %copy_attributes.exit438, label %.lr.ph665, !llvm.loop !12
+  br i1 %exitcond845.not, label %copy_attributes.exit438, label %.lr.ph665, !llvm.loop !14
 
 copy_attributes.exit438:                          ; preds = %expand_.exit544, %1265, %copy_decl_list.exit433
   %.028.i437 = phi ptr [ null, %copy_decl_list.exit433 ], [ null, %1265 ], [ %1334, %expand_.exit544 ]
@@ -6713,7 +6713,7 @@ define internal fastcc ptr @copy_expr_list(ptr noundef captures(address) %0, ptr
   store ptr %35, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %29, %2, %3
   %.021.lcssa = phi ptr [ null, %3 ], [ null, %2 ], [ %32, %29 ]
@@ -6819,7 +6819,7 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef captures(addr
   store ptr %6, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %43, %2, %3
   %.032.lcssa = phi ptr [ null, %3 ], [ null, %2 ], [ %46, %43 ]
@@ -6886,7 +6886,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 .backedge:                                        ; preds = %23, %17
   %.0.i.in.be = phi ptr [ %22, %17 ], [ %24, %23 ]
-  br label %13
+  br label %13, !llvm.loop !17
 
 25:                                               ; preds = %13
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.3, i32 noundef 2984) #6
@@ -6924,7 +6924,7 @@ type_flatten.exit:                                ; preds = %13
   store ptr %39, ptr %40, align 8
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %34
-  br i1 %exitcond146.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !15
+  br i1 %exitcond146.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !18
 
 ._crit_edge123:                                   ; preds = %.lr.ph122, %.thread, %31
   %41 = phi ptr [ %30, %.thread ], [ %36, %31 ], [ %36, %.lr.ph122 ]
@@ -7019,7 +7019,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   store ptr %81, ptr %83, align 8
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
-  br i1 %exitcond141.not, label %._crit_edge118, label %.lr.ph117, !llvm.loop !16
+  br i1 %exitcond141.not, label %._crit_edge118, label %.lr.ph117, !llvm.loop !19
 
 ._crit_edge118:                                   ; preds = %77, %46, %49
   %.078.lcssa = phi ptr [ null, %49 ], [ null, %46 ], [ %80, %77 ]
@@ -7103,7 +7103,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   store ptr %119, ptr %121, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %115, %84, %87
   %.084.lcssa = phi ptr [ null, %87 ], [ null, %84 ], [ %118, %115 ]
@@ -7138,14 +7138,17 @@ attributes #7 = { "function-inline-cost-multiplier"="2" }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}

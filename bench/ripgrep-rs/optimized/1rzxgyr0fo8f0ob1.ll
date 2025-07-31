@@ -551,14 +551,14 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
   %47 = tail call { i64, ptr } %46(i8 noundef %2, ptr noundef nonnull readonly align 1 %.sroa.0.1.lcssa, ptr noundef nonnull readonly %44), !noalias !65
   %48 = extractvalue { i64, ptr } %47, 0
   %switch8.i.not = icmp eq i64 %48, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit67.thread, label %.lr.ph88
+  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit67.thread, label %.lr.ph88, !llvm.loop !68
 
 49:                                               ; preds = %.lr.ph
   store i8 %3, ptr %.sroa.0.180, align 1
   %50 = add i64 %.sroa.13.179, -1
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.180, i64 1
   %.not = icmp eq i64 %50, 0
-  br i1 %.not, label %.critedge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !70
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit67.thread: ; preds = %.critedge, %19, %6, %4
   %.sroa.4.0 = phi i64 [ undef, %4 ], [ undef, %6 ], [ %16, %19 ], [ %16, %.critedge ]
@@ -716,3 +716,6 @@ attributes #12 = { noreturn }
 !65 = !{!66}
 !66 = distinct !{!66, !67, !"_ZN6memchr6memchr6memchr28_$u7b$$u7b$closure$u7d$$u7d$17h1b78f0bd56fdd7e3E: argument 0"}
 !67 = distinct !{!67, !"_ZN6memchr6memchr6memchr28_$u7b$$u7b$closure$u7d$$u7d$17h1b78f0bd56fdd7e3E"}
+!68 = distinct !{!68, !69}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = distinct !{!70, !69}

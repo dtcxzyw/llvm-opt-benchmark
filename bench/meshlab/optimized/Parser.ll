@@ -1172,7 +1172,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %9, %14
   %32 = getelementptr inbounds [87 x i8], ptr %23, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %34, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %8
   ret void
@@ -1265,7 +1265,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %17, %22
   %49 = getelementptr inbounds [87 x i8], ptr %31, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = trunc i8 %50 to i1
-  br i1 %51, label %.critedge, label %.lr.ph, !llvm.loop !8
+  br i1 %51, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %45, %41, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %10, %9
   %.0 = phi i1 [ true, %9 ], [ false, %10 ], [ true, %_ZN14VrmlTranslator6Parser6SynErrEi.exit ], [ false, %.lr.ph ], [ true, %45 ], [ false, %41 ]
@@ -1435,7 +1435,7 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %19, %_ZN9QtPrivate8
   %44 = load ptr, ptr %26, align 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 12
-  br i1 %46, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit, !llvm.loop !9
+  br i1 %46, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit, !llvm.loop !10
 
 _ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit: ; preds = %.noexc, %41
   %47 = phi i32 [ %42, %41 ], [ %45, %.noexc ]
@@ -1450,7 +1450,7 @@ _ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit: ; preds = %.noexc, %41
   %49 = load ptr, ptr %26, align 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 18
-  br i1 %51, label %.lr.ph.i12, label %_ZN14VrmlTranslator6Parser14MetaStatementsEv.exit, !llvm.loop !10
+  br i1 %51, label %.lr.ph.i12, label %_ZN14VrmlTranslator6Parser14MetaStatementsEv.exit, !llvm.loop !11
 
 _ZN14VrmlTranslator6Parser14MetaStatementsEv.exit: ; preds = %.noexc13, %_ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit
   %52 = phi i32 [ %47, %_ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit ], [ %50, %.noexc13 ]
@@ -1471,7 +1471,7 @@ _ZN14VrmlTranslator6Parser14MetaStatementsEv.exit: ; preds = %.noexc13, %_ZN14Vr
   %60 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = trunc i8 %61 to i1
-  br i1 %62, label %.lr.ph.i14, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, !llvm.loop !11
+  br i1 %62, label %.lr.ph.i14, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, !llvm.loop !12
 
 _ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit: ; preds = %.noexc15, %_ZN14VrmlTranslator6Parser14MetaStatementsEv.exit
   %63 = load ptr, ptr %8, align 8
@@ -7366,7 +7366,7 @@ define void @_ZN14VrmlTranslator6Parser19ComponentStatementsEv(ptr noundef nonnu
   %6 = load ptr, ptr %2, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 12
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -7385,7 +7385,7 @@ define void @_ZN14VrmlTranslator6Parser14MetaStatementsEv(ptr noundef nonnull al
   %6 = load ptr, ptr %2, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 18
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -7410,7 +7410,7 @@ define void @_ZN14VrmlTranslator6Parser10StatementsER11QDomElement(ptr noundef n
   %13 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -7452,7 +7452,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4l
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %6, label %._crit_edge.thread.i, label %12
@@ -8758,7 +8758,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i11:  ; preds = %_ZN9QtPrivate8RefCo
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %50 = icmp eq ptr %.19.i.i.i, %47
@@ -9324,7 +9324,7 @@ define void @_ZN14VrmlTranslator6Parser4NodeER11QDomElementR7QStringS3_(ptr noun
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %36 = icmp eq ptr %.19.i.i.i, %33
@@ -9527,7 +9527,7 @@ _ZN7QStringD2Ev.exit32:                           ; preds = %84, %_ZN9QtPrivate8
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !14
 
 _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i: ; preds = %.lr.ph.i.i.i.i
   %95 = icmp eq ptr %.19.i.i.i.i, %92
@@ -9627,7 +9627,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc34, %110
 
 135:                                              ; preds = %.noexc35
   invoke void @_ZN14VrmlTranslator6Parser15NodeBodyElementER11QDomElementb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext %72)
-          to label %.noexc35 unwind label %.loopexit, !llvm.loop !15
+          to label %.noexc35 unwind label %.loopexit, !llvm.loop !16
 
 _ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb.exit: ; preds = %.noexc35
   %136 = icmp eq i32 %130, 25
@@ -9755,7 +9755,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i42:     ; preds = %.noexc44, %163
 
 188:                                              ; preds = %.noexc46
   invoke void @_ZN14VrmlTranslator6Parser17ScriptBodyElementEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-          to label %.noexc46 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !16
+          to label %.noexc46 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !17
 
 _ZN14VrmlTranslator6Parser10ScriptBodyEv.exit:    ; preds = %.noexc46
   %189 = icmp eq i32 %183, 25
@@ -10189,7 +10189,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i30:  ; preds = %_ZN9QtPrivate8RefCo
 
 109:                                              ; preds = %.noexc36
   invoke void @_ZN14VrmlTranslator6Parser20InterfaceDeclarationER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %.noexc36 unwind label %.loopexit99, !llvm.loop !17
+          to label %.noexc36 unwind label %.loopexit99, !llvm.loop !18
 
 _ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit: ; preds = %.noexc36
   invoke void @_ZN8QDomNode11appendChildERKS_(ptr dead_on_unwind nonnull writable sret(%class.QDomNode) align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %18)
@@ -10358,7 +10358,7 @@ _ZN7QStringD2Ev.exit54:                           ; preds = %_ZN7QStringD2Ev.exi
           to label %_ZN7QStringD2Ev.exit54.backedge unwind label %.loopexit.split-lp.loopexit
 
 _ZN7QStringD2Ev.exit54.backedge:                  ; preds = %168, %167
-  br label %_ZN7QStringD2Ev.exit54, !llvm.loop !18
+  br label %_ZN7QStringD2Ev.exit54, !llvm.loop !19
 
 .noexc55:                                         ; preds = %_ZN7QStringD2Ev.exit54
   invoke void @_ZN14VrmlTranslator6Parser17RootNodeStatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -10375,7 +10375,7 @@ _ZN7QStringD2Ev.exit54.backedge:                  ; preds = %168, %167
 
 175:                                              ; preds = %.noexc56
   invoke void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %.noexc56 unwind label %.loopexit, !llvm.loop !11
+          to label %.noexc56 unwind label %.loopexit, !llvm.loop !12
 
 _ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement.exit: ; preds = %.noexc56
   invoke void @_ZN8QDomNode11appendChildERKS_(ptr dead_on_unwind nonnull writable sret(%class.QDomNode) align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -10744,7 +10744,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit12:       ; preds = %_ZN14VrmlTranslator
   %82 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = trunc i8 %83 to i1
-  br i1 %84, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit, !llvm.loop !19
+  br i1 %84, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit, !llvm.loop !20
 
 _ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit: ; preds = %.noexc13, %_ZN14VrmlTranslator6Parser6ExpectEi.exit12
   %85 = phi i32 [ %74, %_ZN14VrmlTranslator6Parser6ExpectEi.exit12 ], [ %80, %.noexc13 ]
@@ -10822,7 +10822,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit18:       ; preds = %_ZN14VrmlTranslator
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %114 = icmp eq ptr %.19.i.i.i, %111
@@ -11288,7 +11288,7 @@ define void @_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb(ptr noundef non
   %14 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 522), i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -11313,7 +11313,7 @@ define void @_ZN14VrmlTranslator6Parser10ScriptBodyEv(ptr noundef nonnull align 
   %12 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 609), i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -11472,7 +11472,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %19, label %._crit_edge.thread.i, label %25
@@ -11536,7 +11536,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !20
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !21
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %46, label %._crit_edge.thread.i27, label %51
@@ -11598,7 +11598,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !20
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !21
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %71, label %._crit_edge.thread.i47, label %77
@@ -11926,7 +11926,7 @@ define void @_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement(pt
   %13 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -11954,7 +11954,7 @@ _ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.i: ; preds = %_ZN
   br label %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.i.backedge
 
 _ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.i.backedge: ; preds = %7, %6
-  br label %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.i, !llvm.loop !18
+  br label %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.i, !llvm.loop !19
 
 _ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement.exit: ; preds = %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.i
   tail call void @_ZN14VrmlTranslator6Parser17RootNodeStatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -11974,7 +11974,7 @@ _ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement.exit: ; preds = %_ZN1
   %17 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 87), i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, !llvm.loop !11
+  br i1 %19, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, !llvm.loop !12
 
 _ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit: ; preds = %.lr.ph.i, %_ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement.exit
   ret void
@@ -11996,7 +11996,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4l
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %6, label %._crit_edge.thread.i, label %12
@@ -12079,7 +12079,7 @@ define void @_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElem
   %13 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 261), i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -12160,7 +12160,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not.i5, label %_ZN7QString8fromUtf8EPKci.exit.i, label %36
 
 36:                                               ; preds = %31
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #16, !noalias !21
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #16, !noalias !22
   %38 = trunc i64 %37 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i
 
@@ -12249,7 +12249,7 @@ _ZN7QString6appendEPKc.exit12:                    ; preds = %49, %_ZN9QtPrivate8
   br label %.backedge
 
 .backedge:                                        ; preds = %59, %_ZN7QString6appendEPKc.exit12
-  br label %28, !llvm.loop !24
+  br label %28, !llvm.loop !25
 
 60:                                               ; preds = %28
   call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
@@ -12349,7 +12349,7 @@ _ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit: ; preds = %_ZN14
   br label %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.backedge
 
 _ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.backedge: ; preds = %6, %7
-  br label %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit, !llvm.loop !18
+  br label %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit, !llvm.loop !19
 
 7:                                                ; preds = %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit
   tail call void @_ZN14VrmlTranslator6Parser11ExternprotoER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -14084,7 +14084,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %36, %_ZN9QtPrivate8
   br i1 %.not.i25, label %_ZN7QString8fromUtf8EPKci.exit.i, label %57
 
 57:                                               ; preds = %56
-  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #16, !noalias !25
+  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #16, !noalias !26
   %59 = trunc i64 %58 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i
 
@@ -14202,7 +14202,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i28:  ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not.i34, label %_ZN7QString8fromUtf8EPKci.exit.i35, label %92
 
 92:                                               ; preds = %91
-  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #16, !noalias !28
+  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #16, !noalias !29
   %94 = trunc i64 %93 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i35
 
@@ -14320,7 +14320,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i46: ; preds = %_ZN9QtPrivate8RefC
   br i1 %.not.i55, label %_ZN7QString8fromUtf8EPKci.exit.i56, label %127
 
 127:                                              ; preds = %126
-  %128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #16, !noalias !31
+  %128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #16, !noalias !32
   %129 = trunc i64 %128 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i56
 
@@ -14381,7 +14381,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i57: ; preds = %_ZN9QtPrivate8RefC
   %145 = phi i32 [ %.pre148, %._crit_edge146 ], [ %141, %139 ]
   %146 = and i32 %145, -2
   %switch = icmp eq i32 %146, 2
-  br i1 %switch, label %.critedge, label %_ZN7QStringD2Ev.exit33, !llvm.loop !34
+  br i1 %switch, label %.critedge, label %_ZN7QStringD2Ev.exit33, !llvm.loop !35
 
 147:                                              ; preds = %48
   invoke void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
@@ -15225,7 +15225,7 @@ _ZN7QStringD2Ev.exit55:                           ; preds = %97, %_ZN9QtPrivate8
   %128 = getelementptr inbounds [87 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 174), i64 0, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = trunc i8 %129 to i1
-  br i1 %130, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %130, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %125, %.preheader
   invoke void @_ZN11QDomElementC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
@@ -15336,7 +15336,7 @@ _ZNK12QDomNodeList2atEi.exit.us:                  ; preds = %150
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #14
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #14
   %156 = add nuw nsw i32 %.0.us, 1
-  br label %_ZN7QStringD2Ev.exit71.split.us, !llvm.loop !36
+  br label %_ZN7QStringD2Ev.exit71.split.us, !llvm.loop !37
 
 .loopexit.split.us:                               ; preds = %153, %150, %_ZN7QStringD2Ev.exit71.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -15446,7 +15446,7 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #14
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #14
   %180 = add nuw nsw i32 %.0, 1
-  br label %_ZN7QStringD2Ev.exit71.split, !llvm.loop !38
+  br label %_ZN7QStringD2Ev.exit71.split, !llvm.loop !39
 
 181:                                              ; preds = %178
   %182 = landingpad { ptr, i32 }
@@ -17318,7 +17318,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
   br i1 %.not.i5, label %_ZN7QString8fromUtf8EPKci.exit.i, label %38
 
 38:                                               ; preds = %32
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16, !noalias !39
+  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16, !noalias !40
   %40 = trunc i64 %39 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i
 
@@ -17425,7 +17425,7 @@ _ZN7QString6appendEPKc.exit12:                    ; preds = %58, %_ZN9QtPrivate8
   br i1 %.not.i13, label %_ZN7QString8fromUtf8EPKci.exit.i14, label %69
 
 69:                                               ; preds = %_ZN7QString6appendEPKc.exit12
-  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #16, !noalias !42
+  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #16, !noalias !43
   %71 = trunc i64 %70 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i14
 
@@ -17479,7 +17479,7 @@ _ZN7QString6appendEPKc.exit20:                    ; preds = %74, %_ZN9QtPrivate8
   %86 = phi i32 [ %.pre24, %84 ], [ %82, %_ZN7QString6appendEPKc.exit20 ]
   %87 = and i32 %86, -2
   %switch = icmp eq i32 %87, 2
-  br i1 %switch, label %.critedge, label %._crit_edge, !llvm.loop !45
+  br i1 %switch, label %.critedge, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %85, %54
   ret void
@@ -17549,7 +17549,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %12, %_ZN14VrmlTrans
   br i1 %.not.i, label %_ZN7QString8fromUtf8EPKci.exit.i, label %37
 
 37:                                               ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16, !noalias !46
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16, !noalias !47
   %39 = trunc i64 %38 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i
 
@@ -17655,7 +17655,7 @@ _ZN7QString6appendEPKc.exit11:                    ; preds = %57, %_ZN9QtPrivate8
   br i1 %.not.i12, label %_ZN7QString8fromUtf8EPKci.exit.i13, label %68
 
 68:                                               ; preds = %_ZN7QString6appendEPKc.exit11
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #16, !noalias !49
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #16, !noalias !50
   %70 = trunc i64 %69 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i13
 
@@ -17708,7 +17708,7 @@ _ZN7QString6appendEPKc.exit19:                    ; preds = %73, %_ZN9QtPrivate8
 84:                                               ; preds = %83, %_ZN7QString6appendEPKc.exit19
   %85 = phi i32 [ %.pre22, %83 ], [ %81, %_ZN7QString6appendEPKc.exit19 ]
   %86 = icmp eq i32 %85, 4
-  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %84, %53
   ret void
@@ -17784,7 +17784,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
   br i1 %.not.i5, label %_ZN7QString8fromUtf8EPKci.exit.i, label %38
 
 38:                                               ; preds = %32
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16, !noalias !53
+  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16, !noalias !54
   %40 = trunc i64 %39 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i
 
@@ -17891,7 +17891,7 @@ _ZN7QString6appendEPKc.exit12:                    ; preds = %58, %_ZN9QtPrivate8
   br i1 %.not.i13, label %_ZN7QString8fromUtf8EPKci.exit.i14, label %69
 
 69:                                               ; preds = %_ZN7QString6appendEPKc.exit12
-  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #16, !noalias !56
+  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #16, !noalias !57
   %71 = trunc i64 %70 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i14
 
@@ -17945,7 +17945,7 @@ _ZN7QString6appendEPKc.exit20:                    ; preds = %74, %_ZN9QtPrivate8
   %86 = phi i32 [ %.pre24, %84 ], [ %82, %_ZN7QString6appendEPKc.exit20 ]
   %87 = and i32 %86, -2
   %switch = icmp eq i32 %87, 82
-  br i1 %switch, label %.critedge, label %._crit_edge, !llvm.loop !59
+  br i1 %switch, label %.critedge, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %85, %54
   ret void
@@ -18192,7 +18192,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
 _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS0_E.exit: ; preds = %.lr.ph, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS0_E.exit, %2
   ret void
@@ -18258,7 +18258,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i.i.i.i.i: ; preds = %_ZN9QtPriva
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E.exit: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E.exit, %2
   ret void
@@ -18400,60 +18400,61 @@ attributes #18 = { builtin nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!23 = distinct !{!23, !"_ZN7QString8fromUtf8EPKci"}
-!24 = distinct !{!24, !6}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!27 = distinct !{!27, !"_ZN7QString8fromUtf8EPKci"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!30 = distinct !{!30, !"_ZN7QString8fromUtf8EPKci"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!33 = distinct !{!33, !"_ZN7QString8fromUtf8EPKci"}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !6}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!41 = distinct !{!41, !"_ZN7QString8fromUtf8EPKci"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!44 = distinct !{!44, !"_ZN7QString8fromUtf8EPKci"}
-!45 = distinct !{!45, !6}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!48 = distinct !{!48, !"_ZN7QString8fromUtf8EPKci"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!51 = distinct !{!51, !"_ZN7QString8fromUtf8EPKci"}
-!52 = distinct !{!52, !6}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!55 = distinct !{!55, !"_ZN7QString8fromUtf8EPKci"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!58 = distinct !{!58, !"_ZN7QString8fromUtf8EPKci"}
-!59 = distinct !{!59, !6}
-!60 = distinct !{!60, !6}
-!61 = distinct !{!61, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!24 = distinct !{!24, !"_ZN7QString8fromUtf8EPKci"}
+!25 = distinct !{!25, !6, !7}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!28 = distinct !{!28, !"_ZN7QString8fromUtf8EPKci"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!31 = distinct !{!31, !"_ZN7QString8fromUtf8EPKci"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!34 = distinct !{!34, !"_ZN7QString8fromUtf8EPKci"}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}
+!37 = distinct !{!37, !6, !7, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = distinct !{!39, !6, !7}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!42 = distinct !{!42, !"_ZN7QString8fromUtf8EPKci"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!45 = distinct !{!45, !"_ZN7QString8fromUtf8EPKci"}
+!46 = distinct !{!46, !6, !7}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!49 = distinct !{!49, !"_ZN7QString8fromUtf8EPKci"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!52 = distinct !{!52, !"_ZN7QString8fromUtf8EPKci"}
+!53 = distinct !{!53, !6, !7}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!56 = distinct !{!56, !"_ZN7QString8fromUtf8EPKci"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!59 = distinct !{!59, !"_ZN7QString8fromUtf8EPKci"}
+!60 = distinct !{!60, !6, !7}
+!61 = distinct !{!61, !6, !7}
+!62 = distinct !{!62, !6, !7}

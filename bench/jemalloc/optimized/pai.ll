@@ -127,7 +127,7 @@ define hidden void @je_pai_dalloc_batch_default(ptr noundef %0, ptr noundef %1, 
   br label %edata_list_active_remove.exit
 
 edata_list_active_remove.exit:                    ; preds = %.thread.i, %27
-  %28 = load ptr, ptr %6, align 8, !tbaa !20
+  %28 = load ptr, ptr %6, align 8, !tbaa !21
   call void %28(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.val9, ptr noundef nonnull %5) #3
   %29 = load i8, ptr %5, align 1, !tbaa !4, !range !11, !noundef !12
   %30 = load i8, ptr %3, align 1, !tbaa !4, !range !11, !noundef !12
@@ -136,7 +136,7 @@ edata_list_active_remove.exit:                    ; preds = %.thread.i, %27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #3
   %.val = load ptr, ptr %2, align 8, !tbaa !14
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %edata_list_active_remove.exit, %4
   ret void
@@ -170,7 +170,8 @@ attributes #3 = { nounwind }
 !15 = !{!"", !16, i64 0}
 !16 = !{!"", !17, i64 0}
 !17 = !{!"p1 _ZTS7edata_s", !10, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!9, !10, i64 32}
-!21 = distinct !{!21, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!9, !10, i64 32}
+!22 = distinct !{!22, !19, !20}

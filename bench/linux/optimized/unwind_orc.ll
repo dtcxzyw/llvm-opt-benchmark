@@ -310,7 +310,7 @@ define dso_local void @unwind_init() local_unnamed_addr #6 section ".init.text" 
   store i32 %58, ptr %60, align 4
   %61 = add nuw i32 %23, 1
   %62 = icmp eq i32 %61, %16
-  br i1 %62, label %.loopexit11.thread, label %.split, !llvm.loop !14
+  br i1 %62, label %.loopexit11.thread, label %.split, !llvm.loop !15
 
 .loopexit11:                                      ; preds = %13
   br i1 %18, label %.thread7, label %.loopexit11.thread
@@ -343,7 +343,7 @@ define dso_local void @unwind_init() local_unnamed_addr #6 section ".init.text" 
   %84 = select i1 %80, ptr %82, ptr %68
   %85 = select i1 %80, ptr %67, ptr %75
   %86 = icmp ugt ptr %83, %84
-  br i1 %86, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %86, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit11.thread
   %87 = phi ptr [ @__start_orc_unwind_ip, %.loopexit11.thread ], [ %85, %.preheader ]
@@ -448,8 +448,8 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   br i1 %7, label %716, label %8
 
 8:                                                ; preds = %1
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !15
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -464,7 +464,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 17:                                               ; preds = %12, %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %19 = load i8, ptr %18, align 1, !range !17, !noundef !18
+  %19 = load i8, ptr %18, align 1, !range !19, !noundef !20
   %20 = load i64, ptr %2, align 8
   %21 = add nsw i8 %19, -1
   %22 = sext i8 %21 to i64
@@ -512,8 +512,8 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %53 = zext i32 %49 to i64
   %54 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %53
   %55 = icmp ugt ptr %54, @__stop_orc_unwind
-  %56 = select i1 %52, i1 true, i1 %55, !prof !19
-  br i1 %56, label %57, label %62, !prof !19
+  %56 = select i1 %52, i1 true, i1 %55, !prof !21
+  br i1 %56, label %57, label %62, !prof !21
 
 57:                                               ; preds = %41
   %58 = load i1, ptr @orc_find.__already_done.31, align 1
@@ -559,7 +559,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %88 = select i1 %84, ptr %86, ptr %72
   %89 = select i1 %84, ptr %71, ptr %79
   %90 = icmp ugt ptr %87, %88
-  br i1 %90, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %90, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %65
   %91 = phi ptr [ %63, %65 ], [ %89, %.preheader ]
@@ -610,7 +610,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %127 = select i1 %123, ptr %125, ptr %111
   %128 = select i1 %123, ptr %110, ptr %118
   %129 = icmp ugt ptr %126, %127
-  br i1 %129, label %.loopexit72, label %.preheader71, !llvm.loop !11
+  br i1 %129, label %.loopexit72, label %.preheader71, !llvm.loop !23
 
 .loopexit72:                                      ; preds = %.preheader71, %104
   %130 = phi ptr [ @__start_orc_unwind_ip, %104 ], [ %128, %.preheader71 ]
@@ -671,7 +671,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %172 = select i1 %168, ptr %170, ptr %156
   %173 = select i1 %168, ptr %155, ptr %163
   %174 = icmp ugt ptr %171, %172
-  br i1 %174, label %.loopexit74, label %.preheader73, !llvm.loop !11
+  br i1 %174, label %.loopexit74, label %.preheader73, !llvm.loop !24
 
 .loopexit74:                                      ; preds = %.preheader73, %150
   %175 = phi ptr [ %145, %150 ], [ %173, %.preheader73 ]
@@ -752,7 +752,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 214:                                              ; preds = %211
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %216 = load i8, ptr %215, align 2, !range !17, !noundef !18
+  %216 = load i8, ptr %215, align 2, !range !19, !noundef !20
   %217 = icmp eq i8 %216, 0
   br i1 %217, label %218, label %222
 
@@ -771,14 +771,14 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 226:                                              ; preds = %211, %218
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %228 = load ptr, ptr %227, align 8
-  %229 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
+  %229 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !25
   %230 = inttoptr i64 %229 to ptr
   %231 = icmp eq ptr %228, %230
   br i1 %231, label %232, label %.thread70
 
 232:                                              ; preds = %226
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %234 = load i8, ptr %233, align 8, !range !17, !noundef !18
+  %234 = load i8, ptr %233, align 8, !range !19, !noundef !20
   %235 = icmp eq i8 %234, 0
   br i1 %235, label %236, label %.thread70
 
@@ -813,7 +813,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 250:                                              ; preds = %247
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %252 = load i8, ptr %251, align 2, !range !17, !noundef !18
+  %252 = load i8, ptr %251, align 2, !range !19, !noundef !20
   %253 = icmp eq i8 %252, 0
   br i1 %253, label %254, label %258
 
@@ -832,14 +832,14 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 262:                                              ; preds = %247, %254
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %264 = load ptr, ptr %263, align 8
-  %265 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
+  %265 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !25
   %266 = inttoptr i64 %265 to ptr
   %267 = icmp eq ptr %264, %266
   br i1 %267, label %268, label %.thread70
 
 268:                                              ; preds = %262
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %270 = load i8, ptr %269, align 8, !range !17, !noundef !18
+  %270 = load i8, ptr %269, align 8, !range !19, !noundef !20
   %271 = icmp eq i8 %270, 0
   br i1 %271, label %272, label %.thread70
 
@@ -874,7 +874,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 286:                                              ; preds = %283
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %288 = load i8, ptr %287, align 2, !range !17, !noundef !18
+  %288 = load i8, ptr %287, align 2, !range !19, !noundef !20
   %289 = icmp eq i8 %288, 0
   br i1 %289, label %290, label %294
 
@@ -893,14 +893,14 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 298:                                              ; preds = %283, %290
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %300 = load ptr, ptr %299, align 8
-  %301 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
+  %301 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !25
   %302 = inttoptr i64 %301 to ptr
   %303 = icmp eq ptr %300, %302
   br i1 %303, label %304, label %.thread70
 
 304:                                              ; preds = %298
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %306 = load i8, ptr %305, align 8, !range !17, !noundef !18
+  %306 = load i8, ptr %305, align 8, !range !19, !noundef !20
   %307 = icmp eq i8 %306, 0
   br i1 %307, label %308, label %.thread70
 
@@ -935,7 +935,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 322:                                              ; preds = %319
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %324 = load i8, ptr %323, align 2, !range !17, !noundef !18
+  %324 = load i8, ptr %323, align 2, !range !19, !noundef !20
   %325 = icmp eq i8 %324, 0
   br i1 %325, label %326, label %330
 
@@ -954,14 +954,14 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 334:                                              ; preds = %319, %326
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %336 = load ptr, ptr %335, align 8
-  %337 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
+  %337 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !25
   %338 = inttoptr i64 %337 to ptr
   %339 = icmp eq ptr %336, %338
   br i1 %339, label %340, label %.thread70
 
 340:                                              ; preds = %334
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %342 = load i8, ptr %341, align 8, !range !17, !noundef !18
+  %342 = load i8, ptr %341, align 8, !range !19, !noundef !20
   %343 = icmp eq i8 %342, 0
   br i1 %343, label %344, label %.thread70
 
@@ -1212,14 +1212,14 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 508:                                              ; preds = %497, %488, %482
   %509 = load ptr, ptr %483, align 8
-  %510 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
+  %510 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !25
   %511 = inttoptr i64 %510 to ptr
   %512 = icmp eq ptr %509, %511
   br i1 %512, label %513, label %.thread70
 
 513:                                              ; preds = %508
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %515 = load i8, ptr %514, align 8, !range !17, !noundef !18
+  %515 = load i8, ptr %514, align 8, !range !19, !noundef !20
   %516 = icmp eq i8 %515, 0
   br i1 %516, label %517, label %.thread70
 
@@ -1322,14 +1322,14 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 579:                                              ; preds = %569, %560, %554
   %580 = load ptr, ptr %555, align 8
-  %581 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
+  %581 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !25
   %582 = inttoptr i64 %581 to ptr
   %583 = icmp eq ptr %580, %582
   br i1 %583, label %584, label %.thread70
 
 584:                                              ; preds = %579
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %586 = load i8, ptr %585, align 8, !range !17, !noundef !18
+  %586 = load i8, ptr %585, align 8, !range !19, !noundef !20
   %587 = icmp eq i8 %586, 0
   br i1 %587, label %588, label %.thread70
 
@@ -1368,7 +1368,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %605 = phi i64 [ %603, %598 ], [ %575, %574 ]
   store i64 %605, ptr %2, align 8
   %606 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %607 = load i8, ptr %606, align 2, !range !17, !noundef !18
+  %607 = load i8, ptr %606, align 2, !range !19, !noundef !20
   %608 = icmp eq i8 %607, 0
   br i1 %608, label %612, label %609
 
@@ -1412,7 +1412,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 627:                                              ; preds = %625
   %628 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %629 = load i8, ptr %628, align 2, !range !17, !noundef !18
+  %629 = load i8, ptr %628, align 2, !range !19, !noundef !20
   %630 = icmp eq i8 %629, 0
   br i1 %630, label %631, label %635
 
@@ -1489,14 +1489,14 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 680:                                              ; preds = %673
   %681 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %682 = load ptr, ptr %681, align 8
-  %683 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
+  %683 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !25
   %684 = inttoptr i64 %683 to ptr
   %685 = icmp eq ptr %682, %684
   br i1 %685, label %686, label %.thread70
 
 686:                                              ; preds = %680
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %688 = load i8, ptr %687, align 8, !range !17, !noundef !18
+  %688 = load i8, ptr %687, align 8, !range !19, !noundef !20
   %689 = icmp eq i8 %688, 0
   br i1 %689, label %690, label %.thread70
 
@@ -1524,8 +1524,8 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   br label %.thread70
 
 700:                                              ; preds = %673, %663, %.critedge
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
-  %701 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !26
+  %701 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !27
   %702 = icmp ult i8 %701, 2
   tail call void @llvm.assume(i1 %702)
   %703 = icmp eq i8 %701, 0
@@ -1533,7 +1533,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 704:                                              ; preds = %700
   %705 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %706 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %705) #15, !srcloc !23
+  %706 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %705) #15, !srcloc !28
   tail call void @llvm.write_register.i64(metadata !0, i64 %706)
   br label %716
 
@@ -1543,8 +1543,8 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   br label %708
 
 708:                                              ; preds = %.thread70, %.thread57, %12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
-  %709 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !29
+  %709 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !27
   %710 = icmp ult i8 %709, 2
   tail call void @llvm.assume(i1 %710)
   %711 = icmp eq i8 %709, 0
@@ -1552,7 +1552,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 712:                                              ; preds = %708
   %713 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %714 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %713) #15, !srcloc !25
+  %714 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %713) #15, !srcloc !30
   tail call void @llvm.write_register.i64(metadata !0, i64 %714)
   br label %715
 
@@ -1617,7 +1617,7 @@ define internal fastcc void @unwind_dump(ptr noundef readonly captures(none) %0)
   %33 = getelementptr i8, ptr %28, i64 8
   %34 = load ptr, ptr %18, align 8
   %35 = icmp ult ptr %33, %34
-  br i1 %35, label %.preheader, label %.loopexit, !llvm.loop !26
+  br i1 %35, label %.preheader, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %25
   %36 = load ptr, ptr %19, align 8
@@ -1626,7 +1626,7 @@ define internal fastcc void @unwind_dump(ptr noundef readonly captures(none) %0)
   %39 = and i64 %38, -8
   %40 = inttoptr i64 %39 to ptr
   %41 = icmp eq i64 %39, 0
-  br i1 %41, label %.loopexit2, label %20, !llvm.loop !27
+  br i1 %41, label %.loopexit2, label %20, !llvm.loop !32
 
 .loopexit2:                                       ; preds = %.loopexit, %20, %5, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
@@ -1707,7 +1707,7 @@ define dso_local void @__unwind_start(ptr noundef initializes((0, 112)) %0, ptr 
   br i1 %6, label %7, label %105
 
 7:                                                ; preds = %4
-  %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
+  %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !25
   %9 = inttoptr i64 %8 to ptr
   %10 = icmp eq ptr %1, %9
   br i1 %10, label %15, label %11
@@ -1758,7 +1758,7 @@ define dso_local void @__unwind_start(ptr noundef initializes((0, 112)) %0, ptr 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %40 = tail call { i64, i64, i64 } asm sideeffect "lea (%rip), $0\0A\09mov %rsp, $1\0A\09mov %rbp, $2\0A\09", "=r,=r,=r,~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !28
+  %40 = tail call { i64, i64, i64 } asm sideeffect "lea (%rip), $0\0A\09mov %rsp, $1\0A\09mov %rbp, $2\0A\09", "=r,=r,=r,~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !33
   %41 = extractvalue { i64, i64, i64 } %40, 0
   %42 = extractvalue { i64, i64, i64 } %40, 1
   %43 = extractvalue { i64, i64, i64 } %40, 2
@@ -1854,7 +1854,7 @@ define dso_local void @__unwind_start(ptr noundef initializes((0, 112)) %0, ptr 
   %102 = tail call zeroext i1 @unwind_next_frame(ptr noundef %0)
   %103 = load i32, ptr %0, align 8
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %.loopexit, label %88, !llvm.loop !29
+  br i1 %104, label %.loopexit, label %88, !llvm.loop !34
 
 105:                                              ; preds = %11, %4
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1929,22 +1929,27 @@ attributes #17 = { nounwind memory(none) }
 !8 = !{i64 2154667576, i64 2154667605, i64 2154667651, i64 2154667709, i64 2154667763, i64 2154667817, i64 2154667872, i64 2154667903, i64 2154668211, i64 2154668217, i64 2154668264, i64 2154668287, i64 2154668313}
 !9 = !{i64 2154668774, i64 2154668585, i64 2154668635, i64 2154668681, i64 2154668709}
 !10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12, !13, !14}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{i64 2149666970}
-!16 = !{i64 2154687256}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = !{!"branch_weights", i32 1, i32 2000}
-!20 = !{i64 2148364332}
-!21 = !{i64 2154706123}
-!22 = !{i64 2149671326, i64 2149671419}
-!23 = !{i64 2154706305}
-!24 = !{i64 2154712090}
-!25 = !{i64 2154712272}
-!26 = distinct !{!26, !12, !13}
-!27 = distinct !{!27, !12, !13}
-!28 = !{i64 18615, i64 18633, i64 18661, i64 18689}
-!29 = distinct !{!29, !12, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !12, !13, !14}
+!16 = distinct !{!16, !12, !13, !14}
+!17 = !{i64 2149666970}
+!18 = !{i64 2154687256}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!"branch_weights", i32 1, i32 2000}
+!22 = distinct !{!22, !12, !13, !14}
+!23 = distinct !{!23, !12, !13, !14}
+!24 = distinct !{!24, !12, !13, !14}
+!25 = !{i64 2148364332}
+!26 = !{i64 2154706123}
+!27 = !{i64 2149671326, i64 2149671419}
+!28 = !{i64 2154706305}
+!29 = !{i64 2154712090}
+!30 = !{i64 2154712272}
+!31 = distinct !{!31, !12, !13, !14}
+!32 = distinct !{!32, !12, !13, !14}
+!33 = !{i64 18615, i64 18633, i64 18661, i64 18689}
+!34 = distinct !{!34, !12, !13, !14}

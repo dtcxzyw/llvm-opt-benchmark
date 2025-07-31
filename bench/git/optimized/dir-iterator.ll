@@ -188,7 +188,7 @@ is_dot_or_dotdot.exit.i.i:                        ; preds = %71
   store i32 0, ptr %61, align 4, !tbaa !32
   %76 = tail call ptr @readdir64(ptr noundef %63) #9
   %.not.i50.i = icmp eq ptr %76, null
-  br i1 %.not.i50.i, label %.critedge._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %.not.i50.i, label %.critedge._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !35
 
 77:                                               ; preds = %.critedge._crit_edge.i.i
   tail call void (ptr, ...) @warning_errno(ptr noundef nonnull @.str.4, ptr noundef %64) #9
@@ -321,7 +321,7 @@ is_dot_or_dotdot.exit.i:                          ; preds = %127
   store i32 0, ptr %120, align 4, !tbaa !32
   %132 = tail call ptr @readdir64(ptr noundef nonnull %117) #9
   %.not.i48 = icmp eq ptr %132, null
-  br i1 %.not.i48, label %.critedge._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i48, label %.critedge._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
 
 133:                                              ; preds = %.critedge._crit_edge.i
   tail call void (ptr, ...) @warning_errno(ptr noundef nonnull @.str.4, ptr noundef %119) #9
@@ -364,7 +364,7 @@ pop_level.exit:                                   ; preds = %136, %142, %144
   %152 = getelementptr i8, ptr %112, i64 -16
   %153 = load i64, ptr %152, align 8, !tbaa !33
   %154 = getelementptr i8, ptr %112, i64 -48
-  %155 = load i64, ptr %154, align 8, !tbaa !35
+  %155 = load i64, ptr %154, align 8, !tbaa !37
   %.not41 = icmp ult i64 %153, %155
   br i1 %.not41, label %171, label %156
 
@@ -400,11 +400,11 @@ pop_level.exit52:                                 ; preds = %156, %162, %164
 
 171:                                              ; preds = %151
   %172 = getelementptr i8, ptr %112, i64 -56
-  %173 = load ptr, ptr %172, align 8, !tbaa !36
+  %173 = load ptr, ptr %172, align 8, !tbaa !38
   %174 = add nuw i64 %153, 1
   store i64 %174, ptr %152, align 8, !tbaa !33
   %175 = getelementptr inbounds nuw %struct.string_list_item, ptr %173, i64 %153
-  %176 = load ptr, ptr %175, align 8, !tbaa !37
+  %176 = load ptr, ptr %175, align 8, !tbaa !39
   br label %178
 
 .loopexit:                                        ; preds = %is_dot_or_dotdot.exit.i, %127, %.lr.ph.i
@@ -420,13 +420,13 @@ pop_level.exit52:                                 ; preds = %156, %162, %164
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 56
   %183 = load i64, ptr %182, align 8, !tbaa !26
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 %183
-  store ptr %184, ptr %107, align 8, !tbaa !39
+  store ptr %184, ptr %107, align 8, !tbaa !41
   %185 = load i64, ptr %96, align 8, !tbaa !17
   %186 = getelementptr %struct.dir_iterator_level, ptr %181, i64 %185
   %187 = getelementptr i8, ptr %186, i64 -8
   %188 = load i64, ptr %187, align 8, !tbaa !26
   %189 = getelementptr inbounds nuw i8, ptr %180, i64 %188
-  store ptr %189, ptr %108, align 8, !tbaa !40
+  store ptr %189, ptr %108, align 8, !tbaa !42
   %190 = tail call i32 @lstat64(ptr noundef %180, ptr noundef nonnull %109) #9
   %191 = tail call ptr @__errno_location() #10
   %192 = load i32, ptr %191, align 4, !tbaa !32
@@ -543,7 +543,7 @@ strbuf_setlen.exit:                               ; preds = %23, %25
   %31 = add i64 %30, -1
   store i64 %31, ptr %2, align 8, !tbaa !17
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %28, %1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -714,11 +714,13 @@ attributes #11 = { nounwind willreturn memory(read) }
 !32 = !{!14, !14, i64 0}
 !33 = !{!27, !8, i64 48}
 !34 = !{!5, !14, i64 208}
-!35 = !{!27, !8, i64 16}
-!36 = !{!27, !30, i64 8}
-!37 = !{!38, !11, i64 0}
-!38 = !{!"string_list_item", !11, i64 0, !12, i64 8}
-!39 = !{!5, !11, i64 24}
-!40 = !{!5, !11, i64 32}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.mustprogress"}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!27, !8, i64 16}
+!38 = !{!27, !30, i64 8}
+!39 = !{!40, !11, i64 0}
+!40 = !{!"string_list_item", !11, i64 0, !12, i64 8}
+!41 = !{!5, !11, i64 24}
+!42 = !{!5, !11, i64 32}
+!43 = distinct !{!43, !44, !36}
+!44 = !{!"llvm.loop.mustprogress"}

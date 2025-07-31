@@ -448,7 +448,7 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
 179:                                              ; preds = %175
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %lookup_tree.exit.thread, label %175
+  br i1 %exitcond.not.i, label %lookup_tree.exit.thread, label %175, !llvm.loop !24
 
 lookup_tree.exit:                                 ; preds = %175
   %180 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -546,13 +546,13 @@ lookup_tree.exit.thread:                          ; preds = %179
 230:                                              ; preds = %.thread455, %1
   %.1 = phi i32 [ %.7, %.thread455 ], [ -1, %1 ]
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %232 = load i32, ptr %231, align 8, !tbaa !24
+  %232 = load i32, ptr %231, align 8, !tbaa !26
   %.not439 = icmp eq i32 %232, 0
   br i1 %.not439, label %514, label %233
 
 233:                                              ; preds = %230
   %234 = add i32 %232, -1
-  store i32 %234, ptr %231, align 8, !tbaa !24
+  store i32 %234, ptr %231, align 8, !tbaa !26
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %236 = load i32, ptr %235, align 8, !tbaa !17
   %237 = trunc i32 %236 to i8
@@ -566,14 +566,14 @@ lookup_tree.exit.thread:                          ; preds = %179
   %245 = getelementptr inbounds nuw [8192 x i8], ptr %238, i64 0, i64 %244
   store i8 %237, ptr %245, align 1, !tbaa !20
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %247 = load ptr, ptr %246, align 8, !tbaa !25
+  %247 = load ptr, ptr %246, align 8, !tbaa !27
   store i8 %237, ptr %247, align 1, !tbaa !20
   %248 = load i32, ptr %239, align 4, !tbaa !3
   %249 = add i32 %248, 1
   store i32 %249, ptr %239, align 4, !tbaa !3
-  %250 = load ptr, ptr %246, align 8, !tbaa !25
+  %250 = load ptr, ptr %246, align 8, !tbaa !27
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
-  store ptr %251, ptr %246, align 8, !tbaa !25
+  store ptr %251, ptr %246, align 8, !tbaa !27
   br label %.sink.split
 
 252:                                              ; preds = %123
@@ -658,7 +658,7 @@ lookup_tree.exit.thread:                          ; preds = %179
   store i8 %301, ptr %255, align 4, !tbaa !11
   %302 = trunc i32 %.3365 to i16
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 1580
-  store i16 %302, ptr %303, align 4, !tbaa !26
+  store i16 %302, ptr %303, align 4, !tbaa !28
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 1582
   store i16 0, ptr %304, align 2, !tbaa !22
   store i32 7, ptr %2, align 8, !tbaa !14
@@ -754,7 +754,7 @@ lookup_tree.exit.thread:                          ; preds = %179
 354:                                              ; preds = %350
   %indvars.iv.next.i441 = add nuw nsw i64 %indvars.iv.i440, 1
   %exitcond.not.i442 = icmp eq i64 %indvars.iv.next.i441, 64
-  br i1 %exitcond.not.i442, label %lookup_tree.exit445.thread, label %350
+  br i1 %exitcond.not.i442, label %lookup_tree.exit445.thread, label %350, !llvm.loop !24
 
 lookup_tree.exit445:                              ; preds = %350
   %355 = trunc nuw nsw i64 %indvars.iv.i440 to i32
@@ -778,11 +778,11 @@ lookup_tree.exit445.thread:                       ; preds = %354
   %363 = add nuw nsw i32 %362, 6
   %364 = shl i32 %.10462, %363
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 1580
-  %366 = load i16, ptr %365, align 4, !tbaa !26
+  %366 = load i16, ptr %365, align 4, !tbaa !28
   %367 = trunc i32 %364 to i16
   %368 = or i16 %366, %367
   %369 = add i16 %368, 1
-  store i16 %369, ptr %365, align 4, !tbaa !26
+  store i16 %369, ptr %365, align 4, !tbaa !28
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 1582
   store i16 0, ptr %370, align 2, !tbaa !22
   store i32 8, ptr %2, align 8, !tbaa !14
@@ -878,7 +878,7 @@ lookup_tree.exit445.thread:                       ; preds = %354
 420:                                              ; preds = %416
   %indvars.iv.next.i447 = add nuw nsw i64 %indvars.iv.i446, 1
   %exitcond.not.i448 = icmp eq i64 %indvars.iv.next.i447, 64
-  br i1 %exitcond.not.i448, label %lookup_tree.exit451.thread, label %416
+  br i1 %exitcond.not.i448, label %lookup_tree.exit451.thread, label %416, !llvm.loop !24
 
 lookup_tree.exit451:                              ; preds = %416
   %421 = trunc nuw nsw i64 %indvars.iv.i446 to i32
@@ -994,17 +994,17 @@ lookup_tree.exit451.thread:                       ; preds = %420
 481:                                              ; preds = %477, %1
   %.3 = phi i32 [ %.14, %477 ], [ -1, %1 ]
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %483 = load i32, ptr %482, align 8, !tbaa !24
+  %483 = load i32, ptr %482, align 8, !tbaa !26
   %.not429 = icmp eq i32 %483, 0
   br i1 %.not429, label %514, label %484
 
 484:                                              ; preds = %481
   %485 = add i32 %483, -1
-  store i32 %485, ptr %482, align 8, !tbaa !24
+  store i32 %485, ptr %482, align 8, !tbaa !26
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %487 = load i32, ptr %486, align 4, !tbaa !3
   %488 = getelementptr inbounds nuw i8, ptr %0, i64 1580
-  %489 = load i16, ptr %488, align 4, !tbaa !26
+  %489 = load i16, ptr %488, align 4, !tbaa !28
   %490 = zext i16 %489 to i32
   %.not430 = icmp ult i32 %487, %490
   %491 = getelementptr inbounds nuw i8, ptr %0, i64 1584
@@ -1033,15 +1033,15 @@ lookup_tree.exit451.thread:                       ; preds = %420
   %506 = getelementptr inbounds nuw [8192 x i8], ptr %491, i64 0, i64 %505
   store i8 %.sink520, ptr %506, align 1, !tbaa !20
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %508 = load ptr, ptr %507, align 8, !tbaa !25
+  %508 = load ptr, ptr %507, align 8, !tbaa !27
   store i8 %.sink520, ptr %508, align 1, !tbaa !20
   %509 = load i32, ptr %486, align 4, !tbaa !3
   %510 = add i32 %509, 1
   store i32 %510, ptr %486, align 4, !tbaa !3
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %512 = load ptr, ptr %511, align 8, !tbaa !25
+  %512 = load ptr, ptr %511, align 8, !tbaa !27
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 1
-  store ptr %513, ptr %511, align 8, !tbaa !25
+  store ptr %513, ptr %511, align 8, !tbaa !27
   %.phi.trans.insert502 = getelementptr inbounds nuw i8, ptr %0, i64 1582
   %.pre503 = load i16, ptr %.phi.trans.insert502, align 2, !tbaa !22
   br label %477
@@ -1075,7 +1075,7 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr noundef readonly cap
   store i8 %9, ptr %10, align 1, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.preheader, label %8
+  br i1 %exitcond.not, label %.preheader.preheader, label %8, !llvm.loop !29
 
 .preheader.preheader:                             ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1585
@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr noundef readonly cap
   %scevgep81 = getelementptr i8, ptr %scevgep, i64 %20
   %23 = add i8 %.044, -1
   %.not52 = icmp eq i8 %.044, 0
-  br i1 %.not52, label %24, label %.preheader
+  br i1 %.not52, label %24, label %.preheader, !llvm.loop !30
 
 24:                                               ; preds = %15
   %.not53 = icmp eq i32 %22, 0
@@ -1159,15 +1159,15 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr noundef readonly cap
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !20
   %43 = icmp ugt i8 %30, %42
-  br i1 %43, label %.thread.i, label %.lr.ph.i._crit_edge.thread
+  br i1 %43, label %.thread.i, label %.lr.ph.i._crit_edge.thread, !llvm.loop !31
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.outer.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.outer.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.outer.i, !llvm.loop !31
 
 .lr.ph.i._crit_edge.thread:                       ; preds = %.lr.ph.i
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i87, label %._crit_edge.thread66.i, label %.lr.ph.outer.i.outer
+  br i1 %exitcond.not.i87, label %._crit_edge.thread66.i, label %.lr.ph.outer.i.outer, !llvm.loop !31
 
 .thread.i:                                        ; preds = %.thread.i.preheader, %.lr.ph.i
   %44 = phi i8 [ %39, %.lr.ph.i ], [ %32, %.thread.i.preheader ]
@@ -1178,7 +1178,7 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr noundef readonly cap
   store i8 %44, ptr %46, align 1, !tbaa !20
   store i8 %.ph.i, ptr %45, align 1, !tbaa !20
   %exitcond.not64.i = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i
-  br i1 %exitcond.not64.i, label %._crit_edge.thread66.i, label %.lr.ph.i
+  br i1 %exitcond.not64.i, label %._crit_edge.thread66.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i._crit_edge
   br i1 %27, label %._crit_edge.thread66.i, label %bs.exit
@@ -1220,13 +1220,13 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr noundef readonly cap
   %indvars.i = trunc i64 %indvars.iv.next59.i to i32
   %65 = icmp ult i32 %.043.i71, %indvars.i
   %66 = trunc nuw i64 %indvars.iv58.i to i32
-  br i1 %65, label %.lr.ph54.i, label %._crit_edge55.i
+  br i1 %65, label %.lr.ph54.i, label %._crit_edge55.i, !llvm.loop !32
 
 ._crit_edge55.i:                                  ; preds = %64, %._crit_edge.thread66.i
   %.246.in.lcssa.i = phi i32 [ %.0.i72, %._crit_edge.thread66.i ], [ %66, %64 ]
   %67 = add i32 %.043.i71, 1
   %68 = icmp ult i32 %.246.in.lcssa.i, %47
-  br i1 %68, label %.lr.ph.preheader.i, label %bs.exit
+  br i1 %68, label %.lr.ph.preheader.i, label %bs.exit, !llvm.loop !33
 
 bs.exit:                                          ; preds = %._crit_edge.i, %._crit_edge55.i
   %69 = zext nneg i32 %25 to i64
@@ -1258,7 +1258,7 @@ bs.exit:                                          ; preds = %._crit_edge.i, %._c
   store i32 %85, ptr %86, align 4, !tbaa !23
   %.not55 = icmp eq i64 %indvars.iv82, 0
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, -1
-  br i1 %.not55, label %.critedge, label %70
+  br i1 %.not55, label %.critedge, label %70, !llvm.loop !34
 
 .critedge:                                        ; preds = %.preheader, %70, %24
   %.2 = phi i32 [ 1, %24 ], [ 0, %70 ], [ 1, %.preheader ]
@@ -1313,6 +1313,14 @@ attributes #7 = { nounwind }
 !21 = !{!4, !9, i64 1568}
 !22 = !{!4, !10, i64 1582}
 !23 = !{!9, !9, i64 0}
-!24 = !{!4, !9, i64 1576}
-!25 = !{!4, !5, i64 8}
-!26 = !{!4, !10, i64 1580}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!4, !9, i64 1576}
+!27 = !{!4, !5, i64 8}
+!28 = !{!4, !10, i64 1580}
+!29 = distinct !{!29, !25}
+!30 = distinct !{!30, !25}
+!31 = distinct !{!31, !25}
+!32 = distinct !{!32, !25}
+!33 = distinct !{!33, !25}
+!34 = distinct !{!34, !25}

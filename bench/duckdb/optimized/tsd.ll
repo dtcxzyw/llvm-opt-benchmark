@@ -198,7 +198,7 @@ atomic_exchange_u8.exit:                          ; preds = %4, %6, %9, %tsd_loc
   %.0.i5 = phi i8 [ 1, %tsd_local_slow.exit.i ], [ 1, %6 ], [ %spec.select.i, %14 ], [ %.val.i, %4 ], [ 1, %9 ]
   %16 = atomicrmw xchg ptr %2, i8 %.0.i5 acquire, align 1
   %17 = icmp eq i8 %16, 2
-  br i1 %17, label %4, label %18
+  br i1 %17, label %4, label %18, !llvm.loop !47
 
 18:                                               ; preds = %atomic_exchange_u8.exit
   tail call void @duckdb_je_te_recompute_fast_threshold(ptr noundef nonnull %0) #7
@@ -224,7 +224,7 @@ atomic_store_u8.exit:                             ; preds = %atomic_load_u8.exit
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %0, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %0, ptr %8, align 8, !tbaa !47
+  store ptr %0, ptr %8, align 8, !tbaa !49
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %11, label %10
@@ -256,13 +256,13 @@ malloc_mutex_lock.exit.i:                         ; preds = %15, %11
 
 20:                                               ; preds = %malloc_mutex_lock.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 208
-  %22 = load ptr, ptr %21, align 8, !tbaa !47
-  %23 = load ptr, ptr %8, align 8, !tbaa !47
+  %22 = load ptr, ptr %21, align 8, !tbaa !49
+  %23 = load ptr, ptr %8, align 8, !tbaa !49
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 200
   store ptr %22, ptr %24, align 8, !tbaa !19
-  store ptr %23, ptr %21, align 8, !tbaa !47
-  store ptr %22, ptr %8, align 8, !tbaa !47
-  %25 = load ptr, ptr %21, align 8, !tbaa !47
+  store ptr %23, ptr %21, align 8, !tbaa !49
+  store ptr %22, ptr %8, align 8, !tbaa !49
+  %25 = load ptr, ptr %21, align 8, !tbaa !49
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 200
   store ptr %18, ptr %26, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 200
@@ -321,16 +321,16 @@ malloc_mutex_lock.exit.i17:                       ; preds = %39, %35
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %49 = load ptr, ptr %48, align 8, !tbaa !19
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 208
-  %51 = load ptr, ptr %50, align 8, !tbaa !47
+  %51 = load ptr, ptr %50, align 8, !tbaa !49
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %53 = load ptr, ptr %52, align 8, !tbaa !47
+  %53 = load ptr, ptr %52, align 8, !tbaa !49
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 200
   store ptr %51, ptr %54, align 8, !tbaa !19
   %55 = load ptr, ptr %48, align 8, !tbaa !19
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 208
-  store ptr %53, ptr %56, align 8, !tbaa !47
-  store ptr %51, ptr %52, align 8, !tbaa !47
-  %57 = load ptr, ptr %56, align 8, !tbaa !47
+  store ptr %53, ptr %56, align 8, !tbaa !49
+  store ptr %51, ptr %52, align 8, !tbaa !49
+  %57 = load ptr, ptr %56, align 8, !tbaa !49
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 200
   store ptr %55, ptr %58, align 8, !tbaa !19
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 200
@@ -381,7 +381,7 @@ atomic_exchange_u8.exit.i:                        ; preds = %74, %tsd_local_slow
   %.0.i5.i = phi i8 [ 1, %tsd_local_slow.exit.i.i ], [ 1, %66 ], [ %spec.select.i.i, %74 ], [ %.val.i.i, %64 ], [ 1, %69 ]
   %76 = atomicrmw xchg ptr %2, i8 %.0.i5.i acquire, align 1
   %77 = icmp eq i8 %76, 2
-  br i1 %77, label %64, label %duckdb_je_tsd_slow_update.exit
+  br i1 %77, label %64, label %duckdb_je_tsd_slow_update.exit, !llvm.loop !47
 
 duckdb_je_tsd_slow_update.exit:                   ; preds = %atomic_exchange_u8.exit.i
   tail call void @duckdb_je_te_recompute_fast_threshold(ptr noundef nonnull %0) #7
@@ -441,7 +441,7 @@ atomic_exchange_u8.exit.i:                        ; preds = %17, %tsd_local_slow
   %.0.i5.i = phi i8 [ 1, %tsd_local_slow.exit.i.i ], [ 1, %9 ], [ %spec.select.i.i, %17 ], [ %.val.i.i, %7 ], [ 1, %12 ]
   %19 = atomicrmw xchg ptr %3, i8 %.0.i5.i acquire, align 1
   %20 = icmp eq i8 %19, 2
-  br i1 %20, label %thread-pre-split, label %duckdb_je_tsd_slow_update.exit
+  br i1 %20, label %thread-pre-split, label %duckdb_je_tsd_slow_update.exit, !llvm.loop !47
 
 duckdb_je_tsd_slow_update.exit:                   ; preds = %atomic_exchange_u8.exit.i
   tail call void @duckdb_je_te_recompute_fast_threshold(ptr noundef nonnull %0) #7
@@ -490,20 +490,20 @@ atomic_exchange_u8.exit.i34:                      ; preds = %37, %tsd_local_slow
   %.0.i5.i35 = phi i8 [ 1, %tsd_local_slow.exit.i.i36 ], [ 1, %29 ], [ %spec.select.i.i38, %37 ], [ %.val.i.i33, %27 ], [ 1, %32 ]
   %39 = atomicrmw xchg ptr %3, i8 %.0.i5.i35 acquire, align 1
   %40 = icmp eq i8 %39, 2
-  br i1 %40, label %27, label %duckdb_je_tsd_slow_update.exit39
+  br i1 %40, label %27, label %duckdb_je_tsd_slow_update.exit39, !llvm.loop !47
 
 duckdb_je_tsd_slow_update.exit39:                 ; preds = %atomic_exchange_u8.exit.i34
   tail call void @duckdb_je_te_recompute_fast_threshold(ptr noundef nonnull %0) #7
   %41 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
   %.not.i = icmp eq ptr %41, %0
-  br i1 %.not.i, label %43, label %42, !prof !48
+  br i1 %.not.i, label %43, label %42, !prof !50
 
 42:                                               ; preds = %duckdb_je_tsd_slow_update.exit39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %41, ptr noundef nonnull align 8 dereferenceable(2640) %0, i64 2640, i1 false), !tbaa.struct !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %41, ptr noundef nonnull align 8 dereferenceable(2640) %0, i64 2640, i1 false), !tbaa.struct !51
   br label %43
 
 43:                                               ; preds = %42, %duckdb_je_tsd_slow_update.exit39
-  %44 = load i32, ptr @duckdb_je_tsd_tsd, align 4, !tbaa !52
+  %44 = load i32, ptr @duckdb_je_tsd_tsd, align 4, !tbaa !54
   %45 = tail call i32 @pthread_setspecific(i32 noundef %44, ptr noundef nonnull %41) #7
   %.not3.i = icmp eq i32 %45, 0
   br i1 %.not3.i, label %tsd_set.exit, label %46
@@ -533,14 +533,14 @@ tsd_set.exit:                                     ; preds = %43, %46
   tail call void @duckdb_je_tsd_state_set(ptr noundef nonnull %0, i8 noundef zeroext 3)
   %55 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
   %.not.i27 = icmp eq ptr %55, %0
-  br i1 %.not.i27, label %57, label %56, !prof !48
+  br i1 %.not.i27, label %57, label %56, !prof !50
 
 56:                                               ; preds = %54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %55, ptr noundef nonnull align 8 dereferenceable(2640) %0, i64 2640, i1 false), !tbaa.struct !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %55, ptr noundef nonnull align 8 dereferenceable(2640) %0, i64 2640, i1 false), !tbaa.struct !51
   br label %57
 
 57:                                               ; preds = %56, %54
-  %58 = load i32, ptr @duckdb_je_tsd_tsd, align 4, !tbaa !52
+  %58 = load i32, ptr @duckdb_je_tsd_tsd, align 4, !tbaa !54
   %59 = tail call i32 @pthread_setspecific(i32 noundef %58, ptr noundef nonnull %55) #7
   %.not3.i28 = icmp eq i32 %59, 0
   br i1 %.not3.i28, label %tsd_set.exit29, label %60
@@ -617,7 +617,7 @@ atomic_exchange_u8.exit.i41:                      ; preds = %88, %tsd_local_slow
   %.0.i5.i42 = phi i8 [ 1, %tsd_local_slow.exit.i.i43 ], [ 1, %80 ], [ %spec.select.i.i45, %88 ], [ %.val.i.i40, %78 ], [ 1, %83 ]
   %90 = atomicrmw xchg ptr %3, i8 %.0.i5.i42 acquire, align 1
   %91 = icmp eq i8 %90, 2
-  br i1 %91, label %78, label %duckdb_je_tsd_slow_update.exit46
+  br i1 %91, label %78, label %duckdb_je_tsd_slow_update.exit46, !llvm.loop !47
 
 duckdb_je_tsd_slow_update.exit46:                 ; preds = %atomic_exchange_u8.exit.i41
   tail call void @duckdb_je_te_recompute_fast_threshold(ptr noundef nonnull %0) #7
@@ -635,14 +635,14 @@ duckdb_je_tsd_slow_update.exit46:                 ; preds = %atomic_exchange_u8.
   tail call void @duckdb_je_tsd_state_set(ptr noundef nonnull %0, i8 noundef zeroext 5)
   %97 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
   %.not.i30 = icmp eq ptr %97, %0
-  br i1 %.not.i30, label %99, label %98, !prof !48
+  br i1 %.not.i30, label %99, label %98, !prof !50
 
 98:                                               ; preds = %96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %97, ptr noundef nonnull align 8 dereferenceable(2640) %0, i64 2640, i1 false), !tbaa.struct !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %97, ptr noundef nonnull align 8 dereferenceable(2640) %0, i64 2640, i1 false), !tbaa.struct !51
   br label %99
 
 99:                                               ; preds = %98, %96
-  %100 = load i32, ptr @duckdb_je_tsd_tsd, align 4, !tbaa !52
+  %100 = load i32, ptr @duckdb_je_tsd_tsd, align 4, !tbaa !54
   %101 = tail call i32 @pthread_setspecific(i32 noundef %100, ptr noundef nonnull %97) #7
   %.not3.i31 = icmp eq i32 %101, 0
   br i1 %.not3.i31, label %tsd_set.exit32, label %102
@@ -717,14 +717,14 @@ define void @duckdb_je_tsd_cleanup(ptr noundef %0) #0 {
   tail call void @duckdb_je_tsd_state_set(ptr noundef nonnull %0, i8 noundef zeroext 4)
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
   %.not.i = icmp eq ptr %7, %0
-  br i1 %.not.i, label %9, label %8, !prof !48
+  br i1 %.not.i, label %9, label %8, !prof !50
 
 8:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %7, ptr noundef nonnull align 8 dereferenceable(2640) %0, i64 2640, i1 false), !tbaa.struct !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %7, ptr noundef nonnull align 8 dereferenceable(2640) %0, i64 2640, i1 false), !tbaa.struct !51
   br label %9
 
 9:                                                ; preds = %8, %4
-  %10 = load i32, ptr @duckdb_je_tsd_tsd, align 4, !tbaa !52
+  %10 = load i32, ptr @duckdb_je_tsd_tsd, align 4, !tbaa !54
   %11 = tail call i32 @pthread_setspecific(i32 noundef %10, ptr noundef nonnull %7) #7
   %.not3.i = icmp eq i32 %11, 0
   br i1 %.not3.i, label %tsd_set.exit, label %12
@@ -762,7 +762,7 @@ define ptr @duckdb_je_malloc_tsd_boot0() local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 824
   %7 = load i8, ptr %6, align 8, !tbaa !43
   %.not.i2 = icmp eq i8 %7, 0
-  br i1 %.not.i2, label %tsd_fetch_impl.exit, label %8, !prof !60
+  br i1 %.not.i2, label %tsd_fetch_impl.exit, label %8, !prof !62
 
 8:                                                ; preds = %4
   %9 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %5, i1 noundef zeroext false)
@@ -781,7 +781,7 @@ define void @duckdb_je_malloc_tsd_boot1() local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %1, i64 824
   %3 = load i8, ptr %2, align 8, !tbaa !43
   %.not.i = icmp eq i8 %3, 0
-  br i1 %.not.i, label %tsd_fetch_impl.exit, label %4, !prof !60
+  br i1 %.not.i, label %tsd_fetch_impl.exit, label %4, !prof !62
 
 4:                                                ; preds = %0
   %5 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false)
@@ -818,7 +818,7 @@ atomic_exchange_u8.exit.i:                        ; preds = %16, %9, %7
   %.0.i5.i = phi i8 [ 1, %9 ], [ %spec.select.i.i, %16 ], [ %.val.i.i, %7 ]
   %18 = atomicrmw xchg ptr %2, i8 %.0.i5.i acquire, align 1
   %19 = icmp eq i8 %18, 2
-  br i1 %19, label %7, label %duckdb_je_tsd_slow_update.exit
+  br i1 %19, label %7, label %duckdb_je_tsd_slow_update.exit, !llvm.loop !47
 
 duckdb_je_tsd_slow_update.exit:                   ; preds = %atomic_exchange_u8.exit.i
   tail call void @duckdb_je_te_recompute_fast_threshold(ptr noundef nonnull %1) #7
@@ -854,7 +854,7 @@ define void @duckdb_je_tsd_postfork_child(ptr noundef %0) local_unnamed_addr #0 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %0, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %0, ptr %7, align 8, !tbaa !47
+  store ptr %0, ptr %7, align 8, !tbaa !49
   %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %10, label %9
@@ -886,13 +886,13 @@ malloc_mutex_lock.exit.i:                         ; preds = %14, %10
 
 19:                                               ; preds = %malloc_mutex_lock.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 208
-  %21 = load ptr, ptr %20, align 8, !tbaa !47
-  %22 = load ptr, ptr %7, align 8, !tbaa !47
+  %21 = load ptr, ptr %20, align 8, !tbaa !49
+  %22 = load ptr, ptr %7, align 8, !tbaa !49
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 200
   store ptr %21, ptr %23, align 8, !tbaa !19
-  store ptr %22, ptr %20, align 8, !tbaa !47
-  store ptr %21, ptr %7, align 8, !tbaa !47
-  %24 = load ptr, ptr %20, align 8, !tbaa !47
+  store ptr %22, ptr %20, align 8, !tbaa !49
+  store ptr %21, ptr %7, align 8, !tbaa !49
+  %24 = load ptr, ptr %20, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 200
   store ptr %17, ptr %25, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 200
@@ -1014,17 +1014,19 @@ attributes #8 = { noreturn nounwind }
 !44 = !{!21, !21, i64 0}
 !45 = !{i8 0, i8 2}
 !46 = !{}
-!47 = !{!20, !17, i64 208}
-!48 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!49 = !{i64 0, i64 1, !44, i64 1, i64 1, !43, i64 2, i64 1, !43, i64 8, i64 8, !18, i64 16, i64 8, !18, i64 24, i64 8, !18, i64 32, i64 8, !18, i64 40, i64 8, !18, i64 48, i64 8, !18, i64 56, i64 8, !18, i64 64, i64 8, !18, i64 72, i64 8, !18, i64 80, i64 8, !18, i64 88, i64 8, !18, i64 96, i64 8, !18, i64 104, i64 8, !50, i64 112, i64 8, !18, i64 120, i64 8, !18, i64 128, i64 8, !18, i64 136, i64 8, !51, i64 144, i64 8, !51, i64 152, i64 4, !52, i64 156, i64 4, !52, i64 160, i64 1, !43, i64 161, i64 36, !43, i64 200, i64 8, !53, i64 208, i64 8, !53, i64 216, i64 1, !44, i64 224, i64 8, !18, i64 232, i64 8, !18, i64 240, i64 8, !54, i64 248, i64 8, !54, i64 256, i64 8, !55, i64 264, i64 8, !55, i64 272, i64 8, !56, i64 280, i64 8, !56, i64 288, i64 8, !57, i64 296, i64 8, !51, i64 304, i64 4, !52, i64 308, i64 4, !52, i64 312, i64 36, !43, i64 348, i64 36, !43, i64 384, i64 36, !43, i64 424, i64 8, !54, i64 432, i64 8, !58, i64 440, i64 256, !43, i64 696, i64 128, !43, i64 824, i64 1, !43, i64 832, i64 8, !18, i64 840, i64 8, !18, i64 848, i64 8, !18, i64 856, i64 8, !18, i64 864, i64 8, !55, i64 872, i64 1752, !43, i64 2624, i64 8, !59, i64 2632, i64 1, !44}
-!50 = !{!22, !22, i64 0}
-!51 = !{!23, !23, i64 0}
-!52 = !{!9, !9, i64 0}
-!53 = !{!17, !17, i64 0}
-!54 = !{!12, !12, i64 0}
-!55 = !{!31, !31, i64 0}
-!56 = !{!34, !34, i64 0}
-!57 = !{!35, !35, i64 0}
-!58 = !{!36, !36, i64 0}
-!59 = !{!42, !42, i64 0}
-!60 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!20, !17, i64 208}
+!50 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!51 = !{i64 0, i64 1, !44, i64 1, i64 1, !43, i64 2, i64 1, !43, i64 8, i64 8, !18, i64 16, i64 8, !18, i64 24, i64 8, !18, i64 32, i64 8, !18, i64 40, i64 8, !18, i64 48, i64 8, !18, i64 56, i64 8, !18, i64 64, i64 8, !18, i64 72, i64 8, !18, i64 80, i64 8, !18, i64 88, i64 8, !18, i64 96, i64 8, !18, i64 104, i64 8, !52, i64 112, i64 8, !18, i64 120, i64 8, !18, i64 128, i64 8, !18, i64 136, i64 8, !53, i64 144, i64 8, !53, i64 152, i64 4, !54, i64 156, i64 4, !54, i64 160, i64 1, !43, i64 161, i64 36, !43, i64 200, i64 8, !55, i64 208, i64 8, !55, i64 216, i64 1, !44, i64 224, i64 8, !18, i64 232, i64 8, !18, i64 240, i64 8, !56, i64 248, i64 8, !56, i64 256, i64 8, !57, i64 264, i64 8, !57, i64 272, i64 8, !58, i64 280, i64 8, !58, i64 288, i64 8, !59, i64 296, i64 8, !53, i64 304, i64 4, !54, i64 308, i64 4, !54, i64 312, i64 36, !43, i64 348, i64 36, !43, i64 384, i64 36, !43, i64 424, i64 8, !56, i64 432, i64 8, !60, i64 440, i64 256, !43, i64 696, i64 128, !43, i64 824, i64 1, !43, i64 832, i64 8, !18, i64 840, i64 8, !18, i64 848, i64 8, !18, i64 856, i64 8, !18, i64 864, i64 8, !57, i64 872, i64 1752, !43, i64 2624, i64 8, !61, i64 2632, i64 1, !44}
+!52 = !{!22, !22, i64 0}
+!53 = !{!23, !23, i64 0}
+!54 = !{!9, !9, i64 0}
+!55 = !{!17, !17, i64 0}
+!56 = !{!12, !12, i64 0}
+!57 = !{!31, !31, i64 0}
+!58 = !{!34, !34, i64 0}
+!59 = !{!35, !35, i64 0}
+!60 = !{!36, !36, i64 0}
+!61 = !{!42, !42, i64 0}
+!62 = !{!"branch_weights", !"expected", i32 2000, i32 1}

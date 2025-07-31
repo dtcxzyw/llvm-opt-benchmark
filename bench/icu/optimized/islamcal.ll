@@ -253,7 +253,7 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit28:        ; preds = %.preheader
   %44 = fadd double %42, -3.600000e+02
   %.0.i27 = select i1 %43, double %44, double %42
   %45 = fcmp olt double %.0.i27, 0.000000e+00
-  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit26, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit28
   %.1 = phi double [ %37, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit28 ], [ %28, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit26 ]
@@ -438,7 +438,7 @@ define noundef i32 @_ZN6icu_7715IslamicCalendar21handleGetExtendedYearER10UError
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  %7 = load i8, ptr %6, align 1, !tbaa !16
+  %7 = load i8, ptr %6, align 1, !tbaa !17
   %8 = icmp sgt i8 %7, 0
   br i1 %8, label %9, label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
 
@@ -449,7 +449,7 @@ define noundef i32 @_ZN6icu_7715IslamicCalendar21handleGetExtendedYearER10UError
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %14 = load i8, ptr %13, align 1, !tbaa !16
+  %14 = load i8, ptr %13, align 1, !tbaa !17
   %15 = icmp sgt i8 %14, 0
   br i1 %15, label %16, label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
 
@@ -487,7 +487,7 @@ define void @_ZN6icu_7715IslamicCalendar19handleComputeFieldsEiR10UErrorCode(ptr
   %19 = fmul double %14, %18
   %20 = tail call double @uprv_floor_77(double noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %22 = load double, ptr %21, align 8, !tbaa !17
+  %22 = load double, ptr %21, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
   call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %4, double noundef %22)
   %23 = invoke noundef double @_ZN6icu_7718CalendarAstronomer10getMoonAgeEv(ptr noundef nonnull align 8 dereferenceable(57) %4)
@@ -530,7 +530,7 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %7
   %41 = add nsw i32 %.152, -1
   %42 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114trueMonthStartEiR10UErrorCode(i32 noundef %41, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %43 = icmp sgt i32 %42, %12
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %40, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit
   %.1.lcssa = phi i32 [ %spec.select, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit ], [ %41, %40 ]
@@ -601,35 +601,35 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %7
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %81, align 8, !tbaa !6
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 1, ptr %82, align 8, !tbaa !16
+  store i8 1, ptr %82, align 8, !tbaa !17
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %54, ptr %83, align 4, !tbaa !6
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  store i8 1, ptr %84, align 1, !tbaa !16
+  store i8 1, ptr %84, align 1, !tbaa !17
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %54, ptr %85, align 4, !tbaa !6
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  store i8 1, ptr %86, align 1, !tbaa !16
+  store i8 1, ptr %86, align 1, !tbaa !17
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %57, ptr %87, align 8, !tbaa !6
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 106
-  store i8 1, ptr %88, align 2, !tbaa !16
+  store i8 1, ptr %88, align 2, !tbaa !17
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %57, ptr %89, align 4, !tbaa !6
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 127
-  store i8 1, ptr %90, align 1, !tbaa !16
+  store i8 1, ptr %90, align 1, !tbaa !17
   %91 = trunc i64 %63 to i32
   %92 = add i32 %91, 1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %92, ptr %93, align 4, !tbaa !6
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 109
-  store i8 1, ptr %94, align 1, !tbaa !16
+  store i8 1, ptr %94, align 1, !tbaa !17
   %95 = trunc i64 %74 to i32
   %96 = add i32 %95, 1
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %96, ptr %97, align 8, !tbaa !6
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 110
-  store i8 1, ptr %98, align 2, !tbaa !16
+  store i8 1, ptr %98, align 2, !tbaa !17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %79, %80, %69, %53, %68, %3
@@ -1049,35 +1049,35 @@ define void @_ZN6icu_7720IslamicCivilCalendar19handleComputeFieldsEiR10UErrorCod
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %54, align 8, !tbaa !6
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 1, ptr %55, align 8, !tbaa !16
+  store i8 1, ptr %55, align 8, !tbaa !17
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %18, ptr %56, align 4, !tbaa !6
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  store i8 1, ptr %57, align 1, !tbaa !16
+  store i8 1, ptr %57, align 1, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %18, ptr %58, align 4, !tbaa !6
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  store i8 1, ptr %59, align 1, !tbaa !16
+  store i8 1, ptr %59, align 1, !tbaa !17
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %31, ptr %60, align 8, !tbaa !6
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 106
-  store i8 1, ptr %61, align 2, !tbaa !16
+  store i8 1, ptr %61, align 2, !tbaa !17
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %31, ptr %62, align 4, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 127
-  store i8 1, ptr %63, align 1, !tbaa !16
+  store i8 1, ptr %63, align 1, !tbaa !17
   %64 = trunc i64 %36 to i32
   %65 = add i32 %64, 1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %65, ptr %66, align 4, !tbaa !6
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 109
-  store i8 1, ptr %67, align 1, !tbaa !16
+  store i8 1, ptr %67, align 1, !tbaa !17
   %68 = trunc i64 %47 to i32
   %69 = add i32 %68, 1
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %69, ptr %70, align 8, !tbaa !6
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 110
-  store i8 1, ptr %71, align 2, !tbaa !16
+  store i8 1, ptr %71, align 2, !tbaa !17
   br label %72
 
 72:                                               ; preds = %6, %52, %53, %42, %29, %41, %3
@@ -1201,7 +1201,7 @@ define noundef i64 @_ZNK6icu_7723IslamicUmalquraCalendar9yearStartEiR10UErrorCod
   %18 = fptosi double %17 to i64
   %19 = zext nneg i32 %14 to i64
   %20 = getelementptr inbounds nuw [301 x i8], ptr @_ZN6icu_7712_GLOBAL__N_126umAlQuraYrStartEstimateFixE, i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !16
+  %21 = load i8, ptr %20, align 1, !tbaa !17
   %22 = sext i8 %21 to i64
   %23 = add nsw i64 %22, %18
   br label %24
@@ -1244,7 +1244,7 @@ define noundef i64 @_ZNK6icu_7723IslamicUmalquraCalendar10monthStartEiiR10UError
   %19 = add nsw i64 %.01521, %18
   %20 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %20, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %.preheader, %4
   %.016 = phi i64 [ 0, %4 ], [ %8, %.preheader ], [ 0, %.lr.ph ], [ %19, %17 ]
@@ -1323,7 +1323,7 @@ define noundef i32 @_ZNK6icu_7723IslamicUmalquraCalendar10yearLengthEiR10UErrorC
   %21 = add nsw i32 %17, %.01620
   %22 = add nuw nsw i32 %.01521, 1
   %exitcond = icmp eq i32 %22, 12
-  br i1 %exitcond, label %_ZNK6icu_7720IslamicCivilCalendar19handleGetYearLengthEiR10UErrorCode.exit, label %.preheader, !llvm.loop !29
+  br i1 %exitcond, label %_ZNK6icu_7720IslamicCivilCalendar19handleGetYearLengthEiR10UErrorCode.exit, label %.preheader, !llvm.loop !30
 
 _ZNK6icu_7720IslamicCivilCalendar19handleGetYearLengthEiR10UErrorCode.exit: ; preds = %20, %.preheader, %8, %5
   %.017 = phi i32 [ %13, %8 ], [ 0, %5 ], [ 0, %.preheader ], [ %21, %20 ]
@@ -1355,7 +1355,7 @@ define void @_ZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UError
   %13 = sub nsw i32 %1, %12
   %14 = load atomic i8, ptr @_ZGVZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UErrorCodeE14kUmalquraStart acquire, align 8
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %24, !prof !30
+  br i1 %15, label %16, label %24, !prof !31
 
 16:                                               ; preds = %8
   %17 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UErrorCodeE14kUmalquraStart) #10
@@ -1370,7 +1370,7 @@ define void @_ZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UError
           to label %23 unwind label %27
 
 23:                                               ; preds = %18
-  store i64 %22, ptr @_ZZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UErrorCodeE14kUmalquraStart, align 8, !tbaa !31
+  store i64 %22, ptr @_ZZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UErrorCodeE14kUmalquraStart, align 8, !tbaa !32
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UErrorCodeE14kUmalquraStart) #10
   br label %24
 
@@ -1387,7 +1387,7 @@ define void @_ZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UError
 
 29:                                               ; preds = %24
   %30 = sext i32 %13 to i64
-  %31 = load i64, ptr @_ZZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UErrorCodeE14kUmalquraStart, align 8, !tbaa !31
+  %31 = load i64, ptr @_ZZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UErrorCodeE14kUmalquraStart, align 8, !tbaa !32
   %32 = icmp sgt i64 %31, %30
   br i1 %32, label %33, label %34
 
@@ -1464,7 +1464,7 @@ define void @_ZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UError
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %45, i32 noundef %73, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %78 = icmp sgt i32 %72, %77
-  br i1 %78, label %.lr.ph, label %.thread73, !llvm.loop !33
+  br i1 %78, label %.lr.ph, label %.thread73, !llvm.loop !34
 
 .thread73:                                        ; preds = %59, %71, %..thread73.loopexit88_crit_edge, %63
   %.pre-phi = phi i32 [ %45, %63 ], [ %.pre96, %..thread73.loopexit88_crit_edge ], [ %45, %71 ], [ %45, %59 ]
@@ -1529,33 +1529,33 @@ define void @_ZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UError
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %109, align 8, !tbaa !6
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 1, ptr %110, align 8, !tbaa !16
+  store i8 1, ptr %110, align 8, !tbaa !17
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.pre-phi, ptr %111, align 4, !tbaa !6
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  store i8 1, ptr %112, align 1, !tbaa !16
+  store i8 1, ptr %112, align 1, !tbaa !17
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %.pre-phi, ptr %113, align 4, !tbaa !6
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  store i8 1, ptr %114, align 1, !tbaa !16
+  store i8 1, ptr %114, align 1, !tbaa !17
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.152, ptr %115, align 8, !tbaa !6
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 106
-  store i8 1, ptr %116, align 2, !tbaa !16
+  store i8 1, ptr %116, align 2, !tbaa !17
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %.152, ptr %117, align 4, !tbaa !6
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 127
-  store i8 1, ptr %118, align 1, !tbaa !16
+  store i8 1, ptr %118, align 1, !tbaa !17
   %119 = load i32, ptr %4, align 4, !tbaa !6
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %119, ptr %120, align 4, !tbaa !6
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 109
-  store i8 1, ptr %121, align 1, !tbaa !16
+  store i8 1, ptr %121, align 1, !tbaa !17
   %122 = load i32, ptr %5, align 4, !tbaa !6
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %122, ptr %123, align 8, !tbaa !6
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 110
-  store i8 1, ptr %124, align 2, !tbaa !16
+  store i8 1, ptr %124, align 2, !tbaa !17
   br label %125
 
 125:                                              ; preds = %.thread73, %108, %107
@@ -1757,7 +1757,7 @@ declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef signext i8 @_ZL24calendar_islamic_cleanupv() #4 {
-  %1 = load ptr, ptr @_ZL11gMonthCache, align 8, !tbaa !34
+  %1 = load ptr, ptr @_ZL11gMonthCache, align 8, !tbaa !35
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2
 
@@ -1766,7 +1766,7 @@ define internal noundef signext i8 @_ZL24calendar_islamic_cleanupv() #4 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #10
-  store ptr null, ptr @_ZL11gMonthCache, align 8, !tbaa !34
+  store ptr null, ptr @_ZL11gMonthCache, align 8, !tbaa !35
   br label %6
 
 6:                                                ; preds = %2, %0
@@ -1829,26 +1829,27 @@ attributes #10 = { nounwind }
 !10 = !{!"_ZTS10UErrorCode", !8, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"double", !8, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!8, !8, i64 0}
-!17 = !{!18, !12, i64 136}
-!18 = !{!"_ZTSN6icu_778CalendarE", !19, i64 0, !8, i64 8, !8, i64 104, !8, i64 128, !12, i64 136, !20, i64 144, !22, i64 152, !22, i64 152, !22, i64 152, !22, i64 152, !22, i64 152, !23, i64 152, !23, i64 153, !24, i64 153, !24, i64 153, !24, i64 154, !8, i64 155, !7, i64 156, !7, i64 160, !7, i64 164, !8, i64 168, !8, i64 169, !25, i64 170, !26, i64 176, !26, i64 184}
-!19 = !{!"_ZTSN6icu_777UObjectE"}
-!20 = !{!"p1 _ZTSN6icu_778TimeZoneE", !21, i64 0}
-!21 = !{!"any pointer", !8, i64 0}
-!22 = !{!"bool", !8, i64 0}
-!23 = !{!"_ZTS23UCalendarWallTimeOption", !8, i64 0}
-!24 = !{!"_ZTS19UCalendarDaysOfWeek", !8, i64 0}
-!25 = !{!"short", !8, i64 0}
-!26 = !{!"p1 _ZTSN6icu_7710CharStringE", !21, i64 0}
-!27 = distinct !{!27, !14}
-!28 = distinct !{!28, !14}
-!29 = distinct !{!29, !14}
-!30 = !{!"branch_weights", i32 1, i32 1048575}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"long", !8, i64 0}
-!33 = distinct !{!33, !14}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 _ZTSN6icu_7713CalendarCacheE", !21, i64 0}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = !{!8, !8, i64 0}
+!18 = !{!19, !12, i64 136}
+!19 = !{!"_ZTSN6icu_778CalendarE", !20, i64 0, !8, i64 8, !8, i64 104, !8, i64 128, !12, i64 136, !21, i64 144, !23, i64 152, !23, i64 152, !23, i64 152, !23, i64 152, !23, i64 152, !24, i64 152, !24, i64 153, !25, i64 153, !25, i64 153, !25, i64 154, !8, i64 155, !7, i64 156, !7, i64 160, !7, i64 164, !8, i64 168, !8, i64 169, !26, i64 170, !27, i64 176, !27, i64 184}
+!20 = !{!"_ZTSN6icu_777UObjectE"}
+!21 = !{!"p1 _ZTSN6icu_778TimeZoneE", !22, i64 0}
+!22 = !{!"any pointer", !8, i64 0}
+!23 = !{!"bool", !8, i64 0}
+!24 = !{!"_ZTS23UCalendarWallTimeOption", !8, i64 0}
+!25 = !{!"_ZTS19UCalendarDaysOfWeek", !8, i64 0}
+!26 = !{!"short", !8, i64 0}
+!27 = !{!"p1 _ZTSN6icu_7710CharStringE", !22, i64 0}
+!28 = distinct !{!28, !14, !15}
+!29 = distinct !{!29, !14, !15}
+!30 = distinct !{!30, !14, !15}
+!31 = !{!"branch_weights", i32 1, i32 1048575}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"long", !8, i64 0}
+!34 = distinct !{!34, !14, !15}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTSN6icu_7713CalendarCacheE", !22, i64 0}

@@ -88,7 +88,7 @@ do.body.i:                                        ; preds = %entry, %do.body.i
   %rem.i = urem i32 %conv4.i14.i, %nLimit
   %2 = sub i32 %rem.i, %nLimit
   %cmp6.i = icmp ult i32 %2, %conv4.i14.i
-  br i1 %cmp6.i, label %do.body.i, label %return.loopexit.i, !llvm.loop !7
+  br i1 %cmp6.i, label %do.body.i, label %return.loopexit.i, !llvm.loop !8
 
 return.loopexit.i:                                ; preds = %do.body.i
   store i32 %conv2.i12.i, ptr %this, align 4
@@ -377,7 +377,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %rem = urem i32 %xor45.i30, %nLimit
   %4 = sub i32 %rem, %nLimit
   %cmp6 = icmp ult i32 %4, %xor45.i30
-  br i1 %cmp6, label %do.body, label %return.loopexit, !llvm.loop !8
+  br i1 %cmp6, label %do.body, label %return.loopexit, !llvm.loop !9
 
 return.loopexit:                                  ; preds = %do.body
   store i32 %xor7.i14, ptr %r, align 4
@@ -510,7 +510,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %1 = mul i32 %nSeed.addr.19, 475559465
   %inc6 = add i32 %1, 69070
   %tobool.not = icmp eq i32 %dec, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 1588
@@ -543,7 +543,7 @@ for.body.i:                                       ; preds = %for.body.i, %while.
   %p2.0.i = getelementptr inbounds nuw i8, ptr %p2.031.i, i64 4
   %s1.0.i = load i32, ptr %p2.0.i, align 4
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body20.i, label %for.body.i, !llvm.loop !10
+  br i1 %tobool.not.i, label %for.body20.i, label %for.body.i, !llvm.loop !11
 
 for.body20.i:                                     ; preds = %for.body.i, %for.body20.i
   %dec1838.i = phi i32 [ %dec18.i, %for.body20.i ], [ 396, %for.body.i ]
@@ -569,7 +569,7 @@ for.body20.i:                                     ; preds = %for.body.i, %for.bo
   %5 = load i32, ptr %incdec.ptr31.i, align 4
   %dec18.i = add nsw i32 %dec1838.i, -1
   %tobool19.not.i = icmp eq i32 %dec18.i, 0
-  br i1 %tobool19.not.i, label %_ZN2EA4StdC21RandomMersenneTwister6ReloadEv.exit, label %for.body20.i, !llvm.loop !11
+  br i1 %tobool19.not.i, label %_ZN2EA4StdC21RandomMersenneTwister6ReloadEv.exit, label %for.body20.i, !llvm.loop !12
 
 _ZN2EA4StdC21RandomMersenneTwister6ReloadEv.exit: ; preds = %for.body20.i
   %6 = load i32, ptr %this, align 8
@@ -625,7 +625,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %pStateOutput.0.add.i = add nuw nsw i64 %pStateOutput.0.idx9.i, 4
   store i32 %1, ptr %pStateOutput.0.ptr.i, align 4
   %cmp11.i = icmp samesign ult i64 %pStateOutput.0.idx9.i, 2492
-  br i1 %cmp11.i, label %while.body.i, label %_ZN2EA4StdC21RandomMersenneTwister7SetSeedEPKjj.exit, !llvm.loop !12
+  br i1 %cmp11.i, label %while.body.i, label %_ZN2EA4StdC21RandomMersenneTwister7SetSeedEPKjj.exit, !llvm.loop !13
 
 _ZN2EA4StdC21RandomMersenneTwister7SetSeedEPKjj.exit: ; preds = %while.body.i, %entry
   ret void
@@ -663,7 +663,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %pStateOutput.0.add = add nuw nsw i64 %pStateOutput.0.idx9, 4
   store i32 %1, ptr %pStateOutput.0.ptr, align 4
   %cmp11 = icmp samesign ult i64 %pStateOutput.0.idx9, 2492
-  br i1 %cmp11, label %while.body, label %if.end20, !llvm.loop !12
+  br i1 %cmp11, label %while.body, label %if.end20, !llvm.loop !13
 
 if.end20:                                         ; preds = %while.body, %entry
   ret void
@@ -732,7 +732,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx7 = getelementptr inbounds nuw i32, ptr %seedArray, i64 %indvars.iv.next
   store i32 %6, ptr %arrayidx7, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !14
 
 for.end17:                                        ; preds = %if.then, %for.body11.preheader, %for.cond8.preheader
   %add18 = add nuw nsw i32 %cond, 1
@@ -776,7 +776,7 @@ for.body:                                         ; preds = %entry, %for.body
   %p2.0 = getelementptr inbounds nuw i8, ptr %p2.031, i64 4
   %s1.0 = load i32, ptr %p2.0, align 4
   %tobool.not = icmp eq i32 %dec, 0
-  br i1 %tobool.not, label %for.body20, label %for.body, !llvm.loop !10
+  br i1 %tobool.not, label %for.body20, label %for.body, !llvm.loop !11
 
 for.body20:                                       ; preds = %for.body, %for.body20
   %dec1838 = phi i32 [ %dec18, %for.body20 ], [ 396, %for.body ]
@@ -802,7 +802,7 @@ for.body20:                                       ; preds = %for.body, %for.body
   %3 = load i32, ptr %incdec.ptr31, align 4
   %dec18 = add nsw i32 %dec1838, -1
   %tobool19.not = icmp eq i32 %dec18, 0
-  br i1 %tobool19.not, label %for.end32, label %for.body20, !llvm.loop !11
+  br i1 %tobool19.not, label %for.end32, label %for.body20, !llvm.loop !12
 
 for.end32:                                        ; preds = %for.body20
   %4 = load i32, ptr %this, align 8
@@ -870,7 +870,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %p2.0.i = getelementptr inbounds nuw i8, ptr %p2.031.i, i64 4
   %s1.0.i = load i32, ptr %p2.0.i, align 4
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body20.i, label %for.body.i, !llvm.loop !10
+  br i1 %tobool.not.i, label %for.body20.i, label %for.body.i, !llvm.loop !11
 
 for.body20.i:                                     ; preds = %for.body.i, %for.body20.i
   %dec1838.i = phi i32 [ %dec18.i, %for.body20.i ], [ 396, %for.body.i ]
@@ -896,7 +896,7 @@ for.body20.i:                                     ; preds = %for.body.i, %for.bo
   %4 = load i32, ptr %incdec.ptr31.i, align 4
   %dec18.i = add nsw i32 %dec1838.i, -1
   %tobool19.not.i = icmp eq i32 %dec18.i, 0
-  br i1 %tobool19.not.i, label %_ZN2EA4StdC21RandomMersenneTwister6ReloadEv.exit, label %for.body20.i, !llvm.loop !11
+  br i1 %tobool19.not.i, label %_ZN2EA4StdC21RandomMersenneTwister6ReloadEv.exit, label %for.body20.i, !llvm.loop !12
 
 _ZN2EA4StdC21RandomMersenneTwister6ReloadEv.exit: ; preds = %for.body20.i
   %5 = load i32, ptr %this, align 8
@@ -954,7 +954,7 @@ do.body.i:                                        ; preds = %entry, %do.body.i
   %rem.i = urem i32 %call3.i, %nLimit
   %1 = sub i32 %rem.i, %nLimit
   %cmp6.i = icmp ult i32 %1, %call3.i
-  br i1 %cmp6.i, label %do.body.i, label %_ZN2EA4StdC11RandomLimitINS0_21RandomMersenneTwisterEEEjRT_j.exit, !llvm.loop !14
+  br i1 %cmp6.i, label %do.body.i, label %_ZN2EA4StdC11RandomLimitINS0_21RandomMersenneTwisterEEEjRT_j.exit, !llvm.loop !15
 
 _ZN2EA4StdC11RandomLimitINS0_21RandomMersenneTwisterEEEjRT_j.exit: ; preds = %do.body.i, %if.then.i
   %retval.0.i = phi i32 [ %conv2.i, %if.then.i ], [ %rem.i, %do.body.i ]
@@ -991,7 +991,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add = add i32 %mul, %conv2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.body6, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.body6, label %for.body, !llvm.loop !16
 
 for.body6:                                        ; preds = %for.body, %for.body6
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %for.body6 ], [ 0, %for.body ]
@@ -1003,7 +1003,7 @@ for.body6:                                        ; preds = %for.body, %for.body
   %add11 = add i32 %mul7, %conv10
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 4
-  br i1 %exitcond19.not, label %for.end14, label %for.body6, !llvm.loop !16
+  br i1 %exitcond19.not, label %for.end14, label %for.body6, !llvm.loop !17
 
 for.end14:                                        ; preds = %for.body6
   %2 = load i32, ptr @_ZZN2EA4StdC21RandomMersenneTwister4HashEiiE12nIncrementor, align 4
@@ -1048,15 +1048,16 @@ attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}

@@ -359,7 +359,7 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph141.backedge
 
 .lr.ph141.backedge:                               ; preds = %97, %94
-  br label %.lr.ph141, !llvm.loop !11
+  br label %.lr.ph141, !llvm.loop !12
 
 .outer92._crit_edge:                              ; preds = %.split147.us
   %98 = load i16, ptr %4, align 2
@@ -500,7 +500,7 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph176.backedge
 
 .lr.ph176.backedge:                               ; preds = %151, %148
-  br label %.lr.ph176, !llvm.loop !12
+  br label %.lr.ph176, !llvm.loop !13
 
 .outer._crit_edge:                                ; preds = %.split182.us, %102
   %152 = tail call ptr @slurm_create_buf(ptr noundef %106, i32 noundef %103) #7
@@ -744,7 +744,7 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %57, %54
-  br label %.lr.ph, !llvm.loop !13
+  br label %.lr.ph, !llvm.loop !14
 
 .outer67._crit_edge:                              ; preds = %.split81.us
   %58 = load i32, ptr %4, align 4
@@ -874,7 +874,7 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
   br label %.lr.ph109.backedge
 
 .lr.ph109.backedge:                               ; preds = %105, %102
-  br label %.lr.ph109, !llvm.loop !14
+  br label %.lr.ph109, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.split115.us, %.outer67._crit_edge
   %106 = tail call ptr @slurm_create_buf(ptr noundef %61, i32 noundef %59) #7
@@ -943,7 +943,7 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_spawned_sruns(i32 noundef %0,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = zext i32 %20 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %6, label %._crit_edge, !llvm.loop !15
+  br i1 %23, label %6, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %12, %19, %2
   %.013 = phi i32 [ 0, %2 ], [ %.1, %19 ], [ -1, %12 ]
@@ -1228,7 +1228,7 @@ define internal range(i32 -1, 1) i32 @_handle_kvs_fence_resp(i32 %0, ptr noundef
   %53 = load i32, ptr %35, align 8
   %54 = load i32, ptr %37, align 4
   %.not23 = icmp eq i32 %53, %54
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %49, %43
   %55 = call i32 @send_kvs_fence_resp_to_clients(i32 noundef 0, ptr noundef null) #7
@@ -1435,7 +1435,7 @@ define internal range(i32 -1, 1) i32 @_handle_spawn_resp(i32 %0, ptr noundef %1)
   %56 = load i32, ptr %44, align 4
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next.i, %57
-  br i1 %58, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !17
+  br i1 %58, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %46, %43
   %59 = load ptr, ptr %3, align 8
@@ -1979,7 +1979,7 @@ define internal fastcc void @_send_task_spawn_resp_pmi11(ptr noundef readonly ca
   %26 = load i32, ptr %12, align 4
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %28, label %22, label %.loopexit, !llvm.loop !18
+  br i1 %28, label %22, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %22, %14, %11
   %29 = load ptr, ptr %3, align 8
@@ -2071,14 +2071,15 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}

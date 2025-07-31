@@ -129,7 +129,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %.0141, i64 1
   %29 = add nuw nsw i64 %.0142, 1
   %.pre395 = load i8, ptr %28, align 1, !tbaa !7
-  br label %.preheader, !llvm.loop !10
+  br label %.preheader, !llvm.loop !11
 
 .critedge:                                        ; preds = %23, %21, %26
   %.not210 = icmp eq i64 %.0142, 12
@@ -154,7 +154,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
 36:                                               ; preds = %.preheader417, %42
   %.11526.i = phi ptr [ %43, %42 ], [ %.11526.i.ph, %.preheader417 ]
   %.01725.i = phi i32 [ %44, %42 ], [ 0, %.preheader417 ]
-  %37 = load ptr, ptr %.11526.i, align 8, !tbaa !11
+  %37 = load ptr, ptr %.11526.i, align 8, !tbaa !12
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #8
   %39 = icmp eq i64 %38, %.0142
   br i1 %39, label %40, label %42
@@ -168,7 +168,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   %43 = getelementptr inbounds nuw i8, ptr %.11526.i, i64 8
   %44 = add nuw nsw i32 %.01725.i, 1
   %exitcond.not.i = icmp eq i32 %44, 7
-  br i1 %exitcond.not.i, label %.loopexit346, label %36, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit346, label %36, !llvm.loop !15
 
 .loopexit346:                                     ; preds = %42, %34, %30
   %.2126 = phi i32 [ %.0124382, %30 ], [ -1, %34 ], [ -1, %42 ]
@@ -182,7 +182,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
 .preheader.i:                                     ; preds = %45, %48
   %.011.i = phi ptr [ %49, %48 ], [ @Curl_month, %45 ]
   %.0710.i = phi i32 [ %50, %48 ], [ 0, %45 ]
-  %46 = load ptr, ptr %.011.i, align 8, !tbaa !11
+  %46 = load ptr, ptr %.011.i, align 8, !tbaa !12
   %47 = tail call i32 @curl_strnequal(ptr noundef nonnull %.4277, ptr noundef %46, i64 noundef 3) #7
   %.not9.i = icmp eq i32 %47, 0
   br i1 %.not9.i, label %48, label %.thread303
@@ -191,7 +191,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   %49 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %50 = add nuw nsw i32 %.0710.i, 1
   %exitcond.not.i235 = icmp eq i32 %50, 12
-  br i1 %exitcond.not.i235, label %.loopexit, label %.preheader.i, !llvm.loop !15
+  br i1 %exitcond.not.i235, label %.loopexit, label %.preheader.i, !llvm.loop !16
 
 .loopexit:                                        ; preds = %48, %45, %.loopexit346
   %.2131 = phi i32 [ %.0129381, %.loopexit346 ], [ -1, %45 ], [ -1, %48 ]
@@ -216,11 +216,11 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   %57 = getelementptr inbounds nuw i8, ptr %.01324.i, i64 12
   %58 = add nuw nsw i32 %.01523.i, 1
   %exitcond.not.i237 = icmp eq i32 %58, 69
-  br i1 %exitcond.not.i237, label %.critedge229, label %.preheader.i236, !llvm.loop !16
+  br i1 %exitcond.not.i237, label %.critedge229, label %.preheader.i236, !llvm.loop !17
 
 checktz.exit:                                     ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %.01324.i, i64 8
-  %60 = load i32, ptr %59, align 4, !tbaa !17
+  %60 = load i32, ptr %59, align 4, !tbaa !18
   %61 = mul nsw i32 %60, 60
   br label %.thread303
 
@@ -326,15 +326,15 @@ oneortwodigit.exit23.i:                           ; preds = %104
 
 match_time.exit.thread:                           ; preds = %67, %79, %82, %oneortwodigit.exit23.i, %oneortwodigit.exit20.i, %65
   %116 = tail call ptr @__errno_location() #9
-  %117 = load i32, ptr %116, align 4, !tbaa !20
-  store i32 0, ptr %116, align 4, !tbaa !20
+  %117 = load i32, ptr %116, align 4, !tbaa !21
+  store i32 0, ptr %116, align 4, !tbaa !21
   %118 = call i64 @strtol(ptr noundef nonnull %.4277, ptr noundef nonnull %3, i32 noundef 10) #7
-  %119 = load i32, ptr %116, align 4, !tbaa !20
+  %119 = load i32, ptr %116, align 4, !tbaa !21
   %.not208 = icmp eq i32 %119, %117
   br i1 %.not208, label %121, label %120
 
 120:                                              ; preds = %match_time.exit.thread
-  store i32 %117, ptr %116, align 4, !tbaa !20
+  store i32 %117, ptr %116, align 4, !tbaa !21
   br label %121
 
 121:                                              ; preds = %120, %match_time.exit.thread
@@ -347,7 +347,7 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
 123:                                              ; preds = %121
   %124 = tail call i32 @curlx_sltosi(i64 noundef %118) #7
   %125 = icmp eq i32 %.0170377, -1
-  %.pre = load ptr, ptr %3, align 8, !tbaa !11
+  %.pre = load ptr, ptr %3, align 8, !tbaa !12
   %126 = ptrtoint ptr %.pre to i64
   %127 = ptrtoint ptr %.4277 to i64
   %128 = sub i64 %126, %127
@@ -487,7 +487,7 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %178 = icmp ne i8 %177, 0
   %179 = icmp samesign ult i32 %.0151380, 5
   %180 = select i1 %178, i1 %179, i1 false
-  br i1 %180, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %180, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.critedge223, %2
   %.0267.lcssa = phi i32 [ -1, %2 ], [ %.1268, %.critedge223 ]
@@ -536,7 +536,7 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %202 = sext i32 %198 to i64
   %203 = sext i32 %.0129.lcssa to i64
   %204 = getelementptr inbounds [12 x i32], ptr @time2epoch.month_days_cumulative, i64 0, i64 %203
-  %205 = load i32, ptr %204, align 4, !tbaa !20
+  %205 = load i32, ptr %204, align 4, !tbaa !21
   %206 = sext i32 %205 to i64
   %207 = sext i32 %.0153.lcssa to i64
   %208 = add nsw i64 %201, %207
@@ -629,17 +629,18 @@ attributes #9 = { nounwind willreturn memory(none) }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = !{!18, !19, i64 8}
-!18 = !{!"tzinfo", !5, i64 0, !19, i64 8}
-!19 = !{!"int", !5, i64 0}
-!20 = !{!19, !19, i64 0}
-!21 = distinct !{!21, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = !{!19, !20, i64 8}
+!19 = !{!"tzinfo", !5, i64 0, !20, i64 8}
+!20 = !{!"int", !5, i64 0}
+!21 = !{!20, !20, i64 0}
+!22 = distinct !{!22, !9, !10}

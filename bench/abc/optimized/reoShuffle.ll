@@ -63,19 +63,19 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 ._crit_edge:                                      ; preds = %25, %11
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 0, ptr %37, align 8, !tbaa !41
+  store i32 0, ptr %37, align 8, !tbaa !42
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 0, ptr %38, align 4, !tbaa !42
+  store i32 0, ptr %38, align 4, !tbaa !43
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %39, align 8, !tbaa !43
+  store i32 0, ptr %39, align 8, !tbaa !44
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %41 = load i32, ptr %40, align 4, !tbaa !44
+  %41 = load i32, ptr %40, align 4, !tbaa !45
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %40, align 4, !tbaa !44
+  store i32 %42, ptr %40, align 4, !tbaa !45
   %43 = tail call ptr @reoTransferNodesToUnits_rec(ptr noundef nonnull %0, ptr noundef %2) #7
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %45 = load ptr, ptr %44, align 8, !tbaa !45
-  store ptr %43, ptr %45, align 8, !tbaa !46
+  %45 = load ptr, ptr %44, align 8, !tbaa !46
+  store ptr %43, ptr %45, align 8, !tbaa !47
   %46 = load i32, ptr %14, align 4, !tbaa !22
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph102, label %._crit_edge103
@@ -112,7 +112,7 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %61 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.next117
   %62 = load i32, ptr %61, align 4, !tbaa !38
   %63 = icmp eq i32 %55, %62
-  br i1 %63, label %.split.loop.exit, label %.preheader95, !llvm.loop !47
+  br i1 %63, label %.split.loop.exit, label %.preheader95, !llvm.loop !48
 
 .split.loop.exit:                                 ; preds = %60
   %64 = trunc nuw nsw i64 %indvars.iv116 to i32
@@ -138,12 +138,12 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %70 = add nsw i32 %.08398, -1
   %71 = sext i32 %.08398 to i64
   %.not89.not = icmp slt i64 %indvars.iv114, %71
-  br i1 %.not89.not, label %.lr.ph99, label %.loopexit.loopexit, !llvm.loop !48
+  br i1 %.not89.not, label %.lr.ph99, label %.loopexit.loopexit, !llvm.loop !49
 
 .lr.ph99:                                         ; preds = %.preheader, %69
   %.08398 = phi i32 [ %70, %69 ], [ %.084.in.lcssa, %.preheader ]
   %72 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %.08398, i32 noundef 1) #7
-  %73 = load i32, ptr %38, align 4, !tbaa !42
+  %73 = load i32, ptr %38, align 4, !tbaa !43
   %74 = icmp sgt i32 %73, 10000
   br i1 %74, label %75, label %69
 
@@ -161,24 +161,24 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next115, %77
   %indvars.iv.next119 = add nuw i32 %indvars.iv118, 1
-  br i1 %78, label %49, label %._crit_edge103.loopexit, !llvm.loop !49
+  br i1 %78, label %49, label %._crit_edge103.loopexit, !llvm.loop !50
 
 ._crit_edge103.loopexit:                          ; preds = %.loopexit
-  %.pre128 = load ptr, ptr %44, align 8, !tbaa !45
-  %.pre129 = load ptr, ptr %.pre128, align 8, !tbaa !46
+  %.pre128 = load ptr, ptr %44, align 8, !tbaa !46
+  %.pre129 = load ptr, ptr %.pre128, align 8, !tbaa !47
   br label %._crit_edge103
 
 ._crit_edge103:                                   ; preds = %._crit_edge103.loopexit, %._crit_edge
   %79 = phi ptr [ %.pre129, %._crit_edge103.loopexit ], [ %43, %._crit_edge ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 0, ptr %80, align 8, !tbaa !50
-  store i32 0, ptr %38, align 4, !tbaa !42
-  %81 = load i32, ptr %40, align 4, !tbaa !44
+  store i32 0, ptr %80, align 8, !tbaa !51
+  store i32 0, ptr %38, align 4, !tbaa !43
+  %81 = load i32, ptr %40, align 4, !tbaa !45
   %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %40, align 4, !tbaa !44
+  store i32 %82, ptr %40, align 4, !tbaa !45
   %83 = tail call ptr @reoTransferUnitsToNodes_rec(ptr noundef nonnull %0, ptr noundef %79) #7
   tail call void @Cudd_Ref(ptr noundef %83) #7
-  %84 = load i32, ptr %80, align 8, !tbaa !50
+  %84 = load i32, ptr %80, align 8, !tbaa !51
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %.lr.ph106, label %._crit_edge107
 
@@ -188,19 +188,19 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 87:                                               ; preds = %.lr.ph106, %87
   %indvars.iv122 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next123, %87 ]
-  %88 = load ptr, ptr %86, align 8, !tbaa !51
+  %88 = load ptr, ptr %86, align 8, !tbaa !52
   %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv122
-  %90 = load ptr, ptr %89, align 8, !tbaa !52
+  %90 = load ptr, ptr %89, align 8, !tbaa !53
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %90) #7
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %91 = load i32, ptr %80, align 8, !tbaa !50
+  %91 = load i32, ptr %80, align 8, !tbaa !51
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next123, %92
-  br i1 %93, label %87, label %._crit_edge107, !llvm.loop !53
+  br i1 %93, label %87, label %._crit_edge107, !llvm.loop !54
 
 ._crit_edge107:                                   ; preds = %87, %._crit_edge103
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %95 = load i32, ptr %94, align 4, !tbaa !54
+  %95 = load i32, ptr %94, align 4, !tbaa !55
   %.not = icmp eq i32 %95, 0
   br i1 %.not, label %102, label %96
 
@@ -212,7 +212,7 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 98:                                               ; preds = %96
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %99 = load ptr, ptr @stdout, align 8, !tbaa !55
+  %99 = load ptr, ptr @stdout, align 8, !tbaa !56
   %100 = tail call i32 @fflush(ptr noundef %99)
   br label %101
 
@@ -231,14 +231,14 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 105:                                              ; preds = %.lr.ph111, %105
   %indvars.iv125 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next126, %105 ]
-  %106 = load ptr, ptr %104, align 8, !tbaa !56
+  %106 = load ptr, ptr %104, align 8, !tbaa !57
   %107 = getelementptr inbounds nuw %struct._reo_plane, ptr %106, i64 %indvars.iv125
   tail call void @reoUnitsRecycleUnitList(ptr noundef nonnull %0, ptr noundef %107) #7
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %108 = load i32, ptr %14, align 4, !tbaa !22
   %109 = sext i32 %108 to i64
   %.not88.not = icmp slt i64 %indvars.iv125, %109
-  br i1 %.not88.not, label %105, label %._crit_edge112, !llvm.loop !57
+  br i1 %.not88.not, label %105, label %._crit_edge112, !llvm.loop !58
 
 ._crit_edge112:                                   ; preds = %105, %102
   %.not92 = icmp eq ptr %83, null
@@ -308,7 +308,7 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   store i32 %12, ptr %11, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader41, label %.preheader42, !llvm.loop !58
+  br i1 %exitcond.not, label %.preheader41, label %.preheader42, !llvm.loop !59
 
 13:                                               ; preds = %.preheader41, %13
   %.144 = phi i32 [ 0, %.preheader41 ], [ %23, %13 ]
@@ -325,7 +325,7 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   store i32 %18, ptr %21, align 4, !tbaa !38
   %23 = add nuw nsw i32 %.144, 1
   %exitcond47.not = icmp eq i32 %23, 120
-  br i1 %exitcond47.not, label %.lr.ph, label %13, !llvm.loop !59
+  br i1 %exitcond47.not, label %.lr.ph, label %13, !llvm.loop !60
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph ], [ 0, %13 ]
@@ -337,7 +337,7 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   store i32 %28, ptr %27, align 4, !tbaa !38
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
-  br i1 %exitcond52.not, label %Abc_Clock.exit, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond52.not, label %Abc_Clock.exit, label %.lr.ph, !llvm.loop !61
 
 Abc_Clock.exit:                                   ; preds = %.lr.ph
   %29 = tail call ptr @Extra_bddRemapUp(ptr noundef %1, ptr noundef %2) #7
@@ -357,7 +357,7 @@ Abc_Clock.exit:                                   ; preds = %.lr.ph
 
 34:                                               ; preds = %Abc_Clock.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %35 = load ptr, ptr @stdout, align 8, !tbaa !55
+  %35 = load ptr, ptr @stdout, align 8, !tbaa !56
   %36 = call i32 @fflush(ptr noundef %35)
   br label %37
 
@@ -440,25 +440,26 @@ attributes #7 = { nounwind }
 !36 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
 !37 = !{!12, !14, i64 160}
 !38 = !{!5, !5, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!12, !5, i64 264}
-!42 = !{!12, !5, i64 100}
-!43 = !{!12, !5, i64 40}
-!44 = !{!12, !5, i64 212}
-!45 = !{!12, !16, i64 184}
-!46 = !{!21, !21, i64 0}
-!47 = distinct !{!47, !40}
-!48 = distinct !{!48, !40}
-!49 = distinct !{!49, !40}
-!50 = !{!12, !5, i64 232}
-!51 = !{!12, !20, i64 224}
-!52 = !{!8, !8, i64 0}
-!53 = distinct !{!53, !40}
-!54 = !{!12, !5, i64 12}
-!55 = !{!36, !36, i64 0}
-!56 = !{!12, !18, i64 168}
-!57 = distinct !{!57, !40}
-!58 = distinct !{!58, !40}
-!59 = distinct !{!59, !40}
-!60 = distinct !{!60, !40}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!12, !5, i64 264}
+!43 = !{!12, !5, i64 100}
+!44 = !{!12, !5, i64 40}
+!45 = !{!12, !5, i64 212}
+!46 = !{!12, !16, i64 184}
+!47 = !{!21, !21, i64 0}
+!48 = distinct !{!48, !40, !41}
+!49 = distinct !{!49, !40, !41}
+!50 = distinct !{!50, !40, !41}
+!51 = !{!12, !5, i64 232}
+!52 = !{!12, !20, i64 224}
+!53 = !{!8, !8, i64 0}
+!54 = distinct !{!54, !40, !41}
+!55 = !{!12, !5, i64 12}
+!56 = !{!36, !36, i64 0}
+!57 = !{!12, !18, i64 168}
+!58 = distinct !{!58, !40, !41}
+!59 = distinct !{!59, !40, !41}
+!60 = distinct !{!60, !40, !41}
+!61 = distinct !{!61, !40, !41}

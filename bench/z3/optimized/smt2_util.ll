@@ -147,7 +147,7 @@ define hidden noundef zeroext i1 @_Z21is_smt2_quoted_symbolPKc(ptr noundef reado
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond69.not = select i1 %34, i1 %exitcond.not, i1 false
-  br i1 %or.cond69.not, label %.lr.ph, label %.thread.loopexit64, !llvm.loop !8
+  br i1 %or.cond69.not, label %.lr.ph, label %.thread.loopexit64, !llvm.loop !9
 
 .thread.loopexit64:                               ; preds = %.lr.ph
   %.035.ph65 = xor i1 %34, true
@@ -169,7 +169,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_Z21is_smt2_quoted_symbolRK6symbol(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !9
+  %2 = load ptr, ptr %0, align 8, !tbaa !10
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 7
   %5 = icmp eq i64 %4, 1
@@ -189,13 +189,13 @@ define hidden void @_Z21mk_smt2_quoted_symbolB5cxx11RK6symbol(ptr dead_on_unwind
   %3 = alloca %class.string_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %3, ptr %4, align 8, !tbaa !13
+  store ptr %3, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i64 64, ptr %6, align 8, !tbaa !16
+  store i64 64, ptr %6, align 8, !tbaa !17
   store i8 124, ptr %3, align 8, !tbaa !3
-  store i64 1, ptr %5, align 8, !tbaa !17
-  %7 = load ptr, ptr %1, align 8, !tbaa !9
+  store i64 1, ptr %5, align 8, !tbaa !18
+  %7 = load ptr, ptr %1, align 8, !tbaa !10
   br label %8
 
 8:                                                ; preds = %40, %2
@@ -209,12 +209,12 @@ define hidden void @_Z21mk_smt2_quoted_symbolB5cxx11RK6symbol(ptr dead_on_unwind
   ]
 
 11:                                               ; preds = %8, %8
-  %12 = load i64, ptr %6, align 8, !tbaa !16
+  %12 = load i64, ptr %6, align 8, !tbaa !17
   %.not.i15 = icmp ult i64 %9, %12
   br i1 %.not.i15, label %._crit_edge.i20, label %13
 
 ._crit_edge.i20:                                  ; preds = %11
-  %.pre.i22 = load ptr, ptr %4, align 8, !tbaa !13
+  %.pre.i22 = load ptr, ptr %4, align 8, !tbaa !14
   br label %_ZN13string_bufferILj64EE6appendEc.exit25
 
 13:                                               ; preds = %11
@@ -223,10 +223,10 @@ define hidden void @_Z21mk_smt2_quoted_symbolB5cxx11RK6symbol(ptr dead_on_unwind
           to label %.noexc23 unwind label %.loopexit
 
 .noexc23:                                         ; preds = %13
-  %16 = load ptr, ptr %4, align 8, !tbaa !13
-  %17 = load i64, ptr %5, align 8, !tbaa !17
+  %16 = load ptr, ptr %4, align 8, !tbaa !14
+  %17 = load i64, ptr %5, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %16, i64 %17, i1 false)
-  %18 = load i64, ptr %6, align 8, !tbaa !16
+  %18 = load i64, ptr %6, align 8, !tbaa !17
   %19 = icmp ult i64 %18, 65
   %20 = icmp eq ptr %16, null
   %or.cond.i.i16 = select i1 %19, i1 true, i1 %20
@@ -237,13 +237,13 @@ define hidden void @_Z21mk_smt2_quoted_symbolB5cxx11RK6symbol(ptr dead_on_unwind
           to label %.noexc24 unwind label %.loopexit
 
 .noexc24:                                         ; preds = %21
-  %.pre1.pre.i17 = load i64, ptr %5, align 8, !tbaa !17
+  %.pre1.pre.i17 = load i64, ptr %5, align 8, !tbaa !18
   br label %_ZN13string_bufferILj64EE6expandEv.exit.i18
 
 _ZN13string_bufferILj64EE6expandEv.exit.i18:      ; preds = %.noexc24, %.noexc23
   %.pre1.i19 = phi i64 [ %17, %.noexc23 ], [ %.pre1.pre.i17, %.noexc24 ]
-  store i64 %14, ptr %6, align 8, !tbaa !16
-  store ptr %15, ptr %4, align 8, !tbaa !13
+  store i64 %14, ptr %6, align 8, !tbaa !17
+  store ptr %15, ptr %4, align 8, !tbaa !14
   br label %_ZN13string_bufferILj64EE6appendEc.exit25
 
 _ZN13string_bufferILj64EE6appendEc.exit25:        ; preds = %._crit_edge.i20, %_ZN13string_bufferILj64EE6expandEv.exit.i18
@@ -251,9 +251,9 @@ _ZN13string_bufferILj64EE6appendEc.exit25:        ; preds = %._crit_edge.i20, %_
   %23 = phi ptr [ %.pre.i22, %._crit_edge.i20 ], [ %15, %_ZN13string_bufferILj64EE6expandEv.exit.i18 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %22
   store i8 92, ptr %24, align 1, !tbaa !3
-  %25 = load i64, ptr %5, align 8, !tbaa !17
+  %25 = load i64, ptr %5, align 8, !tbaa !18
   %26 = add i64 %25, 1
-  store i64 %26, ptr %5, align 8, !tbaa !17
+  store i64 %26, ptr %5, align 8, !tbaa !18
   %.pre = load i8, ptr %.0, align 1, !tbaa !3
   br label %27
 
@@ -270,12 +270,12 @@ _ZN13string_bufferILj64EE6appendEc.exit25:        ; preds = %._crit_edge.i20, %_
 27:                                               ; preds = %_ZN13string_bufferILj64EE6appendEc.exit25, %8
   %28 = phi i64 [ %26, %_ZN13string_bufferILj64EE6appendEc.exit25 ], [ %9, %8 ]
   %29 = phi i8 [ %.pre, %_ZN13string_bufferILj64EE6appendEc.exit25 ], [ %10, %8 ]
-  %30 = load i64, ptr %6, align 8, !tbaa !16
+  %30 = load i64, ptr %6, align 8, !tbaa !17
   %.not.i26 = icmp ult i64 %28, %30
   br i1 %.not.i26, label %._crit_edge.i31, label %31
 
 ._crit_edge.i31:                                  ; preds = %27
-  %.pre.i33 = load ptr, ptr %4, align 8, !tbaa !13
+  %.pre.i33 = load ptr, ptr %4, align 8, !tbaa !14
   br label %40
 
 31:                                               ; preds = %27
@@ -284,10 +284,10 @@ _ZN13string_bufferILj64EE6appendEc.exit25:        ; preds = %._crit_edge.i20, %_
           to label %.noexc34 unwind label %.loopexit
 
 .noexc34:                                         ; preds = %31
-  %34 = load ptr, ptr %4, align 8, !tbaa !13
-  %35 = load i64, ptr %5, align 8, !tbaa !17
+  %34 = load ptr, ptr %4, align 8, !tbaa !14
+  %35 = load i64, ptr %5, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %35, i1 false)
-  %36 = load i64, ptr %6, align 8, !tbaa !16
+  %36 = load i64, ptr %6, align 8, !tbaa !17
   %37 = icmp ult i64 %36, 65
   %38 = icmp eq ptr %34, null
   %or.cond.i.i27 = select i1 %37, i1 true, i1 %38
@@ -298,13 +298,13 @@ _ZN13string_bufferILj64EE6appendEc.exit25:        ; preds = %._crit_edge.i20, %_
           to label %.noexc35 unwind label %.loopexit
 
 .noexc35:                                         ; preds = %39
-  %.pre1.pre.i28 = load i64, ptr %5, align 8, !tbaa !17
+  %.pre1.pre.i28 = load i64, ptr %5, align 8, !tbaa !18
   br label %_ZN13string_bufferILj64EE6expandEv.exit.i29
 
 _ZN13string_bufferILj64EE6expandEv.exit.i29:      ; preds = %.noexc35, %.noexc34
   %.pre1.i30 = phi i64 [ %35, %.noexc34 ], [ %.pre1.pre.i28, %.noexc35 ]
-  store i64 %32, ptr %6, align 8, !tbaa !16
-  store ptr %33, ptr %4, align 8, !tbaa !13
+  store i64 %32, ptr %6, align 8, !tbaa !17
+  store ptr %33, ptr %4, align 8, !tbaa !14
   br label %40
 
 40:                                               ; preds = %_ZN13string_bufferILj64EE6expandEv.exit.i29, %._crit_edge.i31
@@ -312,19 +312,19 @@ _ZN13string_bufferILj64EE6expandEv.exit.i29:      ; preds = %.noexc35, %.noexc34
   %42 = phi ptr [ %.pre.i33, %._crit_edge.i31 ], [ %33, %_ZN13string_bufferILj64EE6expandEv.exit.i29 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %41
   store i8 %29, ptr %43, align 1, !tbaa !3
-  %44 = load i64, ptr %5, align 8, !tbaa !17
+  %44 = load i64, ptr %5, align 8, !tbaa !18
   %45 = add i64 %44, 1
-  store i64 %45, ptr %5, align 8, !tbaa !17
+  store i64 %45, ptr %5, align 8, !tbaa !18
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %8, !llvm.loop !18
+  br label %8, !llvm.loop !19
 
 47:                                               ; preds = %8
-  %48 = load i64, ptr %6, align 8, !tbaa !16
+  %48 = load i64, ptr %6, align 8, !tbaa !17
   %.not.i37 = icmp ult i64 %9, %48
   br i1 %.not.i37, label %._crit_edge.i42, label %49
 
 ._crit_edge.i42:                                  ; preds = %47
-  %.pre.i44 = load ptr, ptr %4, align 8, !tbaa !13
+  %.pre.i44 = load ptr, ptr %4, align 8, !tbaa !14
   br label %58
 
 49:                                               ; preds = %47
@@ -333,10 +333,10 @@ _ZN13string_bufferILj64EE6expandEv.exit.i29:      ; preds = %.noexc35, %.noexc34
           to label %.noexc45 unwind label %.loopexit.split-lp
 
 .noexc45:                                         ; preds = %49
-  %52 = load ptr, ptr %4, align 8, !tbaa !13
-  %53 = load i64, ptr %5, align 8, !tbaa !17
+  %52 = load ptr, ptr %4, align 8, !tbaa !14
+  %53 = load i64, ptr %5, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %52, i64 %53, i1 false)
-  %54 = load i64, ptr %6, align 8, !tbaa !16
+  %54 = load i64, ptr %6, align 8, !tbaa !17
   %55 = icmp ult i64 %54, 65
   %56 = icmp eq ptr %52, null
   %or.cond.i.i38 = select i1 %55, i1 true, i1 %56
@@ -347,13 +347,13 @@ _ZN13string_bufferILj64EE6expandEv.exit.i29:      ; preds = %.noexc35, %.noexc34
           to label %.noexc46 unwind label %.loopexit.split-lp
 
 .noexc46:                                         ; preds = %57
-  %.pre1.pre.i39 = load i64, ptr %5, align 8, !tbaa !17
+  %.pre1.pre.i39 = load i64, ptr %5, align 8, !tbaa !18
   br label %_ZN13string_bufferILj64EE6expandEv.exit.i40
 
 _ZN13string_bufferILj64EE6expandEv.exit.i40:      ; preds = %.noexc46, %.noexc45
   %.pre1.i41 = phi i64 [ %53, %.noexc45 ], [ %.pre1.pre.i39, %.noexc46 ]
-  store i64 %50, ptr %6, align 8, !tbaa !16
-  store ptr %51, ptr %4, align 8, !tbaa !13
+  store i64 %50, ptr %6, align 8, !tbaa !17
+  store ptr %51, ptr %4, align 8, !tbaa !14
   br label %58
 
 58:                                               ; preds = %_ZN13string_bufferILj64EE6expandEv.exit.i40, %._crit_edge.i42
@@ -361,15 +361,15 @@ _ZN13string_bufferILj64EE6expandEv.exit.i40:      ; preds = %.noexc46, %.noexc45
   %60 = phi ptr [ %.pre.i44, %._crit_edge.i42 ], [ %51, %_ZN13string_bufferILj64EE6expandEv.exit.i40 ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
   store i8 124, ptr %61, align 1, !tbaa !3
-  %62 = load i64, ptr %5, align 8, !tbaa !17
+  %62 = load i64, ptr %5, align 8, !tbaa !18
   %63 = add i64 %62, 1
-  store i64 %63, ptr %5, align 8, !tbaa !17
-  %64 = load i64, ptr %6, align 8, !tbaa !16
+  store i64 %63, ptr %5, align 8, !tbaa !18
+  %64 = load i64, ptr %6, align 8, !tbaa !17
   %.not.i48 = icmp ult i64 %63, %64
   br i1 %.not.i48, label %._crit_edge.i53, label %65
 
 ._crit_edge.i53:                                  ; preds = %58
-  %.pre.i55 = load ptr, ptr %4, align 8, !tbaa !13
+  %.pre.i55 = load ptr, ptr %4, align 8, !tbaa !14
   br label %74
 
 65:                                               ; preds = %58
@@ -378,10 +378,10 @@ _ZN13string_bufferILj64EE6expandEv.exit.i40:      ; preds = %.noexc46, %.noexc45
           to label %.noexc56 unwind label %.loopexit.split-lp
 
 .noexc56:                                         ; preds = %65
-  %68 = load ptr, ptr %4, align 8, !tbaa !13
-  %69 = load i64, ptr %5, align 8, !tbaa !17
+  %68 = load ptr, ptr %4, align 8, !tbaa !14
+  %69 = load i64, ptr %5, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %68, i64 %69, i1 false)
-  %70 = load i64, ptr %6, align 8, !tbaa !16
+  %70 = load i64, ptr %6, align 8, !tbaa !17
   %71 = icmp ult i64 %70, 65
   %72 = icmp eq ptr %68, null
   %or.cond.i.i49 = select i1 %71, i1 true, i1 %72
@@ -392,13 +392,13 @@ _ZN13string_bufferILj64EE6expandEv.exit.i40:      ; preds = %.noexc46, %.noexc45
           to label %.noexc57 unwind label %.loopexit.split-lp
 
 .noexc57:                                         ; preds = %73
-  %.pre1.pre.i50 = load i64, ptr %5, align 8, !tbaa !17
+  %.pre1.pre.i50 = load i64, ptr %5, align 8, !tbaa !18
   br label %_ZN13string_bufferILj64EE6expandEv.exit.i51
 
 _ZN13string_bufferILj64EE6expandEv.exit.i51:      ; preds = %.noexc57, %.noexc56
   %.pre1.i52 = phi i64 [ %69, %.noexc56 ], [ %.pre1.pre.i50, %.noexc57 ]
-  store i64 %66, ptr %6, align 8, !tbaa !16
-  store ptr %67, ptr %4, align 8, !tbaa !13
+  store i64 %66, ptr %6, align 8, !tbaa !17
+  store ptr %67, ptr %4, align 8, !tbaa !14
   br label %74
 
 74:                                               ; preds = %_ZN13string_bufferILj64EE6expandEv.exit.i51, %._crit_edge.i53
@@ -406,9 +406,9 @@ _ZN13string_bufferILj64EE6expandEv.exit.i51:      ; preds = %.noexc57, %.noexc56
   %76 = phi ptr [ %.pre.i55, %._crit_edge.i53 ], [ %67, %_ZN13string_bufferILj64EE6expandEv.exit.i51 ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %75
   store i8 0, ptr %77, align 1, !tbaa !3
-  %78 = load ptr, ptr %4, align 8, !tbaa !13
+  %78 = load ptr, ptr %4, align 8, !tbaa !14
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %79, ptr %0, align 8, !tbaa !19
+  store ptr %79, ptr %0, align 8, !tbaa !20
   %80 = icmp eq ptr %78, null
   br i1 %80, label %81, label %82
 
@@ -438,7 +438,7 @@ _ZN13string_bufferILj64EE6expandEv.exit.i51:      ; preds = %.noexc57, %.noexc56
 87:                                               ; preds = %85
   %88 = add nuw i64 %83, 1
   %89 = icmp slt i64 %88, 0
-  br i1 %89, label %.noexc11.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, !prof !21
+  br i1 %89, label %.noexc11.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, !prof !22
 
 .noexc11.i:                                       ; preds = %87
   invoke void @_ZSt17__throw_bad_allocv() #18
@@ -452,7 +452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
           to label %.noexc61 unwind label %104
 
 .noexc61:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
-  store ptr %90, ptr %0, align 8, !tbaa !22
+  store ptr %90, ptr %0, align 8, !tbaa !23
   store i64 %83, ptr %79, align 8, !tbaa !3
   br label %._crit_edge.i.i
 
@@ -474,10 +474,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
 
 95:                                               ; preds = %94, %92, %._crit_edge.i.i
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %83, ptr %96, align 8, !tbaa !24
+  store i64 %83, ptr %96, align 8, !tbaa !25
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 %83
   store i8 0, ptr %97, align 1, !tbaa !3
-  %98 = load i64, ptr %6, align 8, !tbaa !16
+  %98 = load i64, ptr %6, align 8, !tbaa !17
   %99 = icmp ugt i64 %98, 64
   br i1 %99, label %100, label %_ZN13string_bufferILj64EED2Ev.exit
 
@@ -513,13 +513,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13string_bufferILj64EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load i64, ptr %2, align 8, !tbaa !16
+  %3 = load i64, ptr %2, align 8, !tbaa !17
   %4 = icmp ugt i64 %3, 64
   br i1 %4, label %5, label %_Z13dealloc_svectIcEvPT_.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_Z13dealloc_svectIcEvPT_.exit, label %9
 
@@ -607,22 +607,23 @@ attributes #20 = { noreturn nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !11, i64 0}
-!10 = !{!"_ZTS6symbol", !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !4, i64 0}
-!13 = !{!14, !11, i64 64}
-!14 = !{!"_ZTS13string_bufferILj64EE", !4, i64 0, !11, i64 64, !15, i64 72, !15, i64 80}
-!15 = !{!"long", !4, i64 0}
-!16 = !{!14, !15, i64 80}
-!17 = !{!14, !15, i64 72}
-!18 = distinct !{!18, !7}
-!19 = !{!20, !11, i64 0}
-!20 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
-!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!22 = !{!23, !11, i64 0}
-!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !20, i64 0, !15, i64 8, !4, i64 16}
-!24 = !{!23, !15, i64 8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"_ZTS6symbol", !12, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !4, i64 0}
+!14 = !{!15, !12, i64 64}
+!15 = !{!"_ZTS13string_bufferILj64EE", !4, i64 0, !12, i64 64, !16, i64 72, !16, i64 80}
+!16 = !{!"long", !4, i64 0}
+!17 = !{!15, !16, i64 80}
+!18 = !{!15, !16, i64 72}
+!19 = distinct !{!19, !7, !8}
+!20 = !{!21, !12, i64 0}
+!21 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !12, i64 0}
+!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!23 = !{!24, !12, i64 0}
+!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !21, i64 0, !16, i64 8, !4, i64 16}
+!25 = !{!24, !16, i64 8}

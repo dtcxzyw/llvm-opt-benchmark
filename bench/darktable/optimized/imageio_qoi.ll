@@ -332,7 +332,7 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %.1 = phi i32 [ 0, %87 ], [ %84, %83 ], [ %.2, %115 ], [ %.2, %131 ], [ %.2, %150 ], [ %.2, %158 ], [ %.2, %162 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %65
   %167 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %167, label %71, label %.preheader.loopexit
+  br i1 %167, label %71, label %.preheader.loopexit, !llvm.loop !16
 
 168:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
   %.0 = phi ptr [ %31, %.preheader ], [ null, %23 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %8 ], [ null, %3 ], [ null, %25 ]
@@ -648,7 +648,7 @@ default.unreachable:                              ; preds = %122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %94
   %181 = trunc nuw i64 %indvars.iv.next to i32
   %182 = icmp sgt i32 %87, %181
-  br i1 %182, label %95, label %.loopexit
+  br i1 %182, label %95, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %180, %90, %84, %13, %76, %79, %82, %4, %8
   %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %82 ], [ null, %79 ], [ null, %76 ], [ null, %13 ], [ null, %84 ], [ %89, %90 ], [ %89, %180 ]
@@ -706,15 +706,15 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
 21:                                               ; preds = %17
   %22 = load i32, ptr %4, align 4, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1372
-  store i32 %22, ptr %23, align 4, !tbaa !16
+  store i32 %22, ptr %23, align 4, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1376
-  store i32 %25, ptr %26, align 16, !tbaa !32
+  store i32 %25, ptr %26, align 16, !tbaa !35
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1488
-  store i32 4, ptr %27, align 16, !tbaa !33
+  store i32 4, ptr %27, align 16, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1492
-  store i32 1, ptr %28, align 4, !tbaa !34
+  store i32 1, ptr %28, align 4, !tbaa !37
   %29 = call ptr @dt_mipmap_cache_alloc(ptr noundef %2, ptr noundef %0) #9
   %.not58 = icmp eq ptr %29, null
   br i1 %.not58, label %30, label %32
@@ -735,16 +735,16 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  store i32 2, ptr %37, align 16, !tbaa !35
+  store i32 2, ptr %37, align 16, !tbaa !38
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  store i32 0, ptr %38, align 8, !tbaa !36
+  store i32 0, ptr %38, align 8, !tbaa !39
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  %40 = load i32, ptr %39, align 4, !tbaa !37
+  %40 = load i32, ptr %39, align 4, !tbaa !40
   %41 = and i32 %40, -131297
   %42 = or disjoint i32 %41, 32
-  store i32 %42, ptr %39, align 4, !tbaa !37
+  store i32 %42, ptr %39, align 4, !tbaa !40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 17, ptr %43, align 16, !tbaa !38
+  store i32 17, ptr %43, align 16, !tbaa !41
   call void @free(ptr noundef nonnull %19) #9
   br label %50
 
@@ -755,10 +755,10 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
   %46 = uitofp i8 %45 to float
   %47 = fmul reassoc nsz arcp contract afn float %46, 0x3F70101020000000
   %48 = getelementptr inbounds nuw float, ptr %29, i64 %.059
-  store float %47, ptr %48, align 4, !tbaa !39
+  store float %47, ptr %48, align 4, !tbaa !42
   %49 = add nuw i64 %.059, 1
   %exitcond.not = icmp eq i64 %49, %36
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 50:                                               ; preds = %30, %._crit_edge, %20
   %.2 = phi i32 [ 6, %20 ], [ 0, %._crit_edge ], [ 8, %30 ]
@@ -830,27 +830,31 @@ attributes #10 = { nounwind allocsize(0) }
 !13 = !{!7, !9, i64 9}
 !14 = !{!9, !9, i64 0}
 !15 = !{!8, !8, i64 0}
-!16 = !{!17, !8, i64 1372}
-!17 = !{!"dt_image_t", !8, i64 0, !8, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !18, i64 28, !18, i64 32, !9, i64 36, !9, i64 100, !9, i64 164, !9, i64 292, !9, i64 356, !9, i64 420, !9, i64 484, !19, i64 552, !8, i64 560, !9, i64 564, !9, i64 792, !9, i64 856, !9, i64 920, !9, i64 984, !8, i64 1112, !9, i64 1116, !8, i64 1372, !8, i64 1376, !8, i64 1380, !8, i64 1384, !8, i64 1388, !8, i64 1392, !8, i64 1396, !8, i64 1400, !8, i64 1404, !8, i64 1408, !18, i64 1412, !8, i64 1416, !8, i64 1420, !8, i64 1424, !8, i64 1428, !8, i64 1432, !8, i64 1436, !19, i64 1440, !19, i64 1448, !19, i64 1456, !19, i64 1464, !8, i64 1472, !20, i64 1488, !9, i64 1616, !24, i64 1656, !8, i64 1664, !8, i64 1668, !26, i64 1672, !27, i64 1680, !29, i64 1704, !22, i64 1716, !9, i64 1718, !8, i64 1728, !8, i64 1732, !18, i64 1736, !18, i64 1740, !9, i64 1744, !9, i64 1760, !9, i64 1808, !30, i64 1824, !31, i64 1832, !8, i64 1840, !8, i64 1844}
-!18 = !{!"float", !9, i64 0}
-!19 = !{!"long", !9, i64 0}
-!20 = !{!"dt_iop_buffer_dsc_t", !8, i64 0, !8, i64 4, !8, i64 8, !9, i64 12, !21, i64 48, !23, i64 64, !9, i64 96, !8, i64 112}
-!21 = !{!"", !22, i64 0, !22, i64 2}
-!22 = !{!"short", !9, i64 0}
-!23 = !{!"", !8, i64 0, !9, i64 16}
-!24 = !{!"p1 omnipotent char", !25, i64 0}
-!25 = !{!"any pointer", !9, i64 0}
-!26 = !{!"dt_image_raw_parameters_t", !8, i64 0, !8, i64 3}
-!27 = !{!"dt_image_geoloc_t", !28, i64 0, !28, i64 8, !28, i64 16}
-!28 = !{!"double", !9, i64 0}
-!29 = !{!"_color_harmony_t", !8, i64 0, !8, i64 4, !8, i64 8}
-!30 = !{!"p1 _ZTS6_GList", !25, i64 0}
-!31 = !{!"p1 _ZTS16dt_cache_entry_t", !25, i64 0}
-!32 = !{!17, !8, i64 1376}
-!33 = !{!17, !8, i64 1488}
-!34 = !{!17, !8, i64 1492}
-!35 = !{!17, !8, i64 1600}
-!36 = !{!17, !8, i64 1496}
-!37 = !{!17, !8, i64 1420}
-!38 = !{!17, !8, i64 1472}
-!39 = !{!18, !18, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !8, i64 1372}
+!20 = !{!"dt_image_t", !8, i64 0, !8, i64 4, !21, i64 8, !21, i64 12, !21, i64 16, !21, i64 20, !21, i64 24, !21, i64 28, !21, i64 32, !9, i64 36, !9, i64 100, !9, i64 164, !9, i64 292, !9, i64 356, !9, i64 420, !9, i64 484, !22, i64 552, !8, i64 560, !9, i64 564, !9, i64 792, !9, i64 856, !9, i64 920, !9, i64 984, !8, i64 1112, !9, i64 1116, !8, i64 1372, !8, i64 1376, !8, i64 1380, !8, i64 1384, !8, i64 1388, !8, i64 1392, !8, i64 1396, !8, i64 1400, !8, i64 1404, !8, i64 1408, !21, i64 1412, !8, i64 1416, !8, i64 1420, !8, i64 1424, !8, i64 1428, !8, i64 1432, !8, i64 1436, !22, i64 1440, !22, i64 1448, !22, i64 1456, !22, i64 1464, !8, i64 1472, !23, i64 1488, !9, i64 1616, !27, i64 1656, !8, i64 1664, !8, i64 1668, !29, i64 1672, !30, i64 1680, !32, i64 1704, !25, i64 1716, !9, i64 1718, !8, i64 1728, !8, i64 1732, !21, i64 1736, !21, i64 1740, !9, i64 1744, !9, i64 1760, !9, i64 1808, !33, i64 1824, !34, i64 1832, !8, i64 1840, !8, i64 1844}
+!21 = !{!"float", !9, i64 0}
+!22 = !{!"long", !9, i64 0}
+!23 = !{!"dt_iop_buffer_dsc_t", !8, i64 0, !8, i64 4, !8, i64 8, !9, i64 12, !24, i64 48, !26, i64 64, !9, i64 96, !8, i64 112}
+!24 = !{!"", !25, i64 0, !25, i64 2}
+!25 = !{!"short", !9, i64 0}
+!26 = !{!"", !8, i64 0, !9, i64 16}
+!27 = !{!"p1 omnipotent char", !28, i64 0}
+!28 = !{!"any pointer", !9, i64 0}
+!29 = !{!"dt_image_raw_parameters_t", !8, i64 0, !8, i64 3}
+!30 = !{!"dt_image_geoloc_t", !31, i64 0, !31, i64 8, !31, i64 16}
+!31 = !{!"double", !9, i64 0}
+!32 = !{!"_color_harmony_t", !8, i64 0, !8, i64 4, !8, i64 8}
+!33 = !{!"p1 _ZTS6_GList", !28, i64 0}
+!34 = !{!"p1 _ZTS16dt_cache_entry_t", !28, i64 0}
+!35 = !{!20, !8, i64 1376}
+!36 = !{!20, !8, i64 1488}
+!37 = !{!20, !8, i64 1492}
+!38 = !{!20, !8, i64 1600}
+!39 = !{!20, !8, i64 1496}
+!40 = !{!20, !8, i64 1420}
+!41 = !{!20, !8, i64 1472}
+!42 = !{!21, !21, i64 0}
+!43 = distinct !{!43, !17}

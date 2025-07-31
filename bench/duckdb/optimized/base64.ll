@@ -164,16 +164,16 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 %14
   %12 = load i8, ptr %11, align 1, !tbaa !7
   %13 = icmp eq i8 %12, 32
-  br i1 %13, label %.lr.ph121, label %.critedge, !llvm.loop !10
+  br i1 %13, label %.lr.ph121, label %.critedge, !llvm.loop !11
 
 .lr.ph121:                                        ; preds = %.preheader90, %10
   %.27693120 = phi i64 [ %14, %10 ], [ %.07495, %.preheader90 ]
   %14 = add i64 %.27693120, 1
   %exitcond.not = icmp eq i64 %14, %umax
-  br i1 %exitcond.not, label %..critedge_crit_edge, label %10, !llvm.loop !10
+  br i1 %exitcond.not, label %..critedge_crit_edge, label %10, !llvm.loop !11
 
 ..critedge_crit_edge:                             ; preds = %.lr.ph121
-  br label %.critedge, !llvm.loop !10
+  br label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %10, %..critedge_crit_edge, %.preheader90
   %.276.lcssa = phi i64 [ %umax, %..critedge_crit_edge ], [ %.07495, %.preheader90 ], [ %14, %10 ]
@@ -236,7 +236,7 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %.165 = phi i32 [ %.06497, %22 ], [ %.06497, %._crit_edge ], [ %.266, %38 ]
   %41 = add i64 %.276.lcssa, 1
   %42 = icmp ult i64 %41, %4
-  br i1 %42, label %.preheader90, label %.critedge._crit_edge, !llvm.loop !11
+  br i1 %42, label %.preheader90, label %.critedge._crit_edge, !llvm.loop !12
 
 .critedge._crit_edge:                             ; preds = %40, %.critedge
   %.072.lcssa.ph = phi i64 [ %.173, %40 ], [ %.07296, %.critedge ]
@@ -330,7 +330,7 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %82 = add i64 %.377105, -1
   %83 = getelementptr inbounds nuw i8, ptr %.079104, i64 1
   %.not87 = icmp eq i64 %82, 0
-  br i1 %.not87, label %._crit_edge110, label %.lr.ph, !llvm.loop !12
+  br i1 %.not87, label %._crit_edge110, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge110:                                   ; preds = %.thread, %.preheader
   %.0.lcssa = phi ptr [ %0, %.preheader ], [ %.1, %.thread ]
@@ -369,8 +369,9 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

@@ -635,7 +635,7 @@ define dso_local void @__trace_probe_log_err(i32 noundef %0, i32 noundef %1) loc
   %51 = getelementptr i8, ptr %41, i64 %50
   %52 = add nuw nsw i64 %40, 1
   %53 = icmp eq i64 %52, %38
-  br i1 %53, label %.loopexit, label %39, !llvm.loop !8
+  br i1 %53, label %.loopexit, label %39, !llvm.loop !9
 
 .loopexit:                                        ; preds = %39, %31
   %54 = phi ptr [ %29, %31 ], [ %51, %39 ]
@@ -777,7 +777,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %48 = getelementptr i8, ptr %36, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.thread13, label %.preheader10, !llvm.loop !9
+  br i1 %50, label %.thread13, label %.preheader10, !llvm.loop !10
 
 .loopexit11:                                      ; preds = %46, %30
   tail call void @__trace_probe_log_err(i32 noundef %3, i32 noundef 16)
@@ -855,7 +855,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %95 = getelementptr i8, ptr %83, i64 1
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, 0
-  br i1 %97, label %.loopexit9, label %.preheader, !llvm.loop !9
+  br i1 %97, label %.loopexit9, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %69
   tail call void @__trace_probe_log_err(i32 noundef %66, i32 noundef 19)
@@ -964,7 +964,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %61 = getelementptr i8, ptr %49, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 0
-  br i1 %63, label %.loopexit32.preheader, label %.preheader30, !llvm.loop !9
+  br i1 %63, label %.loopexit32.preheader, label %.preheader30, !llvm.loop !12
 
 .loopexit31:                                      ; preds = %.preheader30, %35
   tail call void @__trace_probe_log_err(i32 noundef 0, i32 noundef 49)
@@ -973,7 +973,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 64:                                               ; preds = %.loopexit32
   %65 = add nuw nsw i64 %71, 1
   %66 = icmp eq i64 %65, 8
-  br i1 %66, label %67, label %.loopexit32, !llvm.loop !10
+  br i1 %66, label %67, label %.loopexit32, !llvm.loop !13
 
 67:                                               ; preds = %64
   %68 = icmp sgt i32 %1, 0
@@ -995,7 +995,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 76:                                               ; preds = %79
   %77 = add nuw nsw i64 %80, 1
   %78 = icmp eq i64 %77, %70
-  br i1 %78, label %.loopexit28, label %79, !llvm.loop !11
+  br i1 %78, label %.loopexit28, label %79, !llvm.loop !14
 
 79:                                               ; preds = %76, %69
   %80 = phi i64 [ 0, %69 ], [ %77, %76 ]
@@ -1275,7 +1275,7 @@ sub_0:                                            ; preds = %173
 253:                                              ; preds = %247, %220
   %254 = load ptr, ptr %200, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 17
-  %256 = load i8, ptr %255, align 1, !range !12, !noundef !13
+  %256 = load i8, ptr %255, align 1, !range !15, !noundef !16
   %257 = icmp eq i8 %256, 0
   br i1 %257, label %311, label %258
 
@@ -1446,7 +1446,7 @@ sub_0:                                            ; preds = %173
 
 341:                                              ; preds = %338
   %342 = load ptr, ptr %200, align 8
-  %343 = call fastcc i32 @__parse_bitfield_probe_arg(ptr noundef nonnull %165, ptr noundef %342, ptr noundef nonnull %5), !range !14
+  %343 = call fastcc i32 @__parse_bitfield_probe_arg(ptr noundef nonnull %165, ptr noundef %342, ptr noundef nonnull %5), !range !17
   %344 = icmp eq i32 %343, 0
   br i1 %344, label %353, label %345
 
@@ -1518,7 +1518,7 @@ sub_0:                                            ; preds = %173
   %382 = ashr exact i64 %381, 4
   %383 = add nsw i64 %382, 1
   %384 = icmp ugt i64 %383, 1152921504606846975
-  br i1 %384, label %.thread24, label %385, !prof !15
+  br i1 %384, label %.thread24, label %385, !prof !18
 
 .thread24:                                        ; preds = %376
   store ptr null, ptr %8, align 8
@@ -1559,7 +1559,7 @@ sub_0:                                            ; preds = %173
 399:                                              ; preds = %396, %.preheader
   %400 = getelementptr i8, ptr %394, i64 16
   %401 = icmp ult ptr %400, %392
-  br i1 %401, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %401, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %399, %391, %389
   %402 = phi i32 [ 0, %389 ], [ %.ph, %391 ], [ %.ph, %399 ]
@@ -1608,7 +1608,7 @@ define dso_local void @traceprobe_free_probe_arg(ptr noundef readonly captures(n
 9:                                                ; preds = %6, %.preheader
   %10 = getelementptr i8, ptr %4, i64 16
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %11, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %.preheader, %9
   %.pre = load ptr, ptr %0, align 8
@@ -1679,7 +1679,7 @@ define dso_local noundef ptr @traceprobe_expand_meta_args(i32 noundef %0, ptr no
   %37 = phi i32 [ 1, %25 ], [ %14, %11 ], [ 1, %33 ]
   %38 = add nuw nsw i64 %13, 1
   %39 = icmp eq i64 %38, %10
-  br i1 %39, label %42, label %11, !llvm.loop !18
+  br i1 %39, label %42, label %11, !llvm.loop !21
 
 40:                                               ; preds = %33, %31, %19
   %41 = phi i32 [ 66, %19 ], [ 25, %31 ], [ 67, %33 ]
@@ -1730,7 +1730,7 @@ define dso_local i32 @traceprobe_update_arg(ptr noundef readonly captures(none) 
   br i1 %4, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %1
-  store i64 0, ptr %2, align 8, !annotation !19
+  store i64 0, ptr %2, align 8, !annotation !22
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %33
@@ -1792,7 +1792,7 @@ define dso_local i32 @traceprobe_update_arg(ptr noundef readonly captures(none) 
 33:                                               ; preds = %30, %.preheader
   %34 = getelementptr i8, ptr %5, i64 16
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %16, %33, %26, %7, %.preheader, %1
   %36 = phi i32 [ 0, %1 ], [ %18, %16 ], [ 0, %33 ], [ 0, %.preheader ], [ -2, %26 ], [ -22, %7 ]
@@ -1840,9 +1840,9 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   br label %8
 
 7:                                                ; preds = %4
-  tail call void asm sideeffect "453: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 453b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 453) #16, !srcloc !21
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.133, i32 1635, i32 2307, i64 12) #16, !srcloc !22
-  tail call void asm sideeffect "454: nop\0A\09.pushsection .discard.instr_end\0A\09.long 454b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 454) #16, !srcloc !23
+  tail call void asm sideeffect "453: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 453b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 453) #16, !srcloc !24
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.133, i32 1635, i32 2307, i64 12) #16, !srcloc !25
+  tail call void asm sideeffect "454: nop\0A\09.pushsection .discard.instr_end\0A\09.long 454b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 454) #16, !srcloc !26
   br label %.loopexit2
 
 8:                                                ; preds = %6, %5, %4
@@ -1911,7 +1911,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %59 = add nuw i32 %51, 1
   %60 = load i32, ptr %33, align 8
   %61 = icmp ult i32 %59, %60
-  br i1 %61, label %.preheader.split.us, label %.loopexit3, !llvm.loop !24
+  br i1 %61, label %.preheader.split.us, label %.loopexit3, !llvm.loop !27
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %62 = phi i32 [ %72, %.preheader.split ], [ %47, %.preheader ]
@@ -1928,7 +1928,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %73 = add nuw i32 %63, 1
   %74 = load i32, ptr %33, align 8
   %75 = icmp ult i32 %73, %74
-  br i1 %75, label %.preheader.split, label %.loopexit3, !llvm.loop !26
+  br i1 %75, label %.preheader.split, label %.loopexit3, !llvm.loop !29
 
 .loopexit3:                                       ; preds = %.preheader.split, %.preheader.split.us, %45
   %76 = phi i32 [ %47, %45 ], [ %58, %.preheader.split.us ], [ %72, %.preheader.split ]
@@ -1951,7 +1951,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %89 = add nuw i32 %21, 1
   %90 = load i32, ptr %14, align 8
   %91 = icmp ult i32 %89, %90
-  br i1 %91, label %19, label %.loopexit4, !llvm.loop !27
+  br i1 %91, label %19, label %.loopexit4, !llvm.loop !30
 
 .loopexit4:                                       ; preds = %87, %8
   %92 = phi i32 [ %13, %8 ], [ %88, %87 ]
@@ -1981,7 +1981,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 17
-  %114 = load i8, ptr %113, align 1, !range !12, !noundef !13
+  %114 = load i8, ptr %113, align 1, !range !15, !noundef !16
   %115 = icmp eq i8 %114, 0
   br i1 %110, label %118, label %.split.us.us
 
@@ -2005,7 +2005,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %127 = add nuw i32 %105, 1
   %128 = load i32, ptr %14, align 8
   %129 = icmp ult i32 %127, %128
-  br i1 %129, label %.split9.us, label %.loopexit2, !llvm.loop !28
+  br i1 %129, label %.split9.us, label %.loopexit2, !llvm.loop !31
 
 130:                                              ; preds = %130, %.split.us.us
   %131 = phi i32 [ %104, %.split.us.us ], [ %137, %130 ]
@@ -2018,7 +2018,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %138 = add nuw i32 %132, 1
   %139 = load i32, ptr %108, align 8
   %140 = icmp ult i32 %138, %139
-  br i1 %140, label %130, label %.loopexit.split.us.us, !llvm.loop !29
+  br i1 %140, label %130, label %.loopexit.split.us.us, !llvm.loop !32
 
 .split9:                                          ; preds = %102, %.loopexit.split
   %141 = phi i32 [ %178, %.loopexit.split ], [ %99, %102 ]
@@ -2031,7 +2031,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 48
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 17
-  %151 = load i8, ptr %150, align 1, !range !12, !noundef !13
+  %151 = load i8, ptr %150, align 1, !range !15, !noundef !16
   %152 = icmp eq i8 %151, 0
   br i1 %147, label %168, label %.split
 
@@ -2053,7 +2053,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %165 = add nuw i32 %157, 1
   %166 = load i32, ptr %145, align 8
   %167 = icmp ult i32 %165, %166
-  br i1 %167, label %155, label %.loopexit.split, !llvm.loop !30
+  br i1 %167, label %155, label %.loopexit.split, !llvm.loop !33
 
 168:                                              ; preds = %.split9
   %169 = select i1 %152, ptr @.str.142, ptr @.str.141
@@ -2072,7 +2072,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %179 = add nuw i32 %142, 1
   %180 = load i32, ptr %14, align 8
   %181 = icmp ult i32 %179, %180
-  br i1 %181, label %.split9, label %.loopexit2, !llvm.loop !31
+  br i1 %181, label %.split9, label %.loopexit2, !llvm.loop !34
 
 .loopexit2:                                       ; preds = %.loopexit.split, %.loopexit.split.us.us, %.loopexit4, %7
   %182 = phi i32 [ 0, %7 ], [ %99, %.loopexit4 ], [ %126, %.loopexit.split.us.us ], [ %178, %.loopexit.split ]
@@ -2095,7 +2095,7 @@ define dso_local i32 @traceprobe_define_arg_fields(ptr noundef %0, i64 noundef %
   %11 = add nuw i32 %15, 1
   %12 = load i32, ptr %5, align 8
   %13 = icmp ult i32 %11, %12
-  br i1 %13, label %14, label %.loopexit, !llvm.loop !32
+  br i1 %13, label %14, label %.loopexit, !llvm.loop !35
 
 14:                                               ; preds = %10, %8
   %15 = phi i32 [ 0, %8 ], [ %11, %10 ]
@@ -2122,7 +2122,7 @@ define dso_local i32 @traceprobe_define_arg_fields(ptr noundef %0, i64 noundef %
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, %9
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %39 = load i8, ptr %38, align 8, !range !12, !noundef !13
+  %39 = load i8, ptr %38, align 8, !range !15, !noundef !16
   %40 = zext nneg i8 %39 to i32
   %41 = tail call i32 @trace_define_field(ptr noundef %0, ptr noundef %28, ptr noundef %34, i32 noundef %37, i32 noundef %32, i32 noundef %40, i32 noundef 0) #16
   %42 = icmp eq i32 %41, 0
@@ -2265,7 +2265,7 @@ define dso_local void @trace_probe_cleanup(ptr noundef %0) local_unnamed_addr #0
 18:                                               ; preds = %15, %.preheader.i
   %19 = getelementptr i8, ptr %13, i64 16
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit.loopexit.i, label %.preheader.i, !llvm.loop !17
+  br i1 %20, label %.loopexit.loopexit.i, label %.preheader.i, !llvm.loop !20
 
 .loopexit.loopexit.i:                             ; preds = %18, %.preheader.i
   %.pre.i = load ptr, ptr %10, align 8
@@ -2286,7 +2286,7 @@ traceprobe_free_probe_arg.exit:                   ; preds = %7, %.loopexit.loope
   %28 = add nuw i32 %8, 1
   %29 = load i32, ptr %2, align 8
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %7, label %.loopexit, !llvm.loop !33
+  br i1 %30, label %7, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %traceprobe_free_probe_arg.exit, %1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2490,7 +2490,7 @@ define dso_local i32 @trace_probe_register_event_call(ptr noundef readonly captu
 .thread:                                          ; preds = %48, %56, %53, %33, %.preheader
   %59 = load ptr, ptr %28, align 8
   %60 = icmp eq ptr %59, @ftrace_events
-  br i1 %60, label %.thread7, label %.preheader, !llvm.loop !34
+  br i1 %60, label %.thread7, label %.preheader, !llvm.loop !37
 
 61:                                               ; preds = %56
   %62 = icmp eq ptr %28, null
@@ -2545,7 +2545,7 @@ define dso_local noundef range(i32 -12, 1) i32 @trace_probe_add_file(ptr noundef
   %13 = load ptr, ptr %12, align 8
   store ptr %11, ptr %7, align 8
   store ptr %13, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !35
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
   store volatile ptr %7, ptr %13, align 8
   store ptr %7, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
@@ -2576,7 +2576,7 @@ define dso_local ptr @trace_probe_get_file_link(ptr noundef readonly captures(no
   %11 = getelementptr i8, ptr %8, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
-  br i1 %13, label %.split.loop.exit1.split.loop.exit4, label %6, !llvm.loop !36
+  br i1 %13, label %.split.loop.exit1.split.loop.exit4, label %6, !llvm.loop !39
 
 .split.loop.exit1.split.loop.exit4:               ; preds = %10
   %14 = getelementptr i8, ptr %8, i64 -8
@@ -2604,7 +2604,7 @@ define dso_local noundef range(i32 -2, 1) i32 @trace_probe_remove_file(ptr nound
   %11 = getelementptr i8, ptr %8, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
-  br i1 %13, label %14, label %6, !llvm.loop !36
+  br i1 %13, label %14, label %6, !llvm.loop !40
 
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %8, i64 -8
@@ -2711,7 +2711,7 @@ define dso_local i32 @trace_probe_compare_arg_type(ptr noundef readonly captures
 47:                                               ; preds = %37
   %48 = add nuw i32 %20, 1
   %49 = icmp eq i32 %48, %4
-  br i1 %49, label %.loopexit, label %19, !llvm.loop !37
+  br i1 %49, label %.loopexit, label %19, !llvm.loop !41
 
 .loopexit:                                        ; preds = %47, %44, %17, %12, %8
   %50 = phi i32 [ %9, %8 ], [ %18, %17 ], [ %46, %44 ], [ 0, %12 ], [ 0, %47 ]
@@ -2736,7 +2736,7 @@ define dso_local zeroext i1 @trace_probe_match_command_args(ptr noundef readonly
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !22
   %12 = zext nneg i32 %1 to i64
   br label %13
 
@@ -2755,7 +2755,7 @@ define dso_local zeroext i1 @trace_probe_match_command_args(ptr noundef readonly
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp ne i64 %25, %12
   %27 = select i1 %24, i1 %26, i1 false
-  br i1 %27, label %13, label %.loopexit, !llvm.loop !38
+  br i1 %27, label %13, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %13, %8, %3
   %28 = phi i1 [ false, %3 ], [ true, %8 ], [ %24, %13 ]
@@ -2819,7 +2819,7 @@ define dso_local noundef range(i32 -12, 1) i32 @trace_probe_print_args(ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %28, !prof !39
+  br i1 %16, label %17, label %28, !prof !43
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -2872,12 +2872,12 @@ define dso_local noundef range(i32 -12, 1) i32 @trace_probe_print_args(ptr nound
   %54 = add nuw i32 %39, 1
   %55 = load i32, ptr %14, align 8
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %37, label %.loopexit, !llvm.loop !40
+  br i1 %56, label %37, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %45, %17, %28
   %57 = add nuw nsw i64 %10, 1
   %58 = icmp eq i64 %57, %8
-  br i1 %58, label %select.unfold, label %9, !llvm.loop !41
+  br i1 %58, label %select.unfold, label %9, !llvm.loop !45
 
 select.unfold:                                    ; preds = %17, %.loopexit, %37, %5
   %59 = phi i32 [ 0, %5 ], [ -12, %37 ], [ -12, %17 ], [ 0, %.loopexit ]
@@ -2933,7 +2933,7 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef range(i6
 
 21:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  store i64 0, ptr %3, align 8, !annotation !19
+  store i64 0, ptr %3, align 8, !annotation !22
   %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 47) #16
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit.sink.split, label %24
@@ -2973,14 +2973,14 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef range(i6
   %38 = phi i64 [ %39, %41 ], [ 0, %18 ]
   %39 = add nuw nsw i64 %38, 1
   %40 = icmp eq i64 %39, 17
-  br i1 %40, label %.loopexit, label %41, !llvm.loop !42
+  br i1 %40, label %.loopexit, label %41, !llvm.loop !46
 
 41:                                               ; preds = %.preheader
   %42 = getelementptr [18 x %struct.fetch_type], ptr @probe_fetch_types, i64 0, i64 %39
   %43 = load ptr, ptr %42, align 16
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %43) #16
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !42
+  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !47
 
 .loopexit.sink.split:                             ; preds = %28, %24, %21, %35
   %.ph = phi ptr [ %37, %35 ], [ null, %21 ], [ null, %24 ], [ null, %28 ]
@@ -3002,7 +3002,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr noundef captures
   %9 = load ptr, ptr %1, align 8
   store ptr %9, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
-  store i64 0, ptr %7, align 8, !annotation !19
+  store i64 0, ptr %7, align 8, !annotation !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store i64 0, ptr %8, align 8
   %10 = load i8, ptr %0, align 1
@@ -3018,7 +3018,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr noundef captures
 11:                                               ; preds = %4
   %12 = getelementptr i8, ptr %0, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  store i64 0, ptr %5, align 8, !annotation !19
+  store i64 0, ptr %5, align 8, !annotation !22
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 8
@@ -3063,7 +3063,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr noundef captures
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @strcmp(ptr noundef %12, ptr noundef %40) #16
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %34, !llvm.loop !43
+  br i1 %42, label %43, label %34, !llvm.loop !48
 
 43:                                               ; preds = %38
   store i32 20, ptr %9, align 8
@@ -3602,7 +3602,7 @@ define internal fastcc range(i32 -22, 1) i32 @__parse_bitfield_probe_arg(ptr nou
   br i1 %7, label %8, label %49
 
 8:                                                ; preds = %3
-  store ptr null, ptr %4, align 8, !annotation !19
+  store ptr null, ptr %4, align 8, !annotation !22
   %9 = getelementptr i8, ptr %0, i64 1
   %10 = call i64 @simple_strtoul(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 0) #16
   %11 = icmp eq i64 %10, 0
@@ -3720,42 +3720,47 @@ attributes #18 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = !{i32 -22, i32 1}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = !{!"auto-init"}
-!20 = distinct !{!20, !6, !7}
-!21 = !{i64 2157001691, i64 2157001500, i64 2157001552, i64 2157001598, i64 2157001626}
-!22 = !{i64 2157001765, i64 2157001794, i64 2157001840, i64 2157001898, i64 2157001952, i64 2157002006, i64 2157002061, i64 2157002092, i64 2157002400, i64 2157002406, i64 2157002453, i64 2157002476, i64 2157002502}
-!23 = !{i64 2157002962, i64 2157002773, i64 2157002823, i64 2157002869, i64 2157002897}
-!24 = distinct !{!24, !6, !7, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7, !25}
-!29 = distinct !{!29, !6, !7, !25}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
-!35 = !{i64 2152226939}
-!36 = distinct !{!36, !6, !7}
-!37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7}
-!39 = !{!"branch_weights", i32 2000, i32 1}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}
-!42 = distinct !{!42, !6, !7}
-!43 = distinct !{!43, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{i32 -22, i32 1}
+!18 = !{!"branch_weights", i32 1, i32 2000}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = !{!"auto-init"}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = !{i64 2157001691, i64 2157001500, i64 2157001552, i64 2157001598, i64 2157001626}
+!25 = !{i64 2157001765, i64 2157001794, i64 2157001840, i64 2157001898, i64 2157001952, i64 2157002006, i64 2157002061, i64 2157002092, i64 2157002400, i64 2157002406, i64 2157002453, i64 2157002476, i64 2157002502}
+!26 = !{i64 2157002962, i64 2157002773, i64 2157002823, i64 2157002869, i64 2157002897}
+!27 = distinct !{!27, !6, !7, !8, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !6, !7, !8}
+!30 = distinct !{!30, !6, !7, !8}
+!31 = distinct !{!31, !6, !7, !8, !28}
+!32 = distinct !{!32, !6, !7, !8, !28}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}
+!38 = !{i64 2152226939}
+!39 = distinct !{!39, !6, !7, !8}
+!40 = distinct !{!40, !6, !7, !8}
+!41 = distinct !{!41, !6, !7, !8}
+!42 = distinct !{!42, !6, !7, !8}
+!43 = !{!"branch_weights", i32 2000, i32 1}
+!44 = distinct !{!44, !6, !7, !8}
+!45 = distinct !{!45, !6, !7, !8}
+!46 = distinct !{!46, !6, !7}
+!47 = distinct !{!47, !6, !7, !8}
+!48 = distinct !{!48, !6, !7, !8}

@@ -589,7 +589,7 @@ get_sample_rate.exit104:                          ; preds = %304, %317
   %369 = tail call i32 @llvm.umin.i32(i32 %126, i32 %368)
   store i32 %369, ptr %5, align 8, !tbaa !4
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %367, ptr %370, align 4, !tbaa !27
+  store i32 %367, ptr %370, align 4, !tbaa !28
   br i1 %98, label %.thread, label %371
 
 371:                                              ; preds = %.loopexit.thread.thread, %.thread114, %.loopexit.thread
@@ -647,7 +647,7 @@ define i32 @avpriv_mpeg4audio_get_config2(ptr noundef writeonly captures(none) %
   %17 = zext nneg i32 %13 to i64
   %18 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %18, ptr %19, align 8, !tbaa !28
+  store ptr %18, ptr %19, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %20, align 8, !tbaa !4
   br i1 %or.cond3.i.i, label %21, label %23
@@ -704,7 +704,8 @@ attributes #4 = { nounwind }
 !22 = !{!15, !10, i64 20}
 !23 = !{!15, !10, i64 28}
 !24 = !{!5, !10, i64 20}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!15, !10, i64 32}
-!28 = !{!5, !6, i64 8}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!15, !10, i64 32}
+!29 = !{!5, !6, i64 8}

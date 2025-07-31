@@ -1156,7 +1156,7 @@ XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exi
   %466 = load ptr, ptr @wrconn, align 8
   %467 = call i32 %465(ptr noundef %466, ptr noundef nonnull %23, ptr noundef nonnull %24) #16
   %468 = icmp sgt i32 %467, 0
-  br i1 %468, label %.lr.ph, label %._crit_edge
+  br i1 %468, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %XLogWalRcvProcessMsg.exit
   %469 = icmp eq i32 %467, 0
@@ -1347,7 +1347,7 @@ XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exi
   %..081 = call i64 @llvm.smin.i64(i64 %564, i64 %.081195)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond234.not, label %556, label %.critedge, !llvm.loop !16
+  br i1 %exitcond234.not, label %556, label %.critedge, !llvm.loop !18
 
 565:                                              ; preds = %556
   %566 = load ptr, ptr @MyLatch, align 8
@@ -1380,7 +1380,7 @@ ProcessWalRcvInterrupts.exit126:                  ; preds = %569
 
 576:                                              ; preds = %ProcessWalRcvInterrupts.exit126
   store i32 0, ptr %126, align 8
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !17
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext true, i1 noundef zeroext false)
   br label %577
 
@@ -1424,7 +1424,7 @@ XLogWalRcvFlush.exit:                             ; preds = %577, %589
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #16
   store i32 -1, ptr %24, align 4
   %590 = call zeroext i1 @RecoveryInProgress() #16
-  br i1 %590, label %.lr.ph198, label %._crit_edge199
+  br i1 %590, label %.lr.ph198, label %._crit_edge199, !llvm.loop !20
 
 591:                                              ; preds = %479, %517
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #16
@@ -1598,7 +1598,7 @@ XLogWalRcvFlush.exit129:                          ; preds = %605, %642
   br i1 %.not24.i, label %683, label %677
 
 677:                                              ; preds = %674
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !21
   store i8 0, ptr %670, align 2
   %678 = icmp eq i32 %676, 5
   br i1 %678, label %679, label %680
@@ -1620,7 +1620,7 @@ XLogWalRcvFlush.exit129:                          ; preds = %605, %642
   store i64 0, ptr %684, align 8
   %685 = getelementptr inbounds nuw i8, ptr %669, i64 40
   store i32 0, ptr %685, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !22
   store i8 0, ptr %670, align 2
   call void @set_ps_display_with_len(ptr noundef nonnull @.str.24, i64 noundef 4) #16
   call void @WakeupRecovery() #16
@@ -1671,24 +1671,24 @@ ProcessWalRcvInterrupts.exit.i:                   ; preds = %690
   %703 = load i32, ptr %685, align 8
   store i32 %703, ptr %16, align 4
   store i32 2, ptr %675, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
   store i8 0, ptr %670, align 2
   %704 = load i8, ptr @update_process_title, align 1, !range !8, !noundef !9
   %705 = trunc nuw i8 %704 to i1
   br i1 %705, label %710, label %WalRcvWaitForStartPosition.exit
 
 706:                                              ; preds = %699
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !24
   store i8 0, ptr %670, align 2
   call void @exit(i32 noundef 1) #21
   unreachable
 
 707:                                              ; preds = %699
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !22
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
   store i8 0, ptr %670, align 2
   %708 = load ptr, ptr @MyLatch, align 8
   %709 = call i32 @WaitLatch(ptr noundef %708, i32 noundef 33, i64 noundef 0, i32 noundef 134217782) #16
-  br label %686
+  br label %686, !llvm.loop !26
 
 710:                                              ; preds = %701
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %7) #16
@@ -1715,7 +1715,7 @@ WalRcvWaitForStartPosition.exit:                  ; preds = %701, %710
   %722 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull @.str.7, i64 noundef %721) #16
   %723 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %720, ptr noundef nonnull dereferenceable(1) %21) #19
   %.not102 = icmp eq i32 %723, 0
-  br i1 %.not102, label %131, label %._crit_edge206
+  br i1 %.not102, label %131, label %._crit_edge206, !llvm.loop !27
 }
 
 declare void @AuxiliaryProcessMainCommon() local_unnamed_addr #1
@@ -1759,7 +1759,7 @@ define internal void @WalRcvDie(i32 %0, i64 noundef %1) #0 {
   store i32 -1, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 2225
   store i8 0, ptr %13, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !28
   store i8 0, ptr %6, align 2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %14) #16
@@ -1888,7 +1888,7 @@ define internal fastcc void @WalRcvFetchTimeLineHistoryFiles(i32 noundef %0, i32
 35:                                               ; preds = %.lr.ph, %7, %32
   %36 = add i32 %.016, 1
   %.not = icmp ugt i32 %36, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %35, %2
   ret void
@@ -2329,7 +2329,7 @@ define dso_local void @WalRcvForceReply() local_unnamed_addr #0 {
 9:                                                ; preds = %0, %5
   %10 = load ptr, ptr @WalRcv, align 8
   %11 = load i32, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !30
   %12 = load ptr, ptr @WalRcv, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2226
   store i8 0, ptr %13, align 2
@@ -2407,7 +2407,7 @@ define dso_local i64 @pg_stat_get_wal_receiver(ptr noundef %0) local_unnamed_add
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %47 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %46, i64 noundef 1024) #16
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !31
   %48 = load ptr, ptr @WalRcv, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2226
   store i8 0, ptr %49, align 2
@@ -2721,7 +2721,7 @@ define internal fastcc void @ProcessWalSndrMessage(i64 noundef %0, i64 noundef %
   store i64 %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 %4, ptr %17, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !32
   store i8 0, ptr %5, align 2
   %18 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 13) #16
   br i1 %18, label %19, label %36
@@ -2853,17 +2853,22 @@ attributes #21 = { cold noreturn nounwind }
 !11 = !{i64 2151331361}
 !12 = !{i64 2151335115}
 !13 = !{i64 2151358197}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = !{i64 2151343426}
-!18 = !{i64 2151347545}
-!19 = !{i64 2151348392}
-!20 = !{i64 2151348690}
-!21 = !{i64 2151348807}
-!22 = !{i64 2151348924}
-!23 = !{i64 2151352371}
-!24 = distinct !{!24, !15}
-!25 = !{i64 2151370188}
-!26 = !{i64 2151370562}
-!27 = !{i64 2151366988}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = !{i64 2151343426}
+!20 = distinct !{!20, !16}
+!21 = !{i64 2151347545}
+!22 = !{i64 2151348392}
+!23 = !{i64 2151348690}
+!24 = !{i64 2151348807}
+!25 = !{i64 2151348924}
+!26 = distinct !{!26, !16}
+!27 = distinct !{!27, !16}
+!28 = !{i64 2151352371}
+!29 = distinct !{!29, !15, !16}
+!30 = !{i64 2151370188}
+!31 = !{i64 2151370562}
+!32 = !{i64 2151366988}

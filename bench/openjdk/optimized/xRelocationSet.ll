@@ -294,9 +294,9 @@ _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit.preheader: ; preds = %10
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
-  %17 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %16, ptr %.011.i.i, ptr nonnull align 8 dereferenceable(16) %2) #8, !srcloc !9
+  %17 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %16, ptr %.011.i.i, ptr nonnull align 8 dereferenceable(16) %2) #8, !srcloc !10
   %18 = icmp eq ptr %17, %.011.i.i
-  br i1 %18, label %19, label %10, !llvm.loop !10
+  br i1 %18, label %19, label %10, !llvm.loop !11
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %.011.i.i, align 8
@@ -362,7 +362,7 @@ _ZN11XForwarding5allocEP20XForwardingAllocatorP5XPage.exit: ; preds = %_ZN14XAtt
   %49 = load ptr, ptr %7, align 8
   %50 = getelementptr inbounds ptr, ptr %49, i64 %48
   store ptr %33, ptr %50, align 8
-  br label %8, !llvm.loop !11
+  br label %8, !llvm.loop !12
 
 _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit: ; preds = %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit.preheader, %_ZN11XForwarding5allocEP20XForwardingAllocatorP5XPage.exit13
   %51 = load volatile ptr, ptr %12, align 8
@@ -376,9 +376,9 @@ _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit: ; preds = %_ZN18XArrayItera
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %.011.i.i3, i64 8
-  %56 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55, ptr %.011.i.i3, ptr nonnull align 8 dereferenceable(16) %12) #8, !srcloc !9
+  %56 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55, ptr %.011.i.i3, ptr nonnull align 8 dereferenceable(16) %12) #8, !srcloc !10
   %57 = icmp eq ptr %56, %.011.i.i3
-  br i1 %57, label %58, label %52, !llvm.loop !10
+  br i1 %57, label %58, label %52, !llvm.loop !11
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %.011.i.i3, align 8
@@ -444,7 +444,7 @@ _ZN11XForwarding5allocEP20XForwardingAllocatorP5XPage.exit13: ; preds = %_ZN14XA
   %88 = load ptr, ptr %7, align 8
   %89 = getelementptr inbounds ptr, ptr %88, i64 %87
   store ptr %72, ptr %89, align 8
-  br label %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit, !llvm.loop !12
+  br label %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit, !llvm.loop !13
 
 _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit5: ; preds = %52
   ret void
@@ -488,9 +488,10 @@ attributes #8 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411697}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145412694}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}

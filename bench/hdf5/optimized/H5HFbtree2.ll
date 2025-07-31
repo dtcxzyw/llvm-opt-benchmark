@@ -274,7 +274,7 @@ thread-pre-split:                                 ; preds = %41, %46, %17
   %87 = add nuw nsw i64 %.03547, 1
   %88 = lshr i64 %.03746, 8
   %exitcond49.not = icmp eq i64 %87, 8
-  br i1 %exitcond49.not, label %.loopexit, label %84, !llvm.loop !28
+  br i1 %exitcond49.not, label %.loopexit, label %84, !llvm.loop !29
 
 89:                                               ; preds = %58
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -338,7 +338,7 @@ define internal noundef i32 @H5HF__huge_bt2_indir_decode(ptr noundef %0, ptr nou
   store i64 %27, ptr %17, align 8, !tbaa !24
   %28 = add nuw nsw i64 %.02730, 1
   %exitcond.not = icmp eq i64 %28, 8
-  br i1 %exitcond.not, label %68, label %20, !llvm.loop !29
+  br i1 %exitcond.not, label %68, label %20, !llvm.loop !30
 
 29:                                               ; preds = %11
   %30 = load ptr, ptr %4, align 8, !tbaa !20
@@ -415,7 +415,7 @@ define internal noundef i32 @H5HF__huge_bt2_indir_decode(ptr noundef %0, ptr nou
   store i64 %78, ptr %69, align 8, !tbaa !16
   %79 = add nuw nsw i64 %.033, 1
   %exitcond34.not = icmp eq i64 %79, 8
-  br i1 %exitcond34.not, label %.loopexit, label %71, !llvm.loop !30
+  br i1 %exitcond34.not, label %.loopexit, label %71, !llvm.loop !31
 
 80:                                               ; preds = %11
   %81 = load ptr, ptr %4, align 8, !tbaa !20
@@ -483,7 +483,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_store(ptr noundef writeon
   br i1 %8, label %9, label %10, !prof !9
 
 9:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !32
   br label %10
 
 10:                                               ; preds = %9, %2
@@ -502,9 +502,9 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_compare(ptr noundef reado
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i64, ptr %11, align 8, !tbaa !32
+  %12 = load i64, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load i64, ptr %13, align 8, !tbaa !32
+  %14 = load i64, ptr %13, align 8, !tbaa !33
   %15 = sub i64 %12, %14
   %16 = trunc i64 %15 to i32
   store i32 %16, ptr %2, align 4, !tbaa !18
@@ -530,7 +530,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %14 = zext i8 %13 to i64
-  %15 = load i64, ptr %1, align 8, !tbaa !34
+  %15 = load i64, ptr %1, align 8, !tbaa !35
   call void @H5F_addr_encode_len(i64 noundef %14, ptr noundef nonnull %4, i64 noundef %15) #6
   %16 = load i8, ptr %2, align 1, !tbaa !14
   switch i8 %16, label %._crit_edge [
@@ -545,28 +545,28 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !35
+  %19 = load i64, ptr %18, align 8, !tbaa !36
   %20 = trunc i64 %19 to i8
   %21 = load ptr, ptr %4, align 8, !tbaa !20
   store i8 %20, ptr %21, align 1, !tbaa !25
   %22 = load ptr, ptr %4, align 8, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %4, align 8, !tbaa !20
-  %24 = load i64, ptr %18, align 8, !tbaa !35
+  %24 = load i64, ptr %18, align 8, !tbaa !36
   %25 = lshr i64 %24, 8
   %26 = trunc i64 %25 to i8
   store i8 %26, ptr %23, align 1, !tbaa !25
   %27 = load ptr, ptr %4, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %28, ptr %4, align 8, !tbaa !20
-  %29 = load i64, ptr %18, align 8, !tbaa !35
+  %29 = load i64, ptr %18, align 8, !tbaa !36
   %30 = lshr i64 %29, 16
   %31 = trunc i64 %30 to i8
   store i8 %31, ptr %28, align 1, !tbaa !25
   %32 = load ptr, ptr %4, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %33, ptr %4, align 8, !tbaa !20
-  %34 = load i64, ptr %18, align 8, !tbaa !35
+  %34 = load i64, ptr %18, align 8, !tbaa !36
   %35 = lshr i64 %34, 24
   %36 = trunc i64 %35 to i8
   store i8 %36, ptr %33, align 1, !tbaa !25
@@ -577,7 +577,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
 
 39:                                               ; preds = %11
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !35
+  %41 = load i64, ptr %40, align 8, !tbaa !36
   %42 = load ptr, ptr %4, align 8, !tbaa !20
   br label %43
 
@@ -591,7 +591,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   %46 = add nuw nsw i64 %.06569, 1
   %47 = lshr i64 %.06768, 8
   %exitcond.not = icmp eq i64 %46, 8
-  br i1 %exitcond.not, label %48, label %43, !llvm.loop !36
+  br i1 %exitcond.not, label %48, label %43, !llvm.loop !37
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %4, align 8, !tbaa !20
@@ -601,14 +601,14 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
 
 51:                                               ; preds = %11
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !35
+  %53 = load i64, ptr %52, align 8, !tbaa !36
   %54 = trunc i64 %53 to i8
   %55 = load ptr, ptr %4, align 8, !tbaa !20
   store i8 %54, ptr %55, align 1, !tbaa !25
   %56 = load ptr, ptr %4, align 8, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %57, ptr %4, align 8, !tbaa !20
-  %58 = load i64, ptr %52, align 8, !tbaa !35
+  %58 = load i64, ptr %52, align 8, !tbaa !36
   %59 = lshr i64 %58, 8
   %60 = trunc i64 %59 to i8
   store i8 %60, ptr %57, align 1, !tbaa !25
@@ -620,27 +620,27 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
 63:                                               ; preds = %._crit_edge, %17, %48, %51
   %64 = phi ptr [ %.pre, %._crit_edge ], [ %38, %17 ], [ %50, %48 ], [ %62, %51 ]
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %66 = load i32, ptr %65, align 8, !tbaa !37
+  %66 = load i32, ptr %65, align 8, !tbaa !38
   %67 = trunc i32 %66 to i8
   store i8 %67, ptr %64, align 1, !tbaa !25
   %68 = load ptr, ptr %4, align 8, !tbaa !20
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   store ptr %69, ptr %4, align 8, !tbaa !20
-  %70 = load i32, ptr %65, align 8, !tbaa !37
+  %70 = load i32, ptr %65, align 8, !tbaa !38
   %71 = lshr i32 %70, 8
   %72 = trunc i32 %71 to i8
   store i8 %72, ptr %69, align 1, !tbaa !25
   %73 = load ptr, ptr %4, align 8, !tbaa !20
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store ptr %74, ptr %4, align 8, !tbaa !20
-  %75 = load i32, ptr %65, align 8, !tbaa !37
+  %75 = load i32, ptr %65, align 8, !tbaa !38
   %76 = lshr i32 %75, 16
   %77 = trunc i32 %76 to i8
   store i8 %77, ptr %74, align 1, !tbaa !25
   %78 = load ptr, ptr %4, align 8, !tbaa !20
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
   store ptr %79, ptr %4, align 8, !tbaa !20
-  %80 = load i32, ptr %65, align 8, !tbaa !37
+  %80 = load i32, ptr %65, align 8, !tbaa !38
   %81 = lshr i32 %80, 24
   %82 = trunc nuw i32 %81 to i8
   store i8 %82, ptr %79, align 1, !tbaa !25
@@ -656,27 +656,27 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
 
 86:                                               ; preds = %63
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %88 = load i64, ptr %87, align 8, !tbaa !38
+  %88 = load i64, ptr %87, align 8, !tbaa !39
   %89 = trunc i64 %88 to i8
   store i8 %89, ptr %84, align 1, !tbaa !25
   %90 = load ptr, ptr %4, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 1
   store ptr %91, ptr %4, align 8, !tbaa !20
-  %92 = load i64, ptr %87, align 8, !tbaa !38
+  %92 = load i64, ptr %87, align 8, !tbaa !39
   %93 = lshr i64 %92, 8
   %94 = trunc i64 %93 to i8
   store i8 %94, ptr %91, align 1, !tbaa !25
   %95 = load ptr, ptr %4, align 8, !tbaa !20
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
   store ptr %96, ptr %4, align 8, !tbaa !20
-  %97 = load i64, ptr %87, align 8, !tbaa !38
+  %97 = load i64, ptr %87, align 8, !tbaa !39
   %98 = lshr i64 %97, 16
   %99 = trunc i64 %98 to i8
   store i8 %99, ptr %96, align 1, !tbaa !25
   %100 = load ptr, ptr %4, align 8, !tbaa !20
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
   store ptr %101, ptr %4, align 8, !tbaa !20
-  %102 = load i64, ptr %87, align 8, !tbaa !38
+  %102 = load i64, ptr %87, align 8, !tbaa !39
   %103 = lshr i64 %102, 24
   %104 = trunc i64 %103 to i8
   store i8 %104, ptr %101, align 1, !tbaa !25
@@ -684,7 +684,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
 
 105:                                              ; preds = %63
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %107 = load i64, ptr %106, align 8, !tbaa !38
+  %107 = load i64, ptr %106, align 8, !tbaa !39
   br label %108
 
 108:                                              ; preds = %105, %108
@@ -697,17 +697,17 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   %111 = add nuw nsw i64 %.06072, 1
   %112 = lshr i64 %.06271, 8
   %exitcond77.not = icmp eq i64 %111, 8
-  br i1 %exitcond77.not, label %thread-pre-split, label %108, !llvm.loop !39
+  br i1 %exitcond77.not, label %thread-pre-split, label %108, !llvm.loop !40
 
 113:                                              ; preds = %63
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %115 = load i64, ptr %114, align 8, !tbaa !38
+  %115 = load i64, ptr %114, align 8, !tbaa !39
   %116 = trunc i64 %115 to i8
   store i8 %116, ptr %84, align 1, !tbaa !25
   %117 = load ptr, ptr %4, align 8, !tbaa !20
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
   store ptr %118, ptr %4, align 8, !tbaa !20
-  %119 = load i64, ptr %114, align 8, !tbaa !38
+  %119 = load i64, ptr %114, align 8, !tbaa !39
   %120 = lshr i64 %119, 8
   %121 = trunc i64 %120 to i8
   store i8 %121, ptr %118, align 1, !tbaa !25
@@ -732,26 +732,26 @@ thread-pre-split:                                 ; preds = %108, %113, %86
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %129 = load i64, ptr %128, align 8, !tbaa !32
+  %129 = load i64, ptr %128, align 8, !tbaa !33
   %130 = trunc i64 %129 to i8
   store i8 %130, ptr %125, align 1, !tbaa !25
   %131 = load ptr, ptr %4, align 8, !tbaa !20
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 1
   store ptr %132, ptr %4, align 8, !tbaa !20
-  %133 = load i64, ptr %128, align 8, !tbaa !32
+  %133 = load i64, ptr %128, align 8, !tbaa !33
   %134 = lshr i64 %133, 8
   %135 = trunc i64 %134 to i8
   store i8 %135, ptr %132, align 1, !tbaa !25
   %136 = load ptr, ptr %4, align 8, !tbaa !20
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 1
   store ptr %137, ptr %4, align 8, !tbaa !20
-  %138 = load i64, ptr %128, align 8, !tbaa !32
+  %138 = load i64, ptr %128, align 8, !tbaa !33
   %139 = lshr i64 %138, 16
   %140 = trunc i64 %139 to i8
   store i8 %140, ptr %137, align 1, !tbaa !25
   %141 = load ptr, ptr %4, align 8, !tbaa !20
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
-  %143 = load i64, ptr %128, align 8, !tbaa !32
+  %143 = load i64, ptr %128, align 8, !tbaa !33
   %144 = lshr i64 %143, 24
   %145 = trunc i64 %144 to i8
   store i8 %145, ptr %142, align 1, !tbaa !25
@@ -759,7 +759,7 @@ thread-pre-split:                                 ; preds = %108, %113, %86
 
 146:                                              ; preds = %124
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %148 = load i64, ptr %147, align 8, !tbaa !32
+  %148 = load i64, ptr %147, align 8, !tbaa !33
   br label %149
 
 149:                                              ; preds = %146, %149
@@ -772,16 +772,16 @@ thread-pre-split:                                 ; preds = %108, %113, %86
   %152 = add nuw nsw i64 %.05575, 1
   %153 = lshr i64 %.05774, 8
   %exitcond78.not = icmp eq i64 %152, 8
-  br i1 %exitcond78.not, label %.loopexit, label %149, !llvm.loop !40
+  br i1 %exitcond78.not, label %.loopexit, label %149, !llvm.loop !41
 
 154:                                              ; preds = %124
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %156 = load i64, ptr %155, align 8, !tbaa !32
+  %156 = load i64, ptr %155, align 8, !tbaa !33
   %157 = trunc i64 %156 to i8
   store i8 %157, ptr %125, align 1, !tbaa !25
   %158 = load ptr, ptr %4, align 8, !tbaa !20
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 1
-  %160 = load i64, ptr %155, align 8, !tbaa !32
+  %160 = load i64, ptr %155, align 8, !tbaa !33
   %161 = lshr i64 %160, 8
   %162 = trunc i64 %161 to i8
   store i8 %162, ptr %159, align 1, !tbaa !25
@@ -824,35 +824,35 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %18 = load i8, ptr %17, align 1, !tbaa !25
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %19, ptr %20, align 8, !tbaa !35
+  store i64 %19, ptr %20, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %21, ptr %4, align 8, !tbaa !20
   %22 = load i8, ptr %21, align 1, !tbaa !25
   %23 = zext i8 %22 to i64
   %24 = shl nuw nsw i64 %23, 8
   %25 = or disjoint i64 %24, %19
-  store i64 %25, ptr %20, align 8, !tbaa !35
+  store i64 %25, ptr %20, align 8, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store ptr %26, ptr %4, align 8, !tbaa !20
   %27 = load i8, ptr %26, align 1, !tbaa !25
   %28 = zext i8 %27 to i64
   %29 = shl nuw nsw i64 %28, 16
   %30 = or disjoint i64 %29, %25
-  store i64 %30, ptr %20, align 8, !tbaa !35
+  store i64 %30, ptr %20, align 8, !tbaa !36
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 3
   store ptr %31, ptr %4, align 8, !tbaa !20
   %32 = load i8, ptr %31, align 1, !tbaa !25
   %33 = zext i8 %32 to i64
   %34 = shl nuw nsw i64 %33, 24
   %35 = or disjoint i64 %34, %30
-  store i64 %35, ptr %20, align 8, !tbaa !35
+  store i64 %35, ptr %20, align 8, !tbaa !36
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store ptr %36, ptr %4, align 8, !tbaa !20
   br label %63
 
 37:                                               ; preds = %11
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %38, align 8, !tbaa !35
+  store i64 0, ptr %38, align 8, !tbaa !36
   %39 = load ptr, ptr %4, align 8, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   br label %41
@@ -867,10 +867,10 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %46 = load i8, ptr %45, align 1, !tbaa !25
   %47 = zext i8 %46 to i64
   %48 = or disjoint i64 %44, %47
-  store i64 %48, ptr %38, align 8, !tbaa !35
+  store i64 %48, ptr %38, align 8, !tbaa !36
   %49 = add nuw nsw i64 %.04447, 1
   %exitcond.not = icmp eq i64 %49, 8
-  br i1 %exitcond.not, label %50, label %41, !llvm.loop !41
+  br i1 %exitcond.not, label %50, label %41, !llvm.loop !42
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 7
@@ -882,14 +882,14 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %54 = load i8, ptr %53, align 1, !tbaa !25
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %55, ptr %56, align 8, !tbaa !35
+  store i64 %55, ptr %56, align 8, !tbaa !36
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store ptr %57, ptr %4, align 8, !tbaa !20
   %58 = load i8, ptr %57, align 1, !tbaa !25
   %59 = zext i8 %58 to i64
   %60 = shl nuw nsw i64 %59, 8
   %61 = or disjoint i64 %60, %55
-  store i64 %61, ptr %56, align 8, !tbaa !35
+  store i64 %61, ptr %56, align 8, !tbaa !36
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 2
   store ptr %62, ptr %4, align 8, !tbaa !20
   br label %63
@@ -899,28 +899,28 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %65 = load i8, ptr %64, align 1, !tbaa !25
   %66 = zext i8 %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %66, ptr %67, align 8, !tbaa !37
+  store i32 %66, ptr %67, align 8, !tbaa !38
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store ptr %68, ptr %4, align 8, !tbaa !20
   %69 = load i8, ptr %68, align 1, !tbaa !25
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 8
   %72 = or disjoint i32 %71, %66
-  store i32 %72, ptr %67, align 8, !tbaa !37
+  store i32 %72, ptr %67, align 8, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 2
   store ptr %73, ptr %4, align 8, !tbaa !20
   %74 = load i8, ptr %73, align 1, !tbaa !25
   %75 = zext i8 %74 to i32
   %76 = shl nuw nsw i32 %75, 16
   %77 = or disjoint i32 %76, %72
-  store i32 %77, ptr %67, align 8, !tbaa !37
+  store i32 %77, ptr %67, align 8, !tbaa !38
   %78 = getelementptr inbounds nuw i8, ptr %64, i64 3
   store ptr %78, ptr %4, align 8, !tbaa !20
   %79 = load i8, ptr %78, align 1, !tbaa !25
   %80 = zext i8 %79 to i32
   %81 = shl nuw i32 %80, 24
   %82 = or disjoint i32 %81, %77
-  store i32 %82, ptr %67, align 8, !tbaa !37
+  store i32 %82, ptr %67, align 8, !tbaa !38
   %83 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store ptr %83, ptr %4, align 8, !tbaa !20
   switch i8 %15, label %.loopexit [
@@ -931,7 +931,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
 
 84:                                               ; preds = %63
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 0, ptr %85, align 8, !tbaa !38
+  store i64 0, ptr %85, align 8, !tbaa !39
   %86 = getelementptr inbounds nuw i8, ptr %64, i64 12
   br label %87
 
@@ -945,65 +945,65 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %92 = load i8, ptr %91, align 1, !tbaa !25
   %93 = zext i8 %92 to i64
   %94 = or disjoint i64 %90, %93
-  store i64 %94, ptr %85, align 8, !tbaa !38
+  store i64 %94, ptr %85, align 8, !tbaa !39
   %95 = add nuw nsw i64 %.04350, 1
   %exitcond54.not = icmp eq i64 %95, 8
-  br i1 %exitcond54.not, label %134, label %87, !llvm.loop !42
+  br i1 %exitcond54.not, label %134, label %87, !llvm.loop !43
 
 96:                                               ; preds = %63
   %97 = load i8, ptr %83, align 1, !tbaa !25
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %98, ptr %99, align 8, !tbaa !38
+  store i64 %98, ptr %99, align 8, !tbaa !39
   %100 = getelementptr inbounds nuw i8, ptr %64, i64 5
   store ptr %100, ptr %4, align 8, !tbaa !20
   %101 = load i8, ptr %100, align 1, !tbaa !25
   %102 = zext i8 %101 to i64
   %103 = shl nuw nsw i64 %102, 8
   %104 = or disjoint i64 %103, %98
-  store i64 %104, ptr %99, align 8, !tbaa !38
+  store i64 %104, ptr %99, align 8, !tbaa !39
   %105 = getelementptr inbounds nuw i8, ptr %64, i64 6
   store ptr %105, ptr %4, align 8, !tbaa !20
   %106 = load i8, ptr %105, align 1, !tbaa !25
   %107 = zext i8 %106 to i64
   %108 = shl nuw nsw i64 %107, 16
   %109 = or disjoint i64 %108, %104
-  store i64 %109, ptr %99, align 8, !tbaa !38
+  store i64 %109, ptr %99, align 8, !tbaa !39
   %110 = getelementptr inbounds nuw i8, ptr %64, i64 7
   store ptr %110, ptr %4, align 8, !tbaa !20
   %111 = load i8, ptr %110, align 1, !tbaa !25
   %112 = zext i8 %111 to i64
   %113 = shl nuw nsw i64 %112, 24
   %114 = or disjoint i64 %113, %109
-  store i64 %114, ptr %99, align 8, !tbaa !38
+  store i64 %114, ptr %99, align 8, !tbaa !39
   %115 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %116 = load i8, ptr %115, align 1, !tbaa !25
   %117 = zext i8 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %117, ptr %118, align 8, !tbaa !32
+  store i64 %117, ptr %118, align 8, !tbaa !33
   %119 = getelementptr inbounds nuw i8, ptr %64, i64 9
   %120 = load i8, ptr %119, align 1, !tbaa !25
   %121 = zext i8 %120 to i64
   %122 = shl nuw nsw i64 %121, 8
   %123 = or disjoint i64 %122, %117
-  store i64 %123, ptr %118, align 8, !tbaa !32
+  store i64 %123, ptr %118, align 8, !tbaa !33
   %124 = getelementptr inbounds nuw i8, ptr %64, i64 10
   %125 = load i8, ptr %124, align 1, !tbaa !25
   %126 = zext i8 %125 to i64
   %127 = shl nuw nsw i64 %126, 16
   %128 = or disjoint i64 %127, %123
-  store i64 %128, ptr %118, align 8, !tbaa !32
+  store i64 %128, ptr %118, align 8, !tbaa !33
   %129 = getelementptr inbounds nuw i8, ptr %64, i64 11
   %130 = load i8, ptr %129, align 1, !tbaa !25
   %131 = zext i8 %130 to i64
   %132 = shl nuw nsw i64 %131, 24
   %133 = or disjoint i64 %132, %128
-  store i64 %133, ptr %118, align 8, !tbaa !32
+  store i64 %133, ptr %118, align 8, !tbaa !33
   br label %.loopexit
 
 134:                                              ; preds = %87
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 0, ptr %135, align 8, !tbaa !32
+  store i64 0, ptr %135, align 8, !tbaa !33
   %136 = getelementptr inbounds nuw i8, ptr %89, i64 15
   br label %137
 
@@ -1017,36 +1017,36 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %142 = load i8, ptr %141, align 1, !tbaa !25
   %143 = zext i8 %142 to i64
   %144 = or disjoint i64 %140, %143
-  store i64 %144, ptr %135, align 8, !tbaa !32
+  store i64 %144, ptr %135, align 8, !tbaa !33
   %145 = add nuw nsw i64 %.053, 1
   %exitcond55.not = icmp eq i64 %145, 8
-  br i1 %exitcond55.not, label %.loopexit, label %137, !llvm.loop !43
+  br i1 %exitcond55.not, label %.loopexit, label %137, !llvm.loop !44
 
 146:                                              ; preds = %63
   %147 = load i8, ptr %83, align 1, !tbaa !25
   %148 = zext i8 %147 to i64
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %148, ptr %149, align 8, !tbaa !38
+  store i64 %148, ptr %149, align 8, !tbaa !39
   %150 = getelementptr inbounds nuw i8, ptr %64, i64 5
   store ptr %150, ptr %4, align 8, !tbaa !20
   %151 = load i8, ptr %150, align 1, !tbaa !25
   %152 = zext i8 %151 to i64
   %153 = shl nuw nsw i64 %152, 8
   %154 = or disjoint i64 %153, %148
-  store i64 %154, ptr %149, align 8, !tbaa !38
+  store i64 %154, ptr %149, align 8, !tbaa !39
   %155 = getelementptr inbounds nuw i8, ptr %64, i64 6
   store ptr %155, ptr %4, align 8, !tbaa !20
   %156 = load i8, ptr %155, align 1, !tbaa !25
   %157 = zext i8 %156 to i64
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %157, ptr %158, align 8, !tbaa !32
+  store i64 %157, ptr %158, align 8, !tbaa !33
   %159 = getelementptr inbounds nuw i8, ptr %64, i64 7
   store ptr %159, ptr %4, align 8, !tbaa !20
   %160 = load i8, ptr %159, align 1, !tbaa !25
   %161 = zext i8 %160 to i64
   %162 = shl nuw nsw i64 %161, 8
   %163 = or disjoint i64 %162, %157
-  store i64 %163, ptr %158, align 8, !tbaa !32
+  store i64 %163, ptr %158, align 8, !tbaa !33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %137, %63, %96, %146, %3
@@ -1064,15 +1064,15 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_debug(ptr noundef capture
   br i1 %11, label %12, label %23, !prof !9
 
 12:                                               ; preds = %5
-  %13 = load i64, ptr %3, align 8, !tbaa !34
+  %13 = load i64, ptr %3, align 8, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !35
+  %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !37
+  %17 = load i32, ptr %16, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !38
+  %19 = load i64, ptr %18, align 8, !tbaa !39
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %21 = load i64, ptr %20, align 8, !tbaa !32
+  %21 = load i64, ptr %20, align 8, !tbaa !33
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %1, ptr noundef nonnull @.str.10, i32 noundef %2, ptr noundef nonnull @.str.11, i64 noundef %13, i64 noundef %15, i32 noundef %17, i64 noundef %19, i64 noundef %21) #6
   br label %23
 
@@ -1091,7 +1091,7 @@ define internal noundef i32 @H5HF__huge_bt2_dir_store(ptr noundef writeonly capt
   br i1 %8, label %9, label %10, !prof !9
 
 9:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !45
   br label %10
 
 10:                                               ; preds = %9, %2
@@ -1109,8 +1109,8 @@ define internal noundef i32 @H5HF__huge_bt2_dir_compare(ptr noundef readonly cap
   br i1 %9, label %10, label %24, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %0, align 8, !tbaa !45
-  %12 = load i64, ptr %1, align 8, !tbaa !45
+  %11 = load i64, ptr %0, align 8, !tbaa !46
+  %12 = load i64, ptr %1, align 8, !tbaa !46
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %.sink.split, label %14
 
@@ -1120,9 +1120,9 @@ define internal noundef i32 @H5HF__huge_bt2_dir_compare(ptr noundef readonly cap
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !47
+  %18 = load i64, ptr %17, align 8, !tbaa !48
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !47
+  %20 = load i64, ptr %19, align 8, !tbaa !48
   %21 = icmp ult i64 %18, %20
   br i1 %21, label %.sink.split, label %22
 
@@ -1156,7 +1156,7 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %14 = zext i8 %13 to i64
-  %15 = load i64, ptr %1, align 8, !tbaa !45
+  %15 = load i64, ptr %1, align 8, !tbaa !46
   call void @H5F_addr_encode_len(i64 noundef %14, ptr noundef nonnull %4, i64 noundef %15) #6
   %16 = load i8, ptr %2, align 1, !tbaa !14
   switch i8 %16, label %.loopexit [
@@ -1167,27 +1167,27 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nound
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !47
+  %19 = load i64, ptr %18, align 8, !tbaa !48
   %20 = trunc i64 %19 to i8
   %21 = load ptr, ptr %4, align 8, !tbaa !20
   store i8 %20, ptr %21, align 1, !tbaa !25
   %22 = load ptr, ptr %4, align 8, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %4, align 8, !tbaa !20
-  %24 = load i64, ptr %18, align 8, !tbaa !47
+  %24 = load i64, ptr %18, align 8, !tbaa !48
   %25 = lshr i64 %24, 8
   %26 = trunc i64 %25 to i8
   store i8 %26, ptr %23, align 1, !tbaa !25
   %27 = load ptr, ptr %4, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %28, ptr %4, align 8, !tbaa !20
-  %29 = load i64, ptr %18, align 8, !tbaa !47
+  %29 = load i64, ptr %18, align 8, !tbaa !48
   %30 = lshr i64 %29, 16
   %31 = trunc i64 %30 to i8
   store i8 %31, ptr %28, align 1, !tbaa !25
   %32 = load ptr, ptr %4, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %34 = load i64, ptr %18, align 8, !tbaa !47
+  %34 = load i64, ptr %18, align 8, !tbaa !48
   %35 = lshr i64 %34, 24
   %36 = trunc i64 %35 to i8
   store i8 %36, ptr %33, align 1, !tbaa !25
@@ -1195,7 +1195,7 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nound
 
 37:                                               ; preds = %11
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !47
+  %39 = load i64, ptr %38, align 8, !tbaa !48
   %40 = load ptr, ptr %4, align 8, !tbaa !20
   br label %41
 
@@ -1209,17 +1209,17 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nound
   %44 = add nuw nsw i64 %.01923, 1
   %45 = lshr i64 %.02122, 8
   %exitcond.not = icmp eq i64 %44, 8
-  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !49
 
 46:                                               ; preds = %11
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !47
+  %48 = load i64, ptr %47, align 8, !tbaa !48
   %49 = trunc i64 %48 to i8
   %50 = load ptr, ptr %4, align 8, !tbaa !20
   store i8 %49, ptr %50, align 1, !tbaa !25
   %51 = load ptr, ptr %4, align 8, !tbaa !20
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  %53 = load i64, ptr %47, align 8, !tbaa !47
+  %53 = load i64, ptr %47, align 8, !tbaa !48
   %54 = lshr i64 %53, 8
   %55 = trunc i64 %54 to i8
   store i8 %55, ptr %52, align 1, !tbaa !25
@@ -1258,33 +1258,33 @@ define internal noundef i32 @H5HF__huge_bt2_dir_decode(ptr noundef %0, ptr nound
   %18 = load i8, ptr %17, align 1, !tbaa !25
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %19, ptr %20, align 8, !tbaa !47
+  store i64 %19, ptr %20, align 8, !tbaa !48
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %21, ptr %4, align 8, !tbaa !20
   %22 = load i8, ptr %21, align 1, !tbaa !25
   %23 = zext i8 %22 to i64
   %24 = shl nuw nsw i64 %23, 8
   %25 = or disjoint i64 %24, %19
-  store i64 %25, ptr %20, align 8, !tbaa !47
+  store i64 %25, ptr %20, align 8, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store ptr %26, ptr %4, align 8, !tbaa !20
   %27 = load i8, ptr %26, align 1, !tbaa !25
   %28 = zext i8 %27 to i64
   %29 = shl nuw nsw i64 %28, 16
   %30 = or disjoint i64 %29, %25
-  store i64 %30, ptr %20, align 8, !tbaa !47
+  store i64 %30, ptr %20, align 8, !tbaa !48
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 3
   store ptr %31, ptr %4, align 8, !tbaa !20
   %32 = load i8, ptr %31, align 1, !tbaa !25
   %33 = zext i8 %32 to i64
   %34 = shl nuw nsw i64 %33, 24
   %35 = or disjoint i64 %34, %30
-  store i64 %35, ptr %20, align 8, !tbaa !47
+  store i64 %35, ptr %20, align 8, !tbaa !48
   br label %.loopexit
 
 36:                                               ; preds = %11
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %37, align 8, !tbaa !47
+  store i64 0, ptr %37, align 8, !tbaa !48
   %38 = load ptr, ptr %4, align 8, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br label %40
@@ -1299,24 +1299,24 @@ define internal noundef i32 @H5HF__huge_bt2_dir_decode(ptr noundef %0, ptr nound
   %45 = load i8, ptr %44, align 1, !tbaa !25
   %46 = zext i8 %45 to i64
   %47 = or disjoint i64 %43, %46
-  store i64 %47, ptr %37, align 8, !tbaa !47
+  store i64 %47, ptr %37, align 8, !tbaa !48
   %48 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %48, 8
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !50
 
 49:                                               ; preds = %11
   %50 = load ptr, ptr %4, align 8, !tbaa !20
   %51 = load i8, ptr %50, align 1, !tbaa !25
   %52 = zext i8 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %52, ptr %53, align 8, !tbaa !47
+  store i64 %52, ptr %53, align 8, !tbaa !48
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store ptr %54, ptr %4, align 8, !tbaa !20
   %55 = load i8, ptr %54, align 1, !tbaa !25
   %56 = zext i8 %55 to i64
   %57 = shl nuw nsw i64 %56, 8
   %58 = or disjoint i64 %57, %52
-  store i64 %58, ptr %53, align 8, !tbaa !47
+  store i64 %58, ptr %53, align 8, !tbaa !48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %16, %49, %11, %3
@@ -1334,9 +1334,9 @@ define internal noundef i32 @H5HF__huge_bt2_dir_debug(ptr noundef captures(none)
   br i1 %11, label %12, label %17, !prof !9
 
 12:                                               ; preds = %5
-  %13 = load i64, ptr %3, align 8, !tbaa !45
+  %13 = load i64, ptr %3, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !47
+  %15 = load i64, ptr %14, align 8, !tbaa !48
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1, ptr noundef nonnull @.str.10, i32 noundef %2, ptr noundef nonnull @.str.11, i64 noundef %13, i64 noundef %15) #6
   br label %17
 
@@ -1355,7 +1355,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_store(ptr noundef writeonly
   br i1 %8, label %9, label %10, !prof !9
 
 9:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !50
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !51
   br label %10
 
 10:                                               ; preds = %9, %2
@@ -1373,8 +1373,8 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_compare(ptr noundef readonl
   br i1 %9, label %10, label %24, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %0, align 8, !tbaa !51
-  %12 = load i64, ptr %1, align 8, !tbaa !51
+  %11 = load i64, ptr %0, align 8, !tbaa !52
+  %12 = load i64, ptr %1, align 8, !tbaa !52
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %.sink.split, label %14
 
@@ -1384,9 +1384,9 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_compare(ptr noundef readonl
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !53
+  %18 = load i64, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !53
+  %20 = load i64, ptr %19, align 8, !tbaa !54
   %21 = icmp ult i64 %18, %20
   br i1 %21, label %.sink.split, label %22
 
@@ -1420,7 +1420,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %14 = zext i8 %13 to i64
-  %15 = load i64, ptr %1, align 8, !tbaa !51
+  %15 = load i64, ptr %1, align 8, !tbaa !52
   call void @H5F_addr_encode_len(i64 noundef %14, ptr noundef nonnull %4, i64 noundef %15) #6
   %16 = load i8, ptr %2, align 1, !tbaa !14
   switch i8 %16, label %._crit_edge [
@@ -1435,28 +1435,28 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !53
+  %19 = load i64, ptr %18, align 8, !tbaa !54
   %20 = trunc i64 %19 to i8
   %21 = load ptr, ptr %4, align 8, !tbaa !20
   store i8 %20, ptr %21, align 1, !tbaa !25
   %22 = load ptr, ptr %4, align 8, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %4, align 8, !tbaa !20
-  %24 = load i64, ptr %18, align 8, !tbaa !53
+  %24 = load i64, ptr %18, align 8, !tbaa !54
   %25 = lshr i64 %24, 8
   %26 = trunc i64 %25 to i8
   store i8 %26, ptr %23, align 1, !tbaa !25
   %27 = load ptr, ptr %4, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %28, ptr %4, align 8, !tbaa !20
-  %29 = load i64, ptr %18, align 8, !tbaa !53
+  %29 = load i64, ptr %18, align 8, !tbaa !54
   %30 = lshr i64 %29, 16
   %31 = trunc i64 %30 to i8
   store i8 %31, ptr %28, align 1, !tbaa !25
   %32 = load ptr, ptr %4, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %33, ptr %4, align 8, !tbaa !20
-  %34 = load i64, ptr %18, align 8, !tbaa !53
+  %34 = load i64, ptr %18, align 8, !tbaa !54
   %35 = lshr i64 %34, 24
   %36 = trunc i64 %35 to i8
   store i8 %36, ptr %33, align 1, !tbaa !25
@@ -1467,7 +1467,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
 
 39:                                               ; preds = %11
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !53
+  %41 = load i64, ptr %40, align 8, !tbaa !54
   %42 = load ptr, ptr %4, align 8, !tbaa !20
   br label %43
 
@@ -1481,7 +1481,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   %46 = add nuw nsw i64 %.04448, 1
   %47 = lshr i64 %.04647, 8
   %exitcond.not = icmp eq i64 %46, 8
-  br i1 %exitcond.not, label %48, label %43, !llvm.loop !54
+  br i1 %exitcond.not, label %48, label %43, !llvm.loop !55
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %4, align 8, !tbaa !20
@@ -1491,14 +1491,14 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
 
 51:                                               ; preds = %11
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !53
+  %53 = load i64, ptr %52, align 8, !tbaa !54
   %54 = trunc i64 %53 to i8
   %55 = load ptr, ptr %4, align 8, !tbaa !20
   store i8 %54, ptr %55, align 1, !tbaa !25
   %56 = load ptr, ptr %4, align 8, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %57, ptr %4, align 8, !tbaa !20
-  %58 = load i64, ptr %52, align 8, !tbaa !53
+  %58 = load i64, ptr %52, align 8, !tbaa !54
   %59 = lshr i64 %58, 8
   %60 = trunc i64 %59 to i8
   store i8 %60, ptr %57, align 1, !tbaa !25
@@ -1510,27 +1510,27 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
 63:                                               ; preds = %._crit_edge, %17, %48, %51
   %64 = phi ptr [ %.pre, %._crit_edge ], [ %38, %17 ], [ %50, %48 ], [ %62, %51 ]
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %66 = load i32, ptr %65, align 8, !tbaa !55
+  %66 = load i32, ptr %65, align 8, !tbaa !56
   %67 = trunc i32 %66 to i8
   store i8 %67, ptr %64, align 1, !tbaa !25
   %68 = load ptr, ptr %4, align 8, !tbaa !20
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   store ptr %69, ptr %4, align 8, !tbaa !20
-  %70 = load i32, ptr %65, align 8, !tbaa !55
+  %70 = load i32, ptr %65, align 8, !tbaa !56
   %71 = lshr i32 %70, 8
   %72 = trunc i32 %71 to i8
   store i8 %72, ptr %69, align 1, !tbaa !25
   %73 = load ptr, ptr %4, align 8, !tbaa !20
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store ptr %74, ptr %4, align 8, !tbaa !20
-  %75 = load i32, ptr %65, align 8, !tbaa !55
+  %75 = load i32, ptr %65, align 8, !tbaa !56
   %76 = lshr i32 %75, 16
   %77 = trunc i32 %76 to i8
   store i8 %77, ptr %74, align 1, !tbaa !25
   %78 = load ptr, ptr %4, align 8, !tbaa !20
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
   store ptr %79, ptr %4, align 8, !tbaa !20
-  %80 = load i32, ptr %65, align 8, !tbaa !55
+  %80 = load i32, ptr %65, align 8, !tbaa !56
   %81 = lshr i32 %80, 24
   %82 = trunc nuw i32 %81 to i8
   store i8 %82, ptr %79, align 1, !tbaa !25
@@ -1546,26 +1546,26 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
 
 86:                                               ; preds = %63
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %88 = load i64, ptr %87, align 8, !tbaa !56
+  %88 = load i64, ptr %87, align 8, !tbaa !57
   %89 = trunc i64 %88 to i8
   store i8 %89, ptr %84, align 1, !tbaa !25
   %90 = load ptr, ptr %4, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 1
   store ptr %91, ptr %4, align 8, !tbaa !20
-  %92 = load i64, ptr %87, align 8, !tbaa !56
+  %92 = load i64, ptr %87, align 8, !tbaa !57
   %93 = lshr i64 %92, 8
   %94 = trunc i64 %93 to i8
   store i8 %94, ptr %91, align 1, !tbaa !25
   %95 = load ptr, ptr %4, align 8, !tbaa !20
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
   store ptr %96, ptr %4, align 8, !tbaa !20
-  %97 = load i64, ptr %87, align 8, !tbaa !56
+  %97 = load i64, ptr %87, align 8, !tbaa !57
   %98 = lshr i64 %97, 16
   %99 = trunc i64 %98 to i8
   store i8 %99, ptr %96, align 1, !tbaa !25
   %100 = load ptr, ptr %4, align 8, !tbaa !20
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
-  %102 = load i64, ptr %87, align 8, !tbaa !56
+  %102 = load i64, ptr %87, align 8, !tbaa !57
   %103 = lshr i64 %102, 24
   %104 = trunc i64 %103 to i8
   store i8 %104, ptr %101, align 1, !tbaa !25
@@ -1573,7 +1573,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
 
 105:                                              ; preds = %63
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %107 = load i64, ptr %106, align 8, !tbaa !56
+  %107 = load i64, ptr %106, align 8, !tbaa !57
   br label %108
 
 108:                                              ; preds = %105, %108
@@ -1586,16 +1586,16 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   %111 = add nuw nsw i64 %.03951, 1
   %112 = lshr i64 %.04150, 8
   %exitcond53.not = icmp eq i64 %111, 8
-  br i1 %exitcond53.not, label %.loopexit, label %108, !llvm.loop !57
+  br i1 %exitcond53.not, label %.loopexit, label %108, !llvm.loop !58
 
 113:                                              ; preds = %63
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %115 = load i64, ptr %114, align 8, !tbaa !56
+  %115 = load i64, ptr %114, align 8, !tbaa !57
   %116 = trunc i64 %115 to i8
   store i8 %116, ptr %84, align 1, !tbaa !25
   %117 = load ptr, ptr %4, align 8, !tbaa !20
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
-  %119 = load i64, ptr %114, align 8, !tbaa !56
+  %119 = load i64, ptr %114, align 8, !tbaa !57
   %120 = lshr i64 %119, 8
   %121 = trunc i64 %120 to i8
   store i8 %121, ptr %118, align 1, !tbaa !25
@@ -1638,35 +1638,35 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   %18 = load i8, ptr %17, align 1, !tbaa !25
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %19, ptr %20, align 8, !tbaa !53
+  store i64 %19, ptr %20, align 8, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %21, ptr %4, align 8, !tbaa !20
   %22 = load i8, ptr %21, align 1, !tbaa !25
   %23 = zext i8 %22 to i64
   %24 = shl nuw nsw i64 %23, 8
   %25 = or disjoint i64 %24, %19
-  store i64 %25, ptr %20, align 8, !tbaa !53
+  store i64 %25, ptr %20, align 8, !tbaa !54
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store ptr %26, ptr %4, align 8, !tbaa !20
   %27 = load i8, ptr %26, align 1, !tbaa !25
   %28 = zext i8 %27 to i64
   %29 = shl nuw nsw i64 %28, 16
   %30 = or disjoint i64 %29, %25
-  store i64 %30, ptr %20, align 8, !tbaa !53
+  store i64 %30, ptr %20, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 3
   store ptr %31, ptr %4, align 8, !tbaa !20
   %32 = load i8, ptr %31, align 1, !tbaa !25
   %33 = zext i8 %32 to i64
   %34 = shl nuw nsw i64 %33, 24
   %35 = or disjoint i64 %34, %30
-  store i64 %35, ptr %20, align 8, !tbaa !53
+  store i64 %35, ptr %20, align 8, !tbaa !54
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store ptr %36, ptr %4, align 8, !tbaa !20
   br label %63
 
 37:                                               ; preds = %11
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %38, align 8, !tbaa !53
+  store i64 0, ptr %38, align 8, !tbaa !54
   %39 = load ptr, ptr %4, align 8, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   br label %41
@@ -1681,10 +1681,10 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   %46 = load i8, ptr %45, align 1, !tbaa !25
   %47 = zext i8 %46 to i64
   %48 = or disjoint i64 %44, %47
-  store i64 %48, ptr %38, align 8, !tbaa !53
+  store i64 %48, ptr %38, align 8, !tbaa !54
   %49 = add nuw nsw i64 %.03133, 1
   %exitcond.not = icmp eq i64 %49, 8
-  br i1 %exitcond.not, label %50, label %41, !llvm.loop !58
+  br i1 %exitcond.not, label %50, label %41, !llvm.loop !59
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 7
@@ -1696,14 +1696,14 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   %54 = load i8, ptr %53, align 1, !tbaa !25
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %55, ptr %56, align 8, !tbaa !53
+  store i64 %55, ptr %56, align 8, !tbaa !54
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store ptr %57, ptr %4, align 8, !tbaa !20
   %58 = load i8, ptr %57, align 1, !tbaa !25
   %59 = zext i8 %58 to i64
   %60 = shl nuw nsw i64 %59, 8
   %61 = or disjoint i64 %60, %55
-  store i64 %61, ptr %56, align 8, !tbaa !53
+  store i64 %61, ptr %56, align 8, !tbaa !54
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 2
   store ptr %62, ptr %4, align 8, !tbaa !20
   br label %63
@@ -1713,28 +1713,28 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   %65 = load i8, ptr %64, align 1, !tbaa !25
   %66 = zext i8 %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %66, ptr %67, align 8, !tbaa !55
+  store i32 %66, ptr %67, align 8, !tbaa !56
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store ptr %68, ptr %4, align 8, !tbaa !20
   %69 = load i8, ptr %68, align 1, !tbaa !25
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 8
   %72 = or disjoint i32 %71, %66
-  store i32 %72, ptr %67, align 8, !tbaa !55
+  store i32 %72, ptr %67, align 8, !tbaa !56
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 2
   store ptr %73, ptr %4, align 8, !tbaa !20
   %74 = load i8, ptr %73, align 1, !tbaa !25
   %75 = zext i8 %74 to i32
   %76 = shl nuw nsw i32 %75, 16
   %77 = or disjoint i32 %76, %72
-  store i32 %77, ptr %67, align 8, !tbaa !55
+  store i32 %77, ptr %67, align 8, !tbaa !56
   %78 = getelementptr inbounds nuw i8, ptr %64, i64 3
   store ptr %78, ptr %4, align 8, !tbaa !20
   %79 = load i8, ptr %78, align 1, !tbaa !25
   %80 = zext i8 %79 to i32
   %81 = shl nuw i32 %80, 24
   %82 = or disjoint i32 %81, %77
-  store i32 %82, ptr %67, align 8, !tbaa !55
+  store i32 %82, ptr %67, align 8, !tbaa !56
   %83 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store ptr %83, ptr %4, align 8, !tbaa !20
   switch i8 %15, label %.loopexit [
@@ -1747,33 +1747,33 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   %85 = load i8, ptr %83, align 1, !tbaa !25
   %86 = zext i8 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %86, ptr %87, align 8, !tbaa !56
+  store i64 %86, ptr %87, align 8, !tbaa !57
   %88 = getelementptr inbounds nuw i8, ptr %64, i64 5
   store ptr %88, ptr %4, align 8, !tbaa !20
   %89 = load i8, ptr %88, align 1, !tbaa !25
   %90 = zext i8 %89 to i64
   %91 = shl nuw nsw i64 %90, 8
   %92 = or disjoint i64 %91, %86
-  store i64 %92, ptr %87, align 8, !tbaa !56
+  store i64 %92, ptr %87, align 8, !tbaa !57
   %93 = getelementptr inbounds nuw i8, ptr %64, i64 6
   store ptr %93, ptr %4, align 8, !tbaa !20
   %94 = load i8, ptr %93, align 1, !tbaa !25
   %95 = zext i8 %94 to i64
   %96 = shl nuw nsw i64 %95, 16
   %97 = or disjoint i64 %96, %92
-  store i64 %97, ptr %87, align 8, !tbaa !56
+  store i64 %97, ptr %87, align 8, !tbaa !57
   %98 = getelementptr inbounds nuw i8, ptr %64, i64 7
   store ptr %98, ptr %4, align 8, !tbaa !20
   %99 = load i8, ptr %98, align 1, !tbaa !25
   %100 = zext i8 %99 to i64
   %101 = shl nuw nsw i64 %100, 24
   %102 = or disjoint i64 %101, %97
-  store i64 %102, ptr %87, align 8, !tbaa !56
+  store i64 %102, ptr %87, align 8, !tbaa !57
   br label %.loopexit
 
 103:                                              ; preds = %63
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 0, ptr %104, align 8, !tbaa !56
+  store i64 0, ptr %104, align 8, !tbaa !57
   %105 = getelementptr inbounds nuw i8, ptr %64, i64 12
   br label %106
 
@@ -1787,23 +1787,23 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   %111 = load i8, ptr %110, align 1, !tbaa !25
   %112 = zext i8 %111 to i64
   %113 = or disjoint i64 %109, %112
-  store i64 %113, ptr %104, align 8, !tbaa !56
+  store i64 %113, ptr %104, align 8, !tbaa !57
   %114 = add nuw nsw i64 %.036, 1
   %exitcond37.not = icmp eq i64 %114, 8
-  br i1 %exitcond37.not, label %.loopexit, label %106, !llvm.loop !59
+  br i1 %exitcond37.not, label %.loopexit, label %106, !llvm.loop !60
 
 115:                                              ; preds = %63
   %116 = load i8, ptr %83, align 1, !tbaa !25
   %117 = zext i8 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %117, ptr %118, align 8, !tbaa !56
+  store i64 %117, ptr %118, align 8, !tbaa !57
   %119 = getelementptr inbounds nuw i8, ptr %64, i64 5
   store ptr %119, ptr %4, align 8, !tbaa !20
   %120 = load i8, ptr %119, align 1, !tbaa !25
   %121 = zext i8 %120 to i64
   %122 = shl nuw nsw i64 %121, 8
   %123 = or disjoint i64 %122, %117
-  store i64 %123, ptr %118, align 8, !tbaa !56
+  store i64 %123, ptr %118, align 8, !tbaa !57
   br label %.loopexit
 
 .loopexit:                                        ; preds = %106, %84, %115, %63, %3
@@ -1821,13 +1821,13 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_debug(ptr noundef captures(
   br i1 %11, label %12, label %21, !prof !9
 
 12:                                               ; preds = %5
-  %13 = load i64, ptr %3, align 8, !tbaa !51
+  %13 = load i64, ptr %3, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !53
+  %15 = load i64, ptr %14, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !55
+  %17 = load i32, ptr %16, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !56
+  %19 = load i64, ptr %18, align 8, !tbaa !57
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %1, ptr noundef nonnull @.str.10, i32 noundef %2, ptr noundef nonnull @.str.11, i64 noundef %13, i64 noundef %15, i32 noundef %17, i64 noundef %19) #6
   br label %21
 
@@ -1867,9 +1867,9 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_indir_remove(ptr noundef readonly ca
   br i1 %8, label %9, label %25, !prof !9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %1, align 8, !tbaa !60
+  %10 = load ptr, ptr %1, align 8, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 600
-  %12 = load ptr, ptr %11, align 8, !tbaa !63
+  %12 = load ptr, ptr %11, align 8, !tbaa !64
   %13 = load i64, ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !24
@@ -1886,7 +1886,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_indir_remove(ptr noundef readonly ca
 22:                                               ; preds = %9
   %23 = load i64, ptr %14, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %23, ptr %24, align 8, !tbaa !83
+  store i64 %23, ptr %24, align 8, !tbaa !84
   br label %25
 
 25:                                               ; preds = %18, %22, %2
@@ -1909,7 +1909,7 @@ define noundef i32 @H5HF__huge_bt2_filt_indir_found(ptr noundef readonly capture
   br i1 %8, label %9, label %10, !prof !9
 
 9:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !tbaa.struct !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !tbaa.struct !32
   br label %10
 
 10:                                               ; preds = %9, %2
@@ -1927,12 +1927,12 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_filt_indir_remove(ptr noundef readon
   br i1 %8, label %9, label %26, !prof !9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %1, align 8, !tbaa !60
+  %10 = load ptr, ptr %1, align 8, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 600
-  %12 = load ptr, ptr %11, align 8, !tbaa !63
-  %13 = load i64, ptr %0, align 8, !tbaa !34
+  %12 = load ptr, ptr %11, align 8, !tbaa !64
+  %13 = load i64, ptr %0, align 8, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !35
+  %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = tail call i32 @H5MF_xfree(ptr noundef %12, i32 noundef 3, i64 noundef %13, i64 noundef %15) #6
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %22
@@ -1945,9 +1945,9 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_filt_indir_remove(ptr noundef readon
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !38
+  %24 = load i64, ptr %23, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %24, ptr %25, align 8, !tbaa !83
+  store i64 %24, ptr %25, align 8, !tbaa !84
   br label %26
 
 26:                                               ; preds = %18, %22, %2
@@ -1966,9 +1966,9 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_dir_remove(ptr noundef readonly capt
   br i1 %8, label %9, label %25, !prof !9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %1, align 8, !tbaa !60
+  %10 = load ptr, ptr %1, align 8, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 600
-  %12 = load ptr, ptr %11, align 8, !tbaa !63
+  %12 = load ptr, ptr %11, align 8, !tbaa !64
   %13 = load i64, ptr %0, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !24
@@ -1985,7 +1985,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_dir_remove(ptr noundef readonly capt
 22:                                               ; preds = %9
   %23 = load i64, ptr %14, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %23, ptr %24, align 8, !tbaa !83
+  store i64 %23, ptr %24, align 8, !tbaa !84
   br label %25
 
 25:                                               ; preds = %18, %22, %2
@@ -2004,7 +2004,7 @@ define noundef i32 @H5HF__huge_bt2_filt_dir_found(ptr noundef readonly captures(
   br i1 %8, label %9, label %10, !prof !9
 
 9:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !50
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !51
   br label %10
 
 10:                                               ; preds = %9, %2
@@ -2022,12 +2022,12 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_filt_dir_remove(ptr noundef readonly
   br i1 %8, label %9, label %26, !prof !9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %1, align 8, !tbaa !60
+  %10 = load ptr, ptr %1, align 8, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 600
-  %12 = load ptr, ptr %11, align 8, !tbaa !63
-  %13 = load i64, ptr %0, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !64
+  %13 = load i64, ptr %0, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !53
+  %15 = load i64, ptr %14, align 8, !tbaa !54
   %16 = tail call i32 @H5MF_xfree(ptr noundef %12, i32 noundef 3, i64 noundef %13, i64 noundef %15) #6
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %22
@@ -2040,9 +2040,9 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_filt_dir_remove(ptr noundef readonly
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !56
+  %24 = load i64, ptr %23, align 8, !tbaa !57
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %24, ptr %25, align 8, !tbaa !83
+  store i64 %24, ptr %25, align 8, !tbaa !84
   br label %26
 
 26:                                               ; preds = %18, %22, %2
@@ -2101,61 +2101,62 @@ attributes #6 = { nounwind }
 !23 = !{!17, !11, i64 0}
 !24 = !{!17, !11, i64 8}
 !25 = !{!5, !5, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = distinct !{!29, !27}
-!30 = distinct !{!30, !27}
-!31 = !{i64 0, i64 8, !10, i64 8, i64 8, !10, i64 16, i64 4, !18, i64 24, i64 8, !10, i64 32, i64 8, !10}
-!32 = !{!33, !11, i64 32}
-!33 = !{!"H5HF_huge_bt2_filt_indir_rec_t", !11, i64 0, !11, i64 8, !19, i64 16, !11, i64 24, !11, i64 32}
-!34 = !{!33, !11, i64 0}
-!35 = !{!33, !11, i64 8}
-!36 = distinct !{!36, !27}
-!37 = !{!33, !19, i64 16}
-!38 = !{!33, !11, i64 24}
-!39 = distinct !{!39, !27}
-!40 = distinct !{!40, !27}
-!41 = distinct !{!41, !27}
-!42 = distinct !{!42, !27}
-!43 = distinct !{!43, !27}
-!44 = !{i64 0, i64 8, !10, i64 8, i64 8, !10}
-!45 = !{!46, !11, i64 0}
-!46 = !{!"H5HF_huge_bt2_dir_rec_t", !11, i64 0, !11, i64 8}
-!47 = !{!46, !11, i64 8}
-!48 = distinct !{!48, !27}
-!49 = distinct !{!49, !27}
-!50 = !{i64 0, i64 8, !10, i64 8, i64 8, !10, i64 16, i64 4, !18, i64 24, i64 8, !10}
-!51 = !{!52, !11, i64 0}
-!52 = !{!"H5HF_huge_bt2_filt_dir_rec_t", !11, i64 0, !11, i64 8, !19, i64 16, !11, i64 24}
-!53 = !{!52, !11, i64 8}
-!54 = distinct !{!54, !27}
-!55 = !{!52, !19, i64 16}
-!56 = !{!52, !11, i64 24}
-!57 = distinct !{!57, !27}
-!58 = distinct !{!58, !27}
-!59 = distinct !{!59, !27}
-!60 = !{!61, !62, i64 0}
-!61 = !{!"", !62, i64 0, !11, i64 8}
-!62 = !{!"p1 _ZTS10H5HF_hdr_t", !22, i64 0}
-!63 = !{!64, !76, i64 600}
-!64 = !{!"H5HF_hdr_t", !65, i64 0, !19, i64 248, !19, i64 252, !4, i64 256, !4, i64 257, !4, i64 258, !4, i64 259, !72, i64 264, !11, i64 376, !11, i64 384, !19, i64 392, !11, i64 400, !11, i64 408, !74, i64 416, !11, i64 488, !19, i64 496, !11, i64 504, !11, i64 512, !11, i64 520, !11, i64 528, !11, i64 536, !11, i64 544, !11, i64 552, !11, i64 560, !11, i64 568, !11, i64 576, !11, i64 584, !19, i64 592, !76, i64 600, !11, i64 608, !4, i64 616, !5, i64 617, !5, i64 618, !78, i64 624, !19, i64 632, !79, i64 640, !80, i64 648, !82, i64 664, !11, i64 672, !5, i64 680, !4, i64 681, !11, i64 688, !4, i64 696, !5, i64 697, !5, i64 698, !4, i64 699}
-!65 = !{!"H5C_cache_entry_t", !66, i64 0, !11, i64 8, !11, i64 16, !22, i64 24, !4, i64 32, !67, i64 40, !4, i64 48, !4, i64 49, !4, i64 50, !4, i64 51, !19, i64 52, !4, i64 56, !4, i64 57, !4, i64 58, !4, i64 59, !4, i64 60, !19, i64 64, !68, i64 72, !19, i64 80, !19, i64 84, !19, i64 88, !19, i64 92, !19, i64 96, !4, i64 100, !4, i64 101, !69, i64 104, !69, i64 112, !69, i64 120, !69, i64 128, !69, i64 136, !69, i64 144, !4, i64 152, !19, i64 156, !4, i64 160, !11, i64 168, !70, i64 176, !11, i64 184, !11, i64 192, !19, i64 200, !4, i64 204, !19, i64 208, !19, i64 212, !4, i64 216, !69, i64 224, !69, i64 232, !71, i64 240}
-!66 = !{!"p1 _ZTS5H5C_t", !22, i64 0}
-!67 = !{!"p1 _ZTS11H5C_class_t", !22, i64 0}
-!68 = !{!"p2 _ZTS17H5C_cache_entry_t", !22, i64 0}
-!69 = !{!"p1 _ZTS17H5C_cache_entry_t", !22, i64 0}
-!70 = !{!"p1 long", !22, i64 0}
-!71 = !{!"p1 _ZTS14H5C_tag_info_t", !22, i64 0}
-!72 = !{!"H5HF_dtable_t", !73, i64 0, !11, i64 32, !19, i64 40, !19, i64 44, !19, i64 48, !19, i64 52, !19, i64 56, !19, i64 60, !19, i64 64, !11, i64 72, !70, i64 80, !70, i64 88, !70, i64 96, !70, i64 104}
-!73 = !{!"H5HF_dtable_cparam_t", !19, i64 0, !11, i64 8, !11, i64 16, !19, i64 24, !19, i64 28}
-!74 = !{!"H5O_pline_t", !75, i64 0, !19, i64 40, !11, i64 48, !11, i64 56, !77, i64 64}
-!75 = !{!"H5O_shared_t", !19, i64 0, !76, i64 8, !19, i64 16, !5, i64 24}
-!76 = !{!"p1 _ZTS5H5F_t", !22, i64 0}
-!77 = !{!"p1 _ZTS17H5Z_filter_info_t", !22, i64 0}
-!78 = !{!"p1 _ZTS15H5HF_indirect_t", !22, i64 0}
-!79 = !{!"p1 _ZTS6H5FS_t", !22, i64 0}
-!80 = !{!"H5HF_block_iter_t", !4, i64 0, !81, i64 8}
-!81 = !{!"p1 _ZTS16H5HF_block_loc_t", !22, i64 0}
-!82 = !{!"p1 _ZTS6H5B2_t", !22, i64 0}
-!83 = !{!61, !11, i64 8}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = distinct !{!30, !27, !28}
+!31 = distinct !{!31, !27, !28}
+!32 = !{i64 0, i64 8, !10, i64 8, i64 8, !10, i64 16, i64 4, !18, i64 24, i64 8, !10, i64 32, i64 8, !10}
+!33 = !{!34, !11, i64 32}
+!34 = !{!"H5HF_huge_bt2_filt_indir_rec_t", !11, i64 0, !11, i64 8, !19, i64 16, !11, i64 24, !11, i64 32}
+!35 = !{!34, !11, i64 0}
+!36 = !{!34, !11, i64 8}
+!37 = distinct !{!37, !27, !28}
+!38 = !{!34, !19, i64 16}
+!39 = !{!34, !11, i64 24}
+!40 = distinct !{!40, !27, !28}
+!41 = distinct !{!41, !27, !28}
+!42 = distinct !{!42, !27, !28}
+!43 = distinct !{!43, !27, !28}
+!44 = distinct !{!44, !27, !28}
+!45 = !{i64 0, i64 8, !10, i64 8, i64 8, !10}
+!46 = !{!47, !11, i64 0}
+!47 = !{!"H5HF_huge_bt2_dir_rec_t", !11, i64 0, !11, i64 8}
+!48 = !{!47, !11, i64 8}
+!49 = distinct !{!49, !27, !28}
+!50 = distinct !{!50, !27, !28}
+!51 = !{i64 0, i64 8, !10, i64 8, i64 8, !10, i64 16, i64 4, !18, i64 24, i64 8, !10}
+!52 = !{!53, !11, i64 0}
+!53 = !{!"H5HF_huge_bt2_filt_dir_rec_t", !11, i64 0, !11, i64 8, !19, i64 16, !11, i64 24}
+!54 = !{!53, !11, i64 8}
+!55 = distinct !{!55, !27, !28}
+!56 = !{!53, !19, i64 16}
+!57 = !{!53, !11, i64 24}
+!58 = distinct !{!58, !27, !28}
+!59 = distinct !{!59, !27, !28}
+!60 = distinct !{!60, !27, !28}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"", !63, i64 0, !11, i64 8}
+!63 = !{!"p1 _ZTS10H5HF_hdr_t", !22, i64 0}
+!64 = !{!65, !77, i64 600}
+!65 = !{!"H5HF_hdr_t", !66, i64 0, !19, i64 248, !19, i64 252, !4, i64 256, !4, i64 257, !4, i64 258, !4, i64 259, !73, i64 264, !11, i64 376, !11, i64 384, !19, i64 392, !11, i64 400, !11, i64 408, !75, i64 416, !11, i64 488, !19, i64 496, !11, i64 504, !11, i64 512, !11, i64 520, !11, i64 528, !11, i64 536, !11, i64 544, !11, i64 552, !11, i64 560, !11, i64 568, !11, i64 576, !11, i64 584, !19, i64 592, !77, i64 600, !11, i64 608, !4, i64 616, !5, i64 617, !5, i64 618, !79, i64 624, !19, i64 632, !80, i64 640, !81, i64 648, !83, i64 664, !11, i64 672, !5, i64 680, !4, i64 681, !11, i64 688, !4, i64 696, !5, i64 697, !5, i64 698, !4, i64 699}
+!66 = !{!"H5C_cache_entry_t", !67, i64 0, !11, i64 8, !11, i64 16, !22, i64 24, !4, i64 32, !68, i64 40, !4, i64 48, !4, i64 49, !4, i64 50, !4, i64 51, !19, i64 52, !4, i64 56, !4, i64 57, !4, i64 58, !4, i64 59, !4, i64 60, !19, i64 64, !69, i64 72, !19, i64 80, !19, i64 84, !19, i64 88, !19, i64 92, !19, i64 96, !4, i64 100, !4, i64 101, !70, i64 104, !70, i64 112, !70, i64 120, !70, i64 128, !70, i64 136, !70, i64 144, !4, i64 152, !19, i64 156, !4, i64 160, !11, i64 168, !71, i64 176, !11, i64 184, !11, i64 192, !19, i64 200, !4, i64 204, !19, i64 208, !19, i64 212, !4, i64 216, !70, i64 224, !70, i64 232, !72, i64 240}
+!67 = !{!"p1 _ZTS5H5C_t", !22, i64 0}
+!68 = !{!"p1 _ZTS11H5C_class_t", !22, i64 0}
+!69 = !{!"p2 _ZTS17H5C_cache_entry_t", !22, i64 0}
+!70 = !{!"p1 _ZTS17H5C_cache_entry_t", !22, i64 0}
+!71 = !{!"p1 long", !22, i64 0}
+!72 = !{!"p1 _ZTS14H5C_tag_info_t", !22, i64 0}
+!73 = !{!"H5HF_dtable_t", !74, i64 0, !11, i64 32, !19, i64 40, !19, i64 44, !19, i64 48, !19, i64 52, !19, i64 56, !19, i64 60, !19, i64 64, !11, i64 72, !71, i64 80, !71, i64 88, !71, i64 96, !71, i64 104}
+!74 = !{!"H5HF_dtable_cparam_t", !19, i64 0, !11, i64 8, !11, i64 16, !19, i64 24, !19, i64 28}
+!75 = !{!"H5O_pline_t", !76, i64 0, !19, i64 40, !11, i64 48, !11, i64 56, !78, i64 64}
+!76 = !{!"H5O_shared_t", !19, i64 0, !77, i64 8, !19, i64 16, !5, i64 24}
+!77 = !{!"p1 _ZTS5H5F_t", !22, i64 0}
+!78 = !{!"p1 _ZTS17H5Z_filter_info_t", !22, i64 0}
+!79 = !{!"p1 _ZTS15H5HF_indirect_t", !22, i64 0}
+!80 = !{!"p1 _ZTS6H5FS_t", !22, i64 0}
+!81 = !{!"H5HF_block_iter_t", !4, i64 0, !82, i64 8}
+!82 = !{!"p1 _ZTS16H5HF_block_loc_t", !22, i64 0}
+!83 = !{!"p1 _ZTS6H5B2_t", !22, i64 0}
+!84 = !{!62, !11, i64 8}

@@ -192,7 +192,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
 91:                                               ; preds = %92
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count
-  br i1 %exitcond141.not, label %.preheader115, label %82, !llvm.loop !44
+  br i1 %exitcond141.not, label %.preheader115, label %82, !llvm.loop !45
 
 92:                                               ; preds = %.preheader116, %92
   %indvars.iv134 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next135, %92 ]
@@ -205,7 +205,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
   store i32 %96, ptr %97, align 4, !tbaa !41
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 4
-  br i1 %exitcond137.not, label %91, label %92, !llvm.loop !45
+  br i1 %exitcond137.not, label %91, label %92, !llvm.loop !46
 
 .preheader:                                       ; preds = %.preheader.preheader, %101
   %indvars.iv142 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next143, %101 ]
@@ -224,7 +224,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
   %102 = load i32, ptr %57, align 8, !tbaa !39
   %103 = icmp slt i32 %99, %102
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, %81
-  br i1 %103, label %.preheader, label %._crit_edge129, !llvm.loop !46
+  br i1 %103, label %.preheader, label %._crit_edge129, !llvm.loop !47
 
 104:                                              ; preds = %.preheader, %._crit_edge
   %indvars.iv149 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next150, %._crit_edge ]
@@ -254,7 +254,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count
-  br i1 %exitcond153.not, label %101, label %104, !llvm.loop !47
+  br i1 %exitcond153.not, label %101, label %104, !llvm.loop !48
 
 118:                                              ; preds = %.lr.ph, %qoa_lms_update.exit
   %indvars.iv146 = phi i64 [ %indvars.iv144, %.lr.ph ], [ %indvars.iv.next147, %qoa_lms_update.exit ]
@@ -272,21 +272,21 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
   %125 = add i32 %124, %.078.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %qoa_lms_predict.exit, label %119, !llvm.loop !48
+  br i1 %exitcond.not.i, label %qoa_lms_predict.exit, label %119, !llvm.loop !49
 
 qoa_lms_predict.exit:                             ; preds = %119
   %126 = ashr i32 %125, 13
   %127 = lshr i64 %.082123, 57
   %128 = and i64 %127, 7
   %129 = getelementptr inbounds nuw [8 x i16], ptr %116, i64 0, i64 %128
-  %130 = load i16, ptr %129, align 2, !tbaa !49
+  %130 = load i16, ptr %129, align 2, !tbaa !50
   %131 = sext i16 %130 to i32
   %132 = add nsw i32 %126, %131
   %133 = tail call i32 @llvm.smax.i32(i32 %132, i32 -32768)
   %134 = tail call i32 @llvm.smin.i32(i32 %133, i32 32767)
   %.0.i94 = trunc nsw i32 %134 to i16
   %135 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv146
-  store i16 %.0.i94, ptr %135, align 2, !tbaa !49
+  store i16 %.0.i94, ptr %135, align 2, !tbaa !50
   %136 = ashr i32 %131, 4
   %137 = sub nsw i32 0, %136
   br label %138
@@ -303,7 +303,7 @@ qoa_lms_predict.exit:                             ; preds = %119
   store i32 %145, ptr %143, align 4, !tbaa !41
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, 4
-  br i1 %exitcond.not.i97, label %qoa_lms_update.exit, label %138, !llvm.loop !51
+  br i1 %exitcond.not.i97, label %qoa_lms_update.exit, label %138, !llvm.loop !52
 
 qoa_lms_update.exit:                              ; preds = %138
   %146 = shl i64 %.082123, 3
@@ -312,7 +312,7 @@ qoa_lms_update.exit:                              ; preds = %138
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, %wide.trip.count
   %147 = trunc nuw i64 %indvars.iv.next147 to i32
   %148 = icmp sgt i32 %110, %147
-  br i1 %148, label %118, label %._crit_edge, !llvm.loop !52
+  br i1 %148, label %118, label %._crit_edge, !llvm.loop !53
 
 bytestream2_get_be24.exit.thread:                 ; preds = %bytestream2_get_byte.exit, %74, %67, %bytestream2_get_be16.exit92, %41, %bytestream2_get_be24.exit, %._crit_edge129
   %.0 = phi i32 [ %100, %._crit_edge129 ], [ -1094995529, %bytestream2_get_be24.exit ], [ %44, %41 ], [ -1094995529, %bytestream2_get_be16.exit92 ], [ -1094995529, %67 ], [ %75, %74 ], [ -1094995529, %bytestream2_get_byte.exit ]
@@ -400,14 +400,15 @@ attributes #7 = { noreturn nounwind }
 !39 = !{!35, !10, i64 112}
 !40 = !{!14, !14, i64 0}
 !41 = !{!10, !10, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43}
-!45 = distinct !{!45, !43}
-!46 = distinct !{!46, !43}
-!47 = distinct !{!47, !43}
-!48 = distinct !{!48, !43}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"short", !8, i64 0}
-!51 = distinct !{!51, !43}
-!52 = distinct !{!52, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !43, !44}
+!46 = distinct !{!46, !43, !44}
+!47 = distinct !{!47, !43, !44}
+!48 = distinct !{!48, !43, !44}
+!49 = distinct !{!49, !43, !44}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"short", !8, i64 0}
+!52 = distinct !{!52, !43, !44}
+!53 = distinct !{!53, !43, !44}

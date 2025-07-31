@@ -209,7 +209,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   %43 = add nuw nsw i32 %.184, 1
   %44 = getelementptr inbounds nuw i8, ptr %.07783, i64 8
   %exitcond92.not = icmp eq i32 %43, %6
-  br i1 %exitcond92.not, label %._crit_edge87, label %33, !llvm.loop !19
+  br i1 %exitcond92.not, label %._crit_edge87, label %33, !llvm.loop !20
 
 ._crit_edge87:                                    ; preds = %33, %._crit_edge
   %.078.lcssa = phi i64 [ 0, %._crit_edge ], [ %42, %33 ]
@@ -249,7 +249,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   store i64 0, ptr %59, align 8, !tbaa !15
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %.loopexit, label %58, !llvm.loop !20
+  br i1 %exitcond97.not, label %.loopexit, label %58, !llvm.loop !21
 
 .loopexit:                                        ; preds = %58, %47, %._crit_edge87, %10, %8
   %.0 = phi i32 [ 1, %8 ], [ 0, %10 ], [ 0, %._crit_edge87 ], [ 1, %47 ], [ 1, %58 ]
@@ -319,7 +319,7 @@ define ptr @BN_MONT_CTX_new() local_unnamed_addr #0 {
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
-  store i32 0, ptr %1, align 8, !tbaa !21
+  store i32 0, ptr %1, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @bn_init(ptr noundef nonnull %4) #5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -329,7 +329,7 @@ define ptr @BN_MONT_CTX_new() local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 1, ptr %8, align 8, !tbaa !22
+  store i32 1, ptr %8, align 8, !tbaa !23
   br label %9
 
 9:                                                ; preds = %0, %3
@@ -340,7 +340,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define void @BN_MONT_CTX_init(ptr noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
-  store i32 0, ptr %0, align 8, !tbaa !21
+  store i32 0, ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @bn_init(ptr noundef nonnull %2) #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -367,7 +367,7 @@ define void @BN_MONT_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @BN_clear_free(ptr noundef nonnull %6) #5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load i32, ptr %7, align 8, !tbaa !22
+  %8 = load i32, ptr %7, align 8, !tbaa !23
   %9 = and i32 %8, 1
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
@@ -416,13 +416,13 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
 
 17:                                               ; preds = %16, %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %18, align 8, !tbaa !23
+  store i32 0, ptr %18, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
   call void @bn_init(ptr noundef nonnull %4) #5
   store ptr %5, ptr %4, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 2, ptr %19, align 4, !tbaa !24
+  store i32 2, ptr %19, align 4, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %20, align 8, !tbaa !14
   %21 = call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #5
@@ -438,7 +438,7 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
   %25 = add nsw i32 %24, 63
   %26 = sdiv i32 %25, 64
   %27 = shl nsw i32 %26, 6
-  store i32 %27, ptr %0, align 8, !tbaa !21
+  store i32 %27, ptr %0, align 8, !tbaa !22
   call void @BN_zero_ex(ptr noundef nonnull %11) #5
   %28 = call i32 @BN_set_bit(ptr noundef nonnull %11, i32 noundef 64) #5
   %.not59 = icmp eq i32 %28, 0
@@ -517,7 +517,7 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
   call void @BN_zero_ex(ptr noundef nonnull %11) #5
-  %61 = load i32, ptr %0, align 8, !tbaa !21
+  %61 = load i32, ptr %0, align 8, !tbaa !22
   %62 = shl nsw i32 %61, 1
   %63 = call i32 @BN_set_bit(ptr noundef nonnull %11, i32 noundef %62) #5
   %.not67 = icmp eq i32 %63, 0
@@ -530,14 +530,14 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %68 = load i32, ptr %67, align 8, !tbaa !25
+  %68 = load i32, ptr %67, align 8, !tbaa !26
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !3
   %71 = icmp slt i32 %68, %70
   br i1 %71, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %66
-  %72 = load ptr, ptr %11, align 8, !tbaa !26
+  %72 = load ptr, ptr %11, align 8, !tbaa !27
   %73 = sext i32 %68 to i64
   %74 = shl nsw i64 %73, 3
   %scevgep = getelementptr i8, ptr %72, i64 %74
@@ -550,7 +550,7 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %66
-  store i32 %70, ptr %67, align 8, !tbaa !25
+  store i32 %70, ptr %67, align 8, !tbaa !26
   br label %80
 
 80:                                               ; preds = %.thread, %64, %57, %10, %7, %._crit_edge
@@ -614,8 +614,8 @@ define noundef ptr @BN_MONT_CTX_copy(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not20, label %24, label %16
 
 16:                                               ; preds = %12
-  %17 = load i32, ptr %1, align 8, !tbaa !21
-  store i32 %17, ptr %0, align 8, !tbaa !21
+  %17 = load i32, ptr %1, align 8, !tbaa !22
+  store i32 %17, ptr %0, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -638,7 +638,7 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   br i1 %.not, label %BN_MONT_CTX_free.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr %0, align 8, !tbaa !27
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
   %8 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %1) #5
   %.not23 = icmp eq ptr %7, null
   br i1 %.not23, label %9, label %BN_MONT_CTX_free.exit
@@ -649,7 +649,7 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   br i1 %11, label %BN_MONT_CTX_free.exit, label %12
 
 12:                                               ; preds = %9
-  store i32 0, ptr %10, align 8, !tbaa !21
+  store i32 0, ptr %10, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   tail call void @bn_init(ptr noundef nonnull %13) #5
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -659,7 +659,7 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  store i32 1, ptr %17, align 8, !tbaa !22
+  store i32 1, ptr %17, align 8, !tbaa !23
   %18 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %10, ptr noundef %2, ptr noundef %3)
   %.not24 = icmp eq i32 %18, 0
   br i1 %.not24, label %19, label %23
@@ -668,7 +668,7 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   tail call void @BN_clear_free(ptr noundef nonnull %13) #5
   tail call void @BN_clear_free(ptr noundef nonnull %14) #5
   tail call void @BN_clear_free(ptr noundef nonnull %15) #5
-  %20 = load i32, ptr %17, align 8, !tbaa !22
+  %20 = load i32, ptr %17, align 8, !tbaa !23
   %21 = and i32 %20, 1
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %BN_MONT_CTX_free.exit, label %22
@@ -686,7 +686,7 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   tail call void @BN_clear_free(ptr noundef nonnull %13) #5
   tail call void @BN_clear_free(ptr noundef nonnull %14) #5
   tail call void @BN_clear_free(ptr noundef nonnull %15) #5
-  %26 = load i32, ptr %17, align 8, !tbaa !22
+  %26 = load i32, ptr %17, align 8, !tbaa !23
   %27 = and i32 %26, 1
   %.not.i27 = icmp eq i32 %27, 0
   br i1 %.not.i27, label %BN_MONT_CTX_free.exit, label %28
@@ -696,7 +696,7 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   br label %BN_MONT_CTX_free.exit
 
 29:                                               ; preds = %23
-  %30 = load ptr, ptr %0, align 8, !tbaa !27
+  %30 = load ptr, ptr %0, align 8, !tbaa !28
   %.not26 = icmp eq ptr %30, null
   br i1 %.not26, label %36, label %31
 
@@ -704,7 +704,7 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   tail call void @BN_clear_free(ptr noundef nonnull %13) #5
   tail call void @BN_clear_free(ptr noundef nonnull %14) #5
   tail call void @BN_clear_free(ptr noundef nonnull %15) #5
-  %32 = load i32, ptr %17, align 8, !tbaa !22
+  %32 = load i32, ptr %17, align 8, !tbaa !23
   %33 = and i32 %32, 1
   %.not.i29 = icmp eq i32 %33, 0
   br i1 %.not.i29, label %BN_MONT_CTX_free.exit30, label %34
@@ -714,11 +714,11 @@ define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %0, ptr noundef %1
   br label %BN_MONT_CTX_free.exit30
 
 BN_MONT_CTX_free.exit30:                          ; preds = %31, %34
-  %35 = load ptr, ptr %0, align 8, !tbaa !27
+  %35 = load ptr, ptr %0, align 8, !tbaa !28
   br label %37
 
 36:                                               ; preds = %29
-  store ptr %10, ptr %0, align 8, !tbaa !27
+  store ptr %10, ptr %0, align 8, !tbaa !28
   br label %37
 
 37:                                               ; preds = %36, %BN_MONT_CTX_free.exit30
@@ -752,7 +752,7 @@ define range(i32 0, 2) i32 @ossl_bn_mont_ctx_set(ptr noundef %0, ptr noundef %1,
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %11
-  store i32 %2, ptr %0, align 8, !tbaa !21
+  store i32 %2, ptr %0, align 8, !tbaa !22
   %17 = zext i32 %6 to i64
   %18 = shl nuw i64 %17, 32
   %19 = zext i32 %5 to i64
@@ -772,8 +772,8 @@ declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_bn_mont_ctx_eq(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !21
-  %4 = load i32, ptr %1, align 8, !tbaa !21
+  %3 = load i32, ptr %0, align 8, !tbaa !22
+  %4 = load i32, ptr %1, align 8, !tbaa !22
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %5, label %24
 
@@ -786,9 +786,9 @@ define range(i32 0, 2) i32 @ossl_bn_mont_ctx_eq(ptr noundef %0, ptr noundef %1) 
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %11 = load i32, ptr %10, align 8, !tbaa !22
+  %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %13 = load i32, ptr %12, align 8, !tbaa !22
+  %13 = load i32, ptr %12, align 8, !tbaa !23
   %.not11 = icmp eq i32 %11, %13
   br i1 %.not11, label %14, label %24
 
@@ -852,15 +852,16 @@ attributes #5 = { nounwind }
 !14 = !{!8, !5, i64 16}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !6, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = !{!4, !5, i64 0}
-!22 = !{!4, !5, i64 96}
-!23 = !{!4, !5, i64 48}
-!24 = !{!8, !5, i64 12}
-!25 = !{!4, !5, i64 16}
-!26 = !{!4, !9, i64 8}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS14bn_mont_ctx_st", !10, i64 0}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = !{!4, !5, i64 0}
+!23 = !{!4, !5, i64 96}
+!24 = !{!4, !5, i64 48}
+!25 = !{!8, !5, i64 12}
+!26 = !{!4, !5, i64 16}
+!27 = !{!4, !9, i64 8}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS14bn_mont_ctx_st", !10, i64 0}

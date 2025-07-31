@@ -99,7 +99,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
 13:                                               ; preds = %.lr.ph51
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph51, !llvm.loop !6
+  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph51, !llvm.loop !7
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %13
   %indvars.iv74 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next75, %13 ]
@@ -111,7 +111,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader35, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader35, label %.lr.ph, !llvm.loop !8
 
 .preheader35:                                     ; preds = %17, %.preheader37
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @local_map, i64 4), align 4
@@ -132,7 +132,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
 23:                                               ; preds = %.lr.ph45
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph45, !llvm.loop !8
+  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph45, !llvm.loop !9
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %23
   %indvars.iv64 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next65, %23 ]
@@ -186,7 +186,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 7:                                                ; preds = %.lr.ph45
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.preheader, label %.lr.ph45, !llvm.loop !9
+  br i1 %exitcond66.not, label %.preheader, label %.lr.ph45, !llvm.loop !10
 
 .preheader:                                       ; preds = %7, %.preheader34
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @shared_map, i64 4), align 4
@@ -208,7 +208,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 14:                                               ; preds = %.lr.ph47
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %.loopexit, label %.lr.ph47, !llvm.loop !10
+  br i1 %exitcond71.not, label %.loopexit, label %.lr.ph47, !llvm.loop !11
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %14
   %indvars.iv67 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next68, %14 ]
@@ -221,7 +221,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader35, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader35, label %.lr.ph, !llvm.loop !12
 
 .preheader35:                                     ; preds = %19, %.preheader37
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @local_map, i64 4), align 4
@@ -243,7 +243,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 26:                                               ; preds = %.lr.ph43
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph43, !llvm.loop !12
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph43, !llvm.loop !13
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %26
   %indvars.iv57 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next58, %26 ]
@@ -281,7 +281,7 @@ define dso_local i32 @RelationMapOidToFilenumberForDatabase(ptr noundef %0, i32 
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !14
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -593,7 +593,7 @@ define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %
   %67 = load i32, ptr %11, align 4
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %64, label %.loopexit, !llvm.loop !14
+  br i1 %69, label %64, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %64, %.preheader, %60
   br i1 %1, label %70, label %73
@@ -671,7 +671,7 @@ define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 n
 27:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %28, !llvm.loop !16
 
 28:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
@@ -742,7 +742,7 @@ define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_ad
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
@@ -862,7 +862,7 @@ define dso_local void @AtCCI_RelationMap() local_unnamed_addr #2 {
 15:                                               ; preds = %11
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
-  br i1 %exitcond.not.i.us.i, label %._crit_edge.i.us.i, label %11, !llvm.loop !15
+  br i1 %exitcond.not.i.us.i, label %._crit_edge.i.us.i, label %11, !llvm.loop !16
 
 ._crit_edge.i.us.i:                               ; preds = %15
   %16 = icmp sgt i32 %5, 63
@@ -890,7 +890,7 @@ apply_map_update.exit.us.i:                       ; preds = %21, %._crit_edge.i.
   %22 = phi i32 [ %5, %21 ], [ %20, %._crit_edge.i.us.thread.i ]
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44.i, %4
-  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !17
+  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !18
 
 .split.us.i:                                      ; preds = %._crit_edge.i.us.i
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -941,7 +941,7 @@ merge_map_updates.exit:                           ; preds = %apply_map_update.ex
 40:                                               ; preds = %36
   %indvars.iv.next.i.us.i14 = add nuw nsw i64 %indvars.iv.i.us.i13, 1
   %exitcond.not.i.us.i15 = icmp eq i64 %indvars.iv.next.i.us.i14, %wide.trip.count.i.us.i12
-  br i1 %exitcond.not.i.us.i15, label %._crit_edge.i.us.i16, label %36, !llvm.loop !15
+  br i1 %exitcond.not.i.us.i15, label %._crit_edge.i.us.i16, label %36, !llvm.loop !16
 
 ._crit_edge.i.us.i16:                             ; preds = %40
   %41 = icmp sgt i32 %30, 63
@@ -969,7 +969,7 @@ apply_map_update.exit.us.i9:                      ; preds = %46, %._crit_edge.i.
   %47 = phi i32 [ %30, %46 ], [ %45, %._crit_edge.i.us.thread.i6 ]
   %indvars.iv.next44.i10 = add nuw nsw i64 %indvars.iv43.i5, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next44.i10, %29
-  br i1 %exitcond25.not, label %merge_map_updates.exit20, label %.lr.ph.split.us.i4, !llvm.loop !17
+  br i1 %exitcond25.not, label %merge_map_updates.exit20, label %.lr.ph.split.us.i4, !llvm.loop !18
 
 .split.us.i17:                                    ; preds = %._crit_edge.i.us.i16
   %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -1050,7 +1050,7 @@ define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr no
   br i1 %13, label %.lr.ph.i, label %merge_map_updates.exit
 
 .lr.ph.i:                                         ; preds = %10
-  %14 = load i8, ptr @allowSystemTableMods, align 1, !range !19, !noundef !20
+  %14 = load i8, ptr @allowSystemTableMods, align 1, !range !20, !noundef !21
   %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1087,7 +1087,7 @@ define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr no
 30:                                               ; preds = %26
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
-  br i1 %exitcond.not.i.us.i, label %._crit_edge.i.us.i, label %26, !llvm.loop !15
+  br i1 %exitcond.not.i.us.i, label %._crit_edge.i.us.i, label %26, !llvm.loop !16
 
 ._crit_edge.i.us.i:                               ; preds = %30
   %31 = icmp sgt i32 %20, 63
@@ -1115,7 +1115,7 @@ apply_map_update.exit.us.i:                       ; preds = %36, %._crit_edge.i.
   %37 = phi i32 [ %20, %36 ], [ %35, %._crit_edge.i.us.thread.i ]
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next44.i, %19
-  br i1 %exitcond14.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !17
+  br i1 %exitcond14.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !18
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %38 = icmp sgt i32 %.pre.i, 0
@@ -1144,7 +1144,7 @@ apply_map_update.exit.us.i:                       ; preds = %36, %._crit_edge.i.
 48:                                               ; preds = %44
   %indvars.iv.next.i.us21.i = add nuw nsw i64 %indvars.iv.i.us20.i, 1
   %exitcond.not.i.us22.i = icmp eq i64 %indvars.iv.next.i.us21.i, %wide.trip.count.i.us19.i
-  br i1 %exitcond.not.i.us22.i, label %._crit_edge.i.i, label %44, !llvm.loop !15
+  br i1 %exitcond.not.i.us22.i, label %._crit_edge.i.i, label %44, !llvm.loop !16
 
 apply_map_update.exit.us23.i:                     ; preds = %44
   %.idx26.i.us25.i = shl nuw nsw i64 %indvars.iv.i.us20.i, 3
@@ -1152,7 +1152,7 @@ apply_map_update.exit.us23.i:                     ; preds = %44
   store i32 %43, ptr %gep12.us26.i, align 4
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next41.i, %39
-  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.i.us18.i, !llvm.loop !21
+  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.i.us18.i, !llvm.loop !22
 
 ._crit_edge.i.loopexit29.i:                       ; preds = %.lr.ph.split.i
   %.pre46.i = load i32, ptr %16, align 4
@@ -1458,21 +1458,22 @@ attributes #14 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{i8 0, i8 2}
-!20 = !{}
-!21 = distinct !{!21, !5, !18}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = distinct !{!22, !5, !6, !19}

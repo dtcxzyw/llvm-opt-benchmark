@@ -158,7 +158,7 @@ define dso_local i32 @vfs_utimes(ptr noundef readonly captures(none) %0, ptr nou
   call void @iput(ptr noundef %81) #7
   store ptr null, ptr %4, align 8
   %82 = icmp eq i32 %80, 0
-  br i1 %82, label %57, label %83
+  br i1 %82, label %57, label %83, !llvm.loop !10
 
 83:                                               ; preds = %79, %57
   %84 = phi i32 [ %80, %79 ], [ %62, %57 ]
@@ -249,7 +249,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @do_utimes(i32 noundef %
 36:                                               ; preds = %39
   %37 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %35, ptr noundef nonnull %5, ptr noundef null) #7
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %.loopexit
+  br i1 %38, label %39, label %.loopexit, !llvm.loop !12
 
 39:                                               ; preds = %36, %34
   %40 = phi i1 [ true, %34 ], [ false, %36 ]
@@ -314,7 +314,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utimensat(ptr
 
 32:                                               ; preds = %24, %1
   %33 = phi ptr [ %2, %24 ], [ null, %1 ]
-  %34 = call i64 @do_utimes(i32 noundef %11, ptr noundef %12, ptr noundef %33, i32 noundef %14), !range !10
+  %34 = call i64 @do_utimes(i32 noundef %11, ptr noundef %12, ptr noundef %33, i32 noundef %14), !range !13
   br label %35
 
 35:                                               ; preds = %32, %24, %19, %16
@@ -369,7 +369,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utimensat(pt
 
 34:                                               ; preds = %26, %1
   %35 = phi ptr [ %2, %26 ], [ null, %1 ]
-  %36 = call i64 @do_utimes(i32 noundef %13, ptr noundef %14, ptr noundef %35, i32 noundef %16), !range !10
+  %36 = call i64 @do_utimes(i32 noundef %13, ptr noundef %14, ptr noundef %35, i32 noundef %16), !range !13
   br label %37
 
 37:                                               ; preds = %34, %26, %21, %18
@@ -430,7 +430,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futimesat(ptr
 
 34:                                               ; preds = %25, %1
   %35 = phi ptr [ %3, %25 ], [ null, %1 ]
-  %36 = call i64 @do_utimes(i32 noundef %10, ptr noundef %11, ptr noundef %35, i32 noundef 0), !range !10
+  %36 = call i64 @do_utimes(i32 noundef %10, ptr noundef %11, ptr noundef %35, i32 noundef 0), !range !13
   br label %37
 
 37:                                               ; preds = %34, %17, %13
@@ -494,7 +494,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futimesat(pt
 
 36:                                               ; preds = %27, %1
   %37 = phi ptr [ %3, %27 ], [ null, %1 ]
-  %38 = call i64 @do_utimes(i32 noundef %12, ptr noundef %13, ptr noundef %37, i32 noundef 0), !range !10
+  %38 = call i64 @do_utimes(i32 noundef %12, ptr noundef %13, ptr noundef %37, i32 noundef 0), !range !13
   br label %39
 
 39:                                               ; preds = %36, %19, %15
@@ -510,7 +510,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utimes(ptr no
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = tail call fastcc i64 @__se_sys_utimes(i64 noundef %3, i64 noundef %5), !range !10
+  %6 = tail call fastcc i64 @__se_sys_utimes(i64 noundef %3, i64 noundef %5), !range !13
   ret i64 %6
 }
 
@@ -569,7 +569,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utimes(i
 33:                                               ; preds = %.preheader
   %34 = call i32 @user_path_at_empty(i32 noundef -100, ptr noundef %6, i32 noundef 33, ptr noundef nonnull %3, ptr noundef null) #7
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.preheader, label %.loopexit
+  br i1 %35, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %29, %33
   %36 = phi i1 [ false, %33 ], [ true, %29 ]
@@ -600,7 +600,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utimes(ptr n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = tail call fastcc i64 @__se_sys_utimes(i64 noundef %4, i64 noundef %7), !range !10
+  %8 = tail call fastcc i64 @__se_sys_utimes(i64 noundef %4, i64 noundef %7), !range !13
   ret i64 %8
 }
 
@@ -627,7 +627,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utime(i6
 
 8:                                                ; preds = %2
   %9 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %10 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 8, i64 %9) #7, !srcloc !11
+  %10 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 8, i64 %9) #7, !srcloc !15
   %11 = extractvalue { ptr, i64, i64 } %10, 0
   %12 = extractvalue { ptr, i64, i64 } %10, 1
   %13 = extractvalue { ptr, i64, i64 } %10, 2
@@ -641,7 +641,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utime(i6
 17:                                               ; preds = %8
   %18 = tail call i64 @llvm.read_register.i64(metadata !0)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %20 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19, i64 8, i64 %18) #7, !srcloc !12
+  %20 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19, i64 8, i64 %18) #7, !srcloc !16
   %21 = extractvalue { ptr, i64, i64 } %20, 0
   %22 = extractvalue { ptr, i64, i64 } %20, 1
   %23 = extractvalue { ptr, i64, i64 } %20, 2
@@ -671,7 +671,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utime(i6
 35:                                               ; preds = %.preheader
   %36 = call i32 @user_path_at_empty(i32 noundef -100, ptr noundef %5, i32 noundef 33, ptr noundef nonnull %3, ptr noundef null) #7
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.preheader, label %.loopexit
+  br i1 %37, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .preheader:                                       ; preds = %31, %35
   %38 = phi i1 [ false, %35 ], [ true, %31 ]
@@ -728,7 +728,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utime32(
 
 8:                                                ; preds = %2
   %9 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %10 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 4, i64 %9) #7, !srcloc !13
+  %10 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 4, i64 %9) #7, !srcloc !18
   %11 = extractvalue { ptr, i32, i64 } %10, 0
   %12 = extractvalue { ptr, i32, i64 } %10, 1
   %13 = extractvalue { ptr, i32, i64 } %10, 2
@@ -743,7 +743,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utime32(
 18:                                               ; preds = %8
   %19 = tail call i64 @llvm.read_register.i64(metadata !0)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %21 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, i64 4, i64 %19) #7, !srcloc !14
+  %21 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, i64 4, i64 %19) #7, !srcloc !19
   %22 = extractvalue { ptr, i32, i64 } %21, 0
   %23 = extractvalue { ptr, i32, i64 } %21, 1
   %24 = extractvalue { ptr, i32, i64 } %21, 2
@@ -774,7 +774,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utime32(
 37:                                               ; preds = %.preheader
   %38 = call i32 @user_path_at_empty(i32 noundef -100, ptr noundef %5, i32 noundef 33, ptr noundef nonnull %3, ptr noundef null) #7
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.preheader, label %.loopexit
+  br i1 %39, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .preheader:                                       ; preds = %33, %37
   %40 = phi i1 [ false, %37 ], [ true, %33 ]
@@ -852,7 +852,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utimensat_tim
 
 32:                                               ; preds = %24, %1
   %33 = phi ptr [ %2, %24 ], [ null, %1 ]
-  %34 = call i64 @do_utimes(i32 noundef %11, ptr noundef %12, ptr noundef %33, i32 noundef %14), !range !10
+  %34 = call i64 @do_utimes(i32 noundef %11, ptr noundef %12, ptr noundef %33, i32 noundef %14), !range !13
   br label %35
 
 35:                                               ; preds = %32, %24, %19, %16
@@ -907,7 +907,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utimensat_ti
 
 34:                                               ; preds = %26, %1
   %35 = phi ptr [ %2, %26 ], [ null, %1 ]
-  %36 = call i64 @do_utimes(i32 noundef %13, ptr noundef %14, ptr noundef %35, i32 noundef %16), !range !10
+  %36 = call i64 @do_utimes(i32 noundef %13, ptr noundef %14, ptr noundef %35, i32 noundef %16), !range !13
   br label %37
 
 37:                                               ; preds = %34, %26, %21, %18
@@ -927,7 +927,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futimesat_tim
   %8 = trunc i64 %3 to i32
   %9 = inttoptr i64 %5 to ptr
   %10 = inttoptr i64 %7 to ptr
-  %11 = tail call fastcc i64 @do_compat_futimesat(i32 noundef %8, ptr noundef %9, ptr noundef %10), !range !10
+  %11 = tail call fastcc i64 @do_compat_futimesat(i32 noundef %8, ptr noundef %9, ptr noundef %10), !range !13
   ret i64 %11
 }
 
@@ -944,7 +944,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futimesat_ti
   %10 = trunc i64 %3 to i32
   %11 = inttoptr i64 %6 to ptr
   %12 = inttoptr i64 %9 to ptr
-  %13 = tail call fastcc i64 @do_compat_futimesat(i32 noundef %10, ptr noundef %11, ptr noundef %12), !range !10
+  %13 = tail call fastcc i64 @do_compat_futimesat(i32 noundef %10, ptr noundef %11, ptr noundef %12), !range !13
   ret i64 %13
 }
 
@@ -956,7 +956,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utimes_time32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %3 to ptr
   %7 = inttoptr i64 %5 to ptr
-  %8 = tail call fastcc i64 @do_compat_futimesat(i32 noundef -100, ptr noundef %6, ptr noundef %7), !range !10
+  %8 = tail call fastcc i64 @do_compat_futimesat(i32 noundef -100, ptr noundef %6, ptr noundef %7), !range !13
   ret i64 %8
 }
 
@@ -970,7 +970,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utimes_time3
   %7 = and i64 %6, 4294967295
   %8 = inttoptr i64 %4 to ptr
   %9 = inttoptr i64 %7 to ptr
-  %10 = tail call fastcc i64 @do_compat_futimesat(i32 noundef -100, ptr noundef %8, ptr noundef %9), !range !10
+  %10 = tail call fastcc i64 @do_compat_futimesat(i32 noundef -100, ptr noundef %8, ptr noundef %9), !range !13
   ret i64 %10
 }
 
@@ -1023,7 +1023,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_compat_futimes
 
 6:                                                ; preds = %3
   %7 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %8 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 4, i64 %7) #7, !srcloc !15
+  %8 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 4, i64 %7) #7, !srcloc !21
   %9 = extractvalue { ptr, i32, i64 } %8, 0
   %10 = extractvalue { ptr, i32, i64 } %8, 1
   %11 = extractvalue { ptr, i32, i64 } %8, 2
@@ -1038,7 +1038,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_compat_futimes
 16:                                               ; preds = %6
   %17 = tail call i64 @llvm.read_register.i64(metadata !0)
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %19 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %18, i64 4, i64 %17) #7, !srcloc !16
+  %19 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %18, i64 4, i64 %17) #7, !srcloc !22
   %20 = extractvalue { ptr, i32, i64 } %19, 0
   %21 = extractvalue { ptr, i32, i64 } %19, 1
   %22 = extractvalue { ptr, i32, i64 } %19, 2
@@ -1052,7 +1052,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_compat_futimes
 27:                                               ; preds = %16
   %28 = tail call i64 @llvm.read_register.i64(metadata !0)
   %29 = getelementptr i8, ptr %2, i64 8
-  %30 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %29, i64 4, i64 %28) #7, !srcloc !17
+  %30 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %29, i64 4, i64 %28) #7, !srcloc !23
   %31 = extractvalue { ptr, i32, i64 } %30, 0
   %32 = extractvalue { ptr, i32, i64 } %30, 1
   %33 = extractvalue { ptr, i32, i64 } %30, 2
@@ -1068,7 +1068,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_compat_futimes
 39:                                               ; preds = %27
   %40 = tail call i64 @llvm.read_register.i64(metadata !0)
   %41 = getelementptr i8, ptr %2, i64 12
-  %42 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 4, i64 %40) #7, !srcloc !18
+  %42 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 4, i64 %40) #7, !srcloc !24
   %43 = extractvalue { ptr, i32, i64 } %42, 0
   %44 = extractvalue { ptr, i32, i64 } %42, 1
   %45 = extractvalue { ptr, i32, i64 } %42, 2
@@ -1096,7 +1096,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_compat_futimes
 
 57:                                               ; preds = %54, %3
   %58 = phi ptr [ %4, %54 ], [ null, %3 ]
-  %59 = call i64 @do_utimes(i32 noundef %0, ptr noundef %1, ptr noundef %58, i32 noundef 0), !range !10
+  %59 = call i64 @do_utimes(i32 noundef %0, ptr noundef %1, ptr noundef %58, i32 noundef 0), !range !13
   br label %60
 
 60:                                               ; preds = %57, %50, %39, %27, %16, %6
@@ -1127,12 +1127,18 @@ attributes #7 = { nounwind }
 !7 = !{i64 2147730090}
 !8 = !{i64 2155663339}
 !9 = !{i64 2148009382}
-!10 = !{i64 -2147483648, i64 2147483648}
-!11 = !{i64 2155722503}
-!12 = !{i64 2155724562}
-!13 = !{i64 2155737457}
-!14 = !{i64 2155739436}
-!15 = !{i64 2155759300}
-!16 = !{i64 2155761320}
-!17 = !{i64 2155763358}
-!18 = !{i64 2155765378}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = !{i64 -2147483648, i64 2147483648}
+!14 = distinct !{!14, !11}
+!15 = !{i64 2155722503}
+!16 = !{i64 2155724562}
+!17 = distinct !{!17, !11}
+!18 = !{i64 2155737457}
+!19 = !{i64 2155739436}
+!20 = distinct !{!20, !11}
+!21 = !{i64 2155759300}
+!22 = !{i64 2155761320}
+!23 = !{i64 2155763358}
+!24 = !{i64 2155765378}

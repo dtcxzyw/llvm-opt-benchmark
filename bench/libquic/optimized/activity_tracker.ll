@@ -797,12 +797,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i64 %184, ptr %.sroa.043.067, align 8, !tbaa !8
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.043.067, i64 112
   %.not61 = icmp eq ptr %185, %181
-  br i1 %.not61, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph
+  br i1 %.not61, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph, !llvm.loop !57
 
 186:                                              ; preds = %98, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %187 = add nuw nsw i32 %.03265, 1
   %exitcond.not = icmp eq i32 %187, 10
-  br i1 %exitcond.not, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %67, !llvm.loop !57
+  br i1 %exitcond.not, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %67, !llvm.loop !59
 
 _ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread: ; preds = %186, %.lr.ph, %179, %150, %153, %158, %162, %166, %170, %174
   %188 = phi i1 [ true, %174 ], [ true, %170 ], [ true, %166 ], [ true, %162 ], [ true, %158 ], [ true, %153 ], [ true, %150 ], [ true, %179 ], [ true, %.lr.ph ], [ false, %186 ]
@@ -831,26 +831,26 @@ define void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerC2EjPv
   tail call void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 dereferenceable(30) %0, ptr noundef %2, i64 noundef %3)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 16), ptr %0, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %1, ptr %5, align 8, !tbaa !59
+  store i32 %1, ptr %5, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %6, align 8, !tbaa !61
+  store ptr %2, ptr %6, align 8, !tbaa !63
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 16), ptr %0, align 8, !tbaa !24
-  %2 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !62
+  %2 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !59
+  %4 = load i32, ptr %3, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !61
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !64
+  %8 = load i64, ptr %7, align 8, !tbaa !66
   tail call void @llvm.memset.p0.i64(ptr align 1 %6, i8 0, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = atomicrmw sub ptr %9, i32 1 monotonic, align 4
-  %11 = load ptr, ptr %2, align 8, !tbaa !87
+  %11 = load ptr, ptr %2, align 8, !tbaa !89
   %12 = invoke noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %11, i32 noundef %4, i32 noundef 1057125116, i32 noundef 1567850928)
           to label %.noexc unwind label %27
 
@@ -862,16 +862,16 @@ define void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerD2Ev(p
 .noexc1:                                          ; preds = %.noexc
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !88
-  %17 = load i64, ptr %14, align 8, !tbaa !89
+  %16 = load i64, ptr %15, align 8, !tbaa !90
+  %17 = load i64, ptr %14, align 8, !tbaa !91
   %.not.i = icmp eq i64 %16, %17
   br i1 %.not.i, label %23, label %18
 
 18:                                               ; preds = %.noexc1
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = add i64 %16, 1
-  store i64 %20, ptr %15, align 8, !tbaa !88
-  %21 = load ptr, ptr %19, align 8, !tbaa !90
+  store i64 %20, ptr %15, align 8, !tbaa !90
+  %21 = load ptr, ptr %19, align 8, !tbaa !92
   %22 = getelementptr inbounds nuw i32, ptr %21, i64 %16
   store i32 %4, ptr %22, align 4, !tbaa !47
   br label %23
@@ -901,30 +901,30 @@ _ZN4base5debug21GlobalActivityTracker19ReturnTrackerMemoryEPNS1_22ManagedActivit
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base5debug21GlobalActivityTracker19ReturnTrackerMemoryEPNS1_22ManagedActivityTrackerE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !59
+  %4 = load i32, ptr %3, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !61
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !64
+  %8 = load i64, ptr %7, align 8, !tbaa !66
   tail call void @llvm.memset.p0.i64(ptr align 1 %6, i8 0, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = atomicrmw sub ptr %9, i32 1 monotonic, align 4
-  %11 = load ptr, ptr %0, align 8, !tbaa !87
+  %11 = load ptr, ptr %0, align 8, !tbaa !89
   %12 = tail call noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %11, i32 noundef %4, i32 noundef 1057125116, i32 noundef 1567850928)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %14)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !88
-  %17 = load i64, ptr %13, align 8, !tbaa !89
+  %16 = load i64, ptr %15, align 8, !tbaa !90
+  %17 = load i64, ptr %13, align 8, !tbaa !91
   %.not = icmp eq i64 %16, %17
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = add i64 %16, 1
-  store i64 %20, ptr %15, align 8, !tbaa !88
-  %21 = load ptr, ptr %19, align 8, !tbaa !90
+  store i64 %20, ptr %15, align 8, !tbaa !90
+  %21 = load ptr, ptr %19, align 8, !tbaa !92
   %22 = getelementptr inbounds nuw i32, ptr %21, i64 %16
   store i32 %4, ptr %22, align 4, !tbaa !47
   br label %23
@@ -967,14 +967,14 @@ define void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerD0Ev(p
 define void @_ZN4base5debug21GlobalActivityTracker19CreateWithAllocatorESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS3_EEi(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21
-  %5 = load i64, ptr %0, align 8, !tbaa !87
-  store i64 %5, ptr %3, align 8, !tbaa !87
-  store ptr null, ptr %0, align 8, !tbaa !87
+  %5 = load i64, ptr %0, align 8, !tbaa !89
+  store i64 %5, ptr %3, align 8, !tbaa !89
+  store ptr null, ptr %0, align 8, !tbaa !89
   invoke void @_ZN4base5debug21GlobalActivityTrackerC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS3_EEi(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull %3, i32 noundef %1)
           to label %6 unwind label %12
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !87
+  %7 = load ptr, ptr %3, align 8, !tbaa !89
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
 
@@ -986,14 +986,14 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; pred
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %6, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
-  store ptr null, ptr %3, align 8, !tbaa !87
+  store ptr null, ptr %3, align 8, !tbaa !89
   %11 = call noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
   ret void
 
 12:                                               ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %3, align 8, !tbaa !87
+  %14 = load ptr, ptr %3, align 8, !tbaa !89
   %.not.i4 = icmp eq ptr %14, null
   br i1 %.not.i4, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5
 
@@ -1005,7 +1005,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5: ; pre
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6
 
 _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6: ; preds = %12, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5
-  store ptr null, ptr %3, align 8, !tbaa !87
+  store ptr null, ptr %3, align 8, !tbaa !89
   call void @_ZdlPv(ptr noundef nonnull %4) #19
   resume { ptr, i32 } %13
 }
@@ -1024,14 +1024,14 @@ define noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurre
 6:                                                ; preds = %17, %1
   %.031 = phi i32 [ 0, %1 ], [ %.2, %17 ]
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  %7 = load i64, ptr %4, align 8, !tbaa !88
+  %7 = load i64, ptr %4, align 8, !tbaa !90
   %.not33 = icmp eq i64 %7, 0
   br i1 %.not33, label %13, label %8
 
 8:                                                ; preds = %6
   %9 = add i64 %7, -1
-  store i64 %9, ptr %4, align 8, !tbaa !88
-  %10 = load ptr, ptr %5, align 8, !tbaa !90
+  store i64 %9, ptr %4, align 8, !tbaa !90
+  %10 = load ptr, ptr %5, align 8, !tbaa !92
   %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !47
   br label %13
@@ -1052,30 +1052,30 @@ _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit: ; preds =
   br i1 %.not33, label %20, label %17
 
 17:                                               ; preds = %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit
-  %18 = load ptr, ptr %0, align 8, !tbaa !87
+  %18 = load ptr, ptr %0, align 8, !tbaa !89
   %19 = tail call noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %18, i32 noundef %.2, i32 noundef 1567850928, i32 noundef 1057125116)
-  br i1 %19, label %20, label %6, !llvm.loop !91
+  br i1 %19, label %20, label %6, !llvm.loop !93
 
 20:                                               ; preds = %17, %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit
   %.not = icmp eq i32 %.2, 0
   br i1 %.not, label %21, label %47
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !87
+  %22 = load ptr, ptr %0, align 8, !tbaa !89
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !64
+  %24 = load i64, ptr %23, align 8, !tbaa !66
   %25 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 dereferenceable(48) %22, i64 noundef %24, i32 noundef 1567850928)
   %.not19 = icmp eq i32 %25, 0
   br i1 %.not19, label %28, label %26
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %0, align 8, !tbaa !87
+  %27 = load ptr, ptr %0, align 8, !tbaa !89
   tail call void @_ZN4base25PersistentMemoryAllocator12MakeIterableEj(ptr noundef nonnull align 8 dereferenceable(48) %27, i32 noundef %25)
   br label %47
 
 28:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #20
-  %29 = load ptr, ptr %0, align 8, !tbaa !87
+  %29 = load ptr, ptr %0, align 8, !tbaa !89
   call void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %29)
   br label %30
 
@@ -1085,9 +1085,9 @@ _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit: ; preds =
   br i1 %.not20, label %35, label %32
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr %0, align 8, !tbaa !87
+  %33 = load ptr, ptr %0, align 8, !tbaa !89
   %34 = call noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %33, i32 noundef %31, i32 noundef 1567850928, i32 noundef 1057125116)
-  br i1 %34, label %.critedge, label %30, !llvm.loop !92
+  br i1 %34, label %.critedge, label %30, !llvm.loop !94
 
 35:                                               ; preds = %30
   %36 = load atomic volatile i64, ptr @_ZZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEvE24atomic_histogram_pointer acquire, align 8
@@ -1118,11 +1118,11 @@ _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit: ; preds =
 
 47:                                               ; preds = %20, %26, %.critedge
   %.132 = phi i32 [ %31, %.critedge ], [ %25, %26 ], [ %.2, %20 ]
-  %48 = load ptr, ptr %0, align 8, !tbaa !87
+  %48 = load ptr, ptr %0, align 8, !tbaa !89
   %49 = call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %48, i32 noundef %.132, i32 noundef 1567850928, i32 noundef 1)
   %50 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !64
+  %52 = load i64, ptr %51, align 8, !tbaa !66
   invoke void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerC1EjPvm(ptr noundef nonnull align 8 dereferenceable(48) %50, i32 noundef %.132, ptr noundef %49, i64 noundef %52)
           to label %53 unwind label %62
 
@@ -1175,16 +1175,16 @@ define void @_ZN4base5debug21GlobalActivityTracker14CreateWithFileERKNS_8FilePat
           to label %13 unwind label %40
 
 13:                                               ; preds = %6
-  store ptr %12, ptr %9, align 8, !tbaa !93
+  store ptr %12, ptr %9, align 8, !tbaa !95
   %14 = ptrtoint ptr %12 to i64
   invoke void @_ZN4base4FileC1ERKNS_8FilePathEj(ptr noundef nonnull align 8 dereferenceable(50) %10, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 32872)
           to label %15 unwind label %42
 
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #20
-  store i64 0, ptr %11, align 8, !tbaa !95
+  store i64 0, ptr %11, align 8, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %1, ptr %16, align 8, !tbaa !97
+  store i64 %1, ptr %16, align 8, !tbaa !99
   %17 = invoke noundef zeroext i1 @_ZN4base16MemoryMappedFile10InitializeENS_4FileERKNS0_6RegionENS0_6AccessE(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 2)
           to label %18 unwind label %44
 
@@ -1196,26 +1196,26 @@ define void @_ZN4base5debug21GlobalActivityTracker14CreateWithFileERKNS_8FilePat
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %18
-  store i64 %14, ptr %8, align 8, !tbaa !93, !noalias !98
-  store ptr null, ptr %9, align 8, !tbaa !93, !noalias !98
+  store i64 %14, ptr %8, align 8, !tbaa !95, !noalias !100
+  store ptr null, ptr %9, align 8, !tbaa !95, !noalias !100
   invoke void @_ZN4base29FilePersistentMemoryAllocatorC1ESt10unique_ptrINS_16MemoryMappedFileESt14default_deleteIS2_EEmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull %8, i64 noundef %1, i64 noundef %2, ptr %3, i64 %4, i1 noundef zeroext false)
-          to label %20 unwind label %22, !noalias !98
+          to label %20 unwind label %22, !noalias !100
 
 20:                                               ; preds = %.noexc
-  %21 = load ptr, ptr %8, align 8, !tbaa !93, !noalias !98
+  %21 = load ptr, ptr %8, align 8, !tbaa !95, !noalias !100
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %24, label %_ZNKSt14default_deleteIN4base16MemoryMappedFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN4base16MemoryMappedFileEEclEPS1_.exit.i.i: ; preds = %20
-  call void @_ZN4base16MemoryMappedFileD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %21) #20, !noalias !98
-  call void @_ZdlPv(ptr noundef nonnull %21) #19, !noalias !98
+  call void @_ZN4base16MemoryMappedFileD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %21) #20, !noalias !100
+  call void @_ZdlPv(ptr noundef nonnull %21) #19, !noalias !100
   br label %24
 
 22:                                               ; preds = %.noexc
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrIN4base16MemoryMappedFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20, !noalias !98
-  call void @_ZdlPv(ptr noundef nonnull %19) #19, !noalias !98
+  call void @_ZNSt10unique_ptrIN4base16MemoryMappedFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20, !noalias !100
+  call void @_ZdlPv(ptr noundef nonnull %19) #19, !noalias !100
   br label %.body
 
 24:                                               ; preds = %_ZNKSt14default_deleteIN4base16MemoryMappedFileEEclEPS1_.exit.i.i, %20
@@ -1226,12 +1226,12 @@ _ZNKSt14default_deleteIN4base16MemoryMappedFileEEclEPS1_.exit.i.i: ; preds = %20
 
 .noexc10:                                         ; preds = %24
   %26 = ptrtoint ptr %19 to i64
-  store i64 %26, ptr %7, align 8, !tbaa !87
+  store i64 %26, ptr %7, align 8, !tbaa !89
   invoke void @_ZN4base5debug21GlobalActivityTrackerC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS3_EEi(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull %7, i32 noundef %5)
           to label %27 unwind label %34
 
 27:                                               ; preds = %.noexc10
-  %28 = load ptr, ptr %7, align 8, !tbaa !87
+  %28 = load ptr, ptr %7, align 8, !tbaa !89
   %.not.i.i9 = icmp eq ptr %28, null
   br i1 %.not.i.i9, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i
 
@@ -1243,7 +1243,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i: ; pr
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i, %27
-  store ptr null, ptr %7, align 8, !tbaa !87
+  store ptr null, ptr %7, align 8, !tbaa !89
   %32 = invoke noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEv(ptr noundef nonnull align 8 dereferenceable(96) %25)
           to label %_ZNSt10unique_ptrIN4base16MemoryMappedFileESt14default_deleteIS1_EED2Ev.exit unwind label %.body12.thread37
 
@@ -1255,7 +1255,7 @@ _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev
 34:                                               ; preds = %.noexc10
   %35 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %7, align 8, !tbaa !87
+  %36 = load ptr, ptr %7, align 8, !tbaa !89
   %.not.i4.i = icmp eq ptr %36, null
   br i1 %.not.i4.i, label %.body12.thread, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5.i
 
@@ -1267,7 +1267,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5.i: ; p
   br label %.body12.thread
 
 .body12.thread:                                   ; preds = %34, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5.i
-  store ptr null, ptr %7, align 8, !tbaa !87
+  store ptr null, ptr %7, align 8, !tbaa !89
   call void @_ZdlPv(ptr noundef nonnull %25) #19
   br label %.body
 
@@ -1330,7 +1330,7 @@ declare void @_ZN4base4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(50))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrIN4base16MemoryMappedFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !93
+  %2 = load ptr, ptr %0, align 8, !tbaa !95
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN4base16MemoryMappedFileEEclEPS1_.exit
 
@@ -1340,16 +1340,16 @@ _ZNKSt14default_deleteIN4base16MemoryMappedFileEEclEPS1_.exit: ; preds = %1
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN4base16MemoryMappedFileEEclEPS1_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !93
+  store ptr null, ptr %0, align 8, !tbaa !95
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base5debug21GlobalActivityTracker21CreateWithLocalMemoryEmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(i64 noundef %0, i64 noundef %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unique_ptr", align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21, !noalias !101
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21, !noalias !103
   invoke void @_ZN4base30LocalPersistentMemoryAllocatorC1EmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %0, i64 noundef %1, ptr %2, i64 %3)
-          to label %_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit unwind label %8, !noalias !101
+          to label %_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit unwind label %8, !noalias !103
 
 common.resume:                                    ; preds = %.body.thread, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5, %8
   %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %19, %.body.thread ], [ %24, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5 ]
@@ -1358,7 +1358,7 @@ common.resume:                                    ; preds = %.body.thread, %_ZNK
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #19, !noalias !101
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #19, !noalias !103
   br label %common.resume
 
 _ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit: ; preds = %5
@@ -1368,12 +1368,12 @@ _ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicString
 
 .noexc:                                           ; preds = %_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit
   %11 = ptrtoint ptr %7 to i64
-  store i64 %11, ptr %6, align 8, !tbaa !87
+  store i64 %11, ptr %6, align 8, !tbaa !89
   invoke void @_ZN4base5debug21GlobalActivityTrackerC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS3_EEi(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull %6, i32 noundef %4)
           to label %12 unwind label %18
 
 12:                                               ; preds = %.noexc
-  %13 = load ptr, ptr %6, align 8, !tbaa !87
+  %13 = load ptr, ptr %6, align 8, !tbaa !89
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i
 
@@ -1385,7 +1385,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i: ; pr
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i, %12
-  store ptr null, ptr %6, align 8, !tbaa !87
+  store ptr null, ptr %6, align 8, !tbaa !89
   %17 = call noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
@@ -1393,7 +1393,7 @@ _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev
 18:                                               ; preds = %.noexc
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %6, align 8, !tbaa !87
+  %20 = load ptr, ptr %6, align 8, !tbaa !89
   %.not.i4.i = icmp eq ptr %20, null
   br i1 %.not.i4.i, label %.body.thread, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5.i
 
@@ -1405,7 +1405,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5.i: ; p
   br label %.body.thread
 
 .body.thread:                                     ; preds = %18, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i5.i
-  store ptr null, ptr %6, align 8, !tbaa !87
+  store ptr null, ptr %6, align 8, !tbaa !89
   call void @_ZdlPv(ptr noundef nonnull %10) #19
   br label %common.resume
 
@@ -1457,31 +1457,31 @@ declare noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base5debug21GlobalActivityTrackerC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS3_EEi(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i64, ptr %1, align 8, !tbaa !87
-  store i64 %4, ptr %0, align 8, !tbaa !87
-  store ptr null, ptr %1, align 8, !tbaa !87
+  %4 = load i64, ptr %1, align 8, !tbaa !89
+  store i64 %4, ptr %0, align 8, !tbaa !89
+  store ptr null, ptr %1, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = sext i32 %2 to i64
   %7 = mul nsw i64 %6, 112
   %8 = add nsw i64 %7, 88
-  store i64 %8, ptr %5, align 8, !tbaa !64
+  store i64 %8, ptr %5, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN4base18ThreadLocalStorage4SlotC1EPFvPvE(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull @_ZN4base5debug21GlobalActivityTracker12OnTLSDestroyEPv)
           to label %10 unwind label %20
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %11, align 8, !tbaa !104
+  store i32 0, ptr %11, align 8, !tbaa !106
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 100, ptr %12, align 8, !tbaa !89
+  store i64 100, ptr %12, align 8, !tbaa !91
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = invoke noalias noundef nonnull dereferenceable(400) ptr @_Znam(i64 noundef 400) #21
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %10
-  store ptr %14, ptr %13, align 8, !tbaa !90
+  store ptr %14, ptr %13, align 8, !tbaa !92
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %15, align 8, !tbaa !88
+  store i64 0, ptr %15, align 8, !tbaa !90
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %16)
           to label %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjEC2Em.exit unwind label %17
@@ -1489,7 +1489,7 @@ define void @_ZN4base5debug21GlobalActivityTrackerC2ESt10unique_ptrINS_25Persist
 17:                                               ; preds = %.noexc
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = load ptr, ptr %13, align 8, !tbaa !90
+  %19 = load ptr, ptr %13, align 8, !tbaa !92
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
@@ -1498,11 +1498,11 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %17
-  store ptr null, ptr %13, align 8, !tbaa !90
+  store ptr null, ptr %13, align 8, !tbaa !92
   br label %.body
 
 _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjEC2Em.exit: ; preds = %.noexc
-  store ptr %0, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !62
+  store ptr %0, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !64
   ret void
 
 20:                                               ; preds = %3
@@ -1522,7 +1522,7 @@ _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjEC2Em.exit: ; preds = %.
 
 24:                                               ; preds = %.body, %20
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %21, %20 ]
-  %25 = load ptr, ptr %0, align 8, !tbaa !87
+  %25 = load ptr, ptr %0, align 8, !tbaa !89
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
 
@@ -1534,7 +1534,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; pred
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %24, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !87
+  store ptr null, ptr %0, align 8, !tbaa !89
   resume { ptr, i32 } %.pn
 }
 
@@ -1561,11 +1561,11 @@ declare void @_ZN4base18ThreadLocalStorage4SlotD1Ev(ptr noundef nonnull align 4 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4base5debug21GlobalActivityTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !62
+  store ptr null, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %4 = load ptr, ptr %3, align 8, !tbaa !92
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjED2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
@@ -1574,10 +1574,10 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjED2Ev.exit
 
 _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
-  store ptr null, ptr %3, align 8, !tbaa !90
+  store ptr null, ptr %3, align 8, !tbaa !92
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4base18ThreadLocalStorage4SlotD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #20
-  %6 = load ptr, ptr %0, align 8, !tbaa !87
+  %6 = load ptr, ptr %0, align 8, !tbaa !89
   %.not.i2 = icmp eq ptr %6, null
   br i1 %.not.i2, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
 
@@ -1589,7 +1589,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; pred
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjED2Ev.exit, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !87
+  store ptr null, ptr %0, align 8, !tbaa !89
   ret void
 }
 
@@ -1599,18 +1599,18 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base5debug14ScopedActivityC2ERKN15tracked_objects8LocationEhji(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !105
+  %7 = load ptr, ptr %6, align 8, !tbaa !107
   %8 = or i8 %2, -16
   %.sroa.2.0.insert.ext.i = zext i32 %4 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %3 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %9 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !62
+  %9 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !64
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i, label %10
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i: ; preds = %5
-  store ptr null, ptr %0, align 8, !tbaa !107
+  store ptr null, ptr %0, align 8, !tbaa !109
   br label %37
 
 10:                                               ; preds = %5
@@ -1620,12 +1620,12 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br i1 %.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread: ; preds = %10
-  store ptr %12, ptr %0, align 8, !tbaa !107
+  store ptr %12, ptr %0, align 8, !tbaa !109
   br label %14
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i: ; preds = %10
   %13 = tail call noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
-  store ptr %13, ptr %0, align 8, !tbaa !107
+  store ptr %13, ptr %0, align 8, !tbaa !109
   %.not.i4.i = icmp eq ptr %13, null
   br i1 %.not.i4.i, label %37, label %14
 
@@ -1669,14 +1669,14 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
 
 37:                                               ; preds = %23, %21, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %38, align 8, !tbaa !110
+  store i32 %3, ptr %38, align 8, !tbaa !112
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4base5debug14ScopedActivity12ChangeActionEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, i8 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = or i8 %1, -16
-  %4 = load ptr, ptr %0, align 8, !tbaa !107
+  %4 = load ptr, ptr %0, align 8, !tbaa !109
   %.not.i1 = icmp eq ptr %4, null
   br i1 %.not.i1, label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit, label %5
 
@@ -1706,12 +1706,12 @@ _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Ac
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4base5debug14ScopedActivity10ChangeInfoEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, i32 noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !110
+  %4 = load i32, ptr %3, align 8, !tbaa !112
   %.sroa.2.0.insert.ext.i = zext i32 %1 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %4 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %5 = load ptr, ptr %0, align 8, !tbaa !107
+  %5 = load ptr, ptr %0, align 8, !tbaa !109
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit, label %6
 
@@ -1742,12 +1742,12 @@ _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Ac
 define void @_ZN4base5debug14ScopedActivity19ChangeActionAndInfoEhi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = or i8 %1, -16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !110
+  %6 = load i32, ptr %5, align 8, !tbaa !112
   %.sroa.2.0.insert.ext.i = zext i32 %2 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %6 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %7 = load ptr, ptr %0, align 8, !tbaa !107
+  %7 = load ptr, ptr %0, align 8, !tbaa !109
   %.not.i2 = icmp eq ptr %7, null
   br i1 %.not.i2, label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit, label %8
 
@@ -1780,16 +1780,16 @@ _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Ac
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base5debug21ScopedTaskRunActivityC2ERKNS_11PendingTaskE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !105
+  %4 = load ptr, ptr %3, align 8, !tbaa !107
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %6 = load i32, ptr %5, align 8, !tbaa !113
+  %6 = load i32, ptr %5, align 8, !tbaa !115
   %7 = sext i32 %6 to i64
-  %8 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !62
+  %8 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !64
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i, label %9
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i: ; preds = %2
-  store ptr null, ptr %0, align 8, !tbaa !107
+  store ptr null, ptr %0, align 8, !tbaa !109
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 9:                                                ; preds = %2
@@ -1799,12 +1799,12 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br i1 %.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread: ; preds = %9
-  store ptr %11, ptr %0, align 8, !tbaa !107
+  store ptr %11, ptr %0, align 8, !tbaa !109
   br label %13
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i: ; preds = %9
   %12 = tail call noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
-  store ptr %12, ptr %0, align 8, !tbaa !107
+  store ptr %12, ptr %0, align 8, !tbaa !109
   %.not.i4.i = icmp eq ptr %12, null
   br i1 %.not.i4.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit, label %13
 
@@ -1853,18 +1853,18 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4T
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base5debug25ScopedLockAcquireActivityC2EPKNS_8internal8LockImplE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !62
+  %4 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !64
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i, label %5
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i: ; preds = %2
-  store ptr null, ptr %0, align 8, !tbaa !107
+  store ptr null, ptr %0, align 8, !tbaa !109
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = tail call noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull align 4 dereferenceable(8) %6)
-  store ptr %7, ptr %0, align 8, !tbaa !107
+  store ptr %7, ptr %0, align 8, !tbaa !109
   %.not.i4.i = icmp eq ptr %7, null
   br i1 %.not.i4.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit, label %8
 
@@ -1911,12 +1911,12 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4T
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base5debug23ScopedEventWaitActivityC2EPKNS_13WaitableEventE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !62
+  %4 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !64
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i, label %5
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i: ; preds = %2
-  store ptr null, ptr %0, align 8, !tbaa !107
+  store ptr null, ptr %0, align 8, !tbaa !109
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 5:                                                ; preds = %2
@@ -1926,12 +1926,12 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br i1 %.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread: ; preds = %5
-  store ptr %7, ptr %0, align 8, !tbaa !107
+  store ptr %7, ptr %0, align 8, !tbaa !109
   br label %9
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i: ; preds = %5
   %8 = tail call noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
-  store ptr %8, ptr %0, align 8, !tbaa !107
+  store ptr %8, ptr %0, align 8, !tbaa !109
   %.not.i4.i = icmp eq ptr %8, null
   br i1 %.not.i4.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit, label %9
 
@@ -1979,12 +1979,12 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4T
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base5debug24ScopedThreadJoinActivityC2EPKNS_20PlatformThreadHandleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !3
-  %4 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !62
+  %4 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !64
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i, label %5
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i: ; preds = %2
-  store ptr null, ptr %0, align 8, !tbaa !107
+  store ptr null, ptr %0, align 8, !tbaa !109
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 5:                                                ; preds = %2
@@ -1994,12 +1994,12 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br i1 %.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread: ; preds = %5
-  store ptr %7, ptr %0, align 8, !tbaa !107
+  store ptr %7, ptr %0, align 8, !tbaa !109
   br label %9
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i: ; preds = %5
   %8 = tail call noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
-  store ptr %8, ptr %0, align 8, !tbaa !107
+  store ptr %8, ptr %0, align 8, !tbaa !109
   %.not.i4.i = icmp eq ptr %8, null
   br i1 %.not.i4.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit, label %9
 
@@ -2048,12 +2048,12 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4T
 define void @_ZN4base5debug25ScopedProcessWaitActivityC2EPKNS_7ProcessE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
   %3 = tail call noundef i32 @_ZNK4base7Process3PidEv(ptr noundef nonnull align 4 dereferenceable(4) %1)
   %4 = sext i32 %3 to i64
-  %5 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !62
+  %5 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8, !tbaa !64
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i, label %6
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i: ; preds = %2
-  store ptr null, ptr %0, align 8, !tbaa !107
+  store ptr null, ptr %0, align 8, !tbaa !109
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 6:                                                ; preds = %2
@@ -2063,12 +2063,12 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br i1 %.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread: ; preds = %6
-  store ptr %8, ptr %0, align 8, !tbaa !107
+  store ptr %8, ptr %0, align 8, !tbaa !109
   br label %10
 
 _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i: ; preds = %6
   %9 = tail call noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
-  store ptr %9, ptr %0, align 8, !tbaa !107
+  store ptr %9, ptr %0, align 8, !tbaa !109
   %.not.i4.i = icmp eq ptr %9, null
   br i1 %.not.i4.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit, label %10
 
@@ -2161,10 +2161,10 @@ define linkonce_odr void @_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE17_M_defaul
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
   %.06.i.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %23 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 112, i1 false), !tbaa.struct !125
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 112, i1 false), !tbaa.struct !127
   %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 112
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %24
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN4base5debug8ActivityEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !126
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN4base5debug8ActivityEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !128
 
 _ZSt27__uninitialized_default_n_aIPN4base5debug8ActivityEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
@@ -2199,10 +2199,10 @@ _ZNKSt6vectorIN4base5debug8ActivityESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
 
 .lr.ph.i.i.i.i.i.i.i31:                           ; preds = %.lr.ph.i.i.i.i.i.i.i31, %36
   %.06.i.i.i.i.i.i.i32 = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i31 ], [ %37, %36 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 8 dereferenceable(112) %33, i64 112, i1 false), !tbaa.struct !125
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 8 dereferenceable(112) %33, i64 112, i1 false), !tbaa.struct !127
   %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 112
   %.not.i.i.i.i.i.i.i33 = icmp eq ptr %39, %38
-  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN4base5debug8ActivityEmS2_ET_S4_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !126
+  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN4base5debug8ActivityEmS2_ET_S4_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !128
 
 _ZSt27__uninitialized_default_n_aIPN4base5debug8ActivityEmS2_ET_S4_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNKSt6vectorIN4base5debug8ActivityESaIS2_EE12_M_check_lenEmPKc.exit
   %40 = icmp sgt i64 %9, 0
@@ -2360,72 +2360,74 @@ attributes #24 = { noreturn }
 !55 = !{!49, !5, i64 32}
 !56 = !{!22, !22, i64 0}
 !57 = distinct !{!57, !58}
-!58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!60, !29, i64 32}
-!60 = !{!"_ZTSN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE", !27, i64 0, !29, i64 32, !17, i64 40}
-!61 = !{!60, !17, i64 40}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 _ZTSN4base5debug21GlobalActivityTrackerE", !17, i64 0}
-!64 = !{!65, !5, i64 8}
-!65 = !{!"_ZTSN4base5debug21GlobalActivityTrackerE", !66, i64 0, !5, i64 8, !73, i64 16, !75, i64 24, !77, i64 32}
-!66 = !{!"_ZTSSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EE", !67, i64 0}
-!67 = !{!"_ZTSSt15__uniq_ptr_dataIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_ELb1ELb1EE", !68, i64 0}
-!68 = !{!"_ZTSSt15__uniq_ptr_implIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EE", !69, i64 0}
-!69 = !{!"_ZTSSt5tupleIJPN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EEE", !70, i64 0}
-!70 = !{!"_ZTSSt11_Tuple_implILm0EJPN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EEE", !71, i64 0}
-!71 = !{!"_ZTSSt10_Head_baseILm0EPN4base25PersistentMemoryAllocatorELb0EE", !72, i64 0}
-!72 = !{!"p1 _ZTSN4base25PersistentMemoryAllocatorE", !17, i64 0}
-!73 = !{!"_ZTSN4base18ThreadLocalStorage4SlotE", !74, i64 0}
-!74 = !{!"_ZTSN4base18ThreadLocalStorage10StaticSlotE", !29, i64 0, !29, i64 4}
-!75 = !{!"_ZTSSt6atomicIiE", !76, i64 0}
-!76 = !{!"_ZTSSt13__atomic_baseIiE", !29, i64 0}
-!77 = !{!"_ZTSN4base5debug21GlobalActivityTracker15ThreadSafeStackIjEE", !5, i64 0, !78, i64 8, !5, i64 16, !85, i64 24}
-!78 = !{!"_ZTSSt10unique_ptrIA_jSt14default_deleteIS0_EE", !79, i64 0}
-!79 = !{!"_ZTSSt15__uniq_ptr_dataIjSt14default_deleteIA_jELb1ELb1EE", !80, i64 0}
-!80 = !{!"_ZTSSt15__uniq_ptr_implIjSt14default_deleteIA_jEE", !81, i64 0}
-!81 = !{!"_ZTSSt5tupleIJPjSt14default_deleteIA_jEEE", !82, i64 0}
-!82 = !{!"_ZTSSt11_Tuple_implILm0EJPjSt14default_deleteIA_jEEE", !83, i64 0}
-!83 = !{!"_ZTSSt10_Head_baseILm0EPjLb0EE", !84, i64 0}
-!84 = !{!"p1 int", !17, i64 0}
-!85 = !{!"_ZTSN4base4LockE", !86, i64 0}
-!86 = !{!"_ZTSN4base8internal8LockImplE", !6, i64 0}
-!87 = !{!72, !72, i64 0}
-!88 = !{!77, !5, i64 16}
-!89 = !{!77, !5, i64 0}
-!90 = !{!84, !84, i64 0}
-!91 = distinct !{!91, !58}
-!92 = distinct !{!92, !58}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"p1 _ZTSN4base16MemoryMappedFileE", !17, i64 0}
-!95 = !{!96, !5, i64 0}
-!96 = !{!"_ZTSN4base16MemoryMappedFile6RegionE", !5, i64 0, !5, i64 8}
-!97 = !{!96, !5, i64 8}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZN4base10MakeUniqueINS_29FilePersistentMemoryAllocatorEJSt10unique_ptrINS_16MemoryMappedFileESt14default_deleteIS3_EERmS7_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: argument 0"}
-!100 = distinct !{!100, !"_ZN4base10MakeUniqueINS_29FilePersistentMemoryAllocatorEJSt10unique_ptrINS_16MemoryMappedFileESt14default_deleteIS3_EERmS7_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: argument 0"}
-!103 = distinct !{!103, !"_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
-!104 = !{!76, !29, i64 0}
-!105 = !{!106, !17, i64 24}
-!106 = !{!"_ZTSN15tracked_objects8LocationE", !16, i64 0, !16, i64 8, !29, i64 16, !17, i64 24}
-!107 = !{!108, !109, i64 0}
-!108 = !{!"_ZTSN4base5debug21ThreadActivityTracker14ScopedActivityE", !109, i64 0}
-!109 = !{!"p1 _ZTSN4base5debug21ThreadActivityTrackerE", !17, i64 0}
-!110 = !{!111, !29, i64 8}
-!111 = !{!"_ZTSN4base5debug14ScopedActivityE", !112, i64 0, !29, i64 8}
-!112 = !{!"_ZTSN4base5debug21GlobalActivityTracker20ScopedThreadActivityE", !108, i64 0}
-!113 = !{!114, !29, i64 64}
-!114 = !{!"_ZTSN4base11PendingTaskE", !115, i64 0, !120, i64 24, !106, i64 32, !29, i64 64, !30, i64 68, !30, i64 69}
-!115 = !{!"_ZTSN4base12TrackingInfoE", !116, i64 0, !117, i64 8, !118, i64 16}
-!116 = !{!"p1 _ZTSN15tracked_objects6BirthsE", !17, i64 0}
-!117 = !{!"_ZTSN15tracked_objects11TrackedTimeE", !29, i64 0}
-!118 = !{!"_ZTSN4base9TimeTicksE", !119, i64 0}
-!119 = !{!"_ZTSN4base13time_internal8TimeBaseINS_9TimeTicksEEE", !5, i64 0}
-!120 = !{!"_ZTSN4base8CallbackIFvvELNS_8internal8CopyModeE1ELNS2_10RepeatModeE1EEE", !121, i64 0}
-!121 = !{!"_ZTSN4base8internal12CallbackBaseILNS0_8CopyModeE1EEE", !122, i64 0}
-!122 = !{!"_ZTSN4base8internal12CallbackBaseILNS0_8CopyModeE0EEE", !123, i64 0}
-!123 = !{!"_ZTS13scoped_refptrIN4base8internal13BindStateBaseEE", !124, i64 0}
-!124 = !{!"p1 _ZTSN4base8internal13BindStateBaseE", !17, i64 0}
-!125 = !{i64 0, i64 8, !13, i64 8, i64 8, !13, i64 16, i64 80, !12, i64 96, i64 1, !12, i64 97, i64 7, !12, i64 104, i64 8, !12}
-!126 = distinct !{!126, !58}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = distinct !{!59, !60, !58}
+!60 = !{!"llvm.loop.mustprogress"}
+!61 = !{!62, !29, i64 32}
+!62 = !{!"_ZTSN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE", !27, i64 0, !29, i64 32, !17, i64 40}
+!63 = !{!62, !17, i64 40}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTSN4base5debug21GlobalActivityTrackerE", !17, i64 0}
+!66 = !{!67, !5, i64 8}
+!67 = !{!"_ZTSN4base5debug21GlobalActivityTrackerE", !68, i64 0, !5, i64 8, !75, i64 16, !77, i64 24, !79, i64 32}
+!68 = !{!"_ZTSSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EE", !69, i64 0}
+!69 = !{!"_ZTSSt15__uniq_ptr_dataIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_ELb1ELb1EE", !70, i64 0}
+!70 = !{!"_ZTSSt15__uniq_ptr_implIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EE", !71, i64 0}
+!71 = !{!"_ZTSSt5tupleIJPN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EEE", !72, i64 0}
+!72 = !{!"_ZTSSt11_Tuple_implILm0EJPN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EEE", !73, i64 0}
+!73 = !{!"_ZTSSt10_Head_baseILm0EPN4base25PersistentMemoryAllocatorELb0EE", !74, i64 0}
+!74 = !{!"p1 _ZTSN4base25PersistentMemoryAllocatorE", !17, i64 0}
+!75 = !{!"_ZTSN4base18ThreadLocalStorage4SlotE", !76, i64 0}
+!76 = !{!"_ZTSN4base18ThreadLocalStorage10StaticSlotE", !29, i64 0, !29, i64 4}
+!77 = !{!"_ZTSSt6atomicIiE", !78, i64 0}
+!78 = !{!"_ZTSSt13__atomic_baseIiE", !29, i64 0}
+!79 = !{!"_ZTSN4base5debug21GlobalActivityTracker15ThreadSafeStackIjEE", !5, i64 0, !80, i64 8, !5, i64 16, !87, i64 24}
+!80 = !{!"_ZTSSt10unique_ptrIA_jSt14default_deleteIS0_EE", !81, i64 0}
+!81 = !{!"_ZTSSt15__uniq_ptr_dataIjSt14default_deleteIA_jELb1ELb1EE", !82, i64 0}
+!82 = !{!"_ZTSSt15__uniq_ptr_implIjSt14default_deleteIA_jEE", !83, i64 0}
+!83 = !{!"_ZTSSt5tupleIJPjSt14default_deleteIA_jEEE", !84, i64 0}
+!84 = !{!"_ZTSSt11_Tuple_implILm0EJPjSt14default_deleteIA_jEEE", !85, i64 0}
+!85 = !{!"_ZTSSt10_Head_baseILm0EPjLb0EE", !86, i64 0}
+!86 = !{!"p1 int", !17, i64 0}
+!87 = !{!"_ZTSN4base4LockE", !88, i64 0}
+!88 = !{!"_ZTSN4base8internal8LockImplE", !6, i64 0}
+!89 = !{!74, !74, i64 0}
+!90 = !{!79, !5, i64 16}
+!91 = !{!79, !5, i64 0}
+!92 = !{!86, !86, i64 0}
+!93 = distinct !{!93, !60, !58}
+!94 = distinct !{!94, !60, !58}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p1 _ZTSN4base16MemoryMappedFileE", !17, i64 0}
+!97 = !{!98, !5, i64 0}
+!98 = !{!"_ZTSN4base16MemoryMappedFile6RegionE", !5, i64 0, !5, i64 8}
+!99 = !{!98, !5, i64 8}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"_ZN4base10MakeUniqueINS_29FilePersistentMemoryAllocatorEJSt10unique_ptrINS_16MemoryMappedFileESt14default_deleteIS3_EERmS7_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: argument 0"}
+!102 = distinct !{!102, !"_ZN4base10MakeUniqueINS_29FilePersistentMemoryAllocatorEJSt10unique_ptrINS_16MemoryMappedFileESt14default_deleteIS3_EERmS7_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: argument 0"}
+!105 = distinct !{!105, !"_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
+!106 = !{!78, !29, i64 0}
+!107 = !{!108, !17, i64 24}
+!108 = !{!"_ZTSN15tracked_objects8LocationE", !16, i64 0, !16, i64 8, !29, i64 16, !17, i64 24}
+!109 = !{!110, !111, i64 0}
+!110 = !{!"_ZTSN4base5debug21ThreadActivityTracker14ScopedActivityE", !111, i64 0}
+!111 = !{!"p1 _ZTSN4base5debug21ThreadActivityTrackerE", !17, i64 0}
+!112 = !{!113, !29, i64 8}
+!113 = !{!"_ZTSN4base5debug14ScopedActivityE", !114, i64 0, !29, i64 8}
+!114 = !{!"_ZTSN4base5debug21GlobalActivityTracker20ScopedThreadActivityE", !110, i64 0}
+!115 = !{!116, !29, i64 64}
+!116 = !{!"_ZTSN4base11PendingTaskE", !117, i64 0, !122, i64 24, !108, i64 32, !29, i64 64, !30, i64 68, !30, i64 69}
+!117 = !{!"_ZTSN4base12TrackingInfoE", !118, i64 0, !119, i64 8, !120, i64 16}
+!118 = !{!"p1 _ZTSN15tracked_objects6BirthsE", !17, i64 0}
+!119 = !{!"_ZTSN15tracked_objects11TrackedTimeE", !29, i64 0}
+!120 = !{!"_ZTSN4base9TimeTicksE", !121, i64 0}
+!121 = !{!"_ZTSN4base13time_internal8TimeBaseINS_9TimeTicksEEE", !5, i64 0}
+!122 = !{!"_ZTSN4base8CallbackIFvvELNS_8internal8CopyModeE1ELNS2_10RepeatModeE1EEE", !123, i64 0}
+!123 = !{!"_ZTSN4base8internal12CallbackBaseILNS0_8CopyModeE1EEE", !124, i64 0}
+!124 = !{!"_ZTSN4base8internal12CallbackBaseILNS0_8CopyModeE0EEE", !125, i64 0}
+!125 = !{!"_ZTS13scoped_refptrIN4base8internal13BindStateBaseEE", !126, i64 0}
+!126 = !{!"p1 _ZTSN4base8internal13BindStateBaseE", !17, i64 0}
+!127 = !{i64 0, i64 8, !13, i64 8, i64 8, !13, i64 16, i64 80, !12, i64 96, i64 1, !12, i64 97, i64 7, !12, i64 104, i64 8, !12}
+!128 = distinct !{!128, !60, !58}

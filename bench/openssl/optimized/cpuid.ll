@@ -115,7 +115,7 @@ ossl_strtouint64.exit:                            ; preds = %25, %todigit.exit.i
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
-  br label %48, !llvm.loop !8
+  br label %48, !llvm.loop !9
 
 ossl_strchr.exit:                                 ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
@@ -205,27 +205,27 @@ ossl_strtouint64.exit63:                          ; preds = %76, %todigit.exit.i
 88:                                               ; preds = %ossl_strtouint64.exit63
   %89 = xor i32 %87, -1
   %90 = getelementptr inbounds nuw [10 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 %indvars.iv
-  %91 = load i32, ptr %90, align 8, !tbaa !9
+  %91 = load i32, ptr %90, align 8, !tbaa !10
   %92 = and i32 %91, %89
-  store i32 %92, ptr %90, align 8, !tbaa !9
+  store i32 %92, ptr %90, align 8, !tbaa !10
   %93 = lshr i64 %.010.i55, 32
   %94 = trunc nuw i64 %93 to i32
   %95 = xor i32 %94, -1
   %96 = or disjoint i64 %indvars.iv, 1
   %97 = getelementptr inbounds nuw [10 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 %96
-  %98 = load i32, ptr %97, align 4, !tbaa !9
+  %98 = load i32, ptr %97, align 4, !tbaa !10
   %99 = and i32 %98, %95
-  store i32 %99, ptr %97, align 4, !tbaa !9
+  store i32 %99, ptr %97, align 4, !tbaa !10
   br label %.preheader85
 
 100:                                              ; preds = %ossl_strtouint64.exit63
   %101 = getelementptr inbounds nuw [10 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 %indvars.iv
-  store i32 %87, ptr %101, align 8, !tbaa !9
+  store i32 %87, ptr %101, align 8, !tbaa !10
   %102 = lshr i64 %.010.i55, 32
   %103 = trunc nuw i64 %102 to i32
   %104 = or disjoint i64 %indvars.iv, 1
   %105 = getelementptr inbounds nuw [10 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 %104
-  store i32 %103, ptr %105, align 4, !tbaa !9
+  store i32 %103, ptr %105, align 4, !tbaa !10
   br label %.preheader85
 
 .preheader85:                                     ; preds = %88, %100, %53
@@ -241,7 +241,7 @@ ossl_strtouint64.exit63:                          ; preds = %76, %todigit.exit.i
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %.05.i64, i64 1
-  br label %106, !llvm.loop !8
+  br label %106, !llvm.loop !9
 
 ossl_strchr.exit67.loopexit:                      ; preds = %106
   br label %ossl_strchr.exit67
@@ -255,26 +255,26 @@ ossl_strchr.exit67:                               ; preds = %106, %ossl_strchr.e
 
 111:                                              ; preds = %53, %.preheader
   %112 = getelementptr inbounds nuw [10 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 %indvars.iv
-  store i32 0, ptr %112, align 8, !tbaa !9
+  store i32 0, ptr %112, align 8, !tbaa !10
   %113 = or disjoint i64 %indvars.iv, 1
   %114 = getelementptr inbounds nuw [10 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 %113
-  store i32 0, ptr %114, align 4, !tbaa !9
+  store i32 0, ptr %114, align 4, !tbaa !10
   br label %115
 
 115:                                              ; preds = %ossl_strchr.exit67, %111
   %.235 = phi ptr [ %.13472, %111 ], [ %spec.select51, %ossl_strchr.exit67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %116 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %116, label %.preheader, label %117, !llvm.loop !11
+  br i1 %116, label %.preheader, label %117, !llvm.loop !12
 
 117:                                              ; preds = %115
-  %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 24), align 8, !tbaa !9
+  %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 24), align 8, !tbaa !10
   %119 = and i32 %118, 524288
   %.not45 = icmp eq i32 %119, 0
   br i1 %.not45, label %120, label %123
 
 120:                                              ; preds = %117
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 36), align 4, !tbaa !9
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 36), align 4, !tbaa !10
   br label %123
 
 121:                                              ; preds = %1
@@ -285,10 +285,10 @@ ossl_strchr.exit67:                               ; preds = %106, %ossl_strchr.e
   %.2 = phi i64 [ %122, %121 ], [ %.1, %120 ], [ %.1, %117 ]
   %124 = trunc i64 %.2 to i32
   %125 = or i32 %124, 1024
-  store i32 %125, ptr @OPENSSL_ia32cap_P, align 16, !tbaa !9
+  store i32 %125, ptr @OPENSSL_ia32cap_P, align 16, !tbaa !10
   %126 = lshr i64 %.2, 32
   %127 = trunc nuw i64 %126 to i32
-  store i32 %127, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !9
+  store i32 %127, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !10
   br label %128
 
 128:                                              ; preds = %0, %123
@@ -319,9 +319,10 @@ attributes #3 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"int", !4, i64 0}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !4, i64 0}
+!12 = distinct !{!12, !7, !8}

@@ -698,7 +698,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %15, %17
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.9, i64 noundef 3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
   call void @_ZNK6symbol3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %31 = load ptr, ptr %5, align 8, !tbaa !37
+  %31 = load ptr, ptr %5, align 8, !tbaa !38
   %32 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLOBAL__N_1lsERSoRKNS_10ll_escapedE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr %31)
           to label %33 unwind label %53
 
@@ -724,14 +724,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %15, %17
 
 44:                                               ; preds = %40, %42
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %45 = load ptr, ptr %5, align 8, !tbaa !37
+  %45 = load ptr, ptr %5, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !41
+  %49 = load i64, ptr %48, align 8, !tbaa !42
   %50 = icmp ult i64 %49, 16
   call void @llvm.assume(i1 %50)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -749,14 +749,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 53:                                               ; preds = %42, %40, %29
   %54 = landingpad { ptr, i32 }
           cleanup
-  %55 = load ptr, ptr %5, align 8, !tbaa !37
+  %55 = load ptr, ptr %5, align 8, !tbaa !38
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7: ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !41
+  %59 = load i64, ptr %58, align 8, !tbaa !42
   %60 = icmp ult i64 %59, 16
   call void @llvm.assume(i1 %60)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
@@ -1082,7 +1082,7 @@ _ZL19Z3_close_log_unsafev.exit:                   ; preds = %1, %_Z7deallocISoEv
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !42
+  %12 = load i32, ptr %11, align 8, !tbaa !43
   %13 = and i32 %12, 5
   %or.cond.not = icmp eq i32 %13, 0
   br i1 %or.cond.not, label %15, label %_Z7deallocISoEvPT_.exit
@@ -1362,11 +1362,12 @@ attributes #13 = { builtin nounwind }
 !32 = !{!"p1 _ZTS15__locale_struct", !5, i64 0}
 !33 = !{!"p1 int", !5, i64 0}
 !34 = !{!"p1 short", !5, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!38, !40, i64 0}
-!38 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !39, i64 0, !13, i64 8, !6, i64 16}
-!39 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !40, i64 0}
-!40 = !{!"p1 omnipotent char", !5, i64 0}
-!41 = !{!38, !13, i64 8}
-!42 = !{!12, !15, i64 32}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !41, i64 0}
+!39 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !40, i64 0, !13, i64 8, !6, i64 16}
+!40 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !41, i64 0}
+!41 = !{!"p1 omnipotent char", !5, i64 0}
+!42 = !{!39, !13, i64 8}
+!43 = !{!12, !15, i64 32}

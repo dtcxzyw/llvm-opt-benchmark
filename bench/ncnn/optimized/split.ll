@@ -170,11 +170,11 @@ define hidden void @_ZN4ncnn5SplitC2Ev(ptr noundef nonnull align 8 dereferenceab
   tail call void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn5SplitE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %2, align 8, !tbaa !31
+  store i8 0, ptr %2, align 8, !tbaa !32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 0, ptr %3, align 1, !tbaa !44
+  store i8 0, ptr %3, align 1, !tbaa !45
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 1, ptr %4, align 1, !tbaa !45
+  store i8 1, ptr %4, align 1, !tbaa !46
   %5 = invoke noundef i32 @_ZN4ncnn23cpu_support_arm_asimdhpEv()
           to label %6 unwind label %16
 
@@ -194,9 +194,9 @@ define hidden void @_ZN4ncnn5SplitC2Ev(ptr noundef nonnull align 8 dereferenceab
 12:                                               ; preds = %9, %6
   %13 = phi i8 [ 1, %6 ], [ %11, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %13, ptr %14, align 1, !tbaa !46
+  store i8 %13, ptr %14, align 1, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 1, ptr %15, align 4, !tbaa !47
+  store i8 1, ptr %15, align 4, !tbaa !48
   ret void
 
 16:                                               ; preds = %7, %1
@@ -264,22 +264,23 @@ attributes #8 = { builtin nounwind }
 !26 = !{!12, !15, i64 48}
 !27 = !{!12, !15, i64 52}
 !28 = !{!12, !15, i64 56}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!32, !33, i64 8}
-!32 = !{!"_ZTSN4ncnn5LayerE", !33, i64 8, !33, i64 9, !33, i64 10, !33, i64 11, !33, i64 12, !33, i64 13, !33, i64 14, !33, i64 15, !33, i64 16, !33, i64 17, !33, i64 18, !33, i64 19, !33, i64 20, !33, i64 21, !33, i64 22, !33, i64 23, !33, i64 24, !33, i64 25, !33, i64 26, !33, i64 27, !15, i64 28, !7, i64 32, !15, i64 40, !34, i64 48, !34, i64 80, !37, i64 112, !37, i64 136, !41, i64 160, !41, i64 184}
-!33 = !{!"bool", !8, i64 0}
-!34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !35, i64 0, !14, i64 8, !8, i64 16}
-!35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !36, i64 0}
-!36 = !{!"p1 omnipotent char", !7, i64 0}
-!37 = !{!"_ZTSSt6vectorIiSaIiEE", !38, i64 0}
-!38 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !39, i64 0}
-!39 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !40, i64 0}
-!40 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !13, i64 0, !13, i64 8, !13, i64 16}
-!41 = !{!"_ZTSSt6vectorIN4ncnn3MatESaIS1_EE", !42, i64 0}
-!42 = !{!"_ZTSSt12_Vector_baseIN4ncnn3MatESaIS1_EE", !43, i64 0}
-!43 = !{!"_ZTSNSt12_Vector_baseIN4ncnn3MatESaIS1_EE12_Vector_implE", !5, i64 0}
-!44 = !{!32, !33, i64 9}
-!45 = !{!32, !33, i64 11}
-!46 = !{!32, !33, i64 13}
-!47 = !{!32, !33, i64 12}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!33, !34, i64 8}
+!33 = !{!"_ZTSN4ncnn5LayerE", !34, i64 8, !34, i64 9, !34, i64 10, !34, i64 11, !34, i64 12, !34, i64 13, !34, i64 14, !34, i64 15, !34, i64 16, !34, i64 17, !34, i64 18, !34, i64 19, !34, i64 20, !34, i64 21, !34, i64 22, !34, i64 23, !34, i64 24, !34, i64 25, !34, i64 26, !34, i64 27, !15, i64 28, !7, i64 32, !15, i64 40, !35, i64 48, !35, i64 80, !38, i64 112, !38, i64 136, !42, i64 160, !42, i64 184}
+!34 = !{!"bool", !8, i64 0}
+!35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !36, i64 0, !14, i64 8, !8, i64 16}
+!36 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !37, i64 0}
+!37 = !{!"p1 omnipotent char", !7, i64 0}
+!38 = !{!"_ZTSSt6vectorIiSaIiEE", !39, i64 0}
+!39 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !40, i64 0}
+!40 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !41, i64 0}
+!41 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !13, i64 0, !13, i64 8, !13, i64 16}
+!42 = !{!"_ZTSSt6vectorIN4ncnn3MatESaIS1_EE", !43, i64 0}
+!43 = !{!"_ZTSSt12_Vector_baseIN4ncnn3MatESaIS1_EE", !44, i64 0}
+!44 = !{!"_ZTSNSt12_Vector_baseIN4ncnn3MatESaIS1_EE12_Vector_implE", !5, i64 0}
+!45 = !{!33, !34, i64 9}
+!46 = !{!33, !34, i64 11}
+!47 = !{!33, !34, i64 13}
+!48 = !{!33, !34, i64 12}

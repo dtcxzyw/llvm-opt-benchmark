@@ -753,7 +753,7 @@ define internal fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr noundef ca
 68:                                               ; preds = %.preheader.split.us
   %69 = tail call i32 @PyErr_CheckSignals() #11
   %.not47.us = icmp eq i32 %69, 0
-  br i1 %.not47.us, label %.preheader.split.us, label %.critedge3.thread.thread, !llvm.loop !44
+  br i1 %.not47.us, label %.preheader.split.us, label %.critedge3.thread.thread, !llvm.loop !45
 
 .preheader.split:                                 ; preds = %.preheader, %77
   %70 = call ptr @PyEval_SaveThread() #11
@@ -771,7 +771,7 @@ define internal fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr noundef ca
 77:                                               ; preds = %.preheader.split
   %78 = call i32 @PyErr_CheckSignals() #11
   %.not47 = icmp eq i32 %78, 0
-  br i1 %.not47, label %.preheader.split, label %.critedge3.thread.thread, !llvm.loop !46
+  br i1 %.not47, label %.preheader.split, label %.critedge3.thread.thread, !llvm.loop !47
 
 .critedge3:                                       ; preds = %.preheader.split, %.preheader.split.us
   %.us-phi = phi i32 [ %63, %.preheader.split.us ], [ %72, %.preheader.split ]
@@ -1037,8 +1037,9 @@ attributes #13 = { nounwind willreturn memory(none) }
 !39 = !{!40, !11, i64 0}
 !40 = !{!"timespec", !11, i64 0, !11, i64 8}
 !41 = !{!40, !11, i64 8}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = distinct !{!46, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !43, !44, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !43, !44}

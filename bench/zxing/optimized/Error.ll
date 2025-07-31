@@ -1586,7 +1586,7 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
   store i8 %17, ptr %20, align 1, !tbaa !16
   %21 = add i32 %.01819, -2
   %22 = icmp ugt i32 %.020, 9999
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ %2, %3 ], [ %8, %.lr.ph ]
@@ -1807,6 +1807,7 @@ attributes #20 = { builtin optsize allocsize(0) }
 !35 = distinct !{!35, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
 !36 = !{!11, !11, i64 0}
 !37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = distinct !{!41, !39, !40}

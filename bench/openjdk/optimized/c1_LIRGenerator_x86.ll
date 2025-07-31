@@ -3259,7 +3259,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit.i: ; preds = %_ZN7LIRItemC2EP11In
   %61 = load i32, ptr %33, align 4
   %62 = trunc nuw i64 %indvars.iv.next22.i to i32
   %63 = icmp sgt i32 %61, %62
-  br i1 %63, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !8
+  br i1 %63, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !9
 
 64:                                               ; preds = %.preheader.i
   %65 = load i64, ptr %35, align 8
@@ -3374,7 +3374,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit.i100: ; preds = %94, %90, %86
   %111 = load i32, ptr %33, align 4
   %112 = trunc nuw i64 %indvars.iv.next22.i110 to i32
   %113 = icmp sgt i32 %111, %112
-  br i1 %113, label %.lr.ph19.i108, label %.preheader.i104, !llvm.loop !8
+  br i1 %113, label %.lr.ph19.i108, label %.preheader.i104, !llvm.loop !9
 
 114:                                              ; preds = %.preheader.i104
   %115 = load i64, ptr %35, align 8
@@ -10465,7 +10465,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %36, %45
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.next
   store ptr %.0.i.i.i, ptr %51, align 8
   %52 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %52, label %17, label %._crit_edge, !llvm.loop !9
+  br i1 %52, label %17, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %49, %_ZN13GrowableArrayIP7LIRItemEC2EiiRKS1_.exit
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -10620,7 +10620,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %115, %120, %131
   %133 = shl i32 %indvars.iv.next73.tr, 2
   tail call void @_ZN12LIRGenerator21store_stack_parameterE7LIR_Opr8ByteSize(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.03.0.i, i32 noundef %133)
   %134 = icmp samesign ugt i64 %indvars.iv72, 1
-  br i1 %134, label %.lr.ph69, label %._crit_edge70, !llvm.loop !10
+  br i1 %134, label %.lr.ph69, label %._crit_edge70, !llvm.loop !11
 
 ._crit_edge70:                                    ; preds = %_ZN7LIRItem6resultEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit.thread
   %135 = load i64, ptr @_ZN8FrameMap16rax_metadata_oprE, align 8
@@ -12570,7 +12570,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !11
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !12
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12586,7 +12586,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !12
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !13
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -12757,7 +12757,7 @@ _ZN13GrowableArrayI7LIR_OprE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !13
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12773,7 +12773,7 @@ _ZN13GrowableArrayI7LIR_OprE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !14
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !15
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -12819,12 +12819,13 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

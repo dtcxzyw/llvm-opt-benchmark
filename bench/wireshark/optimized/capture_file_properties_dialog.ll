@@ -2055,7 +2055,7 @@ _ZN7QStringD2Ev.exit159:                          ; preds = %239, %_ZN17QArrayDa
 
 244:                                              ; preds = %.loopexit
   %245 = add i32 %.033, 1
-  br label %106, !llvm.loop !16
+  br label %106, !llvm.loop !17
 
 .loopexit179:                                     ; preds = %_ZNK11CaptureFile7capFileEv.exit90, %_ZNK11CaptureFile7capFileEv.exit
   %246 = load ptr, ptr %21, align 8
@@ -4281,7 +4281,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit975:           ; preds = %867, %_ZN17QArrayDa
   %871 = load i32, ptr %870, align 8
   %872 = zext i32 %871 to i64
   %873 = icmp samesign ult i64 %indvars.iv.next, %872
-  br i1 %873, label %827, label %_ZN7QStringD2Ev.exit1009, !llvm.loop !17
+  br i1 %873, label %827, label %_ZN7QStringD2Ev.exit1009, !llvm.loop !18
 
 874:                                              ; preds = %827
   %875 = landingpad { ptr, i32 }
@@ -8718,7 +8718,7 @@ _ZN7QStringD2Ev.exit1752:                         ; preds = %_ZN7QStringD2Ev.exi
   %2187 = load i32, ptr %2186, align 8
   %2188 = zext i32 %2187 to i64
   %2189 = icmp samesign ult i64 %indvars.iv.next3243, %2188
-  br i1 %2189, label %.lr.ph3221, label %._crit_edge, !llvm.loop !18
+  br i1 %2189, label %.lr.ph3221, label %._crit_edge, !llvm.loop !19
 
 2190:                                             ; preds = %2113
   %2191 = landingpad { ptr, i32 }
@@ -9544,7 +9544,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1895:  ; preds = %2417
 _ZN7QStringD2Ev.exit1873:                         ; preds = %2386, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1871, %_ZN7QStringD2Ev.exit1869, %2306
   %indvars.iv.next3246 = add nuw nsw i64 %indvars.iv3245, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next3246, %wide.trip.count
-  br i1 %exitcond.not, label %2286, label %2303, !llvm.loop !19
+  br i1 %exitcond.not, label %2286, label %2303, !llvm.loop !20
 
 _ZN7QStringD2Ev.exit1897:                         ; preds = %2329, %2417, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1895, %2419, %2327
   %.pn615.pn.pn.pn.pn = phi { ptr, i32 } [ %2328, %2327 ], [ %2330, %2329 ], [ %.pn615.pn.pn, %2417 ], [ %.pn615.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1895 ], [ %.pn615.pn.pn, %2419 ]
@@ -9554,7 +9554,7 @@ _ZN7QStringD2Ev.exit1897:                         ; preds = %2329, %2417, %_ZN17
 2420:                                             ; preds = %2286, %2273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #14
   %indvars.iv.next3249 = add nuw nsw i64 %indvars.iv3248, 1
-  br label %1420, !llvm.loop !20
+  br label %1420, !llvm.loop !21
 
 2421:                                             ; preds = %2287, %_ZN7QStringD2Ev.exit1814, %_ZN7QStringD2Ev.exit1897, %_ZN7QStringD2Ev.exit1796, %_ZN7QStringD2Ev.exit1619, %_ZN7QStringD2Ev.exit1601, %_ZN7QStringD2Ev.exit1593, %_ZN7QStringD2Ev.exit1547, %_ZN7QStringD2Ev.exit1529, %_ZN7QStringD2Ev.exit1521, %_ZN7QStringD2Ev.exit1513, %1813, %_ZN7QStringD2Ev.exit1475
   %.pn633.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn633.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit1796 ], [ %1814, %1813 ], [ %.pn600.pn, %_ZN7QStringD2Ev.exit1601 ], [ %.pn597.pn, %_ZN7QStringD2Ev.exit1619 ], [ %.pn591.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit1593 ], [ %.pn588.pn, %_ZN7QStringD2Ev.exit1529 ], [ %.pn585.pn, %_ZN7QStringD2Ev.exit1547 ], [ %.pn582.pn, %_ZN7QStringD2Ev.exit1521 ], [ %.pn579.pn, %_ZN7QStringD2Ev.exit1513 ], [ %.pn570.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit1475 ], [ %.pn615.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit1897 ], [ %.pn605.pn, %_ZN7QStringD2Ev.exit1814 ], [ %2288, %2287 ]
@@ -9594,7 +9594,7 @@ _ZN7QStringD2Ev.exit1897:                         ; preds = %2329, %2417, %_ZN17
   %2431 = load i32, ptr %2430, align 8
   %2432 = zext i32 %2431 to i64
   %2433 = icmp samesign ult i64 %indvars.iv.next3252, %2432
-  br i1 %2433, label %.lr.ph3225, label %._crit_edge3226, !llvm.loop !21
+  br i1 %2433, label %.lr.ph3225, label %._crit_edge3226, !llvm.loop !22
 
 2434:                                             ; preds = %2427, %2426, %.lr.ph3225
   %2435 = landingpad { ptr, i32 }
@@ -10139,7 +10139,7 @@ _ZN7QStringD2Ev.exit1987:                         ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %172) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %171) #14
   %2604 = add nuw i32 %.0, 1
-  br label %2491, !llvm.loop !22
+  br label %2491, !llvm.loop !23
 
 2605:                                             ; preds = %2550, %_ZNK11CaptureFile7capFileEv.exit1957
   %2606 = landingpad { ptr, i32 }
@@ -16104,12 +16104,13 @@ attributes #15 = { builtin nounwind }
 !11 = distinct !{!11, !"_ZN7QObject7connectIM20CaptureCommentDialogFvvEM27CaptureFilePropertiesDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
 !12 = !{i8 0, i8 2}
 !13 = !{}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = distinct !{!21, !15}
-!22 = distinct !{!22, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}
+!21 = distinct !{!21, !15, !16}
+!22 = distinct !{!22, !15, !16}
+!23 = distinct !{!23, !15, !16}

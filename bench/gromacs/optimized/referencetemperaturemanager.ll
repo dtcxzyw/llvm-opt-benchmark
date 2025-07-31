@@ -102,7 +102,7 @@ _ZSt8_DestroyIPSt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChange
 
 14:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_EvT_S9_RSaIT0_E.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !21
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
@@ -136,7 +136,7 @@ define void @_ZN3gmx27ReferenceTemperatureManager22registerUpdateCallbackESt8fun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !22
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %18, label %7
 
@@ -144,8 +144,8 @@ define void @_ZN3gmx27ReferenceTemperatureManager22registerUpdateCallbackESt8fun
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
-  store ptr %10, ptr %8, align 8, !tbaa !22
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  store ptr %10, ptr %8, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %.not.i.i.not.i.i.i.i = icmp eq ptr %12, null
@@ -153,7 +153,7 @@ define void @_ZN3gmx27ReferenceTemperatureManager22registerUpdateCallbackESt8fun
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !25
   %15 = load ptr, ptr %11, align 8, !tbaa !17
   store ptr %15, ptr %14, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -205,8 +205,8 @@ _ZNKSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeA
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
-  %24 = load ptr, ptr %23, align 8, !tbaa !22
-  store ptr %24, ptr %22, align 8, !tbaa !22
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  store ptr %24, ptr %22, align 8, !tbaa !23
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   %.not.i.i.not.i.i.i = icmp eq ptr %26, null
@@ -214,7 +214,7 @@ _ZNKSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeA
 
 27:                                               ; preds = %_ZNKSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE12_M_check_lenEmPKc.exit
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !25
   store ptr %26, ptr %28, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit
@@ -226,30 +226,30 @@ _ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTempe
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit, %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %36, %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %35, %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !26, !noalias !29
-  %31 = load ptr, ptr %30, align 8, !tbaa !22, !alias.scope !29, !noalias !26
-  store ptr %31, ptr %29, align 8, !tbaa !22, !alias.scope !26, !noalias !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !27, !noalias !30
+  %31 = load ptr, ptr %30, align 8, !tbaa !23, !alias.scope !30, !noalias !27
+  store ptr %31, ptr %29, align 8, !tbaa !23, !alias.scope !27, !noalias !30
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !17, !alias.scope !29, !noalias !26
+  %33 = load ptr, ptr %32, align 8, !tbaa !17, !alias.scope !30, !noalias !27
   %.not.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i
 
 _ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 16, i1 false), !tbaa.struct !24, !alias.scope !31
-  store ptr %33, ptr %34, align 8, !tbaa !17, !alias.scope !26, !noalias !29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !29, !noalias !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 16, i1 false), !tbaa.struct !25, !alias.scope !32
+  store ptr %33, ptr %34, align 8, !tbaa !17, !alias.scope !27, !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !30, !noalias !27
   br label %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i, %.lr.ph.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %35, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i, !llvm.loop !32
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i, !llvm.loop !33
 
 _ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit ], [ %36, %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -260,30 +260,30 @@ _ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAl
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22
   %.012.i.i.i18 = phi ptr [ %45, %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %37, %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   %.0911.i.i.i19 = phi ptr [ %44, %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !33, !noalias !36
-  %40 = load ptr, ptr %39, align 8, !tbaa !22, !alias.scope !36, !noalias !33
-  store ptr %40, ptr %38, align 8, !tbaa !22, !alias.scope !33, !noalias !36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !34, !noalias !37
+  %40 = load ptr, ptr %39, align 8, !tbaa !23, !alias.scope !37, !noalias !34
+  store ptr %40, ptr %38, align 8, !tbaa !23, !alias.scope !34, !noalias !37
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !17, !alias.scope !36, !noalias !33
+  %42 = load ptr, ptr %41, align 8, !tbaa !17, !alias.scope !37, !noalias !34
   %.not.i.i.not.i.i.i.i.i.i.i20 = icmp eq ptr %42, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i20, label %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22, label %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i21
 
 _ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19, i64 16, i1 false), !tbaa.struct !24, !alias.scope !38
-  store ptr %42, ptr %43, align 8, !tbaa !17, !alias.scope !33, !noalias !36
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false), !alias.scope !36, !noalias !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19, i64 16, i1 false), !tbaa.struct !25, !alias.scope !39
+  store ptr %42, ptr %43, align 8, !tbaa !17, !alias.scope !34, !noalias !37
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false), !alias.scope !37, !noalias !34
   br label %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22
 
 _ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22: ; preds = %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i21, %.lr.ph.i.i.i17
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i23 = icmp eq ptr %44, %5
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit25, label %.lr.ph.i.i.i17, !llvm.loop !32
+  br i1 %.not.i.i.i23, label %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit25, label %.lr.ph.i.i.i17, !llvm.loop !33
 
 _ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit25: ; preds = %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22, %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit
   %.0.lcssa.i.i.i24 = phi ptr [ %37, %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ], [ %45, %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22 ]
@@ -292,7 +292,7 @@ _ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAl
   br i1 %.not.i26, label %_ZNSt12_Vector_baseISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE13_M_deallocateEPS7_m.exit, label %47
 
 47:                                               ; preds = %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit25
-  %48 = load ptr, ptr %46, align 8, !tbaa !21
+  %48 = load ptr, ptr %46, align 8, !tbaa !22
   %49 = ptrtoint ptr %48 to i64
   %50 = sub i64 %49, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %50) #16
@@ -302,7 +302,7 @@ _ZNSt12_Vector_baseISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureC
   store ptr %20, ptr %0, align 8, !tbaa !15
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !16
   %51 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %16
-  store ptr %51, ptr %46, align 8, !tbaa !21
+  store ptr %51, ptr %46, align 8, !tbaa !22
   ret void
 }
 
@@ -329,8 +329,8 @@ define void @_ZN3gmx27ReferenceTemperatureManager23setReferenceTemperatureENS_8A
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !39
-  %15 = load ptr, ptr %12, align 8, !tbaa !42
+  %14 = load ptr, ptr %13, align 8, !tbaa !40
+  %15 = load ptr, ptr %12, align 8, !tbaa !43
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -345,7 +345,7 @@ define void @_ZN3gmx27ReferenceTemperatureManager23setReferenceTemperatureENS_8A
 
 .lr.ph:                                           ; preds = %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %23 = load i32, ptr %22, align 8, !tbaa !43
+  %23 = load i32, ptr %22, align 8, !tbaa !44
   %.fr24 = freeze i32 %23
   %24 = icmp eq i32 %.fr24, 2
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 28
@@ -354,23 +354,23 @@ define void @_ZN3gmx27ReferenceTemperatureManager23setReferenceTemperatureENS_8A
 _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us: ; preds = %.lr.ph, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us
   %.018.us = phi i64 [ %30, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us ], [ 0, %.lr.ph ]
   %26 = getelementptr inbounds nuw float, ptr %1, i64 %.018.us
-  %27 = load float, ptr %26, align 4, !tbaa !72
+  %27 = load float, ptr %26, align 4, !tbaa !73
   %sext17.us = shl i64 %.018.us, 32
   %28 = ashr exact i64 %sext17.us, 30
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 %28
-  store float %27, ptr %29, align 4, !tbaa !72
+  store float %27, ptr %29, align 4, !tbaa !73
   %30 = add nuw nsw i64 %.018.us, 1
   %exitcond.not = icmp eq i64 %30, %10
-  br i1 %exitcond.not, label %._crit_edge, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us, !llvm.loop !74
 
 31:                                               ; preds = %4
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx27ReferenceTemperatureManager23setReferenceTemperatureENS_8ArrayRefIKfEENS_35ReferenceTemperatureChangeAlgorithmEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 70) #13
   unreachable
 
 ._crit_edge:                                      ; preds = %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit, %.preheader
-  %32 = load ptr, ptr %0, align 8, !tbaa !75
+  %32 = load ptr, ptr %0, align 8, !tbaa !76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !75
+  %34 = load ptr, ptr %33, align 8, !tbaa !76
   %.not19 = icmp eq ptr %32, %34
   br i1 %.not19, label %._crit_edge23, label %.lr.ph22
 
@@ -382,23 +382,23 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us: ; preds = %.lr.p
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
   %.018 = phi i64 [ %44, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit ], [ 0, %.lr.ph ]
   %37 = getelementptr inbounds nuw float, ptr %1, i64 %.018
-  %38 = load float, ptr %37, align 4, !tbaa !72
+  %38 = load float, ptr %37, align 4, !tbaa !73
   %sext17 = shl i64 %.018, 32
   %39 = ashr exact i64 %sext17, 30
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 %39
-  store float %38, ptr %40, align 4, !tbaa !72
+  store float %38, ptr %40, align 4, !tbaa !73
   %41 = and i64 %.018, 4294967295
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
 43:                                               ; preds = %.lr.ph.split
-  store float %38, ptr %25, align 4, !tbaa !76
+  store float %38, ptr %25, align 4, !tbaa !77
   br label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
 _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %.lr.ph.split, %43
   %44 = add nuw nsw i64 %.018, 1
   %exitcond26.not = icmp eq i64 %44, %10
-  br i1 %exitcond26.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !77
+  br i1 %exitcond26.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !78
 
 ._crit_edge23:                                    ; preds = %_ZNKSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEEclES3_S4_.exit, %._crit_edge
   ret void
@@ -409,7 +409,7 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %.lr.ph.s
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store ptr %1, ptr %5, align 8
   store ptr %35, ptr %36, align 8
-  store i32 %3, ptr %6, align 4, !tbaa !78
+  store i32 %3, ptr %6, align 4, !tbaa !79
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %47, null
@@ -421,13 +421,13 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %.lr.ph.s
 
 _ZNKSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEEclES3_S4_.exit: ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !22
+  %50 = load ptr, ptr %49, align 8, !tbaa !23
   call void %50(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.020, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 32
   %.not = icmp eq ptr %51, %34
-  br i1 %.not, label %._crit_edge23, label %45
+  br i1 %.not, label %._crit_edge23, label %45, !llvm.loop !81
 }
 
 ; Function Attrs: noreturn
@@ -485,64 +485,66 @@ attributes #17 = { builtin allocsize(0) }
 !16 = !{!9, !10, i64 8}
 !17 = !{!18, !11, i64 16}
 !18 = !{!"_ZTSSt14_Function_base", !12, i64 0, !11, i64 16}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!9, !10, i64 16}
-!22 = !{!23, !11, i64 24}
-!23 = !{!"_ZTSSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE", !18, i64 0, !11, i64 24}
-!24 = !{i64 0, i64 16, !25}
-!25 = !{!12, !12, i64 0}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!28 = distinct !{!28, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_"}
-!29 = !{!30}
-!30 = distinct !{!30, !28, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!31 = !{!27, !30}
-!32 = distinct !{!32, !20}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!35 = distinct !{!35, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_"}
-!36 = !{!37}
-!37 = distinct !{!37, !35, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!38 = !{!34, !37}
-!39 = !{!40, !41, i64 8}
-!40 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !41, i64 0, !41, i64 8, !41, i64 16}
-!41 = !{!"p1 float", !11, i64 0}
-!42 = !{!40, !41, i64 0}
-!43 = !{!44, !48, i64 24}
-!44 = !{!"_ZTS14gmx_ekindata_t", !45, i64 0, !48, i64 24, !49, i64 28, !50, i64 32, !55, i64 56, !55, i64 64, !55, i64 72, !12, i64 80, !12, i64 116, !49, i64 152, !49, i64 156, !57, i64 160, !64, i64 168, !69, i64 192, !70, i64 204, !71, i64 208}
-!45 = !{!"_ZTSSt6vectorIfSaIfEE", !46, i64 0}
-!46 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !47, i64 0}
-!47 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !40, i64 0}
-!48 = !{!"_ZTS26EnsembleTemperatureSetting", !12, i64 0}
-!49 = !{!"float", !12, i64 0}
-!50 = !{!"_ZTSSt6vectorI12t_grp_tcstatSaIS0_EE", !51, i64 0}
-!51 = !{!"_ZTSSt12_Vector_baseI12t_grp_tcstatSaIS0_EE", !52, i64 0}
-!52 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE12_Vector_implE", !53, i64 0}
-!53 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE17_Vector_impl_dataE", !54, i64 0, !54, i64 8, !54, i64 16}
-!54 = !{!"p1 _ZTS12t_grp_tcstat", !11, i64 0}
-!55 = !{!"p2 float", !56, i64 0}
-!56 = !{!"any p2 pointer", !11, i64 0}
-!57 = !{!"_ZTSSt10unique_ptrI13SystemMomentaSt14default_deleteIS0_EE", !58, i64 0}
-!58 = !{!"_ZTSSt15__uniq_ptr_dataI13SystemMomentaSt14default_deleteIS0_ELb1ELb1EE", !59, i64 0}
-!59 = !{!"_ZTSSt15__uniq_ptr_implI13SystemMomentaSt14default_deleteIS0_EE", !60, i64 0}
-!60 = !{!"_ZTSSt5tupleIJP13SystemMomentaSt14default_deleteIS0_EEE", !61, i64 0}
-!61 = !{!"_ZTSSt11_Tuple_implILm0EJP13SystemMomentaSt14default_deleteIS0_EEE", !62, i64 0}
-!62 = !{!"_ZTSSt10_Head_baseILm0EP13SystemMomentaLb0EE", !63, i64 0}
-!63 = !{!"p1 _ZTS13SystemMomenta", !11, i64 0}
-!64 = !{!"_ZTSSt6vectorISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !65, i64 0}
-!65 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !66, i64 0}
-!66 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE12_Vector_implE", !67, i64 0}
-!67 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !68, i64 0, !68, i64 8, !68, i64 16}
-!68 = !{!"p1 _ZTSSt10unique_ptrI14SystemMomentumSt14default_deleteIS0_EE", !11, i64 0}
-!69 = !{!"_ZTS9t_cos_acc", !49, i64 0, !49, i64 4, !49, i64 8}
-!70 = !{!"bool", !12, i64 0}
-!71 = !{!"int", !12, i64 0}
-!72 = !{!49, !49, i64 0}
-!73 = distinct !{!73, !20, !74}
-!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!75 = !{!10, !10, i64 0}
-!76 = !{!44, !49, i64 28}
-!77 = distinct !{!77, !20}
-!78 = !{!79, !79, i64 0}
-!79 = !{!"_ZTSN3gmx35ReferenceTemperatureChangeAlgorithmE", !12, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!9, !10, i64 16}
+!23 = !{!24, !11, i64 24}
+!24 = !{!"_ZTSSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE", !18, i64 0, !11, i64 24}
+!25 = !{i64 0, i64 16, !26}
+!26 = !{!12, !12, i64 0}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!29 = distinct !{!29, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_"}
+!30 = !{!31}
+!31 = distinct !{!31, !29, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!32 = !{!28, !31}
+!33 = distinct !{!33, !20, !21}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!36 = distinct !{!36, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_"}
+!37 = !{!38}
+!38 = distinct !{!38, !36, !"_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!39 = !{!35, !38}
+!40 = !{!41, !42, i64 8}
+!41 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !42, i64 0, !42, i64 8, !42, i64 16}
+!42 = !{!"p1 float", !11, i64 0}
+!43 = !{!41, !42, i64 0}
+!44 = !{!45, !49, i64 24}
+!45 = !{!"_ZTS14gmx_ekindata_t", !46, i64 0, !49, i64 24, !50, i64 28, !51, i64 32, !56, i64 56, !56, i64 64, !56, i64 72, !12, i64 80, !12, i64 116, !50, i64 152, !50, i64 156, !58, i64 160, !65, i64 168, !70, i64 192, !71, i64 204, !72, i64 208}
+!46 = !{!"_ZTSSt6vectorIfSaIfEE", !47, i64 0}
+!47 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !48, i64 0}
+!48 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !41, i64 0}
+!49 = !{!"_ZTS26EnsembleTemperatureSetting", !12, i64 0}
+!50 = !{!"float", !12, i64 0}
+!51 = !{!"_ZTSSt6vectorI12t_grp_tcstatSaIS0_EE", !52, i64 0}
+!52 = !{!"_ZTSSt12_Vector_baseI12t_grp_tcstatSaIS0_EE", !53, i64 0}
+!53 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE12_Vector_implE", !54, i64 0}
+!54 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE17_Vector_impl_dataE", !55, i64 0, !55, i64 8, !55, i64 16}
+!55 = !{!"p1 _ZTS12t_grp_tcstat", !11, i64 0}
+!56 = !{!"p2 float", !57, i64 0}
+!57 = !{!"any p2 pointer", !11, i64 0}
+!58 = !{!"_ZTSSt10unique_ptrI13SystemMomentaSt14default_deleteIS0_EE", !59, i64 0}
+!59 = !{!"_ZTSSt15__uniq_ptr_dataI13SystemMomentaSt14default_deleteIS0_ELb1ELb1EE", !60, i64 0}
+!60 = !{!"_ZTSSt15__uniq_ptr_implI13SystemMomentaSt14default_deleteIS0_EE", !61, i64 0}
+!61 = !{!"_ZTSSt5tupleIJP13SystemMomentaSt14default_deleteIS0_EEE", !62, i64 0}
+!62 = !{!"_ZTSSt11_Tuple_implILm0EJP13SystemMomentaSt14default_deleteIS0_EEE", !63, i64 0}
+!63 = !{!"_ZTSSt10_Head_baseILm0EP13SystemMomentaLb0EE", !64, i64 0}
+!64 = !{!"p1 _ZTS13SystemMomenta", !11, i64 0}
+!65 = !{!"_ZTSSt6vectorISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !66, i64 0}
+!66 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !67, i64 0}
+!67 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE12_Vector_implE", !68, i64 0}
+!68 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !69, i64 0, !69, i64 8, !69, i64 16}
+!69 = !{!"p1 _ZTSSt10unique_ptrI14SystemMomentumSt14default_deleteIS0_EE", !11, i64 0}
+!70 = !{!"_ZTS9t_cos_acc", !50, i64 0, !50, i64 4, !50, i64 8}
+!71 = !{!"bool", !12, i64 0}
+!72 = !{!"int", !12, i64 0}
+!73 = !{!50, !50, i64 0}
+!74 = distinct !{!74, !20, !21, !75}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = !{!10, !10, i64 0}
+!77 = !{!45, !50, i64 28}
+!78 = distinct !{!78, !20, !21}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"_ZTSN3gmx35ReferenceTemperatureChangeAlgorithmE", !12, i64 0}
+!81 = distinct !{!81, !21}

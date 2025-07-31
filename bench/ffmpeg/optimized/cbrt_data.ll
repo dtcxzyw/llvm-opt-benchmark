@@ -47,17 +47,17 @@ define void @ff_cbrt_tableinit() local_unnamed_addr #0 {
   store double %14, ptr %12, align 8, !tbaa !8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, %10
   %15 = icmp samesign ult i64 %indvars.iv.next52, 8192
-  br i1 %15, label %11, label %16, !llvm.loop !12
+  br i1 %15, label %11, label %16, !llvm.loop !13
 
 16:                                               ; preds = %11
   %17 = mul nuw nsw i32 %.043, %6
   %18 = icmp samesign ult i32 %17, 8192
-  br i1 %18, label %.preheader37, label %.loopexit38, !llvm.loop !13
+  br i1 %18, label %.preheader37, label %.loopexit38, !llvm.loop !14
 
 .loopexit38:                                      ; preds = %16, %.preheader39
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 90
-  br i1 %exitcond57.not, label %.preheader36, label %.preheader39, !llvm.loop !14
+  br i1 %exitcond57.not, label %.preheader36, label %.preheader39, !llvm.loop !15
 
 .preheader36:                                     ; preds = %.loopexit38, %.loopexit35
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.loopexit35 ], [ 91, %.loopexit38 ]
@@ -81,12 +81,12 @@ define void @ff_cbrt_tableinit() local_unnamed_addr #0 {
   store double %28, ptr %26, align 8, !tbaa !8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, %indvars.iv58
   %29 = icmp samesign ult i64 %indvars.iv.next61, 8192
-  br i1 %29, label %.lr.ph, label %.loopexit35, !llvm.loop !15
+  br i1 %29, label %.lr.ph, label %.loopexit35, !llvm.loop !16
 
 .loopexit35:                                      ; preds = %.lr.ph, %.preheader36
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 2
   %30 = icmp samesign ult i64 %indvars.iv58, 8190
-  br i1 %30, label %.preheader36, label %.preheader, !llvm.loop !16
+  br i1 %30, label %.preheader36, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %.loopexit35, %.preheader
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader ], [ 0, %.loopexit35 ]
@@ -97,7 +97,7 @@ define void @ff_cbrt_tableinit() local_unnamed_addr #0 {
   store float %33, ptr %34, align 4, !tbaa !4
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 8192
-  br i1 %exitcond67.not, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %exitcond67.not, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %0
   ret void
@@ -122,11 +122,12 @@ attributes #2 = { nounwind willreturn memory(none) }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"double", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}

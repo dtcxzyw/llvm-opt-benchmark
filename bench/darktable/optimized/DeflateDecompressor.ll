@@ -417,11 +417,11 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary16ENS1_8Binary3
   %138 = icmp samesign ule i64 %137, %80
   call void @llvm.assume(i1 %138)
   %139 = getelementptr inbounds nuw float, ptr %115, i64 %137
-  store i32 %136, ptr %139, align 4, !tbaa !111
+  store i32 %136, ptr %139, align 4, !tbaa !112
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #16
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i79
-  br i1 %exitcond.not.i, label %_ZN8rawspeed12_GLOBAL__N_116decodeFPDeltaRowINS_13ieee_754_20088Binary16EEEvNS_10Array1DRefIKhEEiNS_17CroppedArray1DRefIfEE.exit, label %.lr.ph.i51, !llvm.loop !113
+  br i1 %exitcond.not.i, label %_ZN8rawspeed12_GLOBAL__N_116decodeFPDeltaRowINS_13ieee_754_20088Binary16EEEvNS_10Array1DRefIKhEEiNS_17CroppedArray1DRefIfEE.exit, label %.lr.ph.i51, !llvm.loop !114
 
 140:                                              ; preds = %140, %.lr.ph.i51
   %indvars.iv.i52 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i53, %140 ]
@@ -439,7 +439,7 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary16ENS1_8Binary3
   store i8 %148, ptr %149, align 1, !tbaa !96
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %.not.i54 = icmp eq i64 %indvars.iv.next.i53, 2
-  br i1 %.not.i54, label %117, label %140, !llvm.loop !114
+  br i1 %.not.i54, label %117, label %140, !llvm.loop !115
 
 .lr.ph.i59:                                       ; preds = %_ZN8rawspeed12_GLOBAL__N_116decodeDeltaBytesENS_10Array1DRefIhEEiii.exit, %_ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary32EEEjj.exit.i
   %indvars.iv21.i61 = phi i64 [ %indvars.iv.next22.i68, %_ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary32EEEjj.exit.i ], [ 0, %_ZN8rawspeed12_GLOBAL__N_116decodeDeltaBytesENS_10Array1DRefIhEEiii.exit ]
@@ -486,11 +486,11 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary3
   %171 = icmp samesign ule i64 %170, %80
   call void @llvm.assume(i1 %171)
   %172 = getelementptr inbounds nuw float, ptr %115, i64 %170
-  store i32 %169, ptr %172, align 4, !tbaa !111
+  store i32 %169, ptr %172, align 4, !tbaa !112
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   %indvars.iv.next22.i68 = add nuw nsw i64 %indvars.iv21.i61, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next22.i68, %wide.trip.count.i79
-  br i1 %exitcond.not.i69, label %_ZN8rawspeed12_GLOBAL__N_116decodeFPDeltaRowINS_13ieee_754_20088Binary16EEEvNS_10Array1DRefIKhEEiNS_17CroppedArray1DRefIfEE.exit, label %.lr.ph.i59, !llvm.loop !115
+  br i1 %exitcond.not.i69, label %_ZN8rawspeed12_GLOBAL__N_116decodeFPDeltaRowINS_13ieee_754_20088Binary16EEEvNS_10Array1DRefIKhEEiNS_17CroppedArray1DRefIfEE.exit, label %.lr.ph.i59, !llvm.loop !116
 
 173:                                              ; preds = %173, %.lr.ph.i59
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i59 ], [ %indvars.iv.next.i63, %173 ]
@@ -506,7 +506,7 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary3
   store i8 %179, ptr %180, align 1, !tbaa !96
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %.not.i64 = icmp eq i64 %indvars.iv.next.i63, 3
-  br i1 %.not.i64, label %150, label %173, !llvm.loop !116
+  br i1 %.not.i64, label %150, label %173, !llvm.loop !117
 
 .lr.ph.i78:                                       ; preds = %_ZN8rawspeed12_GLOBAL__N_116decodeDeltaBytesENS_10Array1DRefIhEEiii.exit, %181
   %indvars.iv21.i80 = phi i64 [ %indvars.iv.next22.i85, %181 ], [ 0, %_ZN8rawspeed12_GLOBAL__N_116decodeDeltaBytesENS_10Array1DRefIhEEiii.exit ]
@@ -520,11 +520,11 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary3
   %184 = icmp samesign ule i64 %183, %80
   call void @llvm.assume(i1 %184)
   %185 = getelementptr inbounds nuw float, ptr %115, i64 %183
-  store i32 %182, ptr %185, align 4, !tbaa !111
+  store i32 %182, ptr %185, align 4, !tbaa !112
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
   %indvars.iv.next22.i85 = add nuw nsw i64 %indvars.iv21.i80, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next22.i85, %wide.trip.count.i79
-  br i1 %exitcond.not.i86, label %_ZN8rawspeed12_GLOBAL__N_116decodeFPDeltaRowINS_13ieee_754_20088Binary16EEEvNS_10Array1DRefIKhEEiNS_17CroppedArray1DRefIfEE.exit, label %.lr.ph.i78, !llvm.loop !117
+  br i1 %exitcond.not.i86, label %_ZN8rawspeed12_GLOBAL__N_116decodeFPDeltaRowINS_13ieee_754_20088Binary16EEEvNS_10Array1DRefIKhEEiNS_17CroppedArray1DRefIfEE.exit, label %.lr.ph.i78, !llvm.loop !118
 
 186:                                              ; preds = %186, %.lr.ph.i78
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.i78 ], [ %indvars.iv.next.i82, %186 ]
@@ -540,7 +540,7 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary3
   store i8 %192, ptr %193, align 1, !tbaa !96
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
   %.not.i83 = icmp eq i64 %indvars.iv.next.i82, 4
-  br i1 %.not.i83, label %181, label %186, !llvm.loop !118
+  br i1 %.not.i83, label %181, label %186, !llvm.loop !119
 
 default.unreachable:                              ; preds = %_ZN8rawspeed12_GLOBAL__N_116decodeDeltaBytesENS_10Array1DRefIhEEiii.exit
   unreachable
@@ -548,7 +548,7 @@ default.unreachable:                              ; preds = %_ZN8rawspeed12_GLOB
 _ZN8rawspeed12_GLOBAL__N_116decodeFPDeltaRowINS_13ieee_754_20088Binary16EEEvNS_10Array1DRefIKhEEiNS_17CroppedArray1DRefIfEE.exit: ; preds = %181, %_ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary32EEEjj.exit.i, %_ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary16ENS1_8Binary32EEEjj.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !120
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -808,14 +808,15 @@ attributes #19 = { cold }
 !106 = !{!26, !12, i64 600}
 !107 = !{!26, !12, i64 604}
 !108 = !{!26, !12, i64 48}
-!109 = distinct !{!109, !110}
+!109 = distinct !{!109, !110, !111}
 !110 = !{!"llvm.loop.mustprogress"}
-!111 = !{!112, !112, i64 0}
-!112 = !{!"float", !9, i64 0}
-!113 = distinct !{!113, !110}
-!114 = distinct !{!114, !110}
-!115 = distinct !{!115, !110}
-!116 = distinct !{!116, !110}
-!117 = distinct !{!117, !110}
-!118 = distinct !{!118, !110}
-!119 = distinct !{!119, !110}
+!111 = !{!"llvm.loop.estimated_trip_count"}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"float", !9, i64 0}
+!114 = distinct !{!114, !110, !111}
+!115 = distinct !{!115, !110, !111}
+!116 = distinct !{!116, !110, !111}
+!117 = distinct !{!117, !110, !111}
+!118 = distinct !{!118, !110, !111}
+!119 = distinct !{!119, !110, !111}
+!120 = distinct !{!120, !110, !111}

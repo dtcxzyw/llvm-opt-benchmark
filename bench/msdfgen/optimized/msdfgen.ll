@@ -303,7 +303,7 @@ for.inc56.i:                                      ; preds = %.noexc23, %call40.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %29 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %29
-  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !7
+  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !8
 
 for.end58.i:                                      ; preds = %for.inc56.i, %.noexc
   %call60.i24 = invoke noundef double @_ZNK7msdfgen26OverlappingContourCombinerINS_20TrueDistanceSelectorEE8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i)
@@ -322,7 +322,7 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %inc = add nuw nsw i32 %col.033, 1
   %33 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %33
-  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !8
+  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !9
 
 lpad.loopexit:                                    ; preds = %for.body52.i, %call54.i.noexc
   %lpad.loopexit27 = landingpad { ptr, i32 }
@@ -353,7 +353,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %35 = phi i32 [ %33, %for.end.loopexit ], [ %7, %for.body ]
   %inc24 = add nuw nsw i32 %y.035, 1
   %cmp = icmp slt i32 %inc24, %34
-  br i1 %cmp, label %for.body, label %for.end25, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end25, !llvm.loop !10
 
 for.end25:                                        ; preds = %for.end, %for.body.lr.ph, %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_20TrueDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
   %36 = load ptr, ptr %shapeEdgeCache.i, align 8
@@ -531,7 +531,7 @@ call54.i.noexc:                                   ; preds = %for.body52.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.025.i, i64 8
   %25 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !11
+  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !12
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
@@ -540,7 +540,7 @@ for.inc56.i:                                      ; preds = %.noexc23, %call40.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   %27 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %27
-  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !12
+  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !13
 
 for.end58.i:                                      ; preds = %for.inc56.i, %.noexc
   %call60.i24 = invoke noundef double @_ZNK7msdfgen21SimpleContourCombinerINS_20TrueDistanceSelectorEE8distanceEv(ptr noundef nonnull align 8 dereferenceable(32) %contourCombiner.i)
@@ -559,7 +559,7 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %inc = add nuw nsw i32 %col.037, 1
   %31 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %31
-  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !13
+  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !14
 
 lpad.loopexit:                                    ; preds = %for.body52.i, %call54.i.noexc
   %lpad.loopexit31 = landingpad { ptr, i32 }
@@ -598,7 +598,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %34 = phi i32 [ %31, %for.end.loopexit ], [ %5, %for.body ]
   %inc23 = add nuw nsw i32 %y.039, 1
   %cmp = icmp slt i32 %inc23, %33
-  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !15
 
 for.end24:                                        ; preds = %for.end, %for.body.lr.ph, %entry
   %35 = load ptr, ptr %shapeEdgeCache.i, align 8
@@ -800,7 +800,7 @@ call54.i.noexc:                                   ; preds = %for.body52.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.025.i, i64 8
   %27 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %27
-  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !15
+  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !16
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
@@ -809,7 +809,7 @@ for.inc56.i:                                      ; preds = %.noexc23, %call40.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %29 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %29
-  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !17
 
 for.end58.i:                                      ; preds = %for.inc56.i, %.noexc
   %call60.i24 = invoke noundef double @_ZNK7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEE8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i)
@@ -828,7 +828,7 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %inc = add nuw nsw i32 %col.033, 1
   %33 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %33
-  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !17
+  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !18
 
 lpad.loopexit:                                    ; preds = %for.body52.i, %call54.i.noexc
   %lpad.loopexit27 = landingpad { ptr, i32 }
@@ -859,7 +859,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %35 = phi i32 [ %33, %for.end.loopexit ], [ %7, %for.body ]
   %inc23 = add nuw nsw i32 %y.035, 1
   %cmp = icmp slt i32 %inc23, %34
-  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !18
+  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !19
 
 for.end24:                                        ; preds = %for.end, %for.body.lr.ph, %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
   %36 = load ptr, ptr %shapeEdgeCache.i, align 8
@@ -1037,7 +1037,7 @@ call54.i.noexc:                                   ; preds = %for.body52.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.025.i, i64 8
   %25 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !19
+  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !20
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
@@ -1046,7 +1046,7 @@ for.inc56.i:                                      ; preds = %.noexc23, %call40.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   %27 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %27
-  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !21
 
 for.end58.i:                                      ; preds = %for.inc56.i, %.noexc
   %call60.i24 = invoke noundef double @_ZNK7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEE8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i)
@@ -1065,7 +1065,7 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %inc = add nuw nsw i32 %col.037, 1
   %31 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %31
-  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !21
+  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !22
 
 lpad.loopexit:                                    ; preds = %for.body52.i, %call54.i.noexc
   %lpad.loopexit31 = landingpad { ptr, i32 }
@@ -1104,7 +1104,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %34 = phi i32 [ %31, %for.end.loopexit ], [ %5, %for.body ]
   %inc23 = add nuw nsw i32 %y.039, 1
   %cmp = icmp slt i32 %inc23, %33
-  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !22
+  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !23
 
 for.end24:                                        ; preds = %for.end, %for.body.lr.ph, %entry
   %35 = load ptr, ptr %shapeEdgeCache.i, align 8
@@ -1238,29 +1238,29 @@ invoke.cont16:                                    ; preds = %for.body5
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %invoke.cont16
-  %14 = load ptr, ptr %distanceFinder, align 8, !noalias !23
-  %15 = load ptr, ptr %14, align 8, !noalias !23
+  %14 = load ptr, ptr %distanceFinder, align 8, !noalias !24
+  %15 = load ptr, ptr %14, align 8, !noalias !24
   %_M_finish.i29.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !23
+  %16 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !24
   %cmp.i.not30.i = icmp eq ptr %15, %16
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %.noexc
-  %17 = load ptr, ptr %shapeEdgeCache.i, align 8, !noalias !23
+  %17 = load ptr, ptr %shapeEdgeCache.i, align 8, !noalias !24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc56.i, %for.body.preheader.i
   %18 = phi ptr [ %28, %for.inc56.i ], [ %14, %for.body.preheader.i ]
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %15, %for.body.preheader.i ]
-  %19 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !23
+  %19 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !24
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.031.i, i64 8
-  %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !23
+  %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !24
   %cmp.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %21 = load ptr, ptr %18, align 8, !noalias !23
+  %21 = load ptr, ptr %18, align 8, !noalias !24
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %contour.sroa.0.031.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1270,8 +1270,8 @@ if.then.i:                                        ; preds = %for.body.i
           to label %call17.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call17.i.noexc:                                   ; preds = %if.then.i
-  %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !23
-  %23 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !23
+  %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !24
+  %23 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !24
   %sub.ptr.lhs.cast.i4.i = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
@@ -1282,14 +1282,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
-  %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !23
+  %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !24
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call40.i.noexc:                                   ; preds = %call36.i.noexc
-  %25 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !23
-  %26 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !23
+  %25 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !24
+  %26 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !24
   %cmp.i11.not24.i = icmp eq ptr %25, %26
   br i1 %cmp.i11.not24.i, label %for.inc56.i, label %for.body52.i
 
@@ -1308,18 +1308,18 @@ call54.i.noexc:                                   ; preds = %for.body52.i
 .noexc23:                                         ; preds = %call54.i.noexc
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edgeCache.128.i, i64 56
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.025.i, i64 8
-  %27 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !23
+  %27 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !24
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %27
-  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !26
+  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !27
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
   %incdec.ptr.i12.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.031.i, i64 24
-  %28 = load ptr, ptr %distanceFinder, align 8, !noalias !23
+  %28 = load ptr, ptr %distanceFinder, align 8, !noalias !24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %29 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !23
+  %29 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !24
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %29
-  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !27
+  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !28
 
 for.end58.i:                                      ; preds = %for.inc56.i, %.noexc
   invoke void @_ZNK7msdfgen26OverlappingContourCombinerINS_21MultiDistanceSelectorEE8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %distance, ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i)
@@ -1350,7 +1350,7 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %inc = add nuw nsw i32 %col.035, 1
   %38 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %38
-  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !28
+  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !29
 
 lpad.loopexit:                                    ; preds = %for.body52.i, %call54.i.noexc
   %lpad.loopexit29 = landingpad { ptr, i32 }
@@ -1381,7 +1381,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %40 = phi i32 [ %38, %for.end.loopexit ], [ %7, %for.body ]
   %inc23 = add nuw nsw i32 %y.037, 1
   %cmp = icmp slt i32 %inc23, %39
-  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !29
+  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !30
 
 for.end24:                                        ; preds = %for.end, %for.body.lr.ph, %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
   %41 = load ptr, ptr %shapeEdgeCache.i, align 8
@@ -1490,29 +1490,29 @@ invoke.cont16:                                    ; preds = %for.body5
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %invoke.cont16
-  %12 = load ptr, ptr %distanceFinder, align 8, !noalias !30
-  %13 = load ptr, ptr %12, align 8, !noalias !30
+  %12 = load ptr, ptr %distanceFinder, align 8, !noalias !31
+  %13 = load ptr, ptr %12, align 8, !noalias !31
   %_M_finish.i29.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !30
+  %14 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !31
   %cmp.i.not30.i = icmp eq ptr %13, %14
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %.noexc
-  %15 = load ptr, ptr %shapeEdgeCache.i, align 8, !noalias !30
+  %15 = load ptr, ptr %shapeEdgeCache.i, align 8, !noalias !31
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc56.i, %for.body.preheader.i
   %16 = phi ptr [ %26, %for.inc56.i ], [ %12, %for.body.preheader.i ]
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %15, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %13, %for.body.preheader.i ]
-  %17 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !30
+  %17 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !31
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.031.i, i64 8
-  %18 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !30
+  %18 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !31
   %cmp.i.i.i = icmp eq ptr %17, %18
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %19 = load ptr, ptr %16, align 8, !noalias !30
+  %19 = load ptr, ptr %16, align 8, !noalias !31
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %contour.sroa.0.031.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1522,8 +1522,8 @@ if.then.i:                                        ; preds = %for.body.i
           to label %call17.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call17.i.noexc:                                   ; preds = %if.then.i
-  %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !30
-  %21 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !30
+  %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !31
+  %21 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !31
   %sub.ptr.lhs.cast.i4.i = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
@@ -1534,14 +1534,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
-  %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !30
+  %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !31
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call40.i.noexc:                                   ; preds = %call36.i.noexc
-  %23 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !30
-  %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !30
+  %23 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !31
+  %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !31
   %cmp.i11.not24.i = icmp eq ptr %23, %24
   br i1 %cmp.i11.not24.i, label %for.inc56.i, label %for.body52.i
 
@@ -1560,18 +1560,18 @@ call54.i.noexc:                                   ; preds = %for.body52.i
 .noexc23:                                         ; preds = %call54.i.noexc
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edgeCache.128.i, i64 56
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.025.i, i64 8
-  %25 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !30
+  %25 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !31
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !33
+  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !34
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
   %incdec.ptr.i12.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.031.i, i64 24
-  %26 = load ptr, ptr %distanceFinder, align 8, !noalias !30
+  %26 = load ptr, ptr %distanceFinder, align 8, !noalias !31
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %27 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !30
+  %27 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !31
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %27
-  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !34
+  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !35
 
 for.end58.i:                                      ; preds = %for.inc56.i, %.noexc
   invoke void @_ZNK7msdfgen21SimpleContourCombinerINS_21MultiDistanceSelectorEE8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %distance, ptr noundef nonnull align 8 dereferenceable(160) %contourCombiner.i)
@@ -1602,7 +1602,7 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %inc = add nuw nsw i32 %col.039, 1
   %36 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %36
-  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !35
+  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !36
 
 lpad.loopexit:                                    ; preds = %for.body52.i, %call54.i.noexc
   %lpad.loopexit33 = landingpad { ptr, i32 }
@@ -1641,7 +1641,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %39 = phi i32 [ %36, %for.end.loopexit ], [ %5, %for.body ]
   %inc22 = add nuw nsw i32 %y.041, 1
   %cmp = icmp slt i32 %inc22, %38
-  br i1 %cmp, label %for.body, label %for.end23, !llvm.loop !36
+  br i1 %cmp, label %for.body, label %for.end23, !llvm.loop !37
 
 for.end23:                                        ; preds = %for.end, %for.body.lr.ph, %entry
   %40 = load ptr, ptr %shapeEdgeCache.i, align 8
@@ -1778,29 +1778,29 @@ invoke.cont16:                                    ; preds = %for.body5
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %invoke.cont16
-  %14 = load ptr, ptr %distanceFinder, align 8, !noalias !37
-  %15 = load ptr, ptr %14, align 8, !noalias !37
+  %14 = load ptr, ptr %distanceFinder, align 8, !noalias !38
+  %15 = load ptr, ptr %14, align 8, !noalias !38
   %_M_finish.i29.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !37
+  %16 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !38
   %cmp.i.not30.i = icmp eq ptr %15, %16
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %.noexc
-  %17 = load ptr, ptr %shapeEdgeCache.i, align 8, !noalias !37
+  %17 = load ptr, ptr %shapeEdgeCache.i, align 8, !noalias !38
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc56.i, %for.body.preheader.i
   %18 = phi ptr [ %28, %for.inc56.i ], [ %14, %for.body.preheader.i ]
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %15, %for.body.preheader.i ]
-  %19 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !37
+  %19 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !38
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.031.i, i64 8
-  %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
+  %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !38
   %cmp.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %21 = load ptr, ptr %18, align 8, !noalias !37
+  %21 = load ptr, ptr %18, align 8, !noalias !38
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %contour.sroa.0.031.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1810,8 +1810,8 @@ if.then.i:                                        ; preds = %for.body.i
           to label %call17.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call17.i.noexc:                                   ; preds = %if.then.i
-  %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
-  %23 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !37
+  %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !38
+  %23 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !38
   %sub.ptr.lhs.cast.i4.i = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
@@ -1822,14 +1822,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
-  %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
+  %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !38
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call40.i.noexc:                                   ; preds = %call36.i.noexc
-  %25 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !37
-  %26 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
+  %25 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !38
+  %26 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !38
   %cmp.i11.not24.i = icmp eq ptr %25, %26
   br i1 %cmp.i11.not24.i, label %for.inc56.i, label %for.body52.i
 
@@ -1848,18 +1848,18 @@ call54.i.noexc:                                   ; preds = %for.body52.i
 .noexc23:                                         ; preds = %call54.i.noexc
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edgeCache.128.i, i64 56
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.025.i, i64 8
-  %27 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
+  %27 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !38
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %27
-  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !40
+  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !41
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
   %incdec.ptr.i12.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.031.i, i64 24
-  %28 = load ptr, ptr %distanceFinder, align 8, !noalias !37
+  %28 = load ptr, ptr %distanceFinder, align 8, !noalias !38
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %29 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !37
+  %29 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !38
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %29
-  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !41
+  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !42
 
 for.end58.i:                                      ; preds = %for.inc56.i, %.noexc
   invoke void @_ZNK7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEE8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %distance, ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i)
@@ -1895,7 +1895,7 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %inc = add nuw nsw i32 %col.036, 1
   %40 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %40
-  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !42
+  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !43
 
 lpad.loopexit:                                    ; preds = %for.body52.i, %call54.i.noexc
   %lpad.loopexit30 = landingpad { ptr, i32 }
@@ -1926,7 +1926,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %42 = phi i32 [ %40, %for.end.loopexit ], [ %7, %for.body ]
   %inc23 = add nuw nsw i32 %y.038, 1
   %cmp = icmp slt i32 %inc23, %41
-  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !43
+  br i1 %cmp, label %for.body, label %for.end24, !llvm.loop !44
 
 for.end24:                                        ; preds = %for.end, %for.body.lr.ph, %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
   %43 = load ptr, ptr %shapeEdgeCache.i, align 8
@@ -2036,29 +2036,29 @@ invoke.cont16:                                    ; preds = %for.body5
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %invoke.cont16
-  %12 = load ptr, ptr %distanceFinder, align 8, !noalias !44
-  %13 = load ptr, ptr %12, align 8, !noalias !44
+  %12 = load ptr, ptr %distanceFinder, align 8, !noalias !45
+  %13 = load ptr, ptr %12, align 8, !noalias !45
   %_M_finish.i29.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !44
+  %14 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !45
   %cmp.i.not30.i = icmp eq ptr %13, %14
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %.noexc
-  %15 = load ptr, ptr %shapeEdgeCache.i, align 8, !noalias !44
+  %15 = load ptr, ptr %shapeEdgeCache.i, align 8, !noalias !45
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc56.i, %for.body.preheader.i
   %16 = phi ptr [ %26, %for.inc56.i ], [ %12, %for.body.preheader.i ]
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %15, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %13, %for.body.preheader.i ]
-  %17 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !44
+  %17 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !45
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.031.i, i64 8
-  %18 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
+  %18 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !45
   %cmp.i.i.i = icmp eq ptr %17, %18
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %19 = load ptr, ptr %16, align 8, !noalias !44
+  %19 = load ptr, ptr %16, align 8, !noalias !45
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %contour.sroa.0.031.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2068,8 +2068,8 @@ if.then.i:                                        ; preds = %for.body.i
           to label %call17.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call17.i.noexc:                                   ; preds = %if.then.i
-  %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
-  %21 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !44
+  %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !45
+  %21 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !45
   %sub.ptr.lhs.cast.i4.i = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
@@ -2080,14 +2080,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
-  %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
+  %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !45
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call40.i.noexc:                                   ; preds = %call36.i.noexc
-  %23 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !44
-  %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
+  %23 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !45
+  %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !45
   %cmp.i11.not24.i = icmp eq ptr %23, %24
   br i1 %cmp.i11.not24.i, label %for.inc56.i, label %for.body52.i
 
@@ -2106,18 +2106,18 @@ call54.i.noexc:                                   ; preds = %for.body52.i
 .noexc23:                                         ; preds = %call54.i.noexc
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edgeCache.128.i, i64 56
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.025.i, i64 8
-  %25 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
+  %25 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !45
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !47
+  br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !48
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
   %incdec.ptr.i12.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.031.i, i64 24
-  %26 = load ptr, ptr %distanceFinder, align 8, !noalias !44
+  %26 = load ptr, ptr %distanceFinder, align 8, !noalias !45
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %27 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !44
+  %27 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !45
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %27
-  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !48
+  br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !49
 
 for.end58.i:                                      ; preds = %for.inc56.i, %.noexc
   invoke void @_ZNK7msdfgen21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEE8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %distance, ptr noundef nonnull align 8 dereferenceable(160) %contourCombiner.i)
@@ -2153,7 +2153,7 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %inc = add nuw nsw i32 %col.040, 1
   %38 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %38
-  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !49
+  br i1 %cmp4, label %for.body5, label %for.end.loopexit, !llvm.loop !50
 
 lpad.loopexit:                                    ; preds = %for.body52.i, %call54.i.noexc
   %lpad.loopexit34 = landingpad { ptr, i32 }
@@ -2192,7 +2192,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %41 = phi i32 [ %38, %for.end.loopexit ], [ %5, %for.body ]
   %inc22 = add nuw nsw i32 %y.042, 1
   %cmp = icmp slt i32 %inc22, %40
-  br i1 %cmp, label %for.body, label %for.end23, !llvm.loop !50
+  br i1 %cmp, label %for.body, label %for.end23, !llvm.loop !51
 
 for.end23:                                        ; preds = %for.end, %for.body.lr.ph, %entry
   %42 = load ptr, ptr %shapeEdgeCache.i, align 8
@@ -2395,7 +2395,7 @@ for.inc:                                          ; preds = %_ZN7msdfgenltENS_14
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.026, i64 8
   %19 = load ptr, ptr %_M_finish.i15, align 8
   %cmp.i16.not = icmp eq ptr %incdec.ptr.i, %19
-  br i1 %cmp.i16.not, label %for.inc38.loopexit, label %for.body29, !llvm.loop !51
+  br i1 %cmp.i16.not, label %for.inc38.loopexit, label %for.body29, !llvm.loop !52
 
 for.inc38.loopexit:                               ; preds = %for.inc
   %.pre = load ptr, ptr %_M_finish.i, align 8
@@ -2407,7 +2407,7 @@ for.inc38:                                        ; preds = %for.inc38.loopexit,
   %minDistance.sroa.4.1.lcssa = phi double [ %minDistance.sroa.4.032, %for.body18 ], [ %minDistance.sroa.4.2, %for.inc38.loopexit ]
   %incdec.ptr.i18 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.030, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i18, %20
-  br i1 %cmp.i.not, label %for.end40.loopexit, label %for.body18, !llvm.loop !52
+  br i1 %cmp.i.not, label %for.end40.loopexit, label %for.body18, !llvm.loop !53
 
 for.end40.loopexit:                               ; preds = %for.inc38
   %.pre39 = load i32, ptr %width, align 8
@@ -2428,7 +2428,7 @@ for.end40:                                        ; preds = %for.end40.loopexit,
   %inc = add nuw nsw i32 %x.035, 1
   %23 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %23
-  br i1 %cmp4, label %for.body5, label %for.inc47.loopexit, !llvm.loop !53
+  br i1 %cmp4, label %for.body5, label %for.inc47.loopexit, !llvm.loop !54
 
 for.inc47.loopexit:                               ; preds = %for.end40
   %.pre40 = load i32, ptr %height, align 4
@@ -2439,7 +2439,7 @@ for.inc47:                                        ; preds = %for.inc47.loopexit,
   %25 = phi i32 [ %23, %for.inc47.loopexit ], [ %4, %for.body ]
   %inc48 = add nuw nsw i32 %y.037, 1
   %cmp = icmp slt i32 %inc48, %24
-  br i1 %cmp, label %for.body, label %for.end49, !llvm.loop !54
+  br i1 %cmp, label %for.body, label %for.end49, !llvm.loop !55
 
 for.end49:                                        ; preds = %for.inc47, %for.body.lr.ph, %entry
   ret void
@@ -2556,7 +2556,7 @@ for.inc:                                          ; preds = %_ZN7msdfgenltENS_14
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.027, i64 8
   %21 = load ptr, ptr %_M_finish.i16, align 8
   %cmp.i17.not = icmp eq ptr %incdec.ptr.i, %21
-  br i1 %cmp.i17.not, label %for.inc39.loopexit, label %for.body29, !llvm.loop !55
+  br i1 %cmp.i17.not, label %for.inc39.loopexit, label %for.body29, !llvm.loop !56
 
 for.inc39.loopexit:                               ; preds = %for.inc
   %.pre = load ptr, ptr %_M_finish.i, align 8
@@ -2569,7 +2569,7 @@ for.inc39:                                        ; preds = %for.inc39.loopexit,
   %nearEdge.1.lcssa = phi ptr [ %nearEdge.034, %for.body18 ], [ %nearEdge.2, %for.inc39.loopexit ]
   %incdec.ptr.i19 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.032, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i19, %23
-  br i1 %cmp.i.not, label %for.end41, label %for.body18, !llvm.loop !56
+  br i1 %cmp.i.not, label %for.end41, label %for.body18, !llvm.loop !57
 
 for.end41:                                        ; preds = %for.inc39
   %tobool42.not = icmp eq ptr %nearEdge.1.lcssa, null
@@ -2599,7 +2599,7 @@ if.end48:                                         ; preds = %for.body5, %if.then
   %inc = add nuw nsw i32 %x.038, 1
   %28 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %28
-  br i1 %cmp4, label %for.body5, label %for.inc55.loopexit, !llvm.loop !57
+  br i1 %cmp4, label %for.body5, label %for.inc55.loopexit, !llvm.loop !58
 
 for.inc55.loopexit:                               ; preds = %if.end48
   %.pre43 = load i32, ptr %height, align 4
@@ -2610,7 +2610,7 @@ for.inc55:                                        ; preds = %for.inc55.loopexit,
   %30 = phi i32 [ %28, %for.inc55.loopexit ], [ %4, %for.body ]
   %inc56 = add nuw nsw i32 %y.040, 1
   %cmp = icmp slt i32 %inc56, %29
-  br i1 %cmp, label %for.body, label %for.end57, !llvm.loop !58
+  br i1 %cmp, label %for.body, label %for.end57, !llvm.loop !59
 
 for.end57:                                        ; preds = %for.inc55, %for.body.lr.ph, %entry
   ret void
@@ -2805,7 +2805,7 @@ for.inc:                                          ; preds = %if.end63, %_ZN7msdf
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.075, i64 8
   %30 = load ptr, ptr %_M_finish.i37, align 8
   %cmp.i38.not = icmp eq ptr %incdec.ptr.i, %30
-  br i1 %cmp.i38.not, label %for.inc81.loopexit, label %for.body33, !llvm.loop !59
+  br i1 %cmp.i38.not, label %for.inc81.loopexit, label %for.body33, !llvm.loop !60
 
 for.inc81.loopexit:                               ; preds = %for.inc
   %.pre = load ptr, ptr %_M_finish.i, align 8
@@ -2815,7 +2815,7 @@ for.inc81:                                        ; preds = %for.inc81.loopexit,
   %31 = phi ptr [ %.pre, %for.inc81.loopexit ], [ %9, %for.body22 ]
   %incdec.ptr.i50 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.077, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i50, %31
-  br i1 %cmp.i.not, label %for.end83, label %for.body22, !llvm.loop !60
+  br i1 %cmp.i.not, label %for.end83, label %for.body22, !llvm.loop !61
 
 for.end83:                                        ; preds = %for.inc81
   %.pre83 = load ptr, ptr %nearEdge13, align 8
@@ -2901,7 +2901,7 @@ if.end116:                                        ; preds = %if.then108, %if.end
   %inc = add nuw nsw i32 %x.079, 1
   %49 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %49
-  br i1 %cmp4, label %for.body5, label %for.inc138.loopexit, !llvm.loop !61
+  br i1 %cmp4, label %for.body5, label %for.inc138.loopexit, !llvm.loop !62
 
 for.inc138.loopexit:                              ; preds = %if.end116
   %.pre84 = load i32, ptr %height, align 4
@@ -2912,7 +2912,7 @@ for.inc138:                                       ; preds = %for.inc138.loopexit
   %51 = phi i32 [ %49, %for.inc138.loopexit ], [ %4, %for.body ]
   %inc139 = add nuw nsw i32 %y.081, 1
   %cmp = icmp slt i32 %inc139, %50
-  br i1 %cmp, label %for.body, label %for.end140, !llvm.loop !62
+  br i1 %cmp, label %for.body, label %for.end140, !llvm.loop !63
 
 for.end140:                                       ; preds = %for.inc138, %for.body.lr.ph, %entry
   %distanceCheckMode = getelementptr inbounds nuw i8, ptr %errorCorrectionConfig, i64 4
@@ -3132,7 +3132,7 @@ for.inc:                                          ; preds = %if.end69, %_ZN7msdf
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.093, i64 8
   %30 = load ptr, ptr %_M_finish.i43, align 8
   %cmp.i44.not = icmp eq ptr %incdec.ptr.i, %30
-  br i1 %cmp.i44.not, label %for.inc87.loopexit, label %for.body33, !llvm.loop !63
+  br i1 %cmp.i44.not, label %for.inc87.loopexit, label %for.body33, !llvm.loop !64
 
 for.inc87.loopexit:                               ; preds = %for.inc
   %.pre = load ptr, ptr %_M_finish.i, align 8
@@ -3144,7 +3144,7 @@ for.inc87:                                        ; preds = %for.inc87.loopexit,
   %minDistance.sroa.4.1.lcssa = phi double [ %minDistance.sroa.4.099, %for.body22 ], [ %minDistance.sroa.4.2, %for.inc87.loopexit ]
   %incdec.ptr.i61 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.097, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i61, %31
-  br i1 %cmp.i.not, label %for.end89, label %for.body22, !llvm.loop !64
+  br i1 %cmp.i.not, label %for.end89, label %for.body22, !llvm.loop !65
 
 for.end89:                                        ; preds = %for.inc87
   %.pre106 = load ptr, ptr %nearEdge13, align 8
@@ -3243,7 +3243,7 @@ if.end122:                                        ; preds = %if.then114, %if.end
   %inc = add nuw nsw i32 %x.0102, 1
   %51 = load i32, ptr %width, align 8
   %cmp4 = icmp slt i32 %inc, %51
-  br i1 %cmp4, label %for.body5, label %for.inc150.loopexit, !llvm.loop !65
+  br i1 %cmp4, label %for.body5, label %for.inc150.loopexit, !llvm.loop !66
 
 for.inc150.loopexit:                              ; preds = %if.end122
   %.pre107 = load i32, ptr %height, align 4
@@ -3254,7 +3254,7 @@ for.inc150:                                       ; preds = %for.inc150.loopexit
   %53 = phi i32 [ %51, %for.inc150.loopexit ], [ %4, %for.body ]
   %inc151 = add nuw nsw i32 %y.0104, 1
   %cmp = icmp slt i32 %inc151, %52
-  br i1 %cmp, label %for.body, label %for.end152, !llvm.loop !66
+  br i1 %cmp, label %for.body, label %for.end152, !llvm.loop !67
 
 for.end152:                                       ; preds = %for.inc150, %for.body.lr.ph, %entry
   %distanceCheckMode = getelementptr inbounds nuw i8, ptr %errorCorrectionConfig, i64 4
@@ -3355,7 +3355,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !67
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !68
 
 invoke.cont2.i.i.i.i:                             ; preds = %for.body.i.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -3553,7 +3553,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i, i64 56
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !68
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !69
 
 invoke.cont2.i.i.i.i:                             ; preds = %for.body.i.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -3834,67 +3834,68 @@ attributes #16 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6, !10}
-!10 = !{!"llvm.loop.unswitch.partial.disable"}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6, !10}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6, !10}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6, !10}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEE8distanceERKNS_7Vector2E: %agg.result"}
-!25 = distinct !{!25, !"_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEE8distanceERKNS_7Vector2E"}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6, !10}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_21MultiDistanceSelectorEEEE8distanceERKNS_7Vector2E: %agg.result"}
-!32 = distinct !{!32, !"_ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_21MultiDistanceSelectorEEEE8distanceERKNS_7Vector2E"}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6, !10}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEE8distanceERKNS_7Vector2E: %agg.result"}
-!39 = distinct !{!39, !"_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEE8distanceERKNS_7Vector2E"}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6, !10}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEEEE8distanceERKNS_7Vector2E: %agg.result"}
-!46 = distinct !{!46, !"_ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEEEE8distanceERKNS_7Vector2E"}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6, !10}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6}
-!54 = distinct !{!54, !6, !10}
-!55 = distinct !{!55, !6}
-!56 = distinct !{!56, !6}
-!57 = distinct !{!57, !6}
-!58 = distinct !{!58, !6, !10}
-!59 = distinct !{!59, !6}
-!60 = distinct !{!60, !6}
-!61 = distinct !{!61, !6}
-!62 = distinct !{!62, !6, !10}
-!63 = distinct !{!63, !6}
-!64 = distinct !{!64, !6}
-!65 = distinct !{!65, !6}
-!66 = distinct !{!66, !6, !10}
-!67 = distinct !{!67, !6}
-!68 = distinct !{!68, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7, !11}
+!11 = !{!"llvm.loop.unswitch.partial.disable"}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7, !11}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7, !11}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7, !11}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEE8distanceERKNS_7Vector2E: %agg.result"}
+!26 = distinct !{!26, !"_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEE8distanceERKNS_7Vector2E"}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7, !11}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_21MultiDistanceSelectorEEEE8distanceERKNS_7Vector2E: %agg.result"}
+!33 = distinct !{!33, !"_ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_21MultiDistanceSelectorEEEE8distanceERKNS_7Vector2E"}
+!34 = distinct !{!34, !6, !7}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}
+!37 = distinct !{!37, !6, !7, !11}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEE8distanceERKNS_7Vector2E: %agg.result"}
+!40 = distinct !{!40, !"_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEE8distanceERKNS_7Vector2E"}
+!41 = distinct !{!41, !6, !7}
+!42 = distinct !{!42, !6, !7}
+!43 = distinct !{!43, !6, !7}
+!44 = distinct !{!44, !6, !7, !11}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEEEE8distanceERKNS_7Vector2E: %agg.result"}
+!47 = distinct !{!47, !"_ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEEEE8distanceERKNS_7Vector2E"}
+!48 = distinct !{!48, !6, !7}
+!49 = distinct !{!49, !6, !7}
+!50 = distinct !{!50, !6, !7}
+!51 = distinct !{!51, !6, !7, !11}
+!52 = distinct !{!52, !6, !7}
+!53 = distinct !{!53, !6, !7}
+!54 = distinct !{!54, !6, !7}
+!55 = distinct !{!55, !6, !7, !11}
+!56 = distinct !{!56, !6, !7}
+!57 = distinct !{!57, !6, !7}
+!58 = distinct !{!58, !6, !7}
+!59 = distinct !{!59, !6, !7, !11}
+!60 = distinct !{!60, !6, !7}
+!61 = distinct !{!61, !6, !7}
+!62 = distinct !{!62, !6, !7}
+!63 = distinct !{!63, !6, !7, !11}
+!64 = distinct !{!64, !6, !7}
+!65 = distinct !{!65, !6, !7}
+!66 = distinct !{!66, !6, !7}
+!67 = distinct !{!67, !6, !7, !11}
+!68 = distinct !{!68, !6, !7}
+!69 = distinct !{!69, !6, !7}

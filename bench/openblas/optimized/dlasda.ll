@@ -337,12 +337,12 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %204, ptr %gep496, align 4, !tbaa !3
   %indvars.iv.next472 = add nuw nsw i64 %indvars.iv471, 1
   %exitcond475.not = icmp eq i64 %indvars.iv.next472, %wide.trip.count474
-  br i1 %exitcond475.not, label %._crit_edge452, label %.lr.ph451, !llvm.loop !9
+  br i1 %exitcond475.not, label %._crit_edge452, label %.lr.ph451, !llvm.loop !10
 
 ._crit_edge452:                                   ; preds = %.lr.ph451, %200
   %indvars.iv.next477 = add nsw i64 %indvars.iv476, 1
   %.not420.not = icmp slt i64 %indvars.iv476, %105
-  br i1 %.not420.not, label %106, label %._crit_edge457, !llvm.loop !10
+  br i1 %.not420.not, label %106, label %._crit_edge457, !llvm.loop !11
 
 ._crit_edge457:                                   ; preds = %._crit_edge452, %82
   %205 = load i32, ptr %27, align 4, !tbaa !3
@@ -368,7 +368,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %214 = select i1 %.not.i, i32 1, i32 %212
   %spec.select.i = mul nuw nsw i32 %214, %spec.select37.i
   %.not31.i = icmp samesign ult i64 %.036.i, 4
-  br i1 %.not31.i, label %.lr.ph466, label %.lr.ph.i
+  br i1 %.not31.i, label %.lr.ph466, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph466:                                        ; preds = %.lr.ph.i, %207
   %.1.i.ph = phi i32 [ %210, %207 ], [ %spec.select.i, %.lr.ph.i ]
@@ -411,7 +411,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %235 = select i1 %.not.i438, i32 1, i32 %233
   %spec.select.i439 = mul nuw nsw i32 %235, %spec.select37.i435
   %.not31.i440 = icmp samesign ult i64 %.036.i436, 4
-  br i1 %.not31.i440, label %.loopexit491, label %.lr.ph.i434
+  br i1 %.not31.i440, label %.loopexit491, label %.lr.ph.i434, !llvm.loop !12
 
 .loopexit491:                                     ; preds = %.lr.ph.i434, %228
   %.1.i431 = phi i32 [ %231, %228 ], [ %spec.select.i439, %.lr.ph.i434 ]
@@ -435,7 +435,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 245:                                              ; preds = %306
   %indvars.iv.next480 = add nsw i64 %indvars.iv479, 1
   %.not421.not = icmp slt i64 %indvars.iv479, %sext
-  br i1 %.not421.not, label %246, label %._crit_edge463, !llvm.loop !11
+  br i1 %.not421.not, label %246, label %._crit_edge463, !llvm.loop !13
 
 246:                                              ; preds = %.lr.ph462, %245
   %indvars.iv479 = phi i64 [ %243, %.lr.ph462 ], [ %indvars.iv.next480, %245 ]
@@ -468,11 +468,11 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %264 = add i32 %216, %258
   %265 = sext i32 %248 to i64
   %266 = getelementptr inbounds double, ptr %39, i64 %265
-  %267 = load double, ptr %266, align 8, !tbaa !12
-  store double %267, ptr %29, align 8, !tbaa !12
+  %267 = load double, ptr %266, align 8, !tbaa !14
+  store double %267, ptr %29, align 8, !tbaa !14
   %268 = getelementptr inbounds double, ptr %40, i64 %265
-  %269 = load double, ptr %268, align 8, !tbaa !12
-  store double %269, ptr %26, align 8, !tbaa !12
+  %269 = load double, ptr %268, align 8, !tbaa !14
+  store double %269, ptr %26, align 8, !tbaa !14
   %270 = load i32, ptr %0, align 4, !tbaa !3
   %271 = icmp eq i32 %270, 0
   br i1 %271, label %272, label %280
@@ -527,7 +527,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.3.lcssa = phi i32 [ %.2464, %.loopexit491 ], [ %.4, %245 ]
   %indvars.iv.next483 = add nsw i64 %indvars.iv482, -1
   %308 = icmp sgt i64 %indvars.iv482, 1
-  br i1 %308, label %224, label %.loopexit, !llvm.loop !14
+  br i1 %308, label %224, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %194, %146, %._crit_edge463, %306, %._crit_edge457, %80, %81, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #3
@@ -579,11 +579,13 @@ attributes #3 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"double", !5, i64 0}
-!14 = distinct !{!14, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"double", !5, i64 0}
+!16 = distinct !{!16, !8, !9}

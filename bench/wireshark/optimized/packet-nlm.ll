@@ -330,7 +330,7 @@ define internal i32 @dissect_nlm1_lock(ptr noundef %0, ptr noundef %1, ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_nlm_gen_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
-  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !8, !noundef !9
+  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %nlm_match_fhandle_reply.exit
 
@@ -378,7 +378,7 @@ define internal i32 @dissect_nlm_gen_reply(ptr noundef %0, ptr noundef %1, ptr n
   br label %nlm_print_msgres_reply.exit
 
 nlm_print_msgres_reply.exit:                      ; preds = %26, %19, %18
-  %34 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !8, !noundef !9
+  %34 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !9, !noundef !10
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %nlm_match_fhandle_reply.exit
 
@@ -443,7 +443,7 @@ define internal i32 @dissect_nlm1_granted(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !8, !noundef !9
+  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %nlm_match_fhandle_request.exit
 
@@ -484,7 +484,7 @@ define internal fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr
   br label %nlm_print_msgres_request.exit
 
 nlm_print_msgres_request.exit:                    ; preds = %25, %19, %18
-  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !8, !noundef !9
+  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !9, !noundef !10
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %nlm_match_fhandle_request.exit
 
@@ -679,7 +679,7 @@ declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
-  %7 = load i8, ptr @nlm_match_msgres, align 1, !range !8, !noundef !9
+  %7 = load i8, ptr @nlm_match_msgres, align 1, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %nlm_match_fhandle_reply.exit
 
@@ -726,7 +726,7 @@ define internal fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1,
   br label %nlm_print_msgres_reply.exit
 
 nlm_print_msgres_reply.exit:                      ; preds = %27, %20, %19
-  %35 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !8, !noundef !9
+  %35 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !9, !noundef !10
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %nlm_match_fhandle_reply.exit
 
@@ -882,7 +882,7 @@ declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !8, !noundef !9
+  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %nlm_match_fhandle_request.exit
 
@@ -923,7 +923,7 @@ define internal fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr
   br label %nlm_print_msgres_request.exit
 
 nlm_print_msgres_request.exit:                    ; preds = %25, %19, %18
-  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !8, !noundef !9
+  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !9, !noundef !10
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %nlm_match_fhandle_request.exit
 
@@ -967,7 +967,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !8, !noundef !9
+  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %nlm_match_fhandle_request.exit
 
@@ -1008,7 +1008,7 @@ define internal fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, p
   br label %nlm_print_msgres_request.exit
 
 nlm_print_msgres_request.exit:                    ; preds = %25, %19, %18
-  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !8, !noundef !9
+  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !9, !noundef !10
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %nlm_match_fhandle_request.exit
 
@@ -1045,7 +1045,7 @@ nlm_match_fhandle_request.exit:                   ; preds = %42, %39, %32, %8, %
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !8, !noundef !9
+  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %nlm_match_fhandle_request.exit
 
@@ -1086,7 +1086,7 @@ define internal fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, p
   br label %nlm_print_msgres_request.exit
 
 nlm_print_msgres_request.exit:                    ; preds = %25, %19, %18
-  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !8, !noundef !9
+  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !9, !noundef !10
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %nlm_match_fhandle_request.exit
 
@@ -1119,7 +1119,7 @@ nlm_match_fhandle_request.exit:                   ; preds = %42, %39, %32, %8, %
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !8, !noundef !9
+  %6 = load i8, ptr @nlm_match_msgres, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %nlm_match_fhandle_request.exit
 
@@ -1160,7 +1160,7 @@ define internal fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, 
   br label %nlm_print_msgres_request.exit
 
 nlm_print_msgres_request.exit:                    ; preds = %25, %19, %18
-  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !8, !noundef !9
+  %30 = load i8, ptr @nfs_fhandle_reqrep_matching, align 1, !range !9, !noundef !10
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %nlm_match_fhandle_request.exit
 
@@ -1360,7 +1360,8 @@ attributes #12 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}

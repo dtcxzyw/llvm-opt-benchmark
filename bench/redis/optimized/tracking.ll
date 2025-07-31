@@ -135,9 +135,9 @@ define dso_local void @disableTracking(ptr noundef %0) local_unnamed_addr #0 {
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !44
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !45
   %50 = add i32 %49, -1
-  store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !44
+  store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !45
   %51 = and i64 %44, -272730423297
   store i64 %51, ptr %48, align 8, !tbaa !10
   br label %52
@@ -212,11 +212,11 @@ define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %0, ptr noundef r
 15:                                               ; preds = %13
   %16 = load ptr, ptr %6, align 8, !tbaa !32
   %17 = load i64, ptr %7, align 8, !tbaa !36
-  %18 = load ptr, ptr %12, align 8, !tbaa !64
+  %18 = load ptr, ptr %12, align 8, !tbaa !65
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !65
+  %20 = load ptr, ptr %19, align 8, !tbaa !66
   %21 = getelementptr inbounds i8, ptr %20, i64 -1
-  %22 = load i8, ptr %21, align 1, !tbaa !67
+  %22 = load i8, ptr %21, align 1, !tbaa !68
   %23 = zext i8 %22 to i32
   %24 = and i32 %23, 7
   switch i32 %24, label %sdslen.exit [
@@ -234,25 +234,25 @@ define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %0, ptr noundef r
 
 28:                                               ; preds = %15
   %29 = getelementptr inbounds i8, ptr %20, i64 -3
-  %30 = load i8, ptr %29, align 1, !tbaa !67
+  %30 = load i8, ptr %29, align 1, !tbaa !68
   %31 = zext i8 %30 to i64
   br label %sdslen.exit
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds i8, ptr %20, i64 -5
-  %34 = load i16, ptr %33, align 1, !tbaa !68
+  %34 = load i16, ptr %33, align 1, !tbaa !69
   %35 = zext i16 %34 to i64
   br label %sdslen.exit
 
 36:                                               ; preds = %15
   %37 = getelementptr inbounds i8, ptr %20, i64 -9
-  %38 = load i32, ptr %37, align 1, !tbaa !70
+  %38 = load i32, ptr %37, align 1, !tbaa !71
   %39 = zext i32 %38 to i64
   br label %sdslen.exit
 
 40:                                               ; preds = %15
   %41 = getelementptr inbounds i8, ptr %20, i64 -17
-  %42 = load i64, ptr %41, align 1, !tbaa !71
+  %42 = load i64, ptr %41, align 1, !tbaa !72
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %15, %25, %28, %32, %36, %40
@@ -260,7 +260,7 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
   %43 = call i64 @llvm.umin.i64(i64 %17, i64 %.0.i)
   %bcmp.i = call i32 @bcmp(ptr readonly %16, ptr nonnull readonly %20, i64 %43)
   %.not55 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not55, label %44, label %13, !llvm.loop !72
+  br i1 %.not55, label %44, label %13, !llvm.loop !73
 
 .thread:                                          ; preds = %13
   call void @raxStop(ptr noundef nonnull %4) #9
@@ -269,9 +269,9 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
 
 44:                                               ; preds = %sdslen.exit
   %45 = call ptr @sdsnewlen(ptr noundef %16, i64 noundef %17) #9
-  %46 = load ptr, ptr %12, align 8, !tbaa !64
+  %46 = load ptr, ptr %12, align 8, !tbaa !65
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !65
+  %48 = load ptr, ptr %47, align 8, !tbaa !66
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %48, ptr noundef %45) #9
   call void @sdsfree(ptr noundef %45) #9
   call void @raxStop(ptr noundef nonnull %4) #9
@@ -285,11 +285,11 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
 
 .lr.ph:                                           ; preds = %49
   %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %.04068
-  %52 = load ptr, ptr %51, align 8, !tbaa !64
+  %52 = load ptr, ptr %51, align 8, !tbaa !65
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !65
+  %54 = load ptr, ptr %53, align 8, !tbaa !66
   %55 = getelementptr inbounds i8, ptr %54, i64 -1
-  %56 = load i8, ptr %55, align 1, !tbaa !67
+  %56 = load i8, ptr %55, align 1, !tbaa !68
   %57 = zext i8 %56 to i32
   %58 = and i32 %57, 7
   %59 = getelementptr inbounds i8, ptr %54, i64 -17
@@ -303,7 +303,7 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
 65:                                               ; preds = %sdslen.exit49
   %66 = add i64 %.066, 1
   %exitcond.not = icmp eq i64 %66, %2
-  br i1 %exitcond.not, label %.loopexit, label %67, !llvm.loop !73
+  br i1 %exitcond.not, label %.loopexit, label %67, !llvm.loop !74
 
 67:                                               ; preds = %.lr.ph, %65
   %.066 = phi i64 [ %50, %.lr.ph ], [ %66, %65 ]
@@ -319,32 +319,32 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
   br label %sdslen.exit47
 
 69:                                               ; preds = %67
-  %70 = load i8, ptr %62, align 1, !tbaa !67
+  %70 = load i8, ptr %62, align 1, !tbaa !68
   %71 = zext i8 %70 to i64
   br label %sdslen.exit47
 
 72:                                               ; preds = %67
-  %73 = load i16, ptr %61, align 1, !tbaa !68
+  %73 = load i16, ptr %61, align 1, !tbaa !69
   %74 = zext i16 %73 to i64
   br label %sdslen.exit47
 
 75:                                               ; preds = %67
-  %76 = load i32, ptr %60, align 1, !tbaa !70
+  %76 = load i32, ptr %60, align 1, !tbaa !71
   %77 = zext i32 %76 to i64
   br label %sdslen.exit47
 
 78:                                               ; preds = %67
-  %79 = load i64, ptr %59, align 1, !tbaa !71
+  %79 = load i64, ptr %59, align 1, !tbaa !72
   br label %sdslen.exit47
 
 sdslen.exit47:                                    ; preds = %67, %68, %69, %72, %75, %78
   %.0.i46 = phi i64 [ %64, %68 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %79, %78 ], [ 0, %67 ]
   %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %.066
-  %81 = load ptr, ptr %80, align 8, !tbaa !64
+  %81 = load ptr, ptr %80, align 8, !tbaa !65
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !65
+  %83 = load ptr, ptr %82, align 8, !tbaa !66
   %84 = getelementptr inbounds i8, ptr %83, i64 -1
-  %85 = load i8, ptr %84, align 1, !tbaa !67
+  %85 = load i8, ptr %84, align 1, !tbaa !68
   %86 = zext i8 %85 to i32
   %87 = and i32 %86, 7
   switch i32 %87, label %sdslen.exit49 [
@@ -362,25 +362,25 @@ sdslen.exit47:                                    ; preds = %67, %68, %69, %72, 
 
 91:                                               ; preds = %sdslen.exit47
   %92 = getelementptr inbounds i8, ptr %83, i64 -3
-  %93 = load i8, ptr %92, align 1, !tbaa !67
+  %93 = load i8, ptr %92, align 1, !tbaa !68
   %94 = zext i8 %93 to i64
   br label %sdslen.exit49
 
 95:                                               ; preds = %sdslen.exit47
   %96 = getelementptr inbounds i8, ptr %83, i64 -5
-  %97 = load i16, ptr %96, align 1, !tbaa !68
+  %97 = load i16, ptr %96, align 1, !tbaa !69
   %98 = zext i16 %97 to i64
   br label %sdslen.exit49
 
 99:                                               ; preds = %sdslen.exit47
   %100 = getelementptr inbounds i8, ptr %83, i64 -9
-  %101 = load i32, ptr %100, align 1, !tbaa !70
+  %101 = load i32, ptr %100, align 1, !tbaa !71
   %102 = zext i32 %101 to i64
   br label %sdslen.exit49
 
 103:                                              ; preds = %sdslen.exit47
   %104 = getelementptr inbounds i8, ptr %83, i64 -17
-  %105 = load i64, ptr %104, align 1, !tbaa !71
+  %105 = load i64, ptr %104, align 1, !tbaa !72
   br label %sdslen.exit49
 
 sdslen.exit49:                                    ; preds = %sdslen.exit47, %88, %91, %95, %99, %103
@@ -482,9 +482,9 @@ define dso_local void @enableTracking(ptr noundef initializes((672, 680)) %0, i6
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !44
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !45
   %11 = add i32 %10, 1
-  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !44
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !45
   br label %12
 
 12:                                               ; preds = %9, %5
@@ -492,7 +492,7 @@ define dso_local void @enableTracking(ptr noundef initializes((672, 680)) %0, i6
   %14 = or disjoint i64 %13, 2147483648
   store i64 %14, ptr %6, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store i64 %1, ptr %15, align 8, !tbaa !74
+  store i64 %1, ptr %15, align 8, !tbaa !75
   %16 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
@@ -503,7 +503,7 @@ define dso_local void @enableTracking(ptr noundef initializes((672, 680)) %0, i6
   %20 = tail call ptr @raxNew() #9
   store ptr %20, ptr @PrefixTable, align 8, !tbaa !31
   %21 = tail call ptr @createStringObject(ptr noundef nonnull @.str.5, i64 noundef 20) #9
-  store ptr %21, ptr @TrackingChannelName, align 8, !tbaa !64
+  store ptr %21, ptr @TrackingChannelName, align 8, !tbaa !65
   br label %22
 
 22:                                               ; preds = %18, %12
@@ -525,11 +525,11 @@ define dso_local void @enableTracking(ptr noundef initializes((672, 680)) %0, i6
 .lr.ph:                                           ; preds = %24, %sdslen.exit
   %.019 = phi i64 [ %54, %sdslen.exit ], [ 0, %24 ]
   %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %.019
-  %29 = load ptr, ptr %28, align 8, !tbaa !64
+  %29 = load ptr, ptr %28, align 8, !tbaa !65
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !65
+  %31 = load ptr, ptr %30, align 8, !tbaa !66
   %32 = getelementptr inbounds i8, ptr %31, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !67
+  %33 = load i8, ptr %32, align 1, !tbaa !68
   %34 = zext i8 %33 to i32
   %35 = and i32 %34, 7
   switch i32 %35, label %sdslen.exit [
@@ -547,25 +547,25 @@ define dso_local void @enableTracking(ptr noundef initializes((672, 680)) %0, i6
 
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr inbounds i8, ptr %31, i64 -3
-  %41 = load i8, ptr %40, align 1, !tbaa !67
+  %41 = load i8, ptr %40, align 1, !tbaa !68
   %42 = zext i8 %41 to i64
   br label %sdslen.exit
 
 43:                                               ; preds = %.lr.ph
   %44 = getelementptr inbounds i8, ptr %31, i64 -5
-  %45 = load i16, ptr %44, align 1, !tbaa !68
+  %45 = load i16, ptr %44, align 1, !tbaa !69
   %46 = zext i16 %45 to i64
   br label %sdslen.exit
 
 47:                                               ; preds = %.lr.ph
   %48 = getelementptr inbounds i8, ptr %31, i64 -9
-  %49 = load i32, ptr %48, align 1, !tbaa !70
+  %49 = load i32, ptr %48, align 1, !tbaa !71
   %50 = zext i32 %49 to i64
   br label %sdslen.exit
 
 51:                                               ; preds = %.lr.ph
   %52 = getelementptr inbounds i8, ptr %31, i64 -17
-  %53 = load i64, ptr %52, align 1, !tbaa !71
+  %53 = load i64, ptr %52, align 1, !tbaa !72
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %36, %39, %43, %47, %51
@@ -573,7 +573,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %36, %39, %
   tail call void @enableBcastTrackingForPrefix(ptr noundef %0, ptr noundef nonnull %31, i64 noundef %.0.i)
   %54 = add nuw i64 %.019, 1
   %exitcond.not = icmp eq i64 %54, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
 
 .loopexit:                                        ; preds = %sdslen.exit, %.thread, %22
   %55 = and i64 %2, 188978561024
@@ -604,26 +604,26 @@ define dso_local void @trackingRememberKeys(ptr noundef %0, ptr noundef readonly
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 6, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %12 = load ptr, ptr %11, align 8, !tbaa !76
+  %12 = load ptr, ptr %11, align 8, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %14 = load ptr, ptr %13, align 8, !tbaa !77
+  %14 = load ptr, ptr %13, align 8, !tbaa !78
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %16 = load i32, ptr %15, align 8, !tbaa !78
+  %16 = load i32, ptr %15, align 8, !tbaa !79
   %17 = call i32 @getKeysFromCommand(ptr noundef %12, ptr noundef %14, i32 noundef %16, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.sink.split, label %18
 
 18:                                               ; preds = %9
-  %19 = load ptr, ptr %11, align 8, !tbaa !76
+  %19 = load ptr, ptr %11, align 8, !tbaa !77
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
-  %21 = load i64, ptr %20, align 8, !tbaa !79
+  %21 = load i64, ptr %20, align 8, !tbaa !80
   %22 = and i64 %21, 32
   %.not31 = icmp eq i64 %22, 0
   br i1 %.not31, label %23, label %94
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !85
+  %25 = load ptr, ptr %24, align 8, !tbaa !86
   %26 = icmp sgt i32 %17, 0
   br i1 %26, label %.lr.ph.preheader, label %.sink.split
 
@@ -634,17 +634,17 @@ define dso_local void @trackingRememberKeys(ptr noundef %0, ptr noundef readonly
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %93 ]
   %27 = getelementptr inbounds nuw %struct.keyReference, ptr %25, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 4, !tbaa !87
-  %29 = load ptr, ptr %13, align 8, !tbaa !77
+  %28 = load i32, ptr %27, align 4, !tbaa !88
+  %29 = load ptr, ptr %13, align 8, !tbaa !78
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds ptr, ptr %29, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !64
+  %32 = load ptr, ptr %31, align 8, !tbaa !65
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !65
+  %34 = load ptr, ptr %33, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %35 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   %36 = getelementptr inbounds i8, ptr %34, i64 -1
-  %37 = load i8, ptr %36, align 1, !tbaa !67
+  %37 = load i8, ptr %36, align 1, !tbaa !68
   %38 = zext i8 %37 to i32
   %39 = and i32 %38, 7
   switch i32 %39, label %sdslen.exit [
@@ -662,25 +662,25 @@ define dso_local void @trackingRememberKeys(ptr noundef %0, ptr noundef readonly
 
 43:                                               ; preds = %.lr.ph
   %44 = getelementptr inbounds i8, ptr %34, i64 -3
-  %45 = load i8, ptr %44, align 1, !tbaa !67
+  %45 = load i8, ptr %44, align 1, !tbaa !68
   %46 = zext i8 %45 to i64
   br label %sdslen.exit
 
 47:                                               ; preds = %.lr.ph
   %48 = getelementptr inbounds i8, ptr %34, i64 -5
-  %49 = load i16, ptr %48, align 1, !tbaa !68
+  %49 = load i16, ptr %48, align 1, !tbaa !69
   %50 = zext i16 %49 to i64
   br label %sdslen.exit
 
 51:                                               ; preds = %.lr.ph
   %52 = getelementptr inbounds i8, ptr %34, i64 -9
-  %53 = load i32, ptr %52, align 1, !tbaa !70
+  %53 = load i32, ptr %52, align 1, !tbaa !71
   %54 = zext i32 %53 to i64
   br label %sdslen.exit
 
 55:                                               ; preds = %.lr.ph
   %56 = getelementptr inbounds i8, ptr %34, i64 -17
-  %57 = load i64, ptr %56, align 1, !tbaa !71
+  %57 = load i64, ptr %56, align 1, !tbaa !72
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %40, %43, %47, %51, %55
@@ -692,7 +692,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %40, %43, %
 59:                                               ; preds = %sdslen.exit
   %60 = call ptr @raxNew() #9
   %61 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
-  %62 = load i8, ptr %36, align 1, !tbaa !67
+  %62 = load i8, ptr %36, align 1, !tbaa !68
   %63 = zext i8 %62 to i32
   %64 = and i32 %63, 7
   switch i32 %64, label %sdslen.exit35 [
@@ -710,32 +710,32 @@ sdslen.exit:                                      ; preds = %.lr.ph, %40, %43, %
 
 68:                                               ; preds = %59
   %69 = getelementptr inbounds i8, ptr %34, i64 -3
-  %70 = load i8, ptr %69, align 1, !tbaa !67
+  %70 = load i8, ptr %69, align 1, !tbaa !68
   %71 = zext i8 %70 to i64
   br label %sdslen.exit35
 
 72:                                               ; preds = %59
   %73 = getelementptr inbounds i8, ptr %34, i64 -5
-  %74 = load i16, ptr %73, align 1, !tbaa !68
+  %74 = load i16, ptr %73, align 1, !tbaa !69
   %75 = zext i16 %74 to i64
   br label %sdslen.exit35
 
 76:                                               ; preds = %59
   %77 = getelementptr inbounds i8, ptr %34, i64 -9
-  %78 = load i32, ptr %77, align 1, !tbaa !70
+  %78 = load i32, ptr %77, align 1, !tbaa !71
   %79 = zext i32 %78 to i64
   br label %sdslen.exit35
 
 80:                                               ; preds = %59
   %81 = getelementptr inbounds i8, ptr %34, i64 -17
-  %82 = load i64, ptr %81, align 1, !tbaa !71
+  %82 = load i64, ptr %81, align 1, !tbaa !72
   br label %sdslen.exit35
 
 sdslen.exit35:                                    ; preds = %59, %65, %68, %72, %76, %80
   %.0.i34 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %59 ]
   %83 = call i32 @raxTryInsert(ptr noundef %61, ptr noundef nonnull %34, i64 noundef %.0.i34, ptr noundef %60, ptr noundef null) #9
   %84 = icmp eq i32 %83, 1
-  br i1 %84, label %88, label %85, !prof !89
+  br i1 %84, label %88, label %85, !prof !90
 
 85:                                               ; preds = %sdslen.exit35
   call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 233) #9
@@ -753,16 +753,16 @@ sdslen.exit35:                                    ; preds = %59, %65, %68, %72, 
   br i1 %.not33, label %93, label %90
 
 90:                                               ; preds = %88
-  %91 = load i64, ptr @TrackingTableTotalItems, align 8, !tbaa !71
+  %91 = load i64, ptr @TrackingTableTotalItems, align 8, !tbaa !72
   %92 = add i64 %91, 1
-  store i64 %92, ptr @TrackingTableTotalItems, align 8, !tbaa !71
+  store i64 %92, ptr @TrackingTableTotalItems, align 8, !tbaa !72
   br label %93
 
 93:                                               ; preds = %90, %88
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !91
 
 .sink.split:                                      ; preds = %93, %23, %9
   call void @getKeysFreeResult(ptr noundef nonnull %3) #9
@@ -790,7 +790,7 @@ define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 n
   %7 = or i64 %6, 70368744177664
   store i64 %7, ptr %5, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %9 = load i64, ptr %8, align 8, !tbaa !74
+  %9 = load i64, ptr %8, align 8, !tbaa !75
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %35, label %10
 
@@ -804,14 +804,14 @@ define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 n
   %14 = or i64 %13, 4294967296
   store i64 %14, ptr %5, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !91
+  %16 = load i32, ptr %15, align 4, !tbaa !92
   %17 = icmp sgt i32 %16, 2
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %12
   tail call void @addReplyPushLen(ptr noundef nonnull %0, i64 noundef 2) #9
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i64 noundef 21) #9
-  %19 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = load i64, ptr %8, align 8, !tbaa !75
   tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %19) #9
   br label %20
 
@@ -839,7 +839,7 @@ define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 n
 
 30:                                               ; preds = %27, %25
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 25
-  %32 = load i8, ptr %31, align 1, !tbaa !92
+  %32 = load i8, ptr %31, align 1, !tbaa !93
   %.not57 = icmp eq i8 %32, 0
   br i1 %.not57, label %.thread70, label %33
 
@@ -850,7 +850,7 @@ define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 n
 
 35:                                               ; preds = %4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %37 = load i32, ptr %36, align 4, !tbaa !91
+  %37 = load i32, ptr %36, align 4, !tbaa !92
   %38 = icmp sgt i32 %37, 2
   br i1 %38, label %45, label %51
 
@@ -861,7 +861,7 @@ define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 n
   %41 = or i64 %40, 70368744177664
   store i64 %41, ptr %39, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %43 = load i32, ptr %42, align 4, !tbaa !91
+  %43 = load i32, ptr %42, align 4, !tbaa !92
   %44 = icmp sgt i32 %43, 2
   br i1 %44, label %45, label %46
 
@@ -879,8 +879,8 @@ define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not59, label %51, label %48
 
 48:                                               ; preds = %46
-  %49 = load ptr, ptr @TrackingChannelName, align 8, !tbaa !64
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 352), align 8, !tbaa !93
+  %49 = load ptr, ptr @TrackingChannelName, align 8, !tbaa !65
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 352), align 8, !tbaa !94
   tail call void @addReplyPubsubMessage(ptr noundef nonnull %11, ptr noundef %49, ptr noundef null, ptr noundef %50) #9
   br label %57
 
@@ -944,7 +944,7 @@ define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 n
   %72 = load i64, ptr %71, align 8, !tbaa !10
   %73 = and i64 %72, 2097152
   %.not65 = icmp eq i64 %73, 0
-  br i1 %.not65, label %75, label %74, !prof !89
+  br i1 %.not65, label %75, label %74, !prof !90
 
 74:                                               ; preds = %70
   tail call void @_serverAssert(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 321) #9
@@ -953,16 +953,16 @@ define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 n
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %.04486, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !95
-  %78 = load ptr, ptr %77, align 8, !tbaa !96
+  %77 = load ptr, ptr %76, align 8, !tbaa !96
+  %78 = load ptr, ptr %77, align 8, !tbaa !97
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 152
-  %80 = load ptr, ptr %79, align 8, !tbaa !98
+  %80 = load ptr, ptr %79, align 8, !tbaa !99
   %81 = tail call i32 %80(ptr noundef nonnull %77, ptr noundef nonnull @sendReplyToClient, i32 noundef 0) #9
   br label %82
 
 82:                                               ; preds = %75, %68
   %83 = getelementptr inbounds nuw i8, ptr %.04486, i64 25
-  %84 = load i8, ptr %83, align 1, !tbaa !92
+  %84 = load i8, ptr %83, align 1, !tbaa !93
   %85 = zext i8 %84 to i32
   tail call void @resumeIOThread(i32 noundef %85) #9
   br label %.thread
@@ -1028,7 +1028,7 @@ define dso_local void @trackingRememberKeyToBroadcast(ptr noundef %0, ptr nounde
   br i1 %.not7, label %17, label %.backedge
 
 17:                                               ; preds = %15, %14
-  %18 = load ptr, ptr %10, align 8, !tbaa !100
+  %18 = load ptr, ptr %10, align 8, !tbaa !101
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = call i32 @raxInsert(ptr noundef %19, ptr noundef %1, i64 noundef %2, ptr noundef %0, ptr noundef null) #9
   br label %.backedge
@@ -1036,7 +1036,7 @@ define dso_local void @trackingRememberKeyToBroadcast(ptr noundef %0, ptr nounde
 .backedge:                                        ; preds = %17, %11, %15
   %21 = call i32 @raxNext(ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !101
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.backedge, %3
   call void @raxStop(ptr noundef nonnull %4) #9
@@ -1054,9 +1054,9 @@ define dso_local void @trackingInvalidateKey(ptr noundef %0, ptr noundef %1, i32
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !65
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
   %11 = getelementptr inbounds i8, ptr %10, i64 -1
-  %12 = load i8, ptr %11, align 1, !tbaa !67
+  %12 = load i8, ptr %11, align 1, !tbaa !68
   %13 = zext i8 %12 to i32
   %14 = and i32 %13, 7
   switch i32 %14, label %sdslen.exit [
@@ -1074,25 +1074,25 @@ define dso_local void @trackingInvalidateKey(ptr noundef %0, ptr noundef %1, i32
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds i8, ptr %10, i64 -3
-  %20 = load i8, ptr %19, align 1, !tbaa !67
+  %20 = load i8, ptr %19, align 1, !tbaa !68
   %21 = zext i8 %20 to i64
   br label %sdslen.exit
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds i8, ptr %10, i64 -5
-  %24 = load i16, ptr %23, align 1, !tbaa !68
+  %24 = load i16, ptr %23, align 1, !tbaa !69
   %25 = zext i16 %24 to i64
   br label %sdslen.exit
 
 26:                                               ; preds = %8
   %27 = getelementptr inbounds i8, ptr %10, i64 -9
-  %28 = load i32, ptr %27, align 1, !tbaa !70
+  %28 = load i32, ptr %27, align 1, !tbaa !71
   %29 = zext i32 %28 to i64
   br label %sdslen.exit
 
 30:                                               ; preds = %8
   %31 = getelementptr inbounds i8, ptr %10, i64 -17
-  %32 = load i64, ptr %31, align 1, !tbaa !71
+  %32 = load i64, ptr %31, align 1, !tbaa !72
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %15, %18, %22, %26, %30
@@ -1135,14 +1135,14 @@ sdslen.exit:                                      ; preds = %8, %15, %18, %22, %
   %.0.copyload = load i64, ptr %46, align 1
   %47 = call ptr @lookupClientByID(i64 noundef %.0.copyload) #9
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %89, label %49, !llvm.loop !102
+  br i1 %48, label %89, label %49, !llvm.loop !103
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !10
   %52 = and i64 %51, 10737418240
   %or.cond = icmp eq i64 %52, 2147483648
-  br i1 %or.cond, label %53, label %89, !llvm.loop !102
+  br i1 %or.cond, label %53, label %89, !llvm.loop !103
 
 53:                                               ; preds = %49
   %54 = and i64 %51, 137438953472
@@ -1150,7 +1150,7 @@ sdslen.exit:                                      ; preds = %8, %15, %18, %22, %
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1480), align 8
   %56 = icmp eq ptr %47, %55
   %or.cond33 = select i1 %.not30, i1 %56, i1 false
-  br i1 %or.cond33, label %89, label %57, !llvm.loop !102
+  br i1 %or.cond33, label %89, label %57, !llvm.loop !103
 
 57:                                               ; preds = %53
   br i1 %56, label %58, label %65
@@ -1164,14 +1164,14 @@ sdslen.exit:                                      ; preds = %8, %15, %18, %22, %
 
 62:                                               ; preds = %58
   call void @incrRefCount(ptr noundef %1) #9
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7664), align 8, !tbaa !103
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7664), align 8, !tbaa !104
   %64 = call ptr @listAddNodeTail(ptr noundef %63, ptr noundef %1) #9
   br label %89
 
 65:                                               ; preds = %58, %57
-  %66 = load ptr, ptr %9, align 8, !tbaa !65
+  %66 = load ptr, ptr %9, align 8, !tbaa !66
   %67 = getelementptr inbounds i8, ptr %66, i64 -1
-  %68 = load i8, ptr %67, align 1, !tbaa !67
+  %68 = load i8, ptr %67, align 1, !tbaa !68
   %69 = zext i8 %68 to i32
   %70 = and i32 %69, 7
   switch i32 %70, label %sdslen.exit35 [
@@ -1189,25 +1189,25 @@ sdslen.exit:                                      ; preds = %8, %15, %18, %22, %
 
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %66, i64 -3
-  %76 = load i8, ptr %75, align 1, !tbaa !67
+  %76 = load i8, ptr %75, align 1, !tbaa !68
   %77 = zext i8 %76 to i64
   br label %sdslen.exit35
 
 78:                                               ; preds = %65
   %79 = getelementptr inbounds i8, ptr %66, i64 -5
-  %80 = load i16, ptr %79, align 1, !tbaa !68
+  %80 = load i16, ptr %79, align 1, !tbaa !69
   %81 = zext i16 %80 to i64
   br label %sdslen.exit35
 
 82:                                               ; preds = %65
   %83 = getelementptr inbounds i8, ptr %66, i64 -9
-  %84 = load i32, ptr %83, align 1, !tbaa !70
+  %84 = load i32, ptr %83, align 1, !tbaa !71
   %85 = zext i32 %84 to i64
   br label %sdslen.exit35
 
 86:                                               ; preds = %65
   %87 = getelementptr inbounds i8, ptr %66, i64 -17
-  %88 = load i64, ptr %87, align 1, !tbaa !71
+  %88 = load i64, ptr %87, align 1, !tbaa !72
   br label %sdslen.exit35
 
 sdslen.exit35:                                    ; preds = %65, %71, %74, %78, %82, %86
@@ -1218,14 +1218,14 @@ sdslen.exit35:                                    ; preds = %65, %71, %74, %78, 
 89:                                               ; preds = %62, %sdslen.exit35, %53, %45, %49
   %90 = call i32 @raxNext(ptr noundef nonnull %5) #9
   %.not27 = icmp eq i32 %90, 0
-  br i1 %.not27, label %._crit_edge, label %45
+  br i1 %.not27, label %._crit_edge, label %45, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %89, %40
   call void @raxStop(ptr noundef nonnull %5) #9
   %91 = call i64 @raxSize(ptr noundef %41) #9
-  %92 = load i64, ptr @TrackingTableTotalItems, align 8, !tbaa !71
+  %92 = load i64, ptr @TrackingTableTotalItems, align 8, !tbaa !72
   %93 = sub i64 %92, %91
-  store i64 %93, ptr @TrackingTableTotalItems, align 8, !tbaa !71
+  store i64 %93, ptr @TrackingTableTotalItems, align 8, !tbaa !72
   call void @raxFree(ptr noundef %41) #9
   %94 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   %95 = call i32 @raxRemove(ptr noundef %94, ptr noundef nonnull %10, i64 noundef %.0.i, ptr noundef null) #9
@@ -1247,9 +1247,9 @@ declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_addr #0 {
   %1 = alloca %struct.listIter, align 8
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7664), align 8, !tbaa !103
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7664), align 8, !tbaa !104
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !104
+  %4 = load i64, ptr %3, align 8, !tbaa !106
   %5 = icmp eq i64 %4, 0
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1512), align 8
   %7 = icmp ne i32 %6, 0
@@ -1266,8 +1266,8 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
 .lr.ph:                                           ; preds = %8, %72
   %10 = phi ptr [ %73, %72 ], [ %9, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !106
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1480), align 8, !tbaa !107
+  %12 = load ptr, ptr %11, align 8, !tbaa !108
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1480), align 8, !tbaa !109
   %.not9 = icmp eq ptr %13, null
   %.not11 = icmp eq ptr %12, null
   br i1 %.not9, label %70, label %14
@@ -1277,9 +1277,9 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !65
+  %17 = load ptr, ptr %16, align 8, !tbaa !66
   %18 = getelementptr inbounds i8, ptr %17, i64 -1
-  %19 = load i8, ptr %18, align 1, !tbaa !67
+  %19 = load i8, ptr %18, align 1, !tbaa !68
   %20 = zext i8 %19 to i32
   %21 = and i32 %20, 7
   switch i32 %21, label %.thread15 [
@@ -1297,25 +1297,25 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %17, i64 -3
-  %27 = load i8, ptr %26, align 1, !tbaa !67
+  %27 = load i8, ptr %26, align 1, !tbaa !68
   %28 = zext i8 %27 to i64
   br label %.thread15
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds i8, ptr %17, i64 -5
-  %31 = load i16, ptr %30, align 1, !tbaa !68
+  %31 = load i16, ptr %30, align 1, !tbaa !69
   %32 = zext i16 %31 to i64
   br label %.thread15
 
 33:                                               ; preds = %15
   %34 = getelementptr inbounds i8, ptr %17, i64 -9
-  %35 = load i32, ptr %34, align 1, !tbaa !70
+  %35 = load i32, ptr %34, align 1, !tbaa !71
   %36 = zext i32 %35 to i64
   br label %.thread15
 
 37:                                               ; preds = %15
   %38 = getelementptr inbounds i8, ptr %17, i64 -17
-  %39 = load i64, ptr %38, align 1, !tbaa !71
+  %39 = load i64, ptr %38, align 1, !tbaa !72
   br label %.thread15
 
 .thread15:                                        ; preds = %37, %33, %29, %25, %22, %15
@@ -1325,14 +1325,14 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
 
 40:                                               ; preds = %14
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  %42 = load i32, ptr %41, align 4, !tbaa !91
+  %42 = load i32, ptr %41, align 4, !tbaa !92
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !64
+  %45 = load ptr, ptr %44, align 8, !tbaa !65
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !65
+  %47 = load ptr, ptr %46, align 8, !tbaa !66
   %48 = getelementptr inbounds i8, ptr %47, i64 -1
-  %49 = load i8, ptr %48, align 1, !tbaa !67
+  %49 = load i8, ptr %48, align 1, !tbaa !68
   %50 = zext i8 %49 to i32
   %51 = and i32 %50, 7
   switch i32 %51, label %.thread [
@@ -1350,25 +1350,25 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
 
 55:                                               ; preds = %40
   %56 = getelementptr inbounds i8, ptr %47, i64 -3
-  %57 = load i8, ptr %56, align 1, !tbaa !67
+  %57 = load i8, ptr %56, align 1, !tbaa !68
   %58 = zext i8 %57 to i64
   br label %.thread
 
 59:                                               ; preds = %40
   %60 = getelementptr inbounds i8, ptr %47, i64 -5
-  %61 = load i16, ptr %60, align 1, !tbaa !68
+  %61 = load i16, ptr %60, align 1, !tbaa !69
   %62 = zext i16 %61 to i64
   br label %.thread
 
 63:                                               ; preds = %40
   %64 = getelementptr inbounds i8, ptr %47, i64 -9
-  %65 = load i32, ptr %64, align 1, !tbaa !70
+  %65 = load i32, ptr %64, align 1, !tbaa !71
   %66 = zext i32 %65 to i64
   br label %.thread
 
 67:                                               ; preds = %40
   %68 = getelementptr inbounds i8, ptr %47, i64 -17
-  %69 = load i64, ptr %68, align 1, !tbaa !71
+  %69 = load i64, ptr %68, align 1, !tbaa !72
   br label %.thread
 
 .thread:                                          ; preds = %67, %63, %59, %55, %52, %40
@@ -1386,10 +1386,10 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
 72:                                               ; preds = %.thread, %71, %70
   %73 = call ptr @listNext(ptr noundef nonnull %1) #9
   %.not = icmp eq ptr %73, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %72, %8
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7664), align 8, !tbaa !103
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7664), align 8, !tbaa !104
   call void @listEmpty(ptr noundef %74) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
   br label %75
@@ -1423,13 +1423,13 @@ declare void @raxFreeWithCallback(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.listIter, align 8
-  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !44
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8, !tbaa !45
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %51, label %4
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8, !tbaa !109
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8, !tbaa !111
   call void @listRewind(ptr noundef %5, ptr noundef nonnull %2) #9
   %6 = call ptr @listNext(ptr noundef nonnull %2) #9
   %.not812 = icmp eq ptr %6, null
@@ -1438,7 +1438,7 @@ define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %0) local_unnam
 .lr.ph:                                           ; preds = %4, %49
   %7 = phi ptr [ %50, %49 ], [ %6, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !106
+  %9 = load ptr, ptr %8, align 8, !tbaa !108
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !10
   %12 = and i64 %11, 2147483648
@@ -1446,25 +1446,25 @@ define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %0) local_unnam
   br i1 %.not11, label %49, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1480), align 8, !tbaa !107
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1480), align 8, !tbaa !109
   %15 = icmp eq ptr %9, %14
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7664), align 8, !tbaa !103
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7664), align 8, !tbaa !104
   %18 = call ptr @listAddNodeTail(ptr noundef %17, ptr noundef null) #9
   br label %49
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !91
+  %21 = load i32, ptr %20, align 4, !tbaa !92
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !64
+  %24 = load ptr, ptr %23, align 8, !tbaa !65
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !65
+  %26 = load ptr, ptr %25, align 8, !tbaa !66
   %27 = getelementptr inbounds i8, ptr %26, i64 -1
-  %28 = load i8, ptr %27, align 1, !tbaa !67
+  %28 = load i8, ptr %27, align 1, !tbaa !68
   %29 = zext i8 %28 to i32
   %30 = and i32 %29, 7
   switch i32 %30, label %sdslen.exit [
@@ -1482,25 +1482,25 @@ define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %0) local_unnam
 
 34:                                               ; preds = %19
   %35 = getelementptr inbounds i8, ptr %26, i64 -3
-  %36 = load i8, ptr %35, align 1, !tbaa !67
+  %36 = load i8, ptr %35, align 1, !tbaa !68
   %37 = zext i8 %36 to i64
   br label %sdslen.exit
 
 38:                                               ; preds = %19
   %39 = getelementptr inbounds i8, ptr %26, i64 -5
-  %40 = load i16, ptr %39, align 1, !tbaa !68
+  %40 = load i16, ptr %39, align 1, !tbaa !69
   %41 = zext i16 %40 to i64
   br label %sdslen.exit
 
 42:                                               ; preds = %19
   %43 = getelementptr inbounds i8, ptr %26, i64 -9
-  %44 = load i32, ptr %43, align 1, !tbaa !70
+  %44 = load i32, ptr %43, align 1, !tbaa !71
   %45 = zext i32 %44 to i64
   br label %sdslen.exit
 
 46:                                               ; preds = %19
   %47 = getelementptr inbounds i8, ptr %26, i64 -17
-  %48 = load i64, ptr %47, align 1, !tbaa !71
+  %48 = load i64, ptr %47, align 1, !tbaa !72
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %19, %31, %34, %38, %42, %46
@@ -1511,7 +1511,7 @@ sdslen.exit:                                      ; preds = %19, %31, %34, %38, 
 49:                                               ; preds = %16, %sdslen.exit, %.lr.ph
   %50 = call ptr @listNext(ptr noundef nonnull %2) #9
   %.not8 = icmp eq ptr %50, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !110
+  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %49, %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
@@ -1537,7 +1537,7 @@ sdslen.exit:                                      ; preds = %19, %31, %34, %38, 
 56:                                               ; preds = %55, %54
   %57 = call ptr @raxNew() #9
   store ptr %57, ptr @TrackingTable, align 8, !tbaa !31
-  store i64 0, ptr @TrackingTableTotalItems, align 8, !tbaa !71
+  store i64 0, ptr @TrackingTableTotalItems, align 8, !tbaa !72
   br label %58
 
 58:                                               ; preds = %56, %51
@@ -1562,11 +1562,11 @@ define dso_local void @trackingLimitUsedSlots() local_unnamed_addr #0 {
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
-  store i32 0, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !70
+  store i32 0, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !71
   br label %33
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !70
+  %10 = load i32, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !71
   %11 = mul i32 %10, 100
   %12 = add i32 %11, 100
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %1) #9
@@ -1598,18 +1598,18 @@ define dso_local void @trackingLimitUsedSlots() local_unnamed_addr #0 {
   %26 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   %27 = call i64 @raxSize(ptr noundef %26) #9
   %.not11 = icmp ugt i64 %27, %4
-  br i1 %.not11, label %.critedge, label %28
+  br i1 %.not11, label %.critedge, label %28, !llvm.loop !113
 
 28:                                               ; preds = %21
-  store i32 0, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !70
+  store i32 0, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !71
   call void @raxStop(ptr noundef nonnull %1) #9
-  br label %32, !llvm.loop !111
+  br label %32, !llvm.loop !114
 
 29:                                               ; preds = %17, %.critedge
   call void @raxStop(ptr noundef nonnull %1) #9
-  %30 = load i32, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !70
+  %30 = load i32, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !71
   %31 = add i32 %30, 1
-  store i32 %31, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !70
+  store i32 %31, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !71
   br label %32
 
 32:                                               ; preds = %28, %29
@@ -1653,13 +1653,13 @@ define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(
 
 12:                                               ; preds = %.lr.ph, %12
   %.133 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %12 ]
-  %13 = load ptr, ptr %11, align 8, !tbaa !100
+  %13 = load ptr, ptr %11, align 8, !tbaa !101
   %.not27 = icmp ne ptr %13, %0
   %14 = zext i1 %.not27 to i64
   %spec.select = add i64 %.133, %14
   %15 = call i32 @raxNext(ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !112
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %12
   call void @raxStop(ptr noundef nonnull %3) #9
@@ -1691,7 +1691,7 @@ define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(
 30:                                               ; preds = %43
   %31 = load ptr, ptr %27, align 8
   %32 = icmp eq ptr %31, %0
-  br i1 %32, label %43, label %.split35.us37, !llvm.loop !113
+  br i1 %32, label %43, label %.split35.us37, !llvm.loop !116
 
 .split35.us37:                                    ; preds = %30
   %33 = load i64, ptr %28, align 8, !tbaa !36
@@ -1704,7 +1704,7 @@ define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(
   %40 = load i64, ptr %28, align 8, !tbaa !36
   %41 = call ptr @sdscatlen(ptr noundef %38, ptr noundef %39, i64 noundef %40) #9
   %42 = call ptr @sdscatlen(ptr noundef %41, ptr noundef nonnull @.str.12, i64 noundef 2) #9
-  br label %.outer.us, !llvm.loop !114
+  br label %.outer.us, !llvm.loop !117
 
 43:                                               ; preds = %.outer.us, %30
   %44 = call i32 @raxNext(ptr noundef nonnull %3) #9
@@ -1730,7 +1730,7 @@ define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(
   %55 = call ptr @sdscatlen(ptr noundef %54, ptr noundef nonnull @.str.12, i64 noundef 2) #9
   %56 = call i32 @raxNext(ptr noundef nonnull %3) #9
   %.not28.us = icmp eq i32 %56, 0
-  br i1 %.not28.us, label %.split.us, label %.split35.us, !llvm.loop !113
+  br i1 %.not28.us, label %.split.us, label %.split35.us, !llvm.loop !116
 
 .split.us:                                        ; preds = %43, %.split35.us, %.split36
   %.us-phi = phi ptr [ %25, %.split36 ], [ %55, %.split35.us ], [ %.0.ph.us, %43 ]
@@ -1779,7 +1779,7 @@ define dso_local void @trackingBroadcastInvalidationMessages() local_unnamed_add
   br label %13
 
 13:                                               ; preds = %.lr.ph27, %80
-  %14 = load ptr, ptr %11, align 8, !tbaa !100
+  %14 = load ptr, ptr %11, align 8, !tbaa !101
   %15 = load ptr, ptr %14, align 8, !tbaa !41
   %16 = call i64 @raxSize(ptr noundef %15) #9
   %.not18 = icmp eq i64 %16, 0
@@ -1821,7 +1821,7 @@ define dso_local void @trackingBroadcastInvalidationMessages() local_unnamed_add
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %36, i64 -1
-  %39 = load i8, ptr %38, align 1, !tbaa !67
+  %39 = load i8, ptr %38, align 1, !tbaa !68
   %40 = zext i8 %39 to i32
   %41 = and i32 %40, 7
   switch i32 %41, label %sdslen.exit [
@@ -1839,25 +1839,25 @@ define dso_local void @trackingBroadcastInvalidationMessages() local_unnamed_add
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds i8, ptr %36, i64 -3
-  %47 = load i8, ptr %46, align 1, !tbaa !67
+  %47 = load i8, ptr %46, align 1, !tbaa !68
   %48 = zext i8 %47 to i64
   br label %sdslen.exit
 
 49:                                               ; preds = %37
   %50 = getelementptr inbounds i8, ptr %36, i64 -5
-  %51 = load i16, ptr %50, align 1, !tbaa !68
+  %51 = load i16, ptr %50, align 1, !tbaa !69
   %52 = zext i16 %51 to i64
   br label %sdslen.exit
 
 53:                                               ; preds = %37
   %54 = getelementptr inbounds i8, ptr %36, i64 -9
-  %55 = load i32, ptr %54, align 1, !tbaa !70
+  %55 = load i32, ptr %54, align 1, !tbaa !71
   %56 = zext i32 %55 to i64
   br label %sdslen.exit
 
 57:                                               ; preds = %37
   %58 = getelementptr inbounds i8, ptr %36, i64 -17
-  %59 = load i64, ptr %58, align 1, !tbaa !71
+  %59 = load i64, ptr %58, align 1, !tbaa !72
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %37, %42, %45, %49, %53, %57
@@ -1867,7 +1867,7 @@ sdslen.exit:                                      ; preds = %37, %42, %45, %49, 
   br label %78
 
 60:                                               ; preds = %29
-  %61 = load i8, ptr %24, align 1, !tbaa !67
+  %61 = load i8, ptr %24, align 1, !tbaa !68
   %62 = zext i8 %61 to i32
   %63 = and i32 %62, 7
   switch i32 %63, label %sdslen.exit23 [
@@ -1884,22 +1884,22 @@ sdslen.exit:                                      ; preds = %37, %42, %45, %49, 
   br label %sdslen.exit23
 
 67:                                               ; preds = %60
-  %68 = load i8, ptr %28, align 1, !tbaa !67
+  %68 = load i8, ptr %28, align 1, !tbaa !68
   %69 = zext i8 %68 to i64
   br label %sdslen.exit23
 
 70:                                               ; preds = %60
-  %71 = load i16, ptr %27, align 1, !tbaa !68
+  %71 = load i16, ptr %27, align 1, !tbaa !69
   %72 = zext i16 %71 to i64
   br label %sdslen.exit23
 
 73:                                               ; preds = %60
-  %74 = load i32, ptr %26, align 1, !tbaa !70
+  %74 = load i32, ptr %26, align 1, !tbaa !71
   %75 = zext i32 %74 to i64
   br label %sdslen.exit23
 
 76:                                               ; preds = %60
-  %77 = load i64, ptr %25, align 1, !tbaa !71
+  %77 = load i64, ptr %25, align 1, !tbaa !72
   br label %sdslen.exit23
 
 sdslen.exit23:                                    ; preds = %60, %64, %67, %70, %73, %76
@@ -1910,7 +1910,7 @@ sdslen.exit23:                                    ; preds = %60, %64, %67, %70, 
 78:                                               ; preds = %34, %sdslen.exit, %sdslen.exit23
   %79 = call i32 @raxNext(ptr noundef nonnull %2) #9
   %.not19 = icmp eq i32 %79, 0
-  br i1 %.not19, label %._crit_edge, label %29, !llvm.loop !116
+  br i1 %.not19, label %._crit_edge, label %29, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %78, %17
   call void @raxStop(ptr noundef nonnull %2) #9
@@ -1924,7 +1924,7 @@ sdslen.exit23:                                    ; preds = %60, %64, %67, %70, 
   store ptr %82, ptr %14, align 8, !tbaa !41
   %83 = call i32 @raxNext(ptr noundef nonnull %1) #9
   %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %._crit_edge28, label %13, !llvm.loop !117
+  br i1 %.not, label %._crit_edge28, label %13, !llvm.loop !120
 
 ._crit_edge28:                                    ; preds = %80, %7
   call void @raxStop(ptr noundef nonnull %1) #9
@@ -1938,7 +1938,7 @@ sdslen.exit23:                                    ; preds = %60, %64, %67, %70, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @trackingGetTotalItems() local_unnamed_addr #6 {
-  %1 = load i64, ptr @TrackingTableTotalItems, align 8, !tbaa !71
+  %1 = load i64, ptr @TrackingTableTotalItems, align 8, !tbaa !72
   ret i64 %1
 }
 
@@ -2035,79 +2035,82 @@ attributes #11 = { nounwind allocsize(0) }
 !39 = !{!40, !28, i64 8}
 !40 = !{!"bcastState", !28, i64 0, !28, i64 8}
 !41 = !{!40, !28, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!45, !14, i64 7648}
-!45 = !{!"redisServer", !14, i64 0, !12, i64 8, !17, i64 16, !17, i64 24, !46, i64 32, !14, i64 40, !14, i64 44, !14, i64 48, !14, i64 52, !14, i64 56, !15, i64 64, !26, i64 72, !26, i64 80, !47, i64 88, !28, i64 96, !14, i64 104, !14, i64 108, !14, i64 112, !14, i64 116, !21, i64 120, !14, i64 128, !14, i64 132, !14, i64 136, !14, i64 140, !17, i64 144, !14, i64 152, !14, i64 156, !8, i64 160, !14, i64 204, !12, i64 208, !14, i64 216, !14, i64 220, !14, i64 224, !17, i64 232, !17, i64 240, !14, i64 248, !14, i64 252, !12, i64 256, !26, i64 264, !26, i64 272, !26, i64 280, !20, i64 288, !8, i64 296, !14, i64 304, !14, i64 308, !8, i64 312, !14, i64 316, !14, i64 320, !14, i64 324, !8, i64 328, !14, i64 456, !17, i64 464, !17, i64 472, !14, i64 480, !8, i64 488, !14, i64 1320, !48, i64 1328, !20, i64 1432, !20, i64 1440, !20, i64 1448, !20, i64 1456, !20, i64 1464, !20, i64 1472, !6, i64 1480, !6, i64 1488, !7, i64 1496, !28, i64 1504, !14, i64 1512, !28, i64 1520, !14, i64 1528, !20, i64 1536, !8, i64 1544, !8, i64 1592, !26, i64 1848, !8, i64 1856, !14, i64 1864, !14, i64 1868, !8, i64 1872, !14, i64 2384, !14, i64 2388, !21, i64 2392, !14, i64 2400, !14, i64 2404, !14, i64 2408, !14, i64 2412, !14, i64 2416, !12, i64 2424, !12, i64 2432, !12, i64 2440, !12, i64 2448, !12, i64 2456, !12, i64 2464, !21, i64 2472, !21, i64 2480, !21, i64 2488, !21, i64 2496, !50, i64 2504, !21, i64 2512, !21, i64 2520, !21, i64 2528, !21, i64 2536, !21, i64 2544, !21, i64 2552, !12, i64 2560, !21, i64 2568, !21, i64 2576, !21, i64 2584, !21, i64 2592, !21, i64 2600, !21, i64 2608, !21, i64 2616, !21, i64 2624, !12, i64 2632, !12, i64 2640, !21, i64 2648, !21, i64 2656, !21, i64 2664, !21, i64 2672, !50, i64 2680, !21, i64 2688, !21, i64 2696, !21, i64 2704, !21, i64 2712, !21, i64 2720, !20, i64 2728, !21, i64 2736, !21, i64 2744, !12, i64 2752, !51, i64 2760, !8, i64 2848, !8, i64 2856, !8, i64 2864, !8, i64 2872, !12, i64 2880, !12, i64 2888, !12, i64 2896, !12, i64 2904, !12, i64 2912, !12, i64 2920, !12, i64 2928, !12, i64 2936, !50, i64 2944, !8, i64 2952, !12, i64 2984, !21, i64 2992, !21, i64 3000, !21, i64 3008, !8, i64 3016, !8, i64 4040, !8, i64 5064, !21, i64 5072, !8, i64 5080, !21, i64 6144, !21, i64 6152, !12, i64 6160, !21, i64 6168, !21, i64 6176, !12, i64 6184, !8, i64 6192, !14, i64 6288, !14, i64 6292, !14, i64 6296, !14, i64 6300, !14, i64 6304, !14, i64 6308, !14, i64 6312, !14, i64 6316, !14, i64 6320, !14, i64 6324, !14, i64 6328, !14, i64 6332, !12, i64 6336, !14, i64 6344, !14, i64 6348, !14, i64 6352, !14, i64 6356, !12, i64 6360, !12, i64 6368, !14, i64 6376, !14, i64 6380, !14, i64 6384, !14, i64 6388, !14, i64 6392, !17, i64 6400, !8, i64 6408, !14, i64 6480, !14, i64 6484, !14, i64 6488, !52, i64 6496, !14, i64 6504, !14, i64 6508, !14, i64 6512, !14, i64 6516, !14, i64 6520, !14, i64 6524, !17, i64 6528, !17, i64 6536, !14, i64 6544, !14, i64 6548, !12, i64 6552, !12, i64 6560, !12, i64 6568, !12, i64 6576, !12, i64 6584, !14, i64 6592, !14, i64 6596, !17, i64 6600, !14, i64 6608, !14, i64 6612, !21, i64 6616, !21, i64 6624, !12, i64 6632, !12, i64 6640, !12, i64 6648, !14, i64 6656, !14, i64 6660, !12, i64 6664, !14, i64 6672, !14, i64 6676, !14, i64 6680, !14, i64 6684, !14, i64 6688, !14, i64 6692, !8, i64 6696, !8, i64 6700, !7, i64 6704, !14, i64 6712, !21, i64 6720, !21, i64 6728, !21, i64 6736, !21, i64 6744, !14, i64 6752, !53, i64 6760, !14, i64 6768, !17, i64 6776, !14, i64 6784, !14, i64 6788, !14, i64 6792, !12, i64 6800, !12, i64 6808, !12, i64 6816, !12, i64 6824, !14, i64 6832, !14, i64 6836, !14, i64 6840, !14, i64 6844, !14, i64 6848, !14, i64 6852, !54, i64 6856, !14, i64 6864, !14, i64 6868, !17, i64 6872, !14, i64 6880, !14, i64 6884, !14, i64 6888, !8, i64 6892, !14, i64 6900, !55, i64 6904, !14, i64 6920, !17, i64 6928, !14, i64 6936, !17, i64 6944, !14, i64 6952, !14, i64 6956, !14, i64 6960, !14, i64 6964, !14, i64 6968, !14, i64 6972, !14, i64 6976, !8, i64 6980, !8, i64 7021, !21, i64 7064, !21, i64 7072, !8, i64 7080, !21, i64 7088, !14, i64 7096, !14, i64 7100, !57, i64 7104, !21, i64 7112, !21, i64 7120, !58, i64 7128, !12, i64 7168, !12, i64 7176, !14, i64 7184, !14, i64 7188, !14, i64 7192, !14, i64 7196, !14, i64 7200, !14, i64 7204, !14, i64 7208, !14, i64 7212, !14, i64 7216, !12, i64 7224, !20, i64 7232, !12, i64 7240, !17, i64 7248, !17, i64 7256, !17, i64 7264, !14, i64 7272, !14, i64 7276, !6, i64 7280, !6, i64 7288, !14, i64 7296, !14, i64 7300, !14, i64 7304, !12, i64 7312, !12, i64 7320, !12, i64 7328, !12, i64 7336, !13, i64 7344, !13, i64 7352, !14, i64 7360, !17, i64 7368, !12, i64 7376, !14, i64 7384, !14, i64 7388, !14, i64 7392, !12, i64 7400, !14, i64 7408, !14, i64 7412, !14, i64 7416, !14, i64 7420, !17, i64 7424, !14, i64 7432, !14, i64 7436, !8, i64 7440, !21, i64 7488, !14, i64 7496, !20, i64 7504, !14, i64 7512, !14, i64 7516, !21, i64 7520, !12, i64 7528, !14, i64 7536, !14, i64 7540, !14, i64 7544, !14, i64 7548, !14, i64 7552, !21, i64 7560, !8, i64 7568, !14, i64 7580, !14, i64 7584, !14, i64 7588, !8, i64 7592, !20, i64 7632, !20, i64 7640, !14, i64 7648, !12, i64 7656, !20, i64 7664, !20, i64 7672, !14, i64 7680, !14, i64 7684, !14, i64 7688, !14, i64 7692, !12, i64 7696, !12, i64 7704, !12, i64 7712, !12, i64 7720, !12, i64 7728, !12, i64 7736, !12, i64 7744, !12, i64 7752, !12, i64 7760, !21, i64 7768, !14, i64 7776, !14, i64 7780, !8, i64 7784, !12, i64 7792, !8, i64 7800, !21, i64 7808, !21, i64 7816, !21, i64 7824, !12, i64 7832, !21, i64 7840, !59, i64 7848, !26, i64 7856, !14, i64 7864, !59, i64 7872, !14, i64 7880, !14, i64 7884, !14, i64 7888, !14, i64 7892, !21, i64 7896, !21, i64 7904, !17, i64 7912, !60, i64 7920, !14, i64 7928, !14, i64 7932, !14, i64 7936, !14, i64 7940, !14, i64 7944, !17, i64 7952, !17, i64 7960, !17, i64 7968, !14, i64 7976, !14, i64 7980, !14, i64 7984, !14, i64 7988, !14, i64 7992, !14, i64 7996, !14, i64 8000, !21, i64 8008, !14, i64 8016, !14, i64 8020, !21, i64 8024, !14, i64 8032, !14, i64 8036, !14, i64 8040, !14, i64 8044, !14, i64 8048, !14, i64 8052, !14, i64 8056, !21, i64 8064, !26, i64 8072, !17, i64 8080, !12, i64 8088, !17, i64 8096, !14, i64 8104, !61, i64 8112, !14, i64 8144, !12, i64 8152, !14, i64 8160, !14, i64 8164, !14, i64 8168, !62, i64 8176, !17, i64 8288, !17, i64 8296, !17, i64 8304, !17, i64 8312, !63, i64 8320, !21, i64 8328, !14, i64 8336, !17, i64 8344, !14, i64 8352, !14, i64 8356, !14, i64 8360, !12, i64 8368, !14, i64 8376, !17, i64 8384}
-!46 = !{!"p2 omnipotent char", !7, i64 0}
-!47 = !{!"p1 _ZTS11aeEventLoop", !7, i64 0}
-!48 = !{!"connListener", !8, i64 0, !14, i64 64, !46, i64 72, !14, i64 80, !14, i64 84, !49, i64 88, !7, i64 96}
-!49 = !{!"p1 _ZTS14ConnectionType", !7, i64 0}
-!50 = !{!"double", !8, i64 0}
-!51 = !{!"malloc_stats", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80}
-!52 = !{!"p1 double", !7, i64 0}
-!53 = !{!"p1 _ZTS9saveparam", !7, i64 0}
-!54 = !{!"p2 _ZTS10connection", !7, i64 0}
-!55 = !{!"redisOpArray", !56, i64 0, !14, i64 8, !14, i64 12}
-!56 = !{!"p1 _ZTS7redisOp", !7, i64 0}
-!57 = !{!"p1 _ZTS11replBacklog", !7, i64 0}
-!58 = !{!"replDataBuf", !20, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
-!59 = !{!"p1 _ZTS8_kvstore", !7, i64 0}
-!60 = !{!"p1 _ZTS12clusterState", !7, i64 0}
-!61 = !{!"aclInfo", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24}
-!62 = !{!"redisTLSContextConfig", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108}
-!63 = !{!"p1 _ZTS14sentinelConfig", !7, i64 0}
-!64 = !{!16, !16, i64 0}
-!65 = !{!66, !7, i64 8}
-!66 = !{!"redisObject", !14, i64 0, !14, i64 0, !14, i64 1, !14, i64 4, !7, i64 8}
-!67 = !{!8, !8, i64 0}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"short", !8, i64 0}
-!70 = !{!14, !14, i64 0}
-!71 = !{!12, !12, i64 0}
-!72 = distinct !{!72, !43}
-!73 = distinct !{!73, !43}
-!74 = !{!11, !12, i64 672}
-!75 = distinct !{!75, !43}
-!76 = !{!11, !19, i64 128}
-!77 = !{!11, !18, i64 96}
-!78 = !{!11, !14, i64 88}
-!79 = !{!80, !12, i64 112}
-!80 = !{!"redisCommand", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !14, i64 32, !17, i64 40, !17, i64 48, !14, i64 56, !7, i64 64, !14, i64 72, !46, i64 80, !14, i64 88, !7, i64 96, !14, i64 104, !12, i64 112, !12, i64 120, !7, i64 128, !14, i64 136, !7, i64 144, !14, i64 152, !19, i64 160, !81, i64 168, !21, i64 176, !21, i64 184, !21, i64 192, !21, i64 200, !14, i64 208, !17, i64 216, !82, i64 224, !83, i64 232, !26, i64 288, !19, i64 296, !84, i64 304}
-!81 = !{!"p1 _ZTS15redisCommandArg", !7, i64 0}
-!82 = !{!"p1 _ZTS13hdr_histogram", !7, i64 0}
-!83 = !{!"", !17, i64 0, !12, i64 8, !14, i64 16, !8, i64 24, !14, i64 40, !8, i64 44}
-!84 = !{!"p1 _ZTS18RedisModuleCommand", !7, i64 0}
-!85 = !{!86, !7, i64 56}
-!86 = !{!"", !14, i64 0, !14, i64 4, !8, i64 8, !7, i64 56}
-!87 = !{!88, !14, i64 0}
-!88 = !{!"", !14, i64 0, !14, i64 4}
-!89 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!90 = distinct !{!90, !43}
-!91 = !{!11, !14, i64 28}
-!92 = !{!11, !8, i64 25}
-!93 = !{!94, !16, i64 352}
-!94 = !{!"sharedObjectsStruct", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !8, i64 64, !8, i64 96, !8, i64 128, !8, i64 160, !16, i64 192, !16, i64 200, !16, i64 208, !16, i64 216, !16, i64 224, !16, i64 232, !16, i64 240, !16, i64 248, !16, i64 256, !16, i64 264, !16, i64 272, !16, i64 280, !16, i64 288, !16, i64 296, !16, i64 304, !16, i64 312, !16, i64 320, !16, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !16, i64 360, !16, i64 368, !16, i64 376, !16, i64 384, !16, i64 392, !16, i64 400, !16, i64 408, !16, i64 416, !16, i64 424, !16, i64 432, !16, i64 440, !16, i64 448, !16, i64 456, !16, i64 464, !16, i64 472, !16, i64 480, !16, i64 488, !16, i64 496, !16, i64 504, !16, i64 512, !16, i64 520, !16, i64 528, !16, i64 536, !16, i64 544, !16, i64 552, !16, i64 560, !16, i64 568, !16, i64 576, !16, i64 584, !16, i64 592, !16, i64 600, !16, i64 608, !16, i64 616, !16, i64 624, !16, i64 632, !16, i64 640, !16, i64 648, !16, i64 656, !16, i64 664, !16, i64 672, !16, i64 680, !16, i64 688, !16, i64 696, !16, i64 704, !16, i64 712, !16, i64 720, !16, i64 728, !16, i64 736, !16, i64 744, !16, i64 752, !16, i64 760, !16, i64 768, !16, i64 776, !16, i64 784, !16, i64 792, !8, i64 800, !8, i64 880, !8, i64 80880, !8, i64 81136, !8, i64 81392, !8, i64 81648, !17, i64 81904, !17, i64 81912}
-!95 = !{!11, !13, i64 16}
-!96 = !{!97, !49, i64 0}
-!97 = !{!"connection", !49, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !69, i64 20, !69, i64 22, !69, i64 24, !7, i64 32, !47, i64 40, !7, i64 48, !7, i64 56, !7, i64 64}
-!98 = !{!99, !7, i64 152}
-!99 = !{!"ConnectionType", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192, !7, i64 200, !7, i64 208, !7, i64 216, !7, i64 224, !7, i64 232}
-!100 = !{!33, !7, i64 24}
-!101 = distinct !{!101, !43}
-!102 = distinct !{!102, !43}
-!103 = !{!45, !20, i64 7664}
-!104 = !{!105, !12, i64 40}
-!105 = !{!"list", !27, i64 0, !27, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !12, i64 40}
-!106 = !{!29, !7, i64 16}
-!107 = !{!45, !6, i64 1480}
-!108 = distinct !{!108, !43}
-!109 = !{!45, !20, i64 1432}
-!110 = distinct !{!110, !43}
-!111 = distinct !{!111, !43}
-!112 = distinct !{!112, !43}
-!113 = distinct !{!113, !43}
-!114 = distinct !{!114, !43, !115}
-!115 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!116 = distinct !{!116, !43}
-!117 = distinct !{!117, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!46, !14, i64 7648}
+!46 = !{!"redisServer", !14, i64 0, !12, i64 8, !17, i64 16, !17, i64 24, !47, i64 32, !14, i64 40, !14, i64 44, !14, i64 48, !14, i64 52, !14, i64 56, !15, i64 64, !26, i64 72, !26, i64 80, !48, i64 88, !28, i64 96, !14, i64 104, !14, i64 108, !14, i64 112, !14, i64 116, !21, i64 120, !14, i64 128, !14, i64 132, !14, i64 136, !14, i64 140, !17, i64 144, !14, i64 152, !14, i64 156, !8, i64 160, !14, i64 204, !12, i64 208, !14, i64 216, !14, i64 220, !14, i64 224, !17, i64 232, !17, i64 240, !14, i64 248, !14, i64 252, !12, i64 256, !26, i64 264, !26, i64 272, !26, i64 280, !20, i64 288, !8, i64 296, !14, i64 304, !14, i64 308, !8, i64 312, !14, i64 316, !14, i64 320, !14, i64 324, !8, i64 328, !14, i64 456, !17, i64 464, !17, i64 472, !14, i64 480, !8, i64 488, !14, i64 1320, !49, i64 1328, !20, i64 1432, !20, i64 1440, !20, i64 1448, !20, i64 1456, !20, i64 1464, !20, i64 1472, !6, i64 1480, !6, i64 1488, !7, i64 1496, !28, i64 1504, !14, i64 1512, !28, i64 1520, !14, i64 1528, !20, i64 1536, !8, i64 1544, !8, i64 1592, !26, i64 1848, !8, i64 1856, !14, i64 1864, !14, i64 1868, !8, i64 1872, !14, i64 2384, !14, i64 2388, !21, i64 2392, !14, i64 2400, !14, i64 2404, !14, i64 2408, !14, i64 2412, !14, i64 2416, !12, i64 2424, !12, i64 2432, !12, i64 2440, !12, i64 2448, !12, i64 2456, !12, i64 2464, !21, i64 2472, !21, i64 2480, !21, i64 2488, !21, i64 2496, !51, i64 2504, !21, i64 2512, !21, i64 2520, !21, i64 2528, !21, i64 2536, !21, i64 2544, !21, i64 2552, !12, i64 2560, !21, i64 2568, !21, i64 2576, !21, i64 2584, !21, i64 2592, !21, i64 2600, !21, i64 2608, !21, i64 2616, !21, i64 2624, !12, i64 2632, !12, i64 2640, !21, i64 2648, !21, i64 2656, !21, i64 2664, !21, i64 2672, !51, i64 2680, !21, i64 2688, !21, i64 2696, !21, i64 2704, !21, i64 2712, !21, i64 2720, !20, i64 2728, !21, i64 2736, !21, i64 2744, !12, i64 2752, !52, i64 2760, !8, i64 2848, !8, i64 2856, !8, i64 2864, !8, i64 2872, !12, i64 2880, !12, i64 2888, !12, i64 2896, !12, i64 2904, !12, i64 2912, !12, i64 2920, !12, i64 2928, !12, i64 2936, !51, i64 2944, !8, i64 2952, !12, i64 2984, !21, i64 2992, !21, i64 3000, !21, i64 3008, !8, i64 3016, !8, i64 4040, !8, i64 5064, !21, i64 5072, !8, i64 5080, !21, i64 6144, !21, i64 6152, !12, i64 6160, !21, i64 6168, !21, i64 6176, !12, i64 6184, !8, i64 6192, !14, i64 6288, !14, i64 6292, !14, i64 6296, !14, i64 6300, !14, i64 6304, !14, i64 6308, !14, i64 6312, !14, i64 6316, !14, i64 6320, !14, i64 6324, !14, i64 6328, !14, i64 6332, !12, i64 6336, !14, i64 6344, !14, i64 6348, !14, i64 6352, !14, i64 6356, !12, i64 6360, !12, i64 6368, !14, i64 6376, !14, i64 6380, !14, i64 6384, !14, i64 6388, !14, i64 6392, !17, i64 6400, !8, i64 6408, !14, i64 6480, !14, i64 6484, !14, i64 6488, !53, i64 6496, !14, i64 6504, !14, i64 6508, !14, i64 6512, !14, i64 6516, !14, i64 6520, !14, i64 6524, !17, i64 6528, !17, i64 6536, !14, i64 6544, !14, i64 6548, !12, i64 6552, !12, i64 6560, !12, i64 6568, !12, i64 6576, !12, i64 6584, !14, i64 6592, !14, i64 6596, !17, i64 6600, !14, i64 6608, !14, i64 6612, !21, i64 6616, !21, i64 6624, !12, i64 6632, !12, i64 6640, !12, i64 6648, !14, i64 6656, !14, i64 6660, !12, i64 6664, !14, i64 6672, !14, i64 6676, !14, i64 6680, !14, i64 6684, !14, i64 6688, !14, i64 6692, !8, i64 6696, !8, i64 6700, !7, i64 6704, !14, i64 6712, !21, i64 6720, !21, i64 6728, !21, i64 6736, !21, i64 6744, !14, i64 6752, !54, i64 6760, !14, i64 6768, !17, i64 6776, !14, i64 6784, !14, i64 6788, !14, i64 6792, !12, i64 6800, !12, i64 6808, !12, i64 6816, !12, i64 6824, !14, i64 6832, !14, i64 6836, !14, i64 6840, !14, i64 6844, !14, i64 6848, !14, i64 6852, !55, i64 6856, !14, i64 6864, !14, i64 6868, !17, i64 6872, !14, i64 6880, !14, i64 6884, !14, i64 6888, !8, i64 6892, !14, i64 6900, !56, i64 6904, !14, i64 6920, !17, i64 6928, !14, i64 6936, !17, i64 6944, !14, i64 6952, !14, i64 6956, !14, i64 6960, !14, i64 6964, !14, i64 6968, !14, i64 6972, !14, i64 6976, !8, i64 6980, !8, i64 7021, !21, i64 7064, !21, i64 7072, !8, i64 7080, !21, i64 7088, !14, i64 7096, !14, i64 7100, !58, i64 7104, !21, i64 7112, !21, i64 7120, !59, i64 7128, !12, i64 7168, !12, i64 7176, !14, i64 7184, !14, i64 7188, !14, i64 7192, !14, i64 7196, !14, i64 7200, !14, i64 7204, !14, i64 7208, !14, i64 7212, !14, i64 7216, !12, i64 7224, !20, i64 7232, !12, i64 7240, !17, i64 7248, !17, i64 7256, !17, i64 7264, !14, i64 7272, !14, i64 7276, !6, i64 7280, !6, i64 7288, !14, i64 7296, !14, i64 7300, !14, i64 7304, !12, i64 7312, !12, i64 7320, !12, i64 7328, !12, i64 7336, !13, i64 7344, !13, i64 7352, !14, i64 7360, !17, i64 7368, !12, i64 7376, !14, i64 7384, !14, i64 7388, !14, i64 7392, !12, i64 7400, !14, i64 7408, !14, i64 7412, !14, i64 7416, !14, i64 7420, !17, i64 7424, !14, i64 7432, !14, i64 7436, !8, i64 7440, !21, i64 7488, !14, i64 7496, !20, i64 7504, !14, i64 7512, !14, i64 7516, !21, i64 7520, !12, i64 7528, !14, i64 7536, !14, i64 7540, !14, i64 7544, !14, i64 7548, !14, i64 7552, !21, i64 7560, !8, i64 7568, !14, i64 7580, !14, i64 7584, !14, i64 7588, !8, i64 7592, !20, i64 7632, !20, i64 7640, !14, i64 7648, !12, i64 7656, !20, i64 7664, !20, i64 7672, !14, i64 7680, !14, i64 7684, !14, i64 7688, !14, i64 7692, !12, i64 7696, !12, i64 7704, !12, i64 7712, !12, i64 7720, !12, i64 7728, !12, i64 7736, !12, i64 7744, !12, i64 7752, !12, i64 7760, !21, i64 7768, !14, i64 7776, !14, i64 7780, !8, i64 7784, !12, i64 7792, !8, i64 7800, !21, i64 7808, !21, i64 7816, !21, i64 7824, !12, i64 7832, !21, i64 7840, !60, i64 7848, !26, i64 7856, !14, i64 7864, !60, i64 7872, !14, i64 7880, !14, i64 7884, !14, i64 7888, !14, i64 7892, !21, i64 7896, !21, i64 7904, !17, i64 7912, !61, i64 7920, !14, i64 7928, !14, i64 7932, !14, i64 7936, !14, i64 7940, !14, i64 7944, !17, i64 7952, !17, i64 7960, !17, i64 7968, !14, i64 7976, !14, i64 7980, !14, i64 7984, !14, i64 7988, !14, i64 7992, !14, i64 7996, !14, i64 8000, !21, i64 8008, !14, i64 8016, !14, i64 8020, !21, i64 8024, !14, i64 8032, !14, i64 8036, !14, i64 8040, !14, i64 8044, !14, i64 8048, !14, i64 8052, !14, i64 8056, !21, i64 8064, !26, i64 8072, !17, i64 8080, !12, i64 8088, !17, i64 8096, !14, i64 8104, !62, i64 8112, !14, i64 8144, !12, i64 8152, !14, i64 8160, !14, i64 8164, !14, i64 8168, !63, i64 8176, !17, i64 8288, !17, i64 8296, !17, i64 8304, !17, i64 8312, !64, i64 8320, !21, i64 8328, !14, i64 8336, !17, i64 8344, !14, i64 8352, !14, i64 8356, !14, i64 8360, !12, i64 8368, !14, i64 8376, !17, i64 8384}
+!47 = !{!"p2 omnipotent char", !7, i64 0}
+!48 = !{!"p1 _ZTS11aeEventLoop", !7, i64 0}
+!49 = !{!"connListener", !8, i64 0, !14, i64 64, !47, i64 72, !14, i64 80, !14, i64 84, !50, i64 88, !7, i64 96}
+!50 = !{!"p1 _ZTS14ConnectionType", !7, i64 0}
+!51 = !{!"double", !8, i64 0}
+!52 = !{!"malloc_stats", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80}
+!53 = !{!"p1 double", !7, i64 0}
+!54 = !{!"p1 _ZTS9saveparam", !7, i64 0}
+!55 = !{!"p2 _ZTS10connection", !7, i64 0}
+!56 = !{!"redisOpArray", !57, i64 0, !14, i64 8, !14, i64 12}
+!57 = !{!"p1 _ZTS7redisOp", !7, i64 0}
+!58 = !{!"p1 _ZTS11replBacklog", !7, i64 0}
+!59 = !{!"replDataBuf", !20, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
+!60 = !{!"p1 _ZTS8_kvstore", !7, i64 0}
+!61 = !{!"p1 _ZTS12clusterState", !7, i64 0}
+!62 = !{!"aclInfo", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24}
+!63 = !{!"redisTLSContextConfig", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108}
+!64 = !{!"p1 _ZTS14sentinelConfig", !7, i64 0}
+!65 = !{!16, !16, i64 0}
+!66 = !{!67, !7, i64 8}
+!67 = !{!"redisObject", !14, i64 0, !14, i64 0, !14, i64 1, !14, i64 4, !7, i64 8}
+!68 = !{!8, !8, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"short", !8, i64 0}
+!71 = !{!14, !14, i64 0}
+!72 = !{!12, !12, i64 0}
+!73 = distinct !{!73, !43, !44}
+!74 = distinct !{!74, !43, !44}
+!75 = !{!11, !12, i64 672}
+!76 = distinct !{!76, !43, !44}
+!77 = !{!11, !19, i64 128}
+!78 = !{!11, !18, i64 96}
+!79 = !{!11, !14, i64 88}
+!80 = !{!81, !12, i64 112}
+!81 = !{!"redisCommand", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !14, i64 32, !17, i64 40, !17, i64 48, !14, i64 56, !7, i64 64, !14, i64 72, !47, i64 80, !14, i64 88, !7, i64 96, !14, i64 104, !12, i64 112, !12, i64 120, !7, i64 128, !14, i64 136, !7, i64 144, !14, i64 152, !19, i64 160, !82, i64 168, !21, i64 176, !21, i64 184, !21, i64 192, !21, i64 200, !14, i64 208, !17, i64 216, !83, i64 224, !84, i64 232, !26, i64 288, !19, i64 296, !85, i64 304}
+!82 = !{!"p1 _ZTS15redisCommandArg", !7, i64 0}
+!83 = !{!"p1 _ZTS13hdr_histogram", !7, i64 0}
+!84 = !{!"", !17, i64 0, !12, i64 8, !14, i64 16, !8, i64 24, !14, i64 40, !8, i64 44}
+!85 = !{!"p1 _ZTS18RedisModuleCommand", !7, i64 0}
+!86 = !{!87, !7, i64 56}
+!87 = !{!"", !14, i64 0, !14, i64 4, !8, i64 8, !7, i64 56}
+!88 = !{!89, !14, i64 0}
+!89 = !{!"", !14, i64 0, !14, i64 4}
+!90 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!91 = distinct !{!91, !43, !44}
+!92 = !{!11, !14, i64 28}
+!93 = !{!11, !8, i64 25}
+!94 = !{!95, !16, i64 352}
+!95 = !{!"sharedObjectsStruct", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !8, i64 64, !8, i64 96, !8, i64 128, !8, i64 160, !16, i64 192, !16, i64 200, !16, i64 208, !16, i64 216, !16, i64 224, !16, i64 232, !16, i64 240, !16, i64 248, !16, i64 256, !16, i64 264, !16, i64 272, !16, i64 280, !16, i64 288, !16, i64 296, !16, i64 304, !16, i64 312, !16, i64 320, !16, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !16, i64 360, !16, i64 368, !16, i64 376, !16, i64 384, !16, i64 392, !16, i64 400, !16, i64 408, !16, i64 416, !16, i64 424, !16, i64 432, !16, i64 440, !16, i64 448, !16, i64 456, !16, i64 464, !16, i64 472, !16, i64 480, !16, i64 488, !16, i64 496, !16, i64 504, !16, i64 512, !16, i64 520, !16, i64 528, !16, i64 536, !16, i64 544, !16, i64 552, !16, i64 560, !16, i64 568, !16, i64 576, !16, i64 584, !16, i64 592, !16, i64 600, !16, i64 608, !16, i64 616, !16, i64 624, !16, i64 632, !16, i64 640, !16, i64 648, !16, i64 656, !16, i64 664, !16, i64 672, !16, i64 680, !16, i64 688, !16, i64 696, !16, i64 704, !16, i64 712, !16, i64 720, !16, i64 728, !16, i64 736, !16, i64 744, !16, i64 752, !16, i64 760, !16, i64 768, !16, i64 776, !16, i64 784, !16, i64 792, !8, i64 800, !8, i64 880, !8, i64 80880, !8, i64 81136, !8, i64 81392, !8, i64 81648, !17, i64 81904, !17, i64 81912}
+!96 = !{!11, !13, i64 16}
+!97 = !{!98, !50, i64 0}
+!98 = !{!"connection", !50, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !70, i64 20, !70, i64 22, !70, i64 24, !7, i64 32, !48, i64 40, !7, i64 48, !7, i64 56, !7, i64 64}
+!99 = !{!100, !7, i64 152}
+!100 = !{!"ConnectionType", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192, !7, i64 200, !7, i64 208, !7, i64 216, !7, i64 224, !7, i64 232}
+!101 = !{!33, !7, i64 24}
+!102 = distinct !{!102, !43, !44}
+!103 = distinct !{!103, !43}
+!104 = !{!46, !20, i64 7664}
+!105 = distinct !{!105, !44}
+!106 = !{!107, !12, i64 40}
+!107 = !{!"list", !27, i64 0, !27, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !12, i64 40}
+!108 = !{!29, !7, i64 16}
+!109 = !{!46, !6, i64 1480}
+!110 = distinct !{!110, !43, !44}
+!111 = !{!46, !20, i64 1432}
+!112 = distinct !{!112, !43, !44}
+!113 = distinct !{!113, !44}
+!114 = distinct !{!114, !43}
+!115 = distinct !{!115, !43, !44}
+!116 = distinct !{!116, !43, !44}
+!117 = distinct !{!117, !43, !44, !118}
+!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!119 = distinct !{!119, !43, !44}
+!120 = distinct !{!120, !43, !44}

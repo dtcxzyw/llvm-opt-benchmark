@@ -144,12 +144,12 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly captures(address_is
   %81 = load i32, ptr %80, align 4, !tbaa !14
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds double, ptr %46, i64 %82
-  %84 = load double, ptr %83, align 8, !tbaa !21
+  %84 = load double, ptr %83, align 8, !tbaa !22
   %85 = getelementptr inbounds double, ptr %67, i64 %indvars.iv160
-  store double %84, ptr %85, align 8, !tbaa !21
+  store double %84, ptr %85, align 8, !tbaa !22
   %indvars.iv.next161 = add nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit.us, label %.lr.ph115.us, !llvm.loop !23
+  br i1 %exitcond164.not, label %.loopexit.us, label %.lr.ph115.us, !llvm.loop !24
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv157 = phi i64 [ %74, %.lr.ph.us.preheader ], [ %indvars.iv.next158, %.lr.ph.us ]
@@ -157,13 +157,13 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly captures(address_is
   %86 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv157
   %87 = load i32, ptr %86, align 4, !tbaa !14
   %88 = getelementptr inbounds double, ptr %.fr133, i64 %indvars.iv157
-  %89 = load double, ptr %88, align 8, !tbaa !21
+  %89 = load double, ptr %88, align 8, !tbaa !22
   %90 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %87, double noundef %89, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %75, ptr noundef nonnull %48, i32 noundef %.193109.us.us) #2
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, 1
   %91 = load i32, ptr %71, align 4, !tbaa !14
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next158, %92
-  br i1 %93, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !24
+  br i1 %93, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !25
 
 .lr.ph119.split.split:                            ; preds = %.lr.ph119, %._crit_edge.split
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %._crit_edge.split ], [ 0, %.lr.ph119 ]
@@ -206,12 +206,12 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly captures(address_is
   %113 = load i32, ptr %105, align 4, !tbaa !14
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph, label %._crit_edge.split, !llvm.loop !25
+  br i1 %115, label %.lr.ph, label %._crit_edge.split, !llvm.loop !26
 
 ._crit_edge.split:                                ; preds = %.lr.ph, %101
   %.193.lcssa = phi i32 [ %.092116, %101 ], [ %112, %.lr.ph ]
   %exitcond.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count168
-  br i1 %exitcond.not, label %._crit_edge120, label %.lr.ph119.split.split, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge120, label %.lr.ph119.split.split, !llvm.loop !27
 
 ._crit_edge120:                                   ; preds = %._crit_edge.split, %.loopexit.us, %52
   %.092.lcssa = phi i32 [ 0, %52 ], [ %.193.lcssa.us, %.loopexit.us ], [ %.193.lcssa, %._crit_edge.split ]
@@ -266,12 +266,13 @@ attributes #2 = { nounwind }
 !15 = !{!4, !8, i64 24}
 !16 = !{!4, !10, i64 32}
 !17 = !{!4, !5, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19, !20, !21}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"double", !6, i64 0}
-!23 = distinct !{!23, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"double", !6, i64 0}
 !24 = distinct !{!24, !19, !20}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
+!25 = distinct !{!25, !19, !20, !21}
+!26 = distinct !{!26, !19, !20}
+!27 = distinct !{!27, !19, !20}

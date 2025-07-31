@@ -190,12 +190,12 @@ define void @err_cleanup() local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %1, %0
-  %4 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %4 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %4) #10
-  store ptr null, ptr @err_string_lock, align 8, !tbaa !14
-  %5 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  store ptr null, ptr @err_string_lock, align 8, !tbaa !15
+  %5 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   tail call void @OPENSSL_LH_free(ptr noundef %5) #10
-  store ptr null, ptr @int_error_hash, align 8, !tbaa !15
+  store ptr null, ptr @int_error_hash, align 8, !tbaa !16
   ret void
 }
 
@@ -215,52 +215,52 @@ define range(i32 0, 2) i32 @ossl_err_load_ERR_strings() local_unnamed_addr #0 {
   br i1 %or.cond, label %5, label %err_load_strings.exit10
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %6 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %7 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %6) #10
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %err_load_strings.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5
-  %8 = load i64, ptr @ERR_str_libraries, align 16, !tbaa !17
+  %8 = load i64, ptr @ERR_str_libraries, align 16, !tbaa !18
   %.not45.i = icmp eq i64 %8, 0
   br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.06.i = phi ptr [ %11, %.lr.ph.i ], [ @ERR_str_libraries, %.preheader.i ]
-  %9 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  %9 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   %10 = tail call ptr @OPENSSL_LH_insert(ptr noundef %9, ptr noundef nonnull %.06.i) #10
   %11 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !17
+  %12 = load i64, ptr %11, align 8, !tbaa !18
   %.not4.i = icmp eq i64 %12, 0
-  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %13 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %13 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %14 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %13) #10
   br label %err_load_strings.exit
 
 err_load_strings.exit:                            ; preds = %5, %._crit_edge.i
-  %15 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %15 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %16 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %15) #10
   %.not.i2 = icmp eq i32 %16, 0
   br i1 %.not.i2, label %err_load_strings.exit10, label %.preheader.i3
 
 .preheader.i3:                                    ; preds = %err_load_strings.exit
-  %17 = load i64, ptr @ERR_str_reasons, align 16, !tbaa !17
+  %17 = load i64, ptr @ERR_str_reasons, align 16, !tbaa !18
   %.not45.i4 = icmp eq i64 %17, 0
   br i1 %.not45.i4, label %._crit_edge.i8, label %.lr.ph.i5
 
 .lr.ph.i5:                                        ; preds = %.preheader.i3, %.lr.ph.i5
   %.06.i6 = phi ptr [ %20, %.lr.ph.i5 ], [ @ERR_str_reasons, %.preheader.i3 ]
-  %18 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  %18 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   %19 = tail call ptr @OPENSSL_LH_insert(ptr noundef %18, ptr noundef nonnull %.06.i6) #10
   %20 = getelementptr inbounds nuw i8, ptr %.06.i6, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !17
+  %21 = load i64, ptr %20, align 8, !tbaa !18
   %.not4.i7 = icmp eq i64 %21, 0
-  br i1 %.not4.i7, label %._crit_edge.i8, label %.lr.ph.i5, !llvm.loop !19
+  br i1 %.not4.i7, label %._crit_edge.i8, label %.lr.ph.i5, !llvm.loop !20
 
 ._crit_edge.i8:                                   ; preds = %.lr.ph.i5, %.preheader.i3
-  %22 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %22 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %23 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %22) #10
   br label %err_load_strings.exit10
 
@@ -279,21 +279,21 @@ define internal void @do_err_strings_init_ossl_() #0 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @CRYPTO_THREAD_lock_new() #10
-  store ptr %3, ptr @err_string_lock, align 8, !tbaa !14
+  store ptr %3, ptr @err_string_lock, align 8, !tbaa !15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %do_err_strings_init.exit, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @err_string_data_hash, ptr noundef nonnull @err_string_data_cmp) #10
   %7 = tail call ptr @OPENSSL_LH_set_thunks(ptr noundef %6, ptr noundef nonnull @lh_ERR_STRING_DATA_hash_thunk, ptr noundef nonnull @lh_ERR_STRING_DATA_comp_thunk, ptr noundef nonnull @lh_ERR_STRING_DATA_doall_thunk, ptr noundef nonnull @lh_ERR_STRING_DATA_doall_arg_thunk) #10
-  store ptr %7, ptr @int_error_hash, align 8, !tbaa !15
+  store ptr %7, ptr @int_error_hash, align 8, !tbaa !16
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %do_err_strings_init.exit
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %10 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %10) #10
-  store ptr null, ptr @err_string_lock, align 8, !tbaa !14
+  store ptr null, ptr @err_string_lock, align 8, !tbaa !15
   br label %do_err_strings_init.exit
 
 do_err_strings_init.exit:                         ; preds = %0, %2, %5, %9
@@ -312,7 +312,7 @@ define range(i32 0, 2) i32 @ERR_load_strings(i32 noundef %0, ptr noundef %1) loc
   %6 = shl i32 %0, 23
   %7 = and i32 %6, 2139095040
   %8 = zext nneg i32 %7 to i64
-  %9 = load i64, ptr %1, align 8, !tbaa !17
+  %9 = load i64, ptr %1, align 8, !tbaa !18
   %.not5.i = icmp eq i64 %9, 0
   br i1 %.not5.i, label %err_patch.exit, label %.lr.ph.i
 
@@ -320,34 +320,34 @@ define range(i32 0, 2) i32 @ERR_load_strings(i32 noundef %0, ptr noundef %1) loc
   %10 = phi i64 [ %13, %.lr.ph.i ], [ %9, %5 ]
   %.06.i = phi ptr [ %12, %.lr.ph.i ], [ %1, %5 ]
   %11 = or i64 %10, %8
-  store i64 %11, ptr %.06.i, align 8, !tbaa !17
+  store i64 %11, ptr %.06.i, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !17
+  %13 = load i64, ptr %12, align 8, !tbaa !18
   %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %err_patch.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %err_patch.exit, label %.lr.ph.i, !llvm.loop !21
 
 err_patch.exit:                                   ; preds = %.lr.ph.i, %5
-  %14 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %14 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %15 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %14) #10
   %.not.i3 = icmp eq i32 %15, 0
   br i1 %.not.i3, label %err_load_strings.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %err_patch.exit
-  %16 = load i64, ptr %1, align 8, !tbaa !17
+  %16 = load i64, ptr %1, align 8, !tbaa !18
   %.not45.i = icmp eq i64 %16, 0
   br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i4
 
 .lr.ph.i4:                                        ; preds = %.preheader.i, %.lr.ph.i4
   %.06.i5 = phi ptr [ %19, %.lr.ph.i4 ], [ %1, %.preheader.i ]
-  %17 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  %17 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   %18 = tail call ptr @OPENSSL_LH_insert(ptr noundef %17, ptr noundef nonnull %.06.i5) #10
   %19 = getelementptr inbounds nuw i8, ptr %.06.i5, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !17
+  %20 = load i64, ptr %19, align 8, !tbaa !18
   %.not4.i = icmp eq i64 %20, 0
-  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i4, !llvm.loop !19
+  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i4, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %.preheader.i
-  %21 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %21 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %22 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %21) #10
   br label %err_load_strings.exit
 
@@ -363,27 +363,27 @@ define range(i32 0, 2) i32 @ERR_load_strings_const(ptr noundef %0) local_unnamed
   br i1 %3, label %err_load_strings.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %5 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %6 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %5) #10
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %err_load_strings.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %4
-  %7 = load i64, ptr %0, align 8, !tbaa !17
+  %7 = load i64, ptr %0, align 8, !tbaa !18
   %.not45.i = icmp eq i64 %7, 0
   br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.06.i = phi ptr [ %10, %.lr.ph.i ], [ %0, %.preheader.i ]
-  %8 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  %8 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   %9 = tail call ptr @OPENSSL_LH_insert(ptr noundef %8, ptr noundef nonnull %.06.i) #10
   %10 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !17
+  %11 = load i64, ptr %10, align 8, !tbaa !18
   %.not4.i = icmp eq i64 %11, 0
-  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %12 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %12 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %13 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %12) #10
   br label %err_load_strings.exit
 
@@ -402,27 +402,27 @@ define range(i32 0, 2) i32 @ERR_unload_strings(i32 noundef %0, ptr noundef %1) l
   br i1 %or.cond, label %7, label %17
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %8 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %9 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %8) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %17, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %10 = load i64, ptr %1, align 8, !tbaa !17
+  %10 = load i64, ptr %1, align 8, !tbaa !18
   %.not56 = icmp eq i64 %10, 0
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.07 = phi ptr [ %13, %.lr.ph ], [ %1, %.preheader ]
-  %11 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  %11 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   %12 = tail call ptr @OPENSSL_LH_delete(ptr noundef %11, ptr noundef nonnull %.07) #10
   %13 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !17
+  %14 = load i64, ptr %13, align 8, !tbaa !18
   %.not5 = icmp eq i64 %14, 0
-  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %15 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %15 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %16 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %15) #10
   br label %17
 
@@ -474,7 +474,7 @@ define void @ERR_clear_error() local_unnamed_addr #0 {
   br i1 %.not23.i.i, label %err_clear.exit, label %18
 
 18:                                               ; preds = %16
-  store i8 0, ptr %17, align 1, !tbaa !22
+  store i8 0, ptr %17, align 1, !tbaa !23
   br label %.sink.split.i.i
 
 19:                                               ; preds = %11
@@ -507,13 +507,13 @@ err_clear.exit:                                   ; preds = %16, %.sink.split.i.
   store ptr null, ptr %27, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %29, label %11, !llvm.loop !23
+  br i1 %exitcond.not, label %29, label %11, !llvm.loop !24
 
 29:                                               ; preds = %err_clear.exit
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 900
-  store i32 0, ptr %30, align 4, !tbaa !24
+  store i32 0, ptr %30, align 4, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 896
-  store i32 0, ptr %31, align 8, !tbaa !26
+  store i32 0, ptr %31, align 8, !tbaa !27
   br label %32
 
 32:                                               ; preds = %0, %29
@@ -652,8 +652,8 @@ define internal fastcc i64 @get_error_values(i32 noundef range(i32 0, 3) %0, ptr
 .preheader:                                       ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 900
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 896
-  %11 = load i32, ptr %9, align 4, !tbaa !24
-  %12 = load i32, ptr %10, align 8, !tbaa !26
+  %11 = load i32, ptr %9, align 4, !tbaa !25
+  %12 = load i32, ptr %10, align 8, !tbaa !27
   %.not91 = icmp eq i32 %11, %12
   br i1 %.not91, label %err_clear_data.exit, label %.lr.ph
 
@@ -692,7 +692,7 @@ define internal fastcc i64 @get_error_values(i32 noundef range(i32 0, 3) %0, ptr
   br i1 %.not23.i.i, label %err_clear.exit, label %35
 
 35:                                               ; preds = %33
-  store i8 0, ptr %34, align 1, !tbaa !22
+  store i8 0, ptr %34, align 1, !tbaa !23
   br label %.sink.split.i.i
 
 36:                                               ; preds = %28
@@ -722,18 +722,18 @@ err_clear.exit:                                   ; preds = %33, %.sink.split.i.
   %44 = load ptr, ptr %43, align 8, !tbaa !7
   tail call void @CRYPTO_free(ptr noundef %44, ptr noundef nonnull @.str.7, i32 noundef 93) #10
   store ptr null, ptr %43, align 8, !tbaa !7
-  %45 = load i32, ptr %10, align 8, !tbaa !26
+  %45 = load i32, ptr %10, align 8, !tbaa !27
   %46 = icmp sgt i32 %45, 0
   %47 = add nsw i32 %45, -1
   %spec.select = select i1 %46, i32 %47, i32 15
-  store i32 %spec.select, ptr %10, align 8, !tbaa !26
+  store i32 %spec.select, ptr %10, align 8, !tbaa !27
   br label %.backedge
 
 .backedge:                                        ; preds = %err_clear.exit, %err_clear.exit83
   %48 = phi i32 [ %spec.select, %err_clear.exit ], [ %.pre, %err_clear.exit83 ]
-  %49 = load i32, ptr %9, align 4, !tbaa !24
+  %49 = load i32, ptr %9, align 4, !tbaa !25
   %.not = icmp eq i32 %49, %48
-  br i1 %.not, label %err_clear_data.exit, label %21, !llvm.loop !27
+  br i1 %.not, label %err_clear_data.exit, label %21, !llvm.loop !28
 
 50:                                               ; preds = %21
   %51 = add nsw i32 %23, 1
@@ -746,7 +746,7 @@ err_clear.exit:                                   ; preds = %33, %.sink.split.i.
   br i1 %.not73, label %74, label %57
 
 57:                                               ; preds = %50
-  store i32 %52, ptr %9, align 4, !tbaa !24
+  store i32 %52, ptr %9, align 4, !tbaa !25
   %58 = getelementptr inbounds nuw [16 x i32], ptr %13, i64 0, i64 %53
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = and i32 %59, 1
@@ -760,7 +760,7 @@ err_clear.exit:                                   ; preds = %33, %.sink.split.i.
   br i1 %.not23.i.i80, label %err_clear.exit83, label %64
 
 64:                                               ; preds = %62
-  store i8 0, ptr %63, align 1, !tbaa !22
+  store i8 0, ptr %63, align 1, !tbaa !23
   br label %.sink.split.i.i81
 
 65:                                               ; preds = %57
@@ -790,7 +790,7 @@ err_clear.exit83:                                 ; preds = %62, %.sink.split.i.
   %73 = load ptr, ptr %72, align 8, !tbaa !7
   tail call void @CRYPTO_free(ptr noundef %73, ptr noundef nonnull @.str.7, i32 noundef 93) #10
   store ptr null, ptr %72, align 8, !tbaa !7
-  %.pre = load i32, ptr %10, align 8, !tbaa !26
+  %.pre = load i32, ptr %10, align 8, !tbaa !27
   br label %.backedge
 
 74:                                               ; preds = %50
@@ -809,7 +809,7 @@ err_clear.exit83:                                 ; preds = %62, %.sink.split.i.
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %78
-  store i32 %52, ptr %9, align 4, !tbaa !24
+  store i32 %52, ptr %9, align 4, !tbaa !25
   store i64 0, ptr %79, align 8, !tbaa !10
   br label %83
 
@@ -881,7 +881,7 @@ err_clear.exit83:                                 ; preds = %62, %.sink.split.i.
   br i1 %.not23.i, label %err_clear_data.exit, label %114
 
 114:                                              ; preds = %112
-  store i8 0, ptr %113, align 1, !tbaa !22
+  store i8 0, ptr %113, align 1, !tbaa !23
   br label %.sink.split.i
 
 115:                                              ; preds = %107
@@ -1033,16 +1033,16 @@ define void @ossl_err_string_int(i64 noundef %0, ptr noundef %1, ptr noundef %2,
 19:                                               ; preds = %9
   %20 = and i64 %0, 4286578688
   %21 = select i1 %.not.i, i64 %20, i64 16777216
-  store i64 %21, ptr %5, align 8, !tbaa !17
-  %22 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  store i64 %21, ptr %5, align 8, !tbaa !18
+  %22 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %23 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %22) #10
   %.not.i6.i = icmp eq i32 %23, 0
   br i1 %.not.i6.i, label %ERR_lib_error_string.exit.thread, label %int_err_get_item.exit.i
 
 int_err_get_item.exit.i:                          ; preds = %19
-  %24 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  %24 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   %25 = call ptr @OPENSSL_LH_retrieve(ptr noundef %24, ptr noundef nonnull %5) #10
-  %26 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %26 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %27 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %26) #10
   %28 = icmp eq ptr %25, null
   br i1 %28, label %ERR_lib_error_string.exit.thread, label %ERR_lib_error_string.exit
@@ -1053,7 +1053,7 @@ ERR_lib_error_string.exit.thread:                 ; preds = %9, %int_err_get_ite
 
 ERR_lib_error_string.exit:                        ; preds = %int_err_get_item.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !28
+  %30 = load ptr, ptr %29, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
@@ -1118,23 +1118,23 @@ define ptr @ERR_lib_error_string(i64 noundef %0) local_unnamed_addr #0 {
   %.not.i = icmp eq i64 %8, 0
   %9 = and i64 %0, 4286578688
   %10 = select i1 %.not.i, i64 %9, i64 16777216
-  store i64 %10, ptr %2, align 8, !tbaa !17
-  %11 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  store i64 %10, ptr %2, align 8, !tbaa !18
+  %11 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %12 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %11) #10
   %.not.i6 = icmp eq i32 %12, 0
   br i1 %.not.i6, label %int_err_get_item.exit.thread, label %int_err_get_item.exit
 
 int_err_get_item.exit:                            ; preds = %7
-  %13 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  %13 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   %14 = call ptr @OPENSSL_LH_retrieve(ptr noundef %13, ptr noundef nonnull %2) #10
-  %15 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %15 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %16 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %15) #10
   %17 = icmp eq ptr %14, null
   br i1 %17, label %int_err_get_item.exit.thread, label %18
 
 18:                                               ; preds = %int_err_get_item.exit
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %20 = load ptr, ptr %19, align 8, !tbaa !29
   br label %int_err_get_item.exit.thread
 
 int_err_get_item.exit.thread:                     ; preds = %7, %18, %int_err_get_item.exit, %1
@@ -1164,31 +1164,31 @@ define ptr @ERR_reason_error_string(i64 noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %1
   %.0.i14 = and i64 %0, 8388607
   %9 = and i64 %0, 2147483647
-  store i64 %9, ptr %2, align 8, !tbaa !17
-  %10 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  store i64 %9, ptr %2, align 8, !tbaa !18
+  %10 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %11 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %10) #10
   %.not.i15 = icmp eq i32 %11, 0
   br i1 %.not.i15, label %int_err_get_item.exit.thread, label %int_err_get_item.exit
 
 int_err_get_item.exit:                            ; preds = %8
-  %12 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  %12 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   %13 = call ptr @OPENSSL_LH_retrieve(ptr noundef %12, ptr noundef nonnull %2) #10
-  %14 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %14 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %15 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %14) #10
   %16 = icmp eq ptr %13, null
   br i1 %16, label %int_err_get_item.exit.thread, label %int_err_get_item.exit19.thread22
 
 int_err_get_item.exit.thread:                     ; preds = %8, %int_err_get_item.exit
-  store i64 %.0.i14, ptr %2, align 8, !tbaa !17
-  %17 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  store i64 %.0.i14, ptr %2, align 8, !tbaa !18
+  %17 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %18 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %17) #10
   %.not.i17 = icmp eq i32 %18, 0
   br i1 %.not.i17, label %int_err_get_item.exit19.thread, label %int_err_get_item.exit19
 
 int_err_get_item.exit19:                          ; preds = %int_err_get_item.exit.thread
-  %19 = load ptr, ptr @int_error_hash, align 8, !tbaa !15
+  %19 = load ptr, ptr @int_error_hash, align 8, !tbaa !16
   %20 = call ptr @OPENSSL_LH_retrieve(ptr noundef %19, ptr noundef nonnull %2) #10
-  %21 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %21 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %22 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %21) #10
   %23 = icmp eq ptr %20, null
   br i1 %23, label %int_err_get_item.exit19.thread, label %int_err_get_item.exit19.thread22
@@ -1196,7 +1196,7 @@ int_err_get_item.exit19:                          ; preds = %int_err_get_item.ex
 int_err_get_item.exit19.thread22:                 ; preds = %int_err_get_item.exit, %int_err_get_item.exit19
   %.01024 = phi ptr [ %20, %int_err_get_item.exit19 ], [ %13, %int_err_get_item.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %.01024, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
   br label %int_err_get_item.exit19.thread
 
 int_err_get_item.exit19.thread:                   ; preds = %int_err_get_item.exit.thread, %int_err_get_item.exit19.thread22, %int_err_get_item.exit19, %1
@@ -1347,7 +1347,7 @@ define range(i32 0, 2) i32 @err_shelve_state(ptr noundef writeonly captures(none
 
 10:                                               ; preds = %5
   %11 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #10
-  store ptr %11, ptr %0, align 8, !tbaa !14
+  store ptr %11, ptr %0, align 8, !tbaa !15
   %12 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #10
   %.not3 = icmp eq i32 %12, 0
   br i1 %.not3, label %14, label %13
@@ -1384,7 +1384,7 @@ define i32 @ERR_get_next_error_library() local_unnamed_addr #0 {
   br i1 %or.cond, label %5, label %13
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %6 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %7 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %6) #10
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %8
@@ -1393,7 +1393,7 @@ define i32 @ERR_get_next_error_library() local_unnamed_addr #0 {
   %9 = load i32, ptr @int_err_library_number, align 4, !tbaa !3
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr @int_err_library_number, align 4, !tbaa !3
-  %11 = load ptr, ptr @err_string_lock, align 8, !tbaa !14
+  %11 = load ptr, ptr @err_string_lock, align 8, !tbaa !15
   %12 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %11) #10
   br label %13
 
@@ -1412,7 +1412,7 @@ define void @ERR_set_error_data(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 896
-  %9 = load i32, ptr %8, align 8, !tbaa !26
+  %9 = load i32, ptr %8, align 8, !tbaa !27
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 512
   %12 = getelementptr inbounds nuw [16 x i32], ptr %11, i64 0, i64 %10
@@ -1434,7 +1434,7 @@ err_clear_data.exit.i:                            ; preds = %7, %17
   %20 = getelementptr inbounds nuw [16 x i64], ptr %19, i64 0, i64 %10
   store i64 0, ptr %20, align 8, !tbaa !10
   store i32 0, ptr %12, align 4, !tbaa !3
-  %.pre.i = load i32, ptr %8, align 8, !tbaa !26
+  %.pre.i = load i32, ptr %8, align 8, !tbaa !27
   %.phi.trans.insert.i = sext i32 %.pre.i to i64
   %.phi.trans.insert11.i = getelementptr inbounds nuw [16 x i32], ptr %11, i64 0, i64 %.phi.trans.insert.i
   %.pre12.i = load i32, ptr %.phi.trans.insert11.i, align 4, !tbaa !3
@@ -1485,7 +1485,7 @@ define void @ERR_add_error_vdata(i32 noundef %0, ptr noundef captures(none) %1) 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 896
-  %7 = load i32, ptr %6, align 8, !tbaa !26
+  %7 = load i32, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 512
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds [16 x i32], ptr %8, i64 0, i64 %9
@@ -1499,7 +1499,7 @@ define void @ERR_add_error_vdata(i32 noundef %0, ptr noundef captures(none) %1) 
   %16 = getelementptr inbounds [16 x ptr], ptr %15, i64 0, i64 %9
   %17 = load ptr, ptr %16, align 8, !tbaa !7
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %23, label %18, !prof !29
+  br i1 %.not, label %23, label %18, !prof !30
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 384
@@ -1516,7 +1516,7 @@ define void @ERR_add_error_vdata(i32 noundef %0, ptr noundef captures(none) %1) 
   br i1 %25, label %88, label %26
 
 26:                                               ; preds = %23
-  store i8 0, ptr %24, align 1, !tbaa !22
+  store i8 0, ptr %24, align 1, !tbaa !23
   br label %27
 
 27:                                               ; preds = %26, %18
@@ -1593,7 +1593,7 @@ define void @ERR_add_error_vdata(i32 noundef %0, ptr noundef captures(none) %1) 
   %.2 = phi ptr [ %.160, %._crit_edge64 ], [ %55, %52 ]
   %57 = tail call i64 @OPENSSL_strlcat(ptr noundef %.2, ptr noundef nonnull %spec.store.select, i64 noundef %.pre-phi) #10
   %58 = icmp samesign ugt i32 %.in, 1
-  br i1 %58, label %32, label %._crit_edge, !llvm.loop !30
+  br i1 %58, label %32, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %56, %.._crit_edge_crit_edge
   %.pre-phi66 = phi i64 [ %.pre65, %.._crit_edge_crit_edge ], [ %.pre-phi, %56 ]
@@ -1604,7 +1604,7 @@ define void @ERR_add_error_vdata(i32 noundef %0, ptr noundef captures(none) %1) 
 
 61:                                               ; preds = %._crit_edge
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 896
-  %63 = load i32, ptr %62, align 8, !tbaa !26
+  %63 = load i32, ptr %62, align 8, !tbaa !27
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 512
   %66 = getelementptr inbounds nuw [16 x i32], ptr %65, i64 0, i64 %64
@@ -1621,7 +1621,7 @@ define void @ERR_add_error_vdata(i32 noundef %0, ptr noundef captures(none) %1) 
   br i1 %.not23.i.i, label %err_clear_data.exit.thread.i, label %73
 
 73:                                               ; preds = %71
-  store i8 0, ptr %72, align 1, !tbaa !22
+  store i8 0, ptr %72, align 1, !tbaa !23
   br label %err_clear_data.exit.i
 
 74:                                               ; preds = %61
@@ -1634,7 +1634,7 @@ define void @ERR_add_error_vdata(i32 noundef %0, ptr noundef captures(none) %1) 
 err_clear_data.exit.i:                            ; preds = %74, %73
   %.sink.i.i = phi i32 [ 1, %73 ], [ 0, %74 ]
   store i32 %.sink.i.i, ptr %66, align 4, !tbaa !3
-  %.pre.i = load i32, ptr %62, align 8, !tbaa !26
+  %.pre.i = load i32, ptr %62, align 8, !tbaa !27
   %.phi.trans.insert.i = sext i32 %.pre.i to i64
   %.phi.trans.insert11.i = getelementptr inbounds nuw [16 x i32], ptr %65, i64 0, i64 %.phi.trans.insert.i
   %.pre12.i = load i32, ptr %.phi.trans.insert11.i, align 4, !tbaa !3
@@ -1688,12 +1688,12 @@ define void @err_clear_last_constant_time(i32 noundef %0) local_unnamed_addr #0 
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 896
-  %6 = load i32, ptr %5, align 8, !tbaa !26
+  %6 = load i32, ptr %5, align 8, !tbaa !27
   %7 = icmp eq i32 %0, 0
   %.neg.i.i.i.i = sext i1 %7 to i32
-  %8 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #13, !srcloc !31
+  %8 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #13, !srcloc !32
   %9 = xor i32 %.neg.i.i.i.i, -1
-  %10 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %9) #13, !srcloc !31
+  %10 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %9) #13, !srcloc !32
   %11 = and i32 %10, 2
   %12 = sext i32 %6 to i64
   %13 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %12
@@ -1714,7 +1714,7 @@ declare ptr @OPENSSL_LH_new(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @err_string_data_hash(ptr noundef readonly captures(none) %0) #7 {
-  %2 = load i64, ptr %0, align 8, !tbaa !17
+  %2 = load i64, ptr %0, align 8, !tbaa !18
   %3 = and i64 %2, 2147483648
   %.not.i = icmp eq i64 %3, 0
   %4 = lshr i64 %2, 23
@@ -1729,8 +1729,8 @@ define internal i64 @err_string_data_hash(ptr noundef readonly captures(none) %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @err_string_data_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
-  %3 = load i64, ptr %0, align 8, !tbaa !17
-  %4 = load i64, ptr %1, align 8, !tbaa !17
+  %3 = load i64, ptr %0, align 8, !tbaa !18
+  %4 = load i64, ptr %1, align 8, !tbaa !18
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
   ret i32 %.0
 }
@@ -1799,23 +1799,24 @@ attributes #13 = { nounwind memory(none) }
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!9, !9, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS24lhash_st_ERR_STRING_DATA", !9, i64 0}
-!17 = !{!18, !11, i64 0}
-!18 = !{!"ERR_string_data_st", !11, i64 0, !8, i64 8}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13}
-!21 = distinct !{!21, !13}
-!22 = !{!5, !5, i64 0}
-!23 = distinct !{!23, !13}
-!24 = !{!25, !4, i64 900}
-!25 = !{!"err_state_st", !5, i64 0, !5, i64 64, !5, i64 128, !5, i64 256, !5, i64 384, !5, i64 512, !5, i64 576, !5, i64 704, !5, i64 768, !4, i64 896, !4, i64 900}
-!26 = !{!25, !4, i64 896}
-!27 = distinct !{!27, !13}
-!28 = !{!18, !8, i64 8}
-!29 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!30 = distinct !{!30, !13}
-!31 = !{i64 1278620}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!9, !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS24lhash_st_ERR_STRING_DATA", !9, i64 0}
+!18 = !{!19, !11, i64 0}
+!19 = !{!"ERR_string_data_st", !11, i64 0, !8, i64 8}
+!20 = distinct !{!20, !13, !14}
+!21 = distinct !{!21, !13, !14}
+!22 = distinct !{!22, !13, !14}
+!23 = !{!5, !5, i64 0}
+!24 = distinct !{!24, !13, !14}
+!25 = !{!26, !4, i64 900}
+!26 = !{!"err_state_st", !5, i64 0, !5, i64 64, !5, i64 128, !5, i64 256, !5, i64 384, !5, i64 512, !5, i64 576, !5, i64 704, !5, i64 768, !4, i64 896, !4, i64 900}
+!27 = !{!26, !4, i64 896}
+!28 = distinct !{!28, !13, !14}
+!29 = !{!19, !8, i64 8}
+!30 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!31 = distinct !{!31, !13, !14}
+!32 = !{i64 1278620}

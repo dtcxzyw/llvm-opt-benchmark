@@ -101,7 +101,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN12GIM_BOX_TREE20_calc_splitting
   %66 = fadd float %.sroa.14.097, %63
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge101, label %39, !llvm.loop !15
+  br i1 %exitcond115.not, label %._crit_edge101, label %39, !llvm.loop !16
 
 ._crit_edge101:                                   ; preds = %39, %._crit_edge
   %67 = phi float [ %31, %._crit_edge ], [ %32, %39 ]
@@ -157,7 +157,7 @@ define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexE
   %19 = tail call float @llvm.fmuladd.f32(float %18, float 5.000000e-01, float %.04446)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph51, label %11, !llvm.loop !16
+  br i1 %exitcond.not, label %.lr.ph51, label %11, !llvm.loop !17
 
 .lr.ph51:                                         ; preds = %11
   %20 = uitofp i32 %6 to float
@@ -186,15 +186,15 @@ define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexE
 35:                                               ; preds = %24
   %36 = zext i32 %.04248 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !18
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %38 = load i32, ptr %37, align 4, !tbaa !19
+  %38 = load i32, ptr %37, align 4, !tbaa !20
   %39 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %25, i64 %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %26, ptr noundef nonnull align 4 dereferenceable(36) %39, i64 36, i1 false), !tbaa.struct !23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !tbaa.struct !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %26, ptr noundef nonnull align 4 dereferenceable(36) %39, i64 36, i1 false), !tbaa.struct !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !tbaa.struct !24
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store i32 %38, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !24
+  store i32 %38, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
   %40 = add i32 %.04248, 1
   br label %41
@@ -203,7 +203,7 @@ define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexE
   %.143 = phi i32 [ %40, %35 ], [ %.04248, %24 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge52, label %24, !llvm.loop !25
+  br i1 %exitcond59.not, label %._crit_edge52, label %24, !llvm.loop !26
 
 ._crit_edge52:                                    ; preds = %41, %5
   %.042.lcssa = phi i32 [ %2, %5 ], [ %.143, %41 ]
@@ -226,34 +226,34 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %.sroa.0.i.i.i = alloca %class.GIM_AABB, align 8
-  %5 = load i32, ptr %0, align 8, !tbaa !26
+  %5 = load i32, ptr %0, align 8, !tbaa !27
   %6 = add i32 %5, 1
-  store i32 %6, ptr %0, align 8, !tbaa !26
+  store i32 %6, ptr %0, align 8, !tbaa !27
   %7 = sub i32 %3, %2
   %8 = icmp eq i32 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = zext i32 %5 to i64
-  %11 = load ptr, ptr %9, align 8, !tbaa !30
+  %11 = load ptr, ptr %9, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %11, i64 %10
   br i1 %8, label %common.ret, label %24
 
 common.ret:                                       ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 0, ptr %13, align 4, !tbaa !31
+  store i32 0, ptr %13, align 4, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i32 0, ptr %14, align 4, !tbaa !33
+  store i32 0, ptr %14, align 4, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 0, ptr %15, align 4, !tbaa !34
+  store i32 0, ptr %15, align 4, !tbaa !35
   %16 = zext i32 %2 to i64
   %17 = load ptr, ptr %1, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %17, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %18, i64 32, i1 false), !tbaa.struct !35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %18, i64 32, i1 false), !tbaa.struct !36
   %19 = load ptr, ptr %1, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %19, i64 %16, i32 1
-  %21 = load i32, ptr %20, align 4, !tbaa !19
-  %22 = load ptr, ptr %9, align 8, !tbaa !30
+  %21 = load i32, ptr %20, align 4, !tbaa !20
+  %22 = load ptr, ptr %9, align 8, !tbaa !31
   %23 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %22, i64 %10, i32 4
-  store i32 %21, ptr %23, align 4, !tbaa !36
+  store i32 %21, ptr %23, align 4, !tbaa !37
   br label %common.ret47
 
 24:                                               ; preds = %4
@@ -325,7 +325,7 @@ common.ret:                                       ; preds = %4
   store float %63, ptr %29, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph.i, label %33, !llvm.loop !37
+  br i1 %exitcond.not, label %.lr.ph.i, label %33, !llvm.loop !38
 
 .lr.ph.i:                                         ; preds = %33
   %64 = tail call noundef i32 @_ZN12GIM_BOX_TREE20_calc_splitting_axisER9gim_arrayI13GIM_AABB_DATAEjj(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3)
@@ -348,7 +348,7 @@ common.ret:                                       ; preds = %4
   %76 = tail call float @llvm.fmuladd.f32(float %75, float 5.000000e-01, float %.04446.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph51.i, label %68, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.lr.ph51.i, label %68, !llvm.loop !17
 
 .lr.ph51.i:                                       ; preds = %68
   %77 = uitofp i32 %7 to float
@@ -374,15 +374,15 @@ common.ret:                                       ; preds = %4
 90:                                               ; preds = %79
   %91 = zext i32 %.04248.i to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !18
   %92 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %93 = load i32, ptr %92, align 4, !tbaa !19
+  %93 = load i32, ptr %92, align 4, !tbaa !20
   %94 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %80, i64 %91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %81, ptr noundef nonnull align 4 dereferenceable(36) %94, i64 36, i1 false), !tbaa.struct !23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i, i64 32, i1 false), !tbaa.struct !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %81, ptr noundef nonnull align 4 dereferenceable(36) %94, i64 36, i1 false), !tbaa.struct !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i, i64 32, i1 false), !tbaa.struct !24
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 32
-  store i32 %93, ptr %.sroa.5.0..sroa_idx.i.i.i, align 4, !tbaa !24
+  store i32 %93, ptr %.sroa.5.0..sroa_idx.i.i.i, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
   %95 = add i32 %.04248.i, 1
   %.pre = load ptr, ptr %1, align 8, !tbaa !4
@@ -393,14 +393,14 @@ common.ret:                                       ; preds = %4
   %.143.i = phi i32 [ %95, %90 ], [ %.04248.i, %79 ]
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count.i
-  br i1 %exitcond59.not.i, label %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit.loopexit, label %79, !llvm.loop !25
+  br i1 %exitcond59.not.i, label %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit.loopexit, label %79, !llvm.loop !26
 
 common.ret47:                                     ; preds = %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit, %common.ret
   ret void
 
 _ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit.loopexit: ; preds = %96
-  %.pre45 = load i32, ptr %0, align 8, !tbaa !26
-  %.pre46 = load ptr, ptr %9, align 8, !tbaa !30
+  %.pre45 = load i32, ptr %0, align 8, !tbaa !27
+  %.pre46 = load ptr, ptr %9, align 8, !tbaa !31
   br label %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit
 
 _ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit: ; preds = %24, %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit.loopexit
@@ -418,40 +418,40 @@ _ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjj
   %107 = add i32 %106, %2
   %.2.i = select i1 %105, i32 %107, i32 %.042.lcssa.i
   %108 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %98, i64 %10, i32 1
-  store i32 %99, ptr %108, align 4, !tbaa !31
+  store i32 %99, ptr %108, align 4, !tbaa !32
   tail call void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i32 noundef %.2.i)
-  %109 = load i32, ptr %0, align 8, !tbaa !26
-  %110 = load ptr, ptr %9, align 8, !tbaa !30
+  %109 = load i32, ptr %0, align 8, !tbaa !27
+  %110 = load ptr, ptr %9, align 8, !tbaa !31
   %111 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %110, i64 %10, i32 2
-  store i32 %109, ptr %111, align 4, !tbaa !33
+  store i32 %109, ptr %111, align 4, !tbaa !34
   tail call void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.2.i, i32 noundef %3)
-  %112 = load i32, ptr %0, align 8, !tbaa !26
+  %112 = load i32, ptr %0, align 8, !tbaa !27
   %113 = sub i32 %112, %5
-  %114 = load ptr, ptr %9, align 8, !tbaa !30
+  %114 = load ptr, ptr %9, align 8, !tbaa !31
   %115 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %114, i64 %10, i32 3
-  store i32 %113, ptr %115, align 4, !tbaa !34
+  store i32 %113, ptr %115, align 4, !tbaa !35
   br label %common.ret47
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12GIM_BOX_TREE10build_treeER9gim_arrayI13GIM_AABB_DATAE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %struct.GIM_BOX_TREE_NODE, align 4
-  store i32 0, ptr %0, align 8, !tbaa !26
+  store i32 0, ptr %0, align 8, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !38
+  %6 = load i32, ptr %5, align 8, !tbaa !39
   %7 = shl i32 %6, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %.32..32..32..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.32..32..32..sroa_idx, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !39
+  %9 = load i32, ptr %8, align 8, !tbaa !40
   %10 = icmp ugt i32 %7, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !40
+  %13 = load i32, ptr %12, align 4, !tbaa !41
   %.not.i.i = icmp ult i32 %13, %7
   br i1 %.not.i.i, label %14, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i
 
@@ -460,7 +460,7 @@ define dso_local void @_ZN12GIM_BOX_TREE10build_treeER9gim_arrayI13GIM_AABB_DATA
   br i1 %.not.i.i.i, label %22, label %15
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr %4, align 8, !tbaa !30
+  %16 = load ptr, ptr %4, align 8, !tbaa !31
   %17 = zext i32 %9 to i64
   %18 = mul nuw nsw i64 %17, 48
   %19 = zext i32 %7 to i64
@@ -476,9 +476,9 @@ define dso_local void @_ZN12GIM_BOX_TREE10build_treeER9gim_arrayI13GIM_AABB_DATA
 
 _ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i: ; preds = %22, %15
   %storemerge.i.i.i = phi ptr [ %25, %22 ], [ %21, %15 ]
-  store ptr %storemerge.i.i.i, ptr %4, align 8, !tbaa !30
-  store i32 %7, ptr %12, align 4, !tbaa !40
-  %.pre = load i32, ptr %8, align 8, !tbaa !39
+  store ptr %storemerge.i.i.i, ptr %4, align 8, !tbaa !31
+  store i32 %7, ptr %12, align 4, !tbaa !41
+  %.pre = load i32, ptr %8, align 8, !tbaa !40
   br label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i
 
 _ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i: ; preds = %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i, %11
@@ -488,27 +488,27 @@ _ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i: ; preds = %_ZN9gim_arrayI17
 
 .lr.ph.i:                                         ; preds = %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i, %.lr.ph.i
   %28 = phi i32 [ %33, %.lr.ph.i ], [ %26, %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i ]
-  %29 = load ptr, ptr %4, align 8, !tbaa !30
+  %29 = load ptr, ptr %4, align 8, !tbaa !31
   %30 = zext i32 %28 to i64
   %31 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %29, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %31, ptr noundef nonnull align 4 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !41
-  %32 = load i32, ptr %8, align 8, !tbaa !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %31, ptr noundef nonnull align 4 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !42
+  %32 = load i32, ptr %8, align 8, !tbaa !40
   %33 = add i32 %32, 1
-  store i32 %33, ptr %8, align 8, !tbaa !39
+  store i32 %33, ptr %8, align 8, !tbaa !40
   %34 = icmp ult i32 %33, %7
-  br i1 %34, label %.lr.ph.i, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit, !llvm.loop !42
+  br i1 %34, label %.lr.ph.i, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit, !llvm.loop !43
 
 35:                                               ; preds = %2
   %36 = icmp ult i32 %7, %9
   br i1 %36, label %.loopexit.sink.split.i, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit
 
 .loopexit.sink.split.i:                           ; preds = %35
-  store i32 %7, ptr %8, align 8, !tbaa !39
+  store i32 %7, ptr %8, align 8, !tbaa !40
   br label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit
 
 _ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit: ; preds = %.lr.ph.i, %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i, %35, %.loopexit.sink.split.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  %37 = load i32, ptr %5, align 8, !tbaa !38
+  %37 = load i32, ptr %5, align 8, !tbaa !39
   tail call void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0, i32 noundef %37)
   ret void
 }
@@ -545,33 +545,34 @@ attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !10 = !{!"int", !8, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"float", !8, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = !{i64 0, i64 16, !18}
-!18 = !{!8, !8, i64 0}
-!19 = !{!20, !10, i64 32}
-!20 = !{!"_ZTS13GIM_AABB_DATA", !21, i64 0, !10, i64 32}
-!21 = !{!"_ZTS8GIM_AABB", !22, i64 0, !22, i64 16}
-!22 = !{!"_ZTS9btVector3", !8, i64 0}
-!23 = !{i64 0, i64 16, !18, i64 16, i64 16, !18, i64 32, i64 4, !24}
-!24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !14}
-!26 = !{!27, !10, i64 0}
-!27 = !{!"_ZTS12GIM_BOX_TREE", !10, i64 0, !28, i64 8}
-!28 = !{!"_ZTS9gim_arrayI17GIM_BOX_TREE_NODEE", !29, i64 0, !10, i64 8, !10, i64 12}
-!29 = !{!"p1 _ZTS17GIM_BOX_TREE_NODE", !7, i64 0}
-!30 = !{!28, !29, i64 0}
-!31 = !{!32, !10, i64 32}
-!32 = !{!"_ZTS17GIM_BOX_TREE_NODE", !21, i64 0, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44}
-!33 = !{!32, !10, i64 36}
-!34 = !{!32, !10, i64 40}
-!35 = !{i64 0, i64 16, !18, i64 16, i64 16, !18}
-!36 = !{!32, !10, i64 44}
-!37 = distinct !{!37, !14}
-!38 = !{!5, !10, i64 8}
-!39 = !{!28, !10, i64 8}
-!40 = !{!28, !10, i64 12}
-!41 = !{i64 0, i64 16, !18, i64 16, i64 16, !18, i64 32, i64 4, !24, i64 36, i64 4, !24, i64 40, i64 4, !24, i64 44, i64 4, !24}
-!42 = distinct !{!42, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = !{i64 0, i64 16, !19}
+!19 = !{!8, !8, i64 0}
+!20 = !{!21, !10, i64 32}
+!21 = !{!"_ZTS13GIM_AABB_DATA", !22, i64 0, !10, i64 32}
+!22 = !{!"_ZTS8GIM_AABB", !23, i64 0, !23, i64 16}
+!23 = !{!"_ZTS9btVector3", !8, i64 0}
+!24 = !{i64 0, i64 16, !19, i64 16, i64 16, !19, i64 32, i64 4, !25}
+!25 = !{!10, !10, i64 0}
+!26 = distinct !{!26, !14, !15}
+!27 = !{!28, !10, i64 0}
+!28 = !{!"_ZTS12GIM_BOX_TREE", !10, i64 0, !29, i64 8}
+!29 = !{!"_ZTS9gim_arrayI17GIM_BOX_TREE_NODEE", !30, i64 0, !10, i64 8, !10, i64 12}
+!30 = !{!"p1 _ZTS17GIM_BOX_TREE_NODE", !7, i64 0}
+!31 = !{!29, !30, i64 0}
+!32 = !{!33, !10, i64 32}
+!33 = !{!"_ZTS17GIM_BOX_TREE_NODE", !22, i64 0, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44}
+!34 = !{!33, !10, i64 36}
+!35 = !{!33, !10, i64 40}
+!36 = !{i64 0, i64 16, !19, i64 16, i64 16, !19}
+!37 = !{!33, !10, i64 44}
+!38 = distinct !{!38, !14, !15}
+!39 = !{!5, !10, i64 8}
+!40 = !{!29, !10, i64 8}
+!41 = !{!29, !10, i64 12}
+!42 = !{i64 0, i64 16, !19, i64 16, i64 16, !19, i64 32, i64 4, !25, i64 36, i64 4, !25, i64 40, i64 4, !25, i64 44, i64 4, !25}
+!43 = distinct !{!43, !14, !15}

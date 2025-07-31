@@ -335,11 +335,11 @@ define internal i32 @filtering_ref_iterator_next(ptr noundef readonly captures(n
   ]
 
 .thread.backedge:                                 ; preds = %20, %25, %26
-  br label %.thread
+  br label %.thread, !llvm.loop !50
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %11, align 8, !tbaa !50
-  %24 = load i64, ptr %13, align 8, !tbaa !52
+  %23 = load ptr, ptr %11, align 8, !tbaa !52
+  %24 = load i64, ptr %13, align 8, !tbaa !54
   %bcmp = call i32 @bcmp(ptr %23, ptr nonnull %14, i64 %24)
   %.not19 = icmp eq i32 %bcmp, 0
   br i1 %.not19, label %.loopexit, label %25
@@ -350,8 +350,8 @@ define internal i32 @filtering_ref_iterator_next(ptr noundef readonly captures(n
   br i1 %.not21, label %.loopexit, label %.thread.backedge
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr %11, align 8, !tbaa !50
-  %28 = load i64, ptr %13, align 8, !tbaa !52
+  %27 = load ptr, ptr %11, align 8, !tbaa !52
+  %28 = load i64, ptr %13, align 8, !tbaa !54
   %bcmp22 = call i32 @bcmp(ptr %27, ptr nonnull %12, i64 %28)
   %.not23 = icmp eq i32 %bcmp22, 0
   br i1 %.not23, label %.loopexit, label %.thread.backedge
@@ -464,8 +464,8 @@ indexed_table_ref_iter_next_block.exit:           ; preds = %32
   br i1 %33, label %select.unfold, label %indexed_table_ref_iter_next_block.exit.thread
 
 34:                                               ; preds = %16
-  %35 = load ptr, ptr %5, align 8, !tbaa !53
-  %36 = load i64, ptr %15, align 8, !tbaa !54
+  %35 = load ptr, ptr %5, align 8, !tbaa !55
+  %36 = load i64, ptr %15, align 8, !tbaa !56
   %bcmp = tail call i32 @bcmp(ptr %35, ptr nonnull %14, i64 %36)
   %.not22 = icmp eq i32 %bcmp, 0
   br i1 %.not22, label %indexed_table_ref_iter_next_block.exit.thread, label %37
@@ -574,8 +574,10 @@ attributes #11 = { noreturn nounwind }
 !47 = !{!46, !18, i64 16}
 !48 = !{i64 0, i64 8, !42, i64 8, i64 8, !33, i64 16, i64 8, !33, i64 24, i64 4, !43, i64 32, i64 112, !44}
 !49 = !{!40, !21, i64 24}
-!50 = !{!51, !19, i64 16}
-!51 = !{!"filtering_ref_iterator", !17, i64 0, !5, i64 24}
-!52 = !{!51, !18, i64 8}
-!53 = !{!15, !19, i64 24}
-!54 = !{!15, !18, i64 16}
+!50 = distinct !{!50, !51}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = !{!53, !19, i64 16}
+!53 = !{!"filtering_ref_iterator", !17, i64 0, !5, i64 24}
+!54 = !{!53, !18, i64 8}
+!55 = !{!15, !19, i64 24}
+!56 = !{!15, !18, i64 16}

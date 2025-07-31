@@ -63957,7 +63957,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %16 = getelementptr inbounds nuw i8, ptr %.013, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not = icmp eq ptr %15, %0
-  br i1 %.not, label %18, label %3
+  br i1 %.not, label %18, label %3, !llvm.loop !19
 
 18:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -64443,7 +64443,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -64763,7 +64763,7 @@ lean_array_uset.exit109:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit109, %lean_array_uset.exit
   %.074.be = phi ptr [ %19, %lean_array_uset.exit ], [ %60, %lean_array_uset.exit109 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i106, %lean_array_uset.exit109 ]
-  br label %3
+  br label %3, !llvm.loop !22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -65566,7 +65566,7 @@ lean_dec.exit362:                                 ; preds = %92, %91, %89, %82
 
 95:                                               ; preds = %lean_dec.exit362
   %96 = load ptr, ptr %94, align 8, !tbaa !9
-  %97 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !19
+  %97 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !23
   %98 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Meta_Grind_Canon_canonElemCore___spec__8___lambda__2___closed__9, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %99 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #9
@@ -65588,9 +65588,9 @@ lean_alloc_ctor.exit:                             ; preds = %95
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr %98, ptr %105, align 8, !tbaa !9
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store double %97, ptr %106, align 8, !tbaa !19
+  store double %97, ptr %106, align 8, !tbaa !23
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  store double %97, ptr %107, align 8, !tbaa !19
+  store double %97, ptr %107, align 8, !tbaa !23
   %108 = load ptr, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__2, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %109 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #9
@@ -65793,7 +65793,7 @@ lean_inc.exit351:                                 ; preds = %176, %175, %173, %1
   br label %lean_dec.exit359
 
 lean_dec.exit359:                                 ; preds = %183, %182, %180, %lean_inc.exit351
-  %184 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !19
+  %184 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !23
   %185 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Meta_Grind_Canon_canonElemCore___spec__8___lambda__2___closed__9, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %186 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #9
@@ -65815,9 +65815,9 @@ lean_alloc_ctor.exit422:                          ; preds = %lean_dec.exit359
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   store ptr %185, ptr %192, align 8, !tbaa !9
   %193 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  store double %184, ptr %193, align 8, !tbaa !19
+  store double %184, ptr %193, align 8, !tbaa !23
   %194 = getelementptr inbounds nuw i8, ptr %186, i64 32
-  store double %184, ptr %194, align 8, !tbaa !19
+  store double %184, ptr %194, align 8, !tbaa !23
   %195 = load ptr, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__2, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %196 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #9
@@ -66327,7 +66327,7 @@ lean_ctor_release.exit465:                        ; preds = %368, %375, %377, %3
 
 lean_dec_ref.exit388:                             ; preds = %384, %383, %381, %lean_ctor_release.exit465
   %.0321 = phi ptr [ %58, %lean_ctor_release.exit465 ], [ inttoptr (i64 1 to ptr), %381 ], [ inttoptr (i64 1 to ptr), %383 ], [ inttoptr (i64 1 to ptr), %384 ]
-  %385 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !19
+  %385 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !23
   %386 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Meta_Grind_Canon_canonElemCore___spec__8___lambda__2___closed__9, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %387 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #9
@@ -66349,9 +66349,9 @@ lean_alloc_ctor.exit467:                          ; preds = %lean_dec_ref.exit38
   %393 = getelementptr inbounds nuw i8, ptr %387, i64 16
   store ptr %386, ptr %393, align 8, !tbaa !9
   %394 = getelementptr inbounds nuw i8, ptr %387, i64 24
-  store double %385, ptr %394, align 8, !tbaa !19
+  store double %385, ptr %394, align 8, !tbaa !23
   %395 = getelementptr inbounds nuw i8, ptr %387, i64 32
-  store double %385, ptr %395, align 8, !tbaa !19
+  store double %385, ptr %395, align 8, !tbaa !23
   %396 = load ptr, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__2, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %397 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #9
@@ -67188,7 +67188,7 @@ lean_ctor_release.exit543:                        ; preds = %694, %701, %703, %7
 
 lean_dec_ref.exit382:                             ; preds = %710, %709, %707, %lean_ctor_release.exit543
   %.0326 = phi ptr [ %58, %lean_ctor_release.exit543 ], [ inttoptr (i64 1 to ptr), %707 ], [ inttoptr (i64 1 to ptr), %709 ], [ inttoptr (i64 1 to ptr), %710 ]
-  %711 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !19
+  %711 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !23
   %712 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Meta_Grind_Canon_canonElemCore___spec__8___lambda__2___closed__9, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %713 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #9
@@ -67210,9 +67210,9 @@ lean_alloc_ctor.exit545:                          ; preds = %lean_dec_ref.exit38
   %719 = getelementptr inbounds nuw i8, ptr %713, i64 16
   store ptr %712, ptr %719, align 8, !tbaa !9
   %720 = getelementptr inbounds nuw i8, ptr %713, i64 24
-  store double %711, ptr %720, align 8, !tbaa !19
+  store double %711, ptr %720, align 8, !tbaa !23
   %721 = getelementptr inbounds nuw i8, ptr %713, i64 32
-  store double %711, ptr %721, align 8, !tbaa !19
+  store double %711, ptr %721, align 8, !tbaa !23
   %722 = load ptr, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__2, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %723 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #9
@@ -112165,7 +112165,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit10579.backedge:                      ; preds = %11911, %11913, %11923, %11922, %11920
   %.08343.be = phi ptr [ %11915, %11913 ], [ %11917, %11920 ], [ %11917, %11922 ], [ %11917, %11923 ], [ inttoptr (i64 1 to ptr), %11911 ]
   %.08342.be = phi ptr [ %.1.i1569418283, %11913 ], [ %11916, %11920 ], [ %11916, %11922 ], [ %11916, %11923 ], [ %.1.i1569418283, %11911 ]
-  br label %lean_dec.exit10579
+  br label %lean_dec.exit10579, !llvm.loop !25
 
 11913:                                            ; preds = %11911
   %11914 = add i64 %11888, -2
@@ -149953,7 +149953,7 @@ lean_obj_tag.exit.i:                              ; preds = %74, %71
   %81 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !9
   %.not.i371 = icmp eq ptr %80, %0
-  br i1 %.not.i371, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__1.exit, label %lean_array_uget.exit
+  br i1 %.not.i371, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__1.exit, label %lean_array_uget.exit, !llvm.loop !19
 
 83:                                               ; preds = %lean_obj_tag.exit.i
   %84 = ptrtoint ptr %45 to i64
@@ -150771,7 +150771,7 @@ lean_obj_tag.exit.i425:                           ; preds = %403, %400
   %410 = getelementptr inbounds nuw i8, ptr %.013.i423, i64 24
   %411 = load ptr, ptr %410, align 8, !tbaa !9
   %.not.i427 = icmp eq ptr %409, %0
-  br i1 %.not.i427, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__1.exit430, label %lean_array_uget.exit422
+  br i1 %.not.i427, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__1.exit430, label %lean_array_uget.exit422, !llvm.loop !19
 
 412:                                              ; preds = %lean_obj_tag.exit.i425
   br i1 %.not513, label %423, label %413, !prof !17
@@ -156785,7 +156785,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %16 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not.i8 = icmp eq ptr %15, %0
-  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__1.exit, label %3
+  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__1.exit, label %3, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -160221,7 +160221,7 @@ lean_dec_ref.exit:                                ; preds = %77, %79, %80
   store ptr %161, ptr @l_panic___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__7___closed__6, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %161) #9
   %162 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #9
-  store double %162, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !19
+  store double %162, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__1, align 8, !tbaa !23
   %163 = tail call ptr @lean_array_mk(ptr noundef nonnull inttoptr (i64 1 to ptr)) #9
   store ptr %163, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Canon_canonImpl_visit___spec__9___closed__2, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %163) #9
@@ -160703,5 +160703,10 @@ attributes #10 = { noreturn nounwind }
 !16 = !{!"short", !7, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"double", !7, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"double", !7, i64 0}
+!25 = distinct !{!25, !20}

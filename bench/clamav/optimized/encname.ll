@@ -182,7 +182,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   %93 = icmp samesign ugt i32 %.175103, 1
   %94 = icmp ult i64 %92, %invariant.umin
   %or.cond95 = select i1 %93, i1 %94, i1 false
-  br i1 %or.cond95, label %.lr.ph104, label %.critedge2, !llvm.loop !15
+  br i1 %or.cond95, label %.lr.ph104, label %.critedge2, !llvm.loop !16
 
 default.unreachable116:                           ; preds = %26
   unreachable
@@ -197,7 +197,7 @@ default.unreachable116:                           ; preds = %26
   %97 = icmp ult i64 %.3, %4
   %98 = icmp ult i64 %.177, %6
   %99 = select i1 %97, i1 %98, i1 false
-  br i1 %99, label %18, label %._crit_edge, !llvm.loop !16
+  br i1 %99, label %18, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.critedge2, %12
   %.076.lcssa = phi i64 [ 0, %12 ], [ %.177, %.critedge2 ]
@@ -235,7 +235,8 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = !{!4, !7, i64 4}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"wchar_t", !5, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}

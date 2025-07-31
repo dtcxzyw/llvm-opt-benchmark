@@ -515,7 +515,7 @@ is_http2_stream_contains.exit.thread:             ; preds = %.lr.ph, %is_http2_s
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %27 = trunc nuw i64 %indvars.iv to i32
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %is_http2_stream_contains.exit.thread, %get_http2_stream_count.exit, %25
   %29 = phi i1 [ true, %25 ], [ false, %get_http2_stream_count.exit ], [ false, %is_http2_stream_contains.exit.thread ]
@@ -586,7 +586,7 @@ is_http2_stream_contains.exit:                    ; preds = %.lr.ph
 is_http2_stream_contains.exit.thread:             ; preds = %.lr.ph, %is_http2_stream_contains.exit
   %24 = add i32 %.01018, 1
   %.not.not = icmp sgt i32 %24, %.012.i
-  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %is_http2_stream_contains.exit.thread, %get_http2_stream_count.exit, %23
   %.not15 = phi i1 [ true, %23 ], [ false, %get_http2_stream_count.exit ], [ false, %is_http2_stream_contains.exit.thread ]
@@ -709,7 +709,7 @@ define internal fastcc void @dissect_http2_settings(ptr noundef %0, ptr noundef 
   %61 = add i32 %.053, 6
   %62 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %61)
   %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %11, label %._crit_edge, !llvm.loop !10
+  br i1 %63, label %11, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %59, %5
   ret void
@@ -1219,7 +1219,7 @@ dissect_http2_altsvc.exit:                        ; preds = %262, %270
   %289 = add i32 %288, %284
   %290 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %289)
   %291 = icmp sgt i32 %290, 0
-  br i1 %291, label %.lr.ph.i, label %dissect_http2_origin.exit, !llvm.loop !11
+  br i1 %291, label %.lr.ph.i, label %dissect_http2_origin.exit, !llvm.loop !12
 
 dissect_http2_origin.exit:                        ; preds = %.lr.ph.i, %275
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
@@ -1988,9 +1988,10 @@ attributes #9 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

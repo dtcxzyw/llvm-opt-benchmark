@@ -3611,7 +3611,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit36
   %.032.be = phi ptr [ %.0, %lean_inc.exit36 ], [ %70, %lean_alloc_ctor.exit ]
-  br label %6
+  br label %6, !llvm.loop !15
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -4007,7 +4007,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit36
   %.032.be = phi ptr [ %.0, %lean_inc.exit36 ], [ %70, %lean_alloc_ctor.exit ]
-  br label %6
+  br label %6, !llvm.loop !17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9736,10 +9736,10 @@ lean_dec.exit59:                                  ; preds = %100, %99, %97, %lea
   %101 = ptrtoint ptr %4 to i64
   %102 = and i64 %101, 1
   %.not111 = icmp eq i64 %102, 0
-  br i1 %.not111, label %lean_nat_eq.exit, label %103, !prof !15
+  br i1 %.not111, label %lean_nat_eq.exit, label %103, !prof !18
 
 103:                                              ; preds = %lean_dec.exit59
-  br i1 %.not109, label %lean_nat_eq.exit.thread107, label %lean_nat_eq.exit.thread, !prof !15
+  br i1 %.not109, label %lean_nat_eq.exit.thread107, label %lean_nat_eq.exit.thread, !prof !18
 
 lean_nat_eq.exit:                                 ; preds = %lean_dec.exit59
   %104 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %4, ptr noundef %85) #6
@@ -10607,7 +10607,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit
   store i32 1, ptr %117, align 4, !tbaa !8
   store i32 16, ptr %120, align 4
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store i64 %3, ptr %121, align 8, !tbaa !16
+  store i64 %3, ptr %121, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %122 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %123 = icmp eq ptr %122, null
@@ -10622,7 +10622,7 @@ lean_box_usize.exit75:                            ; preds = %lean_box_usize.exit
   store i32 1, ptr %122, align 4, !tbaa !8
   store i32 16, ptr %125, align 4
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store i64 %2, ptr %126, align 8, !tbaa !16
+  store i64 %2, ptr %126, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %127 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #6
   %128 = icmp eq ptr %127, null
@@ -10665,7 +10665,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_box_usize.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_Open_0__Lean_Elab_OpenDecl_resolveNameUsingNamespacesCore___spec__7___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %8, align 8, !tbaa !16
+  %.val = load i64, ptr %8, align 8, !tbaa !19
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
@@ -10691,7 +10691,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_Open_0__Lean_Elab_Op
 
 lean_dec.exit11:                                  ; preds = %17, %16, %14, %7
   %18 = getelementptr i8, ptr %4, i64 8
-  %.val14 = load i64, ptr %18, align 8, !tbaa !16
+  %.val14 = load i64, ptr %18, align 8, !tbaa !19
   %19 = ptrtoint ptr %4 to i64
   %20 = and i64 %19, 1
   %.not15 = icmp eq i64 %20, 0
@@ -10786,7 +10786,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_Open_0__Lean_Elab_OpenDecl_resolveNameUsingNamespacesCore___spec__7___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %7, align 8, !tbaa !16
+  %.val = load i64, ptr %7, align 8, !tbaa !19
   %8 = ptrtoint ptr %2 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -10812,7 +10812,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_Open_0__Lean_Elab_Op
 
 lean_dec.exit10:                                  ; preds = %16, %15, %13, %6
   %17 = getelementptr i8, ptr %3, i64 8
-  %.val13 = load i64, ptr %17, align 8, !tbaa !16
+  %.val13 = load i64, ptr %17, align 8, !tbaa !19
   %18 = ptrtoint ptr %3 to i64
   %19 = and i64 %18, 1
   %.not14 = icmp eq i64 %19, 0
@@ -11107,7 +11107,7 @@ declare ptr @l_Lean_toMessageList(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_throwErrorWithNestedErrors___at___private_Lean_Elab_Open_0__Lean_Elab_OpenDecl_resolveNameUsingNamespacesCore___spec__4___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = getelementptr i8, ptr %6, i64 8
-  %.val = load i64, ptr %9, align 8, !tbaa !16
+  %.val = load i64, ptr %9, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
@@ -11355,7 +11355,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 define ptr @l___private_Lean_Elab_Open_0__Lean_Elab_OpenDecl_resolveNameUsingNamespacesCore___rarg___lambda__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) local_unnamed_addr #0 {
 lean_dec.exit81:
   %10 = getelementptr i8, ptr %0, i64 8
-  %.val102 = load i64, ptr %10, align 8, !tbaa !16
+  %.val102 = load i64, ptr %10, align 8, !tbaa !19
   %.mask = and i64 %.val102, 9223372036854775807
   %.not = icmp eq i64 %.mask, 1
   br i1 %.not, label %70, label %11
@@ -11399,7 +11399,7 @@ lean_alloc_ctor.exit103:                          ; preds = %lean_alloc_ctor.exi
   store ptr %15, ptr %26, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %21, ptr %27, align 8, !tbaa !4
-  %.val = load i64, ptr %10, align 8, !tbaa !16
+  %.val = load i64, ptr %10, align 8, !tbaa !19
   %28 = tail call ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_Open_0__Lean_Elab_OpenDecl_resolveNameUsingNamespacesCore___spec__2(i64 noundef %.val, i64 noundef 0, ptr noundef nonnull %0)
   %29 = tail call ptr @lean_array_to_list(ptr noundef %28) #6
   %30 = tail call ptr @l_List_mapTR_loop___at_Lean_MessageData_instCoeListExpr___spec__1(ptr noundef %29, ptr noundef %2) #6
@@ -12463,7 +12463,7 @@ lean_inc.exit98:                                  ; preds = %88, %87, %85, %lean
   %104 = getelementptr inbounds nuw i8, ptr %89, i64 80
   store ptr %6, ptr %104, align 8, !tbaa !4
   %105 = getelementptr i8, ptr %13, i64 8
-  %.val = load i64, ptr %105, align 8, !tbaa !16
+  %.val = load i64, ptr %105, align 8, !tbaa !19
   %106 = shl i64 %.val, 1
   %107 = or disjoint i64 %106, 1
   %108 = inttoptr i64 %107 to ptr
@@ -12471,7 +12471,7 @@ lean_inc.exit98:                                  ; preds = %88, %87, %85, %lean
   %110 = ptrtoint ptr %109 to i64
   %111 = and i64 %110, 1
   %.not190 = icmp eq i64 %111, 0
-  br i1 %.not190, label %113, label %lean_nat_eq.exit, !prof !15
+  br i1 %.not190, label %113, label %lean_nat_eq.exit, !prof !18
 
 lean_nat_eq.exit:                                 ; preds = %92
   %112 = icmp eq ptr %109, %108
@@ -13325,7 +13325,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_Open_0__Lean_Elab_OpenDecl_resolveNameUsingNamespacesCore___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %4, align 8, !tbaa !16
+  %.val = load i64, ptr %4, align 8, !tbaa !19
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -13351,7 +13351,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_Open_0__Lean_Elab_Op
 
 lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
   %14 = getelementptr i8, ptr %1, i64 8
-  %.val10 = load i64, ptr %14, align 8, !tbaa !16
+  %.val10 = load i64, ptr %14, align 8, !tbaa !19
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, 1
   %.not11 = icmp eq i64 %16, 0
@@ -20238,7 +20238,7 @@ define ptr @l_Lean_Elab_pushInfoTree___at_Lean_Elab_OpenDecl_elabOpenDecl___spec
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %1, i64 32
-  %.val29 = load i8, ptr %9, align 1, !tbaa !18
+  %.val29 = load i8, ptr %9, align 1, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -20354,7 +20354,7 @@ lean_dec.exit:                                    ; preds = %48, %47, %45, %lean
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  store i64 0, ptr %54, align 8, !tbaa !16
+  store i64 0, ptr %54, align 8, !tbaa !19
   store i32 1, ptr %50, align 4, !tbaa !8
   store i32 196648, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -20363,7 +20363,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   store ptr %13, ptr %56, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %49, ptr %57, align 8, !tbaa !4
-  store i8 %.val29, ptr %54, align 1, !tbaa !18
+  store i8 %.val29, ptr %54, align 1, !tbaa !21
   br label %58
 
 58:                                               ; preds = %lean_alloc_ctor.exit, %4
@@ -20376,7 +20376,7 @@ declare ptr @l_Lean_PersistentArray_push___rarg(ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_pushInfoTree___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__23___rarg___lambda__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 32
-  %.val = load i8, ptr %5, align 1, !tbaa !18
+  %.val = load i8, ptr %5, align 1, !tbaa !21
   %6 = icmp eq i8 %.val, 0
   br i1 %6, label %7, label %63
 
@@ -20803,7 +20803,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_pushInfoLeaf___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__22___rarg___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %4, i64 32
-  %.val = load i8, ptr %6, align 1, !tbaa !18
+  %.val = load i8, ptr %6, align 1, !tbaa !21
   %7 = icmp eq i8 %.val, 0
   br i1 %7, label %8, label %64
 
@@ -21178,7 +21178,7 @@ lean_alloc_ctor.exit:                             ; preds = %6
 lean_alloc_ctor.exit20:                           ; preds = %lean_alloc_ctor.exit
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i64 0, ptr %18, align 8, !tbaa !16
+  store i64 0, ptr %18, align 8, !tbaa !19
   store i32 1, ptr %14, align 4, !tbaa !8
   store i32 262192, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -22297,7 +22297,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_pushInfoLeaf___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__28___rarg___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %4, i64 32
-  %.val = load i8, ptr %6, align 1, !tbaa !18
+  %.val = load i8, ptr %6, align 1, !tbaa !21
   %7 = icmp eq i8 %.val, 0
   br i1 %7, label %8, label %64
 
@@ -22672,7 +22672,7 @@ lean_alloc_ctor.exit:                             ; preds = %6
 lean_alloc_ctor.exit20:                           ; preds = %lean_alloc_ctor.exit
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i64 0, ptr %18, align 8, !tbaa !16
+  store i64 0, ptr %18, align 8, !tbaa !19
   store i32 1, ptr %14, align 4, !tbaa !8
   store i32 262192, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -23838,7 +23838,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit143
   store i32 1, ptr %194, align 4, !tbaa !8
   store i32 16, ptr %197, align 4
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  store i64 %13, ptr %198, align 8, !tbaa !16
+  store i64 %13, ptr %198, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %199 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %200 = icmp eq ptr %199, null
@@ -23853,7 +23853,7 @@ lean_box_usize.exit199:                           ; preds = %lean_box_usize.exit
   store i32 1, ptr %199, align 4, !tbaa !8
   store i32 16, ptr %202, align 4
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i64 %12, ptr %203, align 8, !tbaa !16
+  store i64 %12, ptr %203, align 8, !tbaa !19
   %204 = ptrtoint ptr %15 to i64
   %205 = and i64 %204, 1
   %.not266 = icmp eq i64 %205, 0
@@ -24818,7 +24818,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit97
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 56
   store ptr %4, ptr %57, align 8, !tbaa !4
   %58 = getelementptr i8, ptr %12, i64 32
-  %.val = load i8, ptr %58, align 1, !tbaa !18
+  %.val = load i8, ptr %58, align 1, !tbaa !21
   %59 = icmp eq i8 %.val, 0
   br i1 %59, label %60, label %174
 
@@ -25606,7 +25606,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %13
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__30___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15) #0 {
   %17 = getelementptr i8, ptr %1, i64 8
-  %.val23 = load i64, ptr %17, align 8, !tbaa !16
+  %.val23 = load i64, ptr %17, align 8, !tbaa !19
   %18 = ptrtoint ptr %1 to i64
   %19 = and i64 %18, 1
   %.not = icmp eq i64 %19, 0
@@ -25632,7 +25632,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit20:                                  ; preds = %26, %25, %23, %16
   %27 = getelementptr i8, ptr %13, i64 8
-  %.val = load i64, ptr %27, align 8, !tbaa !16
+  %.val = load i64, ptr %27, align 8, !tbaa !19
   %28 = ptrtoint ptr %13 to i64
   %29 = and i64 %28, 1
   %.not24 = icmp eq i64 %29, 0
@@ -25688,7 +25688,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__30___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15) #0 {
   %17 = getelementptr i8, ptr %12, i64 8
-  %.val23 = load i64, ptr %17, align 8, !tbaa !16
+  %.val23 = load i64, ptr %17, align 8, !tbaa !19
   %18 = ptrtoint ptr %12 to i64
   %19 = and i64 %18, 1
   %.not = icmp eq i64 %19, 0
@@ -25714,7 +25714,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit20:                                  ; preds = %26, %25, %23, %16
   %27 = getelementptr i8, ptr %13, i64 8
-  %.val = load i64, ptr %27, align 8, !tbaa !16
+  %.val = load i64, ptr %27, align 8, !tbaa !19
   %28 = ptrtoint ptr %13 to i64
   %29 = and i64 %28, 1
   %.not24 = icmp eq i64 %29, 0
@@ -31441,7 +31441,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit
   store i32 1, ptr %197, align 4, !tbaa !8
   store i32 16, ptr %200, align 4
   %201 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  store i64 %8, ptr %201, align 8, !tbaa !16
+  store i64 %8, ptr %201, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %202 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %203 = icmp eq ptr %202, null
@@ -31456,7 +31456,7 @@ lean_box_usize.exit120:                           ; preds = %lean_box_usize.exit
   store i32 1, ptr %202, align 4, !tbaa !8
   store i32 16, ptr %205, align 4
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  store i64 %7, ptr %206, align 8, !tbaa !16
+  store i64 %7, ptr %206, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %207 = tail call noalias ptr @mi_malloc_small(i64 noundef 104) #6
   %208 = icmp eq ptr %207, null
@@ -31507,7 +31507,7 @@ lean_alloc_closure.exit121:                       ; preds = %lean_box_usize.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__44___rarg___lambda__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
   %12 = getelementptr i8, ptr %1, i64 8
-  %.val18 = load i64, ptr %12, align 8, !tbaa !16
+  %.val18 = load i64, ptr %12, align 8, !tbaa !19
   %13 = ptrtoint ptr %1 to i64
   %14 = and i64 %13, 1
   %.not = icmp eq i64 %14, 0
@@ -31533,7 +31533,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit15:                                  ; preds = %21, %20, %18, %11
   %22 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %22, align 8, !tbaa !16
+  %.val = load i64, ptr %22, align 8, !tbaa !19
   %23 = ptrtoint ptr %8 to i64
   %24 = and i64 %23, 1
   %.not19 = icmp eq i64 %24, 0
@@ -31589,7 +31589,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__44___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
   %12 = getelementptr i8, ptr %7, i64 8
-  %.val18 = load i64, ptr %12, align 8, !tbaa !16
+  %.val18 = load i64, ptr %12, align 8, !tbaa !19
   %13 = ptrtoint ptr %7 to i64
   %14 = and i64 %13, 1
   %.not = icmp eq i64 %14, 0
@@ -31615,7 +31615,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit15:                                  ; preds = %21, %20, %18, %11
   %22 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %22, align 8, !tbaa !16
+  %.val = load i64, ptr %22, align 8, !tbaa !19
   %23 = ptrtoint ptr %8 to i64
   %24 = and i64 %23, 1
   %.not19 = icmp eq i64 %24, 0
@@ -31750,7 +31750,7 @@ lean_dec.exit:                                    ; preds = %38, %37, %35, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_activateScoped___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__43___rarg___lambda__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %7, align 8, !tbaa !16
+  %.val = load i64, ptr %7, align 8, !tbaa !19
   %8 = ptrtoint ptr %5 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -32940,7 +32940,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_pushInfoLeaf___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__49___rarg___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %4, i64 32
-  %.val = load i8, ptr %6, align 1, !tbaa !18
+  %.val = load i8, ptr %6, align 1, !tbaa !21
   %7 = icmp eq i8 %.val, 0
   br i1 %7, label %8, label %64
 
@@ -33315,7 +33315,7 @@ lean_alloc_ctor.exit:                             ; preds = %6
 lean_alloc_ctor.exit20:                           ; preds = %lean_alloc_ctor.exit
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i64 0, ptr %18, align 8, !tbaa !16
+  store i64 0, ptr %18, align 8, !tbaa !19
   store i32 1, ptr %14, align 4, !tbaa !8
   store i32 262192, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -33489,7 +33489,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__51___rarg___lambda__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef readonly captures(none) %10) local_unnamed_addr #0 {
   %12 = getelementptr i8, ptr %10, i64 32
-  %.val = load i8, ptr %12, align 1, !tbaa !18
+  %.val = load i8, ptr %12, align 1, !tbaa !21
   %13 = icmp eq i8 %.val, 0
   br i1 %13, label %14, label %139
 
@@ -35489,7 +35489,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit
   store i32 1, ptr %340, align 4, !tbaa !8
   store i32 16, ptr %343, align 4
   %344 = getelementptr inbounds nuw i8, ptr %340, i64 8
-  store i64 %13, ptr %344, align 8, !tbaa !16
+  store i64 %13, ptr %344, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %345 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %346 = icmp eq ptr %345, null
@@ -35504,7 +35504,7 @@ lean_box_usize.exit237:                           ; preds = %lean_box_usize.exit
   store i32 1, ptr %345, align 4, !tbaa !8
   store i32 16, ptr %348, align 4
   %349 = getelementptr inbounds nuw i8, ptr %345, i64 8
-  store i64 %12, ptr %349, align 8, !tbaa !16
+  store i64 %12, ptr %349, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %350 = tail call noalias ptr @mi_malloc_small(i64 noundef 144) #6
   %351 = icmp eq ptr %350, null
@@ -35565,7 +35565,7 @@ lean_alloc_closure.exit238:                       ; preds = %lean_box_usize.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__51___rarg___lambda__4___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15) #0 {
   %17 = getelementptr i8, ptr %1, i64 8
-  %.val23 = load i64, ptr %17, align 8, !tbaa !16
+  %.val23 = load i64, ptr %17, align 8, !tbaa !19
   %18 = ptrtoint ptr %1 to i64
   %19 = and i64 %18, 1
   %.not = icmp eq i64 %19, 0
@@ -35591,7 +35591,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit20:                                  ; preds = %26, %25, %23, %16
   %27 = getelementptr i8, ptr %13, i64 8
-  %.val = load i64, ptr %27, align 8, !tbaa !16
+  %.val = load i64, ptr %27, align 8, !tbaa !19
   %28 = ptrtoint ptr %13 to i64
   %29 = and i64 %28, 1
   %.not24 = icmp eq i64 %29, 0
@@ -35647,7 +35647,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__51___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15) #0 {
   %17 = getelementptr i8, ptr %12, i64 8
-  %.val23 = load i64, ptr %17, align 8, !tbaa !16
+  %.val23 = load i64, ptr %17, align 8, !tbaa !19
   %18 = ptrtoint ptr %12 to i64
   %19 = and i64 %18, 1
   %.not = icmp eq i64 %19, 0
@@ -35673,7 +35673,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit20:                                  ; preds = %26, %25, %23, %16
   %27 = getelementptr i8, ptr %13, i64 8
-  %.val = load i64, ptr %27, align 8, !tbaa !16
+  %.val = load i64, ptr %27, align 8, !tbaa !19
   %28 = ptrtoint ptr %13 to i64
   %29 = and i64 %28, 1
   %.not24 = icmp eq i64 %29, 0
@@ -40468,7 +40468,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_pushInfoLeaf___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__66___rarg___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %4, i64 32
-  %.val = load i8, ptr %6, align 1, !tbaa !18
+  %.val = load i8, ptr %6, align 1, !tbaa !21
   %7 = icmp eq i8 %.val, 0
   br i1 %7, label %8, label %64
 
@@ -40843,7 +40843,7 @@ lean_alloc_ctor.exit:                             ; preds = %6
 lean_alloc_ctor.exit20:                           ; preds = %lean_alloc_ctor.exit
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i64 0, ptr %18, align 8, !tbaa !16
+  store i64 0, ptr %18, align 8, !tbaa !19
   store i32 1, ptr %14, align 4, !tbaa !8
   store i32 262192, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -41135,7 +41135,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit60
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store ptr %4, ptr %56, align 8, !tbaa !4
   %57 = getelementptr i8, ptr %11, i64 32
-  %.val = load i8, ptr %57, align 1, !tbaa !18
+  %.val = load i8, ptr %57, align 1, !tbaa !21
   %58 = icmp eq i8 %.val, 0
   br i1 %58, label %59, label %164
 
@@ -43151,7 +43151,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit
   store i32 1, ptr %365, align 4, !tbaa !8
   store i32 16, ptr %368, align 4
   %369 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  store i64 %14, ptr %369, align 8, !tbaa !16
+  store i64 %14, ptr %369, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %370 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %371 = icmp eq ptr %370, null
@@ -43166,7 +43166,7 @@ lean_box_usize.exit256:                           ; preds = %lean_box_usize.exit
   store i32 1, ptr %370, align 4, !tbaa !8
   store i32 16, ptr %373, align 4
   %374 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  store i64 %13, ptr %374, align 8, !tbaa !16
+  store i64 %13, ptr %374, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %375 = tail call noalias ptr @mi_malloc_small(i64 noundef 152) #6
   %376 = icmp eq ptr %375, null
@@ -43262,7 +43262,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load ptr, ptr %33, align 8, !tbaa !4
   %35 = getelementptr i8, ptr %4, i64 8
-  %.val41 = load i64, ptr %35, align 8, !tbaa !16
+  %.val41 = load i64, ptr %35, align 8, !tbaa !19
   %36 = ptrtoint ptr %4 to i64
   %37 = and i64 %36, 1
   %.not = icmp eq i64 %37, 0
@@ -43288,7 +43288,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit38:                                  ; preds = %44, %43, %41, %1
   %45 = getelementptr i8, ptr %30, i64 8
-  %.val = load i64, ptr %45, align 8, !tbaa !16
+  %.val = load i64, ptr %45, align 8, !tbaa !19
   %46 = ptrtoint ptr %30 to i64
   %47 = and i64 %46, 1
   %.not42 = icmp eq i64 %47, 0
@@ -43377,7 +43377,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load ptr, ptr %33, align 8, !tbaa !4
   %35 = getelementptr i8, ptr %28, i64 8
-  %.val41 = load i64, ptr %35, align 8, !tbaa !16
+  %.val41 = load i64, ptr %35, align 8, !tbaa !19
   %36 = ptrtoint ptr %28 to i64
   %37 = and i64 %36, 1
   %.not = icmp eq i64 %37, 0
@@ -43403,7 +43403,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit38:                                  ; preds = %44, %43, %41, %1
   %45 = getelementptr i8, ptr %30, i64 8
-  %.val = load i64, ptr %45, align 8, !tbaa !16
+  %.val = load i64, ptr %45, align 8, !tbaa !19
   %46 = ptrtoint ptr %30 to i64
   %47 = and i64 %46, 1
   %.not42 = icmp eq i64 %47, 0
@@ -48007,7 +48007,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit
   store i32 1, ptr %197, align 4, !tbaa !8
   store i32 16, ptr %200, align 4
   %201 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  store i64 %8, ptr %201, align 8, !tbaa !16
+  store i64 %8, ptr %201, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %202 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %203 = icmp eq ptr %202, null
@@ -48022,7 +48022,7 @@ lean_box_usize.exit120:                           ; preds = %lean_box_usize.exit
   store i32 1, ptr %202, align 4, !tbaa !8
   store i32 16, ptr %205, align 4
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  store i64 %7, ptr %206, align 8, !tbaa !16
+  store i64 %7, ptr %206, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %207 = tail call noalias ptr @mi_malloc_small(i64 noundef 104) #6
   %208 = icmp eq ptr %207, null
@@ -48073,7 +48073,7 @@ lean_alloc_closure.exit121:                       ; preds = %lean_box_usize.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__79___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
   %12 = getelementptr i8, ptr %1, i64 8
-  %.val18 = load i64, ptr %12, align 8, !tbaa !16
+  %.val18 = load i64, ptr %12, align 8, !tbaa !19
   %13 = ptrtoint ptr %1 to i64
   %14 = and i64 %13, 1
   %.not = icmp eq i64 %14, 0
@@ -48099,7 +48099,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit15:                                  ; preds = %21, %20, %18, %11
   %22 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %22, align 8, !tbaa !16
+  %.val = load i64, ptr %22, align 8, !tbaa !19
   %23 = ptrtoint ptr %8 to i64
   %24 = and i64 %23, 1
   %.not19 = icmp eq i64 %24, 0
@@ -48155,7 +48155,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__79___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
   %12 = getelementptr i8, ptr %7, i64 8
-  %.val18 = load i64, ptr %12, align 8, !tbaa !16
+  %.val18 = load i64, ptr %12, align 8, !tbaa !19
   %13 = ptrtoint ptr %7 to i64
   %14 = and i64 %13, 1
   %.not = icmp eq i64 %14, 0
@@ -48181,7 +48181,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit15:                                  ; preds = %21, %20, %18, %11
   %22 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %22, align 8, !tbaa !16
+  %.val = load i64, ptr %22, align 8, !tbaa !19
   %23 = ptrtoint ptr %8 to i64
   %24 = and i64 %23, 1
   %.not19 = icmp eq i64 %24, 0
@@ -48213,7 +48213,7 @@ lean_dec.exit:                                    ; preds = %31, %30, %28, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_activateScoped___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__78___rarg___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %7, align 8, !tbaa !16
+  %.val = load i64, ptr %7, align 8, !tbaa !19
   %8 = ptrtoint ptr %5 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -51021,7 +51021,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit
   store i32 1, ptr %282, align 4, !tbaa !8
   store i32 16, ptr %285, align 4
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 8
-  store i64 %11, ptr %286, align 8, !tbaa !16
+  store i64 %11, ptr %286, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %287 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %288 = icmp eq ptr %287, null
@@ -51036,7 +51036,7 @@ lean_box_usize.exit191:                           ; preds = %lean_box_usize.exit
   store i32 1, ptr %287, align 4, !tbaa !8
   store i32 16, ptr %290, align 4
   %291 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  store i64 %10, ptr %291, align 8, !tbaa !16
+  store i64 %10, ptr %291, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %292 = tail call noalias ptr @mi_malloc_small(i64 noundef 128) #6
   %293 = icmp eq ptr %292, null
@@ -51093,7 +51093,7 @@ lean_alloc_closure.exit192:                       ; preds = %lean_box_usize.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__81___rarg___lambda__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) #0 {
   %15 = getelementptr i8, ptr %1, i64 8
-  %.val21 = load i64, ptr %15, align 8, !tbaa !16
+  %.val21 = load i64, ptr %15, align 8, !tbaa !19
   %16 = ptrtoint ptr %1 to i64
   %17 = and i64 %16, 1
   %.not = icmp eq i64 %17, 0
@@ -51119,7 +51119,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit18:                                  ; preds = %24, %23, %21, %14
   %25 = getelementptr i8, ptr %11, i64 8
-  %.val = load i64, ptr %25, align 8, !tbaa !16
+  %.val = load i64, ptr %25, align 8, !tbaa !19
   %26 = ptrtoint ptr %11 to i64
   %27 = and i64 %26, 1
   %.not22 = icmp eq i64 %27, 0
@@ -51175,7 +51175,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__81___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) #0 {
   %15 = getelementptr i8, ptr %10, i64 8
-  %.val21 = load i64, ptr %15, align 8, !tbaa !16
+  %.val21 = load i64, ptr %15, align 8, !tbaa !19
   %16 = ptrtoint ptr %10 to i64
   %17 = and i64 %16, 1
   %.not = icmp eq i64 %17, 0
@@ -51201,7 +51201,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit18:                                  ; preds = %24, %23, %21, %14
   %25 = getelementptr i8, ptr %11, i64 8
-  %.val = load i64, ptr %25, align 8, !tbaa !16
+  %.val = load i64, ptr %25, align 8, !tbaa !19
   %26 = ptrtoint ptr %11 to i64
   %27 = and i64 %26, 1
   %.not22 = icmp eq i64 %27, 0
@@ -55805,7 +55805,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit
   store i32 1, ptr %197, align 4, !tbaa !8
   store i32 16, ptr %200, align 4
   %201 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  store i64 %8, ptr %201, align 8, !tbaa !16
+  store i64 %8, ptr %201, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %202 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %203 = icmp eq ptr %202, null
@@ -55820,7 +55820,7 @@ lean_box_usize.exit120:                           ; preds = %lean_box_usize.exit
   store i32 1, ptr %202, align 4, !tbaa !8
   store i32 16, ptr %205, align 4
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  store i64 %7, ptr %206, align 8, !tbaa !16
+  store i64 %7, ptr %206, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %207 = tail call noalias ptr @mi_malloc_small(i64 noundef 104) #6
   %208 = icmp eq ptr %207, null
@@ -55871,7 +55871,7 @@ lean_alloc_closure.exit121:                       ; preds = %lean_box_usize.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__92___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
   %12 = getelementptr i8, ptr %1, i64 8
-  %.val18 = load i64, ptr %12, align 8, !tbaa !16
+  %.val18 = load i64, ptr %12, align 8, !tbaa !19
   %13 = ptrtoint ptr %1 to i64
   %14 = and i64 %13, 1
   %.not = icmp eq i64 %14, 0
@@ -55897,7 +55897,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit15:                                  ; preds = %21, %20, %18, %11
   %22 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %22, align 8, !tbaa !16
+  %.val = load i64, ptr %22, align 8, !tbaa !19
   %23 = ptrtoint ptr %8 to i64
   %24 = and i64 %23, 1
   %.not19 = icmp eq i64 %24, 0
@@ -55953,7 +55953,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__92___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
   %12 = getelementptr i8, ptr %7, i64 8
-  %.val18 = load i64, ptr %12, align 8, !tbaa !16
+  %.val18 = load i64, ptr %12, align 8, !tbaa !19
   %13 = ptrtoint ptr %7 to i64
   %14 = and i64 %13, 1
   %.not = icmp eq i64 %14, 0
@@ -55979,7 +55979,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit15:                                  ; preds = %21, %20, %18, %11
   %22 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %22, align 8, !tbaa !16
+  %.val = load i64, ptr %22, align 8, !tbaa !19
   %23 = ptrtoint ptr %8 to i64
   %24 = and i64 %23, 1
   %.not19 = icmp eq i64 %24, 0
@@ -56011,7 +56011,7 @@ lean_dec.exit:                                    ; preds = %31, %30, %28, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_activateScoped___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__91___rarg___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %7, align 8, !tbaa !16
+  %.val = load i64, ptr %7, align 8, !tbaa !19
   %8 = ptrtoint ptr %5 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -59130,7 +59130,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit
   store i32 1, ptr %282, align 4, !tbaa !8
   store i32 16, ptr %285, align 4
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 8
-  store i64 %11, ptr %286, align 8, !tbaa !16
+  store i64 %11, ptr %286, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %287 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %288 = icmp eq ptr %287, null
@@ -59145,7 +59145,7 @@ lean_box_usize.exit191:                           ; preds = %lean_box_usize.exit
   store i32 1, ptr %287, align 4, !tbaa !8
   store i32 16, ptr %290, align 4
   %291 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  store i64 %10, ptr %291, align 8, !tbaa !16
+  store i64 %10, ptr %291, align 8, !tbaa !19
   tail call void @lean_inc_heartbeat() #6
   %292 = tail call noalias ptr @mi_malloc_small(i64 noundef 128) #6
   %293 = icmp eq ptr %292, null
@@ -59202,7 +59202,7 @@ lean_alloc_closure.exit192:                       ; preds = %lean_box_usize.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__94___rarg___lambda__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) #0 {
   %15 = getelementptr i8, ptr %1, i64 8
-  %.val21 = load i64, ptr %15, align 8, !tbaa !16
+  %.val21 = load i64, ptr %15, align 8, !tbaa !19
   %16 = ptrtoint ptr %1 to i64
   %17 = and i64 %16, 1
   %.not = icmp eq i64 %17, 0
@@ -59228,7 +59228,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit18:                                  ; preds = %24, %23, %21, %14
   %25 = getelementptr i8, ptr %11, i64 8
-  %.val = load i64, ptr %25, align 8, !tbaa !16
+  %.val = load i64, ptr %25, align 8, !tbaa !19
   %26 = ptrtoint ptr %11 to i64
   %27 = and i64 %26, 1
   %.not22 = icmp eq i64 %27, 0
@@ -59284,7 +59284,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__94___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) #0 {
   %15 = getelementptr i8, ptr %10, i64 8
-  %.val21 = load i64, ptr %15, align 8, !tbaa !16
+  %.val21 = load i64, ptr %15, align 8, !tbaa !19
   %16 = ptrtoint ptr %10 to i64
   %17 = and i64 %16, 1
   %.not = icmp eq i64 %17, 0
@@ -59310,7 +59310,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_OpenDecl_elabOpenDecl___
 
 lean_dec.exit18:                                  ; preds = %24, %23, %21, %14
   %25 = getelementptr i8, ptr %11, i64 8
-  %.val = load i64, ptr %25, align 8, !tbaa !16
+  %.val = load i64, ptr %25, align 8, !tbaa !19
   %26 = ptrtoint ptr %11 to i64
   %27 = and i64 %26, 1
   %.not22 = icmp eq i64 %27, 0
@@ -59851,7 +59851,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
 define ptr @l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 {
   %15 = tail call ptr @l_Array_zip___rarg(ptr noundef %0, ptr noundef %1) #6
   %16 = getelementptr i8, ptr %15, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !16
+  %.val = load i64, ptr %16, align 8, !tbaa !19
   %17 = ptrtoint ptr %11 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
@@ -60109,7 +60109,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr readnone captures(none) %12) local_unnamed_addr #0 {
   %14 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !16
+  %.val = load i64, ptr %14, align 8, !tbaa !19
   %15 = ptrtoint ptr %10 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
@@ -60245,7 +60245,7 @@ lean_box_usize.exit:                              ; preds = %lean_inc.exit43
   store i32 1, ptr %56, align 4, !tbaa !8
   store i32 16, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i64 %.val, ptr %60, align 8, !tbaa !16
+  store i64 %.val, ptr %60, align 8, !tbaa !19
   %61 = load ptr, ptr @l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__8___boxed__const__1, align 8, !tbaa !4
   br i1 %.not61, label %62, label %lean_inc.exit
 
@@ -60310,7 +60310,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__7___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = getelementptr i8, ptr %0, i64 8
-  %.val20 = load i64, ptr %10, align 8, !tbaa !16
+  %.val20 = load i64, ptr %10, align 8, !tbaa !19
   %11 = ptrtoint ptr %0 to i64
   %12 = and i64 %11, 1
   %.not = icmp eq i64 %12, 0
@@ -60336,7 +60336,7 @@ define ptr @l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__7___boxed(ptr nou
 
 lean_dec.exit15:                                  ; preds = %19, %18, %16, %9
   %20 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %20, align 8, !tbaa !16
+  %.val = load i64, ptr %20, align 8, !tbaa !19
   %21 = ptrtoint ptr %1 to i64
   %22 = and i64 %21, 1
   %.not21 = icmp eq i64 %22, 0
@@ -60616,7 +60616,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %13
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__10(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) #0 {
   %14 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !16
+  %.val = load i64, ptr %14, align 8, !tbaa !19
   %15 = ptrtoint ptr %10 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
@@ -61283,7 +61283,7 @@ lean_dec.exit447:                                 ; preds = %193, %192, %190, %1
 
 lean_nat_lt.exit:                                 ; preds = %lean_dec.exit447, %200, %202, %203
   %204 = getelementptr i8, ptr %194, i64 8
-  %.val532 = load i64, ptr %204, align 8, !tbaa !16
+  %.val532 = load i64, ptr %204, align 8, !tbaa !19
   %.mask = and i64 %.val532, 9223372036854775807
   %.not721 = icmp eq i64 %.mask, 0
   br i1 %.not721, label %lean_dec.exit445, label %lean_dec.exit441
@@ -61395,7 +61395,7 @@ lean_inc.exit410:                                 ; preds = %235, %234, %232, %l
 lean_dec.exit439:                                 ; preds = %lean_inc.exit410, %241, %243, %244, %lean_dec.exit444
   %.0367 = phi ptr [ %214, %lean_dec.exit444 ], [ %227, %244 ], [ %227, %243 ], [ %227, %241 ], [ %227, %lean_inc.exit410 ]
   %245 = getelementptr i8, ptr %.0367, i64 8
-  %.0367.val = load i64, ptr %245, align 8, !tbaa !16
+  %.0367.val = load i64, ptr %245, align 8, !tbaa !19
   %246 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__2(i64 noundef %.0367.val, i64 noundef 0, ptr noundef %.0367)
   %247 = ptrtoint ptr %246 to i64
   %248 = and i64 %247, 1
@@ -61660,7 +61660,7 @@ lean_inc.exit408:                                 ; preds = %337, %336, %334, %3
 
 lean_dec.exit431:                                 ; preds = %344, %343, %341, %lean_inc.exit408
   %345 = getelementptr i8, ptr %329, i64 8
-  %.val531 = load i64, ptr %345, align 8, !tbaa !16
+  %.val531 = load i64, ptr %345, align 8, !tbaa !19
   br i1 %.not726, label %346, label %lean_inc.exit407
 
 346:                                              ; preds = %lean_dec.exit431
@@ -62606,7 +62606,7 @@ lean_dec.exit424:                                 ; preds = %664, %663, %661, %l
 
 lean_dec.exit423:                                 ; preds = %674, %673, %671, %lean_dec.exit424
   %675 = getelementptr i8, ptr %665, i64 8
-  %.val530 = load i64, ptr %675, align 8, !tbaa !16
+  %.val530 = load i64, ptr %675, align 8, !tbaa !19
   br i1 %.not698, label %676, label %lean_inc.exit379
 
 676:                                              ; preds = %lean_dec.exit423
@@ -62867,7 +62867,7 @@ lean_dec.exit420:                                 ; preds = %755, %754, %752, %l
 
 lean_dec.exit:                                    ; preds = %765, %764, %762, %lean_dec.exit420
   %766 = getelementptr i8, ptr %756, i64 8
-  %.val = load i64, ptr %766, align 8, !tbaa !16
+  %.val = load i64, ptr %766, align 8, !tbaa !19
   br i1 %.not698, label %767, label %lean_inc.exit373
 
 767:                                              ; preds = %lean_dec.exit
@@ -63041,7 +63041,7 @@ declare ptr @l_Array_foldlMUnsafe_fold___at_Lean_Syntax_SepArray_getElems___spec
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__6___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) #0 {
   %15 = getelementptr i8, ptr %10, i64 8
-  %.val = load i64, ptr %15, align 8, !tbaa !16
+  %.val = load i64, ptr %15, align 8, !tbaa !19
   %16 = ptrtoint ptr %10 to i64
   %17 = and i64 %16, 1
   %.not = icmp eq i64 %17, 0
@@ -63773,7 +63773,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val10 = load i64, ptr %4, align 8, !tbaa !16
+  %.val10 = load i64, ptr %4, align 8, !tbaa !19
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -63799,7 +63799,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__
 
 lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
   %14 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !16
+  %.val = load i64, ptr %14, align 8, !tbaa !19
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, 1
   %.not11 = icmp eq i64 %16, 0
@@ -63831,7 +63831,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__4___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val10 = load i64, ptr %4, align 8, !tbaa !16
+  %.val10 = load i64, ptr %4, align 8, !tbaa !19
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -63857,7 +63857,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__
 
 lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
   %14 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !16
+  %.val = load i64, ptr %14, align 8, !tbaa !19
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, 1
   %.not11 = icmp eq i64 %16, 0
@@ -63889,7 +63889,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__5___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val10 = load i64, ptr %4, align 8, !tbaa !16
+  %.val10 = load i64, ptr %4, align 8, !tbaa !19
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -63915,7 +63915,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__
 
 lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
   %14 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !16
+  %.val = load i64, ptr %14, align 8, !tbaa !19
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, 1
   %.not11 = icmp eq i64 %16, 0
@@ -63976,7 +63976,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__52___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val10 = load i64, ptr %4, align 8, !tbaa !16
+  %.val10 = load i64, ptr %4, align 8, !tbaa !19
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -64002,7 +64002,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__
 
 lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
   %14 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !16
+  %.val = load i64, ptr %14, align 8, !tbaa !19
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, 1
   %.not11 = icmp eq i64 %16, 0
@@ -64907,9 +64907,9 @@ _init_l_Lean_resolveNamespace___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__7___r
   %109 = or disjoint i32 %108, -167772160
   store i32 %109, ptr %106, align 4
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i64 0, ptr %110, align 8, !tbaa !16
+  store i64 0, ptr %110, align 8, !tbaa !19
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store i64 32, ptr %111, align 8, !tbaa !16
+  store i64 32, ptr %111, align 8, !tbaa !19
   store ptr %105, ptr @l_Lean_Elab_pushInfoLeaf___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__22___rarg___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %105) #6
   %112 = load ptr, ptr @l_Lean_Elab_pushInfoLeaf___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__22___rarg___lambda__1___closed__1, align 8, !tbaa !4
@@ -64954,7 +64954,7 @@ _init_l_Lean_Elab_pushInfoLeaf___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__22__
   %127 = getelementptr inbounds nuw i8, ptr %120, i64 32
   store ptr inttoptr (i64 1 to ptr), ptr %127, align 8, !tbaa !4
   %128 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  store i64 5, ptr %128, align 8, !tbaa !16
+  store i64 5, ptr %128, align 8, !tbaa !19
   store ptr %120, ptr @l_Lean_Elab_pushInfoLeaf___at_Lean_Elab_OpenDecl_elabOpenDecl___spec__22___rarg___lambda__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %120) #6
   tail call void @lean_inc_heartbeat() #6
@@ -65019,7 +65019,7 @@ _init_l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__8___boxed__const__1.exi
   store i32 1, ptr %146, align 4, !tbaa !8
   store i32 16, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  store i64 0, ptr %150, align 8, !tbaa !16
+  store i64 0, ptr %150, align 8, !tbaa !19
   store ptr %146, ptr @l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__8___boxed__const__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %146) #6
   %151 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.17, i64 noundef 10, i64 noundef 10) #6
@@ -65107,7 +65107,7 @@ _init_l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__11___boxed__const__1.ex
   store i32 1, ptr %188, align 4, !tbaa !8
   store i32 16, ptr %191, align 4
   %192 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store i64 0, ptr %192, align 8, !tbaa !16
+  store i64 0, ptr %192, align 8, !tbaa !19
   store ptr %188, ptr @l_Lean_Elab_OpenDecl_elabOpenDecl___rarg___lambda__11___boxed__const__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %188) #6
   %193 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.21, i64 noundef 10, i64 noundef 10) #6
@@ -65207,7 +65207,10 @@ attributes #7 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !6, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!6, !6, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !6, i64 0}
+!21 = !{!6, !6, i64 0}

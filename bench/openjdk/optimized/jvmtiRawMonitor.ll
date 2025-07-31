@@ -120,7 +120,7 @@ define hidden void @_ZN20JvmtiPendingMonitors23transition_raw_monitorsEv() local
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %._crit_edge
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   br label %20
 
@@ -220,7 +220,7 @@ define hidden void @_ZN15JvmtiRawMonitor9raw_enterEP6Thread(ptr noundef nonnull 
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %24
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   br label %28
 
@@ -268,7 +268,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   call void @_ZN25ThreadBlockInVMPreprocessIN15JvmtiRawMonitor13ExitOnSuspendEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #9
   %42 = load i8, ptr %37, align 8
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %41, label %44, !llvm.loop !10
+  br i1 %43, label %41, label %44, !llvm.loop !11
 
 44:                                               ; preds = %41
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #9
@@ -338,7 +338,7 @@ define hidden noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15JvmtiRawMonitor12simple_enterEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %"class.JvmtiRawMonitor::QNode", align 8
-  %4 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %0) #9, !srcloc !11
+  %4 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %0) #9, !srcloc !12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %._crit_edge, label %.lr.ph10
 
@@ -352,9 +352,9 @@ define hidden void @_ZN15JvmtiRawMonitor12simple_enterEP6Thread(ptr noundef nonn
   br label %18
 
 .loopexit:                                        ; preds = %.lr.ph, %36
-  %12 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr null, ptr nonnull %0) #9, !srcloc !11
+  %12 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr null, ptr nonnull %0) #9, !srcloc !12
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %._crit_edge, label %18, !llvm.loop !12
+  br i1 %13, label %._crit_edge, label %18, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %14 = load ptr, ptr %1, align 8
@@ -379,14 +379,14 @@ define hidden void @_ZN15JvmtiRawMonitor12simple_enterEP6Thread(ptr noundef nonn
   %23 = load volatile ptr, ptr %11, align 8
   store volatile ptr %23, ptr %3, align 8
   store volatile ptr %3, ptr %11, align 8
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %24 = load volatile ptr, ptr %0, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %18
-  %27 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr null, ptr nonnull %0) #9, !srcloc !11
+  %27 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr null, ptr nonnull %0) #9, !srcloc !12
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %36
 
@@ -413,7 +413,7 @@ define hidden void @_ZN15JvmtiRawMonitor12simple_enterEP6Thread(ptr noundef nonn
   call void @_ZN13PlatformEvent4parkEv(ptr noundef nonnull align 8 dereferenceable(144) %40) #9
   %41 = load volatile i32, ptr %10, align 4
   %42 = icmp eq i32 %41, 3
-  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .sink.split:                                      ; preds = %29, %._crit_edge
   %43 = call noundef zeroext i1 @_ZN12Continuation3pinEP10JavaThread(ptr noundef nonnull %1) #9
@@ -446,7 +446,7 @@ define hidden void @_ZN15JvmtiRawMonitor11simple_exitEP6Thread(ptr noundef nonnu
 7:                                                ; preds = %2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   store volatile ptr null, ptr %0, align 8
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -492,7 +492,7 @@ define hidden void @_ZN15JvmtiRawMonitor11simple_exitEP6Thread(ptr noundef nonnu
   %31 = load ptr, ptr %30, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   store volatile i32 1, ptr %24, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   tail call void @_ZN13PlatformEvent6unparkEv(ptr noundef nonnull align 8 dereferenceable(144) %31) #9
   br label %33
@@ -597,7 +597,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor11simple_waitEP6T
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %40
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   br label %44
 
@@ -648,7 +648,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 61:                                               ; preds = %59, %58
   store volatile i32 6, ptr %35, align 4
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %62 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
@@ -741,7 +741,7 @@ define linkonce_odr hidden void @_ZN15JvmtiRawMonitor14dequeue_waiterERNS_5QNode
   %.0 = phi ptr [ null, %10 ], [ %.018, %12 ]
   %.018 = load volatile ptr, ptr %.018.in, align 8
   %.not = icmp eq ptr %.018, %1
-  br i1 %.not, label %13, label %12, !llvm.loop !14
+  br i1 %.not, label %13, label %12, !llvm.loop !15
 
 13:                                               ; preds = %12
   %14 = icmp eq ptr %.0, null
@@ -826,7 +826,7 @@ define hidden void @_ZN15JvmtiRawMonitor13simple_notifyEP6Threadb(ptr noundef no
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #9
   %14 = load volatile ptr, ptr %9, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %2, label %.split.us, label %.split, !llvm.loop !15
+  br i1 %2, label %.split.us, label %.split, !llvm.loop !16
 
 .split.us:                                        ; preds = %12
   br i1 %15, label %.split13.us.thread, label %.lr.ph
@@ -849,11 +849,11 @@ define hidden void @_ZN15JvmtiRawMonitor13simple_notifyEP6Threadb(ptr noundef no
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 28
   store volatile i32 1, ptr %22, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %23 = load volatile ptr, ptr %9, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.split13.us, label %.lr.ph, !llvm.loop !16
+  br i1 %24, label %.split13.us, label %.lr.ph, !llvm.loop !17
 
 .split:                                           ; preds = %12
   br i1 %15, label %.split13.us.thread, label %25
@@ -866,7 +866,7 @@ define hidden void @_ZN15JvmtiRawMonitor13simple_notifyEP6Threadb(ptr noundef no
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store volatile i32 1, ptr %29, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   br label %.split13.us
 
@@ -904,7 +904,7 @@ define linkonce_odr hidden void @_ZN25ThreadBlockInVMPreprocessIN15JvmtiRawMonit
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   store volatile i32 6, ptr %3, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1001,7 +1001,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor8raw_waitElP6Thre
   %9 = load volatile ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store volatile i32 0, ptr %10, align 8
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load volatile i32, ptr %11, align 8
@@ -1021,7 +1021,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor8raw_waitElP6Thre
   br i1 %20, label %23, label %22
 
 22:                                               ; preds = %18
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   br label %23
 
@@ -1069,7 +1069,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   call void @_ZN25ThreadBlockInVMPreprocessIN15JvmtiRawMonitor13ExitOnSuspendEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %5) #9
   %37 = load i8, ptr %32, align 8
   %38 = trunc i8 %37 to i1
-  br i1 %38, label %36, label %39, !llvm.loop !18
+  br i1 %38, label %36, label %39, !llvm.loop !19
 
 39:                                               ; preds = %36
   %40 = call noundef zeroext i1 @_ZN10JavaThread25get_and_clear_interruptedEv(ptr noundef nonnull align 8 dereferenceable(1800) %2) #9
@@ -1283,7 +1283,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP15JvmtiRawMoni
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -1370,16 +1370,17 @@ attributes #10 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145392998}
-!10 = distinct !{!10, !8}
-!11 = !{i64 2145412694}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2145392998}
+!11 = distinct !{!11, !8, !9}
+!12 = !{i64 2145412694}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}

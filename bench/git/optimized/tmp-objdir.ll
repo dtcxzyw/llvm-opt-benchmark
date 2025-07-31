@@ -442,10 +442,10 @@ define internal fastcc i32 @migrate_paths(ptr noundef nonnull %0, ptr noundef no
 .loopexit:                                        ; preds = %20, %.preheader.i
   %22 = call i32 @closedir(ptr noundef nonnull %13)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr @pack_copy_cmp, ptr %23, align 8, !tbaa !62
+  store ptr @pack_copy_cmp, ptr %23, align 8, !tbaa !63
   call void @string_list_sort(ptr noundef nonnull %5) #15
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !65
+  %25 = load i64, ptr %24, align 8, !tbaa !66
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -462,9 +462,9 @@ define internal fastcc i32 @migrate_paths(ptr noundef nonnull %0, ptr noundef no
 28:                                               ; preds = %.lr.ph, %strbuf_setlen.exit32
   %.02340 = phi i64 [ 0, %.lr.ph ], [ %83, %strbuf_setlen.exit32 ]
   %.02439 = phi i32 [ 0, %.lr.ph ], [ %68, %strbuf_setlen.exit32 ]
-  %29 = load ptr, ptr %5, align 8, !tbaa !66
+  %29 = load ptr, ptr %5, align 8, !tbaa !67
   %30 = getelementptr inbounds nuw %struct.string_list_item, ptr %29, i64 %.02340
-  %31 = load ptr, ptr %30, align 8, !tbaa !67
+  %31 = load ptr, ptr %30, align 8, !tbaa !68
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, ptr noundef %31) #15
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, ptr noundef %31) #15
   %32 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #17
@@ -501,7 +501,7 @@ is_loose_object_shard.exit.thread:                ; preds = %28, %34, %is_loose_
   br i1 %48, label %migrate_one.exit, label %49
 
 49:                                               ; preds = %44
-  %50 = load i32, ptr %26, align 8, !tbaa !69
+  %50 = load i32, ptr %26, align 8, !tbaa !70
   %51 = and i32 %50, 61440
   %52 = icmp eq i32 %51, 16384
   br i1 %52, label %53, label %64
@@ -581,9 +581,9 @@ strbuf_setlen.exit:                               ; preds = %72, %74
 
 strbuf_setlen.exit32:                             ; preds = %79, %81
   %83 = add nuw i64 %.02340, 1
-  %84 = load i64, ptr %24, align 8, !tbaa !65
+  %84 = load i64, ptr %24, align 8, !tbaa !66
   %85 = icmp ult i64 %83, %84
-  br i1 %85, label %28, label %._crit_edge, !llvm.loop !72
+  br i1 %85, label %28, label %._crit_edge, !llvm.loop !73
 
 read_dir_paths.exit.thread:                       ; preds = %3, %._crit_edge
   %.022 = phi i32 [ %.024.lcssa, %._crit_edge ], [ -1, %3 ]
@@ -600,7 +600,7 @@ define dso_local ptr @tmp_objdir_env(ptr noundef readonly captures(address_is_nu
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -635,7 +635,7 @@ define dso_local void @tmp_objdir_replace_primary_odb(ptr noundef captures(none)
   %9 = tail call ptr @set_temporary_primary_odb(ptr noundef %8, i32 noundef %1) #15
   store ptr %9, ptr %3, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %1, ptr %10, align 8, !tbaa !74
+  store i32 %1, ptr %10, align 8, !tbaa !75
   ret void
 }
 
@@ -698,11 +698,11 @@ strbuf_setlen.exit:                               ; preds = %3, %10
 
 tmp_objdir_replace_primary_odb.exit:              ; preds = %strbuf_setlen.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load i32, ptr %15, align 8, !tbaa !74
+  %16 = load i32, ptr %15, align 8, !tbaa !75
   %17 = load ptr, ptr %5, align 8, !tbaa !19
   %18 = tail call ptr @set_temporary_primary_odb(ptr noundef %17, i32 noundef %16) #15
   store ptr %18, ptr %12, align 8, !tbaa !9
-  store i32 %16, ptr %15, align 8, !tbaa !74
+  store i32 %16, ptr %15, align 8, !tbaa !75
   ret void
 }
 
@@ -912,18 +912,19 @@ attributes #18 = { nounwind willreturn memory(none) }
 !57 = !{!"object_directory", !17, i64 0, !7, i64 8, !58, i64 40, !59, i64 48, !18, i64 56, !18, i64 60, !14, i64 64}
 !58 = !{!"p1 _ZTS7oidtree", !6, i64 0}
 !59 = !{!"p1 _ZTS16loose_object_map", !6, i64 0}
-!60 = distinct !{!60, !61}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!63, !6, i64 32}
-!63 = !{!"string_list", !64, i64 0, !13, i64 8, !13, i64 16, !18, i64 24, !6, i64 32}
-!64 = !{!"p1 _ZTS16string_list_item", !6, i64 0}
-!65 = !{!63, !13, i64 8}
-!66 = !{!63, !64, i64 0}
-!67 = !{!68, !14, i64 0}
-!68 = !{!"string_list_item", !14, i64 0, !6, i64 8}
-!69 = !{!70, !18, i64 24}
-!70 = !{!"stat", !13, i64 0, !13, i64 8, !13, i64 16, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !71, i64 72, !71, i64 88, !71, i64 104, !7, i64 120}
-!71 = !{!"timespec", !13, i64 0, !13, i64 8}
-!72 = distinct !{!72, !61}
-!73 = !{!10, !16, i64 32}
-!74 = !{!10, !18, i64 64}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = !{!64, !6, i64 32}
+!64 = !{!"string_list", !65, i64 0, !13, i64 8, !13, i64 16, !18, i64 24, !6, i64 32}
+!65 = !{!"p1 _ZTS16string_list_item", !6, i64 0}
+!66 = !{!64, !13, i64 8}
+!67 = !{!64, !65, i64 0}
+!68 = !{!69, !14, i64 0}
+!69 = !{!"string_list_item", !14, i64 0, !6, i64 8}
+!70 = !{!71, !18, i64 24}
+!71 = !{!"stat", !13, i64 0, !13, i64 8, !13, i64 16, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !72, i64 72, !72, i64 88, !72, i64 104, !7, i64 120}
+!72 = !{!"timespec", !13, i64 0, !13, i64 8}
+!73 = distinct !{!73, !61, !62}
+!74 = !{!10, !16, i64 32}
+!75 = !{!10, !18, i64 64}

@@ -3094,7 +3094,7 @@ define i32 @OBJ_create_objects(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge:                                        ; preds = %15, %.preheader47
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 1
-  br label %.preheader47, !llvm.loop !28
+  br label %.preheader47, !llvm.loop !29
 
 18:                                               ; preds = %15
   store i8 0, ptr %.031, align 1, !tbaa !20
@@ -3107,7 +3107,7 @@ define i32 @OBJ_create_objects(ptr noundef %0) local_unnamed_addr #0 {
   %21 = sext i8 %20 to i32
   %22 = call i32 @ossl_ctype_check(i32 noundef %21, i32 noundef 8) #10
   %.not41 = icmp eq i32 %22, 0
-  br i1 %.not41, label %23, label %19, !llvm.loop !29
+  br i1 %.not41, label %23, label %19, !llvm.loop !30
 
 23:                                               ; preds = %19
   %24 = load i8, ptr %.132, align 1, !tbaa !20
@@ -3126,7 +3126,7 @@ define i32 @OBJ_create_objects(ptr noundef %0) local_unnamed_addr #0 {
   %30 = getelementptr inbounds nuw i8, ptr %.149, i64 1
   %.pr = load i8, ptr %30, align 1, !tbaa !20
   %.not42 = icmp eq i8 %.pr, 0
-  br i1 %.not42, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %.not42, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .critedge2:                                       ; preds = %.preheader
   %.pre = load i8, ptr %.149, align 1, !tbaa !20
@@ -3144,7 +3144,7 @@ define i32 @OBJ_create_objects(ptr noundef %0) local_unnamed_addr #0 {
   %35 = sext i8 %34 to i32
   %36 = call i32 @ossl_ctype_check(i32 noundef %35, i32 noundef 8) #10
   %.not45 = icmp eq i32 %36, 0
-  br i1 %.not45, label %37, label %33, !llvm.loop !31
+  br i1 %.not45, label %37, label %33, !llvm.loop !32
 
 37:                                               ; preds = %33
   %38 = load i8, ptr %.2, align 1, !tbaa !20
@@ -3168,7 +3168,7 @@ define i32 @OBJ_create_objects(ptr noundef %0) local_unnamed_addr #0 {
   %45 = add nuw nsw i32 %.03450, 1
   %46 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 512) #10
   %47 = icmp slt i32 %46, 1
-  br i1 %47, label %._crit_edge, label %.lr.ph
+  br i1 %47, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %44, %.lr.ph, %.loopexit, %42, %1
   %.034.lcssa = phi i32 [ 0, %1 ], [ %.03450, %42 ], [ %.03450, %.loopexit ], [ %.03450, %.lr.ph ], [ %45, %44 ]
@@ -3471,7 +3471,7 @@ define internal fastcc i32 @ossl_obj_add_object(ptr noundef %0, i32 noundef rang
 7:                                                ; preds = %2
   %8 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 271) #10
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %8, ptr %9, align 8, !tbaa !32
+  store ptr %8, ptr %9, align 8, !tbaa !34
   %10 = icmp eq ptr %8, null
   br i1 %10, label %ossl_obj_unlock.exit51.preheader, label %11
 
@@ -3489,7 +3489,7 @@ define internal fastcc i32 @ossl_obj_add_object(ptr noundef %0, i32 noundef rang
 
 17:                                               ; preds = %14
   %18 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 274) #10
-  store ptr %18, ptr %3, align 16, !tbaa !32
+  store ptr %18, ptr %3, align 16, !tbaa !34
   %19 = icmp eq ptr %18, null
   br i1 %19, label %ossl_obj_unlock.exit51.preheader, label %20
 
@@ -3501,7 +3501,7 @@ define internal fastcc i32 @ossl_obj_add_object(ptr noundef %0, i32 noundef rang
 22:                                               ; preds = %20
   %23 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 276) #10
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !32
+  store ptr %23, ptr %24, align 8, !tbaa !34
   %25 = icmp eq ptr %23, null
   br i1 %25, label %ossl_obj_unlock.exit51.preheader, label %26
 
@@ -3514,7 +3514,7 @@ define internal fastcc i32 @ossl_obj_add_object(ptr noundef %0, i32 noundef rang
 29:                                               ; preds = %26
   %30 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 278) #10
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %30, ptr %31, align 16, !tbaa !32
+  store ptr %30, ptr %31, align 16, !tbaa !34
   %32 = icmp eq ptr %30, null
   br i1 %32, label %ossl_obj_unlock.exit51.preheader, label %33
 
@@ -3561,7 +3561,7 @@ ossl_obj_write_lock.exit.thread54:                ; preds = %33, %ossl_obj_write
 46:                                               ; preds = %.preheader, %74
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.preheader ]
   %47 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv
-  %48 = load ptr, ptr %47, align 8, !tbaa !32
+  %48 = load ptr, ptr %47, align 8, !tbaa !34
   %.not44 = icmp eq ptr %48, null
   br i1 %.not44, label %74, label %49
 
@@ -3573,7 +3573,7 @@ ossl_obj_write_lock.exit.thread54:                ; preds = %33, %ossl_obj_write
   %52 = load ptr, ptr @added, align 8, !tbaa !3
   %53 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %52, ptr noundef nonnull %48) #10
   %54 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  store ptr %53, ptr %54, align 8, !tbaa !32
+  store ptr %53, ptr %54, align 8, !tbaa !34
   %.not45 = icmp eq ptr %53, null
   br i1 %.not45, label %56, label %55
 
@@ -3605,10 +3605,10 @@ ossl_obj_write_lock.exit.thread54:                ; preds = %33, %ossl_obj_write
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
   %64 = load ptr, ptr @added, align 8, !tbaa !3
   %65 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv.next65
-  %66 = load ptr, ptr %65, align 8, !tbaa !32
+  %66 = load ptr, ptr %65, align 8, !tbaa !34
   %67 = tail call ptr @OPENSSL_LH_delete(ptr noundef %64, ptr noundef %66) #10
   %68 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.next65
-  %69 = load ptr, ptr %68, align 8, !tbaa !32
+  %69 = load ptr, ptr %68, align 8, !tbaa !34
   %.not48 = icmp eq ptr %69, null
   br i1 %.not48, label %72, label %70
 
@@ -3619,12 +3619,12 @@ ossl_obj_write_lock.exit.thread54:                ; preds = %33, %ossl_obj_write
 
 72:                                               ; preds = %70, %.lr.ph
   %73 = icmp sgt i64 %indvars.iv64, 1
-  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 74:                                               ; preds = %46, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %75, label %46, !llvm.loop !35
+  br i1 %exitcond.not, label %75, label %46, !llvm.loop !37
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3661,11 +3661,11 @@ ossl_obj_unlock.exit51.preheader:                 ; preds = %84, %._crit_edge, %
 ossl_obj_unlock.exit51:                           ; preds = %ossl_obj_unlock.exit51.preheader, %ossl_obj_unlock.exit51
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %ossl_obj_unlock.exit51 ], [ 0, %ossl_obj_unlock.exit51.preheader ]
   %87 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv67
-  %88 = load ptr, ptr %87, align 8, !tbaa !32
+  %88 = load ptr, ptr %87, align 8, !tbaa !34
   tail call void @CRYPTO_free(ptr noundef %88, ptr noundef nonnull @.str, i32 noundef 325) #10
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 4
-  br i1 %exitcond70.not, label %89, label %ossl_obj_unlock.exit51, !llvm.loop !36
+  br i1 %exitcond70.not, label %89, label %ossl_obj_unlock.exit51, !llvm.loop !38
 
 89:                                               ; preds = %ossl_obj_unlock.exit51
   tail call void @ASN1_OBJECT_free(ptr noundef nonnull %5) #10
@@ -3855,7 +3855,7 @@ define internal i64 @added_obj_hash(ptr noundef readonly captures(none) %0) #0 {
   %21 = xor i64 %.01821, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 22:                                               ; preds = %1
   %23 = load ptr, ptr %3, align 8, !tbaa !18
@@ -4046,15 +4046,17 @@ attributes #11 = { nounwind willreturn memory(read) }
 !23 = !{!11, !11, i64 0}
 !24 = !{!14, !15, i64 24}
 !25 = !{!14, !11, i64 20}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = distinct !{!29, !27}
-!30 = distinct !{!30, !27}
-!31 = distinct !{!31, !27}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS12added_obj_st", !5, i64 0}
-!34 = distinct !{!34, !27}
-!35 = distinct !{!35, !27}
-!36 = distinct !{!36, !27}
-!37 = distinct !{!37, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = distinct !{!30, !27, !28}
+!31 = distinct !{!31, !27, !28}
+!32 = distinct !{!32, !27, !28}
+!33 = distinct !{!33, !28}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS12added_obj_st", !5, i64 0}
+!36 = distinct !{!36, !27, !28}
+!37 = distinct !{!37, !27, !28}
+!38 = distinct !{!38, !27, !28}
+!39 = distinct !{!39, !27, !28}

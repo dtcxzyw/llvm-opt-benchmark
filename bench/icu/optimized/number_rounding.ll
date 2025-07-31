@@ -805,10 +805,10 @@ _ZN6icu_776number9Precision18constructIncrementEms.exit: ; preds = %3
   %5 = icmp sgt i16 %2, 0
   %6 = sub i16 0, %2
   %7 = select i1 %5, i16 0, i16 %6
-  store i64 %1, ptr %4, align 8, !alias.scope !24
-  store i16 %2, ptr %.sroa.7.0..sroa_idx13.i, align 8, !alias.scope !24
-  store i16 %7, ptr %.sroa.8.0..sroa_idx17.i, align 2, !alias.scope !24
-  store i32 0, ptr %.sroa.9.0..sroa_idx21.i, align 4, !tbaa !17, !alias.scope !24
+  store i64 %1, ptr %4, align 8, !alias.scope !25
+  store i16 %2, ptr %.sroa.7.0..sroa_idx13.i, align 8, !alias.scope !25
+  store i16 %7, ptr %.sroa.8.0..sroa_idx17.i, align 2, !alias.scope !25
+  store i32 0, ptr %.sroa.9.0..sroa_idx21.i, align 4, !tbaa !17, !alias.scope !25
   br label %10
 
 8:                                                ; preds = %3
@@ -818,9 +818,9 @@ _ZN6icu_776number9Precision18constructIncrementEms.exit: ; preds = %3
 
 10:                                               ; preds = %8, %_ZN6icu_776number9Precision18constructIncrementEms.exit
   %switch.select4.sink = phi i32 [ 9, %8 ], [ %switch.select4, %_ZN6icu_776number9Precision18constructIncrementEms.exit ]
-  store i32 %switch.select4.sink, ptr %0, align 8, !tbaa !27
+  store i32 %switch.select4.sink, ptr %0, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %11, align 8, !tbaa !31
+  store i32 0, ptr %11, align 8, !tbaa !32
   ret void
 }
 
@@ -845,29 +845,29 @@ declare void @llvm.trap() #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_776number9Precision9unlimitedEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 21), (24, 28)) %0) local_unnamed_addr #11 align 2 {
-  store i32 1, ptr %0, align 8, !tbaa !27
+  store i32 1, ptr %0, align 8, !tbaa !28
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %3, align 8, !tbaa !31
+  store i32 0, ptr %3, align 8, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2, i8 0, i64 13, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_776number9Precision7integerEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0) local_unnamed_addr #11 align 2 {
-  store i32 2, ptr %0, align 8, !tbaa !27, !alias.scope !32
+  store i32 2, ptr %0, align 8, !tbaa !28, !alias.scope !33
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 0, ptr %2, align 8, !alias.scope !32
+  store i16 0, ptr %2, align 8, !alias.scope !33
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 0, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !32
+  store i16 0, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !33
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !32
+  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !33
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !32
+  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !33
   %.sroa.85.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !32
+  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %3, align 8, !tbaa !31, !alias.scope !32
+  store i32 0, ptr %3, align 8, !tbaa !32, !alias.scope !33
   ret void
 }
 
@@ -875,7 +875,7 @@ define void @_ZN6icu_776number9Precision7integerEv(ptr dead_on_unwind noalias wr
 define void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = trunc i32 %1 to i16
   %5 = trunc i32 %2 to i16
-  store i32 2, ptr %0, align 8, !tbaa !27
+  store i32 2, ptr %0, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %4, ptr %6, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -887,7 +887,7 @@ define void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwin
   %.sroa.85.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.85.0..sroa_idx, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %7, align 8, !tbaa !31
+  store i32 0, ptr %7, align 8, !tbaa !32
   ret void
 }
 
@@ -899,15 +899,15 @@ define void @_ZN6icu_776number9Precision13fixedFractionEi(ptr dead_on_unwind noa
 3:                                                ; preds = %2
   %4 = trunc nuw nsw i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %4, ptr %5, align 8, !alias.scope !35
+  store i16 %4, ptr %5, align 8, !alias.scope !36
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %4, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !35
+  store i16 %4, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !36
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !35
+  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !36
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !35
+  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !36
   %.sroa.85.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !35
+  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !36
   br label %8
 
 6:                                                ; preds = %2
@@ -917,9 +917,9 @@ define void @_ZN6icu_776number9Precision13fixedFractionEi(ptr dead_on_unwind noa
 
 8:                                                ; preds = %6, %3
   %.sink = phi i32 [ 2, %3 ], [ 9, %6 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !27
+  store i32 %.sink, ptr %0, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8, !tbaa !31
+  store i32 0, ptr %9, align 8, !tbaa !32
   ret void
 }
 
@@ -931,15 +931,15 @@ define void @_ZN6icu_776number9Precision11minFractionEi(ptr dead_on_unwind noali
 3:                                                ; preds = %2
   %4 = trunc nuw nsw i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %4, ptr %5, align 8, !alias.scope !38
+  store i16 %4, ptr %5, align 8, !alias.scope !39
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !38
+  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !39
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !38
+  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !39
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !38
+  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !39
   %.sroa.85.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !38
+  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !39
   br label %8
 
 6:                                                ; preds = %2
@@ -949,9 +949,9 @@ define void @_ZN6icu_776number9Precision11minFractionEi(ptr dead_on_unwind noali
 
 8:                                                ; preds = %6, %3
   %.sink = phi i32 [ 2, %3 ], [ 9, %6 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !27
+  store i32 %.sink, ptr %0, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8, !tbaa !31
+  store i32 0, ptr %9, align 8, !tbaa !32
   ret void
 }
 
@@ -963,15 +963,15 @@ define void @_ZN6icu_776number9Precision11maxFractionEi(ptr dead_on_unwind noali
 3:                                                ; preds = %2
   %4 = trunc nuw nsw i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 0, ptr %5, align 8, !alias.scope !41
+  store i16 0, ptr %5, align 8, !alias.scope !42
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %4, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !41
+  store i16 %4, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !42
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !41
+  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !42
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !41
+  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !42
   %.sroa.85.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !41
+  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !42
   br label %8
 
 6:                                                ; preds = %2
@@ -981,9 +981,9 @@ define void @_ZN6icu_776number9Precision11maxFractionEi(ptr dead_on_unwind noali
 
 8:                                                ; preds = %6, %3
   %.sink = phi i32 [ 2, %3 ], [ 9, %6 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !27
+  store i32 %.sink, ptr %0, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8, !tbaa !31
+  store i32 0, ptr %9, align 8, !tbaa !32
   ret void
 }
 
@@ -1000,15 +1000,15 @@ define void @_ZN6icu_776number9Precision14minMaxFractionEii(ptr dead_on_unwind n
   %7 = trunc i32 %1 to i16
   %8 = trunc i32 %2 to i16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %7, ptr %9, align 8, !alias.scope !44
+  store i16 %7, ptr %9, align 8, !alias.scope !45
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %8, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !44
+  store i16 %8, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !45
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !44
+  store i16 -1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !45
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !44
+  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !45
   %.sroa.85.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !44
+  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !45
   br label %12
 
 10:                                               ; preds = %3
@@ -1018,9 +1018,9 @@ define void @_ZN6icu_776number9Precision14minMaxFractionEii(ptr dead_on_unwind n
 
 12:                                               ; preds = %10, %6
   %.sink = phi i32 [ 9, %10 ], [ 2, %6 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !27
+  store i32 %.sink, ptr %0, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %13, align 8, !tbaa !31
+  store i32 0, ptr %13, align 8, !tbaa !32
   ret void
 }
 
@@ -1033,15 +1033,15 @@ define void @_ZN6icu_776number9Precision22fixedSignificantDigitsEi(ptr dead_on_u
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i32 %1 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 -1, ptr %6, align 8, !alias.scope !47
+  store i16 -1, ptr %6, align 8, !alias.scope !48
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !47
+  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !48
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %5, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !47
+  store i16 %5, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !48
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %5, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !47
+  store i16 %5, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !48
   %.sroa.85.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !47
+  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !48
   br label %9
 
 7:                                                ; preds = %2
@@ -1051,9 +1051,9 @@ define void @_ZN6icu_776number9Precision22fixedSignificantDigitsEi(ptr dead_on_u
 
 9:                                                ; preds = %7, %4
   %.sink = phi i32 [ 3, %4 ], [ 9, %7 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !27
+  store i32 %.sink, ptr %0, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %10, align 8, !tbaa !31
+  store i32 0, ptr %10, align 8, !tbaa !32
   ret void
 }
 
@@ -1061,7 +1061,7 @@ define void @_ZN6icu_776number9Precision22fixedSignificantDigitsEi(ptr dead_on_u
 define void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = trunc i32 %1 to i16
   %5 = trunc i32 %2 to i16
-  store i32 3, ptr %0, align 8, !tbaa !27
+  store i32 3, ptr %0, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 -1, ptr %6, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -1073,7 +1073,7 @@ define void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_un
   %.sroa.85.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.85.0..sroa_idx, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %7, align 8, !tbaa !31
+  store i32 0, ptr %7, align 8, !tbaa !32
   ret void
 }
 
@@ -1086,15 +1086,15 @@ define void @_ZN6icu_776number9Precision20minSignificantDigitsEi(ptr dead_on_unw
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i32 %1 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 -1, ptr %6, align 8, !alias.scope !50
+  store i16 -1, ptr %6, align 8, !alias.scope !51
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !50
+  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !51
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %5, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !50
+  store i16 %5, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !51
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !50
+  store i16 -1, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !51
   %.sroa.85.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !50
+  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !51
   br label %9
 
 7:                                                ; preds = %2
@@ -1104,9 +1104,9 @@ define void @_ZN6icu_776number9Precision20minSignificantDigitsEi(ptr dead_on_unw
 
 9:                                                ; preds = %7, %4
   %.sink = phi i32 [ 3, %4 ], [ 9, %7 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !27
+  store i32 %.sink, ptr %0, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %10, align 8, !tbaa !31
+  store i32 0, ptr %10, align 8, !tbaa !32
   ret void
 }
 
@@ -1119,15 +1119,15 @@ define void @_ZN6icu_776number9Precision20maxSignificantDigitsEi(ptr dead_on_unw
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i32 %1 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 -1, ptr %6, align 8, !alias.scope !53
+  store i16 -1, ptr %6, align 8, !alias.scope !54
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !53
+  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !54
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !53
+  store i16 1, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !54
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %5, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !53
+  store i16 %5, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !54
   %.sroa.85.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !53
+  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !54
   br label %9
 
 7:                                                ; preds = %2
@@ -1137,9 +1137,9 @@ define void @_ZN6icu_776number9Precision20maxSignificantDigitsEi(ptr dead_on_unw
 
 9:                                                ; preds = %7, %4
   %.sink = phi i32 [ 3, %4 ], [ 9, %7 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !27
+  store i32 %.sink, ptr %0, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %10, align 8, !tbaa !31
+  store i32 0, ptr %10, align 8, !tbaa !32
   ret void
 }
 
@@ -1156,15 +1156,15 @@ define void @_ZN6icu_776number9Precision23minMaxSignificantDigitsEii(ptr dead_on
   %7 = trunc i32 %1 to i16
   %8 = trunc i32 %2 to i16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 -1, ptr %9, align 8, !alias.scope !56
+  store i16 -1, ptr %9, align 8, !alias.scope !57
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !56
+  store i16 -1, ptr %.sroa.5.0..sroa_idx2.i, align 2, !alias.scope !57
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %7, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !56
+  store i16 %7, ptr %.sroa.6.0..sroa_idx3.i, align 4, !alias.scope !57
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %8, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !56
+  store i16 %8, ptr %.sroa.7.0..sroa_idx4.i, align 2, !alias.scope !57
   %.sroa.85.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !56
+  store i64 0, ptr %.sroa.85.0..sroa_idx.i, align 8, !tbaa !17, !alias.scope !57
   br label %12
 
 10:                                               ; preds = %3
@@ -1174,9 +1174,9 @@ define void @_ZN6icu_776number9Precision23minMaxSignificantDigitsEii(ptr dead_on
 
 12:                                               ; preds = %10, %6
   %.sink = phi i32 [ 9, %10 ], [ 3, %6 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !27
+  store i32 %.sink, ptr %0, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %13, align 8, !tbaa !31
+  store i32 0, ptr %13, align 8, !tbaa !32
   ret void
 }
 
@@ -1184,7 +1184,7 @@ define void @_ZN6icu_776number9Precision23minMaxSignificantDigitsEii(ptr dead_on
 define void @_ZNK6icu_776number9Precision19trailingZeroDisplayE26UNumberTrailingZeroDisplay(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %2, ptr %4, align 8, !tbaa !31
+  store i32 %2, ptr %4, align 8, !tbaa !32
   ret void
 }
 
@@ -1226,12 +1226,12 @@ define void @_ZN6icu_776number9Precision9incrementEd(ptr dead_on_unwind noalias 
   %16 = icmp sgt i16 %13, 0
   %17 = sub i16 0, %13
   %18 = select i1 %16, i16 0, i16 %17
-  store i32 %switch.select8, ptr %0, align 8, !tbaa !27, !alias.scope !59
-  store i64 %11, ptr %15, align 8, !alias.scope !59
-  store i16 %13, ptr %.sroa.7.0..sroa_idx13.i, align 8, !alias.scope !59
-  store i16 %18, ptr %.sroa.8.0..sroa_idx17.i, align 2, !alias.scope !59
-  store i32 0, ptr %.sroa.9.0..sroa_idx21.i, align 4, !tbaa !17, !alias.scope !59
-  store i32 0, ptr %14, align 8, !tbaa !31, !alias.scope !59
+  store i32 %switch.select8, ptr %0, align 8, !tbaa !28, !alias.scope !60
+  store i64 %11, ptr %15, align 8, !alias.scope !60
+  store i16 %13, ptr %.sroa.7.0..sroa_idx13.i, align 8, !alias.scope !60
+  store i16 %18, ptr %.sroa.8.0..sroa_idx17.i, align 2, !alias.scope !60
+  store i32 0, ptr %.sroa.9.0..sroa_idx21.i, align 4, !tbaa !17, !alias.scope !60
+  store i32 0, ptr %14, align 8, !tbaa !32, !alias.scope !60
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %3) #22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #22
   br label %27
@@ -1253,9 +1253,9 @@ define void @_ZN6icu_776number9Precision9incrementEd(ptr dead_on_unwind noalias 
   resume { ptr, i32 } %.pn
 
 24:                                               ; preds = %2
-  store i32 9, ptr %0, align 8, !tbaa !27
+  store i32 9, ptr %0, align 8, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %25, align 8, !tbaa !31
+  store i32 0, ptr %25, align 8, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 65810, ptr %26, align 8, !tbaa !17
   br label %27
@@ -1282,24 +1282,24 @@ define void @_ZN6icu_776number9Precision18constructIncrementEms(ptr dead_on_unwi
   %6 = icmp sgt i16 %2, 0
   %7 = sub i16 0, %2
   %8 = select i1 %6, i16 0, i16 %7
-  store i32 %switch.select31, ptr %0, align 8, !tbaa !27
+  store i32 %switch.select31, ptr %0, align 8, !tbaa !28
   store i64 %1, ptr %5, align 8
   store i16 %2, ptr %.sroa.7.0..sroa_idx13, align 8
   store i16 %8, ptr %.sroa.8.0..sroa_idx17, align 2
   store i32 0, ptr %.sroa.9.0..sroa_idx21, align 4, !tbaa !17
-  store i32 0, ptr %4, align 8, !tbaa !31
+  store i32 0, ptr %4, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_776number9Precision8currencyE14UCurrencyUsage(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::CurrencyPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx.i, i8 0, i64 12, i1 false), !alias.scope !62
-  store i32 8, ptr %0, align 8, !tbaa !27, !alias.scope !62
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx.i, i8 0, i64 12, i1 false), !alias.scope !63
+  store i32 8, ptr %0, align 8, !tbaa !28, !alias.scope !63
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %3, align 8, !alias.scope !62
+  store i32 %1, ptr %3, align 8, !alias.scope !63
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %4, align 8, !tbaa !31, !alias.scope !62
+  store i32 0, ptr %4, align 8, !tbaa !32, !alias.scope !63
   ret void
 }
 
@@ -1307,17 +1307,17 @@ define void @_ZN6icu_776number9Precision8currencyE14UCurrencyUsage(ptr dead_on_u
 define void @_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::CurrencyPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx, i8 0, i64 12, i1 false)
-  store i32 8, ptr %0, align 8, !tbaa !27
+  store i32 8, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %4, align 8, !tbaa !31
+  store i32 0, ptr %4, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZNK6icu_776number17FractionPrecision21withSignificantDigitsEii23UNumberRoundingPriority(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #16 align 2 {
-  %6 = load i32, ptr %1, align 8, !tbaa !27
+  %6 = load i32, ptr %1, align 8, !tbaa !28
   %7 = icmp eq i32 %6, 9
   br i1 %7, label %8, label %9
 
@@ -1336,33 +1336,33 @@ define void @_ZNK6icu_776number17FractionPrecision21withSignificantDigitsEii23UN
   br i1 %or.cond, label %14, label %21
 
 14:                                               ; preds = %11
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i32, ptr %15, align 8, !noalias !65
+  %16 = load i32, ptr %15, align 8, !noalias !66
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 21
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.8.0..sroa_idx.i, i64 3, i1 false)
   %17 = trunc i32 %2 to i16
   %18 = trunc nuw nsw i32 %3 to i16
-  store i32 4, ptr %0, align 8, !tbaa !27, !alias.scope !65
+  store i32 4, ptr %0, align 8, !tbaa !28, !alias.scope !66
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %16, ptr %19, align 8, !alias.scope !65
+  store i32 %16, ptr %19, align 8, !alias.scope !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %17, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !65
+  store i16 %17, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !66
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %18, ptr %.sroa.6.0..sroa_idx.i, align 2, !alias.scope !65
+  store i16 %18, ptr %.sroa.6.0..sroa_idx.i, align 2, !alias.scope !66
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !65
+  store i32 %4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !66
   %.sroa.814.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %.sroa.814.0..sroa_idx.i, align 4, !alias.scope !65
+  store i8 0, ptr %.sroa.814.0..sroa_idx.i, align 4, !alias.scope !66
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %20, align 8, !tbaa !31, !alias.scope !65
+  store i32 0, ptr %20, align 8, !tbaa !32, !alias.scope !66
   br label %24
 
 21:                                               ; preds = %11, %9
-  store i32 9, ptr %0, align 8, !tbaa !27
+  store i32 9, ptr %0, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %22, align 8, !tbaa !31
+  store i32 0, ptr %22, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 65810, ptr %23, align 8, !tbaa !17
   br label %24
@@ -1381,7 +1381,7 @@ define void @_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17F
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.0..sroa_idx, i64 3, i1 false)
   %10 = trunc i32 %2 to i16
   %11 = trunc i32 %3 to i16
-  store i32 4, ptr %0, align 8, !tbaa !27
+  store i32 4, ptr %0, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %12, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1393,13 +1393,13 @@ define void @_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17F
   %.sroa.814.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %7, ptr %.sroa.814.0..sroa_idx, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %13, align 8, !tbaa !31
+  store i32 0, ptr %13, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZNK6icu_776number17FractionPrecision13withMinDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
-  %4 = load i32, ptr %1, align 8, !tbaa !27
+  %4 = load i32, ptr %1, align 8, !tbaa !28
   %5 = icmp eq i32 %4, 9
   br i1 %5, label %6, label %7
 
@@ -1413,32 +1413,32 @@ define void @_ZNK6icu_776number17FractionPrecision13withMinDigitsEi(ptr dead_on_
   br i1 %or.cond, label %9, label %15
 
 9:                                                ; preds = %7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i32, ptr %10, align 8, !noalias !68
+  %11 = load i32, ptr %10, align 8, !noalias !69
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 21
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.8.0..sroa_idx.i, i64 3, i1 false)
   %12 = trunc nuw nsw i32 %2 to i16
-  store i32 4, ptr %0, align 8, !tbaa !27, !alias.scope !68
+  store i32 4, ptr %0, align 8, !tbaa !28, !alias.scope !69
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %11, ptr %13, align 8, !alias.scope !68
+  store i32 %11, ptr %13, align 8, !alias.scope !69
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 1, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !68
+  store i16 1, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !69
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %12, ptr %.sroa.6.0..sroa_idx.i, align 2, !alias.scope !68
+  store i16 %12, ptr %.sroa.6.0..sroa_idx.i, align 2, !alias.scope !69
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !68
+  store i32 0, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !69
   %.sroa.814.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %.sroa.814.0..sroa_idx.i, align 4, !alias.scope !68
+  store i8 1, ptr %.sroa.814.0..sroa_idx.i, align 4, !alias.scope !69
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %14, align 8, !tbaa !31, !alias.scope !68
+  store i32 0, ptr %14, align 8, !tbaa !32, !alias.scope !69
   br label %18
 
 15:                                               ; preds = %7
-  store i32 9, ptr %0, align 8, !tbaa !27
+  store i32 9, ptr %0, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %16, align 8, !tbaa !31
+  store i32 0, ptr %16, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 65810, ptr %17, align 8, !tbaa !17
   br label %18
@@ -1449,7 +1449,7 @@ define void @_ZNK6icu_776number17FractionPrecision13withMinDigitsEi(ptr dead_on_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZNK6icu_776number17FractionPrecision13withMaxDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
-  %4 = load i32, ptr %1, align 8, !tbaa !27
+  %4 = load i32, ptr %1, align 8, !tbaa !28
   %5 = icmp eq i32 %4, 9
   br i1 %5, label %6, label %7
 
@@ -1463,32 +1463,32 @@ define void @_ZNK6icu_776number17FractionPrecision13withMaxDigitsEi(ptr dead_on_
   br i1 %or.cond, label %9, label %15
 
 9:                                                ; preds = %7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i32, ptr %10, align 8, !noalias !71
+  %11 = load i32, ptr %10, align 8, !noalias !72
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 21
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.8.0..sroa_idx.i, i64 3, i1 false)
   %12 = trunc nuw nsw i32 %2 to i16
-  store i32 4, ptr %0, align 8, !tbaa !27, !alias.scope !71
+  store i32 4, ptr %0, align 8, !tbaa !28, !alias.scope !72
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %11, ptr %13, align 8, !alias.scope !71
+  store i32 %11, ptr %13, align 8, !alias.scope !72
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 1, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !71
+  store i16 1, ptr %.sroa.5.0..sroa_idx.i, align 4, !alias.scope !72
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %12, ptr %.sroa.6.0..sroa_idx.i, align 2, !alias.scope !71
+  store i16 %12, ptr %.sroa.6.0..sroa_idx.i, align 2, !alias.scope !72
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !71
+  store i32 1, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !72
   %.sroa.814.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %.sroa.814.0..sroa_idx.i, align 4, !alias.scope !71
+  store i8 1, ptr %.sroa.814.0..sroa_idx.i, align 4, !alias.scope !72
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %14, align 8, !tbaa !31, !alias.scope !71
+  store i32 0, ptr %14, align 8, !tbaa !32, !alias.scope !72
   br label %18
 
 15:                                               ; preds = %7
-  store i32 9, ptr %0, align 8, !tbaa !27
+  store i32 9, ptr %0, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %16, align 8, !tbaa !31
+  store i32 0, ptr %16, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 65810, ptr %17, align 8, !tbaa !17
   br label %18
@@ -1499,7 +1499,7 @@ define void @_ZNK6icu_776number17FractionPrecision13withMaxDigitsEi(ptr dead_on_
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 align 2 {
-  %5 = load i32, ptr %1, align 8, !tbaa !27
+  %5 = load i32, ptr %1, align 8, !tbaa !28
   %6 = icmp eq i32 %5, 9
   br i1 %6, label %7, label %8
 
@@ -1541,9 +1541,9 @@ _ZN6icu_776number9Precision13fixedFractionEi.exit: ; preds = %8
 
 20:                                               ; preds = %_ZN6icu_776number9Precision13fixedFractionEi.exit, %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !31
+  %22 = load i32, ptr %21, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %22, ptr %23, align 8, !tbaa !31
+  store i32 %22, ptr %23, align 8, !tbaa !32
   br label %24
 
 24:                                               ; preds = %20, %7
@@ -1561,8 +1561,8 @@ define void @_ZNK6icu_776number17CurrencyPrecision12withCurrencyERKNS_12Currency
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #22
   store i32 0, ptr %4, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %6 = load i32, ptr %1, align 8, !tbaa !27, !noalias !74
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  %6 = load i32, ptr %1, align 8, !tbaa !28, !noalias !75
   %7 = icmp eq i32 %6, 9
   br i1 %7, label %_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit.thread, label %8
 
@@ -1573,10 +1573,10 @@ _ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !17, !noalias !74
-  %12 = call double @ucurr_getRoundingIncrementForUsage_77(ptr noundef nonnull %9, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !74
-  %13 = load i32, ptr %10, align 8, !tbaa !17, !noalias !74
-  %14 = call i32 @ucurr_getDefaultFractionDigitsForUsage_77(ptr noundef nonnull %9, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !74
+  %11 = load i32, ptr %10, align 8, !tbaa !17, !noalias !75
+  %12 = call double @ucurr_getRoundingIncrementForUsage_77(ptr noundef nonnull %9, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !75
+  %13 = load i32, ptr %10, align 8, !tbaa !17, !noalias !75
+  %14 = call i32 @ucurr_getDefaultFractionDigitsForUsage_77(ptr noundef nonnull %9, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !75
   %15 = fcmp une double %12, 0.000000e+00
   br i1 %15, label %16, label %_ZN6icu_776number9Precision13fixedFractionEi.exit.i
 
@@ -1587,34 +1587,34 @@ _ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
 _ZN6icu_776number9Precision13fixedFractionEi.exit.i: ; preds = %8
   %or.cond.i.i = icmp ult i32 %14, 1000
   %.sink.i.i = select i1 %or.cond.i.i, i32 2, i32 9
-  store i32 %.sink.i.i, ptr %5, align 8, !alias.scope !74
+  store i32 %.sink.i.i, ptr %5, align 8, !alias.scope !75
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = shl i32 %14, 16
   %18 = and i32 %14, 65535
   %19 = or disjoint i32 %17, %18
   %.sroa.48.sroa.0.0.insert.insert.i = select i1 %or.cond.i.i, i32 %19, i32 65810
-  store i32 %.sroa.48.sroa.0.0.insert.insert.i, ptr %.sroa.48.0..sroa_idx.i, align 8, !alias.scope !74
+  store i32 %.sroa.48.sroa.0.0.insert.insert.i, ptr %.sroa.48.0..sroa_idx.i, align 8, !alias.scope !75
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i16 -1, ptr %.sroa.7.0..sroa_idx.i, align 4, !alias.scope !74
+  store i16 -1, ptr %.sroa.7.0..sroa_idx.i, align 4, !alias.scope !75
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 14
-  store i16 -1, ptr %.sroa.8.0..sroa_idx.i, align 2, !alias.scope !74
+  store i16 -1, ptr %.sroa.8.0..sroa_idx.i, align 2, !alias.scope !75
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !74
+  store i64 0, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !75
   br label %_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 
 _ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit: ; preds = %16, %_ZN6icu_776number9Precision13fixedFractionEi.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !31, !noalias !74
+  %21 = load i32, ptr %20, align 8, !tbaa !32, !noalias !75
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %21, ptr %22, align 8, !tbaa !31, !alias.scope !74
+  store i32 %21, ptr %22, align 8, !tbaa !32, !alias.scope !75
   %.pre = load i32, ptr %4, align 4, !tbaa !13
   %23 = icmp slt i32 %.pre, 1
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
-  store i32 9, ptr %0, align 8, !tbaa !27
+  store i32 9, ptr %0, align 8, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %25, align 8, !tbaa !31
+  store i32 0, ptr %25, align 8, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.pre, ptr %26, align 8, !tbaa !17
   br label %28
@@ -1631,7 +1631,7 @@ _ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_776number18IncrementPrecision15withMinFractionEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
-  %4 = load i32, ptr %1, align 8, !tbaa !27
+  %4 = load i32, ptr %1, align 8, !tbaa !28
   %5 = icmp eq i32 %4, 9
   br i1 %5, label %6, label %7
 
@@ -1654,9 +1654,9 @@ define void @_ZNK6icu_776number18IncrementPrecision15withMinFractionEi(ptr dead_
   br label %13
 
 10:                                               ; preds = %7
-  store i32 9, ptr %0, align 8, !tbaa !27
+  store i32 9, ptr %0, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %11, align 8, !tbaa !31
+  store i32 0, ptr %11, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 65810, ptr %12, align 8, !tbaa !17
   br label %13
@@ -1673,22 +1673,22 @@ define void @_ZN6icu_776number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFo
   %6 = alloca %"class.icu_77::number::Precision", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %2, ptr %7, align 8, !tbaa !77
+  store i32 %2, ptr %7, align 8, !tbaa !78
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i8 0, ptr %8, align 4, !tbaa !81
-  %9 = load i32, ptr %1, align 8, !tbaa !27
+  store i8 0, ptr %8, align 4, !tbaa !82
+  %9 = load i32, ptr %1, align 8, !tbaa !28
   %10 = icmp eq i32 %9, 8
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !17, !noalias !82
-  %15 = tail call double @ucurr_getRoundingIncrementForUsage_77(ptr noundef nonnull %12, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !82
-  %16 = load i32, ptr %13, align 8, !tbaa !17, !noalias !82
-  %17 = tail call i32 @ucurr_getDefaultFractionDigitsForUsage_77(ptr noundef nonnull %12, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !82
+  %14 = load i32, ptr %13, align 8, !tbaa !17, !noalias !83
+  %15 = tail call double @ucurr_getRoundingIncrementForUsage_77(ptr noundef nonnull %12, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !83
+  %16 = load i32, ptr %13, align 8, !tbaa !17, !noalias !83
+  %17 = tail call i32 @ucurr_getDefaultFractionDigitsForUsage_77(ptr noundef nonnull %12, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !83
   %18 = fcmp une double %15, 0.000000e+00
   br i1 %18, label %19, label %_ZN6icu_776number9Precision13fixedFractionEi.exit.i
 
@@ -1699,26 +1699,26 @@ define void @_ZN6icu_776number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFo
 _ZN6icu_776number9Precision13fixedFractionEi.exit.i: ; preds = %11
   %or.cond.i.i = icmp ult i32 %17, 1000
   %.sink.i.i = select i1 %or.cond.i.i, i32 2, i32 9
-  store i32 %.sink.i.i, ptr %6, align 8, !alias.scope !82
+  store i32 %.sink.i.i, ptr %6, align 8, !alias.scope !83
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = shl i32 %17, 16
   %21 = and i32 %17, 65535
   %22 = or disjoint i32 %20, %21
   %.sroa.48.sroa.0.0.insert.insert.i = select i1 %or.cond.i.i, i32 %22, i32 65810
-  store i32 %.sroa.48.sroa.0.0.insert.insert.i, ptr %.sroa.48.0..sroa_idx.i, align 8, !alias.scope !82
+  store i32 %.sroa.48.sroa.0.0.insert.insert.i, ptr %.sroa.48.0..sroa_idx.i, align 8, !alias.scope !83
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i16 -1, ptr %.sroa.7.0..sroa_idx.i, align 4, !alias.scope !82
+  store i16 -1, ptr %.sroa.7.0..sroa_idx.i, align 4, !alias.scope !83
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 14
-  store i16 -1, ptr %.sroa.8.0..sroa_idx.i, align 2, !alias.scope !82
+  store i16 -1, ptr %.sroa.8.0..sroa_idx.i, align 2, !alias.scope !83
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !82
+  store i64 0, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !83
   br label %_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 
 _ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit: ; preds = %19, %_ZN6icu_776number9Precision13fixedFractionEi.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !31, !noalias !82
+  %24 = load i32, ptr %23, align 8, !tbaa !32, !noalias !83
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %24, ptr %25, align 8, !tbaa !31, !alias.scope !82
+  store i32 %24, ptr %25, align 8, !tbaa !32, !alias.scope !83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(28) %6, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
   br label %26
@@ -1731,13 +1731,13 @@ _ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
 define void @_ZN6icu_776number4impl12RoundingImpl11passThroughEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::impl::RoundingImpl") align 8 captures(none) initializes((0, 40)) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  store i8 1, ptr %2, align 4, !tbaa !81
+  store i8 1, ptr %2, align 4, !tbaa !82
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_776number4impl12RoundingImpl19isSignificantDigitsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0) local_unnamed_addr #18 align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !85
+  %2 = load i32, ptr %0, align 8, !tbaa !86
   %3 = icmp eq i32 %2, 3
   ret i1 %3
 }
@@ -1745,7 +1745,7 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl12RoundingImpl19isSignificantD
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_776number4impl12RoundingImpl24chooseMultiplierAndApplyERNS1_15DecimalQuantityERKNS1_18MultiplierProducerER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  %6 = load ptr, ptr %2, align 8, !tbaa !86
+  %6 = load ptr, ptr %2, align 8, !tbaa !87
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %5)
@@ -1765,7 +1765,7 @@ define noundef i32 @_ZN6icu_776number4impl12RoundingImpl24chooseMultiplierAndApp
 
 18:                                               ; preds = %14
   %19 = add nsw i32 %5, 1
-  %20 = load ptr, ptr %2, align 8, !tbaa !86
+  %20 = load ptr, ptr %2, align 8, !tbaa !87
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %19)
@@ -1790,13 +1790,13 @@ define void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityE
   %4 = load i32, ptr %2, align 4, !tbaa !13
   %5 = icmp sgt i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %7 = load i8, ptr %6, align 4, !range !88
+  %7 = load i8, ptr %6, align 4, !range !89
   %8 = trunc nuw i8 %7 to i1
   %or.cond = select i1 %5, i1 true, i1 %8
   br i1 %or.cond, label %157, label %9
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %0, align 8, !tbaa !85
+  %10 = load i32, ptr %0, align 8, !tbaa !86
   switch i32 %10, label %145 [
     i32 0, label %11
     i32 9, label %11
@@ -1827,7 +1827,7 @@ define void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityE
   %19 = sub nsw i32 0, %17
   %.0.i = select i1 %18, i32 -2147483648, i32 %19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load i32, ptr %20, align 8, !tbaa !77
+  %21 = load i32, ptr %20, align 8, !tbaa !78
   tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.0.i, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %22 = load i16, ptr %14, align 8, !tbaa !17
   %23 = sext i16 %22 to i32
@@ -1860,7 +1860,7 @@ define void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityE
 _ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit: ; preds = %26, %35
   %.0.i63 = phi i32 [ %37, %35 ], [ -2147483648, %26 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !77
+  %39 = load i32, ptr %38, align 8, !tbaa !78
   tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.0.i63, i32 noundef %39, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %41 = load i16, ptr %40, align 4, !tbaa !17
@@ -1938,7 +1938,7 @@ _ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15Decim
 81:                                               ; preds = %79
   %82 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %84 = load i32, ptr %83, align 8, !tbaa !77
+  %84 = load i32, ptr %83, align 8, !tbaa !78
   tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.050, i32 noundef %84, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %85 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
   br i1 %85, label %90, label %86
@@ -1974,7 +1974,7 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15Decima
   %reass.sub.i70 = sub i32 %101, %97
   %102 = add i32 %reass.sub.i70, 1
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %104 = load i8, ptr %103, align 4, !tbaa !17, !range !88, !noundef !89
+  %104 = load i8, ptr %103, align 4, !tbaa !17, !range !89, !noundef !90
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %106, label %108
 
@@ -2008,7 +2008,7 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15Decima
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %120 = load i16, ptr %119, align 8, !tbaa !17
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %122 = load i32, ptr %121, align 8, !tbaa !77
+  %122 = load i32, ptr %121, align 8, !tbaa !78
   tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i64 noundef %118, i16 noundef signext %120, i32 noundef %122, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %124 = load i16, ptr %123, align 2, !tbaa !17
@@ -2020,7 +2020,7 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15Decima
   %128 = load i16, ptr %127, align 8, !tbaa !17
   %129 = sext i16 %128 to i32
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %131 = load i32, ptr %130, align 8, !tbaa !77
+  %131 = load i32, ptr %130, align 8, !tbaa !78
   tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %129, i32 noundef %131, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %133 = load i16, ptr %132, align 2, !tbaa !17
@@ -2032,7 +2032,7 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15Decima
   %137 = load i16, ptr %136, align 8, !tbaa !17
   %138 = sext i16 %137 to i32
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %140 = load i32, ptr %139, align 8, !tbaa !77
+  %140 = load i32, ptr %139, align 8, !tbaa !78
   tail call void @_ZN6icu_776number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %138, i32 noundef %140, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %142 = load i16, ptr %141, align 2, !tbaa !17
@@ -2050,12 +2050,12 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15Decima
 146:                                              ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, %53, %135, %126, %116, %113, %13, %12, %11
   %.048 = phi i32 [ 0, %11 ], [ 0, %12 ], [ %25, %13 ], [ %49, %53 ], [ %49, %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit ], [ %115, %113 ], [ %125, %116 ], [ %134, %126 ], [ %143, %135 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %148 = load i32, ptr %147, align 8, !tbaa !90
+  %148 = load i32, ptr %147, align 8, !tbaa !91
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %156, label %150
 
 150:                                              ; preds = %146
-  %151 = load ptr, ptr %1, align 8, !tbaa !86
+  %151 = load ptr, ptr %1, align 8, !tbaa !87
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load ptr, ptr %152, align 8
   %154 = tail call noundef double %153(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef 3)
@@ -2157,72 +2157,73 @@ attributes #24 = { noreturn nounwind }
 !19 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !20, i64 0}
 !20 = !{!"p1 char16_t", !6, i64 0}
 !21 = !{i64 2148849190}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN6icu_776number9Precision18constructIncrementEms: argument 0"}
-!26 = distinct !{!26, !"_ZN6icu_776number9Precision18constructIncrementEms"}
-!27 = !{!28, !29, i64 0}
-!28 = !{!"_ZTSN6icu_776number9PrecisionE", !29, i64 0, !7, i64 8, !30, i64 24}
-!29 = !{!"_ZTSN6icu_776number9Precision13PrecisionTypeE", !7, i64 0}
-!30 = !{!"_ZTS26UNumberTrailingZeroDisplay", !7, i64 0}
-!31 = !{!28, !30, i64 24}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
-!34 = distinct !{!34, !"_ZN6icu_776number9Precision17constructFractionEii"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
-!37 = distinct !{!37, !"_ZN6icu_776number9Precision17constructFractionEii"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
-!40 = distinct !{!40, !"_ZN6icu_776number9Precision17constructFractionEii"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
-!43 = distinct !{!43, !"_ZN6icu_776number9Precision17constructFractionEii"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
-!46 = distinct !{!46, !"_ZN6icu_776number9Precision17constructFractionEii"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN6icu_776number9Precision20constructSignificantEii: argument 0"}
-!49 = distinct !{!49, !"_ZN6icu_776number9Precision20constructSignificantEii"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN6icu_776number9Precision20constructSignificantEii: argument 0"}
-!52 = distinct !{!52, !"_ZN6icu_776number9Precision20constructSignificantEii"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN6icu_776number9Precision20constructSignificantEii: argument 0"}
-!55 = distinct !{!55, !"_ZN6icu_776number9Precision20constructSignificantEii"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN6icu_776number9Precision20constructSignificantEii: argument 0"}
-!58 = distinct !{!58, !"_ZN6icu_776number9Precision20constructSignificantEii"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN6icu_776number9Precision18constructIncrementEms: argument 0"}
-!61 = distinct !{!61, !"_ZN6icu_776number9Precision18constructIncrementEms"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage: argument 0"}
-!64 = distinct !{!64, !"_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb: argument 0"}
-!67 = distinct !{!67, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb: argument 0"}
-!70 = distinct !{!70, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb: argument 0"}
-!73 = distinct !{!73, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode: argument 0"}
-!76 = distinct !{!76, !"_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode"}
-!77 = !{!78, !79, i64 32}
-!78 = !{!"_ZTSN6icu_776number4impl12RoundingImplE", !28, i64 0, !79, i64 32, !80, i64 36}
-!79 = !{!"_ZTS25UNumberFormatRoundingMode", !7, i64 0}
-!80 = !{!"bool", !7, i64 0}
-!81 = !{!78, !80, i64 36}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode: argument 0"}
-!84 = distinct !{!84, !"_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode"}
-!85 = !{!78, !29, i64 0}
-!86 = !{!87, !87, i64 0}
-!87 = !{!"vtable pointer", !8, i64 0}
-!88 = !{i8 0, i8 2}
-!89 = !{}
-!90 = !{!78, !30, i64 24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN6icu_776number9Precision18constructIncrementEms: argument 0"}
+!27 = distinct !{!27, !"_ZN6icu_776number9Precision18constructIncrementEms"}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"_ZTSN6icu_776number9PrecisionE", !30, i64 0, !7, i64 8, !31, i64 24}
+!30 = !{!"_ZTSN6icu_776number9Precision13PrecisionTypeE", !7, i64 0}
+!31 = !{!"_ZTS26UNumberTrailingZeroDisplay", !7, i64 0}
+!32 = !{!29, !31, i64 24}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
+!35 = distinct !{!35, !"_ZN6icu_776number9Precision17constructFractionEii"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
+!38 = distinct !{!38, !"_ZN6icu_776number9Precision17constructFractionEii"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
+!41 = distinct !{!41, !"_ZN6icu_776number9Precision17constructFractionEii"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
+!44 = distinct !{!44, !"_ZN6icu_776number9Precision17constructFractionEii"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN6icu_776number9Precision17constructFractionEii: argument 0"}
+!47 = distinct !{!47, !"_ZN6icu_776number9Precision17constructFractionEii"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN6icu_776number9Precision20constructSignificantEii: argument 0"}
+!50 = distinct !{!50, !"_ZN6icu_776number9Precision20constructSignificantEii"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN6icu_776number9Precision20constructSignificantEii: argument 0"}
+!53 = distinct !{!53, !"_ZN6icu_776number9Precision20constructSignificantEii"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN6icu_776number9Precision20constructSignificantEii: argument 0"}
+!56 = distinct !{!56, !"_ZN6icu_776number9Precision20constructSignificantEii"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN6icu_776number9Precision20constructSignificantEii: argument 0"}
+!59 = distinct !{!59, !"_ZN6icu_776number9Precision20constructSignificantEii"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZN6icu_776number9Precision18constructIncrementEms: argument 0"}
+!62 = distinct !{!62, !"_ZN6icu_776number9Precision18constructIncrementEms"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage: argument 0"}
+!65 = distinct !{!65, !"_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb: argument 0"}
+!68 = distinct !{!68, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb: argument 0"}
+!71 = distinct !{!71, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb: argument 0"}
+!74 = distinct !{!74, !"_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode: argument 0"}
+!77 = distinct !{!77, !"_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode"}
+!78 = !{!79, !80, i64 32}
+!79 = !{!"_ZTSN6icu_776number4impl12RoundingImplE", !29, i64 0, !80, i64 32, !81, i64 36}
+!80 = !{!"_ZTS25UNumberFormatRoundingMode", !7, i64 0}
+!81 = !{!"bool", !7, i64 0}
+!82 = !{!79, !81, i64 36}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode: argument 0"}
+!85 = distinct !{!85, !"_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode"}
+!86 = !{!79, !30, i64 0}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"vtable pointer", !8, i64 0}
+!89 = !{i8 0, i8 2}
+!90 = !{}
+!91 = !{!79, !31, i64 24}

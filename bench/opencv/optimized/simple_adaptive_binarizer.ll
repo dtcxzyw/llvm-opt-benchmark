@@ -490,10 +490,10 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
 23:                                               ; preds = %20
   %24 = add nuw nsw i32 %.053121, 1
   %exitcond146.not = icmp eq i32 %24, 8
-  br i1 %exitcond146.not, label %..critedge2_crit_edge, label %20, !llvm.loop !42
+  br i1 %exitcond146.not, label %..critedge2_crit_edge, label %20, !llvm.loop !43
 
 ..critedge2_crit_edge:                            ; preds = %23
-  br label %.lr.ph, !llvm.loop !42
+  br label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %20, %..critedge2_crit_edge
   %.053.lcssa = phi i32 [ 8, %..critedge2_crit_edge ], [ %.053121, %20 ]
@@ -530,33 +530,33 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
 37:                                               ; preds = %.lr.ph124.us, %37
   %indvars.iv149 = phi i64 [ 0, %.lr.ph124.us ], [ %indvars.iv.next150, %37 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv149
-  %38 = load i8, ptr %gep, align 1, !tbaa !43
+  %38 = load i8, ptr %gep, align 1, !tbaa !44
   %39 = zext i8 %38 to i32
   %40 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv149
-  %41 = load i32, ptr %40, align 4, !tbaa !44
+  %41 = load i32, ptr %40, align 4, !tbaa !45
   %42 = add i32 %41, %39
-  store i32 %42, ptr %40, align 4, !tbaa !44
+  store i32 %42, ptr %40, align 4, !tbaa !45
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count153
-  br i1 %exitcond154.not, label %._crit_edge.us, label %37, !llvm.loop !45
+  br i1 %exitcond154.not, label %._crit_edge.us, label %37, !llvm.loop !46
 
 ._crit_edge.us:                                   ; preds = %37
   %43 = add nuw nsw i32 %storemerge61125.us, 1
   %exitcond155.not = icmp eq i32 %43, %32
-  br i1 %exitcond155.not, label %.lr.ph142, label %.lr.ph124.us, !llvm.loop !46
+  br i1 %exitcond155.not, label %.lr.ph142, label %.lr.ph124.us, !llvm.loop !47
 
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %46 = load i8, ptr %45, align 1, !tbaa !43
+  %46 = load i8, ptr %45, align 1, !tbaa !44
   %47 = zext i8 %46 to i32
   %48 = shl i32 %47, %31
   %49 = add i32 %48, %47
   %50 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
-  store i32 %49, ptr %50, align 4, !tbaa !44
+  store i32 %49, ptr %50, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond148.not, label %.preheader116, label %44, !llvm.loop !48
+  br i1 %exitcond148.not, label %.preheader116, label %44, !llvm.loop !49
 
 .lr.ph142:                                        ; preds = %._crit_edge.us, %.preheader116
   %51 = add nsw i32 %.0.lcssa, -1
@@ -568,7 +568,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %54 = phi i32 [ %9, %.lr.ph142 ], [ %105, %.loopexit.backedge ]
   %55 = phi i32 [ %5, %.lr.ph142 ], [ %106, %.loopexit.backedge ]
   %storemerge62141 = phi i32 [ 0, %.lr.ph142 ], [ %107, %.loopexit.backedge ]
-  %56 = load i32, ptr %30, align 4, !tbaa !44
+  %56 = load i32, ptr %30, align 4, !tbaa !45
   %57 = shl i32 %56, %51
   %58 = add i32 %57, %56
   br i1 %53, label %.lr.ph129, label %._crit_edge
@@ -583,11 +583,11 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %.sroa.speculated90 = tail call i32 @llvm.smin.i32(i32 %59, i32 %storemerge63127)
   %61 = sext i32 %.sroa.speculated90 to i64
   %62 = getelementptr inbounds i32, ptr %30, i64 %61
-  %63 = load i32, ptr %62, align 4, !tbaa !44
+  %63 = load i32, ptr %62, align 4, !tbaa !45
   %64 = add i32 %63, %.054128
   %65 = add nuw nsw i32 %storemerge63127, 1
   %exitcond156.not = icmp eq i32 %65, %52
-  br i1 %exitcond156.not, label %._crit_edge, label %60, !llvm.loop !49
+  br i1 %exitcond156.not, label %._crit_edge, label %60, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %60, %.loopexit
   %.054.lcssa = phi i32 [ %58, %.loopexit ], [ %64, %60 ]
@@ -598,14 +598,14 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %67 = mul nuw nsw i32 %55, %storemerge62141
   %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 %68
-  %70 = load i8, ptr %69, align 1, !tbaa !43
+  %70 = load i8, ptr %69, align 1, !tbaa !44
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %71, 3
   %73 = shl i32 %72, %27
   %74 = icmp ult i32 %73, %.054.lcssa
   %75 = zext i1 %74 to i8
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 %68
-  store i8 %75, ptr %76, align 1, !tbaa !43
+  store i8 %75, ptr %76, align 1, !tbaa !44
   %77 = load i32, ptr %4, align 4, !tbaa !29
   %78 = icmp sgt i32 %77, 1
   br i1 %78, label %.lr.ph135, label %._crit_edge136.loopexit
@@ -624,22 +624,22 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %.sroa.speculated80 = tail call i32 @llvm.smin.i32(i32 %82, i32 %84)
   %85 = sext i32 %.sroa.speculated80 to i64
   %86 = getelementptr inbounds i32, ptr %30, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !44
+  %87 = load i32, ptr %86, align 4, !tbaa !45
   %88 = zext nneg i32 %.sroa.speculated85 to i64
   %89 = getelementptr inbounds nuw i32, ptr %30, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !44
+  %90 = load i32, ptr %89, align 4, !tbaa !45
   %91 = add i32 %87, %.1133175
   %92 = sub i32 %91, %90
   %93 = add nuw nsw i64 %indvars.iv.next158176, %68
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !43
+  %95 = load i8, ptr %94, align 1, !tbaa !44
   %96 = zext i8 %95 to i32
   %97 = add nuw nsw i32 %96, 3
   %98 = shl i32 %97, %27
   %99 = icmp ult i32 %98, %92
   %100 = zext i1 %99 to i8
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 %93
-  store i8 %100, ptr %101, align 1, !tbaa !43
+  store i8 %100, ptr %101, align 1, !tbaa !44
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv.next158176, 1
   %102 = load i32, ptr %4, align 4, !tbaa !29
   %103 = sext i32 %102 to i64
@@ -683,19 +683,19 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %indvars.iv160 = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next161, %.lr.ph140 ]
   %gep169 = getelementptr inbounds nuw i8, ptr %invariant.gep168, i64 %indvars.iv160
-  %118 = load i8, ptr %gep169, align 1, !tbaa !43
+  %118 = load i8, ptr %gep169, align 1, !tbaa !44
   %119 = zext i8 %118 to i32
   %120 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv160
-  %121 = load i32, ptr %120, align 4, !tbaa !44
+  %121 = load i32, ptr %120, align 4, !tbaa !45
   %122 = sub i32 %121, %119
   %gep171 = getelementptr i8, ptr %invariant.gep170, i64 %indvars.iv160
-  %123 = load i8, ptr %gep171, align 1, !tbaa !43
+  %123 = load i8, ptr %gep171, align 1, !tbaa !44
   %124 = zext i8 %123 to i32
   %125 = add i32 %122, %124
-  store i32 %125, ptr %120, align 4, !tbaa !44
+  store i32 %125, ptr %120, align 4, !tbaa !45
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit.backedge, label %.lr.ph140, !llvm.loop !50
+  br i1 %exitcond164.not, label %.loopexit.backedge, label %.lr.ph140, !llvm.loop !51
 
 ._crit_edge143:                                   ; preds = %._crit_edge136
   tail call void @free(ptr noundef nonnull %30) #10
@@ -818,7 +818,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.i: ; preds = %_ZN5zxing3RefINS
   %37 = load i32, ptr %36, align 8, !tbaa !9
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8, !tbaa !9
-  store ptr %5, ptr %0, align 8, !tbaa !51
+  store ptr %5, ptr %0, align 8, !tbaa !52
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %39
 
 39:                                               ; preds = %34
@@ -958,17 +958,18 @@ attributes #13 = { nounwind allocsize(0) }
 !37 = !{!"p1 _ZTSN5zxing5ArrayIhEE", !6, i64 0}
 !38 = !{!39, !34, i64 0}
 !39 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !34, i64 0, !34, i64 8, !34, i64 16}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = distinct !{!42, !41}
-!43 = !{!7, !7, i64 0}
-!44 = !{!11, !11, i64 0}
-!45 = distinct !{!45, !41}
-!46 = distinct !{!46, !41, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !41}
-!49 = distinct !{!49, !41}
-!50 = distinct !{!50, !41}
-!51 = !{!52, !53, i64 0}
-!52 = !{!"_ZTSN5zxing3RefINS_9BinarizerEEE", !53, i64 0}
-!53 = !{!"p1 _ZTSN5zxing9BinarizerE", !6, i64 0}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = distinct !{!43, !41, !42}
+!44 = !{!7, !7, i64 0}
+!45 = !{!11, !11, i64 0}
+!46 = distinct !{!46, !41, !42}
+!47 = distinct !{!47, !41, !42, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !41, !42}
+!50 = distinct !{!50, !41, !42}
+!51 = distinct !{!51, !41, !42}
+!52 = !{!53, !54, i64 0}
+!53 = !{!"_ZTSN5zxing3RefINS_9BinarizerEEE", !54, i64 0}
+!54 = !{!"p1 _ZTSN5zxing9BinarizerE", !6, i64 0}

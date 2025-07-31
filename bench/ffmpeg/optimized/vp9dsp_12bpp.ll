@@ -451,45 +451,45 @@ define internal void @tm_4x4_c(ptr noundef writeonly captures(none) %0, i64 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @dc_128_4x4_c(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i64 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #4 {
   %5 = lshr i64 %1, 1
-  store i64 576469548530665472, ptr %0, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %0, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
-  store i64 576469548530665472, ptr %6, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %6, align 8, !tbaa !13
   %7 = and i64 %1, -2
   %8 = getelementptr inbounds nuw i16, ptr %0, i64 %7
-  store i64 576469548530665472, ptr %8, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %8, align 8, !tbaa !13
   %.idx = mul nuw nsw i64 %5, 6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  store i64 576469548530665472, ptr %9, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %9, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @dc_127_4x4_c(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i64 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #4 {
   %5 = lshr i64 %1, 1
-  store i64 576188069258921983, ptr %0, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %0, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
-  store i64 576188069258921983, ptr %6, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %6, align 8, !tbaa !13
   %7 = and i64 %1, -2
   %8 = getelementptr inbounds nuw i16, ptr %0, i64 %7
-  store i64 576188069258921983, ptr %8, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %8, align 8, !tbaa !13
   %.idx = mul nuw nsw i64 %5, 6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  store i64 576188069258921983, ptr %9, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %9, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @dc_129_4x4_c(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i64 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #4 {
   %5 = lshr i64 %1, 1
-  store i64 576751027802408961, ptr %0, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %0, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
-  store i64 576751027802408961, ptr %6, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %6, align 8, !tbaa !13
   %7 = and i64 %1, -2
   %8 = getelementptr inbounds nuw i16, ptr %0, i64 %7
-  store i64 576751027802408961, ptr %8, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %8, align 8, !tbaa !13
   %.idx = mul nuw nsw i64 %5, 6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  store i64 576751027802408961, ptr %9, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %9, align 8, !tbaa !13
   ret void
 }
 
@@ -582,7 +582,7 @@ define internal void @tm_8x8_c(ptr noundef writeonly captures(none) %0, i64 noun
   %77 = getelementptr inbounds nuw i16, ptr %.058, i64 %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %78, label %16, !llvm.loop !13
+  br i1 %exitcond.not, label %78, label %16, !llvm.loop !14
 
 78:                                               ; preds = %16
   ret void
@@ -596,13 +596,13 @@ define internal void @dc_128_8x8_c(ptr noundef writeonly captures(none) %0, i64 
 6:                                                ; preds = %4, %6
   %.011 = phi i32 [ 0, %4 ], [ %9, %6 ]
   %.0910 = phi ptr [ %0, %4 ], [ %8, %6 ]
-  store i64 576469548530665472, ptr %.0910, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %.0910, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %.0910, i64 8
-  store i64 576469548530665472, ptr %7, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i16, ptr %.0910, i64 %5
   %9 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %9, 8
-  br i1 %exitcond.not, label %10, label %6, !llvm.loop !14
+  br i1 %exitcond.not, label %10, label %6, !llvm.loop !15
 
 10:                                               ; preds = %6
   ret void
@@ -616,13 +616,13 @@ define internal void @dc_127_8x8_c(ptr noundef writeonly captures(none) %0, i64 
 6:                                                ; preds = %4, %6
   %.011 = phi i32 [ 0, %4 ], [ %9, %6 ]
   %.0910 = phi ptr [ %0, %4 ], [ %8, %6 ]
-  store i64 576188069258921983, ptr %.0910, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %.0910, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %.0910, i64 8
-  store i64 576188069258921983, ptr %7, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i16, ptr %.0910, i64 %5
   %9 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %9, 8
-  br i1 %exitcond.not, label %10, label %6, !llvm.loop !15
+  br i1 %exitcond.not, label %10, label %6, !llvm.loop !16
 
 10:                                               ; preds = %6
   ret void
@@ -636,13 +636,13 @@ define internal void @dc_129_8x8_c(ptr noundef writeonly captures(none) %0, i64 
 6:                                                ; preds = %4, %6
   %.011 = phi i32 [ 0, %4 ], [ %9, %6 ]
   %.0910 = phi ptr [ %0, %4 ], [ %8, %6 ]
-  store i64 576751027802408961, ptr %.0910, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %.0910, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %.0910, i64 8
-  store i64 576751027802408961, ptr %7, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i16, ptr %.0910, i64 %5
   %9 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %9, 8
-  br i1 %exitcond.not, label %10, label %6, !llvm.loop !16
+  br i1 %exitcond.not, label %10, label %6, !llvm.loop !17
 
 10:                                               ; preds = %6
   ret void
@@ -809,7 +809,7 @@ define internal void @tm_16x16_c(ptr noundef writeonly captures(none) %0, i64 no
   %141 = getelementptr inbounds nuw i16, ptr %.0106, i64 %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %142, label %24, !llvm.loop !17
+  br i1 %exitcond.not, label %142, label %24, !llvm.loop !18
 
 142:                                              ; preds = %24
   ret void
@@ -823,17 +823,17 @@ define internal void @dc_128_16x16_c(ptr noundef writeonly captures(none) %0, i6
 6:                                                ; preds = %4, %6
   %.015 = phi i32 [ 0, %4 ], [ %11, %6 ]
   %.01314 = phi ptr [ %0, %4 ], [ %10, %6 ]
-  store i64 576469548530665472, ptr %.01314, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %.01314, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %.01314, i64 8
-  store i64 576469548530665472, ptr %7, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %.01314, i64 16
-  store i64 576469548530665472, ptr %8, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %8, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %.01314, i64 24
-  store i64 576469548530665472, ptr %9, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i16, ptr %.01314, i64 %5
   %11 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %11, 16
-  br i1 %exitcond.not, label %12, label %6, !llvm.loop !18
+  br i1 %exitcond.not, label %12, label %6, !llvm.loop !19
 
 12:                                               ; preds = %6
   ret void
@@ -847,17 +847,17 @@ define internal void @dc_127_16x16_c(ptr noundef writeonly captures(none) %0, i6
 6:                                                ; preds = %4, %6
   %.015 = phi i32 [ 0, %4 ], [ %11, %6 ]
   %.01314 = phi ptr [ %0, %4 ], [ %10, %6 ]
-  store i64 576188069258921983, ptr %.01314, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %.01314, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %.01314, i64 8
-  store i64 576188069258921983, ptr %7, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %.01314, i64 16
-  store i64 576188069258921983, ptr %8, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %8, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %.01314, i64 24
-  store i64 576188069258921983, ptr %9, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i16, ptr %.01314, i64 %5
   %11 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %11, 16
-  br i1 %exitcond.not, label %12, label %6, !llvm.loop !19
+  br i1 %exitcond.not, label %12, label %6, !llvm.loop !20
 
 12:                                               ; preds = %6
   ret void
@@ -871,17 +871,17 @@ define internal void @dc_129_16x16_c(ptr noundef writeonly captures(none) %0, i6
 6:                                                ; preds = %4, %6
   %.015 = phi i32 [ 0, %4 ], [ %11, %6 ]
   %.01314 = phi ptr [ %0, %4 ], [ %10, %6 ]
-  store i64 576751027802408961, ptr %.01314, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %.01314, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %.01314, i64 8
-  store i64 576751027802408961, ptr %7, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %.01314, i64 16
-  store i64 576751027802408961, ptr %8, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %8, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %.01314, i64 24
-  store i64 576751027802408961, ptr %9, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i16, ptr %.01314, i64 %5
   %11 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %11, 16
-  br i1 %exitcond.not, label %12, label %6, !llvm.loop !20
+  br i1 %exitcond.not, label %12, label %6, !llvm.loop !21
 
 12:                                               ; preds = %6
   ret void
@@ -1192,7 +1192,7 @@ define internal void @tm_32x32_c(ptr noundef writeonly captures(none) %0, i64 no
   %269 = getelementptr inbounds nuw i16, ptr %.0202, i64 %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %270, label %40, !llvm.loop !21
+  br i1 %exitcond.not, label %270, label %40, !llvm.loop !22
 
 270:                                              ; preds = %40
   ret void
@@ -1206,25 +1206,25 @@ define internal void @dc_128_32x32_c(ptr noundef writeonly captures(none) %0, i6
 6:                                                ; preds = %4, %6
   %.023 = phi i32 [ 0, %4 ], [ %15, %6 ]
   %.02122 = phi ptr [ %0, %4 ], [ %14, %6 ]
-  store i64 576469548530665472, ptr %.02122, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %.02122, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %.02122, i64 8
-  store i64 576469548530665472, ptr %7, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %.02122, i64 16
-  store i64 576469548530665472, ptr %8, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %8, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %.02122, i64 24
-  store i64 576469548530665472, ptr %9, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %.02122, i64 32
-  store i64 576469548530665472, ptr %10, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %10, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %.02122, i64 40
-  store i64 576469548530665472, ptr %11, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %11, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %.02122, i64 48
-  store i64 576469548530665472, ptr %12, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %.02122, i64 56
-  store i64 576469548530665472, ptr %13, align 8, !tbaa !12
+  store i64 576469548530665472, ptr %13, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i16, ptr %.02122, i64 %5
   %15 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %15, 32
-  br i1 %exitcond.not, label %16, label %6, !llvm.loop !22
+  br i1 %exitcond.not, label %16, label %6, !llvm.loop !23
 
 16:                                               ; preds = %6
   ret void
@@ -1238,25 +1238,25 @@ define internal void @dc_127_32x32_c(ptr noundef writeonly captures(none) %0, i6
 6:                                                ; preds = %4, %6
   %.023 = phi i32 [ 0, %4 ], [ %15, %6 ]
   %.02122 = phi ptr [ %0, %4 ], [ %14, %6 ]
-  store i64 576188069258921983, ptr %.02122, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %.02122, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %.02122, i64 8
-  store i64 576188069258921983, ptr %7, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %.02122, i64 16
-  store i64 576188069258921983, ptr %8, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %8, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %.02122, i64 24
-  store i64 576188069258921983, ptr %9, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %.02122, i64 32
-  store i64 576188069258921983, ptr %10, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %10, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %.02122, i64 40
-  store i64 576188069258921983, ptr %11, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %11, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %.02122, i64 48
-  store i64 576188069258921983, ptr %12, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %.02122, i64 56
-  store i64 576188069258921983, ptr %13, align 8, !tbaa !12
+  store i64 576188069258921983, ptr %13, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i16, ptr %.02122, i64 %5
   %15 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %15, 32
-  br i1 %exitcond.not, label %16, label %6, !llvm.loop !23
+  br i1 %exitcond.not, label %16, label %6, !llvm.loop !24
 
 16:                                               ; preds = %6
   ret void
@@ -1270,25 +1270,25 @@ define internal void @dc_129_32x32_c(ptr noundef writeonly captures(none) %0, i6
 6:                                                ; preds = %4, %6
   %.023 = phi i32 [ 0, %4 ], [ %15, %6 ]
   %.02122 = phi ptr [ %0, %4 ], [ %14, %6 ]
-  store i64 576751027802408961, ptr %.02122, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %.02122, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %.02122, i64 8
-  store i64 576751027802408961, ptr %7, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %.02122, i64 16
-  store i64 576751027802408961, ptr %8, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %8, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %.02122, i64 24
-  store i64 576751027802408961, ptr %9, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %.02122, i64 32
-  store i64 576751027802408961, ptr %10, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %10, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %.02122, i64 40
-  store i64 576751027802408961, ptr %11, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %11, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %.02122, i64 48
-  store i64 576751027802408961, ptr %12, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %.02122, i64 56
-  store i64 576751027802408961, ptr %13, align 8, !tbaa !12
+  store i64 576751027802408961, ptr %13, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i16, ptr %.02122, i64 %5
   %15 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %15, 32
-  br i1 %exitcond.not, label %16, label %6, !llvm.loop !24
+  br i1 %exitcond.not, label %16, label %6, !llvm.loop !25
 
 16:                                               ; preds = %6
   ret void
@@ -1311,7 +1311,7 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   br i1 %8, label %9, label %.preheader45
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr %2, align 4, !tbaa !25
+  %10 = load i32, ptr %2, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, 11585
   %13 = add nsw i64 %12, 8192
@@ -1320,7 +1320,7 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %16 = add nuw i64 %15, 8192
   %17 = lshr i64 %16, 14
   %18 = trunc i64 %17 to i32
-  store i32 0, ptr %2, align 4, !tbaa !25
+  store i32 0, ptr %2, align 4, !tbaa !26
   %19 = add nsw i32 %18, 8
   %20 = ashr i32 %19, 4
   br label %.preheader
@@ -1343,23 +1343,23 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   store i16 %29, ptr %23, align 2, !tbaa !8
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 4
-  br i1 %exitcond66.not, label %30, label %21, !llvm.loop !27
+  br i1 %exitcond66.not, label %30, label %21, !llvm.loop !28
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %.03651, i64 2
   %32 = add nuw nsw i32 %.052, 1
   %exitcond67.not = icmp eq i32 %32, 4
-  br i1 %exitcond67.not, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %exitcond67.not, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .preheader45:                                     ; preds = %4, %.preheader45
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader45 ], [ 0, %4 ]
   %33 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %35 = load i32, ptr %33, align 4, !tbaa !25
+  %35 = load i32, ptr %33, align 4, !tbaa !26
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %38 = load i32, ptr %37, align 4, !tbaa !25
+  %38 = load i32, ptr %37, align 4, !tbaa !26
   %39 = sext i32 %38 to i64
   %40 = add nsw i64 %39, %36
   %41 = mul nsw i64 %40, 11585
@@ -1370,11 +1370,11 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %46 = add nsw i64 %45, 8192
   %47 = ashr i64 %46, 14
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %49 = load i32, ptr %48, align 4, !tbaa !25
+  %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, 6270
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %53 = load i32, ptr %52, align 4, !tbaa !25
+  %53 = load i32, ptr %52, align 4, !tbaa !26
   %54 = sext i32 %53 to i64
   %.neg.i = mul nsw i64 %54, -15137
   %55 = add nsw i64 %51, 8192
@@ -1387,22 +1387,22 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %62 = ashr i64 %61, 14
   %63 = add nsw i64 %62, %43
   %64 = trunc i64 %63 to i32
-  store i32 %64, ptr %34, align 16, !tbaa !25
+  store i32 %64, ptr %34, align 16, !tbaa !26
   %65 = add nsw i64 %57, %47
   %66 = trunc i64 %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 %66, ptr %67, align 4, !tbaa !25
+  store i32 %66, ptr %67, align 4, !tbaa !26
   %68 = sub nsw i64 %47, %57
   %69 = trunc i64 %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %69, ptr %70, align 8, !tbaa !25
+  store i32 %69, ptr %70, align 8, !tbaa !26
   %71 = sub nsw i64 %43, %62
   %72 = trunc i64 %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  store i32 %72, ptr %73, align 4, !tbaa !25
+  store i32 %72, ptr %73, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %74, label %.preheader45, !llvm.loop !29
+  br i1 %exitcond.not, label %74, label %.preheader45, !llvm.loop !30
 
 74:                                               ; preds = %.preheader45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, i8 0, i64 64, i1 false)
@@ -1415,10 +1415,10 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %indvars.iv59 = phi i64 [ 0, %74 ], [ %indvars.iv.next60, %129 ]
   %.13748 = phi ptr [ %0, %74 ], [ %130, %129 ]
   %79 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv59
-  %80 = load i32, ptr %79, align 4, !tbaa !25
+  %80 = load i32, ptr %79, align 4, !tbaa !26
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %83 = load i32, ptr %82, align 4, !tbaa !25
+  %83 = load i32, ptr %82, align 4, !tbaa !26
   %84 = sext i32 %83 to i64
   %85 = add nsw i64 %84, %81
   %86 = mul nsw i64 %85, 11585
@@ -1429,11 +1429,11 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %91 = add nsw i64 %90, 8192
   %92 = ashr i64 %91, 14
   %93 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %94 = load i32, ptr %93, align 4, !tbaa !25
+  %94 = load i32, ptr %93, align 4, !tbaa !26
   %95 = sext i32 %94 to i64
   %96 = mul nsw i64 %95, 6270
   %97 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %98 = load i32, ptr %97, align 4, !tbaa !25
+  %98 = load i32, ptr %97, align 4, !tbaa !26
   %99 = sext i32 %98 to i64
   %.neg.i43 = mul nsw i64 %99, -15137
   %100 = add nsw i64 %96, 8192
@@ -1446,16 +1446,16 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %107 = ashr i64 %106, 14
   %108 = add nsw i64 %107, %88
   %109 = trunc i64 %108 to i32
-  store i32 %109, ptr %6, align 16, !tbaa !25
+  store i32 %109, ptr %6, align 16, !tbaa !26
   %110 = add nsw i64 %102, %92
   %111 = trunc i64 %110 to i32
-  store i32 %111, ptr %75, align 4, !tbaa !25
+  store i32 %111, ptr %75, align 4, !tbaa !26
   %112 = sub nsw i64 %92, %102
   %113 = trunc i64 %112 to i32
-  store i32 %113, ptr %76, align 8, !tbaa !25
+  store i32 %113, ptr %76, align 8, !tbaa !26
   %114 = sub nsw i64 %88, %107
   %115 = trunc i64 %114 to i32
-  store i32 %115, ptr %77, align 4, !tbaa !25
+  store i32 %115, ptr %77, align 4, !tbaa !26
   br label %116
 
 116:                                              ; preds = %78, %116
@@ -1465,7 +1465,7 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %119 = load i16, ptr %118, align 2, !tbaa !8
   %120 = zext i16 %119 to i32
   %121 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv55
-  %122 = load i32, ptr %121, align 4, !tbaa !25
+  %122 = load i32, ptr %121, align 4, !tbaa !26
   %123 = add i32 %122, 8
   %124 = ashr i32 %123, 4
   %125 = add nsw i32 %124, %120
@@ -1475,13 +1475,13 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   store i16 %128, ptr %118, align 2, !tbaa !8
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 4
-  br i1 %exitcond58.not, label %129, label %116, !llvm.loop !30
+  br i1 %exitcond58.not, label %129, label %116, !llvm.loop !31
 
 129:                                              ; preds = %116
   %130 = getelementptr inbounds nuw i8, ptr %.13748, i64 2
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 4
-  br i1 %exitcond62.not, label %.loopexit, label %78, !llvm.loop !31
+  br i1 %exitcond62.not, label %.loopexit, label %78, !llvm.loop !32
 
 .loopexit:                                        ; preds = %129, %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
@@ -1502,16 +1502,16 @@ define internal void @iadst_idct_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %10 = load i32, ptr %8, align 4, !tbaa !25
+  %10 = load i32, ptr %8, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, 5283
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %14 = load i32, ptr %13, align 4, !tbaa !25
+  %14 = load i32, ptr %13, align 4, !tbaa !26
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %15, 15212
   %17 = add nsw i64 %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %19 = load i32, ptr %18, align 4, !tbaa !25
+  %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %20, 9929
   %22 = add nsw i64 %17, %21
@@ -1524,34 +1524,34 @@ define internal void @iadst_idct_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %27 = add nsw i64 %26, %20
   %28 = mul nsw i64 %27, 13377
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %30 = load i32, ptr %29, align 4, !tbaa !25
+  %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = sext i32 %30 to i64
   %32 = mul nsw i64 %31, 13377
   %33 = add nsw i64 %32, 8192
   %34 = add nsw i64 %33, %22
   %35 = lshr i64 %34, 14
   %36 = trunc i64 %35 to i32
-  store i32 %36, ptr %9, align 16, !tbaa !25
+  store i32 %36, ptr %9, align 16, !tbaa !26
   %37 = add nsw i64 %33, %25
   %38 = lshr i64 %37, 14
   %39 = trunc i64 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %39, ptr %40, align 4, !tbaa !25
+  store i32 %39, ptr %40, align 4, !tbaa !26
   %41 = add nsw i64 %28, 8192
   %42 = lshr i64 %41, 14
   %43 = trunc i64 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %43, ptr %44, align 8, !tbaa !25
+  store i32 %43, ptr %44, align 8, !tbaa !26
   %45 = add nsw i64 %25, 8192
   %46 = add nsw i64 %45, %22
   %47 = sub nsw i64 %46, %32
   %48 = lshr i64 %47, 14
   %49 = trunc i64 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %49, ptr %50, align 4, !tbaa !25
+  store i32 %49, ptr %50, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %51, label %7, !llvm.loop !32
+  br i1 %exitcond.not, label %51, label %7, !llvm.loop !33
 
 51:                                               ; preds = %7
   %52 = lshr i64 %1, 1
@@ -1565,10 +1565,10 @@ define internal void @iadst_idct_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %indvars.iv34 = phi i64 [ 0, %51 ], [ %indvars.iv.next35, %107 ]
   %.028 = phi ptr [ %0, %51 ], [ %108, %107 ]
   %57 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv34
-  %58 = load i32, ptr %57, align 4, !tbaa !25
+  %58 = load i32, ptr %57, align 4, !tbaa !26
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %61 = load i32, ptr %60, align 4, !tbaa !25
+  %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = sext i32 %61 to i64
   %63 = add nsw i64 %62, %59
   %64 = mul nsw i64 %63, 11585
@@ -1579,11 +1579,11 @@ define internal void @iadst_idct_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %69 = add nsw i64 %68, 8192
   %70 = ashr i64 %69, 14
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %72 = load i32, ptr %71, align 4, !tbaa !25
+  %72 = load i32, ptr %71, align 4, !tbaa !26
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, 6270
   %75 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %76 = load i32, ptr %75, align 4, !tbaa !25
+  %76 = load i32, ptr %75, align 4, !tbaa !26
   %77 = sext i32 %76 to i64
   %.neg.i = mul nsw i64 %77, -15137
   %78 = add nsw i64 %74, 8192
@@ -1596,16 +1596,16 @@ define internal void @iadst_idct_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %85 = ashr i64 %84, 14
   %86 = add nsw i64 %85, %66
   %87 = trunc i64 %86 to i32
-  store i32 %87, ptr %6, align 16, !tbaa !25
+  store i32 %87, ptr %6, align 16, !tbaa !26
   %88 = add nsw i64 %80, %70
   %89 = trunc i64 %88 to i32
-  store i32 %89, ptr %53, align 4, !tbaa !25
+  store i32 %89, ptr %53, align 4, !tbaa !26
   %90 = sub nsw i64 %70, %80
   %91 = trunc i64 %90 to i32
-  store i32 %91, ptr %54, align 8, !tbaa !25
+  store i32 %91, ptr %54, align 8, !tbaa !26
   %92 = sub nsw i64 %66, %85
   %93 = trunc i64 %92 to i32
-  store i32 %93, ptr %55, align 4, !tbaa !25
+  store i32 %93, ptr %55, align 4, !tbaa !26
   br label %94
 
 94:                                               ; preds = %56, %94
@@ -1615,7 +1615,7 @@ define internal void @iadst_idct_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %97 = load i16, ptr %96, align 2, !tbaa !8
   %98 = zext i16 %97 to i32
   %99 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv30
-  %100 = load i32, ptr %99, align 4, !tbaa !25
+  %100 = load i32, ptr %99, align 4, !tbaa !26
   %101 = add i32 %100, 8
   %102 = ashr i32 %101, 4
   %103 = add nsw i32 %102, %98
@@ -1625,13 +1625,13 @@ define internal void @iadst_idct_4x4_add_c(ptr noundef captures(none) %0, i64 no
   store i16 %106, ptr %96, align 2, !tbaa !8
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 4
-  br i1 %exitcond33.not, label %107, label %94, !llvm.loop !33
+  br i1 %exitcond33.not, label %107, label %94, !llvm.loop !34
 
 107:                                              ; preds = %94
   %108 = getelementptr inbounds nuw i8, ptr %.028, i64 2
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 4
-  br i1 %exitcond37.not, label %109, label %56, !llvm.loop !34
+  br i1 %exitcond37.not, label %109, label %56, !llvm.loop !35
 
 109:                                              ; preds = %107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
@@ -1652,10 +1652,10 @@ define internal void @idct_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %10 = load i32, ptr %8, align 4, !tbaa !25
+  %10 = load i32, ptr %8, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %13 = load i32, ptr %12, align 4, !tbaa !25
+  %13 = load i32, ptr %12, align 4, !tbaa !26
   %14 = sext i32 %13 to i64
   %15 = add nsw i64 %14, %11
   %16 = mul nsw i64 %15, 11585
@@ -1666,11 +1666,11 @@ define internal void @idct_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %21 = add nsw i64 %20, 8192
   %22 = ashr i64 %21, 14
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %24 = load i32, ptr %23, align 4, !tbaa !25
+  %24 = load i32, ptr %23, align 4, !tbaa !26
   %25 = sext i32 %24 to i64
   %26 = mul nsw i64 %25, 6270
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %28 = load i32, ptr %27, align 4, !tbaa !25
+  %28 = load i32, ptr %27, align 4, !tbaa !26
   %29 = sext i32 %28 to i64
   %.neg.i = mul nsw i64 %29, -15137
   %30 = add nsw i64 %26, 8192
@@ -1683,22 +1683,22 @@ define internal void @idct_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %37 = ashr i64 %36, 14
   %38 = add nsw i64 %37, %18
   %39 = trunc i64 %38 to i32
-  store i32 %39, ptr %9, align 16, !tbaa !25
+  store i32 %39, ptr %9, align 16, !tbaa !26
   %40 = add nsw i64 %32, %22
   %41 = trunc i64 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !25
+  store i32 %41, ptr %42, align 4, !tbaa !26
   %43 = sub nsw i64 %22, %32
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %44, ptr %45, align 8, !tbaa !25
+  store i32 %44, ptr %45, align 8, !tbaa !26
   %46 = sub nsw i64 %18, %37
   %47 = trunc i64 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %47, ptr %48, align 4, !tbaa !25
+  store i32 %47, ptr %48, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %49, label %7, !llvm.loop !35
+  br i1 %exitcond.not, label %49, label %7, !llvm.loop !36
 
 49:                                               ; preds = %7
   %50 = lshr i64 %1, 1
@@ -1712,16 +1712,16 @@ define internal void @idct_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %indvars.iv34 = phi i64 [ 0, %49 ], [ %indvars.iv.next35, %107 ]
   %.028 = phi ptr [ %0, %49 ], [ %108, %107 ]
   %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv34
-  %56 = load i32, ptr %55, align 4, !tbaa !25
+  %56 = load i32, ptr %55, align 4, !tbaa !26
   %57 = sext i32 %56 to i64
   %58 = mul nsw i64 %57, 5283
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %60 = load i32, ptr %59, align 4, !tbaa !25
+  %60 = load i32, ptr %59, align 4, !tbaa !26
   %61 = sext i32 %60 to i64
   %62 = mul nsw i64 %61, 15212
   %63 = add nsw i64 %62, %58
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  %65 = load i32, ptr %64, align 4, !tbaa !25
+  %65 = load i32, ptr %64, align 4, !tbaa !26
   %66 = sext i32 %65 to i64
   %67 = mul nsw i64 %66, 9929
   %68 = add nsw i64 %63, %67
@@ -1734,28 +1734,28 @@ define internal void @idct_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %73 = add nsw i64 %72, %66
   %74 = mul nsw i64 %73, 13377
   %75 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %76 = load i32, ptr %75, align 4, !tbaa !25
+  %76 = load i32, ptr %75, align 4, !tbaa !26
   %77 = sext i32 %76 to i64
   %78 = mul nsw i64 %77, 13377
   %79 = add nsw i64 %78, 8192
   %80 = add nsw i64 %79, %68
   %81 = lshr i64 %80, 14
   %82 = trunc i64 %81 to i32
-  store i32 %82, ptr %6, align 16, !tbaa !25
+  store i32 %82, ptr %6, align 16, !tbaa !26
   %83 = add nsw i64 %79, %71
   %84 = lshr i64 %83, 14
   %85 = trunc i64 %84 to i32
-  store i32 %85, ptr %51, align 4, !tbaa !25
+  store i32 %85, ptr %51, align 4, !tbaa !26
   %86 = add nsw i64 %74, 8192
   %87 = lshr i64 %86, 14
   %88 = trunc i64 %87 to i32
-  store i32 %88, ptr %52, align 8, !tbaa !25
+  store i32 %88, ptr %52, align 8, !tbaa !26
   %89 = add nsw i64 %71, 8192
   %90 = add nsw i64 %89, %68
   %91 = sub nsw i64 %90, %78
   %92 = lshr i64 %91, 14
   %93 = trunc i64 %92 to i32
-  store i32 %93, ptr %53, align 4, !tbaa !25
+  store i32 %93, ptr %53, align 4, !tbaa !26
   br label %94
 
 94:                                               ; preds = %54, %94
@@ -1765,7 +1765,7 @@ define internal void @idct_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %97 = load i16, ptr %96, align 2, !tbaa !8
   %98 = zext i16 %97 to i32
   %99 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv30
-  %100 = load i32, ptr %99, align 4, !tbaa !25
+  %100 = load i32, ptr %99, align 4, !tbaa !26
   %101 = add i32 %100, 8
   %102 = ashr i32 %101, 4
   %103 = add nsw i32 %102, %98
@@ -1775,13 +1775,13 @@ define internal void @idct_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 no
   store i16 %106, ptr %96, align 2, !tbaa !8
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 4
-  br i1 %exitcond33.not, label %107, label %94, !llvm.loop !36
+  br i1 %exitcond33.not, label %107, label %94, !llvm.loop !37
 
 107:                                              ; preds = %94
   %108 = getelementptr inbounds nuw i8, ptr %.028, i64 2
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 4
-  br i1 %exitcond37.not, label %109, label %54, !llvm.loop !37
+  br i1 %exitcond37.not, label %109, label %54, !llvm.loop !38
 
 109:                                              ; preds = %107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
@@ -1802,16 +1802,16 @@ define internal void @iadst_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 n
   %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %10 = load i32, ptr %8, align 4, !tbaa !25
+  %10 = load i32, ptr %8, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, 5283
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %14 = load i32, ptr %13, align 4, !tbaa !25
+  %14 = load i32, ptr %13, align 4, !tbaa !26
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %15, 15212
   %17 = add nsw i64 %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %19 = load i32, ptr %18, align 4, !tbaa !25
+  %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %20, 9929
   %22 = add nsw i64 %17, %21
@@ -1824,34 +1824,34 @@ define internal void @iadst_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 n
   %27 = add nsw i64 %26, %20
   %28 = mul nsw i64 %27, 13377
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %30 = load i32, ptr %29, align 4, !tbaa !25
+  %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = sext i32 %30 to i64
   %32 = mul nsw i64 %31, 13377
   %33 = add nsw i64 %32, 8192
   %34 = add nsw i64 %33, %22
   %35 = lshr i64 %34, 14
   %36 = trunc i64 %35 to i32
-  store i32 %36, ptr %9, align 16, !tbaa !25
+  store i32 %36, ptr %9, align 16, !tbaa !26
   %37 = add nsw i64 %33, %25
   %38 = lshr i64 %37, 14
   %39 = trunc i64 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %39, ptr %40, align 4, !tbaa !25
+  store i32 %39, ptr %40, align 4, !tbaa !26
   %41 = add nsw i64 %28, 8192
   %42 = lshr i64 %41, 14
   %43 = trunc i64 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %43, ptr %44, align 8, !tbaa !25
+  store i32 %43, ptr %44, align 8, !tbaa !26
   %45 = add nsw i64 %25, 8192
   %46 = add nsw i64 %45, %22
   %47 = sub nsw i64 %46, %32
   %48 = lshr i64 %47, 14
   %49 = trunc i64 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %49, ptr %50, align 4, !tbaa !25
+  store i32 %49, ptr %50, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %51, label %7, !llvm.loop !38
+  br i1 %exitcond.not, label %51, label %7, !llvm.loop !39
 
 51:                                               ; preds = %7
   %52 = lshr i64 %1, 1
@@ -1865,16 +1865,16 @@ define internal void @iadst_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 n
   %indvars.iv37 = phi i64 [ 0, %51 ], [ %indvars.iv.next38, %109 ]
   %.031 = phi ptr [ %0, %51 ], [ %110, %109 ]
   %57 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv37
-  %58 = load i32, ptr %57, align 4, !tbaa !25
+  %58 = load i32, ptr %57, align 4, !tbaa !26
   %59 = sext i32 %58 to i64
   %60 = mul nsw i64 %59, 5283
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %62 = load i32, ptr %61, align 4, !tbaa !25
+  %62 = load i32, ptr %61, align 4, !tbaa !26
   %63 = sext i32 %62 to i64
   %64 = mul nsw i64 %63, 15212
   %65 = add nsw i64 %64, %60
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %67 = load i32, ptr %66, align 4, !tbaa !25
+  %67 = load i32, ptr %66, align 4, !tbaa !26
   %68 = sext i32 %67 to i64
   %69 = mul nsw i64 %68, 9929
   %70 = add nsw i64 %65, %69
@@ -1887,28 +1887,28 @@ define internal void @iadst_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 n
   %75 = add nsw i64 %74, %68
   %76 = mul nsw i64 %75, 13377
   %77 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %78 = load i32, ptr %77, align 4, !tbaa !25
+  %78 = load i32, ptr %77, align 4, !tbaa !26
   %79 = sext i32 %78 to i64
   %80 = mul nsw i64 %79, 13377
   %81 = add nsw i64 %80, 8192
   %82 = add nsw i64 %81, %70
   %83 = lshr i64 %82, 14
   %84 = trunc i64 %83 to i32
-  store i32 %84, ptr %6, align 16, !tbaa !25
+  store i32 %84, ptr %6, align 16, !tbaa !26
   %85 = add nsw i64 %81, %73
   %86 = lshr i64 %85, 14
   %87 = trunc i64 %86 to i32
-  store i32 %87, ptr %53, align 4, !tbaa !25
+  store i32 %87, ptr %53, align 4, !tbaa !26
   %88 = add nsw i64 %76, 8192
   %89 = lshr i64 %88, 14
   %90 = trunc i64 %89 to i32
-  store i32 %90, ptr %54, align 8, !tbaa !25
+  store i32 %90, ptr %54, align 8, !tbaa !26
   %91 = add nsw i64 %73, 8192
   %92 = add nsw i64 %91, %70
   %93 = sub nsw i64 %92, %80
   %94 = lshr i64 %93, 14
   %95 = trunc i64 %94 to i32
-  store i32 %95, ptr %55, align 4, !tbaa !25
+  store i32 %95, ptr %55, align 4, !tbaa !26
   br label %96
 
 96:                                               ; preds = %56, %96
@@ -1918,7 +1918,7 @@ define internal void @iadst_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 n
   %99 = load i16, ptr %98, align 2, !tbaa !8
   %100 = zext i16 %99 to i32
   %101 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv33
-  %102 = load i32, ptr %101, align 4, !tbaa !25
+  %102 = load i32, ptr %101, align 4, !tbaa !26
   %103 = add i32 %102, 8
   %104 = ashr i32 %103, 4
   %105 = add nsw i32 %104, %100
@@ -1928,13 +1928,13 @@ define internal void @iadst_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 n
   store i16 %108, ptr %98, align 2, !tbaa !8
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 4
-  br i1 %exitcond36.not, label %109, label %96, !llvm.loop !39
+  br i1 %exitcond36.not, label %109, label %96, !llvm.loop !40
 
 109:                                              ; preds = %96
   %110 = getelementptr inbounds nuw i8, ptr %.031, i64 2
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 4
-  br i1 %exitcond40.not, label %111, label %56, !llvm.loop !40
+  br i1 %exitcond40.not, label %111, label %56, !llvm.loop !41
 
 111:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
@@ -1953,7 +1953,7 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   br i1 %8, label %9, label %.preheader47
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr %2, align 4, !tbaa !25
+  %10 = load i32, ptr %2, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, 11585
   %13 = add nsw i64 %12, 8192
@@ -1962,7 +1962,7 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %16 = add nuw i64 %15, 8192
   %17 = lshr i64 %16, 14
   %18 = trunc i64 %17 to i32
-  store i32 0, ptr %2, align 4, !tbaa !25
+  store i32 0, ptr %2, align 4, !tbaa !26
   %19 = add nsw i32 %18, 16
   %20 = ashr i32 %19, 5
   br label %.preheader
@@ -1985,23 +1985,23 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   store i16 %29, ptr %23, align 2, !tbaa !8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 8
-  br i1 %exitcond68.not, label %30, label %21, !llvm.loop !41
+  br i1 %exitcond68.not, label %30, label %21, !llvm.loop !42
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %.03653, i64 2
   %32 = add nuw nsw i32 %.054, 1
   %exitcond69.not = icmp eq i32 %32, 8
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !42
+  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .preheader47:                                     ; preds = %4, %.preheader47
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader47 ], [ 0, %4 ]
   %33 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 5
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %35 = load i32, ptr %33, align 4, !tbaa !25
+  %35 = load i32, ptr %33, align 4, !tbaa !26
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 128
-  %38 = load i32, ptr %37, align 4, !tbaa !25
+  %38 = load i32, ptr %37, align 4, !tbaa !26
   %39 = sext i32 %38 to i64
   %40 = add nsw i64 %39, %36
   %41 = mul nsw i64 %40, 11585
@@ -2012,11 +2012,11 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %46 = add nsw i64 %45, 8192
   %47 = ashr i64 %46, 14
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %49 = load i32, ptr %48, align 4, !tbaa !25
+  %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, 6270
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 192
-  %53 = load i32, ptr %52, align 4, !tbaa !25
+  %53 = load i32, ptr %52, align 4, !tbaa !26
   %54 = sext i32 %53 to i64
   %.neg.i = mul nsw i64 %54, -15137
   %55 = add nsw i64 %51, 8192
@@ -2028,22 +2028,22 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %61 = add nsw i64 %60, %59
   %62 = ashr i64 %61, 14
   %63 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %64 = load i32, ptr %63, align 4, !tbaa !25
+  %64 = load i32, ptr %63, align 4, !tbaa !26
   %65 = sext i32 %64 to i64
   %66 = mul nsw i64 %65, 3196
   %67 = getelementptr inbounds nuw i8, ptr %33, i64 224
-  %68 = load i32, ptr %67, align 4, !tbaa !25
+  %68 = load i32, ptr %67, align 4, !tbaa !26
   %69 = sext i32 %68 to i64
   %.neg75.i = mul nsw i64 %69, -16069
   %70 = add nsw i64 %66, 8192
   %71 = add nsw i64 %70, %.neg75.i
   %72 = ashr i64 %71, 14
   %73 = getelementptr inbounds nuw i8, ptr %33, i64 160
-  %74 = load i32, ptr %73, align 4, !tbaa !25
+  %74 = load i32, ptr %73, align 4, !tbaa !26
   %75 = sext i32 %74 to i64
   %76 = mul nsw i64 %75, 13623
   %77 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  %78 = load i32, ptr %77, align 4, !tbaa !25
+  %78 = load i32, ptr %77, align 4, !tbaa !26
   %79 = sext i32 %78 to i64
   %.neg76.i = mul nsw i64 %79, -9102
   %80 = add nsw i64 %76, 8192
@@ -2077,38 +2077,38 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %108 = ashr i64 %107, 14
   %109 = add nsw i64 %99, %93
   %110 = trunc i64 %109 to i32
-  store i32 %110, ptr %34, align 16, !tbaa !25
+  store i32 %110, ptr %34, align 16, !tbaa !26
   %111 = add nsw i64 %108, %94
   %112 = trunc i64 %111 to i32
   %113 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 %112, ptr %113, align 4, !tbaa !25
+  store i32 %112, ptr %113, align 4, !tbaa !26
   %114 = add nsw i64 %104, %95
   %115 = trunc i64 %114 to i32
   %116 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %115, ptr %116, align 8, !tbaa !25
+  store i32 %115, ptr %116, align 8, !tbaa !26
   %117 = add nsw i64 %97, %96
   %118 = trunc i64 %117 to i32
   %119 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  store i32 %118, ptr %119, align 4, !tbaa !25
+  store i32 %118, ptr %119, align 4, !tbaa !26
   %120 = sub nsw i64 %96, %97
   %121 = trunc i64 %120 to i32
   %122 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i32 %121, ptr %122, align 16, !tbaa !25
+  store i32 %121, ptr %122, align 16, !tbaa !26
   %123 = sub nsw i64 %95, %104
   %124 = trunc i64 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %34, i64 20
-  store i32 %124, ptr %125, align 4, !tbaa !25
+  store i32 %124, ptr %125, align 4, !tbaa !26
   %126 = sub nsw i64 %94, %108
   %127 = trunc i64 %126 to i32
   %128 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store i32 %127, ptr %128, align 8, !tbaa !25
+  store i32 %127, ptr %128, align 8, !tbaa !26
   %129 = sub nsw i64 %93, %99
   %130 = trunc i64 %129 to i32
   %131 = getelementptr inbounds nuw i8, ptr %34, i64 28
-  store i32 %130, ptr %131, align 4, !tbaa !25
+  store i32 %130, ptr %131, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %132, label %.preheader47, !llvm.loop !43
+  br i1 %exitcond.not, label %132, label %.preheader47, !llvm.loop !44
 
 132:                                              ; preds = %.preheader47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %2, i8 0, i64 256, i1 false)
@@ -2125,10 +2125,10 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %indvars.iv61 = phi i64 [ 0, %132 ], [ %indvars.iv.next62, %245 ]
   %.13750 = phi ptr [ %0, %132 ], [ %246, %245 ]
   %141 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv61
-  %142 = load i32, ptr %141, align 4, !tbaa !25
+  %142 = load i32, ptr %141, align 4, !tbaa !26
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 128
-  %145 = load i32, ptr %144, align 4, !tbaa !25
+  %145 = load i32, ptr %144, align 4, !tbaa !26
   %146 = sext i32 %145 to i64
   %147 = add nsw i64 %146, %143
   %148 = mul nsw i64 %147, 11585
@@ -2139,11 +2139,11 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %153 = add nsw i64 %152, 8192
   %154 = ashr i64 %153, 14
   %155 = getelementptr inbounds nuw i8, ptr %141, i64 64
-  %156 = load i32, ptr %155, align 4, !tbaa !25
+  %156 = load i32, ptr %155, align 4, !tbaa !26
   %157 = sext i32 %156 to i64
   %158 = mul nsw i64 %157, 6270
   %159 = getelementptr inbounds nuw i8, ptr %141, i64 192
-  %160 = load i32, ptr %159, align 4, !tbaa !25
+  %160 = load i32, ptr %159, align 4, !tbaa !26
   %161 = sext i32 %160 to i64
   %.neg.i43 = mul nsw i64 %161, -15137
   %162 = add nsw i64 %158, 8192
@@ -2155,22 +2155,22 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %168 = add nsw i64 %167, %166
   %169 = ashr i64 %168, 14
   %170 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  %171 = load i32, ptr %170, align 4, !tbaa !25
+  %171 = load i32, ptr %170, align 4, !tbaa !26
   %172 = sext i32 %171 to i64
   %173 = mul nsw i64 %172, 3196
   %174 = getelementptr inbounds nuw i8, ptr %141, i64 224
-  %175 = load i32, ptr %174, align 4, !tbaa !25
+  %175 = load i32, ptr %174, align 4, !tbaa !26
   %176 = sext i32 %175 to i64
   %.neg75.i44 = mul nsw i64 %176, -16069
   %177 = add nsw i64 %173, 8192
   %178 = add nsw i64 %177, %.neg75.i44
   %179 = ashr i64 %178, 14
   %180 = getelementptr inbounds nuw i8, ptr %141, i64 160
-  %181 = load i32, ptr %180, align 4, !tbaa !25
+  %181 = load i32, ptr %180, align 4, !tbaa !26
   %182 = sext i32 %181 to i64
   %183 = mul nsw i64 %182, 13623
   %184 = getelementptr inbounds nuw i8, ptr %141, i64 96
-  %185 = load i32, ptr %184, align 4, !tbaa !25
+  %185 = load i32, ptr %184, align 4, !tbaa !26
   %186 = sext i32 %185 to i64
   %.neg76.i45 = mul nsw i64 %186, -9102
   %187 = add nsw i64 %183, 8192
@@ -2204,28 +2204,28 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %215 = ashr i64 %214, 14
   %216 = add nsw i64 %206, %200
   %217 = trunc i64 %216 to i32
-  store i32 %217, ptr %6, align 16, !tbaa !25
+  store i32 %217, ptr %6, align 16, !tbaa !26
   %218 = add nsw i64 %215, %201
   %219 = trunc i64 %218 to i32
-  store i32 %219, ptr %133, align 4, !tbaa !25
+  store i32 %219, ptr %133, align 4, !tbaa !26
   %220 = add nsw i64 %211, %202
   %221 = trunc i64 %220 to i32
-  store i32 %221, ptr %134, align 8, !tbaa !25
+  store i32 %221, ptr %134, align 8, !tbaa !26
   %222 = add nsw i64 %204, %203
   %223 = trunc i64 %222 to i32
-  store i32 %223, ptr %135, align 4, !tbaa !25
+  store i32 %223, ptr %135, align 4, !tbaa !26
   %224 = sub nsw i64 %203, %204
   %225 = trunc i64 %224 to i32
-  store i32 %225, ptr %136, align 16, !tbaa !25
+  store i32 %225, ptr %136, align 16, !tbaa !26
   %226 = sub nsw i64 %202, %211
   %227 = trunc i64 %226 to i32
-  store i32 %227, ptr %137, align 4, !tbaa !25
+  store i32 %227, ptr %137, align 4, !tbaa !26
   %228 = sub nsw i64 %201, %215
   %229 = trunc i64 %228 to i32
-  store i32 %229, ptr %138, align 8, !tbaa !25
+  store i32 %229, ptr %138, align 8, !tbaa !26
   %230 = sub nsw i64 %200, %206
   %231 = trunc i64 %230 to i32
-  store i32 %231, ptr %139, align 4, !tbaa !25
+  store i32 %231, ptr %139, align 4, !tbaa !26
   br label %232
 
 232:                                              ; preds = %140, %232
@@ -2235,7 +2235,7 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %235 = load i16, ptr %234, align 2, !tbaa !8
   %236 = zext i16 %235 to i32
   %237 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv57
-  %238 = load i32, ptr %237, align 4, !tbaa !25
+  %238 = load i32, ptr %237, align 4, !tbaa !26
   %239 = add i32 %238, 16
   %240 = ashr i32 %239, 5
   %241 = add nsw i32 %240, %236
@@ -2245,13 +2245,13 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   store i16 %244, ptr %234, align 2, !tbaa !8
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 8
-  br i1 %exitcond60.not, label %245, label %232, !llvm.loop !44
+  br i1 %exitcond60.not, label %245, label %232, !llvm.loop !45
 
 245:                                              ; preds = %232
   %246 = getelementptr inbounds nuw i8, ptr %.13750, i64 2
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 8
-  br i1 %exitcond64.not, label %.loopexit, label %140, !llvm.loop !45
+  br i1 %exitcond64.not, label %.loopexit, label %140, !llvm.loop !46
 
 .loopexit:                                        ; preds = %245, %30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
@@ -2273,10 +2273,10 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %.idx = shl nuw nsw i64 %indvars.iv, 5
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  %11 = load i32, ptr %10, align 4, !tbaa !25
+  %11 = load i32, ptr %10, align 4, !tbaa !26
   %12 = sext i32 %11 to i64
   %13 = mul nsw i64 %12, 16305
-  %14 = load i32, ptr %8, align 4, !tbaa !25
+  %14 = load i32, ptr %8, align 4, !tbaa !26
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %15, 1606
   %17 = add nsw i64 %16, %13
@@ -2284,11 +2284,11 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %.neg.i23 = mul nsw i64 %15, -16305
   %19 = add nsw i64 %.neg.i23, %18
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %21 = load i32, ptr %20, align 4, !tbaa !25
+  %21 = load i32, ptr %20, align 4, !tbaa !26
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %22, 14449
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %25 = load i32, ptr %24, align 4, !tbaa !25
+  %25 = load i32, ptr %24, align 4, !tbaa !26
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, 7723
   %28 = add nsw i64 %27, %23
@@ -2296,11 +2296,11 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %.neg87.i = mul nsw i64 %26, -14449
   %30 = add nsw i64 %.neg87.i, %29
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %32 = load i32, ptr %31, align 4, !tbaa !25
+  %32 = load i32, ptr %31, align 4, !tbaa !26
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, 10394
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %36 = load i32, ptr %35, align 4, !tbaa !25
+  %36 = load i32, ptr %35, align 4, !tbaa !26
   %37 = sext i32 %36 to i64
   %38 = mul nsw i64 %37, 12665
   %39 = add nsw i64 %38, %34
@@ -2308,11 +2308,11 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %.neg88.i = mul nsw i64 %37, -10394
   %41 = add nsw i64 %.neg88.i, %40
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %43 = load i32, ptr %42, align 4, !tbaa !25
+  %43 = load i32, ptr %42, align 4, !tbaa !26
   %44 = sext i32 %43 to i64
   %45 = mul nsw i64 %44, 4756
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %47 = load i32, ptr %46, align 4, !tbaa !25
+  %47 = load i32, ptr %46, align 4, !tbaa !26
   %48 = sext i32 %47 to i64
   %49 = mul nsw i64 %48, 15679
   %50 = add nsw i64 %49, %45
@@ -2351,12 +2351,12 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %80 = add nsw i64 %78, %79
   %81 = add nsw i64 %61, %55
   %82 = trunc i64 %81 to i32
-  store i32 %82, ptr %9, align 16, !tbaa !25
+  store i32 %82, ptr %9, align 16, !tbaa !26
   %83 = add nsw i64 %64, %58
   %84 = trunc i64 %83 to i32
   %85 = sub i32 0, %84
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %85, ptr %86, align 4, !tbaa !25
+  store i32 %85, ptr %86, align 4, !tbaa !26
   %87 = sub nsw i64 %55, %61
   %88 = sub nsw i64 %58, %64
   %89 = add nsw i64 %74, 8192
@@ -2366,14 +2366,14 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %93 = trunc i64 %92 to i32
   %94 = sub i32 0, %93
   %95 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %94, ptr %95, align 4, !tbaa !25
+  store i32 %94, ptr %95, align 4, !tbaa !26
   %96 = add nsw i64 %75, 8192
   %97 = add nsw i64 %96, %.neg90.i
   %98 = add nsw i64 %80, %97
   %99 = lshr i64 %98, 14
   %100 = trunc i64 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %100, ptr %101, align 8, !tbaa !25
+  store i32 %100, ptr %101, align 8, !tbaa !26
   %102 = sub nsw i64 %90, %77
   %103 = ashr i64 %102, 14
   %104 = sub nsw i64 %97, %80
@@ -2385,21 +2385,21 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %110 = trunc i64 %109 to i32
   %111 = sub i32 0, %110
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %111, ptr %112, align 4, !tbaa !25
+  store i32 %111, ptr %112, align 4, !tbaa !26
   %113 = sub nsw i64 %87, %88
   %114 = mul nsw i64 %113, 11585
   %115 = add nsw i64 %114, 8192
   %116 = lshr i64 %115, 14
   %117 = trunc i64 %116 to i32
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %117, ptr %118, align 16, !tbaa !25
+  store i32 %117, ptr %118, align 16, !tbaa !26
   %119 = add nsw i64 %103, %105
   %120 = mul nsw i64 %119, 11585
   %121 = add nsw i64 %120, 8192
   %122 = lshr i64 %121, 14
   %123 = trunc i64 %122 to i32
   %124 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %123, ptr %124, align 8, !tbaa !25
+  store i32 %123, ptr %124, align 8, !tbaa !26
   %125 = sub nsw i64 %103, %105
   %126 = mul nsw i64 %125, 11585
   %127 = add nsw i64 %126, 8192
@@ -2407,10 +2407,10 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %129 = trunc i64 %128 to i32
   %130 = sub i32 0, %129
   %131 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %130, ptr %131, align 4, !tbaa !25
+  store i32 %130, ptr %131, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %132, label %7, !llvm.loop !46
+  br i1 %exitcond.not, label %132, label %7, !llvm.loop !47
 
 132:                                              ; preds = %7
   %133 = lshr i64 %1, 1
@@ -2428,10 +2428,10 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %indvars.iv36 = phi i64 [ 0, %132 ], [ %indvars.iv.next37, %246 ]
   %.030 = phi ptr [ %0, %132 ], [ %247, %246 ]
   %142 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv36
-  %143 = load i32, ptr %142, align 4, !tbaa !25
+  %143 = load i32, ptr %142, align 4, !tbaa !26
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 128
-  %146 = load i32, ptr %145, align 4, !tbaa !25
+  %146 = load i32, ptr %145, align 4, !tbaa !26
   %147 = sext i32 %146 to i64
   %148 = add nsw i64 %147, %144
   %149 = mul nsw i64 %148, 11585
@@ -2442,11 +2442,11 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %154 = add nsw i64 %153, 8192
   %155 = ashr i64 %154, 14
   %156 = getelementptr inbounds nuw i8, ptr %142, i64 64
-  %157 = load i32, ptr %156, align 4, !tbaa !25
+  %157 = load i32, ptr %156, align 4, !tbaa !26
   %158 = sext i32 %157 to i64
   %159 = mul nsw i64 %158, 6270
   %160 = getelementptr inbounds nuw i8, ptr %142, i64 192
-  %161 = load i32, ptr %160, align 4, !tbaa !25
+  %161 = load i32, ptr %160, align 4, !tbaa !26
   %162 = sext i32 %161 to i64
   %.neg.i = mul nsw i64 %162, -15137
   %163 = add nsw i64 %159, 8192
@@ -2458,22 +2458,22 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %169 = add nsw i64 %168, %167
   %170 = ashr i64 %169, 14
   %171 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  %172 = load i32, ptr %171, align 4, !tbaa !25
+  %172 = load i32, ptr %171, align 4, !tbaa !26
   %173 = sext i32 %172 to i64
   %174 = mul nsw i64 %173, 3196
   %175 = getelementptr inbounds nuw i8, ptr %142, i64 224
-  %176 = load i32, ptr %175, align 4, !tbaa !25
+  %176 = load i32, ptr %175, align 4, !tbaa !26
   %177 = sext i32 %176 to i64
   %.neg75.i = mul nsw i64 %177, -16069
   %178 = add nsw i64 %174, 8192
   %179 = add nsw i64 %178, %.neg75.i
   %180 = ashr i64 %179, 14
   %181 = getelementptr inbounds nuw i8, ptr %142, i64 160
-  %182 = load i32, ptr %181, align 4, !tbaa !25
+  %182 = load i32, ptr %181, align 4, !tbaa !26
   %183 = sext i32 %182 to i64
   %184 = mul nsw i64 %183, 13623
   %185 = getelementptr inbounds nuw i8, ptr %142, i64 96
-  %186 = load i32, ptr %185, align 4, !tbaa !25
+  %186 = load i32, ptr %185, align 4, !tbaa !26
   %187 = sext i32 %186 to i64
   %.neg76.i = mul nsw i64 %187, -9102
   %188 = add nsw i64 %184, 8192
@@ -2507,28 +2507,28 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %216 = ashr i64 %215, 14
   %217 = add nsw i64 %207, %201
   %218 = trunc i64 %217 to i32
-  store i32 %218, ptr %6, align 16, !tbaa !25
+  store i32 %218, ptr %6, align 16, !tbaa !26
   %219 = add nsw i64 %216, %202
   %220 = trunc i64 %219 to i32
-  store i32 %220, ptr %134, align 4, !tbaa !25
+  store i32 %220, ptr %134, align 4, !tbaa !26
   %221 = add nsw i64 %212, %203
   %222 = trunc i64 %221 to i32
-  store i32 %222, ptr %135, align 8, !tbaa !25
+  store i32 %222, ptr %135, align 8, !tbaa !26
   %223 = add nsw i64 %205, %204
   %224 = trunc i64 %223 to i32
-  store i32 %224, ptr %136, align 4, !tbaa !25
+  store i32 %224, ptr %136, align 4, !tbaa !26
   %225 = sub nsw i64 %204, %205
   %226 = trunc i64 %225 to i32
-  store i32 %226, ptr %137, align 16, !tbaa !25
+  store i32 %226, ptr %137, align 16, !tbaa !26
   %227 = sub nsw i64 %203, %212
   %228 = trunc i64 %227 to i32
-  store i32 %228, ptr %138, align 4, !tbaa !25
+  store i32 %228, ptr %138, align 4, !tbaa !26
   %229 = sub nsw i64 %202, %216
   %230 = trunc i64 %229 to i32
-  store i32 %230, ptr %139, align 8, !tbaa !25
+  store i32 %230, ptr %139, align 8, !tbaa !26
   %231 = sub nsw i64 %201, %207
   %232 = trunc i64 %231 to i32
-  store i32 %232, ptr %140, align 4, !tbaa !25
+  store i32 %232, ptr %140, align 4, !tbaa !26
   br label %233
 
 233:                                              ; preds = %141, %233
@@ -2538,7 +2538,7 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %236 = load i16, ptr %235, align 2, !tbaa !8
   %237 = zext i16 %236 to i32
   %238 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv32
-  %239 = load i32, ptr %238, align 4, !tbaa !25
+  %239 = load i32, ptr %238, align 4, !tbaa !26
   %240 = add i32 %239, 16
   %241 = ashr i32 %240, 5
   %242 = add nsw i32 %241, %237
@@ -2548,13 +2548,13 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   store i16 %245, ptr %235, align 2, !tbaa !8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 8
-  br i1 %exitcond35.not, label %246, label %233, !llvm.loop !47
+  br i1 %exitcond35.not, label %246, label %233, !llvm.loop !48
 
 246:                                              ; preds = %233
   %247 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 8
-  br i1 %exitcond39.not, label %248, label %141, !llvm.loop !48
+  br i1 %exitcond39.not, label %248, label %141, !llvm.loop !49
 
 248:                                              ; preds = %246
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
@@ -2575,10 +2575,10 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 5
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %10 = load i32, ptr %8, align 4, !tbaa !25
+  %10 = load i32, ptr %8, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %13 = load i32, ptr %12, align 4, !tbaa !25
+  %13 = load i32, ptr %12, align 4, !tbaa !26
   %14 = sext i32 %13 to i64
   %15 = add nsw i64 %14, %11
   %16 = mul nsw i64 %15, 11585
@@ -2589,11 +2589,11 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %21 = add nsw i64 %20, 8192
   %22 = ashr i64 %21, 14
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %24 = load i32, ptr %23, align 4, !tbaa !25
+  %24 = load i32, ptr %23, align 4, !tbaa !26
   %25 = sext i32 %24 to i64
   %26 = mul nsw i64 %25, 6270
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %28 = load i32, ptr %27, align 4, !tbaa !25
+  %28 = load i32, ptr %27, align 4, !tbaa !26
   %29 = sext i32 %28 to i64
   %.neg.i = mul nsw i64 %29, -15137
   %30 = add nsw i64 %26, 8192
@@ -2605,22 +2605,22 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %36 = add nsw i64 %35, %34
   %37 = ashr i64 %36, 14
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %39 = load i32, ptr %38, align 4, !tbaa !25
+  %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %40, 3196
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  %43 = load i32, ptr %42, align 4, !tbaa !25
+  %43 = load i32, ptr %42, align 4, !tbaa !26
   %44 = sext i32 %43 to i64
   %.neg75.i = mul nsw i64 %44, -16069
   %45 = add nsw i64 %41, 8192
   %46 = add nsw i64 %45, %.neg75.i
   %47 = ashr i64 %46, 14
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %49 = load i32, ptr %48, align 4, !tbaa !25
+  %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, 13623
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %53 = load i32, ptr %52, align 4, !tbaa !25
+  %53 = load i32, ptr %52, align 4, !tbaa !26
   %54 = sext i32 %53 to i64
   %.neg76.i = mul nsw i64 %54, -9102
   %55 = add nsw i64 %51, 8192
@@ -2654,38 +2654,38 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %83 = ashr i64 %82, 14
   %84 = add nsw i64 %74, %68
   %85 = trunc i64 %84 to i32
-  store i32 %85, ptr %9, align 16, !tbaa !25
+  store i32 %85, ptr %9, align 16, !tbaa !26
   %86 = add nsw i64 %83, %69
   %87 = trunc i64 %86 to i32
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %87, ptr %88, align 4, !tbaa !25
+  store i32 %87, ptr %88, align 4, !tbaa !26
   %89 = add nsw i64 %79, %70
   %90 = trunc i64 %89 to i32
   %91 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %90, ptr %91, align 8, !tbaa !25
+  store i32 %90, ptr %91, align 8, !tbaa !26
   %92 = add nsw i64 %72, %71
   %93 = trunc i64 %92 to i32
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %93, ptr %94, align 4, !tbaa !25
+  store i32 %93, ptr %94, align 4, !tbaa !26
   %95 = sub nsw i64 %71, %72
   %96 = trunc i64 %95 to i32
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %96, ptr %97, align 16, !tbaa !25
+  store i32 %96, ptr %97, align 16, !tbaa !26
   %98 = sub nsw i64 %70, %79
   %99 = trunc i64 %98 to i32
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %99, ptr %100, align 4, !tbaa !25
+  store i32 %99, ptr %100, align 4, !tbaa !26
   %101 = sub nsw i64 %69, %83
   %102 = trunc i64 %101 to i32
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %102, ptr %103, align 8, !tbaa !25
+  store i32 %102, ptr %103, align 8, !tbaa !26
   %104 = sub nsw i64 %68, %74
   %105 = trunc i64 %104 to i32
   %106 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %105, ptr %106, align 4, !tbaa !25
+  store i32 %105, ptr %106, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %107, label %7, !llvm.loop !49
+  br i1 %exitcond.not, label %107, label %7, !llvm.loop !50
 
 107:                                              ; preds = %7
   %108 = lshr i64 %1, 1
@@ -2704,10 +2704,10 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %.030 = phi ptr [ %0, %107 ], [ %247, %246 ]
   %117 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv36
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 224
-  %119 = load i32, ptr %118, align 4, !tbaa !25
+  %119 = load i32, ptr %118, align 4, !tbaa !26
   %120 = sext i32 %119 to i64
   %121 = mul nsw i64 %120, 16305
-  %122 = load i32, ptr %117, align 4, !tbaa !25
+  %122 = load i32, ptr %117, align 4, !tbaa !26
   %123 = sext i32 %122 to i64
   %124 = mul nsw i64 %123, 1606
   %125 = add nsw i64 %124, %121
@@ -2715,11 +2715,11 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %.neg.i23 = mul nsw i64 %123, -16305
   %127 = add nsw i64 %.neg.i23, %126
   %128 = getelementptr inbounds nuw i8, ptr %117, i64 160
-  %129 = load i32, ptr %128, align 4, !tbaa !25
+  %129 = load i32, ptr %128, align 4, !tbaa !26
   %130 = sext i32 %129 to i64
   %131 = mul nsw i64 %130, 14449
   %132 = getelementptr inbounds nuw i8, ptr %117, i64 64
-  %133 = load i32, ptr %132, align 4, !tbaa !25
+  %133 = load i32, ptr %132, align 4, !tbaa !26
   %134 = sext i32 %133 to i64
   %135 = mul nsw i64 %134, 7723
   %136 = add nsw i64 %135, %131
@@ -2727,11 +2727,11 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %.neg87.i = mul nsw i64 %134, -14449
   %138 = add nsw i64 %.neg87.i, %137
   %139 = getelementptr inbounds nuw i8, ptr %117, i64 96
-  %140 = load i32, ptr %139, align 4, !tbaa !25
+  %140 = load i32, ptr %139, align 4, !tbaa !26
   %141 = sext i32 %140 to i64
   %142 = mul nsw i64 %141, 10394
   %143 = getelementptr inbounds nuw i8, ptr %117, i64 128
-  %144 = load i32, ptr %143, align 4, !tbaa !25
+  %144 = load i32, ptr %143, align 4, !tbaa !26
   %145 = sext i32 %144 to i64
   %146 = mul nsw i64 %145, 12665
   %147 = add nsw i64 %146, %142
@@ -2739,11 +2739,11 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %.neg88.i = mul nsw i64 %145, -10394
   %149 = add nsw i64 %.neg88.i, %148
   %150 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %151 = load i32, ptr %150, align 4, !tbaa !25
+  %151 = load i32, ptr %150, align 4, !tbaa !26
   %152 = sext i32 %151 to i64
   %153 = mul nsw i64 %152, 4756
   %154 = getelementptr inbounds nuw i8, ptr %117, i64 192
-  %155 = load i32, ptr %154, align 4, !tbaa !25
+  %155 = load i32, ptr %154, align 4, !tbaa !26
   %156 = sext i32 %155 to i64
   %157 = mul nsw i64 %156, 15679
   %158 = add nsw i64 %157, %153
@@ -2782,11 +2782,11 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %188 = add nsw i64 %186, %187
   %189 = add nsw i64 %169, %163
   %190 = trunc i64 %189 to i32
-  store i32 %190, ptr %6, align 16, !tbaa !25
+  store i32 %190, ptr %6, align 16, !tbaa !26
   %191 = add nsw i64 %172, %166
   %192 = trunc i64 %191 to i32
   %193 = sub i32 0, %192
-  store i32 %193, ptr %109, align 4, !tbaa !25
+  store i32 %193, ptr %109, align 4, !tbaa !26
   %194 = sub nsw i64 %163, %169
   %195 = sub nsw i64 %166, %172
   %196 = add nsw i64 %182, 8192
@@ -2795,13 +2795,13 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %199 = lshr i64 %198, 14
   %200 = trunc i64 %199 to i32
   %201 = sub i32 0, %200
-  store i32 %201, ptr %110, align 4, !tbaa !25
+  store i32 %201, ptr %110, align 4, !tbaa !26
   %202 = add nsw i64 %183, 8192
   %203 = add nsw i64 %202, %.neg90.i
   %204 = add nsw i64 %188, %203
   %205 = lshr i64 %204, 14
   %206 = trunc i64 %205 to i32
-  store i32 %206, ptr %111, align 8, !tbaa !25
+  store i32 %206, ptr %111, align 8, !tbaa !26
   %207 = sub nsw i64 %197, %185
   %208 = ashr i64 %207, 14
   %209 = sub nsw i64 %203, %188
@@ -2812,26 +2812,26 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %214 = lshr i64 %213, 14
   %215 = trunc i64 %214 to i32
   %216 = sub i32 0, %215
-  store i32 %216, ptr %112, align 4, !tbaa !25
+  store i32 %216, ptr %112, align 4, !tbaa !26
   %217 = sub nsw i64 %194, %195
   %218 = mul nsw i64 %217, 11585
   %219 = add nsw i64 %218, 8192
   %220 = lshr i64 %219, 14
   %221 = trunc i64 %220 to i32
-  store i32 %221, ptr %113, align 16, !tbaa !25
+  store i32 %221, ptr %113, align 16, !tbaa !26
   %222 = add nsw i64 %208, %210
   %223 = mul nsw i64 %222, 11585
   %224 = add nsw i64 %223, 8192
   %225 = lshr i64 %224, 14
   %226 = trunc i64 %225 to i32
-  store i32 %226, ptr %114, align 8, !tbaa !25
+  store i32 %226, ptr %114, align 8, !tbaa !26
   %227 = sub nsw i64 %208, %210
   %228 = mul nsw i64 %227, 11585
   %229 = add nsw i64 %228, 8192
   %230 = lshr i64 %229, 14
   %231 = trunc i64 %230 to i32
   %232 = sub i32 0, %231
-  store i32 %232, ptr %115, align 4, !tbaa !25
+  store i32 %232, ptr %115, align 4, !tbaa !26
   br label %233
 
 233:                                              ; preds = %116, %233
@@ -2841,7 +2841,7 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %236 = load i16, ptr %235, align 2, !tbaa !8
   %237 = zext i16 %236 to i32
   %238 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv32
-  %239 = load i32, ptr %238, align 4, !tbaa !25
+  %239 = load i32, ptr %238, align 4, !tbaa !26
   %240 = add i32 %239, 16
   %241 = ashr i32 %240, 5
   %242 = add nsw i32 %241, %237
@@ -2851,13 +2851,13 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   store i16 %245, ptr %235, align 2, !tbaa !8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 8
-  br i1 %exitcond35.not, label %246, label %233, !llvm.loop !50
+  br i1 %exitcond35.not, label %246, label %233, !llvm.loop !51
 
 246:                                              ; preds = %233
   %247 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 8
-  br i1 %exitcond39.not, label %248, label %116, !llvm.loop !51
+  br i1 %exitcond39.not, label %248, label %116, !llvm.loop !52
 
 248:                                              ; preds = %246
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
@@ -2879,10 +2879,10 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %.idx = shl nuw nsw i64 %indvars.iv, 5
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  %11 = load i32, ptr %10, align 4, !tbaa !25
+  %11 = load i32, ptr %10, align 4, !tbaa !26
   %12 = sext i32 %11 to i64
   %13 = mul nsw i64 %12, 16305
-  %14 = load i32, ptr %8, align 4, !tbaa !25
+  %14 = load i32, ptr %8, align 4, !tbaa !26
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %15, 1606
   %17 = add nsw i64 %16, %13
@@ -2890,11 +2890,11 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %.neg.i = mul nsw i64 %15, -16305
   %19 = add nsw i64 %.neg.i, %18
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %21 = load i32, ptr %20, align 4, !tbaa !25
+  %21 = load i32, ptr %20, align 4, !tbaa !26
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %22, 14449
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %25 = load i32, ptr %24, align 4, !tbaa !25
+  %25 = load i32, ptr %24, align 4, !tbaa !26
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, 7723
   %28 = add nsw i64 %27, %23
@@ -2902,11 +2902,11 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %.neg87.i = mul nsw i64 %26, -14449
   %30 = add nsw i64 %.neg87.i, %29
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %32 = load i32, ptr %31, align 4, !tbaa !25
+  %32 = load i32, ptr %31, align 4, !tbaa !26
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, 10394
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %36 = load i32, ptr %35, align 4, !tbaa !25
+  %36 = load i32, ptr %35, align 4, !tbaa !26
   %37 = sext i32 %36 to i64
   %38 = mul nsw i64 %37, 12665
   %39 = add nsw i64 %38, %34
@@ -2914,11 +2914,11 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %.neg88.i = mul nsw i64 %37, -10394
   %41 = add nsw i64 %.neg88.i, %40
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %43 = load i32, ptr %42, align 4, !tbaa !25
+  %43 = load i32, ptr %42, align 4, !tbaa !26
   %44 = sext i32 %43 to i64
   %45 = mul nsw i64 %44, 4756
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %47 = load i32, ptr %46, align 4, !tbaa !25
+  %47 = load i32, ptr %46, align 4, !tbaa !26
   %48 = sext i32 %47 to i64
   %49 = mul nsw i64 %48, 15679
   %50 = add nsw i64 %49, %45
@@ -2957,12 +2957,12 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %80 = add nsw i64 %78, %79
   %81 = add nsw i64 %61, %55
   %82 = trunc i64 %81 to i32
-  store i32 %82, ptr %9, align 16, !tbaa !25
+  store i32 %82, ptr %9, align 16, !tbaa !26
   %83 = add nsw i64 %64, %58
   %84 = trunc i64 %83 to i32
   %85 = sub i32 0, %84
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %85, ptr %86, align 4, !tbaa !25
+  store i32 %85, ptr %86, align 4, !tbaa !26
   %87 = sub nsw i64 %55, %61
   %88 = sub nsw i64 %58, %64
   %89 = add nsw i64 %74, 8192
@@ -2972,14 +2972,14 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %93 = trunc i64 %92 to i32
   %94 = sub i32 0, %93
   %95 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %94, ptr %95, align 4, !tbaa !25
+  store i32 %94, ptr %95, align 4, !tbaa !26
   %96 = add nsw i64 %75, 8192
   %97 = add nsw i64 %96, %.neg90.i
   %98 = add nsw i64 %80, %97
   %99 = lshr i64 %98, 14
   %100 = trunc i64 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %100, ptr %101, align 8, !tbaa !25
+  store i32 %100, ptr %101, align 8, !tbaa !26
   %102 = sub nsw i64 %90, %77
   %103 = ashr i64 %102, 14
   %104 = sub nsw i64 %97, %80
@@ -2991,21 +2991,21 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %110 = trunc i64 %109 to i32
   %111 = sub i32 0, %110
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %111, ptr %112, align 4, !tbaa !25
+  store i32 %111, ptr %112, align 4, !tbaa !26
   %113 = sub nsw i64 %87, %88
   %114 = mul nsw i64 %113, 11585
   %115 = add nsw i64 %114, 8192
   %116 = lshr i64 %115, 14
   %117 = trunc i64 %116 to i32
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %117, ptr %118, align 16, !tbaa !25
+  store i32 %117, ptr %118, align 16, !tbaa !26
   %119 = add nsw i64 %103, %105
   %120 = mul nsw i64 %119, 11585
   %121 = add nsw i64 %120, 8192
   %122 = lshr i64 %121, 14
   %123 = trunc i64 %122 to i32
   %124 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %123, ptr %124, align 8, !tbaa !25
+  store i32 %123, ptr %124, align 8, !tbaa !26
   %125 = sub nsw i64 %103, %105
   %126 = mul nsw i64 %125, 11585
   %127 = add nsw i64 %126, 8192
@@ -3013,10 +3013,10 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %129 = trunc i64 %128 to i32
   %130 = sub i32 0, %129
   %131 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %130, ptr %131, align 4, !tbaa !25
+  store i32 %130, ptr %131, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %132, label %7, !llvm.loop !52
+  br i1 %exitcond.not, label %132, label %7, !llvm.loop !53
 
 132:                                              ; preds = %7
   %133 = lshr i64 %1, 1
@@ -3035,10 +3035,10 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %.039 = phi ptr [ %0, %132 ], [ %272, %271 ]
   %142 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv45
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 224
-  %144 = load i32, ptr %143, align 4, !tbaa !25
+  %144 = load i32, ptr %143, align 4, !tbaa !26
   %145 = sext i32 %144 to i64
   %146 = mul nsw i64 %145, 16305
-  %147 = load i32, ptr %142, align 4, !tbaa !25
+  %147 = load i32, ptr %142, align 4, !tbaa !26
   %148 = sext i32 %147 to i64
   %149 = mul nsw i64 %148, 1606
   %150 = add nsw i64 %149, %146
@@ -3046,11 +3046,11 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %.neg.i23 = mul nsw i64 %148, -16305
   %152 = add nsw i64 %.neg.i23, %151
   %153 = getelementptr inbounds nuw i8, ptr %142, i64 160
-  %154 = load i32, ptr %153, align 4, !tbaa !25
+  %154 = load i32, ptr %153, align 4, !tbaa !26
   %155 = sext i32 %154 to i64
   %156 = mul nsw i64 %155, 14449
   %157 = getelementptr inbounds nuw i8, ptr %142, i64 64
-  %158 = load i32, ptr %157, align 4, !tbaa !25
+  %158 = load i32, ptr %157, align 4, !tbaa !26
   %159 = sext i32 %158 to i64
   %160 = mul nsw i64 %159, 7723
   %161 = add nsw i64 %160, %156
@@ -3058,11 +3058,11 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %.neg87.i24 = mul nsw i64 %159, -14449
   %163 = add nsw i64 %.neg87.i24, %162
   %164 = getelementptr inbounds nuw i8, ptr %142, i64 96
-  %165 = load i32, ptr %164, align 4, !tbaa !25
+  %165 = load i32, ptr %164, align 4, !tbaa !26
   %166 = sext i32 %165 to i64
   %167 = mul nsw i64 %166, 10394
   %168 = getelementptr inbounds nuw i8, ptr %142, i64 128
-  %169 = load i32, ptr %168, align 4, !tbaa !25
+  %169 = load i32, ptr %168, align 4, !tbaa !26
   %170 = sext i32 %169 to i64
   %171 = mul nsw i64 %170, 12665
   %172 = add nsw i64 %171, %167
@@ -3070,11 +3070,11 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %.neg88.i25 = mul nsw i64 %170, -10394
   %174 = add nsw i64 %.neg88.i25, %173
   %175 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  %176 = load i32, ptr %175, align 4, !tbaa !25
+  %176 = load i32, ptr %175, align 4, !tbaa !26
   %177 = sext i32 %176 to i64
   %178 = mul nsw i64 %177, 4756
   %179 = getelementptr inbounds nuw i8, ptr %142, i64 192
-  %180 = load i32, ptr %179, align 4, !tbaa !25
+  %180 = load i32, ptr %179, align 4, !tbaa !26
   %181 = sext i32 %180 to i64
   %182 = mul nsw i64 %181, 15679
   %183 = add nsw i64 %182, %178
@@ -3113,11 +3113,11 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %213 = add nsw i64 %211, %212
   %214 = add nsw i64 %194, %188
   %215 = trunc i64 %214 to i32
-  store i32 %215, ptr %6, align 16, !tbaa !25
+  store i32 %215, ptr %6, align 16, !tbaa !26
   %216 = add nsw i64 %197, %191
   %217 = trunc i64 %216 to i32
   %218 = sub i32 0, %217
-  store i32 %218, ptr %134, align 4, !tbaa !25
+  store i32 %218, ptr %134, align 4, !tbaa !26
   %219 = sub nsw i64 %188, %194
   %220 = sub nsw i64 %191, %197
   %221 = add nsw i64 %207, 8192
@@ -3126,13 +3126,13 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %224 = lshr i64 %223, 14
   %225 = trunc i64 %224 to i32
   %226 = sub i32 0, %225
-  store i32 %226, ptr %135, align 4, !tbaa !25
+  store i32 %226, ptr %135, align 4, !tbaa !26
   %227 = add nsw i64 %208, 8192
   %228 = add nsw i64 %227, %.neg90.i27
   %229 = add nsw i64 %213, %228
   %230 = lshr i64 %229, 14
   %231 = trunc i64 %230 to i32
-  store i32 %231, ptr %136, align 8, !tbaa !25
+  store i32 %231, ptr %136, align 8, !tbaa !26
   %232 = sub nsw i64 %222, %210
   %233 = ashr i64 %232, 14
   %234 = sub nsw i64 %228, %213
@@ -3143,26 +3143,26 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %239 = lshr i64 %238, 14
   %240 = trunc i64 %239 to i32
   %241 = sub i32 0, %240
-  store i32 %241, ptr %137, align 4, !tbaa !25
+  store i32 %241, ptr %137, align 4, !tbaa !26
   %242 = sub nsw i64 %219, %220
   %243 = mul nsw i64 %242, 11585
   %244 = add nsw i64 %243, 8192
   %245 = lshr i64 %244, 14
   %246 = trunc i64 %245 to i32
-  store i32 %246, ptr %138, align 16, !tbaa !25
+  store i32 %246, ptr %138, align 16, !tbaa !26
   %247 = add nsw i64 %233, %235
   %248 = mul nsw i64 %247, 11585
   %249 = add nsw i64 %248, 8192
   %250 = lshr i64 %249, 14
   %251 = trunc i64 %250 to i32
-  store i32 %251, ptr %139, align 8, !tbaa !25
+  store i32 %251, ptr %139, align 8, !tbaa !26
   %252 = sub nsw i64 %233, %235
   %253 = mul nsw i64 %252, 11585
   %254 = add nsw i64 %253, 8192
   %255 = lshr i64 %254, 14
   %256 = trunc i64 %255 to i32
   %257 = sub i32 0, %256
-  store i32 %257, ptr %140, align 4, !tbaa !25
+  store i32 %257, ptr %140, align 4, !tbaa !26
   br label %258
 
 258:                                              ; preds = %141, %258
@@ -3172,7 +3172,7 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %261 = load i16, ptr %260, align 2, !tbaa !8
   %262 = zext i16 %261 to i32
   %263 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv41
-  %264 = load i32, ptr %263, align 4, !tbaa !25
+  %264 = load i32, ptr %263, align 4, !tbaa !26
   %265 = add i32 %264, 16
   %266 = ashr i32 %265, 5
   %267 = add nsw i32 %266, %262
@@ -3182,13 +3182,13 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   store i16 %270, ptr %260, align 2, !tbaa !8
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 8
-  br i1 %exitcond44.not, label %271, label %258, !llvm.loop !53
+  br i1 %exitcond44.not, label %271, label %258, !llvm.loop !54
 
 271:                                              ; preds = %258
   %272 = getelementptr inbounds nuw i8, ptr %.039, i64 2
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 8
-  br i1 %exitcond48.not, label %273, label %141, !llvm.loop !54
+  br i1 %exitcond48.not, label %273, label %141, !llvm.loop !55
 
 273:                                              ; preds = %271
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
@@ -3207,7 +3207,7 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   br i1 %8, label %9, label %.preheader56
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr %2, align 4, !tbaa !25
+  %10 = load i32, ptr %2, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, 11585
   %13 = add nsw i64 %12, 8192
@@ -3216,7 +3216,7 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %16 = add nuw i64 %15, 8192
   %17 = lshr i64 %16, 14
   %18 = trunc i64 %17 to i32
-  store i32 0, ptr %2, align 4, !tbaa !25
+  store i32 0, ptr %2, align 4, !tbaa !26
   %19 = add nsw i32 %18, 32
   %20 = ashr i32 %19, 6
   br label %.preheader
@@ -3239,23 +3239,23 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   store i16 %29, ptr %23, align 2, !tbaa !8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 16
-  br i1 %exitcond77.not, label %30, label %21, !llvm.loop !55
+  br i1 %exitcond77.not, label %30, label %21, !llvm.loop !56
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %.03662, i64 2
   %32 = add nuw nsw i32 %.063, 1
   %exitcond78.not = icmp eq i32 %32, 16
-  br i1 %exitcond78.not, label %.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %exitcond78.not, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .preheader56:                                     ; preds = %4, %.preheader56
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader56 ], [ 0, %4 ]
   %33 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 6
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %35 = load i32, ptr %33, align 4, !tbaa !25
+  %35 = load i32, ptr %33, align 4, !tbaa !26
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 512
-  %38 = load i32, ptr %37, align 4, !tbaa !25
+  %38 = load i32, ptr %37, align 4, !tbaa !26
   %39 = sext i32 %38 to i64
   %40 = add nsw i64 %39, %36
   %41 = mul nsw i64 %40, 11585
@@ -3266,11 +3266,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %46 = add nsw i64 %45, 8192
   %47 = ashr i64 %46, 14
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 256
-  %49 = load i32, ptr %48, align 4, !tbaa !25
+  %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, 6270
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 768
-  %53 = load i32, ptr %52, align 4, !tbaa !25
+  %53 = load i32, ptr %52, align 4, !tbaa !26
   %54 = sext i32 %53 to i64
   %.neg.i = mul nsw i64 %54, -15137
   %55 = add nsw i64 %51, 8192
@@ -3282,11 +3282,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %61 = add nsw i64 %60, %59
   %62 = ashr i64 %61, 14
   %63 = getelementptr inbounds nuw i8, ptr %33, i64 128
-  %64 = load i32, ptr %63, align 4, !tbaa !25
+  %64 = load i32, ptr %63, align 4, !tbaa !26
   %65 = sext i32 %64 to i64
   %66 = mul nsw i64 %65, 3196
   %67 = getelementptr inbounds nuw i8, ptr %33, i64 896
-  %68 = load i32, ptr %67, align 4, !tbaa !25
+  %68 = load i32, ptr %67, align 4, !tbaa !26
   %69 = sext i32 %68 to i64
   %.neg195.i = mul nsw i64 %69, -16069
   %70 = add nsw i64 %66, 8192
@@ -3298,11 +3298,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %76 = add nsw i64 %75, %74
   %77 = ashr i64 %76, 14
   %78 = getelementptr inbounds nuw i8, ptr %33, i64 640
-  %79 = load i32, ptr %78, align 4, !tbaa !25
+  %79 = load i32, ptr %78, align 4, !tbaa !26
   %80 = sext i32 %79 to i64
   %81 = mul nsw i64 %80, 13623
   %82 = getelementptr inbounds nuw i8, ptr %33, i64 384
-  %83 = load i32, ptr %82, align 4, !tbaa !25
+  %83 = load i32, ptr %82, align 4, !tbaa !26
   %84 = sext i32 %83 to i64
   %.neg196.i = mul nsw i64 %84, -9102
   %85 = add nsw i64 %81, 8192
@@ -3314,11 +3314,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %91 = add nsw i64 %90, %89
   %92 = ashr i64 %91, 14
   %93 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %94 = load i32, ptr %93, align 4, !tbaa !25
+  %94 = load i32, ptr %93, align 4, !tbaa !26
   %95 = sext i32 %94 to i64
   %96 = mul nsw i64 %95, 1606
   %97 = getelementptr inbounds nuw i8, ptr %33, i64 960
-  %98 = load i32, ptr %97, align 4, !tbaa !25
+  %98 = load i32, ptr %97, align 4, !tbaa !26
   %99 = sext i32 %98 to i64
   %.neg197.i = mul nsw i64 %99, -16305
   %100 = add nsw i64 %96, 8192
@@ -3330,11 +3330,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %106 = add nsw i64 %105, %104
   %107 = ashr i64 %106, 14
   %108 = getelementptr inbounds nuw i8, ptr %33, i64 576
-  %109 = load i32, ptr %108, align 4, !tbaa !25
+  %109 = load i32, ptr %108, align 4, !tbaa !26
   %110 = sext i32 %109 to i64
   %111 = mul nsw i64 %110, 12665
   %112 = getelementptr inbounds nuw i8, ptr %33, i64 448
-  %113 = load i32, ptr %112, align 4, !tbaa !25
+  %113 = load i32, ptr %112, align 4, !tbaa !26
   %114 = sext i32 %113 to i64
   %.neg198.i = mul nsw i64 %114, -10394
   %115 = add nsw i64 %111, 8192
@@ -3346,11 +3346,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %121 = add nsw i64 %120, %119
   %122 = ashr i64 %121, 14
   %123 = getelementptr inbounds nuw i8, ptr %33, i64 320
-  %124 = load i32, ptr %123, align 4, !tbaa !25
+  %124 = load i32, ptr %123, align 4, !tbaa !26
   %125 = sext i32 %124 to i64
   %126 = mul nsw i64 %125, 7723
   %127 = getelementptr inbounds nuw i8, ptr %33, i64 704
-  %128 = load i32, ptr %127, align 4, !tbaa !25
+  %128 = load i32, ptr %127, align 4, !tbaa !26
   %129 = sext i32 %128 to i64
   %.neg199.i = mul nsw i64 %129, -14449
   %130 = add nsw i64 %126, 8192
@@ -3362,11 +3362,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %136 = add nsw i64 %135, %134
   %137 = ashr i64 %136, 14
   %138 = getelementptr inbounds nuw i8, ptr %33, i64 832
-  %139 = load i32, ptr %138, align 4, !tbaa !25
+  %139 = load i32, ptr %138, align 4, !tbaa !26
   %140 = sext i32 %139 to i64
   %141 = mul nsw i64 %140, 15679
   %142 = getelementptr inbounds nuw i8, ptr %33, i64 192
-  %143 = load i32, ptr %142, align 4, !tbaa !25
+  %143 = load i32, ptr %142, align 4, !tbaa !26
   %144 = sext i32 %143 to i64
   %.neg200.i = mul nsw i64 %144, -4756
   %145 = add nsw i64 %141, 8192
@@ -3455,70 +3455,70 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %223 = ashr i64 %222, 14
   %224 = add nsw i64 %207, %192
   %225 = trunc i64 %224 to i32
-  store i32 %225, ptr %34, align 16, !tbaa !25
+  store i32 %225, ptr %34, align 16, !tbaa !26
   %226 = add nsw i64 %206, %193
   %227 = trunc i64 %226 to i32
   %228 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 %227, ptr %228, align 4, !tbaa !25
+  store i32 %227, ptr %228, align 4, !tbaa !26
   %229 = add nsw i64 %215, %194
   %230 = trunc i64 %229 to i32
   %231 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %230, ptr %231, align 8, !tbaa !25
+  store i32 %230, ptr %231, align 8, !tbaa !26
   %232 = add nsw i64 %223, %195
   %233 = trunc i64 %232 to i32
   %234 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  store i32 %233, ptr %234, align 4, !tbaa !25
+  store i32 %233, ptr %234, align 4, !tbaa !26
   %235 = add nsw i64 %219, %196
   %236 = trunc i64 %235 to i32
   %237 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i32 %236, ptr %237, align 16, !tbaa !25
+  store i32 %236, ptr %237, align 16, !tbaa !26
   %238 = add nsw i64 %211, %197
   %239 = trunc i64 %238 to i32
   %240 = getelementptr inbounds nuw i8, ptr %34, i64 20
-  store i32 %239, ptr %240, align 4, !tbaa !25
+  store i32 %239, ptr %240, align 4, !tbaa !26
   %241 = add nsw i64 %201, %198
   %242 = trunc i64 %241 to i32
   %243 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store i32 %242, ptr %243, align 8, !tbaa !25
+  store i32 %242, ptr %243, align 8, !tbaa !26
   %244 = add nsw i64 %200, %199
   %245 = trunc i64 %244 to i32
   %246 = getelementptr inbounds nuw i8, ptr %34, i64 28
-  store i32 %245, ptr %246, align 4, !tbaa !25
+  store i32 %245, ptr %246, align 4, !tbaa !26
   %247 = sub nsw i64 %199, %200
   %248 = trunc i64 %247 to i32
   %249 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store i32 %248, ptr %249, align 16, !tbaa !25
+  store i32 %248, ptr %249, align 16, !tbaa !26
   %250 = sub nsw i64 %198, %201
   %251 = trunc i64 %250 to i32
   %252 = getelementptr inbounds nuw i8, ptr %34, i64 36
-  store i32 %251, ptr %252, align 4, !tbaa !25
+  store i32 %251, ptr %252, align 4, !tbaa !26
   %253 = sub nsw i64 %197, %211
   %254 = trunc i64 %253 to i32
   %255 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  store i32 %254, ptr %255, align 8, !tbaa !25
+  store i32 %254, ptr %255, align 8, !tbaa !26
   %256 = sub nsw i64 %196, %219
   %257 = trunc i64 %256 to i32
   %258 = getelementptr inbounds nuw i8, ptr %34, i64 44
-  store i32 %257, ptr %258, align 4, !tbaa !25
+  store i32 %257, ptr %258, align 4, !tbaa !26
   %259 = sub nsw i64 %195, %223
   %260 = trunc i64 %259 to i32
   %261 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  store i32 %260, ptr %261, align 16, !tbaa !25
+  store i32 %260, ptr %261, align 16, !tbaa !26
   %262 = sub nsw i64 %194, %215
   %263 = trunc i64 %262 to i32
   %264 = getelementptr inbounds nuw i8, ptr %34, i64 52
-  store i32 %263, ptr %264, align 4, !tbaa !25
+  store i32 %263, ptr %264, align 4, !tbaa !26
   %265 = sub nsw i64 %193, %206
   %266 = trunc i64 %265 to i32
   %267 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  store i32 %266, ptr %267, align 8, !tbaa !25
+  store i32 %266, ptr %267, align 8, !tbaa !26
   %268 = sub nsw i64 %192, %207
   %269 = trunc i64 %268 to i32
   %270 = getelementptr inbounds nuw i8, ptr %34, i64 60
-  store i32 %269, ptr %270, align 4, !tbaa !25
+  store i32 %269, ptr %270, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %271, label %.preheader56, !llvm.loop !57
+  br i1 %exitcond.not, label %271, label %.preheader56, !llvm.loop !58
 
 271:                                              ; preds = %.preheader56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)
@@ -3543,10 +3543,10 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %indvars.iv70 = phi i64 [ 0, %271 ], [ %indvars.iv.next71, %523 ]
   %.13759 = phi ptr [ %0, %271 ], [ %524, %523 ]
   %288 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv70
-  %289 = load i32, ptr %288, align 4, !tbaa !25
+  %289 = load i32, ptr %288, align 4, !tbaa !26
   %290 = sext i32 %289 to i64
   %291 = getelementptr inbounds nuw i8, ptr %288, i64 512
-  %292 = load i32, ptr %291, align 4, !tbaa !25
+  %292 = load i32, ptr %291, align 4, !tbaa !26
   %293 = sext i32 %292 to i64
   %294 = add nsw i64 %293, %290
   %295 = mul nsw i64 %294, 11585
@@ -3557,11 +3557,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %300 = add nsw i64 %299, 8192
   %301 = ashr i64 %300, 14
   %302 = getelementptr inbounds nuw i8, ptr %288, i64 256
-  %303 = load i32, ptr %302, align 4, !tbaa !25
+  %303 = load i32, ptr %302, align 4, !tbaa !26
   %304 = sext i32 %303 to i64
   %305 = mul nsw i64 %304, 6270
   %306 = getelementptr inbounds nuw i8, ptr %288, i64 768
-  %307 = load i32, ptr %306, align 4, !tbaa !25
+  %307 = load i32, ptr %306, align 4, !tbaa !26
   %308 = sext i32 %307 to i64
   %.neg.i43 = mul nsw i64 %308, -15137
   %309 = add nsw i64 %305, 8192
@@ -3573,11 +3573,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %315 = add nsw i64 %314, %313
   %316 = ashr i64 %315, 14
   %317 = getelementptr inbounds nuw i8, ptr %288, i64 128
-  %318 = load i32, ptr %317, align 4, !tbaa !25
+  %318 = load i32, ptr %317, align 4, !tbaa !26
   %319 = sext i32 %318 to i64
   %320 = mul nsw i64 %319, 3196
   %321 = getelementptr inbounds nuw i8, ptr %288, i64 896
-  %322 = load i32, ptr %321, align 4, !tbaa !25
+  %322 = load i32, ptr %321, align 4, !tbaa !26
   %323 = sext i32 %322 to i64
   %.neg195.i44 = mul nsw i64 %323, -16069
   %324 = add nsw i64 %320, 8192
@@ -3589,11 +3589,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %330 = add nsw i64 %329, %328
   %331 = ashr i64 %330, 14
   %332 = getelementptr inbounds nuw i8, ptr %288, i64 640
-  %333 = load i32, ptr %332, align 4, !tbaa !25
+  %333 = load i32, ptr %332, align 4, !tbaa !26
   %334 = sext i32 %333 to i64
   %335 = mul nsw i64 %334, 13623
   %336 = getelementptr inbounds nuw i8, ptr %288, i64 384
-  %337 = load i32, ptr %336, align 4, !tbaa !25
+  %337 = load i32, ptr %336, align 4, !tbaa !26
   %338 = sext i32 %337 to i64
   %.neg196.i45 = mul nsw i64 %338, -9102
   %339 = add nsw i64 %335, 8192
@@ -3605,11 +3605,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %345 = add nsw i64 %344, %343
   %346 = ashr i64 %345, 14
   %347 = getelementptr inbounds nuw i8, ptr %288, i64 64
-  %348 = load i32, ptr %347, align 4, !tbaa !25
+  %348 = load i32, ptr %347, align 4, !tbaa !26
   %349 = sext i32 %348 to i64
   %350 = mul nsw i64 %349, 1606
   %351 = getelementptr inbounds nuw i8, ptr %288, i64 960
-  %352 = load i32, ptr %351, align 4, !tbaa !25
+  %352 = load i32, ptr %351, align 4, !tbaa !26
   %353 = sext i32 %352 to i64
   %.neg197.i46 = mul nsw i64 %353, -16305
   %354 = add nsw i64 %350, 8192
@@ -3621,11 +3621,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %360 = add nsw i64 %359, %358
   %361 = ashr i64 %360, 14
   %362 = getelementptr inbounds nuw i8, ptr %288, i64 576
-  %363 = load i32, ptr %362, align 4, !tbaa !25
+  %363 = load i32, ptr %362, align 4, !tbaa !26
   %364 = sext i32 %363 to i64
   %365 = mul nsw i64 %364, 12665
   %366 = getelementptr inbounds nuw i8, ptr %288, i64 448
-  %367 = load i32, ptr %366, align 4, !tbaa !25
+  %367 = load i32, ptr %366, align 4, !tbaa !26
   %368 = sext i32 %367 to i64
   %.neg198.i47 = mul nsw i64 %368, -10394
   %369 = add nsw i64 %365, 8192
@@ -3637,11 +3637,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %375 = add nsw i64 %374, %373
   %376 = ashr i64 %375, 14
   %377 = getelementptr inbounds nuw i8, ptr %288, i64 320
-  %378 = load i32, ptr %377, align 4, !tbaa !25
+  %378 = load i32, ptr %377, align 4, !tbaa !26
   %379 = sext i32 %378 to i64
   %380 = mul nsw i64 %379, 7723
   %381 = getelementptr inbounds nuw i8, ptr %288, i64 704
-  %382 = load i32, ptr %381, align 4, !tbaa !25
+  %382 = load i32, ptr %381, align 4, !tbaa !26
   %383 = sext i32 %382 to i64
   %.neg199.i48 = mul nsw i64 %383, -14449
   %384 = add nsw i64 %380, 8192
@@ -3653,11 +3653,11 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %390 = add nsw i64 %389, %388
   %391 = ashr i64 %390, 14
   %392 = getelementptr inbounds nuw i8, ptr %288, i64 832
-  %393 = load i32, ptr %392, align 4, !tbaa !25
+  %393 = load i32, ptr %392, align 4, !tbaa !26
   %394 = sext i32 %393 to i64
   %395 = mul nsw i64 %394, 15679
   %396 = getelementptr inbounds nuw i8, ptr %288, i64 192
-  %397 = load i32, ptr %396, align 4, !tbaa !25
+  %397 = load i32, ptr %396, align 4, !tbaa !26
   %398 = sext i32 %397 to i64
   %.neg200.i49 = mul nsw i64 %398, -4756
   %399 = add nsw i64 %395, 8192
@@ -3746,52 +3746,52 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %477 = ashr i64 %476, 14
   %478 = add nsw i64 %461, %446
   %479 = trunc i64 %478 to i32
-  store i32 %479, ptr %6, align 16, !tbaa !25
+  store i32 %479, ptr %6, align 16, !tbaa !26
   %480 = add nsw i64 %460, %447
   %481 = trunc i64 %480 to i32
-  store i32 %481, ptr %272, align 4, !tbaa !25
+  store i32 %481, ptr %272, align 4, !tbaa !26
   %482 = add nsw i64 %469, %448
   %483 = trunc i64 %482 to i32
-  store i32 %483, ptr %273, align 8, !tbaa !25
+  store i32 %483, ptr %273, align 8, !tbaa !26
   %484 = add nsw i64 %477, %449
   %485 = trunc i64 %484 to i32
-  store i32 %485, ptr %274, align 4, !tbaa !25
+  store i32 %485, ptr %274, align 4, !tbaa !26
   %486 = add nsw i64 %473, %450
   %487 = trunc i64 %486 to i32
-  store i32 %487, ptr %275, align 16, !tbaa !25
+  store i32 %487, ptr %275, align 16, !tbaa !26
   %488 = add nsw i64 %465, %451
   %489 = trunc i64 %488 to i32
-  store i32 %489, ptr %276, align 4, !tbaa !25
+  store i32 %489, ptr %276, align 4, !tbaa !26
   %490 = add nsw i64 %455, %452
   %491 = trunc i64 %490 to i32
-  store i32 %491, ptr %277, align 8, !tbaa !25
+  store i32 %491, ptr %277, align 8, !tbaa !26
   %492 = add nsw i64 %454, %453
   %493 = trunc i64 %492 to i32
-  store i32 %493, ptr %278, align 4, !tbaa !25
+  store i32 %493, ptr %278, align 4, !tbaa !26
   %494 = sub nsw i64 %453, %454
   %495 = trunc i64 %494 to i32
-  store i32 %495, ptr %279, align 16, !tbaa !25
+  store i32 %495, ptr %279, align 16, !tbaa !26
   %496 = sub nsw i64 %452, %455
   %497 = trunc i64 %496 to i32
-  store i32 %497, ptr %280, align 4, !tbaa !25
+  store i32 %497, ptr %280, align 4, !tbaa !26
   %498 = sub nsw i64 %451, %465
   %499 = trunc i64 %498 to i32
-  store i32 %499, ptr %281, align 8, !tbaa !25
+  store i32 %499, ptr %281, align 8, !tbaa !26
   %500 = sub nsw i64 %450, %473
   %501 = trunc i64 %500 to i32
-  store i32 %501, ptr %282, align 4, !tbaa !25
+  store i32 %501, ptr %282, align 4, !tbaa !26
   %502 = sub nsw i64 %449, %477
   %503 = trunc i64 %502 to i32
-  store i32 %503, ptr %283, align 16, !tbaa !25
+  store i32 %503, ptr %283, align 16, !tbaa !26
   %504 = sub nsw i64 %448, %469
   %505 = trunc i64 %504 to i32
-  store i32 %505, ptr %284, align 4, !tbaa !25
+  store i32 %505, ptr %284, align 4, !tbaa !26
   %506 = sub nsw i64 %447, %460
   %507 = trunc i64 %506 to i32
-  store i32 %507, ptr %285, align 8, !tbaa !25
+  store i32 %507, ptr %285, align 8, !tbaa !26
   %508 = sub nsw i64 %446, %461
   %509 = trunc i64 %508 to i32
-  store i32 %509, ptr %286, align 4, !tbaa !25
+  store i32 %509, ptr %286, align 4, !tbaa !26
   br label %510
 
 510:                                              ; preds = %287, %510
@@ -3801,7 +3801,7 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %513 = load i16, ptr %512, align 2, !tbaa !8
   %514 = zext i16 %513 to i32
   %515 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv66
-  %516 = load i32, ptr %515, align 4, !tbaa !25
+  %516 = load i32, ptr %515, align 4, !tbaa !26
   %517 = add i32 %516, 32
   %518 = ashr i32 %517, 6
   %519 = add nsw i32 %518, %514
@@ -3811,13 +3811,13 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   store i16 %522, ptr %512, align 2, !tbaa !8
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 16
-  br i1 %exitcond69.not, label %523, label %510, !llvm.loop !58
+  br i1 %exitcond69.not, label %523, label %510, !llvm.loop !59
 
 523:                                              ; preds = %510
   %524 = getelementptr inbounds nuw i8, ptr %.13759, i64 2
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 16
-  br i1 %exitcond73.not, label %.loopexit, label %287, !llvm.loop !59
+  br i1 %exitcond73.not, label %.loopexit, label %287, !llvm.loop !60
 
 .loopexit:                                        ; preds = %523, %30
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
@@ -3839,50 +3839,50 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %.idx = shl nuw nsw i64 %indvars.iv, 6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 960
-  %11 = load i32, ptr %10, align 4, !tbaa !25
+  %11 = load i32, ptr %10, align 4, !tbaa !26
   %12 = sext i32 %11 to i64
   %13 = mul nsw i64 %12, 16364
-  %14 = load i32, ptr %8, align 4, !tbaa !25
+  %14 = load i32, ptr %8, align 4, !tbaa !26
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %15, 804
   %17 = mul nsw i64 %12, 804
   %.neg.i23 = mul nsw i64 %15, -16364
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 832
-  %19 = load i32, ptr %18, align 4, !tbaa !25
+  %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %20, 15893
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %23 = load i32, ptr %22, align 4, !tbaa !25
+  %23 = load i32, ptr %22, align 4, !tbaa !26
   %24 = sext i32 %23 to i64
   %25 = mul nsw i64 %24, 3981
   %26 = mul nsw i64 %20, 3981
   %.neg223.i = mul nsw i64 %24, -15893
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 704
-  %28 = load i32, ptr %27, align 4, !tbaa !25
+  %28 = load i32, ptr %27, align 4, !tbaa !26
   %29 = sext i32 %28 to i64
   %30 = mul nsw i64 %29, 14811
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 256
-  %32 = load i32, ptr %31, align 4, !tbaa !25
+  %32 = load i32, ptr %31, align 4, !tbaa !26
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, 7005
   %35 = mul nsw i64 %29, 7005
   %.neg224.i = mul nsw i64 %33, -14811
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 576
-  %37 = load i32, ptr %36, align 4, !tbaa !25
+  %37 = load i32, ptr %36, align 4, !tbaa !26
   %38 = sext i32 %37 to i64
   %39 = mul nsw i64 %38, 13160
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  %41 = load i32, ptr %40, align 4, !tbaa !25
+  %41 = load i32, ptr %40, align 4, !tbaa !26
   %42 = sext i32 %41 to i64
   %43 = mul nsw i64 %42, 9760
   %44 = mul nsw i64 %38, 9760
   %.neg225.i = mul nsw i64 %42, -13160
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 448
-  %46 = load i32, ptr %45, align 4, !tbaa !25
+  %46 = load i32, ptr %45, align 4, !tbaa !26
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, 11003
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 512
-  %50 = load i32, ptr %49, align 4, !tbaa !25
+  %50 = load i32, ptr %49, align 4, !tbaa !26
   %51 = sext i32 %50 to i64
   %52 = mul nsw i64 %51, 12140
   %53 = add nsw i64 %52, %48
@@ -3890,11 +3890,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %.neg226.i = mul nsw i64 %51, -11003
   %55 = add nsw i64 %.neg226.i, %54
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 320
-  %57 = load i32, ptr %56, align 4, !tbaa !25
+  %57 = load i32, ptr %56, align 4, !tbaa !26
   %58 = sext i32 %57 to i64
   %59 = mul nsw i64 %58, 8423
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 640
-  %61 = load i32, ptr %60, align 4, !tbaa !25
+  %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = sext i32 %61 to i64
   %63 = mul nsw i64 %62, 14053
   %64 = add nsw i64 %63, %59
@@ -3902,11 +3902,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %.neg227.i = mul nsw i64 %62, -8423
   %66 = add nsw i64 %.neg227.i, %65
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %68 = load i32, ptr %67, align 4, !tbaa !25
+  %68 = load i32, ptr %67, align 4, !tbaa !26
   %69 = sext i32 %68 to i64
   %70 = mul nsw i64 %69, 5520
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 768
-  %72 = load i32, ptr %71, align 4, !tbaa !25
+  %72 = load i32, ptr %71, align 4, !tbaa !26
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, 15426
   %75 = add nsw i64 %74, %70
@@ -3914,11 +3914,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %.neg228.i = mul nsw i64 %73, -5520
   %77 = add nsw i64 %.neg228.i, %76
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %79 = load i32, ptr %78, align 4, !tbaa !25
+  %79 = load i32, ptr %78, align 4, !tbaa !26
   %80 = sext i32 %79 to i64
   %81 = mul nsw i64 %80, 2404
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 896
-  %83 = load i32, ptr %82, align 4, !tbaa !25
+  %83 = load i32, ptr %82, align 4, !tbaa !26
   %84 = sext i32 %83 to i64
   %85 = mul nsw i64 %84, 16207
   %86 = add nsw i64 %85, %81
@@ -4047,12 +4047,12 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %200 = add nsw i64 %198, %199
   %201 = add nsw i64 %155, %153
   %202 = trunc i64 %201 to i32
-  store i32 %202, ptr %9, align 16, !tbaa !25
+  store i32 %202, ptr %9, align 16, !tbaa !26
   %203 = add nsw i64 %156, %154
   %204 = trunc i64 %203 to i32
   %205 = sub i32 0, %204
   %206 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i32 %205, ptr %206, align 4, !tbaa !25
+  store i32 %205, ptr %206, align 4, !tbaa !26
   %207 = sub nsw i64 %153, %155
   %208 = sub nsw i64 %154, %156
   %209 = add nsw i64 %186, 8192
@@ -4062,14 +4062,14 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %213 = trunc i64 %212 to i32
   %214 = sub i32 0, %213
   %215 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %214, ptr %215, align 4, !tbaa !25
+  store i32 %214, ptr %215, align 4, !tbaa !26
   %216 = add nsw i64 %187, 8192
   %217 = add nsw i64 %216, %.neg234.i
   %218 = add nsw i64 %192, %217
   %219 = lshr i64 %218, 14
   %220 = trunc i64 %219 to i32
   %221 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %220, ptr %221, align 16, !tbaa !25
+  store i32 %220, ptr %221, align 16, !tbaa !26
   %222 = sub nsw i64 %210, %189
   %223 = ashr i64 %222, 14
   %224 = sub nsw i64 %217, %192
@@ -4078,11 +4078,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %227 = trunc i64 %226 to i32
   %228 = sub i32 0, %227
   %229 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %228, ptr %229, align 4, !tbaa !25
+  store i32 %228, ptr %229, align 4, !tbaa !26
   %230 = add nsw i64 %176, %168
   %231 = trunc i64 %230 to i32
   %232 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i32 %231, ptr %232, align 8, !tbaa !25
+  store i32 %231, ptr %232, align 8, !tbaa !26
   %233 = sub nsw i64 %164, %172
   %234 = sub nsw i64 %168, %176
   %235 = add nsw i64 %194, 8192
@@ -4091,7 +4091,7 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %238 = lshr i64 %237, 14
   %239 = trunc i64 %238 to i32
   %240 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %239, ptr %240, align 8, !tbaa !25
+  store i32 %239, ptr %240, align 8, !tbaa !26
   %241 = add nsw i64 %195, 8192
   %242 = add nsw i64 %241, %.neg236.i
   %243 = add nsw i64 %200, %242
@@ -4099,7 +4099,7 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %245 = trunc i64 %244 to i32
   %246 = sub i32 0, %245
   %247 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i32 %246, ptr %247, align 4, !tbaa !25
+  store i32 %246, ptr %247, align 4, !tbaa !26
   %248 = sub nsw i64 %236, %197
   %249 = ashr i64 %248, 14
   %250 = sub nsw i64 %242, %200
@@ -4110,59 +4110,59 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %255 = lshr i64 %254, 14
   %256 = trunc i64 %255 to i32
   %257 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %256, ptr %257, align 4, !tbaa !25
+  store i32 %256, ptr %257, align 4, !tbaa !26
   %258 = sub nsw i64 %207, %208
   %259 = mul nsw i64 %258, 11585
   %260 = add nsw i64 %259, 8192
   %261 = lshr i64 %260, 14
   %262 = trunc i64 %261 to i32
   %263 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 %262, ptr %263, align 16, !tbaa !25
+  store i32 %262, ptr %263, align 16, !tbaa !26
   %264 = add nsw i64 %225, %223
   %265 = mul nsw i64 %264, 11585
   %266 = add nsw i64 %265, 8192
   %267 = lshr i64 %266, 14
   %268 = trunc i64 %267 to i32
   %269 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %268, ptr %269, align 16, !tbaa !25
+  store i32 %268, ptr %269, align 16, !tbaa !26
   %270 = sub nsw i64 %225, %223
   %271 = mul nsw i64 %270, 11585
   %272 = add nsw i64 %271, 8192
   %273 = lshr i64 %272, 14
   %274 = trunc i64 %273 to i32
   %275 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  store i32 %274, ptr %275, align 4, !tbaa !25
+  store i32 %274, ptr %275, align 4, !tbaa !26
   %276 = add nsw i64 %234, %233
   %277 = mul nsw i64 %276, 11585
   %278 = add nsw i64 %277, 8192
   %279 = lshr i64 %278, 14
   %280 = trunc i64 %279 to i32
   %281 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %280, ptr %281, align 8, !tbaa !25
+  store i32 %280, ptr %281, align 8, !tbaa !26
   %282 = sub nsw i64 %234, %233
   %283 = mul nsw i64 %282, 11585
   %284 = add nsw i64 %283, 8192
   %285 = lshr i64 %284, 14
   %286 = trunc i64 %285 to i32
   %287 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 %286, ptr %287, align 4, !tbaa !25
+  store i32 %286, ptr %287, align 4, !tbaa !26
   %288 = add nsw i64 %249, %251
   %289 = mul i64 %288, 70368744166079
   %290 = add i64 %289, 8192
   %291 = lshr i64 %290, 14
   %292 = trunc i64 %291 to i32
   %293 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %292, ptr %293, align 4, !tbaa !25
+  store i32 %292, ptr %293, align 4, !tbaa !26
   %294 = sub nsw i64 %249, %251
   %295 = mul nsw i64 %294, 11585
   %296 = add nsw i64 %295, 8192
   %297 = lshr i64 %296, 14
   %298 = trunc i64 %297 to i32
   %299 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 %298, ptr %299, align 8, !tbaa !25
+  store i32 %298, ptr %299, align 8, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %300, label %7, !llvm.loop !60
+  br i1 %exitcond.not, label %300, label %7, !llvm.loop !61
 
 300:                                              ; preds = %7
   %301 = lshr i64 %1, 1
@@ -4188,10 +4188,10 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %indvars.iv33 = phi i64 [ 0, %300 ], [ %indvars.iv.next34, %553 ]
   %.027 = phi ptr [ %0, %300 ], [ %554, %553 ]
   %318 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv33
-  %319 = load i32, ptr %318, align 4, !tbaa !25
+  %319 = load i32, ptr %318, align 4, !tbaa !26
   %320 = sext i32 %319 to i64
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 512
-  %322 = load i32, ptr %321, align 4, !tbaa !25
+  %322 = load i32, ptr %321, align 4, !tbaa !26
   %323 = sext i32 %322 to i64
   %324 = add nsw i64 %323, %320
   %325 = mul nsw i64 %324, 11585
@@ -4202,11 +4202,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %330 = add nsw i64 %329, 8192
   %331 = ashr i64 %330, 14
   %332 = getelementptr inbounds nuw i8, ptr %318, i64 256
-  %333 = load i32, ptr %332, align 4, !tbaa !25
+  %333 = load i32, ptr %332, align 4, !tbaa !26
   %334 = sext i32 %333 to i64
   %335 = mul nsw i64 %334, 6270
   %336 = getelementptr inbounds nuw i8, ptr %318, i64 768
-  %337 = load i32, ptr %336, align 4, !tbaa !25
+  %337 = load i32, ptr %336, align 4, !tbaa !26
   %338 = sext i32 %337 to i64
   %.neg.i = mul nsw i64 %338, -15137
   %339 = add nsw i64 %335, 8192
@@ -4218,11 +4218,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %345 = add nsw i64 %344, %343
   %346 = ashr i64 %345, 14
   %347 = getelementptr inbounds nuw i8, ptr %318, i64 128
-  %348 = load i32, ptr %347, align 4, !tbaa !25
+  %348 = load i32, ptr %347, align 4, !tbaa !26
   %349 = sext i32 %348 to i64
   %350 = mul nsw i64 %349, 3196
   %351 = getelementptr inbounds nuw i8, ptr %318, i64 896
-  %352 = load i32, ptr %351, align 4, !tbaa !25
+  %352 = load i32, ptr %351, align 4, !tbaa !26
   %353 = sext i32 %352 to i64
   %.neg195.i = mul nsw i64 %353, -16069
   %354 = add nsw i64 %350, 8192
@@ -4234,11 +4234,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %360 = add nsw i64 %359, %358
   %361 = ashr i64 %360, 14
   %362 = getelementptr inbounds nuw i8, ptr %318, i64 640
-  %363 = load i32, ptr %362, align 4, !tbaa !25
+  %363 = load i32, ptr %362, align 4, !tbaa !26
   %364 = sext i32 %363 to i64
   %365 = mul nsw i64 %364, 13623
   %366 = getelementptr inbounds nuw i8, ptr %318, i64 384
-  %367 = load i32, ptr %366, align 4, !tbaa !25
+  %367 = load i32, ptr %366, align 4, !tbaa !26
   %368 = sext i32 %367 to i64
   %.neg196.i = mul nsw i64 %368, -9102
   %369 = add nsw i64 %365, 8192
@@ -4250,11 +4250,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %375 = add nsw i64 %374, %373
   %376 = ashr i64 %375, 14
   %377 = getelementptr inbounds nuw i8, ptr %318, i64 64
-  %378 = load i32, ptr %377, align 4, !tbaa !25
+  %378 = load i32, ptr %377, align 4, !tbaa !26
   %379 = sext i32 %378 to i64
   %380 = mul nsw i64 %379, 1606
   %381 = getelementptr inbounds nuw i8, ptr %318, i64 960
-  %382 = load i32, ptr %381, align 4, !tbaa !25
+  %382 = load i32, ptr %381, align 4, !tbaa !26
   %383 = sext i32 %382 to i64
   %.neg197.i = mul nsw i64 %383, -16305
   %384 = add nsw i64 %380, 8192
@@ -4266,11 +4266,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %390 = add nsw i64 %389, %388
   %391 = ashr i64 %390, 14
   %392 = getelementptr inbounds nuw i8, ptr %318, i64 576
-  %393 = load i32, ptr %392, align 4, !tbaa !25
+  %393 = load i32, ptr %392, align 4, !tbaa !26
   %394 = sext i32 %393 to i64
   %395 = mul nsw i64 %394, 12665
   %396 = getelementptr inbounds nuw i8, ptr %318, i64 448
-  %397 = load i32, ptr %396, align 4, !tbaa !25
+  %397 = load i32, ptr %396, align 4, !tbaa !26
   %398 = sext i32 %397 to i64
   %.neg198.i = mul nsw i64 %398, -10394
   %399 = add nsw i64 %395, 8192
@@ -4282,11 +4282,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %405 = add nsw i64 %404, %403
   %406 = ashr i64 %405, 14
   %407 = getelementptr inbounds nuw i8, ptr %318, i64 320
-  %408 = load i32, ptr %407, align 4, !tbaa !25
+  %408 = load i32, ptr %407, align 4, !tbaa !26
   %409 = sext i32 %408 to i64
   %410 = mul nsw i64 %409, 7723
   %411 = getelementptr inbounds nuw i8, ptr %318, i64 704
-  %412 = load i32, ptr %411, align 4, !tbaa !25
+  %412 = load i32, ptr %411, align 4, !tbaa !26
   %413 = sext i32 %412 to i64
   %.neg199.i = mul nsw i64 %413, -14449
   %414 = add nsw i64 %410, 8192
@@ -4298,11 +4298,11 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %420 = add nsw i64 %419, %418
   %421 = ashr i64 %420, 14
   %422 = getelementptr inbounds nuw i8, ptr %318, i64 832
-  %423 = load i32, ptr %422, align 4, !tbaa !25
+  %423 = load i32, ptr %422, align 4, !tbaa !26
   %424 = sext i32 %423 to i64
   %425 = mul nsw i64 %424, 15679
   %426 = getelementptr inbounds nuw i8, ptr %318, i64 192
-  %427 = load i32, ptr %426, align 4, !tbaa !25
+  %427 = load i32, ptr %426, align 4, !tbaa !26
   %428 = sext i32 %427 to i64
   %.neg200.i = mul nsw i64 %428, -4756
   %429 = add nsw i64 %425, 8192
@@ -4391,52 +4391,52 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %507 = ashr i64 %506, 14
   %508 = add nsw i64 %491, %476
   %509 = trunc i64 %508 to i32
-  store i32 %509, ptr %6, align 16, !tbaa !25
+  store i32 %509, ptr %6, align 16, !tbaa !26
   %510 = add nsw i64 %490, %477
   %511 = trunc i64 %510 to i32
-  store i32 %511, ptr %302, align 4, !tbaa !25
+  store i32 %511, ptr %302, align 4, !tbaa !26
   %512 = add nsw i64 %499, %478
   %513 = trunc i64 %512 to i32
-  store i32 %513, ptr %303, align 8, !tbaa !25
+  store i32 %513, ptr %303, align 8, !tbaa !26
   %514 = add nsw i64 %507, %479
   %515 = trunc i64 %514 to i32
-  store i32 %515, ptr %304, align 4, !tbaa !25
+  store i32 %515, ptr %304, align 4, !tbaa !26
   %516 = add nsw i64 %503, %480
   %517 = trunc i64 %516 to i32
-  store i32 %517, ptr %305, align 16, !tbaa !25
+  store i32 %517, ptr %305, align 16, !tbaa !26
   %518 = add nsw i64 %495, %481
   %519 = trunc i64 %518 to i32
-  store i32 %519, ptr %306, align 4, !tbaa !25
+  store i32 %519, ptr %306, align 4, !tbaa !26
   %520 = add nsw i64 %485, %482
   %521 = trunc i64 %520 to i32
-  store i32 %521, ptr %307, align 8, !tbaa !25
+  store i32 %521, ptr %307, align 8, !tbaa !26
   %522 = add nsw i64 %484, %483
   %523 = trunc i64 %522 to i32
-  store i32 %523, ptr %308, align 4, !tbaa !25
+  store i32 %523, ptr %308, align 4, !tbaa !26
   %524 = sub nsw i64 %483, %484
   %525 = trunc i64 %524 to i32
-  store i32 %525, ptr %309, align 16, !tbaa !25
+  store i32 %525, ptr %309, align 16, !tbaa !26
   %526 = sub nsw i64 %482, %485
   %527 = trunc i64 %526 to i32
-  store i32 %527, ptr %310, align 4, !tbaa !25
+  store i32 %527, ptr %310, align 4, !tbaa !26
   %528 = sub nsw i64 %481, %495
   %529 = trunc i64 %528 to i32
-  store i32 %529, ptr %311, align 8, !tbaa !25
+  store i32 %529, ptr %311, align 8, !tbaa !26
   %530 = sub nsw i64 %480, %503
   %531 = trunc i64 %530 to i32
-  store i32 %531, ptr %312, align 4, !tbaa !25
+  store i32 %531, ptr %312, align 4, !tbaa !26
   %532 = sub nsw i64 %479, %507
   %533 = trunc i64 %532 to i32
-  store i32 %533, ptr %313, align 16, !tbaa !25
+  store i32 %533, ptr %313, align 16, !tbaa !26
   %534 = sub nsw i64 %478, %499
   %535 = trunc i64 %534 to i32
-  store i32 %535, ptr %314, align 4, !tbaa !25
+  store i32 %535, ptr %314, align 4, !tbaa !26
   %536 = sub nsw i64 %477, %490
   %537 = trunc i64 %536 to i32
-  store i32 %537, ptr %315, align 8, !tbaa !25
+  store i32 %537, ptr %315, align 8, !tbaa !26
   %538 = sub nsw i64 %476, %491
   %539 = trunc i64 %538 to i32
-  store i32 %539, ptr %316, align 4, !tbaa !25
+  store i32 %539, ptr %316, align 4, !tbaa !26
   br label %540
 
 540:                                              ; preds = %317, %540
@@ -4446,7 +4446,7 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %543 = load i16, ptr %542, align 2, !tbaa !8
   %544 = zext i16 %543 to i32
   %545 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv29
-  %546 = load i32, ptr %545, align 4, !tbaa !25
+  %546 = load i32, ptr %545, align 4, !tbaa !26
   %547 = add i32 %546, 32
   %548 = ashr i32 %547, 6
   %549 = add nsw i32 %548, %544
@@ -4456,13 +4456,13 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   store i16 %552, ptr %542, align 2, !tbaa !8
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 16
-  br i1 %exitcond32.not, label %553, label %540, !llvm.loop !61
+  br i1 %exitcond32.not, label %553, label %540, !llvm.loop !62
 
 553:                                              ; preds = %540
   %554 = getelementptr inbounds nuw i8, ptr %.027, i64 2
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 16
-  br i1 %exitcond36.not, label %555, label %317, !llvm.loop !62
+  br i1 %exitcond36.not, label %555, label %317, !llvm.loop !63
 
 555:                                              ; preds = %553
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
@@ -4483,10 +4483,10 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %10 = load i32, ptr %8, align 4, !tbaa !25
+  %10 = load i32, ptr %8, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 512
-  %13 = load i32, ptr %12, align 4, !tbaa !25
+  %13 = load i32, ptr %12, align 4, !tbaa !26
   %14 = sext i32 %13 to i64
   %15 = add nsw i64 %14, %11
   %16 = mul nsw i64 %15, 11585
@@ -4497,11 +4497,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %21 = add nsw i64 %20, 8192
   %22 = ashr i64 %21, 14
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 256
-  %24 = load i32, ptr %23, align 4, !tbaa !25
+  %24 = load i32, ptr %23, align 4, !tbaa !26
   %25 = sext i32 %24 to i64
   %26 = mul nsw i64 %25, 6270
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 768
-  %28 = load i32, ptr %27, align 4, !tbaa !25
+  %28 = load i32, ptr %27, align 4, !tbaa !26
   %29 = sext i32 %28 to i64
   %.neg.i = mul nsw i64 %29, -15137
   %30 = add nsw i64 %26, 8192
@@ -4513,11 +4513,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %36 = add nsw i64 %35, %34
   %37 = ashr i64 %36, 14
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %39 = load i32, ptr %38, align 4, !tbaa !25
+  %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %40, 3196
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 896
-  %43 = load i32, ptr %42, align 4, !tbaa !25
+  %43 = load i32, ptr %42, align 4, !tbaa !26
   %44 = sext i32 %43 to i64
   %.neg195.i = mul nsw i64 %44, -16069
   %45 = add nsw i64 %41, 8192
@@ -4529,11 +4529,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %51 = add nsw i64 %50, %49
   %52 = ashr i64 %51, 14
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 640
-  %54 = load i32, ptr %53, align 4, !tbaa !25
+  %54 = load i32, ptr %53, align 4, !tbaa !26
   %55 = sext i32 %54 to i64
   %56 = mul nsw i64 %55, 13623
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  %58 = load i32, ptr %57, align 4, !tbaa !25
+  %58 = load i32, ptr %57, align 4, !tbaa !26
   %59 = sext i32 %58 to i64
   %.neg196.i = mul nsw i64 %59, -9102
   %60 = add nsw i64 %56, 8192
@@ -4545,11 +4545,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %66 = add nsw i64 %65, %64
   %67 = ashr i64 %66, 14
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %69 = load i32, ptr %68, align 4, !tbaa !25
+  %69 = load i32, ptr %68, align 4, !tbaa !26
   %70 = sext i32 %69 to i64
   %71 = mul nsw i64 %70, 1606
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 960
-  %73 = load i32, ptr %72, align 4, !tbaa !25
+  %73 = load i32, ptr %72, align 4, !tbaa !26
   %74 = sext i32 %73 to i64
   %.neg197.i = mul nsw i64 %74, -16305
   %75 = add nsw i64 %71, 8192
@@ -4561,11 +4561,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %81 = add nsw i64 %80, %79
   %82 = ashr i64 %81, 14
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 576
-  %84 = load i32, ptr %83, align 4, !tbaa !25
+  %84 = load i32, ptr %83, align 4, !tbaa !26
   %85 = sext i32 %84 to i64
   %86 = mul nsw i64 %85, 12665
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 448
-  %88 = load i32, ptr %87, align 4, !tbaa !25
+  %88 = load i32, ptr %87, align 4, !tbaa !26
   %89 = sext i32 %88 to i64
   %.neg198.i = mul nsw i64 %89, -10394
   %90 = add nsw i64 %86, 8192
@@ -4577,11 +4577,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %96 = add nsw i64 %95, %94
   %97 = ashr i64 %96, 14
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 320
-  %99 = load i32, ptr %98, align 4, !tbaa !25
+  %99 = load i32, ptr %98, align 4, !tbaa !26
   %100 = sext i32 %99 to i64
   %101 = mul nsw i64 %100, 7723
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 704
-  %103 = load i32, ptr %102, align 4, !tbaa !25
+  %103 = load i32, ptr %102, align 4, !tbaa !26
   %104 = sext i32 %103 to i64
   %.neg199.i = mul nsw i64 %104, -14449
   %105 = add nsw i64 %101, 8192
@@ -4593,11 +4593,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %111 = add nsw i64 %110, %109
   %112 = ashr i64 %111, 14
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 832
-  %114 = load i32, ptr %113, align 4, !tbaa !25
+  %114 = load i32, ptr %113, align 4, !tbaa !26
   %115 = sext i32 %114 to i64
   %116 = mul nsw i64 %115, 15679
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %118 = load i32, ptr %117, align 4, !tbaa !25
+  %118 = load i32, ptr %117, align 4, !tbaa !26
   %119 = sext i32 %118 to i64
   %.neg200.i = mul nsw i64 %119, -4756
   %120 = add nsw i64 %116, 8192
@@ -4686,70 +4686,70 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %198 = ashr i64 %197, 14
   %199 = add nsw i64 %182, %167
   %200 = trunc i64 %199 to i32
-  store i32 %200, ptr %9, align 16, !tbaa !25
+  store i32 %200, ptr %9, align 16, !tbaa !26
   %201 = add nsw i64 %181, %168
   %202 = trunc i64 %201 to i32
   %203 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %202, ptr %203, align 4, !tbaa !25
+  store i32 %202, ptr %203, align 4, !tbaa !26
   %204 = add nsw i64 %190, %169
   %205 = trunc i64 %204 to i32
   %206 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %205, ptr %206, align 8, !tbaa !25
+  store i32 %205, ptr %206, align 8, !tbaa !26
   %207 = add nsw i64 %198, %170
   %208 = trunc i64 %207 to i32
   %209 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %208, ptr %209, align 4, !tbaa !25
+  store i32 %208, ptr %209, align 4, !tbaa !26
   %210 = add nsw i64 %194, %171
   %211 = trunc i64 %210 to i32
   %212 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %211, ptr %212, align 16, !tbaa !25
+  store i32 %211, ptr %212, align 16, !tbaa !26
   %213 = add nsw i64 %186, %172
   %214 = trunc i64 %213 to i32
   %215 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %214, ptr %215, align 4, !tbaa !25
+  store i32 %214, ptr %215, align 4, !tbaa !26
   %216 = add nsw i64 %176, %173
   %217 = trunc i64 %216 to i32
   %218 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %217, ptr %218, align 8, !tbaa !25
+  store i32 %217, ptr %218, align 8, !tbaa !26
   %219 = add nsw i64 %175, %174
   %220 = trunc i64 %219 to i32
   %221 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %220, ptr %221, align 4, !tbaa !25
+  store i32 %220, ptr %221, align 4, !tbaa !26
   %222 = sub nsw i64 %174, %175
   %223 = trunc i64 %222 to i32
   %224 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 %223, ptr %224, align 16, !tbaa !25
+  store i32 %223, ptr %224, align 16, !tbaa !26
   %225 = sub nsw i64 %173, %176
   %226 = trunc i64 %225 to i32
   %227 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 %226, ptr %227, align 4, !tbaa !25
+  store i32 %226, ptr %227, align 4, !tbaa !26
   %228 = sub nsw i64 %172, %186
   %229 = trunc i64 %228 to i32
   %230 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 %229, ptr %230, align 8, !tbaa !25
+  store i32 %229, ptr %230, align 8, !tbaa !26
   %231 = sub nsw i64 %171, %194
   %232 = trunc i64 %231 to i32
   %233 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  store i32 %232, ptr %233, align 4, !tbaa !25
+  store i32 %232, ptr %233, align 4, !tbaa !26
   %234 = sub nsw i64 %170, %198
   %235 = trunc i64 %234 to i32
   %236 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %235, ptr %236, align 16, !tbaa !25
+  store i32 %235, ptr %236, align 16, !tbaa !26
   %237 = sub nsw i64 %169, %190
   %238 = trunc i64 %237 to i32
   %239 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i32 %238, ptr %239, align 4, !tbaa !25
+  store i32 %238, ptr %239, align 4, !tbaa !26
   %240 = sub nsw i64 %168, %181
   %241 = trunc i64 %240 to i32
   %242 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i32 %241, ptr %242, align 8, !tbaa !25
+  store i32 %241, ptr %242, align 8, !tbaa !26
   %243 = sub nsw i64 %167, %182
   %244 = trunc i64 %243 to i32
   %245 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i32 %244, ptr %245, align 4, !tbaa !25
+  store i32 %244, ptr %245, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %246, label %7, !llvm.loop !63
+  br i1 %exitcond.not, label %246, label %7, !llvm.loop !64
 
 246:                                              ; preds = %7
   %247 = lshr i64 %1, 1
@@ -4776,50 +4776,50 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %.027 = phi ptr [ %0, %246 ], [ %554, %553 ]
   %264 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv33
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 960
-  %266 = load i32, ptr %265, align 4, !tbaa !25
+  %266 = load i32, ptr %265, align 4, !tbaa !26
   %267 = sext i32 %266 to i64
   %268 = mul nsw i64 %267, 16364
-  %269 = load i32, ptr %264, align 4, !tbaa !25
+  %269 = load i32, ptr %264, align 4, !tbaa !26
   %270 = sext i32 %269 to i64
   %271 = mul nsw i64 %270, 804
   %272 = mul nsw i64 %267, 804
   %.neg.i23 = mul nsw i64 %270, -16364
   %273 = getelementptr inbounds nuw i8, ptr %264, i64 832
-  %274 = load i32, ptr %273, align 4, !tbaa !25
+  %274 = load i32, ptr %273, align 4, !tbaa !26
   %275 = sext i32 %274 to i64
   %276 = mul nsw i64 %275, 15893
   %277 = getelementptr inbounds nuw i8, ptr %264, i64 128
-  %278 = load i32, ptr %277, align 4, !tbaa !25
+  %278 = load i32, ptr %277, align 4, !tbaa !26
   %279 = sext i32 %278 to i64
   %280 = mul nsw i64 %279, 3981
   %281 = mul nsw i64 %275, 3981
   %.neg223.i = mul nsw i64 %279, -15893
   %282 = getelementptr inbounds nuw i8, ptr %264, i64 704
-  %283 = load i32, ptr %282, align 4, !tbaa !25
+  %283 = load i32, ptr %282, align 4, !tbaa !26
   %284 = sext i32 %283 to i64
   %285 = mul nsw i64 %284, 14811
   %286 = getelementptr inbounds nuw i8, ptr %264, i64 256
-  %287 = load i32, ptr %286, align 4, !tbaa !25
+  %287 = load i32, ptr %286, align 4, !tbaa !26
   %288 = sext i32 %287 to i64
   %289 = mul nsw i64 %288, 7005
   %290 = mul nsw i64 %284, 7005
   %.neg224.i = mul nsw i64 %288, -14811
   %291 = getelementptr inbounds nuw i8, ptr %264, i64 576
-  %292 = load i32, ptr %291, align 4, !tbaa !25
+  %292 = load i32, ptr %291, align 4, !tbaa !26
   %293 = sext i32 %292 to i64
   %294 = mul nsw i64 %293, 13160
   %295 = getelementptr inbounds nuw i8, ptr %264, i64 384
-  %296 = load i32, ptr %295, align 4, !tbaa !25
+  %296 = load i32, ptr %295, align 4, !tbaa !26
   %297 = sext i32 %296 to i64
   %298 = mul nsw i64 %297, 9760
   %299 = mul nsw i64 %293, 9760
   %.neg225.i = mul nsw i64 %297, -13160
   %300 = getelementptr inbounds nuw i8, ptr %264, i64 448
-  %301 = load i32, ptr %300, align 4, !tbaa !25
+  %301 = load i32, ptr %300, align 4, !tbaa !26
   %302 = sext i32 %301 to i64
   %303 = mul nsw i64 %302, 11003
   %304 = getelementptr inbounds nuw i8, ptr %264, i64 512
-  %305 = load i32, ptr %304, align 4, !tbaa !25
+  %305 = load i32, ptr %304, align 4, !tbaa !26
   %306 = sext i32 %305 to i64
   %307 = mul nsw i64 %306, 12140
   %308 = add nsw i64 %307, %303
@@ -4827,11 +4827,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %.neg226.i = mul nsw i64 %306, -11003
   %310 = add nsw i64 %.neg226.i, %309
   %311 = getelementptr inbounds nuw i8, ptr %264, i64 320
-  %312 = load i32, ptr %311, align 4, !tbaa !25
+  %312 = load i32, ptr %311, align 4, !tbaa !26
   %313 = sext i32 %312 to i64
   %314 = mul nsw i64 %313, 8423
   %315 = getelementptr inbounds nuw i8, ptr %264, i64 640
-  %316 = load i32, ptr %315, align 4, !tbaa !25
+  %316 = load i32, ptr %315, align 4, !tbaa !26
   %317 = sext i32 %316 to i64
   %318 = mul nsw i64 %317, 14053
   %319 = add nsw i64 %318, %314
@@ -4839,11 +4839,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %.neg227.i = mul nsw i64 %317, -8423
   %321 = add nsw i64 %.neg227.i, %320
   %322 = getelementptr inbounds nuw i8, ptr %264, i64 192
-  %323 = load i32, ptr %322, align 4, !tbaa !25
+  %323 = load i32, ptr %322, align 4, !tbaa !26
   %324 = sext i32 %323 to i64
   %325 = mul nsw i64 %324, 5520
   %326 = getelementptr inbounds nuw i8, ptr %264, i64 768
-  %327 = load i32, ptr %326, align 4, !tbaa !25
+  %327 = load i32, ptr %326, align 4, !tbaa !26
   %328 = sext i32 %327 to i64
   %329 = mul nsw i64 %328, 15426
   %330 = add nsw i64 %329, %325
@@ -4851,11 +4851,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %.neg228.i = mul nsw i64 %328, -5520
   %332 = add nsw i64 %.neg228.i, %331
   %333 = getelementptr inbounds nuw i8, ptr %264, i64 64
-  %334 = load i32, ptr %333, align 4, !tbaa !25
+  %334 = load i32, ptr %333, align 4, !tbaa !26
   %335 = sext i32 %334 to i64
   %336 = mul nsw i64 %335, 2404
   %337 = getelementptr inbounds nuw i8, ptr %264, i64 896
-  %338 = load i32, ptr %337, align 4, !tbaa !25
+  %338 = load i32, ptr %337, align 4, !tbaa !26
   %339 = sext i32 %338 to i64
   %340 = mul nsw i64 %339, 16207
   %341 = add nsw i64 %340, %336
@@ -4984,11 +4984,11 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %455 = add nsw i64 %453, %454
   %456 = add nsw i64 %410, %408
   %457 = trunc i64 %456 to i32
-  store i32 %457, ptr %6, align 16, !tbaa !25
+  store i32 %457, ptr %6, align 16, !tbaa !26
   %458 = add nsw i64 %411, %409
   %459 = trunc i64 %458 to i32
   %460 = sub i32 0, %459
-  store i32 %460, ptr %248, align 4, !tbaa !25
+  store i32 %460, ptr %248, align 4, !tbaa !26
   %461 = sub nsw i64 %408, %410
   %462 = sub nsw i64 %409, %411
   %463 = add nsw i64 %441, 8192
@@ -4997,13 +4997,13 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %466 = lshr i64 %465, 14
   %467 = trunc i64 %466 to i32
   %468 = sub i32 0, %467
-  store i32 %468, ptr %249, align 4, !tbaa !25
+  store i32 %468, ptr %249, align 4, !tbaa !26
   %469 = add nsw i64 %442, 8192
   %470 = add nsw i64 %469, %.neg234.i
   %471 = add nsw i64 %447, %470
   %472 = lshr i64 %471, 14
   %473 = trunc i64 %472 to i32
-  store i32 %473, ptr %250, align 16, !tbaa !25
+  store i32 %473, ptr %250, align 16, !tbaa !26
   %474 = sub nsw i64 %464, %444
   %475 = ashr i64 %474, 14
   %476 = sub nsw i64 %470, %447
@@ -5011,10 +5011,10 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %478 = add nsw i64 %427, %419
   %479 = trunc i64 %478 to i32
   %480 = sub i32 0, %479
-  store i32 %480, ptr %251, align 4, !tbaa !25
+  store i32 %480, ptr %251, align 4, !tbaa !26
   %481 = add nsw i64 %431, %423
   %482 = trunc i64 %481 to i32
-  store i32 %482, ptr %252, align 8, !tbaa !25
+  store i32 %482, ptr %252, align 8, !tbaa !26
   %483 = sub nsw i64 %419, %427
   %484 = sub nsw i64 %423, %431
   %485 = add nsw i64 %449, 8192
@@ -5022,14 +5022,14 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %487 = add nsw i64 %452, %486
   %488 = lshr i64 %487, 14
   %489 = trunc i64 %488 to i32
-  store i32 %489, ptr %253, align 8, !tbaa !25
+  store i32 %489, ptr %253, align 8, !tbaa !26
   %490 = add nsw i64 %450, 8192
   %491 = add nsw i64 %490, %.neg236.i
   %492 = add nsw i64 %455, %491
   %493 = lshr i64 %492, 14
   %494 = trunc i64 %493 to i32
   %495 = sub i32 0, %494
-  store i32 %495, ptr %254, align 4, !tbaa !25
+  store i32 %495, ptr %254, align 4, !tbaa !26
   %496 = sub nsw i64 %486, %452
   %497 = ashr i64 %496, 14
   %498 = sub nsw i64 %491, %455
@@ -5039,49 +5039,49 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %502 = add i64 %501, 8192
   %503 = lshr i64 %502, 14
   %504 = trunc i64 %503 to i32
-  store i32 %504, ptr %255, align 4, !tbaa !25
+  store i32 %504, ptr %255, align 4, !tbaa !26
   %505 = sub nsw i64 %461, %462
   %506 = mul nsw i64 %505, 11585
   %507 = add nsw i64 %506, 8192
   %508 = lshr i64 %507, 14
   %509 = trunc i64 %508 to i32
-  store i32 %509, ptr %256, align 16, !tbaa !25
+  store i32 %509, ptr %256, align 16, !tbaa !26
   %510 = add nsw i64 %477, %475
   %511 = mul nsw i64 %510, 11585
   %512 = add nsw i64 %511, 8192
   %513 = lshr i64 %512, 14
   %514 = trunc i64 %513 to i32
-  store i32 %514, ptr %257, align 16, !tbaa !25
+  store i32 %514, ptr %257, align 16, !tbaa !26
   %515 = sub nsw i64 %477, %475
   %516 = mul nsw i64 %515, 11585
   %517 = add nsw i64 %516, 8192
   %518 = lshr i64 %517, 14
   %519 = trunc i64 %518 to i32
-  store i32 %519, ptr %258, align 4, !tbaa !25
+  store i32 %519, ptr %258, align 4, !tbaa !26
   %520 = add nsw i64 %484, %483
   %521 = mul nsw i64 %520, 11585
   %522 = add nsw i64 %521, 8192
   %523 = lshr i64 %522, 14
   %524 = trunc i64 %523 to i32
-  store i32 %524, ptr %259, align 8, !tbaa !25
+  store i32 %524, ptr %259, align 8, !tbaa !26
   %525 = sub nsw i64 %484, %483
   %526 = mul nsw i64 %525, 11585
   %527 = add nsw i64 %526, 8192
   %528 = lshr i64 %527, 14
   %529 = trunc i64 %528 to i32
-  store i32 %529, ptr %260, align 4, !tbaa !25
+  store i32 %529, ptr %260, align 4, !tbaa !26
   %530 = add nsw i64 %497, %499
   %531 = mul i64 %530, 70368744166079
   %532 = add i64 %531, 8192
   %533 = lshr i64 %532, 14
   %534 = trunc i64 %533 to i32
-  store i32 %534, ptr %261, align 4, !tbaa !25
+  store i32 %534, ptr %261, align 4, !tbaa !26
   %535 = sub nsw i64 %497, %499
   %536 = mul nsw i64 %535, 11585
   %537 = add nsw i64 %536, 8192
   %538 = lshr i64 %537, 14
   %539 = trunc i64 %538 to i32
-  store i32 %539, ptr %262, align 8, !tbaa !25
+  store i32 %539, ptr %262, align 8, !tbaa !26
   br label %540
 
 540:                                              ; preds = %263, %540
@@ -5091,7 +5091,7 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %543 = load i16, ptr %542, align 2, !tbaa !8
   %544 = zext i16 %543 to i32
   %545 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv29
-  %546 = load i32, ptr %545, align 4, !tbaa !25
+  %546 = load i32, ptr %545, align 4, !tbaa !26
   %547 = add i32 %546, 32
   %548 = ashr i32 %547, 6
   %549 = add nsw i32 %548, %544
@@ -5101,13 +5101,13 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   store i16 %552, ptr %542, align 2, !tbaa !8
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 16
-  br i1 %exitcond32.not, label %553, label %540, !llvm.loop !64
+  br i1 %exitcond32.not, label %553, label %540, !llvm.loop !65
 
 553:                                              ; preds = %540
   %554 = getelementptr inbounds nuw i8, ptr %.027, i64 2
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 16
-  br i1 %exitcond36.not, label %555, label %263, !llvm.loop !65
+  br i1 %exitcond36.not, label %555, label %263, !llvm.loop !66
 
 555:                                              ; preds = %553
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
@@ -5129,50 +5129,50 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %.idx = shl nuw nsw i64 %indvars.iv, 6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 960
-  %11 = load i32, ptr %10, align 4, !tbaa !25
+  %11 = load i32, ptr %10, align 4, !tbaa !26
   %12 = sext i32 %11 to i64
   %13 = mul nsw i64 %12, 16364
-  %14 = load i32, ptr %8, align 4, !tbaa !25
+  %14 = load i32, ptr %8, align 4, !tbaa !26
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %15, 804
   %17 = mul nsw i64 %12, 804
   %.neg.i = mul nsw i64 %15, -16364
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 832
-  %19 = load i32, ptr %18, align 4, !tbaa !25
+  %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %20, 15893
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %23 = load i32, ptr %22, align 4, !tbaa !25
+  %23 = load i32, ptr %22, align 4, !tbaa !26
   %24 = sext i32 %23 to i64
   %25 = mul nsw i64 %24, 3981
   %26 = mul nsw i64 %20, 3981
   %.neg223.i = mul nsw i64 %24, -15893
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 704
-  %28 = load i32, ptr %27, align 4, !tbaa !25
+  %28 = load i32, ptr %27, align 4, !tbaa !26
   %29 = sext i32 %28 to i64
   %30 = mul nsw i64 %29, 14811
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 256
-  %32 = load i32, ptr %31, align 4, !tbaa !25
+  %32 = load i32, ptr %31, align 4, !tbaa !26
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, 7005
   %35 = mul nsw i64 %29, 7005
   %.neg224.i = mul nsw i64 %33, -14811
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 576
-  %37 = load i32, ptr %36, align 4, !tbaa !25
+  %37 = load i32, ptr %36, align 4, !tbaa !26
   %38 = sext i32 %37 to i64
   %39 = mul nsw i64 %38, 13160
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  %41 = load i32, ptr %40, align 4, !tbaa !25
+  %41 = load i32, ptr %40, align 4, !tbaa !26
   %42 = sext i32 %41 to i64
   %43 = mul nsw i64 %42, 9760
   %44 = mul nsw i64 %38, 9760
   %.neg225.i = mul nsw i64 %42, -13160
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 448
-  %46 = load i32, ptr %45, align 4, !tbaa !25
+  %46 = load i32, ptr %45, align 4, !tbaa !26
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, 11003
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 512
-  %50 = load i32, ptr %49, align 4, !tbaa !25
+  %50 = load i32, ptr %49, align 4, !tbaa !26
   %51 = sext i32 %50 to i64
   %52 = mul nsw i64 %51, 12140
   %53 = add nsw i64 %52, %48
@@ -5180,11 +5180,11 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %.neg226.i = mul nsw i64 %51, -11003
   %55 = add nsw i64 %.neg226.i, %54
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 320
-  %57 = load i32, ptr %56, align 4, !tbaa !25
+  %57 = load i32, ptr %56, align 4, !tbaa !26
   %58 = sext i32 %57 to i64
   %59 = mul nsw i64 %58, 8423
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 640
-  %61 = load i32, ptr %60, align 4, !tbaa !25
+  %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = sext i32 %61 to i64
   %63 = mul nsw i64 %62, 14053
   %64 = add nsw i64 %63, %59
@@ -5192,11 +5192,11 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %.neg227.i = mul nsw i64 %62, -8423
   %66 = add nsw i64 %.neg227.i, %65
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %68 = load i32, ptr %67, align 4, !tbaa !25
+  %68 = load i32, ptr %67, align 4, !tbaa !26
   %69 = sext i32 %68 to i64
   %70 = mul nsw i64 %69, 5520
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 768
-  %72 = load i32, ptr %71, align 4, !tbaa !25
+  %72 = load i32, ptr %71, align 4, !tbaa !26
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, 15426
   %75 = add nsw i64 %74, %70
@@ -5204,11 +5204,11 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %.neg228.i = mul nsw i64 %73, -5520
   %77 = add nsw i64 %.neg228.i, %76
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %79 = load i32, ptr %78, align 4, !tbaa !25
+  %79 = load i32, ptr %78, align 4, !tbaa !26
   %80 = sext i32 %79 to i64
   %81 = mul nsw i64 %80, 2404
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 896
-  %83 = load i32, ptr %82, align 4, !tbaa !25
+  %83 = load i32, ptr %82, align 4, !tbaa !26
   %84 = sext i32 %83 to i64
   %85 = mul nsw i64 %84, 16207
   %86 = add nsw i64 %85, %81
@@ -5337,12 +5337,12 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %200 = add nsw i64 %198, %199
   %201 = add nsw i64 %155, %153
   %202 = trunc i64 %201 to i32
-  store i32 %202, ptr %9, align 16, !tbaa !25
+  store i32 %202, ptr %9, align 16, !tbaa !26
   %203 = add nsw i64 %156, %154
   %204 = trunc i64 %203 to i32
   %205 = sub i32 0, %204
   %206 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i32 %205, ptr %206, align 4, !tbaa !25
+  store i32 %205, ptr %206, align 4, !tbaa !26
   %207 = sub nsw i64 %153, %155
   %208 = sub nsw i64 %154, %156
   %209 = add nsw i64 %186, 8192
@@ -5352,14 +5352,14 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %213 = trunc i64 %212 to i32
   %214 = sub i32 0, %213
   %215 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %214, ptr %215, align 4, !tbaa !25
+  store i32 %214, ptr %215, align 4, !tbaa !26
   %216 = add nsw i64 %187, 8192
   %217 = add nsw i64 %216, %.neg234.i
   %218 = add nsw i64 %192, %217
   %219 = lshr i64 %218, 14
   %220 = trunc i64 %219 to i32
   %221 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %220, ptr %221, align 16, !tbaa !25
+  store i32 %220, ptr %221, align 16, !tbaa !26
   %222 = sub nsw i64 %210, %189
   %223 = ashr i64 %222, 14
   %224 = sub nsw i64 %217, %192
@@ -5368,11 +5368,11 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %227 = trunc i64 %226 to i32
   %228 = sub i32 0, %227
   %229 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %228, ptr %229, align 4, !tbaa !25
+  store i32 %228, ptr %229, align 4, !tbaa !26
   %230 = add nsw i64 %176, %168
   %231 = trunc i64 %230 to i32
   %232 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i32 %231, ptr %232, align 8, !tbaa !25
+  store i32 %231, ptr %232, align 8, !tbaa !26
   %233 = sub nsw i64 %164, %172
   %234 = sub nsw i64 %168, %176
   %235 = add nsw i64 %194, 8192
@@ -5381,7 +5381,7 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %238 = lshr i64 %237, 14
   %239 = trunc i64 %238 to i32
   %240 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %239, ptr %240, align 8, !tbaa !25
+  store i32 %239, ptr %240, align 8, !tbaa !26
   %241 = add nsw i64 %195, 8192
   %242 = add nsw i64 %241, %.neg236.i
   %243 = add nsw i64 %200, %242
@@ -5389,7 +5389,7 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %245 = trunc i64 %244 to i32
   %246 = sub i32 0, %245
   %247 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i32 %246, ptr %247, align 4, !tbaa !25
+  store i32 %246, ptr %247, align 4, !tbaa !26
   %248 = sub nsw i64 %236, %197
   %249 = ashr i64 %248, 14
   %250 = sub nsw i64 %242, %200
@@ -5400,59 +5400,59 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %255 = lshr i64 %254, 14
   %256 = trunc i64 %255 to i32
   %257 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %256, ptr %257, align 4, !tbaa !25
+  store i32 %256, ptr %257, align 4, !tbaa !26
   %258 = sub nsw i64 %207, %208
   %259 = mul nsw i64 %258, 11585
   %260 = add nsw i64 %259, 8192
   %261 = lshr i64 %260, 14
   %262 = trunc i64 %261 to i32
   %263 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 %262, ptr %263, align 16, !tbaa !25
+  store i32 %262, ptr %263, align 16, !tbaa !26
   %264 = add nsw i64 %225, %223
   %265 = mul nsw i64 %264, 11585
   %266 = add nsw i64 %265, 8192
   %267 = lshr i64 %266, 14
   %268 = trunc i64 %267 to i32
   %269 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %268, ptr %269, align 16, !tbaa !25
+  store i32 %268, ptr %269, align 16, !tbaa !26
   %270 = sub nsw i64 %225, %223
   %271 = mul nsw i64 %270, 11585
   %272 = add nsw i64 %271, 8192
   %273 = lshr i64 %272, 14
   %274 = trunc i64 %273 to i32
   %275 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  store i32 %274, ptr %275, align 4, !tbaa !25
+  store i32 %274, ptr %275, align 4, !tbaa !26
   %276 = add nsw i64 %234, %233
   %277 = mul nsw i64 %276, 11585
   %278 = add nsw i64 %277, 8192
   %279 = lshr i64 %278, 14
   %280 = trunc i64 %279 to i32
   %281 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %280, ptr %281, align 8, !tbaa !25
+  store i32 %280, ptr %281, align 8, !tbaa !26
   %282 = sub nsw i64 %234, %233
   %283 = mul nsw i64 %282, 11585
   %284 = add nsw i64 %283, 8192
   %285 = lshr i64 %284, 14
   %286 = trunc i64 %285 to i32
   %287 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 %286, ptr %287, align 4, !tbaa !25
+  store i32 %286, ptr %287, align 4, !tbaa !26
   %288 = add nsw i64 %249, %251
   %289 = mul i64 %288, 70368744166079
   %290 = add i64 %289, 8192
   %291 = lshr i64 %290, 14
   %292 = trunc i64 %291 to i32
   %293 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %292, ptr %293, align 4, !tbaa !25
+  store i32 %292, ptr %293, align 4, !tbaa !26
   %294 = sub nsw i64 %249, %251
   %295 = mul nsw i64 %294, 11585
   %296 = add nsw i64 %295, 8192
   %297 = lshr i64 %296, 14
   %298 = trunc i64 %297 to i32
   %299 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 %298, ptr %299, align 8, !tbaa !25
+  store i32 %298, ptr %299, align 8, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %300, label %7, !llvm.loop !66
+  br i1 %exitcond.not, label %300, label %7, !llvm.loop !67
 
 300:                                              ; preds = %7
   %301 = lshr i64 %1, 1
@@ -5479,50 +5479,50 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %.042 = phi ptr [ %0, %300 ], [ %608, %607 ]
   %318 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv48
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 960
-  %320 = load i32, ptr %319, align 4, !tbaa !25
+  %320 = load i32, ptr %319, align 4, !tbaa !26
   %321 = sext i32 %320 to i64
   %322 = mul nsw i64 %321, 16364
-  %323 = load i32, ptr %318, align 4, !tbaa !25
+  %323 = load i32, ptr %318, align 4, !tbaa !26
   %324 = sext i32 %323 to i64
   %325 = mul nsw i64 %324, 804
   %326 = mul nsw i64 %321, 804
   %.neg.i23 = mul nsw i64 %324, -16364
   %327 = getelementptr inbounds nuw i8, ptr %318, i64 832
-  %328 = load i32, ptr %327, align 4, !tbaa !25
+  %328 = load i32, ptr %327, align 4, !tbaa !26
   %329 = sext i32 %328 to i64
   %330 = mul nsw i64 %329, 15893
   %331 = getelementptr inbounds nuw i8, ptr %318, i64 128
-  %332 = load i32, ptr %331, align 4, !tbaa !25
+  %332 = load i32, ptr %331, align 4, !tbaa !26
   %333 = sext i32 %332 to i64
   %334 = mul nsw i64 %333, 3981
   %335 = mul nsw i64 %329, 3981
   %.neg223.i24 = mul nsw i64 %333, -15893
   %336 = getelementptr inbounds nuw i8, ptr %318, i64 704
-  %337 = load i32, ptr %336, align 4, !tbaa !25
+  %337 = load i32, ptr %336, align 4, !tbaa !26
   %338 = sext i32 %337 to i64
   %339 = mul nsw i64 %338, 14811
   %340 = getelementptr inbounds nuw i8, ptr %318, i64 256
-  %341 = load i32, ptr %340, align 4, !tbaa !25
+  %341 = load i32, ptr %340, align 4, !tbaa !26
   %342 = sext i32 %341 to i64
   %343 = mul nsw i64 %342, 7005
   %344 = mul nsw i64 %338, 7005
   %.neg224.i25 = mul nsw i64 %342, -14811
   %345 = getelementptr inbounds nuw i8, ptr %318, i64 576
-  %346 = load i32, ptr %345, align 4, !tbaa !25
+  %346 = load i32, ptr %345, align 4, !tbaa !26
   %347 = sext i32 %346 to i64
   %348 = mul nsw i64 %347, 13160
   %349 = getelementptr inbounds nuw i8, ptr %318, i64 384
-  %350 = load i32, ptr %349, align 4, !tbaa !25
+  %350 = load i32, ptr %349, align 4, !tbaa !26
   %351 = sext i32 %350 to i64
   %352 = mul nsw i64 %351, 9760
   %353 = mul nsw i64 %347, 9760
   %.neg225.i26 = mul nsw i64 %351, -13160
   %354 = getelementptr inbounds nuw i8, ptr %318, i64 448
-  %355 = load i32, ptr %354, align 4, !tbaa !25
+  %355 = load i32, ptr %354, align 4, !tbaa !26
   %356 = sext i32 %355 to i64
   %357 = mul nsw i64 %356, 11003
   %358 = getelementptr inbounds nuw i8, ptr %318, i64 512
-  %359 = load i32, ptr %358, align 4, !tbaa !25
+  %359 = load i32, ptr %358, align 4, !tbaa !26
   %360 = sext i32 %359 to i64
   %361 = mul nsw i64 %360, 12140
   %362 = add nsw i64 %361, %357
@@ -5530,11 +5530,11 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %.neg226.i27 = mul nsw i64 %360, -11003
   %364 = add nsw i64 %.neg226.i27, %363
   %365 = getelementptr inbounds nuw i8, ptr %318, i64 320
-  %366 = load i32, ptr %365, align 4, !tbaa !25
+  %366 = load i32, ptr %365, align 4, !tbaa !26
   %367 = sext i32 %366 to i64
   %368 = mul nsw i64 %367, 8423
   %369 = getelementptr inbounds nuw i8, ptr %318, i64 640
-  %370 = load i32, ptr %369, align 4, !tbaa !25
+  %370 = load i32, ptr %369, align 4, !tbaa !26
   %371 = sext i32 %370 to i64
   %372 = mul nsw i64 %371, 14053
   %373 = add nsw i64 %372, %368
@@ -5542,11 +5542,11 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %.neg227.i28 = mul nsw i64 %371, -8423
   %375 = add nsw i64 %.neg227.i28, %374
   %376 = getelementptr inbounds nuw i8, ptr %318, i64 192
-  %377 = load i32, ptr %376, align 4, !tbaa !25
+  %377 = load i32, ptr %376, align 4, !tbaa !26
   %378 = sext i32 %377 to i64
   %379 = mul nsw i64 %378, 5520
   %380 = getelementptr inbounds nuw i8, ptr %318, i64 768
-  %381 = load i32, ptr %380, align 4, !tbaa !25
+  %381 = load i32, ptr %380, align 4, !tbaa !26
   %382 = sext i32 %381 to i64
   %383 = mul nsw i64 %382, 15426
   %384 = add nsw i64 %383, %379
@@ -5554,11 +5554,11 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %.neg228.i29 = mul nsw i64 %382, -5520
   %386 = add nsw i64 %.neg228.i29, %385
   %387 = getelementptr inbounds nuw i8, ptr %318, i64 64
-  %388 = load i32, ptr %387, align 4, !tbaa !25
+  %388 = load i32, ptr %387, align 4, !tbaa !26
   %389 = sext i32 %388 to i64
   %390 = mul nsw i64 %389, 2404
   %391 = getelementptr inbounds nuw i8, ptr %318, i64 896
-  %392 = load i32, ptr %391, align 4, !tbaa !25
+  %392 = load i32, ptr %391, align 4, !tbaa !26
   %393 = sext i32 %392 to i64
   %394 = mul nsw i64 %393, 16207
   %395 = add nsw i64 %394, %390
@@ -5687,11 +5687,11 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %509 = add nsw i64 %507, %508
   %510 = add nsw i64 %464, %462
   %511 = trunc i64 %510 to i32
-  store i32 %511, ptr %6, align 16, !tbaa !25
+  store i32 %511, ptr %6, align 16, !tbaa !26
   %512 = add nsw i64 %465, %463
   %513 = trunc i64 %512 to i32
   %514 = sub i32 0, %513
-  store i32 %514, ptr %302, align 4, !tbaa !25
+  store i32 %514, ptr %302, align 4, !tbaa !26
   %515 = sub nsw i64 %462, %464
   %516 = sub nsw i64 %463, %465
   %517 = add nsw i64 %495, 8192
@@ -5700,13 +5700,13 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %520 = lshr i64 %519, 14
   %521 = trunc i64 %520 to i32
   %522 = sub i32 0, %521
-  store i32 %522, ptr %303, align 4, !tbaa !25
+  store i32 %522, ptr %303, align 4, !tbaa !26
   %523 = add nsw i64 %496, 8192
   %524 = add nsw i64 %523, %.neg234.i35
   %525 = add nsw i64 %501, %524
   %526 = lshr i64 %525, 14
   %527 = trunc i64 %526 to i32
-  store i32 %527, ptr %304, align 16, !tbaa !25
+  store i32 %527, ptr %304, align 16, !tbaa !26
   %528 = sub nsw i64 %518, %498
   %529 = ashr i64 %528, 14
   %530 = sub nsw i64 %524, %501
@@ -5714,10 +5714,10 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %532 = add nsw i64 %481, %473
   %533 = trunc i64 %532 to i32
   %534 = sub i32 0, %533
-  store i32 %534, ptr %305, align 4, !tbaa !25
+  store i32 %534, ptr %305, align 4, !tbaa !26
   %535 = add nsw i64 %485, %477
   %536 = trunc i64 %535 to i32
-  store i32 %536, ptr %306, align 8, !tbaa !25
+  store i32 %536, ptr %306, align 8, !tbaa !26
   %537 = sub nsw i64 %473, %481
   %538 = sub nsw i64 %477, %485
   %539 = add nsw i64 %503, 8192
@@ -5725,14 +5725,14 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %541 = add nsw i64 %506, %540
   %542 = lshr i64 %541, 14
   %543 = trunc i64 %542 to i32
-  store i32 %543, ptr %307, align 8, !tbaa !25
+  store i32 %543, ptr %307, align 8, !tbaa !26
   %544 = add nsw i64 %504, 8192
   %545 = add nsw i64 %544, %.neg236.i37
   %546 = add nsw i64 %509, %545
   %547 = lshr i64 %546, 14
   %548 = trunc i64 %547 to i32
   %549 = sub i32 0, %548
-  store i32 %549, ptr %308, align 4, !tbaa !25
+  store i32 %549, ptr %308, align 4, !tbaa !26
   %550 = sub nsw i64 %540, %506
   %551 = ashr i64 %550, 14
   %552 = sub nsw i64 %545, %509
@@ -5742,49 +5742,49 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %556 = add i64 %555, 8192
   %557 = lshr i64 %556, 14
   %558 = trunc i64 %557 to i32
-  store i32 %558, ptr %309, align 4, !tbaa !25
+  store i32 %558, ptr %309, align 4, !tbaa !26
   %559 = sub nsw i64 %515, %516
   %560 = mul nsw i64 %559, 11585
   %561 = add nsw i64 %560, 8192
   %562 = lshr i64 %561, 14
   %563 = trunc i64 %562 to i32
-  store i32 %563, ptr %310, align 16, !tbaa !25
+  store i32 %563, ptr %310, align 16, !tbaa !26
   %564 = add nsw i64 %531, %529
   %565 = mul nsw i64 %564, 11585
   %566 = add nsw i64 %565, 8192
   %567 = lshr i64 %566, 14
   %568 = trunc i64 %567 to i32
-  store i32 %568, ptr %311, align 16, !tbaa !25
+  store i32 %568, ptr %311, align 16, !tbaa !26
   %569 = sub nsw i64 %531, %529
   %570 = mul nsw i64 %569, 11585
   %571 = add nsw i64 %570, 8192
   %572 = lshr i64 %571, 14
   %573 = trunc i64 %572 to i32
-  store i32 %573, ptr %312, align 4, !tbaa !25
+  store i32 %573, ptr %312, align 4, !tbaa !26
   %574 = add nsw i64 %538, %537
   %575 = mul nsw i64 %574, 11585
   %576 = add nsw i64 %575, 8192
   %577 = lshr i64 %576, 14
   %578 = trunc i64 %577 to i32
-  store i32 %578, ptr %313, align 8, !tbaa !25
+  store i32 %578, ptr %313, align 8, !tbaa !26
   %579 = sub nsw i64 %538, %537
   %580 = mul nsw i64 %579, 11585
   %581 = add nsw i64 %580, 8192
   %582 = lshr i64 %581, 14
   %583 = trunc i64 %582 to i32
-  store i32 %583, ptr %314, align 4, !tbaa !25
+  store i32 %583, ptr %314, align 4, !tbaa !26
   %584 = add nsw i64 %551, %553
   %585 = mul i64 %584, 70368744166079
   %586 = add i64 %585, 8192
   %587 = lshr i64 %586, 14
   %588 = trunc i64 %587 to i32
-  store i32 %588, ptr %315, align 4, !tbaa !25
+  store i32 %588, ptr %315, align 4, !tbaa !26
   %589 = sub nsw i64 %551, %553
   %590 = mul nsw i64 %589, 11585
   %591 = add nsw i64 %590, 8192
   %592 = lshr i64 %591, 14
   %593 = trunc i64 %592 to i32
-  store i32 %593, ptr %316, align 8, !tbaa !25
+  store i32 %593, ptr %316, align 8, !tbaa !26
   br label %594
 
 594:                                              ; preds = %317, %594
@@ -5794,7 +5794,7 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %597 = load i16, ptr %596, align 2, !tbaa !8
   %598 = zext i16 %597 to i32
   %599 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv44
-  %600 = load i32, ptr %599, align 4, !tbaa !25
+  %600 = load i32, ptr %599, align 4, !tbaa !26
   %601 = add i32 %600, 32
   %602 = ashr i32 %601, 6
   %603 = add nsw i32 %602, %598
@@ -5804,13 +5804,13 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   store i16 %606, ptr %596, align 2, !tbaa !8
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 16
-  br i1 %exitcond47.not, label %607, label %594, !llvm.loop !67
+  br i1 %exitcond47.not, label %607, label %594, !llvm.loop !68
 
 607:                                              ; preds = %594
   %608 = getelementptr inbounds nuw i8, ptr %.042, i64 2
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 16
-  br i1 %exitcond51.not, label %609, label %317, !llvm.loop !68
+  br i1 %exitcond51.not, label %609, label %317, !llvm.loop !69
 
 609:                                              ; preds = %607
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
@@ -5829,7 +5829,7 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   br i1 %8, label %9, label %.preheader84
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr %2, align 4, !tbaa !25
+  %10 = load i32, ptr %2, align 4, !tbaa !26
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, 11585
   %13 = add nsw i64 %12, 8192
@@ -5838,7 +5838,7 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %16 = add nuw i64 %15, 8192
   %17 = lshr i64 %16, 14
   %18 = trunc i64 %17 to i32
-  store i32 0, ptr %2, align 4, !tbaa !25
+  store i32 0, ptr %2, align 4, !tbaa !26
   %19 = add nsw i32 %18, 32
   %20 = ashr i32 %19, 6
   br label %.preheader
@@ -5861,23 +5861,23 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   store i16 %29, ptr %23, align 2, !tbaa !8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 32
-  br i1 %exitcond105.not, label %30, label %21, !llvm.loop !69
+  br i1 %exitcond105.not, label %30, label %21, !llvm.loop !70
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %.03690, i64 2
   %32 = add nuw nsw i32 %.091, 1
   %exitcond106.not = icmp eq i32 %32, 32
-  br i1 %exitcond106.not, label %.loopexit, label %.preheader, !llvm.loop !70
+  br i1 %exitcond106.not, label %.loopexit, label %.preheader, !llvm.loop !71
 
 .preheader84:                                     ; preds = %4, %.preheader84
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader84 ], [ 0, %4 ]
   %33 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 7
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %35 = load i32, ptr %33, align 4, !tbaa !25
+  %35 = load i32, ptr %33, align 4, !tbaa !26
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 2048
-  %38 = load i32, ptr %37, align 4, !tbaa !25
+  %38 = load i32, ptr %37, align 4, !tbaa !26
   %39 = sext i32 %38 to i64
   %40 = add nsw i64 %39, %36
   %41 = mul nsw i64 %40, 11585
@@ -5888,11 +5888,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %46 = add nsw i64 %45, 8192
   %47 = ashr i64 %46, 14
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 1024
-  %49 = load i32, ptr %48, align 4, !tbaa !25
+  %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, 6270
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 3072
-  %53 = load i32, ptr %52, align 4, !tbaa !25
+  %53 = load i32, ptr %52, align 4, !tbaa !26
   %54 = sext i32 %53 to i64
   %.neg.i = mul nsw i64 %54, -15137
   %55 = add nsw i64 %51, 8192
@@ -5904,11 +5904,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %61 = add nsw i64 %60, %59
   %62 = ashr i64 %61, 14
   %63 = getelementptr inbounds nuw i8, ptr %33, i64 512
-  %64 = load i32, ptr %63, align 4, !tbaa !25
+  %64 = load i32, ptr %63, align 4, !tbaa !26
   %65 = sext i32 %64 to i64
   %66 = mul nsw i64 %65, 3196
   %67 = getelementptr inbounds nuw i8, ptr %33, i64 3584
-  %68 = load i32, ptr %67, align 4, !tbaa !25
+  %68 = load i32, ptr %67, align 4, !tbaa !26
   %69 = sext i32 %68 to i64
   %.neg483.i = mul nsw i64 %69, -16069
   %70 = add nsw i64 %66, 8192
@@ -5920,11 +5920,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %76 = add nsw i64 %75, %74
   %77 = ashr i64 %76, 14
   %78 = getelementptr inbounds nuw i8, ptr %33, i64 2560
-  %79 = load i32, ptr %78, align 4, !tbaa !25
+  %79 = load i32, ptr %78, align 4, !tbaa !26
   %80 = sext i32 %79 to i64
   %81 = mul nsw i64 %80, 13623
   %82 = getelementptr inbounds nuw i8, ptr %33, i64 1536
-  %83 = load i32, ptr %82, align 4, !tbaa !25
+  %83 = load i32, ptr %82, align 4, !tbaa !26
   %84 = sext i32 %83 to i64
   %.neg484.i = mul nsw i64 %84, -9102
   %85 = add nsw i64 %81, 8192
@@ -5936,11 +5936,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %91 = add nsw i64 %90, %89
   %92 = ashr i64 %91, 14
   %93 = getelementptr inbounds nuw i8, ptr %33, i64 256
-  %94 = load i32, ptr %93, align 4, !tbaa !25
+  %94 = load i32, ptr %93, align 4, !tbaa !26
   %95 = sext i32 %94 to i64
   %96 = mul nsw i64 %95, 1606
   %97 = getelementptr inbounds nuw i8, ptr %33, i64 3840
-  %98 = load i32, ptr %97, align 4, !tbaa !25
+  %98 = load i32, ptr %97, align 4, !tbaa !26
   %99 = sext i32 %98 to i64
   %.neg485.i = mul nsw i64 %99, -16305
   %100 = add nsw i64 %96, 8192
@@ -5952,11 +5952,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %106 = add nsw i64 %105, %104
   %107 = ashr i64 %106, 14
   %108 = getelementptr inbounds nuw i8, ptr %33, i64 2304
-  %109 = load i32, ptr %108, align 4, !tbaa !25
+  %109 = load i32, ptr %108, align 4, !tbaa !26
   %110 = sext i32 %109 to i64
   %111 = mul nsw i64 %110, 12665
   %112 = getelementptr inbounds nuw i8, ptr %33, i64 1792
-  %113 = load i32, ptr %112, align 4, !tbaa !25
+  %113 = load i32, ptr %112, align 4, !tbaa !26
   %114 = sext i32 %113 to i64
   %.neg486.i = mul nsw i64 %114, -10394
   %115 = add nsw i64 %111, 8192
@@ -5968,11 +5968,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %121 = add nsw i64 %120, %119
   %122 = ashr i64 %121, 14
   %123 = getelementptr inbounds nuw i8, ptr %33, i64 1280
-  %124 = load i32, ptr %123, align 4, !tbaa !25
+  %124 = load i32, ptr %123, align 4, !tbaa !26
   %125 = sext i32 %124 to i64
   %126 = mul nsw i64 %125, 7723
   %127 = getelementptr inbounds nuw i8, ptr %33, i64 2816
-  %128 = load i32, ptr %127, align 4, !tbaa !25
+  %128 = load i32, ptr %127, align 4, !tbaa !26
   %129 = sext i32 %128 to i64
   %.neg487.i = mul nsw i64 %129, -14449
   %130 = add nsw i64 %126, 8192
@@ -5984,11 +5984,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %136 = add nsw i64 %135, %134
   %137 = ashr i64 %136, 14
   %138 = getelementptr inbounds nuw i8, ptr %33, i64 3328
-  %139 = load i32, ptr %138, align 4, !tbaa !25
+  %139 = load i32, ptr %138, align 4, !tbaa !26
   %140 = sext i32 %139 to i64
   %141 = mul nsw i64 %140, 15679
   %142 = getelementptr inbounds nuw i8, ptr %33, i64 768
-  %143 = load i32, ptr %142, align 4, !tbaa !25
+  %143 = load i32, ptr %142, align 4, !tbaa !26
   %144 = sext i32 %143 to i64
   %.neg488.i = mul nsw i64 %144, -4756
   %145 = add nsw i64 %141, 8192
@@ -6000,11 +6000,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %151 = add nsw i64 %150, %149
   %152 = ashr i64 %151, 14
   %153 = getelementptr inbounds nuw i8, ptr %33, i64 128
-  %154 = load i32, ptr %153, align 4, !tbaa !25
+  %154 = load i32, ptr %153, align 4, !tbaa !26
   %155 = sext i32 %154 to i64
   %156 = mul nsw i64 %155, 804
   %157 = getelementptr inbounds nuw i8, ptr %33, i64 3968
-  %158 = load i32, ptr %157, align 4, !tbaa !25
+  %158 = load i32, ptr %157, align 4, !tbaa !26
   %159 = sext i32 %158 to i64
   %.neg489.i = mul nsw i64 %159, -16364
   %160 = add nsw i64 %156, 8192
@@ -6016,11 +6016,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %166 = add nsw i64 %165, %164
   %167 = ashr i64 %166, 14
   %168 = getelementptr inbounds nuw i8, ptr %33, i64 2176
-  %169 = load i32, ptr %168, align 4, !tbaa !25
+  %169 = load i32, ptr %168, align 4, !tbaa !26
   %170 = sext i32 %169 to i64
   %171 = mul nsw i64 %170, 12140
   %172 = getelementptr inbounds nuw i8, ptr %33, i64 1920
-  %173 = load i32, ptr %172, align 4, !tbaa !25
+  %173 = load i32, ptr %172, align 4, !tbaa !26
   %174 = sext i32 %173 to i64
   %.neg490.i = mul nsw i64 %174, -11003
   %175 = add nsw i64 %171, 8192
@@ -6032,11 +6032,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %181 = add nsw i64 %180, %179
   %182 = ashr i64 %181, 14
   %183 = getelementptr inbounds nuw i8, ptr %33, i64 1152
-  %184 = load i32, ptr %183, align 4, !tbaa !25
+  %184 = load i32, ptr %183, align 4, !tbaa !26
   %185 = sext i32 %184 to i64
   %186 = mul nsw i64 %185, 7005
   %187 = getelementptr inbounds nuw i8, ptr %33, i64 2944
-  %188 = load i32, ptr %187, align 4, !tbaa !25
+  %188 = load i32, ptr %187, align 4, !tbaa !26
   %189 = sext i32 %188 to i64
   %.neg491.i = mul nsw i64 %189, -14811
   %190 = add nsw i64 %186, 8192
@@ -6048,11 +6048,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %196 = add nsw i64 %195, %194
   %197 = ashr i64 %196, 14
   %198 = getelementptr inbounds nuw i8, ptr %33, i64 3200
-  %199 = load i32, ptr %198, align 4, !tbaa !25
+  %199 = load i32, ptr %198, align 4, !tbaa !26
   %200 = sext i32 %199 to i64
   %201 = mul nsw i64 %200, 15426
   %202 = getelementptr inbounds nuw i8, ptr %33, i64 896
-  %203 = load i32, ptr %202, align 4, !tbaa !25
+  %203 = load i32, ptr %202, align 4, !tbaa !26
   %204 = sext i32 %203 to i64
   %.neg492.i = mul nsw i64 %204, -5520
   %205 = add nsw i64 %201, 8192
@@ -6064,11 +6064,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %211 = add nsw i64 %210, %209
   %212 = ashr i64 %211, 14
   %213 = getelementptr inbounds nuw i8, ptr %33, i64 640
-  %214 = load i32, ptr %213, align 4, !tbaa !25
+  %214 = load i32, ptr %213, align 4, !tbaa !26
   %215 = sext i32 %214 to i64
   %216 = mul nsw i64 %215, 3981
   %217 = getelementptr inbounds nuw i8, ptr %33, i64 3456
-  %218 = load i32, ptr %217, align 4, !tbaa !25
+  %218 = load i32, ptr %217, align 4, !tbaa !26
   %219 = sext i32 %218 to i64
   %.neg493.i = mul nsw i64 %219, -15893
   %220 = add nsw i64 %216, 8192
@@ -6080,11 +6080,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %226 = add nsw i64 %225, %224
   %227 = ashr i64 %226, 14
   %228 = getelementptr inbounds nuw i8, ptr %33, i64 2688
-  %229 = load i32, ptr %228, align 4, !tbaa !25
+  %229 = load i32, ptr %228, align 4, !tbaa !26
   %230 = sext i32 %229 to i64
   %231 = mul nsw i64 %230, 14053
   %232 = getelementptr inbounds nuw i8, ptr %33, i64 1408
-  %233 = load i32, ptr %232, align 4, !tbaa !25
+  %233 = load i32, ptr %232, align 4, !tbaa !26
   %234 = sext i32 %233 to i64
   %.neg494.i = mul nsw i64 %234, -8423
   %235 = add nsw i64 %231, 8192
@@ -6096,11 +6096,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %241 = add nsw i64 %240, %239
   %242 = ashr i64 %241, 14
   %243 = getelementptr inbounds nuw i8, ptr %33, i64 1664
-  %244 = load i32, ptr %243, align 4, !tbaa !25
+  %244 = load i32, ptr %243, align 4, !tbaa !26
   %245 = sext i32 %244 to i64
   %246 = mul nsw i64 %245, 9760
   %247 = getelementptr inbounds nuw i8, ptr %33, i64 2432
-  %248 = load i32, ptr %247, align 4, !tbaa !25
+  %248 = load i32, ptr %247, align 4, !tbaa !26
   %249 = sext i32 %248 to i64
   %.neg495.i = mul nsw i64 %249, -13160
   %250 = add nsw i64 %246, 8192
@@ -6112,11 +6112,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %256 = add nsw i64 %255, %254
   %257 = ashr i64 %256, 14
   %258 = getelementptr inbounds nuw i8, ptr %33, i64 3712
-  %259 = load i32, ptr %258, align 4, !tbaa !25
+  %259 = load i32, ptr %258, align 4, !tbaa !26
   %260 = sext i32 %259 to i64
   %261 = mul nsw i64 %260, 16207
   %262 = getelementptr inbounds nuw i8, ptr %33, i64 384
-  %263 = load i32, ptr %262, align 4, !tbaa !25
+  %263 = load i32, ptr %262, align 4, !tbaa !26
   %264 = sext i32 %263 to i64
   %.neg496.i = mul nsw i64 %264, -2404
   %265 = add nsw i64 %261, 8192
@@ -6381,134 +6381,134 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %499 = ashr i64 %498, 14
   %500 = add nsw i64 %467, %436
   %501 = trunc i64 %500 to i32
-  store i32 %501, ptr %34, align 16, !tbaa !25
+  store i32 %501, ptr %34, align 16, !tbaa !26
   %502 = add nsw i64 %466, %437
   %503 = trunc i64 %502 to i32
   %504 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 %503, ptr %504, align 4, !tbaa !25
+  store i32 %503, ptr %504, align 4, !tbaa !26
   %505 = add nsw i64 %465, %438
   %506 = trunc i64 %505 to i32
   %507 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %506, ptr %507, align 8, !tbaa !25
+  store i32 %506, ptr %507, align 8, !tbaa !26
   %508 = add nsw i64 %464, %439
   %509 = trunc i64 %508 to i32
   %510 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  store i32 %509, ptr %510, align 4, !tbaa !25
+  store i32 %509, ptr %510, align 4, !tbaa !26
   %511 = add nsw i64 %475, %440
   %512 = trunc i64 %511 to i32
   %513 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i32 %512, ptr %513, align 16, !tbaa !25
+  store i32 %512, ptr %513, align 16, !tbaa !26
   %514 = add nsw i64 %483, %441
   %515 = trunc i64 %514 to i32
   %516 = getelementptr inbounds nuw i8, ptr %34, i64 20
-  store i32 %515, ptr %516, align 4, !tbaa !25
+  store i32 %515, ptr %516, align 4, !tbaa !26
   %517 = add nsw i64 %491, %442
   %518 = trunc i64 %517 to i32
   %519 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store i32 %518, ptr %519, align 8, !tbaa !25
+  store i32 %518, ptr %519, align 8, !tbaa !26
   %520 = add nsw i64 %499, %443
   %521 = trunc i64 %520 to i32
   %522 = getelementptr inbounds nuw i8, ptr %34, i64 28
-  store i32 %521, ptr %522, align 4, !tbaa !25
+  store i32 %521, ptr %522, align 4, !tbaa !26
   %523 = add nsw i64 %495, %444
   %524 = trunc i64 %523 to i32
   %525 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store i32 %524, ptr %525, align 16, !tbaa !25
+  store i32 %524, ptr %525, align 16, !tbaa !26
   %526 = add nsw i64 %487, %445
   %527 = trunc i64 %526 to i32
   %528 = getelementptr inbounds nuw i8, ptr %34, i64 36
-  store i32 %527, ptr %528, align 4, !tbaa !25
+  store i32 %527, ptr %528, align 4, !tbaa !26
   %529 = add nsw i64 %479, %446
   %530 = trunc i64 %529 to i32
   %531 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  store i32 %530, ptr %531, align 8, !tbaa !25
+  store i32 %530, ptr %531, align 8, !tbaa !26
   %532 = add nsw i64 %471, %447
   %533 = trunc i64 %532 to i32
   %534 = getelementptr inbounds nuw i8, ptr %34, i64 44
-  store i32 %533, ptr %534, align 4, !tbaa !25
+  store i32 %533, ptr %534, align 4, !tbaa !26
   %535 = add nsw i64 %455, %448
   %536 = trunc i64 %535 to i32
   %537 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  store i32 %536, ptr %537, align 16, !tbaa !25
+  store i32 %536, ptr %537, align 16, !tbaa !26
   %538 = add nsw i64 %454, %449
   %539 = trunc i64 %538 to i32
   %540 = getelementptr inbounds nuw i8, ptr %34, i64 52
-  store i32 %539, ptr %540, align 4, !tbaa !25
+  store i32 %539, ptr %540, align 4, !tbaa !26
   %541 = add nsw i64 %453, %450
   %542 = trunc i64 %541 to i32
   %543 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  store i32 %542, ptr %543, align 8, !tbaa !25
+  store i32 %542, ptr %543, align 8, !tbaa !26
   %544 = add nsw i64 %452, %451
   %545 = trunc i64 %544 to i32
   %546 = getelementptr inbounds nuw i8, ptr %34, i64 60
-  store i32 %545, ptr %546, align 4, !tbaa !25
+  store i32 %545, ptr %546, align 4, !tbaa !26
   %547 = sub nsw i64 %451, %452
   %548 = trunc i64 %547 to i32
   %549 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  store i32 %548, ptr %549, align 16, !tbaa !25
+  store i32 %548, ptr %549, align 16, !tbaa !26
   %550 = sub nsw i64 %450, %453
   %551 = trunc i64 %550 to i32
   %552 = getelementptr inbounds nuw i8, ptr %34, i64 68
-  store i32 %551, ptr %552, align 4, !tbaa !25
+  store i32 %551, ptr %552, align 4, !tbaa !26
   %553 = sub nsw i64 %449, %454
   %554 = trunc i64 %553 to i32
   %555 = getelementptr inbounds nuw i8, ptr %34, i64 72
-  store i32 %554, ptr %555, align 8, !tbaa !25
+  store i32 %554, ptr %555, align 8, !tbaa !26
   %556 = sub nsw i64 %448, %455
   %557 = trunc i64 %556 to i32
   %558 = getelementptr inbounds nuw i8, ptr %34, i64 76
-  store i32 %557, ptr %558, align 4, !tbaa !25
+  store i32 %557, ptr %558, align 4, !tbaa !26
   %559 = sub nsw i64 %447, %471
   %560 = trunc i64 %559 to i32
   %561 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  store i32 %560, ptr %561, align 16, !tbaa !25
+  store i32 %560, ptr %561, align 16, !tbaa !26
   %562 = sub nsw i64 %446, %479
   %563 = trunc i64 %562 to i32
   %564 = getelementptr inbounds nuw i8, ptr %34, i64 84
-  store i32 %563, ptr %564, align 4, !tbaa !25
+  store i32 %563, ptr %564, align 4, !tbaa !26
   %565 = sub nsw i64 %445, %487
   %566 = trunc i64 %565 to i32
   %567 = getelementptr inbounds nuw i8, ptr %34, i64 88
-  store i32 %566, ptr %567, align 8, !tbaa !25
+  store i32 %566, ptr %567, align 8, !tbaa !26
   %568 = sub nsw i64 %444, %495
   %569 = trunc i64 %568 to i32
   %570 = getelementptr inbounds nuw i8, ptr %34, i64 92
-  store i32 %569, ptr %570, align 4, !tbaa !25
+  store i32 %569, ptr %570, align 4, !tbaa !26
   %571 = sub nsw i64 %443, %499
   %572 = trunc i64 %571 to i32
   %573 = getelementptr inbounds nuw i8, ptr %34, i64 96
-  store i32 %572, ptr %573, align 16, !tbaa !25
+  store i32 %572, ptr %573, align 16, !tbaa !26
   %574 = sub nsw i64 %442, %491
   %575 = trunc i64 %574 to i32
   %576 = getelementptr inbounds nuw i8, ptr %34, i64 100
-  store i32 %575, ptr %576, align 4, !tbaa !25
+  store i32 %575, ptr %576, align 4, !tbaa !26
   %577 = sub nsw i64 %441, %483
   %578 = trunc i64 %577 to i32
   %579 = getelementptr inbounds nuw i8, ptr %34, i64 104
-  store i32 %578, ptr %579, align 8, !tbaa !25
+  store i32 %578, ptr %579, align 8, !tbaa !26
   %580 = sub nsw i64 %440, %475
   %581 = trunc i64 %580 to i32
   %582 = getelementptr inbounds nuw i8, ptr %34, i64 108
-  store i32 %581, ptr %582, align 4, !tbaa !25
+  store i32 %581, ptr %582, align 4, !tbaa !26
   %583 = sub nsw i64 %439, %464
   %584 = trunc i64 %583 to i32
   %585 = getelementptr inbounds nuw i8, ptr %34, i64 112
-  store i32 %584, ptr %585, align 16, !tbaa !25
+  store i32 %584, ptr %585, align 16, !tbaa !26
   %586 = sub nsw i64 %438, %465
   %587 = trunc i64 %586 to i32
   %588 = getelementptr inbounds nuw i8, ptr %34, i64 116
-  store i32 %587, ptr %588, align 4, !tbaa !25
+  store i32 %587, ptr %588, align 4, !tbaa !26
   %589 = sub nsw i64 %437, %466
   %590 = trunc i64 %589 to i32
   %591 = getelementptr inbounds nuw i8, ptr %34, i64 120
-  store i32 %590, ptr %591, align 8, !tbaa !25
+  store i32 %590, ptr %591, align 8, !tbaa !26
   %592 = sub nsw i64 %436, %467
   %593 = trunc i64 %592 to i32
   %594 = getelementptr inbounds nuw i8, ptr %34, i64 124
-  store i32 %593, ptr %594, align 4, !tbaa !25
+  store i32 %593, ptr %594, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %595, label %.preheader84, !llvm.loop !71
+  br i1 %exitcond.not, label %595, label %.preheader84, !llvm.loop !72
 
 595:                                              ; preds = %.preheader84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
@@ -6549,10 +6549,10 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %indvars.iv98 = phi i64 [ 0, %595 ], [ %indvars.iv.next99, %1171 ]
   %.13787 = phi ptr [ %0, %595 ], [ %1172, %1171 ]
   %628 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv98
-  %629 = load i32, ptr %628, align 4, !tbaa !25
+  %629 = load i32, ptr %628, align 4, !tbaa !26
   %630 = sext i32 %629 to i64
   %631 = getelementptr inbounds nuw i8, ptr %628, i64 2048
-  %632 = load i32, ptr %631, align 4, !tbaa !25
+  %632 = load i32, ptr %631, align 4, !tbaa !26
   %633 = sext i32 %632 to i64
   %634 = add nsw i64 %633, %630
   %635 = mul nsw i64 %634, 11585
@@ -6563,11 +6563,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %640 = add nsw i64 %639, 8192
   %641 = ashr i64 %640, 14
   %642 = getelementptr inbounds nuw i8, ptr %628, i64 1024
-  %643 = load i32, ptr %642, align 4, !tbaa !25
+  %643 = load i32, ptr %642, align 4, !tbaa !26
   %644 = sext i32 %643 to i64
   %645 = mul nsw i64 %644, 6270
   %646 = getelementptr inbounds nuw i8, ptr %628, i64 3072
-  %647 = load i32, ptr %646, align 4, !tbaa !25
+  %647 = load i32, ptr %646, align 4, !tbaa !26
   %648 = sext i32 %647 to i64
   %.neg.i43 = mul nsw i64 %648, -15137
   %649 = add nsw i64 %645, 8192
@@ -6579,11 +6579,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %655 = add nsw i64 %654, %653
   %656 = ashr i64 %655, 14
   %657 = getelementptr inbounds nuw i8, ptr %628, i64 512
-  %658 = load i32, ptr %657, align 4, !tbaa !25
+  %658 = load i32, ptr %657, align 4, !tbaa !26
   %659 = sext i32 %658 to i64
   %660 = mul nsw i64 %659, 3196
   %661 = getelementptr inbounds nuw i8, ptr %628, i64 3584
-  %662 = load i32, ptr %661, align 4, !tbaa !25
+  %662 = load i32, ptr %661, align 4, !tbaa !26
   %663 = sext i32 %662 to i64
   %.neg483.i44 = mul nsw i64 %663, -16069
   %664 = add nsw i64 %660, 8192
@@ -6595,11 +6595,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %670 = add nsw i64 %669, %668
   %671 = ashr i64 %670, 14
   %672 = getelementptr inbounds nuw i8, ptr %628, i64 2560
-  %673 = load i32, ptr %672, align 4, !tbaa !25
+  %673 = load i32, ptr %672, align 4, !tbaa !26
   %674 = sext i32 %673 to i64
   %675 = mul nsw i64 %674, 13623
   %676 = getelementptr inbounds nuw i8, ptr %628, i64 1536
-  %677 = load i32, ptr %676, align 4, !tbaa !25
+  %677 = load i32, ptr %676, align 4, !tbaa !26
   %678 = sext i32 %677 to i64
   %.neg484.i45 = mul nsw i64 %678, -9102
   %679 = add nsw i64 %675, 8192
@@ -6611,11 +6611,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %685 = add nsw i64 %684, %683
   %686 = ashr i64 %685, 14
   %687 = getelementptr inbounds nuw i8, ptr %628, i64 256
-  %688 = load i32, ptr %687, align 4, !tbaa !25
+  %688 = load i32, ptr %687, align 4, !tbaa !26
   %689 = sext i32 %688 to i64
   %690 = mul nsw i64 %689, 1606
   %691 = getelementptr inbounds nuw i8, ptr %628, i64 3840
-  %692 = load i32, ptr %691, align 4, !tbaa !25
+  %692 = load i32, ptr %691, align 4, !tbaa !26
   %693 = sext i32 %692 to i64
   %.neg485.i46 = mul nsw i64 %693, -16305
   %694 = add nsw i64 %690, 8192
@@ -6627,11 +6627,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %700 = add nsw i64 %699, %698
   %701 = ashr i64 %700, 14
   %702 = getelementptr inbounds nuw i8, ptr %628, i64 2304
-  %703 = load i32, ptr %702, align 4, !tbaa !25
+  %703 = load i32, ptr %702, align 4, !tbaa !26
   %704 = sext i32 %703 to i64
   %705 = mul nsw i64 %704, 12665
   %706 = getelementptr inbounds nuw i8, ptr %628, i64 1792
-  %707 = load i32, ptr %706, align 4, !tbaa !25
+  %707 = load i32, ptr %706, align 4, !tbaa !26
   %708 = sext i32 %707 to i64
   %.neg486.i47 = mul nsw i64 %708, -10394
   %709 = add nsw i64 %705, 8192
@@ -6643,11 +6643,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %715 = add nsw i64 %714, %713
   %716 = ashr i64 %715, 14
   %717 = getelementptr inbounds nuw i8, ptr %628, i64 1280
-  %718 = load i32, ptr %717, align 4, !tbaa !25
+  %718 = load i32, ptr %717, align 4, !tbaa !26
   %719 = sext i32 %718 to i64
   %720 = mul nsw i64 %719, 7723
   %721 = getelementptr inbounds nuw i8, ptr %628, i64 2816
-  %722 = load i32, ptr %721, align 4, !tbaa !25
+  %722 = load i32, ptr %721, align 4, !tbaa !26
   %723 = sext i32 %722 to i64
   %.neg487.i48 = mul nsw i64 %723, -14449
   %724 = add nsw i64 %720, 8192
@@ -6659,11 +6659,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %730 = add nsw i64 %729, %728
   %731 = ashr i64 %730, 14
   %732 = getelementptr inbounds nuw i8, ptr %628, i64 3328
-  %733 = load i32, ptr %732, align 4, !tbaa !25
+  %733 = load i32, ptr %732, align 4, !tbaa !26
   %734 = sext i32 %733 to i64
   %735 = mul nsw i64 %734, 15679
   %736 = getelementptr inbounds nuw i8, ptr %628, i64 768
-  %737 = load i32, ptr %736, align 4, !tbaa !25
+  %737 = load i32, ptr %736, align 4, !tbaa !26
   %738 = sext i32 %737 to i64
   %.neg488.i49 = mul nsw i64 %738, -4756
   %739 = add nsw i64 %735, 8192
@@ -6675,11 +6675,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %745 = add nsw i64 %744, %743
   %746 = ashr i64 %745, 14
   %747 = getelementptr inbounds nuw i8, ptr %628, i64 128
-  %748 = load i32, ptr %747, align 4, !tbaa !25
+  %748 = load i32, ptr %747, align 4, !tbaa !26
   %749 = sext i32 %748 to i64
   %750 = mul nsw i64 %749, 804
   %751 = getelementptr inbounds nuw i8, ptr %628, i64 3968
-  %752 = load i32, ptr %751, align 4, !tbaa !25
+  %752 = load i32, ptr %751, align 4, !tbaa !26
   %753 = sext i32 %752 to i64
   %.neg489.i50 = mul nsw i64 %753, -16364
   %754 = add nsw i64 %750, 8192
@@ -6691,11 +6691,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %760 = add nsw i64 %759, %758
   %761 = ashr i64 %760, 14
   %762 = getelementptr inbounds nuw i8, ptr %628, i64 2176
-  %763 = load i32, ptr %762, align 4, !tbaa !25
+  %763 = load i32, ptr %762, align 4, !tbaa !26
   %764 = sext i32 %763 to i64
   %765 = mul nsw i64 %764, 12140
   %766 = getelementptr inbounds nuw i8, ptr %628, i64 1920
-  %767 = load i32, ptr %766, align 4, !tbaa !25
+  %767 = load i32, ptr %766, align 4, !tbaa !26
   %768 = sext i32 %767 to i64
   %.neg490.i51 = mul nsw i64 %768, -11003
   %769 = add nsw i64 %765, 8192
@@ -6707,11 +6707,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %775 = add nsw i64 %774, %773
   %776 = ashr i64 %775, 14
   %777 = getelementptr inbounds nuw i8, ptr %628, i64 1152
-  %778 = load i32, ptr %777, align 4, !tbaa !25
+  %778 = load i32, ptr %777, align 4, !tbaa !26
   %779 = sext i32 %778 to i64
   %780 = mul nsw i64 %779, 7005
   %781 = getelementptr inbounds nuw i8, ptr %628, i64 2944
-  %782 = load i32, ptr %781, align 4, !tbaa !25
+  %782 = load i32, ptr %781, align 4, !tbaa !26
   %783 = sext i32 %782 to i64
   %.neg491.i52 = mul nsw i64 %783, -14811
   %784 = add nsw i64 %780, 8192
@@ -6723,11 +6723,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %790 = add nsw i64 %789, %788
   %791 = ashr i64 %790, 14
   %792 = getelementptr inbounds nuw i8, ptr %628, i64 3200
-  %793 = load i32, ptr %792, align 4, !tbaa !25
+  %793 = load i32, ptr %792, align 4, !tbaa !26
   %794 = sext i32 %793 to i64
   %795 = mul nsw i64 %794, 15426
   %796 = getelementptr inbounds nuw i8, ptr %628, i64 896
-  %797 = load i32, ptr %796, align 4, !tbaa !25
+  %797 = load i32, ptr %796, align 4, !tbaa !26
   %798 = sext i32 %797 to i64
   %.neg492.i53 = mul nsw i64 %798, -5520
   %799 = add nsw i64 %795, 8192
@@ -6739,11 +6739,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %805 = add nsw i64 %804, %803
   %806 = ashr i64 %805, 14
   %807 = getelementptr inbounds nuw i8, ptr %628, i64 640
-  %808 = load i32, ptr %807, align 4, !tbaa !25
+  %808 = load i32, ptr %807, align 4, !tbaa !26
   %809 = sext i32 %808 to i64
   %810 = mul nsw i64 %809, 3981
   %811 = getelementptr inbounds nuw i8, ptr %628, i64 3456
-  %812 = load i32, ptr %811, align 4, !tbaa !25
+  %812 = load i32, ptr %811, align 4, !tbaa !26
   %813 = sext i32 %812 to i64
   %.neg493.i54 = mul nsw i64 %813, -15893
   %814 = add nsw i64 %810, 8192
@@ -6755,11 +6755,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %820 = add nsw i64 %819, %818
   %821 = ashr i64 %820, 14
   %822 = getelementptr inbounds nuw i8, ptr %628, i64 2688
-  %823 = load i32, ptr %822, align 4, !tbaa !25
+  %823 = load i32, ptr %822, align 4, !tbaa !26
   %824 = sext i32 %823 to i64
   %825 = mul nsw i64 %824, 14053
   %826 = getelementptr inbounds nuw i8, ptr %628, i64 1408
-  %827 = load i32, ptr %826, align 4, !tbaa !25
+  %827 = load i32, ptr %826, align 4, !tbaa !26
   %828 = sext i32 %827 to i64
   %.neg494.i55 = mul nsw i64 %828, -8423
   %829 = add nsw i64 %825, 8192
@@ -6771,11 +6771,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %835 = add nsw i64 %834, %833
   %836 = ashr i64 %835, 14
   %837 = getelementptr inbounds nuw i8, ptr %628, i64 1664
-  %838 = load i32, ptr %837, align 4, !tbaa !25
+  %838 = load i32, ptr %837, align 4, !tbaa !26
   %839 = sext i32 %838 to i64
   %840 = mul nsw i64 %839, 9760
   %841 = getelementptr inbounds nuw i8, ptr %628, i64 2432
-  %842 = load i32, ptr %841, align 4, !tbaa !25
+  %842 = load i32, ptr %841, align 4, !tbaa !26
   %843 = sext i32 %842 to i64
   %.neg495.i56 = mul nsw i64 %843, -13160
   %844 = add nsw i64 %840, 8192
@@ -6787,11 +6787,11 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %850 = add nsw i64 %849, %848
   %851 = ashr i64 %850, 14
   %852 = getelementptr inbounds nuw i8, ptr %628, i64 3712
-  %853 = load i32, ptr %852, align 4, !tbaa !25
+  %853 = load i32, ptr %852, align 4, !tbaa !26
   %854 = sext i32 %853 to i64
   %855 = mul nsw i64 %854, 16207
   %856 = getelementptr inbounds nuw i8, ptr %628, i64 384
-  %857 = load i32, ptr %856, align 4, !tbaa !25
+  %857 = load i32, ptr %856, align 4, !tbaa !26
   %858 = sext i32 %857 to i64
   %.neg496.i57 = mul nsw i64 %858, -2404
   %859 = add nsw i64 %855, 8192
@@ -7056,100 +7056,100 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %1093 = ashr i64 %1092, 14
   %1094 = add nsw i64 %1061, %1030
   %1095 = trunc i64 %1094 to i32
-  store i32 %1095, ptr %6, align 16, !tbaa !25
+  store i32 %1095, ptr %6, align 16, !tbaa !26
   %1096 = add nsw i64 %1060, %1031
   %1097 = trunc i64 %1096 to i32
-  store i32 %1097, ptr %596, align 4, !tbaa !25
+  store i32 %1097, ptr %596, align 4, !tbaa !26
   %1098 = add nsw i64 %1059, %1032
   %1099 = trunc i64 %1098 to i32
-  store i32 %1099, ptr %597, align 8, !tbaa !25
+  store i32 %1099, ptr %597, align 8, !tbaa !26
   %1100 = add nsw i64 %1058, %1033
   %1101 = trunc i64 %1100 to i32
-  store i32 %1101, ptr %598, align 4, !tbaa !25
+  store i32 %1101, ptr %598, align 4, !tbaa !26
   %1102 = add nsw i64 %1069, %1034
   %1103 = trunc i64 %1102 to i32
-  store i32 %1103, ptr %599, align 16, !tbaa !25
+  store i32 %1103, ptr %599, align 16, !tbaa !26
   %1104 = add nsw i64 %1077, %1035
   %1105 = trunc i64 %1104 to i32
-  store i32 %1105, ptr %600, align 4, !tbaa !25
+  store i32 %1105, ptr %600, align 4, !tbaa !26
   %1106 = add nsw i64 %1085, %1036
   %1107 = trunc i64 %1106 to i32
-  store i32 %1107, ptr %601, align 8, !tbaa !25
+  store i32 %1107, ptr %601, align 8, !tbaa !26
   %1108 = add nsw i64 %1093, %1037
   %1109 = trunc i64 %1108 to i32
-  store i32 %1109, ptr %602, align 4, !tbaa !25
+  store i32 %1109, ptr %602, align 4, !tbaa !26
   %1110 = add nsw i64 %1089, %1038
   %1111 = trunc i64 %1110 to i32
-  store i32 %1111, ptr %603, align 16, !tbaa !25
+  store i32 %1111, ptr %603, align 16, !tbaa !26
   %1112 = add nsw i64 %1081, %1039
   %1113 = trunc i64 %1112 to i32
-  store i32 %1113, ptr %604, align 4, !tbaa !25
+  store i32 %1113, ptr %604, align 4, !tbaa !26
   %1114 = add nsw i64 %1073, %1040
   %1115 = trunc i64 %1114 to i32
-  store i32 %1115, ptr %605, align 8, !tbaa !25
+  store i32 %1115, ptr %605, align 8, !tbaa !26
   %1116 = add nsw i64 %1065, %1041
   %1117 = trunc i64 %1116 to i32
-  store i32 %1117, ptr %606, align 4, !tbaa !25
+  store i32 %1117, ptr %606, align 4, !tbaa !26
   %1118 = add nsw i64 %1049, %1042
   %1119 = trunc i64 %1118 to i32
-  store i32 %1119, ptr %607, align 16, !tbaa !25
+  store i32 %1119, ptr %607, align 16, !tbaa !26
   %1120 = add nsw i64 %1048, %1043
   %1121 = trunc i64 %1120 to i32
-  store i32 %1121, ptr %608, align 4, !tbaa !25
+  store i32 %1121, ptr %608, align 4, !tbaa !26
   %1122 = add nsw i64 %1047, %1044
   %1123 = trunc i64 %1122 to i32
-  store i32 %1123, ptr %609, align 8, !tbaa !25
+  store i32 %1123, ptr %609, align 8, !tbaa !26
   %1124 = add nsw i64 %1046, %1045
   %1125 = trunc i64 %1124 to i32
-  store i32 %1125, ptr %610, align 4, !tbaa !25
+  store i32 %1125, ptr %610, align 4, !tbaa !26
   %1126 = sub nsw i64 %1045, %1046
   %1127 = trunc i64 %1126 to i32
-  store i32 %1127, ptr %611, align 16, !tbaa !25
+  store i32 %1127, ptr %611, align 16, !tbaa !26
   %1128 = sub nsw i64 %1044, %1047
   %1129 = trunc i64 %1128 to i32
-  store i32 %1129, ptr %612, align 4, !tbaa !25
+  store i32 %1129, ptr %612, align 4, !tbaa !26
   %1130 = sub nsw i64 %1043, %1048
   %1131 = trunc i64 %1130 to i32
-  store i32 %1131, ptr %613, align 8, !tbaa !25
+  store i32 %1131, ptr %613, align 8, !tbaa !26
   %1132 = sub nsw i64 %1042, %1049
   %1133 = trunc i64 %1132 to i32
-  store i32 %1133, ptr %614, align 4, !tbaa !25
+  store i32 %1133, ptr %614, align 4, !tbaa !26
   %1134 = sub nsw i64 %1041, %1065
   %1135 = trunc i64 %1134 to i32
-  store i32 %1135, ptr %615, align 16, !tbaa !25
+  store i32 %1135, ptr %615, align 16, !tbaa !26
   %1136 = sub nsw i64 %1040, %1073
   %1137 = trunc i64 %1136 to i32
-  store i32 %1137, ptr %616, align 4, !tbaa !25
+  store i32 %1137, ptr %616, align 4, !tbaa !26
   %1138 = sub nsw i64 %1039, %1081
   %1139 = trunc i64 %1138 to i32
-  store i32 %1139, ptr %617, align 8, !tbaa !25
+  store i32 %1139, ptr %617, align 8, !tbaa !26
   %1140 = sub nsw i64 %1038, %1089
   %1141 = trunc i64 %1140 to i32
-  store i32 %1141, ptr %618, align 4, !tbaa !25
+  store i32 %1141, ptr %618, align 4, !tbaa !26
   %1142 = sub nsw i64 %1037, %1093
   %1143 = trunc i64 %1142 to i32
-  store i32 %1143, ptr %619, align 16, !tbaa !25
+  store i32 %1143, ptr %619, align 16, !tbaa !26
   %1144 = sub nsw i64 %1036, %1085
   %1145 = trunc i64 %1144 to i32
-  store i32 %1145, ptr %620, align 4, !tbaa !25
+  store i32 %1145, ptr %620, align 4, !tbaa !26
   %1146 = sub nsw i64 %1035, %1077
   %1147 = trunc i64 %1146 to i32
-  store i32 %1147, ptr %621, align 8, !tbaa !25
+  store i32 %1147, ptr %621, align 8, !tbaa !26
   %1148 = sub nsw i64 %1034, %1069
   %1149 = trunc i64 %1148 to i32
-  store i32 %1149, ptr %622, align 4, !tbaa !25
+  store i32 %1149, ptr %622, align 4, !tbaa !26
   %1150 = sub nsw i64 %1033, %1058
   %1151 = trunc i64 %1150 to i32
-  store i32 %1151, ptr %623, align 16, !tbaa !25
+  store i32 %1151, ptr %623, align 16, !tbaa !26
   %1152 = sub nsw i64 %1032, %1059
   %1153 = trunc i64 %1152 to i32
-  store i32 %1153, ptr %624, align 4, !tbaa !25
+  store i32 %1153, ptr %624, align 4, !tbaa !26
   %1154 = sub nsw i64 %1031, %1060
   %1155 = trunc i64 %1154 to i32
-  store i32 %1155, ptr %625, align 8, !tbaa !25
+  store i32 %1155, ptr %625, align 8, !tbaa !26
   %1156 = sub nsw i64 %1030, %1061
   %1157 = trunc i64 %1156 to i32
-  store i32 %1157, ptr %626, align 4, !tbaa !25
+  store i32 %1157, ptr %626, align 4, !tbaa !26
   br label %1158
 
 1158:                                             ; preds = %627, %1158
@@ -7159,7 +7159,7 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %1161 = load i16, ptr %1160, align 2, !tbaa !8
   %1162 = zext i16 %1161 to i32
   %1163 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv94
-  %1164 = load i32, ptr %1163, align 4, !tbaa !25
+  %1164 = load i32, ptr %1163, align 4, !tbaa !26
   %1165 = add i32 %1164, 32
   %1166 = ashr i32 %1165, 6
   %1167 = add nsw i32 %1166, %1162
@@ -7169,13 +7169,13 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   store i16 %1170, ptr %1160, align 2, !tbaa !8
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next95, 32
-  br i1 %exitcond97.not, label %1171, label %1158, !llvm.loop !72
+  br i1 %exitcond97.not, label %1171, label %1158, !llvm.loop !73
 
 1171:                                             ; preds = %1158
   %1172 = getelementptr inbounds nuw i8, ptr %.13787, i64 2
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, 32
-  br i1 %exitcond101.not, label %.loopexit, label %627, !llvm.loop !73
+  br i1 %exitcond101.not, label %.loopexit, label %627, !llvm.loop !74
 
 .loopexit:                                        ; preds = %1171, %30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
@@ -7196,16 +7196,16 @@ define internal void @iwht_iwht_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %10 = load i32, ptr %8, align 4, !tbaa !25
+  %10 = load i32, ptr %8, align 4, !tbaa !26
   %11 = ashr i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %13 = load i32, ptr %12, align 4, !tbaa !25
+  %13 = load i32, ptr %12, align 4, !tbaa !26
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %16 = load i32, ptr %15, align 4, !tbaa !25
+  %16 = load i32, ptr %15, align 4, !tbaa !26
   %17 = ashr i32 %16, 2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %19 = load i32, ptr %18, align 4, !tbaa !25
+  %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = ashr i32 %19, 2
   %21 = add nsw i32 %17, %11
   %22 = sub nsw i32 %20, %14
@@ -7215,16 +7215,16 @@ define internal void @iwht_iwht_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %26 = sub nsw i32 %24, %17
   %27 = sub nsw i32 %21, %25
   %28 = add nsw i32 %26, %22
-  store i32 %27, ptr %9, align 16, !tbaa !25
+  store i32 %27, ptr %9, align 16, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %25, ptr %29, align 4, !tbaa !25
+  store i32 %25, ptr %29, align 4, !tbaa !26
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %26, ptr %30, align 8, !tbaa !25
+  store i32 %26, ptr %30, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %28, ptr %31, align 4, !tbaa !25
+  store i32 %28, ptr %31, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %32, label %7, !llvm.loop !74
+  br i1 %exitcond.not, label %32, label %7, !llvm.loop !75
 
 32:                                               ; preds = %7
   %33 = lshr i64 %1, 1
@@ -7238,13 +7238,13 @@ define internal void @iwht_iwht_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %indvars.iv34 = phi i64 [ 0, %32 ], [ %indvars.iv.next35, %65 ]
   %.028 = phi ptr [ %0, %32 ], [ %66, %65 ]
   %38 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv34
-  %39 = load i32, ptr %38, align 4, !tbaa !25
+  %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %41 = load i32, ptr %40, align 4, !tbaa !25
+  %41 = load i32, ptr %40, align 4, !tbaa !26
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %43 = load i32, ptr %42, align 4, !tbaa !25
+  %43 = load i32, ptr %42, align 4, !tbaa !26
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %45 = load i32, ptr %44, align 4, !tbaa !25
+  %45 = load i32, ptr %44, align 4, !tbaa !26
   %46 = add nsw i32 %43, %39
   %47 = sub nsw i32 %45, %41
   %48 = sub nsw i32 %46, %47
@@ -7253,10 +7253,10 @@ define internal void @iwht_iwht_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %51 = sub nsw i32 %49, %43
   %52 = sub nsw i32 %46, %50
   %53 = add nsw i32 %51, %47
-  store i32 %52, ptr %6, align 16, !tbaa !25
-  store i32 %50, ptr %34, align 4, !tbaa !25
-  store i32 %51, ptr %35, align 8, !tbaa !25
-  store i32 %53, ptr %36, align 4, !tbaa !25
+  store i32 %52, ptr %6, align 16, !tbaa !26
+  store i32 %50, ptr %34, align 4, !tbaa !26
+  store i32 %51, ptr %35, align 8, !tbaa !26
+  store i32 %53, ptr %36, align 4, !tbaa !26
   br label %54
 
 54:                                               ; preds = %37, %54
@@ -7266,7 +7266,7 @@ define internal void @iwht_iwht_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %57 = load i16, ptr %56, align 2, !tbaa !8
   %58 = zext i16 %57 to i32
   %59 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv30
-  %60 = load i32, ptr %59, align 4, !tbaa !25
+  %60 = load i32, ptr %59, align 4, !tbaa !26
   %61 = add nsw i32 %60, %58
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
   %63 = tail call i32 @llvm.umin.i32(i32 %62, i32 4095)
@@ -7274,13 +7274,13 @@ define internal void @iwht_iwht_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   store i16 %64, ptr %56, align 2, !tbaa !8
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 4
-  br i1 %exitcond33.not, label %65, label %54, !llvm.loop !75
+  br i1 %exitcond33.not, label %65, label %54, !llvm.loop !76
 
 65:                                               ; preds = %54
   %66 = getelementptr inbounds nuw i8, ptr %.028, i64 2
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 4
-  br i1 %exitcond37.not, label %67, label %37, !llvm.loop !76
+  br i1 %exitcond37.not, label %67, label %37, !llvm.loop !77
 
 67:                                               ; preds = %65
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
@@ -7444,7 +7444,7 @@ define internal void @loop_filter_h_4_8_c(ptr noundef captures(none) %0, i64 nou
   %111 = add nuw nsw i32 %.0551.i12, 1
   %112 = getelementptr inbounds nuw i16, ptr %.0.i13, i64 %6
   %exitcond.not = icmp eq i32 %111, 8
-  br i1 %exitcond.not, label %loop_filter.exit, label %10, !llvm.loop !77
+  br i1 %exitcond.not, label %loop_filter.exit, label %10, !llvm.loop !78
 
 loop_filter.exit:                                 ; preds = %.critedge.i
   ret void
@@ -7609,7 +7609,7 @@ define internal void @loop_filter_v_4_8_c(ptr noundef captures(none) %0, i64 nou
   %112 = add nuw nsw i32 %.0551.i12, 1
   %113 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 2
   %exitcond.not = icmp eq i32 %112, 8
-  br i1 %exitcond.not, label %loop_filter.exit, label %11, !llvm.loop !77
+  br i1 %exitcond.not, label %loop_filter.exit, label %11, !llvm.loop !78
 
 loop_filter.exit:                                 ; preds = %.critedge.i
   ret void
@@ -7857,7 +7857,7 @@ define internal void @loop_filter_h_8_8_c(ptr noundef captures(none) %0, i64 nou
   %179 = add nuw nsw i32 %.0551.i16, 1
   %180 = getelementptr inbounds nuw i16, ptr %.0.i17, i64 %6
   %exitcond.not = icmp eq i32 %179, 8
-  br i1 %exitcond.not, label %loop_filter.exit, label %10, !llvm.loop !77
+  br i1 %exitcond.not, label %loop_filter.exit, label %10, !llvm.loop !78
 
 loop_filter.exit:                                 ; preds = %.critedge.i
   ret void
@@ -8111,7 +8111,7 @@ define internal void @loop_filter_v_8_8_c(ptr noundef captures(none) %0, i64 nou
   %180 = add nuw nsw i32 %.0551.i16, 1
   %181 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 2
   %exitcond.not = icmp eq i32 %180, 8
-  br i1 %exitcond.not, label %loop_filter.exit, label %11, !llvm.loop !77
+  br i1 %exitcond.not, label %loop_filter.exit, label %11, !llvm.loop !78
 
 loop_filter.exit:                                 ; preds = %.critedge.i
   ret void
@@ -8641,7 +8641,7 @@ define internal void @loop_filter_h_16_8_c(ptr noundef captures(none) %0, i64 no
   %422 = add nuw nsw i32 %.0551.i22, 1
   %423 = getelementptr inbounds nuw i16, ptr %.0.i23, i64 %6
   %exitcond.not = icmp eq i32 %422, 8
-  br i1 %exitcond.not, label %loop_filter.exit, label %10, !llvm.loop !77
+  br i1 %exitcond.not, label %loop_filter.exit, label %10, !llvm.loop !78
 
 loop_filter.exit:                                 ; preds = %.critedge.i
   ret void
@@ -9185,7 +9185,7 @@ define internal void @loop_filter_v_16_8_c(ptr noundef captures(none) %0, i64 no
   %423 = add nuw nsw i32 %.0551.i22, 1
   %424 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 2
   %exitcond.not = icmp eq i32 %423, 8
-  br i1 %exitcond.not, label %loop_filter.exit, label %11, !llvm.loop !77
+  br i1 %exitcond.not, label %loop_filter.exit, label %11, !llvm.loop !78
 
 loop_filter.exit:                                 ; preds = %.critedge.i
   ret void
@@ -10197,14 +10197,14 @@ define internal fastcc void @put_8tap_2d_hv_c(ptr noundef writeonly captures(non
   %82 = getelementptr inbounds nuw i16, ptr %.0104.i, i64 %indvars.iv
   store i16 %81, ptr %82, align 2, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %83, label %37, !llvm.loop !78
+  br i1 %exitcond.not, label %83, label %37, !llvm.loop !79
 
 83:                                               ; preds = %37
   %84 = getelementptr inbounds nuw i8, ptr %.0104.i, i64 128
   %85 = getelementptr inbounds nuw i16, ptr %.0102.i, i64 %11
   %86 = add nsw i32 %.0105.i, -1
   %.not.i = icmp eq i32 %86, 0
-  br i1 %.not.i, label %87, label %36, !llvm.loop !79
+  br i1 %.not.i, label %87, label %36, !llvm.loop !80
 
 87:                                               ; preds = %83
   %88 = lshr i64 %1, 1
@@ -10290,14 +10290,14 @@ define internal fastcc void @put_8tap_2d_hv_c(ptr noundef writeonly captures(non
   store i16 %158, ptr %159, align 2, !tbaa !8
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next11, %wide.trip.count
-  br i1 %exitcond14.not, label %160, label %98, !llvm.loop !80
+  br i1 %exitcond14.not, label %160, label %98, !llvm.loop !81
 
 160:                                              ; preds = %98
   %161 = getelementptr inbounds nuw i8, ptr %.1.i, i64 128
   %162 = getelementptr inbounds nuw i16, ptr %.0103.i, i64 %88
   %163 = add nsw i32 %.0106.i, -1
   %.not110.i = icmp eq i32 %163, 0
-  br i1 %.not110.i, label %do_8tap_2d_c.exit, label %97, !llvm.loop !81
+  br i1 %.not110.i, label %do_8tap_2d_c.exit, label %97, !llvm.loop !82
 
 do_8tap_2d_c.exit:                                ; preds = %160
   call void @llvm.lifetime.end.p0(i64 9088, ptr nonnull %9) #11
@@ -10402,13 +10402,13 @@ define internal fastcc void @put_8tap_1d_v_c(ptr noundef writeonly captures(none
   store i16 %86, ptr %87, align 2, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %88, label %24, !llvm.loop !82
+  br i1 %exitcond.not, label %88, label %24, !llvm.loop !83
 
 88:                                               ; preds = %24
   %89 = getelementptr inbounds nuw i16, ptr %.083.i, i64 %9
   %90 = add nsw i32 %.084.i, -1
   %.not.i = icmp eq i32 %90, 0
-  br i1 %.not.i, label %do_8tap_1d_c.exit, label %18, !llvm.loop !83
+  br i1 %.not.i, label %do_8tap_1d_c.exit, label %18, !llvm.loop !84
 
 do_8tap_1d_c.exit:                                ; preds = %88
   ret void
@@ -10507,14 +10507,14 @@ define internal fastcc void @put_8tap_1d_h_c(ptr noundef writeonly captures(none
   store i16 %81, ptr %82, align 2, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %83, label %23, !llvm.loop !82
+  br i1 %exitcond.not, label %83, label %23, !llvm.loop !83
 
 83:                                               ; preds = %23
   %84 = getelementptr inbounds nuw i16, ptr %.083.i, i64 %8
   %85 = getelementptr inbounds nuw i16, ptr %.082.i, i64 %9
   %86 = add nsw i32 %.084.i, -1
   %.not.i = icmp eq i32 %86, 0
-  br i1 %.not.i, label %do_8tap_1d_c.exit, label %17, !llvm.loop !83
+  br i1 %.not.i, label %do_8tap_1d_c.exit, label %17, !llvm.loop !84
 
 do_8tap_1d_c.exit:                                ; preds = %83
   ret void
@@ -10611,14 +10611,14 @@ define internal fastcc void @avg_8tap_2d_hv_c(ptr noundef captures(none) %0, i64
   %82 = getelementptr inbounds nuw i16, ptr %.0104.i, i64 %indvars.iv
   store i16 %81, ptr %82, align 2, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %83, label %37, !llvm.loop !78
+  br i1 %exitcond.not, label %83, label %37, !llvm.loop !79
 
 83:                                               ; preds = %37
   %84 = getelementptr inbounds nuw i8, ptr %.0104.i, i64 128
   %85 = getelementptr inbounds nuw i16, ptr %.0102.i, i64 %11
   %86 = add nsw i32 %.0105.i, -1
   %.not.i = icmp eq i32 %86, 0
-  br i1 %.not.i, label %87, label %36, !llvm.loop !79
+  br i1 %.not.i, label %87, label %36, !llvm.loop !80
 
 87:                                               ; preds = %83
   %88 = lshr i64 %1, 1
@@ -10709,14 +10709,14 @@ define internal fastcc void @avg_8tap_2d_hv_c(ptr noundef captures(none) %0, i64
   store i16 %164, ptr %99, align 2, !tbaa !8
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next11, %wide.trip.count
-  br i1 %exitcond14.not, label %165, label %98, !llvm.loop !80
+  br i1 %exitcond14.not, label %165, label %98, !llvm.loop !81
 
 165:                                              ; preds = %98
   %166 = getelementptr inbounds nuw i8, ptr %.1.i, i64 128
   %167 = getelementptr inbounds nuw i16, ptr %.0103.i, i64 %88
   %168 = add nsw i32 %.0106.i, -1
   %.not110.i = icmp eq i32 %168, 0
-  br i1 %.not110.i, label %do_8tap_2d_c.exit, label %97, !llvm.loop !81
+  br i1 %.not110.i, label %do_8tap_2d_c.exit, label %97, !llvm.loop !82
 
 do_8tap_2d_c.exit:                                ; preds = %165
   call void @llvm.lifetime.end.p0(i64 9088, ptr nonnull %9) #11
@@ -10826,13 +10826,13 @@ define internal fastcc void @avg_8tap_1d_v_c(ptr noundef captures(none) %0, i64 
   store i16 %92, ptr %25, align 2, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %93, label %24, !llvm.loop !82
+  br i1 %exitcond.not, label %93, label %24, !llvm.loop !83
 
 93:                                               ; preds = %24
   %94 = getelementptr inbounds nuw i16, ptr %.083.i, i64 %9
   %95 = add nsw i32 %.084.i, -1
   %.not.i = icmp eq i32 %95, 0
-  br i1 %.not.i, label %do_8tap_1d_c.exit, label %18, !llvm.loop !83
+  br i1 %.not.i, label %do_8tap_1d_c.exit, label %18, !llvm.loop !84
 
 do_8tap_1d_c.exit:                                ; preds = %93
   ret void
@@ -10936,14 +10936,14 @@ define internal fastcc void @avg_8tap_1d_h_c(ptr noundef captures(none) %0, i64 
   store i16 %87, ptr %24, align 2, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %88, label %23, !llvm.loop !82
+  br i1 %exitcond.not, label %88, label %23, !llvm.loop !83
 
 88:                                               ; preds = %23
   %89 = getelementptr inbounds nuw i16, ptr %.083.i, i64 %8
   %90 = getelementptr inbounds nuw i16, ptr %.082.i, i64 %9
   %91 = add nsw i32 %.084.i, -1
   %.not.i = icmp eq i32 %91, 0
-  br i1 %.not.i, label %do_8tap_1d_c.exit, label %17, !llvm.loop !83
+  br i1 %.not.i, label %do_8tap_1d_c.exit, label %17, !llvm.loop !84
 
 do_8tap_1d_c.exit:                                ; preds = %88
   ret void
@@ -11234,14 +11234,14 @@ define internal fastcc void @put_scaled_8tap_c(ptr noundef writeonly captures(no
   %96 = and i32 %93, 15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %97, label %21, !llvm.loop !84
+  br i1 %exitcond.not, label %97, label %21, !llvm.loop !85
 
 97:                                               ; preds = %21
   %98 = getelementptr inbounds nuw i8, ptr %.0128.i, i64 128
   %99 = getelementptr inbounds nuw i16, ptr %.0126.i, i64 %18
   %100 = add nsw i32 %.0129.i, -1
   %.not.i = icmp eq i32 %100, 0
-  br i1 %.not.i, label %101, label %20, !llvm.loop !85
+  br i1 %.not.i, label %101, label %20, !llvm.loop !86
 
 101:                                              ; preds = %97
   %102 = lshr i64 %1, 1
@@ -11330,7 +11330,7 @@ define internal fastcc void @put_scaled_8tap_c(ptr noundef writeonly captures(no
   store i16 %174, ptr %175, align 2, !tbaa !8
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next16, %wide.trip.count
-  br i1 %exitcond19.not, label %176, label %114, !llvm.loop !86
+  br i1 %exitcond19.not, label %176, label %114, !llvm.loop !87
 
 176:                                              ; preds = %114
   %177 = add nsw i32 %.0131.i, %9
@@ -11342,7 +11342,7 @@ define internal fastcc void @put_scaled_8tap_c(ptr noundef writeonly captures(no
   %183 = getelementptr inbounds nuw i16, ptr %.0127.i, i64 %102
   %184 = add nsw i32 %.0130.i, -1
   %.not135.i = icmp eq i32 %184, 0
-  br i1 %.not135.i, label %do_scaled_8tap_c.exit, label %104, !llvm.loop !87
+  br i1 %.not135.i, label %do_scaled_8tap_c.exit, label %104, !llvm.loop !88
 
 do_scaled_8tap_c.exit:                            ; preds = %176
   call void @llvm.lifetime.end.p0(i64 17280, ptr nonnull %12) #11
@@ -11452,14 +11452,14 @@ define internal fastcc void @avg_scaled_8tap_c(ptr noundef captures(none) %0, i6
   %96 = and i32 %93, 15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %97, label %21, !llvm.loop !84
+  br i1 %exitcond.not, label %97, label %21, !llvm.loop !85
 
 97:                                               ; preds = %21
   %98 = getelementptr inbounds nuw i8, ptr %.0128.i, i64 128
   %99 = getelementptr inbounds nuw i16, ptr %.0126.i, i64 %18
   %100 = add nsw i32 %.0129.i, -1
   %.not.i = icmp eq i32 %100, 0
-  br i1 %.not.i, label %101, label %20, !llvm.loop !85
+  br i1 %.not.i, label %101, label %20, !llvm.loop !86
 
 101:                                              ; preds = %97
   %102 = lshr i64 %1, 1
@@ -11553,7 +11553,7 @@ define internal fastcc void @avg_scaled_8tap_c(ptr noundef captures(none) %0, i6
   store i16 %180, ptr %115, align 2, !tbaa !8
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next16, %wide.trip.count
-  br i1 %exitcond19.not, label %181, label %114, !llvm.loop !86
+  br i1 %exitcond19.not, label %181, label %114, !llvm.loop !87
 
 181:                                              ; preds = %114
   %182 = add nsw i32 %.0131.i, %9
@@ -11565,7 +11565,7 @@ define internal fastcc void @avg_scaled_8tap_c(ptr noundef captures(none) %0, i6
   %188 = getelementptr inbounds nuw i16, ptr %.0127.i, i64 %102
   %189 = add nsw i32 %.0130.i, -1
   %.not135.i = icmp eq i32 %189, 0
-  br i1 %.not135.i, label %do_scaled_8tap_c.exit, label %104, !llvm.loop !87
+  br i1 %.not135.i, label %do_scaled_8tap_c.exit, label %104, !llvm.loop !88
 
 do_scaled_8tap_c.exit:                            ; preds = %181
   call void @llvm.lifetime.end.p0(i64 17280, ptr nonnull %12) #11
@@ -11609,81 +11609,82 @@ attributes #11 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"short", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"int", !6, i64 0}
-!27 = distinct !{!27, !11}
-!28 = distinct !{!28, !11}
-!29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11}
-!31 = distinct !{!31, !11}
-!32 = distinct !{!32, !11}
-!33 = distinct !{!33, !11}
-!34 = distinct !{!34, !11}
-!35 = distinct !{!35, !11}
-!36 = distinct !{!36, !11}
-!37 = distinct !{!37, !11}
-!38 = distinct !{!38, !11}
-!39 = distinct !{!39, !11}
-!40 = distinct !{!40, !11}
-!41 = distinct !{!41, !11}
-!42 = distinct !{!42, !11}
-!43 = distinct !{!43, !11}
-!44 = distinct !{!44, !11}
-!45 = distinct !{!45, !11}
-!46 = distinct !{!46, !11}
-!47 = distinct !{!47, !11}
-!48 = distinct !{!48, !11}
-!49 = distinct !{!49, !11}
-!50 = distinct !{!50, !11}
-!51 = distinct !{!51, !11}
-!52 = distinct !{!52, !11}
-!53 = distinct !{!53, !11}
-!54 = distinct !{!54, !11}
-!55 = distinct !{!55, !11}
-!56 = distinct !{!56, !11}
-!57 = distinct !{!57, !11}
-!58 = distinct !{!58, !11}
-!59 = distinct !{!59, !11}
-!60 = distinct !{!60, !11}
-!61 = distinct !{!61, !11}
-!62 = distinct !{!62, !11}
-!63 = distinct !{!63, !11}
-!64 = distinct !{!64, !11}
-!65 = distinct !{!65, !11}
-!66 = distinct !{!66, !11}
-!67 = distinct !{!67, !11}
-!68 = distinct !{!68, !11}
-!69 = distinct !{!69, !11}
-!70 = distinct !{!70, !11}
-!71 = distinct !{!71, !11}
-!72 = distinct !{!72, !11}
-!73 = distinct !{!73, !11}
-!74 = distinct !{!74, !11}
-!75 = distinct !{!75, !11}
-!76 = distinct !{!76, !11}
-!77 = distinct !{!77, !11}
-!78 = distinct !{!78, !11}
-!79 = distinct !{!79, !11}
-!80 = distinct !{!80, !11}
-!81 = distinct !{!81, !11}
-!82 = distinct !{!82, !11}
-!83 = distinct !{!83, !11}
-!84 = distinct !{!84, !11}
-!85 = distinct !{!85, !11}
-!86 = distinct !{!86, !11}
-!87 = distinct !{!87, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!6, !6, i64 0}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"int", !6, i64 0}
+!28 = distinct !{!28, !11, !12}
+!29 = distinct !{!29, !11, !12}
+!30 = distinct !{!30, !11, !12}
+!31 = distinct !{!31, !11, !12}
+!32 = distinct !{!32, !11, !12}
+!33 = distinct !{!33, !11, !12}
+!34 = distinct !{!34, !11, !12}
+!35 = distinct !{!35, !11, !12}
+!36 = distinct !{!36, !11, !12}
+!37 = distinct !{!37, !11, !12}
+!38 = distinct !{!38, !11, !12}
+!39 = distinct !{!39, !11, !12}
+!40 = distinct !{!40, !11, !12}
+!41 = distinct !{!41, !11, !12}
+!42 = distinct !{!42, !11, !12}
+!43 = distinct !{!43, !11, !12}
+!44 = distinct !{!44, !11, !12}
+!45 = distinct !{!45, !11, !12}
+!46 = distinct !{!46, !11, !12}
+!47 = distinct !{!47, !11, !12}
+!48 = distinct !{!48, !11, !12}
+!49 = distinct !{!49, !11, !12}
+!50 = distinct !{!50, !11, !12}
+!51 = distinct !{!51, !11, !12}
+!52 = distinct !{!52, !11, !12}
+!53 = distinct !{!53, !11, !12}
+!54 = distinct !{!54, !11, !12}
+!55 = distinct !{!55, !11, !12}
+!56 = distinct !{!56, !11, !12}
+!57 = distinct !{!57, !11, !12}
+!58 = distinct !{!58, !11, !12}
+!59 = distinct !{!59, !11, !12}
+!60 = distinct !{!60, !11, !12}
+!61 = distinct !{!61, !11, !12}
+!62 = distinct !{!62, !11, !12}
+!63 = distinct !{!63, !11, !12}
+!64 = distinct !{!64, !11, !12}
+!65 = distinct !{!65, !11, !12}
+!66 = distinct !{!66, !11, !12}
+!67 = distinct !{!67, !11, !12}
+!68 = distinct !{!68, !11, !12}
+!69 = distinct !{!69, !11, !12}
+!70 = distinct !{!70, !11, !12}
+!71 = distinct !{!71, !11, !12}
+!72 = distinct !{!72, !11, !12}
+!73 = distinct !{!73, !11, !12}
+!74 = distinct !{!74, !11, !12}
+!75 = distinct !{!75, !11, !12}
+!76 = distinct !{!76, !11, !12}
+!77 = distinct !{!77, !11, !12}
+!78 = distinct !{!78, !11, !12}
+!79 = distinct !{!79, !11, !12}
+!80 = distinct !{!80, !11, !12}
+!81 = distinct !{!81, !11, !12}
+!82 = distinct !{!82, !11, !12}
+!83 = distinct !{!83, !11, !12}
+!84 = distinct !{!84, !11, !12}
+!85 = distinct !{!85, !11, !12}
+!86 = distinct !{!86, !11, !12}
+!87 = distinct !{!87, !11, !12}
+!88 = distinct !{!88, !11, !12}

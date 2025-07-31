@@ -35,7 +35,7 @@ define ptr @lv_msgbox_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !3
 
 6:                                                ; preds = %3
   tail call void @lv_obj_class_init_obj(ptr noundef nonnull %5) #3
@@ -50,7 +50,7 @@ define ptr @lv_msgbox_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not28, label %.preheader29, label %9
 
 .preheader29:                                     ; preds = %7, %.preheader29
-  br label %.preheader29
+  br label %.preheader29, !llvm.loop !5
 
 9:                                                ; preds = %7
   tail call void @lv_obj_class_init_obj(ptr noundef nonnull %8) #3
@@ -64,13 +64,13 @@ define ptr @lv_msgbox_create(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %10, %9
   %12 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_msgbox_content_class, ptr noundef nonnull %8) #3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr %12, ptr %13, align 8, !tbaa !3
+  store ptr %12, ptr %13, align 8, !tbaa !6
   %14 = icmp eq ptr %12, null
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11
   tail call void @lv_obj_class_init_obj(ptr noundef nonnull %12) #3
-  %16 = load ptr, ptr %13, align 8, !tbaa !3
+  %16 = load ptr, ptr %13, align 8, !tbaa !6
   tail call void @lv_obj_set_flex_flow(ptr noundef %16, i32 noundef 1) #3
   %17 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %8, ptr noundef nonnull @msgbox_size_changed_event_cb, i32 noundef 49, ptr noundef null) #3
   tail call void @lv_obj_center(ptr noundef nonnull %8) #3
@@ -104,11 +104,11 @@ define internal void @msgbox_size_changed_event_cb(ptr noundef %0) #0 {
   br i1 %.not.i, label %.preheader.i, label %lv_msgbox_get_content.exit
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !19
 
 lv_msgbox_get_content.exit:                       ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %2, i32 noundef 0, i8 noundef zeroext 2) #3
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 4294967295
@@ -123,52 +123,52 @@ declare void @lv_obj_center(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @lv_msgbox_add_title(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
   %7 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_msgbox_header_class, ptr noundef nonnull %0) #3
-  store ptr %7, ptr %3, align 8, !tbaa !16
+  store ptr %7, ptr %3, align 8, !tbaa !20
   %8 = icmp eq ptr %7, null
   br i1 %8, label %29, label %9
 
 9:                                                ; preds = %6
   tail call void @lv_obj_class_init_obj(ptr noundef nonnull %7) #3
-  %10 = load ptr, ptr %3, align 8, !tbaa !16
+  %10 = load ptr, ptr %3, align 8, !tbaa !20
   %11 = tail call i32 @lv_pct(i32 noundef 100) #3
   %12 = tail call ptr @lv_obj_get_display(ptr noundef nonnull %0) #3
   %13 = tail call i32 @lv_display_get_dpi(ptr noundef %12) #3
   %14 = sdiv i32 %13, 3
   tail call void @lv_obj_set_size(ptr noundef %10, i32 noundef %11, i32 noundef %14) #3
-  %15 = load ptr, ptr %3, align 8, !tbaa !16
+  %15 = load ptr, ptr %3, align 8, !tbaa !20
   tail call void @lv_obj_set_flex_flow(ptr noundef %15, i32 noundef 0) #3
-  %16 = load ptr, ptr %3, align 8, !tbaa !16
+  %16 = load ptr, ptr %3, align 8, !tbaa !20
   tail call void @lv_obj_set_flex_align(ptr noundef %16, i32 noundef 0, i32 noundef 2, i32 noundef 2) #3
-  %17 = load ptr, ptr %3, align 8, !tbaa !16
+  %17 = load ptr, ptr %3, align 8, !tbaa !20
   tail call void @lv_obj_remove_flag(ptr noundef %17, i32 noundef 16) #3
-  %18 = load ptr, ptr %3, align 8, !tbaa !16
+  %18 = load ptr, ptr %3, align 8, !tbaa !20
   tail call void @lv_obj_move_to_index(ptr noundef %18, i32 noundef 0) #3
   br label %19
 
 19:                                               ; preds = %9, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %3, align 8, !tbaa !16
+  %24 = load ptr, ptr %3, align 8, !tbaa !20
   %25 = tail call ptr @lv_label_create(ptr noundef %24) #3
-  store ptr %25, ptr %20, align 8, !tbaa !17
+  store ptr %25, ptr %20, align 8, !tbaa !21
   tail call void @lv_obj_set_flex_grow(ptr noundef %25, i8 noundef zeroext 1) #3
-  %.pre = load ptr, ptr %20, align 8, !tbaa !17
+  %.pre = load ptr, ptr %20, align 8, !tbaa !21
   br label %26
 
 26:                                               ; preds = %23, %19
   %27 = phi ptr [ %.pre, %23 ], [ %21, %19 ]
   tail call void @lv_label_set_text(ptr noundef %27, ptr noundef %1) #3
-  %28 = load ptr, ptr %20, align 8, !tbaa !17
+  %28 = load ptr, ptr %20, align 8, !tbaa !21
   br label %29
 
 29:                                               ; preds = %6, %26
@@ -195,13 +195,13 @@ declare void @lv_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @lv_msgbox_add_header_button(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   %7 = tail call ptr @lv_msgbox_add_title(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !16
+  %.pre = load ptr, ptr %3, align 8, !tbaa !20
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -235,7 +235,7 @@ declare void @lv_obj_align(ptr noundef, i32 noundef, i32 noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_msgbox_add_text(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call ptr @lv_label_create(ptr noundef %4) #3
   tail call void @lv_label_set_text(ptr noundef %5, ptr noundef %1) #3
   %6 = tail call i32 @lv_pct(i32 noundef 100) #3
@@ -248,25 +248,25 @@ declare void @lv_obj_set_width(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @lv_msgbox_add_footer_button(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
   %7 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_msgbox_footer_class, ptr noundef nonnull %0) #3
-  store ptr %7, ptr %3, align 8, !tbaa !18
+  store ptr %7, ptr %3, align 8, !tbaa !22
   %8 = icmp eq ptr %7, null
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %6
   tail call void @lv_obj_class_init_obj(ptr noundef nonnull %7) #3
-  %10 = load ptr, ptr %3, align 8, !tbaa !18
+  %10 = load ptr, ptr %3, align 8, !tbaa !22
   tail call void @lv_obj_set_flex_flow(ptr noundef %10, i32 noundef 0) #3
-  %11 = load ptr, ptr %3, align 8, !tbaa !18
+  %11 = load ptr, ptr %3, align 8, !tbaa !22
   tail call void @lv_obj_set_flex_align(ptr noundef %11, i32 noundef 3, i32 noundef 2, i32 noundef 2) #3
-  %12 = load ptr, ptr %3, align 8, !tbaa !18
+  %12 = load ptr, ptr %3, align 8, !tbaa !22
   tail call void @lv_obj_remove_flag(ptr noundef %12, i32 noundef 16) #3
-  %.pre = load ptr, ptr %3, align 8, !tbaa !18
+  %.pre = load ptr, ptr %3, align 8, !tbaa !22
   br label %13
 
 13:                                               ; preds = %2, %9
@@ -323,11 +323,11 @@ define ptr @lv_msgbox_get_header(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !23
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
   ret ptr %4
 }
 
@@ -337,11 +337,11 @@ define ptr @lv_msgbox_get_footer(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !24
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   ret ptr %4
 }
 
@@ -351,11 +351,11 @@ define ptr @lv_msgbox_get_content(ptr noundef readonly captures(address_is_null)
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !6
   ret ptr %4
 }
 
@@ -365,11 +365,11 @@ define ptr @lv_msgbox_get_title(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !25
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !21
   ret ptr %4
 }
 
@@ -427,19 +427,26 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !10, i64 72}
-!4 = !{!"_lv_msgbox_t", !5, i64 0, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88}
-!5 = !{!"_lv_obj_t", !6, i64 0, !10, i64 8, !11, i64 16, !12, i64 24, !7, i64 32, !13, i64 40, !14, i64 56, !15, i64 60, !15, i64 62, !15, i64 62, !15, i64 62, !15, i64 62, !15, i64 62, !15, i64 63, !15, i64 63, !15, i64 63}
-!6 = !{!"p1 _ZTS15_lv_obj_class_t", !7, i64 0}
-!7 = !{!"any pointer", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"p1 _ZTS9_lv_obj_t", !7, i64 0}
-!11 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !7, i64 0}
-!12 = !{!"p1 _ZTS15_lv_obj_style_t", !7, i64 0}
-!13 = !{!"", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
-!14 = !{!"int", !8, i64 0}
-!15 = !{!"short", !8, i64 0}
-!16 = !{!4, !10, i64 64}
-!17 = !{!4, !10, i64 88}
-!18 = !{!4, !10, i64 80}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = !{!7, !13, i64 72}
+!7 = !{!"_lv_msgbox_t", !8, i64 0, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88}
+!8 = !{!"_lv_obj_t", !9, i64 0, !13, i64 8, !14, i64 16, !15, i64 24, !10, i64 32, !16, i64 40, !17, i64 56, !18, i64 60, !18, i64 62, !18, i64 62, !18, i64 62, !18, i64 62, !18, i64 62, !18, i64 63, !18, i64 63, !18, i64 63}
+!9 = !{!"p1 _ZTS15_lv_obj_class_t", !10, i64 0}
+!10 = !{!"any pointer", !11, i64 0}
+!11 = !{!"omnipotent char", !12, i64 0}
+!12 = !{!"Simple C/C++ TBAA"}
+!13 = !{!"p1 _ZTS9_lv_obj_t", !10, i64 0}
+!14 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !10, i64 0}
+!15 = !{!"p1 _ZTS15_lv_obj_style_t", !10, i64 0}
+!16 = !{!"", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12}
+!17 = !{!"int", !11, i64 0}
+!18 = !{!"short", !11, i64 0}
+!19 = distinct !{!19, !4}
+!20 = !{!7, !13, i64 64}
+!21 = !{!7, !13, i64 88}
+!22 = !{!7, !13, i64 80}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}

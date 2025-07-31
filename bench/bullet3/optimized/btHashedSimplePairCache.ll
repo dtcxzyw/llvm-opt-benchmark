@@ -77,7 +77,7 @@ define dso_local void @_ZN23btHashedSimplePairCacheC2Ev(ptr noundef nonnull alig
 _ZNK20btAlignedObjectArrayI12btSimplePairE4copyEiiPS0_.exit.i: ; preds = %17, %.noexc
   %21 = load ptr, ptr %3, align 8, !tbaa !15
   %.not.i5.i = icmp ne ptr %21, null
-  %22 = load i8, ptr %2, align 8, !range !30
+  %22 = load i8, ptr %2, align 8, !range !31
   %23 = trunc nuw i8 %22 to i1
   %or.cond.i = select i1 %.not.i5.i, i1 %23, i1 false
   br i1 %or.cond.i, label %24, label %25
@@ -161,19 +161,19 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %12, %11
   store i32 %23, ptr %21, align 4, !tbaa !26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i, label %20, !llvm.loop !31
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i, label %20, !llvm.loop !32
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i
   %.not.i5.i.i = icmp ne ptr %19, null
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = load i8, ptr %24, align 8, !range !30
+  %25 = load i8, ptr %24, align 8, !range !31
   %26 = trunc nuw i8 %25 to i1
   %or.cond27.i = select i1 %.not.i5.i.i, i1 %26, i1 false
   br i1 %or.cond27.i, label %27, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i: ; preds = %20
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !18, !range !30, !noundef !32
+  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !18, !range !31, !noundef !33
   %.old26.i = trunc nuw i8 %.old25.i to i1
   br i1 %.old26.i, label %27, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
@@ -244,19 +244,19 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i32: ; preds = %43, %42
   store i32 %52, ptr %50, align 4, !tbaa !26
   %indvars.iv.next.i.i.i41 = add nuw nsw i64 %indvars.iv.i.i.i40, 1
   %exitcond.not.i.i.i42 = icmp eq i64 %indvars.iv.next.i.i.i41, %wide.trip.count.i.i.i39
-  br i1 %exitcond.not.i.i.i42, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i43, label %49, !llvm.loop !31
+  br i1 %exitcond.not.i.i.i42, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i43, label %49, !llvm.loop !32
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i34: ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i32
   %.not.i5.i.i35 = icmp ne ptr %48, null
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %54 = load i8, ptr %53, align 8, !range !30
+  %54 = load i8, ptr %53, align 8, !range !31
   %55 = trunc nuw i8 %54 to i1
   %or.cond27.i36 = select i1 %.not.i5.i.i35, i1 %55, i1 false
   br i1 %or.cond27.i36, label %56, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i37
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i43: ; preds = %49
   %.old.i44 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.old25.i45 = load i8, ptr %.old.i44, align 8, !tbaa !18, !range !30, !noundef !32
+  %.old25.i45 = load i8, ptr %.old.i44, align 8, !tbaa !18, !range !31, !noundef !33
   %.old26.i46 = trunc nuw i8 %.old25.i45 to i1
   br i1 %.old26.i46, label %56, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i37
 
@@ -313,9 +313,9 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit47:  ; preds = %.lr.ph.i24, %.lr.ph
 76:                                               ; preds = %.lr.ph54, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next, %76 ]
   %77 = getelementptr inbounds nuw %struct.btSimplePair, ptr %72, i64 %indvars.iv
-  %78 = load i32, ptr %77, align 8, !tbaa !33
+  %78 = load i32, ptr %77, align 8, !tbaa !34
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !35
+  %80 = load i32, ptr %79, align 4, !tbaa !36
   %81 = shl i32 %80, 16
   %82 = or i32 %81, %78
   %83 = shl i32 %82, 15
@@ -343,7 +343,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit47:  ; preds = %.lr.ph.i24, %.lr.ph
   store i32 %103, ptr %100, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %76, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %76, !llvm.loop !37
 
 .loopexit:                                        ; preds = %76, %.preheader, %1
   ret void
@@ -355,7 +355,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %.not.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !range !30
+  %5 = load i8, ptr %4, align 8, !range !31
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %or.cond.i, label %7, label %8
@@ -387,7 +387,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI12btSimplePairED2E
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !range !30
+  %5 = load i8, ptr %4, align 8, !range !31
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %or.cond.i, label %7, label %8
@@ -420,7 +420,7 @@ define dso_local void @_ZN23btHashedSimplePairCacheD2Ev(ptr noundef nonnull alig
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %.not.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load i8, ptr %4, align 8, !range !30
+  %5 = load i8, ptr %4, align 8, !range !31
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayIiED2Ev.exit
@@ -447,7 +447,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %1, %7
   %14 = load ptr, ptr %13, align 8, !tbaa !22
   %.not.i.i.i1 = icmp ne ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load i8, ptr %15, align 8, !range !30
+  %16 = load i8, ptr %15, align 8, !range !31
   %17 = trunc nuw i8 %16 to i1
   %or.cond.i.i2 = select i1 %.not.i.i.i1, i1 %17, i1 false
   br i1 %or.cond.i.i2, label %18, label %_ZN20btAlignedObjectArrayIiED2Ev.exit3
@@ -474,7 +474,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit3:           ; preds = %_ZN20btAlignedObjec
   %25 = load ptr, ptr %24, align 8, !tbaa !15
   %.not.i.i.i4 = icmp ne ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load i8, ptr %26, align 8, !range !30
+  %27 = load i8, ptr %26, align 8, !range !31
   %28 = trunc nuw i8 %27 to i1
   %or.cond.i.i5 = select i1 %.not.i.i.i4, i1 %28, i1 false
   br i1 %or.cond.i.i5, label %29, label %_ZN20btAlignedObjectArrayI12btSimplePairED2Ev.exit
@@ -516,7 +516,7 @@ define dso_local void @_ZN23btHashedSimplePairCache14removeAllPairsEv(ptr nounde
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !30
+  %5 = load i8, ptr %4, align 8, !range !31
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %or.cond.i, label %7, label %_ZN20btAlignedObjectArrayI12btSimplePairE5clearEv.exit
@@ -536,7 +536,7 @@ _ZN20btAlignedObjectArrayI12btSimplePairE5clearEv.exit: ; preds = %1, %7
   %11 = load ptr, ptr %10, align 8, !tbaa !22
   %.not.i.i1 = icmp ne ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load i8, ptr %12, align 8, !range !30
+  %13 = load i8, ptr %12, align 8, !range !31
   %14 = trunc nuw i8 %13 to i1
   %or.cond.i2 = select i1 %.not.i.i1, i1 %14, i1 false
   br i1 %or.cond.i2, label %15, label %_ZN20btAlignedObjectArrayIiE5clearEv.exit
@@ -556,7 +556,7 @@ _ZN20btAlignedObjectArrayIiE5clearEv.exit:        ; preds = %_ZN20btAlignedObjec
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %.not.i.i3 = icmp ne ptr %19, null
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %21 = load i8, ptr %20, align 8, !range !30
+  %21 = load i8, ptr %20, align 8, !range !31
   %22 = trunc nuw i8 %21 to i1
   %or.cond.i4 = select i1 %.not.i.i3, i1 %22, i1 false
   br i1 %or.cond.i4, label %23, label %_ZN20btAlignedObjectArrayIiE5clearEv.exit5
@@ -599,7 +599,7 @@ _ZN20btAlignedObjectArrayIiE5clearEv.exit5:       ; preds = %_ZN20btAlignedObjec
 _ZNK20btAlignedObjectArrayI12btSimplePairE4copyEiiPS0_.exit.i: ; preds = %32, %28
   %36 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i5.i = icmp ne ptr %36, null
-  %37 = load i8, ptr %4, align 8, !range !30
+  %37 = load i8, ptr %4, align 8, !range !31
   %38 = trunc nuw i8 %37 to i1
   %or.cond.i6 = select i1 %.not.i5.i, i1 %38, i1 false
   br i1 %or.cond.i6, label %39, label %_ZN20btAlignedObjectArrayI12btSimplePairE10deallocateEv.exit.i
@@ -665,7 +665,7 @@ define dso_local noundef ptr @_ZN23btHashedSimplePairCache8findPairEii(ptr nound
   %.017 = phi i32 [ %.015, %.lr.ph ], [ %.0, %43 ]
   %35 = sext i32 %.017 to i64
   %36 = getelementptr inbounds %struct.btSimplePair, ptr %31, i64 %35
-  %37 = load i32, ptr %36, align 8, !tbaa !33
+  %37 = load i32, ptr %36, align 8, !tbaa !34
   %38 = icmp eq i32 %37, %1
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %40 = load i32, ptr %39, align 4
@@ -677,7 +677,7 @@ define dso_local noundef ptr @_ZN23btHashedSimplePairCache8findPairEii(ptr nound
   %44 = getelementptr inbounds i32, ptr %33, i64 %35
   %.0 = load i32, ptr %44, align 4, !tbaa !26
   %cond = icmp eq i32 %.0, -1
-  br i1 %cond, label %.critedge, label %34, !llvm.loop !37
+  br i1 %cond, label %.critedge, label %34, !llvm.loop !38
 
 .critedge:                                        ; preds = %43, %34, %25, %3
   %.012 = phi ptr [ null, %3 ], [ null, %25 ], [ null, %43 ], [ %36, %34 ]
@@ -724,7 +724,7 @@ define dso_local noundef nonnull ptr @_ZN23btHashedSimplePairCache15internalAddP
   %.012.i = phi i32 [ %.010.i, %.lr.ph.i ], [ %.0.i, %40 ]
   %32 = sext i32 %.012.i to i64
   %33 = getelementptr inbounds %struct.btSimplePair, ptr %28, i64 %32
-  %34 = load i32, ptr %33, align 8, !tbaa !33
+  %34 = load i32, ptr %33, align 8, !tbaa !34
   %35 = icmp eq i32 %34, %1
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %37 = load i32, ptr %36, align 4
@@ -736,7 +736,7 @@ define dso_local noundef nonnull ptr @_ZN23btHashedSimplePairCache15internalAddP
   %41 = getelementptr inbounds i32, ptr %30, i64 %32
   %.0.i = load i32, ptr %41, align 4, !tbaa !26
   %cond.i = icmp eq i32 %.0.i, -1
-  br i1 %cond.i, label %.loopexit, label %31, !llvm.loop !38
+  br i1 %cond.i, label %.loopexit, label %31, !llvm.loop !39
 
 .loopexit:                                        ; preds = %40, %3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -788,7 +788,7 @@ _ZNK20btAlignedObjectArrayI12btSimplePairE4copyEiiPS0_.exit.i.i: ; preds = %57, 
   %62 = load ptr, ptr %61, align 8, !tbaa !15
   %.not.i5.i.i = icmp ne ptr %62, null
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %64 = load i8, ptr %63, align 8, !range !30
+  %64 = load i8, ptr %63, align 8, !range !31
   %65 = trunc nuw i8 %64 to i1
   %or.cond.i.i = select i1 %.not.i5.i.i, i1 %65, i1 false
   br i1 %or.cond.i.i, label %66, label %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit
@@ -833,9 +833,9 @@ _ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit: ; preds
   %83 = phi ptr [ %77, %78 ], [ %77, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit ], [ %71, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread ]
   %84 = phi i64 [ %76, %78 ], [ %76, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit ], [ %70, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread ]
   %.pre-phi = phi i64 [ %.pre, %78 ], [ %25, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit ], [ %25, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread ]
-  store i32 %1, ptr %83, align 8, !tbaa !33
+  store i32 %1, ptr %83, align 8, !tbaa !34
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  store i32 %2, ptr %85, align 4, !tbaa !35
+  store i32 %2, ptr %85, align 4, !tbaa !36
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr null, ptr %86, align 8, !tbaa !27
   %87 = load ptr, ptr %23, align 8, !tbaa !22
@@ -893,7 +893,7 @@ define dso_local noundef ptr @_ZN23btHashedSimplePairCache21removeOverlappingPai
   %.012.i = phi i32 [ %.010.i, %.lr.ph.i ], [ %.0.i, %40 ]
   %32 = sext i32 %.012.i to i64
   %33 = getelementptr inbounds %struct.btSimplePair, ptr %28, i64 %32
-  %34 = load i32, ptr %33, align 8, !tbaa !33
+  %34 = load i32, ptr %33, align 8, !tbaa !34
   %35 = icmp eq i32 %34, %1
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %37 = load i32, ptr %36, align 4
@@ -905,7 +905,7 @@ define dso_local noundef ptr @_ZN23btHashedSimplePairCache21removeOverlappingPai
   %41 = getelementptr inbounds i32, ptr %30, i64 %32
   %.0.i = load i32, ptr %41, align 4, !tbaa !26
   %cond.i = icmp eq i32 %.0.i, -1
-  br i1 %cond.i, label %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread, label %31, !llvm.loop !38
+  br i1 %cond.i, label %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread, label %31, !llvm.loop !39
 
 _ZN23btHashedSimplePairCache16internalFindPairEiii.exit: ; preds = %31
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -919,7 +919,7 @@ _ZN23btHashedSimplePairCache16internalFindPairEiii.exit: ; preds = %31
   %45 = getelementptr inbounds i32, ptr %30, i64 %44
   %.042 = load i32, ptr %45, align 4, !tbaa !26
   %.not = icmp eq i32 %.042, %.012.i
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not49 = icmp eq i32 %.04258, -1
@@ -949,9 +949,9 @@ _ZN23btHashedSimplePairCache16internalFindPairEiii.exit: ; preds = %31
 58:                                               ; preds = %53
   %59 = sext i32 %56 to i64
   %60 = getelementptr inbounds %struct.btSimplePair, ptr %28, i64 %59
-  %61 = load i32, ptr %60, align 8, !tbaa !33
+  %61 = load i32, ptr %60, align 8, !tbaa !34
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !35
+  %63 = load i32, ptr %62, align 4, !tbaa !36
   %64 = shl i32 %63, 16
   %65 = or i32 %64, %61
   %66 = shl i32 %65, 15
@@ -982,7 +982,7 @@ _ZN23btHashedSimplePairCache16internalFindPairEiii.exit: ; preds = %31
   %85 = getelementptr inbounds i32, ptr %30, i64 %84
   %.143 = load i32, ptr %85, align 4, !tbaa !26
   %.not50 = icmp eq i32 %.143, %56
-  br i1 %.not50, label %._crit_edge64, label %.lr.ph63, !llvm.loop !40
+  br i1 %.not50, label %._crit_edge64, label %.lr.ph63, !llvm.loop !41
 
 ._crit_edge64:                                    ; preds = %.lr.ph63
   %.not51 = icmp eq i32 %.14361, -1
@@ -1105,16 +1105,17 @@ attributes #12 = { builtin nounwind }
 !25 = !{i64 0, i64 4, !26, i64 4, i64 4, !26, i64 8, i64 8, !27}
 !26 = !{!10, !10, i64 0}
 !27 = !{!11, !11, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{i8 0, i8 2}
-!31 = distinct !{!31, !29}
-!32 = !{}
-!33 = !{!34, !10, i64 0}
-!34 = !{!"_ZTS12btSimplePair", !10, i64 0, !10, i64 4, !11, i64 8}
-!35 = !{!34, !10, i64 4}
-!36 = distinct !{!36, !29}
-!37 = distinct !{!37, !29}
-!38 = distinct !{!38, !29}
-!39 = distinct !{!39, !29}
-!40 = distinct !{!40, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{i8 0, i8 2}
+!32 = distinct !{!32, !29, !30}
+!33 = !{}
+!34 = !{!35, !10, i64 0}
+!35 = !{!"_ZTS12btSimplePair", !10, i64 0, !10, i64 4, !11, i64 8}
+!36 = !{!35, !10, i64 4}
+!37 = distinct !{!37, !29, !30}
+!38 = distinct !{!38, !29, !30}
+!39 = distinct !{!39, !29, !30}
+!40 = distinct !{!40, !29, !30}
+!41 = distinct !{!41, !29, !30}

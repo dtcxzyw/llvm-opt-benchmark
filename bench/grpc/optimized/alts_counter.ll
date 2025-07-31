@@ -153,7 +153,7 @@ define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPb
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader
   %.29 = phi i8 [ 1, %.preheader ], [ %., %._crit_edge ]
   %27 = phi i32 [ 9, %.preheader ], [ %spec.select, %._crit_edge ]
-  store i8 %.29, ptr %1, align 1, !tbaa !18
+  store i8 %.29, ptr %1, align 1, !tbaa !19
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %14, %13, %6, %5, %._crit_edge.thread
@@ -231,7 +231,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !13 = !{!11, !12, i64 8}
 !14 = !{!11, !4, i64 16}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"bool", !6, i64 0}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"bool", !6, i64 0}

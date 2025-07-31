@@ -126,9 +126,9 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 52:                                               ; preds = %.preheader
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %54 = load i32, ptr %53, align 4, !tbaa !31
+  %54 = load i32, ptr %53, align 4, !tbaa !32
   %.not36 = icmp eq i32 %54, 1
-  br i1 %.not36, label %59, label %55, !prof !32
+  br i1 %.not36, label %59, label %55, !prof !33
 
 55:                                               ; preds = %52
   %56 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -142,7 +142,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 80
-  %62 = load i64, ptr %61, align 8, !tbaa !33
+  %62 = load i64, ptr %61, align 8, !tbaa !34
   store i64 %62, ptr %1, align 8, !tbaa !11
   br label %63
 
@@ -152,7 +152,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %49, i64 88
-  %66 = load i64, ptr %65, align 8, !tbaa !33
+  %66 = load i64, ptr %65, align 8, !tbaa !34
   store i64 %66, ptr %2, align 8, !tbaa !11
   br label %67
 
@@ -162,7 +162,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %49, i64 96
-  %70 = load i64, ptr %69, align 8, !tbaa !33
+  %70 = load i64, ptr %69, align 8, !tbaa !34
   store i64 %70, ptr %3, align 8, !tbaa !11
   br label %71
 
@@ -172,7 +172,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 72:                                               ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %49, i64 112
-  %74 = load i64, ptr %73, align 8, !tbaa !33
+  %74 = load i64, ptr %73, align 8, !tbaa !34
   store i64 %74, ptr %4, align 8, !tbaa !11
   br label %75
 
@@ -182,7 +182,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 120
-  %78 = load i64, ptr %77, align 8, !tbaa !33
+  %78 = load i64, ptr %77, align 8, !tbaa !34
   store i64 %78, ptr %5, align 8, !tbaa !11
   br label %80
 
@@ -304,7 +304,7 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load i32, ptr %51, align 8, !tbaa !34
+  %52 = load i32, ptr %51, align 8, !tbaa !35
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %.preheader, label %53
 
@@ -321,12 +321,12 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !26
   %.not69 = icmp eq ptr %60, null
-  br i1 %.not69, label %61, label %.preheader, !llvm.loop !35
+  br i1 %.not69, label %61, label %.preheader, !llvm.loop !36
 
 61:                                               ; preds = %.preheader
   %62 = getelementptr inbounds nuw i8, ptr %.062, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 12
-  %64 = load i32, ptr %63, align 4, !tbaa !31
+  %64 = load i32, ptr %63, align 4, !tbaa !32
   %.not70 = icmp eq i32 %64, 1
   br i1 %.not70, label %69, label %65
 
@@ -339,10 +339,10 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
 69:                                               ; preds = %61
   %70 = add i64 %3, %2
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 64
-  %72 = load i64, ptr %71, align 8, !tbaa !33
+  %72 = load i64, ptr %71, align 8, !tbaa !34
   %73 = sub i64 %70, %72
   %74 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  %75 = load i64, ptr %74, align 8, !tbaa !33
+  %75 = load i64, ptr %74, align 8, !tbaa !34
   %76 = icmp ugt i64 %73, %75
   br i1 %76, label %77, label %81
 
@@ -423,19 +423,19 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
 
 118:                                              ; preds = %110
   %119 = getelementptr inbounds nuw i8, ptr %58, i64 80
-  store i64 %1, ptr %119, align 8, !tbaa !33
+  store i64 %1, ptr %119, align 8, !tbaa !34
   %120 = load ptr, ptr %62, align 8, !tbaa !15
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 88
-  store i64 %2, ptr %121, align 8, !tbaa !33
+  store i64 %2, ptr %121, align 8, !tbaa !34
   %122 = load ptr, ptr %62, align 8, !tbaa !15
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 112
-  store i64 %4, ptr %123, align 8, !tbaa !33
+  store i64 %4, ptr %123, align 8, !tbaa !34
   %124 = load ptr, ptr %62, align 8, !tbaa !15
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 96
-  store i64 %3, ptr %125, align 8, !tbaa !33
+  store i64 %3, ptr %125, align 8, !tbaa !34
   %126 = load ptr, ptr %62, align 8, !tbaa !15
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 120
-  store i64 %5, ptr %127, align 8, !tbaa !33
+  store i64 %5, ptr %127, align 8, !tbaa !34
   %128 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %130
 
@@ -527,13 +527,13 @@ define i64 @H5Tget_ebias(i64 noundef %0) local_unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !26
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %47, label %.preheader, !llvm.loop !36
+  br i1 %.not, label %47, label %.preheader, !llvm.loop !37
 
 47:                                               ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %49 = load i32, ptr %48, align 4, !tbaa !31
+  %49 = load i32, ptr %48, align 4, !tbaa !32
   %.not17 = icmp eq i32 %49, 1
-  br i1 %.not17, label %55, label %50, !prof !32
+  br i1 %.not17, label %55, label %50, !prof !33
 
 50:                                               ; preds = %47
   %51 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -547,7 +547,7 @@ define i64 @H5Tget_ebias(i64 noundef %0) local_unnamed_addr #0 {
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 104
-  %57 = load i64, ptr %56, align 8, !tbaa !33
+  %57 = load i64, ptr %56, align 8, !tbaa !34
   %58 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %60
 
@@ -636,9 +636,9 @@ define range(i32 -1, 1) i32 @H5Tset_ebias(i64 noundef %0, i64 noundef %1) local_
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !34
+  %48 = load i32, ptr %47, align 8, !tbaa !35
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %.preheader, label %49, !prof !32
+  br i1 %.not, label %.preheader, label %49, !prof !33
 
 49:                                               ; preds = %44
   %50 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -653,13 +653,13 @@ define range(i32 -1, 1) i32 @H5Tset_ebias(i64 noundef %0, i64 noundef %1) local_
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8, !tbaa !26
   %.not20 = icmp eq ptr %56, null
-  br i1 %.not20, label %57, label %.preheader, !llvm.loop !37
+  br i1 %.not20, label %57, label %.preheader, !llvm.loop !38
 
 57:                                               ; preds = %.preheader
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  %59 = load i32, ptr %58, align 4, !tbaa !31
+  %59 = load i32, ptr %58, align 4, !tbaa !32
   %.not21 = icmp eq i32 %59, 1
-  br i1 %.not21, label %65, label %60, !prof !32
+  br i1 %.not21, label %65, label %60, !prof !33
 
 60:                                               ; preds = %57
   %61 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -673,7 +673,7 @@ define range(i32 -1, 1) i32 @H5Tset_ebias(i64 noundef %0, i64 noundef %1) local_
 
 65:                                               ; preds = %57
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 104
-  store i64 %1, ptr %66, align 8, !tbaa !33
+  store i64 %1, ptr %66, align 8, !tbaa !34
   %67 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %69
 
@@ -765,13 +765,13 @@ define i32 @H5Tget_norm(i64 noundef %0) local_unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !26
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %47, label %.preheader, !llvm.loop !38
+  br i1 %.not, label %47, label %.preheader, !llvm.loop !39
 
 47:                                               ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %49 = load i32, ptr %48, align 4, !tbaa !31
+  %49 = load i32, ptr %48, align 4, !tbaa !32
   %.not17 = icmp eq i32 %49, 1
-  br i1 %.not17, label %55, label %50, !prof !32
+  br i1 %.not17, label %55, label %50, !prof !33
 
 50:                                               ; preds = %47
   %51 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -785,7 +785,7 @@ define i32 @H5Tget_norm(i64 noundef %0) local_unnamed_addr #0 {
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 128
-  %57 = load i32, ptr %56, align 8, !tbaa !33
+  %57 = load i32, ptr %56, align 8, !tbaa !34
   %58 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %60
 
@@ -874,9 +874,9 @@ define range(i32 -1, 1) i32 @H5Tset_norm(i64 noundef %0, i32 noundef %1) local_u
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !34
+  %48 = load i32, ptr %47, align 8, !tbaa !35
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %53, label %49, !prof !32
+  br i1 %.not, label %53, label %49, !prof !33
 
 49:                                               ; preds = %44
   %50 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -901,13 +901,13 @@ define range(i32 -1, 1) i32 @H5Tset_norm(i64 noundef %0, i32 noundef %1) local_u
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !26
   %.not24 = icmp eq ptr %61, null
-  br i1 %.not24, label %62, label %.preheader, !llvm.loop !39
+  br i1 %.not24, label %62, label %.preheader, !llvm.loop !40
 
 62:                                               ; preds = %.preheader
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %64 = load i32, ptr %63, align 4, !tbaa !31
+  %64 = load i32, ptr %63, align 4, !tbaa !32
   %.not25 = icmp eq i32 %64, 1
-  br i1 %.not25, label %70, label %65, !prof !32
+  br i1 %.not25, label %70, label %65, !prof !33
 
 65:                                               ; preds = %62
   %66 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -921,7 +921,7 @@ define range(i32 -1, 1) i32 @H5Tset_norm(i64 noundef %0, i32 noundef %1) local_u
 
 70:                                               ; preds = %62
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 128
-  store i32 %1, ptr %71, align 8, !tbaa !33
+  store i32 %1, ptr %71, align 8, !tbaa !34
   %72 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %74
 
@@ -1013,13 +1013,13 @@ define i32 @H5Tget_inpad(i64 noundef %0) local_unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !26
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %47, label %.preheader, !llvm.loop !40
+  br i1 %.not, label %47, label %.preheader, !llvm.loop !41
 
 47:                                               ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %49 = load i32, ptr %48, align 4, !tbaa !31
+  %49 = load i32, ptr %48, align 4, !tbaa !32
   %.not17 = icmp eq i32 %49, 1
-  br i1 %.not17, label %55, label %50, !prof !32
+  br i1 %.not17, label %55, label %50, !prof !33
 
 50:                                               ; preds = %47
   %51 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -1033,7 +1033,7 @@ define i32 @H5Tget_inpad(i64 noundef %0) local_unnamed_addr #0 {
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 132
-  %57 = load i32, ptr %56, align 4, !tbaa !33
+  %57 = load i32, ptr %56, align 4, !tbaa !34
   %58 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %60
 
@@ -1122,9 +1122,9 @@ define range(i32 -1, 1) i32 @H5Tset_inpad(i64 noundef %0, i32 noundef %1) local_
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !34
+  %48 = load i32, ptr %47, align 8, !tbaa !35
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %53, label %49, !prof !32
+  br i1 %.not, label %53, label %49, !prof !33
 
 49:                                               ; preds = %44
   %50 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1149,13 +1149,13 @@ define range(i32 -1, 1) i32 @H5Tset_inpad(i64 noundef %0, i32 noundef %1) local_
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !26
   %.not24 = icmp eq ptr %61, null
-  br i1 %.not24, label %62, label %.preheader, !llvm.loop !41
+  br i1 %.not24, label %62, label %.preheader, !llvm.loop !42
 
 62:                                               ; preds = %.preheader
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %64 = load i32, ptr %63, align 4, !tbaa !31
+  %64 = load i32, ptr %63, align 4, !tbaa !32
   %.not25 = icmp eq i32 %64, 1
-  br i1 %.not25, label %70, label %65, !prof !32
+  br i1 %.not25, label %70, label %65, !prof !33
 
 65:                                               ; preds = %62
   %66 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -1169,7 +1169,7 @@ define range(i32 -1, 1) i32 @H5Tset_inpad(i64 noundef %0, i32 noundef %1) local_
 
 70:                                               ; preds = %62
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 132
-  store i32 %1, ptr %71, align 4, !tbaa !33
+  store i32 %1, ptr %71, align 4, !tbaa !34
   %72 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %74
 
@@ -1220,16 +1220,17 @@ attributes #4 = { nounwind }
 !26 = !{!27, !28, i64 32}
 !27 = !{!"H5T_shared_t", !12, i64 0, !18, i64 8, !18, i64 12, !12, i64 16, !18, i64 24, !4, i64 28, !28, i64 32, !25, i64 40, !5, i64 48}
 !28 = !{!"p1 _ZTS5H5T_t", !20, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!27, !18, i64 12}
-!32 = !{!"branch_weights", i32 -2147483648, i32 0}
-!33 = !{!5, !5, i64 0}
-!34 = !{!27, !18, i64 8}
-!35 = distinct !{!35, !30}
-!36 = distinct !{!36, !30}
-!37 = distinct !{!37, !30}
-!38 = distinct !{!38, !30}
-!39 = distinct !{!39, !30}
-!40 = distinct !{!40, !30}
-!41 = distinct !{!41, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!27, !18, i64 12}
+!33 = !{!"branch_weights", i32 -2147483648, i32 0}
+!34 = !{!5, !5, i64 0}
+!35 = !{!27, !18, i64 8}
+!36 = distinct !{!36, !30, !31}
+!37 = distinct !{!37, !30, !31}
+!38 = distinct !{!38, !30, !31}
+!39 = distinct !{!39, !30, !31}
+!40 = distinct !{!40, !30, !31}
+!41 = distinct !{!41, !30, !31}
+!42 = distinct !{!42, !30, !31}

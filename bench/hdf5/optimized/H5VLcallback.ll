@@ -4227,7 +4227,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_write(i64 n
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %19 = load ptr, ptr %18, align 8, !tbaa !75
+  %19 = load ptr, ptr %18, align 8, !tbaa !76
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %25
 
@@ -4244,7 +4244,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_write(i64 n
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %18, align 8, !tbaa !75
+  %29 = load ptr, ptr %18, align 8, !tbaa !76
   %30 = call i32 %29(i64 noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #7
   %31 = call i32 @H5_user_cb_restore(ptr noundef nonnull %10) #7
   %32 = icmp slt i32 %31, 0
@@ -4293,7 +4293,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_write(i64 noundef %0, ptr noundef %1, i
 16:                                               ; preds = %.lr.ph
   %17 = add nuw i64 %.03042, 1
   %exitcond.not = icmp eq i64 %17, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %.03042 = phi i64 [ %17, %16 ], [ 1, %.preheader ]
@@ -4472,7 +4472,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_get(ptr nou
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %15 = load ptr, ptr %14, align 8, !tbaa !77
+  %15 = load ptr, ptr %14, align 8, !tbaa !78
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -4489,7 +4489,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_get(ptr nou
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !77
+  %25 = load ptr, ptr %14, align 8, !tbaa !78
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -4655,7 +4655,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_specific(pt
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %15 = load ptr, ptr %14, align 8, !tbaa !78
+  %15 = load ptr, ptr %14, align 8, !tbaa !79
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -4672,7 +4672,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_specific(pt
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !78
+  %25 = load ptr, ptr %14, align 8, !tbaa !79
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -4838,7 +4838,7 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__dataset_optional(ptr nound
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %15 = load ptr, ptr %14, align 8, !tbaa !79
+  %15 = load ptr, ptr %14, align 8, !tbaa !80
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -4855,7 +4855,7 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__dataset_optional(ptr nound
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !79
+  %25 = load ptr, ptr %14, align 8, !tbaa !80
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -5139,7 +5139,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_close(ptr n
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %14 = load ptr, ptr %13, align 8, !tbaa !80
+  %14 = load ptr, ptr %13, align 8, !tbaa !81
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -5156,7 +5156,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_close(ptr n
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !80
+  %24 = load ptr, ptr %13, align 8, !tbaa !81
   %25 = call i32 %24(ptr noundef %0, i64 noundef %2, ptr noundef %3) #7
   %26 = call i32 @H5_user_cb_restore(ptr noundef nonnull %5) #7
   %27 = icmp slt i32 %26, 0
@@ -5321,7 +5321,7 @@ define internal fastcc ptr @H5VL__datatype_commit(ptr noundef %0, ptr noundef %1
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 264
-  %20 = load ptr, ptr %19, align 8, !tbaa !81
+  %20 = load ptr, ptr %19, align 8, !tbaa !82
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
 
@@ -5338,7 +5338,7 @@ define internal fastcc ptr @H5VL__datatype_commit(ptr noundef %0, ptr noundef %1
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %19, align 8, !tbaa !81
+  %30 = load ptr, ptr %19, align 8, !tbaa !82
   %31 = call ptr %30(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #7
   %32 = call i32 @H5_user_cb_restore(ptr noundef nonnull %11) #7
   %33 = icmp slt i32 %32, 0
@@ -5503,7 +5503,7 @@ define internal fastcc ptr @H5VL__datatype_open(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %17 = load ptr, ptr %16, align 8, !tbaa !82
+  %17 = load ptr, ptr %16, align 8, !tbaa !83
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %23
 
@@ -5520,7 +5520,7 @@ define internal fastcc ptr @H5VL__datatype_open(ptr noundef %0, ptr noundef %1, 
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %16, align 8, !tbaa !82
+  %27 = load ptr, ptr %16, align 8, !tbaa !83
   %28 = call ptr %27(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #7
   %29 = call i32 @H5_user_cb_restore(ptr noundef nonnull %8) #7
   %30 = icmp slt i32 %29, 0
@@ -5686,7 +5686,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_get(ptr no
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %15 = load ptr, ptr %14, align 8, !tbaa !83
+  %15 = load ptr, ptr %14, align 8, !tbaa !84
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -5703,7 +5703,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_get(ptr no
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !83
+  %25 = load ptr, ptr %14, align 8, !tbaa !84
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -5869,7 +5869,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_specific(p
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %15 = load ptr, ptr %14, align 8, !tbaa !84
+  %15 = load ptr, ptr %14, align 8, !tbaa !85
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -5886,7 +5886,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_specific(p
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !84
+  %25 = load ptr, ptr %14, align 8, !tbaa !85
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -6052,7 +6052,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_optional(p
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %15 = load ptr, ptr %14, align 8, !tbaa !85
+  %15 = load ptr, ptr %14, align 8, !tbaa !86
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -6069,7 +6069,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_optional(p
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !85
+  %25 = load ptr, ptr %14, align 8, !tbaa !86
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -6460,7 +6460,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_close(ptr 
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %14 = load ptr, ptr %13, align 8, !tbaa !86
+  %14 = load ptr, ptr %13, align 8, !tbaa !87
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -6477,7 +6477,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_close(ptr 
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !86
+  %24 = load ptr, ptr %13, align 8, !tbaa !87
   %25 = call i32 %24(ptr noundef %0, i64 noundef %2, ptr noundef %3) #7
   %26 = call i32 @H5_user_cb_restore(ptr noundef nonnull %5) #7
   %27 = icmp slt i32 %26, 0
@@ -6617,7 +6617,7 @@ define internal fastcc ptr @H5VL__file_create(ptr noundef readonly captures(none
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %17 = load ptr, ptr %16, align 8, !tbaa !87
+  %17 = load ptr, ptr %16, align 8, !tbaa !88
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %23
 
@@ -6634,7 +6634,7 @@ define internal fastcc ptr @H5VL__file_create(ptr noundef readonly captures(none
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %16, align 8, !tbaa !87
+  %27 = load ptr, ptr %16, align 8, !tbaa !88
   %28 = call ptr %27(ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #7
   %29 = call i32 @H5_user_cb_restore(ptr noundef nonnull %8) #7
   %30 = icmp slt i32 %29, 0
@@ -6691,7 +6691,7 @@ define ptr @H5VLfile_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   br label %30
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %7, align 8, !tbaa !88
+  %22 = load ptr, ptr %7, align 8, !tbaa !89
   %23 = load ptr, ptr %22, align 8, !tbaa !7
   %24 = call fastcc ptr @H5VL__file_create(ptr noundef %23, ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5)
   %25 = icmp eq ptr %24, null
@@ -6771,11 +6771,11 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
 
 31:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
-  store ptr %1, ptr %8, align 8, !tbaa !90
+  store ptr %1, ptr %8, align 8, !tbaa !91
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %32, align 8, !tbaa !92
+  store ptr null, ptr %32, align 8, !tbaa !93
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %3, ptr %33, align 8, !tbaa !93
+  store i64 %3, ptr %33, align 8, !tbaa !94
   %34 = call i32 @H5PL_iterate(i32 noundef 1, ptr noundef nonnull @H5VL__file_open_find_connector_cb, ptr noundef nonnull %8) #7
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %40
@@ -6791,8 +6791,8 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
   br i1 %.not, label %53, label %41
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr %32, align 8, !tbaa !92
-  %43 = load i64, ptr %33, align 8, !tbaa !93
+  %42 = load ptr, ptr %32, align 8, !tbaa !93
+  %43 = load i64, ptr %33, align 8, !tbaa !94
   %44 = call fastcc ptr @H5VL__file_open(ptr noundef %42, ptr noundef %1, i32 noundef %2, i64 noundef %43, i64 noundef %4, ptr noundef %5)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %57
@@ -6800,9 +6800,9 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
 46:                                               ; preds = %41
   %47 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !3
   %48 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !3
-  %49 = load ptr, ptr %32, align 8, !tbaa !92
+  %49 = load ptr, ptr %32, align 8, !tbaa !93
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !94
+  %51 = load ptr, ptr %50, align 8, !tbaa !95
   %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_open, i32 noundef 3863, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.89, ptr noundef %1, ptr noundef %51) #7
   br label %57
 
@@ -6846,7 +6846,7 @@ define internal fastcc ptr @H5VL__file_open(ptr noundef readonly captures(none) 
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %16 = load ptr, ptr %15, align 8, !tbaa !95
+  %16 = load ptr, ptr %15, align 8, !tbaa !96
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -6863,7 +6863,7 @@ define internal fastcc ptr @H5VL__file_open(ptr noundef readonly captures(none) 
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !95
+  %26 = load ptr, ptr %15, align 8, !tbaa !96
   %27 = call ptr %26(ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -6921,7 +6921,7 @@ define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, 
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !93
+  %18 = load i64, ptr %17, align 8, !tbaa !94
   %19 = tail call ptr @H5I_object_verify(i64 noundef %18, i32 noundef 11) #7
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %25
@@ -6966,14 +6966,14 @@ define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, 
   br label %61
 
 46:                                               ; preds = %39
-  store i32 2, ptr %4, align 8, !tbaa !96
-  %47 = load ptr, ptr %2, align 8, !tbaa !90
+  store i32 2, ptr %4, align 8, !tbaa !97
+  %47 = load ptr, ptr %2, align 8, !tbaa !91
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %47, ptr %48, align 8, !tbaa !98
+  store ptr %47, ptr %48, align 8, !tbaa !99
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %26, ptr %49, align 8, !tbaa !98
+  store i64 %26, ptr %49, align 8, !tbaa !99
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %5, ptr %50, align 8, !tbaa !98
+  store ptr %5, ptr %50, align 8, !tbaa !99
   call void @H5E_pause_stack() #7
   %51 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !3
   %52 = call i32 @H5VL_file_specific(ptr noundef null, ptr noundef nonnull %4, i64 noundef %51, ptr noundef null)
@@ -6985,9 +6985,9 @@ define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, 
   br i1 %or.cond, label %56, label %61
 
 56:                                               ; preds = %46
-  store i64 %26, ptr %17, align 8, !tbaa !93
+  store i64 %26, ptr %17, align 8, !tbaa !94
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %1, ptr %57, align 8, !tbaa !92
+  store ptr %1, ptr %57, align 8, !tbaa !93
   br label %61
 
 .thread41:                                        ; preds = %12
@@ -7060,7 +7060,7 @@ define ptr @H5VLfile_open(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 no
   br label %29
 
 20:                                               ; preds = %13
-  %21 = load ptr, ptr %6, align 8, !tbaa !88
+  %21 = load ptr, ptr %6, align 8, !tbaa !89
   %22 = load ptr, ptr %21, align 8, !tbaa !7
   %23 = call fastcc ptr @H5VL__file_open(ptr noundef %22, ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4)
   %24 = icmp eq ptr %23, null
@@ -7174,7 +7174,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_get(ptr nounde
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %15 = load ptr, ptr %14, align 8, !tbaa !99
+  %15 = load ptr, ptr %14, align 8, !tbaa !100
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -7191,7 +7191,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_get(ptr nounde
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !99
+  %25 = load ptr, ptr %14, align 8, !tbaa !100
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -7303,7 +7303,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   br i1 %20, label %21, label %.thread49, !prof !37
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr %1, align 8, !tbaa !96
+  %22 = load i32, ptr %1, align 8, !tbaa !97
   %23 = and i32 %22, -2
   %switch.not = icmp eq i32 %23, 2
   br i1 %switch.not, label %24, label %38
@@ -7311,7 +7311,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   %.024.in = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.024 = load i64, ptr %.024.in, align 8, !tbaa !98
+  %.024 = load i64, ptr %.024.in, align 8, !tbaa !99
   %25 = tail call ptr @H5I_object(i64 noundef %.024) #7
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %31
@@ -7355,7 +7355,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   br label %51
 
 48:                                               ; preds = %31
-  %49 = load ptr, ptr %5, align 8, !tbaa !88
+  %49 = load ptr, ptr %5, align 8, !tbaa !89
   %50 = load ptr, ptr %49, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   %.not = icmp eq ptr %0, null
@@ -7412,7 +7412,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_specific(ptr n
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %15 = load ptr, ptr %14, align 8, !tbaa !100
+  %15 = load ptr, ptr %14, align 8, !tbaa !101
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -7429,7 +7429,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_specific(ptr n
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !100
+  %25 = load ptr, ptr %14, align 8, !tbaa !101
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -7585,7 +7585,7 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__file_optional(ptr noundef 
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %15 = load ptr, ptr %14, align 8, !tbaa !101
+  %15 = load ptr, ptr %14, align 8, !tbaa !102
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -7602,7 +7602,7 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__file_optional(ptr noundef 
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !101
+  %25 = load ptr, ptr %14, align 8, !tbaa !102
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -7886,7 +7886,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_close(ptr noun
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %14 = load ptr, ptr %13, align 8, !tbaa !102
+  %14 = load ptr, ptr %13, align 8, !tbaa !103
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -7903,7 +7903,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_close(ptr noun
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !102
+  %24 = load ptr, ptr %13, align 8, !tbaa !103
   %25 = call i32 %24(ptr noundef %0, i64 noundef %2, ptr noundef %3) #7
   %26 = call i32 @H5_user_cb_restore(ptr noundef nonnull %5) #7
   %27 = icmp slt i32 %26, 0
@@ -8068,7 +8068,7 @@ define internal fastcc ptr @H5VL__group_create(ptr noundef %0, ptr noundef %1, p
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 360
-  %19 = load ptr, ptr %18, align 8, !tbaa !103
+  %19 = load ptr, ptr %18, align 8, !tbaa !104
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %25
 
@@ -8085,7 +8085,7 @@ define internal fastcc ptr @H5VL__group_create(ptr noundef %0, ptr noundef %1, p
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %18, align 8, !tbaa !103
+  %29 = load ptr, ptr %18, align 8, !tbaa !104
   %30 = call ptr %29(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #7
   %31 = call i32 @H5_user_cb_restore(ptr noundef nonnull %10) #7
   %32 = icmp slt i32 %31, 0
@@ -8250,7 +8250,7 @@ define internal fastcc ptr @H5VL__group_open(ptr noundef %0, ptr noundef %1, ptr
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 368
-  %17 = load ptr, ptr %16, align 8, !tbaa !104
+  %17 = load ptr, ptr %16, align 8, !tbaa !105
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %23
 
@@ -8267,7 +8267,7 @@ define internal fastcc ptr @H5VL__group_open(ptr noundef %0, ptr noundef %1, ptr
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %16, align 8, !tbaa !104
+  %27 = load ptr, ptr %16, align 8, !tbaa !105
   %28 = call ptr %27(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #7
   %29 = call i32 @H5_user_cb_restore(ptr noundef nonnull %8) #7
   %30 = icmp slt i32 %29, 0
@@ -8433,7 +8433,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_get(ptr nound
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %15 = load ptr, ptr %14, align 8, !tbaa !105
+  %15 = load ptr, ptr %14, align 8, !tbaa !106
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -8450,7 +8450,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_get(ptr nound
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !105
+  %25 = load ptr, ptr %14, align 8, !tbaa !106
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -8616,7 +8616,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_specific(ptr 
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %15 = load ptr, ptr %14, align 8, !tbaa !106
+  %15 = load ptr, ptr %14, align 8, !tbaa !107
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -8633,7 +8633,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_specific(ptr 
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !106
+  %25 = load ptr, ptr %14, align 8, !tbaa !107
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -8798,7 +8798,7 @@ define internal i32 @H5VL__group_optional(ptr noundef %0, ptr noundef readonly c
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  %15 = load ptr, ptr %14, align 8, !tbaa !107
+  %15 = load ptr, ptr %14, align 8, !tbaa !108
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -8815,7 +8815,7 @@ define internal i32 @H5VL__group_optional(ptr noundef %0, ptr noundef readonly c
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !107
+  %25 = load ptr, ptr %14, align 8, !tbaa !108
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -9099,7 +9099,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_close(ptr nou
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %14 = load ptr, ptr %13, align 8, !tbaa !108
+  %14 = load ptr, ptr %13, align 8, !tbaa !109
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -9116,7 +9116,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_close(ptr nou
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !108
+  %24 = load ptr, ptr %13, align 8, !tbaa !109
   %25 = call i32 %24(ptr noundef %0, i64 noundef %2, ptr noundef %3) #7
   %26 = call i32 @H5_user_cb_restore(ptr noundef nonnull %5) #7
   %27 = icmp slt i32 %26, 0
@@ -9229,7 +9229,7 @@ define range(i32 -1, 1) i32 @H5VL_link_create(ptr noundef %0, ptr noundef readon
   br i1 %23, label %24, label %58, !prof !37
 
 24:                                               ; preds = %21
-  %25 = load i32, ptr %0, align 8, !tbaa !109
+  %25 = load i32, ptr %0, align 8, !tbaa !110
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %31
 
@@ -9242,7 +9242,7 @@ define range(i32 -1, 1) i32 @H5VL_link_create(ptr noundef %0, ptr noundef readon
 
 31:                                               ; preds = %27, %24
   %storemerge.in = phi ptr [ %1, %24 ], [ %spec.select, %27 ]
-  %storemerge = load ptr, ptr %storemerge.in, align 8, !tbaa !98
+  %storemerge = load ptr, ptr %storemerge.in, align 8, !tbaa !99
   store ptr %storemerge, ptr %8, align 8, !tbaa !55
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !57
@@ -9303,7 +9303,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_create(ptr nou
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 408
-  %18 = load ptr, ptr %17, align 8, !tbaa !111
+  %18 = load ptr, ptr %17, align 8, !tbaa !112
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %24
 
@@ -9320,7 +9320,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_create(ptr nou
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %17, align 8, !tbaa !111
+  %28 = load ptr, ptr %17, align 8, !tbaa !112
   %29 = call i32 %28(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #7
   %30 = call i32 @H5_user_cb_restore(ptr noundef nonnull %9) #7
   %31 = icmp slt i32 %30, 0
@@ -9488,7 +9488,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_copy(ptr nound
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 416
-  %19 = load ptr, ptr %18, align 8, !tbaa !112
+  %19 = load ptr, ptr %18, align 8, !tbaa !113
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %25
 
@@ -9505,7 +9505,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_copy(ptr nound
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %18, align 8, !tbaa !112
+  %29 = load ptr, ptr %18, align 8, !tbaa !113
   %30 = call i32 %29(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #7
   %31 = call i32 @H5_user_cb_restore(ptr noundef nonnull %10) #7
   %32 = icmp slt i32 %31, 0
@@ -9673,7 +9673,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_move(ptr nound
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 424
-  %19 = load ptr, ptr %18, align 8, !tbaa !113
+  %19 = load ptr, ptr %18, align 8, !tbaa !114
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %25
 
@@ -9690,7 +9690,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_move(ptr nound
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %18, align 8, !tbaa !113
+  %29 = load ptr, ptr %18, align 8, !tbaa !114
   %30 = call i32 %29(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #7
   %31 = call i32 @H5_user_cb_restore(ptr noundef nonnull %10) #7
   %32 = icmp slt i32 %31, 0
@@ -9846,7 +9846,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_get(ptr nounde
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 432
-  %16 = load ptr, ptr %15, align 8, !tbaa !114
+  %16 = load ptr, ptr %15, align 8, !tbaa !115
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -9863,7 +9863,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_get(ptr nounde
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !114
+  %26 = load ptr, ptr %15, align 8, !tbaa !115
   %27 = call i32 %26(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -10028,7 +10028,7 @@ define internal fastcc i32 @H5VL__link_specific(ptr noundef %0, ptr noundef %1, 
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 440
-  %16 = load ptr, ptr %15, align 8, !tbaa !115
+  %16 = load ptr, ptr %15, align 8, !tbaa !116
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -10045,7 +10045,7 @@ define internal fastcc i32 @H5VL__link_specific(ptr noundef %0, ptr noundef %1, 
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !115
+  %26 = load ptr, ptr %15, align 8, !tbaa !116
   %27 = call i32 %26(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -10211,7 +10211,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_optional(ptr n
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %16 = load ptr, ptr %15, align 8, !tbaa !116
+  %16 = load ptr, ptr %15, align 8, !tbaa !117
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -10228,7 +10228,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_optional(ptr n
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !116
+  %26 = load ptr, ptr %15, align 8, !tbaa !117
   %27 = call i32 %26(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -10349,7 +10349,7 @@ define range(i32 -1, 1) i32 @H5VLlink_optional_op(ptr noundef %0, ptr noundef %1
   store i8 1, ptr @H5VL_init_g, align 1, !tbaa !33
   %33 = tail call i32 @H5VL__init_package() #7
   %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %39, !prof !117
+  br i1 %34, label %35, label %39, !prof !118
 
 35:                                               ; preds = %32
   store i8 0, ptr @H5VL_init_g, align 1, !tbaa !33
@@ -10450,7 +10450,7 @@ define range(i32 -1, 1) i32 @H5VLlink_optional_op(ptr noundef %0, ptr noundef %1
 
 94:                                               ; preds = %86
   %95 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
-  br i1 %.0, label %.thread52, label %97, !prof !118
+  br i1 %.0, label %.thread52, label %97, !prof !119
 
 .thread52:                                        ; preds = %42, %35, %22, %.thread61, %.thread58, %94
   %.1304556 = phi i32 [ %.029, %94 ], [ -1, %.thread58 ], [ -1, %.thread61 ], [ -1, %22 ], [ -1, %35 ], [ -1, %42 ]
@@ -10559,7 +10559,7 @@ define internal fastcc ptr @H5VL__object_open(ptr noundef %0, ptr noundef %1, pt
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 456
-  %16 = load ptr, ptr %15, align 8, !tbaa !119
+  %16 = load ptr, ptr %15, align 8, !tbaa !120
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -10576,7 +10576,7 @@ define internal fastcc ptr @H5VL__object_open(ptr noundef %0, ptr noundef %1, pt
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !119
+  %26 = load ptr, ptr %15, align 8, !tbaa !120
   %27 = call ptr %26(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -10762,7 +10762,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_copy(ptr nou
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 464
-  %21 = load ptr, ptr %20, align 8, !tbaa !120
+  %21 = load ptr, ptr %20, align 8, !tbaa !121
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %27
 
@@ -10779,7 +10779,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_copy(ptr nou
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %20, align 8, !tbaa !120
+  %31 = load ptr, ptr %20, align 8, !tbaa !121
   %32 = call i32 %31(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10) #7
   %33 = call i32 @H5_user_cb_restore(ptr noundef nonnull %12) #7
   %34 = icmp slt i32 %33, 0
@@ -10947,7 +10947,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_get(ptr noun
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  %16 = load ptr, ptr %15, align 8, !tbaa !121
+  %16 = load ptr, ptr %15, align 8, !tbaa !122
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -10964,7 +10964,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_get(ptr noun
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !121
+  %26 = load ptr, ptr %15, align 8, !tbaa !122
   %27 = call i32 %26(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -11129,7 +11129,7 @@ define internal fastcc i32 @H5VL__object_specific(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %16 = load ptr, ptr %15, align 8, !tbaa !122
+  %16 = load ptr, ptr %15, align 8, !tbaa !123
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -11146,7 +11146,7 @@ define internal fastcc i32 @H5VL__object_specific(ptr noundef %0, ptr noundef %1
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !122
+  %26 = load ptr, ptr %15, align 8, !tbaa !123
   %27 = call i32 %26(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -11312,7 +11312,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_optional(ptr
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 488
-  %16 = load ptr, ptr %15, align 8, !tbaa !123
+  %16 = load ptr, ptr %15, align 8, !tbaa !124
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -11329,7 +11329,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_optional(ptr
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !123
+  %26 = load ptr, ptr %15, align 8, !tbaa !124
   %27 = call i32 %26(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -11450,7 +11450,7 @@ define range(i32 -1, 1) i32 @H5VLobject_optional_op(ptr noundef %0, ptr noundef 
   store i8 1, ptr @H5VL_init_g, align 1, !tbaa !33
   %33 = tail call i32 @H5VL__init_package() #7
   %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %39, !prof !117
+  br i1 %34, label %35, label %39, !prof !118
 
 35:                                               ; preds = %32
   store i8 0, ptr @H5VL_init_g, align 1, !tbaa !33
@@ -11551,7 +11551,7 @@ define range(i32 -1, 1) i32 @H5VLobject_optional_op(ptr noundef %0, ptr noundef 
 
 94:                                               ; preds = %86
   %95 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
-  br i1 %.0, label %.thread52, label %97, !prof !118
+  br i1 %.0, label %.thread52, label %97, !prof !119
 
 .thread52:                                        ; preds = %42, %35, %22, %.thread61, %.thread58, %94
   %.1304556 = phi i32 [ %.029, %94 ], [ -1, %.thread58 ], [ -1, %.thread61 ], [ -1, %22 ], [ -1, %35 ], [ -1, %42 ]
@@ -11659,7 +11659,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_get_conn
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 496
-  %14 = load ptr, ptr %13, align 8, !tbaa !124
+  %14 = load ptr, ptr %13, align 8, !tbaa !125
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -11676,7 +11676,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_get_conn
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !124
+  %24 = load ptr, ptr %13, align 8, !tbaa !125
   %25 = call i32 %24(ptr noundef %0, i32 noundef %2, ptr noundef %3) #7
   %26 = call i32 @H5_user_cb_restore(ptr noundef nonnull %5) #7
   %27 = icmp slt i32 %26, 0
@@ -11799,7 +11799,7 @@ define range(i32 -1, -2147483648) i32 @H5VL_introspect_get_cap_flags(ptr noundef
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 504
-  %22 = load ptr, ptr %21, align 8, !tbaa !125
+  %22 = load ptr, ptr %21, align 8, !tbaa !126
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %28
 
@@ -11816,7 +11816,7 @@ define range(i32 -1, -2147483648) i32 @H5VL_introspect_get_cap_flags(ptr noundef
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %21, align 8, !tbaa !125
+  %32 = load ptr, ptr %21, align 8, !tbaa !126
   %33 = call i32 %32(ptr noundef %0, ptr noundef %2) #7
   %34 = call i32 @H5_user_cb_restore(ptr noundef nonnull %4) #7
   %35 = icmp slt i32 %34, 0
@@ -11982,7 +11982,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_opt_quer
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  %15 = load ptr, ptr %14, align 8, !tbaa !126
+  %15 = load ptr, ptr %14, align 8, !tbaa !127
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -11999,7 +11999,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_opt_quer
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !126
+  %25 = load ptr, ptr %14, align 8, !tbaa !127
   %26 = call i32 %25(ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -12155,7 +12155,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_wait(ptr no
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %14 = load ptr, ptr %13, align 8, !tbaa !127
+  %14 = load ptr, ptr %13, align 8, !tbaa !128
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -12172,7 +12172,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_wait(ptr no
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !127
+  %24 = load ptr, ptr %13, align 8, !tbaa !128
   %25 = call i32 %24(ptr noundef %0, i64 noundef %2, ptr noundef %3) #7
   %26 = call i32 @H5_user_cb_restore(ptr noundef nonnull %5) #7
   %27 = icmp slt i32 %26, 0
@@ -12328,7 +12328,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_notify(ptr 
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %14 = load ptr, ptr %13, align 8, !tbaa !128
+  %14 = load ptr, ptr %13, align 8, !tbaa !129
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -12345,7 +12345,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_notify(ptr 
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !128
+  %24 = load ptr, ptr %13, align 8, !tbaa !129
   %25 = call i32 %24(ptr noundef %0, ptr noundef %2, ptr noundef %3) #7
   %26 = call i32 @H5_user_cb_restore(ptr noundef nonnull %5) #7
   %27 = icmp slt i32 %26, 0
@@ -12501,7 +12501,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_cancel(ptr 
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  %13 = load ptr, ptr %12, align 8, !tbaa !129
+  %13 = load ptr, ptr %12, align 8, !tbaa !130
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %19
 
@@ -12518,7 +12518,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_cancel(ptr 
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %12, align 8, !tbaa !129
+  %23 = load ptr, ptr %12, align 8, !tbaa !130
   %24 = call i32 %23(ptr noundef %0, ptr noundef %2) #7
   %25 = call i32 @H5_user_cb_restore(ptr noundef nonnull %4) #7
   %26 = icmp slt i32 %25, 0
@@ -12674,7 +12674,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_specific(pt
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %13 = load ptr, ptr %12, align 8, !tbaa !130
+  %13 = load ptr, ptr %12, align 8, !tbaa !131
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %19
 
@@ -12691,7 +12691,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_specific(pt
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %12, align 8, !tbaa !130
+  %23 = load ptr, ptr %12, align 8, !tbaa !131
   %24 = call i32 %23(ptr noundef %0, ptr noundef %2) #7
   %25 = call i32 @H5_user_cb_restore(ptr noundef nonnull %4) #7
   %26 = icmp slt i32 %25, 0
@@ -12847,7 +12847,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_optional(pt
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 552
-  %13 = load ptr, ptr %12, align 8, !tbaa !131
+  %13 = load ptr, ptr %12, align 8, !tbaa !132
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %19
 
@@ -12864,7 +12864,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_optional(pt
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %12, align 8, !tbaa !131
+  %23 = load ptr, ptr %12, align 8, !tbaa !132
   %24 = call i32 %23(ptr noundef %0, ptr noundef %2) #7
   %25 = call i32 @H5_user_cb_restore(ptr noundef nonnull %4) #7
   %26 = icmp slt i32 %25, 0
@@ -13141,7 +13141,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_free(ptr no
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %12 = load ptr, ptr %11, align 8, !tbaa !132
+  %12 = load ptr, ptr %11, align 8, !tbaa !133
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %18
 
@@ -13158,7 +13158,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_free(ptr no
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %11, align 8, !tbaa !132
+  %22 = load ptr, ptr %11, align 8, !tbaa !133
   %23 = call i32 %22(ptr noundef %0) #7
   %24 = call i32 @H5_user_cb_restore(ptr noundef nonnull %3) #7
   %25 = icmp slt i32 %24, 0
@@ -13291,7 +13291,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_put(ptr nounde
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  %16 = load ptr, ptr %15, align 8, !tbaa !133
+  %16 = load ptr, ptr %15, align 8, !tbaa !134
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -13308,7 +13308,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_put(ptr nounde
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !133
+  %26 = load ptr, ptr %15, align 8, !tbaa !134
   %27 = call i32 %26(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -13451,7 +13451,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_get(ptr nounde
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  %16 = load ptr, ptr %15, align 8, !tbaa !134
+  %16 = load ptr, ptr %15, align 8, !tbaa !135
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -13468,7 +13468,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_get(ptr nounde
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %15, align 8, !tbaa !134
+  %26 = load ptr, ptr %15, align 8, !tbaa !135
   %27 = call i32 %26(ptr noundef %0, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #7
   %29 = icmp slt i32 %28, 0
@@ -13611,7 +13611,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_specific(ptr n
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 584
-  %14 = load ptr, ptr %13, align 8, !tbaa !135
+  %14 = load ptr, ptr %13, align 8, !tbaa !136
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -13628,7 +13628,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_specific(ptr n
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !135
+  %24 = load ptr, ptr %13, align 8, !tbaa !136
   %25 = call i32 %24(ptr noundef %0, ptr noundef %2, ptr noundef %3) #7
   %26 = call i32 @H5_user_cb_restore(ptr noundef nonnull %5) #7
   %27 = icmp slt i32 %26, 0
@@ -13771,7 +13771,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_optional(ptr n
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 592
-  %14 = load ptr, ptr %13, align 8, !tbaa !136
+  %14 = load ptr, ptr %13, align 8, !tbaa !137
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -13788,7 +13788,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_optional(ptr n
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !136
+  %24 = load ptr, ptr %13, align 8, !tbaa !137
   %25 = call i32 %24(ptr noundef %0, ptr noundef %2, ptr noundef %3) #7
   %26 = call i32 @H5_user_cb_restore(ptr noundef nonnull %5) #7
   %27 = icmp slt i32 %26, 0
@@ -13959,7 +13959,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_cmp(ptr nound
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 600
-  %25 = load ptr, ptr %24, align 8, !tbaa !137
+  %25 = load ptr, ptr %24, align 8, !tbaa !138
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %43, label %26
 
@@ -13970,7 +13970,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_cmp(ptr nound
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %24, align 8, !tbaa !137
+  %30 = load ptr, ptr %24, align 8, !tbaa !138
   %31 = call i32 %30(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4) #7
   %32 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %33 = icmp slt i32 %32, 0
@@ -14128,7 +14128,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_to_str(ptr no
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 608
-  %15 = load ptr, ptr %14, align 8, !tbaa !138
+  %15 = load ptr, ptr %14, align 8, !tbaa !139
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %33, label %16
 
@@ -14139,7 +14139,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_to_str(ptr no
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr %14, align 8, !tbaa !138
+  %20 = load ptr, ptr %14, align 8, !tbaa !139
   %21 = call i32 %20(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4) #7
   %22 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
@@ -14306,7 +14306,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_from_str(ptr 
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 616
-  %15 = load ptr, ptr %14, align 8, !tbaa !139
+  %15 = load ptr, ptr %14, align 8, !tbaa !140
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %33, label %16
 
@@ -14317,7 +14317,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_from_str(ptr 
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr %14, align 8, !tbaa !139
+  %20 = load ptr, ptr %14, align 8, !tbaa !140
   %21 = call i32 %20(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4) #7
   %22 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
@@ -14344,7 +14344,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_from_str(ptr 
   br label %34
 
 33:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !140
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !141
   br label %34
 
 34:                                               ; preds = %.thread, %27, %5, %33, %29
@@ -14506,7 +14506,7 @@ define internal fastcc i32 @H5VL__optional(ptr noundef %0, ptr noundef readonly 
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 624
-  %15 = load ptr, ptr %14, align 8, !tbaa !141
+  %15 = load ptr, ptr %14, align 8, !tbaa !142
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
@@ -14523,7 +14523,7 @@ define internal fastcc i32 @H5VL__optional(ptr noundef %0, ptr noundef readonly 
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %14, align 8, !tbaa !141
+  %25 = load ptr, ptr %14, align 8, !tbaa !142
   %26 = call i32 %25(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
@@ -14695,72 +14695,73 @@ attributes #9 = { nounwind willreturn memory(read) }
 !70 = !{!13, !10, i64 208}
 !71 = !{!56, !4, i64 16}
 !72 = !{!13, !10, i64 216}
-!73 = distinct !{!73, !74}
+!73 = distinct !{!73, !74, !75}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!13, !10, i64 224}
-!76 = distinct !{!76, !74}
-!77 = !{!13, !10, i64 232}
-!78 = !{!13, !10, i64 240}
-!79 = !{!13, !10, i64 248}
-!80 = !{!13, !10, i64 256}
-!81 = !{!13, !10, i64 264}
-!82 = !{!13, !10, i64 272}
-!83 = !{!13, !10, i64 280}
-!84 = !{!13, !10, i64 288}
-!85 = !{!13, !10, i64 296}
-!86 = !{!13, !10, i64 304}
-!87 = !{!13, !10, i64 312}
-!88 = !{!89, !11, i64 0}
-!89 = !{!"H5VL_connector_prop_t", !11, i64 0, !10, i64 8}
-!90 = !{!91, !15, i64 0}
-!91 = !{!"H5VL_file_open_find_connector_t", !15, i64 0, !9, i64 8, !4, i64 16}
-!92 = !{!91, !9, i64 8}
-!93 = !{!91, !4, i64 16}
-!94 = !{!13, !15, i64 8}
-!95 = !{!13, !10, i64 320}
-!96 = !{!97, !14, i64 0}
-!97 = !{!"H5VL_file_specific_args_t", !14, i64 0, !5, i64 8}
-!98 = !{!5, !5, i64 0}
-!99 = !{!13, !10, i64 328}
-!100 = !{!13, !10, i64 336}
-!101 = !{!13, !10, i64 344}
-!102 = !{!13, !10, i64 352}
-!103 = !{!13, !10, i64 360}
-!104 = !{!13, !10, i64 368}
-!105 = !{!13, !10, i64 376}
-!106 = !{!13, !10, i64 384}
-!107 = !{!13, !10, i64 392}
-!108 = !{!13, !10, i64 400}
-!109 = !{!110, !14, i64 0}
-!110 = !{!"H5VL_link_create_args_t", !14, i64 0, !5, i64 8}
-!111 = !{!13, !10, i64 408}
-!112 = !{!13, !10, i64 416}
-!113 = !{!13, !10, i64 424}
-!114 = !{!13, !10, i64 432}
-!115 = !{!13, !10, i64 440}
-!116 = !{!13, !10, i64 448}
-!117 = !{!"branch_weights", i32 2146410, i32 2145337238}
-!118 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!119 = !{!13, !10, i64 456}
-!120 = !{!13, !10, i64 464}
-!121 = !{!13, !10, i64 472}
-!122 = !{!13, !10, i64 480}
-!123 = !{!13, !10, i64 488}
-!124 = !{!13, !10, i64 496}
-!125 = !{!13, !10, i64 504}
-!126 = !{!13, !10, i64 512}
-!127 = !{!13, !10, i64 520}
-!128 = !{!13, !10, i64 528}
-!129 = !{!13, !10, i64 536}
-!130 = !{!13, !10, i64 544}
-!131 = !{!13, !10, i64 552}
-!132 = !{!13, !10, i64 560}
-!133 = !{!13, !10, i64 568}
-!134 = !{!13, !10, i64 576}
-!135 = !{!13, !10, i64 584}
-!136 = !{!13, !10, i64 592}
-!137 = !{!13, !10, i64 600}
-!138 = !{!13, !10, i64 608}
-!139 = !{!13, !10, i64 616}
-!140 = !{i64 0, i64 16, !98}
-!141 = !{!13, !10, i64 624}
+!75 = !{!"llvm.loop.estimated_trip_count"}
+!76 = !{!13, !10, i64 224}
+!77 = distinct !{!77, !74, !75}
+!78 = !{!13, !10, i64 232}
+!79 = !{!13, !10, i64 240}
+!80 = !{!13, !10, i64 248}
+!81 = !{!13, !10, i64 256}
+!82 = !{!13, !10, i64 264}
+!83 = !{!13, !10, i64 272}
+!84 = !{!13, !10, i64 280}
+!85 = !{!13, !10, i64 288}
+!86 = !{!13, !10, i64 296}
+!87 = !{!13, !10, i64 304}
+!88 = !{!13, !10, i64 312}
+!89 = !{!90, !11, i64 0}
+!90 = !{!"H5VL_connector_prop_t", !11, i64 0, !10, i64 8}
+!91 = !{!92, !15, i64 0}
+!92 = !{!"H5VL_file_open_find_connector_t", !15, i64 0, !9, i64 8, !4, i64 16}
+!93 = !{!92, !9, i64 8}
+!94 = !{!92, !4, i64 16}
+!95 = !{!13, !15, i64 8}
+!96 = !{!13, !10, i64 320}
+!97 = !{!98, !14, i64 0}
+!98 = !{!"H5VL_file_specific_args_t", !14, i64 0, !5, i64 8}
+!99 = !{!5, !5, i64 0}
+!100 = !{!13, !10, i64 328}
+!101 = !{!13, !10, i64 336}
+!102 = !{!13, !10, i64 344}
+!103 = !{!13, !10, i64 352}
+!104 = !{!13, !10, i64 360}
+!105 = !{!13, !10, i64 368}
+!106 = !{!13, !10, i64 376}
+!107 = !{!13, !10, i64 384}
+!108 = !{!13, !10, i64 392}
+!109 = !{!13, !10, i64 400}
+!110 = !{!111, !14, i64 0}
+!111 = !{!"H5VL_link_create_args_t", !14, i64 0, !5, i64 8}
+!112 = !{!13, !10, i64 408}
+!113 = !{!13, !10, i64 416}
+!114 = !{!13, !10, i64 424}
+!115 = !{!13, !10, i64 432}
+!116 = !{!13, !10, i64 440}
+!117 = !{!13, !10, i64 448}
+!118 = !{!"branch_weights", i32 2146410, i32 2145337238}
+!119 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!120 = !{!13, !10, i64 456}
+!121 = !{!13, !10, i64 464}
+!122 = !{!13, !10, i64 472}
+!123 = !{!13, !10, i64 480}
+!124 = !{!13, !10, i64 488}
+!125 = !{!13, !10, i64 496}
+!126 = !{!13, !10, i64 504}
+!127 = !{!13, !10, i64 512}
+!128 = !{!13, !10, i64 520}
+!129 = !{!13, !10, i64 528}
+!130 = !{!13, !10, i64 536}
+!131 = !{!13, !10, i64 544}
+!132 = !{!13, !10, i64 552}
+!133 = !{!13, !10, i64 560}
+!134 = !{!13, !10, i64 568}
+!135 = !{!13, !10, i64 576}
+!136 = !{!13, !10, i64 584}
+!137 = !{!13, !10, i64 592}
+!138 = !{!13, !10, i64 600}
+!139 = !{!13, !10, i64 608}
+!140 = !{!13, !10, i64 616}
+!141 = !{i64 0, i64 16, !99}
+!142 = !{!13, !10, i64 624}

@@ -90,7 +90,7 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_derive_public_key(ptr noundef %0, p
   br i1 %18, label %16, label %19, !llvm.loop !6
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !8
+  %20 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !9
   call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %7, ptr noundef %20, ptr noundef nonnull %6) #5
   call void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef %1, ptr noundef nonnull %7) #5
   call void @ossl_curve448_scalar_destroy(ptr noundef nonnull %6) #5
@@ -206,7 +206,7 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %18) #5
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %17, ptr noundef nonnull %12) #5
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %17, ptr noundef nonnull %17) #5
-  %42 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !8
+  %42 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !9
   call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %18, ptr noundef %42, ptr noundef nonnull %17) #5
   call void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef nonnull %13, ptr noundef nonnull %18) #5
   call void @ossl_curve448_point_destroy(ptr noundef nonnull %18) #5
@@ -368,7 +368,7 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
 15:                                               ; preds = %23
   %16 = add nsw i32 %.03547, -1
   %.not48 = icmp eq i32 %.03547, 0
-  br i1 %.not48, label %.thread, label %17, !llvm.loop !11
+  br i1 %.not48, label %.thread, label %17, !llvm.loop !12
 
 17:                                               ; preds = %9, %15
   %.03547 = phi i32 [ 56, %9 ], [ %16, %15 ]
@@ -529,9 +529,10 @@ attributes #5 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"p1 _ZTS22curve448_precomputed_s", !10, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS22curve448_precomputed_s", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = distinct !{!12, !7, !8}

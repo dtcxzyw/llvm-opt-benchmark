@@ -233,7 +233,7 @@ define range(i32 0, 2) i32 @BN_usub(ptr noundef %0, ptr noundef readonly capture
   %28 = and i64 %.03542, 1
   %29 = select i1 %27, i64 %28, i64 0
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !17
 
 .lr.ph48:                                         ; preds = %.preheader, %33
   %.147 = phi ptr [ %30, %33 ], [ %.034.lcssa, %.preheader ]
@@ -246,7 +246,7 @@ define range(i32 0, 2) i32 @BN_usub(ptr noundef %0, ptr noundef readonly capture
 33:                                               ; preds = %.lr.ph48
   %34 = add nsw i32 %.03646, -1
   %.not39 = icmp eq i32 %34, 0
-  br i1 %.not39, label %.critedge, label %.lr.ph48, !llvm.loop !17
+  br i1 %.not39, label %.critedge, label %.lr.ph48, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph48, %33, %.preheader
   %.036.lcssa = phi i32 [ 0, %.preheader ], [ 0, %33 ], [ %.03646, %.lr.ph48 ]
@@ -398,7 +398,8 @@ attributes #2 = { nounwind }
 !11 = !{!4, !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}

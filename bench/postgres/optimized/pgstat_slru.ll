@@ -269,7 +269,7 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush_cb(i1 noundef zeroext %0)
   store i64 %46, ptr %44, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.preheader, label %11, !llvm.loop !6
+  br i1 %exitcond.not, label %.preheader.preheader, label %11, !llvm.loop !7
 
 .preheader.preheader:                             ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) @pending_SLRUStats, i8 0, i64 512, i1 false)
@@ -319,7 +319,7 @@ define dso_local void @pgstat_slru_reset_all_cb(i64 noundef %0) local_unnamed_ad
   tail call void @LWLockRelease(ptr noundef nonnull %5) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !7
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -354,7 +354,8 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

@@ -248,7 +248,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %48 = phi i64 [ %.promoted.i, %.lr.ph71.i ], [ %.pre-phi.i, %63 ]
   %.15069.i = phi i64 [ 0, %.lr.ph71.i ], [ %70, %63 ]
   %49 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.15069.i, i32 1
-  %50 = load i64, ptr %49, align 8, !tbaa !33
+  %50 = load i64, ptr %49, align 8, !tbaa !34
   %51 = add i64 %50, %48
   %52 = udiv i64 %51, 10
   %53 = icmp ugt i64 %52, %24
@@ -281,11 +281,11 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %68 = getelementptr inbounds nuw [1024 x %struct.pkt_info_st], ptr %22, i64 0, i64 %67
   store i64 %50, ptr %68, align 8, !tbaa !27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i64 %.sroa.02.0, ptr %69, align 8, !tbaa !34
+  store i64 %.sroa.02.0, ptr %69, align 8, !tbaa !35
   store i64 %.pre-phi.i, ptr %44, align 8, !tbaa !30
   %70 = add nuw nsw i64 %.15069.i, 1
   %exitcond77.not.i = icmp eq i64 %70, %spec.store.select.i
-  br i1 %exitcond77.not.i, label %bandwidth_limit.exit.thread, label %45, !llvm.loop !35
+  br i1 %exitcond77.not.i, label %bandwidth_limit.exit.thread, label %45, !llvm.loop !36
 
 bandwidth_limit.exit:                             ; preds = %45, %21, %._crit_edge.i
   %.0.i = phi i64 [ %3, %21 ], [ %spec.store.select.i, %._crit_edge.i ], [ %.15069.i, %45 ]
@@ -293,7 +293,7 @@ bandwidth_limit.exit:                             ; preds = %45, %21, %._crit_ed
   br i1 %71, label %72, label %bandwidth_limit.exit.thread
 
 72:                                               ; preds = %bandwidth_limit.exit
-  store i64 0, ptr %5, align 8, !tbaa !34
+  store i64 0, ptr %5, align 8, !tbaa !35
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 191, ptr noundef nonnull @__func__.noisy_dgram_sendmmsg) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 112, ptr noundef null) #3
@@ -339,14 +339,14 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
-  %16 = load i64, ptr %12, align 8, !tbaa !33
+  %16 = load i64, ptr %12, align 8, !tbaa !34
   %17 = tail call i32 @test_size_t_le(ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %16, i64 noundef 1472) #3
   %.not107 = icmp eq i32 %17, 0
   br i1 %.not107, label %.thread126, label %22
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.079145, i32 1
-  %20 = load i64, ptr %19, align 8, !tbaa !33
+  %20 = load i64, ptr %19, align 8, !tbaa !34
   %21 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 331, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4, i64 noundef %20, i64 noundef %.088144) #3
   %.not106 = icmp eq i32 %21, 0
   br i1 %.not106, label %.thread126, label %22
@@ -355,7 +355,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %.189 = phi i64 [ %16, %15 ], [ %.088144, %18 ]
   %23 = add nuw i64 %.079145, 1
   %exitcond.not = icmp eq i64 %23, %3
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %22, %.preheader138
   %24 = tail call i32 @BIO_recvmmsg(ptr noundef %7, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #3
@@ -380,7 +380,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
 
 34:                                               ; preds = %32, %28
   %.sroa.02.0 = phi i64 [ %31, %28 ], [ %33, %32 ]
-  %35 = load i64, ptr %5, align 8, !tbaa !34
+  %35 = load i64, ptr %5, align 8, !tbaa !35
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %..i.i = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.02.0, i64 10000000)
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 16472
@@ -441,7 +441,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %62 = phi i64 [ %.promoted.i, %.lr.ph71.i ], [ %.pre-phi.i, %77 ]
   %.15069.i = phi i64 [ 0, %.lr.ph71.i ], [ %84, %77 ]
   %63 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.15069.i, i32 1
-  %64 = load i64, ptr %63, align 8, !tbaa !33
+  %64 = load i64, ptr %63, align 8, !tbaa !34
   %65 = add i64 %64, %62
   %66 = udiv i64 %65, 10
   %67 = icmp ugt i64 %66, %38
@@ -474,11 +474,11 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %82 = getelementptr inbounds nuw [1024 x %struct.pkt_info_st], ptr %36, i64 0, i64 %81
   store i64 %64, ptr %82, align 8, !tbaa !27
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store i64 %.sroa.02.0, ptr %83, align 8, !tbaa !34
+  store i64 %.sroa.02.0, ptr %83, align 8, !tbaa !35
   store i64 %.pre-phi.i, ptr %58, align 8, !tbaa !30
   %84 = add nuw nsw i64 %.15069.i, 1
   %exitcond77.not.i = icmp eq i64 %84, %spec.store.select.i
-  br i1 %exitcond77.not.i, label %bandwidth_limit.exit.thread, label %59, !llvm.loop !35
+  br i1 %exitcond77.not.i, label %bandwidth_limit.exit.thread, label %59, !llvm.loop !36
 
 bandwidth_limit.exit:                             ; preds = %59, %34, %._crit_edge.i
   %.0.i = phi i64 [ %35, %34 ], [ %spec.store.select.i, %._crit_edge.i ], [ %.15069.i, %59 ]
@@ -486,7 +486,7 @@ bandwidth_limit.exit:                             ; preds = %59, %34, %._crit_ed
   br i1 %85, label %.thread130, label %bandwidth_limit.exit.thread
 
 .thread130:                                       ; preds = %bandwidth_limit.exit
-  store i64 0, ptr %5, align 8, !tbaa !34
+  store i64 0, ptr %5, align 8, !tbaa !35
   br label %187
 
 bandwidth_limit.exit.thread:                      ; preds = %77, %bandwidth_limit.exit
@@ -503,7 +503,7 @@ bandwidth_limit.exit.thread:                      ; preds = %77, %bandwidth_limi
   br label %92
 
 .thread132:                                       ; preds = %bandwidth_limit.exit.thread
-  store i64 %.0.i121, ptr %5, align 8, !tbaa !34
+  store i64 %.0.i121, ptr %5, align 8, !tbaa !35
   br label %.thread126
 
 92:                                               ; preds = %.lr.ph154, %180
@@ -511,12 +511,12 @@ bandwidth_limit.exit.thread:                      ; preds = %77, %bandwidth_limi
   %.084151 = phi ptr [ %1, %.lr.ph154 ], [ %182, %180 ]
   %.186150 = phi i64 [ %.0.i121, %.lr.ph154 ], [ %.287, %180 ]
   %.0114149 = phi i64 [ undef, %.lr.ph154 ], [ %.1, %180 ]
-  %93 = load i64, ptr %89, align 8, !tbaa !37
+  %93 = load i64, ptr %89, align 8, !tbaa !38
   %.not98 = icmp eq i64 %93, 0
   br i1 %.not98, label %110, label %94
 
 94:                                               ; preds = %92
-  %95 = load i64, ptr %10, align 8, !tbaa !38
+  %95 = load i64, ptr %10, align 8, !tbaa !39
   %96 = icmp eq i64 %93, %95
   br i1 %96, label %97, label %110
 
@@ -531,7 +531,7 @@ bandwidth_limit.exit.thread:                      ; preds = %77, %bandwidth_limi
 100:                                              ; preds = %.lr.ph147
   %101 = add i64 %.082146, -1
   %102 = icmp ugt i64 %101, %.180152
-  br i1 %102, label %.lr.ph147, label %._crit_edge148, !llvm.loop !39
+  br i1 %102, label %.lr.ph147, label %._crit_edge148, !llvm.loop !40
 
 .lr.ph147:                                        ; preds = %.preheader134, %100
   %.082146 = phi i64 [ %101, %100 ], [ %.186150, %.preheader134 ]
@@ -548,17 +548,17 @@ bandwidth_limit.exit.thread:                      ; preds = %77, %bandwidth_limi
 
 107:                                              ; preds = %._crit_edge148
   %108 = add i64 %.186150, 1
-  store i64 0, ptr %89, align 8, !tbaa !37
+  store i64 0, ptr %89, align 8, !tbaa !38
   br label %180
 
 109:                                              ; preds = %97
-  store i64 0, ptr %89, align 8, !tbaa !37
+  store i64 0, ptr %89, align 8, !tbaa !38
   br label %110
 
 110:                                              ; preds = %109, %94, %92
   %111 = load i32, ptr %86, align 4, !tbaa !16
-  %112 = load ptr, ptr %.084151, align 8, !tbaa !40
-  %113 = load i8, ptr %112, align 1, !tbaa !41
+  %112 = load ptr, ptr %.084151, align 8, !tbaa !41
+  %113 = load i8, ptr %112, align 1, !tbaa !42
   %114 = tail call i32 @test_random() #3
   %115 = urem i32 %114, %111
   %.not.i108 = icmp eq i32 %115, 0
@@ -618,29 +618,29 @@ get_noise.exit:                                   ; preds = %110, %.thread.i, %1
 
 145:                                              ; preds = %get_noise.exit
   %146 = getelementptr inbounds nuw i8, ptr %.084151, i64 8
-  %147 = load i64, ptr %146, align 8, !tbaa !33
+  %147 = load i64, ptr %146, align 8, !tbaa !34
   %148 = icmp eq i16 %.1116, 0
   %149 = icmp ult i64 %147, 2
   %or.cond.i109 = or i1 %148, %149
   br i1 %or.cond.i109, label %flip_bits.exit, label %150
 
 150:                                              ; preds = %145
-  %151 = load ptr, ptr %.084151, align 8, !tbaa !40
+  %151 = load ptr, ptr %.084151, align 8, !tbaa !41
   %152 = add i64 %.2, 2
   %153 = icmp ult i64 %147, %152
   %154 = add i64 %147, -2
   %spec.select.i = select i1 %153, i64 %154, i64 %.2
   %155 = lshr i16 %.1116, 8
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 %spec.select.i
-  %157 = load i8, ptr %156, align 1, !tbaa !41
+  %157 = load i8, ptr %156, align 1, !tbaa !42
   %158 = trunc nuw nsw i16 %155 to i8
   %159 = xor i8 %157, %158
-  store i8 %159, ptr %156, align 1, !tbaa !41
+  store i8 %159, ptr %156, align 1, !tbaa !42
   %160 = getelementptr i8, ptr %156, i64 1
-  %161 = load i8, ptr %160, align 1, !tbaa !41
+  %161 = load i8, ptr %160, align 1, !tbaa !42
   %162 = trunc i16 %.1116 to i8
   %163 = xor i8 %161, %162
-  store i8 %163, ptr %160, align 1, !tbaa !41
+  store i8 %163, ptr %160, align 1, !tbaa !42
   br label %flip_bits.exit
 
 flip_bits.exit:                                   ; preds = %.thread, %145, %150
@@ -649,7 +649,7 @@ flip_bits.exit:                                   ; preds = %.thread, %145, %150
   br i1 %.not100, label %172, label %164
 
 164:                                              ; preds = %flip_bits.exit
-  %165 = load i64, ptr %89, align 8, !tbaa !37
+  %165 = load i64, ptr %89, align 8, !tbaa !38
   %166 = icmp eq i64 %165, 0
   br i1 %166, label %167, label %172
 
@@ -659,9 +659,9 @@ flip_bits.exit:                                   ; preds = %.thread, %145, %150
   br i1 %.not101, label %.thread126, label %169
 
 169:                                              ; preds = %167
-  %170 = load i64, ptr %10, align 8, !tbaa !38
+  %170 = load i64, ptr %10, align 8, !tbaa !39
   %171 = add i64 %170, %.0119
-  store i64 %171, ptr %89, align 8, !tbaa !37
+  store i64 %171, ptr %89, align 8, !tbaa !38
   br label %172
 
 172:                                              ; preds = %169, %164, %flip_bits.exit
@@ -678,7 +678,7 @@ flip_bits.exit:                                   ; preds = %.thread, %145, %150
   %176 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.183
   %177 = tail call i32 @bio_msg_copy(ptr noundef %175, ptr noundef nonnull %176) #3
   %.not103 = icmp eq i32 %177, 0
-  br i1 %.not103, label %.thread126, label %.preheader, !llvm.loop !42
+  br i1 %.not103, label %.thread126, label %.preheader, !llvm.loop !43
 
 178:                                              ; preds = %.preheader
   %179 = add i64 %.186150, -1
@@ -689,14 +689,14 @@ flip_bits.exit:                                   ; preds = %.thread, %145, %150
   %.287 = phi i64 [ %.186150, %172 ], [ %179, %178 ], [ %108, %107 ]
   %181 = add nuw i64 %.180152, 1
   %182 = getelementptr inbounds nuw i8, ptr %.084151, i64 40
-  %183 = load i64, ptr %10, align 8, !tbaa !38
+  %183 = load i64, ptr %10, align 8, !tbaa !39
   %184 = add i64 %183, 1
-  store i64 %184, ptr %10, align 8, !tbaa !38
+  store i64 %184, ptr %10, align 8, !tbaa !39
   %185 = icmp ult i64 %181, %.287
-  br i1 %185, label %92, label %._crit_edge155, !llvm.loop !43
+  br i1 %185, label %92, label %._crit_edge155, !llvm.loop !44
 
 ._crit_edge155:                                   ; preds = %180
-  store i64 %.287, ptr %5, align 8, !tbaa !34
+  store i64 %.287, ptr %5, align 8, !tbaa !35
   %186 = icmp eq i64 %.287, 0
   br i1 %186, label %187, label %.thread126
 
@@ -725,19 +725,19 @@ define internal range(i32 0, 2) i32 @noisy_dgram_new(ptr noundef %0) #0 {
   store i32 5, ptr %5, align 4, !tbaa !16
   %6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1472, ptr noundef nonnull @.str.1, i32 noundef 491) #3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !44
+  store ptr %6, ptr %7, align 8, !tbaa !45
   %8 = tail call ptr @BIO_ADDR_new() #3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %8, ptr %9, align 8, !tbaa !45
+  store ptr %8, ptr %9, align 8, !tbaa !46
   %10 = tail call ptr @BIO_ADDR_new() #3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %10, ptr %11, align 8, !tbaa !46
-  %12 = load ptr, ptr %7, align 8, !tbaa !44
+  store ptr %10, ptr %11, align 8, !tbaa !47
+  %12 = load ptr, ptr %7, align 8, !tbaa !45
   %13 = icmp eq ptr %12, null
   br i1 %13, label %data_free.exit, label %14
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %9, align 8, !tbaa !45
+  %15 = load ptr, ptr %9, align 8, !tbaa !46
   %16 = icmp eq ptr %15, null
   %17 = icmp eq ptr %10, null
   %or.cond = select i1 %16, i1 true, i1 %17
@@ -745,9 +745,9 @@ define internal range(i32 0, 2) i32 @noisy_dgram_new(ptr noundef %0) #0 {
 
 data_free.exit:                                   ; preds = %14, %4
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.1, i32 noundef 477) #3
-  %18 = load ptr, ptr %9, align 8, !tbaa !45
+  %18 = load ptr, ptr %9, align 8, !tbaa !46
   tail call void @BIO_ADDR_free(ptr noundef %18) #3
-  %19 = load ptr, ptr %11, align 8, !tbaa !46
+  %19 = load ptr, ptr %11, align 8, !tbaa !47
   tail call void @BIO_ADDR_free(ptr noundef %19) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef 480) #3
   br label %21
@@ -772,13 +772,13 @@ define internal noundef i32 @noisy_dgram_free(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !44
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.1, i32 noundef 477) #3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !45
+  %8 = load ptr, ptr %7, align 8, !tbaa !46
   tail call void @BIO_ADDR_free(ptr noundef %8) #3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !46
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
   tail call void @BIO_ADDR_free(ptr noundef %10) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef 480) #3
   br label %data_free.exit
@@ -884,19 +884,20 @@ attributes #3 = { nounwind }
 !28 = !{!"pkt_info_st", !11, i64 0, !29, i64 8}
 !29 = !{!"", !11, i64 0}
 !30 = !{!15, !11, i64 16400}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!12, !11, i64 8}
-!34 = !{!11, !11, i64 0}
-!35 = distinct !{!35, !32}
-!36 = distinct !{!36, !32}
-!37 = !{!10, !11, i64 48}
-!38 = !{!10, !11, i64 0}
-!39 = distinct !{!39, !32}
-!40 = !{!12, !6, i64 0}
-!41 = !{!7, !7, i64 0}
-!42 = distinct !{!42, !32}
-!43 = distinct !{!43, !32}
-!44 = !{!10, !6, i64 8}
-!45 = !{!10, !13, i64 24}
-!46 = !{!10, !13, i64 32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!12, !11, i64 8}
+!35 = !{!11, !11, i64 0}
+!36 = distinct !{!36, !32, !33}
+!37 = distinct !{!37, !32, !33}
+!38 = !{!10, !11, i64 48}
+!39 = !{!10, !11, i64 0}
+!40 = distinct !{!40, !32, !33}
+!41 = !{!12, !6, i64 0}
+!42 = !{!7, !7, i64 0}
+!43 = distinct !{!43, !32, !33}
+!44 = distinct !{!44, !32, !33}
+!45 = !{!10, !6, i64 8}
+!46 = !{!10, !13, i64 24}
+!47 = !{!10, !13, i64 32}

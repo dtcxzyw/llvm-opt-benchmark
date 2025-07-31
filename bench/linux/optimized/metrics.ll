@@ -166,7 +166,7 @@ define dso_local noundef ptr @ip_fib_metrics_init(ptr noundef %0, ptr noundef %1
   br i1 %80, label %.lr.ph, label %.thread, !llvm.loop !8
 
 .thread:                                          ; preds = %.lr.ph, %74
-  %.pre20 = load i8, ptr %5, align 1, !range !11
+  %.pre20 = load i8, ptr %5, align 1, !range !12
   %81 = icmp eq i8 %.pre20, 0
   br i1 %81, label %.thread.thread, label %82
 
@@ -239,7 +239,8 @@ attributes #7 = { nounwind }
 !5 = !{!"branch_weights", i32 1, i32 2000}
 !6 = !{i64 439774}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i8 0, i8 2}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i8 0, i8 2}

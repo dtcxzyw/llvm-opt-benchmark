@@ -136,7 +136,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_do_ioctl(ptr noundef %0, ptr 
   %61 = add nuw nsw i32 %23, 1
   %62 = call i32 @scsi_block_when_processing_errors(ptr noundef %11) #9
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.loopexit, label %22
+  br i1 %63, label %.loopexit, label %22, !llvm.loop !6
 
 64:                                               ; preds = %49, %46
   %65 = load i32, ptr %19, align 4
@@ -202,7 +202,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_tray_move(ptr noundef readonl
   store i8 3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 30000, ptr %10, align 8
-  %11 = call i32 @sr_do_ioctl(ptr noundef %5, ptr noundef nonnull %3), !range !6
+  %11 = call i32 @sr_do_ioctl(ptr noundef %5, ptr noundef nonnull %3), !range !8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
   ret i32 %11
 }
@@ -347,7 +347,7 @@ define dso_local range(i32 0, 104) i32 @sr_disk_status(ptr noundef readonly capt
   store i32 1, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i8 2, ptr %15, align 8
-  %16 = call i32 @sr_do_ioctl(ptr noundef %5, ptr noundef nonnull %2), !range !6
+  %16 = call i32 @sr_do_ioctl(ptr noundef %5, ptr noundef nonnull %2), !range !8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %21, label %18
 
@@ -379,7 +379,7 @@ define dso_local range(i32 0, 104) i32 @sr_disk_status(ptr noundef readonly capt
 32:                                               ; preds = %40
   %33 = add nuw nsw i32 %36, 1
   %34 = icmp eq i32 %36, %26
-  br i1 %34, label %.loopexit, label %35, !llvm.loop !7
+  br i1 %34, label %.loopexit, label %35, !llvm.loop !9
 
 35:                                               ; preds = %32, %28
   %36 = phi i32 [ %29, %28 ], [ %33, %32 ]
@@ -442,7 +442,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sr_read_tocentry(ptr %.32.
   store i32 12, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i8 2, ptr %18, align 8
-  %19 = call i32 @sr_do_ioctl(ptr noundef %.32.val, ptr noundef nonnull %2), !range !6
+  %19 = call i32 @sr_do_ioctl(ptr noundef %.32.val, ptr noundef nonnull %2), !range !8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %61
 
@@ -563,7 +563,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_get_mcn(ptr noundef readonly 
   store i8 2, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 30000, ptr %16, align 8
-  %17 = call i32 @sr_do_ioctl(ptr noundef %5, ptr noundef nonnull %3), !range !6
+  %17 = call i32 @sr_do_ioctl(ptr noundef %5, ptr noundef nonnull %3), !range !8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %22
 
@@ -617,7 +617,7 @@ define dso_local range(i32 -5, 1) i32 @sr_select_speed(ptr noundef readonly capt
   store i8 3, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 30000, ptr %15, align 8
-  %16 = call i32 @sr_do_ioctl(ptr noundef %5, ptr noundef nonnull %3), !range !6
+  %16 = call i32 @sr_do_ioctl(ptr noundef %5, ptr noundef nonnull %3), !range !8
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %17, i32 0, i32 -5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
@@ -662,7 +662,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_audio_ioctl(ptr noundef reado
   store i32 1, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i8 2, ptr %22, align 8
-  %23 = call i32 @sr_do_ioctl(ptr noundef %12, ptr noundef nonnull %9), !range !6
+  %23 = call i32 @sr_do_ioctl(ptr noundef %12, ptr noundef nonnull %9), !range !8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %31
 
@@ -716,7 +716,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_audio_ioctl(ptr noundef reado
   store i8 %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i8 3, ptr %52, align 8
-  %53 = call i32 @sr_do_ioctl(ptr noundef %39, ptr noundef nonnull %8), !range !6
+  %53 = call i32 @sr_do_ioctl(ptr noundef %39, ptr noundef nonnull %8), !range !8
   %54 = icmp eq i32 %53, -95
   br i1 %54, label %55, label %122
 
@@ -753,7 +753,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_audio_ioctl(ptr noundef reado
   store i32 1, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i8 2, ptr %66, align 8
-  %67 = call i32 @sr_do_ioctl(ptr noundef %56, ptr noundef nonnull %4), !range !6
+  %67 = call i32 @sr_do_ioctl(ptr noundef %56, ptr noundef nonnull %4), !range !8
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %70, label %69
 
@@ -843,7 +843,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_audio_ioctl(ptr noundef reado
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 30000, ptr %117, align 8
   %118 = load ptr, ptr %38, align 8
-  %119 = call i32 @sr_do_ioctl(ptr noundef %118, ptr noundef nonnull %7), !range !6
+  %119 = call i32 @sr_do_ioctl(ptr noundef %118, ptr noundef nonnull %7), !range !8
   br label %120
 
 120:                                              ; preds = %69, %.thread, %97, %94, %87
@@ -920,7 +920,7 @@ define dso_local range(i32 -12, 2) i32 @sr_is_xa(ptr noundef %0) local_unnamed_a
   store i8 2, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 30000, ptr %36, align 8
-  %37 = call i32 @sr_do_ioctl(ptr noundef %0, ptr noundef nonnull %2), !range !6
+  %37 = call i32 @sr_do_ioctl(ptr noundef %0, ptr noundef nonnull %2), !range !8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
   %38 = icmp eq i32 %37, -95
   br i1 %38, label %39, label %74
@@ -980,7 +980,7 @@ define dso_local range(i32 -12, 2) i32 @sr_is_xa(ptr noundef %0) local_unnamed_a
   store i8 2, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 30000, ptr %70, align 8
-  %71 = call i32 @sr_do_ioctl(ptr noundef %0, ptr noundef nonnull %3), !range !6
+  %71 = call i32 @sr_do_ioctl(ptr noundef %0, ptr noundef nonnull %3), !range !8
   %72 = call i32 @sr_set_blocklength(ptr noundef %0, i32 noundef 2048) #9
   %73 = or i32 %72, %71
   br label %74
@@ -1040,7 +1040,9 @@ attributes #10 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = !{i32 -2147483648, i32 1}
-!7 = distinct !{!7, !8, !9}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unroll.disable"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{i32 -2147483648, i32 1}
+!9 = distinct !{!9, !10, !11, !7}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.unroll.disable"}

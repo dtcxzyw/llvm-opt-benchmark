@@ -633,7 +633,7 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %26, %27, %31, %36
 70:                                               ; preds = %67, %.lr.ph18.i.i
   %71 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
   %72 = icmp ult ptr %71, %64
-  br i1 %72, label %.lr.ph18.i.i, label %._crit_edge19.i.i, !llvm.loop !9
+  br i1 %72, label %.lr.ph18.i.i, label %._crit_edge19.i.i, !llvm.loop !10
 
 ._crit_edge19.i.i:                                ; preds = %70, %._crit_edge.i.i
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -880,6 +880,7 @@ attributes #7 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

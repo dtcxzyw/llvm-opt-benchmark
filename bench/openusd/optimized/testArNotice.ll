@@ -3438,7 +3438,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
 19:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 16
   %.not.i = icmp eq ptr %20, %5
-  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext3GetI19TestResolverContextIiEEEPKT_v.exit.thread, label %.lr.ph.i
+  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext3GetI19TestResolverContextIiEEEPKT_v.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i, %.lr.ph.i
   %22 = load ptr, ptr %.sroa.06.012.i, align 8
@@ -3538,7 +3538,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %18, %.val2
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 19:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %20 = load ptr, ptr %.sroa.06.012.i.i.i.i, align 8
@@ -3620,5 +3620,8 @@ attributes #22 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

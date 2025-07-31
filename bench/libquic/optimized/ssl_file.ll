@@ -76,7 +76,7 @@ define hidden ptr @SSL_load_client_CA_file(ptr noundef %0) local_unnamed_addr #0
 31:                                               ; preds = %28, %27
   %32 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #4
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.loopexit, label %.lr.ph
+  br i1 %33, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit31:                                      ; preds = %22, %18, %9, %17, %8
   %.0 = phi ptr [ null, %8 ], [ null, %17 ], [ null, %9 ], [ %.2, %18 ], [ %.2, %22 ]
@@ -108,8 +108,8 @@ declare ptr @sk_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @xname_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !11
-  %4 = load ptr, ptr %1, align 8, !tbaa !11
+  %3 = load ptr, ptr %0, align 8, !tbaa !13
+  %4 = load ptr, ptr %1, align 8, !tbaa !13
   %5 = tail call i32 @X509_NAME_cmp(ptr noundef %3, ptr noundef %4) #4
   ret i32 %5
 }
@@ -201,7 +201,7 @@ define hidden range(i32 0, 2) i32 @SSL_add_file_cert_subjects_to_stack(ptr nound
 24:                                               ; preds = %22, %21
   %25 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #4
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %._crit_edge, label %.lr.ph
+  br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %24, %.preheader
   call void @ERR_clear_error() #4
@@ -251,11 +251,11 @@ define hidden i32 @SSL_use_certificate_file(ptr noundef %0, ptr noundef %1, i32 
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %17 = load ptr, ptr %16, align 8, !tbaa !13
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 208
-  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 216
-  %21 = load ptr, ptr %20, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !48
   %22 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %5, ptr noundef null, ptr noundef %19, ptr noundef %21) #4
   br label %24
 
@@ -321,11 +321,11 @@ define hidden i32 @SSL_use_RSAPrivateKey_file(ptr noundef %0, ptr noundef %1, i3
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %17 = load ptr, ptr %16, align 8, !tbaa !13
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 208
-  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 216
-  %21 = load ptr, ptr %20, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !48
   %22 = tail call ptr @PEM_read_bio_RSAPrivateKey(ptr noundef nonnull %5, ptr noundef null, ptr noundef %19, ptr noundef %21) #4
   br label %24
 
@@ -390,11 +390,11 @@ define hidden i32 @SSL_use_PrivateKey_file(ptr noundef %0, ptr noundef %1, i32 n
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %15 = load ptr, ptr %14, align 8, !tbaa !13
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 208
-  %17 = load ptr, ptr %16, align 8, !tbaa !39
+  %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 216
-  %19 = load ptr, ptr %18, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !48
   %20 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %5, ptr noundef null, ptr noundef %17, ptr noundef %19) #4
   br label %24
 
@@ -467,9 +467,9 @@ define hidden i32 @SSL_CTX_use_certificate_file(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %17 = load ptr, ptr %16, align 8, !tbaa !39
+  %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %19 = load ptr, ptr %18, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !48
   %20 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %5, ptr noundef null, ptr noundef %17, ptr noundef %19) #4
   br label %22
 
@@ -533,9 +533,9 @@ define hidden i32 @SSL_CTX_use_RSAPrivateKey_file(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %17 = load ptr, ptr %16, align 8, !tbaa !39
+  %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %19 = load ptr, ptr %18, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !48
   %20 = tail call ptr @PEM_read_bio_RSAPrivateKey(ptr noundef nonnull %5, ptr noundef null, ptr noundef %17, ptr noundef %19) #4
   br label %22
 
@@ -594,9 +594,9 @@ define hidden i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %0, ptr noundef %1, i
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %15 = load ptr, ptr %14, align 8, !tbaa !39
+  %15 = load ptr, ptr %14, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %17 = load ptr, ptr %16, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !48
   %18 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %5, ptr noundef null, ptr noundef %15, ptr noundef %17) #4
   br label %22
 
@@ -654,9 +654,9 @@ define hidden i32 @SSL_CTX_use_certificate_chain_file(ptr noundef %0, ptr nounde
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %13 = load ptr, ptr %12, align 8, !tbaa !39
+  %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !48
   %16 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %4, ptr noundef null, ptr noundef %13, ptr noundef %15) #4
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
@@ -678,8 +678,8 @@ define hidden i32 @SSL_CTX_use_certificate_chain_file(ptr noundef %0, ptr nounde
   br label %24
 
 24:                                               ; preds = %28, %22
-  %25 = load ptr, ptr %12, align 8, !tbaa !39
-  %26 = load ptr, ptr %14, align 8, !tbaa !45
+  %25 = load ptr, ptr %12, align 8, !tbaa !42
+  %26 = load ptr, ptr %14, align 8, !tbaa !48
   %27 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %4, ptr noundef null, ptr noundef %25, ptr noundef %26) #4
   %.not32 = icmp eq ptr %27, null
   br i1 %.not32, label %31, label %28
@@ -687,7 +687,7 @@ define hidden i32 @SSL_CTX_use_certificate_chain_file(ptr noundef %0, ptr nounde
 28:                                               ; preds = %24
   %29 = tail call i32 @SSL_CTX_add0_chain_cert(ptr noundef nonnull %0, ptr noundef nonnull %27) #4
   %.not33 = icmp eq i32 %29, 0
-  br i1 %.not33, label %30, label %24, !llvm.loop !46
+  br i1 %.not33, label %30, label %24, !llvm.loop !49
 
 30:                                               ; preds = %28
   tail call void @X509_free(ptr noundef nonnull %27) #4
@@ -724,14 +724,14 @@ declare i32 @ERR_peek_last_error() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @SSL_CTX_set_default_passwd_cb(ptr noundef writeonly captures(none) initializes((208, 216)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %1, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %3, align 8, !tbaa !42
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @SSL_CTX_set_default_passwd_cb_userdata(ptr noundef writeonly captures(none) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %1, ptr %3, align 8, !tbaa !45
+  store ptr %1, ptr %3, align 8, !tbaa !48
   ret void
 }
 
@@ -810,40 +810,43 @@ attributes #4 = { nounwind }
 !8 = !{!"any pointer", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS12X509_name_st", !8, i64 0}
-!13 = !{!14, !28, i64 232}
-!14 = !{!"ssl_st", !15, i64 0, !16, i64 4, !16, i64 6, !17, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !8, i64 40, !15, i64 48, !15, i64 52, !19, i64 56, !20, i64 64, !15, i64 72, !15, i64 76, !21, i64 80, !22, i64 88, !8, i64 96, !8, i64 104, !23, i64 112, !24, i64 120, !25, i64 128, !26, i64 136, !15, i64 144, !15, i64 148, !9, i64 152, !27, i64 184, !8, i64 192, !8, i64 200, !20, i64 208, !8, i64 216, !8, i64 224, !28, i64 232, !29, i64 240, !30, i64 248, !32, i64 256, !15, i64 264, !15, i64 268, !15, i64 272, !15, i64 276, !16, i64 280, !20, i64 288, !15, i64 296, !29, i64 304, !33, i64 312, !28, i64 320, !34, i64 328, !35, i64 336, !36, i64 344, !20, i64 352, !15, i64 360, !15, i64 364, !37, i64 368, !38, i64 376, !9, i64 384, !15, i64 385, !15, i64 385, !15, i64 385, !15, i64 385, !15, i64 385, !15, i64 385, !15, i64 388}
-!15 = !{!"int", !9, i64 0}
-!16 = !{!"short", !9, i64 0}
-!17 = !{!"p1 _ZTS22ssl_protocol_method_st", !8, i64 0}
-!18 = !{!"p1 _ZTS6bio_st", !8, i64 0}
-!19 = !{!"p1 _ZTS10buf_mem_st", !8, i64 0}
-!20 = !{!"p1 omnipotent char", !8, i64 0}
-!21 = !{!"p1 _ZTS13ssl3_state_st", !8, i64 0}
-!22 = !{!"p1 _ZTS14dtls1_state_st", !8, i64 0}
-!23 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !8, i64 0}
-!24 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !8, i64 0}
-!25 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !8, i64 0}
-!26 = !{!"p1 _ZTS7cert_st", !8, i64 0}
-!27 = !{!"p1 _ZTS14ssl_session_st", !8, i64 0}
-!28 = !{!"p1 _ZTS10ssl_ctx_st", !8, i64 0}
-!29 = !{!"long", !9, i64 0}
-!30 = !{!"crypto_ex_data_st", !31, i64 0}
-!31 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
-!32 = !{!"p1 _ZTS18stack_st_X509_NAME", !8, i64 0}
-!33 = !{!"p1 short", !8, i64 0}
-!34 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !8, i64 0}
-!35 = !{!"p1 _ZTS26srtp_protection_profile_st", !8, i64 0}
-!36 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
-!37 = !{!"p1 _ZTS17evp_cipher_ctx_st", !8, i64 0}
-!38 = !{!"p1 _ZTS13env_md_ctx_st", !8, i64 0}
-!39 = !{!40, !8, i64 208}
-!40 = !{!"ssl_ctx_st", !17, i64 0, !9, i64 8, !16, i64 64, !16, i64 66, !24, i64 72, !25, i64 80, !24, i64 88, !24, i64 96, !41, i64 104, !42, i64 112, !29, i64 120, !27, i64 128, !27, i64 136, !15, i64 144, !15, i64 148, !29, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !15, i64 184, !8, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !30, i64 240, !43, i64 248, !43, i64 256, !8, i64 264, !32, i64 272, !15, i64 280, !15, i64 284, !15, i64 288, !26, i64 296, !8, i64 304, !8, i64 312, !15, i64 320, !15, i64 324, !9, i64 328, !8, i64 360, !23, i64 368, !8, i64 376, !8, i64 384, !16, i64 392, !8, i64 400, !8, i64 408, !9, i64 416, !9, i64 432, !9, i64 448, !8, i64 464, !20, i64 472, !8, i64 480, !8, i64 488, !9, i64 496, !8, i64 504, !8, i64 512, !8, i64 520, !8, i64 528, !8, i64 536, !8, i64 544, !20, i64 552, !15, i64 560, !34, i64 568, !29, i64 576, !33, i64 584, !36, i64 592, !20, i64 600, !29, i64 608, !20, i64 616, !29, i64 624, !8, i64 632, !8, i64 640, !15, i64 648, !15, i64 648, !15, i64 648, !15, i64 648, !44, i64 656, !15, i64 664}
-!41 = !{!"p1 _ZTS13x509_store_st", !8, i64 0}
-!42 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !8, i64 0}
-!43 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !8, i64 0}
-!44 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
-!45 = !{!40, !8, i64 216}
-!46 = distinct !{!46, !47}
-!47 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS12X509_name_st", !8, i64 0}
+!15 = distinct !{!15, !12}
+!16 = !{!17, !31, i64 232}
+!17 = !{!"ssl_st", !18, i64 0, !19, i64 4, !19, i64 6, !20, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !8, i64 40, !18, i64 48, !18, i64 52, !22, i64 56, !23, i64 64, !18, i64 72, !18, i64 76, !24, i64 80, !25, i64 88, !8, i64 96, !8, i64 104, !26, i64 112, !27, i64 120, !28, i64 128, !29, i64 136, !18, i64 144, !18, i64 148, !9, i64 152, !30, i64 184, !8, i64 192, !8, i64 200, !23, i64 208, !8, i64 216, !8, i64 224, !31, i64 232, !32, i64 240, !33, i64 248, !35, i64 256, !18, i64 264, !18, i64 268, !18, i64 272, !18, i64 276, !19, i64 280, !23, i64 288, !18, i64 296, !32, i64 304, !36, i64 312, !31, i64 320, !37, i64 328, !38, i64 336, !39, i64 344, !23, i64 352, !18, i64 360, !18, i64 364, !40, i64 368, !41, i64 376, !9, i64 384, !18, i64 385, !18, i64 385, !18, i64 385, !18, i64 385, !18, i64 385, !18, i64 385, !18, i64 388}
+!18 = !{!"int", !9, i64 0}
+!19 = !{!"short", !9, i64 0}
+!20 = !{!"p1 _ZTS22ssl_protocol_method_st", !8, i64 0}
+!21 = !{!"p1 _ZTS6bio_st", !8, i64 0}
+!22 = !{!"p1 _ZTS10buf_mem_st", !8, i64 0}
+!23 = !{!"p1 omnipotent char", !8, i64 0}
+!24 = !{!"p1 _ZTS13ssl3_state_st", !8, i64 0}
+!25 = !{!"p1 _ZTS14dtls1_state_st", !8, i64 0}
+!26 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !8, i64 0}
+!27 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !8, i64 0}
+!28 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !8, i64 0}
+!29 = !{!"p1 _ZTS7cert_st", !8, i64 0}
+!30 = !{!"p1 _ZTS14ssl_session_st", !8, i64 0}
+!31 = !{!"p1 _ZTS10ssl_ctx_st", !8, i64 0}
+!32 = !{!"long", !9, i64 0}
+!33 = !{!"crypto_ex_data_st", !34, i64 0}
+!34 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
+!35 = !{!"p1 _ZTS18stack_st_X509_NAME", !8, i64 0}
+!36 = !{!"p1 short", !8, i64 0}
+!37 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !8, i64 0}
+!38 = !{!"p1 _ZTS26srtp_protection_profile_st", !8, i64 0}
+!39 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!40 = !{!"p1 _ZTS17evp_cipher_ctx_st", !8, i64 0}
+!41 = !{!"p1 _ZTS13env_md_ctx_st", !8, i64 0}
+!42 = !{!43, !8, i64 208}
+!43 = !{!"ssl_ctx_st", !20, i64 0, !9, i64 8, !19, i64 64, !19, i64 66, !27, i64 72, !28, i64 80, !27, i64 88, !27, i64 96, !44, i64 104, !45, i64 112, !32, i64 120, !30, i64 128, !30, i64 136, !18, i64 144, !18, i64 148, !32, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !18, i64 184, !8, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !33, i64 240, !46, i64 248, !46, i64 256, !8, i64 264, !35, i64 272, !18, i64 280, !18, i64 284, !18, i64 288, !29, i64 296, !8, i64 304, !8, i64 312, !18, i64 320, !18, i64 324, !9, i64 328, !8, i64 360, !26, i64 368, !8, i64 376, !8, i64 384, !19, i64 392, !8, i64 400, !8, i64 408, !9, i64 416, !9, i64 432, !9, i64 448, !8, i64 464, !23, i64 472, !8, i64 480, !8, i64 488, !9, i64 496, !8, i64 504, !8, i64 512, !8, i64 520, !8, i64 528, !8, i64 536, !8, i64 544, !23, i64 552, !18, i64 560, !37, i64 568, !32, i64 576, !36, i64 584, !39, i64 592, !23, i64 600, !32, i64 608, !23, i64 616, !32, i64 624, !8, i64 632, !8, i64 640, !18, i64 648, !18, i64 648, !18, i64 648, !18, i64 648, !47, i64 656, !18, i64 664}
+!44 = !{!"p1 _ZTS13x509_store_st", !8, i64 0}
+!45 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !8, i64 0}
+!46 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !8, i64 0}
+!47 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
+!48 = !{!43, !8, i64 216}
+!49 = distinct !{!49, !50, !12}
+!50 = !{!"llvm.loop.mustprogress"}

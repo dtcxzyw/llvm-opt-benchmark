@@ -48,9 +48,9 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIlSaIlEEEEiRKS1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIjSaIjEEEEiRKS1_IT_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat {
-  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  %2 = load ptr, ptr %0, align 8, !tbaa !16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !15
+  %4 = load ptr, ptr %3, align 8, !tbaa !16
   %.not11 = icmp eq ptr %2, %4
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -62,8 +62,8 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIjSaIjEEEEiRKS1
   %.013 = phi i32 [ %.1, %.lr.ph ], [ -1, %1 ]
   %.sroa.08.012 = phi ptr [ %15, %.lr.ph ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !17
-  %7 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
+  %7 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !21
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -74,14 +74,14 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIjSaIjEEEEiRKS1
   %.1 = select i1 %13, i32 %12, i32 %14
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 24
   %.not = icmp eq ptr %15, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIiSaIiEEEEiRKS1_IT_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat {
-  %2 = load ptr, ptr %0, align 8, !tbaa !22
+  %2 = load ptr, ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !22
+  %4 = load ptr, ptr %3, align 8, !tbaa !23
   %.not11 = icmp eq ptr %2, %4
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -93,8 +93,8 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIiSaIiEEEEiRKS1
   %.013 = phi i32 [ %.1, %.lr.ph ], [ -1, %1 ]
   %.sroa.08.012 = phi ptr [ %15, %.lr.ph ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
-  %7 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !26
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !27
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -105,14 +105,14 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIiSaIiEEEEiRKS1
   %.1 = select i1 %13, i32 %12, i32 %14
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 24
   %.not = icmp eq ptr %15, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIdSaIdEEEEiRKS1_IT_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat {
-  %2 = load ptr, ptr %0, align 8, !tbaa !28
+  %2 = load ptr, ptr %0, align 8, !tbaa !29
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %.not11 = icmp eq ptr %2, %4
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -124,8 +124,8 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIdSaIdEEEEiRKS1
   %.013 = phi i32 [ %.1, %.lr.ph ], [ -1, %1 ]
   %.sroa.08.012 = phi ptr [ %15, %.lr.ph ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
-  %7 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %7 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !34
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -136,14 +136,14 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIdSaIdEEEEiRKS1
   %.1 = select i1 %13, i32 %12, i32 %14
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 24
   %.not = icmp eq ptr %15, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIbSaIbEEEEiRKS1_IT_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %.not11 = icmp eq ptr %2, %4
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -155,10 +155,10 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIbSaIbEEEEiRKS1
   %.013 = phi i32 [ %.1, %.lr.ph ], [ -1, %1 ]
   %.sroa.08.012 = phi ptr [ %17, %.lr.ph ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !40
-  %9 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !37
+  %8 = load i32, ptr %7, align 8, !tbaa !41
+  %9 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !38
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -170,14 +170,14 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIbSaIbEEEEiRKS1
   %.1 = select i1 %15, i32 %14, i32 %16
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 40
   %.not = icmp eq ptr %17, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIfSaIfEEEEiRKS1_IT_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat {
-  %2 = load ptr, ptr %0, align 8, !tbaa !42
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %.not11 = icmp eq ptr %2, %4
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -189,8 +189,8 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIfSaIfEEEEiRKS1
   %.013 = phi i32 [ %.1, %.lr.ph ], [ -1, %1 ]
   %.sroa.08.012 = phi ptr [ %15, %.lr.ph ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !44
-  %7 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !47
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
+  %7 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !48
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -201,7 +201,7 @@ define weak_odr dso_local noundef i32 @_ZN3igl8min_sizeISt6vectorIfSaIfEEEEiRKS1
   %.1 = select i1 %13, i32 %12, i32 %14
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 24
   %.not = icmp eq ptr %15, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -227,39 +227,40 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE17_Vector_impl_dataE", !11, i64 0, !11, i64 8, !11, i64 16}
 !11 = !{!"p1 long", !6, i64 0}
 !12 = !{!10, !11, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTSSt6vectorIjSaIjEE", !6, i64 0}
-!17 = !{!18, !19, i64 8}
-!18 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !19, i64 0, !19, i64 8, !19, i64 16}
-!19 = !{!"p1 int", !6, i64 0}
-!20 = !{!18, !19, i64 0}
-!21 = distinct !{!21, !14}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTSSt6vectorIiSaIiEE", !6, i64 0}
-!24 = !{!25, !19, i64 8}
-!25 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !19, i64 0, !19, i64 8, !19, i64 16}
-!26 = !{!25, !19, i64 0}
-!27 = distinct !{!27, !14}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTSSt6vectorIdSaIdEE", !6, i64 0}
-!30 = !{!31, !32, i64 8}
-!31 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !32, i64 0, !32, i64 8, !32, i64 16}
-!32 = !{!"p1 double", !6, i64 0}
-!33 = !{!31, !32, i64 0}
-!34 = distinct !{!34, !14}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTSSt6vectorIbSaIbEE", !6, i64 0}
-!37 = !{!38, !11, i64 0}
-!38 = !{!"_ZTSSt18_Bit_iterator_base", !11, i64 0, !39, i64 8}
-!39 = !{!"int", !7, i64 0}
-!40 = !{!38, !39, i64 8}
-!41 = distinct !{!41, !14}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 _ZTSSt6vectorIfSaIfEE", !6, i64 0}
-!44 = !{!45, !46, i64 8}
-!45 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
-!46 = !{!"p1 float", !6, i64 0}
-!47 = !{!45, !46, i64 0}
-!48 = distinct !{!48, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSSt6vectorIjSaIjEE", !6, i64 0}
+!18 = !{!19, !20, i64 8}
+!19 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !20, i64 0, !20, i64 8, !20, i64 16}
+!20 = !{!"p1 int", !6, i64 0}
+!21 = !{!19, !20, i64 0}
+!22 = distinct !{!22, !14, !15}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSSt6vectorIiSaIiEE", !6, i64 0}
+!25 = !{!26, !20, i64 8}
+!26 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !20, i64 0, !20, i64 8, !20, i64 16}
+!27 = !{!26, !20, i64 0}
+!28 = distinct !{!28, !14, !15}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTSSt6vectorIdSaIdEE", !6, i64 0}
+!31 = !{!32, !33, i64 8}
+!32 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !33, i64 0, !33, i64 8, !33, i64 16}
+!33 = !{!"p1 double", !6, i64 0}
+!34 = !{!32, !33, i64 0}
+!35 = distinct !{!35, !14, !15}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSSt6vectorIbSaIbEE", !6, i64 0}
+!38 = !{!39, !11, i64 0}
+!39 = !{!"_ZTSSt18_Bit_iterator_base", !11, i64 0, !40, i64 8}
+!40 = !{!"int", !7, i64 0}
+!41 = !{!39, !40, i64 8}
+!42 = distinct !{!42, !14, !15}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTSSt6vectorIfSaIfEE", !6, i64 0}
+!45 = !{!46, !47, i64 8}
+!46 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !47, i64 0, !47, i64 8, !47, i64 16}
+!47 = !{!"p1 float", !6, i64 0}
+!48 = !{!46, !47, i64 0}
+!49 = distinct !{!49, !14, !15}

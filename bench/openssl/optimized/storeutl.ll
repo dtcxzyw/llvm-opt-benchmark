@@ -200,7 +200,7 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
 
 30:                                               ; preds = %.preheader
   %gep = getelementptr inbounds nuw [3 x %struct.anon], ptr getelementptr inbounds nuw (i8, ptr @storeutl_main.map, i64 4), i64 0, i64 %.082453
-  %31 = load i32, ptr %gep, align 4, !tbaa !18
+  %31 = load i32, ptr %gep, align 4, !tbaa !19
   %.not153 = icmp eq i32 %31, 0
   br i1 %.not153, label %.thread, label %.backedge
 
@@ -307,14 +307,14 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
 
 81:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  store i64 0, ptr %6, align 8, !tbaa !19
+  store i64 0, ptr %6, align 8, !tbaa !20
   %82 = call ptr @opt_arg() #5
   %83 = call ptr @OPENSSL_hexstr2buf(ptr noundef %82, ptr noundef nonnull %6) #5
   %84 = icmp eq ptr %83, null
   br i1 %84, label %86, label %.thread156
 
 .thread156:                                       ; preds = %81
-  %85 = load i64, ptr %6, align 8, !tbaa !19
+  %85 = load i64, ptr %6, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   br label %.backedge
 
@@ -334,7 +334,7 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
   %.089.be = phi i64 [ %.089, %14 ], [ %.089, %16 ], [ %.089, %18 ], [ %.089, %19 ], [ %.089, %20 ], [ %.089, %40 ], [ %.089, %53 ], [ %.089, %66 ], [ %.089, %97 ], [ %.089, %104 ], [ %.089, %107 ], [ %.089, %109 ], [ %.089, %9 ], [ %.089, %30 ], [ %85, %.thread156 ]
   %.087.be = phi ptr [ %.087, %14 ], [ %.087, %16 ], [ %.087, %18 ], [ %.087, %19 ], [ %.087, %20 ], [ %.087, %40 ], [ %.087, %53 ], [ %.087, %66 ], [ %99, %97 ], [ %.087, %104 ], [ %.087, %107 ], [ %.087, %109 ], [ %.087, %9 ], [ %.087, %30 ], [ %.087, %.thread156 ]
   %.085.be = phi ptr [ %.085, %14 ], [ %.085, %16 ], [ %.085, %18 ], [ %.085, %19 ], [ %.085, %20 ], [ %.085, %40 ], [ %.085, %53 ], [ %.085, %66 ], [ %.085, %97 ], [ %.085, %104 ], [ %108, %107 ], [ %.085, %109 ], [ %.085, %9 ], [ %.085, %30 ], [ %.085, %.thread156 ]
-  br label %9, !llvm.loop !21
+  br label %9, !llvm.loop !22
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr @bio_err, align 8, !tbaa !11
@@ -473,10 +473,10 @@ default.unreachable748:                           ; preds = %116
 
 149:                                              ; preds = %144
   %150 = load ptr, ptr %3, align 8, !tbaa !4
-  store ptr %150, ptr %4, align 8, !tbaa !22
+  store ptr %150, ptr %4, align 8, !tbaa !23
   %151 = load ptr, ptr %114, align 8, !tbaa !4
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %151, ptr %152, align 8, !tbaa !24
+  store ptr %151, ptr %152, align 8, !tbaa !25
   %153 = call ptr @get_ui_method() #5
   %154 = call fastcc i32 @process(ptr noundef %151, ptr noundef %153, ptr noundef %4, i32 noundef %.0106, i32 noundef %.0104, ptr noundef %.1, i32 noundef %.0118, i32 noundef %.0120, i32 noundef %.0116, i32 noundef 0, ptr noundef %.0114, ptr noundef %8, ptr noundef %7)
   br label %.loopexit159
@@ -974,12 +974,13 @@ attributes #6 = { noreturn nounwind }
 !13 = !{!14, !15, i64 0}
 !14 = !{!"", !15, i64 0, !15, i64 4}
 !15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!14, !15, i64 4}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !7, i64 0}
-!21 = distinct !{!21, !17}
-!22 = !{!23, !6, i64 0}
-!23 = !{!"pw_cb_data", !6, i64 0, !5, i64 8}
-!24 = !{!23, !5, i64 8}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!14, !15, i64 4}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !7, i64 0}
+!22 = distinct !{!22, !17, !18}
+!23 = !{!24, !6, i64 0}
+!24 = !{!"pw_cb_data", !6, i64 0, !5, i64 8}
+!25 = !{!24, !5, i64 8}

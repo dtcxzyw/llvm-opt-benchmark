@@ -31,7 +31,7 @@ define void @av_tea_init(ptr noundef writeonly captures(none) %0, ptr noundef re
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %2, ptr %11, align 4, !tbaa !11
+  store i32 %2, ptr %11, align 4, !tbaa !12
   ret void
 }
 
@@ -60,7 +60,7 @@ define void @av_tea_crypt(ptr noundef readonly captures(none) %0, ptr noundef ca
   %12 = phi i32 [ %48, %tea_crypt_ecb.exit59.us ], [ %7, %.lr.ph74 ]
   %.173.us = phi ptr [ %47, %tea_crypt_ecb.exit59.us ], [ %1, %.lr.ph74 ]
   %.13272.us = phi ptr [ %46, %tea_crypt_ecb.exit59.us ], [ %2, %.lr.ph74 ]
-  %13 = load i32, ptr %8, align 4, !tbaa !11
+  %13 = load i32, ptr %8, align 4, !tbaa !12
   %14 = load i32, ptr %0, align 4, !tbaa !7
   %15 = load i32, ptr %9, align 4, !tbaa !7
   %16 = load i32, ptr %10, align 4, !tbaa !7
@@ -101,7 +101,7 @@ define void @av_tea_crypt(ptr noundef readonly captures(none) %0, ptr noundef ca
   %41 = add i32 %40, %.36473.i57.us
   %42 = add nuw nsw i32 %.05974.i56.us, 1
   %exitcond83.not.i58.us = icmp eq i32 %42, %18
-  br i1 %exitcond83.not.i58.us, label %tea_crypt_ecb.exit59.us.loopexit, label %.lr.ph77.i53.us, !llvm.loop !13
+  br i1 %exitcond83.not.i58.us, label %tea_crypt_ecb.exit59.us.loopexit, label %.lr.ph77.i53.us, !llvm.loop !14
 
 tea_crypt_ecb.exit59.us.loopexit:                 ; preds = %.lr.ph77.i53.us
   %43 = tail call i32 @llvm.bswap.i32(i32 %33)
@@ -118,7 +118,7 @@ tea_crypt_ecb.exit59.us:                          ; preds = %tea_crypt_ecb.exit5
   %47 = getelementptr inbounds nuw i8, ptr %.173.us, i64 8
   %48 = add nsw i32 %12, -1
   %.not36.us = icmp eq i32 %12, 0
-  br i1 %.not36.us, label %.loopexit, label %.preheader.i52.us, !llvm.loop !14
+  br i1 %.not36.us, label %.loopexit, label %.preheader.i52.us, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.preheader61, %.lr.ph
   %.03069 = phi ptr [ %51, %.lr.ph ], [ %1, %.preheader61 ]
@@ -129,7 +129,7 @@ tea_crypt_ecb.exit59.us:                          ; preds = %tea_crypt_ecb.exit5
   %50 = getelementptr inbounds nuw i8, ptr %.03168, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %.03069, i64 8
   %.not38 = icmp eq i32 %49, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .preheader:                                       ; preds = %.lr.ph74, %tea_crypt_ecb.exit
   %52 = phi i32 [ %95, %tea_crypt_ecb.exit ], [ %7, %.lr.ph74 ]
@@ -148,10 +148,10 @@ tea_crypt_ecb.exit59.us:                          ; preds = %tea_crypt_ecb.exit5
   store i8 %58, ptr %59, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.i, label %53, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader.i, label %53, !llvm.loop !18
 
 .preheader.i:                                     ; preds = %53
-  %60 = load i32, ptr %8, align 4, !tbaa !11
+  %60 = load i32, ptr %8, align 4, !tbaa !12
   %61 = load i32, ptr %0, align 4, !tbaa !7
   %62 = load i32, ptr %9, align 4, !tbaa !7
   %63 = load i32, ptr %10, align 4, !tbaa !7
@@ -192,7 +192,7 @@ tea_crypt_ecb.exit59.us:                          ; preds = %tea_crypt_ecb.exit5
   %88 = add i32 %87, %.36473.i
   %89 = add nuw nsw i32 %.05974.i, 1
   %exitcond83.not.i = icmp eq i32 %89, %66
-  br i1 %exitcond83.not.i, label %tea_crypt_ecb.exit.loopexit, label %.lr.ph77.i, !llvm.loop !13
+  br i1 %exitcond83.not.i, label %tea_crypt_ecb.exit.loopexit, label %.lr.ph77.i, !llvm.loop !14
 
 tea_crypt_ecb.exit.loopexit:                      ; preds = %.lr.ph77.i
   %90 = tail call i32 @llvm.bswap.i32(i32 %80)
@@ -210,7 +210,7 @@ tea_crypt_ecb.exit:                               ; preds = %tea_crypt_ecb.exit.
   %94 = getelementptr inbounds nuw i8, ptr %.173, i64 8
   %95 = add nsw i32 %52, -1
   %.not36 = icmp eq i32 %52, 0
-  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %tea_crypt_ecb.exit, %tea_crypt_ecb.exit59.us, %.preheader61, %.preheader60
   ret void
@@ -219,7 +219,7 @@ tea_crypt_ecb.exit:                               ; preds = %tea_crypt_ecb.exit.
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @tea_crypt_ecb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load i32, ptr %6, align 4, !tbaa !11
+  %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = load i32, ptr %0, align 4, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !7
@@ -271,7 +271,7 @@ define internal fastcc void @tea_crypt_ecb(ptr noundef readonly captures(none) %
   %40 = add i32 %.06070, 1640531527
   %41 = add nuw nsw i32 %.06568, 1
   %exitcond.not = icmp eq i32 %41, %20
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %.061.lcssa = phi i32 [ %19, %22 ], [ %31, %.lr.ph ]
@@ -315,7 +315,7 @@ define internal fastcc void @tea_crypt_ecb(ptr noundef readonly captures(none) %
   %67 = add i32 %66, %.36473
   %68 = add nuw nsw i32 %.05974, 1
   %exitcond83.not = icmp eq i32 %68, %20
-  br i1 %exitcond83.not, label %.loopexit, label %.lr.ph77, !llvm.loop !13
+  br i1 %exitcond83.not, label %.loopexit, label %.lr.ph77, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph77, %.preheader, %._crit_edge, %42
   %.263 = phi i32 [ %49, %42 ], [ %.061.lcssa, %._crit_edge ], [ %19, %.preheader ], [ %67, %.lr.ph77 ]
@@ -348,14 +348,15 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !8, i64 64}
-!12 = !{!"AVTEA", !5, i64 0, !8, i64 64}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !8, i64 64}
+!13 = !{!"AVTEA", !5, i64 0, !8, i64 64}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}

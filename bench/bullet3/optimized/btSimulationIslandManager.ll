@@ -308,18 +308,18 @@ _ZN11btUnionFind4findEi.exit13.i:                 ; preds = %.lr.ph.i10.i, %_ZN1
   %70 = getelementptr inbounds %struct.btElement, ptr %21, i64 %69
   store i32 %.0.lcssa.i12.i, ptr %70, align 4, !tbaa !55
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %72 = load i32, ptr %71, align 4, !tbaa !59
+  %72 = load i32, ptr %71, align 4, !tbaa !60
   %73 = sext i32 %.0.lcssa.i12.i to i64
   %74 = getelementptr inbounds %struct.btElement, ptr %21, i64 %73, i32 1
-  %75 = load i32, ptr %74, align 4, !tbaa !59
+  %75 = load i32, ptr %74, align 4, !tbaa !60
   %76 = add nsw i32 %75, %72
-  store i32 %76, ptr %74, align 4, !tbaa !59
+  store i32 %76, ptr %74, align 4, !tbaa !60
   br label %_ZN11btUnionFind5uniteEii.exit
 
 _ZN11btUnionFind5uniteEii.exit:                   ; preds = %68, %_ZN11btUnionFind4findEi.exit13.i, %35, %29, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !60
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !61
 
 .loopexit:                                        ; preds = %_ZN11btUnionFind5uniteEii.exit, %14, %3
   ret void
@@ -348,7 +348,7 @@ define dso_local void @_ZN25btSimulationIslandManager21updateActivationStateEP16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %18 ]
   %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !61
+  %11 = load ptr, ptr %10, align 8, !tbaa !62
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %13 = load i32, ptr %12, align 8, !tbaa !47
   %14 = and i32 %13, 3
@@ -364,12 +364,12 @@ define dso_local void @_ZN25btSimulationIslandManager21updateActivationStateEP16
 18:                                               ; preds = %15, %9
   %.1 = phi i32 [ %.015, %9 ], [ %16, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 232
-  store i32 -1, ptr %19, align 8, !tbaa !63
+  store i32 -1, ptr %19, align 8, !tbaa !64
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 300
-  store float 1.000000e+00, ptr %20, align 4, !tbaa !64
+  store float 1.000000e+00, ptr %20, align 4, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %18, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %18 ]
@@ -398,7 +398,7 @@ define dso_local void @_ZN25btSimulationIslandManager26storeIslandActivationStat
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.016 = phi i32 [ 0, %.lr.ph ], [ %.1, %36 ]
   %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !61
+  %12 = load ptr, ptr %11, align 8, !tbaa !62
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %14 = load i32, ptr %13, align 8, !tbaa !47
   %15 = and i32 %14, 3
@@ -431,9 +431,9 @@ _ZN11btUnionFind4findEi.exit:                     ; preds = %.lr.ph.i, %16
   store i32 %.0.lcssa.i, ptr %28, align 4, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %30 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %30, ptr %29, align 4, !tbaa !59
+  store i32 %30, ptr %29, align 4, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 232
-  store i32 -1, ptr %31, align 8, !tbaa !63
+  store i32 -1, ptr %31, align 8, !tbaa !64
   %32 = add nsw i32 %.016, 1
   br label %36
 
@@ -441,14 +441,14 @@ _ZN11btUnionFind4findEi.exit:                     ; preds = %.lr.ph.i, %16
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 228
   store i32 -1, ptr %34, align 4, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 232
-  store i32 -2, ptr %35, align 8, !tbaa !63
+  store i32 -2, ptr %35, align 8, !tbaa !64
   br label %36
 
 36:                                               ; preds = %33, %_ZN11btUnionFind4findEi.exit
   %.1 = phi i32 [ %.016, %33 ], [ %32, %_ZN11btUnionFind4findEi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %36, %2
   ret void
@@ -496,7 +496,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %20 = shl nsw i64 %19, 3
   %scevgep = getelementptr i8, ptr %18, i64 %20
   %21 = mul nsw i64 %19, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %21, i1 false), !tbaa !67
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %21, i1 false), !tbaa !68
   br label %.loopexit142
 
 .loopexit142:                                     ; preds = %.lr.ph.i, %3
@@ -507,7 +507,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 23:                                               ; preds = %.loopexit142
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !69
+  %25 = load i32, ptr %24, align 4, !tbaa !70
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph152, label %._crit_edge
 
@@ -519,7 +519,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 30:                                               ; preds = %.lr.ph152, %.loopexit
   %.087151 = phi i32 [ 0, %.lr.ph152 ], [ %.085.lcssa, %.loopexit ]
-  %31 = load ptr, ptr %27, align 8, !tbaa !70
+  %31 = load ptr, ptr %27, align 8, !tbaa !71
   %32 = sext i32 %.087151 to i64
   %33 = getelementptr inbounds %struct.btElement, ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !55
@@ -538,7 +538,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %40 = getelementptr inbounds %struct.btElement, ptr %31, i64 %indvars.iv.next
   %41 = load i32, ptr %40, align 4, !tbaa !55
   %42 = icmp eq i32 %41, %34
-  br i1 %42, label %37, label %.critedge.split.loop.exit173, !llvm.loop !71
+  br i1 %42, label %37, label %.critedge.split.loop.exit173, !llvm.loop !72
 
 43:                                               ; preds = %.loopexit142
   %44 = landingpad { ptr, i32 }
@@ -569,10 +569,10 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 51:                                               ; preds = %.lr.ph, %62
   %indvars.iv158 = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next159, %62 ]
   %52 = getelementptr inbounds %struct.btElement, ptr %31, i64 %indvars.iv158, i32 1
-  %53 = load i32, ptr %52, align 4, !tbaa !59
+  %53 = load i32, ptr %52, align 4, !tbaa !60
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds ptr, ptr %49, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !61
+  %56 = load ptr, ptr %55, align 8, !tbaa !62
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 228
   %58 = load i32, ptr %57, align 4, !tbaa !54
   %.not106 = icmp eq i32 %58, %34
@@ -580,7 +580,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 59:                                               ; preds = %51
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 240
-  %61 = load i32, ptr %60, align 8, !tbaa !72
+  %61 = load i32, ptr %60, align 8, !tbaa !73
   switch i32 %61, label %62 [
     i32 1, label %.lr.ph147.preheader
     i32 4, label %.lr.ph147.preheader
@@ -593,7 +593,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next159 to i32
   %exitcond.not = icmp eq i32 %50, %lftr.wideiv
-  br i1 %exitcond.not, label %.lr.ph150.preheader, label %51, !llvm.loop !73
+  br i1 %exitcond.not, label %.lr.ph150.preheader, label %51, !llvm.loop !74
 
 .lr.ph150.preheader:                              ; preds = %62
   %63 = add i32 %.085.in.lcssa, 1
@@ -601,13 +601,13 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 .lr.ph150:                                        ; preds = %.lr.ph150.preheader, %.critedge139
   %indvars.iv166 = phi i64 [ %32, %.lr.ph150.preheader ], [ %indvars.iv.next167, %.critedge139 ]
-  %64 = load ptr, ptr %27, align 8, !tbaa !70
+  %64 = load ptr, ptr %27, align 8, !tbaa !71
   %65 = getelementptr inbounds %struct.btElement, ptr %64, i64 %indvars.iv166, i32 1
-  %66 = load i32, ptr %65, align 4, !tbaa !59
+  %66 = load i32, ptr %65, align 4, !tbaa !60
   %67 = load ptr, ptr %28, align 8, !tbaa !22
   %68 = sext i32 %66 to i64
   %69 = getelementptr inbounds ptr, ptr %67, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !61
+  %70 = load ptr, ptr %69, align 8, !tbaa !62
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 228
   %72 = load i32, ptr %71, align 4, !tbaa !54
   %.not110 = icmp eq i32 %72, %34
@@ -626,17 +626,17 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %indvars.iv.next167 = add nsw i64 %indvars.iv166, 1
   %lftr.wideiv169 = trunc i64 %indvars.iv.next167 to i32
   %exitcond170.not = icmp eq i32 %63, %lftr.wideiv169
-  br i1 %exitcond170.not, label %.loopexit, label %.lr.ph150, !llvm.loop !74
+  br i1 %exitcond170.not, label %.loopexit, label %.lr.ph150, !llvm.loop !75
 
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %94
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %94 ], [ %32, %.lr.ph147.preheader ]
-  %76 = load ptr, ptr %27, align 8, !tbaa !70
+  %76 = load ptr, ptr %27, align 8, !tbaa !71
   %77 = getelementptr inbounds %struct.btElement, ptr %76, i64 %indvars.iv161, i32 1
-  %78 = load i32, ptr %77, align 4, !tbaa !59
+  %78 = load i32, ptr %77, align 4, !tbaa !60
   %79 = load ptr, ptr %28, align 8, !tbaa !22
   %80 = sext i32 %78 to i64
   %81 = getelementptr inbounds ptr, ptr %79, i64 %80
-  %82 = load ptr, ptr %81, align 8, !tbaa !61
+  %82 = load ptr, ptr %81, align 8, !tbaa !62
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 228
   %84 = load i32, ptr %83, align 4, !tbaa !54
   %.not108 = icmp eq i32 %84, %34
@@ -649,7 +649,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 87:                                               ; preds = %.lr.ph147
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 240
-  %89 = load i32, ptr %88, align 8, !tbaa !72
+  %89 = load i32, ptr %88, align 8, !tbaa !73
   %90 = icmp eq i32 %89, 2
   br i1 %90, label %91, label %94
 
@@ -659,18 +659,18 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %82, i64 244
-  store float 0.000000e+00, ptr %93, align 4, !tbaa !75
+  store float 0.000000e+00, ptr %93, align 4, !tbaa !76
   br label %94
 
 94:                                               ; preds = %87, %92, %.lr.ph147
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
   %lftr.wideiv164 = trunc i64 %indvars.iv.next162 to i32
   %exitcond165.not = icmp eq i32 %50, %lftr.wideiv164
-  br i1 %exitcond165.not, label %.loopexit, label %.lr.ph147, !llvm.loop !76
+  br i1 %exitcond165.not, label %.loopexit, label %.lr.ph147, !llvm.loop !77
 
 .loopexit:                                        ; preds = %94, %.critedge139, %.critedge
   %95 = icmp slt i32 %.085.lcssa, %25
-  br i1 %95, label %30, label %._crit_edge, !llvm.loop !77
+  br i1 %95, label %30, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.loopexit, %23
   %96 = load ptr, ptr %1, align 8, !tbaa !4
@@ -700,13 +700,13 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
           to label %111 unwind label %120
 
 111:                                              ; preds = %106
-  %112 = load i8, ptr %101, align 8, !tbaa !78, !range !31, !noundef !79
+  %112 = load i8, ptr %101, align 8, !tbaa !79, !range !31, !noundef !80
   %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %122
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 856
-  %116 = load i32, ptr %115, align 8, !tbaa !80
+  %116 = load i32, ptr %115, align 8, !tbaa !81
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %193, label %122
 
@@ -722,15 +722,15 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 122:                                              ; preds = %114, %111
   %123 = getelementptr inbounds nuw i8, ptr %110, i64 840
-  %124 = load ptr, ptr %123, align 8, !tbaa !83
+  %124 = load ptr, ptr %123, align 8, !tbaa !84
   %125 = getelementptr inbounds nuw i8, ptr %110, i64 848
-  %126 = load ptr, ptr %125, align 8, !tbaa !84
+  %126 = load ptr, ptr %125, align 8, !tbaa !85
   %.not = icmp eq ptr %124, null
   br i1 %.not, label %130, label %127
 
 127:                                              ; preds = %122
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 240
-  %129 = load i32, ptr %128, align 8, !tbaa !72
+  %129 = load i32, ptr %128, align 8, !tbaa !73
   %.not98 = icmp eq i32 %129, 2
   br i1 %.not98, label %130, label %134
 
@@ -740,7 +740,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds nuw i8, ptr %126, i64 240
-  %133 = load i32, ptr %132, align 8, !tbaa !72
+  %133 = load i32, ptr %132, align 8, !tbaa !73
   %.not100 = icmp eq i32 %133, 2
   br i1 %.not100, label %193, label %134
 
@@ -753,7 +753,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %124, i64 240
-  %140 = load i32, ptr %139, align 8, !tbaa !72
+  %140 = load i32, ptr %139, align 8, !tbaa !73
   %.not101 = icmp ne i32 %140, 2
   %141 = and i32 %136, 4
   %142 = icmp eq i32 %141, 0
@@ -778,7 +778,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %126, i64 240
-  %152 = load i32, ptr %151, align 8, !tbaa !72
+  %152 = load i32, ptr %151, align 8, !tbaa !73
   %.not102 = icmp ne i32 %152, 2
   %153 = and i32 %148, 4
   %154 = icmp eq i32 %153, 0
@@ -790,7 +790,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
           to label %156 unwind label %144
 
 156:                                              ; preds = %155, %150, %146
-  %157 = load i8, ptr %102, align 8, !tbaa !25, !range !31, !noundef !79
+  %157 = load i8, ptr %102, align 8, !tbaa !25, !range !31, !noundef !80
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %159, label %193
 
@@ -846,11 +846,11 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
   %indvars.iv.i.i.i121 = phi i64 [ 0, %.lr.ph.i.i.i119 ], [ %indvars.iv.next.i.i.i122, %181 ]
   %182 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i121
   %183 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv.i.i.i121
-  %184 = load ptr, ptr %183, align 8, !tbaa !67
-  store ptr %184, ptr %182, align 8, !tbaa !67
+  %184 = load ptr, ptr %183, align 8, !tbaa !68
+  store ptr %184, ptr %182, align 8, !tbaa !68
   %indvars.iv.next.i.i.i122 = add nuw nsw i64 %indvars.iv.i.i.i121, 1
   %exitcond.not.i.i.i123 = icmp eq i64 %indvars.iv.next.i.i.i122, %wide.trip.count.i.i.i120
-  br i1 %exitcond.not.i.i.i123, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i124, label %181, !llvm.loop !85
+  br i1 %exitcond.not.i.i.i123, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i124, label %181, !llvm.loop !86
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i116: ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
   %.not.i5.i.i117 = icmp ne ptr %180, null
@@ -860,7 +860,7 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i116: ; p
   br i1 %or.cond.i, label %187, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i118
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i124: ; preds = %181
-  %.old5.i = load i8, ptr %105, align 8, !tbaa !7, !range !31, !noundef !79
+  %.old5.i = load i8, ptr %105, align 8, !tbaa !7, !range !31, !noundef !80
   %.old6.i = trunc nuw i8 %.old5.i to i1
   br i1 %.old6.i, label %187, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i118
 
@@ -884,7 +884,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   %189 = load ptr, ptr %104, align 8, !tbaa !15
   %190 = sext i32 %188 to i64
   %191 = getelementptr inbounds ptr, ptr %189, i64 %190
-  store ptr %110, ptr %191, align 8, !tbaa !67
+  store ptr %110, ptr %191, align 8, !tbaa !68
   %192 = add nsw i32 %188, 1
   store i32 %192, ptr %5, align 4, !tbaa !16
   br label %193
@@ -892,7 +892,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
 193:                                              ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %130, %131, %164, %156, %114
   %194 = add nuw nsw i32 %.086153, 1
   %exitcond171.not = icmp eq i32 %194, %99
-  br i1 %exitcond171.not, label %._crit_edge155, label %106, !llvm.loop !86
+  br i1 %exitcond171.not, label %._crit_edge155, label %106, !llvm.loop !87
 
 ._crit_edge155:                                   ; preds = %193, %.preheader
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
@@ -930,11 +930,11 @@ define dso_local void @_ZN25btSimulationIslandManager14processIslandsEP12btDispa
   %6 = alloca %class.btPersistentManifoldSortPredicateDeterministic, align 1
   %7 = alloca %class.btPersistentManifoldSortPredicate, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !69
+  %9 = load i32, ptr %8, align 4, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.1)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %11 = load i8, ptr %10, align 8, !tbaa !25, !range !31, !noundef !79
+  %11 = load i8, ptr %10, align 8, !tbaa !25, !range !31, !noundef !80
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %35, label %13
 
@@ -978,7 +978,7 @@ define dso_local void @_ZN25btSimulationIslandManager14processIslandsEP12btDispa
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %38 = load i32, ptr %37, align 4, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %40 = load i8, ptr %39, align 8, !tbaa !78, !range !31, !noundef !79
+  %40 = load i8, ptr %39, align 8, !tbaa !79, !range !31, !noundef !80
   %41 = trunc nuw i8 %40 to i1
   %42 = icmp sgt i32 %38, 1
   br i1 %41, label %43, label %48
@@ -1041,7 +1041,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9quickSortI33btPersistentManif
   %.050102 = phi i32 [ 0, %.lr.ph ], [ %.0.lcssa, %.loopexit ]
   %.055101 = phi i32 [ 1, %.lr.ph ], [ %.156, %.loopexit ]
   %.059100 = phi i32 [ 0, %.lr.ph ], [ %spec.select76, %.loopexit ]
-  %65 = load ptr, ptr %55, align 8, !tbaa !70
+  %65 = load ptr, ptr %55, align 8, !tbaa !71
   %66 = sext i32 %.050102 to i64
   %67 = getelementptr inbounds %struct.btElement, ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !55
@@ -1052,7 +1052,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9quickSortI33btPersistentManif
 70:                                               ; preds = %64, %_ZNK17btCollisionObject8isActiveEv.exit
   %indvars.iv = phi i64 [ %66, %64 ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %.05198 = phi i1 [ true, %64 ], [ %113, %_ZNK17btCollisionObject8isActiveEv.exit ]
-  %71 = load ptr, ptr %55, align 8, !tbaa !70
+  %71 = load ptr, ptr %55, align 8, !tbaa !71
   %72 = getelementptr inbounds %struct.btElement, ptr %71, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4, !tbaa !55
   %74 = icmp eq i32 %73, %68
@@ -1060,11 +1060,11 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9quickSortI33btPersistentManif
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !59
+  %77 = load i32, ptr %76, align 4, !tbaa !60
   %78 = load ptr, ptr %56, align 8, !tbaa !22
   %79 = sext i32 %77 to i64
   %80 = getelementptr inbounds ptr, ptr %78, i64 %79
-  %81 = load ptr, ptr %80, align 8, !tbaa !61
+  %81 = load ptr, ptr %80, align 8, !tbaa !62
   %82 = load i32, ptr %57, align 4, !tbaa !23
   %83 = load i32, ptr %58, align 8, !tbaa !24
   %84 = icmp eq i32 %82, %83
@@ -1106,11 +1106,11 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i.i: ; preds = %
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %97 ]
   %98 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %99 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv.i.i.i
-  %100 = load ptr, ptr %99, align 8, !tbaa !61
-  store ptr %100, ptr %98, align 8, !tbaa !61
+  %100 = load ptr, ptr %99, align 8, !tbaa !62
+  store ptr %100, ptr %98, align 8, !tbaa !62
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i, label %97, !llvm.loop !87
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i, label %97, !llvm.loop !88
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i.i
   %.not.i5.i.i = icmp ne ptr %96, null
@@ -1120,7 +1120,7 @@ _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i: ; preds =
   br i1 %or.cond.i, label %103, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i: ; preds = %97
-  %.old5.i = load i8, ptr %60, align 8, !tbaa !18, !range !31, !noundef !79
+  %.old5.i = load i8, ptr %60, align 8, !tbaa !18, !range !31, !noundef !80
   %.old6.i = trunc nuw i8 %.old5.i to i1
   br i1 %.old6.i, label %103, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
 
@@ -1144,11 +1144,11 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i: ; preds 
   %106 = load ptr, ptr %59, align 8, !tbaa !22
   %107 = sext i32 %105 to i64
   %108 = getelementptr inbounds ptr, ptr %106, i64 %107
-  store ptr %81, ptr %108, align 8, !tbaa !61
+  store ptr %81, ptr %108, align 8, !tbaa !62
   %109 = add nsw i32 %105, 1
   store i32 %109, ptr %57, align 4, !tbaa !23
   %110 = getelementptr inbounds nuw i8, ptr %81, i64 240
-  %111 = load i32, ptr %110, align 8, !tbaa !72
+  %111 = load i32, ptr %110, align 8, !tbaa !73
   switch i32 %111, label %112 [
     i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit
     i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit
@@ -1162,7 +1162,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %104, %104, %104, %1
   %113 = phi i1 [ false, %112 ], [ %.05198, %104 ], [ %.05198, %104 ], [ %.05198, %104 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %114 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %114, label %70, label %.critedge, !llvm.loop !88
+  br i1 %114, label %70, label %.critedge, !llvm.loop !89
 
 115:                                              ; preds = %103, %90
   %116 = landingpad { ptr, i32 }
@@ -1183,9 +1183,9 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %104, %104, %104, %1
   %120 = load ptr, ptr %61, align 8, !tbaa !15
   %121 = sext i32 %.059100 to i64
   %122 = getelementptr inbounds ptr, ptr %120, i64 %121
-  %123 = load ptr, ptr %122, align 8, !tbaa !67
+  %123 = load ptr, ptr %122, align 8, !tbaa !68
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 840
-  %125 = load ptr, ptr %124, align 8, !tbaa !83
+  %125 = load ptr, ptr %124, align 8, !tbaa !84
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 228
   %127 = load i32, ptr %126, align 4, !tbaa !54
   %128 = icmp sgt i32 %127, -1
@@ -1193,7 +1193,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %104, %104, %104, %1
 
 129:                                              ; preds = %119
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 848
-  %131 = load ptr, ptr %130, align 8, !tbaa !84
+  %131 = load ptr, ptr %130, align 8, !tbaa !85
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 228
   %133 = load i32, ptr %132, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit
@@ -1216,9 +1216,9 @@ _Z11getIslandIdPK20btPersistentManifold.exit:     ; preds = %119, %129
 
 138:                                              ; preds = %.preheader
   %139 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv.next104
-  %140 = load ptr, ptr %139, align 8, !tbaa !67
+  %140 = load ptr, ptr %139, align 8, !tbaa !68
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 840
-  %142 = load ptr, ptr %141, align 8, !tbaa !83
+  %142 = load ptr, ptr %141, align 8, !tbaa !84
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 228
   %144 = load i32, ptr %143, align 4, !tbaa !54
   %145 = icmp sgt i32 %144, -1
@@ -1226,7 +1226,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit:     ; preds = %119, %129
 
 146:                                              ; preds = %138
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 848
-  %148 = load ptr, ptr %147, align 8, !tbaa !84
+  %148 = load ptr, ptr %147, align 8, !tbaa !85
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 228
   %150 = load i32, ptr %149, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit80
@@ -1234,7 +1234,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit:     ; preds = %119, %129
 _Z11getIslandIdPK20btPersistentManifold.exit80:   ; preds = %138, %146
   %151 = phi i32 [ %150, %146 ], [ %144, %138 ]
   %152 = icmp eq i32 %68, %151
-  br i1 %152, label %.preheader, label %.critedge2.split.loop.exit112, !llvm.loop !89
+  br i1 %152, label %.preheader, label %.critedge2.split.loop.exit112, !llvm.loop !90
 
 .critedge2.split.loop.exit112:                    ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit80
   %153 = trunc nsw i64 %indvars.iv.next104 to i32
@@ -1305,13 +1305,13 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i85: ; pred
   %174 = shl nsw i64 %173, 3
   %scevgep = getelementptr i8, ptr %172, i64 %174
   %175 = mul nsw i64 %173, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %175, i1 false), !tbaa !61
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %175, i1 false), !tbaa !62
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i, %163
   store i32 0, ptr %57, align 4, !tbaa !23
   %176 = icmp slt i32 %.0.lcssa, %9
-  br i1 %176, label %64, label %.loopexit95, !llvm.loop !90
+  br i1 %176, label %64, label %.loopexit95, !llvm.loop !91
 
 177:                                              ; preds = %171
   %178 = landingpad { ptr, i32 }
@@ -1358,9 +1358,9 @@ tailrecurse:                                      ; preds = %186, %4
   %8 = sdiv i32 %7, 2
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 840
-  %13 = load ptr, ptr %12, align 8, !tbaa !83
+  %13 = load ptr, ptr %12, align 8, !tbaa !84
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 228
   %15 = load i32, ptr %14, align 4, !tbaa !54
   %16 = icmp sgt i32 %15, -1
@@ -1377,9 +1377,9 @@ tailrecurse:                                      ; preds = %186, %4
 21:                                               ; preds = %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit.thread, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit.thread ], [ %20, %19 ]
   %22 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !67
+  %23 = load ptr, ptr %22, align 8, !tbaa !68
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 840
-  %25 = load ptr, ptr %24, align 8, !tbaa !83
+  %25 = load ptr, ptr %24, align 8, !tbaa !84
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 228
   %27 = load i32, ptr %26, align 4, !tbaa !54
   %28 = icmp sgt i32 %27, -1
@@ -1387,7 +1387,7 @@ tailrecurse:                                      ; preds = %186, %4
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 848
-  %31 = load ptr, ptr %30, align 8, !tbaa !84
+  %31 = load ptr, ptr %30, align 8, !tbaa !85
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 228
   %33 = load i32, ptr %32, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit.i
@@ -1397,7 +1397,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i:   ; preds = %29, %21
   br i1 %16, label %_Z11getIslandIdPK20btPersistentManifold.exit12.i, label %35
 
 35:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i
-  %36 = load ptr, ptr %17, align 8, !tbaa !84
+  %36 = load ptr, ptr %17, align 8, !tbaa !85
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 228
   %38 = load i32, ptr %37, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit12.i
@@ -1412,7 +1412,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit12.i: ; preds = %35, %_Z11getIslandI
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 848
-  %44 = load ptr, ptr %43, align 8, !tbaa !84
+  %44 = load ptr, ptr %43, align 8, !tbaa !85
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 228
   %46 = load i32, ptr %45, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit13.i
@@ -1422,7 +1422,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit13.i: ; preds = %42, %41
   br i1 %16, label %_Z11getIslandIdPK20btPersistentManifold.exit14.i, label %48
 
 48:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit13.i
-  %49 = load ptr, ptr %17, align 8, !tbaa !84
+  %49 = load ptr, ptr %17, align 8, !tbaa !85
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 228
   %51 = load i32, ptr %50, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit14.i
@@ -1434,12 +1434,12 @@ _Z11getIslandIdPK20btPersistentManifold.exit14.i: ; preds = %48, %_Z11getIslandI
 
 54:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit14.i
   %55 = getelementptr inbounds nuw i8, ptr %25, i64 192
-  %56 = load ptr, ptr %55, align 8, !tbaa !91
+  %56 = load ptr, ptr %55, align 8, !tbaa !92
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load i32, ptr %57, align 8, !tbaa !92
-  %59 = load ptr, ptr %18, align 8, !tbaa !91
+  %58 = load i32, ptr %57, align 8, !tbaa !93
+  %59 = load ptr, ptr %18, align 8, !tbaa !92
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !92
+  %61 = load i32, ptr %60, align 8, !tbaa !93
   %62 = icmp slt i32 %58, %61
   br i1 %62, label %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit.thread, label %63
 
@@ -1448,7 +1448,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit14.i: ; preds = %48, %_Z11getIslandI
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %23, i64 848
-  %66 = load ptr, ptr %65, align 8, !tbaa !84
+  %66 = load ptr, ptr %65, align 8, !tbaa !85
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 228
   %68 = load i32, ptr %67, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit15.i
@@ -1458,7 +1458,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit15.i: ; preds = %64, %63
   br i1 %16, label %_Z11getIslandIdPK20btPersistentManifold.exit16.i, label %70
 
 70:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit15.i
-  %71 = load ptr, ptr %17, align 8, !tbaa !84
+  %71 = load ptr, ptr %17, align 8, !tbaa !85
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 228
   %73 = load i32, ptr %72, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit16.i
@@ -1470,27 +1470,27 @@ _Z11getIslandIdPK20btPersistentManifold.exit16.i: ; preds = %70, %_Z11getIslandI
 
 76:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit16.i
   %77 = getelementptr inbounds nuw i8, ptr %25, i64 192
-  %78 = load ptr, ptr %77, align 8, !tbaa !91
+  %78 = load ptr, ptr %77, align 8, !tbaa !92
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %80 = load i32, ptr %79, align 8, !tbaa !92
-  %81 = load ptr, ptr %18, align 8, !tbaa !91
+  %80 = load i32, ptr %79, align 8, !tbaa !93
+  %81 = load ptr, ptr %18, align 8, !tbaa !92
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %83 = load i32, ptr %82, align 8, !tbaa !92
+  %83 = load i32, ptr %82, align 8, !tbaa !93
   %84 = icmp eq i32 %80, %83
   br i1 %84, label %85, label %.preheader
 
 85:                                               ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %23, i64 848
-  %87 = load ptr, ptr %86, align 8, !tbaa !84
+  %87 = load ptr, ptr %86, align 8, !tbaa !85
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 192
-  %89 = load ptr, ptr %88, align 8, !tbaa !91
+  %89 = load ptr, ptr %88, align 8, !tbaa !92
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load i32, ptr %90, align 8, !tbaa !92
-  %92 = load ptr, ptr %17, align 8, !tbaa !84
+  %91 = load i32, ptr %90, align 8, !tbaa !93
+  %92 = load ptr, ptr %17, align 8, !tbaa !85
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 192
-  %94 = load ptr, ptr %93, align 8, !tbaa !91
+  %94 = load ptr, ptr %93, align 8, !tbaa !92
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %96 = load i32, ptr %95, align 8, !tbaa !92
+  %96 = load i32, ptr %95, align 8, !tbaa !93
   %97 = icmp slt i32 %91, %96
   br i1 %97, label %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit.thread, label %.preheader
 
@@ -1502,16 +1502,16 @@ _Z11getIslandIdPK20btPersistentManifold.exit16.i: ; preds = %70, %_Z11getIslandI
 
 _ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit.thread: ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit12.i, %54, %85
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br label %21, !llvm.loop !93
+  br label %21, !llvm.loop !94
 
 101:                                              ; preds = %.preheader, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread
   %indvars.iv72 = phi i64 [ %100, %.preheader ], [ %indvars.iv.next73, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread ]
   %102 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv72
-  %103 = load ptr, ptr %102, align 8, !tbaa !67
+  %103 = load ptr, ptr %102, align 8, !tbaa !68
   br i1 %16, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36, label %104
 
 104:                                              ; preds = %101
-  %105 = load ptr, ptr %17, align 8, !tbaa !84
+  %105 = load ptr, ptr %17, align 8, !tbaa !85
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 228
   %107 = load i32, ptr %106, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit.i36
@@ -1519,7 +1519,7 @@ _ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS
 _Z11getIslandIdPK20btPersistentManifold.exit.i36: ; preds = %104, %101
   %108 = phi i32 [ %107, %104 ], [ %15, %101 ]
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 840
-  %110 = load ptr, ptr %109, align 8, !tbaa !83
+  %110 = load ptr, ptr %109, align 8, !tbaa !84
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 228
   %112 = load i32, ptr %111, align 4, !tbaa !54
   %113 = icmp sgt i32 %112, -1
@@ -1527,7 +1527,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i36: ; preds = %104, %101
 
 114:                                              ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i36
   %115 = getelementptr inbounds nuw i8, ptr %103, i64 848
-  %116 = load ptr, ptr %115, align 8, !tbaa !84
+  %116 = load ptr, ptr %115, align 8, !tbaa !85
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 228
   %118 = load i32, ptr %117, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit12.i37
@@ -1541,7 +1541,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit12.i37: ; preds = %114, %_Z11getIsla
   br i1 %16, label %_Z11getIslandIdPK20btPersistentManifold.exit13.i38, label %122
 
 122:                                              ; preds = %121
-  %123 = load ptr, ptr %17, align 8, !tbaa !84
+  %123 = load ptr, ptr %17, align 8, !tbaa !85
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 228
   %125 = load i32, ptr %124, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit13.i38
@@ -1552,7 +1552,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit13.i38: ; preds = %122, %121
 
 127:                                              ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit13.i38
   %128 = getelementptr inbounds nuw i8, ptr %103, i64 848
-  %129 = load ptr, ptr %128, align 8, !tbaa !84
+  %129 = load ptr, ptr %128, align 8, !tbaa !85
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 228
   %131 = load i32, ptr %130, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit14.i39
@@ -1563,13 +1563,13 @@ _Z11getIslandIdPK20btPersistentManifold.exit14.i39: ; preds = %127, %_Z11getIsla
   br i1 %133, label %134, label %143
 
 134:                                              ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit14.i39
-  %135 = load ptr, ptr %18, align 8, !tbaa !91
+  %135 = load ptr, ptr %18, align 8, !tbaa !92
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %137 = load i32, ptr %136, align 8, !tbaa !92
+  %137 = load i32, ptr %136, align 8, !tbaa !93
   %138 = getelementptr inbounds nuw i8, ptr %110, i64 192
-  %139 = load ptr, ptr %138, align 8, !tbaa !91
+  %139 = load ptr, ptr %138, align 8, !tbaa !92
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = load i32, ptr %140, align 8, !tbaa !92
+  %141 = load i32, ptr %140, align 8, !tbaa !93
   %142 = icmp slt i32 %137, %141
   br i1 %142, label %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread, label %143
 
@@ -1577,7 +1577,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit14.i39: ; preds = %127, %_Z11getIsla
   br i1 %16, label %_Z11getIslandIdPK20btPersistentManifold.exit15.i40, label %144
 
 144:                                              ; preds = %143
-  %145 = load ptr, ptr %17, align 8, !tbaa !84
+  %145 = load ptr, ptr %17, align 8, !tbaa !85
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 228
   %147 = load i32, ptr %146, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit15.i40
@@ -1588,7 +1588,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit15.i40: ; preds = %144, %143
 
 149:                                              ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit15.i40
   %150 = getelementptr inbounds nuw i8, ptr %103, i64 848
-  %151 = load ptr, ptr %150, align 8, !tbaa !84
+  %151 = load ptr, ptr %150, align 8, !tbaa !85
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 228
   %153 = load i32, ptr %152, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit16.i41
@@ -1599,34 +1599,34 @@ _Z11getIslandIdPK20btPersistentManifold.exit16.i41: ; preds = %149, %_Z11getIsla
   br i1 %155, label %156, label %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44
 
 156:                                              ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit16.i41
-  %157 = load ptr, ptr %18, align 8, !tbaa !91
+  %157 = load ptr, ptr %18, align 8, !tbaa !92
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %159 = load i32, ptr %158, align 8, !tbaa !92
+  %159 = load i32, ptr %158, align 8, !tbaa !93
   %160 = getelementptr inbounds nuw i8, ptr %110, i64 192
-  %161 = load ptr, ptr %160, align 8, !tbaa !91
+  %161 = load ptr, ptr %160, align 8, !tbaa !92
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %163 = load i32, ptr %162, align 8, !tbaa !92
+  %163 = load i32, ptr %162, align 8, !tbaa !93
   %164 = icmp eq i32 %159, %163
   br i1 %164, label %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42, label %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44
 
 _ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42: ; preds = %156
-  %165 = load ptr, ptr %17, align 8, !tbaa !84
+  %165 = load ptr, ptr %17, align 8, !tbaa !85
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 192
-  %167 = load ptr, ptr %166, align 8, !tbaa !91
+  %167 = load ptr, ptr %166, align 8, !tbaa !92
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %169 = load i32, ptr %168, align 8, !tbaa !92
+  %169 = load i32, ptr %168, align 8, !tbaa !93
   %170 = getelementptr inbounds nuw i8, ptr %103, i64 848
-  %171 = load ptr, ptr %170, align 8, !tbaa !84
+  %171 = load ptr, ptr %170, align 8, !tbaa !85
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 192
-  %173 = load ptr, ptr %172, align 8, !tbaa !91
+  %173 = load ptr, ptr %172, align 8, !tbaa !92
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %175 = load i32, ptr %174, align 8, !tbaa !92
+  %175 = load i32, ptr %174, align 8, !tbaa !93
   %176 = icmp slt i32 %169, %175
   br i1 %176, label %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread, label %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44
 
 _ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread: ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit12.i37, %134, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
-  br label %101, !llvm.loop !94
+  br label %101, !llvm.loop !95
 
 _ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44: ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit16.i41, %156, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42
   %177 = trunc nsw i64 %indvars.iv72 to i32
@@ -1635,8 +1635,8 @@ _ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS
 
 178:                                              ; preds = %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44
   %179 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv72
-  store ptr %103, ptr %98, align 8, !tbaa !67
-  store ptr %23, ptr %179, align 8, !tbaa !67
+  store ptr %103, ptr %98, align 8, !tbaa !68
+  store ptr %23, ptr %179, align 8, !tbaa !68
   %180 = add nsw i32 %99, 1
   %181 = add nsw i32 %177, -1
   br label %182
@@ -1645,7 +1645,7 @@ _ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS
   %.232 = phi i32 [ %181, %178 ], [ %177, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44 ]
   %.2 = phi i32 [ %180, %178 ], [ %99, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44 ]
   %.not35 = icmp sgt i32 %.2, %.232
-  br i1 %.not35, label %183, label %19, !llvm.loop !95
+  br i1 %.not35, label %183, label %19, !llvm.loop !96
 
 183:                                              ; preds = %182
   %184 = icmp slt i32 %.tr46, %.232
@@ -1675,9 +1675,9 @@ tailrecurse:                                      ; preds = %101, %4
   %8 = sdiv i32 %7, 2
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 840
-  %13 = load ptr, ptr %12, align 8, !tbaa !83
+  %13 = load ptr, ptr %12, align 8, !tbaa !84
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 228
   %15 = load i32, ptr %14, align 4, !tbaa !54
   %16 = icmp sgt i32 %15, -1
@@ -1691,8 +1691,8 @@ tailrecurse:                                      ; preds = %101, %4
 
 18:                                               ; preds = %.split54.us.us
   %19 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv85
-  store ptr %41, ptr %38, align 8, !tbaa !67
-  store ptr %25, ptr %19, align 8, !tbaa !67
+  store ptr %41, ptr %38, align 8, !tbaa !68
+  store ptr %25, ptr %19, align 8, !tbaa !68
   %20 = add nsw i32 %54, 1
   %21 = add nsw i32 %55, -1
   br label %22
@@ -1701,14 +1701,14 @@ tailrecurse:                                      ; preds = %101, %4
   %.232.us = phi i32 [ %21, %18 ], [ %55, %.split54.us.us ]
   %.2.us = phi i32 [ %20, %18 ], [ %54, %.split54.us.us ]
   %.not35.us = icmp sgt i32 %.2.us, %.232.us
-  br i1 %.not35.us, label %.split67.us, label %.split.us.us, !llvm.loop !96
+  br i1 %.not35.us, label %.split67.us, label %.split.us.us, !llvm.loop !97
 
 23:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i.us.us, %.split.us.us
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %_Z11getIslandIdPK20btPersistentManifold.exit.i.us.us ], [ %17, %.split.us.us ]
   %24 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv82
-  %25 = load ptr, ptr %24, align 8, !tbaa !67
+  %25 = load ptr, ptr %24, align 8, !tbaa !68
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 840
-  %27 = load ptr, ptr %26, align 8, !tbaa !83
+  %27 = load ptr, ptr %26, align 8, !tbaa !84
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 228
   %29 = load i32, ptr %28, align 4, !tbaa !54
   %30 = icmp sgt i32 %29, -1
@@ -1716,7 +1716,7 @@ tailrecurse:                                      ; preds = %101, %4
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 848
-  %33 = load ptr, ptr %32, align 8, !tbaa !84
+  %33 = load ptr, ptr %32, align 8, !tbaa !85
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 228
   %35 = load i32, ptr %34, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit.i.us.us
@@ -1725,7 +1725,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i.us.us: ; preds = %31, %23
   %36 = phi i32 [ %35, %31 ], [ %29, %23 ]
   %37 = icmp slt i32 %36, %15
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, 1
-  br i1 %37, label %23, label %.preheader.split.us.us, !llvm.loop !98
+  br i1 %37, label %23, label %.preheader.split.us.us, !llvm.loop !99
 
 .preheader.split.us.us:                           ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i.us.us
   %38 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv82
@@ -1735,9 +1735,9 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i.us.us: ; preds = %31, %23
 _Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us: ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us, %.preheader.split.us.us
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us ], [ %39, %.preheader.split.us.us ]
   %40 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv85
-  %41 = load ptr, ptr %40, align 8, !tbaa !67
+  %41 = load ptr, ptr %40, align 8, !tbaa !68
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 840
-  %43 = load ptr, ptr %42, align 8, !tbaa !83
+  %43 = load ptr, ptr %42, align 8, !tbaa !84
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 228
   %45 = load i32, ptr %44, align 4, !tbaa !54
   %46 = icmp sgt i32 %45, -1
@@ -1745,7 +1745,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us: ; preds = %_ZNK33btPersi
 
 47:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 848
-  %49 = load ptr, ptr %48, align 8, !tbaa !84
+  %49 = load ptr, ptr %48, align 8, !tbaa !85
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 228
   %51 = load i32, ptr %50, align 4, !tbaa !54
   br label %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us
@@ -1754,7 +1754,7 @@ _ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.
   %52 = phi i32 [ %51, %47 ], [ %45, %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us ]
   %53 = icmp slt i32 %15, %52
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -1
-  br i1 %53, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us, label %.split54.us.us, !llvm.loop !99
+  br i1 %53, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us, label %.split54.us.us, !llvm.loop !100
 
 .split54.us.us:                                   ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us
   %54 = trunc nsw i64 %indvars.iv82 to i32
@@ -1764,7 +1764,7 @@ _ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.
 
 tailrecurse.split:                                ; preds = %tailrecurse
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 848
-  %57 = load ptr, ptr %56, align 8, !tbaa !84
+  %57 = load ptr, ptr %56, align 8, !tbaa !85
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 228
   %59 = load i32, ptr %58, align 4, !tbaa !54
   br label %.split
@@ -1778,9 +1778,9 @@ tailrecurse.split:                                ; preds = %tailrecurse
 61:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z11getIslandIdPK20btPersistentManifold.exit.i ], [ %60, %.split ]
   %62 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
-  %63 = load ptr, ptr %62, align 8, !tbaa !67
+  %63 = load ptr, ptr %62, align 8, !tbaa !68
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 840
-  %65 = load ptr, ptr %64, align 8, !tbaa !83
+  %65 = load ptr, ptr %64, align 8, !tbaa !84
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 228
   %67 = load i32, ptr %66, align 4, !tbaa !54
   %68 = icmp sgt i32 %67, -1
@@ -1788,7 +1788,7 @@ tailrecurse.split:                                ; preds = %tailrecurse
 
 69:                                               ; preds = %61
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 848
-  %71 = load ptr, ptr %70, align 8, !tbaa !84
+  %71 = load ptr, ptr %70, align 8, !tbaa !85
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 228
   %73 = load i32, ptr %72, align 4, !tbaa !54
   br label %_Z11getIslandIdPK20btPersistentManifold.exit.i
@@ -1797,7 +1797,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i:   ; preds = %69, %61
   %74 = phi i32 [ %73, %69 ], [ %67, %61 ]
   %75 = icmp slt i32 %74, %59
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %75, label %61, label %.preheader.split, !llvm.loop !100
+  br i1 %75, label %61, label %.preheader.split, !llvm.loop !101
 
 .preheader.split:                                 ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i
   %76 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
@@ -1807,9 +1807,9 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i:   ; preds = %69, %61
 _Z11getIslandIdPK20btPersistentManifold.exit.i36: ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37, %.preheader.split
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37 ], [ %77, %.preheader.split ]
   %78 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv79
-  %79 = load ptr, ptr %78, align 8, !tbaa !67
+  %79 = load ptr, ptr %78, align 8, !tbaa !68
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 840
-  %81 = load ptr, ptr %80, align 8, !tbaa !83
+  %81 = load ptr, ptr %80, align 8, !tbaa !84
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 228
   %83 = load i32, ptr %82, align 4, !tbaa !54
   %84 = icmp sgt i32 %83, -1
@@ -1817,7 +1817,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i36: ; preds = %_ZNK33btPersistentM
 
 85:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i36
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 848
-  %87 = load ptr, ptr %86, align 8, !tbaa !84
+  %87 = load ptr, ptr %86, align 8, !tbaa !85
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 228
   %89 = load i32, ptr %88, align 4, !tbaa !54
   br label %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37
@@ -1826,7 +1826,7 @@ _ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37: ; 
   %90 = phi i32 [ %89, %85 ], [ %83, %_Z11getIslandIdPK20btPersistentManifold.exit.i36 ]
   %91 = icmp slt i32 %59, %90
   %indvars.iv.next80 = add nsw i64 %indvars.iv79, -1
-  br i1 %91, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36, label %.split54, !llvm.loop !101
+  br i1 %91, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36, label %.split54, !llvm.loop !102
 
 .split54:                                         ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37
   %92 = trunc nsw i64 %indvars.iv to i32
@@ -1836,8 +1836,8 @@ _ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37: ; 
 
 94:                                               ; preds = %.split54
   %95 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv79
-  store ptr %79, ptr %76, align 8, !tbaa !67
-  store ptr %63, ptr %95, align 8, !tbaa !67
+  store ptr %79, ptr %76, align 8, !tbaa !68
+  store ptr %63, ptr %95, align 8, !tbaa !68
   %96 = add nsw i32 %92, 1
   %97 = add nsw i32 %93, -1
   br label %98
@@ -1846,7 +1846,7 @@ _ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37: ; 
   %.232 = phi i32 [ %97, %94 ], [ %93, %.split54 ]
   %.2 = phi i32 [ %96, %94 ], [ %92, %.split54 ]
   %.not35 = icmp sgt i32 %.2, %.232
-  br i1 %.not35, label %.split67.us, label %.split, !llvm.loop !102
+  br i1 %.not35, label %.split67.us, label %.split, !llvm.loop !103
 
 .split67.us:                                      ; preds = %98, %22
   %.us-phi68 = phi i32 [ %.232.us, %22 ], [ %.232, %98 ]
@@ -1946,49 +1946,50 @@ attributes #13 = { builtin nounwind }
 !54 = !{!48, !10, i64 228}
 !55 = !{!56, !10, i64 0}
 !56 = !{!"_ZTS9btElement", !10, i64 0, !10, i64 4}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!56, !10, i64 4}
-!60 = distinct !{!60, !58}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS17btCollisionObject", !13, i64 0}
-!63 = !{!48, !10, i64 232}
-!64 = !{!48, !36, i64 300}
-!65 = distinct !{!65, !58}
-!66 = distinct !{!66, !58}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"p1 _ZTS20btPersistentManifold", !13, i64 0}
-!69 = !{!28, !10, i64 4}
-!70 = !{!28, !30, i64 16}
-!71 = distinct !{!71, !58}
-!72 = !{!48, !10, i64 240}
-!73 = distinct !{!73, !58}
-!74 = distinct !{!74, !58}
-!75 = !{!48, !36, i64 244}
-!76 = distinct !{!76, !58}
-!77 = distinct !{!77, !58}
-!78 = !{!35, !14, i64 48}
-!79 = !{}
-!80 = !{!81, !10, i64 856}
-!81 = !{!"_ZTS20btPersistentManifold", !82, i64 0, !11, i64 8, !62, i64 840, !62, i64 848, !10, i64 856, !36, i64 860, !36, i64 864, !10, i64 868, !10, i64 872, !10, i64 876}
-!82 = !{!"_ZTS13btTypedObject", !10, i64 0}
-!83 = !{!81, !62, i64 840}
-!84 = !{!81, !62, i64 848}
-!85 = distinct !{!85, !58}
-!86 = distinct !{!86, !58}
-!87 = distinct !{!87, !58}
-!88 = distinct !{!88, !58}
-!89 = distinct !{!89, !58}
-!90 = distinct !{!90, !58}
-!91 = !{!48, !41, i64 192}
-!92 = !{!44, !10, i64 16}
-!93 = distinct !{!93, !58}
-!94 = distinct !{!94, !58}
-!95 = distinct !{!95, !58}
-!96 = distinct !{!96, !58, !97}
-!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!98 = distinct !{!98, !58, !97}
-!99 = distinct !{!99, !58, !97}
-!100 = distinct !{!100, !58}
-!101 = distinct !{!101, !58}
-!102 = distinct !{!102, !58}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = !{!56, !10, i64 4}
+!61 = distinct !{!61, !58, !59}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS17btCollisionObject", !13, i64 0}
+!64 = !{!48, !10, i64 232}
+!65 = !{!48, !36, i64 300}
+!66 = distinct !{!66, !58, !59}
+!67 = distinct !{!67, !58, !59}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTS20btPersistentManifold", !13, i64 0}
+!70 = !{!28, !10, i64 4}
+!71 = !{!28, !30, i64 16}
+!72 = distinct !{!72, !58, !59}
+!73 = !{!48, !10, i64 240}
+!74 = distinct !{!74, !58, !59}
+!75 = distinct !{!75, !58, !59}
+!76 = !{!48, !36, i64 244}
+!77 = distinct !{!77, !58, !59}
+!78 = distinct !{!78, !58, !59}
+!79 = !{!35, !14, i64 48}
+!80 = !{}
+!81 = !{!82, !10, i64 856}
+!82 = !{!"_ZTS20btPersistentManifold", !83, i64 0, !11, i64 8, !63, i64 840, !63, i64 848, !10, i64 856, !36, i64 860, !36, i64 864, !10, i64 868, !10, i64 872, !10, i64 876}
+!83 = !{!"_ZTS13btTypedObject", !10, i64 0}
+!84 = !{!82, !63, i64 840}
+!85 = !{!82, !63, i64 848}
+!86 = distinct !{!86, !58, !59}
+!87 = distinct !{!87, !58, !59}
+!88 = distinct !{!88, !58, !59}
+!89 = distinct !{!89, !58, !59}
+!90 = distinct !{!90, !58, !59}
+!91 = distinct !{!91, !58, !59}
+!92 = !{!48, !41, i64 192}
+!93 = !{!44, !10, i64 16}
+!94 = distinct !{!94, !58, !59}
+!95 = distinct !{!95, !58, !59}
+!96 = distinct !{!96, !58, !59}
+!97 = distinct !{!97, !58, !59, !98}
+!98 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!99 = distinct !{!99, !58, !59, !98}
+!100 = distinct !{!100, !58, !59, !98}
+!101 = distinct !{!101, !58, !59}
+!102 = distinct !{!102, !58, !59}
+!103 = distinct !{!103, !58, !59}

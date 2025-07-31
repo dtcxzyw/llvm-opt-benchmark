@@ -365,7 +365,7 @@ define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, pt
   %65 = call fastcc ptr @_next_job_id()
   store ptr %65, ptr %24, align 8
   %.not97 = icmp eq ptr %65, null
-  br i1 %.not97, label %.loopexit, label %.lr.ph122, !llvm.loop !11
+  br i1 %.not97, label %.loopexit, label %.lr.ph122, !llvm.loop !12
 
 66:                                               ; preds = %21
   %.not85 = icmp eq ptr %.171, null
@@ -554,7 +554,7 @@ define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, pt
   %160 = load i32, ptr %159, align 8
   %161 = zext i32 %160 to i64
   %162 = icmp samesign ult i64 %indvars.iv.next, %161
-  br i1 %162, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %162, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %158, %.preheader106
   %.lcssa108 = phi ptr [ %136, %.preheader106 ], [ %159, %158 ]
@@ -575,7 +575,7 @@ define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, pt
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load i32, ptr %168, align 8
   %170 = icmp ult i32 %165, %169
-  br i1 %170, label %92, label %.loopexit, !llvm.loop !13
+  br i1 %170, label %92, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %164, %64, %66, %85, %.preheader105, %81, %84, %71, %74
   %.072 = phi i32 [ 2017, %74 ], [ 2017, %71 ], [ 1, %84 ], [ 1, %81 ], [ 0, %.preheader105 ], [ 0, %85 ], [ 0, %66 ], [ %.1, %64 ], [ %.3, %164 ]
@@ -662,7 +662,7 @@ define internal fastcc noundef zeroext i1 @_is_job_id(ptr noundef %0) unnamed_ad
   %.127 = phi i8 [ %.026, %11 ], [ %.026, %13 ], [ %.026, %15 ], [ 0, %20 ], [ %.026, %18 ], [ %.026, %8 ], [ 1, %9 ], [ %.026, %21 ]
   %.1 = phi i32 [ %12, %11 ], [ %14, %13 ], [ %.025, %15 ], [ 0, %20 ], [ %.025, %18 ], [ %.025, %8 ], [ %.025, %9 ], [ %.025, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %4, !llvm.loop !14
+  br label %4, !llvm.loop !15
 
 25:                                               ; preds = %4
   %.not35 = icmp eq i32 %.025, 0
@@ -773,7 +773,7 @@ define internal fastcc ptr @_next_job_id() unnamed_addr #0 {
 
 35:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %30, !llvm.loop !15
+  br label %30, !llvm.loop !16
 
 36:                                               ; preds = %23
   %37 = tail call ptr @xstrdup(ptr noundef nonnull %24) #13
@@ -1000,7 +1000,7 @@ define dso_local void @scontrol_suspend(ptr noundef %0, ptr noundef %1) local_un
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
   %51 = icmp samesign ult i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %47, %.preheader
   %.lcssa = phi ptr [ %25, %.preheader ], [ %48, %47 ]
@@ -1011,7 +1011,7 @@ define dso_local void @scontrol_suspend(ptr noundef %0, ptr noundef %1) local_un
 52:                                               ; preds = %24, %._crit_edge, %16, %18
   %53 = call fastcc ptr @_next_job_id()
   %.not27 = icmp eq ptr %53, null
-  br i1 %.not27, label %.loopexit, label %.lr.ph37, !llvm.loop !17
+  br i1 %.not27, label %.loopexit, label %.lr.ph37, !llvm.loop !18
 
 54:                                               ; preds = %2
   store i32 1, ptr @exit_code, align 4
@@ -1136,7 +1136,7 @@ define dso_local void @scontrol_requeue(i32 noundef %0, ptr noundef %1) local_un
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %44, %.preheader
   %.lcssa = phi ptr [ %22, %.preheader ], [ %45, %44 ]
@@ -1147,7 +1147,7 @@ define dso_local void @scontrol_requeue(i32 noundef %0, ptr noundef %1) local_un
 49:                                               ; preds = %21, %._crit_edge, %13, %15
   %50 = call fastcc ptr @_next_job_id()
   %.not24 = icmp eq ptr %50, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph32, !llvm.loop !19
+  br i1 %.not24, label %.loopexit, label %.lr.ph32, !llvm.loop !20
 
 51:                                               ; preds = %6
   store i32 1, ptr @exit_code, align 4
@@ -1251,7 +1251,7 @@ define dso_local void @scontrol_requeue_hold(i32 noundef %0, ptr noundef %1) loc
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %40, %.preheader
   %.lcssa = phi ptr [ %18, %.preheader ], [ %41, %40 ]
@@ -1262,7 +1262,7 @@ define dso_local void @scontrol_requeue_hold(i32 noundef %0, ptr noundef %1) loc
 45:                                               ; preds = %17, %._crit_edge, %9, %11
   %46 = call fastcc ptr @_next_job_id()
   %.not16 = icmp eq ptr %46, null
-  br i1 %.not16, label %.loopexit, label %.lr.ph24, !llvm.loop !21
+  br i1 %.not16, label %.loopexit, label %.lr.ph24, !llvm.loop !22
 
 47:                                               ; preds = %2
   store i32 1, ptr @exit_code, align 4
@@ -2828,7 +2828,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   %.1522 = phi i1 [ %.05211062, %112 ], [ %.05211062, %107 ], [ %.2523, %667 ], [ %.05211062, %232 ], [ %.05211062, %147 ]
   %670 = add nsw i32 %.2527, 1
   %671 = icmp slt i32 %670, %0
-  br i1 %671, label %86, label %._crit_edge, !llvm.loop !22
+  br i1 %671, label %86, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.thread772
   %672 = icmp eq i32 %.1532, 0
@@ -2927,7 +2927,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   %716 = getelementptr inbounds nuw i8, ptr %715, i64 16
   %717 = load i32, ptr %716, align 8
   %718 = icmp ult i32 %713, %717
-  br i1 %718, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %718, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !24
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %735
   %.035.i = phi ptr [ %.1.i, %735 ], [ @.str.151, %.lr.ph.i ]
@@ -2975,7 +2975,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 16
   %740 = load i32, ptr %739, align 8
   %741 = icmp ult i32 %736, %740
-  br i1 %741, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !25
+  br i1 %741, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %735, %712
   %742 = load ptr, ptr %10, align 8
@@ -3461,7 +3461,7 @@ thread-pre-split795:                              ; preds = %.lr.ph1066
   %988 = load i32, ptr %987, align 8
   %989 = zext i32 %988 to i64
   %990 = icmp samesign ult i64 %indvars.iv.next, %989
-  br i1 %990, label %.lr.ph1066, label %._crit_edge1067, !llvm.loop !26
+  br i1 %990, label %.lr.ph1066, label %._crit_edge1067, !llvm.loop !27
 
 ._crit_edge1067:                                  ; preds = %986, %.preheader
   %.lcssa = phi ptr [ %944, %.preheader ], [ %987, %986 ]
@@ -3474,7 +3474,7 @@ thread-pre-split795:                              ; preds = %.lr.ph1066
   %992 = call fastcc ptr @_next_job_id()
   store ptr %992, ptr %680, align 8
   %.not600 = icmp eq ptr %992, null
-  br i1 %.not600, label %.thread780, label %796, !llvm.loop !27
+  br i1 %.not600, label %.thread780, label %796, !llvm.loop !28
 
 993:                                              ; preds = %790
   %994 = load ptr, ptr %680, align 8
@@ -3674,7 +3674,7 @@ split:                                            ; preds = %61, %._crit_edge
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
   %82 = icmp samesign ult i64 %indvars.iv.next, %81
-  br i1 %82, label %39, label %.loopexit, !llvm.loop !28
+  br i1 %82, label %39, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %77, %split, %55
   %83 = phi ptr [ %40, %55 ], [ %74, %split ], [ %78, %77 ]
@@ -3769,7 +3769,7 @@ define dso_local i32 @scontrol_job_notify(i32 noundef %0, ptr noundef readonly c
 17:                                               ; preds = %15, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %17
   %.pre = load ptr, ptr %3, align 8
@@ -3931,25 +3931,26 @@ attributes #17 = { cold }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !9, !10, !11}
+!27 = distinct !{!27, !9, !10, !11}
+!28 = distinct !{!28, !9, !10, !11}
+!29 = distinct !{!29, !9, !10, !11}
+!30 = distinct !{!30, !9, !10, !11}

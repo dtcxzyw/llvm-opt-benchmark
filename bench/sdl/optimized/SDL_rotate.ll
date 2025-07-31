@@ -482,7 +482,7 @@ computeSourceIncrements90.exit.i:                 ; preds = %142, %137, %132, %1
   %188 = getelementptr inbounds i8, ptr %.351.i, i64 %168
   %189 = getelementptr inbounds nuw i8, ptr %.152.i, i64 1
   %.not.i = icmp eq ptr %189, %186
-  br i1 %.not.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
   %.pre.i = load i32, ptr %92, align 4
@@ -496,7 +496,7 @@ computeSourceIncrements90.exit.i:                 ; preds = %142, %137, %132, %1
   %192 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 %170
   %193 = add nuw nsw i32 %.056.i, 1
   %194 = icmp slt i32 %193, %190
-  br i1 %194, label %.lr.ph57.split.i, label %transformSurfaceY90.exit, !llvm.loop !7
+  br i1 %194, label %.lr.ph57.split.i, label %transformSurfaceY90.exit, !llvm.loop !8
 
 .thread196:                                       ; preds = %.thread192
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -633,7 +633,7 @@ get_colorkey.exit.i:                              ; preds = %214, %.thread196
   %287 = getelementptr inbounds nuw i8, ptr %.165.us.i, i64 1
   %288 = add nuw nsw i32 %.06064.us.i, 1
   %289 = icmp slt i32 %288, %284
-  br i1 %289, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %289, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i121, %312
   %290 = phi i32 [ %313, %312 ], [ %236, %.lr.ph.i121 ]
@@ -679,7 +679,7 @@ get_colorkey.exit.i:                              ; preds = %214, %.thread196
   %317 = getelementptr inbounds nuw i8, ptr %.165.i, i64 1
   %318 = add nuw nsw i32 %.06064.i, 1
   %319 = icmp slt i32 %318, %314
-  br i1 %319, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !10
+  br i1 %319, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %312, %283, %.lr.ph70.split.i
   %320 = phi i32 [ %236, %.lr.ph70.split.i ], [ %284, %283 ], [ %313, %312 ]
@@ -690,7 +690,7 @@ get_colorkey.exit.i:                              ; preds = %214, %.thread196
   %324 = add nuw nsw i32 %.05968.i, 1
   %325 = load i32, ptr %92, align 4
   %326 = icmp slt i32 %324, %325
-  br i1 %326, label %.lr.ph70.split.i, label %transformSurfaceY90.exit, !llvm.loop !11
+  br i1 %326, label %.lr.ph70.split.i, label %transformSurfaceY90.exit, !llvm.loop !12
 
 327:                                              ; preds = %108
   %328 = shl i32 %112, 2
@@ -814,7 +814,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %394 = add nuw nsw i32 %.056.us.i154, 1
   %395 = load i32, ptr %92, align 4
   %396 = icmp slt i32 %394, %395
-  br i1 %396, label %.lr.ph57.split.us.i153, label %transformSurfaceY90.exit, !llvm.loop !12
+  br i1 %396, label %.lr.ph57.split.us.i153, label %transformSurfaceY90.exit, !llvm.loop !13
 
 .lr.ph57.split.i139:                              ; preds = %.lr.ph57.split.i139.preheader, %.loopexit.i150
   %397 = phi i32 [ %405, %.loopexit.i150 ], [ %377, %.lr.ph57.split.i139.preheader ]
@@ -836,7 +836,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %403 = getelementptr inbounds i8, ptr %.351.i146, i64 %380
   %404 = getelementptr inbounds nuw i8, ptr %.152.i145, i64 4
   %.not.i147 = icmp eq ptr %404, %401
-  br i1 %.not.i147, label %.loopexit.loopexit.i148, label %.lr.ph.i144, !llvm.loop !13
+  br i1 %.not.i147, label %.loopexit.loopexit.i148, label %.lr.ph.i144, !llvm.loop !14
 
 .loopexit.loopexit.i148:                          ; preds = %.lr.ph.i144
   %.pre.i149 = load i32, ptr %92, align 4
@@ -850,7 +850,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %407 = getelementptr inbounds i8, ptr %.1.lcssa.i152, i64 %382
   %408 = add nuw nsw i32 %.056.i140, 1
   %409 = icmp slt i32 %408, %405
-  br i1 %409, label %.lr.ph57.split.i139, label %transformSurfaceY90.exit, !llvm.loop !14
+  br i1 %409, label %.lr.ph57.split.i139, label %transformSurfaceY90.exit, !llvm.loop !15
 
 .thread198:                                       ; preds = %.thread192
   %410 = add nsw i32 %116, -1
@@ -1160,7 +1160,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %598 = getelementptr inbounds nuw i8, ptr %.1251.i, i64 4
   %599 = add nuw nsw i32 %.0239252.i, 1
   %600 = icmp slt i32 %599, %595
-  br i1 %600, label %.lr.ph.i164, label %._crit_edge.loopexit.i, !llvm.loop !15
+  br i1 %600, label %.lr.ph.i164, label %._crit_edge.loopexit.i, !llvm.loop !16
 
 ._crit_edge.loopexit.i:                           ; preds = %594
   %.pre275.i = load i32, ptr %92, align 4
@@ -1174,7 +1174,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %604 = getelementptr inbounds i8, ptr %.1.lcssa.i163, i64 %441
   %605 = add nuw nsw i32 %.0240256.i, 1
   %606 = icmp slt i32 %605, %601
-  br i1 %606, label %.lr.ph257.split.i, label %transformSurfaceY90.exit, !llvm.loop !16
+  br i1 %606, label %.lr.ph257.split.i, label %transformSurfaceY90.exit, !llvm.loop !17
 
 .lr.ph268.split.i:                                ; preds = %.lr.ph268.i, %._crit_edge264.i
   %607 = phi i32 [ %688, %._crit_edge264.i ], [ %419, %.lr.ph268.i ]
@@ -1251,7 +1251,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %657 = getelementptr inbounds nuw i8, ptr %.3258.us.i, i64 4
   %658 = add nuw nsw i32 %.0233259.us.i, 1
   %659 = icmp slt i32 %658, %654
-  br i1 %659, label %.lr.ph263.split.us.i, label %._crit_edge264.i, !llvm.loop !17
+  br i1 %659, label %.lr.ph263.split.us.i, label %._crit_edge264.i, !llvm.loop !18
 
 .lr.ph263.split.i:                                ; preds = %.lr.ph263.i, %680
   %660 = phi i32 [ %681, %680 ], [ %607, %.lr.ph263.i ]
@@ -1295,7 +1295,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %685 = getelementptr inbounds nuw i8, ptr %.3258.i, i64 4
   %686 = add nuw nsw i32 %.0233259.i, 1
   %687 = icmp slt i32 %686, %682
-  br i1 %687, label %.lr.ph263.split.i, label %._crit_edge264.i, !llvm.loop !18
+  br i1 %687, label %.lr.ph263.split.i, label %._crit_edge264.i, !llvm.loop !19
 
 ._crit_edge264.i:                                 ; preds = %680, %653, %.lr.ph268.split.i
   %688 = phi i32 [ %607, %.lr.ph268.split.i ], [ %654, %653 ], [ %681, %680 ]
@@ -1306,7 +1306,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %692 = add nuw nsw i32 %.0234267.i, 1
   %693 = load i32, ptr %92, align 4
   %694 = icmp slt i32 %692, %693
-  br i1 %694, label %.lr.ph268.split.i, label %transformSurfaceY90.exit, !llvm.loop !19
+  br i1 %694, label %.lr.ph268.split.i, label %transformSurfaceY90.exit, !llvm.loop !20
 
 transformSurfaceY90.exit:                         ; preds = %._crit_edge.i162, %._crit_edge264.i, %._crit_edge.i, %.loopexit.i150, %.lr.ph57.split.us.i153, %.loopexit.i, %.lr.ph57.split.us.i, %.lr.ph57.split.i139.preheader, %.lr.ph57.split.i.preheader, %.lr.ph268.i, %.preheader.i, %.lr.ph257.i, %.preheader249.i, %376, %.lr.ph70.i, %get_colorkey.exit.i, %164
   %695 = load i32, ptr %0, align 8
@@ -1373,20 +1373,21 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4, !5, !6}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4, !8}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4, !8}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4, !8}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4, !8}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4, !8}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5, !9}
+!9 = !{!"llvm.loop.unswitch.partial.disable"}
+!10 = distinct !{!10, !4, !5, !6}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5, !9}
+!13 = distinct !{!13, !4, !5, !6}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5, !9}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5, !9}
+!18 = distinct !{!18, !4, !5, !6}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5, !9}

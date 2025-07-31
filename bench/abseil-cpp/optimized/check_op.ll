@@ -2249,5 +2249,6 @@ attributes #16 = { nounwind willreturn memory(read) }
 !53 = !{!"p1 _ZTSSo", !14, i64 0}
 !54 = !{!55, !53, i64 0}
 !55 = !{!"_ZTSN4absl12log_internal21detect_specialization13StringifySinkE", !53, i64 0}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
+!58 = !{!"llvm.loop.estimated_trip_count"}

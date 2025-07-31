@@ -108,17 +108,17 @@ define internal noundef i32 @init() #0 {
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %6, %7
   %18 = tail call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.1) #18
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store ptr %18, ptr %19, align 8, !tbaa !22
+  store ptr %18, ptr %19, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i16 1, ptr %20, align 8, !tbaa !25
+  store i16 1, ptr %20, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store ptr @pmix12_bfrop_pack_bool, ptr %21, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_bool, ptr %21, align 8, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store ptr @pmix12_bfrop_unpack_bool, ptr %22, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_bool, ptr %22, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %23, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %23, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store ptr @pmix12_bfrop_print_bool, ptr %24, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_bool, ptr %24, align 8, !tbaa !30
   %25 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 1, ptr noundef %2) #18
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %27 = tail call noalias noundef ptr @malloc(i64 noundef %26) #17
@@ -162,17 +162,17 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %6, %7
 pmix_obj_new_tma.exit300:                         ; preds = %.lr.ph.i.i297, %31, %32
   %43 = tail call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.2) #18
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  store ptr %43, ptr %44, align 8, !tbaa !22
+  store ptr %43, ptr %44, align 8, !tbaa !23
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 120
-  store i16 2, ptr %45, align 8, !tbaa !25
+  store i16 2, ptr %45, align 8, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 136
-  store ptr @pmix12_bfrop_pack_byte, ptr %46, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_byte, ptr %46, align 8, !tbaa !27
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 144
-  store ptr @pmix12_bfrop_unpack_byte, ptr %47, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_byte, ptr %47, align 8, !tbaa !28
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %48, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %48, align 8, !tbaa !29
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 160
-  store ptr @pmix12_bfrop_print_byte, ptr %49, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_byte, ptr %49, align 8, !tbaa !30
   %50 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 2, ptr noundef %27) #18
   %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %52 = tail call noalias noundef ptr @malloc(i64 noundef %51) #17
@@ -216,17 +216,17 @@ pmix_obj_new_tma.exit300:                         ; preds = %.lr.ph.i.i297, %31,
 pmix_obj_new_tma.exit307:                         ; preds = %.lr.ph.i.i304, %56, %57
   %68 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str.3) #18
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  store ptr %68, ptr %69, align 8, !tbaa !22
+  store ptr %68, ptr %69, align 8, !tbaa !23
   %70 = getelementptr inbounds nuw i8, ptr %52, i64 120
-  store i16 3, ptr %70, align 8, !tbaa !25
+  store i16 3, ptr %70, align 8, !tbaa !26
   %71 = getelementptr inbounds nuw i8, ptr %52, i64 136
-  store ptr @pmix12_bfrop_pack_string, ptr %71, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_string, ptr %71, align 8, !tbaa !27
   %72 = getelementptr inbounds nuw i8, ptr %52, i64 144
-  store ptr @pmix12_bfrop_unpack_string, ptr %72, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_string, ptr %72, align 8, !tbaa !28
   %73 = getelementptr inbounds nuw i8, ptr %52, i64 152
-  store ptr @pmix12_bfrop_copy_string, ptr %73, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_string, ptr %73, align 8, !tbaa !29
   %74 = getelementptr inbounds nuw i8, ptr %52, i64 160
-  store ptr @pmix12_bfrop_print_string, ptr %74, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_string, ptr %74, align 8, !tbaa !30
   %75 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 3, ptr noundef %52) #18
   %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %77 = tail call noalias noundef ptr @malloc(i64 noundef %76) #17
@@ -270,17 +270,17 @@ pmix_obj_new_tma.exit307:                         ; preds = %.lr.ph.i.i304, %56,
 pmix_obj_new_tma.exit314:                         ; preds = %.lr.ph.i.i311, %81, %82
   %93 = tail call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.4) #18
   %94 = getelementptr inbounds nuw i8, ptr %77, i64 128
-  store ptr %93, ptr %94, align 8, !tbaa !22
+  store ptr %93, ptr %94, align 8, !tbaa !23
   %95 = getelementptr inbounds nuw i8, ptr %77, i64 120
-  store i16 4, ptr %95, align 8, !tbaa !25
+  store i16 4, ptr %95, align 8, !tbaa !26
   %96 = getelementptr inbounds nuw i8, ptr %77, i64 136
-  store ptr @pmix12_bfrop_pack_sizet, ptr %96, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_sizet, ptr %96, align 8, !tbaa !27
   %97 = getelementptr inbounds nuw i8, ptr %77, i64 144
-  store ptr @pmix12_bfrop_unpack_sizet, ptr %97, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_sizet, ptr %97, align 8, !tbaa !28
   %98 = getelementptr inbounds nuw i8, ptr %77, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %98, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %98, align 8, !tbaa !29
   %99 = getelementptr inbounds nuw i8, ptr %77, i64 160
-  store ptr @pmix12_bfrop_print_size, ptr %99, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_size, ptr %99, align 8, !tbaa !30
   %100 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 4, ptr noundef %77) #18
   %101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %102 = tail call noalias noundef ptr @malloc(i64 noundef %101) #17
@@ -324,17 +324,17 @@ pmix_obj_new_tma.exit314:                         ; preds = %.lr.ph.i.i311, %81,
 pmix_obj_new_tma.exit321:                         ; preds = %.lr.ph.i.i318, %106, %107
   %118 = tail call noalias dereferenceable_or_null(9) ptr @strdup(ptr noundef nonnull @.str.5) #18
   %119 = getelementptr inbounds nuw i8, ptr %102, i64 128
-  store ptr %118, ptr %119, align 8, !tbaa !22
+  store ptr %118, ptr %119, align 8, !tbaa !23
   %120 = getelementptr inbounds nuw i8, ptr %102, i64 120
-  store i16 5, ptr %120, align 8, !tbaa !25
+  store i16 5, ptr %120, align 8, !tbaa !26
   %121 = getelementptr inbounds nuw i8, ptr %102, i64 136
-  store ptr @pmix12_bfrop_pack_pid, ptr %121, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_pid, ptr %121, align 8, !tbaa !27
   %122 = getelementptr inbounds nuw i8, ptr %102, i64 144
-  store ptr @pmix12_bfrop_unpack_pid, ptr %122, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_pid, ptr %122, align 8, !tbaa !28
   %123 = getelementptr inbounds nuw i8, ptr %102, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %123, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %123, align 8, !tbaa !29
   %124 = getelementptr inbounds nuw i8, ptr %102, i64 160
-  store ptr @pmix12_bfrop_print_pid, ptr %124, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_pid, ptr %124, align 8, !tbaa !30
   %125 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 5, ptr noundef %102) #18
   %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %127 = tail call noalias noundef ptr @malloc(i64 noundef %126) #17
@@ -378,17 +378,17 @@ pmix_obj_new_tma.exit321:                         ; preds = %.lr.ph.i.i318, %106
 pmix_obj_new_tma.exit328:                         ; preds = %.lr.ph.i.i325, %131, %132
   %143 = tail call noalias dereferenceable_or_null(9) ptr @strdup(ptr noundef nonnull @.str.6) #18
   %144 = getelementptr inbounds nuw i8, ptr %127, i64 128
-  store ptr %143, ptr %144, align 8, !tbaa !22
+  store ptr %143, ptr %144, align 8, !tbaa !23
   %145 = getelementptr inbounds nuw i8, ptr %127, i64 120
-  store i16 6, ptr %145, align 8, !tbaa !25
+  store i16 6, ptr %145, align 8, !tbaa !26
   %146 = getelementptr inbounds nuw i8, ptr %127, i64 136
-  store ptr @pmix12_bfrop_pack_int, ptr %146, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_int, ptr %146, align 8, !tbaa !27
   %147 = getelementptr inbounds nuw i8, ptr %127, i64 144
-  store ptr @pmix12_bfrop_unpack_int, ptr %147, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_int, ptr %147, align 8, !tbaa !28
   %148 = getelementptr inbounds nuw i8, ptr %127, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %148, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %148, align 8, !tbaa !29
   %149 = getelementptr inbounds nuw i8, ptr %127, i64 160
-  store ptr @pmix12_bfrop_print_int, ptr %149, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_int, ptr %149, align 8, !tbaa !30
   %150 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 6, ptr noundef %127) #18
   %151 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %152 = tail call noalias noundef ptr @malloc(i64 noundef %151) #17
@@ -432,17 +432,17 @@ pmix_obj_new_tma.exit328:                         ; preds = %.lr.ph.i.i325, %131
 pmix_obj_new_tma.exit335:                         ; preds = %.lr.ph.i.i332, %156, %157
   %168 = tail call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.7) #18
   %169 = getelementptr inbounds nuw i8, ptr %152, i64 128
-  store ptr %168, ptr %169, align 8, !tbaa !22
+  store ptr %168, ptr %169, align 8, !tbaa !23
   %170 = getelementptr inbounds nuw i8, ptr %152, i64 120
-  store i16 7, ptr %170, align 8, !tbaa !25
+  store i16 7, ptr %170, align 8, !tbaa !26
   %171 = getelementptr inbounds nuw i8, ptr %152, i64 136
-  store ptr @pmix12_bfrop_pack_byte, ptr %171, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_byte, ptr %171, align 8, !tbaa !27
   %172 = getelementptr inbounds nuw i8, ptr %152, i64 144
-  store ptr @pmix12_bfrop_unpack_byte, ptr %172, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_byte, ptr %172, align 8, !tbaa !28
   %173 = getelementptr inbounds nuw i8, ptr %152, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %173, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %173, align 8, !tbaa !29
   %174 = getelementptr inbounds nuw i8, ptr %152, i64 160
-  store ptr @pmix12_bfrop_print_int8, ptr %174, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_int8, ptr %174, align 8, !tbaa !30
   %175 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 7, ptr noundef %152) #18
   %176 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %177 = tail call noalias noundef ptr @malloc(i64 noundef %176) #17
@@ -486,17 +486,17 @@ pmix_obj_new_tma.exit335:                         ; preds = %.lr.ph.i.i332, %156
 pmix_obj_new_tma.exit342:                         ; preds = %.lr.ph.i.i339, %181, %182
   %193 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.8) #18
   %194 = getelementptr inbounds nuw i8, ptr %177, i64 128
-  store ptr %193, ptr %194, align 8, !tbaa !22
+  store ptr %193, ptr %194, align 8, !tbaa !23
   %195 = getelementptr inbounds nuw i8, ptr %177, i64 120
-  store i16 8, ptr %195, align 8, !tbaa !25
+  store i16 8, ptr %195, align 8, !tbaa !26
   %196 = getelementptr inbounds nuw i8, ptr %177, i64 136
-  store ptr @pmix12_bfrop_pack_int16, ptr %196, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_int16, ptr %196, align 8, !tbaa !27
   %197 = getelementptr inbounds nuw i8, ptr %177, i64 144
-  store ptr @pmix12_bfrop_unpack_int16, ptr %197, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_int16, ptr %197, align 8, !tbaa !28
   %198 = getelementptr inbounds nuw i8, ptr %177, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %198, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %198, align 8, !tbaa !29
   %199 = getelementptr inbounds nuw i8, ptr %177, i64 160
-  store ptr @pmix12_bfrop_print_int16, ptr %199, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_int16, ptr %199, align 8, !tbaa !30
   %200 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 8, ptr noundef %177) #18
   %201 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %202 = tail call noalias noundef ptr @malloc(i64 noundef %201) #17
@@ -540,17 +540,17 @@ pmix_obj_new_tma.exit342:                         ; preds = %.lr.ph.i.i339, %181
 pmix_obj_new_tma.exit349:                         ; preds = %.lr.ph.i.i346, %206, %207
   %218 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.9) #18
   %219 = getelementptr inbounds nuw i8, ptr %202, i64 128
-  store ptr %218, ptr %219, align 8, !tbaa !22
+  store ptr %218, ptr %219, align 8, !tbaa !23
   %220 = getelementptr inbounds nuw i8, ptr %202, i64 120
-  store i16 9, ptr %220, align 8, !tbaa !25
+  store i16 9, ptr %220, align 8, !tbaa !26
   %221 = getelementptr inbounds nuw i8, ptr %202, i64 136
-  store ptr @pmix12_bfrop_pack_int32, ptr %221, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_int32, ptr %221, align 8, !tbaa !27
   %222 = getelementptr inbounds nuw i8, ptr %202, i64 144
-  store ptr @pmix12_bfrop_unpack_int32, ptr %222, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_int32, ptr %222, align 8, !tbaa !28
   %223 = getelementptr inbounds nuw i8, ptr %202, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %223, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %223, align 8, !tbaa !29
   %224 = getelementptr inbounds nuw i8, ptr %202, i64 160
-  store ptr @pmix12_bfrop_print_int32, ptr %224, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_int32, ptr %224, align 8, !tbaa !30
   %225 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 9, ptr noundef %202) #18
   %226 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %227 = tail call noalias noundef ptr @malloc(i64 noundef %226) #17
@@ -594,17 +594,17 @@ pmix_obj_new_tma.exit349:                         ; preds = %.lr.ph.i.i346, %206
 pmix_obj_new_tma.exit356:                         ; preds = %.lr.ph.i.i353, %231, %232
   %243 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.10) #18
   %244 = getelementptr inbounds nuw i8, ptr %227, i64 128
-  store ptr %243, ptr %244, align 8, !tbaa !22
+  store ptr %243, ptr %244, align 8, !tbaa !23
   %245 = getelementptr inbounds nuw i8, ptr %227, i64 120
-  store i16 10, ptr %245, align 8, !tbaa !25
+  store i16 10, ptr %245, align 8, !tbaa !26
   %246 = getelementptr inbounds nuw i8, ptr %227, i64 136
-  store ptr @pmix12_bfrop_pack_int64, ptr %246, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_int64, ptr %246, align 8, !tbaa !27
   %247 = getelementptr inbounds nuw i8, ptr %227, i64 144
-  store ptr @pmix12_bfrop_unpack_int64, ptr %247, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_int64, ptr %247, align 8, !tbaa !28
   %248 = getelementptr inbounds nuw i8, ptr %227, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %248, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %248, align 8, !tbaa !29
   %249 = getelementptr inbounds nuw i8, ptr %227, i64 160
-  store ptr @pmix12_bfrop_print_int64, ptr %249, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_int64, ptr %249, align 8, !tbaa !30
   %250 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 10, ptr noundef %227) #18
   %251 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %252 = tail call noalias noundef ptr @malloc(i64 noundef %251) #17
@@ -648,17 +648,17 @@ pmix_obj_new_tma.exit356:                         ; preds = %.lr.ph.i.i353, %231
 pmix_obj_new_tma.exit363:                         ; preds = %.lr.ph.i.i360, %256, %257
   %268 = tail call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.11) #18
   %269 = getelementptr inbounds nuw i8, ptr %252, i64 128
-  store ptr %268, ptr %269, align 8, !tbaa !22
+  store ptr %268, ptr %269, align 8, !tbaa !23
   %270 = getelementptr inbounds nuw i8, ptr %252, i64 120
-  store i16 11, ptr %270, align 8, !tbaa !25
+  store i16 11, ptr %270, align 8, !tbaa !26
   %271 = getelementptr inbounds nuw i8, ptr %252, i64 136
-  store ptr @pmix12_bfrop_pack_int, ptr %271, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_int, ptr %271, align 8, !tbaa !27
   %272 = getelementptr inbounds nuw i8, ptr %252, i64 144
-  store ptr @pmix12_bfrop_unpack_int, ptr %272, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_int, ptr %272, align 8, !tbaa !28
   %273 = getelementptr inbounds nuw i8, ptr %252, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %273, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %273, align 8, !tbaa !29
   %274 = getelementptr inbounds nuw i8, ptr %252, i64 160
-  store ptr @pmix12_bfrop_print_uint, ptr %274, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_uint, ptr %274, align 8, !tbaa !30
   %275 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 11, ptr noundef %252) #18
   %276 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %277 = tail call noalias noundef ptr @malloc(i64 noundef %276) #17
@@ -702,17 +702,17 @@ pmix_obj_new_tma.exit363:                         ; preds = %.lr.ph.i.i360, %256
 pmix_obj_new_tma.exit370:                         ; preds = %.lr.ph.i.i367, %281, %282
   %293 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.12) #18
   %294 = getelementptr inbounds nuw i8, ptr %277, i64 128
-  store ptr %293, ptr %294, align 8, !tbaa !22
+  store ptr %293, ptr %294, align 8, !tbaa !23
   %295 = getelementptr inbounds nuw i8, ptr %277, i64 120
-  store i16 12, ptr %295, align 8, !tbaa !25
+  store i16 12, ptr %295, align 8, !tbaa !26
   %296 = getelementptr inbounds nuw i8, ptr %277, i64 136
-  store ptr @pmix12_bfrop_pack_byte, ptr %296, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_byte, ptr %296, align 8, !tbaa !27
   %297 = getelementptr inbounds nuw i8, ptr %277, i64 144
-  store ptr @pmix12_bfrop_unpack_byte, ptr %297, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_byte, ptr %297, align 8, !tbaa !28
   %298 = getelementptr inbounds nuw i8, ptr %277, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %298, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %298, align 8, !tbaa !29
   %299 = getelementptr inbounds nuw i8, ptr %277, i64 160
-  store ptr @pmix12_bfrop_print_uint8, ptr %299, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_uint8, ptr %299, align 8, !tbaa !30
   %300 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 12, ptr noundef %277) #18
   %301 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %302 = tail call noalias noundef ptr @malloc(i64 noundef %301) #17
@@ -756,17 +756,17 @@ pmix_obj_new_tma.exit370:                         ; preds = %.lr.ph.i.i367, %281
 pmix_obj_new_tma.exit377:                         ; preds = %.lr.ph.i.i374, %306, %307
   %318 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str.13) #18
   %319 = getelementptr inbounds nuw i8, ptr %302, i64 128
-  store ptr %318, ptr %319, align 8, !tbaa !22
+  store ptr %318, ptr %319, align 8, !tbaa !23
   %320 = getelementptr inbounds nuw i8, ptr %302, i64 120
-  store i16 13, ptr %320, align 8, !tbaa !25
+  store i16 13, ptr %320, align 8, !tbaa !26
   %321 = getelementptr inbounds nuw i8, ptr %302, i64 136
-  store ptr @pmix12_bfrop_pack_int16, ptr %321, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_int16, ptr %321, align 8, !tbaa !27
   %322 = getelementptr inbounds nuw i8, ptr %302, i64 144
-  store ptr @pmix12_bfrop_unpack_int16, ptr %322, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_int16, ptr %322, align 8, !tbaa !28
   %323 = getelementptr inbounds nuw i8, ptr %302, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %323, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %323, align 8, !tbaa !29
   %324 = getelementptr inbounds nuw i8, ptr %302, i64 160
-  store ptr @pmix12_bfrop_print_uint16, ptr %324, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_uint16, ptr %324, align 8, !tbaa !30
   %325 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 13, ptr noundef %302) #18
   %326 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %327 = tail call noalias noundef ptr @malloc(i64 noundef %326) #17
@@ -810,17 +810,17 @@ pmix_obj_new_tma.exit377:                         ; preds = %.lr.ph.i.i374, %306
 pmix_obj_new_tma.exit384:                         ; preds = %.lr.ph.i.i381, %331, %332
   %343 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str.14) #18
   %344 = getelementptr inbounds nuw i8, ptr %327, i64 128
-  store ptr %343, ptr %344, align 8, !tbaa !22
+  store ptr %343, ptr %344, align 8, !tbaa !23
   %345 = getelementptr inbounds nuw i8, ptr %327, i64 120
-  store i16 14, ptr %345, align 8, !tbaa !25
+  store i16 14, ptr %345, align 8, !tbaa !26
   %346 = getelementptr inbounds nuw i8, ptr %327, i64 136
-  store ptr @pmix12_bfrop_pack_int32, ptr %346, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_int32, ptr %346, align 8, !tbaa !27
   %347 = getelementptr inbounds nuw i8, ptr %327, i64 144
-  store ptr @pmix12_bfrop_unpack_int32, ptr %347, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_int32, ptr %347, align 8, !tbaa !28
   %348 = getelementptr inbounds nuw i8, ptr %327, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %348, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %348, align 8, !tbaa !29
   %349 = getelementptr inbounds nuw i8, ptr %327, i64 160
-  store ptr @pmix12_bfrop_print_uint32, ptr %349, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_uint32, ptr %349, align 8, !tbaa !30
   %350 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 14, ptr noundef %327) #18
   %351 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %352 = tail call noalias noundef ptr @malloc(i64 noundef %351) #17
@@ -864,17 +864,17 @@ pmix_obj_new_tma.exit384:                         ; preds = %.lr.ph.i.i381, %331
 pmix_obj_new_tma.exit391:                         ; preds = %.lr.ph.i.i388, %356, %357
   %368 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str.15) #18
   %369 = getelementptr inbounds nuw i8, ptr %352, i64 128
-  store ptr %368, ptr %369, align 8, !tbaa !22
+  store ptr %368, ptr %369, align 8, !tbaa !23
   %370 = getelementptr inbounds nuw i8, ptr %352, i64 120
-  store i16 15, ptr %370, align 8, !tbaa !25
+  store i16 15, ptr %370, align 8, !tbaa !26
   %371 = getelementptr inbounds nuw i8, ptr %352, i64 136
-  store ptr @pmix12_bfrop_pack_int64, ptr %371, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_int64, ptr %371, align 8, !tbaa !27
   %372 = getelementptr inbounds nuw i8, ptr %352, i64 144
-  store ptr @pmix12_bfrop_unpack_int64, ptr %372, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_int64, ptr %372, align 8, !tbaa !28
   %373 = getelementptr inbounds nuw i8, ptr %352, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %373, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %373, align 8, !tbaa !29
   %374 = getelementptr inbounds nuw i8, ptr %352, i64 160
-  store ptr @pmix12_bfrop_print_uint64, ptr %374, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_uint64, ptr %374, align 8, !tbaa !30
   %375 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 15, ptr noundef %352) #18
   %376 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %377 = tail call noalias noundef ptr @malloc(i64 noundef %376) #17
@@ -918,17 +918,17 @@ pmix_obj_new_tma.exit391:                         ; preds = %.lr.ph.i.i388, %356
 pmix_obj_new_tma.exit398:                         ; preds = %.lr.ph.i.i395, %381, %382
   %393 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.16) #18
   %394 = getelementptr inbounds nuw i8, ptr %377, i64 128
-  store ptr %393, ptr %394, align 8, !tbaa !22
+  store ptr %393, ptr %394, align 8, !tbaa !23
   %395 = getelementptr inbounds nuw i8, ptr %377, i64 120
-  store i16 16, ptr %395, align 8, !tbaa !25
+  store i16 16, ptr %395, align 8, !tbaa !26
   %396 = getelementptr inbounds nuw i8, ptr %377, i64 136
-  store ptr @pmix12_bfrop_pack_float, ptr %396, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_float, ptr %396, align 8, !tbaa !27
   %397 = getelementptr inbounds nuw i8, ptr %377, i64 144
-  store ptr @pmix12_bfrop_unpack_float, ptr %397, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_float, ptr %397, align 8, !tbaa !28
   %398 = getelementptr inbounds nuw i8, ptr %377, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %398, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %398, align 8, !tbaa !29
   %399 = getelementptr inbounds nuw i8, ptr %377, i64 160
-  store ptr @pmix12_bfrop_print_float, ptr %399, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_float, ptr %399, align 8, !tbaa !30
   %400 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 16, ptr noundef %377) #18
   %401 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %402 = tail call noalias noundef ptr @malloc(i64 noundef %401) #17
@@ -972,17 +972,17 @@ pmix_obj_new_tma.exit398:                         ; preds = %.lr.ph.i.i395, %381
 pmix_obj_new_tma.exit405:                         ; preds = %.lr.ph.i.i402, %406, %407
   %418 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str.17) #18
   %419 = getelementptr inbounds nuw i8, ptr %402, i64 128
-  store ptr %418, ptr %419, align 8, !tbaa !22
+  store ptr %418, ptr %419, align 8, !tbaa !23
   %420 = getelementptr inbounds nuw i8, ptr %402, i64 120
-  store i16 17, ptr %420, align 8, !tbaa !25
+  store i16 17, ptr %420, align 8, !tbaa !26
   %421 = getelementptr inbounds nuw i8, ptr %402, i64 136
-  store ptr @pmix12_bfrop_pack_double, ptr %421, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_double, ptr %421, align 8, !tbaa !27
   %422 = getelementptr inbounds nuw i8, ptr %402, i64 144
-  store ptr @pmix12_bfrop_unpack_double, ptr %422, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_double, ptr %422, align 8, !tbaa !28
   %423 = getelementptr inbounds nuw i8, ptr %402, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %423, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %423, align 8, !tbaa !29
   %424 = getelementptr inbounds nuw i8, ptr %402, i64 160
-  store ptr @pmix12_bfrop_print_double, ptr %424, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_double, ptr %424, align 8, !tbaa !30
   %425 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 17, ptr noundef %402) #18
   %426 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %427 = tail call noalias noundef ptr @malloc(i64 noundef %426) #17
@@ -1026,17 +1026,17 @@ pmix_obj_new_tma.exit405:                         ; preds = %.lr.ph.i.i402, %406
 pmix_obj_new_tma.exit412:                         ; preds = %.lr.ph.i.i409, %431, %432
   %443 = tail call noalias dereferenceable_or_null(13) ptr @strdup(ptr noundef nonnull @.str.18) #18
   %444 = getelementptr inbounds nuw i8, ptr %427, i64 128
-  store ptr %443, ptr %444, align 8, !tbaa !22
+  store ptr %443, ptr %444, align 8, !tbaa !23
   %445 = getelementptr inbounds nuw i8, ptr %427, i64 120
-  store i16 18, ptr %445, align 8, !tbaa !25
+  store i16 18, ptr %445, align 8, !tbaa !26
   %446 = getelementptr inbounds nuw i8, ptr %427, i64 136
-  store ptr @pmix12_bfrop_pack_timeval, ptr %446, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_timeval, ptr %446, align 8, !tbaa !27
   %447 = getelementptr inbounds nuw i8, ptr %427, i64 144
-  store ptr @pmix12_bfrop_unpack_timeval, ptr %447, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_timeval, ptr %447, align 8, !tbaa !28
   %448 = getelementptr inbounds nuw i8, ptr %427, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %448, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %448, align 8, !tbaa !29
   %449 = getelementptr inbounds nuw i8, ptr %427, i64 160
-  store ptr @pmix12_bfrop_print_timeval, ptr %449, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_timeval, ptr %449, align 8, !tbaa !30
   %450 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 18, ptr noundef %427) #18
   %451 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %452 = tail call noalias noundef ptr @malloc(i64 noundef %451) #17
@@ -1080,17 +1080,17 @@ pmix_obj_new_tma.exit412:                         ; preds = %.lr.ph.i.i409, %431
 pmix_obj_new_tma.exit419:                         ; preds = %.lr.ph.i.i416, %456, %457
   %468 = tail call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.19) #18
   %469 = getelementptr inbounds nuw i8, ptr %452, i64 128
-  store ptr %468, ptr %469, align 8, !tbaa !22
+  store ptr %468, ptr %469, align 8, !tbaa !23
   %470 = getelementptr inbounds nuw i8, ptr %452, i64 120
-  store i16 19, ptr %470, align 8, !tbaa !25
+  store i16 19, ptr %470, align 8, !tbaa !26
   %471 = getelementptr inbounds nuw i8, ptr %452, i64 136
-  store ptr @pmix12_bfrop_pack_time, ptr %471, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_time, ptr %471, align 8, !tbaa !27
   %472 = getelementptr inbounds nuw i8, ptr %452, i64 144
-  store ptr @pmix12_bfrop_unpack_time, ptr %472, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_time, ptr %472, align 8, !tbaa !28
   %473 = getelementptr inbounds nuw i8, ptr %452, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %473, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %473, align 8, !tbaa !29
   %474 = getelementptr inbounds nuw i8, ptr %452, i64 160
-  store ptr @pmix12_bfrop_print_time, ptr %474, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_time, ptr %474, align 8, !tbaa !30
   %475 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 19, ptr noundef %452) #18
   %476 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %477 = tail call noalias noundef ptr @malloc(i64 noundef %476) #17
@@ -1134,17 +1134,17 @@ pmix_obj_new_tma.exit419:                         ; preds = %.lr.ph.i.i416, %456
 pmix_obj_new_tma.exit426:                         ; preds = %.lr.ph.i.i423, %481, %482
   %493 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str.20) #18
   %494 = getelementptr inbounds nuw i8, ptr %477, i64 128
-  store ptr %493, ptr %494, align 8, !tbaa !22
+  store ptr %493, ptr %494, align 8, !tbaa !23
   %495 = getelementptr inbounds nuw i8, ptr %477, i64 120
-  store i16 20, ptr %495, align 8, !tbaa !25
+  store i16 20, ptr %495, align 8, !tbaa !26
   %496 = getelementptr inbounds nuw i8, ptr %477, i64 136
-  store ptr @pmix12_bfrop_pack_status, ptr %496, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_status, ptr %496, align 8, !tbaa !27
   %497 = getelementptr inbounds nuw i8, ptr %477, i64 144
-  store ptr @pmix12_bfrop_unpack_status, ptr %497, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_status, ptr %497, align 8, !tbaa !28
   %498 = getelementptr inbounds nuw i8, ptr %477, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %498, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %498, align 8, !tbaa !29
   %499 = getelementptr inbounds nuw i8, ptr %477, i64 160
-  store ptr @pmix12_bfrop_print_status, ptr %499, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_status, ptr %499, align 8, !tbaa !30
   %500 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 20, ptr noundef %477) #18
   %501 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %502 = tail call noalias noundef ptr @malloc(i64 noundef %501) #17
@@ -1188,17 +1188,17 @@ pmix_obj_new_tma.exit426:                         ; preds = %.lr.ph.i.i423, %481
 pmix_obj_new_tma.exit433:                         ; preds = %.lr.ph.i.i430, %506, %507
   %518 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.21) #18
   %519 = getelementptr inbounds nuw i8, ptr %502, i64 128
-  store ptr %518, ptr %519, align 8, !tbaa !22
+  store ptr %518, ptr %519, align 8, !tbaa !23
   %520 = getelementptr inbounds nuw i8, ptr %502, i64 120
-  store i16 21, ptr %520, align 8, !tbaa !25
+  store i16 21, ptr %520, align 8, !tbaa !26
   %521 = getelementptr inbounds nuw i8, ptr %502, i64 136
-  store ptr @pmix12_bfrop_pack_value, ptr %521, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_value, ptr %521, align 8, !tbaa !27
   %522 = getelementptr inbounds nuw i8, ptr %502, i64 144
-  store ptr @pmix12_bfrop_unpack_value, ptr %522, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_value, ptr %522, align 8, !tbaa !28
   %523 = getelementptr inbounds nuw i8, ptr %502, i64 152
-  store ptr @pmix12_bfrop_copy_value, ptr %523, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_value, ptr %523, align 8, !tbaa !29
   %524 = getelementptr inbounds nuw i8, ptr %502, i64 160
-  store ptr @pmix12_bfrop_print_value, ptr %524, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_value, ptr %524, align 8, !tbaa !30
   %525 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 21, ptr noundef %502) #18
   %526 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %527 = tail call noalias noundef ptr @malloc(i64 noundef %526) #17
@@ -1242,17 +1242,17 @@ pmix_obj_new_tma.exit433:                         ; preds = %.lr.ph.i.i430, %506
 pmix_obj_new_tma.exit440:                         ; preds = %.lr.ph.i.i437, %531, %532
   %543 = tail call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.22) #18
   %544 = getelementptr inbounds nuw i8, ptr %527, i64 128
-  store ptr %543, ptr %544, align 8, !tbaa !22
+  store ptr %543, ptr %544, align 8, !tbaa !23
   %545 = getelementptr inbounds nuw i8, ptr %527, i64 120
-  store i16 22, ptr %545, align 8, !tbaa !25
+  store i16 22, ptr %545, align 8, !tbaa !26
   %546 = getelementptr inbounds nuw i8, ptr %527, i64 136
-  store ptr @pmix12_bfrop_pack_proc, ptr %546, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_proc, ptr %546, align 8, !tbaa !27
   %547 = getelementptr inbounds nuw i8, ptr %527, i64 144
-  store ptr @pmix12_bfrop_unpack_proc, ptr %547, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_proc, ptr %547, align 8, !tbaa !28
   %548 = getelementptr inbounds nuw i8, ptr %527, i64 152
-  store ptr @pmix12_bfrop_copy_proc, ptr %548, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_proc, ptr %548, align 8, !tbaa !29
   %549 = getelementptr inbounds nuw i8, ptr %527, i64 160
-  store ptr @pmix12_bfrop_print_proc, ptr %549, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_proc, ptr %549, align 8, !tbaa !30
   %550 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 22, ptr noundef %527) #18
   %551 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %552 = tail call noalias noundef ptr @malloc(i64 noundef %551) #17
@@ -1296,17 +1296,17 @@ pmix_obj_new_tma.exit440:                         ; preds = %.lr.ph.i.i437, %531
 pmix_obj_new_tma.exit447:                         ; preds = %.lr.ph.i.i444, %556, %557
   %568 = tail call noalias dereferenceable_or_null(9) ptr @strdup(ptr noundef nonnull @.str.23) #18
   %569 = getelementptr inbounds nuw i8, ptr %552, i64 128
-  store ptr %568, ptr %569, align 8, !tbaa !22
+  store ptr %568, ptr %569, align 8, !tbaa !23
   %570 = getelementptr inbounds nuw i8, ptr %552, i64 120
-  store i16 23, ptr %570, align 8, !tbaa !25
+  store i16 23, ptr %570, align 8, !tbaa !26
   %571 = getelementptr inbounds nuw i8, ptr %552, i64 136
-  store ptr @pmix12_bfrop_pack_app, ptr %571, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_app, ptr %571, align 8, !tbaa !27
   %572 = getelementptr inbounds nuw i8, ptr %552, i64 144
-  store ptr @pmix12_bfrop_unpack_app, ptr %572, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_app, ptr %572, align 8, !tbaa !28
   %573 = getelementptr inbounds nuw i8, ptr %552, i64 152
-  store ptr @pmix12_bfrop_copy_app, ptr %573, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_app, ptr %573, align 8, !tbaa !29
   %574 = getelementptr inbounds nuw i8, ptr %552, i64 160
-  store ptr @pmix12_bfrop_print_app, ptr %574, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_app, ptr %574, align 8, !tbaa !30
   %575 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 23, ptr noundef %552) #18
   %576 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %577 = tail call noalias noundef ptr @malloc(i64 noundef %576) #17
@@ -1350,17 +1350,17 @@ pmix_obj_new_tma.exit447:                         ; preds = %.lr.ph.i.i444, %556
 pmix_obj_new_tma.exit454:                         ; preds = %.lr.ph.i.i451, %581, %582
   %593 = tail call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.24) #18
   %594 = getelementptr inbounds nuw i8, ptr %577, i64 128
-  store ptr %593, ptr %594, align 8, !tbaa !22
+  store ptr %593, ptr %594, align 8, !tbaa !23
   %595 = getelementptr inbounds nuw i8, ptr %577, i64 120
-  store i16 24, ptr %595, align 8, !tbaa !25
+  store i16 24, ptr %595, align 8, !tbaa !26
   %596 = getelementptr inbounds nuw i8, ptr %577, i64 136
-  store ptr @pmix12_bfrop_pack_info, ptr %596, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_info, ptr %596, align 8, !tbaa !27
   %597 = getelementptr inbounds nuw i8, ptr %577, i64 144
-  store ptr @pmix12_bfrop_unpack_info, ptr %597, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_info, ptr %597, align 8, !tbaa !28
   %598 = getelementptr inbounds nuw i8, ptr %577, i64 152
-  store ptr @pmix12_bfrop_copy_info, ptr %598, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_info, ptr %598, align 8, !tbaa !29
   %599 = getelementptr inbounds nuw i8, ptr %577, i64 160
-  store ptr @pmix12_bfrop_print_info, ptr %599, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_info, ptr %599, align 8, !tbaa !30
   %600 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 24, ptr noundef %577) #18
   %601 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %602 = tail call noalias noundef ptr @malloc(i64 noundef %601) #17
@@ -1404,17 +1404,17 @@ pmix_obj_new_tma.exit454:                         ; preds = %.lr.ph.i.i451, %581
 pmix_obj_new_tma.exit461:                         ; preds = %.lr.ph.i.i458, %606, %607
   %618 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.25) #18
   %619 = getelementptr inbounds nuw i8, ptr %602, i64 128
-  store ptr %618, ptr %619, align 8, !tbaa !22
+  store ptr %618, ptr %619, align 8, !tbaa !23
   %620 = getelementptr inbounds nuw i8, ptr %602, i64 120
-  store i16 25, ptr %620, align 8, !tbaa !25
+  store i16 25, ptr %620, align 8, !tbaa !26
   %621 = getelementptr inbounds nuw i8, ptr %602, i64 136
-  store ptr @pmix12_bfrop_pack_pdata, ptr %621, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_pdata, ptr %621, align 8, !tbaa !27
   %622 = getelementptr inbounds nuw i8, ptr %602, i64 144
-  store ptr @pmix12_bfrop_unpack_pdata, ptr %622, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_pdata, ptr %622, align 8, !tbaa !28
   %623 = getelementptr inbounds nuw i8, ptr %602, i64 152
-  store ptr @pmix12_bfrop_copy_pdata, ptr %623, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_pdata, ptr %623, align 8, !tbaa !29
   %624 = getelementptr inbounds nuw i8, ptr %602, i64 160
-  store ptr @pmix12_bfrop_print_pdata, ptr %624, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_pdata, ptr %624, align 8, !tbaa !30
   %625 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 25, ptr noundef %602) #18
   %626 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %627 = tail call noalias noundef ptr @malloc(i64 noundef %626) #17
@@ -1458,17 +1458,17 @@ pmix_obj_new_tma.exit461:                         ; preds = %.lr.ph.i.i458, %606
 pmix_obj_new_tma.exit468:                         ; preds = %.lr.ph.i.i465, %631, %632
   %643 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str.26) #18
   %644 = getelementptr inbounds nuw i8, ptr %627, i64 128
-  store ptr %643, ptr %644, align 8, !tbaa !22
+  store ptr %643, ptr %644, align 8, !tbaa !23
   %645 = getelementptr inbounds nuw i8, ptr %627, i64 120
-  store i16 26, ptr %645, align 8, !tbaa !25
+  store i16 26, ptr %645, align 8, !tbaa !26
   %646 = getelementptr inbounds nuw i8, ptr %627, i64 136
-  store ptr @pmix12_bfrop_pack_buf, ptr %646, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_buf, ptr %646, align 8, !tbaa !27
   %647 = getelementptr inbounds nuw i8, ptr %627, i64 144
-  store ptr @pmix12_bfrop_unpack_buf, ptr %647, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_buf, ptr %647, align 8, !tbaa !28
   %648 = getelementptr inbounds nuw i8, ptr %627, i64 152
-  store ptr @pmix12_bfrop_copy_buf, ptr %648, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_buf, ptr %648, align 8, !tbaa !29
   %649 = getelementptr inbounds nuw i8, ptr %627, i64 160
-  store ptr @pmix12_bfrop_print_buf, ptr %649, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_buf, ptr %649, align 8, !tbaa !30
   %650 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 26, ptr noundef %627) #18
   %651 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %652 = tail call noalias noundef ptr @malloc(i64 noundef %651) #17
@@ -1512,17 +1512,17 @@ pmix_obj_new_tma.exit468:                         ; preds = %.lr.ph.i.i465, %631
 pmix_obj_new_tma.exit475:                         ; preds = %.lr.ph.i.i472, %656, %657
   %668 = tail call noalias dereferenceable_or_null(17) ptr @strdup(ptr noundef nonnull @.str.27) #18
   %669 = getelementptr inbounds nuw i8, ptr %652, i64 128
-  store ptr %668, ptr %669, align 8, !tbaa !22
+  store ptr %668, ptr %669, align 8, !tbaa !23
   %670 = getelementptr inbounds nuw i8, ptr %652, i64 120
-  store i16 27, ptr %670, align 8, !tbaa !25
+  store i16 27, ptr %670, align 8, !tbaa !26
   %671 = getelementptr inbounds nuw i8, ptr %652, i64 136
-  store ptr @pmix12_bfrop_pack_bo, ptr %671, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_bo, ptr %671, align 8, !tbaa !27
   %672 = getelementptr inbounds nuw i8, ptr %652, i64 144
-  store ptr @pmix12_bfrop_unpack_bo, ptr %672, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_bo, ptr %672, align 8, !tbaa !28
   %673 = getelementptr inbounds nuw i8, ptr %652, i64 152
-  store ptr @pmix12_bfrop_copy_bo, ptr %673, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_bo, ptr %673, align 8, !tbaa !29
   %674 = getelementptr inbounds nuw i8, ptr %652, i64 160
-  store ptr @pmix12_bfrop_print_bo, ptr %674, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_bo, ptr %674, align 8, !tbaa !30
   %675 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 27, ptr noundef %652) #18
   %676 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %677 = tail call noalias noundef ptr @malloc(i64 noundef %676) #17
@@ -1566,17 +1566,17 @@ pmix_obj_new_tma.exit475:                         ; preds = %.lr.ph.i.i472, %656
 pmix_obj_new_tma.exit482:                         ; preds = %.lr.ph.i.i479, %681, %682
   %693 = tail call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.28) #18
   %694 = getelementptr inbounds nuw i8, ptr %677, i64 128
-  store ptr %693, ptr %694, align 8, !tbaa !22
+  store ptr %693, ptr %694, align 8, !tbaa !23
   %695 = getelementptr inbounds nuw i8, ptr %677, i64 120
-  store i16 28, ptr %695, align 8, !tbaa !25
+  store i16 28, ptr %695, align 8, !tbaa !26
   %696 = getelementptr inbounds nuw i8, ptr %677, i64 136
-  store ptr @pmix12_bfrop_pack_kval, ptr %696, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_kval, ptr %696, align 8, !tbaa !27
   %697 = getelementptr inbounds nuw i8, ptr %677, i64 144
-  store ptr @pmix12_bfrop_unpack_kval, ptr %697, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_kval, ptr %697, align 8, !tbaa !28
   %698 = getelementptr inbounds nuw i8, ptr %677, i64 152
-  store ptr @pmix12_bfrop_copy_kval, ptr %698, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_kval, ptr %698, align 8, !tbaa !29
   %699 = getelementptr inbounds nuw i8, ptr %677, i64 160
-  store ptr @pmix12_bfrop_print_kval, ptr %699, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_kval, ptr %699, align 8, !tbaa !30
   %700 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 28, ptr noundef %677) #18
   %701 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %702 = tail call noalias noundef ptr @malloc(i64 noundef %701) #17
@@ -1620,17 +1620,17 @@ pmix_obj_new_tma.exit482:                         ; preds = %.lr.ph.i.i479, %681
 pmix_obj_new_tma.exit489:                         ; preds = %.lr.ph.i.i486, %706, %707
   %718 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.29) #18
   %719 = getelementptr inbounds nuw i8, ptr %702, i64 128
-  store ptr %718, ptr %719, align 8, !tbaa !22
+  store ptr %718, ptr %719, align 8, !tbaa !23
   %720 = getelementptr inbounds nuw i8, ptr %702, i64 120
-  store i16 29, ptr %720, align 8, !tbaa !25
+  store i16 29, ptr %720, align 8, !tbaa !26
   %721 = getelementptr inbounds nuw i8, ptr %702, i64 136
-  store ptr @pmix12_bfrop_pack_modex, ptr %721, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_modex, ptr %721, align 8, !tbaa !27
   %722 = getelementptr inbounds nuw i8, ptr %702, i64 144
-  store ptr @pmix12_bfrop_unpack_modex, ptr %722, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_modex, ptr %722, align 8, !tbaa !28
   %723 = getelementptr inbounds nuw i8, ptr %702, i64 152
-  store ptr @pmix12_bfrop_copy_modex, ptr %723, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_modex, ptr %723, align 8, !tbaa !29
   %724 = getelementptr inbounds nuw i8, ptr %702, i64 160
-  store ptr @pmix12_bfrop_print_modex, ptr %724, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_modex, ptr %724, align 8, !tbaa !30
   %725 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 29, ptr noundef %702) #18
   %726 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %727 = tail call noalias noundef ptr @malloc(i64 noundef %726) #17
@@ -1674,17 +1674,17 @@ pmix_obj_new_tma.exit489:                         ; preds = %.lr.ph.i.i486, %706
 pmix_obj_new_tma.exit496:                         ; preds = %.lr.ph.i.i493, %731, %732
   %743 = tail call noalias dereferenceable_or_null(13) ptr @strdup(ptr noundef nonnull @.str.30) #18
   %744 = getelementptr inbounds nuw i8, ptr %727, i64 128
-  store ptr %743, ptr %744, align 8, !tbaa !22
+  store ptr %743, ptr %744, align 8, !tbaa !23
   %745 = getelementptr inbounds nuw i8, ptr %727, i64 120
-  store i16 30, ptr %745, align 8, !tbaa !25
+  store i16 30, ptr %745, align 8, !tbaa !26
   %746 = getelementptr inbounds nuw i8, ptr %727, i64 136
-  store ptr @pmix12_bfrop_pack_persist, ptr %746, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_persist, ptr %746, align 8, !tbaa !27
   %747 = getelementptr inbounds nuw i8, ptr %727, i64 144
-  store ptr @pmix12_bfrop_unpack_persist, ptr %747, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_persist, ptr %747, align 8, !tbaa !28
   %748 = getelementptr inbounds nuw i8, ptr %727, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %748, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %748, align 8, !tbaa !29
   %749 = getelementptr inbounds nuw i8, ptr %727, i64 160
-  store ptr @pmix12_bfrop_print_persist, ptr %749, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_persist, ptr %749, align 8, !tbaa !30
   %750 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 30, ptr noundef %727) #18
   %751 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %752 = tail call noalias noundef ptr @malloc(i64 noundef %751) #17
@@ -1728,17 +1728,17 @@ pmix_obj_new_tma.exit496:                         ; preds = %.lr.ph.i.i493, %731
 pmix_obj_new_tma.exit503:                         ; preds = %.lr.ph.i.i500, %756, %757
   %768 = tail call noalias dereferenceable_or_null(13) ptr @strdup(ptr noundef nonnull @.str.31) #18
   %769 = getelementptr inbounds nuw i8, ptr %752, i64 128
-  store ptr %768, ptr %769, align 8, !tbaa !22
+  store ptr %768, ptr %769, align 8, !tbaa !23
   %770 = getelementptr inbounds nuw i8, ptr %752, i64 120
-  store i16 31, ptr %770, align 8, !tbaa !25
+  store i16 31, ptr %770, align 8, !tbaa !26
   %771 = getelementptr inbounds nuw i8, ptr %752, i64 136
-  store ptr @pmix12_bfrop_pack_ptr, ptr %771, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_ptr, ptr %771, align 8, !tbaa !27
   %772 = getelementptr inbounds nuw i8, ptr %752, i64 144
-  store ptr @pmix12_bfrop_unpack_ptr, ptr %772, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_ptr, ptr %772, align 8, !tbaa !28
   %773 = getelementptr inbounds nuw i8, ptr %752, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %773, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %773, align 8, !tbaa !29
   %774 = getelementptr inbounds nuw i8, ptr %752, i64 160
-  store ptr @pmix12_bfrop_print_ptr, ptr %774, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_ptr, ptr %774, align 8, !tbaa !30
   %775 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 31, ptr noundef %752) #18
   %776 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %777 = tail call noalias noundef ptr @malloc(i64 noundef %776) #17
@@ -1782,17 +1782,17 @@ pmix_obj_new_tma.exit503:                         ; preds = %.lr.ph.i.i500, %756
 pmix_obj_new_tma.exit510:                         ; preds = %.lr.ph.i.i507, %781, %782
   %793 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.32) #18
   %794 = getelementptr inbounds nuw i8, ptr %777, i64 128
-  store ptr %793, ptr %794, align 8, !tbaa !22
+  store ptr %793, ptr %794, align 8, !tbaa !23
   %795 = getelementptr inbounds nuw i8, ptr %777, i64 120
-  store i16 32, ptr %795, align 8, !tbaa !25
+  store i16 32, ptr %795, align 8, !tbaa !26
   %796 = getelementptr inbounds nuw i8, ptr %777, i64 136
-  store ptr @pmix12_bfrop_pack_scope, ptr %796, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_scope, ptr %796, align 8, !tbaa !27
   %797 = getelementptr inbounds nuw i8, ptr %777, i64 144
-  store ptr @pmix12_bfrop_unpack_scope, ptr %797, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_scope, ptr %797, align 8, !tbaa !28
   %798 = getelementptr inbounds nuw i8, ptr %777, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %798, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %798, align 8, !tbaa !29
   %799 = getelementptr inbounds nuw i8, ptr %777, i64 160
-  store ptr @pmix12_bfrop_print_scope, ptr %799, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_scope, ptr %799, align 8, !tbaa !30
   %800 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 32, ptr noundef %777) #18
   %801 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %802 = tail call noalias noundef ptr @malloc(i64 noundef %801) #17
@@ -1836,17 +1836,17 @@ pmix_obj_new_tma.exit510:                         ; preds = %.lr.ph.i.i507, %781
 pmix_obj_new_tma.exit517:                         ; preds = %.lr.ph.i.i514, %806, %807
   %818 = tail call noalias dereferenceable_or_null(16) ptr @strdup(ptr noundef nonnull @.str.33) #18
   %819 = getelementptr inbounds nuw i8, ptr %802, i64 128
-  store ptr %818, ptr %819, align 8, !tbaa !22
+  store ptr %818, ptr %819, align 8, !tbaa !23
   %820 = getelementptr inbounds nuw i8, ptr %802, i64 120
-  store i16 33, ptr %820, align 8, !tbaa !25
+  store i16 33, ptr %820, align 8, !tbaa !26
   %821 = getelementptr inbounds nuw i8, ptr %802, i64 136
-  store ptr @pmix12_bfrop_pack_range, ptr %821, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_range, ptr %821, align 8, !tbaa !27
   %822 = getelementptr inbounds nuw i8, ptr %802, i64 144
-  store ptr @pmix12_bfrop_unpack_range, ptr %822, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_range, ptr %822, align 8, !tbaa !28
   %823 = getelementptr inbounds nuw i8, ptr %802, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %823, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %823, align 8, !tbaa !29
   %824 = getelementptr inbounds nuw i8, ptr %802, i64 160
-  store ptr @pmix12_bfrop_print_ptr, ptr %824, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_ptr, ptr %824, align 8, !tbaa !30
   %825 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 33, ptr noundef %802) #18
   %826 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %827 = tail call noalias noundef ptr @malloc(i64 noundef %826) #17
@@ -1890,17 +1890,17 @@ pmix_obj_new_tma.exit517:                         ; preds = %.lr.ph.i.i514, %806
 pmix_obj_new_tma.exit524:                         ; preds = %.lr.ph.i.i521, %831, %832
   %843 = tail call noalias dereferenceable_or_null(13) ptr @strdup(ptr noundef nonnull @.str.34) #18
   %844 = getelementptr inbounds nuw i8, ptr %827, i64 128
-  store ptr %843, ptr %844, align 8, !tbaa !22
+  store ptr %843, ptr %844, align 8, !tbaa !23
   %845 = getelementptr inbounds nuw i8, ptr %827, i64 120
-  store i16 34, ptr %845, align 8, !tbaa !25
+  store i16 34, ptr %845, align 8, !tbaa !26
   %846 = getelementptr inbounds nuw i8, ptr %827, i64 136
-  store ptr @pmix12_bfrop_pack_cmd, ptr %846, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_cmd, ptr %846, align 8, !tbaa !27
   %847 = getelementptr inbounds nuw i8, ptr %827, i64 144
-  store ptr @pmix12_bfrop_unpack_cmd, ptr %847, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_cmd, ptr %847, align 8, !tbaa !28
   %848 = getelementptr inbounds nuw i8, ptr %827, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %848, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %848, align 8, !tbaa !29
   %849 = getelementptr inbounds nuw i8, ptr %827, i64 160
-  store ptr @pmix12_bfrop_print_cmd, ptr %849, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_cmd, ptr %849, align 8, !tbaa !30
   %850 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 34, ptr noundef %827) #18
   %851 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %852 = tail call noalias noundef ptr @malloc(i64 noundef %851) #17
@@ -1944,17 +1944,17 @@ pmix_obj_new_tma.exit524:                         ; preds = %.lr.ph.i.i521, %831
 pmix_obj_new_tma.exit531:                         ; preds = %.lr.ph.i.i528, %856, %857
   %868 = tail call noalias dereferenceable_or_null(21) ptr @strdup(ptr noundef nonnull @.str.35) #18
   %869 = getelementptr inbounds nuw i8, ptr %852, i64 128
-  store ptr %868, ptr %869, align 8, !tbaa !22
+  store ptr %868, ptr %869, align 8, !tbaa !23
   %870 = getelementptr inbounds nuw i8, ptr %852, i64 120
-  store i16 35, ptr %870, align 8, !tbaa !25
+  store i16 35, ptr %870, align 8, !tbaa !26
   %871 = getelementptr inbounds nuw i8, ptr %852, i64 136
-  store ptr @pmix12_bfrop_pack_info_directives, ptr %871, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_info_directives, ptr %871, align 8, !tbaa !27
   %872 = getelementptr inbounds nuw i8, ptr %852, i64 144
-  store ptr @pmix12_bfrop_unpack_info_directives, ptr %872, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_info_directives, ptr %872, align 8, !tbaa !28
   %873 = getelementptr inbounds nuw i8, ptr %852, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %873, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %873, align 8, !tbaa !29
   %874 = getelementptr inbounds nuw i8, ptr %852, i64 160
-  store ptr @pmix12_bfrop_print_info_directives, ptr %874, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_info_directives, ptr %874, align 8, !tbaa !30
   %875 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 35, ptr noundef %852) #18
   %876 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %877 = tail call noalias noundef ptr @malloc(i64 noundef %876) #17
@@ -1998,17 +1998,17 @@ pmix_obj_new_tma.exit531:                         ; preds = %.lr.ph.i.i528, %856
 pmix_obj_new_tma.exit538:                         ; preds = %.lr.ph.i.i535, %881, %882
   %893 = tail call noalias dereferenceable_or_null(15) ptr @strdup(ptr noundef nonnull @.str.36) #18
   %894 = getelementptr inbounds nuw i8, ptr %877, i64 128
-  store ptr %893, ptr %894, align 8, !tbaa !22
+  store ptr %893, ptr %894, align 8, !tbaa !23
   %895 = getelementptr inbounds nuw i8, ptr %877, i64 120
-  store i16 36, ptr %895, align 8, !tbaa !25
+  store i16 36, ptr %895, align 8, !tbaa !26
   %896 = getelementptr inbounds nuw i8, ptr %877, i64 136
-  store ptr @pmix12_bfrop_pack_datatype, ptr %896, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_datatype, ptr %896, align 8, !tbaa !27
   %897 = getelementptr inbounds nuw i8, ptr %877, i64 144
-  store ptr @pmix12_bfrop_unpack_datatype, ptr %897, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_datatype, ptr %897, align 8, !tbaa !28
   %898 = getelementptr inbounds nuw i8, ptr %877, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %898, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %898, align 8, !tbaa !29
   %899 = getelementptr inbounds nuw i8, ptr %877, i64 160
-  store ptr @pmix12_bfrop_print_datatype, ptr %899, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_datatype, ptr %899, align 8, !tbaa !30
   %900 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 36, ptr noundef %877) #18
   %901 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %902 = tail call noalias noundef ptr @malloc(i64 noundef %901) #17
@@ -2052,17 +2052,17 @@ pmix_obj_new_tma.exit538:                         ; preds = %.lr.ph.i.i535, %881
 pmix_obj_new_tma.exit545:                         ; preds = %.lr.ph.i.i542, %906, %907
   %918 = tail call noalias dereferenceable_or_null(16) ptr @strdup(ptr noundef nonnull @.str.37) #18
   %919 = getelementptr inbounds nuw i8, ptr %902, i64 128
-  store ptr %918, ptr %919, align 8, !tbaa !22
+  store ptr %918, ptr %919, align 8, !tbaa !23
   %920 = getelementptr inbounds nuw i8, ptr %902, i64 120
-  store i16 37, ptr %920, align 8, !tbaa !25
+  store i16 37, ptr %920, align 8, !tbaa !26
   %921 = getelementptr inbounds nuw i8, ptr %902, i64 136
-  store ptr @pmix12_bfrop_pack_proc_state, ptr %921, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_proc_state, ptr %921, align 8, !tbaa !27
   %922 = getelementptr inbounds nuw i8, ptr %902, i64 144
-  store ptr @pmix12_bfrop_unpack_proc_state, ptr %922, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_proc_state, ptr %922, align 8, !tbaa !28
   %923 = getelementptr inbounds nuw i8, ptr %902, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %923, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %923, align 8, !tbaa !29
   %924 = getelementptr inbounds nuw i8, ptr %902, i64 160
-  store ptr @pmix12_bfrop_print_proc_state, ptr %924, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_proc_state, ptr %924, align 8, !tbaa !30
   %925 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 37, ptr noundef %902) #18
   %926 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %927 = tail call noalias noundef ptr @malloc(i64 noundef %926) #17
@@ -2106,17 +2106,17 @@ pmix_obj_new_tma.exit545:                         ; preds = %.lr.ph.i.i542, %906
 pmix_obj_new_tma.exit552:                         ; preds = %.lr.ph.i.i549, %931, %932
   %943 = tail call noalias dereferenceable_or_null(15) ptr @strdup(ptr noundef nonnull @.str.38) #18
   %944 = getelementptr inbounds nuw i8, ptr %927, i64 128
-  store ptr %943, ptr %944, align 8, !tbaa !22
+  store ptr %943, ptr %944, align 8, !tbaa !23
   %945 = getelementptr inbounds nuw i8, ptr %927, i64 120
-  store i16 38, ptr %945, align 8, !tbaa !25
+  store i16 38, ptr %945, align 8, !tbaa !26
   %946 = getelementptr inbounds nuw i8, ptr %927, i64 136
-  store ptr @pmix12_bfrop_pack_proc_info, ptr %946, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_proc_info, ptr %946, align 8, !tbaa !27
   %947 = getelementptr inbounds nuw i8, ptr %927, i64 144
-  store ptr @pmix12_bfrop_unpack_proc_info, ptr %947, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_proc_info, ptr %947, align 8, !tbaa !28
   %948 = getelementptr inbounds nuw i8, ptr %927, i64 152
-  store ptr @pmix12_bfrop_copy_proc_info, ptr %948, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_proc_info, ptr %948, align 8, !tbaa !29
   %949 = getelementptr inbounds nuw i8, ptr %927, i64 160
-  store ptr @pmix12_bfrop_print_proc_info, ptr %949, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_proc_info, ptr %949, align 8, !tbaa !30
   %950 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 38, ptr noundef %927) #18
   %951 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %952 = tail call noalias noundef ptr @malloc(i64 noundef %951) #17
@@ -2160,17 +2160,17 @@ pmix_obj_new_tma.exit552:                         ; preds = %.lr.ph.i.i549, %931
 pmix_obj_new_tma.exit559:                         ; preds = %.lr.ph.i.i556, %956, %957
   %968 = tail call noalias dereferenceable_or_null(16) ptr @strdup(ptr noundef nonnull @.str.39) #18
   %969 = getelementptr inbounds nuw i8, ptr %952, i64 128
-  store ptr %968, ptr %969, align 8, !tbaa !22
+  store ptr %968, ptr %969, align 8, !tbaa !23
   %970 = getelementptr inbounds nuw i8, ptr %952, i64 120
-  store i16 39, ptr %970, align 8, !tbaa !25
+  store i16 39, ptr %970, align 8, !tbaa !26
   %971 = getelementptr inbounds nuw i8, ptr %952, i64 136
-  store ptr @pmix12_bfrop_pack_darray, ptr %971, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_darray, ptr %971, align 8, !tbaa !27
   %972 = getelementptr inbounds nuw i8, ptr %952, i64 144
-  store ptr @pmix12_bfrop_unpack_darray, ptr %972, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_darray, ptr %972, align 8, !tbaa !28
   %973 = getelementptr inbounds nuw i8, ptr %952, i64 152
-  store ptr @pmix12_bfrop_copy_darray, ptr %973, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_darray, ptr %973, align 8, !tbaa !29
   %974 = getelementptr inbounds nuw i8, ptr %952, i64 160
-  store ptr @pmix12_bfrop_print_darray, ptr %974, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_darray, ptr %974, align 8, !tbaa !30
   %975 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 39, ptr noundef %952) #18
   %976 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %977 = tail call noalias noundef ptr @malloc(i64 noundef %976) #17
@@ -2214,17 +2214,17 @@ pmix_obj_new_tma.exit559:                         ; preds = %.lr.ph.i.i556, %956
 pmix_obj_new_tma.exit566:                         ; preds = %.lr.ph.i.i563, %981, %982
   %993 = tail call noalias dereferenceable_or_null(15) ptr @strdup(ptr noundef nonnull @.str.40) #18
   %994 = getelementptr inbounds nuw i8, ptr %977, i64 128
-  store ptr %993, ptr %994, align 8, !tbaa !22
+  store ptr %993, ptr %994, align 8, !tbaa !23
   %995 = getelementptr inbounds nuw i8, ptr %977, i64 120
-  store i16 40, ptr %995, align 8, !tbaa !25
+  store i16 40, ptr %995, align 8, !tbaa !26
   %996 = getelementptr inbounds nuw i8, ptr %977, i64 136
-  store ptr @pmix12_bfrop_pack_rank, ptr %996, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_rank, ptr %996, align 8, !tbaa !27
   %997 = getelementptr inbounds nuw i8, ptr %977, i64 144
-  store ptr @pmix12_bfrop_unpack_rank, ptr %997, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_rank, ptr %997, align 8, !tbaa !28
   %998 = getelementptr inbounds nuw i8, ptr %977, i64 152
-  store ptr @pmix12_bfrop_std_copy, ptr %998, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_std_copy, ptr %998, align 8, !tbaa !29
   %999 = getelementptr inbounds nuw i8, ptr %977, i64 160
-  store ptr @pmix12_bfrop_print_rank, ptr %999, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_rank, ptr %999, align 8, !tbaa !30
   %1000 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 40, ptr noundef %977) #18
   %1001 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %1002 = tail call noalias noundef ptr @malloc(i64 noundef %1001) #17
@@ -2268,17 +2268,17 @@ pmix_obj_new_tma.exit566:                         ; preds = %.lr.ph.i.i563, %981
 pmix_obj_new_tma.exit573:                         ; preds = %.lr.ph.i.i570, %1006, %1007
   %1018 = tail call noalias dereferenceable_or_null(11) ptr @strdup(ptr noundef nonnull @.str.41) #18
   %1019 = getelementptr inbounds nuw i8, ptr %1002, i64 128
-  store ptr %1018, ptr %1019, align 8, !tbaa !22
+  store ptr %1018, ptr %1019, align 8, !tbaa !23
   %1020 = getelementptr inbounds nuw i8, ptr %1002, i64 120
-  store i16 41, ptr %1020, align 8, !tbaa !25
+  store i16 41, ptr %1020, align 8, !tbaa !26
   %1021 = getelementptr inbounds nuw i8, ptr %1002, i64 136
-  store ptr @pmix12_bfrop_pack_query, ptr %1021, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_query, ptr %1021, align 8, !tbaa !27
   %1022 = getelementptr inbounds nuw i8, ptr %1002, i64 144
-  store ptr @pmix12_bfrop_unpack_query, ptr %1022, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_query, ptr %1022, align 8, !tbaa !28
   %1023 = getelementptr inbounds nuw i8, ptr %1002, i64 152
-  store ptr @pmix12_bfrop_copy_query, ptr %1023, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_query, ptr %1023, align 8, !tbaa !29
   %1024 = getelementptr inbounds nuw i8, ptr %1002, i64 160
-  store ptr @pmix12_bfrop_print_query, ptr %1024, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_query, ptr %1024, align 8, !tbaa !30
   %1025 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 41, ptr noundef %1002) #18
   %1026 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrop_type_info_t_class, i64 56), align 8, !tbaa !3
   %1027 = tail call noalias noundef ptr @malloc(i64 noundef %1026) #17
@@ -2322,29 +2322,29 @@ pmix_obj_new_tma.exit573:                         ; preds = %.lr.ph.i.i570, %100
 pmix_obj_new_tma.exit580:                         ; preds = %.lr.ph.i.i577, %1031, %1032
   %1043 = tail call noalias dereferenceable_or_null(16) ptr @strdup(ptr noundef nonnull @.str.42) #18
   %1044 = getelementptr inbounds nuw i8, ptr %1027, i64 128
-  store ptr %1043, ptr %1044, align 8, !tbaa !22
+  store ptr %1043, ptr %1044, align 8, !tbaa !23
   %1045 = getelementptr inbounds nuw i8, ptr %1027, i64 120
-  store i16 44, ptr %1045, align 8, !tbaa !25
+  store i16 44, ptr %1045, align 8, !tbaa !26
   %1046 = getelementptr inbounds nuw i8, ptr %1027, i64 136
-  store ptr @pmix12_bfrop_pack_array, ptr %1046, align 8, !tbaa !26
+  store ptr @pmix12_bfrop_pack_array, ptr %1046, align 8, !tbaa !27
   %1047 = getelementptr inbounds nuw i8, ptr %1027, i64 144
-  store ptr @pmix12_bfrop_unpack_array, ptr %1047, align 8, !tbaa !27
+  store ptr @pmix12_bfrop_unpack_array, ptr %1047, align 8, !tbaa !28
   %1048 = getelementptr inbounds nuw i8, ptr %1027, i64 152
-  store ptr @pmix12_bfrop_copy_array, ptr %1048, align 8, !tbaa !28
+  store ptr @pmix12_bfrop_copy_array, ptr %1048, align 8, !tbaa !29
   %1049 = getelementptr inbounds nuw i8, ptr %1027, i64 160
-  store ptr @pmix12_bfrop_print_array, ptr %1049, align 8, !tbaa !29
+  store ptr @pmix12_bfrop_print_array, ptr %1049, align 8, !tbaa !30
   %1050 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef 44, ptr noundef %1027) #18
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @finalize() #0 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 360), align 8, !tbaa !30
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 360), align 8, !tbaa !31
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %pmix_pointer_array_get_item.exit.preheader, label %._crit_edge
 
 pmix_pointer_array_get_item.exit.preheader:       ; preds = %0
-  %.pre14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 384), align 8, !tbaa !35
+  %.pre14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 384), align 8, !tbaa !36
   br label %pmix_pointer_array_get_item.exit
 
 pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.preheader, %34
@@ -2381,7 +2381,7 @@ pmix_obj_update.exit:                             ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !36
+  %21 = load ptr, ptr %20, align 8, !tbaa !37
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %.not6.i = icmp eq ptr %22, null
   br i1 %.not6.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
@@ -2393,11 +2393,11 @@ pmix_obj_update.exit:                             ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !38
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %17
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %27 = load ptr, ptr %26, align 8, !tbaa !38
+  %27 = load ptr, ptr %26, align 8, !tbaa !39
   %.not11 = icmp eq ptr %27, null
   br i1 %.not11, label %30, label %28
 
@@ -2413,8 +2413,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %17
 31:                                               ; preds = %28, %30, %pmix_obj_update.exit
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232), i32 noundef %32, ptr noundef null) #18
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 384), align 8, !tbaa !35
-  %.pre15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 360), align 8, !tbaa !30
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 384), align 8, !tbaa !36
+  %.pre15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 360), align 8, !tbaa !31
   br label %34
 
 34:                                               ; preds = %pmix_pointer_array_get_item.exit, %31
@@ -2423,7 +2423,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = sext i32 %35 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %pmix_pointer_array_get_item.exit, label %._crit_edge, !llvm.loop !39
+  br i1 %38, label %pmix_pointer_array_get_item.exit, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %34, %0
   ret void
@@ -2443,7 +2443,7 @@ declare i32 @pmix12_bfrop_value_xfer(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @pmix12_bfrop_value_load(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(address_is_null) %1, i16 noundef zeroext %2) #2 {
-  store i16 %2, ptr %0, align 8, !tbaa !40
+  store i16 %2, ptr %0, align 8, !tbaa !41
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7
 
@@ -2490,7 +2490,7 @@ define void @pmix12_bfrop_value_load(ptr noundef writeonly captures(none) initia
 14:                                               ; preds = %7
   %15 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %15, ptr %16, align 8, !tbaa !42
+  store ptr %15, ptr %16, align 8, !tbaa !43
   br label %67
 
 17:                                               ; preds = %7
@@ -2583,9 +2583,9 @@ define void @pmix12_bfrop_value_load(ptr noundef writeonly captures(none) initia
   br label %67
 
 61:                                               ; preds = %7
-  %62 = load ptr, ptr %1, align 8, !tbaa !43
+  %62 = load ptr, ptr %1, align 8, !tbaa !44
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %62, ptr %63, align 8, !tbaa !42
+  store ptr %62, ptr %63, align 8, !tbaa !43
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load i64, ptr %65, align 8
@@ -2604,7 +2604,7 @@ define range(i32 -27, 1) i32 @pmix12_bfrop_value_unload(ptr noundef readonly cap
 5:                                                ; preds = %3
   %6 = load ptr, ptr %1, align 8, !tbaa !19
   %7 = icmp eq ptr %6, null
-  %8 = load i16, ptr %0, align 8, !tbaa !40
+  %8 = load i16, ptr %0, align 8, !tbaa !41
   br i1 %7, label %9, label %thread-pre-split
 
 9:                                                ; preds = %5
@@ -2652,155 +2652,155 @@ thread-pre-split:                                 ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i8, ptr %11, align 8
   store i8 %12, ptr %6, align 1
-  store i64 1, ptr %2, align 8, !tbaa !45
+  store i64 1, ptr %2, align 8, !tbaa !46
   br label %77
 
 13:                                               ; preds = %thread-pre-split
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i8, ptr %14, align 8
   store i8 %15, ptr %6, align 1
-  store i64 1, ptr %2, align 8, !tbaa !45
+  store i64 1, ptr %2, align 8, !tbaa !46
   br label %77
 
 16:                                               ; preds = %9, %thread-pre-split
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  %18 = load ptr, ptr %17, align 8, !tbaa !43
   %.not76 = icmp eq ptr %18, null
   br i1 %.not76, label %77, label %19
 
 19:                                               ; preds = %16
   %20 = tail call noalias ptr @strdup(ptr noundef nonnull %18) #18
   store ptr %20, ptr %1, align 8, !tbaa !19
-  %21 = load ptr, ptr %17, align 8, !tbaa !42
+  %21 = load ptr, ptr %17, align 8, !tbaa !43
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #22
-  store i64 %22, ptr %2, align 8, !tbaa !45
+  store i64 %22, ptr %2, align 8, !tbaa !46
   br label %77
 
 23:                                               ; preds = %thread-pre-split
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %6, align 1
-  store i64 8, ptr %2, align 8, !tbaa !45
+  store i64 8, ptr %2, align 8, !tbaa !46
   br label %77
 
 26:                                               ; preds = %thread-pre-split
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i32, ptr %27, align 8
   store i32 %28, ptr %6, align 1
-  store i64 4, ptr %2, align 8, !tbaa !45
+  store i64 4, ptr %2, align 8, !tbaa !46
   br label %77
 
 29:                                               ; preds = %thread-pre-split
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %6, align 1
-  store i64 4, ptr %2, align 8, !tbaa !45
+  store i64 4, ptr %2, align 8, !tbaa !46
   br label %77
 
 32:                                               ; preds = %thread-pre-split
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i8, ptr %33, align 8
   store i8 %34, ptr %6, align 1
-  store i64 1, ptr %2, align 8, !tbaa !45
+  store i64 1, ptr %2, align 8, !tbaa !46
   br label %77
 
 35:                                               ; preds = %thread-pre-split
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i16, ptr %36, align 8
   store i16 %37, ptr %6, align 1
-  store i64 2, ptr %2, align 8, !tbaa !45
+  store i64 2, ptr %2, align 8, !tbaa !46
   br label %77
 
 38:                                               ; preds = %thread-pre-split
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %39, align 8
   store i32 %40, ptr %6, align 1
-  store i64 4, ptr %2, align 8, !tbaa !45
+  store i64 4, ptr %2, align 8, !tbaa !46
   br label %77
 
 41:                                               ; preds = %thread-pre-split
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %6, align 1
-  store i64 8, ptr %2, align 8, !tbaa !45
+  store i64 8, ptr %2, align 8, !tbaa !46
   br label %77
 
 44:                                               ; preds = %thread-pre-split
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i32, ptr %45, align 8
   store i32 %46, ptr %6, align 1
-  store i64 4, ptr %2, align 8, !tbaa !45
+  store i64 4, ptr %2, align 8, !tbaa !46
   br label %77
 
 47:                                               ; preds = %thread-pre-split
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load i8, ptr %48, align 8
   store i8 %49, ptr %6, align 1
-  store i64 1, ptr %2, align 8, !tbaa !45
+  store i64 1, ptr %2, align 8, !tbaa !46
   br label %77
 
 50:                                               ; preds = %thread-pre-split
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load i16, ptr %51, align 8
   store i16 %52, ptr %6, align 1
-  store i64 2, ptr %2, align 8, !tbaa !45
+  store i64 2, ptr %2, align 8, !tbaa !46
   br label %77
 
 53:                                               ; preds = %thread-pre-split
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load i32, ptr %54, align 8
   store i32 %55, ptr %6, align 1
-  store i64 4, ptr %2, align 8, !tbaa !45
+  store i64 4, ptr %2, align 8, !tbaa !46
   br label %77
 
 56:                                               ; preds = %thread-pre-split
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load i64, ptr %57, align 8
   store i64 %58, ptr %6, align 1
-  store i64 8, ptr %2, align 8, !tbaa !45
+  store i64 8, ptr %2, align 8, !tbaa !46
   br label %77
 
 59:                                               ; preds = %thread-pre-split
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load i32, ptr %60, align 8
   store i32 %61, ptr %6, align 1
-  store i64 4, ptr %2, align 8, !tbaa !45
+  store i64 4, ptr %2, align 8, !tbaa !46
   br label %77
 
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i64, ptr %63, align 8
   store i64 %64, ptr %6, align 1
-  store i64 8, ptr %2, align 8, !tbaa !45
+  store i64 8, ptr %2, align 8, !tbaa !46
   br label %77
 
 65:                                               ; preds = %thread-pre-split
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false)
-  store i64 16, ptr %2, align 8, !tbaa !45
+  store i64 16, ptr %2, align 8, !tbaa !46
   br label %77
 
 67:                                               ; preds = %9, %thread-pre-split
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !42
+  %69 = load ptr, ptr %68, align 8, !tbaa !43
   %.not74 = icmp eq ptr %69, null
   br i1 %.not74, label %75, label %70
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %72 = load i64, ptr %71, align 8, !tbaa !42
+  %72 = load i64, ptr %71, align 8, !tbaa !43
   %.not75 = icmp eq i64 %72, 0
   br i1 %.not75, label %75, label %73
 
 73:                                               ; preds = %70
   store ptr %69, ptr %1, align 8, !tbaa !19
-  %74 = load i64, ptr %71, align 8, !tbaa !42
-  store i64 %74, ptr %2, align 8, !tbaa !45
+  %74 = load i64, ptr %71, align 8, !tbaa !43
+  store i64 %74, ptr %2, align 8, !tbaa !46
   br label %77
 
 75:                                               ; preds = %70, %67
   store ptr null, ptr %1, align 8, !tbaa !19
-  store i64 0, ptr %2, align 8, !tbaa !45
+  store i64 0, ptr %2, align 8, !tbaa !46
   br label %77
 
 76:                                               ; preds = %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split
@@ -2821,10 +2821,10 @@ define internal ptr @data_type_string(i16 noundef zeroext %0) #4 {
   %2 = zext i16 %0 to i32
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 360), align 8
   %.not = icmp sgt i32 %3, %2
-  br i1 %.not, label %pmix_pointer_array_get_item.exit, label %pmix_pointer_array_get_item.exit.thread, !prof !46
+  br i1 %.not, label %pmix_pointer_array_get_item.exit, label %pmix_pointer_array_get_item.exit.thread, !prof !47
 
 pmix_pointer_array_get_item.exit:                 ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 384), align 8, !tbaa !35
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 384), align 8, !tbaa !36
   %5 = zext i16 %0 to i64
   %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !19
@@ -2833,7 +2833,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %1
 
 9:                                                ; preds = %pmix_pointer_array_get_item.exit
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %1, %pmix_pointer_array_get_item.exit, %9
@@ -2983,7 +2983,7 @@ switch.lookup:                                    ; preds = %11
 .sink.split:                                      ; preds = %switch.lookup, %13, %3
   %.0.i.sink = phi i16 [ 0, %3 ], [ %14, %13 ], [ %switch.load, %switch.lookup ]
   %.0.ph = phi i32 [ -16, %3 ], [ 0, %13 ], [ 0, %switch.lookup ]
-  store i16 %.0.i.sink, ptr %2, align 2, !tbaa !47
+  store i16 %.0.i.sink, ptr %2, align 2, !tbaa !48
   br label %16
 
 16:                                               ; preds = %.sink.split, %9
@@ -3333,31 +3333,32 @@ attributes #22 = { nounwind willreturn memory(read) }
 !17 = !{!15, !10, i64 48}
 !18 = !{!4, !6, i64 40}
 !19 = !{!6, !6, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !5, i64 128}
-!23 = !{!"", !15, i64 0, !24, i64 120, !5, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160}
-!24 = !{!"short", !7, i64 0}
-!25 = !{!23, !24, i64 120}
-!26 = !{!23, !6, i64 136}
-!27 = !{!23, !6, i64 144}
-!28 = !{!23, !6, i64 152}
-!29 = !{!23, !6, i64 160}
-!30 = !{!31, !10, i64 360}
-!31 = !{!"pmix_bfrops_base_component_t", !32, i64 0, !10, i64 224, !33, i64 232, !6, i64 392}
-!32 = !{!"pmix_mca_base_component_2_1_0_t", !10, i64 0, !10, i64 4, !10, i64 8, !7, i64 12, !10, i64 28, !10, i64 32, !10, i64 36, !7, i64 40, !10, i64 72, !10, i64 76, !10, i64 80, !7, i64 84, !10, i64 148, !10, i64 152, !10, i64 156, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !7, i64 192}
-!33 = !{!"pmix_pointer_array_t", !15, i64 0, !10, i64 120, !10, i64 124, !10, i64 128, !10, i64 132, !10, i64 136, !34, i64 144, !6, i64 152}
-!34 = !{!"p1 long", !6, i64 0}
-!35 = !{!33, !6, i64 152}
-!36 = !{!4, !6, i64 48}
-!37 = distinct !{!37, !21}
-!38 = !{!15, !6, i64 96}
-!39 = distinct !{!39, !21}
-!40 = !{!41, !24, i64 0}
-!41 = !{!"pmix_value", !24, i64 0, !7, i64 8}
-!42 = !{!7, !7, i64 0}
-!43 = !{!44, !5, i64 0}
-!44 = !{!"pmix_byte_object", !5, i64 0, !11, i64 8}
-!45 = !{!11, !11, i64 0}
-!46 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!47 = !{!24, !24, i64 0}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!24, !5, i64 128}
+!24 = !{!"", !15, i64 0, !25, i64 120, !5, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160}
+!25 = !{!"short", !7, i64 0}
+!26 = !{!24, !25, i64 120}
+!27 = !{!24, !6, i64 136}
+!28 = !{!24, !6, i64 144}
+!29 = !{!24, !6, i64 152}
+!30 = !{!24, !6, i64 160}
+!31 = !{!32, !10, i64 360}
+!32 = !{!"pmix_bfrops_base_component_t", !33, i64 0, !10, i64 224, !34, i64 232, !6, i64 392}
+!33 = !{!"pmix_mca_base_component_2_1_0_t", !10, i64 0, !10, i64 4, !10, i64 8, !7, i64 12, !10, i64 28, !10, i64 32, !10, i64 36, !7, i64 40, !10, i64 72, !10, i64 76, !10, i64 80, !7, i64 84, !10, i64 148, !10, i64 152, !10, i64 156, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !7, i64 192}
+!34 = !{!"pmix_pointer_array_t", !15, i64 0, !10, i64 120, !10, i64 124, !10, i64 128, !10, i64 132, !10, i64 136, !35, i64 144, !6, i64 152}
+!35 = !{!"p1 long", !6, i64 0}
+!36 = !{!34, !6, i64 152}
+!37 = !{!4, !6, i64 48}
+!38 = distinct !{!38, !21, !22}
+!39 = !{!15, !6, i64 96}
+!40 = distinct !{!40, !21, !22}
+!41 = !{!42, !25, i64 0}
+!42 = !{!"pmix_value", !25, i64 0, !7, i64 8}
+!43 = !{!7, !7, i64 0}
+!44 = !{!45, !5, i64 0}
+!45 = !{!"pmix_byte_object", !5, i64 0, !11, i64 8}
+!46 = !{!11, !11, i64 0}
+!47 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!48 = !{!25, !25, i64 0}

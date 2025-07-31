@@ -139,7 +139,7 @@ define internal range(i32 0, -1) i32 @crypto_cbc_encrypt(ptr noundef readonly ca
   %36 = getelementptr i8, ptr %33, i64 %29
   %37 = sub i32 %32, %13
   %38 = icmp ult i32 %37, %13
-  br i1 %38, label %.loopexit, label %30, !llvm.loop !9
+  br i1 %38, label %.loopexit, label %30, !llvm.loop !10
 
 .loopexit:                                        ; preds = %30, %27, %26, %15
   %39 = phi i32 [ %3, %15 ], [ %24, %26 ], [ %3, %27 ], [ %37, %30 ]
@@ -194,7 +194,7 @@ define internal range(i32 0, -1) i32 @crypto_cbc_decrypt(ptr noundef readonly ca
   %33 = tail call i32 @crypto_lskcipher_decrypt(ptr noundef %9, ptr noundef %32, ptr noundef %32, i32 noundef %14, ptr noundef null) #7
   %34 = sub i32 %30, %14
   %35 = icmp ult i32 %34, %14
-  br i1 %35, label %.loopexit, label %29, !llvm.loop !10
+  br i1 %35, label %.loopexit, label %29, !llvm.loop !11
 
 .loopexit:                                        ; preds = %29, %17
   %36 = phi ptr [ %22, %17 ], [ %32, %29 ]
@@ -227,7 +227,7 @@ define internal range(i32 0, -1) i32 @crypto_cbc_decrypt(ptr noundef readonly ca
   %51 = getelementptr i8, ptr %45, i64 %43
   %52 = sub i32 %46, %14
   %53 = icmp ult i32 %52, %14
-  br i1 %53, label %54, label %44, !llvm.loop !11
+  br i1 %53, label %54, label %44, !llvm.loop !12
 
 54:                                               ; preds = %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %47, i64 %43, i1 false)
@@ -287,9 +287,10 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}

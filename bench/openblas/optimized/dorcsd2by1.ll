@@ -735,7 +735,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %389, ptr %390, align 4, !tbaa !3
   %indvars.iv.next1417 = add nuw nsw i64 %indvars.iv1416, 1
   %exitcond1420.not = icmp eq i64 %indvars.iv.next1417, %wide.trip.count1419
-  br i1 %exitcond1420.not, label %391, label %383, !llvm.loop !11
+  br i1 %exitcond1420.not, label %391, label %383, !llvm.loop !12
 
 391:                                              ; preds = %383
   %392 = load i32, ptr %3, align 4, !tbaa !3
@@ -759,7 +759,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %401 = getelementptr i32, ptr %19, i64 %indvars.iv1421
   store i32 %400, ptr %401, align 4, !tbaa !3
   %.not1282.not = icmp slt i64 %indvars.iv.next1422, %397
-  br i1 %.not1282.not, label %.lr.ph1363, label %._crit_edge1364.loopexit, !llvm.loop !12
+  br i1 %.not1282.not, label %.lr.ph1363, label %._crit_edge1364.loopexit, !llvm.loop !13
 
 ._crit_edge1364.loopexit:                         ; preds = %.lr.ph1363
   %.pre1435 = load i32, ptr %3, align 4, !tbaa !3
@@ -820,7 +820,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store double 0.000000e+00, ptr %gep1457, align 8, !tbaa !7
   %indvars.iv.next1399 = add nuw nsw i64 %indvars.iv1398, 1
   %exitcond1402.not = icmp eq i64 %indvars.iv.next1399, %wide.trip.count1401
-  br i1 %exitcond1402.not, label %._crit_edge1345, label %.lr.ph1344, !llvm.loop !13
+  br i1 %exitcond1402.not, label %._crit_edge1345, label %.lr.ph1344, !llvm.loop !14
 
 ._crit_edge1345:                                  ; preds = %.lr.ph1344, %418
   %422 = add nsw i32 %416, -1
@@ -919,7 +919,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %475, ptr %476, align 4, !tbaa !3
   %indvars.iv.next1404 = add nuw nsw i64 %indvars.iv1403, 1
   %exitcond1407.not = icmp eq i64 %indvars.iv.next1404, %wide.trip.count1406
-  br i1 %exitcond1407.not, label %477, label %469, !llvm.loop !14
+  br i1 %exitcond1407.not, label %477, label %469, !llvm.loop !15
 
 477:                                              ; preds = %469
   %478 = load i32, ptr %3, align 4, !tbaa !3
@@ -943,7 +943,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %487 = getelementptr i32, ptr %19, i64 %indvars.iv1408
   store i32 %486, ptr %487, align 4, !tbaa !3
   %.not1273.not = icmp slt i64 %indvars.iv.next1409, %483
-  br i1 %.not1273.not, label %.lr.ph1350, label %._crit_edge1351.loopexit, !llvm.loop !15
+  br i1 %.not1273.not, label %.lr.ph1350, label %._crit_edge1351.loopexit, !llvm.loop !16
 
 ._crit_edge1351.loopexit:                         ; preds = %.lr.ph1350
   %.pre1433 = load i32, ptr %3, align 4, !tbaa !3
@@ -1022,7 +1022,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store double 0.000000e+00, ptr %gep1455, align 8, !tbaa !7
   %indvars.iv.next1384 = add nuw nsw i64 %indvars.iv1383, 1
   %exitcond1387.not = icmp eq i64 %indvars.iv.next1384, %wide.trip.count1386
-  br i1 %exitcond1387.not, label %._crit_edge1328, label %.lr.ph1327, !llvm.loop !16
+  br i1 %exitcond1387.not, label %._crit_edge1328, label %.lr.ph1327, !llvm.loop !17
 
 ._crit_edge1328:                                  ; preds = %.lr.ph1327, %511
   %517 = xor i32 %509, -1
@@ -1113,7 +1113,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %567, ptr %568, align 4, !tbaa !3
   %indvars.iv.next1389 = add nuw nsw i64 %indvars.iv1388, 1
   %exitcond1392.not = icmp eq i64 %indvars.iv.next1389, %wide.trip.count1391
-  br i1 %exitcond1392.not, label %._crit_edge1333.loopexit, label %563, !llvm.loop !17
+  br i1 %exitcond1392.not, label %._crit_edge1333.loopexit, label %563, !llvm.loop !18
 
 ._crit_edge1333.loopexit:                         ; preds = %563
   %.pre1432 = load i32, ptr %5, align 4, !tbaa !3
@@ -1138,7 +1138,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %573 = sub i32 %572, %559
   store i32 %573, ptr %571, align 4, !tbaa !3
   %exitcond1397.not = icmp eq i64 %indvars.iv.next1394, %wide.trip.count1396
-  br i1 %exitcond1397.not, label %._crit_edge1338, label %.lr.ph1337, !llvm.loop !18
+  br i1 %exitcond1397.not, label %._crit_edge1338, label %.lr.ph1337, !llvm.loop !19
 
 ._crit_edge1338:                                  ; preds = %.lr.ph1337, %._crit_edge1333
   br i1 %.not1263, label %575, label %574
@@ -1198,7 +1198,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store double 0.000000e+00, ptr %gep, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %594
   %599 = add nsw i32 %595, -1
@@ -1261,7 +1261,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store double 0.000000e+00, ptr %gep1306, align 8, !tbaa !7
   %indvars.iv.next1369 = add nuw nsw i64 %indvars.iv1368, 1
   %exitcond1372.not = icmp eq i64 %indvars.iv.next1369, %wide.trip.count1371
-  br i1 %exitcond1372.not, label %._crit_edge1311, label %.lr.ph1310, !llvm.loop !20
+  br i1 %exitcond1372.not, label %._crit_edge1311, label %.lr.ph1310, !llvm.loop !21
 
 ._crit_edge1311:                                  ; preds = %.lr.ph1310, %620
   %631 = xor i32 %625, -1
@@ -1391,7 +1391,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %712, ptr %713, align 4, !tbaa !3
   %indvars.iv.next1374 = add nuw nsw i64 %indvars.iv1373, 1
   %exitcond1377.not = icmp eq i64 %indvars.iv.next1374, %wide.trip.count1376
-  br i1 %exitcond1377.not, label %._crit_edge1316.loopexit, label %708, !llvm.loop !21
+  br i1 %exitcond1377.not, label %._crit_edge1316.loopexit, label %708, !llvm.loop !22
 
 ._crit_edge1316.loopexit:                         ; preds = %708
   %.pre1429 = load i32, ptr %4, align 4, !tbaa !3
@@ -1416,7 +1416,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %718 = sub i32 %717, %704
   store i32 %718, ptr %716, align 4, !tbaa !3
   %exitcond1382.not = icmp eq i64 %indvars.iv.next1379, %wide.trip.count1381
-  br i1 %exitcond1382.not, label %._crit_edge1321, label %.lr.ph1320, !llvm.loop !22
+  br i1 %exitcond1382.not, label %._crit_edge1321, label %.lr.ph1320, !llvm.loop !23
 
 ._crit_edge1321:                                  ; preds = %.lr.ph1320, %._crit_edge1316
   br i1 %.not1255, label %720, label %719
@@ -1505,17 +1505,18 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}

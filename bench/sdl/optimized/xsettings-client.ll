@@ -376,7 +376,7 @@ define hidden range(i32 0, 5) i32 @xsettings_client_get_setting(ptr noundef read
   %11 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %xsettings_list_lookup.exit.thread, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %xsettings_list_lookup.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
 xsettings_list_lookup.exit:                       ; preds = %.lr.ph.i
   %13 = tail call ptr @xsettings_setting_copy(ptr noundef nonnull %6)
@@ -407,7 +407,7 @@ define hidden noundef ptr @xsettings_list_lookup(ptr noundef readonly captures(a
   %8 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %2
   %.07 = phi ptr [ null, %2 ], [ null, %7 ], [ %3, %.lr.ph ]
@@ -883,7 +883,7 @@ fetch_card8.exit97.i:                             ; preds = %.lr.ph.i29, %.threa
   store ptr %.024.lcssa51.i, ptr %179, align 8
   %180 = add nuw i32 %.047293.i, 1
   %exitcond.not.i = icmp eq i32 %180, %storemerge.i93.i
-  br i1 %exitcond.not.i, label %parse_settings.exit, label %58, !llvm.loop !6
+  br i1 %exitcond.not.i, label %parse_settings.exit, label %58, !llvm.loop !7
 
 fetch_card32.exit.thread281.i:                    ; preds = %161, %121, %80, %78
   %181 = load ptr, ptr @stderr, align 8
@@ -1145,7 +1145,7 @@ xsettings_setting_equal.exit.thread.i:            ; preds = %xsettings_setting_e
   %297 = icmp ne ptr %.13145.i, null
   %298 = icmp ne ptr %.1.i, null
   %299 = select i1 %297, i1 true, i1 %298
-  br i1 %299, label %223, label %notify_changes.exit, !llvm.loop !7
+  br i1 %299, label %223, label %notify_changes.exit, !llvm.loop !8
 
 notify_changes.exit:                              ; preds = %296, %215
   %.not5.i = icmp eq ptr %8, null
@@ -1231,7 +1231,7 @@ define hidden ptr @xsettings_list_copy(ptr noundef readonly captures(address_is_
   %9 = getelementptr inbounds nuw i8, ptr %.01941, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %xsettings_list_free.exit, label %.lr.ph
+  br i1 %.not, label %xsettings_list_free.exit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %6
   %.not5.i = icmp eq ptr %.02140, null
@@ -1471,7 +1471,7 @@ define hidden range(i32 0, 4) i32 @xsettings_list_delete(ptr noundef captures(no
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %8) #16
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph29, !llvm.loop !8
+  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph29, !llvm.loop !10
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01321.lcssa = phi ptr [ %.01318, %.lr.ph.preheader ], [ %.013, %.lr.ph ]
@@ -1522,7 +1522,7 @@ xsettings_setting_free.exit:                      ; preds = %24, %26
   %27 = getelementptr inbounds nuw i8, ptr %.0132128, i64 8
   %.013 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %.013, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph29, %2, %xsettings_setting_free.exit
   %.014 = phi i32 [ 0, %xsettings_setting_free.exit ], [ 3, %2 ], [ 3, %.lr.ph29 ]
@@ -1576,9 +1576,11 @@ attributes #18 = { cold nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !4, !5}

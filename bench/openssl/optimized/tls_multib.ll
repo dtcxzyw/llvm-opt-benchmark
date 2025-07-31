@@ -108,33 +108,33 @@ define range(i32 0, 2) i32 @tls_write_records_multiblock(ptr noundef %0, ptr nou
   %.06373.i = phi i64 [ %7, %6 ], [ 1, %.lr.ph.i.preheader ]
   %8 = getelementptr %struct.ossl_record_template_st, ptr %1, i64 %.06373.i
   %9 = getelementptr i8, ptr %8, i64 -24
-  %10 = load i8, ptr %9, align 8, !tbaa !30
-  %11 = load i8, ptr %8, align 8, !tbaa !30
+  %10 = load i8, ptr %9, align 8, !tbaa !31
+  %11 = load i8, ptr %8, align 8, !tbaa !31
   %.not68.i = icmp eq i8 %10, %11
   br i1 %.not68.i, label %12, label %.loopexit12
 
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr i8, ptr %8, i64 -8
-  %14 = load i64, ptr %13, align 8, !tbaa !32
+  %14 = load i64, ptr %13, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !32
+  %16 = load i64, ptr %15, align 8, !tbaa !33
   %.not69.i = icmp eq i64 %14, %16
   br i1 %.not69.i, label %17, label %.loopexit12
 
 17:                                               ; preds = %12
   %18 = getelementptr i8, ptr %8, i64 -16
-  %19 = load ptr, ptr %18, align 8, !tbaa !33
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %14
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !33
+  %22 = load ptr, ptr %21, align 8, !tbaa !34
   %.not70.i = icmp eq ptr %20, %22
   br i1 %.not70.i, label %6, label %.loopexit12
 
 ._crit_edge.i:                                    ; preds = %6
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !32
+  %24 = load i64, ptr %23, align 8, !tbaa !33
   %25 = mul i64 %24, %2
-  %26 = load i8, ptr %1, align 8, !tbaa !30
+  %26 = load i8, ptr %1, align 8, !tbaa !31
   %27 = icmp ne i8 %26, 23
   %28 = shl i64 %24, 2
   %.not.i.i = icmp ult i64 %25, %28
@@ -181,7 +181,7 @@ define range(i32 0, 2) i32 @tls_write_records_multiblock(ptr noundef %0, ptr nou
 
 tls_is_multiblock_capable.exit.i:                 ; preds = %43
   %49 = load ptr, ptr %44, align 8, !tbaa !27
-  %50 = load i64, ptr %23, align 8, !tbaa !32
+  %50 = load i64, ptr %23, align 8, !tbaa !33
   %51 = trunc i64 %50 to i32
   %52 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %49, i32 noundef 28, i32 noundef %51, ptr noundef null) #3
   %53 = sext i32 %52 to i64
@@ -194,31 +194,31 @@ tls_is_multiblock_capable.exit.i:                 ; preds = %43
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %58 = trunc nuw i64 %2 to i32
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %58, ptr %59, align 8, !tbaa !34
+  store i32 %58, ptr %59, align 8, !tbaa !35
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %61 = load i64, ptr %60, align 8
   store i64 %61, ptr %4, align 8
-  %62 = load i8, ptr %1, align 8, !tbaa !30
+  %62 = load i8, ptr %1, align 8, !tbaa !31
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %62, ptr %63, align 8, !tbaa !36
+  store i8 %62, ptr %63, align 8, !tbaa !37
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !37
+  %65 = load i32, ptr %64, align 4, !tbaa !38
   %66 = lshr i32 %65, 8
   %67 = trunc i32 %66 to i8
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 %67, ptr %68, align 1, !tbaa !36
+  store i8 %67, ptr %68, align 1, !tbaa !37
   %69 = trunc i32 %65 to i8
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 %69, ptr %70, align 2, !tbaa !36
+  store i8 %69, ptr %70, align 2, !tbaa !37
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  store i8 0, ptr %71, align 1, !tbaa !36
+  store i8 0, ptr %71, align 1, !tbaa !37
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i8 0, ptr %72, align 4, !tbaa !36
-  store ptr null, ptr %5, align 8, !tbaa !38
+  store i8 0, ptr %72, align 4, !tbaa !37
+  store ptr null, ptr %5, align 8, !tbaa !39
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %4, ptr %73, align 8, !tbaa !39
+  store ptr %4, ptr %73, align 8, !tbaa !40
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %25, ptr %74, align 8, !tbaa !40
+  store i64 %25, ptr %74, align 8, !tbaa !41
   %75 = load ptr, ptr %44, align 8, !tbaa !27
   %76 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %75, i32 noundef 25, i32 noundef 32, ptr noundef nonnull %5) #3
   %77 = sext i32 %76 to i64
@@ -227,29 +227,29 @@ tls_is_multiblock_capable.exit.i:                 ; preds = %43
 
 79:                                               ; preds = %56
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %81 = load i64, ptr %80, align 8, !tbaa !41
+  %81 = load i64, ptr %80, align 8, !tbaa !42
   %82 = icmp ult i64 %81, %77
   br i1 %82, label %tls_write_records_multiblock_int.exit.sink.split, label %83
 
 83:                                               ; preds = %79
-  %84 = load ptr, ptr %57, align 8, !tbaa !42
-  store ptr %84, ptr %5, align 8, !tbaa !38
+  %84 = load ptr, ptr %57, align 8, !tbaa !43
+  store ptr %84, ptr %5, align 8, !tbaa !39
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !33
-  store ptr %86, ptr %73, align 8, !tbaa !39
-  store i64 %25, ptr %74, align 8, !tbaa !40
+  %86 = load ptr, ptr %85, align 8, !tbaa !34
+  store ptr %86, ptr %73, align 8, !tbaa !40
+  store i64 %25, ptr %74, align 8, !tbaa !41
   %87 = load ptr, ptr %44, align 8, !tbaa !27
   %88 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %87, i32 noundef 26, i32 noundef 32, ptr noundef nonnull %5) #3
   %89 = icmp slt i32 %88, 1
   br i1 %89, label %tls_write_records_multiblock_int.exit.sink.split, label %90
 
 90:                                               ; preds = %83
-  %91 = load i32, ptr %59, align 8, !tbaa !34
+  %91 = load i32, ptr %59, align 8, !tbaa !35
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 4103
-  %93 = load i8, ptr %92, align 1, !tbaa !36
+  %93 = load i8, ptr %92, align 1, !tbaa !37
   %94 = trunc i32 %91 to i8
   %95 = add i8 %93, %94
-  store i8 %95, ptr %92, align 1, !tbaa !36
+  store i8 %95, ptr %92, align 1, !tbaa !37
   %96 = zext i8 %95 to i32
   %97 = icmp ugt i32 %91, %96
   br i1 %97, label %.preheader.i, label %.loopexit
@@ -259,13 +259,13 @@ tls_is_multiblock_capable.exit.i:                 ; preds = %43
   %98 = add nsw i32 %.0.i, -1
   %99 = zext nneg i32 %.0.i to i64
   %100 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 0, i64 %99
-  %101 = load i8, ptr %100, align 1, !tbaa !36
+  %101 = load i8, ptr %100, align 1, !tbaa !37
   %102 = add i8 %101, 1
-  store i8 %102, ptr %100, align 1, !tbaa !36
+  store i8 %102, ptr %100, align 1, !tbaa !37
   %103 = icmp eq i8 %102, 0
   %104 = icmp ne i32 %.0.i, 0
   %or.cond3.i = and i1 %104, %103
-  br i1 %or.cond3.i, label %.preheader.i, label %.loopexit, !llvm.loop !43
+  br i1 %or.cond3.i, label %.preheader.i, label %.loopexit, !llvm.loop !44
 
 tls_write_records_multiblock_int.exit.sink.split: ; preds = %83, %56, %79
   %.sink = phi i32 [ 137, %79 ], [ 137, %56 ], [ 148, %83 ]
@@ -281,9 +281,9 @@ tls_write_records_multiblock_int.exit:            ; preds = %tls_write_records_m
 
 .loopexit:                                        ; preds = %.preheader.i, %90
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 0, ptr %105, align 8, !tbaa !44
+  store i64 0, ptr %105, align 8, !tbaa !45
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %77, ptr %106, align 8, !tbaa !45
+  store i64 %77, ptr %106, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #3
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %4) #3
   br label %108
@@ -360,21 +360,22 @@ attributes #3 = { nounwind }
 !25 = !{!8, !12, i64 4272}
 !26 = !{!8, !12, i64 20}
 !27 = !{!8, !17, i64 4128}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!31, !5, i64 0}
-!31 = !{!"ossl_record_template_st", !5, i64 0, !12, i64 4, !11, i64 8, !4, i64 16}
-!32 = !{!31, !4, i64 16}
-!33 = !{!31, !11, i64 8}
-!34 = !{!35, !12, i64 24}
-!35 = !{!"", !11, i64 0, !11, i64 8, !4, i64 16, !12, i64 24}
-!36 = !{!5, !5, i64 0}
-!37 = !{!31, !12, i64 4}
-!38 = !{!35, !11, i64 0}
-!39 = !{!35, !11, i64 8}
-!40 = !{!35, !4, i64 16}
-!41 = !{!16, !4, i64 16}
-!42 = !{!16, !11, i64 0}
-!43 = distinct !{!43, !29}
-!44 = !{!16, !4, i64 24}
-!45 = !{!16, !4, i64 32}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!32, !5, i64 0}
+!32 = !{!"ossl_record_template_st", !5, i64 0, !12, i64 4, !11, i64 8, !4, i64 16}
+!33 = !{!32, !4, i64 16}
+!34 = !{!32, !11, i64 8}
+!35 = !{!36, !12, i64 24}
+!36 = !{!"", !11, i64 0, !11, i64 8, !4, i64 16, !12, i64 24}
+!37 = !{!5, !5, i64 0}
+!38 = !{!32, !12, i64 4}
+!39 = !{!36, !11, i64 0}
+!40 = !{!36, !11, i64 8}
+!41 = !{!36, !4, i64 16}
+!42 = !{!16, !4, i64 16}
+!43 = !{!16, !11, i64 0}
+!44 = distinct !{!44, !29, !30}
+!45 = !{!16, !4, i64 24}
+!46 = !{!16, !4, i64 32}

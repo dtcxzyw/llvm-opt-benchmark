@@ -59,7 +59,7 @@ build_huffman_codes.exit.us:                      ; preds = %.lr.ph, %build_huff
   store i16 %24, ptr %25, align 2
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %build_huffman_codes.exit._crit_edge, label %build_huffman_codes.exit.us, !llvm.loop !9
+  br i1 %exitcond25.not, label %build_huffman_codes.exit._crit_edge, label %build_huffman_codes.exit.us, !llvm.loop !10
 
 build_huffman_codes.exit._crit_edge:              ; preds = %build_huffman_codes.exit, %build_huffman_codes.exit.us, %build_huffman_codes.exit.preheader
   %26 = call i32 @ff_vlc_init_from_lengths(ptr noundef %0, i32 noundef 9, i32 noundef %12, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef %4) #4
@@ -80,7 +80,7 @@ build_huffman_codes.exit:                         ; preds = %.lr.ph, %build_huff
   store i16 %spec.select, ptr %32, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
-  br i1 %exitcond.not, label %build_huffman_codes.exit._crit_edge, label %build_huffman_codes.exit, !llvm.loop !11
+  br i1 %exitcond.not, label %build_huffman_codes.exit._crit_edge, label %build_huffman_codes.exit, !llvm.loop !12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -109,8 +109,9 @@ attributes #4 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8, !9}

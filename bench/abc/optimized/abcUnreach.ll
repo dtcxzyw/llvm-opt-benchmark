@@ -183,14 +183,14 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %.val101.i = load i32, ptr %82, align 4, !tbaa !29
   %83 = sext i32 %.val101.i to i64
   %84 = icmp slt i64 %indvars.iv.next186.i, %83
-  br i1 %84, label %.lr.ph158.i, label %._crit_edge159.i, !llvm.loop !42
+  br i1 %84, label %.lr.ph158.i, label %._crit_edge159.i, !llvm.loop !43
 
 ._crit_edge159.i:                                 ; preds = %80, %._crit_edge.i
   %.val102164208.i = phi i32 [ %.val101155.i, %._crit_edge.i ], [ %.val101.i, %80 ]
   %.lcssa154.i = phi ptr [ %62, %._crit_edge.i ], [ %81, %80 ]
   %85 = getelementptr i8, ptr %.lcssa154.i, i64 4
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %87 = load i32, ptr %86, align 8, !tbaa !43
+  %87 = load i32, ptr %86, align 8, !tbaa !44
   %88 = sext i32 %87 to i64
   %89 = shl nsw i64 %88, 2
   %90 = tail call noalias ptr @malloc(i64 noundef %89) #9
@@ -227,7 +227,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   br i1 %.not145.i, label %102, label %108
 
 102:                                              ; preds = %97
-  %.val127.i = load ptr, ptr %96, align 8, !tbaa !56
+  %.val127.i = load ptr, ptr %96, align 8, !tbaa !57
   %103 = getelementptr i8, ptr %.val127.i, i64 4
   %.val127.val.i = load i32, ptr %103, align 4, !tbaa !29
   %104 = trunc nuw nsw i64 %indvars.iv191.i to i32
@@ -243,11 +243,11 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %indvars.iv.next192.i = add nuw nsw i64 %indvars.iv191.i, 1
   %109 = sext i32 %.val102.i to i64
   %110 = icmp slt i64 %indvars.iv.next192.i, %109
-  br i1 %110, label %97, label %.critedge.i, !llvm.loop !57
+  br i1 %110, label %97, label %.critedge.i, !llvm.loop !58
 
 .critedge.i:                                      ; preds = %108, %.preheader148.i
   %111 = getelementptr inbounds nuw i8, ptr %31, i64 256
-  %112 = load ptr, ptr %111, align 8, !tbaa !58
+  %112 = load ptr, ptr %111, align 8, !tbaa !59
   %113 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %7, ptr noundef %112, ptr noundef %16, ptr noundef %90) #8
   %114 = getelementptr inbounds nuw i8, ptr %61, i64 56
   store ptr %113, ptr %114, align 8, !tbaa !39
@@ -262,7 +262,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
 116:                                              ; preds = %115, %.critedge.i
   %117 = tail call i32 @Abc_NodeMinimumBase(ptr noundef nonnull %61) #8
   %118 = getelementptr i8, ptr %0, i64 48
-  %.val132167.i = load ptr, ptr %118, align 8, !tbaa !59
+  %.val132167.i = load ptr, ptr %118, align 8, !tbaa !60
   %119 = getelementptr i8, ptr %.val132167.i, i64 4
   %.val132.val168.i = load i32, ptr %119, align 4, !tbaa !29
   %120 = icmp sgt i32 %.val132.val168.i, 0
@@ -285,7 +285,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %126 = load ptr, ptr %125, align 8, !tbaa !32
   %.val119.i = load ptr, ptr %126, align 8, !tbaa !33
   %127 = getelementptr i8, ptr %126, i64 32
-  %.val120.i = load ptr, ptr %127, align 8, !tbaa !60
+  %.val120.i = load ptr, ptr %127, align 8, !tbaa !61
   %128 = getelementptr i8, ptr %.val119.i, i64 32
   %.val119.val.i = load ptr, ptr %128, align 8, !tbaa !37
   %.val120.val.i = load i32, ptr %.val120.i, align 4, !tbaa !38
@@ -308,7 +308,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   store ptr %136, ptr %137, align 8, !tbaa !39
   %138 = tail call ptr @Abc_ObjName(ptr noundef nonnull %126) #8
   %139 = tail call ptr @Abc_ObjAssignName(ptr noundef %136, ptr noundef %138, ptr noundef null) #8
-  %.val132.pre.i = load ptr, ptr %118, align 8, !tbaa !59
+  %.val132.pre.i = load ptr, ptr %118, align 8, !tbaa !60
   br label %140
 
 140:                                              ; preds = %135, %.lr.ph172.i, %.lr.ph172.i
@@ -318,10 +318,10 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %.val132.val.i = load i32, ptr %141, align 4, !tbaa !29
   %142 = sext i32 %.val132.val.i to i64
   %143 = icmp slt i64 %indvars.iv.next195.i, %142
-  br i1 %143, label %.lr.ph172.i, label %.critedge2.preheader.i, !llvm.loop !61
+  br i1 %143, label %.lr.ph172.i, label %.critedge2.preheader.i, !llvm.loop !62
 
 .preheader.loopexit.i:                            ; preds = %.critedge2.i
-  %.val133176.pre.i = load ptr, ptr %118, align 8, !tbaa !59
+  %.val133176.pre.i = load ptr, ptr %118, align 8, !tbaa !60
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %.critedge2.preheader.i
@@ -348,7 +348,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
 153:                                              ; preds = %.lr.ph175.i
   %.val121.i = load ptr, ptr %150, align 8, !tbaa !33
   %154 = getelementptr i8, ptr %150, i64 32
-  %.val122.i = load ptr, ptr %154, align 8, !tbaa !60
+  %.val122.i = load ptr, ptr %154, align 8, !tbaa !61
   %155 = getelementptr i8, ptr %.val121.i, i64 32
   %.val121.val.i = load ptr, ptr %155, align 8, !tbaa !37
   %.val122.val.i = load i32, ptr %.val122.i, align 4, !tbaa !38
@@ -372,7 +372,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %.val103.i = load i32, ptr %165, align 4, !tbaa !29
   %166 = sext i32 %.val103.i to i64
   %167 = icmp slt i64 %indvars.iv.next198.i, %166
-  br i1 %167, label %.lr.ph175.i, label %.preheader.loopexit.i, !llvm.loop !62
+  br i1 %167, label %.lr.ph175.i, label %.preheader.loopexit.i, !llvm.loop !63
 
 .critedge4.preheader.loopexit.i:                  ; preds = %185
   %.pre218.i = load ptr, ptr %35, align 8, !tbaa !28
@@ -394,7 +394,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %173 = load ptr, ptr %172, align 8, !tbaa !32
   %.val123.i = load ptr, ptr %173, align 8, !tbaa !33
   %174 = getelementptr i8, ptr %173, i64 32
-  %.val124.i = load ptr, ptr %174, align 8, !tbaa !60
+  %.val124.i = load ptr, ptr %174, align 8, !tbaa !61
   %175 = getelementptr i8, ptr %.val123.i, i64 32
   %.val123.val.i = load ptr, ptr %175, align 8, !tbaa !37
   %.val124.val.i = load i32, ptr %.val124.i, align 4, !tbaa !38
@@ -415,7 +415,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %183 = getelementptr inbounds nuw i8, ptr %173, i64 64
   %184 = load ptr, ptr %183, align 8, !tbaa !39
   tail call void @Abc_ObjAddFanin(ptr noundef %184, ptr noundef nonnull %61) #8
-  %.val133.pre.i = load ptr, ptr %118, align 8, !tbaa !59
+  %.val133.pre.i = load ptr, ptr %118, align 8, !tbaa !60
   br label %185
 
 185:                                              ; preds = %182, %.lr.ph180.i, %.lr.ph180.i
@@ -425,7 +425,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %.val133.val.i = load i32, ptr %186, align 4, !tbaa !29
   %187 = sext i32 %.val133.val.i to i64
   %188 = icmp slt i64 %indvars.iv.next201.i, %187
-  br i1 %188, label %.lr.ph180.i, label %.critedge4.preheader.loopexit.i, !llvm.loop !63
+  br i1 %188, label %.lr.ph180.i, label %.critedge4.preheader.loopexit.i, !llvm.loop !64
 
 .lr.ph183.i:                                      ; preds = %.critedge4.preheader.i, %.critedge4.i
   %189 = phi ptr [ %204, %.critedge4.i ], [ %168, %.critedge4.preheader.i ]
@@ -443,7 +443,7 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
 195:                                              ; preds = %.lr.ph183.i
   %.val125.i = load ptr, ptr %192, align 8, !tbaa !33
   %196 = getelementptr i8, ptr %192, i64 32
-  %.val126.i = load ptr, ptr %196, align 8, !tbaa !60
+  %.val126.i = load ptr, ptr %196, align 8, !tbaa !61
   %197 = getelementptr i8, ptr %.val125.i, i64 32
   %.val125.val.i = load ptr, ptr %197, align 8, !tbaa !37
   %.val126.val.i = load i32, ptr %.val126.i, align 4, !tbaa !38
@@ -465,10 +465,10 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
   %.val104.i = load i32, ptr %205, align 4, !tbaa !29
   %206 = sext i32 %.val104.i to i64
   %207 = icmp slt i64 %indvars.iv.next204.i, %206
-  br i1 %207, label %.lr.ph183.i, label %.critedge4._crit_edge.i, !llvm.loop !64
+  br i1 %207, label %.lr.ph183.i, label %.critedge4._crit_edge.i, !llvm.loop !65
 
 .critedge4._crit_edge.i:                          ; preds = %.critedge4.i, %.critedge4.preheader.i
-  %208 = load ptr, ptr %111, align 8, !tbaa !58
+  %208 = load ptr, ptr %111, align 8, !tbaa !59
   %209 = tail call i32 @Abc_AigCleanup(ptr noundef %208) #8
   %210 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %31, i32 noundef 0) #8
   %211 = tail call i32 @Abc_NtkBddToSop(ptr noundef %31, i32 noundef -1, i32 noundef 1000000000, i32 noundef 1) #8
@@ -518,7 +518,7 @@ declare i32 @Cudd_ReadDead(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 56
-  %.val53 = load ptr, ptr %4, align 8, !tbaa !65
+  %.val53 = load ptr, ptr %4, align 8, !tbaa !66
   %5 = getelementptr i8, ptr %.val53, i64 4
   %.val53.val = load i32, ptr %5, align 4, !tbaa !29
   %6 = getelementptr i8, ptr %1, i64 128
@@ -528,7 +528,7 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef nonnul
   %9 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %8) #8
   tail call void @Cudd_AutodynEnable(ptr noundef nonnull %0, i32 noundef 6) #8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !66
+  %11 = load ptr, ptr %10, align 8, !tbaa !67
   tail call void @Cudd_Ref(ptr noundef %11) #8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !28
@@ -552,7 +552,7 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef nonnul
   br i1 %.not63, label %22, label %78
 
 22:                                               ; preds = %.lr.ph
-  %.val54 = load ptr, ptr %4, align 8, !tbaa !65
+  %.val54 = load ptr, ptr %4, align 8, !tbaa !66
   %23 = getelementptr i8, ptr %.val54, i64 4
   %.val54.val = load i32, ptr %23, align 4, !tbaa !29
   %24 = trunc nuw nsw i64 %indvars.iv to i32
@@ -560,7 +560,7 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef nonnul
   %26 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %25) #8
   %.val58 = load ptr, ptr %19, align 8, !tbaa !33
   %27 = getelementptr i8, ptr %19, i64 32
-  %.val59 = load ptr, ptr %27, align 8, !tbaa !60
+  %.val59 = load ptr, ptr %27, align 8, !tbaa !61
   %28 = getelementptr i8, ptr %.val58, i64 32
   %.val58.val = load ptr, ptr %28, align 8, !tbaa !37
   %.val59.val = load i32, ptr %.val59, align 4, !tbaa !38
@@ -571,14 +571,14 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef nonnul
   %32 = load ptr, ptr %31, align 8, !tbaa !32
   %.val60 = load ptr, ptr %32, align 8, !tbaa !33
   %33 = getelementptr i8, ptr %32, i64 16
-  %.val61 = load i32, ptr %33, align 8, !tbaa !67
+  %.val61 = load i32, ptr %33, align 8, !tbaa !68
   %34 = getelementptr i8, ptr %.val60, i64 432
-  %.val60.val = load ptr, ptr %34, align 8, !tbaa !68
+  %.val60.val = load ptr, ptr %34, align 8, !tbaa !69
   %35 = getelementptr i8, ptr %.val60.val, i64 8
   %.val60.val.val = load ptr, ptr %35, align 8, !tbaa !31
   %36 = getelementptr i8, ptr %.val60.val.val, i64 56
   %.val60.val.val.val = load ptr, ptr %36, align 8, !tbaa !32
-  %37 = load i32, ptr %.val60.val.val.val, align 8, !tbaa !69
+  %37 = load i32, ptr %.val60.val.val.val, align 8, !tbaa !70
   %.not.i.i = icmp slt i32 %.val61, %37
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %38
 
@@ -592,7 +592,7 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef nonnul
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %.val60.val.val.val, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !71
+  %45 = load ptr, ptr %44, align 8, !tbaa !72
   %.not13.i.i.i = icmp eq ptr %45, null
   %46 = sext i32 %42 to i64
   %47 = shl nsw i64 %46, 3
@@ -600,7 +600,7 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef nonnul
 
 48:                                               ; preds = %43
   %49 = tail call ptr @realloc(ptr noundef nonnull %45, i64 noundef %47) #10
-  %.pre.i.i.i = load i32, ptr %.val60.val.val.val, align 8, !tbaa !69
+  %.pre.i.i.i = load i32, ptr %.val60.val.val.val, align 8, !tbaa !70
   br label %52
 
 50:                                               ; preds = %43
@@ -610,19 +610,19 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef nonnul
 52:                                               ; preds = %50, %48
   %53 = phi i32 [ %.pre.i.i.i, %48 ], [ %37, %50 ]
   %54 = phi ptr [ %49, %48 ], [ %51, %50 ]
-  store ptr %54, ptr %44, align 8, !tbaa !71
+  store ptr %54, ptr %44, align 8, !tbaa !72
   %55 = sext i32 %53 to i64
   %56 = getelementptr inbounds ptr, ptr %54, i64 %55
   %57 = sub nsw i32 %42, %53
   %58 = sext i32 %57 to i64
   %59 = shl nsw i64 %58, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %56, i8 0, i64 %59, i1 false)
-  store i32 %42, ptr %.val60.val.val.val, align 8, !tbaa !69
+  store i32 %42, ptr %.val60.val.val.val, align 8, !tbaa !70
   br label %Vec_AttGrow.exit.i.i
 
 Vec_AttGrow.exit.i.i:                             ; preds = %52, %38, %22
   %60 = getelementptr inbounds nuw i8, ptr %.val60.val.val.val, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !71
+  %61 = load ptr, ptr %60, align 8, !tbaa !72
   %62 = sext i32 %.val61 to i64
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !32
@@ -631,18 +631,18 @@ Vec_AttGrow.exit.i.i:                             ; preds = %52, %38, %22
 
 66:                                               ; preds = %Vec_AttGrow.exit.i.i
   %67 = getelementptr inbounds nuw i8, ptr %.val60.val.val.val, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !72
+  %68 = load ptr, ptr %67, align 8, !tbaa !73
   %.not18.i.i = icmp eq ptr %68, null
   br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.exit, label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %.val60.val.val.val, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !73
+  %71 = load ptr, ptr %70, align 8, !tbaa !74
   %72 = tail call ptr %68(ptr noundef %71) #8
-  %73 = load ptr, ptr %60, align 8, !tbaa !71
+  %73 = load ptr, ptr %60, align 8, !tbaa !72
   %74 = getelementptr inbounds ptr, ptr %73, i64 %62
   store ptr %72, ptr %74, align 8, !tbaa !32
-  %.pre.i.i = load ptr, ptr %60, align 8, !tbaa !71
+  %.pre.i.i = load ptr, ptr %60, align 8, !tbaa !72
   %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %62
   %.pre19.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !32
   br label %Abc_ObjGlobalBdd.exit
@@ -666,13 +666,13 @@ Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.
   %.val = load i32, ptr %80, align 4, !tbaa !29
   %81 = sext i32 %.val to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %.lr.ph, label %.critedge, !llvm.loop !74
+  br i1 %82, label %.lr.ph, label %.critedge, !llvm.loop !75
 
 .critedge:                                        ; preds = %78, %3
   %.049.lcssa = phi ptr [ %11, %3 ], [ %.1, %78 ]
   %83 = tail call ptr @Abc_NtkFreeGlobalBdds(ptr noundef nonnull %1, i32 noundef 0) #8
   %84 = getelementptr i8, ptr %1, i64 40
-  %.val62 = load ptr, ptr %84, align 8, !tbaa !56
+  %.val62 = load ptr, ptr %84, align 8, !tbaa !57
   %85 = getelementptr i8, ptr %.val62, i64 4
   %.val62.val = load i32, ptr %85, align 4, !tbaa !29
   %86 = tail call ptr @Extra_bddComputeRangeCube(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.val62.val) #8
@@ -710,13 +710,13 @@ declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i32, ptr %3, align 8, !tbaa !43
+  %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 3
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #9
   %8 = tail call noalias ptr @malloc(i64 noundef %6) #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %10 = load ptr, ptr %9, align 8, !tbaa !67
   tail call void @Cudd_Ref(ptr noundef %10) #8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %12 = load ptr, ptr %11, align 8, !tbaa !28
@@ -746,26 +746,26 @@ define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef nonnull %0, pt
   br i1 %.not50, label %25, label %47
 
 25:                                               ; preds = %18
-  %26 = load ptr, ptr %15, align 8, !tbaa !75
-  %.val48 = load ptr, ptr %16, align 8, !tbaa !56
+  %26 = load ptr, ptr %15, align 8, !tbaa !76
+  %.val48 = load ptr, ptr %16, align 8, !tbaa !57
   %27 = getelementptr i8, ptr %.val48, i64 4
   %.val48.val = load i32, ptr %27, align 4, !tbaa !29
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = add nsw i32 %.val48.val, %28
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %26, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !76
+  %32 = load ptr, ptr %31, align 8, !tbaa !77
   %33 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  store ptr %32, ptr %33, align 8, !tbaa !76
-  %.val44 = load ptr, ptr %17, align 8, !tbaa !65
+  store ptr %32, ptr %33, align 8, !tbaa !77
+  %.val44 = load ptr, ptr %17, align 8, !tbaa !66
   %34 = getelementptr i8, ptr %.val44, i64 4
   %.val44.val = load i32, ptr %34, align 4, !tbaa !29
   %35 = add nsw i32 %.val44.val, %28
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds ptr, ptr %26, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !76
+  %38 = load ptr, ptr %37, align 8, !tbaa !77
   %39 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  store ptr %38, ptr %39, align 8, !tbaa !76
+  store ptr %38, ptr %39, align 8, !tbaa !77
   %40 = ptrtoint ptr %32 to i64
   %41 = getelementptr i8, ptr %22, i64 56
   %.val49 = load ptr, ptr %41, align 8, !tbaa !39
@@ -787,7 +787,7 @@ define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef nonnull %0, pt
   %.val = load i32, ptr %49, align 4, !tbaa !29
   %50 = sext i32 %.val to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %18, label %.critedge, !llvm.loop !77
+  br i1 %51, label %18, label %.critedge, !llvm.loop !78
 
 .critedge:                                        ; preds = %47, %2
   %.038.lcssa = phi ptr [ %10, %2 ], [ %.1, %47 ]
@@ -820,11 +820,11 @@ define internal fastcc noundef ptr @Abc_NtkComputeUnreachable(ptr noundef nonnul
   tail call void @Cudd_Ref(ptr noundef %3) #8
   tail call void @Cudd_Ref(ptr noundef %2) #8
   %6 = getelementptr i8, ptr %1, i64 40
-  %.val58 = load ptr, ptr %6, align 8, !tbaa !56
+  %.val58 = load ptr, ptr %6, align 8, !tbaa !57
   %7 = getelementptr i8, ptr %.val58, i64 4
   %.val58.val = load i32, ptr %7, align 4, !tbaa !29
   %8 = getelementptr i8, ptr %1, i64 56
-  %.val = load ptr, ptr %8, align 8, !tbaa !65
+  %.val = load ptr, ptr %8, align 8, !tbaa !66
   %9 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %9, align 4, !tbaa !29
   %10 = tail call ptr @Extra_bddComputeRangeCube(ptr noundef nonnull %0, i32 noundef %.val58.val, i32 noundef %.val.val) #8
@@ -856,7 +856,7 @@ define internal fastcc noundef ptr @Abc_NtkComputeUnreachable(ptr noundef nonnul
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %13) #8
   %21 = add nuw nsw i32 %.053, 1
-  br label %11
+  br label %11, !llvm.loop !79
 
 22:                                               ; preds = %11
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %2) #8
@@ -1026,41 +1026,43 @@ attributes #10 = { nounwind allocsize(1) }
 !37 = !{!4, !11, i64 32}
 !38 = !{!5, !5, i64 0}
 !39 = !{!6, !6, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = distinct !{!42, !41}
-!43 = !{!44, !5, i64 136}
-!44 = !{!"DdManager", !45, i64 0, !46, i64 40, !46, i64 48, !46, i64 56, !46, i64 64, !46, i64 72, !48, i64 80, !48, i64 88, !5, i64 96, !5, i64 100, !14, i64 104, !14, i64 112, !14, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !49, i64 152, !49, i64 160, !50, i64 168, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !14, i64 256, !5, i64 264, !5, i64 268, !5, i64 272, !51, i64 280, !47, i64 288, !14, i64 296, !5, i64 304, !16, i64 312, !16, i64 320, !16, i64 328, !16, i64 336, !51, i64 344, !16, i64 352, !51, i64 360, !5, i64 368, !52, i64 376, !52, i64 384, !51, i64 392, !46, i64 400, !8, i64 408, !51, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !14, i64 440, !5, i64 448, !5, i64 452, !5, i64 456, !5, i64 460, !14, i64 464, !14, i64 472, !5, i64 480, !5, i64 484, !5, i64 488, !5, i64 492, !5, i64 496, !5, i64 500, !5, i64 504, !5, i64 508, !5, i64 512, !53, i64 520, !53, i64 528, !5, i64 536, !5, i64 540, !5, i64 544, !5, i64 548, !5, i64 552, !5, i64 556, !54, i64 560, !8, i64 568, !55, i64 576, !55, i64 584, !55, i64 592, !55, i64 600, !25, i64 608, !25, i64 616, !5, i64 624, !47, i64 632, !47, i64 640, !47, i64 648, !5, i64 656, !47, i64 664, !47, i64 672, !14, i64 680, !14, i64 688, !14, i64 696, !14, i64 704, !14, i64 712, !14, i64 720, !5, i64 728, !46, i64 736, !46, i64 744, !47, i64 752}
-!45 = !{!"DdNode", !5, i64 0, !5, i64 4, !46, i64 8, !6, i64 16, !47, i64 32}
-!46 = !{!"p1 _ZTS6DdNode", !9, i64 0}
-!47 = !{!"long", !6, i64 0}
-!48 = !{!"p1 _ZTS7DdCache", !9, i64 0}
-!49 = !{!"p1 _ZTS10DdSubtable", !9, i64 0}
-!50 = !{!"DdSubtable", !51, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48}
-!51 = !{!"p2 _ZTS6DdNode", !9, i64 0}
-!52 = !{!"p1 long", !9, i64 0}
-!53 = !{!"p1 _ZTS7MtrNode", !9, i64 0}
-!54 = !{!"p1 _ZTS12DdLocalCache", !9, i64 0}
-!55 = !{!"p1 _ZTS6DdHook", !9, i64 0}
-!56 = !{!4, !11, i64 40}
-!57 = distinct !{!57, !41}
-!58 = !{!4, !9, i64 256}
-!59 = !{!4, !11, i64 48}
-!60 = !{!34, !16, i64 32}
-!61 = distinct !{!61, !41}
-!62 = distinct !{!62, !41}
-!63 = distinct !{!63, !41}
-!64 = distinct !{!64, !41}
-!65 = !{!4, !11, i64 56}
-!66 = !{!44, !46, i64 40}
-!67 = !{!34, !5, i64 16}
-!68 = !{!4, !11, i64 432}
-!69 = !{!70, !5, i64 0}
-!70 = !{!"Vec_Att_t_", !5, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
-!71 = !{!70, !9, i64 8}
-!72 = !{!70, !9, i64 32}
-!73 = !{!70, !9, i64 16}
-!74 = distinct !{!74, !41}
-!75 = !{!44, !51, i64 344}
-!76 = !{!46, !46, i64 0}
-!77 = distinct !{!77, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = distinct !{!43, !41, !42}
+!44 = !{!45, !5, i64 136}
+!45 = !{!"DdManager", !46, i64 0, !47, i64 40, !47, i64 48, !47, i64 56, !47, i64 64, !47, i64 72, !49, i64 80, !49, i64 88, !5, i64 96, !5, i64 100, !14, i64 104, !14, i64 112, !14, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !50, i64 152, !50, i64 160, !51, i64 168, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !14, i64 256, !5, i64 264, !5, i64 268, !5, i64 272, !52, i64 280, !48, i64 288, !14, i64 296, !5, i64 304, !16, i64 312, !16, i64 320, !16, i64 328, !16, i64 336, !52, i64 344, !16, i64 352, !52, i64 360, !5, i64 368, !53, i64 376, !53, i64 384, !52, i64 392, !47, i64 400, !8, i64 408, !52, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !14, i64 440, !5, i64 448, !5, i64 452, !5, i64 456, !5, i64 460, !14, i64 464, !14, i64 472, !5, i64 480, !5, i64 484, !5, i64 488, !5, i64 492, !5, i64 496, !5, i64 500, !5, i64 504, !5, i64 508, !5, i64 512, !54, i64 520, !54, i64 528, !5, i64 536, !5, i64 540, !5, i64 544, !5, i64 548, !5, i64 552, !5, i64 556, !55, i64 560, !8, i64 568, !56, i64 576, !56, i64 584, !56, i64 592, !56, i64 600, !25, i64 608, !25, i64 616, !5, i64 624, !48, i64 632, !48, i64 640, !48, i64 648, !5, i64 656, !48, i64 664, !48, i64 672, !14, i64 680, !14, i64 688, !14, i64 696, !14, i64 704, !14, i64 712, !14, i64 720, !5, i64 728, !47, i64 736, !47, i64 744, !48, i64 752}
+!46 = !{!"DdNode", !5, i64 0, !5, i64 4, !47, i64 8, !6, i64 16, !48, i64 32}
+!47 = !{!"p1 _ZTS6DdNode", !9, i64 0}
+!48 = !{!"long", !6, i64 0}
+!49 = !{!"p1 _ZTS7DdCache", !9, i64 0}
+!50 = !{!"p1 _ZTS10DdSubtable", !9, i64 0}
+!51 = !{!"DdSubtable", !52, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48}
+!52 = !{!"p2 _ZTS6DdNode", !9, i64 0}
+!53 = !{!"p1 long", !9, i64 0}
+!54 = !{!"p1 _ZTS7MtrNode", !9, i64 0}
+!55 = !{!"p1 _ZTS12DdLocalCache", !9, i64 0}
+!56 = !{!"p1 _ZTS6DdHook", !9, i64 0}
+!57 = !{!4, !11, i64 40}
+!58 = distinct !{!58, !41, !42}
+!59 = !{!4, !9, i64 256}
+!60 = !{!4, !11, i64 48}
+!61 = !{!34, !16, i64 32}
+!62 = distinct !{!62, !41, !42}
+!63 = distinct !{!63, !41, !42}
+!64 = distinct !{!64, !41, !42}
+!65 = distinct !{!65, !41, !42}
+!66 = !{!4, !11, i64 56}
+!67 = !{!45, !47, i64 40}
+!68 = !{!34, !5, i64 16}
+!69 = !{!4, !11, i64 432}
+!70 = !{!71, !5, i64 0}
+!71 = !{!"Vec_Att_t_", !5, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
+!72 = !{!71, !9, i64 8}
+!73 = !{!71, !9, i64 32}
+!74 = !{!71, !9, i64 16}
+!75 = distinct !{!75, !41, !42}
+!76 = !{!45, !52, i64 344}
+!77 = !{!47, !47, i64 0}
+!78 = distinct !{!78, !41, !42}
+!79 = distinct !{!79, !42}

@@ -47,7 +47,7 @@ define dso_local noundef i32 @crypto_stream_salsa2012(ptr noundef nonnull %0, i6
   %19 = add i64 %.03546, -64
   %20 = getelementptr i8, ptr %.03447, i64 64
   %21 = icmp ugt i64 %19, 63
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %18
   %.not37 = icmp eq i64 %19, 0
@@ -67,7 +67,7 @@ define dso_local noundef i32 @crypto_stream_salsa2012(ptr noundef nonnull %0, i6
   store i8 %25, ptr %26, align 1
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, %.035.lcssa62
-  br i1 %exitcond58.not, label %.loopexit, label %23, !llvm.loop !7
+  br i1 %exitcond58.not, label %.loopexit, label %23, !llvm.loop !8
 
 .loopexit:                                        ; preds = %23, %._crit_edge
   call void @sodium_memzero(ptr noundef nonnull %6, i64 noundef 64) #4
@@ -129,7 +129,7 @@ define dso_local noundef i32 @crypto_stream_salsa2012_xor(ptr noundef nonnull wr
   store i8 %17, ptr %18, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.preheader, label %12, !llvm.loop !8
+  br i1 %exitcond.not, label %.preheader, label %12, !llvm.loop !9
 
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.preheader ], [ 8, %12 ]
@@ -143,14 +143,14 @@ define dso_local noundef i32 @crypto_stream_salsa2012_xor(ptr noundef nonnull wr
   %24 = lshr i32 %22, 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 16
-  br i1 %exitcond73.not, label %25, label %.preheader, !llvm.loop !9
+  br i1 %exitcond73.not, label %25, label %.preheader, !llvm.loop !10
 
 25:                                               ; preds = %.preheader
   %26 = add i64 %.04459, -64
   %27 = getelementptr i8, ptr %.04360, i64 64
   %28 = getelementptr i8, ptr %.04558, i64 64
   %29 = icmp ugt i64 %26, 63
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %25
   %.not47 = icmp eq i64 %26, 0
@@ -174,7 +174,7 @@ define dso_local noundef i32 @crypto_stream_salsa2012_xor(ptr noundef nonnull wr
   store i8 %36, ptr %37, align 1
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, %.044.lcssa83
-  br i1 %exitcond77.not, label %.loopexit, label %31, !llvm.loop !11
+  br i1 %exitcond77.not, label %.loopexit, label %31, !llvm.loop !12
 
 .loopexit:                                        ; preds = %31, %._crit_edge
   call void @sodium_memzero(ptr noundef nonnull %7, i64 noundef 64) #4
@@ -203,11 +203,12 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

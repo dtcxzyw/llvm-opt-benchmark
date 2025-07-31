@@ -286,7 +286,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt1
   store ptr %36, ptr %40, align 8, !tbaa !52
   %41 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %.not = icmp eq ptr %41, %10
-  br i1 %.not, label %._crit_edge, label %35
+  br i1 %.not, label %._crit_edge, label %35, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -322,7 +322,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt10unique_ptrIN5clang18PCHContainerWriterESt14default_deleteIS3_EENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #2 comdat align 2 {
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #16
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
+  %6 = load ptr, ptr %0, align 8, !tbaa !57
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !42
@@ -344,13 +344,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt10unique_ptrIN5clan
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 8
   %.pre = load ptr, ptr %11, align 8, !tbaa !42
-  br label %.preheader.i.i, !llvm.loop !56
+  br label %.preheader.i.i, !llvm.loop !58
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !58
+  %14 = load i32, ptr %13, align 8, !tbaa !60
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !58
+  store i32 %15, ptr %13, align 8, !tbaa !60
   br label %16
 
 16:                                               ; preds = %4, %12
@@ -367,16 +367,16 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt10unique_ptrIN5clan
 _ZN4llvm14StringMapEntryISt10unique_ptrIN5clang18PCHContainerWriterESt14default_deleteIS3_EEE6createINS_15MallocAllocatorEJEEEPS7_NS_9StringRefERT_DpOT0_.exit: ; preds = %16, %20
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %2
   store i8 0, ptr %21, align 1, !tbaa !11
-  store i64 %2, ptr %18, align 8, !tbaa !59
+  store i64 %2, ptr %18, align 8, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr null, ptr %22, align 8, !tbaa !61
+  store ptr null, ptr %22, align 8, !tbaa !63
   store ptr %18, ptr %8, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !63
+  %24 = load i32, ptr %23, align 4, !tbaa !65
   %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4, !tbaa !63
+  store i32 %25, ptr %23, align 4, !tbaa !65
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #16
-  %27 = load ptr, ptr %0, align 8, !tbaa !55
+  %27 = load ptr, ptr %0, align 8, !tbaa !57
   %28 = zext i32 %26 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   br label %.preheader.i.i23
@@ -392,7 +392,7 @@ _ZN4llvm14StringMapEntryISt10unique_ptrIN5clang18PCHContainerWriterESt14default_
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i23, !llvm.loop !56
+  br label %.preheader.i.i23, !llvm.loop !58
 
 _ZN4llvm17StringMapIteratorISt10unique_ptrIN5clang18PCHContainerWriterESt14default_deleteIS3_EEEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
   %.sroa.030.0.pn = phi ptr [ %.sroa.030.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i23 ]
@@ -416,7 +416,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang18PCHContainerReaderENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #2 comdat align 2 {
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #16
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
+  %6 = load ptr, ptr %0, align 8, !tbaa !57
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !42
@@ -438,13 +438,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang18PCHContaine
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 8
   %.pre = load ptr, ptr %11, align 8, !tbaa !42
-  br label %.preheader.i.i, !llvm.loop !64
+  br label %.preheader.i.i, !llvm.loop !66
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !58
+  %14 = load i32, ptr %13, align 8, !tbaa !60
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !58
+  store i32 %15, ptr %13, align 8, !tbaa !60
   br label %16
 
 16:                                               ; preds = %4, %12
@@ -461,16 +461,16 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang18PCHContaine
 _ZN4llvm14StringMapEntryIPN5clang18PCHContainerReaderEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit: ; preds = %16, %20
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %2
   store i8 0, ptr %21, align 1, !tbaa !11
-  store i64 %2, ptr %18, align 8, !tbaa !59
+  store i64 %2, ptr %18, align 8, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr null, ptr %22, align 8, !tbaa !65
+  store ptr null, ptr %22, align 8, !tbaa !67
   store ptr %18, ptr %8, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !63
+  %24 = load i32, ptr %23, align 4, !tbaa !65
   %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4, !tbaa !63
+  store i32 %25, ptr %23, align 4, !tbaa !65
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #16
-  %27 = load ptr, ptr %0, align 8, !tbaa !55
+  %27 = load ptr, ptr %0, align 8, !tbaa !57
   %28 = zext i32 %26 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   br label %.preheader.i.i23
@@ -486,7 +486,7 @@ _ZN4llvm14StringMapEntryIPN5clang18PCHContainerReaderEE6createINS_15MallocAlloca
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i23, !llvm.loop !64
+  br label %.preheader.i.i23, !llvm.loop !66
 
 _ZN4llvm17StringMapIteratorIPN5clang18PCHContainerReaderEEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
   %.sroa.030.0.pn = phi ptr [ %.sroa.030.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i23 ]
@@ -520,7 +520,7 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5cla
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, %10
-  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !67
+  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !69
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS1_EED2Ev.exit.i.i
   %.05.i.i = phi ptr [ %14, %_ZNSt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %10, %.lr.ph.i.i.i.i.i.i ]
@@ -539,7 +539,7 @@ _ZNKSt14default_deleteIN5clang18PCHContainerReaderEEclEPS1_.exit.i.i.i: ; preds 
 _ZNSt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5clang18PCHContainerReaderEEclEPS1_.exit.i.i.i, %.lr.ph.i.i
   store ptr null, ptr %14, align 8, !tbaa !52
   %.not.i.i = icmp eq ptr %6, %14
-  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !68
+  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !70
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit: ; preds = %_ZNSt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS1_EED2Ev.exit.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !35
@@ -605,9 +605,9 @@ _ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit: ;
   br i1 %12, label %14, label %22
 
 14:                                               ; preds = %9
-  store i32 0, ptr %10, align 8, !tbaa !69
+  store i32 0, ptr %10, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %15, align 4, !tbaa !71
+  store i32 0, ptr %15, align 4, !tbaa !73
   %16 = load ptr, ptr %8, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
@@ -675,9 +675,9 @@ _ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit.i:
   br i1 %12, label %14, label %22
 
 14:                                               ; preds = %9
-  store i32 0, ptr %10, align 8, !tbaa !69
+  store i32 0, ptr %10, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %15, align 4, !tbaa !71
+  store i32 0, ptr %15, align 4, !tbaa !73
   %16 = load ptr, ptr %8, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
@@ -735,7 +735,7 @@ define internal void @_ZN12_GLOBAL__N_124RawPCHContainerGenerator21HandleTransla
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = load i8, ptr %5, align 8, !tbaa !72, !range !81, !noundef !82
+  %6 = load i8, ptr %5, align 8, !tbaa !74, !range !83, !noundef !84
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZN4llvm11raw_ostream5flushEv.exit
 
@@ -743,15 +743,15 @@ define internal void @_ZN12_GLOBAL__N_124RawPCHContainerGenerator21HandleTransla
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !83
+  %12 = load ptr, ptr %11, align 8, !tbaa !85
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %14 = load i64, ptr %13, align 8, !tbaa !84
+  %14 = load i64, ptr %13, align 8, !tbaa !86
   %15 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12, i64 noundef %14) #16
   %16 = load ptr, ptr %9, align 8, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !85
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !89
+  %20 = load ptr, ptr %19, align 8, !tbaa !91
   %.not.i = icmp eq ptr %18, %20
   br i1 %.not.i, label %_ZN4llvm11raw_ostream5flushEv.exit, label %21
 
@@ -762,7 +762,7 @@ define internal void @_ZN12_GLOBAL__N_124RawPCHContainerGenerator21HandleTransla
 _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %2, %8, %21
   %22 = load ptr, ptr %3, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store i64 0, ptr %23, align 8, !tbaa !84
+  store i64 0, ptr %23, align 8, !tbaa !86
   ret void
 }
 
@@ -947,38 +947,40 @@ attributes #17 = { builtin nounwind }
 !52 = !{!51, !51, i64 0}
 !53 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !54 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!55 = !{!33, !34, i64 0}
-!56 = distinct !{!56, !57}
-!57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!33, !13, i64 16}
-!59 = !{!60, !31, i64 0}
-!60 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !31, i64 0}
-!61 = !{!62, !45, i64 0}
-!62 = !{!"_ZTSSt10_Head_baseILm0EPN5clang18PCHContainerWriterELb0EE", !45, i64 0}
-!63 = !{!33, !13, i64 12}
-!64 = distinct !{!64, !57}
-!65 = !{!66, !51, i64 8}
-!66 = !{!"_ZTSN4llvm21StringMapEntryStorageIPN5clang18PCHContainerReaderEEE", !60, i64 0, !51, i64 8}
-!67 = distinct !{!67, !57}
-!68 = distinct !{!68, !57}
-!69 = !{!70, !13, i64 8}
-!70 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !13, i64 8, !13, i64 12}
-!71 = !{!70, !13, i64 12}
-!72 = !{!73, !16, i64 48}
-!73 = !{!"_ZTSN5clang9PCHBufferE", !74, i64 0, !76, i64 24, !16, i64 48}
-!74 = !{!"_ZTSN5clang16ASTFileSignatureE", !75, i64 0}
-!75 = !{!"_ZTSSt5arrayIhLm20EE", !9, i64 0}
-!76 = !{!"_ZTSN4llvm11SmallVectorIcLj0EEE", !77, i64 0}
-!77 = !{!"_ZTSN4llvm15SmallVectorImplIcEE", !78, i64 0}
-!78 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIcLb1EEE", !79, i64 0}
-!79 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIcvEE", !80, i64 0}
-!80 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !8, i64 0, !31, i64 8, !31, i64 16}
-!81 = !{i8 0, i8 2}
-!82 = !{}
-!83 = !{!80, !8, i64 0}
-!84 = !{!80, !31, i64 8}
-!85 = !{!86, !29, i64 32}
-!86 = !{!"_ZTSN4llvm11raw_ostreamE", !87, i64 8, !29, i64 16, !29, i64 24, !29, i64 32, !16, i64 40, !88, i64 44}
-!87 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !9, i64 0}
-!88 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !9, i64 0}
-!89 = !{!86, !29, i64 16}
+!55 = distinct !{!55, !56}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!33, !34, i64 0}
+!58 = distinct !{!58, !59, !56}
+!59 = !{!"llvm.loop.mustprogress"}
+!60 = !{!33, !13, i64 16}
+!61 = !{!62, !31, i64 0}
+!62 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !31, i64 0}
+!63 = !{!64, !45, i64 0}
+!64 = !{!"_ZTSSt10_Head_baseILm0EPN5clang18PCHContainerWriterELb0EE", !45, i64 0}
+!65 = !{!33, !13, i64 12}
+!66 = distinct !{!66, !59, !56}
+!67 = !{!68, !51, i64 8}
+!68 = !{!"_ZTSN4llvm21StringMapEntryStorageIPN5clang18PCHContainerReaderEEE", !62, i64 0, !51, i64 8}
+!69 = distinct !{!69, !59, !56}
+!70 = distinct !{!70, !59, !56}
+!71 = !{!72, !13, i64 8}
+!72 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !13, i64 8, !13, i64 12}
+!73 = !{!72, !13, i64 12}
+!74 = !{!75, !16, i64 48}
+!75 = !{!"_ZTSN5clang9PCHBufferE", !76, i64 0, !78, i64 24, !16, i64 48}
+!76 = !{!"_ZTSN5clang16ASTFileSignatureE", !77, i64 0}
+!77 = !{!"_ZTSSt5arrayIhLm20EE", !9, i64 0}
+!78 = !{!"_ZTSN4llvm11SmallVectorIcLj0EEE", !79, i64 0}
+!79 = !{!"_ZTSN4llvm15SmallVectorImplIcEE", !80, i64 0}
+!80 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIcLb1EEE", !81, i64 0}
+!81 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIcvEE", !82, i64 0}
+!82 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !8, i64 0, !31, i64 8, !31, i64 16}
+!83 = !{i8 0, i8 2}
+!84 = !{}
+!85 = !{!82, !8, i64 0}
+!86 = !{!82, !31, i64 8}
+!87 = !{!88, !29, i64 32}
+!88 = !{!"_ZTSN4llvm11raw_ostreamE", !89, i64 8, !29, i64 16, !29, i64 24, !29, i64 32, !16, i64 40, !90, i64 44}
+!89 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !9, i64 0}
+!90 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !9, i64 0}
+!91 = !{!88, !29, i64 16}

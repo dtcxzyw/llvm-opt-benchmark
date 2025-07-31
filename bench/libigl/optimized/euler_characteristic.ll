@@ -85,23 +85,23 @@ define weak_odr dso_local noundef i32 @_ZN3igl20euler_characteristicIN5Eigen6Mat
 38:                                               ; preds = %40
   %39 = lshr i64 %.01012.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %.01012.i.i.i.i.i.i.i, 2
-  br i1 %.not.i.i.i.i.i.i.i, label %48, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i.i.i.i.i, label %48, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !17
 
 40:                                               ; preds = %40, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %47, %40 ]
   %41 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.011.i.i.i.i.i.i.i
   %42 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, %.01012.i.i.i.i.i.i.i
   %43 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %42
-  %44 = load i32, ptr %41, align 4, !tbaa !17
-  %45 = load i32, ptr %43, align 4, !tbaa !17
+  %44 = load i32, ptr %41, align 4, !tbaa !18
+  %45 = load i32, ptr %43, align 4, !tbaa !18
   %46 = tail call noundef i32 @llvm.smax.i32(i32 %44, i32 %45)
-  store i32 %46, ptr %41, align 4, !tbaa !17
+  store i32 %46, ptr %41, align 4, !tbaa !18
   %47 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %47, %.01012.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %38, label %40, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %38, label %40, !llvm.loop !20
 
 48:                                               ; preds = %38
-  %49 = load i32, ptr %2, align 16, !tbaa !17
+  %49 = load i32, ptr %2, align 16, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
   %50 = icmp slt i64 %13, %9
   br i1 %50, label %.lr.ph80.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit
@@ -110,14 +110,14 @@ define weak_odr dso_local noundef i32 @_ZN3igl20euler_characteristicIN5Eigen6Mat
   %.05578.i.i.i.i = phi i64 [ %54, %.lr.ph80.i.i.i.i ], [ %13, %48 ]
   %.177.i.i.i.i = phi i32 [ %53, %.lr.ph80.i.i.i.i ], [ %49, %48 ]
   %51 = getelementptr inbounds i32, ptr %6, i64 %.05578.i.i.i.i
-  %52 = load i32, ptr %51, align 4, !tbaa !17
+  %52 = load i32, ptr %51, align 4, !tbaa !18
   %53 = tail call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i, i32 %52)
   %54 = add nsw i64 %.05578.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %54, %9
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit, label %.lr.ph80.i.i.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit, label %.lr.ph80.i.i.i.i, !llvm.loop !21
 
 55:                                               ; preds = %1
-  %56 = load i32, ptr %6, align 4, !tbaa !17
+  %56 = load i32, ptr %6, align 4, !tbaa !18
   %57 = icmp sgt i64 %9, 1
   br i1 %57, label %.lr.ph85.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit
 
@@ -125,11 +125,11 @@ define weak_odr dso_local noundef i32 @_ZN3igl20euler_characteristicIN5Eigen6Mat
   %.083.i.i.i.i = phi i64 [ %61, %.lr.ph85.i.i.i.i ], [ 1, %55 ]
   %.382.i.i.i.i = phi i32 [ %60, %.lr.ph85.i.i.i.i ], [ %56, %55 ]
   %58 = getelementptr inbounds nuw i32, ptr %6, i64 %.083.i.i.i.i
-  %59 = load i32, ptr %58, align 4, !tbaa !17
+  %59 = load i32, ptr %58, align 4, !tbaa !18
   %60 = tail call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i, i32 %59)
   %61 = add nuw nsw i64 %.083.i.i.i.i, 1
   %exitcond92.not.i.i.i.i = icmp eq i64 %61, %9
-  br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !21
+  br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !22
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %48, %55
   %.2.i.i.i.i = phi i32 [ %56, %55 ], [ %49, %48 ], [ %60, %.lr.ph85.i.i.i.i ], [ %53, %.lr.ph80.i.i.i.i ]
@@ -141,12 +141,12 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; 
 62:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit
   %63 = trunc i64 %5 to i32
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %65 = load i64, ptr %64, align 8, !tbaa !22
+  %65 = load i64, ptr %64, align 8, !tbaa !23
   %66 = trunc i64 %65 to i32
   %67 = add i32 %63, 1
   %68 = add i32 %67, %.2.i.i.i.i
   %69 = sub i32 %68, %66
-  %70 = load ptr, ptr %3, align 8, !tbaa !24
+  %70 = load ptr, ptr %3, align 8, !tbaa !25
   call void @free(ptr noundef %70) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
   ret i32 %69
@@ -154,7 +154,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; 
 71:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit
   %72 = landingpad { ptr, i32 }
           cleanup
-  %73 = load ptr, ptr %3, align 8, !tbaa !24
+  %73 = load ptr, ptr %3, align 8, !tbaa !25
   call void @free(ptr noundef %73) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
   resume { ptr, i32 } %72
@@ -206,14 +206,15 @@ attributes #6 = { nounwind }
 !11 = !{!5, !6, i64 0}
 !12 = !{!5, !10, i64 16}
 !13 = !{!8, !8, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !8, i64 0}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = distinct !{!21, !15}
-!22 = !{!23, !10, i64 8}
-!23 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi2ELi0EEE", !6, i64 0, !10, i64 8}
-!24 = !{!23, !6, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !8, i64 0}
+!20 = distinct !{!20, !15, !16}
+!21 = distinct !{!21, !15, !16}
+!22 = distinct !{!22, !15, !16}
+!23 = !{!24, !10, i64 8}
+!24 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi2ELi0EEE", !6, i64 0, !10, i64 8}
+!25 = !{!24, !6, i64 0}

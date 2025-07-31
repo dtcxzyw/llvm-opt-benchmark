@@ -1696,8 +1696,8 @@ _ZNSt12_Vector_baseIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectio
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyC2EOS1_(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(196) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !83
-  store i32 %3, ptr %0, align 8, !tbaa !83
+  %3 = load i32, ptr %1, align 8, !tbaa !84
+  store i32 %3, ptr %0, align 8, !tbaa !84
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2081,7 +2081,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 _ZSt8_DestroyIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyEEvPT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.05, i64 200
   %.not = icmp eq ptr %48, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %_ZSt8_DestroyIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyEEvPT_.exit, %2
   ret void
@@ -2143,10 +2143,10 @@ declare void @_ZNK9grpc_core11json_detail11LoadWrapped8LoadIntoERKNS_12experimen
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt10unique_ptrINS_32FaultInjectionMethodParsedConfigESt14default_deleteIS3_EEE7EmplaceEPv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !85
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core32FaultInjectionMethodParsedConfigE, i64 16), ptr %3, align 8, !tbaa !4, !noalias !85
+  %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !86
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core32FaultInjectionMethodParsedConfigE, i64 16), ptr %3, align 8, !tbaa !4, !noalias !86
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !85
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !86
   %5 = load ptr, ptr %1, align 8, !tbaa !57
   store ptr %3, ptr %1, align 8, !tbaa !57
   %.not.i.i.i.i = icmp eq ptr %5, null
@@ -2393,10 +2393,11 @@ attributes #25 = { builtin nounwind }
 !78 = !{!32, !34, i64 192}
 !79 = !{!76, !76, i64 0}
 !80 = !{!75, !76, i64 0}
-!81 = distinct !{!81, !82}
+!81 = distinct !{!81, !82, !83}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = !{!32, !33, i64 0}
-!84 = distinct !{!84, !82}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZSt11make_uniqueIN9grpc_core32FaultInjectionMethodParsedConfigEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!87 = distinct !{!87, !"_ZSt11make_uniqueIN9grpc_core32FaultInjectionMethodParsedConfigEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!83 = !{!"llvm.loop.estimated_trip_count"}
+!84 = !{!32, !33, i64 0}
+!85 = distinct !{!85, !82, !83}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZSt11make_uniqueIN9grpc_core32FaultInjectionMethodParsedConfigEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!88 = distinct !{!88, !"_ZSt11make_uniqueIN9grpc_core32FaultInjectionMethodParsedConfigEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

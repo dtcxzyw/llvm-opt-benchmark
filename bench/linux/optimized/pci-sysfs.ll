@@ -384,7 +384,7 @@ pci_create_attr.exit:                             ; preds = %15, %26, %52
 pci_create_attr.exit.thread:                      ; preds = %53, %19, %21, %11, %5
   %71 = add nuw nsw i64 %6, 1
   %72 = icmp eq i64 %71, 6
-  br i1 %72, label %.loopexit, label %5, !llvm.loop !9
+  br i1 %72, label %.loopexit, label %5, !llvm.loop !10
 
 .loopexit:                                        ; preds = %pci_create_attr.exit.thread, %68
   %73 = phi i32 [ %55, %68 ], [ 0, %pci_create_attr.exit.thread ]
@@ -428,7 +428,7 @@ define dso_local void @pci_remove_sysfs_dev_files(ptr noundef %0) local_unnamed_
 18:                                               ; preds = %17, %13
   %19 = add nuw nsw i64 %8, 1
   %20 = icmp eq i64 %19, 6
-  br i1 %20, label %.loopexit, label %7, !llvm.loop !6
+  br i1 %20, label %.loopexit, label %7, !llvm.loop !11
 
 .loopexit:                                        ; preds = %18, %1
   ret void
@@ -448,7 +448,7 @@ define internal i32 @pci_sysfs_init() #3 section ".init.text" align 16 {
 5:                                                ; preds = %1
   %6 = tail call fastcc i32 @pci_create_resource_files(ptr noundef nonnull %3)
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %1, label %8, !llvm.loop !10
+  br i1 %7, label %1, label %8, !llvm.loop !12
 
 8:                                                ; preds = %5
   tail call void @pci_dev_put(ptr noundef nonnull %3) #11
@@ -458,7 +458,7 @@ define internal i32 @pci_sysfs_init() #3 section ".init.text" align 16 {
   %9 = phi ptr [ %10, %.preheader ], [ null, %1 ]
   %10 = tail call ptr @pci_find_next_bus(ptr noundef %9) #11
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %8
   %12 = phi i32 [ %6, %8 ], [ 0, %.preheader ]
@@ -490,7 +490,7 @@ define internal noundef i64 @rescan_store(ptr readnone captures(none) %0, ptr no
   %14 = call i32 @pci_rescan_bus(ptr noundef nonnull %13) #11
   %15 = call ptr @pci_find_next_bus(ptr noundef nonnull %13) #11
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %10
   call void @pci_unlock_rescan_remove() #11
@@ -812,19 +812,19 @@ define internal noundef range(i64 -22, 5) i64 @pci_read_resource_io(ptr readnone
 
 24:                                               ; preds = %23
   %25 = trunc i64 %15 to i16
-  %26 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %25) #11, !srcloc !13
+  %26 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %25) #11, !srcloc !15
   store i8 %26, ptr %3, align 1
   br label %33
 
 27:                                               ; preds = %23
   %28 = trunc i64 %15 to i16
-  %29 = tail call i16 asm sideeffect "inw ${1:w}, ${0:w}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %28) #11, !srcloc !14
+  %29 = tail call i16 asm sideeffect "inw ${1:w}, ${0:w}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %28) #11, !srcloc !16
   store i16 %29, ptr %3, align 2
   br label %33
 
 30:                                               ; preds = %23
   %31 = trunc i64 %15 to i16
-  %32 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %31) #11, !srcloc !15
+  %32 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %31) #11, !srcloc !17
   store i32 %32, ptr %3, align 4
   br label %33
 
@@ -874,19 +874,19 @@ define internal range(i64 -2147483648, 2147483648) i64 @pci_write_resource_io(pt
 29:                                               ; preds = %28
   %30 = load i8, ptr %3, align 1
   %31 = trunc i64 %20 to i16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %30, i16 %31) #11, !srcloc !16
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %30, i16 %31) #11, !srcloc !18
   br label %38
 
 32:                                               ; preds = %28
   %33 = load i16, ptr %3, align 2
   %34 = trunc i64 %20 to i16
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %33, i16 %34) #11, !srcloc !17
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %33, i16 %34) #11, !srcloc !19
   br label %38
 
 35:                                               ; preds = %28
   %36 = load i32, ptr %3, align 4
   %37 = trunc i64 %20 to i16
-  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %36, i16 %37) #11, !srcloc !18
+  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %36, i16 %37) #11, !srcloc !20
   br label %38
 
 38:                                               ; preds = %35, %32, %29, %28, %24, %11, %9
@@ -1052,7 +1052,7 @@ define internal i64 @resource_show(ptr noundef %0, ptr readnone captures(none) %
   %24 = add i64 %14, %23
   %25 = add nuw nsw i64 %13, 1
   %26 = icmp eq i64 %25, %11
-  br i1 %26, label %27, label %12, !llvm.loop !19
+  br i1 %26, label %27, label %12, !llvm.loop !21
 
 27:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
@@ -1238,7 +1238,7 @@ define internal noundef i64 @numa_node_store(ptr noundef %0, ptr readnone captur
 
 16:                                               ; preds = %14
   %17 = zext nneg i32 %11 to i64
-  %18 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %17) #11, !srcloc !20
+  %18 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %17) #11, !srcloc !22
   %19 = icmp ult i8 %18, 2
   call void @llvm.assume(i1 %19)
   %20 = icmp eq i8 %18, 0
@@ -1278,7 +1278,7 @@ declare void @llvm.assume(i1 noundef) #7
 define internal range(i64 -2147483648, 2147483648) i64 @dma_mask_bits_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -56
   %5 = load i64, ptr %4, align 8
-  %6 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %5, i32 -1) #14, !srcloc !21
+  %6 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %5, i32 -1) #14, !srcloc !23
   %7 = add i32 %6, 1
   %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %7) #11
   %9 = sext i32 %8 to i64
@@ -1289,7 +1289,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dma_mask_bits_show(ptr n
 define internal range(i64 -2147483648, 2147483648) i64 @consistent_dma_mask_bits_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %5 = load i64, ptr %4, align 8
-  %6 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %5, i32 -1) #14, !srcloc !21
+  %6 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %5, i32 -1) #14, !srcloc !23
   %7 = add i32 %6, 1
   %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %7) #11
   %9 = sext i32 %8 to i64
@@ -1707,7 +1707,7 @@ define internal i64 @pci_read_config(ptr noundef %0, ptr noundef %1, ptr readnon
   %72 = call i32 @__SCT__cond_resched() #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
   %73 = icmp ugt i32 %71, 3
-  br i1 %73, label %.preheader, label %.loopexit, !llvm.loop !22
+  br i1 %73, label %.preheader, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %59
   %74 = phi i64 [ %60, %59 ], [ %70, %.preheader ]
@@ -1779,7 +1779,7 @@ define internal i64 @pci_write_config(ptr readnone captures(none) %0, ptr nounde
 
 18:                                               ; preds = %16
   store i1 true, ptr @pci_write_config.__print_once, align 1
-  %19 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !23
+  %19 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !25
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1800
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1, ptr noundef nonnull @.str.42, ptr noundef nonnull %21, i64 noundef %4) #13
@@ -1854,7 +1854,7 @@ define internal i64 @pci_write_config(ptr readnone captures(none) %0, ptr nounde
   %71 = add i64 %64, 4
   %72 = add i32 %65, -4
   %73 = icmp ugt i32 %72, 3
-  br i1 %73, label %.preheader, label %.loopexit, !llvm.loop !24
+  br i1 %73, label %.preheader, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.preheader, %60
   %74 = phi i32 [ %61, %60 ], [ %72, %.preheader ]
@@ -2201,7 +2201,7 @@ define internal noundef i64 @resource0_resize_store(ptr noundef %0, ptr readnone
 43:                                               ; preds = %42, %38
   %44 = add nuw nsw i64 %33, 1
   %45 = icmp eq i64 %44, 6
-  br i1 %45, label %46, label %32, !llvm.loop !6
+  br i1 %45, label %46, label %32, !llvm.loop !27
 
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %0, i64 736
@@ -2235,7 +2235,7 @@ define internal noundef i64 @resource0_resize_store(ptr noundef %0, ptr readnone
 64:                                               ; preds = %62, %58, %54, %48
   %65 = add nuw nsw i64 %49, 1
   %66 = icmp eq i64 %65, 6
-  br i1 %66, label %67, label %48, !llvm.loop !25
+  br i1 %66, label %67, label %48, !llvm.loop !28
 
 67:                                               ; preds = %64
   %68 = load i64, ptr %5, align 8
@@ -2382,7 +2382,7 @@ define internal noundef i64 @resource1_resize_store(ptr noundef %0, ptr readnone
 43:                                               ; preds = %42, %38
   %44 = add nuw nsw i64 %33, 1
   %45 = icmp eq i64 %44, 6
-  br i1 %45, label %46, label %32, !llvm.loop !6
+  br i1 %45, label %46, label %32, !llvm.loop !29
 
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %0, i64 736
@@ -2416,7 +2416,7 @@ define internal noundef i64 @resource1_resize_store(ptr noundef %0, ptr readnone
 64:                                               ; preds = %62, %58, %54, %48
   %65 = add nuw nsw i64 %49, 1
   %66 = icmp eq i64 %65, 6
-  br i1 %66, label %67, label %48, !llvm.loop !26
+  br i1 %66, label %67, label %48, !llvm.loop !30
 
 67:                                               ; preds = %64
   %68 = load i64, ptr %5, align 8
@@ -2542,7 +2542,7 @@ define internal noundef i64 @resource2_resize_store(ptr noundef %0, ptr readnone
 43:                                               ; preds = %42, %38
   %44 = add nuw nsw i64 %33, 1
   %45 = icmp eq i64 %44, 6
-  br i1 %45, label %46, label %32, !llvm.loop !6
+  br i1 %45, label %46, label %32, !llvm.loop !31
 
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %0, i64 736
@@ -2576,7 +2576,7 @@ define internal noundef i64 @resource2_resize_store(ptr noundef %0, ptr readnone
 64:                                               ; preds = %62, %58, %54, %48
   %65 = add nuw nsw i64 %49, 1
   %66 = icmp eq i64 %65, 6
-  br i1 %66, label %67, label %48, !llvm.loop !27
+  br i1 %66, label %67, label %48, !llvm.loop !32
 
 67:                                               ; preds = %64
   %68 = load i64, ptr %5, align 8
@@ -2702,7 +2702,7 @@ define internal noundef i64 @resource3_resize_store(ptr noundef %0, ptr readnone
 43:                                               ; preds = %42, %38
   %44 = add nuw nsw i64 %33, 1
   %45 = icmp eq i64 %44, 6
-  br i1 %45, label %46, label %32, !llvm.loop !6
+  br i1 %45, label %46, label %32, !llvm.loop !33
 
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %0, i64 736
@@ -2736,7 +2736,7 @@ define internal noundef i64 @resource3_resize_store(ptr noundef %0, ptr readnone
 64:                                               ; preds = %62, %58, %54, %48
   %65 = add nuw nsw i64 %49, 1
   %66 = icmp eq i64 %65, 6
-  br i1 %66, label %67, label %48, !llvm.loop !28
+  br i1 %66, label %67, label %48, !llvm.loop !34
 
 67:                                               ; preds = %64
   %68 = load i64, ptr %5, align 8
@@ -2862,7 +2862,7 @@ define internal noundef i64 @resource4_resize_store(ptr noundef %0, ptr readnone
 43:                                               ; preds = %42, %38
   %44 = add nuw nsw i64 %33, 1
   %45 = icmp eq i64 %44, 6
-  br i1 %45, label %46, label %32, !llvm.loop !6
+  br i1 %45, label %46, label %32, !llvm.loop !35
 
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %0, i64 736
@@ -2896,7 +2896,7 @@ define internal noundef i64 @resource4_resize_store(ptr noundef %0, ptr readnone
 64:                                               ; preds = %62, %58, %54, %48
   %65 = add nuw nsw i64 %49, 1
   %66 = icmp eq i64 %65, 6
-  br i1 %66, label %67, label %48, !llvm.loop !29
+  br i1 %66, label %67, label %48, !llvm.loop !36
 
 67:                                               ; preds = %64
   %68 = load i64, ptr %5, align 8
@@ -3022,7 +3022,7 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr readnone
 43:                                               ; preds = %42, %38
   %44 = add nuw nsw i64 %33, 1
   %45 = icmp eq i64 %44, 6
-  br i1 %45, label %46, label %32, !llvm.loop !6
+  br i1 %45, label %46, label %32, !llvm.loop !37
 
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %0, i64 736
@@ -3056,7 +3056,7 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr readnone
 64:                                               ; preds = %62, %58, %54, %48
   %65 = add nuw nsw i64 %49, 1
   %66 = icmp eq i64 %65, 6
-  br i1 %66, label %67, label %48, !llvm.loop !30
+  br i1 %66, label %67, label %48, !llvm.loop !38
 
 67:                                               ; preds = %64
   %68 = load i64, ptr %5, align 8
@@ -3420,28 +3420,36 @@ attributes #15 = { nounwind memory(none) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i64 2154326204}
-!14 = !{i64 2154327045}
-!15 = !{i64 2154327889}
-!16 = !{i64 2154326008}
-!17 = !{i64 2154326849}
-!18 = !{i64 2154327693}
-!19 = distinct !{!19, !7, !8}
-!20 = !{i64 2147898447, i64 2147898521}
-!21 = !{i64 397550}
-!22 = distinct !{!22, !7, !8}
-!23 = !{i64 2148255988}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = !{i64 2154326204}
+!16 = !{i64 2154327045}
+!17 = !{i64 2154327889}
+!18 = !{i64 2154326008}
+!19 = !{i64 2154326849}
+!20 = !{i64 2154327693}
+!21 = distinct !{!21, !7, !8, !9}
+!22 = !{i64 2147898447, i64 2147898521}
+!23 = !{i64 397550}
+!24 = distinct !{!24, !7, !8, !9}
+!25 = !{i64 2148255988}
+!26 = distinct !{!26, !7, !8, !9}
+!27 = distinct !{!27, !7, !8, !9}
+!28 = distinct !{!28, !7, !8, !9}
+!29 = distinct !{!29, !7, !8, !9}
+!30 = distinct !{!30, !7, !8, !9}
+!31 = distinct !{!31, !7, !8, !9}
+!32 = distinct !{!32, !7, !8, !9}
+!33 = distinct !{!33, !7, !8, !9}
+!34 = distinct !{!34, !7, !8, !9}
+!35 = distinct !{!35, !7, !8, !9}
+!36 = distinct !{!36, !7, !8, !9}
+!37 = distinct !{!37, !7, !8, !9}
+!38 = distinct !{!38, !7, !8, !9}

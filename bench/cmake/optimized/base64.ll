@@ -46,7 +46,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr noundef readonly c
   %17 = add nsw i64 %16, %.neg
   %18 = mul nuw i64 %16, 3
   %19 = sub i64 %18, %.075
-  %20 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !14
+  %20 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !15
   %21 = add i64 %19, 1
   %22 = tail call ptr %20(i64 noundef %21) #5
   %.not85 = icmp eq ptr %22, null
@@ -84,7 +84,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr noundef readonly c
   %35 = or i32 %34, %33
   %36 = add nuw nsw i32 %.065106, 1
   %exitcond121.not = icmp eq i32 %36, 4
-  br i1 %exitcond121.not, label %37, label %25, !llvm.loop !15
+  br i1 %exitcond121.not, label %37, label %25, !llvm.loop !16
 
 37:                                               ; preds = %31
   %38 = trunc i32 %35 to i8
@@ -100,7 +100,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr noundef readonly c
   %45 = getelementptr inbounds nuw i8, ptr %.071108, i64 3
   %46 = add nuw i64 %.076107, 1
   %exitcond122.not = icmp eq i64 %46, %17
-  br i1 %exitcond122.not, label %._crit_edge, label %.preheader95, !llvm.loop !16
+  br i1 %exitcond122.not, label %._crit_edge, label %.preheader95, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %37, %23
   %.071.lcssa = phi ptr [ %22, %23 ], [ %45, %37 ]
@@ -141,7 +141,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr noundef readonly c
   %.4 = getelementptr inbounds nuw i8, ptr %.3111, i64 1
   %62 = add nuw nsw i32 %.061113, 1
   %exitcond123.not = icmp eq i32 %62, 4
-  br i1 %exitcond123.not, label %63, label %.preheader, !llvm.loop !17
+  br i1 %exitcond123.not, label %63, label %.preheader, !llvm.loop !18
 
 63:                                               ; preds = %61
   %64 = icmp eq i64 %.075, 1
@@ -170,7 +170,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr noundef readonly c
   br label %.loopexit
 
 .thread92:                                        ; preds = %25, %52, %49
-  %75 = load ptr, ptr @Curl_cfree, align 8, !tbaa !14
+  %75 = load ptr, ptr @Curl_cfree, align 8, !tbaa !15
   tail call void %75(ptr noundef nonnull %22) #5
   br label %.loopexit
 
@@ -215,7 +215,7 @@ define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr noundef readonly 
 
 9:                                                ; preds = %7, %5
   %.055 = phi i64 [ %2, %5 ], [ %8, %7 ]
-  %10 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !14
+  %10 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !15
   %11 = add i64 %.055, 2
   %12 = udiv i64 %11, 3
   %13 = shl i64 %12, 2
@@ -273,7 +273,7 @@ define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr noundef readonly 
   %51 = add i64 %.167, -3
   %52 = getelementptr inbounds nuw i8, ptr %.05468, i64 3
   %53 = icmp ugt i64 %51, 2
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.056.lcssa = phi ptr [ %15, %.preheader ], [ %50, %.lr.ph ]
@@ -384,10 +384,11 @@ attributes #6 = { nounwind willreturn memory(read) }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"long", !7, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}
+!19 = distinct !{!19, !13, !14}

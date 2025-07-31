@@ -45,7 +45,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
 
 16:                                               ; preds = %._crit_edge.i
   %17 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 6
-  %18 = load i8, ptr %17, align 1, !tbaa !9
+  %18 = load i8, ptr %17, align 1, !tbaa !10
   %19 = zext i8 %18 to i64
   %20 = shl nuw nsw i64 %19, 48
   %21 = xor i64 %20, %.0.lcssa.i
@@ -54,7 +54,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
 22:                                               ; preds = %16, %._crit_edge.i
   %.2.i = phi i64 [ %21, %16 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %23 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 5
-  %24 = load i8, ptr %23, align 1, !tbaa !9
+  %24 = load i8, ptr %23, align 1, !tbaa !10
   %25 = zext i8 %24 to i64
   %26 = shl nuw nsw i64 %25, 40
   %27 = xor i64 %26, %.2.i
@@ -63,7 +63,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
 28:                                               ; preds = %22, %._crit_edge.i
   %.3.i = phi i64 [ %27, %22 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %29 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 4
-  %30 = load i8, ptr %29, align 1, !tbaa !9
+  %30 = load i8, ptr %29, align 1, !tbaa !10
   %31 = zext i8 %30 to i64
   %32 = shl nuw nsw i64 %31, 32
   %33 = xor i64 %32, %.3.i
@@ -72,7 +72,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
 34:                                               ; preds = %28, %._crit_edge.i
   %.4.i = phi i64 [ %33, %28 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 3
-  %36 = load i8, ptr %35, align 1, !tbaa !9
+  %36 = load i8, ptr %35, align 1, !tbaa !10
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 24
   %39 = xor i64 %38, %.4.i
@@ -81,7 +81,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
 40:                                               ; preds = %34, %._crit_edge.i
   %.5.i = phi i64 [ %39, %34 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 2
-  %42 = load i8, ptr %41, align 1, !tbaa !9
+  %42 = load i8, ptr %41, align 1, !tbaa !10
   %43 = zext i8 %42 to i64
   %44 = shl nuw nsw i64 %43, 16
   %45 = xor i64 %44, %.5.i
@@ -90,7 +90,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
 46:                                               ; preds = %40, %._crit_edge.i
   %.6.i = phi i64 [ %45, %40 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 1
-  %48 = load i8, ptr %47, align 1, !tbaa !9
+  %48 = load i8, ptr %47, align 1, !tbaa !10
   %49 = zext i8 %48 to i64
   %50 = shl nuw nsw i64 %49, 8
   %51 = xor i64 %50, %.6.i
@@ -98,7 +98,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
 
 52:                                               ; preds = %46, %._crit_edge.i
   %.7.i = phi i64 [ %51, %46 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %53 = load i8, ptr %.037.lcssa.i, align 1, !tbaa !9
+  %53 = load i8, ptr %.037.lcssa.i, align 1, !tbaa !10
   %54 = zext i8 %53 to i64
   %55 = xor i64 %.7.i, %54
   %56 = mul i64 %55, -4132994306676758123
@@ -128,6 +128,7 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!5, !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!5, !5, i64 0}

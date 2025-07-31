@@ -68,55 +68,55 @@ define internal fastcc ptr @newtab(ptr noundef %0, i32 noundef %1, i32 noundef %
   %7 = zext nneg i32 %narrow to i64
   %8 = tail call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef %7) #11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i8 11, ptr %9, align 1, !tbaa !20
+  store i8 11, ptr %9, align 1, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  store i8 -1, ptr %10, align 2, !tbaa !21
+  store i8 -1, ptr %10, align 2, !tbaa !22
   %11 = trunc nuw nsw i32 %1 to i8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 11
-  store i8 %11, ptr %12, align 1, !tbaa !22
+  store i8 %11, ptr %12, align 1, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %14 = ptrtoint ptr %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %14, ptr %15, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i64 0, ptr %16, align 8, !tbaa !23
+  store i64 0, ptr %16, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 %1, ptr %17, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 0, ptr %18, align 4, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !24
+  %20 = load i64, ptr %19, align 8, !tbaa !25
   %21 = add nuw i64 %20, 248
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %21, ptr %22, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 %21, ptr %23, align 8, !tbaa !28
+  store i64 %21, ptr %23, align 8, !tbaa !29
   br label %46
 
 24:                                               ; preds = %3
   %.not = icmp eq i32 %1, 0
   %25 = tail call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 64) #11
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  store i8 11, ptr %26, align 1, !tbaa !20
+  store i8 11, ptr %26, align 1, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 10
-  store i8 -1, ptr %27, align 2, !tbaa !21
+  store i8 -1, ptr %27, align 2, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 11
-  store i8 0, ptr %28, align 1, !tbaa !22
+  store i8 0, ptr %28, align 1, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %29, align 8, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i64 0, ptr %30, align 8, !tbaa !23
+  store i64 0, ptr %30, align 8, !tbaa !24
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store i32 0, ptr %31, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 52
   store i32 0, ptr %32, align 4, !tbaa !14
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !24
+  %34 = load i64, ptr %33, align 8, !tbaa !25
   %35 = add nuw i64 %34, 248
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i64 %35, ptr %36, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  store i64 %35, ptr %37, align 8, !tbaa !28
+  store i64 %35, ptr %37, align 8, !tbaa !29
   br i1 %.not, label %46, label %38
 
 38:                                               ; preds = %24
@@ -161,7 +161,7 @@ newhpart.exit:                                    ; preds = %47
   %57 = getelementptr inbounds nuw %struct.Node, ptr %54, i64 %51
   %58 = ptrtoint ptr %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  store i64 %58, ptr %59, align 8, !tbaa !28
+  store i64 %58, ptr %59, align 8, !tbaa !29
   %60 = add nsw i32 %50, -1
   %61 = getelementptr inbounds nuw i8, ptr %.0, i64 52
   store i32 %60, ptr %61, align 4, !tbaa !14
@@ -292,7 +292,7 @@ define hidden ptr @lj_tab_dup(ptr noundef %0, ptr noundef readonly captures(none
   %9 = select i1 %.not, i32 0, i32 %8
   %10 = tail call fastcc ptr @newtab(ptr noundef %0, i32 noundef %4, i32 noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  store i8 0, ptr %11, align 2, !tbaa !21
+  store i8 0, ptr %11, align 2, !tbaa !22
   %12 = load i32, ptr %3, align 8, !tbaa !4
   %.not51 = icmp eq i32 %12, 0
   br i1 %.not51, label %.loopexit54, label %13
@@ -316,7 +316,7 @@ define hidden ptr @lj_tab_dup(ptr noundef %0, ptr noundef readonly captures(none
   store i64 %23, ptr %21, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit54, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit54, label %.preheader, !llvm.loop !30
 
 24:                                               ; preds = %13
   %25 = shl nuw nsw i64 %wide.trip.count, 3
@@ -337,10 +337,10 @@ define hidden ptr @lj_tab_dup(ptr noundef %0, ptr noundef readonly captures(none
   %33 = inttoptr i64 %32 to ptr
   %34 = sub i64 %29, %32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %36 = load i64, ptr %35, align 8, !tbaa !28
+  %36 = load i64, ptr %35, align 8, !tbaa !29
   %37 = add i64 %36, %34
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 %37, ptr %38, align 8, !tbaa !28
+  store i64 %37, ptr %38, align 8, !tbaa !29
   %39 = add i32 %26, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %39, i32 1)
   %wide.trip.count61 = zext i32 %umax to i64
@@ -365,7 +365,7 @@ define hidden ptr @lj_tab_dup(ptr noundef %0, ptr noundef readonly captures(none
   store i64 %51, ptr %52, align 8, !tbaa !16
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62 = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62, label %.loopexit, label %40, !llvm.loop !30
+  br i1 %exitcond62, label %.loopexit, label %40, !llvm.loop !31
 
 .loopexit:                                        ; preds = %40, %.loopexit54
   ret ptr %10
@@ -404,7 +404,7 @@ clearapart.exit:                                  ; preds = %.lr.ph.preheader, %
   %.idx = mul nuw nsw i64 %15, 24
   %16 = add nuw i64 %13, %.idx
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %16, ptr %17, align 8, !tbaa !28
+  store i64 %16, ptr %17, align 8, !tbaa !29
   %18 = inttoptr i64 %13 to ptr
   %umax = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
   %wide.trip.count = zext i32 %umax to i64
@@ -439,12 +439,12 @@ define hidden void @lj_tab_free(ptr noundef captures(none) %0, ptr noundef %1) l
   %10 = zext i32 %9 to i64
   %11 = mul nuw nsw i64 %10, 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !31
+  %13 = load i64, ptr %12, align 8, !tbaa !32
   %14 = sub i64 %13, %11
-  store i64 %14, ptr %12, align 8, !tbaa !31
-  %15 = load ptr, ptr %0, align 8, !tbaa !41
+  store i64 %14, ptr %12, align 8, !tbaa !32
+  %15 = load ptr, ptr %0, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !42
+  %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = tail call ptr %15(ptr noundef %17, ptr noundef %8, i64 noundef range(i64 0, 103079215081) %11, i64 noundef 0) #11
   br label %19
 
@@ -456,7 +456,7 @@ define hidden void @lj_tab_free(ptr noundef captures(none) %0, ptr noundef %1) l
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %24 = load i8, ptr %23, align 1, !tbaa !22
+  %24 = load i8, ptr %23, align 1, !tbaa !23
   %25 = icmp slt i8 %24, 1
   br i1 %25, label %26, label %39
 
@@ -467,18 +467,18 @@ define hidden void @lj_tab_free(ptr noundef captures(none) %0, ptr noundef %1) l
   %30 = zext i32 %21 to i64
   %31 = shl nuw nsw i64 %30, 3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !31
+  %33 = load i64, ptr %32, align 8, !tbaa !32
   %34 = sub i64 %33, %31
-  store i64 %34, ptr %32, align 8, !tbaa !31
-  %35 = load ptr, ptr %0, align 8, !tbaa !41
+  store i64 %34, ptr %32, align 8, !tbaa !32
+  %35 = load ptr, ptr %0, align 8, !tbaa !42
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !42
+  %37 = load ptr, ptr %36, align 8, !tbaa !43
   %38 = tail call ptr %35(ptr noundef %37, ptr noundef %29, i64 noundef range(i64 0, 103079215081) %31, i64 noundef 0) #11
   br label %39
 
 39:                                               ; preds = %26, %22, %19
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %41 = load i8, ptr %40, align 1, !tbaa !22
+  %41 = load i8, ptr %40, align 1, !tbaa !23
   %.not18 = icmp eq i8 %41, 0
   br i1 %.not18, label %50, label %42
 
@@ -488,23 +488,23 @@ define hidden void @lj_tab_free(ptr noundef captures(none) %0, ptr noundef %1) l
   %45 = shl nuw nsw i64 %44, 3
   %46 = add nuw nsw i64 %45, 64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load i64, ptr %47, align 8, !tbaa !31
+  %48 = load i64, ptr %47, align 8, !tbaa !32
   %49 = sub i64 %48, %46
-  store i64 %49, ptr %47, align 8, !tbaa !31
+  store i64 %49, ptr %47, align 8, !tbaa !32
   br label %54
 
 50:                                               ; preds = %39
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load i64, ptr %51, align 8, !tbaa !31
+  %52 = load i64, ptr %51, align 8, !tbaa !32
   %53 = add i64 %52, -64
-  store i64 %53, ptr %51, align 8, !tbaa !31
+  store i64 %53, ptr %51, align 8, !tbaa !32
   br label %54
 
 54:                                               ; preds = %50, %42
   %.sink19 = phi i64 [ 64, %50 ], [ %46, %42 ]
-  %55 = load ptr, ptr %0, align 8, !tbaa !41
+  %55 = load ptr, ptr %0, align 8, !tbaa !42
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !42
+  %57 = load ptr, ptr %56, align 8, !tbaa !43
   %58 = tail call ptr %55(ptr noundef %57, ptr noundef nonnull %1, i64 noundef %.sink19, i64 noundef 0) #11
   ret void
 }
@@ -532,7 +532,7 @@ define hidden void @lj_tab_resize(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %19 = load i8, ptr %18, align 1, !tbaa !22
+  %19 = load i8, ptr %18, align 1, !tbaa !23
   %20 = icmp sgt i8 %19, 0
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !12
@@ -543,9 +543,9 @@ define hidden void @lj_tab_resize(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %25 = shl nuw nsw i32 %2, 3
   %26 = zext nneg i32 %25 to i64
   %27 = tail call ptr @lj_mem_realloc(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef %26) #11
-  %28 = load i8, ptr %18, align 1, !tbaa !22
+  %28 = load i8, ptr %18, align 1, !tbaa !23
   %29 = or i8 %28, -128
-  store i8 %29, ptr %18, align 1, !tbaa !22
+  store i8 %29, ptr %18, align 1, !tbaa !23
   %.not104 = icmp eq i32 %10, 0
   br i1 %.not104, label %.lr.ph100.preheader, label %.lr.ph.preheader
 
@@ -561,7 +561,7 @@ define hidden void @lj_tab_resize(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i64 %32, ptr %30, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph100.preheader, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %.lr.ph100.preheader, label %.lr.ph, !llvm.loop !44
 
 33:                                               ; preds = %17
   %34 = zext i32 %10 to i64
@@ -611,7 +611,7 @@ newhpart.exit:                                    ; preds = %48
   %57 = getelementptr inbounds nuw %struct.Node, ptr %55, i64 %52
   %58 = ptrtoint ptr %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %58, ptr %59, align 8, !tbaa !28
+  store i64 %58, ptr %59, align 8, !tbaa !29
   %60 = add nsw i32 %51, -1
   store i32 %60, ptr %11, align 4, !tbaa !14
   br label %61
@@ -628,11 +628,11 @@ newhpart.exit:                                    ; preds = %48
 
 64:                                               ; preds = %.loopexit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load i64, ptr %65, align 8, !tbaa !24
+  %66 = load i64, ptr %65, align 8, !tbaa !25
   %67 = add nuw i64 %66, 248
   store i64 %67, ptr %6, align 8, !tbaa !15
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %67, ptr %68, align 8, !tbaa !28
+  store i64 %67, ptr %68, align 8, !tbaa !29
   store i32 0, ptr %11, align 4, !tbaa !14
   br label %clearhpart.exit
 
@@ -696,7 +696,7 @@ clearhpart.exit:                                  ; preds = %61, %64
   %106 = load i64, ptr %105, align 8, !tbaa !16
   %107 = inttoptr i64 %106 to ptr
   %.not.i95 = icmp eq i64 %106, 0
-  br i1 %.not.i95, label %108, label %98, !llvm.loop !44
+  br i1 %.not.i95, label %108, label %98, !llvm.loop !45
 
 108:                                              ; preds = %104
   %109 = call ptr @lj_tab_newkey(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5)
@@ -713,11 +713,11 @@ lj_tab_setinth.exit:                              ; preds = %98, %108
 111:                                              ; preds = %75, %lj_tab_setinth.exit
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %112, label %75, !llvm.loop !45
+  br i1 %exitcond119.not, label %112, label %75, !llvm.loop !46
 
 112:                                              ; preds = %111
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %114 = load i8, ptr %113, align 1, !tbaa !22
+  %114 = load i8, ptr %113, align 1, !tbaa !23
   %115 = icmp slt i8 %114, 1
   br i1 %115, label %116, label %121
 
@@ -751,22 +751,22 @@ lj_tab_setinth.exit:                              ; preds = %98, %108
 130:                                              ; preds = %126, %.preheader
   %131 = add i32 %.084103, 1
   %.not93 = icmp ugt i32 %131, %12
-  br i1 %.not93, label %132, label %.preheader, !llvm.loop !46
+  br i1 %.not93, label %132, label %.preheader, !llvm.loop !47
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %134 = load i64, ptr %133, align 8, !tbaa !24
+  %134 = load i64, ptr %133, align 8, !tbaa !25
   %135 = inttoptr i64 %134 to ptr
   %136 = add nuw i32 %12, 1
   %137 = zext i32 %136 to i64
   %138 = mul nuw nsw i64 %137, 24
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %140 = load i64, ptr %139, align 8, !tbaa !31
+  %140 = load i64, ptr %139, align 8, !tbaa !32
   %141 = sub i64 %140, %138
-  store i64 %141, ptr %139, align 8, !tbaa !31
-  %142 = load ptr, ptr %135, align 8, !tbaa !41
+  store i64 %141, ptr %139, align 8, !tbaa !32
+  %142 = load ptr, ptr %135, align 8, !tbaa !42
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !42
+  %144 = load ptr, ptr %143, align 8, !tbaa !43
   %145 = call ptr %142(ptr noundef %144, ptr noundef nonnull %8, i64 noundef range(i64 0, 103079215081) %138, i64 noundef 0) #11
   br label %146
 
@@ -822,7 +822,7 @@ define hidden ptr @lj_tab_setinth(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %32 = load i64, ptr %31, align 8, !tbaa !16
   %33 = inttoptr i64 %32 to ptr
   %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %34, label %24, !llvm.loop !44
+  br i1 %.not, label %34, label %24, !llvm.loop !45
 
 34:                                               ; preds = %30
   %35 = call ptr @lj_tab_newkey(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4)
@@ -839,7 +839,7 @@ define hidden ptr @lj_tab_set(ptr noundef %0, ptr noundef initializes((10, 11)) 
   %4 = alloca %union.TValue, align 8
   %5 = alloca %union.TValue, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 0, ptr %6, align 2, !tbaa !21
+  store i8 0, ptr %6, align 2, !tbaa !22
   %7 = load i64, ptr %2, align 8
   %8 = ashr i64 %7, 47
   %9 = icmp eq i64 %8, -5
@@ -851,7 +851,7 @@ define hidden ptr @lj_tab_set(ptr noundef %0, ptr noundef initializes((10, 11)) 
   %13 = inttoptr i64 %12 to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !47
+  %15 = load i32, ptr %14, align 4, !tbaa !48
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load i64, ptr %16, align 8, !tbaa !15
   %18 = inttoptr i64 %17 to ptr
@@ -878,7 +878,7 @@ define hidden ptr @lj_tab_set(ptr noundef %0, ptr noundef initializes((10, 11)) 
   %32 = load i64, ptr %31, align 8, !tbaa !16
   %33 = inttoptr i64 %32 to ptr
   %.not.i = icmp eq i64 %32, 0
-  br i1 %.not.i, label %34, label %24, !llvm.loop !48
+  br i1 %.not.i, label %34, label %24, !llvm.loop !49
 
 34:                                               ; preds = %30
   store i64 %7, ptr %5, align 8, !tbaa !13
@@ -954,7 +954,7 @@ lj_tab_setstr.exit:                               ; preds = %24, %34
   %78 = load i64, ptr %77, align 8, !tbaa !16
   %79 = inttoptr i64 %78 to ptr
   %.not.i41 = icmp eq i64 %78, 0
-  br i1 %.not.i41, label %80, label %70, !llvm.loop !44
+  br i1 %.not.i41, label %80, label %70, !llvm.loop !45
 
 80:                                               ; preds = %76
   %81 = call ptr @lj_tab_newkey(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4)
@@ -1042,7 +1042,7 @@ hashkey.exit:                                     ; preds = %88, %99, %102
   %123 = load i64, ptr %122, align 8, !tbaa !16
   %124 = inttoptr i64 %123 to ptr
   %.not39 = icmp eq i64 %123, 0
-  br i1 %.not39, label %125, label %118, !llvm.loop !49
+  br i1 %.not39, label %125, label %118, !llvm.loop !50
 
 125:                                              ; preds = %121
   %126 = tail call ptr @lj_tab_newkey(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
@@ -1106,7 +1106,7 @@ define hidden ptr @lj_tab_getinth(ptr noundef readonly captures(none) %0, i32 no
   %29 = load i64, ptr %28, align 8, !tbaa !16
   %30 = inttoptr i64 %29 to ptr
   %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %31, label %21, !llvm.loop !50
+  br i1 %.not, label %31, label %21, !llvm.loop !51
 
 31:                                               ; preds = %21, %27
   %.06 = phi ptr [ null, %27 ], [ %.0, %21 ]
@@ -1116,7 +1116,7 @@ define hidden ptr @lj_tab_getinth(ptr noundef readonly captures(none) %0, i32 no
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @lj_tab_getstr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !47
+  %4 = load i32, ptr %3, align 4, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !15
   %7 = inttoptr i64 %6 to ptr
@@ -1144,7 +1144,7 @@ define hidden ptr @lj_tab_getstr(ptr noundef readonly captures(none) %0, ptr nou
   %22 = load i64, ptr %21, align 8, !tbaa !16
   %23 = inttoptr i64 %22 to ptr
   %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %24, label %13, !llvm.loop !51
+  br i1 %.not, label %24, label %13, !llvm.loop !52
 
 24:                                               ; preds = %20, %13
   %.08 = phi ptr [ %.0, %13 ], [ null, %20 ]
@@ -1163,7 +1163,7 @@ define hidden ptr @lj_tab_get(ptr noundef readonly captures(none) %0, ptr nounde
   %9 = and i64 %4, 140737488355327
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !47
+  %12 = load i32, ptr %11, align 4, !tbaa !48
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8, !tbaa !15
   %15 = inttoptr i64 %14 to ptr
@@ -1190,7 +1190,7 @@ define hidden ptr @lj_tab_get(ptr noundef readonly captures(none) %0, ptr nounde
   %29 = load i64, ptr %28, align 8, !tbaa !16
   %30 = inttoptr i64 %29 to ptr
   %.not.i = icmp eq i64 %29, 0
-  br i1 %.not.i, label %lj_tab_getstr.exit.thread, label %21, !llvm.loop !51
+  br i1 %.not.i, label %lj_tab_getstr.exit.thread, label %21, !llvm.loop !52
 
 31:                                               ; preds = %3
   %32 = icmp ult i64 %5, -14
@@ -1246,7 +1246,7 @@ define hidden ptr @lj_tab_get(ptr noundef readonly captures(none) %0, ptr nounde
   %67 = load i64, ptr %66, align 8, !tbaa !16
   %68 = inttoptr i64 %67 to ptr
   %.not.i42 = icmp eq i64 %67, 0
-  br i1 %.not.i42, label %lj_tab_getstr.exit.thread, label %59, !llvm.loop !50
+  br i1 %.not.i42, label %lj_tab_getstr.exit.thread, label %59, !llvm.loop !51
 
 lj_tab_getinth.exit:                              ; preds = %37
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1322,11 +1322,11 @@ hashkey.exit:                                     ; preds = %76, %87, %90
   %111 = load i64, ptr %110, align 8, !tbaa !16
   %112 = inttoptr i64 %111 to ptr
   %.not38 = icmp eq i64 %111, 0
-  br i1 %.not38, label %lj_tab_getstr.exit.thread, label %106, !llvm.loop !52
+  br i1 %.not38, label %lj_tab_getstr.exit.thread, label %106, !llvm.loop !53
 
 lj_tab_getstr.exit.thread:                        ; preds = %109, %65, %27, %lj_tab_getinth.exit, %74
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %114 = load i64, ptr %113, align 8, !tbaa !24
+  %114 = load i64, ptr %113, align 8, !tbaa !25
   %115 = inttoptr i64 %114 to ptr
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 248
   br label %.thread48
@@ -1410,7 +1410,7 @@ hashkey.exit:                                     ; preds = %11, %18, %28, %31
 
 48:                                               ; preds = %hashkey.exit
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %50 = load i64, ptr %49, align 8, !tbaa !28
+  %50 = load i64, ptr %49, align 8, !tbaa !29
   %51 = inttoptr i64 %50 to ptr
   br label %52
 
@@ -1421,7 +1421,7 @@ hashkey.exit:                                     ; preds = %11, %18, %28, %31
 
 53:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %4, i8 0, i64 112, i1 false), !tbaa !53
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %4, i8 0, i64 112, i1 false), !tbaa !54
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8, !tbaa !4
   %56 = icmp eq i32 %55, 0
@@ -1463,7 +1463,7 @@ hashkey.exit:                                     ; preds = %11, %18, %28, %31
   %spec.select.i = add i32 %.02444.i, %71
   %72 = add i32 %.243.i, 1
   %.not35.i = icmp ugt i32 %72, %.023.i
-  br i1 %.not35.i, label %._crit_edge.loopexit.i, label %.lr.ph.i127, !llvm.loop !54
+  br i1 %.not35.i, label %._crit_edge.loopexit.i, label %.lr.ph.i127, !llvm.loop !55
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i127
   %73 = add i32 %.02648.i, 1
@@ -1475,13 +1475,13 @@ hashkey.exit:                                     ; preds = %11, %18, %28, %31
   %.2.lcssa.i = phi i32 [ %.02648.i, %64 ], [ %umax.i128, %._crit_edge.loopexit.i ]
   %.024.lcssa.i = phi i32 [ 0, %64 ], [ %spec.select.i, %._crit_edge.loopexit.i ]
   %75 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i125
-  %76 = load i32, ptr %75, align 4, !tbaa !53
+  %76 = load i32, ptr %75, align 4, !tbaa !54
   %77 = add i32 %76, %.024.lcssa.i
-  store i32 %77, ptr %75, align 4, !tbaa !53
+  store i32 %77, ptr %75, align 4, !tbaa !54
   %78 = add i32 %.024.lcssa.i, %.02946.i
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i125, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i129, 28
-  br i1 %exitcond.not.i, label %countarray.exit, label %59, !llvm.loop !55
+  br i1 %exitcond.not.i, label %countarray.exit, label %59, !llvm.loop !56
 
 countarray.exit:                                  ; preds = %62, %._crit_edge.i, %53
   %.0.i130 = phi i32 [ 0, %53 ], [ %.02946.i, %62 ], [ %78, %._crit_edge.i ]
@@ -1522,9 +1522,9 @@ countarray.exit:                                  ; preds = %62, %._crit_edge.i,
   %narrow.i.i = select i1 %95, i32 %98, i32 0
   %99 = zext nneg i32 %narrow.i.i to i64
   %100 = getelementptr inbounds nuw i32, ptr %4, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !53
+  %101 = load i32, ptr %100, align 4, !tbaa !54
   %102 = add i32 %101, 1
-  store i32 %102, ptr %100, align 4, !tbaa !53
+  store i32 %102, ptr %100, align 4, !tbaa !54
   br label %countint.exit.i
 
 countint.exit.i:                                  ; preds = %94, %88, %84
@@ -1538,7 +1538,7 @@ countint.exit.i:                                  ; preds = %94, %88, %84
   %.1.i124 = phi i32 [ %.03.i, %80 ], [ %104, %countint.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %counthash.exit, label %80, !llvm.loop !56
+  br i1 %exitcond.i, label %counthash.exit, label %80, !llvm.loop !57
 
 counthash.exit:                                   ; preds = %105
   %106 = add i32 %.0.i130, 1
@@ -1564,9 +1564,9 @@ counthash.exit:                                   ; preds = %105
   %narrow.i = select i1 %117, i32 %120, i32 0
   %121 = zext nneg i32 %narrow.i to i64
   %122 = getelementptr inbounds nuw i32, ptr %4, i64 %121
-  %123 = load i32, ptr %122, align 4, !tbaa !53
+  %123 = load i32, ptr %122, align 4, !tbaa !54
   %124 = add i32 %123, 1
-  store i32 %124, ptr %122, align 4, !tbaa !53
+  store i32 %124, ptr %122, align 4, !tbaa !54
   br label %countint.exit
 
 countint.exit:                                    ; preds = %counthash.exit, %110, %116
@@ -1584,7 +1584,7 @@ countint.exit:                                    ; preds = %counthash.exit, %11
   %.01923.i = phi i32 [ %.120.i, %138 ], [ 0, %countint.exit ]
   %128 = zext i32 %.026.i to i64
   %129 = getelementptr inbounds nuw i32, ptr %4, i64 %128
-  %130 = load i32, ptr %129, align 4, !tbaa !53
+  %130 = load i32, ptr %129, align 4, !tbaa !54
   %.not.i122 = icmp eq i32 %130, 0
   br i1 %.not.i122, label %138, label %131
 
@@ -1608,7 +1608,7 @@ countint.exit:                                    ; preds = %counthash.exit, %11
   %141 = icmp ugt i32 %126, %140
   %142 = icmp ne i32 %.120.i, %125
   %143 = select i1 %141, i1 %142, i1 false
-  br i1 %143, label %.lr.ph.i, label %bestasize.exit, !llvm.loop !57
+  br i1 %143, label %.lr.ph.i, label %bestasize.exit, !llvm.loop !58
 
 bestasize.exit:                                   ; preds = %138, %countint.exit
   %.017.lcssa.i = phi i32 [ 0, %countint.exit ], [ %.118.i, %138 ]
@@ -1639,12 +1639,12 @@ rehashtab.exit:                                   ; preds = %bestasize.exit, %14
   %155 = getelementptr inbounds i8, ptr %.080, i64 -16
   %156 = load i64, ptr %155, align 8, !tbaa !13
   %.not = icmp eq i64 %156, -1
-  br i1 %.not, label %157, label %52, !llvm.loop !58
+  br i1 %.not, label %157, label %52, !llvm.loop !59
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds i8, ptr %.080, i64 -16
   %159 = ptrtoint ptr %154 to i64
-  store i64 %159, ptr %49, align 8, !tbaa !28
+  store i64 %159, ptr %49, align 8, !tbaa !29
   %160 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %161 = load i64, ptr %160, align 8
   %162 = ashr i64 %161, 47
@@ -1714,7 +1714,7 @@ hashkey.exit107:                                  ; preds = %167, %174, %184, %1
   %199 = load i64, ptr %198, align 8, !tbaa !16
   %200 = inttoptr i64 %199 to ptr
   %.not94 = icmp eq ptr %44, %200
-  br i1 %.not94, label %201, label %.preheader, !llvm.loop !59
+  br i1 %.not94, label %201, label %.preheader, !llvm.loop !60
 
 201:                                              ; preds = %.preheader
   %202 = getelementptr inbounds nuw i8, ptr %.082, i64 16
@@ -1725,8 +1725,8 @@ hashkey.exit107:                                  ; preds = %167, %174, %184, %1
   store i64 %204, ptr %158, align 8, !tbaa !13
   %205 = getelementptr inbounds i8, ptr %.080, i64 -8
   %206 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %207 = load i64, ptr %206, align 8, !tbaa !60
-  store i64 %207, ptr %205, align 8, !tbaa !60
+  %207 = load i64, ptr %206, align 8, !tbaa !61
+  store i64 %207, ptr %205, align 8, !tbaa !61
   store i64 0, ptr %206, align 8, !tbaa !16
   store i64 -1, ptr %44, align 8, !tbaa !13
   %208 = load i64, ptr %205, align 8, !tbaa !16
@@ -1812,10 +1812,10 @@ hashkey.exit114:                                  ; preds = %223, %230, %240, %2
 257:                                              ; preds = %hashkey.exit114
   %258 = getelementptr inbounds nuw i8, ptr %.181153, i64 16
   %259 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  %260 = load i64, ptr %259, align 8, !tbaa !60
-  store i64 %260, ptr %258, align 8, !tbaa !60
-  %261 = load i64, ptr %206, align 8, !tbaa !60
-  store i64 %261, ptr %259, align 8, !tbaa !60
+  %260 = load i64, ptr %259, align 8, !tbaa !61
+  store i64 %260, ptr %258, align 8, !tbaa !61
+  %261 = load i64, ptr %206, align 8, !tbaa !61
+  store i64 %261, ptr %259, align 8, !tbaa !61
   store i64 %211, ptr %206, align 8, !tbaa !16
   %262 = load i64, ptr %258, align 8, !tbaa !16
   %.not96154 = icmp eq i64 %262, 0
@@ -1897,11 +1897,11 @@ hashkey.exit121:                                  ; preds = %276, %283, %293, %2
 
 307:                                              ; preds = %hashkey.exit121
   %308 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  %309 = load i64, ptr %308, align 8, !tbaa !60
-  store i64 %309, ptr %264, align 8, !tbaa !60
+  %309 = load i64, ptr %308, align 8, !tbaa !61
+  store i64 %309, ptr %264, align 8, !tbaa !61
   %310 = getelementptr inbounds nuw i8, ptr %306, i64 16
-  %311 = load i64, ptr %310, align 8, !tbaa !60
-  store i64 %311, ptr %308, align 8, !tbaa !60
+  %311 = load i64, ptr %310, align 8, !tbaa !61
+  store i64 %311, ptr %308, align 8, !tbaa !61
   store i64 %263, ptr %310, align 8, !tbaa !16
   br label %312
 
@@ -1910,13 +1910,13 @@ hashkey.exit121:                                  ; preds = %276, %283, %293, %2
   %313 = getelementptr inbounds nuw i8, ptr %.4, i64 16
   %314 = load i64, ptr %313, align 8, !tbaa !16
   %.not96 = icmp eq i64 %314, 0
-  br i1 %.not96, label %.thread, label %.lr.ph156, !llvm.loop !61
+  br i1 %.not96, label %.thread, label %.lr.ph156, !llvm.loop !62
 
 315:                                              ; preds = %210, %hashkey.exit114
   %316 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %317 = load i64, ptr %316, align 8, !tbaa !16
   %.not95 = icmp eq i64 %317, 0
-  br i1 %.not95, label %.thread, label %210
+  br i1 %.not95, label %.thread, label %210, !llvm.loop !63
 
 .thread137:                                       ; preds = %hashkey.exit107
   %318 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -1935,7 +1935,7 @@ hashkey.exit121:                                  ; preds = %276, %283, %293, %2
   %321 = load i64, ptr %2, align 8, !tbaa !13
   %322 = getelementptr inbounds nuw i8, ptr %.083, i64 8
   %323 = icmp eq i64 %321, -9223372036854775808
-  br i1 %323, label %324, label %325, !prof !62
+  br i1 %323, label %324, label %325, !prof !64
 
 324:                                              ; preds = %.thread.thread
   br label %325
@@ -1947,20 +1947,20 @@ hashkey.exit121:                                  ; preds = %276, %283, %293, %2
   %327 = load i8, ptr %326, align 8, !tbaa !13
   %328 = and i8 %327, 4
   %.not100 = icmp eq i8 %328, 0
-  br i1 %.not100, label %338, label %329, !prof !63
+  br i1 %.not100, label %338, label %329, !prof !65
 
 329:                                              ; preds = %325
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %331 = load i64, ptr %330, align 8, !tbaa !24
+  %331 = load i64, ptr %330, align 8, !tbaa !25
   %332 = inttoptr i64 %331 to ptr
   %333 = and i8 %327, -5
   store i8 %333, ptr %326, align 8, !tbaa !13
   %334 = getelementptr inbounds nuw i8, ptr %332, i64 64
-  %335 = load i64, ptr %334, align 8, !tbaa !64
+  %335 = load i64, ptr %334, align 8, !tbaa !66
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %335, ptr %336, align 8, !tbaa !65
+  store i64 %335, ptr %336, align 8, !tbaa !67
   %337 = ptrtoint ptr %1 to i64
-  store i64 %337, ptr %334, align 8, !tbaa !64
+  store i64 %337, ptr %334, align 8, !tbaa !66
   br label %338
 
 338:                                              ; preds = %325, %329, %.thread
@@ -1973,7 +1973,7 @@ define hidden ptr @lj_tab_setstr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = alloca %union.TValue, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !47
+  %6 = load i32, ptr %5, align 4, !tbaa !48
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = inttoptr i64 %8 to ptr
@@ -2001,7 +2001,7 @@ define hidden ptr @lj_tab_setstr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %24 = load i64, ptr %23, align 8, !tbaa !16
   %25 = inttoptr i64 %24 to ptr
   %.not = icmp eq i64 %24, 0
-  br i1 %.not, label %26, label %15, !llvm.loop !48
+  br i1 %.not, label %26, label %15, !llvm.loop !49
 
 26:                                               ; preds = %22
   %27 = ptrtoint ptr %2 to i64
@@ -2125,7 +2125,7 @@ hashkey.exit:                                     ; preds = %21, %28, %38, %41
   %70 = load i64, ptr %69, align 8, !tbaa !16
   %71 = inttoptr i64 %70 to ptr
   %.not24 = icmp eq i64 %70, 0
-  br i1 %.not24, label %72, label %55, !llvm.loop !66
+  br i1 %.not24, label %72, label %55, !llvm.loop !68
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2163,7 +2163,7 @@ define hidden range(i32 -1, 2) i32 @lj_tab_next(ptr noundef readonly captures(no
   %13 = getelementptr inbounds nuw %union.TValue, ptr %10, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8, !tbaa !13
   %.not33 = icmp eq i64 %14, -1
-  br i1 %.not33, label %.critedge, label %15, !prof !62
+  br i1 %.not33, label %.critedge, label %15, !prof !64
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw %union.TValue, ptr %10, i64 %indvars.iv
@@ -2178,7 +2178,7 @@ define hidden range(i32 -1, 2) i32 @lj_tab_next(ptr noundef readonly captures(no
 .critedge:                                        ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.critedge, %3
   %.030.lcssa = phi i32 [ %4, %3 ], [ %6, %.critedge ]
@@ -2214,7 +2214,7 @@ define hidden range(i32 -1, 2) i32 @lj_tab_next(ptr noundef readonly captures(no
 .critedge35:                                      ; preds = %27
   %37 = add i32 %.13146, 1
   %.not = icmp ugt i32 %37, %23
-  br i1 %.not, label %._crit_edge49, label %27, !llvm.loop !68
+  br i1 %.not, label %._crit_edge49, label %27, !llvm.loop !70
 
 ._crit_edge49:                                    ; preds = %.critedge35, %._crit_edge
   %.131.lcssa = phi i32 [ %21, %._crit_edge ], [ %37, %.critedge35 ]
@@ -2244,7 +2244,7 @@ define hidden i32 @lj_tab_len(ptr noundef readonly captures(none) %0) local_unna
   %10 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %.020
   %11 = load i64, ptr %10, align 8, !tbaa !13
   %12 = icmp eq i64 %11, -1
-  br i1 %12, label %.preheader, label %21, !prof !63
+  br i1 %12, label %.preheader, label %21, !prof !65
 
 .preheader:                                       ; preds = %6
   %.not28 = icmp eq i64 %.020, 1
@@ -2262,7 +2262,7 @@ define hidden i32 @lj_tab_len(ptr noundef readonly captures(none) %0) local_unna
   %.019. = select i1 %17, i64 %.01927, i64 %14
   %18 = sub nsw i64 %..121, %.019.
   %19 = icmp ugt i64 %18, 1
-  br i1 %19, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !69
+  br i1 %19, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !71
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %20 = trunc i64 %.019. to i32
@@ -2341,7 +2341,7 @@ define internal fastcc i32 @tab_len_slow(ptr noundef readonly captures(none) %0,
   %37 = load i64, ptr %36, align 8, !tbaa !16
   %38 = inttoptr i64 %37 to ptr
   %.not.i = icmp eq i64 %37, 0
-  br i1 %.not.i, label %.critedge, label %29, !llvm.loop !50
+  br i1 %.not.i, label %.critedge, label %29, !llvm.loop !51
 
 lj_tab_getinth.exit:                              ; preds = %9
   %39 = load i64, ptr %8, align 8, !tbaa !12
@@ -2361,7 +2361,7 @@ lj_tab_getinth.exit.thread76:                     ; preds = %29, %lj_tab_getinth
 45:                                               ; preds = %lj_tab_getinth.exit.thread76
   %46 = shl nuw nsw i64 %.039, 1
   %47 = icmp samesign ugt i64 %.039, 1073741822
-  br i1 %47, label %.preheader, label %9, !llvm.loop !70
+  br i1 %47, label %.preheader, label %9, !llvm.loop !72
 
 .preheader:                                       ; preds = %45, %lj_tab_getinth.exit66.thread79
   %.141 = phi i64 [ %83, %lj_tab_getinth.exit66.thread79 ], [ 1, %45 ]
@@ -2406,7 +2406,7 @@ lj_tab_getinth.exit.thread76:                     ; preds = %29, %lj_tab_getinth
   %75 = load i64, ptr %74, align 8, !tbaa !16
   %76 = inttoptr i64 %75 to ptr
   %.not.i64 = icmp eq i64 %75, 0
-  br i1 %.not.i64, label %.critedge2, label %67, !llvm.loop !50
+  br i1 %.not.i64, label %.critedge2, label %67, !llvm.loop !51
 
 lj_tab_getinth.exit66:                            ; preds = %.preheader
   %77 = load i64, ptr %8, align 8, !tbaa !12
@@ -2422,7 +2422,7 @@ lj_tab_getinth.exit66.thread79:                   ; preds = %67, %lj_tab_getinth
   %82 = load i64, ptr %81, align 8, !tbaa !13
   %.not58 = icmp eq i64 %82, -1
   %83 = add i64 %.141, 1
-  br i1 %.not58, label %.critedge2, label %.preheader, !llvm.loop !71
+  br i1 %.not58, label %.critedge2, label %.preheader, !llvm.loop !73
 
 .critedge2:                                       ; preds = %lj_tab_getinth.exit66, %lj_tab_getinth.exit66.thread79, %73
   %84 = add i32 %48, -1
@@ -2479,7 +2479,7 @@ lj_tab_getinth.exit66.thread79:                   ; preds = %67, %lj_tab_getinth
   %116 = load i64, ptr %115, align 8, !tbaa !16
   %117 = inttoptr i64 %116 to ptr
   %.not.i72 = icmp eq i64 %116, 0
-  br i1 %.not.i72, label %lj_tab_getinth.exit74.thread, label %108, !llvm.loop !50
+  br i1 %.not.i72, label %lj_tab_getinth.exit74.thread, label %108, !llvm.loop !51
 
 lj_tab_getinth.exit74:                            ; preds = %.lr.ph
   %118 = load i64, ptr %8, align 8, !tbaa !12
@@ -2504,7 +2504,7 @@ lj_tab_getinth.exit74.thread:                     ; preds = %114, %lj_tab_getint
   %.2 = phi i64 [ %88, %lj_tab_getinth.exit74.thread ], [ %.1100, %lj_tab_getinth.exit74.thread82 ]
   %126 = sub nsw i64 %.2, %.3
   %127 = icmp ugt i64 %126, 1
-  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !72
+  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %125, %.critedge
   %.242.lcssa = phi i64 [ %.040, %.critedge ], [ %.3, %125 ]
@@ -2527,18 +2527,18 @@ define hidden i32 @lj_tab_len_hint(ptr noundef readonly captures(none) %0, i64 n
   %9 = getelementptr inbounds nuw %union.TValue, ptr %8, i64 %1
   %10 = add i64 %1, 1
   %11 = icmp ult i64 %10, %5
-  br i1 %11, label %12, label %21, !prof !63
+  br i1 %11, label %12, label %21, !prof !65
 
 12:                                               ; preds = %2
   %13 = load i64, ptr %9, align 8, !tbaa !13
   %14 = icmp eq i64 %13, -1
-  br i1 %14, label %.critedge, label %15, !prof !62
+  br i1 %14, label %.critedge, label %15, !prof !64
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !13
   %18 = icmp eq i64 %17, -1
-  br i1 %18, label %19, label %.critedge, !prof !63
+  br i1 %18, label %19, label %.critedge, !prof !65
 
 19:                                               ; preds = %15
   %20 = trunc i64 %1 to i32
@@ -2552,7 +2552,7 @@ define hidden i32 @lj_tab_len_hint(ptr noundef readonly captures(none) %0, i64 n
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %24 = load i32, ptr %23, align 4, !tbaa !14
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.critedge, !prof !63
+  br i1 %25, label %26, label %.critedge, !prof !65
 
 26:                                               ; preds = %22
   %27 = load i64, ptr %9, align 8, !tbaa !13
@@ -2617,58 +2617,60 @@ attributes #12 = { noreturn nounwind }
 !15 = !{!5, !7, i64 40}
 !16 = !{!17, !7, i64 16}
 !17 = !{!"Node", !8, i64 0, !8, i64 8, !10, i64 16}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!5, !8, i64 9}
-!21 = !{!5, !8, i64 10}
-!22 = !{!5, !8, i64 11}
-!23 = !{!5, !7, i64 32}
-!24 = !{!25, !7, i64 16}
-!25 = !{!"lua_State", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !10, i64 16, !6, i64 24, !26, i64 32, !26, i64 40, !10, i64 48, !10, i64 56, !6, i64 64, !6, i64 72, !27, i64 80, !11, i64 88}
-!26 = !{!"p1 _ZTS6TValue", !27, i64 0}
-!27 = !{!"any pointer", !8, i64 0}
-!28 = !{!5, !7, i64 56}
-!29 = distinct !{!29, !19}
-!30 = distinct !{!30, !19}
-!31 = !{!32, !7, i64 16}
-!32 = !{!"global_State", !27, i64 0, !27, i64 8, !33, i64 16, !34, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !35, i64 152, !11, i64 184, !6, i64 192, !37, i64 200, !8, i64 232, !8, i64 240, !17, i64 248, !8, i64 272, !39, i64 280, !11, i64 328, !11, i64 332, !27, i64 336, !27, i64 344, !27, i64 352, !11, i64 360, !11, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !40, i64 392, !8, i64 424}
-!33 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !11, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !11, i64 88, !11, i64 92, !10, i64 96}
-!34 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !11, i64 12, !11, i64 16, !11, i64 20}
-!35 = !{!"StrInternState", !36, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
-!36 = !{!"p1 _ZTS5GCRef", !27, i64 0}
-!37 = !{!"SBuf", !38, i64 0, !38, i64 8, !38, i64 16, !10, i64 24}
-!38 = !{!"p1 omnipotent char", !27, i64 0}
-!39 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !11, i64 40}
-!40 = !{!"PRNGState", !8, i64 0}
-!41 = !{!32, !27, i64 0}
-!42 = !{!32, !27, i64 8}
-!43 = distinct !{!43, !19}
-!44 = distinct !{!44, !19}
-!45 = distinct !{!45, !19}
-!46 = distinct !{!46, !19}
-!47 = !{!34, !11, i64 12}
-!48 = distinct !{!48, !19}
-!49 = distinct !{!49, !19}
-!50 = distinct !{!50, !19}
-!51 = distinct !{!51, !19}
-!52 = distinct !{!52, !19}
-!53 = !{!11, !11, i64 0}
-!54 = distinct !{!54, !19}
-!55 = distinct !{!55, !19}
-!56 = distinct !{!56, !19}
-!57 = distinct !{!57, !19}
-!58 = distinct !{!58, !19}
-!59 = distinct !{!59, !19}
-!60 = !{!7, !7, i64 0}
-!61 = distinct !{!61, !19}
-!62 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!63 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!64 = !{!32, !7, i64 64}
-!65 = !{!5, !7, i64 24}
-!66 = distinct !{!66, !19}
-!67 = distinct !{!67, !19}
-!68 = distinct !{!68, !19}
-!69 = distinct !{!69, !19}
-!70 = distinct !{!70, !19}
-!71 = distinct !{!71, !19}
-!72 = distinct !{!72, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!5, !8, i64 9}
+!22 = !{!5, !8, i64 10}
+!23 = !{!5, !8, i64 11}
+!24 = !{!5, !7, i64 32}
+!25 = !{!26, !7, i64 16}
+!26 = !{!"lua_State", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !10, i64 16, !6, i64 24, !27, i64 32, !27, i64 40, !10, i64 48, !10, i64 56, !6, i64 64, !6, i64 72, !28, i64 80, !11, i64 88}
+!27 = !{!"p1 _ZTS6TValue", !28, i64 0}
+!28 = !{!"any pointer", !8, i64 0}
+!29 = !{!5, !7, i64 56}
+!30 = distinct !{!30, !19, !20}
+!31 = distinct !{!31, !19, !20}
+!32 = !{!33, !7, i64 16}
+!33 = !{!"global_State", !28, i64 0, !28, i64 8, !34, i64 16, !35, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !36, i64 152, !11, i64 184, !6, i64 192, !38, i64 200, !8, i64 232, !8, i64 240, !17, i64 248, !8, i64 272, !40, i64 280, !11, i64 328, !11, i64 332, !28, i64 336, !28, i64 344, !28, i64 352, !11, i64 360, !11, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !41, i64 392, !8, i64 424}
+!34 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !11, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !11, i64 88, !11, i64 92, !10, i64 96}
+!35 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !11, i64 12, !11, i64 16, !11, i64 20}
+!36 = !{!"StrInternState", !37, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
+!37 = !{!"p1 _ZTS5GCRef", !28, i64 0}
+!38 = !{!"SBuf", !39, i64 0, !39, i64 8, !39, i64 16, !10, i64 24}
+!39 = !{!"p1 omnipotent char", !28, i64 0}
+!40 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !11, i64 40}
+!41 = !{!"PRNGState", !8, i64 0}
+!42 = !{!33, !28, i64 0}
+!43 = !{!33, !28, i64 8}
+!44 = distinct !{!44, !19, !20}
+!45 = distinct !{!45, !19, !20}
+!46 = distinct !{!46, !19, !20}
+!47 = distinct !{!47, !19, !20}
+!48 = !{!35, !11, i64 12}
+!49 = distinct !{!49, !19, !20}
+!50 = distinct !{!50, !19, !20}
+!51 = distinct !{!51, !19, !20}
+!52 = distinct !{!52, !19, !20}
+!53 = distinct !{!53, !19, !20}
+!54 = !{!11, !11, i64 0}
+!55 = distinct !{!55, !19, !20}
+!56 = distinct !{!56, !19, !20}
+!57 = distinct !{!57, !19, !20}
+!58 = distinct !{!58, !19, !20}
+!59 = distinct !{!59, !19, !20}
+!60 = distinct !{!60, !19, !20}
+!61 = !{!7, !7, i64 0}
+!62 = distinct !{!62, !19, !20}
+!63 = distinct !{!63, !20}
+!64 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!65 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!66 = !{!33, !7, i64 64}
+!67 = !{!5, !7, i64 24}
+!68 = distinct !{!68, !19, !20}
+!69 = distinct !{!69, !19, !20}
+!70 = distinct !{!70, !19, !20}
+!71 = distinct !{!71, !19, !20}
+!72 = distinct !{!72, !19, !20}
+!73 = distinct !{!73, !19, !20}
+!74 = distinct !{!74, !19, !20}

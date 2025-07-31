@@ -66,7 +66,7 @@ define ptr @cs_randperm(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %21, ptr %22, align 4, !tbaa !3
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph37, !llvm.loop !9
+  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph37, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph37, %.thread, %._crit_edge.thread, %._crit_edge, %4, %2
   %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %5, %._crit_edge ], [ %5, %._crit_edge.thread ], [ %5, %.thread ], [ %5, %.lr.ph37 ]
@@ -95,6 +95,7 @@ attributes #3 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

@@ -1843,7 +1843,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i40, %f
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %13
-  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !78
+  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !79
 
 invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont.i40
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i41, %invoke.cont.i40 ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -2174,6 +2174,7 @@ attributes #27 = { noreturn nounwind }
 !73 = !{!"double", !9, i64 0}
 !74 = !{!73, !73, i64 0}
 !75 = !{!72, !73, i64 8}
-!76 = distinct !{!76, !77}
+!76 = distinct !{!76, !77, !78}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = distinct !{!78, !77}
+!78 = !{!"llvm.loop.estimated_trip_count"}
+!79 = distinct !{!79, !77, !78}

@@ -182,7 +182,7 @@ for.inc:                                          ; preds = %if.then.i.i.i.i.i.i
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__first.addr.014, i64 24
   %incdec.ptr1 = getelementptr inbounds nuw i8, ptr %__cur.015, i64 24
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
 
 lpad.loopexit:                                    ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i
   %lpad.loopexit8 = landingpad { ptr, i32 }
@@ -521,7 +521,7 @@ if.then.i.i.i.i:                                  ; preds = %arraydestroy.body.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %arraydestroy.body.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %ref.tmp.i
-  br i1 %arraydestroy.done.i, label %__cxx_global_var_init.exit, label %arraydestroy.body.i
+  br i1 %arraydestroy.done.i, label %__cxx_global_var_init.exit, label %arraydestroy.body.i, !llvm.loop !8
 
 arraydestroy.body132.i:                           ; preds = %arraydestroy.body132.i.preheader, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i
   %arraydestroy.elementPast133.i = phi ptr [ %arraydestroy.element134.i, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i ], [ %add.ptr.i.i.i, %arraydestroy.body132.i.preheader ]
@@ -536,7 +536,7 @@ if.then.i.i.i142.i:                               ; preds = %arraydestroy.body13
 
 _ZNSt6vectorIdSaIdEED2Ev.exit144.i:               ; preds = %if.then.i.i.i142.i, %arraydestroy.body132.i
   %arraydestroy.done135.i = icmp eq ptr %arraydestroy.element134.i, %ref.tmp.i
-  br i1 %arraydestroy.done135.i, label %common.resume, label %arraydestroy.body132.i
+  br i1 %arraydestroy.done135.i, label %common.resume, label %arraydestroy.body132.i, !llvm.loop !9
 
 ehcleanup148.i:                                   ; preds = %lpad.i125.i, %lpad.i115.i, %lpad.i105.i, %lpad.i95.i, %lpad.i85.i, %lpad.i75.i, %lpad.i65.i, %lpad.i55.i, %lpad.i45.i, %lpad.i35.i, %lpad.i25.i, %lpad.i15.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %0, %lpad.i15.i ], [ %1, %lpad.i25.i ], [ %2, %lpad.i35.i ], [ %3, %lpad.i45.i ], [ %4, %lpad.i55.i ], [ %5, %lpad.i65.i ], [ %6, %lpad.i75.i ], [ %7, %lpad.i85.i ], [ %8, %lpad.i95.i ], [ %9, %lpad.i105.i ], [ %10, %lpad.i115.i ], [ %11, %lpad.i125.i ]
@@ -556,7 +556,7 @@ if.then.i.i.i146.i:                               ; preds = %arraydestroy.body15
 
 _ZNSt6vectorIdSaIdEED2Ev.exit148.i:               ; preds = %if.then.i.i.i146.i, %arraydestroy.body150.i
   %arraydestroy.done153.i = icmp eq ptr %arraydestroy.element152.i, %ref.tmp.i
-  br i1 %arraydestroy.done153.i, label %common.resume, label %arraydestroy.body150.i
+  br i1 %arraydestroy.done153.i, label %common.resume, label %arraydestroy.body150.i, !llvm.loop !10
 
 common.resume:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit148.i, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i, %_ZNSt6vectorIdSaIdEED2Ev.exit148.i17, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i113
   %common.resume.op = phi { ptr, i32 } [ %30, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i113 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i10, %_ZNSt6vectorIdSaIdEED2Ev.exit148.i17 ], [ %12, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIdSaIdEED2Ev.exit148.i ]
@@ -833,7 +833,7 @@ if.then.i.i.i.i123:                               ; preds = %arraydestroy.body.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i124:               ; preds = %if.then.i.i.i.i123, %arraydestroy.body.i119
   %arraydestroy.done.i125 = icmp eq ptr %arraydestroy.element.i121, %ref.tmp.i1
-  br i1 %arraydestroy.done.i125, label %__cxx_global_var_init.13.exit, label %arraydestroy.body.i119
+  br i1 %arraydestroy.done.i125, label %__cxx_global_var_init.13.exit, label %arraydestroy.body.i119, !llvm.loop !11
 
 arraydestroy.body132.i108:                        ; preds = %arraydestroy.body132.i108.preheader, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i113
   %arraydestroy.elementPast133.i109 = phi ptr [ %arraydestroy.element134.i110, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i113 ], [ %add.ptr.i.i.i102, %arraydestroy.body132.i108.preheader ]
@@ -848,7 +848,7 @@ if.then.i.i.i142.i112:                            ; preds = %arraydestroy.body13
 
 _ZNSt6vectorIdSaIdEED2Ev.exit144.i113:            ; preds = %if.then.i.i.i142.i112, %arraydestroy.body132.i108
   %arraydestroy.done135.i114 = icmp eq ptr %arraydestroy.element134.i110, %ref.tmp.i1
-  br i1 %arraydestroy.done135.i114, label %common.resume, label %arraydestroy.body132.i108
+  br i1 %arraydestroy.done135.i114, label %common.resume, label %arraydestroy.body132.i108, !llvm.loop !12
 
 ehcleanup148.i9:                                  ; preds = %lpad.i125.i97, %lpad.i115.i90, %lpad.i105.i83, %lpad.i95.i76, %lpad.i85.i69, %lpad.i75.i62, %lpad.i65.i55, %lpad.i55.i48, %lpad.i45.i41, %lpad.i35.i34, %lpad.i25.i27, %lpad.i15.i8
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i10 = phi { ptr, i32 } [ %18, %lpad.i15.i8 ], [ %19, %lpad.i25.i27 ], [ %20, %lpad.i35.i34 ], [ %21, %lpad.i45.i41 ], [ %22, %lpad.i55.i48 ], [ %23, %lpad.i65.i55 ], [ %24, %lpad.i75.i62 ], [ %25, %lpad.i85.i69 ], [ %26, %lpad.i95.i76 ], [ %27, %lpad.i105.i83 ], [ %28, %lpad.i115.i90 ], [ %29, %lpad.i125.i97 ]
@@ -868,7 +868,7 @@ if.then.i.i.i146.i16:                             ; preds = %arraydestroy.body15
 
 _ZNSt6vectorIdSaIdEED2Ev.exit148.i17:             ; preds = %if.then.i.i.i146.i16, %arraydestroy.body150.i12
   %arraydestroy.done153.i18 = icmp eq ptr %arraydestroy.element152.i14, %ref.tmp.i1
-  br i1 %arraydestroy.done153.i18, label %common.resume, label %arraydestroy.body150.i12
+  br i1 %arraydestroy.done153.i18, label %common.resume, label %arraydestroy.body150.i12, !llvm.loop !13
 
 __cxx_global_var_init.13.exit:                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i124
   %35 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev, ptr nonnull @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, ptr nonnull @__dso_handle) #13
@@ -909,6 +909,13 @@ attributes #16 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

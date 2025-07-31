@@ -191,13 +191,13 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  store ptr null, ptr %2, align 8, !tbaa !13
+  store ptr null, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store ptr null, ptr %3, align 8, !tbaa !13
+  store ptr null, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store ptr null, ptr %4, align 8, !tbaa !15
+  store ptr null, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr null, ptr %5, align 8, !tbaa !15
+  store ptr null, ptr %5, align 8, !tbaa !16
   store i1 false, ptr @docorrupt, align 4
   %6 = load ptr, ptr @cipher_list, align 8, !tbaa !9
   %7 = sext i32 %0 to i64
@@ -216,7 +216,7 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   br i1 %.not, label %116, label %18
 
 18:                                               ; preds = %1
-  %19 = load ptr, ptr %2, align 8, !tbaa !13
+  %19 = load ptr, ptr %2, align 8, !tbaa !14
   %20 = call i64 @SSL_CTX_ctrl(ptr noundef %19, i32 noundef 118, i64 noundef 1, ptr noundef null) #4
   %21 = icmp ne i64 %20, 0
   %22 = zext i1 %21 to i32
@@ -225,7 +225,7 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   br i1 %.not11, label %.loopexit, label %24
 
 24:                                               ; preds = %18
-  %25 = load ptr, ptr %3, align 8, !tbaa !13
+  %25 = load ptr, ptr %3, align 8, !tbaa !14
   %26 = load ptr, ptr @cipher_list, align 8, !tbaa !9
   %27 = getelementptr inbounds ptr, ptr %26, i64 %7
   %28 = load ptr, ptr %27, align 8, !tbaa !4
@@ -237,7 +237,7 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   br i1 %.not12, label %.loopexit, label %33
 
 33:                                               ; preds = %24
-  %34 = load ptr, ptr %3, align 8, !tbaa !13
+  %34 = load ptr, ptr %3, align 8, !tbaa !14
   %35 = call i32 @SSL_CTX_set_ciphersuites(ptr noundef %34, ptr noundef nonnull @.str.30) #4
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
@@ -246,7 +246,7 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   br i1 %.not13, label %.loopexit, label %39
 
 39:                                               ; preds = %33
-  %40 = load ptr, ptr %3, align 8, !tbaa !13
+  %40 = load ptr, ptr %3, align 8, !tbaa !14
   %41 = call ptr @SSL_CTX_get_ciphers(ptr noundef %40) #4
   %42 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 206, ptr noundef nonnull @.str.31, ptr noundef %41) #4
   %.not14 = icmp eq i32 %42, 0
@@ -265,7 +265,7 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   br i1 %.not16, label %.loopexit, label %49
 
 49:                                               ; preds = %46
-  %50 = load ptr, ptr %3, align 8, !tbaa !13
+  %50 = load ptr, ptr %3, align 8, !tbaa !14
   %51 = call i64 @SSL_CTX_ctrl(ptr noundef %50, i32 noundef 124, i64 noundef 771, ptr noundef null) #4
   %52 = icmp ne i64 %51, 0
   %53 = zext i1 %52 to i32
@@ -274,13 +274,13 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   br i1 %.not17, label %.loopexit, label %55
 
 55:                                               ; preds = %49
-  %56 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !17
+  %56 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !18
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %bio_f_tls_corrupt_filter.exit
 
 58:                                               ; preds = %55
   %59 = call ptr @BIO_meth_new(i32 noundef 640, ptr noundef nonnull @.str.42) #4
-  store ptr %59, ptr @method_tls_corrupt, align 8, !tbaa !17
+  store ptr %59, ptr @method_tls_corrupt, align 8, !tbaa !18
   %60 = icmp eq ptr %59, null
   br i1 %60, label %bio_f_tls_corrupt_filter.exit, label %61
 
@@ -290,37 +290,37 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   br i1 %.not.i, label %bio_f_tls_corrupt_filter.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !17
+  %64 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !18
   %65 = call i32 @BIO_meth_set_read(ptr noundef %64, ptr noundef nonnull @tls_corrupt_read) #4
   %.not2.i = icmp eq i32 %65, 0
   br i1 %.not2.i, label %bio_f_tls_corrupt_filter.exit, label %66
 
 66:                                               ; preds = %63
-  %67 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !17
+  %67 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !18
   %68 = call i32 @BIO_meth_set_puts(ptr noundef %67, ptr noundef nonnull @tls_corrupt_puts) #4
   %.not3.i = icmp eq i32 %68, 0
   br i1 %.not3.i, label %bio_f_tls_corrupt_filter.exit, label %69
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !17
+  %70 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !18
   %71 = call i32 @BIO_meth_set_gets(ptr noundef %70, ptr noundef nonnull @tls_corrupt_gets) #4
   %.not4.i = icmp eq i32 %71, 0
   br i1 %.not4.i, label %bio_f_tls_corrupt_filter.exit, label %72
 
 72:                                               ; preds = %69
-  %73 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !17
+  %73 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !18
   %74 = call i32 @BIO_meth_set_ctrl(ptr noundef %73, ptr noundef nonnull @tls_corrupt_ctrl) #4
   %.not5.i = icmp eq i32 %74, 0
   br i1 %.not5.i, label %bio_f_tls_corrupt_filter.exit, label %75
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !17
+  %76 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !18
   %77 = call i32 @BIO_meth_set_create(ptr noundef %76, ptr noundef nonnull @tls_corrupt_new) #4
   %.not6.i = icmp eq i32 %77, 0
   br i1 %.not6.i, label %bio_f_tls_corrupt_filter.exit, label %78
 
 78:                                               ; preds = %75
-  %79 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !17
+  %79 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !18
   %80 = call i32 @BIO_meth_set_destroy(ptr noundef %79, ptr noundef nonnull @tls_corrupt_free) #4
   %.not7.i = icmp eq i32 %80, 0
   %.pre.i = load ptr, ptr @method_tls_corrupt, align 8
@@ -335,8 +335,8 @@ bio_f_tls_corrupt_filter.exit:                    ; preds = %55, %58, %61, %63, 
   br i1 %.not18, label %.loopexit, label %83
 
 83:                                               ; preds = %bio_f_tls_corrupt_filter.exit
-  %84 = load ptr, ptr %2, align 8, !tbaa !13
-  %85 = load ptr, ptr %3, align 8, !tbaa !13
+  %84 = load ptr, ptr %2, align 8, !tbaa !14
+  %85 = load ptr, ptr %3, align 8, !tbaa !14
   %86 = call i32 @create_ssl_objects(ptr noundef %84, ptr noundef %85, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef %81) #4
   %87 = icmp ne i32 %86, 0
   %88 = zext i1 %87 to i32
@@ -345,8 +345,8 @@ bio_f_tls_corrupt_filter.exit:                    ; preds = %55, %58, %61, %63, 
   br i1 %.not19, label %.loopexit, label %90
 
 90:                                               ; preds = %83
-  %91 = load ptr, ptr %4, align 8, !tbaa !15
-  %92 = load ptr, ptr %5, align 8, !tbaa !15
+  %91 = load ptr, ptr %4, align 8, !tbaa !16
+  %92 = load ptr, ptr %5, align 8, !tbaa !16
   %93 = call i32 @create_ssl_connection(ptr noundef %91, ptr noundef %92, i32 noundef 0) #4
   %94 = icmp ne i32 %93, 0
   %95 = zext i1 %94 to i32
@@ -356,14 +356,14 @@ bio_f_tls_corrupt_filter.exit:                    ; preds = %55, %58, %61, %63, 
 
 97:                                               ; preds = %90
   store i1 true, ptr @docorrupt, align 4
-  %98 = load ptr, ptr %5, align 8, !tbaa !15
+  %98 = load ptr, ptr %5, align 8, !tbaa !16
   %99 = call i32 @SSL_write(ptr noundef %98, ptr noundef nonnull @test_ssl_corrupt.junk, i32 noundef 16000) #4
   %100 = call i32 @test_int_ge(ptr noundef nonnull @.str.14, i32 noundef 231, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.24, i32 noundef %99, i32 noundef 0) #4
   %.not21 = icmp eq i32 %100, 0
   br i1 %.not21, label %.loopexit, label %101
 
 101:                                              ; preds = %97
-  %102 = load ptr, ptr %4, align 8, !tbaa !15
+  %102 = load ptr, ptr %4, align 8, !tbaa !16
   %103 = call i32 @SSL_read(ptr noundef %102, ptr noundef nonnull @test_ssl_corrupt.junk, i32 noundef 16000) #4
   %104 = call i32 @test_int_lt(ptr noundef nonnull @.str.14, i32 noundef 234, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.24, i32 noundef %103, i32 noundef 0) #4
   %.not22 = icmp eq i32 %104, 0
@@ -386,17 +386,17 @@ bio_f_tls_corrupt_filter.exit:                    ; preds = %55, %58, %61, %63, 
   %.0.v.i = select i1 %.not.i24, i32 8388607, i32 2147483647
   %.0.i25 = and i32 %.0.v.i, %111
   %.not23 = icmp eq i32 %.0.i25, 281
-  br i1 %.not23, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %.not23, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %109, %101, %97, %90, %83, %bio_f_tls_corrupt_filter.exit, %49, %18, %24, %33, %39, %43, %46, %108
   %.09 = phi i32 [ 0, %108 ], [ 0, %101 ], [ 0, %97 ], [ 0, %90 ], [ 0, %83 ], [ 0, %bio_f_tls_corrupt_filter.exit ], [ 0, %49 ], [ 0, %46 ], [ 0, %43 ], [ 0, %39 ], [ 0, %33 ], [ 0, %24 ], [ 0, %18 ], [ 1, %109 ]
-  %112 = load ptr, ptr %4, align 8, !tbaa !15
+  %112 = load ptr, ptr %4, align 8, !tbaa !16
   call void @SSL_free(ptr noundef %112) #4
-  %113 = load ptr, ptr %5, align 8, !tbaa !15
+  %113 = load ptr, ptr %5, align 8, !tbaa !16
   call void @SSL_free(ptr noundef %113) #4
-  %114 = load ptr, ptr %2, align 8, !tbaa !13
+  %114 = load ptr, ptr %2, align 8, !tbaa !14
   call void @SSL_CTX_free(ptr noundef %114) #4
-  %115 = load ptr, ptr %3, align 8, !tbaa !13
+  %115 = load ptr, ptr %3, align 8, !tbaa !14
   call void @SSL_CTX_free(ptr noundef %115) #4
   br label %116
 
@@ -414,7 +414,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !17
+  %1 = load ptr, ptr @method_tls_corrupt, align 8, !tbaa !18
   tail call void @BIO_meth_free(ptr noundef %1) #4
   %2 = load ptr, ptr @cipher_list, align 8, !tbaa !9
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.14, i32 noundef 279) #4
@@ -503,9 +503,9 @@ define internal i32 @tls_corrupt_write(ptr noundef %0, ptr noundef %1, i32 nound
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %7, i64 %6
   %11 = getelementptr i8, ptr %10, i64 -1
-  %12 = load i8, ptr %11, align 1, !tbaa !20
+  %12 = load i8, ptr %11, align 1, !tbaa !21
   %13 = xor i8 %12, 1
-  store i8 %13, ptr %11, align 1, !tbaa !20
+  store i8 %13, ptr %11, align 1, !tbaa !21
   %14 = tail call i32 @BIO_write(ptr noundef %4, ptr noundef %7, i32 noundef %2) #4
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.14, i32 noundef 49) #4
   br label %17
@@ -628,13 +628,14 @@ attributes #4 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p2 omnipotent char", !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS13bio_method_st", !6, i64 0}
-!19 = distinct !{!19, !12}
-!20 = !{!7, !7, i64 0}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS13bio_method_st", !6, i64 0}
+!20 = distinct !{!20, !12, !13}
+!21 = !{!7, !7, i64 0}

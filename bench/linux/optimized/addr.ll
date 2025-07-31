@@ -205,7 +205,7 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noun
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 1280
   %54 = load ptr, ptr %53, align 8
-  call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54, ptr elementtype(i32) %54) #10, !srcloc !11
+  call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54, ptr elementtype(i32) %54) #10, !srcloc !12
   br label %58
 
 55:                                               ; preds = %45
@@ -504,7 +504,8 @@ attributes #10 = { nounwind }
 !5 = !{!"auto-init"}
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{!"branch_weights", i32 2000, i32 1}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i64 2156557081}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i64 2156557081}

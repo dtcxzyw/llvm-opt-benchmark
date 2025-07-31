@@ -4498,7 +4498,7 @@ for.body23:                                       ; preds = %for.cond.cleanup73,
 cond.true:                                        ; preds = %for.body23
   %22 = load ptr, ptr %noise_terrain25, align 8, !tbaa !56
   %result = getelementptr inbounds nuw i8, ptr %22, i64 80
-  %23 = load ptr, ptr %result, align 8, !tbaa !132
+  %23 = load ptr, ptr %result, align 8, !tbaa !133
   %idxprom = zext i32 %ni2d.1154 to i64
   %arrayidx = getelementptr inbounds nuw float, ptr %23, i64 %idxprom
   %24 = load float, ptr %arrayidx, align 4, !tbaa !41
@@ -4544,10 +4544,10 @@ if.then43:                                        ; preds = %land.lhs.true41
 
 if.end53:                                         ; preds = %if.then43, %land.lhs.true41, %if.else, %if.then30
   %stone_level.0 = phi i16 [ %sub36, %if.then30 ], [ %add, %if.then43 ], [ %21, %land.lhs.true41 ], [ %21, %if.else ]
-  %30 = load i16, ptr %Y, align 2, !tbaa !134
+  %30 = load i16, ptr %Y, align 2, !tbaa !135
   %sub58 = add i16 %30, -1
   %conv7.i = sext i16 %sub58 to i32
-  %31 = load i16, ptr %Y69, align 8, !tbaa !135
+  %31 = load i16, ptr %Y69, align 8, !tbaa !136
   %conv70145 = sext i16 %31 to i32
   %add71146 = add nsw i32 %conv70145, 1
   %cmp72.not147 = icmp slt i32 %add71146, %conv7.i
@@ -4557,24 +4557,24 @@ for.body74.preheader:                             ; preds = %if.end53
   %conv16.i = sext i16 %x.0153 to i32
   %32 = load ptr, ptr %vm, align 8, !tbaa !109
   %m_area55 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %33 = load i16, ptr %m_area55, align 2, !tbaa !136
+  %33 = load i16, ptr %m_area55, align 2, !tbaa !137
   %conv19.i = sext i16 %33 to i32
   %sub20.i = sub nsw i32 %conv16.i, %conv19.i
   %Z.i = getelementptr inbounds nuw i8, ptr %32, i64 12
-  %34 = load i16, ptr %Z.i, align 2, !tbaa !138
+  %34 = load i16, ptr %Z.i, align 2, !tbaa !139
   %conv2.i = sext i16 %34 to i32
   %sub.i = sub nsw i32 %conv.i, %conv2.i
   %Y.i = getelementptr inbounds nuw i8, ptr %32, i64 22
-  %35 = load i16, ptr %Y.i, align 2, !tbaa !139
+  %35 = load i16, ptr %Y.i, align 2, !tbaa !140
   %conv3.i = sext i16 %35 to i32
   %mul.i = mul nsw i32 %sub.i, %conv3.i
   %sub11.i = add nsw i32 %mul.i, %conv7.i
   %Y9.i = getelementptr inbounds nuw i8, ptr %32, i64 10
-  %36 = load i16, ptr %Y9.i, align 2, !tbaa !140
+  %36 = load i16, ptr %Y9.i, align 2, !tbaa !141
   %conv10.i = sext i16 %36 to i32
   %mul622.i = sub i32 %sub11.i, %conv10.i
   %m_cache_extent.i138 = getelementptr inbounds nuw i8, ptr %32, i64 20
-  %37 = load i16, ptr %m_cache_extent.i138, align 2, !tbaa !141
+  %37 = load i16, ptr %m_cache_extent.i138, align 2, !tbaa !142
   %conv5.i = sext i16 %37 to i32
   %add.i = mul i32 %mul622.i, %conv5.i
   %add21.i = add nsw i32 %sub20.i, %add.i
@@ -4590,7 +4590,7 @@ for.cond.cleanup73:                               ; preds = %for.cond.cleanup73.
   %inc112 = add i16 %x.0153, 1
   %inc113 = add i32 %ni2d.1154, 1
   %cmp21.not = icmp sgt i16 %inc112, %38
-  br i1 %cmp21.not, label %for.cond.cleanup22.loopexit, label %for.body23, !llvm.loop !142
+  br i1 %cmp21.not, label %for.cond.cleanup22.loopexit, label %for.body23, !llvm.loop !143
 
 for.body74:                                       ; preds = %if.end110, %for.body74.preheader
   %conv67151 = phi i32 [ %conv67, %if.end110 ], [ %conv7.i, %for.body74.preheader ]
@@ -4599,10 +4599,10 @@ for.body74:                                       ; preds = %if.end110, %for.bod
   %vi.0148 = phi i32 [ %add.i139, %if.end110 ], [ %add21.i, %for.body74.preheader ]
   %39 = load ptr, ptr %vm, align 8, !tbaa !109
   %m_data = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %40 = load ptr, ptr %m_data, align 8, !tbaa !143
+  %40 = load ptr, ptr %m_data, align 8, !tbaa !144
   %idxprom76 = zext i32 %vi.0148 to i64
   %arrayidx77 = getelementptr inbounds nuw %struct.MapNode, ptr %40, i64 %idxprom76
-  %41 = load i16, ptr %arrayidx77, align 4, !tbaa !145
+  %41 = load i16, ptr %arrayidx77, align 4, !tbaa !146
   %cmp80 = icmp eq i16 %41, 127
   br i1 %cmp80, label %if.then81, label %if.end110
 
@@ -4611,7 +4611,7 @@ if.then81:                                        ; preds = %for.body74
   br i1 %cmp84.not, label %if.else95, label %if.then85
 
 if.then85:                                        ; preds = %if.then81
-  store i32 %n_stone.sroa.0.0.insert.ext, ptr %arrayidx77, align 4, !tbaa.struct !147
+  store i32 %n_stone.sroa.0.0.insert.ext, ptr %arrayidx77, align 4, !tbaa.struct !148
   %spec.select = tail call i16 @llvm.smax.i16(i16 %y.0150, i16 %stone_surface_max_y.2149)
   br label %if.end110
 
@@ -4621,11 +4621,11 @@ if.else95:                                        ; preds = %if.then81
   br i1 %cmp97.not, label %if.else103, label %if.then98
 
 if.then98:                                        ; preds = %if.else95
-  store i32 %n_water.sroa.0.0.insert.ext, ptr %arrayidx77, align 4, !tbaa.struct !147
+  store i32 %n_water.sroa.0.0.insert.ext, ptr %arrayidx77, align 4, !tbaa.struct !148
   br label %if.end110
 
 if.else103:                                       ; preds = %if.else95
-  store i32 126, ptr %arrayidx77, align 4, !tbaa.struct !147
+  store i32 126, ptr %arrayidx77, align 4, !tbaa.struct !148
   br label %if.end110
 
 if.end110:                                        ; preds = %if.else103, %if.then98, %if.then85, %for.body74
@@ -4635,11 +4635,11 @@ if.end110:                                        ; preds = %if.else103, %if.the
   %add.i139 = add i32 %vi.0148, %conv1.i
   %inc = add i16 %y.0150, 1
   %conv67 = sext i16 %inc to i32
-  %44 = load i16, ptr %Y69, align 8, !tbaa !135
+  %44 = load i16, ptr %Y69, align 8, !tbaa !136
   %conv70 = sext i16 %44 to i32
   %add71 = add nsw i32 %conv70, 1
   %cmp72.not = icmp slt i32 %add71, %conv67
-  br i1 %cmp72.not, label %for.cond.cleanup73.loopexit, label %for.body74, !llvm.loop !148
+  br i1 %cmp72.not, label %for.cond.cleanup73.loopexit, label %for.body74, !llvm.loop !149
 }
 
 declare void @_ZN6Mapgen15updateHeightmapEN3irr4core8vector3dIsEES3_(ptr noundef nonnull align 8 dereferenceable(200), i48, i48) local_unnamed_addr #0
@@ -4953,7 +4953,7 @@ if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZL19accessDeniedStringsB5cxx11
-  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i
+  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i, !llvm.loop !150
 
 eh.resume.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
@@ -5151,23 +5151,25 @@ attributes #16 = { nounwind }
 !126 = !{!21, !17, i64 220}
 !127 = !{!21, !17, i64 226}
 !128 = !{!21, !17, i64 222}
-!129 = distinct !{!129, !130, !131}
+!129 = distinct !{!129, !130, !131, !132}
 !130 = !{!"llvm.loop.mustprogress"}
 !131 = !{!"llvm.loop.unswitch.partial.disable"}
-!132 = !{!133, !7, i64 80}
-!133 = !{!"_ZTS5Noise", !35, i64 0, !18, i64 40, !18, i64 44, !18, i64 48, !18, i64 52, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80}
-!134 = !{!21, !17, i64 218}
-!135 = !{!21, !17, i64 224}
-!136 = !{!137, !17, i64 0}
-!137 = !{!"_ZTS9VoxelArea", !23, i64 0, !23, i64 6, !23, i64 12}
-!138 = !{!137, !17, i64 4}
-!139 = !{!137, !17, i64 14}
-!140 = !{!137, !17, i64 2}
-!141 = !{!137, !17, i64 12}
-!142 = distinct !{!142, !130}
-!143 = !{!144, !7, i64 32}
-!144 = !{!"_ZTS16VoxelManipulator", !137, i64 8, !7, i64 32, !7, i64 40}
-!145 = !{!146, !17, i64 0}
-!146 = !{!"_ZTS7MapNode", !17, i64 0, !8, i64 2, !8, i64 3}
-!147 = !{i64 0, i64 2, !44, i64 2, i64 1, !76, i64 3, i64 1, !76}
-!148 = distinct !{!148, !130}
+!132 = !{!"llvm.loop.estimated_trip_count"}
+!133 = !{!134, !7, i64 80}
+!134 = !{!"_ZTS5Noise", !35, i64 0, !18, i64 40, !18, i64 44, !18, i64 48, !18, i64 52, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80}
+!135 = !{!21, !17, i64 218}
+!136 = !{!21, !17, i64 224}
+!137 = !{!138, !17, i64 0}
+!138 = !{!"_ZTS9VoxelArea", !23, i64 0, !23, i64 6, !23, i64 12}
+!139 = !{!138, !17, i64 4}
+!140 = !{!138, !17, i64 14}
+!141 = !{!138, !17, i64 2}
+!142 = !{!138, !17, i64 12}
+!143 = distinct !{!143, !130, !132}
+!144 = !{!145, !7, i64 32}
+!145 = !{!"_ZTS16VoxelManipulator", !138, i64 8, !7, i64 32, !7, i64 40}
+!146 = !{!147, !17, i64 0}
+!147 = !{!"_ZTS7MapNode", !17, i64 0, !8, i64 2, !8, i64 3}
+!148 = !{i64 0, i64 2, !44, i64 2, i64 1, !76, i64 3, i64 1, !76}
+!149 = distinct !{!149, !130, !132}
+!150 = distinct !{!150, !132}

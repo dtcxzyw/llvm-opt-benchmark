@@ -381,7 +381,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17hdae4227726dd8d3aE.exit: ; pre
   %.sroa.11.0.be = phi i64 [ %90, %_ZN4core5slice4sort8unstable9quicksort9partition17h14d2651336d59f12E.exit ], [ %150, %_ZN4core5slice4sort8unstable9quicksort9partition17hdae4227726dd8d3aE.exit ]
   %.sroa.0.0.be = phi ptr [ %88, %_ZN4core5slice4sort8unstable9quicksort9partition17h14d2651336d59f12E.exit ], [ %151, %_ZN4core5slice4sort8unstable9quicksort9partition17hdae4227726dd8d3aE.exit ]
   %152 = icmp ult i64 %.sroa.11.0.be, 33
-  br i1 %152, label %._crit_edge, label %19
+  br i1 %152, label %._crit_edge, label %19, !llvm.loop !56
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -492,3 +492,5 @@ attributes #8 = { cold noreturn nounwind }
 !53 = distinct !{!53, !54, !"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6e42df2d2e87c39bE: argument 0"}
 !54 = distinct !{!54, !"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6e42df2d2e87c39bE"}
 !55 = !{!53, !31}
+!56 = distinct !{!56, !57}
+!57 = !{!"llvm.loop.estimated_trip_count"}

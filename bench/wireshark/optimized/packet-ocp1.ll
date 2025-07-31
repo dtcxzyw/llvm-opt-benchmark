@@ -1194,7 +1194,7 @@ dissect_ocp1_msg_notification.exit.i:             ; preds = %231, %proto_item_se
   %237 = add i32 %157, %.1136155.i
   %238 = add i32 %.1156.i, 1
   %239 = icmp ult i32 %237, %67
-  br i1 %239, label %.lr.ph157.i, label %.loopexit.i, !llvm.loop !8
+  br i1 %239, label %.lr.ph157.i, label %.loopexit.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.preheader151.i, %dissect_ocp1_msg_response.exit.i
   %.2154.i = phi i32 [ %293, %dissect_ocp1_msg_response.exit.i ], [ 1, %.preheader151.i ]
@@ -1309,7 +1309,7 @@ dissect_ocp1_msg_response.exit.i:                 ; preds = %.cont75.thread.i.i,
   %292 = add i32 %240, %.2137153.i
   %293 = add i32 %.2154.i, 1
   %294 = icmp ult i32 %292, %65
-  br i1 %294, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !9
+  br i1 %294, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !10
 
 295:                                              ; preds = %49
   %296 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %62, i32 noundef 0)
@@ -1366,7 +1366,7 @@ dissect_ocp1_pdu.exit:                            ; preds = %26, %28, %.loopexit
   %.0132.i = phi i32 [ %.023, %28 ], [ %.2134.i, %.loopexit.i ], [ %.023, %26 ]
   %.not37 = icmp eq i32 %.0132.i, 0
   %310 = add i32 %.0132.i, %.023
-  br i1 %.not37, label %.loopexit, label %23, !llvm.loop !10
+  br i1 %.not37, label %.loopexit, label %23, !llvm.loop !11
 
 311:                                              ; preds = %23
   %.not = icmp eq i32 %.sroa.0.0, 0
@@ -1505,7 +1505,7 @@ define internal i32 @get_ocp1_message_len(ptr readnone captures(none) %0, ptr no
   %12 = icmp sgt i32 %11, 10
   %13 = icmp ugt i32 %8, 8
   %or.cond.not = and i1 %12, %13
-  br i1 %or.cond.not, label %5, label %14, !llvm.loop !11
+  br i1 %or.cond.not, label %5, label %14, !llvm.loop !12
 
 14:                                               ; preds = %5
   ret i32 %9
@@ -2102,7 +2102,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %326 = add i32 %325, %324
   %327 = add nuw nsw i32 %.0362366.i, 1
   %exitcond.not.i = icmp eq i32 %327, %312
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge374.i.critedge:                        ; preds = %310
   %328 = load i32, ptr @ett_ocp1_params, align 4
@@ -2134,7 +2134,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %344 = call fastcc i32 @decode_params_OcaManagerDescriptor(ptr noundef %0, i32 noundef %.1371.i, ptr noundef %343)
   %345 = add i32 %344, %.1371.i
   %exitcond378.not.i = icmp eq i32 %342, %312
-  br i1 %exitcond378.not.i, label %._crit_edge374.i, label %.lr.ph373.i, !llvm.loop !13
+  br i1 %exitcond378.not.i, label %._crit_edge374.i, label %.lr.ph373.i, !llvm.loop !14
 
 346:                                              ; preds = %308
   %347 = icmp ne i16 %5, 20
@@ -2316,7 +2316,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #6
   %461 = add i32 %.0127130.i, 14
   %exitcond.not.i137 = icmp eq i32 %441, %432
-  br i1 %exitcond.not.i137, label %._crit_edge.i138, label %.lr.ph.i136, !llvm.loop !14
+  br i1 %exitcond.not.i137, label %._crit_edge.i138, label %.lr.ph.i136, !llvm.loop !15
 
 462:                                              ; preds = %427
   %463 = icmp eq i16 %5, 3
@@ -2817,7 +2817,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %816 = call ptr @proto_tree_add_item(ptr noundef %814, i32 noundef %815, ptr noundef %0, i32 noundef %.1148.i, i32 noundef 4, i32 noundef 0)
   %817 = add i32 %.1148.i, 4
   %exitcond155.not.i = icmp eq i32 %813, %804
-  br i1 %exitcond155.not.i, label %._crit_edge151.i, label %.lr.ph150.i, !llvm.loop !15
+  br i1 %exitcond155.not.i, label %._crit_edge151.i, label %.lr.ph150.i, !llvm.loop !16
 
 818:                                              ; preds = %800
   %819 = icmp ne i16 %5, 4
@@ -2857,7 +2857,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %834 = call ptr @proto_tree_add_item(ptr noundef %832, i32 noundef %833, ptr noundef %0, i32 noundef %.2146.i, i32 noundef 4, i32 noundef 0)
   %835 = add i32 %.2146.i, 4
   %exitcond.not.i162 = icmp eq i32 %831, %822
-  br i1 %exitcond.not.i162, label %._crit_edge.i163, label %.lr.ph.i161, !llvm.loop !16
+  br i1 %exitcond.not.i162, label %._crit_edge.i163, label %.lr.ph.i161, !llvm.loop !17
 
 836:                                              ; preds = %818
   %837 = icmp eq i16 %5, 5
@@ -2949,7 +2949,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %882 = call ptr @proto_tree_add_item(ptr noundef %880, i32 noundef %881, ptr noundef %0, i32 noundef %.0150.i, i32 noundef 4, i32 noundef 0)
   %883 = add i32 %.0150.i, 4
   %exitcond163.not.i = icmp eq i32 %879, %870
-  br i1 %exitcond163.not.i, label %._crit_edge153.i, label %.lr.ph152.i, !llvm.loop !17
+  br i1 %exitcond163.not.i, label %._crit_edge153.i, label %.lr.ph152.i, !llvm.loop !18
 
 884:                                              ; preds = %865
   %885 = icmp ne i16 %5, 2
@@ -2989,7 +2989,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %900 = call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %899, ptr noundef %0, i32 noundef %.2144.i, i32 noundef 4, i32 noundef 0)
   %901 = add i32 %.2144.i, 4
   %exitcond162.not.i = icmp eq i32 %897, %888
-  br i1 %exitcond162.not.i, label %._crit_edge147.i, label %.lr.ph146.i, !llvm.loop !18
+  br i1 %exitcond162.not.i, label %._crit_edge147.i, label %.lr.ph146.i, !llvm.loop !19
 
 902:                                              ; preds = %884
   %903 = icmp ne i16 %5, 3
@@ -3029,7 +3029,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %918 = call ptr @proto_tree_add_item(ptr noundef %916, i32 noundef %917, ptr noundef %0, i32 noundef %.3138.i, i32 noundef 4, i32 noundef 0)
   %919 = add i32 %.3138.i, 4
   %exitcond161.not.i = icmp eq i32 %915, %906
-  br i1 %exitcond161.not.i, label %._crit_edge141.i, label %.lr.ph140.i, !llvm.loop !19
+  br i1 %exitcond161.not.i, label %._crit_edge141.i, label %.lr.ph140.i, !llvm.loop !20
 
 920:                                              ; preds = %902
   %921 = icmp ne i16 %5, 4
@@ -3069,7 +3069,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %936 = call ptr @proto_tree_add_item(ptr noundef %934, i32 noundef %935, ptr noundef %0, i32 noundef %.4136.i, i32 noundef 4, i32 noundef 0)
   %937 = add i32 %.4136.i, 4
   %exitcond.not.i180 = icmp eq i32 %933, %924
-  br i1 %exitcond.not.i180, label %._crit_edge.i181, label %.lr.ph.i179, !llvm.loop !20
+  br i1 %exitcond.not.i180, label %._crit_edge.i181, label %.lr.ph.i179, !llvm.loop !21
 
 938:                                              ; preds = %920
   %939 = load i32, ptr @hf_ocp1_params, align 4
@@ -3115,7 +3115,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %958 = call ptr @proto_tree_add_item(ptr noundef %956, i32 noundef %957, ptr noundef %0, i32 noundef %.0112.i, i32 noundef 4, i32 noundef 0)
   %959 = add i32 %.0112.i, 4
   %exitcond122.not.i = icmp eq i32 %955, %946
-  br i1 %exitcond122.not.i, label %._crit_edge115.i, label %.lr.ph114.i, !llvm.loop !21
+  br i1 %exitcond122.not.i, label %._crit_edge115.i, label %.lr.ph114.i, !llvm.loop !22
 
 960:                                              ; preds = %941
   %961 = icmp ne i16 %5, 2
@@ -3154,7 +3154,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %975 = call ptr @proto_tree_add_item(ptr noundef %973, i32 noundef %974, ptr noundef %0, i32 noundef %.2106.i, i32 noundef 1, i32 noundef 0)
   %976 = add i32 %.2106.i, 1
   %exitcond121.not.i = icmp eq i32 %972, %964
-  br i1 %exitcond121.not.i, label %._crit_edge109.i, label %.lr.ph108.i, !llvm.loop !22
+  br i1 %exitcond121.not.i, label %._crit_edge109.i, label %.lr.ph108.i, !llvm.loop !23
 
 977:                                              ; preds = %960
   %978 = icmp ne i16 %5, 3
@@ -3194,7 +3194,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %993 = call ptr @proto_tree_add_item(ptr noundef %991, i32 noundef %992, ptr noundef %0, i32 noundef %.3104.i, i32 noundef 4, i32 noundef 0)
   %994 = add i32 %.3104.i, 4
   %exitcond.not.i195 = icmp eq i32 %990, %981
-  br i1 %exitcond.not.i195, label %._crit_edge.i196, label %.lr.ph.i194, !llvm.loop !23
+  br i1 %exitcond.not.i195, label %._crit_edge.i196, label %.lr.ph.i194, !llvm.loop !24
 
 995:                                              ; preds = %977
   %996 = load i32, ptr @hf_ocp1_params, align 4
@@ -3349,7 +3349,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1069 = call ptr @proto_tree_add_item(ptr noundef %1062, i32 noundef %1068, ptr noundef %0, i32 noundef %1067, i32 noundef 4, i32 noundef 0)
   %1070 = add i32 %.1160.i, 11
   %exitcond.not.i223 = icmp eq i32 %1061, %1052
-  br i1 %exitcond.not.i223, label %._crit_edge.i224, label %.lr.ph.i222, !llvm.loop !24
+  br i1 %exitcond.not.i223, label %._crit_edge.i224, label %.lr.ph.i222, !llvm.loop !25
 
 1071:                                             ; preds = %1048
   %1072 = icmp ne i16 %5, 5
@@ -3460,7 +3460,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1118 = call ptr @proto_tree_add_item(ptr noundef %1116, i32 noundef %1117, ptr noundef %0, i32 noundef %.1130.i, i32 noundef 4, i32 noundef 0)
   %1119 = add i32 %.1130.i, 4
   %exitcond.not.i248 = icmp eq i32 %1115, %1106
-  br i1 %exitcond.not.i248, label %._crit_edge.i249, label %.lr.ph.i246, !llvm.loop !25
+  br i1 %exitcond.not.i248, label %._crit_edge.i249, label %.lr.ph.i246, !llvm.loop !26
 
 1120:                                             ; preds = %1102
   %1121 = icmp ne i16 %5, 4
@@ -3808,7 +3808,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1306 = add i32 %.reass439.i, %1305
   %1307 = add nuw nsw i32 %.0408441.i, 1
   %exitcond.not.i256 = icmp eq i32 %1307, %1294
-  br i1 %exitcond.not.i256, label %._crit_edge.i257, label %.lr.ph.i254, !llvm.loop !26
+  br i1 %exitcond.not.i256, label %._crit_edge.i257, label %.lr.ph.i254, !llvm.loop !27
 
 ._crit_edge.i257:                                 ; preds = %1303
   %1308 = load i32, ptr @ett_ocp1_params, align 4
@@ -3849,7 +3849,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1334 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1313, ptr noundef %1331)
   %1335 = add i32 %1334, %1313
   %exitcond454.not.i = icmp eq i32 %1330, %1294
-  br i1 %exitcond454.not.i, label %._crit_edge450.i, label %.lr.ph449.i, !llvm.loop !27
+  br i1 %exitcond454.not.i, label %._crit_edge450.i, label %.lr.ph449.i, !llvm.loop !28
 
 .thread423.i:                                     ; preds = %.lr.ph.i254, %.lr.ph449.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
@@ -4021,7 +4021,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1423 = add i32 %.reass56.i, %1422
   %1424 = add nuw nsw i32 %.05358.i, 1
   %exitcond.not.i264 = icmp eq i32 %1424, %1415
-  br i1 %exitcond.not.i264, label %._crit_edge.i265, label %.lr.ph.i262, !llvm.loop !28
+  br i1 %exitcond.not.i264, label %._crit_edge.i265, label %.lr.ph.i262, !llvm.loop !29
 
 ._crit_edge64.i.critedge:                         ; preds = %1413
   %1425 = load i32, ptr @ett_ocp1_params, align 4
@@ -4046,7 +4046,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1435 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1434, ptr noundef %1431, ptr noundef nonnull @.str.466)
   %1436 = add i32 %1435, %1434
   %exitcond68.not.i = icmp eq i32 %1430, %1415
-  br i1 %exitcond68.not.i, label %._crit_edge64.i, label %.lr.ph63.i, !llvm.loop !29
+  br i1 %exitcond68.not.i, label %._crit_edge64.i, label %.lr.ph63.i, !llvm.loop !30
 
 1437:                                             ; preds = %1409
   %1438 = load i32, ptr @hf_ocp1_params, align 4
@@ -4175,7 +4175,7 @@ define internal fastcc noundef i32 @decode_params_OcaClassID(ptr noundef %0, i32
   %18 = add i32 %.02426, 2
   %19 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %19, %9
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !31
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4445,28 +4445,29 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}

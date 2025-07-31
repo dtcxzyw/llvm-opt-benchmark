@@ -191,7 +191,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ %56, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv
-  %58 = load i8, ptr %57, align 1, !tbaa !16
+  %58 = load i8, ptr %57, align 1, !tbaa !17
   switch i8 %58, label %._crit_edge [
     i8 10, label %59
     i8 13, label %59
@@ -200,13 +200,13 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   ]
 
 59:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  store i8 0, ptr %57, align 1, !tbaa !16
+  store i8 0, ptr %57, align 1, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %60 = icmp sgt i64 %indvars.iv, 0
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %59, %.lr.ph, %.lr.ph141
-  %61 = load i8, ptr %47, align 1, !tbaa !16
+  %61 = load i8, ptr %47, align 1, !tbaa !17
   switch i8 %61, label %62 [
     i8 0, label %75
     i8 10, label %75
@@ -245,7 +245,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 75:                                               ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %73
   %76 = call ptr @fgets(ptr noundef nonnull %47, i32 noundef %45, ptr noundef nonnull %19)
   %.not125 = icmp eq ptr %76, null
-  br i1 %.not125, label %.loopexit, label %.lr.ph141, !llvm.loop !18
+  br i1 %.not125, label %.loopexit, label %.lr.ph141, !llvm.loop !19
 
 .loopexit:                                        ; preds = %75, %51, %43
   call void @rewind(ptr noundef nonnull %19)
@@ -273,7 +273,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %86
   %indvars.iv154 = phi i64 [ %83, %.lr.ph145.preheader ], [ %indvars.iv.next155, %86 ]
   %84 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv154
-  %85 = load i8, ptr %84, align 1, !tbaa !16
+  %85 = load i8, ptr %84, align 1, !tbaa !17
   switch i8 %85, label %._crit_edge146 [
     i8 10, label %86
     i8 13, label %86
@@ -282,13 +282,13 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   ]
 
 86:                                               ; preds = %.lr.ph145, %.lr.ph145, %.lr.ph145, %.lr.ph145
-  store i8 0, ptr %84, align 1, !tbaa !16
+  store i8 0, ptr %84, align 1, !tbaa !17
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, -1
   %87 = icmp sgt i64 %indvars.iv154, 0
-  br i1 %87, label %.lr.ph145, label %._crit_edge146, !llvm.loop !19
+  br i1 %87, label %.lr.ph145, label %._crit_edge146, !llvm.loop !20
 
 ._crit_edge146:                                   ; preds = %86, %.lr.ph145, %79
-  %88 = load i8, ptr %47, align 1, !tbaa !16
+  %88 = load i8, ptr %47, align 1, !tbaa !17
   switch i8 %88, label %89 [
     i8 0, label %116
     i8 10, label %116
@@ -333,7 +333,7 @@ Abc_UtilStrsav.exit:                              ; preds = %89
   %106 = load volatile i32, ptr @nThreadsRunning, align 4, !tbaa !8
   %107 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #16
   %108 = icmp slt i32 %106, %78
-  br i1 %108, label %109, label %104
+  br i1 %108, label %109, label %104, !llvm.loop !21
 
 109:                                              ; preds = %104
   %110 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mutex) #16
@@ -349,7 +349,7 @@ Abc_UtilStrsav.exit:                              ; preds = %89
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %117 = call ptr @fgets(ptr noundef nonnull %47, i32 noundef %45, ptr noundef nonnull %19)
   %.not126 = icmp eq ptr %117, null
-  br i1 %.not126, label %._crit_edge152, label %79, !llvm.loop !20
+  br i1 %.not126, label %._crit_edge152, label %79, !llvm.loop !22
 
 ._crit_edge152:                                   ; preds = %116, %.loopexit
   %.not127 = icmp eq ptr %50, null
@@ -376,7 +376,7 @@ Abc_UtilStrsav.exit:                              ; preds = %89
   %125 = load volatile i32, ptr @nThreadsRunning, align 4, !tbaa !8
   %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #16
   %127 = icmp eq i32 %125, 0
-  br i1 %127, label %128, label %123
+  br i1 %127, label %128, label %123, !llvm.loop !23
 
 128:                                              ; preds = %123
   %129 = load ptr, ptr @stdout, align 8, !tbaa !3
@@ -474,7 +474,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !3, !noalias !21
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !3, !noalias !24
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #16
   br label %17
 
@@ -547,13 +547,16 @@ attributes #21 = { nounwind allocsize(0) }
 !11 = !{!"timespec", !12, i64 0, !12, i64 8}
 !12 = !{!"long", !6, i64 0}
 !13 = !{!11, !12, i64 8}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"vprintf: argument 0"}
-!23 = distinct !{!23, !"vprintf"}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!6, !6, i64 0}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !15, !16}
+!23 = distinct !{!23, !16}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"vprintf: argument 0"}
+!26 = distinct !{!26, !"vprintf"}

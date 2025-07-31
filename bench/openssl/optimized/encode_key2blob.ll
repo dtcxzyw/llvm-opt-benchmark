@@ -79,7 +79,7 @@ define internal i32 @ec2blob_encode(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
-  store ptr null, ptr %8, align 8, !tbaa !9
+  store ptr null, ptr %8, align 8, !tbaa !10
   %11 = call i32 @i2o_ECPublicKey(ptr noundef %2, ptr noundef nonnull %8) #5
   %12 = icmp sgt i32 %11, 0
   %13 = load ptr, ptr %8, align 8
@@ -99,7 +99,7 @@ define internal i32 @ec2blob_encode(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 key2blob_encode.exit:                             ; preds = %10, %15, %18
   %.0.i = phi i32 [ 0, %10 ], [ %19, %18 ], [ 0, %15 ]
-  %21 = load ptr, ptr %8, align 8, !tbaa !9
+  %21 = load ptr, ptr %8, align 8, !tbaa !10
   call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 97) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
   br label %22
@@ -164,7 +164,7 @@ define internal i32 @sm22blob_encode(ptr noundef %0, ptr noundef %1, ptr noundef
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
-  store ptr null, ptr %8, align 8, !tbaa !9
+  store ptr null, ptr %8, align 8, !tbaa !10
   %11 = call i32 @i2o_ECPublicKey(ptr noundef %2, ptr noundef nonnull %8) #5
   %12 = icmp sgt i32 %11, 0
   %13 = load ptr, ptr %8, align 8
@@ -184,7 +184,7 @@ define internal i32 @sm22blob_encode(ptr noundef %0, ptr noundef %1, ptr noundef
 
 key2blob_encode.exit:                             ; preds = %10, %15, %18
   %.0.i = phi i32 [ 0, %10 ], [ %19, %18 ], [ 0, %15 ]
-  %21 = load ptr, ptr %8, align 8, !tbaa !9
+  %21 = load ptr, ptr %8, align 8, !tbaa !10
   call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 97) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
   br label %22
@@ -236,8 +236,9 @@ attributes #5 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}

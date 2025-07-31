@@ -36,7 +36,7 @@ define dso_local void @PHP_FNV132Update(ptr noundef captures(none) %0, ptr nound
   %9 = zext i8 %8 to i32
   %10 = xor i32 %6, %9
   %11 = icmp ult ptr %7, %5
-  br i1 %11, label %.lr.ph22.i, label %fnv_32_buf.exit
+  br i1 %11, label %.lr.ph22.i, label %fnv_32_buf.exit, !llvm.loop !10
 
 fnv_32_buf.exit:                                  ; preds = %.lr.ph22.i, %3
   %.1.i = phi i32 [ %4, %3 ], [ %10, %.lr.ph22.i ]
@@ -57,7 +57,7 @@ define dso_local void @PHP_FNV132Final(ptr noundef writeonly captures(none) %0, 
   store i8 %6, ptr %7, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %8, label %3
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !12
 
 8:                                                ; preds = %3
   ret void
@@ -85,7 +85,7 @@ define dso_local void @PHP_FNV1a32Update(ptr noundef captures(none) %0, ptr noun
   %9 = xor i32 %.219.i, %8
   %10 = mul i32 %9, 16777619
   %11 = icmp ult ptr %6, %5
-  br i1 %11, label %.lr.ph.i, label %fnv_32_buf.exit
+  br i1 %11, label %.lr.ph.i, label %fnv_32_buf.exit, !llvm.loop !13
 
 fnv_32_buf.exit:                                  ; preds = %.lr.ph.i, %3
   %.1.i = phi i32 [ %4, %3 ], [ %10, %.lr.ph.i ]
@@ -95,13 +95,13 @@ fnv_32_buf.exit:                                  ; preds = %.lr.ph.i, %3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @PHP_FNV164Init(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr readnone captures(none) %1) #0 {
-  store i64 -3750763034362895579, ptr %0, align 8, !tbaa !10
+  store i64 -3750763034362895579, ptr %0, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @PHP_FNV164Update(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) #1 {
-  %4 = load i64, ptr %0, align 8, !tbaa !10
+  %4 = load i64, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not24.i = icmp eq i64 %2, 0
   br i1 %.not24.i, label %fnv_64_buf.exit, label %.lr.ph22.i
@@ -115,11 +115,11 @@ define dso_local void @PHP_FNV164Update(ptr noundef captures(none) %0, ptr nound
   %9 = zext i8 %8 to i64
   %10 = xor i64 %6, %9
   %11 = icmp ult ptr %7, %5
-  br i1 %11, label %.lr.ph22.i, label %fnv_64_buf.exit
+  br i1 %11, label %.lr.ph22.i, label %fnv_64_buf.exit, !llvm.loop !17
 
 fnv_64_buf.exit:                                  ; preds = %.lr.ph22.i, %3
   %.1.i = phi i64 [ %4, %3 ], [ %10, %.lr.ph22.i ]
-  store i64 %.1.i, ptr %0, align 8, !tbaa !10
+  store i64 %.1.i, ptr %0, align 8, !tbaa !14
   ret void
 }
 
@@ -136,7 +136,7 @@ define dso_local void @PHP_FNV164Final(ptr noundef writeonly captures(none) %0, 
   store i8 %6, ptr %7, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %8, label %3
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !18
 
 8:                                                ; preds = %3
   ret void
@@ -144,7 +144,7 @@ define dso_local void @PHP_FNV164Final(ptr noundef writeonly captures(none) %0, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @PHP_FNV1a64Update(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) #1 {
-  %4 = load i64, ptr %0, align 8, !tbaa !10
+  %4 = load i64, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not24.i = icmp eq i64 %2, 0
   br i1 %.not24.i, label %fnv_64_buf.exit, label %.lr.ph.i
@@ -158,11 +158,11 @@ define dso_local void @PHP_FNV1a64Update(ptr noundef captures(none) %0, ptr noun
   %9 = xor i64 %.219.i, %8
   %10 = mul i64 %9, 1099511628211
   %11 = icmp ult ptr %6, %5
-  br i1 %11, label %.lr.ph.i, label %fnv_64_buf.exit
+  br i1 %11, label %.lr.ph.i, label %fnv_64_buf.exit, !llvm.loop !19
 
 fnv_64_buf.exit:                                  ; preds = %.lr.ph.i, %3
   %.1.i = phi i64 [ %4, %3 ], [ %10, %.lr.ph.i ]
-  store i64 %.1.i, ptr %0, align 8, !tbaa !10
+  store i64 %.1.i, ptr %0, align 8, !tbaa !14
   ret void
 }
 
@@ -182,6 +182,13 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!7, !7, i64 0}
-!10 = !{!11, !12, i64 0}
-!11 = !{!"", !12, i64 0}
-!12 = !{!"long", !7, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"", !16, i64 0}
+!16 = !{!"long", !7, i64 0}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}

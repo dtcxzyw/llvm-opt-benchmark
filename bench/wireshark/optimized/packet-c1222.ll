@@ -660,7 +660,7 @@ define hidden void @proto_reg_handoff_c1222() #0 {
   %17 = load ptr, ptr %1, align 8
   %18 = load i32, ptr @c1222_baseoid_len, align 4
   %19 = zext i32 %18 to i64
-  %20 = call ptr @__memcpy_chk(ptr noundef %16, ptr noundef %17, i64 noundef range(i64 0, 4294967296) %19, i64 noundef %15) #11, !alias.scope !10
+  %20 = call ptr @__memcpy_chk(ptr noundef %16, ptr noundef %17, i64 noundef range(i64 0, 4294967296) %19, i64 noundef %15) #11, !alias.scope !11
   %21 = load ptr, ptr %1, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %21)
   br label %27
@@ -885,7 +885,7 @@ define internal i32 @dissect_c1222_Called_AP_title(i1 zeroext %0, ptr noundef %1
   %30 = select i1 %29, i64 0, i64 %28
   %31 = icmp ne i64 %30, -1
   tail call void @llvm.assume(i1 %31)
-  %32 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef %25, i64 noundef range(i64 0, 4294967296) %27, i64 noundef %30) #11, !alias.scope !14
+  %32 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef %25, i64 noundef range(i64 0, 4294967296) %27, i64 noundef %30) #11, !alias.scope !15
   %33 = add i32 %26, 2
   %34 = zext i32 %33 to i64
   %35 = getelementptr i8, ptr %19, i64 %34
@@ -964,7 +964,7 @@ define internal i32 @dissect_c1222_Calling_AP_title(i1 zeroext %0, ptr noundef %
   %30 = select i1 %29, i64 0, i64 %28
   %31 = icmp ne i64 %30, -1
   tail call void @llvm.assume(i1 %31)
-  %32 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef %25, i64 noundef range(i64 0, 4294967296) %27, i64 noundef %30) #11, !alias.scope !18
+  %32 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef %25, i64 noundef range(i64 0, 4294967296) %27, i64 noundef %30) #11, !alias.scope !19
   %33 = add i32 %26, 2
   %34 = zext i32 %33 to i64
   %35 = getelementptr i8, ptr %19, i64 %34
@@ -1567,7 +1567,7 @@ ber_len_ok.exit.i:                                ; preds = %128, %126, %121, %1
   %317 = add i32 %.079.i.i.i, 1
   %318 = add nsw i32 %.0610.i.i.i, -1
   %.not.i.i.i = icmp eq i32 %318, 0
-  br i1 %.not.i.i.i, label %c1222_cksum.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !22
+  br i1 %.not.i.i.i, label %c1222_cksum.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 319:                                              ; preds = %306
   %.not8.i.i.i = icmp eq i16 %.0343.i.i, 0
@@ -1582,7 +1582,7 @@ ber_len_ok.exit.i:                                ; preds = %128, %126, %121, %1
   %322 = add i32 %.079.i358.i.i, 1
   %323 = add nsw i32 %.0610.i357.i.i, -1
   %.not.i359.i.i = icmp eq i32 %323, 0
-  br i1 %.not.i359.i.i, label %c1222_cksum.exit.i.i, label %.lr.ph.i355.i.i, !llvm.loop !22
+  br i1 %.not.i359.i.i, label %c1222_cksum.exit.i.i, label %.lr.ph.i355.i.i, !llvm.loop !23
 
 c1222_cksum.exit.i.i:                             ; preds = %.lr.ph.i355.i.i, %.lr.ph.i.i.i, %319
   %.pn.i.i = phi i8 [ 0, %319 ], [ %316, %.lr.ph.i.i.i ], [ %321, %.lr.ph.i355.i.i ]
@@ -1675,7 +1675,7 @@ c1222_cksum.exit.i.i:                             ; preds = %.lr.ph.i355.i.i, %.
   %378 = add i32 %.079.i365.i.i, 1
   %379 = add nsw i32 %.0610.i364.i.i, -1
   %.not.i366.i.i = icmp eq i32 %379, 0
-  br i1 %.not.i366.i.i, label %c1222_cksum.exit368.i.i, label %.lr.ph.i362.i.i, !llvm.loop !22
+  br i1 %.not.i366.i.i, label %c1222_cksum.exit368.i.i, label %.lr.ph.i362.i.i, !llvm.loop !23
 
 c1222_cksum.exit368.i.i:                          ; preds = %.lr.ph.i362.i.i, %370
   %.0.lcssa.i367.i.i = phi i8 [ 0, %370 ], [ %377, %.lr.ph.i362.i.i ]
@@ -1819,7 +1819,7 @@ parse_c1222_detailed.exit.i:                      ; preds = %466, %463, %461, %4
   %470 = add i32 %469, %.4.i
   %471 = add i32 %470, %107
   %472 = call zeroext i1 @tvb_offset_exists(ptr noundef %.096.ph.i, i32 noundef %471)
-  br i1 %472, label %111, label %._crit_edge.i, !llvm.loop !23
+  br i1 %472, label %111, label %._crit_edge.i, !llvm.loop !24
 
 473:                                              ; preds = %130
   %474 = call ptr @expert_add_info(ptr noundef %47, ptr noundef %45, ptr noundef nonnull @ei_c1222_epsem_field_length_error)
@@ -2169,7 +2169,7 @@ define internal fastcc zeroext i1 @decrypt_packet(ptr noundef %0, i32 noundef %1
   store i8 %57, ptr %.01520.i.i, align 1
   %59 = lshr i32 %.01619.i.i, 8
   %.not.i.i = icmp ult i32 %.01619.i.i, 256
-  br i1 %.not.i.i, label %encode_ber_len.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %.not.i.i, label %encode_ber_len.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %51, %48, %30
   %.0.i.i = phi i32 [ 0, %30 ], [ 1, %48 ], [ %.3.i.i.i, %51 ], [ %.3.i.i.i, %.lr.ph.i.i ]
@@ -2217,7 +2217,7 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %51, %4
   %86 = select i1 %85, i64 0, i64 %84
   %87 = icmp ne i64 %86, -1
   call void @llvm.assume(i1 %87)
-  %88 = call ptr @__memcpy_chk(ptr noundef %81, ptr noundef %82, i64 noundef range(i64 0, 4294967296) %83, i64 noundef %86) #11, !alias.scope !25
+  %88 = call ptr @__memcpy_chk(ptr noundef %81, ptr noundef %82, i64 noundef range(i64 0, 4294967296) %83, i64 noundef %86) #11, !alias.scope !26
   br i1 %29, label %89, label %90
 
 89:                                               ; preds = %79
@@ -2230,7 +2230,7 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %51, %4
   %92 = getelementptr i8, ptr %.03135.i, i64 40
   %93 = load ptr, ptr %92, align 8
   %.not.i = icmp eq ptr %93, null
-  br i1 %.not.i, label %canonify_unencrypted_header.exit, label %13, !llvm.loop !29
+  br i1 %.not.i, label %canonify_unencrypted_header.exit, label %13, !llvm.loop !30
 
 canonify_unencrypted_header.exit:                 ; preds = %90
   %.not14 = icmp eq i32 %.2, 0
@@ -2253,7 +2253,7 @@ canonify_unencrypted_header.exit:                 ; preds = %90
 98:                                               ; preds = %99
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %canonify_unencrypted_header.exit.thread, label %99, !llvm.loop !30
+  br i1 %exitcond.not.i, label %canonify_unencrypted_header.exit.thread, label %99, !llvm.loop !31
 
 99:                                               ; preds = %98, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %98 ]
@@ -2361,26 +2361,27 @@ attributes #12 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
-!16 = distinct !{!16, !"memcpy.inline"}
-!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
-!20 = distinct !{!20, !"memcpy.inline"}
-!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
-!27 = distinct !{!27, !"memcpy.inline"}
-!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
+!17 = distinct !{!17, !"memcpy.inline"}
+!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
+!28 = distinct !{!28, !"memcpy.inline"}
+!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}

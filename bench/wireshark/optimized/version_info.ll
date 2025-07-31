@@ -116,7 +116,7 @@ define void @ws_init_version_info(ptr noundef %0, ptr noundef readonly captures(
   %30 = getelementptr i8, ptr %.0.i, i64 1
   %31 = load i8, ptr %30, align 1
   %.not20.i = icmp eq i8 %31, 0
-  br i1 %.not20.i, label %end_string.exit, label %.lr.ph28.i, !llvm.loop !8
+  br i1 %.not20.i, label %end_string.exit, label %.lr.ph28.i, !llvm.loop !9
 
 end_string.exit:                                  ; preds = %.critedge.thread.i, %15
   %32 = tail call ptr @g_string_free(ptr noundef %4, i32 noundef 0)
@@ -181,7 +181,7 @@ end_string.exit:                                  ; preds = %.critedge.thread.i,
   %59 = getelementptr i8, ptr %.0.i17, i64 1
   %60 = load i8, ptr %59, align 1
   %.not20.i18 = icmp eq i8 %60, 0
-  br i1 %.not20.i18, label %end_string.exit26, label %.lr.ph28.i14, !llvm.loop !8
+  br i1 %.not20.i18, label %end_string.exit26, label %.lr.ph28.i14, !llvm.loop !9
 
 end_string.exit26:                                ; preds = %.critedge.thread.i16, %44
   %61 = tail call ptr @g_string_free(ptr noundef %33, i32 noundef 0)
@@ -366,7 +366,7 @@ define noundef ptr @get_compiled_version_info(ptr noundef readonly captures(addr
   %43 = getelementptr i8, ptr %.0.i, i64 1
   %44 = load i8, ptr %43, align 1
   %.not20.i = icmp eq i8 %44, 0
-  br i1 %.not20.i, label %end_string.exit, label %.lr.ph28.i, !llvm.loop !8
+  br i1 %.not20.i, label %end_string.exit, label %.lr.ph28.i, !llvm.loop !9
 
 end_string.exit:                                  ; preds = %.critedge.thread.i, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
@@ -523,7 +523,7 @@ get_mem_info.exit:                                ; preds = %1, %18
   %64 = getelementptr i8, ptr %.0.i22, i64 1
   %65 = load i8, ptr %64, align 1
   %.not20.i = icmp eq i8 %65, 0
-  br i1 %.not20.i, label %end_string.exit, label %.lr.ph28.i, !llvm.loop !8
+  br i1 %.not20.i, label %end_string.exit, label %.lr.ph28.i, !llvm.loop !9
 
 end_string.exit:                                  ; preds = %.critedge.thread.i, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
@@ -611,7 +611,7 @@ define internal fastcc void @features_to_columns(ptr noundef readonly captures(n
   %16 = getelementptr inbounds nuw i8, ptr %.04759, i64 8
   %.047 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %.047, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %17 = add i8 %15, 2
@@ -638,7 +638,7 @@ define internal fastcc void @features_to_columns(ptr noundef readonly captures(n
   %23 = getelementptr inbounds nuw i8, ptr %.166, i64 8
   %.1 = load ptr, ptr %23, align 8
   %.not54 = icmp eq ptr %.1, null
-  br i1 %.not54, label %.loopexit, label %.lr.ph67, !llvm.loop !10
+  br i1 %.not54, label %.loopexit, label %.lr.ph67, !llvm.loop !11
 
 24:                                               ; preds = %._crit_edge
   %25 = zext nneg i8 %19 to i32
@@ -678,7 +678,7 @@ define internal fastcc void @features_to_columns(ptr noundef readonly captures(n
 43:                                               ; preds = %39, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = icmp samesign ult i64 %indvars.iv.next, %33
-  br i1 %44, label %35, label %45, !llvm.loop !11
+  br i1 %44, label %35, label %45, !llvm.loop !12
 
 45:                                               ; preds = %43
   %46 = load i64, ptr %30, align 8
@@ -691,7 +691,7 @@ define internal fastcc void @features_to_columns(ptr noundef readonly captures(n
   %49 = getelementptr i8, ptr %47, i64 %.0.i
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 32
-  br i1 %51, label %48, label %52, !llvm.loop !12
+  br i1 %51, label %48, label %52, !llvm.loop !13
 
 52:                                               ; preds = %48
   %53 = icmp ult i64 %.0.in.i, %46
@@ -705,7 +705,7 @@ rtrim_gstring.exit:                               ; preds = %52, %54
   %56 = tail call ptr @g_string_append(ptr noundef %1, ptr noundef nonnull @.str.11)
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %57 = icmp samesign ult i64 %indvars.iv.next72, %31
-  br i1 %57, label %34, label %.loopexit, !llvm.loop !13
+  br i1 %57, label %34, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %rtrim_gstring.exit, %.lr.ph67, %24, %.preheader
   %58 = tail call ptr @g_ptr_array_free(ptr noundef %7, i32 noundef 1)
@@ -900,11 +900,12 @@ attributes #13 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

@@ -318,7 +318,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %5
   %11 = and i64 %.0.copyload.i.i.i.i.i.i.i, -16
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %13, align 8, !tbaa !404
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %13, align 8, !tbaa !405
   %14 = and i64 %.sroa.0.0.copyload.i.i.i.i, 2199023255040
   %15 = icmp eq i64 %14, 1536
   br i1 %15, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread8, label %_ZNK5clang8QualType15getAddressSpaceEv.exit.thread
@@ -341,7 +341,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit.thread: ; preds = %5, %_ZNK5clang8Qu
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !405
+  %27 = load ptr, ptr %26, align 8, !tbaa !406
   br label %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i
 
 _ZNK5clang4Decl21getLexicalDeclContextEv.exit.i:  ; preds = %25, %19
@@ -370,7 +370,7 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit.i:  ; preds = %25, %19
   br i1 %37, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit, label %40
 
 40:                                               ; preds = %35
-  %41 = load ptr, ptr %39, align 8, !tbaa !408
+  %41 = load ptr, ptr %39, align 8, !tbaa !409
   br label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit
 
 _ZNK5clang7VarDecl13isFileVarDeclEv.exit:         ; preds = %35, %40
@@ -407,7 +407,7 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread:  ; preds = %32, %_ZNK5clang8Qua
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !405
+  %60 = load ptr, ptr %59, align 8, !tbaa !406
   br label %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i
 
 _ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i: ; preds = %58, %52
@@ -510,7 +510,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 32:                                               ; preds = %27, %31
   %.sink = phi i64 [ 24, %31 ], [ 16, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink
-  %.024 = load ptr, ptr %33, align 8, !tbaa !409
+  %.024 = load ptr, ptr %33, align 8, !tbaa !410
   %.not32 = icmp eq ptr %.024, null
   br i1 %.not32, label %.thread, label %34
 
@@ -551,7 +551,7 @@ _ZNK5clang4Decl14specific_attrsINS_11AlignedAttrEEEN4llvm14iterator_rangeINS_22s
 
 .lr.ph.i.i.i:                                     ; preds = %50, %56
   %.sroa.07.1.i.i = phi ptr [ %57, %56 ], [ %.sroa.0.0, %50 ]
-  %52 = load ptr, ptr %.sroa.07.1.i.i, align 8, !tbaa !411
+  %52 = load ptr, ptr %.sroa.07.1.i.i, align 8, !tbaa !412
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load i16, ptr %53, align 8
   %55 = icmp eq i16 %54, 118
@@ -560,7 +560,7 @@ _ZNK5clang4Decl14specific_attrsINS_11AlignedAttrEEEN4llvm14iterator_rangeINS_22s
 56:                                               ; preds = %.lr.ph.i.i.i
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i, i64 8
   %.not.i.i.i35 = icmp eq ptr %57, %49
-  br i1 %.not.i.i.i35, label %.thread, label %.lr.ph.i.i.i, !llvm.loop !413
+  br i1 %.not.i.i.i35, label %.thread, label %.lr.ph.i.i.i, !llvm.loop !414
 
 58:                                               ; preds = %50
   %.not2.i3.i.i = icmp eq ptr %49, %.sroa.0.0
@@ -568,7 +568,7 @@ _ZNK5clang4Decl14specific_attrsINS_11AlignedAttrEEEN4llvm14iterator_rangeINS_22s
 
 .lr.ph.i4.i.i:                                    ; preds = %58, %63
   %.sroa.0.1.i.i = phi ptr [ %64, %63 ], [ %49, %58 ]
-  %59 = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !411
+  %59 = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !412
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load i16, ptr %60, align 8
   %62 = icmp eq i16 %61, 118
@@ -577,7 +577,7 @@ _ZNK5clang4Decl14specific_attrsINS_11AlignedAttrEEEN4llvm14iterator_rangeINS_22s
 63:                                               ; preds = %.lr.ph.i4.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
   %.not.i5.i.i = icmp eq ptr %64, %.sroa.0.0
-  br i1 %.not.i5.i.i, label %.thread, label %.lr.ph.i4.i.i, !llvm.loop !413
+  br i1 %.not.i5.i.i, label %.thread, label %.lr.ph.i4.i.i, !llvm.loop !414
 
 _ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit: ; preds = %.lr.ph.i4.i.i, %.lr.ph.i.i.i
   %.sroa.07.0.i.i = phi ptr [ %.sroa.07.1.i.i, %.lr.ph.i.i.i ], [ %.sroa.0.0, %.lr.ph.i4.i.i ]
@@ -586,7 +586,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS
   br i1 %.not54, label %.thread, label %65
 
 65:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit
-  %66 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !411
+  %66 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !412
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load i16, ptr %67, align 8
   %69 = icmp eq i16 %68, 118
@@ -595,11 +595,11 @@ _ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS
 .lr.ph.i.i:                                       ; preds = %65, %.lr.ph.i.i
   %70 = phi ptr [ %71, %.lr.ph.i.i ], [ %.sroa.0.0, %65 ]
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !411
+  %72 = load ptr, ptr %71, align 8, !tbaa !412
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i16, ptr %73, align 8
   %75 = icmp eq i16 %74, 118
-  br i1 %75, label %_ZNK5clang22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit, label %.lr.ph.i.i, !llvm.loop !414
+  br i1 %75, label %_ZNK5clang22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit, label %.lr.ph.i.i, !llvm.loop !415
 
 _ZNK5clang22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit: ; preds = %.lr.ph.i.i, %65
   %.sroa.0.1 = phi ptr [ %.sroa.0.0, %65 ], [ %71, %.lr.ph.i.i ]
@@ -611,7 +611,7 @@ _ZNK5clang22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4Att
   %80 = or i8 %spec.select49, 10
   %.4 = select i1 %79, i8 %80, i8 %spec.select49
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 8
-  br label %50
+  br label %50, !llvm.loop !416
 
 .thread:                                          ; preds = %58, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %63, %56, %27, %25, %17, %32, %6
   %.0 = phi i8 [ %16, %6 ], [ %spec.select, %17 ], [ %spec.select, %32 ], [ %spec.select, %25 ], [ %spec.select, %27 ], [ %.2, %56 ], [ %.2, %63 ], [ %.2, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ %.2, %58 ]
@@ -631,10 +631,10 @@ declare noundef zeroext i1 @_ZNK5clang11AlignedAttr20isAlignmentDependentEv(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_18ArraySubscriptExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !415
+  %6 = load ptr, ptr %5, align 8, !tbaa !417
   %7 = load i24, ptr %6, align 8
   %8 = or i24 %7, %4
   %9 = lshr i24 %8, 14
@@ -646,13 +646,13 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_19MatrixSubscriptExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !415
+  %6 = load ptr, ptr %5, align 8, !tbaa !417
   %7 = load i24, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !415
+  %9 = load ptr, ptr %8, align 8, !tbaa !417
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
@@ -703,7 +703,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %22 = select i1 %.not.i6.i.i5, i8 0, i8 12
   %23 = and i8 %20, 18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !416
+  %25 = load ptr, ptr %24, align 8, !tbaa !418
   %26 = load i24, ptr %25, align 8
   %27 = lshr i24 %26, 14
   %28 = trunc i24 %27 to i8
@@ -731,7 +731,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %11 = and i8 %8, 18
   %12 = or disjoint i8 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !420
+  %14 = load ptr, ptr %13, align 8, !tbaa !422
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %21, label %15
 
@@ -751,7 +751,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !422
+  %3 = load ptr, ptr %2, align 8, !tbaa !424
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8, !tbaa !15
   %4 = and i64 %.sroa.0.0.copyload.i.i, -16
   %5 = inttoptr i64 %4 to ptr
@@ -779,7 +779,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %24 = or i8 %23, %22
   %25 = or i8 %24, %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !420
+  %27 = load ptr, ptr %26, align 8, !tbaa !422
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %34, label %28
 
@@ -799,10 +799,10 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_14BinaryOperatorE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !415
+  %6 = load ptr, ptr %5, align 8, !tbaa !417
   %7 = load i24, ptr %6, align 8
   %8 = or i24 %7, %4
   %9 = lshr i24 %8, 14
@@ -814,14 +814,14 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_19ConditionalOperatorE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !415
+  %6 = load ptr, ptr %5, align 8, !tbaa !417
   %7 = load i24, ptr %6, align 8
   %8 = or i24 %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !415
+  %10 = load ptr, ptr %9, align 8, !tbaa !417
   %11 = load i24, ptr %10, align 8
   %12 = or i24 %8, %11
   %13 = lshr i24 %12, 14
@@ -833,10 +833,10 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_25BinaryConditionalOperatorE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !415
+  %6 = load ptr, ptr %5, align 8, !tbaa !417
   %7 = load i24, ptr %6, align 8
   %8 = or i24 %7, %4
   %9 = lshr i24 %8, 14
@@ -861,7 +861,7 @@ define dso_local noundef zeroext range(i8 0, 31) i8 @_ZN5clang17computeDependenc
   %12 = and i8 %9, 18
   %13 = or disjoint i8 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !425
+  %15 = load ptr, ptr %14, align 8, !tbaa !427
   %.ptr18.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !15
@@ -878,11 +878,11 @@ define dso_local noundef zeroext range(i8 0, 31) i8 @_ZN5clang17computeDependenc
 20:                                               ; preds = %19
   %.sroa.08.0.add.i = add nsw i64 %.sroa.08.0.idx.i, -8
   %.ptr.i = getelementptr inbounds i8, ptr %15, i64 %.sroa.08.0.add.i
-  %21 = load ptr, ptr %.ptr.i, align 8, !tbaa !415
+  %21 = load ptr, ptr %.ptr.i, align 8, !tbaa !417
   %22 = load i16, ptr %21, align 8
   %23 = and i16 %22, 511
   %24 = icmp eq i16 %23, 238
-  br i1 %24, label %19, label %_ZN5clang12CompoundStmt17getStmtExprResultEv.exit.thread13
+  br i1 %24, label %19, label %_ZN5clang12CompoundStmt17getStmtExprResultEv.exit.thread13, !llvm.loop !429
 
 25:                                               ; preds = %19
   %26 = icmp eq i32 %17, 0
@@ -892,7 +892,7 @@ _ZN5clang12CompoundStmt17getStmtExprResultEv.exit: ; preds = %25
   %27 = add i32 %17, -1
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %.ptr18.i, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !415
+  %30 = load ptr, ptr %29, align 8, !tbaa !417
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang9ValueStmtENS1_4StmtEEEDaPT0_.exit.thread, label %_ZN5clang12CompoundStmt17getStmtExprResultEv.exit._ZN5clang12CompoundStmt17getStmtExprResultEv.exit.thread13_crit_edge
 
@@ -934,7 +934,7 @@ declare noundef ptr @_ZNK5clang9ValueStmt11getExprStmtEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_17ConvertVectorExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !427
+  %3 = load ptr, ptr %2, align 8, !tbaa !430
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa !15
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
@@ -948,7 +948,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %12 = and i8 %9, 19
   %13 = or disjoint i8 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !429
+  %15 = load ptr, ptr %14, align 8, !tbaa !432
   %16 = load i24, ptr %15, align 8
   %17 = lshr i24 %16, 14
   %18 = trunc i24 %17 to i8
@@ -971,7 +971,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_10ChooseExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = and i24 %4, 196608
   %.not = icmp eq i24 %5, 0
@@ -979,10 +979,10 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !415
+  %8 = load ptr, ptr %7, align 8, !tbaa !417
   %9 = load i24, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !415
+  %11 = load ptr, ptr %10, align 8, !tbaa !417
   %12 = load i24, ptr %11, align 8
   %13 = or i24 %9, %12
   %14 = or i24 %13, %4
@@ -996,17 +996,17 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %20 = lshr i24 %4, 14
   %21 = trunc i24 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !415
+  %23 = load ptr, ptr %22, align 8, !tbaa !417
   %24 = load i24, ptr %23, align 8
   %25 = lshr i24 %24, 14
   %26 = trunc i24 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !415
+  %28 = load ptr, ptr %27, align 8, !tbaa !417
   %29 = load i24, ptr %28, align 8
   %30 = lshr i24 %29, 14
   %31 = trunc i24 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load i8, ptr %32, align 8, !tbaa !430, !range !432, !noundef !433
+  %33 = load i8, ptr %32, align 8, !tbaa !433, !range !435, !noundef !436
   %34 = trunc nuw i8 %33 to i1
   %spec.select.v = select i1 %34, i8 %26, i8 %31
   %spec.select15 = select i1 %34, i8 %31, i8 %26
@@ -1040,7 +1040,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.013 = phi ptr [ %13, %.lr.ph ], [ %2, %1 ]
   %.01012 = phi i8 [ %12, %.lr.ph ], [ 0, %1 ]
-  %7 = load ptr, ptr %.013, align 8, !tbaa !434
+  %7 = load ptr, ptr %.013, align 8, !tbaa !437
   %8 = load i24, ptr %7, align 8
   %9 = lshr i24 %8, 14
   %10 = trunc i24 %9 to i8
@@ -1048,7 +1048,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %12 = or i8 %11, %.01012
   %13 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.not = icmp eq ptr %13, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !438
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1070,7 +1070,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %13 = and i8 %10, 19
   %14 = or disjoint i8 %12, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !435
+  %16 = load ptr, ptr %15, align 8, !tbaa !439
   %17 = load i24, ptr %16, align 8
   %18 = lshr i24 %17, 14
   %19 = trunc i24 %18 to i8
@@ -1096,10 +1096,10 @@ define dso_local noundef zeroext range(i8 0, 19) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenceEPNS_17ArrayInitLoopExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !415
+  %6 = load ptr, ptr %5, align 8, !tbaa !417
   %7 = load i24, ptr %6, align 8
   %8 = or i24 %7, %4
   %9 = lshr i24 %8, 14
@@ -1135,7 +1135,7 @@ define dso_local noundef zeroext range(i8 0, 3) i8 @_ZN5clang17computeDependence
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_20ExtVectorElementExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !437
+  %3 = load ptr, ptr %2, align 8, !tbaa !441
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1159,7 +1159,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %12 = and i8 %9, 18
   %13 = or disjoint i8 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !439
+  %15 = load ptr, ptr %14, align 8, !tbaa !443
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #10
   %18 = or i8 %13, 2
@@ -1187,7 +1187,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %11 = and i8 %8, 19
   %12 = or disjoint i8 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !442
+  %14 = load ptr, ptr %13, align 8, !tbaa !446
   %15 = load i24, ptr %14, align 8
   %16 = lshr i24 %15, 14
   %17 = trunc i24 %16 to i8
@@ -1203,7 +1203,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_26CXXRewrittenBinaryOperatorE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !444
+  %3 = load ptr, ptr %2, align 8, !tbaa !448
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1214,7 +1214,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_25CXXStdInitializerListExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !446
+  %3 = load ptr, ptr %2, align 8, !tbaa !450
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1275,7 +1275,7 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenceEPNS_17MSPropertyRefExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !448
+  %3 = load ptr, ptr %2, align 8, !tbaa !452
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1286,7 +1286,7 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_23MSPropertySubscriptExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1356,7 +1356,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 20) i8 @_ZN5clang17computeDependenceEPNS_12CXXThrowExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !452
+  %3 = load ptr, ptr %2, align 8, !tbaa !456
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
 
@@ -1375,7 +1375,7 @@ define dso_local noundef zeroext range(i8 0, 20) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_20CXXBindTemporaryExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !454
+  %3 = load ptr, ptr %2, align 8, !tbaa !458
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1399,7 +1399,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %11 = and i8 %8, 18
   %12 = or disjoint i8 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !457
+  %14 = load ptr, ptr %13, align 8, !tbaa !461
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %27, label %15
 
@@ -1427,7 +1427,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenceEPNS_13CXXDeleteExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !459
+  %3 = load ptr, ptr %2, align 8, !tbaa !463
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1438,7 +1438,7 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenceEPNS_18ArrayTypeTraitExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !461
+  %3 = load ptr, ptr %2, align 8, !tbaa !465
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8, !tbaa !15
   %4 = and i64 %.sroa.0.0.copyload.i.i, -16
   %5 = inttoptr i64 %4 to ptr
@@ -1452,7 +1452,7 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
   %12 = and i8 %9, 19
   %13 = or disjoint i8 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !463
+  %15 = load ptr, ptr %14, align 8, !tbaa !467
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %21, label %16
 
@@ -1472,7 +1472,7 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_19ExpressionTraitExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !464
+  %3 = load ptr, ptr %2, align 8, !tbaa !468
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1487,7 +1487,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_15CXXNoexceptExprENS_14CanThrowResultE(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !466
+  %4 = load ptr, ptr %3, align 8, !tbaa !470
   %5 = load i24, ptr %4, align 8
   %6 = lshr i24 %5, 14
   %7 = trunc i24 %6 to i8
@@ -1501,7 +1501,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 14, 32) i8 @_ZN5clang17computeDependenceEPNS_17PackExpansionExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !469
+  %3 = load ptr, ptr %2, align 8, !tbaa !473
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1514,13 +1514,13 @@ define dso_local noundef zeroext range(i8 14, 32) i8 @_ZN5clang17computeDependen
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_16PackIndexingExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %"class.llvm::APSInt", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !415
+  %4 = load ptr, ptr %3, align 8, !tbaa !417
   %5 = load i24, ptr %4, align 8
   %6 = lshr i24 %5, 14
   %7 = trunc i24 %6 to i8
   %8 = and i8 %7, 30
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !415
+  %10 = load ptr, ptr %9, align 8, !tbaa !417
   %11 = load i24, ptr %10, align 8
   %12 = lshr i24 %11, 14
   %13 = trunc i24 %12 to i8
@@ -1559,10 +1559,10 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
   call void @_ZNK5clang12ConstantExpr17getResultAsAPSIntEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APSInt") align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %10) #10
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %34 = load i8, ptr %33, align 4, !tbaa !471, !range !432, !noundef !433
+  %34 = load i8, ptr %33, align 4, !tbaa !475, !range !435, !noundef !436
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !474
+  %37 = load i32, ptr %36, align 8, !tbaa !478
   %38 = icmp ult i32 %37, 65
   br i1 %35, label %_ZNK4llvm6APSInt11getExtValueEv.exit.i, label %39
 
@@ -1581,7 +1581,7 @@ _ZNK4llvm6APSInt11getExtValueEv.exit.thread2.i:   ; preds = %39
 
 .thread.i:                                        ; preds = %39
   %47 = load ptr, ptr %2, align 8, !tbaa !15
-  %48 = load i64, ptr %47, align 8, !tbaa !404
+  %48 = load i64, ptr %47, align 8, !tbaa !405
   br label %51
 
 _ZNK4llvm6APSInt11getExtValueEv.exit.i:           ; preds = %32
@@ -1607,7 +1607,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %51, %_ZNK4llvm6APSI
 _ZNK5clang16PackIndexingExpr16getSelectedIndexEv.exit: ; preds = %29, %_ZN4llvm5APIntD2Ev.exit.i
   %.sroa.0.0.i = phi i64 [ %55, %_ZN4llvm5APIntD2Ev.exit.i ], [ 0, %29 ]
   %56 = getelementptr inbounds nuw ptr, ptr %18, i64 %.sroa.0.0.i
-  %57 = load ptr, ptr %56, align 8, !tbaa !434
+  %57 = load ptr, ptr %56, align 8, !tbaa !437
   %58 = load i24, ptr %57, align 8
   %59 = lshr i24 %58, 14
   %60 = trunc i24 %59 to i8
@@ -1623,7 +1623,7 @@ _ZNK5clang16PackIndexingExpr16getSelectedIndexEv.exit: ; preds = %29, %_ZN4llvm5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_28SubstNonTypeTemplateParmExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !475
+  %3 = load ptr, ptr %2, align 8, !tbaa !479
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1634,7 +1634,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_20CoroutineSuspendExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %.not.not = icmp eq ptr %3, null
   br i1 %.not.not, label %9, label %4
 
@@ -1649,7 +1649,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %.sink12 = phi i8 [ 19, %4 ], [ 17, %1 ]
   %.sink10 = phi i8 [ %8, %4 ], [ 14, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !415
+  %11 = load ptr, ptr %10, align 8, !tbaa !417
   %12 = load i24, ptr %11, align 8
   %13 = lshr i24 %12, 14
   %14 = trunc i24 %13 to i8
@@ -1661,7 +1661,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 14, 32) i8 @_ZN5clang17computeDependenceEPNS_20DependentCoawaitExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1673,7 +1673,7 @@ define dso_local noundef zeroext range(i8 14, 32) i8 @_ZN5clang17computeDependen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_13ObjCBoxedExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !479
+  %3 = load ptr, ptr %2, align 8, !tbaa !483
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1684,7 +1684,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_14ObjCEncodeExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !482
+  %3 = load ptr, ptr %2, align 8, !tbaa !486
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8, !tbaa !15
   %4 = and i64 %.sroa.0.0.copyload.i.i, -16
   %5 = inttoptr i64 %4 to ptr
@@ -1703,7 +1703,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenceEPNS_15ObjCIvarRefExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !484
+  %3 = load ptr, ptr %2, align 8, !tbaa !488
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1748,10 +1748,10 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_20ObjCSubscriptRefExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !415
+  %6 = load ptr, ptr %5, align 8, !tbaa !417
   %7 = load i24, ptr %6, align 8
   %8 = or i24 %7, %4
   %9 = lshr i24 %8, 14
@@ -1763,7 +1763,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 27) i8 @_ZN5clang17computeDependenceEPNS_11ObjCIsaExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !487
+  %3 = load ptr, ptr %2, align 8, !tbaa !491
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1774,7 +1774,7 @@ define dso_local noundef zeroext range(i8 0, 27) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_27ObjCIndirectCopyRestoreExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !489
+  %3 = load ptr, ptr %2, align 8, !tbaa !493
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -1785,12 +1785,12 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_16ArraySectionExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !415
+  %3 = load ptr, ptr %2, align 8, !tbaa !417
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !415
+  %8 = load ptr, ptr %7, align 8, !tbaa !417
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %14, label %9
 
@@ -1804,7 +1804,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 14:                                               ; preds = %9, %1
   %.0.in = phi i8 [ %6, %1 ], [ %13, %9 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !415
+  %16 = load ptr, ptr %15, align 8, !tbaa !417
   %.not13 = icmp eq ptr %16, null
   br i1 %.not13, label %21, label %17
 
@@ -1818,13 +1818,13 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 21:                                               ; preds = %17, %14
   %.1.in = phi i8 [ %.0.in, %14 ], [ %.018, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !491
+  %23 = load i32, ptr %22, align 8, !tbaa !495
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = load ptr, ptr %26, align 8, !tbaa !415
+  %27 = load ptr, ptr %26, align 8, !tbaa !417
   %.not14 = icmp eq ptr %27, null
   br i1 %.not14, label %32, label %28
 
@@ -1845,11 +1845,11 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_19OMPArrayShapingExprE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !494
+  %4 = load i32, ptr %3, align 8, !tbaa !498
   %5 = zext i32 %4 to i64
   %.idx = shl nuw nsw i64 %5, 3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %7 = load ptr, ptr %6, align 8, !tbaa !434
+  %7 = load ptr, ptr %6, align 8, !tbaa !437
   %8 = load i24, ptr %7, align 8
   %9 = lshr i24 %8, 14
   %10 = trunc i24 %9 to i8
@@ -1864,7 +1864,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %1, %22
   %.017 = phi ptr [ %23, %22 ], [ %2, %1 ]
   %.01416 = phi i8 [ %.1, %22 ], [ %11, %1 ]
-  %12 = load ptr, ptr %.017, align 8, !tbaa !434
+  %12 = load ptr, ptr %.017, align 8, !tbaa !437
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %22, label %13
 
@@ -1883,7 +1883,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %.1 = phi i8 [ %.01416, %.lr.ph ], [ %21, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.not = icmp eq ptr %23, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !500
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1903,7 +1903,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %12 = and i8 %9, 18
   %13 = or disjoint i8 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %15 = load i32, ptr %14, align 4, !tbaa !496
+  %15 = load i32, ptr %14, align 4, !tbaa !501
   %.not38 = icmp eq i32 %15, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
@@ -1934,7 +1934,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !498
+  %27 = load ptr, ptr %26, align 8, !tbaa !503
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
 
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %20, %25
@@ -1962,7 +1962,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %20, %25
   %.1 = phi i8 [ %.03536, %18 ], [ %.03536, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit ], [ %40, %29 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
   call void @_ZN5clang15OMPIteratorExpr16getIteratorRangeEj(ptr dead_on_unwind nonnull writable sret(%"struct.clang::OMPIteratorExpr::IteratorRange") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.037) #10
-  %42 = load ptr, ptr %2, align 8, !tbaa !502
+  %42 = load ptr, ptr %2, align 8, !tbaa !507
   %.not24 = icmp eq ptr %42, null
   br i1 %.not24, label %49, label %43
 
@@ -1976,7 +1976,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %20, %25
 
 49:                                               ; preds = %43, %41
   %.2 = phi i8 [ %.1, %41 ], [ %48, %43 ]
-  %50 = load ptr, ptr %16, align 8, !tbaa !504
+  %50 = load ptr, ptr %16, align 8, !tbaa !509
   %.not25 = icmp eq ptr %50, null
   br i1 %.not25, label %57, label %51
 
@@ -1990,7 +1990,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %20, %25
 
 57:                                               ; preds = %51, %49
   %.3 = phi i8 [ %.2, %49 ], [ %56, %51 ]
-  %58 = load ptr, ptr %17, align 8, !tbaa !505
+  %58 = load ptr, ptr %17, align 8, !tbaa !510
   %.not26 = icmp eq ptr %58, null
   br i1 %.not26, label %65, label %59
 
@@ -2007,7 +2007,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %20, %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
   %66 = add nuw i32 %.037, 1
   %exitcond.not = icmp eq i32 %66, %15
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !506
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !511
 }
 
 declare noundef ptr @_ZN5clang15OMPIteratorExpr15getIteratorDeclEj(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #3
@@ -2024,7 +2024,7 @@ define dso_local noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_11DeclRefE
 
 _ZNK5clang11DeclRefExpr12getQualifierEv.exit:     ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !507
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !512
   %.not = icmp eq ptr %.sroa.0.0.copyload.i.i, null
   br i1 %.not, label %_ZNK5clang11DeclRefExpr12getQualifierEv.exit.thread, label %7
 
@@ -2054,14 +2054,14 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %_ZNK5clang
   %.lobit.i.i.i.i.i.i.i = and i32 %19, 1
   %20 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
   %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
-  %22 = load i32, ptr %21, align 8, !tbaa !508
+  %22 = load i32, ptr %21, align 8, !tbaa !513
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZNK5clang11DeclRefExpr15getTemplateArgsEv.exit.thread, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
 
 _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !509
+  %25 = load i32, ptr %24, align 4, !tbaa !514
   %26 = zext i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 5
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 %27
@@ -2083,12 +2083,12 @@ _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclR
   %37 = or i8 %36, %32
   %38 = getelementptr inbounds nuw i8, ptr %.035131, i64 32
   %39 = icmp ult ptr %38, %28
-  br i1 %39, label %.lr.ph, label %_ZNK5clang11DeclRefExpr15getTemplateArgsEv.exit.thread, !llvm.loop !511
+  br i1 %39, label %.lr.ph, label %_ZNK5clang11DeclRefExpr15getTemplateArgsEv.exit.thread, !llvm.loop !516
 
 _ZNK5clang11DeclRefExpr15getTemplateArgsEv.exit.thread: ; preds = %.lr.ph, %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i, %_ZNK5clang11DeclRefExpr12getQualifierEv.exit.thread
   %.1100 = phi i8 [ %.099, %_ZNK5clang11DeclRefExpr12getQualifierEv.exit.thread ], [ %.099, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i ], [ %.099, %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit ], [ %37, %.lr.ph ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !512
+  %41 = load ptr, ptr %40, align 8, !tbaa !517
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %42, align 8, !tbaa !15
   %43 = tail call noundef zeroext i1 @_ZNK5clang9ValueDecl15isParameterPackEv(ptr noundef nonnull align 8 dereferenceable(56) %41) #10
@@ -2113,7 +2113,7 @@ _ZNK5clang11DeclRefExpr15getTemplateArgsEv.exit.thread: ; preds = %.lr.ph, %_ZNK
   %59 = or i8 %.4.v, %58
   %spec.select115 = or i8 %59, %52
   %60 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %.sroa.0.0.copyload.i55 = load i64, ptr %60, align 8, !tbaa !404
+  %.sroa.0.0.copyload.i55 = load i64, ptr %60, align 8, !tbaa !405
   %61 = and i64 %.sroa.0.0.copyload.i55, 7
   %cond = icmp eq i64 %61, 5
   br i1 %cond, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit, label %_ZNK5clang15DeclarationName11getNameKindEv.exit.thread
@@ -2207,7 +2207,7 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %101
   br i1 %spec.select.i.i63, label %_ZNK5clang4Decl14getDeclContextEv.exit, label %.thread111
 
 _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %101
-  %110 = load ptr, ptr %106, align 8, !tbaa !408
+  %110 = load ptr, ptr %106, align 8, !tbaa !409
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i16, ptr %111, align 8
   %113 = and i16 %112, 124
@@ -2215,7 +2215,7 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %101
   br i1 %spec.select.i.i63134, label %114, label %.thread111
 
 114:                                              ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
-  %115 = load ptr, ptr %106, align 8, !tbaa !408
+  %115 = load ptr, ptr %106, align 8, !tbaa !409
   br label %_ZNK5clang4Decl14getDeclContextEv.exit
 
 _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, %114
@@ -2225,12 +2225,12 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang7VarDecl1
 
 117:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
   %118 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  %119 = load ptr, ptr %118, align 8, !tbaa !515
+  %119 = load ptr, ptr %118, align 8, !tbaa !520
   %120 = call noundef zeroext i1 @_ZNK5clang7VarDecl7hasInitEv(ptr noundef nonnull align 8 dereferenceable(100) %119) #10
   br i1 %120, label %.thread111, label %121
 
 121:                                              ; preds = %117
-  %122 = load ptr, ptr %118, align 8, !tbaa !515
+  %122 = load ptr, ptr %118, align 8, !tbaa !520
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %123, align 8
   %124 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
@@ -2241,7 +2241,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang7VarDecl1
 
 127:                                              ; preds = %121
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 32
-  %129 = load ptr, ptr %128, align 8, !tbaa !498
+  %129 = load ptr, ptr %128, align 8, !tbaa !503
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
 
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %121, %127
@@ -2289,7 +2289,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %121, %127
   br i1 %154, label %_ZN5clang4Decl14getDeclContextEv.exit, label %157
 
 157:                                              ; preds = %151
-  %158 = load ptr, ptr %156, align 8, !tbaa !408
+  %158 = load ptr, ptr %156, align 8, !tbaa !409
   br label %_ZN5clang4Decl14getDeclContextEv.exit
 
 _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %151, %157
@@ -2330,7 +2330,7 @@ define dso_local noundef zeroext range(i8 26, 32) i8 @_ZN5clang17computeDependen
   %10 = or disjoint i8 %9, 26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !525
+  %13 = load i32, ptr %12, align 8, !tbaa !530
   %14 = zext i32 %13 to i64
   %.idx = shl nuw nsw i64 %14, 3
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
@@ -2344,7 +2344,7 @@ define dso_local noundef zeroext range(i8 26, 32) i8 @_ZN5clang17computeDependen
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.015 = phi ptr [ %22, %.lr.ph ], [ %11, %1 ]
   %.01214 = phi i8 [ %21, %.lr.ph ], [ %10, %1 ]
-  %16 = load ptr, ptr %.015, align 8, !tbaa !434
+  %16 = load ptr, ptr %.015, align 8, !tbaa !437
   %17 = load i24, ptr %16, align 8
   %18 = lshr i24 %17, 14
   %19 = trunc i24 %18 to i8
@@ -2352,13 +2352,13 @@ define dso_local noundef zeroext range(i8 26, 32) i8 @_ZN5clang17computeDependen
   %21 = or i8 %20, %.01214
   %22 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %.not = icmp eq ptr %22, %15
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !532
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_24SYCLUniqueStableNameExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !527
+  %3 = load ptr, ptr %2, align 8, !tbaa !533
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa !15
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
@@ -2398,7 +2398,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %5 = lshr i32 %4, 24
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !415
+  %8 = load ptr, ptr %7, align 8, !tbaa !417
   %9 = load i24, ptr %8, align 8
   %10 = lshr i24 %9, 14
   %11 = trunc i24 %10 to i8
@@ -2419,7 +2419,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !529
+  %27 = load i32, ptr %26, align 8, !tbaa !535
   %28 = zext i32 %27 to i64
   %.idx = shl nuw nsw i64 %28, 3
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
@@ -2436,7 +2436,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %3, %38
   %.034 = phi ptr [ %39, %38 ], [ %25, %3 ]
   %.133 = phi i8 [ %.2, %38 ], [ %spec.select, %3 ]
-  %31 = load ptr, ptr %.034, align 8, !tbaa !434
+  %31 = load ptr, ptr %.034, align 8, !tbaa !437
   %.not22 = icmp eq ptr %31, null
   br i1 %.not22, label %38, label %32
 
@@ -2452,7 +2452,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %.2 = phi i8 [ %.133, %.lr.ph ], [ %37, %32 ]
   %39 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %.not = icmp eq ptr %39, %29
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !537
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
   %.3.lcssa = phi i8 [ %.1.lcssa, %._crit_edge ], [ %45, %.lr.ph39 ]
@@ -2461,7 +2461,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph39:                                         ; preds = %._crit_edge, %.lr.ph39
   %.01937 = phi ptr [ %46, %.lr.ph39 ], [ %1, %._crit_edge ]
   %.336 = phi i8 [ %45, %.lr.ph39 ], [ %.1.lcssa, %._crit_edge ]
-  %40 = load ptr, ptr %.01937, align 8, !tbaa !434
+  %40 = load ptr, ptr %.01937, align 8, !tbaa !437
   %41 = load i24, ptr %40, align 8
   %42 = lshr i24 %41, 14
   %43 = trunc i24 %42 to i8
@@ -2469,13 +2469,13 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %45 = or i8 %44, %.336
   %46 = getelementptr inbounds nuw i8, ptr %.01937, i64 8
   %.not21 = icmp eq ptr %46, %30
-  br i1 %.not21, label %._crit_edge40, label %.lr.ph39
+  br i1 %.not21, label %._crit_edge40, label %.lr.ph39, !llvm.loop !538
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_12OffsetOfExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !531
+  %3 = load ptr, ptr %2, align 8, !tbaa !539
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa !15
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
@@ -2488,14 +2488,14 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %12 = and i8 %9, 19
   %13 = or disjoint i8 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !533
+  %15 = load i32, ptr %14, align 4, !tbaa !541
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load i32, ptr %17, align 8, !tbaa !534
+  %18 = load i32, ptr %17, align 8, !tbaa !542
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %16, i64 %19
   %wide.trip.count = zext i32 %15 to i64
@@ -2509,7 +2509,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.078 = phi i8 [ %13, %.lr.ph ], [ %28, %21 ]
   %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !434
+  %23 = load ptr, ptr %22, align 8, !tbaa !437
   %24 = load i24, ptr %23, align 8
   %25 = lshr i24 %24, 14
   %26 = trunc i24 %25 to i8
@@ -2517,26 +2517,26 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %28 = or i8 %27, %.078
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !535
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !543
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_10MemberExprE(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %"struct.clang::DeclarationNameInfo", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !536
+  %4 = load ptr, ptr %3, align 8, !tbaa !544
   %5 = load i24, ptr %4, align 8
   %6 = lshr i24 %5, 14
   %7 = trunc i24 %6 to i8
   %8 = and i8 %7, 31
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !538, !noalias !539
+  %10 = load ptr, ptr %9, align 8, !tbaa !546, !noalias !547
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sroa.0.0.copyload.i.i = load i64, ptr %11, align 8, !tbaa !404, !noalias !539
+  %.sroa.0.0.copyload.i.i = load i64, ptr %11, align 8, !tbaa !405, !noalias !547
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.01.0.copyload.i = load i32, ptr %12, align 8, !tbaa !508, !noalias !539
+  %.sroa.01.0.copyload.i = load i32, ptr %12, align 8, !tbaa !513, !noalias !547
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.0.0.copyload.i = load ptr, ptr %13, align 8, !tbaa !15, !noalias !539
+  %.sroa.0.0.copyload.i = load ptr, ptr %13, align 8, !tbaa !15, !noalias !547
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store i64 %.sroa.0.0.copyload.i.i, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2557,7 +2557,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 
 _ZNK5clang10MemberExpr12getQualifierEv.exit:      ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.sroa.0.0.copyload.i.i32 = load ptr, ptr %20, align 8, !tbaa !507
+  %.sroa.0.0.copyload.i.i32 = load ptr, ptr %20, align 8, !tbaa !512
   %.not = icmp eq ptr %.sroa.0.0.copyload.i.i32, null
   br i1 %.not, label %_ZNK5clang10MemberExpr12getQualifierEv.exit.thread, label %21
 
@@ -2588,14 +2588,14 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i2.i: ; preds = %_ZNK5cla
   %.lobit.i.i.i.i.i.i.i.i = and i32 %34, 1
   %35 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
   %36 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %33, i64 %35
-  %37 = load i32, ptr %36, align 8, !tbaa !508
+  %37 = load i32, ptr %36, align 8, !tbaa !513
   %.not.i.i33 = icmp eq i32 %37, 0
   br i1 %.not.i.i33, label %._crit_edge, label %_ZNK5clang10MemberExpr18template_argumentsEv.exit
 
 _ZNK5clang10MemberExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i2.i
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %40 = load i32, ptr %39, align 4, !tbaa !509
+  %40 = load i32, ptr %39, align 4, !tbaa !514
   %41 = zext i32 %40 to i64
   %42 = shl nuw nsw i64 %41, 5
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
@@ -2604,7 +2604,7 @@ _ZNK5clang10MemberExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang10Member
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK5clang10MemberExpr12getQualifierEv.exit.thread, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i2.i, %_ZNK5clang10MemberExpr18template_argumentsEv.exit
   %.1.lcssa = phi i8 [ %.046, %_ZNK5clang10MemberExpr18template_argumentsEv.exit ], [ %.046, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i2.i ], [ %.046, %_ZNK5clang10MemberExpr12getQualifierEv.exit.thread ], [ %58, %.lr.ph ]
-  %44 = load ptr, ptr %9, align 8, !tbaa !538
+  %44 = load ptr, ptr %9, align 8, !tbaa !546
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 127
@@ -2629,7 +2629,7 @@ _ZNK5clang10MemberExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang10Member
   %58 = or i8 %57, %53
   %59 = getelementptr inbounds nuw i8, ptr %.058, i64 32
   %.not29 = icmp eq ptr %59, %43
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !550
 
 60:                                               ; preds = %._crit_edge
   %61 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -2641,7 +2641,7 @@ _ZNK5clang10MemberExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang10Member
   br i1 %63, label %_ZN5clang4Decl14getDeclContextEv.exit, label %66
 
 66:                                               ; preds = %60
-  %67 = load ptr, ptr %65, align 8, !tbaa !408
+  %67 = load ptr, ptr %65, align 8, !tbaa !409
   br label %_ZN5clang4Decl14getDeclContextEv.exit
 
 _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %60, %66
@@ -2716,9 +2716,9 @@ declare noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isCurrentInstantiationEPK
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_12InitListExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !542
+  %3 = load ptr, ptr %2, align 8, !tbaa !551
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !547
+  %5 = load ptr, ptr %4, align 8, !tbaa !556
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %3 to i64
   %8 = sub i64 %6, %7
@@ -2734,7 +2734,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.013 = phi ptr [ %17, %.lr.ph ], [ %3, %1 ]
   %.01012 = phi i8 [ %16, %.lr.ph ], [ 0, %1 ]
-  %11 = load ptr, ptr %.013, align 8, !tbaa !434
+  %11 = load ptr, ptr %.013, align 8, !tbaa !437
   %12 = load i24, ptr %11, align 8
   %13 = lshr i24 %12, 14
   %14 = trunc i24 %13 to i8
@@ -2742,7 +2742,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %16 = or i8 %15, %.01012
   %17 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.not = icmp eq ptr %17, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !557
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -2761,9 +2761,9 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %11 = and i8 %8, 18
   %12 = or disjoint i8 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !548
+  %14 = load ptr, ptr %13, align 8, !tbaa !558
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !550
+  %16 = load i32, ptr %15, align 8, !tbaa !560
   %17 = zext i32 %16 to i64
   %.idx = shl nuw nsw i64 %17, 3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
@@ -2777,7 +2777,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.016 = phi ptr [ %25, %.lr.ph ], [ %14, %1 ]
   %.01315 = phi i8 [ %24, %.lr.ph ], [ %12, %1 ]
-  %19 = load ptr, ptr %.016, align 8, !tbaa !434
+  %19 = load ptr, ptr %.016, align 8, !tbaa !437
   %20 = load i24, ptr %19, align 8
   %21 = lshr i24 %20, 14
   %22 = trunc i24 %21 to i8
@@ -2785,7 +2785,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %24 = or i8 %23, %.01315
   %25 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.not = icmp eq ptr %25, %18
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !561
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -2814,7 +2814,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.01426 = phi ptr [ %20, %.lr.ph ], [ %9, %2 ]
   %.02225 = phi i8 [ %19, %.lr.ph ], [ %3, %2 ]
-  %14 = load ptr, ptr %.01426, align 8, !tbaa !434
+  %14 = load ptr, ptr %.01426, align 8, !tbaa !437
   %15 = load i24, ptr %14, align 8
   %16 = lshr i24 %15, 14
   %17 = trunc i24 %16 to i8
@@ -2822,10 +2822,10 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %19 = or i8 %18, %.02225
   %20 = getelementptr inbounds nuw i8, ptr %.01426, i64 8
   %.not = icmp eq ptr %20, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !562
 
 21:                                               ; preds = %._crit_edge
-  %22 = load ptr, ptr %4, align 8, !tbaa !415
+  %22 = load ptr, ptr %4, align 8, !tbaa !417
   %23 = load i24, ptr %22, align 8
   %24 = lshr i24 %23, 14
   %25 = trunc i24 %24 to i8
@@ -2835,7 +2835,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 27:                                               ; preds = %._crit_edge
   %28 = zext nneg i32 %10 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !551
+  %30 = load ptr, ptr %29, align 8, !tbaa !563
   %.sroa.0.0.copyload.i = load i64, ptr %30, align 8, !tbaa !15
   %31 = and i64 %.sroa.0.0.copyload.i, -16
   %32 = inttoptr i64 %31 to ptr
@@ -2867,7 +2867,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %49 = add nuw nsw i32 %.lobit.i.i, %48
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw ptr, ptr %4, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !415
+  %52 = load ptr, ptr %51, align 8, !tbaa !417
   %53 = load i24, ptr %52, align 8
   %54 = lshr i24 %53, 14
   %55 = trunc i24 %54 to i8
@@ -2885,12 +2885,12 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %2 = alloca %"class.llvm::iterator_range.655", align 8
   %3 = alloca %"struct.clang::StmtIterator", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #10, !noalias !552
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.655") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0) #10, !noalias !552
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #10, !noalias !564
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.655") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0) #10, !noalias !564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #10, !noalias !552
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #10, !noalias !564
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !555
+  %5 = load i64, ptr %4, align 8, !tbaa !567
   %6 = and i64 %5, 3
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %10
@@ -2905,14 +2905,14 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 
 _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %8, %10
   %12 = phi ptr [ %9, %8 ], [ %11, %10 ]
-  %13 = load ptr, ptr %12, align 8, !tbaa !415
+  %13 = load ptr, ptr %12, align 8, !tbaa !417
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
   %14 = load i24, ptr %13, align 8
   %15 = lshr i24 %14, 14
   %16 = trunc i24 %15 to i8
   %17 = and i8 %16, 31
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !557
+  %19 = load ptr, ptr %18, align 8, !tbaa !569
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = lshr i32 %21, 1
@@ -2930,7 +2930,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %8, %10
 .lr.ph:                                           ; preds = %_ZNK5clang18DesignatedInitExpr7getInitEv.exit, %41
   %.028 = phi ptr [ %45, %41 ], [ %19, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
   %.02527 = phi i8 [ %spec.select, %41 ], [ %17, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
-  %25 = load i32, ptr %.028, align 8, !tbaa !560
+  %25 = load i32, ptr %.028, align 8, !tbaa !572
   switch i32 %25, label %41 [
     i32 1, label %26
     i32 2, label %32
@@ -2964,7 +2964,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %8, %10
   %spec.select = select i1 %.not16, i8 %42, i8 %44
   %45 = getelementptr inbounds nuw i8, ptr %.028, i64 24
   %.not = icmp eq ptr %45, %24
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !575
 }
 
 declare noundef ptr @_ZNK5clang18DesignatedInitExpr13getArrayIndexERKNS0_10DesignatorE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
@@ -2976,7 +2976,7 @@ declare noundef ptr @_ZNK5clang18DesignatedInitExpr16getArrayRangeEndERKNS0_10De
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_16PseudoObjectExprE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !434
+  %3 = load ptr, ptr %2, align 8, !tbaa !437
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -2997,7 +2997,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.014 = phi ptr [ %19, %.lr.ph ], [ %8, %1 ]
   %.01113 = phi i8 [ %18, %.lr.ph ], [ %7, %1 ]
-  %13 = load ptr, ptr %.014, align 8, !tbaa !434
+  %13 = load ptr, ptr %.014, align 8, !tbaa !437
   %14 = load i24, ptr %13, align 8
   %15 = lshr i24 %14, 14
   %16 = trunc i24 %15 to i8
@@ -3005,14 +3005,14 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %18 = or i8 %17, %.01113
   %19 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.not = icmp eq ptr %19, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !576
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_10AtomicExprE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load i32, ptr %3, align 8, !tbaa !563
+  %4 = load i32, ptr %3, align 8, !tbaa !577
   %5 = zext i32 %4 to i64
   %.idx = shl nuw nsw i64 %5, 3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
@@ -3026,7 +3026,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.014 = phi ptr [ %13, %.lr.ph ], [ %2, %1 ]
   %.01113 = phi i8 [ %12, %.lr.ph ], [ 0, %1 ]
-  %7 = load ptr, ptr %.014, align 8, !tbaa !434
+  %7 = load ptr, ptr %.014, align 8, !tbaa !437
   %8 = load i24, ptr %7, align 8
   %9 = lshr i24 %8, 14
   %10 = trunc i24 %9 to i8
@@ -3034,13 +3034,13 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %12 = or i8 %11, %.01113
   %13 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.not = icmp eq ptr %13, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !580
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_10CXXNewExprE(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !566
+  %3 = load ptr, ptr %2, align 8, !tbaa !581
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa !15
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
@@ -3090,7 +3090,7 @@ _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %1, %19
 
 _ZN5clang10CXXNewExpr12getArraySizeEv.exit:       ; preds = %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %37 = load ptr, ptr %36, align 8, !tbaa !415
+  %37 = load ptr, ptr %36, align 8, !tbaa !417
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %_ZN5clang10CXXNewExpr12getArraySizeEv.exit.thread, label %38
 
@@ -3119,7 +3119,7 @@ _ZN5clang10CXXNewExpr14getInitializerEv.exit:     ; preds = %_ZN5clang10CXXNewEx
   %.lobit.i.i = and i32 %46, 1
   %47 = zext nneg i32 %.lobit.i.i to i64
   %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !415
+  %49 = load ptr, ptr %48, align 8, !tbaa !417
   %.not10 = icmp eq ptr %49, null
   br i1 %.not10, label %_ZN5clang10CXXNewExpr14getInitializerEv.exit.thread, label %50
 
@@ -3155,7 +3155,7 @@ _ZN5clang10CXXNewExpr14getInitializerEv.exit.thread: ; preds = %_ZN5clang10CXXNe
 .lr.ph:                                           ; preds = %_ZN5clang10CXXNewExpr14getInitializerEv.exit.thread, %.lr.ph
   %.236 = phi i8 [ %70, %.lr.ph ], [ %.1, %_ZN5clang10CXXNewExpr14getInitializerEv.exit.thread ]
   %.sroa.015.035 = phi ptr [ %71, %.lr.ph ], [ %60, %_ZN5clang10CXXNewExpr14getInitializerEv.exit.thread ]
-  %65 = load ptr, ptr %.sroa.015.035, align 8, !tbaa !415
+  %65 = load ptr, ptr %.sroa.015.035, align 8, !tbaa !417
   %66 = load i24, ptr %65, align 8
   %67 = lshr i24 %66, 14
   %68 = trunc i24 %67 to i8
@@ -3163,13 +3163,13 @@ _ZN5clang10CXXNewExpr14getInitializerEv.exit.thread: ; preds = %_ZN5clang10CXXNe
   %70 = or i8 %69, %.236
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.015.035, i64 8
   %.not33 = icmp eq ptr %71, %64
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !583
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_23CXXPseudoDestructorExprE(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !568
+  %3 = load ptr, ptr %2, align 8, !tbaa !584
   %4 = load i24, ptr %3, align 8
   %5 = lshr i24 %4, 14
   %6 = trunc i24 %5 to i8
@@ -3203,7 +3203,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 25:                                               ; preds = %12, %1
   %.0 = phi i8 [ %7, %1 ], [ %24, %12 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = load ptr, ptr %26, align 8, !tbaa !576
+  %27 = load ptr, ptr %26, align 8, !tbaa !592
   %.not12 = icmp eq ptr %27, null
   br i1 %.not12, label %40, label %28
 
@@ -3225,7 +3225,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 40:                                               ; preds = %28, %25
   %.1 = phi i8 [ %.0, %25 ], [ %39, %28 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !577
+  %42 = load ptr, ptr %41, align 8, !tbaa !593
   %.not13 = icmp eq ptr %42, null
   br i1 %.not13, label %50, label %43
 
@@ -3262,7 +3262,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %.2 = or i8 %.1.i, %spec.select.i
   %12 = or i8 %.2, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !577
+  %14 = load ptr, ptr %13, align 8, !tbaa !593
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %22, label %15
 
@@ -3305,14 +3305,14 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i.i: ; preds = %._crit_
   %.04.i.i.v.v.i.i.i.i = select i1 %33, i64 64, i64 80
   %.04.i.i.v.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.04.i.i.v.v.i.i.i.i
   %.04.i.i.i.i.i.i = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i.i.i, i64 %35
-  %36 = load i32, ptr %.04.i.i.i.i.i.i, align 8, !tbaa !508
+  %36 = load i32, ptr %.04.i.i.i.i.i.i, align 8, !tbaa !513
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %._crit_edge42, label %_ZNK5clang12OverloadExpr18template_argumentsEv.exit
 
 _ZNK5clang12OverloadExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i.i, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i.i, i64 12
-  %39 = load i32, ptr %38, align 4, !tbaa !509
+  %39 = load i32, ptr %38, align 4, !tbaa !514
   %40 = zext i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 5
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 %41
@@ -3335,7 +3335,7 @@ _ZNK5clang12OverloadExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang12Over
   br i1 %47, label %_ZN5clang4Decl14getDeclContextEv.exit, label %50
 
 50:                                               ; preds = %.lr.ph
-  %51 = load ptr, ptr %49, align 8, !tbaa !408
+  %51 = load ptr, ptr %49, align 8, !tbaa !409
   br label %_ZN5clang4Decl14getDeclContextEv.exit
 
 _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %.lr.ph, %50
@@ -3358,7 +3358,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %.lr.ph, %50
   %.5 = phi i8 [ %59, %58 ], [ %.437, %53 ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.022.036, i64 8
   %.not34 = icmp eq ptr %61, %29
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !594
 
 ._crit_edge42:                                    ; preds = %.lr.ph41, %._crit_edge, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i.i, %_ZNK5clang12OverloadExpr18template_argumentsEv.exit
   %.6.lcssa = phi i8 [ %.4.lcssa, %_ZNK5clang12OverloadExpr18template_argumentsEv.exit ], [ %.4.lcssa, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i.i ], [ %.4.lcssa, %._crit_edge ], [ %70, %.lr.ph41 ]
@@ -3379,7 +3379,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %.lr.ph, %50
   %70 = or i8 %69, %65
   %71 = getelementptr inbounds nuw i8, ptr %.040, i64 32
   %.not18 = icmp eq ptr %71, %42
-  br i1 %.not18, label %._crit_edge42, label %.lr.ph41
+  br i1 %.not18, label %._crit_edge42, label %.lr.ph41, !llvm.loop !595
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3395,7 +3395,7 @@ define dso_local noundef zeroext range(i8 12, 32) i8 @_ZN5clang17computeDependen
   %.1.i = select i1 %4, i8 14, i8 12
   %7 = or disjoint i8 %.1.i, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !577
+  %9 = load ptr, ptr %8, align 8, !tbaa !593
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %17, label %10
 
@@ -3417,14 +3417,14 @@ define dso_local noundef zeroext range(i8 12, 32) i8 @_ZN5clang17computeDependen
 
 _ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i2.i: ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %21 = load i32, ptr %20, align 8, !tbaa !508
+  %21 = load i32, ptr %20, align 8, !tbaa !513
   %.not.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i, label %._crit_edge, label %_ZNK5clang25DependentScopeDeclRefExpr18template_argumentsEv.exit
 
 _ZNK5clang25DependentScopeDeclRefExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i2.i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %24 = load i32, ptr %23, align 4, !tbaa !509
+  %24 = load i32, ptr %23, align 4, !tbaa !514
   %25 = zext i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 5
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 %26
@@ -3450,7 +3450,7 @@ _ZNK5clang25DependentScopeDeclRefExpr18template_argumentsEv.exit: ; preds = %_ZN
   %36 = or i8 %35, %31
   %37 = getelementptr inbounds nuw i8, ptr %.022, i64 32
   %.not13 = icmp eq ptr %37, %27
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !596
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3476,7 +3476,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %15, ptr %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load i32, ptr %17, align 8, !tbaa !578
+  %18 = load i32, ptr %17, align 8, !tbaa !597
   %19 = zext i32 %18 to i64
   %.idx = shl nuw nsw i64 %19, 3
   %20 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 %.idx
@@ -3490,7 +3490,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.015 = phi i8 [ %26, %.lr.ph ], [ %12, %1 ]
   %.sroa.07.014 = phi ptr [ %27, %.lr.ph ], [ %spec.select.i.i.i, %1 ]
-  %21 = load ptr, ptr %.sroa.07.014, align 8, !tbaa !415
+  %21 = load ptr, ptr %.sroa.07.014, align 8, !tbaa !417
   %22 = load i24, ptr %21, align 8
   %23 = lshr i24 %22, 14
   %24 = trunc i24 %23 to i8
@@ -3498,13 +3498,13 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %26 = or i8 %25, %.015
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 8
   %.not = icmp eq ptr %27, %20
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !600
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_22CXXTemporaryObjectExprE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !581
+  %3 = load ptr, ptr %2, align 8, !tbaa !601
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa !15
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
@@ -3531,7 +3531,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %22 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i, i64 48
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr %22, ptr %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load i32, ptr %23, align 8, !tbaa !578
+  %24 = load i32, ptr %23, align 8, !tbaa !597
   %25 = zext i32 %24 to i64
   %.idx.i = shl nuw nsw i64 %25, 3
   %26 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 %.idx.i
@@ -3541,7 +3541,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.015.i = phi i8 [ %32, %.lr.ph.i ], [ %19, %1 ]
   %.sroa.07.014.i = phi ptr [ %33, %.lr.ph.i ], [ %spec.select.i.i.i.i, %1 ]
-  %27 = load ptr, ptr %.sroa.07.014.i, align 8, !tbaa !415
+  %27 = load ptr, ptr %.sroa.07.014.i, align 8, !tbaa !417
   %28 = load i24, ptr %27, align 8
   %29 = lshr i24 %28, 14
   %30 = trunc i24 %29 to i8
@@ -3549,7 +3549,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %32 = or i8 %31, %.015.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i, i64 8
   %.not.i = icmp eq ptr %33, %26
-  br i1 %.not.i, label %_ZN5clang17computeDependenceEPNS_16CXXConstructExprE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN5clang17computeDependenceEPNS_16CXXConstructExprE.exit, label %.lr.ph.i, !llvm.loop !600
 
 _ZN5clang17computeDependenceEPNS_16CXXConstructExprE.exit: ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i8 [ %19, %1 ], [ %32, %.lr.ph.i ]
@@ -3648,7 +3648,7 @@ define dso_local noundef zeroext range(i8 10, 32) i8 @_ZN5clang17computeDependen
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.021 = phi ptr [ %33, %.lr.ph ], [ %22, %1 ]
   %.01820 = phi i8 [ %32, %.lr.ph ], [ %21, %1 ]
-  %27 = load ptr, ptr %.021, align 8, !tbaa !434
+  %27 = load ptr, ptr %.021, align 8, !tbaa !437
   %28 = load i24, ptr %27, align 8
   %29 = lshr i24 %28, 14
   %30 = trunc i24 %29 to i8
@@ -3656,14 +3656,14 @@ define dso_local noundef zeroext range(i8 10, 32) i8 @_ZN5clang17computeDependen
   %32 = or i8 %31, %.01820
   %33 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %.not = icmp eq ptr %33, %26
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !603
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext range(i8 14, 32) i8 @_ZN5clang17computeDependenceEPNS_27CXXDependentScopeMemberExprE(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %"struct.clang::DeclarationNameInfo", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !583
+  %4 = load ptr, ptr %3, align 8, !tbaa !604
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit.thread, label %_ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit
 
@@ -3672,7 +3672,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit: ; preds = %1
   br i1 %5, label %_ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit.thread, label %6
 
 6:                                                ; preds = %_ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit
-  %7 = load ptr, ptr %3, align 8, !tbaa !583
+  %7 = load ptr, ptr %3, align 8, !tbaa !604
   %8 = load i24, ptr %7, align 8
   %9 = lshr i24 %8, 14
   %10 = trunc i24 %9 to i8
@@ -3683,7 +3683,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit: ; preds = %1
 _ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit.thread: ; preds = %1, %6, %_ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit
   %.022 = phi i8 [ 14, %_ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit ], [ %12, %6 ], [ 14, %1 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !577
+  %14 = load ptr, ptr %13, align 8, !tbaa !593
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %22, label %15
 
@@ -3715,14 +3715,14 @@ _ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit.thread: ; preds
 
 _ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit.i2.i: ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %31 = load i32, ptr %30, align 8, !tbaa !508
+  %31 = load i32, ptr %30, align 8, !tbaa !513
   %.not.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i, label %._crit_edge, label %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit
 
 _ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit.i2.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %34 = load i32, ptr %33, align 4, !tbaa !509
+  %34 = load i32, ptr %33, align 4, !tbaa !514
   %35 = zext i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 5
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 %36
@@ -3748,7 +3748,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit: ; preds = %_
   %46 = or i8 %45, %41
   %47 = getelementptr inbounds nuw i8, ptr %.026, i64 32
   %.not15 = icmp eq ptr %47, %37
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !608
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3763,7 +3763,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !587
+  %9 = load ptr, ptr %8, align 8, !tbaa !609
   br label %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit
 
 _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %1, %7
@@ -3780,12 +3780,12 @@ define dso_local noundef zeroext range(i8 14, 32) i8 @_ZN5clang17computeDependen
   %2 = alloca [2 x ptr], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !415
-  store ptr %4, ptr %2, align 8, !tbaa !434
+  %4 = load ptr, ptr %3, align 8, !tbaa !417
+  store ptr %4, ptr %2, align 8, !tbaa !437
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !415
-  store ptr %7, ptr %5, align 8, !tbaa !434
+  %7 = load ptr, ptr %6, align 8, !tbaa !417
+  store ptr %7, ptr %5, align 8, !tbaa !437
   br label %9
 
 8:                                                ; preds = %17
@@ -3796,7 +3796,7 @@ define dso_local noundef zeroext range(i8 14, 32) i8 @_ZN5clang17computeDependen
   %.0.idx16 = phi i64 [ 0, %1 ], [ %.0.add, %17 ]
   %.01415 = phi i8 [ 14, %1 ], [ %.1, %17 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx16
-  %10 = load ptr, ptr %.0.ptr, align 8, !tbaa !434
+  %10 = load ptr, ptr %.0.ptr, align 8, !tbaa !437
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %17, label %11
 
@@ -3812,14 +3812,14 @@ define dso_local noundef zeroext range(i8 14, 32) i8 @_ZN5clang17computeDependen
   %.1 = phi i8 [ %.01415, %9 ], [ %16, %11 ]
   %.0.add = add nuw nsw i64 %.0.idx16, 8
   %.not = icmp eq i64 %.0.add, 16
-  br i1 %.not, label %8, label %9
+  br i1 %.not, label %8, label %9, !llvm.loop !619
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_20CXXParenListInitExprE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !597
+  %4 = load i32, ptr %3, align 8, !tbaa !620
   %5 = zext i32 %4 to i64
   %.idx = shl nuw nsw i64 %5, 3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
@@ -3833,7 +3833,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.013 = phi ptr [ %13, %.lr.ph ], [ %2, %1 ]
   %.01012 = phi i8 [ %12, %.lr.ph ], [ 0, %1 ]
-  %7 = load ptr, ptr %.013, align 8, !tbaa !434
+  %7 = load ptr, ptr %.013, align 8, !tbaa !437
   %8 = load i24, ptr %7, align 8
   %9 = lshr i24 %8, 14
   %10 = trunc i24 %9 to i8
@@ -3841,7 +3841,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %12 = or i8 %11, %.01012
   %13 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.not = icmp eq ptr %13, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !627
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3862,7 +3862,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.014 = phi ptr [ %19, %.lr.ph ], [ %2, %1 ]
   %.01113 = phi i8 [ %18, %.lr.ph ], [ 0, %1 ]
-  %7 = load ptr, ptr %.014, align 8, !tbaa !551
+  %7 = load ptr, ptr %.014, align 8, !tbaa !563
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !15
   %8 = and i64 %.sroa.0.0.copyload.i, -16
   %9 = inttoptr i64 %8 to ptr
@@ -3877,18 +3877,18 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %18 = or i8 %17, %15
   %19 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.not = icmp eq ptr %19, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !628
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_25ConceptSpecializationExprEb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !604
+  %4 = load ptr, ptr %3, align 8, !tbaa !629
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !609
+  %6 = load ptr, ptr %5, align 8, !tbaa !634
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !614
+  %9 = load i32, ptr %8, align 8, !tbaa !639
   %10 = zext i32 %9 to i64
   %.idx = shl nuw nsw i64 %10, 5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
@@ -3898,7 +3898,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.024, i64 32
   %.not = icmp eq ptr %13, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !641
 
 .lr.ph:                                           ; preds = %2, %12
   %.024 = phi ptr [ %13, %12 ], [ %7, %2 ]
@@ -3917,7 +3917,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !616
+  %21 = load ptr, ptr %20, align 8, !tbaa !642
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8
   %24 = shl i8 %23, 3
@@ -3934,7 +3934,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_16ObjCArrayLiteralE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !617
+  %4 = load i32, ptr %3, align 8, !tbaa !643
   %.not8 = icmp eq i32 %4, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3950,7 +3950,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.079 = phi i8 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !434
+  %7 = load ptr, ptr %6, align 8, !tbaa !437
   %8 = load i24, ptr %7, align 8
   %9 = lshr i24 %8, 14
   %10 = trunc i24 %9 to i8
@@ -3958,7 +3958,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %12 = or i8 %11, %.079
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !619
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !645
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3980,9 +3980,9 @@ _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us: ; preds = %.lr.
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us ], [ 0, %.lr.ph ]
   %.0911.us = phi i8 [ %17, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us ], [ 0, %.lr.ph ]
   %8 = getelementptr inbounds nuw %"struct.clang::ObjCDictionaryLiteral_KeyValuePair", ptr %5, i64 %indvars.iv16
-  %9 = load ptr, ptr %8, align 8, !tbaa !620, !noalias !622
+  %9 = load ptr, ptr %8, align 8, !tbaa !646, !noalias !648
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !625, !noalias !622
+  %11 = load ptr, ptr %10, align 8, !tbaa !651, !noalias !648
   %12 = load i24, ptr %9, align 8
   %13 = load i24, ptr %11, align 8
   %14 = or i24 %13, %12
@@ -3992,7 +3992,7 @@ _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us: ; preds = %.lr.
   %17 = or i8 %spec.select.us, %.0911.us
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, %6
-  br i1 %exitcond19.not, label %._crit_edge, label %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us, !llvm.loop !626
+  br i1 %exitcond19.not, label %._crit_edge, label %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us, !llvm.loop !652
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us, %1
   %.09.lcssa = phi i8 [ 0, %1 ], [ %17, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us ], [ %29, %.lr.ph.split ]
@@ -4002,11 +4002,11 @@ _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us: ; preds = %.lr.
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.0911 = phi i8 [ %29, %.lr.ph.split ], [ 0, %.lr.ph ]
   %18 = getelementptr inbounds nuw %"struct.clang::ObjCDictionaryLiteral_KeyValuePair", ptr %5, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8, !tbaa !620, !noalias !622
+  %19 = load ptr, ptr %18, align 8, !tbaa !646, !noalias !648
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !625, !noalias !622
+  %21 = load ptr, ptr %20, align 8, !tbaa !651, !noalias !648
   %22 = getelementptr inbounds nuw %"struct.clang::ObjCDictionaryLiteral_ExpansionData", ptr %7, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4, !tbaa !508, !noalias !622
+  %23 = load i32, ptr %22, align 4, !tbaa !513, !noalias !648
   %24 = load i24, ptr %19, align 8
   %25 = load i24, ptr %21, align 8
   %26 = or i24 %25, %24
@@ -4018,7 +4018,7 @@ _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us: ; preds = %.lr.
   %29 = or i8 %spec.select, %.0911
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !628
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !654
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -4031,7 +4031,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 
 _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !629
+  %7 = load ptr, ptr %6, align 8, !tbaa !655
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %_ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread, label %8
 
@@ -4075,7 +4075,7 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %1, %_Z
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.123 = phi i8 [ %34, %.lr.ph ], [ %.0, %24 ]
   %.sroa.010.022 = phi ptr [ %35, %.lr.ph ], [ %25, %24 ]
-  %29 = load ptr, ptr %.sroa.010.022, align 8, !tbaa !415
+  %29 = load ptr, ptr %.sroa.010.022, align 8, !tbaa !417
   %30 = load i24, ptr %29, align 8
   %31 = lshr i24 %30, 14
   %32 = trunc i24 %31 to i8
@@ -4083,7 +4083,7 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %1, %_Z
   %34 = or i8 %33, %.123
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.010.022, i64 8
   %.not20 = icmp eq ptr %35, %28
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !656
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -4127,12 +4127,12 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 14976
-  %8 = load i32, ptr %7, align 8, !tbaa !630
+  %8 = load i32, ptr %7, align 8, !tbaa !657
   %9 = add i32 %8, 1
-  store i32 %9, ptr %7, align 8, !tbaa !630
+  store i32 %9, ptr %7, align 8, !tbaa !657
   %10 = zext i32 %8 to i64
   %11 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %10
-  store ptr %1, ptr %11, align 8, !tbaa !631
+  store ptr %1, ptr %11, align 8, !tbaa !658
   br label %49
 
 12:                                               ; preds = %2
@@ -4157,14 +4157,14 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %.05.i.i.i = phi ptr [ %21, %_ZN5clang9FixItHintD2Ev.exit.i.i.i ], [ %20, %.lr.ph.i.preheader.i.i ]
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -64
   %22 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -40
-  %23 = load ptr, ptr %22, align 8, !tbaa !632
+  %23 = load ptr, ptr %22, align 8, !tbaa !659
   %24 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -24
   %25 = icmp eq ptr %23, %24
   br i1 %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %26 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -32
-  %27 = load i64, ptr %26, align 8, !tbaa !633
+  %27 = load i64, ptr %26, align 8, !tbaa !660
   %28 = icmp ult i64 %27, 16
   tail call void @llvm.assume(i1 %28)
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i
@@ -4177,7 +4177,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i:               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   %.not.i.i.i = icmp eq ptr %16, %21
-  br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !634
+  br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !661
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i
   %.pre.i.i = load ptr, ptr %15, align 8, !tbaa !393
@@ -4211,14 +4211,14 @@ _ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i: ; preds = %_ZN4
   %.idx.i = phi i64 [ %.add.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 416, %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.preheader ]
   %.add.i = add nsw i64 %.idx.i, -32
   %.ptr1.i = getelementptr inbounds i8, ptr %1, i64 %.add.i
-  %40 = load ptr, ptr %.ptr1.i, align 8, !tbaa !632
+  %40 = load ptr, ptr %.ptr1.i, align 8, !tbaa !659
   %41 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 16
   %42 = icmp eq ptr %40, %41
   br i1 %42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !633
+  %44 = load i64, ptr %43, align 8, !tbaa !660
   %45 = icmp ult i64 %44, 16
   tail call void @llvm.assume(i1 %45)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
@@ -4231,7 +4231,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %48 = icmp eq i64 %.add.i, 96
-  br i1 %48, label %_ZN5clang17DiagnosticStorageD2Ev.exit, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i
+  br i1 %48, label %_ZN5clang17DiagnosticStorageD2Ev.exit, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i, !llvm.loop !662
 
 _ZN5clang17DiagnosticStorageD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 928) #12
@@ -4667,236 +4667,264 @@ attributes #12 = { builtin nounwind }
 !399 = !{!"p1 _ZTSN5clang17DiagnosticStorageE", !14, i64 0}
 !400 = !{!"p1 _ZTSN5clang20DiagStorageAllocatorE", !14, i64 0}
 !401 = !{!398, !400, i64 8}
-!402 = distinct !{!402, !403}
+!402 = distinct !{!402, !403, !404}
 !403 = !{!"llvm.loop.mustprogress"}
-!404 = !{!180, !180, i64 0}
-!405 = !{!406, !407, i64 8}
-!406 = !{!"_ZTSN5clang4Decl10MultipleDCE", !407, i64 0, !407, i64 8}
-!407 = !{!"p1 _ZTSN5clang11DeclContextE", !14, i64 0}
-!408 = !{!406, !407, i64 0}
-!409 = !{!410, !410, i64 0}
-!410 = !{!"p1 _ZTSN5clang9ValueDeclE", !14, i64 0}
-!411 = !{!412, !412, i64 0}
-!412 = !{!"p1 _ZTSN5clang4AttrE", !14, i64 0}
-!413 = distinct !{!413, !403}
-!414 = distinct !{!414, !403}
-!415 = !{!13, !13, i64 0}
-!416 = !{!417, !13, i64 32}
-!417 = !{!"_ZTSN5clang19CompoundLiteralExprE", !5, i64 0, !24, i64 16, !418, i64 24, !13, i64 32}
-!418 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang14TypeSourceInfoELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !419, i64 0}
-!419 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang14TypeSourceInfoEEE", !8, i64 0}
-!420 = !{!421, !13, i64 16}
-!421 = !{!"_ZTSN5clang8CastExprE", !5, i64 0, !13, i64 16}
-!422 = !{!423, !424, i64 24}
-!423 = !{!"_ZTSN5clang16ExplicitCastExprE", !421, i64 0, !424, i64 24}
-!424 = !{!"p1 _ZTSN5clang14TypeSourceInfoE", !14, i64 0}
-!425 = !{!426, !13, i64 16}
-!426 = !{!"_ZTSN5clang8StmtExprE", !5, i64 0, !13, i64 16, !24, i64 24, !24, i64 28}
-!427 = !{!428, !424, i64 24}
-!428 = !{!"_ZTSN5clang17ConvertVectorExprE", !5, i64 0, !13, i64 16, !424, i64 24, !24, i64 32, !24, i64 36}
-!429 = !{!428, !13, i64 16}
-!430 = !{!431, !278, i64 48}
-!431 = !{!"_ZTSN5clang10ChooseExprE", !5, i64 0, !8, i64 16, !24, i64 40, !24, i64 44, !278, i64 48}
-!432 = !{i8 0, i8 2}
-!433 = !{}
-!434 = !{!21, !21, i64 0}
-!435 = !{!436, !13, i64 16}
-!436 = !{!"_ZTSN5clang9VAArgExprE", !5, i64 0, !13, i64 16, !418, i64 24, !24, i64 32, !24, i64 36}
-!437 = !{!438, !13, i64 16}
-!438 = !{!"_ZTSN5clang20ExtVectorElementExprE", !5, i64 0, !13, i64 16, !185, i64 24, !24, i64 32}
-!439 = !{!440, !441, i64 16}
-!440 = !{!"_ZTSN5clang9BlockExprE", !5, i64 0, !441, i64 16}
-!441 = !{!"p1 _ZTSN5clang9BlockDeclE", !14, i64 0}
-!442 = !{!443, !13, i64 16}
-!443 = !{!"_ZTSN5clang10AsTypeExprE", !5, i64 0, !13, i64 16, !24, i64 24, !24, i64 28}
-!444 = !{!445, !13, i64 16}
-!445 = !{!"_ZTSN5clang26CXXRewrittenBinaryOperatorE", !5, i64 0, !13, i64 16}
+!404 = !{!"llvm.loop.estimated_trip_count"}
+!405 = !{!180, !180, i64 0}
+!406 = !{!407, !408, i64 8}
+!407 = !{!"_ZTSN5clang4Decl10MultipleDCE", !408, i64 0, !408, i64 8}
+!408 = !{!"p1 _ZTSN5clang11DeclContextE", !14, i64 0}
+!409 = !{!407, !408, i64 0}
+!410 = !{!411, !411, i64 0}
+!411 = !{!"p1 _ZTSN5clang9ValueDeclE", !14, i64 0}
+!412 = !{!413, !413, i64 0}
+!413 = !{!"p1 _ZTSN5clang4AttrE", !14, i64 0}
+!414 = distinct !{!414, !403, !404}
+!415 = distinct !{!415, !403, !404}
+!416 = distinct !{!416, !404}
+!417 = !{!13, !13, i64 0}
+!418 = !{!419, !13, i64 32}
+!419 = !{!"_ZTSN5clang19CompoundLiteralExprE", !5, i64 0, !24, i64 16, !420, i64 24, !13, i64 32}
+!420 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang14TypeSourceInfoELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !421, i64 0}
+!421 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang14TypeSourceInfoEEE", !8, i64 0}
+!422 = !{!423, !13, i64 16}
+!423 = !{!"_ZTSN5clang8CastExprE", !5, i64 0, !13, i64 16}
+!424 = !{!425, !426, i64 24}
+!425 = !{!"_ZTSN5clang16ExplicitCastExprE", !423, i64 0, !426, i64 24}
+!426 = !{!"p1 _ZTSN5clang14TypeSourceInfoE", !14, i64 0}
+!427 = !{!428, !13, i64 16}
+!428 = !{!"_ZTSN5clang8StmtExprE", !5, i64 0, !13, i64 16, !24, i64 24, !24, i64 28}
+!429 = distinct !{!429, !404}
+!430 = !{!431, !426, i64 24}
+!431 = !{!"_ZTSN5clang17ConvertVectorExprE", !5, i64 0, !13, i64 16, !426, i64 24, !24, i64 32, !24, i64 36}
+!432 = !{!431, !13, i64 16}
+!433 = !{!434, !278, i64 48}
+!434 = !{!"_ZTSN5clang10ChooseExprE", !5, i64 0, !8, i64 16, !24, i64 40, !24, i64 44, !278, i64 48}
+!435 = !{i8 0, i8 2}
+!436 = !{}
+!437 = !{!21, !21, i64 0}
+!438 = distinct !{!438, !404}
+!439 = !{!440, !13, i64 16}
+!440 = !{!"_ZTSN5clang9VAArgExprE", !5, i64 0, !13, i64 16, !420, i64 24, !24, i64 32, !24, i64 36}
+!441 = !{!442, !13, i64 16}
+!442 = !{!"_ZTSN5clang20ExtVectorElementExprE", !5, i64 0, !13, i64 16, !185, i64 24, !24, i64 32}
+!443 = !{!444, !445, i64 16}
+!444 = !{!"_ZTSN5clang9BlockExprE", !5, i64 0, !445, i64 16}
+!445 = !{!"p1 _ZTSN5clang9BlockDeclE", !14, i64 0}
 !446 = !{!447, !13, i64 16}
-!447 = !{!"_ZTSN5clang25CXXStdInitializerListExprE", !5, i64 0, !13, i64 16}
-!448 = !{!449, !21, i64 16}
-!449 = !{!"_ZTSN5clang17MSPropertyRefExprE", !5, i64 0, !21, i64 16, !450, i64 24, !24, i64 32, !278, i64 36, !451, i64 40}
-!450 = !{!"p1 _ZTSN5clang14MSPropertyDeclE", !14, i64 0}
-!451 = !{!"_ZTSN5clang22NestedNameSpecifierLocE", !151, i64 0, !14, i64 8}
-!452 = !{!453, !13, i64 16}
-!453 = !{!"_ZTSN5clang12CXXThrowExprE", !5, i64 0, !13, i64 16}
-!454 = !{!455, !13, i64 24}
-!455 = !{!"_ZTSN5clang20CXXBindTemporaryExprE", !5, i64 0, !456, i64 16, !13, i64 24}
-!456 = !{!"p1 _ZTSN5clang12CXXTemporaryE", !14, i64 0}
-!457 = !{!458, !424, i64 16}
-!458 = !{!"_ZTSN5clang22CXXScalarValueInitExprE", !5, i64 0, !424, i64 16}
-!459 = !{!460, !13, i64 24}
-!460 = !{!"_ZTSN5clang13CXXDeleteExprE", !5, i64 0, !188, i64 16, !13, i64 24}
-!461 = !{!462, !424, i64 48}
-!462 = !{!"_ZTSN5clang18ArrayTypeTraitExprE", !5, i64 0, !25, i64 16, !180, i64 24, !21, i64 32, !24, i64 40, !24, i64 44, !424, i64 48}
-!463 = !{!462, !21, i64 32}
-!464 = !{!465, !21, i64 32}
-!465 = !{!"_ZTSN5clang19ExpressionTraitExprE", !5, i64 0, !25, i64 16, !25, i64 19, !24, i64 20, !24, i64 24, !21, i64 32}
-!466 = !{!467, !13, i64 16}
-!467 = !{!"_ZTSN5clang15CXXNoexceptExprE", !5, i64 0, !13, i64 16, !468, i64 24}
-!468 = !{!"_ZTSN5clang11SourceRangeE", !24, i64 0, !24, i64 4}
-!469 = !{!470, !13, i64 24}
-!470 = !{!"_ZTSN5clang17PackExpansionExprE", !5, i64 0, !24, i64 16, !25, i64 20, !13, i64 24}
-!471 = !{!472, !278, i64 12}
-!472 = !{!"_ZTSN4llvm6APSIntE", !473, i64 0, !278, i64 12}
-!473 = !{!"_ZTSN4llvm5APIntE", !8, i64 0, !25, i64 8}
-!474 = !{!473, !25, i64 8}
-!475 = !{!476, !13, i64 16}
-!476 = !{!"_ZTSN5clang28SubstNonTypeTemplateParmExprE", !5, i64 0, !13, i64 16, !477, i64 24, !25, i64 32, !25, i64 33}
-!477 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !478, i64 0}
-!478 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang4DeclEEE", !8, i64 0}
+!447 = !{!"_ZTSN5clang10AsTypeExprE", !5, i64 0, !13, i64 16, !24, i64 24, !24, i64 28}
+!448 = !{!449, !13, i64 16}
+!449 = !{!"_ZTSN5clang26CXXRewrittenBinaryOperatorE", !5, i64 0, !13, i64 16}
+!450 = !{!451, !13, i64 16}
+!451 = !{!"_ZTSN5clang25CXXStdInitializerListExprE", !5, i64 0, !13, i64 16}
+!452 = !{!453, !21, i64 16}
+!453 = !{!"_ZTSN5clang17MSPropertyRefExprE", !5, i64 0, !21, i64 16, !454, i64 24, !24, i64 32, !278, i64 36, !455, i64 40}
+!454 = !{!"p1 _ZTSN5clang14MSPropertyDeclE", !14, i64 0}
+!455 = !{!"_ZTSN5clang22NestedNameSpecifierLocE", !151, i64 0, !14, i64 8}
+!456 = !{!457, !13, i64 16}
+!457 = !{!"_ZTSN5clang12CXXThrowExprE", !5, i64 0, !13, i64 16}
+!458 = !{!459, !13, i64 24}
+!459 = !{!"_ZTSN5clang20CXXBindTemporaryExprE", !5, i64 0, !460, i64 16, !13, i64 24}
+!460 = !{!"p1 _ZTSN5clang12CXXTemporaryE", !14, i64 0}
+!461 = !{!462, !426, i64 16}
+!462 = !{!"_ZTSN5clang22CXXScalarValueInitExprE", !5, i64 0, !426, i64 16}
+!463 = !{!464, !13, i64 24}
+!464 = !{!"_ZTSN5clang13CXXDeleteExprE", !5, i64 0, !188, i64 16, !13, i64 24}
+!465 = !{!466, !426, i64 48}
+!466 = !{!"_ZTSN5clang18ArrayTypeTraitExprE", !5, i64 0, !25, i64 16, !180, i64 24, !21, i64 32, !24, i64 40, !24, i64 44, !426, i64 48}
+!467 = !{!466, !21, i64 32}
+!468 = !{!469, !21, i64 32}
+!469 = !{!"_ZTSN5clang19ExpressionTraitExprE", !5, i64 0, !25, i64 16, !25, i64 19, !24, i64 20, !24, i64 24, !21, i64 32}
+!470 = !{!471, !13, i64 16}
+!471 = !{!"_ZTSN5clang15CXXNoexceptExprE", !5, i64 0, !13, i64 16, !472, i64 24}
+!472 = !{!"_ZTSN5clang11SourceRangeE", !24, i64 0, !24, i64 4}
+!473 = !{!474, !13, i64 24}
+!474 = !{!"_ZTSN5clang17PackExpansionExprE", !5, i64 0, !24, i64 16, !25, i64 20, !13, i64 24}
+!475 = !{!476, !278, i64 12}
+!476 = !{!"_ZTSN4llvm6APSIntE", !477, i64 0, !278, i64 12}
+!477 = !{!"_ZTSN4llvm5APIntE", !8, i64 0, !25, i64 8}
+!478 = !{!477, !25, i64 8}
 !479 = !{!480, !13, i64 16}
-!480 = !{!"_ZTSN5clang13ObjCBoxedExprE", !5, i64 0, !13, i64 16, !481, i64 24, !468, i64 32}
-!481 = !{!"p1 _ZTSN5clang14ObjCMethodDeclE", !14, i64 0}
-!482 = !{!483, !424, i64 16}
-!483 = !{!"_ZTSN5clang14ObjCEncodeExprE", !5, i64 0, !424, i64 16, !24, i64 24, !24, i64 28}
-!484 = !{!485, !13, i64 24}
-!485 = !{!"_ZTSN5clang15ObjCIvarRefExprE", !5, i64 0, !486, i64 16, !13, i64 24, !24, i64 32, !24, i64 36, !278, i64 40, !278, i64 40}
-!486 = !{!"p1 _ZTSN5clang12ObjCIvarDeclE", !14, i64 0}
-!487 = !{!488, !13, i64 16}
-!488 = !{!"_ZTSN5clang11ObjCIsaExprE", !5, i64 0, !13, i64 16, !24, i64 24, !24, i64 28, !278, i64 32}
-!489 = !{!490, !13, i64 16}
-!490 = !{!"_ZTSN5clang27ObjCIndirectCopyRestoreExprE", !5, i64 0, !13, i64 16}
-!491 = !{!492, !493, i64 16}
-!492 = !{!"_ZTSN5clang16ArraySectionExprE", !5, i64 0, !493, i64 16, !8, i64 24, !24, i64 56, !24, i64 60, !24, i64 64}
-!493 = !{!"_ZTSN5clang16ArraySectionExpr16ArraySectionTypeE", !8, i64 0}
-!494 = !{!495, !25, i64 24}
-!495 = !{!"_ZTSN5clang19OMPArrayShapingExprE", !5, i64 0, !24, i64 16, !24, i64 20, !25, i64 24}
-!496 = !{!497, !25, i64 28}
-!497 = !{!"_ZTSN5clang15OMPIteratorExprE", !5, i64 0, !24, i64 16, !24, i64 20, !24, i64 24, !25, i64 28}
-!498 = !{!499, !424, i64 32}
-!499 = !{!"_ZTSN5clang14DeclaratorDecl7ExtInfoE", !500, i64 0, !424, i64 32, !21, i64 40}
-!500 = !{!"_ZTSN5clang13QualifierInfoE", !451, i64 0, !25, i64 16, !501, i64 24}
-!501 = !{!"p2 _ZTSN5clang21TemplateParameterListE", !14, i64 0}
-!502 = !{!503, !21, i64 0}
-!503 = !{!"_ZTSN5clang15OMPIteratorExpr13IteratorRangeE", !21, i64 0, !21, i64 8, !21, i64 16}
-!504 = !{!503, !21, i64 8}
-!505 = !{!503, !21, i64 16}
-!506 = distinct !{!506, !403}
-!507 = !{!151, !151, i64 0}
-!508 = !{!25, !25, i64 0}
-!509 = !{!510, !25, i64 12}
-!510 = !{!"_ZTSN5clang24ASTTemplateKWAndArgsInfoE", !24, i64 0, !24, i64 4, !24, i64 8, !25, i64 12}
-!511 = distinct !{!511, !403}
-!512 = !{!513, !410, i64 16}
-!513 = !{!"_ZTSN5clang11DeclRefExprE", !5, i64 0, !410, i64 16, !514, i64 24}
-!514 = !{!"_ZTSN5clang18DeclarationNameLocE", !8, i64 0}
-!515 = !{!516, !524, i64 8}
-!516 = !{!"_ZTSN5clang12RedeclarableINS_7VarDeclEEE", !517, i64 0, !524, i64 8}
-!517 = !{!"_ZTSN5clang12RedeclarableINS_7VarDeclEE8DeclLinkE", !518, i64 0}
-!518 = !{!"_ZTSN4llvm12PointerUnionIJNS0_IJPN5clang4DeclEPKvEEENS1_25LazyGenerationalUpdatePtrIPKS2_S3_XadL_ZNS1_17ExternalASTSource19CompleteRedeclChainES9_EEEEEEE", !519, i64 0}
-!519 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi0EJS8_SD_EEE", !520, i64 0}
-!520 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi1EJSD_EEE", !521, i64 0}
-!521 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi2EJEEE", !522, i64 0}
-!522 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJNS_12PointerUnionIJPN5clang4DeclEPKvEEENS5_25LazyGenerationalUpdatePtrIPKS6_S7_XadL_ZNS5_17ExternalASTSource19CompleteRedeclChainESD_EEEEEEENS_18PointerIntPairInfoIS1_Lj1ESG_EEEE", !523, i64 0}
-!523 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !8, i64 0}
-!524 = !{!"p1 _ZTSN5clang7VarDeclE", !14, i64 0}
-!525 = !{!526, !25, i64 24}
-!526 = !{!"_ZTSN5clang12RecoveryExprE", !5, i64 0, !24, i64 16, !24, i64 20, !25, i64 24}
-!527 = !{!528, !424, i64 32}
-!528 = !{!"_ZTSN5clang24SYCLUniqueStableNameExprE", !5, i64 0, !24, i64 16, !24, i64 20, !24, i64 24, !424, i64 32}
-!529 = !{!530, !25, i64 16}
-!530 = !{!"_ZTSN5clang8CallExprE", !5, i64 0, !25, i64 16, !24, i64 20}
-!531 = !{!532, !424, i64 24}
-!532 = !{!"_ZTSN5clang12OffsetOfExprE", !5, i64 0, !24, i64 16, !24, i64 20, !424, i64 24, !25, i64 32, !25, i64 36}
-!533 = !{!532, !25, i64 36}
-!534 = !{!532, !25, i64 32}
-!535 = distinct !{!535, !403}
-!536 = !{!537, !13, i64 16}
-!537 = !{!"_ZTSN5clang10MemberExprE", !5, i64 0, !13, i64 16, !410, i64 24, !514, i64 32, !24, i64 40}
-!538 = !{!537, !410, i64 24}
-!539 = !{!540}
-!540 = distinct !{!540, !541, !"_ZNK5clang10MemberExpr17getMemberNameInfoEv: argument 0"}
-!541 = distinct !{!541, !"_ZNK5clang10MemberExpr17getMemberNameInfoEv"}
-!542 = !{!543, !544, i64 0}
-!543 = !{!"_ZTSN5clang9ASTVectorIPNS_4StmtEEE", !544, i64 0, !544, i64 8, !545, i64 16}
-!544 = !{!"p2 _ZTSN5clang4StmtE", !14, i64 0}
-!545 = !{!"_ZTSN4llvm14PointerIntPairIPPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEE", !546, i64 0}
-!546 = !{!"_ZTSN4llvm6detail13PunnedPointerIPPN5clang4StmtEEE", !8, i64 0}
-!547 = !{!543, !544, i64 8}
-!548 = !{!549, !544, i64 24}
-!549 = !{!"_ZTSN5clang17ShuffleVectorExprE", !5, i64 0, !24, i64 16, !24, i64 20, !544, i64 24, !25, i64 32}
-!550 = !{!549, !25, i64 32}
-!551 = !{!424, !424, i64 0}
-!552 = !{!553}
-!553 = distinct !{!553, !554, !"_ZN5clang4Stmt11child_beginEv: argument 0"}
-!554 = distinct !{!554, !"_ZN5clang4Stmt11child_beginEv"}
-!555 = !{!556, !180, i64 8}
-!556 = !{!"_ZTSN5clang16StmtIteratorBaseE", !8, i64 0, !180, i64 8, !369, i64 16}
-!557 = !{!558, !559, i64 24}
-!558 = !{!"_ZTSN5clang18DesignatedInitExprE", !5, i64 0, !24, i64 16, !25, i64 20, !25, i64 20, !25, i64 22, !559, i64 24}
-!559 = !{!"p1 _ZTSN5clang18DesignatedInitExpr10DesignatorE", !14, i64 0}
-!560 = !{!561, !562, i64 0}
-!561 = !{!"_ZTSN5clang18DesignatedInitExpr10DesignatorE", !562, i64 0, !8, i64 8}
-!562 = !{!"_ZTSN5clang18DesignatedInitExpr10Designator14DesignatorKindE", !8, i64 0}
-!563 = !{!564, !25, i64 72}
-!564 = !{!"_ZTSN5clang10AtomicExprE", !5, i64 0, !8, i64 16, !25, i64 72, !24, i64 76, !24, i64 80, !565, i64 84}
-!565 = !{!"_ZTSN5clang10AtomicExpr8AtomicOpE", !8, i64 0}
-!566 = !{!567, !424, i64 32}
-!567 = !{!"_ZTSN5clang10CXXNewExprE", !5, i64 0, !188, i64 16, !188, i64 24, !424, i64 32, !468, i64 40, !468, i64 48}
-!568 = !{!569, !13, i64 16}
-!569 = !{!"_ZTSN5clang23CXXPseudoDestructorExprE", !5, i64 0, !13, i64 16, !278, i64 24, !24, i64 28, !451, i64 32, !424, i64 48, !24, i64 56, !24, i64 60, !570, i64 64}
-!570 = !{!"_ZTSN5clang27PseudoDestructorTypeStorageE", !571, i64 0, !24, i64 8}
-!571 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang14TypeSourceInfoEPKNS1_14IdentifierInfoEEEE", !572, i64 0}
-!572 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !573, i64 0}
-!573 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !574, i64 0}
-!574 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !575, i64 0}
-!575 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang14TypeSourceInfoEPKNS4_14IdentifierInfoEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !523, i64 0}
-!576 = !{!569, !424, i64 48}
-!577 = !{!451, !151, i64 0}
-!578 = !{!579, !25, i64 32}
-!579 = !{!"_ZTSN5clang16CXXConstructExprE", !5, i64 0, !580, i64 16, !468, i64 24, !25, i64 32}
-!580 = !{!"p1 _ZTSN5clang18CXXConstructorDeclE", !14, i64 0}
-!581 = !{!582, !424, i64 40}
-!582 = !{!"_ZTSN5clang22CXXTemporaryObjectExprE", !579, i64 0, !424, i64 40}
-!583 = !{!584, !13, i64 16}
-!584 = !{!"_ZTSN5clang27CXXDependentScopeMemberExprE", !5, i64 0, !13, i64 16, !10, i64 24, !451, i64 32, !585, i64 48}
-!585 = !{!"_ZTSN5clang19DeclarationNameInfoE", !586, i64 0, !24, i64 8, !514, i64 16}
-!586 = !{!"_ZTSN5clang15DeclarationNameE", !180, i64 0}
-!587 = !{!588, !13, i64 40}
-!588 = !{!"_ZTSN5clang29LifetimeExtendedTemporaryDeclE", !589, i64 0, !13, i64 40, !410, i64 48, !25, i64 56, !596, i64 64}
-!589 = !{!"_ZTSN5clang4DeclE", !590, i64 8, !591, i64 16, !24, i64 24, !25, i64 28, !25, i64 28, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 30, !25, i64 32}
-!590 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj3ENS2_19ModuleOwnershipKindENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj3ES6_EEEE", !478, i64 0}
-!591 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang11DeclContextEPNS1_4Decl10MultipleDCEEEE", !592, i64 0}
-!592 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !593, i64 0}
-!593 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !594, i64 0}
-!594 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !595, i64 0}
-!595 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang11DeclContextEPNS4_4Decl10MultipleDCEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !523, i64 0}
-!596 = !{!"p1 _ZTSN5clang7APValueE", !14, i64 0}
-!597 = !{!598, !25, i64 16}
-!598 = !{!"_ZTSN5clang20CXXParenListInitExprE", !5, i64 0, !25, i64 16, !25, i64 20, !24, i64 24, !24, i64 28, !24, i64 32, !599, i64 40}
-!599 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang4ExprEPNS1_9FieldDeclEEEE", !600, i64 0}
-!600 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_9FieldDeclEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S7_EEENS_18PointerIntPairInfoISA_Lj1ESC_EEEELi0EJS5_S7_EEE", !601, i64 0}
-!601 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_9FieldDeclEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S7_EEENS_18PointerIntPairInfoISA_Lj1ESC_EEEELi1EJS7_EEE", !602, i64 0}
-!602 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_9FieldDeclEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S7_EEENS_18PointerIntPairInfoISA_Lj1ESC_EEEELi2EJEEE", !603, i64 0}
-!603 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang4ExprEPNS4_9FieldDeclEEEENS_18PointerIntPairInfoIS1_Lj1ES9_EEEE", !523, i64 0}
-!604 = !{!605, !606, i64 16}
-!605 = !{!"_ZTSN5clang25ConceptSpecializationExprE", !5, i64 0, !606, i64 16, !607, i64 24, !608, i64 32}
-!606 = !{!"p1 _ZTSN5clang16ConceptReferenceE", !14, i64 0}
-!607 = !{!"p1 _ZTSN5clang33ImplicitConceptSpecializationDeclE", !14, i64 0}
-!608 = !{!"p1 _ZTSN5clang25ASTConstraintSatisfactionE", !14, i64 0}
-!609 = !{!610, !613, i64 64}
-!610 = !{!"_ZTSN5clang16ConceptReferenceE", !451, i64 0, !24, i64 16, !585, i64 24, !611, i64 48, !612, i64 56, !613, i64 64}
-!611 = !{!"p1 _ZTSN5clang9NamedDeclE", !14, i64 0}
-!612 = !{!"p1 _ZTSN5clang11ConceptDeclE", !14, i64 0}
-!613 = !{!"p1 _ZTSN5clang27ASTTemplateArgumentListInfoE", !14, i64 0}
-!614 = !{!615, !25, i64 8}
-!615 = !{!"_ZTSN5clang27ASTTemplateArgumentListInfoE", !24, i64 0, !24, i64 4, !25, i64 8}
-!616 = !{!605, !608, i64 32}
-!617 = !{!618, !25, i64 16}
-!618 = !{!"_ZTSN5clang16ObjCArrayLiteralE", !5, i64 0, !25, i64 16, !468, i64 20, !481, i64 32}
-!619 = distinct !{!619, !403}
-!620 = !{!621, !21, i64 0}
-!621 = !{!"_ZTSN5clang34ObjCDictionaryLiteral_KeyValuePairE", !21, i64 0, !21, i64 8}
-!622 = !{!623}
-!623 = distinct !{!623, !624, !"_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj: argument 0"}
-!624 = distinct !{!624, !"_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj"}
-!625 = !{!621, !21, i64 8}
-!626 = distinct !{!626, !403, !627}
-!627 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!628 = distinct !{!628, !403}
-!629 = !{!14, !14, i64 0}
-!630 = !{!270, !25, i64 14976}
-!631 = !{!399, !399, i64 0}
-!632 = !{!177, !179, i64 0}
-!633 = !{!177, !180, i64 8}
-!634 = distinct !{!634, !403}
+!480 = !{!"_ZTSN5clang28SubstNonTypeTemplateParmExprE", !5, i64 0, !13, i64 16, !481, i64 24, !25, i64 32, !25, i64 33}
+!481 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !482, i64 0}
+!482 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang4DeclEEE", !8, i64 0}
+!483 = !{!484, !13, i64 16}
+!484 = !{!"_ZTSN5clang13ObjCBoxedExprE", !5, i64 0, !13, i64 16, !485, i64 24, !472, i64 32}
+!485 = !{!"p1 _ZTSN5clang14ObjCMethodDeclE", !14, i64 0}
+!486 = !{!487, !426, i64 16}
+!487 = !{!"_ZTSN5clang14ObjCEncodeExprE", !5, i64 0, !426, i64 16, !24, i64 24, !24, i64 28}
+!488 = !{!489, !13, i64 24}
+!489 = !{!"_ZTSN5clang15ObjCIvarRefExprE", !5, i64 0, !490, i64 16, !13, i64 24, !24, i64 32, !24, i64 36, !278, i64 40, !278, i64 40}
+!490 = !{!"p1 _ZTSN5clang12ObjCIvarDeclE", !14, i64 0}
+!491 = !{!492, !13, i64 16}
+!492 = !{!"_ZTSN5clang11ObjCIsaExprE", !5, i64 0, !13, i64 16, !24, i64 24, !24, i64 28, !278, i64 32}
+!493 = !{!494, !13, i64 16}
+!494 = !{!"_ZTSN5clang27ObjCIndirectCopyRestoreExprE", !5, i64 0, !13, i64 16}
+!495 = !{!496, !497, i64 16}
+!496 = !{!"_ZTSN5clang16ArraySectionExprE", !5, i64 0, !497, i64 16, !8, i64 24, !24, i64 56, !24, i64 60, !24, i64 64}
+!497 = !{!"_ZTSN5clang16ArraySectionExpr16ArraySectionTypeE", !8, i64 0}
+!498 = !{!499, !25, i64 24}
+!499 = !{!"_ZTSN5clang19OMPArrayShapingExprE", !5, i64 0, !24, i64 16, !24, i64 20, !25, i64 24}
+!500 = distinct !{!500, !404}
+!501 = !{!502, !25, i64 28}
+!502 = !{!"_ZTSN5clang15OMPIteratorExprE", !5, i64 0, !24, i64 16, !24, i64 20, !24, i64 24, !25, i64 28}
+!503 = !{!504, !426, i64 32}
+!504 = !{!"_ZTSN5clang14DeclaratorDecl7ExtInfoE", !505, i64 0, !426, i64 32, !21, i64 40}
+!505 = !{!"_ZTSN5clang13QualifierInfoE", !455, i64 0, !25, i64 16, !506, i64 24}
+!506 = !{!"p2 _ZTSN5clang21TemplateParameterListE", !14, i64 0}
+!507 = !{!508, !21, i64 0}
+!508 = !{!"_ZTSN5clang15OMPIteratorExpr13IteratorRangeE", !21, i64 0, !21, i64 8, !21, i64 16}
+!509 = !{!508, !21, i64 8}
+!510 = !{!508, !21, i64 16}
+!511 = distinct !{!511, !403, !404}
+!512 = !{!151, !151, i64 0}
+!513 = !{!25, !25, i64 0}
+!514 = !{!515, !25, i64 12}
+!515 = !{!"_ZTSN5clang24ASTTemplateKWAndArgsInfoE", !24, i64 0, !24, i64 4, !24, i64 8, !25, i64 12}
+!516 = distinct !{!516, !403, !404}
+!517 = !{!518, !411, i64 16}
+!518 = !{!"_ZTSN5clang11DeclRefExprE", !5, i64 0, !411, i64 16, !519, i64 24}
+!519 = !{!"_ZTSN5clang18DeclarationNameLocE", !8, i64 0}
+!520 = !{!521, !529, i64 8}
+!521 = !{!"_ZTSN5clang12RedeclarableINS_7VarDeclEEE", !522, i64 0, !529, i64 8}
+!522 = !{!"_ZTSN5clang12RedeclarableINS_7VarDeclEE8DeclLinkE", !523, i64 0}
+!523 = !{!"_ZTSN4llvm12PointerUnionIJNS0_IJPN5clang4DeclEPKvEEENS1_25LazyGenerationalUpdatePtrIPKS2_S3_XadL_ZNS1_17ExternalASTSource19CompleteRedeclChainES9_EEEEEEE", !524, i64 0}
+!524 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi0EJS8_SD_EEE", !525, i64 0}
+!525 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi1EJSD_EEE", !526, i64 0}
+!526 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJNS2_IJPN5clang4DeclEPKvEEENS3_25LazyGenerationalUpdatePtrIPKS4_S5_XadL_ZNS3_17ExternalASTSource19CompleteRedeclChainESB_EEEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS8_SD_EEENS_18PointerIntPairInfoISG_Lj1ESI_EEEELi2EJEEE", !527, i64 0}
+!527 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJNS_12PointerUnionIJPN5clang4DeclEPKvEEENS5_25LazyGenerationalUpdatePtrIPKS6_S7_XadL_ZNS5_17ExternalASTSource19CompleteRedeclChainESD_EEEEEEENS_18PointerIntPairInfoIS1_Lj1ESG_EEEE", !528, i64 0}
+!528 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !8, i64 0}
+!529 = !{!"p1 _ZTSN5clang7VarDeclE", !14, i64 0}
+!530 = !{!531, !25, i64 24}
+!531 = !{!"_ZTSN5clang12RecoveryExprE", !5, i64 0, !24, i64 16, !24, i64 20, !25, i64 24}
+!532 = distinct !{!532, !404}
+!533 = !{!534, !426, i64 32}
+!534 = !{!"_ZTSN5clang24SYCLUniqueStableNameExprE", !5, i64 0, !24, i64 16, !24, i64 20, !24, i64 24, !426, i64 32}
+!535 = !{!536, !25, i64 16}
+!536 = !{!"_ZTSN5clang8CallExprE", !5, i64 0, !25, i64 16, !24, i64 20}
+!537 = distinct !{!537, !404}
+!538 = distinct !{!538, !404}
+!539 = !{!540, !426, i64 24}
+!540 = !{!"_ZTSN5clang12OffsetOfExprE", !5, i64 0, !24, i64 16, !24, i64 20, !426, i64 24, !25, i64 32, !25, i64 36}
+!541 = !{!540, !25, i64 36}
+!542 = !{!540, !25, i64 32}
+!543 = distinct !{!543, !403, !404}
+!544 = !{!545, !13, i64 16}
+!545 = !{!"_ZTSN5clang10MemberExprE", !5, i64 0, !13, i64 16, !411, i64 24, !519, i64 32, !24, i64 40}
+!546 = !{!545, !411, i64 24}
+!547 = !{!548}
+!548 = distinct !{!548, !549, !"_ZNK5clang10MemberExpr17getMemberNameInfoEv: argument 0"}
+!549 = distinct !{!549, !"_ZNK5clang10MemberExpr17getMemberNameInfoEv"}
+!550 = distinct !{!550, !404}
+!551 = !{!552, !553, i64 0}
+!552 = !{!"_ZTSN5clang9ASTVectorIPNS_4StmtEEE", !553, i64 0, !553, i64 8, !554, i64 16}
+!553 = !{!"p2 _ZTSN5clang4StmtE", !14, i64 0}
+!554 = !{!"_ZTSN4llvm14PointerIntPairIPPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEE", !555, i64 0}
+!555 = !{!"_ZTSN4llvm6detail13PunnedPointerIPPN5clang4StmtEEE", !8, i64 0}
+!556 = !{!552, !553, i64 8}
+!557 = distinct !{!557, !404}
+!558 = !{!559, !553, i64 24}
+!559 = !{!"_ZTSN5clang17ShuffleVectorExprE", !5, i64 0, !24, i64 16, !24, i64 20, !553, i64 24, !25, i64 32}
+!560 = !{!559, !25, i64 32}
+!561 = distinct !{!561, !404}
+!562 = distinct !{!562, !404}
+!563 = !{!426, !426, i64 0}
+!564 = !{!565}
+!565 = distinct !{!565, !566, !"_ZN5clang4Stmt11child_beginEv: argument 0"}
+!566 = distinct !{!566, !"_ZN5clang4Stmt11child_beginEv"}
+!567 = !{!568, !180, i64 8}
+!568 = !{!"_ZTSN5clang16StmtIteratorBaseE", !8, i64 0, !180, i64 8, !369, i64 16}
+!569 = !{!570, !571, i64 24}
+!570 = !{!"_ZTSN5clang18DesignatedInitExprE", !5, i64 0, !24, i64 16, !25, i64 20, !25, i64 20, !25, i64 22, !571, i64 24}
+!571 = !{!"p1 _ZTSN5clang18DesignatedInitExpr10DesignatorE", !14, i64 0}
+!572 = !{!573, !574, i64 0}
+!573 = !{!"_ZTSN5clang18DesignatedInitExpr10DesignatorE", !574, i64 0, !8, i64 8}
+!574 = !{!"_ZTSN5clang18DesignatedInitExpr10Designator14DesignatorKindE", !8, i64 0}
+!575 = distinct !{!575, !404}
+!576 = distinct !{!576, !404}
+!577 = !{!578, !25, i64 72}
+!578 = !{!"_ZTSN5clang10AtomicExprE", !5, i64 0, !8, i64 16, !25, i64 72, !24, i64 76, !24, i64 80, !579, i64 84}
+!579 = !{!"_ZTSN5clang10AtomicExpr8AtomicOpE", !8, i64 0}
+!580 = distinct !{!580, !404}
+!581 = !{!582, !426, i64 32}
+!582 = !{!"_ZTSN5clang10CXXNewExprE", !5, i64 0, !188, i64 16, !188, i64 24, !426, i64 32, !472, i64 40, !472, i64 48}
+!583 = distinct !{!583, !404}
+!584 = !{!585, !13, i64 16}
+!585 = !{!"_ZTSN5clang23CXXPseudoDestructorExprE", !5, i64 0, !13, i64 16, !278, i64 24, !24, i64 28, !455, i64 32, !426, i64 48, !24, i64 56, !24, i64 60, !586, i64 64}
+!586 = !{!"_ZTSN5clang27PseudoDestructorTypeStorageE", !587, i64 0, !24, i64 8}
+!587 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang14TypeSourceInfoEPKNS1_14IdentifierInfoEEEE", !588, i64 0}
+!588 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !589, i64 0}
+!589 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !590, i64 0}
+!590 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !591, i64 0}
+!591 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang14TypeSourceInfoEPKNS4_14IdentifierInfoEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !528, i64 0}
+!592 = !{!585, !426, i64 48}
+!593 = !{!455, !151, i64 0}
+!594 = distinct !{!594, !404}
+!595 = distinct !{!595, !404}
+!596 = distinct !{!596, !404}
+!597 = !{!598, !25, i64 32}
+!598 = !{!"_ZTSN5clang16CXXConstructExprE", !5, i64 0, !599, i64 16, !472, i64 24, !25, i64 32}
+!599 = !{!"p1 _ZTSN5clang18CXXConstructorDeclE", !14, i64 0}
+!600 = distinct !{!600, !404}
+!601 = !{!602, !426, i64 40}
+!602 = !{!"_ZTSN5clang22CXXTemporaryObjectExprE", !598, i64 0, !426, i64 40}
+!603 = distinct !{!603, !404}
+!604 = !{!605, !13, i64 16}
+!605 = !{!"_ZTSN5clang27CXXDependentScopeMemberExprE", !5, i64 0, !13, i64 16, !10, i64 24, !455, i64 32, !606, i64 48}
+!606 = !{!"_ZTSN5clang19DeclarationNameInfoE", !607, i64 0, !24, i64 8, !519, i64 16}
+!607 = !{!"_ZTSN5clang15DeclarationNameE", !180, i64 0}
+!608 = distinct !{!608, !404}
+!609 = !{!610, !13, i64 40}
+!610 = !{!"_ZTSN5clang29LifetimeExtendedTemporaryDeclE", !611, i64 0, !13, i64 40, !411, i64 48, !25, i64 56, !618, i64 64}
+!611 = !{!"_ZTSN5clang4DeclE", !612, i64 8, !613, i64 16, !24, i64 24, !25, i64 28, !25, i64 28, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 29, !25, i64 30, !25, i64 32}
+!612 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj3ENS2_19ModuleOwnershipKindENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj3ES6_EEEE", !482, i64 0}
+!613 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang11DeclContextEPNS1_4Decl10MultipleDCEEEE", !614, i64 0}
+!614 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !615, i64 0}
+!615 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !616, i64 0}
+!616 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !617, i64 0}
+!617 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang11DeclContextEPNS4_4Decl10MultipleDCEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !528, i64 0}
+!618 = !{!"p1 _ZTSN5clang7APValueE", !14, i64 0}
+!619 = distinct !{!619, !404}
+!620 = !{!621, !25, i64 16}
+!621 = !{!"_ZTSN5clang20CXXParenListInitExprE", !5, i64 0, !25, i64 16, !25, i64 20, !24, i64 24, !24, i64 28, !24, i64 32, !622, i64 40}
+!622 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang4ExprEPNS1_9FieldDeclEEEE", !623, i64 0}
+!623 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_9FieldDeclEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S7_EEENS_18PointerIntPairInfoISA_Lj1ESC_EEEELi0EJS5_S7_EEE", !624, i64 0}
+!624 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_9FieldDeclEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S7_EEENS_18PointerIntPairInfoISA_Lj1ESC_EEEELi1EJS7_EEE", !625, i64 0}
+!625 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_9FieldDeclEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S7_EEENS_18PointerIntPairInfoISA_Lj1ESC_EEEELi2EJEEE", !626, i64 0}
+!626 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang4ExprEPNS4_9FieldDeclEEEENS_18PointerIntPairInfoIS1_Lj1ES9_EEEE", !528, i64 0}
+!627 = distinct !{!627, !404}
+!628 = distinct !{!628, !404}
+!629 = !{!630, !631, i64 16}
+!630 = !{!"_ZTSN5clang25ConceptSpecializationExprE", !5, i64 0, !631, i64 16, !632, i64 24, !633, i64 32}
+!631 = !{!"p1 _ZTSN5clang16ConceptReferenceE", !14, i64 0}
+!632 = !{!"p1 _ZTSN5clang33ImplicitConceptSpecializationDeclE", !14, i64 0}
+!633 = !{!"p1 _ZTSN5clang25ASTConstraintSatisfactionE", !14, i64 0}
+!634 = !{!635, !638, i64 64}
+!635 = !{!"_ZTSN5clang16ConceptReferenceE", !455, i64 0, !24, i64 16, !606, i64 24, !636, i64 48, !637, i64 56, !638, i64 64}
+!636 = !{!"p1 _ZTSN5clang9NamedDeclE", !14, i64 0}
+!637 = !{!"p1 _ZTSN5clang11ConceptDeclE", !14, i64 0}
+!638 = !{!"p1 _ZTSN5clang27ASTTemplateArgumentListInfoE", !14, i64 0}
+!639 = !{!640, !25, i64 8}
+!640 = !{!"_ZTSN5clang27ASTTemplateArgumentListInfoE", !24, i64 0, !24, i64 4, !25, i64 8}
+!641 = distinct !{!641, !404}
+!642 = !{!630, !633, i64 32}
+!643 = !{!644, !25, i64 16}
+!644 = !{!"_ZTSN5clang16ObjCArrayLiteralE", !5, i64 0, !25, i64 16, !472, i64 20, !485, i64 32}
+!645 = distinct !{!645, !403, !404}
+!646 = !{!647, !21, i64 0}
+!647 = !{!"_ZTSN5clang34ObjCDictionaryLiteral_KeyValuePairE", !21, i64 0, !21, i64 8}
+!648 = !{!649}
+!649 = distinct !{!649, !650, !"_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj: argument 0"}
+!650 = distinct !{!650, !"_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj"}
+!651 = !{!647, !21, i64 8}
+!652 = distinct !{!652, !403, !404, !653}
+!653 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!654 = distinct !{!654, !403, !404}
+!655 = !{!14, !14, i64 0}
+!656 = distinct !{!656, !404}
+!657 = !{!270, !25, i64 14976}
+!658 = !{!399, !399, i64 0}
+!659 = !{!177, !179, i64 0}
+!660 = !{!177, !180, i64 8}
+!661 = distinct !{!661, !403, !404}
+!662 = distinct !{!662, !404}

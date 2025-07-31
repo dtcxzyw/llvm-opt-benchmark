@@ -1122,7 +1122,7 @@ define internal fastcc range(i32 0, 6) i32 @get_packet_type(ptr noundef %0) unna
   %10 = add nuw i32 %.114, 1
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %10)
   %12 = icmp eq i8 %11, 85
-  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !14
+  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %9, %1
   %.1.lcssa = phi i32 [ %spec.select, %1 ], [ %10, %9 ], [ %.114, %.lr.ph ]
@@ -1373,6 +1373,7 @@ attributes #4 = { allocsize(1) }
 !9 = !{i64 2151037079}
 !10 = !{i64 2151036521}
 !11 = !{i64 2151038318}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}

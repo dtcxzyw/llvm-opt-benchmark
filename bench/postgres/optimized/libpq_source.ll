@@ -325,7 +325,7 @@ define internal ptr @libpq_fetch_file(ptr noundef readonly captures(none) %0, pt
   call void @PQclear(ptr noundef %7) #10
   %24 = load i32, ptr @__pg_log_level, align 4
   %25 = icmp ult i32 %24, 2
-  br i1 %25, label %26, label %27, !prof !6
+  br i1 %25, label %26, label %27, !prof !7
 
 26:                                               ; preds = %16
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.43, ptr noundef %1, i32 noundef %17) #10
@@ -416,7 +416,7 @@ define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64
   %41 = add i64 %33, %.250.i
   %42 = sub i64 %.24049.i, %33
   %.not.i = icmp eq i64 %42, 0
-  br i1 %.not.i, label %libpq_queue_fetch_range.exit, label %27, !llvm.loop !7
+  br i1 %.not.i, label %libpq_queue_fetch_range.exit, label %27, !llvm.loop !8
 
 libpq_queue_fetch_range.exit:                     ; preds = %31, %23
   ret void
@@ -498,7 +498,7 @@ define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i6
   %44 = add i64 %.250, %36
   %45 = sub i64 %.24049, %36
   %.not = icmp eq i64 %45, 0
-  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %34, %28
   ret void
@@ -651,7 +651,7 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
 6:                                                ; preds = %1
   %7 = load i32, ptr @__pg_log_level, align 4
   %8 = icmp ult i32 %7, 2
-  br i1 %8, label %9, label %10, !prof !6
+  br i1 %8, label %9, label %10, !prof !7
 
 9:                                                ; preds = %6
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.23, i32 noundef %4) #10
@@ -798,7 +798,7 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
 
 76:                                               ; preds = %67, %66
   %77 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %46, !llvm.loop !8
+  br label %46, !llvm.loop !9
 
 78:                                               ; preds = %46
   %79 = load i32, ptr %17, align 8
@@ -836,7 +836,7 @@ appendArrayEscapedString.exit:                    ; preds = %82, %83
   %96 = load i32, ptr %3, align 8
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next, %97
-  br i1 %98, label %28, label %._crit_edge, !llvm.loop !9
+  br i1 %98, label %28, label %._crit_edge, !llvm.loop !10
 
 99:                                               ; preds = %._crit_edge
   %100 = call ptr @PQerrorMessage(ptr noundef %27) #10
@@ -877,7 +877,7 @@ appendArrayEscapedString.exit:                    ; preds = %82, %83
 
 112:                                              ; preds = %107
   call void @PQclear(ptr noundef nonnull %108) #10
-  br label %186, !llvm.loop !10
+  br label %186, !llvm.loop !11
 
 113:                                              ; preds = %107
   %114 = call ptr @PQresultErrorMessage(ptr noundef nonnull %108) #10
@@ -1000,7 +1000,7 @@ appendArrayEscapedString.exit:                    ; preds = %82, %83
   br i1 %.not113, label %167, label %164
 
 164:                                              ; preds = %149
-  br i1 %163, label %165, label %166, !prof !6
+  br i1 %163, label %165, label %166, !prof !7
 
 165:                                              ; preds = %164
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %156) #10
@@ -1011,7 +1011,7 @@ appendArrayEscapedString.exit:                    ; preds = %82, %83
   br label %184
 
 167:                                              ; preds = %149
-  br i1 %163, label %168, label %169, !prof !6
+  br i1 %163, label %168, label %169, !prof !7
 
 168:                                              ; preds = %167
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.35, ptr noundef nonnull %156, i64 noundef %151, i32 noundef %152) #10
@@ -1067,7 +1067,7 @@ appendArrayEscapedString.exit:                    ; preds = %82, %83
   %187 = load ptr, ptr %24, align 8
   %188 = call ptr @PQgetResult(ptr noundef %187) #10
   %.not100 = icmp eq ptr %188, null
-  br i1 %.not100, label %._crit_edge151, label %107
+  br i1 %.not100, label %._crit_edge151, label %107, !llvm.loop !12
 
 ._crit_edge151:                                   ; preds = %186, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %186 ]
@@ -1151,10 +1151,12 @@ attributes #12 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !6}

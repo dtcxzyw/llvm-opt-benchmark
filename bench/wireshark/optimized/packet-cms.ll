@@ -1624,7 +1624,7 @@ cms_get_private_data.exit.i:                      ; preds = %13, %4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.679, i32 noundef %45)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %39
-  br i1 %exitcond.not.i.i, label %cms_verify_msg_digest.exit.i, label %42, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %cms_verify_msg_digest.exit.i, label %42, !llvm.loop !9
 
 cms_verify_msg_digest.exit.i:                     ; preds = %42, %38, %32, %29
   %.str.680.sink.i.i = phi ptr [ @.str.681, %38 ], [ @.str.681, %32 ], [ @.str.682, %29 ], [ @.str.680, %42 ]
@@ -3066,6 +3066,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

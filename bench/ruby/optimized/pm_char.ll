@@ -59,7 +59,7 @@ define hidden i64 @pm_strspn_whitespace_newlines(ptr noundef %0, i64 noundef %1,
 15:                                               ; preds = %13, %11
   %16 = add nuw i64 %.01315, 1
   %exitcond.not = icmp eq i64 %16, %1
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !13
 
 .critedge:                                        ; preds = %.preheader, %15, %3
   %.0 = phi i64 [ 0, %3 ], [ %1, %15 ], [ %.01315, %.preheader ]
@@ -163,13 +163,13 @@ define hidden i64 @pm_strspn_binary_number(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %brmerge.demorgan.i, label %13, label %14
 
 13:                                               ; preds = %11
-  store ptr %5, ptr %2, align 8, !tbaa !13
+  store ptr %5, ptr %2, align 8, !tbaa !14
   br label %14
 
 14:                                               ; preds = %13, %11
   %15 = add nuw nsw i64 %.02229.i, 1
   %exitcond.not.i = icmp eq i64 %15, %1
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.preheader.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %.preheader.i
   %.not24.i = icmp eq i64 %.02229.i, 0
@@ -184,7 +184,7 @@ define hidden i64 @pm_strspn_binary_number(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %19, label %20, label %pm_strspn_number_kind_underscores.exit
 
 20:                                               ; preds = %.critedge.thread.i
-  store ptr %17, ptr %2, align 8, !tbaa !13
+  store ptr %17, ptr %2, align 8, !tbaa !14
   br label %pm_strspn_number_kind_underscores.exit
 
 pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %.critedge.thread.i, %20
@@ -215,13 +215,13 @@ define hidden i64 @pm_strspn_octal_number(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %brmerge.demorgan.i, label %13, label %14
 
 13:                                               ; preds = %11
-  store ptr %5, ptr %2, align 8, !tbaa !13
+  store ptr %5, ptr %2, align 8, !tbaa !14
   br label %14
 
 14:                                               ; preds = %13, %11
   %15 = add nuw nsw i64 %.02229.i, 1
   %exitcond.not.i = icmp eq i64 %15, %1
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.preheader.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %.preheader.i
   %.not24.i = icmp eq i64 %.02229.i, 0
@@ -236,7 +236,7 @@ define hidden i64 @pm_strspn_octal_number(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %19, label %20, label %pm_strspn_number_kind_underscores.exit
 
 20:                                               ; preds = %.critedge.thread.i
-  store ptr %17, ptr %2, align 8, !tbaa !13
+  store ptr %17, ptr %2, align 8, !tbaa !14
   br label %pm_strspn_number_kind_underscores.exit
 
 pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %.critedge.thread.i, %20
@@ -263,7 +263,7 @@ define hidden i64 @pm_strspn_decimal_digit(ptr noundef readonly captures(none) %
 10:                                               ; preds = %.preheader.i
   %11 = add nuw nsw i64 %.0911.i, 1
   %exitcond.not.i = icmp eq i64 %11, %1
-  br i1 %exitcond.not.i, label %pm_strspn_number_kind.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %pm_strspn_number_kind.exit, label %.preheader.i, !llvm.loop !18
 
 pm_strspn_number_kind.exit:                       ; preds = %.preheader.i, %10, %2
   %.0.i = phi i64 [ 0, %2 ], [ %.0911.i, %.preheader.i ], [ %1, %10 ]
@@ -293,13 +293,13 @@ define hidden i64 @pm_strspn_decimal_number(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %brmerge.demorgan.i, label %13, label %14
 
 13:                                               ; preds = %11
-  store ptr %5, ptr %2, align 8, !tbaa !13
+  store ptr %5, ptr %2, align 8, !tbaa !14
   br label %14
 
 14:                                               ; preds = %13, %11
   %15 = add nuw nsw i64 %.02229.i, 1
   %exitcond.not.i = icmp eq i64 %15, %1
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.preheader.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %.preheader.i
   %.not24.i = icmp eq i64 %.02229.i, 0
@@ -314,7 +314,7 @@ define hidden i64 @pm_strspn_decimal_number(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %19, label %20, label %pm_strspn_number_kind_underscores.exit
 
 20:                                               ; preds = %.critedge.thread.i
-  store ptr %17, ptr %2, align 8, !tbaa !13
+  store ptr %17, ptr %2, align 8, !tbaa !14
   br label %pm_strspn_number_kind_underscores.exit
 
 pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %.critedge.thread.i, %20
@@ -341,7 +341,7 @@ define hidden i64 @pm_strspn_hexadecimal_digit(ptr noundef readonly captures(non
 10:                                               ; preds = %.preheader.i
   %11 = add nuw nsw i64 %.0911.i, 1
   %exitcond.not.i = icmp eq i64 %11, %1
-  br i1 %exitcond.not.i, label %pm_strspn_number_kind.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %pm_strspn_number_kind.exit, label %.preheader.i, !llvm.loop !18
 
 pm_strspn_number_kind.exit:                       ; preds = %.preheader.i, %10, %2
   %.0.i = phi i64 [ 0, %2 ], [ %.0911.i, %.preheader.i ], [ %1, %10 ]
@@ -370,13 +370,13 @@ define hidden i64 @pm_strspn_hexadecimal_number(ptr noundef %0, i64 noundef %1, 
   br i1 %brmerge.demorgan.i, label %12, label %13
 
 12:                                               ; preds = %10
-  store ptr %5, ptr %2, align 8, !tbaa !13
+  store ptr %5, ptr %2, align 8, !tbaa !14
   br label %13
 
 13:                                               ; preds = %12, %10
   %14 = add nuw nsw i64 %.02229.i, 1
   %exitcond.not.i = icmp eq i64 %14, %1
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.preheader.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %.preheader.i
   %.not24.i = icmp eq i64 %.02229.i, 0
@@ -391,7 +391,7 @@ define hidden i64 @pm_strspn_hexadecimal_number(ptr noundef %0, i64 noundef %1, 
   br i1 %18, label %19, label %pm_strspn_number_kind_underscores.exit
 
 19:                                               ; preds = %.critedge.thread.i
-  store ptr %16, ptr %2, align 8, !tbaa !13
+  store ptr %16, ptr %2, align 8, !tbaa !14
   br label %pm_strspn_number_kind_underscores.exit
 
 pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %.critedge.thread.i, %19
@@ -458,11 +458,12 @@ attributes #5 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 omnipotent char", !15, i64 0}
-!15 = !{!"any pointer", !8, i64 0}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !16, i64 0}
+!16 = !{!"any pointer", !8, i64 0}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}

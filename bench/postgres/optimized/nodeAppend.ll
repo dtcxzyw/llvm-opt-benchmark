@@ -224,7 +224,7 @@ list_length.exit110:                              ; preds = %37, %38
   store ptr %105, ptr %115, align 8
   %116 = call i32 @bms_next_member(ptr noundef %.0.lcssa, i32 noundef %104) #6
   %117 = icmp sgt i32 %116, -1
-  br i1 %117, label %.lr.ph119, label %._crit_edge120, !llvm.loop !8
+  br i1 %117, label %.lr.ph119, label %._crit_edge120, !llvm.loop !9
 
 ._crit_edge120:                                   ; preds = %.lr.ph119, %100
   %118 = zext nneg i32 %.096.lcssa to i64
@@ -385,7 +385,7 @@ classify_matching_subplans.exit.i:                ; preds = %38, %36, %30, %20
   %65 = load ptr, ptr %50, align 8
   %66 = tail call i32 @bms_next_member(ptr noundef %65, i32 noundef %60) #6
   %67 = icmp sgt i32 %66, -1
-  br i1 %67, label %59, label %ExecAppendAsyncBegin.exit, !llvm.loop !9
+  br i1 %67, label %59, label %ExecAppendAsyncBegin.exit, !llvm.loop !10
 
 ExecAppendAsyncBegin.exit:                        ; preds = %59, %.preheader.i, %classify_matching_subplans.exit.i, %16
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -427,7 +427,7 @@ ExecAppendAsyncBegin.exit:                        ; preds = %59, %.preheader.i, 
 92:                                               ; preds = %.backedge, %83
   %93 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %93, 0
-  br i1 %.not, label %95, label %94, !prof !10
+  br i1 %.not, label %95, label %94, !prof !11
 
 94:                                               ; preds = %92
   tail call void @ProcessInterrupts() #6
@@ -469,7 +469,7 @@ ExecAppendAsyncRequest.exit.i.preheader:          ; preds = %._crit_edge.i.i, %1
   tail call void @ExecAsyncRequest(ptr noundef %110) #6
   %111 = tail call i32 @bms_next_member(ptr noundef nonnull %.pre, i32 noundef %106) #6
   %112 = icmp sgt i32 %111, -1
-  br i1 %112, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
+  br i1 %112, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %103
   tail call void @bms_free(ptr noundef nonnull %.pre) #6
@@ -496,7 +496,7 @@ ExecAppendAsyncRequest.exit.i:                    ; preds = %ExecAppendAsyncRequ
 123:                                              ; preds = %ExecAppendAsyncRequest.exit.i
   %124 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %124, 0
-  br i1 %.not.i, label %126, label %125, !prof !10
+  br i1 %.not.i, label %126, label %125, !prof !11
 
 125:                                              ; preds = %123
   tail call void @ProcessInterrupts() #6
@@ -528,7 +528,7 @@ ExecAppendAsyncRequest.exit.i:                    ; preds = %ExecAppendAsyncRequ
   tail call void @ExecAsyncRequest(ptr noundef %139) #6
   %140 = tail call i32 @bms_next_member(ptr noundef nonnull %127, i32 noundef %135) #6
   %141 = icmp sgt i32 %140, -1
-  br i1 %141, label %.lr.ph.i16.i, label %._crit_edge.i12.i, !llvm.loop !11
+  br i1 %141, label %.lr.ph.i16.i, label %._crit_edge.i12.i, !llvm.loop !12
 
 ._crit_edge.i12.i:                                ; preds = %.lr.ph.i16.i, %132
   tail call void @bms_free(ptr noundef nonnull %127) #6
@@ -550,7 +550,7 @@ ExecAppendAsyncRequest.exit17.i:                  ; preds = %._crit_edge.i12.i, 
 150:                                              ; preds = %._crit_edge.i12.i, %126
   %151 = load i8, ptr %84, align 4, !range !4, !noundef !5
   %152 = trunc nuw i8 %151 to i1
-  br i1 %152, label %ExecAppendAsyncRequest.exit.i, label %ExecAppendAsyncGetNext.exit, !llvm.loop !12
+  br i1 %152, label %ExecAppendAsyncRequest.exit.i, label %ExecAppendAsyncGetNext.exit, !llvm.loop !13
 
 split.i:                                          ; preds = %ExecAppendAsyncRequest.exit.i
   %.pre.i = load i8, ptr %84, align 4, !range !4
@@ -611,7 +611,7 @@ ExecProcNode.exit:                                ; preds = %ExecAppendAsyncGetN
   br i1 %183, label %.backedge, label %184
 
 .backedge:                                        ; preds = %181, %184
-  br label %92
+  br label %92, !llvm.loop !14
 
 184:                                              ; preds = %181
   %185 = load i32, ptr %88, align 8
@@ -752,7 +752,7 @@ define dso_local void @ExecEndAppend(ptr noundef readonly captures(none) %0) loc
   tail call void @ExecEndNode(ptr noundef %8) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -829,7 +829,7 @@ define dso_local void @ExecReScanAppend(ptr noundef captures(none) %0) local_unn
   %36 = load i32, ptr %19, align 8
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %24, label %._crit_edge, !llvm.loop !14
+  br i1 %38, label %24, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %35, %18
   %39 = icmp sgt i32 %3, 0
@@ -861,7 +861,7 @@ define dso_local void @ExecReScanAppend(ptr noundef captures(none) %0) local_unn
   %54 = load ptr, ptr %40, align 8
   %55 = tail call i32 @bms_next_member(ptr noundef %54, i32 noundef %46) #6
   %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %45, label %._crit_edge39, !llvm.loop !15
+  br i1 %56, label %45, label %._crit_edge39, !llvm.loop !17
 
 ._crit_edge39:                                    ; preds = %45, %.preheader
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1009,7 +1009,7 @@ define internal noundef zeroext i1 @choose_next_subplan_for_leader(ptr noundef c
   %36 = load i32, ptr %13, align 8
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next.i, %37
-  br i1 %38, label %.lr.ph.i, label %mark_invalid_subplans_as_finished.exit, !llvm.loop !16
+  br i1 %38, label %.lr.ph.i, label %mark_invalid_subplans_as_finished.exit, !llvm.loop !18
 
 mark_invalid_subplans_as_finished.exit:           ; preds = %35, %19, %12, %7
   %.pr = load i32, ptr %5, align 4
@@ -1038,7 +1038,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %35, %19, %12, %7
   %51 = getelementptr inbounds [0 x i8], ptr %39, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1, !range !4, !noundef !5
   %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %48, %mark_invalid_subplans_as_finished.exit
   %.lcssa30 = phi i32 [ %.pr, %mark_invalid_subplans_as_finished.exit ], [ %49, %48 ]
@@ -1152,7 +1152,7 @@ define internal noundef zeroext i1 @choose_next_subplan_for_worker(ptr noundef c
   %34 = load i32, ptr %22, align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next.i, %35
-  br i1 %36, label %.lr.ph.i, label %mark_invalid_subplans_as_finished.exit, !llvm.loop !16
+  br i1 %36, label %.lr.ph.i, label %mark_invalid_subplans_as_finished.exit, !llvm.loop !18
 
 mark_invalid_subplans_as_finished.exit:           ; preds = %33, %16, %12, %7
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1204,11 +1204,11 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %33, %16, %12, %7
   store i32 %.sink, ptr %37, align 4
   %65 = load i32, ptr %5, align 4
   %.not62 = icmp eq i32 %.sink, %65
-  br i1 %.not62, label %66, label %.critedge
+  br i1 %.not62, label %66, label %.critedge, !llvm.loop !20
 
 66:                                               ; preds = %64
   store i32 -1, ptr %37, align 4
-  br label %86, !llvm.loop !18
+  br label %86, !llvm.loop !21
 
 67:                                               ; preds = %.critedge
   store i32 %44, ptr %5, align 4
@@ -1345,7 +1345,7 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none)
   %30 = load ptr, ptr %14, align 8
   %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %20) #6
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %19, label %._crit_edge, !llvm.loop !19
+  br i1 %32, label %19, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %29, %1
   %33 = load ptr, ptr %12, align 8
@@ -1398,7 +1398,7 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none)
 54:                                               ; preds = %47, %53, %.lr.ph32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph32, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph32, !llvm.loop !23
 
 .loopexit:                                        ; preds = %54, %38, %36
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2) #6
@@ -1457,18 +1457,21 @@ attributes #6 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

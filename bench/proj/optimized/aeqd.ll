@@ -598,9 +598,9 @@ define internal { double, double } @_ZL14aeqd_e_inverse5PJ_XYP8PJconsts(double %
   %22 = fdiv double %21, 0x3F91DF46A2529D39
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @geod_direct(ptr noundef nonnull %23, double noundef %20, double noundef 0.000000e+00, double noundef %22, double noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4)
-  %24 = load double, ptr %5, align 8, !tbaa !68
+  %24 = load double, ptr %5, align 8, !tbaa !69
   %25 = fmul double %24, 0x3F91DF46A2529D39
-  %26 = load double, ptr %6, align 8, !tbaa !68
+  %26 = load double, ptr %6, align 8, !tbaa !69
   %27 = fmul double %26, 0x3F91DF46A2529D39
   br label %46
 
@@ -698,9 +698,9 @@ define internal { double, double } @_ZL14aeqd_e_forward5PJ_LPP8PJconsts(double %
   %38 = fdiv double %0, 0x3F91DF46A2529D39
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @geod_inverse(ptr noundef nonnull %39, double noundef %36, double noundef 0.000000e+00, double noundef %37, double noundef %38, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %40 = load double, ptr %4, align 8, !tbaa !68
+  %40 = load double, ptr %4, align 8, !tbaa !69
   %41 = fmul double %40, 0x3F91DF46A2529D39
-  %42 = load double, ptr %6, align 8, !tbaa !68
+  %42 = load double, ptr %6, align 8, !tbaa !69
   %43 = call double @sin(double noundef %41) #8, !tbaa !50
   %44 = fmul double %42, %43
   %45 = call double @cos(double noundef %41) #8, !tbaa !50
@@ -821,6 +821,7 @@ attributes #8 = { nounwind }
 !63 = !{!4, !14, i64 256}
 !64 = !{!45, !14, i64 56}
 !65 = !{!45, !14, i64 48}
-!66 = distinct !{!66, !67}
+!66 = distinct !{!66, !67, !68}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = !{!14, !14, i64 0}
+!68 = !{!"llvm.loop.estimated_trip_count"}
+!69 = !{!14, !14, i64 0}

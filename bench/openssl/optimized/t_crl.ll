@@ -150,7 +150,7 @@ define noundef i32 @X509_CRL_print_ex(ptr noundef %0, ptr noundef %1, i64 nounde
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31
   %54 = load ptr, ptr %4, align 8, !tbaa !3
-  %55 = load ptr, ptr %5, align 8, !tbaa !10
+  %55 = load ptr, ptr %5, align 8, !tbaa !11
   %56 = call i32 @X509_signature_print(ptr noundef %0, ptr noundef %54, ptr noundef %55) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
@@ -210,7 +210,8 @@ attributes #3 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}

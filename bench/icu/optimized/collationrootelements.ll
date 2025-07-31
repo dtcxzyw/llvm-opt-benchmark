@@ -71,7 +71,7 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
   %indvars.iv.next75.i = add nsw i64 %indvars.iv74.i, -1
   %32 = trunc nsw i64 %indvars.iv.next75.i to i32
   %33 = icmp eq i32 %.041.i35, %32
-  br i1 %33, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !14
+  br i1 %33, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !15
 
 .lr.ph61.i:                                       ; preds = %31, %.lr.ph61.preheader.i
   %indvars.iv74.i = phi i64 [ %30, %.lr.ph61.preheader.i ], [ %indvars.iv.next75.i, %31 ]
@@ -79,7 +79,7 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
   %35 = load i32, ptr %34, align 4, !tbaa !10
   %36 = and i32 %35, 128
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %._crit_edge62.i, label %31, !llvm.loop !14
+  br i1 %37, label %._crit_edge62.i, label %31, !llvm.loop !15
 
 ._crit_edge62.i:                                  ; preds = %.lr.ph61.i
   %38 = trunc nsw i64 %indvars.iv74.i to i32
@@ -94,7 +94,7 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
   %.033..038.i = select i1 %41, i32 %.033.i, i32 %.038.i36
   %42 = add nsw i32 %.041..033.i, 1
   %43 = icmp slt i32 %42, %.033..038.i
-  br i1 %43, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
+  br i1 %43, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, !llvm.loop !16
 
 _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, %31, %4
   %.041.i34 = phi i32 [ %7, %4 ], [ %.041.i35, %31 ], [ %.041.i35, %.preheader.i ], [ %.041..033.i, %39 ]
@@ -128,7 +128,7 @@ _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, 
   %62 = and i32 %61, 128
   %63 = icmp eq i32 %62, 0
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
-  br i1 %63, label %64, label %59, !llvm.loop !15
+  br i1 %63, label %64, label %59, !llvm.loop !17
 
 64:                                               ; preds = %59
   %65 = and i32 %61, -256
@@ -142,7 +142,7 @@ _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, 
   %67 = load i32, ptr %66, align 4, !tbaa !10
   %68 = and i32 %67, 128
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %69, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %54, %64
   %.022 = phi i32 [ %55, %54 ], [ %65, %64 ], [ %47, %.preheader ]
@@ -224,7 +224,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, -1
   %30 = trunc nsw i64 %indvars.iv.next75 to i32
   %31 = icmp eq i32 %.041106, %30
-  br i1 %31, label %.thread86, label %.lr.ph61, !llvm.loop !14
+  br i1 %31, label %.thread86, label %.lr.ph61, !llvm.loop !15
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %29
   %indvars.iv74 = phi i64 [ %28, %.lr.ph61.preheader ], [ %indvars.iv.next75, %29 ]
@@ -232,7 +232,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = and i32 %33, 128
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %._crit_edge62, label %29, !llvm.loop !14
+  br i1 %35, label %._crit_edge62, label %29, !llvm.loop !15
 
 ._crit_edge62:                                    ; preds = %.lr.ph61
   %36 = trunc nsw i64 %indvars.iv74 to i32
@@ -247,7 +247,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   %.033..038 = select i1 %39, i32 %.033, i32 %.038107
   %40 = add nsw i32 %.041..033, 1
   %41 = icmp slt i32 %40, %.033..038
-  br i1 %41, label %.lr.ph108, label %.thread86
+  br i1 %41, label %.lr.ph108, label %.thread86, !llvm.loop !16
 
 .thread86:                                        ; preds = %37, %.preheader, %29, %2
   %.041105 = phi i32 [ %5, %2 ], [ %.041106, %29 ], [ %.041106, %.preheader ], [ %.041..033, %37 ]
@@ -322,7 +322,7 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
   %indvars.iv.next75.i = add nsw i64 %indvars.iv74.i, -1
   %32 = trunc nsw i64 %indvars.iv.next75.i to i32
   %33 = icmp eq i32 %.041.i20, %32
-  br i1 %33, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !14
+  br i1 %33, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !15
 
 .lr.ph61.i:                                       ; preds = %31, %.lr.ph61.preheader.i
   %indvars.iv74.i = phi i64 [ %30, %.lr.ph61.preheader.i ], [ %indvars.iv.next75.i, %31 ]
@@ -330,7 +330,7 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
   %35 = load i32, ptr %34, align 4, !tbaa !10
   %36 = and i32 %35, 128
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %._crit_edge62.i, label %31, !llvm.loop !14
+  br i1 %37, label %._crit_edge62.i, label %31, !llvm.loop !15
 
 ._crit_edge62.i:                                  ; preds = %.lr.ph61.i
   %38 = trunc nsw i64 %indvars.iv74.i to i32
@@ -345,7 +345,7 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
   %.033..038.i = select i1 %41, i32 %.033.i, i32 %.038.i21
   %42 = add nsw i32 %.041..033.i, 1
   %43 = icmp slt i32 %42, %.033..038.i
-  br i1 %43, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
+  br i1 %43, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, !llvm.loop !16
 
 _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, %31, %4
   %.041.i19 = phi i32 [ %7, %4 ], [ %.041.i20, %31 ], [ %.041.i20, %.preheader.i ], [ %.041..033.i, %39 ]
@@ -363,7 +363,7 @@ _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, 
   %49 = load i32, ptr %48, align 4, !tbaa !10
   %50 = and i32 %49, 128
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %_ZNK6icu_7721CollationRootElements5findPEj.exit
   %.08 = phi i32 [ %1, %_ZNK6icu_7721CollationRootElements5findPEj.exit ], [ %49, %.preheader ]
@@ -441,7 +441,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
   %indvars.iv.next75.i.i = add nsw i64 %indvars.iv74.i.i, -1
   %31 = trunc nsw i64 %indvars.iv.next75.i.i to i32
   %32 = icmp eq i32 %.041.i10.i, %31
-  br i1 %32, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !14
+  br i1 %32, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !15
 
 .lr.ph61.i.i:                                     ; preds = %30, %.lr.ph61.preheader.i.i
   %indvars.iv74.i.i = phi i64 [ %29, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next75.i.i, %30 ]
@@ -449,7 +449,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
   %34 = load i32, ptr %33, align 4, !tbaa !10
   %35 = and i32 %34, 128
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %._crit_edge62.i.i, label %30, !llvm.loop !14
+  br i1 %36, label %._crit_edge62.i.i, label %30, !llvm.loop !15
 
 ._crit_edge62.i.i:                                ; preds = %.lr.ph61.i.i
   %37 = trunc nsw i64 %indvars.iv74.i.i to i32
@@ -464,7 +464,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
   %.033..038.i.i = select i1 %40, i32 %.033.i.i, i32 %.038.i11.i
   %41 = add nsw i32 %.041..033.i.i, 1
   %42 = icmp slt i32 %41, %.033..038.i.i
-  br i1 %42, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
+  br i1 %42, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, !llvm.loop !16
 
 _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %38, %30, %3
   %.041.i9.i = phi i32 [ %6, %3 ], [ %.041.i10.i, %30 ], [ %.041..033.i.i, %38 ], [ %.041.i10.i, %.preheader.i.i ]
@@ -487,7 +487,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
   %52 = load i32, ptr %51, align 4, !tbaa !10
   %53 = and i32 %52, 128
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %54, label %.preheader, !llvm.loop !18
+  br i1 %.not, label %54, label %.preheader, !llvm.loop !20
 
 54:                                               ; preds = %.preheader
   %55 = and i32 %52, -256
@@ -582,7 +582,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
   %indvars.iv.next75.i = add nsw i64 %indvars.iv74.i, -1
   %30 = trunc nsw i64 %indvars.iv.next75.i to i32
   %31 = icmp eq i32 %.041.i10, %30
-  br i1 %31, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !14
+  br i1 %31, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, label %.lr.ph61.i, !llvm.loop !15
 
 .lr.ph61.i:                                       ; preds = %29, %.lr.ph61.preheader.i
   %indvars.iv74.i = phi i64 [ %28, %.lr.ph61.preheader.i ], [ %indvars.iv.next75.i, %29 ]
@@ -590,7 +590,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
   %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = and i32 %33, 128
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %._crit_edge62.i, label %29, !llvm.loop !14
+  br i1 %35, label %._crit_edge62.i, label %29, !llvm.loop !15
 
 ._crit_edge62.i:                                  ; preds = %.lr.ph61.i
   %36 = trunc nsw i64 %indvars.iv74.i to i32
@@ -605,7 +605,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
   %.033..038.i = select i1 %39, i32 %.033.i, i32 %.038.i11
   %40 = add nsw i32 %.041..033.i, 1
   %41 = icmp slt i32 %40, %.033..038.i
-  br i1 %41, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
+  br i1 %41, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit, !llvm.loop !16
 
 _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %37, %29, %2
   %.041.i9 = phi i32 [ %5, %2 ], [ %.041.i10, %29 ], [ %.041.i10, %.preheader.i ], [ %.041..033.i, %37 ]
@@ -692,7 +692,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   %indvars.iv.next75.i.i = add nsw i64 %indvars.iv74.i.i, -1
   %39 = trunc nsw i64 %indvars.iv.next75.i.i to i32
   %40 = icmp eq i32 %.041.i10.i, %39
-  br i1 %40, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !14
+  br i1 %40, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !15
 
 .lr.ph61.i.i:                                     ; preds = %38, %.lr.ph61.preheader.i.i
   %indvars.iv74.i.i = phi i64 [ %37, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next75.i.i, %38 ]
@@ -700,7 +700,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   %42 = load i32, ptr %41, align 4, !tbaa !10
   %43 = and i32 %42, 128
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %._crit_edge62.i.i, label %38, !llvm.loop !14
+  br i1 %44, label %._crit_edge62.i.i, label %38, !llvm.loop !15
 
 ._crit_edge62.i.i:                                ; preds = %.lr.ph61.i.i
   %45 = trunc nsw i64 %indvars.iv74.i.i to i32
@@ -715,7 +715,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   %.033..038.i.i = select i1 %48, i32 %.033.i.i, i32 %.038.i11.i
   %49 = add nsw i32 %.041..033.i.i, 1
   %50 = icmp slt i32 %49, %.033..038.i.i
-  br i1 %50, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
+  br i1 %50, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, !llvm.loop !16
 
 _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %46, %38, %12
   %.041.i9.i = phi i32 [ %14, %12 ], [ %.041.i10.i, %38 ], [ %.041..033.i.i, %46 ], [ %.041.i10.i, %.preheader.i.i ]
@@ -749,7 +749,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
   %62 = load i32, ptr %61, align 4, !tbaa !10
   %.1 = lshr i32 %62, 16
   %63 = icmp ugt i32 %2, %.1
-  br i1 %63, label %60, label %._crit_edge, !llvm.loop !19
+  br i1 %63, label %60, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %60, %57
   %.110.lcssa = phi i32 [ %.09, %57 ], [ %.123, %60 ]
@@ -851,7 +851,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   %indvars.iv.next75.i.i = add nsw i64 %indvars.iv74.i.i, -1
   %41 = trunc nsw i64 %indvars.iv.next75.i.i to i32
   %42 = icmp eq i32 %.041.i10.i, %41
-  br i1 %42, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !14
+  br i1 %42, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, label %.lr.ph61.i.i, !llvm.loop !15
 
 .lr.ph61.i.i:                                     ; preds = %40, %.lr.ph61.preheader.i.i
   %indvars.iv74.i.i = phi i64 [ %39, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next75.i.i, %40 ]
@@ -859,7 +859,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   %44 = load i32, ptr %43, align 4, !tbaa !10
   %45 = and i32 %44, 128
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %._crit_edge62.i.i, label %40, !llvm.loop !14
+  br i1 %46, label %._crit_edge62.i.i, label %40, !llvm.loop !15
 
 ._crit_edge62.i.i:                                ; preds = %.lr.ph61.i.i
   %47 = trunc nsw i64 %indvars.iv74.i.i to i32
@@ -874,7 +874,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   %.033..038.i.i = select i1 %50, i32 %.033.i.i, i32 %.038.i11.i
   %51 = add nsw i32 %.041..033.i.i, 1
   %52 = icmp slt i32 %51, %.033..038.i.i
-  br i1 %52, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
+  br i1 %52, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit, !llvm.loop !16
 
 _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %48, %40, %13
   %.041.i9.i = phi i32 [ %16, %13 ], [ %.041.i10.i, %40 ], [ %.041..033.i.i, %48 ], [ %.041.i10.i, %.preheader.i.i ]
@@ -915,7 +915,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %71 = and i32 %70, -129
   %72 = icmp ugt i32 %63, %71
-  br i1 %72, label %66, label %._crit_edge, !llvm.loop !20
+  br i1 %72, label %66, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %66, %60
   %.218.lcssa = phi i32 [ %.117, %60 ], [ %spec.select, %66 ]
@@ -964,7 +964,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements15getPrimaryAfterEjia(ptr 
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = and i32 %24, 128
   %.not17 = icmp eq i32 %25, 0
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %19, %17
   %.0 = phi i32 [ %18, %17 ], [ %20, %19 ], [ %9, %12 ], [ %24, %.lr.ph ]
@@ -1023,7 +1023,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements17getSecondaryAfterEij(ptr
   %29 = load i32, ptr %28, align 4, !tbaa !10
   %30 = and i32 %29, 128
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %.thread, label %24, !llvm.loop !22
+  br i1 %.not, label %.thread, label %24, !llvm.loop !24
 
 .thread:                                          ; preds = %24, %27
   %.125 = phi i32 [ %.013, %27 ], [ %25, %24 ]
@@ -1092,7 +1092,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements16getT
 39:                                               ; preds = %43
   %40 = and i32 %45, -129
   %41 = icmp ugt i32 %40, %36
-  br i1 %41, label %._crit_edge, label %43, !llvm.loop !23
+  br i1 %41, label %._crit_edge, label %43, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %39, %33
   %.118.lcssa = phi i32 [ %.017, %33 ], [ %40, %39 ]
@@ -1138,15 +1138,17 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = !{!"int", !7, i64 0}
 !10 = !{!9, !9, i64 0}
 !11 = !{!4, !9, i64 8}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13}
-!21 = distinct !{!21, !13}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}
+!19 = distinct !{!19, !13, !14}
+!20 = distinct !{!20, !13, !14}
+!21 = distinct !{!21, !13, !14}
+!22 = distinct !{!22, !13, !14}
+!23 = distinct !{!23, !13, !14}
+!24 = distinct !{!24, !13, !14}
+!25 = distinct !{!25, !13, !14}

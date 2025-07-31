@@ -311,7 +311,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 157:                                              ; preds = %155, %154
   %158 = load volatile i32, ptr @InterruptPending, align 4
   %.not84.us = icmp eq i32 %158, 0
-  br i1 %.not84.us, label %160, label %159, !prof !8
+  br i1 %.not84.us, label %160, label %159, !prof !9
 
 159:                                              ; preds = %157
   call void @ProcessInterrupts() #9
@@ -323,7 +323,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 48
   %163 = load i64, ptr %162, align 8
   %164 = icmp ult i64 %163, %.071
-  br i1 %164, label %.lr.ph90.split.us, label %.loopexit, !llvm.loop !9
+  br i1 %164, label %.lr.ph90.split.us, label %.loopexit, !llvm.loop !10
 
 .lr.ph90.split:                                   ; preds = %.lr.ph90
   br i1 %.not82, label %.lr.ph90.split.split.us, label %.lr.ph90.split.split
@@ -356,7 +356,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 175:                                              ; preds = %171
   %176 = load volatile i32, ptr @InterruptPending, align 4
   %.not84.us93 = icmp eq i32 %176, 0
-  br i1 %.not84.us93, label %178, label %177, !prof !8
+  br i1 %.not84.us93, label %178, label %177, !prof !9
 
 177:                                              ; preds = %175
   call void @ProcessInterrupts() #9
@@ -370,7 +370,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %180 = phi ptr [ %.pre101, %177 ], [ %172, %175 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   %181 = icmp ult i64 %179, %.071
-  br i1 %181, label %.lr.ph90.split.split.us, label %.loopexit, !llvm.loop !11
+  br i1 %181, label %.lr.ph90.split.split.us, label %.loopexit, !llvm.loop !12
 
 .lr.ph90.split.split:                             ; preds = %.lr.ph90.split, %200
   %182 = phi ptr [ %202, %200 ], [ %142, %.lr.ph90.split ]
@@ -413,7 +413,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 197:                                              ; preds = %195
   %198 = load volatile i32, ptr @InterruptPending, align 4
   %.not84 = icmp eq i32 %198, 0
-  br i1 %.not84, label %200, label %199, !prof !8
+  br i1 %.not84, label %200, label %199, !prof !9
 
 199:                                              ; preds = %197
   call void @ProcessInterrupts() #9
@@ -438,7 +438,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %202 = phi ptr [ %192, %197 ], [ %.pre, %199 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   %203 = icmp ult i64 %201, %.071
-  br i1 %203, label %.lr.ph90.split.split, label %.loopexit
+  br i1 %203, label %.lr.ph90.split.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %200, %178, %160, %133, %.thread
   %204 = phi i64 [ %144, %133 ], [ %.pre106, %.thread ], [ %163, %160 ], [ %179, %178 ], [ %201, %200 ]
@@ -731,9 +731,11 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !10}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8, !11}
+!13 = distinct !{!13, !8}

@@ -34,7 +34,7 @@ define dso_local i32 @php_crc32_bulk_update(i32 noundef %0, ptr noundef %1, i64 
   %15 = xor i32 %14, %10
   %16 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %17 = phi i32 [ %.promoted, %3 ], [ %15, %.lr.ph ]
@@ -94,7 +94,7 @@ define dso_local range(i32 -1, 1) i32 @php_crc32_stream_bulk_update(ptr noundef 
   %21 = xor i32 %20, %16
   %22 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %php_crc32_bulk_update.exit, label %.lr.ph.i
+  br i1 %.not.i, label %php_crc32_bulk_update.exit, label %.lr.ph.i, !llvm.loop !9
 
 php_crc32_bulk_update.exit:                       ; preds = %.lr.ph.i, %9
   %23 = phi i32 [ %.promoted.i, %9 ], [ %21, %.lr.ph.i ]
@@ -102,7 +102,7 @@ php_crc32_bulk_update.exit:                       ; preds = %.lr.ph.i, %9
   store i32 %23, ptr %0, align 4, !tbaa !4
   %24 = add i64 %8, %.017
   %25 = icmp ult i64 %24, %2
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %php_crc32_bulk_update.exit, %3
   %.014 = phi i32 [ 0, %3 ], [ 0, %php_crc32_bulk_update.exit ], [ -1, %.lr.ph ]
@@ -119,7 +119,7 @@ define hidden void @zif_crc32(ptr noundef %0, ptr noundef writeonly captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !8
   %cond = icmp eq i32 %6, 1
-  br i1 %cond, label %7, label %.thread, !prof !9
+  br i1 %cond, label %7, label %.thread, !prof !12
 
 .thread:                                          ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #4
@@ -131,7 +131,7 @@ define hidden void @zif_crc32(ptr noundef %0, ptr noundef writeonly captures(non
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8, !tbaa !8
   %11 = icmp eq i8 %10, 6
-  br i1 %11, label %.critedge, label %zend_parse_arg_str_ex.exit, !prof !10
+  br i1 %11, label %.critedge, label %zend_parse_arg_str_ex.exit, !prof !13
 
 zend_parse_arg_str_ex.exit:                       ; preds = %7
   %12 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 1) #4
@@ -154,7 +154,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %7
   %15 = load ptr, ptr %.in, align 8, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !11
+  %18 = load i64, ptr %17, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !4
@@ -183,7 +183,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %7
   %29 = xor i32 %28, %24
   %30 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %.not.i = icmp eq i64 %23, 0
-  br i1 %.not.i, label %php_crc32_bulk_update.exit, label %.lr.ph.i
+  br i1 %.not.i, label %php_crc32_bulk_update.exit, label %.lr.ph.i, !llvm.loop !9
 
 php_crc32_bulk_update.exit:                       ; preds = %.lr.ph.i, %.critedge
   %31 = phi i32 [ %.promoted.i, %.critedge ], [ %29, %.lr.ph.i ]
@@ -225,9 +225,12 @@ attributes #4 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = !{!"branch_weights", i32 4000000, i32 4001}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{!12, !14, i64 16}
-!12 = !{!"_zend_string", !13, i64 0, !14, i64 8, !14, i64 16, !6, i64 24}
-!13 = !{!"_zend_refcounted_h", !5, i64 0, !6, i64 4}
-!14 = !{!"long", !6, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = !{!"branch_weights", i32 4000000, i32 4001}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = !{!15, !17, i64 16}
+!15 = !{!"_zend_string", !16, i64 0, !17, i64 8, !17, i64 16, !6, i64 24}
+!16 = !{!"_zend_refcounted_h", !5, i64 0, !6, i64 4}
+!17 = !{!"long", !6, i64 0}

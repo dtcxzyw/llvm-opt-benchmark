@@ -13167,7 +13167,7 @@ lean_inc.exit58:                                  ; preds = %94, %93, %91, %lean
   %95 = tail call ptr @l_Lean_Expr_fvar___override(ptr noundef %86) #4
   %96 = tail call ptr @lean_array_push(ptr noundef %.054, ptr noundef %95) #4
   %97 = tail call ptr @lean_array_push(ptr noundef %.056.ph, ptr noundef nonnull %57) #4
-  br label %.outer
+  br label %.outer, !llvm.loop !16
 
 98:                                               ; preds = %lean_obj_tag.exit
   %99 = tail call ptr @lean_expr_instantiate_rev(ptr noundef %.052, ptr noundef %.054) #4
@@ -13548,7 +13548,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Compiler_LCNF_isEtaExpandCandidateCore(
   %8 = ptrtoint ptr %3 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %11, label %lean_nat_lt.exit, !prof !16
+  br i1 %.not, label %11, label %lean_nat_lt.exit, !prof !18
 
 lean_nat_lt.exit:                                 ; preds = %2
   %10 = icmp ugt ptr %3, %7
@@ -13592,7 +13592,7 @@ define nonnull ptr @l_Lean_Compiler_LCNF_isEtaExpandCandidateCore___boxed(ptr no
   %8 = ptrtoint ptr %3 to i64
   %9 = and i64 %8, 1
   %.not.i4 = icmp eq i64 %9, 0
-  br i1 %.not.i4, label %11, label %lean_nat_lt.exit.i, !prof !16
+  br i1 %.not.i4, label %11, label %lean_nat_lt.exit.i, !prof !18
 
 lean_nat_lt.exit.i:                               ; preds = %2
   %10 = icmp ugt ptr %3, %7
@@ -13734,7 +13734,7 @@ lean_dec.exit9:                                   ; preds = %30, %29, %27, %lean
   %36 = ptrtoint ptr %31 to i64
   %37 = and i64 %36, 1
   %.not.i17 = icmp eq i64 %37, 0
-  br i1 %.not.i17, label %39, label %lean_nat_lt.exit.i, !prof !16
+  br i1 %.not.i17, label %39, label %lean_nat_lt.exit.i, !prof !18
 
 lean_nat_lt.exit.i:                               ; preds = %lean_dec.exit9
   %38 = icmp ugt ptr %31, %35
@@ -15601,7 +15601,7 @@ lean_inc.exit61:                                  ; preds = %16, %15, %13, %8
   %22 = ptrtoint ptr %17 to i64
   %23 = and i64 %22, 1
   %.not.i89 = icmp eq i64 %23, 0
-  br i1 %.not.i89, label %25, label %lean_nat_lt.exit.i, !prof !16
+  br i1 %.not.i89, label %25, label %lean_nat_lt.exit.i, !prof !18
 
 lean_nat_lt.exit.i:                               ; preds = %lean_inc.exit61
   %24 = icmp ugt ptr %17, %21
@@ -17165,9 +17165,9 @@ lean_inc.exit313:                                 ; preds = %51, %50, %48, %lean
 
 lean_inc.exit312:                                 ; preds = %61, %60, %58, %lean_inc.exit313
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %63 = load i8, ptr %62, align 1, !tbaa !17
+  %63 = load i8, ptr %62, align 1, !tbaa !19
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %65 = load i8, ptr %64, align 1, !tbaa !17
+  %65 = load i8, ptr %64, align 1, !tbaa !19
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %67 = load ptr, ptr %66, align 8, !tbaa !9
   %68 = ptrtoint ptr %67 to i64
@@ -18127,9 +18127,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit339
   store ptr %9, ptr %422, align 8, !tbaa !9
   %423 = getelementptr inbounds nuw i8, ptr %413, i64 48
   store ptr %67, ptr %423, align 8, !tbaa !9
-  store i8 %63, ptr %417, align 1, !tbaa !17
+  store i8 %63, ptr %417, align 1, !tbaa !19
   %424 = getelementptr inbounds nuw i8, ptr %413, i64 57
-  store i8 %65, ptr %424, align 1, !tbaa !17
+  store i8 %65, ptr %424, align 1, !tbaa !19
   %425 = ptrtoint ptr %.0279 to i64
   %426 = and i64 %425, 1
   %.not643 = icmp eq i64 %426, 0
@@ -19101,9 +19101,9 @@ lean_alloc_ctor.exit590:                          ; preds = %766
   %778 = getelementptr inbounds nuw i8, ptr %.0281, i64 48
   store ptr %67, ptr %778, align 8, !tbaa !9
   %779 = getelementptr inbounds nuw i8, ptr %.0281, i64 56
-  store i8 %63, ptr %779, align 1, !tbaa !17
+  store i8 %63, ptr %779, align 1, !tbaa !19
   %780 = getelementptr inbounds nuw i8, ptr %.0281, i64 57
-  store i8 %65, ptr %780, align 1, !tbaa !17
+  store i8 %65, ptr %780, align 1, !tbaa !19
   %781 = ptrtoint ptr %.0285 to i64
   %782 = and i64 %781, 1
   %.not630 = icmp eq i64 %782, 0
@@ -19765,5 +19765,7 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !7, i64 0}
-!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = !{!7, !7, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!19 = !{!7, !7, i64 0}

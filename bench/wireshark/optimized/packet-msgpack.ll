@@ -596,7 +596,7 @@ define internal fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1,
   tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.66, ptr noundef %5)
   %26 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %26, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.split, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.split, %6
   ret void
@@ -723,6 +723,7 @@ attributes #5 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

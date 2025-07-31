@@ -444,7 +444,7 @@ for.inc45:                                        ; preds = %invoke.cont42
 for.inc48:                                        ; preds = %for.inc45, %for.cond40.preheader, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i, %if.then.i.i62, %_ZN6google8protobuf11MapIteratorD2Ev.exit, %invoke.cont34, %invoke.cont11, %invoke.cont6
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.098, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
-  br i1 %cmp.i.not, label %for.end50.loopexit, label %for.body
+  br i1 %cmp.i.not, label %for.end50.loopexit, label %for.body, !llvm.loop !7
 
 for.end50.loopexit:                               ; preds = %for.inc48
   %.pre = load ptr, ptr %fields, align 8
@@ -750,5 +750,7 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}

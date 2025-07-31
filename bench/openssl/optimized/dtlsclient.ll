@@ -142,7 +142,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
 41:                                               ; preds = %41, %40
   %42 = call i32 @SSL_read(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1024) #5
   %43 = icmp slt i32 %42, 1
-  br i1 %43, label %44, label %41
+  br i1 %43, label %44, label %41, !llvm.loop !8
 
 44:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #5
@@ -218,3 +218,5 @@ attributes #6 = { noreturn nounwind }
 !5 = !{!"long", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}

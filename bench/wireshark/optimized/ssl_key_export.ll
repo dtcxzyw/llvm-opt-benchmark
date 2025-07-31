@@ -255,7 +255,7 @@ define hidden ptr @ssl_export_sessions(ptr noundef writeonly captures(none) %0) 
 71:                                               ; preds = %69, %65
   %72 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null)
   %.not40 = icmp eq i32 %72, 0
-  br i1 %.not40, label %._crit_edge, label %23, !llvm.loop !8
+  br i1 %.not40, label %._crit_edge, label %23, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %71, %7
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -299,7 +299,7 @@ define internal fastcc void @tls_export_client_randoms_func(ptr noundef readonly
   %12 = load i32, ptr %6, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -342,7 +342,7 @@ g_string_append_c_inline.exit:                    ; preds = %21, %27
   %35 = load i32, ptr %29, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next26, %36
-  br i1 %37, label %.lr.ph21, label %._crit_edge22, !llvm.loop !10
+  br i1 %37, label %.lr.ph21, label %._crit_edge22, !llvm.loop !11
 
 ._crit_edge22:                                    ; preds = %.lr.ph21, %g_string_append_c_inline.exit
   %38 = load i64, ptr %15, align 8
@@ -433,8 +433,9 @@ attributes #5 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

@@ -589,10 +589,10 @@ sprkStep_AccessStepMem.exit:                      ; preds = %3
   %82 = load i32, ptr %81, align 4, !tbaa !55
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %27, label %._crit_edge
+  br i1 %84, label %27, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %77, %7
-  store i32 0, ptr %2, align 4, !tbaa !66
+  store i32 0, ptr %2, align 4, !tbaa !68
   store double 0.000000e+00, ptr %1, align 8, !tbaa !58
   br label %.thread
 
@@ -621,32 +621,32 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   br label %38
 
 12:                                               ; preds = %6
-  store i64 0, ptr %8, align 8, !tbaa !67
-  store i64 0, ptr %7, align 8, !tbaa !67
+  store i64 0, ptr %8, align 8, !tbaa !69
+  store i64 0, ptr %7, align 8, !tbaa !69
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !68
+  %16 = load ptr, ptr %15, align 8, !tbaa !70
   %.not24 = icmp eq ptr %16, null
   br i1 %.not24, label %18, label %17
 
 17:                                               ; preds = %12
   call void @N_VSpace(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
-  %.pre = load i64, ptr %7, align 8, !tbaa !67
-  %.pre35 = load i64, ptr %8, align 8, !tbaa !67
+  %.pre = load i64, ptr %7, align 8, !tbaa !69
+  %.pre35 = load i64, ptr %8, align 8, !tbaa !69
   br label %18
 
 18:                                               ; preds = %17, %12
   %19 = phi i64 [ %.pre35, %17 ], [ 0, %12 ]
   %20 = phi i64 [ %.pre, %17 ], [ 0, %12 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %22 = load i64, ptr %21, align 8, !tbaa !69
+  %22 = load i64, ptr %21, align 8, !tbaa !71
   %23 = sub nsw i64 %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %25 = load i64, ptr %24, align 8, !tbaa !70
+  %25 = load i64, ptr %24, align 8, !tbaa !72
   %26 = sub nsw i64 %19, %25
-  store i64 %20, ptr %21, align 8, !tbaa !69
-  store i64 %19, ptr %24, align 8, !tbaa !70
+  store i64 %20, ptr %21, align 8, !tbaa !71
+  store i64 %19, ptr %24, align 8, !tbaa !72
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %28 = call i32 @arkResizeVec(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i64 noundef %23, i64 noundef %26, ptr noundef nonnull %1, ptr noundef nonnull %27) #9
   %.not25 = icmp eq i32 %28, 0
@@ -762,7 +762,7 @@ define i32 @SPRKStepReInit(ptr noundef %0, ptr noundef %1, ptr noundef %2, doubl
 
 sprkStep_AccessARKODEStepMem.exit:                ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %14 = load i32, ptr %13, align 8, !tbaa !71
+  %14 = load i32, ptr %13, align 8, !tbaa !73
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
 
@@ -835,7 +835,7 @@ define range(i32 -21, 1) i32 @sprkStep_AccessARKODEStepMem(ptr noundef %0, ptr n
   br label %13
 
 12:                                               ; preds = %7
-  store ptr %9, ptr %3, align 8, !tbaa !72
+  store ptr %9, ptr %3, align 8, !tbaa !74
   br label %13
 
 13:                                               ; preds = %12, %11, %6
@@ -855,7 +855,7 @@ define range(i32 -21, 1) i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef
   br label %9
 
 8:                                                ; preds = %3
-  store ptr %5, ptr %2, align 8, !tbaa !72
+  store ptr %5, ptr %2, align 8, !tbaa !74
   br label %9
 
 9:                                                ; preds = %8, %7
@@ -940,11 +940,11 @@ sprkStep_AccessStepMem.exit:                      ; preds = %3
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %13 = load ptr, ptr %12, align 8, !tbaa !76
+  %13 = load ptr, ptr %12, align 8, !tbaa !78
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %9) #9
   %14 = load ptr, ptr %5, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -974,7 +974,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %3
   %33 = load i32, ptr %32, align 4, !tbaa !55
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %36, label %._crit_edge
+  br i1 %35, label %36, label %._crit_edge, !llvm.loop !79
 
 36:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
@@ -1063,7 +1063,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %3
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %90, double noundef -1.000000e+00, ptr noundef %91, ptr noundef %13) #9
   %92 = load ptr, ptr %84, align 8, !tbaa !29
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef -1.000000e+00, ptr noundef %9, ptr noundef %92) #9
-  store i32 0, ptr %2, align 4, !tbaa !66
+  store i32 0, ptr %2, align 4, !tbaa !68
   store double 0.000000e+00, ptr %1, align 8, !tbaa !58
   br label %.thread
 
@@ -1154,14 +1154,17 @@ attributes #9 = { nounwind }
 !63 = !{!20, !21, i64 704}
 !64 = !{!20, !21, i64 752}
 !65 = !{!20, !5, i64 1024}
-!66 = !{!22, !22, i64 0}
-!67 = !{!26, !26, i64 0}
-!68 = !{!11, !5, i64 32}
-!69 = !{!20, !26, i64 856}
-!70 = !{!20, !26, i64 864}
-!71 = !{!20, !22, i64 960}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"p1 _ZTS20ARKodeSPRKStepMemRec", !5, i64 0}
-!74 = !{!20, !23, i64 616}
-!75 = !{!20, !23, i64 624}
-!76 = !{!20, !23, i64 632}
+!66 = distinct !{!66, !67}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!22, !22, i64 0}
+!69 = !{!26, !26, i64 0}
+!70 = !{!11, !5, i64 32}
+!71 = !{!20, !26, i64 856}
+!72 = !{!20, !26, i64 864}
+!73 = !{!20, !22, i64 960}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTS20ARKodeSPRKStepMemRec", !5, i64 0}
+!76 = !{!20, !23, i64 616}
+!77 = !{!20, !23, i64 624}
+!78 = !{!20, !23, i64 632}
+!79 = distinct !{!79, !67}

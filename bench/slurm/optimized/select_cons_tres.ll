@@ -461,7 +461,7 @@ _check_allocatable_sockets.exit:                  ; preds = %113, %112, %74, %.l
   store i32 %137, ptr %3, align 4
   %138 = call ptr @next_node(ptr noundef nonnull %3) #9
   %.not25 = icmp eq ptr %138, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_check_allocatable_sockets.exit, %63
   call void @part_data_create_array() #9
@@ -572,7 +572,7 @@ define dso_local range(i32 0, 2) i32 @select_p_job_ready(ptr noundef readonly ca
   %18 = load ptr, ptr %7, align 8
   %19 = call ptr @next_node_bitmap(ptr noundef %18, ptr noundef nonnull %2) #9
   %.not10 = icmp eq ptr %19, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %9
   %.not10.lcssa = phi i32 [ 1, %9 ], [ 0, %.lr.ph ], [ 1, %15 ]
@@ -949,7 +949,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %125, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %126, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %126, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %232, %75
   %233 = call i32 @build_job_resources_cpu_array(ptr noundef %77) #9
@@ -1193,7 +1193,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %48 = load ptr, ptr %38, align 8
   %49 = call ptr @next_node_bitmap(ptr noundef %48, ptr noundef nonnull %4) #9
   %.not95 = icmp eq ptr %49, null
-  br i1 %.not95, label %.loopexit107, label %42, !llvm.loop !14
+  br i1 %.not95, label %.loopexit107, label %42, !llvm.loop !15
 
 50:                                               ; preds = %42
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -1309,7 +1309,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
 115:                                              ; preds = %.lr.ph115
   %116 = load ptr, ptr %.080114, align 8
   %.not100 = icmp eq ptr %116, null
-  br i1 %.not100, label %.critedge, label %.lr.ph115, !llvm.loop !15
+  br i1 %.not100, label %.critedge, label %.lr.ph115, !llvm.loop !16
 
 .critedge:                                        ; preds = %115, %.preheader106
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 232
@@ -1356,7 +1356,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
 134:                                              ; preds = %135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %135, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %135, !llvm.loop !17
 
 135:                                              ; preds = %.lr.ph117, %134
   %indvars.iv = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next, %134 ]
@@ -1382,7 +1382,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %146 = add nsw i32 %storemerge102118, 1
   store i32 %146, ptr %4, align 4
   %147 = icmp slt i32 %146, %127
-  br i1 %147, label %.preheader, label %._crit_edge, !llvm.loop !17
+  br i1 %147, label %.preheader, label %._crit_edge, !llvm.loop !18
 
 .loopexit.thread:                                 ; preds = %138, %141
   %148 = load i16, ptr %124, align 8
@@ -1391,7 +1391,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   store i32 %150, ptr %4, align 4
   %151 = zext i16 %148 to i32
   %152 = icmp samesign ult i32 %150, %151
-  br i1 %152, label %.preheader.outer, label %._crit_edge.thread129, !llvm.loop !17
+  br i1 %152, label %.preheader.outer, label %._crit_edge.thread129, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit
   br i1 %126, label %._crit_edge.thread, label %._crit_edge.thread129
@@ -1791,7 +1791,7 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
 
 17:                                               ; preds = %.lr.ph66
   %18 = getelementptr inbounds nuw i8, ptr %.03265, i64 24
-  %19 = load i8, ptr %18, align 8, !range !18, !noundef !19
+  %19 = load i8, ptr %18, align 8, !range !19, !noundef !20
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %22
 
@@ -1835,13 +1835,13 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
   %35 = load i16, ptr %23, align 8
   %36 = zext i16 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %33, %22, %.lr.ph66
   %.promoted60 = phi ptr [ %.promoted6164, %.lr.ph66 ], [ %.promoted6164, %22 ], [ %.promoted58, %33 ]
   %.032 = load ptr, ptr %.03265, align 8
   %.not44 = icmp eq ptr %.032, null
-  br i1 %.not44, label %.preheader, label %.lr.ph66, !llvm.loop !21
+  br i1 %.not44, label %.preheader, label %.lr.ph66, !llvm.loop !22
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %123
   %38 = phi ptr [ %126, %123 ], [ %14, %.lr.ph68.preheader ]
@@ -1982,7 +1982,7 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
   store i32 %125, ptr %1, align 4
   %126 = call ptr @next_node(ptr noundef nonnull %1) #9
   %.not45 = icmp eq ptr %126, null
-  br i1 %.not45, label %._crit_edge, label %.lr.ph68, !llvm.loop !22
+  br i1 %.not45, label %._crit_edge, label %.lr.ph68, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %123, %.preheader
   call void @free_core_array(ptr noundef nonnull %2) #9
@@ -2255,7 +2255,7 @@ define dso_local noundef i32 @select_p_reconfigure() local_unnamed_addr #0 {
   store i32 %22, ptr %1, align 4
   %23 = call ptr @next_node(ptr noundef nonnull %1) #9
   %.not24 = icmp eq ptr %23, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 .lr.ph32:                                         ; preds = %._crit_edge, %49
   %24 = phi ptr [ %50, %49 ], [ %16, %._crit_edge ]
@@ -2315,7 +2315,7 @@ define dso_local noundef i32 @select_p_reconfigure() local_unnamed_addr #0 {
 49:                                               ; preds = %32, %48, %44, %41
   %50 = call ptr @slurm_list_next(ptr noundef %15) #9
   %.not25 = icmp eq ptr %50, null
-  br i1 %.not25, label %._crit_edge33, label %.lr.ph32, !llvm.loop !24
+  br i1 %.not25, label %._crit_edge33, label %.lr.ph32, !llvm.loop !25
 
 ._crit_edge33:                                    ; preds = %49, %._crit_edge
   call void @slurm_list_iterator_destroy(ptr noundef %15) #9
@@ -2377,20 +2377,21 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}

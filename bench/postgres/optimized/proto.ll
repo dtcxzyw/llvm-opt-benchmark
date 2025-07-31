@@ -956,21 +956,21 @@ logicalrep_should_publish_column.exit.thread:     ; preds = %28, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = sext i32 %34 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !126
+  br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %logicalrep_should_publish_column.exit.thread, %logicalrep_should_publish_column.exit.thread.us, %5
   %.057.lcssa = phi i16 [ 0, %5 ], [ %20, %logicalrep_should_publish_column.exit.thread.us ], [ %35, %logicalrep_should_publish_column.exit.thread ]
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 2) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %38 = tail call i16 @llvm.bswap.i16(i16 %.057.lcssa)
-  %39 = load ptr, ptr %0, align 8, !alias.scope !127
+  %39 = load ptr, ptr %0, align 8, !alias.scope !128
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i32, ptr %40, align 8, !alias.scope !127
+  %41 = load i32, ptr %40, align 8, !alias.scope !128
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  store i16 %38, ptr %43, align 1, !noalias !127
+  store i16 %38, ptr %43, align 1, !noalias !128
   %44 = add i32 %41, 2
-  store i32 %44, ptr %40, align 8, !alias.scope !127
+  store i32 %44, ptr %40, align 8, !alias.scope !128
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 8
@@ -1039,14 +1039,14 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %74, %69, %logicalre
 
 80:                                               ; preds = %logicalrep_should_publish_column.exit63.thread8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  %81 = load ptr, ptr %0, align 8, !alias.scope !130
-  %82 = load i32, ptr %40, align 8, !alias.scope !130
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
+  %81 = load ptr, ptr %0, align 8, !alias.scope !131
+  %82 = load i32, ptr %40, align 8, !alias.scope !131
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr %81, i64 %83
-  store i8 110, ptr %84, align 1, !noalias !130
+  store i8 110, ptr %84, align 1, !noalias !131
   %85 = add i32 %82, 1
-  store i32 %85, ptr %40, align 8, !alias.scope !130
+  store i32 %85, ptr %40, align 8, !alias.scope !131
   br label %logicalrep_should_publish_column.exit63.thread
 
 86:                                               ; preds = %logicalrep_should_publish_column.exit63.thread8
@@ -1071,14 +1071,14 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %74, %69, %logicalre
 
 100:                                              ; preds = %96
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  %101 = load ptr, ptr %0, align 8, !alias.scope !133
-  %102 = load i32, ptr %40, align 8, !alias.scope !133
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
+  %101 = load ptr, ptr %0, align 8, !alias.scope !134
+  %102 = load i32, ptr %40, align 8, !alias.scope !134
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %101, i64 %103
-  store i8 117, ptr %104, align 1, !noalias !133
+  store i8 117, ptr %104, align 1, !noalias !134
   %105 = add i32 %102, 1
-  store i32 %105, ptr %40, align 8, !alias.scope !133
+  store i32 %105, ptr %40, align 8, !alias.scope !134
   br label %logicalrep_should_publish_column.exit63.thread
 
 106:                                              ; preds = %96, %90, %86
@@ -1115,14 +1115,14 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %74, %69, %logicalre
 
 125:                                              ; preds = %122
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  %126 = load ptr, ptr %0, align 8, !alias.scope !136
-  %127 = load i32, ptr %40, align 8, !alias.scope !136
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  %126 = load ptr, ptr %0, align 8, !alias.scope !137
+  %127 = load i32, ptr %40, align 8, !alias.scope !137
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds i8, ptr %126, i64 %128
-  store i8 98, ptr %129, align 1, !noalias !136
+  store i8 98, ptr %129, align 1, !noalias !137
   %130 = add i32 %127, 1
-  store i32 %130, ptr %40, align 8, !alias.scope !136
+  store i32 %130, ptr %40, align 8, !alias.scope !137
   %131 = load i32, ptr %123, align 4
   %132 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv24
   %133 = load i64, ptr %132, align 8
@@ -1131,29 +1131,29 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %74, %69, %logicalre
   %136 = lshr i32 %135, 2
   %137 = add nsw i32 %136, -4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %138 = tail call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %137)
-  %139 = load ptr, ptr %0, align 8, !alias.scope !139
-  %140 = load i32, ptr %40, align 8, !alias.scope !139
+  %139 = load ptr, ptr %0, align 8, !alias.scope !140
+  %140 = load i32, ptr %40, align 8, !alias.scope !140
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds i8, ptr %139, i64 %141
-  store i32 %138, ptr %142, align 1, !noalias !139
+  store i32 %138, ptr %142, align 1, !noalias !140
   %143 = add i32 %140, 4
-  store i32 %143, ptr %40, align 8, !alias.scope !139
+  store i32 %143, ptr %40, align 8, !alias.scope !140
   %144 = getelementptr inbounds nuw i8, ptr %134, i64 4
   tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef nonnull %144, i32 noundef %137) #8
   br label %158
 
 145:                                              ; preds = %122, %116
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  %146 = load ptr, ptr %0, align 8, !alias.scope !142
-  %147 = load i32, ptr %40, align 8, !alias.scope !142
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
+  %146 = load ptr, ptr %0, align 8, !alias.scope !143
+  %147 = load i32, ptr %40, align 8, !alias.scope !143
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %146, i64 %148
-  store i8 116, ptr %149, align 1, !noalias !142
+  store i8 116, ptr %149, align 1, !noalias !143
   %150 = add i32 %147, 1
-  store i32 %150, ptr %40, align 8, !alias.scope !142
+  store i32 %150, ptr %40, align 8, !alias.scope !143
   %151 = getelementptr inbounds nuw i8, ptr %121, i64 104
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv24
@@ -1175,7 +1175,7 @@ logicalrep_should_publish_column.exit63.thread:   ; preds = %74, %60, %69, %logi
   %159 = load i32, ptr %.64.val, align 8
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv.next25, %160
-  br i1 %161, label %60, label %._crit_edge17, !llvm.loop !145
+  br i1 %161, label %60, label %._crit_edge17, !llvm.loop !146
 
 ._crit_edge17:                                    ; preds = %logicalrep_should_publish_column.exit63.thread, %slot_getallattrs.exit
   ret void
@@ -1267,7 +1267,7 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef c
 31:                                               ; preds = %17, %.lr.ph, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !146
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %31, %2
   ret void
@@ -1276,44 +1276,44 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef c
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
-  %9 = load ptr, ptr %0, align 8, !alias.scope !147
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
+  %9 = load ptr, ptr %0, align 8, !alias.scope !148
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !alias.scope !147
+  %11 = load i32, ptr %10, align 8, !alias.scope !148
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  store i8 85, ptr %13, align 1, !noalias !147
+  store i8 85, ptr %13, align 1, !noalias !148
   %14 = add i32 %11, 1
-  store i32 %14, ptr %10, align 8, !alias.scope !147
+  store i32 %14, ptr %10, align 8, !alias.scope !148
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
   %16 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %17 = load ptr, ptr %0, align 8, !alias.scope !150
-  %18 = load i32, ptr %10, align 8, !alias.scope !150
+  %17 = load ptr, ptr %0, align 8, !alias.scope !151
+  %18 = load i32, ptr %10, align 8, !alias.scope !151
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
-  store i32 %16, ptr %20, align 1, !noalias !150
+  store i32 %16, ptr %20, align 1, !noalias !151
   %21 = add i32 %18, 4
-  store i32 %21, ptr %10, align 8, !alias.scope !150
+  store i32 %21, ptr %10, align 8, !alias.scope !151
   br label %22
 
 22:                                               ; preds = %15, %8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %24 = load i32, ptr %23, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %25 = tail call i32 @llvm.bswap.i32(i32 %24)
-  %26 = load ptr, ptr %0, align 8, !alias.scope !153
-  %27 = load i32, ptr %10, align 8, !alias.scope !153
+  %26 = load ptr, ptr %0, align 8, !alias.scope !154
+  %27 = load i32, ptr %10, align 8, !alias.scope !154
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %26, i64 %28
-  store i32 %25, ptr %29, align 1, !noalias !153
+  store i32 %25, ptr %29, align 1, !noalias !154
   %30 = add i32 %27, 4
-  store i32 %30, ptr %10, align 8, !alias.scope !153
+  store i32 %30, ptr %10, align 8, !alias.scope !154
   %.not23 = icmp eq ptr %3, null
   br i1 %.not23, label %42, label %31
 
@@ -1339,14 +1339,14 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
 
 42:                                               ; preds = %31, %22
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %43 = load ptr, ptr %0, align 8, !alias.scope !156
-  %44 = load i32, ptr %10, align 8, !alias.scope !156
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
+  %43 = load ptr, ptr %0, align 8, !alias.scope !157
+  %44 = load i32, ptr %10, align 8, !alias.scope !157
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %43, i64 %45
-  store i8 78, ptr %46, align 1, !noalias !156
+  store i8 78, ptr %46, align 1, !noalias !157
   %47 = add i32 %44, 1
-  store i32 %47, ptr %10, align 8, !alias.scope !156
+  store i32 %47, ptr %10, align 8, !alias.scope !157
   %48 = getelementptr i8, ptr %2, i64 64
   %.val = load ptr, ptr %48, align 8
   tail call fastcc void @logicalrep_write_tuple(ptr noundef nonnull %0, ptr %.val, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7)
@@ -1409,44 +1409,44 @@ define dso_local i32 @logicalrep_read_update(ptr noundef %0, ptr noundef writeon
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  %8 = load ptr, ptr %0, align 8, !alias.scope !159
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
+  %8 = load ptr, ptr %0, align 8, !alias.scope !160
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 8, !alias.scope !159
+  %10 = load i32, ptr %9, align 8, !alias.scope !160
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  store i8 68, ptr %12, align 1, !noalias !159
+  store i8 68, ptr %12, align 1, !noalias !160
   %13 = add i32 %10, 1
-  store i32 %13, ptr %9, align 8, !alias.scope !159
+  store i32 %13, ptr %9, align 8, !alias.scope !160
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %7
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %15 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %16 = load ptr, ptr %0, align 8, !alias.scope !162
-  %17 = load i32, ptr %9, align 8, !alias.scope !162
+  %16 = load ptr, ptr %0, align 8, !alias.scope !163
+  %17 = load i32, ptr %9, align 8, !alias.scope !163
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
-  store i32 %15, ptr %19, align 1, !noalias !162
+  store i32 %15, ptr %19, align 1, !noalias !163
   %20 = add i32 %17, 4
-  store i32 %20, ptr %9, align 8, !alias.scope !162
+  store i32 %20, ptr %9, align 8, !alias.scope !163
   br label %21
 
 21:                                               ; preds = %14, %7
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %23 = load i32, ptr %22, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
-  %25 = load ptr, ptr %0, align 8, !alias.scope !165
-  %26 = load i32, ptr %9, align 8, !alias.scope !165
+  %25 = load ptr, ptr %0, align 8, !alias.scope !166
+  %26 = load i32, ptr %9, align 8, !alias.scope !166
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
-  store i32 %24, ptr %28, align 1, !noalias !165
+  store i32 %24, ptr %28, align 1, !noalias !166
   %29 = add i32 %26, 4
-  store i32 %29, ptr %9, align 8, !alias.scope !165
+  store i32 %29, ptr %9, align 8, !alias.scope !166
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 126
@@ -1492,54 +1492,54 @@ define dso_local i32 @logicalrep_read_delete(ptr noundef %0, ptr noundef capture
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  %7 = load ptr, ptr %0, align 8, !alias.scope !168
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
+  %7 = load ptr, ptr %0, align 8, !alias.scope !169
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !alias.scope !168
+  %9 = load i32, ptr %8, align 8, !alias.scope !169
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  store i8 84, ptr %11, align 1, !noalias !168
+  store i8 84, ptr %11, align 1, !noalias !169
   %12 = add i32 %9, 1
-  store i32 %12, ptr %8, align 8, !alias.scope !168
+  store i32 %12, ptr %8, align 8, !alias.scope !169
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %6
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %14 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %15 = load ptr, ptr %0, align 8, !alias.scope !171
-  %16 = load i32, ptr %8, align 8, !alias.scope !171
+  %15 = load ptr, ptr %0, align 8, !alias.scope !172
+  %16 = load i32, ptr %8, align 8, !alias.scope !172
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %15, i64 %17
-  store i32 %14, ptr %18, align 1, !noalias !171
+  store i32 %14, ptr %18, align 1, !noalias !172
   %19 = add i32 %16, 4
-  store i32 %19, ptr %8, align 8, !alias.scope !171
+  store i32 %19, ptr %8, align 8, !alias.scope !172
   br label %20
 
 20:                                               ; preds = %13, %6
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   %21 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %22 = load ptr, ptr %0, align 8, !alias.scope !174
-  %23 = load i32, ptr %8, align 8, !alias.scope !174
+  %22 = load ptr, ptr %0, align 8, !alias.scope !175
+  %23 = load i32, ptr %8, align 8, !alias.scope !175
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
-  store i32 %21, ptr %25, align 1, !noalias !174
+  store i32 %21, ptr %25, align 1, !noalias !175
   %26 = add i32 %23, 4
-  store i32 %26, ptr %8, align 8, !alias.scope !174
+  store i32 %26, ptr %8, align 8, !alias.scope !175
   %spec.select = zext i1 %4 to i8
   %27 = or disjoint i8 %spec.select, 2
   %.1 = select i1 %5, i8 %27, i8 %spec.select
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  %28 = load ptr, ptr %0, align 8, !alias.scope !177
-  %29 = load i32, ptr %8, align 8, !alias.scope !177
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
+  %28 = load ptr, ptr %0, align 8, !alias.scope !178
+  %29 = load i32, ptr %8, align 8, !alias.scope !178
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
-  store i8 %.1, ptr %31, align 1, !noalias !177
+  store i8 %.1, ptr %31, align 1, !noalias !178
   %32 = add i32 %29, 1
-  store i32 %32, ptr %8, align 8, !alias.scope !177
+  store i32 %32, ptr %8, align 8, !alias.scope !178
   %33 = icmp sgt i32 %2, 0
   br i1 %33, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1552,18 +1552,18 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
   %34 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   %36 = tail call i32 @llvm.bswap.i32(i32 %35)
-  %37 = load ptr, ptr %0, align 8, !alias.scope !180
-  %38 = load i32, ptr %8, align 8, !alias.scope !180
+  %37 = load ptr, ptr %0, align 8, !alias.scope !181
+  %38 = load i32, ptr %8, align 8, !alias.scope !181
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %37, i64 %39
-  store i32 %36, ptr %40, align 1, !noalias !180
+  store i32 %36, ptr %40, align 1, !noalias !181
   %41 = add i32 %38, 4
-  store i32 %41, ptr %8, align 8, !alias.scope !180
+  store i32 %41, ptr %8, align 8, !alias.scope !181
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !183
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   ret void
@@ -1589,7 +1589,7 @@ define dso_local ptr @logicalrep_read_truncate(ptr noundef %0, ptr noundef write
   %12 = tail call ptr @lappend_oid(ptr noundef %.01112, i32 noundef %11) #8
   %13 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %13, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !185
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.011.lcssa = phi ptr [ null, %3 ], [ %12, %.lr.ph ]
@@ -1601,64 +1601,64 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_message(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  %8 = load ptr, ptr %0, align 8, !alias.scope !185
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
+  %8 = load ptr, ptr %0, align 8, !alias.scope !186
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 8, !alias.scope !185
+  %10 = load i32, ptr %9, align 8, !alias.scope !186
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  store i8 77, ptr %12, align 1, !noalias !185
+  store i8 77, ptr %12, align 1, !noalias !186
   %13 = add i32 %10, 1
-  store i32 %13, ptr %9, align 8, !alias.scope !185
+  store i32 %13, ptr %9, align 8, !alias.scope !186
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %7
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
   %15 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %16 = load ptr, ptr %0, align 8, !alias.scope !188
-  %17 = load i32, ptr %9, align 8, !alias.scope !188
+  %16 = load ptr, ptr %0, align 8, !alias.scope !189
+  %17 = load i32, ptr %9, align 8, !alias.scope !189
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
-  store i32 %15, ptr %19, align 1, !noalias !188
+  store i32 %15, ptr %19, align 1, !noalias !189
   %20 = add i32 %17, 4
-  store i32 %20, ptr %9, align 8, !alias.scope !188
+  store i32 %20, ptr %9, align 8, !alias.scope !189
   br label %21
 
 21:                                               ; preds = %14, %7
   %spec.select = zext i1 %3 to i8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  %22 = load ptr, ptr %0, align 8, !alias.scope !191
-  %23 = load i32, ptr %9, align 8, !alias.scope !191
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
+  %22 = load ptr, ptr %0, align 8, !alias.scope !192
+  %23 = load i32, ptr %9, align 8, !alias.scope !192
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
-  store i8 %spec.select, ptr %25, align 1, !noalias !191
+  store i8 %spec.select, ptr %25, align 1, !noalias !192
   %26 = add i32 %23, 1
-  store i32 %26, ptr %9, align 8, !alias.scope !191
+  store i32 %26, ptr %9, align 8, !alias.scope !192
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
   %27 = tail call i64 @llvm.bswap.i64(i64 %2)
-  %28 = load ptr, ptr %0, align 8, !alias.scope !194
-  %29 = load i32, ptr %9, align 8, !alias.scope !194
+  %28 = load ptr, ptr %0, align 8, !alias.scope !195
+  %29 = load i32, ptr %9, align 8, !alias.scope !195
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
-  store i64 %27, ptr %31, align 1, !noalias !194
+  store i64 %27, ptr %31, align 1, !noalias !195
   %32 = add i32 %29, 8
-  store i32 %32, ptr %9, align 8, !alias.scope !194
+  store i32 %32, ptr %9, align 8, !alias.scope !195
   tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %4) #8
   %33 = trunc i64 %5 to i32
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
   %34 = tail call i32 @llvm.bswap.i32(i32 %33)
-  %35 = load ptr, ptr %0, align 8, !alias.scope !197
-  %36 = load i32, ptr %9, align 8, !alias.scope !197
+  %35 = load ptr, ptr %0, align 8, !alias.scope !198
+  %36 = load i32, ptr %9, align 8, !alias.scope !198
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
-  store i32 %34, ptr %38, align 1, !noalias !197
+  store i32 %34, ptr %38, align 1, !noalias !198
   %39 = add i32 %36, 4
-  store i32 %39, ptr %9, align 8, !alias.scope !197
+  store i32 %39, ptr %9, align 8, !alias.scope !198
   tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %33) #8
   ret void
 }
@@ -1668,44 +1668,44 @@ declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %6 = load ptr, ptr %0, align 8, !alias.scope !200
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
+  %6 = load ptr, ptr %0, align 8, !alias.scope !201
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !alias.scope !200
+  %8 = load i32, ptr %7, align 8, !alias.scope !201
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
-  store i8 82, ptr %10, align 1, !noalias !200
+  store i8 82, ptr %10, align 1, !noalias !201
   %11 = add i32 %8, 1
-  store i32 %11, ptr %7, align 8, !alias.scope !200
+  store i32 %11, ptr %7, align 8, !alias.scope !201
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %5
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %13 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %14 = load ptr, ptr %0, align 8, !alias.scope !203
-  %15 = load i32, ptr %7, align 8, !alias.scope !203
+  %14 = load ptr, ptr %0, align 8, !alias.scope !204
+  %15 = load i32, ptr %7, align 8, !alias.scope !204
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  store i32 %13, ptr %17, align 1, !noalias !203
+  store i32 %13, ptr %17, align 1, !noalias !204
   %18 = add i32 %15, 4
-  store i32 %18, ptr %7, align 8, !alias.scope !203
+  store i32 %18, ptr %7, align 8, !alias.scope !204
   br label %19
 
 19:                                               ; preds = %12, %5
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %21 = load i32, ptr %20, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
-  %23 = load ptr, ptr %0, align 8, !alias.scope !206
-  %24 = load i32, ptr %7, align 8, !alias.scope !206
+  %23 = load ptr, ptr %0, align 8, !alias.scope !207
+  %24 = load i32, ptr %7, align 8, !alias.scope !207
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %23, i64 %25
-  store i32 %22, ptr %26, align 1, !noalias !206
+  store i32 %22, ptr %26, align 1, !noalias !207
   %27 = add i32 %24, 4
-  store i32 %27, ptr %7, align 8, !alias.scope !206
+  store i32 %27, ptr %7, align 8, !alias.scope !207
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 68
@@ -1715,14 +1715,14 @@ define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr 
 
 33:                                               ; preds = %19
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
-  %34 = load ptr, ptr %0, align 8, !alias.scope !209
-  %35 = load i32, ptr %7, align 8, !alias.scope !209
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
+  %34 = load ptr, ptr %0, align 8, !alias.scope !210
+  %35 = load i32, ptr %7, align 8, !alias.scope !210
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
-  store i8 0, ptr %37, align 1, !noalias !209
+  store i8 0, ptr %37, align 1, !noalias !210
   %38 = add i32 %35, 1
-  store i32 %38, ptr %7, align 8, !alias.scope !209
+  store i32 %38, ptr %7, align 8, !alias.scope !210
   br label %logicalrep_write_namespace.exit
 
 39:                                               ; preds = %19
@@ -1749,14 +1749,14 @@ logicalrep_write_namespace.exit:                  ; preds = %33, %45
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 126
   %50 = load i8, ptr %49, align 2
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
-  %51 = load ptr, ptr %0, align 8, !alias.scope !212
-  %52 = load i32, ptr %7, align 8, !alias.scope !212
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
+  %51 = load ptr, ptr %0, align 8, !alias.scope !213
+  %52 = load i32, ptr %7, align 8, !alias.scope !213
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %51, i64 %53
-  store i8 %50, ptr %54, align 1, !noalias !212
+  store i8 %50, ptr %54, align 1, !noalias !213
   %55 = add i32 %52, 1
-  store i32 %55, ptr %7, align 8, !alias.scope !212
+  store i32 %55, ptr %7, align 8, !alias.scope !213
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %57 = load ptr, ptr %56, align 8
   %invariant.gep.i = getelementptr i8, ptr %57, i64 24
@@ -1803,7 +1803,7 @@ logicalrep_should_publish_column.exit.thread.us.i: ; preds = %logicalrep_should_
   %71 = phi i16 [ %70, %logicalrep_should_publish_column.exit.thread45.us.i ], [ %.03652.us.i, %logicalrep_should_publish_column.exit.us.i ], [ %.03652.us.i, %62 ], [ %.03652.us.i, %67 ]
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %62, !llvm.loop !215
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %62, !llvm.loop !216
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %logicalrep_should_publish_column.exit.thread.i
   %72 = phi i32 [ %85, %logicalrep_should_publish_column.exit.thread.i ], [ %58, %.lr.ph.i ]
@@ -1836,20 +1836,20 @@ logicalrep_should_publish_column.exit.thread.i:   ; preds = %79, %.lr.ph.split.i
   %86 = phi i16 [ %spec.select.i, %79 ], [ %.03652.i, %.lr.ph.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %87 = icmp slt i64 %indvars.iv.next.i, %.pre-phi
-  br i1 %87, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !216
+  br i1 %87, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !217
 
 ._crit_edge.i:                                    ; preds = %logicalrep_should_publish_column.exit.thread.i, %logicalrep_should_publish_column.exit.thread.us.i, %logicalrep_write_namespace.exit
   %.036.lcssa.i = phi i16 [ 0, %logicalrep_write_namespace.exit ], [ %71, %logicalrep_should_publish_column.exit.thread.us.i ], [ %86, %logicalrep_should_publish_column.exit.thread.i ]
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 2) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   %88 = tail call i16 @llvm.bswap.i16(i16 %.036.lcssa.i)
-  %89 = load ptr, ptr %0, align 8, !alias.scope !217
-  %90 = load i32, ptr %7, align 8, !alias.scope !217
+  %89 = load ptr, ptr %0, align 8, !alias.scope !218
+  %90 = load i32, ptr %7, align 8, !alias.scope !218
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i8, ptr %89, i64 %91
-  store i16 %88, ptr %92, align 1, !noalias !217
+  store i16 %88, ptr %92, align 1, !noalias !218
   %93 = add i32 %90, 2
-  store i32 %93, ptr %7, align 8, !alias.scope !217
+  store i32 %93, ptr %7, align 8, !alias.scope !218
   %94 = load ptr, ptr %28, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 126
   %96 = load i8, ptr %95, align 2
@@ -1933,27 +1933,27 @@ logicalrep_should_publish_column.exit42.thread50.i: ; preds = %logicalrep_should
   %132 = getelementptr inbounds nuw i8, ptr %108, i64 68
   %133 = load i32, ptr %132, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   %134 = tail call i32 @llvm.bswap.i32(i32 %133)
-  %135 = load ptr, ptr %0, align 8, !alias.scope !220
-  %136 = load i32, ptr %7, align 8, !alias.scope !220
+  %135 = load ptr, ptr %0, align 8, !alias.scope !221
+  %136 = load i32, ptr %7, align 8, !alias.scope !221
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr %135, i64 %137
-  store i32 %134, ptr %138, align 1, !noalias !220
+  store i32 %134, ptr %138, align 1, !noalias !221
   %139 = add i32 %136, 4
-  store i32 %139, ptr %7, align 8, !alias.scope !220
+  store i32 %139, ptr %7, align 8, !alias.scope !221
   %140 = getelementptr inbounds nuw i8, ptr %108, i64 76
   %141 = load i32, ptr %140, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %142 = tail call i32 @llvm.bswap.i32(i32 %141)
-  %143 = load ptr, ptr %0, align 8, !alias.scope !223
-  %144 = load i32, ptr %7, align 8, !alias.scope !223
+  %143 = load ptr, ptr %0, align 8, !alias.scope !224
+  %144 = load i32, ptr %7, align 8, !alias.scope !224
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i8, ptr %143, i64 %145
-  store i32 %142, ptr %146, align 1, !noalias !223
+  store i32 %142, ptr %146, align 1, !noalias !224
   %147 = add i32 %144, 4
-  store i32 %147, ptr %7, align 8, !alias.scope !223
+  store i32 %147, ptr %7, align 8, !alias.scope !224
   br label %logicalrep_should_publish_column.exit42.thread.i
 
 logicalrep_should_publish_column.exit42.thread.i: ; preds = %.split39.i, %logicalrep_should_publish_column.exit42.i, %118, %113, %104
@@ -1961,7 +1961,7 @@ logicalrep_should_publish_column.exit42.thread.i: ; preds = %.split39.i, %logica
   %148 = load i32, ptr %57, align 8
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next65.i, %149
-  br i1 %150, label %104, label %logicalrep_write_attrs.exit, !llvm.loop !226
+  br i1 %150, label %104, label %logicalrep_write_attrs.exit, !llvm.loop !227
 
 logicalrep_write_attrs.exit:                      ; preds = %logicalrep_should_publish_column.exit42.thread.i, %100
   tail call void @bms_free(ptr noundef %.038.i) #8
@@ -2026,7 +2026,7 @@ define dso_local ptr @logicalrep_read_rel(ptr noundef %0) local_unnamed_addr #0 
   %33 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %logicalrep_read_attrs.exit, label %.lr.ph.i, !llvm.loop !227
+  br i1 %exitcond.not.i, label %logicalrep_read_attrs.exit, label %.lr.ph.i, !llvm.loop !228
 
 logicalrep_read_attrs.exit:                       ; preds = %27, %1
   %.024.lcssa.i = phi ptr [ null, %1 ], [ %.1.i, %27 ]
@@ -2047,29 +2047,29 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @getBaseType(i32 noundef %2) #8
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
-  %5 = load ptr, ptr %0, align 8, !alias.scope !228
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
+  %5 = load ptr, ptr %0, align 8, !alias.scope !229
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !alias.scope !228
+  %7 = load i32, ptr %6, align 8, !alias.scope !229
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
-  store i8 89, ptr %9, align 1, !noalias !228
+  store i8 89, ptr %9, align 1, !noalias !229
   %10 = add i32 %7, 1
-  store i32 %10, ptr %6, align 8, !alias.scope !228
+  store i32 %10, ptr %6, align 8, !alias.scope !229
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %3
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   %12 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %13 = load ptr, ptr %0, align 8, !alias.scope !231
-  %14 = load i32, ptr %6, align 8, !alias.scope !231
+  %13 = load ptr, ptr %0, align 8, !alias.scope !232
+  %14 = load i32, ptr %6, align 8, !alias.scope !232
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
-  store i32 %12, ptr %16, align 1, !noalias !231
+  store i32 %12, ptr %16, align 1, !noalias !232
   %17 = add i32 %14, 4
-  store i32 %17, ptr %6, align 8, !alias.scope !231
+  store i32 %17, ptr %6, align 8, !alias.scope !232
   br label %18
 
 18:                                               ; preds = %11, %3
@@ -2093,15 +2093,15 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %28
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
   %30 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %31 = load ptr, ptr %0, align 8, !alias.scope !234
-  %32 = load i32, ptr %6, align 8, !alias.scope !234
+  %31 = load ptr, ptr %0, align 8, !alias.scope !235
+  %32 = load i32, ptr %6, align 8, !alias.scope !235
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %31, i64 %33
-  store i32 %30, ptr %34, align 1, !noalias !234
+  store i32 %30, ptr %34, align 1, !noalias !235
   %35 = add i32 %32, 4
-  store i32 %35, ptr %6, align 8, !alias.scope !234
+  store i32 %35, ptr %6, align 8, !alias.scope !235
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 68
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 11
@@ -2109,14 +2109,14 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
 
 39:                                               ; preds = %24
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  %40 = load ptr, ptr %0, align 8, !alias.scope !237
-  %41 = load i32, ptr %6, align 8, !alias.scope !237
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !238)
+  %40 = load ptr, ptr %0, align 8, !alias.scope !238
+  %41 = load i32, ptr %6, align 8, !alias.scope !238
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %40, i64 %42
-  store i8 0, ptr %43, align 1, !noalias !237
+  store i8 0, ptr %43, align 1, !noalias !238
   %44 = add i32 %41, 1
-  store i32 %44, ptr %6, align 8, !alias.scope !237
+  store i32 %44, ptr %6, align 8, !alias.scope !238
   br label %logicalrep_write_namespace.exit
 
 45:                                               ; preds = %24
@@ -2169,35 +2169,35 @@ define dso_local void @logicalrep_read_typ(ptr noundef %0, ptr noundef writeonly
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_stream_start(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  %4 = load ptr, ptr %0, align 8, !alias.scope !240
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
+  %4 = load ptr, ptr %0, align 8, !alias.scope !241
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !240
+  %6 = load i32, ptr %5, align 8, !alias.scope !241
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
-  store i8 83, ptr %8, align 1, !noalias !240
+  store i8 83, ptr %8, align 1, !noalias !241
   %9 = add i32 %6, 1
-  store i32 %9, ptr %5, align 8, !alias.scope !240
+  store i32 %9, ptr %5, align 8, !alias.scope !241
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %10 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %11 = load ptr, ptr %0, align 8, !alias.scope !243
-  %12 = load i32, ptr %5, align 8, !alias.scope !243
+  %11 = load ptr, ptr %0, align 8, !alias.scope !244
+  %12 = load i32, ptr %5, align 8, !alias.scope !244
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
-  store i32 %10, ptr %14, align 1, !noalias !243
+  store i32 %10, ptr %14, align 1, !noalias !244
   %15 = add i32 %12, 4
-  store i32 %15, ptr %5, align 8, !alias.scope !243
+  store i32 %15, ptr %5, align 8, !alias.scope !244
   %16 = zext i1 %2 to i8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
-  %17 = load ptr, ptr %0, align 8, !alias.scope !246
-  %18 = load i32, ptr %5, align 8, !alias.scope !246
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
+  %17 = load ptr, ptr %0, align 8, !alias.scope !247
+  %18 = load i32, ptr %5, align 8, !alias.scope !247
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
-  store i8 %16, ptr %20, align 1, !noalias !246
+  store i8 %16, ptr %20, align 1, !noalias !247
   %21 = add i32 %18, 1
-  store i32 %21, ptr %5, align 8, !alias.scope !246
+  store i32 %21, ptr %5, align 8, !alias.scope !247
   ret void
 }
 
@@ -2214,85 +2214,85 @@ define dso_local i32 @logicalrep_read_stream_start(ptr noundef %0, ptr noundef w
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_stream_stop(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
-  %2 = load ptr, ptr %0, align 8, !alias.scope !249
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
+  %2 = load ptr, ptr %0, align 8, !alias.scope !250
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !249
+  %4 = load i32, ptr %3, align 8, !alias.scope !250
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
-  store i8 69, ptr %6, align 1, !noalias !249
+  store i8 69, ptr %6, align 1, !noalias !250
   %7 = add i32 %4, 1
-  store i32 %7, ptr %3, align 8, !alias.scope !249
+  store i32 %7, ptr %3, align 8, !alias.scope !250
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
-  %4 = load ptr, ptr %0, align 8, !alias.scope !252
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
+  %4 = load ptr, ptr %0, align 8, !alias.scope !253
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !252
+  %6 = load i32, ptr %5, align 8, !alias.scope !253
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
-  store i8 99, ptr %8, align 1, !noalias !252
+  store i8 99, ptr %8, align 1, !noalias !253
   %9 = add i32 %6, 1
-  store i32 %9, ptr %5, align 8, !alias.scope !252
+  store i32 %9, ptr %5, align 8, !alias.scope !253
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
   %12 = tail call i32 @llvm.bswap.i32(i32 %11)
-  %13 = load ptr, ptr %0, align 8, !alias.scope !255
-  %14 = load i32, ptr %5, align 8, !alias.scope !255
+  %13 = load ptr, ptr %0, align 8, !alias.scope !256
+  %14 = load i32, ptr %5, align 8, !alias.scope !256
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
-  store i32 %12, ptr %16, align 1, !noalias !255
+  store i32 %12, ptr %16, align 1, !noalias !256
   %17 = add i32 %14, 4
-  store i32 %17, ptr %5, align 8, !alias.scope !255
+  store i32 %17, ptr %5, align 8, !alias.scope !256
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
-  %18 = load ptr, ptr %0, align 8, !alias.scope !258
-  %19 = load i32, ptr %5, align 8, !alias.scope !258
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
+  %18 = load ptr, ptr %0, align 8, !alias.scope !259
+  %19 = load i32, ptr %5, align 8, !alias.scope !259
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
-  store i8 0, ptr %21, align 1, !noalias !258
+  store i8 0, ptr %21, align 1, !noalias !259
   %22 = add i32 %19, 1
-  store i32 %22, ptr %5, align 8, !alias.scope !258
+  store i32 %22, ptr %5, align 8, !alias.scope !259
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !262)
   %23 = tail call i64 @llvm.bswap.i64(i64 %2)
-  %24 = load ptr, ptr %0, align 8, !alias.scope !261
-  %25 = load i32, ptr %5, align 8, !alias.scope !261
+  %24 = load ptr, ptr %0, align 8, !alias.scope !262
+  %25 = load i32, ptr %5, align 8, !alias.scope !262
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %24, i64 %26
-  store i64 %23, ptr %27, align 1, !noalias !261
+  store i64 %23, ptr %27, align 1, !noalias !262
   %28 = add i32 %25, 8
-  store i32 %28, ptr %5, align 8, !alias.scope !261
+  store i32 %28, ptr %5, align 8, !alias.scope !262
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i64, ptr %29, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
   %31 = tail call i64 @llvm.bswap.i64(i64 %30)
-  %32 = load ptr, ptr %0, align 8, !alias.scope !264
-  %33 = load i32, ptr %5, align 8, !alias.scope !264
+  %32 = load ptr, ptr %0, align 8, !alias.scope !265
+  %33 = load i32, ptr %5, align 8, !alias.scope !265
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
-  store i64 %31, ptr %35, align 1, !noalias !264
+  store i64 %31, ptr %35, align 1, !noalias !265
   %36 = add i32 %33, 8
-  store i32 %36, ptr %5, align 8, !alias.scope !264
+  store i32 %36, ptr %5, align 8, !alias.scope !265
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %38 = load i64, ptr %37, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   %39 = tail call i64 @llvm.bswap.i64(i64 %38)
-  %40 = load ptr, ptr %0, align 8, !alias.scope !267
-  %41 = load i32, ptr %5, align 8, !alias.scope !267
+  %40 = load ptr, ptr %0, align 8, !alias.scope !268
+  %41 = load i32, ptr %5, align 8, !alias.scope !268
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %40, i64 %42
-  store i64 %39, ptr %43, align 1, !noalias !267
+  store i64 %39, ptr %43, align 1, !noalias !268
   %44 = add i32 %41, 8
-  store i32 %44, ptr %5, align 8, !alias.scope !267
+  store i32 %44, ptr %5, align 8, !alias.scope !268
   ret void
 }
 
@@ -2326,58 +2326,58 @@ define dso_local i32 @logicalrep_read_stream_commit(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
-  %7 = load ptr, ptr %0, align 8, !alias.scope !270
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
+  %7 = load ptr, ptr %0, align 8, !alias.scope !271
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !alias.scope !270
+  %9 = load i32, ptr %8, align 8, !alias.scope !271
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  store i8 65, ptr %11, align 1, !noalias !270
+  store i8 65, ptr %11, align 1, !noalias !271
   %12 = add i32 %9, 1
-  store i32 %12, ptr %8, align 8, !alias.scope !270
+  store i32 %12, ptr %8, align 8, !alias.scope !271
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
   %13 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %14 = load ptr, ptr %0, align 8, !alias.scope !273
-  %15 = load i32, ptr %8, align 8, !alias.scope !273
+  %14 = load ptr, ptr %0, align 8, !alias.scope !274
+  %15 = load i32, ptr %8, align 8, !alias.scope !274
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  store i32 %13, ptr %17, align 1, !noalias !273
+  store i32 %13, ptr %17, align 1, !noalias !274
   %18 = add i32 %15, 4
-  store i32 %18, ptr %8, align 8, !alias.scope !273
+  store i32 %18, ptr %8, align 8, !alias.scope !274
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
   %19 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %20 = load ptr, ptr %0, align 8, !alias.scope !276
-  %21 = load i32, ptr %8, align 8, !alias.scope !276
+  %20 = load ptr, ptr %0, align 8, !alias.scope !277
+  %21 = load i32, ptr %8, align 8, !alias.scope !277
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
-  store i32 %19, ptr %23, align 1, !noalias !276
+  store i32 %19, ptr %23, align 1, !noalias !277
   %24 = add i32 %21, 4
-  store i32 %24, ptr %8, align 8, !alias.scope !276
+  store i32 %24, ptr %8, align 8, !alias.scope !277
   br i1 %5, label %25, label %38
 
 25:                                               ; preds = %6
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %26 = tail call i64 @llvm.bswap.i64(i64 %3)
-  %27 = load ptr, ptr %0, align 8, !alias.scope !279
-  %28 = load i32, ptr %8, align 8, !alias.scope !279
+  %27 = load ptr, ptr %0, align 8, !alias.scope !280
+  %28 = load i32, ptr %8, align 8, !alias.scope !280
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
-  store i64 %26, ptr %30, align 1, !noalias !279
+  store i64 %26, ptr %30, align 1, !noalias !280
   %31 = add i32 %28, 8
-  store i32 %31, ptr %8, align 8, !alias.scope !279
+  store i32 %31, ptr %8, align 8, !alias.scope !280
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %32 = tail call i64 @llvm.bswap.i64(i64 %4)
-  %33 = load ptr, ptr %0, align 8, !alias.scope !282
-  %34 = load i32, ptr %8, align 8, !alias.scope !282
+  %33 = load ptr, ptr %0, align 8, !alias.scope !283
+  %34 = load i32, ptr %8, align 8, !alias.scope !283
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %33, i64 %35
-  store i64 %32, ptr %36, align 1, !noalias !282
+  store i64 %32, ptr %36, align 1, !noalias !283
   %37 = add i32 %34, 8
-  store i32 %37, ptr %8, align 8, !alias.scope !282
+  store i32 %37, ptr %8, align 8, !alias.scope !283
   br label %38
 
 38:                                               ; preds = %25, %6
@@ -2720,165 +2720,166 @@ attributes #10 = { nounwind willreturn memory(read) }
 !120 = distinct !{!120, !"pq_writeint8"}
 !121 = !{i8 0, i8 2}
 !122 = !{}
-!123 = distinct !{!123, !124, !125}
+!123 = distinct !{!123, !124, !125, !126}
 !124 = !{!"llvm.loop.mustprogress"}
-!125 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!126 = distinct !{!126, !124}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"pq_writeint16: argument 0"}
-!129 = distinct !{!129, !"pq_writeint16"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"pq_writeint8: argument 0"}
-!132 = distinct !{!132, !"pq_writeint8"}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"pq_writeint8: argument 0"}
-!135 = distinct !{!135, !"pq_writeint8"}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"pq_writeint8: argument 0"}
-!138 = distinct !{!138, !"pq_writeint8"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"pq_writeint32: argument 0"}
-!141 = distinct !{!141, !"pq_writeint32"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"pq_writeint8: argument 0"}
-!144 = distinct !{!144, !"pq_writeint8"}
-!145 = distinct !{!145, !124}
-!146 = distinct !{!146, !124}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"pq_writeint8: argument 0"}
-!149 = distinct !{!149, !"pq_writeint8"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"pq_writeint32: argument 0"}
-!152 = distinct !{!152, !"pq_writeint32"}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"pq_writeint32: argument 0"}
-!155 = distinct !{!155, !"pq_writeint32"}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"pq_writeint8: argument 0"}
-!158 = distinct !{!158, !"pq_writeint8"}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"pq_writeint8: argument 0"}
-!161 = distinct !{!161, !"pq_writeint8"}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"pq_writeint32: argument 0"}
-!164 = distinct !{!164, !"pq_writeint32"}
-!165 = !{!166}
-!166 = distinct !{!166, !167, !"pq_writeint32: argument 0"}
-!167 = distinct !{!167, !"pq_writeint32"}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"pq_writeint8: argument 0"}
-!170 = distinct !{!170, !"pq_writeint8"}
-!171 = !{!172}
-!172 = distinct !{!172, !173, !"pq_writeint32: argument 0"}
-!173 = distinct !{!173, !"pq_writeint32"}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"pq_writeint32: argument 0"}
-!176 = distinct !{!176, !"pq_writeint32"}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"pq_writeint8: argument 0"}
-!179 = distinct !{!179, !"pq_writeint8"}
-!180 = !{!181}
-!181 = distinct !{!181, !182, !"pq_writeint32: argument 0"}
-!182 = distinct !{!182, !"pq_writeint32"}
-!183 = distinct !{!183, !124}
-!184 = distinct !{!184, !124}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"pq_writeint8: argument 0"}
-!187 = distinct !{!187, !"pq_writeint8"}
-!188 = !{!189}
-!189 = distinct !{!189, !190, !"pq_writeint32: argument 0"}
-!190 = distinct !{!190, !"pq_writeint32"}
-!191 = !{!192}
-!192 = distinct !{!192, !193, !"pq_writeint8: argument 0"}
-!193 = distinct !{!193, !"pq_writeint8"}
-!194 = !{!195}
-!195 = distinct !{!195, !196, !"pq_writeint64: argument 0"}
-!196 = distinct !{!196, !"pq_writeint64"}
-!197 = !{!198}
-!198 = distinct !{!198, !199, !"pq_writeint32: argument 0"}
-!199 = distinct !{!199, !"pq_writeint32"}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"pq_writeint8: argument 0"}
-!202 = distinct !{!202, !"pq_writeint8"}
-!203 = !{!204}
-!204 = distinct !{!204, !205, !"pq_writeint32: argument 0"}
-!205 = distinct !{!205, !"pq_writeint32"}
-!206 = !{!207}
-!207 = distinct !{!207, !208, !"pq_writeint32: argument 0"}
-!208 = distinct !{!208, !"pq_writeint32"}
-!209 = !{!210}
-!210 = distinct !{!210, !211, !"pq_writeint8: argument 0"}
-!211 = distinct !{!211, !"pq_writeint8"}
-!212 = !{!213}
-!213 = distinct !{!213, !214, !"pq_writeint8: argument 0"}
-!214 = distinct !{!214, !"pq_writeint8"}
-!215 = distinct !{!215, !124, !125}
-!216 = distinct !{!216, !124}
-!217 = !{!218}
-!218 = distinct !{!218, !219, !"pq_writeint16: argument 0"}
-!219 = distinct !{!219, !"pq_writeint16"}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"pq_writeint32: argument 0"}
-!222 = distinct !{!222, !"pq_writeint32"}
-!223 = !{!224}
-!224 = distinct !{!224, !225, !"pq_writeint32: argument 0"}
-!225 = distinct !{!225, !"pq_writeint32"}
-!226 = distinct !{!226, !124}
-!227 = distinct !{!227, !124}
-!228 = !{!229}
-!229 = distinct !{!229, !230, !"pq_writeint8: argument 0"}
-!230 = distinct !{!230, !"pq_writeint8"}
-!231 = !{!232}
-!232 = distinct !{!232, !233, !"pq_writeint32: argument 0"}
-!233 = distinct !{!233, !"pq_writeint32"}
-!234 = !{!235}
-!235 = distinct !{!235, !236, !"pq_writeint32: argument 0"}
-!236 = distinct !{!236, !"pq_writeint32"}
-!237 = !{!238}
-!238 = distinct !{!238, !239, !"pq_writeint8: argument 0"}
-!239 = distinct !{!239, !"pq_writeint8"}
-!240 = !{!241}
-!241 = distinct !{!241, !242, !"pq_writeint8: argument 0"}
-!242 = distinct !{!242, !"pq_writeint8"}
-!243 = !{!244}
-!244 = distinct !{!244, !245, !"pq_writeint32: argument 0"}
-!245 = distinct !{!245, !"pq_writeint32"}
-!246 = !{!247}
-!247 = distinct !{!247, !248, !"pq_writeint8: argument 0"}
-!248 = distinct !{!248, !"pq_writeint8"}
-!249 = !{!250}
-!250 = distinct !{!250, !251, !"pq_writeint8: argument 0"}
-!251 = distinct !{!251, !"pq_writeint8"}
-!252 = !{!253}
-!253 = distinct !{!253, !254, !"pq_writeint8: argument 0"}
-!254 = distinct !{!254, !"pq_writeint8"}
-!255 = !{!256}
-!256 = distinct !{!256, !257, !"pq_writeint32: argument 0"}
-!257 = distinct !{!257, !"pq_writeint32"}
-!258 = !{!259}
-!259 = distinct !{!259, !260, !"pq_writeint8: argument 0"}
-!260 = distinct !{!260, !"pq_writeint8"}
-!261 = !{!262}
-!262 = distinct !{!262, !263, !"pq_writeint64: argument 0"}
-!263 = distinct !{!263, !"pq_writeint64"}
-!264 = !{!265}
-!265 = distinct !{!265, !266, !"pq_writeint64: argument 0"}
-!266 = distinct !{!266, !"pq_writeint64"}
-!267 = !{!268}
-!268 = distinct !{!268, !269, !"pq_writeint64: argument 0"}
-!269 = distinct !{!269, !"pq_writeint64"}
-!270 = !{!271}
-!271 = distinct !{!271, !272, !"pq_writeint8: argument 0"}
-!272 = distinct !{!272, !"pq_writeint8"}
-!273 = !{!274}
-!274 = distinct !{!274, !275, !"pq_writeint32: argument 0"}
-!275 = distinct !{!275, !"pq_writeint32"}
-!276 = !{!277}
-!277 = distinct !{!277, !278, !"pq_writeint32: argument 0"}
-!278 = distinct !{!278, !"pq_writeint32"}
-!279 = !{!280}
-!280 = distinct !{!280, !281, !"pq_writeint64: argument 0"}
-!281 = distinct !{!281, !"pq_writeint64"}
-!282 = !{!283}
-!283 = distinct !{!283, !284, !"pq_writeint64: argument 0"}
-!284 = distinct !{!284, !"pq_writeint64"}
+!125 = !{!"llvm.loop.estimated_trip_count"}
+!126 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!127 = distinct !{!127, !124, !125}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"pq_writeint16: argument 0"}
+!130 = distinct !{!130, !"pq_writeint16"}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"pq_writeint8: argument 0"}
+!133 = distinct !{!133, !"pq_writeint8"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"pq_writeint8: argument 0"}
+!136 = distinct !{!136, !"pq_writeint8"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"pq_writeint8: argument 0"}
+!139 = distinct !{!139, !"pq_writeint8"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"pq_writeint32: argument 0"}
+!142 = distinct !{!142, !"pq_writeint32"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"pq_writeint8: argument 0"}
+!145 = distinct !{!145, !"pq_writeint8"}
+!146 = distinct !{!146, !124, !125}
+!147 = distinct !{!147, !124, !125}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"pq_writeint8: argument 0"}
+!150 = distinct !{!150, !"pq_writeint8"}
+!151 = !{!152}
+!152 = distinct !{!152, !153, !"pq_writeint32: argument 0"}
+!153 = distinct !{!153, !"pq_writeint32"}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"pq_writeint32: argument 0"}
+!156 = distinct !{!156, !"pq_writeint32"}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"pq_writeint8: argument 0"}
+!159 = distinct !{!159, !"pq_writeint8"}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"pq_writeint8: argument 0"}
+!162 = distinct !{!162, !"pq_writeint8"}
+!163 = !{!164}
+!164 = distinct !{!164, !165, !"pq_writeint32: argument 0"}
+!165 = distinct !{!165, !"pq_writeint32"}
+!166 = !{!167}
+!167 = distinct !{!167, !168, !"pq_writeint32: argument 0"}
+!168 = distinct !{!168, !"pq_writeint32"}
+!169 = !{!170}
+!170 = distinct !{!170, !171, !"pq_writeint8: argument 0"}
+!171 = distinct !{!171, !"pq_writeint8"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"pq_writeint32: argument 0"}
+!174 = distinct !{!174, !"pq_writeint32"}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"pq_writeint32: argument 0"}
+!177 = distinct !{!177, !"pq_writeint32"}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"pq_writeint8: argument 0"}
+!180 = distinct !{!180, !"pq_writeint8"}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"pq_writeint32: argument 0"}
+!183 = distinct !{!183, !"pq_writeint32"}
+!184 = distinct !{!184, !124, !125}
+!185 = distinct !{!185, !124, !125}
+!186 = !{!187}
+!187 = distinct !{!187, !188, !"pq_writeint8: argument 0"}
+!188 = distinct !{!188, !"pq_writeint8"}
+!189 = !{!190}
+!190 = distinct !{!190, !191, !"pq_writeint32: argument 0"}
+!191 = distinct !{!191, !"pq_writeint32"}
+!192 = !{!193}
+!193 = distinct !{!193, !194, !"pq_writeint8: argument 0"}
+!194 = distinct !{!194, !"pq_writeint8"}
+!195 = !{!196}
+!196 = distinct !{!196, !197, !"pq_writeint64: argument 0"}
+!197 = distinct !{!197, !"pq_writeint64"}
+!198 = !{!199}
+!199 = distinct !{!199, !200, !"pq_writeint32: argument 0"}
+!200 = distinct !{!200, !"pq_writeint32"}
+!201 = !{!202}
+!202 = distinct !{!202, !203, !"pq_writeint8: argument 0"}
+!203 = distinct !{!203, !"pq_writeint8"}
+!204 = !{!205}
+!205 = distinct !{!205, !206, !"pq_writeint32: argument 0"}
+!206 = distinct !{!206, !"pq_writeint32"}
+!207 = !{!208}
+!208 = distinct !{!208, !209, !"pq_writeint32: argument 0"}
+!209 = distinct !{!209, !"pq_writeint32"}
+!210 = !{!211}
+!211 = distinct !{!211, !212, !"pq_writeint8: argument 0"}
+!212 = distinct !{!212, !"pq_writeint8"}
+!213 = !{!214}
+!214 = distinct !{!214, !215, !"pq_writeint8: argument 0"}
+!215 = distinct !{!215, !"pq_writeint8"}
+!216 = distinct !{!216, !124, !125, !126}
+!217 = distinct !{!217, !124, !125}
+!218 = !{!219}
+!219 = distinct !{!219, !220, !"pq_writeint16: argument 0"}
+!220 = distinct !{!220, !"pq_writeint16"}
+!221 = !{!222}
+!222 = distinct !{!222, !223, !"pq_writeint32: argument 0"}
+!223 = distinct !{!223, !"pq_writeint32"}
+!224 = !{!225}
+!225 = distinct !{!225, !226, !"pq_writeint32: argument 0"}
+!226 = distinct !{!226, !"pq_writeint32"}
+!227 = distinct !{!227, !124, !125}
+!228 = distinct !{!228, !124, !125}
+!229 = !{!230}
+!230 = distinct !{!230, !231, !"pq_writeint8: argument 0"}
+!231 = distinct !{!231, !"pq_writeint8"}
+!232 = !{!233}
+!233 = distinct !{!233, !234, !"pq_writeint32: argument 0"}
+!234 = distinct !{!234, !"pq_writeint32"}
+!235 = !{!236}
+!236 = distinct !{!236, !237, !"pq_writeint32: argument 0"}
+!237 = distinct !{!237, !"pq_writeint32"}
+!238 = !{!239}
+!239 = distinct !{!239, !240, !"pq_writeint8: argument 0"}
+!240 = distinct !{!240, !"pq_writeint8"}
+!241 = !{!242}
+!242 = distinct !{!242, !243, !"pq_writeint8: argument 0"}
+!243 = distinct !{!243, !"pq_writeint8"}
+!244 = !{!245}
+!245 = distinct !{!245, !246, !"pq_writeint32: argument 0"}
+!246 = distinct !{!246, !"pq_writeint32"}
+!247 = !{!248}
+!248 = distinct !{!248, !249, !"pq_writeint8: argument 0"}
+!249 = distinct !{!249, !"pq_writeint8"}
+!250 = !{!251}
+!251 = distinct !{!251, !252, !"pq_writeint8: argument 0"}
+!252 = distinct !{!252, !"pq_writeint8"}
+!253 = !{!254}
+!254 = distinct !{!254, !255, !"pq_writeint8: argument 0"}
+!255 = distinct !{!255, !"pq_writeint8"}
+!256 = !{!257}
+!257 = distinct !{!257, !258, !"pq_writeint32: argument 0"}
+!258 = distinct !{!258, !"pq_writeint32"}
+!259 = !{!260}
+!260 = distinct !{!260, !261, !"pq_writeint8: argument 0"}
+!261 = distinct !{!261, !"pq_writeint8"}
+!262 = !{!263}
+!263 = distinct !{!263, !264, !"pq_writeint64: argument 0"}
+!264 = distinct !{!264, !"pq_writeint64"}
+!265 = !{!266}
+!266 = distinct !{!266, !267, !"pq_writeint64: argument 0"}
+!267 = distinct !{!267, !"pq_writeint64"}
+!268 = !{!269}
+!269 = distinct !{!269, !270, !"pq_writeint64: argument 0"}
+!270 = distinct !{!270, !"pq_writeint64"}
+!271 = !{!272}
+!272 = distinct !{!272, !273, !"pq_writeint8: argument 0"}
+!273 = distinct !{!273, !"pq_writeint8"}
+!274 = !{!275}
+!275 = distinct !{!275, !276, !"pq_writeint32: argument 0"}
+!276 = distinct !{!276, !"pq_writeint32"}
+!277 = !{!278}
+!278 = distinct !{!278, !279, !"pq_writeint32: argument 0"}
+!279 = distinct !{!279, !"pq_writeint32"}
+!280 = !{!281}
+!281 = distinct !{!281, !282, !"pq_writeint64: argument 0"}
+!282 = distinct !{!282, !"pq_writeint64"}
+!283 = !{!284}
+!284 = distinct !{!284, !285, !"pq_writeint64: argument 0"}
+!285 = distinct !{!285, !"pq_writeint64"}

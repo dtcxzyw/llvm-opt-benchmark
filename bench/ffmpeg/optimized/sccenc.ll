@@ -100,25 +100,25 @@ define internal noundef i32 @scc_write_packet(ptr noundef %0, ptr noundef readon
   br i1 %.not85, label %42, label %57
 
 42:                                               ; preds = %39
-  %43 = load i32, ptr %4, align 4, !tbaa !40
+  %43 = load i32, ptr %4, align 4, !tbaa !41
   %.not86 = icmp eq i32 %43, %11
   br i1 %.not86, label %44, label %53
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %46 = load i32, ptr %45, align 4, !tbaa !41
+  %46 = load i32, ptr %45, align 4, !tbaa !42
   %.not87 = icmp eq i32 %46, %14
   br i1 %.not87, label %47, label %53
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !42
+  %49 = load i32, ptr %48, align 4, !tbaa !43
   %.not88 = icmp eq i32 %49, %17
   br i1 %.not88, label %50, label %53
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !43
+  %52 = load i32, ptr %51, align 4, !tbaa !44
   %.not89 = icmp eq i32 %52, %.sext
   br i1 %.not89, label %57, label %53
 
@@ -181,7 +181,7 @@ define internal noundef i32 @scc_write_packet(ptr noundef %0, ptr noundef readon
   br label %85
 
 85:                                               ; preds = %82, %80
-  %86 = load i32, ptr %62, align 4, !tbaa !44
+  %86 = load i32, ptr %62, align 4, !tbaa !45
   %87 = icmp sgt i32 %86, 0
   br i1 %87, label %88, label %90
 
@@ -201,9 +201,9 @@ define internal noundef i32 @scc_write_packet(ptr noundef %0, ptr noundef readon
   %98 = load i8, ptr %97, align 1, !tbaa !37
   %99 = zext i8 %98 to i32
   %100 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %91, ptr noundef nonnull @.str.5, i32 noundef %95, i32 noundef %99) #3
-  %101 = load i32, ptr %62, align 4, !tbaa !44
+  %101 = load i32, ptr %62, align 4, !tbaa !45
   %102 = add nsw i32 %101, 1
-  store i32 %102, ptr %62, align 4, !tbaa !44
+  store i32 %102, ptr %62, align 4, !tbaa !45
   %.pre106 = load i32, ptr %20, align 8, !tbaa !35
   %.pre108 = sext i32 %.pre106 to i64
   br label %103
@@ -212,7 +212,7 @@ define internal noundef i32 @scc_write_packet(ptr noundef %0, ptr noundef readon
   %.pre-phi = phi i64 [ %65, %67 ], [ %65, %76 ], [ %.pre108, %90 ]
   %104 = phi i32 [ %64, %67 ], [ %64, %76 ], [ %.pre106, %90 ]
   %105 = icmp slt i64 %indvars.iv.next104, %.pre-phi
-  br i1 %105, label %63, label %._crit_edge.loopexit, !llvm.loop !45
+  br i1 %105, label %63, label %._crit_edge.loopexit, !llvm.loop !46
 
 ._crit_edge.loopexit:                             ; preds = %63, %103
   %.pre107 = load i32, ptr %40, align 4, !tbaa !28
@@ -224,25 +224,25 @@ define internal noundef i32 @scc_write_packet(ptr noundef %0, ptr noundef readon
   br i1 %.not92, label %122, label %107
 
 107:                                              ; preds = %._crit_edge
-  %108 = load i32, ptr %4, align 4, !tbaa !40
+  %108 = load i32, ptr %4, align 4, !tbaa !41
   %.not93 = icmp eq i32 %108, %11
   br i1 %.not93, label %109, label %118
 
 109:                                              ; preds = %107
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %111 = load i32, ptr %110, align 4, !tbaa !41
+  %111 = load i32, ptr %110, align 4, !tbaa !42
   %.not94 = icmp eq i32 %111, %14
   br i1 %.not94, label %112, label %118
 
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %114 = load i32, ptr %113, align 4, !tbaa !42
+  %114 = load i32, ptr %113, align 4, !tbaa !43
   %.not95 = icmp eq i32 %114, %17
   br i1 %.not95, label %115, label %118
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %117 = load i32, ptr %116, align 4, !tbaa !43
+  %117 = load i32, ptr %116, align 4, !tbaa !44
   %.not96 = icmp eq i32 %117, %.sext
   br i1 %.not96, label %122, label %118
 
@@ -251,18 +251,18 @@ define internal noundef i32 @scc_write_packet(ptr noundef %0, ptr noundef readon
   %120 = load ptr, ptr %119, align 8, !tbaa !27
   tail call void @avio_w8(ptr noundef %120, i32 noundef 10) #3
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 0, ptr %121, align 4, !tbaa !44
+  store i32 0, ptr %121, align 4, !tbaa !45
   store i32 0, ptr %40, align 4, !tbaa !28
   br label %122
 
 122:                                              ; preds = %118, %115, %._crit_edge
-  store i32 %11, ptr %4, align 4, !tbaa !40
+  store i32 %11, ptr %4, align 4, !tbaa !41
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %14, ptr %123, align 4, !tbaa !41
+  store i32 %14, ptr %123, align 4, !tbaa !42
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %17, ptr %124, align 4, !tbaa !42
+  store i32 %17, ptr %124, align 4, !tbaa !43
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %.sext, ptr %125, align 4, !tbaa !43
+  store i32 %.sext, ptr %125, align 4, !tbaa !44
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %9, %122, %8
@@ -325,11 +325,12 @@ attributes #3 = { nounwind }
 !35 = !{!31, !13, i64 32}
 !36 = !{!31, !18, i64 24}
 !37 = !{!8, !8, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!29, !13, i64 0}
-!41 = !{!29, !13, i64 4}
-!42 = !{!29, !13, i64 8}
-!43 = !{!29, !13, i64 12}
-!44 = !{!29, !13, i64 20}
-!45 = distinct !{!45, !39}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = !{!29, !13, i64 0}
+!42 = !{!29, !13, i64 4}
+!43 = !{!29, !13, i64 8}
+!44 = !{!29, !13, i64 12}
+!45 = !{!29, !13, i64 20}
+!46 = distinct !{!46, !39, !40}

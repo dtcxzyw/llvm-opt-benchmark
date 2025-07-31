@@ -192,7 +192,7 @@ define hidden ptr @opj_image_create(i32 noundef %0, ptr noundef readonly capture
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %60, i8 0, i64 %84, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !38
 
 .critedge.sink.split.sink.split:                  ; preds = %75, %54, %11
   %.sink = phi ptr [ %13, %11 ], [ %57, %54 ], [ %77, %75 ]
@@ -293,35 +293,35 @@ define hidden void @opj_image_comp_header_update(ptr noundef readonly captures(n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %8 = load i32, ptr %7, align 4, !tbaa !38
+  %8 = load i32, ptr %7, align 4, !tbaa !39
   %9 = add i32 %8, -1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !42
+  %11 = load i32, ptr %10, align 8, !tbaa !43
   %12 = mul i32 %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !43
+  %14 = load i32, ptr %13, align 8, !tbaa !44
   %15 = add i32 %12, %14
   %16 = tail call noundef i32 @llvm.uadd.sat.i32(i32 %15, i32 %11)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !44
+  %18 = load i32, ptr %17, align 4, !tbaa !45
   %19 = tail call noundef i32 @llvm.umin.i32(i32 %16, i32 %18)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = load i32, ptr %20, align 8, !tbaa !45
+  %21 = load i32, ptr %20, align 8, !tbaa !46
   %22 = add i32 %21, -1
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !46
+  %24 = load i32, ptr %23, align 4, !tbaa !47
   %25 = mul i32 %22, %24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !47
+  %27 = load i32, ptr %26, align 4, !tbaa !48
   %28 = add i32 %25, %27
   %29 = tail call noundef i32 @llvm.uadd.sat.i32(i32 %28, i32 %24)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !48
+  %31 = load i32, ptr %30, align 8, !tbaa !49
   %32 = tail call noundef i32 @llvm.umin.i32(i32 %29, i32 %31)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !49
+  %34 = load i32, ptr %33, align 4, !tbaa !50
   %35 = tail call noundef i32 @llvm.umax.i32(i32 %14, i32 %34)
-  %36 = load i32, ptr %0, align 8, !tbaa !50
+  %36 = load i32, ptr %0, align 8, !tbaa !51
   %37 = tail call noundef i32 @llvm.umax.i32(i32 %27, i32 %36)
   %38 = zext i32 %37 to i64
   %invariant.op = add nsw i64 %38, -1
@@ -353,7 +353,7 @@ define hidden void @opj_image_comp_header_update(ptr noundef readonly captures(n
   %53 = udiv i64 %.reass50, %49
   %54 = sub i64 %52, %45
   %55 = getelementptr inbounds nuw i8, ptr %.044, i64 40
-  %56 = load i32, ptr %55, align 8, !tbaa !51
+  %56 = load i32, ptr %55, align 8, !tbaa !52
   %57 = and i64 %54, 4294967295
   %58 = zext i32 %56 to i64
   %notmask = shl nsw i64 -1, %58
@@ -377,7 +377,7 @@ define hidden void @opj_image_comp_header_update(ptr noundef readonly captures(n
   %72 = getelementptr inbounds nuw i8, ptr %.044, i64 64
   %73 = add nuw i32 %.04243, 1
   %exitcond.not = icmp eq i32 %73, %4
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %42, %2
   ret void
@@ -385,20 +385,20 @@ define hidden void @opj_image_comp_header_update(ptr noundef readonly captures(n
 
 ; Function Attrs: nounwind uwtable
 define hidden void @opj_copy_image_header(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 16)) %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !50
-  store i32 %3, ptr %1, align 8, !tbaa !50
+  %3 = load i32, ptr %0, align 8, !tbaa !51
+  store i32 %3, ptr %1, align 8, !tbaa !51
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !49
+  %5 = load i32, ptr %4, align 4, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %5, ptr %6, align 4, !tbaa !49
+  store i32 %5, ptr %6, align 4, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !48
+  %8 = load i32, ptr %7, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %8, ptr %9, align 8, !tbaa !48
+  store i32 %8, ptr %9, align 8, !tbaa !49
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !44
+  %11 = load i32, ptr %10, align 4, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %11, ptr %12, align 4, !tbaa !44
+  store i32 %11, ptr %12, align 4, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %.not = icmp eq ptr %14, null
@@ -429,7 +429,7 @@ define hidden void @opj_copy_image_header(ptr noundef readonly captures(none) %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !53
+  br i1 %25, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %22
   %.pre65 = load ptr, ptr %13, align 8, !tbaa !12
@@ -481,7 +481,7 @@ define hidden void @opj_copy_image_header(ptr noundef readonly captures(none) %0
   %44 = load i32, ptr %30, align 8, !tbaa !11
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ult i64 %indvars.iv.next63, %45
-  br i1 %46, label %37, label %._crit_edge58, !llvm.loop !54
+  br i1 %46, label %37, label %._crit_edge58, !llvm.loop !55
 
 ._crit_edge58:                                    ; preds = %37, %.preheader
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -489,9 +489,9 @@ define hidden void @opj_copy_image_header(ptr noundef readonly captures(none) %0
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %48, ptr %49, align 4, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %51 = load i32, ptr %50, align 8, !tbaa !55
+  %51 = load i32, ptr %50, align 8, !tbaa !56
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %51, ptr %52, align 8, !tbaa !55
+  store i32 %51, ptr %52, align 8, !tbaa !56
   %.not51 = icmp eq i32 %51, 0
   br i1 %.not51, label %63, label %53
 
@@ -505,13 +505,13 @@ define hidden void @opj_copy_image_header(ptr noundef readonly captures(none) %0
 
 57:                                               ; preds = %53
   store ptr null, ptr %56, align 8, !tbaa !13
-  store i32 0, ptr %52, align 8, !tbaa !55
+  store i32 0, ptr %52, align 8, !tbaa !56
   br label %65
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !13
-  %61 = load i32, ptr %50, align 8, !tbaa !55
+  %61 = load i32, ptr %50, align 8, !tbaa !56
   %62 = zext i32 %61 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %60, i64 %62, i1 false)
   br label %65
@@ -604,7 +604,7 @@ opj_image_destroy.exit:                           ; preds = %11, %14
   store ptr null, ptr %39, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %opj_image_destroy.exit
   %.0 = phi ptr [ null, %opj_image_destroy.exit ], [ null, %3 ], [ %4, %.preheader ], [ %4, %.lr.ph ]
@@ -665,25 +665,26 @@ attributes #6 = { nounwind }
 !32 = !{!15, !5, i64 32}
 !33 = !{!17, !5, i64 32}
 !34 = !{!17, !18, i64 48}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = !{!39, !5, i64 36}
-!39 = !{!"opj_cp", !19, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !10, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !40, i64 48, !10, i64 56, !5, i64 64, !5, i64 68, !10, i64 72, !10, i64 80, !10, i64 88, !5, i64 96, !5, i64 100, !5, i64 104, !41, i64 112, !6, i64 120, !5, i64 152, !5, i64 156, !5, i64 156, !5, i64 156}
-!40 = !{!"p1 _ZTS14opj_ppx_struct", !9, i64 0}
-!41 = !{!"p1 _ZTS7opj_tcp", !9, i64 0}
-!42 = !{!39, !5, i64 16}
-!43 = !{!39, !5, i64 8}
-!44 = !{!4, !5, i64 12}
-!45 = !{!39, !5, i64 32}
-!46 = !{!39, !5, i64 12}
-!47 = !{!39, !5, i64 4}
-!48 = !{!4, !5, i64 8}
-!49 = !{!4, !5, i64 4}
-!50 = !{!4, !5, i64 0}
-!51 = !{!17, !5, i64 40}
-!52 = distinct !{!52, !36}
-!53 = distinct !{!53, !36}
-!54 = distinct !{!54, !36}
-!55 = !{!4, !5, i64 40}
-!56 = distinct !{!56, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}
+!39 = !{!40, !5, i64 36}
+!40 = !{!"opj_cp", !19, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !10, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !41, i64 48, !10, i64 56, !5, i64 64, !5, i64 68, !10, i64 72, !10, i64 80, !10, i64 88, !5, i64 96, !5, i64 100, !5, i64 104, !42, i64 112, !6, i64 120, !5, i64 152, !5, i64 156, !5, i64 156, !5, i64 156}
+!41 = !{!"p1 _ZTS14opj_ppx_struct", !9, i64 0}
+!42 = !{!"p1 _ZTS7opj_tcp", !9, i64 0}
+!43 = !{!40, !5, i64 16}
+!44 = !{!40, !5, i64 8}
+!45 = !{!4, !5, i64 12}
+!46 = !{!40, !5, i64 32}
+!47 = !{!40, !5, i64 12}
+!48 = !{!40, !5, i64 4}
+!49 = !{!4, !5, i64 8}
+!50 = !{!4, !5, i64 4}
+!51 = !{!4, !5, i64 0}
+!52 = !{!17, !5, i64 40}
+!53 = distinct !{!53, !36, !37}
+!54 = distinct !{!54, !36, !37}
+!55 = distinct !{!55, !36, !37}
+!56 = !{!4, !5, i64 40}
+!57 = distinct !{!57, !36, !37}

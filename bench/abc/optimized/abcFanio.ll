@@ -211,7 +211,7 @@ Vec_IntPushMem.exit22:                            ; preds = %._crit_edge36.i10, 
   br i1 %.not, label %101, label %97
 
 97:                                               ; preds = %Vec_IntPushMem.exit22
-  %.val = load i32, ptr %12, align 4, !tbaa !34
+  %.val = load i32, ptr %12, align 4, !tbaa !35
   %.not.i23 = icmp eq i32 %.val, 1
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %99 = load i32, ptr %98, align 4
@@ -249,7 +249,7 @@ define void @Abc_ObjDeleteFanin(ptr noundef captures(none) %0, ptr noundef captu
 14:                                               ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit32, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.loopexit32, label %10, !llvm.loop !36
 
 ._crit_edge.loopexit.i:                           ; preds = %10
   %15 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -284,7 +284,7 @@ define void @Abc_ObjDeleteFanin(ptr noundef captures(none) %0, ptr noundef captu
   %27 = trunc nuw i64 %indvars.iv.next35.i to i32
   %28 = icmp sgt i32 %26, %27
   %29 = trunc nuw i64 %indvars.iv34.i to i32
-  br i1 %28, label %21, label %.loopexit31, !llvm.loop !36
+  br i1 %28, label %21, label %.loopexit31, !llvm.loop !37
 
 .loopexit32:                                      ; preds = %14, %._crit_edge.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -319,7 +319,7 @@ define void @Abc_ObjDeleteFanin(ptr noundef captures(none) %0, ptr noundef captu
 45:                                               ; preds = %41
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i21
-  br i1 %exitcond.not.i24, label %.loopexit, label %41, !llvm.loop !35
+  br i1 %exitcond.not.i24, label %.loopexit, label %41, !llvm.loop !36
 
 ._crit_edge.loopexit.i25:                         ; preds = %41
   %46 = trunc nuw nsw i64 %indvars.iv.i22 to i32
@@ -354,7 +354,7 @@ define void @Abc_ObjDeleteFanin(ptr noundef captures(none) %0, ptr noundef captu
   %58 = trunc nuw i64 %indvars.iv.next35.i19 to i32
   %59 = icmp sgt i32 %57, %58
   %60 = trunc nuw i64 %indvars.iv34.i17 to i32
-  br i1 %59, label %52, label %Vec_IntRemove.exit26, !llvm.loop !36
+  br i1 %59, label %52, label %Vec_IntRemove.exit26, !llvm.loop !37
 
 Vec_IntRemove.exit26:                             ; preds = %52, %.preheader.i11
   %.lcssa.i14 = phi i32 [ %37, %.preheader.i11 ], [ %57, %52 ]
@@ -394,15 +394,15 @@ define void @Abc_ObjRemoveFanins(ptr noundef captures(none) %0) local_unnamed_ad
   %10 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4, !tbaa !31
   %12 = getelementptr i8, ptr %8, i64 32
-  %.val = load ptr, ptr %12, align 8, !tbaa !37
+  %.val = load ptr, ptr %12, align 8, !tbaa !38
   %13 = getelementptr i8, ptr %.val, i64 8
-  %.val.val = load ptr, ptr %13, align 8, !tbaa !38
+  %.val.val = load ptr, ptr %13, align 8, !tbaa !39
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds ptr, ptr %.val.val, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !40
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
   tail call void @Abc_ObjDeleteFanin(ptr noundef nonnull %0, ptr noundef %16)
   %17 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %17, label %7, label %._crit_edge, !llvm.loop !41
+  br i1 %17, label %7, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %7, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -440,7 +440,7 @@ define void @Abc_ObjPatchFanin(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 18:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %14, !llvm.loop !42
+  br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %14, !llvm.loop !43
 
 Vec_IntFind.exit.thread:                          ; preds = %18, %3
   %19 = tail call ptr @Abc_ObjName(ptr noundef %1) #8
@@ -493,7 +493,7 @@ Vec_IntFind.exit:                                 ; preds = %14
 44:                                               ; preds = %40
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i19
-  br i1 %exitcond.not.i22, label %.loopexit, label %40, !llvm.loop !35
+  br i1 %exitcond.not.i22, label %.loopexit, label %40, !llvm.loop !36
 
 ._crit_edge.loopexit.i:                           ; preds = %40
   %45 = trunc nuw nsw i64 %indvars.iv.i20 to i32
@@ -528,7 +528,7 @@ Vec_IntFind.exit:                                 ; preds = %14
   %57 = trunc nuw i64 %indvars.iv.next35.i to i32
   %58 = icmp sgt i32 %56, %57
   %59 = trunc nuw i64 %indvars.iv34.i to i32
-  br i1 %58, label %51, label %Vec_IntRemove.exit, !llvm.loop !36
+  br i1 %58, label %51, label %Vec_IntRemove.exit, !llvm.loop !37
 
 Vec_IntRemove.exit:                               ; preds = %51, %.preheader.i
   %.lcssa.i = phi i32 [ %36, %.preheader.i ], [ %56, %51 ]
@@ -649,18 +649,18 @@ declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Abc_ObjPatchFanoutFanin(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 44
-  %.val1725 = load i32, ptr %3, align 4, !tbaa !43
+  %.val1725 = load i32, ptr %3, align 4, !tbaa !44
   %4 = icmp sgt i32 %.val1725, 0
   br i1 %4, label %.lr.ph27, label %.critedge
 
 .lr.ph27:                                         ; preds = %2
   %.val18 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr i8, ptr %0, i64 48
-  %.val19 = load ptr, ptr %5, align 8, !tbaa !44
+  %.val19 = load ptr, ptr %5, align 8, !tbaa !45
   %6 = getelementptr i8, ptr %.val18, i64 32
-  %.val18.val = load ptr, ptr %6, align 8, !tbaa !37
+  %.val18.val = load ptr, ptr %6, align 8, !tbaa !38
   %7 = getelementptr i8, ptr %.val18.val, i64 8
-  %.val18.val.val = load ptr, ptr %7, align 8, !tbaa !38
+  %.val18.val.val = load ptr, ptr %7, align 8, !tbaa !39
   %8 = getelementptr i8, ptr %0, i64 16
   br label %9
 
@@ -671,7 +671,7 @@ define void @Abc_ObjPatchFanoutFanin(ptr noundef readonly captures(none) %0, i32
   %11 = load i32, ptr %10, align 4, !tbaa !31
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %.val18.val.val, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !40
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
   %15 = getelementptr i8, ptr %14, i64 28
   %.val20 = load i32, ptr %15, align 4, !tbaa !28
   %16 = icmp sgt i32 %.val20, 0
@@ -687,7 +687,7 @@ define void @Abc_ObjPatchFanoutFanin(ptr noundef readonly captures(none) %0, i32
 18:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %19, !llvm.loop !45
+  br i1 %exitcond.not, label %.critedge2, label %19, !llvm.loop !46
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
@@ -699,7 +699,7 @@ define void @Abc_ObjPatchFanoutFanin(ptr noundef readonly captures(none) %0, i32
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i32, ptr %.val21, i64 %indvars.iv
   store i32 %1, ptr %24, align 4, !tbaa !31
-  %.val17.pre = load i32, ptr %3, align 4, !tbaa !43
+  %.val17.pre = load i32, ptr %3, align 4, !tbaa !44
   br label %.critedge2
 
 .critedge2:                                       ; preds = %18, %9, %23
@@ -707,7 +707,7 @@ define void @Abc_ObjPatchFanoutFanin(ptr noundef readonly captures(none) %0, i32
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %25 = sext i32 %.val17 to i64
   %26 = icmp slt i64 %indvars.iv.next31, %25
-  br i1 %26, label %9, label %.critedge, !llvm.loop !46
+  br i1 %26, label %9, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %.critedge2, %2
   ret void
@@ -738,7 +738,7 @@ define noundef ptr @Abc_ObjInsertBetween(ptr noundef %0, ptr noundef %1, i32 nou
 15:                                               ; preds = %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %11, !llvm.loop !42
+  br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %11, !llvm.loop !43
 
 Vec_IntFind.exit.thread:                          ; preds = %15, %3
   %16 = tail call ptr @Abc_ObjName(ptr noundef %1) #8
@@ -771,7 +771,7 @@ Vec_IntFind.exit:                                 ; preds = %11
 31:                                               ; preds = %27
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i28
-  br i1 %exitcond.not.i31, label %Vec_IntFind.exit33.thread, label %27, !llvm.loop !42
+  br i1 %exitcond.not.i31, label %Vec_IntFind.exit33.thread, label %27, !llvm.loop !43
 
 Vec_IntFind.exit33.thread:                        ; preds = %31, %Vec_IntFind.exit
   %32 = tail call ptr @Abc_ObjName(ptr noundef %0) #8
@@ -996,14 +996,14 @@ declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @Abc_ObjTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 44
-  %.val = load i32, ptr %3, align 4, !tbaa !43
+  %.val = load i32, ptr %3, align 4, !tbaa !44
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %5 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %5, 7
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %.val
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %6, align 4, !tbaa !47
-  store i32 %spec.store.select.i, ptr %4, align 8, !tbaa !48
+  store i32 0, ptr %6, align 4, !tbaa !48
+  store i32 %spec.store.select.i, ptr %4, align 8, !tbaa !49
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_PtrAlloc.exit, label %7
 
@@ -1016,26 +1016,26 @@ define void @Abc_ObjTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed
 Vec_PtrAlloc.exit:                                ; preds = %2, %7
   %11 = phi ptr [ %10, %7 ], [ null, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !38
+  store ptr %11, ptr %12, align 8, !tbaa !39
   tail call void @Abc_NodeCollectFanouts(ptr noundef %0, ptr noundef nonnull %4) #8
-  %13 = load i32, ptr %6, align 4, !tbaa !47
+  %13 = load i32, ptr %6, align 4, !tbaa !48
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_PtrAlloc.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Vec_PtrAlloc.exit ]
-  %15 = load ptr, ptr %12, align 8, !tbaa !38
+  %15 = load ptr, ptr %12, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !40
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
   tail call void @Abc_ObjPatchFanin(ptr noundef %17, ptr noundef %0, ptr noundef nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %6, align 4, !tbaa !47
+  %18 = load i32, ptr %6, align 4, !tbaa !48
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Vec_PtrAlloc.exit
-  %21 = load ptr, ptr %12, align 8, !tbaa !38
+  %21 = load ptr, ptr %12, align 8, !tbaa !39
   %.not.i11 = icmp eq ptr %21, null
   br i1 %.not.i11, label %Vec_PtrFree.exit, label %22
 
@@ -1097,18 +1097,18 @@ declare ptr @Abc_NtkCreateNodeConst0(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -2147483648, 2147483647) i32 @Abc_ObjFanoutFaninNum(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 28
-  %.val = load i32, ptr %3, align 4, !tbaa !34
+  %.val = load i32, ptr %3, align 4, !tbaa !35
   %4 = icmp sgt i32 %.val, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %.val9 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr i8, ptr %0, i64 32
-  %.val10 = load ptr, ptr %5, align 8, !tbaa !50
+  %.val10 = load ptr, ptr %5, align 8, !tbaa !51
   %6 = getelementptr i8, ptr %.val9, i64 32
-  %.val9.val = load ptr, ptr %6, align 8, !tbaa !37
+  %.val9.val = load ptr, ptr %6, align 8, !tbaa !38
   %7 = getelementptr i8, ptr %.val9.val, i64 8
-  %.val9.val.val = load ptr, ptr %7, align 8, !tbaa !38
+  %.val9.val.val = load ptr, ptr %7, align 8, !tbaa !39
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %8
 
@@ -1118,14 +1118,14 @@ define range(i32 -2147483648, 2147483647) i32 @Abc_ObjFanoutFaninNum(ptr noundef
   %10 = load i32, ptr %9, align 4, !tbaa !31
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %.val9.val.val, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !40
+  %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %.critedge.loopexit.split.loop.exit15, label %15
 
 15:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !51
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !52
 
 .critedge.loopexit.split.loop.exit15:             ; preds = %8
   %16 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1191,23 +1191,24 @@ attributes #9 = { nounwind allocsize(0) }
 !29 = !{!11, !10, i64 0}
 !30 = !{!11, !12, i64 8}
 !31 = !{!10, !10, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!4, !10, i64 28}
-!35 = distinct !{!35, !33}
-!36 = distinct !{!36, !33}
-!37 = !{!14, !17, i64 32}
-!38 = !{!39, !6, i64 8}
-!39 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !6, i64 8}
-!40 = !{!6, !6, i64 0}
-!41 = distinct !{!41, !33}
-!42 = distinct !{!42, !33}
-!43 = !{!4, !10, i64 44}
-!44 = !{!4, !12, i64 48}
-!45 = distinct !{!45, !33}
-!46 = distinct !{!46, !33}
-!47 = !{!39, !10, i64 4}
-!48 = !{!39, !10, i64 0}
-!49 = distinct !{!49, !33}
-!50 = !{!4, !12, i64 32}
-!51 = distinct !{!51, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!4, !10, i64 28}
+!36 = distinct !{!36, !33, !34}
+!37 = distinct !{!37, !33, !34}
+!38 = !{!14, !17, i64 32}
+!39 = !{!40, !6, i64 8}
+!40 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !6, i64 8}
+!41 = !{!6, !6, i64 0}
+!42 = distinct !{!42, !33, !34}
+!43 = distinct !{!43, !33, !34}
+!44 = !{!4, !10, i64 44}
+!45 = !{!4, !12, i64 48}
+!46 = distinct !{!46, !33, !34}
+!47 = distinct !{!47, !33, !34}
+!48 = !{!40, !10, i64 4}
+!49 = !{!40, !10, i64 0}
+!50 = distinct !{!50, !33, !34}
+!51 = !{!4, !12, i64 32}
+!52 = distinct !{!52, !33, !34}

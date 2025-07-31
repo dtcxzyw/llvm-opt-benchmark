@@ -135,7 +135,7 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %for.body.preheader, label %for.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %for.body.preheader, label %for.body.i.i.i, !llvm.loop !8
 
 for.body.preheader:                               ; preds = %for.body.i.i.i, %entry
   br label %for.body
@@ -213,7 +213,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12Den
   %add.ptr = getelementptr inbounds nuw i8, ptr %curStr.03, i64 %idx.ext
   %inc = add nuw nsw i64 %i.04, 1
   %exitcond.not = icmp eq i64 %inc, 417
-  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !9
 
 nrvo.skipdtor:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit
   ret void
@@ -1260,7 +1260,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %B.04.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !7
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !8
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapIPKvPKcNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S4_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
@@ -1282,7 +1282,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !8
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit.i: ; preds = %for.body.i.i, %if.end
   %cmp.not19.i = icmp eq i32 %0, 0
@@ -1357,7 +1357,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12Den
 if.end.i6:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i, %for.body.i5, %for.body.i5
   %incdec.ptr.i7 = getelementptr inbounds nuw i8, ptr %B.020.i, i64 16
   %cmp.not.i8 = icmp eq ptr %incdec.ptr.i7, %add.ptr
-  br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %for.body.i5, !llvm.loop !9
+  br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %for.body.i5, !llvm.loop !10
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit: ; preds = %if.end.i6, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %1) #7
@@ -1393,8 +1393,9 @@ attributes #8 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}

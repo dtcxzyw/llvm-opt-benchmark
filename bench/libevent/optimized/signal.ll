@@ -129,96 +129,96 @@ define internal void @evsig_cb(i32 noundef %0, i16 signext %1, ptr noundef %2) #
   %4 = alloca [65 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 260, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(260) %4, i8 0, i64 260, i1 false)
-  br label %.loopexit
+  br label %5
 
-.loopexit:                                        ; preds = %.loopexit.backedge, %3
-  %5 = tail call i64 @read(i32 noundef %0, ptr noundef nonnull @evsig_cb.signals, i64 noundef 1024) #8
-  switch i64 %5, label %.preheader [
-    i64 -1, label %7
+.loopexit:                                        ; preds = %20, %.preheader
+  br label %5, !llvm.loop !3
+
+5:                                                ; preds = %.loopexit, %3
+  %6 = tail call i64 @read(i32 noundef %0, ptr noundef nonnull @evsig_cb.signals, i64 noundef 1024) #8
+  switch i64 %6, label %.preheader [
+    i64 -1, label %8
     i64 0, label %.loopexit30
   ]
 
-.preheader:                                       ; preds = %.loopexit
-  %6 = icmp sgt i64 %5, 0
-  br i1 %6, label %.lr.ph, label %.loopexit.backedge
+.preheader:                                       ; preds = %5
+  %7 = icmp sgt i64 %6, 0
+  br i1 %7, label %.lr.ph, label %.loopexit
 
-.loopexit.backedge:                               ; preds = %19, %.preheader
-  br label %.loopexit
-
-7:                                                ; preds = %.loopexit
-  %8 = tail call ptr @__errno_location() #10
-  %9 = load i32, ptr %8, align 4
-  switch i32 %9, label %10 [
+8:                                                ; preds = %5
+  %9 = tail call ptr @__errno_location() #10
+  %10 = load i32, ptr %9, align 4
+  switch i32 %10, label %11 [
     i32 11, label %.loopexit30
     i32 4, label %.loopexit30
   ]
 
-10:                                               ; preds = %7
+11:                                               ; preds = %8
   tail call void (i32, i32, ptr, ...) @event_sock_err(i32 noundef 1, i32 noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.evsig_cb) #9
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader, %19
-  %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw [1024 x i8], ptr @evsig_cb.signals, i64 0, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1
-  %13 = icmp ult i8 %12, 65
-  br i1 %13, label %14, label %19
+.lr.ph:                                           ; preds = %.preheader, %20
+  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
+  %12 = getelementptr inbounds nuw [1024 x i8], ptr @evsig_cb.signals, i64 0, i64 %indvars.iv
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp ult i8 %13, 65
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %.lr.ph
-  %15 = zext nneg i8 %12 to i64
-  %16 = getelementptr inbounds nuw [65 x i32], ptr %4, i64 0, i64 %15
-  %17 = load i32, ptr %16, align 4
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %16, align 4
-  br label %19
+15:                                               ; preds = %.lr.ph
+  %16 = zext nneg i8 %13 to i64
+  %17 = getelementptr inbounds nuw [65 x i32], ptr %4, i64 0, i64 %16
+  %18 = load i32, ptr %17, align 4
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %17, align 4
+  br label %20
 
-19:                                               ; preds = %14, %.lr.ph
+20:                                               ; preds = %15, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %.loopexit.backedge, label %.lr.ph, !llvm.loop !3
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
-.loopexit30:                                      ; preds = %.loopexit, %7, %7
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 952
-  %21 = load ptr, ptr %20, align 8
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.preheader38, label %22
+.loopexit30:                                      ; preds = %5, %8, %8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 952
+  %22 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %.preheader38, label %23
 
-22:                                               ; preds = %.loopexit30
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %24 = tail call i32 %23(i32 noundef 0, ptr noundef nonnull %21) #8
+23:                                               ; preds = %.loopexit30
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %25 = tail call i32 %24(i32 noundef 0, ptr noundef nonnull %22) #8
   br label %.preheader38
 
-.preheader38:                                     ; preds = %22, %.loopexit30
-  br label %25
+.preheader38:                                     ; preds = %23, %.loopexit30
+  br label %26
 
-25:                                               ; preds = %.preheader38, %30
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %30 ], [ 0, %.preheader38 ]
-  %26 = getelementptr inbounds nuw [65 x i32], ptr %4, i64 0, i64 %indvars.iv34
-  %27 = load i32, ptr %26, align 4
-  %.not29 = icmp eq i32 %27, 0
-  br i1 %.not29, label %30, label %28
+26:                                               ; preds = %.preheader38, %31
+  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %31 ], [ 0, %.preheader38 ]
+  %27 = getelementptr inbounds nuw [65 x i32], ptr %4, i64 0, i64 %indvars.iv34
+  %28 = load i32, ptr %27, align 4
+  %.not29 = icmp eq i32 %28, 0
+  br i1 %.not29, label %31, label %29
 
-28:                                               ; preds = %25
-  %29 = trunc nuw nsw i64 %indvars.iv34 to i32
-  tail call void @evmap_signal_active_(ptr noundef %2, i32 noundef %29, i32 noundef %27) #8
-  br label %30
+29:                                               ; preds = %26
+  %30 = trunc nuw nsw i64 %indvars.iv34 to i32
+  tail call void @evmap_signal_active_(ptr noundef %2, i32 noundef %30, i32 noundef %28) #8
+  br label %31
 
-30:                                               ; preds = %25, %28
+31:                                               ; preds = %26, %29
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 65
-  br i1 %exitcond37.not, label %31, label %25, !llvm.loop !5
+  br i1 %exitcond37.not, label %32, label %26, !llvm.loop !7
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %20, align 8
-  %.not28 = icmp eq ptr %32, null
-  br i1 %.not28, label %36, label %33
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %21, align 8
+  %.not28 = icmp eq ptr %33, null
+  br i1 %.not28, label %37, label %34
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %35 = tail call i32 %34(i32 noundef 0, ptr noundef nonnull %32) #8
-  br label %36
+34:                                               ; preds = %32
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %36 = tail call i32 %35(i32 noundef 0, ptr noundef nonnull %33) #8
+  br label %37
 
-36:                                               ; preds = %33, %31
+37:                                               ; preds = %34, %32
   call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %4) #8
   ret void
 }
@@ -473,7 +473,7 @@ evsig_restore_handler_.exit:                      ; preds = %18, %22
 23:                                               ; preds = %10, %14, %evsig_restore_handler_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
-  br i1 %exitcond.not, label %24, label %10, !llvm.loop !6
+  br i1 %exitcond.not, label %24, label %10, !llvm.loop !8
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr @evsig_base_lock, align 8
@@ -805,7 +805,7 @@ define internal void @evsig_handler(i32 noundef %0) #0 {
 14:                                               ; preds = %10
   %15 = load i32, ptr %3, align 4
   %16 = icmp eq i32 %15, 4
-  br i1 %16, label %10, label %17
+  br i1 %16, label %10, label %17, !llvm.loop !9
 
 17:                                               ; preds = %14
   %18 = tail call ptr @strerror(i32 noundef %15) #8
@@ -847,6 +847,9 @@ attributes #10 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !6, !4}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6, !4}
+!8 = distinct !{!8, !6, !4}
+!9 = distinct !{!9, !4}

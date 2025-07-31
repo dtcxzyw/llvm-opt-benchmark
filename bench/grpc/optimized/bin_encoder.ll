@@ -177,7 +177,7 @@ define void @_Z25grpc_chttp2_base64_encodeRK10grpc_slice(ptr dead_on_unwind noal
   %105 = select i1 %.not62, i64 %104, i64 %103
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 %105
   %.not64.not = icmp eq ptr %.1, %106
-  br i1 %.not64.not, label %.critedge, label %107, !prof !12
+  br i1 %.not64.not, label %.critedge, label %107, !prof !13
 
 107:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
@@ -195,7 +195,7 @@ define void @_Z25grpc_chttp2_base64_encodeRK10grpc_slice(ptr dead_on_unwind noal
   %113 = select i1 %.not65, i64 %112, i64 %111
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 %113
   %.not67.not = icmp eq ptr %.159, %114
-  br i1 %.not67.not, label %.critedge69, label %115, !prof !12
+  br i1 %.not67.not, label %.critedge69, label %115, !prof !13
 
 115:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
@@ -243,12 +243,12 @@ define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr dead_on_unwind n
   %14 = load i8, ptr %.05167, align 1, !tbaa !9
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw [257 x %struct.grpc_chttp2_huffsym], ptr @grpc_chttp2_huffsyms, i64 0, i64 %15, i32 1
-  %17 = load i32, ptr %16, align 4, !tbaa !13
+  %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = zext i32 %17 to i64
   %19 = add i64 %.04668, %18
   %20 = getelementptr inbounds nuw i8, ptr %.05167, i64 1
   %.not55 = icmp eq ptr %20, %13
-  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.046.lcssa = phi i64 [ 0, %2 ], [ %19, %.lr.ph ]
@@ -290,10 +290,10 @@ define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr dead_on_unwind n
   %42 = zext i8 %41 to i64
   %43 = getelementptr inbounds nuw [257 x %struct.grpc_chttp2_huffsym], ptr @grpc_chttp2_huffsyms, i64 0, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !13
+  %45 = load i32, ptr %44, align 4, !tbaa !14
   %46 = zext nneg i32 %45 to i64
   %47 = shl i64 %.04880, %46
-  %48 = load i32, ptr %43, align 8, !tbaa !17
+  %48 = load i32, ptr %43, align 8, !tbaa !18
   %49 = zext i32 %48 to i64
   %50 = or i64 %47, %49
   %51 = add i32 %45, %.04781
@@ -313,7 +313,7 @@ define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr dead_on_unwind n
   %57 = getelementptr inbounds nuw i8, ptr %.15069, i64 1
   store i8 %56, ptr %.15069, align 1, !tbaa !9
   %.wide = icmp ugt i64 %54, 8
-  br i1 %.wide, label %.lr.ph72, label %._crit_edge73.loopexit, !llvm.loop !18
+  br i1 %.wide, label %.lr.ph72, label %._crit_edge73.loopexit, !llvm.loop !19
 
 ._crit_edge73.loopexit:                           ; preds = %.lr.ph72
   %58 = trunc nuw nsw i64 %54 to i32
@@ -335,7 +335,7 @@ define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr dead_on_unwind n
   %65 = select i1 %.not58, i64 %64, i64 %59
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 %65
   %.not60 = icmp eq ptr %62, %66
-  br i1 %.not60, label %._crit_edge84, label %.lr.ph83, !llvm.loop !19
+  br i1 %.not60, label %._crit_edge84, label %.lr.ph83, !llvm.loop !20
 
 ._crit_edge84:                                    ; preds = %._crit_edge73
   %.not61 = icmp eq i32 %.1.lcssa, 0
@@ -364,7 +364,7 @@ define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr dead_on_unwind n
   %81 = select i1 %.not62, i64 %80, i64 %79
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 %81
   %.not64.not = icmp eq ptr %.2, %82
-  br i1 %.not64.not, label %.critedge, label %83, !prof !12
+  br i1 %.not64.not, label %.critedge, label %83, !prof !13
 
 83:                                               ; preds = %._crit_edge84.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
@@ -413,7 +413,7 @@ define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %34 = select i1 %.not65, ptr %33, ptr %32
-  store i32 0, ptr %2, align 4, !tbaa !20
+  store i32 0, ptr %2, align 4, !tbaa !21
   %.not154 = icmp ult i64 %10, 3
   br i1 %.not154, label %._crit_edge, label %.lr.ph
 
@@ -431,17 +431,17 @@ define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(
   %40 = lshr i8 %39, 4
   %41 = lshr i8 %35, 2
   %42 = or disjoint i8 %37, %40
-  %43 = load i32, ptr %2, align 4, !tbaa !20
+  %43 = load i32, ptr %2, align 4, !tbaa !21
   %44 = add i32 %43, 2
-  store i32 %44, ptr %2, align 4, !tbaa !20
+  store i32 %44, ptr %2, align 4, !tbaa !21
   %45 = zext nneg i8 %41 to i64
   %46 = getelementptr inbounds nuw [64 x %struct.b64_huff_sym], ptr @_ZL13huff_alphabet, i64 0, i64 %45
-  %.sroa.03.0.copyload.i = load i16, ptr %46, align 4, !tbaa !21
+  %.sroa.03.0.copyload.i = load i16, ptr %46, align 4, !tbaa !22
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 2
   %.sroa.44.0.copyload.i = load i8, ptr %.sroa.44.0..sroa_idx.i, align 2, !tbaa !9
   %47 = zext nneg i8 %42 to i64
   %48 = getelementptr inbounds nuw [64 x %struct.b64_huff_sym], ptr @_ZL13huff_alphabet, i64 0, i64 %47
-  %.sroa.0.0.copyload.i = load i16, ptr %48, align 4, !tbaa !21
+  %.sroa.0.0.copyload.i = load i16, ptr %48, align 4, !tbaa !22
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 2
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 2, !tbaa !9
   %49 = zext i8 %.sroa.44.0.copyload.i to i32
@@ -466,10 +466,10 @@ define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.41.3, i64 1
   store i8 %63, ptr %.sroa.41.3, align 1, !tbaa !9
   %65 = icmp ugt i32 %61, 8
-  br i1 %65, label %.lr.ph.i.i, label %_ZL8enc_add2P8huff_outhhPj.exit.loopexit, !llvm.loop !23
+  br i1 %65, label %.lr.ph.i.i, label %_ZL8enc_add2P8huff_outhhPj.exit.loopexit, !llvm.loop !24
 
 _ZL8enc_add2P8huff_outhhPj.exit.loopexit:         ; preds = %.lr.ph.i.i
-  %.pre = load i32, ptr %2, align 4, !tbaa !20
+  %.pre = load i32, ptr %2, align 4, !tbaa !21
   br label %_ZL8enc_add2P8huff_outhhPj.exit
 
 _ZL8enc_add2P8huff_outhhPj.exit:                  ; preds = %_ZL8enc_add2P8huff_outhhPj.exit.loopexit, %.lr.ph
@@ -485,15 +485,15 @@ _ZL8enc_add2P8huff_outhhPj.exit:                  ; preds = %_ZL8enc_add2P8huff_
   %73 = or disjoint i8 %69, %72
   %74 = and i8 %71, 63
   %75 = add i32 %66, 2
-  store i32 %75, ptr %2, align 4, !tbaa !20
+  store i32 %75, ptr %2, align 4, !tbaa !21
   %76 = zext nneg i8 %73 to i64
   %77 = getelementptr inbounds nuw [64 x %struct.b64_huff_sym], ptr @_ZL13huff_alphabet, i64 0, i64 %76
-  %.sroa.03.0.copyload.i76 = load i16, ptr %77, align 4, !tbaa !21
+  %.sroa.03.0.copyload.i76 = load i16, ptr %77, align 4, !tbaa !22
   %.sroa.44.0..sroa_idx.i77 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %.sroa.44.0.copyload.i78 = load i8, ptr %.sroa.44.0..sroa_idx.i77, align 2, !tbaa !9
   %78 = zext nneg i8 %74 to i64
   %79 = getelementptr inbounds nuw [64 x %struct.b64_huff_sym], ptr @_ZL13huff_alphabet, i64 0, i64 %78
-  %.sroa.0.0.copyload.i79 = load i16, ptr %79, align 4, !tbaa !21
+  %.sroa.0.0.copyload.i79 = load i16, ptr %79, align 4, !tbaa !22
   %.sroa.4.0..sroa_idx.i80 = getelementptr inbounds nuw i8, ptr %79, i64 2
   %.sroa.4.0.copyload.i81 = load i8, ptr %.sroa.4.0..sroa_idx.i80, align 2, !tbaa !9
   %80 = zext i8 %.sroa.44.0.copyload.i78 to i32
@@ -518,7 +518,7 @@ _ZL8enc_add2P8huff_outhhPj.exit:                  ; preds = %_ZL8enc_add2P8huff_
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.41.5, i64 1
   store i8 %94, ptr %.sroa.41.5, align 1, !tbaa !9
   %96 = icmp ugt i32 %92, 8
-  br i1 %96, label %.lr.ph.i.i82, label %_ZL8enc_add2P8huff_outhhPj.exit83, !llvm.loop !23
+  br i1 %96, label %.lr.ph.i.i82, label %_ZL8enc_add2P8huff_outhhPj.exit83, !llvm.loop !24
 
 _ZL8enc_add2P8huff_outhhPj.exit83:                ; preds = %.lr.ph.i.i82, %_ZL8enc_add2P8huff_outhhPj.exit
   %.sroa.19.3 = phi i32 [ %89, %_ZL8enc_add2P8huff_outhhPj.exit ], [ %92, %.lr.ph.i.i82 ]
@@ -526,7 +526,7 @@ _ZL8enc_add2P8huff_outhhPj.exit83:                ; preds = %.lr.ph.i.i82, %_ZL8
   %97 = getelementptr inbounds nuw i8, ptr %.061150, i64 3
   %98 = add nuw nsw i64 %.062149, 1
   %exitcond.not = icmp eq i64 %98, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZL8enc_add2P8huff_outhhPj.exit83, %3
   %.sroa.0108.0.lcssa = phi i32 [ 0, %3 ], [ %88, %_ZL8enc_add2P8huff_outhhPj.exit83 ]
@@ -543,17 +543,17 @@ _ZL8enc_add2P8huff_outhhPj.exit83:                ; preds = %.lr.ph.i.i82, %_ZL8
   %101 = lshr i8 %100, 2
   %102 = shl i8 %100, 4
   %103 = and i8 %102, 48
-  %104 = load i32, ptr %2, align 4, !tbaa !20
+  %104 = load i32, ptr %2, align 4, !tbaa !21
   %105 = add i32 %104, 2
-  store i32 %105, ptr %2, align 4, !tbaa !20
+  store i32 %105, ptr %2, align 4, !tbaa !21
   %106 = zext nneg i8 %101 to i64
   %107 = getelementptr inbounds nuw [64 x %struct.b64_huff_sym], ptr @_ZL13huff_alphabet, i64 0, i64 %106
-  %.sroa.03.0.copyload.i84 = load i16, ptr %107, align 4, !tbaa !21
+  %.sroa.03.0.copyload.i84 = load i16, ptr %107, align 4, !tbaa !22
   %.sroa.44.0..sroa_idx.i85 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %.sroa.44.0.copyload.i86 = load i8, ptr %.sroa.44.0..sroa_idx.i85, align 2, !tbaa !9
   %108 = zext nneg i8 %103 to i64
   %109 = getelementptr inbounds nuw [64 x %struct.b64_huff_sym], ptr @_ZL13huff_alphabet, i64 0, i64 %108
-  %.sroa.0.0.copyload.i87 = load i16, ptr %109, align 16, !tbaa !21
+  %.sroa.0.0.copyload.i87 = load i16, ptr %109, align 16, !tbaa !22
   %.sroa.4.0..sroa_idx.i88 = getelementptr inbounds nuw i8, ptr %109, i64 2
   %.sroa.4.0.copyload.i89 = load i8, ptr %.sroa.4.0..sroa_idx.i88, align 2, !tbaa !9
   %110 = zext i8 %.sroa.44.0.copyload.i86 to i32
@@ -578,7 +578,7 @@ _ZL8enc_add2P8huff_outhhPj.exit83:                ; preds = %.lr.ph.i.i82, %_ZL8
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.41.7, i64 1
   store i8 %124, ptr %.sroa.41.7, align 1, !tbaa !9
   %126 = icmp ugt i32 %122, 8
-  br i1 %126, label %.lr.ph.i.i90, label %_ZL8enc_add2P8huff_outhhPj.exit91, !llvm.loop !23
+  br i1 %126, label %.lr.ph.i.i90, label %_ZL8enc_add2P8huff_outhhPj.exit91, !llvm.loop !24
 
 _ZL8enc_add2P8huff_outhhPj.exit91:                ; preds = %.lr.ph.i.i90, %99
   %.sroa.19.4 = phi i32 [ %119, %99 ], [ %122, %.lr.ph.i.i90 ]
@@ -595,17 +595,17 @@ _ZL8enc_add2P8huff_outhhPj.exit91:                ; preds = %.lr.ph.i.i90, %99
   %134 = lshr i8 %133, 4
   %135 = lshr i8 %129, 2
   %136 = or disjoint i8 %131, %134
-  %137 = load i32, ptr %2, align 4, !tbaa !20
+  %137 = load i32, ptr %2, align 4, !tbaa !21
   %138 = add i32 %137, 2
-  store i32 %138, ptr %2, align 4, !tbaa !20
+  store i32 %138, ptr %2, align 4, !tbaa !21
   %139 = zext nneg i8 %135 to i64
   %140 = getelementptr inbounds nuw [64 x %struct.b64_huff_sym], ptr @_ZL13huff_alphabet, i64 0, i64 %139
-  %.sroa.03.0.copyload.i92 = load i16, ptr %140, align 4, !tbaa !21
+  %.sroa.03.0.copyload.i92 = load i16, ptr %140, align 4, !tbaa !22
   %.sroa.44.0..sroa_idx.i93 = getelementptr inbounds nuw i8, ptr %140, i64 2
   %.sroa.44.0.copyload.i94 = load i8, ptr %.sroa.44.0..sroa_idx.i93, align 2, !tbaa !9
   %141 = zext nneg i8 %136 to i64
   %142 = getelementptr inbounds nuw [64 x %struct.b64_huff_sym], ptr @_ZL13huff_alphabet, i64 0, i64 %141
-  %.sroa.0.0.copyload.i95 = load i16, ptr %142, align 4, !tbaa !21
+  %.sroa.0.0.copyload.i95 = load i16, ptr %142, align 4, !tbaa !22
   %.sroa.4.0..sroa_idx.i96 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %.sroa.4.0.copyload.i97 = load i8, ptr %.sroa.4.0..sroa_idx.i96, align 2, !tbaa !9
   %143 = zext i8 %.sroa.44.0.copyload.i94 to i32
@@ -630,10 +630,10 @@ _ZL8enc_add2P8huff_outhhPj.exit91:                ; preds = %.lr.ph.i.i90, %99
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.41.9, i64 1
   store i8 %157, ptr %.sroa.41.9, align 1, !tbaa !9
   %159 = icmp ugt i32 %155, 8
-  br i1 %159, label %.lr.ph.i.i98, label %_ZL8enc_add2P8huff_outhhPj.exit99.loopexit, !llvm.loop !23
+  br i1 %159, label %.lr.ph.i.i98, label %_ZL8enc_add2P8huff_outhhPj.exit99.loopexit, !llvm.loop !24
 
 _ZL8enc_add2P8huff_outhhPj.exit99.loopexit:       ; preds = %.lr.ph.i.i98
-  %.pre166 = load i32, ptr %2, align 4, !tbaa !20
+  %.pre166 = load i32, ptr %2, align 4, !tbaa !21
   br label %_ZL8enc_add2P8huff_outhhPj.exit99
 
 _ZL8enc_add2P8huff_outhhPj.exit99:                ; preds = %_ZL8enc_add2P8huff_outhhPj.exit99.loopexit, %128
@@ -644,10 +644,10 @@ _ZL8enc_add2P8huff_outhhPj.exit99:                ; preds = %_ZL8enc_add2P8huff_
   %162 = shl i8 %161, 2
   %163 = and i8 %162, 60
   %164 = add i32 %160, 1
-  store i32 %164, ptr %2, align 4, !tbaa !20
+  store i32 %164, ptr %2, align 4, !tbaa !21
   %165 = zext nneg i8 %163 to i64
   %166 = getelementptr inbounds nuw [64 x %struct.b64_huff_sym], ptr @_ZL13huff_alphabet, i64 0, i64 %165
-  %.sroa.0.0.copyload.i100 = load i16, ptr %166, align 16, !tbaa !21
+  %.sroa.0.0.copyload.i100 = load i16, ptr %166, align 16, !tbaa !22
   %.sroa.4.0..sroa_idx.i101 = getelementptr inbounds nuw i8, ptr %166, i64 2
   %.sroa.4.0.copyload.i102 = load i8, ptr %.sroa.4.0..sroa_idx.i101, align 2, !tbaa !9
   %167 = zext i8 %.sroa.4.0.copyload.i102 to i32
@@ -667,7 +667,7 @@ _ZL8enc_add2P8huff_outhhPj.exit99:                ; preds = %_ZL8enc_add2P8huff_
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.41.11, i64 1
   store i8 %176, ptr %.sroa.41.11, align 1, !tbaa !9
   %178 = icmp ugt i32 %174, 8
-  br i1 %178, label %.lr.ph.i.i103, label %_ZL8enc_add1P8huff_outhPj.exit, !llvm.loop !23
+  br i1 %178, label %.lr.ph.i.i103, label %_ZL8enc_add1P8huff_outhPj.exit, !llvm.loop !24
 
 _ZL8enc_add1P8huff_outhPj.exit:                   ; preds = %.lr.ph.i.i103, %_ZL8enc_add2P8huff_outhhPj.exit99
   %.sroa.19.6 = phi i32 [ %171, %_ZL8enc_add2P8huff_outhhPj.exit99 ], [ %174, %.lr.ph.i.i103 ]
@@ -704,7 +704,7 @@ _ZL8enc_add1P8huff_outhPj.exit:                   ; preds = %.lr.ph.i.i103, %_ZL
   %194 = select i1 %.not67, i64 %193, i64 %192
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 %194
   %.not69 = icmp ugt ptr %.sroa.41.2, %195
-  br i1 %.not69, label %196, label %.critedge, !prof !25
+  br i1 %.not69, label %196, label %.critedge, !prof !26
 
 196:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
@@ -737,7 +737,7 @@ _ZL8enc_add1P8huff_outhPj.exit:                   ; preds = %.lr.ph.i.i103, %_ZL
   %209 = select i1 %.not71, i64 %208, i64 %207
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 %209
   %.not73.not = icmp eq ptr %.1, %210
-  br i1 %.not73.not, label %.critedge75, label %211, !prof !12
+  br i1 %.not73.not, label %.critedge75, label %211, !prof !13
 
 211:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
@@ -770,19 +770,20 @@ attributes #7 = { noreturn nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C++ TBAA"}
 !9 = !{!7, !7, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = !{!14, !15, i64 4}
-!14 = !{!"_ZTS19grpc_chttp2_huffsym", !15, i64 0, !15, i64 4}
-!15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !11}
-!17 = !{!14, !15, i64 0}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = !{!15, !15, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"short", !7, i64 0}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = !{!15, !16, i64 4}
+!15 = !{!"_ZTS19grpc_chttp2_huffsym", !16, i64 0, !16, i64 4}
+!16 = !{!"int", !7, i64 0}
+!17 = distinct !{!17, !11, !12}
+!18 = !{!15, !16, i64 0}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = !{!16, !16, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"short", !7, i64 0}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = !{!"branch_weights", !"expected", i32 1, i32 2000}

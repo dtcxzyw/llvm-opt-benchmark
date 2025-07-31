@@ -283,7 +283,7 @@ _ZN3smt10watch_list10end_clauseEv.exit:           ; preds = %1
   %.1 = phi i32 [ %12, %11 ], [ %.017, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
   %.not = icmp eq ptr %16, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %15
   %.not13 = icmp eq i32 %.1, 0
@@ -336,25 +336,25 @@ _ZN3smt10watch_list12end_literalsEv.exit:         ; preds = %2, %4
 21:                                               ; preds = %36, %.lr.ph.i.i.i
   %.047.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i ], [ %38, %36 ]
   %.02946.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i ], [ %37, %36 ]
-  %22 = load i32, ptr %.02946.i.i.i, align 4, !tbaa !16
+  %22 = load i32, ptr %.02946.i.i.i, align 4, !tbaa !17
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %_ZSt4findIPN3sat7literalES1_ET_S3_S3_RKT0_.exit, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !16
+  %26 = load i32, ptr %25, align 4, !tbaa !17
   %27 = icmp eq i32 %26, %1
   br i1 %27, label %_ZSt4findIPN3sat7literalES1_ET_S3_S3_RKT0_.exit.loopexit.split.loop.exit, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
-  %30 = load i32, ptr %29, align 4, !tbaa !16
+  %30 = load i32, ptr %29, align 4, !tbaa !17
   %31 = icmp eq i32 %30, %1
   br i1 %31, label %_ZSt4findIPN3sat7literalES1_ET_S3_S3_RKT0_.exit.loopexit.split.loop.exit36, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !16
+  %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = icmp eq i32 %34, %1
   br i1 %35, label %_ZSt4findIPN3sat7literalES1_ET_S3_S3_RKT0_.exit.loopexit.split.loop.exit38, label %36
 
@@ -362,7 +362,7 @@ _ZN3smt10watch_list12end_literalsEv.exit:         ; preds = %2, %4
   %37 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   %38 = add nsw i64 %.047.i.i.i, -1
   %39 = icmp sgt i64 %.047.i.i.i, 1
-  br i1 %39, label %21, label %._crit_edge.loopexit.i.i.i, !llvm.loop !18
+  br i1 %39, label %21, label %._crit_edge.loopexit.i.i.i, !llvm.loop !19
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %36
   %.pre54.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
@@ -380,7 +380,7 @@ _ZN3smt10watch_list12end_literalsEv.exit:         ; preds = %2, %4
   ]
 
 41:                                               ; preds = %._crit_edge.i.i.i
-  %42 = load i32, ptr %.029.lcssa.i.i.i, align 4, !tbaa !16
+  %42 = load i32, ptr %.029.lcssa.i.i.i, align 4, !tbaa !17
   %43 = icmp eq i32 %42, %1
   br i1 %43, label %_ZSt4findIPN3sat7literalES1_ET_S3_S3_RKT0_.exit, label %44
 
@@ -390,7 +390,7 @@ _ZN3smt10watch_list12end_literalsEv.exit:         ; preds = %2, %4
 
 ._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %44
   %.1.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %46 = load i32, ptr %.1.i.i.i, align 4, !tbaa !16
+  %46 = load i32, ptr %.1.i.i.i, align 4, !tbaa !17
   %47 = icmp eq i32 %46, %1
   br i1 %47, label %_ZSt4findIPN3sat7literalES1_ET_S3_S3_RKT0_.exit, label %48
 
@@ -400,7 +400,7 @@ _ZN3smt10watch_list12end_literalsEv.exit:         ; preds = %2, %4
 
 ._crit_edge._crit_edge52.i.i.i:                   ; preds = %._crit_edge.i.i.i, %48
   %.2.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %50 = load i32, ptr %.2.i.i.i, align 4, !tbaa !16
+  %50 = load i32, ptr %.2.i.i.i, align 4, !tbaa !17
   %51 = icmp eq i32 %50, %1
   br i1 %51, label %_ZSt4findIPN3sat7literalES1_ET_S3_S3_RKT0_.exit, label %_ZSt4findIPN3sat7literalES1_ET_S3_S3_RKT0_.exit.thread
 
@@ -431,7 +431,7 @@ _ZSt4findIPN3sat7literalES1_ET_S3_S3_RKT0_.exit:  ; preds = %21, %_ZSt4findIPN3s
   %57 = load i32, ptr %56, align 4, !tbaa !9
   store i32 %57, ptr %.029, align 4, !tbaa !9
   %.not = icmp eq ptr %56, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %58 = getelementptr inbounds i8, ptr %3, i64 -8
@@ -450,11 +450,11 @@ declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 define internal void @_GLOBAL__sub_I_watch_list.cpp() #7 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
-  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !16
+  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !17
   %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL12true_literalE)
-  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !16
+  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !17
   %3 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL13false_literalE)
-  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !20
+  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !21
   %4 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3smtL21null_eq_justificationE)
   ret void
 }
@@ -489,12 +489,13 @@ attributes #9 = { nounwind }
 !10 = !{!"int", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTSN3smt6clauseE", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!17, !10, i64 0}
-!17 = !{!"_ZTSN3sat7literalE", !10, i64 0}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
-!20 = !{!21, !6, i64 0}
-!21 = !{!"_ZTSN3smt16eq_justificationE", !6, i64 0}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = !{!18, !10, i64 0}
+!18 = !{!"_ZTSN3sat7literalE", !10, i64 0}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}
+!21 = !{!22, !6, i64 0}
+!22 = !{!"_ZTSN3smt16eq_justificationE", !6, i64 0}

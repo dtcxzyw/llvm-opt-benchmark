@@ -899,12 +899,12 @@ switch.lookup:                                    ; preds = %28
   %105 = load i32, ptr %104, align 8, !tbaa !130
   %106 = sext i32 %105 to i64
   %.not154.not = icmp slt i64 %indvars.iv, %106
-  br i1 %.not154.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not154.not, label %.lr.ph, label %._crit_edge, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %.lr.ph, %95
   %107 = phi ptr [ %87, %95 ], [ %103, %.lr.ph ]
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %109 = load ptr, ptr %108, align 8, !tbaa !143
+  %109 = load ptr, ptr %108, align 8, !tbaa !145
   %.not155 = icmp eq ptr %109, null
   br i1 %.not155, label %116, label %110
 
@@ -925,7 +925,7 @@ switch.lookup:                                    ; preds = %28
   %119 = load i32, ptr %118, align 8, !tbaa !130
   %120 = sext i32 %119 to i64
   %121 = tail call noalias ptr @calloc(i64 noundef %120, i64 noundef 8) #15
-  store ptr %121, ptr %108, align 8, !tbaa !143
+  store ptr %121, ptr %108, align 8, !tbaa !145
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %124
 
@@ -939,7 +939,7 @@ switch.lookup:                                    ; preds = %28
   %127 = add nsw i64 %126, %120
   store i64 %127, ptr %125, align 8, !tbaa !86
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %129 = load ptr, ptr %128, align 8, !tbaa !144
+  %129 = load ptr, ptr %128, align 8, !tbaa !146
   %.not156 = icmp eq ptr %129, null
   br i1 %.not156, label %135, label %130
 
@@ -960,7 +960,7 @@ switch.lookup:                                    ; preds = %28
   %.pre-phi = phi i64 [ %.pre287, %130 ], [ %120, %124 ]
   %136 = phi i64 [ %134, %130 ], [ %127, %124 ]
   %137 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 8) #15
-  store ptr %137, ptr %128, align 8, !tbaa !144
+  store ptr %137, ptr %128, align 8, !tbaa !146
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %140
 
@@ -1048,7 +1048,7 @@ switch.lookup:                                    ; preds = %28
   %185 = load i32, ptr %184, align 8, !tbaa !138
   store i32 %185, ptr %48, align 4, !tbaa !140
   %186 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 0, ptr %186, align 8, !tbaa !145
+  store i32 0, ptr %186, align 8, !tbaa !147
   %187 = load i32, ptr %160, align 8, !tbaa !126
   %188 = icmp eq i32 %187, 4
   br i1 %188, label %189, label %196
@@ -1068,14 +1068,14 @@ switch.lookup:                                    ; preds = %28
   br i1 %.not162, label %196, label %195
 
 195:                                              ; preds = %194, %193
-  store i32 1, ptr %186, align 8, !tbaa !145
+  store i32 1, ptr %186, align 8, !tbaa !147
   br label %196
 
 196:                                              ; preds = %193, %195, %194, %179
   %197 = phi i32 [ 0, %193 ], [ 1, %195 ], [ 0, %194 ], [ 0, %179 ]
   %198 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %199 = load i32, ptr %198, align 8, !tbaa !146
-  %200 = load i32, ptr %75, align 4, !tbaa !147
+  %199 = load i32, ptr %198, align 8, !tbaa !148
+  %200 = load i32, ptr %75, align 4, !tbaa !149
   %201 = icmp slt i32 %199, %200
   br i1 %201, label %202, label %267
 
@@ -1092,17 +1092,17 @@ switch.lookup:                                    ; preds = %28
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %209 = load i64, ptr %208, align 8, !tbaa !148
+  %209 = load i64, ptr %208, align 8, !tbaa !150
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %211 = load i64, ptr %210, align 8, !tbaa !149
+  %211 = load i64, ptr %210, align 8, !tbaa !151
   tail call void @arkFreeVecArray(i32 noundef %199, ptr noundef nonnull %207, i64 noundef %209, ptr noundef nonnull %125, i64 noundef %211, ptr noundef nonnull %72) #14
-  %212 = load i32, ptr %186, align 8, !tbaa !145
+  %212 = load i32, ptr %186, align 8, !tbaa !147
   %.not165 = icmp eq i32 %212, 0
   br i1 %.not165, label %215, label %213
 
 213:                                              ; preds = %206
   %214 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr null, ptr %214, align 8, !tbaa !150
+  store ptr null, ptr %214, align 8, !tbaa !152
   br label %215
 
 215:                                              ; preds = %206, %213, %203
@@ -1112,20 +1112,20 @@ switch.lookup:                                    ; preds = %28
   br i1 %.not166, label %227, label %217
 
 217:                                              ; preds = %215
-  %218 = load i32, ptr %198, align 8, !tbaa !146
+  %218 = load i32, ptr %198, align 8, !tbaa !148
   %219 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %221 = load i64, ptr %220, align 8, !tbaa !148
+  %221 = load i64, ptr %220, align 8, !tbaa !150
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %223 = load i64, ptr %222, align 8, !tbaa !149
+  %223 = load i64, ptr %222, align 8, !tbaa !151
   tail call void @arkFreeVecArray(i32 noundef %218, ptr noundef nonnull %219, i64 noundef %221, ptr noundef nonnull %125, i64 noundef %223, ptr noundef nonnull %72) #14
-  %224 = load i32, ptr %186, align 8, !tbaa !145
+  %224 = load i32, ptr %186, align 8, !tbaa !147
   %.not167 = icmp eq i32 %224, 0
   br i1 %.not167, label %.thread, label %225
 
 225:                                              ; preds = %217
   %226 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %226, align 8, !tbaa !151
+  store ptr null, ptr %226, align 8, !tbaa !153
   br label %227
 
 227:                                              ; preds = %215, %225, %202
@@ -1144,33 +1144,33 @@ switch.lookup:                                    ; preds = %28
   br i1 %.not168289, label %.thread294, label %.thread291
 
 .thread291:                                       ; preds = %227, %.thread
-  %232 = load i32, ptr %75, align 4, !tbaa !147
+  %232 = load i32, ptr %75, align 4, !tbaa !149
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %234 = load ptr, ptr %233, align 8, !tbaa !152
+  %234 = load ptr, ptr %233, align 8, !tbaa !154
   %235 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %237 = load i64, ptr %236, align 8, !tbaa !148
+  %237 = load i64, ptr %236, align 8, !tbaa !150
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %239 = load i64, ptr %238, align 8, !tbaa !149
+  %239 = load i64, ptr %238, align 8, !tbaa !151
   %240 = tail call i32 @arkAllocVecArray(i32 noundef %232, ptr noundef %234, ptr noundef nonnull %235, i64 noundef %237, ptr noundef nonnull %125, i64 noundef %239, ptr noundef nonnull %72) #14
   %.not170 = icmp eq i32 %240, 0
   br i1 %.not170, label %399, label %._crit_edge281
 
 ._crit_edge281:                                   ; preds = %.thread291
-  %.pr.pre275.pre = load i32, ptr %186, align 8, !tbaa !145
+  %.pr.pre275.pre = load i32, ptr %186, align 8, !tbaa !147
   br label %241
 
 241:                                              ; preds = %._crit_edge281, %227
   %.pr.pre275 = phi i32 [ %.pr.pre275.pre, %._crit_edge281 ], [ %.pr.pre275283, %227 ]
   %242 = load i32, ptr %9, align 4, !tbaa !84
   %.not171 = icmp eq i32 %242, 0
-  %.pre280.pre285 = load i32, ptr %75, align 4, !tbaa !147
+  %.pre280.pre285 = load i32, ptr %75, align 4, !tbaa !149
   br i1 %.not171, label %253, label %244
 
 .thread294:                                       ; preds = %.thread
   %243 = load i32, ptr %9, align 4, !tbaa !84
   %.not171296 = icmp eq i32 %243, 0
-  %.pre280.pre285297 = load i32, ptr %75, align 4, !tbaa !147
+  %.pre280.pre285297 = load i32, ptr %75, align 4, !tbaa !149
   br i1 %.not171296, label %.thread305, label %.thread300
 
 244:                                              ; preds = %241
@@ -1180,19 +1180,19 @@ switch.lookup:                                    ; preds = %28
 .thread300:                                       ; preds = %.thread294, %244
   %.pre280.pre285299304 = phi i32 [ %.pre280.pre285, %244 ], [ %.pre280.pre285297, %.thread294 ]
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %246 = load ptr, ptr %245, align 8, !tbaa !152
+  %246 = load ptr, ptr %245, align 8, !tbaa !154
   %247 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %249 = load i64, ptr %248, align 8, !tbaa !148
+  %249 = load i64, ptr %248, align 8, !tbaa !150
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %251 = load i64, ptr %250, align 8, !tbaa !149
+  %251 = load i64, ptr %250, align 8, !tbaa !151
   %252 = tail call i32 @arkAllocVecArray(i32 noundef %.pre280.pre285299304, ptr noundef %246, ptr noundef nonnull %247, i64 noundef %249, ptr noundef nonnull %125, i64 noundef %251, ptr noundef nonnull %72) #14
   %.not173 = icmp eq i32 %252, 0
   br i1 %.not173, label %399, label %._crit_edge274
 
 ._crit_edge274:                                   ; preds = %.thread300
-  %.pr.pre = load i32, ptr %186, align 8, !tbaa !145
-  %.pre280.pre = load i32, ptr %75, align 4, !tbaa !147
+  %.pr.pre = load i32, ptr %186, align 8, !tbaa !147
+  %.pre280.pre = load i32, ptr %75, align 4, !tbaa !149
   br label %253
 
 253:                                              ; preds = %._crit_edge274, %241
@@ -1204,26 +1204,26 @@ switch.lookup:                                    ; preds = %28
 .thread260:                                       ; preds = %253, %244
   %254 = phi i32 [ %.pre280.pre285, %244 ], [ %.pre280, %253 ]
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %256 = load ptr, ptr %255, align 8, !tbaa !152
+  %256 = load ptr, ptr %255, align 8, !tbaa !154
   %257 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %259 = load i64, ptr %258, align 8, !tbaa !148
+  %259 = load i64, ptr %258, align 8, !tbaa !150
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %261 = load i64, ptr %260, align 8, !tbaa !149
+  %261 = load i64, ptr %260, align 8, !tbaa !151
   %262 = tail call i32 @arkAllocVecArray(i32 noundef %254, ptr noundef %256, ptr noundef nonnull %257, i64 noundef %259, ptr noundef nonnull %125, i64 noundef %261, ptr noundef nonnull %72) #14
   %.not175 = icmp eq i32 %262, 0
   br i1 %.not175, label %399, label %263
 
 263:                                              ; preds = %.thread260
-  %264 = load ptr, ptr %257, align 8, !tbaa !151
+  %264 = load ptr, ptr %257, align 8, !tbaa !153
   %265 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %264, ptr %265, align 8, !tbaa !150
-  %.pre279 = load i32, ptr %75, align 4, !tbaa !147
+  store ptr %264, ptr %265, align 8, !tbaa !152
+  %.pre279 = load i32, ptr %75, align 4, !tbaa !149
   br label %.thread305
 
 .thread305:                                       ; preds = %.thread294, %263, %253
   %266 = phi i32 [ %.pre279, %263 ], [ %.pre280, %253 ], [ %.pre280.pre285297, %.thread294 ]
-  store i32 %266, ptr %198, align 8, !tbaa !146
+  store i32 %266, ptr %198, align 8, !tbaa !148
   br label %267
 
 267:                                              ; preds = %.thread305, %196
@@ -1233,21 +1233,21 @@ switch.lookup:                                    ; preds = %28
 
 269:                                              ; preds = %267
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %271 = load ptr, ptr %270, align 8, !tbaa !152
+  %271 = load ptr, ptr %270, align 8, !tbaa !154
   %272 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %273 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %271, ptr noundef nonnull %272) #14
   %.not179 = icmp eq i32 %273, 0
   br i1 %.not179, label %399, label %274
 
 274:                                              ; preds = %269
-  %275 = load ptr, ptr %270, align 8, !tbaa !152
+  %275 = load ptr, ptr %270, align 8, !tbaa !154
   %276 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %277 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %275, ptr noundef nonnull %276) #14
   %.not180 = icmp eq i32 %277, 0
   br i1 %.not180, label %399, label %278
 
 278:                                              ; preds = %274
-  %279 = load ptr, ptr %270, align 8, !tbaa !152
+  %279 = load ptr, ptr %270, align 8, !tbaa !154
   %280 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %281 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %279, ptr noundef nonnull %280) #14
   %.not181 = icmp eq i32 %281, 0
@@ -1281,9 +1281,9 @@ switch.lookup:                                    ; preds = %28
   %294 = load ptr, ptr %293, align 8, !tbaa !102
   %295 = load ptr, ptr %29, align 8, !tbaa !125
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 4
-  %297 = load i32, ptr %296, align 4, !tbaa !153
+  %297 = load i32, ptr %296, align 4, !tbaa !155
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %299 = load ptr, ptr %298, align 8, !tbaa !152
+  %299 = load ptr, ptr %298, align 8, !tbaa !154
   %300 = tail call i32 @mriStepInnerStepper_AllocVecs(ptr noundef %294, i32 noundef %297, ptr noundef %299)
   %.not182 = icmp eq i32 %300, 0
   br i1 %.not182, label %302, label %301
@@ -1299,13 +1299,13 @@ switch.lookup:                                    ; preds = %28
 
 305:                                              ; preds = %302
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  %307 = load i32, ptr %306, align 4, !tbaa !154
+  %307 = load i32, ptr %306, align 4, !tbaa !156
   %.not183 = icmp slt i32 %307, %303
   br i1 %.not183, label %.thread262, label %308
 
 308:                                              ; preds = %305
   %309 = add nsw i32 %303, -1
-  store i32 %309, ptr %306, align 4, !tbaa !154
+  store i32 %309, ptr %306, align 4, !tbaa !156
   br label %.thread262
 
 310:                                              ; preds = %302
@@ -1314,23 +1314,23 @@ switch.lookup:                                    ; preds = %28
 
 312:                                              ; preds = %310
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  %314 = load i32, ptr %313, align 4, !tbaa !154
+  %314 = load i32, ptr %313, align 4, !tbaa !156
   %315 = icmp sgt i32 %314, 1
   br i1 %315, label %316, label %.thread262
 
 316:                                              ; preds = %312
-  store i32 1, ptr %313, align 4, !tbaa !154
+  store i32 1, ptr %313, align 4, !tbaa !156
   br label %.thread262
 
 .thread262:                                       ; preds = %305, %310, %312, %316, %308
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %318 = load i32, ptr %317, align 8, !tbaa !155
+  %318 = load i32, ptr %317, align 8, !tbaa !157
   %319 = icmp eq i32 %318, -1
   br i1 %319, label %320, label %324
 
 320:                                              ; preds = %.thread262
   %321 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %322 = load i32, ptr %321, align 8, !tbaa !156
+  %322 = load i32, ptr %321, align 8, !tbaa !158
   %.not184 = icmp eq i32 %322, 0
   br i1 %.not184, label %324, label %323
 
@@ -1372,7 +1372,7 @@ switch.lookup:                                    ; preds = %28
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %338 = load ptr, ptr %337, align 8, !tbaa !133
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 104
-  %340 = load ptr, ptr %339, align 8, !tbaa !157
+  %340 = load ptr, ptr %339, align 8, !tbaa !159
   %341 = tail call i32 @SUNAdaptController_GetType(ptr noundef %340) #14
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %343 = load i32, ptr %342, align 8, !tbaa !120
@@ -1381,7 +1381,7 @@ switch.lookup:                                    ; preds = %28
 
 344:                                              ; preds = %336
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %346 = load double, ptr %345, align 8, !tbaa !158
+  %346 = load double, ptr %345, align 8, !tbaa !160
   %347 = fcmp oeq double %346, 0.000000e+00
   br i1 %347, label %348, label %378
 
@@ -1412,17 +1412,17 @@ switch.lookup:                                    ; preds = %28
 
 359:                                              ; preds = %352
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %361 = load double, ptr %360, align 8, !tbaa !158
+  %361 = load double, ptr %360, align 8, !tbaa !160
   %362 = fcmp oeq double %361, 0.000000e+00
   br i1 %362, label %363, label %378
 
 363:                                              ; preds = %359
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %365 = load double, ptr %364, align 8, !tbaa !159
+  %365 = load double, ptr %364, align 8, !tbaa !161
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %367 = load ptr, ptr %366, align 8, !tbaa !160
+  %367 = load ptr, ptr %366, align 8, !tbaa !162
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %369 = load ptr, ptr %368, align 8, !tbaa !161
+  %369 = load ptr, ptr %368, align 8, !tbaa !163
   %370 = tail call i32 @mriStep_SlowRHS(ptr noundef nonnull %0, double noundef %365, ptr noundef %367, ptr noundef %369, i32 poison)
   %.not190 = icmp eq i32 %370, 0
   br i1 %.not190, label %372, label %371
@@ -1432,8 +1432,8 @@ switch.lookup:                                    ; preds = %28
   br label %399
 
 372:                                              ; preds = %363
-  %373 = load double, ptr %364, align 8, !tbaa !159
-  %374 = load ptr, ptr %368, align 8, !tbaa !161
+  %373 = load double, ptr %364, align 8, !tbaa !161
+  %374 = load ptr, ptr %368, align 8, !tbaa !163
   %375 = tail call i32 @mriStep_Hin(ptr noundef nonnull %0, double noundef %373, double noundef %1, ptr noundef %374, ptr noundef nonnull %360)
   %.not191 = icmp eq i32 %375, 0
   br i1 %.not191, label %378, label %376
@@ -1460,19 +1460,19 @@ switch.lookup:                                    ; preds = %28
 
 388:                                              ; preds = %384
   %389 = getelementptr inbounds nuw i8, ptr %386, i64 24
-  %390 = load ptr, ptr %389, align 8, !tbaa !162
+  %390 = load ptr, ptr %389, align 8, !tbaa !164
   %.not.i = icmp eq ptr %390, null
   br i1 %.not.i, label %397, label %391
 
 391:                                              ; preds = %388
   %392 = getelementptr inbounds nuw i8, ptr %386, i64 32
-  %393 = load ptr, ptr %392, align 8, !tbaa !163
+  %393 = load ptr, ptr %392, align 8, !tbaa !165
   %.not7.i = icmp eq ptr %393, null
   br i1 %.not7.i, label %397, label %394
 
 394:                                              ; preds = %391
   %395 = getelementptr inbounds nuw i8, ptr %386, i64 40
-  %396 = load ptr, ptr %395, align 8, !tbaa !164
+  %396 = load ptr, ptr %395, align 8, !tbaa !166
   %.not8.i = icmp eq ptr %396, null
   br i1 %.not8.i, label %397, label %mriStepInnerStepper_SupportsRTolAdaptivity.exit
 
@@ -1509,7 +1509,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !103
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !165
+  %16 = load ptr, ptr %15, align 8, !tbaa !167
   %.not49 = icmp eq ptr %16, null
   br i1 %.not49, label %17, label %18
 
@@ -1546,14 +1546,14 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !165
+  %31 = load ptr, ptr %30, align 8, !tbaa !167
   %32 = icmp eq ptr %31, null
   br i1 %32, label %mriStepInnerStepper_FullRhs.exit.thread, label %mriStepInnerStepper_FullRhs.exit
 
 mriStepInnerStepper_FullRhs.exit:                 ; preds = %29
   %33 = tail call i32 %31(ptr noundef nonnull %23, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 2) #14
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store i32 %33, ptr %34, align 8, !tbaa !166
+  store i32 %33, ptr %34, align 8, !tbaa !168
   %.not58 = icmp eq i32 %33, 0
   br i1 %.not58, label %35, label %mriStepInnerStepper_FullRhs.exit.thread
 
@@ -1579,21 +1579,21 @@ mriStepInnerStepper_FullRhs.exit.thread:          ; preds = %29, %25, %22, %mriS
   store double 1.000000e+00, ptr %42, align 8, !tbaa !115
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %44 = load ptr, ptr %43, align 8, !tbaa !94
-  store ptr %3, ptr %44, align 8, !tbaa !167
+  store ptr %3, ptr %44, align 8, !tbaa !169
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store double 1.000000e+00, ptr %45, align 8, !tbaa !115
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !151
-  %48 = load ptr, ptr %47, align 8, !tbaa !167
+  %47 = load ptr, ptr %46, align 8, !tbaa !153
+  %48 = load ptr, ptr %47, align 8, !tbaa !169
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %48, ptr %49, align 8, !tbaa !167
+  store ptr %48, ptr %49, align 8, !tbaa !169
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store double 1.000000e+00, ptr %50, align 8, !tbaa !115
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %52 = load ptr, ptr %51, align 8, !tbaa !150
-  %53 = load ptr, ptr %52, align 8, !tbaa !167
+  %52 = load ptr, ptr %51, align 8, !tbaa !152
+  %53 = load ptr, ptr %52, align 8, !tbaa !169
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %53, ptr %54, align 8, !tbaa !167
+  store ptr %53, ptr %54, align 8, !tbaa !169
   %55 = tail call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %42, ptr noundef nonnull %44, ptr noundef %3) #14
   br label %133
 
@@ -1602,22 +1602,22 @@ mriStepInnerStepper_FullRhs.exit.thread:          ; preds = %29, %25, %22, %mriS
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %59 = load ptr, ptr %58, align 8, !tbaa !150
-  %60 = load ptr, ptr %59, align 8, !tbaa !167
+  %59 = load ptr, ptr %58, align 8, !tbaa !152
+  %60 = load ptr, ptr %59, align 8, !tbaa !169
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %60, double noundef 1.000000e+00, ptr noundef %3, ptr noundef %3) #14
   br label %133
 
 .thread:                                          ; preds = %39, %56
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !151
-  %63 = load ptr, ptr %62, align 8, !tbaa !167
+  %62 = load ptr, ptr %61, align 8, !tbaa !153
+  %63 = load ptr, ptr %62, align 8, !tbaa !169
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %63, double noundef 1.000000e+00, ptr noundef %3, ptr noundef %3) #14
   br label %133
 
 mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
   %64 = tail call i32 %16(ptr noundef nonnull %12, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 2) #14
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 %64, ptr %65, align 8, !tbaa !166
+  store i32 %64, ptr %65, align 8, !tbaa !168
   %.not50 = icmp eq i32 %64, 0
   br i1 %.not50, label %67, label %66
 
@@ -1631,7 +1631,7 @@ mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
   store double 1.000000e+00, ptr %69, align 8, !tbaa !115
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %71 = load ptr, ptr %70, align 8, !tbaa !94
-  store ptr %3, ptr %71, align 8, !tbaa !167
+  store ptr %3, ptr %71, align 8, !tbaa !169
   store i32 1, ptr %6, align 4, !tbaa !119
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %73 = load i32, ptr %72, align 8, !tbaa !83
@@ -1641,14 +1641,14 @@ mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
 74:                                               ; preds = %67
   %75 = load ptr, ptr %8, align 8, !tbaa !72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %77 = load ptr, ptr %76, align 8, !tbaa !168
+  %77 = load ptr, ptr %76, align 8, !tbaa !170
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !169
+  %79 = load ptr, ptr %78, align 8, !tbaa !171
   %80 = tail call i32 %75(double noundef %1, ptr noundef %2, ptr noundef %77, ptr noundef %79) #14
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  %82 = load i64, ptr %81, align 8, !tbaa !170
+  %82 = load i64, ptr %81, align 8, !tbaa !172
   %83 = add nsw i64 %82, 1
-  store i64 %83, ptr %81, align 8, !tbaa !170
+  store i64 %83, ptr %81, align 8, !tbaa !172
   %.not52 = icmp eq i32 %80, 0
   br i1 %.not52, label %85, label %84
 
@@ -1660,10 +1660,10 @@ mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
   %86 = load ptr, ptr %68, align 8, !tbaa !93
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store double 1.000000e+00, ptr %87, align 8, !tbaa !115
-  %88 = load ptr, ptr %76, align 8, !tbaa !168
+  %88 = load ptr, ptr %76, align 8, !tbaa !170
   %89 = load ptr, ptr %70, align 8, !tbaa !94
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store ptr %88, ptr %90, align 8, !tbaa !167
+  store ptr %88, ptr %90, align 8, !tbaa !169
   store i32 2, ptr %6, align 4, !tbaa !119
   br label %91
 
@@ -1680,14 +1680,14 @@ mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !80
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  %101 = load ptr, ptr %100, align 8, !tbaa !171
+  %101 = load ptr, ptr %100, align 8, !tbaa !173
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !169
+  %103 = load ptr, ptr %102, align 8, !tbaa !171
   %104 = tail call i32 %99(double noundef %1, ptr noundef %2, ptr noundef %101, ptr noundef %103) #14
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 416
-  %106 = load i64, ptr %105, align 8, !tbaa !172
+  %106 = load i64, ptr %105, align 8, !tbaa !174
   %107 = add nsw i64 %106, 1
-  store i64 %107, ptr %105, align 8, !tbaa !172
+  store i64 %107, ptr %105, align 8, !tbaa !174
   %.not54 = icmp eq i32 %104, 0
   br i1 %.not54, label %109, label %108
 
@@ -1700,10 +1700,10 @@ mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
   %111 = zext nneg i32 %94 to i64
   %112 = getelementptr inbounds nuw double, ptr %110, i64 %111
   store double 1.000000e+00, ptr %112, align 8, !tbaa !115
-  %113 = load ptr, ptr %100, align 8, !tbaa !171
+  %113 = load ptr, ptr %100, align 8, !tbaa !173
   %114 = load ptr, ptr %70, align 8, !tbaa !94
   %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %111
-  store ptr %113, ptr %115, align 8, !tbaa !167
+  store ptr %113, ptr %115, align 8, !tbaa !169
   %116 = add nuw nsw i32 %94, 1
   store i32 %116, ptr %6, align 4, !tbaa !119
   br label %117
@@ -1777,7 +1777,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %17 = load ptr, ptr %16, align 8, !tbaa !133
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %19 = load ptr, ptr %18, align 8, !tbaa !157
+  %19 = load ptr, ptr %18, align 8, !tbaa !159
   %20 = tail call i32 @SUNAdaptController_GetType(ptr noundef %19) #14
   %21 = icmp eq i32 %20, 2
   br i1 %21, label %22, label %mriStepInnerStepper_SetRTol.exit.thread370
@@ -1798,7 +1798,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !162
+  %33 = load ptr, ptr %32, align 8, !tbaa !164
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread365.thread, label %mriStepInnerStepper_ResetAccumulatedError.exit
 
@@ -1806,16 +1806,16 @@ mriStepInnerStepper_ResetAccumulatedError.exit.thread365.thread: ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %35 = load double, ptr %34, align 8, !tbaa !95
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load double, ptr %36, align 8, !tbaa !173
+  %37 = load double, ptr %36, align 8, !tbaa !175
   %38 = fmul double %35, %37
   br label %49
 
 mriStepInnerStepper_ResetAccumulatedError.exit:   ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !163
+  %40 = load ptr, ptr %39, align 8, !tbaa !165
   %41 = tail call i32 %40(ptr noundef nonnull %25) #14
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store i32 %41, ptr %42, align 8, !tbaa !166
+  store i32 %41, ptr %42, align 8, !tbaa !168
   %.not250 = icmp eq i32 %41, 0
   br i1 %.not250, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread365, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread
 
@@ -1828,7 +1828,7 @@ mriStepInnerStepper_ResetAccumulatedError.exit.thread365: ; preds = %mriStepInne
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %44 = load double, ptr %43, align 8, !tbaa !95
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %46 = load double, ptr %45, align 8, !tbaa !173
+  %46 = load double, ptr %45, align 8, !tbaa !175
   %47 = fmul double %44, %46
   %48 = icmp eq ptr %.pre, null
   br i1 %48, label %mriStepInnerStepper_SetRTol.exit.thread, label %49
@@ -1843,14 +1843,14 @@ mriStepInnerStepper_ResetAccumulatedError.exit.thread365: ; preds = %mriStepInne
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !164
+  %57 = load ptr, ptr %56, align 8, !tbaa !166
   %.not.i298 = icmp eq ptr %57, null
   br i1 %.not.i298, label %mriStepInnerStepper_SetRTol.exit.thread370, label %mriStepInnerStepper_SetRTol.exit
 
 mriStepInnerStepper_SetRTol.exit:                 ; preds = %55
   %58 = tail call i32 %57(ptr noundef nonnull %51, double noundef %50) #14
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  store i32 %58, ptr %59, align 8, !tbaa !166
+  store i32 %58, ptr %59, align 8, !tbaa !168
   %.not251 = icmp eq i32 %58, 0
   br i1 %.not251, label %mriStepInnerStepper_SetRTol.exit.thread370, label %mriStepInnerStepper_SetRTol.exit.thread
 
@@ -1868,9 +1868,9 @@ mriStepInnerStepper_SetRTol.exit.thread370:       ; preds = %55, %mriStepInnerSt
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %63 = load ptr, ptr %62, align 8, !tbaa !102
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %65 = load double, ptr %64, align 8, !tbaa !174
+  %65 = load double, ptr %64, align 8, !tbaa !176
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %67 = load ptr, ptr %66, align 8, !tbaa !160
+  %67 = load ptr, ptr %66, align 8, !tbaa !162
   %68 = icmp eq ptr %63, null
   br i1 %68, label %mriStepInnerStepper_Reset.exit.thread, label %69
 
@@ -1882,14 +1882,14 @@ mriStepInnerStepper_SetRTol.exit.thread370:       ; preds = %55, %mriStepInnerSt
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !175
+  %75 = load ptr, ptr %74, align 8, !tbaa !177
   %.not.i300 = icmp eq ptr %75, null
   br i1 %.not.i300, label %mriStepInnerStepper_Reset.exit.thread375, label %mriStepInnerStepper_Reset.exit
 
 mriStepInnerStepper_Reset.exit:                   ; preds = %73
   %76 = tail call i32 %75(ptr noundef nonnull %63, double noundef %65, ptr noundef %67) #14
   %77 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  store i32 %76, ptr %77, align 8, !tbaa !166
+  store i32 %76, ptr %77, align 8, !tbaa !168
   %.not253 = icmp eq i32 %76, 0
   br i1 %.not253, label %mriStepInnerStepper_Reset.exit.thread375, label %mriStepInnerStepper_Reset.exit.thread
 
@@ -1905,18 +1905,18 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
 
 80:                                               ; preds = %mriStepInnerStepper_Reset.exit.thread375
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !176
+  %82 = load ptr, ptr %81, align 8, !tbaa !178
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !179
+  %84 = load ptr, ptr %83, align 8, !tbaa !181
   %.not255 = icmp eq ptr %84, null
   br i1 %.not255, label %93, label %85
 
 85:                                               ; preds = %80
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %87 = load ptr, ptr %86, align 8, !tbaa !181
+  %87 = load ptr, ptr %86, align 8, !tbaa !183
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %87) #14
   %88 = load ptr, ptr %78, align 8, !tbaa !87
-  %89 = load ptr, ptr %86, align 8, !tbaa !181
+  %89 = load ptr, ptr %86, align 8, !tbaa !183
   %90 = tail call i32 @SUNNonlinSolSetup(ptr noundef %88, ptr noundef %89, ptr noundef nonnull %0) #14
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %.loopexit, label %92
@@ -1940,7 +1940,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   %99 = load i32, ptr %98, align 8, !tbaa !99
   %100 = icmp ne i32 %99, 0
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %102 = load ptr, ptr %101, align 8, !tbaa !182
+  %102 = load ptr, ptr %101, align 8, !tbaa !184
   %103 = icmp eq ptr %102, null
   %or.cond = select i1 %103, i1 true, i1 %100
   br i1 %or.cond, label %104, label %129
@@ -1949,15 +1949,15 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   %105 = phi ptr [ %96, %.thread ], [ %101, %97 ]
   %106 = phi i1 [ true, %.thread ], [ %100, %97 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %108 = load double, ptr %107, align 8, !tbaa !174
+  %108 = load double, ptr %107, align 8, !tbaa !176
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %110 = load ptr, ptr %109, align 8, !tbaa !160
+  %110 = load ptr, ptr %109, align 8, !tbaa !162
   %111 = tail call i32 @mriStep_UpdateF0(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %108, ptr noundef %110, i32 noundef 0)
   %.not260 = icmp eq i32 %111, 0
   br i1 %.not260, label %112, label %.loopexit
 
 112:                                              ; preds = %104
-  %113 = load ptr, ptr %105, align 8, !tbaa !182
+  %113 = load ptr, ptr %105, align 8, !tbaa !184
   %114 = icmp ne ptr %113, null
   %or.cond3 = select i1 %114, i1 %106, i1 false
   br i1 %or.cond3, label %115, label %138
@@ -1973,14 +1973,14 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   %120 = load i32, ptr %119, align 8, !tbaa !83
   %.not262 = icmp eq i32 %120, 0
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %122 = load ptr, ptr %121, align 8, !tbaa !150
-  %123 = load ptr, ptr %122, align 8, !tbaa !167
+  %122 = load ptr, ptr %121, align 8, !tbaa !152
+  %123 = load ptr, ptr %122, align 8, !tbaa !169
   br i1 %.not262, label %128, label %124
 
 124:                                              ; preds = %118
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %126 = load ptr, ptr %125, align 8, !tbaa !151
-  %127 = load ptr, ptr %126, align 8, !tbaa !167
+  %126 = load ptr, ptr %125, align 8, !tbaa !153
+  %127 = load ptr, ptr %126, align 8, !tbaa !169
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %123, double noundef 1.000000e+00, ptr noundef %127, ptr noundef nonnull %113) #14
   br label %138
 
@@ -1990,22 +1990,22 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
 
 129:                                              ; preds = %97
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %131 = load i32, ptr %130, align 8, !tbaa !183
+  %131 = load i32, ptr %130, align 8, !tbaa !185
   %.not258 = icmp eq i32 %131, 0
   br i1 %.not258, label %132, label %138
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %134 = load double, ptr %133, align 8, !tbaa !174
+  %134 = load double, ptr %133, align 8, !tbaa !176
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %136 = load ptr, ptr %135, align 8, !tbaa !160
+  %136 = load ptr, ptr %135, align 8, !tbaa !162
   %137 = tail call i32 @mriStep_FullRHS(ptr noundef nonnull %0, double noundef %134, ptr noundef %136, ptr noundef nonnull %102, i32 noundef 0)
   %.not259 = icmp eq i32 %137, 0
   br i1 %.not259, label %138, label %.loopexit
 
 138:                                              ; preds = %129, %132, %112, %115, %128, %124
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 1, ptr %139, align 8, !tbaa !183
+  store i32 1, ptr %139, align 8, !tbaa !185
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %141 = load i32, ptr %140, align 8, !tbaa !131
   %142 = icmp sgt i32 %141, 2
@@ -2044,18 +2044,18 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
 
 171:                                              ; preds = %.lr.ph, %.thread390
   %indvars.iv435 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next436, %.thread390 ]
-  %172 = load double, ptr %143, align 8, !tbaa !174
+  %172 = load double, ptr %143, align 8, !tbaa !176
   %173 = load ptr, ptr %144, align 8, !tbaa !125
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  %175 = load ptr, ptr %174, align 8, !tbaa !184
+  %175 = load ptr, ptr %174, align 8, !tbaa !186
   %176 = getelementptr double, ptr %175, i64 %indvars.iv435
   %177 = getelementptr i8, ptr %176, i64 -8
   %178 = load double, ptr %177, align 8, !tbaa !115
-  %179 = load double, ptr %145, align 8, !tbaa !185
+  %179 = load double, ptr %145, align 8, !tbaa !187
   %180 = tail call double @llvm.fmuladd.f64(double %178, double %179, double %172)
   %181 = load double, ptr %176, align 8, !tbaa !115
   %182 = tail call double @llvm.fmuladd.f64(double %181, double %179, double %172)
-  store double %182, ptr %146, align 8, !tbaa !159
+  store double %182, ptr %146, align 8, !tbaa !161
   %183 = load ptr, ptr %147, align 8, !tbaa !142
   %184 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv435
   %185 = load i32, ptr %184, align 4, !tbaa !119
@@ -2073,7 +2073,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   br i1 %.not277, label %189, label %.loopexit
 
 189:                                              ; preds = %186
-  %190 = load ptr, ptr %148, align 8, !tbaa !186
+  %190 = load ptr, ptr %148, align 8, !tbaa !188
   %191 = tail call i32 @mriStep_StageERKFast(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %180, double noundef %182, ptr noundef %190, ptr poison, i32 noundef %.0217)
   %.not278 = icmp eq i32 %191, 0
   br i1 %.not278, label %.thread379, label %192
@@ -2102,7 +2102,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   br i1 %.not279, label %.thread379, label %.loopexit
 
 .thread379:                                       ; preds = %171, %189, %199
-  %200 = load ptr, ptr %149, align 8, !tbaa !187
+  %200 = load ptr, ptr %149, align 8, !tbaa !189
   %.not280 = icmp eq ptr %200, null
   %.pre440 = load ptr, ptr %147, align 8, !tbaa !142
   br i1 %.not280, label %209, label %201
@@ -2114,9 +2114,9 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   br i1 %.not281, label %209, label %204
 
 204:                                              ; preds = %201
-  %205 = load double, ptr %146, align 8, !tbaa !159
-  %206 = load ptr, ptr %148, align 8, !tbaa !186
-  %207 = load ptr, ptr %150, align 8, !tbaa !169
+  %205 = load double, ptr %146, align 8, !tbaa !161
+  %206 = load ptr, ptr %148, align 8, !tbaa !188
+  %207 = load ptr, ptr %150, align 8, !tbaa !171
   %208 = tail call i32 %200(double noundef %205, ptr noundef %206, ptr noundef %207) #14
   %.not282 = icmp eq i32 %208, 0
   br i1 %.not282, label %._crit_edge438, label %.loopexit
@@ -2135,13 +2135,13 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   ]
 
 213:                                              ; preds = %209
-  %214 = load ptr, ptr %149, align 8, !tbaa !187
+  %214 = load ptr, ptr %149, align 8, !tbaa !189
   %.not285 = icmp eq ptr %214, null
   br i1 %.not285, label %mriStepInnerStepper_Reset.exit304.thread387, label %215
 
 215:                                              ; preds = %209, %213
   %216 = load ptr, ptr %151, align 8, !tbaa !102
-  %217 = load ptr, ptr %148, align 8, !tbaa !186
+  %217 = load ptr, ptr %148, align 8, !tbaa !188
   %218 = icmp eq ptr %216, null
   br i1 %218, label %mriStepInnerStepper_Reset.exit304.thread, label %219
 
@@ -2153,14 +2153,14 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
 
 223:                                              ; preds = %219
   %224 = getelementptr inbounds nuw i8, ptr %221, i64 16
-  %225 = load ptr, ptr %224, align 8, !tbaa !175
+  %225 = load ptr, ptr %224, align 8, !tbaa !177
   %.not.i302 = icmp eq ptr %225, null
   br i1 %.not.i302, label %mriStepInnerStepper_Reset.exit304.thread387, label %mriStepInnerStepper_Reset.exit304
 
 mriStepInnerStepper_Reset.exit304:                ; preds = %223
   %226 = tail call i32 %225(ptr noundef nonnull %216, double noundef %182, ptr noundef %217) #14
   %227 = getelementptr inbounds nuw i8, ptr %216, i64 40
-  store i32 %226, ptr %227, align 8, !tbaa !166
+  store i32 %226, ptr %227, align 8, !tbaa !168
   %.not286 = icmp eq i32 %226, 0
   br i1 %.not286, label %mriStepInnerStepper_Reset.exit304.thread387, label %mriStepInnerStepper_Reset.exit304.thread
 
@@ -2194,17 +2194,17 @@ mriStepInnerStepper_Reset.exit304.thread387:      ; preds = %223, %209, %213, %m
 
 241:                                              ; preds = %239
   %242 = load ptr, ptr %5, align 8, !tbaa !72
-  %243 = load double, ptr %146, align 8, !tbaa !159
-  %244 = load ptr, ptr %148, align 8, !tbaa !186
-  %245 = load ptr, ptr %154, align 8, !tbaa !151
+  %243 = load double, ptr %146, align 8, !tbaa !161
+  %244 = load ptr, ptr %148, align 8, !tbaa !188
+  %245 = load ptr, ptr %154, align 8, !tbaa !153
   %246 = sext i32 %230 to i64
   %247 = getelementptr inbounds ptr, ptr %245, i64 %246
-  %248 = load ptr, ptr %247, align 8, !tbaa !167
-  %249 = load ptr, ptr %150, align 8, !tbaa !169
+  %248 = load ptr, ptr %247, align 8, !tbaa !169
+  %249 = load ptr, ptr %150, align 8, !tbaa !171
   %250 = tail call i32 %242(double noundef %243, ptr noundef %244, ptr noundef %248, ptr noundef %249) #14
-  %251 = load i64, ptr %155, align 8, !tbaa !170
+  %251 = load i64, ptr %155, align 8, !tbaa !172
   %252 = add nsw i64 %251, 1
-  store i64 %252, ptr %155, align 8, !tbaa !170
+  store i64 %252, ptr %155, align 8, !tbaa !172
   %253 = icmp slt i32 %250, 0
   br i1 %253, label %.loopexit, label %254
 
@@ -2220,24 +2220,24 @@ mriStepInnerStepper_Reset.exit304.thread387:      ; preds = %223, %209, %213, %m
 257:                                              ; preds = %255
   %258 = load ptr, ptr %156, align 8, !tbaa !93
   store double 1.000000e+00, ptr %258, align 8, !tbaa !115
-  %259 = load ptr, ptr %154, align 8, !tbaa !151
+  %259 = load ptr, ptr %154, align 8, !tbaa !153
   %260 = load ptr, ptr %152, align 8, !tbaa !141
   %261 = getelementptr inbounds nuw i32, ptr %260, i64 %indvars.iv435
   %262 = load i32, ptr %261, align 4, !tbaa !119
   %263 = sext i32 %262 to i64
   %264 = getelementptr inbounds ptr, ptr %259, i64 %263
-  %265 = load ptr, ptr %264, align 8, !tbaa !167
+  %265 = load ptr, ptr %264, align 8, !tbaa !169
   %266 = load ptr, ptr %157, align 8, !tbaa !94
-  store ptr %265, ptr %266, align 8, !tbaa !167
+  store ptr %265, ptr %266, align 8, !tbaa !169
   %267 = getelementptr inbounds nuw i8, ptr %258, i64 8
   store double 1.000000e+00, ptr %267, align 8, !tbaa !115
   %268 = load ptr, ptr %158, align 8, !tbaa !100
-  %269 = load ptr, ptr %268, align 8, !tbaa !167
+  %269 = load ptr, ptr %268, align 8, !tbaa !169
   %270 = getelementptr inbounds nuw i8, ptr %266, i64 8
-  store ptr %269, ptr %270, align 8, !tbaa !167
-  %271 = load double, ptr %159, align 8, !tbaa !188
+  store ptr %269, ptr %270, align 8, !tbaa !169
+  %271 = load double, ptr %159, align 8, !tbaa !190
   %272 = fsub double %182, %271
-  %273 = load double, ptr %160, align 8, !tbaa !189
+  %273 = load double, ptr %160, align 8, !tbaa !191
   %274 = fdiv double %272, %273
   %275 = load i32, ptr %161, align 8, !tbaa !101
   %276 = icmp sgt i32 %275, 1
@@ -2255,18 +2255,18 @@ mriStepInnerStepper_Reset.exit304.thread387:      ; preds = %223, %209, %213, %m
   %278 = getelementptr inbounds nuw double, ptr %258, i64 %indvars.iv
   store double %.02425.i, ptr %278, align 8, !tbaa !115
   %279 = getelementptr inbounds nuw ptr, ptr %268, i64 %indvars.iv.i
-  %280 = load ptr, ptr %279, align 8, !tbaa !167
+  %280 = load ptr, ptr %279, align 8, !tbaa !169
   %281 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv
-  store ptr %280, ptr %281, align 8, !tbaa !167
+  store ptr %280, ptr %281, align 8, !tbaa !169
   %282 = fmul double %274, %.02425.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %277
-  br i1 %exitcond.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i
+  br i1 %exitcond.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i, !llvm.loop !192
 
 mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %257
   %.0358 = phi i32 [ 2, %257 ], [ %narrow, %.lr.ph.i ]
-  %283 = load ptr, ptr %264, align 8, !tbaa !167
+  %283 = load ptr, ptr %264, align 8, !tbaa !169
   %284 = tail call i32 @N_VLinearCombination(i32 noundef %.0358, ptr noundef nonnull %258, ptr noundef nonnull %266, ptr noundef %283) #14
   br label %285
 
@@ -2276,7 +2276,7 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %257
   br i1 %.not291, label %.thread390, label %287
 
 287:                                              ; preds = %285
-  %288 = load i32, ptr %163, align 8, !tbaa !190
+  %288 = load i32, ptr %163, align 8, !tbaa !193
   %.not292 = icmp eq i32 %288, 0
   br i1 %.not292, label %._crit_edge441, label %289
 
@@ -2295,19 +2295,19 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %257
 293:                                              ; preds = %._crit_edge441, %289
   %294 = phi ptr [ %.pre442, %._crit_edge441 ], [ %.pre443, %289 ]
   %295 = load ptr, ptr %168, align 8, !tbaa !80
-  %296 = load double, ptr %146, align 8, !tbaa !159
-  %297 = load ptr, ptr %148, align 8, !tbaa !186
-  %298 = load ptr, ptr %167, align 8, !tbaa !150
+  %296 = load double, ptr %146, align 8, !tbaa !161
+  %297 = load ptr, ptr %148, align 8, !tbaa !188
+  %298 = load ptr, ptr %167, align 8, !tbaa !152
   %299 = getelementptr inbounds nuw i32, ptr %294, i64 %indvars.iv435
   %300 = load i32, ptr %299, align 4, !tbaa !119
   %301 = sext i32 %300 to i64
   %302 = getelementptr inbounds ptr, ptr %298, i64 %301
-  %303 = load ptr, ptr %302, align 8, !tbaa !167
-  %304 = load ptr, ptr %150, align 8, !tbaa !169
+  %303 = load ptr, ptr %302, align 8, !tbaa !169
+  %304 = load ptr, ptr %150, align 8, !tbaa !171
   %305 = tail call i32 %295(double noundef %296, ptr noundef %297, ptr noundef %303, ptr noundef %304) #14
-  %306 = load i64, ptr %169, align 8, !tbaa !172
+  %306 = load i64, ptr %169, align 8, !tbaa !174
   %307 = add nsw i64 %306, 1
-  store i64 %307, ptr %169, align 8, !tbaa !172
+  store i64 %307, ptr %169, align 8, !tbaa !174
   %308 = icmp slt i32 %305, 0
   br i1 %308, label %.loopexit, label %309
 
@@ -2323,24 +2323,24 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %257
 312:                                              ; preds = %310
   %313 = load ptr, ptr %156, align 8, !tbaa !93
   store double 1.000000e+00, ptr %313, align 8, !tbaa !115
-  %314 = load ptr, ptr %167, align 8, !tbaa !150
+  %314 = load ptr, ptr %167, align 8, !tbaa !152
   %315 = load ptr, ptr %152, align 8, !tbaa !141
   %316 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv435
   %317 = load i32, ptr %316, align 4, !tbaa !119
   %318 = sext i32 %317 to i64
   %319 = getelementptr inbounds ptr, ptr %314, i64 %318
-  %320 = load ptr, ptr %319, align 8, !tbaa !167
+  %320 = load ptr, ptr %319, align 8, !tbaa !169
   %321 = load ptr, ptr %157, align 8, !tbaa !94
-  store ptr %320, ptr %321, align 8, !tbaa !167
+  store ptr %320, ptr %321, align 8, !tbaa !169
   %322 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store double 1.000000e+00, ptr %322, align 8, !tbaa !115
   %323 = load ptr, ptr %158, align 8, !tbaa !100
-  %324 = load ptr, ptr %323, align 8, !tbaa !167
+  %324 = load ptr, ptr %323, align 8, !tbaa !169
   %325 = getelementptr inbounds nuw i8, ptr %321, i64 8
-  store ptr %324, ptr %325, align 8, !tbaa !167
-  %326 = load double, ptr %159, align 8, !tbaa !188
+  store ptr %324, ptr %325, align 8, !tbaa !169
+  %326 = load double, ptr %159, align 8, !tbaa !190
   %327 = fsub double %182, %326
-  %328 = load double, ptr %160, align 8, !tbaa !189
+  %328 = load double, ptr %160, align 8, !tbaa !191
   %329 = fdiv double %327, %328
   %330 = load i32, ptr %161, align 8, !tbaa !101
   %331 = icmp sgt i32 %330, 1
@@ -2358,33 +2358,33 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %257
   %333 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv431
   store double %.02425.i307, ptr %333, align 8, !tbaa !115
   %334 = getelementptr inbounds nuw ptr, ptr %323, i64 %indvars.iv.i306
-  %335 = load ptr, ptr %334, align 8, !tbaa !167
+  %335 = load ptr, ptr %334, align 8, !tbaa !169
   %336 = getelementptr inbounds nuw ptr, ptr %321, i64 %indvars.iv431
-  store ptr %335, ptr %336, align 8, !tbaa !167
+  store ptr %335, ptr %336, align 8, !tbaa !169
   %337 = fmul double %329, %.02425.i307
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %indvars.iv.next.i308 = add nuw nsw i64 %indvars.iv.i306, 1
   %exitcond434.not = icmp eq i64 %indvars.iv.next432, %332
-  br i1 %exitcond434.not, label %mriStep_ApplyForcing.exit309, label %.lr.ph.i305
+  br i1 %exitcond434.not, label %mriStep_ApplyForcing.exit309, label %.lr.ph.i305, !llvm.loop !192
 
 mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   %.1359 = phi i32 [ 2, %312 ], [ %narrow447, %.lr.ph.i305 ]
-  %338 = load ptr, ptr %319, align 8, !tbaa !167
+  %338 = load ptr, ptr %319, align 8, !tbaa !169
   %339 = tail call i32 @N_VLinearCombination(i32 noundef %.1359, ptr noundef nonnull %313, ptr noundef nonnull %321, ptr noundef %338) #14
   br label %.thread390
 
 340:                                              ; preds = %289
   %341 = load double, ptr %164, align 8, !tbaa !114
   %342 = fdiv double 1.000000e+00, %341
-  %343 = load ptr, ptr %165, align 8, !tbaa !191
+  %343 = load ptr, ptr %165, align 8, !tbaa !194
   %344 = fdiv double -1.000000e+00, %341
-  %345 = load ptr, ptr %166, align 8, !tbaa !171
-  %346 = load ptr, ptr %167, align 8, !tbaa !150
+  %345 = load ptr, ptr %166, align 8, !tbaa !173
+  %346 = load ptr, ptr %167, align 8, !tbaa !152
   %347 = getelementptr inbounds nuw i32, ptr %.pre443, i64 %indvars.iv435
   %348 = load i32, ptr %347, align 4, !tbaa !119
   %349 = sext i32 %348 to i64
   %350 = getelementptr inbounds ptr, ptr %346, i64 %349
-  %351 = load ptr, ptr %350, align 8, !tbaa !167
+  %351 = load ptr, ptr %350, align 8, !tbaa !169
   tail call void @N_VLinearSum(double noundef %342, ptr noundef %343, double noundef %344, ptr noundef %345, ptr noundef %351) #14
   br label %.thread390
 
@@ -2394,7 +2394,7 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   %353 = add nsw i32 %352, -1
   %354 = sext i32 %353 to i64
   %355 = icmp slt i64 %indvars.iv.next436, %354
-  br i1 %355, label %171, label %._crit_edge
+  br i1 %355, label %171, label %._crit_edge, !llvm.loop !195
 
 ._crit_edge:                                      ; preds = %.thread390, %138
   %.lcssa419 = phi i32 [ %141, %138 ], [ %352, %.thread390 ]
@@ -2402,30 +2402,30 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
 
 356:                                              ; preds = %._crit_edge
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %358 = load ptr, ptr %357, align 8, !tbaa !186
+  %358 = load ptr, ptr %357, align 8, !tbaa !188
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %360 = load ptr, ptr %359, align 8, !tbaa !192
+  %360 = load ptr, ptr %359, align 8, !tbaa !196
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %358, ptr noundef %360) #14
-  %361 = load ptr, ptr %357, align 8, !tbaa !186
-  %362 = load ptr, ptr %359, align 8, !tbaa !192
-  store ptr %362, ptr %357, align 8, !tbaa !186
-  store ptr %361, ptr %359, align 8, !tbaa !192
+  %361 = load ptr, ptr %357, align 8, !tbaa !188
+  %362 = load ptr, ptr %359, align 8, !tbaa !196
+  store ptr %362, ptr %357, align 8, !tbaa !188
+  store ptr %361, ptr %359, align 8, !tbaa !196
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %364 = load double, ptr %363, align 8, !tbaa !174
+  %364 = load double, ptr %363, align 8, !tbaa !176
   %365 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %366 = load ptr, ptr %365, align 8, !tbaa !125
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 24
-  %368 = load ptr, ptr %367, align 8, !tbaa !184
+  %368 = load ptr, ptr %367, align 8, !tbaa !186
   %369 = sext i32 %.lcssa419 to i64
   %370 = getelementptr double, ptr %368, i64 %369
   %371 = getelementptr i8, ptr %370, i64 -16
   %372 = load double, ptr %371, align 8, !tbaa !115
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %374 = load double, ptr %373, align 8, !tbaa !185
+  %374 = load double, ptr %373, align 8, !tbaa !187
   %375 = tail call double @llvm.fmuladd.f64(double %372, double %374, double %364)
   %376 = fadd double %364, %374
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  store double %376, ptr %377, align 8, !tbaa !159
+  store double %376, ptr %377, align 8, !tbaa !161
   %378 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %379 = load ptr, ptr %378, align 8, !tbaa !142
   %380 = getelementptr inbounds i32, ptr %379, i64 %369
@@ -2443,7 +2443,7 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   br i1 %.not263, label %384, label %.loopexit
 
 384:                                              ; preds = %382
-  %385 = load ptr, ptr %357, align 8, !tbaa !186
+  %385 = load ptr, ptr %357, align 8, !tbaa !188
   %386 = tail call i32 @mriStep_StageERKFast(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %375, double noundef %376, ptr noundef %385, ptr poison, i32 noundef 0)
   %.not264 = icmp eq i32 %386, 0
   br i1 %.not264, label %.thread394, label %387
@@ -2470,10 +2470,10 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   br i1 %.not265, label %.thread394, label %.loopexit
 
 .thread394:                                       ; preds = %384, %356, %392
-  %393 = load ptr, ptr %357, align 8, !tbaa !186
-  %394 = load ptr, ptr %359, align 8, !tbaa !192
-  store ptr %394, ptr %357, align 8, !tbaa !186
-  store ptr %393, ptr %359, align 8, !tbaa !192
+  %393 = load ptr, ptr %357, align 8, !tbaa !188
+  %394 = load ptr, ptr %359, align 8, !tbaa !196
+  store ptr %394, ptr %357, align 8, !tbaa !188
+  store ptr %393, ptr %359, align 8, !tbaa !196
   %395 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %396 = load ptr, ptr %395, align 8, !tbaa !102
   %397 = icmp eq ptr %396, null
@@ -2487,14 +2487,14 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
 
 402:                                              ; preds = %398
   %403 = getelementptr inbounds nuw i8, ptr %400, i64 16
-  %404 = load ptr, ptr %403, align 8, !tbaa !175
+  %404 = load ptr, ptr %403, align 8, !tbaa !177
   %.not.i310 = icmp eq ptr %404, null
   br i1 %.not.i310, label %mriStepInnerStepper_Reset.exit312.thread402, label %mriStepInnerStepper_Reset.exit312
 
 mriStepInnerStepper_Reset.exit312:                ; preds = %402
   %405 = tail call i32 %404(ptr noundef nonnull %396, double noundef %375, ptr noundef %394) #14
   %406 = getelementptr inbounds nuw i8, ptr %396, i64 40
-  store i32 %405, ptr %406, align 8, !tbaa !166
+  store i32 %405, ptr %406, align 8, !tbaa !168
   %.not266 = icmp eq i32 %405, 0
   br i1 %.not266, label %mriStepInnerStepper_Reset.exit312.thread402, label %mriStepInnerStepper_Reset.exit312.thread
 
@@ -2506,21 +2506,21 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   %407 = load i32, ptr %140, align 8, !tbaa !131
   %408 = add nsw i32 %407, -1
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %410 = load double, ptr %409, align 8, !tbaa !174
+  %410 = load double, ptr %409, align 8, !tbaa !176
   %411 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %412 = load ptr, ptr %411, align 8, !tbaa !125
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 24
-  %414 = load ptr, ptr %413, align 8, !tbaa !184
+  %414 = load ptr, ptr %413, align 8, !tbaa !186
   %415 = sext i32 %407 to i64
   %416 = getelementptr double, ptr %414, i64 %415
   %417 = getelementptr i8, ptr %416, i64 -16
   %418 = load double, ptr %417, align 8, !tbaa !115
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %420 = load double, ptr %419, align 8, !tbaa !185
+  %420 = load double, ptr %419, align 8, !tbaa !187
   %421 = tail call double @llvm.fmuladd.f64(double %418, double %420, double %410)
   %422 = fadd double %410, %420
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  store double %422, ptr %423, align 8, !tbaa !159
+  store double %422, ptr %423, align 8, !tbaa !161
   %424 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %425 = load ptr, ptr %424, align 8, !tbaa !142
   %426 = sext i32 %408 to i64
@@ -2540,7 +2540,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
 
 431:                                              ; preds = %429
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %433 = load ptr, ptr %432, align 8, !tbaa !186
+  %433 = load ptr, ptr %432, align 8, !tbaa !188
   %434 = tail call i32 @mriStep_StageERKFast(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %421, double noundef %422, ptr noundef %433, ptr poison, i32 noundef %.0217)
   %.not268 = icmp eq i32 %434, 0
   br i1 %.not268, label %.thread406, label %435
@@ -2568,7 +2568,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
 
 .thread406:                                       ; preds = %mriStepInnerStepper_Reset.exit312.thread402, %431, %440
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %442 = load ptr, ptr %441, align 8, !tbaa !187
+  %442 = load ptr, ptr %441, align 8, !tbaa !189
   %.not270 = icmp eq ptr %442, null
   %.pre446 = load ptr, ptr %424, align 8, !tbaa !142
   br i1 %.not270, label %453, label %443
@@ -2580,11 +2580,11 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   br i1 %.not271, label %453, label %446
 
 446:                                              ; preds = %443
-  %447 = load double, ptr %423, align 8, !tbaa !159
+  %447 = load double, ptr %423, align 8, !tbaa !161
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %449 = load ptr, ptr %448, align 8, !tbaa !186
+  %449 = load ptr, ptr %448, align 8, !tbaa !188
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %451 = load ptr, ptr %450, align 8, !tbaa !169
+  %451 = load ptr, ptr %450, align 8, !tbaa !171
   %452 = tail call i32 %442(double noundef %447, ptr noundef %449, ptr noundef %451) #14
   %.not272 = icmp eq i32 %452, 0
   br i1 %.not272, label %._crit_edge444, label %.loopexit
@@ -2603,7 +2603,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   ]
 
 457:                                              ; preds = %453
-  %458 = load ptr, ptr %441, align 8, !tbaa !187
+  %458 = load ptr, ptr %441, align 8, !tbaa !189
   %.not275 = icmp eq ptr %458, null
   br i1 %.not275, label %mriStepInnerStepper_Reset.exit315.thread414, label %459
 
@@ -2611,7 +2611,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   %460 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %461 = load ptr, ptr %460, align 8, !tbaa !102
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %463 = load ptr, ptr %462, align 8, !tbaa !186
+  %463 = load ptr, ptr %462, align 8, !tbaa !188
   %464 = icmp eq ptr %461, null
   br i1 %464, label %mriStepInnerStepper_Reset.exit315.thread, label %465
 
@@ -2623,14 +2623,14 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
 
 469:                                              ; preds = %465
   %470 = getelementptr inbounds nuw i8, ptr %467, i64 16
-  %471 = load ptr, ptr %470, align 8, !tbaa !175
+  %471 = load ptr, ptr %470, align 8, !tbaa !177
   %.not.i313 = icmp eq ptr %471, null
   br i1 %.not.i313, label %mriStepInnerStepper_Reset.exit315.thread414, label %mriStepInnerStepper_Reset.exit315
 
 mriStepInnerStepper_Reset.exit315:                ; preds = %469
   %472 = tail call i32 %471(ptr noundef nonnull %461, double noundef %422, ptr noundef %463) #14
   %473 = getelementptr inbounds nuw i8, ptr %461, i64 40
-  store i32 %472, ptr %473, align 8, !tbaa !166
+  store i32 %472, ptr %473, align 8, !tbaa !168
   %.not276 = icmp eq i32 %472, 0
   br i1 %.not276, label %mriStepInnerStepper_Reset.exit315.thread414, label %mriStepInnerStepper_Reset.exit315.thread
 
@@ -2643,15 +2643,15 @@ mriStepInnerStepper_Reset.exit315.thread414:      ; preds = %469, %453, %457, %m
 
 474:                                              ; preds = %mriStepInnerStepper_Reset.exit315.thread414
   %475 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %476 = load ptr, ptr %475, align 8, !tbaa !192
+  %476 = load ptr, ptr %475, align 8, !tbaa !196
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %478 = load ptr, ptr %477, align 8, !tbaa !186
+  %478 = load ptr, ptr %477, align 8, !tbaa !188
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %480 = load ptr, ptr %479, align 8, !tbaa !161
+  %480 = load ptr, ptr %479, align 8, !tbaa !163
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %476, double noundef -1.000000e+00, ptr noundef %478, ptr noundef %480) #14
-  %481 = load ptr, ptr %479, align 8, !tbaa !161
+  %481 = load ptr, ptr %479, align 8, !tbaa !163
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %483 = load ptr, ptr %482, align 8, !tbaa !152
+  %483 = load ptr, ptr %482, align 8, !tbaa !154
   %484 = tail call double @N_VWrmsNorm(ptr noundef %481, ptr noundef %483) #14
   store double %484, ptr %1, align 8, !tbaa !115
   br label %.loopexit
@@ -2683,40 +2683,40 @@ mriStep_AccessStepMem.exit:                       ; preds = %6
   br label %105
 
 12:                                               ; preds = %6
-  store i64 0, ptr %8, align 8, !tbaa !193
-  store i64 0, ptr %7, align 8, !tbaa !193
+  store i64 0, ptr %8, align 8, !tbaa !197
+  store i64 0, ptr %7, align 8, !tbaa !197
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !194
+  %16 = load ptr, ptr %15, align 8, !tbaa !198
   %.not67 = icmp eq ptr %16, null
   br i1 %.not67, label %18, label %17
 
 17:                                               ; preds = %12
   call void @N_VSpace(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #14
-  %.pre = load i64, ptr %7, align 8, !tbaa !193
-  %.pre102 = load i64, ptr %8, align 8, !tbaa !193
+  %.pre = load i64, ptr %7, align 8, !tbaa !197
+  %.pre102 = load i64, ptr %8, align 8, !tbaa !197
   br label %18
 
 18:                                               ; preds = %17, %12
   %19 = phi i64 [ %.pre102, %17 ], [ 0, %12 ]
   %20 = phi i64 [ %.pre, %17 ], [ 0, %12 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %22 = load i64, ptr %21, align 8, !tbaa !148
+  %22 = load i64, ptr %21, align 8, !tbaa !150
   %23 = sub nsw i64 %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %25 = load i64, ptr %24, align 8, !tbaa !149
+  %25 = load i64, ptr %24, align 8, !tbaa !151
   %26 = sub nsw i64 %19, %25
-  store i64 %20, ptr %21, align 8, !tbaa !148
-  store i64 %19, ptr %24, align 8, !tbaa !149
+  store i64 %20, ptr %21, align 8, !tbaa !150
+  store i64 %19, ptr %24, align 8, !tbaa !151
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !151
+  %28 = load ptr, ptr %27, align 8, !tbaa !153
   %.not68 = icmp eq ptr %28, null
   br i1 %.not68, label %42, label %29
 
 29:                                               ; preds = %18
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %31 = load i32, ptr %30, align 8, !tbaa !146
+  %31 = load i32, ptr %30, align 8, !tbaa !148
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %34 = call i32 @arkResizeVecArray(ptr noundef %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %1, ptr noundef nonnull %27, i64 noundef %23, ptr noundef nonnull %32, i64 noundef %26, ptr noundef nonnull %33) #14
@@ -2729,31 +2729,31 @@ mriStep_AccessStepMem.exit:                       ; preds = %6
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %38 = load i32, ptr %37, align 8, !tbaa !145
+  %38 = load i32, ptr %37, align 8, !tbaa !147
   %.not70 = icmp eq i32 %38, 0
   br i1 %.not70, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %27, align 8, !tbaa !151
+  %40 = load ptr, ptr %27, align 8, !tbaa !153
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %40, ptr %41, align 8, !tbaa !150
+  store ptr %40, ptr %41, align 8, !tbaa !152
   br label %42
 
 42:                                               ; preds = %36, %39, %18
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !150
+  %44 = load ptr, ptr %43, align 8, !tbaa !152
   %.not71 = icmp eq ptr %44, null
   br i1 %.not71, label %55, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %47 = load i32, ptr %46, align 8, !tbaa !145
+  %47 = load i32, ptr %46, align 8, !tbaa !147
   %.not72 = icmp eq i32 %47, 0
   br i1 %.not72, label %48, label %55
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %50 = load i32, ptr %49, align 8, !tbaa !146
+  %50 = load i32, ptr %49, align 8, !tbaa !148
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %53 = call i32 @arkResizeVecArray(ptr noundef %4, ptr noundef %5, i32 noundef %50, ptr noundef nonnull %1, ptr noundef nonnull %43, i64 noundef %23, ptr noundef nonnull %51, i64 noundef %26, ptr noundef nonnull %52) #14
@@ -2766,7 +2766,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %6
 
 55:                                               ; preds = %48, %45, %42
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  %57 = load ptr, ptr %56, align 8, !tbaa !171
+  %57 = load ptr, ptr %56, align 8, !tbaa !173
   %.not74 = icmp eq ptr %57, null
   br i1 %.not74, label %61, label %58
 
@@ -2781,7 +2781,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %6
 
 61:                                               ; preds = %58, %55
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %63 = load ptr, ptr %62, align 8, !tbaa !195
+  %63 = load ptr, ptr %62, align 8, !tbaa !199
   %.not76 = icmp eq ptr %63, null
   br i1 %.not76, label %67, label %64
 
@@ -2796,7 +2796,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %6
 
 67:                                               ; preds = %64, %61
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  %69 = load ptr, ptr %68, align 8, !tbaa !191
+  %69 = load ptr, ptr %68, align 8, !tbaa !194
   %.not78 = icmp eq ptr %69, null
   br i1 %.not78, label %73, label %70
 
@@ -2859,7 +2859,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %6
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 36
-  %96 = load i32, ptr %95, align 4, !tbaa !196
+  %96 = load i32, ptr %95, align 4, !tbaa !200
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 96
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 104
@@ -2913,14 +2913,14 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !175
+  %17 = load ptr, ptr %16, align 8, !tbaa !177
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %mriStepInnerStepper_Reset.exit.thread15, label %mriStepInnerStepper_Reset.exit
 
 mriStepInnerStepper_Reset.exit:                   ; preds = %15
   %18 = tail call i32 %17(ptr noundef nonnull %9, double noundef %1, ptr noundef %2) #14
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 %18, ptr %19, align 8, !tbaa !166
+  store i32 %18, ptr %19, align 8, !tbaa !168
   %.not8 = icmp eq i32 %18, 0
   br i1 %.not8, label %mriStepInnerStepper_Reset.exit.thread15, label %mriStepInnerStepper_Reset.exit.thread
 
@@ -2959,12 +2959,12 @@ define void @mriStep_Free(ptr noundef %0) #0 {
   %12 = load ptr, ptr %9, align 8, !tbaa !125
   call void @MRIStepCoupling_Free(ptr noundef %12) #14
   store ptr null, ptr %9, align 8, !tbaa !125
-  %13 = load i64, ptr %2, align 8, !tbaa !193
+  %13 = load i64, ptr %2, align 8, !tbaa !197
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %15 = load i64, ptr %14, align 8, !tbaa !85
   %16 = sub nsw i64 %15, %13
   store i64 %16, ptr %14, align 8, !tbaa !85
-  %17 = load i64, ptr %3, align 8, !tbaa !193
+  %17 = load i64, ptr %3, align 8, !tbaa !197
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %19 = load i64, ptr %18, align 8, !tbaa !86
   %20 = sub nsw i64 %19, %17
@@ -3005,13 +3005,13 @@ define void @mriStep_Free(ptr noundef %0) #0 {
 
 39:                                               ; preds = %33, %30
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %41 = load ptr, ptr %40, align 8, !tbaa !143
+  %41 = load ptr, ptr %40, align 8, !tbaa !145
   %.not92 = icmp eq ptr %41, null
   br i1 %.not92, label %48, label %42
 
 42:                                               ; preds = %39
   call void @free(ptr noundef nonnull %41) #14
-  store ptr null, ptr %40, align 8, !tbaa !143
+  store ptr null, ptr %40, align 8, !tbaa !145
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %44 = load i32, ptr %43, align 8, !tbaa !131
   %45 = sext i32 %44 to i64
@@ -3022,13 +3022,13 @@ define void @mriStep_Free(ptr noundef %0) #0 {
 
 48:                                               ; preds = %42, %39
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %50 = load ptr, ptr %49, align 8, !tbaa !144
+  %50 = load ptr, ptr %49, align 8, !tbaa !146
   %.not93 = icmp eq ptr %50, null
   br i1 %.not93, label %57, label %51
 
 51:                                               ; preds = %48
   call void @free(ptr noundef nonnull %50) #14
-  store ptr null, ptr %49, align 8, !tbaa !144
+  store ptr null, ptr %49, align 8, !tbaa !146
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %53 = load i32, ptr %52, align 8, !tbaa !131
   %54 = sext i32 %53 to i64
@@ -3069,77 +3069,77 @@ define void @mriStep_Free(ptr noundef %0) #0 {
 
 71:                                               ; preds = %68, %65
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %73 = load ptr, ptr %72, align 8, !tbaa !171
+  %73 = load ptr, ptr %72, align 8, !tbaa !173
   %.not97 = icmp eq ptr %73, null
   br i1 %.not97, label %75, label %74
 
 74:                                               ; preds = %71
   call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %72) #14
-  store ptr null, ptr %72, align 8, !tbaa !171
+  store ptr null, ptr %72, align 8, !tbaa !173
   br label %75
 
 75:                                               ; preds = %74, %71
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %77 = load ptr, ptr %76, align 8, !tbaa !195
+  %77 = load ptr, ptr %76, align 8, !tbaa !199
   %.not98 = icmp eq ptr %77, null
   br i1 %.not98, label %79, label %78
 
 78:                                               ; preds = %75
   call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %76) #14
-  store ptr null, ptr %76, align 8, !tbaa !195
+  store ptr null, ptr %76, align 8, !tbaa !199
   br label %79
 
 79:                                               ; preds = %78, %75
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  %81 = load ptr, ptr %80, align 8, !tbaa !191
+  %81 = load ptr, ptr %80, align 8, !tbaa !194
   %.not99 = icmp eq ptr %81, null
   br i1 %.not99, label %83, label %82
 
 82:                                               ; preds = %79
   call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %80) #14
-  store ptr null, ptr %80, align 8, !tbaa !191
+  store ptr null, ptr %80, align 8, !tbaa !194
   br label %83
 
 83:                                               ; preds = %82, %79
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %85 = load ptr, ptr %84, align 8, !tbaa !151
+  %85 = load ptr, ptr %84, align 8, !tbaa !153
   %.not100 = icmp eq ptr %85, null
   br i1 %.not100, label %99, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %88 = load i32, ptr %87, align 8, !tbaa !146
+  %88 = load i32, ptr %87, align 8, !tbaa !148
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %90 = load i64, ptr %89, align 8, !tbaa !148
+  %90 = load i64, ptr %89, align 8, !tbaa !150
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %93 = load i64, ptr %92, align 8, !tbaa !149
+  %93 = load i64, ptr %92, align 8, !tbaa !151
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 880
   call void @arkFreeVecArray(i32 noundef %88, ptr noundef nonnull %84, i64 noundef %90, ptr noundef nonnull %91, i64 noundef %93, ptr noundef nonnull %94) #14
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %96 = load i32, ptr %95, align 8, !tbaa !145
+  %96 = load i32, ptr %95, align 8, !tbaa !147
   %.not101 = icmp eq i32 %96, 0
   br i1 %.not101, label %99, label %97
 
 97:                                               ; preds = %86
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr null, ptr %98, align 8, !tbaa !150
+  store ptr null, ptr %98, align 8, !tbaa !152
   br label %99
 
 99:                                               ; preds = %86, %97, %83
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %101 = load ptr, ptr %100, align 8, !tbaa !150
+  %101 = load ptr, ptr %100, align 8, !tbaa !152
   %.not102 = icmp eq ptr %101, null
   br i1 %.not102, label %111, label %102
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %104 = load i32, ptr %103, align 8, !tbaa !146
+  %104 = load i32, ptr %103, align 8, !tbaa !148
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %106 = load i64, ptr %105, align 8, !tbaa !148
+  %106 = load i64, ptr %105, align 8, !tbaa !150
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %109 = load i64, ptr %108, align 8, !tbaa !149
+  %109 = load i64, ptr %108, align 8, !tbaa !151
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 880
   call void @arkFreeVecArray(i32 noundef %104, ptr noundef nonnull %100, i64 noundef %106, ptr noundef nonnull %107, i64 noundef %109, ptr noundef nonnull %110) #14
   br label %111
@@ -3213,22 +3213,22 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
   %11 = load i32, ptr %10, align 4, !tbaa !140
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %11) #14
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %14 = load i32, ptr %13, align 8, !tbaa !197
+  %14 = load i32, ptr %13, align 8, !tbaa !201
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %14) #14
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %17 = load i32, ptr %16, align 8, !tbaa !131
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %17) #14
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 296
-  %20 = load i32, ptr %19, align 8, !tbaa !198
+  %20 = load i32, ptr %19, align 8, !tbaa !202
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.22, i32 noundef %20) #14
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  %23 = load i32, ptr %22, align 8, !tbaa !199
+  %23 = load i32, ptr %22, align 8, !tbaa !203
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.23, i32 noundef %23) #14
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  %26 = load i32, ptr %25, align 8, !tbaa !156
+  %26 = load i32, ptr %25, align 8, !tbaa !158
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %26) #14
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 300
-  %29 = load i32, ptr %28, align 4, !tbaa !200
+  %29 = load i32, ptr %28, align 4, !tbaa !204
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, i32 noundef %29) #14
   %31 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 21, i64 1, ptr %1)
   %32 = load i32, ptr %16, align 8, !tbaa !131
@@ -3249,15 +3249,15 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
   %39 = load i32, ptr %16, align 8, !tbaa !131
   %40 = sext i32 %39 to i64
   %.not53.not = icmp slt i64 %indvars.iv, %40
-  br i1 %.not53.not, label %34, label %._crit_edge
+  br i1 %.not53.not, label %34, label %._crit_edge, !llvm.loop !205
 
 ._crit_edge:                                      ; preds = %34, %6
   %fputc = tail call i32 @fputc(i32 10, ptr %1)
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 408
-  %42 = load i64, ptr %41, align 8, !tbaa !170
+  %42 = load i64, ptr %41, align 8, !tbaa !172
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i64 noundef %42) #14
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 416
-  %45 = load i64, ptr %44, align 8, !tbaa !172
+  %45 = load i64, ptr %44, align 8, !tbaa !174
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i64 noundef %45) #14
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 424
   %48 = load i64, ptr %47, align 8, !tbaa !113
@@ -3266,19 +3266,19 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
   %51 = load i64, ptr %50, align 8, !tbaa !91
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, i64 noundef %51) #14
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 432
-  %54 = load i64, ptr %53, align 8, !tbaa !201
+  %54 = load i64, ptr %53, align 8, !tbaa !206
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.33, i64 noundef %54) #14
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 440
-  %57 = load i64, ptr %56, align 8, !tbaa !202
+  %57 = load i64, ptr %56, align 8, !tbaa !207
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, i64 noundef %57) #14
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 448
-  %60 = load i64, ptr %59, align 8, !tbaa !203
+  %60 = load i64, ptr %59, align 8, !tbaa !208
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i64 noundef %60) #14
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %63 = load i32, ptr %62, align 8, !tbaa !204
+  %63 = load i32, ptr %62, align 8, !tbaa !209
   %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %63) #14
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %66 = load i32, ptr %65, align 4, !tbaa !205
+  %66 = load i32, ptr %65, align 4, !tbaa !210
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i32 noundef %66) #14
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %69 = load i32, ptr %68, align 8, !tbaa !83
@@ -3287,7 +3287,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
   %72 = load i32, ptr %71, align 4, !tbaa !84
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.39, i32 noundef %72) #14
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 304
-  %75 = load i32, ptr %74, align 8, !tbaa !206
+  %75 = load i32, ptr %74, align 8, !tbaa !211
   %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, i32 noundef %75) #14
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %78 = load i32, ptr %77, align 8, !tbaa !88
@@ -3300,35 +3300,35 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
   %84 = load double, ptr %83, align 8, !tbaa !114
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.43, double noundef %84) #14
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  %87 = load double, ptr %86, align 8, !tbaa !207
+  %87 = load double, ptr %86, align 8, !tbaa !212
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %87) #14
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %90 = load double, ptr %89, align 8, !tbaa !116
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, double noundef %90) #14
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 248
-  %93 = load double, ptr %92, align 8, !tbaa !208
+  %93 = load double, ptr %92, align 8, !tbaa !213
   %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, double noundef %93) #14
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  %96 = load double, ptr %95, align 8, !tbaa !209
+  %96 = load double, ptr %95, align 8, !tbaa !214
   %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.47, double noundef %96) #14
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %99 = load double, ptr %98, align 8, !tbaa !90
   %100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, double noundef %99) #14
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  %102 = load double, ptr %101, align 8, !tbaa !210
+  %102 = load double, ptr %101, align 8, !tbaa !215
   %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.49, double noundef %102) #14
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  %105 = load double, ptr %104, align 8, !tbaa !211
+  %105 = load double, ptr %104, align 8, !tbaa !216
   %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, double noundef %105) #14
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  %108 = load double, ptr %107, align 8, !tbaa !212
+  %108 = load double, ptr %107, align 8, !tbaa !217
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.51, double noundef %108) #14
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %111 = load double, ptr %110, align 8, !tbaa !118
   %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.52, double noundef %111) #14
   %113 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 17, i64 1, ptr %1)
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  %115 = load i32, ptr %114, align 4, !tbaa !147
+  %115 = load i32, ptr %114, align 4, !tbaa !149
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %.lr.ph98, label %._crit_edge99
 
@@ -3338,20 +3338,20 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
 
 118:                                              ; preds = %.lr.ph98, %118
   %indvars.iv105 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next106, %118 ]
-  %119 = load ptr, ptr %117, align 8, !tbaa !143
+  %119 = load ptr, ptr %117, align 8, !tbaa !145
   %120 = getelementptr inbounds nuw double, ptr %119, i64 %indvars.iv105
   %121 = load double, ptr %120, align 8, !tbaa !115
   %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.54, double noundef %121) #14
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %123 = load i32, ptr %114, align 4, !tbaa !147
+  %123 = load i32, ptr %114, align 4, !tbaa !149
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next106, %124
-  br i1 %125, label %118, label %._crit_edge99
+  br i1 %125, label %118, label %._crit_edge99, !llvm.loop !218
 
 ._crit_edge99:                                    ; preds = %118, %._crit_edge
   %fputc54 = tail call i32 @fputc(i32 10, ptr %1)
   %126 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 17, i64 1, ptr %1)
-  %127 = load i32, ptr %114, align 4, !tbaa !147
+  %127 = load i32, ptr %114, align 4, !tbaa !149
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %.lr.ph102, label %._crit_edge103
 
@@ -3361,15 +3361,15 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
 
 130:                                              ; preds = %.lr.ph102, %130
   %indvars.iv108 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next109, %130 ]
-  %131 = load ptr, ptr %129, align 8, !tbaa !144
+  %131 = load ptr, ptr %129, align 8, !tbaa !146
   %132 = getelementptr inbounds nuw double, ptr %131, i64 %indvars.iv108
   %133 = load double, ptr %132, align 8, !tbaa !115
   %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.54, double noundef %133) #14
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %135 = load i32, ptr %114, align 4, !tbaa !147
+  %135 = load i32, ptr %114, align 4, !tbaa !149
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next109, %136
-  br i1 %137, label %130, label %._crit_edge103
+  br i1 %137, label %130, label %._crit_edge103, !llvm.loop !219
 
 ._crit_edge103:                                   ; preds = %130, %._crit_edge99
   %fputc55 = tail call i32 @fputc(i32 10, ptr %1)
@@ -3381,7 +3381,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
 141:                                              ; preds = %._crit_edge103
   %142 = tail call i64 @fwrite(ptr nonnull @.str.98, i64 25, i64 1, ptr %1)
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  %144 = load i32, ptr %143, align 8, !tbaa !213
+  %144 = load i32, ptr %143, align 8, !tbaa !220
   %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.99, i32 noundef %144) #14
   br label %mriStepInnerStepper_PrintMem.exit
 
@@ -3404,7 +3404,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  %9 = load ptr, ptr %8, align 8, !tbaa !195
+  %9 = load ptr, ptr %8, align 8, !tbaa !199
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %9, double noundef 1.000000e+00, ptr noundef %1, ptr noundef %2) #14
   br label %10
 
@@ -3498,15 +3498,15 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 464
   store i32 %.sink, ptr %20, align 8, !tbaa !99
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 472
-  store double %1, ptr %21, align 8, !tbaa !188
+  store double %1, ptr %21, align 8, !tbaa !190
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 480
-  store double %2, ptr %22, align 8, !tbaa !189
+  store double %2, ptr %22, align 8, !tbaa !191
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 488
   store ptr %3, ptr %23, align 8, !tbaa !100
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 496
   store i32 %4, ptr %24, align 8, !tbaa !101
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 0, ptr %25, align 8, !tbaa !183
+  store i32 0, ptr %25, align 8, !tbaa !185
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 504
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %.not20 = icmp eq ptr %27, null
@@ -3589,9 +3589,9 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 464
   store i32 0, ptr %76, align 8, !tbaa !99
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 472
-  store double 0.000000e+00, ptr %77, align 8, !tbaa !188
+  store double 0.000000e+00, ptr %77, align 8, !tbaa !190
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 480
-  store double 1.000000e+00, ptr %78, align 8, !tbaa !189
+  store double 1.000000e+00, ptr %78, align 8, !tbaa !191
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 488
   store ptr null, ptr %79, align 8, !tbaa !100
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 496
@@ -3658,7 +3658,7 @@ define i32 @MRIStepReInit(ptr noundef %0, ptr noundef %1, ptr noundef %2, double
 
 mriStep_AccessARKODEStepMem.exit:                 ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %15 = load i32, ptr %14, align 8, !tbaa !214
+  %15 = load i32, ptr %14, align 8, !tbaa !221
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %18
 
@@ -3777,7 +3777,7 @@ define range(i32 -21, 1) i32 @mriStep_AccessARKODEStepMem(ptr noundef %0, ptr no
   br label %13
 
 12:                                               ; preds = %7
-  store ptr %9, ptr %3, align 8, !tbaa !215
+  store ptr %9, ptr %3, align 8, !tbaa !222
   br label %13
 
 13:                                               ; preds = %12, %11, %6
@@ -3797,7 +3797,7 @@ define range(i32 -21, 1) i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef 
   br label %9
 
 8:                                                ; preds = %3
-  store ptr %5, ptr %2, align 8, !tbaa !215
+  store ptr %5, ptr %2, align 8, !tbaa !222
   br label %9
 
 9:                                                ; preds = %8, %7
@@ -3820,7 +3820,7 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_Resize(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !196
+  %10 = load i32, ptr %9, align 4, !tbaa !200
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3847,14 +3847,14 @@ define i32 @mriStepInnerStepper_Reset(ptr noundef %0, double noundef %1, ptr nou
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !175
+  %11 = load ptr, ptr %10, align 8, !tbaa !177
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 %11(ptr noundef nonnull %0, double noundef %1, ptr noundef %2) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %13, ptr %14, align 8, !tbaa !166
+  store i32 %13, ptr %14, align 8, !tbaa !168
   br label %15
 
 15:                                               ; preds = %9, %5, %3, %12
@@ -3888,7 +3888,7 @@ define void @mriStepInnerStepper_PrintMem(ptr noundef readonly captures(address_
 4:                                                ; preds = %2
   %5 = tail call i64 @fwrite(ptr nonnull @.str.98, i64 25, i64 1, ptr %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i32, ptr %6, align 8, !tbaa !213
+  %7 = load i32, ptr %6, align 8, !tbaa !220
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.99, i32 noundef %7) #14
   br label %9
 
@@ -4032,12 +4032,12 @@ switch.lookup56:                                  ; preds = %38
 
 50:                                               ; preds = %46
   call void @MRIStepCoupling_Space(ptr noundef nonnull %47, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
-  %51 = load i64, ptr %2, align 8, !tbaa !193
+  %51 = load i64, ptr %2, align 8, !tbaa !197
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %53 = load i64, ptr %52, align 8, !tbaa !85
   %54 = add nsw i64 %53, %51
   store i64 %54, ptr %52, align 8, !tbaa !85
-  %55 = load i64, ptr %3, align 8, !tbaa !193
+  %55 = load i64, ptr %3, align 8, !tbaa !197
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %57 = load i64, ptr %56, align 8, !tbaa !86
   %58 = add nsw i64 %57, %55
@@ -4187,13 +4187,13 @@ thread-pre-split:                                 ; preds = %34, %37
 
 42:                                               ; preds = %40, %40
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !217
+  %44 = load ptr, ptr %43, align 8, !tbaa !224
   %.not198 = icmp eq ptr %44, null
   br i1 %.not198, label %48, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !218
+  %47 = load ptr, ptr %46, align 8, !tbaa !225
   %.not199 = icmp eq ptr %47, null
   br i1 %.not199, label %48, label %.preheader215
 
@@ -4203,13 +4203,13 @@ thread-pre-split:                                 ; preds = %34, %37
 
 49:                                               ; preds = %40, %40
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !217
+  %51 = load ptr, ptr %50, align 8, !tbaa !224
   %.not196 = icmp eq ptr %51, null
   br i1 %.not196, label %55, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %54 = load ptr, ptr %53, align 8, !tbaa !218
+  %54 = load ptr, ptr %53, align 8, !tbaa !225
   %.not197 = icmp eq ptr %54, null
   br i1 %.not197, label %.preheader215, label %55
 
@@ -4219,13 +4219,13 @@ thread-pre-split:                                 ; preds = %34, %37
 
 56:                                               ; preds = %40
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %58 = load ptr, ptr %57, align 8, !tbaa !217
+  %58 = load ptr, ptr %57, align 8, !tbaa !224
   %.not194 = icmp eq ptr %58, null
   br i1 %.not194, label %59, label %62
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !218
+  %61 = load ptr, ptr %60, align 8, !tbaa !225
   %.not195 = icmp eq ptr %61, null
   br i1 %.not195, label %62, label %.thread373
 
@@ -4235,14 +4235,14 @@ thread-pre-split:                                 ; preds = %34, %37
 
 63:                                               ; preds = %40
   %.phi.trans.insert363 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.pre364 = load ptr, ptr %.phi.trans.insert363, align 8, !tbaa !217
+  %.pre364 = load ptr, ptr %.phi.trans.insert363, align 8, !tbaa !224
   %.not200 = icmp eq ptr %.pre364, null
   br i1 %.not200, label %.thread373, label %.preheader215
 
 .preheader215:                                    ; preds = %45, %52, %63
   %64 = phi ptr [ %.pre364, %63 ], [ %44, %45 ], [ %51, %52 ]
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !153
+  %66 = load i32, ptr %65, align 4, !tbaa !155
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.preheader214.us.preheader, label %.thread373
 
@@ -4256,13 +4256,13 @@ thread-pre-split:                                 ; preds = %34, %37
   %indvars.iv296 = phi i64 [ 0, %.preheader214.us.preheader ], [ %indvars.iv.next297, %._crit_edge.us ]
   %.0150222.us = phi double [ 0.000000e+00, %.preheader214.us.preheader ], [ %76, %._crit_edge.us ]
   %69 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv296
-  %70 = load ptr, ptr %69, align 8, !tbaa !219
+  %70 = load ptr, ptr %69, align 8, !tbaa !226
   br label %.preheader213.us
 
 71:                                               ; preds = %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader213.us
+  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader213.us, !llvm.loop !228
 
 72:                                               ; preds = %.preheader213.us, %72
   %indvars.iv292 = phi i64 [ %indvars.iv, %.preheader213.us ], [ %indvars.iv.next293, %72 ]
@@ -4273,19 +4273,19 @@ thread-pre-split:                                 ; preds = %34, %37
   %76 = fadd double %.2152218.us, %75
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %77 = icmp samesign ult i64 %indvars.iv.next293, %68
-  br i1 %77, label %72, label %71
+  br i1 %77, label %72, label %71, !llvm.loop !229
 
 .preheader213.us:                                 ; preds = %.preheader214.us, %71
   %indvars.iv = phi i64 [ 0, %.preheader214.us ], [ %indvars.iv.next, %71 ]
   %.1151219.us = phi double [ %.0150222.us, %.preheader214.us ], [ %76, %71 ]
   %78 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
-  %79 = load ptr, ptr %78, align 8, !tbaa !221
+  %79 = load ptr, ptr %78, align 8, !tbaa !230
   br label %72
 
 ._crit_edge.us:                                   ; preds = %71
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
-  br i1 %exitcond300.not, label %._crit_edge223, label %.preheader214.us, !llvm.loop !222
+  br i1 %exitcond300.not, label %._crit_edge223, label %.preheader214.us, !llvm.loop !231
 
 ._crit_edge223:                                   ; preds = %._crit_edge.us
   %80 = fcmp ogt double %76, 0x3D19000000000000
@@ -4297,13 +4297,13 @@ thread-pre-split:                                 ; preds = %34, %37
 
 .thread373:                                       ; preds = %.preheader215, %59, %._crit_edge223, %63
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %83 = load ptr, ptr %82, align 8, !tbaa !218
+  %83 = load ptr, ptr %82, align 8, !tbaa !225
   %.not201 = icmp eq ptr %83, null
   br i1 %.not201, label %._crit_edge233.thread, label %.preheader212
 
 .preheader212:                                    ; preds = %.thread373
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !153
+  %85 = load i32, ptr %84, align 4, !tbaa !155
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.preheader211.us.preheader, label %._crit_edge233.thread
 
@@ -4338,24 +4338,24 @@ thread-pre-split:                                 ; preds = %34, %37
   %95 = fadd double %.2155226.us, %94
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond307.not = icmp eq i64 %indvars.iv.next304, %wide.trip.count306
-  br i1 %exitcond307.not, label %.loopexit.us, label %91
+  br i1 %exitcond307.not, label %.loopexit.us, label %91, !llvm.loop !233
 
 .loopexit.us:                                     ; preds = %91, %89
   %.2155.lcssa.us = phi double [ %.1154227.us, %89 ], [ %95, %91 ]
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %exitcond313.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count312
-  br i1 %exitcond313.not, label %._crit_edge.us236, label %89
+  br i1 %exitcond313.not, label %._crit_edge.us236, label %89, !llvm.loop !234
 
 .lr.ph.us:                                        ; preds = %89
-  %96 = load ptr, ptr %88, align 8, !tbaa !219
+  %96 = load ptr, ptr %88, align 8, !tbaa !226
   %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv308
-  %98 = load ptr, ptr %97, align 8, !tbaa !221
+  %98 = load ptr, ptr %97, align 8, !tbaa !230
   br label %91
 
 ._crit_edge.us236:                                ; preds = %.loopexit.us
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %exitcond318.not = icmp eq i64 %indvars.iv.next315, %wide.trip.count317
-  br i1 %exitcond318.not, label %._crit_edge233, label %.preheader211.us, !llvm.loop !224
+  br i1 %exitcond318.not, label %._crit_edge233, label %.preheader211.us, !llvm.loop !235
 
 ._crit_edge233:                                   ; preds = %._crit_edge.us236
   %99 = fcmp ogt double %.2155.lcssa.us, 0x3D19000000000000
@@ -4374,13 +4374,13 @@ thread-pre-split:                                 ; preds = %34, %37
   %104 = zext nneg i32 %103 to i64
   %105 = tail call noalias ptr @calloc(i64 noundef %104, i64 noundef 4) #15
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %107 = load i32, ptr %106, align 8, !tbaa !225
+  %107 = load i32, ptr %106, align 8, !tbaa !236
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.preheader210.lr.ph.split.us, label %.lr.ph.preheader
 
 .preheader210.lr.ph.split.us:                     ; preds = %102
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %110 = load ptr, ptr %109, align 8, !tbaa !226
+  %110 = load ptr, ptr %109, align 8, !tbaa !237
   %smax322 = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
   %wide.trip.count328 = zext nneg i32 %107 to i64
   %wide.trip.count323 = zext nneg i32 %smax322 to i64
@@ -4411,12 +4411,12 @@ thread-pre-split:                                 ; preds = %34, %37
   store i32 %122, ptr %120, align 4, !tbaa !119
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next320, %wide.trip.count323
-  br i1 %exitcond324.not, label %._crit_edge.us242, label %113
+  br i1 %exitcond324.not, label %._crit_edge.us242, label %113, !llvm.loop !238
 
 ._crit_edge.us242:                                ; preds = %113, %118
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count328
-  br i1 %exitcond329.not, label %.lr.ph.preheader, label %.preheader210.us, !llvm.loop !227
+  br i1 %exitcond329.not, label %.lr.ph.preheader, label %.preheader210.us, !llvm.loop !239
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge.us242, %102
   %smax333 = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
@@ -4432,7 +4432,7 @@ thread-pre-split:                                 ; preds = %34, %37
 124:                                              ; preds = %.lr.ph
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond335.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count334
-  br i1 %exitcond335.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond335.not, label %._crit_edge, label %.lr.ph, !llvm.loop !240
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %124
   %indvars.iv330 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next331, %124 ]
@@ -4467,7 +4467,7 @@ thread-pre-split:                                 ; preds = %34, %37
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load i32, ptr %135, align 8, !tbaa !130
   %137 = icmp slt i32 %133, %136
-  br i1 %137, label %.lr.ph248, label %._crit_edge249
+  br i1 %137, label %.lr.ph248, label %._crit_edge249, !llvm.loop !241
 
 ._crit_edge249:                                   ; preds = %.lr.ph248
   %138 = icmp eq i32 %spec.select, 0
@@ -4486,7 +4486,7 @@ thread-pre-split:                                 ; preds = %34, %37
 
 .lr.ph254:                                        ; preds = %140
   %143 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %144 = load ptr, ptr %143, align 8, !tbaa !184
+  %144 = load ptr, ptr %143, align 8, !tbaa !186
   %wide.trip.count339 = zext nneg i32 %136 to i64
   br label %145
 
@@ -4502,7 +4502,7 @@ thread-pre-split:                                 ; preds = %34, %37
   %.3166 = select i1 %151, i32 0, i32 %.2165252
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %exitcond340.not = icmp eq i64 %indvars.iv.next337, %wide.trip.count339
-  br i1 %exitcond340.not, label %._crit_edge255, label %145
+  br i1 %exitcond340.not, label %._crit_edge255, label %145, !llvm.loop !242
 
 ._crit_edge255:                                   ; preds = %145
   %152 = icmp eq i32 %.3166, 0
@@ -4514,11 +4514,11 @@ thread-pre-split:                                 ; preds = %34, %37
 
 ._crit_edge255.thread:                            ; preds = %140, %._crit_edge255
   %154 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %155 = load ptr, ptr %154, align 8, !tbaa !184
+  %155 = load ptr, ptr %154, align 8, !tbaa !186
   %156 = load double, ptr %155, align 8, !tbaa !115
   %157 = tail call double @llvm.fabs.f64(double %156)
   %158 = getelementptr inbounds nuw i8, ptr %134, i64 4
-  %159 = load i32, ptr %158, align 4, !tbaa !153
+  %159 = load i32, ptr %158, align 4, !tbaa !155
   %160 = icmp sgt i32 %159, 0
   %161 = icmp sgt i32 %136, 0
   %or.cond386 = and i1 %160, %161
@@ -4527,9 +4527,9 @@ thread-pre-split:                                 ; preds = %34, %37
 .preheader.lr.ph.split.us:                        ; preds = %._crit_edge255.thread
   %162 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %163 = getelementptr inbounds nuw i8, ptr %134, i64 32
-  %164 = load ptr, ptr %163, align 8, !tbaa !217
+  %164 = load ptr, ptr %163, align 8, !tbaa !224
   %.not205.us = icmp eq ptr %164, null
-  %165 = load ptr, ptr %162, align 8, !tbaa !218
+  %165 = load ptr, ptr %162, align 8, !tbaa !225
   %.not206.us = icmp eq ptr %165, null
   %wide.trip.count359 = zext nneg i32 %159 to i64
   %wide.trip.count344 = zext nneg i32 %136 to i64
@@ -4556,19 +4556,19 @@ thread-pre-split:                                 ; preds = %34, %37
   %175 = fadd double %171, %174
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %exitcond345.not = icmp eq i64 %indvars.iv.next342, %wide.trip.count344
-  br i1 %exitcond345.not, label %._crit_edge260.us, label %167
+  br i1 %exitcond345.not, label %._crit_edge260.us, label %167, !llvm.loop !243
 
 .lr.ph259.split.us276:                            ; preds = %.preheader.us
   %176 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv356
-  %177 = load ptr, ptr %176, align 8, !tbaa !219
-  %178 = load ptr, ptr %177, align 8, !tbaa !221
+  %177 = load ptr, ptr %176, align 8, !tbaa !226
+  %178 = load ptr, ptr %177, align 8, !tbaa !230
   br i1 %.not206.us, label %.lr.ph259.split.split.us.us, label %.lr.ph259.split.split.us277
 
 ._crit_edge260.us:                                ; preds = %167, %.lr.ph259.split.split.us.us, %186
   %.us-phi262.us = phi double [ %.6.us.us, %186 ], [ %192, %.lr.ph259.split.split.us.us ], [ %175, %167 ]
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
   %exitcond360.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count359
-  br i1 %exitcond360.not, label %._crit_edge270, label %.preheader.us, !llvm.loop !228
+  br i1 %exitcond360.not, label %._crit_edge270, label %.preheader.us, !llvm.loop !244
 
 .lr.ph259.split.us.us:                            ; preds = %.preheader.us, %186
   %indvars.iv351 = phi i64 [ %indvars.iv.next352, %186 ], [ 0, %.preheader.us ]
@@ -4576,8 +4576,8 @@ thread-pre-split:                                 ; preds = %34, %37
   br i1 %.not206.us, label %186, label %179
 
 179:                                              ; preds = %.lr.ph259.split.us.us
-  %180 = load ptr, ptr %166, align 8, !tbaa !219
-  %181 = load ptr, ptr %180, align 8, !tbaa !221
+  %180 = load ptr, ptr %166, align 8, !tbaa !226
+  %181 = load ptr, ptr %180, align 8, !tbaa !230
   %182 = getelementptr inbounds nuw double, ptr %181, i64 %indvars.iv351
   %183 = load double, ptr %182, align 8, !tbaa !115
   %184 = tail call double @llvm.fabs.f64(double %183)
@@ -4588,11 +4588,11 @@ thread-pre-split:                                 ; preds = %34, %37
   %.6.us.us = phi double [ %185, %179 ], [ %.4157258.us.us, %.lr.ph259.split.us.us ]
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %exitcond355.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count354
-  br i1 %exitcond355.not, label %._crit_edge260.us, label %.lr.ph259.split.us.us, !llvm.loop !229
+  br i1 %exitcond355.not, label %._crit_edge260.us, label %.lr.ph259.split.us.us, !llvm.loop !245
 
 .lr.ph259.split.split.us277:                      ; preds = %.lr.ph259.split.us276
-  %187 = load ptr, ptr %166, align 8, !tbaa !219
-  %188 = load ptr, ptr %187, align 8, !tbaa !221
+  %187 = load ptr, ptr %166, align 8, !tbaa !226
+  %188 = load ptr, ptr %187, align 8, !tbaa !230
   br label %167
 
 .lr.ph259.split.split.us.us:                      ; preds = %.lr.ph259.split.us276, %.lr.ph259.split.split.us.us
@@ -4604,7 +4604,7 @@ thread-pre-split:                                 ; preds = %34, %37
   %192 = fadd double %.4157258.us263.us, %191
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count349
-  br i1 %exitcond350.not, label %._crit_edge260.us, label %.lr.ph259.split.split.us.us, !llvm.loop !230
+  br i1 %exitcond350.not, label %._crit_edge260.us, label %.lr.ph259.split.split.us.us, !llvm.loop !246
 
 ._crit_edge270:                                   ; preds = %._crit_edge260.us, %._crit_edge255.thread
   %.3156.lcssa = phi double [ %157, %._crit_edge255.thread ], [ %.us-phi262.us, %._crit_edge260.us ]
@@ -4649,13 +4649,13 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
   store i32 0, ptr %2, align 4, !tbaa !119
   store double 0.000000e+00, ptr %1, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %9 = load ptr, ptr %8, align 8, !tbaa !192
+  %9 = load ptr, ptr %8, align 8, !tbaa !196
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %11 = load double, ptr %10, align 8, !tbaa !174
+  %11 = load double, ptr %10, align 8, !tbaa !176
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %13 = load ptr, ptr %12, align 8, !tbaa !133
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  %15 = load ptr, ptr %14, align 8, !tbaa !157
+  %15 = load ptr, ptr %14, align 8, !tbaa !159
   %16 = tail call i32 @SUNAdaptController_GetType(ptr noundef %15) #14
   %17 = icmp eq i32 %16, 2
   br i1 %17, label %18, label %mriStepInnerStepper_SetRTol.exit.thread208
@@ -4676,7 +4676,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !162
+  %29 = load ptr, ptr %28, align 8, !tbaa !164
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread203.thread, label %mriStepInnerStepper_ResetAccumulatedError.exit
 
@@ -4684,16 +4684,16 @@ mriStepInnerStepper_ResetAccumulatedError.exit.thread203.thread: ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %31 = load double, ptr %30, align 8, !tbaa !95
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = load double, ptr %32, align 8, !tbaa !173
+  %33 = load double, ptr %32, align 8, !tbaa !175
   %34 = fmul double %31, %33
   br label %45
 
 mriStepInnerStepper_ResetAccumulatedError.exit:   ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !163
+  %36 = load ptr, ptr %35, align 8, !tbaa !165
   %37 = tail call i32 %36(ptr noundef nonnull %21) #14
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i32 %37, ptr %38, align 8, !tbaa !166
+  store i32 %37, ptr %38, align 8, !tbaa !168
   %.not145 = icmp eq i32 %37, 0
   br i1 %.not145, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread203, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread
 
@@ -4706,7 +4706,7 @@ mriStepInnerStepper_ResetAccumulatedError.exit.thread203: ; preds = %mriStepInne
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %40 = load double, ptr %39, align 8, !tbaa !95
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load double, ptr %41, align 8, !tbaa !173
+  %42 = load double, ptr %41, align 8, !tbaa !175
   %43 = fmul double %40, %42
   %44 = icmp eq ptr %.pre, null
   br i1 %44, label %mriStepInnerStepper_SetRTol.exit.thread, label %45
@@ -4721,14 +4721,14 @@ mriStepInnerStepper_ResetAccumulatedError.exit.thread203: ; preds = %mriStepInne
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !164
+  %53 = load ptr, ptr %52, align 8, !tbaa !166
   %.not.i168 = icmp eq ptr %53, null
   br i1 %.not.i168, label %mriStepInnerStepper_SetRTol.exit.thread208, label %mriStepInnerStepper_SetRTol.exit
 
 mriStepInnerStepper_SetRTol.exit:                 ; preds = %51
   %54 = tail call i32 %53(ptr noundef nonnull %47, double noundef %46) #14
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store i32 %54, ptr %55, align 8, !tbaa !166
+  store i32 %54, ptr %55, align 8, !tbaa !168
   %.not146 = icmp eq i32 %54, 0
   br i1 %.not146, label %mriStepInnerStepper_SetRTol.exit.thread208, label %mriStepInnerStepper_SetRTol.exit.thread
 
@@ -4746,7 +4746,7 @@ mriStepInnerStepper_SetRTol.exit.thread208:       ; preds = %51, %mriStepInnerSt
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %60 = load ptr, ptr %59, align 8, !tbaa !102
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %62 = load ptr, ptr %61, align 8, !tbaa !160
+  %62 = load ptr, ptr %61, align 8, !tbaa !162
   %63 = icmp eq ptr %60, null
   br i1 %63, label %mriStepInnerStepper_Reset.exit.thread, label %64
 
@@ -4758,14 +4758,14 @@ mriStepInnerStepper_SetRTol.exit.thread208:       ; preds = %51, %mriStepInnerSt
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !175
+  %70 = load ptr, ptr %69, align 8, !tbaa !177
   %.not.i170 = icmp eq ptr %70, null
   br i1 %.not.i170, label %mriStepInnerStepper_Reset.exit.thread213, label %mriStepInnerStepper_Reset.exit
 
 mriStepInnerStepper_Reset.exit:                   ; preds = %68
   %71 = tail call i32 %70(ptr noundef nonnull %60, double noundef %11, ptr noundef %62) #14
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  store i32 %71, ptr %72, align 8, !tbaa !166
+  store i32 %71, ptr %72, align 8, !tbaa !168
   %.not148 = icmp eq i32 %71, 0
   br i1 %.not148, label %mriStepInnerStepper_Reset.exit.thread213, label %mriStepInnerStepper_Reset.exit.thread
 
@@ -4784,40 +4784,40 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %77 = load i32, ptr %76, align 8, !tbaa !99
   %78 = icmp ne i32 %77, 0
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %80 = load ptr, ptr %79, align 8, !tbaa !182
+  %80 = load ptr, ptr %79, align 8, !tbaa !184
   %81 = icmp eq ptr %80, null
   %or.cond = select i1 %81, i1 true, i1 %78
   br i1 %or.cond, label %.thread, label %86
 
 .thread:                                          ; preds = %mriStepInnerStepper_Reset.exit.thread213, %75
-  %82 = load double, ptr %10, align 8, !tbaa !174
+  %82 = load double, ptr %10, align 8, !tbaa !176
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %84 = load ptr, ptr %83, align 8, !tbaa !160
+  %84 = load ptr, ptr %83, align 8, !tbaa !162
   %85 = tail call i32 @mriStep_UpdateF0(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %82, ptr noundef %84, i32 noundef 0)
   %.not152 = icmp eq i32 %85, 0
   br i1 %.not152, label %94, label %.loopexit
 
 86:                                               ; preds = %75
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %88 = load i32, ptr %87, align 8, !tbaa !183
+  %88 = load i32, ptr %87, align 8, !tbaa !185
   %.not150 = icmp eq i32 %88, 0
   br i1 %.not150, label %89, label %94
 
 89:                                               ; preds = %86
-  %90 = load double, ptr %10, align 8, !tbaa !174
+  %90 = load double, ptr %10, align 8, !tbaa !176
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %92 = load ptr, ptr %91, align 8, !tbaa !160
+  %92 = load ptr, ptr %91, align 8, !tbaa !162
   %93 = tail call i32 @mriStep_FullRHS(ptr noundef nonnull %0, double noundef %90, ptr noundef %92, ptr noundef nonnull %80, i32 noundef 0)
   %.not151 = icmp eq i32 %93, 0
   br i1 %.not151, label %94, label %.loopexit
 
 94:                                               ; preds = %86, %89, %.thread
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 1, ptr %95, align 8, !tbaa !183
+  store i32 1, ptr %95, align 8, !tbaa !185
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %97 = load ptr, ptr %96, align 8, !tbaa !125
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %99 = load i32, ptr %98, align 8, !tbaa !225
+  %99 = load i32, ptr %98, align 8, !tbaa !236
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %.lr.ph242, label %._crit_edge243
 
@@ -4845,27 +4845,27 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %indvars.iv258 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next259, %._crit_edge ]
   %119 = phi ptr [ %97, %.lr.ph242 ], [ %264, %._crit_edge ]
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
-  %121 = load ptr, ptr %120, align 8, !tbaa !226
+  %121 = load ptr, ptr %120, align 8, !tbaa !237
   %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv258
   %123 = load ptr, ptr %122, align 8, !tbaa !117
   %124 = load i32, ptr %123, align 4, !tbaa !119
-  %125 = load double, ptr %10, align 8, !tbaa !174
-  %126 = load double, ptr %101, align 8, !tbaa !185
+  %125 = load double, ptr %10, align 8, !tbaa !176
+  %126 = load double, ptr %101, align 8, !tbaa !187
   %127 = fadd double %125, %126
   %128 = tail call i32 @mriStep_ComputeInnerForcing(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %124, double noundef %125, double noundef %127)
   %.not155 = icmp eq i32 %128, 0
   br i1 %.not155, label %129, label %.loopexit
 
 129:                                              ; preds = %118
-  %130 = load ptr, ptr %102, align 8, !tbaa !160
-  %131 = load ptr, ptr %103, align 8, !tbaa !186
+  %130 = load ptr, ptr %102, align 8, !tbaa !162
+  %131 = load ptr, ptr %103, align 8, !tbaa !188
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %130, ptr noundef %131) #14
   %132 = load i32, ptr %104, align 8, !tbaa !131
   %133 = icmp sgt i32 %132, 0
   br i1 %133, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %129
-  %134 = load double, ptr %10, align 8, !tbaa !174
+  %134 = load double, ptr %10, align 8, !tbaa !176
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %260
@@ -4874,7 +4874,7 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %.0135236 = phi double [ %134, %.lr.ph.preheader ], [ %175, %260 ]
   %136 = load ptr, ptr %96, align 8, !tbaa !125
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 56
-  %138 = load ptr, ptr %137, align 8, !tbaa !226
+  %138 = load ptr, ptr %137, align 8, !tbaa !237
   %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv258
   %140 = load ptr, ptr %139, align 8, !tbaa !117
   %141 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv255
@@ -4895,7 +4895,7 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
 150:                                              ; preds = %146, %144
   %.0136 = phi i1 [ %149, %146 ], [ true, %144 ]
   %151 = getelementptr inbounds nuw i8, ptr %136, i64 48
-  %152 = load i32, ptr %151, align 8, !tbaa !225
+  %152 = load i32, ptr %151, align 8, !tbaa !236
   %153 = add nsw i32 %152, -2
   %154 = zext i32 %153 to i64
   %155 = icmp eq i64 %indvars.iv258, %154
@@ -4918,7 +4918,7 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
 
 165:                                              ; preds = %164
   %166 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %167 = load ptr, ptr %166, align 8, !tbaa !184
+  %167 = load ptr, ptr %166, align 8, !tbaa !186
   %168 = zext nneg i32 %142 to i64
   %169 = getelementptr inbounds nuw double, ptr %167, i64 %168
   %170 = load double, ptr %169, align 8, !tbaa !115
@@ -4926,13 +4926,13 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
 
 171:                                              ; preds = %164, %165
   %172 = phi double [ %170, %165 ], [ 1.000000e+00, %164 ]
-  %173 = load double, ptr %10, align 8, !tbaa !174
-  %174 = load double, ptr %101, align 8, !tbaa !185
+  %173 = load double, ptr %10, align 8, !tbaa !176
+  %174 = load double, ptr %101, align 8, !tbaa !187
   %175 = tail call double @llvm.fmuladd.f64(double %172, double %174, double %173)
   %176 = icmp samesign ugt i32 %142, 1
   %177 = icmp eq i64 %indvars.iv255, 0
   %or.cond9 = and i1 %177, %176
-  %.pre262 = load ptr, ptr %103, align 8, !tbaa !186
+  %.pre262 = load ptr, ptr %103, align 8, !tbaa !188
   br i1 %or.cond9, label %178, label %mriStepInnerStepper_Reset.exit174.thread219
 
 178:                                              ; preds = %171
@@ -4948,19 +4948,19 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
 
 185:                                              ; preds = %181
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %187 = load ptr, ptr %186, align 8, !tbaa !175
+  %187 = load ptr, ptr %186, align 8, !tbaa !177
   %.not.i172 = icmp eq ptr %187, null
   br i1 %.not.i172, label %mriStepInnerStepper_Reset.exit174.thread219, label %mriStepInnerStepper_Reset.exit174
 
 mriStepInnerStepper_Reset.exit174:                ; preds = %185
   %188 = tail call i32 %187(ptr noundef nonnull %179, double noundef %.0135236, ptr noundef %.pre262) #14
   %189 = getelementptr inbounds nuw i8, ptr %179, i64 40
-  store i32 %188, ptr %189, align 8, !tbaa !166
+  store i32 %188, ptr %189, align 8, !tbaa !168
   %.not157 = icmp eq i32 %188, 0
   br i1 %.not157, label %mriStepInnerStepper_Reset.exit174.mriStepInnerStepper_Reset.exit174.thread219_crit_edge, label %mriStepInnerStepper_Reset.exit174.thread
 
 mriStepInnerStepper_Reset.exit174.mriStepInnerStepper_Reset.exit174.thread219_crit_edge: ; preds = %mriStepInnerStepper_Reset.exit174
-  %.pre261 = load ptr, ptr %103, align 8, !tbaa !186
+  %.pre261 = load ptr, ptr %103, align 8, !tbaa !188
   br label %mriStepInnerStepper_Reset.exit174.thread219
 
 mriStepInnerStepper_Reset.exit174.thread:         ; preds = %181, %178, %mriStepInnerStepper_Reset.exit174
@@ -4981,22 +4981,22 @@ mriStepInnerStepper_Reset.exit174.thread219:      ; preds = %mriStepInnerStepper
   br label %.loopexit
 
 196:                                              ; preds = %mriStepInnerStepper_Reset.exit174.thread219
-  store double %175, ptr %107, align 8, !tbaa !159
-  %197 = load ptr, ptr %108, align 8, !tbaa !187
+  store double %175, ptr %107, align 8, !tbaa !161
+  %197 = load ptr, ptr %108, align 8, !tbaa !189
   %.not159 = icmp eq ptr %197, null
   br i1 %.not159, label %mriStepInnerStepper_Reset.exit177.thread224, label %198
 
 198:                                              ; preds = %196
-  %199 = load ptr, ptr %103, align 8, !tbaa !186
-  %200 = load ptr, ptr %109, align 8, !tbaa !169
+  %199 = load ptr, ptr %103, align 8, !tbaa !188
+  %200 = load ptr, ptr %109, align 8, !tbaa !171
   %201 = tail call i32 %197(double noundef %175, ptr noundef %199, ptr noundef %200) #14
   %.not160 = icmp eq i32 %201, 0
   br i1 %.not160, label %202, label %.loopexit
 
 202:                                              ; preds = %198
   %203 = load ptr, ptr %106, align 8, !tbaa !102
-  %204 = load double, ptr %107, align 8, !tbaa !159
-  %205 = load ptr, ptr %103, align 8, !tbaa !186
+  %204 = load double, ptr %107, align 8, !tbaa !161
+  %205 = load ptr, ptr %103, align 8, !tbaa !188
   %206 = icmp eq ptr %203, null
   br i1 %206, label %mriStepInnerStepper_Reset.exit177.thread, label %207
 
@@ -5008,14 +5008,14 @@ mriStepInnerStepper_Reset.exit174.thread219:      ; preds = %mriStepInnerStepper
 
 211:                                              ; preds = %207
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  %213 = load ptr, ptr %212, align 8, !tbaa !175
+  %213 = load ptr, ptr %212, align 8, !tbaa !177
   %.not.i175 = icmp eq ptr %213, null
   br i1 %.not.i175, label %mriStepInnerStepper_Reset.exit177.thread224, label %mriStepInnerStepper_Reset.exit177
 
 mriStepInnerStepper_Reset.exit177:                ; preds = %211
   %214 = tail call i32 %213(ptr noundef nonnull %203, double noundef %204, ptr noundef %205) #14
   %215 = getelementptr inbounds nuw i8, ptr %203, i64 40
-  store i32 %214, ptr %215, align 8, !tbaa !166
+  store i32 %214, ptr %215, align 8, !tbaa !168
   %.not161 = icmp eq i32 %214, 0
   br i1 %.not161, label %mriStepInnerStepper_Reset.exit177.thread224, label %mriStepInnerStepper_Reset.exit177.thread
 
@@ -5029,17 +5029,17 @@ mriStepInnerStepper_Reset.exit177.thread224:      ; preds = %211, %mriStepInnerS
 
 216:                                              ; preds = %mriStepInnerStepper_Reset.exit177.thread224
   %217 = load ptr, ptr %5, align 8, !tbaa !72
-  %218 = load double, ptr %107, align 8, !tbaa !159
-  %219 = load ptr, ptr %103, align 8, !tbaa !186
-  %220 = load ptr, ptr %110, align 8, !tbaa !151
+  %218 = load double, ptr %107, align 8, !tbaa !161
+  %219 = load ptr, ptr %103, align 8, !tbaa !188
+  %220 = load ptr, ptr %110, align 8, !tbaa !153
   %221 = zext nneg i32 %142 to i64
   %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
-  %223 = load ptr, ptr %222, align 8, !tbaa !167
-  %224 = load ptr, ptr %109, align 8, !tbaa !169
+  %223 = load ptr, ptr %222, align 8, !tbaa !169
+  %224 = load ptr, ptr %109, align 8, !tbaa !171
   %225 = tail call i32 %217(double noundef %218, ptr noundef %219, ptr noundef %223, ptr noundef %224) #14
-  %226 = load i64, ptr %111, align 8, !tbaa !170
+  %226 = load i64, ptr %111, align 8, !tbaa !172
   %227 = add nsw i64 %226, 1
-  store i64 %227, ptr %111, align 8, !tbaa !170
+  store i64 %227, ptr %111, align 8, !tbaa !172
   %228 = icmp slt i32 %225, 0
   br i1 %228, label %.loopexit, label %229
 
@@ -5055,21 +5055,21 @@ mriStepInnerStepper_Reset.exit177.thread224:      ; preds = %211, %mriStepInnerS
 232:                                              ; preds = %230
   %233 = load ptr, ptr %112, align 8, !tbaa !93
   store double 1.000000e+00, ptr %233, align 8, !tbaa !115
-  %234 = load ptr, ptr %110, align 8, !tbaa !151
+  %234 = load ptr, ptr %110, align 8, !tbaa !153
   %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %221
-  %236 = load ptr, ptr %235, align 8, !tbaa !167
+  %236 = load ptr, ptr %235, align 8, !tbaa !169
   %237 = load ptr, ptr %113, align 8, !tbaa !94
-  store ptr %236, ptr %237, align 8, !tbaa !167
-  %238 = load double, ptr %107, align 8, !tbaa !159
+  store ptr %236, ptr %237, align 8, !tbaa !169
+  %238 = load double, ptr %107, align 8, !tbaa !161
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 8
   store double 1.000000e+00, ptr %239, align 8, !tbaa !115
   %240 = load ptr, ptr %114, align 8, !tbaa !100
-  %241 = load ptr, ptr %240, align 8, !tbaa !167
+  %241 = load ptr, ptr %240, align 8, !tbaa !169
   %242 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store ptr %241, ptr %242, align 8, !tbaa !167
-  %243 = load double, ptr %115, align 8, !tbaa !188
+  store ptr %241, ptr %242, align 8, !tbaa !169
+  %243 = load double, ptr %115, align 8, !tbaa !190
   %244 = fsub double %238, %243
-  %245 = load double, ptr %116, align 8, !tbaa !189
+  %245 = load double, ptr %116, align 8, !tbaa !191
   %246 = fdiv double %244, %245
   %247 = load i32, ptr %117, align 8, !tbaa !101
   %248 = icmp sgt i32 %247, 1
@@ -5087,18 +5087,18 @@ mriStepInnerStepper_Reset.exit177.thread224:      ; preds = %211, %mriStepInnerS
   %250 = getelementptr inbounds nuw double, ptr %233, i64 %indvars.iv
   store double %.02425.i, ptr %250, align 8, !tbaa !115
   %251 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv.i
-  %252 = load ptr, ptr %251, align 8, !tbaa !167
+  %252 = load ptr, ptr %251, align 8, !tbaa !169
   %253 = getelementptr inbounds nuw ptr, ptr %237, i64 %indvars.iv
-  store ptr %252, ptr %253, align 8, !tbaa !167
+  store ptr %252, ptr %253, align 8, !tbaa !169
   %254 = fmul double %246, %.02425.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %249
-  br i1 %exitcond.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i
+  br i1 %exitcond.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i, !llvm.loop !192
 
 mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %232
   %.0197 = phi i32 [ 2, %232 ], [ %narrow, %.lr.ph.i ]
-  %255 = load ptr, ptr %235, align 8, !tbaa !167
+  %255 = load ptr, ptr %235, align 8, !tbaa !169
   %256 = tail call i32 @N_VLinearCombination(i32 noundef %.0197, ptr noundef nonnull %233, ptr noundef nonnull %237, ptr noundef %255) #14
   br label %257
 
@@ -5106,7 +5106,7 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %232
   br i1 %spec.select165, label %258, label %260
 
 258:                                              ; preds = %257
-  %259 = load ptr, ptr %103, align 8, !tbaa !186
+  %259 = load ptr, ptr %103, align 8, !tbaa !188
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %259, ptr noundef %9) #14
   br label %260
 
@@ -5115,16 +5115,16 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %232
   %261 = load i32, ptr %104, align 8, !tbaa !131
   %262 = sext i32 %261 to i64
   %263 = icmp slt i64 %indvars.iv.next256, %262
-  br i1 %263, label %.lr.ph, label %._crit_edge
+  br i1 %263, label %.lr.ph, label %._crit_edge, !llvm.loop !247
 
 ._crit_edge:                                      ; preds = %161, %.lr.ph, %260, %129
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %264 = load ptr, ptr %96, align 8, !tbaa !125
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 48
-  %266 = load i32, ptr %265, align 8, !tbaa !225
+  %266 = load i32, ptr %265, align 8, !tbaa !236
   %267 = sext i32 %266 to i64
   %268 = icmp slt i64 %indvars.iv.next259, %267
-  br i1 %268, label %118, label %._crit_edge243
+  br i1 %268, label %118, label %._crit_edge243, !llvm.loop !248
 
 ._crit_edge243:                                   ; preds = %._crit_edge, %94
   %269 = load i32, ptr %56, align 8, !tbaa !120
@@ -5139,13 +5139,13 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %232
 
 273:                                              ; preds = %270, %._crit_edge243
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %275 = load ptr, ptr %274, align 8, !tbaa !186
+  %275 = load ptr, ptr %274, align 8, !tbaa !188
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %277 = load ptr, ptr %276, align 8, !tbaa !161
+  %277 = load ptr, ptr %276, align 8, !tbaa !163
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %9, double noundef -1.000000e+00, ptr noundef %275, ptr noundef %277) #14
-  %278 = load ptr, ptr %276, align 8, !tbaa !161
+  %278 = load ptr, ptr %276, align 8, !tbaa !163
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %280 = load ptr, ptr %279, align 8, !tbaa !152
+  %280 = load ptr, ptr %279, align 8, !tbaa !154
   %281 = tail call double @N_VWrmsNorm(ptr noundef %278, ptr noundef %280) #14
   store double %281, ptr %1, align 8, !tbaa !115
   br label %.loopexit
@@ -5170,11 +5170,11 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
   store i32 0, ptr %2, align 4, !tbaa !119
   store double 0.000000e+00, ptr %1, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %9 = load ptr, ptr %8, align 8, !tbaa !192
+  %9 = load ptr, ptr %8, align 8, !tbaa !196
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %11 = load ptr, ptr %10, align 8, !tbaa !133
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %13 = load ptr, ptr %12, align 8, !tbaa !157
+  %13 = load ptr, ptr %12, align 8, !tbaa !159
   %14 = tail call i32 @SUNAdaptController_GetType(ptr noundef %13) #14
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %16, label %mriStepInnerStepper_SetRTol.exit.thread308
@@ -5195,7 +5195,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !162
+  %27 = load ptr, ptr %26, align 8, !tbaa !164
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread303.thread, label %mriStepInnerStepper_ResetAccumulatedError.exit
 
@@ -5203,16 +5203,16 @@ mriStepInnerStepper_ResetAccumulatedError.exit.thread303.thread: ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %29 = load double, ptr %28, align 8, !tbaa !95
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load double, ptr %30, align 8, !tbaa !173
+  %31 = load double, ptr %30, align 8, !tbaa !175
   %32 = fmul double %29, %31
   br label %43
 
 mriStepInnerStepper_ResetAccumulatedError.exit:   ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !163
+  %34 = load ptr, ptr %33, align 8, !tbaa !165
   %35 = tail call i32 %34(ptr noundef nonnull %19) #14
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 %35, ptr %36, align 8, !tbaa !166
+  store i32 %35, ptr %36, align 8, !tbaa !168
   %.not194 = icmp eq i32 %35, 0
   br i1 %.not194, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread303, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread
 
@@ -5225,7 +5225,7 @@ mriStepInnerStepper_ResetAccumulatedError.exit.thread303: ; preds = %mriStepInne
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %38 = load double, ptr %37, align 8, !tbaa !95
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load double, ptr %39, align 8, !tbaa !173
+  %40 = load double, ptr %39, align 8, !tbaa !175
   %41 = fmul double %38, %40
   %42 = icmp eq ptr %.pre, null
   br i1 %42, label %mriStepInnerStepper_SetRTol.exit.thread, label %43
@@ -5240,14 +5240,14 @@ mriStepInnerStepper_ResetAccumulatedError.exit.thread303: ; preds = %mriStepInne
 
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !164
+  %51 = load ptr, ptr %50, align 8, !tbaa !166
   %.not.i234 = icmp eq ptr %51, null
   br i1 %.not.i234, label %mriStepInnerStepper_SetRTol.exit.thread308, label %mriStepInnerStepper_SetRTol.exit
 
 mriStepInnerStepper_SetRTol.exit:                 ; preds = %49
   %52 = tail call i32 %51(ptr noundef nonnull %45, double noundef %44) #14
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store i32 %52, ptr %53, align 8, !tbaa !166
+  store i32 %52, ptr %53, align 8, !tbaa !168
   %.not195 = icmp eq i32 %52, 0
   br i1 %.not195, label %mriStepInnerStepper_SetRTol.exit.thread308, label %mriStepInnerStepper_SetRTol.exit.thread
 
@@ -5265,9 +5265,9 @@ mriStepInnerStepper_SetRTol.exit.thread308:       ; preds = %49, %mriStepInnerSt
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %58 = load ptr, ptr %57, align 8, !tbaa !102
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %60 = load double, ptr %59, align 8, !tbaa !174
+  %60 = load double, ptr %59, align 8, !tbaa !176
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %62 = load ptr, ptr %61, align 8, !tbaa !160
+  %62 = load ptr, ptr %61, align 8, !tbaa !162
   %63 = icmp eq ptr %58, null
   br i1 %63, label %mriStepInnerStepper_Reset.exit.thread, label %64
 
@@ -5279,14 +5279,14 @@ mriStepInnerStepper_SetRTol.exit.thread308:       ; preds = %49, %mriStepInnerSt
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !175
+  %70 = load ptr, ptr %69, align 8, !tbaa !177
   %.not.i236 = icmp eq ptr %70, null
   br i1 %.not.i236, label %mriStepInnerStepper_Reset.exit.thread313, label %mriStepInnerStepper_Reset.exit
 
 mriStepInnerStepper_Reset.exit:                   ; preds = %68
   %71 = tail call i32 %70(ptr noundef nonnull %58, double noundef %60, ptr noundef %62) #14
   %72 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  store i32 %71, ptr %72, align 8, !tbaa !166
+  store i32 %71, ptr %72, align 8, !tbaa !168
   %.not197 = icmp eq i32 %71, 0
   br i1 %.not197, label %mriStepInnerStepper_Reset.exit.thread313, label %mriStepInnerStepper_Reset.exit.thread
 
@@ -5309,7 +5309,7 @@ mriStepInnerStepper_Reset.exit.thread313:         ; preds = %68, %mriStepInnerSt
   %78 = load i32, ptr %77, align 8, !tbaa !99
   %79 = icmp ne i32 %78, 0
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %81 = load ptr, ptr %80, align 8, !tbaa !182
+  %81 = load ptr, ptr %80, align 8, !tbaa !184
   %82 = icmp eq ptr %81, null
   %or.cond = select i1 %82, i1 true, i1 %79
   br i1 %or.cond, label %83, label %.thread317
@@ -5318,15 +5318,15 @@ mriStepInnerStepper_Reset.exit.thread313:         ; preds = %68, %mriStepInnerSt
   %84 = phi ptr [ %75, %.thread ], [ %80, %76 ]
   %85 = phi i1 [ true, %.thread ], [ %79, %76 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %87 = load double, ptr %86, align 8, !tbaa !174
+  %87 = load double, ptr %86, align 8, !tbaa !176
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %89 = load ptr, ptr %88, align 8, !tbaa !160
+  %89 = load ptr, ptr %88, align 8, !tbaa !162
   %90 = tail call i32 @mriStep_UpdateF0(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %87, ptr noundef %89, i32 noundef 0)
   %.not199 = icmp eq i32 %90, 0
   br i1 %.not199, label %91, label %.loopexit
 
 91:                                               ; preds = %83
-  %92 = load ptr, ptr %84, align 8, !tbaa !182
+  %92 = load ptr, ptr %84, align 8, !tbaa !184
   %93 = icmp ne ptr %92, null
   %or.cond3 = select i1 %93, i1 %85, i1 false
   br i1 %or.cond3, label %94, label %108
@@ -5342,14 +5342,14 @@ mriStepInnerStepper_Reset.exit.thread313:         ; preds = %68, %mriStepInnerSt
   %99 = load i32, ptr %98, align 8, !tbaa !83
   %.not201 = icmp eq i32 %99, 0
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %101 = load ptr, ptr %100, align 8, !tbaa !150
-  %102 = load ptr, ptr %101, align 8, !tbaa !167
+  %101 = load ptr, ptr %100, align 8, !tbaa !152
+  %102 = load ptr, ptr %101, align 8, !tbaa !169
   br i1 %.not201, label %107, label %103
 
 103:                                              ; preds = %97
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %105 = load ptr, ptr %104, align 8, !tbaa !151
-  %106 = load ptr, ptr %105, align 8, !tbaa !167
+  %105 = load ptr, ptr %104, align 8, !tbaa !153
+  %106 = load ptr, ptr %105, align 8, !tbaa !169
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %102, double noundef 1.000000e+00, ptr noundef %106, ptr noundef nonnull %92) #14
   br label %thread-pre-split
 
@@ -5358,7 +5358,7 @@ mriStepInnerStepper_Reset.exit.thread313:         ; preds = %68, %mriStepInnerSt
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %103, %107, %94
-  %.pr = load ptr, ptr %84, align 8, !tbaa !182
+  %.pr = load ptr, ptr %84, align 8, !tbaa !184
   br label %108
 
 108:                                              ; preds = %thread-pre-split, %91
@@ -5369,22 +5369,22 @@ thread-pre-split:                                 ; preds = %103, %107, %94
 .thread317:                                       ; preds = %76, %108
   %110 = phi ptr [ %109, %108 ], [ %81, %76 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %112 = load i32, ptr %111, align 8, !tbaa !183
+  %112 = load i32, ptr %111, align 8, !tbaa !185
   %.not203 = icmp eq i32 %112, 0
   br i1 %.not203, label %113, label %119
 
 113:                                              ; preds = %.thread317
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %115 = load double, ptr %114, align 8, !tbaa !174
+  %115 = load double, ptr %114, align 8, !tbaa !176
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %117 = load ptr, ptr %116, align 8, !tbaa !160
+  %117 = load ptr, ptr %116, align 8, !tbaa !162
   %118 = tail call i32 @mriStep_FullRHS(ptr noundef nonnull %0, double noundef %115, ptr noundef %117, ptr noundef nonnull %110, i32 noundef 0)
   %.not204 = icmp eq i32 %118, 0
   br i1 %.not204, label %119, label %.loopexit
 
 119:                                              ; preds = %113, %.thread317, %108
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 1, ptr %120, align 8, !tbaa !183
+  store i32 1, ptr %120, align 8, !tbaa !185
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %122 = load i32, ptr %121, align 4, !tbaa !84
   %.not205 = icmp eq i32 %122, 0
@@ -5398,11 +5398,11 @@ thread-pre-split:                                 ; preds = %103, %107, %94
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %128 = load ptr, ptr %127, align 8, !tbaa !151
-  %129 = load ptr, ptr %128, align 8, !tbaa !167
+  %128 = load ptr, ptr %127, align 8, !tbaa !153
+  %129 = load ptr, ptr %128, align 8, !tbaa !169
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %131 = load ptr, ptr %130, align 8, !tbaa !150
-  %132 = load ptr, ptr %131, align 8, !tbaa !167
+  %131 = load ptr, ptr %130, align 8, !tbaa !152
+  %132 = load ptr, ptr %131, align 8, !tbaa !169
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %129, double noundef 1.000000e+00, ptr noundef %132, ptr noundef %129) #14
   br label %133
 
@@ -5478,23 +5478,23 @@ thread-pre-split:                                 ; preds = %103, %107, %94
   %186 = icmp eq i64 %indvars.iv358, %185
   %187 = zext i32 %183 to i64
   %188 = icmp eq i64 %indvars.iv358, %187
-  %189 = load ptr, ptr %150, align 8, !tbaa !160
-  %190 = load ptr, ptr %151, align 8, !tbaa !186
+  %189 = load ptr, ptr %150, align 8, !tbaa !162
+  %190 = load ptr, ptr %151, align 8, !tbaa !188
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %189, ptr noundef %190) #14
   br i1 %188, label %197, label %191
 
 191:                                              ; preds = %182
   %192 = load ptr, ptr %152, align 8, !tbaa !125
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  %194 = load ptr, ptr %193, align 8, !tbaa !184
+  %194 = load ptr, ptr %193, align 8, !tbaa !186
   %195 = getelementptr inbounds nuw double, ptr %194, i64 %indvars.iv358
   %196 = load double, ptr %195, align 8, !tbaa !115
   br label %197
 
 197:                                              ; preds = %182, %191
   %198 = phi double [ %196, %191 ], [ 1.000000e+00, %182 ]
-  %199 = load double, ptr %153, align 8, !tbaa !174
-  %200 = load double, ptr %154, align 8, !tbaa !185
+  %199 = load double, ptr %153, align 8, !tbaa !176
+  %200 = load double, ptr %154, align 8, !tbaa !187
   %201 = tail call double @llvm.fmuladd.f64(double %198, double %200, double %199)
   %202 = trunc nuw nsw i64 %indvars.iv358 to i32
   %203 = tail call i32 @mriStep_ComputeInnerForcing(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %202, double noundef %199, double noundef %201)
@@ -5503,8 +5503,8 @@ thread-pre-split:                                 ; preds = %103, %107, %94
 
 204:                                              ; preds = %197
   %205 = icmp samesign ugt i64 %indvars.iv358, 1
-  %.pre364 = load double, ptr %153, align 8, !tbaa !174
-  %.pre366 = load ptr, ptr %151, align 8, !tbaa !186
+  %.pre364 = load double, ptr %153, align 8, !tbaa !176
+  %.pre366 = load ptr, ptr %151, align 8, !tbaa !188
   br i1 %205, label %206, label %mriStepInnerStepper_Reset.exit240.thread321
 
 206:                                              ; preds = %204
@@ -5520,20 +5520,20 @@ thread-pre-split:                                 ; preds = %103, %107, %94
 
 213:                                              ; preds = %209
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  %215 = load ptr, ptr %214, align 8, !tbaa !175
+  %215 = load ptr, ptr %214, align 8, !tbaa !177
   %.not.i238 = icmp eq ptr %215, null
   br i1 %.not.i238, label %mriStepInnerStepper_Reset.exit240.thread321, label %mriStepInnerStepper_Reset.exit240
 
 mriStepInnerStepper_Reset.exit240:                ; preds = %213
   %216 = tail call i32 %215(ptr noundef nonnull %207, double noundef %.pre364, ptr noundef %.pre366) #14
   %217 = getelementptr inbounds nuw i8, ptr %207, i64 40
-  store i32 %216, ptr %217, align 8, !tbaa !166
+  store i32 %216, ptr %217, align 8, !tbaa !168
   %.not211 = icmp eq i32 %216, 0
   br i1 %.not211, label %mriStepInnerStepper_Reset.exit240.mriStepInnerStepper_Reset.exit240.thread321_crit_edge, label %mriStepInnerStepper_Reset.exit240.thread
 
 mriStepInnerStepper_Reset.exit240.mriStepInnerStepper_Reset.exit240.thread321_crit_edge: ; preds = %mriStepInnerStepper_Reset.exit240
-  %.pre363 = load double, ptr %153, align 8, !tbaa !174
-  %.pre365 = load ptr, ptr %151, align 8, !tbaa !186
+  %.pre363 = load double, ptr %153, align 8, !tbaa !176
+  %.pre365 = load ptr, ptr %151, align 8, !tbaa !188
   br label %mriStepInnerStepper_Reset.exit240.thread321
 
 mriStepInnerStepper_Reset.exit240.thread:         ; preds = %209, %206, %mriStepInnerStepper_Reset.exit240
@@ -5543,7 +5543,7 @@ mriStepInnerStepper_Reset.exit240.thread:         ; preds = %209, %206, %mriStep
 mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper_Reset.exit240.mriStepInnerStepper_Reset.exit240.thread321_crit_edge, %213, %204
   %218 = phi ptr [ %.pre365, %mriStepInnerStepper_Reset.exit240.mriStepInnerStepper_Reset.exit240.thread321_crit_edge ], [ %.pre366, %213 ], [ %.pre366, %204 ]
   %219 = phi double [ %.pre363, %mriStepInnerStepper_Reset.exit240.mriStepInnerStepper_Reset.exit240.thread321_crit_edge ], [ %.pre364, %213 ], [ %.pre364, %204 ]
-  %220 = load double, ptr %154, align 8, !tbaa !185
+  %220 = load double, ptr %154, align 8, !tbaa !187
   %221 = tail call double @llvm.fmuladd.f64(double %198, double %220, double %219)
   %222 = xor i1 %188, true
   %223 = select i1 %15, i1 %222, i1 false
@@ -5557,10 +5557,10 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
   br label %.loopexit
 
 227:                                              ; preds = %mriStepInnerStepper_Reset.exit240.thread321
-  %228 = load double, ptr %153, align 8, !tbaa !174
-  %229 = load double, ptr %154, align 8, !tbaa !185
+  %228 = load double, ptr %153, align 8, !tbaa !176
+  %229 = load double, ptr %154, align 8, !tbaa !187
   %230 = tail call double @llvm.fmuladd.f64(double %198, double %229, double %228)
-  store double %230, ptr %156, align 8, !tbaa !159
+  store double %230, ptr %156, align 8, !tbaa !161
   %231 = load i32, ptr %121, align 4, !tbaa !84
   %.not213 = icmp eq i32 %231, 0
   br i1 %.not213, label %328, label %232
@@ -5568,10 +5568,10 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
 232:                                              ; preds = %227
   %233 = load ptr, ptr %152, align 8, !tbaa !125
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 40
-  %235 = load ptr, ptr %234, align 8, !tbaa !218
-  %236 = load ptr, ptr %235, align 8, !tbaa !219
+  %235 = load ptr, ptr %234, align 8, !tbaa !225
+  %236 = load ptr, ptr %235, align 8, !tbaa !226
   %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv358
-  %238 = load ptr, ptr %237, align 8, !tbaa !221
+  %238 = load ptr, ptr %237, align 8, !tbaa !230
   %239 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv358
   %240 = load double, ptr %239, align 8, !tbaa !115
   %241 = tail call double @llvm.fabs.f64(double %240)
@@ -5584,21 +5584,21 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
   %246 = icmp eq i64 %indvars.iv358, %245
   %247 = sext i1 %246 to i32
   %248 = add nsw i32 %202, %247
-  store i32 %248, ptr %160, align 8, !tbaa !197
-  %249 = load ptr, ptr %161, align 8, !tbaa !195
+  store i32 %248, ptr %160, align 8, !tbaa !201
+  %249 = load ptr, ptr %161, align 8, !tbaa !199
   %250 = tail call i32 @mriStep_Predict(ptr noundef nonnull %0, i32 noundef %248, ptr noundef %249)
   %.not215 = icmp eq i32 %250, 0
   br i1 %.not215, label %251, label %.loopexit
 
 251:                                              ; preds = %243
-  %252 = load ptr, ptr %162, align 8, !tbaa !231
+  %252 = load ptr, ptr %162, align 8, !tbaa !249
   %.not216 = icmp eq ptr %252, null
   br i1 %.not216, label %260, label %253
 
 253:                                              ; preds = %251
-  %254 = load double, ptr %156, align 8, !tbaa !159
-  %255 = load ptr, ptr %161, align 8, !tbaa !195
-  %256 = load ptr, ptr %163, align 8, !tbaa !169
+  %254 = load double, ptr %156, align 8, !tbaa !161
+  %255 = load ptr, ptr %161, align 8, !tbaa !199
+  %256 = load ptr, ptr %163, align 8, !tbaa !171
   %257 = tail call i32 %252(double noundef %254, ptr noundef %255, ptr noundef %256) #14
   %258 = icmp slt i32 %257, 0
   br i1 %258, label %.loopexit, label %259
@@ -5610,26 +5610,26 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
 260:                                              ; preds = %259, %251
   %261 = load ptr, ptr %157, align 8, !tbaa !93
   store double 1.000000e+00, ptr %261, align 8, !tbaa !115
-  %262 = load ptr, ptr %151, align 8, !tbaa !186
+  %262 = load ptr, ptr %151, align 8, !tbaa !188
   %263 = load ptr, ptr %158, align 8, !tbaa !94
-  store ptr %262, ptr %263, align 8, !tbaa !167
+  store ptr %262, ptr %263, align 8, !tbaa !169
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store double -1.000000e+00, ptr %264, align 8, !tbaa !115
-  %265 = load ptr, ptr %161, align 8, !tbaa !195
+  %265 = load ptr, ptr %161, align 8, !tbaa !199
   %266 = getelementptr inbounds nuw i8, ptr %263, i64 8
-  store ptr %265, ptr %266, align 8, !tbaa !167
+  store ptr %265, ptr %266, align 8, !tbaa !169
   %267 = load ptr, ptr %152, align 8, !tbaa !125
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 40
-  %269 = load ptr, ptr %268, align 8, !tbaa !218
-  %270 = load ptr, ptr %269, align 8, !tbaa !219
+  %269 = load ptr, ptr %268, align 8, !tbaa !225
+  %270 = load ptr, ptr %269, align 8, !tbaa !226
   %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv358
-  %272 = load ptr, ptr %271, align 8, !tbaa !221
-  %273 = load ptr, ptr %159, align 8, !tbaa !150
+  %272 = load ptr, ptr %271, align 8, !tbaa !230
+  %273 = load ptr, ptr %159, align 8, !tbaa !152
   br label %274
 
 274:                                              ; preds = %260, %274
   %indvars.iv345 = phi i64 [ 0, %260 ], [ %indvars.iv.next346, %274 ]
-  %275 = load double, ptr %154, align 8, !tbaa !185
+  %275 = load double, ptr %154, align 8, !tbaa !187
   %276 = getelementptr inbounds nuw double, ptr %272, i64 %indvars.iv345
   %277 = load double, ptr %276, align 8, !tbaa !115
   %278 = fmul double %275, %277
@@ -5637,15 +5637,15 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
   %280 = getelementptr inbounds nuw double, ptr %261, i64 %279
   store double %278, ptr %280, align 8, !tbaa !115
   %281 = getelementptr inbounds nuw ptr, ptr %273, i64 %indvars.iv345
-  %282 = load ptr, ptr %281, align 8, !tbaa !167
+  %282 = load ptr, ptr %281, align 8, !tbaa !169
   %283 = getelementptr inbounds nuw ptr, ptr %263, i64 %279
-  store ptr %282, ptr %283, align 8, !tbaa !167
+  store ptr %282, ptr %283, align 8, !tbaa !169
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next346, %indvars.iv358
-  br i1 %exitcond349.not, label %284, label %274
+  br i1 %exitcond349.not, label %284, label %274, !llvm.loop !250
 
 284:                                              ; preds = %274
-  %285 = load ptr, ptr %164, align 8, !tbaa !171
+  %285 = load ptr, ptr %164, align 8, !tbaa !173
   %286 = trunc i64 %indvars.iv358 to i32
   %287 = add i32 %286, 2
   %288 = tail call i32 @N_VLinearCombination(i32 noundef %287, ptr noundef nonnull %261, ptr noundef nonnull %263, ptr noundef %285) #14
@@ -5653,27 +5653,27 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
   br i1 %.not218, label %289, label %.loopexit
 
 289:                                              ; preds = %284
-  %290 = load double, ptr %154, align 8, !tbaa !185
+  %290 = load double, ptr %154, align 8, !tbaa !187
   %291 = load ptr, ptr %152, align 8, !tbaa !125
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 40
-  %293 = load ptr, ptr %292, align 8, !tbaa !218
-  %294 = load ptr, ptr %293, align 8, !tbaa !219
+  %293 = load ptr, ptr %292, align 8, !tbaa !225
+  %294 = load ptr, ptr %293, align 8, !tbaa !226
   %295 = getelementptr inbounds nuw ptr, ptr %294, i64 %indvars.iv358
-  %296 = load ptr, ptr %295, align 8, !tbaa !221
+  %296 = load ptr, ptr %295, align 8, !tbaa !230
   %297 = getelementptr inbounds nuw double, ptr %296, i64 %indvars.iv358
   %298 = load double, ptr %297, align 8, !tbaa !115
   %299 = fmul double %290, %298
   store double %299, ptr %165, align 8, !tbaa !114
-  %300 = load i32, ptr %166, align 4, !tbaa !232
+  %300 = load i32, ptr %166, align 4, !tbaa !251
   %.not219 = icmp eq i32 %300, 0
   br i1 %.not219, label %302, label %301
 
 301:                                              ; preds = %289
-  store double %299, ptr %167, align 8, !tbaa !207
+  store double %299, ptr %167, align 8, !tbaa !212
   br label %305
 
 302:                                              ; preds = %289
-  %303 = load double, ptr %167, align 8, !tbaa !207
+  %303 = load double, ptr %167, align 8, !tbaa !212
   %304 = fdiv double %299, %303
   br label %305
 
@@ -5689,15 +5689,15 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
 309:                                              ; preds = %232
   %310 = load ptr, ptr %157, align 8, !tbaa !93
   store double 1.000000e+00, ptr %310, align 8, !tbaa !115
-  %311 = load ptr, ptr %151, align 8, !tbaa !186
+  %311 = load ptr, ptr %151, align 8, !tbaa !188
   %312 = load ptr, ptr %158, align 8, !tbaa !94
-  store ptr %311, ptr %312, align 8, !tbaa !167
-  %313 = load ptr, ptr %159, align 8, !tbaa !150
+  store ptr %311, ptr %312, align 8, !tbaa !169
+  %313 = load ptr, ptr %159, align 8, !tbaa !152
   br label %314
 
 314:                                              ; preds = %309, %314
   %indvars.iv = phi i64 [ 0, %309 ], [ %indvars.iv.next, %314 ]
-  %315 = load double, ptr %154, align 8, !tbaa !185
+  %315 = load double, ptr %154, align 8, !tbaa !187
   %316 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv
   %317 = load double, ptr %316, align 8, !tbaa !115
   %318 = fmul double %315, %317
@@ -5705,14 +5705,14 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
   %319 = getelementptr inbounds nuw double, ptr %310, i64 %indvars.iv.next
   store double %318, ptr %319, align 8, !tbaa !115
   %320 = getelementptr inbounds nuw ptr, ptr %313, i64 %indvars.iv
-  %321 = load ptr, ptr %320, align 8, !tbaa !167
+  %321 = load ptr, ptr %320, align 8, !tbaa !169
   %322 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv.next
-  store ptr %321, ptr %322, align 8, !tbaa !167
+  store ptr %321, ptr %322, align 8, !tbaa !169
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv358
-  br i1 %exitcond.not, label %323, label %314
+  br i1 %exitcond.not, label %323, label %314, !llvm.loop !252
 
 323:                                              ; preds = %314
-  %324 = load ptr, ptr %151, align 8, !tbaa !186
+  %324 = load ptr, ptr %151, align 8, !tbaa !188
   %325 = trunc i64 %indvars.iv358 to i32
   %326 = add i32 %325, 1
   %327 = tail call i32 @N_VLinearCombination(i32 noundef %326, ptr noundef nonnull %310, ptr noundef nonnull %312, ptr noundef %324) #14
@@ -5721,22 +5721,22 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
 
 328:                                              ; preds = %305, %323, %227
   %.0182.shrunk = phi i1 [ true, %305 ], [ false, %323 ], [ false, %227 ]
-  %329 = load ptr, ptr %169, align 8, !tbaa !187
+  %329 = load ptr, ptr %169, align 8, !tbaa !189
   %.not222 = icmp eq ptr %329, null
   br i1 %.not222, label %mriStepInnerStepper_Reset.exit243.thread327, label %330
 
 330:                                              ; preds = %328
-  %331 = load double, ptr %156, align 8, !tbaa !159
-  %332 = load ptr, ptr %151, align 8, !tbaa !186
-  %333 = load ptr, ptr %163, align 8, !tbaa !169
+  %331 = load double, ptr %156, align 8, !tbaa !161
+  %332 = load ptr, ptr %151, align 8, !tbaa !188
+  %333 = load ptr, ptr %163, align 8, !tbaa !171
   %334 = tail call i32 %329(double noundef %331, ptr noundef %332, ptr noundef %333) #14
   %.not223 = icmp eq i32 %334, 0
   br i1 %.not223, label %335, label %.loopexit
 
 335:                                              ; preds = %330
   %336 = load ptr, ptr %155, align 8, !tbaa !102
-  %337 = load double, ptr %156, align 8, !tbaa !159
-  %338 = load ptr, ptr %151, align 8, !tbaa !186
+  %337 = load double, ptr %156, align 8, !tbaa !161
+  %338 = load ptr, ptr %151, align 8, !tbaa !188
   %339 = icmp eq ptr %336, null
   br i1 %339, label %mriStepInnerStepper_Reset.exit243.thread, label %340
 
@@ -5748,14 +5748,14 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
 
 344:                                              ; preds = %340
   %345 = getelementptr inbounds nuw i8, ptr %342, i64 16
-  %346 = load ptr, ptr %345, align 8, !tbaa !175
+  %346 = load ptr, ptr %345, align 8, !tbaa !177
   %.not.i241 = icmp eq ptr %346, null
   br i1 %.not.i241, label %mriStepInnerStepper_Reset.exit243.thread327, label %mriStepInnerStepper_Reset.exit243
 
 mriStepInnerStepper_Reset.exit243:                ; preds = %344
   %347 = tail call i32 %346(ptr noundef nonnull %336, double noundef %337, ptr noundef %338) #14
   %348 = getelementptr inbounds nuw i8, ptr %336, i64 40
-  store i32 %347, ptr %348, align 8, !tbaa !166
+  store i32 %347, ptr %348, align 8, !tbaa !168
   %.not224 = icmp eq i32 %347, 0
   br i1 %.not224, label %mriStepInnerStepper_Reset.exit243.thread327, label %mriStepInnerStepper_Reset.exit243.thread
 
@@ -5774,16 +5774,16 @@ mriStepInnerStepper_Reset.exit243.thread327:      ; preds = %344, %mriStepInnerS
 
 351:                                              ; preds = %349
   %352 = load ptr, ptr %5, align 8, !tbaa !72
-  %353 = load double, ptr %156, align 8, !tbaa !159
-  %354 = load ptr, ptr %151, align 8, !tbaa !186
-  %355 = load ptr, ptr %171, align 8, !tbaa !151
+  %353 = load double, ptr %156, align 8, !tbaa !161
+  %354 = load ptr, ptr %151, align 8, !tbaa !188
+  %355 = load ptr, ptr %171, align 8, !tbaa !153
   %356 = getelementptr inbounds nuw ptr, ptr %355, i64 %indvars.iv358
-  %357 = load ptr, ptr %356, align 8, !tbaa !167
-  %358 = load ptr, ptr %163, align 8, !tbaa !169
+  %357 = load ptr, ptr %356, align 8, !tbaa !169
+  %358 = load ptr, ptr %163, align 8, !tbaa !171
   %359 = tail call i32 %352(double noundef %353, ptr noundef %354, ptr noundef %357, ptr noundef %358) #14
-  %360 = load i64, ptr %172, align 8, !tbaa !170
+  %360 = load i64, ptr %172, align 8, !tbaa !172
   %361 = add nsw i64 %360, 1
-  store i64 %361, ptr %172, align 8, !tbaa !170
+  store i64 %361, ptr %172, align 8, !tbaa !172
   %362 = icmp slt i32 %359, 0
   br i1 %362, label %.loopexit, label %363
 
@@ -5799,21 +5799,21 @@ mriStepInnerStepper_Reset.exit243.thread327:      ; preds = %344, %mriStepInnerS
 366:                                              ; preds = %364
   %367 = load ptr, ptr %157, align 8, !tbaa !93
   store double 1.000000e+00, ptr %367, align 8, !tbaa !115
-  %368 = load ptr, ptr %171, align 8, !tbaa !151
+  %368 = load ptr, ptr %171, align 8, !tbaa !153
   %369 = getelementptr inbounds nuw ptr, ptr %368, i64 %indvars.iv358
-  %370 = load ptr, ptr %369, align 8, !tbaa !167
+  %370 = load ptr, ptr %369, align 8, !tbaa !169
   %371 = load ptr, ptr %158, align 8, !tbaa !94
-  store ptr %370, ptr %371, align 8, !tbaa !167
-  %372 = load double, ptr %156, align 8, !tbaa !159
+  store ptr %370, ptr %371, align 8, !tbaa !169
+  %372 = load double, ptr %156, align 8, !tbaa !161
   %373 = getelementptr inbounds nuw i8, ptr %367, i64 8
   store double 1.000000e+00, ptr %373, align 8, !tbaa !115
   %374 = load ptr, ptr %173, align 8, !tbaa !100
-  %375 = load ptr, ptr %374, align 8, !tbaa !167
+  %375 = load ptr, ptr %374, align 8, !tbaa !169
   %376 = getelementptr inbounds nuw i8, ptr %371, i64 8
-  store ptr %375, ptr %376, align 8, !tbaa !167
-  %377 = load double, ptr %174, align 8, !tbaa !188
+  store ptr %375, ptr %376, align 8, !tbaa !169
+  %377 = load double, ptr %174, align 8, !tbaa !190
   %378 = fsub double %372, %377
-  %379 = load double, ptr %175, align 8, !tbaa !189
+  %379 = load double, ptr %175, align 8, !tbaa !191
   %380 = fdiv double %378, %379
   %381 = load i32, ptr %176, align 8, !tbaa !101
   %382 = icmp sgt i32 %381, 1
@@ -5831,18 +5831,18 @@ mriStepInnerStepper_Reset.exit243.thread327:      ; preds = %344, %mriStepInnerS
   %384 = getelementptr inbounds nuw double, ptr %367, i64 %indvars.iv350
   store double %.02425.i, ptr %384, align 8, !tbaa !115
   %385 = getelementptr inbounds nuw ptr, ptr %374, i64 %indvars.iv.i
-  %386 = load ptr, ptr %385, align 8, !tbaa !167
+  %386 = load ptr, ptr %385, align 8, !tbaa !169
   %387 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv350
-  store ptr %386, ptr %387, align 8, !tbaa !167
+  store ptr %386, ptr %387, align 8, !tbaa !169
   %388 = fmul double %380, %.02425.i
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next351, %383
-  br i1 %exitcond353.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i
+  br i1 %exitcond353.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i, !llvm.loop !192
 
 mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %366
   %.0296 = phi i32 [ 2, %366 ], [ %narrow, %.lr.ph.i ]
-  %389 = load ptr, ptr %369, align 8, !tbaa !167
+  %389 = load ptr, ptr %369, align 8, !tbaa !169
   %390 = tail call i32 @N_VLinearCombination(i32 noundef %.0296, ptr noundef nonnull %367, ptr noundef nonnull %371, ptr noundef %389) #14
   br label %391
 
@@ -5852,23 +5852,23 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %366
   br i1 %.not228, label %.thread332, label %393
 
 393:                                              ; preds = %391
-  %394 = load i32, ptr %177, align 8, !tbaa !190
+  %394 = load i32, ptr %177, align 8, !tbaa !193
   %395 = icmp ne i32 %394, 0
   %or.cond7 = and i1 %.0182.shrunk, %395
   br i1 %or.cond7, label %436, label %396
 
 396:                                              ; preds = %393
   %397 = load ptr, ptr %178, align 8, !tbaa !80
-  %398 = load double, ptr %156, align 8, !tbaa !159
-  %399 = load ptr, ptr %151, align 8, !tbaa !186
-  %400 = load ptr, ptr %159, align 8, !tbaa !150
+  %398 = load double, ptr %156, align 8, !tbaa !161
+  %399 = load ptr, ptr %151, align 8, !tbaa !188
+  %400 = load ptr, ptr %159, align 8, !tbaa !152
   %401 = getelementptr inbounds nuw ptr, ptr %400, i64 %indvars.iv358
-  %402 = load ptr, ptr %401, align 8, !tbaa !167
-  %403 = load ptr, ptr %163, align 8, !tbaa !169
+  %402 = load ptr, ptr %401, align 8, !tbaa !169
+  %403 = load ptr, ptr %163, align 8, !tbaa !171
   %404 = tail call i32 %397(double noundef %398, ptr noundef %399, ptr noundef %402, ptr noundef %403) #14
-  %405 = load i64, ptr %179, align 8, !tbaa !172
+  %405 = load i64, ptr %179, align 8, !tbaa !174
   %406 = add nsw i64 %405, 1
-  store i64 %406, ptr %179, align 8, !tbaa !172
+  store i64 %406, ptr %179, align 8, !tbaa !174
   %407 = icmp slt i32 %404, 0
   br i1 %407, label %.loopexit, label %408
 
@@ -5884,21 +5884,21 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %366
 411:                                              ; preds = %409
   %412 = load ptr, ptr %157, align 8, !tbaa !93
   store double 1.000000e+00, ptr %412, align 8, !tbaa !115
-  %413 = load ptr, ptr %159, align 8, !tbaa !150
+  %413 = load ptr, ptr %159, align 8, !tbaa !152
   %414 = getelementptr inbounds nuw ptr, ptr %413, i64 %indvars.iv358
-  %415 = load ptr, ptr %414, align 8, !tbaa !167
+  %415 = load ptr, ptr %414, align 8, !tbaa !169
   %416 = load ptr, ptr %158, align 8, !tbaa !94
-  store ptr %415, ptr %416, align 8, !tbaa !167
-  %417 = load double, ptr %156, align 8, !tbaa !159
+  store ptr %415, ptr %416, align 8, !tbaa !169
+  %417 = load double, ptr %156, align 8, !tbaa !161
   %418 = getelementptr inbounds nuw i8, ptr %412, i64 8
   store double 1.000000e+00, ptr %418, align 8, !tbaa !115
   %419 = load ptr, ptr %173, align 8, !tbaa !100
-  %420 = load ptr, ptr %419, align 8, !tbaa !167
+  %420 = load ptr, ptr %419, align 8, !tbaa !169
   %421 = getelementptr inbounds nuw i8, ptr %416, i64 8
-  store ptr %420, ptr %421, align 8, !tbaa !167
-  %422 = load double, ptr %174, align 8, !tbaa !188
+  store ptr %420, ptr %421, align 8, !tbaa !169
+  %422 = load double, ptr %174, align 8, !tbaa !190
   %423 = fsub double %417, %422
-  %424 = load double, ptr %175, align 8, !tbaa !189
+  %424 = load double, ptr %175, align 8, !tbaa !191
   %425 = fdiv double %423, %424
   %426 = load i32, ptr %176, align 8, !tbaa !101
   %427 = icmp sgt i32 %426, 1
@@ -5916,30 +5916,30 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %366
   %429 = getelementptr inbounds nuw double, ptr %412, i64 %indvars.iv354
   store double %.02425.i246, ptr %429, align 8, !tbaa !115
   %430 = getelementptr inbounds nuw ptr, ptr %419, i64 %indvars.iv.i245
-  %431 = load ptr, ptr %430, align 8, !tbaa !167
+  %431 = load ptr, ptr %430, align 8, !tbaa !169
   %432 = getelementptr inbounds nuw ptr, ptr %416, i64 %indvars.iv354
-  store ptr %431, ptr %432, align 8, !tbaa !167
+  store ptr %431, ptr %432, align 8, !tbaa !169
   %433 = fmul double %425, %.02425.i246
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %indvars.iv.next.i247 = add nuw nsw i64 %indvars.iv.i245, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next355, %428
-  br i1 %exitcond357.not, label %mriStep_ApplyForcing.exit248, label %.lr.ph.i244
+  br i1 %exitcond357.not, label %mriStep_ApplyForcing.exit248, label %.lr.ph.i244, !llvm.loop !192
 
 mriStep_ApplyForcing.exit248:                     ; preds = %.lr.ph.i244, %411
   %.1297 = phi i32 [ 2, %411 ], [ %narrow368, %.lr.ph.i244 ]
-  %434 = load ptr, ptr %414, align 8, !tbaa !167
+  %434 = load ptr, ptr %414, align 8, !tbaa !169
   %435 = tail call i32 @N_VLinearCombination(i32 noundef %.1297, ptr noundef nonnull %412, ptr noundef nonnull %416, ptr noundef %434) #14
   br label %445
 
 436:                                              ; preds = %393
   %437 = load double, ptr %165, align 8, !tbaa !114
   %438 = fdiv double 1.000000e+00, %437
-  %439 = load ptr, ptr %181, align 8, !tbaa !191
+  %439 = load ptr, ptr %181, align 8, !tbaa !194
   %440 = fdiv double -1.000000e+00, %437
-  %441 = load ptr, ptr %164, align 8, !tbaa !171
-  %442 = load ptr, ptr %159, align 8, !tbaa !150
+  %441 = load ptr, ptr %164, align 8, !tbaa !173
+  %442 = load ptr, ptr %159, align 8, !tbaa !152
   %443 = getelementptr inbounds nuw ptr, ptr %442, i64 %indvars.iv358
-  %444 = load ptr, ptr %443, align 8, !tbaa !167
+  %444 = load ptr, ptr %443, align 8, !tbaa !169
   tail call void @N_VLinearSum(double noundef %438, ptr noundef %439, double noundef %440, ptr noundef %441, ptr noundef %444) #14
   br label %445
 
@@ -5954,12 +5954,12 @@ mriStep_ApplyForcing.exit248:                     ; preds = %.lr.ph.i244, %411
   br i1 %.not232, label %.thread332, label %448
 
 448:                                              ; preds = %446
-  %449 = load ptr, ptr %171, align 8, !tbaa !151
+  %449 = load ptr, ptr %171, align 8, !tbaa !153
   %450 = getelementptr inbounds nuw ptr, ptr %449, i64 %indvars.iv358
-  %451 = load ptr, ptr %450, align 8, !tbaa !167
-  %452 = load ptr, ptr %159, align 8, !tbaa !150
+  %451 = load ptr, ptr %450, align 8, !tbaa !169
+  %452 = load ptr, ptr %159, align 8, !tbaa !152
   %453 = getelementptr inbounds nuw ptr, ptr %452, i64 %indvars.iv358
-  %454 = load ptr, ptr %453, align 8, !tbaa !167
+  %454 = load ptr, ptr %453, align 8, !tbaa !169
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %451, double noundef 1.000000e+00, ptr noundef %454, ptr noundef %451) #14
   br label %.thread332
 
@@ -5967,14 +5967,14 @@ mriStep_ApplyForcing.exit248:                     ; preds = %.lr.ph.i244, %411
   br i1 %186, label %455, label %457
 
 455:                                              ; preds = %.thread332
-  %456 = load ptr, ptr %151, align 8, !tbaa !186
+  %456 = load ptr, ptr %151, align 8, !tbaa !188
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %456, ptr noundef %9) #14
   br label %457
 
 457:                                              ; preds = %.thread332, %455
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
-  br i1 %exitcond362.not, label %._crit_edge.loopexit, label %182
+  br i1 %exitcond362.not, label %._crit_edge.loopexit, label %182, !llvm.loop !253
 
 ._crit_edge.loopexit:                             ; preds = %457
   %.pre367 = load i32, ptr %54, align 8, !tbaa !120
@@ -5993,16 +5993,16 @@ mriStep_ApplyForcing.exit248:                     ; preds = %.lr.ph.i244, %411
 
 462:                                              ; preds = %459, %._crit_edge
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %464 = load ptr, ptr %463, align 8, !tbaa !186
+  %464 = load ptr, ptr %463, align 8, !tbaa !188
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %466 = load ptr, ptr %465, align 8, !tbaa !161
+  %466 = load ptr, ptr %465, align 8, !tbaa !163
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %9, double noundef -1.000000e+00, ptr noundef %464, ptr noundef %466) #14
-  %467 = load ptr, ptr %465, align 8, !tbaa !161
+  %467 = load ptr, ptr %465, align 8, !tbaa !163
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %469 = load ptr, ptr %468, align 8, !tbaa !152
+  %469 = load ptr, ptr %468, align 8, !tbaa !154
   %470 = tail call double @N_VWrmsNorm(ptr noundef %467, ptr noundef %469) #14
   store double %470, ptr %1, align 8, !tbaa !115
-  %471 = load ptr, ptr %463, align 8, !tbaa !186
+  %471 = load ptr, ptr %463, align 8, !tbaa !188
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %9, ptr noundef %471) #14
   br label %.loopexit
 
@@ -6032,32 +6032,32 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !194
+  %11 = load ptr, ptr %10, align 8, !tbaa !198
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %7
   call void @N_VSpace(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %.pre = load i64, ptr %4, align 8, !tbaa !193
-  %.pre48 = load i64, ptr %5, align 8, !tbaa !193
+  %.pre = load i64, ptr %4, align 8, !tbaa !197
+  %.pre48 = load i64, ptr %5, align 8, !tbaa !197
   br label %14
 
 13:                                               ; preds = %7
-  store i64 0, ptr %4, align 8, !tbaa !193
-  store i64 0, ptr %5, align 8, !tbaa !193
+  store i64 0, ptr %4, align 8, !tbaa !197
+  store i64 0, ptr %5, align 8, !tbaa !197
   br label %14
 
 14:                                               ; preds = %13, %12
   %15 = phi i64 [ 0, %13 ], [ %.pre48, %12 ]
   %16 = phi i64 [ 0, %13 ], [ %.pre, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %16, ptr %17, align 8, !tbaa !233
+  store i64 %16, ptr %17, align 8, !tbaa !254
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %15, ptr %18, align 8, !tbaa !234
+  store i64 %15, ptr %18, align 8, !tbaa !255
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %1, ptr %19, align 8, !tbaa !213
+  store i32 %1, ptr %19, align 8, !tbaa !220
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %21 = load i32, ptr %20, align 4, !tbaa !196
+  %21 = load i32, ptr %20, align 4, !tbaa !200
   %22 = icmp slt i32 %21, %1
   br i1 %22, label %23, label %49
 
@@ -6070,9 +6070,9 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @arkFreeVecArray(i32 noundef %21, ptr noundef nonnull %25, i64 noundef %16, ptr noundef nonnull %26, i64 noundef %15, ptr noundef nonnull %27) #14
-  %.pre49 = load i32, ptr %19, align 8, !tbaa !213
-  %.pre50 = load i64, ptr %17, align 8, !tbaa !233
-  %.pre51 = load i64, ptr %18, align 8, !tbaa !234
+  %.pre49 = load i32, ptr %19, align 8, !tbaa !220
+  %.pre50 = load i64, ptr %17, align 8, !tbaa !254
+  %.pre51 = load i64, ptr %18, align 8, !tbaa !255
   br label %28
 
 28:                                               ; preds = %24, %23
@@ -6087,40 +6087,40 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
   br i1 %.not39, label %36, label %47
 
 36:                                               ; preds = %28
-  %37 = load i32, ptr %20, align 4, !tbaa !196
-  %38 = load i64, ptr %17, align 8, !tbaa !233
-  %39 = load i64, ptr %18, align 8, !tbaa !234
+  %37 = load i32, ptr %20, align 4, !tbaa !200
+  %38 = load i64, ptr %17, align 8, !tbaa !254
+  %39 = load i64, ptr %18, align 8, !tbaa !255
   call void @arkFreeVecArray(i32 noundef %37, ptr noundef nonnull %32, i64 noundef %38, ptr noundef nonnull %33, i64 noundef %39, ptr noundef nonnull %34) #14
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8, !tbaa !235
+  %41 = load ptr, ptr %40, align 8, !tbaa !256
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %43, label %42
 
 42:                                               ; preds = %36
   call void @free(ptr noundef nonnull %41) #14
-  store ptr null, ptr %40, align 8, !tbaa !235
+  store ptr null, ptr %40, align 8, !tbaa !256
   br label %43
 
 43:                                               ; preds = %42, %36
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %45 = load ptr, ptr %44, align 8, !tbaa !236
+  %45 = load ptr, ptr %44, align 8, !tbaa !257
   %.not16.i = icmp eq ptr %45, null
   br i1 %.not16.i, label %mriStepInnerStepper_FreeVecs.exit, label %46
 
 46:                                               ; preds = %43
   call void @free(ptr noundef nonnull %45) #14
-  store ptr null, ptr %44, align 8, !tbaa !236
+  store ptr null, ptr %44, align 8, !tbaa !257
   br label %mriStepInnerStepper_FreeVecs.exit
 
 47:                                               ; preds = %28
-  %48 = load i32, ptr %19, align 8, !tbaa !213
-  store i32 %48, ptr %20, align 4, !tbaa !196
+  %48 = load i32, ptr %19, align 8, !tbaa !220
+  store i32 %48, ptr %20, align 4, !tbaa !200
   br label %49
 
 49:                                               ; preds = %47, %14
   %50 = phi i32 [ %48, %47 ], [ %21, %14 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %52 = load ptr, ptr %51, align 8, !tbaa !235
+  %52 = load ptr, ptr %51, align 8, !tbaa !256
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %71
 
@@ -6128,40 +6128,40 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
   %55 = add nsw i32 %1, 1
   %56 = sext i32 %55 to i64
   %57 = call noalias ptr @calloc(i64 noundef %56, i64 noundef 8) #15
-  store ptr %57, ptr %51, align 8, !tbaa !235
+  store ptr %57, ptr %51, align 8, !tbaa !256
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %71
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %61 = load i64, ptr %17, align 8, !tbaa !233
+  %61 = load i64, ptr %17, align 8, !tbaa !254
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %63 = load i64, ptr %18, align 8, !tbaa !234
+  %63 = load i64, ptr %18, align 8, !tbaa !255
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @arkFreeVecArray(i32 noundef %50, ptr noundef nonnull %60, i64 noundef %61, ptr noundef nonnull %62, i64 noundef %63, ptr noundef nonnull %64) #14
-  %65 = load ptr, ptr %51, align 8, !tbaa !235
+  %65 = load ptr, ptr %51, align 8, !tbaa !256
   %.not.i40 = icmp eq ptr %65, null
   br i1 %.not.i40, label %67, label %66
 
 66:                                               ; preds = %59
   call void @free(ptr noundef nonnull %65) #14
-  store ptr null, ptr %51, align 8, !tbaa !235
+  store ptr null, ptr %51, align 8, !tbaa !256
   br label %67
 
 67:                                               ; preds = %66, %59
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %69 = load ptr, ptr %68, align 8, !tbaa !236
+  %69 = load ptr, ptr %68, align 8, !tbaa !257
   %.not16.i41 = icmp eq ptr %69, null
   br i1 %.not16.i41, label %mriStepInnerStepper_FreeVecs.exit, label %70
 
 70:                                               ; preds = %67
   call void @free(ptr noundef nonnull %69) #14
-  store ptr null, ptr %68, align 8, !tbaa !236
+  store ptr null, ptr %68, align 8, !tbaa !257
   br label %mriStepInnerStepper_FreeVecs.exit
 
 71:                                               ; preds = %54, %49
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %73 = load ptr, ptr %72, align 8, !tbaa !236
+  %73 = load ptr, ptr %72, align 8, !tbaa !257
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %mriStepInnerStepper_FreeVecs.exit
 
@@ -6169,34 +6169,34 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
   %76 = add nsw i32 %1, 1
   %77 = sext i32 %76 to i64
   %78 = call noalias ptr @calloc(i64 noundef %77, i64 noundef 8) #15
-  store ptr %78, ptr %72, align 8, !tbaa !236
+  store ptr %78, ptr %72, align 8, !tbaa !257
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %mriStepInnerStepper_FreeVecs.exit
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load i64, ptr %17, align 8, !tbaa !233
+  %82 = load i64, ptr %17, align 8, !tbaa !254
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %84 = load i64, ptr %18, align 8, !tbaa !234
+  %84 = load i64, ptr %18, align 8, !tbaa !255
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @arkFreeVecArray(i32 noundef %50, ptr noundef nonnull %81, i64 noundef %82, ptr noundef nonnull %83, i64 noundef %84, ptr noundef nonnull %85) #14
-  %86 = load ptr, ptr %51, align 8, !tbaa !235
+  %86 = load ptr, ptr %51, align 8, !tbaa !256
   %.not.i44 = icmp eq ptr %86, null
   br i1 %.not.i44, label %88, label %87
 
 87:                                               ; preds = %80
   call void @free(ptr noundef nonnull %86) #14
-  store ptr null, ptr %51, align 8, !tbaa !235
+  store ptr null, ptr %51, align 8, !tbaa !256
   br label %88
 
 88:                                               ; preds = %87, %80
-  %89 = load ptr, ptr %72, align 8, !tbaa !236
+  %89 = load ptr, ptr %72, align 8, !tbaa !257
   %.not16.i45 = icmp eq ptr %89, null
   br i1 %.not16.i45, label %mriStepInnerStepper_FreeVecs.exit, label %90
 
 90:                                               ; preds = %88
   call void @free(ptr noundef nonnull %89) #14
-  store ptr null, ptr %72, align 8, !tbaa !236
+  store ptr null, ptr %72, align 8, !tbaa !257
   br label %mriStepInnerStepper_FreeVecs.exit
 
 mriStepInnerStepper_FreeVecs.exit:                ; preds = %90, %88, %70, %67, %46, %43, %71, %75, %3
@@ -6230,15 +6230,15 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
 12:                                               ; preds = %9
   %13 = load ptr, ptr %7, align 8, !tbaa !72
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !151
-  %16 = load ptr, ptr %15, align 8, !tbaa !167
+  %15 = load ptr, ptr %14, align 8, !tbaa !153
+  %16 = load ptr, ptr %15, align 8, !tbaa !169
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !169
+  %18 = load ptr, ptr %17, align 8, !tbaa !171
   %19 = tail call i32 %13(double noundef %1, ptr noundef %2, ptr noundef %16, ptr noundef %18) #14
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 408
-  %21 = load i64, ptr %20, align 8, !tbaa !170
+  %21 = load i64, ptr %20, align 8, !tbaa !172
   %22 = add nsw i64 %21, 1
-  store i64 %22, ptr %20, align 8, !tbaa !170
+  store i64 %22, ptr %20, align 8, !tbaa !172
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store i32 1, ptr %23, align 4, !tbaa !81
   %.not22 = icmp eq i32 %19, 0
@@ -6258,23 +6258,23 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 504
   %30 = load ptr, ptr %29, align 8, !tbaa !93
   store double 1.000000e+00, ptr %30, align 8, !tbaa !115
-  %31 = load ptr, ptr %14, align 8, !tbaa !151
-  %32 = load ptr, ptr %31, align 8, !tbaa !167
+  %31 = load ptr, ptr %14, align 8, !tbaa !153
+  %32 = load ptr, ptr %31, align 8, !tbaa !169
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 512
   %34 = load ptr, ptr %33, align 8, !tbaa !94
-  store ptr %32, ptr %34, align 8, !tbaa !167
+  store ptr %32, ptr %34, align 8, !tbaa !169
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store double 1.000000e+00, ptr %35, align 8, !tbaa !115
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 488
   %37 = load ptr, ptr %36, align 8, !tbaa !100
-  %38 = load ptr, ptr %37, align 8, !tbaa !167
+  %38 = load ptr, ptr %37, align 8, !tbaa !169
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %38, ptr %39, align 8, !tbaa !167
+  store ptr %38, ptr %39, align 8, !tbaa !169
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 472
-  %41 = load double, ptr %40, align 8, !tbaa !188
+  %41 = load double, ptr %40, align 8, !tbaa !190
   %42 = fsub double %1, %41
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 480
-  %44 = load double, ptr %43, align 8, !tbaa !189
+  %44 = load double, ptr %43, align 8, !tbaa !191
   %45 = fdiv double %42, %44
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 496
   %47 = load i32, ptr %46, align 8, !tbaa !101
@@ -6293,18 +6293,18 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   %50 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
   store double %.02425.i, ptr %50, align 8, !tbaa !115
   %51 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i
-  %52 = load ptr, ptr %51, align 8, !tbaa !167
+  %52 = load ptr, ptr %51, align 8, !tbaa !169
   %53 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
-  store ptr %52, ptr %53, align 8, !tbaa !167
+  store ptr %52, ptr %53, align 8, !tbaa !169
   %54 = fmul double %45, %.02425.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %49
-  br i1 %exitcond.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i
+  br i1 %exitcond.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i, !llvm.loop !192
 
 mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %28
   %.051 = phi i32 [ 2, %28 ], [ %narrow, %.lr.ph.i ]
-  %55 = load ptr, ptr %31, align 8, !tbaa !167
+  %55 = load ptr, ptr %31, align 8, !tbaa !169
   %56 = tail call i32 @N_VLinearCombination(i32 noundef %.051, ptr noundef nonnull %30, ptr noundef nonnull %34, ptr noundef %55) #14
   br label %57
 
@@ -6318,15 +6318,15 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %28
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !80
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %64 = load ptr, ptr %63, align 8, !tbaa !150
-  %65 = load ptr, ptr %64, align 8, !tbaa !167
+  %64 = load ptr, ptr %63, align 8, !tbaa !152
+  %65 = load ptr, ptr %64, align 8, !tbaa !169
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !169
+  %67 = load ptr, ptr %66, align 8, !tbaa !171
   %68 = tail call i32 %62(double noundef %1, ptr noundef %2, ptr noundef %65, ptr noundef %67) #14
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 416
-  %70 = load i64, ptr %69, align 8, !tbaa !172
+  %70 = load i64, ptr %69, align 8, !tbaa !174
   %71 = add nsw i64 %70, 1
-  store i64 %71, ptr %69, align 8, !tbaa !172
+  store i64 %71, ptr %69, align 8, !tbaa !174
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 1, ptr %72, align 8, !tbaa !82
   %.not25 = icmp eq i32 %68, 0
@@ -6346,23 +6346,23 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %28
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 504
   %79 = load ptr, ptr %78, align 8, !tbaa !93
   store double 1.000000e+00, ptr %79, align 8, !tbaa !115
-  %80 = load ptr, ptr %63, align 8, !tbaa !150
-  %81 = load ptr, ptr %80, align 8, !tbaa !167
+  %80 = load ptr, ptr %63, align 8, !tbaa !152
+  %81 = load ptr, ptr %80, align 8, !tbaa !169
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 512
   %83 = load ptr, ptr %82, align 8, !tbaa !94
-  store ptr %81, ptr %83, align 8, !tbaa !167
+  store ptr %81, ptr %83, align 8, !tbaa !169
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store double 1.000000e+00, ptr %84, align 8, !tbaa !115
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 488
   %86 = load ptr, ptr %85, align 8, !tbaa !100
-  %87 = load ptr, ptr %86, align 8, !tbaa !167
+  %87 = load ptr, ptr %86, align 8, !tbaa !169
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store ptr %87, ptr %88, align 8, !tbaa !167
+  store ptr %87, ptr %88, align 8, !tbaa !169
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 472
-  %90 = load double, ptr %89, align 8, !tbaa !188
+  %90 = load double, ptr %89, align 8, !tbaa !190
   %91 = fsub double %1, %90
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 480
-  %93 = load double, ptr %92, align 8, !tbaa !189
+  %93 = load double, ptr %92, align 8, !tbaa !191
   %94 = fdiv double %91, %93
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 496
   %96 = load i32, ptr %95, align 8, !tbaa !101
@@ -6381,18 +6381,18 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %28
   %99 = getelementptr inbounds nuw double, ptr %79, i64 %indvars.iv59
   store double %.02425.i32, ptr %99, align 8, !tbaa !115
   %100 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i31
-  %101 = load ptr, ptr %100, align 8, !tbaa !167
+  %101 = load ptr, ptr %100, align 8, !tbaa !169
   %102 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv59
-  store ptr %101, ptr %102, align 8, !tbaa !167
+  store ptr %101, ptr %102, align 8, !tbaa !169
   %103 = fmul double %94, %.02425.i32
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, %98
-  br i1 %exitcond62.not, label %mriStep_ApplyForcing.exit34, label %.lr.ph.i30
+  br i1 %exitcond62.not, label %mriStep_ApplyForcing.exit34, label %.lr.ph.i30, !llvm.loop !192
 
 mriStep_ApplyForcing.exit34:                      ; preds = %.lr.ph.i30, %77
   %.1 = phi i32 [ 2, %77 ], [ %narrow63, %.lr.ph.i30 ]
-  %104 = load ptr, ptr %80, align 8, !tbaa !167
+  %104 = load ptr, ptr %80, align 8, !tbaa !169
   %105 = tail call i32 @N_VLinearCombination(i32 noundef %.1, ptr noundef nonnull %79, ptr noundef nonnull %83, ptr noundef %104) #14
   br label %106
 
@@ -6408,11 +6408,11 @@ mriStep_ApplyForcing.exit34:                      ; preds = %.lr.ph.i30, %77
 
 109:                                              ; preds = %108
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %111 = load ptr, ptr %110, align 8, !tbaa !151
-  %112 = load ptr, ptr %111, align 8, !tbaa !167
+  %111 = load ptr, ptr %110, align 8, !tbaa !153
+  %112 = load ptr, ptr %111, align 8, !tbaa !169
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %114 = load ptr, ptr %113, align 8, !tbaa !150
-  %115 = load ptr, ptr %114, align 8, !tbaa !167
+  %114 = load ptr, ptr %113, align 8, !tbaa !152
+  %115 = load ptr, ptr %114, align 8, !tbaa !169
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %112, double noundef 1.000000e+00, ptr noundef %115, ptr noundef %3) #14
   br label %124
 
@@ -6421,15 +6421,15 @@ mriStep_ApplyForcing.exit34:                      ; preds = %.lr.ph.i30, %77
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %119 = load ptr, ptr %118, align 8, !tbaa !150
-  %120 = load ptr, ptr %119, align 8, !tbaa !167
+  %119 = load ptr, ptr %118, align 8, !tbaa !152
+  %120 = load ptr, ptr %119, align 8, !tbaa !169
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %120, ptr noundef %3) #14
   br label %124
 
 .thread:                                          ; preds = %108, %116
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %122 = load ptr, ptr %121, align 8, !tbaa !151
-  %123 = load ptr, ptr %122, align 8, !tbaa !167
+  %122 = load ptr, ptr %121, align 8, !tbaa !153
+  %123 = load ptr, ptr %122, align 8, !tbaa !169
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %123, ptr noundef %3) #14
   br label %124
 
@@ -6447,7 +6447,7 @@ define range(i32 -27, 1) i32 @mriStep_Hin(ptr noundef readonly captures(none) %0
 8:                                                ; preds = %5
   %9 = tail call double @llvm.fabs.f64(double %6)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load double, ptr %10, align 8, !tbaa !237
+  %11 = load double, ptr %10, align 8, !tbaa !258
   %12 = tail call double @llvm.fabs.f64(double %1)
   %13 = tail call double @llvm.fabs.f64(double %2)
   %14 = fcmp ogt double %12, %13
@@ -6460,7 +6460,7 @@ define range(i32 -27, 1) i32 @mriStep_Hin(ptr noundef readonly captures(none) %0
 18:                                               ; preds = %8
   %19 = fcmp ogt double %6, 0.000000e+00
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %21 = load ptr, ptr %20, align 8, !tbaa !152
+  %21 = load ptr, ptr %20, align 8, !tbaa !154
   %22 = tail call double @N_VWrmsNorm(ptr noundef %3, ptr noundef %21) #14
   %23 = fmul double %22, 2.000000e+00
   %24 = fdiv double 1.000000e+01, %9
@@ -6491,19 +6491,19 @@ define range(i32 0, 2) i32 @mriStepInnerStepper_SupportsRTolAdaptivity(ptr nound
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !162
+  %9 = load ptr, ptr %8, align 8, !tbaa !164
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !163
+  %12 = load ptr, ptr %11, align 8, !tbaa !165
   %.not7 = icmp eq ptr %12, null
   br i1 %.not7, label %16, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !164
+  %15 = load ptr, ptr %14, align 8, !tbaa !166
   %.not8 = icmp eq ptr %15, null
   br i1 %.not8, label %16, label %17
 
@@ -6538,22 +6538,22 @@ define range(i32 -8, 1) i32 @mriStep_UpdateF0(ptr noundef %0, ptr noundef captur
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %15 = load i32, ptr %14, align 8, !tbaa !183
+  %15 = load i32, ptr %14, align 8, !tbaa !185
   %.not95 = icmp eq i32 %15, 0
   br i1 %.not95, label %16, label %61
 
 16:                                               ; preds = %13, %10
   %17 = load ptr, ptr %1, align 8, !tbaa !72
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !151
-  %20 = load ptr, ptr %19, align 8, !tbaa !167
+  %19 = load ptr, ptr %18, align 8, !tbaa !153
+  %20 = load ptr, ptr %19, align 8, !tbaa !169
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !169
+  %22 = load ptr, ptr %21, align 8, !tbaa !171
   %23 = tail call i32 %17(double noundef %2, ptr noundef %3, ptr noundef %20, ptr noundef %22) #14
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %25 = load i64, ptr %24, align 8, !tbaa !170
+  %25 = load i64, ptr %24, align 8, !tbaa !172
   %26 = add nsw i64 %25, 1
-  store i64 %26, ptr %24, align 8, !tbaa !170
+  store i64 %26, ptr %24, align 8, !tbaa !172
   %.not96 = icmp eq i32 %23, 0
   br i1 %.not96, label %28, label %27
 
@@ -6572,23 +6572,23 @@ define range(i32 -8, 1) i32 @mriStep_UpdateF0(ptr noundef %0, ptr noundef captur
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %33 = load ptr, ptr %32, align 8, !tbaa !93
   store double 1.000000e+00, ptr %33, align 8, !tbaa !115
-  %34 = load ptr, ptr %18, align 8, !tbaa !151
-  %35 = load ptr, ptr %34, align 8, !tbaa !167
+  %34 = load ptr, ptr %18, align 8, !tbaa !153
+  %35 = load ptr, ptr %34, align 8, !tbaa !169
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %37 = load ptr, ptr %36, align 8, !tbaa !94
-  store ptr %35, ptr %37, align 8, !tbaa !167
+  store ptr %35, ptr %37, align 8, !tbaa !169
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store double 1.000000e+00, ptr %38, align 8, !tbaa !115
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %40 = load ptr, ptr %39, align 8, !tbaa !100
-  %41 = load ptr, ptr %40, align 8, !tbaa !167
+  %41 = load ptr, ptr %40, align 8, !tbaa !169
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %41, ptr %42, align 8, !tbaa !167
+  store ptr %41, ptr %42, align 8, !tbaa !169
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 472
-  %44 = load double, ptr %43, align 8, !tbaa !188
+  %44 = load double, ptr %43, align 8, !tbaa !190
   %45 = fsub double %2, %44
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %47 = load double, ptr %46, align 8, !tbaa !189
+  %47 = load double, ptr %46, align 8, !tbaa !191
   %48 = fdiv double %45, %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %50 = load i32, ptr %49, align 8, !tbaa !101
@@ -6607,18 +6607,18 @@ define range(i32 -8, 1) i32 @mriStep_UpdateF0(ptr noundef %0, ptr noundef captur
   %53 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
   store double %.02425.i, ptr %53, align 8, !tbaa !115
   %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
-  %55 = load ptr, ptr %54, align 8, !tbaa !167
+  %55 = load ptr, ptr %54, align 8, !tbaa !169
   %56 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
-  store ptr %55, ptr %56, align 8, !tbaa !167
+  store ptr %55, ptr %56, align 8, !tbaa !169
   %57 = fmul double %48, %.02425.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %52
-  br i1 %exitcond.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i
+  br i1 %exitcond.not, label %mriStep_ApplyForcing.exit, label %.lr.ph.i, !llvm.loop !192
 
 mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %31
   %58 = phi i32 [ 2, %31 ], [ %narrow, %.lr.ph.i ]
-  %59 = load ptr, ptr %34, align 8, !tbaa !167
+  %59 = load ptr, ptr %34, align 8, !tbaa !169
   %60 = tail call i32 @N_VLinearCombination(i32 noundef %58, ptr noundef nonnull %33, ptr noundef nonnull %37, ptr noundef %59) #14
   br label %61
 
@@ -6636,7 +6636,7 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %31
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %69 = load i32, ptr %68, align 8, !tbaa !183
+  %69 = load i32, ptr %68, align 8, !tbaa !185
   %.not100 = icmp eq i32 %69, 0
   br i1 %.not100, label %70, label %185
 
@@ -6644,15 +6644,15 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %31
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !80
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %74 = load ptr, ptr %73, align 8, !tbaa !150
-  %75 = load ptr, ptr %74, align 8, !tbaa !167
+  %74 = load ptr, ptr %73, align 8, !tbaa !152
+  %75 = load ptr, ptr %74, align 8, !tbaa !169
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !169
+  %77 = load ptr, ptr %76, align 8, !tbaa !171
   %78 = tail call i32 %72(double noundef %2, ptr noundef %3, ptr noundef %75, ptr noundef %77) #14
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %80 = load i64, ptr %79, align 8, !tbaa !172
+  %80 = load i64, ptr %79, align 8, !tbaa !174
   %81 = add nsw i64 %80, 1
-  store i64 %81, ptr %79, align 8, !tbaa !172
+  store i64 %81, ptr %79, align 8, !tbaa !174
   %.not101 = icmp eq i32 %78, 0
   br i1 %.not101, label %83, label %82
 
@@ -6671,23 +6671,23 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %31
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %88 = load ptr, ptr %87, align 8, !tbaa !93
   store double 1.000000e+00, ptr %88, align 8, !tbaa !115
-  %89 = load ptr, ptr %73, align 8, !tbaa !150
-  %90 = load ptr, ptr %89, align 8, !tbaa !167
+  %89 = load ptr, ptr %73, align 8, !tbaa !152
+  %90 = load ptr, ptr %89, align 8, !tbaa !169
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %92 = load ptr, ptr %91, align 8, !tbaa !94
-  store ptr %90, ptr %92, align 8, !tbaa !167
+  store ptr %90, ptr %92, align 8, !tbaa !169
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store double 1.000000e+00, ptr %93, align 8, !tbaa !115
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %95 = load ptr, ptr %94, align 8, !tbaa !100
-  %96 = load ptr, ptr %95, align 8, !tbaa !167
+  %96 = load ptr, ptr %95, align 8, !tbaa !169
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store ptr %96, ptr %97, align 8, !tbaa !167
+  store ptr %96, ptr %97, align 8, !tbaa !169
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 472
-  %99 = load double, ptr %98, align 8, !tbaa !188
+  %99 = load double, ptr %98, align 8, !tbaa !190
   %100 = fsub double %2, %99
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %102 = load double, ptr %101, align 8, !tbaa !189
+  %102 = load double, ptr %101, align 8, !tbaa !191
   %103 = fdiv double %100, %102
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %105 = load i32, ptr %104, align 8, !tbaa !101
@@ -6706,24 +6706,24 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %31
   %108 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv111
   store double %.02425.i105, ptr %108, align 8, !tbaa !115
   %109 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv.i104
-  %110 = load ptr, ptr %109, align 8, !tbaa !167
+  %110 = load ptr, ptr %109, align 8, !tbaa !169
   %111 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv111
-  store ptr %110, ptr %111, align 8, !tbaa !167
+  store ptr %110, ptr %111, align 8, !tbaa !169
   %112 = fmul double %103, %.02425.i105
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, %107
-  br i1 %exitcond114.not, label %mriStep_ApplyForcing.exit107, label %.lr.ph.i103
+  br i1 %exitcond114.not, label %mriStep_ApplyForcing.exit107, label %.lr.ph.i103, !llvm.loop !192
 
 mriStep_ApplyForcing.exit107:                     ; preds = %.lr.ph.i103, %86
   %113 = phi i32 [ 2, %86 ], [ %narrow115, %.lr.ph.i103 ]
-  %114 = load ptr, ptr %89, align 8, !tbaa !167
+  %114 = load ptr, ptr %89, align 8, !tbaa !169
   %115 = tail call i32 @N_VLinearCombination(i32 noundef %113, ptr noundef nonnull %88, ptr noundef nonnull %92, ptr noundef %114) #14
   br label %185
 
 116:                                              ; preds = %5
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %118 = load i32, ptr %117, align 8, !tbaa !183
+  %118 = load i32, ptr %117, align 8, !tbaa !185
   %.not = icmp eq i32 %118, 0
   br i1 %.not, label %119, label %185
 
@@ -6736,15 +6736,15 @@ mriStep_ApplyForcing.exit107:                     ; preds = %.lr.ph.i103, %86
 122:                                              ; preds = %119
   %123 = load ptr, ptr %1, align 8, !tbaa !72
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %125 = load ptr, ptr %124, align 8, !tbaa !151
-  %126 = load ptr, ptr %125, align 8, !tbaa !167
+  %125 = load ptr, ptr %124, align 8, !tbaa !153
+  %126 = load ptr, ptr %125, align 8, !tbaa !169
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !169
+  %128 = load ptr, ptr %127, align 8, !tbaa !171
   %129 = tail call i32 %123(double noundef %2, ptr noundef %3, ptr noundef %126, ptr noundef %128) #14
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %131 = load i64, ptr %130, align 8, !tbaa !170
+  %131 = load i64, ptr %130, align 8, !tbaa !172
   %132 = add nsw i64 %131, 1
-  store i64 %132, ptr %130, align 8, !tbaa !170
+  store i64 %132, ptr %130, align 8, !tbaa !172
   %.not88 = icmp eq i32 %129, 0
   br i1 %.not88, label %134, label %133
 
@@ -6764,18 +6764,18 @@ mriStep_ApplyForcing.exit107:                     ; preds = %.lr.ph.i103, %86
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %140 = load ptr, ptr %139, align 8, !tbaa !93
   store double 1.000000e+00, ptr %140, align 8, !tbaa !115
-  %141 = load ptr, ptr %124, align 8, !tbaa !151
-  %142 = load ptr, ptr %141, align 8, !tbaa !167
+  %141 = load ptr, ptr %124, align 8, !tbaa !153
+  %142 = load ptr, ptr %141, align 8, !tbaa !169
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %144 = load ptr, ptr %143, align 8, !tbaa !94
-  store ptr %142, ptr %144, align 8, !tbaa !167
+  store ptr %142, ptr %144, align 8, !tbaa !169
   store i32 1, ptr %6, align 4, !tbaa !119
   call void @mriStep_ApplyForcing(ptr noundef nonnull %1, double noundef %2, double noundef 1.000000e+00, ptr noundef nonnull %6)
   %145 = load i32, ptr %6, align 4, !tbaa !119
   %146 = load ptr, ptr %139, align 8, !tbaa !93
   %147 = load ptr, ptr %143, align 8, !tbaa !94
-  %148 = load ptr, ptr %124, align 8, !tbaa !151
-  %149 = load ptr, ptr %148, align 8, !tbaa !167
+  %148 = load ptr, ptr %124, align 8, !tbaa !153
+  %149 = load ptr, ptr %148, align 8, !tbaa !169
   %150 = tail call i32 @N_VLinearCombination(i32 noundef %145, ptr noundef %146, ptr noundef %147, ptr noundef %149) #14
   br label %151
 
@@ -6789,15 +6789,15 @@ mriStep_ApplyForcing.exit107:                     ; preds = %.lr.ph.i103, %86
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %156 = load ptr, ptr %155, align 8, !tbaa !80
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %158 = load ptr, ptr %157, align 8, !tbaa !150
-  %159 = load ptr, ptr %158, align 8, !tbaa !167
+  %158 = load ptr, ptr %157, align 8, !tbaa !152
+  %159 = load ptr, ptr %158, align 8, !tbaa !169
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %161 = load ptr, ptr %160, align 8, !tbaa !169
+  %161 = load ptr, ptr %160, align 8, !tbaa !171
   %162 = tail call i32 %156(double noundef %2, ptr noundef %3, ptr noundef %159, ptr noundef %161) #14
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %164 = load i64, ptr %163, align 8, !tbaa !172
+  %164 = load i64, ptr %163, align 8, !tbaa !174
   %165 = add nsw i64 %164, 1
-  store i64 %165, ptr %163, align 8, !tbaa !172
+  store i64 %165, ptr %163, align 8, !tbaa !174
   %.not91 = icmp eq i32 %162, 0
   br i1 %.not91, label %167, label %166
 
@@ -6817,18 +6817,18 @@ mriStep_ApplyForcing.exit107:                     ; preds = %.lr.ph.i103, %86
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %173 = load ptr, ptr %172, align 8, !tbaa !93
   store double 1.000000e+00, ptr %173, align 8, !tbaa !115
-  %174 = load ptr, ptr %157, align 8, !tbaa !150
-  %175 = load ptr, ptr %174, align 8, !tbaa !167
+  %174 = load ptr, ptr %157, align 8, !tbaa !152
+  %175 = load ptr, ptr %174, align 8, !tbaa !169
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %177 = load ptr, ptr %176, align 8, !tbaa !94
-  store ptr %175, ptr %177, align 8, !tbaa !167
+  store ptr %175, ptr %177, align 8, !tbaa !169
   store i32 1, ptr %6, align 4, !tbaa !119
   call void @mriStep_ApplyForcing(ptr noundef nonnull %1, double noundef %2, double noundef 1.000000e+00, ptr noundef nonnull %6)
   %178 = load i32, ptr %6, align 4, !tbaa !119
   %179 = load ptr, ptr %172, align 8, !tbaa !93
   %180 = load ptr, ptr %176, align 8, !tbaa !94
-  %181 = load ptr, ptr %157, align 8, !tbaa !150
-  %182 = load ptr, ptr %181, align 8, !tbaa !167
+  %181 = load ptr, ptr %157, align 8, !tbaa !152
+  %182 = load ptr, ptr %181, align 8, !tbaa !169
   %183 = tail call i32 @N_VLinearCombination(i32 noundef %178, ptr noundef %179, ptr noundef %180, ptr noundef %182) #14
   br label %185
 
@@ -6855,14 +6855,14 @@ define i32 @mriStepInnerStepper_FullRhs(ptr noundef %0, double noundef %1, ptr n
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !165
+  %13 = load ptr, ptr %12, align 8, !tbaa !167
   %14 = icmp eq ptr %13, null
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11
   %16 = tail call i32 %13(ptr noundef nonnull %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %16, ptr %17, align 8, !tbaa !166
+  store i32 %16, ptr %17, align 8, !tbaa !168
   br label %18
 
 18:                                               ; preds = %11, %7, %5, %15
@@ -6882,18 +6882,18 @@ define void @mriStep_ApplyForcing(ptr noundef readonly captures(none) %0, double
   store double %2, ptr %9, align 8, !tbaa !115
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %11 = load ptr, ptr %10, align 8, !tbaa !100
-  %12 = load ptr, ptr %11, align 8, !tbaa !167
+  %12 = load ptr, ptr %11, align 8, !tbaa !169
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %14 = load ptr, ptr %13, align 8, !tbaa !94
   %15 = getelementptr inbounds ptr, ptr %14, i64 %8
-  store ptr %12, ptr %15, align 8, !tbaa !167
+  store ptr %12, ptr %15, align 8, !tbaa !169
   %16 = add nsw i32 %7, 1
   store i32 %16, ptr %3, align 4, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %18 = load double, ptr %17, align 8, !tbaa !188
+  %18 = load double, ptr %17, align 8, !tbaa !190
   %19 = fsub double %1, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %21 = load double, ptr %20, align 8, !tbaa !189
+  %21 = load double, ptr %20, align 8, !tbaa !191
   %22 = fdiv double %19, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %24 = load i32, ptr %23, align 8, !tbaa !101
@@ -6909,9 +6909,9 @@ define void @mriStep_ApplyForcing(ptr noundef readonly captures(none) %0, double
   %29 = getelementptr inbounds double, ptr %6, i64 %28
   store double %27, ptr %29, align 8, !tbaa !115
   %30 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8, !tbaa !167
+  %31 = load ptr, ptr %30, align 8, !tbaa !169
   %32 = getelementptr inbounds ptr, ptr %14, i64 %28
-  store ptr %31, ptr %32, align 8, !tbaa !167
+  store ptr %31, ptr %32, align 8, !tbaa !169
   %33 = fmul double %22, %.02425
   %34 = add nsw i32 %26, 1
   store i32 %34, ptr %3, align 4, !tbaa !119
@@ -6919,7 +6919,7 @@ define void @mriStep_ApplyForcing(ptr noundef readonly captures(none) %0, double
   %35 = load i32, ptr %23, align 8, !tbaa !101
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %._crit_edge
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !192
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -6938,16 +6938,16 @@ define i32 @mriStepInnerStepper_ResetAccumulatedError(ptr noundef %0) local_unna
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !162
+  %9 = load ptr, ptr %8, align 8, !tbaa !164
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !163
+  %12 = load ptr, ptr %11, align 8, !tbaa !165
   %13 = tail call i32 %12(ptr noundef nonnull %0) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %13, ptr %14, align 8, !tbaa !166
+  store i32 %13, ptr %14, align 8, !tbaa !168
   br label %15
 
 15:                                               ; preds = %7, %3, %1, %10
@@ -6968,14 +6968,14 @@ define i32 @mriStepInnerStepper_SetRTol(ptr noundef %0, double noundef %1) local
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !164
+  %10 = load ptr, ptr %9, align 8, !tbaa !166
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %8
   %12 = tail call i32 %10(ptr noundef nonnull %0, double noundef %1) #14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %12, ptr %13, align 8, !tbaa !166
+  store i32 %12, ptr %13, align 8, !tbaa !168
   br label %14
 
 14:                                               ; preds = %8, %4, %2, %11
@@ -7005,10 +7005,10 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %15 = load ptr, ptr %14, align 8, !tbaa !102
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store double %3, ptr %16, align 8, !tbaa !238
+  store double %3, ptr %16, align 8, !tbaa !259
   %17 = fsub double %4, %3
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store double %17, ptr %18, align 8, !tbaa !239
+  store double %17, ptr %18, align 8, !tbaa !260
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !125
   %21 = load i32, ptr %20, align 8, !tbaa !126
@@ -7048,13 +7048,13 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %28, align 8, !tbaa !150
+  %35 = load ptr, ptr %28, align 8, !tbaa !152
   %36 = zext nneg i32 %32 to i64
   %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !167
+  %38 = load ptr, ptr %37, align 8, !tbaa !169
   %39 = sext i32 %.095107.us to i64
   %40 = getelementptr inbounds ptr, ptr %13, i64 %39
-  store ptr %38, ptr %40, align 8, !tbaa !167
+  store ptr %38, ptr %40, align 8, !tbaa !169
   %41 = add nsw i32 %.095107.us, 1
   br label %42
 
@@ -7062,7 +7062,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %.2.us = phi i32 [ %41, %34 ], [ %.095107.us, %29 ], [ %.095107.us, %.lr.ph.split.us ]
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !240
+  br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !261
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %43 = load ptr, ptr %27, align 8, !tbaa !141
@@ -7082,13 +7082,13 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %.lr.ph.split.split.us
-  %48 = load ptr, ptr %26, align 8, !tbaa !151
+  %48 = load ptr, ptr %26, align 8, !tbaa !153
   %49 = zext nneg i32 %45 to i64
   %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !167
+  %51 = load ptr, ptr %50, align 8, !tbaa !169
   %52 = sext i32 %.095107.us110 to i64
   %53 = getelementptr inbounds ptr, ptr %13, i64 %52
-  store ptr %51, ptr %53, align 8, !tbaa !167
+  store ptr %51, ptr %53, align 8, !tbaa !169
   %54 = add nsw i32 %.095107.us110, 1
   br label %55
 
@@ -7096,7 +7096,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %.196.us111 = phi i32 [ %54, %47 ], [ %.095107.us110, %.lr.ph.split.split.us ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !241
+  br i1 %exitcond149.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !262
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %71
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.lr.ph.split.split.preheader ]
@@ -7107,20 +7107,20 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   br i1 %58, label %59, label %71
 
 59:                                               ; preds = %.lr.ph.split.split
-  %60 = load ptr, ptr %26, align 8, !tbaa !151
+  %60 = load ptr, ptr %26, align 8, !tbaa !153
   %61 = zext nneg i32 %57 to i64
   %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !167
+  %63 = load ptr, ptr %62, align 8, !tbaa !169
   %64 = sext i32 %.095107 to i64
   %65 = getelementptr inbounds ptr, ptr %13, i64 %64
-  store ptr %63, ptr %65, align 8, !tbaa !167
-  %66 = load ptr, ptr %28, align 8, !tbaa !150
+  store ptr %63, ptr %65, align 8, !tbaa !169
+  %66 = load ptr, ptr %28, align 8, !tbaa !152
   %67 = zext nneg i32 %57 to i64
   %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
-  %69 = load ptr, ptr %68, align 8, !tbaa !167
+  %69 = load ptr, ptr %68, align 8, !tbaa !169
   %70 = sext i32 %.095107 to i64
   %gep = getelementptr ptr, ptr %invariant.gep205, i64 %70
-  store ptr %69, ptr %gep, align 8, !tbaa !167
+  store ptr %69, ptr %gep, align 8, !tbaa !169
   %.reass = add i32 %.095107, 2
   br label %71
 
@@ -7128,13 +7128,13 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %.2 = phi i32 [ %.reass, %59 ], [ %.095107, %.lr.ph.split.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count148
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !263
 
 ._crit_edge:                                      ; preds = %71, %55, %42, %5
   %72 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %73 = load i32, ptr %72, align 4, !tbaa !153
+  %73 = load i32, ptr %72, align 4, !tbaa !155
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %75 = load double, ptr %74, align 8, !tbaa !185
+  %75 = load double, ptr %74, align 8, !tbaa !187
   %76 = fdiv double %75, %17
   %77 = icmp sgt i32 %73, 0
   br i1 %77, label %.preheader.lr.ph, label %._crit_edge123
@@ -7160,9 +7160,9 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %.3.lcssa.us = phi i32 [ 0, %.preheader.us ], [ %.4.us.us, %119 ]
   %84 = load ptr, ptr %14, align 8, !tbaa !102
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !242
+  %86 = load ptr, ptr %85, align 8, !tbaa !264
   %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv180
-  %88 = load ptr, ptr %87, align 8, !tbaa !167
+  %88 = load ptr, ptr %87, align 8, !tbaa !169
   %89 = tail call i32 @N_VLinearCombination(i32 noundef %.3.lcssa.us, ptr noundef %11, ptr noundef %13, ptr noundef %88) #14
   %.not.us = icmp eq i32 %89, 0
   br i1 %.not.us, label %90, label %._crit_edge123
@@ -7170,7 +7170,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 90:                                               ; preds = %._crit_edge116.split.us.us
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !243
+  br i1 %exitcond184.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !265
 
 .lr.ph115.us:                                     ; preds = %.preheader.us
   %91 = load ptr, ptr %78, align 8, !tbaa !141
@@ -7188,11 +7188,11 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 96:                                               ; preds = %92
   %97 = load ptr, ptr %19, align 8, !tbaa !125
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  %99 = load ptr, ptr %98, align 8, !tbaa !217
+  %99 = load ptr, ptr %98, align 8, !tbaa !224
   %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv180
-  %101 = load ptr, ptr %100, align 8, !tbaa !219
+  %101 = load ptr, ptr %100, align 8, !tbaa !226
   %102 = getelementptr inbounds ptr, ptr %101, i64 %81
-  %103 = load ptr, ptr %102, align 8, !tbaa !221
+  %103 = load ptr, ptr %102, align 8, !tbaa !230
   %104 = getelementptr inbounds nuw double, ptr %103, i64 %indvars.iv175
   %105 = load double, ptr %104, align 8, !tbaa !115
   %106 = fmul double %76, %105
@@ -7200,11 +7200,11 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %108 = getelementptr inbounds double, ptr %11, i64 %107
   store double %106, ptr %108, align 8, !tbaa !115
   %109 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %110 = load ptr, ptr %109, align 8, !tbaa !218
+  %110 = load ptr, ptr %109, align 8, !tbaa !225
   %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv180
-  %112 = load ptr, ptr %111, align 8, !tbaa !219
+  %112 = load ptr, ptr %111, align 8, !tbaa !226
   %113 = getelementptr inbounds ptr, ptr %112, i64 %81
-  %114 = load ptr, ptr %113, align 8, !tbaa !221
+  %114 = load ptr, ptr %113, align 8, !tbaa !230
   %115 = getelementptr inbounds nuw double, ptr %114, i64 %indvars.iv175
   %116 = load double, ptr %115, align 8, !tbaa !115
   %117 = fmul double %76, %116
@@ -7217,7 +7217,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %.4.us.us = phi i32 [ %118, %96 ], [ %.3113.us.us, %92 ]
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %._crit_edge116.split.us.us, label %92, !llvm.loop !244
+  br i1 %exitcond179.not, label %._crit_edge116.split.us.us, label %92, !llvm.loop !266
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   br i1 %79, label %.preheader.us129, label %.preheader
@@ -7233,9 +7233,9 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %.3.lcssa.us132 = phi i32 [ 0, %.preheader.us129 ], [ %.4.us119.us, %148 ]
   %122 = load ptr, ptr %14, align 8, !tbaa !102
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  %124 = load ptr, ptr %123, align 8, !tbaa !242
+  %124 = load ptr, ptr %123, align 8, !tbaa !264
   %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv170
-  %126 = load ptr, ptr %125, align 8, !tbaa !167
+  %126 = load ptr, ptr %125, align 8, !tbaa !169
   %127 = tail call i32 @N_VLinearCombination(i32 noundef %.3.lcssa.us132, ptr noundef %11, ptr noundef %13, ptr noundef %126) #14
   %.not.us133 = icmp eq i32 %127, 0
   br i1 %.not.us133, label %128, label %._crit_edge123
@@ -7243,7 +7243,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 128:                                              ; preds = %._crit_edge116.split.split.us.us
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count183
-  br i1 %exitcond174.not, label %._crit_edge123, label %.preheader.us129, !llvm.loop !245
+  br i1 %exitcond174.not, label %._crit_edge123, label %.preheader.us129, !llvm.loop !267
 
 .lr.ph115.us134:                                  ; preds = %.preheader.us129
   %129 = load ptr, ptr %78, align 8, !tbaa !141
@@ -7261,11 +7261,11 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 134:                                              ; preds = %130
   %135 = load ptr, ptr %19, align 8, !tbaa !125
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  %137 = load ptr, ptr %136, align 8, !tbaa !217
+  %137 = load ptr, ptr %136, align 8, !tbaa !224
   %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv170
-  %139 = load ptr, ptr %138, align 8, !tbaa !219
+  %139 = load ptr, ptr %138, align 8, !tbaa !226
   %140 = getelementptr inbounds ptr, ptr %139, i64 %81
-  %141 = load ptr, ptr %140, align 8, !tbaa !221
+  %141 = load ptr, ptr %140, align 8, !tbaa !230
   %142 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv165
   %143 = load double, ptr %142, align 8, !tbaa !115
   %144 = fmul double %76, %143
@@ -7279,12 +7279,12 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %.4.us119.us = phi i32 [ %147, %134 ], [ %.3113.us118.us, %130 ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count168
-  br i1 %exitcond169.not, label %._crit_edge116.split.split.us.us, label %130, !llvm.loop !246
+  br i1 %exitcond169.not, label %._crit_edge116.split.split.us.us, label %130, !llvm.loop !268
 
 149:                                              ; preds = %._crit_edge116.split.split
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count183
-  br i1 %exitcond164.not, label %._crit_edge123, label %.preheader
+  br i1 %exitcond164.not, label %._crit_edge123, label %.preheader, !llvm.loop !269
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %149
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %149 ], [ 0, %.preheader.lr.ph.split ]
@@ -7309,11 +7309,11 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 157:                                              ; preds = %153
   %158 = load ptr, ptr %19, align 8, !tbaa !125
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 40
-  %160 = load ptr, ptr %159, align 8, !tbaa !218
+  %160 = load ptr, ptr %159, align 8, !tbaa !225
   %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv160
-  %162 = load ptr, ptr %161, align 8, !tbaa !219
+  %162 = load ptr, ptr %161, align 8, !tbaa !226
   %163 = getelementptr inbounds ptr, ptr %162, i64 %81
-  %164 = load ptr, ptr %163, align 8, !tbaa !221
+  %164 = load ptr, ptr %163, align 8, !tbaa !230
   %165 = getelementptr inbounds nuw double, ptr %164, i64 %indvars.iv155
   %166 = load double, ptr %165, align 8, !tbaa !115
   %167 = fmul double %76, %166
@@ -7327,15 +7327,15 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %.4 = phi i32 [ %170, %157 ], [ %.3113, %153 ]
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %._crit_edge116.split.split, label %153
+  br i1 %exitcond159.not, label %._crit_edge116.split.split, label %153, !llvm.loop !270
 
 ._crit_edge116.split.split:                       ; preds = %171, %.preheader
   %.3.lcssa = phi i32 [ 0, %.preheader ], [ %.4, %171 ]
   %172 = load ptr, ptr %14, align 8, !tbaa !102
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
-  %174 = load ptr, ptr %173, align 8, !tbaa !242
+  %174 = load ptr, ptr %173, align 8, !tbaa !264
   %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv160
-  %176 = load ptr, ptr %175, align 8, !tbaa !167
+  %176 = load ptr, ptr %175, align 8, !tbaa !169
   %177 = tail call i32 @N_VLinearCombination(i32 noundef %.3.lcssa, ptr noundef %11, ptr noundef %13, ptr noundef %176) #14
   %.not = icmp eq i32 %177, 0
   br i1 %.not, label %149, label %._crit_edge123
@@ -7348,7 +7348,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 ; Function Attrs: nounwind uwtable
 define range(i32 -36, 6) i32 @mriStep_StageERKFast(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, ptr noundef %4, ptr readnone captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %9 = load ptr, ptr %8, align 8, !tbaa !247
+  %9 = load ptr, ptr %8, align 8, !tbaa !271
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %20, label %10
 
@@ -7356,11 +7356,11 @@ define range(i32 -36, 6) i32 @mriStep_StageERKFast(ptr noundef %0, ptr noundef %
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %12 = load ptr, ptr %11, align 8, !tbaa !102
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !242
+  %14 = load ptr, ptr %13, align 8, !tbaa !264
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !213
+  %16 = load i32, ptr %15, align 8, !tbaa !220
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !169
+  %18 = load ptr, ptr %17, align 8, !tbaa !171
   %19 = tail call i32 %9(double noundef %2, ptr noundef %14, i32 noundef %16, ptr noundef %18) #14
   %.not34 = icmp eq i32 %19, 0
   br i1 %.not34, label %20, label %72
@@ -7373,7 +7373,7 @@ define range(i32 -36, 6) i32 @mriStep_StageERKFast(ptr noundef %0, ptr noundef %
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %23 = load ptr, ptr %22, align 8, !tbaa !133
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
-  %25 = load ptr, ptr %24, align 8, !tbaa !157
+  %25 = load ptr, ptr %24, align 8, !tbaa !159
   %26 = tail call i32 @SUNAdaptController_GetType(ptr noundef %25) #14
   %27 = icmp eq i32 %26, 2
   br label %28
@@ -7399,7 +7399,7 @@ define range(i32 -36, 6) i32 @mriStep_StageERKFast(ptr noundef %0, ptr noundef %
 mriStepInnerStepper_Evolve.exit:                  ; preds = %36
   %39 = tail call i32 %37(ptr noundef nonnull %30, double noundef %2, double noundef %3, ptr noundef %4) #14
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store i32 %39, ptr %40, align 8, !tbaa !166
+  store i32 %39, ptr %40, align 8, !tbaa !168
   %41 = icmp slt i32 %39, 0
   br i1 %41, label %mriStepInnerStepper_Evolve.exit.thread, label %42
 
@@ -7413,13 +7413,13 @@ mriStepInnerStepper_Evolve.exit.thread:           ; preds = %36, %32, %28, %mriS
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %45 = load i64, ptr %44, align 8, !tbaa !203
+  %45 = load i64, ptr %44, align 8, !tbaa !208
   %46 = add nsw i64 %45, 1
-  store i64 %46, ptr %44, align 8, !tbaa !203
+  store i64 %46, ptr %44, align 8, !tbaa !208
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %48 = load i64, ptr %47, align 8, !tbaa !248
+  %48 = load i64, ptr %47, align 8, !tbaa !272
   %49 = add nsw i64 %48, -1
-  store i64 %49, ptr %47, align 8, !tbaa !248
+  store i64 %49, ptr %47, align 8, !tbaa !272
   br label %72
 
 50:                                               ; preds = %42
@@ -7439,14 +7439,14 @@ mriStepInnerStepper_Evolve.exit.thread:           ; preds = %36, %32, %28, %mriS
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !162
+  %61 = load ptr, ptr %60, align 8, !tbaa !164
   %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %mriStepInnerStepper_GetAccumulatedError.exit.thread, label %mriStepInnerStepper_GetAccumulatedError.exit
 
 mriStepInnerStepper_GetAccumulatedError.exit:     ; preds = %59
   %62 = tail call i32 %61(ptr noundef nonnull %52, ptr noundef nonnull %53) #14
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  store i32 %62, ptr %63, align 8, !tbaa !166
+  store i32 %62, ptr %63, align 8, !tbaa !168
   %.not37 = icmp eq i32 %62, 0
   br i1 %.not37, label %64, label %mriStepInnerStepper_GetAccumulatedError.exit.thread
 
@@ -7456,13 +7456,13 @@ mriStepInnerStepper_GetAccumulatedError.exit.thread: ; preds = %59, %55, %51, %m
 
 64:                                               ; preds = %mriStepInnerStepper_GetAccumulatedError.exit, %50
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %66 = load ptr, ptr %65, align 8, !tbaa !249
+  %66 = load ptr, ptr %65, align 8, !tbaa !273
   %.not38 = icmp eq ptr %66, null
   br i1 %.not38, label %71, label %67
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !169
+  %69 = load ptr, ptr %68, align 8, !tbaa !171
   %70 = tail call i32 %66(double noundef %3, ptr noundef %4, ptr noundef %69) #14
   %.not39 = icmp eq i32 %70, 0
   br i1 %.not39, label %71, label %72
@@ -7482,9 +7482,9 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load ptr, ptr %6, align 8, !tbaa !141
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %9 = load ptr, ptr %8, align 8, !tbaa !143
+  %9 = load ptr, ptr %8, align 8, !tbaa !145
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %11 = load ptr, ptr %10, align 8, !tbaa !144
+  %11 = load ptr, ptr %10, align 8, !tbaa !146
   %12 = tail call i32 @mriStep_RKCoeffs(ptr noundef %5, i32 noundef %2, ptr noundef %7, ptr noundef %9, ptr noundef %11)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %101
@@ -7494,10 +7494,10 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %15 = load ptr, ptr %14, align 8, !tbaa !93
   store double 1.000000e+00, ptr %15, align 8, !tbaa !115
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %17 = load ptr, ptr %16, align 8, !tbaa !186
+  %17 = load ptr, ptr %16, align 8, !tbaa !188
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %19 = load ptr, ptr %18, align 8, !tbaa !94
-  store ptr %17, ptr %19, align 8, !tbaa !167
+  store ptr %17, ptr %19, align 8, !tbaa !169
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load i32, ptr %20, align 8, !tbaa !131
   %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %21)
@@ -7533,8 +7533,8 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   br i1 %34, label %35, label %49
 
 35:                                               ; preds = %30
-  %36 = load double, ptr %25, align 8, !tbaa !185
-  %37 = load ptr, ptr %10, align 8, !tbaa !144
+  %36 = load double, ptr %25, align 8, !tbaa !187
+  %37 = load ptr, ptr %10, align 8, !tbaa !146
   %38 = zext nneg i32 %33 to i64
   %39 = getelementptr inbounds nuw double, ptr %37, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !115
@@ -7542,11 +7542,11 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %42 = sext i32 %.063.us to i64
   %43 = getelementptr inbounds double, ptr %15, i64 %42
   store double %41, ptr %43, align 8, !tbaa !115
-  %44 = load ptr, ptr %29, align 8, !tbaa !150
+  %44 = load ptr, ptr %29, align 8, !tbaa !152
   %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %38
-  %46 = load ptr, ptr %45, align 8, !tbaa !167
+  %46 = load ptr, ptr %45, align 8, !tbaa !169
   %47 = getelementptr inbounds ptr, ptr %19, i64 %42
-  store ptr %46, ptr %47, align 8, !tbaa !167
+  store ptr %46, ptr %47, align 8, !tbaa !169
   %48 = add nsw i32 %.063.us, 1
   br label %49
 
@@ -7554,7 +7554,7 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %.2.us = phi i32 [ %48, %35 ], [ %.063.us, %30 ], [ %.063.us, %.lr.ph.split.us ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !250
+  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !274
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %50 = load ptr, ptr %6, align 8, !tbaa !141
@@ -7570,8 +7570,8 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   br i1 %53, label %54, label %68
 
 54:                                               ; preds = %.lr.ph.split.split.us
-  %55 = load double, ptr %25, align 8, !tbaa !185
-  %56 = load ptr, ptr %8, align 8, !tbaa !143
+  %55 = load double, ptr %25, align 8, !tbaa !187
+  %56 = load ptr, ptr %8, align 8, !tbaa !145
   %57 = zext nneg i32 %52 to i64
   %58 = getelementptr inbounds nuw double, ptr %56, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !115
@@ -7579,11 +7579,11 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %61 = sext i32 %.063.us64 to i64
   %62 = getelementptr inbounds double, ptr %15, i64 %61
   store double %60, ptr %62, align 8, !tbaa !115
-  %63 = load ptr, ptr %26, align 8, !tbaa !151
+  %63 = load ptr, ptr %26, align 8, !tbaa !153
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %57
-  %65 = load ptr, ptr %64, align 8, !tbaa !167
+  %65 = load ptr, ptr %64, align 8, !tbaa !169
   %66 = getelementptr inbounds ptr, ptr %19, i64 %61
-  store ptr %65, ptr %66, align 8, !tbaa !167
+  store ptr %65, ptr %66, align 8, !tbaa !169
   %67 = add nsw i32 %.063.us64, 1
   br label %68
 
@@ -7591,7 +7591,7 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %.1.us66 = phi i32 [ %67, %54 ], [ %.063.us64, %.lr.ph.split.split.us ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !251
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !275
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %98
   %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ 0, %.lr.ph.split ]
@@ -7602,8 +7602,8 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   br i1 %71, label %72, label %98
 
 72:                                               ; preds = %.lr.ph.split.split
-  %73 = load double, ptr %25, align 8, !tbaa !185
-  %74 = load ptr, ptr %8, align 8, !tbaa !143
+  %73 = load double, ptr %25, align 8, !tbaa !187
+  %74 = load ptr, ptr %8, align 8, !tbaa !145
   %75 = zext nneg i32 %70 to i64
   %76 = getelementptr inbounds nuw double, ptr %74, i64 %75
   %77 = load double, ptr %76, align 8, !tbaa !115
@@ -7611,14 +7611,14 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %79 = sext i32 %.063 to i64
   %80 = getelementptr inbounds double, ptr %15, i64 %79
   store double %78, ptr %80, align 8, !tbaa !115
-  %81 = load ptr, ptr %26, align 8, !tbaa !151
+  %81 = load ptr, ptr %26, align 8, !tbaa !153
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %75
-  %83 = load ptr, ptr %82, align 8, !tbaa !167
+  %83 = load ptr, ptr %82, align 8, !tbaa !169
   %84 = getelementptr inbounds ptr, ptr %19, i64 %79
-  store ptr %83, ptr %84, align 8, !tbaa !167
+  store ptr %83, ptr %84, align 8, !tbaa !169
   %85 = add nsw i32 %.063, 1
-  %86 = load double, ptr %25, align 8, !tbaa !185
-  %87 = load ptr, ptr %10, align 8, !tbaa !144
+  %86 = load double, ptr %25, align 8, !tbaa !187
+  %87 = load ptr, ptr %10, align 8, !tbaa !146
   %88 = zext nneg i32 %70 to i64
   %89 = getelementptr inbounds nuw double, ptr %87, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !115
@@ -7626,11 +7626,11 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %92 = sext i32 %85 to i64
   %93 = getelementptr inbounds double, ptr %15, i64 %92
   store double %91, ptr %93, align 8, !tbaa !115
-  %94 = load ptr, ptr %29, align 8, !tbaa !150
+  %94 = load ptr, ptr %29, align 8, !tbaa !152
   %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %88
-  %96 = load ptr, ptr %95, align 8, !tbaa !167
+  %96 = load ptr, ptr %95, align 8, !tbaa !169
   %97 = getelementptr inbounds ptr, ptr %19, i64 %92
-  store ptr %96, ptr %97, align 8, !tbaa !167
+  store ptr %96, ptr %97, align 8, !tbaa !169
   %.reass = add i32 %.063, 2
   br label %98
 
@@ -7638,11 +7638,11 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %.2 = phi i32 [ %.reass, %72 ], [ %.063, %.lr.ph.split.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count76
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !276
 
 ._crit_edge:                                      ; preds = %98, %68, %49, %13
   %.0.lcssa = phi i32 [ 1, %13 ], [ %.2.us, %49 ], [ %.1.us66, %68 ], [ %.2, %98 ]
-  %99 = load ptr, ptr %16, align 8, !tbaa !186
+  %99 = load ptr, ptr %16, align 8, !tbaa !188
   %100 = tail call i32 @N_VLinearCombination(i32 noundef %.0.lcssa, ptr noundef nonnull %15, ptr noundef nonnull %19, ptr noundef %99) #14
   %.not58 = icmp eq i32 %100, 0
   %.61 = select i1 %.not58, i32 0, i32 -28
@@ -7661,25 +7661,25 @@ define i32 @mriStep_StageDIRKNoFast(ptr noundef %0, ptr noundef captures(none) i
   %8 = sext i1 %7 to i32
   %9 = add nsw i32 %2, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store i32 %9, ptr %10, align 8, !tbaa !197
+  store i32 %9, ptr %10, align 8, !tbaa !201
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %12 = load ptr, ptr %11, align 8, !tbaa !195
+  %12 = load ptr, ptr %11, align 8, !tbaa !199
   %13 = tail call i32 @mriStep_Predict(ptr noundef %0, i32 noundef %9, ptr noundef %12)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %41
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %16 = load ptr, ptr %15, align 8, !tbaa !231
+  %16 = load ptr, ptr %15, align 8, !tbaa !249
   %.not36 = icmp eq ptr %16, null
   br i1 %.not36, label %26, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %19 = load double, ptr %18, align 8, !tbaa !159
-  %20 = load ptr, ptr %11, align 8, !tbaa !195
+  %19 = load double, ptr %18, align 8, !tbaa !161
+  %20 = load ptr, ptr %11, align 8, !tbaa !199
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !169
+  %22 = load ptr, ptr %21, align 8, !tbaa !171
   %23 = tail call i32 %16(double noundef %19, ptr noundef %20, ptr noundef %22) #14
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %41, label %25
@@ -7694,9 +7694,9 @@ define i32 @mriStep_StageDIRKNoFast(ptr noundef %0, ptr noundef captures(none) i
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %30 = load ptr, ptr %29, align 8, !tbaa !141
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %32 = load ptr, ptr %31, align 8, !tbaa !143
+  %32 = load ptr, ptr %31, align 8, !tbaa !145
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %34 = load ptr, ptr %33, align 8, !tbaa !144
+  %34 = load ptr, ptr %33, align 8, !tbaa !146
   %35 = tail call i32 @mriStep_RKCoeffs(ptr noundef %28, i32 noundef %2, ptr noundef %30, ptr noundef %32, ptr noundef %34)
   %.not38 = icmp eq i32 %35, 0
   br i1 %.not38, label %36, label %41
@@ -7740,13 +7740,13 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %10 = load ptr, ptr %9, align 8, !tbaa !252
+  %10 = load ptr, ptr %9, align 8, !tbaa !277
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %14 = load i32, ptr %13, align 8, !tbaa !156
+  %14 = load i32, ptr %13, align 8, !tbaa !158
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %17
 
@@ -7760,13 +7760,13 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 512
   %21 = load ptr, ptr %20, align 8, !tbaa !94
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 964
-  %23 = load i32, ptr %22, align 4, !tbaa !253
+  %23 = load i32, ptr %22, align 4, !tbaa !278
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %26 = load ptr, ptr %25, align 8, !tbaa !160
+  %26 = load ptr, ptr %25, align 8, !tbaa !162
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %26, ptr noundef %2) #14
   br label %109
 
@@ -7774,18 +7774,18 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = load ptr, ptr %28, align 8, !tbaa !125
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !184
+  %31 = load ptr, ptr %30, align 8, !tbaa !186
   %32 = sext i32 %1 to i64
   %33 = getelementptr inbounds double, ptr %31, i64 %32
   %34 = load double, ptr %33, align 8, !tbaa !115
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %36 = load double, ptr %35, align 8, !tbaa !185
+  %36 = load double, ptr %35, align 8, !tbaa !187
   %37 = fmul double %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %39 = load double, ptr %38, align 8, !tbaa !254
+  %39 = load double, ptr %38, align 8, !tbaa !279
   %40 = fdiv double %37, %39
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %42 = load i32, ptr %41, align 8, !tbaa !156
+  %42 = load i32, ptr %41, align 8, !tbaa !158
   switch i32 %42, label %._crit_edge.thread [
     i32 1, label %44
     i32 2, label %46
@@ -7826,7 +7826,7 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %54 = select i1 %52, i32 %53, i32 %.086104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !280
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %55 = icmp eq i32 %54, -1
@@ -7863,7 +7863,7 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %.2 = phi i32 [ %.187106, %57 ], [ %spec.select, %65 ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %._crit_edge109, label %57
+  br i1 %exitcond116.not, label %._crit_edge109, label %57, !llvm.loop !281
 
 ._crit_edge109:                                   ; preds = %71
   %72 = sext i32 %.2 to i64
@@ -7878,15 +7878,15 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 78:                                               ; preds = %._crit_edge109
   store double 1.000000e+00, ptr %19, align 8, !tbaa !115
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %80 = load ptr, ptr %79, align 8, !tbaa !150
+  %80 = load ptr, ptr %79, align 8, !tbaa !152
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %82 = load ptr, ptr %81, align 8, !tbaa !141
   %83 = getelementptr inbounds i32, ptr %82, i64 %72
   %84 = load i32, ptr %83, align 4, !tbaa !119
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds ptr, ptr %80, i64 %85
-  %87 = load ptr, ptr %86, align 8, !tbaa !167
-  store ptr %87, ptr %21, align 8, !tbaa !167
+  %87 = load ptr, ptr %86, align 8, !tbaa !169
+  store ptr %87, ptr %21, align 8, !tbaa !169
   br label %88
 
 88:                                               ; preds = %78, %._crit_edge109
@@ -7901,16 +7901,16 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %93 = getelementptr inbounds nuw double, ptr %19, i64 %92
   store double 1.000000e+00, ptr %93, align 8, !tbaa !115
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %95 = load ptr, ptr %94, align 8, !tbaa !151
+  %95 = load ptr, ptr %94, align 8, !tbaa !153
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %97 = load ptr, ptr %96, align 8, !tbaa !141
   %98 = getelementptr inbounds i32, ptr %97, i64 %72
   %99 = load i32, ptr %98, align 4, !tbaa !119
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds ptr, ptr %95, i64 %100
-  %102 = load ptr, ptr %101, align 8, !tbaa !167
+  %102 = load ptr, ptr %101, align 8, !tbaa !169
   %103 = getelementptr inbounds nuw ptr, ptr %21, i64 %92
-  store ptr %102, ptr %103, align 8, !tbaa !167
+  store ptr %102, ptr %103, align 8, !tbaa !169
   %104 = add nuw nsw i32 %.088, 1
   br label %105
 
@@ -7922,7 +7922,7 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge.thread:                               ; preds = %.preheader103, %105, %._crit_edge, %48, %46, %44, %27
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %108 = load ptr, ptr %107, align 8, !tbaa !160
+  %108 = load ptr, ptr %107, align 8, !tbaa !162
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %108, ptr noundef %2) #14
   br label %109
 
@@ -7954,7 +7954,7 @@ define i32 @mriStepInnerStepper_Evolve(ptr noundef %0, double noundef %1, double
 13:                                               ; preds = %10
   %14 = tail call i32 %11(ptr noundef nonnull %0, double noundef %1, double noundef %2, ptr noundef %3) #14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %14, ptr %15, align 8, !tbaa !166
+  store i32 %14, ptr %15, align 8, !tbaa !168
   br label %16
 
 16:                                               ; preds = %10, %6, %4, %13
@@ -7975,14 +7975,14 @@ define i32 @mriStepInnerStepper_GetAccumulatedError(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !162
+  %10 = load ptr, ptr %9, align 8, !tbaa !164
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %8
   %12 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef %1) #14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %12, ptr %13, align 8, !tbaa !166
+  store i32 %12, ptr %13, align 8, !tbaa !168
   br label %14
 
 14:                                               ; preds = %8, %4, %2, %11
@@ -8013,18 +8013,18 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
 
 .preheader71:                                     ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !153
+  %15 = load i32, ptr %14, align 4, !tbaa !155
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph82, label %.loopexit72
 
 .lr.ph82:                                         ; preds = %.preheader71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !217
+  %18 = load ptr, ptr %17, align 8, !tbaa !224
   %.not = icmp eq ptr %18, null
   %19 = icmp samesign ugt i32 %9, 1
   %20 = zext nneg i32 %1 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !218
+  %22 = load ptr, ptr %21, align 8, !tbaa !225
   %.not66 = icmp eq ptr %22, null
   %23 = add nsw i32 %9, -1
   %24 = tail call i32 @llvm.umin.i32(i32 %1, i32 %23)
@@ -8052,9 +8052,9 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr %44, align 8, !tbaa !219
+  %34 = load ptr, ptr %44, align 8, !tbaa !226
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %20
-  %36 = load ptr, ptr %35, align 8, !tbaa !221
+  %36 = load ptr, ptr %35, align 8, !tbaa !230
   %37 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv141
   %38 = load double, ptr %37, align 8, !tbaa !115
   %39 = zext nneg i32 %31 to i64
@@ -8067,11 +8067,11 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
 43:                                               ; preds = %33, %29
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count145
-  br i1 %exitcond146.not, label %.loopexit.us, label %29
+  br i1 %exitcond146.not, label %.loopexit.us, label %29, !llvm.loop !282
 
 .loopexit.us:                                     ; preds = %43, %.lr.ph82.split.us
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.loopexit72, label %.lr.ph82.split.us, !llvm.loop !255
+  br i1 %exitcond151.not, label %.loopexit72, label %.lr.ph82.split.us, !llvm.loop !283
 
 .lr.ph79.us:                                      ; preds = %.lr.ph82.split.us
   %44 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv147
@@ -8102,9 +8102,9 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   br i1 %52, label %53, label %63
 
 53:                                               ; preds = %49
-  %54 = load ptr, ptr %64, align 8, !tbaa !219
+  %54 = load ptr, ptr %64, align 8, !tbaa !226
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %20
-  %56 = load ptr, ptr %55, align 8, !tbaa !221
+  %56 = load ptr, ptr %55, align 8, !tbaa !230
   %57 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv130
   %58 = load double, ptr %57, align 8, !tbaa !115
   %59 = zext nneg i32 %51 to i64
@@ -8117,11 +8117,11 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
 63:                                               ; preds = %53, %49
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count134
-  br i1 %exitcond135.not, label %.loopexit70.us, label %49
+  br i1 %exitcond135.not, label %.loopexit70.us, label %49, !llvm.loop !284
 
 .loopexit70.us:                                   ; preds = %63, %.preheader69.us
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %.loopexit72, label %.preheader69.us, !llvm.loop !256
+  br i1 %exitcond140.not, label %.loopexit72, label %.preheader69.us, !llvm.loop !285
 
 .lr.ph76.us:                                      ; preds = %.preheader69.us
   %64 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv136
@@ -8155,9 +8155,9 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   br i1 %74, label %75, label %85
 
 75:                                               ; preds = %71
-  %76 = load ptr, ptr %70, align 8, !tbaa !219
+  %76 = load ptr, ptr %70, align 8, !tbaa !226
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %20
-  %78 = load ptr, ptr %77, align 8, !tbaa !221
+  %78 = load ptr, ptr %77, align 8, !tbaa !230
   %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv113
   %80 = load double, ptr %79, align 8, !tbaa !115
   %81 = zext nneg i32 %73 to i64
@@ -8170,7 +8170,7 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
 85:                                               ; preds = %75, %71
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count117
-  br i1 %exitcond118.not, label %.lr.ph79.us93, label %71
+  br i1 %exitcond118.not, label %.lr.ph79.us93, label %71, !llvm.loop !284
 
 86:                                               ; preds = %.lr.ph79.us93, %100
   %indvars.iv119 = phi i64 [ 0, %.lr.ph79.us93 ], [ %indvars.iv.next120, %100 ]
@@ -8180,9 +8180,9 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   br i1 %89, label %90, label %100
 
 90:                                               ; preds = %86
-  %91 = load ptr, ptr %101, align 8, !tbaa !219
+  %91 = load ptr, ptr %101, align 8, !tbaa !226
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %20
-  %93 = load ptr, ptr %92, align 8, !tbaa !221
+  %93 = load ptr, ptr %92, align 8, !tbaa !230
   %94 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv119
   %95 = load double, ptr %94, align 8, !tbaa !115
   %96 = zext nneg i32 %88 to i64
@@ -8195,11 +8195,11 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
 100:                                              ; preds = %90, %86
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count123
-  br i1 %exitcond124.not, label %.loopexit.us89, label %86
+  br i1 %exitcond124.not, label %.loopexit.us89, label %86, !llvm.loop !282
 
 .loopexit.us89:                                   ; preds = %100
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.loopexit72, label %.preheader69.us84, !llvm.loop !257
+  br i1 %exitcond129.not, label %.loopexit72, label %.preheader69.us84, !llvm.loop !286
 
 .lr.ph79.us93:                                    ; preds = %85
   %101 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv125
@@ -8219,7 +8219,7 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   store double 0.000000e+00, ptr %104, align 8, !tbaa !115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader71, label %.lr.ph
+  br i1 %exitcond.not, label %.preheader71, label %.lr.ph, !llvm.loop !287
 
 .preheader69:                                     ; preds = %.preheader69.preheader, %..loopexit_crit_edge
   %indvars.iv108 = phi i64 [ 0, %.preheader69.preheader ], [ %indvars.iv.next109, %..loopexit_crit_edge ]
@@ -8238,9 +8238,9 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   br i1 %112, label %113, label %123
 
 113:                                              ; preds = %109
-  %114 = load ptr, ptr %108, align 8, !tbaa !219
+  %114 = load ptr, ptr %108, align 8, !tbaa !226
   %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %20
-  %116 = load ptr, ptr %115, align 8, !tbaa !221
+  %116 = load ptr, ptr %115, align 8, !tbaa !230
   %117 = getelementptr inbounds nuw double, ptr %116, i64 %indvars.iv103
   %118 = load double, ptr %117, align 8, !tbaa !115
   %119 = zext nneg i32 %111 to i64
@@ -8253,11 +8253,11 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
 123:                                              ; preds = %109, %113
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %..loopexit_crit_edge, label %109
+  br i1 %exitcond107.not, label %..loopexit_crit_edge, label %109, !llvm.loop !282
 
 ..loopexit_crit_edge:                             ; preds = %123
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %.loopexit72, label %.preheader69
+  br i1 %exitcond112.not, label %.loopexit72, label %.preheader69, !llvm.loop !288
 
 .loopexit72:                                      ; preds = %..loopexit_crit_edge, %.loopexit.us89, %.loopexit70.us, %.loopexit.us, %.preheader71, %5, %7
   %.0 = phi i32 [ -41, %7 ], [ -41, %5 ], [ 0, %.preheader71 ], [ 0, %.loopexit.us ], [ 0, %.loopexit70.us ], [ 0, %.loopexit.us89 ], [ 0, %..loopexit_crit_edge ]
@@ -8277,15 +8277,15 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %8 = load i32, ptr %7, align 8, !tbaa !197
+  %8 = load i32, ptr %7, align 8, !tbaa !201
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 504
   %10 = load ptr, ptr %9, align 8, !tbaa !93
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 512
   %12 = load ptr, ptr %11, align 8, !tbaa !94
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %14 = load double, ptr %13, align 8, !tbaa !185
+  %14 = load double, ptr %13, align 8, !tbaa !187
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %16 = load ptr, ptr %15, align 8, !tbaa !144
+  %16 = load ptr, ptr %15, align 8, !tbaa !146
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !141
   %19 = sext i32 %8 to i64
@@ -8298,17 +8298,17 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store double %25, ptr %26, align 8, !tbaa !114
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 972
-  %28 = load i32, ptr %27, align 4, !tbaa !232
+  %28 = load i32, ptr %27, align 4, !tbaa !251
   %.not = icmp eq i32 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 200
   br i1 %.not, label %31, label %30
 
 30:                                               ; preds = %6
-  store double %25, ptr %29, align 8, !tbaa !207
+  store double %25, ptr %29, align 8, !tbaa !212
   br label %34
 
 31:                                               ; preds = %6
-  %32 = load double, ptr %29, align 8, !tbaa !207
+  %32 = load double, ptr %29, align 8, !tbaa !212
   %33 = fdiv double %25, %32
   br label %34
 
@@ -8318,14 +8318,14 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   store double %35, ptr %36, align 8, !tbaa !116
   store double 1.000000e+00, ptr %10, align 8, !tbaa !115
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %38 = load ptr, ptr %37, align 8, !tbaa !186
-  store ptr %38, ptr %12, align 8, !tbaa !167
+  %38 = load ptr, ptr %37, align 8, !tbaa !188
+  store ptr %38, ptr %12, align 8, !tbaa !169
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double -1.000000e+00, ptr %39, align 8, !tbaa !115
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %41 = load ptr, ptr %40, align 8, !tbaa !195
+  %41 = load ptr, ptr %40, align 8, !tbaa !199
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %41, ptr %42, align 8, !tbaa !167
+  store ptr %41, ptr %42, align 8, !tbaa !169
   %43 = icmp sgt i32 %8, 0
   br i1 %43, label %.lr.ph, label %._crit_edge
 
@@ -8354,7 +8354,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   br i1 %54, label %55, label %68
 
 55:                                               ; preds = %51
-  %56 = load double, ptr %13, align 8, !tbaa !185
+  %56 = load double, ptr %13, align 8, !tbaa !187
   %57 = zext nneg i32 %53 to i64
   %58 = getelementptr inbounds nuw double, ptr %16, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !115
@@ -8362,11 +8362,11 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %61 = sext i32 %.06270.us to i64
   %62 = getelementptr inbounds double, ptr %10, i64 %61
   store double %60, ptr %62, align 8, !tbaa !115
-  %63 = load ptr, ptr %50, align 8, !tbaa !150
+  %63 = load ptr, ptr %50, align 8, !tbaa !152
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %57
-  %65 = load ptr, ptr %64, align 8, !tbaa !167
+  %65 = load ptr, ptr %64, align 8, !tbaa !169
   %66 = getelementptr inbounds ptr, ptr %12, i64 %61
-  store ptr %65, ptr %66, align 8, !tbaa !167
+  store ptr %65, ptr %66, align 8, !tbaa !169
   %67 = add nsw i32 %.06270.us, 1
   br label %68
 
@@ -8374,7 +8374,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %.2.us = phi i32 [ %67, %55 ], [ %.06270.us, %51 ], [ %.06270.us, %.lr.ph.split.us ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !258
+  br i1 %exitcond90.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !289
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not69, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -8388,8 +8388,8 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   br i1 %71, label %72, label %86
 
 72:                                               ; preds = %.lr.ph.split.split.us
-  %73 = load double, ptr %13, align 8, !tbaa !185
-  %74 = load ptr, ptr %46, align 8, !tbaa !143
+  %73 = load double, ptr %13, align 8, !tbaa !187
+  %74 = load ptr, ptr %46, align 8, !tbaa !145
   %75 = zext nneg i32 %70 to i64
   %76 = getelementptr inbounds nuw double, ptr %74, i64 %75
   %77 = load double, ptr %76, align 8, !tbaa !115
@@ -8397,11 +8397,11 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %79 = sext i32 %.06270.us73 to i64
   %80 = getelementptr inbounds double, ptr %10, i64 %79
   store double %78, ptr %80, align 8, !tbaa !115
-  %81 = load ptr, ptr %47, align 8, !tbaa !151
+  %81 = load ptr, ptr %47, align 8, !tbaa !153
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %75
-  %83 = load ptr, ptr %82, align 8, !tbaa !167
+  %83 = load ptr, ptr %82, align 8, !tbaa !169
   %84 = getelementptr inbounds ptr, ptr %12, i64 %79
-  store ptr %83, ptr %84, align 8, !tbaa !167
+  store ptr %83, ptr %84, align 8, !tbaa !169
   %85 = add nsw i32 %.06270.us73, 1
   br label %86
 
@@ -8409,7 +8409,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %.1.us74 = phi i32 [ %85, %72 ], [ %.06270.us73, %.lr.ph.split.split.us ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count89
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !259
+  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !290
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %115
   %indvars.iv = phi i64 [ %indvars.iv.next, %115 ], [ 0, %.lr.ph.split ]
@@ -8420,8 +8420,8 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   br i1 %89, label %90, label %115
 
 90:                                               ; preds = %.lr.ph.split.split
-  %91 = load double, ptr %13, align 8, !tbaa !185
-  %92 = load ptr, ptr %46, align 8, !tbaa !143
+  %91 = load double, ptr %13, align 8, !tbaa !187
+  %92 = load ptr, ptr %46, align 8, !tbaa !145
   %93 = zext nneg i32 %88 to i64
   %94 = getelementptr inbounds nuw double, ptr %92, i64 %93
   %95 = load double, ptr %94, align 8, !tbaa !115
@@ -8429,13 +8429,13 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %97 = sext i32 %.06270 to i64
   %98 = getelementptr inbounds double, ptr %10, i64 %97
   store double %96, ptr %98, align 8, !tbaa !115
-  %99 = load ptr, ptr %47, align 8, !tbaa !151
+  %99 = load ptr, ptr %47, align 8, !tbaa !153
   %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %93
-  %101 = load ptr, ptr %100, align 8, !tbaa !167
+  %101 = load ptr, ptr %100, align 8, !tbaa !169
   %102 = getelementptr inbounds ptr, ptr %12, i64 %97
-  store ptr %101, ptr %102, align 8, !tbaa !167
+  store ptr %101, ptr %102, align 8, !tbaa !169
   %103 = add nsw i32 %.06270, 1
-  %104 = load double, ptr %13, align 8, !tbaa !185
+  %104 = load double, ptr %13, align 8, !tbaa !187
   %105 = zext nneg i32 %88 to i64
   %106 = getelementptr inbounds nuw double, ptr %16, i64 %105
   %107 = load double, ptr %106, align 8, !tbaa !115
@@ -8443,11 +8443,11 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %109 = sext i32 %103 to i64
   %110 = getelementptr inbounds double, ptr %10, i64 %109
   store double %108, ptr %110, align 8, !tbaa !115
-  %111 = load ptr, ptr %50, align 8, !tbaa !150
+  %111 = load ptr, ptr %50, align 8, !tbaa !152
   %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %105
-  %113 = load ptr, ptr %112, align 8, !tbaa !167
+  %113 = load ptr, ptr %112, align 8, !tbaa !169
   %114 = getelementptr inbounds ptr, ptr %12, i64 %109
-  store ptr %113, ptr %114, align 8, !tbaa !167
+  store ptr %113, ptr %114, align 8, !tbaa !169
   %.reass = add i32 %.06270, 2
   br label %115
 
@@ -8455,12 +8455,12 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %.2 = phi i32 [ %.reass, %90 ], [ %.06270, %.lr.ph.split.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count89
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !291
 
 ._crit_edge:                                      ; preds = %115, %86, %68, %34
   %.062.lcssa = phi i32 [ 2, %34 ], [ %.2.us, %68 ], [ %.1.us74, %86 ], [ %.2, %115 ]
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %117 = load ptr, ptr %116, align 8, !tbaa !171
+  %117 = load ptr, ptr %116, align 8, !tbaa !173
   %118 = tail call i32 @N_VLinearCombination(i32 noundef %.062.lcssa, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %117) #14
   %.not67 = icmp eq i32 %118, 0
   %. = select i1 %.not67, i32 0, i32 -28
@@ -8486,7 +8486,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_Create(ptr noundef %0, ptr nou
 
 3:                                                ; preds = %2
   %calloc15 = tail call dereferenceable_or_null(112) ptr @calloc(i64 1, i64 112)
-  store ptr %calloc15, ptr %1, align 8, !tbaa !260
+  store ptr %calloc15, ptr %1, align 8, !tbaa !292
   %4 = icmp eq ptr %calloc15, null
   br i1 %4, label %5, label %6
 
@@ -8503,15 +8503,15 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_Create(ptr noundef %0, ptr nou
 
 9:                                                ; preds = %6
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -20, i32 noundef 4275, ptr noundef nonnull @__func__.MRIStepInnerStepper_Create, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #14
-  %10 = load ptr, ptr %1, align 8, !tbaa !260
+  %10 = load ptr, ptr %1, align 8, !tbaa !292
   tail call void @free(ptr noundef %10) #14
   br label %14
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %calloc15, i64 40
-  store i32 0, ptr %12, align 8, !tbaa !166
+  store i32 0, ptr %12, align 8, !tbaa !168
   %13 = getelementptr inbounds nuw i8, ptr %calloc15, i64 16
-  store ptr %0, ptr %13, align 8, !tbaa !261
+  store ptr %0, ptr %13, align 8, !tbaa !293
   br label %14
 
 14:                                               ; preds = %2, %11, %9, %5
@@ -8525,13 +8525,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @MRIStepInnerStepper_CreateFromSUNStepper(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !262
+  %4 = load ptr, ptr %3, align 8, !tbaa !294
   %5 = tail call i32 @MRIStepInnerStepper_Create(ptr noundef %4, ptr noundef %1)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %MRIStepInnerStepper_SetEvolveFn.exit.thread
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %1, align 8, !tbaa !260
+  %7 = load ptr, ptr %1, align 8, !tbaa !292
   %8 = icmp eq ptr %7, null
   br i1 %8, label %MRIStepInnerStepper_SetContent.exit, label %9
 
@@ -8540,7 +8540,7 @@ MRIStepInnerStepper_SetContent.exit:              ; preds = %6
   br label %MRIStepInnerStepper_SetEvolveFn.exit.thread
 
 9:                                                ; preds = %6
-  store ptr %0, ptr %7, align 8, !tbaa !265
+  store ptr %0, ptr %7, align 8, !tbaa !297
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !103
   %12 = icmp eq ptr %11, null
@@ -8553,7 +8553,7 @@ MRIStepInnerStepper_SetContent.exit:              ; preds = %6
 14:                                               ; preds = %9
   store ptr @mriStepInnerStepper_EvolveSUNStepper, ptr %11, align 8, !tbaa !106
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @mriStepInnerStepper_FullRhsSUNStepper, ptr %15, align 8, !tbaa !165
+  store ptr @mriStepInnerStepper_FullRhsSUNStepper, ptr %15, align 8, !tbaa !167
   %16 = tail call i32 @MRIStepInnerStepper_SetResetFn(ptr noundef nonnull %7, ptr noundef nonnull @mriStepInnerStepper_ResetSUNStepper)
   br label %MRIStepInnerStepper_SetEvolveFn.exit.thread
 
@@ -8572,7 +8572,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetContent(ptr noundef writeon
   br label %6
 
 5:                                                ; preds = %2
-  store ptr %1, ptr %0, align 8, !tbaa !265
+  store ptr %1, ptr %0, align 8, !tbaa !297
   br label %6
 
 6:                                                ; preds = %5, %4
@@ -8611,42 +8611,42 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetEvolveFn(ptr noundef readon
 ; Function Attrs: nounwind uwtable
 define range(i32 -51, 1) i32 @mriStepInnerStepper_EvolveSUNStepper(ptr noundef captures(none) initializes((40, 44)) %0, double %1, double noundef %2, ptr noundef %3) #0 {
   %5 = alloca double, align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !265
+  %6 = load ptr, ptr %0, align 8, !tbaa !297
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load double, ptr %7, align 8, !tbaa !238
+  %8 = load double, ptr %7, align 8, !tbaa !259
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load double, ptr %9, align 8, !tbaa !239
+  %10 = load double, ptr %9, align 8, !tbaa !260
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !242
+  %12 = load ptr, ptr %11, align 8, !tbaa !264
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load i32, ptr %13, align 8, !tbaa !213
+  %14 = load i32, ptr %13, align 8, !tbaa !220
   %15 = tail call i32 @SUNStepper_SetForcing(ptr noundef %6, double noundef %8, double noundef %10, ptr noundef %12, i32 noundef %14) #14
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %17 = load i32, ptr %16, align 8, !tbaa !266
+  %17 = load i32, ptr %16, align 8, !tbaa !298
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %17, ptr %18, align 8, !tbaa !166
+  store i32 %17, ptr %18, align 8, !tbaa !168
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %19, label %28
 
 19:                                               ; preds = %4
   %20 = tail call i32 @SUNStepper_SetStopTime(ptr noundef nonnull %6, double noundef %2) #14
-  %21 = load i32, ptr %16, align 8, !tbaa !266
-  store i32 %21, ptr %18, align 8, !tbaa !166
+  %21 = load i32, ptr %16, align 8, !tbaa !298
+  store i32 %21, ptr %18, align 8, !tbaa !168
   %.not24 = icmp eq i32 %20, 0
   br i1 %.not24, label %22, label %28
 
 22:                                               ; preds = %19
   %23 = call i32 @SUNStepper_Evolve(ptr noundef nonnull %6, double noundef %2, ptr noundef %3, ptr noundef nonnull %5) #14
-  %24 = load i32, ptr %16, align 8, !tbaa !266
-  store i32 %24, ptr %18, align 8, !tbaa !166
+  %24 = load i32, ptr %16, align 8, !tbaa !298
+  store i32 %24, ptr %18, align 8, !tbaa !168
   %.not25 = icmp eq i32 %23, 0
   br i1 %.not25, label %25, label %28
 
 25:                                               ; preds = %22
   %26 = call i32 @SUNStepper_SetForcing(ptr noundef nonnull %6, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef null, i32 noundef 0) #14
-  %27 = load i32, ptr %16, align 8, !tbaa !266
-  store i32 %27, ptr %18, align 8, !tbaa !166
+  %27 = load i32, ptr %16, align 8, !tbaa !298
+  store i32 %27, ptr %18, align 8, !tbaa !168
   %.not26 = icmp eq i32 %26, 0
   %. = select i1 %.not26, i32 0, i32 -51
   br label %28
@@ -8678,7 +8678,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetFullRhsFn(ptr noundef reado
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %1, ptr %11, align 8, !tbaa !165
+  store ptr %1, ptr %11, align 8, !tbaa !167
   br label %12
 
 12:                                               ; preds = %10, %9, %4
@@ -8688,16 +8688,16 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetFullRhsFn(ptr noundef reado
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -51, 1) i32 @mriStepInnerStepper_FullRhsSUNStepper(ptr noundef captures(none) initializes((40, 44)) %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = load ptr, ptr %0, align 8, !tbaa !265
+  %6 = load ptr, ptr %0, align 8, !tbaa !297
   %switch.selectcmp = icmp eq i32 %4, 1
   %switch.select = select i1 %switch.selectcmp, i32 1, i32 2
   %switch.selectcmp11 = icmp eq i32 %4, 0
   %switch.select12 = select i1 %switch.selectcmp11, i32 0, i32 %switch.select
   %7 = tail call i32 @SUNStepper_FullRhs(ptr noundef %6, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %switch.select12) #14
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !266
+  %9 = load i32, ptr %8, align 8, !tbaa !298
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %9, ptr %10, align 8, !tbaa !166
+  store i32 %9, ptr %10, align 8, !tbaa !168
   %.not = icmp eq i32 %7, 0
   %.0 = select i1 %.not, i32 0, i32 -51
   ret i32 %.0
@@ -8724,7 +8724,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetResetFn(ptr noundef readonl
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %1, ptr %11, align 8, !tbaa !175
+  store ptr %1, ptr %11, align 8, !tbaa !177
   br label %12
 
 12:                                               ; preds = %10, %9, %4
@@ -8734,12 +8734,12 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetResetFn(ptr noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -51, 1) i32 @mriStepInnerStepper_ResetSUNStepper(ptr noundef captures(none) initializes((40, 44)) %0, double noundef %1, ptr noundef %2) #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !265
+  %4 = load ptr, ptr %0, align 8, !tbaa !297
   %5 = tail call i32 @SUNStepper_Reset(ptr noundef %4, double noundef %1, ptr noundef %2) #14
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !266
+  %7 = load i32, ptr %6, align 8, !tbaa !298
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %7, ptr %8, align 8, !tbaa !166
+  store i32 %7, ptr %8, align 8, !tbaa !168
   %.not = icmp eq i32 %5, 0
   %. = select i1 %.not, i32 0, i32 -51
   ret i32 %.
@@ -8747,50 +8747,50 @@ define range(i32 -51, 1) i32 @mriStepInnerStepper_ResetSUNStepper(ptr noundef ca
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @MRIStepInnerStepper_Free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !260
+  %2 = load ptr, ptr %0, align 8, !tbaa !292
   %3 = icmp eq ptr %2, null
   br i1 %3, label %25, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !196
+  %6 = load i32, ptr %5, align 4, !tbaa !200
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %9 = load i64, ptr %8, align 8, !tbaa !233
+  %9 = load i64, ptr %8, align 8, !tbaa !254
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %12 = load i64, ptr %11, align 8, !tbaa !234
+  %12 = load i64, ptr %11, align 8, !tbaa !255
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 104
   tail call void @arkFreeVecArray(i32 noundef %6, ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %10, i64 noundef %12, ptr noundef nonnull %13) #14
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %15 = load ptr, ptr %14, align 8, !tbaa !235
+  %15 = load ptr, ptr %14, align 8, !tbaa !256
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %17, label %16
 
 16:                                               ; preds = %4
   tail call void @free(ptr noundef nonnull %15) #14
-  store ptr null, ptr %14, align 8, !tbaa !235
+  store ptr null, ptr %14, align 8, !tbaa !256
   br label %17
 
 17:                                               ; preds = %16, %4
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !236
+  %19 = load ptr, ptr %18, align 8, !tbaa !257
   %.not16.i = icmp eq ptr %19, null
   br i1 %.not16.i, label %mriStepInnerStepper_FreeVecs.exit, label %20
 
 20:                                               ; preds = %17
   tail call void @free(ptr noundef nonnull %19) #14
-  store ptr null, ptr %18, align 8, !tbaa !236
+  store ptr null, ptr %18, align 8, !tbaa !257
   br label %mriStepInnerStepper_FreeVecs.exit
 
 mriStepInnerStepper_FreeVecs.exit:                ; preds = %17, %20
-  %21 = load ptr, ptr %0, align 8, !tbaa !260
+  %21 = load ptr, ptr %0, align 8, !tbaa !292
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !103
   tail call void @free(ptr noundef %23) #14
-  %24 = load ptr, ptr %0, align 8, !tbaa !260
+  %24 = load ptr, ptr %0, align 8, !tbaa !292
   tail call void @free(ptr noundef %24) #14
-  store ptr null, ptr %0, align 8, !tbaa !260
+  store ptr null, ptr %0, align 8, !tbaa !292
   br label %25
 
 25:                                               ; preds = %1, %mriStepInnerStepper_FreeVecs.exit
@@ -8804,34 +8804,34 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_FreeVecs(ptr noundef %0) local
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %5 = load i32, ptr %4, align 4, !tbaa !196
+  %5 = load i32, ptr %4, align 4, !tbaa !200
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load i64, ptr %7, align 8, !tbaa !233
+  %8 = load i64, ptr %7, align 8, !tbaa !254
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = load i64, ptr %10, align 8, !tbaa !234
+  %11 = load i64, ptr %10, align 8, !tbaa !255
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @arkFreeVecArray(i32 noundef %5, ptr noundef nonnull %6, i64 noundef %8, ptr noundef nonnull %9, i64 noundef %11, ptr noundef nonnull %12) #14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !235
+  %14 = load ptr, ptr %13, align 8, !tbaa !256
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %3
   tail call void @free(ptr noundef nonnull %14) #14
-  store ptr null, ptr %13, align 8, !tbaa !235
+  store ptr null, ptr %13, align 8, !tbaa !256
   br label %16
 
 16:                                               ; preds = %15, %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !236
+  %18 = load ptr, ptr %17, align 8, !tbaa !257
   %.not16 = icmp eq ptr %18, null
   br i1 %.not16, label %20, label %19
 
 19:                                               ; preds = %16
   tail call void @free(ptr noundef nonnull %18) #14
-  store ptr null, ptr %17, align 8, !tbaa !236
+  store ptr null, ptr %17, align 8, !tbaa !257
   br label %20
 
 20:                                               ; preds = %16, %19, %1
@@ -8849,8 +8849,8 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetContent(ptr noundef readonl
   br label %7
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !265
-  store ptr %6, ptr %1, align 8, !tbaa !267
+  %6 = load ptr, ptr %0, align 8, !tbaa !297
+  store ptr %6, ptr %1, align 8, !tbaa !299
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -8879,7 +8879,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetAccumulatedErrorGetFn(ptr n
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %1, ptr %11, align 8, !tbaa !162
+  store ptr %1, ptr %11, align 8, !tbaa !164
   br label %12
 
 12:                                               ; preds = %10, %9, %4
@@ -8908,7 +8908,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetAccumulatedErrorResetFn(ptr
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %1, ptr %11, align 8, !tbaa !163
+  store ptr %1, ptr %11, align 8, !tbaa !165
   br label %12
 
 12:                                               ; preds = %10, %9, %4
@@ -8937,7 +8937,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetRTolFn(ptr noundef readonly
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %1, ptr %11, align 8, !tbaa !164
+  store ptr %1, ptr %11, align 8, !tbaa !166
   br label %12
 
 12:                                               ; preds = %10, %9, %4
@@ -8956,25 +8956,25 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_AddForcing(ptr noundef readonl
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !236
+  %8 = load ptr, ptr %7, align 8, !tbaa !257
   store double 1.000000e+00, ptr %8, align 8, !tbaa !115
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !235
-  store ptr %2, ptr %10, align 8, !tbaa !167
+  %10 = load ptr, ptr %9, align 8, !tbaa !256
+  store ptr %2, ptr %10, align 8, !tbaa !169
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load double, ptr %11, align 8, !tbaa !238
+  %12 = load double, ptr %11, align 8, !tbaa !259
   %13 = fsub double %1, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = load double, ptr %14, align 8, !tbaa !239
+  %15 = load double, ptr %14, align 8, !tbaa !260
   %16 = fdiv double %13, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load i32, ptr %17, align 8, !tbaa !213
+  %18 = load i32, ptr %17, align 8, !tbaa !220
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !242
+  %21 = load ptr, ptr %20, align 8, !tbaa !264
   %wide.trip.count = zext nneg i32 %18 to i64
   br label %22
 
@@ -8985,12 +8985,12 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_AddForcing(ptr noundef readonl
   %23 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next
   store double %.02327, ptr %23, align 8, !tbaa !115
   %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !167
+  %25 = load ptr, ptr %24, align 8, !tbaa !169
   %26 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
-  store ptr %25, ptr %26, align 8, !tbaa !167
+  store ptr %25, ptr %26, align 8, !tbaa !169
   %27 = fmul double %16, %.02327
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %22
+  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !300
 
 ._crit_edge:                                      ; preds = %22, %6
   %28 = add nsw i32 %18, 1
@@ -9013,16 +9013,16 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetForcingData(ptr noundef rea
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load double, ptr %9, align 8, !tbaa !238
+  %10 = load double, ptr %9, align 8, !tbaa !259
   store double %10, ptr %1, align 8, !tbaa !115
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load double, ptr %11, align 8, !tbaa !239
+  %12 = load double, ptr %11, align 8, !tbaa !260
   store double %12, ptr %2, align 8, !tbaa !115
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !242
-  store ptr %14, ptr %3, align 8, !tbaa !268
+  %14 = load ptr, ptr %13, align 8, !tbaa !264
+  store ptr %14, ptr %3, align 8, !tbaa !301
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !213
+  %16 = load i32, ptr %15, align 8, !tbaa !220
   store i32 %16, ptr %4, align 4, !tbaa !119
   br label %17
 
@@ -9221,129 +9221,162 @@ attributes #15 = { nounwind allocsize(0,1) }
 !140 = !{!73, !22, i64 84}
 !141 = !{!73, !76, i64 104}
 !142 = !{!73, !76, i64 112}
-!143 = !{!73, !77, i64 120}
-!144 = !{!73, !77, i64 128}
-!145 = !{!73, !22, i64 56}
-!146 = !{!73, !22, i64 96}
-!147 = !{!73, !22, i64 92}
-!148 = !{!20, !26, i64 856}
-!149 = !{!20, !26, i64 864}
-!150 = !{!73, !74, i64 48}
-!151 = !{!73, !74, i64 40}
-!152 = !{!20, !23, i64 560}
-!153 = !{!127, !22, i64 4}
-!154 = !{!20, !22, i64 676}
-!155 = !{!20, !22, i64 672}
-!156 = !{!73, !22, i64 224}
-!157 = !{!135, !136, i64 104}
-!158 = !{!20, !21, i64 696}
-!159 = !{!20, !21, i64 752}
-!160 = !{!20, !23, i64 592}
-!161 = !{!20, !23, i64 616}
-!162 = !{!107, !5, i64 24}
-!163 = !{!107, !5, i64 32}
-!164 = !{!107, !5, i64 40}
-!165 = !{!107, !5, i64 8}
-!166 = !{!104, !22, i64 40}
-!167 = !{!23, !23, i64 0}
-!168 = !{!20, !23, i64 624}
-!169 = !{!20, !5, i64 16}
-!170 = !{!73, !26, i64 408}
-!171 = !{!73, !23, i64 136}
-!172 = !{!73, !26, i64 416}
-!173 = !{!20, !21, i64 32}
-!174 = !{!20, !21, i64 896}
-!175 = !{!107, !5, i64 16}
-!176 = !{!177, !178, i64 8}
-!177 = !{!"_generic_SUNNonlinearSolver", !5, i64 0, !178, i64 8, !9, i64 16}
-!178 = !{!"p1 _ZTS31_generic_SUNNonlinearSolver_Ops", !5, i64 0}
-!179 = !{!180, !5, i64 16}
-!180 = !{!"_generic_SUNNonlinearSolver_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96}
-!181 = !{!20, !23, i64 632}
-!182 = !{!20, !23, i64 600}
-!183 = !{!20, !22, i64 608}
-!184 = !{!127, !77, i64 24}
-!185 = !{!20, !21, i64 704}
-!186 = !{!20, !23, i64 584}
-!187 = !{!20, !5, i64 1024}
-!188 = !{!73, !21, i64 472}
-!189 = !{!73, !21, i64 480}
-!190 = !{!73, !22, i64 32}
-!191 = !{!73, !23, i64 152}
-!192 = !{!20, !23, i64 640}
-!193 = !{!26, !26, i64 0}
-!194 = !{!11, !5, i64 32}
-!195 = !{!73, !23, i64 144}
-!196 = !{!104, !22, i64 36}
-!197 = !{!73, !22, i64 160}
-!198 = !{!73, !22, i64 296}
-!199 = !{!73, !22, i64 280}
-!200 = !{!73, !22, i64 300}
-!201 = !{!73, !26, i64 432}
-!202 = !{!73, !26, i64 440}
-!203 = !{!73, !26, i64 448}
-!204 = !{!73, !22, i64 16}
-!205 = !{!73, !22, i64 20}
-!206 = !{!73, !22, i64 304}
-!207 = !{!73, !21, i64 200}
-!208 = !{!73, !21, i64 248}
-!209 = !{!73, !21, i64 256}
-!210 = !{!73, !21, i64 272}
-!211 = !{!73, !21, i64 232}
-!212 = !{!73, !21, i64 240}
-!213 = !{!104, !22, i64 32}
-!214 = !{!20, !22, i64 960}
-!215 = !{!216, !216, i64 0}
-!216 = !{!"p1 _ZTS19ARKodeMRIStepMemRec", !5, i64 0}
-!217 = !{!127, !128, i64 32}
-!218 = !{!127, !128, i64 40}
-!219 = !{!220, !220, i64 0}
-!220 = !{!"p2 double", !5, i64 0}
-!221 = !{!77, !77, i64 0}
-!222 = distinct !{!222, !223}
-!223 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!224 = distinct !{!224, !223}
-!225 = !{!127, !22, i64 48}
-!226 = !{!127, !129, i64 56}
-!227 = distinct !{!227, !223}
-!228 = distinct !{!228, !223}
-!229 = distinct !{!229, !223}
-!230 = distinct !{!230, !223}
-!231 = !{!73, !5, i64 312}
-!232 = !{!20, !22, i64 972}
-!233 = !{!104, !26, i64 80}
-!234 = !{!104, !26, i64 88}
-!235 = !{!104, !74, i64 72}
-!236 = !{!104, !77, i64 64}
-!237 = !{!20, !21, i64 8}
-!238 = !{!104, !21, i64 48}
-!239 = !{!104, !21, i64 56}
-!240 = distinct !{!240, !223}
-!241 = distinct !{!241, !223}
-!242 = !{!104, !74, i64 24}
-!243 = distinct !{!243, !223}
-!244 = distinct !{!244, !223}
-!245 = distinct !{!245, !223}
-!246 = distinct !{!246, !223}
-!247 = !{!73, !5, i64 368}
-!248 = !{!20, !26, i64 832}
-!249 = !{!73, !5, i64 376}
-!250 = distinct !{!250, !223}
-!251 = distinct !{!251, !223}
-!252 = !{!20, !24, i64 664}
-!253 = !{!20, !22, i64 964}
-!254 = !{!20, !21, i64 912}
-!255 = distinct !{!255, !223}
-!256 = distinct !{!256, !223}
-!257 = distinct !{!257, !223}
-!258 = distinct !{!258, !223}
-!259 = distinct !{!259, !223}
-!260 = !{!79, !79, i64 0}
-!261 = !{!104, !9, i64 16}
-!262 = !{!263, !9, i64 16}
-!263 = !{!"SUNStepper_", !5, i64 0, !264, i64 8, !9, i64 16, !22, i64 24}
-!264 = !{!"p1 _ZTS15SUNStepper_Ops_", !5, i64 0}
-!265 = !{!104, !5, i64 0}
-!266 = !{!263, !22, i64 24}
-!267 = !{!5, !5, i64 0}
-!268 = !{!74, !74, i64 0}
+!143 = distinct !{!143, !144}
+!144 = !{!"llvm.loop.estimated_trip_count"}
+!145 = !{!73, !77, i64 120}
+!146 = !{!73, !77, i64 128}
+!147 = !{!73, !22, i64 56}
+!148 = !{!73, !22, i64 96}
+!149 = !{!73, !22, i64 92}
+!150 = !{!20, !26, i64 856}
+!151 = !{!20, !26, i64 864}
+!152 = !{!73, !74, i64 48}
+!153 = !{!73, !74, i64 40}
+!154 = !{!20, !23, i64 560}
+!155 = !{!127, !22, i64 4}
+!156 = !{!20, !22, i64 676}
+!157 = !{!20, !22, i64 672}
+!158 = !{!73, !22, i64 224}
+!159 = !{!135, !136, i64 104}
+!160 = !{!20, !21, i64 696}
+!161 = !{!20, !21, i64 752}
+!162 = !{!20, !23, i64 592}
+!163 = !{!20, !23, i64 616}
+!164 = !{!107, !5, i64 24}
+!165 = !{!107, !5, i64 32}
+!166 = !{!107, !5, i64 40}
+!167 = !{!107, !5, i64 8}
+!168 = !{!104, !22, i64 40}
+!169 = !{!23, !23, i64 0}
+!170 = !{!20, !23, i64 624}
+!171 = !{!20, !5, i64 16}
+!172 = !{!73, !26, i64 408}
+!173 = !{!73, !23, i64 136}
+!174 = !{!73, !26, i64 416}
+!175 = !{!20, !21, i64 32}
+!176 = !{!20, !21, i64 896}
+!177 = !{!107, !5, i64 16}
+!178 = !{!179, !180, i64 8}
+!179 = !{!"_generic_SUNNonlinearSolver", !5, i64 0, !180, i64 8, !9, i64 16}
+!180 = !{!"p1 _ZTS31_generic_SUNNonlinearSolver_Ops", !5, i64 0}
+!181 = !{!182, !5, i64 16}
+!182 = !{!"_generic_SUNNonlinearSolver_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96}
+!183 = !{!20, !23, i64 632}
+!184 = !{!20, !23, i64 600}
+!185 = !{!20, !22, i64 608}
+!186 = !{!127, !77, i64 24}
+!187 = !{!20, !21, i64 704}
+!188 = !{!20, !23, i64 584}
+!189 = !{!20, !5, i64 1024}
+!190 = !{!73, !21, i64 472}
+!191 = !{!73, !21, i64 480}
+!192 = distinct !{!192, !144}
+!193 = !{!73, !22, i64 32}
+!194 = !{!73, !23, i64 152}
+!195 = distinct !{!195, !144}
+!196 = !{!20, !23, i64 640}
+!197 = !{!26, !26, i64 0}
+!198 = !{!11, !5, i64 32}
+!199 = !{!73, !23, i64 144}
+!200 = !{!104, !22, i64 36}
+!201 = !{!73, !22, i64 160}
+!202 = !{!73, !22, i64 296}
+!203 = !{!73, !22, i64 280}
+!204 = !{!73, !22, i64 300}
+!205 = distinct !{!205, !144}
+!206 = !{!73, !26, i64 432}
+!207 = !{!73, !26, i64 440}
+!208 = !{!73, !26, i64 448}
+!209 = !{!73, !22, i64 16}
+!210 = !{!73, !22, i64 20}
+!211 = !{!73, !22, i64 304}
+!212 = !{!73, !21, i64 200}
+!213 = !{!73, !21, i64 248}
+!214 = !{!73, !21, i64 256}
+!215 = !{!73, !21, i64 272}
+!216 = !{!73, !21, i64 232}
+!217 = !{!73, !21, i64 240}
+!218 = distinct !{!218, !144}
+!219 = distinct !{!219, !144}
+!220 = !{!104, !22, i64 32}
+!221 = !{!20, !22, i64 960}
+!222 = !{!223, !223, i64 0}
+!223 = !{!"p1 _ZTS19ARKodeMRIStepMemRec", !5, i64 0}
+!224 = !{!127, !128, i64 32}
+!225 = !{!127, !128, i64 40}
+!226 = !{!227, !227, i64 0}
+!227 = !{!"p2 double", !5, i64 0}
+!228 = distinct !{!228, !144}
+!229 = distinct !{!229, !144}
+!230 = !{!77, !77, i64 0}
+!231 = distinct !{!231, !144, !232}
+!232 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!233 = distinct !{!233, !144}
+!234 = distinct !{!234, !144}
+!235 = distinct !{!235, !144, !232}
+!236 = !{!127, !22, i64 48}
+!237 = !{!127, !129, i64 56}
+!238 = distinct !{!238, !144}
+!239 = distinct !{!239, !144, !232}
+!240 = distinct !{!240, !144}
+!241 = distinct !{!241, !144}
+!242 = distinct !{!242, !144}
+!243 = distinct !{!243, !144}
+!244 = distinct !{!244, !144, !232}
+!245 = distinct !{!245, !144, !232}
+!246 = distinct !{!246, !144, !232}
+!247 = distinct !{!247, !144}
+!248 = distinct !{!248, !144}
+!249 = !{!73, !5, i64 312}
+!250 = distinct !{!250, !144}
+!251 = !{!20, !22, i64 972}
+!252 = distinct !{!252, !144}
+!253 = distinct !{!253, !144}
+!254 = !{!104, !26, i64 80}
+!255 = !{!104, !26, i64 88}
+!256 = !{!104, !74, i64 72}
+!257 = !{!104, !77, i64 64}
+!258 = !{!20, !21, i64 8}
+!259 = !{!104, !21, i64 48}
+!260 = !{!104, !21, i64 56}
+!261 = distinct !{!261, !144, !232}
+!262 = distinct !{!262, !144, !232}
+!263 = distinct !{!263, !144}
+!264 = !{!104, !74, i64 24}
+!265 = distinct !{!265, !144, !232}
+!266 = distinct !{!266, !144, !232}
+!267 = distinct !{!267, !144, !232}
+!268 = distinct !{!268, !144, !232}
+!269 = distinct !{!269, !144}
+!270 = distinct !{!270, !144}
+!271 = !{!73, !5, i64 368}
+!272 = !{!20, !26, i64 832}
+!273 = !{!73, !5, i64 376}
+!274 = distinct !{!274, !144, !232}
+!275 = distinct !{!275, !144, !232}
+!276 = distinct !{!276, !144}
+!277 = !{!20, !24, i64 664}
+!278 = !{!20, !22, i64 964}
+!279 = !{!20, !21, i64 912}
+!280 = distinct !{!280, !144}
+!281 = distinct !{!281, !144}
+!282 = distinct !{!282, !144}
+!283 = distinct !{!283, !144, !232}
+!284 = distinct !{!284, !144}
+!285 = distinct !{!285, !144, !232}
+!286 = distinct !{!286, !144, !232}
+!287 = distinct !{!287, !144}
+!288 = distinct !{!288, !144}
+!289 = distinct !{!289, !144, !232}
+!290 = distinct !{!290, !144, !232}
+!291 = distinct !{!291, !144}
+!292 = !{!79, !79, i64 0}
+!293 = !{!104, !9, i64 16}
+!294 = !{!295, !9, i64 16}
+!295 = !{!"SUNStepper_", !5, i64 0, !296, i64 8, !9, i64 16, !22, i64 24}
+!296 = !{!"p1 _ZTS15SUNStepper_Ops_", !5, i64 0}
+!297 = !{!104, !5, i64 0}
+!298 = !{!295, !22, i64 24}
+!299 = !{!5, !5, i64 0}
+!300 = distinct !{!300, !144}
+!301 = !{!74, !74, i64 0}

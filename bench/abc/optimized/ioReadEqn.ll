@@ -135,7 +135,7 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
   %.val.i = load i32, ptr %14, align 4, !tbaa !25
   %56 = sext i32 %.val.i to i64
   %57 = icmp slt i64 %indvars.iv.next88.i, %56
-  br i1 %57, label %.lr.ph82.i, label %.critedge.i, !llvm.loop !36
+  br i1 %57, label %.lr.ph82.i, label %.critedge.i, !llvm.loop !37
 
 58:                                               ; preds = %46
   %59 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(9) @.str.7, i64 noundef 8) #11
@@ -160,7 +160,7 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
   %.val67.i = load i32, ptr %14, align 4, !tbaa !25
   %68 = sext i32 %.val67.i to i64
   %69 = icmp slt i64 %indvars.iv.next.i, %68
-  br i1 %69, label %.lr.ph.i, label %.critedge.i, !llvm.loop !37
+  br i1 %69, label %.lr.ph.i, label %.critedge.i, !llvm.loop !38
 
 .preheader:                                       ; preds = %58, %73
   %.010.i72.i = phi ptr [ %74, %73 ], [ %62, %58 ]
@@ -213,7 +213,7 @@ Io_ReadEqnStrCompact.exit75.i:                    ; preds = %.preheader
   %.val71.i = load ptr, ptr %16, align 8, !tbaa !28
   %85 = tail call ptr @Io_ReadCreateNode(ptr noundef %6, ptr noundef nonnull %39, ptr noundef %.val71.i, i32 noundef %.val68.i) #9
   %86 = load ptr, ptr @stdout, align 8, !tbaa !29
-  %87 = load ptr, ptr %21, align 8, !tbaa !38
+  %87 = load ptr, ptr %21, align 8, !tbaa !39
   %88 = tail call ptr @Parse_FormulaParserEqn(ptr noundef %86, ptr noundef nonnull %62, ptr noundef nonnull %13, ptr noundef %87) #9
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 56
   store ptr %88, ptr %89, align 8, !tbaa !33
@@ -227,7 +227,7 @@ Io_ReadEqnStrCompact.exit75.i:                    ; preds = %.preheader
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph82.i, %90, %84, %63, %49
   %91 = tail call ptr @Extra_FileReaderGetTokens(ptr noundef nonnull %3) #9
   %.not.i = icmp eq ptr %91, null
-  br i1 %.not.i, label %Io_ReadEqnStrCompact.exit._crit_edge.i, label %22, !llvm.loop !39
+  br i1 %.not.i, label %Io_ReadEqnStrCompact.exit._crit_edge.i, label %22, !llvm.loop !40
 
 Io_ReadEqnStrCompact.exit._crit_edge.i:           ; preds = %.critedge.i, %Io_ReadEqnStrCompact.exit.i, %5
   tail call void @Extra_ProgressBarStop(ptr noundef %19) #9
@@ -374,7 +374,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   store ptr %.012.us, ptr %34, align 8, !tbaa !32
   %35 = tail call ptr @strtok(ptr noundef null, ptr noundef %1) #9
   %.not.us = icmp eq ptr %35, null
-  br i1 %.not.us, label %._crit_edge, label %Io_ReadEqnStrFind.exit.threadthread-pre-split.us, !llvm.loop !40
+  br i1 %.not.us, label %._crit_edge, label %Io_ReadEqnStrFind.exit.threadthread-pre-split.us, !llvm.loop !41
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Io_ReadEqnStrFind.exit
   %.012 = phi ptr [ %70, %Io_ReadEqnStrFind.exit ], [ %6, %.lr.ph ]
@@ -398,7 +398,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
 42:                                               ; preds = %37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Io_ReadEqnStrFind.exit.thread, label %37, !llvm.loop !42
+  br i1 %exitcond.not.i, label %Io_ReadEqnStrFind.exit.thread, label %37, !llvm.loop !43
 
 Io_ReadEqnStrFind.exit.thread:                    ; preds = %42, %.lr.ph.split
   %43 = load i32, ptr %3, align 8, !tbaa !27
@@ -467,7 +467,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 Io_ReadEqnStrFind.exit:                           ; preds = %37, %Vec_PtrPush.exit
   %70 = tail call ptr @strtok(ptr noundef null, ptr noundef %1) #9
   %.not = icmp eq ptr %70, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %Io_ReadEqnStrFind.exit, %Vec_PtrPush.exit.us, %4
   ret void
@@ -555,13 +555,14 @@ attributes #12 = { nounwind allocsize(1) }
 !31 = !{!5, !5, i64 0}
 !32 = !{!9, !9, i64 0}
 !33 = !{!6, !6, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = distinct !{!37, !35}
-!38 = !{!4, !9, i64 256}
-!39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !35}
-!43 = distinct !{!43, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36}
+!38 = distinct !{!38, !35, !36}
+!39 = !{!4, !9, i64 256}
+!40 = distinct !{!40, !35, !36}
+!41 = distinct !{!41, !35, !36, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !35, !36}
+!44 = distinct !{!44, !35, !36}

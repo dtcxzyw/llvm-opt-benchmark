@@ -83,7 +83,7 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
   br label %6, !llvm.loop !8
 
 .loopexit89:                                      ; preds = %6, %14, %11, %32
-  %8 = load ptr, ptr @bio_err, align 8, !tbaa !10
+  %8 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %9 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.26, ptr noundef %5) #3
   br label %.loopexit90
 
@@ -171,9 +171,9 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
   br i1 %46, label %.thread, label %50
 
 .thread:                                          ; preds = %39, %45
-  %47 = load ptr, ptr @bio_err, align 8, !tbaa !10
+  %47 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %48 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %47, ptr noundef nonnull @.str.27) #3
-  %49 = load ptr, ptr @bio_err, align 8, !tbaa !10
+  %49 = load ptr, ptr @bio_err, align 8, !tbaa !11
   call void @ERR_print_errors(ptr noundef %49) #3
   br label %.loopexit90
 
@@ -192,15 +192,15 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
 56:                                               ; preds = %53
   %57 = call ptr @OBJ_nid2obj(i32 noundef 22) #3
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr %57, ptr %58, align 8, !tbaa !13
+  store ptr %57, ptr %58, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store ptr %54, ptr %59, align 8, !tbaa !20
+  store ptr %54, ptr %59, align 8, !tbaa !21
   %60 = call ptr @OBJ_nid2obj(i32 noundef 21) #3
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !21
+  %62 = load ptr, ptr %61, align 8, !tbaa !22
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr %60, ptr %63, align 8, !tbaa !13
-  %64 = load ptr, ptr %54, align 8, !tbaa !29
+  store ptr %60, ptr %63, align 8, !tbaa !14
+  %64 = load ptr, ptr %54, align 8, !tbaa !30
   %65 = call i32 @ASN1_INTEGER_set(ptr noundef %64, i64 noundef 1) #3
   %.not79 = icmp eq i32 %65, 0
   br i1 %.not79, label %.loopexit90, label %66
@@ -216,7 +216,7 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr %68, ptr %71, align 8, !tbaa !30
+  store ptr %68, ptr %71, align 8, !tbaa !31
   %72 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %68, ptr noundef nonnull %.157) #3
   %.not81 = icmp eq i32 %72, 0
   br i1 %.not81, label %.loopexit90, label %73
@@ -232,7 +232,7 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr %75, ptr %78, align 8, !tbaa !31
+  store ptr %75, ptr %78, align 8, !tbaa !32
   %79 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.059) #3
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph, label %.loopexit
@@ -245,7 +245,7 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %.lr.ph
-  %85 = load ptr, ptr @bio_err, align 8, !tbaa !10
+  %85 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %86 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %85, ptr noundef nonnull @.str.31, ptr noundef %81) #3
   br label %.critedge
 
@@ -260,14 +260,14 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
   br i1 %.not27.i, label %.critedge137, label %.lr.ph.i
 
 91:                                               ; preds = %87
-  %92 = load ptr, ptr @bio_err, align 8, !tbaa !10
+  %92 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %93 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %92, ptr noundef nonnull @.str.32, ptr noundef %81) #3
   br label %.critedge
 
 .lr.ph.i:                                         ; preds = %.split20.preheader.i, %.split.i
   %.01928.i = phi i32 [ %.1.i, %.split.i ], [ 0, %.split20.preheader.i ]
   %94 = call ptr @OPENSSL_sk_shift(ptr noundef nonnull %88) #3
-  %95 = load ptr, ptr %94, align 8, !tbaa !32
+  %95 = load ptr, ptr %94, align 8, !tbaa !33
   %.not24.i = icmp eq ptr %95, null
   br i1 %.not24.i, label %.split.i, label %96
 
@@ -281,7 +281,7 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
   br label %.critedge
 
 99:                                               ; preds = %96
-  store ptr null, ptr %94, align 8, !tbaa !32
+  store ptr null, ptr %94, align 8, !tbaa !33
   %100 = add nsw i32 %.01928.i, 1
   br label %.split.i
 
@@ -290,7 +290,7 @@ define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef
   call void @X509_INFO_free(ptr noundef nonnull %94) #3
   %101 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %88) #3
   %.not.i = icmp eq i32 %101, 0
-  br i1 %.not.i, label %add_certs_from_file.exit.loopexit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not.i, label %add_certs_from_file.exit.loopexit, label %.lr.ph.i, !llvm.loop !40
 
 add_certs_from_file.exit.loopexit:                ; preds = %.split.i
   %102 = icmp slt i32 %.1.i, 0
@@ -305,9 +305,9 @@ add_certs_from_file.exit.loopexit:                ; preds = %.split.i
   br label %.loopexit138
 
 .loopexit138:                                     ; preds = %add_certs_from_file.exit.loopexit, %.critedge
-  %105 = load ptr, ptr @bio_err, align 8, !tbaa !10
+  %105 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %106 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %105, ptr noundef nonnull @.str.28) #3
-  %107 = load ptr, ptr @bio_err, align 8, !tbaa !10
+  %107 = load ptr, ptr @bio_err, align 8, !tbaa !11
   call void @ERR_print_errors(ptr noundef %107) #3
   br label %.loopexit90
 
@@ -320,7 +320,7 @@ add_certs_from_file.exit.loopexit:                ; preds = %.split.i
   %110 = add nuw nsw i32 %.149106, 1
   %111 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.059) #3
   %112 = icmp slt i32 %110, %111
-  br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !40
+  br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %109, %77, %73
   %.048 = phi i32 [ 0, %73 ], [ 0, %77 ], [ %110, %109 ]
@@ -350,9 +350,9 @@ add_certs_from_file.exit.loopexit:                ; preds = %.split.i
   br i1 %.not83, label %123, label %.loopexit90
 
 123:                                              ; preds = %122
-  %124 = load ptr, ptr @bio_err, align 8, !tbaa !10
+  %124 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %125 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %124, ptr noundef nonnull @.str.29) #3
-  %126 = load ptr, ptr @bio_err, align 8, !tbaa !10
+  %126 = load ptr, ptr @bio_err, align 8, !tbaa !11
   call void @ERR_print_errors(ptr noundef %126) #3
   br label %.loopexit90
 
@@ -456,36 +456,37 @@ attributes #3 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 _ZTS6bio_st", !12, i64 0}
-!12 = !{!"any pointer", !6, i64 0}
-!13 = !{!14, !17, i64 24}
-!14 = !{!"pkcs7_st", !15, i64 0, !16, i64 8, !5, i64 16, !5, i64 20, !17, i64 24, !6, i64 32, !18, i64 40}
-!15 = !{!"p1 omnipotent char", !12, i64 0}
-!16 = !{!"long", !6, i64 0}
-!17 = !{!"p1 _ZTS14asn1_object_st", !12, i64 0}
-!18 = !{!"PKCS7_CTX_st", !19, i64 0, !15, i64 8}
-!19 = !{!"p1 _ZTS15ossl_lib_ctx_st", !12, i64 0}
-!20 = !{!6, !6, i64 0}
-!21 = !{!22, !28, i64 40}
-!22 = !{!"pkcs7_signed_st", !23, i64 0, !24, i64 8, !25, i64 16, !26, i64 24, !27, i64 32, !28, i64 40}
-!23 = !{!"p1 _ZTS14asn1_string_st", !12, i64 0}
-!24 = !{!"p1 _ZTS19stack_st_X509_ALGOR", !12, i64 0}
-!25 = !{!"p1 _ZTS13stack_st_X509", !12, i64 0}
-!26 = !{!"p1 _ZTS17stack_st_X509_CRL", !12, i64 0}
-!27 = !{!"p1 _ZTS26stack_st_PKCS7_SIGNER_INFO", !12, i64 0}
-!28 = !{!"p1 _ZTS8pkcs7_st", !12, i64 0}
-!29 = !{!22, !23, i64 0}
-!30 = !{!22, !26, i64 24}
-!31 = !{!22, !25, i64 16}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"X509_info_st", !34, i64 0, !35, i64 8, !36, i64 16, !37, i64 24, !5, i64 48, !15, i64 56}
-!34 = !{!"p1 _ZTS7x509_st", !12, i64 0}
-!35 = !{!"p1 _ZTS11X509_crl_st", !12, i64 0}
-!36 = !{!"p1 _ZTS14private_key_st", !12, i64 0}
-!37 = !{!"evp_cipher_info_st", !38, i64 0, !6, i64 8}
-!38 = !{!"p1 _ZTS13evp_cipher_st", !12, i64 0}
-!39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS6bio_st", !13, i64 0}
+!13 = !{!"any pointer", !6, i64 0}
+!14 = !{!15, !18, i64 24}
+!15 = !{!"pkcs7_st", !16, i64 0, !17, i64 8, !5, i64 16, !5, i64 20, !18, i64 24, !6, i64 32, !19, i64 40}
+!16 = !{!"p1 omnipotent char", !13, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!"p1 _ZTS14asn1_object_st", !13, i64 0}
+!19 = !{!"PKCS7_CTX_st", !20, i64 0, !16, i64 8}
+!20 = !{!"p1 _ZTS15ossl_lib_ctx_st", !13, i64 0}
+!21 = !{!6, !6, i64 0}
+!22 = !{!23, !29, i64 40}
+!23 = !{!"pkcs7_signed_st", !24, i64 0, !25, i64 8, !26, i64 16, !27, i64 24, !28, i64 32, !29, i64 40}
+!24 = !{!"p1 _ZTS14asn1_string_st", !13, i64 0}
+!25 = !{!"p1 _ZTS19stack_st_X509_ALGOR", !13, i64 0}
+!26 = !{!"p1 _ZTS13stack_st_X509", !13, i64 0}
+!27 = !{!"p1 _ZTS17stack_st_X509_CRL", !13, i64 0}
+!28 = !{!"p1 _ZTS26stack_st_PKCS7_SIGNER_INFO", !13, i64 0}
+!29 = !{!"p1 _ZTS8pkcs7_st", !13, i64 0}
+!30 = !{!23, !24, i64 0}
+!31 = !{!23, !27, i64 24}
+!32 = !{!23, !26, i64 16}
+!33 = !{!34, !35, i64 0}
+!34 = !{!"X509_info_st", !35, i64 0, !36, i64 8, !37, i64 16, !38, i64 24, !5, i64 48, !16, i64 56}
+!35 = !{!"p1 _ZTS7x509_st", !13, i64 0}
+!36 = !{!"p1 _ZTS11X509_crl_st", !13, i64 0}
+!37 = !{!"p1 _ZTS14private_key_st", !13, i64 0}
+!38 = !{!"evp_cipher_info_st", !39, i64 0, !6, i64 8}
+!39 = !{!"p1 _ZTS13evp_cipher_st", !13, i64 0}
+!40 = distinct !{!40, !9, !10}
+!41 = distinct !{!41, !9, !10}

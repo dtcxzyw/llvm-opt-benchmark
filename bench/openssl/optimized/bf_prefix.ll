@@ -143,7 +143,7 @@ define internal i32 @prefix_write(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %60 = sub i64 %.283, %55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   %.not69 = icmp eq i64 %60, 0
-  br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %54, %.critedge
   %.260.lcssa = phi i64 [ %.05886, %.critedge ], [ %57, %54 ]
@@ -156,7 +156,7 @@ define internal i32 @prefix_write(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 62:                                               ; preds = %._crit_edge, %61
   %.not = icmp eq i64 %.260.lcssa, 0
-  br i1 %.not, label %.critedge75, label %33, !llvm.loop !18
+  br i1 %.not, label %.critedge75, label %33, !llvm.loop !19
 
 .critedge75.critedge:                             ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
@@ -360,7 +360,8 @@ attributes #6 = { nounwind willreturn memory(read) }
 !12 = !{!4, !9, i64 12}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !7, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = distinct !{!19, !16, !17}

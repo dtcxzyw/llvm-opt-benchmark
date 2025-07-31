@@ -273,7 +273,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %171 = fmul <4 x double> %23, %170
   %172 = mul nsw i64 %.012951507, %10
   %gep = getelementptr double, ptr %invariant.gep, i64 %172
-  %173 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep, <4 x double> %25, <4 x double> %171) #6, !srcloc !8
+  %173 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep, <4 x double> %25, <4 x double> %171) #6, !srcloc !9
   store <4 x double> %173, ptr %gep, align 1, !tbaa !3
   %174 = shufflevector <8 x double> %.11318, <8 x double> %.11320, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %175 = shufflevector <8 x double> %.11318, <8 x double> %.11320, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
@@ -292,7 +292,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %188 = fmul <4 x double> %23, %187
   %189 = mul nsw i64 %.pre-phi, %10
   %gep1502 = getelementptr double, ptr %invariant.gep, i64 %189
-  %190 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1502, <4 x double> %25, <4 x double> %188) #6, !srcloc !9
+  %190 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1502, <4 x double> %25, <4 x double> %188) #6, !srcloc !10
   store <4 x double> %190, ptr %gep1502, align 1, !tbaa !3
   %191 = shufflevector <8 x double> %.11330, <8 x double> %.11332, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %192 = shufflevector <8 x double> %.11330, <8 x double> %.11332, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
@@ -311,7 +311,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %205 = fmul <4 x double> %23, %204
   %206 = mul nsw i64 %.pre-phi1720, %10
   %gep1504 = getelementptr double, ptr %invariant.gep, i64 %206
-  %207 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1504, <4 x double> %25, <4 x double> %205) #6, !srcloc !10
+  %207 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1504, <4 x double> %25, <4 x double> %205) #6, !srcloc !11
   store <4 x double> %207, ptr %gep1504, align 1, !tbaa !3
   %208 = shufflevector <8 x double> %.11338, <8 x double> %.11340, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %209 = shufflevector <8 x double> %.11338, <8 x double> %.11340, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
@@ -330,11 +330,11 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %222 = fmul <4 x double> %23, %221
   %223 = mul nsw i64 %.pre-phi1722, %10
   %gep1506 = getelementptr double, ptr %invariant.gep, i64 %223
-  %224 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1506, <4 x double> %25, <4 x double> %222) #6, !srcloc !11
+  %224 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1506, <4 x double> %25, <4 x double> %222) #6, !srcloc !12
   store <4 x double> %224, ptr %gep1506, align 1, !tbaa !3
   %225 = add nuw nsw i64 %.012951507, 4
   %226 = icmp slt i64 %225, %14
-  br i1 %226, label %.preheader1464, label %.preheader1466, !llvm.loop !12
+  br i1 %226, label %.preheader1464, label %.preheader1466, !llvm.loop !13
 
 .preheader1465:                                   ; preds = %298, %.preheader1466
   %.11296.lcssa = phi i64 [ %.01295.lcssa, %.preheader1466 ], [ %333, %298 ]
@@ -399,7 +399,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %264 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %252, <8 x double> %256, <8 x double> %.013591509)
   %265 = add nuw nsw i64 %.112991517, 8
   %266 = icmp slt i64 %265, %16
-  br i1 %266, label %244, label %._crit_edge1519, !llvm.loop !13
+  br i1 %266, label %244, label %._crit_edge1519, !llvm.loop !14
 
 ._crit_edge1519:                                  ; preds = %244, %.preheader1463
   %.01359.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1463 ], [ %264, %244 ]
@@ -479,7 +479,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %313 = fmul <4 x double> %23, %312
   %314 = mul nsw i64 %.112961533, %10
   %gep1530 = getelementptr double, ptr %invariant.gep, i64 %314
-  %315 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1530, <4 x double> %25, <4 x double> %313) #6, !srcloc !14
+  %315 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1530, <4 x double> %25, <4 x double> %313) #6, !srcloc !15
   store <4 x double> %315, ptr %gep1530, align 1, !tbaa !3
   %316 = shufflevector <8 x double> %.11354, <8 x double> %.11356, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %317 = shufflevector <8 x double> %.11354, <8 x double> %.11356, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
@@ -498,11 +498,11 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %330 = fmul <4 x double> %23, %329
   %331 = mul nsw i64 %.pre-phi1724, %10
   %gep1532 = getelementptr double, ptr %invariant.gep, i64 %331
-  %332 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1532, <4 x double> %25, <4 x double> %330) #6, !srcloc !15
+  %332 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1532, <4 x double> %25, <4 x double> %330) #6, !srcloc !16
   store <4 x double> %332, ptr %gep1532, align 1, !tbaa !3
   %333 = add nuw nsw i64 %.112961533, 2
   %334 = icmp slt i64 %333, %15
-  br i1 %334, label %.preheader1463, label %.preheader1465, !llvm.loop !16
+  br i1 %334, label %.preheader1463, label %.preheader1465, !llvm.loop !17
 
 .preheader1462:                                   ; preds = %.preheader1462.lr.ph, %376
   %.212971549 = phi i64 [ %.11296.lcssa, %.preheader1462.lr.ph ], [ %394, %376 ]
@@ -535,7 +535,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %351 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %345, <8 x double> %347, <8 x double> %.013671535)
   %352 = add nuw nsw i64 %.213001539, 8
   %353 = icmp slt i64 %352, %16
-  br i1 %353, label %337, label %._crit_edge1541, !llvm.loop !17
+  br i1 %353, label %337, label %._crit_edge1541, !llvm.loop !18
 
 ._crit_edge1541:                                  ; preds = %337, %.preheader1462
   %.01367.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1462 ], [ %351, %337 ]
@@ -593,16 +593,16 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %391 = fmul <4 x double> %23, %390
   %392 = mul nsw i64 %.212971549, %10
   %gep1548 = getelementptr double, ptr %invariant.gep, i64 %392
-  %393 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1548, <4 x double> %25, <4 x double> %391) #6, !srcloc !18
+  %393 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep1548, <4 x double> %25, <4 x double> %391) #6, !srcloc !19
   store <4 x double> %393, ptr %gep1548, align 1, !tbaa !3
   %394 = add i64 %.212971549, 1
   %exitcond.not = icmp eq i64 %394, %1
-  br i1 %exitcond.not, label %._crit_edge1550, label %.preheader1462, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge1550, label %.preheader1462, !llvm.loop !20
 
 ._crit_edge1550:                                  ; preds = %376, %.preheader1465
   %395 = add nuw nsw i64 %.01551, 4
   %396 = icmp slt i64 %395, %12
-  br i1 %396, label %.preheader1467, label %.preheader1461, !llvm.loop !20
+  br i1 %396, label %.preheader1467, label %.preheader1461, !llvm.loop !21
 
 .preheader1460:                                   ; preds = %.preheader1460.lr.ph, %._crit_edge1606
   %.11607 = phi i64 [ %.0.lcssa, %.preheader1460.lr.ph ], [ %637, %._crit_edge1606 ]
@@ -693,7 +693,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %445 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %429, <8 x double> %437, <8 x double> %.013911553)
   %446 = add nuw nsw i64 %.313011561, 8
   %447 = icmp slt i64 %446, %16
-  br i1 %447, label %425, label %._crit_edge1563, !llvm.loop !21
+  br i1 %447, label %425, label %._crit_edge1563, !llvm.loop !22
 
 ._crit_edge1563:                                  ; preds = %425, %.preheader1457
   %.01391.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1457 ], [ %445, %425 ]
@@ -798,7 +798,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %519, <4 x i1> splat (i1 true), <4 x i64> %21, <4 x double> %521, i32 8)
   %522 = add nuw nsw i64 %.31575, 4
   %523 = icmp slt i64 %522, %14
-  br i1 %523, label %.preheader1457, label %.preheader1459, !llvm.loop !22
+  br i1 %523, label %.preheader1457, label %.preheader1459, !llvm.loop !23
 
 .preheader1458:                                   ; preds = %573, %.preheader1459
   %.4.lcssa = phi i64 [ %.3.lcssa, %.preheader1459 ], [ %594, %573 ]
@@ -845,7 +845,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %547 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %539, <8 x double> %543, <8 x double> %.014031577)
   %548 = add nuw nsw i64 %.413021581, 8
   %549 = icmp slt i64 %548, %16
-  br i1 %549, label %535, label %._crit_edge1583, !llvm.loop !23
+  br i1 %549, label %535, label %._crit_edge1583, !llvm.loop !24
 
 ._crit_edge1583:                                  ; preds = %535, %.preheader1456
   %.01403.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1456 ], [ %547, %535 ]
@@ -895,32 +895,32 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %574 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %.11398)
   %575 = mul nsw i64 %.41593, %10
   %gep1590 = getelementptr double, ptr %invariant.gep1573, i64 %575
-  %576 = load double, ptr %gep1590, align 8, !tbaa !24
+  %576 = load double, ptr %gep1590, align 8, !tbaa !25
   %577 = fmul double %8, %576
   %578 = tail call double @llvm.fmuladd.f64(double %5, double %574, double %577)
-  store double %578, ptr %gep1590, align 8, !tbaa !24
+  store double %578, ptr %gep1590, align 8, !tbaa !25
   %579 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %.11400)
   %580 = getelementptr i8, ptr %gep1590, i64 8
-  %581 = load double, ptr %580, align 8, !tbaa !24
+  %581 = load double, ptr %580, align 8, !tbaa !25
   %582 = fmul double %8, %581
   %583 = tail call double @llvm.fmuladd.f64(double %5, double %579, double %582)
-  store double %583, ptr %580, align 8, !tbaa !24
+  store double %583, ptr %580, align 8, !tbaa !25
   %584 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %.11402)
   %585 = mul nsw i64 %.pre-phi1726, %10
   %gep1592 = getelementptr double, ptr %invariant.gep1573, i64 %585
-  %586 = load double, ptr %gep1592, align 8, !tbaa !24
+  %586 = load double, ptr %gep1592, align 8, !tbaa !25
   %587 = fmul double %8, %586
   %588 = tail call double @llvm.fmuladd.f64(double %5, double %584, double %587)
-  store double %588, ptr %gep1592, align 8, !tbaa !24
+  store double %588, ptr %gep1592, align 8, !tbaa !25
   %589 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %.11404)
   %590 = getelementptr i8, ptr %gep1592, i64 8
-  %591 = load double, ptr %590, align 8, !tbaa !24
+  %591 = load double, ptr %590, align 8, !tbaa !25
   %592 = fmul double %8, %591
   %593 = tail call double @llvm.fmuladd.f64(double %5, double %589, double %592)
-  store double %593, ptr %590, align 8, !tbaa !24
+  store double %593, ptr %590, align 8, !tbaa !25
   %594 = add nuw nsw i64 %.41593, 2
   %595 = icmp slt i64 %594, %15
-  br i1 %595, label %.preheader1456, label %.preheader1458, !llvm.loop !26
+  br i1 %595, label %.preheader1456, label %.preheader1458, !llvm.loop !27
 
 .preheader1455:                                   ; preds = %.preheader1455.lr.ph, %625
   %.51605 = phi i64 [ %.4.lcssa, %.preheader1455.lr.ph ], [ %636, %625 ]
@@ -945,7 +945,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %606 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %602, <8 x double> %604, <8 x double> %.013931596)
   %607 = add nuw nsw i64 %.513031597, 8
   %608 = icmp slt i64 %607, %16
-  br i1 %608, label %598, label %._crit_edge1599, !llvm.loop !27
+  br i1 %608, label %598, label %._crit_edge1599, !llvm.loop !28
 
 ._crit_edge1599:                                  ; preds = %598, %.preheader1455
   %.01395.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1455 ], [ %605, %598 ]
@@ -979,24 +979,24 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %626 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %.11396)
   %627 = mul nsw i64 %.51605, %10
   %gep1604 = getelementptr double, ptr %invariant.gep1573, i64 %627
-  %628 = load double, ptr %gep1604, align 8, !tbaa !24
+  %628 = load double, ptr %gep1604, align 8, !tbaa !25
   %629 = fmul double %8, %628
   %630 = tail call double @llvm.fmuladd.f64(double %5, double %626, double %629)
-  store double %630, ptr %gep1604, align 8, !tbaa !24
+  store double %630, ptr %gep1604, align 8, !tbaa !25
   %631 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %.11394)
   %632 = getelementptr i8, ptr %gep1604, i64 8
-  %633 = load double, ptr %632, align 8, !tbaa !24
+  %633 = load double, ptr %632, align 8, !tbaa !25
   %634 = fmul double %8, %633
   %635 = tail call double @llvm.fmuladd.f64(double %5, double %631, double %634)
-  store double %635, ptr %632, align 8, !tbaa !24
+  store double %635, ptr %632, align 8, !tbaa !25
   %636 = add nuw nsw i64 %.51605, 1
   %exitcond1716.not = icmp eq i64 %636, %1
-  br i1 %exitcond1716.not, label %._crit_edge1606, label %.preheader1455, !llvm.loop !28
+  br i1 %exitcond1716.not, label %._crit_edge1606, label %.preheader1455, !llvm.loop !29
 
 ._crit_edge1606:                                  ; preds = %625, %.preheader1458
   %637 = add nuw nsw i64 %.11607, 2
   %638 = icmp slt i64 %637, %13
-  br i1 %638, label %.preheader1460, label %.preheader1454, !llvm.loop !29
+  br i1 %638, label %.preheader1460, label %.preheader1454, !llvm.loop !30
 
 .preheader1453:                                   ; preds = %.preheader1453.lr.ph, %._crit_edge1648
   %.21649 = phi i64 [ %.1.lcssa, %.preheader1453.lr.ph ], [ %805, %._crit_edge1648 ]
@@ -1058,7 +1058,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %669 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %657, <8 x double> %665, <8 x double> %.013711612)
   %670 = add nuw nsw i64 %.613041613, 8
   %671 = icmp slt i64 %670, %16
-  br i1 %671, label %655, label %._crit_edge1615, !llvm.loop !30
+  br i1 %671, label %655, label %._crit_edge1615, !llvm.loop !31
 
 ._crit_edge1615:                                  ; preds = %655, %.preheader1450
   %.01377.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1450 ], [ %666, %655 ]
@@ -1130,7 +1130,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %gep1622, <4 x i1> splat (i1 true), <4 x i64> %21, <4 x double> %721, i32 8)
   %722 = add nuw nsw i64 %.61623, 4
   %723 = icmp slt i64 %722, %14
-  br i1 %723, label %.preheader1450, label %.preheader1452, !llvm.loop !31
+  br i1 %723, label %.preheader1450, label %.preheader1452, !llvm.loop !32
 
 .preheader1451:                                   ; preds = %762, %.preheader1452
   %.7.lcssa = phi i64 [ %.6.lcssa, %.preheader1452 ], [ %773, %762 ]
@@ -1168,7 +1168,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %740 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %734, <8 x double> %738, <8 x double> %.013251626)
   %741 = add nuw nsw i64 %.713051627, 8
   %742 = icmp slt i64 %741, %16
-  br i1 %742, label %732, label %._crit_edge1629, !llvm.loop !32
+  br i1 %742, label %732, label %._crit_edge1629, !llvm.loop !33
 
 ._crit_edge1629:                                  ; preds = %732, %.preheader1449
   %.01327.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1449 ], [ %739, %732 ]
@@ -1210,20 +1210,20 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %763 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %.11328)
   %764 = mul nsw i64 %.71637, %10
   %gep1634 = getelementptr double, ptr %invariant.gep1621, i64 %764
-  %765 = load double, ptr %gep1634, align 8, !tbaa !24
+  %765 = load double, ptr %gep1634, align 8, !tbaa !25
   %766 = fmul double %8, %765
   %767 = tail call double @llvm.fmuladd.f64(double %5, double %763, double %766)
-  store double %767, ptr %gep1634, align 8, !tbaa !24
+  store double %767, ptr %gep1634, align 8, !tbaa !25
   %768 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %.11326)
   %769 = mul nsw i64 %.pre-phi1728, %10
   %gep1636 = getelementptr double, ptr %invariant.gep1621, i64 %769
-  %770 = load double, ptr %gep1636, align 8, !tbaa !24
+  %770 = load double, ptr %gep1636, align 8, !tbaa !25
   %771 = fmul double %8, %770
   %772 = tail call double @llvm.fmuladd.f64(double %5, double %768, double %771)
-  store double %772, ptr %gep1636, align 8, !tbaa !24
+  store double %772, ptr %gep1636, align 8, !tbaa !25
   %773 = add nuw nsw i64 %.71637, 2
   %774 = icmp slt i64 %773, %15
-  br i1 %774, label %.preheader1449, label %.preheader1451, !llvm.loop !33
+  br i1 %774, label %.preheader1449, label %.preheader1451, !llvm.loop !34
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %798
   %.81647 = phi i64 [ %.7.lcssa, %.preheader.lr.ph ], [ %804, %798 ]
@@ -1244,7 +1244,7 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %782 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %779, <8 x double> %781, <8 x double> %.013091639)
   %783 = add nuw nsw i64 %.813061640, 8
   %784 = icmp slt i64 %783, %16
-  br i1 %784, label %777, label %._crit_edge1642, !llvm.loop !34
+  br i1 %784, label %777, label %._crit_edge1642, !llvm.loop !35
 
 ._crit_edge1642:                                  ; preds = %777, %.preheader
   %.01309.lcssa = phi <8 x double> [ zeroinitializer, %.preheader ], [ %782, %777 ]
@@ -1273,18 +1273,18 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %799 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %.11310)
   %800 = mul nsw i64 %.81647, %10
   %gep1646 = getelementptr double, ptr %invariant.gep1621, i64 %800
-  %801 = load double, ptr %gep1646, align 8, !tbaa !24
+  %801 = load double, ptr %gep1646, align 8, !tbaa !25
   %802 = fmul double %8, %801
   %803 = tail call double @llvm.fmuladd.f64(double %5, double %799, double %802)
-  store double %803, ptr %gep1646, align 8, !tbaa !24
+  store double %803, ptr %gep1646, align 8, !tbaa !25
   %804 = add nuw nsw i64 %.81647, 1
   %exitcond1717.not = icmp eq i64 %804, %1
-  br i1 %exitcond1717.not, label %._crit_edge1648, label %.preheader, !llvm.loop !35
+  br i1 %exitcond1717.not, label %._crit_edge1648, label %.preheader, !llvm.loop !36
 
 ._crit_edge1648:                                  ; preds = %798, %.preheader1451
   %805 = add i64 %.21649, 1
   %exitcond1718.not = icmp eq i64 %805, %0
-  br i1 %exitcond1718.not, label %._crit_edge1650, label %.preheader1453, !llvm.loop !36
+  br i1 %exitcond1718.not, label %._crit_edge1650, label %.preheader1453, !llvm.loop !37
 
 ._crit_edge1650:                                  ; preds = %._crit_edge1648, %.preheader1454
   ret i32 0
@@ -1330,34 +1330,35 @@ attributes #6 = { nounwind memory(none) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 2153639113}
-!9 = !{i64 2153640527}
-!10 = !{i64 2153641941}
-!11 = !{i64 2153643355}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{i64 2153647753}
-!15 = !{i64 2153649167}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{i64 2153652359}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"double", !4, i64 0}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2153639113}
+!10 = !{i64 2153640527}
+!11 = !{i64 2153641941}
+!12 = !{i64 2153643355}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = !{i64 2153647753}
+!16 = !{i64 2153649167}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = !{i64 2153652359}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"double", !4, i64 0}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}

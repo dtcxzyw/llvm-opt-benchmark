@@ -895,7 +895,7 @@ define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 
 .outer.us:                                        ; preds = %.split.us.us, %21
   %.1.us = phi i32 [ %22, %21 ], [ %.045.ph65.us, %.split.us.us ]
   %.b5458.us = load i1, ptr @command_shutdown, align 4
-  br i1 %.b5458.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !13
+  br i1 %.b5458.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !14
 
 25:                                               ; preds = %.backedge.us.us, %.lr.ph.us
   br i1 %.not, label %28, label %26
@@ -950,7 +950,7 @@ define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 
 
 .backedge.us.us:                                  ; preds = %49, %49, %45, %28
   %.b54.us.us = load i1, ptr @command_shutdown, align 4
-  br i1 %.b54.us.us, label %.outer._crit_edge, label %25, !llvm.loop !15
+  br i1 %.b54.us.us, label %.outer._crit_edge, label %25, !llvm.loop !16
 
 .split.us.us:                                     ; preds = %43
   %52 = add nuw nsw i32 %.044.ph66.us, %41
@@ -1016,7 +1016,7 @@ define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 
 
 .backedge:                                        ; preds = %75, %75, %69, %91
   %.b54 = load i1, ptr @command_shutdown, align 4
-  br i1 %.b54, label %.outer._crit_edge, label %59, !llvm.loop !16
+  br i1 %.b54, label %.outer._crit_edge, label %59, !llvm.loop !17
 
 .split63.us:                                      ; preds = %75, %49
   %78 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %5) #12
@@ -1066,7 +1066,7 @@ define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 
 .outer:                                           ; preds = %98, %.split
   %.1 = phi i32 [ %99, %98 ], [ %.045.ph65, %.split ]
   %.b5458 = load i1, ptr @command_shutdown, align 4
-  br i1 %.b5458, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.b5458, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %60, %79, %83, %26, %33, %37, %66, %68, %.split61.us, %.split63.us, %.outer._crit_edge
   %.046 = phi i1 [ true, %.outer._crit_edge ], [ true, %.split63.us ], [ false, %.split61.us ], [ true, %68 ], [ true, %66 ], [ false, %37 ], [ false, %33 ], [ true, %26 ], [ false, %83 ], [ false, %79 ], [ true, %60 ]
@@ -1161,7 +1161,7 @@ define dso_local range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr
   %20 = tail call ptr @__errno_location() #14
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %14, label %23, !llvm.loop !17
+  br i1 %22, label %14, label %23, !llvm.loop !18
 
 23:                                               ; preds = %19
   %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.run_command_waitpid_timeout, i32 noundef %1) #12
@@ -1179,7 +1179,7 @@ define dso_local range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %26, %44, %39, %34
-  br label %.outer, !llvm.loop !17
+  br label %.outer, !llvm.loop !18
 
 31:                                               ; preds = %25
   br i1 %.not, label %38, label %32
@@ -1214,7 +1214,7 @@ define dso_local range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr
   %48 = shl nsw i32 %.046.ph.ph, 1
   %49 = tail call i32 @llvm.smin.i32(i32 %48, i32 %47)
   %. = tail call i32 @llvm.smin.i32(i32 %49, i32 1000)
-  br label %.outer.outer, !llvm.loop !17
+  br label %.outer.outer, !llvm.loop !18
 
 50:                                               ; preds = %14
   br i1 %.0.ph, label %55, label %51
@@ -1306,7 +1306,7 @@ define internal fastcc void @_log_str_array(ptr noundef %0, ptr noundef readonly
   %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 27:                                               ; preds = %._crit_edge
   %28 = tail call i32 @get_log_level() #12
@@ -1367,12 +1367,13 @@ attributes #15 = { noreturn nounwind }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !12, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !12, !14}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !12, !13, !15}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !11, !12, !13}
+!19 = distinct !{!19, !11, !12, !13}

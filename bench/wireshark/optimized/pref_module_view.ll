@@ -693,7 +693,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %44, %_ZN17QArrayDat
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %74, %71
   %83 = add nuw nsw i32 %.011, 1
-  br label %20, !llvm.loop !8
+  br label %20, !llvm.loop !9
 
 .loopexit:                                        ; preds = %74, %27, %56
   %84 = load ptr, ptr %6, align 8
@@ -906,6 +906,7 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

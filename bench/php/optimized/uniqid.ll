@@ -101,15 +101,15 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %21
   %33 = load i64, ptr @prev_tv.1, align 8
   %34 = icmp eq i64 %32, %33
   %35 = select i1 %31, i1 %34, i1 false
-  br i1 %35, label %27, label %36
+  br i1 %35, label %27, label %36, !llvm.loop !17
 
 36:                                               ; preds = %27
   store i64 %29, ptr @prev_tv.0, align 8, !tbaa !14
-  store i64 %32, ptr @prev_tv.1, align 8, !tbaa !17
+  store i64 %32, ptr @prev_tv.1, align 8, !tbaa !19
   %37 = trunc i64 %29 to i32
   %38 = srem i64 %32, 1048576
   %39 = trunc nsw i64 %38 to i32
-  %40 = load i8, ptr %4, align 1, !tbaa !4, !range !18, !noundef !19
+  %40 = load i8, ptr %4, align 1, !tbaa !4, !range !20, !noundef !21
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %54
 
@@ -120,13 +120,13 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %21
   br i1 %44, label %45, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42
-  %.pre101 = load i32, ptr %6, align 4, !tbaa !20
+  %.pre101 = load i32, ptr %6, align 4, !tbaa !22
   br label %48
 
 45:                                               ; preds = %42
   %46 = call i64 @php_random_generate_fallback_seed() #4
   %47 = trunc i64 %46 to i32
-  store i32 %47, ptr %6, align 4, !tbaa !20
+  store i32 %47, ptr %6, align 4, !tbaa !22
   br label %48
 
 48:                                               ; preds = %._crit_edge, %45
@@ -208,8 +208,10 @@ attributes #4 = { nounwind }
 !14 = !{!15, !16, i64 0}
 !15 = !{!"timeval", !16, i64 0, !16, i64 8}
 !16 = !{!"long", !6, i64 0}
-!17 = !{!15, !16, i64 8}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!15, !16, i64 8}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"int", !6, i64 0}

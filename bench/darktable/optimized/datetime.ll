@@ -1077,7 +1077,7 @@ define void @dt_datetime_add_subsec_to_exif(ptr noundef %0, i64 noundef %1, ptr 
   store i8 %13, ptr %gep, align 1, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond21.not, label %.critedge, label %11
+  br i1 %exitcond21.not, label %.critedge, label %11, !llvm.loop !72
 
 17:                                               ; preds = %3, %.critedge
   ret void
@@ -1365,7 +1365,7 @@ dt_datetime_gdatetime_to_exif.exit:               ; preds = %31, %33, %35
   call void @g_date_time_unref(ptr noundef nonnull %.1.i) #7
   call void @g_date_time_unref(ptr noundef %32) #7
   %37 = call noalias ptr @g_strdup(ptr noundef nonnull %6) #7
-  store ptr %37, ptr %3, align 8, !tbaa !72
+  store ptr %37, ptr %3, align 8, !tbaa !74
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #7
   br label %38
 
@@ -1468,4 +1468,6 @@ attributes #8 = { nounwind willreturn memory(read) }
 !69 = !{!"_color_harmony_t", !9, i64 0, !9, i64 4, !9, i64 8}
 !70 = !{!"p1 _ZTS16dt_cache_entry_t", !13, i64 0}
 !71 = !{!44, !44, i64 0}
-!72 = !{!38, !38, i64 0}
+!72 = distinct !{!72, !73}
+!73 = !{!"llvm.loop.estimated_trip_count"}
+!74 = !{!38, !38, i64 0}

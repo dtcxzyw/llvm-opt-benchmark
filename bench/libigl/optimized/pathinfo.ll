@@ -368,19 +368,19 @@ _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112bas
 172:                                              ; preds = %_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SC_SC_RKT0_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #6
   %173 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %173, ptr %10, align 8, !tbaa !27
+  store ptr %173, ptr %10, align 8, !tbaa !28
   %174 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %174, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %175 = sub i64 %106, %.sink.i.i.i
-  store i64 %175, ptr %7, align 8, !tbaa !28
+  store i64 %175, ptr %7, align 8, !tbaa !29
   %176 = icmp ugt i64 %175, 15
   br i1 %176, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %172
   %177 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
   store ptr %177, ptr %10, align 8, !tbaa !4
-  %178 = load i64, ptr %7, align 8, !tbaa !28
+  %178 = load i64, ptr %7, align 8, !tbaa !29
   store i64 %178, ptr %173, align 8, !tbaa !14
   br label %._crit_edge.i.i
 
@@ -401,7 +401,7 @@ _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112bas
   br label %183
 
 183:                                              ; preds = %182, %180, %._crit_edge.i.i
-  %184 = load i64, ptr %7, align 8, !tbaa !28
+  %184 = load i64, ptr %7, align 8, !tbaa !29
   store i64 %184, ptr %174, align 8, !tbaa !12
   %185 = load ptr, ptr %10, align 8, !tbaa !4
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 %184
@@ -513,21 +513,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   %224 = load ptr, ptr %2, align 8, !tbaa !4
   %225 = getelementptr inbounds i8, ptr %166, i64 -1
   %226 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %226, ptr %11, align 8, !tbaa !27
+  store ptr %226, ptr %11, align 8, !tbaa !28
   %227 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %227, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %228 = ptrtoint ptr %225 to i64
   %229 = ptrtoint ptr %224 to i64
   %230 = sub i64 %228, %229
-  store i64 %230, ptr %6, align 8, !tbaa !28
+  store i64 %230, ptr %6, align 8, !tbaa !29
   %231 = icmp ugt i64 %230, 15
   br i1 %231, label %.noexc.i46, label %._crit_edge.i.i45
 
 .noexc.i46:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
   %232 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
   store ptr %232, ptr %11, align 8, !tbaa !4
-  %233 = load i64, ptr %6, align 8, !tbaa !28
+  %233 = load i64, ptr %6, align 8, !tbaa !29
   store i64 %233, ptr %226, align 8, !tbaa !14
   br label %._crit_edge.i.i45
 
@@ -548,7 +548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   br label %238
 
 238:                                              ; preds = %237, %235, %._crit_edge.i.i45
-  %239 = load i64, ptr %6, align 8, !tbaa !28
+  %239 = load i64, ptr %6, align 8, !tbaa !29
   store i64 %239, ptr %227, align 8, !tbaa !12
   %240 = load ptr, ptr %11, align 8, !tbaa !4
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 %239
@@ -725,7 +725,8 @@ attributes #7 = { builtin nounwind }
 !22 = distinct !{!22, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops16_Iter_equals_valIKcEEET_SG_SG_T0_"}
 !23 = distinct !{!23, !24, !"_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SC_SC_RKT0_: argument 0"}
 !24 = distinct !{!24, !"_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SC_SC_RKT0_"}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!6, !7, i64 0}
-!28 = !{!11, !11, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!6, !7, i64 0}
+!29 = !{!11, !11, i64 0}

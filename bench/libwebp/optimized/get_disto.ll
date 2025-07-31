@@ -210,27 +210,27 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 72:                                               ; preds = %67
   %73 = trunc i64 %61 to i32
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %75 = load float, ptr %74, align 16, !tbaa !13
+  %75 = load float, ptr %74, align 16, !tbaa !14
   %76 = fpext float %75 to double
-  %77 = load float, ptr %5, align 16, !tbaa !13
+  %77 = load float, ptr %5, align 16, !tbaa !14
   %78 = fpext float %77 to double
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %80 = load float, ptr %79, align 4, !tbaa !13
+  %80 = load float, ptr %79, align 4, !tbaa !14
   %81 = fpext float %80 to double
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %83 = load float, ptr %82, align 8, !tbaa !13
+  %83 = load float, ptr %82, align 8, !tbaa !14
   %84 = fpext float %83 to double
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %86 = load float, ptr %85, align 4, !tbaa !13
+  %86 = load float, ptr %85, align 4, !tbaa !14
   %87 = fpext float %86 to double
   %88 = uitofp i64 %61 to float
   %89 = fmul float %88, 8.000000e+00
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %91 = load i32, ptr %90, align 8, !tbaa !15
+  %91 = load i32, ptr %90, align 8, !tbaa !16
   %92 = sitofp i32 %91 to float
   %93 = fdiv float %89, %92
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %95 = load i32, ptr %94, align 4, !tbaa !20
+  %95 = load i32, ptr %94, align 4, !tbaa !21
   %96 = sitofp i32 %95 to float
   %97 = fdiv float %93, %96
   %98 = fpext float %97 to double
@@ -241,8 +241,8 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 100:                                              ; preds = %72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   store ptr null, ptr %6, align 8, !tbaa !9
-  %101 = load i32, ptr %3, align 8, !tbaa !21
-  %102 = load i32, ptr %4, align 8, !tbaa !21
+  %101 = load i32, ptr %3, align 8, !tbaa !22
+  %102 = load i32, ptr %4, align 8, !tbaa !22
   %.not96 = icmp eq i32 %101, %102
   br i1 %.not96, label %106, label %103
 
@@ -267,16 +267,16 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 
 .split.us:                                        ; preds = %108, %129
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %129 ], [ 0, %108 ]
-  %114 = load ptr, ptr %110, align 8, !tbaa !22
+  %114 = load ptr, ptr %110, align 8, !tbaa !23
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv154
-  %116 = load i32, ptr %111, align 8, !tbaa !23
+  %116 = load i32, ptr %111, align 8, !tbaa !24
   %117 = shl nsw i32 %116, 2
-  %118 = load ptr, ptr %112, align 8, !tbaa !22
+  %118 = load ptr, ptr %112, align 8, !tbaa !23
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv154
-  %120 = load i32, ptr %113, align 8, !tbaa !23
+  %120 = load i32, ptr %113, align 8, !tbaa !24
   %121 = shl nsw i32 %120, 2
-  %122 = load i32, ptr %90, align 8, !tbaa !15
-  %123 = load i32, ptr %94, align 4, !tbaa !20
+  %122 = load i32, ptr %90, align 8, !tbaa !16
+  %123 = load i32, ptr %94, align 4, !tbaa !21
   %124 = call fastcc i32 @SSIMScaleChannel(ptr noundef %115, i32 noundef %117, ptr noundef %119, i32 noundef %121, i32 noundef %122, i32 noundef %123, i32 noundef %.174)
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %126, label %129
@@ -291,26 +291,26 @@ sub_1113:                                         ; preds = %.tail, %sub_1
   %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.15, i32 noundef %124) #16
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 3
-  br i1 %exitcond157.not, label %.split145.us, label %.split.us, !llvm.loop !24
+  br i1 %exitcond157.not, label %.split145.us, label %.split.us, !llvm.loop !25
 
 .thread:                                          ; preds = %108, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %108 ]
-  %132 = load ptr, ptr %110, align 8, !tbaa !22
+  %132 = load ptr, ptr %110, align 8, !tbaa !23
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 %indvars.iv
-  %134 = load i32, ptr %111, align 8, !tbaa !23
+  %134 = load i32, ptr %111, align 8, !tbaa !24
   %135 = shl nsw i32 %134, 2
-  %136 = load ptr, ptr %112, align 8, !tbaa !22
+  %136 = load ptr, ptr %112, align 8, !tbaa !23
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 %indvars.iv
-  %138 = load i32, ptr %113, align 8, !tbaa !23
+  %138 = load i32, ptr %113, align 8, !tbaa !24
   %139 = shl nsw i32 %138, 2
-  %140 = load i32, ptr %90, align 8, !tbaa !15
-  %141 = load i32, ptr %94, align 4, !tbaa !20
+  %140 = load i32, ptr %90, align 8, !tbaa !16
+  %141 = load i32, ptr %94, align 4, !tbaa !21
   %142 = call fastcc i32 @DiffScaleChannel(ptr noundef %133, i32 noundef %135, ptr noundef %137, i32 noundef %139, i32 noundef %140, i32 noundef %141, i32 noundef %.174)
   %143 = load ptr, ptr @stderr, align 8, !tbaa !4
   %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.15, i32 noundef %142) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split145.us, label %.thread, !llvm.loop !26
+  br i1 %exitcond.not, label %.split145.us, label %.thread, !llvm.loop !27
 
 .split145.us:                                     ; preds = %129, %.thread
   %145 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -322,10 +322,10 @@ sub_1113:                                         ; preds = %.tail, %sub_1
   br label %147
 
 147:                                              ; preds = %146, %.split145.us
-  %148 = load ptr, ptr %110, align 8, !tbaa !22
-  %149 = load i32, ptr %90, align 8, !tbaa !15
-  %150 = load i32, ptr %94, align 4, !tbaa !20
-  %151 = load i32, ptr %111, align 8, !tbaa !23
+  %148 = load ptr, ptr %110, align 8, !tbaa !23
+  %149 = load i32, ptr %90, align 8, !tbaa !16
+  %150 = load i32, ptr %94, align 4, !tbaa !21
+  %151 = load i32, ptr %111, align 8, !tbaa !24
   %152 = shl nsw i32 %151, 2
   %153 = call i64 @WebPEncodeLosslessBGRA(ptr noundef %148, i32 noundef %149, i32 noundef %150, i32 noundef %152, ptr noundef nonnull %6) #13
   %154 = icmp eq i64 %153, 0
@@ -395,18 +395,18 @@ define internal fastcc i64 @ReadPicture(ptr noundef nonnull %0, ptr noundef nonn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   store ptr null, ptr %3, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store i64 0, ptr %4, align 8, !tbaa !27
+  store i64 0, ptr %4, align 8, !tbaa !28
   %5 = call i32 @ImgIoUtilReadFile(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %2
-  store i32 1, ptr %1, align 8, !tbaa !21
+  store i32 1, ptr %1, align 8, !tbaa !22
   %7 = load ptr, ptr %3, align 8, !tbaa !9
-  %8 = load i64, ptr %4, align 8, !tbaa !27
+  %8 = load i64, ptr %4, align 8, !tbaa !28
   %9 = call ptr @WebPGuessImageReader(ptr noundef %7, i64 noundef %8) #13
   %10 = load ptr, ptr %3, align 8, !tbaa !9
-  %11 = load i64, ptr %4, align 8, !tbaa !27
+  %11 = load i64, ptr %4, align 8, !tbaa !28
   %12 = call i32 %9(ptr noundef %10, i64 noundef %11, ptr noundef nonnull %1, i32 noundef 1, ptr noundef null) #13
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %17, label %14
@@ -477,22 +477,22 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %indvars.iv = phi i64 [ 0, %.preheader80.us ], [ %indvars.iv.next, %24 ]
   %25 = shl nsw i64 %indvars.iv, 2
   %gep = getelementptr i8, ptr %invariant.gep, i64 %25
-  %26 = load i8, ptr %gep, align 1, !tbaa !29
+  %26 = load i8, ptr %gep, align 1, !tbaa !30
   %27 = add nuw nsw i64 %indvars.iv, %22
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 %27
-  store i8 %26, ptr %28, align 1, !tbaa !29
+  store i8 %26, ptr %28, align 1, !tbaa !30
   %gep128 = getelementptr i8, ptr %invariant.gep127, i64 %25
-  %29 = load i8, ptr %gep128, align 1, !tbaa !29
+  %29 = load i8, ptr %gep128, align 1, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 %27
-  store i8 %29, ptr %30, align 1, !tbaa !29
+  store i8 %29, ptr %30, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !31
 
 ._crit_edge.us:                                   ; preds = %24
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.preheader79, label %.preheader80.us, !llvm.loop !31
+  br i1 %exitcond109.not, label %.preheader79, label %.preheader80.us, !llvm.loop !32
 
 .preheader79:                                     ; preds = %._crit_edge.us
   br i1 %16, label %.preheader.lr.ph, label %._crit_edge93
@@ -561,7 +561,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %sext = add i64 %.reass.reass.i.us, 12884901888
   %59 = ashr exact i64 %sext, 32
   %60 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !32
+  %61 = load i32, ptr %60, align 4, !tbaa !33
   br label %62
 
 62:                                               ; preds = %62, %.preheader.i.us
@@ -577,13 +577,13 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %sext120 = add i64 %63, 12884901888
   %64 = ashr exact i64 %sext120, 32
   %65 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !32
+  %66 = load i32, ptr %65, align 4, !tbaa !33
   %67 = mul i32 %66, %61
   %68 = getelementptr inbounds i8, ptr %.090.i.us, i64 %indvars.iv.i.us
-  %69 = load i8, ptr %68, align 1, !tbaa !29
+  %69 = load i8, ptr %68, align 1, !tbaa !30
   %70 = zext i8 %69 to i32
   %71 = getelementptr inbounds i8, ptr %.05189.i.us, i64 %indvars.iv.i.us
-  %72 = load i8, ptr %71, align 1, !tbaa !29
+  %72 = load i8, ptr %71, align 1, !tbaa !30
   %73 = zext i8 %72 to i32
   %74 = add i32 %67, %.sroa.0.169.i.us
   %75 = mul i32 %67, %70
@@ -599,14 +599,14 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %lftr.wideiv.i.us = trunc i64 %indvars.iv.next.i.us to i32
   %exitcond.not.i.us = icmp eq i32 %58, %lftr.wideiv.i.us
-  br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %62, !llvm.loop !33
+  br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %62, !llvm.loop !34
 
 ._crit_edge.i.us:                                 ; preds = %62
   %indvars.iv.next113.i.us = add nuw nsw i64 %indvars.iv112.i.us, 1
   %85 = getelementptr inbounds nuw i8, ptr %.090.i.us, i64 %33
   %86 = getelementptr inbounds nuw i8, ptr %.05189.i.us, i64 %33
   %.not.not.i.us = icmp samesign ult i64 %indvars.iv112.i.us, %47
-  br i1 %.not.not.i.us, label %.preheader.i.us, label %._crit_edge91.loopexit105.i.us, !llvm.loop !34
+  br i1 %.not.not.i.us, label %.preheader.i.us, label %._crit_edge91.loopexit105.i.us, !llvm.loop !35
 
 ._crit_edge91.loopexit105.i.us:                   ; preds = %._crit_edge.i.us
   %87 = zext i32 %76 to i64
@@ -673,15 +673,15 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   %127 = trunc nuw i32 %126 to i8
   %128 = shl nsw i64 %indvars.iv110, 2
   %gep130 = getelementptr i8, ptr %invariant.gep129, i64 %128
-  store i8 %127, ptr %gep130, align 1, !tbaa !29
+  store i8 %127, ptr %gep130, align 1, !tbaa !30
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge.us95, label %49, !llvm.loop !35
+  br i1 %exitcond114.not, label %._crit_edge.us95, label %49, !llvm.loop !36
 
 ._crit_edge.us95:                                 ; preds = %SSIMGetClipped.exit.us
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %._crit_edge93, label %.preheader.us, !llvm.loop !36
+  br i1 %exitcond119.not, label %._crit_edge93, label %.preheader.us, !llvm.loop !37
 
 ._crit_edge93:                                    ; preds = %._crit_edge.us95, %.preheader81, %.preheader79
   %.069.lcssa = phi i32 [ 0, %.preheader79 ], [ 0, %.preheader81 ], [ %.2.us, %._crit_edge.us95 ]
@@ -719,21 +719,21 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
 140:                                              ; preds = %140, %.lr.ph.us.i
   %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i77, %140 ]
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 %indvars.iv.i76
-  %142 = load i8, ptr %141, align 1, !tbaa !29
+  %142 = load i8, ptr %141, align 1, !tbaa !30
   %143 = zext i8 %142 to i32
   %144 = mul nuw i32 %133, %143
   %145 = add nuw i32 %144, 32768
   %146 = lshr i32 %145, 16
   %147 = trunc i32 %146 to i8
-  store i8 %147, ptr %141, align 1, !tbaa !29
+  store i8 %147, ptr %141, align 1, !tbaa !30
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 4
   %148 = icmp samesign ult i64 %indvars.iv.next.i77, %136
-  br i1 %148, label %140, label %._crit_edge.us.i, !llvm.loop !37
+  br i1 %148, label %140, label %._crit_edge.us.i, !llvm.loop !38
 
 ._crit_edge.us.i:                                 ; preds = %140
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count.i
-  br i1 %exitcond.not.i78, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !38
+  br i1 %exitcond.not.i78, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !39
 
 RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %132, %._crit_edge93, %7
   %.065 = phi i32 [ -1, %7 ], [ %.069.lcssa, %._crit_edge93 ], [ %.069.lcssa, %132 ], [ %.069.lcssa, %._crit_edge.us.i ]
@@ -768,24 +768,24 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr noundef captu
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %18 ]
   %.135.us = phi i32 [ %.03237.us, %.lr.ph.us ], [ %spec.select.us, %18 ]
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
-  %20 = load i8, ptr %19, align 1, !tbaa !29
+  %20 = load i8, ptr %19, align 1, !tbaa !30
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1, !tbaa !29
+  %23 = load i8, ptr %22, align 1, !tbaa !30
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 %21, %24
   %26 = tail call i32 @llvm.abs.i32(i32 %25, i1 true)
   %spec.select.us = tail call i32 @llvm.umax.i32(i32 %26, i32 %.135.us)
   %27 = trunc nuw i32 %26 to i8
-  store i8 %27, ptr %19, align 1, !tbaa !29
+  store i8 %27, ptr %19, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %28 = icmp samesign ult i64 %indvars.iv.next, %11
-  br i1 %28, label %18, label %._crit_edge.us, !llvm.loop !39
+  br i1 %28, label %18, label %._crit_edge.us, !llvm.loop !40
 
 ._crit_edge.us:                                   ; preds = %18
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !41
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %7
   %.032.lcssa = phi i32 [ 0, %7 ], [ %spec.select.us, %._crit_edge.us ]
@@ -822,21 +822,21 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr noundef captu
 40:                                               ; preds = %40, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %40 ]
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i
-  %42 = load i8, ptr %41, align 1, !tbaa !29
+  %42 = load i8, ptr %41, align 1, !tbaa !30
   %43 = zext i8 %42 to i32
   %44 = mul nuw i32 %33, %43
   %45 = add nuw i32 %44, 32768
   %46 = lshr i32 %45, 16
   %47 = trunc i32 %46 to i8
-  store i8 %47, ptr %41, align 1, !tbaa !29
+  store i8 %47, ptr %41, align 1, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %48 = icmp samesign ult i64 %indvars.iv.next.i, %36
-  br i1 %48, label %40, label %._crit_edge.us.i, !llvm.loop !37
+  br i1 %48, label %40, label %._crit_edge.us.i, !llvm.loop !38
 
 ._crit_edge.us.i:                                 ; preds = %40
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !39
 
 RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %32, %._crit_edge41
   ret i32 %.032.lcssa
@@ -848,16 +848,16 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !21
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph24, label %._crit_edge25
 
 .lr.ph24:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !15
+  %9 = load i32, ptr %8, align 8, !tbaa !16
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph24.split, label %._crit_edge25
 
@@ -865,7 +865,7 @@ define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures
   %11 = phi i32 [ %39, %._crit_edge ], [ %3, %.lr.ph24 ]
   %12 = phi i32 [ %40, %._crit_edge ], [ %9, %.lr.ph24 ]
   %.02022 = phi i32 [ %41, %._crit_edge ], [ 0, %.lr.ph24 ]
-  %13 = load i32, ptr %7, align 8, !tbaa !23
+  %13 = load i32, ptr %7, align 8, !tbaa !24
   %14 = mul nsw i32 %13, %.02022
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i32, ptr %6, i64 %15
@@ -875,7 +875,7 @@ define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures
 .lr.ph:                                           ; preds = %.lr.ph24.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph24.split ]
   %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4, !tbaa !32
+  %19 = load i32, ptr %18, align 4, !tbaa !33
   %20 = lshr i32 %19, 16
   %21 = and i32 %20, 255
   %22 = lshr i32 %19, 8
@@ -892,15 +892,15 @@ define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures
   %33 = and i32 %19, -16777216
   %34 = mul i32 %32, 65793
   %35 = or i32 %34, %33
-  store i32 %35, ptr %18, align 4, !tbaa !32
+  store i32 %35, ptr %18, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %8, align 8, !tbaa !15
+  %36 = load i32, ptr %8, align 8, !tbaa !16
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !41
+  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i32, ptr %2, align 4, !tbaa !20
+  %.pre = load i32, ptr %2, align 4, !tbaa !21
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph24.split
@@ -908,7 +908,7 @@ define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures
   %40 = phi i32 [ %36, %._crit_edge.loopexit ], [ %12, %.lr.ph24.split ]
   %41 = add nuw nsw i32 %.02022, 1
   %42 = icmp slt i32 %41, %39
-  br i1 %42, label %.lr.ph24.split, label %._crit_edge25, !llvm.loop !42
+  br i1 %42, label %.lr.ph24.split, label %._crit_edge25, !llvm.loop !43
 
 ._crit_edge25:                                    ; preds = %._crit_edge, %.lr.ph24, %1
   ret void
@@ -995,36 +995,37 @@ attributes #17 = { nounwind allocsize(0) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"float", !7, i64 0}
-!15 = !{!16, !17, i64 8}
-!16 = !{!"WebPPicture", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !10, i64 16, !10, i64 24, !10, i64 32, !17, i64 40, !17, i64 44, !10, i64 48, !17, i64 56, !7, i64 60, !18, i64 72, !17, i64 80, !7, i64 84, !6, i64 96, !6, i64 104, !17, i64 112, !10, i64 120, !19, i64 128, !17, i64 136, !6, i64 144, !6, i64 152, !7, i64 160, !10, i64 176, !10, i64 184, !7, i64 192, !6, i64 224, !6, i64 232, !7, i64 240}
-!17 = !{!"int", !7, i64 0}
-!18 = !{!"p1 int", !6, i64 0}
-!19 = !{!"p1 _ZTS12WebPAuxStats", !6, i64 0}
-!20 = !{!16, !17, i64 12}
-!21 = !{!16, !17, i64 0}
-!22 = !{!16, !18, i64 72}
-!23 = !{!16, !17, i64 80}
-!24 = distinct !{!24, !12, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !12}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"long", !7, i64 0}
-!29 = !{!7, !7, i64 0}
-!30 = distinct !{!30, !12}
-!31 = distinct !{!31, !12, !25}
-!32 = !{!17, !17, i64 0}
-!33 = distinct !{!33, !12}
-!34 = distinct !{!34, !12}
-!35 = distinct !{!35, !12}
-!36 = distinct !{!36, !12, !25}
-!37 = distinct !{!37, !12}
-!38 = distinct !{!38, !12, !25}
-!39 = distinct !{!39, !12}
-!40 = distinct !{!40, !12, !25}
-!41 = distinct !{!41, !12}
-!42 = distinct !{!42, !12, !43}
-!43 = !{!"llvm.loop.unswitch.partial.disable"}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"float", !7, i64 0}
+!16 = !{!17, !18, i64 8}
+!17 = !{!"WebPPicture", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !10, i64 16, !10, i64 24, !10, i64 32, !18, i64 40, !18, i64 44, !10, i64 48, !18, i64 56, !7, i64 60, !19, i64 72, !18, i64 80, !7, i64 84, !6, i64 96, !6, i64 104, !18, i64 112, !10, i64 120, !20, i64 128, !18, i64 136, !6, i64 144, !6, i64 152, !7, i64 160, !10, i64 176, !10, i64 184, !7, i64 192, !6, i64 224, !6, i64 232, !7, i64 240}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!"p1 int", !6, i64 0}
+!20 = !{!"p1 _ZTS12WebPAuxStats", !6, i64 0}
+!21 = !{!17, !18, i64 12}
+!22 = !{!17, !18, i64 0}
+!23 = !{!17, !19, i64 72}
+!24 = !{!17, !18, i64 80}
+!25 = distinct !{!25, !12, !13, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !12, !13}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"long", !7, i64 0}
+!30 = !{!7, !7, i64 0}
+!31 = distinct !{!31, !12, !13}
+!32 = distinct !{!32, !12, !13, !26}
+!33 = !{!18, !18, i64 0}
+!34 = distinct !{!34, !12, !13}
+!35 = distinct !{!35, !12, !13}
+!36 = distinct !{!36, !12, !13}
+!37 = distinct !{!37, !12, !13, !26}
+!38 = distinct !{!38, !12, !13}
+!39 = distinct !{!39, !12, !13, !26}
+!40 = distinct !{!40, !12, !13}
+!41 = distinct !{!41, !12, !13, !26}
+!42 = distinct !{!42, !12, !13}
+!43 = distinct !{!43, !12, !13, !44}
+!44 = !{!"llvm.loop.unswitch.partial.disable"}

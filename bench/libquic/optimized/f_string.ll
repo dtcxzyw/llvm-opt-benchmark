@@ -188,7 +188,7 @@ switch.early.test:                                ; preds = %.lr.ph
 33:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %34 = icmp sgt i64 %indvars.iv, 1
-  br i1 %34, label %.lr.ph, label %switch.early.test._crit_edge, !llvm.loop !18
+  br i1 %34, label %.lr.ph, label %switch.early.test._crit_edge, !llvm.loop !19
 
 switch.early.test._crit_edge.split.loop.exit211:  ; preds = %switch.early.test
   %35 = trunc nuw nsw i64 %indvars.iv to i32
@@ -301,13 +301,13 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
   %77 = shl i8 %76, 4
   %78 = or i8 %77, %.0109
   store i8 %78, ptr %gep216, align 1, !tbaa !15
-  br i1 %63, label %62, label %79, !llvm.loop !19
+  br i1 %63, label %62, label %79, !llvm.loop !20
 
 79:                                               ; preds = %75
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge155, label %.preheader, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge155, label %.preheader, !llvm.loop !21
 
 ._crit_edge155:                                   ; preds = %79, %60
   br i1 %26, label %80, label %.loopexit130
@@ -315,7 +315,7 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
 80:                                               ; preds = %._crit_edge155
   %81 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #6
   %82 = icmp slt i32 %81, 1
-  br i1 %82, label %.loopexit, label %.lr.ph164
+  br i1 %82, label %.loopexit, label %.lr.ph164, !llvm.loop !22
 
 .loopexit130:                                     ; preds = %._crit_edge155, %4
   %.1103 = phi ptr [ null, %4 ], [ %.2, %._crit_edge155 ]
@@ -385,8 +385,10 @@ attributes #8 = { nounwind allocsize(1) }
 !13 = !{!"long", !9, i64 0}
 !14 = !{!7, !11, i64 8}
 !15 = !{!9, !9, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !18}

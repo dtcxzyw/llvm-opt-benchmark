@@ -1846,14 +1846,14 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !77
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !80
+  %17 = load i32, ptr %16, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 532, ptr nonnull %3) #7
   call void @llvm.lifetime.start.p0(i64 579, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #7
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !82
+  %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = icmp eq ptr %19, null
   br i1 %20, label %MakeSslMasterSecret.exit, label %21
 
@@ -1871,7 +1871,7 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
 27:                                               ; preds = %24
   %28 = load ptr, ptr %14, align 8, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !82
+  %30 = load ptr, ptr %29, align 8, !tbaa !83
   %31 = zext i32 %17 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %30, i64 %31, i1 false)
   %invariant.op.i = add i32 %17, 1
@@ -1908,7 +1908,7 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.next.i
   %41 = load ptr, ptr %14, align 8, !tbaa !77
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !82
+  %43 = load ptr, ptr %42, align 8, !tbaa !83
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %43, i64 %31, i1 false)
   %.reass.i = add i32 %invariant.op.i, %35
   %44 = zext i32 %.reass.i to i64
@@ -1960,7 +1960,7 @@ default.unreachable.i:                            ; preds = %34
   %.4.ph.i = phi i32 [ %60, %59 ], [ %67, %62 ], [ %.6.ph.i, %.thread50.i ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %68, label %34, !llvm.loop !83
+  br i1 %exitcond.not.i, label %68, label %34, !llvm.loop !84
 
 68:                                               ; preds = %.thread53.i
   %69 = icmp eq i32 %.4.ph.i, 0
@@ -1975,7 +1975,7 @@ default.unreachable.i:                            ; preds = %34
   %72 = icmp eq i32 %.1.i, 0
   %73 = load ptr, ptr %14, align 8, !tbaa !77
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load i32, ptr %74, align 8, !tbaa !80
+  %75 = load i32, ptr %74, align 8, !tbaa !81
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
@@ -1987,12 +1987,12 @@ default.unreachable.i:                            ; preds = %34
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %77 = load ptr, ptr %14, align 8, !tbaa !77
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !82
+  %79 = load ptr, ptr %78, align 8, !tbaa !83
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv.i.i
-  store i8 0, ptr %80, align 1, !tbaa !84
+  store i8 0, ptr %80, align 1, !tbaa !85
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !85
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !86
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.pre.i.i = load ptr, ptr %14, align 8, !tbaa !77
@@ -2003,7 +2003,7 @@ default.unreachable.i:                            ; preds = %34
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %83 = load ptr, ptr %82, align 8, !tbaa !73
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !82
+  %85 = load ptr, ptr %84, align 8, !tbaa !83
   %86 = call i32 @wc_RNG_GenerateBlock(ptr noundef %83, ptr noundef %85, i32 noundef %75) #7
   %.not.i.i = icmp eq i32 %86, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %CleanPreMaster.exit.i
@@ -2019,17 +2019,17 @@ default.unreachable.i:                            ; preds = %34
   %indvars.iv31.i.i = phi i64 [ 0, %.lr.ph28.preheader.i.i ], [ %indvars.iv.next32.i.i, %.lr.ph28.i.i ]
   %87 = load ptr, ptr %14, align 8, !tbaa !77
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !82
+  %89 = load ptr, ptr %88, align 8, !tbaa !83
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv31.i.i
-  store i8 0, ptr %90, align 1, !tbaa !84
+  store i8 0, ptr %90, align 1, !tbaa !85
   %indvars.iv.next32.i.i = add nuw nsw i64 %indvars.iv31.i.i, 1
   %exitcond35.not.i.i = icmp eq i64 %indvars.iv.next32.i.i, %wide.trip.count34.i.i
-  br i1 %exitcond35.not.i.i, label %._crit_edge29.i.i, label %.lr.ph28.i.i, !llvm.loop !86
+  br i1 %exitcond35.not.i.i, label %._crit_edge29.i.i, label %.lr.ph28.i.i, !llvm.loop !87
 
 ._crit_edge29.i.i:                                ; preds = %.lr.ph28.i.i, %.preheader.i.i
   %91 = load ptr, ptr %14, align 8, !tbaa !77
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !82
+  %93 = load ptr, ptr %92, align 8, !tbaa !83
   %.not25.i.i = icmp eq ptr %93, null
   br i1 %.not25.i.i, label %95, label %94
 
@@ -2041,9 +2041,9 @@ default.unreachable.i:                            ; preds = %34
 95:                                               ; preds = %94, %._crit_edge29.i.i
   %96 = phi ptr [ %.pre36.i.i, %94 ], [ %91, %._crit_edge29.i.i ]
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr null, ptr %97, align 8, !tbaa !82
+  store ptr null, ptr %97, align 8, !tbaa !83
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store i32 0, ptr %98, align 8, !tbaa !80
+  store i32 0, ptr %98, align 8, !tbaa !81
   br label %CleanPreMaster.exit.i
 
 CleanPreMaster.exit.i:                            ; preds = %95, %._crit_edge.i.i
@@ -2162,12 +2162,13 @@ attributes #7 = { nounwind }
 !75 = !{!4, !30, i64 714}
 !76 = !{!4, !30, i64 716}
 !77 = !{!4, !10, i64 24}
-!78 = distinct !{!78, !79}
+!78 = distinct !{!78, !79, !80}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!81, !14, i64 16}
-!81 = !{!"Arrays", !19, i64 0, !19, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 60, !7, i64 92, !7, i64 124, !7, i64 125, !7, i64 173, !7, i64 221}
-!82 = !{!81, !19, i64 8}
-!83 = distinct !{!83, !79}
-!84 = !{!7, !7, i64 0}
-!85 = distinct !{!85, !79}
-!86 = distinct !{!86, !79}
+!80 = !{!"llvm.loop.estimated_trip_count"}
+!81 = !{!82, !14, i64 16}
+!82 = !{!"Arrays", !19, i64 0, !19, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 60, !7, i64 92, !7, i64 124, !7, i64 125, !7, i64 173, !7, i64 221}
+!83 = !{!82, !19, i64 8}
+!84 = distinct !{!84, !79, !80}
+!85 = !{!7, !7, i64 0}
+!86 = distinct !{!86, !79, !80}
+!87 = distinct !{!87, !79, !80}

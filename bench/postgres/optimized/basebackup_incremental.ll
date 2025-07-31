@@ -268,7 +268,7 @@ backup_file_update_parameters.exit.i:             ; preds = %backup_file_compute
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, 0
   %85 = add i32 %.048.i, 1
-  br i1 %84, label %86, label %80
+  br i1 %84, label %86, label %80, !llvm.loop !9
 
 86:                                               ; preds = %80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
@@ -282,7 +282,7 @@ backup_file_update_parameters.exit.i:             ; preds = %backup_file_compute
   %90 = add i32 %.170.i, 1
   %91 = zext i32 %90 to i64
   %92 = icmp ugt i64 %20, %91
-  br i1 %92, label %.lr.ph71.i, label %backup_file_grow.exit, !llvm.loop !8
+  br i1 %92, label %.lr.ph71.i, label %backup_file_grow.exit, !llvm.loop !10
 
 backup_file_grow.exit:                            ; preds = %87, %backup_file_update_parameters.exit.i
   tail call void @pfree(ptr noundef %27) #13
@@ -389,7 +389,7 @@ backup_file_distance.exit.i.i:                    ; preds = %113, %108
   %142 = getelementptr inbounds nuw %struct.backup_file_entry, ptr %94, i64 %141
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.279130.i.i, ptr noundef nonnull align 8 dereferenceable(24) %142, i64 24, i1 false)
   %.not88.i.i = icmp eq i32 %140, %.071.i24.i
-  br i1 %.not88.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not88.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %143 = load i32, ptr %13, align 8
@@ -476,7 +476,7 @@ define internal void @manifest_report_error(ptr readnone captures(none) %0, ptr 
   %8 = call i32 @appendStringInfoVA(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4) #13
   call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  br i1 %9, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
@@ -648,7 +648,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %.1161.us = phi i32 [ %41, %40 ], [ %.0160258.us, %38 ]
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
-  br i1 %exitcond371.not, label %._crit_edge.sink.split, label %.critedge.loopexit.us, !llvm.loop !10
+  br i1 %exitcond371.not, label %._crit_edge.sink.split, label %.critedge.loopexit.us, !llvm.loop !13
 
 .lr.ph262.split:                                  ; preds = %.lr.ph262
   %45 = load i32, ptr %29, align 4
@@ -692,7 +692,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %.1161.us281 = phi i32 [ %57, %56 ], [ %.0160258.us271, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.sink.split, label %.lr.ph.us, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.sink.split, label %.lr.ph.us, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %95
   %indvars.iv362 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next363, %95 ]
@@ -788,7 +788,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %.1161 = phi i32 [ %92, %91 ], [ %.0160258, %89 ]
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count365
-  br i1 %exitcond366.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond366.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.sink.split:                           ; preds = %60, %44
   %.lcssa426.sink = phi ptr [ %34, %44 ], [ %50, %60 ]
@@ -936,7 +936,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
 192:                                              ; preds = %172, %154
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %exitcond376.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count375
-  br i1 %exitcond376.not, label %._crit_edge301, label %102, !llvm.loop !15
+  br i1 %exitcond376.not, label %._crit_edge301, label %102, !llvm.loop !18
 
 ._crit_edge301:                                   ; preds = %192, %._crit_edge.thread
   %.0160.lcssa400 = phi i32 [ 0, %._crit_edge.thread ], [ %.0160.lcssa, %192 ]
@@ -1127,7 +1127,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   call void @BlockRefTableMarkBlockModified(ptr noundef %277, ptr noundef nonnull %5, i32 noundef %278, i32 noundef %280) #13
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
   %exitcond383.not = icmp eq i64 %indvars.iv.next380, %wide.trip.count382
-  br i1 %exitcond383.not, label %281, label %276, !llvm.loop !16
+  br i1 %exitcond383.not, label %281, label %276, !llvm.loop !19
 
 281:                                              ; preds = %276
   %282 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %268, ptr noundef nonnull %8, i32 noundef 512) #13
@@ -1274,7 +1274,7 @@ define dso_local range(i32 0, 2) i32 @GetFileBackupMethod(ptr noundef readonly c
   %35 = getelementptr inbounds nuw %struct.backup_file_entry, ptr %27, i64 %34
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.loopexit84, label %.lr.ph.i.i
+  br i1 %37, label %.loopexit84, label %.lr.ph.i.i, !llvm.loop !20
 
 .lr.ph.i.i:                                       ; preds = %19, %32
   %38 = phi i64 [ %34, %32 ], [ %28, %19 ]
@@ -1326,7 +1326,7 @@ GetIncrementalFilePath.exit:                      ; preds = %46, %48
   %64 = getelementptr inbounds nuw %struct.backup_file_entry, ptr %56, i64 %63
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %backup_file_lookup.exit78.thread, label %.lr.ph.i.i74
+  br i1 %66, label %backup_file_lookup.exit78.thread, label %.lr.ph.i.i74, !llvm.loop !20
 
 .lr.ph.i.i74:                                     ; preds = %GetIncrementalFilePath.exit, %61
   %67 = phi i64 [ %63, %61 ], [ %57, %GetIncrementalFilePath.exit ]
@@ -1412,7 +1412,7 @@ backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph
   store i32 %108, ptr %106, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %104
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %103
   store i32 %97, ptr %8, align 4
@@ -1573,15 +1573,19 @@ attributes #16 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !11}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8, !14}
+!16 = distinct !{!16, !7, !8, !17}
+!17 = !{!"llvm.loop.unswitch.partial.disable"}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !7, !8}

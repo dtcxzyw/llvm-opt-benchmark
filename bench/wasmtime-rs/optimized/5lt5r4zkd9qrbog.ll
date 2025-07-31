@@ -642,7 +642,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_formats28_$u7b$$u
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %5)
   %20 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE"(ptr nonnull align 8 %7)
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %._crit_edge, label %16
+  br i1 %21, label %._crit_edge, label %16, !llvm.loop !14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -760,7 +760,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_formats28_$u7b$$u
 
 45:                                               ; preds = %44
   invoke void @_ZN22cranelift_codegen_meta6srcgen5Match3arm17h70b962e9751f390eE(ptr nonnull align 8 %13, ptr nonnull align 8 %11, ptr nonnull align 8 %7, ptr nonnull align 8 %6)
-          to label %27 unwind label %43
+          to label %27 unwind label %43, !llvm.loop !16
 
 46:                                               ; preds = %44, %42
   %lpad.thr_comm43 = landingpad { ptr, i32 }
@@ -825,7 +825,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_instruction_data2
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %1, ptr nonnull align 1 @anon.3a4e41e0094de0b8ba6604e391603d5d.16, i64 2)
   %19 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE"(ptr nonnull align 8 %6)
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %._crit_edge, label %15
+  br i1 %20, label %._crit_edge, label %15, !llvm.loop !17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -940,7 +940,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_instruction_data2
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %5)
   %50 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f271ffe147bc82cE"(ptr nonnull align 8 %6)
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %._crit_edge, label %46
+  br i1 %51, label %._crit_edge, label %46, !llvm.loop !18
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1188,7 +1188,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_arguments_method2
           to label %.backedge.backedge unwind label %108
 
 .backedge.backedge:                               ; preds = %113, %139
-  br label %.backedge
+  br label %.backedge, !llvm.loop !19
 
 114:                                              ; preds = %109, %91
   %lpad.thr_comm84 = landingpad { ptr, i32 }
@@ -1455,7 +1455,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   store ptr %47, ptr %.sroa.221.0..sroa_idx, align 8
   store i64 6, ptr %.sroa.322.0..sroa_idx, align 8
   invoke void @_ZN22cranelift_codegen_meta6srcgen5Match3arm17h70b962e9751f390eE(ptr nonnull align 8 %11, ptr nonnull align 8 %9, ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %24 unwind label %43
+          to label %24 unwind label %43, !llvm.loop !20
 
 49:                                               ; preds = %41
   %50 = landingpad { ptr, i32 }
@@ -1789,7 +1789,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
           to label %.backedge.backedge unwind label %99
 
 .backedge.backedge:                               ; preds = %131, %91, %150, %161
-  br label %.backedge
+  br label %.backedge, !llvm.loop !21
 
 .loopexit:                                        ; preds = %124, %129
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2171,7 +2171,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 112
   %99 = load i64, ptr %98, align 8, !noundef !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h96f5a6ed744cd257E"(ptr nonnull align 8 %16, ptr nonnull align 1 %97, i64 %99)
-          to label %87 unwind label %.loopexit
+          to label %87 unwind label %.loopexit, !llvm.loop !22
 
 100:                                              ; preds = %91
   %101 = load ptr, ptr %35, align 8, !nonnull !3, !noundef !3
@@ -2277,7 +2277,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %20)
   %130 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE"(ptr nonnull align 8 %21)
   %131 = icmp eq ptr %130, null
-  br i1 %131, label %._crit_edge, label %48
+  br i1 %131, label %._crit_edge, label %48, !llvm.loop !23
 
 132:                                              ; preds = %119, %116, %106, %103, %67, %53
   %133 = landingpad { ptr, i32 }
@@ -2378,7 +2378,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %13)
   %33 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f271ffe147bc82cE"(ptr nonnull align 8 %14)
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %._crit_edge, label %30
+  br i1 %34, label %._crit_edge, label %30, !llvm.loop !24
 
 35:                                               ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -2623,7 +2623,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   %83 = getelementptr inbounds nuw i8, ptr %74, i64 112
   %84 = load i64, ptr %83, align 8, !noundef !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h96f5a6ed744cd257E"(ptr nonnull align 8 %13, ptr nonnull align 1 %82, i64 %84)
-          to label %73 unwind label %.loopexit
+          to label %73 unwind label %.loopexit, !llvm.loop !25
 
 85:                                               ; preds = %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
@@ -2672,7 +2672,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %17)
   %95 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE"(ptr nonnull align 8 %18)
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %._crit_edge, label %38
+  br i1 %96, label %._crit_edge, label %38, !llvm.loop !26
 
 97:                                               ; preds = %86, %57, %43
   %98 = landingpad { ptr, i32 }
@@ -2758,7 +2758,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %19)
   %43 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f271ffe147bc82cE"(ptr nonnull align 8 %20)
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %._crit_edge, label %40
+  br i1 %44, label %._crit_edge, label %40, !llvm.loop !27
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -2980,7 +2980,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 112
   %73 = load i64, ptr %72, align 8, !noundef !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h96f5a6ed744cd257E"(ptr nonnull align 8 %9, ptr nonnull align 1 %71, i64 %73)
-          to label %62 unwind label %.loopexit
+          to label %62 unwind label %.loopexit, !llvm.loop !28
 
 74:                                               ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
@@ -3025,7 +3025,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %13)
   %84 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE"(ptr nonnull align 8 %14)
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %._crit_edge, label %29
+  br i1 %85, label %._crit_edge, label %29, !llvm.loop !29
 
 86:                                               ; preds = %75, %49, %34
   %87 = landingpad { ptr, i32 }
@@ -3148,7 +3148,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %5)
   %40 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f271ffe147bc82cE"(ptr nonnull align 8 %6)
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %._crit_edge, label %37
+  br i1 %41, label %._crit_edge, label %37, !llvm.loop !30
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3212,7 +3212,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst17gen_bool_accessor28_$
   br i1 %31, label %32, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %28, %35
-  br label %.backedge
+  br label %.backedge, !llvm.loop !31
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -3315,7 +3315,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst17gen_bool_accessor28_$
   br i1 %31, label %32, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %28, %35
-  br label %.backedge
+  br label %.backedge, !llvm.loop !32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -3418,7 +3418,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst17gen_bool_accessor28_$
   br i1 %31, label %32, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %28, %35
-  br label %.backedge
+  br label %.backedge, !llvm.loop !33
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -3521,7 +3521,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst17gen_bool_accessor28_$
   br i1 %31, label %32, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %28, %35
-  br label %.backedge
+  br label %.backedge, !llvm.loop !34
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -3624,7 +3624,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst17gen_bool_accessor28_$
   br i1 %31, label %32, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %28, %35
-  br label %.backedge
+  br label %.backedge, !llvm.loop !35
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -3727,7 +3727,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst17gen_bool_accessor28_$
   br i1 %31, label %32, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %28, %35
-  br label %.backedge
+  br label %.backedge, !llvm.loop !36
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -3830,7 +3830,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst17gen_bool_accessor28_$
   br i1 %31, label %32, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %28, %35
-  br label %.backedge
+  br label %.backedge, !llvm.loop !37
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -3933,7 +3933,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst17gen_bool_accessor28_$
   br i1 %31, label %32, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %28, %35
-  br label %.backedge
+  br label %.backedge, !llvm.loop !38
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -4036,7 +4036,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst17gen_bool_accessor28_$
   br i1 %31, label %32, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %28, %35
-  br label %.backedge
+  br label %.backedge, !llvm.loop !39
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -4136,7 +4136,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
   %37 = load ptr, ptr %15, align 8, !nonnull !3, !align !4, !noundef !3
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 216
-  %40 = load i8, ptr %39, align 8, !range !14, !noundef !3
+  %40 = load i8, ptr %39, align 8, !range !40, !noundef !3
   %41 = trunc i8 %40 to i1
   br i1 %41, label %46, label %42
 
@@ -4164,7 +4164,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 152
   %57 = load i64, ptr %56, align 8, !noundef !3
   %58 = icmp ult i64 %52, %57
-  br i1 %58, label %59, label %67, !prof !15
+  br i1 %58, label %59, label %67, !prof !41
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %38, i64 144
@@ -4174,7 +4174,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
   %64 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %65 = load i64, ptr %64, align 8, !noundef !3
   %66 = icmp ult i64 %63, %65
-  br i1 %66, label %68, label %72, !prof !15
+  br i1 %66, label %68, label %72, !prof !41
 
 67:                                               ; preds = %55
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %52, i64 %57, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.155) #15
@@ -4207,7 +4207,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %.sink)
   %74 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13656b1b241f2b12E"(ptr nonnull align 8 %16)
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %._crit_edge, label %31
+  br i1 %75, label %._crit_edge, label %31, !llvm.loop !42
 
 76:                                               ; preds = %42
   store ptr %45, ptr %6, align 8
@@ -4496,7 +4496,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h92f10fe93d8b9a72E(ptr align 8 %1, ptr nonnull align 8 %11)
   %12 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13656b1b241f2b12E"(ptr nonnull align 8 %3)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  br i1 %13, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4558,7 +4558,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %5)
   %25 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13656b1b241f2b12E"(ptr nonnull align 8 %6)
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %._crit_edge, label %18
+  br i1 %26, label %._crit_edge, label %18, !llvm.loop !44
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4651,7 +4651,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
 
 40:                                               ; preds = %39
   invoke void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17h044ad9f18ebbc34dE(ptr nonnull align 8 %12, ptr nonnull align 8 %10, ptr nonnull align 8 %6)
-          to label %27 unwind label %38
+          to label %27 unwind label %38, !llvm.loop !45
 
 41:                                               ; preds = %39, %37
   %lpad.thr_comm36 = landingpad { ptr, i32 }
@@ -4728,7 +4728,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
           to label %.backedge.backedge unwind label %11
 
 .backedge.backedge:                               ; preds = %20, %25
-  br label %.backedge
+  br label %.backedge, !llvm.loop !46
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
@@ -4872,7 +4872,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst18gen_typesets_table28_
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %1, ptr nonnull align 1 @anon.3a4e41e0094de0b8ba6604e391603d5d.16, i64 2)
   %12 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae40b169b95c9cfaE"(ptr nonnull align 8 %3)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  br i1 %13, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5174,7 +5174,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   %65 = load ptr, ptr %64, align 8, !nonnull !3, !noundef !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 208
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 216
-  %68 = load i8, ptr %67, align 8, !range !14, !noundef !3
+  %68 = load i8, ptr %67, align 8, !range !40, !noundef !3
   %.not = icmp eq i8 %68, 2
   br i1 %.not, label %73, label %69
 
@@ -5246,7 +5246,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   %89 = load i64, ptr %82, align 8, !noundef !3
   %90 = load i64, ptr %79, align 8, !noundef !3
   %91 = icmp ult i64 %89, %90
-  br i1 %91, label %210, label %.invoke, !prof !15
+  br i1 %91, label %210, label %.invoke, !prof !41
 
 92:                                               ; preds = %85
   %93 = extractvalue { ptr, ptr } %87, 0
@@ -5276,7 +5276,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   %107 = load i64, ptr %98, align 8, !noundef !3
   %108 = load i64, ptr %95, align 8, !noundef !3
   %109 = icmp ult i64 %107, %108
-  br i1 %109, label %205, label %.invoke, !prof !15
+  br i1 %109, label %205, label %.invoke, !prof !41
 
 110:                                              ; preds = %101
   store i64 %105, ptr %25, align 8
@@ -5286,7 +5286,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   %113 = getelementptr inbounds nuw i8, ptr %65, i64 152
   %114 = load i64, ptr %113, align 8, !noundef !3
   store i64 %114, ptr %23, align 8
-  %115 = load i8, ptr %67, align 8, !range !14, !noundef !3
+  %115 = load i8, ptr %67, align 8, !range !40, !noundef !3
   %116 = and i8 %115, 1
   store i8 %116, ptr %22, align 1
   %.not82 = icmp eq i64 %112, 0
@@ -5320,7 +5320,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   %125 = load i64, ptr %124, align 8, !noundef !3
   %126 = load i64, ptr %79, align 8, !noundef !3
   %127 = icmp ult i64 %125, %126
-  br i1 %127, label %129, label %.invoke, !prof !15
+  br i1 %127, label %129, label %.invoke, !prof !41
 
 128:                                              ; preds = %185
   unreachable
@@ -5430,7 +5430,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
           to label %165 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 165:                                              ; preds = %164
-  %166 = load i8, ptr %67, align 8, !range !14, !noundef !3
+  %166 = load i8, ptr %67, align 8, !range !40, !noundef !3
   %.not89 = icmp eq i8 %166, 2
   br i1 %.not89, label %169, label %167
 
@@ -5529,7 +5529,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8be6d95f1e23f02fE"(ptr nonnull align 8 %30)
   %203 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13656b1b241f2b12E"(ptr nonnull align 8 %32)
   %204 = icmp eq ptr %203, null
-  br i1 %204, label %._crit_edge, label %63
+  br i1 %204, label %._crit_edge, label %63, !llvm.loop !48
 
 205:                                              ; preds = %106
   %206 = load ptr, ptr %96, align 8, !nonnull !3, !noundef !3
@@ -5540,7 +5540,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
 
 209:                                              ; preds = %205
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0f602e3422191b1E"(ptr nonnull align 8 %30, ptr nonnull align 8 %26)
-          to label %97 unwind label %.loopexit
+          to label %97 unwind label %.loopexit, !llvm.loop !49
 
 210:                                              ; preds = %88
   %211 = load ptr, ptr %80, align 8, !nonnull !3, !noundef !3
@@ -5551,7 +5551,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
 
 214:                                              ; preds = %210
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0f602e3422191b1E"(ptr nonnull align 8 %30, ptr nonnull align 8 %28)
-          to label %81 unwind label %.loopexit.split-lp.loopexit
+          to label %81 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !50
 
 215:                                              ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %.pn90
@@ -5652,7 +5652,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %5)
   %17 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ca0d1eb54f29574E"(ptr nonnull align 8 %7)
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %._crit_edge, label %15
+  br i1 %18, label %._crit_edge, label %15, !llvm.loop !51
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5939,7 +5939,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
   %103 = load ptr, ptr %102, align 8, !nonnull !3, !noundef !3
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 208
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 216
-  %106 = load i8, ptr %105, align 8, !range !14, !noundef !3
+  %106 = load i8, ptr %105, align 8, !range !40, !noundef !3
   %.not = icmp eq i8 %106, 2
   br i1 %.not, label %.invoke155, label %107
 
@@ -6002,7 +6002,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
   %130 = getelementptr inbounds nuw i8, ptr %103, i64 152
   %131 = load i64, ptr %130, align 8, !noundef !3
   %132 = icmp ult i64 %116, %131
-  br i1 %132, label %134, label %.invoke, !prof !15
+  br i1 %132, label %134, label %.invoke, !prof !41
 
 133:                                              ; preds = %128
   unreachable
@@ -6015,7 +6015,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
   %139 = getelementptr inbounds nuw i8, ptr %103, i64 104
   %140 = load i64, ptr %139, align 8, !noundef !3
   %141 = icmp ult i64 %138, %140
-  br i1 %141, label %142, label %.invoke, !prof !15
+  br i1 %141, label %142, label %.invoke, !prof !41
 
 142:                                              ; preds = %134
   %143 = getelementptr inbounds nuw i8, ptr %103, i64 96
@@ -6072,7 +6072,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 104
   %170 = load i64, ptr %169, align 8, !noundef !3
   %171 = icmp ult i64 %166, %170
-  br i1 %171, label %281, label %.invoke, !prof !15
+  br i1 %171, label %281, label %.invoke, !prof !41
 
 172:                                              ; preds = %159
   %173 = load ptr, ptr %84, align 8, !nonnull !3, !align !4, !noundef !3
@@ -6117,7 +6117,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 104
   %196 = load i64, ptr %195, align 8, !noundef !3
   %197 = icmp ult i64 %192, %196
-  br i1 %197, label %198, label %.invoke, !prof !15
+  br i1 %197, label %198, label %.invoke, !prof !41
 
 198:                                              ; preds = %191
   %199 = getelementptr inbounds nuw i8, ptr %194, i64 96
@@ -6127,7 +6127,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %204 = load i64, ptr %203, align 8, !noundef !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h96f5a6ed744cd257E"(ptr nonnull align 8 %32, ptr nonnull align 1 %202, i64 %204)
-          to label %182 unwind label %.loopexit
+          to label %182 unwind label %.loopexit, !llvm.loop !52
 
 205:                                              ; preds = %177
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h96f5a6ed744cd257E"(ptr nonnull align 8 %32, ptr nonnull align 1 @anon.3a4e41e0094de0b8ba6604e391603d5d.262, i64 5)
@@ -6363,7 +6363,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
   %286 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %287 = load i64, ptr %286, align 8, !noundef !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h96f5a6ed744cd257E"(ptr nonnull align 8 %32, ptr nonnull align 1 %285, i64 %287)
-          to label %155 unwind label %.loopexit.split-lp.loopexit
+          to label %155 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !53
 
 .invoke:                                          ; preds = %165, %191, %134, %129
   %288 = phi i64 [ %116, %129 ], [ %138, %134 ], [ %192, %191 ], [ %166, %165 ]
@@ -6377,7 +6377,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
 
 291:                                              ; preds = %90
   invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %40)
-          to label %77 unwind label %79
+          to label %77 unwind label %79, !llvm.loop !54
 
 292:                                              ; preds = %65
   invoke void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %46, ptr nonnull align 8 %45)
@@ -6385,7 +6385,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
 
 293:                                              ; preds = %292
   invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %46)
-          to label %57 unwind label %59
+          to label %57 unwind label %59, !llvm.loop !55
 
 .thread:                                          ; preds = %79, %92, %.thread134
   %.pn127.pn.pn133 = phi { ptr, i32 } [ %.pn127.pn.pn137, %.thread134 ], [ %80, %79 ], [ %.pn127.pn, %92 ]
@@ -6445,7 +6445,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
 .backedge:                                        ; preds = %.backedge.sink.split, %23
   %25 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E"(ptr nonnull align 8 %9)
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %._crit_edge, label %20
+  br i1 %26, label %._crit_edge, label %20, !llvm.loop !56
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 104
@@ -6563,7 +6563,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %5)
   %19 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13656b1b241f2b12E"(ptr nonnull align 8 %6)
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %._crit_edge, label %15
+  br i1 %20, label %._crit_edge, label %15, !llvm.loop !57
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -6784,7 +6784,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %19)
   %86 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE"(ptr nonnull align 8 %20)
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %._crit_edge, label %40
+  br i1 %87, label %._crit_edge, label %40, !llvm.loop !58
 
 88:                                               ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 104, i1 false)
@@ -8047,7 +8047,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst13gen_isle_enum28_$u7b$
 
 23:                                               ; preds = %22
   invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %5)
-          to label %12 unwind label %14
+          to label %12 unwind label %14, !llvm.loop !59
 
 24:                                               ; preds = %14
   %25 = landingpad { ptr, i32 }
@@ -8102,7 +8102,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_builder28_$u7b$$u
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %1)
   %27 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13656b1b241f2b12E"(ptr nonnull align 8 %4)
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %._crit_edge, label %.lr.ph
+  br i1 %28, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge17:                                    ; preds = %.backedge, %._crit_edge
   ret void
@@ -8122,7 +8122,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_builder28_$u7b$$u
   %35 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33cd1f8a3bfe5fdeE"(ptr nonnull align 8 %3)
   %36 = extractvalue { i64, ptr } %35, 1
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %._crit_edge17, label %.lr.ph16
+  br i1 %37, label %._crit_edge17, label %.lr.ph16, !llvm.loop !61
 
 38:                                               ; preds = %.lr.ph16
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %1)
@@ -8769,5 +8769,51 @@ attributes #15 = { noreturn }
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h5d69600dc25b3741E: argument 0"}
 !13 = distinct !{!13, !"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h5d69600dc25b3741E"}
-!14 = !{i8 0, i8 3}
-!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = distinct !{!21, !15}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}
+!27 = distinct !{!27, !15}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = distinct !{!30, !15}
+!31 = distinct !{!31, !15}
+!32 = distinct !{!32, !15}
+!33 = distinct !{!33, !15}
+!34 = distinct !{!34, !15}
+!35 = distinct !{!35, !15}
+!36 = distinct !{!36, !15}
+!37 = distinct !{!37, !15}
+!38 = distinct !{!38, !15}
+!39 = distinct !{!39, !15}
+!40 = !{i8 0, i8 3}
+!41 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!42 = distinct !{!42, !15}
+!43 = distinct !{!43, !15}
+!44 = distinct !{!44, !15}
+!45 = distinct !{!45, !15}
+!46 = distinct !{!46, !15}
+!47 = distinct !{!47, !15}
+!48 = distinct !{!48, !15}
+!49 = distinct !{!49, !15}
+!50 = distinct !{!50, !15}
+!51 = distinct !{!51, !15}
+!52 = distinct !{!52, !15}
+!53 = distinct !{!53, !15}
+!54 = distinct !{!54, !15}
+!55 = distinct !{!55, !15}
+!56 = distinct !{!56, !15}
+!57 = distinct !{!57, !15}
+!58 = distinct !{!58, !15}
+!59 = distinct !{!59, !15}
+!60 = distinct !{!60, !15}
+!61 = distinct !{!61, !15}

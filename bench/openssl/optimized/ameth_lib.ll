@@ -126,7 +126,7 @@ pkey_asn1_find.exit:                              ; preds = %10, %15
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %.1.i, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !16
-  br label %5
+  br label %5, !llvm.loop !17
 
 .loopexit:                                        ; preds = %pkey_asn1_find.exit, %17, %pkey_asn1_find.exit.thread
   %.1.i24 = phi ptr [ null, %pkey_asn1_find.exit.thread ], [ %.1.i, %17 ], [ null, %pkey_asn1_find.exit ]
@@ -139,11 +139,11 @@ pkey_asn1_find.exit:                              ; preds = %10, %15
   br i1 %.not21, label %.thread, label %26
 
 .thread:                                          ; preds = %24
-  store ptr null, ptr %0, align 8, !tbaa !17
+  store ptr null, ptr %0, align 8, !tbaa !19
   br label %28
 
 26:                                               ; preds = %24
-  store ptr %25, ptr %0, align 8, !tbaa !17
+  store ptr %25, ptr %0, align 8, !tbaa !19
   %27 = call ptr @ENGINE_get_pkey_asn1_meth(ptr noundef nonnull %25, i32 noundef %.015) #10
   br label %28
 
@@ -179,19 +179,19 @@ define ptr @EVP_PKEY_asn1_find_str(ptr noundef writeonly captures(address_is_nul
   br i1 %.not26, label %.thread, label %12
 
 .thread:                                          ; preds = %10
-  store ptr null, ptr %0, align 8, !tbaa !17
+  store ptr null, ptr %0, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   br label %18
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %4, align 8, !tbaa !17
+  %13 = load ptr, ptr %4, align 8, !tbaa !19
   %14 = call i32 @ENGINE_init(ptr noundef %13) #10
   %.not27 = icmp eq i32 %14, 0
   %spec.select = select i1 %.not27, ptr null, ptr %11
-  %15 = load ptr, ptr %4, align 8, !tbaa !17
+  %15 = load ptr, ptr %4, align 8, !tbaa !19
   %16 = call i32 @ENGINE_free(ptr noundef %15) #10
-  %17 = load ptr, ptr %4, align 8, !tbaa !17
-  store ptr %17, ptr %0, align 8, !tbaa !17
+  %17 = load ptr, ptr %4, align 8, !tbaa !19
+  store ptr %17, ptr %0, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   br label %.loopexit
 
@@ -240,7 +240,7 @@ EVP_PKEY_asn1_get0.exit:                          ; preds = %26, %29
 
 37:                                               ; preds = %EVP_PKEY_asn1_get0.exit
   %38 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !19
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #11
   %41 = trunc i64 %40 to i32
   %42 = icmp eq i32 %.021, %41
@@ -253,7 +253,7 @@ EVP_PKEY_asn1_get0.exit:                          ; preds = %26, %29
 
 .backedge:                                        ; preds = %37, %43, %EVP_PKEY_asn1_get0.exit
   %46 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %43, %.backedge, %EVP_PKEY_asn1_get_count.exit, %12
   %.1 = phi ptr [ %spec.select, %12 ], [ null, %EVP_PKEY_asn1_get_count.exit ], [ %.0.i29, %43 ], [ null, %.backedge ]
@@ -277,7 +277,7 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_add0(ptr noundef %0) local_unnamed_add
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %2, i8 0, i64 320, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !19
+  %4 = load ptr, ptr %3, align 8, !tbaa !21
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !15
@@ -377,10 +377,10 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_add_alias(i32 noundef %0, i32 noundef 
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !19
+  %14 = load ptr, ptr %13, align 8, !tbaa !21
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 273) #10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %16 = load ptr, ptr %15, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 274) #10
   tail call void @CRYPTO_free(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 275) #10
   br label %EVP_PKEY_asn1_free.exit
@@ -410,7 +410,7 @@ define ptr @EVP_PKEY_asn1_new(i32 noundef %0, i32 noundef %1, ptr noundef %2, pt
 12:                                               ; preds = %7
   %13 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 233) #10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !22
+  store ptr %13, ptr %14, align 8, !tbaa !24
   %15 = icmp eq ptr %13, null
   br i1 %15, label %21, label %16
 
@@ -421,16 +421,16 @@ define ptr @EVP_PKEY_asn1_new(i32 noundef %0, i32 noundef %1, ptr noundef %2, pt
 17:                                               ; preds = %16
   %18 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef 239) #10
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %18, ptr %19, align 8, !tbaa !19
+  store ptr %18, ptr %19, align 8, !tbaa !21
   %20 = icmp eq ptr %18, null
   br i1 %20, label %21, label %EVP_PKEY_asn1_free.exit
 
 21:                                               ; preds = %17, %12
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
   tail call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 273) #10
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !22
+  %25 = load ptr, ptr %24, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 274) #10
   tail call void @CRYPTO_free(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 275) #10
   br label %EVP_PKEY_asn1_free.exit
@@ -454,10 +454,10 @@ define void @EVP_PKEY_asn1_free(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 273) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 274) #10
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 275) #10
   br label %11
@@ -477,7 +477,7 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly captur
 
 8:                                                ; preds = %7
   %9 = load i32, ptr %5, align 8, !tbaa !10
-  store i32 %9, ptr %0, align 4, !tbaa !23
+  store i32 %9, ptr %0, align 4, !tbaa !25
   br label %10
 
 10:                                               ; preds = %8, %7
@@ -487,7 +487,7 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly captur
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !16
-  store i32 %13, ptr %1, align 4, !tbaa !23
+  store i32 %13, ptr %1, align 4, !tbaa !25
   br label %14
 
 14:                                               ; preds = %11, %10
@@ -498,7 +498,7 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly captur
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !15
   %18 = trunc i64 %17 to i32
-  store i32 %18, ptr %2, align 4, !tbaa !23
+  store i32 %18, ptr %2, align 4, !tbaa !25
   br label %19
 
 19:                                               ; preds = %15, %14
@@ -507,8 +507,8 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly captur
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !22
-  store ptr %22, ptr %3, align 8, !tbaa !24
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  store ptr %22, ptr %3, align 8, !tbaa !26
   br label %23
 
 23:                                               ; preds = %20, %19
@@ -517,8 +517,8 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly captur
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !19
-  store ptr %26, ptr %4, align 8, !tbaa !24
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
+  store ptr %26, ptr %4, align 8, !tbaa !26
   br label %27
 
 27:                                               ; preds = %23, %24, %6
@@ -529,7 +529,7 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly captur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_PKEY_get0_asn1(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
   ret ptr %3
 }
 
@@ -545,15 +545,15 @@ define void @EVP_PKEY_asn1_copy(ptr noundef captures(none) initializes((32, 320)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, i64 320, i1 false), !tbaa.struct !35
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, i64 320, i1 false), !tbaa.struct !37
   store i32 %3, ptr %0, align 8, !tbaa !10
   store i32 %5, ptr %4, align 4, !tbaa !16
   store i64 %7, ptr %6, align 8, !tbaa !15
-  store ptr %9, ptr %8, align 8, !tbaa !19
-  store ptr %11, ptr %10, align 8, !tbaa !22
+  store ptr %9, ptr %8, align 8, !tbaa !21
+  store ptr %11, ptr %10, align 8, !tbaa !24
   ret void
 }
 
@@ -565,131 +565,131 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_public(ptr noundef writeonly captures(none) initializes((32, 64), (88, 104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #9 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %8, align 8, !tbaa !38
+  store ptr %1, ptr %8, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %9, align 8, !tbaa !39
+  store ptr %2, ptr %9, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %3, ptr %10, align 8, !tbaa !40
+  store ptr %3, ptr %10, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %4, ptr %11, align 8, !tbaa !41
+  store ptr %4, ptr %11, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %5, ptr %12, align 8, !tbaa !42
+  store ptr %5, ptr %12, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %6, ptr %13, align 8, !tbaa !43
+  store ptr %6, ptr %13, align 8, !tbaa !45
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_private(ptr noundef writeonly captures(none) initializes((64, 88)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %5, align 8, !tbaa !44
+  store ptr %1, ptr %5, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %2, ptr %6, align 8, !tbaa !45
+  store ptr %2, ptr %6, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %3, ptr %7, align 8, !tbaa !46
+  store ptr %3, ptr %7, align 8, !tbaa !48
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_param(ptr noundef writeonly captures(none) initializes((112, 160)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #9 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %1, ptr %8, align 8, !tbaa !47
+  store ptr %1, ptr %8, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %2, ptr %9, align 8, !tbaa !48
+  store ptr %2, ptr %9, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %3, ptr %10, align 8, !tbaa !49
+  store ptr %3, ptr %10, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %4, ptr %11, align 8, !tbaa !50
+  store ptr %4, ptr %11, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %5, ptr %12, align 8, !tbaa !51
+  store ptr %5, ptr %12, align 8, !tbaa !53
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %6, ptr %13, align 8, !tbaa !52
+  store ptr %6, ptr %13, align 8, !tbaa !54
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_free(ptr noundef writeonly captures(none) initializes((168, 176)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %1, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %3, align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_ctrl(ptr noundef writeonly captures(none) initializes((176, 184)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %1, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %3, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_security_bits(ptr noundef writeonly captures(none) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %1, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %3, align 8, !tbaa !57
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_item(ptr noundef writeonly captures(none) initializes((200, 216)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %2, ptr %4, align 8, !tbaa !56
+  store ptr %2, ptr %4, align 8, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr %1, ptr %5, align 8, !tbaa !57
+  store ptr %1, ptr %5, align 8, !tbaa !59
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_siginf(ptr noundef writeonly captures(none) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %1, ptr %3, align 8, !tbaa !58
+  store ptr %1, ptr %3, align 8, !tbaa !60
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_check(ptr noundef writeonly captures(none) initializes((224, 232)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr %1, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %3, align 8, !tbaa !61
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_public_check(ptr noundef writeonly captures(none) initializes((232, 240)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr %1, ptr %3, align 8, !tbaa !60
+  store ptr %1, ptr %3, align 8, !tbaa !62
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_param_check(ptr noundef writeonly captures(none) initializes((240, 248)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %1, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %3, align 8, !tbaa !63
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_set_priv_key(ptr noundef writeonly captures(none) initializes((248, 256)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr %1, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %3, align 8, !tbaa !64
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_set_pub_key(ptr noundef writeonly captures(none) initializes((256, 264)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr %1, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %3, align 8, !tbaa !65
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_get_priv_key(ptr noundef writeonly captures(none) initializes((264, 272)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr %1, ptr %3, align 8, !tbaa !64
+  store ptr %1, ptr %3, align 8, !tbaa !66
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_get_pub_key(ptr noundef writeonly captures(none) initializes((272, 280)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %1, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %3, align 8, !tbaa !67
   ret void
 }
 
@@ -749,52 +749,54 @@ attributes #11 = { nounwind willreturn memory(read) }
 !14 = !{!"p1 omnipotent char", !5, i64 0}
 !15 = !{!11, !13, i64 8}
 !16 = !{!11, !12, i64 4}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS9engine_st", !5, i64 0}
-!19 = !{!11, !14, i64 16}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!11, !14, i64 24}
-!23 = !{!12, !12, i64 0}
-!24 = !{!14, !14, i64 0}
-!25 = !{!26, !9, i64 8}
-!26 = !{!"evp_pkey_st", !12, i64 0, !12, i64 4, !9, i64 8, !18, i64 16, !18, i64 24, !6, i64 32, !6, i64 40, !27, i64 48, !5, i64 56, !28, i64 64, !12, i64 72, !12, i64 76, !29, i64 80, !32, i64 96, !5, i64 104, !13, i64 112, !33, i64 120, !13, i64 128, !34, i64 136}
-!27 = !{!"", !6, i64 0}
-!28 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !5, i64 0}
-!29 = !{!"crypto_ex_data_st", !30, i64 0, !31, i64 8}
-!30 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
-!31 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
-!32 = !{!"p1 _ZTS14evp_keymgmt_st", !5, i64 0}
-!33 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !5, i64 0}
-!34 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8}
-!35 = !{i64 0, i64 4, !23, i64 4, i64 4, !23, i64 8, i64 8, !36, i64 16, i64 8, !24, i64 24, i64 8, !24, i64 32, i64 8, !37, i64 40, i64 8, !37, i64 48, i64 8, !37, i64 56, i64 8, !37, i64 64, i64 8, !37, i64 72, i64 8, !37, i64 80, i64 8, !37, i64 88, i64 8, !37, i64 96, i64 8, !37, i64 104, i64 8, !37, i64 112, i64 8, !37, i64 120, i64 8, !37, i64 128, i64 8, !37, i64 136, i64 8, !37, i64 144, i64 8, !37, i64 152, i64 8, !37, i64 160, i64 8, !37, i64 168, i64 8, !37, i64 176, i64 8, !37, i64 184, i64 8, !37, i64 192, i64 8, !37, i64 200, i64 8, !37, i64 208, i64 8, !37, i64 216, i64 8, !37, i64 224, i64 8, !37, i64 232, i64 8, !37, i64 240, i64 8, !37, i64 248, i64 8, !37, i64 256, i64 8, !37, i64 264, i64 8, !37, i64 272, i64 8, !37, i64 280, i64 8, !37, i64 288, i64 8, !37, i64 296, i64 8, !37, i64 304, i64 8, !37, i64 312, i64 8, !37}
-!36 = !{!13, !13, i64 0}
-!37 = !{!5, !5, i64 0}
-!38 = !{!11, !5, i64 32}
-!39 = !{!11, !5, i64 40}
-!40 = !{!11, !5, i64 48}
-!41 = !{!11, !5, i64 56}
-!42 = !{!11, !5, i64 88}
-!43 = !{!11, !5, i64 96}
-!44 = !{!11, !5, i64 64}
-!45 = !{!11, !5, i64 72}
-!46 = !{!11, !5, i64 80}
-!47 = !{!11, !5, i64 112}
-!48 = !{!11, !5, i64 120}
-!49 = !{!11, !5, i64 128}
-!50 = !{!11, !5, i64 136}
-!51 = !{!11, !5, i64 144}
-!52 = !{!11, !5, i64 152}
-!53 = !{!11, !5, i64 168}
-!54 = !{!11, !5, i64 176}
-!55 = !{!11, !5, i64 104}
-!56 = !{!11, !5, i64 208}
-!57 = !{!11, !5, i64 200}
-!58 = !{!11, !5, i64 216}
-!59 = !{!11, !5, i64 224}
-!60 = !{!11, !5, i64 232}
-!61 = !{!11, !5, i64 240}
-!62 = !{!11, !5, i64 248}
-!63 = !{!11, !5, i64 256}
-!64 = !{!11, !5, i64 264}
-!65 = !{!11, !5, i64 272}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS9engine_st", !5, i64 0}
+!21 = !{!11, !14, i64 16}
+!22 = distinct !{!22, !23, !18}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!11, !14, i64 24}
+!25 = !{!12, !12, i64 0}
+!26 = !{!14, !14, i64 0}
+!27 = !{!28, !9, i64 8}
+!28 = !{!"evp_pkey_st", !12, i64 0, !12, i64 4, !9, i64 8, !20, i64 16, !20, i64 24, !6, i64 32, !6, i64 40, !29, i64 48, !5, i64 56, !30, i64 64, !12, i64 72, !12, i64 76, !31, i64 80, !34, i64 96, !5, i64 104, !13, i64 112, !35, i64 120, !13, i64 128, !36, i64 136}
+!29 = !{!"", !6, i64 0}
+!30 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !5, i64 0}
+!31 = !{!"crypto_ex_data_st", !32, i64 0, !33, i64 8}
+!32 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
+!33 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
+!34 = !{!"p1 _ZTS14evp_keymgmt_st", !5, i64 0}
+!35 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !5, i64 0}
+!36 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8}
+!37 = !{i64 0, i64 4, !25, i64 4, i64 4, !25, i64 8, i64 8, !38, i64 16, i64 8, !26, i64 24, i64 8, !26, i64 32, i64 8, !39, i64 40, i64 8, !39, i64 48, i64 8, !39, i64 56, i64 8, !39, i64 64, i64 8, !39, i64 72, i64 8, !39, i64 80, i64 8, !39, i64 88, i64 8, !39, i64 96, i64 8, !39, i64 104, i64 8, !39, i64 112, i64 8, !39, i64 120, i64 8, !39, i64 128, i64 8, !39, i64 136, i64 8, !39, i64 144, i64 8, !39, i64 152, i64 8, !39, i64 160, i64 8, !39, i64 168, i64 8, !39, i64 176, i64 8, !39, i64 184, i64 8, !39, i64 192, i64 8, !39, i64 200, i64 8, !39, i64 208, i64 8, !39, i64 216, i64 8, !39, i64 224, i64 8, !39, i64 232, i64 8, !39, i64 240, i64 8, !39, i64 248, i64 8, !39, i64 256, i64 8, !39, i64 264, i64 8, !39, i64 272, i64 8, !39, i64 280, i64 8, !39, i64 288, i64 8, !39, i64 296, i64 8, !39, i64 304, i64 8, !39, i64 312, i64 8, !39}
+!38 = !{!13, !13, i64 0}
+!39 = !{!5, !5, i64 0}
+!40 = !{!11, !5, i64 32}
+!41 = !{!11, !5, i64 40}
+!42 = !{!11, !5, i64 48}
+!43 = !{!11, !5, i64 56}
+!44 = !{!11, !5, i64 88}
+!45 = !{!11, !5, i64 96}
+!46 = !{!11, !5, i64 64}
+!47 = !{!11, !5, i64 72}
+!48 = !{!11, !5, i64 80}
+!49 = !{!11, !5, i64 112}
+!50 = !{!11, !5, i64 120}
+!51 = !{!11, !5, i64 128}
+!52 = !{!11, !5, i64 136}
+!53 = !{!11, !5, i64 144}
+!54 = !{!11, !5, i64 152}
+!55 = !{!11, !5, i64 168}
+!56 = !{!11, !5, i64 176}
+!57 = !{!11, !5, i64 104}
+!58 = !{!11, !5, i64 208}
+!59 = !{!11, !5, i64 200}
+!60 = !{!11, !5, i64 216}
+!61 = !{!11, !5, i64 224}
+!62 = !{!11, !5, i64 232}
+!63 = !{!11, !5, i64 240}
+!64 = !{!11, !5, i64 248}
+!65 = !{!11, !5, i64 256}
+!66 = !{!11, !5, i64 264}
+!67 = !{!11, !5, i64 272}

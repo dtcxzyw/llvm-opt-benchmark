@@ -317,7 +317,7 @@ define hidden i64 @BUF_strlcpy(ptr noundef writeonly captures(none) %0, ptr noun
   store i8 %6, ptr %.01123, align 1, !tbaa !15
   %10 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %10, %5
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !19
 
 .critedge:                                        ; preds = %3
   %.not12 = icmp eq i64 %2, 0
@@ -356,7 +356,7 @@ define hidden i64 @BUF_strlcat(ptr noundef captures(none) %0, ptr noundef readon
   %7 = add i64 %.0818, -1
   %8 = getelementptr inbounds nuw i8, ptr %.0917, i64 1
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %BUF_strlcpy.exit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %BUF_strlcpy.exit, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph
   %.not11 = icmp eq i64 %.0818, 1
@@ -380,7 +380,7 @@ define hidden i64 @BUF_strlcat(ptr noundef captures(none) %0, ptr noundef readon
   store i8 %10, ptr %.01123.i, align 1, !tbaa !15
   %14 = add nuw i64 %.026.i, 1
   %exitcond.not.i = icmp eq i64 %14, %9
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !19
 
 .critedge.thread.i:                               ; preds = %11, %.lr.ph.i, %.critedge
   %.01122.i = phi ptr [ %.0917, %.critedge ], [ %.01123.i, %.lr.ph.i ], [ %13, %11 ]
@@ -464,7 +464,8 @@ attributes #14 = { nounwind willreturn memory(read) }
 !13 = !{!7, !8, i64 16}
 !14 = !{!7, !8, i64 0}
 !15 = !{!9, !9, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}

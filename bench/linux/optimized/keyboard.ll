@@ -601,7 +601,7 @@ define dso_local i32 @kbd_init() local_unnamed_addr #5 section ".init.text" alig
   store i8 %.reass, ptr %13, align 1
   %22 = add nuw nsw i64 %8, 1
   %23 = icmp eq i64 %22, 63
-  br i1 %23, label %.preheader, label %7, !llvm.loop !10
+  br i1 %23, label %.preheader, label %7, !llvm.loop !11
 
 .preheader:                                       ; preds = %7, %31
   %24 = phi i64 [ %32, %31 ], [ 0, %7 ]
@@ -618,7 +618,7 @@ define dso_local i32 @kbd_init() local_unnamed_addr #5 section ".init.text" alig
 31:                                               ; preds = %28, %.preheader
   %32 = add nuw nsw i64 %24, 1
   %33 = icmp eq i64 %32, 12
-  br i1 %33, label %34, label %.preheader, !llvm.loop !11
+  br i1 %33, label %34, label %.preheader, !llvm.loop !12
 
 34:                                               ; preds = %31
   %35 = tail call i32 @input_register_handler(ptr noundef nonnull @kbd_handler) #19
@@ -626,7 +626,7 @@ define dso_local i32 @kbd_init() local_unnamed_addr #5 section ".init.text" alig
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %34
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !13
   %38 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 8)) #19, !srcloc !6
   %39 = icmp ult i8 %38, 2
   tail call void @llvm.assume(i1 %39)
@@ -691,12 +691,12 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
   store i8 %29, ptr %30, align 1
   %31 = add nuw nsw i64 %15, 1
   %32 = icmp eq i64 %31, %13
-  br i1 %32, label %.loopexit, label %14, !llvm.loop !13
+  br i1 %32, label %.loopexit, label %14, !llvm.loop !14
 
 .loopexit:                                        ; preds = %14, %8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %9) #19
   %33 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %34 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %10, i64 4, i64 %33) #19, !srcloc !14
+  %34 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %10, i64 4, i64 %33) #19, !srcloc !15
   %35 = extractvalue { ptr, i64 } %34, 0
   %36 = extractvalue { ptr, i64 } %34, 1
   %37 = ptrtoint ptr %35 to i64
@@ -709,7 +709,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
   %41 = sext i32 %10 to i64
   %42 = mul nsw i64 %41, 3
   %43 = icmp ugt i64 %42, 768
-  br i1 %43, label %44, label %45, !prof !15
+  br i1 %43, label %44, label %45, !prof !16
 
 44:                                               ; preds = %40
   tail call void @__copy_overflow(i32 noundef 768, i64 noundef %42) #19
@@ -741,7 +741,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 4 @accent_table, i64 %60, i1 false)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %57) #19
   %61 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %62 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %58, i64 4, i64 %61) #19, !srcloc !16
+  %62 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %58, i64 4, i64 %61) #19, !srcloc !17
   %63 = extractvalue { ptr, i64 } %62, 0
   %64 = extractvalue { ptr, i64 } %62, 1
   %65 = ptrtoint ptr %63 to i64
@@ -752,7 +752,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
 
 68:                                               ; preds = %56
   %69 = icmp ugt i64 %60, 3072
-  br i1 %69, label %70, label %71, !prof !15
+  br i1 %69, label %70, label %71, !prof !16
 
 70:                                               ; preds = %68
   tail call void @__copy_overflow(i32 noundef 3072, i64 noundef %60) #19
@@ -776,7 +776,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
 
 80:                                               ; preds = %78
   %81 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %82 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %81) #19, !srcloc !17
+  %82 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %81) #19, !srcloc !18
   %83 = extractvalue { ptr, i32, i64 } %82, 0
   %84 = extractvalue { ptr, i32, i64 } %82, 1
   %85 = extractvalue { ptr, i32, i64 } %82, 2
@@ -837,7 +837,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
   store i32 %118, ptr %119, align 4
   %120 = add nuw nsw i64 %107, 1
   %121 = icmp eq i64 %120, %105
-  br i1 %121, label %.loopexit13, label %106, !llvm.loop !18
+  br i1 %121, label %.loopexit13, label %106, !llvm.loop !19
 
 .loopexit13:                                      ; preds = %106, %.thread
   %122 = phi i64 [ %93, %.thread ], [ %104, %106 ]
@@ -852,7 +852,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
 
 126:                                              ; preds = %124
   %127 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %128 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %127) #19, !srcloc !19
+  %128 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %127) #19, !srcloc !20
   %129 = extractvalue { ptr, i32, i64 } %128, 0
   %130 = extractvalue { ptr, i32, i64 } %128, 1
   %131 = extractvalue { ptr, i32, i64 } %128, 2
@@ -1091,7 +1091,7 @@ define dso_local i32 @vt_do_kbkeycode_ioctl(i32 noundef %0, ptr noundef %1, i32 
   %5 = alloca %struct.getset_keycode_data, align 4
   %6 = alloca %struct.kbkeycode, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  store i64 0, ptr %6, align 8, !annotation !20
+  store i64 0, ptr %6, align 8, !annotation !21
   %7 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %1, i64 noundef 8) #19
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %42
@@ -1125,7 +1125,7 @@ define dso_local i32 @vt_do_kbkeycode_ioctl(i32 noundef %0, ptr noundef %1, i32 
 22:                                               ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = call i64 @llvm.read_register.i64(metadata !0)
-  %25 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %23, i32 %20, i64 4, i64 %24) #19, !srcloc !21
+  %25 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %23, i32 %20, i64 4, i64 %24) #19, !srcloc !22
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = extractvalue { ptr, i64 } %25, 1
   %28 = ptrtoint ptr %26 to i64
@@ -1168,7 +1168,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   %6 = zext i32 %3 to i64
   %7 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #19
-  store i32 0, ptr %5, align 4, !annotation !20
+  store i32 0, ptr %5, align 4, !annotation !21
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 4) #19
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %141
@@ -1216,7 +1216,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %17) #19
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %38 = call i64 @llvm.read_register.i64(metadata !0)
-  %39 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %37, i16 %36, i64 2, i64 %38) #19, !srcloc !22
+  %39 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %37, i16 %36, i64 2, i64 %38) #19, !srcloc !23
   %40 = extractvalue { ptr, i64 } %39, 0
   %41 = extractvalue { ptr, i64 } %39, 1
   %42 = ptrtoint ptr %40 to i64
@@ -1335,7 +1335,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   store i16 -3584, ptr %110, align 2
   %111 = add nuw nsw i64 %109, 1
   %112 = icmp eq i64 %111, 256
-  br i1 %112, label %113, label %108, !llvm.loop !23
+  br i1 %112, label %113, label %108, !llvm.loop !24
 
 113:                                              ; preds = %108
   %114 = load i32, ptr @keymap_count, align 4
@@ -1403,7 +1403,7 @@ declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %5 = tail call { ptr, i8, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 1, i64 %4) #19, !srcloc !24
+  %5 = tail call { ptr, i8, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 1, i64 %4) #19, !srcloc !25
   %6 = extractvalue { ptr, i8, i64 } %5, 0
   %7 = extractvalue { ptr, i8, i64 } %5, 2
   %8 = ptrtoint ptr %6 to i64
@@ -1415,7 +1415,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
 11:                                               ; preds = %3
   %12 = extractvalue { ptr, i8, i64 } %5, 1
   %13 = zext i8 %12 to i64
-  %14 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 256, i64 %13) #19, !srcloc !25
+  %14 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 256, i64 %13) #19, !srcloc !26
   %15 = and i64 %14, %13
   %16 = trunc nuw i64 %15 to i8
   switch i32 %0, label %52 [
@@ -1443,7 +1443,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
 29:                                               ; preds = %21
   %30 = add nuw i64 %27, 1
   %31 = icmp samesign ugt i64 %27, 511
-  br i1 %31, label %32, label %33, !prof !15
+  br i1 %31, label %32, label %33, !prof !16
 
 32:                                               ; preds = %29
   tail call void @__copy_overflow(i32 noundef 512, i64 noundef %30) #19
@@ -1518,7 +1518,7 @@ define internal fastcc ptr @vt_kdskbsent(ptr noundef %0, i8 noundef zeroext %1) 
 
 13:                                               ; preds = %7, %2
   store ptr %0, ptr %4, align 8
-  %14 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @vt_kdskbsent.is_kmalloc, i64 %3) #19, !srcloc !26
+  %14 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @vt_kdskbsent.is_kmalloc, i64 %3) #19, !srcloc !27
   %15 = icmp ult i8 %14, 2
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i8 %14, 0
@@ -1554,7 +1554,7 @@ define dso_local i32 @vt_do_kdskled(i32 noundef %0, i32 noundef %1, i64 noundef 
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %8) #19
   %17 = inttoptr i64 %2 to ptr
   %18 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %19 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %17, i8 %16, i64 1, i64 %18) #19, !srcloc !27
+  %19 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %17, i8 %16, i64 1, i64 %18) #19, !srcloc !28
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
   %22 = ptrtoint ptr %20 to i64
@@ -1606,7 +1606,7 @@ define dso_local i32 @vt_do_kdskled(i32 noundef %0, i32 noundef %1, i64 noundef 
   %50 = trunc i32 %49 to i8
   %51 = inttoptr i64 %2 to ptr
   %52 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %53 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %51, i8 %50, i64 1, i64 %52) #19, !srcloc !28
+  %53 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %51, i8 %50, i64 1, i64 %52) #19, !srcloc !29
   %54 = extractvalue { ptr, i64 } %53, 0
   %55 = extractvalue { ptr, i64 } %53, 1
   %56 = ptrtoint ptr %54 to i64
@@ -1926,7 +1926,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 89:                                               ; preds = %80
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 28
-  %91 = load i8, ptr %90, align 4, !range !29, !noundef !30
+  %91 = load i8, ptr %90, align 4, !range !30, !noundef !31
   %92 = icmp eq i8 %91, 0
   br i1 %92, label %._crit_edge77, label %93
 
@@ -2076,7 +2076,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 176:                                              ; preds = %168
   %177 = getelementptr inbounds nuw i8, ptr %170, i64 28
-  %178 = load i8, ptr %177, align 4, !range !29, !noundef !30
+  %178 = load i8, ptr %177, align 4, !range !30, !noundef !31
   %179 = icmp eq i8 %178, 0
   br i1 %179, label %._crit_edge70, label %180
 
@@ -2127,7 +2127,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 201:                                              ; preds = %193
   %202 = getelementptr inbounds nuw i8, ptr %195, i64 28
-  %203 = load i8, ptr %202, align 4, !range !29, !noundef !30
+  %203 = load i8, ptr %202, align 4, !range !30, !noundef !31
   %204 = icmp eq i8 %203, 0
   br i1 %204, label %._crit_edge69, label %205
 
@@ -2178,7 +2178,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 226:                                              ; preds = %218
   %227 = getelementptr inbounds nuw i8, ptr %220, i64 28
-  %228 = load i8, ptr %227, align 4, !range !29, !noundef !30
+  %228 = load i8, ptr %227, align 4, !range !30, !noundef !31
   %229 = icmp eq i8 %228, 0
   br i1 %229, label %._crit_edge68, label %230
 
@@ -2234,7 +2234,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 253:                                              ; preds = %245
   %254 = getelementptr inbounds nuw i8, ptr %247, i64 28
-  %255 = load i8, ptr %254, align 4, !range !29, !noundef !30
+  %255 = load i8, ptr %254, align 4, !range !30, !noundef !31
   %256 = icmp eq i8 %255, 0
   br i1 %256, label %._crit_edge67, label %257
 
@@ -2290,7 +2290,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 280:                                              ; preds = %272
   %281 = getelementptr inbounds nuw i8, ptr %274, i64 28
-  %282 = load i8, ptr %281, align 4, !range !29, !noundef !30
+  %282 = load i8, ptr %281, align 4, !range !30, !noundef !31
   %283 = icmp eq i8 %282, 0
   br i1 %283, label %._crit_edge66, label %284
 
@@ -2356,7 +2356,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 315:                                              ; preds = %306
   %316 = getelementptr inbounds nuw i8, ptr %309, i64 28
-  %317 = load i8, ptr %316, align 4, !range !29, !noundef !30
+  %317 = load i8, ptr %316, align 4, !range !30, !noundef !31
   %318 = icmp eq i8 %317, 0
   br i1 %318, label %._crit_edge61, label %319
 
@@ -2409,7 +2409,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 341:                                              ; preds = %333
   %342 = getelementptr inbounds nuw i8, ptr %335, i64 28
-  %343 = load i8, ptr %342, align 4, !range !29, !noundef !30
+  %343 = load i8, ptr %342, align 4, !range !30, !noundef !31
   %344 = icmp eq i8 %343, 0
   br i1 %344, label %._crit_edge65, label %345
 
@@ -2460,7 +2460,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 366:                                              ; preds = %358
   %367 = getelementptr inbounds nuw i8, ptr %360, i64 28
-  %368 = load i8, ptr %367, align 4, !range !29, !noundef !30
+  %368 = load i8, ptr %367, align 4, !range !30, !noundef !31
   %369 = icmp eq i8 %368, 0
   br i1 %369, label %._crit_edge64, label %370
 
@@ -2510,7 +2510,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 390:                                              ; preds = %383
   %391 = getelementptr inbounds nuw i8, ptr %384, i64 28
-  %392 = load i8, ptr %391, align 4, !range !29, !noundef !30
+  %392 = load i8, ptr %391, align 4, !range !30, !noundef !31
   %393 = icmp eq i8 %392, 0
   br i1 %393, label %._crit_edge63, label %394
 
@@ -2561,7 +2561,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 415:                                              ; preds = %407
   %416 = getelementptr inbounds nuw i8, ptr %409, i64 28
-  %417 = load i8, ptr %416, align 4, !range !29, !noundef !30
+  %417 = load i8, ptr %416, align 4, !range !30, !noundef !31
   %418 = icmp eq i8 %417, 0
   br i1 %418, label %._crit_edge62, label %419
 
@@ -2630,7 +2630,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 451:                                              ; preds = %443
   %452 = getelementptr inbounds nuw i8, ptr %445, i64 28
-  %453 = load i8, ptr %452, align 4, !range !29, !noundef !30
+  %453 = load i8, ptr %452, align 4, !range !30, !noundef !31
   %454 = icmp eq i8 %453, 0
   br i1 %454, label %._crit_edge71, label %455
 
@@ -2687,7 +2687,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 480:                                              ; preds = %469
   %481 = getelementptr inbounds nuw i8, ptr %474, i64 28
-  %482 = load i8, ptr %481, align 4, !range !29, !noundef !30
+  %482 = load i8, ptr %481, align 4, !range !30, !noundef !31
   %483 = icmp eq i8 %482, 0
   br i1 %483, label %._crit_edge72, label %484
 
@@ -2769,7 +2769,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 523:                                              ; preds = %512
   %524 = getelementptr inbounds nuw i8, ptr %517, i64 28
-  %525 = load i8, ptr %524, align 4, !range !29, !noundef !30
+  %525 = load i8, ptr %524, align 4, !range !30, !noundef !31
   %526 = icmp eq i8 %525, 0
   br i1 %526, label %._crit_edge76, label %527
 
@@ -2823,7 +2823,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 550:                                              ; preds = %541
   %551 = getelementptr inbounds nuw i8, ptr %544, i64 28
-  %552 = load i8, ptr %551, align 4, !range !29, !noundef !30
+  %552 = load i8, ptr %551, align 4, !range !30, !noundef !31
   %553 = icmp eq i8 %552, 0
   br i1 %553, label %._crit_edge75, label %554
 
@@ -2876,7 +2876,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 577:                                              ; preds = %567
   %578 = getelementptr inbounds nuw i8, ptr %571, i64 28
-  %579 = load i8, ptr %578, align 4, !range !29, !noundef !30
+  %579 = load i8, ptr %578, align 4, !range !30, !noundef !31
   %580 = icmp eq i8 %579, 0
   br i1 %580, label %._crit_edge74, label %581
 
@@ -2928,7 +2928,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 603:                                              ; preds = %594
   %604 = getelementptr inbounds nuw i8, ptr %597, i64 28
-  %605 = load i8, ptr %604, align 4, !range !29, !noundef !30
+  %605 = load i8, ptr %604, align 4, !range !30, !noundef !31
   %606 = icmp eq i8 %605, 0
   br i1 %606, label %._crit_edge73, label %607
 
@@ -2976,15 +2976,15 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %625, label %627, label %626
 
 626:                                              ; preds = %622
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @key_down, i64 %624) #19, !srcloc !31
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @key_down, i64 %624) #19, !srcloc !32
   br label %628
 
 627:                                              ; preds = %622
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @key_down, i64 %624) #19, !srcloc !32
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @key_down, i64 %624) #19, !srcloc !33
   br label %628
 
 628:                                              ; preds = %627, %626
-  %629 = load i8, ptr @rep, align 1, !range !29, !noundef !30
+  %629 = load i8, ptr @rep, align 1, !range !30, !noundef !31
   %630 = icmp eq i8 %629, 0
   %.pre60 = load ptr, ptr @kbd, align 8
   br i1 %630, label %645, label %631
@@ -3315,9 +3315,9 @@ define internal void @kbd_disconnect(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kbd_start(ptr noundef readonly captures(none) %0) #0 align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !33
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !34
   tail call void @tasklet_unlock_wait(ptr noundef nonnull @keyboard_tasklet) #19
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !34
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !35
   %2 = load i32, ptr @ledstate, align 4
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %.loopexit, label %4
@@ -3349,10 +3349,10 @@ define internal void @kbd_start(ptr noundef readonly captures(none) %0) #0 align
 20:                                               ; preds = %16, %.preheader
   %21 = add nuw nsw i64 %11, 1
   %22 = icmp eq i64 %21, 12
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !35
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !36
 
 .loopexit:                                        ; preds = %20, %4, %1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !13
   ret void
 }
 
@@ -3437,7 +3437,7 @@ define internal fastcc void @k_unicode(ptr noundef %0, i32 noundef %1, i8 nounde
 
 35:                                               ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 28
-  %37 = load i8, ptr %36, align 4, !range !29, !noundef !30
+  %37 = load i8, ptr %36, align 4, !range !30, !noundef !31
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %._crit_edge, label %39
 
@@ -3526,7 +3526,7 @@ define internal fastcc i32 @handle_diacr(ptr noundef %0, i32 noundef %1) unnamed
 30:                                               ; preds = %23, %18
   %31 = add nuw nsw i64 %19, 1
   %32 = icmp eq i64 %31, %12
-  br i1 %32, label %.loopexit, label %18, !llvm.loop !36
+  br i1 %32, label %.loopexit, label %18, !llvm.loop !37
 
 .loopexit:                                        ; preds = %30, %13, %8
   switch i32 %1, label %33 [
@@ -3572,7 +3572,7 @@ define internal fastcc i32 @handle_diacr(ptr noundef %0, i32 noundef %1) unnamed
 
 54:                                               ; preds = %45
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 28
-  %56 = load i8, ptr %55, align 4, !range !29, !noundef !30
+  %56 = load i8, ptr %55, align 4, !range !30, !noundef !31
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %._crit_edge, label %58
 
@@ -3655,7 +3655,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  %35 = load i8, ptr %34, align 4, !range !29, !noundef !30
+  %35 = load i8, ptr %34, align 4, !range !30, !noundef !31
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %._crit_edge29, label %37
 
@@ -3713,7 +3713,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 63:                                               ; preds = %52
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 28
-  %65 = load i8, ptr %64, align 4, !range !29, !noundef !30
+  %65 = load i8, ptr %64, align 4, !range !30, !noundef !31
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %._crit_edge28, label %67
 
@@ -3764,7 +3764,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 89:                                               ; preds = %79
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 28
-  %91 = load i8, ptr %90, align 4, !range !29, !noundef !30
+  %91 = load i8, ptr %90, align 4, !range !30, !noundef !31
   %92 = icmp eq i8 %91, 0
   br i1 %92, label %._crit_edge27, label %93
 
@@ -3829,7 +3829,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 124:                                              ; preds = %113
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 28
-  %126 = load i8, ptr %125, align 4, !range !29, !noundef !30
+  %126 = load i8, ptr %125, align 4, !range !30, !noundef !31
   %127 = icmp eq i8 %126, 0
   br i1 %127, label %._crit_edge26, label %128
 
@@ -3881,7 +3881,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 151:                                              ; preds = %140
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 28
-  %153 = load i8, ptr %152, align 4, !range !29, !noundef !30
+  %153 = load i8, ptr %152, align 4, !range !30, !noundef !31
   %154 = icmp eq i8 %153, 0
   br i1 %154, label %._crit_edge25, label %155
 
@@ -3932,7 +3932,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 177:                                              ; preds = %167
   %178 = getelementptr inbounds nuw i8, ptr %171, i64 28
-  %179 = load i8, ptr %178, align 4, !range !29, !noundef !30
+  %179 = load i8, ptr %178, align 4, !range !30, !noundef !31
   %180 = icmp eq i8 %179, 0
   br i1 %180, label %._crit_edge24, label %181
 
@@ -3990,7 +3990,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 207:                                              ; preds = %196
   %208 = getelementptr inbounds nuw i8, ptr %201, i64 28
-  %209 = load i8, ptr %208, align 4, !range !29, !noundef !30
+  %209 = load i8, ptr %208, align 4, !range !30, !noundef !31
   %210 = icmp eq i8 %209, 0
   br i1 %210, label %._crit_edge23, label %211
 
@@ -4042,7 +4042,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 234:                                              ; preds = %223
   %235 = getelementptr inbounds nuw i8, ptr %228, i64 28
-  %236 = load i8, ptr %235, align 4, !range !29, !noundef !30
+  %236 = load i8, ptr %235, align 4, !range !30, !noundef !31
   %237 = icmp eq i8 %236, 0
   br i1 %237, label %._crit_edge22, label %238
 
@@ -4094,7 +4094,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 261:                                              ; preds = %250
   %262 = getelementptr inbounds nuw i8, ptr %255, i64 28
-  %263 = load i8, ptr %262, align 4, !range !29, !noundef !30
+  %263 = load i8, ptr %262, align 4, !range !30, !noundef !31
   %264 = icmp eq i8 %263, 0
   br i1 %264, label %._crit_edge21, label %265
 
@@ -4145,7 +4145,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 287:                                              ; preds = %277
   %288 = getelementptr inbounds nuw i8, ptr %281, i64 28
-  %289 = load i8, ptr %288, align 4, !range !29, !noundef !30
+  %289 = load i8, ptr %288, align 4, !range !30, !noundef !31
   %290 = icmp eq i8 %289, 0
   br i1 %290, label %._crit_edge, label %291
 
@@ -4385,7 +4385,7 @@ define internal void @k_pad(ptr noundef %0, i8 noundef zeroext %1, i8 noundef ze
 
 53:                                               ; preds = %42
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 28
-  %55 = load i8, ptr %54, align 4, !range !29, !noundef !30
+  %55 = load i8, ptr %54, align 4, !range !30, !noundef !31
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %._crit_edge4, label %57
 
@@ -4445,7 +4445,7 @@ define internal void @k_pad(ptr noundef %0, i8 noundef zeroext %1, i8 noundef ze
 
 84:                                               ; preds = %77
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 28
-  %86 = load i8, ptr %85, align 4, !range !29, !noundef !30
+  %86 = load i8, ptr %85, align 4, !range !30, !noundef !31
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %._crit_edge, label %88
 
@@ -4561,7 +4561,7 @@ define internal void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = load i32, ptr @shift_state, align 4
-  %7 = load i8, ptr @rep, align 1, !range !29, !noundef !30
+  %7 = load i8, ptr @rep, align 1, !range !30, !noundef !31
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %87
 
@@ -4666,7 +4666,7 @@ define internal void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
 
 69:                                               ; preds = %60
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 28
-  %71 = load i8, ptr %70, align 4, !range !29, !noundef !30
+  %71 = load i8, ptr %70, align 4, !range !30, !noundef !31
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %._crit_edge, label %73
 
@@ -4745,7 +4745,7 @@ define internal void @k_meta(ptr noundef %0, i8 noundef zeroext %1, i8 noundef z
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  %27 = load i8, ptr %26, align 4, !range !29, !noundef !30
+  %27 = load i8, ptr %26, align 4, !range !30, !noundef !31
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %._crit_edge6, label %29
 
@@ -4793,7 +4793,7 @@ define internal void @k_meta(ptr noundef %0, i8 noundef zeroext %1, i8 noundef z
 
 48:                                               ; preds = %41
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 28
-  %50 = load i8, ptr %49, align 4, !range !29, !noundef !30
+  %50 = load i8, ptr %49, align 4, !range !30, !noundef !31
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %._crit_edge, label %52
 
@@ -4845,7 +4845,7 @@ define internal void @k_meta(ptr noundef %0, i8 noundef zeroext %1, i8 noundef z
 
 74:                                               ; preds = %65
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 28
-  %76 = load i8, ptr %75, align 4, !range !29, !noundef !30
+  %76 = load i8, ptr %75, align 4, !range !30, !noundef !31
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %._crit_edge7, label %78
 
@@ -4924,7 +4924,7 @@ define internal void @k_ascii(ptr readnone captures(none) %0, i8 noundef zeroext
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal void @k_lock(ptr readnone captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #12 align 16 {
   %4 = icmp eq i8 %2, 0
-  %5 = load i8, ptr @rep, align 1, !range !29
+  %5 = load i8, ptr @rep, align 1, !range !30
   %6 = icmp eq i8 %5, 0
   %7 = select i1 %4, i1 %6, i1 false
   br i1 %7, label %8, label %15
@@ -4953,7 +4953,7 @@ define internal void @k_lowercase(ptr readnone captures(none) %0, i8 zeroext %1,
 define internal void @k_slock(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
   tail call void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2)
   %4 = icmp eq i8 %2, 0
-  %5 = load i8, ptr @rep, align 1, !range !29
+  %5 = load i8, ptr @rep, align 1, !range !30
   %6 = icmp eq i8 %5, 0
   %7 = select i1 %4, i1 %6, i1 false
   br i1 %7, label %8, label %23
@@ -5308,7 +5308,7 @@ define internal void @fn_enter(ptr noundef %0) #0 align 16 {
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  %31 = load i8, ptr %30, align 4, !range !29, !noundef !30
+  %31 = load i8, ptr %30, align 4, !range !30, !noundef !31
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %._crit_edge, label %33
 
@@ -5364,7 +5364,7 @@ define internal void @fn_enter(ptr noundef %0) #0 align 16 {
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 28
-  %57 = load i8, ptr %56, align 4, !range !29, !noundef !30
+  %57 = load i8, ptr %56, align 4, !range !30, !noundef !31
   %58 = icmp eq i8 %57, 0
   br i1 %58, label %._crit_edge9, label %59
 
@@ -5420,7 +5420,7 @@ define internal void @fn_enter(ptr noundef %0) #0 align 16 {
 
 84:                                               ; preds = %77
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 28
-  %86 = load i8, ptr %85, align 4, !range !29, !noundef !30
+  %86 = load i8, ptr %85, align 4, !range !30, !noundef !31
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %._crit_edge8, label %88
 
@@ -5462,7 +5462,7 @@ define internal void @fn_enter(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @fn_show_ptregs(ptr readnone captures(none) %0) #0 align 16 {
-  %2 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @__irq_regs) #22, !srcloc !37
+  %2 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @__irq_regs) #22, !srcloc !38
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %6, label %4
 
@@ -5498,7 +5498,7 @@ define internal void @fn_send_intr(ptr noundef %0) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %7 = load i8, ptr %6, align 4, !range !29, !noundef !30
+  %7 = load i8, ptr %6, align 4, !range !30, !noundef !31
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %22, label %9
 
@@ -5542,7 +5542,7 @@ define internal void @fn_lastcons(ptr readnone captures(none) %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal void @fn_caps_toggle(ptr readnone captures(none) %0) #12 align 16 {
-  %2 = load i8, ptr @rep, align 1, !range !29, !noundef !30
+  %2 = load i8, ptr @rep, align 1, !range !30, !noundef !31
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %9
 
@@ -5580,7 +5580,7 @@ define internal void @fn_num(ptr noundef %0) #0 align 16 {
   br label %18
 
 11:                                               ; preds = %1
-  %12 = load i8, ptr @rep, align 1, !range !29, !noundef !30
+  %12 = load i8, ptr @rep, align 1, !range !30, !noundef !31
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %18
 
@@ -5599,7 +5599,7 @@ define internal void @fn_num(ptr noundef %0) #0 align 16 {
 define internal void @fn_hold(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
-  %4 = load i8, ptr @rep, align 1, !range !29, !noundef !30
+  %4 = load i8, ptr @rep, align 1, !range !30, !noundef !31
   %5 = icmp eq i8 %4, 0
   %6 = icmp ne ptr %3, null
   %7 = select i1 %5, i1 %6, i1 false
@@ -5607,7 +5607,7 @@ define internal void @fn_hold(ptr noundef readonly captures(none) %0) #0 align 1
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 444
-  %10 = load i8, ptr %9, align 4, !range !29, !noundef !30
+  %10 = load i8, ptr %9, align 4, !range !30, !noundef !31
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %13, label %12
 
@@ -5643,7 +5643,7 @@ define internal void @fn_boot_it(ptr readnone captures(none) %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal void @fn_caps_on(ptr readnone captures(none) %0) #12 align 16 {
-  %2 = load i8, ptr @rep, align 1, !range !29, !noundef !30
+  %2 = load i8, ptr @rep, align 1, !range !30, !noundef !31
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %9
 
@@ -5694,7 +5694,7 @@ define internal void @fn_dec_console(ptr readnone captures(none) %0) #0 align 16
   %12 = select i1 %11, i32 62, i32 %8
   %13 = tail call i32 @vc_cons_allocated(i32 noundef %12) #19
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !38
+  br i1 %14, label %6, label %15, !llvm.loop !39
 
 15:                                               ; preds = %10, %6
   %16 = phi i32 [ %12, %10 ], [ %5, %6 ]
@@ -5721,7 +5721,7 @@ define internal void @fn_inc_console(ptr readnone captures(none) %0) #0 align 16
   %12 = select i1 %11, i32 0, i32 %8
   %13 = tail call i32 @vc_cons_allocated(i32 noundef %12) #19
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !39
+  br i1 %14, label %6, label %15, !llvm.loop !40
 
 15:                                               ; preds = %10, %6
   %16 = phi i32 [ %12, %10 ], [ %5, %6 ]
@@ -5755,7 +5755,7 @@ define internal void @fn_spawn_con(ptr readnone captures(none) %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal void @fn_bare_num(ptr readnone captures(none) %0) #12 align 16 {
-  %2 = load i8, ptr @rep, align 1, !range !29, !noundef !30
+  %2 = load i8, ptr @rep, align 1, !range !30, !noundef !31
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %9
 
@@ -5851,9 +5851,9 @@ declare dso_local void @led_trigger_event(ptr noundef, i32 noundef) local_unname
 define internal noundef i32 @kbd_led_trigger_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !33
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !34
   tail call void @tasklet_unlock_wait(ptr noundef nonnull @keyboard_tasklet) #19
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !34
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !35
   %4 = load i32, ptr @ledstate, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %12, label %6
@@ -5868,7 +5868,7 @@ define internal noundef i32 @kbd_led_trigger_activate(ptr noundef readonly captu
   br label %12
 
 12:                                               ; preds = %6, %1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !13
   ret i32 0
 }
 
@@ -5933,7 +5933,7 @@ define internal void @kbd_bh(ptr readnone captures(none) %0) #0 align 16 {
 37:                                               ; preds = %33, %26
   %38 = add nuw nsw i64 %27, 1
   %39 = icmp eq i64 %38, 12
-  br i1 %39, label %40, label %26, !llvm.loop !35
+  br i1 %39, label %40, label %26, !llvm.loop !41
 
 40:                                               ; preds = %37
   store i32 %18, ptr @ledstate, align 4
@@ -6034,36 +6034,38 @@ attributes #22 = { nounwind memory(read) }
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
 !6 = !{i64 2148386188, i64 2148386227, i64 2148386248, i64 2148386285, i64 2148386308, i64 2148386317, i64 2148386420}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = !{i64 2148736743, i64 2148736782, i64 2148736803, i64 2148736840, i64 2148736863, i64 2148736733}
-!13 = distinct !{!13, !8, !9}
-!14 = !{i64 2155208139}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = !{i64 2155209812}
-!17 = !{i64 2155210741}
-!18 = distinct !{!18, !8, !9}
-!19 = !{i64 2155213111}
-!20 = !{!"auto-init"}
-!21 = !{i64 2155216451}
-!22 = !{i64 2155219608}
-!23 = distinct !{!23, !8, !9}
-!24 = !{i64 2155221359}
-!25 = !{i64 865800}
-!26 = !{i64 2148386991, i64 2148387068}
-!27 = !{i64 2155227797}
-!28 = !{i64 2155229320}
-!29 = !{i8 0, i8 2}
-!30 = !{}
-!31 = !{i64 2148380022, i64 2148380061, i64 2148380082, i64 2148380119, i64 2148380142, i64 2148380012}
-!32 = !{i64 2148381310, i64 2148381349, i64 2148381370, i64 2148381407, i64 2148381430, i64 2148381300}
-!33 = !{i64 2148736380, i64 2148736419, i64 2148736440, i64 2148736477, i64 2148736500, i64 2148736370}
-!34 = !{i64 2155049622}
-!35 = distinct !{!35, !8, !9}
-!36 = distinct !{!36, !8, !9}
-!37 = !{i64 2155131948}
-!38 = distinct !{!38, !8, !9}
-!39 = distinct !{!39, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = !{i64 2148736743, i64 2148736782, i64 2148736803, i64 2148736840, i64 2148736863, i64 2148736733}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = !{i64 2155208139}
+!16 = !{!"branch_weights", i32 1, i32 2000}
+!17 = !{i64 2155209812}
+!18 = !{i64 2155210741}
+!19 = distinct !{!19, !8, !9, !10}
+!20 = !{i64 2155213111}
+!21 = !{!"auto-init"}
+!22 = !{i64 2155216451}
+!23 = !{i64 2155219608}
+!24 = distinct !{!24, !8, !9, !10}
+!25 = !{i64 2155221359}
+!26 = !{i64 865800}
+!27 = !{i64 2148386991, i64 2148387068}
+!28 = !{i64 2155227797}
+!29 = !{i64 2155229320}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = !{i64 2148380022, i64 2148380061, i64 2148380082, i64 2148380119, i64 2148380142, i64 2148380012}
+!33 = !{i64 2148381310, i64 2148381349, i64 2148381370, i64 2148381407, i64 2148381430, i64 2148381300}
+!34 = !{i64 2148736380, i64 2148736419, i64 2148736440, i64 2148736477, i64 2148736500, i64 2148736370}
+!35 = !{i64 2155049622}
+!36 = distinct !{!36, !8, !9, !10}
+!37 = distinct !{!37, !8, !9, !10}
+!38 = !{i64 2155131948}
+!39 = distinct !{!39, !8, !9, !10}
+!40 = distinct !{!40, !8, !9, !10}
+!41 = distinct !{!41, !8, !9, !10}

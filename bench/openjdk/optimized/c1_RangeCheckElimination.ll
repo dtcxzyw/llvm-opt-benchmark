@@ -611,7 +611,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_f
   %21 = load i32, ptr %11, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %15, label %._crit_edge25, !llvm.loop !8
+  br i1 %23, label %15, label %._crit_edge25, !llvm.loop !9
 
 ._crit_edge25:                                    ; preds = %15, %._crit_edge
   %.1.lcssa = phi i1 [ %.017.lcssa, %._crit_edge ], [ %20, %15 ]
@@ -755,7 +755,7 @@ _ZN13GrowableArrayIP13AccessIndexedE8allocateEv.exit.i: ; preds = %47
   store ptr %69, ptr %67, align 8
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i69, %58
-  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i67, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i67, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE9expand_toEi.exit: ; preds = %.lr.ph19.preheader.i, %.preheader16.i
   store ptr %56, ptr %27, align 8
@@ -780,7 +780,7 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
 77:                                               ; preds = %78
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %78, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit, label %78, !llvm.loop !11
 
 78:                                               ; preds = %77, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
@@ -836,7 +836,7 @@ _ZN13GrowableArrayIP11InstructionE8allocateEv.exit.i: ; preds = %.loopexit
   store ptr %102, ptr %100, align 8
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next.i83, %91
-  br i1 %exitcond144.not, label %.preheader16.i72, label %.lr.ph.i81, !llvm.loop !11
+  br i1 %exitcond144.not, label %.preheader16.i72, label %.lr.ph.i81, !llvm.loop !12
 
 _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE9expand_toEi.exit: ; preds = %.lr.ph19.preheader.i77, %.preheader16.i72
   store ptr %90, ptr %23, align 8
@@ -1059,7 +1059,7 @@ _ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9Co
   %223 = getelementptr inbounds nuw i8, ptr %.037138, i64 32
   %224 = load ptr, ptr %223, align 8
   %.not45 = icmp eq ptr %224, null
-  br i1 %.not45, label %._crit_edge, label %31, !llvm.loop !12
+  br i1 %.not45, label %._crit_edge, label %31, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit57
   call void @_ZN20RangeCheckEliminator15in_block_motionEP10BlockBeginR13GrowableArrayIP13AccessIndexedERS2_IP11InstructionE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nonnull poison, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -1128,7 +1128,7 @@ _ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9Co
   %257 = load i32, ptr %225, align 4
   %258 = sext i32 %257 to i64
   %259 = icmp slt i64 %indvars.iv.next, %258
-  br i1 %259, label %235, label %.preheader, !llvm.loop !13
+  br i1 %259, label %235, label %.preheader, !llvm.loop !14
 
 260:                                              ; preds = %.lr.ph143, %260
   %indvars.iv147 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next148, %260 ]
@@ -1146,7 +1146,7 @@ _ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9Co
   %270 = load i32, ptr %4, align 8
   %271 = sext i32 %270 to i64
   %272 = icmp slt i64 %indvars.iv.next148, %271
-  br i1 %272, label %260, label %_ZN13GrowableArrayIP11InstructionED2Ev.exit, !llvm.loop !14
+  br i1 %272, label %260, label %_ZN13GrowableArrayIP11InstructionED2Ev.exit, !llvm.loop !15
 
 _ZN13GrowableArrayIP11InstructionED2Ev.exit:      ; preds = %260, %.preheader
   %273 = load i64, ptr %10, align 8
@@ -1706,7 +1706,7 @@ _ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit:  ; preds = %168, %169
   %.1 = phi i1 [ %.057101, %20 ], [ %.057101, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.057101, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ false, %56 ], [ false, %66 ], [ %.057101, %68 ]
   %172 = add nuw nsw i32 %.06297, 1
   %exitcond.not = icmp eq i32 %172, %16
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %171
   %.not80 = icmp eq ptr %.2, null
@@ -3168,7 +3168,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator14loop_invariantEP10B
 6:                                                ; preds = %5
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %.0, %7
-  br i1 %8, label %.loopexit, label %5, !llvm.loop !16
+  br i1 %8, label %.loopexit, label %5, !llvm.loop !17
 
 .loopexit:                                        ; preds = %5, %6, %3
   %.07 = phi i1 [ true, %3 ], [ %.not9.not.not, %6 ], [ %.not9.not.not, %5 ]
@@ -3605,7 +3605,7 @@ _ZN13GrowableArrayIP13AccessIndexedE8allocateEv.exit.i: ; preds = %56
   store ptr %78, ptr %76, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %67
-  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.lr.ph19.preheader.i, %.preheader16.i, %56
   %.sroa.10.2 = phi i32 [ %.sroa.10.0315, %56 ], [ %.0.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i, %.lr.ph19.preheader.i ]
@@ -3712,7 +3712,7 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
   %135 = load ptr, ptr %134, align 8
   %136 = call noundef ptr %135(ptr noundef nonnull align 8 dereferenceable(96) %.0148291) #13
   %.not183 = icmp eq ptr %136, null
-  br i1 %.not183, label %.critedge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not183, label %.critedge, label %.lr.ph, !llvm.loop !18
 
 .critedge:                                        ; preds = %113, %132, %93, %110, %100, %82
   %.0142.lcssa = phi ptr [ %36, %82 ], [ %.0142298, %100 ], [ %.0142298, %110 ], [ %.0142298, %93 ], [ %.1143, %132 ], [ %.0142298, %113 ]
@@ -3729,7 +3729,7 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
   %138 = load i32, ptr %2, align 8
   %139 = sext i32 %138 to i64
   %140 = icmp slt i64 %indvars.iv.next, %139
-  br i1 %140, label %.lr.ph319, label %._crit_edge, !llvm.loop !18
+  br i1 %140, label %.lr.ph319, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %137, %18
   %.sroa.0.0.lcssa = phi i32 [ 0, %18 ], [ %.sroa.0.1, %137 ]
@@ -4886,14 +4886,14 @@ _ZN20RangeCheckEliminator9predicateEP11InstructionNS0_9ConditionES1_P10ValueStac
   %803 = load i32, ptr %802, align 4
   %804 = sext i32 %803 to i64
   %805 = icmp slt i64 %indvars.iv.next340, %804
-  br i1 %805, label %.lr.ph324, label %.loopexit, !llvm.loop !19
+  br i1 %805, label %.lr.ph324, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph324, %_ZN20RangeCheckEliminator9predicateEP11InstructionNS0_9ConditionES1_P10ValueStackS1_i.exit240, %162
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %806 = load i32, ptr %5, align 8
   %807 = sext i32 %806 to i64
   %808 = icmp slt i64 %indvars.iv.next343, %807
-  br i1 %808, label %.lr.ph326, label %._crit_edge327, !llvm.loop !20
+  br i1 %808, label %.lr.ph326, label %._crit_edge327, !llvm.loop !21
 
 ._crit_edge327:                                   ; preds = %.loopexit, %.preheader
   %809 = icmp sgt i32 %.sroa.0.0.lcssa, 1
@@ -5203,7 +5203,7 @@ _ZN10ValueStack4copyEv.exit228:                   ; preds = %_ZN22CompilationRes
   store ptr null, ptr %987, align 8
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count
-  br i1 %exitcond348.not, label %.loopexit294, label %.lr.ph330, !llvm.loop !21
+  br i1 %exitcond348.not, label %.loopexit294, label %.lr.ph330, !llvm.loop !22
 
 .loopexit294:                                     ; preds = %.lr.ph330, %._crit_edge327, %._crit_edge
   %988 = load i32, ptr %5, align 8
@@ -5225,7 +5225,7 @@ _ZN10ValueStack4copyEv.exit228:                   ; preds = %_ZN22CompilationRes
   %998 = load i32, ptr %5, align 8
   %999 = sext i32 %998 to i64
   %1000 = icmp slt i64 %indvars.iv.next350, %999
-  br i1 %1000, label %.lr.ph333, label %_ZN13GrowableArrayIP13AccessIndexedED2Ev.exit, !llvm.loop !22
+  br i1 %1000, label %.lr.ph333, label %_ZN13GrowableArrayIP13AccessIndexedED2Ev.exit, !llvm.loop !23
 
 _ZN13GrowableArrayIP13AccessIndexedED2Ev.exit:    ; preds = %.lr.ph333, %.loopexit294
   store i32 0, ptr %5, align 8
@@ -5233,7 +5233,7 @@ _ZN13GrowableArrayIP13AccessIndexedED2Ev.exit:    ; preds = %.lr.ph333, %.loopex
   %1001 = load i32, ptr %3, align 8
   %1002 = sext i32 %1001 to i64
   %1003 = icmp slt i64 %indvars.iv.next353, %1002
-  br i1 %1003, label %18, label %._crit_edge337, !llvm.loop !23
+  br i1 %1003, label %18, label %._crit_edge337, !llvm.loop !24
 
 ._crit_edge337:                                   ; preds = %_ZN13GrowableArrayIP13AccessIndexedED2Ev.exit
   %.pre363 = load i64, ptr %9, align 8
@@ -8028,7 +8028,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !24
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !25
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8044,7 +8044,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !25
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !26
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -8128,7 +8128,7 @@ _ZN13GrowableArrayIPN20RangeCheckEliminator5BoundEE8allocateEv.exit: ; preds = %
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !26
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !27
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8144,7 +8144,7 @@ _ZN13GrowableArrayIPN20RangeCheckEliminator5BoundEE8allocateEv.exit: ; preds = %
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !27
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !28
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -8225,7 +8225,7 @@ _ZN13GrowableArrayIP11InstructionE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !11
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !12
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8241,7 +8241,7 @@ _ZN13GrowableArrayIP11InstructionE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !28
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !29
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -8322,7 +8322,7 @@ _ZN13GrowableArrayIP13AccessIndexedE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !9
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !10
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8338,7 +8338,7 @@ _ZN13GrowableArrayIP13AccessIndexedE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !29
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !30
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -8391,27 +8391,28 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}

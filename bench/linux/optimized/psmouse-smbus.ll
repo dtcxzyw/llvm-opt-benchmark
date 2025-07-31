@@ -217,7 +217,7 @@ define internal noundef i32 @psmouse_smbus_process_byte(ptr readnone captures(no
 define internal noundef i32 @psmouse_smbus_reconnect(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 113
-  %4 = load i8, ptr %3, align 1, !range !8, !noundef !9
+  %4 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %8, label %6
 
@@ -234,7 +234,7 @@ define internal void @psmouse_smbus_disconnect(ptr noundef captures(none) %0) #0
   %2 = load ptr, ptr %0, align 8
   tail call void @mutex_lock(ptr noundef nonnull @psmouse_smbus_mutex) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
+  %4 = load i8, ptr %3, align 8, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %12, label %6
 
@@ -440,7 +440,7 @@ define internal noundef i32 @psmouse_smbus_notifier_call(ptr readnone captures(n
 .preheader:                                       ; preds = %17, %33
   %20 = phi ptr [ %34, %33 ], [ %18, %17 ]
   %21 = getelementptr i8, ptr %20, i64 16
-  %22 = load i8, ptr %21, align 8, !range !8, !noundef !9
+  %22 = load i8, ptr %21, align 8, !range !9, !noundef !10
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %33
 
@@ -461,7 +461,7 @@ define internal noundef i32 @psmouse_smbus_notifier_call(ptr readnone captures(n
 33:                                               ; preds = %28, %24, %.preheader
   %34 = load ptr, ptr %20, align 8
   %35 = icmp eq ptr %34, @psmouse_smbus_list
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !11
 
 36:                                               ; preds = %3
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -494,7 +494,7 @@ define internal noundef i32 @psmouse_smbus_notifier_call(ptr readnone captures(n
   tail call void @kfree(ptr noundef %54) #9
   store ptr null, ptr %45, align 8
   %55 = getelementptr i8, ptr %47, i64 16
-  %56 = load i8, ptr %55, align 8, !range !8, !noundef !9
+  %56 = load i8, ptr %55, align 8, !range !9, !noundef !10
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %58, label %69
 
@@ -528,7 +528,7 @@ define internal noundef i32 @psmouse_smbus_notifier_call(ptr readnone captures(n
 
 74:                                               ; preds = %69, %58, %46
   %75 = icmp eq ptr %49, @psmouse_smbus_list
-  br i1 %75, label %.loopexit, label %46, !llvm.loop !11
+  br i1 %75, label %.loopexit, label %46, !llvm.loop !12
 
 .loopexit:                                        ; preds = %74, %33, %40, %17
   tail call void @mutex_unlock(ptr noundef nonnull @psmouse_smbus_mutex) #9
@@ -562,10 +562,11 @@ attributes #12 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}

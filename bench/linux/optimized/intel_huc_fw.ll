@@ -158,7 +158,7 @@ define dso_local i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) local_unnamed_
 .thread8:                                         ; preds = %58, %84, %75, %75, %71, %51
   %88 = phi i32 [ %43, %51 ], [ -71, %71 ], [ -5, %84 ], [ 0, %75 ], [ 0, %75 ], [ -16, %58 ]
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 672
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %89, ptr nonnull elementtype(i32) %89) #4, !srcloc !8
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %89, ptr nonnull elementtype(i32) %89) #4, !srcloc !9
   br label %90
 
 90:                                               ; preds = %.thread8, %19, %1
@@ -187,7 +187,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
+  %5 = load i8, ptr %4, align 8, !range !10, !noundef !11
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %18
 
@@ -384,7 +384,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   %130 = getelementptr i8, ptr %1, i64 %127
   %131 = sub nuw i64 %2, %127
   %132 = icmp ult i64 %131, 128
-  br i1 %132, label %141, label %133, !prof !11
+  br i1 %132, label %141, label %133, !prof !12
 
 133:                                              ; preds = %129
   %134 = load i32, ptr %130, align 1
@@ -406,7 +406,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   %143 = getelementptr i8, ptr %111, i64 24
   %144 = load i32, ptr %86, align 1
   %145 = icmp ult i32 %142, %144
-  br i1 %145, label %109, label %.loopexit, !llvm.loop !12
+  br i1 %145, label %109, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %141, %103, %99, %79, %60, %41, %27, %14
   %146 = phi i32 [ -61, %27 ], [ -22, %41 ], [ -22, %60 ], [ -22, %79 ], [ -61, %99 ], [ -22, %14 ], [ 0, %103 ], [ 0, %141 ]
@@ -422,7 +422,7 @@ declare dso_local void @intel_uc_fw_version_from_gsc_manifest(ptr noundef, ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_huc_fw_load_and_auth_via_gsc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
+  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %21, label %5
 
@@ -471,7 +471,7 @@ declare dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef, i32 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_huc_fw_upload(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
+  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %7
 
@@ -501,11 +501,12 @@ attributes #5 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i64 2148318100, i64 2148318139, i64 2148318160, i64 2148318197, i64 2148318220, i64 2148318090}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = !{!"branch_weights", i32 1, i32 2000}
-!12 = distinct !{!12, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2148318100, i64 2148318139, i64 2148318160, i64 2148318197, i64 2148318220, i64 2148318090}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = distinct !{!13, !6, !7, !8}

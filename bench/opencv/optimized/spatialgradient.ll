@@ -561,7 +561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219: ; preds = %_Z
 
 258:                                              ; preds = %230, %._crit_edge
   %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count270
-  br i1 %exitcond271.not, label %._crit_edge264, label %147, !llvm.loop !45
+  br i1 %exitcond271.not, label %._crit_edge264, label %147, !llvm.loop !46
 
 ._crit_edge264:                                   ; preds = %258, %127
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #12
@@ -571,7 +571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219: ; preds = %_Z
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #12
   %259 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %260 = load i32, ptr %259, align 8, !tbaa !46
+  %260 = load i32, ptr %259, align 8, !tbaa !47
   %.not.i = icmp eq i32 %260, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %261
 
@@ -640,7 +640,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !46
+  %3 = load i32, ptr %2, align 8, !tbaa !47
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -754,9 +754,10 @@ attributes #15 = { noreturn nounwind }
 !40 = !{!6, !6, i64 0}
 !41 = !{!42, !42, i64 0}
 !42 = !{!"short", !6, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = distinct !{!45, !44}
-!46 = !{!47, !5, i64 8}
-!47 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !48, i64 0, !5, i64 8}
-!48 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !8, i64 0}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = distinct !{!46, !44, !45}
+!47 = !{!48, !5, i64 8}
+!48 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !49, i64 0, !5, i64 8}
+!49 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !8, i64 0}

@@ -143,7 +143,7 @@ patternMatch.exit.thread.i:                       ; preds = %patternMatch.exit.i
 .loopexit:                                        ; preds = %patternMatch.exit.thread.i, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %searchOneSourceName.exit, label %.lr.ph.split, !llvm.loop !8
+  br i1 %exitcond.not, label %searchOneSourceName.exit, label %.lr.ph.split, !llvm.loop !9
 
 searchOneSourceName.exit:                         ; preds = %.loopexit, %patternMatch.exit.i, %.lr.ph, %.preheader, %3
   %.06 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ 0, %.lr.ph ], [ 1, %patternMatch.exit.i ], [ 0, %.loopexit ]
@@ -443,7 +443,7 @@ sdePeek.exit.i.i.i:                               ; preds = %116
 fileLine.exit.i.i:                                ; preds = %132, %129
   %.0.i.i.i = phi ptr [ %133, %132 ], [ null, %129 ]
   call fastcc void @storeFile(i32 noundef %130, ptr noundef %131, ptr noundef %.0.i.i.i)
-  br label %116, !llvm.loop !9
+  br label %116, !llvm.loop !10
 
 134:                                              ; preds = %sdeRead.exit9.i
   call fastcc void @ignoreLine()
@@ -602,7 +602,7 @@ lineLine.exit.i.i:                                ; preds = %203, %192
   %210 = add i32 %209, %.0.i.i10.i
   %211 = load i32, ptr @currentFileId, align 4
   call fastcc void @storeLine(i32 noundef %193, i32 noundef %208, i32 noundef %.08.i.i.i, i32 noundef %146, i32 noundef %210, i32 noundef %211)
-  br label %135, !llvm.loop !10
+  br label %135, !llvm.loop !11
 
 212:                                              ; preds = %sdeRead.exit9.i
   call fastcc void @storeStratum(ptr noundef nonnull @.str.4)
@@ -616,7 +616,7 @@ lineLine.exit.i.i:                                ; preds = %203, %192
   switch i8 %214, label %.preheader.i [
     i8 0, label %215
     i8 42, label %fileSection.exit.i
-  ], !llvm.loop !11
+  ], !llvm.loop !12
 
 215:                                              ; preds = %.preheader.i
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3)
@@ -634,7 +634,7 @@ fileSection.exit.i:                               ; preds = %135, %116, %.prehea
   %222 = phi i8 [ %.pre100.i, %113 ], [ %214, %.preheader.i ], [ %118, %116 ], [ %137, %135 ]
   %223 = phi ptr [ %.pre.i, %113 ], [ %213, %.preheader.i ], [ %117, %116 ], [ %136, %135 ]
   %224 = icmp eq i8 %222, 0
-  br i1 %224, label %._crit_edge.i, label %sdeRead.exit8.i
+  br i1 %224, label %._crit_edge.i, label %sdeRead.exit8.i, !llvm.loop !13
 
 decode.exit:                                      ; preds = %212, %sdeRead.exit7.i, %sdeRead.exit6.i, %sdeRead.exit5.i, %sdeRead.exit.i, %33, %29, %26
   store ptr null, ptr @cachedClass, align 8
@@ -729,7 +729,7 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %35, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %stiLineTableIndex.exit.thread, label %38, !llvm.loop !12
+  br i1 %exitcond.not.i, label %stiLineTableIndex.exit.thread, label %38, !llvm.loop !14
 
 stiLineTableIndex.exit:                           ; preds = %41
   %45 = icmp sgt i64 %indvars.iv.i, -1
@@ -766,7 +766,7 @@ stiLineTableIndex.exit.thread:                    ; preds = %44, %.lr.ph.split, 
   %.1 = phi ptr [ %64, %61 ], [ %.03144, %46 ], [ %.03144, %stiLineTableIndex.exit ], [ %.03144, %.lr.ph.split ], [ %.03144, %44 ]
   %65 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   %66 = icmp sgt i32 %.in, 1
-  br i1 %66, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %66, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %stiLineTableIndex.exit.thread, %.lr.ph, %21
   %.031.lcssa = phi ptr [ %5, %21 ], [ %5, %.lr.ph ], [ %.1, %stiLineTableIndex.exit.thread ]
@@ -827,7 +827,7 @@ common.ret:                                       ; preds = %.loopexit.loopexit,
 19:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %19, %.preheader
   %20 = load i32, ptr @defaultStratumIndex, align 4
@@ -905,7 +905,7 @@ sdeRead.exit:                                     ; preds = %4
   switch i8 %6, label %4 [
     i8 13, label %16
     i8 10, label %.loopexit
-  ]
+  ], !llvm.loop !18
 
 16:                                               ; preds = %sdeRead.exit
   %17 = load i8, ptr %15, align 1
@@ -958,7 +958,7 @@ sdeRead.exit:                                     ; preds = %4
 
 36:                                               ; preds = %.loopexit, %.loopexit
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  br label %.loopexit.sink.split, !llvm.loop !16
+  br label %.loopexit.sink.split, !llvm.loop !19
 
 ignoreWhite.exit:                                 ; preds = %.loopexit
   ret void
@@ -996,7 +996,7 @@ define internal fastcc noundef ptr @readLine() unnamed_addr #0 {
 14:                                               ; preds = %4, %4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %15, ptr @sdePos, align 8
-  br label %4, !llvm.loop !16
+  br label %4, !llvm.loop !19
 
 ignoreWhite.exit:                                 ; preds = %4, %25
   %16 = phi i8 [ %.pre, %25 ], [ %6, %4 ]
@@ -1023,7 +1023,7 @@ ignoreWhite.exit:                                 ; preds = %4, %25
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %26, ptr @sdePos, align 8
   %.pre = load i8, ptr %26, align 1
-  br label %ignoreWhite.exit, !llvm.loop !17
+  br label %ignoreWhite.exit, !llvm.loop !20
 
 27:                                               ; preds = %ignoreWhite.exit, %ignoreWhite.exit
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 1
@@ -1069,7 +1069,7 @@ ignoreWhite.exit:                                 ; preds = %4, %25
 
 45:                                               ; preds = %35, %35
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  br label %.sink.split, !llvm.loop !16
+  br label %.sink.split, !llvm.loop !19
 
 ignoreWhite.exit4:                                ; preds = %35
   ret ptr %5
@@ -1345,7 +1345,7 @@ define internal fastcc i32 @readNumber() unnamed_addr #0 {
 13:                                               ; preds = %4, %4
   %14 = getelementptr inbounds nuw i8, ptr %sdePos.promoted, i64 1
   store ptr %14, ptr @sdePos, align 8
-  br label %4, !llvm.loop !16
+  br label %4, !llvm.loop !19
 
 ignoreWhite.exit._crit_edge:                      ; preds = %ignoreWhite.exit
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2)
@@ -1376,7 +1376,7 @@ ignoreWhite.exit:                                 ; preds = %sdePeek.exit
   %29 = add i32 %28, %25
   %30 = load i8, ptr %26, align 1
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %ignoreWhite.exit._crit_edge, label %sdePeek.exit, !llvm.loop !18
+  br i1 %31, label %ignoreWhite.exit._crit_edge, label %sdePeek.exit, !llvm.loop !21
 
 .preheader:                                       ; preds = %sdePeek.exit, %41
   %32 = phi i8 [ %.pre, %41 ], [ %21, %sdePeek.exit ]
@@ -1403,7 +1403,7 @@ ignoreWhite.exit:                                 ; preds = %sdePeek.exit
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %42, ptr @sdePos, align 8
   %.pre = load i8, ptr %42, align 1
-  br label %.preheader, !llvm.loop !16
+  br label %.preheader, !llvm.loop !19
 
 ignoreWhite.exit6:                                ; preds = %.preheader
   ret i32 %.012
@@ -1441,16 +1441,19 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8, !16}
+!16 = !{!"llvm.loop.unswitch.partial.disable"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

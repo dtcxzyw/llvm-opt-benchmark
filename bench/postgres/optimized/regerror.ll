@@ -98,7 +98,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef readnone captures(
   %22 = icmp eq i32 %20, %18
   %or.cond = select i1 %21, i1 true, i1 %22
   %23 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  br i1 %or.cond, label %24, label %19, !llvm.loop !6
+  br i1 %or.cond, label %24, label %19, !llvm.loop !7
 
 24:                                               ; preds = %19
   %25 = icmp sgt i32 %20, -1
@@ -120,7 +120,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef readnone captures(
   %33 = icmp eq i32 %31, %0
   %or.cond36 = or i1 %32, %33
   %34 = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  br i1 %or.cond36, label %35, label %.preheader, !llvm.loop !7
+  br i1 %or.cond36, label %35, label %.preheader, !llvm.loop !8
 
 35:                                               ; preds = %.preheader
   %36 = icmp sgt i32 %31, -1
@@ -201,7 +201,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

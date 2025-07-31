@@ -368,7 +368,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
   %.1.i.i = phi i32 [ %.058.i.i, %148 ], [ 1, %.lr.ph.i.i ]
   %151 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %4) #11
   %.not.i.i = icmp eq ptr %151, null
-  br i1 %.not.i.i, label %_parse_cond_flags.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %_parse_cond_flags.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 _parse_cond_flags.exit.i:                         ; preds = %150, %142
   %.05.lcssa.i.i = phi i32 [ 0, %142 ], [ %.1.i.i, %150 ]
@@ -570,13 +570,13 @@ _addto_state_char_list.exit.i:                    ; preds = %219, %.thread250.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge263.i, label %.outer.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge263.i, label %.outer.i, !llvm.loop !13
 
 .thread276.i:                                     ; preds = %82
   %indvars.iv.next280.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv281.i = trunc i64 %indvars.iv.next280.i to i32
   %exitcond.not282.i = icmp eq i32 %0, %lftr.wideiv281.i
-  br i1 %exitcond.not282.i, label %._crit_edge263.thread286.i, label %66, !llvm.loop !12
+  br i1 %exitcond.not282.i, label %._crit_edge263.thread286.i, label %66, !llvm.loop !13
 
 ._crit_edge263.thread286.i:                       ; preds = %.thread276.i
   %251 = icmp eq i32 %.0174259.ph.i, 0
@@ -656,7 +656,7 @@ _set_cond.exit:                                   ; preds = %._crit_edge263.thre
   %.4 = phi i32 [ %.3, %.sink.split.i ], [ %.3, %263 ], [ %.3, %261 ], [ %0, %._crit_edge263.thread286.i ], [ %.1169, %256 ], [ %.2170, %260 ]
   %275 = add nsw i32 %.4, 1
   %276 = icmp slt i32 %275, %0
-  br i1 %276, label %42, label %._crit_edge, !llvm.loop !13
+  br i1 %276, label %42, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %.thread217, %26
   %277 = phi ptr [ %25, %.thread217 ], [ %27, %26 ], [ %27, %_set_cond.exit ]
@@ -967,7 +967,7 @@ _set_cond.exit:                                   ; preds = %._crit_edge263.thre
   %430 = add nuw nsw i32 %.0133193, 1
   %431 = call ptr @list_next(ptr noundef %306) #11
   %.not156 = icmp eq ptr %431, null
-  br i1 %.not156, label %._crit_edge197, label %321, !llvm.loop !14
+  br i1 %.not156, label %._crit_edge197, label %321, !llvm.loop !15
 
 ._crit_edge197:                                   ; preds = %429, %.lr.ph200
   call void @list_iterator_reset(ptr noundef %306) #11
@@ -977,7 +977,7 @@ _set_cond.exit:                                   ; preds = %._crit_edge263.thre
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #11
   %432 = call ptr @list_next(ptr noundef %305) #11
   %.not154 = icmp eq ptr %432, null
-  br i1 %.not154, label %._crit_edge201, label %.lr.ph200, !llvm.loop !15
+  br i1 %.not154, label %._crit_edge201, label %.lr.ph200, !llvm.loop !16
 
 ._crit_edge201:                                   ; preds = %._crit_edge197, %304
   call void @list_iterator_destroy(ptr noundef %306) #11
@@ -1126,7 +1126,7 @@ define internal range(i32 0, 2) i32 @_addto_state_char_list_internal(ptr noundef
 21:                                               ; preds = %.preheader.i
   %22 = add nuw nsw i32 %.033.i, 1
   %exitcond.i = icmp eq i32 %22, 7
-  br i1 %exitcond.i, label %23, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond.i, label %23, label %.preheader.i, !llvm.loop !17
 
 23:                                               ; preds = %21
   store i32 1, ptr @exit_code, align 4
@@ -1145,7 +1145,7 @@ define internal range(i32 0, 2) i32 @_addto_state_char_list_internal(ptr noundef
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.42, ptr noundef %32) #12
   %34 = add nuw nsw i32 %.134.i, 1
   %exitcond36.not.i = icmp eq i32 %34, 7
-  br i1 %exitcond36.not.i, label %35, label %30, !llvm.loop !17
+  br i1 %exitcond36.not.i, label %35, label %30, !llvm.loop !18
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr @stderr, align 8
@@ -1227,13 +1227,14 @@ attributes #16 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}

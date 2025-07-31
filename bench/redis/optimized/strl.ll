@@ -64,7 +64,7 @@ define dso_local i64 @redis_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef 
   %6 = add i64 %.in, -1
   %7 = getelementptr inbounds nuw i8, ptr %.02432, i64 1
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %5, %3
   %.024.lcssa = phi ptr [ %0, %3 ], [ %scevgep, %5 ], [ %.02432, %.lr.ph ]
@@ -108,7 +108,7 @@ define dso_local i64 @redis_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef 
   %22 = getelementptr inbounds nuw i8, ptr %.02736, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !5
   %.not29 = icmp eq i8 %23, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph39, !llvm.loop !11
+  br i1 %.not29, label %._crit_edge, label %.lr.ph39, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %.027.lcssa = phi ptr [ %1, %.preheader ], [ %22, %21 ]
@@ -142,7 +142,8 @@ attributes #2 = { nounwind willreturn memory(read) }
 !5 = !{!6, !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

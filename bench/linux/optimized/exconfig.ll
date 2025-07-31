@@ -436,7 +436,7 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nounde
 
 97:                                               ; preds = %91
   %98 = load i32, ptr %8, align 4
-  %99 = call fastcc i32 @acpi_ex_add_table(i32 noundef %98, ptr noundef nonnull %7), !range !10
+  %99 = call fastcc i32 @acpi_ex_add_table(i32 noundef %98, ptr noundef nonnull %7), !range !11
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %104
 
@@ -501,7 +501,7 @@ define internal fastcc i32 @acpi_ex_region_read(ptr noundef %0, i32 noundef rang
   %13 = getelementptr i8, ptr %7, i64 1
   %14 = add nuw i32 %6, 1
   %15 = icmp eq i32 %14, %1
-  br i1 %15, label %16, label %5, !llvm.loop !7
+  br i1 %15, label %16, label %5, !llvm.loop !12
 
 16:                                               ; preds = %10, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
@@ -558,7 +558,9 @@ attributes #9 = { nounwind allocsize(0) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i64 1812770, i64 1812791}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{i32 0, i32 5}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i32 0, i32 5}
+!12 = distinct !{!12, !8, !9, !10}

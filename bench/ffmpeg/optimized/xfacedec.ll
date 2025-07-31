@@ -132,7 +132,7 @@ define internal i32 @xface_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 1568
   call fastcc void @decode_block(ptr noundef %5, ptr noundef nonnull %39, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   call void @ff_xface_generate_face(ptr noundef nonnull %7, ptr noundef nonnull %7) #5
-  %40 = load ptr, ptr %1, align 8, !tbaa !36
+  %40 = load ptr, ptr %1, align 8, !tbaa !37
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %42
 
@@ -162,7 +162,7 @@ define internal i32 @xface_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %49
-  %55 = load i32, ptr %41, align 8, !tbaa !37
+  %55 = load i32, ptr %41, align 8, !tbaa !38
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %.04875, i64 %56
   br label %58
@@ -174,10 +174,10 @@ define internal i32 @xface_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %.1 = phi ptr [ %57, %54 ], [ %.04875, %49 ], [ %.04875, %.thread ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, 2304
-  br i1 %exitcond.not, label %59, label %42, !llvm.loop !38
+  br i1 %exitcond.not, label %59, label %42, !llvm.loop !39
 
 59:                                               ; preds = %58
-  store i32 1, ptr %2, align 4, !tbaa !37
+  store i32 1, ptr %2, align 4, !tbaa !38
   %60 = load i32, ptr %10, align 8, !tbaa !30
   br label %61
 
@@ -216,13 +216,13 @@ define internal fastcc void @decode_block(ptr noundef nonnull %0, ptr noundef %1
   %.010.i = phi ptr [ %8, %5 ], [ %20, %.critedge.i ]
   %.0.i = phi i32 [ 0, %5 ], [ %21, %.critedge.i ]
   %12 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !39
+  %13 = load i8, ptr %12, align 1, !tbaa !40
   %14 = icmp ult i8 %9, %13
   br i1 %14, label %.critedge.i, label %15
 
 15:                                               ; preds = %11
   %16 = zext i8 %13 to i32
-  %17 = load i8, ptr %.010.i, align 1, !tbaa !41
+  %17 = load i8, ptr %.010.i, align 1, !tbaa !42
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %18, %16
   %.not.i = icmp samesign ugt i32 %19, %10
@@ -231,7 +231,7 @@ define internal fastcc void @decode_block(ptr noundef nonnull %0, ptr noundef %1
 .critedge.i:                                      ; preds = %15, %11
   %20 = getelementptr inbounds nuw i8, ptr %.010.i, i64 2
   %21 = add nuw nsw i32 %.0.i, 1
-  br label %11, !llvm.loop !42
+  br label %11, !llvm.loop !43
 
 pop_integer.exit:                                 ; preds = %15
   call void @ff_big_mul(ptr noundef nonnull %0, i8 noundef zeroext %17) #5
@@ -309,13 +309,13 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
   %.010.i = phi ptr [ @ff_xface_probranges_2x2, %tailrecurse._crit_edge ], [ %27, %.critedge.i ]
   %.0.i = phi i32 [ 0, %tailrecurse._crit_edge ], [ %28, %.critedge.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !39
+  %20 = load i8, ptr %19, align 1, !tbaa !40
   %21 = icmp ult i8 %16, %20
   br i1 %21, label %.critedge.i, label %22
 
 22:                                               ; preds = %18
   %23 = zext i8 %20 to i32
-  %24 = load i8, ptr %.010.i, align 1, !tbaa !41
+  %24 = load i8, ptr %.010.i, align 1, !tbaa !42
   %25 = zext i8 %24 to i32
   %26 = add nuw nsw i32 %25, %23
   %.not.i = icmp samesign ugt i32 %26, %17
@@ -324,7 +324,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
 .critedge.i:                                      ; preds = %22, %18
   %27 = getelementptr inbounds nuw i8, ptr %.010.i, i64 2
   %28 = add nuw nsw i32 %.0.i, 1
-  br label %18, !llvm.loop !42
+  br label %18, !llvm.loop !43
 
 pop_integer.exit:                                 ; preds = %22
   call void @ff_big_mul(ptr noundef nonnull %0, i8 noundef zeroext %24) #5
@@ -419,12 +419,13 @@ attributes #5 = { nounwind }
 !31 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !32 = !{!31, !14, i64 24}
 !33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!14, !14, i64 0}
-!37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !35}
-!39 = !{!40, !8, i64 1}
-!40 = !{!"", !8, i64 0, !8, i64 1}
-!41 = !{!40, !8, i64 0}
-!42 = distinct !{!42, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!14, !14, i64 0}
+!38 = !{!10, !10, i64 0}
+!39 = distinct !{!39, !35, !36}
+!40 = !{!41, !8, i64 1}
+!41 = !{!"", !8, i64 0, !8, i64 1}
+!42 = !{!41, !8, i64 0}
+!43 = distinct !{!43, !35, !36}

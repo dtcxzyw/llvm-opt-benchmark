@@ -184,7 +184,7 @@ ff_srtp_free.exit:                                ; preds = %3, %21
 67:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
   %68 = add i16 %.01519.i.i, 1
-  br i1 %65, label %55, label %derive_key.exit, !llvm.loop !18
+  br i1 %65, label %55, label %derive_key.exit, !llvm.loop !19
 
 derive_key.exit:                                  ; preds = %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #9
@@ -230,7 +230,7 @@ derive_key.exit:                                  ; preds = %67
 87:                                               ; preds = %78
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #9
   %88 = add i16 %.01519.i.i46, 1
-  br i1 %85, label %75, label %derive_key.exit52, !llvm.loop !18
+  br i1 %85, label %75, label %derive_key.exit52, !llvm.loop !19
 
 derive_key.exit52:                                ; preds = %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #9
@@ -276,7 +276,7 @@ derive_key.exit52:                                ; preds = %87
 107:                                              ; preds = %98
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #9
   %108 = add i16 %.01519.i.i54, 1
-  br i1 %105, label %95, label %derive_key.exit60, !llvm.loop !18
+  br i1 %105, label %95, label %derive_key.exit60, !llvm.loop !19
 
 derive_key.exit60:                                ; preds = %107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #9
@@ -322,7 +322,7 @@ derive_key.exit60:                                ; preds = %107
 127:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
   %128 = add i16 %.01519.i.i62, 1
-  br i1 %125, label %115, label %derive_key.exit68, !llvm.loop !18
+  br i1 %125, label %115, label %derive_key.exit68, !llvm.loop !19
 
 derive_key.exit68:                                ; preds = %127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
@@ -368,7 +368,7 @@ derive_key.exit68:                                ; preds = %127
 147:                                              ; preds = %138
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
   %148 = add i16 %.01519.i.i70, 1
-  br i1 %145, label %135, label %derive_key.exit76, !llvm.loop !18
+  br i1 %145, label %135, label %derive_key.exit76, !llvm.loop !19
 
 derive_key.exit76:                                ; preds = %147
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
@@ -414,7 +414,7 @@ derive_key.exit76:                                ; preds = %147
 167:                                              ; preds = %158
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   %168 = add i16 %.01519.i.i78, 1
-  br i1 %165, label %155, label %derive_key.exit84, !llvm.loop !18
+  br i1 %165, label %155, label %derive_key.exit84, !llvm.loop !19
 
 derive_key.exit84:                                ; preds = %167
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
@@ -455,7 +455,7 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
   %6 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
-  %7 = load i32, ptr %2, align 4, !tbaa !19
+  %7 = load i32, ptr %2, align 4, !tbaa !20
   %8 = icmp slt i32 %7, 2
   br i1 %8, label %.critedge, label %9
 
@@ -470,7 +470,7 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
   %14 = or i1 %or.cond, %spec.select
   %.v147 = select i1 %14, i64 20, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.v147
-  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = icmp slt i32 %7, %16
   br i1 %17, label %.critedge, label %18
 
@@ -492,19 +492,19 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
   %28 = zext i16 %27 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %30 = load i32, ptr %29, align 8, !tbaa !20
+  %30 = load i32, ptr %29, align 8, !tbaa !21
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %34, label %31
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %33 = load i32, ptr %32, align 4, !tbaa !21
+  %33 = load i32, ptr %32, align 4, !tbaa !22
   br label %34
 
 34:                                               ; preds = %24, %31
   %35 = phi i32 [ %33, %31 ], [ %28, %24 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %37 = load i32, ptr %36, align 4, !tbaa !22
+  %37 = load i32, ptr %36, align 4, !tbaa !23
   %38 = icmp slt i32 %35, 32768
   br i1 %38, label %39, label %43
 
@@ -570,7 +570,7 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
   br label %.critedge
 
 69:                                               ; preds = %60
-  store i32 %23, ptr %2, align 4, !tbaa !19
+  store i32 %23, ptr %2, align 4, !tbaa !20
   %70 = icmp slt i32 %23, 12
   br i1 %70, label %.critedge, label %71
 
@@ -584,7 +584,7 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
   %76 = load i32, ptr %75, align 1, !tbaa !15
   %77 = call i32 @llvm.bswap.i32(i32 %76)
   %78 = add nsw i32 %23, -4
-  store i32 %78, ptr %2, align 4, !tbaa !19
+  store i32 %78, ptr %2, align 4, !tbaa !20
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %80 = load i32, ptr %79, align 1, !tbaa !15
   %81 = call i32 @llvm.bswap.i32(i32 %80)
@@ -597,11 +597,11 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
 
 86:                                               ; preds = %71
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 1, ptr %87, align 8, !tbaa !20
+  store i32 1, ptr %87, align 8, !tbaa !21
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %.0117, ptr %88, align 4, !tbaa !21
+  store i32 %.0117, ptr %88, align 4, !tbaa !22
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i32 %.0122, ptr %89, align 4, !tbaa !22
+  store i32 %.0122, ptr %89, align 4, !tbaa !23
   %90 = load i8, ptr %1, align 1, !tbaa !15
   %91 = zext i8 %90 to i32
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -697,7 +697,7 @@ define internal fastcc void @create_iv(ptr noundef nonnull captures(none) initia
   store i8 %13, ptr %gep, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %9, !llvm.loop !23
+  br i1 %exitcond.not, label %.preheader, label %9, !llvm.loop !24
 
 .preheader:                                       ; preds = %9, %.preheader
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.preheader ], [ 0, %9 ]
@@ -709,7 +709,7 @@ define internal fastcc void @create_iv(ptr noundef nonnull captures(none) initia
   store i8 %18, ptr %16, align 1, !tbaa !15
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, 14
-  br i1 %exitcond20.not, label %19, label %.preheader, !llvm.loop !24
+  br i1 %exitcond20.not, label %19, label %.preheader, !llvm.loop !25
 
 19:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
@@ -759,7 +759,7 @@ define internal fastcc void @encrypt_counter(ptr noundef %0, ptr noundef nonnull
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
   %23 = add i16 %.01519, 1
   %24 = icmp sgt i32 %3, %22
-  br i1 %24, label %9, label %._crit_edge, !llvm.loop !18
+  br i1 %24, label %9, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %21, %4
   ret void
@@ -792,7 +792,7 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !19
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = add nsw i32 %20, 4
   %22 = add nsw i32 %21, %2
   %23 = icmp sgt i32 %22, %4
@@ -800,14 +800,14 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
 
 .thread:                                          ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i32, ptr %24, align 4, !tbaa !19
+  %25 = load i32, ptr %24, align 4, !tbaa !20
   %26 = add nsw i32 %25, %2
   %27 = icmp sgt i32 %26, %4
   br i1 %27, label %.critedge, label %43
 
 .thread115:                                       ; preds = %12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %29 = load i32, ptr %28, align 4, !tbaa !19
+  %29 = load i32, ptr %28, align 4, !tbaa !20
   %30 = add nuw i32 %2, 4
   %31 = add i32 %30, %29
   %32 = icmp sgt i32 %31, %4
@@ -820,9 +820,9 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %36 = load i32, ptr %35, align 1, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %38 = load i32, ptr %37, align 8, !tbaa !25
+  %38 = load i32, ptr %37, align 8, !tbaa !26
   %39 = add i32 %38, 1
-  store i32 %39, ptr %37, align 8, !tbaa !25
+  store i32 %39, ptr %37, align 8, !tbaa !26
   %40 = zext i32 %38 to i64
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = add nsw i32 %2, -8
@@ -842,20 +842,20 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load i32, ptr %51, align 1, !tbaa !15
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %54 = load i32, ptr %53, align 4, !tbaa !21
+  %54 = load i32, ptr %53, align 4, !tbaa !22
   %55 = icmp sgt i32 %54, %48
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %57 = load i32, ptr %56, align 4, !tbaa !22
+  %57 = load i32, ptr %56, align 4, !tbaa !23
   br i1 %55, label %58, label %._crit_edge
 
 58:                                               ; preds = %50
   %59 = add i32 %57, 1
-  store i32 %59, ptr %56, align 4, !tbaa !22
+  store i32 %59, ptr %56, align 4, !tbaa !23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %50, %58
   %60 = phi i32 [ %59, %58 ], [ %57, %50 ]
-  store i32 %48, ptr %53, align 4, !tbaa !21
+  store i32 %48, ptr %53, align 4, !tbaa !22
   %61 = zext i16 %47 to i64
   %62 = zext i32 %60 to i64
   %63 = shl nuw nsw i64 %62, 16
@@ -925,7 +925,7 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   store i8 %100, ptr %gep.i, align 1, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %96, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %96, !llvm.loop !24
 
 .preheader.i.preheader:                           ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
@@ -941,7 +941,7 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   store i8 %106, ptr %104, align 1, !tbaa !15
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 14
-  br i1 %exitcond20.not.i, label %create_iv.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %create_iv.exit, label %.preheader.i, !llvm.loop !25
 
 create_iv.exit:                                   ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
@@ -989,7 +989,7 @@ create_iv.exit:                                   ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
   %127 = add i16 %.01519.i, 1
   %128 = icmp sgt i32 %.090, %126
-  br i1 %128, label %113, label %encrypt_counter.exit, !llvm.loop !18
+  br i1 %128, label %113, label %encrypt_counter.exit, !llvm.loop !19
 
 encrypt_counter.exit:                             ; preds = %125, %create_iv.exit
   br i1 %93, label %129, label %136
@@ -1024,7 +1024,7 @@ encrypt_counter.exit:                             ; preds = %125, %create_iv.exi
 147:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %149 = load i32, ptr %148, align 4, !tbaa !22
+  %149 = load i32, ptr %148, align 4, !tbaa !23
   %150 = call i32 @llvm.bswap.i32(i32 %149)
   store i32 %150, ptr %10, align 4, !tbaa !15
   %151 = load ptr, ptr %137, align 8, !tbaa !4
@@ -1099,13 +1099,14 @@ attributes #10 = { nounwind willreturn memory(read) }
 !13 = !{!5, !11, i64 16}
 !14 = !{!5, !6, i64 0}
 !15 = !{!8, !8, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!11, !11, i64 0}
-!20 = !{!5, !11, i64 160}
-!21 = !{!5, !11, i64 156}
-!22 = !{!5, !11, i64 164}
-!23 = distinct !{!23, !17}
-!24 = distinct !{!24, !17}
-!25 = !{!5, !11, i64 168}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!11, !11, i64 0}
+!21 = !{!5, !11, i64 160}
+!22 = !{!5, !11, i64 156}
+!23 = !{!5, !11, i64 164}
+!24 = distinct !{!24, !17, !18}
+!25 = distinct !{!25, !17, !18}
+!26 = !{!5, !11, i64 168}

@@ -885,7 +885,7 @@ proto_item_set_hidden.exit41.i:                   ; preds = %165, %162, %proto_i
 proto_item_set_hidden.exit44.i:                   ; preds = %174, %171, %proto_item_set_hidden.exit41.i
   %178 = add nuw nsw i32 %.045.i, 1
   %exitcond.not.i83 = icmp eq i32 %178, 350
-  br i1 %exitcond.not.i83, label %dissect_UDPR3.exit, label %.preheader.i79, !llvm.loop !10
+  br i1 %exitcond.not.i83, label %dissect_UDPR3.exit, label %.preheader.i79, !llvm.loop !11
 
 dissect_UDPR3.exit:                               ; preds = %proto_item_set_hidden.exit44.i, %129, %141
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -994,7 +994,7 @@ proto_item_set_hidden.exit.us.i:                  ; preds = %218, %215, %.prehea
 proto_item_set_hidden.exit76.us.i:                ; preds = %227, %224, %proto_item_set_hidden.exit.us.i
   %231 = add nuw nsw i32 %.086.us.i, 1
   %exitcond92.not.i = icmp eq i32 %231, 350
-  br i1 %exitcond92.not.i, label %dissect_UDPH1_new.exit, label %.preheader.split.us.i, !llvm.loop !11
+  br i1 %exitcond92.not.i, label %dissect_UDPH1_new.exit, label %.preheader.split.us.i, !llvm.loop !12
 
 .preheader.split.us87.i:                          ; preds = %.preheader.i86, %proto_item_set_hidden.exit76.us89.i
   %.086.us88.i = phi i32 [ %257, %proto_item_set_hidden.exit76.us89.i ], [ 0, %.preheader.i86 ]
@@ -1045,7 +1045,7 @@ proto_item_set_hidden.exit79.us.i:                ; preds = %244, %241, %.prehea
 proto_item_set_hidden.exit76.us89.i:              ; preds = %253, %250, %proto_item_set_hidden.exit79.us.i
   %257 = add nuw nsw i32 %.086.us88.i, 1
   %exitcond.not.i87 = icmp eq i32 %257, 350
-  br i1 %exitcond.not.i87, label %dissect_UDPH1_new.exit, label %.preheader.split.us87.i, !llvm.loop !13
+  br i1 %exitcond.not.i87, label %dissect_UDPH1_new.exit, label %.preheader.split.us87.i, !llvm.loop !14
 
 258:                                              ; preds = %193
   %259 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef 1400)
@@ -1080,7 +1080,7 @@ proto_item_set_hidden.exit76.us89.i:              ; preds = %253, %250, %proto_i
 proto_item_set_hidden.exit76.i:                   ; preds = %271, %268, %.preheader.split.i
   %275 = add nuw nsw i32 %.086.i, 1
   %exitcond93.not.i = icmp eq i32 %275, 350
-  br i1 %exitcond93.not.i, label %dissect_UDPH1_new.exit, label %.preheader.split.i, !llvm.loop !14
+  br i1 %exitcond93.not.i, label %dissect_UDPH1_new.exit, label %.preheader.split.i, !llvm.loop !15
 
 276:                                              ; preds = %7
   %277 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
@@ -1175,7 +1175,7 @@ proto_item_set_hidden.exit43.i:                   ; preds = %314, %311, %proto_i
 proto_item_set_hidden.exit46.i:                   ; preds = %323, %320, %proto_item_set_hidden.exit43.i
   %327 = add nuw nsw i32 %.047.i, 1
   %exitcond.not.i93 = icmp eq i32 %327, 336
-  br i1 %exitcond.not.i93, label %dissect_GDSHP.exit, label %.preheader.i89, !llvm.loop !15
+  br i1 %exitcond.not.i93, label %dissect_GDSHP.exit, label %.preheader.i89, !llvm.loop !16
 
 dissect_GDSHP.exit:                               ; preds = %proto_item_set_hidden.exit46.i, %276, %290
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -1853,11 +1853,12 @@ attributes #7 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !9, !12}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !9, !10, !13}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

@@ -109,7 +109,7 @@ _ZN5stack5resetEv.exit:                           ; preds = %_ZN5stack10dealloca
 
 33:                                               ; preds = %_ZN5stack5resetEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !16
+  %35 = load ptr, ptr %34, align 8, !tbaa !17
   invoke void @_Z9del_pagesPc(ptr noundef %35)
           to label %36 unwind label %.loopexit.split-lp
 
@@ -269,7 +269,7 @@ define hidden noundef ptr @_ZNK5stack3topEv(ptr noundef nonnull readonly align 8
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %7, align 8, !tbaa !17
+  %10 = load ptr, ptr %7, align 8, !tbaa !18
   br label %11
 
 11:                                               ; preds = %9, %1
@@ -454,7 +454,8 @@ attributes #11 = { nounwind }
 !11 = !{!"long", !7, i64 0}
 !12 = !{!4, !5, i64 8}
 !13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!4, !5, i64 24}
-!17 = !{!6, !6, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!4, !5, i64 24}
+!18 = !{!6, !6, i64 0}

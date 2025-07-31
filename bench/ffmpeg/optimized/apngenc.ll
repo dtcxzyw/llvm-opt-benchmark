@@ -340,9 +340,9 @@ apng_find_chunk.exit:                             ; preds = %.lr.ph.i.apng_find_
 73:                                               ; preds = %.loopexit155, %apng_find_chunk.exit
   %74 = load ptr, ptr %14, align 8, !tbaa !45
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !55
+  %76 = load ptr, ptr %75, align 8, !tbaa !56
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %78 = load i32, ptr %77, align 8, !tbaa !56
+  %78 = load i32, ptr %77, align 8, !tbaa !57
   %79 = sext i32 %78 to i64
   %80 = load i32, ptr %76, align 1, !tbaa !50
   %81 = call i32 @llvm.bswap.i32(i32 %80)
@@ -392,9 +392,9 @@ apng_find_chunk.exit133:                          ; preds = %.lr.ph.i129.apng_fi
   call void @avio_write(ptr noundef %10, ptr noundef nonnull %76, i32 noundef %.015.i130.lcssa) #7
   %104 = load ptr, ptr %14, align 8, !tbaa !45
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %106 = load ptr, ptr %105, align 8, !tbaa !55
+  %106 = load ptr, ptr %105, align 8, !tbaa !56
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %108 = load i32, ptr %107, align 8, !tbaa !56
+  %108 = load i32, ptr %107, align 8, !tbaa !57
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i8, ptr %106, i64 %109
   %111 = ptrtoint ptr %110 to i64
@@ -469,9 +469,9 @@ apng_find_chunk.exit133:                          ; preds = %.lr.ph.i129.apng_fi
 apng_find_chunk.exit139:                          ; preds = %.lr.ph.i135, %.loopexit, %115
   %146 = load ptr, ptr %14, align 8, !tbaa !45
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %148 = load ptr, ptr %147, align 8, !tbaa !55
+  %148 = load ptr, ptr %147, align 8, !tbaa !56
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 32
-  %150 = load i32, ptr %149, align 8, !tbaa !56
+  %150 = load i32, ptr %149, align 8, !tbaa !57
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds i8, ptr %148, i64 %151
   %153 = load i32, ptr %148, align 1, !tbaa !50
@@ -525,13 +525,13 @@ apng_find_chunk.exit145:                          ; preds = %.lr.ph.i141.apng_fi
   %176 = load i16, ptr %175, align 1, !tbaa !50
   %177 = call i16 @llvm.bswap.i16(i16 %176)
   %178 = zext i16 %177 to i32
-  store i32 %178, ptr %5, align 8, !tbaa !57
+  store i32 %178, ptr %5, align 8, !tbaa !58
   %179 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 30
   %180 = load i16, ptr %179, align 1, !tbaa !50
   %181 = call i16 @llvm.bswap.i16(i16 %180)
   %182 = zext i16 %181 to i32
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %182, ptr %183, align 4, !tbaa !58
+  store i32 %182, ptr %183, align 4, !tbaa !59
   %184 = icmp eq i16 %176, 0
   %185 = icmp eq i16 %180, 0
   %or.cond5 = select i1 %184, i1 %185, i1 false
@@ -543,16 +543,16 @@ apng_find_chunk.exit145:                          ; preds = %.lr.ph.i141.apng_fi
 
 187:                                              ; preds = %186
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %189 = load i64, ptr %188, align 8, !tbaa !59
+  %189 = load i64, ptr %188, align 8, !tbaa !60
   %190 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  %191 = load i64, ptr %190, align 8, !tbaa !59
+  %191 = load i64, ptr %190, align 8, !tbaa !60
   %192 = sub nsw i64 %189, %191
   %193 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %194 = load i32, ptr %193, align 8, !tbaa !60
+  %194 = load i32, ptr %193, align 8, !tbaa !61
   %195 = sext i32 %194 to i64
   %196 = mul nsw i64 %192, %195
   %197 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  %198 = load i32, ptr %197, align 4, !tbaa !61
+  %198 = load i32, ptr %197, align 4, !tbaa !62
   %199 = sext i32 %198 to i64
   %200 = call i32 @av_reduce(ptr noundef nonnull %5, ptr noundef nonnull %183, i64 noundef %196, i64 noundef %199, i64 noundef 65535) #7
   %.not124 = icmp eq i32 %200, 0
@@ -560,13 +560,13 @@ apng_find_chunk.exit145:                          ; preds = %.lr.ph.i141.apng_fi
 
 201:                                              ; preds = %187
   %202 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %203 = load i32, ptr %202, align 8, !tbaa !62
+  %203 = load i32, ptr %202, align 8, !tbaa !63
   %.not125 = icmp eq i32 %203, 0
   br i1 %.not125, label %204, label %214
 
 204:                                              ; preds = %201
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.15) #7
-  store i32 1, ptr %202, align 8, !tbaa !62
+  store i32 1, ptr %202, align 8, !tbaa !63
   br label %214
 
 205:                                              ; preds = %186
@@ -590,12 +590,12 @@ apng_find_chunk.exit145:                          ; preds = %.lr.ph.i141.apng_fi
   call void @avio_write(ptr noundef %10, ptr noundef nonnull %148, i32 noundef %.015.i142.lcssa) #7
   %215 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, ptr noundef nonnull align 1 dereferenceable(26) %174, i64 26, i1 false)
-  %216 = load i32, ptr %5, align 8, !tbaa !57
+  %216 = load i32, ptr %5, align 8, !tbaa !58
   %217 = trunc i32 %216 to i16
   %218 = call i16 @llvm.bswap.i16(i16 %217)
   %219 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 %218, ptr %219, align 4, !tbaa !50
-  %220 = load i32, ptr %183, align 4, !tbaa !58
+  %220 = load i32, ptr %183, align 4, !tbaa !59
   %221 = trunc i32 %220 to i16
   %222 = call i16 @llvm.bswap.i16(i16 %221)
   %223 = getelementptr inbounds nuw i8, ptr %6, i64 22
@@ -774,13 +774,14 @@ attributes #9 = { nounwind willreturn memory(read) }
 !50 = !{!8, !8, i64 0}
 !51 = !{!35, !13, i64 8}
 !52 = !{!19, !19, i64 0}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!31, !18, i64 24}
-!56 = !{!31, !13, i64 32}
-!57 = !{!30, !13, i64 0}
-!58 = !{!30, !13, i64 4}
-!59 = !{!31, !19, i64 16}
-!60 = !{!28, !13, i64 32}
-!61 = !{!28, !13, i64 36}
-!62 = !{!35, !13, i64 56}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!31, !18, i64 24}
+!57 = !{!31, !13, i64 32}
+!58 = !{!30, !13, i64 0}
+!59 = !{!30, !13, i64 4}
+!60 = !{!31, !19, i64 16}
+!61 = !{!28, !13, i64 32}
+!62 = !{!28, !13, i64 36}
+!63 = !{!35, !13, i64 56}

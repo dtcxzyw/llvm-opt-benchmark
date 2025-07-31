@@ -793,7 +793,7 @@ define internal i32 @dissect_papi_license_manager(ptr noundef %0, ptr noundef re
 96:                                               ; preds = %92, %88, %84, %80, %76, %72, %68, %64, %60, %56, %52, %47, %42, %37, %18
   %97 = add i32 %34, %23
   %98 = icmp ult i32 %97, %15
-  br i1 %98, label %18, label %._crit_edge, !llvm.loop !10
+  br i1 %98, label %18, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %96, %4
   %.0.lcssa = phi i32 [ 2, %4 ], [ %97, %96 ]
@@ -883,6 +883,7 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

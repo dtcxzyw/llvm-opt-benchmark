@@ -147,7 +147,7 @@ define hidden ptr @SDL_GetHapticNameForID_REAL(i32 noundef %0) local_unnamed_add
 .critedge.i:                                      ; preds = %.lr.ph.i
   %6 = add nuw nsw i32 %.01216.i, 1
   %exitcond.not.i = icmp eq i32 %6, %3
-  br i1 %exitcond.not.i, label %SDL_GetHapticIndex.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %SDL_GetHapticIndex.exit, label %.lr.ph.i, !llvm.loop !6
 
 SDL_GetHapticIndex.exit:                          ; preds = %.critedge.i, %1, %2
   %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20, i32 noundef %0) #9
@@ -191,7 +191,7 @@ SDL_GetHapticIndex.exit.preheader:                ; preds = %.lr.ph.i
 .critedge.i:                                      ; preds = %.lr.ph.i
   %6 = add nuw nsw i32 %.01216.i, 1
   %exitcond.not.i = icmp eq i32 %6, %3
-  br i1 %exitcond.not.i, label %SDL_GetHapticIndex.exit.thread, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %SDL_GetHapticIndex.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
 SDL_GetHapticIndex.exit.thread:                   ; preds = %.critedge.i, %1, %2
   %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20, i32 noundef %0) #9
@@ -214,7 +214,7 @@ SDL_GetHapticIndex.exit:                          ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.02844, i64 128
   %.028 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.028, null
-  br i1 %.not, label %SDL_GetHapticIndex.exit._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %SDL_GetHapticIndex.exit._crit_edge, label %.lr.ph, !llvm.loop !7
 
 SDL_GetHapticIndex.exit._crit_edge:               ; preds = %SDL_GetHapticIndex.exit, %SDL_GetHapticIndex.exit.preheader
   %15 = tail call noalias dereferenceable_or_null(136) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 136) #10
@@ -444,7 +444,7 @@ define hidden noundef ptr @SDL_GetHapticFromID_REAL(i32 noundef %0) local_unname
   %5 = getelementptr inbounds nuw i8, ptr %.06, i64 128
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %4, %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.06, %.lr.ph ], [ null, %4 ]
@@ -622,7 +622,7 @@ SDL_IsJoystickHaptic_REAL.exit:                   ; preds = %8
   %22 = getelementptr inbounds nuw i8, ptr %.04364, i64 128
   %.043 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %.043, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %23 = tail call noalias dereferenceable_or_null(136) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 136) #10
@@ -711,7 +711,7 @@ SDL_IsJoystickHaptic_REAL.exit:                   ; preds = %8
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %47, i64 %spec.select.idx.i.i
   %58 = call i32 (ptr, ptr, ...) @SDL_sscanf_REAL(ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull @.str.22, ptr noundef nonnull %2, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %3) #9
   %59 = icmp eq i32 %58, 3
-  br i1 %59, label %.lr.ph.i.i, label %SDL_Haptic_Load_Axes_List.exit.split.loop.exit52.i, !llvm.loop !9
+  br i1 %59, label %.lr.ph.i.i, label %SDL_Haptic_Load_Axes_List.exit.split.loop.exit52.i, !llvm.loop !10
 
 SDL_Haptic_Load_Axes_List.exit.thread.i:          ; preds = %.preheader.i.i, %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
@@ -760,7 +760,7 @@ SDL_Haptic_Get_Naxes.exit.thread55:               ; preds = %62
 71:                                               ; preds = %67, %.lr.ph.i15.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i19.i, label %.lr.ph.i15.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i19.i, label %.lr.ph.i15.i, !llvm.loop !11
 
 SDL_Haptic_Naxes_List_Index.exit.i:               ; preds = %67
   %72 = and i64 %indvars.iv.i.i, 4294967295
@@ -789,7 +789,7 @@ SDL_Haptic_Naxes_List_Index.exit.i:               ; preds = %67
 83:                                               ; preds = %79, %.lr.ph.i21.i
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i22.i, 1
   %exitcond.not.i24.i = icmp eq i64 %indvars.iv.next.i23.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i24.i, label %SDL_Haptic_Get_Naxes.exit, label %.lr.ph.i21.i, !llvm.loop !10
+  br i1 %exitcond.not.i24.i, label %SDL_Haptic_Get_Naxes.exit, label %.lr.ph.i21.i, !llvm.loop !11
 
 SDL_Haptic_Naxes_List_Index.exit26.i:             ; preds = %79
   %84 = and i64 %indvars.iv.i22.i, 4294967295
@@ -952,7 +952,7 @@ define hidden void @SDL_CloseHaptic_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %17, label %._crit_edge, !llvm.loop !11
+  br i1 %27, label %17, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %24, %.preheader
   tail call void @SDL_SYS_HapticClose(ptr noundef nonnull %0) #9
@@ -970,7 +970,7 @@ define hidden void @SDL_CloseHaptic_REAL(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph36:                                         ; preds = %.lr.ph45
   %30 = icmp eq ptr %0, %.023
-  br i1 %30, label %.lr.ph36._crit_edge, label %.lr.ph45, !llvm.loop !12
+  br i1 %30, label %.lr.ph36._crit_edge, label %.lr.ph45, !llvm.loop !13
 
 .lr.ph36._crit_edge:                              ; preds = %.lr.ph36, %.lr.ph36.preheader
   %.02334.lcssa = phi ptr [ %.02331, %.lr.ph36.preheader ], [ %.023, %.lr.ph36 ]
@@ -996,7 +996,7 @@ define hidden void @SDL_CloseHaptic_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %38 = getelementptr inbounds nuw i8, ptr %.0233444, i64 128
   %.023 = load ptr, ptr %38, align 8
   %.not26 = icmp eq ptr %.023, null
-  br i1 %.not26, label %.loopexit, label %.lr.ph36, !llvm.loop !12
+  br i1 %.not26, label %.loopexit, label %.lr.ph36, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph45, %28, %31, %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1075,7 +1075,7 @@ define hidden void @SDL_QuitHaptics() local_unnamed_addr #0 {
   tail call void @SDL_CloseHaptic_REAL(ptr noundef nonnull %2)
   %3 = load ptr, ptr @SDL_haptics, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   tail call void @SDL_HIDAPI_HapticQuit() #9
@@ -1268,7 +1268,7 @@ SDL_HapticEffectSupported_REAL.exit:              ; preds = %9
 39:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %39, %.preheader
   %40 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #9
@@ -1931,15 +1931,16 @@ attributes #11 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}

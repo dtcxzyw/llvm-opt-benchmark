@@ -972,7 +972,7 @@ dissect_smcr_translate_qp_mtu.exit.i:             ; preds = %138, %135
   %237 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %236, ptr noundef %0, i32 noundef %235, i32 noundef 8, i32 noundef 0)
   %238 = add nsw i8 %.04143.i, -1
   %.not.i56 = icmp eq i8 %238, 0
-  br i1 %.not.i56, label %dissect_smcr_add_link.exit, label %.lr.ph.i55, !llvm.loop !8
+  br i1 %.not.i56, label %dissect_smcr_add_link.exit, label %.lr.ph.i55, !llvm.loop !9
 
 239:                                              ; preds = %78
   %240 = load i32, ptr @hf_smcr_confirm_rkey_flags, align 4
@@ -1009,7 +1009,7 @@ dissect_smcr_translate_qp_mtu.exit.i:             ; preds = %138, %135
   %261 = add nuw nsw i32 %.03436.i, 13
   %262 = add nsw i8 %.037.i, -1
   %.not.i60 = icmp eq i8 %262, 0
-  br i1 %.not.i60, label %dissect_smcr_add_link.exit, label %.lr.ph.i59, !llvm.loop !9
+  br i1 %.not.i60, label %dissect_smcr_add_link.exit, label %.lr.ph.i59, !llvm.loop !10
 
 263:                                              ; preds = %78, %78
   %264 = load i32, ptr @hf_smcr_delete_rkey_flags, align 4
@@ -1057,7 +1057,7 @@ dissect_smcr_translate_qp_mtu.exit.i:             ; preds = %138, %135
   %289 = add nuw nsw i32 %.043.i, 4
   %290 = add i8 %.242.i, -1
   %.not40.i = icmp eq i8 %290, 0
-  br i1 %.not40.i, label %dissect_smcr_add_link.exit, label %.lr.ph.i61, !llvm.loop !10
+  br i1 %.not40.i, label %dissect_smcr_add_link.exit, label %.lr.ph.i61, !llvm.loop !11
 
 291:                                              ; preds = %78, %78
   %292 = load i32, ptr @hf_smcr_test_link_flags, align 4
@@ -1109,7 +1109,7 @@ dissect_smcr_translate_qp_mtu.exit.i:             ; preds = %138, %135
   %322 = add nuw nsw i32 %.03538.i, 16
   %323 = add nsw i32 %.039.i67, -1
   %.not36.i = icmp eq i32 %323, 0
-  br i1 %.not36.i, label %dissect_smcr_add_link.exit, label %.lr.ph.i66, !llvm.loop !11
+  br i1 %.not36.i, label %dissect_smcr_add_link.exit, label %.lr.ph.i66, !llvm.loop !12
 
 dissect_smcr_add_link.exit:                       ; preds = %.lr.ph.i66, %.lr.ph.i61, %.lr.ph.i59, %.lr.ph.i55, %.lr.ph.i, %311, %284, %239, %211, %189, %182, %170, %141, %dissect_smcr_translate_qp_mtu.exit.i, %78, %.thread, %291, %196, %82
   %324 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1531,7 +1531,7 @@ switch.early.test234.i:                           ; preds = %122
   %154 = add nuw nsw i32 %.3254.i, 17
   %155 = add i8 %.0227253.i, -1
   %.not.i = icmp eq i8 %155, 0
-  br i1 %.not.i, label %.loopexit251.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %.loopexit251.i, label %.lr.ph.i, !llvm.loop !13
 
 .loopexit251.i:                                   ; preds = %.lr.ph.i, %139, %136
   %.2.i = phi i32 [ 80, %136 ], [ 88, %139 ], [ %154, %.lr.ph.i ]
@@ -1602,7 +1602,7 @@ switch.early.test234.i:                           ; preds = %122
   %202 = add nuw nsw i32 %.5257.i, 32
   %203 = add i8 %.0225256.i, -1
   %.not231.i = icmp eq i8 %203, 0
-  br i1 %.not231.i, label %._crit_edge.i, label %.lr.ph258.i, !llvm.loop !13
+  br i1 %.not231.i, label %._crit_edge.i, label %.lr.ph258.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph258.i, %196
   %.5.lcssa.i = phi i32 [ %199, %196 ], [ %202, %.lr.ph258.i ]
@@ -1634,7 +1634,7 @@ switch.early.test234.i:                           ; preds = %122
   %217 = add nuw nsw i32 %.6262.i, 10
   %218 = add i8 %.0226261.i, -1
   %.not233.i = icmp eq i8 %218, 0
-  br i1 %.not233.i, label %dissect_smc_proposal.exit, label %.lr.ph264.i, !llvm.loop !14
+  br i1 %.not233.i, label %dissect_smc_proposal.exit, label %.lr.ph264.i, !llvm.loop !15
 
 219:                                              ; preds = %64
   %220 = load i32, ptr @hf_smc_length, align 4
@@ -2034,7 +2034,7 @@ dissect_smcr_translate_qp_mtu.exit.i105:          ; preds = %474, %471
   %518 = add nuw nsw i32 %.0143146.i, 16
   %519 = add i8 %.0147.i, -1
   %.not144.i = icmp eq i8 %519, 0
-  br i1 %.not144.i, label %dissect_smc_proposal.exit, label %.lr.ph.i107, !llvm.loop !15
+  br i1 %.not144.i, label %dissect_smc_proposal.exit, label %.lr.ph.i107, !llvm.loop !16
 
 520:                                              ; preds = %64
   %521 = load i32, ptr @hf_smc_length, align 4
@@ -2074,7 +2074,7 @@ dissect_smcr_translate_qp_mtu.exit.i105:          ; preds = %474, %471
   %548 = add nuw nsw i32 %.04546.i, 4
   %549 = add nuw nsw i32 %.047.i, 1
   %exitcond.not.i = icmp eq i32 %549, 4
-  br i1 %exitcond.not.i, label %dissect_smc_proposal.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %dissect_smc_proposal.exit, label %.preheader.i, !llvm.loop !17
 
 dissect_smc_proposal.exit:                        ; preds = %.preheader.i, %.lr.ph.i107, %.lr.ph264.i, %64, %.loopexit251.i, %._crit_edge.i, %205, %dissect_smc_uncompress_size.exit.i, %258, %266, %dissect_smcr_translate_qp_mtu.exit.i, %338, %344, %dissect_smc_uncompress_size.exit.i100, %404, %412, %dissect_smcr_translate_qp_mtu.exit.i105, %484, %490, %520, %538, %63
   %550 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -2150,14 +2150,15 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

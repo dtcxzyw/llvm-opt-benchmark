@@ -1288,7 +1288,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 134:                                              ; preds = %130, %123
   %135 = add nuw i32 %.0265325, 1
   %exitcond.not = icmp eq i32 %135, %121
-  br i1 %exitcond.not, label %.thread311, label %123, !llvm.loop !8
+  br i1 %exitcond.not, label %.thread311, label %123, !llvm.loop !9
 
 136:                                              ; preds = %90
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -1715,7 +1715,7 @@ define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1,
 16:                                               ; preds = %17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 512
-  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %17, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %17, !llvm.loop !10
 
 17:                                               ; preds = %16, %14
   %indvars.iv.i.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i.i, %16 ]
@@ -1807,7 +1807,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %51, %46, %.lr.ph.sp
   %53 = add nuw nsw i32 %.03953.us, 4
   %54 = add nuw nsw i32 %.03854.us, 1
   %exitcond60.not = icmp eq i32 %54, %9
-  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_extended_bootstrap_register.exit
   %.03854 = phi i32 [ %87, %dissect_extended_bootstrap_register.exit ], [ 0, %.lr.ph ]
@@ -1848,7 +1848,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %51, %46, %.lr.ph.sp
 71:                                               ; preds = %72
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %is_extended_bootstrap_address.exit, label %72, !llvm.loop !9
+  br i1 %exitcond.not.i, label %is_extended_bootstrap_address.exit, label %72, !llvm.loop !10
 
 72:                                               ; preds = %71, %69
   %indvars.iv.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i, %71 ]
@@ -1886,7 +1886,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %77, %is_extended_bo
   %86 = add nuw nsw i32 %.03953, 4
   %87 = add nuw nsw i32 %.03854, 1
   %exitcond.not = icmp eq i32 %87, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %dissect_extended_bootstrap_register.exit, %dissect_extended_bootstrap_register.exit.us, %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
@@ -1924,7 +1924,7 @@ define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1
 19:                                               ; preds = %20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 512
-  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %20, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %20, !llvm.loop !10
 
 20:                                               ; preds = %19, %17
   %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %19 ]
@@ -2018,7 +2018,7 @@ get_register_name_from_address.exit:              ; preds = %11, %is_extended_bo
 52:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %is_extended_bootstrap_address.exit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not.i, label %is_extended_bootstrap_address.exit, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %43, %52
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %43 ]
@@ -2067,7 +2067,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %57, %is_extended_bo
   %76 = add nuw nsw i32 %.1, 4
   %77 = add nuw nsw i32 %.06781, 1
   %exitcond.not = icmp eq i32 %77, %8
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !14
 
 .loopexit:                                        ; preds = %dissect_extended_bootstrap_register.exit, %.thread, %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
@@ -2102,7 +2102,7 @@ define internal fastcc void @dissect_readmem_cmd(ptr noundef %0, ptr noundef %1,
 17:                                               ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %is_extended_bootstrap_address.exit, label %18, !llvm.loop !9
+  br i1 %exitcond.not.i, label %is_extended_bootstrap_address.exit, label %18, !llvm.loop !10
 
 18:                                               ; preds = %17, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %17 ]
@@ -2163,7 +2163,7 @@ define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1
 14:                                               ; preds = %15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 512
-  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %15, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %15, !llvm.loop !10
 
 15:                                               ; preds = %14, %12
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %14 ]
@@ -2303,7 +2303,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread, %46, %43, 
 72:                                               ; preds = %73
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %dissect_register_data.exit.sink.split, label %73, !llvm.loop !9
+  br i1 %exitcond.not.i, label %dissect_register_data.exit.sink.split, label %73, !llvm.loop !10
 
 73:                                               ; preds = %72, %70
   %indvars.iv.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i, %72 ]
@@ -2417,7 +2417,7 @@ define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, p
   %38 = add i32 %35, 8
   %39 = add nuw nsw i32 %.05864, 1
   %exitcond.not = icmp eq i32 %39, %.0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %31, %20, %5
   ret void
@@ -2500,7 +2500,7 @@ define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %
   %.2 = phi i32 [ %37, %32 ], [ %30, %13 ]
   %52 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.2)
   %53 = icmp sgt i32 %52, 12
-  br i1 %53, label %8, label %.loopexit, !llvm.loop !15
+  br i1 %53, label %8, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %51, %4, %.critedge
   ret void
@@ -2675,7 +2675,7 @@ define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1,
 25:                                               ; preds = %26
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 512
-  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %26, !llvm.loop !10
 
 26:                                               ; preds = %25, %23
   %indvars.iv.i.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i.i, %25 ]
@@ -2761,7 +2761,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %dissect_extended_bo
   %51 = add nuw nsw i32 %.078129.us, 4
   %52 = add nuw nsw i32 %.080128.us, 1
   %exitcond.not = icmp eq i32 %52, %7
-  br i1 %exitcond.not, label %.loopexit120, label %dissect_extended_bootstrap_register.exit.us, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit120, label %dissect_extended_bootstrap_register.exit.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %dissect_extended_bootstrap_register.exit
   %.078129 = phi i32 [ %102, %dissect_extended_bootstrap_register.exit ], [ 8, %.lr.ph.split.preheader ]
@@ -2781,7 +2781,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %dissect_extended_bo
 60:                                               ; preds = %.preheader131
   %indvars.iv.next.i.i95 = add nuw nsw i64 %indvars.iv.i.i91, 1
   %exitcond.not.i.i96 = icmp eq i64 %indvars.iv.next.i.i95, 512
-  br i1 %exitcond.not.i.i96, label %is_extended_bootstrap_address.exit.thread21.i97, label %.preheader131, !llvm.loop !9
+  br i1 %exitcond.not.i.i96, label %is_extended_bootstrap_address.exit.thread21.i97, label %.preheader131, !llvm.loop !10
 
 .preheader131:                                    ; preds = %54, %60
   %indvars.iv.i.i91 = phi i64 [ %indvars.iv.next.i.i95, %60 ], [ 0, %54 ]
@@ -2826,7 +2826,7 @@ get_register_name_from_address.exit100:           ; preds = %54, %is_extended_bo
 76:                                               ; preds = %68
   %77 = add nuw nsw i32 %.0127, 1
   %exitcond139.not = icmp eq i32 %77, 512
-  br i1 %exitcond139.not, label %.loopexit, label %68, !llvm.loop !17
+  br i1 %exitcond139.not, label %.loopexit, label %68, !llvm.loop !18
 
 .loopexit:                                        ; preds = %76, %72
   br i1 %.0104, label %94, label %.preheader
@@ -2834,7 +2834,7 @@ get_register_name_from_address.exit100:           ; preds = %54, %is_extended_bo
 78:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %is_extended_bootstrap_address.exit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not.i, label %is_extended_bootstrap_address.exit, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %.loopexit, %78
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ 0, %.loopexit ]
@@ -2885,7 +2885,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %83, %is_extended_bo
   %102 = add nuw nsw i32 %.078129, 4
   %103 = add nuw nsw i32 %.080128, 1
   %exitcond140.not = icmp eq i32 %103, %7
-  br i1 %exitcond140.not, label %.loopexit120, label %.lr.ph.split, !llvm.loop !18
+  br i1 %exitcond140.not, label %.loopexit120, label %.lr.ph.split, !llvm.loop !19
 
 .loopexit120:                                     ; preds = %dissect_extended_bootstrap_register.exit.us, %dissect_extended_bootstrap_register.exit, %.thread141, %41
   ret void
@@ -2966,7 +2966,7 @@ define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1,
 13:                                               ; preds = %14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 512
-  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %14, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %14, !llvm.loop !10
 
 14:                                               ; preds = %13, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %13 ]
@@ -3056,7 +3056,7 @@ get_register_name_from_address.exit:              ; preds = %6, %is_extended_boo
 48:                                               ; preds = %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %dissect_register_data.exit.sink.split, label %49, !llvm.loop !9
+  br i1 %exitcond.not.i, label %dissect_register_data.exit.sink.split, label %49, !llvm.loop !10
 
 49:                                               ; preds = %48, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %48 ]
@@ -3125,7 +3125,7 @@ define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1
 21:                                               ; preds = %22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 512
-  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %22, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %is_extended_bootstrap_address.exit.thread21.i, label %22, !llvm.loop !10
 
 22:                                               ; preds = %21, %19
   %indvars.iv.i.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i.i, %21 ]
@@ -4025,16 +4025,17 @@ attributes #8 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !11}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !12}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

@@ -74,7 +74,7 @@ define hidden range(i32 -1, 2) i32 @toshiba_open(ptr noundef captures(none) %0, 
 .loopexit.i:                                      ; preds = %26, %13
   %27 = add nuw nsw i32 %.01622.i, 1
   %exitcond24.not.i = icmp eq i32 %27, 200
-  br i1 %exitcond24.not.i, label %.loopexit, label %6, !llvm.loop !8
+  br i1 %exitcond24.not.i, label %.loopexit, label %6, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.loopexit.i, %10
   %.sink.i = phi i32 [ %12, %10 ], [ 0, %.loopexit.i ]
@@ -147,7 +147,7 @@ define internal noundef zeroext i1 @toshiba_read(ptr noundef readonly captures(n
   %25 = load ptr, ptr %0, align 8
   %26 = tail call i32 @file_getc(ptr noundef %25)
   %.not.i = icmp eq i32 %26, -1
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %24, %5
   %27 = load ptr, ptr %0, align 8
@@ -292,7 +292,7 @@ define internal fastcc noundef zeroext i1 @parse_toshiba_packet(ptr noundef %0, 
   store i8 0, ptr %23, align 16
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %5, ptr noundef nonnull dereferenceable(17) @.str.3, i64 17)
   %.not55 = icmp eq i32 %bcmp, 0
-  br i1 %.not55, label %33, label %26, !llvm.loop !10
+  br i1 %.not55, label %33, label %26, !llvm.loop !11
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -451,7 +451,7 @@ define internal fastcc noundef zeroext i1 @parse_toshiba_packet(ptr noundef %0, 
 110:                                              ; preds = %109, %.preheader28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 46
-  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader28.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader28.i, !llvm.loop !12
 
 111:                                              ; preds = %111, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %111 ]
@@ -476,7 +476,7 @@ define internal fastcc noundef zeroext i1 @parse_toshiba_packet(ptr noundef %0, 
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 5
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond40.not.i, label %parse_single_hex_dump_line.exit, label %111, !llvm.loop !12
+  br i1 %exitcond40.not.i, label %parse_single_hex_dump_line.exit, label %111, !llvm.loop !13
 
 parse_single_hex_dump_line.exit.thread:           ; preds = %100
   store i32 -13, ptr %2, align 4
@@ -487,7 +487,7 @@ parse_single_hex_dump_line.exit.thread:           ; preds = %100
 parse_single_hex_dump_line.exit:                  ; preds = %111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %94, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %94, !llvm.loop !14
 
 .loopexit:                                        ; preds = %parse_single_hex_dump_line.exit, %81, %parse_single_hex_dump_line.exit.thread, %97, %45, %41, %36, %29, %24, %18
   %.0 = phi i1 [ false, %18 ], [ false, %24 ], [ false, %29 ], [ false, %36 ], [ false, %41 ], [ false, %45 ], [ false, %97 ], [ false, %parse_single_hex_dump_line.exit.thread ], [ true, %81 ], [ true, %parse_single_hex_dump_line.exit ]
@@ -554,11 +554,12 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

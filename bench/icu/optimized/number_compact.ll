@@ -969,7 +969,7 @@ define void @_ZNK6icu_776number4impl11CompactData17getUniquePatternsERNS_7UVecto
 .loopexit:                                        ; preds = %14, %18, %6
   %.018.add = add nuw nsw i64 %.018.idx24, 8
   %.not = icmp eq i64 %.018.add, 1352
-  br i1 %.not, label %5, label %6
+  br i1 %.not, label %5, label %6, !llvm.loop !40
 }
 
 declare i32 @u_strcmp_77(ptr noundef, ptr noundef) local_unnamed_addr #9
@@ -982,7 +982,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
   %7 = alloca %"class.icu_77::ResourceTable", align 8
   %8 = alloca %"class.icu_77::ResourceTable", align 8
   %9 = alloca i32, align 4
-  store ptr %1, ptr %6, align 8, !tbaa !39
+  store ptr %1, ptr %6, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
   %10 = load ptr, ptr %2, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
@@ -1003,7 +1003,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
 
 17:                                               ; preds = %.lr.ph91, %.thread76
   %.04190 = phi i32 [ 0, %.lr.ph91 ], [ %99, %.thread76 ]
-  %18 = load ptr, ptr %6, align 8, !tbaa !39
+  %18 = load ptr, ptr %6, align 8, !tbaa !41
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #20
   %20 = trunc i64 %19 to i8
   %21 = add i8 %20, -1
@@ -1012,7 +1012,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
   br i1 %23, label %.thread76, label %24
 
 24:                                               ; preds = %17
-  %25 = load ptr, ptr %16, align 8, !tbaa !40
+  %25 = load ptr, ptr %16, align 8, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1352
   %27 = sext i8 %21 to i64
   %28 = getelementptr inbounds [21 x i8], ptr %26, i64 0, i64 %27
@@ -1039,14 +1039,14 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
 38:                                               ; preds = %.lr.ph, %.thread64
   %.04288 = phi i32 [ 0, %.lr.ph ], [ %83, %.thread64 ]
   %.04387 = phi i8 [ %29, %.lr.ph ], [ %.24567, %.thread64 ]
-  %39 = load ptr, ptr %6, align 8, !tbaa !39
+  %39 = load ptr, ptr %6, align 8, !tbaa !41
   %40 = call noundef i32 @_ZN6icu_7714StandardPlural15indexFromStringEPKcR10UErrorCode(ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %41 = load i32, ptr %4, align 4, !tbaa !13
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %43, label %.thread79
 
 43:                                               ; preds = %38
-  %44 = load ptr, ptr %16, align 8, !tbaa !40
+  %44 = load ptr, ptr %16, align 8, !tbaa !42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = add nsw i32 %40, %36
   %47 = sext i32 %46 to i64
@@ -1076,7 +1076,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
 
 61:                                               ; preds = %60, %57
   %.040 = phi ptr [ @.str.7, %60 ], [ %54, %57 ]
-  %62 = load ptr, ptr %16, align 8, !tbaa !40
+  %62 = load ptr, ptr %16, align 8, !tbaa !42
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = getelementptr inbounds [168 x ptr], ptr %63, i64 0, i64 %47
   store ptr %.040, ptr %64, align 8, !tbaa !32
@@ -1096,7 +1096,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %78 ]
   %.078.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %78 ]
   %69 = getelementptr inbounds nuw i16, ptr %.040, i64 %indvars.iv.i
-  %70 = load i16, ptr %69, align 2, !tbaa !43
+  %70 = load i16, ptr %69, align 2, !tbaa !45
   %71 = icmp eq i16 %70, 48
   br i1 %71, label %72, label %74
 
@@ -1117,7 +1117,7 @@ _ZN12_GLOBAL__N_110countZerosEPKDsi.exit.thread:  ; preds = %74
   %.1.i = phi i32 [ %73, %72 ], [ %.078.i, %74 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit, label %.lr.ph.i, !llvm.loop !47
 
 _ZN12_GLOBAL__N_110countZerosEPKDsi.exit:         ; preds = %78
   %79 = icmp sgt i32 %.1.i, 0
@@ -1140,11 +1140,11 @@ _ZN12_GLOBAL__N_110countZerosEPKDsi.exit:         ; preds = %78
   %83 = add nuw nsw i32 %.04288, 1
   %84 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %8, i32 noundef %83, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not53 = icmp eq i8 %84, 0
-  br i1 %.not53, label %._crit_edge, label %38, !llvm.loop !46
+  br i1 %.not53, label %._crit_edge, label %38, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.thread64, %.preheader
   %.043.lcssa = phi i8 [ %29, %.preheader ], [ %.24567, %.thread64 ]
-  %85 = load ptr, ptr %16, align 8, !tbaa !40
+  %85 = load ptr, ptr %16, align 8, !tbaa !42
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1352
   %87 = getelementptr inbounds [21 x i8], ptr %86, i64 0, i64 %27
   %88 = load i8, ptr %87, align 1, !tbaa !30
@@ -1153,7 +1153,7 @@ _ZN12_GLOBAL__N_110countZerosEPKDsi.exit:         ; preds = %78
 
 90:                                               ; preds = %._crit_edge
   store i8 %.043.lcssa, ptr %87, align 1, !tbaa !30
-  %91 = load ptr, ptr %16, align 8, !tbaa !40
+  %91 = load ptr, ptr %16, align 8, !tbaa !42
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 1373
   %93 = load i8, ptr %92, align 1, !tbaa !31
   %94 = icmp sgt i8 %21, %93
@@ -1180,7 +1180,7 @@ _ZN12_GLOBAL__N_110countZerosEPKDsi.exit:         ; preds = %78
   %99 = add nuw nsw i32 %.04190, 1
   %100 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %7, i32 noundef %99, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not51 = icmp eq i8 %100, 0
-  br i1 %.not51, label %.loopexit, label %17, !llvm.loop !47
+  br i1 %.not51, label %.loopexit, label %17, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.thread76, %.preheader81, %.thread79, %5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #17
@@ -1197,18 +1197,18 @@ define void @_ZN6icu_776number4impl14CompactHandlerC2E19UNumberCompactStyleRKNS_
   %11 = zext i1 %7 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_776number4impl14CompactHandlerE, i64 16), ptr %0, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %12, align 8, !tbaa !48
+  store ptr %5, ptr %12, align 8, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %13, align 8, !tbaa !71
+  store ptr %8, ptr %13, align 8, !tbaa !73
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %15, ptr %14, align 8, !tbaa !72
+  store ptr %15, ptr %14, align 8, !tbaa !74
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 12, ptr %16, align 8, !tbaa !73
+  store i32 12, ptr %16, align 8, !tbaa !75
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i8 0, ptr %17, align 4, !tbaa !74
+  store i8 0, ptr %17, align 4, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 0, ptr %18, align 8, !tbaa !75
+  store i32 0, ptr %18, align 8, !tbaa !77
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 240
   invoke void @_ZN6icu_776number4impl11CompactDataC1Ev(ptr noundef nonnull align 8 dereferenceable(1375) %19)
           to label %20 unwind label %26
@@ -1220,7 +1220,7 @@ define void @_ZN6icu_776number4impl14CompactHandlerC2E19UNumberCompactStyleRKNS_
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  store i8 %11, ptr %23, align 8, !tbaa !76
+  store i8 %11, ptr %23, align 8, !tbaa !78
   invoke void @_ZN6icu_776number4impl11CompactData8populateERKNS_6LocaleEPKc19UNumberCompactStyleNS1_11CompactTypeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1375) %19, ptr noundef nonnull align 8 dereferenceable(217) %2, ptr noundef %3, i32 noundef %1, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %24 unwind label %30
 
@@ -1249,7 +1249,7 @@ define void @_ZN6icu_776number4impl14CompactHandlerC2E19UNumberCompactStyleRKNS_
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  store ptr %6, ptr %33, align 8, !tbaa !77
+  store ptr %6, ptr %33, align 8, !tbaa !79
   br label %34
 
 34:                                               ; preds = %25, %32
@@ -1274,14 +1274,14 @@ define linkonce_odr void @_ZN6icu_776number4impl17ParsedPatternInfoC2Ev(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 2, ptr %3, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 281474976645120, ptr %4, align 8, !tbaa !78
+  store i64 281474976645120, ptr %4, align 8, !tbaa !80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %6, align 4, !tbaa !79
+  store i32 0, ptr %6, align 4, !tbaa !81
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i8 0, ptr %7, align 8, !tbaa !80
+  store i8 0, ptr %7, align 8, !tbaa !82
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 0, ptr %8, align 4, !tbaa !81
+  store i32 0, ptr %8, align 4, !tbaa !83
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %5, i8 0, i64 33, i1 false)
   invoke void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %9)
@@ -1289,20 +1289,20 @@ define linkonce_odr void @_ZN6icu_776number4impl17ParsedPatternInfoC2Ev(ptr noun
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 0, ptr %11, align 8, !tbaa !82
+  store i8 0, ptr %11, align 8, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %12, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 281474976645120, ptr %14, align 8, !tbaa !78
+  store i64 281474976645120, ptr %14, align 8, !tbaa !80
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  store i32 0, ptr %16, align 4, !tbaa !79
+  store i32 0, ptr %16, align 4, !tbaa !81
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i8 0, ptr %17, align 8, !tbaa !80
+  store i8 0, ptr %17, align 8, !tbaa !82
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  store i32 0, ptr %18, align 4, !tbaa !81
+  store i32 0, ptr %18, align 4, !tbaa !83
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %15, i8 0, i64 33, i1 false)
   invoke void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %19)
@@ -1310,19 +1310,19 @@ define linkonce_odr void @_ZN6icu_776number4impl17ParsedPatternInfoC2Ev(ptr noun
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store i8 0, ptr %21, align 8, !tbaa !82
+  store i8 0, ptr %21, align 8, !tbaa !84
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %22, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %2, ptr %24, align 8, !tbaa !83
+  store ptr %2, ptr %24, align 8, !tbaa !85
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 0, ptr %25, align 8, !tbaa !84
+  store i32 0, ptr %25, align 8, !tbaa !86
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr null, ptr %26, align 8, !tbaa !85
+  store ptr null, ptr %26, align 8, !tbaa !87
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store i8 0, ptr %27, align 8, !tbaa !86
+  store i8 0, ptr %27, align 8, !tbaa !88
   ret void
 
 28:                                               ; preds = %1
@@ -1418,7 +1418,7 @@ define void @_ZN6icu_776number4impl14CompactHandler22precomputeAllModifiersERNS1
 .loopexit.i:                                      ; preds = %.noexc45, %28, %16
   %.018.add.i = add nuw nsw i64 %.018.idx24.i, 8
   %.not.i = icmp eq i64 %.018.add.i, 1352
-  br i1 %.not.i, label %_ZNK6icu_776number4impl11CompactData17getUniquePatternsERNS_7UVectorER10UErrorCode.exit, label %16
+  br i1 %.not.i, label %_ZNK6icu_776number4impl11CompactData17getUniquePatternsERNS_7UVectorER10UErrorCode.exit, label %16, !llvm.loop !40
 
 _ZNK6icu_776number4impl11CompactData17getUniquePatternsERNS_7UVectorER10UErrorCode.exit: ; preds = %.loopexit.i
   %29 = load i32, ptr %2, align 4, !tbaa !13
@@ -1428,10 +1428,10 @@ _ZNK6icu_776number4impl11CompactData17getUniquePatternsERNS_7UVectorER10UErrorCo
 31:                                               ; preds = %_ZNK6icu_776number4impl11CompactData17getUniquePatternsERNS_7UVectorER10UErrorCode.exit
   %32 = load i32, ptr %15, align 8, !tbaa !34
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %32, ptr %33, align 8, !tbaa !75
+  store i32 %32, ptr %33, align 8, !tbaa !77
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load i32, ptr %35, align 8, !tbaa !73
+  %36 = load i32, ptr %35, align 8, !tbaa !75
   %37 = icmp slt i32 %36, %32
   %38 = icmp sgt i32 %32, 0
   br i1 %37, label %39, label %53
@@ -1451,19 +1451,19 @@ _ZNK6icu_776number4impl11CompactData17getUniquePatternsERNS_7UVectorER10UErrorCo
 
 44:                                               ; preds = %.noexc49
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %46 = load i8, ptr %45, align 4, !tbaa !74
+  %46 = load i8, ptr %45, align 4, !tbaa !76
   %.not.i.i = icmp eq i8 %46, 0
   br i1 %.not.i.i, label %_ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EE12releaseArrayEv.exit.i, label %47
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr %34, align 8, !tbaa !72
+  %48 = load ptr, ptr %34, align 8, !tbaa !74
   invoke void @uprv_free_77(ptr noundef %48)
           to label %_ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EE12releaseArrayEv.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EE12releaseArrayEv.exit.i: ; preds = %47, %44
-  store ptr %43, ptr %34, align 8, !tbaa !72
-  store i32 %32, ptr %35, align 8, !tbaa !73
-  store i8 1, ptr %45, align 4, !tbaa !74
+  store ptr %43, ptr %34, align 8, !tbaa !74
+  store i32 %32, ptr %35, align 8, !tbaa !75
+  store i8 1, ptr %45, align 4, !tbaa !76
   br label %_ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EE6resizeEii.exit
 
 _ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EE6resizeEii.exit: ; preds = %_ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EE12releaseArrayEv.exit.i, %.noexc49, %39
@@ -1501,10 +1501,10 @@ _ZNK6icu_777UVectorixEi.exit:                     ; preds = %59
 .preheader.i.i:                                   ; preds = %_ZNK6icu_777UVectorixEi.exit, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %66, %.preheader.i.i ], [ 0, %_ZNK6icu_777UVectorixEi.exit ]
   %63 = getelementptr inbounds nuw i16, ptr %61, i64 %.0.i.i.i.i
-  %64 = load i16, ptr %63, align 2, !tbaa !43
+  %64 = load i16, ptr %63, align 2, !tbaa !45
   %65 = icmp eq i16 %64, 0
   %66 = add i64 %.0.i.i.i.i, 1
-  br i1 %65, label %.loopexit.i52, label %.preheader.i.i, !llvm.loop !87
+  br i1 %65, label %.loopexit.i52, label %.preheader.i.i, !llvm.loop !89
 
 .loopexit.i52:                                    ; preds = %.preheader.i.i, %_ZNK6icu_777UVectorixEi.exit
   %.sroa.02.0.i.i = phi i64 [ 0, %_ZNK6icu_777UVectorixEi.exit ], [ %.0.i.i.i.i, %.preheader.i.i ]
@@ -1518,7 +1518,7 @@ _ZNK6icu_777UVectorixEi.exit:                     ; preds = %59
   br label %.body
 
 _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i52
-  %70 = load ptr, ptr %34, align 8, !tbaa !72
+  %70 = load ptr, ptr %34, align 8, !tbaa !74
   %71 = getelementptr inbounds nuw %"struct.icu_77::number::impl::CompactModInfo", ptr %70, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %6) #17
   invoke void @_ZN6icu_776number4impl17ParsedPatternInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(433) %6)
@@ -1533,10 +1533,10 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i52
 .preheader.i.i53:                                 ; preds = %72, %.preheader.i.i53
   %.0.i.i.i.i54 = phi i64 [ %76, %.preheader.i.i53 ], [ 0, %72 ]
   %73 = getelementptr inbounds nuw i16, ptr %61, i64 %.0.i.i.i.i54
-  %74 = load i16, ptr %73, align 2, !tbaa !43
+  %74 = load i16, ptr %73, align 2, !tbaa !45
   %75 = icmp eq i16 %74, 0
   %76 = add i64 %.0.i.i.i.i54, 1
-  br i1 %75, label %.loopexit.i55, label %.preheader.i.i53, !llvm.loop !87
+  br i1 %75, label %.loopexit.i55, label %.preheader.i.i53, !llvm.loop !89
 
 .loopexit.i55:                                    ; preds = %.preheader.i.i53, %72
   %.sroa.02.0.i.i56 = phi i64 [ 0, %72 ], [ %.0.i.i.i.i54, %.preheader.i.i53 ]
@@ -1595,14 +1595,14 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit59:   ; preds = %.loopexit.i55
           to label %94 unwind label %89
 
 94:                                               ; preds = %92
-  store ptr %93, ptr %71, align 8, !tbaa !88
+  store ptr %93, ptr %71, align 8, !tbaa !90
   %95 = load i32, ptr %2, align 4, !tbaa !13
   %96 = icmp slt i32 %95, 1
   br i1 %96, label %.critedge, label %101
 
 .critedge:                                        ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr %61, ptr %97, align 8, !tbaa !91
+  store ptr %61, ptr %97, align 8, !tbaa !93
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN6icu_776number4impl17ParsedPatternInfoE, i64 16), ptr %6, align 8, !tbaa !15
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %56) #17
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %57) #17
@@ -1612,10 +1612,10 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit59:   ; preds = %.loopexit.i55
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = load i32, ptr %33, align 8, !tbaa !75
+  %98 = load i32, ptr %33, align 8, !tbaa !77
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next, %99
-  br i1 %100, label %59, label %.loopexit, !llvm.loop !92
+  br i1 %100, label %59, label %.loopexit, !llvm.loop !94
 
 101:                                              ; preds = %94, %80
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN6icu_776number4impl17ParsedPatternInfoE, i64 16), ptr %6, align 8, !tbaa !15
@@ -1678,12 +1678,12 @@ declare void @_ZN6icu_776number4impl18MultiplierProducerD2Ev(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i8, ptr %2, align 4, !tbaa !74
+  %3 = load i8, ptr %2, align 4, !tbaa !76
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EE12releaseArrayEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !72
+  %5 = load ptr, ptr %0, align 8, !tbaa !74
   invoke void @uprv_free_77(ptr noundef %5)
           to label %_ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EE12releaseArrayEv.exit unwind label %6
 
@@ -1702,7 +1702,7 @@ _ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EE12releaseArray
 define void @_ZN6icu_776number4impl14CompactHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(2065) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_776number4impl14CompactHandlerE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %3 = load i32, ptr %2, align 8, !tbaa !75
+  %3 = load i32, ptr %2, align 8, !tbaa !77
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1723,13 +1723,13 @@ define void @_ZN6icu_776number4impl14CompactHandlerD2Ev(ptr noundef nonnull alig
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @_ZN6icu_776number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(1375) %10) #17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %12 = load i8, ptr %11, align 4, !tbaa !74
+  %12 = load i8, ptr %11, align 4, !tbaa !76
   %.not.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i, label %_ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EED2Ev.exit, label %13
 
 13:                                               ; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !72
+  %15 = load ptr, ptr %14, align 8, !tbaa !74
   invoke void @uprv_free_77(ptr noundef %15)
           to label %_ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EED2Ev.exit unwind label %16
 
@@ -1746,9 +1746,9 @@ _ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EED2Ev.exit: ; p
 19:                                               ; preds = %.lr.ph, %29
   %20 = phi i32 [ %3, %.lr.ph ], [ %30, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %21 = load ptr, ptr %5, align 8, !tbaa !72
+  %21 = load ptr, ptr %5, align 8, !tbaa !74
   %22 = getelementptr inbounds nuw %"struct.icu_77::number::impl::CompactModInfo", ptr %21, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !88
+  %23 = load ptr, ptr %22, align 8, !tbaa !90
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %25
 
@@ -1757,7 +1757,7 @@ _ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EED2Ev.exit: ; p
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(32) %23) #17
-  %.pre = load i32, ptr %2, align 8, !tbaa !75
+  %.pre = load i32, ptr %2, align 8, !tbaa !77
   br label %29
 
 29:                                               ; preds = %19, %25
@@ -1765,7 +1765,7 @@ _ZN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EED2Ev.exit: ; p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %19, label %._crit_edge, !llvm.loop !93
+  br i1 %32, label %19, label %._crit_edge, !llvm.loop !95
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1797,7 +1797,7 @@ define void @_ZNK6icu_776number4impl14CompactHandler15processQuantityERNS1_15Dec
   %5 = alloca %"class.icu_77::UnicodeString", align 8
   %6 = alloca %"class.icu_77::number::impl::RoundingImpl", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !71
+  %8 = load ptr, ptr %7, align 8, !tbaa !73
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -1835,20 +1835,20 @@ define void @_ZNK6icu_776number4impl14CompactHandler15processQuantityERNS1_15Dec
   %.0 = phi i32 [ 0, %17 ], [ %26, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !48
+  %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = tail call noundef ptr @_ZNK6icu_776number4impl11CompactData10getPatternEiPKNS_11PluralRulesERKNS1_15DecimalQuantityE(ptr noundef nonnull align 8 dereferenceable(1375) %28, i32 noundef %.0, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(66) %1)
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %35 = load i8, ptr %34, align 8, !tbaa !76
+  %35 = load i8, ptr %34, align 8, !tbaa !78
   %.not38 = icmp eq i8 %35, 0
   br i1 %.not38, label %53, label %.preheader
 
 .preheader:                                       ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %37 = load i32, ptr %36, align 8, !tbaa !75
+  %37 = load i32, ptr %36, align 8, !tbaa !77
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph, label %.loopexit
 
@@ -1858,23 +1858,23 @@ define void @_ZNK6icu_776number4impl14CompactHandler15processQuantityERNS1_15Dec
 
 40:                                               ; preds = %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %36, align 8, !tbaa !75
+  %41 = load i32, ptr %36, align 8, !tbaa !77
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %44, label %.loopexit, !llvm.loop !94
+  br i1 %43, label %44, label %.loopexit, !llvm.loop !96
 
 44:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %45 = load ptr, ptr %39, align 8, !tbaa !72
+  %45 = load ptr, ptr %39, align 8, !tbaa !74
   %46 = getelementptr inbounds nuw %"struct.icu_77::number::impl::CompactModInfo", ptr %45, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !91
+  %48 = load ptr, ptr %47, align 8, !tbaa !93
   %49 = tail call i32 @u_strcmp_77(ptr noundef nonnull %31, ptr noundef %48)
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %40
 
 51:                                               ; preds = %44
-  %52 = load ptr, ptr %46, align 8, !tbaa !88
+  %52 = load ptr, ptr %46, align 8, !tbaa !90
   tail call void @_ZNK6icu_776number4impl24ImmutablePatternModifier13applyToMicrosERNS1_10MicroPropsERKNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(489) %2, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %.loopexit
 
@@ -1888,10 +1888,10 @@ define void @_ZNK6icu_776number4impl14CompactHandler15processQuantityERNS1_15Dec
 .preheader.i.i:                                   ; preds = %53, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %58, %.preheader.i.i ], [ 0, %53 ]
   %55 = getelementptr inbounds nuw i16, ptr %31, i64 %.0.i.i.i.i
-  %56 = load i16, ptr %55, align 2, !tbaa !43
+  %56 = load i16, ptr %55, align 2, !tbaa !45
   %57 = icmp eq i16 %56, 0
   %58 = add i64 %.0.i.i.i.i, 1
-  br i1 %57, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !87
+  br i1 %57, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !89
 
 .loopexit.i:                                      ; preds = %.preheader.i.i
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1616
@@ -1916,17 +1916,17 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  %65 = load ptr, ptr %64, align 8, !tbaa !77
+  %65 = load ptr, ptr %64, align 8, !tbaa !79
   call void @_ZN6icu_776number4impl22MutablePatternModifier14setPatternInfoEPKNS1_20AffixPatternProviderENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(392) %65, ptr noundef nonnull %59, i8 44)
-  %66 = load ptr, ptr %64, align 8, !tbaa !77
+  %66 = load ptr, ptr %64, align 8, !tbaa !79
   %67 = call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity6signumEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
   call void @_ZN6icu_776number4impl22MutablePatternModifier19setNumberPropertiesENS1_6SignumENS_14StandardPlural4FormE(ptr noundef nonnull align 8 dereferenceable(392) %66, i32 noundef %67, i32 noundef 8)
-  %68 = load ptr, ptr %64, align 8, !tbaa !77
+  %68 = load ptr, ptr %64, align 8, !tbaa !79
   %69 = icmp eq ptr %68, null
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %spec.select = select i1 %69, ptr null, ptr %70
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  store ptr %spec.select, ptr %71, align 8, !tbaa !95
+  store ptr %spec.select, ptr %71, align 8, !tbaa !97
   br label %.loopexit
 
 72:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit
@@ -2079,97 +2079,99 @@ attributes #21 = { builtin nounwind }
 !34 = !{!35, !9, i64 8}
 !35 = !{!"_ZTSN6icu_777UVectorE", !24, i64 0, !9, i64 8, !9, i64 12, !36, i64 16, !6, i64 24, !6, i64 32}
 !36 = !{!"p1 _ZTS8UElement", !6, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!5, !5, i64 0}
-!40 = !{!41, !21, i64 8}
-!41 = !{!"_ZTSN6icu_776number4impl11CompactData15CompactDataSinkE", !42, i64 0, !21, i64 8}
-!42 = !{!"_ZTSN6icu_7712ResourceSinkE", !24, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"char16_t", !7, i64 0}
-!45 = distinct !{!45, !38}
-!46 = distinct !{!46, !38}
-!47 = distinct !{!47, !38}
-!48 = !{!49, !51, i64 8}
-!49 = !{!"_ZTSN6icu_776number4impl14CompactHandlerE", !50, i64 0, !51, i64 8, !52, i64 16, !53, i64 24, !9, i64 232, !18, i64 240, !55, i64 1616, !70, i64 2056, !7, i64 2064}
-!50 = !{!"_ZTSN6icu_776number4impl19MicroPropsGeneratorE"}
-!51 = !{!"p1 _ZTSN6icu_7711PluralRulesE", !6, i64 0}
-!52 = !{!"p1 _ZTSN6icu_776number4impl19MicroPropsGeneratorE", !6, i64 0}
-!53 = !{!"_ZTSN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EEE", !54, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
-!54 = !{!"p1 _ZTSN6icu_776number4impl14CompactModInfoE", !6, i64 0}
-!55 = !{!"_ZTSN6icu_776number4impl17ParsedPatternInfoE", !56, i64 0, !57, i64 8, !59, i64 72, !59, i64 240, !67, i64 408, !69, i64 424, !61, i64 432}
-!56 = !{!"_ZTSN6icu_776number4impl20AffixPatternProviderE"}
-!57 = !{!"_ZTSN6icu_7713UnicodeStringE", !58, i64 0, !7, i64 8}
-!58 = !{!"_ZTSN6icu_7711ReplaceableE", !24, i64 0}
-!59 = !{!"_ZTSN6icu_776number4impl20ParsedSubpatternInfoE", !60, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !61, i64 40, !9, i64 44, !61, i64 48, !62, i64 52, !63, i64 56, !61, i64 128, !9, i64 132, !61, i64 136, !61, i64 137, !61, i64 138, !61, i64 139, !61, i64 140, !61, i64 141, !66, i64 144, !66, i64 152, !66, i64 160}
-!60 = !{!"long", !7, i64 0}
-!61 = !{!"bool", !7, i64 0}
-!62 = !{!"_ZTS24UNumberFormatPadPosition", !7, i64 0}
-!63 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !64, i64 0, !61, i64 8, !9, i64 12, !9, i64 16, !7, i64 20, !7, i64 21, !65, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !7, i64 48, !61, i64 64, !61, i64 65}
-!64 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
-!65 = !{!"double", !7, i64 0}
-!66 = !{!"_ZTSN6icu_776number4impl9EndpointsE", !9, i64 0, !9, i64 4}
-!67 = !{!"_ZTSN6icu_776number4impl17ParsedPatternInfo11ParserStateE", !68, i64 0, !9, i64 8}
-!68 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !6, i64 0}
-!69 = !{!"p1 _ZTSN6icu_776number4impl20ParsedSubpatternInfoE", !6, i64 0}
-!70 = !{!"p1 _ZTSN6icu_776number4impl22MutablePatternModifierE", !6, i64 0}
-!71 = !{!49, !52, i64 16}
-!72 = !{!53, !54, i64 0}
-!73 = !{!53, !9, i64 8}
-!74 = !{!53, !7, i64 12}
-!75 = !{!49, !9, i64 232}
-!76 = !{!49, !7, i64 2064}
-!77 = !{!49, !70, i64 2056}
-!78 = !{!59, !60, i64 0}
-!79 = !{!59, !9, i64 44}
-!80 = !{!59, !61, i64 48}
-!81 = !{!59, !62, i64 52}
-!82 = !{!59, !61, i64 128}
-!83 = !{!68, !68, i64 0}
-!84 = !{!67, !9, i64 8}
-!85 = !{!55, !69, i64 424}
-!86 = !{!55, !61, i64 432}
-!87 = distinct !{!87, !38}
-!88 = !{!89, !90, i64 0}
-!89 = !{!"_ZTSN6icu_776number4impl14CompactModInfoE", !90, i64 0, !33, i64 8}
-!90 = !{!"p1 _ZTSN6icu_776number4impl24ImmutablePatternModifierE", !6, i64 0}
-!91 = !{!89, !33, i64 8}
-!92 = distinct !{!92, !38}
-!93 = distinct !{!93, !38}
-!94 = distinct !{!94, !38}
-!95 = !{!96, !111, i64 200}
-!96 = !{!"_ZTSN6icu_776number4impl10MicroPropsE", !50, i64 0, !97, i64 8, !103, i64 104, !108, i64 144, !109, i64 156, !110, i64 168, !7, i64 172, !5, i64 184, !111, i64 192, !111, i64 200, !111, i64 208, !112, i64 216, !126, i64 416, !128, i64 440, !9, i64 480, !9, i64 484, !61, i64 488}
-!97 = !{!"_ZTSN6icu_776number4impl16SimpleMicroPropsE", !98, i64 4, !61, i64 16, !101, i64 20, !57, i64 24, !102, i64 88}
-!98 = !{!"_ZTSN6icu_776number4impl7GrouperE", !99, i64 0, !99, i64 2, !99, i64 4, !100, i64 8}
-!99 = !{!"short", !7, i64 0}
-!100 = !{!"_ZTS23UNumberGroupingStrategy", !7, i64 0}
-!101 = !{!"_ZTS30UNumberDecimalSeparatorDisplay", !7, i64 0}
-!102 = !{!"p1 _ZTSN6icu_7720DecimalFormatSymbolsE", !6, i64 0}
-!103 = !{!"_ZTSN6icu_776number4impl12RoundingImplE", !104, i64 0, !107, i64 32, !61, i64 36}
-!104 = !{!"_ZTSN6icu_776number9PrecisionE", !105, i64 0, !7, i64 8, !106, i64 24}
-!105 = !{!"_ZTSN6icu_776number9Precision13PrecisionTypeE", !7, i64 0}
-!106 = !{!"_ZTS26UNumberTrailingZeroDisplay", !7, i64 0}
-!107 = !{!"_ZTS25UNumberFormatRoundingMode", !7, i64 0}
-!108 = !{!"_ZTSN6icu_776number4impl6PadderE", !9, i64 0, !7, i64 4}
-!109 = !{!"_ZTSN6icu_776number12IntegerWidthE", !7, i64 0, !61, i64 8}
-!110 = !{!"_ZTS18UNumberSignDisplay", !7, i64 0}
-!111 = !{!"p1 _ZTSN6icu_776number4impl8ModifierE", !6, i64 0}
-!112 = !{!"_ZTSN6icu_776number4impl10MicroPropsUt_E", !113, i64 0, !116, i64 24, !116, i64 40, !117, i64 56, !120, i64 96}
-!113 = !{!"_ZTSN6icu_776number4impl18ScientificModifierE", !114, i64 0, !9, i64 8, !115, i64 16}
-!114 = !{!"_ZTSN6icu_776number4impl8ModifierE"}
-!115 = !{!"p1 _ZTSN6icu_776number4impl17ScientificHandlerE", !6, i64 0}
-!116 = !{!"_ZTSN6icu_776number4impl13EmptyModifierE", !114, i64 0, !61, i64 8}
-!117 = !{!"_ZTSN6icu_776number4impl23MultiplierFormatHandlerE", !50, i64 0, !118, i64 8, !52, i64 32}
-!118 = !{!"_ZTSN6icu_776number5ScaleE", !9, i64 0, !119, i64 8, !14, i64 16}
-!119 = !{!"p1 _ZTSN6icu_776number4impl6DecNumE", !6, i64 0}
-!120 = !{!"_ZTSN6icu_776number4impl14SimpleModifierE", !114, i64 0, !57, i64 8, !121, i64 72, !61, i64 73, !9, i64 76, !9, i64 80, !9, i64 84, !122, i64 88}
-!121 = !{!"_ZTSN6icu_7722FormattedStringBuilder5FieldE", !7, i64 0}
-!122 = !{!"_ZTSN6icu_776number4impl8Modifier10ParametersE", !123, i64 0, !124, i64 8, !125, i64 12}
-!123 = !{!"p1 _ZTSN6icu_776number4impl13ModifierStoreE", !6, i64 0}
-!124 = !{!"_ZTSN6icu_776number4impl6SignumE", !7, i64 0}
-!125 = !{!"_ZTSN6icu_7714StandardPlural4FormE", !7, i64 0}
-!126 = !{!"_ZTSN6icu_7711MeasureUnitE", !24, i64 0, !127, i64 8, !99, i64 16, !7, i64 18}
-!127 = !{!"p1 _ZTSN6icu_7715MeasureUnitImplE", !6, i64 0}
-!128 = !{!"_ZTSN6icu_776number4impl11IntMeasuresE", !129, i64 0, !14, i64 32}
-!129 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi2EEE", !130, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
-!130 = !{!"p1 long", !6, i64 0}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !39}
+!41 = !{!5, !5, i64 0}
+!42 = !{!43, !21, i64 8}
+!43 = !{!"_ZTSN6icu_776number4impl11CompactData15CompactDataSinkE", !44, i64 0, !21, i64 8}
+!44 = !{!"_ZTSN6icu_7712ResourceSinkE", !24, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"char16_t", !7, i64 0}
+!47 = distinct !{!47, !38, !39}
+!48 = distinct !{!48, !38, !39}
+!49 = distinct !{!49, !38, !39}
+!50 = !{!51, !53, i64 8}
+!51 = !{!"_ZTSN6icu_776number4impl14CompactHandlerE", !52, i64 0, !53, i64 8, !54, i64 16, !55, i64 24, !9, i64 232, !18, i64 240, !57, i64 1616, !72, i64 2056, !7, i64 2064}
+!52 = !{!"_ZTSN6icu_776number4impl19MicroPropsGeneratorE"}
+!53 = !{!"p1 _ZTSN6icu_7711PluralRulesE", !6, i64 0}
+!54 = !{!"p1 _ZTSN6icu_776number4impl19MicroPropsGeneratorE", !6, i64 0}
+!55 = !{!"_ZTSN6icu_7715MaybeStackArrayINS_6number4impl14CompactModInfoELi12EEE", !56, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
+!56 = !{!"p1 _ZTSN6icu_776number4impl14CompactModInfoE", !6, i64 0}
+!57 = !{!"_ZTSN6icu_776number4impl17ParsedPatternInfoE", !58, i64 0, !59, i64 8, !61, i64 72, !61, i64 240, !69, i64 408, !71, i64 424, !63, i64 432}
+!58 = !{!"_ZTSN6icu_776number4impl20AffixPatternProviderE"}
+!59 = !{!"_ZTSN6icu_7713UnicodeStringE", !60, i64 0, !7, i64 8}
+!60 = !{!"_ZTSN6icu_7711ReplaceableE", !24, i64 0}
+!61 = !{!"_ZTSN6icu_776number4impl20ParsedSubpatternInfoE", !62, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !63, i64 40, !9, i64 44, !63, i64 48, !64, i64 52, !65, i64 56, !63, i64 128, !9, i64 132, !63, i64 136, !63, i64 137, !63, i64 138, !63, i64 139, !63, i64 140, !63, i64 141, !68, i64 144, !68, i64 152, !68, i64 160}
+!62 = !{!"long", !7, i64 0}
+!63 = !{!"bool", !7, i64 0}
+!64 = !{!"_ZTS24UNumberFormatPadPosition", !7, i64 0}
+!65 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !66, i64 0, !63, i64 8, !9, i64 12, !9, i64 16, !7, i64 20, !7, i64 21, !67, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !7, i64 48, !63, i64 64, !63, i64 65}
+!66 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
+!67 = !{!"double", !7, i64 0}
+!68 = !{!"_ZTSN6icu_776number4impl9EndpointsE", !9, i64 0, !9, i64 4}
+!69 = !{!"_ZTSN6icu_776number4impl17ParsedPatternInfo11ParserStateE", !70, i64 0, !9, i64 8}
+!70 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !6, i64 0}
+!71 = !{!"p1 _ZTSN6icu_776number4impl20ParsedSubpatternInfoE", !6, i64 0}
+!72 = !{!"p1 _ZTSN6icu_776number4impl22MutablePatternModifierE", !6, i64 0}
+!73 = !{!51, !54, i64 16}
+!74 = !{!55, !56, i64 0}
+!75 = !{!55, !9, i64 8}
+!76 = !{!55, !7, i64 12}
+!77 = !{!51, !9, i64 232}
+!78 = !{!51, !7, i64 2064}
+!79 = !{!51, !72, i64 2056}
+!80 = !{!61, !62, i64 0}
+!81 = !{!61, !9, i64 44}
+!82 = !{!61, !63, i64 48}
+!83 = !{!61, !64, i64 52}
+!84 = !{!61, !63, i64 128}
+!85 = !{!70, !70, i64 0}
+!86 = !{!69, !9, i64 8}
+!87 = !{!57, !71, i64 424}
+!88 = !{!57, !63, i64 432}
+!89 = distinct !{!89, !38, !39}
+!90 = !{!91, !92, i64 0}
+!91 = !{!"_ZTSN6icu_776number4impl14CompactModInfoE", !92, i64 0, !33, i64 8}
+!92 = !{!"p1 _ZTSN6icu_776number4impl24ImmutablePatternModifierE", !6, i64 0}
+!93 = !{!91, !33, i64 8}
+!94 = distinct !{!94, !38, !39}
+!95 = distinct !{!95, !38, !39}
+!96 = distinct !{!96, !38, !39}
+!97 = !{!98, !113, i64 200}
+!98 = !{!"_ZTSN6icu_776number4impl10MicroPropsE", !52, i64 0, !99, i64 8, !105, i64 104, !110, i64 144, !111, i64 156, !112, i64 168, !7, i64 172, !5, i64 184, !113, i64 192, !113, i64 200, !113, i64 208, !114, i64 216, !128, i64 416, !130, i64 440, !9, i64 480, !9, i64 484, !63, i64 488}
+!99 = !{!"_ZTSN6icu_776number4impl16SimpleMicroPropsE", !100, i64 4, !63, i64 16, !103, i64 20, !59, i64 24, !104, i64 88}
+!100 = !{!"_ZTSN6icu_776number4impl7GrouperE", !101, i64 0, !101, i64 2, !101, i64 4, !102, i64 8}
+!101 = !{!"short", !7, i64 0}
+!102 = !{!"_ZTS23UNumberGroupingStrategy", !7, i64 0}
+!103 = !{!"_ZTS30UNumberDecimalSeparatorDisplay", !7, i64 0}
+!104 = !{!"p1 _ZTSN6icu_7720DecimalFormatSymbolsE", !6, i64 0}
+!105 = !{!"_ZTSN6icu_776number4impl12RoundingImplE", !106, i64 0, !109, i64 32, !63, i64 36}
+!106 = !{!"_ZTSN6icu_776number9PrecisionE", !107, i64 0, !7, i64 8, !108, i64 24}
+!107 = !{!"_ZTSN6icu_776number9Precision13PrecisionTypeE", !7, i64 0}
+!108 = !{!"_ZTS26UNumberTrailingZeroDisplay", !7, i64 0}
+!109 = !{!"_ZTS25UNumberFormatRoundingMode", !7, i64 0}
+!110 = !{!"_ZTSN6icu_776number4impl6PadderE", !9, i64 0, !7, i64 4}
+!111 = !{!"_ZTSN6icu_776number12IntegerWidthE", !7, i64 0, !63, i64 8}
+!112 = !{!"_ZTS18UNumberSignDisplay", !7, i64 0}
+!113 = !{!"p1 _ZTSN6icu_776number4impl8ModifierE", !6, i64 0}
+!114 = !{!"_ZTSN6icu_776number4impl10MicroPropsUt_E", !115, i64 0, !118, i64 24, !118, i64 40, !119, i64 56, !122, i64 96}
+!115 = !{!"_ZTSN6icu_776number4impl18ScientificModifierE", !116, i64 0, !9, i64 8, !117, i64 16}
+!116 = !{!"_ZTSN6icu_776number4impl8ModifierE"}
+!117 = !{!"p1 _ZTSN6icu_776number4impl17ScientificHandlerE", !6, i64 0}
+!118 = !{!"_ZTSN6icu_776number4impl13EmptyModifierE", !116, i64 0, !63, i64 8}
+!119 = !{!"_ZTSN6icu_776number4impl23MultiplierFormatHandlerE", !52, i64 0, !120, i64 8, !54, i64 32}
+!120 = !{!"_ZTSN6icu_776number5ScaleE", !9, i64 0, !121, i64 8, !14, i64 16}
+!121 = !{!"p1 _ZTSN6icu_776number4impl6DecNumE", !6, i64 0}
+!122 = !{!"_ZTSN6icu_776number4impl14SimpleModifierE", !116, i64 0, !59, i64 8, !123, i64 72, !63, i64 73, !9, i64 76, !9, i64 80, !9, i64 84, !124, i64 88}
+!123 = !{!"_ZTSN6icu_7722FormattedStringBuilder5FieldE", !7, i64 0}
+!124 = !{!"_ZTSN6icu_776number4impl8Modifier10ParametersE", !125, i64 0, !126, i64 8, !127, i64 12}
+!125 = !{!"p1 _ZTSN6icu_776number4impl13ModifierStoreE", !6, i64 0}
+!126 = !{!"_ZTSN6icu_776number4impl6SignumE", !7, i64 0}
+!127 = !{!"_ZTSN6icu_7714StandardPlural4FormE", !7, i64 0}
+!128 = !{!"_ZTSN6icu_7711MeasureUnitE", !24, i64 0, !129, i64 8, !101, i64 16, !7, i64 18}
+!129 = !{!"p1 _ZTSN6icu_7715MeasureUnitImplE", !6, i64 0}
+!130 = !{!"_ZTSN6icu_776number4impl11IntMeasuresE", !131, i64 0, !14, i64 32}
+!131 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi2EEE", !132, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
+!132 = !{!"p1 long", !6, i64 0}

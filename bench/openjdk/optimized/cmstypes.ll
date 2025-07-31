@@ -118,7 +118,7 @@ define hidden range(i32 0, 2) i32 @IsIdentity(ptr noundef readonly captures(none
 19:                                               ; preds = %10
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 3
-  br i1 %exitcond19.not, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %exitcond19.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %19, %11
   %.010 = phi i32 [ 0, %11 ], [ 1, %19 ]
@@ -288,7 +288,7 @@ define hidden void @_cmsAllocTagTypePluginChunk(ptr noundef captures(none) %0, p
   %20 = getelementptr inbounds nuw i8, ptr %.022.i, i64 56
   %.0.i = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %8, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %8, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %18
   store ptr %spec.select.i, ptr %3, align 8
@@ -367,7 +367,7 @@ define hidden void @_cmsAllocMPETypePluginChunk(ptr noundef captures(none) %0, p
   %20 = getelementptr inbounds nuw i8, ptr %.022.i, i64 56
   %.0.i = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %8, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %8, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %18
   store ptr %spec.select.i, ptr %3, align 8
@@ -472,7 +472,7 @@ define hidden noundef ptr @_cmsGetTagTypeHandler(ptr noundef %0, i32 noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %.017.i, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %.lr.ph20.i.preheader, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.lr.ph20.i.preheader, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph20.i.preheader:                             ; preds = %7, %2
   br label %.lr.ph20.i
@@ -487,7 +487,7 @@ define hidden noundef ptr @_cmsGetTagTypeHandler(ptr noundef %0, i32 noundef %1)
   %13 = getelementptr inbounds nuw i8, ptr %.119.i, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not13.i = icmp eq ptr %14, null
-  br i1 %.not13.i, label %GetHandler.exit, label %.lr.ph20.i, !llvm.loop !11
+  br i1 %.not13.i, label %GetHandler.exit, label %.lr.ph20.i, !llvm.loop !12
 
 GetHandler.exit:                                  ; preds = %.lr.ph.i, %.lr.ph20.i, %12
   %.012.i = phi ptr [ null, %12 ], [ %.119.i, %.lr.ph20.i ], [ %.017.i, %.lr.ph.i ]
@@ -540,7 +540,7 @@ define hidden void @_cmsAllocTagPluginChunk(ptr noundef captures(none) %0, ptr n
   %18 = getelementptr inbounds nuw i8, ptr %.05.i, i64 104
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %7, !llvm.loop !12
+  br i1 %.not.i, label %._crit_edge.i, label %7, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %16, %4
   %.lcssa.i = phi ptr [ null, %4 ], [ %spec.select.i, %16 ]
@@ -627,7 +627,7 @@ define hidden ptr @_cmsGetTagDescriptor(ptr noundef %0, i32 noundef %1) local_un
   %9 = getelementptr inbounds nuw i8, ptr %.01218, i64 104
   %.012 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.012, null
-  br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !14
 
 .preheader.preheader:                             ; preds = %8, %2
   br label %.preheader
@@ -646,7 +646,7 @@ define hidden ptr @_cmsGetTagDescriptor(ptr noundef %0, i32 noundef %1) local_un
   %15 = getelementptr inbounds nuw i8, ptr %.119, i64 104
   %16 = load ptr, ptr %15, align 8
   %.not13 = icmp eq ptr %16, null
-  br i1 %.not13, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %.not13, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %14, %12, %6
   %.0 = phi ptr [ %7, %6 ], [ %13, %12 ], [ null, %14 ]
@@ -900,7 +900,7 @@ define internal range(i32 0, 2) i32 @Type_ColorantOrderType_Write(ptr readnone c
   %spec.select = add i32 %.018, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %9, label %5, !llvm.loop !15
+  br i1 %exitcond.not, label %9, label %5, !llvm.loop !16
 
 9:                                                ; preds = %5
   %10 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %spec.select) #14
@@ -957,7 +957,7 @@ define internal ptr @Type_S15Fixed16_Read(ptr noundef readonly captures(none) %0
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
@@ -992,7 +992,7 @@ define internal range(i32 0, 2) i32 @Type_S15Fixed16_Write(ptr readnone captures
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
@@ -1062,7 +1062,7 @@ define internal ptr @Type_U16Fixed16_Read(ptr noundef readonly captures(none) %0
   store double %17, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %14, %.preheader
   store i32 %6, ptr %2, align 4
@@ -1085,7 +1085,7 @@ define internal range(i32 0, 2) i32 @Type_U16Fixed16_Write(ptr readnone captures
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
@@ -1350,7 +1350,7 @@ define internal ptr @Type_Text_Description_Read(ptr noundef readonly captures(no
 82:                                               ; preds = %.preheader
   %83 = add nuw nsw i32 %.078, 1
   %exitcond.not = icmp eq i32 %83, 67
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .preheader:                                       ; preds = %80, %82
   %.078 = phi i32 [ %83, %82 ], [ 0, %80 ]
@@ -1460,7 +1460,7 @@ _cmsWriteWCharArray.exit.thread72.thread:         ; preds = %17
 47:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %47 ]
@@ -1713,7 +1713,7 @@ define internal ptr @Type_ParametricCurve_Read(ptr noundef readonly captures(non
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
@@ -1777,7 +1777,7 @@ define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr noundef read
 24:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
@@ -2018,7 +2018,7 @@ define internal ptr @Type_LUT8_Read(ptr noundef readonly captures(none) %0, ptr 
 81:                                               ; preds = %.lr.ph.i
   %82 = add nsw i32 %.01624.i, -1
   %.not.i = icmp eq i32 %82, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %81
   %.01525.i = phi i32 [ %83, %81 ], [ 1, %.lr.ph.i.preheader ]
@@ -2081,7 +2081,7 @@ uipow.exit:                                       ; preds = %._crit_edge.i
   store i16 %102, ptr %.071111, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %104 = load ptr, ptr %28, align 8
@@ -2255,7 +2255,7 @@ define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr noundef readonly captur
   %58 = tail call i32 @cmsPipelineInputChannels(ptr noundef nonnull %2) #14
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %.thread152.thread, !llvm.loop !26
+  br i1 %60, label %.lr.ph, label %.thread152.thread, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %50, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 1, %50 ]
@@ -2309,7 +2309,7 @@ define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr noundef readonly captur
 81:                                               ; preds = %.preheader185
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next196, 9
-  br i1 %exitcond.not, label %.loopexit, label %.preheader185, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.preheader185, !llvm.loop !28
 
 .preheader185:                                    ; preds = %80, %81
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %81 ], [ 0, %80 ]
@@ -2390,7 +2390,7 @@ define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr noundef readonly captur
 115:                                              ; preds = %.lr.ph.i
   %116 = add i32 %.01624.i, -1
   %.not.i = icmp eq i32 %116, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %115
   %.01525.i = phi i32 [ %117, %115 ], [ 1, %.preheader.i ]
@@ -2422,7 +2422,7 @@ define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr noundef readonly captur
 122:                                              ; preds = %.preheader
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count
-  br i1 %exitcond201.not, label %.thread172.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %exitcond201.not, label %.thread172.loopexit, label %.preheader, !llvm.loop !29
 
 .preheader:                                       ; preds = %.preheader.preheader, %122
   %indvars.iv198 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next199, %122 ]
@@ -2636,7 +2636,7 @@ define internal ptr @Type_LUT16_Read(ptr noundef readonly captures(none) %0, ptr
 92:                                               ; preds = %.lr.ph.i
   %93 = add nsw i32 %.01624.i, -1
   %.not.i = icmp eq i32 %93, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %92
   %.01525.i = phi i32 [ %94, %92 ], [ 1, %.lr.ph.i.preheader ]
@@ -2839,7 +2839,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
 54:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit216, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit216, label %.lr.ph, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
@@ -2885,7 +2885,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
 71:                                               ; preds = %.preheader213
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next232, 9
-  br i1 %exitcond234.not, label %.loopexit214, label %.preheader213, !llvm.loop !30
+  br i1 %exitcond234.not, label %.loopexit214, label %.preheader213, !llvm.loop !31
 
 .preheader213:                                    ; preds = %70, %71
   %indvars.iv231 = phi i64 [ %indvars.iv.next232, %71 ], [ 0, %70 ]
@@ -2996,7 +2996,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
 118:                                              ; preds = %121
   %119 = add nuw i32 %.295220, 1
   %exitcond235.not = icmp eq i32 %119, %45
-  br i1 %exitcond235.not, label %.loopexit211, label %.lr.ph221, !llvm.loop !31
+  br i1 %exitcond235.not, label %.loopexit211, label %.lr.ph221, !llvm.loop !32
 
 .lr.ph221:                                        ; preds = %.preheader210, %118
   %.295220 = phi i32 [ %119, %118 ], [ 0, %.preheader210 ]
@@ -3028,7 +3028,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
 127:                                              ; preds = %.lr.ph.i
   %128 = add i32 %.01624.i, -1
   %.not.i = icmp eq i32 %128, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %127
   %.01525.i = phi i32 [ %129, %127 ], [ 1, %.preheader.i ]
@@ -3075,7 +3075,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
 141:                                              ; preds = %144
   %142 = add nuw i32 %.396222, 1
   %exitcond236.not = icmp eq i32 %142, %46
-  br i1 %exitcond236.not, label %.loopexit, label %.lr.ph223, !llvm.loop !32
+  br i1 %exitcond236.not, label %.loopexit, label %.lr.ph223, !llvm.loop !33
 
 .lr.ph223:                                        ; preds = %.preheader, %141
   %.396222 = phi i32 [ %142, %141 ], [ 0, %.preheader ]
@@ -3147,7 +3147,7 @@ define internal ptr @Type_ColorantTable_Read(ptr noundef readonly captures(none)
   %22 = add nuw i32 %.01420, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %25, label %._crit_edge, !llvm.loop !33
+  br i1 %24, label %25, label %._crit_edge, !llvm.loop !34
 
 25:                                               ; preds = %.lr.ph, %21
   %.01420 = phi i32 [ 0, %.lr.ph ], [ %22, %21 ]
@@ -3202,7 +3202,7 @@ define internal range(i32 0, 2) i32 @Type_ColorantTable_Write(ptr readnone captu
 11:                                               ; preds = %18
   %12 = add nuw i32 %.01216, 1
   %exitcond.not = icmp eq i32 %12, %7
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !35
 
 13:                                               ; preds = %.lr.ph, %11
   %.01216 = phi i32 [ 0, %.lr.ph ], [ %12, %11 ]
@@ -3320,7 +3320,7 @@ define internal ptr @Type_NamedColor_Read(ptr noundef readonly captures(none) %0
   %45 = add nuw i32 %.033, 1
   %46 = load i32, ptr %6, align 4
   %47 = icmp ult i32 %45, %46
-  br i1 %47, label %48, label %._crit_edge, !llvm.loop !35
+  br i1 %47, label %48, label %._crit_edge, !llvm.loop !36
 
 48:                                               ; preds = %.lr.ph, %44
   %.033 = phi i32 [ 0, %.lr.ph ], [ %45, %44 ]
@@ -3413,7 +3413,7 @@ define internal range(i32 0, 2) i32 @Type_NamedColor_Write(ptr readnone captures
 30:                                               ; preds = %38
   %31 = add nuw i32 %.02332, 1
   %exitcond.not = icmp eq i32 %31, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.preheader, %30
   %.02332 = phi i32 [ %31, %30 ], [ 0, %.preheader ]
@@ -3566,7 +3566,7 @@ define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr n
   %59 = load i32, ptr %5, align 4
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next, %60
-  br i1 %61, label %28, label %._crit_edge, !llvm.loop !37
+  br i1 %61, label %28, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %49
   %62 = shl i32 %spec.select, 1
@@ -3655,7 +3655,7 @@ define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) 
   %22 = load i32, ptr %11, align 4
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %indvars.iv.next, %23
-  br i1 %24, label %25, label %._crit_edge, !llvm.loop !38
+  br i1 %24, label %25, label %._crit_edge, !llvm.loop !39
 
 25:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
@@ -3707,7 +3707,7 @@ define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) 
 51:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_cmsWriteWCharArray.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %_cmsWriteWCharArray.exit, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %51 ]
@@ -3769,7 +3769,7 @@ define internal ptr @Type_ProfileSequenceDesc_Read(ptr noundef readonly captures
   %19 = load i32, ptr %5, align 4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %22, label %._crit_edge, !llvm.loop !39
+  br i1 %21, label %22, label %._crit_edge, !llvm.loop !40
 
 22:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
@@ -3856,7 +3856,7 @@ define internal range(i32 0, 2) i32 @Type_ProfileSequenceDesc_Write(ptr noundef 
   %11 = load i32, ptr %2, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %14, label %SaveDescription.exit.thread, !llvm.loop !40
+  br i1 %13, label %14, label %SaveDescription.exit.thread, !llvm.loop !41
 
 14:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -5571,7 +5571,7 @@ define internal range(i32 0, 2) i32 @Type_MPE_Write(ptr noundef %0, ptr noundef 
 36:                                               ; preds = %39
   %37 = add nuw i32 %.086127, 1
   %exitcond.not = icmp eq i32 %37, %15
-  br i1 %exitcond.not, label %.lr.ph130, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %.lr.ph130, label %.lr.ph, !llvm.loop !42
 
 .lr.ph130:                                        ; preds = %36
   %wide.trip.count = zext i32 %15 to i64
@@ -5613,7 +5613,7 @@ define internal range(i32 0, 2) i32 @Type_MPE_Write(ptr noundef %0, ptr noundef 
   %52 = getelementptr inbounds nuw i8, ptr %.017.i, i64 56
   %53 = load ptr, ptr %52, align 8
   %.not.i = icmp eq ptr %53, null
-  br i1 %.not.i, label %.lr.ph20.i.preheader, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.lr.ph20.i.preheader, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph20.i.preheader:                             ; preds = %51, %41
   br label %.lr.ph20.i
@@ -5628,7 +5628,7 @@ define internal range(i32 0, 2) i32 @Type_MPE_Write(ptr noundef %0, ptr noundef 
   %57 = getelementptr inbounds nuw i8, ptr %.119.i, i64 56
   %58 = load ptr, ptr %57, align 8
   %.not13.i = icmp eq ptr %58, null
-  br i1 %.not13.i, label %GetHandler.exit, label %.lr.ph20.i, !llvm.loop !11
+  br i1 %.not13.i, label %GetHandler.exit, label %.lr.ph20.i, !llvm.loop !12
 
 GetHandler.exit:                                  ; preds = %56
   call void @_cmsTagSignature2String(ptr noundef nonnull %5, i32 noundef %47) #14
@@ -5671,7 +5671,7 @@ GetHandler.exit:                                  ; preds = %56
   %77 = load ptr, ptr %76, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond145.not, label %._crit_edge, label %41, !llvm.loop !42
+  br i1 %exitcond145.not, label %._crit_edge, label %41, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %71, %33
   %78 = load ptr, ptr %10, align 8
@@ -5692,7 +5692,7 @@ GetHandler.exit:                                  ; preds = %56
 83:                                               ; preds = %87
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !43
+  br i1 %exitcond150.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !44
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %83
   %indvars.iv146 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next147, %83 ]
@@ -5788,7 +5788,7 @@ define internal ptr @Type_Screening_Read(ptr noundef readonly captures(none) %0,
   %20 = load i32, ptr %12, align 4
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %23, label %._crit_edge, !llvm.loop !44
+  br i1 %22, label %23, label %._crit_edge, !llvm.loop !45
 
 23:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
@@ -5848,7 +5848,7 @@ define internal range(i32 0, 2) i32 @Type_Screening_Write(ptr readnone captures(
   %14 = load i32, ptr %8, align 4
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !45
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
@@ -6311,7 +6311,7 @@ ReadOneElem.exit50.us.i:                          ; preds = %108, %106, %ReadOne
   %.2.us.i = phi i32 [ %87, %ReadOneElem.exit45.us.i ], [ %100, %106 ], [ %100, %108 ]
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count70.i
-  br i1 %exitcond71.not.i, label %ReadOffsetArray.exit, label %.lr.ph.split.us.i, !llvm.loop !46
+  br i1 %exitcond71.not.i, label %ReadOffsetArray.exit, label %.lr.ph.split.us.i, !llvm.loop !47
 
 .lr.ph.split.i:                                   ; preds = %ReadOneElem.exit40.i, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %ReadOneElem.exit40.i ]
@@ -6367,7 +6367,7 @@ ReadOneElem.exit.i:                               ; preds = %120, %118
 ReadOneElem.exit40.i:                             ; preds = %129, %127
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ReadOffsetArray.exit, label %.lr.ph.split.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %ReadOffsetArray.exit, label %.lr.ph.split.i, !llvm.loop !49
 
 ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.i, %ReadOneElem.exit50.us.i
   %.pr117 = load i32, ptr %7, align 4
@@ -6388,7 +6388,7 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
   %138 = load i32, ptr %7, align 4
   %139 = zext i32 %138 to i64
   %140 = icmp samesign ult i64 %indvars.iv.next, %139
-  br i1 %140, label %141, label %._crit_edge, !llvm.loop !49
+  br i1 %140, label %141, label %._crit_edge, !llvm.loop !50
 
 141:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
@@ -6603,7 +6603,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %17 = add i32 %.067127, 1
   %18 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.062129) #14
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %19 = icmp eq i32 %spec.select, 0
@@ -6695,7 +6695,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
 61:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %60
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !22
 
 .lr.ph.i.i:                                       ; preds = %59, %61
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %61 ], [ 0, %59 ]
@@ -6742,7 +6742,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
 82:                                               ; preds = %.lr.ph.i.i97
   %indvars.iv.next.i.i100 = add nuw nsw i64 %indvars.iv.i.i98, 1
   %exitcond.not.i.i101 = icmp eq i64 %indvars.iv.next.i.i100, %81
-  br i1 %exitcond.not.i.i101, label %.loopexit.i102, label %.lr.ph.i.i97, !llvm.loop !21
+  br i1 %exitcond.not.i.i101, label %.loopexit.i102, label %.lr.ph.i.i97, !llvm.loop !22
 
 .lr.ph.i.i97:                                     ; preds = %80, %82
   %indvars.iv.i.i98 = phi i64 [ %indvars.iv.next.i.i100, %82 ], [ 0, %80 ]
@@ -6834,7 +6834,7 @@ WriteOneMLUC.exit114.thread:                      ; preds = %118, %119, %WriteOn
   %124 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.1133) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge136, label %49, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge136, label %49, !llvm.loop !52
 
 ._crit_edge136:                                   ; preds = %WriteOneMLUC.exit114.thread, %35
   %125 = load ptr, ptr %8, align 8
@@ -7103,7 +7103,7 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
   %62 = load i16, ptr %7, align 2
   %63 = zext i16 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next86, %63
-  br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !52
+  br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
 65:                                               ; preds = %49
   %66 = load i16, ptr %7, align 2
@@ -7124,12 +7124,12 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
 .loopexit:                                        ; preds = %53, %.preheader, %65
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 3
-  br i1 %exitcond91.not, label %.loopexit69, label %42, !llvm.loop !53
+  br i1 %exitcond91.not, label %.loopexit69, label %42, !llvm.loop !54
 
 75:                                               ; preds = %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit69, label %76, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit69, label %76, !llvm.loop !55
 
 76:                                               ; preds = %.preheader71, %75
   %indvars.iv = phi i64 [ 0, %.preheader71 ], [ %indvars.iv.next, %75 ]
@@ -7219,7 +7219,7 @@ define internal range(i32 0, 2) i32 @Type_vcgt_Write(ptr readnone captures(none)
 20:                                               ; preds = %36
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 3
-  br i1 %exitcond56.not, label %.loopexit, label %.preheader, !llvm.loop !55
+  br i1 %exitcond56.not, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .preheader:                                       ; preds = %18, %20
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %20 ], [ 0, %18 ]
@@ -7277,7 +7277,7 @@ define internal range(i32 0, 2) i32 @Type_vcgt_Write(ptr readnone captures(none)
 47:                                               ; preds = %_cmsQuickSaturateWord.exit
   %48 = add nuw nsw i32 %.03346, 1
   %exitcond.not = icmp eq i32 %48, 256
-  br i1 %exitcond.not, label %68, label %49, !llvm.loop !56
+  br i1 %exitcond.not, label %68, label %49, !llvm.loop !57
 
 49:                                               ; preds = %.preheader42, %47
   %.03346 = phi i32 [ 0, %.preheader42 ], [ %48, %47 ]
@@ -7313,7 +7313,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %49, %59, %61
 68:                                               ; preds = %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond52.not, label %.loopexit, label %.preheader42, !llvm.loop !57
+  br i1 %exitcond52.not, label %.loopexit, label %.preheader42, !llvm.loop !58
 
 .loopexit:                                        ; preds = %68, %_cmsQuickSaturateWord.exit, %20, %36, %34, %.preheader, %44, %42, %40, %38, %18
   %.0 = phi i32 [ 0, %18 ], [ 0, %38 ], [ 0, %40 ], [ 0, %42 ], [ 0, %44 ], [ 1, %20 ], [ 0, %36 ], [ 0, %34 ], [ 0, %.preheader ], [ 0, %_cmsQuickSaturateWord.exit ], [ 1, %68 ]
@@ -7641,7 +7641,7 @@ define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr readnone captures(none)
 50:                                               ; preds = %41
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 3
-  br i1 %exitcond19.not.i, label %IsIdentity.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond19.not.i, label %IsIdentity.exit, label %.preheader.i, !llvm.loop !9
 
 IsIdentity.exit:                                  ; preds = %50
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
@@ -7666,7 +7666,7 @@ IsIdentity.exit:                                  ; preds = %50
   %58 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %59 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i69 = icmp eq i32 %59, 12
-  br i1 %exitcond.not.i69, label %WriteDoubles.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond.not.i69, label %WriteDoubles.exit, label %.lr.ph.i, !llvm.loop !59
 
 WriteDoubles.exit:                                ; preds = %57, %IsIdentity.exit
   %.051 = phi i32 [ 0, %IsIdentity.exit ], [ %54, %57 ]
@@ -7694,7 +7694,7 @@ WriteDoubles.exit:                                ; preds = %57, %IsIdentity.exi
   %69 = getelementptr inbounds nuw i8, ptr %.057.i72, i64 8
   %70 = add nuw i32 %.08.i71, 1
   %exitcond.not.i74 = icmp eq i32 %70, %63
-  br i1 %exitcond.not.i74, label %.loopexit106, label %.lr.ph.i70, !llvm.loop !58
+  br i1 %exitcond.not.i74, label %.loopexit106, label %.lr.ph.i70, !llvm.loop !59
 
 .loopexit106:                                     ; preds = %68, %WriteDoubles.exit
   %71 = load ptr, ptr %6, align 8
@@ -7721,7 +7721,7 @@ WriteDoubles.exit:                                ; preds = %57, %IsIdentity.exi
   %80 = getelementptr inbounds nuw i8, ptr %.057.i80, i64 8
   %81 = add nuw i32 %.08.i79, 1
   %exitcond.not.i82 = icmp eq i32 %81, %74
-  br i1 %exitcond.not.i82, label %.loopexit104, label %.lr.ph.i78, !llvm.loop !58
+  br i1 %exitcond.not.i82, label %.loopexit104, label %.lr.ph.i78, !llvm.loop !59
 
 .loopexit104:                                     ; preds = %79, %.loopexit106
   %82 = load ptr, ptr %6, align 8
@@ -7748,7 +7748,7 @@ WriteDoubles.exit:                                ; preds = %57, %IsIdentity.exi
   %91 = getelementptr inbounds nuw i8, ptr %.057.i88, i64 8
   %92 = add nuw i32 %.08.i87, 1
   %exitcond.not.i90 = icmp eq i32 %92, %85
-  br i1 %exitcond.not.i90, label %.loopexit, label %.lr.ph.i86, !llvm.loop !58
+  br i1 %exitcond.not.i90, label %.loopexit, label %.lr.ph.i86, !llvm.loop !59
 
 .loopexit:                                        ; preds = %90, %.loopexit104
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -7878,7 +7878,7 @@ define internal fastcc range(i32 0, 2) i32 @_cmsReadWCharArray(ptr noundef %0, i
   %.1.i = getelementptr inbounds nuw i8, ptr %.018.i, i64 4
   store i32 %storemerge.i, ptr %.018.i, align 4
   %30 = icmp sgt i32 %.18.i, 0
-  br i1 %30, label %.lr.ph.i, label %convert_utf16_to_utf32.exit, !llvm.loop !59
+  br i1 %30, label %.lr.ph.i, label %convert_utf16_to_utf32.exit, !llvm.loop !60
 
 convert_utf16_to_utf32.exit:                      ; preds = %.lr.ph.i, %14, %16, %21, %29, %3
   %.09.i = phi i32 [ 1, %3 ], [ 0, %.lr.ph.i ], [ 0, %14 ], [ 0, %21 ], [ 0, %16 ], [ 1, %29 ]
@@ -7948,7 +7948,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph58, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %.lr.ph58, label %.lr.ph, !llvm.loop !61
 
 .lr.ph58:                                         ; preds = %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -7988,12 +7988,12 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
   store i16 %25, ptr %27, align 2
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 256
-  br i1 %exitcond74.not, label %28, label %20, !llvm.loop !61
+  br i1 %exitcond74.not, label %28, label %20, !llvm.loop !62
 
 28:                                               ; preds = %20
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge, label %15, !llvm.loop !62
+  br i1 %exitcond79.not, label %._crit_edge, label %15, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %28
   tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %8) #14
@@ -8013,7 +8013,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
   call void @cmsFreeToneCurve(ptr noundef %32) #14
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph60, !llvm.loop !63
+  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph60, !llvm.loop !64
 
 .lr.ph63.preheader:                               ; preds = %.lr.ph, %15, %._crit_edge
   %.042 = phi ptr [ null, %._crit_edge ], [ %8, %15 ], [ %8, %.lr.ph ]
@@ -8034,7 +8034,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 36:                                               ; preds = %.lr.ph63, %35
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !64
+  br i1 %exitcond89.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !65
 
 ._crit_edge64:                                    ; preds = %36
   %.not48 = icmp eq ptr %.042, null
@@ -8101,7 +8101,7 @@ define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr 
 20:                                               ; preds = %.preheader
   %21 = add nuw nsw i32 %.02537, 1
   %exitcond45.not = icmp eq i32 %21, 256
-  br i1 %exitcond45.not, label %.loopexit, label %.preheader, !llvm.loop !65
+  br i1 %exitcond45.not, label %.loopexit, label %.preheader, !llvm.loop !66
 
 .preheader:                                       ; preds = %16, %20
   %.02537 = phi i32 [ %21, %20 ], [ 0, %16 ]
@@ -8117,7 +8117,7 @@ define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr 
 24:                                               ; preds = %.preheader32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %.preheader32, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %.preheader32, !llvm.loop !67
 
 .preheader32:                                     ; preds = %.lr.ph.split, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.lr.ph.split ]
@@ -8140,7 +8140,7 @@ define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr 
 .loopexit:                                        ; preds = %24, %20
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond49.not, label %.loopexit31, label %.lr.ph.split, !llvm.loop !67
+  br i1 %exitcond49.not, label %.loopexit31, label %.lr.ph.split, !llvm.loop !68
 
 .loopexit31:                                      ; preds = %.loopexit, %.preheader32, %.preheader, %.lr.ph, %4, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 1, %4 ], [ 1, %.lr.ph ], [ 0, %.preheader ], [ 0, %.preheader32 ], [ 1, %.loopexit ]
@@ -8177,7 +8177,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 11:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
@@ -8214,7 +8214,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
   call void @cmsFreeToneCurve(ptr noundef %22) #14
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %.loopexit, label %.lr.ph36, !llvm.loop !69
+  br i1 %exitcond49.not, label %.loopexit, label %.lr.ph36, !llvm.loop !70
 
 .loopexit33:                                      ; preds = %15, %.lr.ph, %._crit_edge
   br i1 %.not40, label %.loopexit, label %.lr.ph39.preheader
@@ -8237,7 +8237,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 26:                                               ; preds = %.lr.ph39, %25
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph39, !llvm.loop !70
+  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph39, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.lr.ph36, %26, %.preheader, %.loopexit33, %8, %5, %7
   %.025 = phi i32 [ 0, %7 ], [ 1, %5 ], [ 0, %8 ], [ 0, %.loopexit33 ], [ 1, %.preheader ], [ 0, %26 ], [ 1, %.lr.ph36 ]
@@ -8272,7 +8272,7 @@ define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr
 12:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !72
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
@@ -8296,7 +8296,7 @@ define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next11, %22
-  br i1 %23, label %5, label %.loopexit, !llvm.loop !72
+  br i1 %23, label %5, label %.loopexit, !llvm.loop !73
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %2
   %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 1, %._crit_edge ]
@@ -8467,7 +8467,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
 28:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph35, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph35, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %28, %.preheader29
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8490,7 +8490,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
   call void @cmsFreeToneCurve(ptr noundef %33) #14
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph38, !llvm.loop !74
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph38, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.lr.ph38, %.loopexit28, %9, %4
   %.024 = phi ptr [ null, %4 ], [ null, %9 ], [ %.0, %.loopexit28 ], [ %.0, %.lr.ph38 ]
@@ -8529,7 +8529,7 @@ define internal fastcc ptr @ReadCLUT(ptr noundef readonly captures(none) %0, ptr
   store i32 %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %.preheader45, !llvm.loop !75
+  br i1 %exitcond.not, label %23, label %.preheader45, !llvm.loop !76
 
 23:                                               ; preds = %20
   %24 = call i32 @_cmsReadUInt8Number(ptr noundef nonnull %1, ptr noundef nonnull %8) #14
@@ -8596,7 +8596,7 @@ define internal fastcc ptr @ReadCLUT(ptr noundef readonly captures(none) %0, ptr
   %52 = load i32, ptr %40, align 8
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next53, %53
-  br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !76
+  br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !77
 
 55:                                               ; preds = %36
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -8739,7 +8739,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr noundef readonl
 7:                                                ; preds = %Type_ParametricCurve_Write.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %Type_Curve_Write.exit.thread, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %Type_Curve_Write.exit.thread, label %.lr.ph, !llvm.loop !78
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
@@ -8871,7 +8871,7 @@ Type_Curve_Write.exit:                            ; preds = %42, %48
 74:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Type_ParametricCurve_Write.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %Type_ParametricCurve_Write.exit, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %74 ]
@@ -8944,7 +8944,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr noundef readonly captu
   store i8 %20, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %22, label %17, label %._crit_edge, !llvm.loop !78
+  br i1 %22, label %17, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %17, %10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -8988,7 +8988,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr noundef readonly captu
   %39 = load i32, ptr %36, align 8
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next9, %40
-  br i1 %41, label %.lr.ph4, label %.loopexit, !llvm.loop !79
+  br i1 %41, label %.lr.ph4, label %.loopexit, !llvm.loop !80
 
 .lr.ph4:                                          ; preds = %.preheader, %38
   %indvars.iv8 = phi i64 [ %indvars.iv.next9, %38 ], [ 0, %.preheader ]
@@ -9040,7 +9040,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noun
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
@@ -9070,7 +9070,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noun
   %19 = load i32, ptr %7, align 4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next23, %20
-  br i1 %21, label %.lr.ph7, label %.loopexit, !llvm.loop !81
+  br i1 %21, label %.lr.ph7, label %.loopexit, !llvm.loop !82
 
 .lr.ph7:                                          ; preds = %.preheader1, %18
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %18 ], [ 0, %.preheader1 ]
@@ -9085,7 +9085,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noun
   %27 = add nuw i32 %.210, 1
   %28 = load i32, ptr %7, align 4
   %29 = icmp ult i32 %27, %28
-  br i1 %29, label %.lr.ph11, label %.loopexit, !llvm.loop !82
+  br i1 %29, label %.lr.ph11, label %.loopexit, !llvm.loop !83
 
 .lr.ph11:                                         ; preds = %.preheader, %26
   %.210 = phi i32 [ %27, %26 ], [ 0, %.preheader ]
@@ -9227,12 +9227,12 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   store i32 %32, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph79, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %.lr.ph79, label %.lr.ph, !llvm.loop !84
 
 33:                                               ; preds = %39
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %.thread64.sink.split.sink.split, label %34, !llvm.loop !84
+  br i1 %exitcond88.not, label %.thread64.sink.split.sink.split, label %34, !llvm.loop !85
 
 34:                                               ; preds = %.lr.ph79, %33
   %indvars.iv84 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next85, %33 ]
@@ -9247,7 +9247,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   %40 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv84
   %41 = load i32, ptr %40, align 4
   %42 = trunc nuw i64 %indvars.iv84 to i32
-  %43 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %42, i32 noundef %41) #14, !callees !85
+  %43 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %42, i32 noundef %41) #14, !callees !86
   %.not56 = icmp eq i32 %43, 0
   br i1 %.not56, label %.thread64.sink.split.sink.split, label %33
 
@@ -9302,7 +9302,7 @@ define internal range(i32 0, 2) i32 @ReadMPEElem(ptr noundef %0, ptr noundef %1,
   %21 = getelementptr inbounds nuw i8, ptr %.017.i, i64 56
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %.lr.ph20.i.preheader, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.lr.ph20.i.preheader, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph20.i.preheader:                             ; preds = %20, %15
   br label %.lr.ph20.i
@@ -9317,7 +9317,7 @@ define internal range(i32 0, 2) i32 @ReadMPEElem(ptr noundef %0, ptr noundef %1,
   %26 = getelementptr inbounds nuw i8, ptr %.119.i, i64 56
   %27 = load ptr, ptr %26, align 8
   %.not13.i = icmp eq ptr %27, null
-  br i1 %.not13.i, label %GetHandler.exit, label %.lr.ph20.i, !llvm.loop !11
+  br i1 %.not13.i, label %GetHandler.exit, label %.lr.ph20.i, !llvm.loop !12
 
 GetHandler.exit:                                  ; preds = %25
   call void @_cmsTagSignature2String(ptr noundef nonnull %8, i32 noundef %16) #14
@@ -9416,7 +9416,7 @@ define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = zext i16 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !86
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %38, %32
   %42 = load ptr, ptr %19, align 8
@@ -9555,7 +9555,7 @@ define internal ptr @Type_MPEmatrix_Read(ptr noundef readonly captures(none) %0,
   store double %39, ptr %40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !88
 
 .lr.ph50:                                         ; preds = %.preheader, %45
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %45 ], [ 0, %.preheader ]
@@ -9579,7 +9579,7 @@ define internal ptr @Type_MPEmatrix_Read(ptr noundef readonly captures(none) %0,
   %49 = load i16, ptr %6, align 2
   %50 = zext i16 %49 to i64
   %51 = icmp samesign ult i64 %indvars.iv.next56, %50
-  br i1 %51, label %.lr.ph50, label %._crit_edge.loopexit, !llvm.loop !88
+  br i1 %51, label %.lr.ph50, label %._crit_edge.loopexit, !llvm.loop !89
 
 ._crit_edge.loopexit:                             ; preds = %45
   %52 = zext i16 %49 to i32
@@ -9636,7 +9636,7 @@ define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr readnone captures(
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !90
 
 .preheader.loopexit:                              ; preds = %20
   %.pre = load i32, ptr %12, align 4
@@ -9685,7 +9685,7 @@ define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr readnone captures(
   %39 = load i32, ptr %12, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next41, %40
-  br i1 %41, label %28, label %.loopexit, !llvm.loop !90
+  br i1 %41, label %28, label %.loopexit, !llvm.loop !91
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %33, %38, %.preheader, %11, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 1, %.preheader ], [ 0, %31 ], [ 0, %33 ], [ 1, %38 ], [ 0, %.lr.ph ]
@@ -9749,7 +9749,7 @@ define internal ptr @Type_MPEclut_Read(ptr noundef readonly captures(none) %0, p
   store i32 %29, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %28, %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9774,7 +9774,7 @@ define internal ptr @Type_MPEclut_Read(ptr noundef readonly captures(none) %0, p
   %44 = load i32, ptr %41, align 8
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ult i64 %indvars.iv.next49, %45
-  br i1 %46, label %.lr.ph43, label %._crit_edge44, !llvm.loop !92
+  br i1 %46, label %.lr.ph43, label %._crit_edge44, !llvm.loop !93
 
 .lr.ph43:                                         ; preds = %38, %43
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %43 ], [ 0, %38 ]
@@ -9854,7 +9854,7 @@ define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr readnone captures(no
   store i8 %30, ptr %31, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %27, %23
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -9874,7 +9874,7 @@ define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr readnone captures(no
   %38 = load i32, ptr %35, align 8
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next36, %39
-  br i1 %40, label %.lr.ph29, label %.loopexit, !llvm.loop !94
+  br i1 %40, label %.lr.ph29, label %.loopexit, !llvm.loop !95
 
 .lr.ph29:                                         ; preds = %.preheader, %37
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %37 ], [ 0, %.preheader ]
@@ -9968,7 +9968,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %38 = add nsw i32 %37, -1
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next.i, %39
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !95
+  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !96
 
 ._crit_edge.i:                                    ; preds = %34
   %41 = sext i32 %38 to i64
@@ -10044,7 +10044,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next173.i, %73
-  br i1 %74, label %63, label %.loopexit106.i, !llvm.loop !96
+  br i1 %74, label %63, label %.loopexit106.i, !llvm.loop !97
 
 75:                                               ; preds = %49
   %76 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %10) #14
@@ -10077,7 +10077,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %91 = load i32, ptr %10, align 4
   %92 = zext i32 %91 to i64
   %93 = icmp samesign ult i64 %indvars.iv.next170.i, %92
-  br i1 %93, label %.lr.ph131.i, label %.loopexit106.i, !llvm.loop !97
+  br i1 %93, label %.lr.ph131.i, label %.loopexit106.i, !llvm.loop !98
 
 .lr.ph131.i:                                      ; preds = %87, %90
   %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %90 ], [ 1, %87 ]
@@ -10098,7 +10098,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %99 = load i16, ptr %7, align 2
   %100 = zext i16 %99 to i64
   %101 = icmp samesign ult i64 %indvars.iv.next176.i, %100
-  br i1 %101, label %.lr.ph136.i, label %._crit_edge137.loopexit.i, !llvm.loop !98
+  br i1 %101, label %.lr.ph136.i, label %._crit_edge137.loopexit.i, !llvm.loop !99
 
 ._crit_edge137.loopexit.i:                        ; preds = %.loopexit106.i
   %102 = zext i16 %99 to i32
@@ -10131,7 +10131,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %indvars.iv.next182.i = add nuw nsw i64 %indvars.iv181.i, 1
   %113 = zext i16 %112 to i64
   %114 = icmp samesign ult i64 %indvars.iv.next182.i, %113
-  br i1 %114, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !99
+  br i1 %114, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !100
 
 ._crit_edge142.i:                                 ; preds = %111, %._crit_edge137.i
   %115 = load ptr, ptr %25, align 8
@@ -10169,7 +10169,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
   %133 = zext i16 %132 to i64
   %134 = icmp samesign ult i64 %indvars.iv.next185.i, %133
-  br i1 %134, label %118, label %ReadSegmentedCurve.exit, !llvm.loop !100
+  br i1 %134, label %118, label %ReadSegmentedCurve.exit, !llvm.loop !101
 
 .loopexit107.i:                                   ; preds = %.lr.ph.i, %77, %75, %55, %53, %51, %47, %.lr.ph136.i, %.lr.ph131.i, %63, %97
   %135 = load i16, ptr %7, align 2
@@ -10195,7 +10195,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %143 = zext i16 %142 to i64
   %144 = icmp samesign ult i64 %indvars.iv.next179.i, %143
-  br i1 %144, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !101
+  br i1 %144, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !102
 
 ._crit_edge149.i:                                 ; preds = %141, %.loopexit107.i
   %145 = load ptr, ptr %25, align 8
@@ -10248,7 +10248,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
 19:                                               ; preds = %22
   %20 = add nuw i32 %.06388, 1
   %exitcond.not = icmp eq i32 %20, %2
-  br i1 %exitcond.not, label %.lr.ph90.preheader, label %.lr.ph, !llvm.loop !102
+  br i1 %exitcond.not, label %.lr.ph90.preheader, label %.lr.ph, !llvm.loop !103
 
 .lr.ph90.preheader:                               ; preds = %19
   %wide.trip.count = zext i32 %2 to i64
@@ -10273,7 +10273,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
   %28 = trunc nuw i64 %indvars.iv to i32
-  %29 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %28, i32 noundef 0) #14, !callees !103
+  %29 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %28, i32 noundef 0) #14, !callees !104
   %.not72 = icmp eq i32 %29, 0
   br i1 %.not72, label %.thread82.sink.split.sink.split3, label %30
 
@@ -10285,7 +10285,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   store i32 %33, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph90, !llvm.loop !104
+  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph90, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %30, %15
   %35 = load ptr, ptr %16, align 8
@@ -10306,7 +10306,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
 40:                                               ; preds = %44
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge93, label %.lr.ph92, !llvm.loop !105
+  br i1 %exitcond105.not, label %._crit_edge93, label %.lr.ph92, !llvm.loop !106
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %40
   %indvars.iv101 = phi i64 [ 0, %.lr.ph92.preheader ], [ %indvars.iv.next102, %40 ]
@@ -10393,7 +10393,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 24:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader66.i, label %.lr.ph.i, !llvm.loop !106
+  br i1 %exitcond.not.i, label %.preheader66.i, label %.lr.ph.i, !llvm.loop !107
 
 .preheader66.i:                                   ; preds = %24, %.preheader68.i
   %25 = load i32, ptr %13, align 8
@@ -10452,7 +10452,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ult i64 %indvars.iv.next107.i, %51
-  br i1 %52, label %53, label %.loopexit.i, !llvm.loop !107
+  br i1 %52, label %53, label %.loopexit.i, !llvm.loop !108
 
 53:                                               ; preds = %47, %.lr.ph74.i
   %indvars.iv106.i = phi i64 [ 1, %.lr.ph74.i ], [ %indvars.iv.next107.i, %47 ]
@@ -10503,7 +10503,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 75:                                               ; preds = %76
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count104.i
-  br i1 %exitcond105.not.i, label %.loopexit.i, label %76, !llvm.loop !108
+  br i1 %exitcond105.not.i, label %.loopexit.i, label %76, !llvm.loop !109
 
 76:                                               ; preds = %75, %.lr.ph72.i
   %indvars.iv101.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next102.i, %75 ]
@@ -10519,7 +10519,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
   %81 = load i32, ptr %13, align 8
   %82 = zext i32 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next110.i, %82
-  br i1 %83, label %.lr.ph76.i, label %WriteSegmentedCurve.exit, !llvm.loop !109
+  br i1 %83, label %.lr.ph76.i, label %WriteSegmentedCurve.exit, !llvm.loop !110
 
 WriteSegmentedCurve.exit:                         ; preds = %.lr.ph.i, %33, %35, %37, %58, %60, %62, %66, %69, %.loopexit.i, %76, %53, %5, %16, %18, %21, %.preheader66.i
   %.0.i = phi i32 [ 0, %21 ], [ 0, %18 ], [ 0, %16 ], [ 0, %5 ], [ 1, %.preheader66.i ], [ 0, %53 ], [ 0, %76 ], [ 0, %33 ], [ 0, %35 ], [ 0, %37 ], [ 0, %58 ], [ 0, %60 ], [ 0, %62 ], [ 0, %66 ], [ 0, %69 ], [ 1, %.loopexit.i ], [ 0, %.lr.ph.i ]
@@ -10796,7 +10796,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nou
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 4
   store i32 %storemerge.i.i, ptr %.018.i.i, align 4
   %53 = icmp sgt i32 %.18.i.i, 0
-  br i1 %53, label %.lr.ph.i.i, label %.loopexit.loopexit, !llvm.loop !59
+  br i1 %53, label %.lr.ph.i.i, label %.loopexit.loopexit, !llvm.loop !60
 
 54:                                               ; preds = %.lr.ph.i.i, %37, %44, %39
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
@@ -11022,7 +11022,7 @@ WriteOneElem.exit35.us:                           ; preds = %42
 .thread.us:                                       ; preds = %WriteOneElem.exit35.us, %41
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %WriteOneElem.exit.thread, label %.lr.ph.split.us, !llvm.loop !110
+  br i1 %exitcond72.not, label %WriteOneElem.exit.thread, label %.lr.ph.split.us, !llvm.loop !111
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph ]
@@ -11060,7 +11060,7 @@ WriteOneElem.exit25:                              ; preds = %59
 .thread:                                          ; preds = %WriteOneElem.exit25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %WriteOneElem.exit.thread, label %.lr.ph.split, !llvm.loop !111
+  br i1 %exitcond.not, label %WriteOneElem.exit.thread, label %.lr.ph.split, !llvm.loop !112
 
 WriteOneElem.exit.thread:                         ; preds = %WriteOneElem.exit, %WriteOneElem.exit25, %.thread, %.lr.ph.split, %59, %WriteOneElem.exit.us, %WriteOneElem.exit25.us, %WriteOneElem.exit30.us, %WriteOneElem.exit35.us, %.thread.us, %.lr.ph.split.us, %23, %32, %42, %4
   %.017 = phi i32 [ 1, %4 ], [ 0, %42 ], [ 0, %32 ], [ 0, %23 ], [ 0, %.lr.ph.split.us ], [ 1, %.thread.us ], [ 0, %WriteOneElem.exit35.us ], [ 0, %WriteOneElem.exit30.us ], [ 0, %WriteOneElem.exit25.us ], [ 0, %WriteOneElem.exit.us ], [ 0, %59 ], [ 0, %.lr.ph.split ], [ 1, %.thread ], [ 0, %WriteOneElem.exit25 ], [ 0, %WriteOneElem.exit ]
@@ -11102,7 +11102,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadDoublesAt(ptr noundef %0, i32 no
   %13 = getelementptr inbounds nuw i8, ptr %.01417, i64 8
   %14 = add nuw i32 %.018, 1
   %exitcond.not = icmp eq i32 %14, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %12, %.preheader
   %15 = load ptr, ptr %8, align 8
@@ -11244,110 +11244,111 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7}
-!78 = distinct !{!78, !7}
-!79 = distinct !{!79, !7}
-!80 = distinct !{!80, !7}
-!81 = distinct !{!81, !7}
-!82 = distinct !{!82, !7}
-!83 = distinct !{!83, !7}
-!84 = distinct !{!84, !7}
-!85 = !{ptr @ReadMPECurve, ptr @ReadMPEElem, ptr @ReadSeqID}
-!86 = distinct !{!86, !7}
-!87 = distinct !{!87, !7}
-!88 = distinct !{!88, !7}
-!89 = distinct !{!89, !7}
-!90 = distinct !{!90, !7}
-!91 = distinct !{!91, !7}
-!92 = distinct !{!92, !7}
-!93 = distinct !{!93, !7}
-!94 = distinct !{!94, !7}
-!95 = distinct !{!95, !7}
-!96 = distinct !{!96, !7}
-!97 = distinct !{!97, !7}
-!98 = distinct !{!98, !7}
-!99 = distinct !{!99, !7}
-!100 = distinct !{!100, !7}
-!101 = distinct !{!101, !7}
-!102 = distinct !{!102, !7}
-!103 = !{ptr @WriteMPECurve, ptr @WriteSeqID}
-!104 = distinct !{!104, !7}
-!105 = distinct !{!105, !7}
-!106 = distinct !{!106, !7}
-!107 = distinct !{!107, !7}
-!108 = distinct !{!108, !7}
-!109 = distinct !{!109, !7}
-!110 = distinct !{!110, !7, !47}
-!111 = distinct !{!111, !7}
-!112 = distinct !{!112, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = distinct !{!70, !7, !8}
+!71 = distinct !{!71, !7, !8}
+!72 = distinct !{!72, !7, !8}
+!73 = distinct !{!73, !7, !8}
+!74 = distinct !{!74, !7, !8}
+!75 = distinct !{!75, !7, !8}
+!76 = distinct !{!76, !7, !8}
+!77 = distinct !{!77, !7, !8}
+!78 = distinct !{!78, !7, !8}
+!79 = distinct !{!79, !7, !8}
+!80 = distinct !{!80, !7, !8}
+!81 = distinct !{!81, !7, !8}
+!82 = distinct !{!82, !7, !8}
+!83 = distinct !{!83, !7, !8}
+!84 = distinct !{!84, !7, !8}
+!85 = distinct !{!85, !7, !8}
+!86 = !{ptr @ReadMPECurve, ptr @ReadMPEElem, ptr @ReadSeqID}
+!87 = distinct !{!87, !7, !8}
+!88 = distinct !{!88, !7, !8}
+!89 = distinct !{!89, !7, !8}
+!90 = distinct !{!90, !7, !8}
+!91 = distinct !{!91, !7, !8}
+!92 = distinct !{!92, !7, !8}
+!93 = distinct !{!93, !7, !8}
+!94 = distinct !{!94, !7, !8}
+!95 = distinct !{!95, !7, !8}
+!96 = distinct !{!96, !7, !8}
+!97 = distinct !{!97, !7, !8}
+!98 = distinct !{!98, !7, !8}
+!99 = distinct !{!99, !7, !8}
+!100 = distinct !{!100, !7, !8}
+!101 = distinct !{!101, !7, !8}
+!102 = distinct !{!102, !7, !8}
+!103 = distinct !{!103, !7, !8}
+!104 = !{ptr @WriteMPECurve, ptr @WriteSeqID}
+!105 = distinct !{!105, !7, !8}
+!106 = distinct !{!106, !7, !8}
+!107 = distinct !{!107, !7, !8}
+!108 = distinct !{!108, !7, !8}
+!109 = distinct !{!109, !7, !8}
+!110 = distinct !{!110, !7, !8}
+!111 = distinct !{!111, !7, !8, !48}
+!112 = distinct !{!112, !7, !8}
+!113 = distinct !{!113, !7, !8}

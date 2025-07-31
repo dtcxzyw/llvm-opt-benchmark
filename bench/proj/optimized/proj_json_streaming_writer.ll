@@ -534,7 +534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit53: ; preds = %_ZN
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.057.067, i64 1
   %.not = icmp eq ptr %103, %10
-  br i1 %.not, label %._crit_edge, label %29
+  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !31
 
 104:                                              ; preds = %.noexc17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i15
   %105 = phi ptr [ %.pre.i.i16, %.noexc17 ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i15 ]
@@ -636,25 +636,25 @@ define hidden void @_ZN5osgeo4proj22CPLJSonStreamingWriter17EmitCommaIfNeededEv(
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %6 = load i8, ptr %5, align 8, !tbaa !31, !range !29, !noundef !30
+  %6 = load i8, ptr %5, align 8, !tbaa !33, !range !29, !noundef !30
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  store i8 0, ptr %5, align 8, !tbaa !31
+  store i8 0, ptr %5, align 8, !tbaa !33
   br label %133
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %11 = load ptr, ptr %10, align 8, !tbaa !32
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %13 = load ptr, ptr %12, align 8, !tbaa !32
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %133, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %13, i64 -1
-  %17 = load i8, ptr %16, align 1, !tbaa !33, !range !29, !noundef !30
+  %17 = load i8, ptr %16, align 1, !tbaa !35, !range !29, !noundef !30
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %80, label %._crit_edge.i.i
 
@@ -947,9 +947,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   br label %134
 
 _ZN5osgeo4proj22CPLJSonStreamingWriter5PrintERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit54: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i53, %109, %80
-  %131 = load ptr, ptr %12, align 8, !tbaa !32
+  %131 = load ptr, ptr %12, align 8, !tbaa !34
   %132 = getelementptr inbounds i8, ptr %131, i64 -1
-  store i8 0, ptr %132, align 1, !tbaa !33
+  store i8 0, ptr %132, align 1, !tbaa !35
   br label %133
 
 133:                                              ; preds = %9, %_ZN5osgeo4proj22CPLJSonStreamingWriter5PrintERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit54, %8
@@ -1052,7 +1052,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i7: ; preds =
 _ZN5osgeo4proj22CPLJSonStreamingWriter9IncIndentEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i7
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %42 = load ptr, ptr %41, align 8, !tbaa !35
+  %42 = load ptr, ptr %41, align 8, !tbaa !37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %44 = load ptr, ptr %43, align 8, !tbaa !27
   %.not.i8 = icmp eq ptr %42, %44
@@ -1060,9 +1060,9 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter9IncIndentEv.exit: ; preds = %_ZNSt7__cxx1
 
 45:                                               ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter9IncIndentEv.exit
   store i16 257, ptr %42, align 1
-  %46 = load ptr, ptr %41, align 8, !tbaa !35
+  %46 = load ptr, ptr %41, align 8, !tbaa !37
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  store ptr %47, ptr %41, align 8, !tbaa !35
+  store ptr %47, ptr %41, align 8, !tbaa !37
   br label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
 48:                                               ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter9IncIndentEv.exit
@@ -1096,14 +1096,14 @@ _ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenE
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i ], [ %61, %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i ], [ %49, %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %63 = load i16, ptr %.0911.i.i.i.i.i, align 1, !alias.scope !39, !noalias !36
-  store i16 %63, ptr %.012.i.i.i.i.i, align 1, !alias.scope !36, !noalias !39
+  call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %63 = load i16, ptr %.0911.i.i.i.i.i, align 1, !alias.scope !41, !noalias !38
+  store i16 %63, ptr %.012.i.i.i.i.i, align 1, !alias.scope !38, !noalias !41
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 2
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 2
   %.not.i.i.i.i.i = icmp eq ptr %64, %42
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !43
 
 _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %61, %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %65, %.lr.ph.i.i.i.i.i ]
@@ -1117,7 +1117,7 @@ _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS
 
 _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %67, %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %61, ptr %40, align 8, !tbaa !26
-  store ptr %66, ptr %41, align 8, !tbaa !35
+  store ptr %66, ptr %41, align 8, !tbaa !37
   %68 = getelementptr inbounds nuw %"struct.osgeo::proj::CPLJSonStreamingWriter::State", ptr %61, i64 %59
   store ptr %68, ptr %43, align 8, !tbaa !27
   br label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
@@ -1177,9 +1177,9 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit: ; preds = %1
   %.pre = load i8, ptr %7, align 8, !range !29
   %17 = trunc nuw i8 %.pre to i1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
   %20 = getelementptr inbounds i8, ptr %19, i64 -1
-  %21 = load i8, ptr %20, align 1, !tbaa !33, !range !29, !noundef !30
+  %21 = load i8, ptr %20, align 1, !tbaa !35, !range !29, !noundef !30
   %22 = trunc nuw i8 %21 to i1
   %.not = xor i1 %22, true
   %or.cond = select i1 %.not, i1 %17, i1 false
@@ -1300,9 +1300,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
 
 _ZN5osgeo4proj22CPLJSonStreamingWriter5PrintERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19: ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18, %48, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit
   %70 = phi ptr [ %10, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18 ], [ %18, %48 ], [ %18, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit ]
-  %71 = load ptr, ptr %70, align 8, !tbaa !35
+  %71 = load ptr, ptr %70, align 8, !tbaa !37
   %72 = getelementptr inbounds i8, ptr %71, i64 -2
-  store ptr %72, ptr %70, align 8, !tbaa !35
+  store ptr %72, ptr %70, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %73, ptr %3, align 8, !tbaa !3
@@ -1480,7 +1480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i7: ; preds =
 _ZN5osgeo4proj22CPLJSonStreamingWriter9IncIndentEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i7
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %42 = load ptr, ptr %41, align 8, !tbaa !35
+  %42 = load ptr, ptr %41, align 8, !tbaa !37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %44 = load ptr, ptr %43, align 8, !tbaa !27
   %.not.i8 = icmp eq ptr %42, %44
@@ -1488,9 +1488,9 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter9IncIndentEv.exit: ; preds = %_ZNSt7__cxx1
 
 45:                                               ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter9IncIndentEv.exit
   store i16 256, ptr %42, align 1
-  %46 = load ptr, ptr %41, align 8, !tbaa !35
+  %46 = load ptr, ptr %41, align 8, !tbaa !37
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  store ptr %47, ptr %41, align 8, !tbaa !35
+  store ptr %47, ptr %41, align 8, !tbaa !37
   br label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
 48:                                               ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter9IncIndentEv.exit
@@ -1524,14 +1524,14 @@ _ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenE
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i ], [ %61, %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i ], [ %49, %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %63 = load i16, ptr %.0911.i.i.i.i.i, align 1, !alias.scope !46, !noalias !43
-  store i16 %63, ptr %.012.i.i.i.i.i, align 1, !alias.scope !43, !noalias !46
+  call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  %63 = load i16, ptr %.0911.i.i.i.i.i, align 1, !alias.scope !48, !noalias !45
+  store i16 %63, ptr %.012.i.i.i.i.i, align 1, !alias.scope !45, !noalias !48
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 2
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 2
   %.not.i.i.i.i.i = icmp eq ptr %64, %42
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !43
 
 _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %61, %_ZNKSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %65, %.lr.ph.i.i.i.i.i ]
@@ -1545,7 +1545,7 @@ _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS
 
 _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %67, %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %61, ptr %40, align 8, !tbaa !26
-  store ptr %66, ptr %41, align 8, !tbaa !35
+  store ptr %66, ptr %41, align 8, !tbaa !37
   %68 = getelementptr inbounds nuw %"struct.osgeo::proj::CPLJSonStreamingWriter::State", ptr %61, i64 %59
   store ptr %68, ptr %43, align 8, !tbaa !27
   br label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
@@ -1605,9 +1605,9 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit: ; preds = %1
   %.pre = load i8, ptr %7, align 8, !range !29
   %17 = trunc nuw i8 %.pre to i1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
   %20 = getelementptr inbounds i8, ptr %19, i64 -1
-  %21 = load i8, ptr %20, align 1, !tbaa !33, !range !29, !noundef !30
+  %21 = load i8, ptr %20, align 1, !tbaa !35, !range !29, !noundef !30
   %22 = trunc nuw i8 %21 to i1
   %.not = xor i1 %22, true
   %or.cond = select i1 %.not, i1 %17, i1 false
@@ -1728,9 +1728,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
 
 _ZN5osgeo4proj22CPLJSonStreamingWriter5PrintERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19: ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18, %48, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit
   %70 = phi ptr [ %10, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18 ], [ %18, %48 ], [ %18, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit ]
-  %71 = load ptr, ptr %70, align 8, !tbaa !35
+  %71 = load ptr, ptr %70, align 8, !tbaa !37
   %72 = getelementptr inbounds i8, ptr %71, i64 -2
-  store ptr %72, ptr %70, align 8, !tbaa !35
+  store ptr %72, ptr %70, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %73, ptr %3, align 8, !tbaa !3
@@ -1948,7 +1948,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 1, ptr %55, align 8, !tbaa !31
+  store i8 1, ptr %55, align 8, !tbaa !33
   ret void
 
 56:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i, %18, %7
@@ -2202,14 +2202,14 @@ define hidden void @_ZN5osgeo4proj22CPLJSonStreamingWriter3AddEPKc(ptr noundef n
 8:                                                ; preds = %2
   %9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store i64 %9, ptr %3, align 8, !tbaa !48
+  store i64 %9, ptr %3, align 8, !tbaa !50
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %8
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %11, ptr %5, align 8, !tbaa !28
-  %12 = load i64, ptr %3, align 8, !tbaa !48
+  %12 = load i64, ptr %3, align 8, !tbaa !50
   store i64 %12, ptr %6, align 8, !tbaa !12
   br label %._crit_edge.i.i
 
@@ -2230,7 +2230,7 @@ define hidden void @_ZN5osgeo4proj22CPLJSonStreamingWriter3AddEPKc(ptr noundef n
   br label %17
 
 17:                                               ; preds = %16, %14, %._crit_edge.i.i
-  %18 = load i64, ptr %3, align 8, !tbaa !48
+  %18 = load i64, ptr %3, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %18, ptr %19, align 8, !tbaa !9
   %20 = load ptr, ptr %5, align 8, !tbaa !28
@@ -2383,14 +2383,14 @@ define hidden void @_ZN5osgeo4proj22CPLJSonStreamingWriter11AddUnquotedEPKc(ptr 
 7:                                                ; preds = %2
   %8 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store i64 %8, ptr %3, align 8, !tbaa !48
+  store i64 %8, ptr %3, align 8, !tbaa !50
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %7
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %10, ptr %4, align 8, !tbaa !28
-  %11 = load i64, ptr %3, align 8, !tbaa !48
+  %11 = load i64, ptr %3, align 8, !tbaa !50
   store i64 %11, ptr %5, align 8, !tbaa !12
   br label %._crit_edge.i.i
 
@@ -2411,7 +2411,7 @@ define hidden void @_ZN5osgeo4proj22CPLJSonStreamingWriter11AddUnquotedEPKc(ptr 
   br label %16
 
 16:                                               ; preds = %15, %13, %._crit_edge.i.i
-  %17 = load i64, ptr %3, align 8, !tbaa !48
+  %17 = load i64, ptr %3, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %17, ptr %18, align 8, !tbaa !9
   %19 = load ptr, ptr %4, align 8, !tbaa !28
@@ -3522,21 +3522,23 @@ attributes #20 = { builtin allocsize(0) }
 !28 = !{!10, !5, i64 0}
 !29 = !{i8 0, i8 2}
 !30 = !{}
-!31 = !{!14, !15, i64 152}
-!32 = !{!21, !21, i64 0}
-!33 = !{!34, !15, i64 1}
-!34 = !{!"_ZTSN5osgeo4proj22CPLJSonStreamingWriter5StateE", !15, i64 0, !15, i64 1}
-!35 = !{!20, !21, i64 8}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!38 = distinct !{!38, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_"}
-!39 = !{!40}
-!40 = distinct !{!40, !38, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_"}
-!46 = !{!47}
-!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!48 = !{!11, !11, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!14, !15, i64 152}
+!34 = !{!21, !21, i64 0}
+!35 = !{!36, !15, i64 1}
+!36 = !{!"_ZTSN5osgeo4proj22CPLJSonStreamingWriter5StateE", !15, i64 0, !15, i64 1}
+!37 = !{!20, !21, i64 8}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!40 = distinct !{!40, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_"}
+!41 = !{!42}
+!42 = distinct !{!42, !40, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!43 = distinct !{!43, !44, !32}
+!44 = !{!"llvm.loop.mustprogress"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!47 = distinct !{!47, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_"}
+!48 = !{!49}
+!49 = distinct !{!49, !47, !"_ZSt19__relocate_object_aIN5osgeo4proj22CPLJSonStreamingWriter5StateES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!50 = !{!11, !11, i64 0}

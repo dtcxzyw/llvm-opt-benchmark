@@ -238,7 +238,7 @@ define noundef i32 @_ZN9softposit4p8e07convert21convert_p8bits_to_u3217hda8040e2
   %.0 = add i8 %21, -64
   %22 = and i8 %.033, 16
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %._crit_edge, label %.lr.ph
+  br i1 %23, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 24:                                               ; preds = %36, %29, %._crit_edge
   %.028 = phi i32 [ %18, %._crit_edge ], [ %18, %29 ], [ %38, %36 ]
@@ -308,7 +308,7 @@ define noundef range(i64 0, -6917529027641081856) i64 @_ZN9softposit4p8e07conver
   %.0 = add i8 %21, -64
   %22 = and i8 %.033, 16
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %._crit_edge, label %.lr.ph
+  br i1 %23, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 24:                                               ; preds = %36, %29, %._crit_edge
   %.028 = phi i64 [ %18, %._crit_edge ], [ %18, %29 ], [ %38, %36 ]
@@ -358,7 +358,7 @@ define noundef i8 @_ZN9softposit4p8e07convert21convert_u32_to_p8bits17h8208a4084
   %8 = shl i32 %.023, 1
   %9 = and i32 %.023, 32
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = and i32 %8, -66
@@ -413,7 +413,7 @@ define noundef i8 @_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e4
   %8 = shl i64 %.023, 1
   %9 = and i64 %.023, 32
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = and i64 %8, -66
@@ -540,3 +540,8 @@ attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 !53 = !{!54, !55}
 !54 = distinct !{!54, !50, !"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17hfcddabd21aec7c6cE.llvm.15081571903896253854: argument 0"}
 !55 = distinct !{!55, !52, !"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5b5acef4ec88167dE.llvm.15081571903896253854: argument 0"}
+!56 = distinct !{!56, !57}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = distinct !{!58, !57}
+!59 = distinct !{!59, !57}
+!60 = distinct !{!60, !57}

@@ -172,7 +172,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   store double %45, ptr %43, align 8, !tbaa !20
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next223, %24
-  br i1 %exitcond226.not, label %.lr.ph200.preheader, label %41, !llvm.loop !24
+  br i1 %exitcond226.not, label %.lr.ph200.preheader, label %41, !llvm.loop !25
 
 .lr.ph200:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
   %indvars.iv227 = phi i64 [ 0, %.lr.ph200.preheader ], [ %indvars.iv.next228, %.lr.ph200 ]
@@ -198,7 +198,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   store double %59, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !3
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
-  br i1 %exitcond231.not, label %.lr.ph.i, label %.lr.ph200, !llvm.loop !25
+  br i1 %exitcond231.not, label %.lr.ph.i, label %.lr.ph200, !llvm.loop !26
 
 .lr.ph.i:                                         ; preds = %.lr.ph200
   %60 = load double, ptr %2, align 8
@@ -265,7 +265,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %113 = fadd double %.sroa.7.0104.i, %112
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %63
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %69, !llvm.loop !26
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %69, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %69, %.preheader
   %.sroa.036.0.lcssa.i = phi double [ 0.000000e+00, %.preheader ], [ %110, %69 ]
@@ -351,46 +351,46 @@ mkspline.exit:                                    ; preds = %._crit_edge117.i, %
 160:                                              ; preds = %396, %mkspline.exit
   %.033.i = phi double [ 4.000000e+00, %mkspline.exit ], [ %.134.i, %396 ]
   %.not.i = phi i1 [ false, %mkspline.exit ], [ true, %396 ]
-  store double %.sroa.0172.0.copyload, ptr %13, align 16, !tbaa !27
-  store double %.sroa.6175.0.copyload, ptr %150, align 8, !tbaa !29
+  store double %.sroa.0172.0.copyload, ptr %13, align 16, !tbaa !28
+  store double %.sroa.6175.0.copyload, ptr %150, align 8, !tbaa !30
   %161 = fmul double %143, %.033.i
   %162 = fdiv double %161, 3.000000e+00
   %163 = fadd double %.sroa.0172.0.copyload, %162
-  store double %163, ptr %151, align 16, !tbaa !27
+  store double %163, ptr %151, align 16, !tbaa !28
   %164 = fmul double %144, %.033.i
   %165 = fdiv double %164, 3.000000e+00
   %166 = fadd double %.sroa.6175.0.copyload, %165
-  store double %166, ptr %152, align 8, !tbaa !29
+  store double %166, ptr %152, align 8, !tbaa !30
   %167 = fmul double %147, %.033.i
   %168 = fdiv double %167, 3.000000e+00
   %169 = fsub double %.sroa.0167.0.copyload, %168
-  store double %169, ptr %153, align 16, !tbaa !27
+  store double %169, ptr %153, align 16, !tbaa !28
   %170 = fmul double %148, %.033.i
   %171 = fdiv double %170, 3.000000e+00
   %172 = fsub double %.sroa.6.0.copyload, %171
-  store double %172, ptr %154, align 8, !tbaa !29
-  store double %.sroa.0167.0.copyload, ptr %155, align 16, !tbaa !27
-  store double %.sroa.6.0.copyload, ptr %156, align 8, !tbaa !29
+  store double %172, ptr %154, align 8, !tbaa !30
+  store double %.sroa.0167.0.copyload, ptr %155, align 16, !tbaa !28
+  store double %.sroa.6.0.copyload, ptr %156, align 8, !tbaa !30
   br i1 %.not.i, label %199, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %160, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 1, %160 ]
   %.014.i.i = phi double [ %184, %.lr.ph.i.i ], [ 0.000000e+00, %160 ]
   %173 = getelementptr inbounds nuw %struct.Pxy_t, ptr %13, i64 %indvars.iv.i.i
-  %174 = load double, ptr %173, align 16, !tbaa !27
+  %174 = load double, ptr %173, align 16, !tbaa !28
   %175 = getelementptr i8, ptr %173, i64 -16
-  %176 = load double, ptr %175, align 16, !tbaa !27
+  %176 = load double, ptr %175, align 16, !tbaa !28
   %177 = fsub double %174, %176
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %179 = load double, ptr %178, align 8, !tbaa !29
+  %179 = load double, ptr %178, align 8, !tbaa !30
   %180 = getelementptr i8, ptr %173, i64 -8
-  %181 = load double, ptr %180, align 8, !tbaa !29
+  %181 = load double, ptr %180, align 8, !tbaa !30
   %182 = fsub double %179, %181
   %183 = call double @hypot(double noundef %177, double noundef %182) #9, !tbaa !16
   %184 = fadd double %.014.i.i, %183
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %dist_n.exit.i, label %.lr.ph.i.i, !llvm.loop !30
+  br i1 %exitcond.not.i.i, label %dist_n.exit.i, label %.lr.ph.i.i, !llvm.loop !31
 
 dist_n.exit.i:                                    ; preds = %.lr.ph.i.i
   br i1 %23, label %.lr.ph.i36.i, label %dist_n.exit41.i
@@ -399,20 +399,20 @@ dist_n.exit.i:                                    ; preds = %.lr.ph.i.i
   %indvars.iv.i37.i = phi i64 [ %indvars.iv.next.i39.i, %.lr.ph.i36.i ], [ 1, %dist_n.exit.i ]
   %.014.i38.i = phi double [ %196, %.lr.ph.i36.i ], [ 0.000000e+00, %dist_n.exit.i ]
   %185 = getelementptr inbounds nuw %struct.Pxy_t, ptr %2, i64 %indvars.iv.i37.i
-  %186 = load double, ptr %185, align 8, !tbaa !27
+  %186 = load double, ptr %185, align 8, !tbaa !28
   %187 = getelementptr i8, ptr %185, i64 -16
-  %188 = load double, ptr %187, align 8, !tbaa !27
+  %188 = load double, ptr %187, align 8, !tbaa !28
   %189 = fsub double %186, %188
   %190 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %191 = load double, ptr %190, align 8, !tbaa !29
+  %191 = load double, ptr %190, align 8, !tbaa !30
   %192 = getelementptr i8, ptr %185, i64 -8
-  %193 = load double, ptr %192, align 8, !tbaa !29
+  %193 = load double, ptr %192, align 8, !tbaa !30
   %194 = fsub double %191, %193
   %195 = call double @hypot(double noundef %189, double noundef %194) #9, !tbaa !16
   %196 = fadd double %.014.i38.i, %195
   %indvars.iv.next.i39.i = add nuw nsw i64 %indvars.iv.i37.i, 1
   %exitcond.not.i40.i = icmp eq i64 %indvars.iv.next.i39.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i40.i, label %dist_n.exit41.loopexit.i, label %.lr.ph.i36.i, !llvm.loop !30
+  br i1 %exitcond.not.i40.i, label %dist_n.exit41.loopexit.i, label %.lr.ph.i36.i, !llvm.loop !31
 
 dist_n.exit41.loopexit.i:                         ; preds = %.lr.ph.i36.i
   %197 = fadd double %196, -1.000000e-03
@@ -515,7 +515,7 @@ addroot.exit.i.i.i:                               ; preds = %237, %.lr.ph174.i.i
   %.10.i.i.i = phi i32 [ %240, %237 ], [ %.0137172.i.i.i, %.lr.ph174.i.i.i ]
   %indvars.iv.next204.i.i.i = add nuw nsw i64 %indvars.iv203.i.i.i, 1
   %exitcond207.not.i.i.i = icmp eq i64 %indvars.iv.next204.i.i.i, %wide.trip.count206.i.i.i
-  br i1 %exitcond207.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph174.i.i.i, !llvm.loop !31
+  br i1 %exitcond207.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph174.i.i.i, !llvm.loop !32
 
 241:                                              ; preds = %226
   %242 = icmp sgt i32 %225, 0
@@ -546,7 +546,7 @@ addroot.exit.i.i.i:                               ; preds = %237, %.lr.ph174.i.i
   %.us-phi.us.i.i.i = phi i32 [ %.3140160.us.i.i.i, %.preheader143.us.i.i.i ], [ %.5.us.us.i.i.i, %addroot.exit125.us.us.i.i.i ]
   %indvars.iv.next194.i.i.i = add nuw nsw i64 %indvars.iv193.i.i.i, 1
   %exitcond197.not.i.i.i = icmp eq i64 %indvars.iv.next194.i.i.i, %wide.trip.count196.i.i.i
-  br i1 %exitcond197.not.i.i.i, label %splineintersectsline.exit.i.i, label %.preheader143.us.i.i.i, !llvm.loop !32
+  br i1 %exitcond197.not.i.i.i, label %splineintersectsline.exit.i.i, label %.preheader143.us.i.i.i, !llvm.loop !33
 
 .lr.ph158.split.us.us.i.i.i:                      ; preds = %.preheader143.us.i.i.i, %addroot.exit125.us.us.i.i.i
   %indvars.iv188.i.i.i = phi i64 [ %indvars.iv.next189.i.i.i, %addroot.exit125.us.us.i.i.i ], [ 0, %.preheader143.us.i.i.i ]
@@ -567,7 +567,7 @@ addroot.exit125.us.us.i.i.i:                      ; preds = %251, %.lr.ph158.spl
   %.5.us.us.i.i.i = phi i32 [ %.4156.us.us.i.i.i, %.lr.ph158.split.us.us.i.i.i ], [ %254, %251 ]
   %indvars.iv.next189.i.i.i = add nuw nsw i64 %indvars.iv188.i.i.i, 1
   %exitcond192.not.i.i.i = icmp eq i64 %indvars.iv.next189.i.i.i, %wide.trip.count191.i.i.i
-  br i1 %exitcond192.not.i.i.i, label %._crit_edge.us.i.i.i, label %.lr.ph158.split.us.us.i.i.i, !llvm.loop !34
+  br i1 %exitcond192.not.i.i.i, label %._crit_edge.us.i.i.i, label %.lr.ph158.split.us.us.i.i.i, !llvm.loop !35
 
 .preheader141.i.i.i:                              ; preds = %241
   br i1 %242, label %.lr.ph170.preheader.i.i.i, label %.loopexit.sink.split.i.i
@@ -597,7 +597,7 @@ addroot.exit123.i.i.i:                            ; preds = %259, %.lr.ph170.i.i
   %.11.i.i.i = phi i32 [ %262, %259 ], [ %.2139168.i.i.i, %.lr.ph170.i.i.i ]
   %indvars.iv.next199.i.i.i = add nuw nsw i64 %indvars.iv198.i.i.i, 1
   %exitcond202.not.i.i.i = icmp eq i64 %indvars.iv.next199.i.i.i, %wide.trip.count201.i.i.i
-  br i1 %exitcond202.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph170.i.i.i, !llvm.loop !35
+  br i1 %exitcond202.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph170.i.i.i, !llvm.loop !36
 
 263:                                              ; preds = %222
   %264 = icmp ne i32 %225, 4
@@ -641,7 +641,7 @@ addroot.exit127.i.i.i:                            ; preds = %271
   %.7.i.i.i = phi i32 [ %281, %addroot.exit127.i.i.i ], [ %.6152.i.i.i, %271 ], [ %.6152.i.i.i, %266 ]
   %indvars.iv.next184.i.i.i = add nuw nsw i64 %indvars.iv183.i.i.i, 1
   %exitcond187.not.i.i.i = icmp eq i64 %indvars.iv.next184.i.i.i, %wide.trip.count186.i.i.i
-  br i1 %exitcond187.not.i.i.i, label %splineintersectsline.exit.i.i, label %266, !llvm.loop !36
+  br i1 %exitcond187.not.i.i.i, label %splineintersectsline.exit.i.i, label %266, !llvm.loop !37
 
 283:                                              ; preds = %216
   %284 = fdiv double %220, %219
@@ -707,7 +707,7 @@ addroot.exit129.i.i.i:                            ; preds = %308
   %.9.i.i.i = phi i32 [ %318, %addroot.exit129.i.i.i ], [ %.8150.i.i.i, %308 ], [ %.8150.i.i.i, %.lr.ph.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !37
+  br i1 %exitcond.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !38
 
 splineintersectsline.exit.i.i:                    ; preds = %319, %282, %addroot.exit123.i.i.i, %._crit_edge.us.i.i.i, %addroot.exit.i.i.i
   %.0111.i.i.i = phi i32 [ %.10.i.i.i, %addroot.exit.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.11.i.i.i, %addroot.exit123.i.i.i ], [ %.7.i.i.i, %282 ], [ %.9.i.i.i, %319 ]
@@ -769,7 +769,7 @@ splineintersectsline.exit.i.i:                    ; preds = %319, %282, %addroot
 356:                                              ; preds = %350, %326, %.lr.ph.i44.i
   %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i43.i
-  br i1 %exitcond.not.i47.i, label %.loopexit.i.i, label %.lr.ph.i44.i, !llvm.loop !38
+  br i1 %exitcond.not.i47.i, label %.loopexit.i.i, label %.lr.ph.i44.i, !llvm.loop !39
 
 .loopexit.sink.split.i.i:                         ; preds = %283, %263, %.preheader141.i.i.i, %.preheader144.i.i.i, %231
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #9
@@ -780,7 +780,7 @@ splineintersectsline.exit.i.i:                    ; preds = %319, %282, %addroot
 .loopexit.i.i:                                    ; preds = %356, %.loopexit.sink.split.i.i, %splineintersectsline.exit.i.i
   %357 = add nuw i64 %.04969.i.i, 1
   %exitcond79.not.i.i = icmp eq i64 %357, %1
-  br i1 %exitcond79.not.i.i, label %.loopexit.i, label %216, !llvm.loop !39
+  br i1 %exitcond79.not.i.i, label %.loopexit.i, label %216, !llvm.loop !40
 
 .loopexit.i:                                      ; preds = %199, %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #9
@@ -810,17 +810,17 @@ growops.exit.i:                                   ; preds = %364, %.loopexit.i
   %indvars.iv79.i = phi i64 [ 1, %growops.exit.i ], [ %indvars.iv.next80.i, %366 ]
   %367 = phi i64 [ %358, %growops.exit.i ], [ %373, %366 ]
   %368 = getelementptr inbounds nuw [4 x %struct.Pxy_t], ptr %13, i64 0, i64 %indvars.iv79.i
-  %369 = load double, ptr %368, align 16, !tbaa !27
+  %369 = load double, ptr %368, align 16, !tbaa !28
   %370 = getelementptr inbounds nuw %struct.Pxy_t, ptr %365, i64 %367
-  store double %369, ptr %370, align 8, !tbaa !27
+  store double %369, ptr %370, align 8, !tbaa !28
   %371 = getelementptr inbounds nuw i8, ptr %368, i64 8
-  %372 = load double, ptr %371, align 8, !tbaa !29
+  %372 = load double, ptr %371, align 8, !tbaa !30
   %373 = add i64 %367, 1
   %374 = getelementptr inbounds nuw %struct.Pxy_t, ptr %365, i64 %367, i32 1
-  store double %372, ptr %374, align 8, !tbaa !29
+  store double %372, ptr %374, align 8, !tbaa !30
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next80.i, 4
-  br i1 %exitcond82.not.i, label %splinefits.exit, label %366, !llvm.loop !40
+  br i1 %exitcond82.not.i, label %splinefits.exit, label %366, !llvm.loop !41
 
 375:                                              ; preds = %350
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #9
@@ -857,23 +857,23 @@ growops.exit51.i:                                 ; preds = %385, %378
   %indvars.iv.i132 = phi i64 [ 1, %growops.exit51.i ], [ %indvars.iv.next.i133, %387 ]
   %388 = phi i64 [ %379, %growops.exit51.i ], [ %394, %387 ]
   %389 = getelementptr inbounds nuw [4 x %struct.Pxy_t], ptr %13, i64 0, i64 %indvars.iv.i132
-  %390 = load double, ptr %389, align 16, !tbaa !27
+  %390 = load double, ptr %389, align 16, !tbaa !28
   %391 = getelementptr inbounds nuw %struct.Pxy_t, ptr %386, i64 %388
-  store double %390, ptr %391, align 8, !tbaa !27
+  store double %390, ptr %391, align 8, !tbaa !28
   %392 = getelementptr inbounds nuw i8, ptr %389, i64 8
-  %393 = load double, ptr %392, align 8, !tbaa !29
+  %393 = load double, ptr %392, align 8, !tbaa !30
   %394 = add i64 %388, 1
   %395 = getelementptr inbounds nuw %struct.Pxy_t, ptr %386, i64 %388, i32 1
-  store double %393, ptr %395, align 8, !tbaa !29
+  store double %393, ptr %395, align 8, !tbaa !30
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i132, 1
   %exitcond.not.i134 = icmp eq i64 %indvars.iv.next.i133, 4
-  br i1 %exitcond.not.i134, label %splinefits.exit, label %387, !llvm.loop !41
+  br i1 %exitcond.not.i134, label %splinefits.exit, label %387, !llvm.loop !42
 
 396:                                              ; preds = %375
   %397 = fcmp ogt double %.033.i, 1.000000e-02
   %398 = fmul double %.033.i, 5.000000e-01
   %.134.i = select i1 %397, double %398, double 0.000000e+00
-  br label %160
+  br label %160, !llvm.loop !43
 
 splinefits.exit:                                  ; preds = %387, %366
   %.lcssa90.sink.i = phi i64 [ %373, %366 ], [ %394, %387 ]
@@ -941,7 +941,7 @@ splinefits.exit:                                  ; preds = %387, %366
   %.1118 = select i1 %438, double %437, double %.0117203
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count235
-  br i1 %exitcond236.not, label %._crit_edge206, label %410, !llvm.loop !42
+  br i1 %exitcond236.not, label %._crit_edge206, label %410, !llvm.loop !44
 
 ._crit_edge206:                                   ; preds = %410, %.loopexit
   %.0119.lcssa = phi i32 [ -1, %.loopexit ], [ %.1120, %410 ]
@@ -1056,24 +1056,26 @@ attributes #9 = { nounwind }
 !19 = !{!"p1 _ZTS5tna_t", !11, i64 0}
 !20 = !{!21, !4, i64 0}
 !21 = !{!"tna_t", !4, i64 0, !5, i64 8}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}
-!26 = distinct !{!26, !23}
-!27 = !{!28, !4, i64 0}
-!28 = !{!"Pxy_t", !4, i64 0, !4, i64 8}
-!29 = !{!28, !4, i64 8}
-!30 = distinct !{!30, !23}
-!31 = distinct !{!31, !23}
-!32 = distinct !{!32, !23, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !23, !33}
-!35 = distinct !{!35, !23}
-!36 = distinct !{!36, !23}
-!37 = distinct !{!37, !23}
-!38 = distinct !{!38, !23}
-!39 = distinct !{!39, !23}
-!40 = distinct !{!40, !23}
-!41 = distinct !{!41, !23}
-!42 = distinct !{!42, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = distinct !{!26, !23, !24}
+!27 = distinct !{!27, !23, !24}
+!28 = !{!29, !4, i64 0}
+!29 = !{!"Pxy_t", !4, i64 0, !4, i64 8}
+!30 = !{!29, !4, i64 8}
+!31 = distinct !{!31, !23, !24}
+!32 = distinct !{!32, !23, !24}
+!33 = distinct !{!33, !23, !24, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !23, !24, !34}
+!36 = distinct !{!36, !23, !24}
+!37 = distinct !{!37, !23, !24}
+!38 = distinct !{!38, !23, !24}
+!39 = distinct !{!39, !23, !24}
+!40 = distinct !{!40, !23, !24}
+!41 = distinct !{!41, !23, !24}
+!42 = distinct !{!42, !23, !24}
+!43 = distinct !{!43, !24}
+!44 = distinct !{!44, !23, !24}

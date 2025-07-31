@@ -1228,12 +1228,12 @@ thread-pre-split:                                 ; preds = %176
 300:                                              ; preds = %296, %292
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %createKeyTables.exit, label %292
+  br i1 %exitcond.not.i, label %createKeyTables.exit, label %292, !llvm.loop !179
 
 createKeyTables.exit:                             ; preds = %300
   %301 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137200), align 8, !tbaa !129
   %302 = tail call ptr %301(i32 noundef 0) #9
-  store ptr %302, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137136), align 8, !tbaa !179
+  store ptr %302, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137136), align 8, !tbaa !181
   %.not130 = icmp eq ptr %302, null
   br i1 %.not130, label %303, label %304
 
@@ -1256,7 +1256,7 @@ createKeyTables.exit:                             ; preds = %300
   %313 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137640), align 8, !tbaa !151
   %314 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133888), align 8, !tbaa !3
   %315 = tail call ptr %313(ptr noundef %314, ptr noundef nonnull @libdecorInterface) #9
-  store ptr %315, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137616), align 8, !tbaa !180
+  store ptr %315, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137616), align 8, !tbaa !182
   %.not132 = icmp eq ptr %315, null
   br i1 %.not132, label %326, label %316
 
@@ -1268,13 +1268,13 @@ createKeyTables.exit:                             ; preds = %300
   %321 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !117
   %322 = tail call i32 %321(ptr noundef %319) #9
   %323 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %320(ptr noundef %319, i32 noundef 0, ptr noundef nonnull @_glfw_wl_callback_interface, i32 noundef %322, i32 noundef 0, ptr noundef null) #9
-  store ptr %323, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137624), align 8, !tbaa !181
+  store ptr %323, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137624), align 8, !tbaa !183
   %324 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137456), align 8, !tbaa !109
   %325 = tail call i32 %324(ptr noundef %323, ptr noundef nonnull @libdecorReadyListener, ptr noundef null) #9
   br label %326
 
 326:                                              ; preds = %312, %316, %304
-  %327 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !182
+  %327 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !184
   %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !117
   %329 = tail call i32 %328(ptr noundef %327) #9
   %330 = icmp ugt i32 %329, 3
@@ -1286,7 +1286,7 @@ createKeyTables.exit:                             ; preds = %300
   br label %333
 
 333:                                              ; preds = %331, %326
-  %334 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133968), align 8, !tbaa !183
+  %334 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133968), align 8, !tbaa !185
   %.not133 = icmp eq ptr %334, null
   br i1 %.not133, label %335, label %336
 
@@ -1295,7 +1295,7 @@ createKeyTables.exit:                             ; preds = %300
   br label %351
 
 336:                                              ; preds = %333
-  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !184
+  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !186
   %.not134 = icmp eq ptr %337, null
   br i1 %.not134, label %338, label %339
 
@@ -1309,7 +1309,7 @@ createKeyTables.exit:                             ; preds = %300
   br i1 %.not135, label %351, label %341
 
 341:                                              ; preds = %339
-  %342 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !182
+  %342 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !184
   %343 = icmp ne ptr %342, null
   %344 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133952), align 8
   %345 = icmp ne ptr %344, null
@@ -1321,7 +1321,7 @@ createKeyTables.exit:                             ; preds = %300
   %348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !117
   %349 = tail call i32 %348(ptr noundef nonnull %344) #9
   %350 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %347(ptr noundef nonnull %344, i32 noundef 1, ptr noundef nonnull @_glfw_wl_data_device_interface, i32 noundef %349, i32 noundef 0, ptr noundef null, ptr noundef nonnull %342) #9
-  store ptr %350, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133960), align 8, !tbaa !185
+  store ptr %350, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133960), align 8, !tbaa !187
   tail call void @_glfwAddDataDeviceListenerWayland(ptr noundef %350) #9
   br label %351
 
@@ -1334,23 +1334,23 @@ createKeyTables.exit:                             ; preds = %300
 define hidden void @_glfwTerminateWayland() #0 {
   tail call void @_glfwTerminateEGL() #9
   tail call void @_glfwTerminateOSMesa() #9
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137616), align 8, !tbaa !180
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137616), align 8, !tbaa !182
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %.preheader
 
 .preheader:                                       ; preds = %0
-  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137632), align 8, !tbaa !186
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137632), align 8, !tbaa !188
   %.not3770 = icmp eq i32 %2, 0
   br i1 %.not3770, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   tail call void @_glfwWaitEventsWayland() #9
-  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137632), align 8, !tbaa !186
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137632), align 8, !tbaa !188
   %.not37 = icmp eq i32 %3, 0
-  br i1 %.not37, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %.not37, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !189
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137616), align 8, !tbaa !180
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137616), align 8, !tbaa !182
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -1380,7 +1380,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %12
 
 12:                                               ; preds = %11, %9
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137160), align 8, !tbaa !187
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137160), align 8, !tbaa !190
   %.not40 = icmp eq ptr %13, null
   br i1 %.not40, label %16, label %14
 
@@ -1390,7 +1390,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %16
 
 16:                                               ; preds = %14, %12
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137144), align 8, !tbaa !188
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137144), align 8, !tbaa !191
   %.not41 = icmp eq ptr %17, null
   br i1 %.not41, label %20, label %18
 
@@ -1400,7 +1400,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %20
 
 20:                                               ; preds = %18, %16
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137152), align 8, !tbaa !189
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137152), align 8, !tbaa !192
   %.not42 = icmp eq ptr %21, null
   br i1 %.not42, label %24, label %22
 
@@ -1410,7 +1410,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %24
 
 24:                                               ; preds = %22, %20
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137136), align 8, !tbaa !179
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137136), align 8, !tbaa !181
   %.not43 = icmp eq ptr %25, null
   br i1 %.not43, label %28, label %26
 
@@ -1430,7 +1430,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %31
 
 31:                                               ; preds = %30, %28
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134096), align 8, !tbaa !190
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134096), align 8, !tbaa !193
   %.not45 = icmp eq ptr %32, null
   br i1 %.not45, label %35, label %33
 
@@ -1440,7 +1440,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %35
 
 35:                                               ; preds = %33, %31
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134104), align 8, !tbaa !191
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134104), align 8, !tbaa !194
   %.not46 = icmp eq ptr %36, null
   br i1 %.not46, label %39, label %37
 
@@ -1460,31 +1460,31 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %42
 
 42:                                               ; preds = %41, %39
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !192
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !195
   %.not75 = icmp eq i32 %43, 0
   br i1 %.not75, label %._crit_edge74, label %.lr.ph73
 
 ._crit_edge74:                                    ; preds = %.lr.ph73, %42
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134032), align 8, !tbaa !193
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134032), align 8, !tbaa !196
   tail call void @_glfw_free(ptr noundef %44) #9
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134112), align 8, !tbaa !194
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134112), align 8, !tbaa !197
   %.not48 = icmp eq ptr %45, null
   br i1 %.not48, label %61, label %56
 
 .lr.ph73:                                         ; preds = %42, %.lr.ph73
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph73 ], [ 0, %42 ]
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134032), align 8, !tbaa !193
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134032), align 8, !tbaa !196
   %47 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %46, i64 %indvars.iv
-  %48 = load ptr, ptr %47, align 8, !tbaa !195
+  %48 = load ptr, ptr %47, align 8, !tbaa !198
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !117
   %51 = tail call i32 %50(ptr noundef %48) #9
   %52 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %49(ptr noundef %48, i32 noundef 2, ptr noundef null, i32 noundef %51, i32 noundef 1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !192
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !195
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph73, label %._crit_edge74
+  br i1 %55, label %.lr.ph73, label %._crit_edge74, !llvm.loop !200
 
 56:                                               ; preds = %._crit_edge74
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
@@ -1494,7 +1494,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %61
 
 61:                                               ; preds = %56, %._crit_edge74
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133912), align 8, !tbaa !197
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133912), align 8, !tbaa !201
   %.not49 = icmp eq ptr %62, null
   br i1 %.not49, label %68, label %63
 
@@ -1506,7 +1506,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %68
 
 68:                                               ; preds = %63, %61
-  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133904), align 8, !tbaa !198
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133904), align 8, !tbaa !202
   %.not50 = icmp eq ptr %69, null
   br i1 %.not50, label %72, label %70
 
@@ -1516,7 +1516,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %72
 
 72:                                               ; preds = %70, %68
-  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !184
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !186
   %.not51 = icmp eq ptr %73, null
   br i1 %.not51, label %76, label %74
 
@@ -1526,7 +1526,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %76
 
 76:                                               ; preds = %74, %72
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133984), align 8, !tbaa !199
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133984), align 8, !tbaa !203
   %.not52 = icmp eq ptr %77, null
   br i1 %.not52, label %83, label %78
 
@@ -1538,7 +1538,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %83
 
 83:                                               ; preds = %78, %76
-  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133976), align 8, !tbaa !200
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133976), align 8, !tbaa !204
   %.not53 = icmp eq ptr %84, null
   br i1 %.not53, label %90, label %85
 
@@ -1550,7 +1550,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %90
 
 90:                                               ; preds = %85, %83
-  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133968), align 8, !tbaa !183
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133968), align 8, !tbaa !185
   %.not54 = icmp eq ptr %91, null
   br i1 %.not54, label %97, label %92
 
@@ -1562,7 +1562,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %97
 
 97:                                               ; preds = %92, %90
-  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134048), align 8, !tbaa !201
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134048), align 8, !tbaa !205
   %.not55 = icmp eq ptr %98, null
   br i1 %.not55, label %104, label %99
 
@@ -1574,7 +1574,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %104
 
 104:                                              ; preds = %99, %97
-  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134064), align 8, !tbaa !202
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134064), align 8, !tbaa !206
   %.not56 = icmp eq ptr %105, null
   br i1 %.not56, label %111, label %106
 
@@ -1586,7 +1586,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %111
 
 111:                                              ; preds = %106, %104
-  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134056), align 8, !tbaa !203
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134056), align 8, !tbaa !207
   %.not57 = icmp eq ptr %112, null
   br i1 %.not57, label %118, label %113
 
@@ -1598,7 +1598,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %118
 
 118:                                              ; preds = %113, %111
-  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133960), align 8, !tbaa !185
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133960), align 8, !tbaa !187
   %.not58 = icmp eq ptr %119, null
   br i1 %.not58, label %122, label %120
 
@@ -1608,7 +1608,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %122
 
 122:                                              ; preds = %120, %118
-  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133952), align 8, !tbaa !204
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133952), align 8, !tbaa !208
   %.not59 = icmp eq ptr %123, null
   br i1 %.not59, label %126, label %124
 
@@ -1618,7 +1618,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %126
 
 126:                                              ; preds = %124, %122
-  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133936), align 8, !tbaa !205
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133936), align 8, !tbaa !209
   %.not60 = icmp eq ptr %127, null
   br i1 %.not60, label %130, label %128
 
@@ -1628,7 +1628,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %130
 
 130:                                              ; preds = %128, %126
-  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133944), align 8, !tbaa !206
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133944), align 8, !tbaa !210
   %.not61 = icmp eq ptr %131, null
   br i1 %.not61, label %134, label %132
 
@@ -1638,7 +1638,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %134
 
 134:                                              ; preds = %132, %130
-  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !182
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !184
   %.not62 = icmp eq ptr %135, null
   br i1 %.not62, label %138, label %136
 
@@ -1648,7 +1648,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %138
 
 138:                                              ; preds = %136, %134
-  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133992), align 8, !tbaa !207
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133992), align 8, !tbaa !211
   %.not63 = icmp eq ptr %139, null
   br i1 %.not63, label %145, label %140
 
@@ -1660,7 +1660,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %145
 
 145:                                              ; preds = %140, %138
-  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134000), align 8, !tbaa !208
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134000), align 8, !tbaa !212
   %.not64 = icmp eq ptr %146, null
   br i1 %.not64, label %152, label %147
 
@@ -1672,7 +1672,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %152
 
 152:                                              ; preds = %147, %145
-  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134008), align 8, !tbaa !209
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134008), align 8, !tbaa !213
   %.not65 = icmp eq ptr %153, null
   br i1 %.not65, label %159, label %154
 
@@ -1684,7 +1684,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %159
 
 159:                                              ; preds = %154, %152
-  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134016), align 8, !tbaa !210
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134016), align 8, !tbaa !214
   %.not66 = icmp eq ptr %160, null
   br i1 %.not66, label %166, label %161
 
@@ -1696,7 +1696,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %166
 
 166:                                              ; preds = %161, %159
-  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134024), align 8, !tbaa !211
+  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134024), align 8, !tbaa !215
   %.not67 = icmp eq ptr %167, null
   br i1 %.not67, label %173, label %168
 
@@ -1749,7 +1749,7 @@ define hidden void @_glfwTerminateWayland() #0 {
   br label %194
 
 194:                                              ; preds = %192, %189
-  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134160), align 8, !tbaa !212
+  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134160), align 8, !tbaa !216
   tail call void @_glfw_free(ptr noundef %195) #9
   ret void
 }
@@ -1932,9 +1932,9 @@ define internal fastcc range(i32 0, 2) i32 @loadCursorTheme() unnamed_addr #0 {
   %.012 = phi i32 [ %spec.select, %2 ], [ 16, %0 ]
   %11 = tail call ptr @getenv(ptr noundef nonnull @.str.355) #9
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137544), align 8, !tbaa !120
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !184
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !186
   %14 = tail call ptr %12(ptr noundef %11, i32 noundef %.012, ptr noundef %13) #9
-  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134096), align 8, !tbaa !190
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134096), align 8, !tbaa !193
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %15, label %16
 
@@ -1945,15 +1945,15 @@ define internal fastcc range(i32 0, 2) i32 @loadCursorTheme() unnamed_addr #0 {
 16:                                               ; preds = %10
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137544), align 8, !tbaa !120
   %18 = shl nuw nsw i32 %.012, 1
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !184
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !186
   %20 = tail call ptr %17(ptr noundef %11, i32 noundef %18, ptr noundef %19) #9
-  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134104), align 8, !tbaa !191
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133904), align 8, !tbaa !198
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134104), align 8, !tbaa !194
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133904), align 8, !tbaa !202
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !117
   %24 = tail call i32 %23(ptr noundef %21) #9
   %25 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %22(ptr noundef %21, i32 noundef 0, ptr noundef nonnull @_glfw_wl_surface_interface, i32 noundef %24, i32 noundef 0, ptr noundef null) #9
-  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134112), align 8, !tbaa !194
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134112), align 8, !tbaa !197
   %26 = tail call i32 @timerfd_create(i32 noundef 1, i32 noundef 526336) #9
   store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134128), align 8, !tbaa !98
   br label %27
@@ -1983,7 +1983,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
   %9 = tail call i32 @_glfw_min(i32 noundef 3, i32 noundef %4) #9
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %11 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %10(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_wl_compositor_interface, i32 noundef %9, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.3, i32 noundef %9, ptr noundef null) #9
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133904), align 8, !tbaa !198
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133904), align 8, !tbaa !202
   br label %95
 
 12:                                               ; preds = %5
@@ -1994,7 +1994,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 15:                                               ; preds = %12
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %17 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %16(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_wl_subcompositor_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.20, i32 noundef 1, ptr noundef null) #9
-  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133912), align 8, !tbaa !197
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133912), align 8, !tbaa !201
   br label %95
 
 18:                                               ; preds = %12
@@ -2005,7 +2005,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 21:                                               ; preds = %18
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %23 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %22(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_wl_shm_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef null) #9
-  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !184
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133920), align 8, !tbaa !186
   br label %95
 
 24:                                               ; preds = %18
@@ -2023,7 +2023,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !182
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !184
   %.not43 = icmp eq ptr %32, null
   br i1 %.not43, label %33, label %95
 
@@ -2031,7 +2031,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
   %34 = tail call i32 @_glfw_min(i32 noundef 4, i32 noundef %4) #9
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %36 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %35(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_wl_seat_interface, i32 noundef %34, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.14, i32 noundef %34, ptr noundef null) #9
-  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !182
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !184
   tail call void @_glfwAddSeatListenerWayland(ptr noundef %36) #9
   br label %95
 
@@ -2041,14 +2041,14 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %37
-  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133952), align 8, !tbaa !204
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133952), align 8, !tbaa !208
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %42, label %95
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %44 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %43(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_wl_data_device_manager_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.10, i32 noundef 1, ptr noundef null) #9
-  store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133952), align 8, !tbaa !204
+  store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133952), align 8, !tbaa !208
   br label %95
 
 45:                                               ; preds = %37
@@ -2059,7 +2059,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 48:                                               ; preds = %45
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %50 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %49(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_xdg_wm_base_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.22, i32 noundef 1, ptr noundef null) #9
-  store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133968), align 8, !tbaa !183
+  store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133968), align 8, !tbaa !185
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137456), align 8, !tbaa !109
   %52 = tail call i32 %51(ptr noundef %50, ptr noundef nonnull @wmBaseListener, ptr noundef null) #9
   br label %95
@@ -2072,7 +2072,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 56:                                               ; preds = %53
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %58 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %57(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_zxdg_decoration_manager_v1_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.27, i32 noundef 1, ptr noundef null) #9
-  store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133976), align 8, !tbaa !200
+  store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133976), align 8, !tbaa !204
   br label %95
 
 59:                                               ; preds = %53
@@ -2083,7 +2083,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 62:                                               ; preds = %59
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %64 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %63(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_wp_viewporter_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.29, i32 noundef 1, ptr noundef null) #9
-  store ptr %64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133984), align 8, !tbaa !199
+  store ptr %64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133984), align 8, !tbaa !203
   br label %95
 
 65:                                               ; preds = %59
@@ -2094,7 +2094,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 68:                                               ; preds = %65
   %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %70 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %69(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_zwp_relative_pointer_manager_v1_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef 1, ptr noundef null) #9
-  store ptr %70, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133992), align 8, !tbaa !207
+  store ptr %70, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133992), align 8, !tbaa !211
   br label %95
 
 71:                                               ; preds = %65
@@ -2105,7 +2105,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 74:                                               ; preds = %71
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %76 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %75(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_zwp_pointer_constraints_v1_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.33, i32 noundef 1, ptr noundef null) #9
-  store ptr %76, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134000), align 8, !tbaa !208
+  store ptr %76, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134000), align 8, !tbaa !212
   br label %95
 
 77:                                               ; preds = %71
@@ -2116,7 +2116,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 80:                                               ; preds = %77
   %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %82 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %81(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_zwp_idle_inhibit_manager_v1_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.40, i32 noundef 1, ptr noundef null) #9
-  store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134008), align 8, !tbaa !209
+  store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134008), align 8, !tbaa !213
   br label %95
 
 83:                                               ; preds = %77
@@ -2127,7 +2127,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 86:                                               ; preds = %83
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %88 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %87(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @_glfw_xdg_activation_v1_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.38, i32 noundef 1, ptr noundef null) #9
-  store ptr %88, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134016), align 8, !tbaa !210
+  store ptr %88, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134016), align 8, !tbaa !214
   br label %95
 
 89:                                               ; preds = %83
@@ -2138,7 +2138,7 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 92:                                               ; preds = %89
   %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !118
   %94 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %93(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @wp_fractional_scale_manager_v1_interface, i32 noundef 1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.36, i32 noundef 1, ptr noundef null) #9
-  store ptr %94, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134024), align 8, !tbaa !211
+  store ptr %94, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134024), align 8, !tbaa !215
   br label %95
 
 95:                                               ; preds = %15, %27, %42, %40, %56, %68, %80, %89, %92, %86, %74, %62, %48, %31, %33, %21, %8
@@ -2147,26 +2147,26 @@ define internal void @registryHandleGlobal(ptr readnone captures(none) %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @registryHandleGlobalRemove(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1928), align 8, !tbaa !213
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1928), align 8, !tbaa !217
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.critedge.lr.ph, label %.loopexit
 
 .critedge.lr.ph:                                  ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1920), align 8, !tbaa !214
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1920), align 8, !tbaa !218
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.critedge
 
 7:                                                ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.critedge
+  br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !219
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !215
+  %9 = load ptr, ptr %8, align 8, !tbaa !220
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
-  %11 = load i32, ptr %10, align 8, !tbaa !217
+  %11 = load i32, ptr %10, align 8, !tbaa !222
   %.not = icmp eq i32 %11, %2
   br i1 %.not, label %12, label %7
 
@@ -2200,11 +2200,11 @@ declare void @_glfwInputMonitor(ptr noundef, i32 noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal void @libdecorReadyCallback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #0 {
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137632), align 8, !tbaa !186
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137624), align 8, !tbaa !181
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137632), align 8, !tbaa !188
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137624), align 8, !tbaa !183
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137464), align 8, !tbaa !110
   tail call void %5(ptr noundef %4) #9
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137624), align 8, !tbaa !181
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137624), align 8, !tbaa !183
   ret void
 }
 
@@ -2411,51 +2411,56 @@ attributes #11 = { nounwind willreturn memory(read) }
 !176 = !{!4, !39, i64 133896}
 !177 = !{!178, !178, i64 0}
 !178 = !{!"short", !6, i64 0}
-!179 = !{!4, !62, i64 137136}
-!180 = !{!4, !70, i64 137616}
-!181 = !{!4, !71, i64 137624}
-!182 = !{!4, !43, i64 133928}
-!183 = !{!4, !48, i64 133968}
-!184 = !{!4, !42, i64 133920}
-!185 = !{!4, !47, i64 133960}
-!186 = !{!4, !5, i64 137632}
-!187 = !{!4, !65, i64 137160}
-!188 = !{!4, !63, i64 137144}
-!189 = !{!4, !64, i64 137152}
-!190 = !{!4, !59, i64 134096}
-!191 = !{!4, !59, i64 134104}
-!192 = !{!4, !5, i64 134040}
-!193 = !{!4, !56, i64 134032}
-!194 = !{!4, !60, i64 134112}
-!195 = !{!196, !57, i64 0}
-!196 = !{!"_GLFWofferWayland", !57, i64 0, !5, i64 8, !5, i64 12}
-!197 = !{!4, !41, i64 133912}
-!198 = !{!4, !40, i64 133904}
-!199 = !{!4, !50, i64 133984}
-!200 = !{!4, !49, i64 133976}
-!201 = !{!4, !57, i64 134048}
-!202 = !{!4, !57, i64 134064}
-!203 = !{!4, !58, i64 134056}
-!204 = !{!4, !46, i64 133952}
-!205 = !{!4, !44, i64 133936}
-!206 = !{!4, !45, i64 133944}
-!207 = !{!4, !51, i64 133992}
-!208 = !{!4, !52, i64 134000}
-!209 = !{!4, !53, i64 134008}
-!210 = !{!4, !54, i64 134016}
-!211 = !{!4, !55, i64 134024}
-!212 = !{!4, !18, i64 134160}
-!213 = !{!4, !5, i64 1928}
-!214 = !{!4, !25, i64 1920}
-!215 = !{!216, !216, i64 0}
-!216 = !{!"p1 _ZTS12_GLFWmonitor", !9, i64 0}
-!217 = !{!218, !5, i64 264}
-!218 = !{!"_GLFWmonitor", !6, i64 0, !9, i64 128, !5, i64 136, !5, i64 140, !22, i64 144, !219, i64 152, !5, i64 160, !220, i64 164, !221, i64 192, !221, i64 224, !223, i64 256, !225, i64 288, !226, i64 320}
-!219 = !{!"p1 _ZTS11GLFWvidmode", !9, i64 0}
-!220 = !{!"GLFWvidmode", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
-!221 = !{!"GLFWgammaramp", !222, i64 0, !222, i64 8, !222, i64 16, !5, i64 24}
-!222 = !{!"p1 short", !9, i64 0}
-!223 = !{!"_GLFWmonitorWayland", !224, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24}
-!224 = !{!"p1 _ZTS9wl_output", !9, i64 0}
-!225 = !{!"_GLFWmonitorX11", !16, i64 0, !16, i64 8, !16, i64 16, !5, i64 24}
-!226 = !{!"_GLFWmonitorNull", !221, i64 0}
+!179 = distinct !{!179, !180}
+!180 = !{!"llvm.loop.estimated_trip_count"}
+!181 = !{!4, !62, i64 137136}
+!182 = !{!4, !70, i64 137616}
+!183 = !{!4, !71, i64 137624}
+!184 = !{!4, !43, i64 133928}
+!185 = !{!4, !48, i64 133968}
+!186 = !{!4, !42, i64 133920}
+!187 = !{!4, !47, i64 133960}
+!188 = !{!4, !5, i64 137632}
+!189 = distinct !{!189, !180}
+!190 = !{!4, !65, i64 137160}
+!191 = !{!4, !63, i64 137144}
+!192 = !{!4, !64, i64 137152}
+!193 = !{!4, !59, i64 134096}
+!194 = !{!4, !59, i64 134104}
+!195 = !{!4, !5, i64 134040}
+!196 = !{!4, !56, i64 134032}
+!197 = !{!4, !60, i64 134112}
+!198 = !{!199, !57, i64 0}
+!199 = !{!"_GLFWofferWayland", !57, i64 0, !5, i64 8, !5, i64 12}
+!200 = distinct !{!200, !180}
+!201 = !{!4, !41, i64 133912}
+!202 = !{!4, !40, i64 133904}
+!203 = !{!4, !50, i64 133984}
+!204 = !{!4, !49, i64 133976}
+!205 = !{!4, !57, i64 134048}
+!206 = !{!4, !57, i64 134064}
+!207 = !{!4, !58, i64 134056}
+!208 = !{!4, !46, i64 133952}
+!209 = !{!4, !44, i64 133936}
+!210 = !{!4, !45, i64 133944}
+!211 = !{!4, !51, i64 133992}
+!212 = !{!4, !52, i64 134000}
+!213 = !{!4, !53, i64 134008}
+!214 = !{!4, !54, i64 134016}
+!215 = !{!4, !55, i64 134024}
+!216 = !{!4, !18, i64 134160}
+!217 = !{!4, !5, i64 1928}
+!218 = !{!4, !25, i64 1920}
+!219 = distinct !{!219, !180}
+!220 = !{!221, !221, i64 0}
+!221 = !{!"p1 _ZTS12_GLFWmonitor", !9, i64 0}
+!222 = !{!223, !5, i64 264}
+!223 = !{!"_GLFWmonitor", !6, i64 0, !9, i64 128, !5, i64 136, !5, i64 140, !22, i64 144, !224, i64 152, !5, i64 160, !225, i64 164, !226, i64 192, !226, i64 224, !228, i64 256, !230, i64 288, !231, i64 320}
+!224 = !{!"p1 _ZTS11GLFWvidmode", !9, i64 0}
+!225 = !{!"GLFWvidmode", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
+!226 = !{!"GLFWgammaramp", !227, i64 0, !227, i64 8, !227, i64 16, !5, i64 24}
+!227 = !{!"p1 short", !9, i64 0}
+!228 = !{!"_GLFWmonitorWayland", !229, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24}
+!229 = !{!"p1 _ZTS9wl_output", !9, i64 0}
+!230 = !{!"_GLFWmonitorX11", !16, i64 0, !16, i64 8, !16, i64 16, !5, i64 24}
+!231 = !{!"_GLFWmonitorNull", !226, i64 0}

@@ -71,7 +71,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   store float %21, ptr %22, align 4
   %23 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i4.i.i = icmp eq i64 %23, 4
-  br i1 %exitcond.not.i4.i.i, label %24, label %16, !llvm.loop !7
+  br i1 %exitcond.not.i4.i.i, label %24, label %16, !llvm.loop !8
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -733,6 +733,7 @@ attributes #19 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

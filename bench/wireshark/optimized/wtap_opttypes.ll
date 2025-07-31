@@ -319,7 +319,7 @@ define void @wtap_block_array_free(ptr noundef %0) local_unnamed_addr #0 {
   %8 = load i32, ptr %3, align 8
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %11 = tail call ptr @g_array_free(ptr noundef nonnull %0, i32 noundef 1)
@@ -360,7 +360,7 @@ wtap_block_ref.exit:                              ; preds = %.lr.ph, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %wtap_block_ref.exit, %.preheader
   %16 = tail call ptr @g_array_ref(ptr noundef nonnull %0)
@@ -394,7 +394,7 @@ define void @wtap_block_array_unref(ptr noundef %0) local_unnamed_addr #0 {
   %8 = load i32, ptr %3, align 8
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @g_array_unref(ptr noundef nonnull %0)
@@ -507,7 +507,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 51:                                               ; preds = %52
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %52, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %52, !llvm.loop !12
 
 52:                                               ; preds = %51, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %51 ]
@@ -573,7 +573,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 88:                                               ; preds = %89
   %indvars.iv.next.i.i.i71 = add nuw nsw i64 %indvars.iv.i.i.i70, 1
   %exitcond.not.i.i.i72 = icmp eq i64 %indvars.iv.next.i.i.i71, %wide.trip.count.i.i.i69
-  br i1 %exitcond.not.i.i.i72, label %.loopexit.i66, label %89, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i72, label %.loopexit.i66, label %89, !llvm.loop !12
 
 89:                                               ; preds = %88, %.lr.ph.i.i.i68
   %indvars.iv.i.i.i70 = phi i64 [ 0, %.lr.ph.i.i.i68 ], [ %indvars.iv.next.i.i.i71, %88 ]
@@ -639,7 +639,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 125:                                              ; preds = %126
   %indvars.iv.next.i.i.i81 = add nuw nsw i64 %indvars.iv.i.i.i80, 1
   %exitcond.not.i.i.i82 = icmp eq i64 %indvars.iv.next.i.i.i81, %wide.trip.count.i.i.i79
-  br i1 %exitcond.not.i.i.i82, label %.loopexit.i76, label %126, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i82, label %.loopexit.i76, label %126, !llvm.loop !12
 
 126:                                              ; preds = %125, %.lr.ph.i.i.i78
   %indvars.iv.i.i.i80 = phi i64 [ 0, %.lr.ph.i.i.i78 ], [ %indvars.iv.next.i.i.i81, %125 ]
@@ -705,7 +705,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 162:                                              ; preds = %163
   %indvars.iv.next.i.i.i91 = add nuw nsw i64 %indvars.iv.i.i.i90, 1
   %exitcond.not.i.i.i92 = icmp eq i64 %indvars.iv.next.i.i.i91, %wide.trip.count.i.i.i89
-  br i1 %exitcond.not.i.i.i92, label %.loopexit.i86, label %163, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i92, label %.loopexit.i86, label %163, !llvm.loop !12
 
 163:                                              ; preds = %162, %.lr.ph.i.i.i88
   %indvars.iv.i.i.i90 = phi i64 [ 0, %.lr.ph.i.i.i88 ], [ %indvars.iv.next.i.i.i91, %162 ]
@@ -771,7 +771,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 199:                                              ; preds = %200
   %indvars.iv.next.i.i.i101 = add nuw nsw i64 %indvars.iv.i.i.i100, 1
   %exitcond.not.i.i.i102 = icmp eq i64 %indvars.iv.next.i.i.i101, %wide.trip.count.i.i.i99
-  br i1 %exitcond.not.i.i.i102, label %.loopexit.i96, label %200, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i102, label %.loopexit.i96, label %200, !llvm.loop !12
 
 200:                                              ; preds = %199, %.lr.ph.i.i.i98
   %indvars.iv.i.i.i100 = phi i64 [ 0, %.lr.ph.i.i.i98 ], [ %indvars.iv.next.i.i.i101, %199 ]
@@ -837,7 +837,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 236:                                              ; preds = %237
   %indvars.iv.next.i.i.i111 = add nuw nsw i64 %indvars.iv.i.i.i110, 1
   %exitcond.not.i.i.i112 = icmp eq i64 %indvars.iv.next.i.i.i111, %wide.trip.count.i.i.i109
-  br i1 %exitcond.not.i.i.i112, label %.loopexit.i106, label %237, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i112, label %.loopexit.i106, label %237, !llvm.loop !12
 
 237:                                              ; preds = %236, %.lr.ph.i.i.i108
   %indvars.iv.i.i.i110 = phi i64 [ 0, %.lr.ph.i.i.i108 ], [ %indvars.iv.next.i.i.i111, %236 ]
@@ -903,7 +903,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 273:                                              ; preds = %274
   %indvars.iv.next.i.i.i121 = add nuw nsw i64 %indvars.iv.i.i.i120, 1
   %exitcond.not.i.i.i122 = icmp eq i64 %indvars.iv.next.i.i.i121, %wide.trip.count.i.i.i119
-  br i1 %exitcond.not.i.i.i122, label %.loopexit.i116, label %274, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i122, label %.loopexit.i116, label %274, !llvm.loop !12
 
 274:                                              ; preds = %273, %.lr.ph.i.i.i118
   %indvars.iv.i.i.i120 = phi i64 [ 0, %.lr.ph.i.i.i118 ], [ %indvars.iv.next.i.i.i121, %273 ]
@@ -968,7 +968,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 309:                                              ; preds = %310
   %indvars.iv.next.i.i.i131 = add nuw nsw i64 %indvars.iv.i.i.i130, 1
   %exitcond.not.i.i.i132 = icmp eq i64 %indvars.iv.next.i.i.i131, %wide.trip.count.i.i.i129
-  br i1 %exitcond.not.i.i.i132, label %.loopexit.i126, label %310, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i132, label %.loopexit.i126, label %310, !llvm.loop !12
 
 310:                                              ; preds = %309, %.lr.ph.i.i.i128
   %indvars.iv.i.i.i130 = phi i64 [ 0, %.lr.ph.i.i.i128 ], [ %indvars.iv.next.i.i.i131, %309 ]
@@ -1035,7 +1035,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 347:                                              ; preds = %348
   %indvars.iv.next.i.i.i141 = add nuw nsw i64 %indvars.iv.i.i.i140, 1
   %exitcond.not.i.i.i142 = icmp eq i64 %indvars.iv.next.i.i.i141, %wide.trip.count.i.i.i139
-  br i1 %exitcond.not.i.i.i142, label %.loopexit.i136, label %348, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i142, label %.loopexit.i136, label %348, !llvm.loop !12
 
 348:                                              ; preds = %347, %.lr.ph.i.i.i138
   %indvars.iv.i.i.i140 = phi i64 [ 0, %.lr.ph.i.i.i138 ], [ %indvars.iv.next.i.i.i141, %347 ]
@@ -1102,7 +1102,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 385:                                              ; preds = %386
   %indvars.iv.next.i.i.i151 = add nuw nsw i64 %indvars.iv.i.i.i150, 1
   %exitcond.not.i.i.i152 = icmp eq i64 %indvars.iv.next.i.i.i151, %wide.trip.count.i.i.i149
-  br i1 %exitcond.not.i.i.i152, label %.loopexit.i146, label %386, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i152, label %.loopexit.i146, label %386, !llvm.loop !12
 
 386:                                              ; preds = %385, %.lr.ph.i.i.i148
   %indvars.iv.i.i.i150 = phi i64 [ 0, %.lr.ph.i.i.i148 ], [ %indvars.iv.next.i.i.i151, %385 ]
@@ -1187,7 +1187,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 436:                                              ; preds = %437
   %indvars.iv.next.i.i.i161 = add nuw nsw i64 %indvars.iv.i.i.i160, 1
   %exitcond.not.i.i.i162 = icmp eq i64 %indvars.iv.next.i.i.i161, %wide.trip.count.i.i.i159
-  br i1 %exitcond.not.i.i.i162, label %.loopexit.i156, label %437, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i162, label %.loopexit.i156, label %437, !llvm.loop !12
 
 437:                                              ; preds = %436, %.lr.ph.i.i.i158
   %indvars.iv.i.i.i160 = phi i64 [ 0, %.lr.ph.i.i.i158 ], [ %indvars.iv.next.i.i.i161, %436 ]
@@ -1239,7 +1239,7 @@ wtap_block_add_uint8_option.exit:                 ; preds = %437, %386, %348, %3
   %466 = load i32, ptr %465, align 8
   %467 = zext i32 %466 to i64
   %468 = icmp samesign ult i64 %indvars.iv.next, %467
-  br i1 %468, label %14, label %._crit_edge, !llvm.loop !12
+  br i1 %468, label %14, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %wtap_block_add_uint8_option.exit, %7
   ret void
@@ -1292,7 +1292,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly ca
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1363,7 +1363,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly c
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1434,7 +1434,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly c
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1505,7 +1505,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly cap
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1576,7 +1576,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly ca
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1647,7 +1647,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly ca
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1718,7 +1718,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly cap
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1789,7 +1789,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly cap
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1860,7 +1860,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly c
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !12
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -1935,7 +1935,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2005,7 +2005,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef reado
 25:                                               ; preds = %26
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %26, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %26, !llvm.loop !12
 
 26:                                               ; preds = %25, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
@@ -2089,7 +2089,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly c
 28:                                               ; preds = %29
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %29, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %29, !llvm.loop !12
 
 29:                                               ; preds = %28, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %28 ]
@@ -2167,7 +2167,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2188,10 +2188,10 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.511)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   store i64 0, ptr %.sroa.511, align 8
   store ptr null, ptr %.sroa.7, align 8
-  %39 = load i32, ptr %2, align 8, !noalias !13
+  %39 = load i32, ptr %2, align 8, !noalias !14
   switch i32 %39, label %if_filter_dup.exit [
     i32 0, label %40
     i32 1, label %44
@@ -2199,16 +2199,16 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
 
 40:                                               ; preds = %.loopexit
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %42 = load ptr, ptr %41, align 8, !noalias !13
+  %42 = load ptr, ptr %41, align 8, !noalias !14
   %43 = tail call noalias ptr @g_strdup(ptr noundef %42)
   br label %.sink.split.i
 
 44:                                               ; preds = %.loopexit
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %46 = load i32, ptr %45, align 8, !noalias !13
-  store i32 %46, ptr %.sroa.511, align 8, !alias.scope !13
+  %46 = load i32, ptr %45, align 8, !noalias !14
+  store i32 %46, ptr %.sroa.511, align 8, !alias.scope !14
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %48 = load ptr, ptr %47, align 8, !noalias !13
+  %48 = load ptr, ptr %47, align 8, !noalias !14
   %49 = zext i32 %46 to i64
   %50 = shl nuw nsw i64 %49, 3
   %51 = tail call ptr @g_memdup2(ptr noundef %48, i64 noundef %50) #18
@@ -2217,7 +2217,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
 .sink.split.i:                                    ; preds = %44, %40
   %.sink7.i.sroa.phi = phi ptr [ %.sroa.7, %44 ], [ %.sroa.511, %40 ]
   %.sink.i = phi ptr [ %51, %44 ], [ %43, %40 ]
-  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !13
+  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !14
   %.sroa.511.0..sroa.511.0..sroa.511.0.copyload.pre = load i64, ptr %.sroa.511, align 8
   %.sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre = load ptr, ptr %.sroa.7, align 8
   br label %if_filter_dup.exit
@@ -2285,7 +2285,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2394,7 +2394,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2493,7 +2493,7 @@ define i32 @wtap_block_count_option(ptr noundef readonly captures(address_is_nul
   %spec.select = add i32 %.01014, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !17
 
 .loopexit:                                        ; preds = %9, %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %spec.select, %9 ]
@@ -2520,7 +2520,7 @@ define noundef zeroext i1 @wtap_block_foreach_option(ptr noundef %0, ptr noundef
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.preheader ]
@@ -2590,7 +2590,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2653,7 +2653,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2717,7 +2717,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2780,7 +2780,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2844,7 +2844,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2907,7 +2907,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2971,7 +2971,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3034,7 +3034,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3098,7 +3098,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3161,7 +3161,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3225,7 +3225,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3288,7 +3288,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3352,7 +3352,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3415,7 +3415,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3482,7 +3482,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3545,7 +3545,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3611,7 +3611,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3684,7 +3684,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef rea
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !12
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -3768,7 +3768,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !12
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -3813,7 +3813,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
 49:                                               ; preds = %50
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !12
 
 50:                                               ; preds = %49, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
@@ -3910,7 +3910,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef 
   %.1.i.i = phi i32 [ %35, %34 ], [ %.016.i.i, %28 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !19
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -3971,7 +3971,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !12
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -4017,7 +4017,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
 49:                                               ; preds = %50
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !12
 
 50:                                               ; preds = %49, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
@@ -4123,7 +4123,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr n
   %.1.i.i = phi i32 [ %35, %34 ], [ %.016.i.i, %28 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !19
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -4185,7 +4185,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -4266,7 +4266,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef 
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !19
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4323,7 +4323,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly ca
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !12
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -4401,7 +4401,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !12
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -4446,7 +4446,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
 49:                                               ; preds = %50
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !12
 
 50:                                               ; preds = %49, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
@@ -4546,7 +4546,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef r
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !19
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4605,7 +4605,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -4686,7 +4686,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef r
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !19
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4756,7 +4756,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
 32:                                               ; preds = %20, %24, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %20, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.thread, label %20, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %28
   %33 = trunc nuw i64 %indvars.iv to i32
@@ -4966,7 +4966,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   store i8 %176, ptr %177, align 1
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 3
-  br i1 %exitcond239.not, label %178, label %174, !llvm.loop !20
+  br i1 %exitcond239.not, label %178, label %174, !llvm.loop !21
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds nuw i8, ptr %46, i64 160
@@ -5125,7 +5125,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   store i32 %290, ptr %291, align 4
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next233, 4
-  br i1 %exitcond235.not, label %292, label %285, !llvm.loop !21
+  br i1 %exitcond235.not, label %292, label %285, !llvm.loop !22
 
 292:                                              ; preds = %285
   %293 = getelementptr inbounds nuw i8, ptr %267, i64 52
@@ -5222,7 +5222,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if_filter_free.exit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %if_filter_free.exit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -5240,10 +5240,10 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.520)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   store i64 0, ptr %.sroa.520, align 8
   store ptr null, ptr %.sroa.7, align 8
-  %33 = load i32, ptr %2, align 8, !noalias !22
+  %33 = load i32, ptr %2, align 8, !noalias !23
   switch i32 %33, label %if_filter_dup.exit [
     i32 0, label %34
     i32 1, label %38
@@ -5251,16 +5251,16 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load ptr, ptr %35, align 8, !noalias !22
+  %36 = load ptr, ptr %35, align 8, !noalias !23
   %37 = tail call noalias ptr @g_strdup(ptr noundef %36)
   br label %.sink.split.i
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = load i32, ptr %39, align 8, !noalias !22
-  store i32 %40, ptr %.sroa.520, align 8, !alias.scope !22
+  %40 = load i32, ptr %39, align 8, !noalias !23
+  store i32 %40, ptr %.sroa.520, align 8, !alias.scope !23
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %42 = load ptr, ptr %41, align 8, !noalias !22
+  %42 = load ptr, ptr %41, align 8, !noalias !23
   %43 = zext i32 %40 to i64
   %44 = shl nuw nsw i64 %43, 3
   %45 = tail call ptr @g_memdup2(ptr noundef %42, i64 noundef %44) #18
@@ -5269,7 +5269,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
 .sink.split.i:                                    ; preds = %38, %34
   %.sink7.i.sroa.phi = phi ptr [ %.sroa.7, %38 ], [ %.sroa.520, %34 ]
   %.sink.i = phi ptr [ %45, %38 ], [ %37, %34 ]
-  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !22
+  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !23
   %.sroa.520.0..sroa.520.0..sroa.520.0.copyload.pre = load i64, ptr %.sroa.520, align 8
   %.sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre = load ptr, ptr %.sroa.7, align 8
   br label %if_filter_dup.exit
@@ -5349,7 +5349,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef r
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -5429,7 +5429,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_packet_verdict_free.exit, label %27, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %wtap_packet_verdict_free.exit, label %27, !llvm.loop !19
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -5547,7 +5547,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr 
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !19
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -5614,7 +5614,7 @@ define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly captu
 30:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !26
 
 .loopexit:                                        ; preds = %30, %.preheader, %12, %4, %2, %25
   %.0 = phi i32 [ 0, %25 ], [ -6, %2 ], [ -1, %4 ], [ -4, %12 ], [ -2, %.preheader ], [ -2, %30 ]
@@ -5776,7 +5776,7 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
   %.1 = phi i32 [ %34, %33 ], [ %.027, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !27
 
 .loopexit:                                        ; preds = %35, %.preheader, %13, %5, %3, %28
   %.019 = phi i32 [ 0, %28 ], [ -6, %3 ], [ -1, %5 ], [ -4, %13 ], [ -2, %.preheader ], [ -2, %35 ]
@@ -6031,7 +6031,7 @@ define internal void @idb_free_mand(ptr noundef readonly captures(none) %0) #0 {
   %12 = load i8, ptr %4, align 8
   %13 = zext i8 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %7, label %._crit_edge, !llvm.loop !27
+  br i1 %14, label %7, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %7, %1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -6123,7 +6123,7 @@ wtap_block_make_copy.exit:                        ; preds = %22, %30
   %42 = load i8, ptr %15, align 8
   %43 = zext i8 %42 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next, %43
-  br i1 %44, label %22, label %.loopexit, !llvm.loop !28
+  br i1 %44, label %22, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %wtap_block_make_copy.exit, %17, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
@@ -6301,7 +6301,7 @@ define void @wtap_opttypes_cleanup() local_unnamed_addr #0 {
 9:                                                ; preds = %1, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %10, label %1, !llvm.loop !29
+  br i1 %exitcond.not, label %10, label %1, !llvm.loop !30
 
 10:                                               ; preds = %9
   ret void
@@ -6375,27 +6375,28 @@ attributes #19 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"if_filter_dup: argument 0"}
-!15 = distinct !{!15, !"if_filter_dup"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"if_filter_dup: argument 0"}
-!24 = distinct !{!24, !"if_filter_dup"}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"if_filter_dup: argument 0"}
+!16 = distinct !{!16, !"if_filter_dup"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"if_filter_dup: argument 0"}
+!25 = distinct !{!25, !"if_filter_dup"}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}

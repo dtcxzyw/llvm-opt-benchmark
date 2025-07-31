@@ -100,7 +100,7 @@ define i32 @ossl_quic_fifd_pkt_commit(ptr noundef %0, ptr noundef initializes((4
   %.04354 = phi i64 [ 0, %.lr.ph56 ], [ %43, %42 ]
   %18 = load ptr, ptr %14, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw %struct.quic_txpim_chunk_st, ptr %12, i64 %.04354
-  %20 = load i64, ptr %19, align 8, !tbaa !40
+  %20 = load i64, ptr %19, align 8, !tbaa !41
   %21 = load i8, ptr %15, align 8
   %22 = and i8 %21, 3
   %23 = zext nneg i8 %22 to i32
@@ -111,9 +111,9 @@ define i32 @ossl_quic_fifd_pkt_commit(ptr noundef %0, ptr noundef initializes((4
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !42
+  %29 = load i64, ptr %28, align 8, !tbaa !43
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !43
+  %31 = load i64, ptr %30, align 8, !tbaa !44
   %.not47 = icmp ult i64 %29, %31
   br i1 %.not47, label %34, label %32
 
@@ -130,7 +130,7 @@ define i32 @ossl_quic_fifd_pkt_commit(ptr noundef %0, ptr noundef initializes((4
   br i1 %.not49, label %42, label %38
 
 38:                                               ; preds = %34
-  %39 = load i64, ptr %28, align 8, !tbaa !42
+  %39 = load i64, ptr %28, align 8, !tbaa !43
   %40 = add i64 %39, 1
   %41 = tail call i32 @ossl_quic_sstream_mark_transmitted_fin(ptr noundef nonnull %25, i64 noundef %40) #5
   %.not50 = icmp eq i32 %41, 0
@@ -139,7 +139,7 @@ define i32 @ossl_quic_fifd_pkt_commit(ptr noundef %0, ptr noundef initializes((4
 42:                                               ; preds = %34, %38, %17
   %43 = add nuw i64 %.04354, 1
   %exitcond.not = icmp eq i64 %43, %13
-  br i1 %exitcond.not, label %._crit_edge57, label %17, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge57, label %17, !llvm.loop !45
 
 ._crit_edge57:                                    ; preds = %42, %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -189,7 +189,7 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
   %.086108 = phi i64 [ 0, %.lr.ph ], [ %67, %66 ]
   %21 = load ptr, ptr %13, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw %struct.quic_txpim_chunk_st, ptr %4, i64 %.086108
-  %23 = load i64, ptr %22, align 8, !tbaa !40
+  %23 = load i64, ptr %22, align 8, !tbaa !41
   %24 = load i8, ptr %14, align 8
   %25 = and i8 %24, 3
   %26 = zext nneg i8 %25 to i32
@@ -200,9 +200,9 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !42
+  %32 = load i64, ptr %31, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !43
+  %34 = load i64, ptr %33, align 8, !tbaa !44
   %.not99 = icmp ult i64 %32, %34
   br i1 %.not99, label %37, label %35
 
@@ -216,7 +216,7 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
   %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, 1
   %.not100 = icmp eq i8 %40, 0
-  %.pre117.pre122.pre124 = load i64, ptr %22, align 8, !tbaa !40
+  %.pre117.pre122.pre124 = load i64, ptr %22, align 8, !tbaa !41
   br i1 %.not100, label %44, label %41
 
 41:                                               ; preds = %37
@@ -226,7 +226,7 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
 42:                                               ; preds = %41
   %43 = tail call i32 @ossl_quic_sstream_mark_lost_fin(ptr noundef nonnull %28) #5
   %.pre = load i8, ptr %38, align 8
-  %.pre117.pre122.pre = load i64, ptr %22, align 8, !tbaa !40
+  %.pre117.pre122.pre = load i64, ptr %22, align 8, !tbaa !41
   br label %44
 
 44:                                               ; preds = %42, %37
@@ -246,7 +246,7 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
   %50 = load ptr, ptr %17, align 8, !tbaa !16
   tail call void %49(i64 noundef 5, i64 noundef %.pre117.pre122, ptr noundef nonnull %0, ptr noundef %50) #5
   %.pre115 = load i8, ptr %38, align 8
-  %.pre117.pre = load i64, ptr %22, align 8, !tbaa !40
+  %.pre117.pre = load i64, ptr %22, align 8, !tbaa !41
   br label %.thread132
 
 .thread132:                                       ; preds = %41, %48, %47, %44
@@ -265,7 +265,7 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
   %55 = load ptr, ptr %16, align 8, !tbaa !15
   %56 = load ptr, ptr %17, align 8, !tbaa !16
   tail call void %55(i64 noundef 4, i64 noundef %.pre117, ptr noundef nonnull %0, ptr noundef %56) #5
-  %.pre116 = load i64, ptr %22, align 8, !tbaa !40
+  %.pre116 = load i64, ptr %22, align 8, !tbaa !41
   br label %57
 
 57:                                               ; preds = %54, %53, %.thread132
@@ -277,7 +277,7 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
   br i1 %.not106, label %66, label %61
 
 61:                                               ; preds = %57
-  %62 = load i64, ptr %22, align 8, !tbaa !40
+  %62 = load i64, ptr %22, align 8, !tbaa !41
   %.not107 = icmp eq i64 %62, -1
   br i1 %.not107, label %66, label %63
 
@@ -290,22 +290,22 @@ fifd_get_qlog.exit:                               ; preds = %1, %9
 66:                                               ; preds = %57, %61, %63, %20
   %67 = add nuw i64 %.086108, 1
   %exitcond.not = icmp eq i64 %67, %5
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %66, %fifd_get_qlog.exit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %69 = load ptr, ptr %68, align 8, !tbaa !46
+  %69 = load ptr, ptr %68, align 8, !tbaa !47
   %.not109 = icmp eq ptr %69, null
   br i1 %.not109, label %._crit_edge113, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %._crit_edge, %.lr.ph112
   %.087110 = phi ptr [ %71, %.lr.ph112 ], [ %69, %._crit_edge ]
   %70 = getelementptr inbounds nuw i8, ptr %.087110, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !47
+  %71 = load ptr, ptr %70, align 8, !tbaa !48
   %72 = load ptr, ptr %3, align 8, !tbaa !3
   tail call void @ossl_quic_cfq_mark_lost(ptr noundef %72, ptr noundef nonnull %.087110, i32 noundef -1) #5
   %.not = icmp eq ptr %71, null
-  br i1 %.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !49
+  br i1 %.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !50
 
 ._crit_edge113:                                   ; preds = %.lr.ph112, %._crit_edge
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 121
@@ -412,7 +412,7 @@ define internal void @on_acked(ptr noundef %0) #2 {
   %.071 = phi i64 [ 0, %.lr.ph ], [ %61, %60 ]
   %14 = load ptr, ptr %6, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw %struct.quic_txpim_chunk_st, ptr %4, i64 %.071
-  %16 = load i64, ptr %15, align 8, !tbaa !40
+  %16 = load i64, ptr %15, align 8, !tbaa !41
   %17 = load i8, ptr %7, align 8
   %18 = and i8 %17, 3
   %19 = zext nneg i8 %18 to i32
@@ -423,9 +423,9 @@ define internal void @on_acked(ptr noundef %0) #2 {
 
 23:                                               ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !42
+  %25 = load i64, ptr %24, align 8, !tbaa !43
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !43
+  %27 = load i64, ptr %26, align 8, !tbaa !44
   %.not63 = icmp ult i64 %25, %27
   br i1 %.not63, label %30, label %28
 
@@ -441,7 +441,7 @@ define internal void @on_acked(ptr noundef %0) #2 {
   br i1 %.not64, label %38, label %34
 
 34:                                               ; preds = %30
-  %35 = load i64, ptr %15, align 8, !tbaa !40
+  %35 = load i64, ptr %15, align 8, !tbaa !41
   %.not65 = icmp eq i64 %35, -1
   br i1 %.not65, label %38, label %36
 
@@ -457,7 +457,7 @@ define internal void @on_acked(ptr noundef %0) #2 {
   br i1 %.not66, label %46, label %41
 
 41:                                               ; preds = %38
-  %42 = load i64, ptr %15, align 8, !tbaa !40
+  %42 = load i64, ptr %15, align 8, !tbaa !41
   %.not67 = icmp eq i64 %42, -1
   br i1 %.not67, label %46, label %43
 
@@ -475,7 +475,7 @@ define internal void @on_acked(ptr noundef %0) #2 {
   br i1 %.not68, label %54, label %49
 
 49:                                               ; preds = %46
-  %50 = load i64, ptr %15, align 8, !tbaa !40
+  %50 = load i64, ptr %15, align 8, !tbaa !41
   %.not69 = icmp eq i64 %50, -1
   br i1 %.not69, label %54, label %51
 
@@ -492,7 +492,7 @@ define internal void @on_acked(ptr noundef %0) #2 {
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %11, align 8, !tbaa !19
-  %58 = load i64, ptr %15, align 8, !tbaa !40
+  %58 = load i64, ptr %15, align 8, !tbaa !41
   %59 = load ptr, ptr %12, align 8, !tbaa !20
   tail call void %57(i64 noundef %58, ptr noundef %59) #5
   br label %60
@@ -500,22 +500,22 @@ define internal void @on_acked(ptr noundef %0) #2 {
 60:                                               ; preds = %54, %56, %13
   %61 = add nuw i64 %.071, 1
   %exitcond.not = icmp eq i64 %61, %5
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %60, %1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %63 = load ptr, ptr %62, align 8, !tbaa !46
+  %63 = load ptr, ptr %62, align 8, !tbaa !47
   %.not72 = icmp eq ptr %63, null
   br i1 %.not72, label %._crit_edge76, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %._crit_edge, %.lr.ph75
   %.05773 = phi ptr [ %65, %.lr.ph75 ], [ %63, %._crit_edge ]
   %64 = getelementptr inbounds nuw i8, ptr %.05773, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !47
+  %65 = load ptr, ptr %64, align 8, !tbaa !48
   %66 = load ptr, ptr %3, align 8, !tbaa !3
   tail call void @ossl_quic_cfq_release(ptr noundef %66, ptr noundef nonnull %.05773) #5
   %.not = icmp eq ptr %65, null
-  br i1 %.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !51
+  br i1 %.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !52
 
 ._crit_edge76:                                    ; preds = %.lr.ph75, %._crit_edge
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -529,18 +529,18 @@ define internal void @on_discarded(ptr noundef %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
   %.not10 = icmp eq ptr %5, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.011 = phi ptr [ %7, %.lr.ph ], [ %5, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %6, align 8, !tbaa !48
   %8 = load ptr, ptr %3, align 8, !tbaa !3
   tail call void @ossl_quic_cfq_release(ptr noundef %8, ptr noundef nonnull %.011) #5
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -638,18 +638,19 @@ attributes #5 = { nounwind }
 !35 = !{!24, !6, i64 56}
 !36 = !{!24, !6, i64 64}
 !37 = !{!31, !31, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!41, !26, i64 0}
-!41 = !{!"quic_txpim_chunk_st", !26, i64 0, !26, i64 8, !26, i64 16, !28, i64 24, !28, i64 24, !28, i64 24}
-!42 = !{!41, !26, i64 16}
-!43 = !{!41, !26, i64 8}
-!44 = distinct !{!44, !39}
-!45 = distinct !{!45, !39}
-!46 = !{!24, !31, i64 104}
-!47 = !{!48, !31, i64 8}
-!48 = !{!"quic_cfq_item_st", !31, i64 0, !31, i64 8}
-!49 = distinct !{!49, !39}
-!50 = distinct !{!50, !39}
-!51 = distinct !{!51, !39}
-!52 = distinct !{!52, !39}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = !{!42, !26, i64 0}
+!42 = !{!"quic_txpim_chunk_st", !26, i64 0, !26, i64 8, !26, i64 16, !28, i64 24, !28, i64 24, !28, i64 24}
+!43 = !{!42, !26, i64 16}
+!44 = !{!42, !26, i64 8}
+!45 = distinct !{!45, !39, !40}
+!46 = distinct !{!46, !39, !40}
+!47 = !{!24, !31, i64 104}
+!48 = !{!49, !31, i64 8}
+!49 = !{!"quic_cfq_item_st", !31, i64 0, !31, i64 8}
+!50 = distinct !{!50, !39, !40}
+!51 = distinct !{!51, !39, !40}
+!52 = distinct !{!52, !39, !40}
+!53 = distinct !{!53, !39, !40}

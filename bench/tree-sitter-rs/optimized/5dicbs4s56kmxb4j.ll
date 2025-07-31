@@ -44,7 +44,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %11 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.113621425579edf36c5d8cbc622a6454.0.llvm.9295352875532201269)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !15
   %12 = icmp eq ptr %10, %8
-  br i1 %12, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ef72cc570de0614E.exit", label %.lr.ph.i.i
+  br i1 %12, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ef72cc570de0614E.exit", label %.lr.ph.i.i, !llvm.loop !18
 
 "_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ef72cc570de0614E.exit": ; preds = %.lr.ph.i.i, %2
   %13 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hadbed7078d8807f7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
@@ -71,7 +71,7 @@ define hidden { ptr, i64 } @"_ZN4core3str74_$LT$impl$u20$core..convert..AsRef$LT
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hb5b36056cdf8bd55E.llvm.8278307022938538369"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !18, !noundef !4
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !20, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
@@ -143,4 +143,6 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !15 = !{!16, !11, !13}
 !16 = distinct !{!16, !17, !"_ZN4core3fmt8builders9DebugList7entries17h7638888e45429502E: argument 0"}
 !17 = distinct !{!17, !"_ZN4core3fmt8builders9DebugList7entries17h7638888e45429502E"}
-!18 = !{i64 1}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{i64 1}

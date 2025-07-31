@@ -207,11 +207,11 @@ Q_.exit:                                          ; preds = %57, %59
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !9
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %75, ptr %76, align 8, !tbaa !22
+  store ptr %75, ptr %76, align 8, !tbaa !23
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !9
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %78, ptr %79, align 8, !tbaa !23
+  store ptr %78, ptr %79, align 8, !tbaa !24
   %80 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %81 = call i32 @repo_get_oid(ptr noundef %80, ptr noundef %75, ptr noundef nonnull %6) #12
   %.not54 = icmp eq i32 %81, 0
@@ -219,31 +219,31 @@ Q_.exit:                                          ; preds = %57, %59
 
 82:                                               ; preds = %71
   %83 = call fastcc ptr @_(ptr noundef nonnull @.str.10)
-  %84 = load ptr, ptr %76, align 8, !tbaa !22
+  %84 = load ptr, ptr %76, align 8, !tbaa !23
   call void (ptr, ...) @die(ptr noundef %83, ptr noundef %84) #14
   unreachable
 
 85:                                               ; preds = %71
   %86 = load ptr, ptr @the_repository, align 8, !tbaa !4
-  %87 = load ptr, ptr %79, align 8, !tbaa !23
+  %87 = load ptr, ptr %79, align 8, !tbaa !24
   %88 = call i32 @repo_get_oid(ptr noundef %86, ptr noundef %87, ptr noundef nonnull %7) #12
   %.not55 = icmp eq i32 %88, 0
   br i1 %.not55, label %92, label %89
 
 89:                                               ; preds = %85
   %90 = call fastcc ptr @_(ptr noundef nonnull @.str.10)
-  %91 = load ptr, ptr %79, align 8, !tbaa !23
+  %91 = load ptr, ptr %79, align 8, !tbaa !24
   call void (ptr, ...) @die(ptr noundef %90, ptr noundef %91) #14
   unreachable
 
 92:                                               ; preds = %85
-  %93 = load ptr, ptr %76, align 8, !tbaa !22
+  %93 = load ptr, ptr %76, align 8, !tbaa !23
   %94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #13
   %95 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 400
-  %97 = load ptr, ptr %96, align 8, !tbaa !24
+  %97 = load ptr, ptr %96, align 8, !tbaa !25
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %99 = load i64, ptr %98, align 8, !tbaa !42
+  %99 = load i64, ptr %98, align 8, !tbaa !43
   %.not.i56 = icmp eq i64 %94, %99
   br i1 %.not.i56, label %100, label %better_branch_name.exit
 
@@ -257,14 +257,14 @@ Q_.exit:                                          ; preds = %57, %59
 better_branch_name.exit:                          ; preds = %92, %100
   %.sink.i = phi ptr [ %103, %100 ], [ %93, %92 ]
   %104 = call ptr @xstrdup(ptr noundef nonnull %.sink.i) #12
-  store ptr %104, ptr %76, align 8, !tbaa !22
-  %105 = load ptr, ptr %79, align 8, !tbaa !23
+  store ptr %104, ptr %76, align 8, !tbaa !23
+  %105 = load ptr, ptr %79, align 8, !tbaa !24
   %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #13
   %107 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 400
-  %109 = load ptr, ptr %108, align 8, !tbaa !24
+  %109 = load ptr, ptr %108, align 8, !tbaa !25
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %111 = load i64, ptr %110, align 8, !tbaa !42
+  %111 = load i64, ptr %110, align 8, !tbaa !43
   %.not.i57 = icmp eq i64 %106, %111
   br i1 %.not.i57, label %112, label %better_branch_name.exit60
 
@@ -278,9 +278,9 @@ better_branch_name.exit:                          ; preds = %92, %100
 better_branch_name.exit60:                        ; preds = %better_branch_name.exit, %112
   %.sink.i58 = phi ptr [ %115, %112 ], [ %105, %better_branch_name.exit ]
   %116 = call ptr @xstrdup(ptr noundef nonnull %.sink.i58) #12
-  store ptr %116, ptr %79, align 8, !tbaa !23
+  store ptr %116, ptr %79, align 8, !tbaa !24
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %118 = load i32, ptr %117, align 8, !tbaa !45
+  %118 = load i32, ptr %117, align 8, !tbaa !46
   %119 = icmp sgt i32 %118, 2
   br i1 %119, label %120, label %127
 
@@ -291,13 +291,13 @@ better_branch_name.exit60:                        ; preds = %better_branch_name.
 
 122:                                              ; preds = %120
   %123 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #12
-  %.pre = load ptr, ptr %79, align 8, !tbaa !23
+  %.pre = load ptr, ptr %79, align 8, !tbaa !24
   br label %_.exit
 
 _.exit:                                           ; preds = %120, %122
   %124 = phi ptr [ %.pre, %122 ], [ %116, %120 ]
   %.0.i61 = phi ptr [ %123, %122 ], [ @.str.11, %120 ]
-  %125 = load ptr, ptr %76, align 8, !tbaa !22
+  %125 = load ptr, ptr %76, align 8, !tbaa !23
   %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.0.i61, ptr noundef %125, ptr noundef %124)
   br label %127
 
@@ -434,29 +434,30 @@ attributes #14 = { noreturn nounwind }
 !17 = !{!15, !10, i64 16}
 !18 = !{!7, !7, i64 0}
 !19 = !{!13, !13, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!12, !10, i64 16}
-!23 = !{!12, !10, i64 24}
-!24 = !{!25, !40, i64 400}
-!25 = !{!"repository", !10, i64 0, !10, i64 8, !26, i64 16, !27, i64 24, !28, i64 32, !29, i64 40, !29, i64 104, !33, i64 168, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !34, i64 256, !36, i64 368, !37, i64 376, !38, i64 384, !39, i64 392, !40, i64 400, !40, i64 408, !13, i64 416, !13, i64 420, !13, i64 424, !10, i64 432, !41, i64 440, !13, i64 448, !13, i64 452, !13, i64 456}
-!26 = !{!"p1 _ZTS16raw_object_store", !6, i64 0}
-!27 = !{!"p1 _ZTS18parsed_object_pool", !6, i64 0}
-!28 = !{!"p1 _ZTS9ref_store", !6, i64 0}
-!29 = !{!"strmap", !30, i64 0, !32, i64 48, !13, i64 56}
-!30 = !{!"hashmap", !31, i64 0, !6, i64 8, !6, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40}
-!31 = !{!"p2 _ZTS13hashmap_entry", !6, i64 0}
-!32 = !{!"p1 _ZTS8mem_pool", !6, i64 0}
-!33 = !{!"repo_path_cache", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
-!34 = !{!"repo_settings", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !35, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !13, i64 80, !14, i64 88, !14, i64 96, !14, i64 104}
-!35 = !{!"p1 _ZTS18fsmonitor_settings", !6, i64 0}
-!36 = !{!"p1 _ZTS10config_set", !6, i64 0}
-!37 = !{!"p1 _ZTS15submodule_cache", !6, i64 0}
-!38 = !{!"p1 _ZTS11index_state", !6, i64 0}
-!39 = !{!"p1 _ZTS12remote_state", !6, i64 0}
-!40 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
-!41 = !{!"p1 _ZTS22promisor_remote_config", !6, i64 0}
-!42 = !{!43, !14, i64 24}
-!43 = !{!"git_hash_algo", !10, i64 0, !13, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !44, i64 80, !44, i64 88, !44, i64 96, !40, i64 104}
-!44 = !{!"p1 _ZTS9object_id", !6, i64 0}
-!45 = !{!12, !13, i64 72}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!12, !10, i64 16}
+!24 = !{!12, !10, i64 24}
+!25 = !{!26, !41, i64 400}
+!26 = !{!"repository", !10, i64 0, !10, i64 8, !27, i64 16, !28, i64 24, !29, i64 32, !30, i64 40, !30, i64 104, !34, i64 168, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !35, i64 256, !37, i64 368, !38, i64 376, !39, i64 384, !40, i64 392, !41, i64 400, !41, i64 408, !13, i64 416, !13, i64 420, !13, i64 424, !10, i64 432, !42, i64 440, !13, i64 448, !13, i64 452, !13, i64 456}
+!27 = !{!"p1 _ZTS16raw_object_store", !6, i64 0}
+!28 = !{!"p1 _ZTS18parsed_object_pool", !6, i64 0}
+!29 = !{!"p1 _ZTS9ref_store", !6, i64 0}
+!30 = !{!"strmap", !31, i64 0, !33, i64 48, !13, i64 56}
+!31 = !{!"hashmap", !32, i64 0, !6, i64 8, !6, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40}
+!32 = !{!"p2 _ZTS13hashmap_entry", !6, i64 0}
+!33 = !{!"p1 _ZTS8mem_pool", !6, i64 0}
+!34 = !{!"repo_path_cache", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!35 = !{!"repo_settings", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !36, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !13, i64 80, !14, i64 88, !14, i64 96, !14, i64 104}
+!36 = !{!"p1 _ZTS18fsmonitor_settings", !6, i64 0}
+!37 = !{!"p1 _ZTS10config_set", !6, i64 0}
+!38 = !{!"p1 _ZTS15submodule_cache", !6, i64 0}
+!39 = !{!"p1 _ZTS11index_state", !6, i64 0}
+!40 = !{!"p1 _ZTS12remote_state", !6, i64 0}
+!41 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
+!42 = !{!"p1 _ZTS22promisor_remote_config", !6, i64 0}
+!43 = !{!44, !14, i64 24}
+!44 = !{!"git_hash_algo", !10, i64 0, !13, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !45, i64 80, !45, i64 88, !45, i64 96, !41, i64 104}
+!45 = !{!"p1 _ZTS9object_id", !6, i64 0}
+!46 = !{!12, !13, i64 72}

@@ -77,7 +77,7 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, 1
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count74.i
-  br i1 %exitcond75.not.i, label %._crit_edge60.i, label %.lr.ph59.i, !llvm.loop !19
+  br i1 %exitcond75.not.i, label %._crit_edge60.i, label %.lr.ph59.i, !llvm.loop !20
 
 ._crit_edge60.i:                                  ; preds = %.lr.ph59.i, %._crit_edge.i
   %29 = add nuw nsw i32 %spec.store.select1.i, 7
@@ -116,7 +116,7 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %49 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.next77.i
   store i8 %48, ptr %49, align 1, !tbaa !16
   %50 = icmp eq i64 %indvars.iv.next77.i, 0
-  br i1 %50, label %._crit_edge66.i, label %.lr.ph65.i, !llvm.loop !20
+  br i1 %50, label %._crit_edge66.i, label %.lr.ph65.i, !llvm.loop !21
 
 ._crit_edge66.i:                                  ; preds = %.lr.ph65.i, %._crit_edge60.i
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 130
@@ -129,10 +129,10 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv78.i
   %53 = load i16, ptr %gep.i, align 1
   %54 = getelementptr inbounds i8, ptr %.05068.i, i64 -2
-  store i16 %53, ptr %.05068.i, align 2, !tbaa !21
+  store i16 %53, ptr %.05068.i, align 2, !tbaa !22
   %indvars.iv.next79.i = add nsw i64 %indvars.iv78.i, -2
   %55 = icmp samesign ugt i64 %indvars.iv78.i, 1
-  br i1 %55, label %52, label %RC2_set_key.exit, !llvm.loop !23
+  br i1 %55, label %52, label %RC2_set_key.exit, !llvm.loop !24
 
 RC2_set_key.exit:                                 ; preds = %52
   ret i32 1
@@ -155,13 +155,13 @@ define internal noundef i32 @rc2_cbc_cipher(ptr noundef captures(none) %0, ptr n
   %.020 = phi ptr [ %1, %.lr.ph ], [ %15, %11 ]
   %.01619 = phi i64 [ %3, %.lr.ph ], [ %13, %11 ]
   %.01718 = phi ptr [ %2, %.lr.ph ], [ %14, %11 ]
-  %12 = load i32, ptr %10, align 4, !tbaa !24
+  %12 = load i32, ptr %10, align 4, !tbaa !25
   tail call fastcc void @RC2_cbc_encrypt(ptr noundef %.01718, ptr noundef %.020, i64 noundef 65536, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %12)
   %13 = add i64 %.01619, -65536
   %14 = getelementptr inbounds nuw i8, ptr %.01718, i64 65536
   %15 = getelementptr inbounds nuw i8, ptr %.020, i64 65536
   %16 = icmp ugt i64 %13, 65535
-  br i1 %16, label %11, label %._crit_edge, !llvm.loop !25
+  br i1 %16, label %11, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %11, %4
   %.017.lcssa = phi ptr [ %2, %4 ], [ %14, %11 ]
@@ -174,7 +174,7 @@ define internal noundef i32 @rc2_cbc_cipher(ptr noundef captures(none) %0, ptr n
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !24
+  %21 = load i32, ptr %20, align 4, !tbaa !25
   tail call fastcc void @RC2_cbc_encrypt(ptr noundef %.017.lcssa, ptr noundef %.0.lcssa, i64 noundef %.016.lcssa, ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef %21)
   br label %22
 
@@ -245,18 +245,18 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   %18 = getelementptr inbounds nuw i8, ptr %.0239260, i64 8
   %19 = xor i32 %15, %.0231261
   %20 = xor i32 %17, %.0229262
-  store i32 %19, ptr %7, align 4, !tbaa !26
-  store i32 %20, ptr %13, align 4, !tbaa !26
+  store i32 %19, ptr %7, align 4, !tbaa !27
+  store i32 %20, ptr %13, align 4, !tbaa !27
   call fastcc void @RC2_encrypt(ptr noundef %7, ptr noundef %3)
-  %21 = load i32, ptr %7, align 4, !tbaa !26
+  %21 = load i32, ptr %7, align 4, !tbaa !27
   store i32 %21, ptr %.0247259, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.0247259, i64 4
-  %23 = load i32, ptr %13, align 4, !tbaa !26
+  %23 = load i32, ptr %13, align 4, !tbaa !27
   store i32 %23, ptr %22, align 1
   %24 = getelementptr inbounds nuw i8, ptr %.0247259, i64 8
   %.0 = add nsw i64 %.0263, -8
   %25 = icmp samesign ugt i64 %.0263, 7
-  br i1 %25, label %14, label %._crit_edge, !llvm.loop !27
+  br i1 %25, label %14, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %14
   %.not257 = icmp eq i64 %.0263, 0
@@ -352,14 +352,14 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   %67 = or i32 %.3238, %66
   %68 = xor i32 %67, %.0231.lcssa302
   %69 = xor i32 %.7, %.0229.lcssa303
-  store i32 %68, ptr %7, align 4, !tbaa !26
+  store i32 %68, ptr %7, align 4, !tbaa !27
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %69, ptr %70, align 4, !tbaa !26
+  store i32 %69, ptr %70, align 4, !tbaa !27
   call fastcc void @RC2_encrypt(ptr noundef %7, ptr noundef %3)
-  %71 = load i32, ptr %7, align 4, !tbaa !26
+  %71 = load i32, ptr %7, align 4, !tbaa !27
   store i32 %71, ptr %.0247.lcssa300, align 1
   %72 = getelementptr inbounds nuw i8, ptr %.0247.lcssa300, i64 4
-  %73 = load i32, ptr %70, align 4, !tbaa !26
+  %73 = load i32, ptr %70, align 4, !tbaa !27
   store i32 %73, ptr %72, align 1
   br label %170
 
@@ -389,7 +389,7 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   %87 = zext i8 %86 to i32
   %88 = shl nuw i32 %87, 24
   %89 = or disjoint i32 %84, %88
-  store i32 %89, ptr %7, align 4, !tbaa !26
+  store i32 %89, ptr %7, align 4, !tbaa !27
   %90 = load i16, ptr %85, align 1
   %91 = zext i16 %90 to i32
   %92 = getelementptr inbounds nuw i8, ptr %.8271, i64 6
@@ -403,11 +403,11 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   %100 = zext i8 %99 to i32
   %101 = shl nuw i32 %100, 24
   %102 = or disjoint i32 %97, %101
-  store i32 %102, ptr %75, align 4, !tbaa !26
+  store i32 %102, ptr %75, align 4, !tbaa !27
   call fastcc void @RC2_decrypt(ptr noundef %7, ptr noundef %3)
-  %103 = load i32, ptr %7, align 4, !tbaa !26
+  %103 = load i32, ptr %7, align 4, !tbaa !27
   %104 = xor i32 %103, %.0227272
-  %105 = load i32, ptr %75, align 4, !tbaa !26
+  %105 = load i32, ptr %75, align 4, !tbaa !27
   %106 = xor i32 %105, %.0225273
   store i32 %104, ptr %.1248270, align 1
   %107 = getelementptr inbounds nuw i8, ptr %.1248270, i64 4
@@ -415,7 +415,7 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   %108 = getelementptr inbounds nuw i8, ptr %.1248270, i64 8
   %.1 = add nsw i64 %.1274, -8
   %109 = icmp samesign ugt i64 %.1274, 7
-  br i1 %109, label %76, label %._crit_edge277, !llvm.loop !28
+  br i1 %109, label %76, label %._crit_edge277, !llvm.loop !29
 
 ._crit_edge277:                                   ; preds = %76
   %.not256 = icmp eq i64 %.1274, 0
@@ -441,7 +441,7 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   %120 = zext i8 %119 to i32
   %121 = shl nuw i32 %120, 24
   %122 = or disjoint i32 %117, %121
-  store i32 %122, ptr %7, align 4, !tbaa !26
+  store i32 %122, ptr %7, align 4, !tbaa !27
   %123 = load i16, ptr %118, align 1
   %124 = zext i16 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %.8.lcssa314, i64 6
@@ -455,11 +455,11 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   %133 = shl nuw i32 %132, 24
   %134 = or disjoint i32 %130, %133
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %134, ptr %135, align 4, !tbaa !26
+  store i32 %134, ptr %135, align 4, !tbaa !27
   call fastcc void @RC2_decrypt(ptr noundef %7, ptr noundef %3)
-  %136 = load i32, ptr %7, align 4, !tbaa !26
+  %136 = load i32, ptr %7, align 4, !tbaa !27
   %137 = xor i32 %136, %.0227.lcssa315
-  %138 = load i32, ptr %135, align 4, !tbaa !26
+  %138 = load i32, ptr %135, align 4, !tbaa !27
   %139 = xor i32 %138, %.0225.lcssa316
   %140 = getelementptr i8, ptr %.1248.lcssa313, i64 %.1.lcssa318
   %141 = getelementptr i8, ptr %.1248.lcssa313, i64 %.1.in.lcssa317
@@ -538,10 +538,10 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @RC2_encrypt(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
-  %3 = load i32, ptr %0, align 4, !tbaa !26
+  %3 = load i32, ptr %0, align 4, !tbaa !27
   %4 = lshr i32 %3, 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !26
+  %6 = load i32, ptr %5, align 4, !tbaa !27
   %7 = lshr i32 %6, 16
   br label %.outer
 
@@ -568,7 +568,7 @@ define internal fastcc void @RC2_encrypt(ptr noundef nonnull captures(none) %0, 
   %12 = and i32 %.061, %.063
   %13 = add i32 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %.069, i64 2
-  %15 = load i16, ptr %.069, align 2, !tbaa !21
+  %15 = load i16, ptr %.069, align 2, !tbaa !22
   %.tr = trunc i32 %13 to i16
   %.narrow = add i16 %15, %.tr
   %16 = zext i16 %.narrow to i32
@@ -581,7 +581,7 @@ define internal fastcc void @RC2_encrypt(ptr noundef nonnull captures(none) %0, 
   %23 = and i32 %19, %.061
   %24 = add i32 %22, %23
   %25 = getelementptr inbounds nuw i8, ptr %.069, i64 4
-  %26 = load i16, ptr %14, align 2, !tbaa !21
+  %26 = load i16, ptr %14, align 2, !tbaa !22
   %.tr72 = trunc i32 %24 to i16
   %.narrow73 = add i16 %26, %.tr72
   %27 = zext i16 %.narrow73 to i32
@@ -594,7 +594,7 @@ define internal fastcc void @RC2_encrypt(ptr noundef nonnull captures(none) %0, 
   %34 = and i32 %30, %19
   %35 = add i32 %33, %34
   %36 = getelementptr inbounds nuw i8, ptr %.069, i64 6
-  %37 = load i16, ptr %25, align 2, !tbaa !21
+  %37 = load i16, ptr %25, align 2, !tbaa !22
   %.tr74 = trunc i32 %35 to i16
   %.narrow75 = add i16 %37, %.tr74
   %38 = zext i16 %.narrow75 to i32
@@ -607,7 +607,7 @@ define internal fastcc void @RC2_encrypt(ptr noundef nonnull captures(none) %0, 
   %45 = and i32 %41, %30
   %46 = add nsw i32 %44, %45
   %47 = getelementptr inbounds nuw i8, ptr %.069, i64 8
-  %48 = load i16, ptr %36, align 2, !tbaa !21
+  %48 = load i16, ptr %36, align 2, !tbaa !22
   %.tr76 = trunc i32 %46 to i16
   %.narrow77 = add i16 %48, %.tr76
   %49 = zext i16 %.narrow77 to i32
@@ -616,7 +616,7 @@ define internal fastcc void @RC2_encrypt(ptr noundef nonnull captures(none) %0, 
   %52 = or disjoint i32 %50, %51
   %53 = add nsw i32 %.0, -1
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %8
+  br i1 %54, label %55, label %8, !llvm.loop !30
 
 55:                                               ; preds = %8
   %56 = and i32 %19, 65535
@@ -632,45 +632,45 @@ define internal fastcc void @RC2_encrypt(ptr noundef nonnull captures(none) %0, 
   %64 = and i32 %52, 63
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr inbounds nuw i16, ptr %1, i64 %65
-  %67 = load i16, ptr %66, align 2, !tbaa !21
+  %67 = load i16, ptr %66, align 2, !tbaa !22
   %68 = zext i16 %67 to i32
   %69 = add nuw nsw i32 %56, %68
   %70 = and i32 %69, 63
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds nuw i16, ptr %1, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !21
+  %73 = load i16, ptr %72, align 2, !tbaa !22
   %74 = zext i16 %73 to i32
   %75 = add nuw nsw i32 %57, %74
   %76 = and i32 %75, 63
   %77 = zext nneg i32 %76 to i64
   %78 = getelementptr inbounds nuw i16, ptr %1, i64 %77
-  %79 = load i16, ptr %78, align 2, !tbaa !21
+  %79 = load i16, ptr %78, align 2, !tbaa !22
   %80 = zext i16 %79 to i32
   %81 = add nuw nsw i32 %58, %80
   %82 = and i32 %81, 63
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds nuw i16, ptr %1, i64 %83
-  %85 = load i16, ptr %84, align 2, !tbaa !21
+  %85 = load i16, ptr %84, align 2, !tbaa !22
   %86 = zext i16 %85 to i32
   %87 = add nuw nsw i32 %52, %86
-  br label %.outer
+  br label %.outer, !llvm.loop !30
 
 88:                                               ; preds = %55
   %89 = shl nuw i32 %57, 16
   %90 = or disjoint i32 %89, %56
-  store i32 %90, ptr %0, align 4, !tbaa !26
+  store i32 %90, ptr %0, align 4, !tbaa !27
   %91 = shl i32 %52, 16
   %92 = or disjoint i32 %91, %58
-  store i32 %92, ptr %5, align 4, !tbaa !26
+  store i32 %92, ptr %5, align 4, !tbaa !27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
-  %3 = load i32, ptr %0, align 4, !tbaa !26
+  %3 = load i32, ptr %0, align 4, !tbaa !27
   %4 = lshr i32 %3, 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !26
+  %6 = load i32, ptr %5, align 4, !tbaa !27
   %7 = lshr i32 %6, 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 126
   br label %.outer
@@ -700,7 +700,7 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   %15 = and i32 %.068, %14
   %16 = and i32 %.064, %.066
   %17 = getelementptr inbounds i8, ptr %.070, i64 -2
-  %18 = load i16, ptr %.070, align 2, !tbaa !21
+  %18 = load i16, ptr %.070, align 2, !tbaa !22
   %19 = zext i16 %18 to i32
   %20 = or disjoint i32 %11, %10
   %21 = add i32 %16, %15
@@ -713,7 +713,7 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   %28 = and i32 %23, %27
   %29 = and i32 %.066, %.068
   %30 = getelementptr inbounds i8, ptr %.070, i64 -4
-  %31 = load i16, ptr %17, align 2, !tbaa !21
+  %31 = load i16, ptr %17, align 2, !tbaa !22
   %32 = zext i16 %31 to i32
   %33 = or disjoint i32 %26, %25
   %34 = add nuw nsw i32 %29, %32
@@ -726,7 +726,7 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   %41 = and i32 %36, %40
   %42 = and i32 %23, %.068
   %43 = getelementptr inbounds i8, ptr %.070, i64 -6
-  %44 = load i16, ptr %30, align 2, !tbaa !21
+  %44 = load i16, ptr %30, align 2, !tbaa !22
   %45 = zext i16 %44 to i32
   %.neg85 = or disjoint i32 %37, %38
   %46 = add i32 %42, %45
@@ -739,7 +739,7 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   %53 = and i32 %48, %52
   %54 = and i32 %36, %23
   %55 = getelementptr inbounds i8, ptr %.070, i64 -8
-  %56 = load i16, ptr %43, align 2, !tbaa !21
+  %56 = load i16, ptr %43, align 2, !tbaa !22
   %57 = zext i16 %56 to i32
   %.neg90 = or disjoint i32 %49, %50
   %58 = add i32 %54, %57
@@ -747,7 +747,7 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   %60 = sub i32 %.neg90, %59
   %61 = add nsw i32 %.0, -1
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %9
+  br i1 %62, label %63, label %9, !llvm.loop !31
 
 63:                                               ; preds = %9
   %64 = add nsw i32 %.060.ph, -1
@@ -760,39 +760,39 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   %69 = and i32 %36, 63
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw i16, ptr %1, i64 %70
-  %72 = load i16, ptr %71, align 2, !tbaa !21
+  %72 = load i16, ptr %71, align 2, !tbaa !22
   %.tr = trunc i32 %23 to i16
   %.narrow = sub i16 %.tr, %72
   %73 = zext i16 %.narrow to i32
   %74 = and i32 %48, 63
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw i16, ptr %1, i64 %75
-  %77 = load i16, ptr %76, align 2, !tbaa !21
+  %77 = load i16, ptr %76, align 2, !tbaa !22
   %78 = zext i16 %77 to i32
   %79 = sub nsw i32 %39, %78
   %80 = and i32 %60, 63
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw i16, ptr %1, i64 %81
-  %83 = load i16, ptr %82, align 2, !tbaa !21
+  %83 = load i16, ptr %82, align 2, !tbaa !22
   %84 = and i16 %.narrow, 63
   %85 = zext nneg i16 %84 to i64
   %86 = getelementptr inbounds nuw i16, ptr %1, i64 %85
-  %87 = load i16, ptr %86, align 2, !tbaa !21
+  %87 = load i16, ptr %86, align 2, !tbaa !22
   %88 = zext i16 %87 to i32
   %89 = sub i32 %60, %88
   %.tr99 = trunc i32 %48 to i16
   %.narrow100 = sub i16 %.tr99, %83
   %.pre = zext i16 %.narrow100 to i32
-  br label %.outer
+  br label %.outer, !llvm.loop !31
 
 90:                                               ; preds = %63
   %91 = and i32 %60, 65535
   %92 = shl nuw i32 %51, 16
   %93 = or disjoint i32 %91, %92
-  store i32 %93, ptr %0, align 4, !tbaa !26
+  store i32 %93, ptr %0, align 4, !tbaa !27
   %94 = shl nuw i32 %24, 16
   %95 = or disjoint i32 %39, %94
-  store i32 %95, ptr %5, align 4, !tbaa !26
+  store i32 %95, ptr %5, align 4, !tbaa !27
   ret void
 }
 
@@ -830,15 +830,18 @@ attributes #7 = { nounwind }
 !14 = !{!"", !12, i64 0, !15, i64 4}
 !15 = !{!"rc2_key_st", !10, i64 0}
 !16 = !{!10, !10, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"short", !10, i64 0}
-!23 = distinct !{!23, !18}
-!24 = !{!7, !12, i64 28}
-!25 = distinct !{!25, !18}
-!26 = !{!12, !12, i64 0}
-!27 = distinct !{!27, !18}
-!28 = distinct !{!28, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"short", !10, i64 0}
+!24 = distinct !{!24, !18, !19}
+!25 = !{!7, !12, i64 28}
+!26 = distinct !{!26, !18, !19}
+!27 = !{!12, !12, i64 0}
+!28 = distinct !{!28, !18, !19}
+!29 = distinct !{!29, !18, !19}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19}

@@ -651,7 +651,7 @@ switch.early.test:                                ; preds = %35
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cw_chunked_init(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !88
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 449
   %6 = load i32, ptr %5, align 1
   %7 = or i32 %6, 4096
@@ -675,7 +675,7 @@ define internal noundef i32 @cw_chunked_init(ptr noundef captures(none) %0, ptr 
 define internal i32 @cw_chunked_write(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !88
+  %8 = load ptr, ptr %7, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %9 = and i32 %2, 1
   %.not = icmp eq i32 %9, 0
@@ -683,21 +683,21 @@ define internal i32 @cw_chunked_write(ptr noundef %0, ptr noundef readonly captu
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !91
+  %12 = load ptr, ptr %11, align 8, !tbaa !92
   %13 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %12, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
   br label %59
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !91
+  %17 = load ptr, ptr %16, align 8, !tbaa !92
   %18 = call fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %17, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6)
   %.not37 = icmp eq i32 %18, 0
   br i1 %.not37, label %28, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %21 = load i32, ptr %20, align 4, !tbaa !92
+  %21 = load i32, ptr %20, align 4, !tbaa !93
   switch i32 %21, label %Curl_chunked_strerror.exit [
     i32 6, label %22
     i32 1, label %23
@@ -735,7 +735,7 @@ Curl_chunked_strerror.exit:                       ; preds = %19, %23, %24, %25, 
   %29 = load i64, ptr %6, align 8, !tbaa !15
   %30 = sub i64 %4, %29
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %32 = load i32, ptr %31, align 8, !tbaa !94
+  %32 = load i32, ptr %31, align 8, !tbaa !95
   %33 = icmp eq i32 %32, 8
   br i1 %33, label %34, label %52
 
@@ -797,7 +797,7 @@ Curl_chunked_strerror.exit:                       ; preds = %19, %23, %24, %25, 
 ; Function Attrs: nounwind uwtable
 define internal void @cw_chunked_close(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !88
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @Curl_dyn_free(ptr noundef nonnull %5) #8
   ret void
@@ -806,7 +806,7 @@ define internal void @cw_chunked_close(ptr readnone captures(none) %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cr_chunked_init(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !95
+  %4 = load ptr, ptr %3, align 8, !tbaa !96
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @Curl_bufq_init2(ptr noundef nonnull %5, i64 noundef 65536, i64 noundef 2, i32 noundef 1) #8
   ret i32 0
@@ -822,13 +822,13 @@ define internal i32 @cr_chunked_read(ptr noundef %0, ptr noundef readonly captur
   %12 = alloca [11 x i8], align 1
   %13 = alloca i64, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !95
+  %15 = load ptr, ptr %14, align 8, !tbaa !96
   store i64 0, ptr %4, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load i8, ptr %16, align 8
   %18 = lshr i8 %17, 1
   %.lobit = and i8 %18, 1
-  store i8 %.lobit, ptr %5, align 1, !tbaa !98
+  store i8 %.lobit, ptr %5, align 1, !tbaa !99
   %19 = load i8, ptr %16, align 8
   %20 = and i8 %19, 2
   %.not = icmp eq i8 %20, 0
@@ -845,7 +845,7 @@ define internal i32 @cr_chunked_read(ptr noundef %0, ptr noundef readonly captur
   br i1 %25, label %26, label %146
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %14, align 8, !tbaa !95
+  %27 = load ptr, ptr %14, align 8, !tbaa !96
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #8
@@ -855,13 +855,13 @@ define internal i32 @cr_chunked_read(ptr noundef %0, ptr noundef readonly captur
   %.037.i = select i1 %28, i64 1024, i64 %30
   %.036.i = select i1 %28, ptr %9, ptr %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !100
+  %32 = load ptr, ptr %31, align 8, !tbaa !101
   %33 = call i32 @Curl_creader_read(ptr noundef %0, ptr noundef %32, ptr noundef %.036.i, i64 noundef %.037.i, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %34, label %add_chunk.exit.thread
 
 34:                                               ; preds = %26
-  %35 = load i8, ptr %11, align 1, !tbaa !98, !range !101, !noundef !102
+  %35 = load i8, ptr %11, align 1, !tbaa !99, !range !102, !noundef !103
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %41
 
@@ -964,12 +964,12 @@ add_chunk.exit.thread31:                          ; preds = %72
   br label %146
 
 76:                                               ; preds = %72
-  %.val.i = load ptr, ptr %14, align 8, !tbaa !95
+  %.val.i = load ptr, ptr %14, align 8, !tbaa !96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  store ptr null, ptr %7, align 8, !tbaa !103
+  store ptr null, ptr %7, align 8, !tbaa !104
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 2544
-  %78 = load ptr, ptr %77, align 8, !tbaa !104
+  %78 = load ptr, ptr %77, align 8, !tbaa !105
   %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %79, label %97
 
@@ -1017,16 +1017,16 @@ add_chunk.exit.thread31:                          ; preds = %72
 
 100:                                              ; preds = %97
   call void @Curl_set_in_callback(ptr noundef nonnull %0, i1 noundef zeroext true) #8
-  %101 = load ptr, ptr %77, align 8, !tbaa !104
+  %101 = load ptr, ptr %77, align 8, !tbaa !105
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 2536
-  %103 = load ptr, ptr %102, align 8, !tbaa !105
+  %103 = load ptr, ptr %102, align 8, !tbaa !106
   %104 = call i32 %101(ptr noundef nonnull %7, ptr noundef %103) #8
   call void @Curl_set_in_callback(ptr noundef nonnull %0, i1 noundef zeroext false) #8
   %.not62.i.i = icmp eq i32 %104, 0
   br i1 %.not62.i.i, label %.preheader.i.i, label %107
 
 .preheader.i.i:                                   ; preds = %100
-  %.04613.i.i = load ptr, ptr %7, align 8, !tbaa !103
+  %.04613.i.i = load ptr, ptr %7, align 8, !tbaa !104
   %.not6314.i.i = icmp eq ptr %.04613.i.i, null
   br i1 %.not6314.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -1037,12 +1037,12 @@ add_chunk.exit.thread31:                          ; preds = %72
 
 107:                                              ; preds = %100
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #8
-  %.pre.i.i = load ptr, ptr %7, align 8, !tbaa !103
+  %.pre.i.i = load ptr, ptr %7, align 8, !tbaa !104
   br label %.thread5.i.i
 
 108:                                              ; preds = %select.unfold.i.i, %.lr.ph.i.i
   %.04615.i.i = phi ptr [ %.04613.i.i, %.lr.ph.i.i ], [ %.046.i.i, %select.unfold.i.i ]
-  %109 = load ptr, ptr %.04615.i.i, align 8, !tbaa !106
+  %109 = load ptr, ptr %.04615.i.i, align 8, !tbaa !107
   %110 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %109, i32 noundef 58) #9
   %.not64.i.i = icmp eq ptr %110, null
   br i1 %.not64.i.i, label %114, label %111
@@ -1087,9 +1087,9 @@ add_chunk.exit.thread31:                          ; preds = %72
 
 select.unfold.i.i:                                ; preds = %127, %123, %119, %114
   %129 = getelementptr inbounds nuw i8, ptr %.04615.i.i, i64 8
-  %.046.i.i = load ptr, ptr %129, align 8, !tbaa !103
+  %.046.i.i = load ptr, ptr %129, align 8, !tbaa !104
   %.not63.i.i = icmp eq ptr %.046.i.i, null
-  br i1 %.not63.i.i, label %._crit_edge.i.i, label %108, !llvm.loop !108
+  br i1 %.not63.i.i, label %._crit_edge.i.i, label %108, !llvm.loop !109
 
 ._crit_edge.i.i:                                  ; preds = %select.unfold.i.i, %.preheader.i.i
   %130 = call i32 @Curl_bufq_cwrite(ptr noundef nonnull %98, ptr noundef nonnull @.str.6, i64 noundef 2, ptr noundef nonnull %8) #8
@@ -1097,7 +1097,7 @@ select.unfold.i.i:                                ; preds = %127, %123, %119, %1
 
 .thread9.i.i:                                     ; preds = %127, %124, %._crit_edge.i.i
   %.047.i.i = phi i32 [ %130, %._crit_edge.i.i ], [ %126, %124 ], [ %128, %127 ]
-  %131 = load ptr, ptr %7, align 8, !tbaa !103
+  %131 = load ptr, ptr %7, align 8, !tbaa !104
   br label %.thread5.i.i
 
 .thread5.i.i:                                     ; preds = %.thread9.i.i, %107, %97
@@ -1175,7 +1175,7 @@ add_chunk.exit:                                   ; preds = %94, %.thread5.i.i, 
   %157 = load i8, ptr %16, align 8
   %158 = or i8 %157, 2
   store i8 %158, ptr %16, align 8
-  store i8 1, ptr %5, align 1, !tbaa !98
+  store i8 1, ptr %5, align 1, !tbaa !99
   br label %159
 
 159:                                              ; preds = %add_chunk.exit.thread, %146, %6, %149, %151, %154, %156, %add_chunk.exit
@@ -1186,7 +1186,7 @@ add_chunk.exit:                                   ; preds = %94, %.thread5.i.i, 
 ; Function Attrs: nounwind uwtable
 define internal void @cr_chunked_close(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !95
+  %4 = load ptr, ptr %3, align 8, !tbaa !96
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @Curl_bufq_free(ptr noundef nonnull %5) #8
   ret void
@@ -1213,13 +1213,13 @@ declare void @Curl_creader_def_done(ptr noundef, ptr noundef, i32 noundef) #1
 define dso_local i32 @Curl_httpchunk_add_reader(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store ptr null, ptr %2, align 8, !tbaa !109
+  store ptr null, ptr %2, align 8, !tbaa !110
   %3 = call i32 @Curl_creader_create(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @Curl_httpchunk_encoder, i32 noundef 1) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %2, align 8, !tbaa !109
+  %5 = load ptr, ptr %2, align 8, !tbaa !110
   %6 = call i32 @Curl_creader_add(ptr noundef %0, ptr noundef %5) #8
   br label %7
 
@@ -1403,27 +1403,28 @@ attributes #9 = { nounwind willreturn memory(read) }
 !83 = !{!"curl_tlssessioninfo", !9, i64 0, !12, i64 8}
 !84 = !{!85, !9, i64 8}
 !85 = !{!"curl_trc_feat", !11, i64 0, !9, i64 8}
-!86 = distinct !{!86, !87}
+!86 = distinct !{!86, !87, !88}
 !87 = !{!"llvm.loop.mustprogress"}
-!88 = !{!89, !12, i64 16}
-!89 = !{!"Curl_cwriter", !90, i64 0, !33, i64 8, !12, i64 16, !9, i64 24}
-!90 = !{!"p1 _ZTS11Curl_cwtype", !12, i64 0}
-!91 = !{!89, !33, i64 8}
-!92 = !{!93, !9, i64 44}
-!93 = !{!"chunked_writer", !89, i64 0, !5, i64 32}
-!94 = !{!93, !9, i64 40}
-!95 = !{!96, !12, i64 16}
-!96 = !{!"Curl_creader", !97, i64 0, !34, i64 8, !12, i64 16, !9, i64 24}
-!97 = !{!"p1 _ZTS11Curl_crtype", !12, i64 0}
-!98 = !{!99, !99, i64 0}
-!99 = !{!"_Bool", !7, i64 0}
-!100 = !{!96, !34, i64 8}
-!101 = !{i8 0, i8 2}
-!102 = !{}
-!103 = !{!42, !42, i64 0}
-!104 = !{!19, !12, i64 2544}
-!105 = !{!19, !12, i64 2536}
-!106 = !{!107, !11, i64 0}
-!107 = !{!"curl_slist", !11, i64 0, !42, i64 8}
-!108 = distinct !{!108, !87}
-!109 = !{!34, !34, i64 0}
+!88 = !{!"llvm.loop.estimated_trip_count"}
+!89 = !{!90, !12, i64 16}
+!90 = !{!"Curl_cwriter", !91, i64 0, !33, i64 8, !12, i64 16, !9, i64 24}
+!91 = !{!"p1 _ZTS11Curl_cwtype", !12, i64 0}
+!92 = !{!90, !33, i64 8}
+!93 = !{!94, !9, i64 44}
+!94 = !{!"chunked_writer", !90, i64 0, !5, i64 32}
+!95 = !{!94, !9, i64 40}
+!96 = !{!97, !12, i64 16}
+!97 = !{!"Curl_creader", !98, i64 0, !34, i64 8, !12, i64 16, !9, i64 24}
+!98 = !{!"p1 _ZTS11Curl_crtype", !12, i64 0}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"_Bool", !7, i64 0}
+!101 = !{!97, !34, i64 8}
+!102 = !{i8 0, i8 2}
+!103 = !{}
+!104 = !{!42, !42, i64 0}
+!105 = !{!19, !12, i64 2544}
+!106 = !{!19, !12, i64 2536}
+!107 = !{!108, !11, i64 0}
+!108 = !{!"curl_slist", !11, i64 0, !42, i64 8}
+!109 = distinct !{!109, !87, !88}
+!110 = !{!34, !34, i64 0}

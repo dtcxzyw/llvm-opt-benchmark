@@ -366,7 +366,7 @@ define noalias noundef ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef r
   %42 = select i1 %41, i64 0, i64 %40
   %43 = icmp ne i64 %42, -1
   tail call void @llvm.assume(i1 %43)
-  %44 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef nonnull %1, i64 noundef range(i64 -2147483648, 2147483648) %39, i64 noundef %42) #14, !alias.scope !8
+  %44 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef nonnull %1, i64 noundef range(i64 -2147483648, 2147483648) %39, i64 noundef %42) #14, !alias.scope !9
   %45 = load ptr, ptr %3, align 8
   %.not5963 = icmp eq ptr %45, null
   br i1 %.not5963, label %._crit_edge69, label %.lr.ph68.preheader
@@ -393,7 +393,7 @@ define noalias noundef ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef r
   %58 = getelementptr i8, ptr %.165, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not59 = icmp eq ptr %59, null
-  br i1 %.not59, label %._crit_edge69, label %.lr.ph68, !llvm.loop !12
+  br i1 %.not59, label %._crit_edge69, label %.lr.ph68, !llvm.loop !13
 
 ._crit_edge69:                                    ; preds = %.lr.ph68, %._crit_edge
   ret ptr %11
@@ -553,10 +553,11 @@ attributes #17 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
-!10 = distinct !{!10, !"memcpy.inline"}
-!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = distinct !{!13, !7, !8}

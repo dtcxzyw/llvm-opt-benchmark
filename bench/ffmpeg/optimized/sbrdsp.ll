@@ -95,7 +95,7 @@ define internal float @sbr_sum_square_c(ptr noundef readonly captures(none) %0, 
   %16 = tail call nsz float @llvm.fmuladd.f32(float %15, float %15, float %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv.next, %4
-  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !23
+  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %18 = fadd nsz float %13, %16
@@ -113,16 +113,16 @@ define internal void @sbr_neg_odd_64_c(ptr noundef captures(none) %0) #1 {
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %2 ]
   %3 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %indvars.iv
-  %4 = load i32, ptr %3, align 4, !tbaa !24
+  %4 = load i32, ptr %3, align 4, !tbaa !25
   %5 = xor i32 %4, -2147483648
-  store i32 %5, ptr %3, align 4, !tbaa !24
+  store i32 %5, ptr %3, align 4, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !24
+  %7 = load i32, ptr %6, align 4, !tbaa !25
   %8 = xor i32 %7, -2147483648
-  store i32 %8, ptr %6, align 4, !tbaa !24
+  store i32 %8, ptr %6, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %9 = icmp samesign ult i64 %indvars.iv, 60
-  br i1 %9, label %2, label %10, !llvm.loop !25
+  br i1 %9, label %2, label %10, !llvm.loop !26
 
 10:                                               ; preds = %2
   ret void
@@ -130,53 +130,53 @@ define internal void @sbr_neg_odd_64_c(ptr noundef captures(none) %0) #1 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @sbr_qmf_pre_shuffle_c(ptr noundef captures(none) initializes((256, 264)) %0) #1 {
-  %2 = load i32, ptr %0, align 4, !tbaa !24
+  %2 = load i32, ptr %0, align 4, !tbaa !25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 %2, ptr %3, align 4, !tbaa !24
+  store i32 %2, ptr %3, align 4, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !24
+  %5 = load i32, ptr %4, align 4, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  store i32 %5, ptr %6, align 4, !tbaa !24
+  store i32 %5, ptr %6, align 4, !tbaa !25
   br label %7
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %7 ]
   %8 = sub nuw nsw i64 64, %indvars.iv
   %9 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !24
+  %10 = load i32, ptr %9, align 4, !tbaa !25
   %11 = xor i32 %10, -2147483648
   %12 = shl nuw nsw i64 %indvars.iv, 1
   %gep = getelementptr inbounds nuw %union.av_intfloat32, ptr %3, i64 %12
-  store i32 %11, ptr %gep, align 4, !tbaa !24
+  store i32 %11, ptr %gep, align 4, !tbaa !25
   %gep27 = getelementptr inbounds nuw %union.av_intfloat32, ptr %4, i64 %indvars.iv
-  %13 = load i32, ptr %gep27, align 4, !tbaa !24
+  %13 = load i32, ptr %gep27, align 4, !tbaa !25
   %14 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 260
-  store i32 %13, ptr %15, align 4, !tbaa !24
+  store i32 %13, ptr %15, align 4, !tbaa !25
   %16 = sub nuw nsw i64 63, %indvars.iv
   %17 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !24
+  %18 = load i32, ptr %17, align 4, !tbaa !25
   %19 = xor i32 %18, -2147483648
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 264
-  store i32 %19, ptr %20, align 4, !tbaa !24
+  store i32 %19, ptr %20, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %21 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %indvars.iv.next
-  %22 = load i32, ptr %21, align 4, !tbaa !24
+  %22 = load i32, ptr %21, align 4, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 268
-  store i32 %22, ptr %23, align 4, !tbaa !24
+  store i32 %22, ptr %23, align 4, !tbaa !25
   %24 = icmp samesign ult i64 %indvars.iv, 29
-  br i1 %24, label %7, label %25, !llvm.loop !26
+  br i1 %24, label %7, label %25, !llvm.loop !27
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %27 = load i32, ptr %26, align 4, !tbaa !24
+  %27 = load i32, ptr %26, align 4, !tbaa !25
   %28 = xor i32 %27, -2147483648
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store i32 %28, ptr %29, align 4, !tbaa !24
+  store i32 %28, ptr %29, align 4, !tbaa !25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %31 = load i32, ptr %30, align 4, !tbaa !24
+  %31 = load i32, ptr %30, align 4, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 508
-  store i32 %31, ptr %32, align 4, !tbaa !24
+  store i32 %31, ptr %32, align 4, !tbaa !25
   ret void
 }
 
@@ -188,28 +188,28 @@ define internal void @sbr_qmf_post_shuffle_c(ptr noundef writeonly captures(none
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %4 = sub nuw nsw i64 63, %indvars.iv
   %5 = getelementptr inbounds nuw %union.av_intfloat32, ptr %1, i64 %4
-  %6 = load i32, ptr %5, align 4, !tbaa !24
+  %6 = load i32, ptr %5, align 4, !tbaa !25
   %7 = xor i32 %6, -2147483648
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  store i32 %7, ptr %8, align 4, !tbaa !24
+  store i32 %7, ptr %8, align 4, !tbaa !25
   %9 = getelementptr inbounds nuw %union.av_intfloat32, ptr %1, i64 %indvars.iv
-  %10 = load i32, ptr %9, align 4, !tbaa !24
+  %10 = load i32, ptr %9, align 4, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %10, ptr %11, align 4, !tbaa !24
+  store i32 %10, ptr %11, align 4, !tbaa !25
   %12 = sub nuw nsw i64 62, %indvars.iv
   %13 = getelementptr inbounds nuw %union.av_intfloat32, ptr %1, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !24
+  %14 = load i32, ptr %13, align 4, !tbaa !25
   %15 = xor i32 %14, -2147483648
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %15, ptr %16, align 4, !tbaa !24
+  store i32 %15, ptr %16, align 4, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !24
+  %18 = load i32, ptr %17, align 4, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %18, ptr %19, align 4, !tbaa !24
+  store i32 %18, ptr %19, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %20 = icmp samesign ult i64 %indvars.iv, 30
-  br i1 %20, label %3, label %21, !llvm.loop !27
+  br i1 %20, label %3, label %21, !llvm.loop !28
 
 21:                                               ; preds = %3
   ret void
@@ -224,19 +224,19 @@ define internal void @sbr_qmf_deint_neg_c(ptr noundef writeonly captures(none) %
   %4 = shl nuw nsw i64 %indvars.iv, 1
   %5 = sub nuw nsw i64 63, %4
   %6 = getelementptr inbounds nuw %union.av_intfloat32, ptr %1, i64 %5
-  %7 = load i32, ptr %6, align 4, !tbaa !24
+  %7 = load i32, ptr %6, align 4, !tbaa !25
   %8 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %indvars.iv
-  store i32 %7, ptr %8, align 4, !tbaa !24
+  store i32 %7, ptr %8, align 4, !tbaa !25
   %9 = sub nuw nsw i64 62, %4
   %10 = getelementptr inbounds nuw %union.av_intfloat32, ptr %1, i64 %9
-  %11 = load i32, ptr %10, align 4, !tbaa !24
+  %11 = load i32, ptr %10, align 4, !tbaa !25
   %12 = xor i32 %11, -2147483648
   %13 = sub nuw nsw i64 63, %indvars.iv
   %14 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %13
-  store i32 %12, ptr %14, align 4, !tbaa !24
+  store i32 %12, ptr %14, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %15, label %3, !llvm.loop !28
+  br i1 %exitcond.not, label %15, label %3, !llvm.loop !29
 
 15:                                               ; preds = %3
   ret void
@@ -264,7 +264,7 @@ define internal void @sbr_qmf_deint_bfly_c(ptr noundef writeonly captures(none) 
   store float %14, ptr %16, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %17, label %4, !llvm.loop !29
+  br i1 %exitcond.not, label %17, label %4, !llvm.loop !30
 
 17:                                               ; preds = %4
   ret void
@@ -327,7 +327,7 @@ define internal void @sbr_autocorrelate_c(ptr noundef readonly captures(none) %0
   %42 = tail call nsz float @llvm.fmuladd.f32(float %17, float %36, float %41)
   %43 = fadd nsz float %.097100, %42
   %exitcond.not = icmp eq i64 %indvars.iv.next, 38
-  br i1 %exitcond.not, label %44, label %15, !llvm.loop !30
+  br i1 %exitcond.not, label %44, label %15, !llvm.loop !31
 
 44:                                               ; preds = %15
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -445,7 +445,7 @@ define internal void @sbr_hf_gen_c(ptr noundef writeonly captures(none) %0, ptr 
   store float %51, ptr %52, align 4, !tbaa !19
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %23, %7
   ret void
@@ -478,7 +478,7 @@ define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, p
   store float %15, ptr %16, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -533,7 +533,7 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
   %31 = fneg nsz float %.035.i4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !34
 
 sbr_hf_apply_noise.exit:                          ; preds = %30, %6
   ret void
@@ -592,7 +592,7 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   %35 = fneg nsz float %.035.i6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !34
 
 sbr_hf_apply_noise.exit:                          ; preds = %34, %6
   ret void
@@ -647,7 +647,7 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
   %31 = fneg nsz float %.035.i4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !34
 
 sbr_hf_apply_noise.exit:                          ; preds = %30, %6
   ret void
@@ -707,7 +707,7 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   %36 = fneg nsz float %.035.i6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !34
 
 sbr_hf_apply_noise.exit:                          ; preds = %35, %6
   ret void
@@ -744,16 +744,17 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !18 = !{!6, !6, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"float", !7, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = !{!7, !7, i64 0}
-!25 = distinct !{!25, !22}
-!26 = distinct !{!26, !22}
-!27 = distinct !{!27, !22}
-!28 = distinct !{!28, !22}
-!29 = distinct !{!29, !22}
-!30 = distinct !{!30, !22}
-!31 = distinct !{!31, !22}
-!32 = distinct !{!32, !22}
-!33 = distinct !{!33, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = !{!7, !7, i64 0}
+!26 = distinct !{!26, !22, !23}
+!27 = distinct !{!27, !22, !23}
+!28 = distinct !{!28, !22, !23}
+!29 = distinct !{!29, !22, !23}
+!30 = distinct !{!30, !22, !23}
+!31 = distinct !{!31, !22, !23}
+!32 = distinct !{!32, !22, !23}
+!33 = distinct !{!33, !22, !23}
+!34 = distinct !{!34, !22, !23}

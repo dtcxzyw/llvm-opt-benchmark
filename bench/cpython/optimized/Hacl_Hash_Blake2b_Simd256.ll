@@ -869,48 +869,48 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_load_state256b_from
   %7 = getelementptr i8, ptr %1, i64 64
   %8 = getelementptr i8, ptr %1, i64 96
   %9 = getelementptr i8, ptr %1, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !8
+  %10 = load i64, ptr %9, align 8, !tbaa !9
   %11 = getelementptr i8, ptr %1, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !8
+  %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = getelementptr i8, ptr %1, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !8
-  %15 = load i64, ptr %1, align 8, !tbaa !8
+  %14 = load i64, ptr %13, align 8, !tbaa !9
+  %15 = load i64, ptr %1, align 8, !tbaa !9
   %16 = insertelement <4 x i64> poison, i64 %15, i64 0
   %17 = insertelement <4 x i64> %16, i64 %14, i64 1
   %18 = insertelement <4 x i64> %17, i64 %12, i64 2
   %19 = insertelement <4 x i64> %18, i64 %10, i64 3
   store <4 x i64> %19, ptr %0, align 32, !tbaa !3
   %20 = getelementptr i8, ptr %1, i64 56
-  %21 = load i64, ptr %20, align 8, !tbaa !8
+  %21 = load i64, ptr %20, align 8, !tbaa !9
   %22 = getelementptr i8, ptr %1, i64 48
-  %23 = load i64, ptr %22, align 8, !tbaa !8
+  %23 = load i64, ptr %22, align 8, !tbaa !9
   %24 = getelementptr i8, ptr %1, i64 40
-  %25 = load i64, ptr %24, align 8, !tbaa !8
-  %26 = load i64, ptr %6, align 8, !tbaa !8
+  %25 = load i64, ptr %24, align 8, !tbaa !9
+  %26 = load i64, ptr %6, align 8, !tbaa !9
   %27 = insertelement <4 x i64> poison, i64 %26, i64 0
   %28 = insertelement <4 x i64> %27, i64 %25, i64 1
   %29 = insertelement <4 x i64> %28, i64 %23, i64 2
   %30 = insertelement <4 x i64> %29, i64 %21, i64 3
   store <4 x i64> %30, ptr %3, align 32, !tbaa !3
   %31 = getelementptr i8, ptr %1, i64 88
-  %32 = load i64, ptr %31, align 8, !tbaa !8
+  %32 = load i64, ptr %31, align 8, !tbaa !9
   %33 = getelementptr i8, ptr %1, i64 80
-  %34 = load i64, ptr %33, align 8, !tbaa !8
+  %34 = load i64, ptr %33, align 8, !tbaa !9
   %35 = getelementptr i8, ptr %1, i64 72
-  %36 = load i64, ptr %35, align 8, !tbaa !8
-  %37 = load i64, ptr %7, align 8, !tbaa !8
+  %36 = load i64, ptr %35, align 8, !tbaa !9
+  %37 = load i64, ptr %7, align 8, !tbaa !9
   %38 = insertelement <4 x i64> poison, i64 %37, i64 0
   %39 = insertelement <4 x i64> %38, i64 %36, i64 1
   %40 = insertelement <4 x i64> %39, i64 %34, i64 2
   %41 = insertelement <4 x i64> %40, i64 %32, i64 3
   store <4 x i64> %41, ptr %4, align 32, !tbaa !3
   %42 = getelementptr i8, ptr %1, i64 120
-  %43 = load i64, ptr %42, align 8, !tbaa !8
+  %43 = load i64, ptr %42, align 8, !tbaa !9
   %44 = getelementptr i8, ptr %1, i64 112
-  %45 = load i64, ptr %44, align 8, !tbaa !8
+  %45 = load i64, ptr %44, align 8, !tbaa !9
   %46 = getelementptr i8, ptr %1, i64 104
-  %47 = load i64, ptr %46, align 8, !tbaa !8
-  %48 = load i64, ptr %8, align 8, !tbaa !8
+  %47 = load i64, ptr %46, align 8, !tbaa !9
+  %48 = load i64, ptr %8, align 8, !tbaa !9
   %49 = insertelement <4 x i64> poison, i64 %48, i64 0
   %50 = insertelement <4 x i64> %49, i64 %47, i64 1
   %51 = insertelement <4 x i64> %50, i64 %45, i64 2
@@ -929,52 +929,52 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_store_state256b_to_
   %8 = getelementptr i8, ptr %0, i64 96
   %9 = load <4 x i64>, ptr %1, align 32, !tbaa !3
   %.sroa.0172.0.vec.extract = extractelement <4 x i64> %9, i64 0
-  store i64 %.sroa.0172.0.vec.extract, ptr %0, align 8, !tbaa !8
+  store i64 %.sroa.0172.0.vec.extract, ptr %0, align 8, !tbaa !9
   %.sroa.0172.8.vec.extract = extractelement <4 x i64> %9, i64 1
   %10 = getelementptr i8, ptr %0, i64 8
-  store i64 %.sroa.0172.8.vec.extract, ptr %10, align 8, !tbaa !8
+  store i64 %.sroa.0172.8.vec.extract, ptr %10, align 8, !tbaa !9
   %.sroa.0172.16.vec.extract = extractelement <4 x i64> %9, i64 2
   %11 = getelementptr i8, ptr %0, i64 16
-  store i64 %.sroa.0172.16.vec.extract, ptr %11, align 8, !tbaa !8
+  store i64 %.sroa.0172.16.vec.extract, ptr %11, align 8, !tbaa !9
   %.sroa.0172.24.vec.extract = extractelement <4 x i64> %9, i64 3
   %12 = getelementptr i8, ptr %0, i64 24
-  store i64 %.sroa.0172.24.vec.extract, ptr %12, align 8, !tbaa !8
+  store i64 %.sroa.0172.24.vec.extract, ptr %12, align 8, !tbaa !9
   %13 = load <4 x i64>, ptr %3, align 32, !tbaa !3
   %.sroa.0171.0.vec.extract = extractelement <4 x i64> %13, i64 0
-  store i64 %.sroa.0171.0.vec.extract, ptr %6, align 8, !tbaa !8
+  store i64 %.sroa.0171.0.vec.extract, ptr %6, align 8, !tbaa !9
   %.sroa.0171.8.vec.extract = extractelement <4 x i64> %13, i64 1
   %14 = getelementptr i8, ptr %0, i64 40
-  store i64 %.sroa.0171.8.vec.extract, ptr %14, align 8, !tbaa !8
+  store i64 %.sroa.0171.8.vec.extract, ptr %14, align 8, !tbaa !9
   %.sroa.0171.16.vec.extract = extractelement <4 x i64> %13, i64 2
   %15 = getelementptr i8, ptr %0, i64 48
-  store i64 %.sroa.0171.16.vec.extract, ptr %15, align 8, !tbaa !8
+  store i64 %.sroa.0171.16.vec.extract, ptr %15, align 8, !tbaa !9
   %.sroa.0171.24.vec.extract = extractelement <4 x i64> %13, i64 3
   %16 = getelementptr i8, ptr %0, i64 56
-  store i64 %.sroa.0171.24.vec.extract, ptr %16, align 8, !tbaa !8
+  store i64 %.sroa.0171.24.vec.extract, ptr %16, align 8, !tbaa !9
   %17 = load <4 x i64>, ptr %4, align 32, !tbaa !3
   %.sroa.0170.0.vec.extract = extractelement <4 x i64> %17, i64 0
-  store i64 %.sroa.0170.0.vec.extract, ptr %7, align 8, !tbaa !8
+  store i64 %.sroa.0170.0.vec.extract, ptr %7, align 8, !tbaa !9
   %.sroa.0170.8.vec.extract = extractelement <4 x i64> %17, i64 1
   %18 = getelementptr i8, ptr %0, i64 72
-  store i64 %.sroa.0170.8.vec.extract, ptr %18, align 8, !tbaa !8
+  store i64 %.sroa.0170.8.vec.extract, ptr %18, align 8, !tbaa !9
   %.sroa.0170.16.vec.extract = extractelement <4 x i64> %17, i64 2
   %19 = getelementptr i8, ptr %0, i64 80
-  store i64 %.sroa.0170.16.vec.extract, ptr %19, align 8, !tbaa !8
+  store i64 %.sroa.0170.16.vec.extract, ptr %19, align 8, !tbaa !9
   %.sroa.0170.24.vec.extract = extractelement <4 x i64> %17, i64 3
   %20 = getelementptr i8, ptr %0, i64 88
-  store i64 %.sroa.0170.24.vec.extract, ptr %20, align 8, !tbaa !8
+  store i64 %.sroa.0170.24.vec.extract, ptr %20, align 8, !tbaa !9
   %21 = load <4 x i64>, ptr %5, align 32, !tbaa !3
   %.sroa.0.0.vec.extract = extractelement <4 x i64> %21, i64 0
-  store i64 %.sroa.0.0.vec.extract, ptr %8, align 8, !tbaa !8
+  store i64 %.sroa.0.0.vec.extract, ptr %8, align 8, !tbaa !9
   %.sroa.0.8.vec.extract = extractelement <4 x i64> %21, i64 1
   %22 = getelementptr i8, ptr %0, i64 104
-  store i64 %.sroa.0.8.vec.extract, ptr %22, align 8, !tbaa !8
+  store i64 %.sroa.0.8.vec.extract, ptr %22, align 8, !tbaa !9
   %.sroa.0.16.vec.extract = extractelement <4 x i64> %21, i64 2
   %23 = getelementptr i8, ptr %0, i64 112
-  store i64 %.sroa.0.16.vec.extract, ptr %23, align 8, !tbaa !8
+  store i64 %.sroa.0.16.vec.extract, ptr %23, align 8, !tbaa !9
   %.sroa.0.24.vec.extract = extractelement <4 x i64> %21, i64 3
   %24 = getelementptr i8, ptr %0, i64 120
-  store i64 %.sroa.0.24.vec.extract, ptr %24, align 8, !tbaa !8
+  store i64 %.sroa.0.24.vec.extract, ptr %24, align 8, !tbaa !9
   ret void
 }
 
@@ -1008,17 +1008,17 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_mall
   %8 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #28
   store i16 %.sroa.01.0.insert.insert, ptr %8, align 8
   %.sroa.093.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %7, ptr %.sroa.093.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
+  store i8 %7, ptr %.sroa.093.sroa.5.0..sroa_idx.i, align 2, !tbaa !11
   %.sroa.093.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.093.sroa.6.0..sroa_idx.i, i8 0, i64 5, i1 false)
   %.sroa.093.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %5, ptr %.sroa.093.sroa.7.0..sroa_idx.i, align 8, !tbaa !12
+  store ptr %5, ptr %.sroa.093.sroa.7.0..sroa_idx.i, align 8, !tbaa !13
   %.sroa.093.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %6, ptr %.sroa.093.sroa.8.0..sroa_idx.i, align 8, !tbaa !12
+  store ptr %6, ptr %.sroa.093.sroa.8.0..sroa_idx.i, align 8, !tbaa !13
   %.sroa.494.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %4, ptr %.sroa.494.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %4, ptr %.sroa.494.0..sroa_idx.i, align 8, !tbaa !15
   %.sroa.595.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i64 %..i, ptr %.sroa.595.0..sroa_idx.i, align 8, !tbaa !8
+  store i64 %..i, ptr %.sroa.595.0..sroa_idx.i, align 8, !tbaa !9
   br i1 %.not.i, label %malloc_raw.exit, label %9
 
 9:                                                ; preds = %3
@@ -1034,16 +1034,16 @@ malloc_raw.exit:                                  ; preds = %3, %9
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 3
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1, !tbaa !3
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !16
+  %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !17
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !8
+  %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !9
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.9.0.copyload.i = load i16, ptr %.sroa.9.0..sroa_idx.i, align 8
   %12 = zext i16 %.sroa.9.0.copyload.i to i64
   %.sroa.1169.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.1169.0.copyload.i = load ptr, ptr %.sroa.1169.0..sroa_idx.i, align 8, !tbaa !14
+  %.sroa.1169.0.copyload.i = load ptr, ptr %.sroa.1169.0..sroa_idx.i, align 8, !tbaa !15
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.13.0.copyload.i = load ptr, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !14
+  %.sroa.13.0.copyload.i = load ptr, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !15
   %13 = getelementptr i8, ptr %6, i64 32
   %14 = getelementptr i8, ptr %6, i64 64
   %15 = getelementptr i8, ptr %6, i64 96
@@ -1107,9 +1107,9 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_mall
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %.sroa.7.0..sroa_idx, i8 0, i64 14, i1 false)
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %3, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !14
+  store ptr %3, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !15
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %4, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !14
+  store ptr %4, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !15
   %6 = call ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
@@ -1139,9 +1139,9 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_mall
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %.sroa.7.0..sroa_idx.i, i8 0, i64 14, i1 false)
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %1, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %1, ptr %.sroa.12.0..sroa_idx.i, align 8, !tbaa !15
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %2, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %2, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !15
   %4 = call noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #25
@@ -1156,16 +1156,16 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key_and_
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !3
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
+  %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %.sroa.8109.i)
   %.sroa.6117.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8109.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6117.0..sroa_idx.i, i64 13, i1 false)
   %.sroa.7118.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.7118.0.copyload.i = load ptr, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !12
+  %.sroa.7118.0.copyload.i = load ptr, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !13
   %.sroa.8119.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.8119.0.copyload.i = load ptr, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !14
+  %.sroa.8119.0.copyload.i = load ptr, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %5 = load i8, ptr %4, align 1, !tbaa !18
+  %5 = load i8, ptr %4, align 1, !tbaa !19
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %reset_raw.exit, label %7
 
@@ -1181,14 +1181,14 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key_and_
 reset_raw.exit:                                   ; preds = %3, %7
   %.sroa.071.0.copyload.i = load i64, ptr %1, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !8
+  %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !9
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.9.0.copyload.i = load i16, ptr %.sroa.9.0..sroa_idx.i, align 8
   %12 = zext i16 %.sroa.9.0.copyload.i to i64
   %.sroa.1174.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.1174.0.copyload.i = load ptr, ptr %.sroa.1174.0..sroa_idx.i, align 8, !tbaa !14
+  %.sroa.1174.0.copyload.i = load ptr, ptr %.sroa.1174.0..sroa_idx.i, align 8, !tbaa !15
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.13.0.copyload.i = load ptr, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !14
+  %.sroa.13.0.copyload.i = load ptr, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !15
   %13 = getelementptr i8, ptr %.sroa.7118.0.copyload.i, i64 32
   %14 = getelementptr i8, ptr %.sroa.7118.0.copyload.i, i64 64
   %15 = getelementptr i8, ptr %.sroa.7118.0.copyload.i, i64 96
@@ -1221,11 +1221,11 @@ reset_raw.exit:                                   ; preds = %3, %7
   %.sroa.9120.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sroa.0.0.copyload.i, ptr %0, align 8, !tbaa !3
   store i8 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !3
-  store i8 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
+  store i8 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6117.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8109.i, i64 13, i1 false)
-  store ptr %.sroa.7118.0.copyload.i, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !12
-  store ptr %.sroa.8119.0.copyload.i, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !14
-  store i64 %..i, ptr %.sroa.9120.0..sroa_idx.i, align 8, !tbaa !8
+  store ptr %.sroa.7118.0.copyload.i, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !13
+  store ptr %.sroa.8119.0.copyload.i, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !15
+  store i64 %..i, ptr %.sroa.9120.0..sroa_idx.i, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %.sroa.8109.i)
   ret void
 }
@@ -1237,14 +1237,14 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key(ptr 
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !3
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
+  %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %.sroa.8109.i)
   %.sroa.6117.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8109.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6117.0..sroa_idx.i, i64 13, i1 false)
   %.sroa.7118.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.7118.0.copyload.i = load ptr, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !12
+  %.sroa.7118.0.copyload.i = load ptr, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !13
   %.sroa.8119.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.8119.0.copyload.i = load ptr, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !14
+  %.sroa.8119.0.copyload.i = load ptr, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !15
   %3 = icmp eq i8 %.sroa.0.0.copyload.i, 0
   br i1 %3, label %reset_raw.exit, label %4
 
@@ -1275,11 +1275,11 @@ reset_raw.exit:                                   ; preds = %2, %4
   %.sroa.9120.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sroa.0.0.copyload.i, ptr %0, align 8, !tbaa !3
   store i8 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !3
-  store i8 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
+  store i8 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6117.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8109.i, i64 13, i1 false)
-  store ptr %.sroa.7118.0.copyload.i, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !12
-  store ptr %.sroa.8119.0.copyload.i, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !14
-  store i64 %..i, ptr %.sroa.9120.0..sroa_idx.i, align 8, !tbaa !8
+  store ptr %.sroa.7118.0.copyload.i, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !13
+  store ptr %.sroa.8119.0.copyload.i, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !15
+  store i64 %..i, ptr %.sroa.9120.0..sroa_idx.i, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %.sroa.8109.i)
   ret void
 }
@@ -1292,14 +1292,14 @@ python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key.exit:
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.4.0.copyload.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !tbaa !3
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.sroa.5.0.copyload.i.i = load i8, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !tbaa !10
+  %.sroa.5.0.copyload.i.i = load i8, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %.sroa.8109.i.i)
   %.sroa.6117.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8109.i.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6117.0..sroa_idx.i.i, i64 13, i1 false)
   %.sroa.7118.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.7118.0.copyload.i.i = load ptr, ptr %.sroa.7118.0..sroa_idx.i.i, align 8, !tbaa !12
+  %.sroa.7118.0.copyload.i.i = load ptr, ptr %.sroa.7118.0..sroa_idx.i.i, align 8, !tbaa !13
   %.sroa.8119.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.8119.0.copyload.i.i = load ptr, ptr %.sroa.8119.0..sroa_idx.i.i, align 8, !tbaa !14
+  %.sroa.8119.0.copyload.i.i = load ptr, ptr %.sroa.8119.0..sroa_idx.i.i, align 8, !tbaa !15
   %1 = icmp eq i8 %.sroa.0.0.copyload.i.i, 0
   tail call void @llvm.assume(i1 %1)
   %.sroa.0.0.insert.ext.i = zext i8 %.sroa.4.0.copyload.i.i to i64
@@ -1315,11 +1315,11 @@ python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key.exit:
   %.sroa.9120.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %0, align 8, !tbaa !3
   store i8 %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !tbaa !3
-  store i8 %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !tbaa !10
+  store i8 %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6117.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8109.i.i, i64 13, i1 false)
-  store ptr %.sroa.7118.0.copyload.i.i, ptr %.sroa.7118.0..sroa_idx.i.i, align 8, !tbaa !12
-  store ptr %.sroa.8119.0.copyload.i.i, ptr %.sroa.8119.0..sroa_idx.i.i, align 8, !tbaa !14
-  store i64 0, ptr %.sroa.9120.0..sroa_idx.i.i, align 8, !tbaa !8
+  store ptr %.sroa.7118.0.copyload.i.i, ptr %.sroa.7118.0..sroa_idx.i.i, align 8, !tbaa !13
+  store ptr %.sroa.8119.0.copyload.i.i, ptr %.sroa.8119.0..sroa_idx.i.i, align 8, !tbaa !15
+  store i64 0, ptr %.sroa.9120.0..sroa_idx.i.i, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %.sroa.8109.i.i)
   ret void
 }
@@ -1329,7 +1329,7 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2b_Simd25
   %.sroa.0130 = alloca %struct.Hacl_Hash_Blake2b_Simd256_block_state_t_s, align 8
   %.sroa.053 = alloca %struct.Hacl_Hash_Blake2b_Simd256_block_state_t_s, align 8
   %.sroa.3153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.3153.0.copyload = load i64, ptr %.sroa.3153.0..sroa_idx, align 8, !tbaa !8
+  %.sroa.3153.0.copyload = load i64, ptr %.sroa.3153.0..sroa_idx, align 8, !tbaa !9
   %4 = zext i32 %2 to i64
   %5 = xor i64 %.sroa.3153.0.copyload, -1
   %6 = icmp ugt i64 %4, %5
@@ -1349,12 +1349,12 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2b_Simd25
 
 13:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0130, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %.sroa.4143.0.copyload = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.4143.0.copyload = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
   %. = select i1 %or.cond, i64 128, i64 %8
   %14 = getelementptr i8, ptr %.sroa.4143.0.copyload, i64 %.
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %1, i64 %4, i1 false)
   %15 = add i64 %.sroa.3153.0.copyload, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0130, i64 24, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0130, i64 24, i1 false), !tbaa.struct !21
   br label %.sink.split
 
 16:                                               ; preds = %7
@@ -1364,10 +1364,10 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2b_Simd25
 18:                                               ; preds = %16
   %.sroa.0125.0.copyload = load i64, ptr %0, align 8
   %.sroa.4126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.4126.0.copyload = load ptr, ptr %.sroa.4126.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.4126.0.copyload = load ptr, ptr %.sroa.4126.0..sroa_idx, align 8, !tbaa !13
   %.sroa.5127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.5127.0.copyload = load ptr, ptr %.sroa.5127.0..sroa_idx, align 8, !tbaa !12
-  %.sroa.6128.0.copyload = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.5127.0.copyload = load ptr, ptr %.sroa.5127.0..sroa_idx, align 8, !tbaa !13
+  %.sroa.6128.0.copyload = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
   %19 = and i64 %4, 127
   %20 = icmp eq i64 %19, 0
   %21 = trunc nuw nsw i64 %19 to i32
@@ -1406,27 +1406,27 @@ python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi.exit205: ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.6128.0.copyload, ptr align 1 %26, i64 %37, i1 false)
   %38 = add i64 %.sroa.3153.0.copyload, %4
   store i64 %.sroa.0125.0.copyload, ptr %0, align 8
-  store ptr %.sroa.4126.0.copyload, ptr %.sroa.4126.0..sroa_idx, align 8, !tbaa !12
-  store ptr %.sroa.5127.0.copyload, ptr %.sroa.5127.0..sroa_idx, align 8, !tbaa !12
+  store ptr %.sroa.4126.0.copyload, ptr %.sroa.4126.0..sroa_idx, align 8, !tbaa !13
+  store ptr %.sroa.5127.0.copyload, ptr %.sroa.5127.0..sroa_idx, align 8, !tbaa !13
   br label %.sink.split
 
 39:                                               ; preds = %16
   %40 = zext nneg i32 %12 to i64
   %41 = getelementptr i8, ptr %1, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.053, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %.sroa.466.0.copyload = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.466.0.copyload = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
   %.197 = select i1 %or.cond, i64 128, i64 %8
   %42 = getelementptr i8, ptr %.sroa.466.0.copyload, i64 %.197
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %1, i64 %40, i1 false)
   %43 = add i64 %.sroa.3153.0.copyload, %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.053, i64 24, i1 false), !tbaa.struct !20
-  store ptr %.sroa.466.0.copyload, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !14
-  store i64 %43, ptr %.sroa.3153.0..sroa_idx, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.053, i64 24, i1 false), !tbaa.struct !21
+  store ptr %.sroa.466.0.copyload, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
+  store i64 %43, ptr %.sroa.3153.0..sroa_idx, align 8, !tbaa !9
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.451.0.copyload = load ptr, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.451.0.copyload = load ptr, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !13
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !13
   %44 = and i64 %43, 127
   %45 = icmp eq i64 %44, 0
   %46 = icmp ne i64 %43, 0
@@ -1487,15 +1487,15 @@ python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi.exit223: ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.466.0.copyload, ptr align 1 %63, i64 %74, i1 false)
   %75 = add i64 %43, %56
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
-  store ptr %.sroa.451.0.copyload, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !12
-  store ptr %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
+  store ptr %.sroa.451.0.copyload, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !13
+  store ptr %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !13
   br label %.sink.split
 
 .sink.split:                                      ; preds = %python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi.exit205, %python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi.exit223, %13
   %.sroa.4143.0.copyload.sink = phi ptr [ %.sroa.4143.0.copyload, %13 ], [ %.sroa.466.0.copyload, %python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi.exit223 ], [ %.sroa.6128.0.copyload, %python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi.exit205 ]
   %.sink = phi i64 [ %15, %13 ], [ %75, %python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi.exit223 ], [ %38, %python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi.exit205 ]
-  store ptr %.sroa.4143.0.copyload.sink, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !14
-  store i64 %.sink, ptr %.sroa.3153.0..sroa_idx, align 8, !tbaa !8
+  store ptr %.sroa.4143.0.copyload.sink, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
+  store i64 %.sink, ptr %.sroa.3153.0..sroa_idx, align 8, !tbaa !9
   br label %76
 
 76:                                               ; preds = %.sink.split, %3
@@ -1512,13 +1512,13 @@ define hidden zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr no
   %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.460.0.copyload = load i8, ptr %.sroa.460.0..sroa_idx, align 1, !tbaa !3
   %.sroa.561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.sroa.561.0.copyload = load i8, ptr %.sroa.561.0..sroa_idx, align 2, !tbaa !10
+  %.sroa.561.0.copyload = load i8, ptr %.sroa.561.0..sroa_idx, align 2, !tbaa !11
   %.sroa.450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.450.0.copyload = load ptr, ptr %.sroa.450.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.450.0.copyload = load ptr, ptr %.sroa.450.0..sroa_idx, align 8, !tbaa !13
   %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.551.0.copyload = load ptr, ptr %.sroa.551.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.551.0.copyload = load ptr, ptr %.sroa.551.0..sroa_idx, align 8, !tbaa !15
   %.sroa.652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.652.0.copyload = load i64, ptr %.sroa.652.0..sroa_idx, align 8, !tbaa !8
+  %.sroa.652.0.copyload = load i64, ptr %.sroa.652.0..sroa_idx, align 8, !tbaa !9
   %7 = and i64 %.sroa.652.0.copyload, 127
   %8 = icmp eq i64 %7, 0
   %9 = icmp ne i64 %.sroa.652.0.copyload, 0
@@ -1572,7 +1572,7 @@ define hidden range(i24 0, 131072) i24 @python_hashlib_Hacl_Hash_Blake2b_Simd256
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !3
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !10
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !11
   %2 = and i8 %.sroa.5.0.copyload, 1
   %.sroa.3.0.insert.ext = zext nneg i8 %2 to i24
   %.sroa.3.0.insert.shift = shl nuw nsw i24 %.sroa.3.0.insert.ext, 16
@@ -1587,11 +1587,11 @@ define hidden range(i24 0, 131072) i24 @python_hashlib_Hacl_Hash_Blake2b_Simd256
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef captures(none) %0) local_unnamed_addr #18 {
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.44.0.copyload = load ptr, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.44.0.copyload = load ptr, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !13
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !13
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !15
   tail call void @free(ptr noundef %.sroa.44.0.copyload) #25
   tail call void @free(ptr noundef %.sroa.5.0.copyload) #25
   tail call void @free(ptr noundef %.sroa.6.0.copyload) #25
@@ -1608,13 +1608,13 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_copy
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.425.0.copyload = load i8, ptr %.sroa.425.0..sroa_idx, align 1, !tbaa !3
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.sroa.526.0.copyload = load i8, ptr %.sroa.526.0..sroa_idx, align 2, !tbaa !10
+  %.sroa.526.0.copyload = load i8, ptr %.sroa.526.0..sroa_idx, align 2, !tbaa !11
   %.sroa.728.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.728.0.copyload = load ptr, ptr %.sroa.728.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.728.0.copyload = load ptr, ptr %.sroa.728.0..sroa_idx, align 8, !tbaa !13
   %.sroa.829.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.829.0.copyload = load ptr, ptr %.sroa.829.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.829.0.copyload = load ptr, ptr %.sroa.829.0..sroa_idx, align 8, !tbaa !15
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !8
+  %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !9
   %2 = and i8 %.sroa.526.0.copyload, 1
   %3 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %3, ptr noundef nonnull align 1 dereferenceable(128) %.sroa.829.0.copyload, i64 128, i1 false)
@@ -1627,17 +1627,17 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_copy
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %.sroa.425.0.copyload, ptr %.sroa.0.sroa.4.0..sroa_idx, align 1, !tbaa !3
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %2, ptr %.sroa.0.sroa.5.0..sroa_idx, align 2, !tbaa !10
+  store i8 %2, ptr %.sroa.0.sroa.5.0..sroa_idx, align 2, !tbaa !11
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.0.sroa.6.0..sroa_idx, i8 0, i64 5, i1 false)
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8, !tbaa !12
+  store ptr %4, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8, !tbaa !13
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8, !tbaa !12
+  store ptr %5, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
+  store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 %.sroa.9.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !8
+  store i64 %.sroa.9.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !9
   ret ptr %6
 }
 
@@ -1813,15 +1813,15 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key_and_p
   store <4 x i64> <i64 7640891576956012808, i64 -4942790177534073029, i64 4354685564936845355, i64 -6534734903238641935>, ptr %10, align 32, !tbaa !3
   store <4 x i64> <i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809>, ptr %11, align 32, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !18
-  %14 = load i8, ptr %3, align 8, !tbaa !21
+  %13 = load i8, ptr %12, align 1, !tbaa !19
+  %14 = load i8, ptr %3, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %16 = load ptr, ptr %15, align 8, !tbaa !23
   %.val75 = load i64, ptr %16, align 1
   %17 = getelementptr i8, ptr %16, i64 8
   %.val74 = load i64, ptr %17, align 1
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
   %.val73 = load i64, ptr %19, align 1
   %20 = getelementptr i8, ptr %19, i64 8
   %.val = load i64, ptr %20, align 1
@@ -1829,15 +1829,15 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key_and_p
   %22 = zext i8 %13 to i64
   %23 = shl nuw nsw i64 %22, 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %25 = load i8, ptr %24, align 2, !tbaa !24
+  %25 = load i8, ptr %24, align 2, !tbaa !25
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 16
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %29 = load i8, ptr %28, align 1, !tbaa !25
+  %29 = load i8, ptr %28, align 1, !tbaa !26
   %30 = zext i8 %29 to i64
   %31 = shl nuw nsw i64 %30, 24
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !26
+  %33 = load i32, ptr %32, align 4, !tbaa !27
   %34 = zext i32 %33 to i64
   %35 = shl nuw i64 %34, 32
   %36 = or disjoint i64 %23, %27
@@ -1845,7 +1845,7 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key_and_p
   %38 = or disjoint i64 %37, %35
   %39 = or disjoint i64 %38, %21
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !27
+  %41 = load i64, ptr %40, align 8, !tbaa !28
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %43 = load i16, ptr %42, align 8
   %44 = zext i16 %43 to i64
@@ -1927,25 +1927,26 @@ attributes #28 = { nounwind allocsize(0) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"long", !4, i64 0}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"_Bool", !4, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"any pointer", !4, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 omnipotent char", !13, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !4, i64 0}
-!18 = !{!19, !4, i64 1}
-!19 = !{!"Hacl_Hash_Blake2b_blake2_params_s", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !17, i64 4, !9, i64 8, !4, i64 16, !4, i64 17, !15, i64 24, !15, i64 32}
-!20 = !{i64 0, i64 1, !3, i64 1, i64 1, !3, i64 2, i64 1, !10, i64 8, i64 8, !12, i64 16, i64 8, !12, i64 24, i64 8, !14, i64 32, i64 8, !8}
-!21 = !{!19, !4, i64 0}
-!22 = !{!19, !15, i64 24}
-!23 = !{!19, !15, i64 32}
-!24 = !{!19, !4, i64 2}
-!25 = !{!19, !4, i64 3}
-!26 = !{!19, !17, i64 4}
-!27 = !{!19, !9, i64 8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !4, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"_Bool", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"any pointer", !4, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !14, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !4, i64 0}
+!19 = !{!20, !4, i64 1}
+!20 = !{!"Hacl_Hash_Blake2b_blake2_params_s", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !18, i64 4, !10, i64 8, !4, i64 16, !4, i64 17, !16, i64 24, !16, i64 32}
+!21 = !{i64 0, i64 1, !3, i64 1, i64 1, !3, i64 2, i64 1, !11, i64 8, i64 8, !13, i64 16, i64 8, !13, i64 24, i64 8, !15, i64 32, i64 8, !9}
+!22 = !{!20, !4, i64 0}
+!23 = !{!20, !16, i64 24}
+!24 = !{!20, !16, i64 32}
+!25 = !{!20, !4, i64 2}
+!26 = !{!20, !4, i64 3}
+!27 = !{!20, !18, i64 4}
+!28 = !{!20, !10, i64 8}

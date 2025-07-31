@@ -104,7 +104,7 @@ define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr noundef readonly captures(non
   %53 = load i32, ptr %14, align 8, !tbaa !29
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next79, %54
-  br i1 %55, label %.critedge, label %.critedge2, !llvm.loop !34
+  br i1 %55, label %.critedge, label %.critedge2, !llvm.loop !35
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.150.lcssa = phi ptr [ %.049.lcssa, %.critedge.preheader ], [ %27, %.critedge ]
@@ -131,7 +131,7 @@ define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr noundef readonly captures(non
   %66 = load i32, ptr %14, align 8, !tbaa !29
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next82, %67
-  br i1 %68, label %63, label %.critedge4, !llvm.loop !35
+  br i1 %68, label %63, label %.critedge4, !llvm.loop !36
 
 .critedge4:                                       ; preds = %63, %.critedge2
   tail call void @Cudd_Deref(ptr noundef %57) #3
@@ -192,7 +192,7 @@ define i32 @Dec_GraphDeriveTruth(ptr noundef readonly captures(none) %0) local_u
 11:                                               ; preds = %5
   %12 = zext nneg i32 %9 to i64
   %13 = getelementptr inbounds nuw [5 x i32], ptr @__const.Dec_GraphDeriveTruth.uTruths, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %14 = load i32, ptr %13, align 4, !tbaa !37
   %15 = and i32 %.val54, 1
   %sext77 = sub nsw i32 0, %15
   %spec.select = xor i32 %14, %sext77
@@ -214,7 +214,7 @@ define i32 @Dec_GraphDeriveTruth(ptr noundef readonly captures(none) %0) local_u
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.val58 = load ptr, ptr %10, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw [5 x i32], ptr @__const.Dec_GraphDeriveTruth.uTruths, i64 0, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4, !tbaa !36
+  %23 = load i32, ptr %22, align 4, !tbaa !37
   %24 = zext i32 %23 to i64
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val58, i64 %indvars.iv, i32 2
@@ -223,7 +223,7 @@ define i32 @Dec_GraphDeriveTruth(ptr noundef readonly captures(none) %0) local_u
   %27 = load i32, ptr %6, align 4, !tbaa !28
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %21, label %.critedge.preheader, !llvm.loop !37
+  br i1 %29, label %21, label %.critedge.preheader, !llvm.loop !38
 
 .critedge:                                        ; preds = %.lr.ph66, %.critedge
   %indvars.iv71 = phi i64 [ %20, %.lr.ph66 ], [ %indvars.iv.next72, %.critedge ]
@@ -261,7 +261,7 @@ define i32 @Dec_GraphDeriveTruth(ptr noundef readonly captures(none) %0) local_u
   %56 = load i32, ptr %16, align 8, !tbaa !29
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next72, %57
-  br i1 %58, label %.critedge, label %.critedge2, !llvm.loop !38
+  br i1 %58, label %.critedge, label %.critedge2, !llvm.loop !39
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.039.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %52, %.critedge ]
@@ -315,10 +315,11 @@ attributes #3 = { nounwind }
 !29 = !{!4, !5, i64 8}
 !30 = !{!4, !8, i64 16}
 !31 = !{!6, !6, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = distinct !{!35, !33}
-!36 = !{!5, !5, i64 0}
-!37 = distinct !{!37, !33}
-!38 = distinct !{!38, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}
+!36 = distinct !{!36, !33, !34}
+!37 = !{!5, !5, i64 0}
+!38 = distinct !{!38, !33, !34}
+!39 = distinct !{!39, !33, !34}

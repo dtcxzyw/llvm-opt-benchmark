@@ -585,13 +585,13 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %.sroa.038.0 = load ptr, ptr %117, align 8, !tbaa !329
   %.not64 = icmp eq ptr %.sroa.038.0, %59
-  br i1 %.not64, label %.loopexit, label %.lr.ph
+  br i1 %.not64, label %.loopexit, label %.lr.ph, !llvm.loop !362
 
 .loopexit:                                        ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %57, %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.041.073, i64 8
   %.sroa.041.0 = load ptr, ptr %118, align 8, !tbaa !328
   %.not = icmp eq ptr %.sroa.041.0, %52
-  br i1 %.not, label %_ZNK4llvm8Function10hasOptSizeEv.exit.thread, label %57
+  br i1 %.not, label %_ZNK4llvm8Function10hasOptSizeEv.exit.thread, label %57, !llvm.loop !363
 
 _ZNK4llvm8Function10hasOptSizeEv.exit.thread:     ; preds = %.loopexit, %50, %13, %17, %_ZNK4llvm4Pass11getAnalysisINS_30MachineTraceMetricsWrapperPassEEERT_v.exit, %2, %_ZNK4llvm8Function10hasOptSizeEv.exit
   ret i1 false
@@ -673,7 +673,7 @@ define linkonce_odr hidden void @_ZN4llvm13AnalysisUsage10pushUniqueERNS_15Small
   %27 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
   %28 = add nsw i64 %.047.i.i.i.i, -1
   %29 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %29, label %11, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !361
+  br i1 %29, label %11, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !364
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %26
   %30 = and i32 %6, 3
@@ -738,7 +738,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread: ; 
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !43
   %.not.i.i.not.i = icmp ult i32 %6, %46
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit, label %47, !prof !362
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit, label %47, !prof !365
 
 47:                                               ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread
   %48 = add nuw nsw i64 %7, 1
@@ -799,10 +799,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #5 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !363
+  %3 = load ptr, ptr %2, align 8, !tbaa !366
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !365
-  %6 = load ptr, ptr %5, align 8, !tbaa !366
+  %5 = load ptr, ptr %4, align 8, !tbaa !368
+  %6 = load ptr, ptr %5, align 8, !tbaa !369
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #14
   ret void
 }
@@ -1192,13 +1192,16 @@ attributes #17 = { builtin nounwind }
 !356 = !{!"_ZTSN4llvm8ArrayRefIPKNS_16MCSchedClassDescEEE", !357, i64 0, !12, i64 8}
 !357 = !{!"p2 _ZTSN4llvm16MCSchedClassDescE", !4, i64 0}
 !358 = !{!356, !12, i64 8}
-!359 = distinct !{!359, !360}
+!359 = distinct !{!359, !360, !361}
 !360 = !{!"llvm.loop.mustprogress"}
-!361 = distinct !{!361, !360}
-!362 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!363 = !{!364, !4, i64 0}
-!364 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
-!365 = !{!364, !8, i64 8}
-!366 = !{!367, !368, i64 0}
-!367 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !368, i64 0}
-!368 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}
+!361 = !{!"llvm.loop.estimated_trip_count"}
+!362 = distinct !{!362, !361}
+!363 = distinct !{!363, !361}
+!364 = distinct !{!364, !360, !361}
+!365 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!366 = !{!367, !4, i64 0}
+!367 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
+!368 = !{!367, !8, i64 8}
+!369 = !{!370, !371, i64 0}
+!370 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !371, i64 0}
+!371 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}

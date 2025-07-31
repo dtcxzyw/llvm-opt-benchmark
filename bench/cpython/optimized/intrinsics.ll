@@ -1325,7 +1325,7 @@ Py_DECREF.exit59.i:                               ; preds = %Py_XDECREF.exit.i, 
   %139 = sext i32 %137 to i64
   %140 = call ptr @PySequence_GetItem(ptr noundef %138, i64 noundef %139) #4
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %._crit_edge.i, label %42
+  br i1 %141, label %._crit_edge.i, label %42, !llvm.loop !36
 
 Py_DECREF.exit53.i:                               ; preds = %Py_XDECREF.exit.i, %82, %79, %Py_DECREF.exit55.i, %56, %53, %51, %41, %._crit_edge.i
   %.1.i = phi i32 [ %.039.lcssa.i, %41 ], [ -1, %._crit_edge.i ], [ -1, %51 ], [ -1, %53 ], [ -1, %56 ], [ -1, %Py_DECREF.exit55.i ], [ -1, %79 ], [ -1, %82 ], [ %.4.i, %Py_XDECREF.exit.i ]
@@ -1382,7 +1382,7 @@ define internal ptr @stopiteration_error(ptr noundef readonly captures(none) %0,
   %.val35 = load i64, ptr %4, align 8, !tbaa !21
   %7 = inttoptr i64 %.val35 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load i32, ptr %8, align 8, !tbaa !36
+  %9 = load i32, ptr %8, align 8, !tbaa !38
   %10 = and i32 %9, 512
   %.not24 = icmp eq i32 %10, 0
   br i1 %.not, label %14, label %11
@@ -1496,9 +1496,9 @@ define internal ptr @unary_pos(ptr readnone captures(none) %0, ptr noundef %1) #
 ; Function Attrs: nounwind uwtable
 define internal ptr @list_to_tuple(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !40
   %5 = getelementptr i8, ptr %1, i64 16
-  %.val = load i64, ptr %5, align 8, !tbaa !40
+  %.val = load i64, ptr %5, align 8, !tbaa !42
   %6 = tail call ptr @_PyTuple_FromArray(ptr noundef %4, i64 noundef %.val) #4
   ret ptr %6
 }
@@ -1554,7 +1554,7 @@ define dso_local ptr @_PyCompile_GetUnaryIntrinsicName(i32 noundef %0) local_unn
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr [12 x %struct.intrinsic_func1_info], ptr @_PyIntrinsics_UnaryFunctions, i64 0, i64 %3, i32 1
-  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = tail call ptr @PyUnicode_FromString(ptr noundef %5) #4
   br label %7
 
@@ -1573,7 +1573,7 @@ define dso_local ptr @_PyCompile_GetBinaryIntrinsicName(i32 noundef %0) local_un
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr [6 x %struct.intrinsic_func2_info], ptr @_PyIntrinsics_BinaryFunctions, i64 0, i64 %3, i32 1
-  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = tail call ptr @PyUnicode_FromString(ptr noundef %5) #4
   br label %7
 
@@ -1680,10 +1680,12 @@ attributes #5 = { nounwind willreturn memory(read) }
 !33 = !{!26, !28, i64 24}
 !34 = !{!32, !32, i64 0}
 !35 = !{!15, !15, i64 0}
-!36 = !{!37, !15, i64 48}
-!37 = !{!"PyCodeObject", !27, i64 0, !5, i64 24, !5, i64 32, !5, i64 40, !15, i64 48, !15, i64 52, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !15, i64 88, !15, i64 92, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !6, i64 152, !6, i64 160, !13, i64 168, !6, i64 176, !13, i64 184, !15, i64 192, !6, i64 200, !7, i64 208}
-!38 = !{!39, !19, i64 24}
-!39 = !{!"", !27, i64 0, !19, i64 24, !13, i64 32}
-!40 = !{!27, !13, i64 16}
-!41 = !{!42, !28, i64 8}
-!42 = !{!"", !6, i64 0, !28, i64 8}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !15, i64 48}
+!39 = !{!"PyCodeObject", !27, i64 0, !5, i64 24, !5, i64 32, !5, i64 40, !15, i64 48, !15, i64 52, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !15, i64 88, !15, i64 92, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !6, i64 152, !6, i64 160, !13, i64 168, !6, i64 176, !13, i64 184, !15, i64 192, !6, i64 200, !7, i64 208}
+!40 = !{!41, !19, i64 24}
+!41 = !{!"", !27, i64 0, !19, i64 24, !13, i64 32}
+!42 = !{!27, !13, i64 16}
+!43 = !{!44, !28, i64 8}
+!44 = !{!"", !6, i64 0, !28, i64 8}

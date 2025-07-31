@@ -401,7 +401,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %add.ptr.7 = getelementptr inbounds i8, ptr %add.ptr.6, i64 %idx.ext
   %indvars.iv.next.7 = add nuw nsw i64 %indvars.iv, 8
   %niter.ncmp.7 = icmp eq i64 %indvars.iv.next.7, %unroll_iter
-  br i1 %niter.ncmp.7, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body, !llvm.loop !30
+  br i1 %niter.ncmp.7, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body, !llvm.loop !31
 
 if.then94:                                        ; preds = %for.cond.cleanup
   call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr, ptr noundef nonnull %info_ptr) #14
@@ -569,7 +569,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1, !tbaa !17
   %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !32
+  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !33
 
 land.rhs21.loopexit.i:                            ; preds = %for.inc.i
   %8 = zext i32 %inc.i to i64
@@ -616,7 +616,7 @@ for.inc.i42:                                      ; preds = %for.body.i32
   %arrayidx.i46 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i45
   %14 = load i8, ptr %arrayidx.i46, align 1, !tbaa !17
   %tobool.not.i47 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !32
+  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !34
 
 land.rhs21.loopexit.i48:                          ; preds = %for.inc.i42
   %15 = zext i32 %inc.i43 to i64
@@ -663,7 +663,7 @@ for.inc.i79:                                      ; preds = %for.body.i69
   %arrayidx.i83 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i82
   %21 = load i8, ptr %arrayidx.i83, align 1, !tbaa !17
   %tobool.not.i84 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !32
+  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !35
 
 land.rhs21.loopexit.i85:                          ; preds = %for.inc.i79
   %22 = zext i32 %inc.i80 to i64
@@ -740,8 +740,11 @@ attributes #17 = { nounwind returns_twice }
 !25 = !{!23, !10, i64 0}
 !26 = !{!23, !10, i64 4}
 !27 = !{!21, !8, i64 24}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.unroll.disable"}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !32, !30}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = distinct !{!33, !32, !30}
+!34 = distinct !{!34, !32, !30}
+!35 = distinct !{!35, !32, !30}

@@ -139,7 +139,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildCodeLengthsHuffmanTableEPNS_11Huffma
   store i32 %.sroa.22.0.insert.ext.i, ptr %97, align 2
   %98 = add nuw nsw i64 %.07794, 1
   %exitcond108.not = icmp eq i64 %98, 32
-  br i1 %exitcond108.not, label %.loopexit, label %96, !llvm.loop !12
+  br i1 %exitcond108.not, label %.loopexit, label %96, !llvm.loop !13
 
 .preheader:                                       ; preds = %91, %._crit_edge
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %._crit_edge ], [ 1, %91 ]
@@ -182,14 +182,14 @@ define void @_ZN13duckdb_brotli34BrotliBuildCodeLengthsHuffmanTableEPNS_11Huffma
   %116 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %113, i64 %115
   store i32 %.sroa.0.0.insert.insert.i, ptr %116, align 2
   %117 = icmp sgt i64 %115, 0
-  br i1 %117, label %114, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit, !llvm.loop !13
+  br i1 %117, label %114, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit, !llvm.loop !14
 
 _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit: ; preds = %114
   %indvars.iv.next102 = add nsw i64 %indvars.iv101, 1
   %118 = add i64 %.27991, %.082
   %119 = add nsw i32 %.08090, -1
   %.not85 = icmp eq i32 %119, 0
-  br i1 %.not85, label %._crit_edge.loopexit, label %107, !llvm.loop !14
+  br i1 %.not85, label %._crit_edge.loopexit, label %107, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit
   %120 = trunc nsw i64 %indvars.iv.next102 to i32
@@ -202,7 +202,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit: ; preds = %114
   %122 = lshr i64 %.082, 1
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next105, 6
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge, %96
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #4
@@ -231,7 +231,7 @@ define noundef i32 @_ZN13duckdb_brotli23BrotliBuildHuffmanTableEPNS_11HuffmanCod
   %8 = icmp eq i16 %7, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next201 = add i32 %indvars.iv200, -1
-  br i1 %8, label %5, label %9, !llvm.loop !16
+  br i1 %8, label %5, label %9, !llvm.loop !17
 
 9:                                                ; preds = %5
   %10 = trunc nsw i64 %indvars.iv to i32
@@ -284,13 +284,13 @@ define noundef i32 @_ZN13duckdb_brotli23BrotliBuildHuffmanTableEPNS_11HuffmanCod
   %35 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %31, i64 %34
   store i32 %.sroa.0.0.insert.insert.i127, ptr %35, align 2
   %36 = icmp sgt i32 %33, 0
-  br i1 %36, label %32, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129, !llvm.loop !13
+  br i1 %36, label %32, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129, !llvm.loop !14
 
 _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129: ; preds = %32
   %37 = add i64 %.190133, %.0110
   %38 = add nsw i32 %.092132, -1
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129, %16
   %.190.lcssa = phi i64 [ %.089, %16 ], [ %37, %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129 ]
@@ -298,7 +298,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129: ; preds = %32
   %40 = lshr i64 %.0110, 1
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %.not115.not = icmp slt i64 %indvars.iv188, %15
-  br i1 %.not115.not, label %16, label %.preheader, !llvm.loop !18
+  br i1 %.not115.not, label %16, label %.preheader, !llvm.loop !19
 
 .preheader:                                       ; preds = %._crit_edge
   %.not116135 = icmp eq i32 %12, %spec.select119
@@ -312,7 +312,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129: ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %42, ptr align 2 %0, i64 %43, i1 false)
   %44 = shl i32 %.199136, 1
   %.not116 = icmp eq i32 %12, %44
-  br i1 %.not116, label %._crit_edge138, label %.lr.ph137, !llvm.loop !19
+  br i1 %.not116, label %._crit_edge138, label %.lr.ph137, !llvm.loop !20
 
 ._crit_edge138:                                   ; preds = %.lr.ph137, %.preheader
   %45 = add nsw i32 %1, -1
@@ -387,7 +387,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129: ; preds = %32
   %69 = shl nuw i32 %66, 1
   %70 = and i64 %indvars.iv.next195, 4294967295
   %exitcond.not = icmp eq i64 %70, 15
-  br i1 %exitcond.not, label %_ZL16NextTableBitSizePKtii.exit.us, label %62, !llvm.loop !20
+  br i1 %exitcond.not, label %_ZL16NextTableBitSizePKtii.exit.us, label %62, !llvm.loop !21
 
 _ZL16NextTableBitSizePKtii.exit.us.split.loop.exit: ; preds = %62
   %71 = trunc nsw i64 %indvars.iv194 to i32
@@ -439,7 +439,7 @@ _ZL16NextTableBitSizePKtii.exit.us:               ; preds = %68, %_ZL16NextTable
   %97 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %93, i64 %96
   store i32 %.sroa.0.0.insert.insert.i.us, ptr %97, align 2
   %98 = icmp sgt i32 %95, 0
-  br i1 %98, label %94, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit.us, !llvm.loop !13
+  br i1 %98, label %94, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit.us, !llvm.loop !14
 
 _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit.us: ; preds = %94
   %99 = add i64 %.2109.us, %.0106169
@@ -447,7 +447,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit.us: ; preds = %94
   %101 = add i16 %100, -1
   store i16 %101, ptr %52, align 2, !tbaa !3
   %.not118.us = icmp eq i16 %101, 0
-  br i1 %.not118.us, label %._crit_edge156, label %.lr.ph155.split.us, !llvm.loop !21
+  br i1 %.not118.us, label %._crit_edge156, label %.lr.ph155.split.us, !llvm.loop !22
 
 .lr.ph155.split:                                  ; preds = %.lr.ph155
   %102 = trunc nuw nsw i64 %indvars.iv.next198 to i32
@@ -509,7 +509,7 @@ _ZL16NextTableBitSizePKtii.exit:                  ; preds = %104
   %131 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %127, i64 %130
   store i32 %.sroa.0.0.insert.insert.i, ptr %131, align 2
   %132 = icmp sgt i32 %129, 0
-  br i1 %132, label %128, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit, !llvm.loop !13
+  br i1 %132, label %128, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit, !llvm.loop !14
 
 _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit: ; preds = %128
   %133 = add i64 %.2109, %.0106169
@@ -517,7 +517,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit: ; preds = %128
   %135 = add i16 %134, -1
   store i16 %135, ptr %52, align 2, !tbaa !3
   %.not118 = icmp eq i16 %135, 0
-  br i1 %.not118, label %._crit_edge156, label %104, !llvm.loop !23
+  br i1 %.not118, label %._crit_edge156, label %104, !llvm.loop !24
 
 ._crit_edge156:                                   ; preds = %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit, %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit.us, %50
   %.1108.lcssa = phi i64 [ %.0107168, %50 ], [ %99, %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit.us ], [ %133, %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit ]
@@ -528,7 +528,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit: ; preds = %128
   %136 = shl i32 %.1105171, 1
   %137 = lshr i64 %.0106169, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count
-  br i1 %exitcond202.not, label %._crit_edge181, label %50, !llvm.loop !24
+  br i1 %exitcond202.not, label %._crit_edge181, label %50, !llvm.loop !25
 
 ._crit_edge181:                                   ; preds = %._crit_edge156, %._crit_edge138
   %.095.lcssa = phi i32 [ %12, %._crit_edge138 ], [ %.196.lcssa, %._crit_edge156 ]
@@ -633,7 +633,7 @@ define noundef range(i32 1, -2147483647) i32 @_ZN13duckdb_brotli29BrotliBuildSim
 .loopexit:                                        ; preds = %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, 3
-  br i1 %exitcond186.not, label %42, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond186.not, label %42, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %4, %.loopexit
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.loopexit ], [ 0, %4 ]
@@ -660,7 +660,7 @@ define noundef range(i32 1, -2147483647) i32 @_ZN13duckdb_brotli29BrotliBuildSim
   %41 = phi i16 [ %35, %34 ], [ %37, %39 ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next181, 4
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !27
 
 42:                                               ; preds = %.loopexit
   %43 = load i16, ptr %2, align 2, !tbaa !3
@@ -768,7 +768,7 @@ define noundef range(i32 1, -2147483647) i32 @_ZN13duckdb_brotli29BrotliBuildSim
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %79, ptr align 2 %0, i64 %80, i1 false)
   %81 = shl i32 %.1178, 1
   %.not = icmp eq i32 %81, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph179, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph179, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph179, %77
   ret i32 %5
@@ -795,21 +795,22 @@ attributes #4 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11}
-!26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = distinct !{!26, !11, !12}
+!27 = distinct !{!27, !11, !12}
+!28 = distinct !{!28, !11, !12}

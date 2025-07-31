@@ -517,7 +517,7 @@ define internal void @ivch_dpms(ptr noundef readonly captures(none) %0, i1 nound
   call void @__const_udelay(i64 noundef 4295000) #8
   %107 = add nuw nsw i32 %90, 1
   %108 = icmp eq i32 %107, 100
-  br i1 %108, label %.loopexit, label %89, !llvm.loop !11
+  br i1 %108, label %.loopexit, label %89, !llvm.loop !12
 
 .loopexit:                                        ; preds = %106, %102, %.thread2
   call void @__const_udelay(i64 noundef 68720000) #8
@@ -1870,7 +1870,7 @@ define internal fastcc void @ivch_reset(ptr noundef readonly captures(none) %0) 
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %2) #8
   %52 = add nuw nsw i64 %32, 1
   %53 = icmp eq i64 %52, 24
-  br i1 %53, label %54, label %31, !llvm.loop !12
+  br i1 %53, label %54, label %31, !llvm.loop !13
 
 54:                                               ; preds = %51
   ret void
@@ -1899,8 +1899,9 @@ attributes #8 = { nounwind }
 !5 = !{!"auto-init"}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}

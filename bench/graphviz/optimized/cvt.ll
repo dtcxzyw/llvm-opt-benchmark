@@ -47,22 +47,22 @@ define noundef ptr @Pobsopen(ptr noundef readonly captures(none) %0, i32 noundef
   %.0.lcssa109 = phi i64 [ %9, %._crit_edge ], [ 0, %.preheader ]
   %12 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa109, i64 noundef 16) #12
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %12, ptr %13, align 8, !tbaa !14
+  store ptr %12, ptr %13, align 8, !tbaa !15
   %14 = sext i32 %1 to i64
   %15 = add nsw i64 %14, 1
   %16 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 4) #12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %16, ptr %17, align 8, !tbaa !19
+  store ptr %16, ptr %17, align 8, !tbaa !20
   %18 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa109, i64 noundef 4) #12
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %18, ptr %19, align 8, !tbaa !20
+  store ptr %18, ptr %19, align 8, !tbaa !21
   %20 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa109, i64 noundef 4) #12
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %20, ptr %21, align 8, !tbaa !21
+  store ptr %20, ptr %21, align 8, !tbaa !22
   %22 = trunc nuw nsw i64 %.0.lcssa109 to i32
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %22, ptr %23, align 4, !tbaa !22
-  store i32 %1, ptr %3, align 8, !tbaa !23
+  store i32 %22, ptr %23, align 4, !tbaa !23
+  store i32 %1, ptr %3, align 8, !tbaa !24
   %24 = icmp eq ptr %16, null
   br i1 %24, label %30, label %25
 
@@ -97,7 +97,7 @@ define noundef ptr @Pobsopen(ptr noundef readonly captures(none) %0, i32 noundef
   %indvars.iv103 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next104, %._crit_edge84 ]
   %.07186 = phi i32 [ 0, %.lr.ph89.preheader ], [ %.172.lcssa, %._crit_edge84 ]
   %32 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv103
-  store i32 %.07186, ptr %32, align 4, !tbaa !24
+  store i32 %.07186, ptr %32, align 4, !tbaa !25
   %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv103
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -113,34 +113,34 @@ define noundef ptr @Pobsopen(ptr noundef readonly captures(none) %0, i32 noundef
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph83 ], [ 0, %.lr.ph89 ]
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph83 ], [ %41, %.lr.ph89 ]
   %42 = getelementptr inbounds %struct.Pxy_t, ptr %12, i64 %indvars.iv96
-  %43 = load ptr, ptr %34, align 8, !tbaa !25
+  %43 = load ptr, ptr %34, align 8, !tbaa !26
   %44 = getelementptr inbounds nuw %struct.Pxy_t, ptr %43, i64 %indvars.iv98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !27
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, 1
   %45 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv96
   %46 = trunc nsw i64 %indvars.iv.next97 to i32
-  store i32 %46, ptr %45, align 4, !tbaa !24
+  store i32 %46, ptr %45, align 4, !tbaa !25
   %47 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv96
   %48 = trunc i64 %indvars.iv96 to i32
   %49 = add i32 %48, -1
-  store i32 %49, ptr %47, align 4, !tbaa !24
+  store i32 %49, ptr %47, align 4, !tbaa !25
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %50 = load i64, ptr %35, align 8, !tbaa !8
   %sext = shl i64 %50, 32
   %51 = ashr exact i64 %sext, 32
   %52 = icmp slt i64 %indvars.iv.next99, %51
-  br i1 %52, label %.lr.ph83, label %._crit_edge84, !llvm.loop !29
+  br i1 %52, label %.lr.ph83, label %._crit_edge84, !llvm.loop !30
 
 ._crit_edge84:                                    ; preds = %.lr.ph83, %.lr.ph89
   %.172.lcssa = phi i32 [ %.07186, %.lr.ph89 ], [ %46, %.lr.ph83 ]
   %53 = sext i32 %39 to i64
   %54 = getelementptr inbounds i32, ptr %18, i64 %53
-  store i32 %.07186, ptr %54, align 4, !tbaa !24
+  store i32 %.07186, ptr %54, align 4, !tbaa !25
   %55 = getelementptr inbounds i32, ptr %20, i64 %41
-  store i32 %39, ptr %55, align 4, !tbaa !24
+  store i32 %39, ptr %55, align 4, !tbaa !25
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %._crit_edge90.loopexit, label %.lr.ph89, !llvm.loop !30
+  br i1 %exitcond107.not, label %._crit_edge90.loopexit, label %.lr.ph89, !llvm.loop !31
 
 ._crit_edge90.loopexit:                           ; preds = %._crit_edge84
   %56 = zext nneg i32 %1 to i64
@@ -150,7 +150,7 @@ define noundef ptr @Pobsopen(ptr noundef readonly captures(none) %0, i32 noundef
   %.071.lcssa = phi i32 [ %.172.lcssa, %._crit_edge90.loopexit ], [ 0, %31 ]
   %.170.lcssa = phi i64 [ %56, %._crit_edge90.loopexit ], [ 0, %31 ]
   %57 = getelementptr inbounds nuw i32, ptr %16, i64 %.170.lcssa
-  store i32 %.071.lcssa, ptr %57, align 4, !tbaa !24
+  store i32 %.071.lcssa, ptr %57, align 4, !tbaa !25
   tail call void @visibility(ptr noundef nonnull %3) #11
   br label %58
 
@@ -176,26 +176,26 @@ declare void @visibility(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Pobsclose(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   tail call void @free(ptr noundef %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   tail call void @free(ptr noundef %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
   tail call void @free(ptr noundef %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
   tail call void @free(ptr noundef %9) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !31
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %11, align 8, !tbaa !32
+  %13 = load ptr, ptr %11, align 8, !tbaa !33
   tail call void @free(ptr noundef %13) #11
-  %14 = load ptr, ptr %10, align 8, !tbaa !31
+  %14 = load ptr, ptr %10, align 8, !tbaa !32
   tail call void @free(ptr noundef %14) #11
   br label %15
 
@@ -210,7 +210,7 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
   %10 = tail call ptr @ptVis(ptr noundef %0, i32 noundef %6, double %4, double %5) #11
   %11 = tail call ptr @makePath(double %1, double %2, i32 noundef %3, ptr noundef %9, double %4, double %5, i32 noundef %6, ptr noundef %10, ptr noundef %0) #11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !22
+  %13 = load i32, ptr %12, align 4, !tbaa !23
   %14 = add nsw i32 %13, 1
   br label %15
 
@@ -219,17 +219,17 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
   %.pn.in = phi i32 [ %13, %8 ], [ %.045, %15 ]
   %.pn = sext i32 %.pn.in to i64
   %.045.in = getelementptr inbounds i32, ptr %11, i64 %.pn
-  %.045 = load i32, ptr %.045.in, align 4, !tbaa !24
+  %.045 = load i32, ptr %.045.in, align 4, !tbaa !25
   %.not = icmp eq i32 %.045, %14
   %16 = add i64 %.046, 1
-  br i1 %.not, label %17, label %15, !llvm.loop !34
+  br i1 %.not, label %17, label %15, !llvm.loop !35
 
 17:                                               ; preds = %15
   %mul.ov.i = icmp ugt i64 %16, 1152921504606846975
   br i1 %mul.ov.i, label %18, label %21
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !35
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !36
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str, i64 noundef %16, i64 noundef 16) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
@@ -242,7 +242,7 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
   br i1 %or.cond3.i, label %25, label %gv_calloc.exit
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !35
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !36
   %27 = shl nuw i64 %16, 4
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.1, i64 noundef %27) #13
   tail call fastcc void @graphviz_exit() #14
@@ -250,19 +250,19 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
 
 gv_calloc.exit:                                   ; preds = %21
   %29 = getelementptr inbounds nuw %struct.Pxy_t, ptr %23, i64 %.046
-  store double %4, ptr %29, align 8, !tbaa !27
+  store double %4, ptr %29, align 8, !tbaa !28
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store double %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !27
+  store double %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !28
   %30 = sext i32 %13 to i64
   %.049 = add nsw i64 %.046, -1
   %.1.in50 = getelementptr inbounds i32, ptr %11, i64 %30
-  %.151 = load i32, ptr %.1.in50, align 4, !tbaa !24
+  %.151 = load i32, ptr %.1.in50, align 4, !tbaa !25
   %.not4852 = icmp eq i32 %.151, %14
   br i1 %.not4852, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %gv_calloc.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !14
+  %32 = load ptr, ptr %31, align 8, !tbaa !15
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
@@ -271,24 +271,24 @@ gv_calloc.exit:                                   ; preds = %21
   %34 = getelementptr inbounds nuw %struct.Pxy_t, ptr %23, i64 %.053
   %35 = sext i32 %.154 to i64
   %36 = getelementptr inbounds %struct.Pxy_t, ptr %32, i64 %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !27
   %.0 = add i64 %.053, -1
   %.1.in = getelementptr inbounds i32, ptr %11, i64 %35
-  %.1 = load i32, ptr %.1.in, align 4, !tbaa !24
+  %.1 = load i32, ptr %.1.in, align 4, !tbaa !25
   %.not48 = icmp eq i32 %.1, %14
-  br i1 %.not48, label %._crit_edge, label %33, !llvm.loop !37
+  br i1 %.not48, label %._crit_edge, label %33, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %33, %gv_calloc.exit
   %.0.lcssa = phi i64 [ %.049, %gv_calloc.exit ], [ %.0, %33 ]
   %37 = getelementptr inbounds nuw %struct.Pxy_t, ptr %23, i64 %.0.lcssa
-  store double %1, ptr %37, align 8, !tbaa !27
+  store double %1, ptr %37, align 8, !tbaa !28
   %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store double %2, ptr %.sroa.443.0..sroa_idx, align 8, !tbaa !27
+  store double %2, ptr %.sroa.443.0..sroa_idx, align 8, !tbaa !28
   tail call void @free(ptr noundef %9) #11
   tail call void @free(ptr noundef %10) #11
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %16, ptr %38, align 8, !tbaa !8
-  store ptr %23, ptr %7, align 8, !tbaa !25
+  store ptr %23, ptr %7, align 8, !tbaa !26
   tail call void @free(ptr noundef nonnull %11) #11
   ret void
 }
@@ -340,29 +340,30 @@ attributes #15 = { cold noreturn nounwind }
 !9 = !{!"Ppoly_t", !10, i64 0, !11, i64 8}
 !10 = !{!"p1 _ZTS5Pxy_t", !5, i64 0}
 !11 = !{!"long", !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !10, i64 8}
-!15 = !{!"vconfig_s", !16, i64 0, !16, i64 4, !10, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !18, i64 40}
-!16 = !{!"int", !6, i64 0}
-!17 = !{!"p1 int", !5, i64 0}
-!18 = !{!"p2 double", !5, i64 0}
-!19 = !{!15, !17, i64 16}
-!20 = !{!15, !17, i64 24}
-!21 = !{!15, !17, i64 32}
-!22 = !{!15, !16, i64 4}
-!23 = !{!15, !16, i64 0}
-!24 = !{!16, !16, i64 0}
-!25 = !{!9, !10, i64 0}
-!26 = !{i64 0, i64 8, !27, i64 8, i64 8, !27}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"double", !6, i64 0}
-!29 = distinct !{!29, !13}
-!30 = distinct !{!30, !13}
-!31 = !{!15, !18, i64 40}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 double", !5, i64 0}
-!34 = distinct !{!34, !13}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!37 = distinct !{!37, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !10, i64 8}
+!16 = !{!"vconfig_s", !17, i64 0, !17, i64 4, !10, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !19, i64 40}
+!17 = !{!"int", !6, i64 0}
+!18 = !{!"p1 int", !5, i64 0}
+!19 = !{!"p2 double", !5, i64 0}
+!20 = !{!16, !18, i64 16}
+!21 = !{!16, !18, i64 24}
+!22 = !{!16, !18, i64 32}
+!23 = !{!16, !17, i64 4}
+!24 = !{!16, !17, i64 0}
+!25 = !{!17, !17, i64 0}
+!26 = !{!9, !10, i64 0}
+!27 = !{i64 0, i64 8, !28, i64 8, i64 8, !28}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"double", !6, i64 0}
+!30 = distinct !{!30, !13, !14}
+!31 = distinct !{!31, !13, !14}
+!32 = !{!16, !19, i64 40}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 double", !5, i64 0}
+!35 = distinct !{!35, !13, !14}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!38 = distinct !{!38, !13, !14}

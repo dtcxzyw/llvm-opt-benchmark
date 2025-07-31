@@ -1530,13 +1530,13 @@ define linkonce_odr hidden void @_ZN11bv_rewriterC2ER11ast_managerRK10params_ref
 13:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   store ptr %9, ptr %8, align 8, !tbaa !110
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 8, ptr %14, align 8, !tbaa !134
+  store i32 8, ptr %14, align 8, !tbaa !135
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %15, align 4, !tbaa !135
+  store i32 0, ptr %15, align 4, !tbaa !136
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %16, align 8, !tbaa !136
+  store i32 0, ptr %16, align 8, !tbaa !137
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 0, ptr %17, align 8, !tbaa !137
+  store i8 0, ptr %17, align 8, !tbaa !138
   invoke void @_ZN13poly_rewriterI16bv_rewriter_coreE11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN13poly_rewriterI16bv_rewriter_coreEC2ER11ast_managerRK10params_ref.exit unwind label %20
 
@@ -1572,7 +1572,7 @@ _ZN13poly_rewriterI16bv_rewriter_coreEC2ER11ast_managerRK10params_ref.exit: ; pr
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i8 0, ptr %27, align 4, !tbaa !138
+  store i8 0, ptr %27, align 4, !tbaa !139
   invoke void @_ZN11bv_rewriter17updt_local_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(157) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %28 unwind label %31
 
@@ -1938,16 +1938,17 @@ attributes #18 = { noreturn nounwind }
 !129 = !{!130, !115, i64 0}
 !130 = !{!"_ZTSN7obj_mapI4exprjE8key_dataE", !115, i64 0, !8, i64 8}
 !131 = !{!130, !8, i64 8}
-!132 = distinct !{!132, !133}
+!132 = distinct !{!132, !133, !134}
 !133 = !{!"llvm.loop.mustprogress"}
-!134 = !{!111, !8, i64 8}
-!135 = !{!111, !8, i64 12}
-!136 = !{!111, !8, i64 16}
-!137 = !{!123, !11, i64 88}
-!138 = !{!139, !11, i64 156}
-!139 = !{!"_ZTS11bv_rewriter", !123, i64 0, !140, i64 96, !143, i64 128, !11, i64 144, !11, i64 145, !11, i64 146, !11, i64 147, !11, i64 148, !11, i64 149, !11, i64 150, !11, i64 151, !11, i64 152, !11, i64 153, !11, i64 154, !11, i64 155, !11, i64 156}
-!140 = !{!"_ZTS15mk_extract_proc", !141, i64 0, !8, i64 8, !8, i64 12, !61, i64 16, !142, i64 24}
-!141 = !{!"p1 _ZTS7bv_util", !16, i64 0}
-!142 = !{!"p1 _ZTS9func_decl", !16, i64 0}
-!143 = !{!"_ZTS10arith_util", !35, i64 0, !144, i64 8}
-!144 = !{!"p1 _ZTS17arith_decl_plugin", !16, i64 0}
+!134 = !{!"llvm.loop.estimated_trip_count"}
+!135 = !{!111, !8, i64 8}
+!136 = !{!111, !8, i64 12}
+!137 = !{!111, !8, i64 16}
+!138 = !{!123, !11, i64 88}
+!139 = !{!140, !11, i64 156}
+!140 = !{!"_ZTS11bv_rewriter", !123, i64 0, !141, i64 96, !144, i64 128, !11, i64 144, !11, i64 145, !11, i64 146, !11, i64 147, !11, i64 148, !11, i64 149, !11, i64 150, !11, i64 151, !11, i64 152, !11, i64 153, !11, i64 154, !11, i64 155, !11, i64 156}
+!141 = !{!"_ZTS15mk_extract_proc", !142, i64 0, !8, i64 8, !8, i64 12, !61, i64 16, !143, i64 24}
+!142 = !{!"p1 _ZTS7bv_util", !16, i64 0}
+!143 = !{!"p1 _ZTS9func_decl", !16, i64 0}
+!144 = !{!"_ZTS10arith_util", !35, i64 0, !145, i64 8}
+!145 = !{!"p1 _ZTS17arith_decl_plugin", !16, i64 0}

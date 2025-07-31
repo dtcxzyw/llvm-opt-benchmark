@@ -227,7 +227,7 @@ define internal void @get_pixels_16_c(ptr noalias noundef writeonly captures(non
   store i64 %11, ptr %12, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !38
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -280,7 +280,7 @@ define internal void @get_pixels_8_c(ptr noalias noundef writeonly captures(none
   %36 = getelementptr inbounds nuw i8, ptr %.02023, i64 16
   %37 = add nuw nsw i32 %.024, 1
   %exitcond.not = icmp eq i32 %37, 8
-  br i1 %exitcond.not, label %38, label %4, !llvm.loop !39
+  br i1 %exitcond.not, label %38, label %4, !llvm.loop !40
 
 38:                                               ; preds = %4
   ret void
@@ -328,7 +328,8 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !33 = !{!7, !7, i64 0}
 !34 = !{!35, !35, i64 0}
 !35 = !{!"short", !7, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = distinct !{!38, !37}
-!39 = distinct !{!39, !37}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !37, !38}
+!40 = distinct !{!40, !37, !38}

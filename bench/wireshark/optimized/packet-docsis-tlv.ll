@@ -2049,7 +2049,7 @@ dissect_doc10cos.exit:                            ; preds = %113, %82
   %210 = zext i8 %142 to i32
   %211 = add i32 %141, %210
   %212 = icmp slt i32 %211, %137
-  br i1 %212, label %.lr.ph.i464, label %dissect_cos.exit, !llvm.loop !8
+  br i1 %212, label %.lr.ph.i464, label %dissect_cos.exit, !llvm.loop !9
 
 dissect_cos.exit:                                 ; preds = %209, %133
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #5
@@ -3147,7 +3147,7 @@ dissect_cos.exit:                                 ; preds = %209, %133
   %837 = add nuw nsw i32 %829, 2
   %838 = and i32 %837, 255
   %839 = icmp samesign ult i32 %838, %822
-  br i1 %839, label %828, label %.loopexit.i, !llvm.loop !9
+  br i1 %839, label %828, label %.loopexit.i, !llvm.loop !10
 
 840:                                              ; preds = %821
   %841 = load ptr, ptr %58, align 8
@@ -3180,7 +3180,7 @@ dissect_cos.exit:                                 ; preds = %209, %133
   %859 = add nuw nsw i32 %851, 2
   %860 = and i32 %859, 255
   %861 = icmp samesign ult i32 %860, %844
-  br i1 %861, label %850, label %.loopexit.i, !llvm.loop !10
+  br i1 %861, label %850, label %.loopexit.i, !llvm.loop !11
 
 862:                                              ; preds = %843
   %863 = load ptr, ptr %58, align 8
@@ -3213,7 +3213,7 @@ dissect_cos.exit:                                 ; preds = %209, %133
   %881 = add nuw nsw i32 %873, 2
   %882 = and i32 %881, 255
   %883 = icmp samesign ult i32 %882, %866
-  br i1 %883, label %872, label %.loopexit.i, !llvm.loop !11
+  br i1 %883, label %872, label %.loopexit.i, !llvm.loop !12
 
 884:                                              ; preds = %865
   %885 = load ptr, ptr %58, align 8
@@ -3245,7 +3245,7 @@ dissect_cos.exit:                                 ; preds = %209, %133
   %899 = zext i8 %222 to i32
   %900 = add i32 %221, %899
   %901 = icmp slt i32 %900, %217
-  br i1 %901, label %.lr.ph.i465, label %dissect_modemcap.exit, !llvm.loop !12
+  br i1 %901, label %.lr.ph.i465, label %dissect_modemcap.exit, !llvm.loop !13
 
 dissect_modemcap.exit:                            ; preds = %.loopexit.i, %213
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #5
@@ -3642,7 +3642,7 @@ dissect_modemcap.exit:                            ; preds = %.loopexit.i, %213
   %1122 = zext i8 %1090 to i32
   %1123 = add i32 %1089, %1122
   %1124 = icmp slt i32 %1123, %1085
-  br i1 %1124, label %.lr.ph.i.i, label %dissect_clsfr_err.exit.i, !llvm.loop !13
+  br i1 %1124, label %.lr.ph.i.i, label %dissect_clsfr_err.exit.i, !llvm.loop !14
 
 dissect_clsfr_err.exit.i:                         ; preds = %1121, %1081
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #5
@@ -3836,7 +3836,7 @@ dissect_clsfr_err.exit.i:                         ; preds = %1121, %1081
   %1229 = zext i8 %1134 to i32
   %1230 = add i32 %1133, %1229
   %1231 = icmp slt i32 %1230, %1129
-  br i1 %1231, label %.lr.ph.i120.i, label %dissect_ip_classifier.exit.i, !llvm.loop !14
+  br i1 %1231, label %.lr.ph.i120.i, label %dissect_ip_classifier.exit.i, !llvm.loop !15
 
 dissect_ip_classifier.exit.i:                     ; preds = %1228, %1125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #5
@@ -3992,7 +3992,7 @@ dissect_ip_classifier.exit.i:                     ; preds = %1228, %1125
   %1317 = zext i8 %1241 to i32
   %1318 = add i32 %1240, %1317
   %1319 = icmp slt i32 %1318, %1236
-  br i1 %1319, label %.lr.ph.i121.i, label %dissect_ip6_classifier.exit.i, !llvm.loop !15
+  br i1 %1319, label %.lr.ph.i121.i, label %dissect_ip6_classifier.exit.i, !llvm.loop !16
 
 dissect_ip6_classifier.exit.i:                    ; preds = %1316, %1232
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #5
@@ -4074,7 +4074,7 @@ dissect_ip6_classifier.exit.i:                    ; preds = %1316, %1232
   %1361 = zext i8 %1329 to i32
   %1362 = add i32 %1328, %1361
   %1363 = icmp slt i32 %1362, %1324
-  br i1 %1363, label %.lr.ph.i122.i, label %dissect_eth_clsfr.exit.i, !llvm.loop !16
+  br i1 %1363, label %.lr.ph.i122.i, label %dissect_eth_clsfr.exit.i, !llvm.loop !17
 
 dissect_eth_clsfr.exit.i:                         ; preds = %1360, %1320
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #5
@@ -4147,7 +4147,7 @@ dissect_eth_clsfr.exit.i:                         ; preds = %1360, %1320
   %1400 = zext i8 %1373 to i32
   %1401 = add i32 %1372, %1400
   %1402 = icmp slt i32 %1401, %1368
-  br i1 %1402, label %.lr.ph.i123.i, label %dissect_dot1q_clsfr.exit.i, !llvm.loop !17
+  br i1 %1402, label %.lr.ph.i123.i, label %dissect_dot1q_clsfr.exit.i, !llvm.loop !18
 
 dissect_dot1q_clsfr.exit.i:                       ; preds = %1399, %1364
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #5
@@ -4169,7 +4169,7 @@ dissect_dot1q_clsfr.exit.i:                       ; preds = %1399, %1364
   %1411 = zext i8 %1017 to i32
   %1412 = add i32 %1016, %1411
   %1413 = icmp slt i32 %1412, %1012
-  br i1 %1413, label %.lr.ph.i467, label %dissect_classifiers.exit, !llvm.loop !18
+  br i1 %1413, label %.lr.ph.i467, label %dissect_classifiers.exit, !llvm.loop !19
 
 dissect_classifiers.exit:                         ; preds = %1410, %1008
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #5
@@ -4332,7 +4332,7 @@ dissect_classifiers.exit:                         ; preds = %1410, %1008
   %1492 = zext i8 %1465 to i32
   %1493 = add i32 %1464, %1492
   %1494 = icmp slt i32 %1493, %1460
-  br i1 %1494, label %.lr.ph.i.i470, label %dissect_sflow_err.exit.i, !llvm.loop !19
+  br i1 %1494, label %.lr.ph.i.i470, label %dissect_sflow_err.exit.i, !llvm.loop !20
 
 dissect_sflow_err.exit.i:                         ; preds = %1491, %1456
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #5
@@ -4752,7 +4752,7 @@ dissect_sflow_err.exit.i:                         ; preds = %1491, %1456
   %1726 = zext i8 %1625 to i32
   %1727 = add i32 %1624, %1726
   %1728 = icmp slt i32 %1727, %1619
-  br i1 %1728, label %.lr.ph.i191.i, label %dissect_upstream_sflow.exit.i, !llvm.loop !20
+  br i1 %1728, label %.lr.ph.i191.i, label %dissect_upstream_sflow.exit.i, !llvm.loop !21
 
 1729:                                             ; preds = %1616
   br i1 %1620, label %.lr.ph.i192.i, label %dissect_upstream_sflow.exit.i
@@ -4806,13 +4806,13 @@ dissect_sflow_err.exit.i:                         ; preds = %1491, %1456
   %1754 = zext i8 %1733 to i32
   %1755 = add i32 %1732, %1754
   %1756 = icmp slt i32 %1755, %1619
-  br i1 %1756, label %.lr.ph.i192.i, label %dissect_upstream_sflow.exit.i, !llvm.loop !21
+  br i1 %1756, label %.lr.ph.i192.i, label %dissect_upstream_sflow.exit.i, !llvm.loop !22
 
 dissect_upstream_sflow.exit.i:                    ; preds = %1753, %1725, %1729, %1621, %1612, %1608, %1605, %1599, %1596, %1590, %1587, %1581, %1578, %1572, %1569, %1563, %1560, %1554, %1551, %1545, %1542, %1536, %1533, %1527, %1524, %1518, %1515, %1509, %1506, %1500, %1497, %dissect_sflow_err.exit.i, %1452, %1448, %1445, %1439, %1436, %1430, %1427
   %1757 = zext i8 %1424 to i32
   %1758 = add i32 %1423, %1757
   %1759 = icmp slt i32 %1758, %1419
-  br i1 %1759, label %.lr.ph.i469, label %dissect_sflow.exit, !llvm.loop !22
+  br i1 %1759, label %.lr.ph.i469, label %dissect_sflow.exit, !llvm.loop !23
 
 dissect_sflow.exit:                               ; preds = %dissect_upstream_sflow.exit.i, %1414
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #5
@@ -4941,7 +4941,7 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   %.pre-phi.i = phi i32 [ %.pre.i, %1826 ], [ %1824, %1822 ], [ %1820, %1818 ]
   %1830 = add i32 %.pre-phi.i, %1816
   %1831 = icmp slt i32 %1830, %1812
-  br i1 %1831, label %.lr.ph.i472, label %dissect_snmpv3_kickstart.exit, !llvm.loop !23
+  br i1 %1831, label %.lr.ph.i472, label %dissect_snmpv3_kickstart.exit, !llvm.loop !24
 
 1832:                                             ; preds = %70
   %1833 = load i32, ptr @hf_docsis_tlv_subs_mgmt_ctrl, align 4
@@ -4968,7 +4968,7 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   %1846 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %1844, ptr noundef %0, i32 noundef %1845, i32 noundef 4, i32 noundef 0)
   %1847 = add nuw nsw i32 %1843, 4
   %1848 = icmp samesign ult i32 %1847, %1837
-  br i1 %1848, label %.lr.ph, label %dissect_snmpv3_kickstart.exit, !llvm.loop !24
+  br i1 %1848, label %.lr.ph, label %dissect_snmpv3_kickstart.exit, !llvm.loop !25
 
 1849:                                             ; preds = %1836
   %1850 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %65, ptr noundef nonnull @ei_docsis_tlv_tlvlen_bad, ptr noundef nonnull @.str.1027, i32 noundef %1837)
@@ -5095,7 +5095,7 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   %1917 = zext i8 %1894 to i32
   %1918 = add i32 %1893, %1917
   %1919 = icmp slt i32 %1918, %1889
-  br i1 %1919, label %.lr.ph.i.i474, label %dissect_ds_ch_list_single.exit.i, !llvm.loop !25
+  br i1 %1919, label %.lr.ph.i.i474, label %dissect_ds_ch_list_single.exit.i, !llvm.loop !26
 
 dissect_ds_ch_list_single.exit.i:                 ; preds = %1916, %1885
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #5
@@ -5193,7 +5193,7 @@ dissect_ds_ch_list_single.exit.i:                 ; preds = %1916, %1885
   %1970 = zext i8 %1929 to i32
   %1971 = add i32 %1928, %1970
   %1972 = icmp slt i32 %1971, %1924
-  br i1 %1972, label %.lr.ph.i38.i, label %dissect_ds_ch_list_range.exit.i, !llvm.loop !26
+  br i1 %1972, label %.lr.ph.i38.i, label %dissect_ds_ch_list_range.exit.i, !llvm.loop !27
 
 dissect_ds_ch_list_range.exit.i:                  ; preds = %1969, %1920
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #5
@@ -5224,7 +5224,7 @@ dissect_ds_ch_list_range.exit.i:                  ; preds = %1969, %1920
   %1986 = zext i8 %1884 to i32
   %1987 = add i32 %1883, %1986
   %1988 = icmp slt i32 %1987, %1879
-  br i1 %1988, label %.lr.ph.i473, label %dissect_ds_ch_list.exit, !llvm.loop !27
+  br i1 %1988, label %.lr.ph.i473, label %dissect_ds_ch_list.exit, !llvm.loop !28
 
 dissect_ds_ch_list.exit:                          ; preds = %1985, %1875
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #5
@@ -5317,7 +5317,7 @@ dissect_ds_ch_list.exit:                          ; preds = %1985, %1875
   %2038 = zext i8 %2020 to i32
   %2039 = add i32 %2019, %2038
   %2040 = icmp slt i32 %2039, %2015
-  br i1 %2040, label %.lr.ph.i475, label %dissect_dut_filter.exit, !llvm.loop !28
+  br i1 %2040, label %.lr.ph.i475, label %dissect_dut_filter.exit, !llvm.loop !29
 
 dissect_dut_filter.exit:                          ; preds = %2037, %2011
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #5
@@ -5400,7 +5400,7 @@ dissect_dut_filter.exit:                          ; preds = %2037, %2011
 2073:                                             ; preds = %2071
   %2074 = load i32, ptr @hf_docsis_tlv_tcc_us_ch_id, align 4
   %2075 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2044, i32 noundef %2074, ptr noundef %0, i32 noundef %2051, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %41)
-  %2076 = load i8, ptr %69, align 8, !range !29, !noundef !30
+  %2076 = load i8, ptr %69, align 8, !range !30, !noundef !31
   %2077 = trunc nuw i8 %2076 to i1
   %.not167.i = icmp eq i32 %.2, -1
   %or.cond = select i1 %2077, i1 true, i1 %.not167.i
@@ -5448,7 +5448,7 @@ dissect_dut_filter.exit:                          ; preds = %2037, %2011
   br label %2102
 
 2102:                                             ; preds = %2101, %2095
-  %2103 = load i8, ptr %69, align 8, !range !29, !noundef !30
+  %2103 = load i8, ptr %69, align 8, !range !30, !noundef !31
   %2104 = trunc nuw i8 %2103 to i1
   br i1 %2104, label %2290, label %2105
 
@@ -5615,7 +5615,7 @@ dissect_dut_filter.exit:                          ; preds = %2037, %2011
   %2196 = zext i8 %2146 to i32
   %2197 = add i32 %2145, %2196
   %2198 = icmp slt i32 %2197, %2141
-  br i1 %2198, label %.lr.ph.i.i477, label %dissect_tcc_rng_parms.exit.i, !llvm.loop !31
+  br i1 %2198, label %.lr.ph.i.i477, label %dissect_tcc_rng_parms.exit.i, !llvm.loop !32
 
 dissect_tcc_rng_parms.exit.i:                     ; preds = %2195, %2137
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #5
@@ -5666,7 +5666,7 @@ dissect_tcc_rng_parms.exit.i:                     ; preds = %2195, %2137
   %2224 = call ptr @proto_tree_add_item(ptr noundef %2220, i32 noundef %2223, ptr noundef %0, i32 noundef %.012.i.i, i32 noundef 1, i32 noundef 0)
   %2225 = add i32 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %2225, %2221
-  br i1 %exitcond.not.i.i, label %dissect_tcc_oudp.exit.i, label %.lr.ph.i168.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %dissect_tcc_oudp.exit.i, label %.lr.ph.i168.i, !llvm.loop !33
 
 dissect_tcc_oudp.exit.i:                          ; preds = %.lr.ph.i168.i, %2217
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #5
@@ -5775,7 +5775,7 @@ dissect_tcc_oudp.exit.i:                          ; preds = %.lr.ph.i168.i, %221
   %2284 = zext i8 %2262 to i32
   %2285 = add i32 %2261, %2284
   %2286 = icmp slt i32 %2285, %2257
-  br i1 %2286, label %.lr.ph.i169.i, label %dissect_tcc_err.exit.i, !llvm.loop !33
+  br i1 %2286, label %.lr.ph.i169.i, label %dissect_tcc_err.exit.i, !llvm.loop !34
 
 dissect_tcc_err.exit.i:                           ; preds = %2283, %2253
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #5
@@ -5792,7 +5792,7 @@ dissect_tcc_err.exit.i:                           ; preds = %2283, %2253
   %2291 = zext i8 %2052 to i32
   %2292 = add i32 %2051, %2291
   %2293 = icmp slt i32 %2292, %2045
-  br i1 %2293, label %2048, label %dissect_tcc.exit, !llvm.loop !34
+  br i1 %2293, label %2048, label %dissect_tcc.exit, !llvm.loop !35
 
 dissect_tcc.exit:                                 ; preds = %2290, %2041
   %.4 = phi i32 [ %.0516522, %2041 ], [ %.3, %2290 ]
@@ -5978,7 +5978,7 @@ dissect_unknown_tlv.exit.i:                       ; preds = %2386, %2384
   %2390 = zext i8 %2342 to i32
   %2391 = add i32 %2341, %2390
   %2392 = icmp slt i32 %2391, %2337
-  br i1 %2392, label %.lr.ph.i.i.i, label %dissect_sid_cl_enc_map.exit.i.i, !llvm.loop !35
+  br i1 %2392, label %.lr.ph.i.i.i, label %dissect_sid_cl_enc_map.exit.i.i, !llvm.loop !36
 
 dissect_sid_cl_enc_map.exit.i.i:                  ; preds = %2389, %2334
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #5
@@ -6000,7 +6000,7 @@ dissect_sid_cl_enc_map.exit.i.i:                  ; preds = %2389, %2334
   %2401 = zext i8 %2322 to i32
   %2402 = add i32 %2321, %2401
   %2403 = icmp slt i32 %2402, %2317
-  br i1 %2403, label %.lr.ph.i.i483, label %dissect_sid_cl_enc.exit.i, !llvm.loop !36
+  br i1 %2403, label %.lr.ph.i.i483, label %dissect_sid_cl_enc.exit.i, !llvm.loop !37
 
 dissect_sid_cl_enc.exit.i:                        ; preds = %2400, %2313
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #5
@@ -6098,7 +6098,7 @@ dissect_sid_cl_enc.exit.i:                        ; preds = %2400, %2313
   %2454 = zext i8 %2413 to i32
   %2455 = add i32 %2412, %2454
   %2456 = icmp slt i32 %2455, %2408
-  br i1 %2456, label %.lr.ph.i38.i481, label %dissect_sid_cl_so_crit.exit.i, !llvm.loop !37
+  br i1 %2456, label %.lr.ph.i38.i481, label %dissect_sid_cl_so_crit.exit.i, !llvm.loop !38
 
 dissect_sid_cl_so_crit.exit.i:                    ; preds = %2453, %2404
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #5
@@ -6114,7 +6114,7 @@ dissect_sid_cl_so_crit.exit.i:                    ; preds = %2453, %2404
   %2461 = zext i8 %2303 to i32
   %2462 = add i32 %2302, %2461
   %2463 = icmp slt i32 %2462, %2298
-  br i1 %2463, label %.lr.ph.i479, label %dissect_sid_cl.exit, !llvm.loop !38
+  br i1 %2463, label %.lr.ph.i479, label %dissect_sid_cl.exit, !llvm.loop !39
 
 dissect_sid_cl.exit:                              ; preds = %2460, %2294
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #5
@@ -6304,7 +6304,7 @@ dissect_sid_cl.exit:                              ; preds = %2460, %2294
   %2561 = zext i8 %2538 to i32
   %2562 = add i32 %2537, %2561
   %2563 = icmp slt i32 %2562, %2533
-  br i1 %2563, label %.lr.ph.i.i.i487, label %dissect_ch_bl_rng.exit.i.i, !llvm.loop !39
+  br i1 %2563, label %.lr.ph.i.i.i487, label %dissect_ch_bl_rng.exit.i.i, !llvm.loop !40
 
 dissect_ch_bl_rng.exit.i.i:                       ; preds = %2560, %2529
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #5
@@ -6353,7 +6353,7 @@ dissect_ch_bl_rng.exit.i.i:                       ; preds = %2560, %2529
   %2589 = zext i8 %2510 to i32
   %2590 = add i32 %2509, %2589
   %2591 = icmp slt i32 %2590, %2505
-  br i1 %2591, label %.lr.ph.i.i486, label %dissect_rcp_rcv_mod.exit.i, !llvm.loop !40
+  br i1 %2591, label %.lr.ph.i.i486, label %dissect_rcp_rcv_mod.exit.i, !llvm.loop !41
 
 dissect_rcp_rcv_mod.exit.i:                       ; preds = %2588, %2501
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #5
@@ -6442,7 +6442,7 @@ dissect_rcp_rcv_mod.exit.i:                       ; preds = %2588, %2501
   %2637 = zext i8 %2601 to i32
   %2638 = add i32 %2600, %2637
   %2639 = icmp slt i32 %2638, %2596
-  br i1 %2639, label %.lr.ph.i62.i, label %dissect_rcp_rcv_ch.exit.i, !llvm.loop !41
+  br i1 %2639, label %.lr.ph.i62.i, label %dissect_rcp_rcv_ch.exit.i, !llvm.loop !42
 
 dissect_rcp_rcv_ch.exit.i:                        ; preds = %2636, %2592
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #5
@@ -6465,7 +6465,7 @@ dissect_rcp_rcv_ch.exit.i:                        ; preds = %2636, %2592
   %2649 = zext i8 %2473 to i32
   %2650 = add i32 %2472, %2649
   %2651 = icmp slt i32 %2650, %2468
-  br i1 %2651, label %.lr.ph.i485, label %dissect_rcp.exit, !llvm.loop !42
+  br i1 %2651, label %.lr.ph.i485, label %dissect_rcp.exit, !llvm.loop !43
 
 dissect_rcp.exit:                                 ; preds = %2648, %2464
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #5
@@ -6579,7 +6579,7 @@ dissect_rcp.exit:                                 ; preds = %2648, %2464
   %2707 = zext i8 %2680 to i32
   %2708 = add i32 %2679, %2707
   %2709 = icmp slt i32 %2708, %2675
-  br i1 %2709, label %.lr.ph.i.i496, label %dissect_rcc_rcv_mod.exit.i, !llvm.loop !43
+  br i1 %2709, label %.lr.ph.i.i496, label %dissect_rcc_rcv_mod.exit.i, !llvm.loop !44
 
 dissect_rcc_rcv_mod.exit.i:                       ; preds = %2706, %2671
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #5
@@ -6668,7 +6668,7 @@ dissect_rcc_rcv_mod.exit.i:                       ; preds = %2706, %2671
   %2755 = zext i8 %2719 to i32
   %2756 = add i32 %2718, %2755
   %2757 = icmp slt i32 %2756, %2714
-  br i1 %2757, label %.lr.ph.i67.i, label %dissect_rcc_rcv_ch.exit.i, !llvm.loop !44
+  br i1 %2757, label %.lr.ph.i67.i, label %dissect_rcc_rcv_ch.exit.i, !llvm.loop !45
 
 dissect_rcc_rcv_ch.exit.i:                        ; preds = %2754, %2710
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #5
@@ -6696,7 +6696,7 @@ dissect_rcc_rcv_ch.exit.i:                        ; preds = %2754, %2710
   %2769 = call ptr @proto_tree_add_item(ptr noundef %2766, i32 noundef %2767, ptr noundef %0, i32 noundef %2768, i32 noundef 1, i32 noundef 0)
   %2770 = add nuw nsw i32 %.012.i.i493, 1
   %exitcond.not.i.i494 = icmp eq i32 %2770, %2764
-  br i1 %exitcond.not.i.i494, label %dissect_rcc_partial_serv_down_chan.exit.i, label %.lr.ph.i68.i, !llvm.loop !45
+  br i1 %exitcond.not.i.i494, label %dissect_rcc_partial_serv_down_chan.exit.i, label %.lr.ph.i68.i, !llvm.loop !46
 
 dissect_rcc_partial_serv_down_chan.exit.i:        ; preds = %.lr.ph.i68.i, %2763
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #5
@@ -6738,7 +6738,7 @@ dissect_rcc_partial_serv_down_chan.exit.i:        ; preds = %.lr.ph.i68.i, %2763
   %2787 = call ptr @proto_tree_add_item(ptr noundef %2784, i32 noundef %2785, ptr noundef %0, i32 noundef %2786, i32 noundef 1, i32 noundef 0)
   %2788 = add nuw nsw i32 %.012.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %2788, %2782
-  br i1 %exitcond.not.i.i.i, label %dissect_rcc_srcc_prim_ds_ch_assign.exit.i.i, label %.lr.ph.i.i.i491, !llvm.loop !46
+  br i1 %exitcond.not.i.i.i, label %dissect_rcc_srcc_prim_ds_ch_assign.exit.i.i, label %.lr.ph.i.i.i491, !llvm.loop !47
 
 dissect_rcc_srcc_prim_ds_ch_assign.exit.i.i:      ; preds = %.lr.ph.i.i.i491, %2781
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
@@ -6759,7 +6759,7 @@ dissect_rcc_srcc_prim_ds_ch_assign.exit.i.i:      ; preds = %.lr.ph.i.i.i491, %2
   %2795 = call ptr @proto_tree_add_item(ptr noundef %2792, i32 noundef %2793, ptr noundef %0, i32 noundef %2794, i32 noundef 1, i32 noundef 0)
   %2796 = add nuw nsw i32 %.012.i35.i.i, 1
   %exitcond.not.i36.i.i = icmp eq i32 %2796, %2790
-  br i1 %exitcond.not.i36.i.i, label %dissect_rcc_srcc_ds_ch_assign.exit.i.i, label %.lr.ph.i34.i.i, !llvm.loop !47
+  br i1 %exitcond.not.i36.i.i, label %dissect_rcc_srcc_ds_ch_assign.exit.i.i, label %.lr.ph.i34.i.i, !llvm.loop !48
 
 dissect_rcc_srcc_ds_ch_assign.exit.i.i:           ; preds = %.lr.ph.i34.i.i, %2789
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
@@ -6815,7 +6815,7 @@ dissect_rcc_srcc_ds_ch_assign.exit.i.i:           ; preds = %.lr.ph.i34.i.i, %27
   %2822 = call ptr @proto_tree_add_item(ptr noundef %2819, i32 noundef %2820, ptr noundef %0, i32 noundef %2821, i32 noundef 1, i32 noundef 0)
   %2823 = add nuw nsw i32 %.012.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %2823, %2817
-  br i1 %exitcond.not.i.i.i.i, label %dissect_rcc_srcc_ds_prof_assign_prof_list.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !48
+  br i1 %exitcond.not.i.i.i.i, label %dissect_rcc_srcc_ds_prof_assign_prof_list.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !49
 
 dissect_rcc_srcc_ds_prof_assign_prof_list.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %2816
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #5
@@ -6859,7 +6859,7 @@ dissect_unknown_tlv.exit.i490:                    ; preds = %2840, %2838
   %.pre-phi.i489 = phi i32 [ %2825, %dissect_unknown_tlv.exit.i490 ], [ %2817, %dissect_rcc_srcc_ds_prof_assign_prof_list.exit.i.i.i ], [ %2813, %2812 ], [ 1, %2809 ]
   %2844 = add i32 %.pre-phi.i489, %2805
   %2845 = icmp slt i32 %2844, %2801
-  br i1 %2845, label %.lr.ph.i37.i.i, label %dissect_rcc_srcc_ds_prof_assign.exit.i.i, !llvm.loop !49
+  br i1 %2845, label %.lr.ph.i37.i.i, label %dissect_rcc_srcc_ds_prof_assign.exit.i.i, !llvm.loop !50
 
 dissect_rcc_srcc_ds_prof_assign.exit.i.i:         ; preds = %2843, %2797
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #5
@@ -6876,7 +6876,7 @@ dissect_rcc_srcc_ds_prof_assign.exit.i.i:         ; preds = %2843, %2797
   %.pre-phi.i.i = phi i32 [ %.pre.i.i, %2846 ], [ %2798, %dissect_rcc_srcc_ds_prof_assign.exit.i.i ], [ %2790, %dissect_rcc_srcc_ds_ch_assign.exit.i.i ], [ %2782, %dissect_rcc_srcc_prim_ds_ch_assign.exit.i.i ]
   %2850 = add i32 %.pre-phi.i.i, %2779
   %2851 = icmp slt i32 %2850, %2775
-  br i1 %2851, label %.lr.ph.i69.i, label %dissect_rcc_srcc.exit.i, !llvm.loop !50
+  br i1 %2851, label %.lr.ph.i69.i, label %dissect_rcc_srcc.exit.i, !llvm.loop !51
 
 dissect_rcc_srcc.exit.i:                          ; preds = %2849, %2771
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #5
@@ -6996,7 +6996,7 @@ dissect_rcc_srcc.exit.i:                          ; preds = %2849, %2771
   %2915 = zext i8 %2870 to i32
   %2916 = add i32 %2869, %2915
   %2917 = icmp slt i32 %2916, %2865
-  br i1 %2917, label %.lr.ph.i70.i, label %dissect_rcc_err.exit.i, !llvm.loop !51
+  br i1 %2917, label %.lr.ph.i70.i, label %dissect_rcc_err.exit.i, !llvm.loop !52
 
 dissect_rcc_err.exit.i:                           ; preds = %2914, %2861
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
@@ -7012,7 +7012,7 @@ dissect_rcc_err.exit.i:                           ; preds = %2914, %2861
   %2922 = zext i8 %2661 to i32
   %2923 = add i32 %2660, %2922
   %2924 = icmp slt i32 %2923, %2656
-  br i1 %2924, label %.lr.ph.i488, label %dissect_rcc.exit, !llvm.loop !52
+  br i1 %2924, label %.lr.ph.i488, label %dissect_rcc.exit, !llvm.loop !53
 
 dissect_rcc.exit:                                 ; preds = %2921, %2652
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #5
@@ -7169,7 +7169,7 @@ dissect_rcc.exit:                                 ; preds = %2921, %2652
   %3007 = zext i8 %2962 to i32
   %3008 = add i32 %2961, %3007
   %3009 = icmp slt i32 %3008, %2957
-  br i1 %3009, label %.lr.ph.i.i504, label %dissect_dsid_ds_reseq.exit.i, !llvm.loop !53
+  br i1 %3009, label %.lr.ph.i.i504, label %dissect_dsid_ds_reseq.exit.i, !llvm.loop !54
 
 dissect_dsid_ds_reseq.exit.i:                     ; preds = %3006, %2953
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
@@ -7284,7 +7284,7 @@ dissect_unknown_tlv.exit.i503:                    ; preds = %3064, %3062
   %3068 = zext i8 %3029 to i32
   %3069 = add i32 %3028, %3068
   %3070 = icmp slt i32 %3069, %3024
-  br i1 %3070, label %.lr.ph.i.i.i500, label %dissect_dsid_mc_addr.exit.i.i, !llvm.loop !54
+  br i1 %3070, label %.lr.ph.i.i.i500, label %dissect_dsid_mc_addr.exit.i.i, !llvm.loop !55
 
 dissect_dsid_mc_addr.exit.i.i:                    ; preds = %3067, %3020
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
@@ -7317,7 +7317,7 @@ dissect_dsid_mc_addr.exit.i.i:                    ; preds = %3067, %3020
   %3085 = zext i8 %3019 to i32
   %3086 = add i32 %3018, %3085
   %3087 = icmp slt i32 %3086, %3014
-  br i1 %3087, label %.lr.ph.i47.i, label %dissect_dsid_mc.exit.i, !llvm.loop !55
+  br i1 %3087, label %.lr.ph.i47.i, label %dissect_dsid_mc.exit.i, !llvm.loop !56
 
 3088:                                             ; preds = %.lr.ph.i498
   %3089 = zext i8 %2934 to i16
@@ -7329,7 +7329,7 @@ dissect_dsid_mc.exit.i:                           ; preds = %3084, %3088, %3010,
   %3091 = zext i8 %2934 to i32
   %3092 = add i32 %2933, %3091
   %3093 = icmp slt i32 %3092, %2929
-  br i1 %3093, label %.lr.ph.i498, label %dissect_dsid.exit, !llvm.loop !56
+  br i1 %3093, label %.lr.ph.i498, label %dissect_dsid.exit, !llvm.loop !57
 
 dissect_dsid.exit:                                ; preds = %dissect_dsid_mc.exit.i, %2925
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
@@ -7395,7 +7395,7 @@ dissect_dsid.exit:                                ; preds = %dissect_dsid_mc.exi
   %3126 = zext i8 %3103 to i32
   %3127 = add i32 %3102, %3126
   %3128 = icmp slt i32 %3127, %3098
-  br i1 %3128, label %.lr.ph.i506, label %dissect_sec_assoc.exit, !llvm.loop !57
+  br i1 %3128, label %.lr.ph.i506, label %dissect_sec_assoc.exit, !llvm.loop !58
 
 dissect_sec_assoc.exit:                           ; preds = %3125, %3094
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
@@ -7475,7 +7475,7 @@ dissect_sec_assoc.exit:                           ; preds = %3125, %3094
   %3169 = zext i8 %3146 to i32
   %3170 = add i32 %3145, %3169
   %3171 = icmp slt i32 %3170, %3141
-  br i1 %3171, label %.lr.ph.i508, label %dissect_ch_asgn.exit, !llvm.loop !58
+  br i1 %3171, label %.lr.ph.i508, label %dissect_ch_asgn.exit, !llvm.loop !59
 
 dissect_ch_asgn.exit:                             ; preds = %3168, %3137
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
@@ -7627,7 +7627,7 @@ dissect_ch_asgn.exit:                             ; preds = %3168, %3137
   %.pre-phi.i511 = phi i32 [ %3235, %3236 ], [ %3235, %3239 ], [ %3227, %3228 ], [ %3227, %3231 ], [ %.pre.i512, %3246 ], [ %3244, %3242 ]
   %3250 = add i32 %.pre-phi.i511, %3224
   %3251 = icmp slt i32 %3250, %3220
-  br i1 %3251, label %.lr.ph.i510, label %dissect_cmts_mc_sess_enc.exit, !llvm.loop !59
+  br i1 %3251, label %.lr.ph.i510, label %dissect_cmts_mc_sess_enc.exit, !llvm.loop !60
 
 dissect_cmts_mc_sess_enc.exit:                    ; preds = %3249, %3216
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
@@ -7662,7 +7662,7 @@ dissect_cmts_mc_sess_enc.exit:                    ; preds = %3249, %3216
   %3267 = call ptr @proto_tree_add_item(ptr noundef %3263, i32 noundef %3266, ptr noundef %0, i32 noundef %.012.i, i32 noundef 2, i32 noundef 0)
   %3268 = add i32 %.012.i, 2
   %3269 = icmp slt i32 %3268, %3264
-  br i1 %3269, label %.lr.ph.i513, label %dissect_em_id_list_for_cm.exit, !llvm.loop !60
+  br i1 %3269, label %.lr.ph.i513, label %dissect_em_id_list_for_cm.exit, !llvm.loop !61
 
 dissect_em_id_list_for_cm.exit:                   ; preds = %.lr.ph.i513, %3260
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
@@ -7736,7 +7736,7 @@ dissect_em_id_list_for_cm.exit:                   ; preds = %.lr.ph.i513, %3260
   %3307 = zext i8 %3279 to i32
   %3308 = add i32 %3278, %3307
   %3309 = icmp slt i32 %3308, %3274
-  br i1 %3309, label %.lr.ph.i514, label %dissect_fdx_tg_assignment.exit, !llvm.loop !61
+  br i1 %3309, label %.lr.ph.i514, label %dissect_fdx_tg_assignment.exit, !llvm.loop !62
 
 dissect_fdx_tg_assignment.exit:                   ; preds = %3306, %3270
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
@@ -7767,7 +7767,7 @@ dissect_snmpv3_kickstart.exit:                    ; preds = %.lr.ph, %1829, %184
   %3321 = zext i8 %74 to i32
   %3322 = add i32 %73, %3321
   %3323 = icmp slt i32 %3322, %63
-  br i1 %3323, label %70, label %._crit_edge, !llvm.loop !62
+  br i1 %3323, label %70, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %dissect_snmpv3_kickstart.exit, %4
   %3324 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -7992,7 +7992,7 @@ define internal fastcc void @dissect_phs(ptr noundef %0, ptr noundef %1, ptr nou
   %98 = zext i8 %71 to i32
   %99 = add i32 %70, %98
   %100 = icmp slt i32 %99, %66
-  br i1 %100, label %.lr.ph.i, label %dissect_phs_err.exit, !llvm.loop !63
+  br i1 %100, label %.lr.ph.i, label %dissect_phs_err.exit, !llvm.loop !64
 
 dissect_phs_err.exit:                             ; preds = %97, %62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
@@ -8086,7 +8086,7 @@ dissect_phs_err.exit:                             ; preds = %97, %62
   %153 = zext i8 %16 to i32
   %154 = add i32 %15, %153
   %155 = icmp slt i32 %154, %11
-  br i1 %155, label %.lr.ph, label %._crit_edge, !llvm.loop !64
+  br i1 %155, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %152, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
@@ -8185,62 +8185,63 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = !{i8 0, i8 2}
-!30 = !{}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}

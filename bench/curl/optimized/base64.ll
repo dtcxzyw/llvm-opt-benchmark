@@ -81,7 +81,7 @@ define dso_local range(i32 0, 62) i32 @curlx_base64_decode(ptr noundef readonly 
   %34 = or i32 %33, %32
   %35 = add nuw nsw i32 %.065106, 1
   %exitcond121.not = icmp eq i32 %35, 4
-  br i1 %exitcond121.not, label %36, label %24, !llvm.loop !14
+  br i1 %exitcond121.not, label %36, label %24, !llvm.loop !15
 
 36:                                               ; preds = %30
   %37 = trunc i32 %34 to i8
@@ -97,7 +97,7 @@ define dso_local range(i32 0, 62) i32 @curlx_base64_decode(ptr noundef readonly 
   %44 = getelementptr inbounds nuw i8, ptr %.071108, i64 3
   %45 = add nuw i64 %.076107, 1
   %exitcond122.not = icmp eq i64 %45, %17
-  br i1 %exitcond122.not, label %._crit_edge, label %.preheader95, !llvm.loop !15
+  br i1 %exitcond122.not, label %._crit_edge, label %.preheader95, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %36, %22
   %.071.lcssa = phi ptr [ %21, %22 ], [ %44, %36 ]
@@ -138,7 +138,7 @@ define dso_local range(i32 0, 62) i32 @curlx_base64_decode(ptr noundef readonly 
   %.4 = getelementptr inbounds nuw i8, ptr %.3111, i64 1
   %61 = add nuw nsw i32 %.061113, 1
   %exitcond123.not = icmp eq i32 %61, 4
-  br i1 %exitcond123.not, label %62, label %.preheader, !llvm.loop !16
+  br i1 %exitcond123.not, label %62, label %.preheader, !llvm.loop !17
 
 62:                                               ; preds = %60
   %63 = icmp eq i64 %.075, 1
@@ -271,7 +271,7 @@ define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr noundef readonly 
   %47 = add i64 %.167, -3
   %48 = getelementptr inbounds nuw i8, ptr %.05468, i64 3
   %49 = icmp ugt i64 %47, 2
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.056.lcssa = phi ptr [ %14, %.preheader ], [ %46, %.lr.ph ]
@@ -383,9 +383,10 @@ attributes #10 = { nounwind allocsize(0) }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"long", !7, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}

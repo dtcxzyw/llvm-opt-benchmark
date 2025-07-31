@@ -77,7 +77,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %36 = load i32, ptr %21, align 4, !tbaa !15
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.loopexit
   %39 = tail call i32 @llvm.smin.i32(i32 %11, i32 %9)
@@ -134,7 +134,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %58, ptr %57, align 4, !tbaa !15
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
-  br i1 %exitcond297.not, label %.preheader187, label %.lr.ph236, !llvm.loop !19
+  br i1 %exitcond297.not, label %.preheader187, label %.lr.ph236, !llvm.loop !20
 
 .preheader186:                                    ; preds = %.lr.ph239.preheader, %.preheader187
   br i1 %46, label %.lr.ph241.preheader, label %.preheader
@@ -168,7 +168,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %69, ptr %68, align 4, !tbaa !15
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %exitcond305.not = icmp eq i64 %indvars.iv.next302, %wide.trip.count304
-  br i1 %exitcond305.not, label %.preheader, label %.lr.ph241, !llvm.loop !20
+  br i1 %exitcond305.not, label %.preheader, label %.lr.ph241, !llvm.loop !21
 
 ._crit_edge245:                                   ; preds = %.lr.ph244.preheader, %.preheader
   %70 = tail call ptr @cs_idone(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, i32 noundef 1) #4
@@ -182,7 +182,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %73 = add nsw i32 %72, %.0168210
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
-  br i1 %exitcond268.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !21
+  br i1 %exitcond268.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !22
 
 ._crit_edge213:                                   ; preds = %.lr.ph212, %.preheader192
   %.0168.lcssa = phi i32 [ 0, %.preheader192 ], [ %73, %.lr.ph212 ]
@@ -257,7 +257,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %111, ptr %112, align 4, !tbaa !15
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
-  br i1 %exitcond273.not, label %.lr.ph219.preheader, label %.lr.ph217, !llvm.loop !22
+  br i1 %exitcond273.not, label %.lr.ph219.preheader, label %.lr.ph217, !llvm.loop !23
 
 .preheader190:                                    ; preds = %96, %.lr.ph219.preheader
   %113 = icmp sgt i32 %86, 0
@@ -343,7 +343,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %148 = icmp slt i64 %indvars.iv.next.i, %141
   %149 = select i1 %148, i1 %147, i1 false
-  br i1 %149, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %149, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %150 = trunc nsw i64 %indvars.iv.next.i to i32
@@ -405,7 +405,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %indvars.iv.next43.i = add nsw i64 %indvars.iv42.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next43.i to i32
   %exitcond.not.i = icmp eq i32 %157, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph20.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph20.i, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %178, %169, %154
   %179 = phi i32 [ %.pre51.i, %169 ], [ %157, %154 ], [ %157, %178 ]
@@ -415,7 +415,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %181 = sext i1 %180 to i32
   %spec.select.i = add nsw i32 %.170.i, %181
   %182 = icmp slt i32 %spec.select.i, 0
-  br i1 %182, label %cs_augment.exit, label %126, !llvm.loop !25
+  br i1 %182, label %cs_augment.exit, label %126, !llvm.loop !26
 
 .lr.ph28.i:                                       ; preds = %.lr.ph28.i, %.lr.ph28.preheader.i
   %indvars.iv47.i = phi i64 [ %127, %.lr.ph28.preheader.i ], [ %indvars.iv.next48.i, %.lr.ph28.i ]
@@ -428,12 +428,12 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %184, ptr %188, align 4, !tbaa !15
   %indvars.iv.next48.i = add nsw i64 %indvars.iv47.i, -1
   %.not66.i = icmp eq i64 %indvars.iv47.i, 0
-  br i1 %.not66.i, label %cs_augment.exit, label %.lr.ph28.i, !llvm.loop !26
+  br i1 %.not66.i, label %cs_augment.exit, label %.lr.ph28.i, !llvm.loop !27
 
 cs_augment.exit:                                  ; preds = %.loopexit.i, %.lr.ph28.i
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count283
-  br i1 %exitcond284.not, label %._crit_edge227, label %119, !llvm.loop !27
+  br i1 %exitcond284.not, label %._crit_edge227, label %119, !llvm.loop !28
 
 ._crit_edge227:                                   ; preds = %cs_augment.exit
   %189 = tail call ptr @cs_free(ptr noundef %116) #4
@@ -466,7 +466,7 @@ cs_augment.exit:                                  ; preds = %.loopexit.i, %.lr.p
 199:                                              ; preds = %.lr.ph232, %195
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count291
-  br i1 %exitcond292.not, label %._crit_edge233, label %.lr.ph232, !llvm.loop !28
+  br i1 %exitcond292.not, label %._crit_edge233, label %.lr.ph232, !llvm.loop !29
 
 ._crit_edge233:                                   ; preds = %199, %.preheader188
   %200 = tail call ptr @cs_idone(ptr noundef nonnull %17, ptr noundef %78, ptr noundef nonnull %93, i32 noundef 1) #4
@@ -519,16 +519,17 @@ attributes #4 = { nounwind }
 !13 = !{!4, !8, i64 16}
 !14 = !{!4, !8, i64 24}
 !15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !17}
-!24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17}
-!27 = distinct !{!27, !17}
-!28 = distinct !{!28, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !17, !18}
+!24 = distinct !{!24, !17, !18}
+!25 = distinct !{!25, !17, !18}
+!26 = distinct !{!26, !17, !18}
+!27 = distinct !{!27, !17, !18}
+!28 = distinct !{!28, !17, !18}
+!29 = distinct !{!29, !17, !18}

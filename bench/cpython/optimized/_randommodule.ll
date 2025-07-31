@@ -395,7 +395,7 @@ define internal ptr @_random_Random_getstate(ptr noundef readonly captures(none)
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !32
+  %17 = load i32, ptr %16, align 8, !tbaa !33
   %18 = sext i32 %17 to i64
   %19 = tail call ptr @PyLong_FromLong(i64 noundef %18) #8
   %20 = icmp eq ptr %19, null
@@ -433,7 +433,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
   %4 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %4, align 8, !tbaa !17
   %5 = getelementptr i8, ptr %.val.i, i64 168
-  %.val27.i = load i64, ptr %5, align 8, !tbaa !34
+  %.val27.i = load i64, ptr %5, align 8, !tbaa !35
   %6 = and i64 %.val27.i, 67108864
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %7, label %9
@@ -476,7 +476,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
   store i32 %22, ptr %23, align 4, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
-  br i1 %exitcond.not.i, label %24, label %14, !llvm.loop !35
+  br i1 %exitcond.not.i, label %24, label %14, !llvm.loop !36
 
 24:                                               ; preds = %21
   %25 = getelementptr i8, ptr %1, i64 5016
@@ -502,7 +502,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
 .loopexit.loopexit.i:                             ; preds = %31
   %33 = trunc nuw nsw i64 %27 to i32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %33, ptr %34, align 8, !tbaa !32
+  store i32 %33, ptr %34, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(2496) %35, ptr noundef nonnull align 16 dereferenceable(2496) %3, i64 2496, i1 false), !tbaa !29
   br label %_random_Random_setstate_impl.exit
@@ -542,7 +542,7 @@ define internal ptr @_random_Random_getrandbits(ptr noundef captures(none) %0, p
 define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !32
+  %4 = load i32, ptr %3, align 8, !tbaa !33
   %5 = icmp sgt i32 %4, 623
   br i1 %5, label %.preheader43.preheader, label %53
 
@@ -576,7 +576,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %21 = xor i32 %20, %15
   store i32 %21, ptr %7, align 4, !tbaa !29
   %exitcond.not = icmp eq i64 %indvars.iv.next, 227
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %.preheader43, !llvm.loop !36
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %.preheader43, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %22 = phi i32 [ %.pre51, %.lr.ph.preheader ], [ %26, %.lr.ph ]
@@ -599,7 +599,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %37 = xor i32 %36, %31
   store i32 %37, ptr %23, align 4, !tbaa !29
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 623
-  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %38 = getelementptr i8, ptr %0, i64 2512
@@ -623,7 +623,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
 53:                                               ; preds = %._crit_edge, %1
   %54 = phi i32 [ 0, %._crit_edge ], [ %4, %1 ]
   %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %3, align 8, !tbaa !32
+  store i32 %55, ptr %3, align 8, !tbaa !33
   %56 = sext i32 %54 to i64
   %57 = getelementptr i32, ptr %2, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !29
@@ -680,11 +680,11 @@ define internal fastcc range(i32 -1, 1) i32 @random_seed(ptr noundef captures(no
   store i32 %19, ptr %14, align 4, !tbaa !29
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 624
-  br i1 %exitcond.not.i.i.i, label %init_genrand.exit.i.i, label %13, !llvm.loop !38
+  br i1 %exitcond.not.i.i.i, label %init_genrand.exit.i.i, label %13, !llvm.loop !39
 
 init_genrand.exit.i.i:                            ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 624, ptr %20, align 8, !tbaa !32
+  store i32 624, ptr %20, align 8, !tbaa !33
   %21 = getelementptr i8, ptr %0, i64 2512
   br label %22
 
@@ -722,7 +722,7 @@ init_genrand.exit.i.i:                            ; preds = %13
   %spec.store.select.i.i = select i1 %.not45.i.i, i64 %37, i64 0
   %42 = add nsw i64 %.03947.i.i, -1
   %.not.i.i = icmp eq i64 %42, 0
-  br i1 %.not.i.i, label %.preheader.i.i, label %22, !llvm.loop !39
+  br i1 %.not.i.i, label %.preheader.i.i, label %22, !llvm.loop !40
 
 .preheader.i.i:                                   ; preds = %41, %57
   %.250.i.i = phi i64 [ %.3.i.i, %57 ], [ %.1.i.i, %41 ]
@@ -751,7 +751,7 @@ init_genrand.exit.i.i:                            ; preds = %13
   %.3.i.i = phi i64 [ 1, %55 ], [ %53, %.preheader.i.i ]
   %58 = add nsw i64 %.14049.i.i, -1
   %.not44.i.i = icmp eq i64 %58, 0
-  br i1 %.not44.i.i, label %random_seed_urandom.exit, label %.preheader.i.i, !llvm.loop !40
+  br i1 %.not44.i.i, label %random_seed_urandom.exit, label %.preheader.i.i, !llvm.loop !41
 
 random_seed_urandom.exit:                         ; preds = %57
   store i32 -2147483648, ptr %12, align 4, !tbaa !29
@@ -772,7 +772,7 @@ random_seed_time_pid.exit.thread:                 ; preds = %59
 
 62:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #8
-  %63 = load i64, ptr %3, align 8, !tbaa !41
+  %63 = load i64, ptr %3, align 8, !tbaa !42
   store i64 %63, ptr %4, align 16
   %64 = call i32 @getpid() #8
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -787,7 +787,7 @@ random_seed_time_pid.exit.thread69:               ; preds = %62
   br label %210
 
 68:                                               ; preds = %62
-  %69 = load i64, ptr %3, align 8, !tbaa !41
+  %69 = load i64, ptr %3, align 8, !tbaa !42
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i64 %69, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -806,11 +806,11 @@ random_seed_time_pid.exit.thread69:               ; preds = %62
   store i32 %78, ptr %73, align 4, !tbaa !29
   %indvars.iv.next.i.i.i47 = add nuw nsw i64 %indvars.iv.i.i.i46, 1
   %exitcond.not.i.i.i48 = icmp eq i64 %indvars.iv.next.i.i.i47, 624
-  br i1 %exitcond.not.i.i.i48, label %init_genrand.exit.i.i49, label %72, !llvm.loop !38
+  br i1 %exitcond.not.i.i.i48, label %init_genrand.exit.i.i49, label %72, !llvm.loop !39
 
 init_genrand.exit.i.i49:                          ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 624, ptr %79, align 8, !tbaa !32
+  store i32 624, ptr %79, align 8, !tbaa !33
   %80 = getelementptr i8, ptr %0, i64 2512
   br label %81
 
@@ -848,7 +848,7 @@ init_genrand.exit.i.i49:                          ; preds = %72
   %spec.store.select.i.i55 = select i1 %.not45.i.i54, i64 %96, i64 0
   %101 = add nsw i64 %.03947.i.i51, -1
   %.not.i.i56 = icmp eq i64 %101, 0
-  br i1 %.not.i.i56, label %.preheader.i.i57, label %81, !llvm.loop !39
+  br i1 %.not.i.i56, label %.preheader.i.i57, label %81, !llvm.loop !40
 
 .preheader.i.i57:                                 ; preds = %100, %116
   %.250.i.i58 = phi i64 [ %.3.i.i60, %116 ], [ %.1.i.i53, %100 ]
@@ -877,7 +877,7 @@ init_genrand.exit.i.i49:                          ; preds = %72
   %.3.i.i60 = phi i64 [ 1, %114 ], [ %112, %.preheader.i.i57 ]
   %117 = add nsw i64 %.14049.i.i59, -1
   %.not44.i.i61 = icmp eq i64 %117, 0
-  br i1 %.not44.i.i61, label %random_seed_time_pid.exit, label %.preheader.i.i57, !llvm.loop !40
+  br i1 %.not44.i.i61, label %random_seed_time_pid.exit, label %.preheader.i.i57, !llvm.loop !41
 
 random_seed_time_pid.exit:                        ; preds = %116
   store i32 -2147483648, ptr %71, align 4, !tbaa !29
@@ -897,7 +897,7 @@ random_seed_time_pid.exit:                        ; preds = %116
 
 122:                                              ; preds = %118
   %123 = getelementptr i8, ptr %.val44, i64 168
-  %.val45 = load i64, ptr %123, align 8, !tbaa !34
+  %.val45 = load i64, ptr %123, align 8, !tbaa !35
   %124 = and i64 %.val45, 16777216
   %.not40 = icmp eq i64 %124, 0
   br i1 %.not40, label %132, label %125
@@ -971,11 +971,11 @@ random_seed_time_pid.exit:                        ; preds = %116
   store i32 %163, ptr %158, align 4, !tbaa !29
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 624
-  br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %157, !llvm.loop !38
+  br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %157, !llvm.loop !39
 
 init_genrand.exit.i:                              ; preds = %157
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 624, ptr %164, align 8, !tbaa !32
+  store i32 624, ptr %164, align 8, !tbaa !33
   %165 = tail call i64 @llvm.umax.i64(i64 range(i64 -288230376151711743, 288230376151711745) %146, i64 624)
   %166 = getelementptr i8, ptr %0, i64 2512
   br label %167
@@ -1014,7 +1014,7 @@ init_genrand.exit.i:                              ; preds = %157
   %spec.store.select.i = select i1 %.not45.i, i64 %182, i64 0
   %187 = add i64 %.03947.i, -1
   %.not.i = icmp eq i64 %187, 0
-  br i1 %.not.i, label %.preheader.i, label %167, !llvm.loop !39
+  br i1 %.not.i, label %.preheader.i, label %167, !llvm.loop !40
 
 .preheader.i:                                     ; preds = %186, %202
   %.250.i = phi i64 [ %.3.i, %202 ], [ %.1.i64, %186 ]
@@ -1043,7 +1043,7 @@ init_genrand.exit.i:                              ; preds = %157
   %.3.i = phi i64 [ 1, %200 ], [ %198, %.preheader.i ]
   %203 = add nsw i64 %.14049.i, -1
   %.not44.i = icmp eq i64 %203, 0
-  br i1 %.not44.i, label %204, label %.preheader.i, !llvm.loop !40
+  br i1 %.not44.i, label %204, label %.preheader.i, !llvm.loop !41
 
 204:                                              ; preds = %202
   store i32 -2147483648, ptr %156, align 4, !tbaa !29
@@ -1185,7 +1185,7 @@ define internal fastcc ptr @_random_Random_getrandbits_impl(ptr noundef captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = add i32 %.02329, -32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %35, label %.preheader, !llvm.loop !42
+  br i1 %exitcond.not, label %35, label %.preheader, !llvm.loop !43
 
 35:                                               ; preds = %.preheader
   %36 = tail call ptr @_PyLong_FromByteArray(ptr noundef nonnull %24, i64 noundef %23, i32 noundef 1, i32 noundef 0) #8
@@ -1251,16 +1251,17 @@ attributes #8 = { nounwind }
 !27 = !{!"short", !6, i64 0}
 !28 = !{!20, !21, i64 16}
 !29 = !{!26, !26, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!33, !26, i64 16}
-!33 = !{!"", !5, i64 0, !26, i64 16, !6, i64 20}
-!34 = !{!19, !21, i64 168}
-!35 = distinct !{!35, !31}
-!36 = distinct !{!36, !31}
-!37 = distinct !{!37, !31}
-!38 = distinct !{!38, !31}
-!39 = distinct !{!39, !31}
-!40 = distinct !{!40, !31}
-!41 = !{!21, !21, i64 0}
-!42 = distinct !{!42, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!34, !26, i64 16}
+!34 = !{!"", !5, i64 0, !26, i64 16, !6, i64 20}
+!35 = !{!19, !21, i64 168}
+!36 = distinct !{!36, !31, !32}
+!37 = distinct !{!37, !31, !32}
+!38 = distinct !{!38, !31, !32}
+!39 = distinct !{!39, !31, !32}
+!40 = distinct !{!40, !31, !32}
+!41 = distinct !{!41, !31, !32}
+!42 = !{!21, !21, i64 0}
+!43 = distinct !{!43, !31, !32}

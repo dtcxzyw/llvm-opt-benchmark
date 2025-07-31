@@ -211,18 +211,18 @@ init_pattern_from_file.exit:                      ; preds = %29
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %97 = load i32, ptr %96, align 4, !tbaa !31
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %99 = load i32, ptr %98, align 8, !tbaa !39
+  %99 = load i32, ptr %98, align 8, !tbaa !40
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  %101 = load i32, ptr %100, align 4, !tbaa !40
+  %101 = load i32, ptr %100, align 4, !tbaa !41
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %103 = load i8, ptr %102, align 8, !tbaa !41
+  %103 = load i8, ptr %102, align 8, !tbaa !42
   %104 = zext i8 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %106 = load i32, ptr %105, align 8, !tbaa !42
+  %106 = load i32, ptr %105, align 8, !tbaa !43
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 108
-  %108 = load i32, ptr %107, align 4, !tbaa !43
+  %108 = load i32, ptr %107, align 4, !tbaa !44
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %110 = load i32, ptr %109, align 8, !tbaa !44
+  %110 = load i32, ptr %109, align 8, !tbaa !45
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %112 = load i64, ptr %111, align 8, !tbaa !33
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.35, i32 noundef %95, i32 noundef %97, i32 noundef %99, i32 noundef %101, i32 noundef %104, i32 noundef %106, i32 noundef %108, i32 noundef %110, i64 noundef %112) #7
@@ -251,7 +251,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @request_frame(ptr noundef %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !46
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -268,13 +268,13 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 128
   store i32 1, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %13 = load i64, ptr %12, align 8, !tbaa !53
+  %13 = load i64, ptr %12, align 8, !tbaa !54
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %17 = load i32, ptr %16, align 8, !tbaa !44
+  %17 = load i32, ptr %16, align 8, !tbaa !45
   %.not22 = icmp eq i32 %17, 0
   br i1 %.not22, label %.loopexit, label %.preheader
 
@@ -284,7 +284,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %20 = load ptr, ptr %0, align 8, !tbaa !45
+  %20 = load ptr, ptr %0, align 8, !tbaa !46
   %21 = getelementptr i8, ptr %20, i64 72
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -298,8 +298,8 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %28 = load i32, ptr %27, align 4, !tbaa !31
   %29 = add nsw i32 %28, -1
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 120
-  %.promoted = load i32, ptr %26, align 4, !tbaa !54
-  %.promoted43 = load i64, ptr %30, align 8, !tbaa !53
+  %.promoted = load i32, ptr %26, align 4, !tbaa !55
+  %.promoted43 = load i64, ptr %30, align 8, !tbaa !54
   %31 = add nsw i32 %18, -2
   br label %evolve.exit.us
 
@@ -313,39 +313,39 @@ evolve.exit.us:                                   ; preds = %evolve.exit.us, %.l
   %35 = add nsw i64 %32, 1
   %36 = add nuw nsw i32 %.041.us, 1
   %exitcond.not = icmp eq i32 %.041.us, %31
-  br i1 %exitcond.not, label %..loopexit_crit_edge.split.us, label %evolve.exit.us, !llvm.loop !55
+  br i1 %exitcond.not, label %..loopexit_crit_edge.split.us, label %evolve.exit.us, !llvm.loop !56
 
 ..loopexit_crit_edge.split.us:                    ; preds = %evolve.exit.us
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store i32 %spec.select.i.us, ptr %26, align 4, !tbaa !54
-  store i32 %spec.select.i.us42, ptr %37, align 8, !tbaa !57
-  store i64 %35, ptr %30, align 8, !tbaa !53
+  store i32 %spec.select.i.us, ptr %26, align 4, !tbaa !55
+  store i32 %spec.select.i.us42, ptr %37, align 8, !tbaa !58
+  store i64 %35, ptr %30, align 8, !tbaa !54
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %evolve.exit
   %38 = phi i32 [ %116, %evolve.exit ], [ %18, %.lr.ph ]
   %.041 = phi i32 [ %120, %evolve.exit ], [ 0, %.lr.ph ]
-  %39 = load ptr, ptr %0, align 8, !tbaa !45
+  %39 = load ptr, ptr %0, align 8, !tbaa !46
   %40 = getelementptr i8, ptr %39, i64 72
   %.val = load ptr, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !32
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 60
-  %44 = load i32, ptr %43, align 4, !tbaa !54
+  %44 = load i32, ptr %43, align 4, !tbaa !55
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !20
   %47 = mul nsw i32 %46, %44
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %42, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  store i32 %44, ptr %50, align 8, !tbaa !57
+  store i32 %44, ptr %50, align 8, !tbaa !58
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 12
   %52 = load i32, ptr %51, align 4, !tbaa !31
   %53 = add nsw i32 %52, -1
   %54 = icmp eq i32 %44, %53
   %55 = add nsw i32 %44, 1
   %spec.select.i = select i1 %54, i32 0, i32 %55
-  store i32 %spec.select.i, ptr %43, align 4, !tbaa !54
+  store i32 %spec.select.i, ptr %43, align 4, !tbaa !55
   %56 = mul nsw i32 %spec.select.i, %46
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %42, i64 %57
@@ -361,7 +361,7 @@ evolve.exit.us:                                   ; preds = %evolve.exit.us, %.l
 62:                                               ; preds = %106, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.pre-phi.i, %106 ]
   %63 = phi i32 [ %46, %.lr.ph.i ], [ %113, %106 ]
-  %64 = load i32, ptr %60, align 8, !tbaa !42
+  %64 = load i32, ptr %60, align 8, !tbaa !43
   %.not.i = icmp eq i32 %64, 0
   %.not49.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %84, label %65
@@ -425,7 +425,7 @@ evolve.exit.us:                                   ; preds = %evolve.exit.us, %.l
 106:                                              ; preds = %103, %65
   %indvars.iv.next.pre-phi.i = phi i64 [ %96, %103 ], [ %67, %65 ]
   %.043.i = phi i32 [ %105, %103 ], [ %83, %65 ]
-  %107 = load i8, ptr %61, align 8, !tbaa !41
+  %107 = load i8, ptr %61, align 8, !tbaa !42
   %108 = zext i8 %107 to i32
   %109 = lshr i32 %108, %.043.i
   %110 = trunc nuw i32 %109 to i8
@@ -435,7 +435,7 @@ evolve.exit.us:                                   ; preds = %evolve.exit.us, %.l
   %113 = load i32, ptr %45, align 8, !tbaa !20
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next.pre-phi.i, %114
-  br i1 %115, label %62, label %evolve.exit.loopexit, !llvm.loop !58
+  br i1 %115, label %62, label %evolve.exit.loopexit, !llvm.loop !59
 
 evolve.exit.loopexit:                             ; preds = %106
   %.pre = load i32, ptr %7, align 4, !tbaa !31
@@ -444,21 +444,21 @@ evolve.exit.loopexit:                             ; preds = %106
 evolve.exit:                                      ; preds = %evolve.exit.loopexit, %.lr.ph.split
   %116 = phi i32 [ %.pre, %evolve.exit.loopexit ], [ %38, %.lr.ph.split ]
   %117 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  %118 = load i64, ptr %117, align 8, !tbaa !53
+  %118 = load i64, ptr %117, align 8, !tbaa !54
   %119 = add nsw i64 %118, 1
-  store i64 %119, ptr %117, align 8, !tbaa !53
+  store i64 %119, ptr %117, align 8, !tbaa !54
   %120 = add nuw nsw i32 %.041, 1
   %121 = add nsw i32 %116, -1
   %122 = icmp slt i32 %120, %121
-  br i1 %122, label %.lr.ph.split, label %.loopexit, !llvm.loop !59
+  br i1 %122, label %.lr.ph.split, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %evolve.exit, %.preheader, %..loopexit_crit_edge.split.us, %15, %10
-  %123 = load ptr, ptr %0, align 8, !tbaa !45
+  %123 = load ptr, ptr %0, align 8, !tbaa !46
   %124 = getelementptr i8, ptr %123, i64 72
   %.val24 = load ptr, ptr %124, align 8, !tbaa !4
-  %125 = load ptr, ptr %9, align 8, !tbaa !61
+  %125 = load ptr, ptr %9, align 8, !tbaa !62
   %126 = getelementptr inbounds nuw i8, ptr %.val24, i64 108
-  %127 = load i32, ptr %126, align 4, !tbaa !43
+  %127 = load i32, ptr %126, align 4, !tbaa !44
   %.not.i25 = icmp eq i32 %127, 0
   br i1 %.not.i25, label %._crit_edge13.i, label %128
 
@@ -469,7 +469,7 @@ evolve.exit:                                      ; preds = %evolve.exit.loopexi
 
 128:                                              ; preds = %.loopexit
   %129 = getelementptr inbounds nuw i8, ptr %.val24, i64 120
-  %130 = load i64, ptr %129, align 8, !tbaa !53
+  %130 = load i64, ptr %129, align 8, !tbaa !54
   %131 = getelementptr inbounds nuw i8, ptr %.val24, i64 12
   %132 = load i32, ptr %131, align 4, !tbaa !31
   %133 = sext i32 %132 to i64
@@ -478,7 +478,7 @@ evolve.exit:                                      ; preds = %evolve.exit.loopexi
 
 134:                                              ; preds = %128
   %135 = getelementptr inbounds nuw i8, ptr %.val24, i64 60
-  %136 = load i32, ptr %135, align 4, !tbaa !54
+  %136 = load i32, ptr %135, align 4, !tbaa !55
   %137 = add nsw i32 %136, 1
   %138 = srem i32 %137, %132
   br label %139
@@ -548,7 +548,7 @@ evolve.exit:                                      ; preds = %evolve.exit.loopexi
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i27, 1
   %174 = sext i32 %173 to i64
   %175 = icmp slt i64 %indvars.iv.next.i, %174
-  br i1 %175, label %.lr.ph.i26, label %._crit_edge.loopexit.i, !llvm.loop !62
+  br i1 %175, label %.lr.ph.i26, label %._crit_edge.loopexit.i, !llvm.loop !63
 
 ._crit_edge.loopexit.i:                           ; preds = %172
   %.pre15.i = load i32, ptr %141, align 4, !tbaa !31
@@ -565,10 +565,10 @@ evolve.exit:                                      ; preds = %evolve.exit.loopexi
   %183 = getelementptr inbounds i8, ptr %.0326.i, i64 %182
   %184 = add nuw nsw i32 %.0297.i, 1
   %185 = icmp slt i32 %184, %176
-  br i1 %185, label %.lr.ph9.split.i, label %fill_picture.exit.loopexit, !llvm.loop !63
+  br i1 %185, label %.lr.ph9.split.i, label %fill_picture.exit.loopexit, !llvm.loop !64
 
 fill_picture.exit.loopexit:                       ; preds = %._crit_edge.i
-  %.pre46 = load ptr, ptr %0, align 8, !tbaa !45
+  %.pre46 = load ptr, ptr %0, align 8, !tbaa !46
   %.phi.trans.insert = getelementptr i8, ptr %.pre46, i64 72
   %.val23.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !4
   %.phi.trans.insert48 = getelementptr inbounds nuw i8, ptr %.val23.pre, i64 12
@@ -581,19 +581,19 @@ fill_picture.exit:                                ; preds = %fill_picture.exit.l
   %187 = getelementptr inbounds nuw i8, ptr %.val23, i64 48
   %188 = load ptr, ptr %187, align 8, !tbaa !32
   %189 = getelementptr inbounds nuw i8, ptr %.val23, i64 60
-  %190 = load i32, ptr %189, align 4, !tbaa !54
+  %190 = load i32, ptr %189, align 4, !tbaa !55
   %191 = getelementptr inbounds nuw i8, ptr %.val23, i64 8
   %192 = load i32, ptr %191, align 8, !tbaa !20
   %193 = mul nsw i32 %192, %190
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds i8, ptr %188, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %.val23, i64 56
-  store i32 %190, ptr %196, align 8, !tbaa !57
+  store i32 %190, ptr %196, align 8, !tbaa !58
   %197 = add nsw i32 %186, -1
   %198 = icmp eq i32 %190, %197
   %199 = add nsw i32 %190, 1
   %spec.select.i28 = select i1 %198, i32 0, i32 %199
-  store i32 %spec.select.i28, ptr %189, align 4, !tbaa !54
+  store i32 %spec.select.i28, ptr %189, align 4, !tbaa !55
   %200 = mul nsw i32 %spec.select.i28, %192
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds i8, ptr %188, i64 %201
@@ -609,7 +609,7 @@ fill_picture.exit:                                ; preds = %fill_picture.exit.l
 206:                                              ; preds = %250, %.lr.ph.i31
   %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.pre-phi.i37, %250 ]
   %207 = phi i32 [ %192, %.lr.ph.i31 ], [ %257, %250 ]
-  %208 = load i32, ptr %204, align 8, !tbaa !42
+  %208 = load i32, ptr %204, align 8, !tbaa !43
   %.not.i33 = icmp eq i32 %208, 0
   %.not49.i34 = icmp eq i64 %indvars.iv.i32, 0
   br i1 %.not.i33, label %228, label %209
@@ -673,7 +673,7 @@ fill_picture.exit:                                ; preds = %fill_picture.exit.l
 250:                                              ; preds = %247, %209
   %indvars.iv.next.pre-phi.i37 = phi i64 [ %240, %247 ], [ %211, %209 ]
   %.043.i38 = phi i32 [ %249, %247 ], [ %227, %209 ]
-  %251 = load i8, ptr %205, align 8, !tbaa !41
+  %251 = load i8, ptr %205, align 8, !tbaa !42
   %252 = zext i8 %251 to i32
   %253 = lshr i32 %252, %.043.i38
   %254 = trunc nuw i32 %253 to i8
@@ -683,21 +683,21 @@ fill_picture.exit:                                ; preds = %fill_picture.exit.l
   %257 = load i32, ptr %191, align 8, !tbaa !20
   %258 = sext i32 %257 to i64
   %259 = icmp slt i64 %indvars.iv.next.pre-phi.i37, %258
-  br i1 %259, label %206, label %evolve.exit40, !llvm.loop !58
+  br i1 %259, label %206, label %evolve.exit40, !llvm.loop !59
 
 evolve.exit40:                                    ; preds = %250, %fill_picture.exit
   %260 = getelementptr inbounds nuw i8, ptr %.val23, i64 120
-  %261 = load i64, ptr %260, align 8, !tbaa !53
+  %261 = load i64, ptr %260, align 8, !tbaa !54
   %262 = add nsw i64 %261, 1
-  store i64 %262, ptr %260, align 8, !tbaa !53
+  store i64 %262, ptr %260, align 8, !tbaa !54
   %263 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %264 = load i64, ptr %263, align 8, !tbaa !64
+  %264 = load i64, ptr %263, align 8, !tbaa !65
   %265 = add i64 %264, 1
-  store i64 %265, ptr %263, align 8, !tbaa !64
+  store i64 %265, ptr %263, align 8, !tbaa !65
   %266 = getelementptr inbounds nuw i8, ptr %9, i64 136
-  store i64 %264, ptr %266, align 8, !tbaa !65
+  store i64 %264, ptr %266, align 8, !tbaa !66
   %267 = getelementptr inbounds nuw i8, ptr %9, i64 408
-  store i64 1, ptr %267, align 8, !tbaa !70
+  store i64 1, ptr %267, align 8, !tbaa !71
   %268 = tail call i32 @ff_filter_frame(ptr noundef nonnull %0, ptr noundef nonnull %9) #7
   br label %269
 
@@ -708,17 +708,17 @@ evolve.exit40:                                    ; preds = %250, %fill_picture.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @config_props(ptr noundef captures(none) initializes((40, 48), (96, 104), (264, 272)) %0) #2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !46
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %6, ptr %7, align 8, !tbaa !71
+  store i32 %6, ptr %7, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %9, ptr %10, align 4, !tbaa !72
+  store i32 %9, ptr %10, align 4, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %13 = load i64, ptr %12, align 8
@@ -823,7 +823,7 @@ define internal fastcc range(i32 -22, 1) i32 @init_pattern_from_string(ptr nound
   %43 = getelementptr inbounds i8, ptr %42, i64 %indvars.iv
   store i8 %41, ptr %43, align 1, !tbaa !30
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br label %31
+  br label %31, !llvm.loop !74
 
 .loopexit:                                        ; preds = %31, %31, %18, %12
   %.032 = phi i32 [ -22, %12 ], [ -12, %18 ], [ 0, %31 ], [ 0, %31 ]
@@ -899,39 +899,41 @@ attributes #8 = { nounwind willreturn memory(read) }
 !34 = !{!25, !15, i64 256}
 !35 = !{!15, !15, i64 0}
 !36 = !{!21, !24, i64 88}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!21, !15, i64 80}
-!40 = !{!21, !15, i64 84}
-!41 = !{!21, !8, i64 64}
-!42 = !{!21, !15, i64 104}
-!43 = !{!21, !15, i64 108}
-!44 = !{!21, !15, i64 112}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"AVFilterLink", !47, i64 0, !12, i64 8, !47, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !23, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !48, i64 72, !23, i64 96, !49, i64 104, !15, i64 112, !50, i64 120, !50, i64 160}
-!47 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!48 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
-!49 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
-!50 = !{!"AVFilterFormatsConfig", !51, i64 0, !51, i64 8, !52, i64 16, !51, i64 24, !51, i64 32}
-!51 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
-!52 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
-!53 = !{!21, !22, i64 120}
-!54 = !{!21, !15, i64 60}
-!55 = distinct !{!55, !38, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = !{!21, !15, i64 56}
-!58 = distinct !{!58, !38}
-!59 = distinct !{!59, !38, !60}
-!60 = !{!"llvm.loop.unswitch.partial.disable"}
-!61 = !{!11, !11, i64 0}
-!62 = distinct !{!62, !38}
-!63 = distinct !{!63, !38, !60}
-!64 = !{!21, !22, i64 72}
-!65 = !{!66, !22, i64 136}
-!66 = !{!"AVFrame", !8, i64 0, !8, i64 64, !67, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !23, i64 124, !22, i64 136, !22, i64 144, !23, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !68, i64 248, !15, i64 256, !49, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !22, i64 304, !69, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !22, i64 344, !22, i64 352, !22, i64 360, !22, i64 368, !7, i64 376, !48, i64 384, !22, i64 408}
-!67 = !{!"p2 omnipotent char", !14, i64 0}
-!68 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!69 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!70 = !{!66, !22, i64 408}
-!71 = !{!46, !15, i64 40}
-!72 = !{!46, !15, i64 44}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!21, !15, i64 80}
+!41 = !{!21, !15, i64 84}
+!42 = !{!21, !8, i64 64}
+!43 = !{!21, !15, i64 104}
+!44 = !{!21, !15, i64 108}
+!45 = !{!21, !15, i64 112}
+!46 = !{!47, !48, i64 0}
+!47 = !{!"AVFilterLink", !48, i64 0, !12, i64 8, !48, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !23, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !49, i64 72, !23, i64 96, !50, i64 104, !15, i64 112, !51, i64 120, !51, i64 160}
+!48 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!49 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
+!50 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
+!51 = !{!"AVFilterFormatsConfig", !52, i64 0, !52, i64 8, !53, i64 16, !52, i64 24, !52, i64 32}
+!52 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
+!53 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!54 = !{!21, !22, i64 120}
+!55 = !{!21, !15, i64 60}
+!56 = distinct !{!56, !38, !39, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = !{!21, !15, i64 56}
+!59 = distinct !{!59, !38, !39}
+!60 = distinct !{!60, !38, !39, !61}
+!61 = !{!"llvm.loop.unswitch.partial.disable"}
+!62 = !{!11, !11, i64 0}
+!63 = distinct !{!63, !38, !39}
+!64 = distinct !{!64, !38, !39, !61}
+!65 = !{!21, !22, i64 72}
+!66 = !{!67, !22, i64 136}
+!67 = !{!"AVFrame", !8, i64 0, !8, i64 64, !68, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !23, i64 124, !22, i64 136, !22, i64 144, !23, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !69, i64 248, !15, i64 256, !50, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !22, i64 304, !70, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !22, i64 344, !22, i64 352, !22, i64 360, !22, i64 368, !7, i64 376, !49, i64 384, !22, i64 408}
+!68 = !{!"p2 omnipotent char", !14, i64 0}
+!69 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!70 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!71 = !{!67, !22, i64 408}
+!72 = !{!47, !15, i64 40}
+!73 = !{!47, !15, i64 44}
+!74 = distinct !{!74, !39}

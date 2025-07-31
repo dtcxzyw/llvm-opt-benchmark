@@ -30,14 +30,14 @@ define hidden i64 @lexbor_conv_long_to_data(i64 noundef %0, ptr noundef writeonl
   %7 = sdiv i64 %.03549.i, 10
   %.03549.off.i = add i64 %.03549.i, 9
   %.not43.i = icmp ult i64 %.03549.off.i, 19
-  br i1 %.not43.i, label %10, label %5
+  br i1 %.not43.i, label %10, label %5, !llvm.loop !4
 
 8:                                                ; preds = %3
   %.not42.i = icmp eq i64 %2, 0
   br i1 %.not42.i, label %lexbor_conv_int64_to_data.exit, label %9
 
 9:                                                ; preds = %8
-  store i8 48, ptr %1, align 1, !tbaa !4
+  store i8 48, ptr %1, align 1, !tbaa !6
   br label %lexbor_conv_int64_to_data.exit
 
 10:                                               ; preds = %5
@@ -58,7 +58,7 @@ define hidden i64 @lexbor_conv_long_to_data(i64 noundef %0, ptr noundef writeonl
   %16 = add i64 %.03253.i, -1
   %17 = udiv i64 %.23952.i, 10
   %.not44.i = icmp eq i64 %16, %.lobit.i
-  br i1 %.not44.i, label %.loopexit48.i, label %.lr.ph.i
+  br i1 %.not44.i, label %.loopexit48.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit48.i:                                    ; preds = %.lr.ph.i, %13, %10
   %.138.i = phi i64 [ %spec.select.i, %10 ], [ %spec.select.i, %13 ], [ %17, %.lr.ph.i ]
@@ -66,12 +66,12 @@ define hidden i64 @lexbor_conv_long_to_data(i64 noundef %0, ptr noundef writeonl
   br i1 %11, label %18, label %19
 
 18:                                               ; preds = %.loopexit48.i
-  store i8 45, ptr %1, align 1, !tbaa !4
+  store i8 45, ptr %1, align 1, !tbaa !6
   br label %19
 
 19:                                               ; preds = %18, %.loopexit48.i
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %.2.i
-  store i8 0, ptr %20, align 1, !tbaa !4
+  store i8 0, ptr %20, align 1, !tbaa !6
   %.not4654.i = icmp eq i64 %.2.i, %.lobit.i
   br i1 %.not4654.i, label %lexbor_conv_int64_to_data.exit, label %.lr.ph57.i
 
@@ -81,12 +81,12 @@ define hidden i64 @lexbor_conv_long_to_data(i64 noundef %0, ptr noundef writeonl
   %21 = add i64 %.13356.i, -1
   %22 = urem i64 %.355.i, 10
   %23 = getelementptr inbounds nuw i8, ptr @.str, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !4
+  %24 = load i8, ptr %23, align 1, !tbaa !6
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %21
-  store i8 %24, ptr %25, align 1, !tbaa !4
+  store i8 %24, ptr %25, align 1, !tbaa !6
   %26 = udiv i64 %.355.i, 10
   %.not46.i = icmp eq i64 %21, %.lobit.i
-  br i1 %.not46.i, label %lexbor_conv_int64_to_data.exit, label %.lr.ph57.i
+  br i1 %.not46.i, label %lexbor_conv_int64_to_data.exit, label %.lr.ph57.i, !llvm.loop !10
 
 lexbor_conv_int64_to_data.exit:                   ; preds = %.lr.ph57.i, %8, %9, %19
   %.036.i = phi i64 [ 1, %9 ], [ 0, %8 ], [ %.lobit.i, %19 ], [ %.2.i, %.lr.ph57.i ]
@@ -109,14 +109,14 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeon
   %7 = sdiv i64 %.03549, 10
   %.03549.off = add i64 %.03549, 9
   %.not43 = icmp ult i64 %.03549.off, 19
-  br i1 %.not43, label %10, label %5
+  br i1 %.not43, label %10, label %5, !llvm.loop !4
 
 8:                                                ; preds = %3
   %.not42 = icmp eq i64 %2, 0
   br i1 %.not42, label %.loopexit, label %9
 
 9:                                                ; preds = %8
-  store i8 48, ptr %1, align 1, !tbaa !4
+  store i8 48, ptr %1, align 1, !tbaa !6
   br label %.loopexit
 
 10:                                               ; preds = %5
@@ -137,7 +137,7 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeon
   %16 = add i64 %.03253, -1
   %17 = udiv i64 %.23952, 10
   %.not44 = icmp eq i64 %16, %.lobit
-  br i1 %.not44, label %.loopexit48, label %.lr.ph
+  br i1 %.not44, label %.loopexit48, label %.lr.ph, !llvm.loop !9
 
 .loopexit48:                                      ; preds = %.lr.ph, %13, %10
   %.138 = phi i64 [ %spec.select, %10 ], [ %spec.select, %13 ], [ %17, %.lr.ph ]
@@ -145,12 +145,12 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeon
   br i1 %11, label %18, label %19
 
 18:                                               ; preds = %.loopexit48
-  store i8 45, ptr %1, align 1, !tbaa !4
+  store i8 45, ptr %1, align 1, !tbaa !6
   br label %19
 
 19:                                               ; preds = %18, %.loopexit48
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %.2
-  store i8 0, ptr %20, align 1, !tbaa !4
+  store i8 0, ptr %20, align 1, !tbaa !6
   %.not4654 = icmp eq i64 %.2, %.lobit
   br i1 %.not4654, label %.loopexit, label %.lr.ph57
 
@@ -160,12 +160,12 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeon
   %21 = add i64 %.13356, -1
   %22 = urem i64 %.355, 10
   %23 = getelementptr inbounds nuw i8, ptr @.str, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !4
+  %24 = load i8, ptr %23, align 1, !tbaa !6
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %21
-  store i8 %24, ptr %25, align 1, !tbaa !4
+  store i8 %24, ptr %25, align 1, !tbaa !6
   %26 = udiv i64 %.355, 10
   %.not46 = icmp eq i64 %21, %.lobit
-  br i1 %.not46, label %.loopexit, label %.lr.ph57
+  br i1 %.not46, label %.loopexit, label %.lr.ph57, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph57, %19, %8, %9
   %.036 = phi i64 [ 1, %9 ], [ 0, %8 ], [ %.lobit, %19 ], [ %.2, %.lr.ph57 ]
@@ -182,9 +182,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
-  %4 = load ptr, ptr %0, align 8, !tbaa !7
+  %4 = load ptr, ptr %0, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %1
-  %6 = load i8, ptr %4, align 1, !tbaa !4
+  %6 = load i8, ptr %4, align 1, !tbaa !6
   switch i8 %6, label %10 [
     i8 45, label %7
     i8 43, label %8
@@ -196,7 +196,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
 8:                                                ; preds = %7, %2
   %.071 = phi i1 [ true, %7 ], [ false, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %9, ptr %0, align 8, !tbaa !7
+  store ptr %9, ptr %0, align 8, !tbaa !11
   br label %10
 
 10:                                               ; preds = %2, %8
@@ -210,7 +210,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   %.06496 = phi ptr [ %22, %21 ], [ %11, %10 ]
   %.073.idx95 = phi i64 [ %.174.idx, %21 ], [ 0, %10 ]
   %.07894 = phi i32 [ %.179, %21 ], [ 0, %10 ]
-  %13 = load i8, ptr %.06496, align 1, !tbaa !4
+  %13 = load i8, ptr %.06496, align 1, !tbaa !6
   %14 = add i8 %13, -58
   %15 = icmp ult i8 %14, -10
   br i1 %15, label %24, label %16
@@ -221,7 +221,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
 
 18:                                               ; preds = %16
   %.073.add = add nuw nsw i64 %.073.idx95, 1
-  store i8 %13, ptr %.073.ptr.ptr97, align 1, !tbaa !4
+  store i8 %13, ptr %.073.ptr.ptr97, align 1, !tbaa !6
   br label %21
 
 19:                                               ; preds = %16
@@ -234,7 +234,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   %22 = getelementptr inbounds nuw i8, ptr %.06496, i64 1
   %.073.ptr.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.174.idx
   %23 = icmp ult ptr %22, %5
-  br i1 %23, label %.lr.ph, label %.critedge
+  br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 24:                                               ; preds = %.lr.ph
   %25 = icmp eq i8 %13, 46
@@ -251,7 +251,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   %.266104 = phi ptr [ %.266, %34 ], [ %.266100, %.preheader ]
   %.1103 = phi i32 [ %.2, %34 ], [ 0, %.preheader ]
   %.376.idx102 = phi i64 [ %.477.idx, %34 ], [ %.073.idx95, %.preheader ]
-  %27 = load i8, ptr %.266104, align 1, !tbaa !4
+  %27 = load i8, ptr %.266104, align 1, !tbaa !6
   %28 = add i8 %27, -58
   %29 = icmp ult i8 %28, -10
   br i1 %29, label %.critedge, label %30
@@ -262,7 +262,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
 
 32:                                               ; preds = %30
   %.376.add = add nuw nsw i64 %.376.idx102, 1
-  store i8 %27, ptr %.376.ptr105, align 1, !tbaa !4
+  store i8 %27, ptr %.376.ptr105, align 1, !tbaa !6
   %33 = add nsw i32 %.1103, -1
   br label %34
 
@@ -272,7 +272,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   %.266 = getelementptr inbounds nuw i8, ptr %.266104, i64 1
   %.376.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.477.idx
   %35 = icmp ult ptr %.266, %5
-  br i1 %35, label %.lr.ph106, label %.critedge
+  br i1 %35, label %.lr.ph106, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %21, %.lr.ph106, %34, %10, %.preheader, %24
   %.07893 = phi i32 [ %.07894, %24 ], [ %.07894, %.preheader ], [ 0, %10 ], [ %.07894, %34 ], [ %.07894, %.lr.ph106 ], [ %.179, %21 ]
@@ -284,7 +284,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   br i1 %37, label %38, label %64
 
 38:                                               ; preds = %.critedge
-  %39 = load i8, ptr %.165, align 1, !tbaa !4
+  %39 = load i8, ptr %.165, align 1, !tbaa !6
   switch i8 %39, label %64 [
     i8 101, label %40
     i8 69, label %40
@@ -296,7 +296,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %40
-  %44 = load i8, ptr %36, align 1, !tbaa !4
+  %44 = load i8, ptr %36, align 1, !tbaa !6
   switch i8 %44, label %.fold.split [
     i8 45, label %46
     i8 43, label %45
@@ -311,7 +311,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
 46:                                               ; preds = %43, %.fold.split, %45, %40
   %.070 = phi i1 [ false, %45 ], [ false, %40 ], [ true, %43 ], [ false, %.fold.split ]
   %.068 = phi ptr [ %41, %45 ], [ %36, %40 ], [ %41, %43 ], [ %36, %.fold.split ]
-  %47 = load i8, ptr %.068, align 1, !tbaa !4
+  %47 = load i8, ptr %.068, align 1, !tbaa !6
   %48 = add i8 %47, -48
   %49 = icmp ult i8 %48, 10
   br i1 %49, label %50, label %64
@@ -325,7 +325,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
 .lr.ph117:                                        ; preds = %50, %56
   %.4116 = phi ptr [ %.4, %56 ], [ %.4114, %50 ]
   %.063115 = phi i32 [ %59, %56 ], [ %51, %50 ]
-  %53 = load i8, ptr %.4116, align 1, !tbaa !4
+  %53 = load i8, ptr %.4116, align 1, !tbaa !6
   %54 = add i8 %53, -48
   %55 = icmp ugt i8 %54, 9
   br i1 %55, label %._crit_edge, label %56
@@ -336,7 +336,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   %59 = add nsw i32 %58, %57
   %.4 = getelementptr inbounds nuw i8, ptr %.4116, i64 1
   %60 = icmp ult ptr %.4, %5
-  br i1 %60, label %.lr.ph117, label %._crit_edge
+  br i1 %60, label %.lr.ph117, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %56, %.lr.ph117, %50
   %.063.lcssa = phi i32 [ %51, %50 ], [ %.063115, %.lr.ph117 ], [ %59, %56 ]
@@ -349,7 +349,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
 64:                                               ; preds = %38, %46, %._crit_edge, %.critedge
   %.367 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %.165, %46 ], [ %.165, %.critedge ], [ %.165, %38 ]
   %.3 = phi i32 [ %63, %._crit_edge ], [ %.0, %46 ], [ %.0, %.critedge ], [ %.0, %38 ]
-  store ptr %.367, ptr %0, align 8, !tbaa !7
+  store ptr %.367, ptr %0, align 8, !tbaa !11
   %65 = add nsw i32 %.3, %.07893
   %66 = ptrtoint ptr %.275 to i64
   %67 = ptrtoint ptr %3 to i64
@@ -365,7 +365,7 @@ declare double @lexbor_strtod_internal(ptr noundef, i64 noundef, i32 noundef) lo
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden i64 @lexbor_conv_data_to_ulong(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !7
+  %3 = load ptr, ptr %0, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 %1
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -373,7 +373,7 @@ define hidden i64 @lexbor_conv_data_to_ulong(ptr noundef captures(none) %0, i64 
 .lr.ph:                                           ; preds = %2, %15
   %.028 = phi i64 [ %11, %15 ], [ 0, %2 ]
   %.02127 = phi ptr [ %16, %15 ], [ %3, %2 ]
-  %5 = load i8, ptr %.02127, align 1, !tbaa !4
+  %5 = load i8, ptr %.02127, align 1, !tbaa !6
   %6 = add i8 %5, -58
   %or.cond = icmp ult i8 %6, -10
   br i1 %or.cond, label %.loopexit, label %7
@@ -393,20 +393,20 @@ define hidden i64 @lexbor_conv_data_to_ulong(ptr noundef captures(none) %0, i64 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %.02127, i64 1
   %17 = icmp ult ptr %16, %4
-  br i1 %17, label %.lr.ph, label %.loopexit
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %15, %.lr.ph, %2, %13
   %.025 = phi i64 [ %.028, %13 ], [ 0, %2 ], [ %11, %15 ], [ %.028, %.lr.ph ]
   %storemerge = phi ptr [ %14, %13 ], [ %3, %2 ], [ %16, %15 ], [ %.02127, %.lr.ph ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !7
+  store ptr %storemerge, ptr %0, align 8, !tbaa !11
   ret i64 %.025
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden i64 @lexbor_conv_data_to_long(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !7
+  %3 = load ptr, ptr %0, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 %1
-  %5 = load i8, ptr %3, align 1, !tbaa !4
+  %5 = load i8, ptr %3, align 1, !tbaa !6
   switch i8 %5, label %9 [
     i8 45, label %6
     i8 43, label %7
@@ -429,7 +429,7 @@ define hidden i64 @lexbor_conv_data_to_long(ptr noundef captures(none) %0, i64 n
 .lr.ph:                                           ; preds = %9, %21
   %.028 = phi i64 [ %17, %21 ], [ 0, %9 ]
   %.12127 = phi ptr [ %22, %21 ], [ %.020, %9 ]
-  %11 = load i8, ptr %.12127, align 1, !tbaa !4
+  %11 = load i8, ptr %.12127, align 1, !tbaa !6
   %12 = add i8 %11, -58
   %or.cond = icmp ult i8 %12, -10
   br i1 %or.cond, label %.loopexit, label %13
@@ -449,12 +449,12 @@ define hidden i64 @lexbor_conv_data_to_long(ptr noundef captures(none) %0, i64 n
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %.12127, i64 1
   %23 = icmp ult ptr %22, %4
-  br i1 %23, label %.lr.ph, label %.loopexit
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %21, %.lr.ph, %9, %19
   %.025 = phi i64 [ %.028, %19 ], [ 0, %9 ], [ %17, %21 ], [ %.028, %.lr.ph ]
   %.2 = phi ptr [ %20, %19 ], [ %.020, %9 ], [ %22, %21 ], [ %.12127, %.lr.ph ]
-  store ptr %.2, ptr %0, align 8, !tbaa !7
+  store ptr %.2, ptr %0, align 8, !tbaa !11
   %24 = sub nsw i64 0, %.025
   %25 = select i1 %.1, i64 %24, i64 %.025
   ret i64 %25
@@ -462,7 +462,7 @@ define hidden i64 @lexbor_conv_data_to_long(ptr noundef captures(none) %0, i64 n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden i32 @lexbor_conv_data_to_uint(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !7
+  %3 = load ptr, ptr %0, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 %1
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -470,7 +470,7 @@ define hidden i32 @lexbor_conv_data_to_uint(ptr noundef captures(none) %0, i64 n
 .lr.ph:                                           ; preds = %2, %15
   %.028 = phi i32 [ %11, %15 ], [ 0, %2 ]
   %.02127 = phi ptr [ %16, %15 ], [ %3, %2 ]
-  %5 = load i8, ptr %.02127, align 1, !tbaa !4
+  %5 = load i8, ptr %.02127, align 1, !tbaa !6
   %6 = add i8 %5, -58
   %or.cond = icmp ult i8 %6, -10
   br i1 %or.cond, label %.loopexit, label %7
@@ -490,12 +490,12 @@ define hidden i32 @lexbor_conv_data_to_uint(ptr noundef captures(none) %0, i64 n
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %.02127, i64 1
   %17 = icmp ult ptr %16, %4
-  br i1 %17, label %.lr.ph, label %.loopexit
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %15, %.lr.ph, %2, %13
   %.025 = phi i32 [ %.028, %13 ], [ 0, %2 ], [ %11, %15 ], [ %.028, %.lr.ph ]
   %storemerge = phi ptr [ %14, %13 ], [ %3, %2 ], [ %16, %15 ], [ %.02127, %.lr.ph ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !7
+  store ptr %storemerge, ptr %0, align 8, !tbaa !11
   ret i32 %.025
 }
 
@@ -510,14 +510,14 @@ define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr noundef writeonly 
   %4 = add nuw nsw i64 %.01524, 1
   %5 = lshr i32 %.025, 4
   %.not21 = icmp ult i32 %.025, 16
-  br i1 %.not21, label %.preheader, label %.preheader23
+  br i1 %.not21, label %.preheader, label %.preheader23, !llvm.loop !20
 
 6:                                                ; preds = %3
   %.not20 = icmp eq i64 %2, 0
   br i1 %.not20, label %.loopexit, label %7
 
 7:                                                ; preds = %6
-  store i8 48, ptr %1, align 1, !tbaa !4
+  store i8 48, ptr %1, align 1, !tbaa !6
   br label %.loopexit
 
 .preheader:                                       ; preds = %.preheader23, %.preheader
@@ -528,11 +528,11 @@ define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr noundef writeonly 
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i32 %.01826, 4
   %11 = getelementptr inbounds nuw [17 x i8], ptr @lexbor_conv_dec_to_hex.map_str, i64 0, i64 %9
-  %12 = load i8, ptr %11, align 1, !tbaa !4
+  %12 = load i8, ptr %11, align 1, !tbaa !6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.017
-  store i8 %12, ptr %13, align 1, !tbaa !4
+  store i8 %12, ptr %13, align 1, !tbaa !6
   %.not22 = icmp ult i32 %.01826, 16
-  br i1 %.not22, label %.loopexit, label %.preheader
+  br i1 %.not22, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %6, %7
   %.016 = phi i64 [ 1, %7 ], [ 0, %6 ], [ %4, %.preheader ]
@@ -556,9 +556,21 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!5, !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !5, i64 0}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !7, i64 0}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}

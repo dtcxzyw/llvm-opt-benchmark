@@ -627,7 +627,7 @@ while.body165:                                    ; preds = %invoke.cont162
   %call166 = tail call ptr @__errno_location() #27
   %22 = load i32, ptr %call166, align 4
   %cmp167.not = icmp eq i32 %22, 4
-  br i1 %cmp167.not, label %while.cond161, label %if.then168, !llvm.loop !6
+  br i1 %cmp167.not, label %while.cond161, label %if.then168, !llvm.loop !7
 
 if.then168:                                       ; preds = %while.body165
   invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp170, ptr noundef nonnull @.str, i32 noundef 443) #24
@@ -680,12 +680,12 @@ invoke.cont197:                                   ; preds = %if.then191
   %_M_str.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp196, i64 8
   store ptr %scratch_.i, ptr %_M_str.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i), !noalias !7
-  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %ref.tmp196, align 8, !noalias !7
-  %retval.sroa.2.0.copyload.i.i.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !7
-  store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %args.i.i, align 16, !noalias !7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i), !noalias !8
+  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %ref.tmp196, align 8, !noalias !8
+  %retval.sroa.2.0.copyload.i.i.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !8
+  store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %args.i.i, align 16, !noalias !8
   %26 = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
-  store ptr %retval.sroa.2.0.copyload.i.i.i, ptr %26, align 8, !noalias !7
+  store ptr %retval.sroa.2.0.copyload.i.i.i, ptr %26, align 8, !noalias !8
   invoke void @_ZN4absl12lts_2023080219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EPKSA_m(ptr noundef nonnull align 8 %ref.tmp194, i64 34, ptr nonnull @.str.10, ptr noundef nonnull %args.i.i, i64 noundef 1)
           to label %invoke.cont198 unwind label %lpad.i
 
@@ -696,7 +696,7 @@ lpad.i:                                           ; preds = %invoke.cont197
   br label %ehcleanup
 
 invoke.cont198:                                   ; preds = %invoke.cont197
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i), !noalias !7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i), !noalias !8
   %call199 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194) #23
   br label %cleanup.sink.split
 
@@ -719,12 +719,12 @@ invoke.cont213:                                   ; preds = %if.then208
   %_M_str.i.i30 = getelementptr inbounds nuw i8, ptr %ref.tmp212, i64 8
   store ptr %scratch_.i26, ptr %_M_str.i.i30, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i33), !noalias !10
-  %retval.sroa.0.0.copyload.i.i.i34 = load i64, ptr %ref.tmp212, align 8, !noalias !10
-  %retval.sroa.2.0.copyload.i.i.i36 = load ptr, ptr %_M_str.i.i30, align 8, !noalias !10
-  store i64 %retval.sroa.0.0.copyload.i.i.i34, ptr %args.i.i33, align 16, !noalias !10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i33), !noalias !11
+  %retval.sroa.0.0.copyload.i.i.i34 = load i64, ptr %ref.tmp212, align 8, !noalias !11
+  %retval.sroa.2.0.copyload.i.i.i36 = load ptr, ptr %_M_str.i.i30, align 8, !noalias !11
+  store i64 %retval.sroa.0.0.copyload.i.i.i34, ptr %args.i.i33, align 16, !noalias !11
   %28 = getelementptr inbounds nuw i8, ptr %args.i.i33, i64 8
-  store ptr %retval.sroa.2.0.copyload.i.i.i36, ptr %28, align 8, !noalias !10
+  store ptr %retval.sroa.2.0.copyload.i.i.i36, ptr %28, align 8, !noalias !11
   invoke void @_ZN4absl12lts_2023080219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EPKSA_m(ptr noundef nonnull align 8 %ref.tmp210, i64 27, ptr nonnull @.str.11, ptr noundef nonnull %args.i.i33, i64 noundef 1)
           to label %invoke.cont214 unwind label %lpad.i37
 
@@ -735,7 +735,7 @@ lpad.i37:                                         ; preds = %invoke.cont213
   br label %ehcleanup
 
 invoke.cont214:                                   ; preds = %invoke.cont213
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i33), !noalias !10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i33), !noalias !11
   %call215 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210) #23
   br label %cleanup.sink.split
 
@@ -937,12 +937,13 @@ attributes #28 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE: %agg.result"}
-!9 = distinct !{!9, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE: %agg.result"}
-!12 = distinct !{!12, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE: %agg.result"}
+!10 = distinct !{!10, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE: %agg.result"}
+!13 = distinct !{!13, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE"}

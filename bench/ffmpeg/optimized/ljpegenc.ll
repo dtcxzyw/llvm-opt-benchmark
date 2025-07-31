@@ -443,7 +443,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   %247 = icmp eq i32 %246, 28
   %248 = select i1 %247, i64 4, i64 3
   %249 = icmp samesign ult i64 %indvars.iv.next155.i, %248
-  br i1 %249, label %183, label %182, !llvm.loop !56
+  br i1 %249, label %183, label %182, !llvm.loop !57
 
 .preheader133.us.i:                               ; preds = %99, %.preheader133.us.i
   %indvars.iv150.i = phi i64 [ %indvars.iv.next151.i, %.preheader133.us.i ], [ 0, %99 ]
@@ -458,12 +458,12 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   store i32 %252, ptr %255, align 4, !tbaa !31
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
   %exitcond153.not.i = icmp eq i64 %indvars.iv.next151.i, 4
-  br i1 %exitcond153.not.i, label %.preheader.us.i, label %.preheader133.us.i, !llvm.loop !57
+  br i1 %exitcond153.not.i, label %.preheader.us.i, label %.preheader133.us.i, !llvm.loop !58
 
 ._crit_edge.us.i:                                 ; preds = %182
   %indvars.iv.next162.i = add nuw nsw i64 %indvars.iv161.i, 1
   %exitcond165.not.i = icmp eq i64 %indvars.iv.next162.i, %wide.trip.count164.i
-  br i1 %exitcond165.not.i, label %ljpeg_encode_yuv.exit.thread57, label %.lr.ph140.split.us.i, !llvm.loop !58
+  br i1 %exitcond165.not.i, label %ljpeg_encode_yuv.exit.thread57, label %.lr.ph140.split.us.i, !llvm.loop !59
 
 256:                                              ; preds = %256, %71
   %indvars.iv.i = phi i64 [ 0, %71 ], [ %indvars.iv.next.i, %256 ]
@@ -471,7 +471,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   store i16 256, ptr %257, align 2, !tbaa !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.preheader134.i, label %256, !llvm.loop !60
+  br i1 %exitcond.not.i, label %.preheader134.i, label %256, !llvm.loop !61
 
 .lr.ph140.split.i:                                ; preds = %.lr.ph140.split.preheader.i, %.preheader.i
   %.0121139.i = phi i32 [ %258, %.preheader.i ], [ 0, %.lr.ph140.split.preheader.i ]
@@ -480,7 +480,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 .preheader.i:                                     ; preds = %.preheader133.i
   %258 = add nuw nsw i32 %.0121139.i, 1
   %exitcond149.not.i = icmp eq i32 %258, %76
-  br i1 %exitcond149.not.i, label %ljpeg_encode_yuv.exit.thread57, label %.lr.ph140.split.i, !llvm.loop !61
+  br i1 %exitcond149.not.i, label %ljpeg_encode_yuv.exit.thread57, label %.lr.ph140.split.i, !llvm.loop !62
 
 .preheader133.i:                                  ; preds = %.lr.ph140.split.i, %.preheader133.i
   %indvars.iv145.i = phi i64 [ %indvars.iv.next146.i, %.preheader133.i ], [ 0, %.lr.ph140.split.i ]
@@ -495,7 +495,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   store i32 %261, ptr %264, align 4, !tbaa !31
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond148.not.i = icmp eq i64 %indvars.iv.next146.i, 4
-  br i1 %exitcond148.not.i, label %.preheader.i, label %.preheader133.i, !llvm.loop !57
+  br i1 %exitcond148.not.i, label %.preheader.i, label %.preheader133.i, !llvm.loop !58
 
 265:                                              ; preds = %48
   %266 = load ptr, ptr %10, align 8, !tbaa !4
@@ -687,7 +687,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   call void @ff_mjpeg_encode_dc(ptr noundef nonnull %8, i32 noundef %394, ptr noundef nonnull %284, ptr noundef nonnull %285) #6
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
-  br i1 %exitcond.not.i.us.i, label %._crit_edge.us.i.us.i, label %.lr.ph.split.us157.i.us.i, !llvm.loop !62
+  br i1 %exitcond.not.i.us.i, label %._crit_edge.us.i.us.i, label %.lr.ph.split.us157.i.us.i, !llvm.loop !63
 
 .lr.ph.split.us.us.i.us.i:                        ; preds = %.preheader147.us.i.us.i, %458
   %indvars.iv176.i.us.i = phi i64 [ %indvars.iv.next177.i.us.i, %458 ], [ 0, %.preheader147.us.i.us.i ]
@@ -786,17 +786,17 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   call void @ff_mjpeg_encode_dc(ptr noundef nonnull %8, i32 noundef %461, ptr noundef nonnull %286, ptr noundef nonnull %287) #6
   %indvars.iv.next177.i.us.i = add nuw nsw i64 %indvars.iv176.i.us.i, 1
   %exitcond180.not.i.us.i = icmp eq i64 %indvars.iv.next177.i.us.i, %wide.trip.count.i.us.i
-  br i1 %exitcond180.not.i.us.i, label %._crit_edge.us.i.us.i, label %.lr.ph.split.us.us.i.us.i, !llvm.loop !63
+  br i1 %exitcond180.not.i.us.i, label %._crit_edge.us.i.us.i, label %.lr.ph.split.us.us.i.us.i, !llvm.loop !64
 
 ._crit_edge.us.i.us.i:                            ; preds = %391, %458
   %indvars.iv.next182.i.us.i = add nuw nsw i64 %indvars.iv181.i.us.i, 1
   %exitcond185.not.i.us.i = icmp eq i64 %indvars.iv.next182.i.us.i, %wide.trip.count184.i.us.i
-  br i1 %exitcond185.not.i.us.i, label %._crit_edge152.i.us.i, label %.preheader147.us.i.us.i, !llvm.loop !64
+  br i1 %exitcond185.not.i.us.i, label %._crit_edge152.i.us.i, label %.preheader147.us.i.us.i, !llvm.loop !65
 
 ._crit_edge152.i.us.i:                            ; preds = %._crit_edge.us.i.us.i, %.preheader147.lr.ph.i.us.i, %.preheader148.i.us.i
   %indvars.iv.next187.i.us.i = add nuw nsw i64 %indvars.iv186.i.us.i, 1
   %exitcond189.not.i.us.i = icmp eq i64 %indvars.iv.next187.i.us.i, 3
-  br i1 %exitcond189.not.i.us.i, label %ljpeg_encode_yuv_mb.exit.us.i, label %.preheader148.i.us.i, !llvm.loop !65
+  br i1 %exitcond189.not.i.us.i, label %ljpeg_encode_yuv_mb.exit.us.i, label %.preheader148.i.us.i, !llvm.loop !66
 
 .preheader146.i.us.i:                             ; preds = %304, %._crit_edge161.i.us.i
   %indvars.iv205.i.us.i = phi i64 [ %indvars.iv.next206.i.us.i, %._crit_edge161.i.us.i ], [ 0, %304 ]
@@ -957,7 +957,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 561:                                              ; preds = %560, %559
   %indvars.iv.next191.i.us.i = add nuw nsw i64 %indvars.iv190.i.us.i, 1
   %exitcond194.not.i.us.i = icmp eq i64 %indvars.iv.next191.i.us.i, %wide.trip.count193.i.us.i
-  br i1 %exitcond194.not.i.us.i, label %._crit_edge.us166.i.us.i, label %.lr.ph.split.us165.i.us.i, !llvm.loop !66
+  br i1 %exitcond194.not.i.us.i, label %._crit_edge.us166.i.us.i, label %.lr.ph.split.us165.i.us.i, !llvm.loop !67
 
 .lr.ph.split.us.us167.i.us.i:                     ; preds = %.preheader.us.i.us.i, %578
   %indvars.iv195.i.us.i = phi i64 [ %indvars.iv.next196.i.us.i, %578 ], [ 0, %.preheader.us.i.us.i ]
@@ -994,22 +994,22 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 578:                                              ; preds = %577, %576
   %indvars.iv.next196.i.us.i = add nuw nsw i64 %indvars.iv195.i.us.i, 1
   %exitcond199.not.i.us.i = icmp eq i64 %indvars.iv.next196.i.us.i, %wide.trip.count193.i.us.i
-  br i1 %exitcond199.not.i.us.i, label %._crit_edge.us166.i.us.i, label %.lr.ph.split.us.us167.i.us.i, !llvm.loop !67
+  br i1 %exitcond199.not.i.us.i, label %._crit_edge.us166.i.us.i, label %.lr.ph.split.us.us167.i.us.i, !llvm.loop !68
 
 ._crit_edge.us166.i.us.i:                         ; preds = %561, %578
   %indvars.iv.next201.i.us.i = add nuw nsw i64 %indvars.iv200.i.us.i, 1
   %exitcond204.not.i.us.i = icmp eq i64 %indvars.iv.next201.i.us.i, %wide.trip.count203.i.us.i
-  br i1 %exitcond204.not.i.us.i, label %._crit_edge161.i.us.i, label %.preheader.us.i.us.i, !llvm.loop !68
+  br i1 %exitcond204.not.i.us.i, label %._crit_edge161.i.us.i, label %.preheader.us.i.us.i, !llvm.loop !69
 
 ._crit_edge161.i.us.i:                            ; preds = %._crit_edge.us166.i.us.i, %.preheader.lr.ph.i.us.i, %.preheader146.i.us.i
   %indvars.iv.next206.i.us.i = add nuw nsw i64 %indvars.iv205.i.us.i, 1
   %exitcond208.not.i.us.i = icmp eq i64 %indvars.iv.next206.i.us.i, 3
-  br i1 %exitcond208.not.i.us.i, label %ljpeg_encode_yuv_mb.exit.us.i, label %.preheader146.i.us.i, !llvm.loop !69
+  br i1 %exitcond208.not.i.us.i, label %ljpeg_encode_yuv_mb.exit.us.i, label %.preheader146.i.us.i, !llvm.loop !70
 
 ljpeg_encode_yuv_mb.exit.us.i:                    ; preds = %._crit_edge152.i.us.i, %._crit_edge161.i.us.i
   %579 = add nuw nsw i32 %.02434.us.i, 1
   %exitcond.not.i51 = icmp eq i32 %579, %.fr38.i
-  br i1 %exitcond.not.i51, label %._crit_edge.us.i52, label %304, !llvm.loop !70
+  br i1 %exitcond.not.i51, label %._crit_edge.us.i52, label %304, !llvm.loop !71
 
 .preheader.us.i50:                                ; preds = %.lr.ph37.split.us.i
   %580 = icmp eq i32 %.035.us.i, 0
@@ -1018,7 +1018,7 @@ ljpeg_encode_yuv_mb.exit.us.i:                    ; preds = %._crit_edge152.i.us
 ._crit_edge.us.i52:                               ; preds = %ljpeg_encode_yuv_mb.exit.us.i
   %581 = add nuw nsw i32 %.035.us.i, 1
   %exitcond43.not.i = icmp eq i32 %581, %278
-  br i1 %exitcond43.not.i, label %ljpeg_encode_yuv.exit.thread, label %.lr.ph37.split.us.i, !llvm.loop !71
+  br i1 %exitcond43.not.i, label %ljpeg_encode_yuv.exit.thread, label %.lr.ph37.split.us.i, !llvm.loop !72
 
 .lr.ph37.split.i:                                 ; preds = %.lr.ph37.i
   %582 = load ptr, ptr %57, align 8, !tbaa !39
@@ -1090,7 +1090,7 @@ ljpeg_encode_yuv.exit.thread:                     ; preds = %._crit_edge.us.i52,
   %611 = add nsw i32 %610, 8
   store i32 %611, ptr %59, align 4, !tbaa !41
   %612 = icmp slt i32 %610, 24
-  br i1 %612, label %598, label %flush_put_bits.exit, !llvm.loop !72
+  br i1 %612, label %598, label %flush_put_bits.exit, !llvm.loop !73
 
 flush_put_bits.exit:                              ; preds = %604, %ljpeg_encode_yuv.exit.thread
   %.val = load ptr, ptr %54, align 8, !tbaa !37
@@ -1222,22 +1222,23 @@ attributes #7 = { noreturn nounwind }
 !51 = !{!8, !8, i64 0}
 !52 = !{!53, !53, i64 0}
 !53 = !{!"short", !8, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = distinct !{!56, !55}
-!57 = distinct !{!57, !55}
-!58 = distinct !{!58, !55, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!60 = distinct !{!60, !55}
-!61 = distinct !{!61, !55}
-!62 = distinct !{!62, !55}
-!63 = distinct !{!63, !55, !59}
-!64 = distinct !{!64, !55, !59}
-!65 = distinct !{!65, !55}
-!66 = distinct !{!66, !55}
-!67 = distinct !{!67, !55, !59}
-!68 = distinct !{!68, !55, !59}
-!69 = distinct !{!69, !55}
-!70 = distinct !{!70, !55}
-!71 = distinct !{!71, !55, !59}
-!72 = distinct !{!72, !55}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = distinct !{!57, !55, !56}
+!58 = distinct !{!58, !55, !56}
+!59 = distinct !{!59, !55, !56, !60}
+!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = distinct !{!61, !55, !56}
+!62 = distinct !{!62, !55, !56}
+!63 = distinct !{!63, !55, !56}
+!64 = distinct !{!64, !55, !56, !60}
+!65 = distinct !{!65, !55, !56, !60}
+!66 = distinct !{!66, !55, !56}
+!67 = distinct !{!67, !55, !56}
+!68 = distinct !{!68, !55, !56, !60}
+!69 = distinct !{!69, !55, !56, !60}
+!70 = distinct !{!70, !55, !56}
+!71 = distinct !{!71, !55, !56}
+!72 = distinct !{!72, !55, !56, !60}
+!73 = distinct !{!73, !55, !56}

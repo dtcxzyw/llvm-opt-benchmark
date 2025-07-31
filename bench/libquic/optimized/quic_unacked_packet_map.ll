@@ -144,17 +144,17 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !16, !noalias !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !16, !noalias !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !24, !noalias !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !24, !noalias !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !28
+  %7 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !31
+  %9 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !34, !noalias !31
+  %11 = load ptr, ptr %10, align 8, !tbaa !35, !noalias !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %13 = load ptr, ptr %12, align 8, !tbaa !23, !noalias !31
+  %13 = load ptr, ptr %12, align 8, !tbaa !23, !noalias !32
   %.021.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = icmp ult ptr %.021.i.i, %13
   br i1 %14, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -174,12 +174,12 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EED2Ev(ptr n
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i.ptr.i.i) #17
   %.05.i.i.i.add.i.i = add nuw nsw i64 %.05.i.i.i.idx.i.i, 80
   %.not.i.i.i.i.i = icmp eq i64 %.05.i.i.i.add.i.i, 480
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !35
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !36
 
 _ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
   %16 = icmp ult ptr %.0.i.i, %13
-  br i1 %16, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !36
+  br i1 %16, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !37
 
 17:                                               ; preds = %._crit_edge.i.i
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
@@ -190,7 +190,7 @@ _ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i7.i.i) #17
   %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7.i.i, i64 80
   %.not.i.i.i8.i.i = icmp eq ptr %18, %5
-  br i1 %.not.i.i.i8.i.i, label %_ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit9.i.i, label %.lr.ph.i.i.i6.i.i, !llvm.loop !35
+  br i1 %.not.i.i.i8.i.i, label %_ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit9.i.i, label %.lr.ph.i.i.i6.i.i, !llvm.loop !36
 
 _ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit9.i.i: ; preds = %.lr.ph.i.i.i6.i.i, %17
   %.not4.i.i.i10.i.i = icmp eq ptr %11, %9
@@ -201,7 +201,7 @@ _ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit9.i.i: ; preds = %
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i12.i.i) #17
   %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i12.i.i, i64 80
   %.not.i.i.i13.i.i = icmp eq ptr %19, %9
-  br i1 %.not.i.i.i13.i.i, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i11.i.i, !llvm.loop !35
+  br i1 %.not.i.i.i13.i.i, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i11.i.i, !llvm.loop !36
 
 20:                                               ; preds = %._crit_edge.i.i
   %.not4.i.i.i15.i.i = icmp eq ptr %3, %9
@@ -212,16 +212,16 @@ _ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit9.i.i: ; preds = %
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i17.i.i) #17
   %21 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17.i.i, i64 80
   %.not.i.i.i18.i.i = icmp eq ptr %21, %9
-  br i1 %.not.i.i.i18.i.i, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i16.i.i, !llvm.loop !35
+  br i1 %.not.i.i.i18.i.i, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i16.i.i, !llvm.loop !36
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit: ; preds = %.lr.ph.i.i.i11.i.i, %.lr.ph.i.i.i16.i.i, %20, %_ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit9.i.i
-  %22 = load ptr, ptr %0, align 8, !tbaa !37
+  %22 = load ptr, ptr %0, align 8, !tbaa !38
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EED2Ev.exit, label %23
 
 23:                                               ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit
-  %24 = load ptr, ptr %6, align 8, !tbaa !38
-  %25 = load ptr, ptr %12, align 8, !tbaa !39
+  %24 = load ptr, ptr %6, align 8, !tbaa !39
+  %25 = load ptr, ptr %12, align 8, !tbaa !40
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = icmp ult ptr %24, %26
   br i1 %27, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
@@ -232,10 +232,10 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE15_M_destroy_dataESt15_Deque_iterato
   tail call void @_ZdlPv(ptr noundef %28) #19
   %29 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %30 = icmp ult ptr %.06.i.i, %25
-  br i1 %30, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, !llvm.loop !40
+  br i1 %30, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, !llvm.loop !41
 
 _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i: ; preds = %.lr.ph.i.i1
-  %.pre.i = load ptr, ptr %0, align 8, !tbaa !37
+  %.pre.i = load ptr, ptr %0, align 8, !tbaa !38
   br label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i: ; preds = %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, %23
@@ -253,9 +253,9 @@ define void @_ZN3net20QuicUnackedPacketMap13AddSentPacketEPNS_16SerializedPacket
   %8 = alloca %"struct.net::TransmissionInfo", align 8
   %9 = alloca %"struct.net::TransmissionInfo", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %11 = load i64, ptr %10, align 8, !tbaa !41
+  %11 = load i64, ptr %10, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i16, ptr %12, align 8, !tbaa !61
+  %13 = load i16, ptr %12, align 8, !tbaa !62
   %14 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   %15 = load i64, ptr %0, align 8
   %.not = icmp uge i64 %15, %11
@@ -292,7 +292,7 @@ _ZNSolsEm.exit:                                   ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load ptr, ptr %23, align 8, !tbaa !16
-  %.pre54 = load ptr, ptr %27, align 8, !tbaa !34
+  %.pre54 = load ptr, ptr %27, align 8, !tbaa !35
   br label %30
 
 30:                                               ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit, %.critedge
@@ -328,8 +328,8 @@ _ZNSolsEm.exit:                                   ; preds = %16
 57:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #17
   call void @_ZN3net16TransmissionInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %8)
-  %58 = load ptr, ptr %23, align 8, !tbaa !62
-  %59 = load ptr, ptr %29, align 8, !tbaa !63
+  %58 = load ptr, ptr %23, align 8, !tbaa !63
+  %59 = load ptr, ptr %29, align 8, !tbaa !64
   %60 = getelementptr inbounds i8, ptr %59, i64 -80
   %.not.i.i = icmp eq ptr %58, %60
   br i1 %.not.i.i, label %64, label %61
@@ -339,9 +339,9 @@ _ZNSolsEm.exit:                                   ; preds = %16
           to label %.noexc unwind label %75
 
 .noexc:                                           ; preds = %61
-  %62 = load ptr, ptr %23, align 8, !tbaa !62
+  %62 = load ptr, ptr %23, align 8, !tbaa !63
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 80
-  store ptr %63, ptr %23, align 8, !tbaa !62
+  store ptr %63, ptr %23, align 8, !tbaa !63
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backEOS1_.exit
 
 64:                                               ; preds = %57
@@ -351,13 +351,13 @@ _ZNSolsEm.exit:                                   ; preds = %16
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc, %64
   call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #17
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
-  %65 = load ptr, ptr %23, align 8, !tbaa !16, !noalias !64
-  %66 = load ptr, ptr %27, align 8, !tbaa !34, !noalias !64
+  %65 = load ptr, ptr %23, align 8, !tbaa !16, !noalias !65
+  %66 = load ptr, ptr %27, align 8, !tbaa !35, !noalias !65
   %67 = icmp eq ptr %65, %66
   br i1 %67, label %68, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit
 
 68:                                               ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backEOS1_.exit
-  %69 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !64
+  %69 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !65
   %70 = getelementptr inbounds i8, ptr %69, i64 -8
   %71 = load ptr, ptr %70, align 8, !tbaa !25
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 480
@@ -366,8 +366,8 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backEOS1_.exit: ; preds = %.no
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backEOS1_.exit, %68
   %73 = phi ptr [ %72, %68 ], [ %65, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backEOS1_.exit ]
   %74 = getelementptr inbounds i8, ptr %73, i64 -38
-  store i8 1, ptr %74, align 2, !tbaa !67
-  br label %30, !llvm.loop !70
+  store i8 1, ptr %74, align 2, !tbaa !68
+  br label %30, !llvm.loop !71
 
 75:                                               ; preds = %64, %61
   %76 = landingpad { ptr, i32 }
@@ -378,15 +378,15 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit: ; preds = %_ZNSt5deque
 
 77:                                               ; preds = %30
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %79 = load i8, ptr %78, align 8, !tbaa !71
+  %79 = load i8, ptr %78, align 8, !tbaa !72
   %80 = icmp eq i8 %79, 1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #17
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 57
-  %82 = load i8, ptr %81, align 1, !tbaa !72
+  %82 = load i8, ptr %81, align 1, !tbaa !73
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %84 = load i8, ptr %83, align 8, !tbaa !73
+  %84 = load i8, ptr %83, align 8, !tbaa !74
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %86 = load i16, ptr %85, align 2, !tbaa !74
+  %86 = load i16, ptr %85, align 2, !tbaa !75
   %87 = sext i16 %86 to i32
   call void @_ZN3net16TransmissionInfoC1ENS_15EncryptionLevelENS_22QuicPacketNumberLengthENS_16TransmissionTypeENS_8QuicTimeEtbi(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 noundef signext %82, i8 noundef signext %84, i8 noundef signext %3, i64 %4, i16 noundef zeroext %13, i1 noundef zeroext %80, i32 noundef %87)
   %.not35 = icmp eq i64 %2, 0
@@ -404,22 +404,22 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit: ; preds = %_ZNSt5deque
   br label %146
 
 91:                                               ; preds = %88, %77
-  store i64 %11, ptr %0, align 8, !tbaa !75
+  store i64 %11, ptr %0, align 8, !tbaa !76
   br i1 %5, label %92, label %98
 
 92:                                               ; preds = %91
   %93 = zext i16 %13 to i64
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %95 = load i64, ptr %94, align 8, !tbaa !76
+  %95 = load i64, ptr %94, align 8, !tbaa !77
   %96 = add i64 %95, %93
-  store i64 %96, ptr %94, align 8, !tbaa !76
+  store i64 %96, ptr %94, align 8, !tbaa !77
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 41
-  store i8 1, ptr %97, align 1, !tbaa !77
+  store i8 1, ptr %97, align 1, !tbaa !78
   br label %98
 
 98:                                               ; preds = %92, %91
-  %99 = load ptr, ptr %23, align 8, !tbaa !62
-  %100 = load ptr, ptr %29, align 8, !tbaa !63
+  %99 = load ptr, ptr %23, align 8, !tbaa !63
+  %100 = load ptr, ptr %29, align 8, !tbaa !64
   %101 = getelementptr inbounds i8, ptr %100, i64 -80
   %.not.i40 = icmp eq ptr %99, %101
   br i1 %.not.i40, label %105, label %102
@@ -429,9 +429,9 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit: ; preds = %_ZNSt5deque
           to label %.noexc41 unwind label %89
 
 .noexc41:                                         ; preds = %102
-  %103 = load ptr, ptr %23, align 8, !tbaa !62
+  %103 = load ptr, ptr %23, align 8, !tbaa !63
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 80
-  store ptr %104, ptr %23, align 8, !tbaa !62
+  store ptr %104, ptr %23, align 8, !tbaa !63
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit
 
 105:                                              ; preds = %98
@@ -446,20 +446,20 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit: ; preds = %.n
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %109 = load i64, ptr %108, align 8, !tbaa !78
+  %109 = load i64, ptr %108, align 8, !tbaa !79
   %110 = add i64 %109, 1
-  store i64 %110, ptr %108, align 8, !tbaa !78
+  store i64 %110, ptr %108, align 8, !tbaa !79
   br label %111
 
 111:                                              ; preds = %107, %106
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %113 = load ptr, ptr %23, align 8, !tbaa !16, !noalias !79
-  %114 = load ptr, ptr %27, align 8, !tbaa !34, !noalias !79
+  %113 = load ptr, ptr %23, align 8, !tbaa !16, !noalias !80
+  %114 = load ptr, ptr %27, align 8, !tbaa !35, !noalias !80
   %115 = icmp eq ptr %113, %114
   br i1 %115, label %116, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit43
 
 116:                                              ; preds = %111
-  %117 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !79
+  %117 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !80
   %118 = getelementptr inbounds i8, ptr %117, i64 -8
   %119 = load ptr, ptr %118, align 8, !tbaa !25
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 480
@@ -468,26 +468,26 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit: ; preds = %.n
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit43: ; preds = %111, %116
   %121 = phi ptr [ %120, %116 ], [ %113, %111 ]
   %122 = getelementptr inbounds i8, ptr %121, i64 -80
-  %123 = load ptr, ptr %112, align 8, !tbaa !82
+  %123 = load ptr, ptr %112, align 8, !tbaa !83
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %125 = load ptr, ptr %124, align 8, !tbaa !83
+  %125 = load ptr, ptr %124, align 8, !tbaa !84
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %127 = load ptr, ptr %126, align 8, !tbaa !84
-  %128 = load ptr, ptr %122, align 8, !tbaa !82
-  store ptr %128, ptr %112, align 8, !tbaa !82
+  %127 = load ptr, ptr %126, align 8, !tbaa !85
+  %128 = load ptr, ptr %122, align 8, !tbaa !83
+  store ptr %128, ptr %112, align 8, !tbaa !83
   %129 = getelementptr inbounds i8, ptr %121, i64 -72
-  %130 = load ptr, ptr %129, align 8, !tbaa !83
-  store ptr %130, ptr %124, align 8, !tbaa !83
+  %130 = load ptr, ptr %129, align 8, !tbaa !84
+  store ptr %130, ptr %124, align 8, !tbaa !84
   %131 = getelementptr inbounds i8, ptr %121, i64 -64
-  %132 = load ptr, ptr %131, align 8, !tbaa !84
-  store ptr %132, ptr %126, align 8, !tbaa !84
-  store ptr %123, ptr %122, align 8, !tbaa !82
-  store ptr %125, ptr %129, align 8, !tbaa !83
-  store ptr %127, ptr %131, align 8, !tbaa !84
+  %132 = load ptr, ptr %131, align 8, !tbaa !85
+  store ptr %132, ptr %126, align 8, !tbaa !85
+  store ptr %123, ptr %122, align 8, !tbaa !83
+  store ptr %125, ptr %129, align 8, !tbaa !84
+  store ptr %127, ptr %131, align 8, !tbaa !85
   br i1 %115, label %133, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44
 
 133:                                              ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit43
-  %134 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !85
+  %134 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !86
   %135 = getelementptr inbounds i8, ptr %134, i64 -8
   %136 = load ptr, ptr %135, align 8, !tbaa !25
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 480
@@ -499,11 +499,11 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44: ; preds = %_ZNSt5deq
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %140) #17
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %142 = load i64, ptr %141, align 8, !tbaa !88
+  %142 = load i64, ptr %141, align 8, !tbaa !89
   %143 = getelementptr inbounds i8, ptr %138, i64 -8
-  %144 = load i64, ptr %143, align 8, !tbaa !88
-  store i64 %144, ptr %141, align 8, !tbaa !88
-  store i64 %142, ptr %143, align 8, !tbaa !88
+  %144 = load i64, ptr %143, align 8, !tbaa !89
+  store i64 %144, ptr %141, align 8, !tbaa !89
+  store i64 %142, ptr %143, align 8, !tbaa !89
   br label %145
 
 145:                                              ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit
@@ -541,7 +541,7 @@ define linkonce_odr noundef i64 @_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4s
   %14 = mul nsw i64 %13, 6
   %15 = load ptr, ptr %2, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  %17 = load ptr, ptr %16, align 8, !tbaa !35
   %18 = ptrtoint ptr %15 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
@@ -574,7 +574,7 @@ define void @_ZN3net20QuicUnackedPacketMap26TransferRetransmissionInfoEmmNS_16Tr
   br i1 %9, label %.critedge46, label %10
 
 10:                                               ; preds = %5
-  %11 = load i64, ptr %0, align 8, !tbaa !75
+  %11 = load i64, ptr %0, align 8, !tbaa !76
   %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %24
 
@@ -598,7 +598,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit47 unwind label %22
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit47: ; preds = %_ZNSolsEm.exit
-  %20 = load i64, ptr %0, align 8, !tbaa !75
+  %20 = load i64, ptr %0, align 8, !tbaa !76
   %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %20)
           to label %.critedge unwind label %22
 
@@ -632,7 +632,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit47: ; preds = %_ZNSo
   %38 = mul nsw i64 %37, 6
   %39 = load ptr, ptr %26, align 8, !tbaa !16
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8, !tbaa !34
+  %41 = load ptr, ptr %40, align 8, !tbaa !35
   %42 = ptrtoint ptr %39 to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
@@ -657,7 +657,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit47: ; preds = %_ZNSo
 
 _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i: ; preds = %24
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !34, !noalias !89
+  %59 = load ptr, ptr %58, align 8, !tbaa !35, !noalias !90
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %51, %60
   %62 = sdiv exact i64 %61, 80
@@ -686,7 +686,7 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i: ; preds 
 75:                                               ; preds = %71, %69
   %76 = phi i64 [ %70, %69 ], [ %74, %71 ]
   %77 = getelementptr inbounds ptr, ptr %31, i64 %76
-  %78 = load ptr, ptr %77, align 8, !tbaa !25, !noalias !89
+  %78 = load ptr, ptr %77, align 8, !tbaa !25, !noalias !90
   %.idx.i.i.i.i.i = mul i64 %76, -480
   %79 = getelementptr i8, ptr %78, i64 %.idx.i.i.i.i.i
   %80 = getelementptr %"struct.net::TransmissionInfo", ptr %79, i64 %63
@@ -695,44 +695,44 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i: ; preds 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit: ; preds = %67, %75
   %storemerge.i.i.i.i.i = phi ptr [ %80, %75 ], [ %68, %67 ]
   %81 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 56
-  %.sroa.051.059 = load ptr, ptr %81, align 8, !tbaa !92
+  %.sroa.051.059 = load ptr, ptr %81, align 8, !tbaa !93
   %.not60 = icmp eq ptr %.sroa.051.059, %81
   br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit
-  %82 = load ptr, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !82
+  %82 = load ptr, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !83
   %83 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !83
+  %84 = load ptr, ptr %83, align 8, !tbaa !84
   %85 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !84
-  %87 = load ptr, ptr %4, align 8, !tbaa !82
-  store ptr %87, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !82
+  %86 = load ptr, ptr %85, align 8, !tbaa !85
+  %87 = load ptr, ptr %4, align 8, !tbaa !83
+  store ptr %87, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !83
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !83
-  store ptr %89, ptr %83, align 8, !tbaa !83
+  %89 = load ptr, ptr %88, align 8, !tbaa !84
+  store ptr %89, ptr %83, align 8, !tbaa !84
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !84
-  store ptr %91, ptr %85, align 8, !tbaa !84
-  store ptr %82, ptr %4, align 8, !tbaa !82
-  store ptr %84, ptr %88, align 8, !tbaa !83
-  store ptr %86, ptr %90, align 8, !tbaa !84
+  %91 = load ptr, ptr %90, align 8, !tbaa !85
+  store ptr %91, ptr %85, align 8, !tbaa !85
+  store ptr %82, ptr %4, align 8, !tbaa !83
+  store ptr %84, ptr %88, align 8, !tbaa !84
+  store ptr %86, ptr %90, align 8, !tbaa !85
   %92 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 43
-  %93 = load i8, ptr %92, align 1, !tbaa !93, !range !94, !noundef !95
+  %93 = load i8, ptr %92, align 1, !tbaa !94, !range !95, !noundef !96
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 43
-  store i8 %93, ptr %94, align 1, !tbaa !93
-  store i8 0, ptr %92, align 1, !tbaa !93
+  store i8 %93, ptr %94, align 1, !tbaa !94
+  store i8 0, ptr %92, align 1, !tbaa !94
   %95 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 44
-  %96 = load i16, ptr %95, align 4, !tbaa !96
+  %96 = load i16, ptr %95, align 4, !tbaa !97
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i16 %96, ptr %97, align 4, !tbaa !96
+  store i16 %96, ptr %97, align 4, !tbaa !97
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 56
   tail call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(24) %81) #17
   %99 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 72
-  %100 = load i64, ptr %99, align 8, !tbaa !88
+  %100 = load i64, ptr %99, align 8, !tbaa !89
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %102 = load i64, ptr %101, align 8, !tbaa !88
-  store i64 %102, ptr %99, align 8, !tbaa !88
-  store i64 %100, ptr %101, align 8, !tbaa !88
+  %102 = load i64, ptr %101, align 8, !tbaa !89
+  store i64 %102, ptr %99, align 8, !tbaa !89
+  store i64 %100, ptr %101, align 8, !tbaa !89
   %103 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   %104 = and i8 %3, -2
   %or.cond4 = icmp eq i8 %104, 2
@@ -741,26 +741,26 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit: ; preds = %67, %75
 .lr.ph:                                           ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit, %.lr.ph
   %.sroa.051.061 = phi ptr [ %.sroa.051.0, %.lr.ph ], [ %.sroa.051.059, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit ]
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.051.061, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !97
+  %106 = load ptr, ptr %105, align 8, !tbaa !98
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.051.061, i64 24
-  %108 = load i16, ptr %107, align 8, !tbaa !100
+  %108 = load i16, ptr %107, align 8, !tbaa !101
   %109 = zext i16 %108 to i32
-  %110 = load ptr, ptr %106, align 8, !tbaa !102
+  %110 = load ptr, ptr %106, align 8, !tbaa !103
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull align 8 dereferenceable(12) %106, i32 noundef %109)
-  %.sroa.051.0 = load ptr, ptr %.sroa.051.061, align 8, !tbaa !92
+  %.sroa.051.0 = load ptr, ptr %.sroa.051.061, align 8, !tbaa !93
   %.not = icmp eq ptr %.sroa.051.0, %81
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
 
 113:                                              ; preds = %._crit_edge
   %114 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 42
-  store i8 1, ptr %114, align 2, !tbaa !67
+  store i8 1, ptr %114, align 2, !tbaa !68
   br label %117
 
 115:                                              ; preds = %._crit_edge
   %116 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 48
-  store i64 %2, ptr %116, align 8, !tbaa !104
+  store i64 %2, ptr %116, align 8, !tbaa !106
   br label %117
 
 117:                                              ; preds = %115, %113
@@ -778,22 +778,22 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit: ; preds = %67, %75
   %123 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %154, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i ]
   %124 = phi ptr [ %119, %.lr.ph.i ], [ %storemerge.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i ]
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 42
-  %126 = load i8, ptr %125, align 2, !tbaa !67, !range !94, !noundef !95
+  %126 = load i8, ptr %125, align 2, !tbaa !68, !range !95, !noundef !96
   %127 = trunc nuw i8 %126 to i1
   %128 = load i64, ptr %121, align 8
   %129 = icmp ugt i64 %123, %128
   %not..i.i.i = xor i1 %127, true
   %130 = select i1 %not..i.i.i, i1 %129, i1 false
   %131 = getelementptr inbounds nuw i8, ptr %124, i64 41
-  %132 = load i8, ptr %131, align 1, !range !94
+  %132 = load i8, ptr %131, align 1, !range !95
   %133 = trunc nuw i8 %132 to i1
   %or.cond.i.i = select i1 %130, i1 true, i1 %133
   br i1 %or.cond.i.i, label %.critedge46, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i: ; preds = %122
-  %134 = load ptr, ptr %124, align 8, !tbaa !105
+  %134 = load ptr, ptr %124, align 8, !tbaa !107
   %135 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %136 = load ptr, ptr %135, align 8, !tbaa !105
+  %136 = load ptr, ptr %135, align 8, !tbaa !107
   %137 = icmp eq ptr %134, %136
   %138 = getelementptr inbounds nuw i8, ptr %124, i64 48
   %139 = load i64, ptr %138, align 8
@@ -802,38 +802,38 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
   br i1 %.not7.i.i, label %141, label %.critedge46
 
 141:                                              ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
-  %142 = load ptr, ptr %47, align 8, !tbaa !106
+  %142 = load ptr, ptr %47, align 8, !tbaa !108
   %143 = getelementptr inbounds i8, ptr %142, i64 -80
   %.not.i.i50 = icmp eq ptr %124, %143
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %124) #17
   br i1 %.not.i.i50, label %147, label %144
 
 144:                                              ; preds = %141
-  %145 = load ptr, ptr %27, align 8, !tbaa !107
+  %145 = load ptr, ptr %27, align 8, !tbaa !109
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 80
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i
 
 147:                                              ; preds = %141
-  %148 = load ptr, ptr %58, align 8, !tbaa !108
+  %148 = load ptr, ptr %58, align 8, !tbaa !110
   tail call void @_ZdlPv(ptr noundef %148) #19
-  %149 = load ptr, ptr %30, align 8, !tbaa !38
+  %149 = load ptr, ptr %30, align 8, !tbaa !39
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store ptr %150, ptr %30, align 8, !tbaa !23
   %151 = load ptr, ptr %150, align 8, !tbaa !25
-  store ptr %151, ptr %58, align 8, !tbaa !34
+  store ptr %151, ptr %58, align 8, !tbaa !35
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 480
   store ptr %152, ptr %47, align 8, !tbaa !24
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i: ; preds = %147, %144
   %storemerge.i.i = phi ptr [ %146, %144 ], [ %151, %147 ]
-  store ptr %storemerge.i.i, ptr %27, align 8, !tbaa !107
+  store ptr %storemerge.i.i, ptr %27, align 8, !tbaa !109
   %153 = load i64, ptr %7, align 8, !tbaa !3
   %154 = add i64 %153, 1
   store i64 %154, ptr %7, align 8, !tbaa !3
   %155 = load ptr, ptr %26, align 8, !tbaa !16
   %156 = icmp eq ptr %155, %storemerge.i.i
-  br i1 %156, label %.critedge46, label %122, !llvm.loop !109
+  br i1 %156, label %.critedge46, label %122, !llvm.loop !111
 
 .critedge46:                                      ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i, %122, %117, %.critedge, %13, %5
   ret void
@@ -861,22 +861,22 @@ define void @_ZN3net20QuicUnackedPacketMap21RemoveObsoletePacketsEv(ptr noundef 
   %13 = phi i64 [ %.pre, %.lr.ph ], [ %44, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit ]
   %14 = phi ptr [ %5, %.lr.ph ], [ %storemerge.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 42
-  %16 = load i8, ptr %15, align 2, !tbaa !67, !range !94, !noundef !95
+  %16 = load i8, ptr %15, align 2, !tbaa !68, !range !95, !noundef !96
   %17 = trunc nuw i8 %16 to i1
   %18 = load i64, ptr %8, align 8
   %19 = icmp ugt i64 %13, %18
   %not..i.i = xor i1 %17, true
   %20 = select i1 %not..i.i, i1 %19, i1 false
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 41
-  %22 = load i8, ptr %21, align 1, !range !94
+  %22 = load i8, ptr %21, align 1, !range !95
   %23 = trunc nuw i8 %22 to i1
   %or.cond.i = select i1 %20, i1 true, i1 %23
   br i1 %or.cond.i, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %12
-  %24 = load ptr, ptr %14, align 8, !tbaa !105
+  %24 = load ptr, ptr %14, align 8, !tbaa !107
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
+  %26 = load ptr, ptr %25, align 8, !tbaa !107
   %27 = icmp eq ptr %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %29 = load i64, ptr %28, align 8
@@ -885,38 +885,38 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: 
   br i1 %.not7.i, label %31, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
 
 31:                                               ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
-  %32 = load ptr, ptr %9, align 8, !tbaa !106
+  %32 = load ptr, ptr %9, align 8, !tbaa !108
   %33 = getelementptr inbounds i8, ptr %32, i64 -80
   %.not.i = icmp eq ptr %14, %33
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #17
   br i1 %.not.i, label %37, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %3, align 8, !tbaa !107
+  %35 = load ptr, ptr %3, align 8, !tbaa !109
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr %10, align 8, !tbaa !108
+  %38 = load ptr, ptr %10, align 8, !tbaa !110
   tail call void @_ZdlPv(ptr noundef %38) #19
-  %39 = load ptr, ptr %11, align 8, !tbaa !38
+  %39 = load ptr, ptr %11, align 8, !tbaa !39
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %40, ptr %11, align 8, !tbaa !23
   %41 = load ptr, ptr %40, align 8, !tbaa !25
-  store ptr %41, ptr %10, align 8, !tbaa !34
+  store ptr %41, ptr %10, align 8, !tbaa !35
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 480
   store ptr %42, ptr %9, align 8, !tbaa !24
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit: ; preds = %34, %37
   %storemerge.i = phi ptr [ %36, %34 ], [ %41, %37 ]
-  store ptr %storemerge.i, ptr %3, align 8, !tbaa !107
+  store ptr %storemerge.i, ptr %3, align 8, !tbaa !109
   %43 = load i64, ptr %7, align 8, !tbaa !3
   %44 = add i64 %43, 1
   store i64 %44, ptr %7, align 8, !tbaa !3
   %45 = load ptr, ptr %2, align 8, !tbaa !16
   %46 = icmp eq ptr %45, %storemerge.i
-  br i1 %46, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %12, !llvm.loop !109
+  br i1 %46, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %12, !llvm.loop !111
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit, %12, %1
   ret void
@@ -925,7 +925,7 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 42
-  %5 = load i8, ptr %4, align 2, !tbaa !67, !range !94, !noundef !95
+  %5 = load i8, ptr %4, align 2, !tbaa !68, !range !95, !noundef !96
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
@@ -933,15 +933,15 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS
   %not..i = xor i1 %6, true
   %10 = select i1 %not..i, i1 %9, i1 false
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 41
-  %12 = load i8, ptr %11, align 1, !range !94
+  %12 = load i8, ptr %11, align 1, !range !95
   %13 = trunc nuw i8 %12 to i1
   %or.cond = select i1 %10, i1 true, i1 %13
   br i1 %or.cond, label %22, label %14
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %2, align 8, !tbaa !105
+  %15 = load ptr, ptr %2, align 8, !tbaa !107
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !105
+  %17 = load ptr, ptr %16, align 8, !tbaa !107
   %18 = icmp eq ptr %15, %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %20 = load i64, ptr %19, align 8
@@ -960,11 +960,11 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap24HasRetransmittableFra
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = sub i64 %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !110
+  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !112
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !34, !noalias !110
+  %9 = load ptr, ptr %8, align 8, !tbaa !35, !noalias !112
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !110
+  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !112
   %12 = ptrtoint ptr %7 to i64
   %13 = ptrtoint ptr %9 to i64
   %14 = sub i64 %12, %13
@@ -994,7 +994,7 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap24HasRetransmittableFra
 28:                                               ; preds = %24, %22
   %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
   %30 = getelementptr inbounds ptr, ptr %11, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !110
+  %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !112
   %.idx.i.i.i.i = mul i64 %29, -480
   %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
   %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
@@ -1002,9 +1002,9 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap24HasRetransmittableFra
 
 _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
   %storemerge.i.i.i.i = phi ptr [ %33, %28 ], [ %21, %20 ]
-  %34 = load ptr, ptr %storemerge.i.i.i.i, align 8, !tbaa !105
+  %34 = load ptr, ptr %storemerge.i.i.i.i, align 8, !tbaa !107
   %35 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !105
+  %36 = load ptr, ptr %35, align 8, !tbaa !107
   %37 = icmp ne ptr %34, %36
   ret i1 %37
 }
@@ -1012,7 +1012,7 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %4 = load i64, ptr %3, align 8, !tbaa !104
+  %4 = load i64, ptr %3, align 8, !tbaa !106
   %.not6 = icmp eq i64 %4, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -1020,11 +1020,11 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16Trans
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !16, !noalias !113
+  %8 = load ptr, ptr %7, align 8, !tbaa !16, !noalias !115
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !34, !noalias !113
+  %10 = load ptr, ptr %9, align 8, !tbaa !35, !noalias !115
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !23, !noalias !113
+  %12 = load ptr, ptr %11, align 8, !tbaa !23, !noalias !115
   %13 = ptrtoint ptr %8 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
@@ -1034,7 +1034,7 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16Trans
 17:                                               ; preds = %.lr.ph, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
   %18 = phi i64 [ %4, %.lr.ph ], [ %40, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
   %19 = phi ptr [ %3, %.lr.ph ], [ %39, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
-  store i64 0, ptr %19, align 8, !tbaa !104
+  store i64 0, ptr %19, align 8, !tbaa !106
   %20 = sub i64 %18, %6
   %21 = add nsw i64 %16, %20
   %22 = icmp sgt i64 %21, -1
@@ -1061,7 +1061,7 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16Trans
 33:                                               ; preds = %29, %27
   %34 = phi i64 [ %28, %27 ], [ %32, %29 ]
   %35 = getelementptr inbounds ptr, ptr %12, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !25, !noalias !113
+  %36 = load ptr, ptr %35, align 8, !tbaa !25, !noalias !115
   %.idx.i.i.i.i = mul i64 %34, -480
   %37 = getelementptr i8, ptr %36, i64 %.idx.i.i.i.i
   %38 = getelementptr %"struct.net::TransmissionInfo", ptr %37, i64 %21
@@ -1070,23 +1070,23 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16Trans
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %25, %33
   %storemerge.i.i.i.i = phi ptr [ %38, %33 ], [ %26, %25 ]
   %39 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 48
-  %40 = load i64, ptr %39, align 8, !tbaa !104
+  %40 = load i64, ptr %39, align 8, !tbaa !106
   %.not = icmp eq i64 %40, 0
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !116
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %2
   %.0.lcssa = phi ptr [ %1, %2 ], [ %storemerge.i.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 43
-  %42 = load i8, ptr %41, align 1, !tbaa !93, !range !94, !noundef !95
+  %42 = load i8, ptr %41, align 1, !tbaa !94, !range !95, !noundef !96
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %_ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16TransmissionInfoE.exit
 
 44:                                               ; preds = %._crit_edge
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %46 = load i64, ptr %45, align 8, !tbaa !78
+  %46 = load i64, ptr %45, align 8, !tbaa !79
   %47 = add i64 %46, -1
-  store i64 %47, ptr %45, align 8, !tbaa !78
-  store i8 0, ptr %41, align 1, !tbaa !93
+  store i64 %47, ptr %45, align 8, !tbaa !79
+  store i8 0, ptr %41, align 1, !tbaa !94
   br label %_ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16TransmissionInfoE.exit
 
 _ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16TransmissionInfoE.exit: ; preds = %._crit_edge, %44
@@ -1097,16 +1097,16 @@ _ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16Transmissi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16TransmissionInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 43
-  %4 = load i8, ptr %3, align 1, !tbaa !93, !range !94, !noundef !95
+  %4 = load i8, ptr %3, align 1, !tbaa !94, !range !95, !noundef !96
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %8 = load i64, ptr %7, align 8, !tbaa !78
+  %8 = load i64, ptr %7, align 8, !tbaa !79
   %9 = add i64 %8, -1
-  store i64 %9, ptr %7, align 8, !tbaa !78
-  store i8 0, ptr %3, align 1, !tbaa !93
+  store i64 %9, ptr %7, align 8, !tbaa !79
+  store i8 0, ptr %3, align 1, !tbaa !94
   br label %10
 
 10:                                               ; preds = %6, %2
@@ -1120,11 +1120,11 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm(ptr nound
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = sub i64 %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !117
+  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !119
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !34, !noalias !117
+  %9 = load ptr, ptr %8, align 8, !tbaa !35, !noalias !119
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !117
+  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !119
   %12 = ptrtoint ptr %7 to i64
   %13 = ptrtoint ptr %9 to i64
   %14 = sub i64 %12, %13
@@ -1154,7 +1154,7 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm(ptr nound
 28:                                               ; preds = %24, %22
   %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
   %30 = getelementptr inbounds ptr, ptr %11, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !117
+  %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !119
   %.idx.i.i.i.i = mul i64 %29, -480
   %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
   %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
@@ -1163,14 +1163,14 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm(ptr nound
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
   %storemerge.i.i.i.i = phi ptr [ %33, %28 ], [ %21, %20 ]
   %34 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 48
-  %35 = load i64, ptr %34, align 8, !tbaa !104
+  %35 = load i64, ptr %34, align 8, !tbaa !106
   %.not6.i = icmp eq i64 %35, 0
   br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i
   %36 = phi i64 [ %58, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i ], [ %35, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
   %37 = phi ptr [ %57, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i ], [ %34, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
-  store i64 0, ptr %37, align 8, !tbaa !104
+  store i64 0, ptr %37, align 8, !tbaa !106
   %38 = sub i64 %36, %4
   %39 = add nsw i64 %38, %15
   %40 = icmp sgt i64 %39, -1
@@ -1197,7 +1197,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
 51:                                               ; preds = %47, %45
   %52 = phi i64 [ %46, %45 ], [ %50, %47 ]
   %53 = getelementptr inbounds ptr, ptr %11, i64 %52
-  %54 = load ptr, ptr %53, align 8, !tbaa !25, !noalias !120
+  %54 = load ptr, ptr %53, align 8, !tbaa !25, !noalias !122
   %.idx.i.i.i.i.i = mul i64 %52, -480
   %55 = getelementptr i8, ptr %54, i64 %.idx.i.i.i.i.i
   %56 = getelementptr %"struct.net::TransmissionInfo", ptr %55, i64 %39
@@ -1206,23 +1206,23 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i: ; preds = %51, %43
   %storemerge.i.i.i.i.i = phi ptr [ %56, %51 ], [ %44, %43 ]
   %57 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 48
-  %58 = load i64, ptr %57, align 8, !tbaa !104
+  %58 = load i64, ptr %57, align 8, !tbaa !106
   %.not.i3 = icmp eq i64 %58, 0
-  br i1 %.not.i3, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !116
+  br i1 %.not.i3, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !118
 
 ._crit_edge.i:                                    ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
   %.0.lcssa.i = phi ptr [ %storemerge.i.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ], [ %storemerge.i.i.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i ]
   %59 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 43
-  %60 = load i8, ptr %59, align 1, !tbaa !93, !range !94, !noundef !95
+  %60 = load i8, ptr %59, align 1, !tbaa !94, !range !95, !noundef !96
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE.exit
 
 62:                                               ; preds = %._crit_edge.i
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %64 = load i64, ptr %63, align 8, !tbaa !78
+  %64 = load i64, ptr %63, align 8, !tbaa !79
   %65 = add i64 %64, -1
-  store i64 %65, ptr %63, align 8, !tbaa !78
-  store i8 0, ptr %59, align 1, !tbaa !93
+  store i64 %65, ptr %63, align 8, !tbaa !79
+  store i8 0, ptr %59, align 1, !tbaa !94
   br label %_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE.exit
 
 _ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE.exit: ; preds = %._crit_edge.i, %62
@@ -1233,14 +1233,14 @@ _ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3net20QuicUnackedPacketMap23IncreaseLargestObservedEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %3, align 8, !tbaa !123
+  store i64 %1, ptr %3, align 8, !tbaa !125
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap29IsPacketUsefulForMeasuringRttEmRKNS_16TransmissionInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 42
-  %5 = load i8, ptr %4, align 2, !tbaa !67, !range !94, !noundef !95
+  %5 = load i8, ptr %4, align 2, !tbaa !68, !range !95, !noundef !96
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
@@ -1253,16 +1253,16 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap29IsPacketUsefulForMeas
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap34IsPacketUsefulForCongestionControlERKNS_16TransmissionInfoE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %4 = load i8, ptr %3, align 1, !tbaa !77, !range !94, !noundef !95
+  %4 = load i8, ptr %3, align 1, !tbaa !78, !range !95, !noundef !96
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap36IsPacketUsefulForRetransmittableDataERKNS_16TransmissionInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #7 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !105
+  %3 = load ptr, ptr %1, align 8, !tbaa !107
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !105
+  %5 = load ptr, ptr %4, align 8, !tbaa !107
   %6 = icmp ne ptr %3, %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load i64, ptr %7, align 8
@@ -1297,7 +1297,7 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(ptr nounde
   %19 = mul nsw i64 %18, 6
   %20 = load ptr, ptr %7, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %22 = load ptr, ptr %21, align 8, !tbaa !34
+  %22 = load ptr, ptr %21, align 8, !tbaa !35
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -1318,7 +1318,7 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(ptr nounde
 37:                                               ; preds = %6
   %38 = sub i64 %1, %4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !34, !noalias !124
+  %40 = load ptr, ptr %39, align 8, !tbaa !35, !noalias !126
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %31, %41
   %43 = sdiv exact i64 %42, 80
@@ -1347,7 +1347,7 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(ptr nounde
 56:                                               ; preds = %52, %50
   %57 = phi i64 [ %51, %50 ], [ %55, %52 ]
   %58 = getelementptr inbounds ptr, ptr %12, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !25, !noalias !124
+  %59 = load ptr, ptr %58, align 8, !tbaa !25, !noalias !126
   %.idx.i.i.i.i = mul i64 %57, -480
   %60 = getelementptr i8, ptr %59, i64 %.idx.i.i.i.i
   %61 = getelementptr %"struct.net::TransmissionInfo", ptr %60, i64 %44
@@ -1356,7 +1356,7 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(ptr nounde
 _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %48, %56
   %storemerge.i.i.i.i = phi ptr [ %61, %56 ], [ %49, %48 ]
   %62 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 42
-  %63 = load i8, ptr %62, align 2, !tbaa !67, !range !94, !noundef !95
+  %63 = load i8, ptr %62, align 2, !tbaa !68, !range !95, !noundef !96
   %64 = trunc nuw i8 %63 to i1
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i64, ptr %65, align 8
@@ -1364,15 +1364,15 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %48, %56
   %not..i.i = xor i1 %64, true
   %68 = select i1 %not..i.i, i1 %67, i1 false
   %69 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 41
-  %70 = load i8, ptr %69, align 1, !range !94
+  %70 = load i8, ptr %69, align 1, !range !95
   %71 = trunc nuw i8 %70 to i1
   %or.cond.i = select i1 %68, i1 true, i1 %71
   br i1 %or.cond.i, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit, label %72
 
 72:                                               ; preds = %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
-  %73 = load ptr, ptr %storemerge.i.i.i.i, align 8, !tbaa !105
+  %73 = load ptr, ptr %storemerge.i.i.i.i, align 8, !tbaa !107
   %74 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !105
+  %75 = load ptr, ptr %74, align 8, !tbaa !107
   %76 = icmp ne ptr %73, %75
   %77 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 48
   %78 = load i64, ptr %77, align 8
@@ -1387,12 +1387,12 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, ptr noundef %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.08.011 = load ptr, ptr %1, align 8, !tbaa !92
+  %.sroa.08.011 = load ptr, ptr %1, align 8, !tbaa !93
   %.not12 = icmp eq ptr %.sroa.08.011, %1
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %1, align 8, !tbaa !92
+  %.pre = load ptr, ptr %1, align 8, !tbaa !93
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
@@ -1402,34 +1402,34 @@ define void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx11
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %6, %.lr.ph.i.i ], [ %5, %._crit_edge ]
-  %6 = load ptr, ptr %.09.i.i, align 8, !tbaa !92
+  %6 = load ptr, ptr %.09.i.i, align 8, !tbaa !93
   %7 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
   tail call void @_ZN3net18AckListenerWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #17
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #19
   %.not.i.i = icmp eq ptr %6, %1
-  br i1 %.not.i.i, label %_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !127
+  br i1 %.not.i.i, label %_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !129
 
 _ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %._crit_edge
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %1, ptr %8, align 8, !tbaa !128
-  store ptr %1, ptr %1, align 8, !tbaa !92
+  store ptr %1, ptr %8, align 8, !tbaa !130
+  store ptr %1, ptr %1, align 8, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 0, ptr %9, align 8, !tbaa !129
+  store i64 0, ptr %9, align 8, !tbaa !131
   ret void
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.sroa.08.013 = phi ptr [ %.sroa.08.0, %.lr.ph ], [ %.sroa.08.011, %4 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !97
+  %11 = load ptr, ptr %10, align 8, !tbaa !98
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 24
-  %13 = load i16, ptr %12, align 8, !tbaa !100
+  %13 = load i16, ptr %12, align 8, !tbaa !101
   %14 = zext i16 %13 to i32
-  %15 = load ptr, ptr %11, align 8, !tbaa !102
+  %15 = load ptr, ptr %11, align 8, !tbaa !103
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(12) %11, i32 noundef %14, i64 %2, i64 %3)
-  %.sroa.08.0 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !92
+  %.sroa.08.0 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !93
   %.not = icmp eq ptr %.sroa.08.0, %1
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !132
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1438,11 +1438,11 @@ define void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEmNS_8QuicTim
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = sub i64 %1, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !130
+  %9 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !133
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !34, !noalias !130
+  %11 = load ptr, ptr %10, align 8, !tbaa !35, !noalias !133
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !23, !noalias !130
+  %13 = load ptr, ptr %12, align 8, !tbaa !23, !noalias !133
   %14 = ptrtoint ptr %9 to i64
   %15 = ptrtoint ptr %11 to i64
   %16 = sub i64 %14, %15
@@ -1472,7 +1472,7 @@ define void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEmNS_8QuicTim
 30:                                               ; preds = %26, %24
   %31 = phi i64 [ %25, %24 ], [ %29, %26 ]
   %32 = getelementptr inbounds ptr, ptr %13, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !25, !noalias !130
+  %33 = load ptr, ptr %32, align 8, !tbaa !25, !noalias !133
   %.idx.i.i.i.i = mul i64 %31, -480
   %34 = getelementptr i8, ptr %33, i64 %.idx.i.i.i.i
   %35 = getelementptr %"struct.net::TransmissionInfo", ptr %34, i64 %18
@@ -1481,12 +1481,12 @@ define void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEmNS_8QuicTim
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %22, %30
   %storemerge.i.i.i.i = phi ptr [ %35, %30 ], [ %23, %22 ]
   %36 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 56
-  %.sroa.08.011.i = load ptr, ptr %36, align 8, !tbaa !92
+  %.sroa.08.011.i = load ptr, ptr %36, align 8, !tbaa !93
   %.not12.i = icmp eq ptr %.sroa.08.011.i, %36
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr %36, align 8, !tbaa !92
+  %.pre.i = load ptr, ptr %36, align 8, !tbaa !93
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
@@ -1496,33 +1496,33 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %22, %30
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %37, %._crit_edge.i ]
-  %38 = load ptr, ptr %.09.i.i.i, align 8, !tbaa !92
+  %38 = load ptr, ptr %.09.i.i.i, align 8, !tbaa !93
   %39 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
   tail call void @_ZN3net18AckListenerWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %39) #17
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #19
   %.not.i.i.i = icmp eq ptr %38, %36
-  br i1 %.not.i.i.i, label %_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit, label %.lr.ph.i.i.i, !llvm.loop !127
+  br i1 %.not.i.i.i, label %_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit, label %.lr.ph.i.i.i, !llvm.loop !129
 
 .lr.ph.i:                                         ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %.lr.ph.i
   %.sroa.08.013.i = phi ptr [ %.sroa.08.0.i, %.lr.ph.i ], [ %.sroa.08.011.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !97
+  %41 = load ptr, ptr %40, align 8, !tbaa !98
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 24
-  %43 = load i16, ptr %42, align 8, !tbaa !100
+  %43 = load i16, ptr %42, align 8, !tbaa !101
   %44 = zext i16 %43 to i32
-  %45 = load ptr, ptr %41, align 8, !tbaa !102
+  %45 = load ptr, ptr %41, align 8, !tbaa !103
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(12) %41, i32 noundef %44, i64 %2, i64 %3)
-  %.sroa.08.0.i = load ptr, ptr %.sroa.08.013.i, align 8, !tbaa !92
+  %.sroa.08.0.i = load ptr, ptr %.sroa.08.013.i, align 8, !tbaa !93
   %.not.i5 = icmp eq ptr %.sroa.08.0.i, %36
-  br i1 %.not.i5, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %.not.i5, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !132
 
 _ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.i
   %47 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 64
-  store ptr %36, ptr %47, align 8, !tbaa !128
-  store ptr %36, ptr %36, align 8, !tbaa !92
+  store ptr %36, ptr %47, align 8, !tbaa !130
+  store ptr %36, ptr %36, align 8, !tbaa !93
   %48 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 72
-  store i64 0, ptr %48, align 8, !tbaa !129
+  store i64 0, ptr %48, align 8, !tbaa !131
   ret void
 }
 
@@ -1530,7 +1530,7 @@ _ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18Ac
 define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.logging::LogMessage", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %5 = load i8, ptr %4, align 1, !tbaa !77, !range !94, !noundef !95
+  %5 = load i8, ptr %4, align 1, !tbaa !78, !range !95, !noundef !96
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %23
 
@@ -1540,9 +1540,9 @@ define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16Transmissio
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %11 = load i64, ptr %10, align 8, !tbaa !76
+  %11 = load i64, ptr %10, align 8, !tbaa !77
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %13 = load i16, ptr %12, align 2, !tbaa !133
+  %13 = load i16, ptr %12, align 2, !tbaa !136
   %14 = zext i16 %13 to i64
   %15 = icmp ult i64 %11, %14
   br i1 %15, label %16, label %.critedge
@@ -1556,13 +1556,13 @@ define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16Transmissio
 
 .critedge:                                        ; preds = %9, %7, %16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %18 = load i16, ptr %17, align 2, !tbaa !133
+  %18 = load i16, ptr %17, align 2, !tbaa !136
   %19 = zext i16 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %21 = load i64, ptr %20, align 8, !tbaa !76
+  %21 = load i64, ptr %20, align 8, !tbaa !77
   %22 = sub i64 %21, %19
-  store i64 %22, ptr %20, align 8, !tbaa !76
-  store i8 0, ptr %4, align 1, !tbaa !77
+  store i64 %22, ptr %20, align 8, !tbaa !77
+  store i8 0, ptr %4, align 1, !tbaa !78
   br label %23
 
 23:                                               ; preds = %.critedge, %2
@@ -1576,11 +1576,11 @@ define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef non
   %5 = load i64, ptr %4, align 8, !tbaa !3
   %6 = sub i64 %1, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !16, !noalias !134
+  %8 = load ptr, ptr %7, align 8, !tbaa !16, !noalias !137
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !34, !noalias !134
+  %10 = load ptr, ptr %9, align 8, !tbaa !35, !noalias !137
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !23, !noalias !134
+  %12 = load ptr, ptr %11, align 8, !tbaa !23, !noalias !137
   %13 = ptrtoint ptr %8 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
@@ -1610,7 +1610,7 @@ define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef non
 29:                                               ; preds = %25, %23
   %30 = phi i64 [ %24, %23 ], [ %28, %25 ]
   %31 = getelementptr inbounds ptr, ptr %12, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !25, !noalias !134
+  %32 = load ptr, ptr %31, align 8, !tbaa !25, !noalias !137
   %.idx.i.i.i.i = mul i64 %30, -480
   %33 = getelementptr i8, ptr %32, i64 %.idx.i.i.i.i
   %34 = getelementptr %"struct.net::TransmissionInfo", ptr %33, i64 %17
@@ -1619,7 +1619,7 @@ define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef non
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %21, %29
   %storemerge.i.i.i.i = phi ptr [ %34, %29 ], [ %22, %21 ]
   %35 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 41
-  %36 = load i8, ptr %35, align 1, !tbaa !77, !range !94, !noundef !95
+  %36 = load i8, ptr %35, align 1, !tbaa !78, !range !95, !noundef !96
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE.exit
 
@@ -1629,9 +1629,9 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %21, %29
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %42 = load i64, ptr %41, align 8, !tbaa !76
+  %42 = load i64, ptr %41, align 8, !tbaa !77
   %43 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 26
-  %44 = load i16, ptr %43, align 2, !tbaa !133
+  %44 = load i16, ptr %43, align 2, !tbaa !136
   %45 = zext i16 %44 to i64
   %46 = icmp ult i64 %42, %45
   br i1 %46, label %47, label %.critedge.i
@@ -1645,13 +1645,13 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %21, %29
 
 .critedge.i:                                      ; preds = %47, %40, %38
   %48 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 26
-  %49 = load i16, ptr %48, align 2, !tbaa !133
+  %49 = load i16, ptr %48, align 2, !tbaa !136
   %50 = zext i16 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %52 = load i64, ptr %51, align 8, !tbaa !76
+  %52 = load i64, ptr %51, align 8, !tbaa !77
   %53 = sub i64 %52, %50
-  store i64 %53, ptr %51, align 8, !tbaa !76
-  store i8 0, ptr %35, align 1, !tbaa !77
+  store i64 %53, ptr %51, align 8, !tbaa !77
+  store i8 0, ptr %35, align 1, !tbaa !78
   br label %_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE.exit
 
 _ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE.exit: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %.critedge.i
@@ -1664,11 +1664,11 @@ define void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr noundef nonn
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = sub i64 %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !137
+  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !140
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !34, !noalias !137
+  %9 = load ptr, ptr %8, align 8, !tbaa !35, !noalias !140
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !137
+  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !140
   %12 = ptrtoint ptr %7 to i64
   %13 = ptrtoint ptr %9 to i64
   %14 = sub i64 %12, %13
@@ -1698,7 +1698,7 @@ define void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr noundef nonn
 28:                                               ; preds = %24, %22
   %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
   %30 = getelementptr inbounds ptr, ptr %11, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !137
+  %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !140
   %.idx.i.i.i.i = mul i64 %29, -480
   %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
   %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
@@ -1707,14 +1707,14 @@ define void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr noundef nonn
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
   %storemerge.i.i.i.i = phi ptr [ %33, %28 ], [ %21, %20 ]
   %34 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 26
-  %35 = load i16, ptr %34, align 2, !tbaa !133
+  %35 = load i16, ptr %34, align 2, !tbaa !136
   %36 = zext i16 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %38 = load i64, ptr %37, align 8, !tbaa !76
+  %38 = load i64, ptr %37, align 8, !tbaa !77
   %39 = add i64 %38, %36
-  store i64 %39, ptr %37, align 8, !tbaa !76
+  store i64 %39, ptr %37, align 8, !tbaa !77
   %40 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 41
-  store i8 1, ptr %40, align 1, !tbaa !77
+  store i8 1, ptr %40, align 1, !tbaa !78
   ret void
 }
 
@@ -1722,17 +1722,17 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
 define void @_ZN3net20QuicUnackedPacketMap30CancelRetransmissionsForStreamEj(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !140
+  %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !143
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !143
+  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !146
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !23, !noalias !140
+  %9 = load ptr, ptr %8, align 8, !tbaa !23, !noalias !143
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !24, !noalias !140
+  %11 = load ptr, ptr %10, align 8, !tbaa !24, !noalias !143
   %12 = load i64, ptr %3, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1746,25 +1746,25 @@ define void @_ZN3net20QuicUnackedPacketMap30CancelRetransmissionsForStreamEj(ptr
   %.sroa.13.012 = phi ptr [ %9, %.lr.ph ], [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit ]
   %.sroa.10.011 = phi ptr [ %11, %.lr.ph ], [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit ]
   %.sroa.06.010 = phi ptr [ %5, %.lr.ph ], [ %.sroa.06.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit ]
-  %16 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !105
+  %16 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !107
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !105
+  %18 = load ptr, ptr %17, align 8, !tbaa !107
   %19 = icmp eq ptr %16, %18
   br i1 %19, label %83, label %20
 
 20:                                               ; preds = %15
   tail call void @_ZN3net9QuicUtils21RemoveFramesForStreamEPSt6vectorINS_9QuicFrameESaIS2_EEj(ptr noundef nonnull %.sroa.06.010, i32 noundef %1)
-  %21 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !105
-  %22 = load ptr, ptr %17, align 8, !tbaa !105
+  %21 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !107
+  %22 = load ptr, ptr %17, align 8, !tbaa !107
   %23 = icmp eq ptr %21, %22
   br i1 %23, label %24, label %83
 
 24:                                               ; preds = %20
   %25 = load i64, ptr %3, align 8, !tbaa !3
   %26 = sub i64 %.013, %25
-  %27 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !146
-  %28 = load ptr, ptr %13, align 8, !tbaa !34, !noalias !146
-  %29 = load ptr, ptr %8, align 8, !tbaa !23, !noalias !146
+  %27 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !149
+  %28 = load ptr, ptr %13, align 8, !tbaa !35, !noalias !149
+  %29 = load ptr, ptr %8, align 8, !tbaa !23, !noalias !149
   %30 = ptrtoint ptr %27 to i64
   %31 = ptrtoint ptr %28 to i64
   %32 = sub i64 %30, %31
@@ -1794,7 +1794,7 @@ define void @_ZN3net20QuicUnackedPacketMap30CancelRetransmissionsForStreamEj(ptr
 46:                                               ; preds = %42, %40
   %47 = phi i64 [ %41, %40 ], [ %45, %42 ]
   %48 = getelementptr inbounds ptr, ptr %29, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !25, !noalias !146
+  %49 = load ptr, ptr %48, align 8, !tbaa !25, !noalias !149
   %.idx.i.i.i.i.i = mul i64 %47, -480
   %50 = getelementptr i8, ptr %49, i64 %.idx.i.i.i.i.i
   %51 = getelementptr %"struct.net::TransmissionInfo", ptr %50, i64 %34
@@ -1803,14 +1803,14 @@ define void @_ZN3net20QuicUnackedPacketMap30CancelRetransmissionsForStreamEj(ptr
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i: ; preds = %46, %38
   %storemerge.i.i.i.i.i = phi ptr [ %51, %46 ], [ %39, %38 ]
   %52 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 48
-  %53 = load i64, ptr %52, align 8, !tbaa !104
+  %53 = load i64, ptr %52, align 8, !tbaa !106
   %.not6.i.i = icmp eq i64 %53, 0
   br i1 %.not6.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i.i
   %54 = phi i64 [ %76, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i.i ], [ %53, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i ]
   %55 = phi ptr [ %75, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i.i ], [ %52, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i ]
-  store i64 0, ptr %55, align 8, !tbaa !104
+  store i64 0, ptr %55, align 8, !tbaa !106
   %56 = sub i64 %54, %25
   %57 = add nsw i64 %56, %33
   %58 = icmp sgt i64 %57, -1
@@ -1837,7 +1837,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i: ; preds = %46, %38
 69:                                               ; preds = %65, %63
   %70 = phi i64 [ %64, %63 ], [ %68, %65 ]
   %71 = getelementptr inbounds ptr, ptr %29, i64 %70
-  %72 = load ptr, ptr %71, align 8, !tbaa !25, !noalias !149
+  %72 = load ptr, ptr %71, align 8, !tbaa !25, !noalias !152
   %.idx.i.i.i.i.i.i = mul i64 %70, -480
   %73 = getelementptr i8, ptr %72, i64 %.idx.i.i.i.i.i.i
   %74 = getelementptr %"struct.net::TransmissionInfo", ptr %73, i64 %57
@@ -1846,22 +1846,22 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i: ; preds = %46, %38
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i.i: ; preds = %69, %61
   %storemerge.i.i.i.i.i.i = phi ptr [ %74, %69 ], [ %62, %61 ]
   %75 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i.i, i64 48
-  %76 = load i64, ptr %75, align 8, !tbaa !104
+  %76 = load i64, ptr %75, align 8, !tbaa !106
   %.not.i3.i = icmp eq i64 %76, 0
-  br i1 %.not.i3.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !116
+  br i1 %.not.i3.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !118
 
 ._crit_edge.i.i:                                  ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i
   %.0.lcssa.i.i = phi ptr [ %storemerge.i.i.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i ], [ %storemerge.i.i.i.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i.i ]
   %77 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 43
-  %78 = load i8, ptr %77, align 1, !tbaa !93, !range !94, !noundef !95
+  %78 = load i8, ptr %77, align 1, !tbaa !94, !range !95, !noundef !96
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %80, label %_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm.exit
 
 80:                                               ; preds = %._crit_edge.i.i
-  %81 = load i64, ptr %14, align 8, !tbaa !78
+  %81 = load i64, ptr %14, align 8, !tbaa !79
   %82 = add i64 %81, -1
-  store i64 %82, ptr %14, align 8, !tbaa !78
-  store i8 0, ptr %77, align 1, !tbaa !93
+  store i64 %82, ptr %14, align 8, !tbaa !79
+  store i8 0, ptr %77, align 1, !tbaa !94
   br label %_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm.exit
 
 _ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm.exit: ; preds = %._crit_edge.i.i, %80
@@ -1884,9 +1884,9 @@ _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit: ; preds = %83
   %.sroa.10.1 = phi ptr [ %89, %86 ], [ %.sroa.10.011, %83 ]
   %.sroa.13.1 = phi ptr [ %87, %86 ], [ %.sroa.13.012, %83 ]
   %90 = add i64 %.013, 1
-  %91 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !143
+  %91 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !146
   %.not = icmp eq ptr %.sroa.06.1, %91
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !152
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !155
 }
 
 declare void @_ZN3net9QuicUtils21RemoveFramesForStreamEPSt6vectorINS_9QuicFrameESaIS2_EEj(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -1904,7 +1904,7 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap17HasUnackedPacketsEv(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap18HasInFlightPacketsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load i64, ptr %2, align 8, !tbaa !76
+  %3 = load i64, ptr %2, align 8, !tbaa !77
   %4 = icmp ne i64 %3, 0
   ret i1 %4
 }
@@ -1915,60 +1915,9 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPac
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = sub i64 %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !153
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !34, !noalias !153
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !153
-  %12 = ptrtoint ptr %7 to i64
-  %13 = ptrtoint ptr %9 to i64
-  %14 = sub i64 %12, %13
-  %15 = sdiv exact i64 %14, 80
-  %16 = add nsw i64 %15, %5
-  %17 = icmp sgt i64 %16, -1
-  br i1 %17, label %18, label %24
-
-18:                                               ; preds = %2
-  %19 = icmp samesign ult i64 %16, 6
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %7, i64 %5
-  br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
-
-22:                                               ; preds = %18
-  %23 = udiv i64 %16, 6
-  br label %28
-
-24:                                               ; preds = %2
-  %25 = xor i64 %16, -1
-  %26 = udiv i64 %25, 6
-  %27 = xor i64 %26, -1
-  br label %28
-
-28:                                               ; preds = %24, %22
-  %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
-  %30 = getelementptr inbounds ptr, ptr %11, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !153
-  %.idx.i.i.i.i = mul i64 %29, -480
-  %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
-  %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
-  br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
-
-_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
-  %storemerge.i.i.i.i = phi ptr [ %33, %28 ], [ %21, %20 ]
-  ret ptr %storemerge.i.i.i.i
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissionInfoEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %4 = load i64, ptr %3, align 8, !tbaa !3
-  %5 = sub i64 %1, %4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !156
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !34, !noalias !156
+  %9 = load ptr, ptr %8, align 8, !tbaa !35, !noalias !156
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !156
   %12 = ptrtoint ptr %7 to i64
@@ -1985,7 +1934,7 @@ define noundef nonnull ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissio
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %7, i64 %5
-  br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
+  br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 22:                                               ; preds = %18
   %23 = udiv i64 %16, 6
@@ -2004,6 +1953,57 @@ define noundef nonnull ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissio
   %.idx.i.i.i.i = mul i64 %29, -480
   %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
   %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
+  br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
+
+_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
+  %storemerge.i.i.i.i = phi ptr [ %33, %28 ], [ %21, %20 ]
+  ret ptr %storemerge.i.i.i.i
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef nonnull ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissionInfoEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %4 = load i64, ptr %3, align 8, !tbaa !3
+  %5 = sub i64 %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !159
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = load ptr, ptr %8, align 8, !tbaa !35, !noalias !159
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !159
+  %12 = ptrtoint ptr %7 to i64
+  %13 = ptrtoint ptr %9 to i64
+  %14 = sub i64 %12, %13
+  %15 = sdiv exact i64 %14, 80
+  %16 = add nsw i64 %15, %5
+  %17 = icmp sgt i64 %16, -1
+  br i1 %17, label %18, label %24
+
+18:                                               ; preds = %2
+  %19 = icmp samesign ult i64 %16, 6
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %7, i64 %5
+  br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
+
+22:                                               ; preds = %18
+  %23 = udiv i64 %16, 6
+  br label %28
+
+24:                                               ; preds = %2
+  %25 = xor i64 %16, -1
+  %26 = udiv i64 %25, 6
+  %27 = xor i64 %26, -1
+  br label %28
+
+28:                                               ; preds = %24, %22
+  %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
+  %30 = getelementptr inbounds ptr, ptr %11, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !159
+  %.idx.i.i.i.i = mul i64 %29, -480
+  %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
+  %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
@@ -2016,17 +2016,17 @@ define i64 @_ZNK3net20QuicUnackedPacketMap21GetLastPacketSentTimeEv(ptr noundef 
   %2 = alloca %"class.logging::LogMessage", align 8
   %3 = alloca %"class.logging::LogMessage", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !159
+  %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !162
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !162
+  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !165
   %.not49 = icmp eq ptr %5, %7
   br i1 %.not49, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load ptr, ptr %8, align 8, !tbaa !23, !noalias !159
+  %9 = load ptr, ptr %8, align 8, !tbaa !23, !noalias !162
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !34, !noalias !159
+  %11 = load ptr, ptr %10, align 8, !tbaa !35, !noalias !162
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
@@ -2040,13 +2040,13 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   %13 = getelementptr inbounds i8, ptr %.sroa.18.052, i64 -8
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 441
-  %16 = load i8, ptr %15, align 1, !tbaa !77, !range !94, !noundef !95
+  %16 = load i8, ptr %15, align 1, !tbaa !78, !range !95, !noundef !96
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %21, label %40
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %.sroa.027.050, i64 -39
-  %19 = load i8, ptr %18, align 1, !tbaa !77, !range !94, !noundef !95
+  %19 = load i8, ptr %18, align 1, !tbaa !78, !range !95, !noundef !96
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %.thread38, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
@@ -2066,7 +2066,7 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit22: ; preds = %.thread38, %24
   %27 = phi ptr [ %26, %24 ], [ %.sroa.027.050, %.thread38 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 -48
-  %.sroa.09.0.copyload = load i64, ptr %28, align 8, !tbaa !165
+  %.sroa.09.0.copyload = load i64, ptr %28, align 8, !tbaa !168
   %29 = icmp eq i64 %.sroa.09.0.copyload, 0
   br i1 %29, label %30, label %.critedge
 
@@ -2094,7 +2094,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %30
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.thread38, %.critedge, %.critedge.thread
   %36 = phi ptr [ %35, %.critedge.thread ], [ %.sroa.027.050, %.critedge ], [ %.sroa.027.050, %.thread38 ], [ %.sroa.027.050, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -48
-  %.sroa.011.0.copyload = load i64, ptr %37, align 8, !tbaa !165
+  %.sroa.011.0.copyload = load i64, ptr %37, align 8, !tbaa !168
   br label %.critedge20
 
 38:                                               ; preds = %30
@@ -2114,7 +2114,7 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEp
   %42 = phi ptr [ %41, %40 ], [ %.sroa.027.050, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
   %43 = getelementptr inbounds i8, ptr %42, i64 -80
   %.not = icmp eq ptr %43, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !166
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, %1
   %44 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -2151,17 +2151,17 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK3net20QuicUnackedPacketMap29GetNumUnackedPacketsDebugOnlyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !16, !noalias !167
+  %3 = load ptr, ptr %2, align 8, !tbaa !16, !noalias !170
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !170
+  %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !173
   %.not9 = icmp eq ptr %3, %5
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !167
+  %7 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !170
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !24, !noalias !167
+  %9 = load ptr, ptr %8, align 8, !tbaa !24, !noalias !170
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2179,21 +2179,21 @@ define noundef i64 @_ZNK3net20QuicUnackedPacketMap29GetNumUnackedPacketsDebugOnl
   %.sroa.10.011 = phi ptr [ %9, %.lr.ph ], [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
   %.sroa.05.010 = phi ptr [ %3, %.lr.ph ], [ %.sroa.05.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 42
-  %16 = load i8, ptr %15, align 2, !tbaa !67, !range !94, !noundef !95
+  %16 = load i8, ptr %15, align 2, !tbaa !68, !range !95, !noundef !96
   %17 = trunc nuw i8 %16 to i1
   %18 = icmp ugt i64 %.014, %13
   %not..i.i = xor i1 %17, true
   %19 = select i1 %not..i.i, i1 %18, i1 false
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 41
-  %21 = load i8, ptr %20, align 1, !range !94
+  %21 = load i8, ptr %20, align 1, !range !95
   %22 = trunc nuw i8 %21 to i1
   %or.cond.i = select i1 %19, i1 true, i1 %22
   br i1 %or.cond.i, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %14
-  %23 = load ptr, ptr %.sroa.05.010, align 8, !tbaa !105
+  %23 = load ptr, ptr %.sroa.05.010, align 8, !tbaa !107
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %25 = load ptr, ptr %24, align 8, !tbaa !107
   %26 = icmp eq ptr %23, %25
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 48
   %28 = load i64, ptr %27, align 8
@@ -2223,29 +2223,29 @@ _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit: ; preds = %_
   %.sroa.13.1 = phi ptr [ %34, %33 ], [ %.sroa.13.012, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread ]
   %37 = add i64 %.014, 1
   %.not = icmp eq ptr %.sroa.05.1, %5
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !173
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !176
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load i64, ptr %2, align 8, !tbaa !76
+  %3 = load i64, ptr %2, align 8, !tbaa !77
   %4 = icmp ugt i64 %3, 1460
   br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !174
+  %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !177
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !177
+  %9 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !180
   %.not16 = icmp eq ptr %7, %9
   br i1 %.not16, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !174
+  %11 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !177
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %13 = load ptr, ptr %12, align 8, !tbaa !34, !noalias !174
+  %13 = load ptr, ptr %12, align 8, !tbaa !35, !noalias !177
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
@@ -2260,7 +2260,7 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   %15 = getelementptr inbounds i8, ptr %.sroa.14.019, i64 -8
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 441
-  %18 = load i8, ptr %17, align 1, !tbaa !77, !range !94, !noundef !95
+  %18 = load i8, ptr %17, align 1, !tbaa !78, !range !95, !noundef !96
   %19 = zext nneg i8 %18 to i64
   %spec.select = add nuw nsw i64 %.0420, %19
   %20 = icmp samesign ugt i64 %spec.select, 1
@@ -2268,7 +2268,7 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %.lr.ph
   %21 = getelementptr inbounds i8, ptr %.sroa.07.017, i64 -39
-  %22 = load i8, ptr %21, align 1, !tbaa !77, !range !94, !noundef !95
+  %22 = load i8, ptr %21, align 1, !tbaa !78, !range !95, !noundef !96
   %23 = zext nneg i8 %22 to i64
   %spec.select12 = add nuw nsw i64 %.0420, %23
   %24 = icmp samesign ugt i64 %spec.select12, 1
@@ -2285,7 +2285,7 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEp
   %27 = phi ptr [ %26, %25 ], [ %.sroa.07.017, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
   %28 = getelementptr inbounds i8, ptr %27, i64 -80
   %.not = icmp eq ptr %28, %9
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !180
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !183
 
 .critedge:                                        ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, %5, %1
   %.05 = phi i1 [ true, %1 ], [ false, %5 ], [ true, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ true, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit ], [ false, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ]
@@ -2295,7 +2295,7 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap23HasPendingCryptoPacketsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load i64, ptr %2, align 8, !tbaa !78
+  %3 = load i64, ptr %2, align 8, !tbaa !79
   %4 = icmp ne i64 %3, 0
   ret i1 %4
 }
@@ -2303,17 +2303,17 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap23HasPendingCryptoPacke
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap31HasUnackedRetransmittableFramesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !16, !noalias !181
+  %3 = load ptr, ptr %2, align 8, !tbaa !16, !noalias !184
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !184
+  %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !187
   %.not13.not = icmp eq ptr %3, %5
   br i1 %.not13.not, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !181
+  %7 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !184
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !34, !noalias !181
+  %9 = load ptr, ptr %8, align 8, !tbaa !35, !noalias !184
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
@@ -2327,29 +2327,29 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   %11 = getelementptr inbounds i8, ptr %.sroa.15.018, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 441
-  %14 = load i8, ptr %13, align 1, !tbaa !77, !range !94, !noundef !95
+  %14 = load i8, ptr %13, align 1, !tbaa !78, !range !95, !noundef !96
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3, label %.thread
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %.lr.ph
   %16 = getelementptr inbounds i8, ptr %.sroa.04.014, i64 -39
-  %17 = load i8, ptr %16, align 1, !tbaa !77, !range !94, !noundef !95
+  %17 = load i8, ptr %16, align 1, !tbaa !78, !range !95, !noundef !96
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 400
-  %20 = load ptr, ptr %19, align 8, !tbaa !105
+  %20 = load ptr, ptr %19, align 8, !tbaa !107
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 408
-  %22 = load ptr, ptr %21, align 8, !tbaa !105
+  %22 = load ptr, ptr %21, align 8, !tbaa !107
   %23 = icmp eq ptr %20, %22
   br i1 %23, label %.thread, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
   %24 = getelementptr inbounds i8, ptr %.sroa.04.014, i64 -80
-  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %25 = load ptr, ptr %24, align 8, !tbaa !107
   %26 = getelementptr inbounds i8, ptr %.sroa.04.014, i64 -72
-  %27 = load ptr, ptr %26, align 8, !tbaa !105
+  %27 = load ptr, ptr %26, align 8, !tbaa !107
   %28 = icmp eq ptr %25, %27
   br i1 %28, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge
 
@@ -2365,7 +2365,7 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEp
   %32 = phi ptr [ %31, %.thread ], [ %.sroa.04.014, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %.sroa.04.014, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ]
   %33 = getelementptr inbounds i8, ptr %32, i64 -80
   %.not.not = icmp eq ptr %33, %5
-  br i1 %.not.not, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge, label %.lr.ph, !llvm.loop !187
+  br i1 %.not.not, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge, label %.lr.ph, !llvm.loop !190
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge: ; preds = %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ true, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ], [ true, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3 ], [ false, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ]
@@ -2386,9 +2386,9 @@ define linkonce_odr void @_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE17_
   %5 = tail call i64 @llvm.umax.i64(i64 %3, i64 5)
   %.sroa.speculated = add nuw nsw i64 %5, 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.speculated, ptr %6, align 8, !tbaa !188
+  store i64 %.sroa.speculated, ptr %6, align 8, !tbaa !191
   %7 = icmp ugt i64 %1, 6917529027641081837
-  br i1 %7, label %8, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit, !prof !189
+  br i1 %7, label %8, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit, !prof !192
 
 8:                                                ; preds = %2
   %9 = icmp ugt i64 %1, -4611686018427387923
@@ -2406,7 +2406,7 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit: ; p
   %10 = add nuw nsw i64 %3, 1
   %11 = shl nuw nsw i64 %.sroa.speculated, 3
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #21
-  store ptr %12, ptr %0, align 8, !tbaa !37
+  store ptr %12, ptr %0, align 8, !tbaa !38
   %13 = sub nsw i64 %.sroa.speculated, %10
   %14 = lshr i64 %13, 1
   %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
@@ -2423,7 +2423,7 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_allocate_nodeEv.exit.i: 
   store ptr %17, ptr %.011.i, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %19 = icmp ult ptr %18, %16
-  br i1 %19, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_create_nodesEPPS1_S5_.exit, !llvm.loop !190
+  br i1 %19, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_create_nodesEPPS1_S5_.exit, !llvm.loop !193
 
 20:                                               ; preds = %.lr.ph.i
   %21 = landingpad { ptr, i32 }
@@ -2439,7 +2439,7 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_allocate_nodeEv.exit.i: 
   tail call void @_ZdlPv(ptr noundef %25) #19
   %26 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %27 = icmp ult ptr %26, %.011.i
-  br i1 %27, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i, !llvm.loop !40
+  br i1 %27, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i, !llvm.loop !41
 
 _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i: ; preds = %.lr.ph.i.i, %20
   invoke void @__cxa_rethrow() #20
@@ -2464,7 +2464,7 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.e
 .body:                                            ; preds = %28
   %34 = extractvalue { ptr, i32 } %29, 0
   %35 = tail call ptr @__cxa_begin_catch(ptr %34) #17
-  %36 = load ptr, ptr %0, align 8, !tbaa !37
+  %36 = load ptr, ptr %0, align 8, !tbaa !38
   tail call void @_ZdlPv(ptr noundef %36) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke void @__cxa_rethrow() #20
@@ -2485,7 +2485,7 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_create_nodesEPPS1_S5_.ex
   store ptr %15, ptr %41, align 8, !tbaa !23
   %42 = load ptr, ptr %15, align 8, !tbaa !25
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %42, ptr %43, align 8, !tbaa !34
+  store ptr %42, ptr %43, align 8, !tbaa !35
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 480
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %44, ptr %45, align 8, !tbaa !24
@@ -2495,13 +2495,13 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_create_nodesEPPS1_S5_.ex
   store ptr %47, ptr %48, align 8, !tbaa !23
   %49 = load ptr, ptr %47, align 8, !tbaa !25
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %49, ptr %50, align 8, !tbaa !34
+  store ptr %49, ptr %50, align 8, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 480
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !24
-  store ptr %42, ptr %40, align 8, !tbaa !107
+  store ptr %42, ptr %40, align 8, !tbaa !109
   %53 = getelementptr inbounds nuw %"struct.net::TransmissionInfo", ptr %49, i64 %4
-  store ptr %53, ptr %46, align 8, !tbaa !62
+  store ptr %53, ptr %46, align 8, !tbaa !63
   ret void
 
 54:                                               ; preds = %37
@@ -2553,7 +2553,7 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_
   %15 = mul nsw i64 %14, 6
   %16 = load ptr, ptr %3, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !35
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -2576,8 +2576,8 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !188
-  %37 = load ptr, ptr %0, align 8, !tbaa !37
+  %36 = load i64, ptr %35, align 8, !tbaa !191
+  %37 = load ptr, ptr %0, align 8, !tbaa !38
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
   %40 = ashr exact i64 %39, 3
@@ -2587,7 +2587,7 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_
 
 43:                                               ; preds = %34
   tail call void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !39
+  %.pre = load ptr, ptr %5, align 8, !tbaa !40
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
@@ -2595,20 +2595,20 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit: ; p
   %45 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #21
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !25
-  %47 = load ptr, ptr %3, align 8, !tbaa !62
+  %47 = load ptr, ptr %3, align 8, !tbaa !63
   invoke void @_ZN3net16TransmissionInfoC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %47, ptr noundef nonnull align 8 dereferenceable(80) %1)
           to label %_ZNSt16allocator_traitsISaIN3net16TransmissionInfoEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit unwind label %53
 
 _ZNSt16allocator_traitsISaIN3net16TransmissionInfoEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit
-  %48 = load ptr, ptr %5, align 8, !tbaa !39
+  %48 = load ptr, ptr %5, align 8, !tbaa !40
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %49, ptr %5, align 8, !tbaa !23
   %50 = load ptr, ptr %49, align 8, !tbaa !25
-  store ptr %50, ptr %17, align 8, !tbaa !34
+  store ptr %50, ptr %17, align 8, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 480
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !24
-  store ptr %50, ptr %3, align 8, !tbaa !62
+  store ptr %50, ptr %3, align 8, !tbaa !63
   ret void
 
 53:                                               ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit
@@ -2616,7 +2616,7 @@ _ZNSt16allocator_traitsISaIN3net16TransmissionInfoEEE9constructIS1_JS1_EEEvRS2_P
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #17
-  %57 = load ptr, ptr %5, align 8, !tbaa !39
+  %57 = load ptr, ptr %5, align 8, !tbaa !40
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !25
   tail call void @_ZdlPv(ptr noundef %59) #19
@@ -2651,9 +2651,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -2661,13 +2661,13 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE17_M_reall
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !188
+  %15 = load i64, ptr %14, align 8, !tbaa !191
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr %0, align 8, !tbaa !37
+  %19 = load ptr, ptr %0, align 8, !tbaa !38
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
   %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
@@ -2705,7 +2705,7 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE17_M_reall
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit, !prof !189
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit, !prof !192
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -2738,10 +2738,10 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit: ; p
   br label %_ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit26
 
 _ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit26: ; preds = %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit, %53
-  %56 = load ptr, ptr %0, align 8, !tbaa !37
+  %56 = load ptr, ptr %0, align 8, !tbaa !38
   tail call void @_ZdlPv(ptr noundef %56) #19
-  store ptr %46, ptr %0, align 8, !tbaa !37
-  store i64 %41, ptr %14, align 8, !tbaa !188
+  store ptr %46, ptr %0, align 8, !tbaa !38
+  store i64 %41, ptr %14, align 8, !tbaa !191
   br label %_ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit26
@@ -2749,7 +2749,7 @@ _ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %2
   store ptr %.0, ptr %6, align 8, !tbaa !23
   %57 = load ptr, ptr %.0, align 8, !tbaa !25
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %57, ptr %58, align 8, !tbaa !34
+  store ptr %57, ptr %58, align 8, !tbaa !35
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 480
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !24
@@ -2758,7 +2758,7 @@ _ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %2
   store ptr %62, ptr %4, align 8, !tbaa !23
   %63 = load ptr, ptr %62, align 8, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %63, ptr %64, align 8, !tbaa !34
+  store ptr %63, ptr %64, align 8, !tbaa !35
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 480
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %65, ptr %66, align 8, !tbaa !24
@@ -2786,7 +2786,7 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_
   %15 = mul nsw i64 %14, 6
   %16 = load ptr, ptr %3, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !35
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -2809,8 +2809,8 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !188
-  %37 = load ptr, ptr %0, align 8, !tbaa !37
+  %36 = load i64, ptr %35, align 8, !tbaa !191
+  %37 = load ptr, ptr %0, align 8, !tbaa !38
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
   %40 = ashr exact i64 %39, 3
@@ -2820,7 +2820,7 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_
 
 43:                                               ; preds = %34
   tail call void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !39
+  %.pre = load ptr, ptr %5, align 8, !tbaa !40
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
@@ -2828,20 +2828,20 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit: ; p
   %45 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #21
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !25
-  %47 = load ptr, ptr %3, align 8, !tbaa !62
+  %47 = load ptr, ptr %3, align 8, !tbaa !63
   invoke void @_ZN3net16TransmissionInfoC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %47, ptr noundef nonnull align 8 dereferenceable(80) %1)
           to label %_ZNSt16allocator_traitsISaIN3net16TransmissionInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit unwind label %53
 
 _ZNSt16allocator_traitsISaIN3net16TransmissionInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit
-  %48 = load ptr, ptr %5, align 8, !tbaa !39
+  %48 = load ptr, ptr %5, align 8, !tbaa !40
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %49, ptr %5, align 8, !tbaa !23
   %50 = load ptr, ptr %49, align 8, !tbaa !25
-  store ptr %50, ptr %17, align 8, !tbaa !34
+  store ptr %50, ptr %17, align 8, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 480
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !24
-  store ptr %50, ptr %3, align 8, !tbaa !62
+  store ptr %50, ptr %3, align 8, !tbaa !63
   ret void
 
 53:                                               ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit
@@ -2849,7 +2849,7 @@ _ZNSt16allocator_traitsISaIN3net16TransmissionInfoEEE9constructIS1_JRKS1_EEEvRS2
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #17
-  %57 = load ptr, ptr %5, align 8, !tbaa !39
+  %57 = load ptr, ptr %5, align 8, !tbaa !40
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !25
   tail call void @_ZdlPv(ptr noundef %59) #19
@@ -2942,168 +2942,171 @@ attributes #21 = { builtin allocsize(0) }
 !23 = !{!14, !12, i64 24}
 !24 = !{!14, !15, i64 16}
 !25 = !{!15, !15, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv: argument 0"}
-!30 = distinct !{!30, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
-!33 = distinct !{!33, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
-!34 = !{!14, !15, i64 8}
-!35 = distinct !{!35, !27}
-!36 = distinct !{!36, !27}
-!37 = !{!11, !12, i64 0}
-!38 = !{!11, !12, i64 40}
-!39 = !{!11, !12, i64 72}
-!40 = distinct !{!40, !27}
-!41 = !{!42, !5, i64 48}
-!42 = !{!"_ZTSN3net16SerializedPacketE", !43, i64 0, !44, i64 8, !45, i64 16, !50, i64 40, !44, i64 42, !6, i64 44, !5, i64 48, !51, i64 56, !52, i64 57, !6, i64 58, !53, i64 59, !53, i64 60, !54, i64 61, !6, i64 62, !5, i64 64, !55, i64 72}
-!43 = !{!"p1 omnipotent char", !13, i64 0}
-!44 = !{!"short", !6, i64 0}
-!45 = !{!"_ZTSSt6vectorIN3net9QuicFrameESaIS1_EE", !46, i64 0}
-!46 = !{!"_ZTSSt12_Vector_baseIN3net9QuicFrameESaIS1_EE", !47, i64 0}
-!47 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE12_Vector_implE", !48, i64 0}
-!48 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE17_Vector_impl_dataE", !49, i64 0, !49, i64 8, !49, i64 16}
-!49 = !{!"p1 _ZTSN3net9QuicFrameE", !13, i64 0}
-!50 = !{!"_ZTSN3net11IsHandshakeE", !6, i64 0}
-!51 = !{!"_ZTSN3net22QuicPacketNumberLengthE", !6, i64 0}
-!52 = !{!"_ZTSN3net15EncryptionLevelE", !6, i64 0}
-!53 = !{!"bool", !6, i64 0}
-!54 = !{!"_ZTSN3net16TransmissionTypeE", !6, i64 0}
-!55 = !{!"_ZTSNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EEE", !56, i64 0}
-!56 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EEE", !57, i64 0}
-!57 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EE10_List_implE", !58, i64 0}
-!58 = !{!"_ZTSNSt8__detail17_List_node_headerE", !59, i64 0, !5, i64 16}
-!59 = !{!"_ZTSNSt8__detail15_List_node_baseE", !60, i64 0, !60, i64 8}
-!60 = !{!"p1 _ZTSNSt8__detail15_List_node_baseE", !13, i64 0}
-!61 = !{!42, !44, i64 8}
-!62 = !{!11, !15, i64 48}
-!63 = !{!11, !15, i64 64}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
-!66 = distinct !{!66, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
-!67 = !{!68, !53, i64 42}
-!68 = !{!"_ZTSN3net16TransmissionInfoE", !45, i64 0, !52, i64 24, !51, i64 25, !44, i64 26, !69, i64 32, !54, i64 40, !53, i64 41, !53, i64 42, !53, i64 43, !44, i64 44, !5, i64 48, !55, i64 56}
-!69 = !{!"_ZTSN3net8QuicTimeE", !5, i64 0}
-!70 = distinct !{!70, !27}
-!71 = !{!42, !50, i64 40}
-!72 = !{!42, !52, i64 57}
-!73 = !{!42, !51, i64 56}
-!74 = !{!42, !44, i64 42}
-!75 = !{!4, !5, i64 0}
-!76 = !{!4, !5, i64 104}
-!77 = !{!68, !53, i64 41}
-!78 = !{!4, !5, i64 112}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
-!81 = distinct !{!81, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
-!82 = !{!48, !49, i64 0}
-!83 = !{!48, !49, i64 8}
-!84 = !{!48, !49, i64 16}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
-!87 = distinct !{!87, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
-!88 = !{!56, !5, i64 16}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!91 = distinct !{!91, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
-!92 = !{!59, !60, i64 0}
-!93 = !{!68, !53, i64 43}
-!94 = !{i8 0, i8 2}
-!95 = !{}
-!96 = !{!68, !44, i64 44}
-!97 = !{!98, !99, i64 0}
-!98 = !{!"_ZTS13scoped_refptrIN3net24QuicAckListenerInterfaceEE", !99, i64 0}
-!99 = !{!"p1 _ZTSN3net24QuicAckListenerInterfaceE", !13, i64 0}
-!100 = !{!101, !44, i64 8}
-!101 = !{!"_ZTSN3net18AckListenerWrapperE", !98, i64 0, !44, i64 8}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"vtable pointer", !7, i64 0}
-!104 = !{!68, !5, i64 48}
-!105 = !{!49, !49, i64 0}
-!106 = !{!11, !15, i64 32}
-!107 = !{!11, !15, i64 16}
-!108 = !{!11, !15, i64 24}
-!109 = distinct !{!109, !27}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!112 = distinct !{!112, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!115 = distinct !{!115, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
-!116 = distinct !{!116, !27}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!119 = distinct !{!119, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!122 = distinct !{!122, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
-!123 = !{!4, !5, i64 8}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!126 = distinct !{!126, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
-!127 = distinct !{!127, !27}
-!128 = !{!59, !60, i64 8}
-!129 = !{!58, !5, i64 16}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!132 = distinct !{!132, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
-!133 = !{!68, !44, i64 26}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!136 = distinct !{!136, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv: argument 0"}
+!31 = distinct !{!31, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
+!34 = distinct !{!34, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
+!35 = !{!14, !15, i64 8}
+!36 = distinct !{!36, !27, !28}
+!37 = distinct !{!37, !27, !28}
+!38 = !{!11, !12, i64 0}
+!39 = !{!11, !12, i64 40}
+!40 = !{!11, !12, i64 72}
+!41 = distinct !{!41, !27, !28}
+!42 = !{!43, !5, i64 48}
+!43 = !{!"_ZTSN3net16SerializedPacketE", !44, i64 0, !45, i64 8, !46, i64 16, !51, i64 40, !45, i64 42, !6, i64 44, !5, i64 48, !52, i64 56, !53, i64 57, !6, i64 58, !54, i64 59, !54, i64 60, !55, i64 61, !6, i64 62, !5, i64 64, !56, i64 72}
+!44 = !{!"p1 omnipotent char", !13, i64 0}
+!45 = !{!"short", !6, i64 0}
+!46 = !{!"_ZTSSt6vectorIN3net9QuicFrameESaIS1_EE", !47, i64 0}
+!47 = !{!"_ZTSSt12_Vector_baseIN3net9QuicFrameESaIS1_EE", !48, i64 0}
+!48 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE12_Vector_implE", !49, i64 0}
+!49 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE17_Vector_impl_dataE", !50, i64 0, !50, i64 8, !50, i64 16}
+!50 = !{!"p1 _ZTSN3net9QuicFrameE", !13, i64 0}
+!51 = !{!"_ZTSN3net11IsHandshakeE", !6, i64 0}
+!52 = !{!"_ZTSN3net22QuicPacketNumberLengthE", !6, i64 0}
+!53 = !{!"_ZTSN3net15EncryptionLevelE", !6, i64 0}
+!54 = !{!"bool", !6, i64 0}
+!55 = !{!"_ZTSN3net16TransmissionTypeE", !6, i64 0}
+!56 = !{!"_ZTSNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EEE", !57, i64 0}
+!57 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EEE", !58, i64 0}
+!58 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EE10_List_implE", !59, i64 0}
+!59 = !{!"_ZTSNSt8__detail17_List_node_headerE", !60, i64 0, !5, i64 16}
+!60 = !{!"_ZTSNSt8__detail15_List_node_baseE", !61, i64 0, !61, i64 8}
+!61 = !{!"p1 _ZTSNSt8__detail15_List_node_baseE", !13, i64 0}
+!62 = !{!43, !45, i64 8}
+!63 = !{!11, !15, i64 48}
+!64 = !{!11, !15, i64 64}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
+!67 = distinct !{!67, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
+!68 = !{!69, !54, i64 42}
+!69 = !{!"_ZTSN3net16TransmissionInfoE", !46, i64 0, !53, i64 24, !52, i64 25, !45, i64 26, !70, i64 32, !55, i64 40, !54, i64 41, !54, i64 42, !54, i64 43, !45, i64 44, !5, i64 48, !56, i64 56}
+!70 = !{!"_ZTSN3net8QuicTimeE", !5, i64 0}
+!71 = distinct !{!71, !27, !28}
+!72 = !{!43, !51, i64 40}
+!73 = !{!43, !53, i64 57}
+!74 = !{!43, !52, i64 56}
+!75 = !{!43, !45, i64 42}
+!76 = !{!4, !5, i64 0}
+!77 = !{!4, !5, i64 104}
+!78 = !{!69, !54, i64 41}
+!79 = !{!4, !5, i64 112}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
+!82 = distinct !{!82, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
+!83 = !{!49, !50, i64 0}
+!84 = !{!49, !50, i64 8}
+!85 = !{!49, !50, i64 16}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
+!88 = distinct !{!88, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
+!89 = !{!57, !5, i64 16}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!92 = distinct !{!92, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!93 = !{!60, !61, i64 0}
+!94 = !{!69, !54, i64 43}
+!95 = !{i8 0, i8 2}
+!96 = !{}
+!97 = !{!69, !45, i64 44}
+!98 = !{!99, !100, i64 0}
+!99 = !{!"_ZTS13scoped_refptrIN3net24QuicAckListenerInterfaceEE", !100, i64 0}
+!100 = !{!"p1 _ZTSN3net24QuicAckListenerInterfaceE", !13, i64 0}
+!101 = !{!102, !45, i64 8}
+!102 = !{!"_ZTSN3net18AckListenerWrapperE", !99, i64 0, !45, i64 8}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"vtable pointer", !7, i64 0}
+!105 = distinct !{!105, !28}
+!106 = !{!69, !5, i64 48}
+!107 = !{!50, !50, i64 0}
+!108 = !{!11, !15, i64 32}
+!109 = !{!11, !15, i64 16}
+!110 = !{!11, !15, i64 24}
+!111 = distinct !{!111, !27, !28}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!114 = distinct !{!114, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!117 = distinct !{!117, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!118 = distinct !{!118, !27, !28}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!121 = distinct !{!121, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!124 = distinct !{!124, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!125 = !{!4, !5, i64 8}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!128 = distinct !{!128, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!129 = distinct !{!129, !27, !28}
+!130 = !{!60, !61, i64 8}
+!131 = !{!59, !5, i64 16}
+!132 = distinct !{!132, !28}
+!133 = !{!134}
+!134 = distinct !{!134, !135, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!135 = distinct !{!135, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!136 = !{!69, !45, i64 26}
 !137 = !{!138}
 !138 = distinct !{!138, !139, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
 !139 = distinct !{!139, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
 !140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv: argument 0"}
-!142 = distinct !{!142, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv"}
+!141 = distinct !{!141, !142, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!142 = distinct !{!142, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
 !143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
-!145 = distinct !{!145, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
+!144 = distinct !{!144, !145, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv: argument 0"}
+!145 = distinct !{!145, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv"}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!148 = distinct !{!148, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!147 = distinct !{!147, !148, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
+!148 = distinct !{!148, !"_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
 !149 = !{!150}
 !150 = distinct !{!150, !151, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
 !151 = distinct !{!151, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
-!152 = distinct !{!152, !27}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
-!155 = distinct !{!155, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!154 = distinct !{!154, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
+!155 = distinct !{!155, !27, !28}
 !156 = !{!157}
 !157 = distinct !{!157, !158, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
 !158 = distinct !{!158, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
 !159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv: argument 0"}
-!161 = distinct !{!161, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv"}
+!160 = distinct !{!160, !161, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El: argument 0"}
+!161 = distinct !{!161, !"_ZStplRKSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_El"}
 !162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv: argument 0"}
-!164 = distinct !{!164, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv"}
-!165 = !{!5, !5, i64 0}
-!166 = distinct !{!166, !27}
-!167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv: argument 0"}
-!169 = distinct !{!169, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv"}
+!163 = distinct !{!163, !164, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv: argument 0"}
+!164 = distinct !{!164, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv"}
+!165 = !{!166}
+!166 = distinct !{!166, !167, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv: argument 0"}
+!167 = distinct !{!167, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv"}
+!168 = !{!5, !5, i64 0}
+!169 = distinct !{!169, !27, !28}
 !170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
-!172 = distinct !{!172, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
-!173 = distinct !{!173, !27}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv: argument 0"}
-!176 = distinct !{!176, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv"}
+!171 = distinct !{!171, !172, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv: argument 0"}
+!172 = distinct !{!172, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE5beginEv"}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv: argument 0"}
+!175 = distinct !{!175, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE3endEv"}
+!176 = distinct !{!176, !27, !28}
 !177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv: argument 0"}
-!179 = distinct !{!179, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv"}
-!180 = distinct !{!180, !27}
-!181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv: argument 0"}
-!183 = distinct !{!183, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv"}
+!178 = distinct !{!178, !179, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv: argument 0"}
+!179 = distinct !{!179, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv"}
+!180 = !{!181}
+!181 = distinct !{!181, !182, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv: argument 0"}
+!182 = distinct !{!182, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv"}
+!183 = distinct !{!183, !27, !28}
 !184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv: argument 0"}
-!186 = distinct !{!186, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv"}
-!187 = distinct !{!187, !27}
-!188 = !{!11, !5, i64 8}
-!189 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!190 = distinct !{!190, !27}
+!185 = distinct !{!185, !186, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv: argument 0"}
+!186 = distinct !{!186, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE6rbeginEv"}
+!187 = !{!188}
+!188 = distinct !{!188, !189, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv: argument 0"}
+!189 = distinct !{!189, !"_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4rendEv"}
+!190 = distinct !{!190, !27, !28}
+!191 = !{!11, !5, i64 8}
+!192 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!193 = distinct !{!193, !27, !28}

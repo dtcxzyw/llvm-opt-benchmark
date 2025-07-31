@@ -538,7 +538,7 @@ profile_create.exit:                              ; preds = %78, %79, %80
   tail call void @lv_chart_set_next_value(ptr noundef %105, ptr noundef %106, i32 noundef %107) #5
   %108 = add nuw nsw i32 %.1130.i, 1
   %exitcond131.not.i = icmp eq i32 %108, 12
-  br i1 %exitcond131.not.i, label %109, label %101, !llvm.loop !16
+  br i1 %exitcond131.not.i, label %109, label %101, !llvm.loop !17
 
 109:                                              ; preds = %101
   %110 = load ptr, ptr @chart2, align 8, !tbaa !10
@@ -1191,7 +1191,7 @@ shop_create.exit:                                 ; preds = %314, %315
   %401 = getelementptr inbounds nuw [8 x i32], ptr @color_changer_create.palette, i64 0, i64 %400
   %402 = load i32, ptr %401, align 4, !tbaa !3
   %.not.i = icmp eq i32 %402, 19
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %392
   %403 = call ptr @lv_button_create(ptr noundef %323) #5
@@ -1688,7 +1688,7 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
 19:                                               ; preds = %17
   %20 = tail call ptr @lv_draw_task_get_draw_dsc(ptr noundef nonnull %15) #5
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !18
+  %22 = load i32, ptr %21, align 8, !tbaa !19
   %23 = icmp eq i32 %22, 196608
   br i1 %23, label %24, label %.critedge
 
@@ -1706,27 +1706,27 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
   call void @lv_draw_task_get_area(ptr noundef nonnull %15, ptr noundef nonnull %5) #5
-  %30 = load i32, ptr %5, align 4, !tbaa !25
+  %30 = load i32, ptr %5, align 4, !tbaa !26
   %31 = call i32 @lv_area_get_width(ptr noundef nonnull %5) #5
   %32 = sdiv i32 %31, 2
   %33 = add nsw i32 %32, %30
-  %34 = load i32, ptr %3, align 4, !tbaa !27
+  %34 = load i32, ptr %3, align 4, !tbaa !28
   %.neg = sdiv i32 %34, -2
   %35 = add i32 %33, %.neg
-  store i32 %35, ptr %4, align 4, !tbaa !25
+  store i32 %35, ptr %4, align 4, !tbaa !26
   %36 = add nsw i32 %35, %34
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %36, ptr %37, align 4, !tbaa !29
+  store i32 %36, ptr %37, align 4, !tbaa !30
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !30
+  %39 = load i32, ptr %38, align 4, !tbaa !31
   %40 = add nsw i32 %39, -10
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %40, ptr %41, align 4, !tbaa !31
+  store i32 %40, ptr %41, align 4, !tbaa !32
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !32
+  %43 = load i32, ptr %42, align 4, !tbaa !33
   %44 = sub nsw i32 %40, %43
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %44, ptr %45, align 4, !tbaa !30
+  store i32 %44, ptr %45, align 4, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
   %46 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %47 = icmp sgt i32 %46, 29
@@ -1742,7 +1742,7 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
 52:                                               ; preds = %26, %48
   %.neg23 = phi i32 [ %.neg22, %48 ], [ -1, %26 ]
   %53 = add i32 %.neg23, %35
-  store i32 %53, ptr %6, align 4, !tbaa !25
+  store i32 %53, ptr %6, align 4, !tbaa !26
   %54 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %55 = icmp sgt i32 %54, 29
   br i1 %55, label %56, label %61
@@ -1758,7 +1758,7 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   %62 = phi i32 [ %60, %56 ], [ 1, %52 ]
   %63 = add nsw i32 %62, %36
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %63, ptr %64, align 4, !tbaa !29
+  store i32 %63, ptr %64, align 4, !tbaa !30
   %65 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %66 = icmp sgt i32 %65, 29
   br i1 %66, label %67, label %71
@@ -1774,7 +1774,7 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   %.neg25 = phi i32 [ %.neg24, %67 ], [ -1, %61 ]
   %72 = add i32 %.neg25, %44
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %72, ptr %73, align 4, !tbaa !30
+  store i32 %72, ptr %73, align 4, !tbaa !31
   %74 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %75 = icmp sgt i32 %74, 29
   br i1 %75, label %76, label %81
@@ -1790,7 +1790,7 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   %82 = phi i32 [ %80, %76 ], [ 1, %71 ]
   %83 = add nsw i32 %82, %40
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %83, ptr %84, align 4, !tbaa !31
+  store i32 %83, ptr %84, align 4, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #5
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %7) #5
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 53
@@ -1810,9 +1810,9 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
 94:                                               ; preds = %81, %89
   %95 = phi i32 [ %93, %89 ], [ 1, %81 ]
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 %95, ptr %96, align 8, !tbaa !33
+  store i32 %95, ptr %96, align 8, !tbaa !34
   %97 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !34
+  %98 = load ptr, ptr %97, align 8, !tbaa !35
   call void @lv_draw_rect(ptr noundef %98, ptr noundef nonnull %7, ptr noundef nonnull %6) #5
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #5
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %8) #5
@@ -1821,14 +1821,14 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   store i24 %100, ptr %99, align 8
   %101 = load ptr, ptr @font_normal, align 8, !tbaa !7
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store ptr %101, ptr %102, align 8, !tbaa !35
+  store ptr %101, ptr %102, align 8, !tbaa !36
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %2, ptr %103, align 8, !tbaa !39
+  store ptr %2, ptr %103, align 8, !tbaa !40
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %105 = load i8, ptr %104, align 8
   %106 = or i8 %105, 64
   store i8 %106, ptr %104, align 8
-  %107 = load ptr, ptr %97, align 8, !tbaa !34
+  %107 = load ptr, ptr %97, align 8, !tbaa !35
   call void @lv_draw_label(ptr noundef %107, ptr noundef nonnull %8, ptr noundef nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #5
@@ -1908,12 +1908,12 @@ define internal void @calendar_event_cb(ptr noundef %0) #0 {
   %9 = call i32 @lv_calendar_get_pressed_date(ptr noundef %6, ptr noundef nonnull %2) #5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %11 = load i8, ptr %10, align 1, !tbaa !40
+  %11 = load i8, ptr %10, align 1, !tbaa !41
   %12 = sext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %14 = load i8, ptr %13, align 2, !tbaa !43
+  %14 = load i8, ptr %13, align 2, !tbaa !44
   %15 = sext i8 %14 to i32
-  %16 = load i16, ptr %2, align 2, !tbaa !44
+  %16 = load i16, ptr %2, align 2, !tbaa !45
   %17 = zext i16 %16 to i32
   %18 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.37, i32 noundef %12, i32 noundef %15, i32 noundef %17) #5
   call void @lv_textarea_set_text(ptr noundef %5, ptr noundef nonnull %3) #5
@@ -2409,7 +2409,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %22 = tail call ptr @lv_draw_task_get_draw_dsc(ptr noundef %21) #5
   %23 = tail call ptr @lv_draw_task_get_line_dsc(ptr noundef %21) #5
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !45
+  %25 = load i32, ptr %24, align 8, !tbaa !46
   %26 = icmp eq i32 %25, 327680
   %27 = icmp ne ptr %23, null
   %or.cond3 = select i1 %26, i1 %27, i1 false
@@ -2420,7 +2420,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   call void @lv_obj_get_coords(ptr noundef %18, ptr noundef nonnull %2) #5
   %29 = call ptr @lv_chart_get_series_next(ptr noundef %18, ptr noundef null) #5
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !46
+  %31 = load i32, ptr %30, align 4, !tbaa !47
   %32 = icmp eq i32 %31, 1
   br i1 %32, label %33, label %35
 
@@ -2433,41 +2433,41 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #5
   call void @lv_draw_triangle_dsc_init(ptr noundef nonnull %3) #5
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %37 = load float, ptr %36, align 8, !tbaa !47
+  %37 = load float, ptr %36, align 8, !tbaa !48
   %38 = fptosi float %37 to i32
   %39 = sitofp i32 %38 to float
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store float %39, ptr %40, align 8, !tbaa !51
+  store float %39, ptr %40, align 8, !tbaa !52
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 52
-  %42 = load float, ptr %41, align 4, !tbaa !52
+  %42 = load float, ptr %41, align 4, !tbaa !53
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  store float %44, ptr %45, align 4, !tbaa !53
+  store float %44, ptr %45, align 4, !tbaa !54
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %47 = load float, ptr %46, align 8, !tbaa !54
+  %47 = load float, ptr %46, align 8, !tbaa !55
   %48 = fptosi float %47 to i32
   %49 = sitofp i32 %48 to float
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store float %49, ptr %50, align 8, !tbaa !51
+  store float %49, ptr %50, align 8, !tbaa !52
   %51 = getelementptr inbounds nuw i8, ptr %23, i64 60
-  %52 = load float, ptr %51, align 4, !tbaa !55
+  %52 = load float, ptr %51, align 4, !tbaa !56
   %53 = fptosi float %52 to i32
   %54 = sitofp i32 %53 to float
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 76
-  store float %54, ptr %55, align 4, !tbaa !53
+  store float %54, ptr %55, align 4, !tbaa !54
   %56 = fcmp olt float %42, %52
   %57 = select i1 %56, float %37, float %47
   %58 = fptosi float %57 to i32
   %59 = sitofp i32 %58 to float
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store float %59, ptr %60, align 8, !tbaa !51
+  store float %59, ptr %60, align 8, !tbaa !52
   %61 = fcmp ogt float %42, %52
   %62 = select i1 %61, float %42, float %52
   %63 = fptosi float %62 to i32
   %64 = sitofp i32 %63 to float
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  store float %64, ptr %65, align 4, !tbaa !53
+  store float %64, ptr %65, align 4, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 63
   %68 = load i8, ptr %67, align 1
@@ -2475,12 +2475,12 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %70 = or disjoint i8 %69, 1
   store i8 %70, ptr %67, align 1
   %71 = call i32 @lv_obj_get_height(ptr noundef %18) #5
-  %72 = load float, ptr %41, align 4, !tbaa !52
-  %73 = load float, ptr %51, align 4, !tbaa !55
+  %72 = load float, ptr %41, align 4, !tbaa !53
+  %73 = load float, ptr %51, align 4, !tbaa !56
   %74 = fcmp olt float %72, %73
   %75 = select i1 %74, float %72, float %73
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !30
+  %77 = load i32, ptr %76, align 4, !tbaa !31
   %78 = sitofp i32 %77 to float
   %79 = fsub float %75, %78
   %80 = fptosi float %79 to i32
@@ -2497,20 +2497,20 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %90 = trunc i32 %82 to i8
   %91 = xor i8 %90, -1
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 55
-  store i8 %91, ptr %92, align 1, !tbaa !56
+  store i8 %91, ptr %92, align 1, !tbaa !57
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i8 0, ptr %93, align 8, !tbaa !58
+  store i8 0, ptr %93, align 8, !tbaa !59
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 57
   %95 = call i24 @lv_chart_get_series_color(ptr noundef %18, ptr noundef %.0) #5
   store i24 %95, ptr %94, align 1
   %96 = trunc i32 %88 to i8
   %97 = xor i8 %96, -1
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store i8 %97, ptr %98, align 4, !tbaa !56
+  store i8 %97, ptr %98, align 4, !tbaa !57
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 61
-  store i8 -1, ptr %99, align 1, !tbaa !58
+  store i8 -1, ptr %99, align 1, !tbaa !59
   %100 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !59
+  %101 = load ptr, ptr %100, align 8, !tbaa !60
   call void @lv_draw_triangle(ptr noundef %101, ptr noundef nonnull %3) #5
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #5
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %4) #5
@@ -2523,42 +2523,42 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %107 = call i24 @lv_chart_get_series_color(ptr noundef %18, ptr noundef %.0) #5
   store i24 %107, ptr %102, align 8
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i8 0, ptr %108, align 4, !tbaa !58
+  store i8 0, ptr %108, align 4, !tbaa !59
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 59
-  store i8 %97, ptr %109, align 1, !tbaa !56
+  store i8 %97, ptr %109, align 1, !tbaa !57
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 61
   %111 = call i24 @lv_chart_get_series_color(ptr noundef %18, ptr noundef %.0) #5
   store i24 %111, ptr %110, align 1
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  store i8 -1, ptr %112, align 1, !tbaa !58
+  store i8 -1, ptr %112, align 1, !tbaa !59
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i8 0, ptr %113, align 8, !tbaa !56
+  store i8 0, ptr %113, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
-  %114 = load float, ptr %36, align 8, !tbaa !47
+  %114 = load float, ptr %36, align 8, !tbaa !48
   %115 = fptosi float %114 to i32
-  store i32 %115, ptr %5, align 4, !tbaa !25
-  %116 = load float, ptr %46, align 8, !tbaa !54
+  store i32 %115, ptr %5, align 4, !tbaa !26
+  %116 = load float, ptr %46, align 8, !tbaa !55
   %117 = fptosi float %116 to i32
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %117, ptr %118, align 4, !tbaa !29
-  %119 = load float, ptr %41, align 4, !tbaa !52
-  %120 = load float, ptr %51, align 4, !tbaa !55
+  store i32 %117, ptr %118, align 4, !tbaa !30
+  %119 = load float, ptr %41, align 4, !tbaa !53
+  %120 = load float, ptr %51, align 4, !tbaa !56
   %121 = fcmp ogt float %119, %120
   %122 = select i1 %121, float %119, float %120
   %123 = fptosi float %122 to i32
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %123, ptr %124, align 4, !tbaa !30
+  store i32 %123, ptr %124, align 4, !tbaa !31
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %126 = load i32, ptr %125, align 4, !tbaa !31
+  %126 = load i32, ptr %125, align 4, !tbaa !32
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %126, ptr %127, align 4, !tbaa !31
-  %128 = load ptr, ptr %100, align 8, !tbaa !59
+  store i32 %126, ptr %127, align 4, !tbaa !32
+  %128 = load ptr, ptr %100, align 8, !tbaa !60
   call void @lv_draw_rect(ptr noundef %128, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
-  %.pr = load i32, ptr %24, align 8, !tbaa !45
+  %.pr = load i32, ptr %24, align 8, !tbaa !46
   br label %129
 
 129:                                              ; preds = %35, %20
@@ -2569,7 +2569,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
 132:                                              ; preds = %129
   %133 = call i32 @lv_chart_get_pressed_point(ptr noundef %18) #5
   %134 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %135 = load i32, ptr %134, align 8, !tbaa !60
+  %135 = load i32, ptr %134, align 8, !tbaa !61
   %136 = icmp eq i32 %133, %135
   br i1 %136, label %137, label %148
 
@@ -2582,18 +2582,18 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #5
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #5
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  store i8 0, ptr %141, align 4, !tbaa !61
+  store i8 0, ptr %141, align 4, !tbaa !62
   %142 = getelementptr inbounds nuw i8, ptr %6, i64 106
   %143 = call i24 @lv_color_white() #5
   store i24 %143, ptr %142, align 2
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store i32 2, ptr %144, align 8, !tbaa !62
+  store i32 2, ptr %144, align 8, !tbaa !63
   %145 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i32 32767, ptr %145, align 8, !tbaa !33
+  store i32 32767, ptr %145, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
   call void @lv_draw_task_get_area(ptr noundef %21, ptr noundef nonnull %7) #5
   %146 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %147 = load ptr, ptr %146, align 8, !tbaa !59
+  %147 = load ptr, ptr %146, align 8, !tbaa !60
   call void @lv_draw_rect(ptr noundef %147, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #5
@@ -2601,21 +2601,21 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
 
 148:                                              ; preds = %137, %140, %132, %129
   %.0100 = phi i1 [ true, %140 ], [ false, %137 ], [ false, %132 ], [ false, %129 ]
-  %149 = load i32, ptr %24, align 8, !tbaa !45
+  %149 = load i32, ptr %24, align 8, !tbaa !46
   %150 = icmp eq i32 %149, 327680
   br i1 %150, label %151, label %176
 
 151:                                              ; preds = %148
   %152 = call i32 @lv_chart_get_pressed_point(ptr noundef %18) #5
   %153 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %154 = load i32, ptr %153, align 8, !tbaa !60
+  %154 = load i32, ptr %153, align 8, !tbaa !61
   %155 = icmp eq i32 %152, %154
   br i1 %155, label %156, label %176
 
 156:                                              ; preds = %151
   %157 = call ptr @lv_chart_get_series_next(ptr noundef %18, ptr noundef null) #5
   %158 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %159 = load i32, ptr %158, align 4, !tbaa !46
+  %159 = load i32, ptr %158, align 4, !tbaa !47
   %160 = icmp eq i32 %159, 1
   br i1 %160, label %161, label %163
 
@@ -2634,20 +2634,20 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #5
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %8) #5
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 48
-  %168 = load i32, ptr %167, align 8, !tbaa !63
+  %168 = load i32, ptr %167, align 8, !tbaa !64
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i32 %168, ptr %169, align 8, !tbaa !33
+  store i32 %168, ptr %169, align 8, !tbaa !34
   %170 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  store i8 0, ptr %170, align 4, !tbaa !61
+  store i8 0, ptr %170, align 4, !tbaa !62
   %171 = getelementptr inbounds nuw i8, ptr %8, i64 121
   %172 = call i24 @lv_chart_get_series_color(ptr noundef %18, ptr noundef %.0102) #5
   store i24 %172, ptr %171, align 1
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 124
-  store i32 15, ptr %173, align 4, !tbaa !65
+  store i32 15, ptr %173, align 4, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #5
   call void @lv_draw_task_get_area(ptr noundef %21, ptr noundef nonnull %9) #5
   %174 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %175 = load ptr, ptr %174, align 8, !tbaa !59
+  %175 = load ptr, ptr %174, align 8, !tbaa !60
   call void @lv_draw_rect(ptr noundef %175, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #5
@@ -2659,7 +2659,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
 177:                                              ; preds = %.thread, %176
   %178 = call ptr @lv_chart_get_series_next(ptr noundef %18, ptr noundef null) #5
   %179 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %180 = load i32, ptr %179, align 4, !tbaa !46
+  %180 = load i32, ptr %179, align 4, !tbaa !47
   %181 = icmp eq i32 %180, 1
   br i1 %181, label %182, label %184
 
@@ -2672,7 +2672,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
   %185 = call ptr @lv_chart_get_series_y_array(ptr noundef %18, ptr noundef %.0101) #5
   %186 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %187 = load i32, ptr %186, align 8, !tbaa !60
+  %187 = load i32, ptr %186, align 8, !tbaa !61
   %188 = zext i32 %187 to i64
   %189 = getelementptr inbounds nuw i32, ptr %185, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !3
@@ -2684,7 +2684,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #5
   call void @lv_draw_task_get_area(ptr noundef %21, ptr noundef nonnull %13) #5
   %193 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %194 = load i32, ptr %193, align 4, !tbaa !30
+  %194 = load i32, ptr %193, align 4, !tbaa !31
   %195 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %196 = icmp sgt i32 %195, 15
   br i1 %196, label %197, label %201
@@ -2700,22 +2700,22 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %.neg113 = phi i32 [ %.neg, %197 ], [ -1, %184 ]
   %202 = add i32 %.neg113, %194
   %203 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 %202, ptr %203, align 4, !tbaa !31
+  store i32 %202, ptr %203, align 4, !tbaa !32
   %204 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %205 = load i32, ptr %204, align 4, !tbaa !32
+  %205 = load i32, ptr %204, align 4, !tbaa !33
   %206 = sub nsw i32 %202, %205
   %207 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %206, ptr %207, align 4, !tbaa !30
-  %208 = load i32, ptr %13, align 4, !tbaa !25
+  store i32 %206, ptr %207, align 4, !tbaa !31
+  %208 = load i32, ptr %13, align 4, !tbaa !26
   %209 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #5
-  %210 = load i32, ptr %11, align 4, !tbaa !27
+  %210 = load i32, ptr %11, align 4, !tbaa !28
   %211 = sub nsw i32 %209, %210
   %212 = sdiv i32 %211, 2
   %213 = add nsw i32 %212, %208
-  store i32 %213, ptr %12, align 4, !tbaa !25
+  store i32 %213, ptr %12, align 4, !tbaa !26
   %214 = add nsw i32 %213, %210
   %215 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %214, ptr %215, align 4, !tbaa !29
+  store i32 %214, ptr %215, align 4, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #5
   %216 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %217 = icmp sgt i32 %216, 29
@@ -2731,7 +2731,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
 222:                                              ; preds = %201, %218
   %.neg115 = phi i32 [ %.neg114, %218 ], [ -1, %201 ]
   %223 = add i32 %.neg115, %213
-  store i32 %223, ptr %14, align 4, !tbaa !25
+  store i32 %223, ptr %14, align 4, !tbaa !26
   %224 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %225 = icmp sgt i32 %224, 29
   br i1 %225, label %226, label %231
@@ -2747,7 +2747,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %232 = phi i32 [ %230, %226 ], [ 1, %222 ]
   %233 = add nsw i32 %232, %214
   %234 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 %233, ptr %234, align 4, !tbaa !29
+  store i32 %233, ptr %234, align 4, !tbaa !30
   %235 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %236 = icmp sgt i32 %235, 29
   br i1 %236, label %237, label %241
@@ -2763,7 +2763,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %.neg117 = phi i32 [ %.neg116, %237 ], [ -1, %231 ]
   %242 = add i32 %.neg117, %206
   %243 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 %242, ptr %243, align 4, !tbaa !30
+  store i32 %242, ptr %243, align 4, !tbaa !31
   %244 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %245 = icmp sgt i32 %244, 29
   br i1 %245, label %246, label %251
@@ -2779,7 +2779,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %252 = phi i32 [ %250, %246 ], [ 1, %241 ]
   %253 = add nsw i32 %252, %202
   %254 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i32 %253, ptr %254, align 4, !tbaa !31
+  store i32 %253, ptr %254, align 4, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15) #5
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %15) #5
   %255 = getelementptr inbounds nuw i8, ptr %15, i64 53
@@ -2799,9 +2799,9 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
 264:                                              ; preds = %251, %259
   %265 = phi i32 [ %263, %259 ], [ 1, %251 ]
   %266 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i32 %265, ptr %266, align 8, !tbaa !33
+  store i32 %265, ptr %266, align 8, !tbaa !34
   %267 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %268 = load ptr, ptr %267, align 8, !tbaa !59
+  %268 = load ptr, ptr %267, align 8, !tbaa !60
   call void @lv_draw_rect(ptr noundef %268, ptr noundef nonnull %15, ptr noundef nonnull %14) #5
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16) #5
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %16) #5
@@ -2810,14 +2810,14 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   store i24 %270, ptr %269, align 8
   %271 = load ptr, ptr @font_normal, align 8, !tbaa !7
   %272 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store ptr %271, ptr %272, align 8, !tbaa !35
+  store ptr %271, ptr %272, align 8, !tbaa !36
   %273 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store ptr %10, ptr %273, align 8, !tbaa !39
+  store ptr %10, ptr %273, align 8, !tbaa !40
   %274 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %275 = load i8, ptr %274, align 8
   %276 = or i8 %275, 64
   store i8 %276, ptr %274, align 8
-  %277 = load ptr, ptr %267, align 8, !tbaa !59
+  %277 = load ptr, ptr %267, align 8, !tbaa !60
   call void @lv_draw_label(ptr noundef %277, ptr noundef nonnull %16, ptr noundef nonnull %12) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %16) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15) #5
@@ -3153,7 +3153,7 @@ define internal void @color_changer_anim_cb(ptr noundef %0, i32 noundef %1) #0 {
   %69 = add nuw i32 %.027, 1
   %70 = tail call i32 @lv_obj_get_child_count(ptr noundef %0) #5
   %71 = icmp ult i32 %69, %70
-  br i1 %71, label %67, label %._crit_edge, !llvm.loop !66
+  br i1 %71, label %67, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %67, %64
   ret void
@@ -3200,56 +3200,57 @@ attributes #5 = { nounwind }
 !11 = !{!"p1 _ZTS9_lv_obj_t", !9, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS18_lv_chart_series_t", !9, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = !{!19, !4, i64 8}
-!19 = !{!"", !20, i64 0, !4, i64 48, !5, i64 52, !23, i64 53, !24, i64 56, !9, i64 72, !9, i64 80, !23, i64 88, !5, i64 91, !5, i64 92, !5, i64 93, !23, i64 94, !4, i64 100, !5, i64 104, !4, i64 105, !5, i64 105, !23, i64 106, !4, i64 112, !4, i64 116, !5, i64 120, !23, i64 121, !4, i64 124, !4, i64 128, !4, i64 132, !4, i64 136, !5, i64 140}
-!20 = !{!"", !11, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !21, i64 24, !22, i64 32, !9, i64 40}
-!21 = !{!"p1 _ZTS11_lv_layer_t", !9, i64 0}
-!22 = !{!"long", !5, i64 0}
-!23 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
-!24 = !{!"", !5, i64 0, !5, i64 10, !4, i64 11, !4, i64 11}
-!25 = !{!26, !4, i64 0}
-!26 = !{!"", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12}
-!27 = !{!28, !4, i64 0}
-!28 = !{!"", !4, i64 0, !4, i64 4}
-!29 = !{!26, !4, i64 8}
-!30 = !{!26, !4, i64 4}
-!31 = !{!26, !4, i64 12}
-!32 = !{!28, !4, i64 4}
-!33 = !{!19, !4, i64 48}
-!34 = !{!19, !21, i64 24}
-!35 = !{!36, !8, i64 64}
-!36 = !{!"", !20, i64 0, !37, i64 48, !4, i64 56, !8, i64 64, !4, i64 72, !4, i64 76, !23, i64 80, !23, i64 83, !23, i64 86, !4, i64 92, !4, i64 96, !4, i64 100, !4, i64 104, !4, i64 108, !5, i64 112, !4, i64 116, !4, i64 120, !4, i64 124, !4, i64 128, !4, i64 128, !5, i64 128, !5, i64 128, !38, i64 136}
-!37 = !{!"p1 omnipotent char", !9, i64 0}
-!38 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !9, i64 0}
-!39 = !{!36, !37, i64 48}
-!40 = !{!41, !5, i64 3}
-!41 = !{!"", !42, i64 0, !5, i64 2, !5, i64 3}
-!42 = !{!"short", !5, i64 0}
-!43 = !{!41, !5, i64 2}
-!44 = !{!41, !42, i64 0}
-!45 = !{!20, !4, i64 8}
-!46 = !{!20, !4, i64 12}
-!47 = !{!48, !50, i64 48}
-!48 = !{!"", !20, i64 0, !49, i64 48, !49, i64 56, !23, i64 64, !4, i64 68, !4, i64 72, !4, i64 76, !5, i64 80, !4, i64 81, !5, i64 81, !5, i64 81, !5, i64 81}
-!49 = !{!"", !50, i64 0, !50, i64 4}
-!50 = !{!"float", !5, i64 0}
-!51 = !{!49, !50, i64 0}
-!52 = !{!48, !50, i64 52}
-!53 = !{!49, !50, i64 4}
-!54 = !{!48, !50, i64 56}
-!55 = !{!48, !50, i64 60}
-!56 = !{!57, !5, i64 3}
-!57 = !{!"", !23, i64 0, !5, i64 3, !5, i64 4}
-!58 = !{!57, !5, i64 4}
-!59 = !{!20, !21, i64 24}
-!60 = !{!20, !4, i64 16}
-!61 = !{!19, !5, i64 52}
-!62 = !{!19, !4, i64 112}
-!63 = !{!64, !4, i64 48}
-!64 = !{!"", !20, i64 0, !4, i64 48, !5, i64 52, !23, i64 53, !24, i64 56}
-!65 = !{!19, !4, i64 124}
-!66 = distinct !{!66, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = !{!20, !4, i64 8}
+!20 = !{!"", !21, i64 0, !4, i64 48, !5, i64 52, !24, i64 53, !25, i64 56, !9, i64 72, !9, i64 80, !24, i64 88, !5, i64 91, !5, i64 92, !5, i64 93, !24, i64 94, !4, i64 100, !5, i64 104, !4, i64 105, !5, i64 105, !24, i64 106, !4, i64 112, !4, i64 116, !5, i64 120, !24, i64 121, !4, i64 124, !4, i64 128, !4, i64 132, !4, i64 136, !5, i64 140}
+!21 = !{!"", !11, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !22, i64 24, !23, i64 32, !9, i64 40}
+!22 = !{!"p1 _ZTS11_lv_layer_t", !9, i64 0}
+!23 = !{!"long", !5, i64 0}
+!24 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
+!25 = !{!"", !5, i64 0, !5, i64 10, !4, i64 11, !4, i64 11}
+!26 = !{!27, !4, i64 0}
+!27 = !{!"", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12}
+!28 = !{!29, !4, i64 0}
+!29 = !{!"", !4, i64 0, !4, i64 4}
+!30 = !{!27, !4, i64 8}
+!31 = !{!27, !4, i64 4}
+!32 = !{!27, !4, i64 12}
+!33 = !{!29, !4, i64 4}
+!34 = !{!20, !4, i64 48}
+!35 = !{!20, !22, i64 24}
+!36 = !{!37, !8, i64 64}
+!37 = !{!"", !21, i64 0, !38, i64 48, !4, i64 56, !8, i64 64, !4, i64 72, !4, i64 76, !24, i64 80, !24, i64 83, !24, i64 86, !4, i64 92, !4, i64 96, !4, i64 100, !4, i64 104, !4, i64 108, !5, i64 112, !4, i64 116, !4, i64 120, !4, i64 124, !4, i64 128, !4, i64 128, !5, i64 128, !5, i64 128, !39, i64 136}
+!38 = !{!"p1 omnipotent char", !9, i64 0}
+!39 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !9, i64 0}
+!40 = !{!37, !38, i64 48}
+!41 = !{!42, !5, i64 3}
+!42 = !{!"", !43, i64 0, !5, i64 2, !5, i64 3}
+!43 = !{!"short", !5, i64 0}
+!44 = !{!42, !5, i64 2}
+!45 = !{!42, !43, i64 0}
+!46 = !{!21, !4, i64 8}
+!47 = !{!21, !4, i64 12}
+!48 = !{!49, !51, i64 48}
+!49 = !{!"", !21, i64 0, !50, i64 48, !50, i64 56, !24, i64 64, !4, i64 68, !4, i64 72, !4, i64 76, !5, i64 80, !4, i64 81, !5, i64 81, !5, i64 81, !5, i64 81}
+!50 = !{!"", !51, i64 0, !51, i64 4}
+!51 = !{!"float", !5, i64 0}
+!52 = !{!50, !51, i64 0}
+!53 = !{!49, !51, i64 52}
+!54 = !{!50, !51, i64 4}
+!55 = !{!49, !51, i64 56}
+!56 = !{!49, !51, i64 60}
+!57 = !{!58, !5, i64 3}
+!58 = !{!"", !24, i64 0, !5, i64 3, !5, i64 4}
+!59 = !{!58, !5, i64 4}
+!60 = !{!21, !22, i64 24}
+!61 = !{!21, !4, i64 16}
+!62 = !{!20, !5, i64 52}
+!63 = !{!20, !4, i64 112}
+!64 = !{!65, !4, i64 48}
+!65 = !{!"", !21, i64 0, !4, i64 48, !5, i64 52, !24, i64 53, !25, i64 56}
+!66 = !{!20, !4, i64 124}
+!67 = distinct !{!67, !15, !16}

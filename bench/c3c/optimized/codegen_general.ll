@@ -127,7 +127,7 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
 .thread52:                                        ; preds = %28, %40, %.loopexit
   %.1 = phi ptr [ %41, %40 ], [ %.0, %.loopexit ], [ %.0, %28 ]
   %exitcond.not = icmp eq i32 %22, 1
-  br i1 %exitcond.not, label %._crit_edge, label %.loopexit54.loopexit.critedge, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.loopexit54.loopexit.critedge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.thread52
   %42 = tail call i32 @type_size(ptr noundef nonnull %0) #4
@@ -179,7 +179,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
   %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !11
 
 6:                                                ; preds = %.backedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.11, i32 noundef 29) #5
@@ -560,7 +560,7 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
   %35 = load ptr, ptr %31, align 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 33
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph81
   %.066.lcssa = phi i32 [ 1, %.lr.ph81 ], [ %34, %.lr.ph ]
@@ -582,7 +582,7 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
   store i32 %storemerge, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge82, label %.lr.ph81, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge82, label %.lr.ph81, !llvm.loop !13
 
 ._crit_edge82:                                    ; preds = %40, %17, %21
   %48 = load ptr, ptr %1, align 8
@@ -867,8 +867,10 @@ attributes #5 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}

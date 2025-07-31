@@ -133,7 +133,7 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %.234.i = select i1 %.not37.i, ptr @.str.4, ptr %60
   %61 = add nuw nsw i32 %.03539.i, 1
   %exitcond.not.i = icmp eq i32 %61, 4
-  br i1 %exitcond.not.i, label %62, label %48
+  br i1 %exitcond.not.i, label %62, label %48, !llvm.loop !12
 
 62:                                               ; preds = %48
   %63 = xor i32 %54, %57
@@ -147,7 +147,7 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   store i32 %68, ptr %69, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond49.not.i, label %BF_set_key.exit, label %47
+  br i1 %exitcond49.not.i, label %BF_set_key.exit, label %47, !llvm.loop !14
 
 BF_set_key.exit:                                  ; preds = %62
   %70 = lshr i32 %64, 16
@@ -179,7 +179,7 @@ BF_set_key.exit:                                  ; preds = %62
   %.234.i50 = select i1 %.not37.i49, ptr @.str.4, ptr %85
   %86 = add nuw nsw i32 %.03539.i46, 1
   %exitcond.not.i51 = icmp eq i32 %86, 4
-  br i1 %exitcond.not.i51, label %87, label %79
+  br i1 %exitcond.not.i51, label %87, label %79, !llvm.loop !12
 
 87:                                               ; preds = %79
   %88 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i40
@@ -191,7 +191,7 @@ BF_set_key.exit:                                  ; preds = %62
   store i32 %91, ptr %92, align 4, !tbaa !7
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond49.not.i53 = icmp eq i64 %indvars.iv.next.i52, 18
-  br i1 %exitcond49.not.i53, label %BF_set_key.exit55, label %78
+  br i1 %exitcond49.not.i53, label %BF_set_key.exit55, label %78, !llvm.loop !14
 
 BF_set_key.exit55:                                ; preds = %87
   %93 = xor i32 %77, 65536
@@ -370,7 +370,7 @@ define internal fastcc noundef ptr @BF_crypt(ptr noundef readonly captures(none)
   store i32 %59, ptr %.0.i, align 4, !tbaa !7
   %61 = add nsw i32 %.07.i, -1
   %.not.i = icmp eq i32 %61, 0
-  br i1 %.not.i, label %BF_swap.exit, label %.preheader1886
+  br i1 %.not.i, label %BF_swap.exit, label %.preheader1886, !llvm.loop !15
 
 BF_swap.exit:                                     ; preds = %.preheader1886
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 4168
@@ -815,7 +815,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   store i32 %483, ptr %488, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %489 = icmp samesign ult i64 %indvars.iv, 16
-  br i1 %489, label %88, label %.preheader1885
+  br i1 %489, label %88, label %.preheader1885, !llvm.loop !16
 
 490:                                              ; preds = %.preheader1885, %490
   %.11856 = phi i32 [ %1275, %490 ], [ %485, %.preheader1885 ]
@@ -1615,7 +1615,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1277 = getelementptr inbounds nuw i8, ptr %.01848.ptr, i64 12
   store i32 %1273, ptr %1277, align 4, !tbaa !7
   %1278 = icmp samesign ult i64 %.01848.idx, 4076
-  br i1 %1278, label %490, label %.preheader1884
+  br i1 %1278, label %490, label %.preheader1884, !llvm.loop !17
 
 .preheader1884:                                   ; preds = %490, %2101
   %.01846 = phi i32 [ %2102, %2101 ], [ %50, %490 ]
@@ -1638,7 +1638,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   store i32 %1290, ptr %1288, align 4, !tbaa !7
   %indvars.iv.next1926 = add nuw nsw i64 %indvars.iv1925, 2
   %1291 = icmp samesign ult i64 %indvars.iv1925, 16
-  br i1 %1291, label %1279, label %.preheader1883
+  br i1 %1291, label %1279, label %.preheader1883, !llvm.loop !18
 
 .preheader1883:                                   ; preds = %1279, %2096
   %.not1872 = phi i1 [ false, %2096 ], [ true, %1279 ]
@@ -2042,7 +2042,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1681 = getelementptr inbounds nuw i8, ptr %.11849.ptr, i64 4
   store i32 %1678, ptr %1681, align 4, !tbaa !7
   %1682 = icmp samesign ult i64 %.11849.idx, 4160
-  br i1 %1682, label %1292, label %.preheader1882
+  br i1 %1682, label %1292, label %.preheader1882, !llvm.loop !19
 
 .preheader1882:                                   ; preds = %1292, %.preheader1882
   %.31858 = phi i32 [ %2070, %.preheader1882 ], [ %1680, %1292 ]
@@ -2442,7 +2442,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2071 = getelementptr inbounds nuw i8, ptr %.21850.ptr, i64 4
   store i32 %2068, ptr %2071, align 4, !tbaa !7
   %2072 = icmp samesign ult i64 %.21850.idx, 4084
-  br i1 %2072, label %.preheader1882, label %2073
+  br i1 %2072, label %.preheader1882, label %2073, !llvm.loop !20
 
 2073:                                             ; preds = %.preheader1882
   br i1 %.not1872, label %2074, label %2101
@@ -2477,7 +2477,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   store i32 %2094, ptr %2092, align 4, !tbaa !7
   %indvars.iv.next1929 = add nuw nsw i64 %indvars.iv1928, 4
   %2095 = icmp samesign ult i64 %indvars.iv1928, 12
-  br i1 %2095, label %2079, label %2096
+  br i1 %2095, label %2079, label %2096, !llvm.loop !21
 
 2096:                                             ; preds = %2079
   %2097 = load i32, ptr %83, align 4, !tbaa !7
@@ -2486,12 +2486,12 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2099 = load i32, ptr %84, align 4, !tbaa !7
   %2100 = xor i32 %2099, %2076
   store i32 %2100, ptr %84, align 4, !tbaa !7
-  br label %.preheader1883
+  br label %.preheader1883, !llvm.loop !22
 
 2101:                                             ; preds = %2073
   %2102 = add i32 %.01846, -1
   %.not1873 = icmp eq i32 %2102, 0
-  br i1 %.not1873, label %.preheader, label %.preheader1884
+  br i1 %.not1873, label %.preheader, label %.preheader1884, !llvm.loop !23
 
 .preheader:                                       ; preds = %2101
   %2103 = load i32, ptr %.ptr1871, align 4, !tbaa !7
@@ -2899,7 +2899,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2497 = xor i32 %2120, %2473
   %2498 = add nsw i32 %.11847, -1
   %.not1874 = icmp eq i32 %2498, 0
-  br i1 %.not1874, label %2499, label %2127
+  br i1 %.not1874, label %2499, label %2127, !llvm.loop !24
 
 2499:                                             ; preds = %2127
   %2500 = getelementptr inbounds nuw [6 x i32], ptr %53, i64 0, i64 %indvars.iv1931
@@ -2908,7 +2908,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   store i32 %2496, ptr %2501, align 4, !tbaa !4
   %indvars.iv.next1932 = add nuw nsw i64 %indvars.iv1931, 2
   %2502 = icmp samesign ult i64 %indvars.iv1931, 4
-  br i1 %2502, label %2121, label %2503
+  br i1 %2502, label %2121, label %2503, !llvm.loop !25
 
 2503:                                             ; preds = %2499
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %2, ptr noundef nonnull align 1 dereferenceable(28) %1, i64 28, i1 false)
@@ -2935,7 +2935,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   store i32 %2517, ptr %.0.i1879, align 4, !tbaa !7
   %2519 = add nsw i32 %.07.i1878, -1
   %.not.i1880 = icmp eq i32 %2519, 0
-  br i1 %.not.i1880, label %BF_swap.exit1881, label %2515
+  br i1 %.not.i1880, label %BF_swap.exit1881, label %2515, !llvm.loop !15
 
 BF_swap.exit1881:                                 ; preds = %2515
   %2520 = getelementptr inbounds nuw i8, ptr %2, i64 29
@@ -3009,7 +3009,7 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   %.234 = select i1 %.not37, ptr %0, ptr %26
   %27 = add nuw nsw i32 %.03539, 1
   %exitcond.not = icmp eq i32 %27, 4
-  br i1 %exitcond.not, label %28, label %12
+  br i1 %exitcond.not, label %28, label %12, !llvm.loop !12
 
 28:                                               ; preds = %12
   %29 = xor i32 %18, %22
@@ -3024,7 +3024,7 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   store i32 %35, ptr %36, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond49.not, label %37, label %11
+  br i1 %exitcond49.not, label %37, label %11, !llvm.loop !14
 
 37:                                               ; preds = %28
   %38 = shl nuw nsw i32 %6, 15
@@ -3253,3 +3253,17 @@ attributes #10 = { nounwind willreturn memory(none) }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !5, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}
+!21 = distinct !{!21, !13}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !13}
+!25 = distinct !{!25, !13}

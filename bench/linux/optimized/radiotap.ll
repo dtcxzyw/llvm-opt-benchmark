@@ -262,7 +262,7 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
 105:                                              ; preds = %101, %95
   %106 = add nuw nsw i64 %96, 1
   %107 = icmp eq i64 %106, %94
-  br i1 %107, label %.loopexit.thread, label %95, !llvm.loop !8
+  br i1 %107, label %.loopexit.thread, label %95, !llvm.loop !9
 
 .loopexit.thread:                                 ; preds = %105
   %108 = getelementptr i8, ptr %62, i64 4
@@ -373,7 +373,7 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
 .outer.backedge:                                  ; preds = %151, %.thread11, %.thread14
   %.pre.be = phi i32 [ %154, %151 ], [ %143, %.thread11 ], [ %149, %.thread14 ]
   %.be = phi i32 [ %155, %151 ], [ %148, %.thread11 ], [ %150, %.thread14 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !10
 
 .thread21:                                        ; preds = %151, %64, %131, %32, %21, %.thread16
   %156 = phi i32 [ 0, %.thread16 ], [ 0, %151 ], [ -22, %131 ], [ -2, %32 ], [ -2, %21 ], [ -22, %64 ]
@@ -390,7 +390,9 @@ attributes #1 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_poin
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !8}

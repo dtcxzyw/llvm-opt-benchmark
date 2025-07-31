@@ -1042,7 +1042,7 @@ define hidden void @_ZN13logos_codegen6parser10definition21bytes_to_regex_string
   %.sink = phi i8 [ %55, %51 ], [ %37, %39 ]
   %56 = zext i8 %.sink to i32
   invoke void @_ZN5alloc6string6String4push17hc852acb2157d3890E(ptr nonnull align 8 %7, i32 %56)
-          to label %.backedge unwind label %33
+          to label %.backedge unwind label %33, !llvm.loop !3
 
 57:                                               ; preds = %60, %33, %28
   %58 = landingpad { ptr, i32 }
@@ -1311,3 +1311,5 @@ attributes #12 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

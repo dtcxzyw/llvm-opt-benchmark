@@ -323,7 +323,7 @@ define noundef ptr @_ZN10dtNodePool8findNodeEjh(ptr noundef nonnull readonly ali
   %42 = getelementptr inbounds nuw i16, ptr %28, i64 %30
   %.0 = load i16, ptr %42, align 2
   %.not = icmp eq i16 %.0, -1
-  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %35, %41, %3
   %.010 = phi ptr [ null, %3 ], [ null, %41 ], [ %31, %35 ]
@@ -385,7 +385,7 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr noundef nonnull align 8 captu
   %42 = getelementptr inbounds nuw i16, ptr %28, i64 %30
   %.0 = load i16, ptr %42, align 2
   %.not = icmp eq i16 %.0, -1
-  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %41, %3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -520,7 +520,7 @@ define void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull readonly al
   %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %16
   store ptr %10, ptr %17, align 8
   %18 = icmp sgt i32 %.01013, 2
-  br i1 %18, label %6, label %.critedge, !llvm.loop !8
+  br i1 %18, label %6, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %6, %15, %3
   %.010.lcssa = phi i32 [ %1, %3 ], [ %.014, %15 ], [ %.01013, %6 ]
@@ -579,7 +579,7 @@ define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr noundef nonnull readonl
   %.0 = or disjoint i32 %.0.in, 1
   %27 = load i32, ptr %4, align 4
   %28 = icmp slt i32 %.0, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph._crit_edge, %3
   %.012.lcssa = phi i32 [ %1, %3 ], [ %.1, %.lr.ph._crit_edge ]
@@ -609,7 +609,7 @@ define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr noundef nonnull readonl
   %42 = getelementptr inbounds nuw ptr, ptr %32, i64 %41
   store ptr %35, ptr %42, align 8
   %43 = icmp sgt i32 %.01013.i, 2
-  br i1 %43, label %31, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit, !llvm.loop !8
+  br i1 %43, label %31, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit, !llvm.loop !9
 
 _ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit:         ; preds = %31, %40, %._crit_edge
   %.010.lcssa.i = phi i32 [ %.012.lcssa, %._crit_edge ], [ %.01013.i, %31 ], [ %.014.i, %40 ]
@@ -639,9 +639,10 @@ attributes #11 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

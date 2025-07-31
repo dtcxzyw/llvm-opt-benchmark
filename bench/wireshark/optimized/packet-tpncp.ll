@@ -272,7 +272,7 @@ define hidden void @proto_reg_handoff_tpncp() #0 {
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #17
   %70 = call ptr @fgets(ptr noundef %39, i32 noundef 3000, ptr noundef nonnull %36)
   %.not.i.not.i.i = icmp eq ptr %70, null
-  br i1 %.not.i.not.i.i, label %fgetline.exit.i.i, label %45
+  br i1 %.not.i.not.i.i, label %fgetline.exit.i.i, label %45, !llvm.loop !8
 
 fgetline.exit.i.i:                                ; preds = %69, %.thread.i.i
   %.0215.i.i = phi ptr [ %.0217.i.i, %.thread.i.i ], [ %.2.i.i, %69 ]
@@ -362,7 +362,7 @@ init_tpncp_db.exit:                               ; preds = %38, %fgetline.exit.
   %95 = load i32, ptr @hf_size, align 4
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %97, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %88, %85
   %.0..0..0..0.6 = load volatile i32, ptr %11, align 4
@@ -807,7 +807,7 @@ define internal fastcc void @fill_tpncp_id_vals(ptr noundef writeonly captures(n
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   %28 = call ptr @fgets(ptr noundef %6, i32 noundef 3000, ptr noundef nonnull %1)
   %.not.i.not = icmp eq ptr %28, null
-  br i1 %.not.i.not, label %.critedge, label %11
+  br i1 %.not.i.not, label %.critedge, label %11, !llvm.loop !12
 
 .critedge:                                        ; preds = %16, %27, %2, %.thread
   call void @wmem_array_set_null_terminator(ptr noundef %7)
@@ -1052,12 +1052,12 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   %120 = getelementptr %struct.hf_register_info, ptr %115, i64 %119
   %121 = getelementptr %struct.hf_register_info, ptr %7, i64 %indvars.iv
   %122 = tail call i64 @llvm.usub.sat.i64(i64 %114, i64 %.idx)
-  %123 = call ptr @__memcpy_chk(ptr noundef %120, ptr noundef %121, i64 noundef 80, i64 noundef %122) #17, !alias.scope !10
+  %123 = call ptr @__memcpy_chk(ptr noundef %120, ptr noundef %121, i64 noundef 80, i64 noundef %122) #17, !alias.scope !13
   %124 = add i32 %118, 1
   store i32 %124, ptr @hf_size, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %125, label %117, !llvm.loop !14
+  br i1 %exitcond.not, label %125, label %117, !llvm.loop !17
 
 125:                                              ; preds = %117
   store i1 true, ptr @init_tpncp_data_fields_info.was_registered, align 1
@@ -1107,14 +1107,14 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.38, ptr noundef nonnull %5)
   br label %.backedge
 
-.backedge:                                        ; preds = %142, %149, %159, %193, %199, %205, %212, %296, %237, %223
+.backedge:                                        ; preds = %223, %142, %149, %159, %193, %199, %205, %212, %296, %237
   %.0117.be = phi i8 [ %.0117194, %142 ], [ %.0117194, %149 ], [ %.0117194, %193 ], [ %.0117194, %199 ], [ %.0117194, %205 ], [ %.0117194, %212 ], [ %.1118, %296 ], [ 0, %237 ], [ %.0117194, %159 ], [ %.0117194, %223 ]
   %.0112.be = phi i32 [ %.0112195, %142 ], [ %.0112195, %149 ], [ %.0112195, %193 ], [ %.0112195, %199 ], [ %.0112195, %205 ], [ %.0112195, %212 ], [ %.4, %296 ], [ %.1113, %237 ], [ %.0112195, %159 ], [ %218, %223 ]
   %.0109.be = phi ptr [ %.0109196, %142 ], [ %.0109196, %149 ], [ %.0109196, %193 ], [ %.0109196, %199 ], [ %.0109196, %205 ], [ %.0109196, %212 ], [ %.2111, %296 ], [ %.0109196, %237 ], [ %.0109196, %159 ], [ %.0109196, %223 ]
   %.0106.be = phi i32 [ %.0106197, %142 ], [ %.0106197, %149 ], [ %.0106197, %193 ], [ %.0106197, %199 ], [ %.0106197, %205 ], [ %.0106197, %212 ], [ %.2108, %296 ], [ %.0106197, %237 ], [ %.0106197, %159 ], [ %.0106197, %223 ]
   %143 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 3000, ptr noundef nonnull %2)
   %.not.i.not = icmp eq ptr %143, null
-  br i1 %.not.i.not, label %fgetline.exit, label %132, !llvm.loop !15
+  br i1 %.not.i.not, label %fgetline.exit, label %132, !llvm.loop !18
 
 144:                                              ; preds = %139
   %145 = call i64 @g_ascii_strtoll(ptr noundef nonnull %140, ptr noundef null, i32 noundef 10)
@@ -1314,7 +1314,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   %225 = load i8, ptr %224, align 1
   %226 = add i8 %225, -49
   %or.cond = icmp ult i8 %226, 3
-  br i1 %or.cond, label %.backedge, label %227
+  br i1 %or.cond, label %.backedge, label %227, !llvm.loop !19
 
 227:                                              ; preds = %223
   %228 = trunc nuw i8 %.0117194 to i1
@@ -1344,7 +1344,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   call void @wmem_array_append(ptr noundef %127, ptr noundef nonnull @init_tpncp_data_fields_info.empty, i32 noundef 1)
   %232 = call i32 @wmem_array_get_count(ptr noundef %127)
   %.not157 = icmp ugt i32 %232, %146
-  br i1 %.not157, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not157, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %233 = call ptr @wmem_array_index(ptr noundef %127, i32 noundef %146)
@@ -1401,7 +1401,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   %254 = getelementptr ptr, ptr %247, i64 %253
   %255 = load ptr, ptr %254, align 8
   %.not.i166 = icmp eq ptr %255, null
-  br i1 %.not.i166, label %get_enum_name_val.exit.thread, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i166, label %get_enum_name_val.exit.thread, label %.lr.ph.i, !llvm.loop !21
 
 get_enum_name_val.exit:                           ; preds = %.lr.ph.i
   %256 = icmp eq i32 %.09.i, -1
@@ -1953,7 +1953,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %101 = add i32 %.3181214, %14
   %102 = add nuw nsw i32 %.0157215, 1
   %exitcond.not = icmp eq i32 %102, %96
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %103 = mul nsw i32 %14, %96
@@ -2076,7 +2076,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %160 = getelementptr inbounds nuw i8, ptr %.0183227, i64 32
   %.0183 = load ptr, ptr %160, align 8
   %.not = icmp eq ptr %.0183, null
-  br i1 %.not, label %._crit_edge233.loopexit, label %15, !llvm.loop !19
+  br i1 %.not, label %._crit_edge233.loopexit, label %15, !llvm.loop !23
 
 ._crit_edge233.loopexit:                          ; preds = %155, %159
   %.pre = load i32, ptr %4, align 4
@@ -2179,14 +2179,18 @@ attributes #23 = { allocsize(1) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !9}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !11, !9}
 !18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11, !9}
+!21 = distinct !{!21, !11, !9}
+!22 = distinct !{!22, !11, !9}
+!23 = distinct !{!23, !11, !9}

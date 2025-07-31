@@ -112,11 +112,11 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %30 = phi i32 [ %16, %19 ], [ %18, %15 ]
   %.293.us = phi i32 [ 1, %19 ], [ %.192117.us, %15 ]
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %..loopexit_crit_edge.us, label %15
+  br i1 %exitcond129.not, label %..loopexit_crit_edge.us, label %15, !llvm.loop !14
 
 ..loopexit_crit_edge.us:                          ; preds = %29
   %.not103.us = icmp eq i32 %.293.us, 0
-  br i1 %.not103.us, label %.lr.ph123.preheader, label %.preheader112.us, !llvm.loop !14
+  br i1 %.not103.us, label %.lr.ph123.preheader, label %.preheader112.us, !llvm.loop !16
 
 31:                                               ; preds = %.lr.ph, %41
   %32 = phi ptr [ %1, %.lr.ph ], [ %44, %41 ]
@@ -148,7 +148,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %49 = add i32 %.095115, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader113, label %31
+  br i1 %exitcond.not, label %.preheader113, label %31, !llvm.loop !18
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %9
   %.pre139 = add nsw i32 %5, 1
@@ -198,7 +198,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %70, i32 noundef %64, i32 noundef %63, i32 noundef %67, i32 noundef %69) #3
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %._crit_edge, label %.lr.ph123
+  br i1 %exitcond134.not, label %._crit_edge, label %.lr.ph123, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %62, %.preheader.._crit_edge_crit_edge
   %.pre-phi = phi i32 [ %.pre139, %.preheader.._crit_edge_crit_edge ], [ %51, %62 ]
@@ -239,4 +239,8 @@ attributes #3 = { nounwind }
 !12 = !{!"p1 omnipotent char", !13, i64 0}
 !13 = !{!"any pointer", !6, i64 0}
 !14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}

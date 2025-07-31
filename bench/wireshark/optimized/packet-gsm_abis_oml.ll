@@ -1748,7 +1748,7 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   %149 = add i32 %.013.i.i, 2
   %150 = tail call i32 @tvb_reported_length_remaining(ptr noundef %55, i32 noundef %149)
   %151 = icmp sgt i32 %150, 0
-  br i1 %151, label %.lr.ph.i.i, label %ipacc_tr_ie_chan_usage.exit.i, !llvm.loop !9
+  br i1 %151, label %.lr.ph.i.i, label %ipacc_tr_ie_chan_usage.exit.i, !llvm.loop !10
 
 152:                                              ; preds = %.lr.ph.i
   %153 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %55, i32 noundef %139)
@@ -1831,7 +1831,7 @@ ipacc_tr_ie_chan_usage.exit.i:                    ; preds = %.lr.ph.i.i, %202, %
   %.1.i = phi i32 [ %139, %.lr.ph.i ], [ %139, %140 ], [ %205, %202 ], [ %.2.i.i, %200 ], [ %149, %.lr.ph.i.i ]
   %206 = tail call i32 @tvb_reported_length_remaining(ptr noundef %55, i32 noundef %.1.i)
   %207 = icmp sgt i32 %206, 0
-  br i1 %207, label %.lr.ph.i, label %dissect_ipacc_test_rep.exit, !llvm.loop !10
+  br i1 %207, label %.lr.ph.i, label %dissect_ipacc_test_rep.exit, !llvm.loop !11
 
 208:                                              ; preds = %54
   %209 = load i32, ptr @hf_attr_test_no, align 4
@@ -1860,7 +1860,7 @@ ipacc_tr_ie_chan_usage.exit.i:                    ; preds = %.lr.ph.i.i, %202, %
   %223 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %221, ptr noundef %0, i32 noundef %222, i32 noundef 1, i32 noundef -2147483648)
   %224 = add nuw nsw i32 %.1356378, 1
   %exitcond393.not = icmp eq i32 %224, %.0360
-  br i1 %exitcond393.not, label %dissect_ipacc_test_rep.exit, label %.lr.ph379, !llvm.loop !11
+  br i1 %exitcond393.not, label %dissect_ipacc_test_rep.exit, label %.lr.ph379, !llvm.loop !12
 
 225:                                              ; preds = %54
   %226 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
@@ -1879,7 +1879,7 @@ ipacc_tr_ie_chan_usage.exit.i:                    ; preds = %.lr.ph.i.i, %202, %
   %232 = add nuw nsw i32 %.2357376, 1
   %.0354 = add i32 %.0354377, 1
   %exitcond.not = icmp eq i32 %232, %227
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %225
   %.0354.lcssa = phi i32 [ %.0354375, %225 ], [ %.0354, %.lr.ph ]
@@ -2124,7 +2124,7 @@ dissect_ipacc_test_rep.exit:                      ; preds = %.lr.ph379, %ipacc_t
   %403 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %402, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef -2147483648)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond395.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond395.not, label %.preheader, label %.preheader367, !llvm.loop !13
+  br i1 %exitcond395.not, label %.preheader, label %.preheader367, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader367, %.preheader
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %.preheader ], [ 0, %.preheader367 ]
@@ -2133,7 +2133,7 @@ dissect_ipacc_test_rep.exit:                      ; preds = %.lr.ph379, %ipacc_t
   %406 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %405, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef -2147483648)
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next397, 9
-  br i1 %exitcond399.not, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond399.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %259, %260, %263, %266, %269, %272, %275, %282, %302, %305, %308, %311, %314, %323, %344, %353, %383, %398, %dissect_ipacc_test_rep.exit
   %407 = add i32 %.0360, %52
@@ -2200,10 +2200,11 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !9}
+!11 = distinct !{!11, !7, !9}
+!12 = distinct !{!12, !7, !9}
+!13 = distinct !{!13, !7, !9}
+!14 = distinct !{!14, !7, !9}
+!15 = distinct !{!15, !7, !9}

@@ -1513,7 +1513,7 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
   %161 = add i32 %160, %.0144182
   %.0148 = load ptr, ptr %.0148183, align 8
   %.not164 = icmp eq ptr %.0148, null
-  br i1 %.not164, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not164, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %156, %150
   %.0144.lcssa = phi i32 [ 0, %150 ], [ %161, %156 ]
@@ -2032,6 +2032,7 @@ attributes #12 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

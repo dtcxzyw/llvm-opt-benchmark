@@ -20429,23 +20429,23 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit31: ; preds = %54, %52
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.041.047, i64 1
   %.not = icmp eq ptr %68, %26
-  br i1 %.not, label %._crit_edge, label %41
+  br i1 %.not, label %._crit_edge, label %41, !llvm.loop !560
 
 69:                                               ; preds = %35, %37
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !560)
-  call void @llvm.experimental.noalias.scope.decl(metadata !563)
+  call void @llvm.experimental.noalias.scope.decl(metadata !562)
+  call void @llvm.experimental.noalias.scope.decl(metadata !565)
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %70, ptr %8, align 8, !tbaa !4, !alias.scope !566
+  store ptr %70, ptr %8, align 8, !tbaa !4, !alias.scope !568
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %71, align 8, !tbaa !15, !alias.scope !566
-  store i8 0, ptr %70, align 8, !tbaa !14, !alias.scope !566
+  store i64 0, ptr %71, align 8, !tbaa !15, !alias.scope !568
+  store i8 0, ptr %70, align 8, !tbaa !14, !alias.scope !568
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %73 = load ptr, ptr %72, align 8, !tbaa !567, !noalias !566
+  %73 = load ptr, ptr %72, align 8, !tbaa !569, !noalias !568
   %.not.i.not.i.i = icmp eq ptr %73, null
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %75 = load ptr, ptr %74, align 8, !noalias !566
+  %75 = load ptr, ptr %74, align 8, !noalias !568
   %76 = icmp ugt ptr %73, %75
   %.08.i.i.i = select i1 %76, ptr %73, ptr %75
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -20454,7 +20454,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit31: ; preds = %54, %52
 
 77:                                               ; preds = %69
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %79 = load ptr, ptr %78, align 8, !tbaa !569, !noalias !566
+  %79 = load ptr, ptr %78, align 8, !tbaa !571, !noalias !568
   %80 = ptrtoint ptr %.08.i.i.i to i64
   %81 = ptrtoint ptr %79 to i64
   %82 = sub i64 %80, %81
@@ -20464,18 +20464,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit31: ; preds = %54, %52
 84:                                               ; preds = %92, %77
   %85 = landingpad { ptr, i32 }
           cleanup
-  %86 = load ptr, ptr %8, align 8, !tbaa !12, !alias.scope !566
+  %86 = load ptr, ptr %8, align 8, !tbaa !12, !alias.scope !568
   %87 = icmp eq ptr %86, %70
   br i1 %87, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %84
-  %88 = load i64, ptr %71, align 8, !tbaa !15, !alias.scope !566
+  %88 = load i64, ptr %71, align 8, !tbaa !15, !alias.scope !568
   %89 = icmp ult i64 %88, 16
   call void @llvm.assume(i1 %89)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %84
-  %90 = load i64, ptr %70, align 8, !tbaa !14, !alias.scope !566
+  %90 = load i64, ptr %70, align 8, !tbaa !14, !alias.scope !568
   %91 = add i64 %90, 1
   call void @_ZdlPvm(ptr noundef %86, i64 noundef %91) #19
   br label %.body
@@ -20614,7 +20614,7 @@ define linkonce_odr dso_local void @_ZNK5Catch10BinaryExprIRKN5vcpkg15LocalizedS
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !570
+  %6 = load ptr, ptr %5, align 8, !tbaa !572
   call void @_ZN5Catch11StringMakerIN5vcpkg15LocalizedStringEvE7convertB5cxx11ERKS2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8, !tbaa !36
@@ -20622,7 +20622,7 @@ define linkonce_odr dso_local void @_ZNK5Catch10BinaryExprIRKN5vcpkg15LocalizedS
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !572
+  %9 = load ptr, ptr %8, align 8, !tbaa !574
   invoke void @_ZN5Catch11StringMakerIN5vcpkg15LocalizedStringEvE7convertB5cxx11ERKS2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZN5Catch6Detail9stringifyIN5vcpkg15LocalizedStringEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit unwind label %27
 
@@ -20738,9 +20738,9 @@ define linkonce_odr dso_local void @_ZN5Catch11StringMakerIN5vcpkg15LocalizedStr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg15LocalizedString4dataB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.140, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  call void @llvm.experimental.noalias.scope.decl(metadata !573)
+  call void @llvm.experimental.noalias.scope.decl(metadata !575)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !15, !noalias !573
+  %6 = load i64, ptr %5, align 8, !tbaa !15, !noalias !575
   %7 = icmp eq i64 %6, 4611686018427387903
   br i1 %7, label %8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
@@ -20757,7 +20757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 
 .noexc2:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %0, align 8, !tbaa !4, !alias.scope !573
+  store ptr %10, ptr %0, align 8, !tbaa !4, !alias.scope !575
   %11 = load ptr, ptr %9, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = icmp eq ptr %11, %12
@@ -20773,9 +20773,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   br label %20
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.noexc2
-  store ptr %11, ptr %0, align 8, !tbaa !12, !alias.scope !573
+  store ptr %11, ptr %0, align 8, !tbaa !12, !alias.scope !575
   %19 = load i64, ptr %12, align 8, !tbaa !14
-  store i64 %19, ptr %10, align 8, !tbaa !14, !alias.scope !573
+  store i64 %19, ptr %10, align 8, !tbaa !14, !alias.scope !575
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !15
   br label %20
@@ -20784,7 +20784,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %21 = phi i64 [ %16, %14 ], [ %.pre.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %21, ptr %23, align 8, !tbaa !15, !alias.scope !573
+  store i64 %21, ptr %23, align 8, !tbaa !15, !alias.scope !575
   store ptr %12, ptr %9, align 8, !tbaa !12
   store i64 0, ptr %22, align 8, !tbaa !15
   store i8 0, ptr %12, align 8, !tbaa !14
@@ -20973,9 +20973,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 25, ptr %63, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #18
-  store ptr @.str.26, ptr %57, align 8, !tbaa !576
+  store ptr @.str.26, ptr %57, align 8, !tbaa !578
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i64 0, ptr %64, align 8, !tbaa !577
+  store i64 0, ptr %64, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull @.str.2) #18
@@ -20995,9 +20995,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 32, ptr %67, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #18
-  store ptr @.str.26, ptr %52, align 8, !tbaa !576
+  store ptr @.str.26, ptr %52, align 8, !tbaa !578
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i64 0, ptr %68, align 8, !tbaa !577
+  store i64 0, ptr %68, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull @.str.5) #18
@@ -21017,9 +21017,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %71 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 47, ptr %71, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #18
-  store ptr @.str.26, ptr %47, align 8, !tbaa !576
+  store ptr @.str.26, ptr %47, align 8, !tbaa !578
   %72 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i64 0, ptr %72, align 8, !tbaa !577
+  store i64 0, ptr %72, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull @.str.7) #18
@@ -21039,9 +21039,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %75 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 79, ptr %75, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #18
-  store ptr @.str.26, ptr %42, align 8, !tbaa !576
+  store ptr @.str.26, ptr %42, align 8, !tbaa !578
   %76 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 0, ptr %76, align 8, !tbaa !577
+  store i64 0, ptr %76, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull @.str.9) #18
@@ -21061,9 +21061,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %79 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 122, ptr %79, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #18
-  store ptr @.str.26, ptr %37, align 8, !tbaa !576
+  store ptr @.str.26, ptr %37, align 8, !tbaa !578
   %80 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 0, ptr %80, align 8, !tbaa !577
+  store i64 0, ptr %80, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull @.str.11) #18
@@ -21083,9 +21083,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %83 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 146, ptr %83, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #18
-  store ptr @.str.26, ptr %32, align 8, !tbaa !576
+  store ptr @.str.26, ptr %32, align 8, !tbaa !578
   %84 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 0, ptr %84, align 8, !tbaa !577
+  store i64 0, ptr %84, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull @.str.13) #18
@@ -21105,9 +21105,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %87 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 169, ptr %87, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #18
-  store ptr @.str.26, ptr %27, align 8, !tbaa !576
+  store ptr @.str.26, ptr %27, align 8, !tbaa !578
   %88 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 0, ptr %88, align 8, !tbaa !577
+  store i64 0, ptr %88, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull @.str.15) #18
@@ -21127,9 +21127,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %91 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 205, ptr %91, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #18
-  store ptr @.str.26, ptr %22, align 8, !tbaa !576
+  store ptr @.str.26, ptr %22, align 8, !tbaa !578
   %92 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 0, ptr %92, align 8, !tbaa !577
+  store i64 0, ptr %92, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull @.str.17) #18
@@ -21149,9 +21149,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %95 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 214, ptr %95, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #18
-  store ptr @.str.26, ptr %17, align 8, !tbaa !576
+  store ptr @.str.26, ptr %17, align 8, !tbaa !578
   %96 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 0, ptr %96, align 8, !tbaa !577
+  store i64 0, ptr %96, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull @.str.19) #18
@@ -21171,9 +21171,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 228, ptr %99, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #18
-  store ptr @.str.26, ptr %12, align 8, !tbaa !576
+  store ptr @.str.26, ptr %12, align 8, !tbaa !578
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 0, ptr %100, align 8, !tbaa !577
+  store i64 0, ptr %100, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.21) #18
@@ -21193,9 +21193,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 238, ptr %103, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
-  store ptr @.str.26, ptr %7, align 8, !tbaa !576
+  store ptr @.str.26, ptr %7, align 8, !tbaa !578
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %104, align 8, !tbaa !577
+  store i64 0, ptr %104, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.23) #18
@@ -21215,9 +21215,9 @@ define internal void @_GLOBAL__sub_I_json.cpp() #14 section ".text.startup" {
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 247, ptr %107, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
-  store ptr @.str.26, ptr %2, align 8, !tbaa !576
+  store ptr @.str.26, ptr %2, align 8, !tbaa !578
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %108, align 8, !tbaa !577
+  store i64 0, ptr %108, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.25) #18
@@ -21828,21 +21828,23 @@ attributes #21 = { noreturn }
 !557 = !{!558, !8, i64 8}
 !558 = !{!"_ZTSNSt8__detail14_Quoted_stringIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEE", !35, i64 0, !8, i64 8, !8, i64 9}
 !559 = !{!558, !35, i64 0}
-!560 = !{!561}
-!561 = distinct !{!561, !562, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!562 = distinct !{!562, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!563 = !{!564}
-!564 = distinct !{!564, !565, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!565 = distinct !{!565, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!566 = !{!564, !561}
-!567 = !{!568, !6, i64 40}
-!568 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !395, i64 56}
-!569 = !{!568, !6, i64 32}
-!570 = !{!571, !407, i64 16}
-!571 = !{!"_ZTSN5Catch10BinaryExprIRKN5vcpkg15LocalizedStringES4_EE", !29, i64 0, !407, i64 16, !40, i64 24, !407, i64 40}
-!572 = !{!571, !407, i64 40}
-!573 = !{!574}
-!574 = distinct !{!574, !575, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
-!575 = distinct !{!575, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
-!576 = !{!40, !6, i64 0}
-!577 = !{!40, !11, i64 8}
+!560 = distinct !{!560, !561}
+!561 = !{!"llvm.loop.estimated_trip_count"}
+!562 = !{!563}
+!563 = distinct !{!563, !564, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!564 = distinct !{!564, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!565 = !{!566}
+!566 = distinct !{!566, !567, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!567 = distinct !{!567, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!568 = !{!566, !563}
+!569 = !{!570, !6, i64 40}
+!570 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !395, i64 56}
+!571 = !{!570, !6, i64 32}
+!572 = !{!573, !407, i64 16}
+!573 = !{!"_ZTSN5Catch10BinaryExprIRKN5vcpkg15LocalizedStringES4_EE", !29, i64 0, !407, i64 16, !40, i64 24, !407, i64 40}
+!574 = !{!573, !407, i64 40}
+!575 = !{!576}
+!576 = distinct !{!576, !577, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
+!577 = distinct !{!577, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
+!578 = !{!40, !6, i64 0}
+!579 = !{!40, !11, i64 8}

@@ -255,7 +255,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %for.b
   store i8 %cond.i, ptr %arrayidx19.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
-  br i1 %exitcond.not.i, label %uv_thread_getaffinity.exit.thread19, label %for.body.i
+  br i1 %exitcond.not.i, label %uv_thread_getaffinity.exit.thread19, label %for.body.i, !llvm.loop !5
 
 uv_thread_getaffinity.exit.thread:                ; preds = %if.then7, %if.end.i
   %retval.0.i.ph = phi i32 [ -22, %if.end.i ], [ %call.i, %if.then7 ]
@@ -304,7 +304,7 @@ cond.true:                                        ; preds = %for.body
 for.inc:                                          ; preds = %cond.true, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %do.body
   %7 = load i64, ptr %tid, align 8
@@ -368,7 +368,7 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   store i8 %cond, ptr %arrayidx19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %return, label %for.body
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !5
 
 return:                                           ; preds = %cond.end, %for.cond.preheader, %if.end, %entry, %if.then6
   %retval.0 = phi i32 [ %sub, %if.then6 ], [ %call, %entry ], [ -22, %if.end ], [ 0, %for.cond.preheader ], [ 0, %cond.end ]
@@ -1001,7 +1001,7 @@ while.cond.i:                                     ; preds = %while.body.i, %whil
 while.body.i:                                     ; preds = %while.cond.i
   %call.i6.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond.i, ptr noundef nonnull %sem.val) #11
   %tobool.not.i7.i = icmp eq i32 %call.i6.i, 0
-  br i1 %tobool.not.i7.i, label %while.cond.i, label %if.then.i8.i
+  br i1 %tobool.not.i7.i, label %while.cond.i, label %if.then.i8.i, !llvm.loop !8
 
 if.then.i8.i:                                     ; preds = %while.body.i
   tail call void @abort() #13
@@ -1029,7 +1029,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call1.i, align 4
   %cmp2.i = icmp eq i32 %2, 4
-  br i1 %cmp2.i, label %do.body.i, label %if.then.i
+  br i1 %cmp2.i, label %do.body.i, label %if.then.i, !llvm.loop !9
 
 if.then.i:                                        ; preds = %land.rhs.i, %do.body.i
   tail call void @abort() #13
@@ -1101,7 +1101,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call1.i, align 4
   %cmp2.i = icmp eq i32 %2, 4
-  br i1 %cmp2.i, label %do.body.i, label %if.then.i
+  br i1 %cmp2.i, label %do.body.i, label %if.then.i, !llvm.loop !10
 
 if.then.i:                                        ; preds = %land.rhs.i, %do.body.if.then_crit_edge.i
   %3 = phi i32 [ %.pr.i, %do.body.if.then_crit_edge.i ], [ %2, %land.rhs.i ]
@@ -1397,3 +1397,9 @@ attributes #14 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

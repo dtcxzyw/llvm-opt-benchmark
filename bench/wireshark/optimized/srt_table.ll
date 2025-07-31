@@ -162,7 +162,7 @@ free_srt_table_data.exit:                         ; preds = %12, %.lr.ph
   %25 = load i32, ptr %3, align 8
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %free_srt_table_data.exit, %2
   %28 = tail call ptr @g_array_set_size(ptr noundef %1, i32 noundef 0)
@@ -207,7 +207,7 @@ define void @reset_srt_table(ptr noundef readonly captures(none) %0) local_unnam
   %15 = load i32, ptr %8, align 8
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next.i, %16
-  br i1 %17, label %12, label %reset_srt_table_data.exit.loopexit, !llvm.loop !9
+  br i1 %17, label %12, label %reset_srt_table_data.exit.loopexit, !llvm.loop !10
 
 reset_srt_table_data.exit.loopexit:               ; preds = %12
   %.pre = load i32, ptr %2, align 8
@@ -218,7 +218,7 @@ reset_srt_table_data.exit:                        ; preds = %reset_srt_table_dat
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %reset_srt_table_data.exit, %1
   ret void
@@ -450,7 +450,7 @@ define ptr @init_srt_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   store ptr null, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -518,7 +518,7 @@ define void @init_srt_table_row(ptr noundef captures(none) %0, i32 noundef %1, p
   %23 = load i32, ptr %4, align 8
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -590,10 +590,11 @@ attributes #16 = { allocsize(0,1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

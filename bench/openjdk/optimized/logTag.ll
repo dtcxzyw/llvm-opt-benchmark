@@ -233,7 +233,7 @@ define hidden noundef i32 @_ZN6LogTag11fuzzy_matchEPKc(ptr noundef %0) local_unn
   %.1 = select i1 %9, i32 %.019, i32 %4
   %10 = add nuw nsw i64 %.01517, 1
   %exitcond.not = icmp eq i64 %10, 177
-  br i1 %exitcond.not, label %11, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %11, label %3, !llvm.loop !9
 
 11:                                               ; preds = %3
   ret i32 %.1
@@ -257,7 +257,7 @@ define hidden void @_ZN6LogTag9list_tagsEP12outputStream(ptr noundef %0) local_u
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.180, ptr noundef nonnull %4, ptr noundef %6) #6
   %7 = add nuw nsw i64 %.05, 1
   %exitcond.not = icmp eq i64 %7, 177
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !10
 
 8:                                                ; preds = %2
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #6
@@ -284,7 +284,8 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

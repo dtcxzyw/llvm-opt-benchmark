@@ -129,7 +129,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread:    ; preds = %31, %23, %19
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
   %48 = add nuw nsw i32 %.119.i, 1
   %exitcond25.not.i = icmp eq i32 %48, 15
-  br i1 %exitcond25.not.i, label %49, label %47, !llvm.loop !16
+  br i1 %exitcond25.not.i, label %49, label %47, !llvm.loop !17
 
 49:                                               ; preds = %47
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %9) #6
@@ -141,7 +141,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread:    ; preds = %31, %23, %19
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
   %51 = add nuw nsw i32 %.220.i, 1
   %exitcond26.not.i = icmp eq i32 %51, 31
-  br i1 %exitcond26.not.i, label %52, label %50, !llvm.loop !17
+  br i1 %exitcond26.not.i, label %52, label %50, !llvm.loop !18
 
 52:                                               ; preds = %50
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %16) #6
@@ -152,7 +152,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread:    ; preds = %31, %23, %19
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
   %54 = add nuw nsw i32 %.321.i, 1
   %exitcond27.not.i = icmp eq i32 %54, 128
-  br i1 %exitcond27.not.i, label %55, label %53, !llvm.loop !18
+  br i1 %exitcond27.not.i, label %55, label %53, !llvm.loop !19
 
 55:                                               ; preds = %53
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
@@ -163,7 +163,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread:    ; preds = %31, %23, %19
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
   %57 = add nuw nsw i32 %.422.i, 1
   %exitcond28.not.i = icmp eq i32 %57, 32
-  br i1 %exitcond28.not.i, label %58, label %56, !llvm.loop !19
+  br i1 %exitcond28.not.i, label %58, label %56, !llvm.loop !20
 
 58:                                               ; preds = %56
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
@@ -174,7 +174,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread:    ; preds = %31, %23, %19
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
   %60 = add nuw nsw i32 %.523.i, 1
   %exitcond29.not.i = icmp eq i32 %60, 16
-  br i1 %exitcond29.not.i, label %61, label %59, !llvm.loop !20
+  br i1 %exitcond29.not.i, label %61, label %59, !llvm.loop !21
 
 61:                                               ; preds = %59
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %9) #6
@@ -185,7 +185,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread:    ; preds = %31, %23, %19
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
   %63 = add nuw nsw i32 %.624.i, 1
   %exitcond30.not.i = icmp eq i32 %63, 8
-  br i1 %exitcond30.not.i, label %ecp_nistz256_mod_inverse.exit, label %62, !llvm.loop !21
+  br i1 %exitcond30.not.i, label %ecp_nistz256_mod_inverse.exit, label %62, !llvm.loop !22
 
 ecp_nistz256_mod_inverse.exit:                    ; preds = %62
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %8) #6
@@ -224,7 +224,7 @@ ecp_nistz256_mod_inverse.exit:                    ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 4, ptr %69, align 8, !tbaa !6
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %70, align 8, !tbaa !22
+  store i32 0, ptr %70, align 8, !tbaa !23
   %71 = load ptr, ptr %2, align 8, !tbaa !13
   call void @ecp_nistz256_mul_mont(ptr noundef %71, ptr noundef nonnull %12, ptr noundef nonnull %14) #6
   call void @bn_correct_top(ptr noundef nonnull %2) #6
@@ -248,7 +248,7 @@ ecp_nistz256_mod_inverse.exit:                    ; preds = %62
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %78, align 8, !tbaa !6
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %79, align 8, !tbaa !22
+  store i32 0, ptr %79, align 8, !tbaa !23
   %80 = load ptr, ptr %3, align 8, !tbaa !13
   call void @ecp_nistz256_mul_mont(ptr noundef %80, ptr noundef nonnull %13, ptr noundef nonnull %15) #6
   call void @bn_correct_top(ptr noundef nonnull %3) #6
@@ -344,57 +344,57 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %scevgep = getelementptr i8, ptr %13, i64 %41
   %narrow = sub nuw nsw i32 33, %.079.lcssa147
   %42 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %42, i1 false), !tbaa !23
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %42, i1 false), !tbaa !24
   br label %._crit_edge
 
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
-  %45 = load i64, ptr %44, align 8, !tbaa !24
+  %45 = load i64, ptr %44, align 8, !tbaa !25
   %46 = trunc i64 %45 to i8
   %47 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %indvars.iv
-  store i8 %46, ptr %47, align 8, !tbaa !23
+  store i8 %46, ptr %47, align 8, !tbaa !24
   %48 = lshr i64 %45, 8
   %49 = trunc i64 %48 to i8
   %50 = or disjoint i64 %indvars.iv, 1
   %51 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %50
-  store i8 %49, ptr %51, align 1, !tbaa !23
+  store i8 %49, ptr %51, align 1, !tbaa !24
   %52 = lshr i64 %45, 16
   %53 = trunc i64 %52 to i8
   %54 = or disjoint i64 %indvars.iv, 2
   %55 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %54
-  store i8 %53, ptr %55, align 2, !tbaa !23
+  store i8 %53, ptr %55, align 2, !tbaa !24
   %56 = lshr i64 %45, 24
   %57 = trunc i64 %56 to i8
   %58 = or disjoint i64 %indvars.iv, 3
   %59 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %58
-  store i8 %57, ptr %59, align 1, !tbaa !23
+  store i8 %57, ptr %59, align 1, !tbaa !24
   %60 = lshr i64 %45, 32
   %61 = trunc i64 %60 to i8
   %62 = or disjoint i64 %indvars.iv, 4
   %63 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %62
-  store i8 %61, ptr %63, align 4, !tbaa !23
+  store i8 %61, ptr %63, align 4, !tbaa !24
   %64 = lshr i64 %45, 40
   %65 = trunc i64 %64 to i8
   %66 = or disjoint i64 %indvars.iv, 5
   %67 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %66
-  store i8 %65, ptr %67, align 1, !tbaa !23
+  store i8 %65, ptr %67, align 1, !tbaa !24
   %68 = lshr i64 %45, 48
   %69 = trunc i64 %68 to i8
   %70 = or disjoint i64 %indvars.iv, 6
   %71 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %70
-  store i8 %69, ptr %71, align 2, !tbaa !23
+  store i8 %69, ptr %71, align 2, !tbaa !24
   %72 = lshr i64 %45, 56
   %73 = trunc nuw i64 %72 to i8
   %74 = or disjoint i64 %indvars.iv, 7
   %75 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %74
-  store i8 %73, ptr %75, align 1, !tbaa !23
+  store i8 %73, ptr %75, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %76 = icmp samesign ult i64 %indvars.iv.next, %38
-  br i1 %76, label %43, label %.preheader, !llvm.loop !26
+  br i1 %76, label %43, label %.preheader, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph136.preheader, %.preheader
-  %77 = load i8, ptr %13, align 16, !tbaa !23
+  %77 = load i8, ptr %13, align 16, !tbaa !24
   %78 = zext i8 %77 to i32
   %79 = shl nuw nsw i32 %78, 1
   %80 = and i32 %79, 254
@@ -415,36 +415,36 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %93 = zext nneg i32 %90 to i64
   %94 = sub nsw i64 0, %93
   %95 = add nsw i64 %93, -1
-  %96 = load i64, ptr %91, align 32, !tbaa !24
+  %96 = load i64, ptr %91, align 32, !tbaa !25
   %97 = and i64 %96, %94
-  %98 = load i64, ptr %92, align 32, !tbaa !24
+  %98 = load i64, ptr %92, align 32, !tbaa !25
   %99 = and i64 %95, %98
   %100 = xor i64 %99, %97
-  store i64 %100, ptr %92, align 32, !tbaa !24
+  store i64 %100, ptr %92, align 32, !tbaa !25
   %101 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %102 = load i64, ptr %101, align 8, !tbaa !24
+  %102 = load i64, ptr %101, align 8, !tbaa !25
   %103 = and i64 %102, %94
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %105 = load i64, ptr %104, align 8, !tbaa !24
+  %105 = load i64, ptr %104, align 8, !tbaa !25
   %106 = and i64 %105, %95
   %107 = xor i64 %106, %103
-  store i64 %107, ptr %104, align 8, !tbaa !24
+  store i64 %107, ptr %104, align 8, !tbaa !25
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %109 = load i64, ptr %108, align 16, !tbaa !24
+  %109 = load i64, ptr %108, align 16, !tbaa !25
   %110 = and i64 %109, %94
   %111 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %112 = load i64, ptr %111, align 16, !tbaa !24
+  %112 = load i64, ptr %111, align 16, !tbaa !25
   %113 = and i64 %112, %95
   %114 = xor i64 %113, %110
-  store i64 %114, ptr %111, align 16, !tbaa !24
+  store i64 %114, ptr %111, align 16, !tbaa !25
   %115 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %116 = load i64, ptr %115, align 8, !tbaa !24
+  %116 = load i64, ptr %115, align 8, !tbaa !25
   %117 = and i64 %116, %94
   %118 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %119 = load i64, ptr %118, align 8, !tbaa !24
+  %119 = load i64, ptr %118, align 8, !tbaa !25
   %120 = and i64 %119, %95
   %121 = xor i64 %120, %117
-  store i64 %121, ptr %118, align 8, !tbaa !24
+  store i64 %121, ptr %118, align 8, !tbaa !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %91, ptr noundef nonnull align 16 dereferenceable(32) @ONE, i64 32, i1 false)
   %122 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %123 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -463,12 +463,12 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %132 = lshr i32 %131, 3
   %133 = zext nneg i32 %132 to i64
   %134 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !23
+  %135 = load i8, ptr %134, align 1, !tbaa !24
   %136 = zext i8 %135 to i32
   %137 = add nuw nsw i32 %132, 1
   %138 = zext nneg i32 %137 to i64
   %139 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %138
-  %140 = load i8, ptr %139, align 1, !tbaa !23
+  %140 = load i8, ptr %139, align 1, !tbaa !24
   %141 = zext i8 %140 to i32
   %142 = shl nuw nsw i32 %141, 8
   %143 = or disjoint i32 %142, %136
@@ -492,34 +492,34 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %159 = zext nneg i32 %157 to i64
   %160 = sub nsw i64 0, %159
   %161 = add nsw i64 %159, -1
-  %162 = load i64, ptr %122, align 32, !tbaa !24
+  %162 = load i64, ptr %122, align 32, !tbaa !25
   %163 = and i64 %162, %160
-  %164 = load i64, ptr %123, align 32, !tbaa !24
+  %164 = load i64, ptr %123, align 32, !tbaa !25
   %165 = and i64 %161, %164
   %166 = xor i64 %165, %163
-  store i64 %166, ptr %123, align 32, !tbaa !24
-  %167 = load i64, ptr %124, align 8, !tbaa !24
+  store i64 %166, ptr %123, align 32, !tbaa !25
+  %167 = load i64, ptr %124, align 8, !tbaa !25
   %168 = and i64 %167, %160
-  %169 = load i64, ptr %125, align 8, !tbaa !24
+  %169 = load i64, ptr %125, align 8, !tbaa !25
   %170 = and i64 %161, %169
   %171 = xor i64 %170, %168
-  store i64 %171, ptr %125, align 8, !tbaa !24
-  %172 = load i64, ptr %126, align 16, !tbaa !24
+  store i64 %171, ptr %125, align 8, !tbaa !25
+  %172 = load i64, ptr %126, align 16, !tbaa !25
   %173 = and i64 %172, %160
-  %174 = load i64, ptr %127, align 16, !tbaa !24
+  %174 = load i64, ptr %127, align 16, !tbaa !25
   %175 = and i64 %174, %161
   %176 = xor i64 %175, %173
-  store i64 %176, ptr %127, align 16, !tbaa !24
-  %177 = load i64, ptr %128, align 8, !tbaa !24
+  store i64 %176, ptr %127, align 16, !tbaa !25
+  %177 = load i64, ptr %128, align 8, !tbaa !25
   %178 = and i64 %177, %160
-  %179 = load i64, ptr %129, align 8, !tbaa !24
+  %179 = load i64, ptr %129, align 8, !tbaa !25
   %180 = and i64 %179, %161
   %181 = xor i64 %180, %178
-  store i64 %181, ptr %129, align 8, !tbaa !24
+  store i64 %181, ptr %129, align 8, !tbaa !25
   call void @ecp_nistz256_point_add_affine(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %11) #6
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next144, 37
-  br i1 %exitcond.not, label %182, label %130, !llvm.loop !27
+  br i1 %exitcond.not, label %182, label %130, !llvm.loop !28
 
 182:                                              ; preds = %130
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %13) #6
@@ -614,54 +614,54 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %scevgep.i = getelementptr i8, ptr %8, i64 %211
   %narrow.i = sub nuw nsw i32 33, %.0125.lcssa185.i
   %212 = zext nneg i32 %narrow.i to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %212, i1 false), !tbaa !23
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %212, i1 false), !tbaa !24
   br label %._crit_edge.i
 
 213:                                              ; preds = %213, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %213 ]
   %214 = getelementptr inbounds nuw i8, ptr %207, i64 %indvars.iv.i
-  %215 = load i64, ptr %214, align 8, !tbaa !24
+  %215 = load i64, ptr %214, align 8, !tbaa !25
   %216 = trunc i64 %215 to i8
   %217 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %indvars.iv.i
-  store i8 %216, ptr %217, align 8, !tbaa !23
+  store i8 %216, ptr %217, align 8, !tbaa !24
   %218 = lshr i64 %215, 8
   %219 = trunc i64 %218 to i8
   %220 = or disjoint i64 %indvars.iv.i, 1
   %221 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %220
-  store i8 %219, ptr %221, align 1, !tbaa !23
+  store i8 %219, ptr %221, align 1, !tbaa !24
   %222 = lshr i64 %215, 16
   %223 = trunc i64 %222 to i8
   %224 = or disjoint i64 %indvars.iv.i, 2
   %225 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %224
-  store i8 %223, ptr %225, align 2, !tbaa !23
+  store i8 %223, ptr %225, align 2, !tbaa !24
   %226 = lshr i64 %215, 24
   %227 = trunc i64 %226 to i8
   %228 = or disjoint i64 %indvars.iv.i, 3
   %229 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %228
-  store i8 %227, ptr %229, align 1, !tbaa !23
+  store i8 %227, ptr %229, align 1, !tbaa !24
   %230 = lshr i64 %215, 32
   %231 = trunc i64 %230 to i8
   %232 = or disjoint i64 %indvars.iv.i, 4
   %233 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %232
-  store i8 %231, ptr %233, align 4, !tbaa !23
+  store i8 %231, ptr %233, align 4, !tbaa !24
   %234 = lshr i64 %215, 40
   %235 = trunc i64 %234 to i8
   %236 = or disjoint i64 %indvars.iv.i, 5
   %237 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %236
-  store i8 %235, ptr %237, align 1, !tbaa !23
+  store i8 %235, ptr %237, align 1, !tbaa !24
   %238 = lshr i64 %215, 48
   %239 = trunc i64 %238 to i8
   %240 = or disjoint i64 %indvars.iv.i, 6
   %241 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %240
-  store i8 %239, ptr %241, align 2, !tbaa !23
+  store i8 %239, ptr %241, align 2, !tbaa !24
   %242 = lshr i64 %215, 56
   %243 = trunc nuw i64 %242 to i8
   %244 = or disjoint i64 %indvars.iv.i, 7
   %245 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %244
-  store i8 %243, ptr %245, align 1, !tbaa !23
+  store i8 %243, ptr %245, align 1, !tbaa !24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %246 = icmp samesign ult i64 %indvars.iv.next.i, %208
-  br i1 %246, label %213, label %.preheader.i, !llvm.loop !28
+  br i1 %246, label %213, label %.preheader.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph178.preheader.i, %.preheader.i
   %247 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -737,7 +737,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %258, %250, %._crit_
   %287 = getelementptr inbounds nuw i8, ptr %7, i64 1440
   call void @ecp_nistz256_point_add(ptr noundef nonnull %287, ptr noundef nonnull %285, ptr noundef nonnull %7) #6
   %288 = getelementptr inbounds nuw i8, ptr %8, i64 31
-  %289 = load i8, ptr %288, align 1, !tbaa !23
+  %289 = load i8, ptr %288, align 1, !tbaa !24
   %290 = lshr i8 %289, 6
   %291 = zext nneg i8 %290 to i32
   %292 = lshr i32 %291, 1
@@ -762,12 +762,12 @@ ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %258, %250, %._crit_
   %304 = lshr i32 %303, 3
   %305 = zext nneg i32 %304 to i64
   %306 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %305
-  %307 = load i8, ptr %306, align 1, !tbaa !23
+  %307 = load i8, ptr %306, align 1, !tbaa !24
   %308 = zext i8 %307 to i32
   %309 = add nuw nsw i32 %304, 1
   %310 = zext nneg i32 %309 to i64
   %311 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %310
-  %312 = load i8, ptr %311, align 1, !tbaa !23
+  %312 = load i8, ptr %311, align 1, !tbaa !24
   %313 = zext i8 %312 to i32
   %314 = shl nuw nsw i32 %313, 8
   %315 = or disjoint i32 %314, %308
@@ -789,30 +789,30 @@ ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %258, %250, %._crit_
   %329 = zext nneg i32 %328 to i64
   %330 = sub nsw i64 0, %329
   %331 = add nsw i64 %329, -1
-  %332 = load i64, ptr %9, align 16, !tbaa !24
+  %332 = load i64, ptr %9, align 16, !tbaa !25
   %333 = and i64 %332, %330
-  %334 = load i64, ptr %294, align 32, !tbaa !24
+  %334 = load i64, ptr %294, align 32, !tbaa !25
   %335 = and i64 %331, %334
   %336 = xor i64 %335, %333
-  store i64 %336, ptr %294, align 32, !tbaa !24
-  %337 = load i64, ptr %295, align 8, !tbaa !24
+  store i64 %336, ptr %294, align 32, !tbaa !25
+  %337 = load i64, ptr %295, align 8, !tbaa !25
   %338 = and i64 %337, %330
-  %339 = load i64, ptr %296, align 8, !tbaa !24
+  %339 = load i64, ptr %296, align 8, !tbaa !25
   %340 = and i64 %331, %339
   %341 = xor i64 %340, %338
-  store i64 %341, ptr %296, align 8, !tbaa !24
-  %342 = load i64, ptr %297, align 16, !tbaa !24
+  store i64 %341, ptr %296, align 8, !tbaa !25
+  %342 = load i64, ptr %297, align 16, !tbaa !25
   %343 = and i64 %342, %330
-  %344 = load i64, ptr %298, align 16, !tbaa !24
+  %344 = load i64, ptr %298, align 16, !tbaa !25
   %345 = and i64 %344, %331
   %346 = xor i64 %345, %343
-  store i64 %346, ptr %298, align 16, !tbaa !24
-  %347 = load i64, ptr %299, align 8, !tbaa !24
+  store i64 %346, ptr %298, align 16, !tbaa !25
+  %347 = load i64, ptr %299, align 8, !tbaa !25
   %348 = and i64 %347, %330
-  %349 = load i64, ptr %300, align 8, !tbaa !24
+  %349 = load i64, ptr %300, align 8, !tbaa !25
   %350 = and i64 %349, %331
   %351 = xor i64 %350, %348
-  store i64 %351, ptr %300, align 8, !tbaa !24
+  store i64 %351, ptr %300, align 8, !tbaa !25
   call void @ecp_nistz256_point_add(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %10) #6
   br label %352
 
@@ -824,10 +824,10 @@ ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %258, %250, %._crit_
   call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #6
   call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #6
   %354 = icmp ugt i32 %353, 4
-  br i1 %354, label %301, label %355, !llvm.loop !29
+  br i1 %354, label %301, label %355, !llvm.loop !30
 
 355:                                              ; preds = %352
-  %356 = load i8, ptr %8, align 16, !tbaa !23
+  %356 = load i8, ptr %8, align 16, !tbaa !24
   %357 = zext i8 %356 to i32
   %358 = shl nuw nsw i32 %357, 1
   %359 = and i32 %358, 62
@@ -846,30 +846,30 @@ ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %258, %250, %._crit_
   %370 = zext nneg i32 %369 to i64
   %371 = sub nsw i64 0, %370
   %372 = add nsw i64 %370, -1
-  %373 = load i64, ptr %9, align 16, !tbaa !24
+  %373 = load i64, ptr %9, align 16, !tbaa !25
   %374 = and i64 %373, %371
-  %375 = load i64, ptr %294, align 32, !tbaa !24
+  %375 = load i64, ptr %294, align 32, !tbaa !25
   %376 = and i64 %372, %375
   %377 = xor i64 %376, %374
-  store i64 %377, ptr %294, align 32, !tbaa !24
-  %378 = load i64, ptr %295, align 8, !tbaa !24
+  store i64 %377, ptr %294, align 32, !tbaa !25
+  %378 = load i64, ptr %295, align 8, !tbaa !25
   %379 = and i64 %378, %371
-  %380 = load i64, ptr %296, align 8, !tbaa !24
+  %380 = load i64, ptr %296, align 8, !tbaa !25
   %381 = and i64 %380, %372
   %382 = xor i64 %381, %379
-  store i64 %382, ptr %296, align 8, !tbaa !24
-  %383 = load i64, ptr %297, align 16, !tbaa !24
+  store i64 %382, ptr %296, align 8, !tbaa !25
+  %383 = load i64, ptr %297, align 16, !tbaa !25
   %384 = and i64 %383, %371
-  %385 = load i64, ptr %298, align 16, !tbaa !24
+  %385 = load i64, ptr %298, align 16, !tbaa !25
   %386 = and i64 %385, %372
   %387 = xor i64 %386, %384
-  store i64 %387, ptr %298, align 16, !tbaa !24
-  %388 = load i64, ptr %299, align 8, !tbaa !24
+  store i64 %387, ptr %298, align 16, !tbaa !25
+  %388 = load i64, ptr %299, align 8, !tbaa !25
   %389 = and i64 %388, %371
-  %390 = load i64, ptr %300, align 8, !tbaa !24
+  %390 = load i64, ptr %300, align 8, !tbaa !25
   %391 = and i64 %390, %372
   %392 = xor i64 %391, %389
-  store i64 %392, ptr %300, align 8, !tbaa !24
+  store i64 %392, ptr %300, align 8, !tbaa !25
   call void @ecp_nistz256_point_add(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %10) #6
   br label %393
 
@@ -1035,19 +1035,20 @@ attributes #6 = { nounwind }
 !11 = !{!"Simple C/C++ TBAA"}
 !12 = !{!"int", !10, i64 0}
 !13 = !{!7, !8, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = distinct !{!21, !15}
-!22 = !{!7, !12, i64 16}
-!23 = !{!10, !10, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"long", !10, i64 0}
-!26 = distinct !{!26, !15}
-!27 = distinct !{!27, !15}
-!28 = distinct !{!28, !15}
-!29 = distinct !{!29, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}
+!21 = distinct !{!21, !15, !16}
+!22 = distinct !{!22, !15, !16}
+!23 = !{!7, !12, i64 16}
+!24 = !{!10, !10, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"long", !10, i64 0}
+!27 = distinct !{!27, !15, !16}
+!28 = distinct !{!28, !15, !16}
+!29 = distinct !{!29, !15, !16}
+!30 = distinct !{!30, !15, !16}

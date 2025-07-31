@@ -1365,7 +1365,7 @@ declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZN8QuantLib30MultiplicativePriceSeasonality3setERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((16, 20)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frequency_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %frequency, ptr %frequency_, align 8, !tbaa !25
+  store i32 %frequency, ptr %frequency_, align 8, !tbaa !26
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %seasonalityFactors, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
   %1 = load ptr, ptr %seasonalityFactors, align 8, !tbaa !18
@@ -1387,7 +1387,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %call5.i.i.i.i2.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #27
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i6, i64 %sub.ptr.sub.i
-  store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i6, align 8, !tbaa !33
+  store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i6, align 8, !tbaa !34
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i6, i64 8
   %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
@@ -1395,7 +1395,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %2 = add nsw i64 %sub.ptr.sub.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false), !tbaa !33
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false), !tbaa !34
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont
@@ -1449,12 +1449,12 @@ for.cond.cleanup:                                 ; preds = %for.body, %_ZNSt6ve
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %add.ptr.i = getelementptr inbounds nuw double, ptr %6, i64 %i.023
-  %10 = load double, ptr %add.ptr.i, align 8, !tbaa !33
+  %10 = load double, ptr %add.ptr.i, align 8, !tbaa !34
   %add.ptr.i13 = getelementptr inbounds nuw double, ptr %7, i64 %i.023
-  store double %10, ptr %add.ptr.i13, align 8, !tbaa !33
+  store double %10, ptr %add.ptr.i13, align 8, !tbaa !34
   %inc = add nuw i64 %i.023, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i12
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !35
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1469,7 +1469,7 @@ entry:
 define noundef i32 @_ZNK8QuantLib30MultiplicativePriceSeasonality9frequencyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #12 align 2 {
 entry:
   %frequency_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i32, ptr %frequency_, align 8, !tbaa !25
+  %0 = load i32, ptr %frequency_, align 8, !tbaa !26
   ret i32 %0
 }
 
@@ -1496,7 +1496,7 @@ invoke.cont.i.thread:                             ; preds = %entry
 
 cond.true.i.i.i.i:                                ; preds = %entry
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, !prof !36
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, !prof !37
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -1794,7 +1794,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %factorPeriod) #23
   call void @_ZN8QuantLib6PeriodC1ENS_9FrequencyE(ptr noundef nonnull align 4 dereferenceable(8) %factorPeriod, i32 noundef %call4)
-  %6 = load i64, ptr %to, align 8, !tbaa !37
+  %6 = load i64, ptr %to, align 8, !tbaa !38
   %cmp.i = icmp eq i64 %call, %6
   br i1 %cmp.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit89, label %if.else
 
@@ -1805,7 +1805,7 @@ if.else:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %cmp.i29 = icmp sgt i64 %call, %6
   %spec.select = select i1 %cmp.i29, i32 -1, i32 1
   %units_.i = getelementptr inbounds nuw i8, ptr %factorPeriod, i64 4
-  %8 = load i32, ptr %units_.i, align 4, !tbaa !38
+  %8 = load i32, ptr %units_.i, align 4, !tbaa !39
   switch i32 %8, label %do.body75 [
     i32 0, label %if.end123
     i32 1, label %if.then18
@@ -1821,13 +1821,13 @@ if.then23:                                        ; preds = %if.else
   %call24 = call { i64, i64 } @_ZN8QuantLib15inflationPeriodERKNS_4DateENS_9FrequencyE(ptr noundef nonnull align 8 dereferenceable(8) %to, i32 noundef %call4)
   %9 = extractvalue { i64, i64 } %call24, 0
   %10 = extractvalue { i64, i64 } %call24, 1
-  %11 = load i32, ptr %factorPeriod, align 4, !tbaa !42
+  %11 = load i32, ptr %factorPeriod, align 4, !tbaa !43
   %mul26 = mul nsw i32 %11, 31
   %div27 = sdiv i32 %conv, %mul26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %go) #23
   %mul29 = mul i32 %11, %spec.select
   %mul.i = mul i32 %mul29, %div27
-  %12 = load i32, ptr %units_.i, align 4, !tbaa !38
+  %12 = load i32, ptr %units_.i, align 4, !tbaa !39
   %call3.i = call i64 @_ZN8QuantLib4Date7advanceERKS0_iNS_8TimeUnitE(ptr noundef nonnull align 8 dereferenceable(8) %from, i32 noundef %mul.i, i32 noundef %12)
   store i64 %call3.i, ptr %go, align 8
   %cmp.i33126 = icmp sgt i64 %9, %call3.i
@@ -1838,9 +1838,9 @@ if.then23:                                        ; preds = %if.else
 while.body:                                       ; preds = %if.then23, %while.body
   %diff.1129 = phi i32 [ %inc, %while.body ], [ %div27, %if.then23 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp35) #23
-  %13 = load i32, ptr %factorPeriod, align 4, !tbaa !42
+  %13 = load i32, ptr %factorPeriod, align 4, !tbaa !43
   %mul.i35 = mul nsw i32 %13, %spec.select
-  %14 = load i32, ptr %units_.i, align 4, !tbaa !38
+  %14 = load i32, ptr %units_.i, align 4, !tbaa !39
   %retval.sroa.2.0.insert.ext.i37 = zext i32 %14 to i64
   %retval.sroa.2.0.insert.shift.i38 = shl nuw i64 %retval.sroa.2.0.insert.ext.i37, 32
   %retval.sroa.0.0.insert.ext.i39 = zext i32 %mul.i35 to i64
@@ -1849,11 +1849,11 @@ while.body:                                       ; preds = %if.then23, %while.b
   %call37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatepLERKNS_6PeriodE(ptr noundef nonnull align 8 dereferenceable(8) %go, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp35) #23
   %inc = add nsw i32 %diff.1129, 1
-  %15 = load i64, ptr %go, align 8, !tbaa !37
+  %15 = load i64, ptr %go, align 8, !tbaa !38
   %cmp.i33 = icmp sgt i64 %9, %15
   %cmp.i34.not = icmp sgt i64 %15, %10
   %or.cond = select i1 %cmp.i33, i1 true, i1 %cmp.i34.not
-  br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !43
+  br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !44
 
 while.end:                                        ; preds = %while.body, %if.then23
   %diff.1.lcssa = phi i32 [ %div27, %if.then23 ], [ %inc, %while.body ]
@@ -1868,8 +1868,8 @@ do.body:                                          ; preds = %if.else
 
 invoke.cont:                                      ; preds = %do.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp44) #23
-  %16 = load i32, ptr %units_.i, align 4, !tbaa !38
-  store i32 %16, ptr %ref.tmp44, align 4, !tbaa !44
+  %16 = load i32, ptr %units_.i, align 4, !tbaa !39
+  store i32 %16, ptr %ref.tmp44, align 4, !tbaa !45
   %call49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_8TimeUnitE(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp44)
           to label %invoke.cont48 unwind label %lpad45
 
@@ -2038,8 +2038,8 @@ do.body75:                                        ; preds = %if.else
 
 invoke.cont78:                                    ; preds = %do.body75
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp80) #23
-  %39 = load i32, ptr %units_.i, align 4, !tbaa !38
-  store i32 %39, ptr %ref.tmp80, align 4, !tbaa !44
+  %39 = load i32, ptr %units_.i, align 4, !tbaa !39
+  store i32 %39, ptr %ref.tmp80, align 4, !tbaa !45
   %call85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_8TimeUnitE(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream76, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp80)
           to label %invoke.cont84 unwind label %lpad81
 
@@ -2236,7 +2236,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit89:                  ; preds = %_ZNSt6vectorIdSaIdE
   call void %62(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %ref.tmp137, ptr noundef nonnull align 8 dereferenceable(48) %this)
   %63 = load ptr, ptr %ref.tmp137, align 8, !tbaa !18
   %add.ptr.i = getelementptr inbounds nuw double, ptr %63, i64 %which.0
-  %64 = load double, ptr %add.ptr.i, align 8, !tbaa !33
+  %64 = load double, ptr %add.ptr.i, align 8, !tbaa !34
   %_M_end_of_storage.i.i85 = getelementptr inbounds nuw i8, ptr %ref.tmp137, i64 16
   %65 = load ptr, ptr %_M_end_of_storage.i.i85, align 8, !tbaa !9
   %sub.ptr.lhs.cast.i.i86 = ptrtoint ptr %65 to i64
@@ -2296,7 +2296,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #23
   %div11 = fdiv double 1.000000e+00, %call10
-  %call12 = call double @pow(double noundef %div, double noundef %div11) #23, !tbaa !45
+  %call12 = call double @pow(double noundef %div, double noundef %div11) #23, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %p) #23
   br label %if.end
 
@@ -2328,7 +2328,7 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.12", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !46
+  %0 = load ptr, ptr %this, align 8, !tbaa !47
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then, label %_ZNK5boost10shared_ptrIN8QuantLib10DayCounter4ImplEEptEv.exit
 
@@ -2553,7 +2553,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %units_.i = getelementptr inbounds nuw i8, ptr %factorPeriod, i64 4
-  %5 = load i32, ptr %units_.i, align 4, !tbaa !38
+  %5 = load i32, ptr %units_.i, align 4, !tbaa !39
   %cmp13.not = icmp eq i32 %5, 2
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -2835,7 +2835,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit67:                  ; preds = %_ZNSt6vectorIdSaIdE
   call void %38(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(48) %this)
   %39 = load ptr, ptr %ref.tmp57, align 8, !tbaa !18
   %add.ptr.i = getelementptr inbounds nuw double, ptr %39, i64 %i.089
-  %40 = load double, ptr %add.ptr.i, align 8, !tbaa !33
+  %40 = load double, ptr %add.ptr.i, align 8, !tbaa !34
   %mul = fmul double %seasonalCorrection.088, %40
   %41 = load ptr, ptr %_M_end_of_storage.i.i63, align 8, !tbaa !9
   %sub.ptr.lhs.cast.i.i64 = ptrtoint ptr %41 to i64
@@ -2845,7 +2845,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit67:                  ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp57) #23
   %inc = add nuw nsw i64 %i.089, 1
   %exitcond.not = icmp eq i64 %inc, %spec.select15
-  br i1 %exitcond.not, label %for.cond.cleanup, label %_ZNSt6vectorIdSaIdEED2Ev.exit67, !llvm.loop !48
+  br i1 %exitcond.not, label %for.cond.cleanup, label %_ZNSt6vectorIdSaIdEED2Ev.exit67, !llvm.loop !49
 
 unreachable:                                      ; preds = %invoke.cont41
   unreachable
@@ -2887,7 +2887,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #23
   %div = fdiv double 1.000000e+00, %call4
-  %call5 = call double @pow(double noundef %call, double noundef %div) #23, !tbaa !45
+  %call5 = call double @pow(double noundef %call, double noundef %div) #23, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lim) #23
   %add = fadd double %rate, 1.000000e+00
   %4 = call double @llvm.fmuladd.f64(double %add, double %call5, double -1.000000e+00)
@@ -3239,29 +3239,30 @@ attributes #27 = { builtin allocsize(0) }
 !20 = !{!14, !14, i64 0}
 !21 = !{!22, !7, i64 0}
 !22 = !{!"_ZTSN5boost6detail12shared_countE", !7, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !29, i64 16}
-!26 = !{!"_ZTSN8QuantLib30MultiplicativePriceSeasonalityE", !27, i64 0, !28, i64 8, !29, i64 16, !30, i64 24}
-!27 = !{!"_ZTSN8QuantLib11SeasonalityE"}
-!28 = !{!"_ZTSN8QuantLib4DateE", !14, i64 0}
-!29 = !{!"_ZTSN8QuantLib9FrequencyE", !8, i64 0}
-!30 = !{!"_ZTSSt6vectorIdSaIdEE", !31, i64 0}
-!31 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !32, i64 0}
-!32 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !10, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"double", !8, i64 0}
-!35 = distinct !{!35, !24}
-!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!37 = !{!28, !14, i64 0}
-!38 = !{!39, !41, i64 4}
-!39 = !{!"_ZTSN8QuantLib6PeriodE", !40, i64 0, !41, i64 4}
-!40 = !{!"int", !8, i64 0}
-!41 = !{!"_ZTSN8QuantLib8TimeUnitE", !8, i64 0}
-!42 = !{!39, !40, i64 0}
-!43 = distinct !{!43, !24}
-!44 = !{!41, !41, i64 0}
-!45 = !{!40, !40, i64 0}
-!46 = !{!47, !7, i64 0}
-!47 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEEE", !7, i64 0, !22, i64 8}
-!48 = distinct !{!48, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !30, i64 16}
+!27 = !{!"_ZTSN8QuantLib30MultiplicativePriceSeasonalityE", !28, i64 0, !29, i64 8, !30, i64 16, !31, i64 24}
+!28 = !{!"_ZTSN8QuantLib11SeasonalityE"}
+!29 = !{!"_ZTSN8QuantLib4DateE", !14, i64 0}
+!30 = !{!"_ZTSN8QuantLib9FrequencyE", !8, i64 0}
+!31 = !{!"_ZTSSt6vectorIdSaIdEE", !32, i64 0}
+!32 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !33, i64 0}
+!33 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !10, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"double", !8, i64 0}
+!36 = distinct !{!36, !24, !25}
+!37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!38 = !{!29, !14, i64 0}
+!39 = !{!40, !42, i64 4}
+!40 = !{!"_ZTSN8QuantLib6PeriodE", !41, i64 0, !42, i64 4}
+!41 = !{!"int", !8, i64 0}
+!42 = !{!"_ZTSN8QuantLib8TimeUnitE", !8, i64 0}
+!43 = !{!40, !41, i64 0}
+!44 = distinct !{!44, !24, !25}
+!45 = !{!42, !42, i64 0}
+!46 = !{!41, !41, i64 0}
+!47 = !{!48, !7, i64 0}
+!48 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEEE", !7, i64 0, !22, i64 8}
+!49 = distinct !{!49, !24, !25}

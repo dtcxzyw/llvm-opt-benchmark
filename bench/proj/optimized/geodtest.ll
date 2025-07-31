@@ -414,7 +414,7 @@ checkEquals.exit49.i:                             ; preds = %287, %checkEquals.e
   %289 = add nsw i32 %282, %.0.i48.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.not.i, label %testinverse.exit, label %209
+  br i1 %exitcond.not.i, label %testinverse.exit, label %209, !llvm.loop !8
 
 testinverse.exit:                                 ; preds = %checkEquals.exit49.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %208) #7
@@ -591,7 +591,7 @@ checkEquals.exit54.i:                             ; preds = %377, %checkEquals.e
   %379 = add nsw i32 %372, %.0.i53.i
   %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i176, 1
   %exitcond.not.i180 = icmp eq i64 %indvars.iv.next.i179, 20
-  br i1 %exitcond.not.i180, label %testdirect.exit, label %293
+  br i1 %exitcond.not.i180, label %testdirect.exit, label %293, !llvm.loop !10
 
 testdirect.exit:                                  ; preds = %checkEquals.exit54.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %200) #7
@@ -783,7 +783,7 @@ checkEquals.exit58.i:                             ; preds = %475, %checkEquals.e
   %477 = add nsw i32 %470, %.0.i57.i
   %indvars.iv.next.i198 = add nuw nsw i64 %indvars.iv.i181, 1
   %exitcond.not.i199 = icmp eq i64 %indvars.iv.next.i198, 20
-  br i1 %exitcond.not.i199, label %testarcdirect.exit, label %384
+  br i1 %exitcond.not.i199, label %testarcdirect.exit, label %384, !llvm.loop !11
 
 testarcdirect.exit:                               ; preds = %checkEquals.exit58.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %191) #7
@@ -2648,7 +2648,7 @@ checkEquals.exit10.i324:                          ; preds = %1315, %checkEquals.
 checkEquals.exit12.i326:                          ; preds = %1321, %checkEquals.exit10.i324
   %.0.i11.i327 = phi i32 [ 1, %1321 ], [ 0, %checkEquals.exit10.i324 ]
   %1323 = getelementptr inbounds nuw i8, ptr %111, i64 64
-  %1324 = load double, ptr %1323, align 8, !tbaa !8
+  %1324 = load double, ptr %1323, align 8, !tbaa !12
   %1325 = fmul double %1324, 5.000000e-01
   %1326 = call double @geod_genposition(ptr noundef nonnull %111, i32 noundef 32768, double noundef %1325, ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %1327 = load double, ptr %107, align 8, !tbaa !4
@@ -2715,7 +2715,7 @@ GeodSolve67.exit:                                 ; preds = %checkEquals.exit16.
   call void @geod_init(ptr noundef nonnull %105, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_directline(ptr noundef nonnull %106, ptr noundef nonnull %105, double noundef 1.000000e+00, double noundef 2.000000e+00, double noundef 4.500000e+01, double noundef 1.000000e+07, i32 noundef 0) #7
   %1354 = getelementptr inbounds nuw i8, ptr %106, i64 64
-  %1355 = load double, ptr %1354, align 8, !tbaa !8
+  %1355 = load double, ptr %1354, align 8, !tbaa !12
   %1356 = fmul double %1355, 5.000000e-01
   call void @geod_position(ptr noundef nonnull %106, double noundef %1356, ptr noundef nonnull %102, ptr noundef nonnull %103, ptr noundef nonnull %104) #7
   %1357 = load double, ptr %102, align 8, !tbaa !4
@@ -3814,7 +3814,7 @@ GeodSolve96.exit.thread:                          ; preds = %1834
   call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %52, double noundef 8.900000e+01, double noundef %1851) #7
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %planimeter.exit.i, label %1850
+  br i1 %exitcond.not.i.i, label %planimeter.exit.i, label %1850, !llvm.loop !15
 
 planimeter.exit.i:                                ; preds = %1850
   %1852 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %52, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
@@ -3854,7 +3854,7 @@ checkEquals.exit11.i:                             ; preds = %1863, %checkEquals.
   call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %51, double noundef -8.900000e+01, double noundef %1866) #7
   %indvars.iv.next.i13.i = add nuw nsw i64 %indvars.iv.i12.i, 1
   %exitcond.not.i14.i = icmp eq i64 %indvars.iv.next.i13.i, 4
-  br i1 %exitcond.not.i14.i, label %planimeter.exit15.i, label %1865
+  br i1 %exitcond.not.i14.i, label %planimeter.exit15.i, label %1865, !llvm.loop !15
 
 planimeter.exit15.i:                              ; preds = %1865
   %1867 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %51, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
@@ -3896,7 +3896,7 @@ checkEquals.exit19.i:                             ; preds = %1878, %checkEquals.
   call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %50, double noundef %1882, double noundef %1884) #7
   %indvars.iv.next.i21.i = add nuw nsw i64 %indvars.iv.i20.i, 1
   %exitcond.not.i22.i = icmp eq i64 %indvars.iv.next.i21.i, 4
-  br i1 %exitcond.not.i22.i, label %planimeter.exit23.i, label %1880
+  br i1 %exitcond.not.i22.i, label %planimeter.exit23.i, label %1880, !llvm.loop !15
 
 planimeter.exit23.i:                              ; preds = %1880
   %1885 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %50, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
@@ -3938,7 +3938,7 @@ checkEquals.exit27.i:                             ; preds = %1896, %checkEquals.
   call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %49, double noundef %1900, double noundef %1902) #7
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 1
   %exitcond.not.i30.i = icmp eq i64 %indvars.iv.next.i29.i, 3
-  br i1 %exitcond.not.i30.i, label %planimeter.exit31.i, label %1898
+  br i1 %exitcond.not.i30.i, label %planimeter.exit31.i, label %1898, !llvm.loop !15
 
 planimeter.exit31.i:                              ; preds = %1898
   %1903 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
@@ -3980,7 +3980,7 @@ checkEquals.exit35.i438:                          ; preds = %1914, %checkEquals.
   call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %48, double noundef %1918, double noundef %1920) #7
   %indvars.iv.next.i37.i = add nuw nsw i64 %indvars.iv.i36.i, 1
   %exitcond.not.i38.i = icmp eq i64 %indvars.iv.next.i37.i, 3
-  br i1 %exitcond.not.i38.i, label %polylength.exit.i, label %1916
+  br i1 %exitcond.not.i38.i, label %polylength.exit.i, label %1916, !llvm.loop !16
 
 polylength.exit.i:                                ; preds = %1916
   %1921 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %48, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %56) #7
@@ -4049,7 +4049,7 @@ Planimeter0.exit:                                 ; preds = %polylength.exit.i, 
   call void @geod_polygon_addpoint(ptr noundef nonnull %45, ptr noundef nonnull %43, double noundef %1947, double noundef %1949) #7
   %indvars.iv.next.i.i443 = add nuw nsw i64 %indvars.iv.i.i442, 1
   %exitcond.not.i.i444 = icmp eq i64 %indvars.iv.next.i.i443, 3
-  br i1 %exitcond.not.i.i444, label %planimeter.exit.i445, label %1945
+  br i1 %exitcond.not.i.i444, label %planimeter.exit.i445, label %1945, !llvm.loop !15
 
 planimeter.exit.i445:                             ; preds = %1945
   %1950 = call i32 @geod_polygon_compute(ptr noundef nonnull %45, ptr noundef nonnull %43, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %47, ptr noundef nonnull %46) #7
@@ -4154,7 +4154,7 @@ Planimeter5.exit:                                 ; preds = %checkEquals.exit.i4
   call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %35, double noundef %1986, double noundef %1988) #7
   %indvars.iv.next.i.i449 = add nuw nsw i64 %indvars.iv.i.i448, 1
   %exitcond.not.i.i450 = icmp eq i64 %indvars.iv.next.i.i449, 3
-  br i1 %exitcond.not.i.i450, label %planimeter.exit.i451, label %1984
+  br i1 %exitcond.not.i.i450, label %planimeter.exit.i451, label %1984, !llvm.loop !15
 
 planimeter.exit.i451:                             ; preds = %1984
   %1989 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %35, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
@@ -4195,7 +4195,7 @@ checkEquals.exit10.i454:                          ; preds = %1999, %checkEquals.
   call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %34, double noundef %2003, double noundef %2005) #7
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i11.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i12.i, 3
-  br i1 %exitcond.not.i13.i, label %planimeter.exit14.i, label %2001
+  br i1 %exitcond.not.i13.i, label %planimeter.exit14.i, label %2001, !llvm.loop !15
 
 planimeter.exit14.i:                              ; preds = %2001
   %2006 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
@@ -4236,7 +4236,7 @@ checkEquals.exit18.i458:                          ; preds = %2016, %checkEquals.
   call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %33, double noundef %2020, double noundef %2022) #7
   %indvars.iv.next.i20.i = add nuw nsw i64 %indvars.iv.i19.i, 1
   %exitcond.not.i21.i = icmp eq i64 %indvars.iv.next.i20.i, 3
-  br i1 %exitcond.not.i21.i, label %planimeter.exit22.i, label %2018
+  br i1 %exitcond.not.i21.i, label %planimeter.exit22.i, label %2018, !llvm.loop !15
 
 planimeter.exit22.i:                              ; preds = %2018
   %2023 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %33, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
@@ -4277,7 +4277,7 @@ checkEquals.exit26.i462:                          ; preds = %2033, %checkEquals.
   call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %32, double noundef %2037, double noundef %2039) #7
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i27.i, 1
   %exitcond.not.i29.i = icmp eq i64 %indvars.iv.next.i28.i, 3
-  br i1 %exitcond.not.i29.i, label %planimeter.exit30.i, label %2035
+  br i1 %exitcond.not.i29.i, label %planimeter.exit30.i, label %2035, !llvm.loop !15
 
 planimeter.exit30.i:                              ; preds = %2035
   %2040 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %32, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
@@ -4357,7 +4357,7 @@ Planimeter6.exit:                                 ; preds = %checkEquals.exit32.
   call void @geod_polygon_addpoint(ptr noundef nonnull %29, ptr noundef nonnull %27, double noundef %2069, double noundef %2071) #7
   %indvars.iv.next.i.i469 = add nuw nsw i64 %indvars.iv.i.i468, 1
   %exitcond.not.i.i470 = icmp eq i64 %indvars.iv.next.i.i469, 3
-  br i1 %exitcond.not.i.i470, label %planimeter.exit.i471, label %2067
+  br i1 %exitcond.not.i.i470, label %planimeter.exit.i471, label %2067, !llvm.loop !15
 
 planimeter.exit.i471:                             ; preds = %2067
   %2072 = call i32 @geod_polygon_compute(ptr noundef nonnull %29, ptr noundef nonnull %27, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %31, ptr noundef nonnull %30) #7
@@ -4428,7 +4428,7 @@ Planimeter12.exit:                                ; preds = %checkEquals.exit.i4
   call void @geod_polygon_addpoint(ptr noundef nonnull %24, ptr noundef nonnull %22, double noundef %2095, double noundef %2097) #7
   %indvars.iv.next.i.i476 = add nuw nsw i64 %indvars.iv.i.i475, 1
   %exitcond.not.i.i477 = icmp eq i64 %indvars.iv.next.i.i476, 3
-  br i1 %exitcond.not.i.i477, label %planimeter.exit.i478, label %2093
+  br i1 %exitcond.not.i.i477, label %planimeter.exit.i478, label %2093, !llvm.loop !15
 
 planimeter.exit.i478:                             ; preds = %2093
   %2098 = call i32 @geod_polygon_compute(ptr noundef nonnull %24, ptr noundef nonnull %22, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %26, ptr noundef nonnull %25) #7
@@ -4486,7 +4486,7 @@ Planimeter12r.exit:                               ; preds = %checkEquals.exit.i4
   call void @geod_polygon_addpoint(ptr noundef nonnull %19, ptr noundef nonnull %18, double noundef 8.900000e+01, double noundef %2116) #7
   %indvars.iv.next.i.i484 = add nuw nsw i64 %indvars.iv.i.i482, 1
   %exitcond.not.i.i485 = icmp eq i64 %indvars.iv.next.i.i484, 6
-  br i1 %exitcond.not.i.i485, label %planimeter.exit.i486, label %2115
+  br i1 %exitcond.not.i.i485, label %planimeter.exit.i486, label %2115, !llvm.loop !15
 
 planimeter.exit.i486:                             ; preds = %2115
   %2117 = call i32 @geod_polygon_compute(ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %20) #7
@@ -5073,7 +5073,7 @@ checkEquals.exit84.i:                             ; preds = %2427, %checkEquals.
   %2429 = add nsw i32 %2421, %.0.i83.i
   %2430 = add nuw nsw i32 %.086.i, 1
   %exitcond.not.i524 = icmp eq i32 %2430, 5
-  br i1 %exitcond.not.i524, label %Planimeter21.exit, label %2327
+  br i1 %exitcond.not.i524, label %Planimeter21.exit, label %2327, !llvm.loop !17
 
 Planimeter21.exit:                                ; preds = %checkEquals.exit84.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -5199,6 +5199,13 @@ attributes #7 = { nounwind }
 !5 = !{!"double", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!9, !5, i64 64}
-!9 = !{!"geod_geodesicline", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !6, i64 240, !6, i64 296, !6, i64 352, !6, i64 408, !6, i64 456, !10, i64 504}
-!10 = !{!"int", !6, i64 0}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = !{!13, !5, i64 64}
+!13 = !{!"geod_geodesicline", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !6, i64 240, !6, i64 296, !6, i64 352, !6, i64 408, !6, i64 456, !14, i64 504}
+!14 = !{!"int", !6, i64 0}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

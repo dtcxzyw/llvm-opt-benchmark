@@ -156,8 +156,8 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21PackRGBAFromIm
 ._crit_edge:                                      ; preds = %24, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %66, %._crit_edge.loopexit ], [ 0, %24 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %68 = load ptr, ptr %67, align 8, !tbaa !26
-  %69 = load ptr, ptr %68, align 8, !tbaa !27
+  %68 = load ptr, ptr %67, align 8, !tbaa !27
+  %69 = load ptr, ptr %68, align 8, !tbaa !28
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
@@ -230,9 +230,9 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21UnpackRGBAToIm
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !26
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = sext i32 %3 to i64
-  %35 = load ptr, ptr %33, align 8, !tbaa !27
+  %35 = load ptr, ptr %33, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %34)
@@ -290,7 +290,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21UnpackRGBAToIm
   %65 = getelementptr inbounds i8, ptr %.183, i64 %21
   %spec.select = select i1 %.not79, ptr null, ptr %65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %61, %19, %12, %15
   ret void
@@ -381,27 +381,27 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21PackRGBAFromIm
   %.07185 = phi ptr [ %63, %58 ], [ %41, %.lr.ph.preheader ]
   %.07284 = phi ptr [ %62, %58 ], [ %45, %.lr.ph.preheader ]
   %.07383 = phi ptr [ %61, %58 ], [ %49, %.lr.ph.preheader ]
-  %50 = load i16, ptr %.07383, align 2, !tbaa !30
+  %50 = load i16, ptr %.07383, align 2, !tbaa !31
   %.idx = shl nsw i64 %indvars.iv, 3
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  store i16 %50, ptr %51, align 2, !tbaa !30
-  %52 = load i16, ptr %.07284, align 2, !tbaa !30
+  store i16 %50, ptr %51, align 2, !tbaa !31
+  %52 = load i16, ptr %.07284, align 2, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
-  store i16 %52, ptr %53, align 2, !tbaa !30
-  %54 = load i16, ptr %.07185, align 2, !tbaa !30
+  store i16 %52, ptr %53, align 2, !tbaa !31
+  %54 = load i16, ptr %.07185, align 2, !tbaa !31
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store i16 %54, ptr %55, align 2, !tbaa !30
+  store i16 %54, ptr %55, align 2, !tbaa !31
   %.not81 = icmp eq ptr %.186, null
   br i1 %.not81, label %58, label %56
 
 56:                                               ; preds = %.lr.ph
-  %57 = load i16, ptr %.186, align 2, !tbaa !30
+  %57 = load i16, ptr %.186, align 2, !tbaa !31
   br label %58
 
 58:                                               ; preds = %.lr.ph, %56
   %59 = phi i16 [ %57, %56 ], [ 0, %.lr.ph ]
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 6
-  store i16 %59, ptr %60, align 2, !tbaa !30
+  store i16 %59, ptr %60, align 2, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = getelementptr inbounds i8, ptr %.07383, i64 %26
   %62 = getelementptr inbounds i8, ptr %.07284, i64 %26
@@ -409,7 +409,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21PackRGBAFromIm
   %64 = getelementptr inbounds i8, ptr %.186, i64 %26
   %spec.select = select i1 %.not81, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %58
   %65 = zext nneg i32 %3 to i64
@@ -418,8 +418,8 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21PackRGBAFromIm
 ._crit_edge:                                      ; preds = %24, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %65, %._crit_edge.loopexit ], [ 0, %24 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %67 = load ptr, ptr %66, align 8, !tbaa !26
-  %68 = load ptr, ptr %67, align 8, !tbaa !27
+  %67 = load ptr, ptr %66, align 8, !tbaa !27
+  %68 = load ptr, ptr %67, align 8, !tbaa !28
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
@@ -478,9 +478,9 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21UnpackRGBAToIm
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !26
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = sext i32 %3 to i64
-  %35 = load ptr, ptr %33, align 8, !tbaa !27
+  %35 = load ptr, ptr %33, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %34)
@@ -513,21 +513,21 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21UnpackRGBAToIm
   %.07380 = phi ptr [ %61, %60 ], [ %50, %.lr.ph.preheader ]
   %.idx = shl nsw i64 %indvars.iv, 3
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %52 = load i16, ptr %51, align 2, !tbaa !30
-  store i16 %52, ptr %.07380, align 2, !tbaa !30
+  %52 = load i16, ptr %51, align 2, !tbaa !31
+  store i16 %52, ptr %.07380, align 2, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
-  %54 = load i16, ptr %53, align 2, !tbaa !30
-  store i16 %54, ptr %.07281, align 2, !tbaa !30
+  %54 = load i16, ptr %53, align 2, !tbaa !31
+  store i16 %54, ptr %.07281, align 2, !tbaa !31
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %56 = load i16, ptr %55, align 2, !tbaa !30
-  store i16 %56, ptr %.07182, align 2, !tbaa !30
+  %56 = load i16, ptr %55, align 2, !tbaa !31
+  store i16 %56, ptr %.07182, align 2, !tbaa !31
   %.not79 = icmp eq ptr %.183, null
   br i1 %.not79, label %60, label %57
 
 57:                                               ; preds = %.lr.ph
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 6
-  %59 = load i16, ptr %58, align 2, !tbaa !30
-  store i16 %59, ptr %.183, align 2, !tbaa !30
+  %59 = load i16, ptr %58, align 2, !tbaa !31
+  store i16 %59, ptr %.183, align 2, !tbaa !31
   br label %60
 
 60:                                               ; preds = %57, %.lr.ph
@@ -538,7 +538,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21UnpackRGBAToIm
   %64 = getelementptr inbounds i8, ptr %.183, i64 %21
   %spec.select = select i1 %.not79, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %60, %19, %12, %15
   ret void
@@ -631,25 +631,25 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %.07383 = phi ptr [ %60, %58 ], [ %49, %.lr.ph.preheader ]
   %.idx = shl nsw i64 %indvars.iv, 3
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %51 = load i16, ptr %.07383, align 2, !tbaa !30
-  store i16 %51, ptr %50, align 2, !tbaa !30
+  %51 = load i16, ptr %.07383, align 2, !tbaa !31
+  store i16 %51, ptr %50, align 2, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  %53 = load i16, ptr %.07284, align 2, !tbaa !30
-  store i16 %53, ptr %52, align 2, !tbaa !30
+  %53 = load i16, ptr %.07284, align 2, !tbaa !31
+  store i16 %53, ptr %52, align 2, !tbaa !31
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %55 = load i16, ptr %.07185, align 2, !tbaa !30
-  store i16 %55, ptr %54, align 2, !tbaa !30
+  %55 = load i16, ptr %.07185, align 2, !tbaa !31
+  store i16 %55, ptr %54, align 2, !tbaa !31
   %.not81 = icmp eq ptr %.186, null
   br i1 %.not81, label %58, label %56
 
 56:                                               ; preds = %.lr.ph
-  %57 = load i16, ptr %.186, align 2, !tbaa !30
+  %57 = load i16, ptr %.186, align 2, !tbaa !31
   br label %58
 
 58:                                               ; preds = %.lr.ph, %56
   %.sroa.0.0 = phi i16 [ %57, %56 ], [ 0, %.lr.ph ]
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 6
-  store i16 %.sroa.0.0, ptr %59, align 2, !tbaa !30
+  store i16 %.sroa.0.0, ptr %59, align 2, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = getelementptr inbounds i8, ptr %.07383, i64 %26
   %61 = getelementptr inbounds i8, ptr %.07284, i64 %26
@@ -657,7 +657,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %63 = getelementptr inbounds i8, ptr %.186, i64 %26
   %spec.select = select i1 %.not81, ptr null, ptr %63
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %58
   %64 = zext nneg i32 %3 to i64
@@ -666,8 +666,8 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
 ._crit_edge:                                      ; preds = %24, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %64, %._crit_edge.loopexit ], [ 0, %24 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %66 = load ptr, ptr %65, align 8, !tbaa !26
-  %67 = load ptr, ptr %66, align 8, !tbaa !27
+  %66 = load ptr, ptr %65, align 8, !tbaa !27
+  %67 = load ptr, ptr %66, align 8, !tbaa !28
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
@@ -726,9 +726,9 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !26
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = sext i32 %3 to i64
-  %35 = load ptr, ptr %33, align 8, !tbaa !27
+  %35 = load ptr, ptr %33, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %34)
@@ -761,21 +761,21 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %.07380 = phi ptr [ %61, %60 ], [ %50, %.lr.ph.preheader ]
   %.idx = shl nsw i64 %indvars.iv, 3
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %52 = load i16, ptr %51, align 2, !tbaa !30
-  store i16 %52, ptr %.07380, align 2, !tbaa !30
+  %52 = load i16, ptr %51, align 2, !tbaa !31
+  store i16 %52, ptr %.07380, align 2, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
-  %54 = load i16, ptr %53, align 2, !tbaa !30
-  store i16 %54, ptr %.07281, align 2, !tbaa !30
+  %54 = load i16, ptr %53, align 2, !tbaa !31
+  store i16 %54, ptr %.07281, align 2, !tbaa !31
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %56 = load i16, ptr %55, align 2, !tbaa !30
-  store i16 %56, ptr %.07182, align 2, !tbaa !30
+  %56 = load i16, ptr %55, align 2, !tbaa !31
+  store i16 %56, ptr %.07182, align 2, !tbaa !31
   %.not79 = icmp eq ptr %.183, null
   br i1 %.not79, label %60, label %57
 
 57:                                               ; preds = %.lr.ph
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 6
-  %59 = load i16, ptr %58, align 2, !tbaa !30
-  store i16 %59, ptr %.183, align 2, !tbaa !30
+  %59 = load i16, ptr %58, align 2, !tbaa !31
+  store i16 %59, ptr %.183, align 2, !tbaa !31
   br label %60
 
 60:                                               ; preds = %57, %.lr.ph
@@ -786,7 +786,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %64 = getelementptr inbounds i8, ptr %.183, i64 %21
   %spec.select = select i1 %.not79, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit:                                        ; preds = %60, %19, %12, %15
   ret void
@@ -877,27 +877,27 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21PackRGBAFromImageDescER
   %.07185 = phi ptr [ %63, %58 ], [ %41, %.lr.ph.preheader ]
   %.07284 = phi ptr [ %62, %58 ], [ %45, %.lr.ph.preheader ]
   %.07383 = phi ptr [ %61, %58 ], [ %49, %.lr.ph.preheader ]
-  %50 = load float, ptr %.07383, align 4, !tbaa !36
+  %50 = load float, ptr %.07383, align 4, !tbaa !37
   %.idx = shl nsw i64 %indvars.iv, 4
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  store float %50, ptr %51, align 4, !tbaa !36
-  %52 = load float, ptr %.07284, align 4, !tbaa !36
+  store float %50, ptr %51, align 4, !tbaa !37
+  %52 = load float, ptr %.07284, align 4, !tbaa !37
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store float %52, ptr %53, align 4, !tbaa !36
-  %54 = load float, ptr %.07185, align 4, !tbaa !36
+  store float %52, ptr %53, align 4, !tbaa !37
+  %54 = load float, ptr %.07185, align 4, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store float %54, ptr %55, align 4, !tbaa !36
+  store float %54, ptr %55, align 4, !tbaa !37
   %.not81 = icmp eq ptr %.186, null
   br i1 %.not81, label %58, label %56
 
 56:                                               ; preds = %.lr.ph
-  %57 = load float, ptr %.186, align 4, !tbaa !36
+  %57 = load float, ptr %.186, align 4, !tbaa !37
   br label %58
 
 58:                                               ; preds = %.lr.ph, %56
   %59 = phi float [ %57, %56 ], [ 0.000000e+00, %.lr.ph ]
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  store float %59, ptr %60, align 4, !tbaa !36
+  store float %59, ptr %60, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = getelementptr inbounds i8, ptr %.07383, i64 %26
   %62 = getelementptr inbounds i8, ptr %.07284, i64 %26
@@ -905,7 +905,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21PackRGBAFromImageDescER
   %64 = getelementptr inbounds i8, ptr %.186, i64 %26
   %spec.select = select i1 %.not81, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %58
   %65 = zext nneg i32 %3 to i64
@@ -914,8 +914,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21PackRGBAFromImageDescER
 ._crit_edge:                                      ; preds = %24, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %65, %._crit_edge.loopexit ], [ 0, %24 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %67 = load ptr, ptr %66, align 8, !tbaa !26
-  %68 = load ptr, ptr %67, align 8, !tbaa !27
+  %67 = load ptr, ptr %66, align 8, !tbaa !27
+  %68 = load ptr, ptr %67, align 8, !tbaa !28
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull %2, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
@@ -974,9 +974,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21UnpackRGBAToImageDescER
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !26
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = sext i32 %3 to i64
-  %35 = load ptr, ptr %33, align 8, !tbaa !27
+  %35 = load ptr, ptr %33, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %1, ptr noundef nonnull %1, i64 noundef %34)
@@ -1009,21 +1009,21 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21UnpackRGBAToImageDescER
   %.07380 = phi ptr [ %61, %60 ], [ %50, %.lr.ph.preheader ]
   %.idx = shl nsw i64 %indvars.iv, 4
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %52 = load float, ptr %51, align 4, !tbaa !36
-  store float %52, ptr %.07380, align 4, !tbaa !36
+  %52 = load float, ptr %51, align 4, !tbaa !37
+  store float %52, ptr %.07380, align 4, !tbaa !37
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %54 = load float, ptr %53, align 4, !tbaa !36
-  store float %54, ptr %.07281, align 4, !tbaa !36
+  %54 = load float, ptr %53, align 4, !tbaa !37
+  store float %54, ptr %.07281, align 4, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %56 = load float, ptr %55, align 4, !tbaa !36
-  store float %56, ptr %.07182, align 4, !tbaa !36
+  %56 = load float, ptr %55, align 4, !tbaa !37
+  store float %56, ptr %.07182, align 4, !tbaa !37
   %.not79 = icmp eq ptr %.183, null
   br i1 %.not79, label %60, label %57
 
 57:                                               ; preds = %.lr.ph
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  %59 = load float, ptr %58, align 4, !tbaa !36
-  store float %59, ptr %.183, align 4, !tbaa !36
+  %59 = load float, ptr %58, align 4, !tbaa !37
+  store float %59, ptr %.183, align 4, !tbaa !37
   br label %60
 
 60:                                               ; preds = %57, %.lr.ph
@@ -1034,7 +1034,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21UnpackRGBAToImageDescER
   %64 = getelementptr inbounds i8, ptr %.183, i64 %21
   %spec.select = select i1 %.not79, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %60, %19, %12, %15
   ret void
@@ -1082,19 +1082,20 @@ attributes #7 = { noreturn }
 !21 = !{!4, !8, i64 40}
 !22 = !{!4, !8, i64 32}
 !23 = !{!6, !6, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!11, !12, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"vtable pointer", !7, i64 0}
-!29 = distinct !{!29, !25}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"short", !6, i64 0}
-!32 = distinct !{!32, !25}
-!33 = distinct !{!33, !25}
-!34 = distinct !{!34, !25}
-!35 = distinct !{!35, !25}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"float", !6, i64 0}
-!38 = distinct !{!38, !25}
-!39 = distinct !{!39, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!11, !12, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"vtable pointer", !7, i64 0}
+!30 = distinct !{!30, !25, !26}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"short", !6, i64 0}
+!33 = distinct !{!33, !25, !26}
+!34 = distinct !{!34, !25, !26}
+!35 = distinct !{!35, !25, !26}
+!36 = distinct !{!36, !25, !26}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"float", !6, i64 0}
+!39 = distinct !{!39, !25, !26}
+!40 = distinct !{!40, !25, !26}

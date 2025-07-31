@@ -292,7 +292,7 @@ define hidden void @mlib_ImageAffine_bit_1ch_nn(ptr noundef readonly captures(no
   store i8 %222, ptr %225, align 1
   %226 = add nsw i32 %.2175213, 8
   %.not189 = icmp sgt i32 %226, %84
-  br i1 %.not189, label %._crit_edge217, label %.lr.ph216, !llvm.loop !8
+  br i1 %.not189, label %._crit_edge217, label %.lr.ph216, !llvm.loop !9
 
 ._crit_edge217:                                   ; preds = %.lr.ph216, %83
   %.2179.lcssa = phi i32 [ %.0177, %83 ], [ %.reass210, %.lr.ph216 ]
@@ -341,7 +341,7 @@ define hidden void @mlib_ImageAffine_bit_1ch_nn(ptr noundef readonly captures(no
   %258 = add nsw i32 %.3180221, %21
   %259 = add i32 %.3176222, 1
   %exitcond.not = icmp eq i32 %259, %233
-  br i1 %exitcond.not, label %260, label %234, !llvm.loop !9
+  br i1 %exitcond.not, label %260, label %234, !llvm.loop !10
 
 260:                                              ; preds = %234
   %261 = trunc nuw i32 %256 to i8
@@ -352,7 +352,7 @@ define hidden void @mlib_ImageAffine_bit_1ch_nn(ptr noundef readonly captures(no
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond243.not = icmp eq i32 %30, %lftr.wideiv
-  br i1 %exitcond243.not, label %._crit_edge235, label %31, !llvm.loop !10
+  br i1 %exitcond243.not, label %._crit_edge235, label %31, !llvm.loop !11
 
 ._crit_edge235:                                   ; preds = %262, %3
   ret void
@@ -372,8 +372,9 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

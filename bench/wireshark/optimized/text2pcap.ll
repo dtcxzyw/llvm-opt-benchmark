@@ -929,7 +929,7 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   %.0153.i.be = phi i32 [ %.0153.i, %34 ], [ %.0153.i, %35 ], [ %.0153.i, %36 ], [ %41, %37 ], [ %.0153.i, %42 ], [ %.0153.i, %46 ], [ %.0153.i, %47 ], [ %.0153.i, %65 ], [ %.0153.i, %71 ], [ %.0153.i, %72 ], [ %.0153.i, %73 ], [ %.0153.i, %74 ], [ %.0153.i, %75 ], [ %86, %84 ], [ %.0153.i, %90 ], [ 155, %105 ], [ %.0153.i, %120 ], [ %.0153.i, %174 ], [ %.0153.i, %222 ], [ %.0153.i, %255 ], [ %.0153.i, %286 ], [ %.0153.i, %320 ], [ %.0153.i, %326 ], [ %.0153.i, %332 ], [ %.0153.i, %344 ], [ %.0153.i, %223 ], [ %.0153.i, %.thread.i ]
   %.0149.i.be = phi i32 [ %.0149.i, %34 ], [ %.0149.i, %35 ], [ %.0149.i, %36 ], [ %.0149.i, %37 ], [ %.0149.i, %42 ], [ %.0149.i, %46 ], [ %.0149.i, %47 ], [ %.0149.i, %65 ], [ %.0149.i, %71 ], [ %.0149.i, %72 ], [ %.0149.i, %73 ], [ %.0149.i, %74 ], [ %.0149.i, %75 ], [ %.0149.i, %84 ], [ %.0149.i, %90 ], [ %.0149.i, %105 ], [ %.0149.i, %120 ], [ %.0149.i, %174 ], [ %.0149.i, %222 ], [ %.0149.i, %255 ], [ %.0149.i, %286 ], [ %.0149.i, %320 ], [ %.0149.i, %326 ], [ %334, %332 ], [ %.0149.i, %344 ], [ %.0149.i, %223 ], [ %.0149.i, %.thread.i ]
   %.0147.i.be = phi ptr [ %.0147.i, %34 ], [ %.0147.i, %35 ], [ %.0147.i, %36 ], [ %.0147.i, %37 ], [ %.0147.i, %42 ], [ %.0147.i, %46 ], [ %.0147.i, %47 ], [ %.0147.i, %65 ], [ %.0147.i, %71 ], [ %.0147.i, %72 ], [ %.0147.i, %73 ], [ %.0147.i, %74 ], [ %.0147.i, %75 ], [ %.0147.i, %84 ], [ %.0147.i, %90 ], [ %.0147.i, %105 ], [ %111, %120 ], [ %.0147.i, %174 ], [ %.0147.i, %222 ], [ %.0147.i, %255 ], [ %.0147.i, %286 ], [ %.0147.i, %320 ], [ %.0147.i, %326 ], [ %.0147.i, %332 ], [ %.0147.i, %344 ], [ %.0147.i, %223 ], [ %.0147.i, %.thread.i ]
-  br label %30, !llvm.loop !9
+  br label %30, !llvm.loop !10
 
 345:                                              ; preds = %30
   %346 = load i32, ptr @ws_optopt, align 4
@@ -1792,7 +1792,7 @@ define internal fastcc void @list_encap_types() unnamed_addr #0 {
   %16 = tail call i32 @wtap_get_num_encap_types()
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %15, %0
   %.029.lcssa = phi ptr [ null, %0 ], [ %.1, %15 ]
@@ -1832,7 +1832,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
   %12 = load i32, ptr %2, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2029,8 +2029,9 @@ attributes #15 = { allocsize(0,1) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

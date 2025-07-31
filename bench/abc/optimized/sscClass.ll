@@ -76,15 +76,15 @@ define void @Ssc_GiaSimClassCreate(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ssc_GiaSimClassRefineOneBit(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = load i32, ptr %5, align 4, !tbaa !3
-  %10 = load i32, ptr %4, align 8, !tbaa !36
+  %10 = load i32, ptr %4, align 8, !tbaa !37
   %11 = icmp eq i32 %9, %10
   br i1 %11, label %12, label %.Vec_IntGrow.exit10_crit_edge.i
 
@@ -114,7 +114,7 @@ define range(i32 0, 2) i32 @Ssc_GiaSimClassRefineOneBit(ptr noundef readonly cap
 Vec_IntGrow.exit.i:                               ; preds = %19, %17
   %21 = phi ptr [ %18, %17 ], [ %20, %19 ]
   store ptr %21, ptr %15, align 8, !tbaa !10
-  store i32 16, ptr %4, align 8, !tbaa !36
+  store i32 16, ptr %4, align 8, !tbaa !37
   br label %Vec_IntPush.exit
 
 22:                                               ; preds = %12
@@ -137,7 +137,7 @@ Vec_IntGrow.exit.i:                               ; preds = %19, %17
 32:                                               ; preds = %30, %28
   %33 = phi ptr [ %29, %28 ], [ %31, %30 ]
   store ptr %33, ptr %24, align 8, !tbaa !10
-  store i32 %23, ptr %4, align 8, !tbaa !36
+  store i32 %23, ptr %4, align 8, !tbaa !37
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %32
@@ -159,7 +159,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph:                                           ; preds = %Vec_IntPush.exit, %123
   %.059 = phi i32 [ %.0, %123 ], [ %.058, %Vec_IntPush.exit ]
-  %.val27 = load ptr, ptr %39, align 8, !tbaa !37
+  %.val27 = load ptr, ptr %39, align 8, !tbaa !38
   %44 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val27, i64 %40
   %45 = zext nneg i32 %.059 to i64
   %46 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val27, i64 %45
@@ -181,10 +181,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not, label %61, label %92
 
 61:                                               ; preds = %.lr.ph
-  %62 = load ptr, ptr %3, align 8, !tbaa !34
+  %62 = load ptr, ptr %3, align 8, !tbaa !35
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !3
-  %65 = load i32, ptr %62, align 8, !tbaa !36
+  %65 = load i32, ptr %62, align 8, !tbaa !37
   %66 = icmp eq i32 %64, %65
   br i1 %66, label %67, label %.Vec_IntGrow.exit10_crit_edge.i28
 
@@ -214,7 +214,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 Vec_IntGrow.exit.i33:                             ; preds = %74, %72
   %76 = phi ptr [ %73, %72 ], [ %75, %74 ]
   store ptr %76, ptr %70, align 8, !tbaa !10
-  store i32 16, ptr %62, align 8, !tbaa !36
+  store i32 16, ptr %62, align 8, !tbaa !37
   br label %Vec_IntPush.exit34
 
 77:                                               ; preds = %67
@@ -237,7 +237,7 @@ Vec_IntGrow.exit.i33:                             ; preds = %74, %72
 87:                                               ; preds = %85, %83
   %88 = phi ptr [ %84, %83 ], [ %86, %85 ]
   store ptr %88, ptr %79, align 8, !tbaa !10
-  store i32 %78, ptr %62, align 8, !tbaa !36
+  store i32 %78, ptr %62, align 8, !tbaa !37
   br label %Vec_IntPush.exit34
 
 Vec_IntPush.exit34:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i28, %Vec_IntGrow.exit.i33, %87
@@ -248,10 +248,10 @@ Vec_IntPush.exit34:                               ; preds = %.Vec_IntGrow.exit10
   br label %123
 
 92:                                               ; preds = %.lr.ph
-  %93 = load ptr, ptr %6, align 8, !tbaa !35
+  %93 = load ptr, ptr %6, align 8, !tbaa !36
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !3
-  %96 = load i32, ptr %93, align 8, !tbaa !36
+  %96 = load i32, ptr %93, align 8, !tbaa !37
   %97 = icmp eq i32 %95, %96
   br i1 %97, label %98, label %.Vec_IntGrow.exit10_crit_edge.i35
 
@@ -281,7 +281,7 @@ Vec_IntPush.exit34:                               ; preds = %.Vec_IntGrow.exit10
 Vec_IntGrow.exit.i40:                             ; preds = %105, %103
   %107 = phi ptr [ %104, %103 ], [ %106, %105 ]
   store ptr %107, ptr %101, align 8, !tbaa !10
-  store i32 16, ptr %93, align 8, !tbaa !36
+  store i32 16, ptr %93, align 8, !tbaa !37
   br label %Vec_IntPush.exit41
 
 108:                                              ; preds = %98
@@ -304,7 +304,7 @@ Vec_IntGrow.exit.i40:                             ; preds = %105, %103
 118:                                              ; preds = %116, %114
   %119 = phi ptr [ %115, %114 ], [ %117, %116 ]
   store ptr %119, ptr %110, align 8, !tbaa !10
-  store i32 %109, ptr %93, align 8, !tbaa !36
+  store i32 %109, ptr %93, align 8, !tbaa !37
   br label %Vec_IntPush.exit41
 
 Vec_IntPush.exit41:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i35, %Vec_IntGrow.exit.i40, %118
@@ -324,18 +324,18 @@ Vec_IntPush.exit41:                               ; preds = %.Vec_IntGrow.exit10
   %126 = getelementptr inbounds nuw i32, ptr %.val26, i64 %45
   %.0 = load i32, ptr %126, align 4, !tbaa !11
   %127 = icmp sgt i32 %.0, 0
-  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %123, %Vec_IntPush.exit
   %.val25.i62 = phi ptr [ %.val25, %Vec_IntPush.exit ], [ %.val26, %123 ]
-  %128 = load ptr, ptr %6, align 8, !tbaa !35
+  %128 = load ptr, ptr %6, align 8, !tbaa !36
   %129 = getelementptr i8, ptr %128, i64 4
   %.val = load i32, ptr %129, align 4, !tbaa !3
   %130 = icmp eq i32 %.val, 0
   br i1 %130, label %180, label %131
 
 131:                                              ; preds = %._crit_edge
-  %132 = load ptr, ptr %3, align 8, !tbaa !34
+  %132 = load ptr, ptr %3, align 8, !tbaa !35
   %133 = getelementptr i8, ptr %132, i64 4
   %.val26.i = load i32, ptr %133, align 4, !tbaa !3
   %134 = icmp sgt i32 %.val26.i, 0
@@ -386,7 +386,7 @@ Vec_IntPush.exit41:                               ; preds = %.Vec_IntGrow.exit10
 
 Ssc_GiaSimClassCreate.exit.loopexit:              ; preds = %152
   %.val25.i.pre = load ptr, ptr %41, align 8, !tbaa !31
-  %.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %Ssc_GiaSimClassCreate.exit
 
 Ssc_GiaSimClassCreate.exit:                       ; preds = %Ssc_GiaSimClassCreate.exit.loopexit, %131
@@ -469,20 +469,20 @@ define range(i32 -2147483647, -2147483648) i32 @Ssc_GiaSimClassRefineOne(ptr nou
   %8 = getelementptr i8, ptr %0, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %10 = getelementptr i8, ptr %0, i64 192
-  %.pre = load ptr, ptr %4, align 8, !tbaa !35
+  %.pre = load ptr, ptr %4, align 8, !tbaa !36
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %196, %2
   %11 = phi ptr [ %.pre, %2 ], [ %192, %196 ]
   %accumulator.tr = phi i32 [ 0, %2 ], [ %199, %196 ]
   %.tr66 = phi i32 [ %1, %2 ], [ %198, %196 ]
-  %12 = load ptr, ptr %3, align 8, !tbaa !34
+  %12 = load ptr, ptr %3, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %14, align 4, !tbaa !3
   %15 = load i32, ptr %13, align 4, !tbaa !3
-  %16 = load i32, ptr %12, align 8, !tbaa !36
+  %16 = load i32, ptr %12, align 8, !tbaa !37
   %17 = icmp eq i32 %15, %16
   br i1 %17, label %18, label %.Vec_IntGrow.exit10_crit_edge.i
 
@@ -512,7 +512,7 @@ tailrecurse:                                      ; preds = %196, %2
 Vec_IntGrow.exit.i:                               ; preds = %25, %23
   %27 = phi ptr [ %24, %23 ], [ %26, %25 ]
   store ptr %27, ptr %21, align 8, !tbaa !10
-  store i32 16, ptr %12, align 8, !tbaa !36
+  store i32 16, ptr %12, align 8, !tbaa !37
   br label %Vec_IntPush.exit
 
 28:                                               ; preds = %18
@@ -535,7 +535,7 @@ Vec_IntGrow.exit.i:                               ; preds = %25, %23
 38:                                               ; preds = %36, %34
   %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
   store ptr %39, ptr %30, align 8, !tbaa !10
-  store i32 %29, ptr %12, align 8, !tbaa !36
+  store i32 %29, ptr %12, align 8, !tbaa !37
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %38
@@ -555,26 +555,26 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph:                                           ; preds = %Vec_IntPush.exit, %137
   %.071 = phi i32 [ %.0, %137 ], [ %.070, %Vec_IntPush.exit ]
-  %48 = load ptr, ptr %6, align 8, !tbaa !39
+  %48 = load ptr, ptr %6, align 8, !tbaa !40
   %49 = getelementptr i8, ptr %48, i64 4
-  %.val.i.i = load i32, ptr %49, align 4, !tbaa !40
-  %.val2.i.i = load i32, ptr %7, align 8, !tbaa !43
-  %.val3.i.i = load ptr, ptr %8, align 8, !tbaa !44
+  %.val.i.i = load i32, ptr %49, align 4, !tbaa !41
+  %.val2.i.i = load i32, ptr %7, align 8, !tbaa !44
+  %.val3.i.i = load ptr, ptr %8, align 8, !tbaa !45
   %50 = getelementptr i8, ptr %.val3.i.i, i64 4
   %.val3.val.i.i = load i32, ptr %50, align 4, !tbaa !3
   %51 = sub nsw i32 %.val3.val.i.i, %.val2.i.i
   %52 = sdiv i32 %.val.i.i, %51
-  %53 = load ptr, ptr %9, align 8, !tbaa !45
+  %53 = load ptr, ptr %9, align 8, !tbaa !46
   %54 = mul nsw i32 %52, %.tr66
   %55 = getelementptr i8, ptr %53, i64 8
-  %.val.i24.i = load ptr, ptr %55, align 8, !tbaa !46
+  %.val.i24.i = load ptr, ptr %55, align 8, !tbaa !47
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds i64, ptr %.val.i24.i, i64 %56
   %58 = mul nsw i32 %52, %.071
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i64, ptr %.val.i24.i, i64 %59
-  %61 = load i64, ptr %57, align 8, !tbaa !47
-  %62 = load i64, ptr %60, align 8, !tbaa !47
+  %61 = load i64, ptr %57, align 8, !tbaa !48
+  %62 = load i64, ptr %60, align 8, !tbaa !48
   %63 = xor i64 %62, %61
   %64 = and i64 %63, 1
   %.not.i = icmp eq i64 %64, 0
@@ -598,14 +598,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 66:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !49
 
 .lr.ph.i:                                         ; preds = %66, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %66 ]
   %67 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv.i
-  %68 = load i64, ptr %67, align 8, !tbaa !47
+  %68 = load i64, ptr %67, align 8, !tbaa !48
   %69 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv.i
-  %70 = load i64, ptr %69, align 8, !tbaa !47
+  %70 = load i64, ptr %69, align 8, !tbaa !48
   %71 = xor i64 %70, %68
   %.not23.i = icmp eq i64 %71, -1
   br i1 %.not23.i, label %66, label %Ssc_GiaSimAreEqual.exit
@@ -613,22 +613,22 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 72:                                               ; preds = %.lr.ph37.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
-  br i1 %exitcond48.not.i, label %.loopexit, label %.lr.ph37.i, !llvm.loop !49
+  br i1 %exitcond48.not.i, label %.loopexit, label %.lr.ph37.i, !llvm.loop !50
 
 .lr.ph37.i:                                       ; preds = %72, %.lr.ph37.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph37.preheader.i ], [ %indvars.iv.next45.i, %72 ]
   %73 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv44.i
-  %74 = load i64, ptr %73, align 8, !tbaa !47
+  %74 = load i64, ptr %73, align 8, !tbaa !48
   %75 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv44.i
-  %76 = load i64, ptr %75, align 8, !tbaa !47
+  %76 = load i64, ptr %75, align 8, !tbaa !48
   %.not22.i = icmp eq i64 %74, %76
   br i1 %.not22.i, label %72, label %Ssc_GiaSimAreEqual.exit
 
 .loopexit:                                        ; preds = %66, %72, %.preheader.i, %.preheader30.i
-  %77 = load ptr, ptr %3, align 8, !tbaa !34
+  %77 = load ptr, ptr %3, align 8, !tbaa !35
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !3
-  %80 = load i32, ptr %77, align 8, !tbaa !36
+  %80 = load i32, ptr %77, align 8, !tbaa !37
   %81 = icmp eq i32 %79, %80
   br i1 %81, label %82, label %.Vec_IntGrow.exit10_crit_edge.i32
 
@@ -658,7 +658,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 Vec_IntGrow.exit.i37:                             ; preds = %89, %87
   %91 = phi ptr [ %88, %87 ], [ %90, %89 ]
   store ptr %91, ptr %85, align 8, !tbaa !10
-  store i32 16, ptr %77, align 8, !tbaa !36
+  store i32 16, ptr %77, align 8, !tbaa !37
   br label %Vec_IntPush.exit38
 
 92:                                               ; preds = %82
@@ -681,7 +681,7 @@ Vec_IntGrow.exit.i37:                             ; preds = %89, %87
 102:                                              ; preds = %100, %98
   %103 = phi ptr [ %99, %98 ], [ %101, %100 ]
   store ptr %103, ptr %94, align 8, !tbaa !10
-  store i32 %93, ptr %77, align 8, !tbaa !36
+  store i32 %93, ptr %77, align 8, !tbaa !37
   br label %Vec_IntPush.exit38
 
 Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i32, %Vec_IntGrow.exit.i37, %102
@@ -692,10 +692,10 @@ Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10
   br label %137
 
 Ssc_GiaSimAreEqual.exit:                          ; preds = %.lr.ph.i, %.lr.ph37.i
-  %107 = load ptr, ptr %4, align 8, !tbaa !35
+  %107 = load ptr, ptr %4, align 8, !tbaa !36
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4, !tbaa !3
-  %110 = load i32, ptr %107, align 8, !tbaa !36
+  %110 = load i32, ptr %107, align 8, !tbaa !37
   %111 = icmp eq i32 %109, %110
   br i1 %111, label %112, label %.Vec_IntGrow.exit10_crit_edge.i39
 
@@ -725,7 +725,7 @@ Ssc_GiaSimAreEqual.exit:                          ; preds = %.lr.ph.i, %.lr.ph37
 Vec_IntGrow.exit.i44:                             ; preds = %119, %117
   %121 = phi ptr [ %118, %117 ], [ %120, %119 ]
   store ptr %121, ptr %115, align 8, !tbaa !10
-  store i32 16, ptr %107, align 8, !tbaa !36
+  store i32 16, ptr %107, align 8, !tbaa !37
   br label %Vec_IntPush.exit45
 
 122:                                              ; preds = %112
@@ -748,7 +748,7 @@ Vec_IntGrow.exit.i44:                             ; preds = %119, %117
 132:                                              ; preds = %130, %128
   %133 = phi ptr [ %129, %128 ], [ %131, %130 ]
   store ptr %133, ptr %124, align 8, !tbaa !10
-  store i32 %123, ptr %107, align 8, !tbaa !36
+  store i32 %123, ptr %107, align 8, !tbaa !37
   br label %Vec_IntPush.exit45
 
 Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i39, %Vec_IntGrow.exit.i44, %132
@@ -769,18 +769,18 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
   %141 = getelementptr inbounds nuw i32, ptr %.val30, i64 %140
   %.0 = load i32, ptr %141, align 4, !tbaa !11
   %142 = icmp sgt i32 %.0, 0
-  br i1 %142, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %142, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %137, %Vec_IntPush.exit
   %.val25.i76 = phi ptr [ %.val31, %Vec_IntPush.exit ], [ %.val30, %137 ]
-  %143 = load ptr, ptr %4, align 8, !tbaa !35
+  %143 = load ptr, ptr %4, align 8, !tbaa !36
   %144 = getelementptr i8, ptr %143, i64 4
   %.val27 = load i32, ptr %144, align 4, !tbaa !3
   %145 = icmp eq i32 %.val27, 0
   br i1 %145, label %200, label %146
 
 146:                                              ; preds = %._crit_edge
-  %147 = load ptr, ptr %3, align 8, !tbaa !34
+  %147 = load ptr, ptr %3, align 8, !tbaa !35
   %148 = getelementptr i8, ptr %147, i64 4
   %.val26.i = load i32, ptr %148, align 4, !tbaa !3
   %149 = icmp sgt i32 %.val26.i, 0
@@ -830,7 +830,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
 
 Ssc_GiaSimClassCreate.exit.loopexit:              ; preds = %166
   %.val25.i.pre = load ptr, ptr %5, align 8, !tbaa !31
-  %.pre77 = load ptr, ptr %4, align 8, !tbaa !35
+  %.pre77 = load ptr, ptr %4, align 8, !tbaa !36
   br label %Ssc_GiaSimClassCreate.exit
 
 Ssc_GiaSimClassCreate.exit:                       ; preds = %Ssc_GiaSimClassCreate.exit.loopexit, %146
@@ -888,7 +888,7 @@ Ssc_GiaSimClassCreate.exit:                       ; preds = %Ssc_GiaSimClassCrea
 
 Ssc_GiaSimClassCreate.exit63.loopexit:            ; preds = %189
   %.val25.i51.pre = load ptr, ptr %5, align 8, !tbaa !31
-  %.pre79 = load ptr, ptr %4, align 8, !tbaa !35
+  %.pre79 = load ptr, ptr %4, align 8, !tbaa !36
   br label %Ssc_GiaSimClassCreate.exit63
 
 Ssc_GiaSimClassCreate.exit63:                     ; preds = %Ssc_GiaSimClassCreate.exit63.loopexit, %Ssc_GiaSimClassCreate.exit
@@ -935,7 +935,7 @@ define void @Ssc_GiaSimProcessRefined(ptr noundef readonly captures(none) %0, pt
   br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
 
 .loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
-  br label %.loopexit.i, !llvm.loop !51
+  br label %.loopexit.i, !llvm.loop !52
 
 .preheader.i:                                     ; preds = %.loopexit.i
   %.not15.i = icmp ult i32 %8, 9
@@ -945,13 +945,13 @@ define void @Ssc_GiaSimProcessRefined(ptr noundef readonly captures(none) %0, pt
   %11 = add nuw nsw i32 %.01116.i, 2
   %12 = mul nuw nsw i32 %11, %11
   %.not.i = icmp ugt i32 %12, %8
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !52
+  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !53
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %10
   %.01116.i = phi i32 [ %11, %10 ], [ 3, %.preheader.i ]
   %13 = urem i32 %8, %.01116.i
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.loopexit.i.backedge, label %10, !llvm.loop !51
+  br i1 %14, label %.loopexit.i.backedge, label %10, !llvm.loop !52
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %15 = sext i32 %8 to i64
@@ -984,22 +984,22 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %.val52 = load ptr, ptr %18, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i32, ptr %.val52, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !11
-  %32 = load ptr, ptr %19, align 8, !tbaa !45
-  %33 = load ptr, ptr %20, align 8, !tbaa !39
+  %32 = load ptr, ptr %19, align 8, !tbaa !46
+  %33 = load ptr, ptr %20, align 8, !tbaa !40
   %34 = getelementptr i8, ptr %33, i64 4
-  %.val.i.i.i = load i32, ptr %34, align 4, !tbaa !40
-  %.val2.i.i.i = load i32, ptr %21, align 8, !tbaa !43
-  %.val3.i.i.i = load ptr, ptr %22, align 8, !tbaa !44
+  %.val.i.i.i = load i32, ptr %34, align 4, !tbaa !41
+  %.val2.i.i.i = load i32, ptr %21, align 8, !tbaa !44
+  %.val3.i.i.i = load ptr, ptr %22, align 8, !tbaa !45
   %35 = getelementptr i8, ptr %.val3.i.i.i, i64 4
   %.val3.val.i.i.i = load i32, ptr %35, align 4, !tbaa !3
   %36 = sub nsw i32 %.val3.val.i.i.i, %.val2.i.i.i
   %37 = sdiv i32 %.val.i.i.i, %36
   %38 = mul nsw i32 %37, %31
   %39 = getelementptr i8, ptr %32, i64 8
-  %.val.i.i = load ptr, ptr %39, align 8, !tbaa !46
+  %.val.i.i = load ptr, ptr %39, align 8, !tbaa !47
   %40 = sext i32 %38 to i64
   %41 = getelementptr inbounds i64, ptr %.val.i.i, i64 %40
-  %42 = load i64, ptr %41, align 8, !tbaa !47
+  %42 = load i64, ptr %41, align 8, !tbaa !48
   %43 = and i64 %42, 1
   %.not.i59 = icmp eq i64 %43, 0
   %44 = icmp sgt i32 %37, 0
@@ -1023,7 +1023,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i61 ]
   %.025.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %53, %.lr.ph.i61 ]
   %45 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv.i
-  %46 = load i64, ptr %45, align 8, !tbaa !47
+  %46 = load i64, ptr %45, align 8, !tbaa !48
   %47 = and i64 %indvars.iv.i, 15
   %48 = getelementptr inbounds nuw [16 x i32], ptr @Ssc_GiaSimHashKey.s_Primes, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !11
@@ -1033,13 +1033,13 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %53 = xor i32 %52, %.025.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Ssc_GiaSimHashKey.exit, label %.lr.ph.i61, !llvm.loop !53
+  br i1 %exitcond.not.i, label %Ssc_GiaSimHashKey.exit, label %.lr.ph.i61, !llvm.loop !54
 
 .lr.ph28.i:                                       ; preds = %.lr.ph28.i, %.lr.ph28.preheader.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph28.preheader.i ], [ %indvars.iv.next34.i, %.lr.ph28.i ]
   %.227.i = phi i32 [ 0, %.lr.ph28.preheader.i ], [ %61, %.lr.ph28.i ]
   %54 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv33.i
-  %55 = load i64, ptr %54, align 8, !tbaa !47
+  %55 = load i64, ptr %54, align 8, !tbaa !48
   %56 = and i64 %indvars.iv33.i, 15
   %57 = getelementptr inbounds nuw [16 x i32], ptr @Ssc_GiaSimHashKey.s_Primes, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !11
@@ -1048,7 +1048,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %61 = xor i32 %60, %.227.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count36.i
-  br i1 %exitcond37.not.i, label %Ssc_GiaSimHashKey.exit, label %.lr.ph28.i, !llvm.loop !54
+  br i1 %exitcond37.not.i, label %Ssc_GiaSimHashKey.exit, label %.lr.ph28.i, !llvm.loop !55
 
 Ssc_GiaSimHashKey.exit:                           ; preds = %.lr.ph.i61, %.lr.ph28.i, %.preheader22.i, %.preheader.i62
   %.1.i = phi i32 [ 0, %.preheader.i62 ], [ 0, %.preheader22.i ], [ %61, %.lr.ph28.i ], [ %53, %.lr.ph.i61 ]
@@ -1103,7 +1103,7 @@ Ssc_GiaSimHashKey.exit:                           ; preds = %.lr.ph.i61, %.lr.ph
   %.val48 = load i32, ptr %3, align 4, !tbaa !3
   %92 = sext i32 %.val48 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %93, label %29, label %.critedge.preheader, !llvm.loop !55
+  br i1 %93, label %29, label %.critedge.preheader, !llvm.loop !56
 
 94:                                               ; preds = %.lr.ph73, %Gia_ObjIsHead.exit.thread
   %.val84 = phi i32 [ %.val48, %.lr.ph73 ], [ %.val, %Gia_ObjIsHead.exit.thread ]
@@ -1136,7 +1136,7 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %94, %Gia_ObjIsHead.
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %107 = sext i32 %.val to i64
   %108 = icmp slt i64 %indvars.iv.next81, %107
-  br i1 %108, label %94, label %.critedge2, !llvm.loop !56
+  br i1 %108, label %94, label %.critedge2, !llvm.loop !57
 
 .critedge2:                                       ; preds = %Gia_ObjIsHead.exit.thread, %Abc_PrimeCudd.exit
   %.not = icmp eq ptr %16, null
@@ -1159,7 +1159,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind uwtable
 define void @Ssc_GiaClassesInit(ptr noundef captures(none) initializes((192, 208)) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 24
-  %.val18 = load i32, ptr %2, align 8, !tbaa !57
+  %.val18 = load i32, ptr %2, align 8, !tbaa !58
   %3 = sext i32 %.val18 to i64
   %4 = tail call noalias ptr @calloc(i64 noundef %3, i64 noundef 4) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1173,7 +1173,7 @@ define void @Ssc_GiaClassesInit(ptr noundef captures(none) initializes((192, 208
 
 .lr.ph:                                           ; preds = %1, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %1 ]
-  %.val17 = load ptr, ptr %8, align 8, !tbaa !37
+  %.val17 = load ptr, ptr %8, align 8, !tbaa !38
   %.not = icmp eq ptr %.val17, null
   br i1 %.not, label %.critedge, label %10
 
@@ -1196,14 +1196,14 @@ define void @Ssc_GiaClassesInit(ptr noundef captures(none) initializes((192, 208
   %20 = or disjoint i32 %16, %19
   store i32 %20, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = load i32, ptr %2, align 8, !tbaa !57
+  %21 = load i32, ptr %2, align 8, !tbaa !58
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !58
+  br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %.lr.ph, %10, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  %25 = load ptr, ptr %24, align 8, !tbaa !35
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %32
 
@@ -1211,16 +1211,16 @@ define void @Ssc_GiaClassesInit(ptr noundef captures(none) initializes((192, 208
   %28 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 0, ptr %29, align 4, !tbaa !3
-  store i32 100, ptr %28, align 8, !tbaa !36
+  store i32 100, ptr %28, align 8, !tbaa !37
   %30 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #9
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8, !tbaa !10
-  store ptr %28, ptr %24, align 8, !tbaa !34
+  store ptr %28, ptr %24, align 8, !tbaa !35
   br label %32
 
 32:                                               ; preds = %27, %.critedge
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %34 = load ptr, ptr %33, align 8, !tbaa !35
+  %34 = load ptr, ptr %33, align 8, !tbaa !36
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %41
 
@@ -1228,11 +1228,11 @@ define void @Ssc_GiaClassesInit(ptr noundef captures(none) initializes((192, 208
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 0, ptr %38, align 4, !tbaa !3
-  store i32 100, ptr %37, align 8, !tbaa !36
+  store i32 100, ptr %37, align 8, !tbaa !37
   %39 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #9
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %39, ptr %40, align 8, !tbaa !10
-  store ptr %37, ptr %33, align 8, !tbaa !35
+  store ptr %37, ptr %33, align 8, !tbaa !36
   br label %41
 
 41:                                               ; preds = %36, %32
@@ -1244,13 +1244,13 @@ define i32 @Ssc_GiaClassesRefine(ptr noundef readonly captures(none) %0) local_u
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4, !tbaa !3
-  store i32 100, ptr %2, align 8, !tbaa !36
+  store i32 100, ptr %2, align 8, !tbaa !37
   %4 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !10
   %6 = getelementptr i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !57
+  %8 = load i32, ptr %7, align 8, !tbaa !58
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.critedge
 
@@ -1267,7 +1267,7 @@ define i32 @Ssc_GiaClassesRefine(ptr noundef readonly captures(none) %0) local_u
   %17 = phi ptr [ %4, %.lr.ph ], [ %.pre.i50, %Ssc_GiaSimIsConst0.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Ssc_GiaSimIsConst0.exit.thread ]
   %.043 = phi i32 [ 0, %.lr.ph ], [ %.1, %Ssc_GiaSimIsConst0.exit.thread ]
-  %.val29 = load ptr, ptr %6, align 8, !tbaa !37
+  %.val29 = load ptr, ptr %6, align 8, !tbaa !38
   %.not = icmp eq ptr %.val29, null
   br i1 %.not, label %.critedge, label %18
 
@@ -1311,23 +1311,23 @@ Gia_ObjIsTail.exit.thread:                        ; preds = %Gia_ObjIsTail.exit
   br i1 %.not39, label %34, label %Ssc_GiaSimIsConst0.exit.thread
 
 34:                                               ; preds = %24, %Gia_ObjIsTail.exit.thread
-  %35 = load ptr, ptr %12, align 8, !tbaa !39
+  %35 = load ptr, ptr %12, align 8, !tbaa !40
   %36 = getelementptr i8, ptr %35, i64 4
-  %.val.i.i = load i32, ptr %36, align 4, !tbaa !40
-  %.val2.i.i = load i32, ptr %13, align 8, !tbaa !43
-  %.val3.i.i = load ptr, ptr %14, align 8, !tbaa !44
+  %.val.i.i = load i32, ptr %36, align 4, !tbaa !41
+  %.val2.i.i = load i32, ptr %13, align 8, !tbaa !44
+  %.val3.i.i = load ptr, ptr %14, align 8, !tbaa !45
   %37 = getelementptr i8, ptr %.val3.i.i, i64 4
   %.val3.val.i.i = load i32, ptr %37, align 4, !tbaa !3
   %38 = sub nsw i32 %.val3.val.i.i, %.val2.i.i
   %39 = sdiv i32 %.val.i.i, %38
-  %40 = load ptr, ptr %15, align 8, !tbaa !45
+  %40 = load ptr, ptr %15, align 8, !tbaa !46
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = mul nsw i32 %39, %41
   %43 = getelementptr i8, ptr %40, i64 8
-  %.val.i17.i = load ptr, ptr %43, align 8, !tbaa !46
+  %.val.i17.i = load ptr, ptr %43, align 8, !tbaa !47
   %44 = sext i32 %42 to i64
   %45 = getelementptr inbounds i64, ptr %.val.i17.i, i64 %44
-  %46 = load i64, ptr %45, align 8, !tbaa !47
+  %46 = load i64, ptr %45, align 8, !tbaa !48
   %47 = and i64 %46, 1
   %.not.i = icmp eq i64 %47, 0
   %48 = icmp sgt i32 %39, 0
@@ -1350,30 +1350,30 @@ Gia_ObjIsTail.exit.thread:                        ; preds = %Gia_ObjIsTail.exit
 49:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Ssc_GiaSimIsConst0.exit.thread, label %.lr.ph.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %Ssc_GiaSimIsConst0.exit.thread, label %.lr.ph.i, !llvm.loop !60
 
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %49 ]
   %50 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv.i
-  %51 = load i64, ptr %50, align 8, !tbaa !47
+  %51 = load i64, ptr %50, align 8, !tbaa !48
   %.not16.i = icmp eq i64 %51, -1
   br i1 %.not16.i, label %49, label %Ssc_GiaSimIsConst0.exit
 
 52:                                               ; preds = %.lr.ph25.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
-  br i1 %exitcond36.not.i, label %Ssc_GiaSimIsConst0.exit.thread, label %.lr.ph25.i, !llvm.loop !60
+  br i1 %exitcond36.not.i, label %Ssc_GiaSimIsConst0.exit.thread, label %.lr.ph25.i, !llvm.loop !61
 
 .lr.ph25.i:                                       ; preds = %52, %.lr.ph25.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph25.preheader.i ], [ %indvars.iv.next33.i, %52 ]
   %53 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv32.i
-  %54 = load i64, ptr %53, align 8, !tbaa !47
+  %54 = load i64, ptr %53, align 8, !tbaa !48
   %.not15.i = icmp eq i64 %54, 0
   br i1 %.not15.i, label %52, label %Ssc_GiaSimIsConst0.exit
 
 Ssc_GiaSimIsConst0.exit:                          ; preds = %.lr.ph.i, %.lr.ph25.i
   %55 = load i32, ptr %3, align 4, !tbaa !3
-  %56 = load i32, ptr %2, align 8, !tbaa !36
+  %56 = load i32, ptr %2, align 8, !tbaa !37
   %57 = icmp eq i32 %55, %56
   br i1 %57, label %58, label %Vec_IntPush.exit
 
@@ -1412,7 +1412,7 @@ Vec_IntPush.exit.sink.split:                      ; preds = %69, %71, %61, %63
   %.sink54 = phi ptr [ %62, %61 ], [ %64, %63 ], [ %70, %69 ], [ %72, %71 ]
   %.sink = phi i32 [ 16, %61 ], [ 16, %63 ], [ %66, %69 ], [ %66, %71 ]
   store ptr %.sink54, ptr %5, align 8, !tbaa !10
-  store i32 %.sink, ptr %2, align 8, !tbaa !36
+  store i32 %.sink, ptr %2, align 8, !tbaa !37
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %Ssc_GiaSimIsConst0.exit
@@ -1428,10 +1428,10 @@ Ssc_GiaSimIsConst0.exit.thread:                   ; preds = %49, %52, %24, %.pre
   %.pre.i50 = phi ptr [ %17, %31 ], [ %.pre.i51, %Vec_IntPush.exit ], [ %17, %Gia_ObjIsTail.exit.thread ], [ %17, %18 ], [ %17, %.preheader.i ], [ %17, %.preheader18.i ], [ %17, %24 ], [ %17, %52 ], [ %17, %49 ]
   %.1 = phi i32 [ %33, %31 ], [ %.043, %Vec_IntPush.exit ], [ %.043, %Gia_ObjIsTail.exit.thread ], [ %.043, %18 ], [ %.043, %.preheader.i ], [ %.043, %.preheader18.i ], [ %.043, %24 ], [ %.043, %52 ], [ %.043, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = load i32, ptr %7, align 8, !tbaa !57
+  %76 = load i32, ptr %7, align 8, !tbaa !58
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %16, label %.critedge, !llvm.loop !61
+  br i1 %78, label %16, label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %16, %Ssc_GiaSimIsConst0.exit.thread, %1
   %79 = phi ptr [ %4, %1 ], [ %.pre.i50, %Ssc_GiaSimIsConst0.exit.thread ], [ %17, %16 ]
@@ -1490,7 +1490,7 @@ define void @Ssc_GiaClassesCheckPairs(ptr noundef readonly captures(none) %0, pt
   %20 = trunc i64 %indvars.iv.next to i32
   %21 = or disjoint i32 %20, 1
   %22 = icmp slt i32 %21, %.val
-  br i1 %22, label %7, label %.critedge, !llvm.loop !62
+  br i1 %22, label %7, label %.critedge, !llvm.loop !63
 
 .critedge:                                        ; preds = %19, %2
   ret void
@@ -1552,34 +1552,35 @@ attributes #11 = { nounwind }
 !29 = !{!"p1 _ZTS10Gia_Dat_t_", !9, i64 0}
 !30 = !{!"p1 _ZTS10Vec_Str_t_", !9, i64 0}
 !31 = !{!13, !8, i64 200}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!13, !16, i64 864}
-!35 = !{!13, !16, i64 872}
-!36 = !{!4, !5, i64 0}
-!37 = !{!13, !15, i64 32}
-!38 = distinct !{!38, !33}
-!39 = !{!13, !27, i64 848}
-!40 = !{!41, !5, i64 4}
-!41 = !{!"Vec_Wrd_t_", !5, i64 0, !5, i64 4, !42, i64 8}
-!42 = !{!"p1 long", !9, i64 0}
-!43 = !{!13, !5, i64 16}
-!44 = !{!13, !16, i64 64}
-!45 = !{!13, !27, i64 832}
-!46 = !{!41, !42, i64 8}
-!47 = !{!26, !26, i64 0}
-!48 = distinct !{!48, !33}
-!49 = distinct !{!49, !33}
-!50 = distinct !{!50, !33}
-!51 = distinct !{!51, !33}
-!52 = distinct !{!52, !33}
-!53 = distinct !{!53, !33}
-!54 = distinct !{!54, !33}
-!55 = distinct !{!55, !33}
-!56 = distinct !{!56, !33}
-!57 = !{!13, !5, i64 24}
-!58 = distinct !{!58, !33}
-!59 = distinct !{!59, !33}
-!60 = distinct !{!60, !33}
-!61 = distinct !{!61, !33}
-!62 = distinct !{!62, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!13, !16, i64 864}
+!36 = !{!13, !16, i64 872}
+!37 = !{!4, !5, i64 0}
+!38 = !{!13, !15, i64 32}
+!39 = distinct !{!39, !33, !34}
+!40 = !{!13, !27, i64 848}
+!41 = !{!42, !5, i64 4}
+!42 = !{!"Vec_Wrd_t_", !5, i64 0, !5, i64 4, !43, i64 8}
+!43 = !{!"p1 long", !9, i64 0}
+!44 = !{!13, !5, i64 16}
+!45 = !{!13, !16, i64 64}
+!46 = !{!13, !27, i64 832}
+!47 = !{!42, !43, i64 8}
+!48 = !{!26, !26, i64 0}
+!49 = distinct !{!49, !33, !34}
+!50 = distinct !{!50, !33, !34}
+!51 = distinct !{!51, !33, !34}
+!52 = distinct !{!52, !33, !34}
+!53 = distinct !{!53, !33, !34}
+!54 = distinct !{!54, !33, !34}
+!55 = distinct !{!55, !33, !34}
+!56 = distinct !{!56, !33, !34}
+!57 = distinct !{!57, !33, !34}
+!58 = !{!13, !5, i64 24}
+!59 = distinct !{!59, !33, !34}
+!60 = distinct !{!60, !33, !34}
+!61 = distinct !{!61, !33, !34}
+!62 = distinct !{!62, !33, !34}
+!63 = distinct !{!63, !33, !34}

@@ -191,7 +191,7 @@ slot_getsomeattrs.exit:                           ; preds = %80, %84
   %90 = load i8, ptr %89, align 1, !range !5, !noundef !6
   %91 = trunc nuw i8 %90 to i1
   tail call void @tuplesort_putdatum(ptr noundef %.1, i64 noundef %87, i1 noundef zeroext %91) #4
-  br label %.preheader
+  br label %.preheader, !llvm.loop !7
 
 .preheader79:                                     ; preds = %66, %101
   %92 = load ptr, ptr %69, align 8
@@ -217,7 +217,7 @@ ExecProcNode.exit77:                              ; preds = %.preheader79, %93
 
 101:                                              ; preds = %97
   tail call void @tuplesort_puttupleslot(ptr noundef %.1, ptr noundef nonnull %95) #4
-  br label %.preheader79
+  br label %.preheader79, !llvm.loop !9
 
 .loopexit:                                        ; preds = %97, %ExecProcNode.exit77, %76, %ExecProcNode.exit
   tail call void @tuplesort_performsort(ptr noundef %.1) #4
@@ -597,3 +597,6 @@ attributes #4 = { nounwind }
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}

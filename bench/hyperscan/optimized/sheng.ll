@@ -174,7 +174,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 116:                                              ; preds = %117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %117
+  br i1 %exitcond.not, label %.thread, label %117, !llvm.loop !7
 
 117:                                              ; preds = %.lr.ph, %116
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %116 ]
@@ -259,7 +259,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 160:                                              ; preds = %161
   %indvars.iv.next900 = add nuw nsw i64 %indvars.iv899, 1
   %exitcond903.not = icmp eq i64 %indvars.iv.next900, %wide.trip.count902
-  br i1 %exitcond903.not, label %.thread330, label %161
+  br i1 %exitcond903.not, label %.thread330, label %161, !llvm.loop !7
 
 161:                                              ; preds = %.lr.ph700, %160
   %indvars.iv899 = phi i64 [ 0, %.lr.ph700 ], [ %indvars.iv.next900, %160 ]
@@ -330,7 +330,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 199:                                              ; preds = %200
   %indvars.iv.next905 = add nuw nsw i64 %indvars.iv904, 1
   %exitcond908.not = icmp eq i64 %indvars.iv.next905, %wide.trip.count907
-  br i1 %exitcond908.not, label %.thread342, label %200
+  br i1 %exitcond908.not, label %.thread342, label %200, !llvm.loop !7
 
 200:                                              ; preds = %.lr.ph703, %199
   %indvars.iv904 = phi i64 [ 0, %.lr.ph703 ], [ %indvars.iv.next905, %199 ]
@@ -415,7 +415,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 243:                                              ; preds = %244
   %indvars.iv.next910 = add nuw nsw i64 %indvars.iv909, 1
   %exitcond913.not = icmp eq i64 %indvars.iv.next910, %wide.trip.count912
-  br i1 %exitcond913.not, label %.thread354, label %244
+  br i1 %exitcond913.not, label %.thread354, label %244, !llvm.loop !7
 
 244:                                              ; preds = %.lr.ph706, %243
   %indvars.iv909 = phi i64 [ 0, %.lr.ph706 ], [ %indvars.iv.next910, %243 ]
@@ -472,7 +472,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   %269 = ptrtoint ptr %.2170.i to i64
   %270 = sub i64 %40, %269
   %271 = icmp sgt i64 %270, 3
-  br i1 %271, label %49, label %sheng4_coda.exit.thread, !prof !7
+  br i1 %271, label %49, label %sheng4_coda.exit.thread, !prof !9
 
 272:                                              ; preds = %17
   %273 = and i8 %9, 32
@@ -591,7 +591,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 349:                                              ; preds = %350
   %indvars.iv.next915 = add nuw nsw i64 %indvars.iv914, 1
   %exitcond918.not = icmp eq i64 %indvars.iv.next915, %wide.trip.count917
-  br i1 %exitcond918.not, label %.thread376, label %350
+  br i1 %exitcond918.not, label %.thread376, label %350, !llvm.loop !7
 
 350:                                              ; preds = %.lr.ph719, %349
   %indvars.iv914 = phi i64 [ 0, %.lr.ph719 ], [ %indvars.iv.next915, %349 ]
@@ -676,7 +676,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 393:                                              ; preds = %394
   %indvars.iv.next920 = add nuw nsw i64 %indvars.iv919, 1
   %exitcond923.not = icmp eq i64 %indvars.iv.next920, %wide.trip.count922
-  br i1 %exitcond923.not, label %.thread388, label %394
+  br i1 %exitcond923.not, label %.thread388, label %394, !llvm.loop !7
 
 394:                                              ; preds = %.lr.ph722, %393
   %indvars.iv919 = phi i64 [ 0, %.lr.ph722 ], [ %indvars.iv.next920, %393 ]
@@ -747,7 +747,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 432:                                              ; preds = %433
   %indvars.iv.next925 = add nuw nsw i64 %indvars.iv924, 1
   %exitcond928.not = icmp eq i64 %indvars.iv.next925, %wide.trip.count927
-  br i1 %exitcond928.not, label %.thread400, label %433
+  br i1 %exitcond928.not, label %.thread400, label %433, !llvm.loop !7
 
 433:                                              ; preds = %.lr.ph725, %432
   %indvars.iv924 = phi i64 [ 0, %.lr.ph725 ], [ %indvars.iv.next925, %432 ]
@@ -832,7 +832,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 476:                                              ; preds = %477
   %indvars.iv.next930 = add nuw nsw i64 %indvars.iv929, 1
   %exitcond933.not = icmp eq i64 %indvars.iv.next930, %wide.trip.count932
-  br i1 %exitcond933.not, label %.thread412, label %477
+  br i1 %exitcond933.not, label %.thread412, label %477, !llvm.loop !7
 
 477:                                              ; preds = %.lr.ph728, %476
   %indvars.iv929 = phi i64 [ 0, %.lr.ph728 ], [ %indvars.iv.next930, %476 ]
@@ -856,7 +856,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   %485 = ptrtoint ptr %484 to i64
   %486 = sub i64 %275, %485
   %487 = icmp sgt i64 %486, 3
-  br i1 %487, label %282, label %sheng4_coda.exit.thread, !prof !7
+  br i1 %487, label %282, label %sheng4_coda.exit.thread, !prof !9, !llvm.loop !10
 
 sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %.thread412, %483, %274, %39, %272, %37
   %.0217435 = phi ptr [ %15, %272 ], [ %15, %37 ], [ %.0168.i, %39 ], [ %2, %274 ], [ %15, %.thread412 ], [ %484, %483 ], [ %15, %.thread354 ], [ %.2170.i, %268 ]
@@ -867,7 +867,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
   %.not.i69 = icmp ne i8 %488, 0
   %.not43.i742 = icmp eq ptr %.0217435, %15
   %or.cond1200 = select i1 %.not.i69, i1 true, i1 %.not43.i742
-  br i1 %or.cond1200, label %runShengCb.exit, label %.lr.ph748, !prof !8
+  br i1 %or.cond1200, label %runShengCb.exit, label %.lr.ph748, !prof !11
 
 .lr.ph748:                                        ; preds = %sheng4_coda.exit.thread
   %489 = insertelement <16 x i8> poison, i8 %.0300432, i64 0
@@ -922,7 +922,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 520:                                              ; preds = %521
   %indvars.iv.next935 = add nuw nsw i64 %indvars.iv934, 1
   %exitcond938.not = icmp eq i64 %indvars.iv.next935, %wide.trip.count937
-  br i1 %exitcond938.not, label %.critedge.i.us, label %521
+  br i1 %exitcond938.not, label %.critedge.i.us, label %521, !llvm.loop !7
 
 521:                                              ; preds = %.lr.ph741.us, %520
   %indvars.iv934 = phi i64 [ 0, %.lr.ph741.us ], [ %indvars.iv.next935, %520 ]
@@ -949,7 +949,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
   %.43.us = phi i32 [ %.42744.us, %.lr.ph748.split.us ], [ %.42744.us, %531 ], [ %528, %526 ], [ %.42744.us, %507 ], [ %.42744.us, %520 ]
   %534 = getelementptr inbounds nuw i8, ptr %.038.i746.us, i64 1
   %.not43.i.us = icmp eq ptr %534, %15
-  br i1 %.not43.i.us, label %runShengCb.exit, label %.lr.ph748.split.us, !prof !9, !llvm.loop !10
+  br i1 %.not43.i.us, label %runShengCb.exit, label %.lr.ph748.split.us, !prof !12, !llvm.loop !13
 
 .lr.ph741.us:                                     ; preds = %507
   %535 = getelementptr inbounds i8, ptr %517, i64 -60
@@ -980,7 +980,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 .critedge.i:                                      ; preds = %543, %.lr.ph748.split
   %549 = getelementptr inbounds nuw i8, ptr %.038.i746, i64 1
   %.not43.i = icmp eq ptr %549, %15
-  br i1 %.not43.i, label %runShengCb.exit, label %.lr.ph748.split, !prof !9
+  br i1 %.not43.i, label %runShengCb.exit, label %.lr.ph748.split, !prof !12, !llvm.loop !15
 
 550:                                              ; preds = %6
   br i1 %.not79.i, label %801, label %551
@@ -1129,7 +1129,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 647:                                              ; preds = %648
   %indvars.iv.next940 = add nuw nsw i64 %indvars.iv939, 1
   %exitcond943.not = icmp eq i64 %indvars.iv.next940, %wide.trip.count942
-  br i1 %exitcond943.not, label %.critedge.i88, label %648
+  br i1 %exitcond943.not, label %.critedge.i88, label %648, !llvm.loop !7
 
 648:                                              ; preds = %.lr.ph753, %647
   %indvars.iv939 = phi i64 [ 0, %.lr.ph753 ], [ %indvars.iv.next940, %647 ]
@@ -1214,7 +1214,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 691:                                              ; preds = %692
   %indvars.iv.next945 = add nuw nsw i64 %indvars.iv944, 1
   %exitcond948.not = icmp eq i64 %indvars.iv.next945, %wide.trip.count947
-  br i1 %exitcond948.not, label %.critedge200.i, label %692
+  br i1 %exitcond948.not, label %.critedge200.i, label %692, !llvm.loop !7
 
 692:                                              ; preds = %.lr.ph756, %691
   %indvars.iv944 = phi i64 [ 0, %.lr.ph756 ], [ %indvars.iv.next945, %691 ]
@@ -1285,7 +1285,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 730:                                              ; preds = %731
   %indvars.iv.next950 = add nuw nsw i64 %indvars.iv949, 1
   %exitcond953.not = icmp eq i64 %indvars.iv.next950, %wide.trip.count952
-  br i1 %exitcond953.not, label %.critedge202.i, label %731
+  br i1 %exitcond953.not, label %.critedge202.i, label %731, !llvm.loop !7
 
 731:                                              ; preds = %.lr.ph759, %730
   %indvars.iv949 = phi i64 [ 0, %.lr.ph759 ], [ %indvars.iv.next950, %730 ]
@@ -1370,7 +1370,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 774:                                              ; preds = %775
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
   %exitcond958.not = icmp eq i64 %indvars.iv.next955, %wide.trip.count957
-  br i1 %exitcond958.not, label %.critedge204.i, label %775
+  br i1 %exitcond958.not, label %.critedge204.i, label %775, !llvm.loop !7
 
 775:                                              ; preds = %.lr.ph762, %774
   %indvars.iv954 = phi i64 [ 0, %.lr.ph762 ], [ %indvars.iv.next955, %774 ]
@@ -1422,7 +1422,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
   %798 = ptrtoint ptr %.2170.i97 to i64
   %799 = sub i64 %571, %798
   %800 = icmp sgt i64 %799, 3
-  br i1 %800, label %580, label %sheng4_coa.exit, !prof !7
+  br i1 %800, label %580, label %sheng4_coa.exit, !prof !9
 
 801:                                              ; preds = %550
   %802 = ptrtoint ptr %15 to i64
@@ -1536,7 +1536,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 876:                                              ; preds = %877
   %indvars.iv.next960 = add nuw nsw i64 %indvars.iv959, 1
   %exitcond963.not = icmp eq i64 %indvars.iv.next960, %wide.trip.count962
-  br i1 %exitcond963.not, label %.critedge.i115, label %877
+  br i1 %exitcond963.not, label %.critedge.i115, label %877, !llvm.loop !7
 
 877:                                              ; preds = %.lr.ph780, %876
   %indvars.iv959 = phi i64 [ 0, %.lr.ph780 ], [ %indvars.iv.next960, %876 ]
@@ -1621,7 +1621,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 920:                                              ; preds = %921
   %indvars.iv.next965 = add nuw nsw i64 %indvars.iv964, 1
   %exitcond968.not = icmp eq i64 %indvars.iv.next965, %wide.trip.count967
-  br i1 %exitcond968.not, label %.critedge198.i, label %921
+  br i1 %exitcond968.not, label %.critedge198.i, label %921, !llvm.loop !7
 
 921:                                              ; preds = %.lr.ph783, %920
   %indvars.iv964 = phi i64 [ 0, %.lr.ph783 ], [ %indvars.iv.next965, %920 ]
@@ -1692,7 +1692,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 959:                                              ; preds = %960
   %indvars.iv.next970 = add nuw nsw i64 %indvars.iv969, 1
   %exitcond973.not = icmp eq i64 %indvars.iv.next970, %wide.trip.count972
-  br i1 %exitcond973.not, label %.critedge200.i122, label %960
+  br i1 %exitcond973.not, label %.critedge200.i122, label %960, !llvm.loop !7
 
 960:                                              ; preds = %.lr.ph786, %959
   %indvars.iv969 = phi i64 [ 0, %.lr.ph786 ], [ %indvars.iv.next970, %959 ]
@@ -1777,7 +1777,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
 1003:                                             ; preds = %1004
   %indvars.iv.next975 = add nuw nsw i64 %indvars.iv974, 1
   %exitcond978.not = icmp eq i64 %indvars.iv.next975, %wide.trip.count977
-  br i1 %exitcond978.not, label %.critedge202.i126, label %1004
+  br i1 %exitcond978.not, label %.critedge202.i126, label %1004, !llvm.loop !7
 
 1004:                                             ; preds = %.lr.ph789, %1003
   %indvars.iv974 = phi i64 [ 0, %.lr.ph789 ], [ %indvars.iv.next975, %1003 ]
@@ -1794,7 +1794,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %268, %
   %1010 = ptrtoint ptr %1009 to i64
   %1011 = sub i64 %802, %1010
   %1012 = icmp sgt i64 %1011, 3
-  br i1 %1012, label %809, label %sheng4_coa.exit, !prof !7
+  br i1 %1012, label %809, label %sheng4_coa.exit, !prof !9, !llvm.loop !16
 
 sheng4_coa.exit:                                  ; preds = %797, %.critedge202.i126, %801, %570
   %.2302 = phi i8 [ %9, %570 ], [ %9, %801 ], [ %837, %.critedge202.i126 ], [ %608, %797 ]
@@ -1802,7 +1802,7 @@ sheng4_coa.exit:                                  ; preds = %797, %.critedge202.
   %.1219 = phi i32 [ 0, %570 ], [ 0, %801 ], [ %.62, %.critedge202.i126 ], [ %.51, %797 ]
   %.1 = phi ptr [ %.0168.i81, %570 ], [ %2, %801 ], [ %1009, %.critedge202.i126 ], [ %.2170.i97, %797 ]
   %.not.i140803 = icmp eq ptr %.1, %15
-  br i1 %.not.i140803, label %runShengCb.exit, label %.lr.ph808, !prof !12
+  br i1 %.not.i140803, label %runShengCb.exit, label %.lr.ph808, !prof !17
 
 .lr.ph808:                                        ; preds = %sheng4_coa.exit
   %1013 = insertelement <16 x i8> poison, i8 %.2302, i64 0
@@ -1857,7 +1857,7 @@ sheng4_coa.exit:                                  ; preds = %797, %.critedge202.
 1044:                                             ; preds = %1045
   %indvars.iv.next980 = add nuw nsw i64 %indvars.iv979, 1
   %exitcond983.not = icmp eq i64 %indvars.iv.next980, %wide.trip.count982
-  br i1 %exitcond983.not, label %.critedge.i143.us, label %1045
+  br i1 %exitcond983.not, label %.critedge.i143.us, label %1045, !llvm.loop !7
 
 1045:                                             ; preds = %.lr.ph802.us, %1044
   %indvars.iv979 = phi i64 [ 0, %.lr.ph802.us ], [ %indvars.iv.next980, %1044 ]
@@ -1884,7 +1884,7 @@ sheng4_coa.exit:                                  ; preds = %797, %.critedge202.
   %.70.us = phi i32 [ %.69805.us, %.lr.ph808.split.us ], [ %.69805.us, %1055 ], [ %1052, %1050 ], [ %.69805.us, %1031 ], [ %.69805.us, %1044 ]
   %1058 = getelementptr inbounds nuw i8, ptr %.038.i139807.us, i64 1
   %.not.i140.us = icmp eq ptr %1058, %15
-  br i1 %.not.i140.us, label %runShengCb.exit, label %.lr.ph808.split.us, !prof !9, !llvm.loop !13
+  br i1 %.not.i140.us, label %runShengCb.exit, label %.lr.ph808.split.us, !prof !12, !llvm.loop !18
 
 .lr.ph802.us:                                     ; preds = %1031
   %1059 = getelementptr inbounds i8, ptr %1041, i64 -60
@@ -1915,7 +1915,7 @@ sheng4_coa.exit:                                  ; preds = %797, %.critedge202.
 .critedge.i143:                                   ; preds = %1067, %.lr.ph808.split
   %1073 = getelementptr inbounds nuw i8, ptr %.038.i139807, i64 1
   %.not.i140 = icmp eq ptr %1073, %15
-  br i1 %.not.i140, label %runShengCb.exit, label %.lr.ph808.split, !prof !9
+  br i1 %.not.i140, label %runShengCb.exit, label %.lr.ph808.split, !prof !12, !llvm.loop !19
 
 runShengCb.exit:                                  ; preds = %.critedge.i, %.critedge.i.us, %.critedge.i143, %.critedge.i143.us, %sheng4_coa.exit, %sheng4_coda.exit.thread
   %.3303 = phi i8 [ %.0300432, %sheng4_coda.exit.thread ], [ %.2302, %sheng4_coa.exit ], [ %1025, %.critedge.i143.us ], [ %1065, %.critedge.i143 ], [ %501, %.critedge.i.us ], [ %541, %.critedge.i ]
@@ -1955,7 +1955,7 @@ runShengCb.exit:                                  ; preds = %.critedge.i, %.crit
   %indvars.iv.next985 = add nuw nsw i64 %indvars.iv984, 1
   %exitcond988.not = icmp eq i64 %indvars.iv.next985, %wide.trip.count987
   %or.cond1139 = select i1 %1094, i1 true, i1 %exitcond988.not
-  br i1 %or.cond1139, label %fireReports.exit, label %.lr.ph815
+  br i1 %or.cond1139, label %fireReports.exit, label %.lr.ph815, !llvm.loop !7
 
 fireReports.exit:                                 ; preds = %.lr.ph815, %1084, %runShengCb.exit
   %1095 = lshr i8 %.3303, 5
@@ -2069,7 +2069,7 @@ define internal fastcc signext range(i8 0, 3) i8 @runSheng(ptr noundef %0, ptr n
 68:                                               ; preds = %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %fireReports.exit, label %69
+  br i1 %exitcond.not, label %fireReports.exit, label %69, !llvm.loop !7
 
 69:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
@@ -2278,7 +2278,7 @@ runShengSam.exit:                                 ; preds = %runShengSam.exit.ba
   %183 = ptrtoint ptr %.2170.i296 to i64
   %184 = sub i64 %132, %183
   %185 = icmp sgt i64 %184, 3
-  br i1 %185, label %.lr.ph1397, label %sheng4_nmda.exit, !prof !7
+  br i1 %185, label %.lr.ph1397, label %sheng4_nmda.exit, !prof !9
 
 186:                                              ; preds = %114
   %187 = and i8 %.0620, 32
@@ -2332,7 +2332,7 @@ runShengSam.exit:                                 ; preds = %runShengSam.exit.ba
   %221 = ptrtoint ptr %220 to i64
   %222 = sub i64 %189, %221
   %223 = icmp sgt i64 %222, 3
-  br i1 %223, label %.lr.ph1403, label %sheng4_nmda.exit, !prof !7
+  br i1 %223, label %.lr.ph1403, label %sheng4_nmda.exit, !prof !9, !llvm.loop !20
 
 sheng4_nmda.exit:                                 ; preds = %.lr.ph1397, %182, %.lr.ph1403, %219, %188, %131, %186, %129
   %.20640 = phi i8 [ %.0620, %129 ], [ %.0620, %186 ], [ %.0620, %131 ], [ %.0620, %188 ], [ %217, %219 ], [ %217, %.lr.ph1403 ], [ %162, %182 ], [ %162, %.lr.ph1397 ]
@@ -2345,7 +2345,7 @@ sheng4_nmda.exit:                                 ; preds = %.lr.ph1397, %182, %
   %226 = insertelement <16 x i8> poison, i8 %.20640, i64 0
   %227 = shufflevector <16 x i8> %226, <16 x i8> poison, <16 x i32> zeroinitializer
   %.not43.i3081407 = icmp eq ptr %.10, %113
-  br i1 %.not43.i3081407, label %._crit_edge1412, label %.lr.ph1411, !prof !12
+  br i1 %.not43.i3081407, label %._crit_edge1412, label %.lr.ph1411, !prof !17
 
 .lr.ph1411:                                       ; preds = %225, %.lr.ph1411
   %.038.i3071409 = phi ptr [ %233, %.lr.ph1411 ], [ %.10, %225 ]
@@ -2357,7 +2357,7 @@ sheng4_nmda.exit:                                 ; preds = %.lr.ph1397, %182, %
   %232 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %231, <16 x i8> %.042.i306.in1408)
   %233 = getelementptr inbounds nuw i8, ptr %.038.i3071409, i64 1
   %.not43.i308 = icmp eq ptr %233, %113
-  br i1 %.not43.i308, label %._crit_edge1412, label %.lr.ph1411, !prof !9
+  br i1 %.not43.i308, label %._crit_edge1412, label %.lr.ph1411, !prof !12, !llvm.loop !21
 
 ._crit_edge1412:                                  ; preds = %.lr.ph1411, %225
   %.042.i306.in.lcssa = phi <16 x i8> [ %227, %225 ], [ %232, %.lr.ph1411 ]
@@ -2402,7 +2402,7 @@ sheng4_nmda.exit:                                 ; preds = %.lr.ph1397, %182, %
   %264 = ptrtoint ptr %263 to i64
   %265 = sub i64 %238, %264
   %266 = icmp sgt i64 %265, 3
-  br i1 %266, label %.lr.ph1417, label %sheng4_nm.exit.loopexit, !prof !7
+  br i1 %266, label %.lr.ph1417, label %sheng4_nm.exit.loopexit, !prof !9, !llvm.loop !22
 
 sheng4_nm.exit.loopexit:                          ; preds = %.lr.ph1417
   %267 = shufflevector <16 x i8> %262, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -2412,7 +2412,7 @@ sheng4_nm.exit:                                   ; preds = %sheng4_nm.exit.loop
   %.0182.i309.in.lcssa = phi <16 x i8> [ %237, %235 ], [ %267, %sheng4_nm.exit.loopexit ]
   %.1169.i310.lcssa = phi ptr [ %112, %235 ], [ %263, %sheng4_nm.exit.loopexit ]
   %.not.i3131420 = icmp eq ptr %.1169.i310.lcssa, %113
-  br i1 %.not.i3131420, label %runShengSam.exit.thread971.thread, label %.lr.ph1423, !prof !12
+  br i1 %.not.i3131420, label %runShengSam.exit.thread971.thread, label %.lr.ph1423, !prof !17
 
 .lr.ph1423:                                       ; preds = %sheng4_nm.exit, %.lr.ph1423
   %.038.i3121422 = phi ptr [ %273, %.lr.ph1423 ], [ %.1169.i310.lcssa, %sheng4_nm.exit ]
@@ -2424,7 +2424,7 @@ sheng4_nm.exit:                                   ; preds = %sheng4_nm.exit.loop
   %272 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %271, <16 x i8> %.042.i311.in1421)
   %273 = getelementptr inbounds nuw i8, ptr %.038.i3121422, i64 1
   %.not.i313 = icmp eq ptr %273, %113
-  br i1 %.not.i313, label %runShengSam.exit.thread971.thread, label %.lr.ph1423, !prof !9
+  br i1 %.not.i313, label %runShengSam.exit.thread971.thread, label %.lr.ph1423, !prof !12, !llvm.loop !23
 
 runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4_nm.exit
   %.042.i311.in.lcssa = phi <16 x i8> [ %.0182.i309.in.lcssa, %sheng4_nm.exit ], [ %272, %.lr.ph1423 ]
@@ -2585,7 +2585,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
 374:                                              ; preds = %375
   %indvars.iv.next1841 = add nuw nsw i64 %indvars.iv1840, 1
   %exitcond1844.not = icmp eq i64 %indvars.iv.next1841, %wide.trip.count1843
-  br i1 %exitcond1844.not, label %.thread695, label %375
+  br i1 %exitcond1844.not, label %.thread695, label %375, !llvm.loop !7
 
 375:                                              ; preds = %.lr.ph1270, %374
   %indvars.iv1840 = phi i64 [ 0, %.lr.ph1270 ], [ %indvars.iv.next1841, %374 ]
@@ -2670,7 +2670,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
 418:                                              ; preds = %419
   %indvars.iv.next1846 = add nuw nsw i64 %indvars.iv1845, 1
   %exitcond1849.not = icmp eq i64 %indvars.iv.next1846, %wide.trip.count1848
-  br i1 %exitcond1849.not, label %.thread707, label %419
+  br i1 %exitcond1849.not, label %.thread707, label %419, !llvm.loop !7
 
 419:                                              ; preds = %.lr.ph1273, %418
   %indvars.iv1845 = phi i64 [ 0, %.lr.ph1273 ], [ %indvars.iv.next1846, %418 ]
@@ -2741,7 +2741,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
 457:                                              ; preds = %458
   %indvars.iv.next1851 = add nuw nsw i64 %indvars.iv1850, 1
   %exitcond1854.not = icmp eq i64 %indvars.iv.next1851, %wide.trip.count1853
-  br i1 %exitcond1854.not, label %.thread719, label %458
+  br i1 %exitcond1854.not, label %.thread719, label %458, !llvm.loop !7
 
 458:                                              ; preds = %.lr.ph1276, %457
   %indvars.iv1850 = phi i64 [ 0, %.lr.ph1276 ], [ %indvars.iv.next1851, %457 ]
@@ -2826,7 +2826,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
 501:                                              ; preds = %502
   %indvars.iv.next1856 = add nuw nsw i64 %indvars.iv1855, 1
   %exitcond1859.not = icmp eq i64 %indvars.iv.next1856, %wide.trip.count1858
-  br i1 %exitcond1859.not, label %.thread731, label %502
+  br i1 %exitcond1859.not, label %.thread731, label %502, !llvm.loop !7
 
 502:                                              ; preds = %.lr.ph1279, %501
   %indvars.iv1855 = phi i64 [ 0, %.lr.ph1279 ], [ %indvars.iv.next1856, %501 ]
@@ -2883,7 +2883,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
   %527 = ptrtoint ptr %.2170.i to i64
   %528 = sub i64 %300, %527
   %529 = icmp sgt i64 %528, 3
-  br i1 %529, label %307, label %sheng4_coda.exit.thread, !prof !7
+  br i1 %529, label %307, label %sheng4_coda.exit.thread, !prof !9
 
 530:                                              ; preds = %282
   %531 = and i8 %.0620, 32
@@ -3000,7 +3000,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
 605:                                              ; preds = %606
   %indvars.iv.next1861 = add nuw nsw i64 %indvars.iv1860, 1
   %exitcond1864.not = icmp eq i64 %indvars.iv.next1861, %wide.trip.count1863
-  br i1 %exitcond1864.not, label %.thread753, label %606
+  br i1 %exitcond1864.not, label %.thread753, label %606, !llvm.loop !7
 
 606:                                              ; preds = %.lr.ph1292, %605
   %indvars.iv1860 = phi i64 [ 0, %.lr.ph1292 ], [ %indvars.iv.next1861, %605 ]
@@ -3085,7 +3085,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
 649:                                              ; preds = %650
   %indvars.iv.next1866 = add nuw nsw i64 %indvars.iv1865, 1
   %exitcond1869.not = icmp eq i64 %indvars.iv.next1866, %wide.trip.count1868
-  br i1 %exitcond1869.not, label %.thread765, label %650
+  br i1 %exitcond1869.not, label %.thread765, label %650, !llvm.loop !7
 
 650:                                              ; preds = %.lr.ph1295, %649
   %indvars.iv1865 = phi i64 [ 0, %.lr.ph1295 ], [ %indvars.iv.next1866, %649 ]
@@ -3156,7 +3156,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
 688:                                              ; preds = %689
   %indvars.iv.next1871 = add nuw nsw i64 %indvars.iv1870, 1
   %exitcond1874.not = icmp eq i64 %indvars.iv.next1871, %wide.trip.count1873
-  br i1 %exitcond1874.not, label %.thread777, label %689
+  br i1 %exitcond1874.not, label %.thread777, label %689, !llvm.loop !7
 
 689:                                              ; preds = %.lr.ph1298, %688
   %indvars.iv1870 = phi i64 [ 0, %.lr.ph1298 ], [ %indvars.iv.next1871, %688 ]
@@ -3241,7 +3241,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
 732:                                              ; preds = %733
   %indvars.iv.next1876 = add nuw nsw i64 %indvars.iv1875, 1
   %exitcond1879.not = icmp eq i64 %indvars.iv.next1876, %wide.trip.count1878
-  br i1 %exitcond1879.not, label %.thread789, label %733
+  br i1 %exitcond1879.not, label %.thread789, label %733, !llvm.loop !7
 
 733:                                              ; preds = %.lr.ph1301, %732
   %indvars.iv1875 = phi i64 [ 0, %.lr.ph1301 ], [ %indvars.iv.next1876, %732 ]
@@ -3265,7 +3265,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1423, %sheng4
   %741 = ptrtoint ptr %740 to i64
   %742 = sub i64 %533, %741
   %743 = icmp sgt i64 %742, 3
-  br i1 %743, label %538, label %sheng4_coda.exit.thread, !prof !7
+  br i1 %743, label %538, label %sheng4_coda.exit.thread, !prof !9, !llvm.loop !10
 
 sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %.thread789, %739, %532, %299, %530, %297
   %.0812 = phi ptr [ %280, %530 ], [ %280, %297 ], [ %.0168.i, %299 ], [ %279, %532 ], [ %280, %.thread789 ], [ %740, %739 ], [ %280, %.thread731 ], [ %.2170.i, %526 ]
@@ -3276,7 +3276,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
   %.not.i193 = icmp ne i8 %744, 0
   %.not43.i1315 = icmp eq ptr %.0812, %280
   %or.cond2228 = select i1 %.not.i193, i1 true, i1 %.not43.i1315
-  br i1 %or.cond2228, label %runShengSam.exit.thread971, label %.lr.ph1321, !prof !8
+  br i1 %or.cond2228, label %runShengSam.exit.thread971, label %.lr.ph1321, !prof !11
 
 .lr.ph1321:                                       ; preds = %sheng4_coda.exit.thread
   %745 = insertelement <16 x i8> poison, i8 %.6626809, i64 0
@@ -3354,7 +3354,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
 787:                                              ; preds = %788
   %indvars.iv.next1881 = add nuw nsw i64 %indvars.iv1880, 1
   %exitcond1884.not = icmp eq i64 %indvars.iv.next1881, %wide.trip.count1883
-  br i1 %exitcond1884.not, label %.critedge.i, label %788
+  br i1 %exitcond1884.not, label %.critedge.i, label %788, !llvm.loop !7
 
 788:                                              ; preds = %.lr.ph1314, %787
   %indvars.iv1880 = phi i64 [ 0, %.lr.ph1314 ], [ %indvars.iv.next1881, %787 ]
@@ -3369,7 +3369,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
   %.53 = phi i32 [ %.521317, %748 ], [ %.521317, %759 ], [ %.521317, %765 ], [ %784, %782 ], [ %.521317, %768 ], [ %.521317, %787 ]
   %793 = getelementptr inbounds nuw i8, ptr %.038.i1319, i64 1
   %.not43.i = icmp eq ptr %793, %280
-  br i1 %.not43.i, label %runShengSam.exit.thread971, label %748, !prof !9
+  br i1 %.not43.i, label %runShengSam.exit.thread971, label %748, !prof !12, !llvm.loop !15
 
 794:                                              ; preds = %275
   br i1 %.not80.i, label %1038, label %795
@@ -3511,7 +3511,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
 884:                                              ; preds = %885
   %indvars.iv.next1886 = add nuw nsw i64 %indvars.iv1885, 1
   %exitcond1889.not = icmp eq i64 %indvars.iv.next1886, %wide.trip.count1888
-  br i1 %exitcond1889.not, label %.critedge.i212, label %885
+  br i1 %exitcond1889.not, label %.critedge.i212, label %885, !llvm.loop !7
 
 885:                                              ; preds = %.lr.ph1328, %884
   %indvars.iv1885 = phi i64 [ 0, %.lr.ph1328 ], [ %indvars.iv.next1886, %884 ]
@@ -3596,7 +3596,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
 928:                                              ; preds = %929
   %indvars.iv.next1891 = add nuw nsw i64 %indvars.iv1890, 1
   %exitcond1894.not = icmp eq i64 %indvars.iv.next1891, %wide.trip.count1893
-  br i1 %exitcond1894.not, label %.critedge200.i, label %929
+  br i1 %exitcond1894.not, label %.critedge200.i, label %929, !llvm.loop !7
 
 929:                                              ; preds = %.lr.ph1331, %928
   %indvars.iv1890 = phi i64 [ 0, %.lr.ph1331 ], [ %indvars.iv.next1891, %928 ]
@@ -3667,7 +3667,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
 967:                                              ; preds = %968
   %indvars.iv.next1896 = add nuw nsw i64 %indvars.iv1895, 1
   %exitcond1899.not = icmp eq i64 %indvars.iv.next1896, %wide.trip.count1898
-  br i1 %exitcond1899.not, label %.critedge202.i, label %968
+  br i1 %exitcond1899.not, label %.critedge202.i, label %968, !llvm.loop !7
 
 968:                                              ; preds = %.lr.ph1334, %967
   %indvars.iv1895 = phi i64 [ 0, %.lr.ph1334 ], [ %indvars.iv.next1896, %967 ]
@@ -3752,7 +3752,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
 1011:                                             ; preds = %1012
   %indvars.iv.next1901 = add nuw nsw i64 %indvars.iv1900, 1
   %exitcond1904.not = icmp eq i64 %indvars.iv.next1901, %wide.trip.count1903
-  br i1 %exitcond1904.not, label %.critedge204.i, label %1012
+  br i1 %exitcond1904.not, label %.critedge204.i, label %1012, !llvm.loop !7
 
 1012:                                             ; preds = %.lr.ph1337, %1011
   %indvars.iv1900 = phi i64 [ 0, %.lr.ph1337 ], [ %indvars.iv.next1901, %1011 ]
@@ -3804,7 +3804,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
   %1035 = ptrtoint ptr %.2170.i221 to i64
   %1036 = sub i64 %810, %1035
   %1037 = icmp sgt i64 %1036, 3
-  br i1 %1037, label %817, label %sheng4_coa.exit, !prof !7
+  br i1 %1037, label %817, label %sheng4_coa.exit, !prof !9
 
 1038:                                             ; preds = %794
   %1039 = ptrtoint ptr %280 to i64
@@ -3916,7 +3916,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
 1111:                                             ; preds = %1112
   %indvars.iv.next1906 = add nuw nsw i64 %indvars.iv1905, 1
   %exitcond1909.not = icmp eq i64 %indvars.iv.next1906, %wide.trip.count1908
-  br i1 %exitcond1909.not, label %.critedge.i239, label %1112
+  br i1 %exitcond1909.not, label %.critedge.i239, label %1112, !llvm.loop !7
 
 1112:                                             ; preds = %.lr.ph1355, %1111
   %indvars.iv1905 = phi i64 [ 0, %.lr.ph1355 ], [ %indvars.iv.next1906, %1111 ]
@@ -4001,7 +4001,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
 1155:                                             ; preds = %1156
   %indvars.iv.next1911 = add nuw nsw i64 %indvars.iv1910, 1
   %exitcond1914.not = icmp eq i64 %indvars.iv.next1911, %wide.trip.count1913
-  br i1 %exitcond1914.not, label %.critedge198.i, label %1156
+  br i1 %exitcond1914.not, label %.critedge198.i, label %1156, !llvm.loop !7
 
 1156:                                             ; preds = %.lr.ph1358, %1155
   %indvars.iv1910 = phi i64 [ 0, %.lr.ph1358 ], [ %indvars.iv.next1911, %1155 ]
@@ -4072,7 +4072,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
 1194:                                             ; preds = %1195
   %indvars.iv.next1916 = add nuw nsw i64 %indvars.iv1915, 1
   %exitcond1919.not = icmp eq i64 %indvars.iv.next1916, %wide.trip.count1918
-  br i1 %exitcond1919.not, label %.critedge200.i246, label %1195
+  br i1 %exitcond1919.not, label %.critedge200.i246, label %1195, !llvm.loop !7
 
 1195:                                             ; preds = %.lr.ph1361, %1194
   %indvars.iv1915 = phi i64 [ 0, %.lr.ph1361 ], [ %indvars.iv.next1916, %1194 ]
@@ -4157,7 +4157,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
 1238:                                             ; preds = %1239
   %indvars.iv.next1921 = add nuw nsw i64 %indvars.iv1920, 1
   %exitcond1924.not = icmp eq i64 %indvars.iv.next1921, %wide.trip.count1923
-  br i1 %exitcond1924.not, label %.critedge202.i250, label %1239
+  br i1 %exitcond1924.not, label %.critedge202.i250, label %1239, !llvm.loop !7
 
 1239:                                             ; preds = %.lr.ph1364, %1238
   %indvars.iv1920 = phi i64 [ 0, %.lr.ph1364 ], [ %indvars.iv.next1921, %1238 ]
@@ -4174,7 +4174,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %526, %
   %1245 = ptrtoint ptr %1244 to i64
   %1246 = sub i64 %1039, %1245
   %1247 = icmp sgt i64 %1246, 3
-  br i1 %1247, label %1044, label %sheng4_coa.exit, !prof !7
+  br i1 %1247, label %1044, label %sheng4_coa.exit, !prof !9, !llvm.loop !16
 
 sheng4_coa.exit:                                  ; preds = %1034, %.critedge202.i250, %1038, %809
   %.8628 = phi i8 [ %.0620, %809 ], [ %.0620, %1038 ], [ %1072, %.critedge202.i250 ], [ %845, %1034 ]
@@ -4182,7 +4182,7 @@ sheng4_coa.exit:                                  ; preds = %1034, %.critedge202
   %.9506 = phi i32 [ %.2499, %809 ], [ %.2499, %1038 ], [ %.73, %.critedge202.i250 ], [ %.62, %1034 ]
   %.1 = phi ptr [ %.0168.i205, %809 ], [ %279, %1038 ], [ %1244, %.critedge202.i250 ], [ %.2170.i221, %1034 ]
   %.not.i2641380 = icmp eq ptr %.1, %280
-  br i1 %.not.i2641380, label %runShengSam.exit.thread971, label %.lr.ph1385, !prof !12
+  br i1 %.not.i2641380, label %runShengSam.exit.thread971, label %.lr.ph1385, !prof !17
 
 .lr.ph1385:                                       ; preds = %sheng4_coa.exit
   %1248 = insertelement <16 x i8> poison, i8 %.8628, i64 0
@@ -4260,7 +4260,7 @@ sheng4_coa.exit:                                  ; preds = %1034, %.critedge202
 1290:                                             ; preds = %1291
   %indvars.iv.next1926 = add nuw nsw i64 %indvars.iv1925, 1
   %exitcond1929.not = icmp eq i64 %indvars.iv.next1926, %wide.trip.count1928
-  br i1 %exitcond1929.not, label %.critedge.i267, label %1291
+  br i1 %exitcond1929.not, label %.critedge.i267, label %1291, !llvm.loop !7
 
 1291:                                             ; preds = %.lr.ph1377, %1290
   %indvars.iv1925 = phi i64 [ 0, %.lr.ph1377 ], [ %indvars.iv.next1926, %1290 ]
@@ -4275,7 +4275,7 @@ sheng4_coa.exit:                                  ; preds = %1034, %.critedge202
   %.81 = phi i32 [ %.801382, %1251 ], [ %.801382, %1262 ], [ %.801382, %1268 ], [ %1287, %1285 ], [ %.801382, %1271 ], [ %.801382, %1290 ]
   %1296 = getelementptr inbounds nuw i8, ptr %.038.i2631384, i64 1
   %.not.i264 = icmp eq ptr %1296, %280
-  br i1 %.not.i264, label %runShengSam.exit.thread971, label %1251, !prof !9
+  br i1 %.not.i264, label %runShengSam.exit.thread971, label %1251, !prof !12, !llvm.loop !19
 
 1297:                                             ; preds = %110
   %1298 = getelementptr inbounds i8, ptr %.1129, i64 %.0124
@@ -4426,7 +4426,7 @@ sheng4_coa.exit:                                  ; preds = %1034, %.critedge202
   %1385 = ptrtoint ptr %.2131.i to i64
   %1386 = sub i64 %1318, %1385
   %1387 = icmp sgt i64 %1386, 3
-  br i1 %1387, label %.lr.ph1447, label %sheng4_samda.exit.thread, !prof !7
+  br i1 %1387, label %.lr.ph1447, label %sheng4_samda.exit.thread, !prof !9
 
 1388:                                             ; preds = %1300
   %1389 = and i8 %.0620, 32
@@ -4511,7 +4511,7 @@ sheng4_coa.exit:                                  ; preds = %1034, %.critedge202
   %1439 = ptrtoint ptr %1438 to i64
   %1440 = sub i64 %1391, %1439
   %1441 = icmp sgt i64 %1440, 3
-  br i1 %1441, label %.lr.ph1468, label %sheng4_samda.exit.thread, !prof !7
+  br i1 %1441, label %.lr.ph1468, label %sheng4_samda.exit.thread, !prof !9, !llvm.loop !24
 
 sheng4_samda.exit.thread:                         ; preds = %1364, %1384, %1435, %1437, %1390, %1317, %1388, %1315
   %.11926 = phi ptr [ %1299, %1388 ], [ %1299, %1315 ], [ %.0129.i, %1317 ], [ %1298, %1390 ], [ %1299, %1435 ], [ %1438, %1437 ], [ %1299, %1364 ], [ %.2131.i, %1384 ]
@@ -4520,7 +4520,7 @@ sheng4_samda.exit.thread:                         ; preds = %1364, %1384, %1435,
   %.not.i334 = icmp ne i8 %1442, 0
   %.not32.i1472 = icmp eq ptr %.11926, %1299
   %or.cond2229 = select i1 %.not.i334, i1 true, i1 %.not32.i1472
-  br i1 %or.cond2229, label %runShengSam.exit.thread971, label %.lr.ph1476.preheader, !prof !8
+  br i1 %or.cond2229, label %runShengSam.exit.thread971, label %.lr.ph1476.preheader, !prof !11
 
 .lr.ph1476.preheader:                             ; preds = %sheng4_samda.exit.thread
   %1443 = insertelement <16 x i8> poison, i8 %.22642925, i64 0
@@ -4543,7 +4543,7 @@ sheng4_samda.exit.thread:                         ; preds = %1364, %1384, %1435,
 1452:                                             ; preds = %.lr.ph1476
   %1453 = getelementptr inbounds nuw i8, ptr %.028.i1474, i64 1
   %.not32.i = icmp eq ptr %1453, %1299
-  br i1 %.not32.i, label %runShengSam.exit.thread971, label %.lr.ph1476, !prof !9
+  br i1 %.not32.i, label %runShengSam.exit.thread971, label %.lr.ph1476, !prof !12, !llvm.loop !25
 
 1454:                                             ; preds = %1297
   br i1 %.not80.i, label %1538, label %1455
@@ -4679,7 +4679,7 @@ sheng4_samda.exit.thread:                         ; preds = %1364, %1384, %1435,
   %1535 = ptrtoint ptr %.2131.i348 to i64
   %1536 = sub i64 %1470, %1535
   %1537 = icmp sgt i64 %1536, 3
-  br i1 %1537, label %.lr.ph1501, label %._crit_edge1502, !prof !7
+  br i1 %1537, label %.lr.ph1501, label %._crit_edge1502, !prof !9
 
 1538:                                             ; preds = %1454
   %1539 = ptrtoint ptr %1299 to i64
@@ -4754,13 +4754,13 @@ sheng4_samda.exit.thread:                         ; preds = %1364, %1384, %1435,
   %1585 = ptrtoint ptr %1584 to i64
   %1586 = sub i64 %1539, %1585
   %1587 = icmp sgt i64 %1586, 3
-  br i1 %1587, label %.lr.ph1522, label %._crit_edge1502, !prof !7
+  br i1 %1587, label %.lr.ph1522, label %._crit_edge1502, !prof !9, !llvm.loop !26
 
 ._crit_edge1502:                                  ; preds = %1534, %1583, %1538, %1469
   %.24644.ph = phi i8 [ %.0620, %1469 ], [ %.0620, %1538 ], [ %1570, %1583 ], [ %1503, %1534 ]
   %.13.ph = phi ptr [ %.0129.i339, %1469 ], [ %1298, %1538 ], [ %1584, %1583 ], [ %.2131.i348, %1534 ]
   %.not.i3671526 = icmp eq ptr %.13.ph, %1299
-  br i1 %.not.i3671526, label %runShengSam.exit.thread971, label %.lr.ph1530.preheader, !prof !12
+  br i1 %.not.i3671526, label %runShengSam.exit.thread971, label %.lr.ph1530.preheader, !prof !17
 
 .lr.ph1530.preheader:                             ; preds = %._crit_edge1502
   %1588 = insertelement <16 x i8> poison, i8 %.24644.ph, i64 0
@@ -4783,7 +4783,7 @@ sheng4_samda.exit.thread:                         ; preds = %1364, %1384, %1435,
 1597:                                             ; preds = %.lr.ph1530
   %1598 = getelementptr inbounds nuw i8, ptr %.028.i3661528, i64 1
   %.not.i367 = icmp eq ptr %1598, %1299
-  br i1 %.not.i367, label %runShengSam.exit.thread971, label %.lr.ph1530, !prof !9
+  br i1 %.not.i367, label %runShengSam.exit.thread971, label %.lr.ph1530, !prof !12, !llvm.loop !27
 
 .thread927.loopexit2063.split.loop.exit:          ; preds = %1577
   %1599 = getelementptr inbounds nuw i8, ptr %.1130.i3551520, i64 1
@@ -5009,7 +5009,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecSheng_QR(ptr noundef %0, ptr nou
 25:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %nfaExecSheng_inAccept.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %nfaExecSheng_inAccept.exit, label %.lr.ph.i, !llvm.loop !28
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
@@ -5057,7 +5057,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_inAccept(ptr noundef reado
 23:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %shengHasAccept.exit, label %.lr.ph
+  br i1 %exitcond.not, label %shengHasAccept.exit, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
@@ -5124,7 +5124,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_testEOD(ptr noundef readon
 25:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %fireReports.exit, label %.lr.ph
+  br i1 %exitcond.not, label %fireReports.exit, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
@@ -5215,7 +5215,7 @@ define hidden noundef signext i8 @nfaExecSheng_reportCurrent(ptr noundef readonl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %49, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %fireReports.exit, label %.lr.ph
+  br i1 %or.cond, label %fireReports.exit, label %.lr.ph, !llvm.loop !7
 
 fireReports.exit.sink.split:                      ; preds = %36, %33, %44
   %.sink = phi i32 [ %45, %44 ], [ %35, %33 ], [ 0, %36 ]
@@ -5297,10 +5297,25 @@ attributes #11 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", i32 127, i32 1}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = !{!"branch_weights", i32 255873, i32 127}
-!8 = !{!"branch_weights", i32 129, i32 127}
-!9 = !{!"branch_weights", i32 127, i32 255873}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = !{!"branch_weights", i32 1, i32 127}
-!13 = distinct !{!13, !11}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", i32 255873, i32 127}
+!10 = distinct !{!10, !8}
+!11 = !{!"branch_weights", i32 129, i32 127}
+!12 = !{!"branch_weights", i32 127, i32 255873}
+!13 = distinct !{!13, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = !{!"branch_weights", i32 1, i32 127}
+!18 = distinct !{!18, !8, !14}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !8}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}

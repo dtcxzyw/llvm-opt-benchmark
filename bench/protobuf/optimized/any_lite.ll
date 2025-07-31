@@ -422,5 +422,6 @@ attributes #8 = { nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN6google8protobuf8internal10GetTypeUrlB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES5_: %agg.result"}
 !6 = distinct !{!6, !"_ZN6google8protobuf8internal10GetTypeUrlB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES5_"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.estimated_trip_count"}

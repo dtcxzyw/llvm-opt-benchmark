@@ -88,7 +88,7 @@ define range(i32 -22, 2) i32 @timer_release(ptr noundef %0) local_unnamed_addr #
   br i1 %.not.i.i, label %timer_free.exit, label %35
 
 35:                                               ; preds = %31
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
   br label %timer_free.exit
 
 36:                                               ; preds = %.loopexit.i
@@ -97,7 +97,7 @@ define range(i32 -22, 2) i32 @timer_release(ptr noundef %0) local_unnamed_addr #
   br i1 %.not.i25.i, label %up_irq_restore.exit26.i, label %38
 
 38:                                               ; preds = %36
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
   br label %up_irq_restore.exit26.i
 
 up_irq_restore.exit26.i:                          ; preds = %38, %36
@@ -138,6 +138,7 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 142716, i64 142734}
 !7 = !{i64 143335}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 143456}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 143456}

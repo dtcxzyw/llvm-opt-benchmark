@@ -146,7 +146,7 @@ upcase_string.exit:                               ; preds = %.lr.ph.i, %34
 
 64:                                               ; preds = %upcase_string.exit, %30, %25
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %66 = load i32, ptr %65, align 4, !tbaa !29
+  %66 = load i32, ptr %65, align 4, !tbaa !30
   %.not27 = icmp eq i32 %66, 0
   br i1 %.not27, label %67, label %93
 
@@ -231,7 +231,7 @@ tf_get_section.exit.thread:                       ; preds = %9, %1
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #5
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !29
+  %16 = load i32, ptr %15, align 4, !tbaa !30
   %.not10 = icmp eq i32 %16, 0
   br i1 %.not10, label %17, label %42
 
@@ -292,7 +292,7 @@ define internal void @default_print_int(ptr noundef readonly captures(none) %0, 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !31
+  %7 = load i32, ptr %6, align 8, !tbaa !32
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %15
 
@@ -316,7 +316,7 @@ define internal void @default_print_str(ptr noundef readonly captures(none) %0, 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !31
+  %7 = load i32, ptr %6, align 8, !tbaa !32
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %15
 
@@ -350,11 +350,11 @@ define internal void @writer_printf(ptr noundef readonly captures(none) %0, ptr 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #5
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !33
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !36
+  %9 = load ptr, ptr %8, align 8, !tbaa !37
   call void %9(ptr noundef %5, ptr noundef %1, ptr noundef nonnull %3) #5
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
@@ -408,14 +408,15 @@ attributes #5 = { nounwind }
 !24 = !{!19, !12, i64 72}
 !25 = !{!19, !12, i64 8}
 !26 = !{!8, !8, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!30, !14, i64 12}
-!30 = !{!"DefaultContext", !6, i64 0, !14, i64 8, !14, i64 12, !8, i64 16}
-!31 = !{!30, !14, i64 8}
-!32 = !{!5, !11, i64 16}
-!33 = !{!34, !35, i64 8}
-!34 = !{!"AVTextWriterContext", !6, i64 0, !35, i64 8, !12, i64 16, !7, i64 24}
-!35 = !{!"p1 _ZTS12AVTextWriter", !7, i64 0}
-!36 = !{!37, !7, i64 56}
-!37 = !{!"AVTextWriter", !6, i64 0, !14, i64 8, !12, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!31, !14, i64 12}
+!31 = !{!"DefaultContext", !6, i64 0, !14, i64 8, !14, i64 12, !8, i64 16}
+!32 = !{!31, !14, i64 8}
+!33 = !{!5, !11, i64 16}
+!34 = !{!35, !36, i64 8}
+!35 = !{!"AVTextWriterContext", !6, i64 0, !36, i64 8, !12, i64 16, !7, i64 24}
+!36 = !{!"p1 _ZTS12AVTextWriter", !7, i64 0}
+!37 = !{!38, !7, i64 56}
+!38 = !{!"AVTextWriter", !6, i64 0, !14, i64 8, !12, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56}

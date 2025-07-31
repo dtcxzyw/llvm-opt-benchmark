@@ -777,7 +777,7 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %27
   %.old.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !55, !range !26, !noundef !27
+  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !56, !range !26, !noundef !27
   %.old6.i = trunc nuw i8 %.old5.i to i1
   br i1 %.old6.i, label %34, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
@@ -789,7 +789,7 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i:
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %34, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   %.pre2.i = phi i32 [ %23, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i ], [ %.pre2.pre.pre.i, %34 ], [ %23, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 1, ptr %35, align 8, !tbaa !55
+  store i8 1, ptr %35, align 8, !tbaa !56
   store ptr %.0.i.i.i, ptr %25, align 8, !tbaa !51
   store i32 %16, ptr %11, align 8, !tbaa !50
   %.pre = load ptr, ptr %3, align 8, !tbaa !52
@@ -896,6 +896,7 @@ attributes #16 = { builtin nounwind }
 !50 = !{!47, !25, i64 8}
 !51 = !{!47, !49, i64 16}
 !52 = !{!15, !15, i64 0}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!47, !14, i64 24}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!47, !14, i64 24}

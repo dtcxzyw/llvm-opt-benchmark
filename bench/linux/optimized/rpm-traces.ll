@@ -246,7 +246,7 @@ define dso_local noundef i32 @__traceiter_rpm_resume(ptr readnone captures(none)
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -275,7 +275,7 @@ define dso_local noundef i32 @__traceiter_rpm_idle(ptr readnone captures(none) %
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -304,7 +304,7 @@ define dso_local noundef i32 @__traceiter_rpm_usage(ptr readnone captures(none) 
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -333,7 +333,7 @@ define dso_local noundef i32 @__traceiter_rpm_return_int(ptr readnone captures(n
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -352,12 +352,12 @@ define internal void @trace_event_raw_event_rpm_internal(ptr noundef %0, ptr nou
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !12
+  br i1 %8, label %14, label %9, !prof !13
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !13
+  br i1 %11, label %12, label %14, !prof !14
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #8
@@ -377,7 +377,7 @@ define internal void @trace_event_raw_event_rpm_internal(ptr noundef %0, ptr nou
 
 .thread2:                                         ; preds = %17, %14
   %20 = phi ptr [ %16, %14 ], [ %spec.select, %17 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !15
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
   %22 = trunc i64 %21 to i32
   %23 = add i32 %22, 1
@@ -467,14 +467,14 @@ define internal void @perf_trace_rpm_internal(ptr noundef %0, ptr noundef %1, i3
 
 .thread2:                                         ; preds = %8, %3
   %11 = phi ptr [ %7, %3 ], [ %spec.select, %8 ]
-  store ptr null, ptr %4, align 8, !annotation !14
+  store ptr null, ptr %4, align 8, !annotation !15
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
   %13 = trunc i64 %12 to i32
   %14 = shl i32 %13, 16
   %15 = add i32 %14, 65576
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %17) #9, !srcloc !15
+  %18 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %17) #9, !srcloc !16
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = load volatile ptr, ptr %20, align 8
@@ -487,7 +487,7 @@ define internal void @perf_trace_rpm_internal(ptr noundef %0, ptr noundef %1, i3
   br i1 %25, label %79, label %26
 
 26:                                               ; preds = %23, %.thread2
-  store i32 0, ptr %5, align 4, !annotation !14
+  store i32 0, ptr %5, align 4, !annotation !15
   %27 = add i32 %13, 52
   %28 = and i32 %27, -8
   %29 = add i32 %28, -4
@@ -584,12 +584,12 @@ define internal void @trace_event_raw_event_rpm_return_int(ptr noundef %0, ptr n
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !12
+  br i1 %9, label %15, label %10, !prof !13
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !13
+  br i1 %12, label %13, label %15, !prof !14
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #8
@@ -609,7 +609,7 @@ define internal void @trace_event_raw_event_rpm_return_int(ptr noundef %0, ptr n
 
 .thread2:                                         ; preds = %18, %15
   %21 = phi ptr [ %17, %15 ], [ %spec.select, %18 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !15
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #8
   %23 = trunc i64 %22 to i32
   %24 = add i32 %23, 1
@@ -669,14 +669,14 @@ define internal void @perf_trace_rpm_return_int(ptr noundef %0, ptr noundef read
 
 .thread2:                                         ; preds = %9, %4
   %12 = phi ptr [ %8, %4 ], [ %spec.select, %9 ]
-  store ptr null, ptr %5, align 8, !annotation !14
+  store ptr null, ptr %5, align 8, !annotation !15
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #8
   %14 = trunc i64 %13 to i32
   %15 = shl i32 %14, 16
   %16 = add i32 %15, 65564
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %18) #9, !srcloc !16
+  %19 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %18) #9, !srcloc !17
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load volatile ptr, ptr %21, align 8
@@ -689,7 +689,7 @@ define internal void @perf_trace_rpm_return_int(ptr noundef %0, ptr noundef read
   br i1 %26, label %55, label %27
 
 27:                                               ; preds = %24, %.thread2
-  store i32 0, ptr %6, align 4, !annotation !14
+  store i32 0, ptr %6, align 4, !annotation !15
   %28 = add i32 %14, 44
   %29 = and i32 %28, -8
   %30 = add i32 %29, -4
@@ -866,15 +866,16 @@ attributes #9 = { nounwind memory(read) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = !{!"auto-init"}
-!15 = !{i64 2156428059}
-!16 = !{i64 2156434749}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = !{!"auto-init"}
+!16 = !{i64 2156428059}
+!17 = !{i64 2156434749}

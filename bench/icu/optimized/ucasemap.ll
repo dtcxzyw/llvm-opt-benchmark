@@ -1081,12 +1081,12 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   br i1 %205, label %206, label %220
 
 206:                                              ; preds = %204
-  store i32 %.0186, ptr %23, align 4, !tbaa !28
-  store i32 %.5179, ptr %24, align 8, !tbaa !29
+  store i32 %.0186, ptr %23, align 4, !tbaa !29
+  store i32 %.5179, ptr %24, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
   %207 = call i32 @ucase_toFullTitle_77(i32 noundef %.4, ptr noundef nonnull @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %0)
   %208 = sub nsw i32 %.5179, %.0186
-  %209 = load ptr, ptr %10, align 8, !tbaa !30
+  %209 = load ptr, ptr %10, align 8, !tbaa !31
   %210 = icmp slt i32 %207, 0
   br i1 %210, label %211, label %216
 
@@ -1423,7 +1423,7 @@ _ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UE
   br i1 %.old, label %.backedge.backedge, label %.critedge236
 
 .backedge.backedge:                               ; preds = %.critedge234, %366
-  br label %.backedge, !llvm.loop !32
+  br label %.backedge, !llvm.loop !33
 
 .critedge236:                                     ; preds = %.critedge234, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit, %366, %198, %220, %370, %_ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
@@ -1447,11 +1447,11 @@ define internal noundef i32 @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva(ptr
 
 .critedge:                                        ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !28
+  %5 = load i32, ptr %4, align 4, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %5, ptr %6, align 4, !tbaa !33
+  store i32 %5, ptr %6, align 4, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 %1, ptr %7, align 4, !tbaa !34
+  store i8 %1, ptr %7, align 4, !tbaa !35
   br label %._crit_edge77
 
 8:                                                ; preds = %2
@@ -1460,25 +1460,25 @@ define internal noundef i32 @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva(ptr
 
 .critedge76:                                      ; preds = %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !29
+  %10 = load i32, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %10, ptr %11, align 4, !tbaa !33
+  store i32 %10, ptr %11, align 4, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 %1, ptr %12, align 4, !tbaa !34
+  store i8 %1, ptr %12, align 4, !tbaa !35
   br label %._crit_edge
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %15 = load i8, ptr %14, align 4, !tbaa !34
+  %15 = load i8, ptr %14, align 4, !tbaa !35
   %16 = icmp slt i8 %15, 0
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre79 = load i32, ptr %.phi.trans.insert78, align 4, !tbaa !33
+  %.pre79 = load i32, ptr %.phi.trans.insert78, align 4, !tbaa !34
   br i1 %16, label %._crit_edge77, label %._crit_edge
 
 ._crit_edge77:                                    ; preds = %13, %.critedge
   %17 = phi i32 [ %5, %.critedge ], [ %.pre79, %13 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !35
+  %19 = load i32, ptr %18, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = icmp slt i32 %19, %17
   br i1 %21, label %22, label %113
@@ -1486,7 +1486,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva(ptr
 22:                                               ; preds = %._crit_edge77
   %23 = load ptr, ptr %0, align 8, !tbaa !23
   %24 = add nsw i32 %17, -1
-  store i32 %24, ptr %20, align 4, !tbaa !33
+  store i32 %24, ptr %20, align 4, !tbaa !34
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %23, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !20
@@ -1509,7 +1509,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva(ptr
 37:                                               ; preds = %._crit_edge
   %38 = load ptr, ptr %0, align 8, !tbaa !23
   %39 = add nsw i32 %32, 1
-  store i32 %39, ptr %33, align 4, !tbaa !33
+  store i32 %39, ptr %33, align 4, !tbaa !34
   %40 = sext i32 %32 to i64
   %41 = getelementptr inbounds i8, ptr %38, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !20
@@ -1571,7 +1571,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva(ptr
 
 80:                                               ; preds = %68
   %81 = add nsw i32 %32, 2
-  store i32 %81, ptr %33, align 4, !tbaa !33
+  store i32 %81, ptr %33, align 4, !tbaa !34
   %.not72 = icmp eq i32 %81, %35
   br i1 %.not72, label %113, label %82
 
@@ -1594,7 +1594,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva(ptr
   %94 = zext nneg i8 %.0 to i32
   %95 = or disjoint i32 %93, %94
   %96 = add nsw i32 %92, 1
-  store i32 %96, ptr %33, align 4, !tbaa !33
+  store i32 %96, ptr %33, align 4, !tbaa !34
   %.not74 = icmp eq i32 %96, %35
   br i1 %.not74, label %113, label %101
 
@@ -1621,7 +1621,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva(ptr
   %110 = shl nuw nsw i32 %.2, 6
   %111 = or disjoint i32 %110, %109
   %112 = add nsw i32 %102, 1
-  store i32 %112, ptr %33, align 4, !tbaa !33
+  store i32 %112, ptr %33, align 4, !tbaa !34
   br label %113
 
 113:                                              ; preds = %._crit_edge77, %._crit_edge, %37, %45, %50, %65, %68, %80, %82, %91, %97, %101, %108, %22, %30
@@ -1690,7 +1690,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17toLowerEijPKhP12UCaseContextiiRN6
   switch i8 %40, label %41 [
     i8 -128, label %.thread311
     i8 0, label %.thread
-  ], !llvm.loop !36
+  ], !llvm.loop !37
 
 41:                                               ; preds = %37
   %42 = sub nsw i32 %.1195346, %.1347
@@ -1753,7 +1753,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   switch i8 %72, label %74 [
     i8 -128, label %.thread311
     i8 0, label %.thread
-  ], !llvm.loop !36
+  ], !llvm.loop !37
 
 74:                                               ; preds = %64
   %75 = sub nsw i32 %.1195346, %.1347
@@ -1769,11 +1769,11 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270: ; preds = %74, %77
   %80 = add nsw i32 %69, %73
   call void @_ZN6icu_7712ByteSinkUtil14appendTwoBytesEiRNS_8ByteSinkE(i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br i1 %.not254, label %.thread, label %81, !llvm.loop !36
+  br i1 %.not254, label %.thread, label %81, !llvm.loop !37
 
 81:                                               ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef 2, i32 noundef 2)
-  br label %.thread, !llvm.loop !36
+  br label %.thread, !llvm.loop !37
 
 82:                                               ; preds = %53
   %83 = icmp samesign ult i8 %34, -22
@@ -1798,7 +1798,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %94 = getelementptr i8, ptr %33, i64 2
   %95 = load i8, ptr %94, align 1, !tbaa !20
   %96 = icmp slt i8 %95, -64
-  br i1 %96, label %.thread, label %97, !llvm.loop !36
+  br i1 %96, label %.thread, label %97, !llvm.loop !37
 
 97:                                               ; preds = %86, %88, %93, %82, %55, %58
   %.not255 = icmp eq i32 %31, %5
@@ -1902,7 +1902,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %160 = shl nuw nsw i32 %.7226, 6
   %161 = or disjoint i32 %160, %159
   %162 = add nsw i32 %.8202, 1
-  %163 = load ptr, ptr %22, align 8, !tbaa !37
+  %163 = load ptr, ptr %22, align 8, !tbaa !38
   %164 = icmp ult i32 %.7226, 864
   br i1 %164, label %._crit_edge, label %173
 
@@ -1910,7 +1910,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %165 = lshr i32 %161, 5
   %166 = zext nneg i32 %165 to i64
   %167 = getelementptr inbounds nuw i16, ptr %163, i64 %166
-  %168 = load i16, ptr %167, align 2, !tbaa !43
+  %168 = load i16, ptr %167, align 2, !tbaa !44
   %169 = zext i16 %168 to i32
   %170 = shl nuw nsw i32 %169, 2
   %171 = and i32 %159, 31
@@ -1928,7 +1928,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %179 = add nuw nsw i32 %178, %177
   %180 = zext nneg i32 %179 to i64
   %181 = getelementptr inbounds nuw i16, ptr %163, i64 %180
-  %182 = load i16, ptr %181, align 2, !tbaa !43
+  %182 = load i16, ptr %181, align 2, !tbaa !44
   %183 = zext i16 %182 to i32
   %184 = shl nuw nsw i32 %183, 2
   %185 = and i32 %159, 31
@@ -1940,17 +1940,17 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %188, label %189, label %192
 
 189:                                              ; preds = %187
-  %190 = load i32, ptr %27, align 8, !tbaa !44
+  %190 = load i32, ptr %27, align 8, !tbaa !45
   %191 = add nsw i32 %190, 128
   br label %213
 
 192:                                              ; preds = %187
-  %193 = load i32, ptr %25, align 4, !tbaa !45
+  %193 = load i32, ptr %25, align 4, !tbaa !46
   %.not260 = icmp slt i32 %161, %193
   br i1 %.not260, label %196, label %194
 
 194:                                              ; preds = %192
-  %195 = load i32, ptr %26, align 8, !tbaa !46
+  %195 = load i32, ptr %26, align 8, !tbaa !47
   br label %213
 
 196:                                              ; preds = %192
@@ -1958,14 +1958,14 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %198 = zext nneg i32 %197 to i64
   %199 = getelementptr inbounds nuw i16, ptr %163, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 4160
-  %201 = load i16, ptr %200, align 2, !tbaa !43
+  %201 = load i16, ptr %200, align 2, !tbaa !44
   %202 = zext i16 %201 to i32
   %203 = lshr i32 %161, 5
   %204 = and i32 %203, 63
   %205 = add nuw nsw i32 %204, %202
   %206 = zext nneg i32 %205 to i64
   %207 = getelementptr inbounds nuw i16, ptr %163, i64 %206
-  %208 = load i16, ptr %207, align 2, !tbaa !43
+  %208 = load i16, ptr %207, align 2, !tbaa !44
   %209 = zext i16 %208 to i32
   %210 = shl nuw nsw i32 %209, 2
   %211 = and i32 %159, 31
@@ -1976,7 +1976,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %214 = phi i32 [ %172, %._crit_edge ], [ %186, %175 ], [ %191, %189 ], [ %195, %194 ], [ %212, %196 ]
   %215 = sext i32 %214 to i64
   %216 = getelementptr inbounds i16, ptr %163, i64 %215
-  %217 = load i16, ptr %216, align 2, !tbaa !43
+  %217 = load i16, ptr %216, align 2, !tbaa !44
   %218 = zext i16 %217 to i32
   %219 = and i32 %218, 8
   %.not261 = icmp eq i32 %219, 0
@@ -1987,7 +1987,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %.not262 = icmp eq i32 %221, 0
   %222 = icmp ult i16 %217, 128
   %or.cond266 = or i1 %222, %.not262
-  br i1 %or.cond266, label %.thread, label %223, !llvm.loop !36
+  br i1 %or.cond266, label %.thread, label %223, !llvm.loop !37
 
 223:                                              ; preds = %220
   %224 = ashr i16 %217, 7
@@ -2024,7 +2024,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 .lr.ph.backedge:                                  ; preds = %.thread, %257
   %.1347.be = phi i32 [ %.4, %.thread ], [ %.11, %257 ]
   %.1195346.be = phi i32 [ %.3197, %.thread ], [ %.2196318, %257 ]
-  br label %.lr.ph
+  br label %.lr.ph, !llvm.loop !48
 
 .thread311:                                       ; preds = %64, %37, %213
   %.2196318 = phi i32 [ %162, %213 ], [ %31, %37 ], [ %66, %64 ]
@@ -2033,8 +2033,8 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %28, label %236, label %238
 
 236:                                              ; preds = %.thread311
-  store i32 %.1195346, ptr %29, align 4, !tbaa !28
-  store i32 %.2196318, ptr %30, align 8, !tbaa !29
+  store i32 %.1195346, ptr %29, align 4, !tbaa !29
+  store i32 %.2196318, ptr %30, align 8, !tbaa !30
   %237 = call i32 @ucase_toFullLower_77(i32 noundef %.2221316, ptr noundef nonnull @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva, ptr noundef %3, ptr noundef nonnull %11, i32 noundef %0)
   br label %240
 
@@ -2067,7 +2067,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %252, label %253, label %256
 
 253:                                              ; preds = %250
-  %254 = load ptr, ptr %11, align 8, !tbaa !30
+  %254 = load ptr, ptr %11, align 8, !tbaa !31
   %255 = call noundef signext i8 @_ZN6icu_7712ByteSinkUtil12appendChangeEiPKDsiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %251, ptr noundef %254, i32 noundef %.11230, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   br label %257
 
@@ -2232,7 +2232,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710GreekUpper23isFollowedByCa
   %80 = tail call i32 @ucase_getTypeOrIgnorable_77(i32 noundef %.3)
   %81 = and i32 %80, 4
   %.not62.not = icmp eq i32 %81, 0
-  br i1 %.not62.not, label %.split.loop.exit, label %4
+  br i1 %.not62.not, label %.split.loop.exit, label %4, !llvm.loop !49
 
 .split.loop.exit:                                 ; preds = %79
   %.not63.le = icmp ne i32 %80, 0
@@ -2548,7 +2548,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   %180 = and i32 %179, 1
   %spec.select304 = add nuw nsw i32 %180, %.0221323
   %181 = icmp slt i32 %.5, %2
-  br i1 %181, label %.lr.ph, label %.thread
+  br i1 %181, label %.lr.ph, label %.thread, !llvm.loop !50
 
 .thread:                                          ; preds = %177, %175, %99
   %.1228.lcssa = phi i32 [ %.0227, %99 ], [ %.1228322, %175 ], [ %178, %177 ]
@@ -2759,7 +2759,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   call void %279(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.4, i32 noundef 2)
   %280 = add nsw i32 %.4225331, -1
   %281 = icmp samesign ugt i32 %.4225331, 1
-  br i1 %281, label %.lr.ph332, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread, !llvm.loop !47
+  br i1 %281, label %.lr.ph332, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread, !llvm.loop !51
 
 282:                                              ; preds = %85
   %283 = icmp sgt i32 %.3235, -1
@@ -2769,7 +2769,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
   %285 = call i32 @ucase_toFullUpper_77(i32 noundef %.3235, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, i32 noundef 4)
   %286 = sub nsw i32 %.4219, %.0195333
-  %287 = load ptr, ptr %7, align 8, !tbaa !30
+  %287 = load ptr, ptr %7, align 8, !tbaa !31
   %288 = icmp slt i32 %285, 0
   br i1 %288, label %289, label %294
 
@@ -2824,7 +2824,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %.2238 = phi i32 [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.1237, %265 ], [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.0236, %304 ], [ %.0236, %302 ], [ %.1237, %275 ], [ %.1237, %.lr.ph332 ]
   %.8 = phi i32 [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.5220.lcssa, %265 ], [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.4219, %304 ], [ %.4219, %302 ], [ %.5220.lcssa, %275 ], [ %.5220.lcssa, %.lr.ph332 ]
   %305 = icmp slt i32 %.8, %2
-  br i1 %305, label %12, label %.critedge310, !llvm.loop !48
+  br i1 %305, label %12, label %.critedge310, !llvm.loop !52
 
 .critedge310:                                     ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit, %298, %6
   ret void
@@ -3001,9 +3001,9 @@ define noundef i32 @_Z19ucasemap_mapUTF8_77ijPN6icu_7713BreakIteratorEPciPKciPFv
 
 48:                                               ; preds = %"_ZZ19ucasemap_mapUTF8_77ijPN6icu_7713BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_ENK3$_0clES8_SC_.exit.i"
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %50 = load i32, ptr %49, align 8, !tbaa !49
+  %50 = load i32, ptr %49, align 8, !tbaa !53
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %52 = load i8, ptr %51, align 4, !tbaa !52
+  %52 = load i8, ptr %51, align 4, !tbaa !56
   %.not17.i = icmp eq i8 %52, 0
   br i1 %.not17.i, label %56, label %53
 
@@ -3134,7 +3134,7 @@ define internal void @_ZL28ucasemap_internalUTF8ToUpperijPN6icu_7713BreakIterato
   switch i8 %36, label %37 [
     i8 -128, label %.thread298.i
     i8 0, label %.thread.i
-  ], !llvm.loop !53
+  ], !llvm.loop !57
 
 37:                                               ; preds = %33
   %38 = sub nsw i32 %.1184333.i, %.1334.i
@@ -3197,7 +3197,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   switch i8 %68, label %70 [
     i8 -128, label %.thread298.i
     i8 0, label %.thread.i
-  ], !llvm.loop !53
+  ], !llvm.loop !57
 
 70:                                               ; preds = %60
   %71 = sub nsw i32 %.1184333.i, %.1334.i
@@ -3213,11 +3213,11 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i: ; preds = %73, %70
   %76 = add nsw i32 %65, %69
   call void @_ZN6icu_7712ByteSinkUtil14appendTwoBytesEiRNS_8ByteSinkE(i32 noundef %76, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %.not241.i, label %.thread.i, label %77, !llvm.loop !53
+  br i1 %.not241.i, label %.thread.i, label %77, !llvm.loop !57
 
 77:                                               ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %6, i32 noundef 2, i32 noundef 2)
-  br label %.thread.i, !llvm.loop !53
+  br label %.thread.i, !llvm.loop !57
 
 78:                                               ; preds = %49
   %79 = icmp samesign ult i8 %30, -22
@@ -3242,7 +3242,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %90 = getelementptr i8, ptr %29, i64 2
   %91 = load i8, ptr %90, align 1, !tbaa !20
   %92 = icmp slt i8 %91, -64
-  br i1 %92, label %.thread.i, label %93, !llvm.loop !53
+  br i1 %92, label %.thread.i, label %93, !llvm.loop !57
 
 93:                                               ; preds = %89, %84, %82, %78, %54, %51
   %.not242.i = icmp eq i32 %27, %4
@@ -3346,7 +3346,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %156 = shl nuw nsw i32 %.7215.i, 6
   %157 = or disjoint i32 %156, %155
   %158 = add nsw i32 %.8191.i, 1
-  %159 = load ptr, ptr %18, align 8, !tbaa !37
+  %159 = load ptr, ptr %18, align 8, !tbaa !38
   %160 = icmp ult i32 %.7215.i, 864
   br i1 %160, label %._crit_edge.i, label %169
 
@@ -3354,7 +3354,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %161 = lshr i32 %157, 5
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds nuw i16, ptr %159, i64 %162
-  %164 = load i16, ptr %163, align 2, !tbaa !43
+  %164 = load i16, ptr %163, align 2, !tbaa !44
   %165 = zext i16 %164 to i32
   %166 = shl nuw nsw i32 %165, 2
   %167 = and i32 %155, 31
@@ -3372,7 +3372,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %175 = add nuw nsw i32 %174, %173
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr inbounds nuw i16, ptr %159, i64 %176
-  %178 = load i16, ptr %177, align 2, !tbaa !43
+  %178 = load i16, ptr %177, align 2, !tbaa !44
   %179 = zext i16 %178 to i32
   %180 = shl nuw nsw i32 %179, 2
   %181 = and i32 %155, 31
@@ -3384,17 +3384,17 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %184, label %185, label %188
 
 185:                                              ; preds = %183
-  %186 = load i32, ptr %23, align 8, !tbaa !44
+  %186 = load i32, ptr %23, align 8, !tbaa !45
   %187 = add nsw i32 %186, 128
   br label %209
 
 188:                                              ; preds = %183
-  %189 = load i32, ptr %21, align 4, !tbaa !45
+  %189 = load i32, ptr %21, align 4, !tbaa !46
   %.not247.i = icmp slt i32 %157, %189
   br i1 %.not247.i, label %192, label %190
 
 190:                                              ; preds = %188
-  %191 = load i32, ptr %22, align 8, !tbaa !46
+  %191 = load i32, ptr %22, align 8, !tbaa !47
   br label %209
 
 192:                                              ; preds = %188
@@ -3402,14 +3402,14 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %194 = zext nneg i32 %193 to i64
   %195 = getelementptr inbounds nuw i16, ptr %159, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4160
-  %197 = load i16, ptr %196, align 2, !tbaa !43
+  %197 = load i16, ptr %196, align 2, !tbaa !44
   %198 = zext i16 %197 to i32
   %199 = lshr i32 %157, 5
   %200 = and i32 %199, 63
   %201 = add nuw nsw i32 %200, %198
   %202 = zext nneg i32 %201 to i64
   %203 = getelementptr inbounds nuw i16, ptr %159, i64 %202
-  %204 = load i16, ptr %203, align 2, !tbaa !43
+  %204 = load i16, ptr %203, align 2, !tbaa !44
   %205 = zext i16 %204 to i32
   %206 = shl nuw nsw i32 %205, 2
   %207 = and i32 %155, 31
@@ -3420,7 +3420,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %210 = phi i32 [ %168, %._crit_edge.i ], [ %182, %171 ], [ %187, %185 ], [ %191, %190 ], [ %208, %192 ]
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds i16, ptr %159, i64 %211
-  %213 = load i16, ptr %212, align 2, !tbaa !43
+  %213 = load i16, ptr %212, align 2, !tbaa !44
   %214 = zext i16 %213 to i32
   %215 = and i32 %214, 8
   %.not248.i = icmp eq i32 %215, 0
@@ -3431,7 +3431,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %.not249.i = icmp ne i32 %217, 1
   %218 = icmp ult i16 %213, 128
   %or.cond253.i = or i1 %218, %.not249.i
-  br i1 %or.cond253.i, label %.thread.i, label %219, !llvm.loop !53
+  br i1 %or.cond253.i, label %.thread.i, label %219, !llvm.loop !57
 
 219:                                              ; preds = %216
   %220 = ashr i16 %213, 7
@@ -3465,13 +3465,13 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %.be = phi i32 [ %229, %.thread.i ], [ %249, %248 ]
   %.1334.i.be = phi i32 [ %.4.i, %.thread.i ], [ %.11.i, %248 ]
   %.1184333.i.be = phi i32 [ %.3186.i, %.thread.i ], [ %.2185305.i, %248 ]
-  br label %.lr.ph.i
+  br label %.lr.ph.i, !llvm.loop !58
 
 .thread298.i:                                     ; preds = %209, %60, %33
   %.2185305.i = phi i32 [ %158, %209 ], [ %27, %33 ], [ %62, %60 ]
   %.2210303.i = phi i32 [ %157, %209 ], [ %31, %33 ], [ %65, %60 ]
-  store i32 %.1184333.i, ptr %24, align 4, !tbaa !28
-  store i32 %.2185305.i, ptr %25, align 8, !tbaa !29
+  store i32 %.1184333.i, ptr %24, align 4, !tbaa !29
+  store i32 %.2185305.i, ptr %25, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
   %231 = call i32 @ucase_toFullUpper_77(i32 noundef %.2210303.i, ptr noundef nonnull @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef range(i32 5, 4) %0)
   %232 = icmp sgt i32 %231, -1
@@ -3497,7 +3497,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %243, label %244, label %247
 
 244:                                              ; preds = %241
-  %245 = load ptr, ptr %10, align 8, !tbaa !30
+  %245 = load ptr, ptr %10, align 8, !tbaa !31
   %246 = call noundef signext i8 @_ZN6icu_7712ByteSinkUtil12appendChangeEiPKDsiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %242, ptr noundef %245, i32 noundef %231, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   br label %248
 
@@ -3620,9 +3620,9 @@ define i32 @ucasemap_utf8FoldCase_77(ptr noundef readonly captures(none) %0, ptr
 
 42:                                               ; preds = %"_ZZ19ucasemap_mapUTF8_77ijPN6icu_7713BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_ENK3$_0clES8_SC_.exit.i.i"
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %44 = load i32, ptr %43, align 8, !tbaa !49
+  %44 = load i32, ptr %43, align 8, !tbaa !53
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %46 = load i8, ptr %45, align 4, !tbaa !52
+  %46 = load i8, ptr %45, align 4, !tbaa !56
   %.not17.i.i = icmp eq i8 %46, 0
   br i1 %.not17.i.i, label %50, label %47
 
@@ -3944,31 +3944,36 @@ attributes #20 = { nounwind willreturn memory(read) }
 !23 = !{!24, !6, i64 0}
 !24 = !{!"_ZTS12UCaseContext", !6, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
 !25 = !{!24, !9, i64 16}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!24, !9, i64 20}
-!29 = !{!24, !9, i64 24}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 char16_t", !6, i64 0}
-!32 = distinct !{!32, !27}
-!33 = !{!24, !9, i64 12}
-!34 = !{!24, !7, i64 28}
-!35 = !{!24, !9, i64 8}
-!36 = distinct !{!36, !27}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"_ZTS6UTrie2", !39, i64 0, !39, i64 8, !40, i64 16, !9, i64 24, !9, i64 28, !41, i64 32, !41, i64 34, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !6, i64 56, !9, i64 64, !7, i64 68, !7, i64 69, !41, i64 70, !42, i64 72}
-!39 = !{!"p1 short", !6, i64 0}
-!40 = !{!"p1 int", !6, i64 0}
-!41 = !{!"short", !7, i64 0}
-!42 = !{!"p1 _ZTS9UNewTrie2", !6, i64 0}
-!43 = !{!41, !41, i64 0}
-!44 = !{!38, !9, i64 24}
-!45 = !{!38, !9, i64 44}
-!46 = !{!38, !9, i64 48}
-!47 = distinct !{!47, !27}
-!48 = distinct !{!48, !27}
-!49 = !{!50, !9, i64 24}
-!50 = !{!"_ZTSN6icu_7720CheckedArrayByteSinkE", !51, i64 0, !5, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !7, i64 28}
-!51 = !{!"_ZTSN6icu_778ByteSinkE"}
-!52 = !{!50, !7, i64 28}
-!53 = distinct !{!53, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!24, !9, i64 20}
+!30 = !{!24, !9, i64 24}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 char16_t", !6, i64 0}
+!33 = distinct !{!33, !27, !28}
+!34 = !{!24, !9, i64 12}
+!35 = !{!24, !7, i64 28}
+!36 = !{!24, !9, i64 8}
+!37 = distinct !{!37, !27}
+!38 = !{!39, !40, i64 0}
+!39 = !{!"_ZTS6UTrie2", !40, i64 0, !40, i64 8, !41, i64 16, !9, i64 24, !9, i64 28, !42, i64 32, !42, i64 34, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !6, i64 56, !9, i64 64, !7, i64 68, !7, i64 69, !42, i64 70, !43, i64 72}
+!40 = !{!"p1 short", !6, i64 0}
+!41 = !{!"p1 int", !6, i64 0}
+!42 = !{!"short", !7, i64 0}
+!43 = !{!"p1 _ZTS9UNewTrie2", !6, i64 0}
+!44 = !{!42, !42, i64 0}
+!45 = !{!39, !9, i64 24}
+!46 = !{!39, !9, i64 44}
+!47 = !{!39, !9, i64 48}
+!48 = distinct !{!48, !28}
+!49 = distinct !{!49, !28}
+!50 = distinct !{!50, !28}
+!51 = distinct !{!51, !27, !28}
+!52 = distinct !{!52, !27, !28}
+!53 = !{!54, !9, i64 24}
+!54 = !{!"_ZTSN6icu_7720CheckedArrayByteSinkE", !55, i64 0, !5, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !7, i64 28}
+!55 = !{!"_ZTSN6icu_778ByteSinkE"}
+!56 = !{!54, !7, i64 28}
+!57 = distinct !{!57, !27}
+!58 = distinct !{!58, !28}

@@ -1247,28 +1247,28 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %43, ptr %8, align 8, !tbaa !36, !alias.scope !62
+  store ptr %43, ptr %8, align 8, !tbaa !36, !alias.scope !63
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %44, align 8, !tbaa !14, !alias.scope !62
-  store i8 0, ptr %43, align 8, !tbaa !37, !alias.scope !62
+  store i64 0, ptr %44, align 8, !tbaa !14, !alias.scope !63
+  store i8 0, ptr %43, align 8, !tbaa !37, !alias.scope !63
   %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6icu_7013UnicodeString12toUTF8StringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERT_S9_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit unwind label %46
 
 46:                                               ; preds = %42
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = load ptr, ptr %8, align 8, !tbaa !7, !alias.scope !62
+  %48 = load ptr, ptr %8, align 8, !tbaa !7, !alias.scope !63
   %49 = icmp eq ptr %48, %43
   br i1 %49, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %46
-  %50 = load i64, ptr %44, align 8, !tbaa !14, !alias.scope !62
+  %50 = load i64, ptr %44, align 8, !tbaa !14, !alias.scope !63
   %51 = icmp ult i64 %50, 16
   call void @llvm.assume(i1 %51)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %46
-  %52 = load i64, ptr %43, align 8, !tbaa !37, !alias.scope !62
+  %52 = load i64, ptr %43, align 8, !tbaa !37, !alias.scope !63
   %53 = add i64 %52, 1
   call void @_ZdlPvm(ptr noundef %48, i64 noundef %53) #16
   br label %.body
@@ -1540,7 +1540,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125Utf8StringToUnicodeStringERKNSt7__cxx1112b
 40:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125Utf8StringToUnicodeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit32
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
-  br label %.preheader, !llvm.loop !65
+  br label %.preheader, !llvm.loop !66
 
 41:                                               ; preds = %30
   %42 = landingpad { ptr, i32 }
@@ -1586,28 +1586,28 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125Utf8StringToUnicodeStringERKNSt7__cxx1112b
 55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #17
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %56, ptr %11, align 8, !tbaa !36, !alias.scope !66
+  store ptr %56, ptr %11, align 8, !tbaa !36, !alias.scope !67
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %57, align 8, !tbaa !14, !alias.scope !66
-  store i8 0, ptr %56, align 8, !tbaa !37, !alias.scope !66
+  store i64 0, ptr %57, align 8, !tbaa !14, !alias.scope !67
+  store i8 0, ptr %56, align 8, !tbaa !37, !alias.scope !67
   %58 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6icu_7013UnicodeString12toUTF8StringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERT_S9_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit unwind label %59
 
 59:                                               ; preds = %55
   %60 = landingpad { ptr, i32 }
           cleanup
-  %61 = load ptr, ptr %11, align 8, !tbaa !7, !alias.scope !66
+  %61 = load ptr, ptr %11, align 8, !tbaa !7, !alias.scope !67
   %62 = icmp eq ptr %61, %56
   br i1 %62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %59
-  %63 = load i64, ptr %57, align 8, !tbaa !14, !alias.scope !66
+  %63 = load i64, ptr %57, align 8, !tbaa !14, !alias.scope !67
   %64 = icmp ult i64 %63, 16
   call void @llvm.assume(i1 %64)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %59
-  %65 = load i64, ptr %56, align 8, !tbaa !37, !alias.scope !66
+  %65 = load i64, ptr %56, align 8, !tbaa !37, !alias.scope !67
   %66 = add i64 %65, 1
   call void @_ZdlPvm(ptr noundef %61, i64 noundef %66) #16
   br label %.body
@@ -1847,12 +1847,13 @@ attributes #19 = { noreturn }
 !57 = distinct !{!57, !58, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE: argument 0"}
 !58 = distinct !{!58, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE"}
 !59 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!60 = distinct !{!60, !61}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE: argument 0"}
-!64 = distinct !{!64, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE"}
-!65 = distinct !{!65, !61}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE: argument 0"}
-!68 = distinct !{!68, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE"}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE: argument 0"}
+!65 = distinct !{!65, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE"}
+!66 = distinct !{!66, !61, !62}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE: argument 0"}
+!69 = distinct !{!69, !"_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE"}

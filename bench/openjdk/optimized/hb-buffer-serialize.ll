@@ -482,7 +482,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   %182 = getelementptr inbounds nuw i8, ptr %.2.i48, i64 1
   store i8 %181, ptr %.2.i48, align 1
   %183 = getelementptr inbounds nuw i8, ptr %.0102.i, i64 1
-  br label %176, !llvm.loop !12
+  br label %176, !llvm.loop !13
 
 184:                                              ; preds = %176
   %185 = getelementptr inbounds nuw i8, ptr %.1.i47, i64 1
@@ -614,7 +614,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   br i1 %.not.i139.i, label %_ZL9hb_memcpyPvPKvm.exit.i43, label %263
 
 263:                                              ; preds = %261
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0109180.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %262, i1 false), !alias.scope !13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0109180.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %262, i1 false), !alias.scope !14
   br label %_ZL9hb_memcpyPvPKvm.exit.i43
 
 _ZL9hb_memcpyPvPKvm.exit.i43:                     ; preds = %263, %261
@@ -646,7 +646,7 @@ _ZL9hb_memcpyPvPKvm.exit.i43.cont:                ; preds = %_ZL9hb_memcpyPvPKvm
   %.1106.i44 = phi i32 [ %273, %267 ], [ %.0105182.i, %_ZL9hb_memcpyPvPKvm.exit.i43.cont ]
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i
-  br i1 %exitcond.not.i46, label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, label %172, !llvm.loop !17
+  br i1 %exitcond.not.i46, label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, label %172, !llvm.loop !18
 
 ._crit_edge.loopexit.split.loop.exit187.i:        ; preds = %256
   %275 = trunc nuw i64 %indvars.iv.i34 to i32
@@ -768,7 +768,7 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   br i1 %.not.i48.us.i, label %_ZL9hb_memcpyPvPKvm.exit.us.i, label %49
 
 49:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04158.us.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %48, i1 false), !alias.scope !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04158.us.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %48, i1 false), !alias.scope !19
   br label %_ZL9hb_memcpyPvPKvm.exit.us.i
 
 _ZL9hb_memcpyPvPKvm.exit.us.i:                    ; preds = %49, %47
@@ -787,7 +787,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i.cont:               ; preds = %_ZL9hb_memcpyPvPKvm
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %lftr.wideiv69.i = trunc i64 %indvars.iv.next67.i to i32
   %exitcond70.not.i = icmp eq i32 %14, %lftr.wideiv69.i
-  br i1 %exitcond70.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i, !llvm.loop !22
+  br i1 %exitcond70.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i, !llvm.loop !23
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZL9hb_memcpyPvPKvm.exit.i.cont
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZL9hb_memcpyPvPKvm.exit.i.cont ], [ %26, %.lr.ph.i ]
@@ -824,7 +824,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i.cont:               ; preds = %_ZL9hb_memcpyPvPKvm
   br i1 %.not.i48.i, label %_ZL9hb_memcpyPvPKvm.exit.i, label %68
 
 68:                                               ; preds = %66
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04158.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %67, i1 false), !alias.scope !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04158.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %67, i1 false), !alias.scope !19
   br label %_ZL9hb_memcpyPvPKvm.exit.i
 
 _ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %68, %66
@@ -843,7 +843,7 @@ _ZL9hb_memcpyPvPKvm.exit.i.cont:                  ; preds = %_ZL9hb_memcpyPvPKvm
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %14, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i, !llvm.loop !25
 
 ._crit_edge.loopexit.split.loop.exit75.i:         ; preds = %42
   %72 = trunc nuw i64 %indvars.iv66.i to i32
@@ -930,7 +930,7 @@ _ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize
   br i1 %.not.i52.us.i, label %_ZL9hb_memcpyPvPKvm.exit.us.i39, label %107
 
 107:                                              ; preds = %105
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.us.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %106, i1 false), !alias.scope !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.us.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %106, i1 false), !alias.scope !26
   br label %_ZL9hb_memcpyPvPKvm.exit.us.i39
 
 _ZL9hb_memcpyPvPKvm.exit.us.i39:                  ; preds = %107, %105
@@ -949,7 +949,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i39.cont:             ; preds = %_ZL9hb_memcpyPvPKvm
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %lftr.wideiv73.i = trunc i64 %indvars.iv.next71.i to i32
   %exitcond74.not.i = icmp eq i32 %14, %lftr.wideiv73.i
-  br i1 %exitcond74.not.i, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i34, !llvm.loop !29
+  br i1 %exitcond74.not.i, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i34, !llvm.loop !30
 
 .lr.ph.split.i25:                                 ; preds = %.lr.ph.i24, %_ZL9hb_memcpyPvPKvm.exit.i30.cont
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i31, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %83, %.lr.ph.i24 ]
@@ -990,7 +990,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i39.cont:             ; preds = %_ZL9hb_memcpyPvPKvm
   br i1 %.not.i52.i, label %_ZL9hb_memcpyPvPKvm.exit.i30, label %127
 
 127:                                              ; preds = %125
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %126, i1 false), !alias.scope !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %126, i1 false), !alias.scope !26
   br label %_ZL9hb_memcpyPvPKvm.exit.i30
 
 _ZL9hb_memcpyPvPKvm.exit.i30:                     ; preds = %127, %125
@@ -1009,7 +1009,7 @@ _ZL9hb_memcpyPvPKvm.exit.i30.cont:                ; preds = %_ZL9hb_memcpyPvPKvm
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i26, 1
   %lftr.wideiv.i32 = trunc i64 %indvars.iv.next.i31 to i32
   %exitcond.not.i33 = icmp eq i32 %14, %lftr.wideiv.i32
-  br i1 %exitcond.not.i33, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i25, !llvm.loop !30
+  br i1 %exitcond.not.i33, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i25, !llvm.loop !31
 
 ._crit_edge.loopexit.split.loop.exit79.i:         ; preds = %100
   %131 = trunc nuw i64 %indvars.iv70.i to i32
@@ -1185,7 +1185,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
 58:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %59 = getelementptr inbounds nuw i8, ptr %.0201485.i, i64 1
   %60 = icmp ult ptr %59, %55
-  br i1 %60, label %.lr.ph.i, label %.critedge232.i, !llvm.loop !31
+  br i1 %60, label %.lr.ph.i, label %.critedge232.i, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %61 = sext i8 %57 to i32
@@ -1675,7 +1675,7 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
 226:                                              ; preds = %224
   %227 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   %.not229.i = icmp eq ptr %227, %.0202.i
-  br i1 %.not229.i, label %.loopexit453.loopexit.i, label %78
+  br i1 %.not229.i, label %.loopexit453.loopexit.i, label %78, !llvm.loop !33
 
 .loopexit453.loopexit.i:                          ; preds = %226
   %228 = sext i8 %106 to i64
@@ -2073,7 +2073,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
 38:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %.0138298, i64 1
   %40 = icmp ult ptr %39, %35
-  br i1 %40, label %.lr.ph, label %.critedge154, !llvm.loop !32
+  br i1 %40, label %.lr.ph, label %.critedge154, !llvm.loop !34
 
 .critedge:                                        ; preds = %.lr.ph
   %41 = sext i8 %37 to i32
@@ -2718,7 +2718,7 @@ _ZN11hb_buffer_t13ensure_glyphsEv.exit.thread:    ; preds = %139, %137, %136, %1
 242:                                              ; preds = %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
   %243 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %.not153 = icmp eq ptr %243, %35
-  br i1 %.not153, label %.loopexit, label %55
+  br i1 %.not153, label %.loopexit, label %55, !llvm.loop !35
 
 .loopexit:                                        ; preds = %242, %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread, %.critedge154
   %.2 = phi ptr [ %.1, %.critedge154 ], [ %243, %242 ], [ %.3, %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread ]
@@ -2813,7 +2813,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
 35:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %36 = getelementptr inbounds nuw i8, ptr %.09616.i, i64 1
   %37 = icmp ult ptr %36, %33
-  br i1 %37, label %.lr.ph.i, label %.critedge121.i, !llvm.loop !33
+  br i1 %37, label %.lr.ph.i, label %.critedge121.i, !llvm.loop !36
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %38 = sext i8 %34 to i32
@@ -3026,7 +3026,7 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   %.not120.i = icmp eq ptr %130, %.097.i
-  br i1 %.not120.i, label %.loopexit2.loopexit.i, label %55
+  br i1 %.not120.i, label %.loopexit2.loopexit.i, label %55, !llvm.loop !37
 
 .loopexit2.loopexit.i:                            ; preds = %129
   %131 = sext i8 %83 to i64
@@ -3232,27 +3232,31 @@ attributes #11 = { nounwind }
 !7 = distinct !{!7, !8, !"_ZL9hb_memcpyPvPKvm: argument 0"}
 !8 = distinct !{!8, !"_ZL9hb_memcpyPvPKvm"}
 !9 = distinct !{!9, !8, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"_ZL9hb_memcpyPvPKvm: argument 0"}
-!15 = distinct !{!15, !"_ZL9hb_memcpyPvPKvm"}
-!16 = distinct !{!16, !15, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!17 = distinct !{!17, !11}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"_ZL9hb_memcpyPvPKvm: argument 0"}
-!20 = distinct !{!20, !"_ZL9hb_memcpyPvPKvm"}
-!21 = distinct !{!21, !20, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!22 = distinct !{!22, !11, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !11}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"_ZL9hb_memcpyPvPKvm: argument 0"}
-!27 = distinct !{!27, !"_ZL9hb_memcpyPvPKvm"}
-!28 = distinct !{!28, !27, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!29 = distinct !{!29, !11, !23}
-!30 = distinct !{!30, !11}
-!31 = distinct !{!31, !11}
-!32 = distinct !{!32, !11}
-!33 = distinct !{!33, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"_ZL9hb_memcpyPvPKvm: argument 0"}
+!16 = distinct !{!16, !"_ZL9hb_memcpyPvPKvm"}
+!17 = distinct !{!17, !16, !"_ZL9hb_memcpyPvPKvm: argument 1"}
+!18 = distinct !{!18, !11, !12}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"_ZL9hb_memcpyPvPKvm: argument 0"}
+!21 = distinct !{!21, !"_ZL9hb_memcpyPvPKvm"}
+!22 = distinct !{!22, !21, !"_ZL9hb_memcpyPvPKvm: argument 1"}
+!23 = distinct !{!23, !11, !12, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !11, !12}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"_ZL9hb_memcpyPvPKvm: argument 0"}
+!28 = distinct !{!28, !"_ZL9hb_memcpyPvPKvm"}
+!29 = distinct !{!29, !28, !"_ZL9hb_memcpyPvPKvm: argument 1"}
+!30 = distinct !{!30, !11, !12, !24}
+!31 = distinct !{!31, !11, !12}
+!32 = distinct !{!32, !11, !12}
+!33 = distinct !{!33, !12}
+!34 = distinct !{!34, !11, !12}
+!35 = distinct !{!35, !12}
+!36 = distinct !{!36, !11, !12}
+!37 = distinct !{!37, !12}

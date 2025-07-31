@@ -411,7 +411,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
   %57 = getelementptr inbounds nuw i64, ptr %41, i64 %54
   %58 = load i64, ptr %57, align 8
   %.not36.i.i.i13 = icmp eq i64 %58, -1
-  br i1 %.not36.i.i.i13, label %53, label %59, !llvm.loop !8
+  br i1 %.not36.i.i.i13, label %53, label %59, !llvm.loop !9
 
 59:                                               ; preds = %56
   %60 = xor i64 %58, -1
@@ -477,7 +477,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap22next_committable_rangeEj(ptr noun
   %26 = getelementptr inbounds nuw i64, ptr %10, i64 %23
   %27 = load i64, ptr %26, align 8
   %.not36.i.i.i = icmp eq i64 %27, -1
-  br i1 %.not36.i.i.i, label %22, label %28, !llvm.loop !8
+  br i1 %.not36.i.i.i, label %22, label %28, !llvm.loop !9
 
 28:                                               ; preds = %25
   %29 = xor i64 %27, -1
@@ -671,7 +671,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
   %59 = getelementptr inbounds nuw i64, ptr %43, i64 %56
   %60 = load i64, ptr %59, align 8
   %.not36.i.i.i13 = icmp eq i64 %60, -1
-  br i1 %.not36.i.i.i13, label %55, label %61, !llvm.loop !8
+  br i1 %.not36.i.i.i13, label %55, label %61, !llvm.loop !9
 
 61:                                               ; preds = %58
   %62 = xor i64 %60, -1
@@ -859,6 +859,7 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

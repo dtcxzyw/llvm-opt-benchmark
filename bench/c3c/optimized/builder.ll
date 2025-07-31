@@ -334,12 +334,12 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
 60:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit494, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit494, label %.lr.ph, !llvm.loop !10
 
 .loopexit494:                                     ; preds = %60, %35, %39, %vec_erase_ptr_at.exit
   %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
   %exitcond531.not = icmp eq i64 %indvars.iv.next528, %wide.trip.count530
-  br i1 %exitcond531.not, label %._crit_edge, label %35, !llvm.loop !10
+  br i1 %exitcond531.not, label %._crit_edge, label %35, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit494, %24, %31
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 41096
@@ -379,7 +379,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
 74:                                               ; preds = %.lr.ph501
   %indvars.iv.next533 = add nuw nsw i64 %indvars.iv532, 1
   %exitcond536.not = icmp eq i64 %indvars.iv.next533, %wide.trip.count535
-  br i1 %exitcond536.not, label %._crit_edge502, label %.lr.ph501, !llvm.loop !11
+  br i1 %exitcond536.not, label %._crit_edge502, label %.lr.ph501, !llvm.loop !12
 
 .lr.ph501:                                        ; preds = %.lr.ph501.preheader, %74
   %indvars.iv532 = phi i64 [ 0, %.lr.ph501.preheader ], [ %indvars.iv.next533, %74 ]
@@ -450,7 +450,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
 .loopexit:                                        ; preds = %.lr.ph501, %100
   %indvars.iv.next538 = add nuw nsw i64 %indvars.iv537, 1
   %exitcond541.not = icmp eq i64 %indvars.iv.next538, %wide.trip.count540
-  br i1 %exitcond541.not, label %._crit_edge506, label %67, !llvm.loop !12
+  br i1 %exitcond541.not, label %._crit_edge506, label %67, !llvm.loop !13
 
 ._crit_edge506:                                   ; preds = %.loopexit, %._crit_edge, %63
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 41290
@@ -668,7 +668,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   %216 = load i32, ptr %171, align 8
   %217 = sext i32 %216 to i64
   %218 = icmp slt i64 %indvars.iv.next543, %217
-  br i1 %218, label %181, label %.preheader493, !llvm.loop !13
+  br i1 %218, label %181, label %.preheader493, !llvm.loop !14
 
 .preheader492:                                    ; preds = %249, %.preheader493
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 40992
@@ -744,7 +744,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   %259 = load i32, ptr %176, align 8
   %260 = sext i32 %259 to i64
   %261 = icmp slt i64 %indvars.iv.next546, %260
-  br i1 %261, label %224, label %.preheader492, !llvm.loop !14
+  br i1 %261, label %224, label %.preheader492, !llvm.loop !15
 
 262:                                              ; preds = %.lr.ph513, %287
   %indvars.iv548 = phi i64 [ 0, %.lr.ph513 ], [ %indvars.iv.next549, %287 ]
@@ -809,7 +809,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   %297 = load i32, ptr %219, align 8
   %298 = sext i32 %297 to i64
   %299 = icmp slt i64 %indvars.iv.next549, %298
-  br i1 %299, label %262, label %._crit_edge514, !llvm.loop !15
+  br i1 %299, label %262, label %._crit_edge514, !llvm.loop !16
 
 ._crit_edge514:                                   ; preds = %287, %.preheader492
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 41188
@@ -1396,7 +1396,7 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   %589 = load i32, ptr %545, align 8
   %590 = sext i32 %589 to i64
   %591 = icmp slt i64 %indvars.iv.next552, %590
-  br i1 %591, label %554, label %.preheader, !llvm.loop !16
+  br i1 %591, label %554, label %.preheader, !llvm.loop !17
 
 592:                                              ; preds = %.lr.ph519, %617
   %indvars.iv554 = phi i64 [ 0, %.lr.ph519 ], [ %indvars.iv.next555, %617 ]
@@ -1461,7 +1461,7 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   %627 = load i32, ptr %549, align 8
   %628 = sext i32 %627 to i64
   %629 = icmp slt i64 %indvars.iv.next555, %628
-  br i1 %629, label %592, label %._crit_edge520, !llvm.loop !17
+  br i1 %629, label %592, label %._crit_edge520, !llvm.loop !18
 
 ._crit_edge520:                                   ; preds = %617, %.preheader
   %630 = getelementptr inbounds nuw i8, ptr %1, i64 41264
@@ -1673,14 +1673,15 @@ attributes #7 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}

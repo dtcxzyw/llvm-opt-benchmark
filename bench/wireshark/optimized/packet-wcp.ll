@@ -683,7 +683,7 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
   %.1129.i = phi i8 [ %288, %287 ], [ %291, %289 ]
   %.3.i = phi i32 [ %.2.i, %287 ], [ %295, %289 ]
   %297 = icmp slt i32 %.3.i, %145
-  br i1 %297, label %176, label %._crit_edge.i, !llvm.loop !8
+  br i1 %297, label %176, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %296, %169
   %.0168.lcssa.i = phi i32 [ 0, %169 ], [ %.2170.i, %296 ]
@@ -727,7 +727,7 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
   %321 = call noalias dereferenceable_or_null(2050) ptr @wmem_alloc0(ptr noundef %320, i64 noundef 2050) #7
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 2
   %323 = load ptr, ptr %.013.i.i73, align 8
-  %324 = call ptr @__memcpy_chk(ptr noundef nonnull %322, ptr noundef %323, i64 noundef range(i64 -2147483648, 2147483648) %310, i64 noundef 2048) #6, !alias.scope !9
+  %324 = call ptr @__memcpy_chk(ptr noundef nonnull %322, ptr noundef %323, i64 noundef range(i64 -2147483648, 2147483648) %310, i64 noundef 2048) #6, !alias.scope !10
   %325 = trunc i32 %.0168.lcssa.i to i16
   store i16 %325, ptr %321, align 2
   %326 = call ptr @wmem_file_scope()
@@ -893,10 +893,11 @@ attributes #8 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}

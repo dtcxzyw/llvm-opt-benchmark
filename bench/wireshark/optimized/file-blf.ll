@@ -1923,7 +1923,7 @@ dissect_blf_lobj.exit:                            ; preds = %24, %64, %.thread
   %.120 = phi i32 [ %20, %19 ], [ %417, %dissect_blf_lobj.exit ]
   %419 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.120)
   %420 = icmp sgt i32 %419, 15
-  br i1 %420, label %.lr.ph36, label %._crit_edge, !llvm.loop !8
+  br i1 %420, label %.lr.ph36, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %418, %4
   %.019.lcssa = phi i32 [ %3, %4 ], [ %.120, %418 ]
@@ -2014,6 +2014,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

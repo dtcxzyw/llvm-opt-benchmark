@@ -233,7 +233,7 @@ check_flag.exit77:                                ; preds = %.lr.ph
   %99 = load double, ptr %3, align 8, !tbaa !4
   %100 = fsub double 1.000000e+01, %99
   %101 = fcmp ogt double %100, 1.000000e-15
-  br i1 %101, label %.lr.ph, label %.loopexit
+  br i1 %101, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %83, %check_flag.exit77
   %puts56 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -339,23 +339,23 @@ check_flag.exit95:                                ; preds = %check_flag.exit93, 
 
 check_flag.exit97:                                ; preds = %check_flag.exit95, %150
   %puts57 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %153 = load i64, ptr %4, align 8, !tbaa !22
-  %154 = load i64, ptr %5, align 8, !tbaa !22
+  %153 = load i64, ptr %4, align 8, !tbaa !24
+  %154 = load i64, ptr %5, align 8, !tbaa !24
   %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %153, i64 noundef %154)
-  %156 = load i64, ptr %6, align 8, !tbaa !22
-  %157 = load i64, ptr %7, align 8, !tbaa !22
+  %156 = load i64, ptr %6, align 8, !tbaa !24
+  %157 = load i64, ptr %7, align 8, !tbaa !24
   %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %156, i64 noundef %157)
-  %159 = load i64, ptr %8, align 8, !tbaa !22
+  %159 = load i64, ptr %8, align 8, !tbaa !24
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i64 noundef %159)
-  %161 = load i64, ptr %10, align 8, !tbaa !22
+  %161 = load i64, ptr %10, align 8, !tbaa !24
   %162 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %161)
-  %163 = load i64, ptr %9, align 8, !tbaa !22
+  %163 = load i64, ptr %9, align 8, !tbaa !24
   %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %163)
-  %165 = load i64, ptr %11, align 8, !tbaa !22
+  %165 = load i64, ptr %11, align 8, !tbaa !24
   %166 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %165)
-  %167 = load i64, ptr %12, align 8, !tbaa !22
+  %167 = load i64, ptr %12, align 8, !tbaa !24
   %168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i64 noundef %167)
-  %169 = load i64, ptr %13, align 8, !tbaa !22
+  %169 = load i64, ptr %13, align 8, !tbaa !24
   %170 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i64 noundef %169)
   %171 = load double, ptr %3, align 8, !tbaa !4
   %.val = load ptr, ptr %25, align 8, !tbaa !14
@@ -413,7 +413,7 @@ define internal noundef i32 @f(double noundef %0, ptr noundef readonly captures(
   %10 = tail call double @llvm.fmuladd.f64(double %0, double %0, double 1.000000e+00)
   %11 = fdiv double 1.000000e+00, %10
   %12 = tail call double @llvm.fmuladd.f64(double %5, double %9, double %11)
-  %13 = tail call double @atan(double noundef %0) #9, !tbaa !23
+  %13 = tail call double @atan(double noundef %0) #9, !tbaa !25
   %14 = fneg double %5
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %13, double %12)
   %16 = load ptr, ptr %2, align 8, !tbaa !14
@@ -476,7 +476,7 @@ declare i32 @ARKodeGetNumLinRhsEvals(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @check_ans(double %.0.val.16.val.0.val, double noundef %0) unnamed_addr #5 {
-  %2 = tail call double @atan(double noundef %0) #9, !tbaa !23
+  %2 = tail call double @atan(double noundef %0) #9, !tbaa !25
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = tail call double @llvm.fmuladd.f64(double %3, double 0x3EB0C6F7A0B5ED8D, double 1.000000e-10)
   %5 = fdiv double 1.000000e+00, %4
@@ -562,5 +562,7 @@ attributes #10 = { cold nounwind }
 !19 = !{!"long", !6, i64 0}
 !20 = !{!"int", !6, i64 0}
 !21 = !{!"p1 double", !10, i64 0}
-!22 = !{!19, !19, i64 0}
-!23 = !{!20, !20, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!19, !19, i64 0}
+!25 = !{!20, !20, i64 0}

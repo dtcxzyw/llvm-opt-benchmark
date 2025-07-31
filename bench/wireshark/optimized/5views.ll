@@ -181,7 +181,7 @@ define internal zeroext i1 @_5views_read(ptr noundef readonly captures(none) %0,
 39:                                               ; preds = %36
   %40 = load ptr, ptr %0, align 8
   %41 = call zeroext i1 @wtap_read_bytes(ptr noundef %40, ptr noundef null, i32 noundef %33, ptr noundef %2, ptr noundef %3)
-  br i1 %41, label %19, label %_5views_read_header.exit
+  br i1 %41, label %19, label %_5views_read_header.exit, !llvm.loop !6
 
 42:                                               ; preds = %36
   %43 = icmp ugt i32 %33, 262144
@@ -530,3 +530,5 @@ attributes #7 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

@@ -736,7 +736,7 @@ get_meta.exit:                                    ; preds = %261, %225, %224, %2
 ._crit_edge:                                      ; preds = %318, %.preheader
   %.0136.lcssa = phi i64 [ 0, %.preheader ], [ %.2138, %318 ]
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %321 = load ptr, ptr %320, align 8, !tbaa !59
+  %321 = load ptr, ptr %320, align 8, !tbaa !60
   %322 = call i32 @ff_replaygain_export(ptr noundef nonnull %18, ptr noundef %321) #7
   %323 = icmp slt i32 %322, 0
   br i1 %323, label %get_tag.exit.thread, label %.loopexit
@@ -783,14 +783,14 @@ get_meta.exit:                                    ; preds = %261, %225, %224, %2
   %344 = load i32, ptr %343, align 8, !tbaa !43
   call void @avpriv_set_pts_info(ptr noundef nonnull %18, i32 noundef 64, i32 noundef 1, i32 noundef %344) #7
   %345 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i64 0, ptr %345, align 8, !tbaa !60
+  store i64 0, ptr %345, align 8, !tbaa !61
   %346 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %347 = load i64, ptr %346, align 8, !tbaa !49
   %348 = load i32, ptr %339, align 8, !tbaa !46
   %349 = sext i32 %348 to i64
   %350 = mul nsw i64 %347, %349
   %351 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store i64 %350, ptr %351, align 8, !tbaa !61
+  store i64 %350, ptr %351, align 8, !tbaa !62
   %352 = call i64 @avio_seek(ptr noundef %5, i64 noundef %.1137, i32 noundef 0) #7
   br label %get_tag.exit.thread
 
@@ -862,14 +862,14 @@ define internal range(i32 -2147483648, 1) i32 @aiff_read_packet(ptr noundef %0, 
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !62
+  %39 = load i32, ptr %38, align 8, !tbaa !63
   %40 = and i32 %39, -3
-  store i32 %40, ptr %38, align 8, !tbaa !62
+  store i32 %40, ptr %38, align 8, !tbaa !63
   br label %41
 
 41:                                               ; preds = %37, %33
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %42, align 4, !tbaa !63
+  store i32 0, ptr %42, align 4, !tbaa !64
   %43 = sdiv i32 %31, %36
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -877,7 +877,7 @@ define internal range(i32 -2147483648, 1) i32 @aiff_read_packet(ptr noundef %0, 
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, %44
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %48, ptr %49, align 8, !tbaa !64
+  store i64 %48, ptr %49, align 8, !tbaa !65
   br label %50
 
 50:                                               ; preds = %26, %23, %2, %41, %19
@@ -1031,11 +1031,12 @@ attributes #8 = { nounwind willreturn memory(none) }
 !54 = !{!"AVIOContext", !14, i64 0, !6, i64 8, !10, i64 16, !6, i64 24, !6, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !22, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !22, i64 104, !6, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !10, i64 144, !10, i64 148, !6, i64 152, !6, i64 160, !7, i64 168, !10, i64 176, !6, i64 184, !22, i64 192, !22, i64 200}
 !55 = !{!39, !6, i64 16}
 !56 = !{!39, !22, i64 48}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!13, !24, i64 192}
-!60 = !{!32, !22, i64 40}
-!61 = !{!32, !22, i64 48}
-!62 = !{!35, !10, i64 40}
-!63 = !{!35, !10, i64 36}
-!64 = !{!35, !22, i64 64}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = !{!13, !24, i64 192}
+!61 = !{!32, !22, i64 40}
+!62 = !{!32, !22, i64 48}
+!63 = !{!35, !10, i64 40}
+!64 = !{!35, !10, i64 36}
+!65 = !{!35, !22, i64 64}

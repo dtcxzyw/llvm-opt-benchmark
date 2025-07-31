@@ -201,7 +201,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEEPKT_PKc.exit, label %19
 
@@ -390,7 +390,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEEEEEPKT_PKc.exit, label %19
 
@@ -574,7 +574,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEEEEEPKT_PKc.exit, label %19
 
@@ -763,7 +763,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEEPKT_PKc.exit, label %19
 
@@ -947,7 +947,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEEPKT_PKc.exit, label %19
 
@@ -1136,7 +1136,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -1320,7 +1320,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEEPKT_PKc.exit, label %19
 
@@ -1509,7 +1509,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -1693,7 +1693,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -1877,7 +1877,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -2061,7 +2061,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -2245,7 +2245,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -2429,7 +2429,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -2613,7 +2613,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -2797,7 +2797,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -2981,7 +2981,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -3165,7 +3165,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -3349,7 +3349,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -3533,7 +3533,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -3717,7 +3717,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -3901,7 +3901,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEEPKT_PKc.exit, label %19
 
@@ -4085,7 +4085,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -4269,7 +4269,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -4453,7 +4453,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -4642,7 +4642,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINS_8RationalEEEEEPKT_PKc.exit, label %19
 
@@ -4826,7 +4826,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -5010,7 +5010,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -5194,7 +5194,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -5378,7 +5378,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -5562,7 +5562,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -5746,7 +5746,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -5930,7 +5930,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -6114,7 +6114,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -6298,7 +6298,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -6482,7 +6482,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -6666,7 +6666,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -6850,7 +6850,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -7034,7 +7034,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -7218,7 +7218,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -7402,7 +7402,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -7591,7 +7591,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINS_7KeyCodeEEEEEPKT_PKc.exit, label %19
 
@@ -7780,7 +7780,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINS_8TimeCodeEEEEEPKT_PKc.exit, label %19
 
@@ -7964,7 +7964,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINS_8RationalEEEEEPKT_PKc.exit, label %19
 
@@ -8153,7 +8153,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIiEEEEPKT_PKc.exit, label %19
 
@@ -8337,7 +8337,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -8526,7 +8526,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINS_14ChromaticitiesEEEEEPKT_PKc.exit, label %19
 
@@ -8710,7 +8710,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -8894,7 +8894,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEEPKT_PKc.exit, label %19
 
@@ -9078,7 +9078,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -9262,7 +9262,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -9451,7 +9451,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINS_6EnvmapEEEEEPKT_PKc.exit, label %19
 
@@ -9635,7 +9635,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %19
 
@@ -9824,7 +9824,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEEEPKT_PKc.exit, label %19
 
@@ -10013,7 +10013,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINS_14DeepImageStateEEEEEPKT_PKc.exit, label %19
 
@@ -10197,7 +10197,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %19
 
@@ -10386,7 +10386,7 @@ _ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4find
 
 15:                                               ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 288
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINS_20CompressedIDManifestEEEEEPKT_PKc.exit, label %19
 
@@ -10569,9 +10569,10 @@ attributes #13 = { noreturn }
 !11 = !{!"any pointer", !4, i64 0}
 !12 = !{!"long", !4, i64 0}
 !13 = !{!10, !10, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !19, i64 256}
-!17 = !{!"_ZTSSt4pairIKN7Imf_3_44NameEPNS0_9AttributeEE", !18, i64 0, !19, i64 256}
-!18 = !{!"_ZTSN7Imf_3_44NameE", !4, i64 0}
-!19 = !{!"p1 _ZTSN7Imf_3_49AttributeE", !11, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !20, i64 256}
+!18 = !{!"_ZTSSt4pairIKN7Imf_3_44NameEPNS0_9AttributeEE", !19, i64 0, !20, i64 256}
+!19 = !{!"_ZTSN7Imf_3_44NameE", !4, i64 0}
+!20 = !{!"p1 _ZTSN7Imf_3_49AttributeE", !11, i64 0}

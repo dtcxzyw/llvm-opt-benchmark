@@ -271,7 +271,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %170 = inttoptr i64 %169 to ptr
   %171 = add nsw i32 %.0207, -1
   %172 = icmp sgt i32 %.0207, 1
-  br i1 %172, label %117, label %.loopexit, !llvm.loop !8
+  br i1 %172, label %117, label %.loopexit, !llvm.loop !9
 
 173:                                              ; preds = %.preheader260, %218
   %.2221 = phi ptr [ %223, %218 ], [ %100, %.preheader260 ]
@@ -339,7 +339,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %215 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %216 = add nsw i32 %.0229, -1
   %217 = icmp sgt i32 %.0229, 1
-  br i1 %217, label %174, label %218, !llvm.loop !9
+  br i1 %217, label %174, label %218, !llvm.loop !10
 
 218:                                              ; preds = %211
   %219 = add nsw i64 %213, %113
@@ -349,7 +349,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %223 = inttoptr i64 %222 to ptr
   %224 = add nsw i32 %.1208, -1
   %225 = icmp sgt i32 %.1208, 1
-  br i1 %225, label %173, label %.loopexit, !llvm.loop !10
+  br i1 %225, label %173, label %.loopexit, !llvm.loop !11
 
 226:                                              ; preds = %.preheader262, %268
   %.4223 = phi ptr [ %273, %268 ], [ %100, %.preheader262 ]
@@ -414,7 +414,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %265 = getelementptr inbounds nuw i8, ptr %.5, i64 4
   %266 = add nsw i32 %.0228, -1
   %267 = icmp sgt i32 %.0228, 1
-  br i1 %267, label %227, label %268, !llvm.loop !11
+  br i1 %267, label %227, label %268, !llvm.loop !12
 
 268:                                              ; preds = %261
   %269 = add nsw i64 %263, %111
@@ -424,7 +424,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %273 = inttoptr i64 %272 to ptr
   %274 = add nsw i32 %.2209, -1
   %275 = icmp sgt i32 %.2209, 1
-  br i1 %275, label %226, label %.loopexit, !llvm.loop !12
+  br i1 %275, label %226, label %.loopexit, !llvm.loop !13
 
 276:                                              ; preds = %.preheader264, %315
   %.6225 = phi ptr [ %320, %315 ], [ %100, %.preheader264 ]
@@ -482,7 +482,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %312 = getelementptr inbounds nuw i8, ptr %.7, i64 4
   %313 = add nsw i32 %.0204, -1
   %314 = icmp sgt i32 %.0204, 1
-  br i1 %314, label %277, label %315, !llvm.loop !13
+  br i1 %314, label %277, label %315, !llvm.loop !14
 
 315:                                              ; preds = %308
   %316 = add nsw i64 %310, %109
@@ -492,7 +492,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %320 = inttoptr i64 %319 to ptr
   %321 = add nsw i32 %.3210, -1
   %322 = icmp sgt i32 %.3210, 1
-  br i1 %322, label %276, label %.loopexit, !llvm.loop !14
+  br i1 %322, label %276, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %315, %268, %218, %165, %77
   %323 = shl i32 %89, 2
@@ -545,12 +545,13 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

@@ -557,7 +557,7 @@ _ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit: ; preds = %.lr.ph.i, %33, %.ba
 
 .backedge.backedge:                               ; preds = %38, %123
   %.be = phi ptr [ %39, %38 ], [ %124, %123 ]
-  br label %.backedge, !llvm.loop !29
+  br label %.backedge, !llvm.loop !30
 
 40:                                               ; preds = %35
   %41 = ptrtoint ptr %.0.lcssa.i to i64
@@ -581,7 +581,7 @@ _ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit: ; preds = %.lr.ph.i, %33, %.ba
 45:                                               ; preds = %.lr.ph.i59
   %46 = getelementptr inbounds nuw i8, ptr %.01518.i, i64 1
   %exitcond.not.i60 = icmp eq ptr %46, %23
-  br i1 %exitcond.not.i60, label %._crit_edge.loopexit.i, label %.lr.ph.i59, !llvm.loop !30
+  br i1 %exitcond.not.i60, label %._crit_edge.loopexit.i, label %.lr.ph.i59, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %45, %.lr.ph.i59, %.lr.ph.i59, %.lr.ph.i59
   %.015.lcssa.ph.i = phi ptr [ %scevgep.i58, %45 ], [ %.01518.i, %.lr.ph.i59 ], [ %.01518.i, %.lr.ph.i59 ], [ %.01518.i, %.lr.ph.i59 ]
@@ -602,7 +602,7 @@ _ZN6icu_7712_GLOBAL__N_113findTagLengthEPKcS2_.exit: ; preds = %40, %._crit_edge
 50:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_113findTagLengthEPKcS2_.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6)
-  store i32 0, ptr %25, align 8, !tbaa !31
+  store i32 0, ptr %25, align 8, !tbaa !32
   %51 = load ptr, ptr %6, align 8, !tbaa !3
   store i8 0, ptr %51, align 1, !tbaa !26
   %52 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %6, ptr noundef nonnull %.0.lcssa.i, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -635,7 +635,7 @@ _ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %50
           to label %59 unwind label %61
 
 59:                                               ; preds = %57
-  %60 = load i8, ptr %26, align 8, !tbaa !33
+  %60 = load i8, ptr %26, align 8, !tbaa !34
   %.not49 = icmp eq i8 %60, 0
   br i1 %.not49, label %63, label %.thread93
 
@@ -842,11 +842,11 @@ _ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit88: ; preds = %.lr.ph.i85, %114,
   br i1 %127, label %128, label %_ZN6icu_7718LocalePriorityList4sortER10UErrorCode.exit
 
 128:                                              ; preds = %.loopexit
-  %129 = load i32, ptr %8, align 8, !tbaa !36
-  %130 = load i32, ptr %9, align 4, !tbaa !37
+  %129 = load i32, ptr %8, align 8, !tbaa !37
+  %130 = load i32, ptr %9, align 4, !tbaa !38
   %131 = sub nsw i32 %129, %130
   %132 = icmp sgt i32 %131, 1
-  %133 = load i8, ptr %10, align 8, !range !38
+  %133 = load i8, ptr %10, align 8, !range !39
   %134 = trunc nuw i8 %133 to i1
   %or.cond.i = select i1 %132, i1 %134, i1 false
   br i1 %or.cond.i, label %135, label %_ZN6icu_7718LocalePriorityList4sortER10UErrorCode.exit
@@ -968,7 +968,7 @@ _ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit: ; preds = %.lr.ph.i, %10, %2
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %41, ptr %0, align 8, !tbaa !25
   %.not41 = icmp eq ptr %41, %1
-  br i1 %.not41, label %.critedge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not41, label %.critedge, label %.lr.ph, !llvm.loop !40
 
 .critedge:                                        ; preds = %40, %.lr.ph, %.preheader
   %.032.lcssa = phi i32 [ %19, %.preheader ], [ %.03243, %.lr.ph ], [ %.133, %40 ]
@@ -1027,14 +1027,14 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
   %25 = sext i32 %20 to i64
   %.val = load ptr, ptr %24, align 8, !tbaa !21
   %26 = getelementptr inbounds %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !40
-  store ptr null, ptr %26, align 8, !tbaa !40
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
+  store ptr null, ptr %26, align 8, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 0, ptr %28, align 8, !tbaa !43
+  store i32 0, ptr %28, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !37
+  %30 = load i32, ptr %29, align 4, !tbaa !38
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %29, align 4, !tbaa !37
+  store i32 %31, ptr %29, align 4, !tbaa !38
   %32 = icmp slt i32 %2, 1
   br i1 %32, label %33, label %36
 
@@ -1054,7 +1054,7 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
 
 38:                                               ; preds = %.thread67
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 216
-  %40 = load i8, ptr %39, align 8, !tbaa !33
+  %40 = load i8, ptr %39, align 8, !tbaa !34
   %.not36 = icmp ne i8 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %42 = load i8, ptr %41, align 8
@@ -1069,7 +1069,7 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
 44:                                               ; preds = %38, %36
   %.sroa.0.4 = phi ptr [ %27, %36 ], [ %37, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !36
+  %46 = load i32, ptr %45, align 8, !tbaa !37
   %47 = load ptr, ptr %0, align 8, !tbaa !20
   %48 = getelementptr i8, ptr %47, i64 8
   %.val43 = load i32, ptr %48, align 8, !tbaa !24
@@ -1105,7 +1105,7 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
 
 63:                                               ; preds = %58, %56
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  %.val19.i = load i8, ptr %64, align 4, !tbaa !44
+  %.val19.i = load i8, ptr %64, align 4, !tbaa !45
   %.not.i.i = icmp eq i8 %.val19.i, 0
   br i1 %.not.i.i, label %_ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.exit, label %65
 
@@ -1117,8 +1117,8 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
 _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.exit: ; preds = %63, %65
   store ptr %55, ptr %47, align 8, !tbaa !21
   store i32 %spec.select, ptr %48, align 8, !tbaa !24
-  store i8 1, ptr %64, align 4, !tbaa !44
-  %.pre = load i32, ptr %45, align 8, !tbaa !36
+  store i8 1, ptr %64, align 4, !tbaa !45
+  %.pre = load i32, ptr %45, align 8, !tbaa !37
   br label %.critedge
 
 66:                                               ; preds = %.noexc
@@ -1148,23 +1148,23 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %0, align 8, !tbaa !20
-  %76 = load i32, ptr %45, align 8, !tbaa !36
+  %76 = load i32, ptr %45, align 8, !tbaa !37
   %77 = sext i32 %76 to i64
   %.val42 = load ptr, ptr %75, align 8, !tbaa !21
   %78 = getelementptr inbounds %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val42, i64 %77
-  store ptr %.sroa.0.4, ptr %78, align 8, !tbaa !40
+  store ptr %.sroa.0.4, ptr %78, align 8, !tbaa !41
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 %2, ptr %79, align 8, !tbaa !43
+  store i32 %2, ptr %79, align 8, !tbaa !44
   %80 = add nsw i32 %76, 1
-  store i32 %80, ptr %45, align 8, !tbaa !36
+  store i32 %80, ptr %45, align 8, !tbaa !37
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 12
-  store i32 %76, ptr %81, align 4, !tbaa !45
+  store i32 %76, ptr %81, align 4, !tbaa !46
   %82 = icmp samesign ult i32 %2, 1000
   br i1 %82, label %83, label %.thread
 
 83:                                               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %84, align 8, !tbaa !46
+  store i8 1, ptr %84, align 8, !tbaa !47
   br label %.thread
 
 .thread:                                          ; preds = %83, %74
@@ -1185,7 +1185,7 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
 88:                                               ; preds = %.thread70, %85
   %.sroa.0.372 = phi ptr [ %.sroa.0.4, %.thread70 ], [ %.sroa.0.3, %85 ]
   %89 = phi i1 [ false, %.thread70 ], [ %86, %85 ]
-  %90 = load ptr, ptr %.sroa.0.372, align 8, !tbaa !47
+  %90 = load ptr, ptr %.sroa.0.372, align 8, !tbaa !48
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(217) %.sroa.0.372) #17
@@ -1206,7 +1206,7 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
 95:                                               ; preds = %.sink.split, %93
   %.pn79 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %93 ], [ %.pn79.ph, %.sink.split ]
   %.sroa.0.278 = phi ptr [ %27, %93 ], [ %.sroa.0.4, %.sink.split ]
-  %96 = load ptr, ptr %.sroa.0.278, align 8, !tbaa !47
+  %96 = load ptr, ptr %.sroa.0.278, align 8, !tbaa !48
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(217) %.sroa.0.278) #17
@@ -1232,13 +1232,13 @@ define void @_ZN6icu_7718LocalePriorityList4sortER10UErrorCode(ptr noundef nonnu
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !36
+  %7 = load i32, ptr %6, align 8, !tbaa !37
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !37
+  %9 = load i32, ptr %8, align 4, !tbaa !38
   %10 = sub nsw i32 %7, %9
   %11 = icmp sgt i32 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i8, ptr %12, align 8, !range !38
+  %13 = load i8, ptr %12, align 8, !range !39
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %11, i1 %14, i1 false
   br i1 %or.cond, label %15, label %17
@@ -1261,7 +1261,7 @@ define void @_ZN6icu_7718LocalePriorityListD2Ev(ptr noundef nonnull readonly ali
 
 .preheader:                                       ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !36
+  %4 = load i32, ptr %3, align 8, !tbaa !37
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
 
@@ -1276,16 +1276,16 @@ define void @_ZN6icu_7718LocalePriorityListD2Ev(ptr noundef nonnull readonly ali
   %8 = load ptr, ptr %0, align 8, !tbaa !20
   %.val = load ptr, ptr %8, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !40
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = load ptr, ptr %10, align 8, !tbaa !47
+  %13 = load ptr, ptr %10, align 8, !tbaa !48
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(217) %10) #17
-  %.pre = load i32, ptr %3, align 8, !tbaa !36
+  %.pre = load i32, ptr %3, align 8, !tbaa !37
   br label %16
 
 16:                                               ; preds = %.lr.ph, %12
@@ -1293,12 +1293,12 @@ define void @_ZN6icu_7718LocalePriorityListD2Ev(ptr noundef nonnull readonly ali
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %20 = phi ptr [ %.pre7, %._crit_edge ], [ %2, %.preheader ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %.val1.i = load i8, ptr %21, align 4, !tbaa !44
+  %.val1.i = load i8, ptr %21, align 4, !tbaa !45
   %.not.i.i.i = icmp eq i8 %.val1.i, 0
   br i1 %.not.i.i.i, label %_ZN6icu_7720LocaleAndWeightArrayD2Ev.exit, label %22
 
@@ -1343,7 +1343,7 @@ define noundef ptr @_ZNK6icu_7718LocalePriorityList8localeAtEi(ptr noundef nonnu
   %4 = sext i32 %1 to i64
   %.val = load ptr, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val, i64 %4
-  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
   ret ptr %6
 }
 
@@ -1357,8 +1357,8 @@ define noundef ptr @_ZN6icu_7718LocalePriorityList14orphanLocaleAtEi(ptr noundef
   %6 = sext i32 %1 to i64
   %.val = load ptr, ptr %3, align 8, !tbaa !21
   %7 = getelementptr inbounds %"struct.icu_77::(anonymous namespace)::LocaleAndWeight", ptr %.val, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
-  store ptr null, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  store ptr null, ptr %7, align 8, !tbaa !41
   br label %9
 
 9:                                                ; preds = %2, %5
@@ -1396,11 +1396,11 @@ declare void @uprv_sortArray_77(ptr noundef, i32 noundef, i32 noundef, ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_122compareLocaleAndWeightEPKvS2_S2_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #15 {
   %4 = getelementptr i8, ptr %1, i64 8
-  %.val = load i32, ptr %4, align 8, !tbaa !43
+  %.val = load i32, ptr %4, align 8, !tbaa !44
   %5 = getelementptr i8, ptr %1, i64 12
   %.val2 = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %2, i64 8
-  %.val3 = load i32, ptr %6, align 8, !tbaa !43
+  %.val3 = load i32, ptr %6, align 8, !tbaa !44
   %7 = getelementptr i8, ptr %2, i64 12
   %.val4 = load i32, ptr %7, align 4
   %8 = sub nsw i32 %.val3, %.val
@@ -1469,26 +1469,27 @@ attributes #19 = { noreturn nounwind }
 !24 = !{!22, !9, i64 8}
 !25 = !{!5, !5, i64 0}
 !26 = !{!7, !7, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28}
-!30 = distinct !{!30, !28}
-!31 = !{!32, !9, i64 56}
-!32 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!33 = !{!34, !7, i64 216}
-!34 = !{!"_ZTSN6icu_776LocaleE", !35, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
-!35 = !{!"_ZTSN6icu_777UObjectE"}
-!36 = !{!16, !9, i64 8}
-!37 = !{!16, !9, i64 12}
-!38 = !{i8 0, i8 2}
-!39 = distinct !{!39, !28}
-!40 = !{!41, !42, i64 0}
-!41 = !{!"_ZTSN6icu_7712_GLOBAL__N_115LocaleAndWeightE", !42, i64 0, !9, i64 8, !9, i64 12}
-!42 = !{!"p1 _ZTSN6icu_776LocaleE", !6, i64 0}
-!43 = !{!41, !9, i64 8}
-!44 = !{!22, !7, i64 12}
-!45 = !{!41, !9, i64 12}
-!46 = !{!16, !18, i64 16}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"vtable pointer", !8, i64 0}
-!49 = distinct !{!49, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !28, !29}
+!31 = distinct !{!31, !28, !29}
+!32 = !{!33, !9, i64 56}
+!33 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!34 = !{!35, !7, i64 216}
+!35 = !{!"_ZTSN6icu_776LocaleE", !36, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
+!36 = !{!"_ZTSN6icu_777UObjectE"}
+!37 = !{!16, !9, i64 8}
+!38 = !{!16, !9, i64 12}
+!39 = !{i8 0, i8 2}
+!40 = distinct !{!40, !28, !29}
+!41 = !{!42, !43, i64 0}
+!42 = !{!"_ZTSN6icu_7712_GLOBAL__N_115LocaleAndWeightE", !43, i64 0, !9, i64 8, !9, i64 12}
+!43 = !{!"p1 _ZTSN6icu_776LocaleE", !6, i64 0}
+!44 = !{!42, !9, i64 8}
+!45 = !{!22, !7, i64 12}
+!46 = !{!42, !9, i64 12}
+!47 = !{!16, !18, i64 16}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"vtable pointer", !8, i64 0}
+!50 = distinct !{!50, !28, !29}

@@ -424,7 +424,7 @@ define dso_local i32 @xcgroup_ns_find_by_pid(ptr noundef %0, ptr noundef writeon
 .backedge:                                        ; preds = %35, %41, %38, %23, %28
   %43 = call ptr @xstrchr(ptr noundef nonnull %26, i32 noundef 10) #6
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %.loopexit, label %23, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !12
 
 44:                                               ; preds = %32
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 1
@@ -849,7 +849,7 @@ define dso_local range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local
 
 68:                                               ; preds = %54
   call void @slurm_xfree(ptr noundef nonnull %2) #6
-  br i1 %.not32, label %34, label %.critedge, !llvm.loop !12
+  br i1 %.not32, label %34, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %68
   call void @common_cgroup_destroy(ptr noundef nonnull %4) #6
@@ -1084,8 +1084,9 @@ attributes #7 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}

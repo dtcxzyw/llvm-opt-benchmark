@@ -211,7 +211,7 @@ define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0,
   %.1117 = phi i32 [ %81, %80 ], [ %.0116162, %.lr.ph165 ], [ %spec.select, %82 ]
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !28
+  br i1 %exitcond188.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !29
 
 ._crit_edge166:                                   ; preds = %84, %72
   %.0116.lcssa = phi i32 [ 0, %72 ], [ %.1117, %84 ]
@@ -244,7 +244,7 @@ define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0,
   %98 = sext i32 %.0119174 to i64
   %99 = getelementptr inbounds i8, ptr %.sink, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %101 = load i32, ptr %100, align 8, !tbaa !29
+  %101 = load i32, ptr %100, align 8, !tbaa !30
   %102 = icmp eq i32 %.0110175, %101
   %103 = select i1 %102, i8 43, i8 47
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 1
@@ -310,17 +310,17 @@ define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0,
   %.2108 = phi ptr [ %123, %119 ], [ %129, %128 ], [ %.1107168, %.lr.ph170 ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %._crit_edge171, label %.lr.ph170, !llvm.loop !30
+  br i1 %exitcond193.not, label %._crit_edge171, label %.lr.ph170, !llvm.loop !31
 
 ._crit_edge171:                                   ; preds = %130, %97
   %.1107.lcssa = phi ptr [ %108, %97 ], [ %.2108, %130 ]
   store i8 0, ptr %.1107.lcssa, align 1, !tbaa !10
-  %131 = load i32, ptr %100, align 8, !tbaa !29
+  %131 = load i32, ptr %100, align 8, !tbaa !30
   %132 = add nuw nsw i32 %.0120173, 1
   %133 = load ptr, ptr %0, align 8, !tbaa !11
   %134 = call i32 @OPENSSL_sk_num(ptr noundef %133) #7
   %135 = icmp slt i32 %132, %134
-  br i1 %135, label %32, label %._crit_edge177, !llvm.loop !31
+  br i1 %135, label %32, label %._crit_edge177, !llvm.loop !32
 
 ._crit_edge177:                                   ; preds = %._crit_edge171, %.preheader
   %.0120.lcssa = phi i32 [ 0, %.preheader ], [ %132, %._crit_edge171 ]
@@ -442,9 +442,10 @@ attributes #8 = { nounwind willreturn memory(read) }
 !23 = !{!22, !14, i64 4}
 !24 = !{!22, !8, i64 8}
 !25 = !{!14, !14, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = !{!17, !14, i64 16}
-!30 = distinct !{!30, !27}
-!31 = distinct !{!31, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = !{!17, !14, i64 16}
+!31 = distinct !{!31, !27, !28}
+!32 = distinct !{!32, !27, !28}

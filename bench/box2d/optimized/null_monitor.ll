@@ -189,31 +189,31 @@ define hidden noundef i32 @_glfwGetGammaRampNull(ptr noundef %0, ptr noundef %1)
   %28 = load i32, ptr %4, align 8, !tbaa !9
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %13, label %.loopexit
+  br i1 %30, label %13, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %13, %6, %2
   %31 = phi i32 [ 0, %6 ], [ %5, %2 ], [ %28, %13 ]
   tail call void @_glfwAllocGammaArrays(ptr noundef %1, i32 noundef %31) #6
-  %32 = load ptr, ptr %1, align 8, !tbaa !27
+  %32 = load ptr, ptr %1, align 8, !tbaa !29
   %33 = load ptr, ptr %3, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !28
+  %35 = load i32, ptr %34, align 8, !tbaa !30
   %36 = zext i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %32, ptr align 2 %33, i64 %37, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !29
+  %39 = load ptr, ptr %38, align 8, !tbaa !31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %41 = load ptr, ptr %40, align 8, !tbaa !23
-  %42 = load i32, ptr %34, align 8, !tbaa !28
+  %42 = load i32, ptr %34, align 8, !tbaa !30
   %43 = zext i32 %42 to i64
   %44 = shl nuw nsw i64 %43, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %39, ptr align 2 %41, i64 %44, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !30
+  %46 = load ptr, ptr %45, align 8, !tbaa !32
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %48 = load ptr, ptr %47, align 8, !tbaa !24
-  %49 = load i32, ptr %34, align 8, !tbaa !28
+  %49 = load i32, ptr %34, align 8, !tbaa !30
   %50 = zext i32 %49 to i64
   %51 = shl nuw nsw i64 %50, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %46, ptr align 2 %48, i64 %51, i1 false)
@@ -233,7 +233,7 @@ define hidden void @_glfwSetGammaRampNull(ptr noundef readonly captures(none) %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load i32, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !28
+  %6 = load i32, ptr %5, align 8, !tbaa !30
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %8, label %7
 
@@ -244,23 +244,23 @@ define hidden void @_glfwSetGammaRampNull(ptr noundef readonly captures(none) %0
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %10 = load ptr, ptr %9, align 8, !tbaa !22
-  %11 = load ptr, ptr %1, align 8, !tbaa !27
+  %11 = load ptr, ptr %1, align 8, !tbaa !29
   %12 = zext i32 %4 to i64
   %13 = shl nuw nsw i64 %12, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %10, ptr align 2 %11, i64 %13, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %15 = load ptr, ptr %14, align 8, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
-  %18 = load i32, ptr %5, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !31
+  %18 = load i32, ptr %5, align 8, !tbaa !30
   %19 = zext i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %15, ptr align 2 %17, i64 %20, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !30
-  %25 = load i32, ptr %5, align 8, !tbaa !28
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %25 = load i32, ptr %5, align 8, !tbaa !30
   %26 = zext i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %22, ptr align 2 %24, i64 %27, i1 false)
@@ -309,7 +309,9 @@ attributes #6 = { nounwind }
 !24 = !{!10, !16, i64 336}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"short", !5, i64 0}
-!27 = !{!15, !16, i64 0}
-!28 = !{!15, !4, i64 24}
-!29 = !{!15, !16, i64 8}
-!30 = !{!15, !16, i64 16}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!15, !16, i64 0}
+!30 = !{!15, !4, i64 24}
+!31 = !{!15, !16, i64 8}
+!32 = !{!15, !16, i64 16}

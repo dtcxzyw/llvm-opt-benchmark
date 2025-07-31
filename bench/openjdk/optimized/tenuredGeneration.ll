@@ -1103,7 +1103,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %28, %31, %38, %58
 
 _ZN22SerialBlockOffsetTable16update_for_blockEPP12HeapWordImplS2_.exit: ; preds = %_ZN7oopDesc4sizeEv.exit, %73
   %75 = icmp ult ptr %63, %4
-  br i1 %75, label %7, label %._crit_edge, !llvm.loop !8
+  br i1 %75, label %7, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN22SerialBlockOffsetTable16update_for_blockEPP12HeapWordImplS2_.exit, %3
   ret void
@@ -1407,6 +1407,7 @@ attributes #9 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

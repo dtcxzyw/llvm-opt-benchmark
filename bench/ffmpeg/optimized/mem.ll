@@ -773,7 +773,7 @@ define void @av_memcpy_backptr(ptr noundef captures(none) %0, i32 noundef %1, i3
   store i8 %22, ptr %.11217.i, align 1, !tbaa !8
   %23 = getelementptr inbounds nuw i8, ptr %.11217.i, i64 1
   %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %fill16.exit, label %.lr.ph19.i, !llvm.loop !13
+  br i1 %.not.i, label %fill16.exit, label %.lr.ph19.i, !llvm.loop !14
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds i8, ptr %0, i64 -3
@@ -810,7 +810,7 @@ define void @av_memcpy_backptr(ptr noundef captures(none) %0, i32 noundef %1, i3
   %48 = getelementptr inbounds nuw i8, ptr %.038.i, i64 12
   %49 = add nsw i32 %.03137.i, -12
   %50 = icmp samesign ugt i32 %.03137.i, 23
-  br i1 %50, label %.lr.ph.i67, label %._crit_edge.i, !llvm.loop !14
+  br i1 %50, label %.lr.ph.i67, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i67, %24
   %.031.lcssa.i = phi i32 [ %2, %24 ], [ %49, %.lr.ph.i67 ]
@@ -846,7 +846,7 @@ define void @av_memcpy_backptr(ptr noundef captures(none) %0, i32 noundef %1, i3
   store i8 %61, ptr %.342.i, align 1, !tbaa !8
   %62 = getelementptr inbounds nuw i8, ptr %.342.i, i64 1
   %.not.i66 = icmp eq i32 %59, 0
-  br i1 %.not.i66, label %fill16.exit, label %.lr.ph43.i, !llvm.loop !15
+  br i1 %.not.i66, label %fill16.exit, label %.lr.ph43.i, !llvm.loop !16
 
 63:                                               ; preds = %3
   %64 = getelementptr inbounds i8, ptr %0, i64 -4
@@ -867,7 +867,7 @@ define void @av_memcpy_backptr(ptr noundef captures(none) %0, i32 noundef %1, i3
   %67 = getelementptr inbounds nuw i8, ptr %.012.i, i64 4
   %68 = add nsw i32 %.0911.i, -4
   %69 = icmp samesign ugt i32 %.0911.i, 7
-  br i1 %69, label %.lr.ph.i72, label %.preheader.i68, !llvm.loop !16
+  br i1 %69, label %.lr.ph.i72, label %.preheader.i68, !llvm.loop !17
 
 .lr.ph17.i:                                       ; preds = %.preheader.i68, %.lr.ph17.i
   %.116.i = phi ptr [ %73, %.lr.ph17.i ], [ %.0.lcssa.i69, %.preheader.i68 ]
@@ -878,7 +878,7 @@ define void @av_memcpy_backptr(ptr noundef captures(none) %0, i32 noundef %1, i3
   store i8 %72, ptr %.116.i, align 1, !tbaa !8
   %73 = getelementptr inbounds nuw i8, ptr %.116.i, i64 1
   %.not.i70 = icmp eq i32 %70, 0
-  br i1 %.not.i70, label %fill16.exit, label %.lr.ph17.i, !llvm.loop !17
+  br i1 %.not.i70, label %fill16.exit, label %.lr.ph17.i, !llvm.loop !18
 
 74:                                               ; preds = %3
   %75 = icmp sgt i32 %2, 15
@@ -898,7 +898,7 @@ define void @av_memcpy_backptr(ptr noundef captures(none) %0, i32 noundef %1, i3
   %79 = sub nsw i32 %.05481, %.082
   %80 = shl i32 %.082, 1
   %81 = icmp sgt i32 %79, %80
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.057.lcssa = phi ptr [ %0, %.preheader ], [ %78, %.lr.ph ]
@@ -1141,7 +1141,7 @@ define range(i32 -22, 1) i32 @av_size_mult(i64 noundef %0, i64 noundef %1, ptr n
 
 6:                                                ; preds = %3
   %7 = extractvalue { i64, i1 } %4, 0
-  store i64 %7, ptr %2, align 8, !tbaa !19
+  store i64 %7, ptr %2, align 8, !tbaa !20
   br label %size_mult.exit
 
 size_mult.exit:                                   ; preds = %3, %6
@@ -1208,13 +1208,14 @@ attributes #24 = { noreturn nounwind }
 !8 = !{!6, !6, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !6, i64 0}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !6, i64 0}

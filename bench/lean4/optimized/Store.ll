@@ -590,7 +590,7 @@ lean_inc.exit63:                                  ; preds = %212, %211, %209, %l
 
 lean_dec.exit68.backedge:                         ; preds = %lean_inc.exit63, %218, %220, %221, %lean_inc.exit62, %184, %186, %187, %141, %145, %147, %148, %149
   %.052.be = phi ptr [ %150, %149 ], [ %97, %148 ], [ %97, %147 ], [ %97, %145 ], [ %97, %141 ], [ %170, %187 ], [ %170, %186 ], [ %170, %184 ], [ %170, %lean_inc.exit62 ], [ %204, %221 ], [ %204, %220 ], [ %204, %218 ], [ %204, %lean_inc.exit63 ]
-  br label %lean_dec.exit68
+  br label %lean_dec.exit68, !llvm.loop !12
 
 215:                                              ; preds = %lean_inc.exit63
   %216 = load i32, ptr %67, align 4, !tbaa !4
@@ -633,9 +633,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_RBNode_forIn_visit___at_Lake_BuildStore_collectModuleFacetArray___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !12
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !12
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -744,9 +744,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_BuildStore_collectModuleFacetArray___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !12
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !12
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -1461,7 +1461,7 @@ lean_inc.exit:                                    ; preds = %233, %232, %230, %l
 
 lean_dec.exit75.backedge:                         ; preds = %lean_inc.exit, %239, %241, %242, %lean_inc.exit60, %205, %207, %208, %lean_dec.exit76, %164, %166, %167, %168
   %.056.be = phi ptr [ %169, %168 ], [ %92, %167 ], [ %92, %166 ], [ %92, %164 ], [ %92, %lean_dec.exit76 ], [ %191, %208 ], [ %191, %207 ], [ %191, %205 ], [ %191, %lean_inc.exit60 ], [ %225, %242 ], [ %225, %241 ], [ %225, %239 ], [ %225, %lean_inc.exit ]
-  br label %lean_dec.exit75
+  br label %lean_dec.exit75, !llvm.loop !16
 
 236:                                              ; preds = %lean_inc.exit
   %237 = load i32, ptr %67, align 4, !tbaa !4
@@ -1502,9 +1502,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_RBNode_forIn_visit___at_Lake_BuildStore_collectModuleFacetMap___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !12
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !12
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -1612,9 +1612,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_BuildStore_collectModuleFacetMap___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !12
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !12
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -2277,7 +2277,7 @@ lean_inc.exit:                                    ; preds = %212, %211, %209, %l
 
 lean_dec.exit70.backedge:                         ; preds = %lean_inc.exit, %218, %220, %221, %lean_inc.exit56, %184, %186, %187, %141, %145, %147, %148, %149
   %.052.be = phi ptr [ %150, %149 ], [ %97, %148 ], [ %97, %147 ], [ %97, %145 ], [ %97, %141 ], [ %170, %187 ], [ %170, %186 ], [ %170, %184 ], [ %170, %lean_inc.exit56 ], [ %204, %221 ], [ %204, %220 ], [ %204, %218 ], [ %204, %lean_inc.exit ]
-  br label %lean_dec.exit70
+  br label %lean_dec.exit70, !llvm.loop !17
 
 215:                                              ; preds = %lean_inc.exit
   %216 = load i32, ptr %67, align 4, !tbaa !4
@@ -2316,9 +2316,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_RBNode_forIn_visit___at_Lake_BuildStore_collectPackageFacetArray___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !12
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !12
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -2427,9 +2427,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_BuildStore_collectPackageFacetArray___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !12
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !12
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -3093,7 +3093,7 @@ lean_inc.exit:                                    ; preds = %212, %211, %209, %l
 
 lean_dec.exit70.backedge:                         ; preds = %lean_inc.exit, %218, %220, %221, %lean_inc.exit56, %184, %186, %187, %141, %145, %147, %148, %149
   %.052.be = phi ptr [ %150, %149 ], [ %97, %148 ], [ %97, %147 ], [ %97, %145 ], [ %97, %141 ], [ %170, %187 ], [ %170, %186 ], [ %170, %184 ], [ %170, %lean_inc.exit56 ], [ %204, %221 ], [ %204, %220 ], [ %204, %218 ], [ %204, %lean_inc.exit ]
-  br label %lean_dec.exit70
+  br label %lean_dec.exit70, !llvm.loop !18
 
 215:                                              ; preds = %lean_inc.exit
   %216 = load i32, ptr %67, align 4, !tbaa !4
@@ -3132,9 +3132,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_RBNode_forIn_visit___at_Lake_BuildStore_collectTargetFacetArray___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !12
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !12
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -3243,9 +3243,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_BuildStore_collectTargetFacetArray___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !12
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !12
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -3406,9 +3406,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_BuildStore_collectSharedExternLibs___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !12
+  store i16 2, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !12
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -3593,5 +3593,10 @@ attributes #4 = { noreturn nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"any pointer", !7, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"short", !7, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !7, i64 0}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}

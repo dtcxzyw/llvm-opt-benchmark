@@ -234,7 +234,7 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
   %29 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %10, i64 0, i64 %.sroa.0.0
   %30 = tail call i8 @"_ZN56_$LT$alloc..string..String$u20$as$u20$core..cmp..Ord$GT$3cmp17h552da3dc21f4fe08E"(ptr align 8 %28, ptr align 8 %29), !range !6
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %.split, label %.loopexit, !llvm.loop !9
+  br i1 %31, label %.split, label %.loopexit, !llvm.loop !10
 
 32:                                               ; preds = %.check
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.sroa.0.0, i64 %11, ptr nonnull align 8 @anon.33b25492035a4f28ee4f431f35b667fb.9) #10
@@ -333,7 +333,7 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
   %7 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.sroa.01.0
   %8 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %2, i64 0, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb98cf542c1373edE"(ptr align 8 %7, ptr align 8 %8)
-  br i1 %9, label %.preheader.split, label %.critedge
+  br i1 %9, label %.preheader.split, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.preheader.split, %5, %4
   %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
@@ -475,7 +475,9 @@ attributes #10 = { noreturn }
 !4 = !{i64 8}
 !5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !6 = !{i8 -1, i8 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.injection.disable"}
+!7 = distinct !{!7, !8, !9}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8, !11}
+!11 = !{!"llvm.loop.unswitch.injection.disable"}
+!12 = distinct !{!12, !8}

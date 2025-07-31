@@ -245,7 +245,7 @@ get_local_12_norm.exit100:                        ; preds = %111, %get_local_12_
   %.3 = phi i1 [ %.2151, %42 ], [ %.2151, %116 ], [ true, %get_local_12_norm.exit100 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count66.i
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %117
   %118 = trunc nuw nsw i64 %indvars.iv163 to i32
@@ -307,7 +307,7 @@ get_local_12_norm.exit100:                        ; preds = %111, %get_local_12_
   %.1.i105 = phi double [ %.049.i, %130 ], [ %145, %136 ]
   %indvars.iv.next.i106 = add nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, %wide.trip.count.i103
-  br i1 %exitcond.not.i107, label %._crit_edge.i101, label %130, !llvm.loop !22
+  br i1 %exitcond.not.i107, label %._crit_edge.i101, label %130, !llvm.loop !23
 
 ._crit_edge.i101:                                 ; preds = %146, %.lr.ph57.i
   %.sroa.0137.6 = phi double [ %.sroa.0137.5, %.lr.ph57.i ], [ %.sroa.0137.8, %146 ]
@@ -315,7 +315,7 @@ get_local_12_norm.exit100:                        ; preds = %111, %get_local_12_
   %.0.lcssa.i = phi double [ %16, %.lr.ph57.i ], [ %.1.i105, %146 ]
   %149 = fadd double %storemerge53.i, %.0.lcssa.i
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count66.i
-  br i1 %exitcond67.not.i, label %get_12_norm.exit, label %.lr.ph57.i, !llvm.loop !23
+  br i1 %exitcond67.not.i, label %get_12_norm.exit, label %.lr.ph57.i, !llvm.loop !24
 
 get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %150 = fdiv double %149, %16
@@ -329,7 +329,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
 156:                                              ; preds = %._crit_edge, %get_12_norm.exit
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count66.i
-  br i1 %exitcond166.not, label %._crit_edge155, label %.lr.ph154, !llvm.loop !24
+  br i1 %exitcond166.not, label %._crit_edge155, label %.lr.ph154, !llvm.loop !25
 
 ._crit_edge155:                                   ; preds = %156
   %157 = load i8, ptr @Verbose, align 1, !tbaa !15
@@ -392,7 +392,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %.1.i128 = phi double [ %.049.i125, %166 ], [ %181, %172 ]
   %indvars.iv.next.i129 = add nsw i64 %indvars.iv.i124, 1
   %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, %wide.trip.count.i123
-  br i1 %exitcond.not.i130, label %._crit_edge.i117, label %166, !llvm.loop !22
+  br i1 %exitcond.not.i130, label %._crit_edge.i117, label %166, !llvm.loop !23
 
 ._crit_edge.i117:                                 ; preds = %182, %.lr.ph57.i112
   %.sroa.0137.11 = phi double [ %.sroa.0137.10, %.lr.ph57.i112 ], [ %.sroa.0137.13, %182 ]
@@ -400,7 +400,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %.0.lcssa.i119 = phi double [ %16, %.lr.ph57.i112 ], [ %.1.i128, %182 ]
   %185 = fadd double %storemerge53.i115, %.0.lcssa.i119
   %exitcond67.not.i120 = icmp eq i64 %indvars.iv.next64.i116, %wide.trip.count66.i
-  br i1 %exitcond67.not.i120, label %get_12_norm.exit131, label %.lr.ph57.i112, !llvm.loop !23
+  br i1 %exitcond67.not.i120, label %get_12_norm.exit131, label %.lr.ph57.i112, !llvm.loop !24
 
 get_12_norm.exit131:                              ; preds = %._crit_edge.i117
   %186 = fdiv double %185, %16
@@ -412,10 +412,10 @@ get_12_norm.exit131:                              ; preds = %._crit_edge.i117
   %192 = sitofp i64 %191 to double
   %193 = fdiv double %192, 1.000000e+06
   %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %193, double noundef %.sroa.0137.11, double noundef %186) #7
-  br i1 %.3, label %.preheader.outer, label %.thread173, !llvm.loop !25
+  br i1 %.3, label %.preheader.outer, label %.thread173, !llvm.loop !26
 
 195:                                              ; preds = %._crit_edge155
-  br i1 %.3, label %.preheader, label %.thread173, !llvm.loop !25
+  br i1 %.3, label %.preheader, label %.thread173, !llvm.loop !26
 
 .thread173.loopexit176.critedge:                  ; preds = %._crit_edge155.thread
   %196 = fdiv double 0.000000e+00, %16
@@ -486,7 +486,7 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %._crit_edge
   %indvars.iv70 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next71, %._crit_edge ]
   %.04961 = phi ptr [ %13, %.lr.ph64.preheader ], [ %35, %._crit_edge ]
-  store double 0.000000e+00, ptr %5, align 8, !tbaa !26
+  store double 0.000000e+00, ptr %5, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv70
   %16 = load i32, ptr %15, align 4, !tbaa !18
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
@@ -511,9 +511,9 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   br i1 %.not55, label %30, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = load double, ptr %5, align 8, !tbaa !26
+  %27 = load double, ptr %5, align 8, !tbaa !27
   %28 = fadd double %27, 1.000000e+00
-  store double %28, ptr %5, align 8, !tbaa !26
+  store double %28, ptr %5, align 8, !tbaa !27
   %29 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.158, i32 noundef %21, i32 noundef %24, ptr noundef nonnull %4) #7
   %.pre = load i32, ptr %17, align 4, !tbaa !18
   br label %30
@@ -524,21 +524,21 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph64
   %.1.lcssa = phi ptr [ %.04961, %.lr.ph64 ], [ %.2, %30 ]
   %34 = trunc nuw nsw i64 %indvars.iv70 to i32
   %35 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.1.lcssa, i32 noundef %34, i32 noundef %34, ptr noundef nonnull %5) #7
   %exitcond.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !30
 
 ._crit_edge65:                                    ; preds = %._crit_edge, %3
   %.049.lcssa = phi ptr [ %13, %3 ], [ %35, %._crit_edge ]
   %36 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %.049.lcssa) #7
   call void @SparseMatrix_delete(ptr noundef %.049.lcssa) #7
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !30
+  %38 = load i32, ptr %37, align 4, !tbaa !31
   %39 = call ptr @power_method(ptr noundef %36, i32 noundef %38, i32 noundef %0) #7
   call void @vector_ordering(i32 noundef %6, ptr noundef %39, ptr noundef %2) #7
   %40 = load i8, ptr @Verbose, align 1, !tbaa !15
@@ -556,7 +556,7 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
 
 48:                                               ; preds = %41, %._crit_edge65
   %49 = call i64 @clock() #7
-  %50 = load ptr, ptr %2, align 8, !tbaa !31
+  %50 = load ptr, ptr %2, align 8, !tbaa !32
   call void @improve_antibandwidth_by_swapping(ptr noundef %8, ptr noundef %50)
   %51 = load i8, ptr @Verbose, align 1, !tbaa !15
   %.not53 = icmp eq i8 %51, 0
@@ -644,16 +644,17 @@ attributes #9 = { cold nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
-!25 = distinct !{!25, !20}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"double", !7, i64 0}
-!28 = distinct !{!28, !20}
-!29 = distinct !{!29, !20}
-!30 = !{!5, !6, i64 4}
-!31 = !{!9, !9, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}
+!23 = distinct !{!23, !20, !21}
+!24 = distinct !{!24, !20, !21}
+!25 = distinct !{!25, !20, !21}
+!26 = distinct !{!26, !20, !21}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"double", !7, i64 0}
+!29 = distinct !{!29, !20, !21}
+!30 = distinct !{!30, !20, !21}
+!31 = !{!5, !6, i64 4}
+!32 = !{!9, !9, i64 0}

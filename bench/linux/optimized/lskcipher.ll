@@ -189,7 +189,7 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
   %52 = getelementptr i8, ptr %41, i64 %47
   %53 = sub i32 %42, %46
   %54 = icmp ult i32 %53, %25
-  br i1 %54, label %._crit_edge, label %.lr.ph
+  br i1 %54, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %50, %37
   %.lcssa = phi i32 [ %3, %37 ], [ %53, %50 ]
@@ -236,7 +236,7 @@ define dso_local i32 @crypto_lskcipher_encrypt_sg(ptr noundef %0) local_unnamed_
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false), !annotation !7
   %12 = getelementptr i8, ptr %8, i64 -16
   %13 = load i32, ptr %12, align 8
   %14 = ptrtoint ptr %11 to i64
@@ -285,7 +285,7 @@ define dso_local i32 @crypto_lskcipher_encrypt_sg(ptr noundef %0) local_unnamed_
   %52 = call i32 @skcipher_walk_done(ptr noundef nonnull %2, i32 noundef %51) #12
   %53 = load i32, ptr %32, align 8
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %crypto_lskcipher_crypt_sg.exit, label %42, !llvm.loop !6
+  br i1 %54, label %crypto_lskcipher_crypt_sg.exit, label %42, !llvm.loop !8
 
 crypto_lskcipher_crypt_sg.exit:                   ; preds = %42, %1
   %55 = phi i32 [ %31, %1 ], [ %52, %42 ]
@@ -308,7 +308,7 @@ define dso_local i32 @crypto_lskcipher_decrypt_sg(ptr noundef %0) local_unnamed_
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false), !annotation !7
   %12 = getelementptr i8, ptr %8, i64 -16
   %13 = load i32, ptr %12, align 8
   %14 = ptrtoint ptr %11 to i64
@@ -357,7 +357,7 @@ define dso_local i32 @crypto_lskcipher_decrypt_sg(ptr noundef %0) local_unnamed_
   %52 = call i32 @skcipher_walk_done(ptr noundef nonnull %2, i32 noundef %51) #12
   %53 = load i32, ptr %32, align 8
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %crypto_lskcipher_crypt_sg.exit, label %42, !llvm.loop !6
+  br i1 %54, label %crypto_lskcipher_crypt_sg.exit, label %42, !llvm.loop !8
 
 crypto_lskcipher_crypt_sg.exit:                   ; preds = %42, %1
   %55 = phi i32 [ %31, %1 ], [ %52, %42 ]
@@ -439,7 +439,7 @@ define dso_local i32 @crypto_register_lskcipher(ptr noundef %0) #0 align 16 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7), !range !9
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7), !range !11
   %9 = icmp samesign ult i32 %8, 2
   br i1 %9, label %10, label %.thread
 
@@ -493,7 +493,7 @@ define dso_local i32 @crypto_register_lskciphers(ptr noundef %0, i32 noundef %1)
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %14 = load i32, ptr %13, align 4
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14), !range !9
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14), !range !11
   %16 = icmp samesign ult i32 %15, 2
   br i1 %16, label %17, label %.thread6
 
@@ -524,7 +524,7 @@ define dso_local i32 @crypto_register_lskciphers(ptr noundef %0, i32 noundef %1)
   %31 = add nuw nsw i64 %7, 1
   %32 = icmp eq i64 %31, %5
   %indvars.iv.next = add nsw i32 %indvars.iv, 1
-  br i1 %32, label %.loopexit, label %6, !llvm.loop !10
+  br i1 %32, label %.loopexit, label %6, !llvm.loop !12
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv12 = phi i64 [ %29, %.preheader.preheader ], [ %indvars.iv.next13, %.preheader ]
@@ -532,7 +532,7 @@ define dso_local i32 @crypto_register_lskciphers(ptr noundef %0, i32 noundef %1)
   tail call void @crypto_unregister_alg(ptr noundef %33) #12
   %indvars.iv.next13 = add nsw i64 %indvars.iv12, -1
   %.not = icmp eq i64 %indvars.iv12, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %30, %.preheader, %.thread6, %2
   %34 = phi i32 [ %25, %.thread6 ], [ 0, %2 ], [ %25, %.preheader ], [ 0, %30 ]
@@ -555,7 +555,7 @@ define dso_local void @crypto_unregister_lskciphers(ptr noundef %0, i32 noundef 
   tail call void @crypto_unregister_alg(ptr noundef %9) #12
   %10 = add nsw i64 %8, -1
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.loopexit, label %7, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !14
 
 .loopexit:                                        ; preds = %7, %2
   ret void
@@ -565,12 +565,12 @@ define dso_local void @crypto_unregister_lskciphers(ptr noundef %0, i32 noundef 
 define dso_local i32 @lskcipher_register_instance(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6, !prof !13
+  br i1 %4, label %5, label %6, !prof !15
 
 5:                                                ; preds = %2
-  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #12, !srcloc !14
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 479, i32 2305, i64 12) #12, !srcloc !15
-  tail call void asm sideeffect "451: nop\0A\09.pushsection .discard.instr_end\0A\09.long 451b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 451) #12, !srcloc !16
+  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #12, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 479, i32 2305, i64 12) #12, !srcloc !17
+  tail call void asm sideeffect "451: nop\0A\09.pushsection .discard.instr_end\0A\09.long 451b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 451) #12, !srcloc !18
   br label %.thread
 
 6:                                                ; preds = %2
@@ -582,7 +582,7 @@ define dso_local i32 @lskcipher_register_instance(ptr noundef %0, ptr noundef %1
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %12 = load i32, ptr %11, align 4
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %12), !range !9
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %12), !range !11
   %14 = icmp samesign ult i32 %13, 2
   br i1 %14, label %15, label %.thread
 
@@ -610,9 +610,9 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
   %3 = alloca i32, align 4
   %4 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
-  store i32 0, ptr %3, align 4, !annotation !5
+  store i32 0, ptr %3, align 4, !annotation !7
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false), !annotation !7
   %5 = call i32 @crypto_check_attr_type(ptr noundef %1, i32 noundef 4, ptr noundef nonnull %3) #12
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7
@@ -1054,15 +1054,17 @@ attributes #13 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i32 0, i32 33}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = !{i64 2155779756, i64 2155779565, i64 2155779617, i64 2155779663, i64 2155779691}
-!15 = !{i64 2155779830, i64 2155779859, i64 2155779905, i64 2155779963, i64 2155780017, i64 2155780071, i64 2155780126, i64 2155780157, i64 2155780465, i64 2155780471, i64 2155780518, i64 2155780541, i64 2155780567}
-!16 = !{i64 2155781018, i64 2155780829, i64 2155780879, i64 2155780925, i64 2155780953}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"auto-init"}
+!8 = distinct !{!8, !9, !10, !6}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = !{i32 0, i32 33}
+!12 = distinct !{!12, !9, !10, !6}
+!13 = distinct !{!13, !9, !10, !6}
+!14 = distinct !{!14, !9, !10, !6}
+!15 = !{!"branch_weights", i32 1, i32 2000}
+!16 = !{i64 2155779756, i64 2155779565, i64 2155779617, i64 2155779663, i64 2155779691}
+!17 = !{i64 2155779830, i64 2155779859, i64 2155779905, i64 2155779963, i64 2155780017, i64 2155780071, i64 2155780126, i64 2155780157, i64 2155780465, i64 2155780471, i64 2155780518, i64 2155780541, i64 2155780567}
+!18 = !{i64 2155781018, i64 2155780829, i64 2155780879, i64 2155780925, i64 2155780953}

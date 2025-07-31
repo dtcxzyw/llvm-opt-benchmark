@@ -307,7 +307,7 @@ bytestream2_get_byte.exit240:                     ; preds = %148, %149
   store i32 %156, ptr %157, align 4, !tbaa !43
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
-  br i1 %exitcond362.not, label %.loopexit, label %143, !llvm.loop !51
+  br i1 %exitcond362.not, label %.loopexit, label %143, !llvm.loop !52
 
 158:                                              ; preds = %139
   %159 = tail call i32 @llvm.umin.i32(i32 %.0198, i32 16)
@@ -349,7 +349,7 @@ bytestream2_get_byte.exit242:                     ; preds = %166, %167
   store i32 %174, ptr %175, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %161, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %161, !llvm.loop !53
 
 176:                                              ; preds = %139
   %177 = and i32 %.0197, -2
@@ -412,7 +412,7 @@ bytestream2_get_be24.exit:                        ; preds = %188, %189
   store i32 %209, ptr %205, align 4, !tbaa !43
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
-  br i1 %exitcond367.not, label %.loopexit, label %183, !llvm.loop !53
+  br i1 %exitcond367.not, label %.loopexit, label %183, !llvm.loop !54
 
 .thread259:                                       ; preds = %bytestream2_peek_byte.exit228, %176
   switch i32 %41, label %218 [
@@ -437,7 +437,7 @@ bytestream2_get_be24.exit:                        ; preds = %188, %189
   store i32 %216, ptr %217, align 4, !tbaa !43
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next369, 4
-  br i1 %exitcond371.not, label %.loopexit, label %.preheader, !llvm.loop !54
+  br i1 %exitcond371.not, label %.loopexit, label %.preheader, !llvm.loop !55
 
 218:                                              ; preds = %.thread259
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %116, ptr noundef nonnull align 16 dereferenceable(64) @ff_cga_palette, i64 64, i1 false)
@@ -565,7 +565,7 @@ bytestream2_get_byte.exit244:                     ; preds = %268, %269
   %284 = sub i64 %357, %283
   %285 = trunc i64 %284 to i32
   %286 = icmp slt i32 %260, %285
-  br i1 %286, label %.lr.ph499, label %.critedge, !llvm.loop !55
+  br i1 %286, label %.lr.ph499, label %.critedge, !llvm.loop !56
 
 .lr.ph499:                                        ; preds = %.lr.ph314.preheader, %.lr.ph314
   %287 = phi i64 [ %284, %.lr.ph314 ], [ %280, %.lr.ph314.preheader ]
@@ -690,7 +690,7 @@ bytestream2_get_byte.exit250:                     ; preds = %322, %321, %bytestr
   %344 = sub nsw i32 %.025.i, %342
   %345 = add nsw i32 %.pr, -1
   %346 = icmp slt i32 %.pr, 1
-  br i1 %346, label %.critedge15, label %328
+  br i1 %346, label %.critedge15, label %328, !llvm.loop !57
 
 347:                                              ; preds = %331
   store i32 %.pr, ptr %6, align 4
@@ -720,10 +720,10 @@ picmemset_8bpp.exit:                              ; preds = %picmemset_8bpp.exit
   %355 = load ptr, ptr %20, align 8, !tbaa !33
   %356 = load ptr, ptr %10, align 8, !tbaa !30
   %357 = ptrtoint ptr %355 to i64
-  br i1 %354, label %.lr.ph314, label %..critedge.loopexit_crit_edge, !llvm.loop !55
+  br i1 %354, label %.lr.ph314, label %..critedge.loopexit_crit_edge, !llvm.loop !56
 
 ..critedge.loopexit_crit_edge:                    ; preds = %351
-  br label %.critedge, !llvm.loop !55
+  br label %.critedge, !llvm.loop !56
 
 .critedge:                                        ; preds = %.lr.ph314, %.lr.ph314.preheader, %..critedge.loopexit_crit_edge, %bytestream2_get_byte.exit244
   %.pre-phi386 = phi i64 [ %261, %bytestream2_get_byte.exit244 ], [ %357, %..critedge.loopexit_crit_edge ], [ %278, %.lr.ph314.preheader ], [ %357, %.lr.ph314 ]
@@ -796,7 +796,7 @@ picmemset_8bpp.exit:                              ; preds = %picmemset_8bpp.exit
   %402 = sub nsw i32 %.025.i254, %398
   %403 = add nsw i32 %387, -1
   %404 = icmp slt i32 %387, 1
-  br i1 %404, label %.critedge15, label %385
+  br i1 %404, label %.critedge15, label %385, !llvm.loop !57
 
 405:                                              ; preds = %389
   %406 = sext i32 %386 to i64
@@ -849,7 +849,7 @@ thread-pre-split:                                 ; preds = %bytestream2_get_le1
   store ptr %437, ptr %10, align 8, !tbaa !30
   %438 = add nsw i32 %416, -1
   %439 = icmp sgt i32 %416, 0
-  br i1 %439, label %.lr.ph326, label %.critedge15, !llvm.loop !56
+  br i1 %439, label %.lr.ph326, label %.critedge15, !llvm.loop !58
 
 .critedge15:                                      ; preds = %picmemset_8bpp.exit, %341, %397, %385, %.lr.ph326, %422, %thread-pre-split, %405, %409, %373, %371
   store i32 1, ptr %2, align 4, !tbaa !43
@@ -997,7 +997,7 @@ define internal fastcc void @picmemset(ptr noundef readonly captures(none) %0, p
   %.4108.us = phi i32 [ %64, %.preheader.us ], [ %.2106153.us, %55 ], [ %.2106153.us, %47 ]
   %.497.us = phi i32 [ %65, %.preheader.us ], [ 0, %55 ], [ 0, %47 ]
   %60 = icmp eq i32 %.497.us, %.fr.us
-  br i1 %60, label %.lr.ph161.us232, label %.loopexit.us223, !llvm.loop !57
+  br i1 %60, label %.lr.ph161.us232, label %.loopexit.us223, !llvm.loop !59
 
 .preheader.us:                                    ; preds = %55
   tail call void @av_memcpy_backptr(ptr noundef %52, i32 noundef %12, i32 noundef %37) #7
@@ -1018,7 +1018,7 @@ define internal fastcc void @picmemset(ptr noundef readonly captures(none) %0, p
   %.280.lcssa.us230 = phi i32 [ %.179186.us215, %.lr.ph.split.us240 ], [ %.381.us, %59 ]
   %.077.us231 = sub nsw i32 %.077187.us214, %7
   %66 = icmp sgt i32 %.077.us231, -1
-  br i1 %66, label %.lr.ph.split.us240, label %._crit_edge.us, !llvm.loop !58
+  br i1 %66, label %.lr.ph.split.us240, label %._crit_edge.us, !llvm.loop !60
 
 ._crit_edge.us:                                   ; preds = %.loopexit.us223, %.loopexit.us.us
   %.us-phi195.us = phi ptr [ %.2111.lcssa.us.us, %.loopexit.us.us ], [ %.2111.lcssa.us224, %.loopexit.us223 ]
@@ -1030,7 +1030,7 @@ define internal fastcc void @picmemset(ptr noundef readonly captures(none) %0, p
   %.us-phi201.us = phi i32 [ %.280.lcssa.us.us, %.loopexit.us.us ], [ %.280.lcssa.us230, %.loopexit.us223 ]
   %67 = add nsw i32 %.us-phi196.us, -1
   %68 = icmp sgt i32 %.us-phi196.us, 1
-  br i1 %68, label %.preheader128.us, label %.thread, !llvm.loop !59
+  br i1 %68, label %.preheader128.us, label %.thread, !llvm.loop !61
 
 .lr.ph.split.us.us:                               ; preds = %.preheader128.us, %.loopexit.us.us
   %.077187.us.us = phi i32 [ %.077.us.us, %.loopexit.us.us ], [ %.077179, %.preheader128.us ]
@@ -1066,7 +1066,7 @@ define internal fastcc void @picmemset(ptr noundef readonly captures(none) %0, p
   %.1.lcssa.us.us = phi i32 [ %.077187.us.us, %.lr.ph.split.us.us ], [ %.2.us.us.us, %111 ]
   %.077.us.us = sub nsw i32 %.1.lcssa.us.us, %7
   %79 = icmp sgt i32 %.077.us.us, -1
-  br i1 %79, label %.lr.ph.split.us.us, label %._crit_edge.us, !llvm.loop !61
+  br i1 %79, label %.lr.ph.split.us.us, label %._crit_edge.us, !llvm.loop !63
 
 .lr.ph161.us.us:                                  ; preds = %.lr.ph.split.us.us, %111
   %80 = phi i32 [ %.fr.us.us.us, %111 ], [ %.fr152.us.us, %.lr.ph.split.us.us ]
@@ -1131,7 +1131,7 @@ define internal fastcc void @picmemset(ptr noundef readonly captures(none) %0, p
   store i8 %110, ptr %107, align 1, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %.preheader.us.us.us, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %.preheader.us.us.us, !llvm.loop !64
 
 111:                                              ; preds = %._crit_edge.us.us.us, %98, %90
   %.fr.us.us.us = phi i32 [ %117, %._crit_edge.us.us.us ], [ %80, %98 ], [ %80, %90 ]
@@ -1139,7 +1139,7 @@ define internal fastcc void @picmemset(ptr noundef readonly captures(none) %0, p
   %.497.us.us.us = phi i32 [ %120, %._crit_edge.us.us.us ], [ 0, %98 ], [ 0, %90 ]
   %.2.us.us.us = phi i32 [ %104, %._crit_edge.us.us.us ], [ %.1158.us.us.us, %98 ], [ %.1158.us.us.us, %90 ]
   %112 = icmp eq i32 %.497.us.us.us, %.fr.us.us.us
-  br i1 %112, label %.lr.ph161.us.us, label %.loopexit.us.us, !llvm.loop !63
+  br i1 %112, label %.lr.ph161.us.us, label %.loopexit.us.us, !llvm.loop !65
 
 ._crit_edge.us.us.us:                             ; preds = %.preheader.us.us.us
   %113 = getelementptr inbounds nuw i8, ptr %95, i64 %wide.trip.count
@@ -1246,18 +1246,20 @@ attributes #8 = { noreturn nounwind }
 !46 = !{!"p2 omnipotent char", !26, i64 0}
 !47 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
 !48 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = distinct !{!51, !50}
-!52 = distinct !{!52, !50}
-!53 = distinct !{!53, !50}
-!54 = distinct !{!54, !50}
-!55 = distinct !{!55, !50}
-!56 = distinct !{!56, !50}
-!57 = distinct !{!57, !50}
-!58 = distinct !{!58, !50}
-!59 = distinct !{!59, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !50, !60}
-!62 = distinct !{!62, !50}
-!63 = distinct !{!63, !50, !60}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = distinct !{!52, !50, !51}
+!53 = distinct !{!53, !50, !51}
+!54 = distinct !{!54, !50, !51}
+!55 = distinct !{!55, !50, !51}
+!56 = distinct !{!56, !50, !51}
+!57 = distinct !{!57, !51}
+!58 = distinct !{!58, !50, !51}
+!59 = distinct !{!59, !50, !51}
+!60 = distinct !{!60, !50, !51}
+!61 = distinct !{!61, !51, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !50, !51, !62}
+!64 = distinct !{!64, !50, !51}
+!65 = distinct !{!65, !50, !51, !62}

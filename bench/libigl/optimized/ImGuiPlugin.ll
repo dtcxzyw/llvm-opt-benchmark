@@ -149,7 +149,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin4initEPNS1_6ViewerE
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(88) %0)
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
   %.not.i = icmp eq ptr %43, %37
-  br i1 %.not.i, label %_ZN3igl6opengl4glfw5imgui11ImGuiPlugin12init_widgetsEv.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN3igl6opengl4glfw5imgui11ImGuiPlugin12init_widgetsEv.exit, label %.lr.ph.i, !llvm.loop !76
 
 _ZN3igl6opengl4glfw5imgui11ImGuiPlugin12init_widgetsEv.exit: ; preds = %.lr.ph.i, %33
   ret void
@@ -219,7 +219,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin12init_widgetsEv(pt
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %9, ptr noundef nonnull %0)
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %13, %5
-  br i1 %.not, label %._crit_edge, label %7
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !76
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -232,14 +232,14 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11reload_fontEi(ptr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   %7 = tail call ptr @glfwGetCurrentContext()
   call void @glfwGetWindowContentScale(ptr noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %8 = load float, ptr %5, align 4, !tbaa !76
-  %9 = load float, ptr %6, align 4, !tbaa !76
+  %8 = load float, ptr %5, align 4, !tbaa !78
+  %9 = load float, ptr %6, align 4, !tbaa !78
   %10 = fadd float %8, %9
   %11 = fmul float %10, 5.000000e-01
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %11, ptr %12, align 8, !tbaa !77
+  store float %11, ptr %12, align 8, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %13 = call ptr @glfwGetCurrentContext()
@@ -247,28 +247,28 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11reload_fontEi(ptr
   call void @glfwGetFramebufferSize(ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %14)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @glfwGetWindowSize(ptr noundef %13, ptr noundef nonnull %4, ptr noundef nonnull %15)
-  %16 = load i32, ptr %3, align 4, !tbaa !78
+  %16 = load i32, ptr %3, align 4, !tbaa !80
   %17 = sitofp i32 %16 to float
-  %18 = load i32, ptr %4, align 4, !tbaa !78
+  %18 = load i32, ptr %4, align 4, !tbaa !80
   %19 = sitofp i32 %18 to float
   %20 = fdiv float %17, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %20, ptr %21, align 4, !tbaa !79
+  store float %20, ptr %21, align 4, !tbaa !81
   %22 = call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
-  %24 = load ptr, ptr %23, align 8, !tbaa !80
+  %24 = load ptr, ptr %23, align 8, !tbaa !82
   call void @_ZN11ImFontAtlas5ClearEv(ptr noundef nonnull align 8 dereferenceable(1164) %24)
-  %25 = load ptr, ptr %23, align 8, !tbaa !80
+  %25 = load ptr, ptr %23, align 8, !tbaa !82
   %26 = sitofp i32 %1 to float
-  %27 = load float, ptr %12, align 8, !tbaa !77
+  %27 = load float, ptr %12, align 8, !tbaa !79
   %28 = fmul float %27, %26
   %29 = call noundef ptr @_ZN11ImFontAtlas30AddFontFromMemoryCompressedTTFEPKvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 dereferenceable(1164) %25, ptr noundef nonnull @_ZL26droid_sans_compressed_data, i32 noundef 134345, float noundef %28, ptr noundef null, ptr noundef null)
-  %30 = load float, ptr %21, align 4, !tbaa !79
+  %30 = load float, ptr %21, align 4, !tbaa !81
   %31 = fdiv float 1.000000e+00, %30
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 168
-  store float %31, ptr %32, align 8, !tbaa !81
+  store float %31, ptr %32, align 8, !tbaa !83
   ret void
 }
 
@@ -280,8 +280,8 @@ define dso_local noundef float @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin13hidpi_sc
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   %4 = tail call ptr @glfwGetCurrentContext()
   call void @glfwGetWindowContentScale(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %5 = load float, ptr %2, align 4, !tbaa !76
-  %6 = load float, ptr %3, align 4, !tbaa !76
+  %5 = load float, ptr %2, align 4, !tbaa !78
+  %6 = load float, ptr %3, align 4, !tbaa !78
   %7 = fadd float %5, %6
   %8 = fmul float %7, 5.000000e-01
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
@@ -300,9 +300,9 @@ define dso_local noundef float @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11pixel_ra
   call void @glfwGetFramebufferSize(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @glfwGetWindowSize(ptr noundef %4, ptr noundef nonnull %3, ptr noundef nonnull %6)
-  %7 = load i32, ptr %2, align 4, !tbaa !78
+  %7 = load i32, ptr %2, align 4, !tbaa !80
   %8 = sitofp i32 %7 to float
-  %9 = load i32, ptr %3, align 4, !tbaa !78
+  %9 = load i32, ptr %3, align 4, !tbaa !80
   %10 = sitofp i32 %9 to float
   %11 = fdiv float %8, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
@@ -334,14 +334,14 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin8pre_
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   %4 = tail call ptr @glfwGetCurrentContext()
   call void @glfwGetWindowContentScale(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %5 = load float, ptr %2, align 4, !tbaa !76
-  %6 = load float, ptr %3, align 4, !tbaa !76
+  %5 = load float, ptr %2, align 4, !tbaa !78
+  %6 = load float, ptr %3, align 4, !tbaa !78
   %7 = fadd float %5, %6
   %8 = fmul float %7, 5.000000e-01
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load float, ptr %9, align 8, !tbaa !77
+  %10 = load float, ptr %9, align 8, !tbaa !79
   %11 = fsub float %8, %10
   %12 = call noundef float @llvm.fabs.f32(float %11)
   %13 = fpext float %12 to double
@@ -397,7 +397,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin9post
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(56) %7)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %11, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 }
 
 declare void @_ZN5ImGui6RenderEv() local_unnamed_addr #2
@@ -417,11 +417,11 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11post_resizeEii(pt
   %7 = sitofp i32 %1 to float
   %8 = tail call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float %7, ptr %9, align 8, !tbaa !82
+  store float %7, ptr %9, align 8, !tbaa !85
   %10 = sitofp i32 %2 to float
   %11 = tail call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store float %10, ptr %12, align 4, !tbaa !83
+  store float %10, ptr %12, align 4, !tbaa !86
   br label %13
 
 13:                                               ; preds = %6, %3
@@ -437,7 +437,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin10mou
   tail call void @_Z34ImGui_ImplGlfw_MouseButtonCallbackP10GLFWwindowiii(ptr noundef %7, i32 noundef %1, i32 noundef 1, i32 noundef %2)
   %8 = tail call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 908
-  %10 = load i8, ptr %9, align 4, !tbaa !84, !range !85, !noundef !86
+  %10 = load i8, ptr %9, align 4, !tbaa !87, !range !88, !noundef !89
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %.loopexit, label %12
 
@@ -459,7 +459,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin10mou
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 8
   %.not.not = icmp eq ptr %22, %16
   %or.cond = select i1 %21, i1 true, i1 %.not.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !90
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %3
   %.0 = phi i1 [ true, %3 ], [ false, %12 ], [ %21, %.lr.ph ]
@@ -489,14 +489,14 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin8mous
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef %1, i32 noundef %2)
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %13, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin10mouse_moveEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 908
-  %6 = load i8, ptr %5, align 4, !tbaa !84, !range !85, !noundef !86
+  %6 = load i8, ptr %5, align 4, !tbaa !87, !range !88, !noundef !89
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %.loopexit, label %8
 
@@ -518,7 +518,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin10mou
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 8
   %.not.not = icmp eq ptr %18, %12
   %or.cond = select i1 %17, i1 true, i1 %.not.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !92
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %3
   %.0 = phi i1 [ true, %3 ], [ false, %8 ], [ %17, %.lr.ph ]
@@ -535,7 +535,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin12mou
   tail call void @_Z29ImGui_ImplGlfw_ScrollCallbackP10GLFWwindowdd(ptr noundef %6, double noundef 0.000000e+00, double noundef %7)
   %8 = tail call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 908
-  %10 = load i8, ptr %9, align 4, !tbaa !84, !range !85, !noundef !86
+  %10 = load i8, ptr %9, align 4, !tbaa !87, !range !88, !noundef !89
   %11 = trunc nuw i8 %10 to i1
   ret i1 %11
 }
@@ -547,7 +547,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11key
   tail call void @_Z27ImGui_ImplGlfw_CharCallbackP10GLFWwindowj(ptr noundef null, i32 noundef %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 909
-  %6 = load i8, ptr %5, align 1, !tbaa !87, !range !85, !noundef !86
+  %6 = load i8, ptr %5, align 1, !tbaa !93, !range !88, !noundef !89
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %.loopexit, label %8
 
@@ -569,7 +569,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11key
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 8
   %.not.not = icmp eq ptr %18, %12
   %or.cond = select i1 %17, i1 true, i1 %.not.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !94
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %3
   %.0 = phi i1 [ true, %3 ], [ false, %8 ], [ %17, %.lr.ph ]
@@ -587,7 +587,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin8key_
   tail call void @_Z26ImGui_ImplGlfw_KeyCallbackP10GLFWwindowiiii(ptr noundef %7, i32 noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %2)
   %8 = tail call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 909
-  %10 = load i8, ptr %9, align 1, !tbaa !87, !range !85, !noundef !86
+  %10 = load i8, ptr %9, align 1, !tbaa !93, !range !88, !noundef !89
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %.loopexit, label %12
 
@@ -609,7 +609,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin8key_
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 8
   %.not.not = icmp eq ptr %22, %16
   %or.cond = select i1 %21, i1 true, i1 %.not.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %3
   %.0 = phi i1 [ true, %3 ], [ false, %12 ], [ %21, %.lr.ph ]
@@ -627,7 +627,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin6key_
   tail call void @_Z26ImGui_ImplGlfw_KeyCallbackP10GLFWwindowiiii(ptr noundef %7, i32 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %2)
   %8 = tail call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 909
-  %10 = load i8, ptr %9, align 1, !tbaa !87, !range !85, !noundef !86
+  %10 = load i8, ptr %9, align 1, !tbaa !93, !range !88, !noundef !89
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %.loopexit, label %12
 
@@ -649,7 +649,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin6key_
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 8
   %.not.not = icmp eq ptr %22, %16
   %or.cond = select i1 %21, i1 true, i1 %.not.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !96
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %3
   %.0 = phi i1 [ true, %3 ], [ false, %12 ], [ %21, %.lr.ph ]
@@ -668,13 +668,13 @@ declare void @glfwGetWindowContentScale(ptr noundef, ptr noundef, ptr noundef) l
 define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui11ImGuiPluginE, i64 16), ptr %0, align 8, !tbaa !71
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN3igl6opengl4glfw5imgui11ImGuiWidgetESaIS5_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !89
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -684,20 +684,20 @@ define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPluginD2Ev(p
 _ZNSt6vectorIPN3igl6opengl4glfw5imgui11ImGuiWidgetESaIS5_EED2Ev.exit: ; preds = %1, %4
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN3igl6opengl4glfw12ViewerPluginE, i64 16), ptr %0, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !90
+  %11 = load ptr, ptr %10, align 8, !tbaa !99
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIPN3igl6opengl4glfw5imgui11ImGuiWidgetESaIS5_EED2Ev.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !91
+  %15 = load i64, ptr %14, align 8, !tbaa !100
   %16 = icmp ult i64 %15, 16
   tail call void @llvm.assume(i1 %16)
   br label %_ZN3igl6opengl4glfw12ViewerPluginD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIPN3igl6opengl4glfw5imgui11ImGuiWidgetESaIS5_EED2Ev.exit
-  %17 = load i64, ptr %12, align 8, !tbaa !92
+  %17 = load i64, ptr %12, align 8, !tbaa !101
   %18 = add i64 %17, 1
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #10
   br label %_ZN3igl6opengl4glfw12ViewerPluginD2Ev.exit
@@ -710,13 +710,13 @@ _ZN3igl6opengl4glfw12ViewerPluginD2Ev.exit:       ; preds = %_ZNKSt7__cxx1112bas
 define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui11ImGuiPluginE, i64 16), ptr %0, align 8, !tbaa !71
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN3igl6opengl4glfw5imgui11ImGuiWidgetESaIS5_EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !89
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -726,20 +726,20 @@ define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPluginD0Ev(p
 _ZNSt6vectorIPN3igl6opengl4glfw5imgui11ImGuiWidgetESaIS5_EED2Ev.exit.i: ; preds = %4, %1
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN3igl6opengl4glfw12ViewerPluginE, i64 16), ptr %0, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !90
+  %11 = load ptr, ptr %10, align 8, !tbaa !99
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZNSt6vectorIPN3igl6opengl4glfw5imgui11ImGuiWidgetESaIS5_EED2Ev.exit.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !91
+  %15 = load i64, ptr %14, align 8, !tbaa !100
   %16 = icmp ult i64 %15, 16
   tail call void @llvm.assume(i1 %16)
   br label %_ZN3igl6opengl4glfw5imgui11ImGuiPluginD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZNSt6vectorIPN3igl6opengl4glfw5imgui11ImGuiWidgetESaIS5_EED2Ev.exit.i
-  %17 = load i64, ptr %12, align 8, !tbaa !92
+  %17 = load i64, ptr %12, align 8, !tbaa !101
   %18 = add i64 %17, 1
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #10
   br label %_ZN3igl6opengl4glfw5imgui11ImGuiPluginD2Ev.exit
@@ -784,20 +784,20 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 define linkonce_odr dso_local void @_ZN3igl6opengl4glfw12ViewerPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN3igl6opengl4glfw12ViewerPluginE, i64 16), ptr %0, align 8, !tbaa !71
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !91
+  %7 = load i64, ptr %6, align 8, !tbaa !100
   %8 = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %8)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %9 = load i64, ptr %4, align 8, !tbaa !92
+  %9 = load i64, ptr %4, align 8, !tbaa !101
   %10 = add i64 %9, 1
   tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -810,20 +810,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define linkonce_odr dso_local void @_ZN3igl6opengl4glfw12ViewerPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN3igl6opengl4glfw12ViewerPluginE, i64 16), ptr %0, align 8, !tbaa !71
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !91
+  %7 = load i64, ptr %6, align 8, !tbaa !100
   %8 = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %8)
   br label %_ZN3igl6opengl4glfw12ViewerPluginD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  %9 = load i64, ptr %4, align 8, !tbaa !92
+  %9 = load i64, ptr %4, align 8, !tbaa !101
   %10 = add i64 %9, 1
   tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #10
   br label %_ZN3igl6opengl4glfw12ViewerPluginD2Ev.exit
@@ -981,20 +981,29 @@ attributes #10 = { builtin nounwind }
 !73 = !{!22, !22, i64 0}
 !74 = !{!75, !75, i64 0}
 !75 = !{!"p1 _ZTSN3igl6opengl4glfw5imgui11ImGuiWidgetE", !9, i64 0}
-!76 = !{!16, !16, i64 0}
-!77 = !{!15, !16, i64 48}
-!78 = !{!34, !34, i64 0}
-!79 = !{!15, !16, i64 52}
-!80 = !{!62, !64, i64 160}
-!81 = !{!62, !16, i64 168}
-!82 = !{!62, !16, i64 8}
-!83 = !{!62, !16, i64 12}
-!84 = !{!62, !55, i64 908}
-!85 = !{i8 0, i8 2}
-!86 = !{}
-!87 = !{!62, !55, i64 909}
-!88 = !{!21, !22, i64 0}
-!89 = !{!21, !22, i64 16}
-!90 = !{!6, !8, i64 0}
-!91 = !{!6, !12, i64 8}
-!92 = !{!10, !10, i64 0}
+!76 = distinct !{!76, !77}
+!77 = !{!"llvm.loop.estimated_trip_count"}
+!78 = !{!16, !16, i64 0}
+!79 = !{!15, !16, i64 48}
+!80 = !{!34, !34, i64 0}
+!81 = !{!15, !16, i64 52}
+!82 = !{!62, !64, i64 160}
+!83 = !{!62, !16, i64 168}
+!84 = distinct !{!84, !77}
+!85 = !{!62, !16, i64 8}
+!86 = !{!62, !16, i64 12}
+!87 = !{!62, !55, i64 908}
+!88 = !{i8 0, i8 2}
+!89 = !{}
+!90 = distinct !{!90, !77}
+!91 = distinct !{!91, !77}
+!92 = distinct !{!92, !77}
+!93 = !{!62, !55, i64 909}
+!94 = distinct !{!94, !77}
+!95 = distinct !{!95, !77}
+!96 = distinct !{!96, !77}
+!97 = !{!21, !22, i64 0}
+!98 = !{!21, !22, i64 16}
+!99 = !{!6, !8, i64 0}
+!100 = !{!6, !12, i64 8}
+!101 = !{!10, !10, i64 0}

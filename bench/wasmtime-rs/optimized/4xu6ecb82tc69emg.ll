@@ -438,7 +438,7 @@ define void @_ZN4core5slice4sort10merge_sort17h1f0d3ad145fef165E(ptr align 8 %0,
 
 .loopexit56:                                      ; preds = %84
   %33 = icmp ult i64 %55, %13
-  br i1 %33, label %37, label %34
+  br i1 %33, label %37, label %34, !llvm.loop !4
 
 34:                                               ; preds = %.loopexit56
   invoke void @"_ZN4core3ptr317drop_in_place$LT$core..slice..sort..merge_sort..RunVec$LT$alloc..slice..stable_sort$LT$$RF$str$C$$LT$$RF$str$u20$as$u20$core..cmp..PartialOrd$GT$..lt$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..slice..stable_sort$LT$$RF$str$C$$LT$$RF$str$u20$as$u20$core..cmp..PartialOrd$GT$..lt$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d1493437d07e98E"(ptr nonnull align 8 %11)
@@ -495,7 +495,7 @@ define void @_ZN4core5slice4sort10merge_sort17h1f0d3ad145fef165E(ptr align 8 %0,
 46:                                               ; preds = %.noexc36
   %47 = add nuw i64 %.130.i, 1
   %exitcond.not.i = icmp eq i64 %47, %38
-  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph34.i:                                       ; preds = %50, %.lr.ph34.preheader.i
   %.033.i = phi i64 [ %51, %50 ], [ 2, %.lr.ph34.preheader.i ]
@@ -510,7 +510,7 @@ define void @_ZN4core5slice4sort10merge_sort17h1f0d3ad145fef165E(ptr align 8 %0,
 50:                                               ; preds = %.noexc37
   %51 = add nuw i64 %.033.i, 1
   %exitcond41.not.i = icmp eq i64 %51, %38
-  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i
+  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %80, %99, %.loopexit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -730,7 +730,7 @@ define void @_ZN4core5slice4sort10merge_sort17h1f0d3ad145fef165E(ptr align 8 %0,
   %134 = icmp ult ptr %107, %129
   %135 = icmp ult ptr %17, %132
   %or.cond.i = select i1 %134, i1 %135, i1 false
-  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i
+  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i, !llvm.loop !8
 
 .lr.ph.i44:                                       ; preds = %117, %140
   %136 = phi ptr [ %148, %140 ], [ %17, %117 ]
@@ -759,7 +759,7 @@ define void @_ZN4core5slice4sort10merge_sort17h1f0d3ad145fef165E(ptr align 8 %0,
   %150 = icmp ult ptr %148, %149
   %151 = icmp ult ptr %145, %110
   %or.cond4.i = select i1 %150, i1 %151, i1 false
-  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i
+  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i, !llvm.loop !9
 
 152:                                              ; preds = %126
   %153 = landingpad { ptr, i32 }
@@ -842,7 +842,7 @@ define void @_ZN4core5slice4sort10merge_sort17h1f0d3ad145fef165E(ptr align 8 %0,
   %180 = extractvalue { ptr, i64 } %178, 1
   call void @_ZN4core5slice4sort11insert_tail17hda9517ed29a0bdf7E(ptr align 8 %179, i64 %180, ptr align 1 %2)
   %.not.i52 = icmp ult i64 %177, %13
-  br i1 %.not.i52, label %176, label %_ZN4core5slice4sort25insertion_sort_shift_left17hf2c30a2363154687E.exit
+  br i1 %.not.i52, label %176, label %_ZN4core5slice4sort25insertion_sort_shift_left17hf2c30a2363154687E.exit, !llvm.loop !10
 
 _ZN4core5slice4sort25insertion_sort_shift_left17hf2c30a2363154687E.exit: ; preds = %176
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -943,7 +943,7 @@ define void @_ZN4core5slice4sort10merge_sort17h6bbfbc75e71540afE(ptr align 8 %0,
 
 .loopexit56:                                      ; preds = %84
   %33 = icmp ult i64 %55, %13
-  br i1 %33, label %37, label %34
+  br i1 %33, label %37, label %34, !llvm.loop !11
 
 34:                                               ; preds = %.loopexit56
   invoke void @"_ZN4core3ptr1959drop_in_place$LT$core..slice..sort..merge_sort..RunVec$LT$alloc..slice..stable_sort$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$alloc..slice..$LT$impl$u20$$u5b$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$u5d$$GT$..sort_by$LT$$LT$alloc..collections..btree..map..BTreeMap$LT$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$..from_iter$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$alloc..rc..Rc$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$GT$$GT$$C$alloc..vec..Vec$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..slice..stable_sort$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$alloc..slice..$LT$impl$u20$$u5b$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$u5d$$GT$..sort_by$LT$$LT$alloc..collections..btree..map..BTreeMap$LT$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$..from_iter$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$alloc..rc..Rc$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$GT$$GT$$C$alloc..vec..Vec$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8f43434b484351ceE"(ptr nonnull align 8 %11)
@@ -1000,7 +1000,7 @@ define void @_ZN4core5slice4sort10merge_sort17h6bbfbc75e71540afE(ptr align 8 %0,
 46:                                               ; preds = %.noexc36
   %47 = add nuw i64 %.130.i, 1
   %exitcond.not.i = icmp eq i64 %47, %38
-  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph34.i:                                       ; preds = %50, %.lr.ph34.preheader.i
   %.033.i = phi i64 [ %51, %50 ], [ 2, %.lr.ph34.preheader.i ]
@@ -1015,7 +1015,7 @@ define void @_ZN4core5slice4sort10merge_sort17h6bbfbc75e71540afE(ptr align 8 %0,
 50:                                               ; preds = %.noexc37
   %51 = add nuw i64 %.033.i, 1
   %exitcond41.not.i = icmp eq i64 %51, %38
-  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i
+  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i, !llvm.loop !13
 
 .loopexit:                                        ; preds = %80, %99, %.loopexit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1235,7 +1235,7 @@ define void @_ZN4core5slice4sort10merge_sort17h6bbfbc75e71540afE(ptr align 8 %0,
   %134 = icmp ult ptr %107, %129
   %135 = icmp ult ptr %17, %132
   %or.cond.i = select i1 %134, i1 %135, i1 false
-  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i
+  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i, !llvm.loop !14
 
 .lr.ph.i44:                                       ; preds = %117, %140
   %136 = phi ptr [ %148, %140 ], [ %17, %117 ]
@@ -1264,7 +1264,7 @@ define void @_ZN4core5slice4sort10merge_sort17h6bbfbc75e71540afE(ptr align 8 %0,
   %150 = icmp ult ptr %148, %149
   %151 = icmp ult ptr %145, %110
   %or.cond4.i = select i1 %150, i1 %151, i1 false
-  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i
+  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i, !llvm.loop !15
 
 152:                                              ; preds = %126
   %153 = landingpad { ptr, i32 }
@@ -1347,7 +1347,7 @@ define void @_ZN4core5slice4sort10merge_sort17h6bbfbc75e71540afE(ptr align 8 %0,
   %180 = extractvalue { ptr, i64 } %178, 1
   call void @_ZN4core5slice4sort11insert_tail17hd0b1f270b9f02facE(ptr align 8 %179, i64 %180, ptr align 8 %2)
   %.not.i52 = icmp ult i64 %177, %13
-  br i1 %.not.i52, label %176, label %_ZN4core5slice4sort25insertion_sort_shift_left17h5b01961cad22f9afE.exit
+  br i1 %.not.i52, label %176, label %_ZN4core5slice4sort25insertion_sort_shift_left17h5b01961cad22f9afE.exit, !llvm.loop !16
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h5b01961cad22f9afE.exit: ; preds = %176
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -1448,7 +1448,7 @@ define void @_ZN4core5slice4sort10merge_sort17h8c9148157a4442aaE(ptr align 8 %0,
 
 .loopexit56:                                      ; preds = %84
   %33 = icmp ult i64 %55, %13
-  br i1 %33, label %37, label %34
+  br i1 %33, label %37, label %34, !llvm.loop !17
 
 34:                                               ; preds = %.loopexit56
   invoke void @"_ZN4core3ptr807drop_in_place$LT$core..slice..sort..merge_sort..RunVec$LT$alloc..slice..stable_sort$LT$cranelift_codegen_meta..cdsl..settings..ProtoPredicate$C$alloc..slice..$LT$impl$u20$$u5b$cranelift_codegen_meta..cdsl..settings..ProtoPredicate$u5d$$GT$..sort_by_key$LT$$RF$str$C$cranelift_codegen_meta..cdsl..settings..SettingGroupBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..slice..stable_sort$LT$cranelift_codegen_meta..cdsl..settings..ProtoPredicate$C$alloc..slice..$LT$impl$u20$$u5b$cranelift_codegen_meta..cdsl..settings..ProtoPredicate$u5d$$GT$..sort_by_key$LT$$RF$str$C$cranelift_codegen_meta..cdsl..settings..SettingGroupBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha9150ef6160a0033E"(ptr nonnull align 8 %11)
@@ -1505,7 +1505,7 @@ define void @_ZN4core5slice4sort10merge_sort17h8c9148157a4442aaE(ptr align 8 %0,
 46:                                               ; preds = %.noexc36
   %47 = add nuw i64 %.130.i, 1
   %exitcond.not.i = icmp eq i64 %47, %38
-  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !18
 
 .lr.ph34.i:                                       ; preds = %50, %.lr.ph34.preheader.i
   %.033.i = phi i64 [ %51, %50 ], [ 2, %.lr.ph34.preheader.i ]
@@ -1520,7 +1520,7 @@ define void @_ZN4core5slice4sort10merge_sort17h8c9148157a4442aaE(ptr align 8 %0,
 50:                                               ; preds = %.noexc37
   %51 = add nuw i64 %.033.i, 1
   %exitcond41.not.i = icmp eq i64 %51, %38
-  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i
+  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i, !llvm.loop !19
 
 .loopexit:                                        ; preds = %80, %99, %.loopexit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1740,7 +1740,7 @@ define void @_ZN4core5slice4sort10merge_sort17h8c9148157a4442aaE(ptr align 8 %0,
   %134 = icmp ult ptr %107, %129
   %135 = icmp ult ptr %17, %132
   %or.cond.i = select i1 %134, i1 %135, i1 false
-  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i
+  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i, !llvm.loop !20
 
 .lr.ph.i44:                                       ; preds = %117, %140
   %136 = phi ptr [ %148, %140 ], [ %17, %117 ]
@@ -1769,7 +1769,7 @@ define void @_ZN4core5slice4sort10merge_sort17h8c9148157a4442aaE(ptr align 8 %0,
   %150 = icmp ult ptr %148, %149
   %151 = icmp ult ptr %145, %110
   %or.cond4.i = select i1 %150, i1 %151, i1 false
-  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i
+  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i, !llvm.loop !21
 
 152:                                              ; preds = %126
   %153 = landingpad { ptr, i32 }
@@ -1852,7 +1852,7 @@ define void @_ZN4core5slice4sort10merge_sort17h8c9148157a4442aaE(ptr align 8 %0,
   %180 = extractvalue { ptr, i64 } %178, 1
   call void @_ZN4core5slice4sort11insert_tail17ha71ef6f4229c48e3E(ptr align 8 %179, i64 %180, ptr align 8 %2)
   %.not.i52 = icmp ult i64 %177, %13
-  br i1 %.not.i52, label %176, label %_ZN4core5slice4sort25insertion_sort_shift_left17h9d7b10dfed6acbe2E.exit
+  br i1 %.not.i52, label %176, label %_ZN4core5slice4sort25insertion_sort_shift_left17h9d7b10dfed6acbe2E.exit, !llvm.loop !22
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h9d7b10dfed6acbe2E.exit: ; preds = %176
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -1953,7 +1953,7 @@ define void @_ZN4core5slice4sort10merge_sort17ha82410be37d79667E(ptr align 8 %0,
 
 .loopexit56:                                      ; preds = %84
   %33 = icmp ult i64 %55, %13
-  br i1 %33, label %37, label %34
+  br i1 %33, label %37, label %34, !llvm.loop !23
 
 34:                                               ; preds = %.loopexit56
   invoke void @"_ZN4core3ptr309drop_in_place$LT$core..slice..sort..merge_sort..RunVec$LT$alloc..slice..stable_sort$LT$usize$C$$LT$usize$u20$as$u20$core..cmp..PartialOrd$GT$..lt$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..slice..stable_sort$LT$usize$C$$LT$usize$u20$as$u20$core..cmp..PartialOrd$GT$..lt$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h91d96b600bc2da16E"(ptr nonnull align 8 %11)
@@ -2010,7 +2010,7 @@ define void @_ZN4core5slice4sort10merge_sort17ha82410be37d79667E(ptr align 8 %0,
 46:                                               ; preds = %.noexc36
   %47 = add nuw i64 %.130.i, 1
   %exitcond.not.i = icmp eq i64 %47, %38
-  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph34.i:                                       ; preds = %50, %.lr.ph34.preheader.i
   %.033.i = phi i64 [ %51, %50 ], [ 2, %.lr.ph34.preheader.i ]
@@ -2025,7 +2025,7 @@ define void @_ZN4core5slice4sort10merge_sort17ha82410be37d79667E(ptr align 8 %0,
 50:                                               ; preds = %.noexc37
   %51 = add nuw i64 %.033.i, 1
   %exitcond41.not.i = icmp eq i64 %51, %38
-  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i
+  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i, !llvm.loop !25
 
 .loopexit:                                        ; preds = %80, %99, %.loopexit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2246,7 +2246,7 @@ define void @_ZN4core5slice4sort10merge_sort17ha82410be37d79667E(ptr align 8 %0,
   %135 = icmp ult ptr %107, %129
   %136 = icmp ult ptr %17, %132
   %or.cond.i = select i1 %135, i1 %136, i1 false
-  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i
+  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i, !llvm.loop !26
 
 .lr.ph.i44:                                       ; preds = %117, %141
   %137 = phi ptr [ %152, %141 ], [ %17, %117 ]
@@ -2278,7 +2278,7 @@ define void @_ZN4core5slice4sort10merge_sort17ha82410be37d79667E(ptr align 8 %0,
   %154 = icmp ult ptr %152, %153
   %155 = icmp ult ptr %148, %110
   %or.cond4.i = select i1 %154, i1 %155, i1 false
-  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i
+  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i, !llvm.loop !27
 
 156:                                              ; preds = %126
   %157 = landingpad { ptr, i32 }
@@ -2361,7 +2361,7 @@ define void @_ZN4core5slice4sort10merge_sort17ha82410be37d79667E(ptr align 8 %0,
   %184 = extractvalue { ptr, i64 } %182, 1
   call void @_ZN4core5slice4sort11insert_tail17h8ae1b5589e4848a1E(ptr align 8 %183, i64 %184, ptr align 1 %2)
   %.not.i52 = icmp ult i64 %181, %13
-  br i1 %.not.i52, label %180, label %_ZN4core5slice4sort25insertion_sort_shift_left17ha339184ef55025f1E.exit
+  br i1 %.not.i52, label %180, label %_ZN4core5slice4sort25insertion_sort_shift_left17ha339184ef55025f1E.exit, !llvm.loop !28
 
 _ZN4core5slice4sort25insertion_sort_shift_left17ha339184ef55025f1E.exit: ; preds = %180
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -2462,7 +2462,7 @@ define void @_ZN4core5slice4sort10merge_sort17hd3b592fed9f537eaE(ptr align 2 %0,
 
 .loopexit56:                                      ; preds = %84
   %33 = icmp ult i64 %55, %13
-  br i1 %33, label %37, label %34
+  br i1 %33, label %37, label %34, !llvm.loop !29
 
 34:                                               ; preds = %.loopexit56
   invoke void @"_ZN4core3ptr301drop_in_place$LT$core..slice..sort..merge_sort..RunVec$LT$alloc..slice..stable_sort$LT$u16$C$$LT$u16$u20$as$u20$core..cmp..PartialOrd$GT$..lt$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..slice..stable_sort$LT$u16$C$$LT$u16$u20$as$u20$core..cmp..PartialOrd$GT$..lt$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h13e3bde4ad18ad6aE"(ptr nonnull align 8 %11)
@@ -2519,7 +2519,7 @@ define void @_ZN4core5slice4sort10merge_sort17hd3b592fed9f537eaE(ptr align 2 %0,
 46:                                               ; preds = %.noexc36
   %47 = add nuw i64 %.130.i, 1
   %exitcond.not.i = icmp eq i64 %47, %38
-  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !30
 
 .lr.ph34.i:                                       ; preds = %50, %.lr.ph34.preheader.i
   %.033.i = phi i64 [ %51, %50 ], [ 2, %.lr.ph34.preheader.i ]
@@ -2534,7 +2534,7 @@ define void @_ZN4core5slice4sort10merge_sort17hd3b592fed9f537eaE(ptr align 2 %0,
 50:                                               ; preds = %.noexc37
   %51 = add nuw i64 %.033.i, 1
   %exitcond41.not.i = icmp eq i64 %51, %38
-  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i
+  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i, !llvm.loop !31
 
 .loopexit:                                        ; preds = %80, %99, %.loopexit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2755,7 +2755,7 @@ define void @_ZN4core5slice4sort10merge_sort17hd3b592fed9f537eaE(ptr align 2 %0,
   %135 = icmp ult ptr %107, %129
   %136 = icmp ult ptr %17, %132
   %or.cond.i = select i1 %135, i1 %136, i1 false
-  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i
+  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i, !llvm.loop !32
 
 .lr.ph.i44:                                       ; preds = %117, %140
   %137 = phi ptr [ %151, %140 ], [ %17, %117 ]
@@ -2785,7 +2785,7 @@ define void @_ZN4core5slice4sort10merge_sort17hd3b592fed9f537eaE(ptr align 2 %0,
   %153 = icmp ult ptr %151, %152
   %154 = icmp ult ptr %147, %110
   %or.cond4.i = select i1 %153, i1 %154, i1 false
-  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i
+  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i, !llvm.loop !33
 
 155:                                              ; preds = %126
   %156 = landingpad { ptr, i32 }
@@ -2868,7 +2868,7 @@ define void @_ZN4core5slice4sort10merge_sort17hd3b592fed9f537eaE(ptr align 2 %0,
   %183 = extractvalue { ptr, i64 } %181, 1
   call void @_ZN4core5slice4sort11insert_tail17h2d4720252201b6afE(ptr align 2 %182, i64 %183, ptr align 1 %2)
   %.not.i52 = icmp ult i64 %180, %13
-  br i1 %.not.i52, label %179, label %_ZN4core5slice4sort25insertion_sort_shift_left17h43690fc9e1adeee9E.exit
+  br i1 %.not.i52, label %179, label %_ZN4core5slice4sort25insertion_sort_shift_left17h43690fc9e1adeee9E.exit, !llvm.loop !34
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h43690fc9e1adeee9E.exit: ; preds = %179
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -2969,7 +2969,7 @@ define void @_ZN4core5slice4sort10merge_sort17heb26124698d14d2fE(ptr align 8 %0,
 
 .loopexit56:                                      ; preds = %84
   %33 = icmp ult i64 %55, %13
-  br i1 %33, label %37, label %34
+  br i1 %33, label %37, label %34, !llvm.loop !35
 
 34:                                               ; preds = %.loopexit56
   invoke void @"_ZN4core3ptr883drop_in_place$LT$core..slice..sort..merge_sort..RunVec$LT$alloc..slice..stable_sort$LT$alloc..rc..Rc$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$GT$$C$alloc..slice..$LT$impl$u20$$u5b$alloc..rc..Rc$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$GT$$u5d$$GT$..sort_by_key$LT$$RF$str$C$cranelift_codegen_meta..shared..verify_instruction_formats..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..slice..stable_sort$LT$alloc..rc..Rc$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$GT$$C$alloc..slice..$LT$impl$u20$$u5b$alloc..rc..Rc$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$GT$$u5d$$GT$..sort_by_key$LT$$RF$str$C$cranelift_codegen_meta..shared..verify_instruction_formats..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9a1d23d872240b02E"(ptr nonnull align 8 %11)
@@ -3026,7 +3026,7 @@ define void @_ZN4core5slice4sort10merge_sort17heb26124698d14d2fE(ptr align 8 %0,
 46:                                               ; preds = %.noexc36
   %47 = add nuw i64 %.130.i, 1
   %exitcond.not.i = icmp eq i64 %47, %38
-  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !36
 
 .lr.ph34.i:                                       ; preds = %50, %.lr.ph34.preheader.i
   %.033.i = phi i64 [ %51, %50 ], [ 2, %.lr.ph34.preheader.i ]
@@ -3041,7 +3041,7 @@ define void @_ZN4core5slice4sort10merge_sort17heb26124698d14d2fE(ptr align 8 %0,
 50:                                               ; preds = %.noexc37
   %51 = add nuw i64 %.033.i, 1
   %exitcond41.not.i = icmp eq i64 %51, %38
-  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i
+  br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i, !llvm.loop !37
 
 .loopexit:                                        ; preds = %80, %99, %.loopexit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -3262,7 +3262,7 @@ define void @_ZN4core5slice4sort10merge_sort17heb26124698d14d2fE(ptr align 8 %0,
   %135 = icmp ult ptr %107, %129
   %136 = icmp ult ptr %17, %132
   %or.cond.i = select i1 %135, i1 %136, i1 false
-  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i
+  br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i, !llvm.loop !38
 
 .lr.ph.i44:                                       ; preds = %117, %141
   %137 = phi ptr [ %152, %141 ], [ %17, %117 ]
@@ -3294,7 +3294,7 @@ define void @_ZN4core5slice4sort10merge_sort17heb26124698d14d2fE(ptr align 8 %0,
   %154 = icmp ult ptr %152, %153
   %155 = icmp ult ptr %148, %110
   %or.cond4.i = select i1 %154, i1 %155, i1 false
-  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i
+  br i1 %or.cond4.i, label %.lr.ph.i44, label %.loopexit.i, !llvm.loop !39
 
 156:                                              ; preds = %126
   %157 = landingpad { ptr, i32 }
@@ -3377,7 +3377,7 @@ define void @_ZN4core5slice4sort10merge_sort17heb26124698d14d2fE(ptr align 8 %0,
   %184 = extractvalue { ptr, i64 } %182, 1
   call void @_ZN4core5slice4sort11insert_tail17h242bb1214c6b15d8E(ptr align 8 %183, i64 %184, ptr align 8 %2)
   %.not.i52 = icmp ult i64 %181, %13
-  br i1 %.not.i52, label %180, label %_ZN4core5slice4sort25insertion_sort_shift_left17he9421768eee70c66E.exit
+  br i1 %.not.i52, label %180, label %_ZN4core5slice4sort25insertion_sort_shift_left17he9421768eee70c66E.exit, !llvm.loop !40
 
 _ZN4core5slice4sort25insertion_sort_shift_left17he9421768eee70c66E.exit: ; preds = %180
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -4114,7 +4114,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h13f46cb6248c3d98E(ptr ali
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.130, 1
   %exitcond.not = icmp eq i64 %12, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %15
   %.033 = phi i64 [ %16, %15 ], [ 2, %.lr.ph34.preheader ]
@@ -4126,7 +4126,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h13f46cb6248c3d98E(ptr ali
 15:                                               ; preds = %.lr.ph34
   %16 = add nuw i64 %.033, 1
   %exitcond41.not = icmp eq i64 %16, %1
-  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
+  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.lr.ph34, %15, %.preheader28, %.preheader, %3
   %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %15 ], [ true, %.lr.ph34 ], [ false, %11 ], [ false, %.lr.ph ]
@@ -4173,7 +4173,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h30ae274533970e2fE(ptr ali
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.130, 1
   %exitcond.not = icmp eq i64 %12, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %15
   %.033 = phi i64 [ %16, %15 ], [ 2, %.lr.ph34.preheader ]
@@ -4185,7 +4185,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h30ae274533970e2fE(ptr ali
 15:                                               ; preds = %.lr.ph34
   %16 = add nuw i64 %.033, 1
   %exitcond41.not = icmp eq i64 %16, %1
-  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
+  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.lr.ph34, %15, %.preheader28, %.preheader, %3
   %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %15 ], [ true, %.lr.ph34 ], [ false, %11 ], [ false, %.lr.ph ]
@@ -4232,7 +4232,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h3e106a3e6759f0e1E(ptr ali
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.130, 1
   %exitcond.not = icmp eq i64 %12, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %15
   %.033 = phi i64 [ %16, %15 ], [ 2, %.lr.ph34.preheader ]
@@ -4244,7 +4244,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h3e106a3e6759f0e1E(ptr ali
 15:                                               ; preds = %.lr.ph34
   %16 = add nuw i64 %.033, 1
   %exitcond41.not = icmp eq i64 %16, %1
-  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
+  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.lr.ph34, %15, %.preheader28, %.preheader, %3
   %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %15 ], [ true, %.lr.ph34 ], [ false, %11 ], [ false, %.lr.ph ]
@@ -4291,7 +4291,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h4055f7b4c41bea54E(ptr ali
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.130, 1
   %exitcond.not = icmp eq i64 %12, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %15
   %.033 = phi i64 [ %16, %15 ], [ 2, %.lr.ph34.preheader ]
@@ -4303,7 +4303,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h4055f7b4c41bea54E(ptr ali
 15:                                               ; preds = %.lr.ph34
   %16 = add nuw i64 %.033, 1
   %exitcond41.not = icmp eq i64 %16, %1
-  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
+  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.lr.ph34, %15, %.preheader28, %.preheader, %3
   %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %15 ], [ true, %.lr.ph34 ], [ false, %11 ], [ false, %.lr.ph ]
@@ -4350,7 +4350,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h42b8c8c51d3ec950E(ptr ali
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.130, 1
   %exitcond.not = icmp eq i64 %12, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %15
   %.033 = phi i64 [ %16, %15 ], [ 2, %.lr.ph34.preheader ]
@@ -4362,7 +4362,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h42b8c8c51d3ec950E(ptr ali
 15:                                               ; preds = %.lr.ph34
   %16 = add nuw i64 %.033, 1
   %exitcond41.not = icmp eq i64 %16, %1
-  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
+  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.lr.ph34, %15, %.preheader28, %.preheader, %3
   %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %15 ], [ true, %.lr.ph34 ], [ false, %11 ], [ false, %.lr.ph ]
@@ -4409,7 +4409,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17ha6544e17ce482e58E(ptr ali
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.130, 1
   %exitcond.not = icmp eq i64 %12, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %15
   %.033 = phi i64 [ %16, %15 ], [ 2, %.lr.ph34.preheader ]
@@ -4421,7 +4421,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17ha6544e17ce482e58E(ptr ali
 15:                                               ; preds = %.lr.ph34
   %16 = add nuw i64 %.033, 1
   %exitcond41.not = icmp eq i64 %16, %1
-  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
+  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.lr.ph34, %15, %.preheader28, %.preheader, %3
   %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %15 ], [ true, %.lr.ph34 ], [ false, %11 ], [ false, %.lr.ph ]
@@ -4494,7 +4494,7 @@ define void @_ZN4core5slice4sort11insert_tail17h242bb1214c6b15d8E(ptr align 8 %0
   %34 = load i64, ptr %29, align 8
   store i64 %34, ptr %33, align 8
   store ptr %29, ptr %14, align 8
-  br label %19
+  br label %19, !llvm.loop !41
 
 35:                                               ; preds = %21
   %36 = landingpad { ptr, i32 }
@@ -4569,7 +4569,7 @@ define void @_ZN4core5slice4sort11insert_tail17h2d4720252201b6afE(ptr align 2 %0
   %34 = load i16, ptr %29, align 2
   store i16 %34, ptr %33, align 2
   store ptr %29, ptr %14, align 8
-  br label %19
+  br label %19, !llvm.loop !42
 
 35:                                               ; preds = %21
   %36 = landingpad { ptr, i32 }
@@ -4644,7 +4644,7 @@ define void @_ZN4core5slice4sort11insert_tail17h8ae1b5589e4848a1E(ptr align 8 %0
   %34 = load i64, ptr %29, align 8
   store i64 %34, ptr %33, align 8
   store ptr %29, ptr %14, align 8
-  br label %19
+  br label %19, !llvm.loop !43
 
 35:                                               ; preds = %21
   %36 = landingpad { ptr, i32 }
@@ -4716,7 +4716,7 @@ define void @_ZN4core5slice4sort11insert_tail17ha71ef6f4229c48e3E(ptr align 8 %0
   %31 = load ptr, ptr %13, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 56, i1 false)
   store ptr %27, ptr %13, align 8
-  br label %17
+  br label %17, !llvm.loop !44
 
 32:                                               ; preds = %19
   %33 = landingpad { ptr, i32 }
@@ -4788,7 +4788,7 @@ define void @_ZN4core5slice4sort11insert_tail17hd0b1f270b9f02facE(ptr align 8 %0
   %31 = load ptr, ptr %13, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(72) %27, i64 72, i1 false)
   store ptr %27, ptr %13, align 8
-  br label %17
+  br label %17, !llvm.loop !45
 
 32:                                               ; preds = %19
   %33 = landingpad { ptr, i32 }
@@ -4814,7 +4814,7 @@ define void @_ZN4core5slice4sort11insert_tail17hda9517ed29a0bdf7E(ptr align 8 %0
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
+  %13 = load ptr, ptr %8, align 8, !nonnull !3, !align !46, !noundef !3
   %14 = getelementptr i8, ptr %7, i64 -8
   %15 = load i64, ptr %14, align 8, !noundef !3
   store ptr %13, ptr %6, align 8
@@ -4865,7 +4865,7 @@ define void @_ZN4core5slice4sort11insert_tail17hda9517ed29a0bdf7E(ptr align 8 %0
   %35 = load ptr, ptr %17, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   store ptr %31, ptr %17, align 8
-  br label %21
+  br label %21, !llvm.loop !47
 
 36:                                               ; preds = %23
   %37 = landingpad { ptr, i32 }
@@ -4937,7 +4937,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h41c9d8ebcb976c03E(ptr al
   %30 = extractvalue { ptr, i64 } %28, 1
   call void @_ZN4core5slice4sort11insert_tail17h242bb1214c6b15d8E(ptr align 8 %29, i64 %30, ptr align 8 %4)
   %.not.i = icmp ult i64 %27, %21
-  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17he9421768eee70c66E.exit
+  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17he9421768eee70c66E.exit, !llvm.loop !40
 
 _ZN4core5slice4sort25insertion_sort_shift_left17he9421768eee70c66E.exit: ; preds = %26, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -5004,7 +5004,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h5714188c2831f884E(ptr al
   %30 = extractvalue { ptr, i64 } %28, 1
   call void @_ZN4core5slice4sort11insert_tail17h8ae1b5589e4848a1E(ptr align 8 %29, i64 %30, ptr align 1 %4)
   %.not.i = icmp ult i64 %27, %21
-  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17ha339184ef55025f1E.exit
+  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17ha339184ef55025f1E.exit, !llvm.loop !28
 
 _ZN4core5slice4sort25insertion_sort_shift_left17ha339184ef55025f1E.exit: ; preds = %26, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -5071,7 +5071,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h842040818989c65bE(ptr al
   %30 = extractvalue { ptr, i64 } %28, 1
   call void @_ZN4core5slice4sort11insert_tail17ha71ef6f4229c48e3E(ptr align 8 %29, i64 %30, ptr align 8 %4)
   %.not.i = icmp ult i64 %27, %21
-  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17h9d7b10dfed6acbe2E.exit
+  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17h9d7b10dfed6acbe2E.exit, !llvm.loop !22
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h9d7b10dfed6acbe2E.exit: ; preds = %26, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -5138,7 +5138,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17hbe5ca4708c173f0fE(ptr al
   %30 = extractvalue { ptr, i64 } %28, 1
   call void @_ZN4core5slice4sort11insert_tail17h2d4720252201b6afE(ptr align 2 %29, i64 %30, ptr align 1 %4)
   %.not.i = icmp ult i64 %27, %21
-  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17h43690fc9e1adeee9E.exit
+  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17h43690fc9e1adeee9E.exit, !llvm.loop !34
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h43690fc9e1adeee9E.exit: ; preds = %26, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -5205,7 +5205,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17hd07bde5182bf86b7E(ptr al
   %30 = extractvalue { ptr, i64 } %28, 1
   call void @_ZN4core5slice4sort11insert_tail17hd0b1f270b9f02facE(ptr align 8 %29, i64 %30, ptr align 8 %4)
   %.not.i = icmp ult i64 %27, %21
-  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17h5b01961cad22f9afE.exit
+  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17h5b01961cad22f9afE.exit, !llvm.loop !16
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h5b01961cad22f9afE.exit: ; preds = %26, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -5272,7 +5272,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17hd79cd2ee4c3486deE(ptr al
   %30 = extractvalue { ptr, i64 } %28, 1
   call void @_ZN4core5slice4sort11insert_tail17hda9517ed29a0bdf7E(ptr align 8 %29, i64 %30, ptr align 1 %4)
   %.not.i = icmp ult i64 %27, %21
-  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17hf2c30a2363154687E.exit
+  br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17hf2c30a2363154687E.exit, !llvm.loop !10
 
 _ZN4core5slice4sort25insertion_sort_shift_left17hf2c30a2363154687E.exit: ; preds = %26, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -5311,7 +5311,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h43690fc9e1adeee9E(
   %15 = extractvalue { ptr, i64 } %13, 1
   call void @_ZN4core5slice4sort11insert_tail17h2d4720252201b6afE(ptr align 2 %14, i64 %15, ptr align 1 %3)
   %.not = icmp ult i64 %12, %6
-  br i1 %.not, label %11, label %.critedge
+  br i1 %.not, label %11, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %11, %.preheader
   ret void
@@ -5349,7 +5349,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h5b01961cad22f9afE(
   %15 = extractvalue { ptr, i64 } %13, 1
   call void @_ZN4core5slice4sort11insert_tail17hd0b1f270b9f02facE(ptr align 8 %14, i64 %15, ptr align 8 %3)
   %.not = icmp ult i64 %12, %6
-  br i1 %.not, label %11, label %.critedge
+  br i1 %.not, label %11, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %11, %.preheader
   ret void
@@ -5387,7 +5387,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h9d7b10dfed6acbe2E(
   %15 = extractvalue { ptr, i64 } %13, 1
   call void @_ZN4core5slice4sort11insert_tail17ha71ef6f4229c48e3E(ptr align 8 %14, i64 %15, ptr align 8 %3)
   %.not = icmp ult i64 %12, %6
-  br i1 %.not, label %11, label %.critedge
+  br i1 %.not, label %11, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %11, %.preheader
   ret void
@@ -5425,7 +5425,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17ha339184ef55025f1E(
   %15 = extractvalue { ptr, i64 } %13, 1
   call void @_ZN4core5slice4sort11insert_tail17h8ae1b5589e4848a1E(ptr align 8 %14, i64 %15, ptr align 1 %3)
   %.not = icmp ult i64 %12, %6
-  br i1 %.not, label %11, label %.critedge
+  br i1 %.not, label %11, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %11, %.preheader
   ret void
@@ -5463,7 +5463,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17he9421768eee70c66E(
   %15 = extractvalue { ptr, i64 } %13, 1
   call void @_ZN4core5slice4sort11insert_tail17h242bb1214c6b15d8E(ptr align 8 %14, i64 %15, ptr align 8 %3)
   %.not = icmp ult i64 %12, %6
-  br i1 %.not, label %11, label %.critedge
+  br i1 %.not, label %11, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %11, %.preheader
   ret void
@@ -5501,7 +5501,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17hf2c30a2363154687E(
   %15 = extractvalue { ptr, i64 } %13, 1
   call void @_ZN4core5slice4sort11insert_tail17hda9517ed29a0bdf7E(ptr align 8 %14, i64 %15, ptr align 1 %3)
   %.not = icmp ult i64 %12, %6
-  br i1 %.not, label %11, label %.critedge
+  br i1 %.not, label %11, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %11, %.preheader
   ret void
@@ -5588,7 +5588,7 @@ define void @_ZN4core5slice4sort5merge17h0c0849ecf798fb7fE(ptr align 8 %0, i64 %
   %32 = icmp ult ptr %0, %27
   %33 = icmp ult ptr %3, %30
   %or.cond = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond, label %.lr.ph41, label %.loopexit
+  br i1 %or.cond, label %.lr.ph41, label %.loopexit, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %15, %38
   %34 = phi ptr [ %46, %38 ], [ %3, %15 ]
@@ -5617,7 +5617,7 @@ define void @_ZN4core5slice4sort5merge17h0c0849ecf798fb7fE(ptr align 8 %0, i64 %
   %48 = icmp ult ptr %46, %47
   %49 = icmp ult ptr %43, %8
   %or.cond4 = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond4, label %.lr.ph, label %.loopexit
+  br i1 %or.cond4, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 50:                                               ; preds = %24
   resume { ptr, i32 } %lpad.phi
@@ -5711,7 +5711,7 @@ define void @_ZN4core5slice4sort5merge17h3cf987153624a0caE(ptr align 2 %0, i64 %
   %33 = icmp ult ptr %0, %27
   %34 = icmp ult ptr %3, %30
   %or.cond = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond, label %.lr.ph41, label %.loopexit
+  br i1 %or.cond, label %.lr.ph41, label %.loopexit, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %15, %38
   %35 = phi ptr [ %49, %38 ], [ %3, %15 ]
@@ -5741,7 +5741,7 @@ define void @_ZN4core5slice4sort5merge17h3cf987153624a0caE(ptr align 2 %0, i64 %
   %51 = icmp ult ptr %49, %50
   %52 = icmp ult ptr %45, %8
   %or.cond4 = select i1 %51, i1 %52, i1 false
-  br i1 %or.cond4, label %.lr.ph, label %.loopexit
+  br i1 %or.cond4, label %.lr.ph, label %.loopexit, !llvm.loop !33
 
 53:                                               ; preds = %24
   resume { ptr, i32 } %lpad.phi
@@ -5835,7 +5835,7 @@ define void @_ZN4core5slice4sort5merge17h8504579c72094f1fE(ptr align 8 %0, i64 %
   %33 = icmp ult ptr %0, %27
   %34 = icmp ult ptr %3, %30
   %or.cond = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond, label %.lr.ph41, label %.loopexit
+  br i1 %or.cond, label %.lr.ph41, label %.loopexit, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %15, %39
   %35 = phi ptr [ %50, %39 ], [ %3, %15 ]
@@ -5867,7 +5867,7 @@ define void @_ZN4core5slice4sort5merge17h8504579c72094f1fE(ptr align 8 %0, i64 %
   %52 = icmp ult ptr %50, %51
   %53 = icmp ult ptr %46, %8
   %or.cond4 = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond4, label %.lr.ph, label %.loopexit
+  br i1 %or.cond4, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 54:                                               ; preds = %24
   resume { ptr, i32 } %lpad.phi
@@ -5960,7 +5960,7 @@ define void @_ZN4core5slice4sort5merge17ha0428ae913220e8dE(ptr align 8 %0, i64 %
   %32 = icmp ult ptr %0, %27
   %33 = icmp ult ptr %3, %30
   %or.cond = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond, label %.lr.ph41, label %.loopexit
+  br i1 %or.cond, label %.lr.ph41, label %.loopexit, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %15, %38
   %34 = phi ptr [ %46, %38 ], [ %3, %15 ]
@@ -5989,7 +5989,7 @@ define void @_ZN4core5slice4sort5merge17ha0428ae913220e8dE(ptr align 8 %0, i64 %
   %48 = icmp ult ptr %46, %47
   %49 = icmp ult ptr %43, %8
   %or.cond4 = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond4, label %.lr.ph, label %.loopexit
+  br i1 %or.cond4, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 50:                                               ; preds = %24
   resume { ptr, i32 } %lpad.phi
@@ -6083,7 +6083,7 @@ define void @_ZN4core5slice4sort5merge17hca650804718a44c2E(ptr align 8 %0, i64 %
   %33 = icmp ult ptr %0, %27
   %34 = icmp ult ptr %3, %30
   %or.cond = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond, label %.lr.ph41, label %.loopexit
+  br i1 %or.cond, label %.lr.ph41, label %.loopexit, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %15, %39
   %35 = phi ptr [ %50, %39 ], [ %3, %15 ]
@@ -6115,7 +6115,7 @@ define void @_ZN4core5slice4sort5merge17hca650804718a44c2E(ptr align 8 %0, i64 %
   %52 = icmp ult ptr %50, %51
   %53 = icmp ult ptr %46, %8
   %or.cond4 = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond4, label %.lr.ph, label %.loopexit
+  br i1 %or.cond4, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 54:                                               ; preds = %24
   resume { ptr, i32 } %lpad.phi
@@ -6208,7 +6208,7 @@ define void @_ZN4core5slice4sort5merge17he5ee204c0d78ac40E(ptr align 8 %0, i64 %
   %32 = icmp ult ptr %0, %27
   %33 = icmp ult ptr %3, %30
   %or.cond = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond, label %.lr.ph41, label %.loopexit
+  br i1 %or.cond, label %.lr.ph41, label %.loopexit, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %15, %38
   %34 = phi ptr [ %46, %38 ], [ %3, %15 ]
@@ -6237,7 +6237,7 @@ define void @_ZN4core5slice4sort5merge17he5ee204c0d78ac40E(ptr align 8 %0, i64 %
   %48 = icmp ult ptr %46, %47
   %49 = icmp ult ptr %43, %8
   %or.cond4 = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond4, label %.lr.ph, label %.loopexit
+  br i1 %or.cond4, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 50:                                               ; preds = %24
   resume { ptr, i32 } %lpad.phi
@@ -6510,4 +6510,47 @@ attributes #9 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
-!4 = !{i64 1}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5}
+!46 = !{i64 1}
+!47 = distinct !{!47, !5}

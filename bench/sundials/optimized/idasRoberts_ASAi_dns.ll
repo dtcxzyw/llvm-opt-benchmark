@@ -823,7 +823,7 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
   store double %20, ptr %24, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %25, label %10
+  br i1 %exitcond.not, label %25, label %10, !llvm.loop !23
 
 25:                                               ; preds = %19, %10
   %.0 = phi i32 [ -1, %10 ], [ 0, %19 ]
@@ -856,10 +856,10 @@ define internal noundef i32 @Jac(double %0, double noundef %1, ptr noundef reado
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = load double, ptr %21, align 8, !tbaa !9
   %23 = fadd double %1, %18
-  %24 = load ptr, ptr %5, align 8, !tbaa !23
+  %24 = load ptr, ptr %5, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !26
-  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %27 = load ptr, ptr %26, align 8, !tbaa !31
   store double %23, ptr %27, align 8, !tbaa !9
   %28 = fneg double %18
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -869,7 +869,7 @@ define internal noundef i32 @Jac(double %0, double noundef %1, ptr noundef reado
   %31 = fneg double %20
   %32 = fmul double %17, %31
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !29
+  %34 = load ptr, ptr %33, align 8, !tbaa !31
   store double %32, ptr %34, align 8, !tbaa !9
   %35 = fmul double %22, 2.000000e+00
   %36 = fmul double %15, %35
@@ -881,7 +881,7 @@ define internal noundef i32 @Jac(double %0, double noundef %1, ptr noundef reado
   store double 1.000000e+00, ptr %40, align 8, !tbaa !9
   %41 = fmul double %15, %31
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !29
+  %43 = load ptr, ptr %42, align 8, !tbaa !31
   store double %41, ptr %43, align 8, !tbaa !9
   %44 = fmul double %15, %20
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -1013,16 +1013,16 @@ define internal noundef i32 @JacB(double %0, double noundef %1, ptr noundef read
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %24 = load double, ptr %23, align 8, !tbaa !9
   %25 = fsub double %1, %20
-  %26 = load ptr, ptr %7, align 8, !tbaa !23
+  %26 = load ptr, ptr %7, align 8, !tbaa !25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !26
-  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  %29 = load ptr, ptr %28, align 8, !tbaa !31
   store double %25, ptr %29, align 8, !tbaa !9
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !29
+  %31 = load ptr, ptr %30, align 8, !tbaa !31
   store double %20, ptr %31, align 8, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !29
+  %33 = load ptr, ptr %32, align 8, !tbaa !31
   store double -1.000000e+00, ptr %33, align 8, !tbaa !9
   %34 = fmul double %19, %22
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1209,10 +1209,12 @@ attributes #14 = { nounwind allocsize(0) }
 !20 = !{!"p1 double", !6, i64 0}
 !21 = !{!6, !6, i64 0}
 !22 = !{!19, !19, i64 0}
-!23 = !{!24, !6, i64 0}
-!24 = !{!"_generic_SUNMatrix", !6, i64 0, !25, i64 8, !12, i64 16}
-!25 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!26 = !{!27, !28, i64 32}
-!27 = !{!"_SUNMatrixContent_Dense", !18, i64 0, !18, i64 8, !20, i64 16, !18, i64 24, !28, i64 32}
-!28 = !{!"p2 double", !6, i64 0}
-!29 = !{!20, !20, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !6, i64 0}
+!26 = !{!"_generic_SUNMatrix", !6, i64 0, !27, i64 8, !12, i64 16}
+!27 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!28 = !{!29, !30, i64 32}
+!29 = !{!"_SUNMatrixContent_Dense", !18, i64 0, !18, i64 8, !20, i64 16, !18, i64 24, !30, i64 32}
+!30 = !{!"p2 double", !6, i64 0}
+!31 = !{!20, !20, i64 0}

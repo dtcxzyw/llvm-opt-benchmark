@@ -78,7 +78,7 @@ _ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit: ; preds = %for.
   %add = add i32 %.sroa.speculated.i, %total.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv2.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %_ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit, %entry
   %total.0.lcssa = phi i32 [ 0, %entry ], [ %add, %_ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit ]
@@ -137,7 +137,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %shl = shl i64 %q.addr.0, 1
   %cmp = icmp ult i64 %p, %shl
   %inc = add i8 %ans.0, 1
-  br i1 %cmp, label %if.then, label %for.cond, !llvm.loop !8
+  br i1 %cmp, label %if.then, label %for.cond, !llvm.loop !9
 
 if.then:                                          ; preds = %for.cond
   ret i8 %ans.0
@@ -168,7 +168,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %mul7 = shl i64 %weight.09, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
   %total.0.lcssa = phi i64 [ 0, %entry ], [ %add6, %for.body ]
@@ -206,8 +206,9 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}

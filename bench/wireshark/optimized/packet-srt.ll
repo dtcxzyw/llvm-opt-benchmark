@@ -638,12 +638,12 @@ dissect_srt_hs_ext_field.exit.i:                  ; preds = %80, %78, %69
   %indvars.iv40.i.i = phi i64 [ %indvars.iv.next41.i.i, %.preheader.i.i ], [ 0, %.preheader36.i.i ]
   %115 = getelementptr i32, ptr %106, i64 %indvars.iv40.i.i
   %116 = load i32, ptr %115, align 4
-  %117 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %116) #5, !srcloc !10
+  %117 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %116) #5, !srcloc !11
   %118 = getelementptr i32, ptr %8, i64 %indvars.iv40.i.i
   store i32 %117, ptr %118, align 4
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 4
-  br i1 %exitcond43.not.i.i, label %119, label %.preheader.i.i, !llvm.loop !11
+  br i1 %exitcond43.not.i.i, label %119, label %.preheader.i.i, !llvm.loop !12
 
 119:                                              ; preds = %.preheader.i.i
   %120 = call ptr @ws_inet_ntop6(ptr noundef nonnull %8, ptr noundef nonnull %11, i64 noundef 64)
@@ -651,7 +651,7 @@ dissect_srt_hs_ext_field.exit.i:                  ; preds = %80, %78, %69
 
 .loopexit.i.i:                                    ; preds = %111, %99, %108
   %121 = load i32, ptr %106, align 4
-  %122 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %121) #5, !srcloc !12
+  %122 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %121) #5, !srcloc !13
   store i32 %122, ptr %7, align 4
   %123 = call ptr @ws_inet_ntop4(ptr noundef nonnull %7, ptr noundef nonnull %11, i64 noundef 64)
   br label %srt_format_ip_address.exit.i
@@ -783,7 +783,7 @@ srt_format_hs_ext_group.exit.i:                   ; preds = %192, %.sink.split.i
   %.pre-phi218.i = phi i32 [ %177, %.sink.split.i.i ], [ %177, %179 ], [ 12, %137 ], [ %158, %156 ], [ %195, %192 ], [ %174, %171 ], [ %170, %167 ], [ %166, %163 ], [ %162, %160 ]
   %197 = add i32 %.pre-phi218.i, %134
   %.not210.i = icmp slt i32 %197, %65
-  br i1 %.not210.i, label %.preheader.i, label %.loopexit.i
+  br i1 %.not210.i, label %.preheader.i, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %srt_format_hs_ext_group.exit.i, %srt_format_ip_address.exit.i
   %.0.i = phi i32 [ 64, %srt_format_ip_address.exit.i ], [ %197, %srt_format_hs_ext_group.exit.i ]
@@ -883,7 +883,7 @@ srt_format_hs_ext_group.exit.i:                   ; preds = %192, %.sink.split.i
 .lr.ph.i.backedge:                                ; preds = %.thread.i, %237
   %.0195213.i.be = phi i32 [ %.1.i, %237 ], [ 0, %.thread.i ]
   %.0197212.i.be = phi i32 [ %238, %237 ], [ %243, %.thread.i ]
-  br label %.lr.ph.i, !llvm.loop !13
+  br label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %237
   %245 = icmp eq i32 %.1.i, 0
@@ -1208,7 +1208,7 @@ define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef 
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %19)
   %20 = add nuw nsw i32 %.03032, 4
   %21 = icmp samesign ult i32 %20, %5
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 22:                                               ; preds = %._crit_edge
   tail call void @wmem_strbuf_utf8_make_valid(ptr noundef %9)
@@ -1231,7 +1231,7 @@ define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef 
 28:                                               ; preds = %.lr.ph36
   %29 = add i64 %.034, -1
   %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %.critedge, label %.lr.ph36, !llvm.loop !15
+  br i1 %.not, label %.critedge, label %.lr.ph36, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph36, %28, %23
   %.0.lcssa = phi i64 [ 0, %23 ], [ 0, %28 ], [ %.034, %.lr.ph36 ]
@@ -1312,11 +1312,13 @@ attributes #5 = { nounwind memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 2150892796}
-!11 = distinct !{!11, !9}
-!12 = !{i64 2150893572}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 2150892796}
+!12 = distinct !{!12, !9, !10}
+!13 = !{i64 2150893572}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

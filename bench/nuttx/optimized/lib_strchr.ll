@@ -21,7 +21,7 @@ define noundef ptr @strchr(ptr noundef readonly captures(ret: address, provenanc
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i32
   %12 = icmp eq i32 %1, %11
-  br i1 %12, label %._crit_edge, label %.lr.ph
+  br i1 %12, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %2
   %.0 = phi ptr [ %0, %2 ], [ null, %.lr.ph ], [ %9, %8 ]
@@ -38,3 +38,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

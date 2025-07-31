@@ -130,45 +130,45 @@ define internal i32 @cyuv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %.0146176 = phi i32 [ 0, %.lr.ph180 ], [ %170, %._crit_edge ]
   %69 = sext i32 %.1138178 to i64
   %70 = getelementptr inbounds i8, ptr %6, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !37
+  %71 = load i8, ptr %70, align 1, !tbaa !38
   %72 = and i8 %71, -16
   %73 = sext i32 %.0142177 to i64
   %74 = getelementptr inbounds i8, ptr %36, i64 %73
-  store i8 %72, ptr %74, align 1, !tbaa !37
+  store i8 %72, ptr %74, align 1, !tbaa !38
   %75 = shl i8 %71, 4
   %76 = sext i32 %.0135179 to i64
   %77 = getelementptr inbounds i8, ptr %34, i64 %76
-  store i8 %75, ptr %77, align 1, !tbaa !37
+  store i8 %75, ptr %77, align 1, !tbaa !38
   %78 = getelementptr i8, ptr %70, i64 1
-  %79 = load i8, ptr %78, align 1, !tbaa !37
+  %79 = load i8, ptr %78, align 1, !tbaa !38
   %80 = and i8 %79, -16
   %81 = sext i32 %.0146176 to i64
   %82 = getelementptr inbounds i8, ptr %38, i64 %81
-  store i8 %80, ptr %82, align 1, !tbaa !37
+  store i8 %80, ptr %82, align 1, !tbaa !38
   %83 = and i8 %79, 15
   %84 = zext nneg i8 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %84
-  %86 = load i8, ptr %85, align 1, !tbaa !37
+  %86 = load i8, ptr %85, align 1, !tbaa !38
   %87 = add i8 %86, %75
   %88 = getelementptr i8, ptr %77, i64 1
-  store i8 %87, ptr %88, align 1, !tbaa !37
+  store i8 %87, ptr %88, align 1, !tbaa !38
   %89 = getelementptr i8, ptr %70, i64 2
-  %90 = load i8, ptr %89, align 1, !tbaa !37
+  %90 = load i8, ptr %89, align 1, !tbaa !38
   %91 = zext i8 %90 to i32
   %92 = and i32 %91, 15
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !37
+  %95 = load i8, ptr %94, align 1, !tbaa !38
   %96 = add i8 %95, %87
   %97 = getelementptr i8, ptr %77, i64 2
-  store i8 %96, ptr %97, align 1, !tbaa !37
+  store i8 %96, ptr %97, align 1, !tbaa !38
   %98 = lshr i32 %91, 4
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %99
-  %101 = load i8, ptr %100, align 1, !tbaa !37
+  %101 = load i8, ptr %100, align 1, !tbaa !38
   %102 = add i8 %101, %96
   %103 = getelementptr i8, ptr %77, i64 3
-  store i8 %102, ptr %103, align 1, !tbaa !37
+  store i8 %102, ptr %103, align 1, !tbaa !38
   %104 = load i32, ptr %12, align 8, !tbaa !4
   %105 = sdiv i32 %104, 4
   %.1157 = add i32 %.0135179, 4
@@ -198,58 +198,58 @@ define internal i32 @cyuv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %.0140164 = phi i8 [ %72, %.lr.ph.preheader ], [ %117, %.lr.ph ]
   %.0141163 = phi i8 [ %102, %.lr.ph.preheader ], [ %153, %.lr.ph ]
   %110 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv192
-  %111 = load i8, ptr %110, align 1, !tbaa !37
+  %111 = load i8, ptr %110, align 1, !tbaa !38
   %112 = zext i8 %111 to i32
   %113 = lshr i32 %112, 4
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %45, i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !37
+  %116 = load i8, ptr %115, align 1, !tbaa !38
   %117 = add i8 %116, %.0140164
   %118 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv190
-  store i8 %117, ptr %118, align 1, !tbaa !37
+  store i8 %117, ptr %118, align 1, !tbaa !38
   %119 = and i32 %112, 15
   %120 = zext nneg i32 %119 to i64
   %121 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !37
+  %122 = load i8, ptr %121, align 1, !tbaa !38
   %123 = add i8 %122, %.0141163
   %124 = getelementptr inbounds i8, ptr %34, i64 %indvars.iv194
-  store i8 %123, ptr %124, align 1, !tbaa !37
+  store i8 %123, ptr %124, align 1, !tbaa !38
   %125 = getelementptr i8, ptr %110, i64 1
-  %126 = load i8, ptr %125, align 1, !tbaa !37
+  %126 = load i8, ptr %125, align 1, !tbaa !38
   %127 = zext i8 %126 to i32
   %128 = lshr i32 %127, 4
   %129 = zext nneg i32 %128 to i64
   %130 = getelementptr inbounds nuw i8, ptr %9, i64 %129
-  %131 = load i8, ptr %130, align 1, !tbaa !37
+  %131 = load i8, ptr %130, align 1, !tbaa !38
   %132 = add i8 %131, %.0139165
   %133 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv
-  store i8 %132, ptr %133, align 1, !tbaa !37
+  store i8 %132, ptr %133, align 1, !tbaa !38
   %134 = and i32 %127, 15
   %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %135
-  %137 = load i8, ptr %136, align 1, !tbaa !37
+  %137 = load i8, ptr %136, align 1, !tbaa !38
   %138 = add i8 %137, %123
   %139 = getelementptr i8, ptr %124, i64 1
-  store i8 %138, ptr %139, align 1, !tbaa !37
+  store i8 %138, ptr %139, align 1, !tbaa !38
   %140 = sext i32 %.2.in166 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %140
-  %141 = load i8, ptr %gep, align 1, !tbaa !37
+  %141 = load i8, ptr %gep, align 1, !tbaa !38
   %142 = zext i8 %141 to i32
   %143 = and i32 %142, 15
   %144 = zext nneg i32 %143 to i64
   %145 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %144
-  %146 = load i8, ptr %145, align 1, !tbaa !37
+  %146 = load i8, ptr %145, align 1, !tbaa !38
   %147 = add i8 %146, %138
   %148 = getelementptr i8, ptr %124, i64 2
-  store i8 %147, ptr %148, align 1, !tbaa !37
+  store i8 %147, ptr %148, align 1, !tbaa !38
   %149 = lshr i32 %142, 4
   %150 = zext nneg i32 %149 to i64
   %151 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %150
-  %152 = load i8, ptr %151, align 1, !tbaa !37
+  %152 = load i8, ptr %151, align 1, !tbaa !38
   %153 = add i8 %152, %147
   %154 = sext i32 %.1.in167 to i64
   %gep156 = getelementptr i8, ptr %invariant.gep155, i64 %154
-  store i8 %153, ptr %gep156, align 1, !tbaa !37
+  store i8 %153, ptr %gep156, align 1, !tbaa !38
   %indvars.iv.next195 = add nsw i64 %indvars.iv194, 4
   %indvars.iv.next193 = add nsw i64 %indvars.iv192, 3
   %.0136 = add nsw i32 %.0136170, -1
@@ -258,7 +258,7 @@ define internal i32 @cyuv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %.not = icmp eq i32 %.0136, 0
   %155 = trunc nsw i64 %indvars.iv192 to i32
   %156 = trunc nsw i64 %indvars.iv194 to i32
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %157 = trunc nsw i64 %indvars.iv.next195 to i32
@@ -287,7 +287,7 @@ define internal i32 @cyuv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %171 = load i32, ptr %10, align 4, !tbaa !30
   %172 = mul nsw i32 %162, %171
   %173 = icmp slt i32 %164, %172
-  br i1 %173, label %68, label %.loopexit, !llvm.loop !39
+  br i1 %173, label %68, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %._crit_edge, %61, %.preheader, %48
   store i32 1, ptr %2, align 4, !tbaa !34
@@ -348,8 +348,9 @@ attributes #4 = { nounwind }
 !32 = !{!5, !10, i64 136}
 !33 = !{!14, !14, i64 0}
 !34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!8, !8, i64 0}
-!38 = distinct !{!38, !36}
-!39 = distinct !{!39, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!8, !8, i64 0}
+!39 = distinct !{!39, !36, !37}
+!40 = distinct !{!40, !36, !37}

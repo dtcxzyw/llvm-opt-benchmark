@@ -120,7 +120,7 @@ define void @dsytri_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %58 = trunc nsw i64 %indvars.iv.next714 to i32
   store i32 %58, ptr %6, align 4, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next714, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit678, label %46, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit678, label %46, !llvm.loop !12
 
 .loopexit678:                                     ; preds = %42, %57
   store i32 0, ptr %6, align 4, !tbaa !3
@@ -377,7 +377,7 @@ define void @dsytri_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %206 = add nsw i32 %.1638, 1
   %207 = load i32, ptr %1, align 4, !tbaa !3
   %.not707 = icmp slt i32 %.1638, %207
-  br i1 %.not707, label %62, label %.loopexit
+  br i1 %.not707, label %62, label %.loopexit, !llvm.loop !13
 
 208:                                              ; preds = %.loopexit678
   %209 = load i32, ptr %1, align 4, !tbaa !3
@@ -665,7 +665,7 @@ define void @dsytri_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %.3 = phi i32 [ %.2705, %319 ], [ %.2705, %304 ], [ %243, %390 ], [ %243, %372 ]
   %402 = add nsw i32 %.3, -1
   %403 = icmp slt i32 %.3, 2
-  br i1 %403, label %.loopexit, label %212
+  br i1 %403, label %.loopexit, label %212, !llvm.loop !14
 
 .loopexit:                                        ; preds = %35, %50, %205, %401, %.preheader, %208, %26, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
@@ -714,6 +714,9 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}

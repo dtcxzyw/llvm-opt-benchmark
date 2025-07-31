@@ -158,13 +158,13 @@ define dso_local void @_ZN4absl24synchronization_internal11FutexWaiter4PostEv(pt
 4:                                                ; preds = %1
   %5 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef 129, i32 noundef 1) #5
   %6 = icmp slt i64 %5, 0
-  br i1 %6, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i, label %_ZN4absl24synchronization_internal11FutexWaiter4PokeEv.exit, !prof !14
+  br i1 %6, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i, label %_ZN4absl24synchronization_internal11FutexWaiter4PokeEv.exit, !prof !15
 
 _ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i: ; preds = %4
   %7 = tail call ptr @__errno_location() #6
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %10, label %_ZN4absl24synchronization_internal11FutexWaiter4PokeEv.exit, !prof !15
+  br i1 %9, label %10, label %_ZN4absl24synchronization_internal11FutexWaiter4PokeEv.exit, !prof !16
 
 10:                                               ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i
   %11 = sub nsw i32 0, %8
@@ -179,13 +179,13 @@ _ZN4absl24synchronization_internal11FutexWaiter4PokeEv.exit: ; preds = %_ZN4absl
 define dso_local void @_ZN4absl24synchronization_internal11FutexWaiter4PokeEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %0, i32 noundef 129, i32 noundef 1) #5
   %3 = icmp slt i64 %2, 0
-  br i1 %3, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.thread, !prof !14
+  br i1 %3, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.thread, !prof !15
 
 _ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit: ; preds = %1
   %4 = tail call ptr @__errno_location() #6
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.thread, !prof !15
+  br i1 %6, label %7, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.thread, !prof !16
 
 7:                                                ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit
   %8 = sub nsw i32 0, %5
@@ -226,7 +226,8 @@ attributes #6 = { nounwind willreturn memory(none) }
 !9 = !{!"_ZTSN4absl24synchronization_internal13FutexTimespecE", !10, i64 0, !10, i64 8}
 !10 = !{!"long", !6, i64 0}
 !11 = !{!9, !10, i64 8}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = !{!"branch_weights", !"expected", i32 2001, i32 2147481647}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!16 = !{!"branch_weights", !"expected", i32 2001, i32 2147481647}

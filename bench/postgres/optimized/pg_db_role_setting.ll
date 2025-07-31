@@ -441,7 +441,7 @@ define dso_local void @ApplySetting(ptr noundef %0, i32 noundef %1, i32 noundef 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
   %24 = call ptr @systable_getnext(ptr noundef %11) #7
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %23, %5
   call void @systable_endscan(ptr noundef %11) #7
@@ -483,6 +483,7 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

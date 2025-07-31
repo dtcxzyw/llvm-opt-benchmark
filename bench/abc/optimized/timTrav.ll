@@ -50,7 +50,7 @@ define void @Tim_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed
   store i32 0, ptr %19, align 4, !tbaa !16
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next17, %wide.trip.count19
-  br i1 %exitcond20.not, label %.loopexit, label %18, !llvm.loop !21
+  br i1 %exitcond20.not, label %.loopexit, label %18, !llvm.loop !22
 
 .loopexit:                                        ; preds = %18, %.preheader, %1
   %20 = phi i32 [ 0, %.preheader ], [ %3, %1 ], [ 0, %18 ]
@@ -61,14 +61,14 @@ define void @Tim_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Tim_ManSetCurrentTravIdBoxInputs(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !22
+  %.val = load ptr, ptr %0, align 8, !tbaa !23
   %3 = getelementptr i8, ptr %.val, i64 8
-  %.val.val = load ptr, ptr %3, align 8, !tbaa !23
+  %.val.val = load ptr, ptr %3, align 8, !tbaa !24
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i32, ptr %7, align 4, !tbaa !26
+  %8 = load i32, ptr %7, align 4, !tbaa !27
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.critedge
 
@@ -88,13 +88,13 @@ define void @Tim_ManSetCurrentTravIdBoxInputs(ptr noundef readonly captures(none
 14:                                               ; preds = %.lr.ph.split, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !28
+  %16 = load i32, ptr %15, align 4, !tbaa !29
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val10, i64 %17, i32 1
   store i32 %13, ptr %18, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !29
+  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !30
 
 .critedge:                                        ; preds = %14, %.lr.ph, %2
   ret void
@@ -102,14 +102,14 @@ define void @Tim_ManSetCurrentTravIdBoxInputs(ptr noundef readonly captures(none
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Tim_ManSetCurrentTravIdBoxOutputs(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !22
+  %.val = load ptr, ptr %0, align 8, !tbaa !23
   %3 = getelementptr i8, ptr %.val, i64 8
-  %.val.val = load ptr, ptr %3, align 8, !tbaa !23
+  %.val.val = load ptr, ptr %3, align 8, !tbaa !24
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !30
+  %8 = load i32, ptr %7, align 4, !tbaa !31
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.critedge
 
@@ -123,7 +123,7 @@ define void @Tim_ManSetCurrentTravIdBoxOutputs(ptr noundef readonly captures(non
 .lr.ph.split:                                     ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %14 = load i32, ptr %13, align 4, !tbaa !26
+  %14 = load i32, ptr %13, align 4, !tbaa !27
   %15 = load i32, ptr %12, align 8, !tbaa !3
   %16 = sext i32 %14 to i64
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -133,13 +133,13 @@ define void @Tim_ManSetCurrentTravIdBoxOutputs(ptr noundef readonly captures(non
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %17 ]
   %18 = add nsw i64 %indvars.iv, %16
   %19 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !28
+  %20 = load i32, ptr %19, align 4, !tbaa !29
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val10, i64 %21, i32 1
   store i32 %15, ptr %22, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !31
+  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !32
 
 .critedge:                                        ; preds = %17, %.lr.ph, %2
   ret void
@@ -147,14 +147,14 @@ define void @Tim_ManSetCurrentTravIdBoxOutputs(ptr noundef readonly captures(non
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Tim_ManSetPreviousTravIdBoxInputs(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !22
+  %.val = load ptr, ptr %0, align 8, !tbaa !23
   %3 = getelementptr i8, ptr %.val, i64 8
-  %.val.val = load ptr, ptr %3, align 8, !tbaa !23
+  %.val.val = load ptr, ptr %3, align 8, !tbaa !24
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i32, ptr %7, align 4, !tbaa !26
+  %8 = load i32, ptr %7, align 4, !tbaa !27
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.critedge
 
@@ -175,13 +175,13 @@ define void @Tim_ManSetPreviousTravIdBoxInputs(ptr noundef readonly captures(non
 15:                                               ; preds = %.lr.ph.split, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %15 ]
   %16 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4, !tbaa !28
+  %17 = load i32, ptr %16, align 4, !tbaa !29
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val10, i64 %18, i32 1
   store i32 %14, ptr %19, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !33
 
 .critedge:                                        ; preds = %15, %.lr.ph, %2
   ret void
@@ -189,14 +189,14 @@ define void @Tim_ManSetPreviousTravIdBoxInputs(ptr noundef readonly captures(non
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Tim_ManSetPreviousTravIdBoxOutputs(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !22
+  %.val = load ptr, ptr %0, align 8, !tbaa !23
   %3 = getelementptr i8, ptr %.val, i64 8
-  %.val.val = load ptr, ptr %3, align 8, !tbaa !23
+  %.val.val = load ptr, ptr %3, align 8, !tbaa !24
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !30
+  %8 = load i32, ptr %7, align 4, !tbaa !31
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.critedge
 
@@ -210,7 +210,7 @@ define void @Tim_ManSetPreviousTravIdBoxOutputs(ptr noundef readonly captures(no
 .lr.ph.split:                                     ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %14 = load i32, ptr %13, align 4, !tbaa !26
+  %14 = load i32, ptr %13, align 4, !tbaa !27
   %15 = load i32, ptr %12, align 8, !tbaa !3
   %16 = add nsw i32 %15, -1
   %17 = sext i32 %14 to i64
@@ -221,13 +221,13 @@ define void @Tim_ManSetPreviousTravIdBoxOutputs(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %18 ]
   %19 = add nsw i64 %indvars.iv, %17
   %20 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !28
+  %21 = load i32, ptr %20, align 4, !tbaa !29
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val10, i64 %22, i32 1
   store i32 %16, ptr %23, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !33
+  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !34
 
 .critedge:                                        ; preds = %18, %.lr.ph, %2
   ret void
@@ -286,18 +286,19 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !16 = !{!17, !10, i64 4}
 !17 = !{!"Tim_Obj_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !18, i64 16, !18, i64 20}
 !18 = !{!"float", !7, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = !{!4, !5, i64 0}
-!23 = !{!24, !6, i64 8}
-!24 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !6, i64 8}
-!25 = !{!6, !6, i64 0}
-!26 = !{!27, !10, i64 8}
-!27 = !{!"Tim_Box_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !7, i64 28}
-!28 = !{!10, !10, i64 0}
-!29 = distinct !{!29, !20}
-!30 = !{!27, !10, i64 12}
-!31 = distinct !{!31, !20}
-!32 = distinct !{!32, !20}
-!33 = distinct !{!33, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}
+!23 = !{!4, !5, i64 0}
+!24 = !{!25, !6, i64 8}
+!25 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !6, i64 8}
+!26 = !{!6, !6, i64 0}
+!27 = !{!28, !10, i64 8}
+!28 = !{!"Tim_Box_t_", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !7, i64 28}
+!29 = !{!10, !10, i64 0}
+!30 = distinct !{!30, !20, !21}
+!31 = !{!28, !10, i64 12}
+!32 = distinct !{!32, !20, !21}
+!33 = distinct !{!33, !20, !21}
+!34 = distinct !{!34, !20, !21}

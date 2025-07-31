@@ -222,7 +222,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
   %88 = add nuw i32 %.1141.i.i, 1
   %89 = zext i32 %.1141.i.i to i64
   %90 = getelementptr inbounds nuw i16, ptr %0, i64 %89
-  store i16 %87, ptr %90, align 2, !tbaa !11
+  store i16 %87, ptr %90, align 2, !tbaa !12
   %91 = icmp ne i32 %84, 0
   %92 = icmp slt i32 %.2163.i.i, %.0158.i.i
   br i1 %92, label %93, label %100
@@ -274,7 +274,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
   %.8.i.i = phi ptr [ %106, %._crit_edge27 ], [ %30, %108 ]
   %.8.i.val.i = load i32, ptr %.8.i.i, align 1, !tbaa !4
   %113 = lshr i32 %.8.i.val.i, %.9.i.i
-  br label %32
+  br label %32, !llvm.loop !14
 
 .thread9:                                         ; preds = %100, %93, %._crit_edge
   %.1162.i.i = phi i32 [ %.0161.i.i, %._crit_edge ], [ %.2163.i.i, %93 ], [ %.2163.i.i, %100 ]
@@ -333,7 +333,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   br i1 %.not.i.i, label %HUF_readStats_body_default.exit, label %11
 
 11:                                               ; preds = %10
-  %12 = load i8, ptr %5, align 1, !tbaa !13
+  %12 = load i8, ptr %5, align 1, !tbaa !15
   %13 = zext i8 %12 to i64
   %14 = icmp slt i8 %12, 0
   br i1 %14, label %15, label %30
@@ -366,17 +366,17 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %22 = lshr exact i64 %indvars.iv.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !13
+  %24 = load i8, ptr %23, align 1, !tbaa !15
   %25 = lshr i8 %24, 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %25, ptr %26, align 1, !tbaa !13
-  %27 = load i8, ptr %23, align 1, !tbaa !13
+  store i8 %25, ptr %26, align 1, !tbaa !15
+  %27 = load i8, ptr %23, align 1, !tbaa !15
   %28 = and i8 %27, 15
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  store i8 %28, ptr %gep.i, align 1, !tbaa !13
+  store i8 %28, ptr %gep.i, align 1, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %29 = icmp ult i64 %indvars.iv.next.i, %16
-  br i1 %29, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !14
+  br i1 %29, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !16
 
 30:                                               ; preds = %11
   %.not87.i.i = icmp ugt i64 %6, %13
@@ -401,7 +401,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   %.072.i12.i = phi i32 [ %49, %40 ], [ 0, %.loopexit.i ]
   %.075.i11.i = phi i32 [ %50, %40 ], [ 0, %.loopexit.i ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !13
+  %38 = load i8, ptr %37, align 1, !tbaa !15
   %39 = icmp ugt i8 %38, 12
   br i1 %39, label %HUF_readStats_body_default.exit, label %40
 
@@ -411,7 +411,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   %43 = load i32, ptr %42, align 4, !tbaa !4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !4
-  %45 = load i8, ptr %37, align 1, !tbaa !13
+  %45 = load i8, ptr %37, align 1, !tbaa !15
   %46 = zext nneg i8 %45 to i32
   %47 = shl nuw i32 1, %46
   %48 = ashr i32 %47, 1
@@ -419,7 +419,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   %50 = add i32 %.075.i11.i, 1
   %51 = zext i32 %50 to i64
   %.not91.i.i = icmp ugt i64 %.074.i.i, %51
-  br i1 %.not91.i.i, label %.lr.ph13.i, label %.critedge.i.i, !llvm.loop !15
+  br i1 %.not91.i.i, label %.lr.ph13.i, label %.critedge.i.i, !llvm.loop !17
 
 .critedge.i.i:                                    ; preds = %40
   %.old.i.i = icmp eq i32 %49, 0
@@ -446,7 +446,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   %64 = sub nuw nsw i32 32, %60
   %65 = trunc nuw nsw i32 %64 to i8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.074.i.i
-  store i8 %65, ptr %66, align 1, !tbaa !13
+  store i8 %65, ptr %66, align 1, !tbaa !15
   %67 = zext nneg i32 %64 to i64
   %68 = getelementptr inbounds nuw i32, ptr %2, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !4
@@ -512,10 +512,12 @@ attributes #8 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"short", !6, i64 0}
-!13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !6, i64 0}
+!14 = distinct !{!14, !11}
+!15 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}

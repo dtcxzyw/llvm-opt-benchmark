@@ -440,7 +440,7 @@ emit_asm_reloc.exit:                              ; preds = %196, %194, %192, %1
   %200 = load i32, ptr %38, align 4, !tbaa !25
   %201 = sext i32 %200 to i64
   %202 = icmp slt i64 %indvars.iv.next, %201
-  br i1 %202, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !37
+  br i1 %202, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !38
 
 .critedge.loopexit:                               ; preds = %emit_asm_reloc.exit, %.lr.ph
   %.062.lcssa.ph = phi i32 [ %.06281, %.lr.ph ], [ %199, %emit_asm_reloc.exit ]
@@ -506,7 +506,7 @@ emit_asm_bytes.exit78:                            ; preds = %._crit_edge.i70, %2
   %228 = load i32, ptr %34, align 8, !tbaa !20
   %229 = sext i32 %228 to i64
   %230 = icmp slt i64 %indvars.iv.next92, %229
-  br i1 %230, label %42, label %._crit_edge, !llvm.loop !38
+  br i1 %230, label %42, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %emit_asm_bytes.exit78, %33
   %231 = load ptr, ptr %2, align 8, !tbaa !4
@@ -530,7 +530,7 @@ emit_asm_bytes.exit78:                            ; preds = %._crit_edge.i70, %2
   %.str.6.sink = phi ptr [ @.str.6, %236 ], [ @.str.5, %233 ], [ @.str.5, %._crit_edge ]
   %237 = load ptr, ptr %2, align 8, !tbaa !4
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %239 = load ptr, ptr %238, align 8, !tbaa !39
+  %239 = load ptr, ptr %238, align 8, !tbaa !40
   %240 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %237, ptr noundef nonnull %.str.6.sink, ptr noundef %239) #4
   br label %241
 
@@ -600,8 +600,9 @@ attributes #6 = { cold noreturn nounwind }
 !32 = !{!12, !12, i64 0}
 !33 = !{!8, !8, i64 0}
 !34 = !{!11, !11, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = distinct !{!38, !36}
-!39 = !{!5, !12, i64 136}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}
+!39 = distinct !{!39, !36, !37}
+!40 = !{!5, !12, i64 136}

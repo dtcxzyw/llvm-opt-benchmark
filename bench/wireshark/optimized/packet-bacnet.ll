@@ -876,7 +876,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %157 = icmp sgt i32 %156, 1
   %158 = icmp ult i8 %155, %133
   %159 = select i1 %157, i1 %158, i1 false
-  br i1 %159, label %.lr.ph629, label %.thread, !llvm.loop !8
+  br i1 %159, label %.lr.ph629, label %.thread, !llvm.loop !9
 
 160:                                              ; preds = %102
   %161 = load i32, ptr @hf_bacnet_dnet, align 4
@@ -942,7 +942,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %204 = add nuw i32 %195, 2
   %205 = zext i16 %201 to i32
   call void @tvb_set_reported_length(ptr noundef %0, i32 noundef %205)
-  %206 = load i8, ptr %5, align 1, !range !9, !noundef !10
+  %206 = load i8, ptr %5, align 1, !range !10, !noundef !11
   %207 = trunc nuw i8 %206 to i1
   br i1 %207, label %208, label %210
 
@@ -1034,7 +1034,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %258 = icmp sgt i32 %257, 1
   %259 = icmp ne i8 %256, 0
   %260 = select i1 %258, i1 %259, i1 false
-  br i1 %260, label %.lr.ph625, label %.thread, !llvm.loop !11
+  br i1 %260, label %.lr.ph625, label %.thread, !llvm.loop !12
 
 261:                                              ; preds = %221
   %262 = load i32, ptr @hf_bacnet_security_response_original_authentication_mech, align 4
@@ -1158,7 +1158,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %350 = icmp sgt i32 %349, 1
   %351 = icmp ult i8 %348, %330
   %352 = select i1 %350, i1 %351, i1 false
-  br i1 %352, label %.lr.ph617, label %.loopexit, !llvm.loop !12
+  br i1 %352, label %.lr.ph617, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph617, %329, %327
   %.10 = phi i32 [ %.9, %327 ], [ %331, %329 ], [ %347, %.lr.ph617 ]
@@ -1213,7 +1213,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %387 = icmp sgt i32 %386, 1
   %388 = icmp ult i8 %385, %367
   %389 = select i1 %387, i1 %388, i1 false
-  br i1 %389, label %.lr.ph621, label %.thread, !llvm.loop !13
+  br i1 %389, label %.lr.ph621, label %.thread, !llvm.loop !14
 
 390:                                              ; preds = %102
   %391 = tail call i32 @bacnet_dissect_sec_wrapper(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %109, ptr noundef null)
@@ -1273,7 +1273,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %427 = icmp sgt i32 %426, 1
   %428 = icmp ne i8 %425, 0
   %429 = select i1 %427, i1 %428, i1 false
-  br i1 %429, label %.lr.ph, label %.thread, !llvm.loop !14
+  br i1 %429, label %.lr.ph, label %.thread, !llvm.loop !15
 
 430:                                              ; preds = %102
   %431 = tail call i32 @bacnet_dissect_sec_wrapper(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %109, ptr noundef null)
@@ -1406,12 +1406,13 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

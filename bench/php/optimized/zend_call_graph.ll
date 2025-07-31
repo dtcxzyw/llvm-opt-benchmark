@@ -363,10 +363,10 @@ zend_arena_alloc.exit:                            ; preds = %123, %125
   %.1 = phi ptr [ %.0124152, %25 ], [ %.2, %97 ], [ null, %99 ], [ %.0124152, %zend_arena_alloc.exit ], [ %156, %152 ], [ %.0124152, %162 ], [ %.0124152, %164 ], [ null, %157 ], [ %.0124152, %170 ], [ null, %169 ]
   %173 = getelementptr inbounds nuw i8, ptr %.0123153, i64 32
   %.not = icmp eq ptr %173, %12
-  br i1 %.not, label %._crit_edge, label %25
+  br i1 %.not, label %._crit_edge, label %25, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %172
-  br i1 %16, label %174, label %._crit_edge.thread, !prof !83
+  br i1 %16, label %174, label %._crit_edge.thread, !prof !85
 
 174:                                              ; preds = %._crit_edge
   call void @_efree(ptr noundef %21) #10
@@ -392,9 +392,9 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_build_call_graph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
-  store i32 0, ptr %2, align 8, !tbaa !84
+  store i32 0, ptr %2, align 8, !tbaa !86
   tail call void @zend_foreach_op_array(ptr noundef %1, ptr noundef nonnull @zend_op_array_calc, ptr noundef nonnull %2) #10
-  %4 = load i32, ptr %2, align 8, !tbaa !84
+  %4 = load i32, ptr %2, align 8, !tbaa !86
   %5 = sext i32 %4 to i64
   %6 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 range(i64 -2147483648, 2147483648) %5) #12, !srcloc !30
   %7 = extractvalue { i64, i64 } %6, 0
@@ -445,8 +445,8 @@ zend_arena_alloc.exit:                            ; preds = %19, %21
   %.0.i = phi ptr [ %11, %19 ], [ %26, %21 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i, i8 0, i64 %7, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.0.i, ptr %31, align 8, !tbaa !87
-  %32 = load i32, ptr %2, align 8, !tbaa !84
+  store ptr %.0.i, ptr %31, align 8, !tbaa !89
+  %32 = load i32, ptr %2, align 8, !tbaa !86
   %33 = sext i32 %32 to i64
   %34 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 152, i64 range(i64 -2147483648, 2147483648) %33) #12, !srcloc !30
   %35 = extractvalue { i64, i64 } %34, 0
@@ -497,8 +497,8 @@ zend_arena_alloc.exit20:                          ; preds = %47, %49
   %.0.i18 = phi ptr [ %39, %47 ], [ %54, %49 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i18, i8 0, i64 %35, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %.0.i18, ptr %59, align 8, !tbaa !88
-  store i32 0, ptr %2, align 8, !tbaa !84
+  store ptr %.0.i18, ptr %59, align 8, !tbaa !90
+  store i32 0, ptr %2, align 8, !tbaa !86
   tail call void @zend_foreach_op_array(ptr noundef %1, ptr noundef nonnull @zend_op_array_collect, ptr noundef nonnull %2) #10
   ret void
 }
@@ -507,37 +507,37 @@ declare void @zend_foreach_op_array(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @zend_op_array_calc(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #4 {
-  %3 = load i32, ptr %1, align 8, !tbaa !84
+  %3 = load i32, ptr %1, align 8, !tbaa !86
   %4 = add nsw i32 %3, 1
-  store i32 %4, ptr %1, align 8, !tbaa !84
+  store i32 %4, ptr %1, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @zend_op_array_collect(ptr noundef %0, ptr noundef captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !88
-  %5 = load i32, ptr %1, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %5 = load i32, ptr %1, align 8, !tbaa !86
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds %struct._zend_func_info, ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !72
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %10
-  store ptr %7, ptr %11, align 8, !tbaa !89
+  store ptr %7, ptr %11, align 8, !tbaa !91
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !87
+  %13 = load ptr, ptr %12, align 8, !tbaa !89
   %14 = getelementptr inbounds ptr, ptr %13, i64 %6
-  store ptr %0, ptr %14, align 8, !tbaa !90
-  store i32 %5, ptr %7, align 8, !tbaa !91
+  store ptr %0, ptr %14, align 8, !tbaa !92
+  store i32 %5, ptr %7, align 8, !tbaa !93
   %15 = add nsw i32 %5, 1
-  store i32 %15, ptr %1, align 8, !tbaa !84
+  store i32 %15, ptr %1, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_analyze_call_graph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr %2, align 8, !tbaa !84
+  %4 = load i32, ptr %2, align 8, !tbaa !86
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -548,17 +548,17 @@ define dso_local void @zend_analyze_call_graph(ptr noundef captures(none) %0, pt
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = load ptr, ptr %6, align 8, !tbaa !87
+  %9 = load ptr, ptr %6, align 8, !tbaa !89
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !90
-  %12 = load ptr, ptr %7, align 8, !tbaa !88
+  %11 = load ptr, ptr %10, align 8, !tbaa !92
+  %12 = load ptr, ptr %7, align 8, !tbaa !90
   %13 = getelementptr inbounds nuw %struct._zend_func_info, ptr %12, i64 %indvars.iv
   tail call void @zend_analyze_calls(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %11, ptr noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i32, ptr %2, align 8, !tbaa !84
+  %14 = load i32, ptr %2, align 8, !tbaa !86
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %8, label %._crit_edge
+  br i1 %16, label %8, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %8, %3
   tail call fastcc void @zend_analyze_recursion(ptr noundef nonnull %2)
@@ -567,7 +567,7 @@ define dso_local void @zend_analyze_call_graph(ptr noundef captures(none) %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_analyze_recursion(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !84
+  %2 = load i32, ptr %0, align 8, !tbaa !86
   %3 = zext i32 %2 to i64
   %4 = add nuw nsw i64 %3, 63
   %5 = lshr i64 %4, 3
@@ -585,7 +585,7 @@ define internal fastcc void @zend_analyze_recursion(ptr noundef readonly capture
 
 12:                                               ; preds = %8, %10
   %13 = phi ptr [ %11, %10 ], [ %9, %8 ]
-  %14 = load i32, ptr %0, align 8, !tbaa !84
+  %14 = load i32, ptr %0, align 8, !tbaa !86
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph69, label %._crit_edge70
 
@@ -597,10 +597,10 @@ define internal fastcc void @zend_analyze_recursion(ptr noundef readonly capture
 18:                                               ; preds = %.lr.ph69, %._crit_edge
   %19 = phi i32 [ %14, %.lr.ph69 ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %._crit_edge ]
-  %20 = load ptr, ptr %16, align 8, !tbaa !87
+  %20 = load ptr, ptr %16, align 8, !tbaa !89
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !90
-  %23 = load ptr, ptr %17, align 8, !tbaa !88
+  %22 = load ptr, ptr %21, align 8, !tbaa !92
+  %23 = load ptr, ptr %17, align 8, !tbaa !90
   %24 = getelementptr inbounds nuw %struct._zend_func_info, ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %.064 = load ptr, ptr %25, align 8, !tbaa !27
@@ -631,7 +631,7 @@ define internal fastcc void @zend_analyze_recursion(ptr noundef readonly capture
 .sink.split:                                      ; preds = %34, %31
   %.sink73 = phi i32 [ 384, %31 ], [ 640, %34 ]
   %36 = getelementptr inbounds nuw i8, ptr %.066, i64 48
-  store i8 1, ptr %36, align 8, !tbaa !92
+  store i8 1, ptr %36, align 8, !tbaa !95
   %37 = load i32, ptr %26, align 4, !tbaa !77
   %38 = or i32 %37, %.sink73
   store i32 %38, ptr %26, align 4, !tbaa !77
@@ -641,10 +641,10 @@ define internal fastcc void @zend_analyze_recursion(ptr noundef readonly capture
   %40 = getelementptr inbounds nuw i8, ptr %.066, i64 32
   %.0 = load ptr, ptr %40, align 8, !tbaa !27
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %27
+  br i1 %.not, label %._crit_edge.loopexit, label %27, !llvm.loop !96
 
 ._crit_edge.loopexit:                             ; preds = %39
-  %.pre = load i32, ptr %0, align 8, !tbaa !84
+  %.pre = load i32, ptr %0, align 8, !tbaa !86
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
@@ -652,7 +652,7 @@ define internal fastcc void @zend_analyze_recursion(ptr noundef readonly capture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %18, label %._crit_edge70
+  br i1 %43, label %18, label %._crit_edge70, !llvm.loop !97
 
 ._crit_edge70:                                    ; preds = %._crit_edge, %12
   br i1 %7, label %44, label %45, !prof !24
@@ -791,13 +791,13 @@ zend_arena_alloc.exit:                            ; preds = %23, %25
 68:                                               ; preds = %60, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %60
+  br i1 %exitcond.not, label %.loopexit, label %60, !llvm.loop !98
 
 .loopexit:                                        ; preds = %68, %.preheader, %52
   %69 = getelementptr inbounds nuw i8, ptr %.02739, i64 40
   %.027 = load ptr, ptr %69, align 8, !tbaa !27
   %.not31 = icmp eq ptr %.027, null
-  br i1 %.not31, label %.loopexit35, label %38
+  br i1 %.not31, label %.loopexit35, label %38, !llvm.loop !99
 
 .loopexit35:                                      ; preds = %.loopexit, %zend_arena_alloc.exit, %3
   %.028 = phi ptr [ null, %3 ], [ %.0.i, %zend_arena_alloc.exit ], [ %.0.i, %.loopexit ]
@@ -820,12 +820,12 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %7 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !72
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !93
-  %11 = load i32, ptr %10, align 8, !tbaa !91
+  %10 = load ptr, ptr %9, align 8, !tbaa !100
+  %11 = load i32, ptr %10, align 8, !tbaa !93
   %12 = zext i32 %11 to i64
   %13 = lshr i64 %12, 6
   %14 = getelementptr inbounds nuw i64, ptr %2, i64 %13
-  %15 = load i64, ptr %14, align 8, !tbaa !94
+  %15 = load i64, ptr %14, align 8, !tbaa !101
   %16 = and i64 %12, 63
   %17 = shl nuw i64 1, %16
   %18 = and i64 %17, %15
@@ -839,9 +839,9 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %23 = lshr i32 %11, 6
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i64, ptr %2, i64 %24
-  %26 = load i64, ptr %25, align 8, !tbaa !94
+  %26 = load i64, ptr %25, align 8, !tbaa !101
   %27 = or i64 %26, %22
-  store i64 %27, ptr %25, align 8, !tbaa !94
+  store i64 %27, ptr %25, align 8, !tbaa !101
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %.01520 = load ptr, ptr %28, align 8, !tbaa !27
   %.not21 = icmp eq ptr %.01520, null
@@ -856,7 +856,7 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds nuw i8, ptr %.01523, i64 48
-  store i8 1, ptr %32, align 8, !tbaa !92
+  store i8 1, ptr %32, align 8, !tbaa !95
   br label %33
 
 33:                                               ; preds = %31, %.lr.ph
@@ -864,7 +864,7 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %34 = getelementptr inbounds nuw i8, ptr %.01523, i64 32
   %.015 = load ptr, ptr %34, align 8, !tbaa !27
   %.not = icmp eq ptr %.015, null
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !102
 
 .loopexit:                                        ; preds = %33, %19, %5, %3
   %.016 = phi i1 [ true, %3 ], [ false, %5 ], [ false, %19 ], [ %.1, %33 ]
@@ -977,15 +977,23 @@ attributes #13 = { noreturn nounwind }
 !80 = !{!81, !16, i64 0}
 !81 = !{!"_zend_send_arg_info", !16, i64 0}
 !82 = !{!40, !42, i64 49}
-!83 = !{!"branch_weights", !"expected", i32 1718842, i32 2145764806}
-!84 = !{!85, !8, i64 0}
-!85 = !{!"_zend_call_graph", !8, i64 0, !22, i64 8, !86, i64 16}
-!86 = !{!"p1 _ZTS15_zend_func_info", !10, i64 0}
-!87 = !{!85, !22, i64 8}
-!88 = !{!85, !86, i64 16}
-!89 = !{!86, !86, i64 0}
-!90 = !{!41, !41, i64 0}
-!91 = !{!48, !8, i64 0}
-!92 = !{!40, !42, i64 48}
-!93 = !{!10, !10, i64 0}
-!94 = !{!59, !59, i64 0}
+!83 = distinct !{!83, !84}
+!84 = !{!"llvm.loop.estimated_trip_count"}
+!85 = !{!"branch_weights", !"expected", i32 1718842, i32 2145764806}
+!86 = !{!87, !8, i64 0}
+!87 = !{!"_zend_call_graph", !8, i64 0, !22, i64 8, !88, i64 16}
+!88 = !{!"p1 _ZTS15_zend_func_info", !10, i64 0}
+!89 = !{!87, !22, i64 8}
+!90 = !{!87, !88, i64 16}
+!91 = !{!88, !88, i64 0}
+!92 = !{!41, !41, i64 0}
+!93 = !{!48, !8, i64 0}
+!94 = distinct !{!94, !84}
+!95 = !{!40, !42, i64 48}
+!96 = distinct !{!96, !84}
+!97 = distinct !{!97, !84}
+!98 = distinct !{!98, !84}
+!99 = distinct !{!99, !84}
+!100 = !{!10, !10, i64 0}
+!101 = !{!59, !59, i64 0}
+!102 = distinct !{!102, !84}

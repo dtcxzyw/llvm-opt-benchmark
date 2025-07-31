@@ -864,7 +864,7 @@ _ZNSt12__shared_ptrIN2cv21DetectionBasedTracker9IDetectorELN9__gnu_cxx12_Lock_po
 
 259:                                              ; preds = %257
   %260 = icmp slt i32 %258, 0
-  br i1 %260, label %235, label %261, !llvm.loop !68
+  br i1 %260, label %235, label %261, !llvm.loop !69
 
 261:                                              ; preds = %259
   invoke void @_ZN2cv21DetectionBasedTracker4stopEv(ptr noundef nonnull align 8 dereferenceable(152) %13)
@@ -1398,7 +1398,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv17Cas
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !69
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -1558,7 +1558,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI22Cascade
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !69
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -1594,9 +1594,9 @@ define linkonce_odr hidden void @_ZN22CascadeDetectorAdapterC2EN2cv3PtrINS0_17Ca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 2147483647, ptr %8, align 4, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 2, ptr %9, align 8, !tbaa !71
+  store i32 2, ptr %9, align 8, !tbaa !72
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float 0x3FF19999A0000000, ptr %10, align 4, !tbaa !74
+  store float 0x3FF19999A0000000, ptr %10, align 4, !tbaa !75
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV22CascadeDetectorAdapter, i64 16), ptr %0, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %1, align 8, !tbaa !28
@@ -1695,10 +1695,10 @@ define linkonce_odr hidden void @_ZN22CascadeDetectorAdapter6detectERKN2cv3MatER
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %11 = load float, ptr %10, align 4, !tbaa !74
+  %11 = load float, ptr %10, align 4, !tbaa !75
   %12 = fpext float %11 to double
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !71
+  %14 = load i32, ptr %13, align 8, !tbaa !72
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.01.0.copyload = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1946,12 +1946,13 @@ attributes #21 = { noreturn }
 !63 = !{!61, !62, i64 0}
 !64 = !{!65, !65, i64 0}
 !65 = !{!"double", !8, i64 0}
-!66 = distinct !{!66, !67}
+!66 = distinct !{!66, !67, !68}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = distinct !{!68, !67}
-!69 = !{!70, !6, i64 8}
-!70 = !{!"_ZTSSt9type_info", !6, i64 8}
-!71 = !{!72, !21, i64 24}
-!72 = !{!"_ZTSN2cv21DetectionBasedTracker9IDetectorE", !55, i64 8, !55, i64 16, !21, i64 24, !73, i64 28}
-!73 = !{!"float", !8, i64 0}
-!74 = !{!72, !73, i64 28}
+!68 = !{!"llvm.loop.estimated_trip_count"}
+!69 = distinct !{!69, !67, !68}
+!70 = !{!71, !6, i64 8}
+!71 = !{!"_ZTSSt9type_info", !6, i64 8}
+!72 = !{!73, !21, i64 24}
+!73 = !{!"_ZTSN2cv21DetectionBasedTracker9IDetectorE", !55, i64 8, !55, i64 16, !21, i64 24, !74, i64 28}
+!74 = !{!"float", !8, i64 0}
+!75 = !{!73, !74, i64 28}

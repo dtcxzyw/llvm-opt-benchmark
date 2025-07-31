@@ -218,11 +218,11 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph78, label %.loopexit, !llvm.loop !11
+  br i1 %60, label %.lr.ph78, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %50, %43
   %61 = phi ptr [ %38, %43 ], [ %56, %50 ]
-  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !12, !noundef !13
+  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !13, !noundef !14
   %63 = trunc nuw i8 %62 to i1
   %64 = load ptr, ptr %61, align 8
   br i1 %63, label %65, label %66
@@ -305,7 +305,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %.051.ph.lcssa94 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.051.ph.lcssa, %90 ], [ %.051.ph.lcssa, %.outer._crit_edge ]
   %92 = load ptr, ptr %8, align 8
   call void @slurm_job_step_pids_response_msg_free(ptr noundef %92) #5
-  %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !12, !noundef !13
+  %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !13, !noundef !14
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %107, label %95
 
@@ -477,7 +477,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, i32 noundef %27) #5
-  br label %.loopexit, !llvm.loop !14
+  br label %.loopexit, !llvm.loop !15
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %4, align 8
@@ -495,11 +495,11 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.60, i32 noundef %38) #5
-  br label %.loopexit, !llvm.loop !14
+  br label %.loopexit, !llvm.loop !15
 
 40:                                               ; preds = %33
   %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef nonnull %21) #5
-  br label %.loopexit, !llvm.loop !14
+  br label %.loopexit, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %29, %75
   %42 = phi ptr [ %76, %75 ], [ %30, %29 ]
@@ -564,13 +564,13 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %78 = load i32, ptr %77, align 8
   %79 = zext i32 %78 to i64
   %80 = icmp samesign ult i64 %indvars.iv.next, %79
-  br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %75, %36, %40, %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   %81 = call ptr @list_next(ptr noundef %15) #5
   %.not27 = icmp eq ptr %81, null
-  br i1 %.not27, label %._crit_edge, label %19
+  br i1 %.not27, label %._crit_edge, label %19, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit, %12
   call void @list_iterator_destroy(ptr noundef %15) #5
@@ -645,11 +645,13 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = !{i8 0, i8 2}
+!14 = !{}
 !15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !11}

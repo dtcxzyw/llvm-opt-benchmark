@@ -429,7 +429,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
   %153 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
   %154 = load i8, ptr %153, align 1
   %.not23.i.i = icmp eq i8 %154, 0
-  br i1 %.not23.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not23.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %143
   %155 = call ptr @cstring_to_text(ptr noundef nonnull %149) #16
@@ -441,7 +441,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
   %158 = load i32, ptr %137, align 4
   %159 = sext i32 %158 to i64
   %.not.i.i = icmp slt i64 %indvars.iv.next.i.i, %159
-  br i1 %.not.i.i, label %143, label %filter_list_to_array.exit.i, !llvm.loop !7
+  br i1 %.not.i.i, label %143, label %filter_list_to_array.exit.i, !llvm.loop !8
 
 filter_list_to_array.exit.i:                      ; preds = %._crit_edge.i.i, %136
   %160 = call ptr @construct_array_builtin(ptr noundef %140, i32 noundef %.val.i.i, i32 noundef 25) #16
@@ -552,7 +552,7 @@ define internal fastcc void @validate_ddl_tags(ptr noundef nonnull readonly capt
   %6 = load i32, ptr %2, align 4
   %7 = sext i32 %6 to i64
   %.not = icmp slt i64 %indvars.iv.next, %7
-  br i1 %.not, label %8, label %.critedge, !llvm.loop !8
+  br i1 %.not, label %8, label %.critedge, !llvm.loop !9
 
 8:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
@@ -709,7 +709,7 @@ define internal fastcc void @SetDatabaseHasLoginEventTriggers() unnamed_addr #0 
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 79
-  %19 = load i8, ptr %18, align 1, !range !9, !noundef !10
+  %19 = load i8, ptr %18, align 1, !range !10, !noundef !11
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %22, label %21
 
@@ -877,9 +877,9 @@ declare i32 @GetSysCacheOid(i32 noundef, i16 noundef signext, i64 noundef, i64 n
 define dso_local void @EventTriggerDDLCommandStart(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.EventTriggerData, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
-  %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
+  %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
   %4 = trunc nuw i8 %3 to i1
-  %5 = load i8, ptr @event_triggers, align 1, !range !9
+  %5 = load i8, ptr @event_triggers, align 1, !range !10
   %6 = trunc nuw i8 %5 to i1
   %or.cond = select i1 %4, i1 %6, i1 false
   br i1 %or.cond, label %7, label %EventTriggerCommonSetup.exit.thread
@@ -945,7 +945,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   %35 = load i32, ptr %12, align 4
   %36 = sext i32 %35 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !11
+  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !12
 
 37:                                               ; preds = %.critedge.i
   store i32 440, ptr %2, align 8
@@ -1039,7 +1039,7 @@ define internal fastcc void @EventTriggerInvoke(ptr noundef nonnull readonly cap
   %30 = load i32, ptr %9, align 4
   %31 = sext i32 %30 to i64
   %.not = icmp slt i64 %indvars.iv.next, %31
-  br i1 %.not, label %17, label %.critedge, !llvm.loop !12
+  br i1 %.not, label %17, label %.critedge, !llvm.loop !13
 }
 
 declare void @list_free(ptr noundef) local_unnamed_addr #2
@@ -1050,9 +1050,9 @@ declare void @CommandCounterIncrement() local_unnamed_addr #2
 define dso_local void @EventTriggerDDLCommandEnd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.EventTriggerData, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
-  %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
+  %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
   %4 = trunc nuw i8 %3 to i1
-  %5 = load i8, ptr @event_triggers, align 1, !range !9
+  %5 = load i8, ptr @event_triggers, align 1, !range !10
   %6 = trunc nuw i8 %5 to i1
   %or.cond = select i1 %4, i1 %6, i1 false
   %7 = load ptr, ptr @currentEventTriggerState, align 8
@@ -1121,7 +1121,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   %36 = load i32, ptr %13, align 4
   %37 = sext i32 %36 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %37
-  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !11
+  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !12
 
 38:                                               ; preds = %.critedge.i
   store i32 440, ptr %2, align 8
@@ -1146,9 +1146,9 @@ define dso_local void @EventTriggerSQLDrop(ptr noundef %0) local_unnamed_addr #0
   %2 = alloca %struct.EventTriggerData, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
-  %4 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
+  %4 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
   %5 = trunc nuw i8 %4 to i1
-  %6 = load i8, ptr @event_triggers, align 1, !range !9
+  %6 = load i8, ptr @event_triggers, align 1, !range !10
   %7 = trunc nuw i8 %6 to i1
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %8, label %EventTriggerCommonSetup.exit.thread
@@ -1225,7 +1225,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   %41 = load i32, ptr %18, align 4
   %42 = sext i32 %41 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %42
-  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !11
+  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !12
 
 43:                                               ; preds = %.critedge.i
   store i32 440, ptr %2, align 8
@@ -1285,15 +1285,15 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [1 x %struct.ScanKeyData], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #16
-  %5 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
+  %5 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
   %6 = trunc nuw i8 %5 to i1
-  %7 = load i8, ptr @event_triggers, align 1, !range !9
+  %7 = load i8, ptr @event_triggers, align 1, !range !10
   %8 = trunc nuw i8 %7 to i1
   %or.cond = select i1 %6, i1 %8, i1 false
   %9 = load i32, ptr @MyDatabaseId, align 4
   %10 = icmp ne i32 %9, 0
   %or.cond3 = select i1 %or.cond, i1 %10, i1 false
-  %11 = load i8, ptr @MyDatabaseHasLoginEventTriggers, align 1, !range !9
+  %11 = load i8, ptr @MyDatabaseHasLoginEventTriggers, align 1, !range !10
   %12 = trunc nuw i8 %11 to i1
   %or.cond5 = select i1 %or.cond3, i1 %12, i1 false
   br i1 %or.cond5, label %13, label %95
@@ -1359,7 +1359,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   %40 = load i32, ptr %17, align 4
   %41 = sext i32 %40 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %41
-  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !11
+  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !12
 
 42:                                               ; preds = %.critedge.i
   store i32 440, ptr %1, align 8
@@ -1408,7 +1408,7 @@ filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigge
   %62 = load i32, ptr %54, align 4
   %63 = sext i32 %62 to i64
   %.not.us.i = icmp slt i64 %indvars.iv.next35.i, %63
-  br i1 %.not.us.i, label %filter_event_trigger.exit.us.i, label %.critedge.i20, !llvm.loop !13
+  br i1 %.not.us.i, label %filter_event_trigger.exit.us.i, label %.critedge.i20, !llvm.loop !14
 
 .critedge.i20:                                    ; preds = %filter_event_trigger.exit.us.i
   %64 = icmp eq ptr %61, null
@@ -1443,7 +1443,7 @@ filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigge
   %78 = zext i8 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %.val, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 79
-  %81 = load i8, ptr %80, align 1, !range !9, !noundef !10
+  %81 = load i8, ptr %80, align 1, !range !10, !noundef !11
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %86
 
@@ -1515,9 +1515,9 @@ define dso_local void @EventTriggerTableRewrite(ptr noundef %0, i32 noundef %1, 
   %4 = alloca %struct.EventTriggerData, align 8
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
-  %6 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
+  %6 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
   %7 = trunc nuw i8 %6 to i1
-  %8 = load i8, ptr @event_triggers, align 1, !range !9
+  %8 = load i8, ptr @event_triggers, align 1, !range !10
   %9 = trunc nuw i8 %8 to i1
   %or.cond = select i1 %7, i1 %9, i1 false
   %10 = load ptr, ptr @currentEventTriggerState, align 8
@@ -1586,7 +1586,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   %39 = load i32, ptr %16, align 4
   %40 = sext i32 %39 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %40
-  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !11
+  br i1 %.not.i, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !12
 
 41:                                               ; preds = %.critedge.i
   store i32 440, ptr %4, align 8
@@ -1702,7 +1702,7 @@ trackDroppedObjectsNeeded.exit.thread:            ; preds = %0, %2, %trackDroppe
 
 12:                                               ; preds = %trackDroppedObjectsNeeded.exit.thread
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %14 = load i8, ptr %13, align 4, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 4, !range !10, !noundef !11
   br label %15
 
 15:                                               ; preds = %trackDroppedObjectsNeeded.exit.thread, %12
@@ -1824,7 +1824,7 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %41 = load ptr, ptr %40, align 8
   %42 = call fastcc i64 @heap_getattr(ptr noundef %34, i32 noundef %39, ptr noundef %41, ptr noundef %4)
-  %43 = load i8, ptr %4, align 1, !range !9, !noundef !10
+  %43 = load i8, ptr %4, align 1, !range !10, !noundef !11
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %54, label %45
 
@@ -1879,7 +1879,7 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
   %66 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %67 = load ptr, ptr %66, align 8
   %68 = call fastcc i64 @heap_getattr(ptr noundef %34, i32 noundef %65, ptr noundef %67, ptr noundef %4)
-  %69 = load i8, ptr %4, align 1, !range !9, !noundef !10
+  %69 = load i8, ptr %4, align 1, !range !10, !noundef !11
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %75, label %71
 
@@ -1995,7 +1995,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %31 = zext nneg i32 %24 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 6
-  %34 = load i8, ptr %33, align 2, !range !9, !noundef !10
+  %34 = load i8, ptr %33, align 2, !range !10, !noundef !11
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %37 = load i16, ptr %36, align 4
@@ -2100,7 +2100,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 8, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %15, label %11
 
@@ -2160,15 +2160,15 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   %45 = sext i32 %44 to i64
   store i64 %45, ptr %19, align 16
   %46 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -8
-  %47 = load i8, ptr %46, align 8, !range !9, !noundef !10
+  %47 = load i8, ptr %46, align 8, !range !10, !noundef !11
   %48 = zext nneg i8 %47 to i64
   store i64 %48, ptr %20, align 8
   %49 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -7
-  %50 = load i8, ptr %49, align 1, !range !9, !noundef !10
+  %50 = load i8, ptr %49, align 1, !range !10, !noundef !11
   %51 = zext nneg i8 %50 to i64
   store i64 %51, ptr %21, align 16
   %52 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -6
-  %53 = load i8, ptr %52, align 2, !range !9, !noundef !10
+  %53 = load i8, ptr %52, align 2, !range !10, !noundef !11
   %54 = zext nneg i8 %53 to i64
   store i64 %54, ptr %22, align 8
   %55 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -32
@@ -2263,7 +2263,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #16
   %.sroa.0.0 = load ptr, ptr %.sroa.0.054, align 8
   %.not46 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not46, label %._crit_edge, label %36, !llvm.loop !15
+  br i1 %.not46, label %._crit_edge, label %36, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %94, %15
   ret i64 0
@@ -2367,7 +2367,7 @@ define dso_local void @EventTriggerCollectSimpleCommand(i64 %0, i32 %1, i64 %2, 
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %9 = load i8, ptr %8, align 4, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 4, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %27, label %11
 
@@ -2377,7 +2377,7 @@ define dso_local void @EventTriggerCollectSimpleCommand(i64 %0, i32 %1, i64 %2, 
   store ptr %12, ptr @CurrentMemoryContext, align 8
   %14 = tail call ptr @palloc(i64 noundef 56) #16
   store i32 0, ptr %14, align 8
-  %15 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
+  %15 = load i8, ptr @creating_extension, align 1, !range !10, !noundef !11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i8 %15, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2419,7 +2419,7 @@ define dso_local void @EventTriggerAlterTableStart(ptr noundef %0) local_unnamed
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %5 = load i8, ptr %4, align 4, !range !9, !noundef !10
+  %5 = load i8, ptr %4, align 4, !range !10, !noundef !11
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %22, label %7
 
@@ -2429,7 +2429,7 @@ define dso_local void @EventTriggerAlterTableStart(ptr noundef %0) local_unnamed
   store ptr %8, ptr @CurrentMemoryContext, align 8
   %10 = tail call ptr @palloc(i64 noundef 56) #16
   store i32 1, ptr %10, align 8
-  %11 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
+  %11 = load i8, ptr @creating_extension, align 1, !range !10, !noundef !11
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %11, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2462,7 +2462,7 @@ define dso_local void @EventTriggerAlterTableRelid(i32 noundef %0) local_unnamed
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %5 = load i8, ptr %4, align 4, !range !9, !noundef !10
+  %5 = load i8, ptr %4, align 4, !range !10, !noundef !11
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
@@ -2485,7 +2485,7 @@ define dso_local void @EventTriggerCollectAlterTableSubcmd(ptr noundef %0, i64 %
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %7 = load i8, ptr %6, align 4, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 4, !range !10, !noundef !11
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %25, label %9
 
@@ -2526,7 +2526,7 @@ define dso_local void @EventTriggerAlterTableEnd() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %4 = load i8, ptr %3, align 4, !range !9, !noundef !10
+  %4 = load i8, ptr %3, align 4, !range !10, !noundef !11
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %25, label %6
 
@@ -2576,7 +2576,7 @@ define dso_local void @EventTriggerCollectGrant(ptr noundef readonly captures(no
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %5 = load i8, ptr %4, align 4, !range !9, !noundef !10
+  %5 = load i8, ptr %4, align 4, !range !10, !noundef !11
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %46, label %7
 
@@ -2628,7 +2628,7 @@ define dso_local void @EventTriggerCollectGrant(ptr noundef readonly captures(no
 .critedge:                                        ; preds = %.lr.ph29, %.lr.ph, %7
   %35 = tail call ptr @palloc(i64 noundef 56) #16
   store i32 2, ptr %35, align 8
-  %36 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
+  %36 = load i8, ptr @creating_extension, align 1, !range !10, !noundef !11
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i8 %36, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -2659,7 +2659,7 @@ define dso_local void @EventTriggerCollectAlterOpFam(ptr noundef %0, i32 noundef
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %8 = load i8, ptr %7, align 4, !range !9, !noundef !10
+  %8 = load i8, ptr %7, align 4, !range !10, !noundef !11
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %29, label %10
 
@@ -2669,7 +2669,7 @@ define dso_local void @EventTriggerCollectAlterOpFam(ptr noundef %0, i32 noundef
   store ptr %11, ptr @CurrentMemoryContext, align 8
   %13 = tail call ptr @palloc(i64 noundef 56) #16
   store i32 3, ptr %13, align 8
-  %14 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
+  %14 = load i8, ptr @creating_extension, align 1, !range !10, !noundef !11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 %14, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2707,7 +2707,7 @@ define dso_local void @EventTriggerCollectCreateOpClass(ptr noundef %0, i32 noun
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %8 = load i8, ptr %7, align 4, !range !9, !noundef !10
+  %8 = load i8, ptr %7, align 4, !range !10, !noundef !11
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %29, label %10
 
@@ -2717,7 +2717,7 @@ define dso_local void @EventTriggerCollectCreateOpClass(ptr noundef %0, i32 noun
   store ptr %11, ptr @CurrentMemoryContext, align 8
   %13 = tail call ptr @palloc0(i64 noundef 56) #16
   store i32 5, ptr %13, align 8
-  %14 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
+  %14 = load i8, ptr @creating_extension, align 1, !range !10, !noundef !11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 %14, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2755,7 +2755,7 @@ define dso_local void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noun
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %8 = load i8, ptr %7, align 4, !range !9, !noundef !10
+  %8 = load i8, ptr %7, align 4, !range !10, !noundef !11
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %32, label %10
 
@@ -2765,7 +2765,7 @@ define dso_local void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noun
   store ptr %11, ptr @CurrentMemoryContext, align 8
   %13 = tail call ptr @palloc0(i64 noundef 56) #16
   store i32 6, ptr %13, align 8
-  %14 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
+  %14 = load i8, ptr @creating_extension, align 1, !range !10, !noundef !11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 %14, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2807,7 +2807,7 @@ define dso_local void @EventTriggerCollectAlterDefPrivs(ptr noundef %0) local_un
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %5 = load i8, ptr %4, align 4, !range !9, !noundef !10
+  %5 = load i8, ptr %4, align 4, !range !10, !noundef !11
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %26, label %7
 
@@ -2823,7 +2823,7 @@ define dso_local void @EventTriggerCollectAlterDefPrivs(ptr noundef %0) local_un
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %14, ptr %15, align 8
-  %16 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
+  %16 = load i8, ptr @creating_extension, align 1, !range !10, !noundef !11
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %16, ptr %17, align 4
   %18 = tail call ptr @copyObjectImpl(ptr noundef %0) #16
@@ -2995,7 +2995,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %80 = load ptr, ptr %79, align 8
   %81 = call fastcc i64 @heap_getattr(ptr noundef %72, i32 noundef %65, ptr noundef %80, ptr noundef %5)
-  %82 = load i8, ptr %5, align 1, !range !9, !noundef !10
+  %82 = load i8, ptr %5, align 1, !range !10, !noundef !11
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %90
 
@@ -3191,7 +3191,7 @@ stringify_adefprivs_objtype.exit:                 ; preds = %116, %125, %126, %1
   store i8 1, ptr %22, align 1
   %146 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %147 = load ptr, ptr %146, align 8
-  %148 = load i8, ptr %147, align 8, !range !9, !noundef !10
+  %148 = load i8, ptr %147, align 8, !range !10, !noundef !11
   %149 = trunc nuw i8 %148 to i1
   %150 = select i1 %149, ptr @.str.29, ptr @.str.30
   %151 = call ptr @cstring_to_text(ptr noundef nonnull %150) #16
@@ -3321,7 +3321,7 @@ stringify_grant_objtype.exit:                     ; preds = %145, %156, %157, %1
 
 .sink.split:                                      ; preds = %stringify_adefprivs_objtype.exit, %stringify_grant_objtype.exit, %113
   %177 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %178 = load i8, ptr %177, align 4, !range !9, !noundef !10
+  %178 = load i8, ptr %177, align 4, !range !10, !noundef !11
   %179 = zext nneg i8 %178 to i64
   store i64 %179, ptr %27, align 8
   %180 = ptrtoint ptr %39 to i64
@@ -3440,15 +3440,16 @@ attributes #20 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !5, !6}

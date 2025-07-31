@@ -843,7 +843,7 @@ tf_RS.exit:                                       ; preds = %.lr.ph.i370.i, %gfm
   %322 = load i32, ptr %26, align 4, !tbaa !4
   %323 = sext i32 %322 to i64
   %324 = icmp slt i64 %indvars.iv.next, %323
-  br i1 %324, label %31, label %._crit_edge, !llvm.loop !13
+  br i1 %324, label %31, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %tf_RS.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
@@ -932,7 +932,7 @@ tf_RS.exit:                                       ; preds = %.lr.ph.i370.i, %gfm
   store i32 %397, ptr %398, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %precomputeMDS.exit, label %333, !llvm.loop !14
+  br i1 %exitcond.not.i, label %precomputeMDS.exit, label %333, !llvm.loop !15
 
 precomputeMDS.exit:                               ; preds = %333
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
@@ -960,7 +960,7 @@ precomputeMDS.exit:                               ; preds = %333
   store i32 %414, ptr %415, align 4, !tbaa !10
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next59, 20
-  br i1 %exitcond.not, label %416, label %399, !llvm.loop !15
+  br i1 %exitcond.not, label %416, label %399, !llvm.loop !16
 
 416:                                              ; preds = %399
   %417 = load i32, ptr %26, align 4, !tbaa !4
@@ -1096,7 +1096,7 @@ define void @av_twofish_crypt(ptr noundef readonly captures(none) %0, ptr nounde
   store i8 %28, ptr %29, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond.not, label %23, label %.preheader.us, !llvm.loop !17
 
 30:                                               ; preds = %.lr.ph.split.us
   tail call fastcc void @twofish_encrypt(ptr noundef %0, ptr noundef %.02437.us, ptr noundef %.02535.us)
@@ -1107,7 +1107,7 @@ define void @av_twofish_crypt(ptr noundef readonly captures(none) %0, ptr nounde
   %33 = getelementptr inbounds nuw i8, ptr %.02437.us, i64 16
   %34 = add nsw i32 %22, -1
   %.not.us = icmp eq i32 %22, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %twofish_decrypt.exit
   %35 = phi i32 [ %193, %twofish_decrypt.exit ], [ %7, %.lr.ph ]
@@ -1255,7 +1255,7 @@ define void @av_twofish_crypt(ptr noundef readonly captures(none) %0, ptr nounde
   %168 = tail call i32 @llvm.fshl.i32(i32 %167, i32 %167, i32 31)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -2
   %169 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %169, label %51, label %170, !llvm.loop !19
+  br i1 %169, label %51, label %170, !llvm.loop !20
 
 170:                                              ; preds = %51
   %171 = load i32, ptr %0, align 4, !tbaa !10
@@ -1296,7 +1296,7 @@ twofish_decrypt.exit:                             ; preds = %170, %179
   %192 = getelementptr inbounds nuw i8, ptr %.02437, i64 16
   %193 = add nsw i32 %35, -1
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %twofish_decrypt.exit, %31, %6
   ret void
@@ -1453,7 +1453,7 @@ define internal fastcc void @twofish_encrypt(ptr noundef readonly captures(none)
   %143 = xor i32 %142, %136
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %144 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %144, label %26, label %145, !llvm.loop !21
+  br i1 %144, label %26, label %145, !llvm.loop !22
 
 145:                                              ; preds = %26
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1684,14 +1684,15 @@ attributes #9 = { nounwind }
 !8 = !{!"int", !6, i64 0}
 !9 = !{!6, !6, i64 0}
 !10 = !{!8, !8, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}

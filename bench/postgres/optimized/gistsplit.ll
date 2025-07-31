@@ -225,7 +225,7 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
   store i16 %109, ptr %120, align 2
   %121 = add nuw nsw i32 %.018.i, 1
   %exitcond.i = icmp eq i32 %.018.i, %3
-  br i1 %exitcond.i, label %gistSplitHalf.exit, label %107, !llvm.loop !8
+  br i1 %exitcond.i, label %gistSplitHalf.exit, label %107, !llvm.loop !9
 
 122:                                              ; preds = %._crit_edge
   %123 = icmp sgt i32 %.1142, 0
@@ -280,7 +280,7 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
   %.1146 = phi i32 [ %141, %140 ], [ %.0145177, %142 ]
   %150 = add nuw nsw i32 %.1144178, 1
   %exitcond192 = icmp eq i32 %.1144178, %3
-  br i1 %exitcond192, label %._crit_edge182, label %.lr.ph181, !llvm.loop !9
+  br i1 %exitcond192, label %._crit_edge182, label %.lr.ph181, !llvm.loop !10
 
 ._crit_edge182:                                   ; preds = %149
   %cond = icmp eq i32 %6, 0
@@ -352,7 +352,7 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
 182:                                              ; preds = %.lr.ph161, %174
   %.1 = phi i32 [ %181, %174 ], [ %.0159, %.lr.ph161 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !11
 
 ._crit_edge162:                                   ; preds = %182, %165
   %.0.lcssa = phi i32 [ 0, %165 ], [ %.1, %182 ]
@@ -407,7 +407,7 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
   %206 = load i32, ptr %.sroa.7.0..sroa_idx, align 8
   %207 = sext i32 %206 to i64
   %208 = icmp slt i64 %indvars.iv.next187, %207
-  br i1 %208, label %.lr.ph167, label %.preheader, !llvm.loop !11
+  br i1 %208, label %.lr.ph167, label %.preheader, !llvm.loop !12
 
 .lr.ph173:                                        ; preds = %.preheader, %.lr.ph173
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph173 ], [ 0, %.preheader ]
@@ -426,7 +426,7 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
   %217 = load i32, ptr %.sroa.12.0..sroa_idx, align 8
   %218 = sext i32 %217 to i64
   %219 = icmp slt i64 %indvars.iv.next190, %218
-  br i1 %219, label %.lr.ph173, label %._crit_edge174, !llvm.loop !12
+  br i1 %219, label %.lr.ph173, label %._crit_edge174, !llvm.loop !13
 
 ._crit_edge174:                                   ; preds = %.lr.ph173, %.preheader
   %.sroa.12.0.lcssa = phi i32 [ %.sroa.12.0.copyload, %.preheader ], [ %214, %.lr.ph173 ]
@@ -505,7 +505,7 @@ define internal fastcc void @gistunionsubkey(ptr noundef %0, ptr noundef readonl
   %18 = getelementptr inbounds i8, ptr %13, i64 %17
   store ptr %16, ptr %18, align 8
   %exitcond45.not = icmp eq i64 %indvars.iv.next.i.us, %15
-  br i1 %exitcond45.not, label %gistunionsubkeyvec.exit, label %.lr.ph.i.us, !llvm.loop !13
+  br i1 %exitcond45.not, label %gistunionsubkeyvec.exit, label %.lr.ph.i.us, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %.lr.ph.i.preheader ]
@@ -531,7 +531,7 @@ define internal fastcc void @gistunionsubkey(ptr noundef %0, ptr noundef readonl
   %.1.i = phi i32 [ %.021.i, %.lr.ph.i ], [ %23, %._crit_edge23.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %exitcond.not, label %gistunionsubkeyvec.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not, label %gistunionsubkeyvec.exit, label %.lr.ph.i, !llvm.loop !16
 
 gistunionsubkeyvec.exit:                          ; preds = %26, %.lr.ph.i.us, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %8, %.lr.ph.i.us ], [ %.1.i, %26 ]
@@ -565,7 +565,7 @@ gistunionsubkeyvec.exit:                          ; preds = %26, %.lr.ph.i.us, %
   %38 = getelementptr inbounds i8, ptr %33, i64 %37
   store ptr %36, ptr %38, align 8
   %exitcond48.not = icmp eq i64 %indvars.iv.next.i27.us, %35
-  br i1 %exitcond48.not, label %gistunionsubkeyvec.exit28, label %.lr.ph.i15.us, !llvm.loop !16
+  br i1 %exitcond48.not, label %gistunionsubkeyvec.exit28, label %.lr.ph.i15.us, !llvm.loop !17
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15.preheader, %46
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i27, %46 ], [ 0, %.lr.ph.i15.preheader ]
@@ -591,7 +591,7 @@ gistunionsubkeyvec.exit:                          ; preds = %26, %.lr.ph.i.us, %
   %.1.i26 = phi i32 [ %.021.i17, %.lr.ph.i15 ], [ %43, %._crit_edge23.i23 ]
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next.i27, %35
-  br i1 %exitcond46.not, label %gistunionsubkeyvec.exit28, label %.lr.ph.i15, !llvm.loop !15
+  br i1 %exitcond46.not, label %gistunionsubkeyvec.exit28, label %.lr.ph.i15, !llvm.loop !16
 
 gistunionsubkeyvec.exit28:                        ; preds = %46, %.lr.ph.i15.us, %gistunionsubkeyvec.exit
   %.0.lcssa.i14 = phi i32 [ 0, %gistunionsubkeyvec.exit ], [ %30, %.lr.ph.i15.us ], [ %.1.i26, %46 ]
@@ -740,7 +740,7 @@ define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr
 97:                                               ; preds = %90, %83
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %genericPickSplit.exit, label %81, !llvm.loop !17
+  br i1 %exitcond, label %genericPickSplit.exit, label %81, !llvm.loop !18
 
 genericPickSplit.exit:                            ; preds = %97, %61
   %98 = load i32, ptr %1, align 8
@@ -1019,7 +1019,7 @@ supportSecondarySplit.exit:                       ; preds = %203, %206
   %245 = load i32, ptr %44, align 8
   %246 = sext i32 %245 to i64
   %247 = icmp slt i64 %indvars.iv.next.i, %246
-  br i1 %247, label %.lr.ph.i115, label %._crit_edge.i, !llvm.loop !18
+  br i1 %247, label %.lr.ph.i115, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %244, %220
   %.030.lcssa.i = phi i32 [ 0, %220 ], [ %.131.i, %244 ]
@@ -1063,7 +1063,7 @@ supportSecondarySplit.exit:                       ; preds = %203, %206
   %266 = load i32, ptr %249, align 8
   %267 = sext i32 %266 to i64
   %268 = icmp slt i64 %indvars.iv.next42.i, %267
-  br i1 %268, label %253, label %findDontCares.exit, !llvm.loop !19
+  br i1 %268, label %253, label %findDontCares.exit, !llvm.loop !20
 
 findDontCares.exit:                               ; preds = %265, %._crit_edge.i
   %269 = phi i32 [ %250, %._crit_edge.i ], [ %266, %265 ]
@@ -1109,7 +1109,7 @@ findDontCares.exit:                               ; preds = %265, %._crit_edge.i
   %.1.i = phi i32 [ %.019.i, %282 ], [ %285, %284 ]
   %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i118, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i119, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %removeDontCares.exit.loopexit, label %.lr.ph.i117, !llvm.loop !20
+  br i1 %exitcond.not.i, label %removeDontCares.exit.loopexit, label %.lr.ph.i117, !llvm.loop !21
 
 removeDontCares.exit.loopexit:                    ; preds = %286
   %.pre143 = load ptr, ptr %210, align 8
@@ -1156,7 +1156,7 @@ removeDontCares.exit:                             ; preds = %removeDontCares.exi
   %.1.i129 = phi i32 [ %.019.i126, %298 ], [ %301, %300 ]
   %indvars.iv.next.i130 = add nuw nsw i64 %indvars.iv.i125, 1
   %exitcond.not.i131 = icmp eq i64 %indvars.iv.next.i130, %wide.trip.count.i123
-  br i1 %exitcond.not.i131, label %removeDontCares.exit132.loopexit, label %.lr.ph.i124, !llvm.loop !20
+  br i1 %exitcond.not.i131, label %removeDontCares.exit132.loopexit, label %.lr.ph.i124, !llvm.loop !21
 
 removeDontCares.exit132.loopexit:                 ; preds = %302
   %.pre145 = load i32, ptr %44, align 8
@@ -1201,7 +1201,7 @@ removeDontCares.exit132:                          ; preds = %removeDontCares.exi
   %318 = add i16 %.0139, 1
   %319 = zext i16 %318 to i32
   %320 = icmp samesign ugt i32 %309, %319
-  br i1 %320, label %312, label %._crit_edge, !llvm.loop !21
+  br i1 %320, label %312, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %317, %312, %.preheader
   %.0.lcssa = phi i16 [ 1, %.preheader ], [ %.0139, %312 ], [ %318, %317 ]
@@ -1231,7 +1231,7 @@ removeDontCares.exit132:                          ; preds = %removeDontCares.exi
   %335 = load i32, ptr %334, align 8
   %336 = sext i32 %335 to i64
   %337 = icmp slt i64 %indvars.iv.next.i137, %336
-  br i1 %337, label %338, label %._crit_edge.i136, !llvm.loop !22
+  br i1 %337, label %338, label %._crit_edge.i136, !llvm.loop !23
 
 338:                                              ; preds = %333, %.lr.ph.i133
   %indvars.iv.i134 = phi i64 [ %332, %.lr.ph.i133 ], [ %indvars.iv.next.i137, %333 ]
@@ -1357,20 +1357,21 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !14}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !15}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

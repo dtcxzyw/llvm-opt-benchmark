@@ -59,7 +59,7 @@ define i32 @Dar_Factorial(i32 noundef %0) local_unnamed_addr #3 {
   %2 = mul nuw nsw i32 %.09, %.068
   %3 = add nuw i32 %.068, 1
   %exitcond.not = icmp eq i32 %.068, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 1, %1 ], [ %2, %.lr.ph ]
@@ -72,9 +72,9 @@ define void @Dar_Permutations_rec(ptr noundef readonly captures(none) %0, i32 no
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = load i8, ptr %3, align 1, !tbaa !11
+  %7 = load i8, ptr %3, align 1, !tbaa !12
   %8 = load ptr, ptr %0, align 8, !tbaa !3
-  store i8 %7, ptr %8, align 1, !tbaa !11
+  store i8 %7, ptr %8, align 1, !tbaa !12
   br label %.loopexit
 
 9:                                                ; preds = %4
@@ -88,7 +88,7 @@ define void @Dar_Permutations_rec(ptr noundef readonly captures(none) %0, i32 no
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %15 = icmp sgt i32 %10, 0
   %wide.trip.count59 = zext nneg i32 %2 to i64
-  %.pre61 = load i8, ptr %14, align 1, !tbaa !11
+  %.pre61 = load i8, ptr %14, align 1, !tbaa !12
   br i1 %15, label %.lr.ph.us.preheader, label %.lr.ph48.split.preheader
 
 .lr.ph48.split.preheader:                         ; preds = %.lr.ph48
@@ -104,9 +104,9 @@ define void @Dar_Permutations_rec(ptr noundef readonly captures(none) %0, i32 no
   %18 = phi i8 [ %.pre61, %.lr.ph.us.preheader ], [ %28, %._crit_edge.us ]
   %indvars.iv56 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next57, %._crit_edge.us ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv56
-  %20 = load i8, ptr %19, align 1, !tbaa !11
-  store i8 %18, ptr %19, align 1, !tbaa !11
-  store i8 %20, ptr %14, align 1, !tbaa !11
+  %20 = load i8, ptr %19, align 1, !tbaa !12
+  store i8 %18, ptr %19, align 1, !tbaa !12
+  store i8 %20, ptr %14, align 1, !tbaa !12
   %21 = sub nsw i64 %13, %indvars.iv56
   %22 = mul nsw i64 %21, %17
   %23 = getelementptr inbounds ptr, ptr %0, i64 %22
@@ -117,39 +117,39 @@ define void @Dar_Permutations_rec(ptr noundef readonly captures(none) %0, i32 no
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv51
   %26 = load ptr, ptr %25, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %13
-  store i8 %20, ptr %27, align 1, !tbaa !11
+  store i8 %20, ptr %27, align 1, !tbaa !12
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge.us, label %24, !llvm.loop !12
+  br i1 %exitcond55.not, label %._crit_edge.us, label %24, !llvm.loop !13
 
 ._crit_edge.us:                                   ; preds = %24
   tail call void @Dar_Permutations_rec(ptr noundef nonnull %23, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %3)
-  %28 = load i8, ptr %19, align 1, !tbaa !11
-  %29 = load i8, ptr %14, align 1, !tbaa !11
-  store i8 %29, ptr %19, align 1, !tbaa !11
-  store i8 %28, ptr %14, align 1, !tbaa !11
+  %28 = load i8, ptr %19, align 1, !tbaa !12
+  %29 = load i8, ptr %14, align 1, !tbaa !12
+  store i8 %29, ptr %19, align 1, !tbaa !12
+  store i8 %28, ptr %14, align 1, !tbaa !12
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !13
+  br i1 %exitcond60.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !14
 
 .lr.ph48.split:                                   ; preds = %.lr.ph48.split.preheader, %.lr.ph48.split
   %30 = phi i8 [ %.pre61, %.lr.ph48.split.preheader ], [ %36, %.lr.ph48.split ]
   %indvars.iv = phi i64 [ 0, %.lr.ph48.split.preheader ], [ %indvars.iv.next, %.lr.ph48.split ]
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %32 = load i8, ptr %31, align 1, !tbaa !11
-  store i8 %30, ptr %31, align 1, !tbaa !11
-  store i8 %32, ptr %14, align 1, !tbaa !11
+  %32 = load i8, ptr %31, align 1, !tbaa !12
+  store i8 %30, ptr %31, align 1, !tbaa !12
+  store i8 %32, ptr %14, align 1, !tbaa !12
   %33 = sub nsw i64 %13, %indvars.iv
   %34 = mul nsw i64 %33, %16
   %35 = getelementptr inbounds ptr, ptr %0, i64 %34
   tail call void @Dar_Permutations_rec(ptr noundef %35, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %3)
-  %36 = load i8, ptr %31, align 1, !tbaa !11
-  %37 = load i8, ptr %14, align 1, !tbaa !11
-  store i8 %37, ptr %31, align 1, !tbaa !11
-  store i8 %36, ptr %14, align 1, !tbaa !11
+  %36 = load i8, ptr %31, align 1, !tbaa !12
+  %37 = load i8, ptr %14, align 1, !tbaa !12
+  store i8 %37, ptr %31, align 1, !tbaa !12
+  store i8 %36, ptr %14, align 1, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph48.split, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph48.split, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph48.split, %._crit_edge.us, %9, %6
   ret void
@@ -168,7 +168,7 @@ define noundef ptr @Dar_Permutations(i32 noundef %0) local_unnamed_addr #5 {
   %3 = mul nuw nsw i32 %.068.i, %.09.i
   %4 = add nuw i32 %.068.i, 1
   %exitcond.not.i = icmp eq i32 %.068.i, %0
-  br i1 %exitcond.not.i, label %Dar_Factorial.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %Dar_Factorial.exit, label %.lr.ph.i, !llvm.loop !11
 
 Dar_Factorial.exit:                               ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i32 [ 1, %1 ], [ %3, %.lr.ph.i ]
@@ -211,10 +211,10 @@ Dar_ArrayAlloc.exit:                              ; preds = %13, %Dar_Factorial.
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = trunc i64 %indvars.iv to i8
   %21 = getelementptr inbounds nuw [50 x i8], ptr %2, i64 0, i64 %indvars.iv
-  store i8 %20, ptr %21, align 1, !tbaa !11
+  store i8 %20, ptr %21, align 1, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Dar_ArrayAlloc.exit
   call void @Dar_Permutations_rec(ptr noundef nonnull %9, i32 noundef %.0.lcssa.i, i32 noundef %0, ptr noundef nonnull %2)
@@ -245,7 +245,7 @@ define void @Dar_TruthPermute_int(ptr noundef readonly captures(none) %0, i32 no
 
 12:                                               ; preds = %.preheader.us, %24
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %24 ]
-  %13 = load i32, ptr %10, align 4, !tbaa !17
+  %13 = load i32, ptr %10, align 4, !tbaa !18
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = shl nuw i32 1, %14
   %16 = and i32 %13, %15
@@ -254,23 +254,23 @@ define void @Dar_TruthPermute_int(ptr noundef readonly captures(none) %0, i32 no
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %19 = load i8, ptr %18, align 1, !tbaa !11
+  %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = zext nneg i8 %19 to i32
   %21 = shl nuw i32 1, %20
-  %22 = load i32, ptr %11, align 4, !tbaa !17
+  %22 = load i32, ptr %11, align 4, !tbaa !18
   %23 = or i32 %21, %22
-  store i32 %23, ptr %11, align 4, !tbaa !17
+  store i32 %23, ptr %11, align 4, !tbaa !18
   br label %24
 
 24:                                               ; preds = %17, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %24
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !20
+  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !21
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -298,10 +298,10 @@ define i32 @Dar_TruthPermute(i32 noundef %0, ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %11 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %11, ptr %10, align 4, !tbaa !17
+  store i32 %11, ptr %10, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %9, i8 0, i64 %7, i1 false)
@@ -317,7 +317,7 @@ define i32 @Dar_TruthPermute(i32 noundef %0, ptr noundef readonly captures(none)
   %indvars.iv20.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next21.i, %._crit_edge.us.i ]
   %13 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv20.i
   %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv20.i
-  %15 = load i32, ptr %13, align 4, !tbaa !17
+  %15 = load i32, ptr %13, align 4, !tbaa !18
   br label %16
 
 16:                                               ; preds = %27, %.preheader.us.i
@@ -330,23 +330,23 @@ define i32 @Dar_TruthPermute(i32 noundef %0, ptr noundef readonly captures(none)
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %22 = load i8, ptr %21, align 1, !tbaa !11
+  %22 = load i8, ptr %21, align 1, !tbaa !12
   %23 = zext nneg i8 %22 to i32
   %24 = shl nuw i32 1, %23
-  %25 = load i32, ptr %14, align 4, !tbaa !17
+  %25 = load i32, ptr %14, align 4, !tbaa !18
   %26 = or i32 %24, %25
-  store i32 %26, ptr %14, align 4, !tbaa !17
+  store i32 %26, ptr %14, align 4, !tbaa !18
   br label %27
 
 27:                                               ; preds = %20, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %16, !llvm.loop !19
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %16, !llvm.loop !20
 
 ._crit_edge.us.i:                                 ; preds = %27
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next21.i, %wide.trip.count23.i
-  br i1 %exitcond24.not.i, label %Dar_TruthPermute_int.exit, label %.preheader.us.i, !llvm.loop !20
+  br i1 %exitcond24.not.i, label %Dar_TruthPermute_int.exit, label %.preheader.us.i, !llvm.loop !21
 
 Dar_TruthPermute_int.exit:                        ; preds = %._crit_edge.us.i
   %.not = icmp eq i32 %3, 0
@@ -370,7 +370,7 @@ Dar_TruthPermute_int.exit.thread:                 ; preds = %._crit_edge
   %indvars.iv60 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next61, %.lr.ph50 ]
   %.03648 = phi i32 [ 0, %.lr.ph50.preheader ], [ %.137, %.lr.ph50 ]
   %28 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv60
-  %29 = load i32, ptr %28, align 4, !tbaa !17
+  %29 = load i32, ptr %28, align 4, !tbaa !18
   %30 = shl nuw i32 1, %29
   %31 = and i32 %30, %0
   %.not44 = icmp eq i32 %31, 0
@@ -380,7 +380,7 @@ Dar_TruthPermute_int.exit.thread:                 ; preds = %._crit_edge
   %.137 = or i32 %34, %.03648
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count64
-  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph50, !llvm.loop !22
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph50, !llvm.loop !23
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %43
   %indvars.iv66 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next67, %43 ]
@@ -393,7 +393,7 @@ Dar_TruthPermute_int.exit.thread:                 ; preds = %._crit_edge
 
 38:                                               ; preds = %.lr.ph53
   %39 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv66
-  %40 = load i32, ptr %39, align 4, !tbaa !17
+  %40 = load i32, ptr %39, align 4, !tbaa !18
   %41 = shl nuw i32 1, %40
   %42 = or i32 %41, %.351
   br label %43
@@ -402,7 +402,7 @@ Dar_TruthPermute_int.exit.thread:                 ; preds = %._crit_edge
   %.4 = phi i32 [ %42, %38 ], [ %.351, %.lr.ph53 ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count70
-  br i1 %exitcond71.not, label %.loopexit, label %.lr.ph53, !llvm.loop !23
+  br i1 %exitcond71.not, label %.loopexit, label %.lr.ph53, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph50, %43, %4
   %.2 = phi i32 [ 0, %4 ], [ %.4, %43 ], [ %.137, %.lr.ph50 ]
@@ -441,7 +441,7 @@ define i32 @Dar_TruthPolarize(i32 noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw [5 x i32], ptr @Dar_TruthPolarize.Signs, i64 0, i64 %indvars.iv
-  %10 = load i32, ptr %9, align 4, !tbaa !17
+  %10 = load i32, ptr %9, align 4, !tbaa !18
   %11 = xor i32 %10, -1
   %12 = and i32 %.01920, %11
   %13 = and i32 %10, %.01920
@@ -454,7 +454,7 @@ define i32 @Dar_TruthPolarize(i32 noundef %0, i32 noundef %1, i32 noundef %2) lo
   %.1 = phi i32 [ %16, %8 ], [ %.01920, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %17, %3
   %.019.lcssa = phi i32 [ %0, %3 ], [ %.1, %17 ]
@@ -491,10 +491,10 @@ define void @Dar_Truth4VarNPN(ptr noundef writeonly captures(address_is_null) %0
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %11 ]
   %17 = trunc i64 %indvars.iv.i to i8
   %18 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %indvars.iv.i
-  store i8 %17, ptr %18, align 1, !tbaa !11
+  store i8 %17, ptr %18, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %Dar_Permutations.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %Dar_Permutations.exit, label %.lr.ph.i, !llvm.loop !17
 
 Dar_Permutations.exit:                            ; preds = %.lr.ph.i
   call void @Dar_Permutations_rec(ptr noundef nonnull %9, i32 noundef 24, i32 noundef 4, ptr noundef nonnull %4)
@@ -505,25 +505,25 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
   %indvars.iv197 = phi i64 [ 1, %Dar_Permutations.exit ], [ %indvars.iv.next198, %.loopexit ]
   %.0118190 = phi i8 [ 1, %Dar_Permutations.exit ], [ %.1119, %.loopexit ]
   %20 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv197
-  %21 = load i16, ptr %20, align 2, !tbaa !25
+  %21 = load i16, ptr %20, align 2, !tbaa !26
   %.not140 = icmp eq i16 %21, 0
   br i1 %.not140, label %30, label %22
 
 22:                                               ; preds = %19
   %23 = zext i16 %21 to i64
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !11
+  %25 = load i8, ptr %24, align 1, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv197
-  store i8 %25, ptr %26, align 1, !tbaa !11
+  store i8 %25, ptr %26, align 1, !tbaa !12
   %27 = and i64 %indvars.iv197, 4294967295
   %28 = xor i64 %27, 65535
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 %28
-  store i8 %25, ptr %29, align 1, !tbaa !11
+  store i8 %25, ptr %29, align 1, !tbaa !12
   br label %.loopexit
 
 30:                                               ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv197
-  store i8 %.0118190, ptr %31, align 1, !tbaa !11
+  store i8 %.0118190, ptr %31, align 1, !tbaa !12
   %32 = trunc nuw nsw i64 %indvars.iv197 to i32
   %33 = trunc i64 %indvars.iv197 to i16
   %34 = xor i32 %32, 65535
@@ -545,7 +545,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
 
 39:                                               ; preds = %.lr.ph.i141
   %40 = getelementptr inbounds nuw [5 x i32], ptr @Dar_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i142
-  %41 = load i32, ptr %40, align 4, !tbaa !17
+  %41 = load i32, ptr %40, align 4, !tbaa !18
   %42 = xor i32 %41, -1
   %43 = and i32 %.01920.i, %42
   %44 = and i32 %41, %.01920.i
@@ -558,7 +558,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
   %.1.i = phi i32 [ %47, %39 ], [ %.01920.i, %.lr.ph.i141 ]
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i142, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, 4
-  br i1 %exitcond.not.i144, label %Dar_TruthPolarize.exit.preheader, label %.lr.ph.i141, !llvm.loop !24
+  br i1 %exitcond.not.i144, label %Dar_TruthPolarize.exit.preheader, label %.lr.ph.i141, !llvm.loop !25
 
 Dar_TruthPolarize.exit.preheader:                 ; preds = %48
   %49 = trunc nuw nsw i32 %.0117188 to i8
@@ -578,10 +578,10 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
   %indvars.iv.i146 = phi i64 [ 0, %51 ], [ %indvars.iv.next.i147, %.lr.ph.i145 ]
   %57 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i146
   %58 = trunc nuw nsw i64 %indvars.iv.i146 to i32
-  store i32 %58, ptr %57, align 4, !tbaa !17
+  store i32 %58, ptr %57, align 4, !tbaa !18
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i146, 1
   %exitcond.not.i148 = icmp eq i64 %indvars.iv.next.i147, 16
-  br i1 %exitcond.not.i148, label %._crit_edge.i, label %.lr.ph.i145, !llvm.loop !21
+  br i1 %exitcond.not.i148, label %._crit_edge.i, label %.lr.ph.i145, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i145
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %56, i8 0, i64 64, i1 false)
@@ -591,7 +591,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
   %indvars.iv20.i.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next21.i.i, %._crit_edge.us.i.i ]
   %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv20.i.i
   %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv20.i.i
-  %61 = load i32, ptr %59, align 4, !tbaa !17
+  %61 = load i32, ptr %59, align 4, !tbaa !18
   br label %62
 
 62:                                               ; preds = %73, %.preheader.us.i.i
@@ -604,23 +604,23 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv.i.i149
-  %68 = load i8, ptr %67, align 1, !tbaa !11
+  %68 = load i8, ptr %67, align 1, !tbaa !12
   %69 = zext nneg i8 %68 to i32
   %70 = shl nuw i32 1, %69
-  %71 = load i32, ptr %60, align 4, !tbaa !17
+  %71 = load i32, ptr %60, align 4, !tbaa !18
   %72 = or i32 %70, %71
-  store i32 %72, ptr %60, align 4, !tbaa !17
+  store i32 %72, ptr %60, align 4, !tbaa !18
   br label %73
 
 73:                                               ; preds = %66, %62
   %indvars.iv.next.i.i150 = add nuw nsw i64 %indvars.iv.i.i149, 1
   %exitcond.not.i.i151 = icmp eq i64 %indvars.iv.next.i.i150, 4
-  br i1 %exitcond.not.i.i151, label %._crit_edge.us.i.i, label %62, !llvm.loop !19
+  br i1 %exitcond.not.i.i151, label %._crit_edge.us.i.i, label %62, !llvm.loop !20
 
 ._crit_edge.us.i.i:                               ; preds = %73
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, 16
-  br i1 %exitcond24.not.i.i, label %.lr.ph53.i, label %.preheader.us.i.i, !llvm.loop !20
+  br i1 %exitcond24.not.i.i, label %.lr.ph53.i, label %.preheader.us.i.i, !llvm.loop !21
 
 .lr.ph53.i:                                       ; preds = %._crit_edge.us.i.i, %82
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %82 ], [ 0, %._crit_edge.us.i.i ]
@@ -633,7 +633,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
 
 77:                                               ; preds = %.lr.ph53.i
   %78 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv66.i
-  %79 = load i32, ptr %78, align 4, !tbaa !17
+  %79 = load i32, ptr %78, align 4, !tbaa !18
   %80 = shl nuw i32 1, %79
   %81 = or i32 %80, %.351.i
   br label %82
@@ -642,7 +642,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
   %.4.i = phi i32 [ %81, %77 ], [ %.351.i, %.lr.ph53.i ]
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next67.i, 16
-  br i1 %exitcond71.not.i, label %.loopexit.i, label %.lr.ph53.i, !llvm.loop !23
+  br i1 %exitcond71.not.i, label %.loopexit.i, label %.lr.ph53.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %82
   %.not42.i = icmp eq ptr %55, null
@@ -656,38 +656,38 @@ Dar_TruthPermute.exit:                            ; preds = %.loopexit.i, %83
   tail call void @free(ptr noundef nonnull %56) #14
   %84 = zext i32 %.4.i to i64
   %85 = getelementptr inbounds nuw i16, ptr %5, i64 %84
-  %86 = load i16, ptr %85, align 2, !tbaa !25
+  %86 = load i16, ptr %85, align 2, !tbaa !26
   %87 = icmp eq i16 %86, 0
   br i1 %87, label %88, label %Dar_TruthPolarize.exit
 
 88:                                               ; preds = %Dar_TruthPermute.exit
-  store i16 %33, ptr %85, align 2, !tbaa !25
+  store i16 %33, ptr %85, align 2, !tbaa !26
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 %84
-  store i8 %49, ptr %89, align 1, !tbaa !11
+  store i8 %49, ptr %89, align 1, !tbaa !12
   %90 = trunc i64 %indvars.iv to i8
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 %84
-  store i8 %90, ptr %91, align 1, !tbaa !11
+  store i8 %90, ptr %91, align 1, !tbaa !12
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 %84
-  store i8 %52, ptr %92, align 1, !tbaa !11
+  store i8 %52, ptr %92, align 1, !tbaa !12
   %93 = and i32 %.4.i, 65535
   %94 = xor i32 %93, 65535
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i16, ptr %5, i64 %95
-  store i16 %33, ptr %96, align 2, !tbaa !25
+  store i16 %33, ptr %96, align 2, !tbaa !26
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 %95
-  store i8 %50, ptr %97, align 1, !tbaa !11
+  store i8 %50, ptr %97, align 1, !tbaa !12
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 %95
-  store i8 %90, ptr %98, align 1, !tbaa !11
-  %99 = load i8, ptr %31, align 1, !tbaa !11
+  store i8 %90, ptr %98, align 1, !tbaa !12
+  %99 = load i8, ptr %31, align 1, !tbaa !12
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 %95
-  store i8 %99, ptr %100, align 1, !tbaa !11
+  store i8 %99, ptr %100, align 1, !tbaa !12
   br label %Dar_TruthPolarize.exit
 
 Dar_TruthPolarize.exit:                           ; preds = %88, %Dar_TruthPermute.exit
   %101 = phi i8 [ %99, %88 ], [ %52, %Dar_TruthPermute.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %.lr.ph.i152, label %51, !llvm.loop !27
+  br i1 %exitcond.not, label %.lr.ph.i152, label %51, !llvm.loop !28
 
 .lr.ph.i152:                                      ; preds = %Dar_TruthPolarize.exit, %114
   %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i157, %114 ], [ 0, %Dar_TruthPolarize.exit ]
@@ -700,7 +700,7 @@ Dar_TruthPolarize.exit:                           ; preds = %88, %Dar_TruthPermu
 
 105:                                              ; preds = %.lr.ph.i152
   %106 = getelementptr inbounds nuw [5 x i32], ptr @Dar_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i153
-  %107 = load i32, ptr %106, align 4, !tbaa !17
+  %107 = load i32, ptr %106, align 4, !tbaa !18
   %108 = xor i32 %107, -1
   %109 = and i32 %.01920.i154, %108
   %110 = and i32 %107, %.01920.i154
@@ -713,7 +713,7 @@ Dar_TruthPolarize.exit:                           ; preds = %88, %Dar_TruthPermu
   %.1.i156 = phi i32 [ %113, %105 ], [ %.01920.i154, %.lr.ph.i152 ]
   %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i158 = icmp eq i64 %indvars.iv.next.i157, 4
-  br i1 %exitcond.not.i158, label %Dar_TruthPolarize.exit160.preheader, label %.lr.ph.i152, !llvm.loop !24
+  br i1 %exitcond.not.i158, label %Dar_TruthPolarize.exit160.preheader, label %.lr.ph.i152, !llvm.loop !25
 
 Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPolarize.exit160
   %115 = phi i8 [ %164, %Dar_TruthPolarize.exit160 ], [ %101, %114 ]
@@ -728,10 +728,10 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPola
   %indvars.iv.i162 = phi i64 [ 0, %Dar_TruthPolarize.exit160.preheader ], [ %indvars.iv.next.i163, %.lr.ph.i161 ]
   %120 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.i162
   %121 = trunc nuw nsw i64 %indvars.iv.i162 to i32
-  store i32 %121, ptr %120, align 4, !tbaa !17
+  store i32 %121, ptr %120, align 4, !tbaa !18
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i162, 1
   %exitcond.not.i164 = icmp eq i64 %indvars.iv.next.i163, 16
-  br i1 %exitcond.not.i164, label %._crit_edge.i165, label %.lr.ph.i161, !llvm.loop !21
+  br i1 %exitcond.not.i164, label %._crit_edge.i165, label %.lr.ph.i161, !llvm.loop !22
 
 ._crit_edge.i165:                                 ; preds = %.lr.ph.i161
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %119, i8 0, i64 64, i1 false)
@@ -741,7 +741,7 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPola
   %indvars.iv20.i.i167 = phi i64 [ 0, %._crit_edge.i165 ], [ %indvars.iv.next21.i.i173, %._crit_edge.us.i.i172 ]
   %122 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv20.i.i167
   %123 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv20.i.i167
-  %124 = load i32, ptr %122, align 4, !tbaa !17
+  %124 = load i32, ptr %122, align 4, !tbaa !18
   br label %125
 
 125:                                              ; preds = %136, %.preheader.us.i.i166
@@ -754,23 +754,23 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPola
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %117, i64 %indvars.iv.i.i168
-  %131 = load i8, ptr %130, align 1, !tbaa !11
+  %131 = load i8, ptr %130, align 1, !tbaa !12
   %132 = zext nneg i8 %131 to i32
   %133 = shl nuw i32 1, %132
-  %134 = load i32, ptr %123, align 4, !tbaa !17
+  %134 = load i32, ptr %123, align 4, !tbaa !18
   %135 = or i32 %133, %134
-  store i32 %135, ptr %123, align 4, !tbaa !17
+  store i32 %135, ptr %123, align 4, !tbaa !18
   br label %136
 
 136:                                              ; preds = %129, %125
   %indvars.iv.next.i.i170 = add nuw nsw i64 %indvars.iv.i.i168, 1
   %exitcond.not.i.i171 = icmp eq i64 %indvars.iv.next.i.i170, 4
-  br i1 %exitcond.not.i.i171, label %._crit_edge.us.i.i172, label %125, !llvm.loop !19
+  br i1 %exitcond.not.i.i171, label %._crit_edge.us.i.i172, label %125, !llvm.loop !20
 
 ._crit_edge.us.i.i172:                            ; preds = %136
   %indvars.iv.next21.i.i173 = add nuw nsw i64 %indvars.iv20.i.i167, 1
   %exitcond24.not.i.i174 = icmp eq i64 %indvars.iv.next21.i.i173, 16
-  br i1 %exitcond24.not.i.i174, label %.lr.ph53.i176, label %.preheader.us.i.i166, !llvm.loop !20
+  br i1 %exitcond24.not.i.i174, label %.lr.ph53.i176, label %.preheader.us.i.i166, !llvm.loop !21
 
 .lr.ph53.i176:                                    ; preds = %._crit_edge.us.i.i172, %145
   %indvars.iv66.i177 = phi i64 [ %indvars.iv.next67.i181, %145 ], [ 0, %._crit_edge.us.i.i172 ]
@@ -783,7 +783,7 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPola
 
 140:                                              ; preds = %.lr.ph53.i176
   %141 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv66.i177
-  %142 = load i32, ptr %141, align 4, !tbaa !17
+  %142 = load i32, ptr %141, align 4, !tbaa !18
   %143 = shl nuw i32 1, %142
   %144 = or i32 %143, %.351.i178
   br label %145
@@ -792,7 +792,7 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %114, %Dar_TruthPola
   %.4.i180 = phi i32 [ %144, %140 ], [ %.351.i178, %.lr.ph53.i176 ]
   %indvars.iv.next67.i181 = add nuw nsw i64 %indvars.iv66.i177, 1
   %exitcond71.not.i182 = icmp eq i64 %indvars.iv.next67.i181, 16
-  br i1 %exitcond71.not.i182, label %.loopexit.i183, label %.lr.ph53.i176, !llvm.loop !23
+  br i1 %exitcond71.not.i182, label %.loopexit.i183, label %.lr.ph53.i176, !llvm.loop !24
 
 .loopexit.i183:                                   ; preds = %145
   %.not42.i184 = icmp eq ptr %118, null
@@ -806,43 +806,43 @@ Dar_TruthPermute.exit185:                         ; preds = %.loopexit.i183, %14
   tail call void @free(ptr noundef nonnull %119) #14
   %147 = zext i32 %.4.i180 to i64
   %148 = getelementptr inbounds nuw i16, ptr %5, i64 %147
-  %149 = load i16, ptr %148, align 2, !tbaa !25
+  %149 = load i16, ptr %148, align 2, !tbaa !26
   %150 = icmp eq i16 %149, 0
   br i1 %150, label %151, label %Dar_TruthPolarize.exit160
 
 151:                                              ; preds = %Dar_TruthPermute.exit185
-  store i16 %33, ptr %148, align 2, !tbaa !25
+  store i16 %33, ptr %148, align 2, !tbaa !26
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 %147
-  store i8 %49, ptr %152, align 1, !tbaa !11
+  store i8 %49, ptr %152, align 1, !tbaa !12
   %153 = trunc i64 %indvars.iv192 to i8
   %154 = getelementptr inbounds nuw i8, ptr %7, i64 %147
-  store i8 %153, ptr %154, align 1, !tbaa !11
+  store i8 %153, ptr %154, align 1, !tbaa !12
   %155 = getelementptr inbounds nuw i8, ptr %8, i64 %147
-  store i8 %115, ptr %155, align 1, !tbaa !11
+  store i8 %115, ptr %155, align 1, !tbaa !12
   %156 = and i32 %.4.i180, 65535
   %157 = xor i32 %156, 65535
   %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds nuw i16, ptr %5, i64 %158
-  store i16 %33, ptr %159, align 2, !tbaa !25
+  store i16 %33, ptr %159, align 2, !tbaa !26
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 %158
-  store i8 %50, ptr %160, align 1, !tbaa !11
+  store i8 %50, ptr %160, align 1, !tbaa !12
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 %158
-  store i8 %153, ptr %161, align 1, !tbaa !11
-  %162 = load i8, ptr %31, align 1, !tbaa !11
+  store i8 %153, ptr %161, align 1, !tbaa !12
+  %162 = load i8, ptr %31, align 1, !tbaa !12
   %163 = getelementptr inbounds nuw i8, ptr %8, i64 %158
-  store i8 %162, ptr %163, align 1, !tbaa !11
+  store i8 %162, ptr %163, align 1, !tbaa !12
   br label %Dar_TruthPolarize.exit160
 
 Dar_TruthPolarize.exit160:                        ; preds = %151, %Dar_TruthPermute.exit185
   %164 = phi i8 [ %162, %151 ], [ %115, %Dar_TruthPermute.exit185 ]
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next193, 24
-  br i1 %exitcond195.not, label %165, label %Dar_TruthPolarize.exit160.preheader, !llvm.loop !28
+  br i1 %exitcond195.not, label %165, label %Dar_TruthPolarize.exit160.preheader, !llvm.loop !29
 
 165:                                              ; preds = %Dar_TruthPolarize.exit160
   %166 = add nuw nsw i32 %.0117188, 1
   %exitcond196.not = icmp eq i32 %166, 16
-  br i1 %exitcond196.not, label %.loopexit.loopexit, label %.lr.ph.i141.preheader, !llvm.loop !29
+  br i1 %exitcond196.not, label %.loopexit.loopexit, label %.lr.ph.i141.preheader, !llvm.loop !30
 
 .loopexit.loopexit:                               ; preds = %165
   %167 = add i8 %.0118190, 1
@@ -852,17 +852,17 @@ Dar_TruthPolarize.exit160:                        ; preds = %151, %Dar_TruthPerm
   %.1119 = phi i8 [ %.0118190, %22 ], [ %167, %.loopexit.loopexit ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next198, 32768
-  br i1 %exitcond199.not, label %.preheader.preheader, label %19, !llvm.loop !30
+  br i1 %exitcond199.not, label %.preheader.preheader, label %19, !llvm.loop !31
 
 .preheader.preheader:                             ; preds = %.loopexit
   %168 = getelementptr inbounds nuw i8, ptr %6, i64 65535
-  store i8 16, ptr %168, align 1, !tbaa !11
+  store i8 16, ptr %168, align 1, !tbaa !12
   tail call void @free(ptr noundef %9) #14
   %.not132 = icmp eq ptr %0, null
   br i1 %.not132, label %170, label %169
 
 169:                                              ; preds = %.preheader.preheader
-  store ptr %5, ptr %0, align 8, !tbaa !31
+  store ptr %5, ptr %0, align 8, !tbaa !32
   br label %171
 
 170:                                              ; preds = %.preheader.preheader
@@ -950,28 +950,29 @@ attributes #15 = { nounwind allocsize(0,1) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !6, i64 0}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9, !14}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"short", !6, i64 0}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 short", !5, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!6, !6, i64 0}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !6, i64 0}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10, !15}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"short", !6, i64 0}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 short", !5, i64 0}

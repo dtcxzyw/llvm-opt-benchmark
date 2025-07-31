@@ -426,7 +426,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
 .backedge:                                        ; preds = %26, %31, %33, %48
   %29 = call i32 @xmlTextReaderRead(ptr noundef nonnull %19) #6
   %30 = icmp eq i32 %29, 1
-  br i1 %30, label %.lr.ph, label %.thread
+  br i1 %30, label %.lr.ph, label %.thread, !llvm.loop !31
 
 31:                                               ; preds = %26
   %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(9) @.str.37) #7
@@ -454,7 +454,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   %41 = icmp eq ptr %39, null
   %42 = icmp eq ptr %40, null
   %or.cond = select i1 %41, i1 true, i1 %42
-  br i1 %or.cond, label %35, label %43
+  br i1 %or.cond, label %35, label %43, !llvm.loop !33
 
 43:                                               ; preds = %38
   %44 = call i32 @xmlStrcmp(ptr noundef nonnull %39, ptr noundef nonnull @.str.38) #6
@@ -471,7 +471,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   %.1129 = phi ptr [ %40, %43 ], [ %.0128.ph, %45 ]
   %.1127 = phi ptr [ %.0126.ph, %43 ], [ %spec.select, %45 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull %39, ptr noundef nonnull %40) #6
-  br label %.outer
+  br label %.outer, !llvm.loop !33
 
 48:                                               ; preds = %35
   %49 = icmp ne ptr %.0128.ph, null
@@ -605,7 +605,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   %.2132 = phi i32 [ %98, %97 ], [ %.0130.ph, %99 ], [ %.0130.ph, %78 ], [ %.0130.ph, %87 ], [ %.0130.ph, %59 ], [ %.0130.ph, %68 ], [ %.0130.ph, %102 ]
   %.3 = phi i32 [ 0, %97 ], [ 0, %99 ], [ 0, %78 ], [ %.4, %87 ], [ 0, %59 ], [ %.2, %68 ], [ 0, %102 ]
   %.not174 = icmp eq i32 %.3, 0
-  br i1 %.not174, label %.outer210, label %.thread
+  br i1 %.not174, label %.outer210, label %.thread, !llvm.loop !31
 
 .outer210:                                        ; preds = %18, %105
   %.0148.ph = phi i32 [ %.2150, %105 ], [ 0, %18 ]
@@ -938,3 +938,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !28 = !{!"timespec", !16, i64 0, !16, i64 8}
 !29 = !{!10, !16, i64 56}
 !30 = !{!10, !7, i64 72}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !32}

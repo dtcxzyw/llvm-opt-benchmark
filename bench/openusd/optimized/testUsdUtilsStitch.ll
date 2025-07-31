@@ -4954,13 +4954,13 @@ define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplIddNS0_14_LocalTypeInfoIdEEE20_GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %5 = inttoptr i64 %4 to ptr
-  store ptr %5, ptr %3, align 8, !alias.scope !68
-  %6 = load double, ptr %1, align 8, !noalias !68
-  store double %6, ptr %0, align 8, !alias.scope !68
+  store ptr %5, ptr %3, align 8, !alias.scope !69
+  %6 = load double, ptr %1, align 8, !noalias !69
+  store double %6, ptr %0, align 8, !alias.scope !69
   ret void
 }
 
@@ -5125,14 +5125,14 @@ define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplIbbNS0_14_LocalTypeInfoIbEEE20_GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %5 = inttoptr i64 %4 to ptr
-  store ptr %5, ptr %3, align 8, !alias.scope !71
-  %6 = load i8, ptr %1, align 8, !noalias !71
+  store ptr %5, ptr %3, align 8, !alias.scope !72
+  %6 = load i8, ptr %1, align 8, !noalias !72
   %7 = and i8 %6, 1
-  store i8 %7, ptr %0, align 8, !alias.scope !71
+  store i8 %7, ptr %0, align 8, !alias.scope !72
   ret void
 }
 
@@ -5173,21 +5173,21 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
   br i1 %17, label %42, label %18
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9IsExpiredEv.exit.i
-  %.pr = load ptr, ptr %1, align 8, !noalias !74
+  %.pr = load ptr, ptr %1, align 8, !noalias !75
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %.not.i4 = icmp eq ptr %.pr, null
   br i1 %.not.i4, label %23, label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr %.pr, align 8, !noalias !74
+  %20 = load ptr, ptr %.pr, align 8, !noalias !75
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8, !noalias !74
+  %22 = load ptr, ptr %21, align 8, !noalias !75
   call void %22(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle.65") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %.pr)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 23:                                               ; preds = %.thread, %18
-  store ptr null, ptr %5, align 8, !alias.scope !74
+  store ptr null, ptr %5, align 8, !alias.scope !75
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit: ; preds = %19, %23
@@ -5218,7 +5218,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34Sd
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  call void @llvm.experimental.noalias.scope.decl(metadata !78)
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %.sroa.2.0..sroa_idx8, align 8
@@ -5227,9 +5227,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34Sd
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i8, ptr %37, align 8, !noalias !77
+  %39 = load i8, ptr %37, align 8, !noalias !78
   %40 = and i8 %39, 1
-  store i8 %40, ptr %38, align 8, !alias.scope !77
+  store i8 %40, ptr %38, align 8, !alias.scope !78
   br label %47
 
 41:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
@@ -5268,20 +5268,20 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrRes
   %11 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed", align 8
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  %14 = load ptr, ptr %0, align 8, !noalias !80
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  %14 = load ptr, ptr %0, align 8, !noalias !81
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %19, label %15
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %14, align 8, !noalias !80
+  %16 = load ptr, ptr %14, align 8, !noalias !81
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load ptr, ptr %17, align 8, !noalias !80
+  %18 = load ptr, ptr %17, align 8, !noalias !81
   call void %18(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle.65") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 19:                                               ; preds = %2
-  store ptr null, ptr %5, align 8, !alias.scope !80
+  store ptr null, ptr %5, align 8, !alias.scope !81
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit: ; preds = %15, %19
@@ -5349,14 +5349,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
   store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE15_ValidateInsertERKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueEE, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %37, align 8
-  %38 = load ptr, ptr %0, align 8, !noalias !83
+  %38 = load ptr, ptr %0, align 8, !noalias !84
   %.not.i23 = icmp eq ptr %38, null
   br i1 %.not.i23, label %43, label %39
 
 39:                                               ; preds = %33
-  %40 = load ptr, ptr %38, align 8, !noalias !83
+  %40 = load ptr, ptr %38, align 8, !noalias !84
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %42 = load ptr, ptr %41, align 8, !noalias !83
+  %42 = load ptr, ptr %41, align 8, !noalias !84
   invoke void %42(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %38)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit unwind label %45
 
@@ -5410,14 +5410,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
   store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE15_ValidateInsertERKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueEE, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 0, ptr %64, align 8
-  %65 = load ptr, ptr %0, align 8, !noalias !86
+  %65 = load ptr, ptr %0, align 8, !noalias !87
   %.not.i25 = icmp eq ptr %65, null
   br i1 %.not.i25, label %70, label %66
 
 66:                                               ; preds = %60
-  %67 = load ptr, ptr %65, align 8, !noalias !86
+  %67 = load ptr, ptr %65, align 8, !noalias !87
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load ptr, ptr %68, align 8, !noalias !86
+  %69 = load ptr, ptr %68, align 8, !noalias !87
   invoke void %69(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %65)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit27 unwind label %58
 
@@ -5493,14 +5493,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit28: ; preds = %54
   store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE15_ValidateInsertERKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueEE, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 0, ptr %100, align 8
-  %101 = load ptr, ptr %0, align 8, !noalias !89
+  %101 = load ptr, ptr %0, align 8, !noalias !90
   %.not.i30 = icmp eq ptr %101, null
   br i1 %.not.i30, label %106, label %102
 
 102:                                              ; preds = %96
-  %103 = load ptr, ptr %101, align 8, !noalias !89
+  %103 = load ptr, ptr %101, align 8, !noalias !90
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %105 = load ptr, ptr %104, align 8, !noalias !89
+  %105 = load ptr, ptr %104, align 8, !noalias !90
   invoke void %105(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %101)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit32 unwind label %94
 
@@ -5761,21 +5761,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34Sd
   br label %38
 
 22:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9IsExpiredEv.exit.i
-  %.pr = load ptr, ptr %0, align 8, !noalias !92
+  %.pr = load ptr, ptr %0, align 8, !noalias !93
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %.not.i6 = icmp eq ptr %.pr, null
   br i1 %.not.i6, label %27, label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr %.pr, align 8, !noalias !92
+  %24 = load ptr, ptr %.pr, align 8, !noalias !93
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8, !noalias !92
+  %26 = load ptr, ptr %25, align 8, !noalias !93
   call void %26(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle.65") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %.pr)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 27:                                               ; preds = %.thread, %22
-  store ptr null, ptr %6, align 8, !alias.scope !92
+  store ptr null, ptr %6, align 8, !alias.scope !93
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit: ; preds = %23, %27
@@ -5809,20 +5809,20 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrRes
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %12 = load ptr, ptr %0, align 8, !noalias !95
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
+  %12 = load ptr, ptr %0, align 8, !noalias !96
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %17, label %13
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %12, align 8, !noalias !95
+  %14 = load ptr, ptr %12, align 8, !noalias !96
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load ptr, ptr %15, align 8, !noalias !95
+  %16 = load ptr, ptr %15, align 8, !noalias !96
   call void %16(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle.65") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %12)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 17:                                               ; preds = %3
-  store ptr null, ptr %6, align 8, !alias.scope !95
+  store ptr null, ptr %6, align 8, !alias.scope !96
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit: ; preds = %13, %17
@@ -5890,14 +5890,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
   store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE12_ValidateSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %35, align 8
-  %36 = load ptr, ptr %0, align 8, !noalias !98
+  %36 = load ptr, ptr %0, align 8, !noalias !99
   %.not.i14 = icmp eq ptr %36, null
   br i1 %.not.i14, label %41, label %37
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr %36, align 8, !noalias !98
+  %38 = load ptr, ptr %36, align 8, !noalias !99
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8, !noalias !98
+  %40 = load ptr, ptr %39, align 8, !noalias !99
   invoke void %40(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %36)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit unwind label %43
 
@@ -5946,14 +5946,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
   store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE12_ValidateSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %60, align 8
-  %61 = load ptr, ptr %0, align 8, !noalias !101
+  %61 = load ptr, ptr %0, align 8, !noalias !102
   %.not.i16 = icmp eq ptr %61, null
   br i1 %.not.i16, label %66, label %62
 
 62:                                               ; preds = %56
-  %63 = load ptr, ptr %61, align 8, !noalias !101
+  %63 = load ptr, ptr %61, align 8, !noalias !102
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load ptr, ptr %64, align 8, !noalias !101
+  %65 = load ptr, ptr %64, align 8, !noalias !102
   invoke void %65(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %61)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev.exit18 unwind label %72
 
@@ -6529,40 +6529,40 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81.i.i
           to label %174 unwind label %268
 
 174:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81.i.i.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20), !noalias !104
-  %175 = load ptr, ptr %34, align 8, !noalias !110
+  call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  call void @llvm.experimental.noalias.scope.decl(metadata !108)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20), !noalias !105
+  %175 = load ptr, ptr %34, align 8, !noalias !111
   %.not.i.i82.i.i.i = icmp eq ptr %175, null
   br i1 %.not.i.i82.i.i.i, label %176, label %182
 
 176:                                              ; preds = %174
-  store ptr @.str.14, ptr %20, align 8, !noalias !110
+  store ptr @.str.14, ptr %20, align 8, !noalias !111
   %177 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxy3GetEv, ptr %177, align 8, !noalias !110
+  store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxy3GetEv, ptr %177, align 8, !noalias !111
   %178 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i64 161, ptr %178, align 8, !noalias !110
+  store i64 161, ptr %178, align 8, !noalias !111
   %179 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxy3GetEv, ptr %179, align 8, !noalias !110
+  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxy3GetEv, ptr %179, align 8, !noalias !111
   %180 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store i8 0, ptr %180, align 8, !noalias !110
+  store i8 0, ptr %180, align 8, !noalias !111
   invoke void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %20, i32 noundef 1, ptr noundef nonnull @.str.29)
           to label %.noexc83.i.i.i unwind label %268
 
 .noexc83.i.i.i:                                   ; preds = %176
   %181 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr null, ptr %181, align 8, !alias.scope !110
+  store ptr null, ptr %181, align 8, !alias.scope !111
   br label %186
 
 182:                                              ; preds = %174
   %183 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %184 = load ptr, ptr %183, align 8, !noalias !110
+  %184 = load ptr, ptr %183, align 8, !noalias !111
   %185 = getelementptr inbounds nuw i8, ptr %34, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE4_GetEPKS1_RKNS1_8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKSE_SF_EEESt17_Rb_tree_iteratorISK_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %33, ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef %184, ptr noundef nonnull align 8 dereferenceable(16) %185)
           to label %186 unwind label %268
 
 186:                                              ; preds = %182, %.noexc83.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20), !noalias !104
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20), !noalias !105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #18
   %187 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -7100,16 +7100,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
           to label %373 unwind label %525
 
 373:                                              ; preds = %372
-  call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !111
-  %374 = load ptr, ptr %45, align 8, !noalias !111
+  call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !112
+  %374 = load ptr, ptr %45, align 8, !noalias !112
   %.not.i.i.i133.i.i.i = icmp eq ptr %374, null
   br i1 %.not.i.i.i133.i.i.i, label %388, label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE10_ConstDataEv.exit.i.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE10_ConstDataEv.exit.i.i.i.i.i: ; preds = %373
-  %375 = load ptr, ptr %374, align 8, !noalias !111
+  %375 = load ptr, ptr %374, align 8, !noalias !112
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 48
-  %377 = load ptr, ptr %376, align 8, !noalias !111
+  %377 = load ptr, ptr %376, align 8, !noalias !112
   %378 = invoke noundef ptr %377(ptr noundef nonnull align 8 dereferenceable(8) %374)
           to label %.noexc135.i.i.i unwind label %527
 
@@ -7118,10 +7118,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
   br i1 %.not.i.i134.i.i.i, label %388, label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9IsExpiredEv.exit.i.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9IsExpiredEv.exit.i.i.i.i.i: ; preds = %.noexc135.i.i.i
-  %379 = load ptr, ptr %45, align 8, !noalias !111, !nonnull !65, !noundef !65
-  %380 = load ptr, ptr %379, align 8, !noalias !111
+  %379 = load ptr, ptr %45, align 8, !noalias !112, !nonnull !65, !noundef !65
+  %380 = load ptr, ptr %379, align 8, !noalias !112
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 32
-  %382 = load ptr, ptr %381, align 8, !noalias !111
+  %382 = load ptr, ptr %381, align 8, !noalias !112
   %383 = invoke noundef zeroext i1 %382(ptr noundef nonnull align 8 dereferenceable(8) %379)
           to label %.noexc136.i.i.i unwind label %527
 
@@ -7129,11 +7129,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
   br i1 %383, label %388, label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE10_ConstDataEv.exit.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE10_ConstDataEv.exit.i.i.i.i: ; preds = %.noexc136.i.i.i
-  %.pr.i.i.i.i = load ptr, ptr %45, align 8, !noalias !111, !nonnull !65, !noundef !65
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14), !noalias !111
-  %384 = load ptr, ptr %.pr.i.i.i.i, align 8, !noalias !111
+  %.pr.i.i.i.i = load ptr, ptr %45, align 8, !noalias !112, !nonnull !65, !noundef !65
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14), !noalias !112
+  %384 = load ptr, ptr %.pr.i.i.i.i, align 8, !noalias !112
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 48
-  %386 = load ptr, ptr %385, align 8, !noalias !111
+  %386 = load ptr, ptr %385, align 8, !noalias !112
   %387 = invoke noundef ptr %386(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i.i)
           to label %.noexc137.i.i.i unwind label %527
 
@@ -7142,21 +7142,21 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEEcvS1_Ev.exit.i.i.i unwind label %527
 
 388:                                              ; preds = %.noexc136.i.i.i, %.noexc135.i.i.i, %373
-  store ptr @.str.14, ptr %14, align 8, !noalias !111
+  store ptr @.str.14, ptr %14, align 8, !noalias !112
   %389 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_ValidateEv, ptr %389, align 8, !noalias !111
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_ValidateEv, ptr %389, align 8, !noalias !112
   %390 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 755, ptr %390, align 8, !noalias !111
+  store i64 755, ptr %390, align 8, !noalias !112
   %391 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_ValidateEv, ptr %391, align 8, !noalias !111
+  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_ValidateEv, ptr %391, align 8, !noalias !112
   %392 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i8 0, ptr %392, align 8, !noalias !111
+  store i8 0, ptr %392, align 8, !noalias !112
   invoke void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %14, i32 noundef 1, ptr noundef nonnull @.str.30)
           to label %.noexc139.i.i.i unwind label %527
 
 .noexc139.i.i.i:                                  ; preds = %388
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14), !noalias !111
-  store ptr null, ptr %44, align 8, !alias.scope !111
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14), !noalias !112
+  store ptr null, ptr %44, align 8, !alias.scope !112
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEEcvS1_Ev.exit.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEEcvS1_Ev.exit.i.i.i: ; preds = %.noexc139.i.i.i, %.noexc137.i.i.i
@@ -7393,7 +7393,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i: ; preds = %475,
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit164.i.i.i: ; preds = %480, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i
   store ptr null, ptr %461, align 8
   %488 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr null, ptr %488, align 8, !alias.scope !114
+  store ptr null, ptr %488, align 8, !alias.scope !115
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4SwapINS_12VtDictionaryEEENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS4_E4TypeEEE5valueEvE4typeERS4_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_12VtDictionaryEEES0_RT_.exit.i.i.i unwind label %489
 
@@ -7956,14 +7956,14 @@ declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFN
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryIbE6InvokeEv(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8 %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  %2 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #20, !noalias !120
-  store i8 0, ptr %2, align 1, !noalias !120
-  store ptr %2, ptr %0, align 8, !alias.scope !117
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
+  %2 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #20, !noalias !121
+  store i8 0, ptr %2, align 1, !noalias !121
+  store ptr %2, ptr %0, align 8, !alias.scope !118
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr7_DeleteIbEEvPKv, ptr %3, align 8, !alias.scope !117
+  store ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr7_DeleteIbEEvPKv, ptr %3, align 8, !alias.scope !118
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @_ZTIb, ptr %4, align 8, !alias.scope !117
+  store ptr @_ZTIb, ptr %4, align 8, !alias.scope !118
   ret void
 }
 
@@ -8071,7 +8071,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.
   %36 = and i64 %33, -8
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 176
-  %39 = load ptr, ptr %38, align 8, !noalias !123
+  %39 = load ptr, ptr %38, align 8, !noalias !124
   call void %39(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0)
   %.not.i.i.i = icmp eq ptr %0, %3
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i, label %40
@@ -8405,24 +8405,24 @@ define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_12VtDictionaryENS_19TfDelegatedCountPtrINS0_8_CountedIS2_EEEENS0_15_RemoteTypeInfoIS2_EEE20_GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_12VtDictionaryEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !126
-  %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !126
+  store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_12VtDictionaryEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !127
+  %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !127
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_12VtDictionaryEvE19GetProxiedAsVtValueERKS2_.exit unwind label %6, !noalias !126
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_12VtDictionaryEvE19GetProxiedAsVtValueERKS2_.exit unwind label %6, !noalias !127
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 16) #21, !noalias !126
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 16) #21, !noalias !127
   resume { ptr, i32 } %7
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_12VtDictionaryEvE19GetProxiedAsVtValueERKS2_.exit: ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store atomic i32 0, ptr %8 seq_cst, align 4, !noalias !126
-  store ptr %5, ptr %0, align 8, !alias.scope !126
-  %9 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !126
+  store atomic i32 0, ptr %8 seq_cst, align 4, !noalias !127
+  store ptr %5, ptr %0, align 8, !alias.scope !127
+  %9 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !127
   ret void
 }
 
@@ -8474,7 +8474,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKSt4pairIKNSt7__cxx
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %25, %19 ], [ %15, %18 ]
   store i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %10, %9
-  br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSI_i.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !129
+  br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSI_i.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !130
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSI_i.exit.loopexit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueEEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOSG_.exit.i.i.i.i.i
   %26 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
@@ -8515,20 +8515,20 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !130
+  %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !131
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(8) %.pre)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_12VtDictionaryEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit unwind label %8, !noalias !130
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_12VtDictionaryEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit unwind label %8, !noalias !131
 
 8:                                                ; preds = %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 16) #21, !noalias !130
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 16) #21, !noalias !131
   resume { ptr, i32 } %9
 
 _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_12VtDictionaryEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit: ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store atomic i32 0, ptr %10 seq_cst, align 4, !noalias !130
-  %11 = atomicrmw add ptr %10, i32 1 monotonic, align 4, !noalias !130
+  store atomic i32 0, ptr %10 seq_cst, align 4, !noalias !131
+  %11 = atomicrmw add ptr %10, i32 1 monotonic, align 4, !noalias !131
   %12 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_12VtDictionaryEEEED2Ev.exit, label %13
@@ -8610,20 +8610,20 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
   br i1 %20, label %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEeqISI_SK_EEbRKNS1_IT_T0_EE.exit, label %21
 
 21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE10_ConstDataEv.exit9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  %22 = load ptr, ptr %0, align 8, !noalias !133
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
+  %22 = load ptr, ptr %0, align 8, !noalias !134
   %.not.i10 = icmp eq ptr %22, null
   br i1 %.not.i10, label %27, label %23
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %22, align 8, !noalias !133
+  %24 = load ptr, ptr %22, align 8, !noalias !134
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8, !noalias !133
+  %26 = load ptr, ptr %25, align 8, !noalias !134
   call void %26(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle.65") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %22)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 27:                                               ; preds = %21
-  store ptr null, ptr %3, align 8, !alias.scope !133
+  store ptr null, ptr %3, align 8, !alias.scope !134
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv.exit: ; preds = %23, %27
@@ -8775,7 +8775,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1
   %31 = icmp eq ptr %.sroa.010.1, %3
   %or.cond = select i1 %.not.i.i, i1 true, i1 %31
   %or.cond13 = select i1 %30, i1 %or.cond, i1 false
-  br i1 %or.cond13, label %.critedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEneISI_SK_EEbRKNS1_IT_T0_EE.exit, !llvm.loop !136
+  br i1 %or.cond13, label %.critedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEneISI_SK_EEbRKNS1_IT_T0_EE.exit, !llvm.loop !137
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEneISI_SK_EEbRKNS1_IT_T0_EE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit9, %6
   %.sroa.010.0.lcssa = phi ptr [ %1, %6 ], [ %.sroa.010.016, %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEneISI_SK_EEbRKNS1_IT_T0_EE.exit ], [ %.sroa.010.1, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit9 ]
@@ -8991,13 +8991,13 @@ define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplIiiNS0_14_LocalTypeInfoIiEEE20_GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIiEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %5 = inttoptr i64 %4 to ptr
-  store ptr %5, ptr %3, align 8, !alias.scope !137
-  %6 = load i32, ptr %1, align 8, !noalias !137
-  store i32 %6, ptr %0, align 8, !alias.scope !137
+  store ptr %5, ptr %3, align 8, !alias.scope !138
+  %6 = load i32, ptr %1, align 8, !noalias !138
+  store i32 %6, ptr %0, align 8, !alias.scope !138
   ret void
 }
 
@@ -9046,7 +9046,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, %2
   ret void
@@ -9163,78 +9163,79 @@ attributes #23 = { nounwind willreturn memory(read) }
 !63 = distinct !{!63, !64, !"_ZN32pxrInternal_v0_24__pxrReserved__10Tf_Remnant8RegisterIS0_EENS_8TfRefPtrIS0_EERSt6atomicIPS0_EPT_: argument 0"}
 !64 = distinct !{!64, !"_ZN32pxrInternal_v0_24__pxrReserved__10Tf_Remnant8RegisterIS0_EENS_8TfRefPtrIS0_EERSt6atomicIPS0_EPT_"}
 !65 = !{}
-!66 = distinct !{!66, !67}
+!66 = distinct !{!66, !67, !68}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIdvE19GetProxiedAsVtValueERKd: argument 0"}
-!70 = distinct !{!70, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIdvE19GetProxiedAsVtValueERKd"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIbvE19GetProxiedAsVtValueERKb: argument 0"}
-!73 = distinct !{!73, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIbvE19GetProxiedAsVtValueERKb"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
-!76 = distinct !{!76, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZSt9make_pairIN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS0_12VtDictionaryENS0_34SdfIdentityMapEditProxyValuePolicyIS2_EEE9_IteratorIPS5_NS2_8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7VtValueESt4lessIvESaISt4pairIKSF_SG_EEESt17_Rb_tree_iteratorISL_EEENS5_10_PairProxyEEERbESJ_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSV_INSW_IT0_E4typeEE6__typeEEOSX_OS12_: argument 0"}
-!79 = distinct !{!79, !"_ZSt9make_pairIN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS0_12VtDictionaryENS0_34SdfIdentityMapEditProxyValuePolicyIS2_EEE9_IteratorIPS5_NS2_8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7VtValueESt4lessIvESaISt4pairIKSF_SG_EEESt17_Rb_tree_iteratorISL_EEENS5_10_PairProxyEEERbESJ_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSV_INSW_IT0_E4typeEE6__typeEEOSX_OS12_"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
-!82 = distinct !{!82, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
-!85 = distinct !{!85, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
-!88 = distinct !{!88, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
-!91 = distinct !{!91, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
-!94 = distinct !{!94, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
-!97 = distinct !{!97, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
-!100 = distinct !{!100, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
-!103 = distinct !{!103, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxycvNS_7VtValueEEv: argument 0"}
-!106 = distinct !{!106, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxycvNS_7VtValueEEv"}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxy3GetEv: argument 0"}
-!109 = distinct !{!109, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxy3GetEv"}
-!110 = !{!108, !105}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEEcvS1_Ev: argument 0"}
-!113 = distinct !{!113, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEEcvS1_Ev"}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_12VtDictionaryEEES0_RT_: argument 0"}
-!116 = distinct !{!116, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_12VtDictionaryEEES0_RT_"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZN32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolder6CreateIbEES0_v: argument 0"}
-!119 = distinct !{!119, !"_ZN32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolder6CreateIbEES0_v"}
-!120 = !{!121, !118}
-!121 = distinct !{!121, !122, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr3NewIbEES0_v: argument 0"}
-!122 = distinct !{!122, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr3NewIbEES0_v"}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo19GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE: argument 0"}
-!125 = distinct !{!125, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo19GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE"}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_12VtDictionaryEvE19GetProxiedAsVtValueERKS2_: argument 0"}
-!128 = distinct !{!128, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_12VtDictionaryEvE19GetProxiedAsVtValueERKS2_"}
-!129 = distinct !{!129, !67}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_12VtDictionaryEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_: argument 0"}
-!132 = distinct !{!132, !"_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_12VtDictionaryEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_"}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
-!135 = distinct !{!135, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
-!136 = distinct !{!136, !67}
-!137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIivE19GetProxiedAsVtValueERKi: argument 0"}
-!139 = distinct !{!139, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIivE19GetProxiedAsVtValueERKi"}
-!140 = distinct !{!140, !67}
+!68 = !{!"llvm.loop.estimated_trip_count"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIdvE19GetProxiedAsVtValueERKd: argument 0"}
+!71 = distinct !{!71, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIdvE19GetProxiedAsVtValueERKd"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIbvE19GetProxiedAsVtValueERKb: argument 0"}
+!74 = distinct !{!74, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIbvE19GetProxiedAsVtValueERKb"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
+!77 = distinct !{!77, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZSt9make_pairIN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS0_12VtDictionaryENS0_34SdfIdentityMapEditProxyValuePolicyIS2_EEE9_IteratorIPS5_NS2_8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7VtValueESt4lessIvESaISt4pairIKSF_SG_EEESt17_Rb_tree_iteratorISL_EEENS5_10_PairProxyEEERbESJ_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSV_INSW_IT0_E4typeEE6__typeEEOSX_OS12_: argument 0"}
+!80 = distinct !{!80, !"_ZSt9make_pairIN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS0_12VtDictionaryENS0_34SdfIdentityMapEditProxyValuePolicyIS2_EEE9_IteratorIPS5_NS2_8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7VtValueESt4lessIvESaISt4pairIKSF_SG_EEESt17_Rb_tree_iteratorISL_EEENS5_10_PairProxyEEERbESJ_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSV_INSW_IT0_E4typeEE6__typeEEOSX_OS12_"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
+!83 = distinct !{!83, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
+!86 = distinct !{!86, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
+!89 = distinct !{!89, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
+!92 = distinct !{!92, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
+!95 = distinct !{!95, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
+!98 = distinct !{!98, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
+!101 = distinct !{!101, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev: argument 0"}
+!104 = distinct !{!104, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_LocationB5cxx11Ev"}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxycvNS_7VtValueEEv: argument 0"}
+!107 = distinct !{!107, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxycvNS_7VtValueEEv"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxy3GetEv: argument 0"}
+!110 = distinct !{!110, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE11_ValueProxy3GetEv"}
+!111 = !{!109, !106}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEEcvS1_Ev: argument 0"}
+!114 = distinct !{!114, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEEcvS1_Ev"}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_12VtDictionaryEEES0_RT_: argument 0"}
+!117 = distinct !{!117, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_12VtDictionaryEEES0_RT_"}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZN32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolder6CreateIbEES0_v: argument 0"}
+!120 = distinct !{!120, !"_ZN32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolder6CreateIbEES0_v"}
+!121 = !{!122, !119}
+!122 = distinct !{!122, !123, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr3NewIbEES0_v: argument 0"}
+!123 = distinct !{!123, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr3NewIbEES0_v"}
+!124 = !{!125}
+!125 = distinct !{!125, !126, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo19GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE: argument 0"}
+!126 = distinct !{!126, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo19GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE"}
+!127 = !{!128}
+!128 = distinct !{!128, !129, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_12VtDictionaryEvE19GetProxiedAsVtValueERKS2_: argument 0"}
+!129 = distinct !{!129, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_12VtDictionaryEvE19GetProxiedAsVtValueERKS2_"}
+!130 = distinct !{!130, !67, !68}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_12VtDictionaryEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_: argument 0"}
+!133 = distinct !{!133, !"_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_12VtDictionaryEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv: argument 0"}
+!136 = distinct !{!136, !"_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE6_OwnerEv"}
+!137 = distinct !{!137, !67, !68}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIivE19GetProxiedAsVtValueERKi: argument 0"}
+!140 = distinct !{!140, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIivE19GetProxiedAsVtValueERKi"}
+!141 = distinct !{!141, !67, !68}

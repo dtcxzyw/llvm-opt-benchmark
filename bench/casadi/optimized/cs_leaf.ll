@@ -60,7 +60,7 @@ define i32 @cs_leaf(i32 noundef %0, i32 noundef %1, ptr noundef readonly capture
   %31 = load i32, ptr %30, align 4, !tbaa !3
   store i32 %.048, ptr %30, align 4, !tbaa !3
   %.not61 = icmp eq i32 %31, %.048
-  br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %21, %13, %14, %7
   %.0 = phi i32 [ -1, %7 ], [ -1, %14 ], [ -1, %13 ], [ %0, %21 ], [ %23, %.preheader ], [ %.048, %.lr.ph ]
@@ -78,6 +78,7 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

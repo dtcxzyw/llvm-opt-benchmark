@@ -119,7 +119,7 @@ _ZNK10OopStorage5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure10Oo
 _ZN10OopStorage5Block7iterateINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, %11
   %32 = add nuw i64 %.0911.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %32, %9
-  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEvPT_.exit.loopexit, label %11, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEvPT_.exit.loopexit, label %11, !llvm.loop !9
 
 _ZN10OopStorage7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEvPT_.exit.loopexit: ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEEEbT_.exit.i.i.i
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.16..pre = load i64, ptr %.sroa.4, align 8
@@ -180,17 +180,17 @@ _ZN10OopStorage7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure10O
 
 _ZNK10OopStorage9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEclEPP7oopDesc.exit.i.i.i.i.i: ; preds = %57, %54, %.lr.ph.i.i.i.i.i13
   %.not.i.i.i.i.i15 = icmp eq i64 %46, %.0810.i.i.i.i.i14
-  br i1 %.not.i.i.i.i.i15, label %_ZN10OopStorage5Block7iterateINS_9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i13, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i15, label %_ZN10OopStorage5Block7iterateINS_9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i13, !llvm.loop !10
 
 _ZN10OopStorage5Block7iterateINS_9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEclEPP7oopDesc.exit.i.i.i.i.i, %40
   %58 = add nuw i64 %.01012.i.i.i, 1
   %exitcond.not.i.i.i16 = icmp eq i64 %58, %38
-  br i1 %exitcond.not.i.i.i16, label %_ZN10OopStorage12weak_oops_doI17BoolObjectClosure10OopClosureEEvPT_PT0_.exit, label %40, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i16, label %_ZN10OopStorage12weak_oops_doI17BoolObjectClosure10OopClosureEEvPT_PT0_.exit, label %40, !llvm.loop !11
 
 _ZN10OopStorage12weak_oops_doI17BoolObjectClosure10OopClosureEEvPT_PT0_.exit: ; preds = %_ZN10OopStorage5Block7iterateINS_9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, %35, %_ZN10OopStorage7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEvPT_.exit
   %59 = add nuw nsw i32 %.sroa.019.023, 1
   %.not = icmp eq i32 %59, 15
-  br i1 %.not, label %60, label %3
+  br i1 %.not, label %60, label %3, !llvm.loop !12
 
 60:                                               ; preds = %_ZN10OopStorage12weak_oops_doI17BoolObjectClosure10OopClosureEEvPT_PT0_.exit
   ret void
@@ -247,17 +247,17 @@ define hidden void @_ZN13WeakProcessor7oops_doEP10OopClosure(ptr noundef %0) loc
 
 _ZNK10OopStorage10SkipNullFnINS_5OopFnI10OopClosureEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i: ; preds = %18, %.lr.ph.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq i64 %14, %.0810.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_10SkipNullFnINS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_10SkipNullFnINS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
 _ZN10OopStorage5Block7iterateINS_10SkipNullFnINS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage10SkipNullFnINS_5OopFnI10OopClosureEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, %8
   %21 = add nuw i64 %.0911.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %21, %6
-  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage12weak_oops_doI10OopClosureEEvPT_.exit, label %8, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage12weak_oops_doI10OopClosureEEvPT_.exit, label %8, !llvm.loop !14
 
 _ZN10OopStorage12weak_oops_doI10OopClosureEEvPT_.exit: ; preds = %_ZN10OopStorage5Block7iterateINS_10SkipNullFnINS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, %2
   %22 = add nuw nsw i32 %.sroa.0.08, 1
   %.not = icmp eq i32 %22, 15
-  br i1 %.not, label %23, label %2
+  br i1 %.not, label %23, label %2, !llvm.loop !15
 
 23:                                               ; preds = %_ZN10OopStorage12weak_oops_doI10OopClosureEEvPT_.exit
   ret void
@@ -277,7 +277,7 @@ define hidden noundef i32 @_ZN13WeakProcessor12ergo_workersEj(i32 noundef %0) lo
   %6 = add i64 %5, %.01015
   %7 = add nuw nsw i32 %.sroa.0.014, 1
   %.not = icmp eq i32 %7, 15
-  br i1 %.not, label %8, label %.preheader
+  br i1 %.not, label %8, label %.preheader, !llvm.loop !16
 
 8:                                                ; preds = %.preheader
   %9 = load i64, ptr @ReferencesPerThread, align 8
@@ -375,7 +375,7 @@ define hidden void @_ZN13WeakProcessor4Task15report_num_deadEv(ptr noundef nonnu
   tail call void @_ZNK10OopStorage15report_num_deadEm(ptr noundef nonnull align 8 dereferenceable(126) %7, i64 noundef %8) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %.not.i, label %_ZN25OopStorageSetWeakParStateILb0ELb0EE15report_num_deadEv.exit, label %3
+  br i1 %.not.i, label %_ZN25OopStorageSetWeakParStateILb0ELb0EE15report_num_deadEv.exit, label %3, !llvm.loop !17
 
 _ZN25OopStorageSetWeakParStateILb0ELb0EE15report_num_deadEv.exit: ; preds = %3
   ret void
@@ -595,10 +595,15 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

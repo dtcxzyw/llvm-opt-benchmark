@@ -224,7 +224,7 @@ define noundef i64 @_ZN3net5Cubic24CongestionWindowAfterAckEmNS_8QuicTime5DeltaE
   %83 = fdiv float %82, %72
   %84 = fptoui float %83 to i64
   %85 = icmp ult i64 %80, %84
-  br i1 %85, label %._crit_edge, label %.lr.ph
+  br i1 %85, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i64 %80, ptr %5, align 8, !tbaa !16
@@ -289,3 +289,5 @@ attributes #7 = { nounwind willreturn memory(none) }
 !21 = !{!4, !9, i64 80}
 !22 = !{!4, !11, i64 72}
 !23 = !{!4, !11, i64 64}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}

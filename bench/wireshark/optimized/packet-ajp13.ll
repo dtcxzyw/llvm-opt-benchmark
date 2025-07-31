@@ -826,7 +826,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %.3.i = phi i32 [ %267, %249 ], [ %279, %274 ], [ %290, %280 ]
   %298 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3.i)
   %299 = icmp sgt i32 %298, 0
-  br i1 %299, label %.lr.ph229.i, label %display_req_body.exit
+  br i1 %299, label %.lr.ph229.i, label %display_req_body.exit, !llvm.loop !11
 
 300:                                              ; preds = %49
   %301 = icmp eq i16 %26, 16706
@@ -995,7 +995,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %.1.i60 = phi i32 [ %374, %355 ], [ %403, %375 ]
   %405 = add nuw nsw i32 %.0103116.i, 1
   %exitcond.not.i61 = icmp eq i32 %405, %351
-  br i1 %exitcond.not.i61, label %display_req_body.exit, label %.lr.ph.i58, !llvm.loop !10
+  br i1 %exitcond.not.i61, label %display_req_body.exit, label %.lr.ph.i58, !llvm.loop !12
 
 406:                                              ; preds = %315
   %407 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 5)
@@ -1114,6 +1114,8 @@ attributes #3 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !9, !10}

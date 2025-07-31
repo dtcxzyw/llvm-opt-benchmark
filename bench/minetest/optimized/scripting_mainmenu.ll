@@ -1003,16 +1003,16 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr dso_local void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8, !tbaa !92
+  %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8, !tbaa !93
   %tobool.not4.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not4.i.i.i, label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__n.addr.05.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
-  %1 = load ptr, ptr %__n.addr.05.i.i.i, align 8, !tbaa !93
+  %1 = load ptr, ptr %__n.addr.05.i.i.i, align 8, !tbaa !94
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i) #23
   %tobool.not.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !94
+  br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !95
 
 _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i: ; preds = %while.body.i.i.i, %entry
   %2 = load ptr, ptr %this, align 8, !tbaa !72
@@ -1045,9 +1045,9 @@ entry:
   %0 = tail call i64 @llvm.umax.i64(i64 %div, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
   %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 %.sroa.speculated, ptr %_M_map_size, align 8, !tbaa !95
+  store i64 %.sroa.speculated, ptr %_M_map_size, align 8, !tbaa !96
   %cmp.i.i.i = icmp ugt i64 %__num_elements, 3458764513820540918
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt11_Deque_baseI10LuaJobInfoSaIS0_EE15_M_allocate_mapEm.exit, !prof !96
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt11_Deque_baseI10LuaJobInfoSaIS0_EE15_M_allocate_mapEm.exit, !prof !97
 
 if.then.i.i.i:                                    ; preds = %entry
   %cmp2.i.i.i = icmp ugt i64 %__num_elements, 6917529027641081846
@@ -1081,7 +1081,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i10.i, ptr %__cur.013.i, align 8, !tbaa !80
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__cur.013.i, i64 8
   %cmp.i49 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i49, label %for.body.i, label %try.cont, !llvm.loop !97
+  br i1 %cmp.i49, label %for.body.i, label %try.cont, !llvm.loop !98
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -1097,7 +1097,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   tail call void @_ZdlPv(ptr noundef %4) #23
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.05.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.013.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseI10LuaJobInfoSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i, !llvm.loop !90
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseI10LuaJobInfoSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i, !llvm.loop !99
 
 _ZNSt11_Deque_baseI10LuaJobInfoSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i: ; preds = %for.body.i.i, %lpad.i
   invoke void @__cxa_rethrow() #20
@@ -1140,26 +1140,26 @@ invoke.cont24:                                    ; preds = %lpad23
 try.cont:                                         ; preds = %invoke.cont.i
   %_M_start = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_node.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr %add.ptr, ptr %_M_node.i, align 8, !tbaa !98
+  store ptr %add.ptr, ptr %_M_node.i, align 8, !tbaa !100
   %12 = load ptr, ptr %add.ptr, align 8, !tbaa !80
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %12, ptr %_M_first.i, align 8, !tbaa !99
+  store ptr %12, ptr %_M_first.i, align 8, !tbaa !101
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 456
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !100
+  store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !102
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 48
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
   %_M_node.i51 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr %add.ptr27, ptr %_M_node.i51, align 8, !tbaa !98
+  store ptr %add.ptr27, ptr %_M_node.i51, align 8, !tbaa !100
   %13 = load ptr, ptr %add.ptr27, align 8, !tbaa !80
   %_M_first.i52 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %13, ptr %_M_first.i52, align 8, !tbaa !99
+  store ptr %13, ptr %_M_first.i52, align 8, !tbaa !101
   %add.ptr.i53 = getelementptr inbounds nuw i8, ptr %13, i64 456
   %_M_last.i54 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %add.ptr.i53, ptr %_M_last.i54, align 8, !tbaa !100
-  store ptr %12, ptr %_M_start, align 8, !tbaa !101
+  store ptr %add.ptr.i53, ptr %_M_last.i54, align 8, !tbaa !102
+  store ptr %12, ptr %_M_start, align 8, !tbaa !103
   %add.ptr36 = getelementptr inbounds nuw %struct.LuaJobInfo, ptr %13, i64 %rem
-  store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !102
+  store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !104
   ret void
 
 terminate.lpad:                                   ; preds = %lpad23
@@ -1205,22 +1205,22 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 define linkonce_odr dso_local void @_ZNSt5dequeI10LuaJobInfoSaIS0_EE19_M_destroy_data_auxESt15_Deque_iteratorIS0_RS0_PS0_ES6_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_node = getelementptr inbounds nuw i8, ptr %__first, i64 24
-  %0 = load ptr, ptr %_M_node, align 8, !tbaa !98
+  %0 = load ptr, ptr %_M_node, align 8, !tbaa !100
   %_M_node2 = getelementptr inbounds nuw i8, ptr %__last, i64 24
   %__node.035 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load ptr, ptr %_M_node2, align 8, !tbaa !98
+  %1 = load ptr, ptr %_M_node2, align 8, !tbaa !100
   %cmp36 = icmp ult ptr %__node.035, %1
   br i1 %cmp36, label %for.body, label %for.cond.cleanup
 
 for.cond.cleanup.loopexit:                        ; preds = %_ZN10LuaJobInfoD2Ev.exit.2
-  %.pre = load ptr, ptr %_M_node, align 8, !tbaa !98
+  %.pre = load ptr, ptr %_M_node, align 8, !tbaa !100
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %entry
   %2 = phi ptr [ %0, %entry ], [ %.pre, %for.cond.cleanup.loopexit ]
   %.lcssa = phi ptr [ %1, %entry ], [ %47, %for.cond.cleanup.loopexit ]
   %cmp7.not = icmp eq ptr %2, %.lcssa
-  %3 = load ptr, ptr %__first, align 8, !tbaa !103
+  %3 = load ptr, ptr %__first, align 8, !tbaa !105
   br i1 %cmp7.not, label %if.else, label %if.then
 
 for.body:                                         ; preds = %entry, %_ZN10LuaJobInfoD2Ev.exit.2
@@ -1514,13 +1514,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 _ZN10LuaJobInfoD2Ev.exit.2:                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19.i.2, %if.then.i.i18.i.2
   %__node.0 = getelementptr inbounds nuw i8, ptr %__node.037, i64 8
-  %47 = load ptr, ptr %_M_node2, align 8, !tbaa !98
+  %47 = load ptr, ptr %_M_node2, align 8, !tbaa !100
   %cmp = icmp ult ptr %__node.0, %47
-  br i1 %cmp, label %for.body, label %for.cond.cleanup.loopexit, !llvm.loop !104
+  br i1 %cmp, label %for.body, label %for.cond.cleanup.loopexit, !llvm.loop !106
 
 if.then:                                          ; preds = %for.cond.cleanup
   %_M_last = getelementptr inbounds nuw i8, ptr %__first, i64 16
-  %48 = load ptr, ptr %_M_last, align 8, !tbaa !100
+  %48 = load ptr, ptr %_M_last, align 8, !tbaa !102
   %cmp.not3.i.i.i = icmp eq ptr %3, %48
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIP10LuaJobInfoS0_EvT_S2_RSaIT0_E.exit21, label %for.body.i.i.i17
 
@@ -1529,12 +1529,12 @@ for.body.i.i.i17:                                 ; preds = %if.then, %for.body.
   tail call void @_ZN10LuaJobInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %__first.addr.04.i.i.i18) #19
   %incdec.ptr.i.i.i19 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i18, i64 152
   %cmp.not.i.i.i20 = icmp eq ptr %incdec.ptr.i.i.i19, %48
-  br i1 %cmp.not.i.i.i20, label %_ZSt8_DestroyIP10LuaJobInfoS0_EvT_S2_RSaIT0_E.exit21, label %for.body.i.i.i17, !llvm.loop !105
+  br i1 %cmp.not.i.i.i20, label %_ZSt8_DestroyIP10LuaJobInfoS0_EvT_S2_RSaIT0_E.exit21, label %for.body.i.i.i17, !llvm.loop !107
 
 _ZSt8_DestroyIP10LuaJobInfoS0_EvT_S2_RSaIT0_E.exit21: ; preds = %for.body.i.i.i17, %if.then
   %_M_first = getelementptr inbounds nuw i8, ptr %__last, i64 8
-  %49 = load ptr, ptr %_M_first, align 8, !tbaa !99
-  %50 = load ptr, ptr %__last, align 8, !tbaa !103
+  %49 = load ptr, ptr %_M_first, align 8, !tbaa !101
+  %50 = load ptr, ptr %__last, align 8, !tbaa !105
   %cmp.not3.i.i.i22 = icmp eq ptr %49, %50
   br i1 %cmp.not3.i.i.i22, label %if.end, label %for.body.i.i.i23
 
@@ -1543,10 +1543,10 @@ for.body.i.i.i23:                                 ; preds = %_ZSt8_DestroyIP10Lu
   tail call void @_ZN10LuaJobInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %__first.addr.04.i.i.i24) #19
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i24, i64 152
   %cmp.not.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i25, %50
-  br i1 %cmp.not.i.i.i26, label %if.end, label %for.body.i.i.i23, !llvm.loop !105
+  br i1 %cmp.not.i.i.i26, label %if.end, label %for.body.i.i.i23, !llvm.loop !108
 
 if.else:                                          ; preds = %for.cond.cleanup
-  %51 = load ptr, ptr %__last, align 8, !tbaa !103
+  %51 = load ptr, ptr %__last, align 8, !tbaa !105
   %cmp.not3.i.i.i28 = icmp eq ptr %3, %51
   br i1 %cmp.not3.i.i.i28, label %if.end, label %for.body.i.i.i29
 
@@ -1555,7 +1555,7 @@ for.body.i.i.i29:                                 ; preds = %if.else, %for.body.
   tail call void @_ZN10LuaJobInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %__first.addr.04.i.i.i30) #19
   %incdec.ptr.i.i.i31 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i30, i64 152
   %cmp.not.i.i.i32 = icmp eq ptr %incdec.ptr.i.i.i31, %51
-  br i1 %cmp.not.i.i.i32, label %if.end, label %for.body.i.i.i29, !llvm.loop !105
+  br i1 %cmp.not.i.i.i32, label %if.end, label %for.body.i.i.i29, !llvm.loop !109
 
 if.end:                                           ; preds = %for.body.i.i.i23, %for.body.i.i.i29, %if.else, %_ZSt8_DestroyIP10LuaJobInfoS0_EvT_S2_RSaIT0_E.exit21
   ret void
@@ -1825,19 +1825,23 @@ attributes #24 = { builtin allocsize(0) }
 !87 = !{!63, !14, i64 0}
 !88 = !{!63, !14, i64 40}
 !89 = !{!63, !14, i64 72}
-!90 = distinct !{!90, !91}
+!90 = distinct !{!90, !91, !92}
 !91 = !{!"llvm.loop.mustprogress"}
-!92 = !{!50, !14, i64 16}
-!93 = !{!51, !14, i64 0}
-!94 = distinct !{!94, !91}
-!95 = !{!63, !15, i64 8}
-!96 = !{!"branch_weights", i32 1, i32 2000}
-!97 = distinct !{!97, !91}
-!98 = !{!64, !14, i64 24}
-!99 = !{!64, !14, i64 8}
-!100 = !{!64, !14, i64 16}
-!101 = !{!63, !14, i64 16}
-!102 = !{!63, !14, i64 48}
-!103 = !{!64, !14, i64 0}
-!104 = distinct !{!104, !91}
-!105 = distinct !{!105, !91}
+!92 = !{!"llvm.loop.estimated_trip_count"}
+!93 = !{!50, !14, i64 16}
+!94 = !{!51, !14, i64 0}
+!95 = distinct !{!95, !91, !92}
+!96 = !{!63, !15, i64 8}
+!97 = !{!"branch_weights", i32 1, i32 2000}
+!98 = distinct !{!98, !91, !92}
+!99 = distinct !{!99, !91, !92}
+!100 = !{!64, !14, i64 24}
+!101 = !{!64, !14, i64 8}
+!102 = !{!64, !14, i64 16}
+!103 = !{!63, !14, i64 16}
+!104 = !{!63, !14, i64 48}
+!105 = !{!64, !14, i64 0}
+!106 = distinct !{!106, !91, !92}
+!107 = distinct !{!107, !91, !92}
+!108 = distinct !{!108, !91, !92}
+!109 = distinct !{!109, !91, !92}

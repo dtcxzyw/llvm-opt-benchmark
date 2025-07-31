@@ -1475,7 +1475,7 @@ heap_getattr.exit:                                ; preds = %94, %117, %120, %12
   %163 = load i32, ptr %66, align 8
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next.pre-phi, %164
-  br i1 %165, label %75, label %._crit_edge, !llvm.loop !11
+  br i1 %165, label %75, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %162, %61
   %166 = call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef 7, ptr noundef null) #11
@@ -1654,7 +1654,7 @@ composite_to_jsonb.exit:                          ; preds = %._crit_edge, %170
   %.sink = phi ptr [ %21, %244 ], [ null, %242 ], [ null, %242 ], [ null, %242 ], [ null, %242 ]
   %246 = call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef %243, ptr noundef %.sink) #11
   store ptr %246, ptr %238, align 8
-  br label %242, !llvm.loop !12
+  br label %242, !llvm.loop !13
 
 .loopexit:                                        ; preds = %242, %239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #11
@@ -1835,7 +1835,7 @@ add_jsonb.exit.us:                                ; preds = %.thread.us
 48:                                               ; preds = %add_jsonb.exit.us, %29
   %49 = add i32 %.029.us, 2
   %50 = icmp slt i32 %49, %0
-  br i1 %50, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
+  br i1 %50, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %add_jsonb.exit
   %.029 = phi i32 [ %76, %add_jsonb.exit ], [ 0, %.lr.ph ]
@@ -1892,7 +1892,7 @@ add_jsonb.exit:                                   ; preds = %.thread
   call fastcc void @add_jsonb(i64 noundef %70, i1 noundef zeroext %73, ptr noundef %9, i32 noundef %75, i1 noundef zeroext false)
   %76 = add i32 %.029, 2
   %77 = icmp slt i32 %76, %0
-  br i1 %77, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
+  br i1 %77, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %add_jsonb.exit, %48, %16
   %78 = call ptr @pushJsonbValue(ptr noundef nonnull %9, i32 noundef 7, ptr noundef null) #11
@@ -2029,7 +2029,7 @@ define dso_local i64 @jsonb_build_array_worker(i32 noundef %0, ptr noundef reado
 18:                                               ; preds = %13, %.lr.ph.split.us
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next15, %wide.trip.count17
-  br i1 %exitcond18.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %exitcond18.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -2043,7 +2043,7 @@ define dso_local i64 @jsonb_build_array_worker(i32 noundef %0, ptr noundef reado
   call fastcc void @add_jsonb(i64 noundef %20, i1 noundef zeroext %23, ptr noundef %6, i32 noundef %25, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count17
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %18, %5
   %26 = call ptr @pushJsonbValue(ptr noundef nonnull %6, i32 noundef 5, ptr noundef null) #11
@@ -2100,7 +2100,7 @@ define dso_local i64 @jsonb_build_array(ptr noundef %0) local_unnamed_addr #0 {
   call fastcc void @add_jsonb(i64 noundef %17, i1 noundef zeroext %20, ptr noundef %2, i32 noundef %22, i1 noundef zeroext false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count17.i
-  br i1 %exitcond.not.i, label %jsonb_build_array_worker.exit, label %.lr.ph.split.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %jsonb_build_array_worker.exit, label %.lr.ph.split.i, !llvm.loop !18
 
 jsonb_build_array_worker.exit:                    ; preds = %.lr.ph.split.i, %10
   %23 = call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef 5, ptr noundef null) #11
@@ -2264,7 +2264,7 @@ define dso_local i64 @jsonb_object(ptr noundef readonly captures(none) %0) local
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %71, %33
   %73 = load ptr, ptr %2, align 8
@@ -2423,7 +2423,7 @@ define dso_local i64 @jsonb_object_two_arg(ptr noundef readonly captures(none) %
   %72 = load i32, ptr %6, align 4
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %40, label %._crit_edge, !llvm.loop !19
+  br i1 %74, label %40, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %70, %.preheader
   %75 = load ptr, ptr %2, align 8
@@ -2647,7 +2647,7 @@ define internal fastcc i64 @jsonb_agg_transfn_worker(ptr noundef %0, i1 noundef 
 
 .backedge:                                        ; preds = %.sink.split, %65, %70
   %.044.be = phi i1 [ true, %70 ], [ true, %65 ], [ %.1.ph, %.sink.split ]
-  br label %63, !llvm.loop !20
+  br label %63, !llvm.loop !21
 
 98:                                               ; preds = %63
   store ptr %56, ptr @CurrentMemoryContext, align 8
@@ -2735,7 +2735,7 @@ define dso_local i64 @jsonb_agg_finalfn(ptr noundef captures(none) %0) local_unn
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %44, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %16
   %.0.lcssa.i = phi ptr [ %17, %16 ], [ %31, %.lr.ph.i ]
@@ -2965,7 +2965,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   br i1 %116, label %.split.us.backedge, label %.split93.us
 
 .split.us.backedge:                               ; preds = %114, %.split.us
-  br label %.split.us, !llvm.loop !21
+  br label %.split.us, !llvm.loop !23
 
 .split:                                           ; preds = %83, %.split.backedge
   %117 = call i32 @JsonbIteratorNext(ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false) #11
@@ -3009,7 +3009,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %126, %.split, %118
-  br label %.split, !llvm.loop !22
+  br label %.split, !llvm.loop !24
 
 .split89.us:                                      ; preds = %123, %100
   %137 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -3117,7 +3117,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
 
 .backedge:                                        ; preds = %.sink.split, %146, %151
   %.073.be = phi i8 [ 1, %151 ], [ 1, %146 ], [ %.1.ph, %.sink.split ]
-  br label %144, !llvm.loop !23
+  br label %144, !llvm.loop !25
 
 .sink.split100:                                   ; preds = %144, %.split91.us
   store ptr %94, ptr @CurrentMemoryContext, align 8
@@ -3217,7 +3217,7 @@ define dso_local i64 @jsonb_object_agg_finalfn(ptr noundef captures(none) %0) lo
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %44, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %16
   %.0.lcssa.i = phi ptr [ %17, %16 ], [ %31, %.lr.ph.i ]
@@ -3368,7 +3368,7 @@ define internal fastcc void @cannotCastJsonbValue(i32 noundef %0, ptr noundef %1
 3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %14, label %4, !llvm.loop !24
+  br i1 %exitcond.not, label %14, label %4, !llvm.loop !26
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
@@ -4363,7 +4363,7 @@ define internal fastcc void @array_dim_to_jsonb(ptr noundef nonnull %0, i32 noun
   %26 = add i32 %.029.us, 1
   %27 = load i32, ptr %13, align 4
   %.not.us = icmp sgt i32 %26, %27
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.029 = phi i32 [ %28, %.lr.ph.split ], [ 1, %.lr.ph ]
@@ -4371,7 +4371,7 @@ define internal fastcc void @array_dim_to_jsonb(ptr noundef nonnull %0, i32 noun
   %28 = add i32 %.029, 1
   %29 = load i32, ptr %13, align 4
   %.not = icmp sgt i32 %28, %29
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %9
   %30 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 5, ptr noundef null) #11
@@ -4430,21 +4430,23 @@ attributes #12 = { cold nounwind }
 !6 = distinct !{!6, !"pq_writeint8"}
 !7 = !{i8 0, i8 2}
 !8 = !{}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10, !14}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10, !14}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10, !14}
-!26 = distinct !{!26, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11, !15}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !10, !11, !15}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11, !15}
+!28 = distinct !{!28, !10, !11}

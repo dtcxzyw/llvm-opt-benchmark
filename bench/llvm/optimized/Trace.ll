@@ -263,5 +263,6 @@ attributes #4 = { nounwind }
 !44 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
 !45 = !{!41, !43, i64 32}
 !46 = !{!5, !5, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
+!49 = !{!"llvm.loop.estimated_trip_count"}

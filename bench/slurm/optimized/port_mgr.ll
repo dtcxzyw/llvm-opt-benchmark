@@ -191,7 +191,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   %72 = load i32, ptr @port_resv_cnt, align 4
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %60
   %75 = tail call ptr @list_iterator_create(ptr noundef %1) #8
@@ -287,7 +287,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %124 = zext i16 %121 to i64
   %125 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %124
-  br i1 %125, label %.lr.ph.i.i.i, label %_make_job_resv.exit.i, !llvm.loop !12
+  br i1 %125, label %.lr.ph.i.i.i, label %_make_job_resv.exit.i, !llvm.loop !13
 
 126:                                              ; preds = %102
   br label %127
@@ -380,7 +380,7 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
   %174 = call ptr @hostlist_shift(ptr noundef nonnull %156) #8
   store ptr %174, ptr %3, align 8
   %.not16.i.i = icmp eq ptr %174, null
-  br i1 %.not16.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not16.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %172, %157
   call void @hostlist_destroy(ptr noundef nonnull %156) #8
@@ -427,7 +427,7 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
   %indvars.iv.next.i.i21.i = add nuw nsw i64 %indvars.iv.i.i16.i, 1
   %196 = zext i16 %193 to i64
   %197 = icmp samesign ult i64 %indvars.iv.next.i.i21.i, %196
-  br i1 %197, label %.lr.ph.i.i15.i, label %.backedge.i, !llvm.loop !12
+  br i1 %197, label %.lr.ph.i.i15.i, label %.backedge.i, !llvm.loop !13
 
 198:                                              ; preds = %154
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
@@ -443,13 +443,13 @@ _rebuild_port_array.exit.i:                       ; preds = %198, %._crit_edge.i
 .backedge.i:                                      ; preds = %192, %_rebuild_port_array.exit.i, %148, %138, %.lr.ph.i
   %201 = call ptr @list_next(ptr noundef %132) #8
   %.not10.i = icmp eq ptr %201, null
-  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %_make_job_resv.exit.i
   call void @list_iterator_destroy(ptr noundef %132) #8
   %202 = call ptr @list_next(ptr noundef %75) #8
   %.not.i = icmp eq ptr %202, null
-  br i1 %.not.i, label %_make_all_resv.exit, label %.lr.ph31.i, !llvm.loop !15
+  br i1 %.not.i, label %_make_all_resv.exit, label %.lr.ph31.i, !llvm.loop !16
 
 _make_all_resv.exit:                              ; preds = %._crit_edge.i, %._crit_edge
   call void @list_iterator_destroy(ptr noundef %75) #8
@@ -534,7 +534,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %23 = sext i32 %20 to i64
   %24 = icmp slt i64 %indvars.iv.next49, %23
-  br i1 %24, label %.lr.ph46, label %._crit_edge, !llvm.loop !16
+  br i1 %24, label %.lr.ph46, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %19, %11
   tail call void @slurm_xfree(ptr noundef nonnull @port_resv_table) #8
@@ -652,7 +652,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %79 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %63, label %.loopexit, !llvm.loop !17
+  br i1 %82, label %63, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %78, %55, %35, %5, %._crit_edge, %32
   %.0 = phi i32 [ -1, %32 ], [ 0, %._crit_edge ], [ 0, %5 ], [ 0, %35 ], [ 0, %55 ], [ 0, %78 ]
@@ -704,7 +704,7 @@ define internal fastcc range(i32 -1, 2061) i32 @_rebuild_port_array(ptr noundef 
   %24 = call ptr @hostlist_shift(ptr noundef nonnull %6) #8
   store ptr %24, ptr %4, align 8
   %.not16 = icmp eq ptr %24, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %22, %7
   call void @hostlist_destroy(ptr noundef nonnull %6) #8
@@ -856,11 +856,11 @@ define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zero
   %34 = add nuw nsw i32 %.02430, 1
   %35 = load i32, ptr @port_resv_cnt, align 4
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !18
+  br i1 %36, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !19
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %32
   %.pre38.pre = load i32, ptr %4, align 4
-  br label %._crit_edge, !llvm.loop !18
+  br label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %26, %.._crit_edge.loopexit_crit_edge, %11
   %37 = phi i32 [ 0, %11 ], [ %.pre38.pre, %.._crit_edge.loopexit_crit_edge ], [ %31, %26 ]
@@ -896,7 +896,7 @@ define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zero
   %55 = load i32, ptr %4, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph34, label %._crit_edge35, !llvm.loop !19
+  br i1 %57, label %.lr.ph34, label %._crit_edge35, !llvm.loop !20
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %40
   call void @hostlist_sort(ptr noundef %41) #8
@@ -1098,7 +1098,7 @@ define dso_local void @resv_port_step_free(ptr noundef %0) local_unnamed_addr #0
   %27 = phi i32 [ %11, %16 ], [ %11, %.lr.ph.i ], [ %.pre.i, %20 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_resv_port_free.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_resv_port_free.exit, label %.lr.ph.i, !llvm.loop !21
 
 _resv_port_free.exit:                             ; preds = %25, %5
   tail call void @slurm_xfree(ptr noundef nonnull %2) #8
@@ -1170,7 +1170,7 @@ define dso_local void @resv_port_job_free(ptr noundef %0) local_unnamed_addr #0 
   %27 = phi i32 [ %11, %16 ], [ %11, %.lr.ph.i ], [ %.pre.i, %20 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_resv_port_free.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_resv_port_free.exit, label %.lr.ph.i, !llvm.loop !21
 
 _resv_port_free.exit:                             ; preds = %25, %5
   tail call void @slurm_xfree(ptr noundef nonnull %2) #8
@@ -1241,16 +1241,17 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}

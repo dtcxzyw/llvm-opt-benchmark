@@ -856,9 +856,9 @@ entry:
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this)
   %y_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %1 = load ptr, ptr %y_, align 8, !tbaa !40
+  %1 = load ptr, ptr %y_, align 8, !tbaa !41
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !40
+  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then, label %do.end
 
@@ -1032,7 +1032,7 @@ for.body.preheader:                               ; preds = %do.end
 
 if.then28:                                        ; preds = %do.end
   %cumulativeY_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %25 = load ptr, ptr %cumulativeY_, align 8, !tbaa !40
+  %25 = load ptr, ptr %cumulativeY_, align 8, !tbaa !41
   %26 = load double, ptr %25, align 8, !tbaa !36
   br label %return
 
@@ -1046,7 +1046,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.062, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !41
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
 
 cleanup:                                          ; preds = %for.body
   %sub = fsub double %27, %y
@@ -1068,7 +1068,7 @@ cleanup:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc
   %_M_finish.i.i37 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %33 = load ptr, ptr %_M_finish.i.i37, align 8, !tbaa !40
+  %33 = load ptr, ptr %_M_finish.i.i37, align 8, !tbaa !41
   %add.ptr.i.i = getelementptr inbounds i8, ptr %33, i64 -8
   %34 = load double, ptr %add.ptr.i.i, align 8, !tbaa !36
   br label %return
@@ -1095,9 +1095,9 @@ entry:
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this)
   %y_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %1 = load ptr, ptr %y_, align 8, !tbaa !40
+  %1 = load ptr, ptr %y_, align 8, !tbaa !41
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !40
+  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then, label %do.end
 
@@ -1259,7 +1259,7 @@ ehcleanup24:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %cumulativeY_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %24 = load ptr, ptr %cumulativeY_, align 8, !tbaa !40
+  %24 = load ptr, ptr %cumulativeY_, align 8, !tbaa !41
   %25 = load double, ptr %24, align 8, !tbaa !36
   %cmp = fcmp olt double %x, %25
   br i1 %cmp, label %if.then27, label %for.cond.preheader
@@ -1291,7 +1291,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.062, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !43
 
 cleanup:                                          ; preds = %for.body
   %sub = fsub double %28, %x
@@ -1384,7 +1384,7 @@ entry:
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this)
   %steps_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %steps_.i, align 8, !tbaa !43
+  %1 = load i64, ptr %steps_.i, align 8, !tbaa !44
   %cmp477.not = icmp eq i64 %1, 0
   br i1 %cmp477.not, label %for.cond.cleanup, label %for.body
 
@@ -1418,9 +1418,9 @@ for.body:                                         ; preds = %entry, %for.body
   %call7 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula9densitydmEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0478)
   %8 = tail call double @llvm.fmuladd.f64(double %square476, double %call7, double %var.0479)
   %inc = add nuw i64 %i.0478, 1
-  %9 = load i64, ptr %steps_.i, align 8, !tbaa !43
+  %9 = load i64, ptr %steps_.i, align 8, !tbaa !44
   %cmp = icmp ult i64 %inc, %9
-  br i1 %cmp, label %for.body, label %for.cond.cleanup.loopexit, !llvm.loop !49
+  br i1 %cmp, label %for.body, label %for.cond.cleanup.loopexit, !llvm.loop !50
 
 if.then:                                          ; preds = %for.cond.cleanup
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #23
@@ -1931,7 +1931,7 @@ for.body120:                                      ; preds = %do.body74, %for.bod
   %79 = tail call double @llvm.fmuladd.f64(double %square, double %sub136, double %var.1485)
   %inc140 = add nuw nsw i64 %i116.0484, 1
   %exitcond.not = icmp eq i64 %inc140, 200
-  br i1 %exitcond.not, label %for.cond.cleanup119, label %for.body120, !llvm.loop !50
+  br i1 %exitcond.not, label %for.cond.cleanup119, label %for.body120, !llvm.loop !51
 
 if.then145:                                       ; preds = %for.cond.cleanup119
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream146) #23
@@ -2445,7 +2445,7 @@ for.body271:                                      ; preds = %do.body225, %for.bo
   %151 = tail call double @llvm.fmuladd.f64(double %mul, double %sub289, double %var.2489)
   %inc293 = add nuw nsw i64 %i267.0488, 1
   %exitcond497.not = icmp eq i64 %inc293, 200
-  br i1 %exitcond497.not, label %for.cond.cleanup270, label %for.body271, !llvm.loop !51
+  br i1 %exitcond497.not, label %for.cond.cleanup270, label %for.body271, !llvm.loop !52
 
 if.then298:                                       ; preds = %for.cond.cleanup270
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream299) #23
@@ -2947,7 +2947,7 @@ entry:
   %ref.tmp6 = alloca %"class.std::allocator.11", align 1
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %steps_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load i64, ptr %steps_, align 8, !tbaa !43
+  %0 = load i64, ptr %steps_, align 8, !tbaa !44
   %cmp = icmp ult i64 %i, %0
   br i1 %cmp, label %do.end, label %if.then
 
@@ -3114,11 +3114,11 @@ do.end:                                           ; preds = %entry
   %22 = load ptr, ptr %vfn, align 8
   %call26 = tail call noundef double %22(ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %call25)
   %max_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %23 = load double, ptr %max_.i, align 8, !tbaa !52
+  %23 = load double, ptr %max_.i, align 8, !tbaa !53
   %min_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %24 = load double, ptr %min_.i, align 8, !tbaa !53
+  %24 = load double, ptr %min_.i, align 8, !tbaa !54
   %sub.i = fsub double %23, %24
-  %25 = load i64, ptr %steps_, align 8, !tbaa !43
+  %25 = load i64, ptr %steps_, align 8, !tbaa !44
   %conv.i = uitofp i64 %25 to double
   %div.i = fdiv double %sub.i, %conv.i
   %mul = fmul double %call26, %div.i
@@ -3138,7 +3138,7 @@ entry:
   %ref.tmp6 = alloca %"class.std::allocator.11", align 1
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %steps_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load i64, ptr %steps_, align 8, !tbaa !43
+  %0 = load i64, ptr %steps_, align 8, !tbaa !44
   %cmp = icmp ult i64 %i, %0
   br i1 %cmp, label %do.end, label %if.then
 
@@ -3300,9 +3300,9 @@ ehcleanup23:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %min_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %22 = load double, ptr %min_, align 8, !tbaa !53
+  %22 = load double, ptr %min_, align 8, !tbaa !54
   %max_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %23 = load double, ptr %max_.i, align 8, !tbaa !52
+  %23 = load double, ptr %max_.i, align 8, !tbaa !53
   %sub.i = fsub double %23, %22
   %conv.i = uitofp i64 %0 to double
   %div.i = fdiv double %sub.i, %conv.i
@@ -3547,19 +3547,20 @@ attributes #27 = { builtin allocsize(0) }
 !35 = !{!33, !16, i64 16}
 !36 = !{!37, !37, i64 0}
 !37 = !{!"double", !6, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!16, !16, i64 0}
-!41 = distinct !{!41, !39}
-!42 = distinct !{!42, !39}
-!43 = !{!44, !24, i64 40}
-!44 = !{!"_ZTSN8QuantLib15OneFactorCopulaE", !4, i64 0, !45, i64 16, !37, i64 32, !24, i64 40, !37, i64 48, !46, i64 56, !46, i64 80}
-!45 = !{!"_ZTSN8QuantLib6HandleINS_5QuoteEEE", !28, i64 0}
-!46 = !{!"_ZTSSt6vectorIdSaIdEE", !47, i64 0}
-!47 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !48, i64 0}
-!48 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !33, i64 0}
-!49 = distinct !{!49, !39}
-!50 = distinct !{!50, !39}
-!51 = distinct !{!51, !39}
-!52 = !{!44, !37, i64 32}
-!53 = !{!44, !37, i64 48}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = !{!16, !16, i64 0}
+!42 = distinct !{!42, !39, !40}
+!43 = distinct !{!43, !39, !40}
+!44 = !{!45, !24, i64 40}
+!45 = !{!"_ZTSN8QuantLib15OneFactorCopulaE", !4, i64 0, !46, i64 16, !37, i64 32, !24, i64 40, !37, i64 48, !47, i64 56, !47, i64 80}
+!46 = !{!"_ZTSN8QuantLib6HandleINS_5QuoteEEE", !28, i64 0}
+!47 = !{!"_ZTSSt6vectorIdSaIdEE", !48, i64 0}
+!48 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !49, i64 0}
+!49 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !33, i64 0}
+!50 = distinct !{!50, !39, !40}
+!51 = distinct !{!51, !39, !40}
+!52 = distinct !{!52, !39, !40}
+!53 = !{!45, !37, i64 32}
+!54 = !{!45, !37, i64 48}

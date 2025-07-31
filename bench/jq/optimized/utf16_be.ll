@@ -350,7 +350,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %20 = sext i32 %7 to i64
   %21 = getelementptr inbounds i8, ptr %.01424, i64 %20
   %22 = icmp ult ptr %21, %1
-  br i1 %22, label %.lr.ph, label %._crit_edge
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %19, %2
   %.014.lcssa = phi ptr [ %0, %2 ], [ %21, %19 ]
@@ -418,3 +418,5 @@ attributes #8 = { nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !5, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}

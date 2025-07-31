@@ -55,10 +55,10 @@ define dso_local void @php_random_mt19937_seed32(ptr noundef captures(none) init
   store i32 %10, ptr %11, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 624
-  br i1 %exitcond.not, label %12, label %4
+  br i1 %exitcond.not, label %12, label %4, !llvm.loop !8
 
 12:                                               ; preds = %4
-  store i32 624, ptr %0, align 4, !tbaa !8
+  store i32 624, ptr %0, align 4, !tbaa !10
   tail call fastcc void @mt19937_reload(ptr noundef nonnull %0)
   ret void
 }
@@ -70,7 +70,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 define internal fastcc void @mt19937_reload(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !10
+  %4 = load i32, ptr %3, align 4, !tbaa !12
   %5 = icmp eq i32 %4, 0
   %.pre61 = load i32, ptr %2, align 4, !tbaa !4
   br i1 %5, label %.preheader49, label %.preheader51
@@ -95,7 +95,7 @@ define internal fastcc void @mt19937_reload(ptr noundef captures(none) %0) unnam
   %20 = xor i32 %16, %19
   store i32 %20, ptr %.04355, align 4, !tbaa !4
   %.not47 = icmp eq i32 %7, 0
-  br i1 %.not47, label %.preheader, label %.preheader49
+  br i1 %.not47, label %.preheader, label %.preheader49, !llvm.loop !13
 
 21:                                               ; preds = %.preheader
   %22 = getelementptr inbounds i8, ptr %.157, i64 -904
@@ -133,7 +133,7 @@ define internal fastcc void @mt19937_reload(ptr noundef captures(none) %0) unnam
   store i32 %48, ptr %.157, align 4, !tbaa !4
   %49 = add nsw i32 %35, -1
   %.not48 = icmp eq i32 %49, 0
-  br i1 %.not48, label %21, label %.preheader
+  br i1 %.not48, label %21, label %.preheader, !llvm.loop !14
 
 .preheader51:                                     ; preds = %1, %.preheader51
   %50 = phi i32 [ %56, %.preheader51 ], [ %.pre61, %1 ]
@@ -155,7 +155,7 @@ define internal fastcc void @mt19937_reload(ptr noundef captures(none) %0) unnam
   %64 = xor i32 %63, %59
   store i32 %64, ptr %.252, align 4, !tbaa !4
   %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %.preheader50, label %.preheader51
+  br i1 %.not, label %.preheader50, label %.preheader51, !llvm.loop !15
 
 65:                                               ; preds = %.preheader50
   %66 = getelementptr inbounds i8, ptr %.354, i64 -904
@@ -193,10 +193,10 @@ define internal fastcc void @mt19937_reload(ptr noundef captures(none) %0) unnam
   store i32 %92, ptr %.354, align 4, !tbaa !4
   %93 = add nsw i32 %79, -1
   %.not46 = icmp eq i32 %93, 0
-  br i1 %.not46, label %65, label %.preheader50
+  br i1 %.not46, label %65, label %.preheader50, !llvm.loop !16
 
 94:                                               ; preds = %65, %21
-  store i32 0, ptr %0, align 4, !tbaa !8
+  store i32 0, ptr %0, align 4, !tbaa !10
   ret void
 }
 
@@ -205,20 +205,20 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal { i64, i64 } @generate(ptr noundef captures(none) %0) #2 {
-  %2 = load i32, ptr %0, align 4, !tbaa !8
+  %2 = load i32, ptr %0, align 4, !tbaa !10
   %3 = icmp ugt i32 %2, 623
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
   tail call fastcc void @mt19937_reload(ptr noundef nonnull %0)
-  %.pre = load i32, ptr %0, align 4, !tbaa !8
+  %.pre = load i32, ptr %0, align 4, !tbaa !10
   br label %5
 
 5:                                                ; preds = %4, %1
   %6 = phi i32 [ %.pre, %4 ], [ %2, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = add i32 %6, 1
-  store i32 %8, ptr %0, align 4, !tbaa !8
+  store i32 %8, ptr %0, align 4, !tbaa !10
   %9 = zext i32 %6 to i64
   %10 = getelementptr inbounds nuw [624 x i32], ptr %7, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !4
@@ -253,16 +253,16 @@ define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #3
   br label %14
 
 6:                                                ; preds = %14
-  %7 = load i32, ptr %0, align 4, !tbaa !8
+  %7 = load i32, ptr %0, align 4, !tbaa !10
   %8 = zext i32 %7 to i64
-  store i64 %8, ptr %3, align 8, !tbaa !11
-  store i32 4, ptr %5, align 8, !tbaa !11
+  store i64 %8, ptr %3, align 8, !tbaa !17
+  store i32 4, ptr %5, align 8, !tbaa !17
   %9 = call ptr @zend_hash_next_index_insert(ptr noundef %1, ptr noundef nonnull %3) #7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !10
+  %11 = load i32, ptr %10, align 4, !tbaa !12
   %12 = zext i32 %11 to i64
-  store i64 %12, ptr %3, align 8, !tbaa !11
-  store i32 4, ptr %5, align 8, !tbaa !11
+  store i64 %12, ptr %3, align 8, !tbaa !17
+  store i32 4, ptr %5, align 8, !tbaa !17
   %13 = call ptr @zend_hash_next_index_insert(ptr noundef %1, ptr noundef nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   ret i1 true
@@ -271,23 +271,23 @@ define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds nuw [624 x i32], ptr %4, i64 0, i64 %indvars.iv
   %16 = call ptr @php_random_bin2hex_le(ptr noundef nonnull %15, i64 noundef 4) #7
-  store ptr %16, ptr %3, align 8, !tbaa !11
+  store ptr %16, ptr %3, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !11
+  %18 = load i32, ptr %17, align 4, !tbaa !17
   %19 = and i32 %18, 64
   %.not = icmp eq i32 %19, 0
   %20 = select i1 %.not, i32 262, i32 6
-  store i32 %20, ptr %5, align 8, !tbaa !11
+  store i32 %20, ptr %5, align 8, !tbaa !17
   %21 = call ptr @zend_hash_next_index_insert(ptr noundef %1, ptr noundef nonnull %3) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 624
-  br i1 %exitcond.not, label %6, label %14
+  br i1 %exitcond.not, label %6, label %14, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !12
+  %4 = load i32, ptr %3, align 4, !tbaa !19
   %.not = icmp eq i32 %4, 626
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -298,7 +298,7 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #3 {
 6:                                                ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 624
-  br i1 %exitcond, label %.critedge, label %7
+  br i1 %exitcond, label %.critedge, label %7, !llvm.loop !24
 
 7:                                                ; preds = %.preheader, %6
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
@@ -308,14 +308,14 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #3 {
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i8, ptr %10, align 8, !tbaa !11
+  %11 = load i8, ptr %10, align 8, !tbaa !17
   %.not33 = icmp eq i8 %11, 6
   br i1 %.not33, label %12, label %.loopexit
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %8, align 8, !tbaa !11
+  %13 = load ptr, ptr %8, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !17
+  %15 = load i64, ptr %14, align 8, !tbaa !25
   %.not34 = icmp eq i64 %15, 8
   br i1 %.not34, label %16, label %.loopexit
 
@@ -331,14 +331,14 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #3 {
 
 20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load i8, ptr %21, align 8, !tbaa !11
+  %22 = load i8, ptr %21, align 8, !tbaa !17
   %.not36 = icmp eq i8 %22, 4
   br i1 %.not36, label %23, label %.loopexit
 
 23:                                               ; preds = %20
-  %24 = load i64, ptr %19, align 8, !tbaa !11
+  %24 = load i64, ptr %19, align 8, !tbaa !17
   %25 = trunc i64 %24 to i32
-  store i32 %25, ptr %0, align 4, !tbaa !8
+  store i32 %25, ptr %0, align 4, !tbaa !10
   %26 = icmp ugt i32 %25, 624
   br i1 %26, label %.loopexit, label %27
 
@@ -349,15 +349,15 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #3 {
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load i8, ptr %30, align 8, !tbaa !11
+  %31 = load i8, ptr %30, align 8, !tbaa !17
   %.not38 = icmp eq i8 %31, 4
   br i1 %.not38, label %32, label %.loopexit
 
 32:                                               ; preds = %29
-  %33 = load i64, ptr %28, align 8, !tbaa !11
+  %33 = load i64, ptr %28, align 8, !tbaa !17
   %34 = trunc i64 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %34, ptr %35, align 4, !tbaa !10
+  store i32 %34, ptr %35, align 4, !tbaa !12
   %switch = icmp ult i32 %34, 2
   br label %.loopexit
 
@@ -402,10 +402,10 @@ define dso_local void @php_random_mt19937_seed_default(ptr noundef captures(none
   store i32 %17, ptr %18, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
-  br i1 %exitcond.not.i, label %php_random_mt19937_seed32.exit, label %11
+  br i1 %exitcond.not.i, label %php_random_mt19937_seed32.exit, label %11, !llvm.loop !8
 
 php_random_mt19937_seed32.exit:                   ; preds = %11
-  store i32 624, ptr %0, align 4, !tbaa !8
+  store i32 624, ptr %0, align 4, !tbaa !10
   call fastcc void @mt19937_reload(ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
   ret void
@@ -418,16 +418,16 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 -8
-  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !19
+  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store i64 0, ptr %4, align 8, !tbaa !20
+  store i64 0, ptr %4, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %8 = load i32, ptr %7, align 4, !tbaa !11
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = icmp ugt i32 %8, 2
-  br i1 %9, label %10, label %11, !prof !21
+  br i1 %9, label %10, label %11, !prof !29
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 2) #7
@@ -435,59 +435,59 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
 
 11:                                               ; preds = %2
   %12 = icmp eq i32 %8, 0
-  br i1 %12, label %.critedge.thread.thread, label %14, !prof !21
+  br i1 %12, label %.critedge.thread.thread, label %14, !prof !29
 
 .critedge.thread.thread:                          ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 4
-  store i32 0, ptr %13, align 4, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !12
   br label %38
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %17 = load i8, ptr %16, align 8, !tbaa !11
+  %17 = load i8, ptr %16, align 8, !tbaa !17
   switch i8 %17, label %zend_parse_arg_long_ex.exit58 [
     i8 4, label %18
     i8 1, label %zend_parse_arg_long_ex.exit58.thread
-  ], !prof !22
+  ], !prof !30
 
 18:                                               ; preds = %14
-  %19 = load i64, ptr %15, align 8, !tbaa !11
+  %19 = load i64, ptr %15, align 8, !tbaa !17
   br label %zend_parse_arg_long_ex.exit58.thread
 
 zend_parse_arg_long_ex.exit58.thread:             ; preds = %14, %18
   %.2 = phi i1 [ false, %18 ], [ true, %14 ]
   %storemerge.i = phi i64 [ %19, %18 ], [ 0, %14 ]
-  store i64 %storemerge.i, ptr %3, align 8, !tbaa !20
+  store i64 %storemerge.i, ptr %3, align 8, !tbaa !28
   br label %21
 
 zend_parse_arg_long_ex.exit58:                    ; preds = %14
   %20 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 1) #7
-  br i1 %20, label %21, label %.thread, !prof !23
+  br i1 %20, label %21, label %.thread, !prof !31
 
 21:                                               ; preds = %zend_parse_arg_long_ex.exit58.thread, %zend_parse_arg_long_ex.exit58
   %.361 = phi i1 [ %.2, %zend_parse_arg_long_ex.exit58.thread ], [ false, %zend_parse_arg_long_ex.exit58 ]
   %.not = icmp eq i32 %8, 2
-  br i1 %.not, label %22, label %.critedge.thread, !prof !24
+  br i1 %.not, label %22, label %.critedge.thread, !prof !32
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %25 = load i8, ptr %24, align 8, !tbaa !11
+  %25 = load i8, ptr %24, align 8, !tbaa !17
   %26 = icmp eq i8 %25, 4
-  br i1 %26, label %.thread76, label %zend_parse_arg_long_ex.exit, !prof !24
+  br i1 %26, label %.thread76, label %zend_parse_arg_long_ex.exit, !prof !32
 
 .thread76:                                        ; preds = %22
-  %27 = load i64, ptr %23, align 8, !tbaa !11
-  store i64 %27, ptr %4, align 8, !tbaa !20
+  %27 = load i64, ptr %23, align 8, !tbaa !17
+  store i64 %27, ptr %4, align 8, !tbaa !28
   br label %.critedge
 
 zend_parse_arg_long_ex.exit:                      ; preds = %22
   %28 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %23, ptr noundef nonnull %4, i32 noundef 2) #7
-  br i1 %28, label %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge, label %.thread, !prof !25
+  br i1 %28, label %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge, label %.thread, !prof !33
 
 zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend_parse_arg_long_ex.exit
-  %.pr.pre = load i64, ptr %4, align 8, !tbaa !20
+  %.pr.pre = load i64, ptr %4, align 8, !tbaa !28
   br label %.critedge
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit58, %10
@@ -500,7 +500,7 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
 
 .critedge.thread:                                 ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 4
-  store i32 0, ptr %29, align 4, !tbaa !10
+  store i32 0, ptr %29, align 4, !tbaa !12
   br i1 %.361, label %38, label %46
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge, %.thread76
@@ -513,19 +513,19 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
 31:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str) #7
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 4
-  store i32 1, ptr %32, align 4, !tbaa !10
+  store i32 1, ptr %32, align 4, !tbaa !12
   br i1 %.361, label %38, label %46
 
 33:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.1) #7
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %58
 
 36:                                               ; preds = %.critedge
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 4
-  store i32 0, ptr %37, align 4, !tbaa !10
+  store i32 0, ptr %37, align 4, !tbaa !12
   br i1 %.361, label %38, label %46
 
 38:                                               ; preds = %.critedge.thread.thread, %.critedge.thread, %31, %36
@@ -534,15 +534,15 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !57
+  %42 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !65
   %43 = call ptr @zend_throw_exception(ptr noundef %42, ptr noundef nonnull @.str.2, i64 noundef 0) #7
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %45 = icmp ne ptr %44, null
   call void @llvm.assume(i1 %45)
   br label %58
 
 46:                                               ; preds = %.critedge.thread, %31, %38, %36
-  %47 = load i64, ptr %3, align 8, !tbaa !20
+  %47 = load i64, ptr %3, align 8, !tbaa !28
   %48 = trunc i64 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
   store i32 %48, ptr %49, align 4, !tbaa !4
@@ -560,10 +560,10 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
   store i32 %56, ptr %57, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
-  br i1 %exitcond.not.i, label %php_random_mt19937_seed32.exit, label %50
+  br i1 %exitcond.not.i, label %php_random_mt19937_seed32.exit, label %50, !llvm.loop !8
 
 php_random_mt19937_seed32.exit:                   ; preds = %50
-  store i32 624, ptr %.sroa.3.0.copyload, align 4, !tbaa !8
+  store i32 624, ptr %.sroa.3.0.copyload, align 4, !tbaa !10
   call fastcc void @mt19937_reload(ptr noundef nonnull %.sroa.3.0.copyload)
   br label %58
 
@@ -589,9 +589,9 @@ declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Engine_Mt19937_generate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %4 = load i32, ptr %3, align 4, !tbaa !11
+  %4 = load i32, ptr %3, align 4, !tbaa !17
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !24
+  br i1 %.not, label %6, label %5, !prof !32
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #7
@@ -599,17 +599,17 @@ define hidden void @zim_Random_Engine_Mt19937_generate(ptr noundef readonly capt
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !11
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %.sroa.413.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -8
-  %.sroa.413.0.copyload = load ptr, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !19
-  %.sroa.012.0.copyload = load ptr, ptr %9, align 8, !tbaa !58
+  %.sroa.413.0.copyload = load ptr, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !27
+  %.sroa.012.0.copyload = load ptr, ptr %9, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !60
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = tail call { i64, i64 } %11(ptr noundef %.sroa.413.0.copyload) #7
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %.not18 = icmp eq ptr %15, null
   br i1 %.not18, label %zend_string_alloc.exit, label %32
 
@@ -617,13 +617,13 @@ zend_string_alloc.exit:                           ; preds = %6
   %16 = and i64 %14, -8
   %17 = add i64 %16, 32
   %18 = tail call noalias ptr @_emalloc(i64 noundef %17) #8
-  store i32 1, ptr %18, align 4, !tbaa !62
+  store i32 1, ptr %18, align 4, !tbaa !70
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 22, ptr %19, align 4, !tbaa !11
+  store i32 22, ptr %19, align 4, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %20, align 8, !tbaa !63
+  store i64 0, ptr %20, align 8, !tbaa !71
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %14, ptr %21, align 8, !tbaa !17
+  store i64 %14, ptr %21, align 8, !tbaa !25
   %.not21 = icmp eq i64 %14, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -634,10 +634,10 @@ zend_string_alloc.exit:                           ; preds = %6
 ._crit_edge:                                      ; preds = %26, %zend_string_alloc.exit
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %24 = getelementptr inbounds nuw [1 x i8], ptr %23, i64 0, i64 %14
-  store i8 0, ptr %24, align 1, !tbaa !11
-  store ptr %18, ptr %1, align 8, !tbaa !11
+  store i8 0, ptr %24, align 1, !tbaa !17
+  store ptr %18, ptr %1, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %25, align 8, !tbaa !11
+  store i32 262, ptr %25, align 8, !tbaa !17
   br label %32
 
 26:                                               ; preds = %.lr.ph, %26
@@ -646,10 +646,10 @@ zend_string_alloc.exit:                           ; preds = %6
   %28 = lshr i64 %13, %27
   %29 = trunc i64 %28 to i8
   %30 = getelementptr inbounds nuw [1 x i8], ptr %22, i64 0, i64 %.020
-  store i8 %29, ptr %30, align 1, !tbaa !11
+  store i8 %29, ptr %30, align 1, !tbaa !17
   %31 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %31, %14
-  br i1 %exitcond.not, label %._crit_edge, label %26
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !72
 
 32:                                               ; preds = %._crit_edge, %6, %5
   ret void
@@ -661,12 +661,12 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #4
 define hidden void @zim_Random_Engine_Mt19937___serialize(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %7 = load i32, ptr %6, align 4, !tbaa !11
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %9, label %8, !prof !24
+  br i1 %.not, label %9, label %8, !prof !32
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #7
@@ -675,38 +675,38 @@ define hidden void @zim_Random_Engine_Mt19937___serialize(ptr noundef readonly c
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %5, i64 -16
   %11 = tail call ptr @_zend_new_array_0() #7
-  store ptr %11, ptr %1, align 8, !tbaa !11
+  store ptr %11, ptr %1, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 775, ptr %12, align 8, !tbaa !11
+  store i32 775, ptr %12, align 8, !tbaa !17
   %13 = tail call ptr @zend_std_get_properties(ptr noundef nonnull %5) #7
-  store ptr %13, ptr %3, align 8, !tbaa !11
+  store ptr %13, ptr %3, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 775, ptr %14, align 8, !tbaa !11
-  %15 = load i32, ptr %13, align 4, !tbaa !62
+  store i32 775, ptr %14, align 8, !tbaa !17
+  %15 = load i32, ptr %13, align 4, !tbaa !70
   %16 = add i32 %15, 1
-  store i32 %16, ptr %13, align 4, !tbaa !62
-  %17 = load ptr, ptr %1, align 8, !tbaa !11
+  store i32 %16, ptr %13, align 4, !tbaa !70
+  %17 = load ptr, ptr %1, align 8, !tbaa !17
   %18 = call ptr @zend_hash_next_index_insert(ptr noundef %17, ptr noundef nonnull %3) #7
   %19 = call ptr @_zend_new_array_0() #7
-  store ptr %19, ptr %3, align 8, !tbaa !11
-  store i32 775, ptr %14, align 8, !tbaa !11
-  %20 = load ptr, ptr %10, align 8, !tbaa !64
+  store ptr %19, ptr %3, align 8, !tbaa !17
+  store i32 775, ptr %14, align 8, !tbaa !17
+  %20 = load ptr, ptr %10, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !69
+  %22 = load ptr, ptr %21, align 8, !tbaa !78
   %23 = getelementptr inbounds i8, ptr %5, i64 -8
-  %24 = load ptr, ptr %23, align 8, !tbaa !70
+  %24 = load ptr, ptr %23, align 8, !tbaa !79
   %25 = call zeroext i1 %22(ptr noundef %24, ptr noundef %19) #7
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %9
   %27 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef 0) #7
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
   br label %33
 
 30:                                               ; preds = %9
-  %31 = load ptr, ptr %1, align 8, !tbaa !11
+  %31 = load ptr, ptr %1, align 8, !tbaa !17
   %32 = call ptr @zend_hash_next_index_insert(ptr noundef %31, ptr noundef nonnull %3) #7
   br label %33
 
@@ -724,12 +724,12 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !11
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %7 = load i32, ptr %6, align 4, !tbaa !11
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %cond = icmp eq i32 %7, 1
-  br i1 %cond, label %8, label %.thread, !prof !71
+  br i1 %cond, label %8, label %.thread, !prof !80
 
 .thread:                                          ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #7
@@ -738,9 +738,9 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = load i8, ptr %10, align 8, !tbaa !11
+  %11 = load i8, ptr %10, align 8, !tbaa !17
   %12 = icmp eq i8 %11, 7
-  br i1 %12, label %.critedge, label %13, !prof !24
+  br i1 %12, label %.critedge, label %13, !prof !32
 
 13:                                               ; preds = %8, %.thread
   %.04572 = phi i32 [ 1, %.thread ], [ 9, %8 ]
@@ -751,20 +751,20 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   br label %83
 
 .critedge:                                        ; preds = %8
-  %14 = load ptr, ptr %9, align 8, !tbaa !11
+  %14 = load ptr, ptr %9, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !12
+  %16 = load i32, ptr %15, align 4, !tbaa !19
   %.not53 = icmp eq i32 %16, 2
   br i1 %.not53, label %26, label %17
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !72
+  %19 = load ptr, ptr %18, align 8, !tbaa !81
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !73
+  %21 = load ptr, ptr %20, align 8, !tbaa !82
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %22) #7
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %25 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %25)
   br label %83
@@ -776,37 +776,37 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = load i8, ptr %29, align 8, !tbaa !11
+  %30 = load i8, ptr %29, align 8, !tbaa !17
   %.not55 = icmp eq i8 %30, 7
   br i1 %.not55, label %40, label %31
 
 31:                                               ; preds = %28, %26
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !72
+  %33 = load ptr, ptr %32, align 8, !tbaa !81
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !73
+  %35 = load ptr, ptr %34, align 8, !tbaa !82
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %36) #7
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %39 = icmp ne ptr %38, null
   tail call void @llvm.assume(i1 %39)
   br label %83
 
 40:                                               ; preds = %28
-  %41 = load ptr, ptr %27, align 8, !tbaa !11
+  %41 = load ptr, ptr %27, align 8, !tbaa !17
   tail call void @object_properties_load(ptr noundef nonnull %4, ptr noundef %41) #7
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %.not56 = icmp eq ptr %42, null
   br i1 %.not56, label %52, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !72
+  %45 = load ptr, ptr %44, align 8, !tbaa !81
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !73
+  %47 = load ptr, ptr %46, align 8, !tbaa !82
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %48) #7
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %51 = icmp ne ptr %50, null
   tail call void @llvm.assume(i1 %51)
   br label %83
@@ -818,40 +818,40 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = load i8, ptr %55, align 8, !tbaa !11
+  %56 = load i8, ptr %55, align 8, !tbaa !17
   %.not58 = icmp eq i8 %56, 7
   br i1 %.not58, label %66, label %57
 
 57:                                               ; preds = %54, %52
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !72
+  %59 = load ptr, ptr %58, align 8, !tbaa !81
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !73
+  %61 = load ptr, ptr %60, align 8, !tbaa !82
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %62) #7
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %65 = icmp ne ptr %64, null
   tail call void @llvm.assume(i1 %65)
   br label %83
 
 66:                                               ; preds = %54
-  %67 = load ptr, ptr %5, align 8, !tbaa !64
+  %67 = load ptr, ptr %5, align 8, !tbaa !73
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %69 = load ptr, ptr %68, align 8, !tbaa !84
+  %69 = load ptr, ptr %68, align 8, !tbaa !93
   %70 = getelementptr inbounds i8, ptr %4, i64 -8
-  %71 = load ptr, ptr %70, align 8, !tbaa !70
-  %72 = load ptr, ptr %53, align 8, !tbaa !11
+  %71 = load ptr, ptr %70, align 8, !tbaa !79
+  %72 = load ptr, ptr %53, align 8, !tbaa !17
   %73 = tail call zeroext i1 %69(ptr noundef %71, ptr noundef %72) #7
   br i1 %73, label %83, label %74
 
 74:                                               ; preds = %66
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %76 = load ptr, ptr %75, align 8, !tbaa !72
+  %76 = load ptr, ptr %75, align 8, !tbaa !81
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !73
+  %78 = load ptr, ptr %77, align 8, !tbaa !82
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %79) #7
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %82 = icmp ne ptr %81, null
   tail call void @llvm.assume(i1 %82)
   br label %83
@@ -870,13 +870,13 @@ declare void @object_properties_load(ptr noundef, ptr noundef) local_unnamed_add
 define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %8 = load i32, ptr %7, align 4, !tbaa !11
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %10, label %9, !prof !24
+  br i1 %.not, label %10, label %9, !prof !32
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #7
@@ -884,9 +884,9 @@ define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr noundef readonly c
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !85
+  %12 = load i32, ptr %11, align 4, !tbaa !94
   %13 = icmp ugt i32 %12, 1073741823
-  br i1 %13, label %14, label %16, !prof !21
+  br i1 %13, label %14, label %16, !prof !29
 
 14:                                               ; preds = %10
   %15 = tail call ptr @zend_lazy_object_get_properties(ptr noundef nonnull %5) #7
@@ -894,7 +894,7 @@ define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr noundef readonly c
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !86
+  %18 = load ptr, ptr %17, align 8, !tbaa !95
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %19, label %zend_std_get_properties_ex.exit
 
@@ -905,37 +905,37 @@ define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr noundef readonly c
 zend_std_get_properties_ex.exit:                  ; preds = %14, %16, %19
   %.0.i = phi ptr [ %15, %14 ], [ %20, %19 ], [ %18, %16 ]
   %21 = tail call ptr @zend_array_dup(ptr noundef %.0.i) #7
-  store ptr %21, ptr %1, align 8, !tbaa !11
+  store ptr %21, ptr %1, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 775, ptr %22, align 8, !tbaa !11
-  %23 = load ptr, ptr %6, align 8, !tbaa !64
+  store i32 775, ptr %22, align 8, !tbaa !17
+  %23 = load ptr, ptr %6, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !69
+  %25 = load ptr, ptr %24, align 8, !tbaa !78
   %.not14 = icmp eq ptr %25, null
   br i1 %.not14, label %42, label %26
 
 26:                                               ; preds = %zend_std_get_properties_ex.exit
   %27 = tail call ptr @_zend_new_array_0() #7
-  store ptr %27, ptr %3, align 8, !tbaa !11
+  store ptr %27, ptr %3, align 8, !tbaa !17
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 775, ptr %28, align 8, !tbaa !11
-  %29 = load ptr, ptr %6, align 8, !tbaa !64
+  store i32 775, ptr %28, align 8, !tbaa !17
+  %29 = load ptr, ptr %6, align 8, !tbaa !73
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !69
+  %31 = load ptr, ptr %30, align 8, !tbaa !78
   %32 = getelementptr inbounds i8, ptr %5, i64 -8
-  %33 = load ptr, ptr %32, align 8, !tbaa !70
+  %33 = load ptr, ptr %32, align 8, !tbaa !79
   %34 = tail call zeroext i1 %31(ptr noundef %33, ptr noundef %27) #7
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %26
   %36 = tail call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef 0) #7
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !26
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !34
   %38 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %38)
   br label %42
 
 39:                                               ; preds = %26
-  %40 = load ptr, ptr %1, align 8, !tbaa !11
+  %40 = load ptr, ptr %1, align 8, !tbaa !17
   %41 = call ptr @zend_hash_str_add(ptr noundef %40, ptr noundef nonnull @.str.5, i64 noundef 8, ptr noundef nonnull %3) #7
   br label %42
 
@@ -985,82 +985,91 @@ attributes #8 = { nounwind allocsize(0) }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!9, !5, i64 0}
-!9 = !{!"_php_random_status_state_mt19937", !5, i64 0, !5, i64 4, !6, i64 8}
-!10 = !{!9, !5, i64 4}
-!11 = !{!6, !6, i64 0}
-!12 = !{!13, !5, i64 28}
-!13 = !{!"_zend_array", !14, i64 0, !6, i64 8, !5, i64 12, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !15, i64 40, !16, i64 48}
-!14 = !{!"_zend_refcounted_h", !5, i64 0, !6, i64 4}
-!15 = !{!"long", !6, i64 0}
-!16 = !{!"any pointer", !6, i64 0}
-!17 = !{!18, !15, i64 16}
-!18 = !{!"_zend_string", !14, i64 0, !15, i64 8, !15, i64 16, !6, i64 24}
-!19 = !{!16, !16, i64 0}
-!20 = !{!15, !15, i64 0}
-!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!22 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!23 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!25 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!26 = !{!27, !43, i64 960}
-!27 = !{!"_zend_executor_globals", !28, i64 0, !28, i64 16, !6, i64 32, !29, i64 288, !29, i64 296, !13, i64 304, !13, i64 360, !30, i64 416, !5, i64 424, !31, i64 428, !28, i64 432, !5, i64 448, !32, i64 456, !32, i64 464, !32, i64 472, !33, i64 480, !33, i64 488, !34, i64 496, !15, i64 504, !35, i64 512, !36, i64 520, !5, i64 528, !35, i64 536, !5, i64 544, !15, i64 552, !5, i64 560, !5, i64 564, !5, i64 568, !31, i64 572, !31, i64 573, !37, i64 574, !37, i64 575, !32, i64 576, !15, i64 584, !16, i64 592, !16, i64 600, !13, i64 608, !13, i64 664, !5, i64 720, !31, i64 724, !28, i64 728, !28, i64 744, !38, i64 760, !38, i64 784, !38, i64 808, !36, i64 832, !5, i64 840, !5, i64 844, !15, i64 848, !32, i64 856, !32, i64 864, !39, i64 872, !40, i64 880, !42, i64 904, !43, i64 960, !43, i64 968, !44, i64 976, !6, i64 984, !45, i64 1080, !31, i64 1088, !6, i64 1089, !15, i64 1096, !5, i64 1104, !5, i64 1108, !46, i64 1112, !6, i64 1120, !16, i64 1376, !6, i64 1384, !47, i64 1640, !13, i64 1672, !15, i64 1728, !48, i64 1736, !49, i64 1760, !49, i64 1768, !50, i64 1776, !15, i64 1784, !31, i64 1792, !5, i64 1796, !51, i64 1800, !52, i64 1808, !15, i64 1816, !53, i64 1824, !15, i64 1840, !15, i64 1848, !54, i64 1856, !6, i64 1936}
-!28 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
-!29 = !{!"p2 _ZTS11_zend_array", !16, i64 0}
-!30 = !{!"p1 _ZTS13__jmp_buf_tag", !16, i64 0}
-!31 = !{!"_Bool", !6, i64 0}
-!32 = !{!"p1 _ZTS11_zend_array", !16, i64 0}
-!33 = !{!"p1 _ZTS12_zval_struct", !16, i64 0}
-!34 = !{!"p1 _ZTS14_zend_vm_stack", !16, i64 0}
-!35 = !{!"p1 _ZTS18_zend_execute_data", !16, i64 0}
-!36 = !{!"p1 _ZTS17_zend_class_entry", !16, i64 0}
-!37 = !{!"zend_atomic_bool_s", !6, i64 0}
-!38 = !{!"_zend_stack", !5, i64 0, !5, i64 4, !5, i64 8, !16, i64 16}
-!39 = !{!"p1 _ZTS15_zend_ini_entry", !16, i64 0}
-!40 = !{!"_zend_objects_store", !41, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!41 = !{!"p2 _ZTS12_zend_object", !16, i64 0}
-!42 = !{!"_zend_lazy_objects_store", !13, i64 0}
-!43 = !{!"p1 _ZTS12_zend_object", !16, i64 0}
-!44 = !{!"p1 _ZTS8_zend_op", !16, i64 0}
-!45 = !{!"p1 _ZTS18_zend_module_entry", !16, i64 0}
-!46 = !{!"p1 _ZTS18_HashTableIterator", !16, i64 0}
-!47 = !{!"_zend_op", !16, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !5, i64 20, !5, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
-!48 = !{!"", !33, i64 0, !33, i64 8, !33, i64 16}
-!49 = !{!"p1 _ZTS19_zend_fiber_context", !16, i64 0}
-!50 = !{!"p1 _ZTS11_zend_fiber", !16, i64 0}
-!51 = !{!"p2 _ZTS16_zend_error_info", !16, i64 0}
-!52 = !{!"p1 _ZTS12_zend_string", !16, i64 0}
-!53 = !{!"_zend_call_stack", !16, i64 0, !15, i64 8}
-!54 = !{!"_zend_strtod_state", !6, i64 0, !55, i64 64, !56, i64 72}
-!55 = !{!"p1 _ZTS19_zend_strtod_bigint", !16, i64 0}
-!56 = !{!"p1 omnipotent char", !16, i64 0}
-!57 = !{!36, !36, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTS16_php_random_algo", !16, i64 0}
-!60 = !{!61, !16, i64 8}
-!61 = !{!"_php_random_algo", !15, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32}
-!62 = !{!14, !5, i64 0}
-!63 = !{!18, !15, i64 8}
-!64 = !{!65, !59, i64 0}
-!65 = !{!"_php_random_engine", !66, i64 0, !67, i64 16}
-!66 = !{!"_php_random_algo_with_state", !59, i64 0, !16, i64 8}
-!67 = !{!"_zend_object", !14, i64 0, !5, i64 8, !5, i64 12, !36, i64 16, !68, i64 24, !32, i64 32, !6, i64 40}
-!68 = !{!"p1 _ZTS21_zend_object_handlers", !16, i64 0}
-!69 = !{!61, !16, i64 24}
-!70 = !{!65, !16, i64 8}
-!71 = !{!"branch_weights", i32 4000000, i32 4001}
-!72 = !{!65, !36, i64 32}
-!73 = !{!74, !52, i64 8}
-!74 = !{!"_zend_class_entry", !6, i64 0, !52, i64 8, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !33, i64 40, !33, i64 48, !33, i64 56, !13, i64 64, !13, i64 120, !13, i64 176, !75, i64 232, !76, i64 240, !77, i64 248, !78, i64 256, !78, i64 264, !78, i64 272, !78, i64 280, !78, i64 288, !78, i64 296, !78, i64 304, !78, i64 312, !78, i64 320, !78, i64 328, !78, i64 336, !78, i64 344, !78, i64 352, !68, i64 360, !79, i64 368, !80, i64 376, !6, i64 384, !16, i64 392, !16, i64 400, !16, i64 408, !16, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !5, i64 436, !6, i64 440, !81, i64 448, !82, i64 456, !83, i64 464, !32, i64 472, !5, i64 480, !32, i64 488, !52, i64 496, !6, i64 504}
-!75 = !{!"p1 _ZTS24_zend_class_mutable_data", !16, i64 0}
-!76 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !16, i64 0}
-!77 = !{!"p2 _ZTS19_zend_property_info", !16, i64 0}
-!78 = !{!"p1 _ZTS14_zend_function", !16, i64 0}
-!79 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !16, i64 0}
-!80 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !16, i64 0}
-!81 = !{!"p1 _ZTS16_zend_class_name", !16, i64 0}
-!82 = !{!"p2 _ZTS17_zend_trait_alias", !16, i64 0}
-!83 = !{!"p2 _ZTS22_zend_trait_precedence", !16, i64 0}
-!84 = !{!61, !16, i64 32}
-!85 = !{!67, !5, i64 12}
-!86 = !{!67, !32, i64 32}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !5, i64 0}
+!11 = !{!"_php_random_status_state_mt19937", !5, i64 0, !5, i64 4, !6, i64 8}
+!12 = !{!11, !5, i64 4}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = !{!6, !6, i64 0}
+!18 = distinct !{!18, !9}
+!19 = !{!20, !5, i64 28}
+!20 = !{!"_zend_array", !21, i64 0, !6, i64 8, !5, i64 12, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !22, i64 40, !23, i64 48}
+!21 = !{!"_zend_refcounted_h", !5, i64 0, !6, i64 4}
+!22 = !{!"long", !6, i64 0}
+!23 = !{!"any pointer", !6, i64 0}
+!24 = distinct !{!24, !9}
+!25 = !{!26, !22, i64 16}
+!26 = !{!"_zend_string", !21, i64 0, !22, i64 8, !22, i64 16, !6, i64 24}
+!27 = !{!23, !23, i64 0}
+!28 = !{!22, !22, i64 0}
+!29 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!30 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!31 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!32 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!33 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!34 = !{!35, !51, i64 960}
+!35 = !{!"_zend_executor_globals", !36, i64 0, !36, i64 16, !6, i64 32, !37, i64 288, !37, i64 296, !20, i64 304, !20, i64 360, !38, i64 416, !5, i64 424, !39, i64 428, !36, i64 432, !5, i64 448, !40, i64 456, !40, i64 464, !40, i64 472, !41, i64 480, !41, i64 488, !42, i64 496, !22, i64 504, !43, i64 512, !44, i64 520, !5, i64 528, !43, i64 536, !5, i64 544, !22, i64 552, !5, i64 560, !5, i64 564, !5, i64 568, !39, i64 572, !39, i64 573, !45, i64 574, !45, i64 575, !40, i64 576, !22, i64 584, !23, i64 592, !23, i64 600, !20, i64 608, !20, i64 664, !5, i64 720, !39, i64 724, !36, i64 728, !36, i64 744, !46, i64 760, !46, i64 784, !46, i64 808, !44, i64 832, !5, i64 840, !5, i64 844, !22, i64 848, !40, i64 856, !40, i64 864, !47, i64 872, !48, i64 880, !50, i64 904, !51, i64 960, !51, i64 968, !52, i64 976, !6, i64 984, !53, i64 1080, !39, i64 1088, !6, i64 1089, !22, i64 1096, !5, i64 1104, !5, i64 1108, !54, i64 1112, !6, i64 1120, !23, i64 1376, !6, i64 1384, !55, i64 1640, !20, i64 1672, !22, i64 1728, !56, i64 1736, !57, i64 1760, !57, i64 1768, !58, i64 1776, !22, i64 1784, !39, i64 1792, !5, i64 1796, !59, i64 1800, !60, i64 1808, !22, i64 1816, !61, i64 1824, !22, i64 1840, !22, i64 1848, !62, i64 1856, !6, i64 1936}
+!36 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
+!37 = !{!"p2 _ZTS11_zend_array", !23, i64 0}
+!38 = !{!"p1 _ZTS13__jmp_buf_tag", !23, i64 0}
+!39 = !{!"_Bool", !6, i64 0}
+!40 = !{!"p1 _ZTS11_zend_array", !23, i64 0}
+!41 = !{!"p1 _ZTS12_zval_struct", !23, i64 0}
+!42 = !{!"p1 _ZTS14_zend_vm_stack", !23, i64 0}
+!43 = !{!"p1 _ZTS18_zend_execute_data", !23, i64 0}
+!44 = !{!"p1 _ZTS17_zend_class_entry", !23, i64 0}
+!45 = !{!"zend_atomic_bool_s", !6, i64 0}
+!46 = !{!"_zend_stack", !5, i64 0, !5, i64 4, !5, i64 8, !23, i64 16}
+!47 = !{!"p1 _ZTS15_zend_ini_entry", !23, i64 0}
+!48 = !{!"_zend_objects_store", !49, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!49 = !{!"p2 _ZTS12_zend_object", !23, i64 0}
+!50 = !{!"_zend_lazy_objects_store", !20, i64 0}
+!51 = !{!"p1 _ZTS12_zend_object", !23, i64 0}
+!52 = !{!"p1 _ZTS8_zend_op", !23, i64 0}
+!53 = !{!"p1 _ZTS18_zend_module_entry", !23, i64 0}
+!54 = !{!"p1 _ZTS18_HashTableIterator", !23, i64 0}
+!55 = !{!"_zend_op", !23, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !5, i64 20, !5, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
+!56 = !{!"", !41, i64 0, !41, i64 8, !41, i64 16}
+!57 = !{!"p1 _ZTS19_zend_fiber_context", !23, i64 0}
+!58 = !{!"p1 _ZTS11_zend_fiber", !23, i64 0}
+!59 = !{!"p2 _ZTS16_zend_error_info", !23, i64 0}
+!60 = !{!"p1 _ZTS12_zend_string", !23, i64 0}
+!61 = !{!"_zend_call_stack", !23, i64 0, !22, i64 8}
+!62 = !{!"_zend_strtod_state", !6, i64 0, !63, i64 64, !64, i64 72}
+!63 = !{!"p1 _ZTS19_zend_strtod_bigint", !23, i64 0}
+!64 = !{!"p1 omnipotent char", !23, i64 0}
+!65 = !{!44, !44, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTS16_php_random_algo", !23, i64 0}
+!68 = !{!69, !23, i64 8}
+!69 = !{!"_php_random_algo", !22, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32}
+!70 = !{!21, !5, i64 0}
+!71 = !{!26, !22, i64 8}
+!72 = distinct !{!72, !9}
+!73 = !{!74, !67, i64 0}
+!74 = !{!"_php_random_engine", !75, i64 0, !76, i64 16}
+!75 = !{!"_php_random_algo_with_state", !67, i64 0, !23, i64 8}
+!76 = !{!"_zend_object", !21, i64 0, !5, i64 8, !5, i64 12, !44, i64 16, !77, i64 24, !40, i64 32, !6, i64 40}
+!77 = !{!"p1 _ZTS21_zend_object_handlers", !23, i64 0}
+!78 = !{!69, !23, i64 24}
+!79 = !{!74, !23, i64 8}
+!80 = !{!"branch_weights", i32 4000000, i32 4001}
+!81 = !{!74, !44, i64 32}
+!82 = !{!83, !60, i64 8}
+!83 = !{!"_zend_class_entry", !6, i64 0, !60, i64 8, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !41, i64 40, !41, i64 48, !41, i64 56, !20, i64 64, !20, i64 120, !20, i64 176, !84, i64 232, !85, i64 240, !86, i64 248, !87, i64 256, !87, i64 264, !87, i64 272, !87, i64 280, !87, i64 288, !87, i64 296, !87, i64 304, !87, i64 312, !87, i64 320, !87, i64 328, !87, i64 336, !87, i64 344, !87, i64 352, !77, i64 360, !88, i64 368, !89, i64 376, !6, i64 384, !23, i64 392, !23, i64 400, !23, i64 408, !23, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !5, i64 436, !6, i64 440, !90, i64 448, !91, i64 456, !92, i64 464, !40, i64 472, !5, i64 480, !40, i64 488, !60, i64 496, !6, i64 504}
+!84 = !{!"p1 _ZTS24_zend_class_mutable_data", !23, i64 0}
+!85 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !23, i64 0}
+!86 = !{!"p2 _ZTS19_zend_property_info", !23, i64 0}
+!87 = !{!"p1 _ZTS14_zend_function", !23, i64 0}
+!88 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !23, i64 0}
+!89 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !23, i64 0}
+!90 = !{!"p1 _ZTS16_zend_class_name", !23, i64 0}
+!91 = !{!"p2 _ZTS17_zend_trait_alias", !23, i64 0}
+!92 = !{!"p2 _ZTS22_zend_trait_precedence", !23, i64 0}
+!93 = !{!69, !23, i64 32}
+!94 = !{!76, !5, i64 12}
+!95 = !{!76, !40, i64 32}

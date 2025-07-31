@@ -341,7 +341,7 @@ vector_ntt.exit184.i:                             ; preds = %.lr.ph.i182.i, %vec
   %175 = call i32 @ossl_ml_dsa_poly_expand_mask(ptr noundef nonnull %174, ptr noundef nonnull %13, i64 noundef 66, i32 noundef %59, ptr noundef nonnull %87, ptr noundef %171) #5
   %176 = add nuw nsw i64 %.012.i.i, 1
   %exitcond334.not.i = icmp eq i64 %176, %93
-  br i1 %exitcond334.not.i, label %vector_expand_mask.exit.i, label %.lr.ph.i186.i, !llvm.loop !37
+  br i1 %exitcond334.not.i, label %vector_expand_mask.exit.i, label %.lr.ph.i186.i, !llvm.loop !38
 
 vector_expand_mask.exit.i:                        ; preds = %.lr.ph.i186.i, %168
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %13) #5
@@ -375,7 +375,7 @@ vector_ntt.exit190.i:                             ; preds = %.lr.ph.i188.i, %vec
   %186 = add nuw i64 %.04.i193.i, 1
   %187 = load i64, ptr %99, align 8, !tbaa !29
   %188 = icmp ult i64 %186, %187
-  br i1 %188, label %.lr.ph.i192.i, label %vector_ntt_inverse.exit.i, !llvm.loop !38
+  br i1 %188, label %.lr.ph.i192.i, label %vector_ntt_inverse.exit.i, !llvm.loop !39
 
 vector_ntt_inverse.exit.i:                        ; preds = %.lr.ph.i192.i, %vector_ntt.exit190.i
   %189 = load i64, ptr %101, align 8, !tbaa !29
@@ -393,19 +393,19 @@ vector_ntt_inverse.exit.i:                        ; preds = %.lr.ph.i192.i, %vec
 194:                                              ; preds = %194, %.lr.ph.i195.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i195.i ], [ %indvars.iv.next.i.i.i, %194 ]
   %195 = getelementptr inbounds nuw [256 x i32], ptr %191, i64 0, i64 %indvars.iv.i.i.i
-  %196 = load i32, ptr %195, align 4, !tbaa !39
+  %196 = load i32, ptr %195, align 4, !tbaa !40
   %197 = call i32 @ossl_ml_dsa_key_compress_high_bits(i32 noundef %196, i32 noundef %61) #5
   %198 = getelementptr inbounds nuw [256 x i32], ptr %193, i64 0, i64 %indvars.iv.i.i.i
-  store i32 %197, ptr %198, align 4, !tbaa !39
+  store i32 %197, ptr %198, align 4, !tbaa !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 256
-  br i1 %exitcond.not.i.i.i, label %poly_high_bits.exit.i.i, label %194, !llvm.loop !40
+  br i1 %exitcond.not.i.i.i, label %poly_high_bits.exit.i.i, label %194, !llvm.loop !41
 
 poly_high_bits.exit.i.i:                          ; preds = %194
   %199 = add nuw i64 %.07.i.i, 1
   %200 = load i64, ptr %101, align 8, !tbaa !29
   %201 = icmp ult i64 %199, %200
-  br i1 %201, label %.lr.ph.i195.i, label %vector_high_bits.exit.i, !llvm.loop !41
+  br i1 %201, label %.lr.ph.i195.i, label %vector_high_bits.exit.i, !llvm.loop !42
 
 vector_high_bits.exit.i:                          ; preds = %poly_high_bits.exit.i.i, %vector_ntt_inverse.exit.i
   %202 = call i32 @ossl_ml_dsa_w1_encode(ptr noundef nonnull %15, i32 noundef %61, ptr noundef nonnull %84, i64 noundef %77) #5
@@ -431,7 +431,7 @@ shake_xof_2.exit199.i:                            ; preds = %207
 
 210:                                              ; preds = %shake_xof_2.exit199.i
   %211 = load ptr, ptr %133, align 8, !tbaa !34
-  %212 = load i32, ptr %165, align 4, !tbaa !42
+  %212 = load i32, ptr %165, align 4, !tbaa !43
   %213 = call i32 @ossl_ml_dsa_poly_sample_in_ball(ptr noundef nonnull %90, ptr noundef nonnull %21, i32 noundef range(i32 -536870912, 536870912) %72, ptr noundef nonnull %87, ptr noundef %211, i32 noundef %212) #5
   %.not.i200.i = icmp eq i32 %213, 0
   br i1 %.not.i200.i, label %shake_xof_2.exit.thread.i, label %214
@@ -448,7 +448,7 @@ shake_xof_2.exit199.i:                            ; preds = %207
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %215, ptr noundef nonnull %90, ptr noundef %217) #5
   %218 = add nuw nsw i64 %.07.i203.i, 1
   %exitcond335.not.i = icmp eq i64 %218, %93
-  br i1 %exitcond335.not.i, label %vector_mult_scalar.exit.i, label %.lr.ph.i202.i, !llvm.loop !43
+  br i1 %exitcond335.not.i, label %vector_mult_scalar.exit.i, label %.lr.ph.i202.i, !llvm.loop !44
 
 vector_mult_scalar.exit.i:                        ; preds = %.lr.ph.i202.i, %214
   %219 = load i64, ptr %108, align 8, !tbaa !29
@@ -463,7 +463,7 @@ vector_mult_scalar.exit.i:                        ; preds = %.lr.ph.i202.i, %214
   %222 = add nuw i64 %.04.i206.i, 1
   %223 = load i64, ptr %108, align 8, !tbaa !29
   %224 = icmp ult i64 %222, %223
-  br i1 %224, label %.lr.ph.i205.i, label %vector_ntt_inverse.exit207.i, !llvm.loop !38
+  br i1 %224, label %.lr.ph.i205.i, label %vector_ntt_inverse.exit207.i, !llvm.loop !39
 
 vector_ntt_inverse.exit207.i:                     ; preds = %.lr.ph.i205.i, %vector_mult_scalar.exit.i
   br i1 %.not.i177.i, label %vector_ntt_inverse.exit215.i, label %.lr.ph.i209.i
@@ -475,7 +475,7 @@ vector_ntt_inverse.exit207.i:                     ; preds = %.lr.ph.i205.i, %vec
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %225, ptr noundef nonnull %90, ptr noundef nonnull %226) #5
   %227 = add nuw nsw i64 %.07.i210.i, 1
   %exitcond336.not.i = icmp eq i64 %227, %92
-  br i1 %exitcond336.not.i, label %.lr.ph.i213.i, label %.lr.ph.i209.i, !llvm.loop !43
+  br i1 %exitcond336.not.i, label %.lr.ph.i213.i, label %.lr.ph.i209.i, !llvm.loop !44
 
 .lr.ph.i213.i:                                    ; preds = %.lr.ph.i209.i, %.lr.ph.i213.i
   %.04.i214.i = phi i64 [ %229, %.lr.ph.i213.i ], [ 0, %.lr.ph.i209.i ]
@@ -483,7 +483,7 @@ vector_ntt_inverse.exit207.i:                     ; preds = %.lr.ph.i205.i, %vec
   call void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef nonnull %228) #5
   %229 = add nuw nsw i64 %.04.i214.i, 1
   %exitcond337.not.i = icmp eq i64 %229, %92
-  br i1 %exitcond337.not.i, label %vector_ntt_inverse.exit215.i, label %.lr.ph.i213.i, !llvm.loop !38
+  br i1 %exitcond337.not.i, label %vector_ntt_inverse.exit215.i, label %.lr.ph.i213.i, !llvm.loop !39
 
 vector_ntt_inverse.exit215.i:                     ; preds = %.lr.ph.i213.i, %vector_ntt_inverse.exit207.i
   %.val160.i = load ptr, ptr %16, align 8
@@ -499,30 +499,30 @@ vector_ntt_inverse.exit215.i:                     ; preds = %.lr.ph.i213.i, %vec
 233:                                              ; preds = %233, %.lr.ph.i217.i
   %indvars.iv.i.i218.i = phi i64 [ 0, %.lr.ph.i217.i ], [ %indvars.iv.next.i.i219.i, %233 ]
   %234 = getelementptr inbounds nuw [256 x i32], ptr %230, i64 0, i64 %indvars.iv.i.i218.i
-  %235 = load i32, ptr %234, align 4, !tbaa !39
+  %235 = load i32, ptr %234, align 4, !tbaa !40
   %236 = getelementptr inbounds nuw [256 x i32], ptr %231, i64 0, i64 %indvars.iv.i.i218.i
-  %237 = load i32, ptr %236, align 4, !tbaa !39
+  %237 = load i32, ptr %236, align 4, !tbaa !40
   %238 = add i32 %237, %235
   %239 = add i32 %238, -8380417
   %240 = xor i32 %238, -1
   %241 = and i32 %239, %240
   %.neg.i.i.i.i.i.i = ashr i32 %241, 31
-  %242 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i.i) #6, !srcloc !44
+  %242 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i.i) #6, !srcloc !45
   %243 = and i32 %242, %238
   %244 = xor i32 %.neg.i.i.i.i.i.i, -1
-  %245 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %244) #6, !srcloc !44
+  %245 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %244) #6, !srcloc !45
   %246 = and i32 %245, %239
   %247 = or i32 %246, %243
   %248 = getelementptr inbounds nuw [256 x i32], ptr %232, i64 0, i64 %indvars.iv.i.i218.i
-  store i32 %247, ptr %248, align 4, !tbaa !39
+  store i32 %247, ptr %248, align 4, !tbaa !40
   %indvars.iv.next.i.i219.i = add nuw nsw i64 %indvars.iv.i.i218.i, 1
   %exitcond.not.i.i220.i = icmp eq i64 %indvars.iv.next.i.i219.i, 256
-  br i1 %exitcond.not.i.i220.i, label %poly_add.exit.i.i, label %233, !llvm.loop !45
+  br i1 %exitcond.not.i.i220.i, label %poly_add.exit.i.i, label %233, !llvm.loop !46
 
 poly_add.exit.i.i:                                ; preds = %233
   %249 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %249, %93
-  br i1 %exitcond.not.i.i, label %vector_add.exit.i, label %.lr.ph.i217.i, !llvm.loop !46
+  br i1 %exitcond.not.i.i, label %vector_add.exit.i, label %.lr.ph.i217.i, !llvm.loop !47
 
 vector_add.exit.i:                                ; preds = %poly_add.exit.i.i, %vector_ntt_inverse.exit215.i
   %.val162.i = load ptr, ptr %14, align 8
@@ -541,31 +541,31 @@ vector_add.exit.i:                                ; preds = %poly_add.exit.i.i, 
 253:                                              ; preds = %253, %.lr.ph.i222.i
   %indvars.iv.i.i224.i = phi i64 [ 0, %.lr.ph.i222.i ], [ %indvars.iv.next.i.i225.i, %253 ]
   %254 = getelementptr inbounds nuw [256 x i32], ptr %250, i64 0, i64 %indvars.iv.i.i224.i
-  %255 = load i32, ptr %254, align 4, !tbaa !39
+  %255 = load i32, ptr %254, align 4, !tbaa !40
   %256 = getelementptr inbounds nuw [256 x i32], ptr %251, i64 0, i64 %indvars.iv.i.i224.i
-  %257 = load i32, ptr %256, align 4, !tbaa !39
+  %257 = load i32, ptr %256, align 4, !tbaa !40
   %258 = add i32 %255, 8380417
   %259 = sub i32 %258, %257
   %260 = add i32 %259, -8380417
   %261 = xor i32 %259, -1
   %262 = and i32 %260, %261
   %.neg.i.i.i.i.i.i.i = ashr i32 %262, 31
-  %263 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i.i.i) #6, !srcloc !44
+  %263 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i.i.i) #6, !srcloc !45
   %264 = and i32 %263, %259
   %265 = xor i32 %.neg.i.i.i.i.i.i.i, -1
-  %266 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %265) #6, !srcloc !44
+  %266 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %265) #6, !srcloc !45
   %267 = and i32 %266, %260
   %268 = or i32 %267, %264
   %269 = getelementptr inbounds nuw [256 x i32], ptr %252, i64 0, i64 %indvars.iv.i.i224.i
-  store i32 %268, ptr %269, align 4, !tbaa !39
+  store i32 %268, ptr %269, align 4, !tbaa !40
   %indvars.iv.next.i.i225.i = add nuw nsw i64 %indvars.iv.i.i224.i, 1
   %exitcond.not.i.i226.i = icmp eq i64 %indvars.iv.next.i.i225.i, 256
-  br i1 %exitcond.not.i.i226.i, label %poly_sub.exit.i.i, label %253, !llvm.loop !47
+  br i1 %exitcond.not.i.i226.i, label %poly_sub.exit.i.i, label %253, !llvm.loop !48
 
 poly_sub.exit.i.i:                                ; preds = %253
   %270 = add nuw i64 %.05.i223.i, 1
   %exitcond.not.i227.i = icmp eq i64 %270, %.val163.i
-  br i1 %exitcond.not.i227.i, label %vector_sub.exit.i, label %.lr.ph.i222.i, !llvm.loop !48
+  br i1 %exitcond.not.i227.i, label %vector_sub.exit.i, label %.lr.ph.i222.i, !llvm.loop !49
 
 vector_sub.exit.i:                                ; preds = %poly_sub.exit.i.i, %vector_add.exit.i
   %271 = load i64, ptr %101, align 8, !tbaa !29
@@ -581,18 +581,18 @@ vector_sub.exit.i:                                ; preds = %poly_sub.exit.i.i, 
 274:                                              ; preds = %274, %.lr.ph.i229.i
   %indvars.iv.i.i231.i = phi i64 [ 0, %.lr.ph.i229.i ], [ %indvars.iv.next.i.i232.i, %274 ]
   %275 = getelementptr inbounds nuw [256 x i32], ptr %273, i64 0, i64 %indvars.iv.i.i231.i
-  %276 = load i32, ptr %275, align 4, !tbaa !39
+  %276 = load i32, ptr %275, align 4, !tbaa !40
   %277 = call i32 @ossl_ml_dsa_key_compress_low_bits(i32 noundef %276, i32 noundef %61) #5
-  store i32 %277, ptr %275, align 4, !tbaa !39
+  store i32 %277, ptr %275, align 4, !tbaa !40
   %indvars.iv.next.i.i232.i = add nuw nsw i64 %indvars.iv.i.i231.i, 1
   %exitcond.not.i.i233.i = icmp eq i64 %indvars.iv.next.i.i232.i, 256
-  br i1 %exitcond.not.i.i233.i, label %poly_low_bits.exit.i.i, label %274, !llvm.loop !49
+  br i1 %exitcond.not.i.i233.i, label %poly_low_bits.exit.i.i, label %274, !llvm.loop !50
 
 poly_low_bits.exit.i.i:                           ; preds = %274
   %278 = add nuw i64 %.07.i230.i, 1
   %279 = load i64, ptr %101, align 8, !tbaa !29
   %280 = icmp ult i64 %278, %279
-  br i1 %280, label %.lr.ph.i229.i, label %vector_low_bits.exit.i, !llvm.loop !50
+  br i1 %280, label %.lr.ph.i229.i, label %vector_low_bits.exit.i, !llvm.loop !51
 
 vector_low_bits.exit.i:                           ; preds = %poly_low_bits.exit.i.i, %vector_sub.exit.i
   %.val171.i = phi i64 [ 0, %vector_sub.exit.i ], [ %279, %poly_low_bits.exit.i.i ]
@@ -608,15 +608,15 @@ vector_low_bits.exit.i:                           ; preds = %poly_low_bits.exit.
   %.1.i.i = phi i32 [ %.023.i.i, %.lr.ph.i235.i ], [ %304, %282 ]
   %indvars.iv.i.i237.i = phi i64 [ 0, %.lr.ph.i235.i ], [ %indvars.iv.next.i.i239.i, %282 ]
   %283 = getelementptr inbounds nuw [256 x i32], ptr %281, i64 0, i64 %indvars.iv.i.i237.i
-  %284 = load i32, ptr %283, align 4, !tbaa !39
+  %284 = load i32, ptr %283, align 4, !tbaa !40
   %285 = sub i32 4190208, %284
   %286 = or i32 %285, %284
   %.neg.i.i.i.i.i238.i = ashr i32 %286, 31
   %287 = sub i32 8380417, %284
-  %288 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i238.i) #6, !srcloc !44
+  %288 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i238.i) #6, !srcloc !45
   %289 = and i32 %288, %287
   %290 = xor i32 %.neg.i.i.i.i.i238.i, -1
-  %291 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %290) #6, !srcloc !44
+  %291 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %290) #6, !srcloc !45
   %292 = and i32 %291, %284
   %293 = or i32 %292, %289
   %294 = xor i32 %293, %.1.i.i
@@ -625,20 +625,20 @@ vector_low_bits.exit.i:                           ; preds = %poly_low_bits.exit.
   %297 = or i32 %296, %294
   %298 = xor i32 %297, %.1.i.i
   %.neg.i.i.i7.i.i.i = ashr i32 %298, 31
-  %299 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i7.i.i.i) #6, !srcloc !51
+  %299 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i7.i.i.i) #6, !srcloc !52
   %300 = and i32 %293, %299
   %301 = xor i32 %.neg.i.i.i7.i.i.i, -1
-  %302 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %301) #6, !srcloc !51
+  %302 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %301) #6, !srcloc !52
   %303 = and i32 %302, %.1.i.i
   %304 = or i32 %303, %300
   %indvars.iv.next.i.i239.i = add nuw nsw i64 %indvars.iv.i.i237.i, 1
   %exitcond.not.i.i240.i = icmp eq i64 %indvars.iv.next.i.i239.i, 256
-  br i1 %exitcond.not.i.i240.i, label %poly_max.exit.i.i, label %282, !llvm.loop !52
+  br i1 %exitcond.not.i.i240.i, label %poly_max.exit.i.i, label %282, !llvm.loop !53
 
 poly_max.exit.i.i:                                ; preds = %282
   %305 = add nuw nsw i64 %.04.i236.i, 1
   %exitcond.not.i241.i = icmp eq i64 %305, %93
-  br i1 %exitcond.not.i241.i, label %vector_max.exit.i, label %.lr.ph.i235.i, !llvm.loop !53
+  br i1 %exitcond.not.i241.i, label %vector_max.exit.i, label %.lr.ph.i235.i, !llvm.loop !54
 
 vector_max.exit.i:                                ; preds = %poly_max.exit.i.i, %vector_low_bits.exit.i
   %.02.lcssa.i.i = phi i32 [ 0, %vector_low_bits.exit.i ], [ %304, %poly_max.exit.i.i ]
@@ -656,14 +656,14 @@ vector_max.exit.i:                                ; preds = %poly_max.exit.i.i, 
   %.1.i246.i = phi i32 [ %.023.i245.i, %.lr.ph.i243.i ], [ %327, %307 ]
   %indvars.iv.i.i247.i = phi i64 [ 0, %.lr.ph.i243.i ], [ %indvars.iv.next.i.i250.i, %307 ]
   %308 = getelementptr inbounds nuw [256 x i32], ptr %306, i64 0, i64 %indvars.iv.i.i247.i
-  %309 = load i32, ptr %308, align 4, !tbaa !39
+  %309 = load i32, ptr %308, align 4, !tbaa !40
   %isnotneg.i.i.i.i = icmp sgt i32 %309, -1
   %.neg.i.i.i.i.i248.i = sext i1 %isnotneg.i.i.i.i to i32
   %310 = sub i32 0, %309
-  %311 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i248.i) #6, !srcloc !44
+  %311 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i248.i) #6, !srcloc !45
   %312 = and i32 %311, %309
   %313 = xor i32 %.neg.i.i.i.i.i248.i, -1
-  %314 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %313) #6, !srcloc !44
+  %314 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %313) #6, !srcloc !45
   %315 = and i32 %314, %310
   %316 = or i32 %315, %312
   %317 = xor i32 %316, %.1.i246.i
@@ -672,24 +672,24 @@ vector_max.exit.i:                                ; preds = %poly_max.exit.i.i, 
   %320 = or i32 %319, %317
   %321 = xor i32 %320, %.1.i246.i
   %.neg.i.i.i7.i.i249.i = ashr i32 %321, 31
-  %322 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i7.i.i249.i) #6, !srcloc !51
+  %322 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i7.i.i249.i) #6, !srcloc !52
   %323 = and i32 %316, %322
   %324 = xor i32 %.neg.i.i.i7.i.i249.i, -1
-  %325 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %324) #6, !srcloc !51
+  %325 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %324) #6, !srcloc !52
   %326 = and i32 %325, %.1.i246.i
   %327 = or i32 %326, %323
   %indvars.iv.next.i.i250.i = add nuw nsw i64 %indvars.iv.i.i247.i, 1
   %exitcond.not.i.i251.i = icmp eq i64 %indvars.iv.next.i.i250.i, 256
-  br i1 %exitcond.not.i.i251.i, label %poly_max_signed.exit.i.i, label %307, !llvm.loop !54
+  br i1 %exitcond.not.i.i251.i, label %poly_max_signed.exit.i.i, label %307, !llvm.loop !55
 
 poly_max_signed.exit.i.i:                         ; preds = %307
   %328 = add nuw i64 %.04.i244.i, 1
   %exitcond.not.i252.i = icmp eq i64 %328, %.val171.i
-  br i1 %exitcond.not.i252.i, label %vector_max_signed.exit.i, label %.lr.ph.i243.i, !llvm.loop !55
+  br i1 %exitcond.not.i252.i, label %vector_max_signed.exit.i, label %.lr.ph.i243.i, !llvm.loop !56
 
 vector_max_signed.exit.i:                         ; preds = %poly_max_signed.exit.i.i, %vector_max.exit.i
   %.02.lcssa.i253.i = phi i32 [ 0, %vector_max.exit.i ], [ %327, %poly_max_signed.exit.i.i ]
-  %329 = load i32, ptr %166, align 4, !tbaa !56
+  %329 = load i32, ptr %166, align 4, !tbaa !57
   %330 = sub i32 %59, %329
   %331 = xor i32 %330, %.02.lcssa.i.i
   %332 = sub i32 %.02.lcssa.i.i, %330
@@ -705,7 +705,7 @@ vector_max_signed.exit.i:                         ; preds = %poly_max_signed.exi
   %342 = and i32 %335, %341
   %343 = icmp sgt i32 %342, -1
   %344 = sext i1 %343 to i32
-  %345 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %344) #6, !srcloc !44
+  %345 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %344) #6, !srcloc !45
   %.not145.i = icmp eq i32 %345, 0
   br i1 %.not145.i, label %346, label %420
 
@@ -720,7 +720,7 @@ vector_max_signed.exit.i:                         ; preds = %poly_max_signed.exi
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %347, ptr noundef nonnull %90, ptr noundef %349) #5
   %350 = add nuw nsw i64 %.07.i257.i, 1
   %exitcond338.not.i = icmp eq i64 %350, %92
-  br i1 %exitcond338.not.i, label %vector_mult_scalar.exit258.loopexit.i, label %.lr.ph.i256.i, !llvm.loop !43
+  br i1 %exitcond338.not.i, label %vector_mult_scalar.exit258.loopexit.i, label %.lr.ph.i256.i, !llvm.loop !44
 
 vector_mult_scalar.exit258.loopexit.i:            ; preds = %.lr.ph.i256.i
   %.pre.i = load i64, ptr %101, align 8, !tbaa !29
@@ -739,7 +739,7 @@ vector_mult_scalar.exit258.i:                     ; preds = %vector_mult_scalar.
   %354 = add nuw i64 %.04.i261.i, 1
   %355 = load i64, ptr %101, align 8, !tbaa !29
   %356 = icmp ult i64 %354, %355
-  br i1 %356, label %.lr.ph.i260.i, label %vector_ntt_inverse.exit262.i, !llvm.loop !38
+  br i1 %356, label %.lr.ph.i260.i, label %vector_ntt_inverse.exit262.i, !llvm.loop !39
 
 vector_ntt_inverse.exit262.i:                     ; preds = %.lr.ph.i260.i, %vector_mult_scalar.exit258.i
   %.val169342.i = phi i64 [ 0, %vector_mult_scalar.exit258.i ], [ %355, %.lr.ph.i260.i ]
@@ -759,22 +759,22 @@ vector_ntt_inverse.exit262.i:                     ; preds = %.lr.ph.i260.i, %vec
 363:                                              ; preds = %363, %.lr.ph.i264.i
   %indvars.iv.i.i265.i = phi i64 [ 0, %.lr.ph.i264.i ], [ %indvars.iv.next.i.i266.i, %363 ]
   %364 = getelementptr inbounds nuw [256 x i32], ptr %358, i64 0, i64 %indvars.iv.i.i265.i
-  %365 = load i32, ptr %364, align 4, !tbaa !39
+  %365 = load i32, ptr %364, align 4, !tbaa !40
   %366 = getelementptr inbounds nuw [256 x i32], ptr %359, i64 0, i64 %indvars.iv.i.i265.i
-  %367 = load i32, ptr %366, align 4, !tbaa !39
+  %367 = load i32, ptr %366, align 4, !tbaa !40
   %368 = getelementptr inbounds nuw [256 x i32], ptr %361, i64 0, i64 %indvars.iv.i.i265.i
-  %369 = load i32, ptr %368, align 4, !tbaa !39
+  %369 = load i32, ptr %368, align 4, !tbaa !40
   %370 = call i32 @ossl_ml_dsa_key_compress_make_hint(i32 noundef %365, i32 noundef %367, i32 noundef %61, i32 noundef %369) #5
   %371 = getelementptr inbounds nuw [256 x i32], ptr %362, i64 0, i64 %indvars.iv.i.i265.i
-  store i32 %370, ptr %371, align 4, !tbaa !39
+  store i32 %370, ptr %371, align 4, !tbaa !40
   %indvars.iv.next.i.i266.i = add nuw nsw i64 %indvars.iv.i.i265.i, 1
   %exitcond.not.i.i267.i = icmp eq i64 %indvars.iv.next.i.i266.i, 256
-  br i1 %exitcond.not.i.i267.i, label %poly_make_hint.exit.i.i, label %363, !llvm.loop !57
+  br i1 %exitcond.not.i.i267.i, label %poly_make_hint.exit.i.i, label %363, !llvm.loop !58
 
 poly_make_hint.exit.i.i:                          ; preds = %363
   %372 = add nuw i64 %.01.i.i, 1
   %exitcond.not = icmp eq i64 %372, %170
-  br i1 %exitcond.not, label %vector_make_hint.exit.loopexit.i, label %.lr.ph.i264.i, !llvm.loop !58
+  br i1 %exitcond.not, label %vector_make_hint.exit.loopexit.i, label %.lr.ph.i264.i, !llvm.loop !59
 
 vector_make_hint.exit.loopexit.i:                 ; preds = %poly_make_hint.exit.i.i
   %.val169.pre.i = load i64, ptr %101, align 8
@@ -796,15 +796,15 @@ vector_make_hint.exit.i:                          ; preds = %vector_make_hint.ex
   %.1.i272.i = phi i32 [ %.023.i271.i, %.lr.ph.i269.i ], [ %396, %374 ]
   %indvars.iv.i.i273.i = phi i64 [ 0, %.lr.ph.i269.i ], [ %indvars.iv.next.i.i276.i, %374 ]
   %375 = getelementptr inbounds nuw [256 x i32], ptr %373, i64 0, i64 %indvars.iv.i.i273.i
-  %376 = load i32, ptr %375, align 4, !tbaa !39
+  %376 = load i32, ptr %375, align 4, !tbaa !40
   %377 = sub i32 4190208, %376
   %378 = or i32 %377, %376
   %.neg.i.i.i.i.i274.i = ashr i32 %378, 31
   %379 = sub i32 8380417, %376
-  %380 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i274.i) #6, !srcloc !44
+  %380 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i274.i) #6, !srcloc !45
   %381 = and i32 %380, %379
   %382 = xor i32 %.neg.i.i.i.i.i274.i, -1
-  %383 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %382) #6, !srcloc !44
+  %383 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %382) #6, !srcloc !45
   %384 = and i32 %383, %376
   %385 = or i32 %384, %381
   %386 = xor i32 %385, %.1.i272.i
@@ -813,20 +813,20 @@ vector_make_hint.exit.i:                          ; preds = %vector_make_hint.ex
   %389 = or i32 %388, %386
   %390 = xor i32 %389, %.1.i272.i
   %.neg.i.i.i7.i.i275.i = ashr i32 %390, 31
-  %391 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i7.i.i275.i) #6, !srcloc !51
+  %391 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i7.i.i275.i) #6, !srcloc !52
   %392 = and i32 %385, %391
   %393 = xor i32 %.neg.i.i.i7.i.i275.i, -1
-  %394 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %393) #6, !srcloc !51
+  %394 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %393) #6, !srcloc !52
   %395 = and i32 %394, %.1.i272.i
   %396 = or i32 %395, %392
   %indvars.iv.next.i.i276.i = add nuw nsw i64 %indvars.iv.i.i273.i, 1
   %exitcond.not.i.i277.i = icmp eq i64 %indvars.iv.next.i.i276.i, 256
-  br i1 %exitcond.not.i.i277.i, label %poly_max.exit.i278.i, label %374, !llvm.loop !52
+  br i1 %exitcond.not.i.i277.i, label %poly_max.exit.i278.i, label %374, !llvm.loop !53
 
 poly_max.exit.i278.i:                             ; preds = %374
   %397 = add nuw i64 %.04.i270.i, 1
   %exitcond.not.i279.i = icmp eq i64 %397, %.val169.i
-  br i1 %exitcond.not.i279.i, label %vector_max.exit281.i, label %.lr.ph.i269.i, !llvm.loop !53
+  br i1 %exitcond.not.i279.i, label %vector_max.exit281.i, label %.lr.ph.i269.i, !llvm.loop !54
 
 vector_max.exit281.i:                             ; preds = %poly_max.exit.i278.i, %vector_make_hint.exit.i
   %.02.lcssa.i280.i = phi i32 [ 0, %vector_make_hint.exit.i ], [ %396, %poly_max.exit.i278.i ]
@@ -845,16 +845,16 @@ vector_max.exit281.i:                             ; preds = %poly_max.exit.i278.
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %399 ]
   %.12.i.i = phi i32 [ %.04.i283.i, %.preheader.i.i ], [ %402, %399 ]
   %400 = getelementptr inbounds nuw [256 x i32], ptr %398, i64 0, i64 %indvars.iv.i.i
-  %401 = load i32, ptr %400, align 4, !tbaa !39
+  %401 = load i32, ptr %400, align 4, !tbaa !40
   %402 = add i32 %401, %.12.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i284.i = icmp eq i64 %indvars.iv.next.i.i, 256
-  br i1 %exitcond.not.i284.i, label %403, label %399, !llvm.loop !59
+  br i1 %exitcond.not.i284.i, label %403, label %399, !llvm.loop !60
 
 403:                                              ; preds = %399
   %404 = add nuw i64 %.093.i.i, 1
   %exitcond6.not.i.i = icmp eq i64 %404, %.val174.i
-  br i1 %exitcond6.not.i.i, label %vector_count_ones.exit.i, label %.preheader.i.i, !llvm.loop !60
+  br i1 %exitcond6.not.i.i, label %vector_count_ones.exit.i, label %.preheader.i.i, !llvm.loop !61
 
 vector_count_ones.exit.i:                         ; preds = %403, %vector_max.exit281.i
   %.0.lcssa.i.i = phi i32 [ 0, %vector_max.exit281.i ], [ %402, %403 ]
@@ -864,7 +864,7 @@ vector_count_ones.exit.i:                         ; preds = %403, %vector_max.ex
   %408 = or i32 %407, %405
   %409 = xor i32 %408, %.02.lcssa.i280.i
   %isnotneg.i285.i = icmp sgt i32 %409, -1
-  %410 = load i32, ptr %167, align 8, !tbaa !61
+  %410 = load i32, ptr %167, align 8, !tbaa !62
   %411 = xor i32 %410, %.0.lcssa.i.i
   %412 = sub i32 %410, %.0.lcssa.i.i
   %413 = xor i32 %412, %.0.lcssa.i.i
@@ -872,7 +872,7 @@ vector_count_ones.exit.i:                         ; preds = %403, %vector_max.ex
   %415 = xor i32 %414, %410
   %.neg.i.i.i = ashr i32 %415, 31
   %416 = select i1 %isnotneg.i285.i, i32 -1, i32 %.neg.i.i.i
-  %417 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %416) #6, !srcloc !44
+  %417 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %416) #6, !srcloc !45
   %.not146.i = icmp eq i32 %417, 0
   br i1 %.not146.i, label %418, label %420
 
@@ -884,7 +884,7 @@ vector_count_ones.exit.i:                         ; preds = %403, %vector_max.ex
   %421 = phi ptr [ %169, %vector_max_signed.exit.i ], [ %.val173.i, %vector_count_ones.exit.i ]
   %422 = phi i64 [ %170, %vector_max_signed.exit.i ], [ %.val174.i, %vector_count_ones.exit.i ]
   %423 = add i64 %.0135.i, %93
-  br label %168
+  br label %168, !llvm.loop !63
 
 shake_xof_2.exit.thread.i:                        ; preds = %210, %shake_xof_2.exit199.i, %207, %205, %vector_high_bits.exit.i, %418, %shake_xof_3.exit.i, %141, %139, %136, %132, %shake_xof_2.exit.i, %129, %126, %122, %121, %89, %86
   %.0133.i = phi i32 [ 0, %86 ], [ 0, %121 ], [ 0, %shake_xof_3.exit.i ], [ 0, %shake_xof_2.exit.i ], [ 0, %89 ], [ 0, %129 ], [ 0, %126 ], [ 0, %122 ], [ 0, %141 ], [ 0, %139 ], [ 0, %136 ], [ 0, %132 ], [ %419, %418 ], [ 0, %vector_high_bits.exit.i ], [ 0, %205 ], [ 0, %207 ], [ 0, %shake_xof_2.exit199.i ], [ 0, %210 ]
@@ -916,7 +916,7 @@ ml_dsa_sign_internal.exit:                        ; preds = %52, %shake_xof_2.ex
   %427 = load ptr, ptr %426, align 8, !tbaa !3
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 80
   %429 = load i64, ptr %428, align 8, !tbaa !16
-  store i64 %429, ptr %10, align 8, !tbaa !62
+  store i64 %429, ptr %10, align 8, !tbaa !64
   br label %msg_encode.exit.thread
 
 msg_encode.exit.thread:                           ; preds = %41, %35, %424, %425, %msg_encode.exit, %26, %12
@@ -1120,7 +1120,7 @@ shake_xof_2.exit.i:                               ; preds = %106
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %111 = load ptr, ptr %110, align 8, !tbaa !34
   %112 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  %113 = load i32, ptr %112, align 4, !tbaa !42
+  %113 = load i32, ptr %112, align 4, !tbaa !43
   %114 = call i32 @ossl_ml_dsa_poly_sample_in_ball(ptr noundef nonnull %75, ptr noundef nonnull %15, i32 noundef range(i32 -536870912, 536870912) %57, ptr noundef nonnull %72, ptr noundef %111, i32 noundef %113) #5
   %.not.i106.i = icmp eq i32 %114, 0
   br i1 %.not.i106.i, label %shake_xof_2.exit.thread.i, label %115
@@ -1146,18 +1146,18 @@ shake_xof_2.exit.i:                               ; preds = %106
 123:                                              ; preds = %123, %120
   %indvars.iv.i.i.i = phi i64 [ 0, %120 ], [ %indvars.iv.next.i.i.i, %123 ]
   %124 = getelementptr inbounds nuw [256 x i32], ptr %121, i64 0, i64 %indvars.iv.i.i.i
-  %125 = load i32, ptr %124, align 4, !tbaa !39
+  %125 = load i32, ptr %124, align 4, !tbaa !40
   %126 = shl i32 %125, 13
   %127 = getelementptr inbounds nuw [256 x i32], ptr %122, i64 0, i64 %indvars.iv.i.i.i
-  store i32 %126, ptr %127, align 4, !tbaa !39
+  store i32 %126, ptr %127, align 4, !tbaa !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 256
-  br i1 %exitcond.not.i.i.i, label %poly_scale_power2_round.exit.i.i, label %123, !llvm.loop !63
+  br i1 %exitcond.not.i.i.i, label %poly_scale_power2_round.exit.i.i, label %123, !llvm.loop !65
 
 poly_scale_power2_round.exit.i.i:                 ; preds = %123
   %128 = add nuw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %128, %117
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %120, !llvm.loop !64
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %120, !llvm.loop !66
 
 ._crit_edge.i.i:                                  ; preds = %poly_scale_power2_round.exit.i.i, %115
   %.not.i.i.i = icmp eq i64 %77, 0
@@ -1177,7 +1177,7 @@ poly_scale_power2_round.exit.i.i:                 ; preds = %123
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %131, ptr noundef nonnull %75, ptr noundef nonnull %131) #5
   %132 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i = icmp eq i64 %132, %77
-  br i1 %exitcond.not.i, label %vector_mult_scalar.exit.i, label %.lr.ph.i109.i, !llvm.loop !43
+  br i1 %exitcond.not.i, label %vector_mult_scalar.exit.i, label %.lr.ph.i109.i, !llvm.loop !44
 
 vector_mult_scalar.exit.i:                        ; preds = %.lr.ph.i109.i, %._crit_edge.i.i
   %.val102.i = load ptr, ptr %12, align 8
@@ -1195,15 +1195,15 @@ vector_mult_scalar.exit.i:                        ; preds = %.lr.ph.i109.i, %._c
   %.1.i.i = phi i32 [ %.023.i.i, %.lr.ph.i112.i ], [ %156, %134 ]
   %indvars.iv.i.i113.i = phi i64 [ 0, %.lr.ph.i112.i ], [ %indvars.iv.next.i.i114.i, %134 ]
   %135 = getelementptr inbounds nuw [256 x i32], ptr %133, i64 0, i64 %indvars.iv.i.i113.i
-  %136 = load i32, ptr %135, align 4, !tbaa !39
+  %136 = load i32, ptr %135, align 4, !tbaa !40
   %137 = sub i32 4190208, %136
   %138 = or i32 %137, %136
   %.neg.i.i.i.i.i.i = ashr i32 %138, 31
   %139 = sub i32 8380417, %136
-  %140 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i.i) #6, !srcloc !44
+  %140 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i.i) #6, !srcloc !45
   %141 = and i32 %140, %139
   %142 = xor i32 %.neg.i.i.i.i.i.i, -1
-  %143 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %142) #6, !srcloc !44
+  %143 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %142) #6, !srcloc !45
   %144 = and i32 %143, %136
   %145 = or i32 %144, %141
   %146 = xor i32 %145, %.1.i.i
@@ -1212,20 +1212,20 @@ vector_mult_scalar.exit.i:                        ; preds = %.lr.ph.i109.i, %._c
   %149 = or i32 %148, %146
   %150 = xor i32 %149, %.1.i.i
   %.neg.i.i.i7.i.i.i = ashr i32 %150, 31
-  %151 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i7.i.i.i) #6, !srcloc !51
+  %151 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i7.i.i.i) #6, !srcloc !52
   %152 = and i32 %145, %151
   %153 = xor i32 %.neg.i.i.i7.i.i.i, -1
-  %154 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %153) #6, !srcloc !51
+  %154 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %153) #6, !srcloc !52
   %155 = and i32 %154, %.1.i.i
   %156 = or i32 %155, %152
   %indvars.iv.next.i.i114.i = add nuw nsw i64 %indvars.iv.i.i113.i, 1
   %exitcond.not.i.i115.i = icmp eq i64 %indvars.iv.next.i.i114.i, 256
-  br i1 %exitcond.not.i.i115.i, label %poly_max.exit.i.i, label %134, !llvm.loop !52
+  br i1 %exitcond.not.i.i115.i, label %poly_max.exit.i.i, label %134, !llvm.loop !53
 
 poly_max.exit.i.i:                                ; preds = %134
   %157 = add nuw i64 %.04.i.i, 1
   %exitcond.not.i116.i = icmp eq i64 %157, %.val103.i
-  br i1 %exitcond.not.i116.i, label %.lr.ph.i119.i, label %.lr.ph.i112.i, !llvm.loop !53
+  br i1 %exitcond.not.i116.i, label %.lr.ph.i119.i, label %.lr.ph.i112.i, !llvm.loop !54
 
 .lr.ph.i119.i:                                    ; preds = %poly_max.exit.i.i, %.lr.ph.i119.i
   %.04.i120.i = phi i64 [ %160, %.lr.ph.i119.i ], [ 0, %poly_max.exit.i.i ]
@@ -1254,30 +1254,30 @@ vector_ntt.exit.i:                                ; preds = %.lr.ph.i119.i, %vec
 165:                                              ; preds = %165, %.lr.ph.i123.i
   %indvars.iv.i.i124.i = phi i64 [ 0, %.lr.ph.i123.i ], [ %indvars.iv.next.i.i125.i, %165 ]
   %166 = getelementptr inbounds nuw [256 x i32], ptr %163, i64 0, i64 %indvars.iv.i.i124.i
-  %167 = load i32, ptr %166, align 4, !tbaa !39
+  %167 = load i32, ptr %166, align 4, !tbaa !40
   %168 = getelementptr inbounds nuw [256 x i32], ptr %164, i64 0, i64 %indvars.iv.i.i124.i
-  %169 = load i32, ptr %168, align 4, !tbaa !39
+  %169 = load i32, ptr %168, align 4, !tbaa !40
   %170 = add i32 %167, 8380417
   %171 = sub i32 %170, %169
   %172 = add i32 %171, -8380417
   %173 = xor i32 %171, -1
   %174 = and i32 %172, %173
   %.neg.i.i.i.i.i.i.i = ashr i32 %174, 31
-  %175 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i.i.i) #6, !srcloc !44
+  %175 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i.i.i) #6, !srcloc !45
   %176 = and i32 %175, %171
   %177 = xor i32 %.neg.i.i.i.i.i.i.i, -1
-  %178 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %177) #6, !srcloc !44
+  %178 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %177) #6, !srcloc !45
   %179 = and i32 %178, %172
   %180 = or i32 %179, %176
-  store i32 %180, ptr %166, align 4, !tbaa !39
+  store i32 %180, ptr %166, align 4, !tbaa !40
   %indvars.iv.next.i.i125.i = add nuw nsw i64 %indvars.iv.i.i124.i, 1
   %exitcond.not.i.i126.i = icmp eq i64 %indvars.iv.next.i.i125.i, 256
-  br i1 %exitcond.not.i.i126.i, label %poly_sub.exit.i.i, label %165, !llvm.loop !47
+  br i1 %exitcond.not.i.i126.i, label %poly_sub.exit.i.i, label %165, !llvm.loop !48
 
 poly_sub.exit.i.i:                                ; preds = %165
   %181 = add nuw i64 %.05.i.i, 1
   %exitcond.not.i127.i = icmp eq i64 %181, %.val99.i
-  br i1 %exitcond.not.i127.i, label %.lr.ph.i130.i, label %.lr.ph.i123.i, !llvm.loop !48
+  br i1 %exitcond.not.i127.i, label %.lr.ph.i130.i, label %.lr.ph.i123.i, !llvm.loop !49
 
 .lr.ph.i130.i:                                    ; preds = %poly_sub.exit.i.i, %.lr.ph.i130.i
   %.04.i131.i = phi i64 [ %184, %.lr.ph.i130.i ], [ 0, %poly_sub.exit.i.i ]
@@ -1287,7 +1287,7 @@ poly_sub.exit.i.i:                                ; preds = %165
   %184 = add nuw i64 %.04.i131.i, 1
   %185 = load i64, ptr %88, align 8, !tbaa !29
   %186 = icmp ult i64 %184, %185
-  br i1 %186, label %.lr.ph.i130.i, label %vector_ntt_inverse.exit.i, !llvm.loop !38
+  br i1 %186, label %.lr.ph.i130.i, label %vector_ntt_inverse.exit.i, !llvm.loop !39
 
 vector_ntt_inverse.exit.i:                        ; preds = %.lr.ph.i130.i
   %.not.i133.i = icmp eq i64 %185, 0
@@ -1304,20 +1304,20 @@ vector_ntt_inverse.exit.i:                        ; preds = %.lr.ph.i130.i
 191:                                              ; preds = %191, %.lr.ph.i134.i
   %indvars.iv.i.i135.i = phi i64 [ 0, %.lr.ph.i134.i ], [ %indvars.iv.next.i.i136.i, %191 ]
   %192 = getelementptr inbounds nuw [256 x i32], ptr %188, i64 0, i64 %indvars.iv.i.i135.i
-  %193 = load i32, ptr %192, align 4, !tbaa !39
+  %193 = load i32, ptr %192, align 4, !tbaa !40
   %194 = getelementptr inbounds nuw [256 x i32], ptr %190, i64 0, i64 %indvars.iv.i.i135.i
-  %195 = load i32, ptr %194, align 4, !tbaa !39
+  %195 = load i32, ptr %194, align 4, !tbaa !40
   %196 = call i32 @ossl_ml_dsa_key_compress_use_hint(i32 noundef %193, i32 noundef %195, i32 noundef %47) #5
-  store i32 %196, ptr %194, align 4, !tbaa !39
+  store i32 %196, ptr %194, align 4, !tbaa !40
   %indvars.iv.next.i.i136.i = add nuw nsw i64 %indvars.iv.i.i135.i, 1
   %exitcond.not.i.i137.i = icmp eq i64 %indvars.iv.next.i.i136.i, 256
-  br i1 %exitcond.not.i.i137.i, label %poly_use_hint.exit.i.i, label %191, !llvm.loop !65
+  br i1 %exitcond.not.i.i137.i, label %poly_use_hint.exit.i.i, label %191, !llvm.loop !67
 
 poly_use_hint.exit.i.i:                           ; preds = %191
   %197 = add nuw i64 %.09.i.i, 1
   %198 = load i64, ptr %88, align 8, !tbaa !29
   %199 = icmp ult i64 %197, %198
-  br i1 %199, label %.lr.ph.i134.i, label %vector_use_hint.exit.i, !llvm.loop !66
+  br i1 %199, label %.lr.ph.i134.i, label %vector_use_hint.exit.i, !llvm.loop !68
 
 vector_use_hint.exit.i:                           ; preds = %poly_use_hint.exit.i.i, %vector_ntt_inverse.exit.i, %vector_ntt.exit.i
   %200 = call i32 @ossl_ml_dsa_w1_encode(ptr noundef nonnull %11, i32 noundef %47, ptr noundef nonnull %69, i64 noundef %62) #5
@@ -1350,7 +1350,7 @@ shake_xof_3.exit.i:                               ; preds = %207
   %211 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %212 = load i32, ptr %211, align 4, !tbaa !21
   %213 = getelementptr inbounds nuw i8, ptr %41, i64 52
-  %214 = load i32, ptr %213, align 4, !tbaa !56
+  %214 = load i32, ptr %213, align 4, !tbaa !57
   %215 = sub nsw i32 %212, %214
   %216 = icmp ult i32 %.02.lcssa.i147.i, %215
   br i1 %216, label %217, label %shake_xof_2.exit.thread.i
@@ -1482,35 +1482,37 @@ attributes #6 = { nounwind memory(none) }
 !32 = !{!31, !15, i64 40}
 !33 = !{!4, !10, i64 16}
 !34 = !{!4, !10, i64 24}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = distinct !{!38, !36}
-!39 = !{!12, !12, i64 0}
-!40 = distinct !{!40, !36}
-!41 = distinct !{!41, !36}
-!42 = !{!17, !12, i64 12}
-!43 = distinct !{!43, !36}
-!44 = !{i64 1748719}
-!45 = distinct !{!45, !36}
-!46 = distinct !{!46, !36}
-!47 = distinct !{!47, !36}
-!48 = distinct !{!48, !36}
-!49 = distinct !{!49, !36}
-!50 = distinct !{!50, !36}
-!51 = !{i64 1748456}
-!52 = distinct !{!52, !36}
-!53 = distinct !{!53, !36}
-!54 = distinct !{!54, !36}
-!55 = distinct !{!55, !36}
-!56 = !{!17, !12, i64 52}
-!57 = distinct !{!57, !36}
-!58 = distinct !{!58, !36}
-!59 = distinct !{!59, !36}
-!60 = distinct !{!60, !36}
-!61 = !{!17, !12, i64 56}
-!62 = !{!15, !15, i64 0}
-!63 = distinct !{!63, !36}
-!64 = distinct !{!64, !36}
-!65 = distinct !{!65, !36}
-!66 = distinct !{!66, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}
+!39 = distinct !{!39, !36, !37}
+!40 = !{!12, !12, i64 0}
+!41 = distinct !{!41, !36, !37}
+!42 = distinct !{!42, !36, !37}
+!43 = !{!17, !12, i64 12}
+!44 = distinct !{!44, !36, !37}
+!45 = !{i64 1748719}
+!46 = distinct !{!46, !36, !37}
+!47 = distinct !{!47, !36, !37}
+!48 = distinct !{!48, !36, !37}
+!49 = distinct !{!49, !36, !37}
+!50 = distinct !{!50, !36, !37}
+!51 = distinct !{!51, !36, !37}
+!52 = !{i64 1748456}
+!53 = distinct !{!53, !36, !37}
+!54 = distinct !{!54, !36, !37}
+!55 = distinct !{!55, !36, !37}
+!56 = distinct !{!56, !36, !37}
+!57 = !{!17, !12, i64 52}
+!58 = distinct !{!58, !36, !37}
+!59 = distinct !{!59, !36, !37}
+!60 = distinct !{!60, !36, !37}
+!61 = distinct !{!61, !36, !37}
+!62 = !{!17, !12, i64 56}
+!63 = distinct !{!63, !37}
+!64 = !{!15, !15, i64 0}
+!65 = distinct !{!65, !36, !37}
+!66 = distinct !{!66, !36, !37}
+!67 = distinct !{!67, !36, !37}
+!68 = distinct !{!68, !36, !37}

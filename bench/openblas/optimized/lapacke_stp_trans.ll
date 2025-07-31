@@ -84,7 +84,7 @@ define void @LAPACKE_stp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.0.neg74 = phi i32 [ 0, %.lr.ph ], [ %.0.neg, %36 ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
-  %37 = load float, ptr %gep, align 4, !tbaa !5
+  %37 = load float, ptr %gep, align 4, !tbaa !6
   %38 = add nsw i32 %.0.neg74, %.05975
   %39 = add i32 %25, %.0.neg74
   %40 = trunc nuw nsw i64 %indvars.iv to i32
@@ -93,11 +93,11 @@ define void @LAPACKE_stp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %43 = add nsw i32 %38, %42
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds float, ptr %5, i64 %44
-  store float %37, ptr %45, align 4, !tbaa !5
+  store float %37, ptr %45, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.0.neg = xor i32 %40, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv88
-  br i1 %exitcond.not, label %.loopexit70, label %36, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit70, label %36, !llvm.loop !10
 
 46:                                               ; preds = %.lr.ph80, %._crit_edge
   %indvars.iv93 = phi i64 [ %31, %.lr.ph80 ], [ %indvars.iv.next94, %._crit_edge ]
@@ -120,7 +120,7 @@ define void @LAPACKE_stp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %54 = add i32 %51, %53
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds float, ptr %4, i64 %55
-  %57 = load float, ptr %56, align 4, !tbaa !5
+  %57 = load float, ptr %56, align 4, !tbaa !6
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %58 = mul i64 %indvars.iv.next96, %indvars.iv95
   %59 = trunc i64 %58 to i32
@@ -128,16 +128,16 @@ define void @LAPACKE_stp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %61 = add nuw nsw i32 %60, %.16078
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw float, ptr %5, i64 %62
-  store float %57, ptr %63, align 4, !tbaa !5
+  store float %57, ptr %63, align 4, !tbaa !6
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
-  br i1 %exitcond98.not, label %._crit_edge, label %52, !llvm.loop !10
+  br i1 %exitcond98.not, label %._crit_edge, label %52, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %52, %46
   %64 = add nuw nsw i32 %.16078, 1
   %.160.neg = xor i32 %.16078, -1
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond99.not = icmp eq i32 %64, %28
-  br i1 %exitcond99.not, label %.loopexit, label %46, !llvm.loop !11
+  br i1 %exitcond99.not, label %.loopexit, label %46, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.loopexit70, %._crit_edge, %.preheader71, %.preheader, %16, %19, %9, %6
   ret void
@@ -155,12 +155,13 @@ attributes #2 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !6, i64 0}
-!6 = !{!"float", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"float", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}

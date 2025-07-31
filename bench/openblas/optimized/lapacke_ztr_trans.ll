@@ -108,7 +108,7 @@ define void @LAPACKE_ztr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   store double %45, ptr %47, align 8
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count104
-  br i1 %exitcond105.not, label %.loopexit, label %42, !llvm.loop !5
+  br i1 %exitcond105.not, label %.loopexit, label %42, !llvm.loop !6
 
 48:                                               ; preds = %.lr.ph86, %._crit_edge
   %indvars.iv94 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next95, %._crit_edge ]
@@ -135,13 +135,13 @@ define void @LAPACKE_ztr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   store double %54, ptr %56, align 8
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %51, %48
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit81, label %48, !llvm.loop !7
+  br i1 %exitcond98.not, label %.loopexit81, label %48, !llvm.loop !8
 
 .loopexit81:                                      ; preds = %._crit_edge, %.loopexit, %.preheader82, %.preheader80, %18, %21, %11, %8
   ret void
@@ -163,8 +163,9 @@ attributes #3 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}

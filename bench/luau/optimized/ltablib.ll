@@ -139,7 +139,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL7tunpackP9lua_State(pt
   %40 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %.143)
   %41 = add i32 %.143, 1
   %exitcond.not = icmp eq i32 %41, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   %42 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %13)
@@ -185,7 +185,7 @@ define internal noundef i32 @_ZL7tconcatP9lua_State(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %12, %20
   %.021 = phi i32 [ %21, %20 ], [ %5, %12 ]
   call fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP8LuaTable(ptr noundef %0, ptr noundef %3, i32 noundef %.021, ptr noundef %16)
-  %18 = load i64, ptr %2, align 8, !tbaa !30
+  %18 = load i64, ptr %2, align 8, !tbaa !31
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %20, label %19
 
@@ -196,7 +196,7 @@ define internal noundef i32 @_ZL7tconcatP9lua_State(ptr noundef %0) #0 {
 20:                                               ; preds = %.lr.ph, %19
   %21 = add i32 %.021, 1
   %exitcond.not = icmp eq i32 %21, %13
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %12
   %22 = icmp eq i32 %5, %13
@@ -235,7 +235,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL7foreachP9lua_State(ptr noundef 
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -3)
   %6 = tail call noundef i32 @_Z8lua_nextP9lua_Statei(ptr noundef %0, i32 noundef 1)
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 1, %.lr.ph ]
@@ -264,7 +264,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL8foreachiP9lua_State(ptr noundef
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
   %7 = add nuw i32 %.01416, 1
   %exitcond.not = icmp eq i32 %.01416, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 1, %.lr.ph ]
@@ -299,7 +299,7 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %16, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %16 ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %11 = load i8, ptr %10, align 2, !tbaa !35
+  %11 = load i8, ptr %10, align 2, !tbaa !36
   %.not = icmp eq i8 %11, 31
   br i1 %.not, label %._crit_edge, label %.lr.ph27
 
@@ -307,7 +307,7 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
   %12 = zext nneg i8 %11 to i32
   %13 = shl nuw i32 1, %12
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   %smax = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   %wide.trip.count33 = zext nneg i32 %smax to i64
   br label %22
@@ -316,14 +316,14 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.024 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %16 ]
   %17 = getelementptr inbounds nuw %struct.lua_TValue, ptr %9, i64 %indvars.iv, i32 2
-  %18 = load i32, ptr %17, align 4, !tbaa !37
+  %18 = load i32, ptr %17, align 4, !tbaa !38
   %19 = icmp eq i32 %18, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = trunc nuw nsw i64 %indvars.iv.next to i32
   %21 = uitofp nneg i32 %20 to double
   %.1 = select i1 %19, double %.024, double %21
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %16, !llvm.loop !39
+  br i1 %exitcond.not, label %.preheader, label %16, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %36, %.preheader
   %.2.lcssa = phi double [ %.0.lcssa, %.preheader ], [ %.3, %36 ]
@@ -335,7 +335,7 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
   %.226 = phi double [ %.0.lcssa, %.lr.ph27 ], [ %.3, %36 ]
   %23 = getelementptr inbounds nuw %struct.LuaNode, ptr %15, i64 %indvars.iv30
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !40
+  %25 = load i32, ptr %24, align 4, !tbaa !41
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %36, label %27
 
@@ -357,7 +357,7 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
   %.3 = phi double [ %.226, %22 ], [ %.4, %32 ], [ %.226, %27 ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge, label %22, !llvm.loop !43
+  br i1 %exitcond34.not, label %._crit_edge, label %22, !llvm.loop !44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -427,7 +427,7 @@ define internal noundef i32 @_ZL5tsortP9lua_State(ptr noundef %0) #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = tail call noundef i32 @_Z9luaH_getnP8LuaTable(ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %7 = load i8, ptr %6, align 4, !tbaa !44
+  %7 = load i8, ptr %6, align 4, !tbaa !45
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -482,7 +482,7 @@ define internal noundef i32 @_ZL5tpackP9lua_State(ptr noundef %0) #0 {
   %12 = sitofp i32 %2 to double
   store double %12, ptr %11, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 3, ptr %13, align 4, !tbaa !37
+  store i32 3, ptr %13, align 4, !tbaa !38
   ret i32 1
 
 14:                                               ; preds = %.lr.ph, %14
@@ -494,7 +494,7 @@ define internal noundef i32 @_ZL5tpackP9lua_State(ptr noundef %0) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -539,7 +539,7 @@ define internal noundef i32 @_ZL5tmoveP9lua_State(ptr noundef %0) #0 {
   %21 = getelementptr i8, ptr %20, i64 -16
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = load i8, ptr %23, align 4, !tbaa !44
+  %24 = load i8, ptr %23, align 4, !tbaa !45
   %.not44 = icmp eq i8 %24, 0
   br i1 %.not44, label %26, label %25
 
@@ -615,7 +615,7 @@ define internal noundef i32 @_ZL7tcreateP9lua_State(ptr noundef %0) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !47
 
 .loopexit:                                        ; preds = %17, %5, %8
   ret i32 1
@@ -640,7 +640,7 @@ define internal noundef i32 @_ZL5tfindP9lua_State(ptr noundef %0) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = tail call noundef ptr @_Z11luaH_getnumP8LuaTablei(ptr noundef %8, i32 noundef %2)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !37
+  %12 = load i32, ptr %11, align 4, !tbaa !38
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.critedge27, label %.lr.ph
 
@@ -652,7 +652,7 @@ define internal noundef i32 @_ZL5tfindP9lua_State(ptr noundef %0) #0 {
   %16 = phi i32 [ %12, %.lr.ph ], [ %26, %22 ]
   %17 = phi ptr [ %10, %.lr.ph ], [ %24, %22 ]
   %.02429 = phi i32 [ %2, %.lr.ph ], [ %23, %22 ]
-  %18 = load i32, ptr %14, align 4, !tbaa !37
+  %18 = load i32, ptr %14, align 4, !tbaa !38
   %19 = icmp eq i32 %18, %16
   br i1 %19, label %20, label %22
 
@@ -669,9 +669,9 @@ define internal noundef i32 @_ZL5tfindP9lua_State(ptr noundef %0) #0 {
   %23 = add nuw nsw i32 %.02429, 1
   %24 = tail call noundef ptr @_Z11luaH_getnumP8LuaTablei(ptr noundef %8, i32 noundef %23)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !37
+  %26 = load i32, ptr %25, align 4, !tbaa !38
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.critedge27, label %15, !llvm.loop !47
+  br i1 %27, label %.critedge27, label %15, !llvm.loop !48
 
 .critedge27:                                      ; preds = %22, %5
   tail call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
@@ -688,7 +688,7 @@ define internal noundef i32 @_ZL6tclearP9lua_State(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %6 = load i8, ptr %5, align 4, !tbaa !44
+  %6 = load i8, ptr %5, align 4, !tbaa !45
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %8, label %7
 
@@ -755,7 +755,7 @@ define internal noundef i32 @_ZL6tcloneP9lua_State(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   store ptr %9, ptr %2, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 6, ptr %10, align 4, !tbaa !37
+  store i32 6, ptr %10, align 4, !tbaa !38
   call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
   ret i32 1
@@ -796,7 +796,7 @@ define internal fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP8LuaTable(pt
   %13 = sext i32 %6 to i64
   %14 = getelementptr inbounds %struct.lua_TValue, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !37
+  %16 = load i32, ptr %15, align 4, !tbaa !38
   %17 = icmp eq i32 %16, 5
   br i1 %17, label %18, label %24
 
@@ -804,7 +804,7 @@ define internal fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP8LuaTable(pt
   %19 = load ptr, ptr %14, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !48
+  %22 = load i32, ptr %21, align 4, !tbaa !49
   %23 = zext i32 %22 to i64
   tail call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %1, ptr noundef nonnull %20, i64 noundef %23)
   br label %29
@@ -871,7 +871,7 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %11 = getelementptr i8, ptr %10, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = load i8, ptr %13, align 4, !tbaa !44
+  %14 = load i8, ptr %13, align 4, !tbaa !45
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %16, label %15
 
@@ -952,7 +952,7 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep, ptr noundef nonnull align 8 dereferenceable(16) %gep141, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit112, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit112, label %.lr.ph, !llvm.loop !51
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
   %indvars.iv134 = phi i64 [ %36, %.lr.ph123.preheader ], [ %indvars.iv.next135, %.lr.ph123 ]
@@ -961,7 +961,7 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep146, ptr noundef nonnull align 8 dereferenceable(16) %gep144, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, -1
   %.not147 = icmp eq i64 %indvars.iv134, 0
-  br i1 %.not147, label %.loopexit112, label %.lr.ph123, !llvm.loop !51
+  br i1 %.not147, label %.loopexit112, label %.lr.ph123, !llvm.loop !52
 
 .loopexit112:                                     ; preds = %.lr.ph, %.lr.ph123, %39, %.preheader111
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 1
@@ -1004,7 +1004,7 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %56)
   %57 = add nuw i32 %.085125, 1
   %exitcond137.not = icmp eq i32 %57, %52
-  br i1 %exitcond137.not, label %.loopexit, label %.lr.ph126, !llvm.loop !52
+  br i1 %exitcond137.not, label %.loopexit, label %.lr.ph126, !llvm.loop !53
 
 .lr.ph128:                                        ; preds = %.preheader, %.lr.ph128
   %.0127 = phi i32 [ %61, %.lr.ph128 ], [ %17, %.preheader ]
@@ -1014,7 +1014,7 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %60)
   %61 = add nsw i32 %.0127, -1
   %.not148 = icmp eq i32 %.0127, 0
-  br i1 %.not148, label %.loopexit, label %.lr.ph128, !llvm.loop !53
+  br i1 %.not148, label %.loopexit, label %.lr.ph128, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph126, %.lr.ph128, %.preheader109, %.preheader, %.loopexit112, %47
   ret void
@@ -1056,7 +1056,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL9sort_funcP9lua_StatePK10lua_TVa
   %16 = getelementptr inbounds i8, ptr %15, i64 -16
   store ptr %16, ptr %7, align 8, !tbaa !24
   %17 = getelementptr inbounds i8, ptr %15, i64 -4
-  %18 = load i32, ptr %17, align 4, !tbaa !37
+  %18 = load i32, ptr %17, align 4, !tbaa !38
   switch i32 %18, label %.fold.split [
     i32 0, label %23
     i32 1, label %19
@@ -1117,7 +1117,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_T
   %.024.i = add nsw i32 %.024.in25.i, -1
   tail call fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.097170, i32 noundef %.0100169, ptr noundef readonly %5, i32 noundef %.024.i)
   %24 = icmp samesign ugt i32 %.024.in25.i, 1
-  br i1 %24, label %.lr.ph.i, label %.lr.ph27.i, !llvm.loop !54
+  br i1 %24, label %.lr.ph.i, label %.lr.ph27.i, !llvm.loop !55
 
 25:                                               ; preds = %25, %.lr.ph27.i
   %indvars.iv.i = phi i64 [ %23, %.lr.ph27.i ], [ %indvars.iv.next.i, %25 ]
@@ -1135,7 +1135,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_T
   tail call fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.097170, i32 noundef %.reass.i, ptr noundef readonly %5, i32 noundef 0)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %31 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %31, label %25, label %_ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit, !llvm.loop !55
+  br i1 %31, label %25, label %_ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit, !llvm.loop !56
 
 32:                                               ; preds = %17
   %33 = load ptr, ptr %15, align 8, !tbaa !23
@@ -1281,7 +1281,7 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit123: ; preds = %
 
 92:                                               ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit123
   %.not117 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %.not117, label %83, label %93, !llvm.loop !56
+  br i1 %.not117, label %83, label %93, !llvm.loop !57
 
 93:                                               ; preds = %92
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.21) #6
@@ -1308,7 +1308,7 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125: ; preds = %
 
 101:                                              ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125
   %.not116 = icmp sgt i64 %indvars.iv.next212, %37
-  br i1 %.not116, label %94, label %102, !llvm.loop !57
+  br i1 %.not116, label %94, label %102, !llvm.loop !58
 
 102:                                              ; preds = %101
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.21) #6
@@ -1328,7 +1328,7 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125: ; preds = %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %81, !llvm.loop !58
+  br label %81, !llvm.loop !59
 
 109:                                              ; preds = %103
   %110 = trunc nsw i64 %indvars.iv to i32
@@ -1361,7 +1361,7 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125: ; preds = %
   %.1101 = phi i32 [ %.0100169, %119 ], [ %110, %121 ]
   %.198 = phi i32 [ %120, %119 ], [ %.097170, %121 ]
   %124 = icmp slt i32 %.198, %.1101
-  br i1 %124, label %17, label %_ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit
+  br i1 %124, label %17, label %_ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit, !llvm.loop !60
 
 _ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %123, %46, %73, %25, %6
   ret void
@@ -1449,7 +1449,7 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loope
   %48 = shl nuw nsw i32 %40, 1
   %49 = add nuw nsw i32 %48, 2
   %.not = icmp sgt i32 %49, %9
-  br i1 %.not, label %.thread, label %14
+  br i1 %.not, label %.thread, label %14, !llvm.loop !61
 
 .thread:                                          ; preds = %42, %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loopexit_crit_edge, %6
   %.pre-phi = phi i32 [ %10, %6 ], [ %.pre69, %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loopexit_crit_edge ], [ %48, %42 ]
@@ -1570,35 +1570,38 @@ attributes #7 = { nounwind }
 !24 = !{!5, !9, i64 8}
 !25 = !{i64 0, i64 8, !19, i64 8, i64 4, !19, i64 12, i64 4, !26}
 !26 = !{!13, !13, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"long", !6, i64 0}
-!32 = distinct !{!32, !28}
-!33 = distinct !{!33, !28}
-!34 = distinct !{!34, !28}
-!35 = !{!21, !6, i64 6}
-!36 = !{!21, !22, i64 32}
-!37 = !{!38, !13, i64 12}
-!38 = !{!"_ZTS10lua_TValue", !6, i64 0, !6, i64 8, !13, i64 12}
-!39 = distinct !{!39, !28}
-!40 = !{!41, !13, i64 12}
-!41 = !{!"_ZTS7LuaNode", !38, i64 0, !42, i64 16}
-!42 = !{!"_ZTS4TKey", !6, i64 0, !6, i64 8, !13, i64 12, !13, i64 12}
-!43 = distinct !{!43, !28}
-!44 = !{!21, !6, i64 4}
-!45 = distinct !{!45, !28}
-!46 = distinct !{!46, !28}
-!47 = distinct !{!47, !28}
-!48 = !{!49, !13, i64 20}
-!49 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !14, i64 4, !18, i64 8, !13, i64 16, !13, i64 20, !6, i64 24}
-!50 = distinct !{!50, !28}
-!51 = distinct !{!51, !28}
-!52 = distinct !{!52, !28}
-!53 = distinct !{!53, !28}
-!54 = distinct !{!54, !28}
-!55 = distinct !{!55, !28}
-!56 = distinct !{!56, !28}
-!57 = distinct !{!57, !28}
-!58 = distinct !{!58, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !28, !29}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"long", !6, i64 0}
+!33 = distinct !{!33, !28, !29}
+!34 = distinct !{!34, !28, !29}
+!35 = distinct !{!35, !28, !29}
+!36 = !{!21, !6, i64 6}
+!37 = !{!21, !22, i64 32}
+!38 = !{!39, !13, i64 12}
+!39 = !{!"_ZTS10lua_TValue", !6, i64 0, !6, i64 8, !13, i64 12}
+!40 = distinct !{!40, !28, !29}
+!41 = !{!42, !13, i64 12}
+!42 = !{!"_ZTS7LuaNode", !39, i64 0, !43, i64 16}
+!43 = !{!"_ZTS4TKey", !6, i64 0, !6, i64 8, !13, i64 12, !13, i64 12}
+!44 = distinct !{!44, !28, !29}
+!45 = !{!21, !6, i64 4}
+!46 = distinct !{!46, !28, !29}
+!47 = distinct !{!47, !28, !29}
+!48 = distinct !{!48, !28, !29}
+!49 = !{!50, !13, i64 20}
+!50 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !14, i64 4, !18, i64 8, !13, i64 16, !13, i64 20, !6, i64 24}
+!51 = distinct !{!51, !28, !29}
+!52 = distinct !{!52, !28, !29}
+!53 = distinct !{!53, !28, !29}
+!54 = distinct !{!54, !28, !29}
+!55 = distinct !{!55, !28, !29}
+!56 = distinct !{!56, !28, !29}
+!57 = distinct !{!57, !28, !29}
+!58 = distinct !{!58, !28, !29}
+!59 = distinct !{!59, !28, !29}
+!60 = distinct !{!60, !29}
+!61 = distinct !{!61, !29}

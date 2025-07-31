@@ -430,7 +430,7 @@ sub_0178:                                         ; preds = %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %136 = sext i32 %135 to i64
   %.not129.not = icmp slt i64 %indvars.iv, %136
-  br i1 %.not129.not, label %107, label %.loopexit181, !llvm.loop !8
+  br i1 %.not129.not, label %107, label %.loopexit181, !llvm.loop !9
 
 .loopexit181:                                     ; preds = %.critedge, %.thread153
   %137 = and i32 %.0111.ph158, 8
@@ -511,7 +511,7 @@ sub_0178:                                         ; preds = %74
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %165 = sext i32 %164 to i64
   %.not132.not = icmp slt i64 %indvars.iv207, %165
-  br i1 %.not132.not, label %144, label %.loopexit, !llvm.loop !9
+  br i1 %.not132.not, label %144, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.critedge140, %141, %.loopexit181
   %.0111151224 = phi i32 [ %.0111151230238, %141 ], [ %.0111.ph158, %.loopexit181 ], [ %.0111151230238, %.critedge140 ]
@@ -534,7 +534,7 @@ sub_0178:                                         ; preds = %74
 .loopexit.thread:                                 ; preds = %99, %97, %171, %169, %.loopexit
   %172 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   %173 = icmp ult ptr %172, %34
-  br i1 %173, label %.lr.ph199, label %._crit_edge200, !llvm.loop !10
+  br i1 %173, label %.lr.ph199, label %._crit_edge200, !llvm.loop !11
 
 ._crit_edge200:                                   ; preds = %.loopexit.thread, %32
   store i8 1, ptr @_ZN10JvmtiTrace12_initializedE, align 1
@@ -646,16 +646,16 @@ define hidden noundef nonnull ptr @_ZN10JvmtiTrace9enum_nameEPPKcPKii(ptr nounde
   %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph16
   %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %2
-  br i1 %11, label %._crit_edge, label %.lr.ph16, !llvm.loop !11
+  br i1 %11, label %._crit_edge, label %.lr.ph16, !llvm.loop !12
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph16
-  br label %._crit_edge, !llvm.loop !11
+  br label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %3
   %.08 = phi ptr [ @.str.20, %3 ], [ @.str.20, %.._crit_edge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %8, %.lr.ph ]
@@ -943,9 +943,10 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

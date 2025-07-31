@@ -738,7 +738,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit156.i: ; preds = %169, %162
 _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.backedge: ; preds = %178, %133, %102
   %.pn.i.be = phi { ptr, i32 } [ %109, %102 ], [ %139, %133 ], [ %184, %178 ]
   %.3.i.be = phi i64 [ %103, %102 ], [ %134, %133 ], [ %.7.i, %178 ]
-  br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i
+  br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i, !llvm.loop !256
 
 .thread224.i:                                     ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143..thread224_crit_edge.i
   %185 = phi i32 [ %.pre.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143..thread224_crit_edge.i ], [ %73, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i ]
@@ -862,7 +862,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i: ; preds = %219, %212
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.3294.sink.i, ptr %232, align 8, !tbaa !44, !alias.scope !243
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 1, ptr %233, align 8, !tbaa !256, !alias.scope !243
+  store i8 1, ptr %233, align 8, !tbaa !258, !alias.scope !243
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %.sink.i, ptr %234, align 8, !tbaa !13, !alias.scope !243
   br label %.thread27
@@ -874,7 +874,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i: ; preds = %219, %212
 
 235:                                              ; preds = %.thread
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %237 = load i64, ptr %236, align 8, !tbaa !257
+  %237 = load i64, ptr %236, align 8, !tbaa !259
   %238 = icmp sgt i64 %237, -1
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %240 = load ptr, ptr %239, align 8, !tbaa !246
@@ -895,14 +895,14 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit165.i: ; preds = %219, %212
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %237, ptr %244, align 8, !tbaa !44
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 1, ptr %245, align 8, !tbaa !256
+  store i8 1, ptr %245, align 8, !tbaa !258
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %246, align 8, !tbaa !13
   br label %.thread27
 
 247:                                              ; preds = %235
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %248, align 8, !tbaa !256
+  store i8 0, ptr %248, align 8, !tbaa !258
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %249, align 8, !tbaa !13
   br label %.thread27
@@ -1214,6 +1214,8 @@ attributes #6 = { nounwind }
 !253 = !{!"p1 _ZTSN4llvm11ConstantIntE", !6, i64 0}
 !254 = !{!255, !9, i64 8}
 !255 = !{!"_ZTSN4llvm5APIntE", !7, i64 0, !9, i64 8}
-!256 = !{!18, !19, i64 8}
-!257 = !{!258, !12, i64 96}
-!258 = !{!"_ZTSN4llvm14LifetimeSDNodeE", !22, i64 0, !12, i64 88, !12, i64 96}
+!256 = distinct !{!256, !257}
+!257 = !{!"llvm.loop.estimated_trip_count"}
+!258 = !{!18, !19, i64 8}
+!259 = !{!260, !12, i64 96}
+!260 = !{!"_ZTSN4llvm14LifetimeSDNodeE", !22, i64 0, !12, i64 88, !12, i64 96}

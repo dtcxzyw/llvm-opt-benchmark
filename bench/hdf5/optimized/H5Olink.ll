@@ -240,7 +240,7 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr readnone captures(none
   %.sink = phi i8 [ 0, %94 ], [ 1, %92 ]
   %97 = phi ptr [ %66, %94 ], [ %93, %92 ]
   %98 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i8 %.sink, ptr %98, align 4, !tbaa !22
+  store i8 %.sink, ptr %98, align 4, !tbaa !23
   %.not190 = icmp samesign ult i8 %46, 16
   br i1 %.not190, label %118, label %99
 
@@ -264,7 +264,7 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr readnone captures(none
   %110 = load i8, ptr %97, align 1, !tbaa !10
   %111 = zext i8 %110 to i32
   %112 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 %111, ptr %112, align 8, !tbaa !23
+  store i32 %111, ptr %112, align 8, !tbaa !24
   %113 = icmp ugt i8 %110, 1
   br i1 %113, label %114, label %120
 
@@ -276,7 +276,7 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr readnone captures(none
 
 118:                                              ; preds = %96
   %119 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 0, ptr %119, align 8, !tbaa !23
+  store i32 0, ptr %119, align 8, !tbaa !24
   br label %120
 
 120:                                              ; preds = %108, %118
@@ -410,7 +410,7 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr readnone captures(none
   %202 = or disjoint i64 %198, %201
   %203 = add nuw nsw i64 %.0225, 1
   %exitcond226.not = icmp eq i64 %203, 8
-  br i1 %exitcond226.not, label %204, label %196, !llvm.loop !24
+  br i1 %exitcond226.not, label %204, label %196, !llvm.loop !25
 
 204:                                              ; preds = %196
   %205 = getelementptr inbounds nuw i8, ptr %197, i64 7
@@ -452,7 +452,7 @@ default.unreachable228:                           ; preds = %120
   %225 = add i64 %.0160, 1
   %226 = tail call noalias ptr @malloc(i64 noundef %225) #9
   %227 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr %226, ptr %227, align 8, !tbaa !25
+  store ptr %226, ptr %227, align 8, !tbaa !26
   %228 = icmp eq ptr %226, null
   br i1 %228, label %229, label %233
 
@@ -660,7 +660,7 @@ default.unreachable228:                           ; preds = %120
 
 348:                                              ; preds = %40, %48, %57, %76, %104, %114, %128, %142, %161, %190, %209, %220, %229, %248, %259, %273, %282, %291, %299, %308, %323, %335, %342
   %349 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %350 = load ptr, ptr %349, align 8, !tbaa !25
+  %350 = load ptr, ptr %349, align 8, !tbaa !26
   %351 = tail call ptr @H5MM_xfree(ptr noundef %350) #8
   %352 = load i32, ptr %31, align 8, !tbaa !16
   %353 = icmp eq i32 %352, 1
@@ -720,7 +720,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !25
+  %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #10
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 1, ptr %3, align 1, !tbaa !10
@@ -739,7 +739,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
 23:                                               ; preds = %21, %19, %13
   %.070 = phi i8 [ 3, %13 ], [ 2, %19 ], [ %., %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %25 = load i8, ptr %24, align 4, !tbaa !22, !range !7, !noundef !8
+  %25 = load i8, ptr %24, align 4, !tbaa !23, !range !7, !noundef !8
   %26 = shl nuw nsw i8 %25, 2
   %27 = or disjoint i8 %26, %.070
   %28 = load i32, ptr %4, align 8, !tbaa !16
@@ -747,7 +747,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
   %29 = select i1 %.not, i8 0, i8 8
   %30 = or disjoint i8 %29, %27
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !23
+  %32 = load i32, ptr %31, align 8, !tbaa !24
   %.not73 = icmp eq i32 %32, 0
   %33 = select i1 %.not73, i8 0, i8 16
   %34 = or disjoint i8 %33, %30
@@ -769,7 +769,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
 
 42:                                               ; preds = %38, %23
   %43 = phi ptr [ %41, %38 ], [ %35, %23 ]
-  %44 = load i8, ptr %24, align 4, !tbaa !22, !range !7, !noundef !8
+  %44 = load i8, ptr %24, align 4, !tbaa !23, !range !7, !noundef !8
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %56
 
@@ -788,7 +788,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
   %52 = add nuw nsw i64 %.06778, 1
   %53 = ashr i64 %.06977, 8
   %exitcond.not = icmp eq i64 %52, 8
-  br i1 %exitcond.not, label %54, label %49, !llvm.loop !26
+  br i1 %exitcond.not, label %54, label %49, !llvm.loop !27
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -800,7 +800,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
   br i1 %.not73, label %62, label %58
 
 58:                                               ; preds = %56
-  %59 = load i32, ptr %31, align 8, !tbaa !23
+  %59 = load i32, ptr %31, align 8, !tbaa !24
   %60 = trunc i32 %59 to i8
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 1
   store ptr %61, ptr %6, align 8, !tbaa !13
@@ -868,7 +868,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
   %93 = add nuw nsw i64 %.06281, 1
   %94 = lshr i64 %.06480, 8
   %exitcond83.not = icmp eq i64 %93, 8
-  br i1 %exitcond83.not, label %95, label %90, !llvm.loop !27
+  br i1 %exitcond83.not, label %95, label %90, !llvm.loop !28
 
 95:                                               ; preds = %90
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -879,7 +879,7 @@ default.unreachable84:                            ; preds = %62
 
 97:                                               ; preds = %95, %75, %68, %64
   %98 = phi ptr [ %96, %95 ], [ %87, %75 ], [ %74, %68 ], [ %67, %64 ]
-  %99 = load ptr, ptr %14, align 8, !tbaa !25
+  %99 = load ptr, ptr %14, align 8, !tbaa !26
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %99, i64 %16, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 %16
   store ptr %100, ptr %6, align 8, !tbaa !13
@@ -962,12 +962,12 @@ define internal noundef ptr @H5O__link_copy(ptr noundef readonly captures(none) 
 
 17:                                               ; preds = %10, %9
   %.032 = phi ptr [ %1, %9 ], [ %11, %10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.032, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !tbaa.struct !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.032, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !tbaa.struct !29
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %19) #8
   %21 = getelementptr inbounds nuw i8, ptr %.032, i64 24
-  store ptr %20, ptr %21, align 8, !tbaa !25
+  store ptr %20, ptr %21, align 8, !tbaa !26
   %22 = icmp eq ptr %20, null
   br i1 %22, label %23, label %27
 
@@ -1028,18 +1028,18 @@ define internal noundef ptr @H5O__link_copy(ptr noundef readonly captures(none) 
   br label %.thread
 
 57:                                               ; preds = %23, %36, %50
-  %58 = load ptr, ptr %21, align 8, !tbaa !25
+  %58 = load ptr, ptr %21, align 8, !tbaa !26
   %.not42 = icmp eq ptr %58, null
   br i1 %.not42, label %63, label %59
 
 59:                                               ; preds = %57
-  %60 = load ptr, ptr %18, align 8, !tbaa !25
+  %60 = load ptr, ptr %18, align 8, !tbaa !26
   %.not43 = icmp eq ptr %58, %60
   br i1 %.not43, label %63, label %61
 
 61:                                               ; preds = %59
   %62 = tail call ptr @H5MM_xfree(ptr noundef nonnull %58) #8
-  store ptr %62, ptr %21, align 8, !tbaa !25
+  store ptr %62, ptr %21, align 8, !tbaa !26
   br label %63
 
 63:                                               ; preds = %61, %59, %57
@@ -1066,7 +1066,7 @@ define internal i64 @H5O__link_size(ptr noundef %0, i1 zeroext %1, ptr noundef r
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #10
   %14 = icmp ugt i64 %13, 4294967295
   br i1 %14, label %19, label %15
@@ -1086,11 +1086,11 @@ define internal i64 @H5O__link_size(ptr noundef %0, i1 zeroext %1, ptr noundef r
   %.not.not = icmp eq i32 %20, 0
   %21 = select i1 %.not.not, i64 2, i64 3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %23 = load i8, ptr %22, align 4, !tbaa !22, !range !7, !noundef !8
+  %23 = load i8, ptr %22, align 4, !tbaa !23, !range !7, !noundef !8
   %24 = shl nuw nsw i8 %23, 3
   %25 = zext nneg i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !23
+  %27 = load i32, ptr %26, align 8, !tbaa !24
   %.not = icmp ne i32 %27, 0
   %28 = zext i1 %.not to i64
   %29 = add i64 %.017, %13
@@ -1138,7 +1138,7 @@ define internal noundef i32 @H5O__link_reset(ptr noundef captures(address_is_nul
   %7 = select i1 %3, i1 true, i1 %6
   %8 = icmp ne ptr %0, null
   %or.cond = and i1 %8, %7
-  br i1 %or.cond, label %9, label %24, !prof !30
+  br i1 %or.cond, label %9, label %24, !prof !31
 
 9:                                                ; preds = %1
   %10 = load i32, ptr %0, align 8, !tbaa !16
@@ -1164,9 +1164,9 @@ define internal noundef i32 @H5O__link_reset(ptr noundef captures(address_is_nul
 
 20:                                               ; preds = %.sink.split, %12, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = tail call ptr @H5MM_xfree(ptr noundef %22) #8
-  store ptr %23, ptr %21, align 8, !tbaa !25
+  store ptr %23, ptr %21, align 8, !tbaa !26
   br label %24
 
 24:                                               ; preds = %20, %1
@@ -1237,11 +1237,11 @@ define range(i32 -1, -2147483648) i32 @H5O_link_delete(ptr noundef %0, ptr readn
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   %25 = call i32 @H5O_loc_reset(ptr noundef nonnull %4) #8
-  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %0, ptr %4, align 8, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %27 = load i64, ptr %26, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %27, ptr %28, align 8, !tbaa !34
+  store i64 %27, ptr %28, align 8, !tbaa !35
   %29 = call i32 @H5O_link(ptr noundef nonnull %4, i32 noundef -1) #8
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %35
@@ -1274,7 +1274,7 @@ define range(i32 -1, -2147483648) i32 @H5O_link_delete(ptr noundef %0, ptr readn
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %47 = load ptr, ptr %46, align 8, !tbaa !35
+  %47 = load ptr, ptr %46, align 8, !tbaa !36
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %.thread43, label %48
 
@@ -1296,9 +1296,9 @@ define range(i32 -1, -2147483648) i32 @H5O_link_delete(ptr noundef %0, ptr readn
   br i1 %57, label %.thread, label %58
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %46, align 8, !tbaa !35
+  %59 = load ptr, ptr %46, align 8, !tbaa !36
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !25
+  %61 = load ptr, ptr %60, align 8, !tbaa !26
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !10
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1361,13 +1361,13 @@ define internal noundef i32 @H5O__link_pre_copy_file(ptr readnone captures(none)
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !37
+  %14 = load i32, ptr %13, align 4, !tbaa !38
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !42
+  %18 = load i32, ptr %17, align 8, !tbaa !43
   %.not = icmp slt i32 %18, %14
   br i1 %.not, label %20, label %19
 
@@ -1428,7 +1428,7 @@ define internal range(i32 -1, 1) i32 @H5O__link_post_copy_file(ptr noundef %0, p
   br i1 %12, label %13, label %21, !prof !9
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr %2, align 8, !tbaa !31
+  %14 = load ptr, ptr %2, align 8, !tbaa !32
   %15 = tail call i32 @H5L__link_copy_file(ptr noundef %14, ptr noundef %1, ptr noundef %0, ptr noundef %3, ptr noundef %5) #8
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
@@ -1477,7 +1477,7 @@ define internal range(i32 -1, 1) i32 @H5O__link_debug(ptr readnone captures(none
   %18 = phi ptr [ @.str.29, %12 ], [ %16, %14 ], [ @.str.30, %.fold.split ], [ @.str.31, %.fold.split51 ]
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %3, ptr noundef nonnull @.str.27, i32 noundef %4, ptr noundef nonnull @.str.28, ptr noundef nonnull %18) #8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i8, ptr %20, align 4, !tbaa !22, !range !7, !noundef !8
+  %21 = load i8, ptr %20, align 4, !tbaa !23, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %27
 
@@ -1489,14 +1489,14 @@ define internal range(i32 -1, 1) i32 @H5O__link_debug(ptr readnone captures(none
 
 27:                                               ; preds = %23, %17
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8, !tbaa !23
+  %29 = load i32, ptr %28, align 8, !tbaa !24
   %30 = icmp eq i32 %29, 0
   %31 = icmp eq i32 %29, 1
   %32 = select i1 %31, ptr @.str.38, ptr @.str.33
   %33 = select i1 %30, ptr @.str.37, ptr %32
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %3, ptr noundef nonnull @.str.27, i32 noundef %4, ptr noundef nonnull @.str.36, ptr noundef nonnull %33) #8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !25
+  %36 = load ptr, ptr %35, align 8, !tbaa !26
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.39, i32 noundef %3, ptr noundef nonnull @.str.27, i32 noundef %4, ptr noundef nonnull @.str.40, ptr noundef %36) #8
   %38 = load i32, ptr %1, align 8, !tbaa !16
   switch i32 %38, label %47 [
@@ -1639,26 +1639,27 @@ attributes #10 = { nounwind willreturn memory(read) }
 !17 = !{!"H5O_link_t", !18, i64 0, !4, i64 4, !12, i64 8, !18, i64 16, !14, i64 24, !5, i64 32}
 !18 = !{!"int", !5, i64 0}
 !19 = !{!17, !12, i64 8}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!17, !4, i64 4}
-!23 = !{!17, !18, i64 16}
-!24 = distinct !{!24, !21}
-!25 = !{!17, !14, i64 24}
-!26 = distinct !{!26, !21}
-!27 = distinct !{!27, !21}
-!28 = !{i64 0, i64 4, !29, i64 4, i64 1, !3, i64 8, i64 8, !11, i64 16, i64 4, !29, i64 24, i64 8, !13, i64 32, i64 16, !10}
-!29 = !{!18, !18, i64 0}
-!30 = !{!"branch_weights", i32 2000, i32 2002}
-!31 = !{!32, !33, i64 0}
-!32 = !{!"H5O_loc_t", !33, i64 0, !12, i64 8, !4, i64 16}
-!33 = !{!"p1 _ZTS5H5F_t", !15, i64 0}
-!34 = !{!32, !12, i64 8}
-!35 = !{!36, !15, i64 48}
-!36 = !{!"", !18, i64 0, !18, i64 4, !14, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56}
-!37 = !{!38, !18, i64 20}
-!38 = !{!"H5O_copy_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !39, i64 8, !18, i64 16, !18, i64 20, !40, i64 24, !40, i64 32, !4, i64 40, !41, i64 48, !33, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !12, i64 88}
-!39 = !{!"p1 _ZTS27H5O_copy_dtype_merge_list_t", !15, i64 0}
-!40 = !{!"p1 _ZTS6H5SL_t", !15, i64 0}
-!41 = !{!"p1 _ZTS5H5O_t", !15, i64 0}
-!42 = !{!38, !18, i64 16}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!17, !4, i64 4}
+!24 = !{!17, !18, i64 16}
+!25 = distinct !{!25, !21, !22}
+!26 = !{!17, !14, i64 24}
+!27 = distinct !{!27, !21, !22}
+!28 = distinct !{!28, !21, !22}
+!29 = !{i64 0, i64 4, !30, i64 4, i64 1, !3, i64 8, i64 8, !11, i64 16, i64 4, !30, i64 24, i64 8, !13, i64 32, i64 16, !10}
+!30 = !{!18, !18, i64 0}
+!31 = !{!"branch_weights", i32 2000, i32 2002}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"H5O_loc_t", !34, i64 0, !12, i64 8, !4, i64 16}
+!34 = !{!"p1 _ZTS5H5F_t", !15, i64 0}
+!35 = !{!33, !12, i64 8}
+!36 = !{!37, !15, i64 48}
+!37 = !{!"", !18, i64 0, !18, i64 4, !14, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56}
+!38 = !{!39, !18, i64 20}
+!39 = !{!"H5O_copy_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !40, i64 8, !18, i64 16, !18, i64 20, !41, i64 24, !41, i64 32, !4, i64 40, !42, i64 48, !34, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !12, i64 88}
+!40 = !{!"p1 _ZTS27H5O_copy_dtype_merge_list_t", !15, i64 0}
+!41 = !{!"p1 _ZTS6H5SL_t", !15, i64 0}
+!42 = !{!"p1 _ZTS5H5O_t", !15, i64 0}
+!43 = !{!39, !18, i64 16}

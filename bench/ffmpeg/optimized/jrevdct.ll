@@ -862,7 +862,7 @@ define void @ff_j_rev_dct(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %640 = getelementptr inbounds nuw i8, ptr %.2841, i64 2
   %641 = add nsw i32 %.1758842, -1
   %.not844 = icmp eq i32 %.1758842, 0
-  br i1 %.not844, label %642, label %.preheader, !llvm.loop !11
+  br i1 %.not844, label %642, label %.preheader, !llvm.loop !12
 
 642:                                              ; preds = %611
   ret void
@@ -1000,7 +1000,7 @@ thread-pre-split:                                 ; preds = %85
 
 85:                                               ; preds = %20, %21, %72
   %.not178 = icmp eq i32 %.0175, 0
-  br i1 %.not178, label %.preheader, label %thread-pre-split, !llvm.loop !12
+  br i1 %.not178, label %.preheader, label %thread-pre-split, !llvm.loop !13
 
 .preheader:                                       ; preds = %85, %141
   %.1177 = phi i32 [ %151, %141 ], [ 3, %85 ]
@@ -1096,7 +1096,7 @@ thread-pre-split:                                 ; preds = %85
   %150 = getelementptr inbounds nuw i8, ptr %.2176, i64 2
   %151 = add nsw i32 %.1177, -1
   %.not179 = icmp eq i32 %.1177, 0
-  br i1 %.not179, label %152, label %.preheader, !llvm.loop !13
+  br i1 %.not179, label %152, label %.preheader, !llvm.loop !14
 
 152:                                              ; preds = %141
   ret void
@@ -1185,8 +1185,9 @@ attributes #4 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

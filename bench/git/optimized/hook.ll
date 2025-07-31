@@ -147,7 +147,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %40, %27, %38
-  %44 = load ptr, ptr @the_repository, align 8, !tbaa !26
+  %44 = load ptr, ptr @the_repository, align 8, !tbaa !27
   call void @repo_config(ptr noundef %44, ptr noundef nonnull @git_default_config, ptr noundef null) #7
   %45 = load ptr, ptr %1, align 8, !tbaa !23
   %46 = load i32, ptr %6, align 4, !tbaa !16
@@ -162,7 +162,7 @@ sub_1:                                            ; preds = %sub_0
   br label %51
 
 51:                                               ; preds = %47, %._crit_edge
-  %52 = load ptr, ptr @the_repository, align 8, !tbaa !26
+  %52 = load ptr, ptr @the_repository, align 8, !tbaa !27
   %53 = call i32 @run_hooks_opt(ptr noundef %52, ptr noundef %45, ptr noundef nonnull %5) #7
   %54 = icmp slt i32 %53, 0
   %spec.store.select = select i1 %54, i32 1, i32 %53
@@ -235,7 +235,8 @@ attributes #9 = { noreturn nounwind }
 !21 = !{!9, !5, i64 48}
 !22 = !{!9, !12, i64 56}
 !23 = !{!11, !11, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS10repository", !5, i64 0}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS10repository", !5, i64 0}

@@ -165,7 +165,7 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %22 = load i64, ptr @tables_cur_len, align 8
   %23 = icmp ugt i64 %22, %indvars.iv.next21.i
-  br i1 %23, label %.lr.ph15.i, label %._crit_edge16.i, !llvm.loop !11
+  br i1 %23, label %.lr.ph15.i, label %._crit_edge16.i, !llvm.loop !12
 
 ._crit_edge16.i:                                  ; preds = %._crit_edge.i, %.preheader.i
   tail call void @slurm_xfree(ptr noundef nonnull @tables) #7
@@ -611,7 +611,7 @@ define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
   %62 = getelementptr i8, ptr %61, i64 -1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 10
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %65 = call i32 @slurm_get_log_level() #7
@@ -849,7 +849,7 @@ define dso_local noundef i32 @acct_gather_profile_p_add_sample_data(i32 noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i64, ptr %12, align 8
   %50 = icmp ugt i64 %49, %indvars.iv.next
-  br i1 %50, label %16, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %50, label %16, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %48
   %.pre = load ptr, ptr %4, align 8
@@ -948,9 +948,10 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}

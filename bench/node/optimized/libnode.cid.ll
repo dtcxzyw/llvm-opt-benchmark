@@ -376,7 +376,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4node4quic3C
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4node4quic3CID7Factory6randomEvE8instance acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !8
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4node4quic3CID7Factory6randomEvE8instance) #12
@@ -606,6 +606,7 @@ attributes #14 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"branch_weights", i32 1, i32 1048575}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"branch_weights", i32 1, i32 1048575}

@@ -488,14 +488,14 @@ upb_Arena_Malloc.exit:                            ; preds = %133, %135
   br i1 %145, label %85, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %upb_Arena_Malloc.exit, %.preheader, %grpc_lb_v1_ClientStats_mutable_timestamp.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #20, !noalias !46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20, !noalias !46
-  %146 = call i32 @upb_Encode(ptr noundef %.0.i.i.i, ptr noundef nonnull @grpc__lb__v1__LoadBalanceRequest_msg_init, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9), !noalias !46
-  %147 = load ptr, ptr %8, align 8, !tbaa !28, !noalias !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20, !noalias !46
-  %148 = load i64, ptr %9, align 8, !tbaa !29, !noalias !46
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #20, !noalias !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20, !noalias !47
+  %146 = call i32 @upb_Encode(ptr noundef %.0.i.i.i, ptr noundef nonnull @grpc__lb__v1__LoadBalanceRequest_msg_init, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9), !noalias !47
+  %147 = load ptr, ptr %8, align 8, !tbaa !28, !noalias !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20, !noalias !47
+  %148 = load i64, ptr %9, align 8, !tbaa !29, !noalias !47
   call void @grpc_slice_from_copied_buffer(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8 %0, ptr noundef %147, i64 noundef %148)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20, !noalias !46
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20, !noalias !47
   ret void
 }
 
@@ -511,7 +511,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define noundef zeroext i1 @_ZN9grpc_core19GrpcLbResponseParseERK10grpc_sliceP9upb_ArenaPNS_14GrpcLbResponseE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !49
+  %6 = load ptr, ptr %0, align 8, !tbaa !50
   %.not = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -598,8 +598,8 @@ grpc_lb_v1_ServerList_servers.exit.i:             ; preds = %37
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !52
-  %53 = load ptr, ptr %32, align 8, !tbaa !55
+  %52 = load ptr, ptr %51, align 8, !tbaa !53
+  %53 = load ptr, ptr %32, align 8, !tbaa !56
   %54 = ptrtoint ptr %52 to i64
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
@@ -609,7 +609,7 @@ grpc_lb_v1_ServerList_servers.exit.i:             ; preds = %37
 
 _ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !56
+  %60 = load ptr, ptr %59, align 8, !tbaa !57
   %61 = ptrtoint ptr %60 to i64
   %62 = sub i64 %61, %55
   %63 = mul nuw nsw i64 %43, 76
@@ -630,11 +630,11 @@ _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   br label %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE13_M_deallocateEPS1_m.exit.i.i
 
 _ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; preds = %67, %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
-  store ptr %64, ptr %32, align 8, !tbaa !55
+  store ptr %64, ptr %32, align 8, !tbaa !56
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 %62
-  store ptr %68, ptr %59, align 8, !tbaa !56
+  store ptr %68, ptr %59, align 8, !tbaa !57
   %69 = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbServer", ptr %64, i64 %43
-  store ptr %69, ptr %51, align 8, !tbaa !52
+  store ptr %69, ptr %51, align 8, !tbaa !53
   br label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i
 
 _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE13_M_deallocateEPS1_m.exit.i.i, %50
@@ -643,10 +643,10 @@ _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i: ; preds = %_ZN
 
 71:                                               ; preds = %97, %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i
   %.03352.i = phi i64 [ 0, %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i ], [ %103, %97 ]
-  %72 = load ptr, ptr %70, align 8, !tbaa !57
+  %72 = load ptr, ptr %70, align 8, !tbaa !58
   %73 = call ptr @_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE14_M_emplace_auxIJEEEN9__gnu_cxx17__normal_iteratorIPS1_S3_EENS6_IPKS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr %72)
   %74 = getelementptr inbounds nuw ptr, ptr %46, i64 %.03352.i
-  %75 = load ptr, ptr %74, align 8, !tbaa !58
+  %75 = load ptr, ptr %74, align 8, !tbaa !59
   %.sroa.9.0..sroa_idx12.i.i = getelementptr inbounds nuw i8, ptr %75, i64 24
   %.sroa.9.0.copyload13.i.i = load i64, ptr %.sroa.9.0..sroa_idx12.i.i, align 1
   %76 = add i64 %.sroa.9.0.copyload13.i.i, -1
@@ -660,7 +660,7 @@ _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i: ; preds = %_ZN
   store i32 %79, ptr %73, align 4, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %80, ptr align 1 %.sroa.010.0.copyload11.i.i, i64 %.sroa.9.0.copyload13.i.i, i1 false)
-  %.pre.i = load ptr, ptr %74, align 8, !tbaa !58
+  %.pre.i = load ptr, ptr %74, align 8, !tbaa !59
   br label %81
 
 81:                                               ; preds = %77, %71
@@ -711,7 +711,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit.i: ; 
   resume { ptr, i32 } %96
 
 97:                                               ; preds = %94, %90, %81
-  %98 = load ptr, ptr %74, align 8, !tbaa !58
+  %98 = load ptr, ptr %74, align 8, !tbaa !59
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %100 = load i8, ptr %99, align 1
   %101 = getelementptr inbounds nuw i8, ptr %73, i64 74
@@ -719,10 +719,10 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit.i: ; 
   store i8 %102, ptr %101, align 2, !tbaa !10
   %103 = add nuw i64 %.03352.i, 1
   %exitcond.not.i = icmp eq i64 %103, %43
-  br i1 %exitcond.not.i, label %.loopexit, label %71, !llvm.loop !60
+  br i1 %exitcond.not.i, label %.loopexit, label %71, !llvm.loop !61
 
 .loopexit:                                        ; preds = %97, %grpc_lb_v1_ServerList_servers.exit.i, %37
-  store i32 1, ptr %2, align 8, !tbaa !61
+  store i32 1, ptr %2, align 8, !tbaa !62
   br label %.thread
 
 _ZN9grpc_core12_GLOBAL__N_115ParseServerListERK30grpc_lb_v1_LoadBalanceResponsePSt6vectorINS_12GrpcLbServerESaIS5_EE.exit: ; preds = %grpc_lb_v1_LoadBalanceResponse_server_list.exit.i, %grpc_lb_v1_LoadBalanceResponse_parse.exit
@@ -741,7 +741,7 @@ grpc_lb_v1_LoadBalanceResponse_initial_response.exit: ; preds = %_ZN9grpc_core12
 
 106:                                              ; preds = %grpc_lb_v1_LoadBalanceResponse_initial_response.exit
   %107 = inttoptr i64 %.0.in.then.val.i to ptr
-  store i32 0, ptr %2, align 8, !tbaa !61
+  store i32 0, ptr %2, align 8, !tbaa !62
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @google__protobuf__Duration_msg_init) #20, !srcloc !23
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i64, ptr %108, align 1
@@ -790,7 +790,7 @@ _ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit: ; 
   br label %.thread
 
 128:                                              ; preds = %_ZN9grpc_core12_GLOBAL__N_115ParseServerListERK30grpc_lb_v1_LoadBalanceResponsePSt6vectorINS_12GrpcLbServerESaIS5_EE.exit
-  store i32 2, ptr %2, align 8, !tbaa !61
+  store i32 2, ptr %2, align 8, !tbaa !62
   br label %.thread
 
 .thread:                                          ; preds = %_ZN9grpc_core12_GLOBAL__N_115ParseServerListERK30grpc_lb_v1_LoadBalanceResponsePSt6vectorINS_12GrpcLbServerESaIS5_EE.exit, %grpc_lb_v1_LoadBalanceResponse_initial_response.exit, %128, %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit, %106, %.loopexit
@@ -808,21 +808,21 @@ declare i32 @upb_Encode(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 comdat {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %5 = load i8, ptr %4, align 1, !tbaa !68
+  %5 = load i8, ptr %4, align 1, !tbaa !69
   %6 = icmp ugt i8 %5, -65
   tail call void @llvm.assume(i1 %6)
   %7 = and i8 %5, 3
   %8 = icmp eq i8 %7, 1
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %10 = load i16, ptr %9, align 2, !tbaa !70
+  %10 = load i16, ptr %9, align 2, !tbaa !71
   %11 = icmp eq i16 %10, 0
   tail call void @llvm.assume(i1 %11)
   %12 = and i8 %5, 8
   %.not.i.i = icmp eq i8 %12, 0
   tail call void @llvm.assume(i1 %.not.i.i)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i16, ptr %13, align 4, !tbaa !71
+  %14 = load i16, ptr %13, align 4, !tbaa !72
   %15 = zext i16 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   %17 = load i64, ptr %16, align 1
@@ -832,7 +832,7 @@ define linkonce_odr ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %0, ptr
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %21 = load i8, ptr %20, align 2, !tbaa !72
+  %21 = load i8, ptr %20, align 2, !tbaa !73
   %22 = zext i8 %21 to i64
   %23 = and i8 %5, 16
   %.not.i.i14 = icmp eq i8 %23, 0
@@ -898,13 +898,13 @@ upb_Arena_Malloc.exit.i:                          ; preds = %44, %42
   br label %_upb_Array_New_dont_copy_me__upb_internal_use_only.exit
 
 _upb_Array_New_dont_copy_me__upb_internal_use_only.exit: ; preds = %upb_Arena_Malloc.exit.i, %46
-  %54 = load i8, ptr %4, align 1, !tbaa !68
+  %54 = load i8, ptr %4, align 1, !tbaa !69
   %55 = icmp ugt i8 %54, -65
   tail call void @llvm.assume(i1 %55)
   %56 = and i8 %54, 3
   %57 = icmp eq i8 %56, 1
   tail call void @llvm.assume(i1 %57)
-  %58 = load i16, ptr %9, align 2, !tbaa !70
+  %58 = load i16, ptr %9, align 2, !tbaa !71
   %59 = icmp eq i16 %58, 0
   tail call void @llvm.assume(i1 %59)
   %60 = and i8 %54, 8
@@ -918,7 +918,7 @@ _upb_Array_New_dont_copy_me__upb_internal_use_only.exit: ; preds = %upb_Arena_Ma
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %65 = load i8, ptr %4, align 1, !tbaa !68
+  %65 = load i8, ptr %4, align 1, !tbaa !69
   %66 = lshr i8 %65, 6
   switch i8 %66, label %default.unreachable [
     i8 0, label %67
@@ -952,7 +952,7 @@ default.unreachable:                              ; preds = %63
   unreachable
 
 _upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i: ; preds = %_upb_Array_New_dont_copy_me__upb_internal_use_only.exit
-  %74 = load i16, ptr %13, align 4, !tbaa !71
+  %74 = load i16, ptr %13, align 4, !tbaa !72
   %75 = zext i16 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 %75
   %77 = ptrtoint ptr %.0.i.i15 to i64
@@ -994,14 +994,14 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE14_M_emplace_auxIJEEEN9__gnu_cxx17__normal_iteratorIPS1_S3_EENS6_IPKS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !57
+  %3 = load ptr, ptr %0, align 8, !tbaa !58
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64
   %6 = sub i64 %4, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !56
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !52
+  %10 = load ptr, ptr %9, align 8, !tbaa !53
   %.not = icmp eq ptr %8, %10
   br i1 %.not, label %27, label %11
 
@@ -1011,18 +1011,18 @@ define linkonce_odr ptr @_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE14_M_emp
 
 13:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %8, i8 0, i64 76, i1 false)
-  %14 = load ptr, ptr %7, align 8, !tbaa !56
+  %14 = load ptr, ptr %7, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 76
-  store ptr %15, ptr %7, align 8, !tbaa !56
+  store ptr %15, ptr %7, align 8, !tbaa !57
   br label %50
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %3, i64 %6
   %18 = getelementptr inbounds i8, ptr %8, i64 -76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %8, ptr noundef nonnull align 4 dereferenceable(76) %18, i64 76, i1 false), !tbaa.struct !73
-  %19 = load ptr, ptr %7, align 8, !tbaa !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %8, ptr noundef nonnull align 4 dereferenceable(76) %18, i64 76, i1 false), !tbaa.struct !74
+  %19 = load ptr, ptr %7, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 76
-  store ptr %20, ptr %7, align 8, !tbaa !56
+  store ptr %20, ptr %7, align 8, !tbaa !57
   %21 = getelementptr inbounds i8, ptr %19, i64 -76
   %.not.i.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i.i, label %26, label %22
@@ -1090,14 +1090,14 @@ _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit15.i, %47
   %48 = getelementptr inbounds i8, ptr %43, i64 %44
-  store ptr %39, ptr %0, align 8, !tbaa !55
-  store ptr %48, ptr %7, align 8, !tbaa !56
+  store ptr %39, ptr %0, align 8, !tbaa !56
+  store ptr %48, ptr %7, align 8, !tbaa !57
   %49 = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbServer", ptr %39, i64 %37
-  store ptr %49, ptr %9, align 8, !tbaa !52
+  store ptr %49, ptr %9, align 8, !tbaa !53
   br label %50
 
 50:                                               ; preds = %13, %26, %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit
-  %51 = load ptr, ptr %0, align 8, !tbaa !55
+  %51 = load ptr, ptr %0, align 8, !tbaa !56
   %52 = getelementptr inbounds i8, ptr %51, i64 %6
   ret ptr %52
 }
@@ -1198,34 +1198,35 @@ attributes #25 = { cold nounwind }
 !41 = !{!"_ZTSSt5tupleIJPcN9grpc_core17DefaultDeleteCharEEE", !42, i64 0}
 !42 = !{!"_ZTSSt11_Tuple_implILm0EJPcN9grpc_core17DefaultDeleteCharEEE", !43, i64 0}
 !43 = !{!"_ZTSSt10_Head_baseILm0EPcLb0EE", !20, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN9grpc_core12_GLOBAL__N_126grpc_grpclb_request_encodeEPK29grpc_lb_v1_LoadBalanceRequestP9upb_Arena: argument 0"}
-!48 = distinct !{!48, !"_ZN9grpc_core12_GLOBAL__N_126grpc_grpclb_request_encodeEPK29grpc_lb_v1_LoadBalanceRequestP9upb_Arena"}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"_ZTS10grpc_slice", !51, i64 0, !6, i64 8}
-!51 = !{!"p1 _ZTS19grpc_slice_refcount", !15, i64 0}
-!52 = !{!53, !54, i64 16}
-!53 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE17_Vector_impl_dataE", !54, i64 0, !54, i64 8, !54, i64 16}
-!54 = !{!"p1 _ZTSN9grpc_core12GrpcLbServerE", !15, i64 0}
-!55 = !{!53, !54, i64 0}
-!56 = !{!53, !54, i64 8}
-!57 = !{!54, !54, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTS17grpc_lb_v1_Server", !15, i64 0}
-!60 = distinct !{!60, !45}
-!61 = !{!62, !63, i64 0}
-!62 = !{!"_ZTSN9grpc_core14GrpcLbResponseE", !63, i64 0, !64, i64 8, !65, i64 16}
-!63 = !{!"_ZTSN9grpc_core14GrpcLbResponseUt_E", !6, i64 0}
-!64 = !{!"_ZTSN9grpc_core8DurationE", !30, i64 0}
-!65 = !{!"_ZTSSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE", !66, i64 0}
-!66 = !{!"_ZTSSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE", !67, i64 0}
-!67 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE12_Vector_implE", !53, i64 0}
-!68 = !{!69, !6, i64 11}
-!69 = !{!"_ZTS18upb_MiniTableField", !5, i64 0, !17, i64 4, !17, i64 6, !17, i64 8, !6, i64 10, !6, i64 11}
-!70 = !{!69, !17, i64 6}
-!71 = !{!69, !17, i64 4}
-!72 = !{!69, !6, i64 10}
-!73 = !{i64 0, i64 4, !24, i64 4, i64 16, !31, i64 20, i64 4, !24, i64 24, i64 50, !31, i64 74, i64 1, !74}
-!74 = !{!8, !8, i64 0}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN9grpc_core12_GLOBAL__N_126grpc_grpclb_request_encodeEPK29grpc_lb_v1_LoadBalanceRequestP9upb_Arena: argument 0"}
+!49 = distinct !{!49, !"_ZN9grpc_core12_GLOBAL__N_126grpc_grpclb_request_encodeEPK29grpc_lb_v1_LoadBalanceRequestP9upb_Arena"}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTS10grpc_slice", !52, i64 0, !6, i64 8}
+!52 = !{!"p1 _ZTS19grpc_slice_refcount", !15, i64 0}
+!53 = !{!54, !55, i64 16}
+!54 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE17_Vector_impl_dataE", !55, i64 0, !55, i64 8, !55, i64 16}
+!55 = !{!"p1 _ZTSN9grpc_core12GrpcLbServerE", !15, i64 0}
+!56 = !{!54, !55, i64 0}
+!57 = !{!54, !55, i64 8}
+!58 = !{!55, !55, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS17grpc_lb_v1_Server", !15, i64 0}
+!61 = distinct !{!61, !45, !46}
+!62 = !{!63, !64, i64 0}
+!63 = !{!"_ZTSN9grpc_core14GrpcLbResponseE", !64, i64 0, !65, i64 8, !66, i64 16}
+!64 = !{!"_ZTSN9grpc_core14GrpcLbResponseUt_E", !6, i64 0}
+!65 = !{!"_ZTSN9grpc_core8DurationE", !30, i64 0}
+!66 = !{!"_ZTSSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE", !67, i64 0}
+!67 = !{!"_ZTSSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE", !68, i64 0}
+!68 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE12_Vector_implE", !54, i64 0}
+!69 = !{!70, !6, i64 11}
+!70 = !{!"_ZTS18upb_MiniTableField", !5, i64 0, !17, i64 4, !17, i64 6, !17, i64 8, !6, i64 10, !6, i64 11}
+!71 = !{!70, !17, i64 6}
+!72 = !{!70, !17, i64 4}
+!73 = !{!70, !6, i64 10}
+!74 = !{i64 0, i64 4, !24, i64 4, i64 16, !31, i64 20, i64 4, !24, i64 24, i64 50, !31, i64 74, i64 1, !75}
+!75 = !{!8, !8, i64 0}

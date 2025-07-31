@@ -51,7 +51,7 @@ define range(i32 0, 2) i32 @hcreate_r(i64 noundef %0, ptr noundef captures(none)
   %19 = add nuw i64 %.02028, 1
   %20 = load i64, ptr %13, align 8
   %21 = icmp ult i64 %19, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %2
   %.021 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 1, %.lr.ph ]
@@ -98,7 +98,7 @@ define void @hdestroy_r(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %18 = getelementptr inbounds %struct.internal_head, ptr %17, i64 %.018
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i64, ptr %4, align 8
@@ -109,7 +109,7 @@ define void @hdestroy_r(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %21 = phi ptr [ %17, %._crit_edge.loopexit ], [ %7, %.preheader ]
   %22 = add nuw i64 %.018, 1
   %23 = icmp ult i64 %22, %20
-  br i1 %23, label %.preheader, label %._crit_edge19, !llvm.loop !10
+  br i1 %23, label %.preheader, label %._crit_edge19, !llvm.loop !11
 
 ._crit_edge19:                                    ; preds = %._crit_edge, %.preheader16
   %24 = phi ptr [ %2, %.preheader16 ], [ %21, %._crit_edge ]
@@ -149,7 +149,7 @@ define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nounde
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #7
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.thread, label %16, !llvm.loop !11
+  br i1 %21, label %.thread, label %16, !llvm.loop !12
 
 22:                                               ; preds = %16
   switch i32 %2, label %39 [
@@ -176,7 +176,7 @@ define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nounde
   %.0 = phi ptr [ %30, %.preheader ], [ %26, %25 ]
   %30 = load ptr, ptr %.0, align 8
   %.not48 = icmp eq ptr %30, %.042
-  br i1 %.not48, label %31, label %.preheader, !llvm.loop !12
+  br i1 %.not48, label %31, label %.preheader, !llvm.loop !13
 
 31:                                               ; preds = %.preheader
   %32 = load ptr, ptr %30, align 8
@@ -257,10 +257,11 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

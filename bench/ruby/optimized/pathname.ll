@@ -953,7 +953,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %17 = call i64 @rb_string_value(ptr noundef nonnull %3) #7
-  %18 = load i64, ptr %12, align 8, !tbaa !10, !noalias !23
+  %18 = load i64, ptr %12, align 8, !tbaa !10, !noalias !24
   %19 = and i64 %18, 8192
   %.not.i.i = icmp eq i64 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -1135,13 +1135,13 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   store i64 %7, ptr %4, align 16, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
+  store ptr %18, ptr %5, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
+  store ptr %20, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %22, ptr %21, align 8, !tbaa !26
+  store ptr %22, ptr %21, align 8, !tbaa !27
   %23 = icmp slt i32 %0, 0
   br i1 %23, label %39, label %.preheader
 
@@ -1150,7 +1150,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %.185.i6 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = icmp slt i32 %.185.i6, %0
   %.not108.i = icmp eq ptr %25, null
   br i1 %26, label %27, label %34
@@ -1179,7 +1179,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 36:                                               ; preds = %35, %34, %32
   %.286.i = phi i32 [ %33, %32 ], [ %.185.i6, %35 ], [ %.185.i6, %34 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !30
 
 37:                                               ; preds = %36
   %38 = icmp eq i32 %.286.i, %0
@@ -1242,13 +1242,13 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   store i64 %7, ptr %4, align 16, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
+  store ptr %18, ptr %5, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
+  store ptr %20, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %22, ptr %21, align 8, !tbaa !26
+  store ptr %22, ptr %21, align 8, !tbaa !27
   %23 = icmp slt i32 %0, 0
   br i1 %23, label %39, label %.preheader
 
@@ -1257,7 +1257,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %.185.i4 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %25, null
   br i1 %26, label %27, label %34
@@ -1286,7 +1286,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 36:                                               ; preds = %35, %34, %32
   %.286.i = phi i32 [ %33, %32 ], [ %.185.i4, %35 ], [ %.185.i4, %34 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !30
 
 37:                                               ; preds = %36
   %38 = icmp eq i32 %.286.i, %0
@@ -1336,10 +1336,10 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   store i64 %7, ptr %4, align 16, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
+  store ptr %18, ptr %5, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
+  store ptr %20, ptr %19, align 8, !tbaa !27
   %21 = icmp slt i32 %0, 0
   br i1 %21, label %37, label %.preheader
 
@@ -1348,7 +1348,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %.185.i4 = phi i32 [ %.286.i, %34 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
   %24 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %23, null
   br i1 %24, label %25, label %32
@@ -1377,7 +1377,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 34:                                               ; preds = %33, %32, %30
   %.286.i = phi i32 [ %31, %30 ], [ %.185.i4, %33 ], [ %.185.i4, %32 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %35, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %35, label %.preheader, !llvm.loop !30
 
 35:                                               ; preds = %34
   %36 = icmp eq i32 %.286.i, %0
@@ -1424,13 +1424,13 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   store i64 %7, ptr %4, align 16, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
+  store ptr %18, ptr %5, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
+  store ptr %20, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %22, ptr %21, align 8, !tbaa !26
+  store ptr %22, ptr %21, align 8, !tbaa !27
   %23 = icmp slt i32 %0, 0
   br i1 %23, label %39, label %.preheader
 
@@ -1439,7 +1439,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %.185.i4 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %25, null
   br i1 %26, label %27, label %34
@@ -1468,7 +1468,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 36:                                               ; preds = %35, %34, %32
   %.286.i = phi i32 [ %33, %32 ], [ %.185.i4, %35 ], [ %.185.i4, %34 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !30
 
 37:                                               ; preds = %36
   %38 = icmp eq i32 %.286.i, %0
@@ -1518,13 +1518,13 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   store i64 %7, ptr %4, align 16, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
+  store ptr %18, ptr %5, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
+  store ptr %20, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %22, ptr %21, align 8, !tbaa !26
+  store ptr %22, ptr %21, align 8, !tbaa !27
   %23 = icmp slt i32 %0, 0
   br i1 %23, label %39, label %.preheader
 
@@ -1533,7 +1533,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %.185.i4 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %25, null
   br i1 %26, label %27, label %34
@@ -1562,7 +1562,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 36:                                               ; preds = %35, %34, %32
   %.286.i = phi i32 [ %33, %32 ], [ %.185.i4, %35 ], [ %.185.i4, %34 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !30
 
 37:                                               ; preds = %36
   %38 = icmp eq i32 %.286.i, %0
@@ -1612,13 +1612,13 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   store i64 %7, ptr %4, align 16, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
+  store ptr %18, ptr %5, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
+  store ptr %20, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %22, ptr %21, align 8, !tbaa !26
+  store ptr %22, ptr %21, align 8, !tbaa !27
   %23 = icmp slt i32 %0, 0
   br i1 %23, label %39, label %.preheader
 
@@ -1627,7 +1627,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %.185.i4 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %25, null
   br i1 %26, label %27, label %34
@@ -1656,7 +1656,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 36:                                               ; preds = %35, %34, %32
   %.286.i = phi i32 [ %33, %32 ], [ %.185.i4, %35 ], [ %.185.i4, %34 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !30
 
 37:                                               ; preds = %36
   %38 = icmp eq i32 %.286.i, %0
@@ -1706,10 +1706,10 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   store i64 %7, ptr %4, align 16, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
+  store ptr %18, ptr %5, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
+  store ptr %20, ptr %19, align 8, !tbaa !27
   %21 = icmp slt i32 %0, 0
   br i1 %21, label %37, label %.preheader
 
@@ -1718,7 +1718,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %.185.i4 = phi i32 [ %.286.i, %34 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
   %24 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %23, null
   br i1 %24, label %25, label %32
@@ -1747,7 +1747,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 34:                                               ; preds = %33, %32, %30
   %.286.i = phi i32 [ %31, %30 ], [ %.185.i4, %33 ], [ %.185.i4, %32 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %35, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %35, label %.preheader, !llvm.loop !30
 
 35:                                               ; preds = %34
   %36 = icmp eq i32 %.286.i, %0
@@ -2140,13 +2140,13 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   store i64 %7, ptr %4, align 16, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
+  store ptr %18, ptr %5, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
+  store ptr %20, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %22, ptr %21, align 8, !tbaa !26
+  store ptr %22, ptr %21, align 8, !tbaa !27
   %23 = icmp slt i32 %0, 0
   br i1 %23, label %39, label %.preheader
 
@@ -2155,7 +2155,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %.185.i6 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = icmp slt i32 %.185.i6, %0
   %.not108.i = icmp eq ptr %25, null
   br i1 %26, label %27, label %34
@@ -2184,7 +2184,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 36:                                               ; preds = %35, %34, %32
   %.286.i = phi i32 [ %33, %32 ], [ %.185.i6, %35 ], [ %.185.i6, %34 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !30
 
 37:                                               ; preds = %36
   %38 = icmp eq i32 %.286.i, %0
@@ -2675,14 +2675,14 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
   %19 = and i64 %17, 7
   %20 = icmp ne i64 %19, 0
   %21 = or i1 %18, %20
-  br i1 %21, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i8, label %rbimpl_RB_TYPE_P_fastpath.exit.i7, !prof !30
+  br i1 %21, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i8, label %rbimpl_RB_TYPE_P_fastpath.exit.i7, !prof !31
 
 rbimpl_RB_TYPE_P_fastpath.exit.i7:                ; preds = %get_strpath.exit
   %22 = inttoptr i64 %17 to ptr
   %23 = load i64, ptr %22, align 8, !tbaa !10
   %24 = and i64 %23, 31
   %25 = icmp eq i64 %24, 7
-  br i1 %25, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i8, !prof !31
+  br i1 %25, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i8, !prof !32
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i8:         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i7, %get_strpath.exit
   tail call void @rb_unexpected_type(i64 noundef %17, i32 noundef 7) #10
@@ -3448,10 +3448,10 @@ define internal i64 @path_s_glob(i32 noundef %0, ptr noundef readonly captures(n
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %8, ptr %7, align 8, !tbaa !26
+  store ptr %8, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %10, ptr %9, align 8, !tbaa !26
+  store ptr %10, ptr %9, align 8, !tbaa !27
   %11 = icmp slt i32 %0, 1
   br i1 %11, label %30, label %.preheader
 
@@ -3466,7 +3466,7 @@ define internal i64 @path_s_glob(i32 noundef %0, ptr noundef readonly captures(n
   %.185.i24 = phi i32 [ 1, %.preheader ], [ %.286.i, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = icmp slt i32 %.185.i24, %0
   %.not108.i = icmp eq ptr %16, null
   br i1 %17, label %18, label %25
@@ -3494,7 +3494,7 @@ define internal i64 @path_s_glob(i32 noundef %0, ptr noundef readonly captures(n
 
 27:                                               ; preds = %26, %25, %23
   %.286.i = phi i32 [ %24, %23 ], [ %.185.i24, %26 ], [ %.185.i24, %25 ]
-  br i1 %14, label %13, label %28, !llvm.loop !29
+  br i1 %14, label %13, label %28, !llvm.loop !30
 
 28:                                               ; preds = %27
   %29 = icmp eq i32 %.286.i, %0
@@ -3563,7 +3563,7 @@ rb_array_const_ptr.exit:                          ; preds = %.thread, %53
   call void @rb_ary_store(i64 noundef %41, i64 noundef %.0, i64 noundef %57) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   %58 = add nuw nsw i64 %.0, 1
-  br label %45, !llvm.loop !32
+  br label %45, !llvm.loop !33
 
 .loopexit:                                        ; preds = %rb_array_len.exit, %rb_array_len.exit.thread, %37
   %.015 = phi i64 [ %38, %37 ], [ %41, %rb_array_len.exit.thread ], [ %41, %rb_array_len.exit ]
@@ -3688,7 +3688,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
   %51 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef 43, i32 noundef 1, i64 noundef %50) #7
   call void @rb_ary_store(i64 noundef %35, i64 noundef %.019, i64 noundef %51) #7
   %52 = add nuw nsw i64 %.019, 1
-  br label %39, !llvm.loop !33
+  br label %39, !llvm.loop !34
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %31
   %.0 = phi i64 [ %32, %31 ], [ %35, %rb_array_len.exit ], [ %35, %rb_array_len.exit.thread ]
@@ -3767,7 +3767,7 @@ rb_array_const_ptr.exit:                          ; preds = %.thread, %30
   call void @rb_ary_store(i64 noundef %18, i64 noundef %.0, i64 noundef %34) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   %35 = add nuw nsw i64 %.0, 1
-  br label %22, !llvm.loop !34
+  br label %22, !llvm.loop !35
 
 36:                                               ; preds = %rb_array_len.exit.thread, %rb_array_len.exit
   ret i64 %18
@@ -4198,17 +4198,18 @@ attributes #10 = { cold noreturn nounwind }
 !18 = distinct !{!18, !19, !"rbimpl_rstring_getmem: argument 0"}
 !19 = distinct !{!19, !"rbimpl_rstring_getmem"}
 !20 = !{!8, !8, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"rbimpl_rstring_getmem: argument 0"}
-!25 = distinct !{!25, !"rbimpl_rstring_getmem"}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 long", !28, i64 0}
-!28 = !{!"any pointer", !8, i64 0}
-!29 = distinct !{!29, !22}
-!30 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!31 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!32 = distinct !{!32, !22}
-!33 = distinct !{!33, !22}
-!34 = distinct !{!34, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"rbimpl_rstring_getmem: argument 0"}
+!26 = distinct !{!26, !"rbimpl_rstring_getmem"}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 long", !29, i64 0}
+!29 = !{!"any pointer", !8, i64 0}
+!30 = distinct !{!30, !22, !23}
+!31 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!32 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!33 = distinct !{!33, !22, !23}
+!34 = distinct !{!34, !22, !23}
+!35 = distinct !{!35, !22, !23}

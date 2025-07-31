@@ -31,8 +31,8 @@ define hidden range(i32 0, 3) i32 @Curl_str_until(ptr noundef captures(none) %0,
 
 13:                                               ; preds = %.critedge
   %14 = load ptr, ptr %0, align 8, !tbaa !3
-  store ptr %14, ptr %1, align 8, !tbaa !11
-  store i64 %.0, ptr %6, align 8, !tbaa !14
+  store ptr %14, ptr %1, align 8, !tbaa !12
+  store i64 %.0, ptr %6, align 8, !tbaa !15
   store ptr %.016, ptr %0, align 8, !tbaa !3
   br label %.loopexit
 
@@ -69,8 +69,8 @@ define hidden range(i32 0, 3) i32 @Curl_str_word(ptr noundef captures(none) %0, 
 
 12:                                               ; preds = %.critedge.i
   %13 = load ptr, ptr %0, align 8, !tbaa !3
-  store ptr %13, ptr %1, align 8, !tbaa !11
-  store i64 %.0.i, ptr %5, align 8, !tbaa !14
+  store ptr %13, ptr %1, align 8, !tbaa !12
+  store i64 %.0.i, ptr %5, align 8, !tbaa !15
   store ptr %.016.i, ptr %0, align 8, !tbaa !3
   br label %Curl_str_until.exit
 
@@ -101,13 +101,13 @@ define hidden range(i32 0, 5) i32 @Curl_str_quotedword(ptr noundef captures(none
 8:                                                ; preds = %.preheader
   %9 = add i64 %.0, 1
   %10 = icmp ugt i64 %9, %2
-  br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !16
 
 11:                                               ; preds = %.preheader
   %12 = load ptr, ptr %0, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store ptr %13, ptr %1, align 8, !tbaa !11
-  store i64 %.0, ptr %5, align 8, !tbaa !14
+  store ptr %13, ptr %1, align 8, !tbaa !12
+  store i64 %.0, ptr %5, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   store ptr %14, ptr %0, align 8, !tbaa !3
   br label %.loopexit
@@ -153,7 +153,7 @@ Curl_str_single.exit:                             ; preds = %1, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 8) i32 @Curl_str_number(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i64 noundef %2) local_unnamed_addr #0 {
-  store i64 0, ptr %1, align 8, !tbaa !16
+  store i64 0, ptr %1, align 8, !tbaa !17
   %.promoted = load ptr, ptr %0, align 8, !tbaa !3
   %4 = load i8, ptr %.promoted, align 1, !tbaa !8
   %5 = add i8 %4, -48
@@ -183,11 +183,11 @@ define hidden range(i32 0, 8) i32 @Curl_str_number(ptr noundef captures(none) %0
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = add i8 %18, -48
   %or.cond = icmp ult i8 %19, 10
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !17
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %16, %3
   %.015.lcssa = phi i64 [ 0, %3 ], [ %14, %16 ]
-  store i64 %.015.lcssa, ptr %1, align 8, !tbaa !16
+  store i64 %.015.lcssa, ptr %1, align 8, !tbaa !17
   br label %.thread
 
 .thread:                                          ; preds = %12, %.lr.ph, %.critedge
@@ -232,12 +232,13 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !4, i64 0}
-!12 = !{!"Curl_str", !4, i64 0, !13, i64 8}
-!13 = !{!"long", !6, i64 0}
-!14 = !{!12, !13, i64 8}
-!15 = distinct !{!15, !10}
-!16 = !{!13, !13, i64 0}
-!17 = distinct !{!17, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !4, i64 0}
+!13 = !{!"Curl_str", !4, i64 0, !14, i64 8}
+!14 = !{!"long", !6, i64 0}
+!15 = !{!13, !14, i64 8}
+!16 = distinct !{!16, !10, !11}
+!17 = !{!14, !14, i64 0}
+!18 = distinct !{!18, !10, !11}

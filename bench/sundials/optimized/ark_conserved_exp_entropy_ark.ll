@@ -432,7 +432,7 @@ check_flag.exit174:                               ; preds = %149, %164
   %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.29, double noundef %176, double noundef %177, double noundef %178, double noundef %153, double noundef %157, double noundef %160, double noundef %154) #8
   %180 = load double, ptr %23, align 8, !tbaa !14
   %181 = fcmp olt double %180, 5.000000e+00
-  br i1 %181, label %143, label %.loopexit
+  br i1 %181, label %143, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %175, %check_flag.exit167.thread, %check_flag.exit170
   %182 = phi ptr [ %80, %check_flag.exit167.thread ], [ %.pre, %check_flag.exit170 ], [ %161, %175 ]
@@ -731,11 +731,11 @@ define dso_local noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr r
   %6 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load double, ptr %7, align 8, !tbaa !14
-  %9 = tail call double @exp(double noundef %8) #8, !tbaa !18
+  %9 = tail call double @exp(double noundef %8) #8, !tbaa !20
   %10 = fneg double %9
   store double %10, ptr %6, align 8, !tbaa !14
   %11 = load double, ptr %5, align 8, !tbaa !14
-  %12 = tail call double @exp(double noundef %11) #8, !tbaa !18
+  %12 = tail call double @exp(double noundef %11) #8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %12, ptr %13, align 8, !tbaa !14
   ret i32 0
@@ -749,10 +749,10 @@ declare i32 @ARKodeSetRelaxFn(ptr noundef, ptr noundef, ptr noundef) local_unnam
 define dso_local noundef i32 @Ent(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #8
   %5 = load double, ptr %4, align 8, !tbaa !14
-  %6 = tail call double @exp(double noundef %5) #8, !tbaa !18
+  %6 = tail call double @exp(double noundef %5) #8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load double, ptr %7, align 8, !tbaa !14
-  %9 = tail call double @exp(double noundef %8) #8, !tbaa !18
+  %9 = tail call double @exp(double noundef %8) #8, !tbaa !20
   %10 = fadd double %6, %9
   store double %10, ptr %1, align 8, !tbaa !14
   ret i32 0
@@ -763,11 +763,11 @@ define dso_local noundef i32 @JacEnt(ptr noundef %0, ptr noundef %1, ptr readnon
   %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #8
   %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #8
   %6 = load double, ptr %4, align 8, !tbaa !14
-  %7 = tail call double @exp(double noundef %6) #8, !tbaa !18
+  %7 = tail call double @exp(double noundef %6) #8, !tbaa !20
   store double %7, ptr %5, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !14
-  %10 = tail call double @exp(double noundef %9) #8, !tbaa !18
+  %10 = tail call double @exp(double noundef %9) #8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %10, ptr %11, align 8, !tbaa !14
   ret i32 0
@@ -787,12 +787,12 @@ define dso_local noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone captur
   %10 = tail call ptr @SUNDenseMatrix_Data(ptr noundef %3) #8
   store double 0.000000e+00, ptr %10, align 8, !tbaa !14
   %11 = load double, ptr %9, align 8, !tbaa !14
-  %12 = tail call double @exp(double noundef %11) #8, !tbaa !18
+  %12 = tail call double @exp(double noundef %11) #8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %12, ptr %13, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load double, ptr %14, align 8, !tbaa !14
-  %16 = tail call double @exp(double noundef %15) #8, !tbaa !18
+  %16 = tail call double @exp(double noundef %15) #8, !tbaa !20
   %17 = fneg double %16
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double %17, ptr %18, align 8, !tbaa !14
@@ -819,15 +819,15 @@ declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef,
 define dso_local noundef i32 @ans(double noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #8
   %4 = fmul double %0, 0x401177CFA911AD5C
-  %5 = tail call double @exp(double noundef %4) #8, !tbaa !18
+  %5 = tail call double @exp(double noundef %4) #8, !tbaa !20
   %6 = fadd double %5, 0x3FFA61298E1E069C
-  %7 = tail call double @log(double noundef %6) #8, !tbaa !18
+  %7 = tail call double @log(double noundef %6) #8, !tbaa !20
   %8 = fsub double 0x3FFF95D1BF6D7019, %7
   store double %8, ptr %3, align 8, !tbaa !14
-  %9 = tail call double @exp(double noundef %4) #8, !tbaa !18
+  %9 = tail call double @exp(double noundef %4) #8, !tbaa !20
   %10 = fmul double %9, 0x401177CFA911AD5C
-  %11 = tail call double @log(double noundef %10) #8, !tbaa !18
-  %12 = tail call double @log(double noundef %6) #8, !tbaa !18
+  %11 = tail call double @log(double noundef %10) #8, !tbaa !20
+  %12 = tail call double @log(double noundef %6) #8, !tbaa !20
   %13 = fsub double %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %13, ptr %14, align 8, !tbaa !14
@@ -934,5 +934,7 @@ attributes #9 = { cold nounwind }
 !15 = !{!"double", !7, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !7, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !7, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !7, i64 0}

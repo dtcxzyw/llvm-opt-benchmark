@@ -102,7 +102,7 @@ _ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit: ; pred
   %.not = icmp eq i32 %.neg, %43
   %44 = trunc nuw nsw i128 %sum.shift.i to i64
   %45 = add nuw nsw i32 %.sroa.8.0, 1
-  br i1 %.not, label %38, label %.thread46
+  br i1 %.not, label %38, label %.thread46, !llvm.loop !7
 
 46:                                               ; preds = %.thread, %32
   %47 = tail call { i64, i32 } @_ZNSt3__15__d2dB8ne210000Emj(i64 noundef %21, i32 noundef %23)
@@ -162,14 +162,14 @@ define linkonce_odr hidden { i64, i32 } @_ZNSt3__15__d2dB8ne210000Emj(i64 nounde
   %23 = getelementptr inbounds nuw [292 x [2 x i64]], ptr @_ZNSt3__123__DOUBLE_POW5_INV_SPLITE, i64 0, i64 %22
   %24 = or disjoint i64 %8, 2
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !7
+  %26 = load i64, ptr %25, align 8, !tbaa !9
   %27 = zext i64 %24 to i128
   %28 = zext i64 %26 to i128
   %29 = mul nuw i128 %28, %27
   %30 = lshr i128 %29, 64
   %31 = trunc nuw i128 %30 to i64
   %32 = trunc i128 %29 to i64
-  %33 = load i64, ptr %23, align 16, !tbaa !7
+  %33 = load i64, ptr %23, align 16, !tbaa !9
   %34 = zext i64 %33 to i128
   %35 = mul nuw i128 %34, %27
   %36 = lshr i128 %35, 64
@@ -251,7 +251,7 @@ define linkonce_odr hidden { i64, i32 } @_ZNSt3__15__d2dB8ne210000Emj(i64 nounde
   %98 = sub i32 0, %96
   %.not.i.i = icmp eq i32 %.neg.i.i, %98
   %99 = add i32 %.09.i.i, 1
-  br i1 %.not.i.i, label %.preheader291, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit
+  br i1 %.not.i.i, label %.preheader291, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit, !llvm.loop !11
 
 _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit: ; preds = %.preheader291
   %100 = icmp uge i32 %.09.i.i, %17
@@ -279,7 +279,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit: ; preds = %.preheader291
   %111 = sub i32 0, %109
   %.not.i.i197 = icmp eq i32 %.neg.i.i196, %111
   %112 = add i32 %.09.i.i193, 1
-  br i1 %.not.i.i197, label %105, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit198
+  br i1 %.not.i.i197, label %105, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit198, !llvm.loop !11
 
 _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit198: ; preds = %105
   %113 = icmp uge i32 %.09.i.i193, %17
@@ -298,7 +298,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit198: ; preds = %105
   %119 = sub i32 0, %117
   %.not.i.i203 = icmp eq i32 %.neg.i.i202, %119
   %120 = add i32 %.09.i.i199, 1
-  br i1 %.not.i.i203, label %.preheader292, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204
+  br i1 %.not.i.i203, label %.preheader292, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204, !llvm.loop !11
 
 _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204: ; preds = %.preheader292
   %121 = icmp uge i32 %.09.i.i199, %17
@@ -322,14 +322,14 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204: ; preds = %.preheader292
   %134 = getelementptr inbounds [326 x [2 x i64]], ptr @_ZNSt3__119__DOUBLE_POW5_SPLITE, i64 0, i64 %133
   %135 = or disjoint i64 %8, 2
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %137 = load i64, ptr %136, align 8, !tbaa !7
+  %137 = load i64, ptr %136, align 8, !tbaa !9
   %138 = zext i64 %135 to i128
   %139 = zext i64 %137 to i128
   %140 = mul nuw i128 %139, %138
   %141 = lshr i128 %140, 64
   %142 = trunc nuw i128 %141 to i64
   %143 = trunc i128 %140 to i64
-  %144 = load i64, ptr %134, align 16, !tbaa !7
+  %144 = load i64, ptr %134, align 16, !tbaa !9
   %145 = zext i64 %144 to i128
   %146 = mul nuw i128 %145, %138
   %147 = lshr i128 %146, 64
@@ -476,7 +476,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204: ; preds = %.preheader292
   %235 = trunc nuw nsw i128 %sum.shift.i209 to i64
   %.not181 = icmp samesign ugt i64 %232, %235
   %extract.t = trunc i128 %sum.shift.i209 to i32
-  br i1 %.not181, label %.lr.ph, label %._crit_edge
+  br i1 %.not181, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader290
   %.1234.lcssa = phi i64 [ %.0233362, %.preheader290 ], [ %215, %.lr.ph ]
@@ -528,7 +528,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204: ; preds = %.preheader292
   %254 = sub i32 0, %252
   %.not185 = icmp eq i32 %.neg184, %254
   %extract.t340 = trunc nuw nsw i128 %sum.shift.i211 to i64
-  br i1 %.not185, label %.lr.ph318, label %.thread266
+  br i1 %.not185, label %.lr.ph318, label %.thread266, !llvm.loop !13
 
 .thread266:                                       ; preds = %.lr.ph318, %.preheader, %._crit_edge
   %.3236 = phi i64 [ %.1234.lcssa, %._crit_edge ], [ %.1234.lcssa, %.preheader ], [ %sum.shift.i211317.off0, %.lr.ph318 ]
@@ -617,7 +617,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit204: ; preds = %.preheader292
   %sum.shift.i218 = lshr i128 %300, 67
   %301 = trunc nuw nsw i128 %sum.shift.i218 to i64
   %.not = icmp samesign ugt i64 %298, %301
-  br i1 %.not, label %.lr.ph330, label %._crit_edge331
+  br i1 %.not, label %.lr.ph330, label %._crit_edge331, !llvm.loop !14
 
 ._crit_edge331:                                   ; preds = %.lr.ph330
   %302 = trunc i64 %.7328 to i32
@@ -809,7 +809,7 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   %82 = lshr i64 %2, %.0248
   %83 = zext nneg i32 %3 to i64
   %84 = getelementptr inbounds nuw [23 x i64], ptr @_ZZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_64ENS_12chars_formatEdE21_Max_shifted_mantissa, i64 0, i64 %83
-  %85 = load i64, ptr %84, align 8, !tbaa !7
+  %85 = load i64, ptr %84, align 8, !tbaa !9
   %.not287 = icmp ugt i64 %82, %85
   br i1 %.not287, label %.thread256, label %.thread260
 
@@ -900,7 +900,7 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   %140 = load i16, ptr %139, align 2
   store i16 %140, ptr %137, align 1
   %141 = icmp ugt i32 %.0217288, 99999999
-  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %124
   %.0217.lcssa = phi i32 [ %125, %124 ], [ %127, %.lr.ph ]
@@ -1085,7 +1085,7 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   store i16 %254, ptr %251, align 1
   %255 = add i32 %.1220291, 4
   %256 = icmp ugt i32 %.0209292, 99999999
-  br i1 %256, label %237, label %._crit_edge295, !llvm.loop !11
+  br i1 %256, label %237, label %._crit_edge295, !llvm.loop !17
 
 ._crit_edge295:                                   ; preds = %237, %232
   %.1220.lcssa = phi i32 [ %.0219, %232 ], [ %255, %237 ]
@@ -1237,8 +1237,14 @@ attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"long", !5, i64 0}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !16, !8}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !16, !8}

@@ -120,14 +120,14 @@ define ptr @Kit_GraphToAig(ptr noundef %0, ptr noundef readonly captures(none) %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.val = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !31
+  %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val, i64 %indvars.iv, i32 2
   store ptr %10, ptr %11, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %4, align 4, !tbaa !25
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %8, label %.critedge, !llvm.loop !32
+  br i1 %14, label %8, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %8, %3
   %.lcssa9 = phi i32 [ %5, %3 ], [ %12, %8 ]
@@ -232,7 +232,7 @@ define ptr @Kit_TruthToAig(ptr noundef %0, ptr noundef readonly captures(none) %
   %calloc.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %8 = tail call ptr @Kit_TruthToGraph(ptr noundef %2, i32 noundef %3, ptr noundef %calloc.i) #5
   %9 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %11
 
@@ -306,9 +306,10 @@ attributes #5 = { nounwind }
 !26 = !{!4, !5, i64 8}
 !27 = !{!4, !8, i64 16}
 !28 = !{!6, !6, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!15, !15, i64 0}
-!32 = distinct !{!32, !30}
-!33 = !{!34, !18, i64 8}
-!34 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !18, i64 8}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!15, !15, i64 0}
+!33 = distinct !{!33, !30, !31}
+!34 = !{!35, !18, i64 8}
+!35 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !18, i64 8}

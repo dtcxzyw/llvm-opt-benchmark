@@ -260,7 +260,7 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   br i1 %73, label %decode_buffer.exit, label %.backedge
 
 .backedge:                                        ; preds = %71, %65
-  br label %37
+  br label %37, !llvm.loop !50
 
 74:                                               ; preds = %.lr.ph, %139
   %75 = phi i64 [ %.promoted, %.lr.ph ], [ %123, %139 ]
@@ -269,15 +269,15 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   br i1 %77, label %90, label %78
 
 78:                                               ; preds = %74
-  %79 = load i64, ptr %16, align 8, !tbaa !50
-  %80 = load i64, ptr %17, align 8, !tbaa !51
+  %79 = load i64, ptr %16, align 8, !tbaa !52
+  %80 = load i64, ptr %17, align 8, !tbaa !53
   %81 = icmp eq i64 %79, %80
   br i1 %81, label %82, label %90
 
 82:                                               ; preds = %78
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %83 = load ptr, ptr %11, align 8, !tbaa !35
-  %84 = load ptr, ptr %10, align 8, !tbaa !52
+  %84 = load ptr, ptr %10, align 8, !tbaa !54
   %85 = tail call i32 %83(ptr noundef %84, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %18, ptr noundef nonnull %17, i64 noundef 4096, i32 noundef %8) #8
   switch i32 %85, label %decode_buffer.exit [
     i32 1, label %86
@@ -289,14 +289,14 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   br label %90
 
 87:                                               ; preds = %82
-  %88 = load i64, ptr %17, align 8, !tbaa !51
+  %88 = load i64, ptr %17, align 8, !tbaa !53
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %decode_buffer.exit, label %90
 
 90:                                               ; preds = %87, %86, %78, %74
   %91 = load i8, ptr %19, align 1, !tbaa !34, !range !48, !noundef !49
   %92 = trunc nuw i8 %91 to i1
-  %93 = load i64, ptr %17, align 8, !tbaa !51
+  %93 = load i64, ptr %17, align 8, !tbaa !53
   br i1 %92, label %94, label %97
 
 94:                                               ; preds = %90
@@ -309,25 +309,25 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   br label %decode_buffer.exit
 
 97:                                               ; preds = %90
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   br label %98
 
 98:                                               ; preds = %.backedge105, %97
   %99 = phi i64 [ %75, %97 ], [ %123, %.backedge105 ]
-  %100 = load i64, ptr %20, align 8, !tbaa !27, !noalias !56
-  %101 = load i64, ptr %21, align 8, !tbaa !19, !noalias !56
+  %100 = load i64, ptr %20, align 8, !tbaa !27, !noalias !58
+  %101 = load i64, ptr %21, align 8, !tbaa !19, !noalias !58
   %102 = icmp eq i64 %100, %101
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %98
-  store i64 288, ptr %20, align 8, !tbaa !27, !noalias !56
-  store i8 1, ptr %25, align 8, !tbaa !30, !noalias !56
-  %104 = load ptr, ptr %0, align 8, !tbaa !12, !noalias !56
+  store i64 288, ptr %20, align 8, !tbaa !27, !noalias !58
+  store i8 1, ptr %25, align 8, !tbaa !30, !noalias !58
+  %104 = load ptr, ptr %0, align 8, !tbaa !12, !noalias !58
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 %100
   %106 = getelementptr inbounds i8, ptr %105, i64 -288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(288) %104, ptr noundef nonnull align 1 dereferenceable(288) %106, i64 288, i1 false), !noalias !60
-  %.pre.i65 = load i64, ptr %20, align 8, !tbaa !27, !noalias !56
-  %.pre58.i66 = load i64, ptr %21, align 8, !tbaa !19, !noalias !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(288) %104, ptr noundef nonnull align 1 dereferenceable(288) %106, i64 288, i1 false), !noalias !62
+  %.pre.i65 = load i64, ptr %20, align 8, !tbaa !27, !noalias !58
+  %.pre58.i66 = load i64, ptr %21, align 8, !tbaa !19, !noalias !58
   br label %107
 
 107:                                              ; preds = %103, %98
@@ -337,37 +337,37 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   %111 = sub i64 %108, %109
   %..i58 = tail call i64 @llvm.umin.i64(i64 %110, i64 %111)
   %112 = add i64 %..i58, %109
-  store i64 %112, ptr %22, align 8, !tbaa !45, !noalias !56
-  %113 = load ptr, ptr %24, align 8, !tbaa !46, !noalias !56
-  %114 = load ptr, ptr %23, align 8, !tbaa !47, !noalias !56
-  %115 = tail call i32 %113(ptr noundef %114, ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %16, i64 noundef %93) #8, !noalias !60
-  %116 = load i64, ptr %20, align 8, !tbaa !27, !noalias !56
+  store i64 %112, ptr %22, align 8, !tbaa !45, !noalias !58
+  %113 = load ptr, ptr %24, align 8, !tbaa !46, !noalias !58
+  %114 = load ptr, ptr %23, align 8, !tbaa !47, !noalias !58
+  %115 = tail call i32 %113(ptr noundef %114, ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %16, i64 noundef %93) #8, !noalias !62
+  %116 = load i64, ptr %20, align 8, !tbaa !27, !noalias !58
   %117 = sub i64 %116, %109
   %.not.i59 = icmp eq i64 %116, %109
   br i1 %.not.i59, label %122, label %118
 
 118:                                              ; preds = %107
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 %99
-  %120 = load ptr, ptr %0, align 8, !tbaa !12, !noalias !56
+  %120 = load ptr, ptr %0, align 8, !tbaa !12, !noalias !58
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %109
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %119, ptr align 1 %121, i64 %117, i1 false), !noalias !53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %119, ptr align 1 %121, i64 %117, i1 false), !noalias !55
   br label %122
 
 122:                                              ; preds = %118, %107
   %123 = add i64 %117, %99
-  store i64 %123, ptr %6, align 8, !tbaa !21, !alias.scope !53, !noalias !61
-  %124 = load i8, ptr %26, align 1, !tbaa !31, !range !48, !noalias !56, !noundef !49
+  store i64 %123, ptr %6, align 8, !tbaa !21, !alias.scope !55, !noalias !63
+  %124 = load i8, ptr %26, align 1, !tbaa !31, !range !48, !noalias !58, !noundef !49
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %126, label %130
 
 126:                                              ; preds = %122
-  store i64 576, ptr %20, align 8, !tbaa !27, !noalias !56
-  store i64 0, ptr %27, align 8, !tbaa !28, !noalias !56
-  %127 = load ptr, ptr %0, align 8, !tbaa !12, !noalias !56
+  store i64 576, ptr %20, align 8, !tbaa !27, !noalias !58
+  store i64 0, ptr %27, align 8, !tbaa !28, !noalias !58
+  %127 = load ptr, ptr %0, align 8, !tbaa !12, !noalias !58
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 575
-  store i8 0, ptr %128, align 1, !tbaa !29, !noalias !60
-  store i8 0, ptr %25, align 8, !tbaa !30, !noalias !56
-  store i8 0, ptr %26, align 1, !tbaa !31, !noalias !56
+  store i8 0, ptr %128, align 1, !tbaa !29, !noalias !62
+  store i8 0, ptr %25, align 8, !tbaa !30, !noalias !58
+  store i8 0, ptr %26, align 1, !tbaa !31, !noalias !58
   %.not52.i63 = icmp ne i32 %115, 0
   %129 = icmp eq i64 %123, %7
   %or.cond57.i64 = select i1 %.not52.i63, i1 true, i1 %129
@@ -380,12 +380,12 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   br i1 %or.cond.i61, label %decode_buffer.exit67, label %132
 
 132:                                              ; preds = %130
-  %133 = load i64, ptr %21, align 8, !tbaa !19, !noalias !56
+  %133 = load i64, ptr %21, align 8, !tbaa !19, !noalias !58
   %134 = icmp ult i64 %116, %133
   br i1 %134, label %decode_buffer.exit67.thread, label %.backedge105
 
 .backedge105:                                     ; preds = %132, %126
-  br label %98
+  br label %98, !llvm.loop !50
 
 decode_buffer.exit67:                             ; preds = %126, %130
   switch i32 %115, label %decode_buffer.exit [
@@ -406,7 +406,7 @@ decode_buffer.exit67.thread:                      ; preds = %132, %decode_buffer
 
 139:                                              ; preds = %135, %decode_buffer.exit67.thread
   %140 = icmp ult i64 %123, %7
-  br i1 %140, label %74, label %decode_buffer.exit, !llvm.loop !62
+  br i1 %140, label %74, label %decode_buffer.exit, !llvm.loop !64
 
 decode_buffer.exit:                               ; preds = %139, %82, %87, %decode_buffer.exit67, %decode_buffer.exit67.thread, %71, %69, %65, %.preheader, %95, %94
   %.0 = phi i32 [ 9, %94 ], [ %., %95 ], [ 0, %.preheader ], [ %54, %69 ], [ 0, %71 ], [ %54, %65 ], [ 0, %139 ], [ %85, %82 ], [ 0, %87 ], [ %115, %decode_buffer.exit67 ], [ 9, %decode_buffer.exit67.thread ]
@@ -421,7 +421,7 @@ define internal void @lz_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
   tail call void @lzma_free(ptr noundef %4, ptr noundef %1) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load ptr, ptr %6, align 8, !tbaa !64
+  %7 = load ptr, ptr %6, align 8, !tbaa !66
   %.not = icmp eq ptr %7, null
   %8 = load ptr, ptr %5, align 8, !tbaa !47
   br i1 %.not, label %10, label %9
@@ -528,18 +528,20 @@ attributes #8 = { nounwind }
 !47 = !{!13, !6, i64 48}
 !48 = !{i8 0, i8 2}
 !49 = !{}
-!50 = !{!13, !9, i64 176}
-!51 = !{!13, !9, i64 184}
-!52 = !{!13, !6, i64 88}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"decode_buffer: argument 3"}
-!55 = distinct !{!55, !"decode_buffer"}
-!56 = !{!57, !58, !59, !54}
-!57 = distinct !{!57, !55, !"decode_buffer: argument 0"}
-!58 = distinct !{!58, !55, !"decode_buffer: argument 1"}
-!59 = distinct !{!59, !55, !"decode_buffer: argument 2"}
-!60 = !{!59, !54}
-!61 = !{!57, !58, !59}
-!62 = distinct !{!62, !63}
-!63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!13, !6, i64 80}
+!50 = distinct !{!50, !51}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = !{!13, !9, i64 176}
+!53 = !{!13, !9, i64 184}
+!54 = !{!13, !6, i64 88}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"decode_buffer: argument 3"}
+!57 = distinct !{!57, !"decode_buffer"}
+!58 = !{!59, !60, !61, !56}
+!59 = distinct !{!59, !57, !"decode_buffer: argument 0"}
+!60 = distinct !{!60, !57, !"decode_buffer: argument 1"}
+!61 = distinct !{!61, !57, !"decode_buffer: argument 2"}
+!62 = !{!61, !56}
+!63 = !{!59, !60, !61}
+!64 = distinct !{!64, !65, !51}
+!65 = !{!"llvm.loop.mustprogress"}
+!66 = !{!13, !6, i64 80}

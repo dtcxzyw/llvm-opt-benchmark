@@ -302,7 +302,7 @@ define dso_local noundef range(i64 0, -1) i64 @hex_encode(ptr noundef readonly c
   %10 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %11 = getelementptr inbounds nuw i8, ptr %.0910, i64 2
   %12 = icmp ult ptr %10, %4
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %13 = shl i64 %1, 1
@@ -339,7 +339,7 @@ define dso_local i64 @hex_decode_safe(ptr noundef %0, i64 noundef %1, ptr nounde
 8:                                                ; preds = %6, %6, %6, %6
   %9 = getelementptr inbounds nuw i8, ptr %.03351, i64 1
   %10 = icmp ult ptr %9, %5
-  br i1 %10, label %6, label %.outer._crit_edge, !llvm.loop !7
+  br i1 %10, label %6, label %.outer._crit_edge, !llvm.loop !8
 
 11:                                               ; preds = %6
   %12 = icmp ult i8 %7, 127
@@ -408,7 +408,7 @@ get_hex.exit39.thread:                            ; preds = %29, %get_hex.exit39
   %43 = getelementptr inbounds nuw i8, ptr %.034.ph53, i64 1
   store i8 %42, ptr %.034.ph53, align 1
   %44 = icmp ult ptr %40, %5
-  br i1 %44, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !7
+  br i1 %44, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !8
 
 .outer._crit_edge:                                ; preds = %.outer, %8, %4
   %.034.ph.lcssa50 = phi ptr [ %2, %4 ], [ %.034.ph53, %8 ], [ %43, %.outer ]
@@ -531,7 +531,7 @@ define internal i64 @pg_base64_encode(ptr noundef readonly captures(address) %0,
   %.141 = phi ptr [ %40, %38 ], [ %.04044, %37 ]
   %.2 = phi ptr [ %39, %38 ], [ %.138, %37 ]
   %42 = icmp ult ptr %12, %4
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %41
   %.not = icmp eq i32 %.136, 2
@@ -606,7 +606,7 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
 
 .backedge:                                        ; preds = %5, %5, %5, %5
   %8 = icmp ult ptr %6, %4
-  br i1 %8, label %5, label %.outer._crit_edge
+  br i1 %8, label %5, label %.outer._crit_edge, !llvm.loop !10
 
 9:                                                ; preds = %5
   %.not64 = icmp eq i32 %.0.ph100, 0
@@ -700,7 +700,7 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   %.155 = phi i32 [ %37, %35 ], [ 0, %49 ], [ %11, %.thread71 ], [ 0, %44 ], [ 0, %.thread81 ], [ 0, %40 ]
   %.153 = phi i32 [ %38, %35 ], [ 0, %49 ], [ 3, %.thread71 ], [ 0, %44 ], [ 0, %.thread81 ], [ 0, %40 ]
   %52 = icmp ult ptr %6, %4
-  br i1 %52, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
+  br i1 %52, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !10
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
   %.059.ph.lcssa91 = phi ptr [ %.059.ph96, %.backedge ], [ %.160, %.outer ]
@@ -742,7 +742,7 @@ define internal i64 @esc_enc_len(ptr noundef readonly captures(address) %0, i64 
   %6 = add i64 %.014, %.sink
   %7 = getelementptr inbounds nuw i8, ptr %.01113, i64 1
   %8 = icmp ult ptr %7, %3
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %6, %.lr.ph ]
@@ -810,7 +810,7 @@ define internal i64 @esc_dec_len(ptr noundef readonly captures(address) %0, i64 
   %30 = getelementptr inbounds nuw i8, ptr %.02030, i64 %.sink
   %31 = add i64 %.031, 1
   %32 = icmp ult ptr %30, %3
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %29, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %31, %29 ]
@@ -871,7 +871,7 @@ define internal i64 @esc_encode(ptr noundef readonly captures(address) %0, i64 n
   %26 = add i64 %.02631, %.sink
   %27 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   %28 = icmp ult ptr %27, %4
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %25, %3
   %.026.lcssa = phi i64 [ 0, %3 ], [ %26, %25 ]
@@ -961,7 +961,7 @@ define internal i64 @esc_decode(ptr noundef readonly captures(address) %0, i64 n
   %.133 = getelementptr inbounds nuw i8, ptr %.03245, i64 1
   %42 = add i64 %.03146, 1
   %43 = icmp ult ptr %.1, %4
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %41, %3
   %.031.lcssa = phi i64 [ 0, %3 ], [ %42, %41 ]
@@ -989,13 +989,14 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

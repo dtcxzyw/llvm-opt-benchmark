@@ -143,7 +143,7 @@ _ZN4YAML15ostream_wrapper10update_posEc.exit:     ; preds = %37, %45
   %48 = phi i64 [ %43, %37 ], [ 0, %45 ]
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 1
   %.not19 = icmp eq ptr %49, %32
-  br i1 %.not19, label %._crit_edge, label %37
+  br i1 %.not19, label %._crit_edge, label %37, !llvm.loop !29
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
@@ -356,7 +356,7 @@ _ZN4YAML15ostream_wrapper10update_posEc.exit:     ; preds = %25, %34
   %37 = phi i64 [ %32, %25 ], [ 0, %34 ]
   %38 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %38, %2
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !31
 }
 
 ; Function Attrs: noreturn
@@ -428,4 +428,6 @@ attributes #14 = { noreturn }
 !27 = !{!12, !17, i64 40}
 !28 = !{!12, !18, i64 56}
 !29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.mustprogress"}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !32, !30}
+!32 = !{!"llvm.loop.mustprogress"}

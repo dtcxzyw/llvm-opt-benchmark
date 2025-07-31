@@ -67,7 +67,7 @@ define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr noundef writeonly captures(no
   %.036 = phi i32 [ %34, %25 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  store ptr %.040, ptr %5, align 8, !tbaa !8
+  store ptr %.040, ptr %5, align 8, !tbaa !9
   %6 = load i8, ptr %.040, align 1, !tbaa !3
   %7 = icmp eq i8 %6, 33
   %spec.select.idx = zext i1 %7 to i64
@@ -94,7 +94,7 @@ define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr noundef writeonly captures(no
   %14 = add i8 %.pr, -65
   %or.cond53 = icmp ult i8 %14, 6
   %or.cond55 = or i1 %or.cond52, %or.cond53
-  br i1 %or.cond55, label %.critedge, label %.critedge2, !llvm.loop !11
+  br i1 %or.cond55, label %.critedge, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %.critedge, %.preheader56
   %.lcssa = phi i8 [ %8, %.preheader56 ], [ %.pr, %.critedge ]
@@ -153,7 +153,7 @@ Io_ReadDsdFindEnd.exit:                           ; preds = %20, %4
   %34 = or i32 %.036, %33
   %35 = getelementptr inbounds nuw i8, ptr %.1.pn, i64 2
   store i8 0, ptr %.2, align 1, !tbaa !3
-  br label %4
+  br label %4, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %Io_ReadDsdFindEnd.exit, %.critedge2, %.preheader
   %str.2.sink = phi ptr [ @str, %.preheader ], [ @str.1, %.critedge2 ], [ @str.2, %Io_ReadDsdFindEnd.exit ]
@@ -172,7 +172,7 @@ Io_ReadDsdFindEnd.exit:                           ; preds = %20, %4
 
 40:                                               ; preds = %.loopexit
   %41 = trunc i64 %indvars.iv.next to i32
-  store i32 %.037, ptr %2, align 4, !tbaa !12
+  store i32 %.037, ptr %2, align 4, !tbaa !14
   br label %42
 
 42:                                               ; preds = %40, %39
@@ -235,7 +235,7 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
   %22 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !8
+  %23 = load ptr, ptr %22, align 8, !tbaa !9
   %24 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %23, ptr noundef null)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit79, label %26
@@ -244,12 +244,12 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   tail call void @Abc_ObjAddFanin(ptr noundef %20, ptr noundef nonnull %24) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %31
   %indvars.iv95 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next96, %31 ]
   %27 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %indvars.iv95
-  %28 = load ptr, ptr %27, align 8, !tbaa !8
+  %28 = load ptr, ptr %27, align 8, !tbaa !9
   %29 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %28, ptr noundef null)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit79, label %31
@@ -258,24 +258,24 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   tail call void @Abc_ObjAddFanin(ptr noundef %20, ptr noundef nonnull %29) #10
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph85, !llvm.loop !15
+  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph85, !llvm.loop !17
 
 .loopexit:                                        ; preds = %26, %31
   br i1 %.not73, label %.loopexit.thread, label %.loopexit.thread100
 
 .loopexit.thread100:                              ; preds = %.preheader80, %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = tail call ptr @Abc_SopRegister(ptr noundef %33, ptr noundef nonnull %2) #10
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr %34, ptr %35, align 8, !tbaa !3
   br label %.loopexit79
 
 .loopexit.thread:                                 ; preds = %.preheader78, %.loopexit
-  %36 = load i32, ptr %5, align 4, !tbaa !12
+  %36 = load i32, ptr %5, align 4, !tbaa !14
   %.not74 = icmp eq i32 %36, 0
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %38 = load ptr, ptr %37, align 8, !tbaa !16
+  %38 = load ptr, ptr %37, align 8, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 56
   br i1 %.not74, label %42, label %40
 
@@ -304,12 +304,12 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 
 48:                                               ; preds = %44
   %49 = getelementptr i8, ptr %0, i64 40
-  %.val = load ptr, ptr %49, align 8, !tbaa !32
+  %.val = load ptr, ptr %49, align 8, !tbaa !34
   %50 = getelementptr i8, ptr %.val, i64 8
-  %.val.val = load ptr, ptr %50, align 8, !tbaa !33
+  %.val.val = load ptr, ptr %50, align 8, !tbaa !35
   %51 = zext nneg i8 %45 to i64
   %52 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !35
+  %53 = load ptr, ptr %52, align 8, !tbaa !37
   br label %.loopexit79
 
 .critedge:                                        ; preds = %.preheader, %.critedge
@@ -321,7 +321,7 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %56 = add i8 %.pr, -65
   %or.cond76 = icmp ult i8 %56, 6
   %or.cond77 = or i1 %or.cond75, %or.cond76
-  br i1 %or.cond77, label %.critedge, label %.critedge2, !llvm.loop !36
+  br i1 %or.cond77, label %.critedge, label %.critedge2, !llvm.loop !38
 
 .critedge2:                                       ; preds = %.critedge, %.preheader
   %.lcssa = phi i8 [ %6, %.preheader ], [ %.pr, %.critedge ]
@@ -390,7 +390,7 @@ define ptr @Io_ReadDsd(ptr noundef readonly captures(none) %0) local_unnamed_add
   %7 = getelementptr inbounds nuw i8, ptr %.04861, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %9 = add nuw nsw i32 %.1, 1
@@ -401,7 +401,7 @@ define ptr @Io_ReadDsd(ptr noundef readonly captures(none) %0) local_unnamed_add
   %10 = tail call ptr @Abc_NtkAlloc(i32 noundef 2, i32 noundef 1, i32 noundef 1) #10
   %11 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.5) #10
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !38
+  store ptr %11, ptr %12, align 8, !tbaa !40
   %13 = tail call ptr @Abc_NodeGetFakeNames(i32 noundef %.0.lcssa) #10
   %14 = getelementptr i8, ptr %13, i64 8
   %wide.trip.count = zext nneg i32 %.0.lcssa to i64
@@ -410,13 +410,13 @@ define ptr @Io_ReadDsd(ptr noundef readonly captures(none) %0) local_unnamed_add
 15:                                               ; preds = %.lr.ph66, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next, %15 ]
   %16 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %10, i32 noundef 2) #10
-  %.val = load ptr, ptr %14, align 8, !tbaa !33
+  %.val = load ptr, ptr %14, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !37
   %19 = tail call ptr @Abc_ObjAssignName(ptr noundef %16, ptr noundef %18, ptr noundef null) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %15, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge67, label %15, !llvm.loop !41
 
 ._crit_edge67:                                    ; preds = %15
   tail call void @Abc_NodeFreeNames(ptr noundef nonnull %13) #10
@@ -467,7 +467,7 @@ define ptr @Io_ReadDsd(ptr noundef readonly captures(none) %0) local_unnamed_add
 36:                                               ; preds = %28, %32, %35, %30
   %.2 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %34, %32 ], [ %27, %35 ]
   %37 = getelementptr inbounds nuw i8, ptr %.051, i64 1
-  br label %25, !llvm.loop !40
+  br label %25, !llvm.loop !42
 
 38:                                               ; preds = %25
   store i8 41, ptr %.149, align 1, !tbaa !3
@@ -486,7 +486,7 @@ define ptr @Io_ReadDsd(ptr noundef readonly captures(none) %0) local_unnamed_add
   br i1 %.not59, label %45, label %48
 
 45:                                               ; preds = %41
-  %46 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %46 = load ptr, ptr @stdout, align 8, !tbaa !43
   %47 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 40, i64 1, ptr %46)
   tail call void @Abc_NtkDelete(ptr noundef nonnull %10) #10
   br label %48
@@ -544,40 +544,42 @@ attributes #12 = { nounwind allocsize(0) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"p1 omnipotent char", !10, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
-!11 = distinct !{!11, !7}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !4, i64 0}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = !{!17, !10, i64 256}
-!17 = !{!"Abc_Ntk_t_", !13, i64 0, !13, i64 4, !9, i64 8, !9, i64 16, !18, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !19, i64 88, !4, i64 96, !13, i64 140, !13, i64 144, !13, i64 148, !13, i64 152, !20, i64 160, !13, i64 168, !21, i64 176, !20, i64 184, !13, i64 192, !13, i64 196, !13, i64 200, !22, i64 208, !13, i64 216, !23, i64 224, !25, i64 240, !26, i64 248, !10, i64 256, !27, i64 264, !10, i64 272, !28, i64 280, !13, i64 284, !29, i64 288, !19, i64 296, !24, i64 304, !30, i64 312, !19, i64 320, !20, i64 328, !10, i64 336, !10, i64 344, !20, i64 352, !10, i64 360, !10, i64 368, !29, i64 376, !29, i64 384, !9, i64 392, !31, i64 400, !19, i64 408, !29, i64 416, !29, i64 424, !19, i64 432, !29, i64 440, !29, i64 448, !29, i64 456}
-!18 = !{!"p1 _ZTS9Nm_Man_t_", !10, i64 0}
-!19 = !{!"p1 _ZTS10Vec_Ptr_t_", !10, i64 0}
-!20 = !{!"p1 _ZTS10Abc_Ntk_t_", !10, i64 0}
-!21 = !{!"p1 _ZTS10Abc_Des_t_", !10, i64 0}
-!22 = !{!"double", !4, i64 0}
-!23 = !{!"Vec_Int_t_", !13, i64 0, !13, i64 4, !24, i64 8}
-!24 = !{!"p1 int", !10, i64 0}
-!25 = !{!"p1 _ZTS12Mem_Fixed_t_", !10, i64 0}
-!26 = !{!"p1 _ZTS11Mem_Step_t_", !10, i64 0}
-!27 = !{!"p1 _ZTS14Abc_ManTime_t_", !10, i64 0}
-!28 = !{!"float", !4, i64 0}
-!29 = !{!"p1 _ZTS10Vec_Int_t_", !10, i64 0}
-!30 = !{!"p1 _ZTS10Abc_Cex_t_", !10, i64 0}
-!31 = !{!"p1 float", !10, i64 0}
-!32 = !{!17, !19, i64 40}
-!33 = !{!34, !10, i64 8}
-!34 = !{!"Vec_Ptr_t_", !13, i64 0, !13, i64 4, !10, i64 8}
-!35 = !{!10, !10, i64 0}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = !{!17, !9, i64 8}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !8}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !4, i64 0}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = !{!19, !11, i64 256}
+!19 = !{!"Abc_Ntk_t_", !15, i64 0, !15, i64 4, !10, i64 8, !10, i64 16, !20, i64 24, !21, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !21, i64 64, !21, i64 72, !21, i64 80, !21, i64 88, !4, i64 96, !15, i64 140, !15, i64 144, !15, i64 148, !15, i64 152, !22, i64 160, !15, i64 168, !23, i64 176, !22, i64 184, !15, i64 192, !15, i64 196, !15, i64 200, !24, i64 208, !15, i64 216, !25, i64 224, !27, i64 240, !28, i64 248, !11, i64 256, !29, i64 264, !11, i64 272, !30, i64 280, !15, i64 284, !31, i64 288, !21, i64 296, !26, i64 304, !32, i64 312, !21, i64 320, !22, i64 328, !11, i64 336, !11, i64 344, !22, i64 352, !11, i64 360, !11, i64 368, !31, i64 376, !31, i64 384, !10, i64 392, !33, i64 400, !21, i64 408, !31, i64 416, !31, i64 424, !21, i64 432, !31, i64 440, !31, i64 448, !31, i64 456}
+!20 = !{!"p1 _ZTS9Nm_Man_t_", !11, i64 0}
+!21 = !{!"p1 _ZTS10Vec_Ptr_t_", !11, i64 0}
+!22 = !{!"p1 _ZTS10Abc_Ntk_t_", !11, i64 0}
+!23 = !{!"p1 _ZTS10Abc_Des_t_", !11, i64 0}
+!24 = !{!"double", !4, i64 0}
+!25 = !{!"Vec_Int_t_", !15, i64 0, !15, i64 4, !26, i64 8}
+!26 = !{!"p1 int", !11, i64 0}
+!27 = !{!"p1 _ZTS12Mem_Fixed_t_", !11, i64 0}
+!28 = !{!"p1 _ZTS11Mem_Step_t_", !11, i64 0}
+!29 = !{!"p1 _ZTS14Abc_ManTime_t_", !11, i64 0}
+!30 = !{!"float", !4, i64 0}
+!31 = !{!"p1 _ZTS10Vec_Int_t_", !11, i64 0}
+!32 = !{!"p1 _ZTS10Abc_Cex_t_", !11, i64 0}
+!33 = !{!"p1 float", !11, i64 0}
+!34 = !{!19, !21, i64 40}
+!35 = !{!36, !11, i64 8}
+!36 = !{!"Vec_Ptr_t_", !15, i64 0, !15, i64 4, !11, i64 8}
+!37 = !{!11, !11, i64 0}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = !{!19, !10, i64 8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}

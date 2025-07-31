@@ -201,5 +201,6 @@ attributes #2 = { nounwind willreturn memory(read) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.estimated_trip_count"}

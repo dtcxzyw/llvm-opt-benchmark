@@ -440,7 +440,7 @@ switch.lookup166:                                 ; preds = %37
   %176 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr %1)
   %177 = load ptr, ptr %10, align 8, !tbaa !10
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
-  %179 = load ptr, ptr %178, align 8, !tbaa !36
+  %179 = load ptr, ptr %178, align 8, !tbaa !37
   %180 = tail call i32 @H5T_debug(ptr noundef %179, ptr noundef %1)
   %fputc138 = tail call i32 @fputc(i32 10, ptr %1)
   br label %.critedge.thread
@@ -449,11 +449,11 @@ switch.lookup166:                                 ; preds = %37
   %fputc = tail call i32 @fputc(i32 32, ptr %1)
   %182 = load ptr, ptr %10, align 8, !tbaa !10
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
-  %184 = load ptr, ptr %183, align 8, !tbaa !36
+  %184 = load ptr, ptr %183, align 8, !tbaa !37
   %185 = tail call i32 @H5T_debug(ptr noundef %184, ptr noundef %1)
   %186 = load ptr, ptr %10, align 8, !tbaa !10
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 32
-  %188 = load ptr, ptr %187, align 8, !tbaa !36
+  %188 = load ptr, ptr %187, align 8, !tbaa !37
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 40
   %190 = load ptr, ptr %189, align 8, !tbaa !10
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
@@ -474,7 +474,7 @@ switch.lookup166:                                 ; preds = %37
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 72
   %197 = load ptr, ptr %196, align 8, !tbaa !26
   %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv
-  %199 = load ptr, ptr %198, align 8, !tbaa !37
+  %199 = load ptr, ptr %198, align 8, !tbaa !38
   %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.57, ptr noundef %199) #5
   %201 = mul i64 %.fr152, %indvars.iv
   br label %202
@@ -491,7 +491,7 @@ switch.lookup166:                                 ; preds = %37
   %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.58, i32 noundef %209) #5
   %211 = add nuw i64 %.0145.us, 1
   %exitcond.not = icmp eq i64 %211, %.fr152
-  br i1 %exitcond.not, label %._crit_edge.us, label %202, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge.us, label %202, !llvm.loop !39
 
 ._crit_edge.us:                                   ; preds = %202
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -500,7 +500,7 @@ switch.lookup166:                                 ; preds = %37
   %214 = load i32, ptr %213, align 4, !tbaa !26
   %215 = zext i32 %214 to i64
   %216 = icmp samesign ult i64 %indvars.iv.next, %215
-  br i1 %216, label %.lr.ph.us, label %._crit_edge149, !llvm.loop !39
+  br i1 %216, label %.lr.ph.us, label %._crit_edge149, !llvm.loop !40
 
 .lr.ph148.split:                                  ; preds = %.lr.ph148, %.lr.ph148.split
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.lr.ph148.split ], [ 0, %.lr.ph148 ]
@@ -508,7 +508,7 @@ switch.lookup166:                                 ; preds = %37
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 72
   %219 = load ptr, ptr %218, align 8, !tbaa !26
   %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv157
-  %221 = load ptr, ptr %220, align 8, !tbaa !37
+  %221 = load ptr, ptr %220, align 8, !tbaa !38
   %222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.57, ptr noundef %221) #5
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %223 = load ptr, ptr %10, align 8, !tbaa !10
@@ -516,7 +516,7 @@ switch.lookup166:                                 ; preds = %37
   %225 = load i32, ptr %224, align 4, !tbaa !26
   %226 = zext i32 %225 to i64
   %227 = icmp samesign ult i64 %indvars.iv.next158, %226
-  br i1 %227, label %.lr.ph148.split, label %._crit_edge149, !llvm.loop !41
+  br i1 %227, label %.lr.ph148.split, label %._crit_edge149, !llvm.loop !42
 
 ._crit_edge149:                                   ; preds = %._crit_edge.us, %.lr.ph148.split, %181
   %fputc137 = tail call i32 @fputc(i32 10, ptr %1)
@@ -622,11 +622,12 @@ attributes #5 = { nounwind }
 !31 = !{!"p1 omnipotent char", !15, i64 0}
 !32 = !{!30, !18, i64 8}
 !33 = !{!30, !24, i64 24}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!23, !24, i64 32}
-!37 = !{!31, !31, i64 0}
-!38 = distinct !{!38, !35}
-!39 = distinct !{!39, !35, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!23, !24, i64 32}
+!38 = !{!31, !31, i64 0}
+!39 = distinct !{!39, !35, !36}
+!40 = distinct !{!40, !35, !36, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !35, !36}

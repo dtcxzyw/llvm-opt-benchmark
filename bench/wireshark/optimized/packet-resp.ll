@@ -626,5 +626,6 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.estimated_trip_count"}

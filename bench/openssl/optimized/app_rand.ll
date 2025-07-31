@@ -115,7 +115,7 @@ define dso_local range(i32 0, 2) i32 @app_RAND_load() local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !13
   %21 = icmp eq i8 %20, 0
-  br i1 %21, label %loadfiles.exit, label %6
+  br i1 %21, label %loadfiles.exit, label %6, !llvm.loop !17
 
 loadfiles.exit:                                   ; preds = %17, %18
   %.not = icmp eq i32 %.1.i, 0
@@ -124,7 +124,7 @@ loadfiles.exit:                                   ; preds = %17, %18
   %23 = load ptr, ptr @randfiles, align 8, !tbaa !11
   %24 = tail call i32 @OPENSSL_sk_num(ptr noundef %23) #2
   %25 = icmp slt i32 %22, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %loadfiles.exit, %0
   %.0.lcssa = phi i32 [ 1, %0 ], [ %spec.select, %loadfiles.exit ]
@@ -241,6 +241,8 @@ attributes #2 = { nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS23stack_st_OPENSSL_STRING", !6, i64 0}
 !13 = !{!7, !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !15, !16}

@@ -254,7 +254,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %142 = icmp slt i32 %.4125, %26
   %143 = icmp uge ptr %67, %.8
   %144 = select i1 %142, i1 %143, i1 false
-  br i1 %144, label %.lr.ph, label %.thread.thread
+  br i1 %144, label %.lr.ph, label %.thread.thread, !llvm.loop !38
 
 .thread.thread:                                   ; preds = %.thread, %90, %101, %123, %130, %.preheader, %110
   %.0121181 = phi i32 [ %.0121182, %110 ], [ 0, %.preheader ], [ %.0121182, %130 ], [ %.0121182, %123 ], [ %.0121182, %101 ], [ %.0121182, %90 ], [ %.4125, %.thread ]
@@ -267,7 +267,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %147
 
 147:                                              ; preds = %145, %.thread.thread
-  %148 = load ptr, ptr %1, align 8, !tbaa !38
+  %148 = load ptr, ptr %1, align 8, !tbaa !40
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %150 = load i32, ptr %149, align 8, !tbaa !37
   %151 = load ptr, ptr %13, align 8, !tbaa !34
@@ -385,4 +385,6 @@ attributes #7 = { nounwind }
 !35 = !{!"KgvContext", !17, i64 0, !17, i64 8}
 !36 = !{!35, !17, i64 8}
 !37 = !{!10, !10, i64 0}
-!38 = !{!14, !14, i64 0}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!14, !14, i64 0}

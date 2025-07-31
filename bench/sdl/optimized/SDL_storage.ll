@@ -209,7 +209,7 @@ select.unfold:                                    ; preds = %32, %28
 34:                                               ; preds = %35
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %.not46 = icmp eq i64 %indvars.iv.next71, 2
-  br i1 %.not46, label %.critedge.thread, label %35, !llvm.loop !5
+  br i1 %.not46, label %.critedge.thread, label %35, !llvm.loop !6
 
 35:                                               ; preds = %.preheader, %34
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %34 ], [ 0, %.preheader ]
@@ -519,7 +519,7 @@ define internal fastcc zeroext i1 @ValidateStoragePath(ptr noundef %0) unnamed_a
   %5 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %6 = tail call ptr @SDL_strchr_REAL(ptr noundef nonnull %5, i32 noundef 47) #6
   %.not11 = icmp eq ptr %6, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader, %4
   %7 = phi ptr [ %6, %4 ], [ %3, %.preheader ]
@@ -985,7 +985,8 @@ attributes #7 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}

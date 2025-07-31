@@ -123,7 +123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit19: ; preds = %_ZN
 49:                                               ; preds = %.sink.split, %30
   %50 = getelementptr inbounds nuw i8, ptr %.01324, i64 1
   %.not = icmp eq ptr %50, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %49, %6
   ret void
@@ -183,3 +183,5 @@ attributes #4 = { builtin nounwind }
 !10 = !{!"long", !6, i64 0}
 !11 = !{!6, !6, i64 0}
 !12 = !{!9, !5, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}

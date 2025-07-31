@@ -250,7 +250,7 @@ define internal i32 @hq_hqa_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 
 .loopexit.i:                                      ; preds = %254, %131
   %exitcond107.not.i = icmp eq i64 %indvars.iv.next104.i, %wide.trip.count106.i
-  br i1 %exitcond107.not.i, label %hq_decode_frame.exit, label %116, !llvm.loop !51
+  br i1 %exitcond107.not.i, label %hq_decode_frame.exit, label %116, !llvm.loop !52
 
 116:                                              ; preds = %.loopexit.i, %.lr.ph96.i
   %117 = phi i32 [ %.pre.i, %.lr.ph96.i ], [ %126, %.loopexit.i ]
@@ -348,7 +348,7 @@ define internal i32 @hq_hqa_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %sh.diff7.i.i.i = ashr i32 %180, 17
   %tr.sh.diff8.i.i.i = trunc nsw i32 %sh.diff7.i.i.i to i16
   %183 = and i16 %tr.sh.diff8.i.i.i, -64
-  store i16 %183, ptr %172, align 2, !tbaa !52
+  store i16 %183, ptr %172, align 2, !tbaa !53
   %184 = zext i1 %173 to i64
   %185 = getelementptr inbounds nuw [2 x [4 x ptr]], ptr %170, i64 0, i64 %184
   %186 = lshr i32 %182, 3
@@ -363,7 +363,7 @@ define internal i32 @hq_hqa_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %195 = tail call i32 @llvm.umin.i32(i32 %137, i32 %194)
   %196 = zext nneg i32 %193 to i64
   %197 = getelementptr inbounds nuw [4 x ptr], ptr %185, i64 0, i64 %196
-  %198 = load ptr, ptr %197, align 8, !tbaa !54
+  %198 = load ptr, ptr %197, align 8, !tbaa !55
   br label %199
 
 199:                                              ; preds = %239, %171
@@ -432,13 +432,13 @@ define internal i32 @hq_hqa_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %247 = load i8, ptr %246, align 1, !tbaa !34
   %248 = zext i8 %247 to i64
   %249 = getelementptr inbounds nuw i16, ptr %172, i64 %248
-  store i16 %245, ptr %249, align 2, !tbaa !52
-  br label %199
+  store i16 %245, ptr %249, align 2, !tbaa !53
+  br label %199, !llvm.loop !56
 
 250:                                              ; preds = %235
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %254, label %171, !llvm.loop !55
+  br i1 %exitcond.not.i.i, label %254, label %171, !llvm.loop !57
 
 251:                                              ; preds = %230
   %252 = trunc nuw nsw i64 %indvars.iv103.i to i32
@@ -447,17 +447,17 @@ define internal i32 @hq_hqa_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   br label %hq_decode_frame.exit
 
 254:                                              ; preds = %250
-  %255 = load ptr, ptr %1, align 8, !tbaa !56
+  %255 = load ptr, ptr %1, align 8, !tbaa !58
   %256 = zext nneg i32 %143 to i64
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 %256
-  %258 = load ptr, ptr %87, align 8, !tbaa !57
+  %258 = load ptr, ptr %87, align 8, !tbaa !59
   %259 = load i32, ptr %88, align 4, !tbaa !48
   %260 = mul nsw i32 %259, %147
   %261 = sext i32 %260 to i64
   %262 = getelementptr inbounds i8, ptr %257, i64 %261
   %263 = shl i32 %259, %168
   tail call void %258(ptr noundef %262, i32 noundef %263, ptr noundef nonnull %85) #6
-  %264 = load ptr, ptr %87, align 8, !tbaa !57
+  %264 = load ptr, ptr %87, align 8, !tbaa !59
   %.not.i.i.i = icmp eq i32 %168, 0
   %265 = select i1 %.not.i.i.i, i32 8, i32 1
   %266 = or disjoint i32 %265, %147
@@ -467,17 +467,17 @@ define internal i32 @hq_hqa_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %270 = getelementptr inbounds i8, ptr %257, i64 %269
   %271 = shl i32 %267, %168
   tail call void %264(ptr noundef %270, i32 noundef %271, ptr noundef nonnull %86) #6
-  %272 = load ptr, ptr %1, align 8, !tbaa !56
+  %272 = load ptr, ptr %1, align 8, !tbaa !58
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 %256
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %275 = load ptr, ptr %87, align 8, !tbaa !57
+  %275 = load ptr, ptr %87, align 8, !tbaa !59
   %276 = load i32, ptr %88, align 4, !tbaa !48
   %277 = mul nsw i32 %276, %147
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds i8, ptr %274, i64 %278
   %280 = shl i32 %276, %168
   tail call void %275(ptr noundef nonnull %279, i32 noundef %280, ptr noundef nonnull %89) #6
-  %281 = load ptr, ptr %87, align 8, !tbaa !57
+  %281 = load ptr, ptr %87, align 8, !tbaa !59
   %282 = load i32, ptr %88, align 4, !tbaa !48
   %283 = mul nsw i32 %282, %266
   %284 = sext i32 %283 to i64
@@ -485,33 +485,33 @@ define internal i32 @hq_hqa_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %286 = shl i32 %282, %168
   tail call void %281(ptr noundef nonnull %285, i32 noundef %286, ptr noundef nonnull %90) #6
   %287 = shl nuw nsw i32 %142, 3
-  %288 = load ptr, ptr %93, align 8, !tbaa !56
+  %288 = load ptr, ptr %93, align 8, !tbaa !58
   %289 = zext nneg i32 %287 to i64
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 %289
-  %291 = load ptr, ptr %87, align 8, !tbaa !57
+  %291 = load ptr, ptr %87, align 8, !tbaa !59
   %292 = load i32, ptr %94, align 4, !tbaa !48
   %293 = mul nsw i32 %292, %147
   %294 = sext i32 %293 to i64
   %295 = getelementptr inbounds i8, ptr %290, i64 %294
   %296 = shl i32 %292, %168
   tail call void %291(ptr noundef %295, i32 noundef %296, ptr noundef nonnull %91) #6
-  %297 = load ptr, ptr %87, align 8, !tbaa !57
+  %297 = load ptr, ptr %87, align 8, !tbaa !59
   %298 = load i32, ptr %94, align 4, !tbaa !48
   %299 = mul nsw i32 %298, %266
   %300 = sext i32 %299 to i64
   %301 = getelementptr inbounds i8, ptr %290, i64 %300
   %302 = shl i32 %298, %168
   tail call void %297(ptr noundef %301, i32 noundef %302, ptr noundef nonnull %92) #6
-  %303 = load ptr, ptr %97, align 8, !tbaa !56
+  %303 = load ptr, ptr %97, align 8, !tbaa !58
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 %289
-  %305 = load ptr, ptr %87, align 8, !tbaa !57
+  %305 = load ptr, ptr %87, align 8, !tbaa !59
   %306 = load i32, ptr %98, align 4, !tbaa !48
   %307 = mul nsw i32 %306, %147
   %308 = sext i32 %307 to i64
   %309 = getelementptr inbounds i8, ptr %304, i64 %308
   %310 = shl i32 %306, %168
   tail call void %305(ptr noundef %309, i32 noundef %310, ptr noundef nonnull %95) #6
-  %311 = load ptr, ptr %87, align 8, !tbaa !57
+  %311 = load ptr, ptr %87, align 8, !tbaa !59
   %312 = load i32, ptr %98, align 4, !tbaa !48
   %313 = mul nsw i32 %312, %266
   %314 = sext i32 %313 to i64
@@ -521,7 +521,7 @@ define internal i32 @hq_hqa_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %317 = getelementptr inbounds nuw i8, ptr %.06991.i, i64 2
   %318 = add nuw nsw i32 %.192.i, 1
   %exitcond102.not.i = icmp eq i32 %318, %139
-  br i1 %exitcond102.not.i, label %.loopexit.i, label %.lr.ph93.i, !llvm.loop !58
+  br i1 %exitcond102.not.i, label %.loopexit.i, label %.lr.ph93.i, !llvm.loop !60
 
 hq_decode_frame.exit:                             ; preds = %.loopexit.i, %52, %61, %.preheader83.i, %.preheader.i, %129, %251
   %.066.i = phi i32 [ -1094995529, %251 ], [ -1094995529, %52 ], [ %77, %61 ], [ 0, %129 ], [ 0, %.preheader.i ], [ 0, %.preheader83.i ], [ 0, %.loopexit.i ]
@@ -640,7 +640,7 @@ hq_decode_frame.exit:                             ; preds = %.loopexit.i, %52, %
 
 hqa_decode_slice.exit.us.i:                       ; preds = %384
   %exitcond92.not.i = icmp eq i64 %indvars.iv.next90.i, 8
-  br i1 %exitcond92.not.i, label %hqa_decode_frame.exit, label %.preheader.split.us.i, !llvm.loop !59
+  br i1 %exitcond92.not.i, label %hqa_decode_frame.exit, label %.preheader.split.us.i, !llvm.loop !61
 
 .preheader64.i:                                   ; preds = %.preheader64.i.preheader, %.preheader64.i
   %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i52, %.preheader64.i ], [ 0, %.preheader64.i.preheader ]
@@ -653,7 +653,7 @@ hqa_decode_slice.exit.us.i:                       ; preds = %384
   store i32 %393, ptr %394, align 4, !tbaa !48
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, 9
-  br i1 %exitcond.not.i53, label %.preheader.i54, label %.preheader64.i, !llvm.loop !61
+  br i1 %exitcond.not.i53, label %.preheader.i54, label %.preheader64.i, !llvm.loop !63
 
 .preheader.split.i:                               ; preds = %.preheader.i54, %hqa_decode_slice.exit.loopexit.i
   %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %hqa_decode_slice.exit.loopexit.i ], [ 0, %.preheader.i54 ]
@@ -717,10 +717,10 @@ hqa_decode_slice.exit.us.i:                       ; preds = %384
 418:                                              ; preds = %418, %417
   %indvars.iv.i.i.i = phi i64 [ 0, %417 ], [ %indvars.iv.next.i.i.i, %418 ]
   %419 = getelementptr inbounds nuw [12 x [64 x i16]], ptr %359, i64 0, i64 %indvars.iv.i.i.i
-  store i16 -8192, ptr %419, align 16, !tbaa !52
+  store i16 -8192, ptr %419, align 16, !tbaa !53
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 12
-  br i1 %exitcond.not.i.i.i, label %420, label %418, !llvm.loop !62
+  br i1 %exitcond.not.i.i.i, label %420, label %418, !llvm.loop !64
 
 420:                                              ; preds = %418
   %421 = lshr i32 %.sroa.5.2.i, 3
@@ -794,7 +794,7 @@ hqa_decode_slice.exit.us.i:                       ; preds = %384
   %473 = tail call i32 @llvm.umin.i32(i32 %408, i32 %472)
   %474 = zext nneg i32 %471 to i64
   %475 = getelementptr inbounds nuw [4 x ptr], ptr %463, i64 0, i64 %474
-  %476 = load ptr, ptr %475, align 8, !tbaa !54
+  %476 = load ptr, ptr %475, align 8, !tbaa !55
   %477 = lshr i32 %473, 3
   %478 = zext nneg i32 %477 to i64
   %479 = getelementptr inbounds nuw i8, ptr %405, i64 %478
@@ -807,7 +807,7 @@ hqa_decode_slice.exit.us.i:                       ; preds = %384
   %sh.diff.i.i.i.i = ashr i32 %483, 17
   %tr.sh.diff.i.i.i.i = trunc nsw i32 %sh.diff.i.i.i.i to i16
   %486 = and i16 %tr.sh.diff.i.i.i.i, -64
-  store i16 %486, ptr %460, align 2, !tbaa !52
+  store i16 %486, ptr %460, align 2, !tbaa !53
   br label %487
 
 487:                                              ; preds = %527, %459
@@ -876,29 +876,29 @@ hqa_decode_slice.exit.us.i:                       ; preds = %384
   %535 = load i8, ptr %534, align 1, !tbaa !34
   %536 = zext i8 %535 to i64
   %537 = getelementptr inbounds nuw i16, ptr %460, i64 %536
-  store i16 %533, ptr %537, align 2, !tbaa !52
-  br label %487
+  store i16 %533, ptr %537, align 2, !tbaa !53
+  br label %487, !llvm.loop !56
 
 hq_decode_block.exit.i.i.i:                       ; preds = %523, %454
   %.sroa.5.4.i = phi i32 [ %.sroa.5.3.i, %454 ], [ %521, %523 ]
   %538 = phi i32 [ %455, %454 ], [ %521, %523 ]
   %indvars.iv.next92.i.i.i = add nuw nsw i64 %indvars.iv91.i.i.i, 1
   %exitcond94.not.i.i.i = icmp eq i64 %indvars.iv.next92.i.i.i, 12
-  br i1 %exitcond94.not.i.i.i, label %.loopexit.i.i.i, label %454, !llvm.loop !63
+  br i1 %exitcond94.not.i.i.i, label %.loopexit.i.i.i, label %454, !llvm.loop !65
 
 .loopexit.i.i.i:                                  ; preds = %hq_decode_block.exit.i.i.i, %420
   %.sroa.5.5.i = phi i32 [ %436, %420 ], [ %.sroa.5.4.i, %hq_decode_block.exit.i.i.i ]
   %.071.i.i.i = phi i32 [ 0, %420 ], [ %449, %hq_decode_block.exit.i.i.i ]
-  %539 = load ptr, ptr %363, align 8, !tbaa !56
+  %539 = load ptr, ptr %363, align 8, !tbaa !58
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 %indvars.iv46.i.i
-  %541 = load ptr, ptr %364, align 8, !tbaa !57
+  %541 = load ptr, ptr %364, align 8, !tbaa !59
   %542 = load i32, ptr %366, align 4, !tbaa !48
   %543 = mul nsw i32 %542, %.02036.i.i
   %544 = sext i32 %543 to i64
   %545 = getelementptr inbounds i8, ptr %540, i64 %544
   %546 = shl i32 %542, %.071.i.i.i
   tail call void %541(ptr noundef %545, i32 noundef %546, ptr noundef nonnull %359) #6
-  %547 = load ptr, ptr %364, align 8, !tbaa !57
+  %547 = load ptr, ptr %364, align 8, !tbaa !59
   %.not.i.i.i.i = icmp eq i32 %.071.i.i.i, 0
   %spec.select = select i1 %.not.i.i.i.i, i32 8, i32 1
   %548 = or disjoint i32 %spec.select, %.02036.i.i
@@ -909,48 +909,48 @@ hq_decode_block.exit.i.i.i:                       ; preds = %523, %454
   %553 = shl i32 %549, %.071.i.i.i
   tail call void %547(ptr noundef %552, i32 noundef %553, ptr noundef nonnull %362) #6
   %554 = or disjoint i64 %indvars.iv46.i.i, 8
-  %555 = load ptr, ptr %363, align 8, !tbaa !56
+  %555 = load ptr, ptr %363, align 8, !tbaa !58
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 %554
-  %557 = load ptr, ptr %364, align 8, !tbaa !57
+  %557 = load ptr, ptr %364, align 8, !tbaa !59
   %558 = load i32, ptr %366, align 4, !tbaa !48
   %559 = mul nsw i32 %558, %.02036.i.i
   %560 = sext i32 %559 to i64
   %561 = getelementptr inbounds i8, ptr %556, i64 %560
   %562 = shl i32 %558, %.071.i.i.i
   tail call void %557(ptr noundef nonnull %561, i32 noundef %562, ptr noundef nonnull %367) #6
-  %563 = load ptr, ptr %364, align 8, !tbaa !57
+  %563 = load ptr, ptr %364, align 8, !tbaa !59
   %564 = load i32, ptr %366, align 4, !tbaa !48
   %565 = mul nsw i32 %564, %548
   %566 = sext i32 %565 to i64
   %567 = getelementptr inbounds i8, ptr %556, i64 %566
   %568 = shl i32 %564, %.071.i.i.i
   tail call void %563(ptr noundef nonnull %567, i32 noundef %568, ptr noundef nonnull %368) #6
-  %569 = load ptr, ptr %1, align 8, !tbaa !56
+  %569 = load ptr, ptr %1, align 8, !tbaa !58
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 %indvars.iv46.i.i
-  %571 = load ptr, ptr %364, align 8, !tbaa !57
+  %571 = load ptr, ptr %364, align 8, !tbaa !59
   %572 = load i32, ptr %365, align 4, !tbaa !48
   %573 = mul nsw i32 %572, %.02036.i.i
   %574 = sext i32 %573 to i64
   %575 = getelementptr inbounds i8, ptr %570, i64 %574
   %576 = shl i32 %572, %.071.i.i.i
   tail call void %571(ptr noundef %575, i32 noundef %576, ptr noundef nonnull %369) #6
-  %577 = load ptr, ptr %364, align 8, !tbaa !57
+  %577 = load ptr, ptr %364, align 8, !tbaa !59
   %578 = load i32, ptr %365, align 4, !tbaa !48
   %579 = mul nsw i32 %578, %548
   %580 = sext i32 %579 to i64
   %581 = getelementptr inbounds i8, ptr %570, i64 %580
   %582 = shl i32 %578, %.071.i.i.i
   tail call void %577(ptr noundef %581, i32 noundef %582, ptr noundef nonnull %370) #6
-  %583 = load ptr, ptr %1, align 8, !tbaa !56
+  %583 = load ptr, ptr %1, align 8, !tbaa !58
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 %554
-  %585 = load ptr, ptr %364, align 8, !tbaa !57
+  %585 = load ptr, ptr %364, align 8, !tbaa !59
   %586 = load i32, ptr %365, align 4, !tbaa !48
   %587 = mul nsw i32 %586, %.02036.i.i
   %588 = sext i32 %587 to i64
   %589 = getelementptr inbounds i8, ptr %584, i64 %588
   %590 = shl i32 %586, %.071.i.i.i
   tail call void %585(ptr noundef nonnull %589, i32 noundef %590, ptr noundef nonnull %371) #6
-  %591 = load ptr, ptr %364, align 8, !tbaa !57
+  %591 = load ptr, ptr %364, align 8, !tbaa !59
   %592 = load i32, ptr %365, align 4, !tbaa !48
   %593 = mul nsw i32 %592, %548
   %594 = sext i32 %593 to i64
@@ -958,32 +958,32 @@ hq_decode_block.exit.i.i.i:                       ; preds = %523, %454
   %596 = shl i32 %592, %.071.i.i.i
   tail call void %591(ptr noundef nonnull %595, i32 noundef %596, ptr noundef nonnull %372) #6
   %597 = lshr exact i64 %indvars.iv46.i.i, 1
-  %598 = load ptr, ptr %375, align 8, !tbaa !56
+  %598 = load ptr, ptr %375, align 8, !tbaa !58
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 %597
-  %600 = load ptr, ptr %364, align 8, !tbaa !57
+  %600 = load ptr, ptr %364, align 8, !tbaa !59
   %601 = load i32, ptr %376, align 4, !tbaa !48
   %602 = mul nsw i32 %601, %.02036.i.i
   %603 = sext i32 %602 to i64
   %604 = getelementptr inbounds i8, ptr %599, i64 %603
   %605 = shl i32 %601, %.071.i.i.i
   tail call void %600(ptr noundef %604, i32 noundef %605, ptr noundef nonnull %373) #6
-  %606 = load ptr, ptr %364, align 8, !tbaa !57
+  %606 = load ptr, ptr %364, align 8, !tbaa !59
   %607 = load i32, ptr %376, align 4, !tbaa !48
   %608 = mul nsw i32 %607, %548
   %609 = sext i32 %608 to i64
   %610 = getelementptr inbounds i8, ptr %599, i64 %609
   %611 = shl i32 %607, %.071.i.i.i
   tail call void %606(ptr noundef %610, i32 noundef %611, ptr noundef nonnull %374) #6
-  %612 = load ptr, ptr %379, align 8, !tbaa !56
+  %612 = load ptr, ptr %379, align 8, !tbaa !58
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 %597
-  %614 = load ptr, ptr %364, align 8, !tbaa !57
+  %614 = load ptr, ptr %364, align 8, !tbaa !59
   %615 = load i32, ptr %380, align 4, !tbaa !48
   %616 = mul nsw i32 %615, %.02036.i.i
   %617 = sext i32 %616 to i64
   %618 = getelementptr inbounds i8, ptr %613, i64 %617
   %619 = shl i32 %615, %.071.i.i.i
   tail call void %614(ptr noundef %618, i32 noundef %619, ptr noundef nonnull %377) #6
-  %620 = load ptr, ptr %364, align 8, !tbaa !57
+  %620 = load ptr, ptr %364, align 8, !tbaa !59
   %621 = load i32, ptr %380, align 4, !tbaa !48
   %622 = mul nsw i32 %621, %548
   %623 = sext i32 %622 to i64
@@ -992,7 +992,7 @@ hq_decode_block.exit.i.i.i:                       ; preds = %523, %454
   tail call void %620(ptr noundef %624, i32 noundef %625, ptr noundef nonnull %378) #6
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 128
   %626 = icmp samesign ult i64 %indvars.iv.next47.i.i, %381
-  br i1 %626, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !64
+  br i1 %626, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !66
 
 hqa_decode_slice.exit.thread.i:                   ; preds = %.lr.ph.i.i, %518
   %.0213542.i.i = trunc i64 %indvars.iv46.i.i to i32
@@ -1005,11 +1005,11 @@ hqa_decode_slice.exit.thread.i:                   ; preds = %.lr.ph.i.i, %518
   %628 = add nuw nsw i32 %.02036.i.i, 16
   %629 = icmp samesign ult i32 %628, %334
   %indvars.iv.next.i.i59 = add nuw nsw i32 %indvars.iv.i.i58, 48
-  br i1 %629, label %410, label %hqa_decode_slice.exit.loopexit.i, !llvm.loop !65
+  br i1 %629, label %410, label %hqa_decode_slice.exit.loopexit.i, !llvm.loop !67
 
 hqa_decode_slice.exit.loopexit.i:                 ; preds = %._crit_edge.i.i
   %exitcond88.not.i = icmp eq i64 %indvars.iv.next86.i, 8
-  br i1 %exitcond88.not.i, label %hqa_decode_frame.exit, label %.preheader.split.i, !llvm.loop !66
+  br i1 %exitcond88.not.i, label %hqa_decode_frame.exit, label %.preheader.split.i, !llvm.loop !68
 
 hqa_decode_frame.exit:                            ; preds = %hqa_decode_slice.exit.loopexit.i, %hqa_decode_slice.exit.us.i, %321, %327, %351, %354, %.split.us.i, %hqa_decode_slice.exit.thread.i
   %.0.i = phi i32 [ -1094995529, %321 ], [ %336, %327 ], [ -1094995529, %351 ], [ %356, %354 ], [ 0, %.split.us.i ], [ -1094995529, %hqa_decode_slice.exit.thread.i ], [ 0, %hqa_decode_slice.exit.us.i ], [ 0, %hqa_decode_slice.exit.loopexit.i ]
@@ -1075,7 +1075,7 @@ define internal void @hq_init_static() #0 {
   store i16 %.027, ptr %2, align 4, !tbaa !34
   %14 = add nuw nsw i64 %.02831, 1
   %exitcond.not = icmp eq i64 %14, 1184
-  br i1 %exitcond.not, label %.preheader29, label %1, !llvm.loop !67
+  br i1 %exitcond.not, label %.preheader29, label %1, !llvm.loop !69
 
 .preheader29:                                     ; preds = %12, %21
   %.02634 = phi i64 [ %22, %21 ], [ 0, %12 ]
@@ -1096,10 +1096,10 @@ define internal void @hq_init_static() #0 {
 21:                                               ; preds = %23
   %22 = add nuw nsw i64 %.02634, 1
   %exitcond36.not = icmp eq i64 %22, 16
-  br i1 %exitcond36.not, label %17, label %.preheader29, !llvm.loop !68
+  br i1 %exitcond36.not, label %17, label %.preheader29, !llvm.loop !70
 
 23:                                               ; preds = %24
-  br i1 %18, label %.preheader, label %21, !llvm.loop !69
+  br i1 %18, label %.preheader, label %21, !llvm.loop !71
 
 24:                                               ; preds = %.preheader, %24
   %.032 = phi i64 [ 0, %.preheader ], [ %30, %24 ]
@@ -1108,10 +1108,10 @@ define internal void @hq_init_static() #0 {
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds nuw [78 x [64 x i32]], ptr @qmats, i64 0, i64 %27
   %29 = getelementptr inbounds nuw [4 x ptr], ptr %20, i64 0, i64 %.032
-  store ptr %28, ptr %29, align 8, !tbaa !54
+  store ptr %28, ptr %29, align 8, !tbaa !55
   %30 = add nuw nsw i64 %.032, 1
   %exitcond35.not = icmp eq i64 %30, 4
-  br i1 %exitcond35.not, label %23, label %24, !llvm.loop !70
+  br i1 %exitcond35.not, label %23, label %24, !llvm.loop !72
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1200,25 +1200,27 @@ attributes #6 = { nounwind }
 !46 = !{!36, !14, i64 0}
 !47 = !{!36, !10, i64 20}
 !48 = !{!10, !10, i64 0}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = distinct !{!51, !50}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"short", !8, i64 0}
-!54 = !{!24, !24, i64 0}
-!55 = distinct !{!55, !50}
-!56 = !{!14, !14, i64 0}
-!57 = !{!28, !7, i64 8}
-!58 = distinct !{!58, !50}
-!59 = distinct !{!59, !50, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !50}
-!62 = distinct !{!62, !50}
-!63 = distinct !{!63, !50}
-!64 = distinct !{!64, !50}
-!65 = distinct !{!65, !50}
-!66 = distinct !{!66, !50}
-!67 = distinct !{!67, !50}
-!68 = distinct !{!68, !50}
-!69 = distinct !{!69, !50}
-!70 = distinct !{!70, !50}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = distinct !{!52, !50, !51}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"short", !8, i64 0}
+!55 = !{!24, !24, i64 0}
+!56 = distinct !{!56, !51}
+!57 = distinct !{!57, !50, !51}
+!58 = !{!14, !14, i64 0}
+!59 = !{!28, !7, i64 8}
+!60 = distinct !{!60, !50, !51}
+!61 = distinct !{!61, !50, !51, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !50, !51}
+!64 = distinct !{!64, !50, !51}
+!65 = distinct !{!65, !50, !51}
+!66 = distinct !{!66, !50, !51}
+!67 = distinct !{!67, !50, !51}
+!68 = distinct !{!68, !50, !51}
+!69 = distinct !{!69, !50, !51}
+!70 = distinct !{!70, !50, !51}
+!71 = distinct !{!71, !50, !51}
+!72 = distinct !{!72, !50, !51}

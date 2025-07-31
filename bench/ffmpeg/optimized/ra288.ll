@@ -175,7 +175,7 @@ define internal i32 @ra288_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 83:                                               ; preds = %83, %65
   %indvars.iv32.i = phi i64 [ 0, %65 ], [ %indvars.iv.next33.i, %83 ]
   %84 = getelementptr inbounds nuw [5 x i16], ptr %82, i64 0, i64 %indvars.iv32.i
-  %85 = load i16, ptr %84, align 2, !tbaa !49
+  %85 = load i16, ptr %84, align 2, !tbaa !50
   %86 = sitofp i16 %85 to double
   %87 = fmul nsz double %80, %86
   %88 = fptrunc nsz double %87 to float
@@ -183,7 +183,7 @@ define internal i32 @ra288_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   store float %88, ptr %89, align 4, !tbaa !46
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next33.i, 5
-  br i1 %exitcond35.not.i, label %decode.exit, label %83, !llvm.loop !51
+  br i1 %exitcond35.not.i, label %decode.exit, label %83, !llvm.loop !52
 
 decode.exit:                                      ; preds = %83
   %90 = add nuw i32 %67, %49
@@ -213,7 +213,7 @@ decode.exit:                                      ; preds = %83
 102:                                              ; preds = %101, %decode.exit
   %103 = add nuw nsw i32 %.03847, 1
   %exitcond.not = icmp eq i32 %103, 32
-  br i1 %exitcond.not, label %104, label %40, !llvm.loop !52
+  br i1 %exitcond.not, label %104, label %40, !llvm.loop !53
 
 104:                                              ; preds = %102
   store i32 1, ptr %2, align 4, !tbaa !27
@@ -273,7 +273,7 @@ define internal fastcc void @backward_filter(ptr noundef readonly captures(none)
   store float %24, ptr %25, align 4, !tbaa !46
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not.i.i, label %convolve.exit.i, label %21, !llvm.loop !53
+  br i1 %.not.i.i, label %convolve.exit.i, label %21, !llvm.loop !54
 
 convolve.exit.i:                                  ; preds = %21
   %26 = zext nneg i32 %7 to i64
@@ -289,7 +289,7 @@ convolve.exit.i:                                  ; preds = %21
   store float %31, ptr %32, align 4, !tbaa !46
   %indvars.iv.next.i30.i = add nsw i64 %indvars.iv.i29.i, -1
   %.not.i31.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not.i31.i, label %convolve.exit32.preheader.i, label %28, !llvm.loop !53
+  br i1 %.not.i31.i, label %convolve.exit32.preheader.i, label %28, !llvm.loop !54
 
 convolve.exit32.preheader.i:                      ; preds = %28
   %33 = add nuw nsw i32 %6, 1
@@ -314,7 +314,7 @@ convolve.exit32.i:                                ; preds = %convolve.exit32.i, 
   store float %44, ptr %45, align 4, !tbaa !46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %do_hybrid_window.exit, label %convolve.exit32.i, !llvm.loop !54
+  br i1 %exitcond.not.i, label %do_hybrid_window.exit, label %convolve.exit32.i, !llvm.loop !55
 
 do_hybrid_window.exit:                            ; preds = %convolve.exit32.i
   %46 = load float, ptr %14, align 16, !tbaa !46
@@ -373,12 +373,12 @@ do_hybrid_window.exit:                            ; preds = %convolve.exit32.i
   %71 = call nsz float @llvm.fmuladd.f32(float %70, float %69, float %.16577.i)
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %indvars.iv90.i
-  br i1 %exitcond.not.i19, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
+  br i1 %exitcond.not.i19, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !56
 
 ._crit_edge82.i:                                  ; preds = %.lr.ph81.i, %._crit_edge.i
   %72 = fcmp nsz uge float %63, 0.000000e+00
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %72, label %.preheader.i, label %compute_lpc_coefs.exit, !llvm.loop !56
+  br i1 %72, label %.preheader.i, label %compute_lpc_coefs.exit, !llvm.loop !57
 
 .lr.ph81.i:                                       ; preds = %._crit_edge.i, %.lr.ph81.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.lr.ph81.i ], [ 0, %._crit_edge.i ]
@@ -393,7 +393,7 @@ do_hybrid_window.exit:                            ; preds = %convolve.exit32.i
   store float %79, ptr %76, align 4, !tbaa !46
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next88.i, %umax
-  br i1 %exitcond.not, label %._crit_edge82.i, label %.lr.ph81.i, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge82.i, label %.lr.ph81.i, !llvm.loop !58
 
 compute_lpc_coefs.exit:                           ; preds = %._crit_edge82.i
   %.not.le.i.not = icmp samesign ult i64 %indvars.iv90.i, %19
@@ -497,14 +497,15 @@ attributes #7 = { nounwind }
 !44 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !45 = !{!14, !14, i64 0}
 !46 = !{!16, !16, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"short", !8, i64 0}
-!51 = distinct !{!51, !48}
-!52 = distinct !{!52, !48}
-!53 = distinct !{!53, !48}
-!54 = distinct !{!54, !48}
-!55 = distinct !{!55, !48}
-!56 = distinct !{!56, !48}
-!57 = distinct !{!57, !48}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"short", !8, i64 0}
+!52 = distinct !{!52, !48, !49}
+!53 = distinct !{!53, !48, !49}
+!54 = distinct !{!54, !48, !49}
+!55 = distinct !{!55, !48, !49}
+!56 = distinct !{!56, !48, !49}
+!57 = distinct !{!57, !48, !49}
+!58 = distinct !{!58, !48, !49}

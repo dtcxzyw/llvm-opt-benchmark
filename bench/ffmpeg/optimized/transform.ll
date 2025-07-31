@@ -147,7 +147,7 @@ avpriv_mirror.exit64.us:                          ; preds = %.lr.ph69.us, %.preh
   %56 = add nsw i32 %54, %55
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %0, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !10
+  %59 = load i8, ptr %58, align 1, !tbaa !11
   br label %76
 
 60:                                               ; preds = %31
@@ -165,24 +165,24 @@ avpriv_mirror.exit64.us:                          ; preds = %.lr.ph69.us, %.preh
   %70 = add nsw i32 %68, %69
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %0, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !10
+  %73 = load i8, ptr %72, align 1, !tbaa !11
   br label %76
 
 74:                                               ; preds = %31
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %75 = load i8, ptr %gep, align 1, !tbaa !10
+  %75 = load i8, ptr %gep, align 1, !tbaa !11
   br label %76
 
 76:                                               ; preds = %74, %60, %avpriv_mirror.exit64.us, %31
   %.052.us = phi nsz float [ %39, %31 ], [ %39, %74 ], [ %..i58.us, %60 ], [ %49, %avpriv_mirror.exit64.us ]
   %.051.us = phi nsz float [ %45, %31 ], [ %45, %74 ], [ %..i.us, %60 ], [ %52, %avpriv_mirror.exit64.us ]
   %.2.us = phi i8 [ %.172.us, %31 ], [ %75, %74 ], [ %73, %60 ], [ %59, %avpriv_mirror.exit64.us ]
-  %77 = tail call zeroext i8 %switch.load(float noundef %.052.us, float noundef %.051.us, ptr noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef %2, i8 noundef zeroext %.2.us) #4, !callees !11
+  %77 = tail call zeroext i8 %switch.load(float noundef %.052.us, float noundef %.051.us, ptr noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef %2, i8 noundef zeroext %.2.us) #4, !callees !12
   %gep83 = getelementptr i8, ptr %invariant.gep82, i64 %indvars.iv
-  store i8 %77, ptr %gep83, align 1, !tbaa !10
+  store i8 %77, ptr %gep83, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !13
 
 .preheader.us:                                    ; preds = %avpriv_mirror.exit.us
   %78 = fptosi float %45 to i32
@@ -197,7 +197,7 @@ avpriv_mirror.exit64.us:                          ; preds = %.lr.ph69.us, %.preh
 ._crit_edge.us:                                   ; preds = %76
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count80
-  br i1 %exitcond81.not, label %.loopexit, label %.preheader66.us, !llvm.loop !13
+  br i1 %exitcond81.not, label %.loopexit, label %.preheader66.us, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge.us, %9, %.preheader66.lr.ph, %switch.lookup
   %.055 = phi i32 [ -22, %9 ], [ 0, %switch.lookup ], [ 0, %.preheader66.lr.ph ], [ 0, %._crit_edge.us ]
@@ -230,7 +230,7 @@ define internal zeroext i8 @interpolate_nearest(float noundef %0, float noundef 
   %20 = add nsw i32 %19, %10
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %2, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !10
+  %23 = load i8, ptr %22, align 1, !tbaa !11
   br label %24
 
 24:                                               ; preds = %17, %7, %12, %18
@@ -274,7 +274,7 @@ define internal zeroext i8 @interpolate_bilinear(float noundef %0, float noundef
   %25 = add nsw i32 %24, %17
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %2, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !10
+  %28 = load i8, ptr %27, align 1, !tbaa !11
   br label %29
 
 29:                                               ; preds = %22, %15, %23
@@ -294,7 +294,7 @@ define internal zeroext i8 @interpolate_bilinear(float noundef %0, float noundef
   %34 = add nsw i32 %33, %17
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %2, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !10
+  %37 = load i8, ptr %36, align 1, !tbaa !11
   br label %38
 
 38:                                               ; preds = %31, %29, %32
@@ -314,7 +314,7 @@ define internal zeroext i8 @interpolate_bilinear(float noundef %0, float noundef
   %43 = add nsw i32 %42, %16
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %2, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !10
+  %46 = load i8, ptr %45, align 1, !tbaa !11
   br label %47
 
 47:                                               ; preds = %40, %38, %41
@@ -333,7 +333,7 @@ define internal zeroext i8 @interpolate_bilinear(float noundef %0, float noundef
   %51 = add nsw i32 %50, %16
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %2, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !10
+  %54 = load i8, ptr %53, align 1, !tbaa !11
   br label %55
 
 55:                                               ; preds = %48, %47, %49
@@ -402,7 +402,7 @@ define internal zeroext i8 @interpolate_biquadratic(float noundef %0, float noun
   %25 = add nsw i32 %24, %17
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %2, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !10
+  %28 = load i8, ptr %27, align 1, !tbaa !11
   br label %29
 
 29:                                               ; preds = %22, %15, %23
@@ -422,7 +422,7 @@ define internal zeroext i8 @interpolate_biquadratic(float noundef %0, float noun
   %34 = add nsw i32 %33, %17
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %2, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !10
+  %37 = load i8, ptr %36, align 1, !tbaa !11
   br label %38
 
 38:                                               ; preds = %31, %29, %32
@@ -442,7 +442,7 @@ define internal zeroext i8 @interpolate_biquadratic(float noundef %0, float noun
   %43 = add nsw i32 %42, %16
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %2, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !10
+  %46 = load i8, ptr %45, align 1, !tbaa !11
   br label %47
 
 47:                                               ; preds = %40, %38, %41
@@ -461,7 +461,7 @@ define internal zeroext i8 @interpolate_biquadratic(float noundef %0, float noun
   %51 = add nsw i32 %50, %16
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %2, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !10
+  %54 = load i8, ptr %53, align 1, !tbaa !11
   br label %55
 
 55:                                               ; preds = %48, %47, %49
@@ -536,10 +536,11 @@ attributes #4 = { nounwind }
 !5 = !{!"float", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!6, !6, i64 0}
-!11 = !{ptr @interpolate_bilinear, ptr @interpolate_biquadratic, ptr @interpolate_nearest}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!6, !6, i64 0}
+!12 = !{ptr @interpolate_bilinear, ptr @interpolate_biquadratic, ptr @interpolate_nearest}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -314,13 +314,13 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
 33:                                               ; preds = %29, %.preheader
   %34 = add nuw nsw i64 %24, 1
   %35 = icmp eq i64 %34, 256
-  br i1 %35, label %.loopexit, label %.preheader
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %33, %16
   %36 = phi i32 [ %18, %16 ], [ 0, %33 ]
   %37 = add nuw nsw i64 %17, 1
   %38 = icmp eq i64 %37, 256
-  br i1 %38, label %.thread, label %16, !llvm.loop !15
+  br i1 %38, label %.thread, label %16, !llvm.loop !17
 
 .thread:                                          ; preds = %.loopexit
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %12) #8
@@ -380,12 +380,12 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_pid_list_first(ptr noundef
 20:                                               ; preds = %16, %.preheader
   %21 = add nuw nsw i64 %12, 1
   %22 = icmp eq i64 %21, 256
-  br i1 %22, label %.loopexit, label %.preheader
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %20, %7
   %23 = add nuw nsw i64 %8, 1
   %24 = icmp eq i64 %23, 256
-  br i1 %24, label %.thread, label %7, !llvm.loop !15
+  br i1 %24, label %.thread, label %7, !llvm.loop !21
 
 .thread:                                          ; preds = %.loopexit
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %5) #8
@@ -419,9 +419,9 @@ define dso_local noalias noundef ptr @trace_pid_list_alloc() local_unnamed_addr 
   br i1 %2, label %3, label %4, !prof !5
 
 3:                                                ; preds = %0
-  tail call void asm sideeffect "397: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 397b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 397) #8, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 417, i32 2307, i64 12) #8, !srcloc !19
-  tail call void asm sideeffect "398: nop\0A\09.pushsection .discard.instr_end\0A\09.long 398b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 398) #8, !srcloc !20
+  tail call void asm sideeffect "397: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 397b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 397) #8, !srcloc !22
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 417, i32 2307, i64 12) #8, !srcloc !23
+  tail call void asm sideeffect "398: nop\0A\09.pushsection .discard.instr_end\0A\09.long 398b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 398) #8, !srcloc !24
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -459,7 +459,7 @@ define dso_local noalias noundef ptr @trace_pid_list_alloc() local_unnamed_addr 
   %25 = add i32 %18, 1
   %26 = add nuw nsw i32 %20, 1
   %27 = icmp eq i32 %26, 6
-  br i1 %27, label %28, label %17, !llvm.loop !21
+  br i1 %27, label %28, label %17, !llvm.loop !25
 
 28:                                               ; preds = %24, %17
   %29 = phi i32 [ %18, %17 ], [ %16, %24 ]
@@ -487,7 +487,7 @@ define dso_local noalias noundef ptr @trace_pid_list_alloc() local_unnamed_addr 
   %44 = add i32 %37, 1
   %45 = add nuw nsw i32 %39, 1
   %46 = icmp eq i32 %45, 6
-  br i1 %46, label %47, label %36, !llvm.loop !22
+  br i1 %46, label %47, label %36, !llvm.loop !26
 
 47:                                               ; preds = %43, %36
   %48 = phi i32 [ %35, %43 ], [ %37, %36 ]
@@ -557,7 +557,7 @@ define internal void @pid_list_refill_irq(ptr noundef %0) #0 align 16 {
   %35 = add i32 %29, 1
   %36 = add nsw i32 %28, -1
   %37 = icmp sgt i32 %28, 0
-  br i1 %37, label %.lr.ph, label %.thread
+  br i1 %37, label %.lr.ph, label %.thread, !llvm.loop !27
 
 .thread:                                          ; preds = %34, %.lr.ph, %21
   %.lcssa6 = phi ptr [ %10, %21 ], [ %30, %.lr.ph ], [ %32, %34 ]
@@ -588,7 +588,7 @@ define internal void @pid_list_refill_irq(ptr noundef %0) #0 align 16 {
   %52 = add i32 %46, 1
   %53 = add nsw i32 %45, -1
   %54 = icmp sgt i32 %45, 0
-  br i1 %54, label %.lr.ph15, label %.thread5
+  br i1 %54, label %.lr.ph15, label %.thread5, !llvm.loop !28
 
 .thread5:                                         ; preds = %51, %.lr.ph15, %.thread
   %.lcssa8 = phi ptr [ %11, %.thread ], [ %47, %.lr.ph15 ], [ %49, %51 ]
@@ -628,7 +628,7 @@ define internal void @pid_list_refill_irq(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_unlock(ptr noundef %4) #8
   %68 = and i32 %55, %38
   %69 = icmp sgt i32 %68, -1
-  br i1 %69, label %70, label %9
+  br i1 %69, label %70, label %9, !llvm.loop !29
 
 70:                                               ; preds = %67, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -662,7 +662,7 @@ define dso_local void @trace_pid_list_free(ptr noundef %0) local_unnamed_addr #0
   tail call void @kfree(ptr noundef nonnull %11) #8
   %13 = load ptr, ptr %5, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit6, label %.preheader5, !llvm.loop !23
+  br i1 %14, label %.loopexit6, label %.preheader5, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader4, %.loopexit6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -675,7 +675,7 @@ define dso_local void @trace_pid_list_free(ptr noundef %0) local_unnamed_addr #0
   tail call void @kfree(ptr noundef nonnull %16) #8
   %18 = load ptr, ptr %8, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit, label %.preheader4, !llvm.loop !24
+  br i1 %19, label %.loopexit, label %.preheader4, !llvm.loop !31
 
 20:                                               ; preds = %31, %.loopexit
   %21 = phi i64 [ 0, %.loopexit ], [ %32, %31 ]
@@ -691,7 +691,7 @@ define dso_local void @trace_pid_list_free(ptr noundef %0) local_unnamed_addr #0
   tail call void @kfree(ptr noundef %27) #8
   %28 = add nuw nsw i64 %25, 1
   %29 = icmp eq i64 %28, 256
-  br i1 %29, label %30, label %.preheader, !llvm.loop !25
+  br i1 %29, label %30, label %.preheader, !llvm.loop !32
 
 30:                                               ; preds = %.preheader
   tail call void @kfree(ptr noundef nonnull %23) #8
@@ -700,7 +700,7 @@ define dso_local void @trace_pid_list_free(ptr noundef %0) local_unnamed_addr #0
 31:                                               ; preds = %30, %20
   %32 = add nuw nsw i64 %21, 1
   %33 = icmp eq i64 %32, 256
-  br i1 %33, label %34, label %20, !llvm.loop !26
+  br i1 %33, label %34, label %20, !llvm.loop !33
 
 34:                                               ; preds = %31
   tail call void @kfree(ptr noundef nonnull %0) #8
@@ -774,15 +774,22 @@ attributes #9 = { nounwind allocsize(2) }
 !12 = !{i64 2155990165, i64 2155989976, i64 2155990026, i64 2155990072, i64 2155990100}
 !13 = !{i64 2148275413, i64 2148275452, i64 2148275473, i64 2148275510, i64 2148275533, i64 2148275403}
 !14 = !{i64 2148276701, i64 2148276740, i64 2148276761, i64 2148276798, i64 2148276821, i64 2148276691}
-!15 = distinct !{!15, !16, !17}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.unroll.disable"}
-!18 = !{i64 2156004955, i64 2156004764, i64 2156004816, i64 2156004862, i64 2156004890}
-!19 = !{i64 2156005029, i64 2156005058, i64 2156005104, i64 2156005162, i64 2156005216, i64 2156005270, i64 2156005325, i64 2156005356, i64 2156005664, i64 2156005670, i64 2156005717, i64 2156005740, i64 2156005766}
-!20 = !{i64 2156006222, i64 2156006033, i64 2156006083, i64 2156006129, i64 2156006157}
-!21 = distinct !{!21, !16, !17}
-!22 = distinct !{!22, !16, !17}
-!23 = distinct !{!23, !16, !17}
-!24 = distinct !{!24, !16, !17}
-!25 = distinct !{!25, !16, !17}
-!26 = distinct !{!26, !16, !17}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !18, !19, !16}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!"llvm.loop.unroll.disable"}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !18, !19, !16}
+!22 = !{i64 2156004955, i64 2156004764, i64 2156004816, i64 2156004862, i64 2156004890}
+!23 = !{i64 2156005029, i64 2156005058, i64 2156005104, i64 2156005162, i64 2156005216, i64 2156005270, i64 2156005325, i64 2156005356, i64 2156005664, i64 2156005670, i64 2156005717, i64 2156005740, i64 2156005766}
+!24 = !{i64 2156006222, i64 2156006033, i64 2156006083, i64 2156006129, i64 2156006157}
+!25 = distinct !{!25, !18, !19, !16}
+!26 = distinct !{!26, !18, !19, !16}
+!27 = distinct !{!27, !16}
+!28 = distinct !{!28, !16}
+!29 = distinct !{!29, !16}
+!30 = distinct !{!30, !18, !19, !16}
+!31 = distinct !{!31, !18, !19, !16}
+!32 = distinct !{!32, !18, !19, !16}
+!33 = distinct !{!33, !18, !19, !16}

@@ -135,7 +135,7 @@ define internal i32 @sp5x_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %63 = icmp samesign ult i64 %indvars.iv.next, %41
   %64 = icmp slt i32 %.3, %39
   %or.cond80 = select i1 %63, i1 %64, i1 false
-  br i1 %or.cond80, label %.lr.ph, label %.critedge, !llvm.loop !37
+  br i1 %or.cond80, label %.lr.ph, label %.critedge, !llvm.loop !38
 
 .critedge.loopexit:                               ; preds = %.lr.ph89
   %65 = trunc nuw i64 %indvars.iv.next95 to i32
@@ -220,6 +220,7 @@ attributes #4 = { nounwind }
 !32 = !{!17, !12, i64 124}
 !33 = !{!17, !12, i64 120}
 !34 = !{!17, !12, i64 24}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}

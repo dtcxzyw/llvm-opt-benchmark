@@ -56,23 +56,23 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @psensor_file_close() #0 {
-  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8, !tbaa !21
+  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8, !tbaa !22
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %35
-  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8, !tbaa !21
+  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8, !tbaa !22
   %4 = add i64 %3, -1
-  store volatile i64 %4, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8, !tbaa !21
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 464), align 8, !tbaa !25
+  store volatile i64 %4, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8, !tbaa !22
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 464), align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %7 = load volatile ptr, ptr %6, align 8, !tbaa !26
+  %7 = load volatile ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %9 = load volatile ptr, ptr %8, align 8, !tbaa !27
+  %9 = load volatile ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store volatile ptr %7, ptr %10, align 8, !tbaa !26
-  %11 = load volatile ptr, ptr %8, align 8, !tbaa !27
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 464), align 8, !tbaa !25
+  store volatile ptr %7, ptr %10, align 8, !tbaa !27
+  %11 = load volatile ptr, ptr %8, align 8, !tbaa !28
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 464), align 8, !tbaa !26
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #9
   %13 = icmp eq i32 %12, 35
   br i1 %13, label %14, label %pmix_obj_update.exit
@@ -97,7 +97,7 @@ pmix_obj_update.exit:                             ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = load ptr, ptr %25, align 8, !tbaa !18
   %.not6.i = icmp eq ptr %26, null
   br i1 %.not6.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
@@ -109,11 +109,11 @@ pmix_obj_update.exit:                             ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !18
   %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !30
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %21
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %31 = load ptr, ptr %30, align 8, !tbaa !30
+  %31 = load ptr, ptr %30, align 8, !tbaa !31
   %.not7 = icmp eq ptr %31, null
   br i1 %.not7, label %34, label %32
 
@@ -127,14 +127,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %21
   br label %35
 
 35:                                               ; preds = %32, %34, %pmix_obj_update.exit
-  %36 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8, !tbaa !21
+  %36 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 488), align 8, !tbaa !22
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %37, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %35, %0
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_psensor_file_component, i64 264), align 8, !tbaa !13
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %40 = load ptr, ptr %39, align 8, !tbaa !28
+  %40 = load ptr, ptr %39, align 8, !tbaa !29
   %41 = load ptr, ptr %40, align 8, !tbaa !18
   %.not6.i8 = icmp eq ptr %41, null
   br i1 %.not6.i8, label %pmix_obj_run_destructors.exit12, label %.lr.ph.i9
@@ -146,7 +146,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %21
   %43 = getelementptr inbounds nuw i8, ptr %.07.i10, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !18
   %.not.i11 = icmp eq ptr %44, null
-  br i1 %.not.i11, label %pmix_obj_run_destructors.exit12, label %.lr.ph.i9, !llvm.loop !29
+  br i1 %.not.i11, label %pmix_obj_run_destructors.exit12, label %.lr.ph.i9, !llvm.loop !30
 
 pmix_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %._crit_edge
   ret i32 0
@@ -155,7 +155,7 @@ pmix_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %._crit_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @psensor_file_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #1 {
   store i32 20, ptr %1, align 4, !tbaa !3
-  store ptr @pmix_psensor_file_module, ptr %0, align 8, !tbaa !32
+  store ptr @pmix_psensor_file_module, ptr %0, align 8, !tbaa !33
   ret i32 0
 }
 
@@ -217,18 +217,19 @@ attributes #12 = { noreturn nounwind }
 !16 = !{!14, !4, i64 48}
 !17 = !{!8, !10, i64 40}
 !18 = !{!10, !10, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!22, !12, i64 264}
-!22 = !{!"pmix_list_t", !14, i64 0, !23, i64 120, !12, i64 264}
-!23 = !{!"pmix_list_item_t", !14, i64 0, !24, i64 120, !24, i64 128, !4, i64 136}
-!24 = !{!"p1 _ZTS16pmix_list_item_t", !10, i64 0}
-!25 = !{!22, !24, i64 240}
-!26 = !{!23, !24, i64 128}
-!27 = !{!23, !24, i64 120}
-!28 = !{!8, !10, i64 48}
-!29 = distinct !{!29, !20}
-!30 = !{!14, !10, i64 96}
-!31 = distinct !{!31, !20}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !10, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!23, !12, i64 264}
+!23 = !{!"pmix_list_t", !14, i64 0, !24, i64 120, !12, i64 264}
+!24 = !{!"pmix_list_item_t", !14, i64 0, !25, i64 120, !25, i64 128, !4, i64 136}
+!25 = !{!"p1 _ZTS16pmix_list_item_t", !10, i64 0}
+!26 = !{!23, !25, i64 240}
+!27 = !{!24, !25, i64 128}
+!28 = !{!24, !25, i64 120}
+!29 = !{!8, !10, i64 48}
+!30 = distinct !{!30, !20, !21}
+!31 = !{!14, !10, i64 96}
+!32 = distinct !{!32, !20, !21}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !10, i64 0}

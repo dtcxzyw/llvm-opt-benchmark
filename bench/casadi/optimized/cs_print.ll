@@ -92,7 +92,7 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
   %44 = load i32, ptr %29, align 4, !tbaa !17
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next122, %45
-  br i1 %46, label %.lr.ph71.us, label %.loopexit.us, !llvm.loop !21
+  br i1 %46, label %.lr.ph71.us, label %.loopexit.us, !llvm.loop !22
 
 .lr.ph77.split:                                   ; preds = %.lr.ph77
   br i1 %26, label %.lr.ph77.split.split.us, label %.lr.ph77.split.split
@@ -123,14 +123,14 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
   %59 = load i32, ptr %49, align 4, !tbaa !17
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next112, %60
-  br i1 %61, label %.lr.ph71.us80, label %.loopexit.us79, !llvm.loop !22
+  br i1 %61, label %.lr.ph71.us80, label %.loopexit.us79, !llvm.loop !23
 
 .lr.ph71.us80:                                    ; preds = %.lr.ph71.us80.preheader, %58
   %indvars.iv111 = phi i64 [ %57, %.lr.ph71.us80.preheader ], [ %indvars.iv.next112, %58 ]
   %62 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv111
   %63 = load i32, ptr %62, align 4, !tbaa !17
   %64 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv111
-  %65 = load double, ptr %64, align 8, !tbaa !23
+  %65 = load double, ptr %64, align 8, !tbaa !24
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %63, double noundef %65)
   %exitcond115 = icmp eq i64 %indvars.iv111, %wide.trip.count114
   br i1 %exitcond115, label %.loopexit65.sink.split, label %58
@@ -138,12 +138,12 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 .loopexit.us79:                                   ; preds = %58, %.lr.ph77.split.split.us
   %67 = phi i32 [ %55, %.lr.ph77.split.split.us ], [ %59, %58 ]
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count127
-  br i1 %exitcond120.not, label %.loopexit65, label %.lr.ph77.split.split.us, !llvm.loop !25
+  br i1 %exitcond120.not, label %.loopexit65, label %.lr.ph77.split.split.us, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph71, %.lr.ph77.split.split
   %68 = phi i32 [ %77, %.lr.ph77.split.split ], [ %85, %.lr.ph71 ]
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count127
-  br i1 %exitcond110.not, label %.loopexit65, label %.lr.ph77.split.split, !llvm.loop !26
+  br i1 %exitcond110.not, label %.loopexit65, label %.lr.ph77.split.split, !llvm.loop !27
 
 .lr.ph77.split.split:                             ; preds = %.lr.ph77.split, %.loopexit
   %69 = phi i32 [ %68, %.loopexit ], [ %.pre130, %.lr.ph77.split ]
@@ -169,13 +169,13 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
   %80 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv103
   %81 = load i32, ptr %80, align 4, !tbaa !17
   %82 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv103
-  %83 = load double, ptr %82, align 8, !tbaa !23
+  %83 = load double, ptr %82, align 8, !tbaa !24
   %84 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %81, double noundef %83)
   %indvars.iv.next104 = add nsw i64 %indvars.iv103, 1
   %85 = load i32, ptr %71, align 4, !tbaa !17
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next104, %86
-  br i1 %87, label %.lr.ph71, label %.loopexit, !llvm.loop !27
+  br i1 %87, label %.lr.ph71, label %.loopexit, !llvm.loop !28
 
 88:                                               ; preds = %3
   %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %5, i32 noundef %7, i32 noundef %14, i32 noundef %16)
@@ -202,7 +202,7 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 97:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
-  br i1 %exitcond102.not, label %.loopexit65, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond102.not, label %.loopexit65, label %.lr.ph.split.us, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %90, label %.lr.ph.split.split, label %.lr.ph.split.split.us
@@ -214,16 +214,16 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
   %100 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4, !tbaa !17
   %102 = getelementptr inbounds nuw double, ptr %.fr, i64 %indvars.iv
-  %103 = load double, ptr %102, align 8, !tbaa !23
+  %103 = load double, ptr %102, align 8, !tbaa !24
   %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %99, i32 noundef %101, double noundef %103)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count101
-  br i1 %exitcond.not, label %.loopexit65, label %.lr.ph.split.split.us, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit65, label %.lr.ph.split.split.us, !llvm.loop !30
 
 105:                                              ; preds = %.lr.ph.split.split
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count101
-  br i1 %exitcond97.not, label %.loopexit65, label %.lr.ph.split.split, !llvm.loop !30
+  br i1 %exitcond97.not, label %.loopexit65, label %.lr.ph.split.split, !llvm.loop !31
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %105
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %105 ], [ 0, %.lr.ph.split ]
@@ -232,7 +232,7 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
   %108 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv92
   %109 = load i32, ptr %108, align 4, !tbaa !17
   %110 = getelementptr inbounds nuw double, ptr %.fr, i64 %indvars.iv92
-  %111 = load double, ptr %110, align 8, !tbaa !23
+  %111 = load double, ptr %110, align 8, !tbaa !24
   %112 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %107, i32 noundef %109, double noundef %111)
   %exitcond95 = icmp eq i64 %indvars.iv92, 21
   br i1 %exitcond95, label %.loopexit65.sink.split, label %105
@@ -286,16 +286,17 @@ attributes #5 = { nounwind }
 !15 = !{!4, !5, i64 0}
 !16 = !{!4, !5, i64 40}
 !17 = !{!5, !5, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19, !20, !21}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"double", !6, i64 0}
-!25 = distinct !{!25, !19, !20}
-!26 = distinct !{!26, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !19, !20, !21}
+!23 = distinct !{!23, !19, !20}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"double", !6, i64 0}
+!26 = distinct !{!26, !19, !20, !21}
 !27 = distinct !{!27, !19, !20}
-!28 = distinct !{!28, !19, !20}
-!29 = distinct !{!29, !19, !20}
-!30 = distinct !{!30, !19}
+!28 = distinct !{!28, !19, !20, !21}
+!29 = distinct !{!29, !19, !20, !21}
+!30 = distinct !{!30, !19, !20, !21}
+!31 = distinct !{!31, !19, !20}

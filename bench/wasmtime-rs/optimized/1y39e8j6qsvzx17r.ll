@@ -582,7 +582,7 @@ define void @"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..
   %16 = getelementptr inbounds [0 x { { i64, [9 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %0, i64 0, i64 %.1
   %17 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr93drop_in_place$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$17hfb4c3040437d9a92E"(ptr align 8 %16) #10
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !7
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -691,7 +691,7 @@ define void @"_ZN4core3ptr108drop_in_place$LT$alloc..vec..Vec$LT$$LP$wiggle_gene
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr109drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$wiggle_generate..codegen_settings..ErrorType$GT$$GT$17h31f5a33973eb5286E"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !7, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !9, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
   br i1 %3, label %4, label %5
 
@@ -758,7 +758,7 @@ define void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$$LP$wiggle_gene
   %21 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 }, { { i64, [3 x i64] }, {} }, i32, [1 x i32] }, { [1 x i32] }, [1 x i32] }], ptr %4, i64 0, i64 %.1.i.i
   %22 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr87drop_in_place$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$GT$17h11d65a7e310b0523E"(ptr nonnull align 8 %21) #10
-          to label %16 unwind label %23
+          to label %16 unwind label %23, !llvm.loop !10
 
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
@@ -916,9 +916,9 @@ define void @"_ZN4core3ptr112drop_in_place$LT$core..iter..adapters..cloned..Clon
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !range !8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !range !11, !invariant.load !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !range !9, !invariant.load !3
+  %7 = load i64, ptr %6, align 8, !range !12, !invariant.load !3
   %8 = add i64 %7, -1
   %9 = add i64 %8, %5
   %10 = sub i64 0, %7
@@ -1264,7 +1264,7 @@ define void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$$LP$wiggle_gene
   %20 = getelementptr inbounds [0 x { { i64, [9 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %4, i64 0, i64 %.1.i.i
   %21 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr93drop_in_place$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$17hfb4c3040437d9a92E"(ptr nonnull align 8 %20) #10
-          to label %15 unwind label %22
+          to label %15 unwind label %22, !llvm.loop !7
 
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
@@ -1307,7 +1307,7 @@ define void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$$LP$wiggle_gene
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$GT$$GT$17h241fdc68da773e8fE"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !7, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !9, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
   br i1 %3, label %4, label %5
 
@@ -1428,7 +1428,7 @@ define void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..resu
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$alloc..string..String$GT$$C$std..env..VarError$GT$$GT$17h3db9214e52b07772E"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !10, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !13, !noundef !3
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %3, label %5, label %6
@@ -1513,7 +1513,7 @@ common.resume:                                    ; preds = %2, %14
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$$GT$17h1bb4a14f329b1ddeE"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !11, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !14, !noundef !3
   switch i64 %2, label %3 [
     i64 -9223372036854775799, label %"_ZN4core3ptr93drop_in_place$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$17hfb4c3040437d9a92E.exit"
     i64 -9223372036854775800, label %4
@@ -1646,7 +1646,7 @@ define void @"_ZN4core3ptr153drop_in_place$LT$hashbrown..map..HashMap$LT$alloc..
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr165drop_in_place$LT$$LP$core..result..Result$LT$core..option..Option$LT$alloc..string..String$GT$$C$std..env..VarError$GT$$C$core..option..Option$LT$$RF$str$GT$$RP$$GT$17h37655ceb20e4489dE"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !10, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !13, !noundef !3
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %3, label %5, label %6
@@ -1741,9 +1741,9 @@ define void @"_ZN4core3ptr174drop_in_place$LT$alloc..boxed..Box$LT$syn..drops..N
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !range !8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !range !11, !invariant.load !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !range !9, !invariant.load !3
+  %7 = load i64, ptr %6, align 8, !range !12, !invariant.load !3
   %8 = add i64 %7, -1
   %9 = add i64 %8, %5
   %10 = sub i64 0, %7
@@ -1790,9 +1790,9 @@ define void @"_ZN4core3ptr178drop_in_place$LT$alloc..boxed..Box$LT$syn..drops..N
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !range !8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !range !11, !invariant.load !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !range !9, !invariant.load !3
+  %7 = load i64, ptr %6, align 8, !range !12, !invariant.load !3
   %8 = add i64 %7, -1
   %9 = add i64 %8, %5
   %10 = sub i64 0, %7
@@ -2144,9 +2144,9 @@ define void @"_ZN4core3ptr210drop_in_place$LT$core..iter..adapters..map..Map$LT$
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !range !8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !range !11, !invariant.load !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !range !9, !invariant.load !3
+  %7 = load i64, ptr %6, align 8, !range !12, !invariant.load !3
   %8 = add i64 %7, -1
   %9 = add i64 %8, %5
   %10 = sub i64 0, %7
@@ -2745,7 +2745,7 @@ define void @"_ZN4core3ptr49drop_in_place$LT$$u5b$proc_macro2..Ident$u5d$$GT$17h
   %6 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %0, i64 0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !15
 
 8:                                                ; preds = %3
   ret void
@@ -2764,7 +2764,7 @@ define void @"_ZN4core3ptr49drop_in_place$LT$$u5b$proc_macro2..Ident$u5d$$GT$17h
   %14 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %14) #10
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !16
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -2831,7 +2831,7 @@ define void @"_ZN4core3ptr51drop_in_place$LT$$u5b$proc_macro2..Literal$u5d$$GT$1
   %6 = getelementptr inbounds [0 x { { i64, [2 x i64] }, {} }], ptr %0, i64 0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4659b91c2fe2e6f1E"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !17
 
 8:                                                ; preds = %3
   ret void
@@ -2850,7 +2850,7 @@ define void @"_ZN4core3ptr51drop_in_place$LT$$u5b$proc_macro2..Literal$u5d$$GT$1
   %14 = getelementptr inbounds [0 x { { i64, [2 x i64] }, {} }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4659b91c2fe2e6f1E"(ptr align 8 %14) #10
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !18
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -2870,7 +2870,7 @@ define void @"_ZN4core3ptr51drop_in_place$LT$wiggle_generate..config..Paths$GT$1
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr52drop_in_place$LT$wiggle_generate..config..Config$GT$17h0f06e2a1fa6058cdE"(ptr align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !range !10, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !13, !noundef !3
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %3, label %5, label %6
@@ -3000,7 +3000,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$$RF$witx..ast..InterfaceFunc
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr54drop_in_place$LT$wiggle_generate..config..WitxConf$GT$17h4c69cf04633e3556E"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !10, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !13, !noundef !3
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %3, label %5, label %6
@@ -3036,7 +3036,7 @@ define void @"_ZN4core3ptr55drop_in_place$LT$$u5b$proc_macro2..TokenStream$u5d$$
   %6 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %0, i64 0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !19
 
 8:                                                ; preds = %3
   ret void
@@ -3055,7 +3055,7 @@ define void @"_ZN4core3ptr55drop_in_place$LT$$u5b$proc_macro2..TokenStream$u5d$$
   %14 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %14) #10
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !20
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -3111,7 +3111,7 @@ define void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..AsyncConf$
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !12, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !21, !noundef !3
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ugt i64 %3, 2
   %cond1 = icmp eq i64 %3, 1
@@ -3140,7 +3140,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$$RF$witx..validate..Validati
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigField$GT$17h01042bf7ef7978a4E"(ptr align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !range !13, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !22, !noundef !3
   %3 = add i64 %2, 9223372036854775806
   %4 = icmp ult i64 %3, 6
   %5 = select i1 %4, i64 %3, i64 2
@@ -3156,7 +3156,7 @@ define void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigFiel
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !range !10, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !13, !noundef !3
   %9 = icmp eq i64 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %9, label %11, label %12
@@ -3425,7 +3425,7 @@ define void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ide
   %10 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %4, i64 0, i64 %.0.i.i
   %11 = add i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %10)
-          to label %7 unwind label %14
+          to label %7 unwind label %14, !llvm.loop !15
 
 12:                                               ; preds = %16, %14
   %.1.i.i = phi i64 [ %11, %14 ], [ %18, %16 ]
@@ -3441,7 +3441,7 @@ define void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ide
   %17 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %4, i64 0, i64 %.1.i.i
   %18 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %17) #10
-          to label %12 unwind label %19
+          to label %12 unwind label %19, !llvm.loop !16
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -3541,7 +3541,7 @@ define void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Lit
   %10 = getelementptr inbounds [0 x { { i64, [2 x i64] }, {} }], ptr %4, i64 0, i64 %.0.i.i
   %11 = add i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4659b91c2fe2e6f1E"(ptr nonnull align 8 %10)
-          to label %7 unwind label %14
+          to label %7 unwind label %14, !llvm.loop !17
 
 12:                                               ; preds = %16, %14
   %.1.i.i = phi i64 [ %11, %14 ], [ %18, %16 ]
@@ -3557,7 +3557,7 @@ define void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Lit
   %17 = getelementptr inbounds [0 x { { i64, [2 x i64] }, {} }], ptr %4, i64 0, i64 %.1.i.i
   %18 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4659b91c2fe2e6f1E"(ptr nonnull align 8 %17) #10
-          to label %12 unwind label %19
+          to label %12 unwind label %19, !llvm.loop !18
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -3757,9 +3757,9 @@ define void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..Iter$LT$syn..lit..
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !range !8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !range !11, !invariant.load !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !range !9, !invariant.load !3
+  %7 = load i64, ptr %6, align 8, !range !12, !invariant.load !3
   %8 = add i64 %7, -1
   %9 = add i64 %8, %5
   %10 = sub i64 0, %7
@@ -3816,7 +3816,7 @@ define void @"_ZN4core3ptr67drop_in_place$LT$$u5b$wiggle_generate..config..Confi
   %6 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %0, i64 0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigField$GT$17h01042bf7ef7978a4E"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !23
 
 8:                                                ; preds = %3
   ret void
@@ -3835,7 +3835,7 @@ define void @"_ZN4core3ptr67drop_in_place$LT$$u5b$wiggle_generate..config..Confi
   %14 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigField$GT$17h01042bf7ef7978a4E"(ptr align 8 %14) #10
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !24
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -3871,7 +3871,7 @@ define void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Tok
   %10 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %4, i64 0, i64 %.0.i.i
   %11 = add i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %10)
-          to label %7 unwind label %14
+          to label %7 unwind label %14, !llvm.loop !19
 
 12:                                               ; preds = %16, %14
   %.1.i.i = phi i64 [ %11, %14 ], [ %18, %16 ]
@@ -3887,7 +3887,7 @@ define void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Tok
   %17 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %4, i64 0, i64 %.1.i.i
   %18 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %17) #10
-          to label %12 unwind label %19
+          to label %12 unwind label %19, !llvm.loop !20
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -3933,9 +3933,9 @@ define void @"_ZN4core3ptr68drop_in_place$LT$syn..punctuated..Iter$LT$proc_macro
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !range !8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !range !11, !invariant.load !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !range !9, !invariant.load !3
+  %7 = load i64, ptr %6, align 8, !range !12, !invariant.load !3
   %8 = add i64 %7, -1
   %9 = add i64 %8, %5
   %10 = sub i64 0, %7
@@ -4014,7 +4014,7 @@ define void @"_ZN4core3ptr69drop_in_place$LT$$u5b$wiggle_generate..config..Funct
   %19 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, [3 x i64] }, {} }, i32, [1 x i32] }], ptr %0, i64 0, i64 %.1
   %20 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr align 8 %19) #10
-          to label %14 unwind label %22
+          to label %14 unwind label %22, !llvm.loop !25
 
 21:                                               ; preds = %14
   resume { ptr, i32 } %eh.lpad-body
@@ -4131,7 +4131,7 @@ define void @"_ZN4core3ptr70drop_in_place$LT$$u5b$wiggle_generate..config..Error
   %6 = getelementptr inbounds [0 x { i64, [10 x i64] }], ptr %0, i64 0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !26
 
 8:                                                ; preds = %3
   ret void
@@ -4150,7 +4150,7 @@ define void @"_ZN4core3ptr70drop_in_place$LT$$u5b$wiggle_generate..config..Error
   %14 = getelementptr inbounds [0 x { i64, [10 x i64] }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr align 8 %14) #10
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !27
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -4342,7 +4342,7 @@ define void @"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..codegen_setti
   %6 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %0, i64 0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..codegen_settings..ErrorType$GT$17ha1af424c19c7215dE"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !28
 
 8:                                                ; preds = %3
   ret void
@@ -4361,7 +4361,7 @@ define void @"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..codegen_setti
   %14 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..codegen_settings..ErrorType$GT$17ha1af424c19c7215dE"(ptr align 8 %14) #10
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !29
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -4416,7 +4416,7 @@ define void @"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..Wasmt
   %16 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %0, i64 0, i64 %.1
   %17 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..config..WasmtimeConfigField$GT$17hb1a20dbc89229f87E"(ptr align 8 %16) #10
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !30
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -4568,7 +4568,7 @@ define void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
   %10 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %4, i64 0, i64 %.0.i.i
   %11 = add i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigField$GT$17h01042bf7ef7978a4E"(ptr nonnull align 8 %10)
-          to label %7 unwind label %14
+          to label %7 unwind label %14, !llvm.loop !23
 
 12:                                               ; preds = %16, %14
   %.1.i.i = phi i64 [ %11, %14 ], [ %18, %16 ]
@@ -4584,7 +4584,7 @@ define void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
   %17 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %4, i64 0, i64 %.1.i.i
   %18 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigField$GT$17h01042bf7ef7978a4E"(ptr nonnull align 8 %17) #10
-          to label %12 unwind label %19
+          to label %12 unwind label %19, !llvm.loop !24
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -4769,7 +4769,7 @@ define void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
   %22 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, [3 x i64] }, {} }, i32, [1 x i32] }], ptr %4, i64 0, i64 %.1.i.i
   %23 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %22) #10
-          to label %17 unwind label %24
+          to label %17 unwind label %24, !llvm.loop !25
 
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
@@ -4812,7 +4812,7 @@ define void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..WitxConf$GT$$GT$17h7e84172c606d207fE"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !14, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !31, !noundef !3
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr54drop_in_place$LT$wiggle_generate..config..WitxConf$GT$17h4c69cf04633e3556E.exit", label %4
 
@@ -4871,7 +4871,7 @@ define void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
   %10 = getelementptr inbounds [0 x { i64, [10 x i64] }], ptr %4, i64 0, i64 %.0.i.i
   %11 = add i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %10)
-          to label %7 unwind label %14
+          to label %7 unwind label %14, !llvm.loop !26
 
 12:                                               ; preds = %16, %14
   %.1.i.i = phi i64 [ %11, %14 ], [ %18, %16 ]
@@ -4887,7 +4887,7 @@ define void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
   %17 = getelementptr inbounds [0 x { i64, [10 x i64] }], ptr %4, i64 0, i64 %.1.i.i
   %18 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %17) #10
-          to label %12 unwind label %19
+          to label %12 unwind label %19, !llvm.loop !27
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -4944,7 +4944,7 @@ define void @"_ZN4core3ptr83drop_in_place$LT$core..option..Item$LT$wiggle_genera
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..AsyncConf$GT$$GT$17h1f12022462588805E"(ptr align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !range !15, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !32, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775806
   br i1 %3, label %"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..AsyncConf$GT$17h56ec597a1ac5ebd7E.exit", label %4
 
@@ -5169,7 +5169,7 @@ define void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$wiggle_gene
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..TracingConf$GT$$GT$17h04611f14f2191fdbE"(ptr align 8 %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8, !range !16, !noundef !3
+  %3 = load i8, ptr %2, align 8, !range !33, !noundef !3
   %4 = icmp eq i8 %3, 2
   br i1 %4, label %5, label %6
 
@@ -5184,7 +5184,7 @@ define void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$wiggle_gene
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr86drop_in_place$LT$core..option..Item$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17h014b43a0b6f8f234E"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !7, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !9, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
   br i1 %3, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17h9f1a0a6f2b8960deE.exit", label %4
 
@@ -5398,7 +5398,7 @@ define void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
   %10 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %4, i64 0, i64 %.0.i.i
   %11 = add i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..codegen_settings..ErrorType$GT$17ha1af424c19c7215dE"(ptr nonnull align 8 %10)
-          to label %7 unwind label %14
+          to label %7 unwind label %14, !llvm.loop !28
 
 12:                                               ; preds = %16, %14
   %.1.i.i = phi i64 [ %11, %14 ], [ %18, %16 ]
@@ -5414,7 +5414,7 @@ define void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
   %17 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %4, i64 0, i64 %.1.i.i
   %18 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..codegen_settings..ErrorType$GT$17ha1af424c19c7215dE"(ptr nonnull align 8 %17) #10
-          to label %12 unwind label %19
+          to label %12 unwind label %19, !llvm.loop !29
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -5500,7 +5500,7 @@ define void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
   %20 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %4, i64 0, i64 %.1.i.i
   %21 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..config..WasmtimeConfigField$GT$17hb1a20dbc89229f87E"(ptr nonnull align 8 %20) #10
-          to label %15 unwind label %22
+          to label %15 unwind label %22, !llvm.loop !30
 
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
@@ -5543,7 +5543,7 @@ define void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate.
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17h9f1a0a6f2b8960deE"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !7, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !9, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
   br i1 %3, label %4, label %5
 
@@ -5779,7 +5779,7 @@ define void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$$LP$proc_macro2.
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr90drop_in_place$LT$core..option..IntoIter$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17hda71def81ac36107E"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !7, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !9, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
   br i1 %3, label %"_ZN4core3ptr86drop_in_place$LT$core..option..Item$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17h014b43a0b6f8f234E.exit", label %4
 
@@ -5849,7 +5849,7 @@ define void @"_ZN4core3ptr90drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr91drop_in_place$LT$core..option..Item$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17h228184628e2edf35E"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !11, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !14, !noundef !3
   switch i64 %2, label %3 [
     i64 -9223372036854775799, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17heefec05e0cfbf8b2E.exit"
     i64 -9223372036854775800, label %4
@@ -6035,7 +6035,7 @@ define void @"_ZN4core3ptr93drop_in_place$LT$$LP$wiggle_generate..config..Wasmti
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$wiggle_generate..codegen_settings..ErrorType$GT$$GT$17h98c52874b3337d2cE"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !7, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !9, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
   br i1 %3, label %4, label %5
 
@@ -6049,7 +6049,7 @@ define void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$wiggle_gene
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17heefec05e0cfbf8b2E"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !11, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !14, !noundef !3
   switch i64 %2, label %3 [
     i64 -9223372036854775799, label %"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..config..WasmtimeConfigField$GT$17hb1a20dbc89229f87E.exit"
     i64 -9223372036854775800, label %4
@@ -6270,7 +6270,7 @@ define void @"_ZN4core3ptr95drop_in_place$LT$alloc..raw_vec..RawVec$LT$wiggle_ge
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr95drop_in_place$LT$core..option..IntoIter$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17h276d5f589a40ee8dE"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !11, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !14, !noundef !3
   switch i64 %2, label %3 [
     i64 -9223372036854775799, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Item$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17h228184628e2edf35E.exit"
     i64 -9223372036854775800, label %4
@@ -6380,7 +6380,7 @@ define void @"_ZN4core3ptr97drop_in_place$LT$$u5b$$LP$wiggle_generate..config..F
   %18 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 }, { { i64, [3 x i64] }, {} }, i32, [1 x i32] }, { [1 x i32] }, [1 x i32] }], ptr %0, i64 0, i64 %.1
   %19 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr87drop_in_place$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$GT$17h11d65a7e310b0523E"(ptr align 8 %18) #10
-          to label %13 unwind label %21
+          to label %13 unwind label %21, !llvm.loop !10
 
 20:                                               ; preds = %13
   resume { ptr, i32 } %eh.lpad-body
@@ -6615,7 +6615,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %19 = getelementptr inbounds [0 x { { i64, [9 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %3, i64 0, i64 %.1.i
   %20 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr93drop_in_place$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$17hfb4c3040437d9a92E"(ptr nonnull align 8 %19) #10
-          to label %14 unwind label %22
+          to label %14 unwind label %22, !llvm.loop !7
 
 21:                                               ; preds = %14
   resume { ptr, i32 } %17
@@ -6647,7 +6647,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %9 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %3, i64 0, i64 %.0.i
   %10 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigField$GT$17h01042bf7ef7978a4E"(ptr nonnull align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !23
 
 11:                                               ; preds = %15, %13
   %.1.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -6663,7 +6663,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %16 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigField$GT$17h01042bf7ef7978a4E"(ptr nonnull align 8 %16) #10
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !24
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -6695,7 +6695,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %9 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %3, i64 0, i64 %.0.i
   %10 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !15
 
 11:                                               ; preds = %15, %13
   %.1.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -6711,7 +6711,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %16 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %16) #10
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !16
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -6770,7 +6770,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %19 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %3, i64 0, i64 %.1.i
   %20 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..config..WasmtimeConfigField$GT$17hb1a20dbc89229f87E"(ptr nonnull align 8 %19) #10
-          to label %14 unwind label %22
+          to label %14 unwind label %22, !llvm.loop !30
 
 21:                                               ; preds = %14
   resume { ptr, i32 } %17
@@ -6839,7 +6839,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %21 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, [3 x i64] }, {} }, i32, [1 x i32] }], ptr %3, i64 0, i64 %.1.i
   %22 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %21) #10
-          to label %16 unwind label %24
+          to label %16 unwind label %24, !llvm.loop !25
 
 23:                                               ; preds = %16
   resume { ptr, i32 } %eh.lpad-body.i
@@ -6908,7 +6908,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %20 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 }, { { i64, [3 x i64] }, {} }, i32, [1 x i32] }, { [1 x i32] }, [1 x i32] }], ptr %3, i64 0, i64 %.1.i
   %21 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr87drop_in_place$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$GT$17h11d65a7e310b0523E"(ptr nonnull align 8 %20) #10
-          to label %15 unwind label %23
+          to label %15 unwind label %23, !llvm.loop !10
 
 22:                                               ; preds = %15
   resume { ptr, i32 } %eh.lpad-body.i
@@ -6940,7 +6940,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %9 = getelementptr inbounds [0 x { { i64, [2 x i64] }, {} }], ptr %3, i64 0, i64 %.0.i
   %10 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4659b91c2fe2e6f1E"(ptr nonnull align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !17
 
 11:                                               ; preds = %15, %13
   %.1.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -6956,7 +6956,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %16 = getelementptr inbounds [0 x { { i64, [2 x i64] }, {} }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4659b91c2fe2e6f1E"(ptr nonnull align 8 %16) #10
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !18
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -7036,7 +7036,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %9 = getelementptr inbounds [0 x { i64, [10 x i64] }], ptr %3, i64 0, i64 %.0.i
   %10 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !26
 
 11:                                               ; preds = %15, %13
   %.1.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -7052,7 +7052,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %16 = getelementptr inbounds [0 x { i64, [10 x i64] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %16) #10
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !27
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -7084,7 +7084,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %9 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %3, i64 0, i64 %.0.i
   %10 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !19
 
 11:                                               ; preds = %15, %13
   %.1.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -7100,7 +7100,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %16 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %16) #10
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !20
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -7228,7 +7228,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %9 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %3, i64 0, i64 %.0.i
   %10 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..codegen_settings..ErrorType$GT$17ha1af424c19c7215dE"(ptr nonnull align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !28
 
 11:                                               ; preds = %15, %13
   %.1.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -7244,7 +7244,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %16 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..codegen_settings..ErrorType$GT$17ha1af424c19c7215dE"(ptr nonnull align 8 %16) #10
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !29
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -7280,9 +7280,9 @@ define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !range !8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !range !11, !invariant.load !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !range !9, !invariant.load !3
+  %7 = load i64, ptr %6, align 8, !range !12, !invariant.load !3
   %8 = add i64 %7, -1
   %9 = add i64 %8, %5
   %10 = sub i64 0, %7
@@ -7339,9 +7339,9 @@ define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !range !8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !range !11, !invariant.load !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !range !9, !invariant.load !3
+  %7 = load i64, ptr %6, align 8, !range !12, !invariant.load !3
   %8 = add i64 %7, -1
   %9 = add i64 %8, %5
   %10 = sub i64 0, %7
@@ -7732,7 +7732,7 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   %39 = getelementptr inbounds nuw [0 x { { i64, [3 x i64] }, {} }], ptr %35, i64 0, i64 %.0.i
   %40 = add nuw nsw i64 %.0.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %39)
-          to label %36 unwind label %43
+          to label %36 unwind label %43, !llvm.loop !19
 
 41:                                               ; preds = %45, %43
   %.1.i = phi i64 [ %40, %43 ], [ %47, %45 ]
@@ -7748,7 +7748,7 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   %46 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %35, i64 0, i64 %.1.i
   %47 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %46) #10
-          to label %41 unwind label %48
+          to label %41 unwind label %48, !llvm.loop !20
 
 48:                                               ; preds = %45
   %49 = landingpad { ptr, i32 }
@@ -7899,7 +7899,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %24 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %9, i64 0, i64 %.1.i
   %25 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..config..WasmtimeConfigField$GT$17hb1a20dbc89229f87E"(ptr align 8 %24) #10
-          to label %19 unwind label %26
+          to label %19 unwind label %26, !llvm.loop !30
 
 26:                                               ; preds = %23
   %27 = landingpad { ptr, i32 }
@@ -8015,7 +8015,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %25 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 }, { { i64, [3 x i64] }, {} }, i32, [1 x i32] }, { [1 x i32] }, [1 x i32] }], ptr %9, i64 0, i64 %.1.i
   %26 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr87drop_in_place$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$GT$17h11d65a7e310b0523E"(ptr align 8 %25) #10
-          to label %20 unwind label %27
+          to label %20 unwind label %27, !llvm.loop !10
 
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
@@ -8279,7 +8279,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %26 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, [3 x i64] }, {} }, i32, [1 x i32] }], ptr %9, i64 0, i64 %.1.i
   %27 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr align 8 %26) #10
-          to label %21 unwind label %28
+          to label %21 unwind label %28, !llvm.loop !25
 
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
@@ -8358,7 +8358,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %14 = getelementptr inbounds [0 x { i64, [10 x i64] }], ptr %9, i64 0, i64 %.0.i
   %15 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr align 8 %14)
-          to label %11 unwind label %18
+          to label %11 unwind label %18, !llvm.loop !26
 
 16:                                               ; preds = %20, %18
   %.1.i = phi i64 [ %15, %18 ], [ %22, %20 ]
@@ -8374,7 +8374,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %21 = getelementptr inbounds [0 x { i64, [10 x i64] }], ptr %9, i64 0, i64 %.1.i
   %22 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr align 8 %21) #10
-          to label %16 unwind label %23
+          to label %16 unwind label %23, !llvm.loop !27
 
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
@@ -8595,7 +8595,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %14 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %9, i64 0, i64 %.0.i
   %15 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %14)
-          to label %11 unwind label %18
+          to label %11 unwind label %18, !llvm.loop !15
 
 16:                                               ; preds = %20, %18
   %.1.i = phi i64 [ %15, %18 ], [ %22, %20 ]
@@ -8611,7 +8611,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %21 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %9, i64 0, i64 %.1.i
   %22 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %21) #10
-          to label %16 unwind label %23
+          to label %16 unwind label %23, !llvm.loop !16
 
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
@@ -8717,7 +8717,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %24 = getelementptr inbounds [0 x { { i64, [9 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %9, i64 0, i64 %.1.i
   %25 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr93drop_in_place$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$17hfb4c3040437d9a92E"(ptr align 8 %24) #10
-          to label %19 unwind label %26
+          to label %19 unwind label %26, !llvm.loop !7
 
 26:                                               ; preds = %23
   %27 = landingpad { ptr, i32 }
@@ -8796,7 +8796,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %14 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %9, i64 0, i64 %.0.i
   %15 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigField$GT$17h01042bf7ef7978a4E"(ptr align 8 %14)
-          to label %11 unwind label %18
+          to label %11 unwind label %18, !llvm.loop !23
 
 16:                                               ; preds = %20, %18
   %.1.i = phi i64 [ %15, %18 ], [ %22, %20 ]
@@ -8812,7 +8812,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %21 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %9, i64 0, i64 %.1.i
   %22 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..ConfigField$GT$17h01042bf7ef7978a4E"(ptr align 8 %21) #10
-          to label %16 unwind label %23
+          to label %16 unwind label %23, !llvm.loop !24
 
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
@@ -9106,13 +9106,30 @@ attributes #11 = { cold noreturn nounwind }
 !4 = !{i64 8}
 !5 = !{i64 0, i64 -9223372036854775807}
 !6 = !{i64 0, i64 -9223372036854775799}
-!7 = !{i64 0, i64 -9223372036854775806}
-!8 = !{i64 0, i64 -9223372036854775808}
-!9 = !{i64 1, i64 0}
-!10 = !{i64 0, i64 2}
-!11 = !{i64 0, i64 -9223372036854775798}
-!12 = !{i64 0, i64 -9223372036854775804}
-!13 = !{i64 0, i64 -9223372036854775800}
-!14 = !{i64 0, i64 3}
-!15 = !{i64 0, i64 -9223372036854775805}
-!16 = !{i8 0, i8 3}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 0, i64 -9223372036854775806}
+!10 = distinct !{!10, !8}
+!11 = !{i64 0, i64 -9223372036854775808}
+!12 = !{i64 1, i64 0}
+!13 = !{i64 0, i64 2}
+!14 = !{i64 0, i64 -9223372036854775798}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = !{i64 0, i64 -9223372036854775804}
+!22 = !{i64 0, i64 -9223372036854775800}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !8}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8}
+!31 = !{i64 0, i64 3}
+!32 = !{i64 0, i64 -9223372036854775805}
+!33 = !{i8 0, i8 3}

@@ -213,7 +213,7 @@ define dso_local void @block_job_remove_all_bdrv(ptr noundef captures(none) %0) 
   tail call void @g_slist_free_1(ptr noundef nonnull %9) #8
   %15 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %8, %4
   tail call void @bdrv_graph_wrunlock() #8
@@ -251,7 +251,7 @@ define dso_local noundef zeroext i1 @block_job_has_bdrv(ptr noundef readonly cap
   %8 = getelementptr inbounds nuw i8, ptr %.0812, i64 8
   %.08 = load ptr, ptr %8, align 8
   %.not.not = icmp eq ptr %.08, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %5, %7
   %.0812 = phi ptr [ %.08, %7 ], [ %.0810, %5 ]
@@ -585,7 +585,7 @@ ratelimit_calculate_delay.exit:                   ; preds = %7, %20, %23
 
 33:                                               ; preds = %ratelimit_calculate_delay.exit
   %34 = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %0) #8
-  br i1 %34, label %.critedge, label %7, !llvm.loop !8
+  br i1 %34, label %.critedge, label %7, !llvm.loop !9
 
 .critedge:                                        ; preds = %ratelimit_calculate_delay.exit, %33
   ret void
@@ -620,8 +620,8 @@ define dso_local noundef ptr @block_job_query_locked(ptr noundef %0, ptr noundef
   br label %68
 
 13:                                               ; preds = %9
-  store i64 0, ptr %3, align 8, !annotation !9
-  store i64 0, ptr %4, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %4, align 8, !annotation !10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @progress_get_snapshot(ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %15 = call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #10
@@ -632,7 +632,7 @@ define dso_local noundef ptr @block_job_query_locked(ptr noundef %0, ptr noundef
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %21 = load i8, ptr %20, align 4, !range !10, !noundef !11
+  %21 = load i8, ptr %20, align 4, !range !11, !noundef !12
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -664,11 +664,11 @@ define dso_local noundef ptr @block_job_query_locked(ptr noundef %0, ptr noundef
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i32 %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load i8, ptr %44, align 8, !range !10, !noundef !11
+  %45 = load i8, ptr %44, align 8, !range !11, !noundef !12
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 60
   store i8 %45, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %48 = load i8, ptr %47, align 1, !range !10, !noundef !11
+  %48 = load i8, ptr %47, align 1, !range !11, !noundef !12
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 61
   store i8 %48, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -919,7 +919,7 @@ define dso_local void @block_job_user_resume(ptr noundef captures(none) %0) #0 {
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 182
-  %15 = load i8, ptr %14, align 2, !range !10, !noundef !11
+  %15 = load i8, ptr %14, align 2, !range !11, !noundef !12
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %21
 
@@ -953,8 +953,8 @@ define internal void @block_job_event_cancelled_locked(ptr readnone captures(non
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %2
-  store i64 0, ptr %3, align 8, !annotation !9
-  store i64 0, ptr %4, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %4, align 8, !annotation !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @progress_get_snapshot(ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %9 = call i32 @job_type(ptr noundef nonnull %1) #8
@@ -996,8 +996,8 @@ define internal void @block_job_event_completed_locked(ptr readnone captures(non
 
 15:                                               ; preds = %11, %7
   %.0 = phi ptr [ %14, %11 ], [ null, %7 ]
-  store i64 0, ptr %3, align 8, !annotation !9
-  store i64 0, ptr %4, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %4, align 8, !annotation !10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @progress_get_snapshot(ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %17 = call i32 @job_type(ptr noundef nonnull %1) #8
@@ -1042,8 +1042,8 @@ define internal void @block_job_event_ready_locked(ptr readnone captures(none) %
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %2
-  store i64 0, ptr %3, align 8, !annotation !9
-  store i64 0, ptr %4, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %4, align 8, !annotation !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @progress_get_snapshot(ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %9 = call i32 @job_type(ptr noundef nonnull %1) #8
@@ -1090,7 +1090,7 @@ define dso_local void @block_job_iostatus_reset_locked(ptr noundef captures(none
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 182
-  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
+  %10 = load i8, ptr %9, align 2, !range !11, !noundef !12
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %16
 
@@ -1161,7 +1161,7 @@ define dso_local range(i32 0, 3) i32 @block_job_error_action(ptr noundef %0, i32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %22 = icmp eq i32 %3, 28
   %23 = select i1 %22, i32 2, i32 1
-  %24 = load i8, ptr %20, align 2, !range !10, !noundef !11
+  %24 = load i8, ptr %20, align 2, !range !11, !noundef !12
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %27, label %26
 
@@ -1250,7 +1250,7 @@ define internal zeroext i1 @child_job_drained_poll(ptr noundef readonly captures
   %6 = inttoptr i64 %5 to ptr
   tail call void %6(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 56) #8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 180
-  %8 = load i8, ptr %7, align 4, !range !10, !noundef !11
+  %8 = load i8, ptr %7, align 4, !range !11, !noundef !12
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %glib_autoptr_cleanup_QemuLockable.exit
 
@@ -1291,7 +1291,7 @@ define internal noundef zeroext i1 @child_job_change_aio_ctx(ptr noundef readonl
   %10 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %.028 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.028, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %5, %9
   %.02835 = phi ptr [ %.028, %9 ], [ %.02833, %5 ]
@@ -1388,12 +1388,13 @@ attributes #10 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{!"auto-init"}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{!"auto-init"}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !5, !6}

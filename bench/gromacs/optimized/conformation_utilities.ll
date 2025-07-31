@@ -157,12 +157,12 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr noundef captures(
   store float %19, ptr %16, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %20, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %20, label %9, !llvm.loop !13
 
 20:                                               ; preds = %9
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond64.not, label %.preheader50.preheader, label %.preheader51, !llvm.loop !13
+  br i1 %exitcond64.not, label %.preheader50.preheader, label %.preheader51, !llvm.loop !14
 
 .preheader50.preheader:                           ; preds = %20, %.preheader52
   br label %.preheader50
@@ -182,7 +182,7 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr noundef captures(
   store float %28, ptr %30, align 4, !tbaa !4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 3
-  br i1 %exitcond68.not, label %31, label %.preheader50, !llvm.loop !14
+  br i1 %exitcond68.not, label %31, label %.preheader50, !llvm.loop !15
 
 31:                                               ; preds = %.preheader50
   %32 = icmp sgt i32 %0, 0
@@ -218,12 +218,12 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr noundef captures(
   store float %49, ptr %45, align 4, !tbaa !4
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 3
-  br i1 %exitcond72.not, label %50, label %34, !llvm.loop !15
+  br i1 %exitcond72.not, label %50, label %34, !llvm.loop !16
 
 50:                                               ; preds = %34
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %50, %31
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #6
@@ -257,10 +257,11 @@ attributes #6 = { nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}

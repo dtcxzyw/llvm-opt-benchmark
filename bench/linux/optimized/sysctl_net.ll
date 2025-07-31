@@ -202,7 +202,7 @@ define dso_local ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef %1, ptr
   %43 = getelementptr i8, ptr %47, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %.thread, %42
   %46 = phi i32 [ %48, %42 ], [ 0, %.thread ]
@@ -210,7 +210,7 @@ define dso_local ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef %1, ptr
   %48 = add i32 %46, 1
   %49 = sext i32 %48 to i64
   %50 = icmp ugt i64 %3, %49
-  br i1 %50, label %42, label %.loopexit, !llvm.loop !13
+  br i1 %50, label %42, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %42, %.thread, %.loopexit4
   %51 = phi i64 [ 0, %.loopexit4 ], [ 0, %.thread ], [ %49, %42 ], [ %49, %.preheader ]
@@ -247,7 +247,7 @@ declare dso_local void @setup_sysctl_set(ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal range(i32 0, 2) i32 @is_seen(ptr noundef readnone captures(address) %0) #3 align 16 {
-  %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !14
+  %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !16
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1872
   %5 = load ptr, ptr %4, align 16
@@ -261,7 +261,7 @@ define internal range(i32 0, 2) i32 @is_seen(ptr noundef readnone captures(addre
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal nonnull ptr @net_ctl_header_lookup(ptr readnone captures(none) %0) #3 align 16 {
-  %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !14
+  %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !16
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1872
   %5 = load ptr, ptr %4, align 16
@@ -327,8 +327,10 @@ attributes #6 = { nounwind memory(none) }
 !7 = !{i64 2158567091, i64 2158567120, i64 2158567166, i64 2158567224, i64 2158567278, i64 2158567332, i64 2158567387, i64 2158567418, i64 2158567726, i64 2158567732, i64 2158567779, i64 2158567802, i64 2158567828}
 !8 = !{i64 2158568277, i64 2158568088, i64 2158568138, i64 2158568184, i64 2158568212}
 !9 = !{i64 2158568583, i64 2158568394, i64 2158568444, i64 2158568490, i64 2158568518}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = !{i64 2148162414}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = distinct !{!15, !11, !12}
+!16 = !{i64 2148162414}

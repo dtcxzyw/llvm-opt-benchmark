@@ -41,22 +41,22 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_queue_push(ptr noundef captures
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
-  store ptr %1, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %10, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8, !tbaa !10
-  store ptr %3, ptr %6, align 8, !tbaa !15
+  store ptr %3, ptr %6, align 8, !tbaa !16
   br label %11
 
 10:                                               ; preds = %4
-  store ptr %3, ptr %6, align 8, !tbaa !15
+  store ptr %3, ptr %6, align 8, !tbaa !16
   store ptr %3, ptr %0, align 8, !tbaa !4
   br label %11
 
@@ -75,12 +75,12 @@ define dso_local void @nghttp2_queue_pop(ptr noundef captures(none) %0) local_un
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   store ptr %4, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !15
+  %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = icmp eq ptr %2, %6
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  store ptr null, ptr %5, align 8, !tbaa !15
+  store ptr null, ptr %5, align 8, !tbaa !16
   br label %9
 
 9:                                                ; preds = %8, %1
@@ -91,15 +91,15 @@ define dso_local void @nghttp2_queue_pop(ptr noundef captures(none) %0) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @nghttp2_queue_front(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @nghttp2_queue_back(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
   ret ptr %4
 }
 
@@ -140,7 +140,8 @@ attributes #10 = { nounwind allocsize(0) }
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!11, !6, i64 8}
 !11 = !{!"nghttp2_queue_cell", !7, i64 0, !6, i64 8}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!11, !7, i64 0}
-!15 = !{!5, !6, i64 8}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!11, !7, i64 0}
+!16 = !{!5, !6, i64 8}

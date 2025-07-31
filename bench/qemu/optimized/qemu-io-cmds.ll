@@ -453,7 +453,7 @@ breakline.exit.thread:                            ; preds = %2
   %.0.be.i = phi i32 [ %13, %12 ], [ %.047.i23, %.lr.ph ]
   %21 = call ptr @qemu_strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.4) #26
   %.not43.i = icmp eq ptr %21, null
-  br i1 %.not43.i, label %breakline.exit, label %.lr.ph, !llvm.loop !6
+  br i1 %.not43.i, label %breakline.exit, label %.lr.ph, !llvm.loop !7
 
 breakline.exit:                                   ; preds = %.backedge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -491,7 +491,7 @@ breakline.exit:                                   ; preds = %.backedge.i
 38:                                               ; preds = %35, %32
   %39 = getelementptr inbounds nuw i8, ptr %.011.i, i64 72
   %40 = icmp ult ptr %39, %27
-  br i1 %40, label %.lr.ph.i12, label %.loopexit, !llvm.loop !7
+  br i1 %40, label %.lr.ph.i12, label %.loopexit, !llvm.loop !8
 
 find_command.exit:                                ; preds = %35, %.lr.ph.i12
   %41 = getelementptr i8, ptr %.011.i, i64 36
@@ -571,9 +571,9 @@ init_check_command.exit.i:                        ; preds = %42
 
 74:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
-  store i64 0, ptr %3, align 8, !annotation !8
+  store i64 0, ptr %3, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   call void @blk_get_perm(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #26
   %75 = load i64, ptr %67, align 8
   %76 = load i64, ptr %3, align 8
@@ -1102,7 +1102,7 @@ help_oneline.exit.i:                              ; preds = %13, %.lr.ph.i
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds %struct.cmdinfo, ptr %19, i64 %21
   %23 = icmp ult ptr %18, %22
-  br i1 %23, label %.lr.ph.i, label %help_all.exit, !llvm.loop !9
+  br i1 %23, label %.lr.ph.i, label %help_all.exit, !llvm.loop !10
 
 help_all.exit:                                    ; preds = %help_oneline.exit.i, %5
   %24 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.15) #26
@@ -1140,7 +1140,7 @@ help_all.exit:                                    ; preds = %help_oneline.exit.i
 42:                                               ; preds = %39, %36
   %43 = getelementptr inbounds nuw i8, ptr %.011.i, i64 72
   %44 = icmp ult ptr %43, %31
-  br i1 %44, label %.lr.ph.i7, label %.loopexit, !llvm.loop !7
+  br i1 %44, label %.lr.ph.i7, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %42, %25
   %45 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.14, ptr noundef %27) #26
@@ -1185,9 +1185,9 @@ define internal range(i32 -2147483648, 1) i32 @read_f(ptr noundef %0, i32 nounde
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !9
   br label %11
 
 11:                                               ; preds = %.backedge, %3
@@ -1225,7 +1225,7 @@ define internal range(i32 -2147483648, 1) i32 @read_f(ptr noundef %0, i32 nounde
 15:                                               ; preds = %11
   %16 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
-  store i64 0, ptr %8, align 8, !annotation !8
+  store i64 0, ptr %8, align 8, !annotation !9
   %17 = call i32 @qemu_strtosz(ptr noundef %16, ptr noundef null, ptr noundef nonnull %8) #26
   %18 = icmp slt i32 %17, 0
   %19 = sext i32 %17 to i64
@@ -1283,7 +1283,7 @@ parse_pattern.exit:                               ; preds = %30
   %.087.be = phi i32 [ %.087, %13 ], [ %.087, %14 ], [ %.087, %15 ], [ %.087, %parse_pattern.exit ], [ %.087, %35 ], [ %37, %36 ], [ %.087, %38 ], [ %.087, %50 ], [ %.087, %11 ]
   %.085.be = phi i1 [ %.085, %13 ], [ %.085, %14 ], [ %.085, %15 ], [ %.085, %parse_pattern.exit ], [ true, %35 ], [ %.085, %36 ], [ %.085, %38 ], [ %.085, %50 ], [ %.085, %11 ]
   %.084.be = phi i1 [ %.084, %13 ], [ true, %14 ], [ %.084, %15 ], [ %.084, %parse_pattern.exit ], [ %.084, %35 ], [ %.084, %36 ], [ %.084, %38 ], [ %.084, %50 ], [ %.084, %11 ]
-  br label %11, !llvm.loop !10
+  br label %11, !llvm.loop !11
 
 35:                                               ; preds = %11
   br label %.backedge
@@ -1295,7 +1295,7 @@ parse_pattern.exit:                               ; preds = %30
 38:                                               ; preds = %11
   %39 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
-  store i64 0, ptr %6, align 8, !annotation !8
+  store i64 0, ptr %6, align 8, !annotation !9
   %40 = call i32 @qemu_strtosz(ptr noundef %39, ptr noundef null, ptr noundef nonnull %6) #26
   %41 = icmp slt i32 %40, 0
   %42 = sext i32 %40 to i64
@@ -1339,7 +1339,7 @@ parse_pattern.exit:                               ; preds = %30
   %60 = getelementptr inbounds ptr, ptr %2, i64 %59
   %61 = load ptr, ptr %60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %62 = call i32 @qemu_strtosz(ptr noundef %61, ptr noundef null, ptr noundef nonnull %5) #26
   %63 = icmp slt i32 %62, 0
   %64 = sext i32 %62 to i64
@@ -1371,7 +1371,7 @@ parse_pattern.exit:                               ; preds = %30
   %78 = getelementptr inbounds ptr, ptr %2, i64 %77
   %79 = load ptr, ptr %78, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %80 = call i32 @qemu_strtosz(ptr noundef %79, ptr noundef null, ptr noundef nonnull %4) #26
   %81 = icmp slt i32 %80, 0
   %82 = sext i32 %80 to i64
@@ -1574,7 +1574,7 @@ declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @cvtnum(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
-  store i64 0, ptr %2, align 8, !annotation !8
+  store i64 0, ptr %2, align 8, !annotation !9
   %3 = call i32 @qemu_strtosz(ptr noundef %0, ptr noundef null, ptr noundef nonnull %2) #26
   %4 = icmp slt i32 %3, 0
   %5 = sext i32 %3 to i64
@@ -1588,7 +1588,7 @@ define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @cvtnum(
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @qemu_io_alloc(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef range(i32 0, -2147483648) %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  %5 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %5 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %6 = shl nuw nsw i8 %5, 4
   %7 = zext nneg i8 %6 to i64
   %spec.select = add nuw i64 %1, %7
@@ -1602,7 +1602,7 @@ define internal fastcc ptr @qemu_io_alloc(ptr noundef %0, i64 noundef range(i64 
   br label %12
 
 12:                                               ; preds = %10, %4
-  %13 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %13 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %14 = shl nuw nsw i8 %13, 4
   %spec.select12.idx = zext nneg i8 %14 to i64
   %spec.select12 = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select12.idx
@@ -1648,7 +1648,7 @@ define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %0,
   %13 = or disjoint i64 %.02637, %indvars.iv.next
   %14 = icmp ult i64 %13, %2
   %or.cond = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond, label %7, label %.lr.ph, !llvm.loop !13
+  br i1 %or.cond, label %7, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %7
   %15 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.4) #26
@@ -1680,14 +1680,14 @@ define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %0,
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %30 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv42, %umin
-  br i1 %exitcond.not, label %.critedge2, label %17, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge2, label %17, !llvm.loop !15
 
 .critedge2:                                       ; preds = %29
   %31 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.38) #26
   %32 = add i64 %.02637, 16
   %33 = icmp ult i64 %32, %2
   %indvars.iv.next46 = add i64 %indvars.iv45, -16
-  br i1 %33, label %.lr.ph39, label %._crit_edge, !llvm.loop !15
+  br i1 %33, label %.lr.ph39, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.critedge2, %3
   ret void
@@ -1699,11 +1699,11 @@ define internal fastcc void @print_report(ptr noundef %0, ptr noundef nonnull re
   %9 = alloca [64 x i8], align 16
   %10 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, i8 0, i64 64, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, i8 0, i64 64, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %9, i8 0, i64 64, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %9, i8 0, i64 64, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false), !annotation !9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = sitofp i64 %12 to double
@@ -1778,7 +1778,7 @@ timestr.exit:                                     ; preds = %.thread.i, %24
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @qemu_io_free(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  %5 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %5 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %6 = trunc nuw i8 %5 to i1
   %.0.idx = select i1 %6, i64 -16, i64 0
   %.0 = getelementptr inbounds i8, ptr %1, i64 %.0.idx
@@ -1907,11 +1907,11 @@ define internal range(i32 -2147483648, 1) i32 @readv_f(ptr noundef %0, i32 nound
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.QEMUIOVector, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !9
   br label %.outer
 
 .outer:                                           ; preds = %23, %3
@@ -1953,7 +1953,7 @@ define internal range(i32 -2147483648, 1) i32 @readv_f(ptr noundef %0, i32 nound
     i32 113, label %21
     i32 114, label %22
     i32 118, label %23
-  ], !llvm.loop !16
+  ], !llvm.loop !17
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @optarg, align 8
@@ -1977,16 +1977,16 @@ parse_pattern.exit.thread:                        ; preds = %13, %16
 parse_pattern.exit:                               ; preds = %16
   %20 = trunc nuw nsw i64 %15 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
-  br label %.outer118, !llvm.loop !16
+  br label %.outer118, !llvm.loop !17
 
 21:                                               ; preds = %11
-  br label %.outer128, !llvm.loop !16
+  br label %.outer128, !llvm.loop !17
 
 22:                                               ; preds = %11
-  br label %.outer124, !llvm.loop !16
+  br label %.outer124, !llvm.loop !17
 
 23:                                               ; preds = %11
-  br label %.outer, !llvm.loop !16
+  br label %.outer, !llvm.loop !17
 
 24:                                               ; preds = %11
   %25 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.21) #26
@@ -2007,7 +2007,7 @@ parse_pattern.exit:                               ; preds = %16
   %34 = getelementptr inbounds ptr, ptr %2, i64 %33
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %36 = call i32 @qemu_strtosz(ptr noundef %35, ptr noundef null, ptr noundef nonnull %5) #26
   %37 = icmp slt i32 %36, 0
   %38 = sext i32 %36 to i64
@@ -2057,7 +2057,7 @@ parse_pattern.exit:                               ; preds = %16
   call void @main_loop_wait(i32 noundef 0) #26
   %63 = load i32, ptr %4, align 4
   %64 = icmp eq i32 %63, 2147483647
-  br i1 %64, label %.lr.ph.i, label %do_aio_readv.exit, !llvm.loop !17
+  br i1 %64, label %.lr.ph.i, label %do_aio_readv.exit, !llvm.loop !18
 
 do_aio_readv.exit:                                ; preds = %.lr.ph.i, %58
   %.lcssa.i = phi i32 [ %61, %58 ], [ %63, %.lr.ph.i ]
@@ -2132,7 +2132,7 @@ do_aio_readv.exit:                                ; preds = %.lr.ph.i, %58
 
 99:                                               ; preds = %82, %86, %69
   %.050 = phi i32 [ %.lcssa.i, %69 ], [ %.151, %82 ], [ %.151, %86 ]
-  %100 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %100 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %101 = trunc nuw i8 %100 to i1
   %.0.idx.i = select i1 %101, i64 -16, i64 0
   %.0.i64 = getelementptr inbounds i8, ptr %56, i64 %.0.idx.i
@@ -2182,7 +2182,7 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
-  store i64 0, ptr %7, align 8, !annotation !8
+  store i64 0, ptr %7, align 8, !annotation !9
   %13 = call i32 @qemu_strtosz(ptr noundef %12, ptr noundef null, ptr noundef nonnull %7) #26
   %14 = icmp slt i32 %13, 0
   %15 = sext i32 %13 to i64
@@ -2225,12 +2225,12 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
   %32 = add nuw nsw i64 %.0.i, %.05469
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %30, %6
   %.054.lcssa = phi i64 [ 0, %6 ], [ %32, %30 ]
   call void @qemu_iovec_init(ptr noundef %1, i32 noundef %3) #26
-  %33 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %33 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %34 = shl nuw nsw i8 %33, 4
   %35 = zext nneg i8 %34 to i64
   %spec.select.i = add nuw nsw i64 %.054.lcssa, %35
@@ -2244,7 +2244,7 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
   br label %qemu_io_alloc.exit
 
 qemu_io_alloc.exit:                               ; preds = %._crit_edge, %38
-  %40 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %40 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %41 = shl nuw nsw i8 %40, 4
   %spec.select12.idx.i = zext nneg i8 %41 to i64
   %spec.select12.i = getelementptr inbounds nuw i8, ptr %36, i64 %spec.select12.idx.i
@@ -2264,7 +2264,7 @@ qemu_io_alloc.exit:                               ; preds = %._crit_edge, %38
   %45 = getelementptr inbounds nuw i8, ptr %.05271, i64 %44
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.thread, label %.lr.ph73, !llvm.loop !19
+  br i1 %exitcond86.not, label %.thread, label %.lr.ph73, !llvm.loop !20
 
 .thread:                                          ; preds = %.lr.ph73, %qemu_io_alloc.exit, %28, %23, %19
   %.053 = phi ptr [ null, %19 ], [ null, %23 ], [ null, %28 ], [ %spec.select12.i, %qemu_io_alloc.exit ], [ %spec.select12.i, %.lr.ph73 ]
@@ -2294,9 +2294,9 @@ define internal range(i32 -2147483648, 1) i32 @write_f(ptr noundef %0, i32 nound
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !9
   br label %7
 
 7:                                                ; preds = %.backedge, %3
@@ -2379,7 +2379,7 @@ parse_pattern.exit:                               ; preds = %19
   %.098.be = phi i32 [ %.098, %9 ], [ %.098, %10 ], [ %.098, %11 ], [ %.098, %12 ], [ %.098, %14 ], [ %23, %parse_pattern.exit ], [ %.098, %24 ], [ %.098, %25 ], [ %.098, %27 ], [ %.098, %29 ], [ %.098, %31 ], [ %.098, %7 ]
   %.096.be = phi ptr [ %.096, %9 ], [ %.096, %10 ], [ %.096, %11 ], [ %.096, %12 ], [ %.096, %14 ], [ %.096, %parse_pattern.exit ], [ %.096, %24 ], [ %.096, %25 ], [ %28, %27 ], [ %.096, %29 ], [ %.096, %31 ], [ %.096, %7 ]
   %.095.be = phi i1 [ %.095, %9 ], [ %.095, %10 ], [ true, %11 ], [ %.095, %12 ], [ %.095, %14 ], [ %.095, %parse_pattern.exit ], [ %.095, %24 ], [ %.095, %25 ], [ %.095, %27 ], [ %.095, %29 ], [ %.095, %31 ], [ %.095, %7 ]
-  br label %7, !llvm.loop !20
+  br label %7, !llvm.loop !21
 
 24:                                               ; preds = %7
   br label %.backedge
@@ -2674,7 +2674,7 @@ define internal void @write_help() #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @qemu_io_alloc_from_file(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  %5 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %5 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %6 = shl nuw nsw i8 %5, 4
   %7 = zext nneg i8 %6 to i64
   %8 = add nuw i64 %1, %7
@@ -2688,7 +2688,7 @@ define internal fastcc ptr @qemu_io_alloc_from_file(ptr noundef %0, i64 noundef 
 
 fread.inline.exit:                                ; preds = %4
   %11 = tail call ptr @blk_blockalign(ptr noundef %0, i64 noundef %8) #26
-  %12 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %12 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %13 = shl nuw nsw i8 %12, 4
   %spec.select.idx = zext nneg i8 %13 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %11, i64 %spec.select.idx
@@ -2739,10 +2739,10 @@ fread.inline.exit:                                ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.04451, ptr noundef nonnull align 1 %spec.select, i64 noundef %35, i1 noundef false) #26
   %.044 = getelementptr inbounds i8, ptr %.04451, i64 %29
   %36 = icmp ult ptr %.044, %28
-  br i1 %36, label %32, label %.loopexit, !llvm.loop !21
+  br i1 %36, label %32, label %.loopexit, !llvm.loop !22
 
 37:                                               ; preds = %20, %16
-  %38 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %38 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %39 = trunc nuw i8 %38 to i1
   %.0.idx.i = select i1 %39, i64 -16, i64 0
   %.0.i49 = getelementptr inbounds i8, ptr %11, i64 %.0.idx.i
@@ -2787,11 +2787,11 @@ define internal range(i32 -2147483648, 1) i32 @writev_f(ptr noundef %0, i32 noun
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.QEMUIOVector, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !9
   br label %.outer
 
 .outer:                                           ; preds = %14, %3
@@ -2822,7 +2822,7 @@ define internal range(i32 -2147483648, 1) i32 @writev_f(ptr noundef %0, i32 noun
     i32 113, label %14
     i32 114, label %15
     i32 80, label %17
-  ], !llvm.loop !22
+  ], !llvm.loop !23
 
 12:                                               ; preds = %10
   %13 = or i32 %.037.ph89, 16
@@ -2830,10 +2830,10 @@ define internal range(i32 -2147483648, 1) i32 @writev_f(ptr noundef %0, i32 noun
 
 .outer88.backedge:                                ; preds = %12, %15
   %.037.ph89.be = phi i32 [ %16, %15 ], [ %13, %12 ]
-  br label %.outer88, !llvm.loop !22
+  br label %.outer88, !llvm.loop !23
 
 14:                                               ; preds = %10
-  br label %.outer, !llvm.loop !22
+  br label %.outer, !llvm.loop !23
 
 15:                                               ; preds = %10
   %16 = or i32 %.037.ph89, 8
@@ -2861,7 +2861,7 @@ parse_pattern.exit.thread:                        ; preds = %17, %20
 parse_pattern.exit:                               ; preds = %20
   %24 = trunc nuw nsw i64 %19 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
-  br label %.outer92, !llvm.loop !22
+  br label %.outer92, !llvm.loop !23
 
 25:                                               ; preds = %10
   %26 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.67) #26
@@ -2882,7 +2882,7 @@ parse_pattern.exit:                               ; preds = %20
   %35 = getelementptr inbounds ptr, ptr %2, i64 %34
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %37 = call i32 @qemu_strtosz(ptr noundef %36, ptr noundef null, ptr noundef nonnull %5) #26
   %38 = icmp slt i32 %37, 0
   %39 = sext i32 %37 to i64
@@ -2932,7 +2932,7 @@ parse_pattern.exit:                               ; preds = %20
   call void @main_loop_wait(i32 noundef 0) #26
   %64 = load i32, ptr %4, align 4
   %65 = icmp eq i32 %64, 2147483647
-  br i1 %65, label %.lr.ph.i, label %do_aio_writev.exit, !llvm.loop !23
+  br i1 %65, label %.lr.ph.i, label %do_aio_writev.exit, !llvm.loop !24
 
 do_aio_writev.exit:                               ; preds = %.lr.ph.i, %59
   %.lcssa.i = phi i32 [ %62, %59 ], [ %64, %.lr.ph.i ]
@@ -2976,7 +2976,7 @@ do_aio_writev.exit:                               ; preds = %.lr.ph.i, %59
 
 88:                                               ; preds = %74, %75, %70
   %.036 = phi i32 [ %.lcssa.i, %70 ], [ 0, %74 ], [ 0, %75 ]
-  %89 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %89 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %90 = trunc nuw i8 %89 to i1
   %.0.idx.i = select i1 %90, i64 -16, i64 0
   %.0.i50 = getelementptr inbounds i8, ptr %57, i64 %.0.idx.i
@@ -3069,7 +3069,7 @@ parse_pattern.exit:                               ; preds = %19
   br label %.backedge
 
 .backedge:                                        ; preds = %parse_pattern.exit, %31, %28, %27, %15
-  br label %13, !llvm.loop !24
+  br label %13, !llvm.loop !25
 
 24:                                               ; preds = %13
   %25 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.89) #26
@@ -3113,7 +3113,7 @@ parse_pattern.exit:                               ; preds = %19
   %42 = getelementptr inbounds ptr, ptr %2, i64 %41
   %43 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %44 = call i32 @qemu_strtosz(ptr noundef %43, ptr noundef null, ptr noundef nonnull %4) #26
   %45 = icmp slt i32 %44, 0
   %46 = sext i32 %44 to i64
@@ -3199,7 +3199,7 @@ declare void @block_acct_start(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 define internal void @aio_read_done(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
   %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #26
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %6, label %13
@@ -3216,7 +3216,7 @@ define internal void @aio_read_done(ptr noundef %0, i32 noundef %1) #0 {
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 67
-  %15 = load i8, ptr %14, align 1, !range !11, !noundef !12
+  %15 = load i8, ptr %14, align 1, !range !12, !noundef !13
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %32
 
@@ -3251,13 +3251,13 @@ define internal void @aio_read_done(ptr noundef %0, i32 noundef %1) #0 {
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @block_acct_done(ptr noundef %34, ptr noundef nonnull %35) #26
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %37 = load i8, ptr %36, align 8, !range !11, !noundef !12
+  %37 = load i8, ptr %36, align 8, !range !12, !noundef !13
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %69, label %39
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %41 = load i8, ptr %40, align 1, !range !11, !noundef !12
+  %41 = load i8, ptr %40, align 1, !range !12, !noundef !13
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %50
 
@@ -3293,7 +3293,7 @@ define internal void @aio_read_done(ptr noundef %0, i32 noundef %1) #0 {
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %67 = load i8, ptr %66, align 2, !range !11, !noundef !12
+  %67 = load i8, ptr %66, align 2, !range !12, !noundef !13
   %68 = trunc nuw i8 %67 to i1
   call fastcc void @print_report(ptr noundef nonnull @.str.18, ptr noundef %3, i64 noundef %63, i64 noundef %65, i64 noundef %65, i32 noundef 1, i1 noundef zeroext %68)
   br label %69
@@ -3305,7 +3305,7 @@ define internal void @aio_read_done(ptr noundef %0, i32 noundef %1) #0 {
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 8
   %.not33 = icmp eq i32 %74, 0
-  %75 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %75 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %76 = trunc nuw i8 %75 to i1
   %.0.idx.i = select i1 %76, i64 -16, i64 0
   %.0.i = getelementptr inbounds i8, ptr %71, i64 %.0.idx.i
@@ -3412,7 +3412,7 @@ parse_pattern.exit.thread:                        ; preds = %24, %27
 parse_pattern.exit:                               ; preds = %27
   %31 = trunc nuw nsw i64 %26 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  br label %.outer, !llvm.loop !25
+  br label %.outer, !llvm.loop !26
 
 32:                                               ; preds = %11
   %33 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.95) #26
@@ -3426,7 +3426,7 @@ parse_pattern.exit:                               ; preds = %27
   br label %.backedge
 
 .backedge:                                        ; preds = %35, %21, %18, %17, %14, %13
-  br label %11, !llvm.loop !25
+  br label %11, !llvm.loop !26
 
 36:                                               ; preds = %11
   tail call void @g_free(ptr noundef %6) #26
@@ -3445,7 +3445,7 @@ parse_pattern.exit:                               ; preds = %27
   br label %128
 
 44:                                               ; preds = %38
-  %45 = load i8, ptr %7, align 4, !range !11, !noundef !12
+  %45 = load i8, ptr %7, align 4, !range !12, !noundef !13
   %46 = trunc nuw i8 %45 to i1
   %.not96 = icmp ne i32 %39, %40
   %or.cond.not = and i1 %.not96, %46
@@ -3475,7 +3475,7 @@ parse_pattern.exit:                               ; preds = %27
 
 .thread:                                          ; preds = %52, %55
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 67
-  %57 = load i8, ptr %56, align 1, !range !11, !noundef !12
+  %57 = load i8, ptr %56, align 1, !range !12, !noundef !13
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %61
 
@@ -3499,7 +3499,7 @@ parse_pattern.exit:                               ; preds = %27
   %67 = getelementptr inbounds ptr, ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %69 = call i32 @qemu_strtosz(ptr noundef %68, ptr noundef null, ptr noundef nonnull %4) #26
   %70 = icmp slt i32 %69, 0
   %71 = sext i32 %69 to i64
@@ -3532,7 +3532,7 @@ parse_pattern.exit:                               ; preds = %27
   %84 = load i32, ptr @optind, align 4
   %85 = add i32 %84, 1
   store i32 %85, ptr @optind, align 4
-  %86 = load i8, ptr %7, align 4, !range !11, !noundef !12
+  %86 = load i8, ptr %7, align 4, !range !12, !noundef !13
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %105
 
@@ -3616,7 +3616,7 @@ declare ptr @blk_aio_pwrite_zeroes(ptr noundef, i64 noundef, i64 noundef, i32 no
 define internal void @aio_write_done(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
   %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #26
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %6, label %13
@@ -3637,7 +3637,7 @@ define internal void @aio_write_done(ptr noundef %0, i32 noundef %1) #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @block_acct_done(ptr noundef %15, ptr noundef nonnull %16) #26
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load i8, ptr %17, align 8, !range !11, !noundef !12
+  %18 = load i8, ptr %17, align 8, !range !12, !noundef !13
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %39, label %20
 
@@ -3663,14 +3663,14 @@ define internal void @aio_write_done(ptr noundef %0, i32 noundef %1) #0 {
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %37 = load i8, ptr %36, align 2, !range !11, !noundef !12
+  %37 = load i8, ptr %36, align 2, !range !12, !noundef !13
   %38 = trunc nuw i8 %37 to i1
   call fastcc void @print_report(ptr noundef nonnull @.str.77, ptr noundef %3, i64 noundef %33, i64 noundef %35, i64 noundef %35, i32 noundef 1, i1 noundef zeroext %38)
   br label %39
 
 39:                                               ; preds = %13, %20, %6
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %41 = load i8, ptr %40, align 4, !range !11, !noundef !12
+  %41 = load i8, ptr %40, align 4, !range !12, !noundef !13
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %57, label %43
 
@@ -3682,7 +3682,7 @@ define internal void @aio_write_done(ptr noundef %0, i32 noundef %1) #0 {
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 8
   %.not = icmp eq i32 %49, 0
-  %50 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %50 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %51 = trunc nuw i8 %50 to i1
   %.0.idx.i = select i1 %51, i64 -16, i64 0
   %.0.i = getelementptr inbounds i8, ptr %45, i64 %.0.idx.i
@@ -3712,7 +3712,7 @@ qemu_io_free.exit:                                ; preds = %43, %52
 define internal noundef i32 @aio_flush_f(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.BlockAcctCookie, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
   %5 = tail call ptr @blk_get_stats(ptr noundef %0) #26
   call void @block_acct_start(ptr noundef %5, ptr noundef nonnull %4, i64 noundef 0, i32 noundef 3) #26
   call void @blk_drain_all() #26
@@ -3745,7 +3745,7 @@ define internal i32 @zone_report_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %12 = call i32 @qemu_strtosz(ptr noundef %11, ptr noundef null, ptr noundef nonnull %5) #26
   %13 = icmp slt i32 %12, 0
   %14 = sext i32 %12 to i64
@@ -3777,7 +3777,7 @@ define internal i32 @zone_report_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %28 = getelementptr inbounds ptr, ptr %2, i64 %27
   %29 = load ptr, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %30 = call i32 @qemu_strtosz(ptr noundef %29, ptr noundef null, ptr noundef nonnull %4) #26
   %31 = icmp slt i32 %30, 0
   %32 = sext i32 %30 to i64
@@ -3852,7 +3852,7 @@ define internal i32 @zone_report_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %75 = add nuw i32 %.053, 1
   %76 = load i32, ptr %6, align 4
   %77 = icmp ult i32 %75, %76
-  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %53
   call void @g_free(ptr noundef %49) #26
@@ -3880,7 +3880,7 @@ define internal i32 @zone_open_f(ptr noundef %0, i32 %1, ptr noundef readonly ca
   %9 = getelementptr inbounds ptr, ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %11 = call i32 @qemu_strtosz(ptr noundef %10, ptr noundef null, ptr noundef nonnull %5) #26
   %12 = icmp slt i32 %11, 0
   %13 = sext i32 %11 to i64
@@ -3912,7 +3912,7 @@ define internal i32 @zone_open_f(ptr noundef %0, i32 %1, ptr noundef readonly ca
   %27 = getelementptr inbounds ptr, ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %29 = call i32 @qemu_strtosz(ptr noundef %28, ptr noundef null, ptr noundef nonnull %4) #26
   %30 = icmp slt i32 %29, 0
   %31 = sext i32 %29 to i64
@@ -3966,7 +3966,7 @@ define internal i32 @zone_close_f(ptr noundef %0, i32 %1, ptr noundef readonly c
   %9 = getelementptr inbounds ptr, ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %11 = call i32 @qemu_strtosz(ptr noundef %10, ptr noundef null, ptr noundef nonnull %5) #26
   %12 = icmp slt i32 %11, 0
   %13 = sext i32 %11 to i64
@@ -3998,7 +3998,7 @@ define internal i32 @zone_close_f(ptr noundef %0, i32 %1, ptr noundef readonly c
   %27 = getelementptr inbounds ptr, ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %29 = call i32 @qemu_strtosz(ptr noundef %28, ptr noundef null, ptr noundef nonnull %4) #26
   %30 = icmp slt i32 %29, 0
   %31 = sext i32 %29 to i64
@@ -4050,7 +4050,7 @@ define internal i32 @zone_finish_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %9 = getelementptr inbounds ptr, ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %11 = call i32 @qemu_strtosz(ptr noundef %10, ptr noundef null, ptr noundef nonnull %5) #26
   %12 = icmp slt i32 %11, 0
   %13 = sext i32 %11 to i64
@@ -4082,7 +4082,7 @@ define internal i32 @zone_finish_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %27 = getelementptr inbounds ptr, ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %29 = call i32 @qemu_strtosz(ptr noundef %28, ptr noundef null, ptr noundef nonnull %4) #26
   %30 = icmp slt i32 %29, 0
   %31 = sext i32 %29 to i64
@@ -4134,7 +4134,7 @@ define internal i32 @zone_reset_f(ptr noundef %0, i32 %1, ptr noundef readonly c
   %9 = getelementptr inbounds ptr, ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %11 = call i32 @qemu_strtosz(ptr noundef %10, ptr noundef null, ptr noundef nonnull %5) #26
   %12 = icmp slt i32 %11, 0
   %13 = sext i32 %11 to i64
@@ -4166,7 +4166,7 @@ define internal i32 @zone_reset_f(ptr noundef %0, i32 %1, ptr noundef readonly c
   %27 = getelementptr inbounds ptr, ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %29 = call i32 @qemu_strtosz(ptr noundef %28, ptr noundef null, ptr noundef nonnull %4) #26
   %30 = icmp slt i32 %29, 0
   %31 = sext i32 %29 to i64
@@ -4221,7 +4221,7 @@ define internal i32 @zone_append_f(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %10, label %57, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !9
   %12 = tail call i32 @getopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.133) #26
   %.not.not = icmp eq i32 %12, -1
   %13 = load i32, ptr @optind, align 4
@@ -4229,7 +4229,7 @@ define internal i32 @zone_append_f(ptr noundef %0, i32 noundef %1, ptr noundef %
   %15 = getelementptr inbounds ptr, ptr %2, i64 %14
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %17 = call i32 @qemu_strtosz(ptr noundef %16, ptr noundef null, ptr noundef nonnull %5) #26
   %18 = icmp slt i32 %17, 0
   %19 = sext i32 %17 to i64
@@ -4277,7 +4277,7 @@ define internal i32 @zone_append_f(ptr noundef %0, i32 noundef %1, ptr noundef %
   call void @main_loop_wait(i32 noundef 0) #26
   %41 = load i32, ptr %4, align 4
   %42 = icmp eq i32 %41, 2147483647
-  br i1 %42, label %.lr.ph.i, label %do_aio_zone_append.exit, !llvm.loop !27
+  br i1 %42, label %.lr.ph.i, label %do_aio_zone_append.exit, !llvm.loop !28
 
 do_aio_zone_append.exit:                          ; preds = %.lr.ph.i, %37
   %.lcssa.i = phi i32 [ %39, %37 ], [ %41, %.lr.ph.i ]
@@ -4302,7 +4302,7 @@ do_aio_zone_append.exit:                          ; preds = %.lr.ph.i, %37
   br label %54
 
 54:                                               ; preds = %49, %50, %45
-  %55 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
+  %55 = load i8, ptr @qemuio_misalign, align 1, !range !12, !noundef !13
   %56 = trunc nuw i8 %55 to i1
   %.0.idx.i = select i1 %56, i64 -16, i64 0
   %.0.i25 = getelementptr inbounds i8, ptr %35, i64 %.0.idx.i
@@ -4339,7 +4339,7 @@ define internal range(i32 -2147483648, 1) i32 @truncate_f(ptr noundef %0, i32 no
   %9 = load ptr, ptr @optarg, align 8
   %10 = tail call i32 @qapi_enum_parse(ptr noundef nonnull @PreallocMode_lookup, ptr noundef %9, i32 noundef 4, ptr noundef null) #26
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %12, label %6, !llvm.loop !28
+  br i1 %11, label %12, label %6, !llvm.loop !29
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @optarg, align 8
@@ -4356,7 +4356,7 @@ define internal range(i32 -2147483648, 1) i32 @truncate_f(ptr noundef %0, i32 no
   %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %21 = call i32 @qemu_strtosz(ptr noundef %20, ptr noundef null, ptr noundef nonnull %4) #26
   %22 = icmp slt i32 %21, 0
   %23 = sext i32 %21 to i64
@@ -4417,7 +4417,7 @@ define internal i32 @length_f(ptr noundef %0, i32 %1, ptr readnone captures(none
   br label %15
 
 12:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !9
   %13 = uitofp nneg i64 %5 to double
   call fastcc void @cvtstr(double noundef %13, ptr noundef %4)
   %14 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.146, ptr noundef nonnull %4) #26
@@ -4451,9 +4451,9 @@ define internal i32 @info_f(ptr noundef %0, i32 %1, ptr readnone captures(none) 
   unreachable
 
 11:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false), !annotation !9
   tail call void @bdrv_graph_rdlock_main_loop() #26
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -4563,10 +4563,10 @@ define internal range(i32 -2147483648, 1) i32 @discard_f(ptr noundef %0, i32 nou
     i32 -1, label %13
     i32 67, label %8
     i32 113, label %10
-  ], !llvm.loop !29
+  ], !llvm.loop !30
 
 10:                                               ; preds = %8
-  br label %.outer, !llvm.loop !29
+  br label %.outer, !llvm.loop !30
 
 11:                                               ; preds = %8
   %12 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.158) #26
@@ -4583,13 +4583,13 @@ define internal range(i32 -2147483648, 1) i32 @discard_f(ptr noundef %0, i32 nou
   br label %82
 
 18:                                               ; preds = %13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !9
   %19 = sext i32 %14 to i64
   %20 = getelementptr inbounds ptr, ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %22 = call i32 @qemu_strtosz(ptr noundef %21, ptr noundef null, ptr noundef nonnull %5) #26
   %23 = icmp slt i32 %22, 0
   %24 = sext i32 %22 to i64
@@ -4621,7 +4621,7 @@ define internal range(i32 -2147483648, 1) i32 @discard_f(ptr noundef %0, i32 nou
   %38 = getelementptr inbounds ptr, ptr %2, i64 %37
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %40 = call i32 @qemu_strtosz(ptr noundef %39, ptr noundef null, ptr noundef nonnull %4) #26
   %41 = icmp slt i32 %40, 0
   %42 = sext i32 %40 to i64
@@ -4716,13 +4716,13 @@ define internal range(i32 -2147483648, 1) i32 @alloc_f(ptr noundef %0, i32 nound
   %7 = alloca i64, align 8
   %8 = tail call ptr @blk_bs(ptr noundef %0) #26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
-  store i64 0, ptr %7, align 8, !annotation !8
+  store i64 0, ptr %7, align 8, !annotation !9
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %11 = call i32 @qemu_strtosz(ptr noundef %10, ptr noundef null, ptr noundef nonnull %5) #26
   %12 = icmp slt i32 %11, 0
   %13 = sext i32 %11 to i64
@@ -4752,7 +4752,7 @@ define internal range(i32 -2147483648, 1) i32 @alloc_f(ptr noundef %0, i32 nound
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %26 = call i32 @qemu_strtosz(ptr noundef %25, ptr noundef null, ptr noundef nonnull %4) #26
   %27 = icmp slt i32 %26, 0
   %28 = sext i32 %26 to i64
@@ -4844,8 +4844,8 @@ define internal i32 @map_f(ptr noundef %0, i32 %1, ptr readnone captures(none) %
   br i1 %.not34, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !9
   br label %.lr.ph
 
 9:                                                ; preds = %3
@@ -4860,7 +4860,7 @@ define internal i32 @map_f(ptr noundef %0, i32 %1, ptr readnone captures(none) %
   %.01735 = phi i64 [ %37, %32 ], [ 0, %.lr.ph.preheader ]
   %13 = call ptr @blk_bs(ptr noundef %0) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %14 = call i32 @bdrv_is_allocated(ptr noundef %13, i64 noundef %.01735, i64 noundef range(i64 1, 0) %.036, ptr noundef nonnull %4) #26
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %map_is_allocated.exit.thread, label %18
@@ -4894,7 +4894,7 @@ map_is_allocated.exit.thread:                     ; preds = %.lr.ph
 28:                                               ; preds = %.lr.ph.i
   %29 = add i64 %26, %.1
   %30 = icmp sgt i64 %23, 0
-  br i1 %30, label %.lr.ph.i, label %map_is_allocated.exit.thread30, !llvm.loop !30
+  br i1 %30, label %.lr.ph.i, label %map_is_allocated.exit.thread30, !llvm.loop !31
 
 map_is_allocated.exit.thread30:                   ; preds = %28, %.lr.ph.i, %18
   %.232 = phi i64 [ %19, %18 ], [ %29, %28 ], [ %.1, %.lr.ph.i ]
@@ -4917,7 +4917,7 @@ map_is_allocated.exit.thread30:                   ; preds = %28, %.lr.ph.i, %18
   %37 = add i64 %.232, %.01735
   %38 = sub i64 %.036, %.232
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit:                                        ; preds = %32, %.preheader, %31, %map_is_allocated.exit.thread, %9
   %.018 = phi i32 [ %10, %9 ], [ %14, %map_is_allocated.exit.thread ], [ -5, %31 ], [ 0, %.preheader ], [ 0, %32 ]
@@ -4969,7 +4969,7 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
   %17 = load ptr, ptr @optarg, align 8
   %18 = call i32 @bdrv_parse_cache_mode(ptr noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %5) #26
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %.outer, !llvm.loop !32
+  br i1 %19, label %20, label %.outer, !llvm.loop !33
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @optarg, align 8
@@ -4980,7 +4980,7 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
   %23 = load ptr, ptr @optarg, align 8
   %24 = call ptr @qemu_opts_parse_noisily(ptr noundef nonnull @reopen_opts, ptr noundef %23, i1 noundef zeroext false) #26
   %.not59 = icmp eq ptr %24, null
-  br i1 %.not59, label %25, label %14, !llvm.loop !32
+  br i1 %.not59, label %25, label %14, !llvm.loop !33
 
 25:                                               ; preds = %22
   call void @qemu_opts_reset(ptr noundef nonnull @reopen_opts) #26
@@ -5020,7 +5020,7 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
 .sink.split:                                      ; preds = %29, %35
   %.sink = phi i32 [ %37, %35 ], [ %31, %29 ]
   store i32 %.sink, ptr %4, align 4
-  br label %.outer101, !llvm.loop !32
+  br label %.outer101, !llvm.loop !33
 
 40:                                               ; preds = %14
   %41 = load i32, ptr @optind, align 4
@@ -5033,7 +5033,7 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
   br label %95
 
 44:                                               ; preds = %40
-  %45 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %45 = load i8, ptr %5, align 1, !range !12, !noundef !13
   %46 = call zeroext i1 @blk_enable_write_cache(ptr noundef %0) #26
   %47 = zext i1 %46 to i8
   %.not48.not = icmp eq i8 %45, %47
@@ -5057,9 +5057,9 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
 
 54:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
-  store i64 0, ptr %7, align 8, !annotation !8
+  store i64 0, ptr %7, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
-  store i64 0, ptr %8, align 8, !annotation !8
+  store i64 0, ptr %8, align 8, !annotation !9
   call void @bdrv_drain(ptr noundef nonnull %9) #26
   call void @blk_get_perm(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #26
   %55 = load i64, ptr %7, align 8
@@ -5146,7 +5146,7 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
   br label %95
 
 91:                                               ; preds = %87
-  %92 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %92 = load i8, ptr %5, align 1, !range !12, !noundef !13
   %93 = trunc nuw i8 %92 to i1
   %94 = xor i1 %93, true
   call void @blk_set_enable_write_cache(ptr noundef %0, i1 noundef zeroext %94) #26
@@ -5306,7 +5306,7 @@ define internal noundef i32 @wait_break_f(ptr noundef %0, i32 %1, ptr noundef re
   %10 = tail call ptr @blk_bs(ptr noundef %0) #26
   %11 = load ptr, ptr %5, align 8
   %12 = tail call zeroext i1 @bdrv_debug_is_suspended(ptr noundef %10, ptr noundef %11) #26
-  br i1 %12, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %12, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i32 0
@@ -5332,7 +5332,7 @@ define internal range(i32 -22, 1) i32 @sleep_f(ptr readnone captures(none) %0, i
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store ptr null, ptr %4, align 8, !annotation !8
+  store ptr null, ptr %4, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #26
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5359,15 +5359,15 @@ define internal range(i32 -22, 1) i32 @sleep_f(ptr readnone captures(none) %0, i
   %19 = mul i64 %8, 1000000
   %20 = add i64 %18, %19
   call void @timer_mod(ptr noundef %17, i64 noundef %20) #26
-  %21 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %21 = load i8, ptr %5, align 1, !range !12, !noundef !13
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   call void @main_loop_wait(i32 noundef 0) #26
-  %23 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %23 = load i8, ptr %5, align 1, !range !12, !noundef !13
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %24, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.not.i = icmp eq ptr %17, null
@@ -5405,7 +5405,7 @@ define internal i32 @sigraise_f(ptr readnone captures(none) %0, i32 %1, ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 0, ptr %4, align 8, !annotation !8
+  store i64 0, ptr %4, align 8, !annotation !9
   %7 = call i32 @qemu_strtosz(ptr noundef %6, ptr noundef null, ptr noundef nonnull %4) #26
   %8 = icmp slt i32 %7, 0
   %9 = sext i32 %7 to i64
@@ -5516,34 +5516,35 @@ attributes #31 = { cold }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{!"auto-init"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{!"auto-init"}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}

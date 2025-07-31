@@ -285,7 +285,7 @@ define internal range(i32 0, 2) i32 @test_rand_uniform() #0 {
 
 .preheader29:                                     ; preds = %0, %4
   %.02031 = phi i32 [ %5, %4 ], [ 1, %0 ]
-  %7 = load ptr, ptr %2, align 8, !tbaa !17
+  %7 = load ptr, ptr %2, align 8, !tbaa !18
   %8 = call i32 @ossl_rand_uniform_uint32(ptr noundef %7, i32 noundef %.02031, ptr noundef nonnull %1) #11
   %9 = load i32, ptr %1, align 4, !tbaa !4
   %10 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.15, i32 noundef %9, i32 noundef 0) #11
@@ -310,11 +310,11 @@ define internal range(i32 0, 2) i32 @test_rand_uniform() #0 {
 16:                                               ; preds = %25
   %17 = add nuw nsw i32 %.01932, 11
   %18 = icmp samesign ult i32 %.01932, 139
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %.01932 = phi i32 [ %17, %16 ], [ %15, %.lr.ph.preheader ]
-  %19 = load ptr, ptr %2, align 8, !tbaa !17
+  %19 = load ptr, ptr %2, align 8, !tbaa !18
   %20 = call i32 @ossl_rand_range_uint32(ptr noundef %19, i32 noundef %.133, i32 noundef %.01932, ptr noundef nonnull %1) #11
   %21 = load i32, ptr %1, align 4, !tbaa !4
   %22 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.15, i32 noundef %21, i32 noundef 0) #11
@@ -334,11 +334,11 @@ define internal range(i32 0, 2) i32 @test_rand_uniform() #0 {
 ._crit_edge:                                      ; preds = %16
   %27 = add nuw nsw i32 %.133, 17
   %28 = icmp samesign ult i32 %.133, 83
-  br i1 %28, label %.lr.ph.preheader, label %.loopexit28, !llvm.loop !20
+  br i1 %28, label %.lr.ph.preheader, label %.loopexit28, !llvm.loop !21
 
 .loopexit28:                                      ; preds = %._crit_edge, %0
   %.0 = phi i32 [ 0, %0 ], [ 1, %._crit_edge ]
-  %29 = load ptr, ptr %2, align 8, !tbaa !17
+  %29 = load ptr, ptr %2, align 8, !tbaa !18
   call void @OSSL_LIB_CTX_free(ptr noundef %29) #11
   br label %.loopexit
 
@@ -361,10 +361,10 @@ define internal range(i32 0, 2) i32 @fips_health_tests() #0 {
   %.027 = phi i64 [ 0, %0 ], [ %5, %2 ]
   %3 = trunc i64 %.027 to i8
   %4 = getelementptr inbounds nuw [1000 x i8], ptr %1, i64 0, i64 %.027
-  store i8 %3, ptr %4, align 1, !tbaa !21
+  store i8 %3, ptr %4, align 1, !tbaa !22
   %5 = add nuw nsw i64 %.027, 1
   %exitcond.not = icmp eq i64 %5, 1000
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !22
+  br i1 %exitcond.not, label %6, label %2, !llvm.loop !23
 
 6:                                                ; preds = %2
   %7 = call fastcc i32 @fips_health_test_one(ptr noundef %1, i64 noundef 1000, i64 noundef 1000)
@@ -380,10 +380,10 @@ define internal range(i32 0, 2) i32 @fips_health_tests() #0 {
   %12 = trunc nuw nsw i64 %.128 to i8
   %13 = select i1 %11, i8 -56, i8 %12
   %14 = getelementptr inbounds nuw [1000 x i8], ptr %1, i64 0, i64 %.128
-  store i8 %13, ptr %14, align 1, !tbaa !21
+  store i8 %13, ptr %14, align 1, !tbaa !22
   %15 = add nuw nsw i64 %.128, 1
   %exitcond32.not = icmp eq i64 %15, 20
-  br i1 %exitcond32.not, label %16, label %.preheader26, !llvm.loop !23
+  br i1 %exitcond32.not, label %16, label %.preheader26, !llvm.loop !24
 
 16:                                               ; preds = %.preheader26
   %17 = call fastcc i32 @fips_health_test_one(ptr noundef %1, i64 noundef 20, i64 noundef 20)
@@ -402,10 +402,10 @@ define internal range(i32 0, 2) i32 @fips_health_tests() #0 {
   %24 = trunc i64 %.229 to i8
   %25 = select i1 %or.cond, i8 -128, i8 %24
   %26 = getelementptr inbounds nuw [1000 x i8], ptr %1, i64 0, i64 %.229
-  store i8 %25, ptr %26, align 1, !tbaa !21
+  store i8 %25, ptr %26, align 1, !tbaa !22
   %27 = add nuw nsw i64 %.229, 1
   %exitcond33.not = icmp eq i64 %27, 1000
-  br i1 %exitcond33.not, label %28, label %.preheader, !llvm.loop !24
+  br i1 %exitcond33.not, label %28, label %.preheader, !llvm.loop !25
 
 28:                                               ; preds = %.preheader
   %29 = call fastcc i32 @fips_health_test_one(ptr noundef %1, i64 noundef 1000, i64 noundef 1000)
@@ -428,7 +428,7 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   %2 = alloca [11 x i8], align 1
   %3 = alloca [11 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #11
-  store ptr null, ptr %1, align 8, !tbaa !17
+  store ptr null, ptr %1, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %2) #11
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %2, i8 -1, i64 11, i1 false)
@@ -438,7 +438,7 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   br i1 %.not, label %53, label %5
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr %1, align 8, !tbaa !17
+  %6 = load ptr, ptr %1, align 8, !tbaa !18
   %7 = call i32 @OSSL_PROVIDER_add_builtin(ptr noundef %6, ptr noundef nonnull @.str.43, ptr noundef nonnull @r_init) #11
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
@@ -447,14 +447,14 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   br i1 %.not4, label %53, label %11
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %1, align 8, !tbaa !17
+  %12 = load ptr, ptr %1, align 8, !tbaa !18
   %13 = call ptr @OSSL_PROVIDER_try_load(ptr noundef %12, ptr noundef nonnull @.str.43, i32 noundef 1) #11
   %14 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 220, ptr noundef nonnull @.str.44, ptr noundef %13) #11
   %.not5 = icmp eq i32 %14, 0
   br i1 %.not5, label %53, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %1, align 8, !tbaa !17
+  %16 = load ptr, ptr %1, align 8, !tbaa !18
   %17 = call i32 @RAND_set1_random_provider(ptr noundef %16, ptr noundef %13) #11
   %18 = icmp ne i32 %17, 0
   %19 = zext i1 %18 to i32
@@ -463,7 +463,7 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   br i1 %.not6, label %53, label %21
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %1, align 8, !tbaa !17
+  %22 = load ptr, ptr %1, align 8, !tbaa !18
   %23 = call i32 @RAND_bytes_ex(ptr noundef %22, ptr noundef nonnull %2, i64 noundef 11, i32 noundef 256) #11
   %.not7 = icmp eq i32 %23, 0
   br i1 %.not7, label %53, label %24
@@ -474,7 +474,7 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   br i1 %.not8, label %53, label %26
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %1, align 8, !tbaa !17
+  %27 = load ptr, ptr %1, align 8, !tbaa !18
   %28 = call i32 @RAND_priv_bytes_ex(ptr noundef %27, ptr noundef nonnull %3, i64 noundef 11, i32 noundef 256) #11
   %.not9 = icmp eq i32 %28, 0
   br i1 %.not9, label %53, label %29
@@ -485,7 +485,7 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   br i1 %.not10, label %53, label %31
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr %1, align 8, !tbaa !17
+  %32 = load ptr, ptr %1, align 8, !tbaa !18
   %33 = call i32 @RAND_set1_random_provider(ptr noundef %32, ptr noundef null) #11
   %34 = icmp ne i32 %33, 0
   %35 = zext i1 %34 to i32
@@ -494,7 +494,7 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   br i1 %.not11, label %53, label %37
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr %1, align 8, !tbaa !17
+  %38 = load ptr, ptr %1, align 8, !tbaa !18
   %39 = call i32 @RAND_bytes_ex(ptr noundef %38, ptr noundef nonnull %2, i64 noundef 11, i32 noundef 256) #11
   %.not12 = icmp eq i32 %39, 0
   br i1 %.not12, label %53, label %40
@@ -505,7 +505,7 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   br i1 %.not13, label %53, label %42
 
 42:                                               ; preds = %40
-  %43 = load ptr, ptr %1, align 8, !tbaa !17
+  %43 = load ptr, ptr %1, align 8, !tbaa !18
   %44 = call i32 @RAND_set1_random_provider(ptr noundef %43, ptr noundef %13) #11
   %45 = icmp ne i32 %44, 0
   %46 = zext i1 %45 to i32
@@ -514,7 +514,7 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   br i1 %.not14, label %53, label %48
 
 48:                                               ; preds = %42
-  %49 = load ptr, ptr %1, align 8, !tbaa !17
+  %49 = load ptr, ptr %1, align 8, !tbaa !18
   %50 = call i32 @RAND_bytes_ex(ptr noundef %49, ptr noundef nonnull %2, i64 noundef 11, i32 noundef 256) #11
   %.not15 = icmp eq i32 %50, 0
   br i1 %.not15, label %53, label %51
@@ -529,7 +529,7 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   %.03 = phi ptr [ %13, %48 ], [ %13, %42 ], [ %13, %40 ], [ %13, %37 ], [ %13, %31 ], [ %13, %29 ], [ %13, %26 ], [ %13, %24 ], [ %13, %21 ], [ %13, %15 ], [ %13, %11 ], [ null, %5 ], [ null, %0 ], [ %13, %51 ]
   %.0 = phi i32 [ 0, %48 ], [ 0, %42 ], [ 0, %40 ], [ 0, %37 ], [ 0, %31 ], [ 0, %29 ], [ 0, %26 ], [ 0, %24 ], [ 0, %21 ], [ 0, %15 ], [ 0, %11 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %51 ]
   %54 = call i32 @OSSL_PROVIDER_unload(ptr noundef %.03) #11
-  %55 = load ptr, ptr %1, align 8, !tbaa !17
+  %55 = load ptr, ptr %1, align 8, !tbaa !18
   call void @OSSL_LIB_CTX_free(ptr noundef %55) #11
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %2) #11
@@ -720,9 +720,9 @@ define internal range(i32 0, 2) i32 @r_init(ptr noundef %0, ptr readnone capture
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  store ptr %0, ptr %5, align 8, !tbaa !25
+  store ptr %0, ptr %5, align 8, !tbaa !26
   store ptr %5, ptr %3, align 8, !tbaa !12
-  store ptr @r_test_table, ptr %2, align 8, !tbaa !28
+  store ptr @r_test_table, ptr %2, align 8, !tbaa !29
   br label %8
 
 8:                                                ; preds = %4, %7
@@ -755,9 +755,9 @@ define internal noundef i32 @r_random_bytes(ptr readnone captures(none) %0, i32 
   %6 = add i64 %.04, -1
   %7 = trunc i64 %6 to i8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %6
-  store i8 %7, ptr %8, align 1, !tbaa !21
+  store i8 %7, ptr %8, align 1, !tbaa !22
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret i32 1
@@ -804,19 +804,20 @@ attributes #13 = { nounwind allocsize(0) }
 !12 = !{!11, !11, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !6, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS15ossl_lib_ctx_st", !11, i64 0}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
-!21 = !{!6, !6, i64 0}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = distinct !{!24, !16}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"r_test_ctx", !27, i64 0}
-!27 = !{!"p1 _ZTS19ossl_core_handle_st", !11, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS16ossl_dispatch_st", !11, i64 0}
-!30 = distinct !{!30, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS15ossl_lib_ctx_st", !11, i64 0}
+!20 = distinct !{!20, !16, !17}
+!21 = distinct !{!21, !16, !17}
+!22 = !{!6, !6, i64 0}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}
+!25 = distinct !{!25, !16, !17}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"r_test_ctx", !28, i64 0}
+!28 = !{!"p1 _ZTS19ossl_core_handle_st", !11, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS16ossl_dispatch_st", !11, i64 0}
+!31 = distinct !{!31, !16, !17}

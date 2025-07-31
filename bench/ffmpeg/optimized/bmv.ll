@@ -87,13 +87,13 @@ define internal i32 @bmv_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   switch i32 %14, label %15 [
     i32 0, label %7
     i32 1, label %.loopexit62
-  ]
+  ], !llvm.loop !48
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %6, align 8, !tbaa !45
   %17 = tail call i32 @avio_rl24(ptr noundef %16) #3
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %17, ptr %18, align 8, !tbaa !48
+  store i32 %17, ptr %18, align 8, !tbaa !50
   %.not58 = icmp eq i32 %17, 0
   br i1 %.not58, label %.loopexit62, label %19
 
@@ -106,14 +106,14 @@ define internal i32 @bmv_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 24:                                               ; preds = %19
   %25 = trunc i32 %14 to i8
-  %26 = load ptr, ptr %4, align 8, !tbaa !49
+  %26 = load ptr, ptr %4, align 8, !tbaa !51
   store i8 %25, ptr %26, align 1, !tbaa !39
   %27 = load ptr, ptr %6, align 8, !tbaa !45
-  %28 = load ptr, ptr %4, align 8, !tbaa !49
+  %28 = load ptr, ptr %4, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %30 = load i32, ptr %18, align 8, !tbaa !48
+  %30 = load i32, ptr %18, align 8, !tbaa !50
   %31 = tail call i32 @avio_read(ptr noundef %27, ptr noundef nonnull %29, i32 noundef %30) #3
-  %32 = load i32, ptr %18, align 8, !tbaa !48
+  %32 = load i32, ptr %18, align 8, !tbaa !50
   %.not59 = icmp eq i32 %31, %32
   br i1 %.not59, label %33, label %.loopexit62
 
@@ -123,7 +123,7 @@ define internal i32 @bmv_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not60, label %66, label %35
 
 35:                                               ; preds = %33
-  %36 = load ptr, ptr %4, align 8, !tbaa !49
+  %36 = load ptr, ptr %4, align 8, !tbaa !51
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = load i8, ptr %37, align 1, !tbaa !39
   %39 = zext i8 %38 to i32
@@ -143,35 +143,35 @@ define internal i32 @bmv_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !50
-  %49 = load ptr, ptr %4, align 8, !tbaa !49
+  %48 = load ptr, ptr %47, align 8, !tbaa !52
+  %49 = load ptr, ptr %4, align 8, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %52 = load i32, ptr %51, align 8, !tbaa !51
+  %52 = load i32, ptr %51, align 8, !tbaa !53
   %53 = sext i32 %52 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 1 %50, i64 %53, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 1, ptr %54, align 4, !tbaa !52
+  store i32 1, ptr %54, align 4, !tbaa !54
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !44
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %56, ptr %57, align 8, !tbaa !53
-  %58 = load ptr, ptr %4, align 8, !tbaa !49
+  store i64 %56, ptr %57, align 8, !tbaa !55
+  %58 = load ptr, ptr %4, align 8, !tbaa !51
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1, !tbaa !39
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 5
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %62, ptr %63, align 8, !tbaa !54
+  store i64 %62, ptr %63, align 8, !tbaa !56
   %64 = add nsw i64 %62, %56
   store i64 %64, ptr %55, align 8, !tbaa !44
   store i32 0, ptr %5, align 4, !tbaa !42
-  %65 = load i32, ptr %51, align 8, !tbaa !51
+  %65 = load i32, ptr %51, align 8, !tbaa !53
   br label %.loopexit62
 
 .loopexit:                                        ; preds = %7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !48
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !50
   br label %66
 
 66:                                               ; preds = %.loopexit, %33
@@ -183,16 +183,16 @@ define internal i32 @bmv_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %72, align 4, !tbaa !52
+  store i32 0, ptr %72, align 4, !tbaa !54
   store i32 1, ptr %5, align 4, !tbaa !42
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !50
-  %75 = load ptr, ptr %4, align 8, !tbaa !49
+  %74 = load ptr, ptr %73, align 8, !tbaa !52
+  %75 = load ptr, ptr %4, align 8, !tbaa !51
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %77 = load i32, ptr %76, align 8, !tbaa !51
+  %77 = load i32, ptr %76, align 8, !tbaa !53
   %78 = sext i32 %77 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 1 %75, i64 %78, i1 false)
-  %79 = load i32, ptr %76, align 8, !tbaa !51
+  %79 = load i32, ptr %76, align 8, !tbaa !53
   br label %.loopexit62
 
 .loopexit62:                                      ; preds = %13, %9, %66, %42, %46, %43, %24, %19, %15, %71
@@ -284,10 +284,12 @@ attributes #3 = { nounwind }
 !45 = !{!5, !12, i64 32}
 !46 = !{!47, !13, i64 80}
 !47 = !{!"AVIOContext", !6, i64 0, !18, i64 8, !13, i64 16, !18, i64 24, !18, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !19, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !13, i64 92, !13, i64 96, !19, i64 104, !18, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !13, i64 144, !13, i64 148, !18, i64 152, !18, i64 160, !7, i64 168, !13, i64 176, !18, i64 184, !19, i64 192, !19, i64 200}
-!48 = !{!43, !13, i64 8}
-!49 = !{!43, !18, i64 0}
-!50 = !{!28, !18, i64 24}
-!51 = !{!28, !13, i64 32}
-!52 = !{!28, !13, i64 36}
-!53 = !{!28, !19, i64 8}
-!54 = !{!28, !19, i64 64}
+!48 = distinct !{!48, !49}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!43, !13, i64 8}
+!51 = !{!43, !18, i64 0}
+!52 = !{!28, !18, i64 24}
+!53 = !{!28, !13, i64 32}
+!54 = !{!28, !13, i64 36}
+!55 = !{!28, !19, i64 8}
+!56 = !{!28, !19, i64 64}

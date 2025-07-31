@@ -755,7 +755,7 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
   %144 = fadd double %143, %141
   %.019.add.i = add nuw nsw i64 %.019.idx20.i, 8
   %.not.i = icmp eq i64 %.019.add.i, 56
-  br i1 %.not.i, label %_ZL9ell_int_5d.exit, label %140
+  br i1 %.not.i, label %_ZL9ell_int_5d.exit, label %140, !llvm.loop !53
 
 _ZL9ell_int_5d.exit:                              ; preds = %140
   %145 = fneg double %135
@@ -778,7 +778,7 @@ _ZL9ell_int_5d.exit:                              ; preds = %140
   %155 = fadd double %154, %152
   %.019.add.i205 = add nuw nsw i64 %.019.idx20.i203, 8
   %.not.i206 = icmp eq i64 %.019.add.i205, 56
-  br i1 %.not.i206, label %_ZL9ell_int_5d.exit207, label %151
+  br i1 %.not.i206, label %_ZL9ell_int_5d.exit207, label %151, !llvm.loop !53
 
 _ZL9ell_int_5d.exit207:                           ; preds = %151
   %156 = fneg double %.022.i
@@ -1197,3 +1197,5 @@ attributes #10 = { nounwind }
 !50 = !{!44, !14, i64 16}
 !51 = !{!14, !14, i64 0}
 !52 = !{!13, !13, i64 0}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.estimated_trip_count"}

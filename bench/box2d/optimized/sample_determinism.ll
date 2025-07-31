@@ -251,14 +251,14 @@ define linkonce_odr dso_local void @_ZN13FallingHingesC2ER8Settings(ptr noundef 
           to label %69 unwind label %81
 
 69:                                               ; preds = %68
-  store i32 2, ptr %9, align 8, !tbaa !46
+  store i32 2, ptr %9, align 8, !tbaa !47
   %70 = uitofp nneg i32 %.07084 to float
   %71 = fmul float %70, 0x3FB99999A0000000
   %72 = fadd float %64, %71
-  store float %72, ptr %48, align 4, !tbaa !51
+  store float %72, ptr %48, align 4, !tbaa !52
   %73 = fmul float %70, 5.000000e-01
   %74 = fadd float %73, 2.500000e-01
-  store float %74, ptr %49, align 8, !tbaa !52
+  store float %74, ptr %49, align 8, !tbaa !53
   %75 = fadd float %71, -1.000000e+00
   %76 = invoke <2 x float> @b2ComputeCosSin(float noundef %75)
           to label %_Z9b2MakeRotf.exit unwind label %83
@@ -308,7 +308,7 @@ _Z9b2MakeRotf.exit:                               ; preds = %69
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #14
   %93 = add nuw nsw i32 %.07084, 1
   %exitcond.not = icmp eq i32 %93, 30
-  br i1 %exitcond.not, label %66, label %68, !llvm.loop !53
+  br i1 %exitcond.not, label %66, label %68, !llvm.loop !54
 
 94:                                               ; preds = %85, %83, %81
   %.pn74 = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ], [ %82, %81 ]
@@ -399,7 +399,7 @@ define linkonce_odr dso_local void @_ZN13FallingHinges4StepER8Settings(ptr nound
 
 14:                                               ; preds = %20
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load i32, ptr %15, align 8, !tbaa !54
+  %16 = load i32, ptr %15, align 8, !tbaa !55
   %17 = add nsw i32 %16, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1212
   store i32 %17, ptr %18, align 4, !tbaa !43
@@ -422,20 +422,20 @@ define linkonce_odr dso_local void @_ZN13FallingHinges4StepER8Settings(ptr nound
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 120
-  br i1 %exitcond.not, label %14, label %20, !llvm.loop !55
+  br i1 %exitcond.not, label %14, label %20, !llvm.loop !56
 
 26:                                               ; preds = %7, %14, %2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load i32, ptr %27, align 8, !tbaa !56
+  %28 = load i32, ptr %27, align 8, !tbaa !57
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1212
   %30 = load i32, ptr %29, align 4, !tbaa !43
   %31 = load i32, ptr %4, align 8, !tbaa !34
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %28, ptr noundef nonnull @.str.3, i32 noundef %30, i32 noundef %31)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %33 = load i32, ptr %32, align 4, !tbaa !57
-  %34 = load i32, ptr %27, align 8, !tbaa !56
+  %33 = load i32, ptr %32, align 4, !tbaa !58
+  %34 = load i32, ptr %27, align 8, !tbaa !57
   %35 = add nsw i32 %34, %33
-  store i32 %35, ptr %27, align 8, !tbaa !56
+  store i32 %35, ptr %27, align 8, !tbaa !57
   ret void
 }
 
@@ -541,17 +541,18 @@ attributes #14 = { nounwind }
 !41 = !{!"_ZTS9b2JointId", !9, i64 0, !27, i64 4, !27, i64 6}
 !42 = !{!"_ZTS9b2Profile", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !11, i64 76, !11, i64 80, !11, i64 84}
 !43 = !{!35, !9, i64 1212}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!47, !48, i64 0}
-!47 = !{!"_ZTS9b2BodyDef", !48, i64 0, !18, i64 4, !49, i64 12, !18, i64 20, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !50, i64 48, !21, i64 56, !12, i64 64, !12, i64 65, !12, i64 66, !12, i64 67, !12, i64 68, !12, i64 69, !9, i64 72}
-!48 = !{!"_ZTS10b2BodyType", !10, i64 0}
-!49 = !{!"_ZTS5b2Rot", !11, i64 0, !11, i64 4}
-!50 = !{!"p1 omnipotent char", !21, i64 0}
-!51 = !{!47, !11, i64 4}
-!52 = !{!47, !11, i64 8}
-!53 = distinct !{!53, !45}
-!54 = !{!36, !9, i64 64}
-!55 = distinct !{!55, !45}
-!56 = !{!36, !9, i64 48}
-!57 = !{!36, !9, i64 68}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!48, !49, i64 0}
+!48 = !{!"_ZTS9b2BodyDef", !49, i64 0, !18, i64 4, !50, i64 12, !18, i64 20, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !51, i64 48, !21, i64 56, !12, i64 64, !12, i64 65, !12, i64 66, !12, i64 67, !12, i64 68, !12, i64 69, !9, i64 72}
+!49 = !{!"_ZTS10b2BodyType", !10, i64 0}
+!50 = !{!"_ZTS5b2Rot", !11, i64 0, !11, i64 4}
+!51 = !{!"p1 omnipotent char", !21, i64 0}
+!52 = !{!48, !11, i64 4}
+!53 = !{!48, !11, i64 8}
+!54 = distinct !{!54, !45, !46}
+!55 = !{!36, !9, i64 64}
+!56 = distinct !{!56, !45, !46}
+!57 = !{!36, !9, i64 48}
+!58 = !{!36, !9, i64 68}

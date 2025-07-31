@@ -422,7 +422,7 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
   %94 = add nuw i32 %.01.i.i, 1
   %95 = load i32, ptr %18, align 4
   %96 = icmp ult i32 %94, %95
-  br i1 %96, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
+  br i1 %96, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
 
 dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #3
@@ -467,7 +467,7 @@ dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %6
   %121 = add nuw i32 %.01.i33.i, 1
   %122 = load i32, ptr %15, align 4
   %123 = icmp ult i32 %121, %122
-  br i1 %123, label %.lr.ph.i32.i, label %dissect_a615a_LNA.exit.i, !llvm.loop !9
+  br i1 %123, label %.lr.ph.i32.i, label %dissect_a615a_LNA.exit.i, !llvm.loop !10
 
 dissect_a615a_LNA.exit.i:                         ; preds = %.lr.ph.i32.i, %113
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
@@ -495,7 +495,7 @@ dissect_a615a_LNA.exit.i:                         ; preds = %.lr.ph.i32.i, %113
   %136 = add nuw i32 %.01.i37.i, 1
   %137 = load i32, ptr %14, align 4
   %138 = icmp ult i32 %136, %137
-  br i1 %138, label %.lr.ph.i36.i, label %dissect_a615a_LNL.exit.i, !llvm.loop !10
+  br i1 %138, label %.lr.ph.i36.i, label %dissect_a615a_LNL.exit.i, !llvm.loop !11
 
 dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #3
@@ -518,7 +518,7 @@ dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
   %147 = add nuw i32 %.01.i41.i, 1
   %148 = load i32, ptr %13, align 4
   %149 = icmp ult i32 %147, %148
-  br i1 %149, label %.lr.ph.i40.i, label %dissect_a615a_LNR.exit.i, !llvm.loop !11
+  br i1 %149, label %.lr.ph.i40.i, label %dissect_a615a_LNR.exit.i, !llvm.loop !12
 
 dissect_a615a_LNR.exit.i:                         ; preds = %.lr.ph.i40.i, %139
   %150 = load i32, ptr @hf_a615a_user_data, align 4
@@ -595,7 +595,7 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   %190 = add nuw i32 %.019.i.i, 1
   %191 = load i32, ptr %11, align 4
   %192 = icmp ult i32 %190, %191
-  br i1 %192, label %.lr.ph.i44.i, label %dissect_a615a_LNS.exit.i, !llvm.loop !12
+  br i1 %192, label %.lr.ph.i44.i, label %dissect_a615a_LNS.exit.i, !llvm.loop !13
 
 dissect_a615a_LNS.exit.i:                         ; preds = %.lr.ph.i44.i, %174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
@@ -625,7 +625,7 @@ dissect_a615a_LNS.exit.i:                         ; preds = %.lr.ph.i44.i, %174
   %205 = add nuw i32 %.01.i48.i, 1
   %206 = load i32, ptr %9, align 4
   %207 = icmp ult i32 %205, %206
-  br i1 %207, label %.lr.ph.i47.i, label %dissect_a615a_LUR.exit.i, !llvm.loop !13
+  br i1 %207, label %.lr.ph.i47.i, label %dissect_a615a_LUR.exit.i, !llvm.loop !14
 
 dissect_a615a_LUR.exit.i:                         ; preds = %.lr.ph.i47.i, %193
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
@@ -711,7 +711,7 @@ sub_1.i55.i:                                      ; preds = %sub_0.i51.i
   %255 = add nuw i32 %.026.i.i, 1
   %256 = load i32, ptr %6, align 4
   %257 = icmp ult i32 %255, %256
-  br i1 %257, label %.lr.ph.i53.i, label %dissect_a615a_LUS.exit.i, !llvm.loop !14
+  br i1 %257, label %.lr.ph.i53.i, label %dissect_a615a_LUS.exit.i, !llvm.loop !15
 
 dissect_a615a_LUS.exit.i:                         ; preds = %.lr.ph.i53.i, %230
   call void @ptvcursor_pop_subtree(ptr noundef %55)
@@ -731,7 +731,7 @@ dissect_a615a_protocol_file.exit:                 ; preds = %58, %dissect_a615a_
 258:                                              ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %258, %dissect_a615a_protocol_file.exit, %26, %22, %24, %4
   %.019 = phi i1 [ false, %4 ], [ false, %24 ], [ false, %22 ], [ false, %26 ], [ true, %dissect_a615a_protocol_file.exit ], [ false, %258 ]
@@ -817,13 +817,14 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

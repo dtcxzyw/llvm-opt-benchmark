@@ -184,7 +184,7 @@ _ZN5folly18parking_lot_detail12WaitNodeBase4wakeEv.exit.i.i: ; preds = %_ZN5foll
   %.16.i = phi i32 [ %.05.i, %37 ], [ %41, %_ZN5folly18parking_lot_detail12WaitNodeBase4wakeEv.exit.i.i ], [ %.05.i, %32 ], [ %.05.i, %27 ]
   %.1.i = phi i32 [ %.0.i, %37 ], [ %42, %_ZN5folly18parking_lot_detail12WaitNodeBase4wakeEv.exit.i.i ], [ %.0.i, %32 ], [ %.0.i, %27 ]
   %.not.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %27
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %27, !llvm.loop !34
 
 _ZN5folly18parking_lot_detail12WaitNodeBase4wakeEv.exit._crit_edge.i.i: ; preds = %_ZN5folly18parking_lot_detail12WaitNodeBase4wakeEv.exit.i.i
   br label %._crit_edge.i.i, !llvm.loop !32
@@ -229,14 +229,14 @@ define noundef range(i32 0, 4) i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicI
 .sink.split.i:                                    ; preds = %7, %5
   %.sink.i = phi ptr [ %2, %5 ], [ %3, %7 ]
   %.015.ph.i = phi i32 [ 393, %5 ], [ 137, %7 ]
-  %.sroa.0.0.copyload.i = load i64, ptr %.sink.i, align 8, !tbaa !34
+  %.sroa.0.0.copyload.i = load i64, ptr %.sink.i, align 8, !tbaa !36
   %spec.select.i22.i = tail call i64 @llvm.smax.i64(i64 %.sroa.0.0.copyload.i, i64 0)
   %8 = udiv i64 %spec.select.i22.i, 1000000000
   %.neg.i.i23.i = mul nsw i64 %8, -1000000000
   %9 = add nsw i64 %.neg.i.i23.i, %spec.select.i22.i
-  store i64 %8, ptr %6, align 8, !tbaa !34
+  store i64 %8, ptr %6, align 8, !tbaa !36
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !34
+  store i64 %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !36
   br label %10
 
 10:                                               ; preds = %.sink.split.i, %7
@@ -273,7 +273,7 @@ define noundef range(i32 0, 4) i32 @_ZN5folly6detail13futexWaitImplEPKNS0_19Emul
   br i1 %.not.i, label %88, label %9
 
 9:                                                ; preds = %5
-  %.sroa.01.0.copyload.i = load i64, ptr %2, align 8, !tbaa !34
+  %.sroa.01.0.copyload.i = load i64, ptr %2, align 8, !tbaa !36
   %10 = ptrtoint ptr %0 to i64
   %11 = xor i64 %10, -1
   %12 = shl i64 %10, 21
@@ -300,7 +300,7 @@ define noundef range(i32 0, 4) i32 @_ZN5folly6detail13futexWaitImplEPKNS0_19Emul
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %26, i8 0, i64 17, i1 false)
   call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %28) #10
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i32 %4, ptr %29, align 8, !tbaa !35
+  store i32 %4, ptr %29, align 8, !tbaa !37
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %31 = atomicrmw add ptr %30, i64 1 seq_cst, align 8
   %32 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %23) #10
@@ -366,7 +366,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit35.i.i:      ; preds = %_ZNSt11unique_lockI
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i:      ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %55 = load i8, ptr %54, align 8, !tbaa !31, !range !37, !noundef !38
+  %55 = load i8, ptr %54, align 8, !tbaa !31, !range !39, !noundef !40
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %.thread7.i.i, label %58
 
@@ -456,7 +456,7 @@ _ZN5folly10ParkingLotIjE10park_untilIPKNS_6detail19EmulatedFutexAtomicIjEERjZNS3
   br i1 %.not9.i, label %168, label %89
 
 89:                                               ; preds = %88
-  %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa !34
+  %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa !36
   %90 = ptrtoint ptr %0 to i64
   %91 = xor i64 %90, -1
   %92 = shl i64 %90, 21
@@ -483,7 +483,7 @@ _ZN5folly10ParkingLotIjE10park_untilIPKNS_6detail19EmulatedFutexAtomicIjEERjZNS3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %106, i8 0, i64 17, i1 false)
   call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %108) #10
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i32 %4, ptr %109, align 8, !tbaa !35
+  store i32 %4, ptr %109, align 8, !tbaa !37
   %110 = getelementptr inbounds nuw i8, ptr %103, i64 56
   %111 = atomicrmw add ptr %110, i64 1 seq_cst, align 8
   %112 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %103) #10
@@ -549,7 +549,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit35.i20.i:    ; preds = %_ZNSt11unique_lockI
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i25.i:    ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %135 = load i8, ptr %134, align 8, !tbaa !31, !range !37, !noundef !38
+  %135 = load i8, ptr %134, align 8, !tbaa !31, !range !39, !noundef !40
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %.thread7.i26.i, label %138
 
@@ -657,7 +657,7 @@ _ZN5folly10ParkingLotIjE10park_untilIPKNS_6detail19EmulatedFutexAtomicIjEERjZNS3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %185, i8 0, i64 17, i1 false)
   call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %187) #10
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i32 %4, ptr %188, align 8, !tbaa !35
+  store i32 %4, ptr %188, align 8, !tbaa !37
   %189 = getelementptr inbounds nuw i8, ptr %182, i64 56
   %190 = atomicrmw add ptr %189, i64 1 seq_cst, align 8
   %191 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %182) #10
@@ -723,7 +723,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit35.i.i.i:    ; preds = %_ZNSt11unique_lockI
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %210
   %213 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %214 = load i8, ptr %213, align 8, !tbaa !31, !range !37, !noundef !38
+  %214 = load i8, ptr %213, align 8, !tbaa !31, !range !39, !noundef !40
   %215 = trunc nuw i8 %214 to i1
   br i1 %215, label %.thread7.i.i.i, label %217
 
@@ -818,7 +818,7 @@ define linkonce_odr noundef i32 @_ZN5folly18parking_lot_detail12WaitNodeBase4wai
   %4 = alloca %"class.std::unique_lock", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %5, ptr %4, align 8, !tbaa !39
+  store ptr %5, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #10
   %.not.i.i.i = icmp eq i32 %7, 0
@@ -829,9 +829,9 @@ define linkonce_odr noundef i32 @_ZN5folly18parking_lot_detail12WaitNodeBase4wai
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
-  store i8 1, ptr %6, align 8, !tbaa !42
+  store i8 1, ptr %6, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i8, ptr %9, align 8, !tbaa !31, !range !37, !noundef !38
+  %10 = load i8, ptr %9, align 8, !tbaa !31, !range !39, !noundef !40
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %._crit_edge.thread, label %.lr.ph
 
@@ -849,14 +849,14 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
           to label %16 unwind label %25
 
 16:                                               ; preds = %.lr.ph.split.us
-  %17 = load i8, ptr %9, align 8, !tbaa !31, !range !37, !noundef !38
+  %17 = load i8, ptr %9, align 8, !tbaa !31, !range !39, !noundef !40
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !43
+  br i1 %18, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !45
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212system_clockET_EE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
-  store i64 %13, ptr %3, align 8, !tbaa !45
-  store i64 %14, ptr %15, align 8, !tbaa !47
+  store i64 %13, ptr %3, align 8, !tbaa !47
+  store i64 %14, ptr %15, align 8, !tbaa !49
   %19 = invoke noundef i32 @pthread_cond_timedwait(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212system_clockET_EE.exit unwind label %.thread
 
@@ -864,10 +864,10 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   %20 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #10
   %21 = icmp sge i64 %20, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  %22 = load i8, ptr %9, align 8, !tbaa !31, !range !37, !noundef !38
+  %22 = load i8, ptr %9, align 8, !tbaa !31, !range !39, !noundef !40
   %23 = trunc nuw i8 %22 to i1
   %.not6 = select i1 %23, i1 true, i1 %21
-  br i1 %.not6, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !48
+  br i1 %.not6, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !50
 
 .thread:                                          ; preds = %.lr.ph.split
   %24 = landingpad { ptr, i32 }
@@ -877,7 +877,7 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
 25:                                               ; preds = %.lr.ph.split.us
   %26 = landingpad { ptr, i32 }
           cleanup
-  %.pre = load i8, ptr %6, align 8, !tbaa !42, !range !37
+  %.pre = load i8, ptr %6, align 8, !tbaa !44, !range !39
   %27 = trunc nuw i8 %.pre to i1
   br i1 %27, label %33, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
@@ -886,13 +886,13 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   br label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %16
-  %.pre16 = load i8, ptr %6, align 8, !tbaa !42, !range !37
+  %.pre16 = load i8, ptr %6, align 8, !tbaa !44, !range !39
   %29 = trunc nuw i8 %.pre16 to i1
   br i1 %29, label %._crit_edge.thread, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.split, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %._crit_edge
   %.05.lcssa22 = phi i32 [ 0, %._crit_edge ], [ %28, %._crit_edge.split ], [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
-  %30 = load ptr, ptr %4, align 8, !tbaa !39
+  %30 = load ptr, ptr %4, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %31
 
@@ -907,7 +907,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %._crit_edge, %._cri
 
 33:                                               ; preds = %.thread, %25
   %.us-phi19 = phi { ptr, i32 } [ %24, %.thread ], [ %26, %25 ]
-  %34 = load ptr, ptr %4, align 8, !tbaa !39
+  %34 = load ptr, ptr %4, align 8, !tbaa !41
   %.not.i.i8 = icmp eq ptr %34, null
   br i1 %.not.i.i8, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9, label %35
 
@@ -943,7 +943,7 @@ define linkonce_odr noundef i32 @_ZN5folly18parking_lot_detail12WaitNodeBase4wai
   %4 = alloca %"class.std::unique_lock", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %5, ptr %4, align 8, !tbaa !39
+  store ptr %5, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #10
   %.not.i.i.i = icmp eq i32 %7, 0
@@ -954,9 +954,9 @@ define linkonce_odr noundef i32 @_ZN5folly18parking_lot_detail12WaitNodeBase4wai
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
-  store i8 1, ptr %6, align 8, !tbaa !42
+  store i8 1, ptr %6, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i8, ptr %9, align 8, !tbaa !31, !range !37, !noundef !38
+  %10 = load i8, ptr %9, align 8, !tbaa !31, !range !39, !noundef !40
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %._crit_edge.thread, label %.lr.ph
 
@@ -974,14 +974,14 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
           to label %16 unwind label %25
 
 16:                                               ; preds = %.lr.ph.split.us
-  %17 = load i8, ptr %9, align 8, !tbaa !31, !range !37, !noundef !38
+  %17 = load i8, ptr %9, align 8, !tbaa !31, !range !39, !noundef !40
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
+  br i1 %18, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !51
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
-  store i64 %13, ptr %3, align 8, !tbaa !45
-  store i64 %14, ptr %15, align 8, !tbaa !47
+  store i64 %13, ptr %3, align 8, !tbaa !47
+  store i64 %14, ptr %15, align 8, !tbaa !49
   %19 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit unwind label %.thread
 
@@ -989,10 +989,10 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   %20 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #10
   %21 = icmp sge i64 %20, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  %22 = load i8, ptr %9, align 8, !tbaa !31, !range !37, !noundef !38
+  %22 = load i8, ptr %9, align 8, !tbaa !31, !range !39, !noundef !40
   %23 = trunc nuw i8 %22 to i1
   %.not6 = select i1 %23, i1 true, i1 %21
-  br i1 %.not6, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !50
+  br i1 %.not6, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !52
 
 .thread:                                          ; preds = %.lr.ph.split
   %24 = landingpad { ptr, i32 }
@@ -1002,7 +1002,7 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
 25:                                               ; preds = %.lr.ph.split.us
   %26 = landingpad { ptr, i32 }
           cleanup
-  %.pre = load i8, ptr %6, align 8, !tbaa !42, !range !37
+  %.pre = load i8, ptr %6, align 8, !tbaa !44, !range !39
   %27 = trunc nuw i8 %.pre to i1
   br i1 %27, label %33, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
@@ -1011,13 +1011,13 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   br label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %16
-  %.pre16 = load i8, ptr %6, align 8, !tbaa !42, !range !37
+  %.pre16 = load i8, ptr %6, align 8, !tbaa !44, !range !39
   %29 = trunc nuw i8 %.pre16 to i1
   br i1 %29, label %._crit_edge.thread, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.split, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %._crit_edge
   %.05.lcssa22 = phi i32 [ 0, %._crit_edge ], [ %28, %._crit_edge.split ], [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
-  %30 = load ptr, ptr %4, align 8, !tbaa !39
+  %30 = load ptr, ptr %4, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %31
 
@@ -1032,7 +1032,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %._crit_edge, %._cri
 
 33:                                               ; preds = %.thread, %25
   %.us-phi19 = phi { ptr, i32 } [ %24, %.thread ], [ %26, %25 ]
-  %34 = load ptr, ptr %4, align 8, !tbaa !39
+  %34 = load ptr, ptr %4, align 8, !tbaa !41
   %.not.i.i8 = icmp eq ptr %34, null
   br i1 %.not.i.i8, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9, label %35
 
@@ -1111,20 +1111,22 @@ attributes #12 = { nounwind willreturn memory(none) }
 !31 = !{!19, !20, i64 32}
 !32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!17, !17, i64 0}
-!35 = !{!36, !28, i64 128}
-!36 = !{!"_ZTSN5folly10ParkingLotIjE8WaitNodeE", !19, i64 0, !28, i64 128}
-!37 = !{i8 0, i8 2}
-!38 = !{}
-!39 = !{!40, !41, i64 0}
-!40 = !{!"_ZTSSt11unique_lockISt5mutexE", !41, i64 0, !20, i64 8}
-!41 = !{!"p1 _ZTSSt5mutex", !14, i64 0}
-!42 = !{!40, !20, i64 8}
-!43 = distinct !{!43, !33, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = !{!46, !17, i64 0}
-!46 = !{!"_ZTS8timespec", !17, i64 0, !17, i64 8}
-!47 = !{!46, !17, i64 8}
-!48 = distinct !{!48, !33}
-!49 = distinct !{!49, !33, !44}
-!50 = distinct !{!50, !33}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!17, !17, i64 0}
+!37 = !{!38, !28, i64 128}
+!38 = !{!"_ZTSN5folly10ParkingLotIjE8WaitNodeE", !19, i64 0, !28, i64 128}
+!39 = !{i8 0, i8 2}
+!40 = !{}
+!41 = !{!42, !43, i64 0}
+!42 = !{!"_ZTSSt11unique_lockISt5mutexE", !43, i64 0, !20, i64 8}
+!43 = !{!"p1 _ZTSSt5mutex", !14, i64 0}
+!44 = !{!42, !20, i64 8}
+!45 = distinct !{!45, !33, !35, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = !{!48, !17, i64 0}
+!48 = !{!"_ZTS8timespec", !17, i64 0, !17, i64 8}
+!49 = !{!48, !17, i64 8}
+!50 = distinct !{!50, !33, !35}
+!51 = distinct !{!51, !33, !35, !46}
+!52 = distinct !{!52, !33, !35}

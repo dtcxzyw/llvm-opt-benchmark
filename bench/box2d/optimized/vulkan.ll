@@ -287,12 +287,12 @@ define hidden range(i32 0, 2) i32 @_glfwInitVulkan(i32 noundef %0) local_unnamed
 70:                                               ; preds = %45, %53, %61, %66, %69, %65, %57, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %70, %.preheader
   call void @_glfw_free(ptr noundef %35) #5
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133800), align 8, !tbaa !3
-  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 592), align 8, !tbaa !104
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 592), align 8, !tbaa !106
   call void %71(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 133816)) #5
   br label %_glfwTerminateVulkan.exit
 
@@ -441,7 +441,7 @@ declare void @_glfwPlatformFreeModule(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @glfwVulkanSupported() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !105
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !107
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -461,7 +461,7 @@ define range(i32 0, 2) i32 @glfwVulkanSupported() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetRequiredInstanceExtensions(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4, !tbaa !96
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !105
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !107
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -488,7 +488,7 @@ define ptr @glfwGetRequiredInstanceExtensions(ptr noundef writeonly captures(non
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetInstanceProcAddress(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !105
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !107
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -526,7 +526,7 @@ define ptr @glfwGetInstanceProcAddress(ptr noundef %0, ptr noundef %1) local_unn
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwGetPhysicalDevicePresentationSupport(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !105
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !107
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
 
@@ -540,7 +540,7 @@ define i32 @glfwGetPhysicalDevicePresentationSupport(ptr noundef %0, ptr noundef
   br i1 %.not3, label %14, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133816), align 8, !tbaa !106
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133816), align 8, !tbaa !108
   %.not4 = icmp eq ptr %9, null
   br i1 %.not4, label %10, label %11
 
@@ -549,7 +549,7 @@ define i32 @glfwGetPhysicalDevicePresentationSupport(ptr noundef %0, ptr noundef
   br label %14
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 600), align 8, !tbaa !107
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 600), align 8, !tbaa !109
   %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, i32 noundef %2) #5
   br label %14
 
@@ -560,8 +560,8 @@ define i32 @glfwGetPhysicalDevicePresentationSupport(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwCreateWindowSurface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
-  store i64 0, ptr %3, align 8, !tbaa !108
-  %5 = load i32, ptr @_glfw, align 8, !tbaa !105
+  store i64 0, ptr %3, align 8, !tbaa !110
+  %5 = load i32, ptr @_glfw, align 8, !tbaa !107
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %7
 
@@ -575,7 +575,7 @@ define i32 @glfwCreateWindowSurface(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not7, label %19, label %9
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133816), align 8, !tbaa !106
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133816), align 8, !tbaa !108
   %.not8 = icmp eq ptr %10, null
   br i1 %.not8, label %11, label %12
 
@@ -585,7 +585,7 @@ define i32 @glfwCreateWindowSurface(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %14 = load i32, ptr %13, align 8, !tbaa !109
+  %14 = load i32, ptr %13, align 8, !tbaa !111
   %.not9 = icmp eq i32 %14, 0
   br i1 %.not9, label %16, label %15
 
@@ -594,7 +594,7 @@ define i32 @glfwCreateWindowSurface(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %19
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 608), align 8, !tbaa !143
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 608), align 8, !tbaa !145
   %18 = tail call i32 %17(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #5
   br label %19
 
@@ -717,43 +717,45 @@ attributes #6 = { nounwind willreturn memory(read) }
 !101 = !{!4, !5, i64 133856}
 !102 = !{!4, !5, i64 133860}
 !103 = !{!4, !5, i64 133864}
-!104 = !{!4, !9, i64 592}
-!105 = !{!4, !5, i64 0}
-!106 = !{!18, !18, i64 0}
-!107 = !{!4, !9, i64 600}
-!108 = !{!16, !16, i64 0}
-!109 = !{!110, !5, i64 528}
-!110 = !{!"_GLFWwindow", !22, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !9, i64 40, !5, i64 48, !111, i64 52, !112, i64 80, !24, i64 88, !18, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !6, i64 144, !6, i64 152, !76, i64 504, !76, i64 512, !5, i64 520, !113, i64 528, !117, i64 720, !118, i64 856, !140, i64 1240, !142, i64 3368}
-!111 = !{!"GLFWvidmode", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
-!112 = !{!"p1 _ZTS12_GLFWmonitor", !9, i64 0}
-!113 = !{!"_GLFWcontext", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !68, i64 120, !114, i64 152, !115, i64 176}
-!114 = !{!"", !9, i64 0, !5, i64 8, !5, i64 12, !9, i64 16}
-!115 = !{!"_GLFWcontextGLX", !116, i64 0, !16, i64 8}
-!116 = !{!"p1 _ZTS12__GLXcontext", !9, i64 0}
-!117 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128}
-!118 = !{!"_GLFWwindowWayland", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !60, i64 48, !71, i64 56, !119, i64 64, !121, i64 72, !122, i64 96, !126, i64 128, !24, i64 136, !76, i64 144, !76, i64 152, !18, i64 160, !5, i64 168, !128, i64 176, !16, i64 184, !16, i64 192, !129, i64 200, !5, i64 208, !130, i64 216, !131, i64 224, !132, i64 232, !133, i64 240, !134, i64 248, !135, i64 256, !136, i64 264}
-!119 = !{!"", !120, i64 0}
-!120 = !{!"p1 _ZTS13wl_egl_window", !9, i64 0}
-!121 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
-!122 = !{!"", !123, i64 0, !124, i64 8, !125, i64 16, !5, i64 24}
-!123 = !{!"p1 _ZTS11xdg_surface", !9, i64 0}
-!124 = !{!"p1 _ZTS12xdg_toplevel", !9, i64 0}
-!125 = !{!"p1 _ZTS27zxdg_toplevel_decoration_v1", !9, i64 0}
-!126 = !{!"", !127, i64 0}
-!127 = !{!"p1 _ZTS14libdecor_frame", !9, i64 0}
-!128 = !{!"p1 _ZTS17_GLFWscaleWayland", !9, i64 0}
-!129 = !{!"p1 _ZTS11wp_viewport", !9, i64 0}
-!130 = !{!"p1 _ZTS22wp_fractional_scale_v1", !9, i64 0}
-!131 = !{!"p1 _ZTS23zwp_relative_pointer_v1", !9, i64 0}
-!132 = !{!"p1 _ZTS21zwp_locked_pointer_v1", !9, i64 0}
-!133 = !{!"p1 _ZTS23zwp_confined_pointer_v1", !9, i64 0}
-!134 = !{!"p1 _ZTS21zwp_idle_inhibitor_v1", !9, i64 0}
-!135 = !{!"p1 _ZTS23xdg_activation_token_v1", !9, i64 0}
-!136 = !{!"", !5, i64 0, !137, i64 8, !138, i64 16, !138, i64 40, !138, i64 64, !138, i64 88, !60, i64 112}
-!137 = !{!"p1 _ZTS9wl_buffer", !9, i64 0}
-!138 = !{!"_GLFWfallbackEdgeWayland", !60, i64 0, !139, i64 8, !129, i64 16}
-!139 = !{!"p1 _ZTS13wl_subsurface", !9, i64 0}
-!140 = !{!"_GLFWwindowX11", !16, i64 0, !16, i64 8, !16, i64 16, !141, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !6, i64 80}
-!141 = !{!"p1 _ZTS4_XIC", !9, i64 0}
-!142 = !{!"_GLFWwindowNull", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !74, i64 44}
-!143 = !{!4, !9, i64 608}
+!104 = distinct !{!104, !105}
+!105 = !{!"llvm.loop.estimated_trip_count"}
+!106 = !{!4, !9, i64 592}
+!107 = !{!4, !5, i64 0}
+!108 = !{!18, !18, i64 0}
+!109 = !{!4, !9, i64 600}
+!110 = !{!16, !16, i64 0}
+!111 = !{!112, !5, i64 528}
+!112 = !{!"_GLFWwindow", !22, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !9, i64 40, !5, i64 48, !113, i64 52, !114, i64 80, !24, i64 88, !18, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !6, i64 144, !6, i64 152, !76, i64 504, !76, i64 512, !5, i64 520, !115, i64 528, !119, i64 720, !120, i64 856, !142, i64 1240, !144, i64 3368}
+!113 = !{!"GLFWvidmode", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
+!114 = !{!"p1 _ZTS12_GLFWmonitor", !9, i64 0}
+!115 = !{!"_GLFWcontext", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !68, i64 120, !116, i64 152, !117, i64 176}
+!116 = !{!"", !9, i64 0, !5, i64 8, !5, i64 12, !9, i64 16}
+!117 = !{!"_GLFWcontextGLX", !118, i64 0, !16, i64 8}
+!118 = !{!"p1 _ZTS12__GLXcontext", !9, i64 0}
+!119 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128}
+!120 = !{!"_GLFWwindowWayland", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !60, i64 48, !71, i64 56, !121, i64 64, !123, i64 72, !124, i64 96, !128, i64 128, !24, i64 136, !76, i64 144, !76, i64 152, !18, i64 160, !5, i64 168, !130, i64 176, !16, i64 184, !16, i64 192, !131, i64 200, !5, i64 208, !132, i64 216, !133, i64 224, !134, i64 232, !135, i64 240, !136, i64 248, !137, i64 256, !138, i64 264}
+!121 = !{!"", !122, i64 0}
+!122 = !{!"p1 _ZTS13wl_egl_window", !9, i64 0}
+!123 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
+!124 = !{!"", !125, i64 0, !126, i64 8, !127, i64 16, !5, i64 24}
+!125 = !{!"p1 _ZTS11xdg_surface", !9, i64 0}
+!126 = !{!"p1 _ZTS12xdg_toplevel", !9, i64 0}
+!127 = !{!"p1 _ZTS27zxdg_toplevel_decoration_v1", !9, i64 0}
+!128 = !{!"", !129, i64 0}
+!129 = !{!"p1 _ZTS14libdecor_frame", !9, i64 0}
+!130 = !{!"p1 _ZTS17_GLFWscaleWayland", !9, i64 0}
+!131 = !{!"p1 _ZTS11wp_viewport", !9, i64 0}
+!132 = !{!"p1 _ZTS22wp_fractional_scale_v1", !9, i64 0}
+!133 = !{!"p1 _ZTS23zwp_relative_pointer_v1", !9, i64 0}
+!134 = !{!"p1 _ZTS21zwp_locked_pointer_v1", !9, i64 0}
+!135 = !{!"p1 _ZTS23zwp_confined_pointer_v1", !9, i64 0}
+!136 = !{!"p1 _ZTS21zwp_idle_inhibitor_v1", !9, i64 0}
+!137 = !{!"p1 _ZTS23xdg_activation_token_v1", !9, i64 0}
+!138 = !{!"", !5, i64 0, !139, i64 8, !140, i64 16, !140, i64 40, !140, i64 64, !140, i64 88, !60, i64 112}
+!139 = !{!"p1 _ZTS9wl_buffer", !9, i64 0}
+!140 = !{!"_GLFWfallbackEdgeWayland", !60, i64 0, !141, i64 8, !131, i64 16}
+!141 = !{!"p1 _ZTS13wl_subsurface", !9, i64 0}
+!142 = !{!"_GLFWwindowX11", !16, i64 0, !16, i64 8, !16, i64 16, !143, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !6, i64 80}
+!143 = !{!"p1 _ZTS4_XIC", !9, i64 0}
+!144 = !{!"_GLFWwindowNull", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !74, i64 44}
+!145 = !{!4, !9, i64 608}

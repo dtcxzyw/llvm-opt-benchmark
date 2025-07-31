@@ -170,7 +170,7 @@ sub_149:                                          ; preds = %.tail
   call void @pfree(ptr noundef %60) #5
   %61 = add nuw i64 %.073, 1
   %exitcond.not = icmp eq i64 %61, %.035.ph.lcssa
-  br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph, !llvm.loop !7
 
 62:                                               ; preds = %._crit_edge75
   %63 = call i32 @rmdir(ptr noundef %0) #5
@@ -250,6 +250,7 @@ attributes #6 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

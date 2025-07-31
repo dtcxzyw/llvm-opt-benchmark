@@ -728,7 +728,7 @@ define internal fastcc noundef zeroext i1 @_ZL21TestECDSA_SIG_max_lenm(i64 nound
 
 8:                                                ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, i8 -1, i64 %0, i1 false)
-  %9 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load ptr, ptr %5, align 8, !tbaa !27
   %10 = invoke ptr @BN_bin2bn(ptr noundef nonnull %7, i64 noundef %0, ptr noundef %9)
           to label %11 unwind label %19
 
@@ -738,7 +738,7 @@ define internal fastcc noundef zeroext i1 @_ZL21TestECDSA_SIG_max_lenm(i64 nound
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !29
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = invoke ptr @BN_bin2bn(ptr noundef nonnull %7, i64 noundef %0, ptr noundef %14)
           to label %16 unwind label %19
 
@@ -772,12 +772,12 @@ define internal fastcc noundef zeroext i1 @_ZL21TestECDSA_SIG_max_lenm(i64 nound
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %3, align 8, !tbaa !30
+  %27 = load ptr, ptr %3, align 8, !tbaa !31
   %28 = invoke i64 @ECDSA_SIG_max_len(i64 noundef %0)
           to label %29 unwind label %37
 
 29:                                               ; preds = %26
-  %30 = load i64, ptr %4, align 8, !tbaa !31
+  %30 = load i64, ptr %4, align 8, !tbaa !32
   %.not20 = icmp eq i64 %28, %30
   br i1 %.not20, label %40, label %31
 
@@ -899,10 +899,10 @@ declare ptr @ECDSA_SIG_from_bytes(ptr noundef, i64 noundef) local_unnamed_addr #
 define internal fastcc noundef zeroext i1 @_ZL15TestTamperedSigP8_IO_FILE3ApiPKhmP12ecdsa_sig_stP9ec_key_stPK9bignum_st(i32 noundef range(i32 0, 2) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = load ptr, ptr %2, align 8, !tbaa !26
+  %8 = load ptr, ptr %2, align 8, !tbaa !27
   %9 = tail call i32 @BN_num_bytes(ptr noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = tail call i32 @BN_num_bytes(ptr noundef %11)
   %13 = tail call i32 @BN_num_bytes(ptr noundef %4)
   %14 = zext i32 %13 to i64
@@ -926,7 +926,7 @@ define internal fastcc noundef zeroext i1 @_ZL15TestTamperedSigP8_IO_FILE3ApiPKh
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %17
   %.sroa.01.0 = phi ptr [ %19, %.noexc ], [ null, %17 ]
-  %22 = load ptr, ptr %2, align 8, !tbaa !26
+  %22 = load ptr, ptr %2, align 8, !tbaa !27
   %23 = invoke i32 @BN_bn2bin_padded(ptr noundef %.sroa.01.0, i64 noundef %14, ptr noundef %22)
           to label %24 unwind label %.body
 
@@ -936,7 +936,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %17
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 %14
-  %27 = load ptr, ptr %10, align 8, !tbaa !29
+  %27 = load ptr, ptr %10, align 8, !tbaa !30
   %28 = invoke i32 @BN_bn2bin_padded(ptr noundef %26, i64 noundef %14, ptr noundef %27)
           to label %29 unwind label %.body
 
@@ -956,7 +956,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %17
   %38 = load i8, ptr %37, align 1, !tbaa !20
   %39 = xor i8 %38, %spec.select
   store i8 %39, ptr %37, align 1, !tbaa !20
-  %40 = load ptr, ptr %2, align 8, !tbaa !26
+  %40 = load ptr, ptr %2, align 8, !tbaa !27
   %41 = invoke ptr @BN_bin2bn(ptr noundef nonnull %.sroa.01.0, i64 noundef %14, ptr noundef %40)
           to label %42 unwind label %64
 
@@ -965,7 +965,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %17
   br i1 %43, label %.thread, label %44
 
 44:                                               ; preds = %42
-  %45 = load ptr, ptr %10, align 8, !tbaa !29
+  %45 = load ptr, ptr %10, align 8, !tbaa !30
   %46 = invoke ptr @BN_bin2bn(ptr noundef nonnull %26, i64 noundef %14, ptr noundef %45)
           to label %47 unwind label %64
 
@@ -988,8 +988,8 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %17
   br i1 %.not.not.i, label %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit.thread, label %52
 
 52:                                               ; preds = %.noexc50
-  %53 = load ptr, ptr %6, align 8, !tbaa !30
-  %54 = load i64, ptr %7, align 8, !tbaa !31
+  %53 = load ptr, ptr %6, align 8, !tbaa !31
+  %54 = load i64, ptr %7, align 8, !tbaa !32
   %55 = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %1, i64 noundef 20, ptr noundef %53, i64 noundef %54, ptr noundef %3)
           to label %56 unwind label %58
 
@@ -1044,7 +1044,7 @@ _ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit: ; preds = %_ZNSt10
   %67 = load i8, ptr %37, align 1, !tbaa !20
   %68 = xor i8 %67, %spec.select
   store i8 %68, ptr %37, align 1, !tbaa !20
-  %69 = load ptr, ptr %2, align 8, !tbaa !26
+  %69 = load ptr, ptr %2, align 8, !tbaa !27
   %70 = invoke ptr @BN_bin2bn(ptr noundef nonnull %.sroa.01.0, i64 noundef %14, ptr noundef %69)
           to label %71 unwind label %64
 
@@ -1053,7 +1053,7 @@ _ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit: ; preds = %_ZNSt10
   br i1 %72, label %.thread, label %73
 
 73:                                               ; preds = %71
-  %74 = load ptr, ptr %10, align 8, !tbaa !29
+  %74 = load ptr, ptr %10, align 8, !tbaa !30
   %75 = invoke ptr @BN_bin2bn(ptr noundef nonnull %26, i64 noundef %14, ptr noundef %74)
           to label %76 unwind label %64
 
@@ -1230,8 +1230,8 @@ define internal fastcc noundef zeroext i1 @_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_
   br i1 %.not.not, label %.critedge, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr %6, align 8, !tbaa !30
-  %12 = load i64, ptr %7, align 8, !tbaa !31
+  %11 = load ptr, ptr %6, align 8, !tbaa !31
+  %12 = load i64, ptr %7, align 8, !tbaa !32
   %13 = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %1, i64 noundef 20, ptr noundef %11, i64 noundef %12, ptr noundef %3)
           to label %14 unwind label %16
 
@@ -1359,12 +1359,13 @@ attributes #19 = { cold nounwind }
 !21 = !{!22, !22, i64 0}
 !22 = !{!"p1 _ZTS12ecdsa_sig_st", !8, i64 0}
 !23 = !{!12, !13, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTS12ecdsa_sig_st", !28, i64 0, !28, i64 8}
-!28 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
-!29 = !{!27, !28, i64 8}
-!30 = !{!14, !14, i64 0}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"long", !9, i64 0}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"_ZTS12ecdsa_sig_st", !29, i64 0, !29, i64 8}
+!29 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!30 = !{!28, !29, i64 8}
+!31 = !{!14, !14, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"long", !9, i64 0}

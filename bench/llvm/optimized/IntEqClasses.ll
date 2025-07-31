@@ -67,10 +67,10 @@ define dso_local noundef i32 @_ZN4llvm12IntEqClasses4joinEjj(ptr noundef nonnull
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %0, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i32, ptr %5, i64 %4
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw i32, ptr %5, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !14
+  %10 = load i32, ptr %9, align 4, !tbaa !15
   %.not21 = icmp eq i32 %7, %10
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -85,19 +85,19 @@ define dso_local noundef i32 @_ZN4llvm12IntEqClasses4joinEjj(ptr noundef nonnull
 12:                                               ; preds = %.lr.ph
   %13 = zext i32 %.01723 to i64
   %14 = getelementptr inbounds nuw i32, ptr %5, i64 %13
-  store i32 %.01524, ptr %14, align 4, !tbaa !14
+  store i32 %.01524, ptr %14, align 4, !tbaa !15
   %15 = zext i32 %.025 to i64
   %16 = getelementptr inbounds nuw i32, ptr %5, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !14
+  %17 = load i32, ptr %16, align 4, !tbaa !15
   br label %24
 
 18:                                               ; preds = %.lr.ph
   %19 = zext i32 %.01922 to i64
   %20 = getelementptr inbounds nuw i32, ptr %5, i64 %19
-  store i32 %.025, ptr %20, align 4, !tbaa !14
+  store i32 %.025, ptr %20, align 4, !tbaa !15
   %21 = zext i32 %.01524 to i64
   %22 = getelementptr inbounds nuw i32, ptr %5, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !14
+  %23 = load i32, ptr %22, align 4, !tbaa !15
   br label %24
 
 24:                                               ; preds = %18, %12
@@ -106,7 +106,7 @@ define dso_local noundef i32 @_ZN4llvm12IntEqClasses4joinEjj(ptr noundef nonnull
   %.116 = phi i32 [ %.01524, %12 ], [ %23, %18 ]
   %.1 = phi i32 [ %17, %12 ], [ %.025, %18 ]
   %.not = icmp eq i32 %.116, %.1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %24, %3
   %.015.lcssa = phi i32 [ %7, %3 ], [ %.116, %24 ]
@@ -128,9 +128,9 @@ define dso_local noundef i32 @_ZNK4llvm12IntEqClasses10findLeaderEj(ptr noundef 
   %.0 = phi i32 [ %1, %2 ], [ %7, %4 ]
   %5 = zext i32 %.0 to i64
   %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %.not = icmp eq i32 %.0, %7
-  br i1 %.not, label %8, label %4, !llvm.loop !16
+  br i1 %.not, label %8, label %4, !llvm.loop !17
 
 8:                                                ; preds = %4
   ret i32 %.0
@@ -139,7 +139,7 @@ define dso_local noundef i32 @_ZNK4llvm12IntEqClasses10findLeaderEj(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm12IntEqClasses8compressEv(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i32, ptr %2, align 8, !tbaa !17
+  %3 = load i32, ptr %2, align 8, !tbaa !18
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.loopexit
 
@@ -157,28 +157,28 @@ define dso_local void @_ZN4llvm12IntEqClasses8compressEv(ptr noundef nonnull ali
 9:                                                ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4, !tbaa !14
+  %11 = load i32, ptr %10, align 4, !tbaa !15
   %12 = zext i32 %11 to i64
   %13 = icmp eq i64 %indvars.iv, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %9
-  %15 = load i32, ptr %2, align 8, !tbaa !17
+  %15 = load i32, ptr %2, align 8, !tbaa !18
   %16 = add i32 %15, 1
-  store i32 %16, ptr %2, align 8, !tbaa !17
+  store i32 %16, ptr %2, align 8, !tbaa !18
   br label %20
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i32, ptr %7, i64 %12
-  %19 = load i32, ptr %18, align 4, !tbaa !14
+  %19 = load i32, ptr %18, align 4, !tbaa !15
   br label %20
 
 20:                                               ; preds = %17, %14
   %21 = phi i32 [ %15, %14 ], [ %19, %17 ]
-  store i32 %21, ptr %10, align 4, !tbaa !14
+  store i32 %21, ptr %10, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not7 = icmp eq i64 %indvars.iv.next, %8
-  br i1 %.not7, label %.loopexit, label %9, !llvm.loop !24
+  br i1 %.not7, label %.loopexit, label %9, !llvm.loop !25
 
 .loopexit:                                        ; preds = %20, %4, %1
   ret void
@@ -188,7 +188,7 @@ define dso_local void @_ZN4llvm12IntEqClasses8compressEv(ptr noundef nonnull ali
 define dso_local void @_ZN4llvm12IntEqClasses10uncompressEv(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::SmallVector", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i32, ptr %3, align 8, !tbaa !17
+  %4 = load i32, ptr %3, align 8, !tbaa !18
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %38, label %5
 
@@ -206,7 +206,7 @@ define dso_local void @_ZN4llvm12IntEqClasses10uncompressEv(ptr noundef nonnull 
   br i1 %.not89, label %._crit_edge.thread, label %.lr.ph.preheader
 
 ._crit_edge.thread:                               ; preds = %5
-  store i32 0, ptr %3, align 8, !tbaa !17
+  store i32 0, ptr %3, align 8, !tbaa !18
   br label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit
 
 .lr.ph.preheader:                                 ; preds = %5
@@ -215,7 +215,7 @@ define dso_local void @_ZN4llvm12IntEqClasses10uncompressEv(ptr noundef nonnull 
 
 ._crit_edge:                                      ; preds = %37
   %.pre = load ptr, ptr %2, align 8, !tbaa !11
-  store i32 0, ptr %3, align 8, !tbaa !17
+  store i32 0, ptr %3, align 8, !tbaa !18
   %12 = icmp eq ptr %.pre, %6
   br i1 %12, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, label %13
 
@@ -231,7 +231,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %._crit_edge.thread,
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !14
+  %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = load i32, ptr %7, align 8, !tbaa !9
   %18 = icmp ugt i32 %17, %16
   br i1 %18, label %19, label %24
@@ -240,13 +240,13 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %._crit_edge.thread,
   %20 = zext i32 %16 to i64
   %21 = load ptr, ptr %2, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i32, ptr %21, i64 %20
-  %23 = load i32, ptr %22, align 4, !tbaa !14
-  store i32 %23, ptr %15, align 4, !tbaa !14
+  %23 = load i32, ptr %22, align 4, !tbaa !15
+  store i32 %23, ptr %15, align 4, !tbaa !15
   br label %37
 
 24:                                               ; preds = %.lr.ph
   %25 = trunc nuw i64 %indvars.iv to i32
-  store i32 %25, ptr %15, align 4, !tbaa !14
+  store i32 %25, ptr %15, align 4, !tbaa !15
   %26 = load i32, ptr %7, align 8, !tbaa !9
   %27 = load i32, ptr %8, align 4, !tbaa !3
   %.not.i.i.not.i = icmp ult i32 %26, %27
@@ -273,7 +273,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %24, %28
 37:                                               ; preds = %19, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not8 = icmp eq i64 %indvars.iv.next, %11
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 38:                                               ; preds = %1, %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit
   ret void
@@ -306,17 +306,18 @@ attributes #6 = { nounwind }
 !9 = !{!4, !8, i64 8}
 !10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !11 = !{!4, !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!8, !8, i64 0}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = !{!18, !8, i64 48}
-!18 = !{!"_ZTSN4llvm12IntEqClassesE", !19, i64 0, !8, i64 48}
-!19 = !{!"_ZTSN4llvm11SmallVectorIjLj8EEE", !20, i64 0, !23, i64 16}
-!20 = !{!"_ZTSN4llvm15SmallVectorImplIjEE", !21, i64 0}
-!21 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIjLb1EEE", !22, i64 0}
-!22 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIjvEE", !4, i64 0}
-!23 = !{!"_ZTSN4llvm18SmallVectorStorageIjLj8EEE", !6, i64 0}
-!24 = distinct !{!24, !13}
-!25 = distinct !{!25, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!8, !8, i64 0}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = !{!19, !8, i64 48}
+!19 = !{!"_ZTSN4llvm12IntEqClassesE", !20, i64 0, !8, i64 48}
+!20 = !{!"_ZTSN4llvm11SmallVectorIjLj8EEE", !21, i64 0, !24, i64 16}
+!21 = !{!"_ZTSN4llvm15SmallVectorImplIjEE", !22, i64 0}
+!22 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIjLb1EEE", !23, i64 0}
+!23 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIjvEE", !4, i64 0}
+!24 = !{!"_ZTSN4llvm18SmallVectorStorageIjLj8EEE", !6, i64 0}
+!25 = distinct !{!25, !13, !14}
+!26 = distinct !{!26, !13, !14}

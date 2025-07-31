@@ -202,20 +202,20 @@ define dso_local noundef i32 @cmd_count_objects(i32 noundef %0, ptr noundef %1, 
   %75 = load i64, ptr @loose, align 8, !tbaa !24
   %76 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %75)
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !29
+  %78 = load ptr, ptr %77, align 8, !tbaa !30
   %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %78)
   %80 = load i64, ptr @packed, align 8, !tbaa !24
   %81 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i64 noundef %80)
   %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i64 noundef %.015.lcssa)
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !29
+  %84 = load ptr, ptr %83, align 8, !tbaa !30
   %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %84)
   %86 = load i64, ptr @packed_loose, align 8, !tbaa !24
   %87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i64 noundef %86)
   %88 = load i64, ptr @garbage, align 8, !tbaa !24
   %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i64 noundef %88)
   %90 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !29
+  %91 = load ptr, ptr %90, align 8, !tbaa !30
   %92 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %91)
   %93 = call i32 @foreach_alt_odb(ptr noundef nonnull @print_alternate, ptr noundef null) #7
   call void @strbuf_release(ptr noundef nonnull %7) #7
@@ -246,7 +246,7 @@ define dso_local noundef i32 @cmd_count_objects(i32 noundef %0, ptr noundef %1, 
 100:                                              ; preds = %98, %97
   %101 = load i64, ptr @loose, align 8, !tbaa !24
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !29
+  %103 = load ptr, ptr %102, align 8, !tbaa !30
   %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i64 noundef %101, ptr noundef %103)
   call void @strbuf_release(ptr noundef nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
@@ -292,7 +292,7 @@ switch.lookup:                                    ; preds = %2
 
 7:                                                ; preds = %switch.lookup
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %9 = load i64, ptr %8, align 8, !tbaa !31
+  %9 = load i64, ptr %8, align 8, !tbaa !32
   %10 = load i64, ptr @size_garbage, align 8, !tbaa !24
   %11 = add nsw i64 %10, %9
   store i64 %11, ptr @size_garbage, align 8, !tbaa !24
@@ -326,7 +326,7 @@ define internal noundef i32 @count_loose(ptr noundef %0, ptr noundef %1, ptr rea
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !34
+  %8 = load i32, ptr %7, align 8, !tbaa !35
   %9 = and i32 %8, 61440
   %10 = icmp eq i32 %9, 32768
   br i1 %10, label %15, label %11
@@ -343,7 +343,7 @@ define internal noundef i32 @count_loose(ptr noundef %0, ptr noundef %1, ptr rea
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %17 = load i64, ptr %16, align 8, !tbaa !35
+  %17 = load i64, ptr %16, align 8, !tbaa !36
   %18 = shl nsw i64 %17, 9
   %19 = load i64, ptr @loose_size, align 8, !tbaa !24
   %20 = add nsw i64 %19, %18
@@ -407,10 +407,10 @@ declare i32 @foreach_alt_odb(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal noundef i32 @print_alternate(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !42
   %7 = tail call i64 @quote_c_style(ptr noundef %5, ptr noundef null, ptr noundef %6, i32 noundef 0) #7
-  %8 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %8 = load ptr, ptr @stdout, align 8, !tbaa !42
   %9 = tail call i32 @putc(i32 noundef 10, ptr noundef %8)
   ret i32 0
 }
@@ -476,19 +476,20 @@ attributes #8 = { noreturn nounwind }
 !24 = !{!12, !12, i64 0}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"p1 _ZTS10packed_git", !11, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!30, !10, i64 16}
-!30 = !{!"strbuf", !12, i64 0, !12, i64 8, !10, i64 16}
-!31 = !{!32, !12, i64 48}
-!32 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !33, i64 72, !33, i64 88, !33, i64 104, !6, i64 120}
-!33 = !{!"timespec", !12, i64 0, !12, i64 8}
-!34 = !{!32, !5, i64 24}
-!35 = !{!32, !12, i64 64}
-!36 = !{!37, !10, i64 64}
-!37 = !{!"object_directory", !38, i64 0, !6, i64 8, !39, i64 40, !40, i64 48, !5, i64 56, !5, i64 60, !10, i64 64}
-!38 = !{!"p1 _ZTS16object_directory", !11, i64 0}
-!39 = !{!"p1 _ZTS7oidtree", !11, i64 0}
-!40 = !{!"p1 _ZTS16loose_object_map", !11, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!31, !10, i64 16}
+!31 = !{!"strbuf", !12, i64 0, !12, i64 8, !10, i64 16}
+!32 = !{!33, !12, i64 48}
+!33 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !34, i64 72, !34, i64 88, !34, i64 104, !6, i64 120}
+!34 = !{!"timespec", !12, i64 0, !12, i64 8}
+!35 = !{!33, !5, i64 24}
+!36 = !{!33, !12, i64 64}
+!37 = !{!38, !10, i64 64}
+!38 = !{!"object_directory", !39, i64 0, !6, i64 8, !40, i64 40, !41, i64 48, !5, i64 56, !5, i64 60, !10, i64 64}
+!39 = !{!"p1 _ZTS16object_directory", !11, i64 0}
+!40 = !{!"p1 _ZTS7oidtree", !11, i64 0}
+!41 = !{!"p1 _ZTS16loose_object_map", !11, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}

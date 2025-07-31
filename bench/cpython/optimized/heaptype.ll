@@ -2599,7 +2599,7 @@ Py_SIZE.exit:                                     ; preds = %7
   %.val4.i = phi ptr [ %.val4.i.pre, %._crit_edge29 ], [ %.val4.i30, %10 ]
   %16 = add nuw nsw i64 %.01627, 1
   %.not.i = icmp eq ptr %.val4.i, @PyLong_Type
-  br i1 %.not.i, label %._crit_edge, label %7, !llvm.loop !63
+  br i1 %.not.i, label %._crit_edge, label %7, !llvm.loop !64
 
 .loopexit:                                        ; preds = %13, %Py_SIZE.exit, %3
   %.0 = phi i32 [ -1, %3 ], [ 0, %Py_SIZE.exit ], [ %14, %13 ]
@@ -2663,7 +2663,7 @@ Py_SET_SIZE.exit:                                 ; preds = %6
 Py_DECREF.exit:                                   ; preds = %18, %15, %13, %.lr.ph
   %19 = add nuw nsw i64 %.01321, 1
   %exitcond.not = icmp eq i64 %19, %9
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 .loopexit:                                        ; preds = %Py_DECREF.exit, %Py_SET_SIZE.exit, %1
   %.0 = phi i32 [ -1, %1 ], [ 0, %Py_SET_SIZE.exit ], [ 0, %Py_DECREF.exit ]
@@ -2677,7 +2677,7 @@ define internal void @HeapCCollection_dealloc(ptr noundef %0) #0 {
   %3 = tail call i32 @HeapCCollection_clear(ptr noundef %0)
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %5 = load ptr, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
   tail call void %5(ptr noundef %0) #8
   %6 = load i32, ptr %.val, align 8, !tbaa !8
   %.not.i = icmp sgt i32 %6, -1
@@ -2772,8 +2772,9 @@ attributes #10 = { noreturn nounwind }
 !58 = !{!"p1 long", !5, i64 0}
 !59 = !{!13, !5, i64 312}
 !60 = !{!13, !5, i64 304}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = distinct !{!63, !62}
-!64 = distinct !{!64, !62}
-!65 = !{!13, !5, i64 320}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = distinct !{!64, !62, !63}
+!65 = distinct !{!65, !62, !63}
+!66 = !{!13, !5, i64 320}

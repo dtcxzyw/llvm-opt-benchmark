@@ -433,7 +433,7 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
   %.1 = phi i32 [ %113, %110 ], [ %.08999, %105 ], [ %.08999, %95 ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.loopexit, label %95, !llvm.loop !8
+  br i1 %exitcond108.not, label %.loopexit, label %95, !llvm.loop !9
 
 .loopexit:                                        ; preds = %116, %61, %._crit_edge
   %.092.lcssa110 = phi i32 [ %.193, %._crit_edge ], [ 0, %61 ], [ %.193, %116 ]
@@ -748,7 +748,7 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
   %66 = phi ptr [ %48, %.lr.ph ], [ %181, %180 ]
   %67 = load volatile i32, ptr @InterruptPending, align 4
   %.not67 = icmp eq i32 %67, 0
-  br i1 %.not67, label %69, label %68, !prof !9
+  br i1 %.not67, label %69, label %68, !prof !10
 
 68:                                               ; preds = %65
   call void @ProcessInterrupts() #6
@@ -783,7 +783,7 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
 84:                                               ; preds = %80, %78
   %85 = load ptr, ptr %51, align 8
   %86 = call zeroext i1 @index_fetch_heap(ptr noundef nonnull %.060, ptr noundef %85) #6
-  br i1 %86, label %87, label %180, !llvm.loop !10
+  br i1 %86, label %87, label %180, !llvm.loop !11
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %51, align 8
@@ -828,7 +828,7 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
   call void @index_deform_tuple(ptr noundef nonnull %102, ptr noundef %104, ptr noundef %108, ptr noundef %109) #6
   %110 = load ptr, ptr %59, align 8
   %.not.i = icmp eq ptr %110, null
-  br i1 %.not.i, label %StoreIndexTuple.exit, label %111, !prof !9
+  br i1 %.not.i, label %StoreIndexTuple.exit, label %111, !prof !10
 
 111:                                              ; preds = %103
   %112 = load i32, ptr %60, align 8
@@ -870,7 +870,7 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
 135:                                              ; preds = %123, %114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %StoreIndexTuple.exit, label %114, !llvm.loop !11
+  br i1 %exitcond.not.i, label %StoreIndexTuple.exit, label %114, !llvm.loop !12
 
 StoreIndexTuple.exit:                             ; preds = %135, %103, %111
   %136 = call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %17) #6
@@ -918,14 +918,14 @@ ExecQualAndReset.exit:                            ; preds = %143
 153:                                              ; preds = %ExecQualAndReset.exit
   %154 = load ptr, ptr %50, align 8
   %.not72 = icmp eq ptr %154, null
-  br i1 %.not72, label %180, label %155, !llvm.loop !10
+  br i1 %.not72, label %180, label %155, !llvm.loop !11
 
 155:                                              ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 248
   %157 = load double, ptr %156, align 8
   %158 = fadd double %157, 1.000000e+00
   store double %158, ptr %156, align 8
-  br label %180, !llvm.loop !10
+  br label %180, !llvm.loop !11
 
 .loopexit:                                        ; preds = %ExecQualAndReset.exit, %140, %ExecQualAndReset.exit.thread
   %159 = getelementptr i8, ptr %66, i64 2
@@ -967,7 +967,7 @@ ExecQualAndReset.exit:                            ; preds = %143
 180:                                              ; preds = %153, %155, %84
   %181 = call ptr @index_getnext_tid(ptr noundef nonnull %.060, i32 noundef %11) #6
   %.not = icmp eq ptr %181, null
-  br i1 %.not, label %._crit_edge, label %65
+  br i1 %.not, label %._crit_edge, label %65, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %180, %47
   %182 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1036,9 +1036,11 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !8}

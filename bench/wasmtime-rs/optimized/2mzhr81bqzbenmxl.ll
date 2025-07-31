@@ -415,19 +415,19 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr wr
 96:                                               ; preds = %32
   %.not96 = icmp eq i8 %.0.ph138, 2
   %97 = and i8 %.sroa.3.0.copyload, 1
-  br i1 %.not96, label %.outer137, label %128
+  br i1 %.not96, label %.outer137, label %128, !llvm.loop !10
 
 98:                                               ; preds = %32
   store i8 %.sroa.3.0.copyload, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.8.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.8.0..sroa_idx, i64 55, i1 false)
-  %99 = load i8, ptr %26, align 8, !range !10, !noundef !7
+  %99 = load i8, ptr %26, align 8, !range !12, !noundef !7
   %.not94.not = icmp eq i8 %99, 2
   br i1 %.not94.not, label %130, label %129
 
 100:                                              ; preds = %32
   %.not = icmp eq i8 %.085.ph, 2
   %101 = and i8 %.sroa.3.0.copyload, 1
-  br i1 %.not, label %.outer, label %137
+  br i1 %.not, label %.outer, label %137, !llvm.loop !10
 
 102:                                              ; preds = %90
   invoke void @_ZN3syn5error5Error3new17hbe333740d893045bE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %18, i32 %2, ptr nonnull align 1 @anon.21000207f2688d89f8a4d64a0b8cf040.7, i64 22)
@@ -466,7 +466,7 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr wr
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %109, %117, %125, %134
-  br label %.backedge
+  br label %.backedge, !llvm.loop !10
 
 110:                                              ; preds = %102
   %111 = landingpad { ptr, i32 }
@@ -942,19 +942,19 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr wr
 96:                                               ; preds = %32
   %.not96 = icmp eq i8 %.0.ph138, 2
   %97 = and i8 %.sroa.3.0.copyload, 1
-  br i1 %.not96, label %.outer137, label %128
+  br i1 %.not96, label %.outer137, label %128, !llvm.loop !13
 
 98:                                               ; preds = %32
   store i8 %.sroa.3.0.copyload, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.8.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.8.0..sroa_idx, i64 55, i1 false)
-  %99 = load i8, ptr %26, align 8, !range !10, !noundef !7
+  %99 = load i8, ptr %26, align 8, !range !12, !noundef !7
   %.not94.not = icmp eq i8 %99, 2
   br i1 %.not94.not, label %130, label %129
 
 100:                                              ; preds = %32
   %.not = icmp eq i8 %.085.ph, 2
   %101 = and i8 %.sroa.3.0.copyload, 1
-  br i1 %.not, label %.outer, label %137
+  br i1 %.not, label %.outer, label %137, !llvm.loop !13
 
 102:                                              ; preds = %90
   invoke void @_ZN3syn5error5Error3new17hbe333740d893045bE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %18, i32 %2, ptr nonnull align 1 @anon.21000207f2688d89f8a4d64a0b8cf040.7, i64 22)
@@ -993,7 +993,7 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr wr
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %109, %117, %125, %134
-  br label %.backedge
+  br label %.backedge, !llvm.loop !13
 
 110:                                              ; preds = %102
   %111 = landingpad { ptr, i32 }
@@ -1164,9 +1164,9 @@ define hidden align 8 ptr @"_ZN15wiggle_generate6config9AsyncConf3get28_$u7b$$u7
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN15wiggle_generate6config9AsyncConf3get28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haaf192e9f941fa27E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !11, !noundef !7
-  %4 = load ptr, ptr %1, align 8, !nonnull !7, !align !11, !noundef !7
-  %5 = load ptr, ptr %3, align 8, !nonnull !7, !align !12, !noundef !7
+  %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !14, !noundef !7
+  %4 = load ptr, ptr %1, align 8, !nonnull !7, !align !14, !noundef !7
+  %5 = load ptr, ptr %3, align 8, !nonnull !7, !align !15, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !7
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1231,7 +1231,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   br label %19
 
 20:                                               ; preds = %.backedge
-  %21 = load i64, ptr %13, align 8, !range !13, !noundef !7
+  %21 = load i64, ptr %13, align 8, !range !16, !noundef !7
   switch i64 %21, label %45 [
     i64 -9223372036854775799, label %22
     i64 -9223372036854775800, label %46
@@ -1342,7 +1342,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
 
 46:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.3.0..sroa_idx, i64 48, i1 false)
-  %47 = load i64, ptr %16, align 8, !range !14, !noundef !7
+  %47 = load i64, ptr %16, align 8, !range !17, !noundef !7
   %.not60.not = icmp eq i64 %47, -9223372036854775808
   br i1 %.not60.not, label %49, label %48
 
@@ -1391,7 +1391,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %57, %45
-  br label %.backedge
+  br label %.backedge, !llvm.loop !18
 
 58:                                               ; preds = %48
   %59 = landingpad { ptr, i32 }
@@ -1424,9 +1424,9 @@ define hidden align 8 ptr @"_ZN15wiggle_generate6config11TracingConf11enabled_fo
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN15wiggle_generate6config11TracingConf11enabled_for28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf232e6b53375c4f5E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !11, !noundef !7
-  %4 = load ptr, ptr %1, align 8, !nonnull !7, !align !11, !noundef !7
-  %5 = load ptr, ptr %3, align 8, !nonnull !7, !align !12, !noundef !7
+  %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !14, !noundef !7
+  %4 = load ptr, ptr %1, align 8, !nonnull !7, !align !14, !noundef !7
+  %5 = load ptr, ptr %3, align 8, !nonnull !7, !align !15, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !7
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1594,8 +1594,12 @@ attributes #7 = { cold noreturn nounwind }
 !7 = !{}
 !8 = !{i64 0, i64 3}
 !9 = !{i64 0, i64 -9223372036854775805}
-!10 = !{i8 0, i8 3}
-!11 = !{i64 8}
-!12 = !{i64 1}
-!13 = !{i64 0, i64 -9223372036854775798}
-!14 = !{i64 0, i64 -9223372036854775807}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i8 0, i8 3}
+!13 = distinct !{!13, !11}
+!14 = !{i64 8}
+!15 = !{i64 1}
+!16 = !{i64 0, i64 -9223372036854775798}
+!17 = !{i64 0, i64 -9223372036854775807}
+!18 = distinct !{!18, !11}

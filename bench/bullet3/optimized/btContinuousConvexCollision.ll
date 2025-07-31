@@ -713,7 +713,7 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %.sroa.15148.0.lcssa = phi float [ %.sroa.15148.0.copyload, %.preheader ], [ %.sroa.15148.0.copyload150, %174 ]
   %.075.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %148, %174 ]
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  store float %.075.lcssa, ptr %178, align 8, !tbaa !51
+  store float %.075.lcssa, ptr %178, align 8, !tbaa !52
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store float %.sroa.0132.0.lcssa, ptr %179, align 8
   %.sroa.9136.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %5, i64 140
@@ -811,7 +811,7 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK1
 46:                                               ; preds = %5
   %47 = fmul float %.1, 5.000000e-01
   %48 = fmul float %3, %47
-  %49 = tail call noundef float @sinf(float noundef %48) #15, !tbaa !52
+  %49 = tail call noundef float @sinf(float noundef %48) #15, !tbaa !53
   %50 = fdiv float %49, %.1
   br label %51
 
@@ -822,7 +822,7 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK1
   %54 = fmul float %31, %.sink82
   %55 = fmul float %3, %.1
   %56 = fmul float %55, 5.000000e-01
-  %57 = tail call noundef float @cosf(float noundef %56) #15, !tbaa !52
+  %57 = tail call noundef float @cosf(float noundef %56) #15, !tbaa !53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %.fca.0.load.i = load <2 x float>, ptr %6, align 8
@@ -978,32 +978,32 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngle
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load float, ptr %8, align 4, !tbaa !31, !noalias !53
+  %9 = load float, ptr %8, align 4, !tbaa !31, !noalias !54
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load float, ptr %11, align 4, !tbaa !31, !noalias !53
+  %12 = load float, ptr %11, align 4, !tbaa !31, !noalias !54
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load float, ptr %13, align 4, !tbaa !31, !noalias !53
+  %14 = load float, ptr %13, align 4, !tbaa !31, !noalias !54
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %16 = load float, ptr %15, align 4, !tbaa !31, !noalias !53
+  %16 = load float, ptr %15, align 4, !tbaa !31, !noalias !54
   %17 = fneg float %16
   %18 = fmul float %14, %17
   %19 = tail call noundef float @llvm.fmuladd.f32(float %9, float %12, float %18)
-  %20 = load float, ptr %10, align 4, !tbaa !31, !noalias !53
-  %21 = load float, ptr %7, align 4, !tbaa !31, !noalias !53
+  %20 = load float, ptr %10, align 4, !tbaa !31, !noalias !54
+  %21 = load float, ptr %7, align 4, !tbaa !31, !noalias !54
   %22 = fneg float %12
   %23 = fmul float %21, %22
   %24 = tail call noundef float @llvm.fmuladd.f32(float %14, float %20, float %23)
   %25 = fneg float %20
   %26 = fmul float %9, %25
   %27 = tail call noundef float @llvm.fmuladd.f32(float %21, float %16, float %26)
-  %28 = load float, ptr %0, align 4, !tbaa !31, !noalias !53
+  %28 = load float, ptr %0, align 4, !tbaa !31, !noalias !54
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %30 = load float, ptr %29, align 4, !tbaa !31, !noalias !53
+  %30 = load float, ptr %29, align 4, !tbaa !31, !noalias !54
   %31 = fmul float %30, %24
   %32 = tail call float @llvm.fmuladd.f32(float %28, float %19, float %31)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load float, ptr %33, align 4, !tbaa !31, !noalias !53
+  %34 = load float, ptr %33, align 4, !tbaa !31, !noalias !54
   %35 = tail call noundef float @llvm.fmuladd.f32(float %34, float %27, float %32)
   %36 = fdiv float 1.000000e+00, %35
   %37 = fmul float %19, %36
@@ -1030,14 +1030,14 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngle
   %58 = fmul float %30, %57
   %59 = tail call noundef float @llvm.fmuladd.f32(float %28, float %9, float %58)
   %60 = fmul float %59, %36
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %61 = load float, ptr %1, align 4, !tbaa !31, !noalias !56
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  %61 = load float, ptr %1, align 4, !tbaa !31, !noalias !57
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %63 = load float, ptr %62, align 4, !tbaa !31, !noalias !56
+  %63 = load float, ptr %62, align 4, !tbaa !31, !noalias !57
   %64 = fmul float %63, %45
   %65 = tail call float @llvm.fmuladd.f32(float %37, float %61, float %64)
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load float, ptr %66, align 4, !tbaa !31, !noalias !56
+  %67 = load float, ptr %66, align 4, !tbaa !31, !noalias !57
   %68 = tail call noundef float @llvm.fmuladd.f32(float %53, float %67, float %65)
   %69 = fmul float %63, %48
   %70 = tail call float @llvm.fmuladd.f32(float %40, float %61, float %69)
@@ -1046,13 +1046,13 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngle
   %73 = tail call float @llvm.fmuladd.f32(float %44, float %61, float %72)
   %74 = tail call noundef float @llvm.fmuladd.f32(float %60, float %67, float %73)
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %76 = load float, ptr %75, align 4, !tbaa !31, !noalias !56
+  %76 = load float, ptr %75, align 4, !tbaa !31, !noalias !57
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %78 = load float, ptr %77, align 4, !tbaa !31, !noalias !56
+  %78 = load float, ptr %77, align 4, !tbaa !31, !noalias !57
   %79 = fmul float %45, %78
   %80 = tail call float @llvm.fmuladd.f32(float %37, float %76, float %79)
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %82 = load float, ptr %81, align 4, !tbaa !31, !noalias !56
+  %82 = load float, ptr %81, align 4, !tbaa !31, !noalias !57
   %83 = tail call noundef float @llvm.fmuladd.f32(float %53, float %82, float %80)
   %84 = fmul float %48, %78
   %85 = tail call float @llvm.fmuladd.f32(float %40, float %76, float %84)
@@ -1061,13 +1061,13 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngle
   %88 = tail call float @llvm.fmuladd.f32(float %44, float %76, float %87)
   %89 = tail call noundef float @llvm.fmuladd.f32(float %60, float %82, float %88)
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %91 = load float, ptr %90, align 4, !tbaa !31, !noalias !56
+  %91 = load float, ptr %90, align 4, !tbaa !31, !noalias !57
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %93 = load float, ptr %92, align 4, !tbaa !31, !noalias !56
+  %93 = load float, ptr %92, align 4, !tbaa !31, !noalias !57
   %94 = fmul float %45, %93
   %95 = tail call float @llvm.fmuladd.f32(float %37, float %91, float %94)
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %97 = load float, ptr %96, align 4, !tbaa !31, !noalias !56
+  %97 = load float, ptr %96, align 4, !tbaa !31, !noalias !57
   %98 = tail call noundef float @llvm.fmuladd.f32(float %53, float %97, float %95)
   %99 = fmul float %48, %93
   %100 = tail call float @llvm.fmuladd.f32(float %40, float %91, float %99)
@@ -1075,29 +1075,29 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngle
   %102 = fmul float %52, %93
   %103 = tail call float @llvm.fmuladd.f32(float %44, float %91, float %102)
   %104 = tail call noundef float @llvm.fmuladd.f32(float %60, float %97, float %103)
-  store float %68, ptr %5, align 4, !tbaa !31, !alias.scope !56
+  store float %68, ptr %5, align 4, !tbaa !31, !alias.scope !57
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %71, ptr %105, align 4, !tbaa !31, !alias.scope !56
+  store float %71, ptr %105, align 4, !tbaa !31, !alias.scope !57
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float %74, ptr %106, align 4, !tbaa !31, !alias.scope !56
+  store float %74, ptr %106, align 4, !tbaa !31, !alias.scope !57
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store float 0.000000e+00, ptr %107, align 4, !tbaa !31, !alias.scope !56
+  store float 0.000000e+00, ptr %107, align 4, !tbaa !31, !alias.scope !57
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store float %83, ptr %108, align 4, !tbaa !31, !alias.scope !56
+  store float %83, ptr %108, align 4, !tbaa !31, !alias.scope !57
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store float %86, ptr %109, align 4, !tbaa !31, !alias.scope !56
+  store float %86, ptr %109, align 4, !tbaa !31, !alias.scope !57
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store float %89, ptr %110, align 4, !tbaa !31, !alias.scope !56
+  store float %89, ptr %110, align 4, !tbaa !31, !alias.scope !57
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store float 0.000000e+00, ptr %111, align 4, !tbaa !31, !alias.scope !56
+  store float 0.000000e+00, ptr %111, align 4, !tbaa !31, !alias.scope !57
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store float %98, ptr %112, align 4, !tbaa !31, !alias.scope !56
+  store float %98, ptr %112, align 4, !tbaa !31, !alias.scope !57
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store float %101, ptr %113, align 4, !tbaa !31, !alias.scope !56
+  store float %101, ptr %113, align 4, !tbaa !31, !alias.scope !57
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store float %104, ptr %114, align 4, !tbaa !31, !alias.scope !56
+  store float %104, ptr %114, align 4, !tbaa !31, !alias.scope !57
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store float 0.000000e+00, ptr %115, align 4, !tbaa !31, !alias.scope !56
+  store float 0.000000e+00, ptr %115, align 4, !tbaa !31, !alias.scope !57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %116 = load float, ptr %6, align 4, !tbaa !31
@@ -1121,7 +1121,7 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngle
   %.0.i.i = select i1 %132, float -1.000000e+00, float %131
   %133 = fcmp ogt float %.0.i.i, 1.000000e+00
   %.1.i.i = select i1 %133, float 1.000000e+00, float %.0.i.i
-  %134 = call noundef float @acosf(float noundef %.1.i.i) #15, !tbaa !52
+  %134 = call noundef float @acosf(float noundef %.1.i.i) #15, !tbaa !53
   %135 = fmul float %134, 2.000000e+00
   store float %135, ptr %3, align 4, !tbaa !31
   %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1172,7 +1172,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = fadd float %10, 1.000000e+00
-  %16 = tail call noundef float @sqrtf(float noundef %15) #15, !tbaa !52
+  %16 = tail call noundef float @sqrtf(float noundef %15) #15, !tbaa !53
   %17 = fmul float %16, 5.000000e-01
   %18 = fdiv float 5.000000e-01, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1221,7 +1221,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %59 = load float, ptr %58, align 4, !tbaa !31
   %60 = fsub float %55, %59
   %61 = fadd float %60, 1.000000e+00
-  %62 = tail call noundef float @sqrtf(float noundef %61) #15, !tbaa !52
+  %62 = tail call noundef float @sqrtf(float noundef %61) #15, !tbaa !53
   %63 = fmul float %62, 5.000000e-01
   %64 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %47
   store float %63, ptr %64, align 4, !tbaa !31
@@ -1404,13 +1404,14 @@ attributes #16 = { builtin nounwind }
 !46 = !{!"_ZTSN12btConvexCast10CastResultE", !25, i64 8, !25, i64 72, !27, i64 136, !27, i64 152, !28, i64 168, !47, i64 176, !28, i64 184, !22, i64 188, !28, i64 192}
 !47 = !{!"p1 _ZTS12btIDebugDraw", !11, i64 0}
 !48 = !{!46, !47, i64 176}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!46, !28, i64 168}
-!52 = !{!22, !22, i64 0}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNK11btMatrix3x37inverseEv: argument 0"}
-!55 = distinct !{!55, !"_ZNK11btMatrix3x37inverseEv"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
-!58 = distinct !{!58, !"_ZmlRK11btMatrix3x3S1_"}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = !{!46, !28, i64 168}
+!53 = !{!22, !22, i64 0}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZNK11btMatrix3x37inverseEv: argument 0"}
+!56 = distinct !{!56, !"_ZNK11btMatrix3x37inverseEv"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZmlRK11btMatrix3x3S1_: argument 0"}
+!59 = distinct !{!59, !"_ZmlRK11btMatrix3x3S1_"}

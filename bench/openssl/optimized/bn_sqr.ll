@@ -310,7 +310,7 @@ define void @bn_sqr_recursive(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %58 = add i64 %57, 1
   store i64 %58, ptr %56, align 8, !tbaa !12
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %59, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %35, %48, %10, %7, %6
   ret void
@@ -357,6 +357,7 @@ attributes #4 = { nounwind }
 !11 = !{!4, !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}

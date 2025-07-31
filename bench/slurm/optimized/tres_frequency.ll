@@ -108,7 +108,7 @@ _valid_gpu_freq.exit.thread20:                    ; preds = %28, %26, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   %34 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %4) #6
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %.loopexit23, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.loopexit23, label %.lr.ph, !llvm.loop !12
 
 .loopexit23.sink.split:                           ; preds = %16, %_valid_gpu_freq.exit.thread20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
@@ -223,7 +223,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}

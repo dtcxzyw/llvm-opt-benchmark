@@ -272,7 +272,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr noundef re
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %88 = sext i32 %.val49 to i64
   %89 = icmp slt i64 %indvars.iv.next80, %88
-  br i1 %89, label %42, label %.critedge2, !llvm.loop !35
+  br i1 %89, label %42, label %.critedge2, !llvm.loop !36
 
 .critedge2:                                       ; preds = %42, %.critedge, %.critedge.preheader
   %.val507488 = phi i32 [ %.val4971, %.critedge.preheader ], [ %.val4985, %42 ], [ %.val49, %.critedge ]
@@ -327,7 +327,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr noundef re
   %.val50 = load i32, ptr %9, align 4, !tbaa !28
   %116 = sext i32 %.val50 to i64
   %117 = icmp slt i64 %indvars.iv.next83, %116
-  br i1 %117, label %.lr.ph76, label %.critedge4, !llvm.loop !36
+  br i1 %117, label %.lr.ph76, label %.critedge4, !llvm.loop !37
 
 .critedge4:                                       ; preds = %.lr.ph76, %109, %106
   ret void
@@ -384,7 +384,8 @@ attributes #5 = { nounwind allocsize(0) }
 !30 = !{!13, !11, i64 8}
 !31 = !{!9, !9, i64 0}
 !32 = !{!4, !12, i64 64}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34}
-!36 = distinct !{!36, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = distinct !{!36, !34, !35}
+!37 = distinct !{!37, !34, !35}

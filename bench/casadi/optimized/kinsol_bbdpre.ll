@@ -326,11 +326,11 @@ define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr nounde
   store double %74, ptr %75, align 8, !tbaa !44
   %76 = load ptr, ptr %10, align 8, !tbaa !31
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 72
-  %78 = load ptr, ptr %77, align 8, !tbaa !47
+  %78 = load ptr, ptr %77, align 8, !tbaa !48
   %79 = getelementptr inbounds ptr, ptr %78, i64 %.1125.i
-  %80 = load ptr, ptr %79, align 8, !tbaa !50
+  %80 = load ptr, ptr %79, align 8, !tbaa !51
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  %82 = load i64, ptr %81, align 8, !tbaa !51
+  %82 = load i64, ptr %81, align 8, !tbaa !52
   %83 = getelementptr inbounds double, ptr %80, i64 %82
   %84 = load double, ptr %43, align 8, !tbaa !35
   %85 = tail call double @SUNRabs(double noundef %74) #5
@@ -373,18 +373,18 @@ define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr nounde
   store double %109, ptr %111, align 8, !tbaa !44
   %112 = add nuw nsw i64 %.0100121.i, 1
   %.not118.not.i = icmp slt i64 %.0100121.i, %103
-  br i1 %.not118.not.i, label %.lr.ph123.i, label %._crit_edge124.i, !llvm.loop !52
+  br i1 %.not118.not.i, label %.lr.ph123.i, label %._crit_edge124.i, !llvm.loop !53
 
 ._crit_edge124.i:                                 ; preds = %.lr.ph123.i, %93
   %113 = add nsw i64 %.1125.i, %41
   %114 = icmp slt i64 %113, %101
-  br i1 %114, label %.lr.ph126.i, label %._crit_edge127.i, !llvm.loop !53
+  br i1 %114, label %.lr.ph126.i, label %._crit_edge127.i, !llvm.loop !54
 
 ._crit_edge127.i:                                 ; preds = %._crit_edge124.i, %.preheader.i
   %115 = phi i64 [ %72, %.preheader.i ], [ %101, %._crit_edge124.i ]
   %116 = add nuw i64 %.099129.i, 1
   %exitcond.not.i = icmp eq i64 %.099129.i, %..i
-  br i1 %exitcond.not.i, label %KBBDDQJac.exit.loopexit, label %46, !llvm.loop !54
+  br i1 %exitcond.not.i, label %KBBDDQJac.exit.loopexit, label %46, !llvm.loop !55
 
 .loopexit:                                        ; preds = %._crit_edge.i, %22, %28
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %9, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #5
@@ -461,10 +461,10 @@ define range(i32 -5, 1) i32 @KINBBDPrecGetWorkSpace(ptr noundef %0, ptr noundef 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %18 = load i64, ptr %17, align 8, !tbaa !37
-  store i64 %18, ptr %1, align 8, !tbaa !55
+  store i64 %18, ptr %1, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %20 = load i64, ptr %19, align 8, !tbaa !38
-  store i64 %20, ptr %2, align 8, !tbaa !55
+  store i64 %20, ptr %2, align 8, !tbaa !56
   br label %21
 
 21:                                               ; preds = %16, %15, %10, %5
@@ -504,7 +504,7 @@ define range(i32 -5, 1) i32 @KINBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nounde
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %17 = load i64, ptr %16, align 8, !tbaa !39
-  store i64 %17, ptr %1, align 8, !tbaa !55
+  store i64 %17, ptr %1, align 8, !tbaa !56
   br label %18
 
 18:                                               ; preds = %15, %14, %9, %4
@@ -587,14 +587,15 @@ attributes #6 = { nounwind allocsize(0) }
 !42 = !{!41, !8, i64 104}
 !43 = !{!4, !8, i64 16}
 !44 = !{!5, !5, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!48, !49, i64 72}
-!48 = !{!"_DlsMat", !9, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !13, i64 56, !10, i64 64, !49, i64 72}
-!49 = !{!"p2 double", !8, i64 0}
-!50 = !{!13, !13, i64 0}
-!51 = !{!48, !10, i64 48}
-!52 = distinct !{!52, !46}
-!53 = distinct !{!53, !46}
-!54 = distinct !{!54, !46}
-!55 = !{!10, !10, i64 0}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!49, !50, i64 72}
+!49 = !{!"_DlsMat", !9, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !13, i64 56, !10, i64 64, !50, i64 72}
+!50 = !{!"p2 double", !8, i64 0}
+!51 = !{!13, !13, i64 0}
+!52 = !{!49, !10, i64 48}
+!53 = distinct !{!53, !46, !47}
+!54 = distinct !{!54, !46, !47}
+!55 = distinct !{!55, !46, !47}
+!56 = !{!10, !10, i64 0}

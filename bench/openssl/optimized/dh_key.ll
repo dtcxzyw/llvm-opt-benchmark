@@ -314,13 +314,13 @@ define noundef nonnull ptr @DH_OpenSSL() local_unnamed_addr #5 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @DH_get_default_method() local_unnamed_addr #6 {
-  %1 = load ptr, ptr @default_DH_method, align 8, !tbaa !33
+  %1 = load ptr, ptr @default_DH_method, align 8, !tbaa !34
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @DH_set_default_method(ptr noundef %0) local_unnamed_addr #7 {
-  store ptr %0, ptr @default_DH_method, align 8, !tbaa !33
+  store ptr %0, ptr @default_DH_method, align 8, !tbaa !34
   ret void
 }
 
@@ -329,7 +329,7 @@ define i32 @DH_generate_key(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
   %6 = tail call i32 %5(ptr noundef %0) #9
   ret i32 %6
 }
@@ -366,7 +366,7 @@ define range(i32 0, 2) i32 @ossl_dh_generate_public_key(ptr noundef %0, ptr noun
   %23 = load ptr, ptr %22, align 8, !tbaa !26
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !35
+  %26 = load ptr, ptr %25, align 8, !tbaa !36
   %27 = load ptr, ptr %24, align 8, !tbaa !3
   %28 = tail call i32 %23(ptr noundef nonnull %1, ptr noundef %3, ptr noundef %26, ptr noundef nonnull %5, ptr noundef %27, ptr noundef %0, ptr noundef %.022) #9
   %.not25 = icmp ne i32 %28, 0
@@ -402,7 +402,7 @@ define range(i32 0, 2) i32 @ossl_dh_buf2key(ptr noundef %0, ptr noundef %1, i64 
 
 9:                                                ; preds = %3
   call void @DH_get0_pqg(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #9
-  %10 = load ptr, ptr %4, align 8, !tbaa !36
+  %10 = load ptr, ptr %4, align 8, !tbaa !37
   %11 = icmp eq ptr %10, null
   br i1 %11, label %19, label %12
 
@@ -455,7 +455,7 @@ define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %0, ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   call void @DH_get0_pqg(ptr noundef %0, ptr noundef nonnull %6, ptr noundef null, ptr noundef null) #9
   call void @DH_get0_key(ptr noundef %0, ptr noundef nonnull %5, ptr noundef null) #9
-  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr %5, align 8
   %10 = icmp eq ptr %9, null
@@ -471,7 +471,7 @@ define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %0, ptr
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %5, align 8, !tbaa !36
+  %17 = load ptr, ptr %5, align 8, !tbaa !37
   %18 = call i32 @BN_num_bits(ptr noundef %17) #9
   %.off24 = add i32 %18, 14
   %19 = icmp ult i32 %.off24, 15
@@ -492,7 +492,7 @@ define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %0, ptr
   br i1 %.not25, label %23, label %27
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr %1, align 8, !tbaa !37
+  %24 = load ptr, ptr %1, align 8, !tbaa !38
   %.not26 = icmp eq ptr %24, null
   br i1 %.not26, label %39, label %25
 
@@ -514,13 +514,13 @@ define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %0, ptr
   br i1 %30, label %41, label %.thread34
 
 .thread31:                                        ; preds = %25
-  %31 = load ptr, ptr %5, align 8, !tbaa !36
+  %31 = load ptr, ptr %5, align 8, !tbaa !37
   %32 = call i32 @BN_bn2binpad(ptr noundef %31, ptr noundef nonnull %24, i32 noundef %14) #9
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %37, label %38
 
 .thread34:                                        ; preds = %27
-  %34 = load ptr, ptr %5, align 8, !tbaa !36
+  %34 = load ptr, ptr %5, align 8, !tbaa !37
   %35 = call i32 @BN_bn2binpad(ptr noundef %34, ptr noundef nonnull %29, i32 noundef %14) #9
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.thread38, label %38
@@ -537,7 +537,7 @@ define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %0, ptr
 
 38:                                               ; preds = %.thread34, %.thread31
   %.13336 = phi ptr [ %29, %.thread34 ], [ %24, %.thread31 ]
-  store ptr %.13336, ptr %1, align 8, !tbaa !37
+  store ptr %.13336, ptr %1, align 8, !tbaa !38
   br label %39
 
 39:                                               ; preds = %38, %23, %21
@@ -621,7 +621,7 @@ define internal range(i32 0, 2) i32 @generate_key(ptr noundef %0) #0 {
 30:                                               ; preds = %24, %27
   %.1 = phi ptr [ %28, %27 ], [ %26, %24 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %32 = load ptr, ptr %31, align 8, !tbaa !38
+  %32 = load ptr, ptr %31, align 8, !tbaa !39
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %37
 
@@ -650,13 +650,13 @@ define internal range(i32 0, 2) i32 @generate_key(ptr noundef %0) #0 {
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %49 = load i32, ptr %48, align 8, !tbaa !39
+  %49 = load i32, ptr %48, align 8, !tbaa !40
   %50 = tail call i32 @BN_num_bits(ptr noundef nonnull %45) #9
   %51 = icmp sgt i32 %49, %50
   br i1 %51, label %112, label %52
 
 52:                                               ; preds = %47
-  %53 = load i32, ptr %48, align 8, !tbaa !39
+  %53 = load i32, ptr %48, align 8, !tbaa !40
   %54 = tail call i32 @ossl_ffc_generate_private_key(ptr noundef nonnull %22, ptr noundef nonnull %2, i32 noundef %53, i32 noundef %44, ptr noundef nonnull %.1) #9
   %.not90 = icmp eq i32 %54, 0
   br i1 %.not90, label %112, label %87
@@ -668,7 +668,7 @@ define internal range(i32 0, 2) i32 @generate_key(ptr noundef %0) #0 {
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %60 = load i32, ptr %59, align 8, !tbaa !39
+  %60 = load i32, ptr %59, align 8, !tbaa !40
   %.not83 = icmp eq i32 %60, 0
   br i1 %.not83, label %.thread98, label %61
 
@@ -679,7 +679,7 @@ define internal range(i32 0, 2) i32 @generate_key(ptr noundef %0) #0 {
   br i1 %.not84, label %64, label %112
 
 64:                                               ; preds = %61
-  %.pr = load i32, ptr %59, align 8, !tbaa !39
+  %.pr = load i32, ptr %59, align 8, !tbaa !40
   %.not85 = icmp eq i32 %.pr, 0
   br i1 %.not85, label %.thread98, label %68
 
@@ -697,7 +697,7 @@ define internal range(i32 0, 2) i32 @generate_key(ptr noundef %0) #0 {
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !35
+  %73 = load ptr, ptr %72, align 8, !tbaa !36
   %74 = tail call i32 @BN_is_word(ptr noundef %73, i64 noundef 2) #9
   %.not87 = icmp eq i32 %74, 0
   br i1 %.not87, label %87, label %75
@@ -759,7 +759,7 @@ ossl_dh_generate_public_key.exit:                 ; preds = %90, %94
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load ptr, ptr %103, align 8, !tbaa !26
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %106 = load ptr, ptr %105, align 8, !tbaa !35
+  %106 = load ptr, ptr %105, align 8, !tbaa !36
   %107 = load ptr, ptr %2, align 8, !tbaa !3
   %108 = tail call i32 %104(ptr noundef nonnull %0, ptr noundef nonnull %.164, ptr noundef %106, ptr noundef nonnull %88, ptr noundef %107, ptr noundef nonnull %22, ptr noundef %.022.i) #9
   %.not25.i.not = icmp eq i32 %108, 0
@@ -767,12 +767,12 @@ ossl_dh_generate_public_key.exit:                 ; preds = %90, %94
   br i1 %.not25.i.not, label %112, label %.thread117
 
 .thread117:                                       ; preds = %ossl_dh_generate_public_key.exit
-  store ptr %.164, ptr %31, align 8, !tbaa !38
+  store ptr %.164, ptr %31, align 8, !tbaa !39
   store ptr %.1, ptr %25, align 8, !tbaa !22
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %110 = load i64, ptr %109, align 8, !tbaa !40
+  %110 = load i64, ptr %109, align 8, !tbaa !41
   %111 = add i64 %110, 1
-  store i64 %111, ptr %109, align 8, !tbaa !40
+  store i64 %111, ptr %109, align 8, !tbaa !41
   br label %115
 
 112:                                              ; preds = %ossl_dh_generate_public_key.exit.thread102, %80, %83, %68, %78, %61, %ossl_dh_generate_public_key.exit, %34, %27, %19, %47, %40, %52, %87
@@ -782,7 +782,7 @@ ossl_dh_generate_public_key.exit:                 ; preds = %90, %94
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 378, ptr noundef nonnull @__func__.generate_key) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 524291, ptr noundef null) #9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !38
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !39
   %113 = icmp eq ptr %.063.ph, %.pre
   br i1 %113, label %115, label %114
 
@@ -824,16 +824,16 @@ define internal noundef i32 @dh_init(ptr noundef captures(none) %0) #8 {
   %4 = or i32 %3, 1
   store i32 %4, ptr %2, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %6 = load i64, ptr %5, align 8, !tbaa !40
+  %6 = load i64, ptr %5, align 8, !tbaa !41
   %7 = add i64 %6, 1
-  store i64 %7, ptr %5, align 8, !tbaa !40
+  store i64 %7, ptr %5, align 8, !tbaa !41
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dh_finish(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
   tail call void @BN_MONT_CTX_free(ptr noundef %3) #9
   ret i32 1
 }
@@ -904,14 +904,15 @@ attributes #9 = { nounwind }
 !28 = !{!12, !12, i64 0}
 !29 = !{!27, !10, i64 16}
 !30 = !{!6, !6, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!19, !19, i64 0}
-!34 = !{!27, !10, i64 8}
-!35 = !{!4, !9, i64 24}
-!36 = !{!9, !9, i64 0}
-!37 = !{!11, !11, i64 0}
-!38 = !{!4, !9, i64 112}
-!39 = !{!4, !5, i64 104}
-!40 = !{!4, !12, i64 200}
-!41 = !{!4, !13, i64 136}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!19, !19, i64 0}
+!35 = !{!27, !10, i64 8}
+!36 = !{!4, !9, i64 24}
+!37 = !{!9, !9, i64 0}
+!38 = !{!11, !11, i64 0}
+!39 = !{!4, !9, i64 112}
+!40 = !{!4, !5, i64 104}
+!41 = !{!4, !12, i64 200}
+!42 = !{!4, !13, i64 136}

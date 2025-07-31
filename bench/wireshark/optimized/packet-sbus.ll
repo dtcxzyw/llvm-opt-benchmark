@@ -916,7 +916,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %152 = add nuw nsw i8 %.010751153, 1
   %153 = add nuw nsw i32 %.010761152, 1
   %exitcond1214.not = icmp eq i32 %153, 43
-  br i1 %exitcond1214.not, label %154, label %.preheader1148, !llvm.loop !8
+  br i1 %exitcond1214.not, label %154, label %.preheader1148, !llvm.loop !9
 
 154:                                              ; preds = %.preheader1148, %151
   %.01075.lcssa = phi i8 [ %.010751153, %.preheader1148 ], [ 24, %151 ]
@@ -945,7 +945,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %166 = add nuw nsw i8 %.11151, 1
   %167 = add nuw nsw i32 %.110771150, 1
   %exitcond.not = icmp eq i32 %167, 39
-  br i1 %exitcond.not, label %168, label %.preheader1149, !llvm.loop !9
+  br i1 %exitcond.not, label %168, label %.preheader1149, !llvm.loop !10
 
 168:                                              ; preds = %.preheader1149, %165
   %.1.lcssa = phi i8 [ %.11151, %.preheader1149 ], [ 24, %165 ]
@@ -1234,7 +1234,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %334 = icmp samesign ult i32 %.210781176, 63
   %.not1115 = icmp slt i32 %332, %317
   %or.cond1122 = select i1 %334, i1 %.not1115, i1 false
-  br i1 %or.cond1122, label %.lr.ph1177, label %.thread1136, !llvm.loop !10
+  br i1 %or.cond1122, label %.lr.ph1177, label %.thread1136, !llvm.loop !11
 
 335:                                              ; preds = %.critedge1121, %.critedge1121
   %336 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 11)
@@ -1272,7 +1272,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %359 = add nuw nsw i32 %.310861170, 4
   %360 = add nsw i32 %.310791171, -1
   %361 = icmp samesign ugt i32 %.310791171, 1
-  br i1 %361, label %.lr.ph1172, label %.thread1136, !llvm.loop !11
+  br i1 %361, label %.lr.ph1172, label %.thread1136, !llvm.loop !12
 
 362:                                              ; preds = %.critedge1121
   %363 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 11)
@@ -1310,7 +1310,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %385 = call ptr @proto_tree_add_item(ptr noundef %382, i32 noundef %384, ptr noundef %0, i32 noundef %.410871166, i32 noundef 1, i32 noundef 0)
   %386 = add nuw nsw i32 %.410871166, 1
   %exitcond1221.not = icmp eq i32 %386, %383
-  br i1 %exitcond1221.not, label %.thread1136, label %.lr.ph1168, !llvm.loop !12
+  br i1 %exitcond1221.not, label %.thread1136, label %.lr.ph1168, !llvm.loop !13
 
 387:                                              ; preds = %.critedge1121
   %388 = load i32, ptr @hf_sbus_command_extension, align 4
@@ -1360,7 +1360,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %421 = call ptr @proto_tree_add_item(ptr noundef %418, i32 noundef %420, ptr noundef %0, i32 noundef %.510881164, i32 noundef 1, i32 noundef 0)
   %422 = add nuw nsw i32 %.510881164, 1
   %exitcond1220.not = icmp eq i32 %422, %419
-  br i1 %exitcond1220.not, label %.thread1136, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond1220.not, label %.thread1136, label %.lr.ph, !llvm.loop !14
 
 423:                                              ; preds = %.critedge1121
   %424 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 11)
@@ -1426,7 +1426,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %455 = add nuw nsw i8 %.21163, 1
   %456 = add nuw nsw i32 %.610821162, 1
   %exitcond1219.not = icmp eq i32 %456, 43
-  br i1 %exitcond1219.not, label %457, label %451, !llvm.loop !14
+  br i1 %exitcond1219.not, label %457, label %451, !llvm.loop !15
 
 457:                                              ; preds = %451, %454
   %.2.lcssa = phi i8 [ %.21163, %451 ], [ 24, %454 ]
@@ -1487,7 +1487,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %495 = add nuw nsw i8 %.31159, 1
   %496 = add nuw nsw i32 %.71158, 1
   %exitcond1217.not = icmp eq i32 %496, 43
-  br i1 %exitcond1217.not, label %497, label %491, !llvm.loop !15
+  br i1 %exitcond1217.not, label %497, label %491, !llvm.loop !16
 
 497:                                              ; preds = %491, %494
   %.3.lcssa = phi i8 [ %.31159, %491 ], [ 24, %494 ]
@@ -1529,7 +1529,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %521 = add nuw nsw i8 %.41157, 1
   %522 = add nuw nsw i32 %.81156, 1
   %exitcond1216.not = icmp eq i32 %522, 38
-  br i1 %exitcond1216.not, label %523, label %.preheader1147, !llvm.loop !16
+  br i1 %exitcond1216.not, label %523, label %.preheader1147, !llvm.loop !17
 
 523:                                              ; preds = %.preheader1147, %520
   %.4.lcssa = phi i8 [ %.41157, %.preheader1147 ], [ 24, %520 ]
@@ -1578,7 +1578,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %551 = add nuw nsw i8 %.51155, 1
   %552 = add nuw nsw i32 %.91154, 1
   %exitcond1215.not = icmp eq i32 %552, 46
-  br i1 %exitcond1215.not, label %553, label %547, !llvm.loop !17
+  br i1 %exitcond1215.not, label %553, label %547, !llvm.loop !18
 
 553:                                              ; preds = %547, %550
   %.5.lcssa = phi i8 [ %.51155, %547 ], [ 24, %550 ]
@@ -1619,7 +1619,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %576 = add nuw nsw i8 %.61161, 1
   %577 = add nuw nsw i32 %.101160, 1
   %exitcond1218.not = icmp eq i32 %577, 38
-  br i1 %exitcond1218.not, label %578, label %.preheader, !llvm.loop !18
+  br i1 %exitcond1218.not, label %578, label %.preheader, !llvm.loop !19
 
 578:                                              ; preds = %.preheader, %575
   %.6.lcssa = phi i8 [ %.61161, %.preheader ], [ 24, %575 ]
@@ -1870,7 +1870,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   %725 = icmp ne ptr %723, null
   %726 = icmp slt i32 %.81091, %673
   %727 = and i1 %725, %726
-  br i1 %727, label %.lr.ph1192, label %.loopexit, !llvm.loop !19
+  br i1 %727, label %.lr.ph1192, label %.loopexit, !llvm.loop !20
 
 728:                                              ; preds = %602, %602, %602, %602, %602, %602, %602, %602
   %729 = load i32, ptr @hf_sbus_cpu_status, align 4
@@ -1929,7 +1929,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   %765 = add i32 %.910921185, 1
   %766 = add nsw i32 %.121186, -1
   %767 = icmp samesign ugt i32 %.121186, 1
-  br i1 %767, label %.lr.ph1187, label %.thread1136, !llvm.loop !20
+  br i1 %767, label %.lr.ph1187, label %.thread1136, !llvm.loop !21
 
 768:                                              ; preds = %602
   %769 = load i32, ptr @ett_sbus_data, align 4
@@ -1942,7 +1942,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   %773 = load i32, ptr @hf_sbus_data_byte_hex, align 4
   %774 = call ptr @proto_tree_add_item(ptr noundef %770, i32 noundef %773, ptr noundef %0, i32 noundef %.1010931183, i32 noundef 1, i32 noundef 0)
   %775 = add i32 %.1010931183, 1
-  br i1 %772, label %771, label %.thread1136, !llvm.loop !21
+  br i1 %772, label %771, label %.thread1136, !llvm.loop !22
 
 776:                                              ; preds = %602
   %777 = load i32, ptr @hf_sbus_addr_prog, align 4
@@ -2031,7 +2031,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   %840 = add i32 %.1110941179, 1
   %841 = add nsw i32 %.141180, -1
   %842 = icmp sgt i32 %.141180, 1
-  br i1 %842, label %.lr.ph1181, label %.thread1136, !llvm.loop !22
+  br i1 %842, label %.lr.ph1181, label %.thread1136, !llvm.loop !23
 
 843:                                              ; preds = %602
   %844 = getelementptr inbounds nuw i8, ptr %.0, i64 3
@@ -2194,7 +2194,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   %937 = xor i32 %934, %936
   %938 = add nuw nsw i32 %.151195, 1
   %exitcond1222.not = icmp eq i32 %938, %926
-  br i1 %exitcond1222.not, label %._crit_edge, label %.lr.ph1196, !llvm.loop !23
+  br i1 %exitcond1222.not, label %._crit_edge, label %.lr.ph1196, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph1196, %.thread1136
   %.01099.lcssa = phi i32 [ 0, %.thread1136 ], [ %937, %.lr.ph1196 ]
@@ -2361,7 +2361,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @add_media_access
   %35 = add nsw i32 %.1113125, 4
   %36 = add nsw i32 %.0114124, -1
   %37 = icmp samesign ugt i32 %.0114124, 1
-  br i1 %37, label %.lr.ph126, label %.loopexit, !llvm.loop !24
+  br i1 %37, label %.lr.ph126, label %.loopexit, !llvm.loop !25
 
 38:                                               ; preds = %4, %4
   %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %3)
@@ -2406,7 +2406,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @add_media_access
   %65 = mul i32 %.0121, 10
   %66 = add nuw nsw i32 %.0116118, 1
   %exitcond.not = icmp eq i32 %66, 8
-  br i1 %exitcond.not, label %67, label %61, !llvm.loop !25
+  br i1 %exitcond.not, label %67, label %61, !llvm.loop !26
 
 67:                                               ; preds = %61
   %68 = load i32, ptr @hf_sbus_data_iof, align 4
@@ -2414,7 +2414,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @add_media_access
   %70 = add nsw i32 %.2123, 1
   %71 = add nsw i32 %.1115122, -1
   %72 = icmp sgt i32 %.1115122, 1
-  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 73:                                               ; preds = %4
   %74 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %3)
@@ -2488,7 +2488,7 @@ define internal fastcc noundef i32 @add_media_response_to_tree(i32 noundef range
   %12 = add i32 %.13850, 4
   %13 = add nsw i32 %.04049, -1
   %14 = icmp samesign ugt i32 %.04049, 1
-  br i1 %14, label %.lr.ph51, label %.loopexit, !llvm.loop !27
+  br i1 %14, label %.lr.ph51, label %.loopexit, !llvm.loop !28
 
 15:                                               ; preds = %5, %5, %5
   %16 = add nuw nsw i32 %1, 7
@@ -2518,7 +2518,7 @@ define internal fastcc noundef i32 @add_media_response_to_tree(i32 noundef range
   %26 = mul i32 %.046, 10
   %27 = add nuw nsw i32 %.03943, 1
   %exitcond.not = icmp eq i32 %27, 8
-  br i1 %exitcond.not, label %28, label %22, !llvm.loop !28
+  br i1 %exitcond.not, label %28, label %22, !llvm.loop !29
 
 28:                                               ; preds = %22
   %29 = load i32, ptr @hf_sbus_data_iof, align 4
@@ -2526,7 +2526,7 @@ define internal fastcc noundef i32 @add_media_response_to_tree(i32 noundef range
   %31 = add i32 %.248, 1
   %32 = add nsw i32 %.14147, -1
   %33 = icmp sgt i32 %.14147, 1
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !29
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %28, %.lr.ph51, %15, %6, %5
   %.037 = phi i32 [ %4, %5 ], [ %4, %6 ], [ %4, %15 ], [ %12, %.lr.ph51 ], [ %31, %28 ]
@@ -2574,27 +2574,28 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}

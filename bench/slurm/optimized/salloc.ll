@@ -424,7 +424,7 @@ _set_submit_dir_env.exit:                         ; preds = %112, %.sink.split1.
   %.not343 = icmp eq ptr %.0197411, null
   %spec.select = select i1 %.not343, ptr %133, ptr %.0197411
   %145 = add nuw nsw i32 %.0227408, 1
-  br i1 %.1224, label %146, label %47, !llvm.loop !11
+  br i1 %.1224, label %146, label %47, !llvm.loop !12
 
 146:                                              ; preds = %144
   store i32 %145, ptr @het_job_limit, align 4
@@ -470,7 +470,7 @@ _set_submit_dir_env.exit:                         ; preds = %112, %.sink.split1.
 165:                                              ; preds = %163, %.lr.ph.i349
   %166 = call ptr @list_next(ptr noundef %158) #13
   %.not16.i = icmp eq ptr %166, null
-  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i349, !llvm.loop !12
+  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i349, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %165, %157
   call void @list_iterator_destroy(ptr noundef %158) #13
@@ -484,7 +484,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
 169:                                              ; preds = %_match_job_name.exit
   %170 = call i32 @tcgetpgrp(i32 noundef 0) #13
   %171 = icmp slt i32 %170, 0
-  %172 = load i8, ptr getelementptr inbounds nuw (i8, ptr @saopt, i64 8), align 4, !range !13, !noundef !14
+  %172 = load i8, ptr getelementptr inbounds nuw (i8, ptr @saopt, i64 8), align 4, !range !14, !noundef !15
   %173 = trunc nuw i8 %172 to i1
   br i1 %171, label %174, label %178
 
@@ -570,7 +570,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
   store ptr @_user_msg_handler, ptr %207, align 8
   %208 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @_node_fail_handler, ptr %208, align 8
-  %209 = load i8, ptr getelementptr inbounds nuw (i8, ptr @saopt, i64 8), align 4, !range !13, !noundef !14
+  %209 = load i8, ptr getelementptr inbounds nuw (i8, ptr @saopt, i64 8), align 4, !range !14, !noundef !15
   %210 = trunc nuw i8 %209 to i1
   br i1 %210, label %216, label %211
 
@@ -597,7 +597,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
   %220 = getelementptr inbounds nuw [8 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
   %221 = load i32, ptr %220, align 4
   %.not287 = icmp eq i32 %221, 0
-  br i1 %.not287, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not287, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %216
   %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 504), align 8
@@ -666,7 +666,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
 250:                                              ; preds = %246, %249, %244
   %251 = add nuw nsw i32 %.0206, 1
   %252 = call i32 @sleep(i32 noundef %251) #13
-  br label %226, !llvm.loop !16
+  br label %226, !llvm.loop !17
 
 253:                                              ; preds = %238
   %.b280291 = load i1, ptr @allocation_interrupted, align 1
@@ -784,7 +784,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
   %300 = add nuw nsw i32 %.1211, 1
   %301 = call fastcc i32 @_proc_alloc(ptr noundef nonnull %277)
   %.not297 = icmp eq i32 %301, 0
-  br i1 %.not297, label %276, label %302, !llvm.loop !17
+  br i1 %.not297, label %276, label %302, !llvm.loop !18
 
 302:                                              ; preds = %299
   call void @list_iterator_destroy(ptr noundef %275) #13
@@ -833,7 +833,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
   %319 = add nuw nsw i32 %.06.i, 1
   %320 = load i32, ptr @het_job_limit, align 4
   %321 = icmp slt i32 %319, %320
-  br i1 %321, label %.lr.ph.i351, label %._crit_edge.i350, !llvm.loop !18
+  br i1 %321, label %.lr.ph.i351, label %._crit_edge.i350, !llvm.loop !19
 
 ._crit_edge.i350:                                 ; preds = %.lr.ph.i351, %.preheader.i
   store i1 true, ptr @_cli_filter_post_submit_run, align 1
@@ -865,7 +865,7 @@ _salloc_cli_filter_post_submit.exit:              ; preds = %315, %._crit_edge.i
   br label %_ring_terminal_bell.exit
 
 _ring_terminal_bell.exit:                         ; preds = %329, %327, %_salloc_cli_filter_post_submit.exit, %324
-  %333 = load i8, ptr getelementptr inbounds nuw (i8, ptr @saopt, i64 8), align 4, !range !13, !noundef !14
+  %333 = load i8, ptr getelementptr inbounds nuw (i8, ptr @saopt, i64 8), align 4, !range !14, !noundef !15
   %334 = trunc nuw i8 %333 to i1
   br i1 %334, label %335, label %336
 
@@ -917,7 +917,7 @@ _ring_terminal_bell.exit:                         ; preds = %329, %327, %_salloc
   %.2217 = select i1 %or.cond19, i32 %356, i32 0
   %357 = call ptr @list_next(ptr noundef %350) #13
   %.not306 = icmp eq ptr %357, null
-  br i1 %.not306, label %._crit_edge421, label %.lr.ph420, !llvm.loop !19
+  br i1 %.not306, label %._crit_edge421, label %.lr.ph420, !llvm.loop !20
 
 .lr.ph420:                                        ; preds = %347, %353
   %358 = phi ptr [ %357, %353 ], [ %352, %347 ]
@@ -975,7 +975,7 @@ _ring_terminal_bell.exit:                         ; preds = %329, %327, %_salloc
   %384 = load i32, ptr %383, align 4
   %385 = call i32 @env_array_for_job(ptr noundef nonnull %6, ptr noundef %359, ptr noundef nonnull %358, i32 noundef %.2212418) #13
   %.not310 = icmp eq i32 %385, 0
-  br i1 %.not310, label %353, label %.thread379, !llvm.loop !19
+  br i1 %.not310, label %353, label %.thread379, !llvm.loop !20
 
 ._crit_edge421:                                   ; preds = %353, %347
   %.1216.lcssa = phi i32 [ 0, %347 ], [ %.2217, %353 ]
@@ -1275,7 +1275,7 @@ _fork_command.exit:                               ; preds = %477, %479
   br i1 %.not322, label %526, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %524, %.critedge
-  br label %.critedge, !llvm.loop !20
+  br label %.critedge, !llvm.loop !21
 
 526:                                              ; preds = %524
   br i1 %525, label %534, label %527
@@ -1874,7 +1874,7 @@ define internal void @_pending_callback(i32 noundef %0) #0 {
   %8 = add nuw nsw i32 %.06.i, 1
   %9 = load i32, ptr @het_job_limit, align 4
   %10 = icmp slt i32 %8, %9
-  br i1 %10, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %10, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   store i1 true, ptr @_cli_filter_post_submit_run, align 1
@@ -2043,7 +2043,7 @@ define internal fastcc range(i32 -1, 1) i32 @_proc_alloc(ptr noundef %0) unnamed
   br i1 %or.cond5.i, label %.backedge.i.backedge, label %.critedge.i
 
 .backedge.i.backedge:                             ; preds = %64, %62, %58, %58
-  br label %.backedge.i, !llvm.loop !21
+  br label %.backedge.i, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %64
   %69 = tail call i32 @get_log_level() #13
@@ -2240,17 +2240,18 @@ attributes #15 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}

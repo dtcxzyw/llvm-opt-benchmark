@@ -197,7 +197,7 @@ define dso_local noundef i32 @pmix_ring_finalize() local_unnamed_addr #2 {
   %14 = load i32, ptr @pmix_ring_children, align 4
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   tail call void @slurm_xfree(ptr noundef nonnull @pmix_ring_msgs) #9
@@ -260,7 +260,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = icmp samesign ult i64 %indvars.iv.next, %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  br i1 %19, label %.lr.ph, label %.lr.ph101.preheader, !llvm.loop !12
+  br i1 %19, label %.lr.ph, label %.lr.ph101.preheader, !llvm.loop !13
 
 .lr.ph104.preheader:                              ; preds = %.lr.ph101
   %20 = zext nneg i32 %13 to i64
@@ -285,7 +285,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
   %spec.select = select i1 %.not92, ptr %.07399, ptr %29
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %30 = icmp samesign ult i64 %indvars.iv.next116, %16
-  br i1 %30, label %.lr.ph101, label %.lr.ph104.preheader, !llvm.loop !13
+  br i1 %30, label %.lr.ph101, label %.lr.ph104.preheader, !llvm.loop !14
 
 .preheader94:                                     ; preds = %.lr.ph104, %9
   %31 = load i32, ptr @pmix_stepd_children, align 4
@@ -304,7 +304,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
   %.not91 = icmp eq ptr %36, null
   %spec.select93 = select i1 %.not91, ptr %.074103, ptr %36
   %37 = icmp samesign ugt i64 %indvars.iv118, 1
-  br i1 %37, label %.lr.ph104, label %.preheader94, !llvm.loop !14
+  br i1 %37, label %.lr.ph104, label %.preheader94, !llvm.loop !15
 
 .preheader:                                       ; preds = %72, %.preheader94
   %38 = load i32, ptr @pmix_app_children, align 4
@@ -375,7 +375,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
   tail call void @slurm_free_buf(ptr noundef nonnull %44) #9
   %77 = load i32, ptr @pmix_stepd_children, align 4
   %78 = icmp slt i32 %63, %77
-  br i1 %78, label %.lr.ph106, label %.preheader, !llvm.loop !15
+  br i1 %78, label %.lr.ph106, label %.preheader, !llvm.loop !16
 
 .lr.ph108:                                        ; preds = %.preheader, %.lr.ph108
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.lr.ph108 ], [ 0, %.preheader ]
@@ -397,7 +397,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
   %90 = load i32, ptr @pmix_app_children, align 4
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next122, %91
-  br i1 %92, label %.lr.ph108, label %._crit_edge, !llvm.loop !16
+  br i1 %92, label %.lr.ph108, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph108, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %4) #9
@@ -436,7 +436,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
   %105 = load i32, ptr @pmix_ring_children, align 4
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next125, %106
-  br i1 %107, label %.lr.ph111, label %._crit_edge112, !llvm.loop !17
+  br i1 %107, label %.lr.ph111, label %._crit_edge112, !llvm.loop !18
 
 ._crit_edge112:                                   ; preds = %104, %._crit_edge
   store i32 0, ptr @pmix_ring_count, align 4
@@ -493,7 +493,7 @@ define internal fastcc void @pmix_stepd_send(ptr noundef %0, i32 noundef %1, i32
   %17 = shl i32 %.0810, 1
   %18 = call i32 @slurm_forward_data(ptr noundef nonnull %4, ptr noundef nonnull @tree_sock_addr, i32 noundef %1, ptr noundef %0) #9
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %15, %3
   %20 = load ptr, ptr %4, align 8
@@ -564,7 +564,7 @@ define dso_local noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr n
   %32 = add i32 %31, %.04654
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   %.046.lcssa = phi i32 [ 0, %21 ], [ %32, %.lr.ph ]
@@ -691,15 +691,16 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}

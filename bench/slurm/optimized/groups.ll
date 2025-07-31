@@ -181,7 +181,7 @@ _get_group_cache.exit.i:                          ; preds = %.loopexit.i.i
   %68 = load ptr, ptr %5, align 8
   %69 = icmp ne ptr %68, null
   %or.cond.i = select i1 %67, i1 %69, i1 false
-  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 _get_group_members.exit.thread90:                 ; preds = %.lr.ph.i
   %70 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__._get_group_members, ptr noundef nonnull %.01264) #12
@@ -243,7 +243,7 @@ _get_group_members.exit.thread90:                 ; preds = %.lr.ph.i
   %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv.next.i
   %99 = load ptr, ptr %98, align 8
   %.not71.i = icmp eq ptr %99, null
-  br i1 %.not71.i, label %._crit_edge96.i, label %.lr.ph95.i, !llvm.loop !12
+  br i1 %.not71.i, label %._crit_edge96.i, label %.lr.ph95.i, !llvm.loop !13
 
 ._crit_edge96.i:                                  ; preds = %94, %._crit_edge.i
   %.4 = phi i32 [ 0, %._crit_edge.i ], [ %.3, %94 ]
@@ -276,7 +276,7 @@ _get_group_members.exit.thread90:                 ; preds = %.lr.ph.i
   %109 = shl nuw nsw i32 %.163.ph.i, 1
   %110 = zext nneg i32 %109 to i64
   %111 = call ptr @slurm_xrecalloc(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %110, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__._get_group_members) #12
-  br label %.outer80.i, !llvm.loop !13
+  br label %.outer80.i, !llvm.loop !14
 
 .lr.ph106.i:                                      ; preds = %.outer80.i, %.loopexit.i
   %.6 = phi i32 [ %.7, %.loopexit.i ], [ %.5, %.outer80.i ]
@@ -356,7 +356,7 @@ _get_group_members.exit.thread90:                 ; preds = %.lr.ph.i
   %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv.next115.i
   %152 = load ptr, ptr %151, align 8
   %.not73.i = icmp eq ptr %152, null
-  br i1 %.not73.i, label %.loopexit.i, label %.lr.ph102.i, !llvm.loop !14
+  br i1 %.not73.i, label %.loopexit.i, label %.lr.ph102.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %147, %125, %.lr.ph106.i
   %.7 = phi i32 [ %.6, %125 ], [ %.6, %.lr.ph106.i ], [ %.11, %147 ]
@@ -368,7 +368,7 @@ _get_group_members.exit.thread90:                 ; preds = %.lr.ph.i
   %156 = load ptr, ptr %5, align 8
   %157 = icmp eq ptr %156, null
   %or.cond3.i = select i1 %155, i1 true, i1 %157
-  br i1 %or.cond3.i, label %._crit_edge107.i, label %.lr.ph106.i, !llvm.loop !13
+  br i1 %or.cond3.i, label %._crit_edge107.i, label %.lr.ph106.i, !llvm.loop !14
 
 158:                                              ; preds = %._crit_edge107.i
   call void @endgrent() #12
@@ -393,7 +393,7 @@ _get_group_members.exit.thread90:                 ; preds = %.lr.ph.i
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 20
   %167 = load i32, ptr %166, align 4
   %.not75.i = icmp eq i32 %167, %73
-  br i1 %.not75.i, label %168, label %160, !llvm.loop !15
+  br i1 %.not75.i, label %168, label %160, !llvm.loop !16
 
 168:                                              ; preds = %165
   %169 = sext i32 %.8.ph.i to i64
@@ -417,7 +417,7 @@ _get_group_members.exit.thread90:                 ; preds = %.lr.ph.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %180 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv
   store i32 %178, ptr %180, align 4
-  br label %.outer.i, !llvm.loop !15
+  br label %.outer.i, !llvm.loop !16
 
 181:                                              ; preds = %160
   %182 = trunc nsw i64 %indvars.iv to i32
@@ -553,13 +553,13 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
   store i32 %218, ptr %223, align 4
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 224:                                              ; preds = %208, %._crit_edge, %.sink.split
   %225 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %13) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
   %.not = icmp eq ptr %225, null
-  br i1 %.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !17
+  br i1 %.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !18
 
 ._crit_edge67:                                    ; preds = %224, %16
   call void @slurm_xfree(ptr noundef nonnull %12) #12
@@ -626,7 +626,7 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i21, 1
   %257 = sext i32 %255 to i64
   %258 = icmp slt i64 %indvars.iv.next.i24, %257
-  br i1 %258, label %.lr.ph.i20, label %._crit_edge.i19, !llvm.loop !18
+  br i1 %258, label %.lr.ph.i20, label %._crit_edge.i19, !llvm.loop !19
 
 _remove_duplicate_uids.exit:                      ; preds = %._crit_edge.i19, %227, %._crit_edge67, %2
   %.013 = phi ptr [ null, %2 ], [ null, %._crit_edge67 ], [ %226, %227 ], [ %231, %._crit_edge.i19 ]
@@ -826,14 +826,15 @@ attributes #14 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}

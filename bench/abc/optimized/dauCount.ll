@@ -44,14 +44,14 @@ define void @Abc_TtCountGenerate() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %7, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 2, %7 ]
   %13 = getelementptr inbounds nuw [3 x i64], ptr @Abc_TtCountGenerate.s_CMasks6, i64 0, i64 %indvars.iv
-  %14 = load i64, ptr %13, align 8, !tbaa !9
+  %14 = load i64, ptr %13, align 8, !tbaa !10
   %15 = and i64 %14, %indvars.iv23
   %16 = getelementptr inbounds nuw [256 x i32], ptr @Abc_TtCountGenerate.bit_count, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %17)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not27 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not27, label %19, label %.preheader, !llvm.loop !11
+  br i1 %.not27, label %19, label %.preheader, !llvm.loop !12
 
 19:                                               ; preds = %.preheader
   %20 = icmp eq i32 %.01520, 31
@@ -59,13 +59,13 @@ define void @Abc_TtCountGenerate() local_unnamed_addr #0 {
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %21)
   %23 = add nuw nsw i32 %.01520, 1
   %exitcond.not = icmp eq i32 %23, 32
-  br i1 %exitcond.not, label %24, label %4, !llvm.loop !12
+  br i1 %exitcond.not, label %24, label %4, !llvm.loop !13
 
 24:                                               ; preds = %19
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 256
-  br i1 %exitcond26.not, label %26, label %.preheader17, !llvm.loop !13
+  br i1 %exitcond26.not, label %26, label %.preheader17, !llvm.loop !14
 
 26:                                               ; preds = %24
   ret void
@@ -99,15 +99,15 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %11 ]
   %12 = phi i64 [ 0, %6 ], [ %19, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %14 = load i8, ptr %13, align 1, !tbaa !14
+  %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw [256 x [32 x i64]], ptr @Table, i64 0, i64 %15
   %17 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv
-  %18 = load i64, ptr %17, align 8, !tbaa !9
+  %18 = load i64, ptr %17, align 8, !tbaa !10
   %19 = add i64 %12, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %20, label %11, !llvm.loop !15
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !16
 
 20:                                               ; preds = %11
   %21 = shl nuw i32 %10, 1
@@ -152,20 +152,20 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
   %indvars.iv61 = phi i64 [ %wide.trip.count, %.lr.ph.preheader ], [ %indvars.iv.next62, %.lr.ph ]
   %33 = phi i64 [ %19, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv61
-  %35 = load i8, ptr %34, align 1, !tbaa !14
+  %35 = load i8, ptr %34, align 1, !tbaa !15
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw [256 x [32 x i64]], ptr @Table, i64 0, i64 %36
   %38 = getelementptr inbounds nuw [32 x i64], ptr %37, i64 0, i64 %indvars.iv61
-  %39 = load i64, ptr %38, align 8, !tbaa !9
+  %39 = load i64, ptr %38, align 8, !tbaa !10
   %40 = add i64 %33, %39
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond65.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !17
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
   %indvars.iv66 = phi i64 [ 0, %.lr.ph55.preheader ], [ %indvars.iv.next67, %.lr.ph55 ]
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv66
-  %42 = load i8, ptr %41, align 1, !tbaa !14
+  %42 = load i8, ptr %41, align 1, !tbaa !15
   %43 = zext i8 %42 to i32
   %44 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv66
   %45 = load i32, ptr %44, align 4, !tbaa !3
@@ -173,7 +173,7 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
   store i32 %46, ptr %44, align 4, !tbaa !3
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph55, !llvm.loop !17
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph55, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph55
   br i1 %22, label %common.ret, label %._crit_edge.thread
@@ -181,7 +181,7 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %47 = sext i32 %31 to i64
   %48 = getelementptr inbounds i8, ptr %4, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !14
+  %49 = load i8, ptr %48, align 1, !tbaa !15
   %50 = zext i8 %49 to i32
   %51 = getelementptr inbounds i32, ptr %2, i64 %47
   %52 = load i32, ptr %51, align 4, !tbaa !3
@@ -218,7 +218,7 @@ define i32 @Abc_TtCountOnesInCofsQuick(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %0, align 8, !tbaa !9
+  %6 = load i64, ptr %0, align 8, !tbaa !10
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 1
   br label %13
@@ -244,7 +244,7 @@ define void @Abc_TtCountOnesInCofsTest2() local_unnamed_addr #5 {
   %0 = alloca i64, align 8
   %1 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %0) #8
-  store i64 1229782938247303441, ptr %0, align 8, !tbaa !9
+  store i64 1229782938247303441, ptr %0, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   %2 = call i32 @Abc_TtCountOnesInCofsSimple(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %1) #8
@@ -288,17 +288,17 @@ define void @Abc_TtCountOnesInCofsTest() local_unnamed_addr #5 {
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw nsw i64 %indvars.iv, 3
   %14 = shl nuw i64 %12, %13
-  %15 = load i64, ptr %8, align 8, !tbaa !9
+  %15 = load i64, ptr %8, align 8, !tbaa !10
   %16 = xor i64 %14, %15
-  store i64 %16, ptr %8, align 8, !tbaa !9
+  store i64 %16, ptr %8, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %17, label %9, !llvm.loop !18
+  br i1 %exitcond.not, label %17, label %9, !llvm.loop !19
 
 17:                                               ; preds = %9
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 4
-  br i1 %exitcond22.not, label %18, label %.preheader, !llvm.loop !19
+  br i1 %exitcond22.not, label %18, label %.preheader, !llvm.loop !20
 
 18:                                               ; preds = %17
   %19 = call i32 @Abc_TtCountOnesInCofsSimple(ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull %3) #8
@@ -310,15 +310,15 @@ define void @Abc_TtCountOnesInCofsTest() local_unnamed_addr #5 {
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %20 ]
   %21 = phi i64 [ 0, %18 ], [ %28, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
-  %23 = load i8, ptr %22, align 1, !tbaa !14
+  %23 = load i8, ptr %22, align 1, !tbaa !15
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw [256 x [32 x i64]], ptr @Table, i64 0, i64 %24
   %26 = getelementptr inbounds nuw [32 x i64], ptr %25, i64 0, i64 %indvars.iv.i
-  %27 = load i64, ptr %26, align 8, !tbaa !9
+  %27 = load i64, ptr %26, align 8, !tbaa !10
   %28 = add i64 %27, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %29, label %20, !llvm.loop !15
+  br i1 %exitcond.not.i, label %29, label %20, !llvm.loop !16
 
 29:                                               ; preds = %20
   %30 = lshr i64 %28, 56
@@ -334,20 +334,20 @@ define void @Abc_TtCountOnesInCofsTest() local_unnamed_addr #5 {
   %indvars.iv61.i = phi i64 [ 16, %29 ], [ %indvars.iv.next62.i, %.lr.ph.i ]
   %32 = phi i64 [ %28, %29 ], [ %39, %.lr.ph.i ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv61.i
-  %34 = load i8, ptr %33, align 1, !tbaa !14
+  %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw [256 x [32 x i64]], ptr @Table, i64 0, i64 %35
   %37 = getelementptr inbounds nuw [32 x i64], ptr %36, i64 0, i64 %indvars.iv61.i
-  %38 = load i64, ptr %37, align 8, !tbaa !9
+  %38 = load i64, ptr %37, align 8, !tbaa !10
   %39 = add i64 %38, %32
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, 32
-  br i1 %exitcond65.not.i, label %.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond65.not.i, label %.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !17
 
 .lr.ph55.i:                                       ; preds = %.lr.ph55.i, %.preheader.loopexit.i
   %indvars.iv66.i = phi i64 [ 0, %.preheader.loopexit.i ], [ %indvars.iv.next67.i, %.lr.ph55.i ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv66.i
-  %41 = load i8, ptr %40, align 1, !tbaa !14
+  %41 = load i8, ptr %40, align 1, !tbaa !15
   %42 = zext i8 %41 to i32
   %43 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv66.i
   %44 = load i32, ptr %43, align 4, !tbaa !3
@@ -355,13 +355,13 @@ define void @Abc_TtCountOnesInCofsTest() local_unnamed_addr #5 {
   store i32 %45, ptr %43, align 4, !tbaa !3
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, 7
-  br i1 %exitcond70.not.i, label %Abc_TtCountOnesInCofsQuick_rec.exit, label %.lr.ph55.i, !llvm.loop !17
+  br i1 %exitcond70.not.i, label %Abc_TtCountOnesInCofsQuick_rec.exit, label %.lr.ph55.i, !llvm.loop !18
 
 Abc_TtCountOnesInCofsQuick_rec.exit:              ; preds = %.lr.ph55.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
   %46 = add nuw nsw i32 %.016, 1
   %exitcond23.not = icmp eq i32 %46, 1000000
-  br i1 %exitcond23.not, label %47, label %.preheader12, !llvm.loop !20
+  br i1 %exitcond23.not, label %47, label %.preheader12, !llvm.loop !21
 
 47:                                               ; preds = %Abc_TtCountOnesInCofsQuick_rec.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
@@ -398,17 +398,18 @@ attributes #8 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"long", !5, i64 0}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = !{!5, !5, i64 0}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !5, i64 0}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = !{!5, !5, i64 0}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}

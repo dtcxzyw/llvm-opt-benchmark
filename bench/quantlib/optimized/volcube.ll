@@ -445,7 +445,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
 for.cond:                                         ; preds = %invoke.cont54
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0166, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %35
-  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
+  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body, !llvm.loop !30
 
 for.cond.cleanup:                                 ; preds = %for.cond, %invoke.cont36
   %36 = load ptr, ptr %curves_, align 8, !tbaa !29
@@ -485,7 +485,7 @@ invoke.cont48:                                    ; preds = %.noexc48, %invoke.c
           to label %invoke.cont54 unwind label %lpad45
 
 invoke.cont54:                                    ; preds = %invoke.cont48
-  %42 = load i64, ptr %call53, align 8, !tbaa !30
+  %42 = load i64, ptr %call53, align 8, !tbaa !32
   %cmp.i50 = icmp eq i64 %42, %33
   br i1 %cmp.i50, label %for.cond, label %if.then56
 
@@ -665,7 +665,7 @@ ehcleanup93:                                      ; preds = %ehcleanup92, %lpad5
 for.cond110:                                      ; preds = %invoke.cont125
   %incdec.ptr.i105 = getelementptr inbounds nuw i8, ptr %__begin1104.sroa.0.0168, i64 16
   %cmp.i75.not = icmp eq ptr %incdec.ptr.i105, %37
-  br i1 %cmp.i75.not, label %for.cond.cleanup112, label %for.body113
+  br i1 %cmp.i75.not, label %for.cond.cleanup112, label %for.body113, !llvm.loop !34
 
 for.cond.cleanup112:                              ; preds = %for.cond110, %for.cond.cleanup
   ret void
@@ -676,7 +676,7 @@ for.body113:                                      ; preds = %for.cond.cleanup, %
           to label %invoke.cont117 unwind label %lpad116
 
 invoke.cont117:                                   ; preds = %for.body113
-  %66 = load ptr, ptr %call118, align 8, !tbaa !32
+  %66 = load ptr, ptr %call118, align 8, !tbaa !35
   %cmp.not.i76 = icmp eq ptr %66, null
   br i1 %cmp.not.i76, label %cond.false.i77, label %invoke.cont119, !prof !28
 
@@ -685,7 +685,7 @@ cond.false.i77:                                   ; preds = %invoke.cont117
           to label %.noexc79 unwind label %lpad116
 
 .noexc79:                                         ; preds = %cond.false.i77
-  %.pre.i78 = load ptr, ptr %call118, align 8, !tbaa !32
+  %.pre.i78 = load ptr, ptr %call118, align 8, !tbaa !35
   br label %invoke.cont119
 
 invoke.cont119:                                   ; preds = %.noexc79, %invoke.cont117
@@ -697,7 +697,7 @@ invoke.cont119:                                   ; preds = %.noexc79, %invoke.c
           to label %invoke.cont125 unwind label %lpad116
 
 invoke.cont125:                                   ; preds = %invoke.cont119
-  %69 = load i64, ptr %call124, align 8, !tbaa !30
+  %69 = load i64, ptr %call124, align 8, !tbaa !32
   %cmp.i80 = icmp eq i64 %69, %33
   br i1 %cmp.i80, label %for.cond110, label %if.then127
 
@@ -893,13 +893,13 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.31", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !34
+  %0 = load ptr, ptr %this, align 8, !tbaa !37
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib6HandleINS_22InterestRateVolSurfaceEE5emptyEv.exit, !prof !28
 
 cond.false.i.i:                                   ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_22InterestRateVolSurfaceEE4LinkEEptEv, ptr noundef nonnull @.str.9, i64 noundef 784)
-  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !34
+  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !37
   br label %_ZNK8QuantLib6HandleINS_22InterestRateVolSurfaceEE5emptyEv.exit
 
 _ZNK8QuantLib6HandleINS_22InterestRateVolSurfaceEE5emptyEv.exit: ; preds = %entry, %cond.false.i.i
@@ -1085,19 +1085,19 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.31", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !36
+  %0 = load ptr, ptr %this, align 8, !tbaa !39
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib6HandleINS_15AbcdAtmVolCurveEE5emptyEv.exit, !prof !28
 
 cond.false.i.i:                                   ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_15AbcdAtmVolCurveEE4LinkEEptEv, ptr noundef nonnull @.str.9, i64 noundef 784)
-  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !39
   br label %_ZNK8QuantLib6HandleINS_15AbcdAtmVolCurveEE5emptyEv.exit
 
 _ZNK8QuantLib6HandleINS_15AbcdAtmVolCurveEE5emptyEv.exit: ; preds = %entry, %cond.false.i.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
   %h_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %2 = load ptr, ptr %h_.i.i, align 8, !tbaa !32
+  %2 = load ptr, ptr %h_.i.i, align 8, !tbaa !35
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %if.then, label %_ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_15AbcdAtmVolCurveEE4LinkEEptEv.exit
 
@@ -1317,7 +1317,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyIN8QuantLib6HandleINS0_15AbcdAtmVolCurveEEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !38
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !41
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN8QuantLib6HandleINS0_15AbcdAtmVolCurveEEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8, !tbaa !22
@@ -1393,7 +1393,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyIN8QuantLib6HandleINS0_22InterestRateVolSurfaceEEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !40
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !43
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN8QuantLib6HandleINS0_22InterestRateVolSurfaceEEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8, !tbaa !18
@@ -1494,14 +1494,17 @@ attributes #19 = { builtin nounwind }
 !27 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib22InterestRateVolSurfaceEEE", !5, i64 0, !17, i64 8}
 !28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !29 = !{!5, !5, i64 0}
-!30 = !{!31, !9, i64 0}
-!31 = !{!"_ZTSN8QuantLib4DateE", !9, i64 0}
-!32 = !{!33, !5, i64 0}
-!33 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib15AbcdAtmVolCurveEEE", !5, i64 0, !17, i64 8}
-!34 = !{!35, !5, i64 0}
-!35 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_22InterestRateVolSurfaceEE4LinkEEE", !5, i64 0, !17, i64 8}
-!36 = !{!37, !5, i64 0}
-!37 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_15AbcdAtmVolCurveEE4LinkEEE", !5, i64 0, !17, i64 8}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!33, !9, i64 0}
+!33 = !{!"_ZTSN8QuantLib4DateE", !9, i64 0}
+!34 = distinct !{!34, !31}
+!35 = !{!36, !5, i64 0}
+!36 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib15AbcdAtmVolCurveEEE", !5, i64 0, !17, i64 8}
+!37 = !{!38, !5, i64 0}
+!38 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_22InterestRateVolSurfaceEE4LinkEEE", !5, i64 0, !17, i64 8}
+!39 = !{!40, !5, i64 0}
+!40 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_15AbcdAtmVolCurveEE4LinkEEE", !5, i64 0, !17, i64 8}
+!41 = distinct !{!41, !42, !31}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = distinct !{!43, !42, !31}

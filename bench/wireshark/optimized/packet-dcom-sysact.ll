@@ -549,7 +549,7 @@ define internal i32 @dissect_dcom_SpecialSystemProperties(ptr noundef %0, i32 no
   %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.09194, ptr noundef %2, ptr noundef %31, ptr noundef %4, ptr noundef %5, i32 noundef %33, ptr noundef null)
   %35 = add nuw nsw i32 %.095, 1
   %exitcond.not = icmp eq i32 %35, 8
-  br i1 %exitcond.not, label %36, label %32, !llvm.loop !8
+  br i1 %exitcond.not, label %36, label %32, !llvm.loop !9
 
 36:                                               ; preds = %32
   %37 = sub i32 %34, %1
@@ -1082,7 +1082,7 @@ define internal i32 @dissect_dcom_InterfaceId(ptr noundef %0, i32 noundef %1, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ActCtxInfo_CltCtx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %8 = load i8, ptr %7, align 1, !range !9, !noundef !10
+  %8 = load i8, ptr %7, align 1, !range !10, !noundef !11
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %13, label %10
 
@@ -1107,7 +1107,7 @@ declare i32 @dissect_dcom_MInterfacePointer(ptr noundef, i32 noundef, ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dcom_SI_ServerInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %8 = load i8, ptr %7, align 1, !range !9, !noundef !10
+  %8 = load i8, ptr %7, align 1, !range !10, !noundef !11
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %dissect_dcom_COSERVERINFO.exit, label %10
 
@@ -1141,7 +1141,7 @@ define internal i32 @dissect_dcom_customREMOTE_REQUEST_SCM_INFO(ptr noundef %0, 
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %9 = load i8, ptr %8, align 1, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %22, label %11
 
@@ -1229,7 +1229,7 @@ define internal i32 @dissect_dcom_customREMOTE_REPLY_SCM_INFO(ptr noundef %0, i3
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %9 = load i8, ptr %8, align 1, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %25, label %11
 
@@ -1264,7 +1264,7 @@ define internal i32 @dissect_dcom_OxidBindings(ptr noundef %0, i32 noundef %1, p
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %9 = load i8, ptr %8, align 1, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %19, label %11
 
@@ -1299,7 +1299,7 @@ define internal noundef i32 @dissect_InstInfo_IfdROT(ptr readnone captures(none)
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_InstInfo_IfdStg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %8 = load i8, ptr %7, align 1, !range !9, !noundef !10
+  %8 = load i8, ptr %7, align 1, !range !10, !noundef !11
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %13, label %10
 
@@ -1345,8 +1345,9 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}

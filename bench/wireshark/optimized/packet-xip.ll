@@ -378,7 +378,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   %26 = add i32 %.155, 8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
-  br i1 %exitcond77.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond77.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %37
   %27 = icmp sgt i32 %.134.i.i, 0
@@ -415,7 +415,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   %.134.i.i = phi i32 [ %spec.select44.i.i, %35 ], [ %.03378.i.i, %34 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %.preheader, !llvm.loop !10
 
 38:                                               ; preds = %select.unfold.i.i, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i.i ], [ 0, %.lr.ph.i.i ]
@@ -429,7 +429,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %44 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val.i.i.i) #5, !srcloc !10
+  %44 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val.i.i.i) #5, !srcloc !11
   %45 = and i32 %43, 255
   %.not58.i.i.i = icmp ugt i32 %30, %45
   br i1 %.not58.i.i.i, label %.split.i.i.i, label %.split.us.i.i.i
@@ -455,7 +455,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   %54 = add nuw nsw i32 %.03451.us.i.i.i, 1
   %55 = getelementptr i8, ptr %.02953.us.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq i32 %54, 4
-  br i1 %exitcond.not.i.i.i, label %select.unfold.i.i, label %.split.us.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %select.unfold.i.i, label %.split.us.i.i.i, !llvm.loop !12
 
 .split.i.i.i:                                     ; preds = %42, %62
   %.349.i.i = phi i32 [ %65, %62 ], [ %.080.i.i, %42 ]
@@ -488,13 +488,13 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   %66 = add nuw nsw i32 %.03451.i.i.i, 1
   %67 = getelementptr i8, ptr %.02953.i.i.i, i64 1
   %exitcond64.not.i.i.i = icmp eq i32 %66, 4
-  br i1 %exitcond64.not.i.i.i, label %select.unfold.i.i, label %.split.i.i.i, !llvm.loop !13
+  br i1 %exitcond64.not.i.i.i, label %select.unfold.i.i, label %.split.i.i.i, !llvm.loop !14
 
 select.unfold.i.i:                                ; preds = %50, %62, %.split55.us.i.i.i
   %.4.i.i = phi i32 [ %.248.i.i, %.split55.us.i.i.i ], [ %65, %62 ], [ %53, %50 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond99.not.i.i = icmp eq i64 %indvars.iv.next.i, %31
-  br i1 %exitcond99.not.i.i, label %._crit_edge.i.i, label %38, !llvm.loop !14
+  br i1 %exitcond99.not.i.i, label %._crit_edge.i.i, label %38, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %select.unfold.i.i
   %68 = add nsw i32 %.134.i.i, -1
@@ -600,12 +600,12 @@ edge_to_char.exit.us.i.us.i:                      ; preds = %108, %107
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext %.0.i.us.i.us.i)
   %indvars.iv.next18.i.us.i = add nuw nsw i64 %indvars.iv17.i.us.i, 1
   %exitcond20.not.i.us.i = icmp eq i64 %indvars.iv.next18.i.us.i, 4
-  br i1 %exitcond20.not.i.us.i, label %.loopexit.us.i, label %.split.us.i.us.i, !llvm.loop !15
+  br i1 %exitcond20.not.i.us.i, label %.loopexit.us.i, label %.split.us.i.us.i, !llvm.loop !16
 
 .loopexit.us.i:                                   ; preds = %edge_to_char.exit.us.i.us.i
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 9
-  br i1 %exitcond67.not.i, label %xia_ntop.exit, label %75, !llvm.loop !16
+  br i1 %exitcond67.not.i, label %xia_ntop.exit, label %75, !llvm.loop !17
 
 xia_test_addr.exit.split.i:                       ; preds = %73, %.loopexit29.i
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.loopexit29.i ], [ 0, %73 ]
@@ -697,12 +697,12 @@ edge_to_char.exit.i.i:                            ; preds = %149, %145
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext %.0.i.i.i)
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i24.i = icmp eq i64 %indvars.iv.next.i23.i, 4
-  br i1 %exitcond.not.i24.i, label %.loopexit29.i, label %.split.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i24.i, label %.loopexit29.i, label %.split.i.i, !llvm.loop !18
 
 .loopexit29.i:                                    ; preds = %edge_to_char.exit.i.i, %.split.i.i
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next62.i, 9
-  br i1 %exitcond.not.i, label %xia_ntop.exit, label %xia_test_addr.exit.split.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %xia_ntop.exit, label %xia_test_addr.exit.split.i, !llvm.loop !19
 
 xia_ntop.exit:                                    ; preds = %xia_test_addr.exit.split.i, %.loopexit29.i, %75, %.loopexit.us.i
   %150 = call ptr @wmem_strbuf_get_str(ptr noundef %15)
@@ -768,16 +768,17 @@ attributes #5 = { nounwind memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i64 2150762673}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7, !12}
-!16 = distinct !{!16, !7, !12}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i64 2150762673}
+!12 = distinct !{!12, !7, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8, !13}
+!17 = distinct !{!17, !7, !8, !13}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

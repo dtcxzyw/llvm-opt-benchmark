@@ -2089,18 +2089,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit48: ; preds = %87, %85
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %90, %98
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #14
-  call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %101 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %101, ptr %12, align 8, !tbaa !22, !alias.scope !75
+  store ptr %101, ptr %12, align 8, !tbaa !22, !alias.scope !76
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 0, ptr %102, align 8, !tbaa !14, !alias.scope !75
-  store i8 0, ptr %101, align 8, !tbaa !24, !alias.scope !75
+  store i64 0, ptr %102, align 8, !tbaa !14, !alias.scope !76
+  store i8 0, ptr %101, align 8, !tbaa !24, !alias.scope !76
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %104 = load ptr, ptr %103, align 8, !tbaa !63, !noalias !75
+  %104 = load ptr, ptr %103, align 8, !tbaa !63, !noalias !76
   %.not.i.not.i.i = icmp eq ptr %104, null
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %106 = load ptr, ptr %105, align 8, !noalias !75
+  %106 = load ptr, ptr %105, align 8, !noalias !76
   %107 = icmp ugt ptr %104, %106
   %.08.i.i.i = select i1 %107, ptr %104, ptr %106
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -2109,7 +2109,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %90, %
 
 108:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %110 = load ptr, ptr %109, align 8, !tbaa !65, !noalias !75
+  %110 = load ptr, ptr %109, align 8, !tbaa !65, !noalias !76
   %111 = ptrtoint ptr %.08.i.i.i to i64
   %112 = ptrtoint ptr %110 to i64
   %113 = sub i64 %111, %112
@@ -2119,12 +2119,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %90, %
 115:                                              ; preds = %121, %108
   %116 = landingpad { ptr, i32 }
           cleanup
-  %117 = load ptr, ptr %12, align 8, !tbaa !9, !alias.scope !75
+  %117 = load ptr, ptr %12, align 8, !tbaa !9, !alias.scope !76
   %118 = icmp eq ptr %117, %101
   br i1 %118, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %115
-  %119 = load i64, ptr %102, align 8, !tbaa !14, !alias.scope !75
+  %119 = load i64, ptr %102, align 8, !tbaa !14, !alias.scope !76
   %120 = icmp ult i64 %119, 16
   call void @llvm.assume(i1 %120)
   br label %.body
@@ -2507,12 +2507,13 @@ attributes #17 = { noreturn }
 !64 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !41, i64 56}
 !65 = !{!64, !12, i64 32}
 !66 = !{!34, !13, i64 16}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!71 = distinct !{!71, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!74 = distinct !{!74, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!75 = !{!73, !70}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!72 = distinct !{!72, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!75 = distinct !{!75, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!76 = !{!74, !71}

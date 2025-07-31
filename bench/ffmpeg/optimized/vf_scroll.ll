@@ -350,7 +350,7 @@ define internal noundef i32 @scroll_slice(ptr noundef readonly captures(none) %0
   %76 = getelementptr inbounds i8, ptr %.05963, i64 %75
   %77 = add nsw i32 %.05864, 1
   %exitcond.not = icmp eq i32 %77, %34
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %50, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %50, !llvm.loop !70
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -449,6 +449,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !64 = !{!37, !38, i64 24}
 !65 = !{!37, !38, i64 28}
 !66 = !{!25, !25, i64 0}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = distinct !{!69, !68}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = distinct !{!70, !68, !69}

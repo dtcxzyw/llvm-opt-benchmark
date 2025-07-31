@@ -530,7 +530,7 @@ invoke.cont.i.thread:                             ; preds = %_ZNK8QuantLib23Rand
 
 cond.true.i.i.i.i:                                ; preds = %_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, !prof !54
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, !prof !55
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -548,7 +548,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %34 = load ptr, ptr %payoff_, align 8, !tbaa !18
   %cmp.not.i = icmp eq ptr %34, null
-  br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont38, !prof !54
+  br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont38, !prof !55
 
 cond.false.i:                                     ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -561,10 +561,10 @@ invoke.cont31:                                    ; preds = %cond.false.i
 invoke.cont38:                                    ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit, %invoke.cont31
   %.pre.i79.sink = phi ptr [ %.pre.i79, %invoke.cont31 ], [ %34, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit ]
   %strike_.i = getelementptr inbounds nuw i8, ptr %.pre.i79.sink, i64 16
-  %35 = load double, ptr %strike_.i, align 8, !tbaa !55
+  %35 = load double, ptr %strike_.i, align 8, !tbaa !56
   %call35 = tail call double @log(double noundef %35) #20, !tbaa !42
   %type_.i = getelementptr inbounds nuw i8, ptr %.pre.i79.sink, i64 8
-  %36 = load i32, ptr %type_.i, align 8, !tbaa !60
+  %36 = load i32, ptr %type_.i, align 8, !tbaa !61
   switch i32 %36, label %do.body194 [
     i32 1, label %for.cond.preheader
     i32 -1, label %for.cond110.preheader
@@ -623,7 +623,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %call47 = tail call double @log(double noundef %div) #20, !tbaa !42
   %41 = load ptr, ptr %diffProcess_, align 8, !tbaa !22
   %cmp.not.i88 = icmp eq ptr %41, null
-  br i1 %cmp.not.i88, label %cond.false.i89, label %invoke.cont48, !prof !54
+  br i1 %cmp.not.i88, label %cond.false.i89, label %invoke.cont48, !prof !55
 
 cond.false.i89:                                   ; preds = %for.body
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -669,7 +669,7 @@ if.then68:                                        ; preds = %invoke.cont54
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %52 = load ptr, ptr %exercise_, align 8, !tbaa !20
   %cmp.not.i94 = icmp eq ptr %52, null
-  br i1 %cmp.not.i94, label %cond.false.i95, label %invoke.cont69, !prof !54
+  br i1 %cmp.not.i94, label %cond.false.i95, label %invoke.cont69, !prof !55
 
 cond.false.i95:                                   ; preds = %if.then68
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib16AmericanExerciseEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -682,14 +682,14 @@ cond.false.i95:                                   ; preds = %if.then68
 invoke.cont69:                                    ; preds = %.noexc97, %if.then68
   %53 = phi ptr [ %52, %if.then68 ], [ %.pre.i96, %.noexc97 ]
   %payoffAtExpiry_.i = getelementptr inbounds nuw i8, ptr %53, i64 36
-  %54 = load i8, ptr %payoffAtExpiry_.i, align 4, !tbaa !61, !range !70, !noundef !71
+  %54 = load i8, ptr %payoffAtExpiry_.i, align 4, !tbaa !62, !range !71, !noundef !72
   %loadedv.i = trunc nuw i8 %54 to i1
   %55 = load ptr, ptr %payoff_, align 8, !tbaa !18
   %cmp.not.i98 = icmp eq ptr %55, null
   br i1 %loadedv.i, label %if.then73, label %if.else
 
 if.then73:                                        ; preds = %invoke.cont69
-  br i1 %cmp.not.i98, label %cond.false.i99, label %invoke.cont75, !prof !54
+  br i1 %cmp.not.i98, label %cond.false.i99, label %invoke.cont75, !prof !55
 
 cond.false.i99:                                   ; preds = %if.then73
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -702,22 +702,22 @@ cond.false.i99:                                   ; preds = %if.then73
 invoke.cont75:                                    ; preds = %.noexc101, %if.then73
   %56 = phi ptr [ %55, %if.then73 ], [ %.pre.i100, %.noexc101 ]
   %cashPayoff_.i = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %57 = load double, ptr %cashPayoff_.i, align 8, !tbaa !72
+  %57 = load double, ptr %cashPayoff_.i, align 8, !tbaa !73
   %discountTS_ = getelementptr inbounds nuw i8, ptr %this, i64 5120
   %call80 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_18YieldTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %discountTS_)
           to label %invoke.cont79 unwind label %ehcleanup236.thread
 
 invoke.cont79:                                    ; preds = %invoke.cont75
-  %58 = load ptr, ptr %call80, align 8, !tbaa !74
+  %58 = load ptr, ptr %call80, align 8, !tbaa !75
   %cmp.not.i103 = icmp eq ptr %58, null
-  br i1 %cmp.not.i103, label %cond.false.i104, label %invoke.cont81, !prof !54
+  br i1 %cmp.not.i103, label %cond.false.i104, label %invoke.cont81, !prof !55
 
 cond.false.i104:                                  ; preds = %invoke.cont79
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
           to label %.noexc106 unwind label %ehcleanup236.thread
 
 .noexc106:                                        ; preds = %cond.false.i104
-  %.pre.i105 = load ptr, ptr %call80, align 8, !tbaa !74
+  %.pre.i105 = load ptr, ptr %call80, align 8, !tbaa !75
   br label %invoke.cont81
 
 invoke.cont81:                                    ; preds = %.noexc106, %invoke.cont79
@@ -733,7 +733,7 @@ invoke.cont87:                                    ; preds = %invoke.cont81
   br label %if.then.i.i.i
 
 if.else:                                          ; preds = %invoke.cont69
-  br i1 %cmp.not.i98, label %cond.false.i110, label %invoke.cont90, !prof !54
+  br i1 %cmp.not.i98, label %cond.false.i110, label %invoke.cont90, !prof !55
 
 cond.false.i110:                                  ; preds = %if.else
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -746,22 +746,22 @@ cond.false.i110:                                  ; preds = %if.else
 invoke.cont90:                                    ; preds = %.noexc112, %if.else
   %62 = phi ptr [ %55, %if.else ], [ %.pre.i111, %.noexc112 ]
   %cashPayoff_.i114 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %63 = load double, ptr %cashPayoff_.i114, align 8, !tbaa !72
+  %63 = load double, ptr %cashPayoff_.i114, align 8, !tbaa !73
   %discountTS_94 = getelementptr inbounds nuw i8, ptr %this, i64 5120
   %call96 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_18YieldTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %discountTS_94)
           to label %invoke.cont95 unwind label %ehcleanup236.thread
 
 invoke.cont95:                                    ; preds = %invoke.cont90
-  %64 = load ptr, ptr %call96, align 8, !tbaa !74
+  %64 = load ptr, ptr %call96, align 8, !tbaa !75
   %cmp.not.i115 = icmp eq ptr %64, null
-  br i1 %cmp.not.i115, label %cond.false.i116, label %invoke.cont97, !prof !54
+  br i1 %cmp.not.i115, label %cond.false.i116, label %invoke.cont97, !prof !55
 
 cond.false.i116:                                  ; preds = %invoke.cont95
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
           to label %.noexc118 unwind label %ehcleanup236.thread
 
 .noexc118:                                        ; preds = %cond.false.i116
-  %.pre.i117 = load ptr, ptr %call96, align 8, !tbaa !74
+  %.pre.i117 = load ptr, ptr %call96, align 8, !tbaa !75
   br label %invoke.cont97
 
 invoke.cont97:                                    ; preds = %.noexc118, %invoke.cont95
@@ -779,7 +779,7 @@ invoke.cont104:                                   ; preds = %invoke.cont97
 if.end107:                                        ; preds = %invoke.cont54
   %add108 = fadd double %log_asset_price.0267, %call47
   %exitcond274.not = icmp eq i64 %add, %sub
-  br i1 %exitcond274.not, label %if.then.i.i.i, label %for.body, !llvm.loop !76
+  br i1 %exitcond274.not, label %if.then.i.i.i, label %for.body, !llvm.loop !77
 
 for.body113:                                      ; preds = %for.body113.lr.ph, %if.end189
   %i.1265 = phi i64 [ 0, %for.body113.lr.ph ], [ %add114, %if.end189 ]
@@ -794,7 +794,7 @@ for.body113:                                      ; preds = %for.body113.lr.ph, 
   %call120 = tail call double @log(double noundef %div119) #20, !tbaa !42
   %71 = load ptr, ptr %diffProcess_121, align 8, !tbaa !22
   %cmp.not.i125 = icmp eq ptr %71, null
-  br i1 %cmp.not.i125, label %cond.false.i126, label %invoke.cont122, !prof !54
+  br i1 %cmp.not.i125, label %cond.false.i126, label %invoke.cont122, !prof !55
 
 cond.false.i126:                                  ; preds = %for.body113
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -839,7 +839,7 @@ if.then146:                                       ; preds = %invoke.cont130
   %exercise_147 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %82 = load ptr, ptr %exercise_147, align 8, !tbaa !20
   %cmp.not.i134 = icmp eq ptr %82, null
-  br i1 %cmp.not.i134, label %cond.false.i135, label %invoke.cont148, !prof !54
+  br i1 %cmp.not.i134, label %cond.false.i135, label %invoke.cont148, !prof !55
 
 cond.false.i135:                                  ; preds = %if.then146
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib16AmericanExerciseEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -852,14 +852,14 @@ cond.false.i135:                                  ; preds = %if.then146
 invoke.cont148:                                   ; preds = %.noexc137, %if.then146
   %83 = phi ptr [ %82, %if.then146 ], [ %.pre.i136, %.noexc137 ]
   %payoffAtExpiry_.i139 = getelementptr inbounds nuw i8, ptr %83, i64 36
-  %84 = load i8, ptr %payoffAtExpiry_.i139, align 4, !tbaa !61, !range !70, !noundef !71
+  %84 = load i8, ptr %payoffAtExpiry_.i139, align 4, !tbaa !62, !range !71, !noundef !72
   %loadedv.i140 = trunc nuw i8 %84 to i1
   %85 = load ptr, ptr %payoff_, align 8, !tbaa !18
   %cmp.not.i141 = icmp eq ptr %85, null
   br i1 %loadedv.i140, label %if.then152, label %if.else170
 
 if.then152:                                       ; preds = %invoke.cont148
-  br i1 %cmp.not.i141, label %cond.false.i142, label %invoke.cont154, !prof !54
+  br i1 %cmp.not.i141, label %cond.false.i142, label %invoke.cont154, !prof !55
 
 cond.false.i142:                                  ; preds = %if.then152
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -872,22 +872,22 @@ cond.false.i142:                                  ; preds = %if.then152
 invoke.cont154:                                   ; preds = %.noexc144, %if.then152
   %86 = phi ptr [ %85, %if.then152 ], [ %.pre.i143, %.noexc144 ]
   %cashPayoff_.i146 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %87 = load double, ptr %cashPayoff_.i146, align 8, !tbaa !72
+  %87 = load double, ptr %cashPayoff_.i146, align 8, !tbaa !73
   %discountTS_158 = getelementptr inbounds nuw i8, ptr %this, i64 5120
   %call160 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_18YieldTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %discountTS_158)
           to label %invoke.cont159 unwind label %ehcleanup236.thread
 
 invoke.cont159:                                   ; preds = %invoke.cont154
-  %88 = load ptr, ptr %call160, align 8, !tbaa !74
+  %88 = load ptr, ptr %call160, align 8, !tbaa !75
   %cmp.not.i147 = icmp eq ptr %88, null
-  br i1 %cmp.not.i147, label %cond.false.i148, label %invoke.cont161, !prof !54
+  br i1 %cmp.not.i147, label %cond.false.i148, label %invoke.cont161, !prof !55
 
 cond.false.i148:                                  ; preds = %invoke.cont159
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
           to label %.noexc150 unwind label %ehcleanup236.thread
 
 .noexc150:                                        ; preds = %cond.false.i148
-  %.pre.i149 = load ptr, ptr %call160, align 8, !tbaa !74
+  %.pre.i149 = load ptr, ptr %call160, align 8, !tbaa !75
   br label %invoke.cont161
 
 invoke.cont161:                                   ; preds = %.noexc150, %invoke.cont159
@@ -903,7 +903,7 @@ invoke.cont167:                                   ; preds = %invoke.cont161
   br label %if.then.i.i.i
 
 if.else170:                                       ; preds = %invoke.cont148
-  br i1 %cmp.not.i141, label %cond.false.i155, label %invoke.cont172, !prof !54
+  br i1 %cmp.not.i141, label %cond.false.i155, label %invoke.cont172, !prof !55
 
 cond.false.i155:                                  ; preds = %if.else170
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -916,22 +916,22 @@ cond.false.i155:                                  ; preds = %if.else170
 invoke.cont172:                                   ; preds = %.noexc157, %if.else170
   %92 = phi ptr [ %85, %if.else170 ], [ %.pre.i156, %.noexc157 ]
   %cashPayoff_.i159 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %93 = load double, ptr %cashPayoff_.i159, align 8, !tbaa !72
+  %93 = load double, ptr %cashPayoff_.i159, align 8, !tbaa !73
   %discountTS_176 = getelementptr inbounds nuw i8, ptr %this, i64 5120
   %call178 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_18YieldTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %discountTS_176)
           to label %invoke.cont177 unwind label %ehcleanup236.thread
 
 invoke.cont177:                                   ; preds = %invoke.cont172
-  %94 = load ptr, ptr %call178, align 8, !tbaa !74
+  %94 = load ptr, ptr %call178, align 8, !tbaa !75
   %cmp.not.i160 = icmp eq ptr %94, null
-  br i1 %cmp.not.i160, label %cond.false.i161, label %invoke.cont179, !prof !54
+  br i1 %cmp.not.i160, label %cond.false.i161, label %invoke.cont179, !prof !55
 
 cond.false.i161:                                  ; preds = %invoke.cont177
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
           to label %.noexc163 unwind label %ehcleanup236.thread
 
 .noexc163:                                        ; preds = %cond.false.i161
-  %.pre.i162 = load ptr, ptr %call178, align 8, !tbaa !74
+  %.pre.i162 = load ptr, ptr %call178, align 8, !tbaa !75
   br label %invoke.cont179
 
 invoke.cont179:                                   ; preds = %.noexc163, %invoke.cont177
@@ -949,7 +949,7 @@ invoke.cont186:                                   ; preds = %invoke.cont179
 if.end189:                                        ; preds = %invoke.cont130
   %add190 = fadd double %log_asset_price.1264, %call120
   %exitcond.not = icmp eq i64 %add114, %sub111
-  br i1 %exitcond.not, label %if.then.i.i.i, label %for.body113, !llvm.loop !77
+  br i1 %exitcond.not, label %if.then.i.i.i, label %for.body113, !llvm.loop !78
 
 do.body194:                                       ; preds = %invoke.cont38
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream195) #20
@@ -1179,7 +1179,7 @@ entry:
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8, !tbaa !38
   %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib6HandleINS_18YieldTermStructureEE5emptyEv.exit, !prof !54
+  br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib6HandleINS_18YieldTermStructureEE5emptyEv.exit, !prof !55
 
 cond.false.i.i:                                   ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
@@ -1189,7 +1189,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK8QuantLib6HandleINS_18YieldTermStructureEE5emptyEv.exit: ; preds = %entry, %cond.false.i.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
   %h_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %2 = load ptr, ptr %h_.i.i, align 8, !tbaa !74
+  %2 = load ptr, ptr %h_.i.i, align 8, !tbaa !75
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %if.then, label %_ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEEptEv.exit
 
@@ -1678,29 +1678,30 @@ attributes #24 = { builtin allocsize(0) }
 !49 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !35, i64 0}
 !50 = !{!45, !9, i64 0}
 !51 = !{!46, !9, i64 4992}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!55 = !{!56, !33, i64 16}
-!56 = !{!"_ZTSN8QuantLib17StrikedTypePayoffE", !57, i64 0, !33, i64 16}
-!57 = !{!"_ZTSN8QuantLib10TypePayoffE", !58, i64 0, !59, i64 8}
-!58 = !{!"_ZTSN8QuantLib6PayoffE"}
-!59 = !{!"_ZTSN8QuantLib6Option4TypeE", !6, i64 0}
-!60 = !{!57, !59, i64 8}
-!61 = !{!62, !69, i64 36}
-!62 = !{!"_ZTSN8QuantLib13EarlyExerciseE", !63, i64 0, !69, i64 36}
-!63 = !{!"_ZTSN8QuantLib8ExerciseE", !64, i64 8, !68, i64 32}
-!64 = !{!"_ZTSSt6vectorIN8QuantLib4DateESaIS1_EE", !65, i64 0}
-!65 = !{!"_ZTSSt12_Vector_baseIN8QuantLib4DateESaIS1_EE", !66, i64 0}
-!66 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE12_Vector_implE", !67, i64 0}
-!67 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!68 = !{!"_ZTSN8QuantLib8Exercise4TypeE", !6, i64 0}
-!69 = !{!"bool", !6, i64 0}
-!70 = !{i8 0, i8 2}
-!71 = !{}
-!72 = !{!73, !33, i64 24}
-!73 = !{!"_ZTSN8QuantLib19CashOrNothingPayoffE", !56, i64 0, !33, i64 24}
-!74 = !{!75, !5, i64 0}
-!75 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib18YieldTermStructureEEE", !5, i64 0, !17, i64 8}
-!76 = distinct !{!76, !53}
-!77 = distinct !{!77, !53}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!56 = !{!57, !33, i64 16}
+!57 = !{!"_ZTSN8QuantLib17StrikedTypePayoffE", !58, i64 0, !33, i64 16}
+!58 = !{!"_ZTSN8QuantLib10TypePayoffE", !59, i64 0, !60, i64 8}
+!59 = !{!"_ZTSN8QuantLib6PayoffE"}
+!60 = !{!"_ZTSN8QuantLib6Option4TypeE", !6, i64 0}
+!61 = !{!58, !60, i64 8}
+!62 = !{!63, !70, i64 36}
+!63 = !{!"_ZTSN8QuantLib13EarlyExerciseE", !64, i64 0, !70, i64 36}
+!64 = !{!"_ZTSN8QuantLib8ExerciseE", !65, i64 8, !69, i64 32}
+!65 = !{!"_ZTSSt6vectorIN8QuantLib4DateESaIS1_EE", !66, i64 0}
+!66 = !{!"_ZTSSt12_Vector_baseIN8QuantLib4DateESaIS1_EE", !67, i64 0}
+!67 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE12_Vector_implE", !68, i64 0}
+!68 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!69 = !{!"_ZTSN8QuantLib8Exercise4TypeE", !6, i64 0}
+!70 = !{!"bool", !6, i64 0}
+!71 = !{i8 0, i8 2}
+!72 = !{}
+!73 = !{!74, !33, i64 24}
+!74 = !{!"_ZTSN8QuantLib19CashOrNothingPayoffE", !57, i64 0, !33, i64 24}
+!75 = !{!76, !5, i64 0}
+!76 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib18YieldTermStructureEEE", !5, i64 0, !17, i64 8}
+!77 = distinct !{!77, !53, !54}
+!78 = distinct !{!78, !53, !54}

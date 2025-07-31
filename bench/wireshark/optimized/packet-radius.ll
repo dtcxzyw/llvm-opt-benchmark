@@ -1385,7 +1385,7 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
 84:                                               ; preds = %81
   %85 = load ptr, ptr %13, align 8
   %86 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %85, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef nonnull @.str.35)
-  br label %.loopexit, !llvm.loop !10
+  br label %.loopexit, !llvm.loop !11
 
 87:                                               ; preds = %81
   %88 = call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %.2)
@@ -1431,7 +1431,7 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
   %117 = load i32, ptr @hf_radius_avp_vendor_id, align 4
   %118 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %102, i32 noundef %117, ptr noundef %2, i32 noundef %.0444, i32 noundef 4, i32 noundef %88, ptr noundef nonnull @.str.37, ptr noundef %97, i32 noundef %88)
   %119 = icmp slt i32 %90, %82
-  br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %116
   %120 = add i32 %.0444, 4
@@ -1439,7 +1439,7 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
   %122 = getelementptr inbounds nuw i8, ptr %spec.store.select14, i64 32
   %123 = getelementptr inbounds nuw i8, ptr %spec.store.select14, i64 36
   %124 = getelementptr inbounds nuw i8, ptr %spec.store.select14, i64 16
-  br label %125, !llvm.loop !10
+  br label %125, !llvm.loop !11
 
 125:                                              ; preds = %.lr.ph, %283
   %.4532 = phi i32 [ %90, %.lr.ph ], [ %284, %283 ]
@@ -1754,7 +1754,7 @@ proto_item_set_generated.exit:                    ; preds = %219, %216, %212, %2
   %284 = add i32 %.9, %171
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
   %285 = icmp slt i32 %284, %82
-  br i1 %285, label %125, label %..loopexit_crit_edge, !llvm.loop !10
+  br i1 %285, label %125, label %..loopexit_crit_edge, !llvm.loop !12
 
 286:                                              ; preds = %78
   %287 = load ptr, ptr %13, align 8
@@ -1980,7 +1980,7 @@ proto_item_set_generated.exit494:                 ; preds = %proto_item_set_gene
   br label %.loopexit517
 
 ..loopexit_crit_edge:                             ; preds = %283
-  br label %.loopexit, !llvm.loop !10
+  br label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %322, %360, %348, %116, %..loopexit_crit_edge, %.thread498, %84, %.thread561
   %.1435 = phi ptr [ %.0434534, %.thread561 ], [ %.0434534, %84 ], [ %.0434534, %.thread498 ], [ %.0434534, %..loopexit_crit_edge ], [ %.0434534, %116 ], [ %353, %348 ], [ null, %360 ], [ %.0434534, %322 ]
@@ -2219,7 +2219,7 @@ define internal fastcc void @add_avp_to_tree(ptr noundef %0, ptr noundef %1, ptr
   %61 = add i8 %.0158, 1
   %62 = zext i8 %61 to i32
   %63 = icmp ugt i32 %spec.select, %62
-  br i1 %63, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %63, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %46
   %.3 = phi i32 [ %.0137, %46 ], [ %spec.select, %.preheader ]
@@ -2440,7 +2440,7 @@ define hidden void @free_radius_attr_info(ptr noundef %0) #0 {
   %13 = getelementptr i8, ptr %.017, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %15 = load ptr, ptr %2, align 8
@@ -4296,7 +4296,7 @@ define internal fastcc void @radius_decrypt_avp(ptr noundef writeonly captures(n
   store i8 %50, ptr %51, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.critedge, label %42, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge, label %42, !llvm.loop !15
 
 .critedge:                                        ; preds = %45, %42
   %52 = load ptr, ptr %10, align 8
@@ -4315,7 +4315,7 @@ define internal fastcc void @radius_decrypt_avp(ptr noundef writeonly captures(n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef align 1 dereferenceable(16) %60, i64 noundef 16, i1 noundef false) #14
   %61 = add i32 %.037, 16
   %62 = icmp slt i32 %61, %33
-  br i1 %62, label %.preheader, label %._crit_edge, !llvm.loop !14
+  br i1 %62, label %.preheader, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.critedge, %28
   %63 = load ptr, ptr %10, align 8
@@ -4476,7 +4476,7 @@ define internal void @register_attrs(ptr readnone captures(none) %0, ptr noundef
 
 14:                                               ; preds = %.sink.split, %10
   %15 = add i32 %.0, 1
-  br label %10, !llvm.loop !15
+  br label %10, !llvm.loop !17
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -4856,7 +4856,7 @@ define internal ptr @dissect_framed_ip_address(ptr noundef %0, ptr noundef %1, p
 
 5:                                                ; preds = %3
   %6 = tail call i32 @tvb_get_ipv4(ptr noundef %1, i32 noundef 0)
-  %7 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #19, !srcloc !16
+  %7 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #19, !srcloc !18
   switch i32 %7, label %14 [
     i32 -1, label %8
     i32 -2, label %11
@@ -4893,7 +4893,7 @@ define internal ptr @dissect_login_ip_host(ptr noundef %0, ptr noundef %1, ptr n
 
 5:                                                ; preds = %3
   %6 = tail call i32 @tvb_get_ipv4(ptr noundef %1, i32 noundef 0)
-  %7 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #19, !srcloc !17
+  %7 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #19, !srcloc !19
   switch i32 %7, label %14 [
     i32 -1, label %8
     i32 0, label %11
@@ -5139,13 +5139,15 @@ attributes #19 = { nounwind memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
 !11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = !{i64 2151433187}
-!17 = !{i64 2151433963}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = !{i64 2151433187}
+!19 = !{i64 2151433963}

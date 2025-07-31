@@ -387,17 +387,17 @@ hd_context_free.exit:                             ; preds = %hd_ringbuf_get.exit
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_hd_inflate_free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !68
   tail call void @nghttp2_rcbuf_decref(ptr noundef %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
   tail call void @nghttp2_rcbuf_decref(ptr noundef %5) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load ptr, ptr %6, align 8, !tbaa !69
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   tail call void @nghttp2_rcbuf_decref(ptr noundef %7) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load ptr, ptr %8, align 8, !tbaa !70
+  %9 = load ptr, ptr %8, align 8, !tbaa !71
   tail call void @nghttp2_rcbuf_decref(ptr noundef %9) #12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !33
@@ -475,7 +475,7 @@ define internal fastcc void @hd_context_shrink_table_size(ptr noundef captures(n
 
 .lr.ph24.split.us:                                ; preds = %.lr.ph24, %hd_ringbuf_pop_back.exit.us
   %13 = phi i64 [ %33, %hd_ringbuf_pop_back.exit.us ], [ %8, %.lr.ph24 ]
-  %14 = load i64, ptr %5, align 8, !tbaa !71
+  %14 = load i64, ptr %5, align 8, !tbaa !72
   %.not.us = icmp eq i64 %14, 0
   br i1 %.not.us, label %.critedge, label %hd_ringbuf_pop_back.exit.us
 
@@ -507,11 +507,11 @@ hd_ringbuf_pop_back.exit.us:                      ; preds = %.lr.ph24.split.us
   %33 = load i64, ptr %6, align 8, !tbaa !42
   %34 = load i64, ptr %7, align 8, !tbaa !39
   %35 = icmp ugt i64 %33, %34
-  br i1 %35, label %.lr.ph24.split.us, label %.critedge, !llvm.loop !72
+  br i1 %35, label %.lr.ph24.split.us, label %.critedge, !llvm.loop !73
 
 .lr.ph24.split:                                   ; preds = %.lr.ph24, %hd_map_remove.exit
   %36 = phi i64 [ %68, %hd_map_remove.exit ], [ %8, %.lr.ph24 ]
-  %37 = load i64, ptr %5, align 8, !tbaa !71
+  %37 = load i64, ptr %5, align 8, !tbaa !72
   %.not = icmp eq i64 %37, 0
   br i1 %.not, label %.critedge, label %hd_ringbuf_pop_back.exit
 
@@ -554,11 +554,11 @@ hd_ringbuf_pop_back.exit:                         ; preds = %.lr.ph24.split
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %63 = load ptr, ptr %62, align 8, !tbaa !64
   %.not.i18 = icmp eq ptr %63, null
-  br i1 %.not.i18, label %hd_map_remove.exit, label %.lr.ph.i, !llvm.loop !74
+  br i1 %.not.i18, label %hd_map_remove.exit, label %.lr.ph.i, !llvm.loop !75
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %.not11.i = icmp eq ptr %63, %45
-  br i1 %.not11.i, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %.not11.i, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !75
 
 .lr.ph.i._crit_edge.loopexit:                     ; preds = %.lr.ph.i
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 64
@@ -580,7 +580,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   %68 = load i64, ptr %6, align 8, !tbaa !42
   %69 = load i64, ptr %7, align 8, !tbaa !39
   %70 = icmp ugt i64 %68, %69
-  br i1 %70, label %.lr.ph24.split, label %.critedge, !llvm.loop !75
+  br i1 %70, label %.lr.ph24.split, label %.critedge, !llvm.loop !76
 
 .critedge:                                        ; preds = %.lr.ph24.split, %hd_map_remove.exit, %.lr.ph24.split.us, %hd_ringbuf_pop_back.exit.us, %2
   ret void
@@ -597,7 +597,7 @@ define range(i32 -519, 1) i32 @nghttp2_hd_inflate_change_table_size(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %1, ptr %6, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load i64, ptr %7, align 8, !tbaa !76
+  %8 = load i64, ptr %7, align 8, !tbaa !77
   %9 = icmp ugt i64 %8, %1
   br i1 %9, label %10, label %hd_context_shrink_table_size.exit
 
@@ -605,7 +605,7 @@ define range(i32 -519, 1) i32 @nghttp2_hd_inflate_change_table_size(ptr noundef 
   store i32 0, ptr %3, align 4, !tbaa !57
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 %1, ptr %11, align 8, !tbaa !55
-  store i64 %1, ptr %7, align 8, !tbaa !76
+  store i64 %1, ptr %7, align 8, !tbaa !77
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -621,7 +621,7 @@ define range(i32 -519, 1) i32 @nghttp2_hd_inflate_change_table_size(ptr noundef 
 
 .lr.ph24.split.us.i:                              ; preds = %hd_ringbuf_pop_back.exit.us.i, %.lr.ph24.i
   %20 = phi i64 [ %40, %hd_ringbuf_pop_back.exit.us.i ], [ %16, %.lr.ph24.i ]
-  %21 = load i64, ptr %14, align 8, !tbaa !71
+  %21 = load i64, ptr %14, align 8, !tbaa !72
   %.not.us.i = icmp eq i64 %21, 0
   br i1 %.not.us.i, label %hd_context_shrink_table_size.exit, label %hd_ringbuf_pop_back.exit.us.i
 
@@ -653,7 +653,7 @@ hd_ringbuf_pop_back.exit.us.i:                    ; preds = %.lr.ph24.split.us.i
   %40 = load i64, ptr %15, align 8, !tbaa !42
   %41 = load i64, ptr %7, align 8, !tbaa !39
   %42 = icmp ugt i64 %40, %41
-  br i1 %42, label %.lr.ph24.split.us.i, label %hd_context_shrink_table_size.exit, !llvm.loop !72
+  br i1 %42, label %.lr.ph24.split.us.i, label %hd_context_shrink_table_size.exit, !llvm.loop !73
 
 hd_context_shrink_table_size.exit:                ; preds = %hd_ringbuf_pop_back.exit.us.i, %.lr.ph24.split.us.i, %10, %5, %2
   %.0 = phi i32 [ -519, %2 ], [ 0, %5 ], [ 0, %10 ], [ 0, %.lr.ph24.split.us.i ], [ 0, %hd_ringbuf_pop_back.exit.us.i ]
@@ -663,7 +663,7 @@ hd_context_shrink_table_size.exit:                ; preds = %hd_ringbuf_pop_back
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_hd_table_get(ptr dead_on_unwind noalias writable writeonly sret(%struct.nghttp2_hd_nv) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !71
+  %5 = load i64, ptr %4, align 8, !tbaa !72
   %6 = add i64 %5, 61
   %7 = icmp ult i64 %2, %6
   br i1 %7, label %9, label %8
@@ -706,8 +706,8 @@ hd_ringbuf_get.exit:                              ; preds = %11
   store ptr %27, ptr %26, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 120
-  %30 = load i32, ptr %29, align 8, !tbaa !77
-  store i32 %30, ptr %28, align 8, !tbaa !79
+  %30 = load i32, ptr %29, align 8, !tbaa !78
+  store i32 %30, ptr %28, align 8, !tbaa !80
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %31, align 4
   br label %32
@@ -729,7 +729,7 @@ define hidden i32 @nghttp2_hd_deflate_hd_bufs(ptr noundef captures(address_is_nu
   %7 = alloca [16 x i8], align 16
   %8 = alloca [16 x i8], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %10 = load i8, ptr %9, align 4, !tbaa !80
+  %10 = load i8, ptr %9, align 4, !tbaa !81
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %11, label %.loopexit
 
@@ -765,7 +765,7 @@ define hidden i32 @nghttp2_hd_deflate_hd_bufs(ptr noundef captures(address_is_nu
   %25 = lshr i64 %.01215.i.i, 7
   %26 = add nuw nsw i64 %.016.i.i, 1
   %27 = icmp ugt i64 %.01215.i.i, 16383
-  br i1 %27, label %.lr.ph.i.i, label %count_encoded_length.exit.i, !llvm.loop !81
+  br i1 %27, label %.lr.ph.i.i, label %count_encoded_length.exit.i, !llvm.loop !82
 
 count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
   %28 = icmp samesign ugt i64 %.016.i.i, 14
@@ -800,7 +800,7 @@ emit_table_size.exit.thread:                      ; preds = %count_encoded_lengt
   %35 = lshr i64 %.02529.i.i, 7
   %.024.i.i = getelementptr inbounds nuw i8, ptr %.02430.i.i, i64 1
   %36 = icmp ugt i64 %.02529.i.i, 16383
-  br i1 %36, label %.lr.ph.i11.i, label %._crit_edge.i.i.loopexit, !llvm.loop !82
+  br i1 %36, label %.lr.ph.i11.i, label %._crit_edge.i.i.loopexit, !llvm.loop !83
 
 ._crit_edge.i.i.loopexit:                         ; preds = %.lr.ph.i11.i
   %37 = add nuw nsw i64 %.016.i.i, 2
@@ -842,7 +842,7 @@ thread-pre-split:                                 ; preds = %emit_table_size.exi
   %46 = lshr i64 %.01215.i.i48, 7
   %47 = add nuw nsw i64 %.016.i.i47, 1
   %48 = icmp ugt i64 %.01215.i.i48, 16383
-  br i1 %48, label %.lr.ph.i.i46, label %count_encoded_length.exit.i49, !llvm.loop !81
+  br i1 %48, label %.lr.ph.i.i46, label %count_encoded_length.exit.i49, !llvm.loop !82
 
 count_encoded_length.exit.i49:                    ; preds = %.lr.ph.i.i46
   %49 = icmp samesign ugt i64 %.016.i.i47, 14
@@ -877,7 +877,7 @@ emit_table_size.exit56.thread:                    ; preds = %count_encoded_lengt
   %56 = lshr i64 %.02529.i.i54, 7
   %.024.i.i55 = getelementptr inbounds nuw i8, ptr %.02430.i.i53, i64 1
   %57 = icmp ugt i64 %.02529.i.i54, 16383
-  br i1 %57, label %.lr.ph.i11.i52, label %._crit_edge.i.i39.loopexit, !llvm.loop !82
+  br i1 %57, label %.lr.ph.i11.i52, label %._crit_edge.i.i39.loopexit, !llvm.loop !83
 
 ._crit_edge.i.i39.loopexit:                       ; preds = %.lr.ph.i11.i52
   %58 = add nuw nsw i64 %.016.i.i47, 2
@@ -920,15 +920,15 @@ emit_table_size.exit56:                           ; preds = %50, %._crit_edge.i.
 72:                                               ; preds = %deflate_nv.exit
   %73 = add nuw i64 %.02681, 1
   %exitcond.not = icmp eq i64 %73, %3
-  br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !83
+  br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !84
 
 74:                                               ; preds = %.lr.ph, %72
   %.02681 = phi i64 [ 0, %.lr.ph ], [ %73, %72 ]
   %75 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %2, i64 %.02681
-  %76 = load ptr, ptr %62, align 8, !tbaa !84
-  %77 = load ptr, ptr %75, align 8, !tbaa !85
+  %76 = load ptr, ptr %62, align 8, !tbaa !85
+  %77 = load ptr, ptr %75, align 8, !tbaa !86
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %79 = load i64, ptr %78, align 8, !tbaa !86
+  %79 = load i64, ptr %78, align 8, !tbaa !87
   %80 = call fastcc i32 @lookup_token(ptr noundef %77, i64 noundef %79)
   %81 = icmp eq i32 %80, -1
   br i1 %81, label %82, label %89
@@ -947,7 +947,7 @@ emit_table_size.exit56:                           ; preds = %50, %._crit_edge.i.
   %87 = mul i32 %86, 16777619
   %88 = add nuw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %88, %79
-  br i1 %exitcond.not.i.i, label %name_hash.exit.thread.i, label %.lr.ph.i.i57, !llvm.loop !87
+  br i1 %exitcond.not.i.i, label %name_hash.exit.thread.i, label %.lr.ph.i.i57, !llvm.loop !88
 
 89:                                               ; preds = %74
   %90 = icmp samesign ult i32 %80, 61
@@ -956,7 +956,7 @@ emit_table_size.exit56:                           ; preds = %50, %._crit_edge.i.
 91:                                               ; preds = %89
   %92 = zext nneg i32 %80 to i64
   %93 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %92, i32 4
-  %94 = load i32, ptr %93, align 4, !tbaa !88
+  %94 = load i32, ptr %93, align 4, !tbaa !89
   br label %name_hash.exit.i
 
 name_hash.exit.i:                                 ; preds = %91, %89
@@ -968,14 +968,14 @@ name_hash.exit.i:                                 ; preds = %91, %89
 
 95:                                               ; preds = %name_hash.exit.i
   %96 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %97 = load i64, ptr %96, align 8, !tbaa !89
+  %97 = load i64, ptr %96, align 8, !tbaa !90
   %98 = icmp ult i64 %97, 20
   br i1 %98, label %hd_deflate_decide_indexing.exit.i, label %name_hash.exit.thread.i
 
 name_hash.exit.thread.i:                          ; preds = %.lr.ph.i.i57, %95, %name_hash.exit.i, %82
   %.05982.i = phi i32 [ %.059.i, %name_hash.exit.i ], [ %.059.i, %95 ], [ -2128831035, %82 ], [ %87, %.lr.ph.i.i57 ]
   %99 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %100 = load i8, ptr %99, align 8, !tbaa !90
+  %100 = load i8, ptr %99, align 8, !tbaa !91
   %101 = and i8 %100, 1
   %.not.i = icmp eq i8 %101, 0
   br i1 %.not.i, label %102, label %hd_deflate_decide_indexing.exit.i
@@ -994,7 +994,7 @@ name_hash.exit.thread.i:                          ; preds = %.lr.ph.i.i57, %95, 
 
 103:                                              ; preds = %102
   %104 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %105 = load i64, ptr %104, align 8, !tbaa !89
+  %105 = load i64, ptr %104, align 8, !tbaa !90
   %106 = add i64 %79, 32
   %107 = add i64 %106, %105
   %108 = load i64, ptr %63, align 8, !tbaa !49
@@ -1024,7 +1024,7 @@ hd_deflate_decide_indexing.exit.i:                ; preds = %103, %102, %102, %1
   %.01937.us.i.i.i = phi ptr [ %.019.us.i.i.i, %name_eq.exit.thread.us.i.i.i ], [ %.01934.i.i.i, %.lr.ph.i.i.i ]
   %.036.us.i.i.i = phi ptr [ %.2.us.i.i.i, %name_eq.exit.thread.us.i.i.i ], [ null, %.lr.ph.i.i.i ]
   %119 = getelementptr inbounds nuw i8, ptr %.01937.us.i.i.i, i64 16
-  %120 = load i32, ptr %119, align 8, !tbaa !91
+  %120 = load i32, ptr %119, align 8, !tbaa !92
   %.not21.us.i.i.i = icmp eq i32 %120, -1
   br i1 %.not21.us.i.i.i, label %121, label %name_eq.exit.thread.us.i.i.i
 
@@ -1059,14 +1059,14 @@ name_eq.exit.us.i.i.i:                            ; preds = %124
   %.019.val27.us.i.i.i = load ptr, ptr %132, align 8, !tbaa !24
   %133 = getelementptr inbounds nuw i8, ptr %.019.val27.us.i.i.i, i64 24
   %134 = load i64, ptr %133, align 8, !tbaa !22
-  %135 = load i64, ptr %117, align 8, !tbaa !89
+  %135 = load i64, ptr %117, align 8, !tbaa !90
   %136 = icmp eq i64 %134, %135
   br i1 %136, label %value_eq.exit.us.i.i.i, label %name_eq.exit.thread.us.i.i.i
 
 value_eq.exit.us.i.i.i:                           ; preds = %131
   %137 = getelementptr inbounds nuw i8, ptr %.019.val27.us.i.i.i, i64 16
   %138 = load ptr, ptr %137, align 8, !tbaa !14
-  %139 = load ptr, ptr %118, align 8, !tbaa !92
+  %139 = load ptr, ptr %118, align 8, !tbaa !93
   %bcmp.i.i28.us.i.i.i = call i32 @bcmp(ptr readonly %138, ptr readonly %139, i64 %134)
   %.not32.us.i.i.i = icmp eq i32 %bcmp.i.i28.us.i.i.i, 0
   br i1 %.not32.us.i.i.i, label %search_hd_table.exit.thread133.i, label %name_eq.exit.thread.us.i.i.i
@@ -1076,7 +1076,7 @@ name_eq.exit.thread.us.i.i.i:                     ; preds = %value_eq.exit.us.i.
   %140 = getelementptr inbounds nuw i8, ptr %.01937.us.i.i.i, i64 64
   %.019.us.i.i.i = load ptr, ptr %140, align 8, !tbaa !64
   %.not.us.i.i.i = icmp eq ptr %.019.us.i.i.i, null
-  br i1 %.not.us.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.us.i.i.i, !llvm.loop !93
+  br i1 %.not.us.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.us.i.i.i, !llvm.loop !94
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i
   br i1 %113, label %.lr.ph.split.split.i.i.i, label %.lr.ph.split.split.us.i.i.i
@@ -1085,7 +1085,7 @@ name_eq.exit.thread.us.i.i.i:                     ; preds = %value_eq.exit.us.i.
   %.01937.us42.i.i.i = phi ptr [ %.019.us53.i.i.i, %name_eq.exit.thread.us51.i.i.i ], [ %.01934.i.i.i, %.lr.ph.split.i.i.i ]
   %.036.us43.i.i.i = phi ptr [ %.2.us52.i.i.i, %name_eq.exit.thread.us51.i.i.i ], [ null, %.lr.ph.split.i.i.i ]
   %141 = getelementptr inbounds nuw i8, ptr %.01937.us42.i.i.i, i64 16
-  %142 = load i32, ptr %141, align 8, !tbaa !91
+  %142 = load i32, ptr %141, align 8, !tbaa !92
   %.not21.us44.i.i.i = icmp eq i32 %80, %142
   br i1 %.not21.us44.i.i.i, label %143, label %name_eq.exit.thread.us51.i.i.i
 
@@ -1096,14 +1096,14 @@ name_eq.exit.thread.us.i.i.i:                     ; preds = %value_eq.exit.us.i.
   %.019.val27.us47.i.i.i = load ptr, ptr %144, align 8, !tbaa !24
   %145 = getelementptr inbounds nuw i8, ptr %.019.val27.us47.i.i.i, i64 24
   %146 = load i64, ptr %145, align 8, !tbaa !22
-  %147 = load i64, ptr %117, align 8, !tbaa !89
+  %147 = load i64, ptr %117, align 8, !tbaa !90
   %148 = icmp eq i64 %146, %147
   br i1 %148, label %value_eq.exit.us48.i.i.i, label %name_eq.exit.thread.us51.i.i.i
 
 value_eq.exit.us48.i.i.i:                         ; preds = %143
   %149 = getelementptr inbounds nuw i8, ptr %.019.val27.us47.i.i.i, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !14
-  %151 = load ptr, ptr %118, align 8, !tbaa !92
+  %151 = load ptr, ptr %118, align 8, !tbaa !93
   %bcmp.i.i28.us49.i.i.i = call i32 @bcmp(ptr readonly %150, ptr readonly %151, i64 %146)
   %.not32.us50.i.i.i = icmp eq i32 %bcmp.i.i28.us49.i.i.i, 0
   br i1 %.not32.us50.i.i.i, label %search_hd_table.exit.thread133.i, label %name_eq.exit.thread.us51.i.i.i
@@ -1113,12 +1113,12 @@ name_eq.exit.thread.us51.i.i.i:                   ; preds = %value_eq.exit.us48.
   %152 = getelementptr inbounds nuw i8, ptr %.01937.us42.i.i.i, i64 64
   %.019.us53.i.i.i = load ptr, ptr %152, align 8, !tbaa !64
   %.not.us54.i.i.i = icmp eq ptr %.019.us53.i.i.i, null
-  br i1 %.not.us54.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.us.i.i.i, !llvm.loop !94
+  br i1 %.not.us54.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.us.i.i.i, !llvm.loop !95
 
 .lr.ph.split.split.i.i.i:                         ; preds = %.lr.ph.split.i.i.i, %name_eq.exit.thread.i.i.i
   %.01937.i.i.i = phi ptr [ %.019.i.i.i, %name_eq.exit.thread.i.i.i ], [ %.01934.i.i.i, %.lr.ph.split.i.i.i ]
   %153 = getelementptr inbounds nuw i8, ptr %.01937.i.i.i, i64 16
-  %154 = load i32, ptr %153, align 8, !tbaa !91
+  %154 = load i32, ptr %153, align 8, !tbaa !92
   %.not21.i.i.i = icmp eq i32 %80, %154
   br i1 %.not21.i.i.i, label %hd_map_find.exit.i.i, label %name_eq.exit.thread.i.i.i
 
@@ -1126,7 +1126,7 @@ name_eq.exit.thread.i.i.i:                        ; preds = %.lr.ph.split.split.
   %155 = getelementptr inbounds nuw i8, ptr %.01937.i.i.i, i64 64
   %.019.i.i.i = load ptr, ptr %155, align 8, !tbaa !64
   %.not.i.i.i = icmp eq ptr %.019.i.i.i, null
-  br i1 %.not.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.i.i.i, !llvm.loop !95
+  br i1 %.not.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.i.i.i, !llvm.loop !96
 
 hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread.us51.i.i.i, %name_eq.exit.thread.i.i.i, %.lr.ph.split.split.i.i.i, %name_eq.exit.thread.us.i.i.i, %130, %hd_deflate_decide_indexing.exit.i
   %.1.i.i.i = phi ptr [ null, %hd_deflate_decide_indexing.exit.i ], [ %.01937.us.i.i.i, %130 ], [ %.2.us.i.i.i, %name_eq.exit.thread.us.i.i.i ], [ %.01937.i.i.i, %.lr.ph.split.split.i.i.i ], [ null, %name_eq.exit.thread.i.i.i ], [ %.2.us52.i.i.i, %name_eq.exit.thread.us51.i.i.i ]
@@ -1146,21 +1146,21 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
   %indvars.iv.i.i.i = phi i64 [ %158, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %176 ]
   %162 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %indvars.iv.i.i.i
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 120
-  %164 = load i32, ptr %163, align 8, !tbaa !77
+  %164 = load i32, ptr %163, align 8, !tbaa !78
   %165 = icmp eq i32 %164, %80
   br i1 %165, label %166, label %search_hd_table.exit.thread.i
 
 166:                                              ; preds = %161
   %167 = getelementptr inbounds nuw i8, ptr %162, i64 64
-  %168 = load i64, ptr %167, align 16, !tbaa !96
-  %169 = load i64, ptr %159, align 8, !tbaa !89
+  %168 = load i64, ptr %167, align 16, !tbaa !97
+  %169 = load i64, ptr %159, align 8, !tbaa !90
   %170 = icmp eq i64 %168, %169
   br i1 %170, label %171, label %176
 
 171:                                              ; preds = %166
   %172 = getelementptr inbounds nuw i8, ptr %162, i64 56
-  %173 = load ptr, ptr %172, align 8, !tbaa !97
-  %174 = load ptr, ptr %160, align 8, !tbaa !92
+  %173 = load ptr, ptr %172, align 8, !tbaa !98
+  %174 = load ptr, ptr %160, align 8, !tbaa !93
   %bcmp.i.i.i = call i32 @bcmp(ptr %173, ptr %174, i64 %168)
   %175 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %175, label %search_hd_table.exit.thread92.i, label %176
@@ -1168,7 +1168,7 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
 176:                                              ; preds = %171, %166
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 61
-  br i1 %exitcond.not.i.i.i, label %search_hd_table.exit.thread.i, label %161, !llvm.loop !98
+  br i1 %exitcond.not.i.i.i, label %search_hd_table.exit.thread.i, label %161, !llvm.loop !99
 
 177:                                              ; preds = %hd_map_find.exit.i.i
   %178 = icmp eq ptr %.1.i.i.i, null
@@ -1178,7 +1178,7 @@ search_hd_table.exit.thread133.i:                 ; preds = %value_eq.exit.us48.
   %.1.i3134.i.ph.i = phi ptr [ %.01937.us.i.i.i, %value_eq.exit.us.i.i.i ], [ %.01937.us42.i.i.i, %value_eq.exit.us48.i.i.i ]
   %179 = load i32, ptr %65, align 8, !tbaa !43
   %180 = getelementptr inbounds nuw i8, ptr %.1.i3134.i.ph.i, i64 72
-  %181 = load i32, ptr %180, align 8, !tbaa !99
+  %181 = load i32, ptr %180, align 8, !tbaa !100
   %182 = xor i32 %181, -1
   %183 = add i32 %179, 61
   %184 = add i32 %183, %182
@@ -1188,7 +1188,7 @@ search_hd_table.exit.thread133.i:                 ; preds = %value_eq.exit.us48.
 search_hd_table.exit.i:                           ; preds = %177
   %186 = load i32, ptr %65, align 8, !tbaa !43
   %187 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 72
-  %188 = load i32, ptr %187, align 8, !tbaa !99
+  %188 = load i32, ptr %187, align 8, !tbaa !100
   %189 = xor i32 %188, -1
   %190 = add i32 %186, 61
   %191 = add i32 %190, %189
@@ -1212,7 +1212,7 @@ search_hd_table.exit.thread92.i:                  ; preds = %171, %search_hd_tab
   %197 = lshr i64 %.01215.i.i.i, 7
   %198 = add nuw nsw i64 %.016.i.i.i, 1
   %199 = icmp ugt i64 %.01215.i.i.i, 16383
-  br i1 %199, label %.lr.ph.i.i77.i, label %count_encoded_length.exit.i.i, !llvm.loop !81
+  br i1 %199, label %.lr.ph.i.i77.i, label %count_encoded_length.exit.i.i, !llvm.loop !82
 
 count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i77.i
   %200 = icmp samesign ugt i64 %.016.i.i.i, 14
@@ -1242,7 +1242,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i77.i
   %208 = lshr i64 %.02529.i.i.i, 7
   %.024.i.i.i = getelementptr inbounds nuw i8, ptr %.02430.i.i.i, i64 1
   %209 = icmp ugt i64 %.02529.i.i.i, 16383
-  br i1 %209, label %.lr.ph.i11.i.i, label %._crit_edge.i.i.loopexit.i, !llvm.loop !82
+  br i1 %209, label %.lr.ph.i11.i.i, label %._crit_edge.i.i.loopexit.i, !llvm.loop !83
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %.lr.ph.i11.i.i
   %210 = add nuw nsw i64 %.016.i.i.i, 2
@@ -1280,13 +1280,13 @@ search_hd_table.exit.thread.thread103.i:          ; preds = %177
 
 214:                                              ; preds = %search_hd_table.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
-  %215 = load i64, ptr %66, align 8, !tbaa !71, !noalias !100
+  %215 = load i64, ptr %66, align 8, !tbaa !72, !noalias !101
   %216 = add i64 %215, 61
   %217 = icmp ult i64 %.sroa.024.0.i88.i, %216
   br i1 %217, label %219, label %218
 
 218:                                              ; preds = %214
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_hd_table_get) #13, !noalias !100
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_hd_table_get) #13, !noalias !101
   unreachable
 
 219:                                              ; preds = %214
@@ -1299,17 +1299,17 @@ search_hd_table.exit.thread.thread103.i:          ; preds = %177
   br i1 %223, label %hd_ringbuf_get.exit.i.i, label %224
 
 224:                                              ; preds = %221
-  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 622, ptr noundef nonnull @__PRETTY_FUNCTION__.hd_ringbuf_get) #13, !noalias !100
+  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 622, ptr noundef nonnull @__PRETTY_FUNCTION__.hd_ringbuf_get) #13, !noalias !101
   unreachable
 
 hd_ringbuf_get.exit.i.i:                          ; preds = %221
-  %225 = load ptr, ptr %0, align 8, !tbaa !40, !noalias !100
-  %226 = load i64, ptr %67, align 8, !tbaa !63, !noalias !100
+  %225 = load ptr, ptr %0, align 8, !tbaa !40, !noalias !101
+  %226 = load i64, ptr %67, align 8, !tbaa !63, !noalias !101
   %227 = add i64 %226, %222
-  %228 = load i64, ptr %68, align 8, !tbaa !41, !noalias !100
+  %228 = load i64, ptr %68, align 8, !tbaa !41, !noalias !101
   %229 = and i64 %227, %228
   %230 = getelementptr inbounds nuw ptr, ptr %225, i64 %229
-  %231 = load ptr, ptr %230, align 8, !tbaa !64, !noalias !100
+  %231 = load ptr, ptr %230, align 8, !tbaa !64, !noalias !101
   %.sroa.0.0.copyload.i = load ptr, ptr %231, align 8, !tbaa !4
   br label %nghttp2_hd_table_get.exit.i
 
@@ -1332,9 +1332,9 @@ nghttp2_hd_table_get.exit.i:                      ; preds = %232, %hd_ringbuf_ge
 236:                                              ; preds = %234, %nghttp2_hd_table_get.exit.i
   %.sroa.024.0.i91.i = phi i64 [ -1, %234 ], [ %.sroa.024.0.i88.i, %nghttp2_hd_table_get.exit.i ]
   %237 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %238 = load ptr, ptr %237, align 8, !tbaa !92
+  %238 = load ptr, ptr %237, align 8, !tbaa !93
   %239 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %240 = load i64, ptr %239, align 8, !tbaa !89
+  %240 = load i64, ptr %239, align 8, !tbaa !90
   %241 = call i32 @nghttp2_rcbuf_new2(ptr noundef nonnull %69, ptr noundef %238, i64 noundef %240, ptr noundef %76) #12
   %.not70.i = icmp eq i32 %241, 0
   br i1 %.not70.i, label %244, label %242
@@ -1350,7 +1350,7 @@ nghttp2_hd_table_get.exit.i:                      ; preds = %232, %hd_ringbuf_ge
   br label %.thread
 
 244:                                              ; preds = %236
-  store i32 %80, ptr %70, align 8, !tbaa !79
+  store i32 %80, ptr %70, align 8, !tbaa !80
   store i8 0, ptr %71, align 4, !tbaa !27
   %245 = call fastcc i32 @add_hd_table_incremental(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %64, i32 noundef %.05981.i)
   %246 = load ptr, ptr %69, align 8, !tbaa !24
@@ -1378,17 +1378,17 @@ pack_first_byte.exit.i.i:                         ; preds = %250, %248, %search_
   br i1 %.not.i78.i, label %252, label %.thread
 
 252:                                              ; preds = %pack_first_byte.exit.i.i
-  %253 = load ptr, ptr %75, align 8, !tbaa !85
-  %254 = load i64, ptr %78, align 8, !tbaa !86
+  %253 = load ptr, ptr %75, align 8, !tbaa !86
+  %254 = load i64, ptr %78, align 8, !tbaa !87
   %255 = call fastcc i32 @emit_string(ptr noundef %1, ptr noundef %253, i64 noundef %254)
   %.not17.i.i = icmp eq i32 %255, 0
   br i1 %.not17.i.i, label %256, label %.thread
 
 256:                                              ; preds = %252
   %257 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %258 = load ptr, ptr %257, align 8, !tbaa !92
+  %258 = load ptr, ptr %257, align 8, !tbaa !93
   %259 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %260 = load i64, ptr %259, align 8, !tbaa !89
+  %260 = load i64, ptr %259, align 8, !tbaa !90
   %261 = call fastcc i32 @emit_string(ptr noundef %1, ptr noundef %258, i64 noundef %260)
   br label %deflate_nv.exit
 
@@ -1404,7 +1404,7 @@ deflate_nv.exit:                                  ; preds = %emit_indexed_block.
 
 .thread:                                          ; preds = %252, %pack_first_byte.exit.i.i, %244, %deflate_nv.exit, %.thread.i, %emit_table_size.exit56.thread, %emit_table_size.exit56, %emit_table_size.exit.thread, %emit_table_size.exit
   %.1 = phi i32 [ -523, %emit_table_size.exit56.thread ], [ %.fr, %emit_table_size.exit56 ], [ -523, %emit_table_size.exit.thread ], [ %39, %emit_table_size.exit ], [ %.1.ph.i, %.thread.i ], [ -523, %244 ], [ %251, %pack_first_byte.exit.i.i ], [ %255, %252 ], [ %.057.i, %deflate_nv.exit ]
-  store i8 1, ptr %9, align 4, !tbaa !80
+  store i8 1, ptr %9, align 4, !tbaa !81
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %61, %4, %.thread
@@ -1417,7 +1417,7 @@ define i64 @nghttp2_hd_deflate_hd(ptr noundef captures(address_is_null) %0, ptr 
   %6 = alloca %struct.nghttp2_bufs, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !84
+  %8 = load ptr, ptr %7, align 8, !tbaa !85
   %9 = call i32 @nghttp2_bufs_wrap_init(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2, ptr noundef %8) #12
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %12, label %10
@@ -1453,7 +1453,7 @@ define i64 @nghttp2_hd_deflate_hd2(ptr noundef captures(address_is_null) %0, ptr
   %6 = alloca %struct.nghttp2_bufs, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !84
+  %8 = load ptr, ptr %7, align 8, !tbaa !85
   %9 = call i32 @nghttp2_bufs_wrap_init(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2, ptr noundef %8) #12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %12, label %10
@@ -1495,7 +1495,7 @@ define i64 @nghttp2_hd_deflate_hd_vec(ptr noundef captures(address_is_null) %0, 
   %6 = alloca %struct.nghttp2_bufs, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !84
+  %8 = load ptr, ptr %7, align 8, !tbaa !85
   %9 = call i32 @nghttp2_bufs_wrap_init2(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2, ptr noundef %8) #12
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %12, label %10
@@ -1531,7 +1531,7 @@ define i64 @nghttp2_hd_deflate_hd_vec2(ptr noundef captures(address_is_null) %0,
   %6 = alloca %struct.nghttp2_bufs, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !84
+  %8 = load ptr, ptr %7, align 8, !tbaa !85
   %9 = call i32 @nghttp2_bufs_wrap_init2(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2, ptr noundef %8) #12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %12, label %10
@@ -1576,14 +1576,14 @@ define i64 @nghttp2_hd_deflate_bound(ptr noundef readnone captures(none) %0, ptr
   %.01112 = phi i64 [ %12, %.lr.ph ], [ %5, %3 ]
   %6 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %1, i64 %.013
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !86
+  %8 = load i64, ptr %7, align 8, !tbaa !87
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !89
+  %10 = load i64, ptr %9, align 8, !tbaa !90
   %11 = add i64 %8, %.01112
   %12 = add i64 %11, %10
   %13 = add nuw i64 %.013, 1
   %exitcond.not = icmp eq i64 %13, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.011.lcssa = phi i64 [ %5, %3 ], [ %12, %.lr.ph ]
@@ -1639,7 +1639,7 @@ nghttp2_hd_deflate_init2.exit.i:                  ; preds = %6
   store i64 %1, ptr %22, align 8, !tbaa !47
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   store i64 4294967295, ptr %23, align 8, !tbaa !48
-  store ptr %4, ptr %0, align 8, !tbaa !104
+  store ptr %4, ptr %0, align 8, !tbaa !105
   br label %nghttp2_hd_deflate_new2.exit
 
 nghttp2_hd_deflate_new2.exit:                     ; preds = %2, %nghttp2_hd_deflate_init2.exit.i, %20
@@ -1704,7 +1704,7 @@ nghttp2_hd_deflate_init2.exit:                    ; preds = %10
   store i64 %1, ptr %26, align 8, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 1096
   store i64 4294967295, ptr %27, align 8, !tbaa !48
-  store ptr %8, ptr %0, align 8, !tbaa !104
+  store ptr %8, ptr %0, align 8, !tbaa !105
   br label %28
 
 28:                                               ; preds = %7, %24, %nghttp2_hd_deflate_init2.exit
@@ -1721,7 +1721,7 @@ declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @nghttp2_hd_deflate_del(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !85
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !62
   %.not.i.i.i = icmp eq i64 %5, 0
@@ -1777,25 +1777,25 @@ define i64 @nghttp2_hd_inflate_hd(ptr noundef %0, ptr noundef writeonly captures
   %14 = load ptr, ptr %7, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !14
-  store ptr %16, ptr %1, align 8, !tbaa !85
+  store ptr %16, ptr %1, align 8, !tbaa !86
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load i64, ptr %17, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %18, ptr %19, align 8, !tbaa !86
+  store i64 %18, ptr %19, align 8, !tbaa !87
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !92
+  store ptr %23, ptr %24, align 8, !tbaa !93
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %26 = load i64, ptr %25, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %26, ptr %27, align 8, !tbaa !89
+  store i64 %26, ptr %27, align 8, !tbaa !90
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %29 = load i8, ptr %28, align 4, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 %29, ptr %30, align 8, !tbaa !90
+  store i8 %29, ptr %30, align 8, !tbaa !91
   br label %nghttp2_hd_inflate_hd2.exit
 
 nghttp2_hd_inflate_hd2.exit:                      ; preds = %6, %10, %13
@@ -1821,25 +1821,25 @@ define i64 @nghttp2_hd_inflate_hd2(ptr noundef %0, ptr noundef writeonly capture
   %14 = load ptr, ptr %7, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !14
-  store ptr %16, ptr %1, align 8, !tbaa !85
+  store ptr %16, ptr %1, align 8, !tbaa !86
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load i64, ptr %17, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %18, ptr %19, align 8, !tbaa !86
+  store i64 %18, ptr %19, align 8, !tbaa !87
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !92
+  store ptr %23, ptr %24, align 8, !tbaa !93
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %26 = load i64, ptr %25, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %26, ptr %27, align 8, !tbaa !89
+  store i64 %26, ptr %27, align 8, !tbaa !90
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %29 = load i8, ptr %28, align 4, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 %29, ptr %30, align 8, !tbaa !90
+  store i8 %29, ptr %30, align 8, !tbaa !91
   br label %nghttp2_hd_inflate_hd3.exit
 
 nghttp2_hd_inflate_hd3.exit:                      ; preds = %6, %10, %13
@@ -1865,25 +1865,25 @@ define i64 @nghttp2_hd_inflate_hd3(ptr noundef %0, ptr noundef writeonly capture
   %14 = load ptr, ptr %7, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !14
-  store ptr %16, ptr %1, align 8, !tbaa !85
+  store ptr %16, ptr %1, align 8, !tbaa !86
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load i64, ptr %17, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %18, ptr %19, align 8, !tbaa !86
+  store i64 %18, ptr %19, align 8, !tbaa !87
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !92
+  store ptr %23, ptr %24, align 8, !tbaa !93
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %26 = load i64, ptr %25, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %26, ptr %27, align 8, !tbaa !89
+  store i64 %26, ptr %27, align 8, !tbaa !90
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %29 = load i8, ptr %28, align 4, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 %29, ptr %30, align 8, !tbaa !90
+  store i8 %29, ptr %30, align 8, !tbaa !91
   br label %31
 
 31:                                               ; preds = %10, %13, %6
@@ -1895,18 +1895,18 @@ define i64 @nghttp2_hd_inflate_hd3(ptr noundef %0, ptr noundef writeonly capture
 define hidden i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !106
+  %9 = load ptr, ptr %8, align 8, !tbaa !107
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %11 = load i8, ptr %10, align 4, !tbaa !107
+  %11 = load i8, ptr %10, align 4, !tbaa !108
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %12, label %456
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %14 = load ptr, ptr %13, align 8, !tbaa !67
+  %14 = load ptr, ptr %13, align 8, !tbaa !68
   tail call void @nghttp2_rcbuf_decref(ptr noundef %14) #12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %16 = load ptr, ptr %15, align 8, !tbaa !68
+  %16 = load ptr, ptr %15, align 8, !tbaa !69
   tail call void @nghttp2_rcbuf_decref(ptr noundef %16) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 0, ptr %2, align 4, !tbaa !9
@@ -2018,7 +2018,7 @@ define hidden i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr noundef writeonl
 
 62:                                               ; preds = %55, %52, %.thread333
   %.2212 = phi ptr [ %.0210452, %.thread333 ], [ %.0210452, %52 ], [ %spec.select, %55 ]
-  store i64 0, ptr %19, align 8, !tbaa !108
+  store i64 0, ptr %19, align 8, !tbaa !109
   store i64 0, ptr %20, align 8, !tbaa !59
   br label %438
 
@@ -2026,10 +2026,10 @@ define hidden i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr noundef writeonl
   %64 = load i64, ptr %33, align 8, !tbaa !55
   %65 = load i64, ptr %34, align 8, !tbaa !50
   %66 = tail call noundef i64 @llvm.umin.i64(i64 %64, i64 %65)
-  %67 = load i64, ptr %19, align 8, !tbaa !108
+  %67 = load i64, ptr %19, align 8, !tbaa !109
   %68 = trunc i64 %67 to i32
   %69 = load i64, ptr %20, align 8, !tbaa !59
-  store i64 0, ptr %20, align 8, !tbaa !109
+  store i64 0, ptr %20, align 8, !tbaa !110
   %70 = icmp eq i32 %68, 0
   br i1 %70, label %71, label %78
 
@@ -2082,16 +2082,16 @@ define hidden i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr noundef writeonl
   %95 = getelementptr inbounds nuw i8, ptr %.15579.i.i, i64 1
   %96 = add nuw nsw i64 %.05380.i.i, 7
   %.not62.i.i = icmp eq ptr %95, %7
-  br i1 %.not62.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !110
+  br i1 %.not62.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !111
 
 ._crit_edge.i.i:                                  ; preds = %94, %78
   %.053.lcssa.i.i = phi i64 [ %69, %78 ], [ %96, %94 ]
   %.151.lcssa.i.i = phi i32 [ %.050.i.i, %78 ], [ %92, %94 ]
-  store i64 %.053.lcssa.i.i, ptr %20, align 8, !tbaa !109
+  store i64 %.053.lcssa.i.i, ptr %20, align 8, !tbaa !110
   br label %decode_length.exit.i
 
 97:                                               ; preds = %91
-  store i64 %.05380.i.i, ptr %20, align 8, !tbaa !109
+  store i64 %.05380.i.i, ptr %20, align 8, !tbaa !110
   %98 = getelementptr inbounds nuw i8, ptr %.15579.i.i, i64 1
   %.pre506 = ptrtoint ptr %98 to i64
   br label %decode_length.exit.i
@@ -2114,7 +2114,7 @@ decode_length.exit.thread18.i:                    ; preds = %71, %decode_length.
   br i1 %103, label %hd_inflate_read_len.exit.thread, label %hd_inflate_read_len.exit
 
 hd_inflate_read_len.exit:                         ; preds = %decode_length.exit.thread18.i
-  store i64 %102, ptr %19, align 8, !tbaa !108
+  store i64 %102, ptr %19, align 8, !tbaa !109
   %104 = icmp slt i64 %.049.i22.i, 0
   br i1 %104, label %hd_inflate_read_len.exit.thread, label %105
 
@@ -2125,7 +2125,7 @@ hd_inflate_read_len.exit:                         ; preds = %decode_length.exit.
 
 107:                                              ; preds = %105
   store i64 4294967295, ptr %33, align 8, !tbaa !55
-  store i64 %102, ptr %35, align 8, !tbaa !76
+  store i64 %102, ptr %35, align 8, !tbaa !77
   %108 = load ptr, ptr %8, align 8, !tbaa !33
   %109 = load i64, ptr %36, align 8, !tbaa !42
   %110 = icmp ugt i64 %109, %102
@@ -2133,7 +2133,7 @@ hd_inflate_read_len.exit:                         ; preds = %decode_length.exit.
 
 .lr.ph24.split.us.i:                              ; preds = %107, %hd_ringbuf_pop_back.exit.us.i
   %111 = phi i64 [ %131, %hd_ringbuf_pop_back.exit.us.i ], [ %109, %107 ]
-  %112 = load i64, ptr %31, align 8, !tbaa !71
+  %112 = load i64, ptr %31, align 8, !tbaa !72
   %.not.us.i = icmp eq i64 %112, 0
   br i1 %.not.us.i, label %hd_context_shrink_table_size.exit, label %hd_ringbuf_pop_back.exit.us.i
 
@@ -2165,7 +2165,7 @@ hd_ringbuf_pop_back.exit.us.i:                    ; preds = %.lr.ph24.split.us.i
   %131 = load i64, ptr %36, align 8, !tbaa !42
   %132 = load i64, ptr %35, align 8, !tbaa !39
   %133 = icmp ugt i64 %131, %132
-  br i1 %133, label %.lr.ph24.split.us.i, label %hd_context_shrink_table_size.exit, !llvm.loop !72
+  br i1 %133, label %.lr.ph24.split.us.i, label %hd_context_shrink_table_size.exit, !llvm.loop !73
 
 hd_context_shrink_table_size.exit:                ; preds = %.lr.ph24.split.us.i, %hd_ringbuf_pop_back.exit.us.i, %107
   store i32 1, ptr %17, align 4, !tbaa !57
@@ -2184,15 +2184,15 @@ hd_context_shrink_table_size.exit:                ; preds = %.lr.ph24.split.us.i
 
 140:                                              ; preds = %137, %134
   %.0 = phi i32 [ 7, %134 ], [ %139, %137 ]
-  %.val = load i64, ptr %31, align 8, !tbaa !71
+  %.val = load i64, ptr %31, align 8, !tbaa !72
   %141 = add i64 %.val, 61
-  %142 = load i64, ptr %19, align 8, !tbaa !108
+  %142 = load i64, ptr %19, align 8, !tbaa !109
   %143 = trunc i64 %142 to i32
   %144 = load i64, ptr %20, align 8, !tbaa !59
   %notmask.i.i = shl nsw i32 -1, %.0
   %145 = and i32 %notmask.i.i, 112
   %146 = xor i32 %145, 127
-  store i64 0, ptr %20, align 8, !tbaa !109
+  store i64 0, ptr %20, align 8, !tbaa !110
   %147 = icmp eq i32 %143, 0
   br i1 %147, label %148, label %155
 
@@ -2245,16 +2245,16 @@ hd_context_shrink_table_size.exit:                ; preds = %.lr.ph24.split.us.i
   %172 = getelementptr inbounds nuw i8, ptr %.15579.i.i266, i64 1
   %173 = add nuw nsw i64 %.05380.i.i265, 7
   %.not62.i.i267 = icmp eq ptr %172, %7
-  br i1 %.not62.i.i267, label %._crit_edge.i.i268, label %.lr.ph.i.i263, !llvm.loop !110
+  br i1 %.not62.i.i267, label %._crit_edge.i.i268, label %.lr.ph.i.i263, !llvm.loop !111
 
 ._crit_edge.i.i268:                               ; preds = %171, %155
   %.053.lcssa.i.i269 = phi i64 [ %144, %155 ], [ %173, %171 ]
   %.151.lcssa.i.i270 = phi i32 [ %.050.i.i261, %155 ], [ %169, %171 ]
-  store i64 %.053.lcssa.i.i269, ptr %20, align 8, !tbaa !109
+  store i64 %.053.lcssa.i.i269, ptr %20, align 8, !tbaa !110
   br label %decode_length.exit.i271
 
 174:                                              ; preds = %168
-  store i64 %.05380.i.i265, ptr %20, align 8, !tbaa !109
+  store i64 %.05380.i.i265, ptr %20, align 8, !tbaa !110
   %175 = getelementptr inbounds nuw i8, ptr %.15579.i.i266, i64 1
   %.pre507 = ptrtoint ptr %175 to i64
   br label %decode_length.exit.i271
@@ -2277,7 +2277,7 @@ decode_length.exit.thread18.i275:                 ; preds = %148, %decode_length
   br i1 %180, label %hd_inflate_read_len.exit.thread, label %hd_inflate_read_len.exit280
 
 hd_inflate_read_len.exit280:                      ; preds = %decode_length.exit.thread18.i275
-  store i64 %179, ptr %19, align 8, !tbaa !108
+  store i64 %179, ptr %19, align 8, !tbaa !109
   %181 = icmp slt i64 %.049.i22.i276, 0
   br i1 %181, label %hd_inflate_read_len.exit.thread, label %182
 
@@ -2292,7 +2292,7 @@ hd_inflate_read_len.exit280:                      ; preds = %decode_length.exit.
 
 186:                                              ; preds = %184
   %187 = add nsw i64 %179, -1
-  store i64 %187, ptr %32, align 8, !tbaa !111
+  store i64 %187, ptr %32, align 8, !tbaa !112
   br i1 %136, label %188, label %.thread348
 
 188:                                              ; preds = %186
@@ -2300,7 +2300,7 @@ hd_inflate_read_len.exit280:                      ; preds = %decode_length.exit.
   br i1 %189, label %191, label %190
 
 190:                                              ; preds = %188
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_hd_table_get) #13, !noalias !112
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_hd_table_get) #13, !noalias !113
   unreachable
 
 191:                                              ; preds = %188
@@ -2313,17 +2313,17 @@ hd_inflate_read_len.exit280:                      ; preds = %decode_length.exit.
   br i1 %195, label %hd_ringbuf_get.exit.i.i, label %196
 
 196:                                              ; preds = %193
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 622, ptr noundef nonnull @__PRETTY_FUNCTION__.hd_ringbuf_get) #13, !noalias !112
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 622, ptr noundef nonnull @__PRETTY_FUNCTION__.hd_ringbuf_get) #13, !noalias !113
   unreachable
 
 hd_ringbuf_get.exit.i.i:                          ; preds = %193
-  %197 = load ptr, ptr %0, align 8, !tbaa !40, !noalias !112
-  %198 = load i64, ptr %37, align 8, !tbaa !63, !noalias !112
+  %197 = load ptr, ptr %0, align 8, !tbaa !40, !noalias !113
+  %198 = load i64, ptr %37, align 8, !tbaa !63, !noalias !113
   %199 = add i64 %198, %194
-  %200 = load i64, ptr %38, align 8, !tbaa !41, !noalias !112
+  %200 = load i64, ptr %38, align 8, !tbaa !41, !noalias !113
   %201 = and i64 %199, %200
   %202 = getelementptr inbounds nuw ptr, ptr %197, i64 %201
-  %203 = load ptr, ptr %202, align 8, !tbaa !64, !noalias !112
+  %203 = load ptr, ptr %202, align 8, !tbaa !64, !noalias !113
   %.sroa.0.0.copyload.i = load ptr, ptr %203, align 8, !tbaa !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %203, i64 8
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !4
@@ -2369,15 +2369,15 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %193
   %.lobit.i = lshr i8 %.0210.val, 7
   store i8 %.lobit.i, ptr %18, align 8, !tbaa !58
   store i32 6, ptr %17, align 4, !tbaa !57
-  store i64 0, ptr %19, align 8, !tbaa !108
-  store i64 0, ptr %20, align 8, !tbaa !109
+  store i64 0, ptr %19, align 8, !tbaa !109
+  store i64 0, ptr %20, align 8, !tbaa !110
   br label %216
 
 213:                                              ; preds = %40
-  %.pre504 = load i64, ptr %19, align 8, !tbaa !108
+  %.pre504 = load i64, ptr %19, align 8, !tbaa !109
   %.pre505 = load i64, ptr %20, align 8, !tbaa !59
   %214 = trunc i64 %.pre504 to i32
-  store i64 0, ptr %20, align 8, !tbaa !109
+  store i64 0, ptr %20, align 8, !tbaa !110
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %216, label %224
 
@@ -2432,16 +2432,16 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %193
   %242 = getelementptr inbounds nuw i8, ptr %.15579.i.i287, i64 1
   %243 = add nuw nsw i64 %.05380.i.i286, 7
   %.not62.i.i288 = icmp eq ptr %242, %7
-  br i1 %.not62.i.i288, label %._crit_edge.i.i289, label %.lr.ph.i.i284, !llvm.loop !110
+  br i1 %.not62.i.i288, label %._crit_edge.i.i289, label %.lr.ph.i.i284, !llvm.loop !111
 
 ._crit_edge.i.i289:                               ; preds = %241, %224
   %.053.lcssa.i.i290 = phi i64 [ %225, %224 ], [ %243, %241 ]
   %.151.lcssa.i.i291 = phi i32 [ %.050.i.i282, %224 ], [ %239, %241 ]
-  store i64 %.053.lcssa.i.i290, ptr %20, align 8, !tbaa !109
+  store i64 %.053.lcssa.i.i290, ptr %20, align 8, !tbaa !110
   br label %decode_length.exit.i292
 
 244:                                              ; preds = %238
-  store i64 %.05380.i.i286, ptr %20, align 8, !tbaa !109
+  store i64 %.05380.i.i286, ptr %20, align 8, !tbaa !110
   %245 = getelementptr inbounds nuw i8, ptr %.15579.i.i287, i64 1
   %.pre508 = ptrtoint ptr %245 to i64
   br label %decode_length.exit.i292
@@ -2460,12 +2460,12 @@ decode_length.exit.i292:                          ; preds = %244, %._crit_edge.i
 hd_inflate_read_len.exit301.thread:               ; preds = %216, %221
   %.7.ph = phi i32 [ 1, %216 ], [ 0, %221 ]
   %.01421.i298.ph = phi i64 [ %220, %216 ], [ 127, %221 ]
-  store i64 %.01421.i298.ph, ptr %19, align 8, !tbaa !108
+  store i64 %.01421.i298.ph, ptr %19, align 8, !tbaa !109
   br label %252
 
 hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.i292
   %250 = zext nneg i32 %.014.i294 to i64
-  store i64 %250, ptr %19, align 8, !tbaa !108
+  store i64 %250, ptr %19, align 8, !tbaa !109
   %251 = icmp slt i64 %247, 0
   br i1 %251, label %hd_inflate_read_len.exit.thread, label %252
 
@@ -2485,7 +2485,7 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
 257:                                              ; preds = %255
   tail call void @nghttp2_hd_huff_decode_context_init(ptr noundef nonnull %21) #12
   store i32 7, ptr %17, align 4, !tbaa !57
-  %258 = load i64, ptr %19, align 8, !tbaa !108
+  %258 = load i64, ptr %19, align 8, !tbaa !109
   %259 = shl i64 %258, 1
   %260 = or disjoint i64 %259, 1
   br label %263
@@ -2502,7 +2502,7 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
   br i1 %.not252, label %265, label %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit418
 
 265:                                              ; preds = %263
-  %266 = load ptr, ptr %27, align 8, !tbaa !70
+  %266 = load ptr, ptr %27, align 8, !tbaa !71
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %268 = load ptr, ptr %267, align 8, !tbaa !14
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 24
@@ -2513,7 +2513,7 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
 271:                                              ; preds = %40
   %272 = ptrtoint ptr %.0210452 to i64
   %273 = sub i64 %24, %272
-  %274 = load i64, ptr %19, align 8, !tbaa !108
+  %274 = load i64, ptr %19, align 8, !tbaa !109
   %.not.i = icmp uge i64 %273, %274
   %275 = getelementptr inbounds nuw i8, ptr %.0210452, i64 %274
   %spec.select.i = select i1 %.not.i, ptr %275, ptr %7
@@ -2530,22 +2530,22 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
   br i1 %.not21.i, label %282, label %hd_inflate_read_len.exit.thread
 
 282:                                              ; preds = %280
-  %283 = load i64, ptr %19, align 8, !tbaa !108
+  %283 = load i64, ptr %19, align 8, !tbaa !109
   %284 = sub i64 %283, %278
-  store i64 %284, ptr %19, align 8, !tbaa !108
+  store i64 %284, ptr %19, align 8, !tbaa !109
   %285 = getelementptr inbounds nuw i8, ptr %.0210452, i64 %278
   %.not249 = icmp eq i64 %283, %278
   br i1 %.not249, label %286, label %.loopexit
 
 286:                                              ; preds = %282
-  %287 = load ptr, ptr %25, align 8, !tbaa !115
+  %287 = load ptr, ptr %25, align 8, !tbaa !116
   store i8 0, ptr %287, align 1, !tbaa !11
-  %288 = load ptr, ptr %25, align 8, !tbaa !115
-  %289 = load ptr, ptr %26, align 8, !tbaa !116
+  %288 = load ptr, ptr %25, align 8, !tbaa !116
+  %289 = load ptr, ptr %26, align 8, !tbaa !117
   %290 = ptrtoint ptr %288 to i64
   %291 = ptrtoint ptr %289 to i64
   %292 = sub i64 %290, %291
-  %293 = load ptr, ptr %27, align 8, !tbaa !70
+  %293 = load ptr, ptr %27, align 8, !tbaa !71
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 24
   store i64 %292, ptr %294, align 8, !tbaa !22
   store i32 9, ptr %17, align 4, !tbaa !57
@@ -2554,14 +2554,14 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
 295:                                              ; preds = %40
   %296 = ptrtoint ptr %.0210452 to i64
   %297 = sub i64 %24, %296
-  %298 = load i64, ptr %19, align 8, !tbaa !108
+  %298 = load i64, ptr %19, align 8, !tbaa !109
   %299 = tail call noundef i64 @llvm.umin.i64(i64 %297, i64 %298)
-  %300 = load ptr, ptr %25, align 8, !tbaa !117
+  %300 = load ptr, ptr %25, align 8, !tbaa !118
   %301 = tail call ptr @nghttp2_cpymem(ptr noundef %300, ptr noundef %.0210452, i64 noundef %299) #12
-  store ptr %301, ptr %25, align 8, !tbaa !117
-  %302 = load i64, ptr %19, align 8, !tbaa !108
+  store ptr %301, ptr %25, align 8, !tbaa !118
+  %302 = load i64, ptr %19, align 8, !tbaa !109
   %303 = sub i64 %302, %299
-  store i64 %303, ptr %19, align 8, !tbaa !108
+  store i64 %303, ptr %19, align 8, !tbaa !109
   %304 = icmp slt i64 %299, 0
   br i1 %304, label %hd_inflate_read_len.exit.thread, label %305
 
@@ -2572,12 +2572,12 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
 
 307:                                              ; preds = %305
   store i8 0, ptr %301, align 1, !tbaa !11
-  %308 = load ptr, ptr %25, align 8, !tbaa !115
-  %309 = load ptr, ptr %26, align 8, !tbaa !116
+  %308 = load ptr, ptr %25, align 8, !tbaa !116
+  %309 = load ptr, ptr %26, align 8, !tbaa !117
   %310 = ptrtoint ptr %308 to i64
   %311 = ptrtoint ptr %309 to i64
   %312 = sub i64 %310, %311
-  %313 = load ptr, ptr %27, align 8, !tbaa !70
+  %313 = load ptr, ptr %27, align 8, !tbaa !71
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 24
   store i64 %312, ptr %314, align 8, !tbaa !22
   store i32 9, ptr %17, align 4, !tbaa !57
@@ -2588,15 +2588,15 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
   %.lobit.i302 = lshr i8 %.0210.val259, 7
   store i8 %.lobit.i302, ptr %18, align 8, !tbaa !58
   store i32 10, ptr %17, align 4, !tbaa !57
-  store i64 0, ptr %19, align 8, !tbaa !108
-  store i64 0, ptr %20, align 8, !tbaa !109
+  store i64 0, ptr %19, align 8, !tbaa !109
+  store i64 0, ptr %20, align 8, !tbaa !110
   br label %318
 
 315:                                              ; preds = %40
-  %.pre = load i64, ptr %19, align 8, !tbaa !108
+  %.pre = load i64, ptr %19, align 8, !tbaa !109
   %.pre502 = load i64, ptr %20, align 8, !tbaa !59
   %316 = trunc i64 %.pre to i32
-  store i64 0, ptr %20, align 8, !tbaa !109
+  store i64 0, ptr %20, align 8, !tbaa !110
   %317 = icmp eq i32 %316, 0
   br i1 %317, label %318, label %326
 
@@ -2651,16 +2651,16 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
   %344 = getelementptr inbounds nuw i8, ptr %.15579.i.i309, i64 1
   %345 = add nuw nsw i64 %.05380.i.i308, 7
   %.not62.i.i310 = icmp eq ptr %344, %7
-  br i1 %.not62.i.i310, label %._crit_edge.i.i311, label %.lr.ph.i.i306, !llvm.loop !110
+  br i1 %.not62.i.i310, label %._crit_edge.i.i311, label %.lr.ph.i.i306, !llvm.loop !111
 
 ._crit_edge.i.i311:                               ; preds = %343, %326
   %.053.lcssa.i.i312 = phi i64 [ %327, %326 ], [ %345, %343 ]
   %.151.lcssa.i.i313 = phi i32 [ %.050.i.i304, %326 ], [ %341, %343 ]
-  store i64 %.053.lcssa.i.i312, ptr %20, align 8, !tbaa !109
+  store i64 %.053.lcssa.i.i312, ptr %20, align 8, !tbaa !110
   br label %decode_length.exit.i314
 
 346:                                              ; preds = %340
-  store i64 %.05380.i.i308, ptr %20, align 8, !tbaa !109
+  store i64 %.05380.i.i308, ptr %20, align 8, !tbaa !110
   %347 = getelementptr inbounds nuw i8, ptr %.15579.i.i309, i64 1
   %.pre509 = ptrtoint ptr %347 to i64
   br label %decode_length.exit.i314
@@ -2679,12 +2679,12 @@ decode_length.exit.i314:                          ; preds = %346, %._crit_edge.i
 hd_inflate_read_len.exit323.thread:               ; preds = %318, %323
   %.10.ph = phi i32 [ 1, %318 ], [ 0, %323 ]
   %.01421.i320.ph = phi i64 [ %322, %318 ], [ 127, %323 ]
-  store i64 %.01421.i320.ph, ptr %19, align 8, !tbaa !108
+  store i64 %.01421.i320.ph, ptr %19, align 8, !tbaa !109
   br label %354
 
 hd_inflate_read_len.exit323:                      ; preds = %decode_length.exit.i314
   %352 = zext nneg i32 %.014.i316 to i64
-  store i64 %352, ptr %19, align 8, !tbaa !108
+  store i64 %352, ptr %19, align 8, !tbaa !109
   %353 = icmp slt i64 %349, 0
   br i1 %353, label %hd_inflate_read_len.exit.thread, label %354
 
@@ -2704,7 +2704,7 @@ hd_inflate_read_len.exit323:                      ; preds = %decode_length.exit.
 359:                                              ; preds = %357
   tail call void @nghttp2_hd_huff_decode_context_init(ptr noundef nonnull %21) #12
   store i32 11, ptr %17, align 4, !tbaa !57
-  %360 = load i64, ptr %19, align 8, !tbaa !108
+  %360 = load i64, ptr %19, align 8, !tbaa !109
   %361 = shl i64 %360, 1
   %362 = or disjoint i64 %361, 1
   br label %365
@@ -2721,7 +2721,7 @@ hd_inflate_read_len.exit323:                      ; preds = %decode_length.exit.
   br i1 %.not247, label %367, label %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit
 
 367:                                              ; preds = %365
-  %368 = load ptr, ptr %22, align 8, !tbaa !69
+  %368 = load ptr, ptr %22, align 8, !tbaa !70
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %370 = load ptr, ptr %369, align 8, !tbaa !14
   %371 = getelementptr inbounds nuw i8, ptr %368, i64 24
@@ -2736,21 +2736,21 @@ hd_inflate_read_len.exit323:                      ; preds = %decode_length.exit.
 
 376:                                              ; preds = %373
   %377 = getelementptr inbounds nuw i8, ptr %.0210452, i64 %374
-  %378 = load i64, ptr %19, align 8, !tbaa !108
+  %378 = load i64, ptr %19, align 8, !tbaa !109
   %.not243 = icmp eq i64 %378, 0
   br i1 %.not243, label %379, label %.loopexit
 
 379:                                              ; preds = %376
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %381 = load ptr, ptr %380, align 8, !tbaa !118
+  %381 = load ptr, ptr %380, align 8, !tbaa !119
   store i8 0, ptr %381, align 1, !tbaa !11
-  %382 = load ptr, ptr %380, align 8, !tbaa !118
+  %382 = load ptr, ptr %380, align 8, !tbaa !119
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %384 = load ptr, ptr %383, align 8, !tbaa !119
+  %384 = load ptr, ptr %383, align 8, !tbaa !120
   %385 = ptrtoint ptr %382 to i64
   %386 = ptrtoint ptr %384 to i64
   %387 = sub i64 %385, %386
-  %388 = load ptr, ptr %22, align 8, !tbaa !69
+  %388 = load ptr, ptr %22, align 8, !tbaa !70
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 24
   store i64 %387, ptr %389, align 8, !tbaa !22
   %390 = load i32, ptr %29, align 8, !tbaa !56
@@ -2784,15 +2784,15 @@ hd_inflate_read_len.exit323:                      ; preds = %decode_length.exit.
 403:                                              ; preds = %40
   %404 = ptrtoint ptr %.0210452 to i64
   %405 = sub i64 %24, %404
-  %406 = load i64, ptr %19, align 8, !tbaa !108
+  %406 = load i64, ptr %19, align 8, !tbaa !109
   %407 = tail call noundef i64 @llvm.umin.i64(i64 %405, i64 %406)
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %409 = load ptr, ptr %408, align 8, !tbaa !117
+  %409 = load ptr, ptr %408, align 8, !tbaa !118
   %410 = tail call ptr @nghttp2_cpymem(ptr noundef %409, ptr noundef %.0210452, i64 noundef %407) #12
-  store ptr %410, ptr %408, align 8, !tbaa !117
-  %411 = load i64, ptr %19, align 8, !tbaa !108
+  store ptr %410, ptr %408, align 8, !tbaa !118
+  %411 = load i64, ptr %19, align 8, !tbaa !109
   %412 = sub i64 %411, %407
-  store i64 %412, ptr %19, align 8, !tbaa !108
+  store i64 %412, ptr %19, align 8, !tbaa !109
   %413 = icmp slt i64 %407, 0
   br i1 %413, label %hd_inflate_read_len.exit.thread, label %414
 
@@ -2803,13 +2803,13 @@ hd_inflate_read_len.exit323:                      ; preds = %decode_length.exit.
 
 416:                                              ; preds = %414
   store i8 0, ptr %410, align 1, !tbaa !11
-  %417 = load ptr, ptr %408, align 8, !tbaa !118
+  %417 = load ptr, ptr %408, align 8, !tbaa !119
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %419 = load ptr, ptr %418, align 8, !tbaa !119
+  %419 = load ptr, ptr %418, align 8, !tbaa !120
   %420 = ptrtoint ptr %417 to i64
   %421 = ptrtoint ptr %419 to i64
   %422 = sub i64 %420, %421
-  %423 = load ptr, ptr %22, align 8, !tbaa !69
+  %423 = load ptr, ptr %22, align 8, !tbaa !70
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 24
   store i64 %422, ptr %424, align 8, !tbaa !22
   %425 = load i32, ptr %29, align 8, !tbaa !56
@@ -2845,7 +2845,7 @@ hd_inflate_read_len.exit323:                      ; preds = %decode_length.exit.
   %439 = phi i1 [ false, %40 ], [ false, %62 ], [ false, %hd_context_shrink_table_size.exit ], [ false, %265 ], [ false, %286 ], [ false, %307 ], [ true, %367 ], [ false, %.thread348 ]
   %440 = icmp ne ptr %.1211, %7
   %441 = or i1 %440, %439
-  br i1 %441, label %40, label %._crit_edge, !llvm.loop !120
+  br i1 %441, label %40, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %438, %12
   %.0210.lcssa = phi ptr [ %3, %12 ], [ %7, %438 ]
@@ -2892,7 +2892,7 @@ hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit418: ; preds = %263
 
 hd_inflate_read_len.exit.thread:                  ; preds = %hd_inflate_read_len.exit323, %295, %hd_inflate_read_len.exit301, %hd_inflate_read_len.exit, %42, %49, %decode_length.exit.i, %decode_length.exit.thread18.i, %hd_inflate_read_len.exit280, %184, %decode_length.exit.i271, %decode_length.exit.thread18.i275, %decode_length.exit.i292, %271, %280, %decode_length.exit.i314, %336, %332, %.lr.ph.i.i306, %234, %230, %.lr.ph.i.i284, %164, %160, %.lr.ph.i.i263, %87, %83, %.lr.ph.i.i, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit418, %442, %.loopexit, %373, %396, %403, %431
   %.5 = phi i64 [ %374, %373 ], [ %.3217, %396 ], [ %407, %403 ], [ %.4218, %431 ], [ -523, %442 ], [ -523, %.loopexit ], [ %.2216.le, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit ], [ %.1215.le, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit418 ], [ -523, %.lr.ph.i.i ], [ -523, %83 ], [ -523, %87 ], [ -523, %.lr.ph.i.i263 ], [ -523, %160 ], [ -523, %164 ], [ -523, %.lr.ph.i.i284 ], [ -523, %230 ], [ -523, %234 ], [ -523, %.lr.ph.i.i306 ], [ -523, %332 ], [ -523, %336 ], [ %349, %hd_inflate_read_len.exit323 ], [ %299, %295 ], [ %247, %hd_inflate_read_len.exit301 ], [ %.049.i22.i, %hd_inflate_read_len.exit ], [ -523, %42 ], [ -523, %49 ], [ -523, %decode_length.exit.i ], [ -523, %decode_length.exit.thread18.i ], [ %.049.i22.i276, %hd_inflate_read_len.exit280 ], [ -523, %184 ], [ -523, %decode_length.exit.i271 ], [ -523, %decode_length.exit.thread18.i275 ], [ -523, %decode_length.exit.i292 ], [ %278, %271 ], [ -523, %280 ], [ -523, %decode_length.exit.i314 ]
-  store i8 1, ptr %10, align 4, !tbaa !107
+  store i8 1, ptr %10, align 4, !tbaa !108
   br label %456
 
 456:                                              ; preds = %.thread343, %6, %hd_inflate_read_len.exit.thread, %452, %448, %432, %397
@@ -2912,7 +2912,7 @@ define internal fastcc i64 @hd_inflate_read_huff(ptr noundef %0, ptr noundef %1,
   %6 = ptrtoint ptr %2 to i64
   %7 = sub i64 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %9 = load i64, ptr %8, align 8, !tbaa !108
+  %9 = load i64, ptr %8, align 8, !tbaa !109
   %.not = icmp uge i64 %7, %9
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %9
   %spec.select = select i1 %.not, ptr %10, ptr %3
@@ -2930,9 +2930,9 @@ define internal fastcc i64 @hd_inflate_read_huff(ptr noundef %0, ptr noundef %1,
   br i1 %.not21, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = load i64, ptr %8, align 8, !tbaa !108
+  %19 = load i64, ptr %8, align 8, !tbaa !109
   %20 = sub i64 %19, %14
-  store i64 %20, ptr %8, align 8, !tbaa !108
+  store i64 %20, ptr %8, align 8, !tbaa !109
   br label %21
 
 21:                                               ; preds = %16, %4, %18
@@ -2951,10 +2951,10 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_newname(ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 %spec.select, ptr %6, align 4, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %8 = load ptr, ptr %7, align 8, !tbaa !70
+  %8 = load ptr, ptr %7, align 8, !tbaa !71
   store ptr %8, ptr %3, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %10 = load ptr, ptr %9, align 8, !tbaa !69
+  %10 = load ptr, ptr %9, align 8, !tbaa !70
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2963,7 +2963,7 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_newname(ptr nou
   %15 = load i64, ptr %14, align 8, !tbaa !22
   %16 = tail call fastcc i32 @lookup_token(ptr noundef %13, i64 noundef %15)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %16, ptr %17, align 8, !tbaa !79
+  store i32 %16, ptr %17, align 8, !tbaa !80
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %19 = load i8, ptr %18, align 1, !tbaa !60
   %.not15 = icmp eq i8 %19, 0
@@ -2977,9 +2977,9 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_newname(ptr nou
 22:                                               ; preds = %20, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %8, ptr %23, align 8, !tbaa !68
+  store ptr %8, ptr %23, align 8, !tbaa !69
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %10, ptr %24, align 8, !tbaa !67
+  store ptr %10, ptr %24, align 8, !tbaa !68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %25
 
@@ -2994,15 +2994,15 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_indname(ptr nou
   %3 = alloca %struct.nghttp2_hd_nv, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %5 = load i64, ptr %4, align 8, !tbaa !111
+  %5 = load i64, ptr %4, align 8, !tbaa !112
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !71, !noalias !121
+  %7 = load i64, ptr %6, align 8, !tbaa !72, !noalias !122
   %8 = add i64 %7, 61
   %9 = icmp ult i64 %5, %8
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_hd_table_get) #13, !noalias !121
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_hd_table_get) #13, !noalias !122
   unreachable
 
 11:                                               ; preds = %2
@@ -3015,19 +3015,19 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_indname(ptr nou
   br i1 %15, label %hd_ringbuf_get.exit.i, label %16
 
 16:                                               ; preds = %13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 622, ptr noundef nonnull @__PRETTY_FUNCTION__.hd_ringbuf_get) #13, !noalias !121
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 622, ptr noundef nonnull @__PRETTY_FUNCTION__.hd_ringbuf_get) #13, !noalias !122
   unreachable
 
 hd_ringbuf_get.exit.i:                            ; preds = %13
-  %17 = load ptr, ptr %0, align 8, !tbaa !40, !noalias !121
+  %17 = load ptr, ptr %0, align 8, !tbaa !40, !noalias !122
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !63, !noalias !121
+  %19 = load i64, ptr %18, align 8, !tbaa !63, !noalias !122
   %20 = add i64 %19, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !41, !noalias !121
+  %22 = load i64, ptr %21, align 8, !tbaa !41, !noalias !122
   %23 = and i64 %20, %22
   %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !64, !noalias !121
+  %25 = load ptr, ptr %24, align 8, !tbaa !64, !noalias !122
   %.sroa.0.0.copyload13 = load ptr, ptr %25, align 8, !tbaa !4
   %.sroa.6.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.7.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %25, i64 20
@@ -3057,7 +3057,7 @@ nghttp2_hd_table_get.exit:                        ; preds = %hd_ringbuf_get.exit
   store i8 %., ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !27
   tail call void @nghttp2_rcbuf_incref(ptr noundef %.sroa.0.0) #12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %32 = load ptr, ptr %31, align 8, !tbaa !69
+  %32 = load ptr, ptr %31, align 8, !tbaa !70
   store ptr %32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %34 = load i8, ptr %33, align 1, !tbaa !60
@@ -3076,10 +3076,10 @@ nghttp2_hd_table_get.exit:                        ; preds = %hd_ringbuf_get.exit
 38:                                               ; preds = %35, %nghttp2_hd_table_get.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %.sroa.0.0, ptr %39, align 8, !tbaa !68
+  store ptr %.sroa.0.0, ptr %39, align 8, !tbaa !69
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %32, ptr %40, align 8, !tbaa !67
-  store ptr null, ptr %31, align 8, !tbaa !69
+  store ptr %32, ptr %40, align 8, !tbaa !68
+  store ptr null, ptr %31, align 8, !tbaa !70
   br label %41
 
 41:                                               ; preds = %38, %37
@@ -3091,10 +3091,10 @@ nghttp2_hd_table_get.exit:                        ; preds = %hd_ringbuf_get.exit
 ; Function Attrs: nounwind uwtable
 define noundef i32 @nghttp2_hd_inflate_end_headers(ptr noundef captures(none) initializes((228, 232)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !68
   tail call void @nghttp2_rcbuf_decref(ptr noundef %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
   tail call void @nghttp2_rcbuf_decref(ptr noundef %5) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -3174,7 +3174,7 @@ nghttp2_hd_inflate_init.exit:                     ; preds = %9
   store i8 0, ptr %32, align 2, !tbaa !61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr %7, ptr %0, align 8, !tbaa !124
+  store ptr %7, ptr %0, align 8, !tbaa !125
   br label %33
 
 33:                                               ; preds = %6, %15, %nghttp2_hd_inflate_init.exit
@@ -3185,7 +3185,7 @@ nghttp2_hd_inflate_init.exit:                     ; preds = %9
 ; Function Attrs: nounwind uwtable
 define void @nghttp2_hd_inflate_del(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !106
+  %3 = load ptr, ptr %2, align 8, !tbaa !107
   tail call void @nghttp2_hd_inflate_free(ptr noundef %0)
   tail call void @nghttp2_mem_free(ptr noundef %3, ptr noundef %0) #12
   ret void
@@ -3220,7 +3220,7 @@ define internal fastcc i32 @emit_indname_block(ptr noundef %0, i64 noundef %1, p
   %14 = lshr i64 %.01215.i, 7
   %15 = add nuw nsw i64 %.016.i, 1
   %16 = icmp ugt i64 %.01215.i, 16383
-  br i1 %16, label %.lr.ph.i, label %count_encoded_length.exit, !llvm.loop !81
+  br i1 %16, label %.lr.ph.i, label %count_encoded_length.exit, !llvm.loop !82
 
 count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %17 = add nuw nsw i64 %.016.i, 2
@@ -3269,7 +3269,7 @@ switch.lookup:                                    ; preds = %count_encoded_lengt
   %33 = lshr i64 %.02529.i, 7
   %.024.i = getelementptr inbounds nuw i8, ptr %.02430.i, i64 1
   %34 = icmp ugt i64 %.02529.i, 16383
-  br i1 %34, label %.lr.ph.i26, label %._crit_edge.i, !llvm.loop !82
+  br i1 %34, label %.lr.ph.i26, label %._crit_edge.i, !llvm.loop !83
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i26, %26
   %.025.lcssa.i = phi i64 [ %29, %26 ], [ %33, %.lr.ph.i26 ]
@@ -3285,9 +3285,9 @@ encode_length.exit:                               ; preds = %23, %._crit_edge.i
 
 37:                                               ; preds = %encode_length.exit
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !92
+  %39 = load ptr, ptr %38, align 8, !tbaa !93
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %41 = load i64, ptr %40, align 8, !tbaa !89
+  %41 = load i64, ptr %40, align 8, !tbaa !90
   %42 = call fastcc i32 @emit_string(ptr noundef %0, ptr noundef %39, i64 noundef %41)
   br label %43
 
@@ -3316,18 +3316,18 @@ switch.lookup:                                    ; preds = %3
   br i1 %.not.i, label %7, label %emit_newname_block.exit
 
 7:                                                ; preds = %switch.lookup
-  %8 = load ptr, ptr %1, align 8, !tbaa !85
+  %8 = load ptr, ptr %1, align 8, !tbaa !86
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !86
+  %10 = load i64, ptr %9, align 8, !tbaa !87
   %11 = tail call fastcc i32 @emit_string(ptr noundef %0, ptr noundef %8, i64 noundef %10)
   %.not17.i = icmp eq i32 %11, 0
   br i1 %.not17.i, label %12, label %emit_newname_block.exit
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !92
+  %14 = load ptr, ptr %13, align 8, !tbaa !93
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !89
+  %16 = load i64, ptr %15, align 8, !tbaa !90
   %17 = tail call fastcc i32 @emit_string(ptr noundef %0, ptr noundef %14, i64 noundef %16)
   br label %emit_newname_block.exit
 
@@ -3354,7 +3354,7 @@ define hidden i32 @nghttp2_hd_emit_table_size(ptr noundef %0, i64 noundef %1) lo
   %8 = lshr i64 %.01215.i.i, 7
   %9 = add nuw nsw i64 %.016.i.i, 1
   %10 = icmp ugt i64 %.01215.i.i, 16383
-  br i1 %10, label %.lr.ph.i.i, label %count_encoded_length.exit.i, !llvm.loop !81
+  br i1 %10, label %.lr.ph.i.i, label %count_encoded_length.exit.i, !llvm.loop !82
 
 count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
   %11 = icmp samesign ugt i64 %.016.i.i, 14
@@ -3385,7 +3385,7 @@ count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
   %18 = lshr i64 %.02529.i.i, 7
   %.024.i.i = getelementptr inbounds nuw i8, ptr %.02430.i.i, i64 1
   %19 = icmp ugt i64 %.02529.i.i, 16383
-  br i1 %19, label %.lr.ph.i11.i, label %._crit_edge.i.i.loopexit, !llvm.loop !82
+  br i1 %19, label %.lr.ph.i11.i, label %._crit_edge.i.i.loopexit, !llvm.loop !83
 
 ._crit_edge.i.i.loopexit:                         ; preds = %.lr.ph.i11.i
   %20 = add nuw nsw i64 %.016.i.i, 2
@@ -3416,7 +3416,7 @@ define hidden i64 @nghttp2_hd_decode_length(ptr noundef writeonly captures(none)
   %notmask.i = shl nsw i32 -1, %9
   %10 = and i32 %notmask.i, 255
   %11 = xor i32 %10, 255
-  store i64 0, ptr %1, align 8, !tbaa !109
+  store i64 0, ptr %1, align 8, !tbaa !110
   store i32 0, ptr %2, align 4, !tbaa !9
   %12 = icmp eq i32 %3, 0
   br i1 %12, label %13, label %22
@@ -3479,20 +3479,20 @@ define hidden i64 @nghttp2_hd_decode_length(ptr noundef writeonly captures(none)
   %39 = getelementptr inbounds nuw i8, ptr %.15579.i, i64 1
   %40 = add nuw nsw i64 %.05380.i, 7
   %.not62.i = icmp eq ptr %39, %6
-  br i1 %.not62.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !110
+  br i1 %.not62.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !111
 
 ._crit_edge.i:                                    ; preds = %38, %22
   %.053.lcssa.i = phi i64 [ %4, %22 ], [ %40, %38 ]
   %.151.lcssa.i = phi i32 [ %.050.i, %22 ], [ %36, %38 ]
   %.pre-phi.i = ptrtoint ptr %6 to i64
-  store i64 %.053.lcssa.i, ptr %1, align 8, !tbaa !109
+  store i64 %.053.lcssa.i, ptr %1, align 8, !tbaa !110
   store i32 %.151.lcssa.i, ptr %0, align 4, !tbaa !9
   %41 = ptrtoint ptr %5 to i64
   %42 = sub i64 %.pre-phi.i, %41
   br label %decode_length.exit
 
 43:                                               ; preds = %35
-  store i64 %.05380.i, ptr %1, align 8, !tbaa !109
+  store i64 %.05380.i, ptr %1, align 8, !tbaa !110
   store i32 %36, ptr %0, align 4, !tbaa !9
   store i32 1, ptr %2, align 4, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %.15579.i, i64 1
@@ -3509,7 +3509,7 @@ decode_length.exit:                               ; preds = %.lr.ph.i, %27, %31,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_hd_deflate_get_num_table_entries(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr i8, ptr %0, i64 24
-  %.val = load i64, ptr %2, align 8, !tbaa !71
+  %.val = load i64, ptr %2, align 8, !tbaa !72
   %3 = add i64 %.val, 61
   ret i64 %3
 }
@@ -3522,7 +3522,7 @@ define ptr @nghttp2_hd_deflate_get_table_entry(ptr noundef readonly captures(non
 4:                                                ; preds = %2
   %5 = add i64 %1, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !71
+  %7 = load i64, ptr %6, align 8, !tbaa !72
   %8 = add i64 %7, 61
   %9 = icmp ult i64 %5, %8
   br i1 %9, label %10, label %hd_get_table_entry.exit
@@ -3565,7 +3565,7 @@ hd_get_table_entry.exit:                          ; preds = %2, %4, %hd_ringbuf_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_hd_deflate_get_dynamic_table_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i64, ptr %2, align 8, !tbaa !126
+  %3 = load i64, ptr %2, align 8, !tbaa !127
   ret i64 %3
 }
 
@@ -3579,7 +3579,7 @@ define i64 @nghttp2_hd_deflate_get_max_dynamic_table_size(ptr noundef readonly c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_hd_inflate_get_num_table_entries(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr i8, ptr %0, i64 24
-  %.val = load i64, ptr %2, align 8, !tbaa !71
+  %.val = load i64, ptr %2, align 8, !tbaa !72
   %3 = add i64 %.val, 61
   ret i64 %3
 }
@@ -3592,7 +3592,7 @@ define ptr @nghttp2_hd_inflate_get_table_entry(ptr noundef readonly captures(non
 4:                                                ; preds = %2
   %5 = add i64 %1, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !71
+  %7 = load i64, ptr %6, align 8, !tbaa !72
   %8 = add i64 %7, 61
   %9 = icmp ult i64 %5, %8
   br i1 %9, label %10, label %hd_get_table_entry.exit
@@ -3635,14 +3635,14 @@ hd_get_table_entry.exit:                          ; preds = %2, %4, %hd_ringbuf_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_hd_inflate_get_dynamic_table_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i64, ptr %2, align 8, !tbaa !127
+  %3 = load i64, ptr %2, align 8, !tbaa !128
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_hd_inflate_get_max_dynamic_table_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i64, ptr %2, align 8, !tbaa !76
+  %3 = load i64, ptr %2, align 8, !tbaa !77
   ret i64 %3
 }
 
@@ -4170,7 +4170,7 @@ define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr noun
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not50 = icmp eq ptr %2, null
-  %25 = load i64, ptr %16, align 8, !tbaa !71
+  %25 = load i64, ptr %16, align 8, !tbaa !72
   %.not.us72 = icmp eq i64 %25, 0
   br i1 %.not50, label %.lr.ph60.split.us, label %.lr.ph60.split
 
@@ -4178,9 +4178,9 @@ define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr noun
   br i1 %.not.us72, label %.critedge, label %hd_ringbuf_pop_back.exit.us
 
 26:                                               ; preds = %hd_ringbuf_pop_back.exit.us
-  %27 = load i64, ptr %16, align 8, !tbaa !71
+  %27 = load i64, ptr %16, align 8, !tbaa !72
   %.not.us = icmp eq i64 %27, 0
-  br i1 %.not.us, label %.critedge, label %hd_ringbuf_pop_back.exit.us, !llvm.loop !128
+  br i1 %.not.us, label %.critedge, label %hd_ringbuf_pop_back.exit.us, !llvm.loop !129
 
 hd_ringbuf_pop_back.exit.us:                      ; preds = %.lr.ph60.split.us, %26
   %28 = phi i64 [ %27, %26 ], [ %25, %.lr.ph60.split.us ]
@@ -4213,15 +4213,15 @@ hd_ringbuf_pop_back.exit.us:                      ; preds = %.lr.ph60.split.us, 
   %49 = add i64 %48, %15
   %50 = load i64, ptr %18, align 8, !tbaa !39
   %51 = icmp ugt i64 %49, %50
-  br i1 %51, label %26, label %.critedge, !llvm.loop !128
+  br i1 %51, label %26, label %.critedge, !llvm.loop !129
 
 .lr.ph60.split:                                   ; preds = %.lr.ph60
   br i1 %.not.us72, label %.critedge, label %hd_ringbuf_pop_back.exit
 
 52:                                               ; preds = %hd_map_remove.exit
-  %53 = load i64, ptr %16, align 8, !tbaa !71
+  %53 = load i64, ptr %16, align 8, !tbaa !72
   %.not = icmp eq i64 %53, 0
-  br i1 %.not, label %.critedge, label %hd_ringbuf_pop_back.exit, !llvm.loop !129
+  br i1 %.not, label %.critedge, label %hd_ringbuf_pop_back.exit, !llvm.loop !130
 
 hd_ringbuf_pop_back.exit:                         ; preds = %.lr.ph60.split, %52
   %54 = phi i64 [ %53, %52 ], [ %25, %.lr.ph60.split ]
@@ -4264,11 +4264,11 @@ hd_ringbuf_pop_back.exit:                         ; preds = %.lr.ph60.split, %52
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %81 = load ptr, ptr %80, align 8, !tbaa !64
   %.not.i51 = icmp eq ptr %81, null
-  br i1 %.not.i51, label %hd_map_remove.exit, label %.lr.ph.i, !llvm.loop !74
+  br i1 %.not.i51, label %hd_map_remove.exit, label %.lr.ph.i, !llvm.loop !75
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %.not11.i = icmp eq ptr %81, %63
-  br i1 %.not11.i, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %.not11.i, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !75
 
 .lr.ph.i._crit_edge.loopexit:                     ; preds = %.lr.ph.i
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 64
@@ -4291,7 +4291,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   %87 = add i64 %86, %15
   %88 = load i64, ptr %18, align 8, !tbaa !39
   %89 = icmp ugt i64 %87, %88
-  br i1 %89, label %52, label %.critedge, !llvm.loop !129
+  br i1 %89, label %52, label %.critedge, !llvm.loop !130
 
 .critedge:                                        ; preds = %52, %hd_map_remove.exit, %26, %hd_ringbuf_pop_back.exit.us, %.lr.ph60.split.us, %.lr.ph60.split, %4
   %.lcssa = phi i64 [ %21, %4 ], [ %21, %.lr.ph60.split.us ], [ %21, %.lr.ph60.split ], [ %50, %hd_ringbuf_pop_back.exit.us ], [ %50, %26 ], [ %88, %hd_map_remove.exit ], [ %88, %52 ]
@@ -4355,7 +4355,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   %.022.i.i = phi i64 [ %124, %.preheader26.i.i ], [ 1, %94 ]
   %123 = icmp ult i64 %.022.i.i, %118
   %124 = shl i64 %.022.i.i, 1
-  br i1 %123, label %.preheader26.i.i, label %125, !llvm.loop !130
+  br i1 %123, label %.preheader26.i.i, label %125, !llvm.loop !131
 
 125:                                              ; preds = %.preheader26.i.i
   %126 = shl i64 %.022.i.i, 3
@@ -4385,7 +4385,7 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %hd_ringbuf_get.exit
   store ptr %136, ptr %137, align 8, !tbaa !64
   %138 = add nuw i64 %.02327.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %138, %129
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %hd_ringbuf_get.exit.i.i, !llvm.loop !131
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %hd_ringbuf_get.exit.i.i, !llvm.loop !132
 
 ._crit_edge.i.i:                                  ; preds = %hd_ringbuf_get.exit.i.i, %.preheader.i.i
   tail call void @nghttp2_mem_free(ptr noundef %6, ptr noundef %.pre.i.i) #12
@@ -4420,7 +4420,7 @@ hd_ringbuf_push_front.exit:                       ; preds = %125
   %151 = add i32 %150, 1
   store i32 %151, ptr %149, align 8, !tbaa !43
   %152 = getelementptr inbounds nuw i8, ptr %92, i64 72
-  store i32 %150, ptr %152, align 8, !tbaa !99
+  store i32 %150, ptr %152, align 8, !tbaa !100
   store i32 %3, ptr %113, align 4, !tbaa !30
   %.not49 = icmp eq ptr %2, null
   br i1 %.not49, label %160, label %153
@@ -4479,7 +4479,7 @@ define internal fastcc i32 @emit_string(ptr noundef %0, ptr noundef %1, i64 noun
   %10 = lshr i64 %.01215.i, 7
   %11 = add nuw nsw i64 %.016.i, 1
   %12 = icmp ugt i64 %.01215.i, 16383
-  br i1 %12, label %.lr.ph.i, label %count_encoded_length.exit, !llvm.loop !81
+  br i1 %12, label %.lr.ph.i, label %count_encoded_length.exit, !llvm.loop !82
 
 count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %13 = icmp samesign ugt i64 %.016.i, 14
@@ -4514,7 +4514,7 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %24 = lshr i64 %.02529.i, 7
   %.024.i = getelementptr inbounds nuw i8, ptr %.02430.i, i64 1
   %25 = icmp ugt i64 %.02529.i, 16383
-  br i1 %25, label %.lr.ph.i33, label %._crit_edge.i, !llvm.loop !82
+  br i1 %25, label %.lr.ph.i33, label %._crit_edge.i, !llvm.loop !83
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i33, %18
   %.011.i353846 = phi i64 [ 2, %18 ], [ %20, %.lr.ph.i33 ]
@@ -4641,70 +4641,71 @@ attributes #13 = { noreturn nounwind }
 !62 = !{!35, !17, i64 24}
 !63 = !{!35, !17, i64 16}
 !64 = !{!21, !21, i64 0}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!51, !5, i64 176}
-!68 = !{!51, !5, i64 168}
-!69 = !{!51, !5, i64 160}
-!70 = !{!51, !5, i64 152}
-!71 = !{!34, !17, i64 24}
-!72 = distinct !{!72, !66, !73}
-!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!74 = distinct !{!74, !66}
-!75 = distinct !{!75, !66}
-!76 = !{!51, !17, i64 48}
-!77 = !{!78, !10, i64 120}
-!78 = !{!"", !15, i64 0, !15, i64 40, !20, i64 80, !10, i64 120, !10, i64 124}
-!79 = !{!13, !10, i64 16}
-!80 = !{!45, !7, i64 60}
-!81 = distinct !{!81, !66}
-!82 = distinct !{!82, !66}
-!83 = distinct !{!83, !66}
-!84 = !{!45, !6, i64 32}
-!85 = !{!20, !16, i64 0}
-!86 = !{!20, !17, i64 16}
-!87 = distinct !{!87, !66}
-!88 = !{!78, !10, i64 124}
-!89 = !{!20, !17, i64 24}
-!90 = !{!20, !7, i64 32}
-!91 = !{!19, !10, i64 16}
-!92 = !{!20, !16, i64 8}
-!93 = distinct !{!93, !66, !73}
-!94 = distinct !{!94, !66, !73}
-!95 = distinct !{!95, !66}
-!96 = !{!78, !17, i64 64}
-!97 = !{!78, !16, i64 56}
-!98 = distinct !{!98, !66}
-!99 = !{!19, !10, i64 72}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"nghttp2_hd_table_get: argument 0"}
-!102 = distinct !{!102, !"nghttp2_hd_table_get"}
-!103 = distinct !{!103, !66}
-!104 = !{!105, !105, i64 0}
-!105 = !{!"p1 _ZTS19nghttp2_hd_deflater", !6, i64 0}
-!106 = !{!51, !6, i64 32}
-!107 = !{!51, !7, i64 60}
-!108 = !{!51, !17, i64 184}
-!109 = !{!17, !17, i64 0}
-!110 = distinct !{!110, !66}
-!111 = !{!51, !17, i64 192}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"nghttp2_hd_table_get: argument 0"}
-!114 = distinct !{!114, !"nghttp2_hd_table_get"}
-!115 = !{!51, !16, i64 96}
-!116 = !{!51, !16, i64 88}
-!117 = !{!54, !16, i64 24}
-!118 = !{!51, !16, i64 136}
-!119 = !{!51, !16, i64 128}
-!120 = distinct !{!120, !66}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"nghttp2_hd_table_get: argument 0"}
-!123 = distinct !{!123, !"nghttp2_hd_table_get"}
-!124 = !{!125, !125, i64 0}
-!125 = !{!"p1 _ZTS19nghttp2_hd_inflater", !6, i64 0}
-!126 = !{!45, !17, i64 40}
-!127 = !{!51, !17, i64 40}
-!128 = distinct !{!128, !66, !73}
-!129 = distinct !{!129, !66}
-!130 = distinct !{!130, !66}
-!131 = distinct !{!131, !66}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!51, !5, i64 176}
+!69 = !{!51, !5, i64 168}
+!70 = !{!51, !5, i64 160}
+!71 = !{!51, !5, i64 152}
+!72 = !{!34, !17, i64 24}
+!73 = distinct !{!73, !66, !67, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = distinct !{!75, !66, !67}
+!76 = distinct !{!76, !66, !67}
+!77 = !{!51, !17, i64 48}
+!78 = !{!79, !10, i64 120}
+!79 = !{!"", !15, i64 0, !15, i64 40, !20, i64 80, !10, i64 120, !10, i64 124}
+!80 = !{!13, !10, i64 16}
+!81 = !{!45, !7, i64 60}
+!82 = distinct !{!82, !66, !67}
+!83 = distinct !{!83, !66, !67}
+!84 = distinct !{!84, !66, !67}
+!85 = !{!45, !6, i64 32}
+!86 = !{!20, !16, i64 0}
+!87 = !{!20, !17, i64 16}
+!88 = distinct !{!88, !66, !67}
+!89 = !{!79, !10, i64 124}
+!90 = !{!20, !17, i64 24}
+!91 = !{!20, !7, i64 32}
+!92 = !{!19, !10, i64 16}
+!93 = !{!20, !16, i64 8}
+!94 = distinct !{!94, !66, !67, !74}
+!95 = distinct !{!95, !66, !67, !74}
+!96 = distinct !{!96, !66, !67}
+!97 = !{!79, !17, i64 64}
+!98 = !{!79, !16, i64 56}
+!99 = distinct !{!99, !66, !67}
+!100 = !{!19, !10, i64 72}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"nghttp2_hd_table_get: argument 0"}
+!103 = distinct !{!103, !"nghttp2_hd_table_get"}
+!104 = distinct !{!104, !66, !67}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTS19nghttp2_hd_deflater", !6, i64 0}
+!107 = !{!51, !6, i64 32}
+!108 = !{!51, !7, i64 60}
+!109 = !{!51, !17, i64 184}
+!110 = !{!17, !17, i64 0}
+!111 = distinct !{!111, !66, !67}
+!112 = !{!51, !17, i64 192}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"nghttp2_hd_table_get: argument 0"}
+!115 = distinct !{!115, !"nghttp2_hd_table_get"}
+!116 = !{!51, !16, i64 96}
+!117 = !{!51, !16, i64 88}
+!118 = !{!54, !16, i64 24}
+!119 = !{!51, !16, i64 136}
+!120 = !{!51, !16, i64 128}
+!121 = distinct !{!121, !66, !67}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"nghttp2_hd_table_get: argument 0"}
+!124 = distinct !{!124, !"nghttp2_hd_table_get"}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 _ZTS19nghttp2_hd_inflater", !6, i64 0}
+!127 = !{!45, !17, i64 40}
+!128 = !{!51, !17, i64 40}
+!129 = distinct !{!129, !66, !67, !74}
+!130 = distinct !{!130, !66, !67}
+!131 = distinct !{!131, !66, !67}
+!132 = distinct !{!132, !66, !67}

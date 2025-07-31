@@ -913,7 +913,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17BuildAllocationOpERNS_10OpRcPtrVec
   %12 = load ptr, ptr %11, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !31
-  store i32 %14, ptr %4, align 8, !tbaa !65
+  store i32 %14, ptr %4, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !50
@@ -1189,9 +1189,9 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19AllocationTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -1216,7 +1216,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19Alloc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19AllocationTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev19AllocationTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -1459,12 +1459,13 @@ attributes #25 = { builtin nounwind }
 !60 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !6, i64 0}
 !61 = !{!"_ZTSSt6locale", !62, i64 0}
 !62 = !{!"p1 _ZTSNSt6locale5_ImplE", !6, i64 0}
-!63 = distinct !{!63, !64}
+!63 = distinct !{!63, !64, !65}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!66, !25, i64 0}
-!66 = !{!"_ZTSN19OpenColorIO_v2_5dev14AllocationDataE", !25, i64 0, !26, i64 8}
-!67 = !{!6, !6, i64 0}
-!68 = !{!69, !5, i64 24}
-!69 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19AllocationTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
-!70 = !{!71, !47, i64 8}
-!71 = !{!"_ZTSSt9type_info", !47, i64 8}
+!65 = !{!"llvm.loop.estimated_trip_count"}
+!66 = !{!67, !25, i64 0}
+!67 = !{!"_ZTSN19OpenColorIO_v2_5dev14AllocationDataE", !25, i64 0, !26, i64 8}
+!68 = !{!6, !6, i64 0}
+!69 = !{!70, !5, i64 24}
+!70 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19AllocationTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
+!71 = !{!72, !47, i64 8}
+!72 = !{!"_ZTSSt9type_info", !47, i64 8}

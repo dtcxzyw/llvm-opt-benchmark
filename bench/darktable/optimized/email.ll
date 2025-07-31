@@ -328,7 +328,7 @@ define void @finalize_store(ptr noundef readnone captures(none) %0, ptr noundef 
   %43 = getelementptr inbounds nuw i8, ptr %.05058, i64 8
   %.050 = load ptr, ptr %43, align 8, !tbaa !31
   %.not = icmp eq ptr %.050, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !70
 
 44:                                               ; preds = %._crit_edge
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %22) #12
@@ -360,7 +360,7 @@ define void @finalize_store(ptr noundef readnone captures(none) %0, ptr noundef 
   call void @g_free(ptr noundef %50) #12
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge62, label %.lr.ph61
+  br i1 %exitcond.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !72
 
 51:                                               ; preds = %._crit_edge62
   %52 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #12
@@ -395,7 +395,7 @@ declare i32 @g_spawn_sync(ptr noundef, ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @supported(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %4 = load ptr, ptr %3, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 8, !tbaa !73
   %5 = tail call ptr %4(ptr noundef null) #12
   %6 = load i8, ptr %5, align 1, !tbaa !22
   %7 = icmp ne i8 %6, 0
@@ -493,4 +493,7 @@ attributes #13 = { nounwind allocsize(0) }
 !67 = !{!68, !16, i64 0}
 !68 = !{!"_GList", !16, i64 0, !28, i64 8, !28, i64 16}
 !69 = !{!33, !44, i64 120}
-!70 = !{!24, !16, i64 144}
+!70 = distinct !{!70, !71}
+!71 = !{!"llvm.loop.estimated_trip_count"}
+!72 = distinct !{!72, !71}
+!73 = !{!24, !16, i64 144}

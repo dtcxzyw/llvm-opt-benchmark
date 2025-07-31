@@ -396,7 +396,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   %58 = getelementptr inbounds nuw [7 x %struct.anon], ptr @PGTYPESdate_fmt_asc.mapping, i64 0, i64 %indvars.iv.next
   %59 = load ptr, ptr %58, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !5
+  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !6
 
 .critedge:                                        ; preds = %._crit_edge, %48, %42
   %.4 = phi i32 [ -1, %42 ], [ -1, %48 ], [ 0, %._crit_edge ]
@@ -494,7 +494,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 %37
   %39 = load i8, ptr %38, align 1
   %.not.not = icmp eq i8 %39, 0
-  br i1 %.not.not, label %.critedge, label %40, !llvm.loop !6
+  br i1 %.not.not, label %.critedge, label %40, !llvm.loop !7
 
 40:                                               ; preds = %.lr.ph, %35
   %41 = phi i8 [ %32, %.lr.ph ], [ %39, %35 ]
@@ -627,7 +627,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 %104
   %106 = load i8, ptr %105, align 1
   %.not228 = icmp eq i8 %106, 0
-  br i1 %.not228, label %.loopexit, label %.lr.ph257, !llvm.loop !7
+  br i1 %.not228, label %.loopexit, label %.lr.ph257, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph257, %.preheader251, %94
   %.1208 = phi ptr [ %52, %94 ], [ %98, %.preheader251 ], [ %98, %.lr.ph257 ]
@@ -682,14 +682,14 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %128 = add i32 %.3192262, 1
   %129 = zext i32 %128 to i64
   %130 = icmp ugt i64 %107, %129
-  br i1 %130, label %.outer, label %._crit_edge, !llvm.loop !8
+  br i1 %130, label %.outer, label %._crit_edge, !llvm.loop !9
 
 .thread299:                                       ; preds = %127
   store i32 %.3192262, ptr %111, align 8
   %131 = add i32 %.3192262, 1
   %132 = zext i32 %131 to i64
   %133 = icmp ugt i64 %107, %132
-  br i1 %133, label %112, label %._crit_edge.thread304, !llvm.loop !8
+  br i1 %133, label %112, label %._crit_edge.thread304, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit310
   %134 = icmp eq i32 %.2201, 0
@@ -750,7 +750,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %153 = icmp samesign ult i64 %indvars.iv279, 19
   %or.cond274 = select i1 %.not236, i1 %153, i1 false
-  br i1 %or.cond274, label %147, label %154, !llvm.loop !9
+  br i1 %or.cond274, label %147, label %154, !llvm.loop !10
 
 154:                                              ; preds = %147
   %155 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.1208, ptr noundef nonnull dereferenceable(1) %143) #14
@@ -833,7 +833,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %195 = getelementptr inbounds nuw ptr, ptr %.1, i64 %194
   %196 = load ptr, ptr %195, align 8
   %.not235 = icmp eq ptr %196, null
-  br i1 %.not235, label %.critedge246, label %.preheader, !llvm.loop !10
+  br i1 %.not235, label %.critedge246, label %.preheader, !llvm.loop !11
 
 .critedge246:                                     ; preds = %192, %.preheader250
   tail call void @free(ptr noundef nonnull %143) #12
@@ -901,7 +901,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %.sroa.2.1 = phi i32 [ %216, %219 ], [ %.sroa.2.0272, %220 ], [ %.sroa.2.0272, %221 ], [ %.sroa.2.0272, %215 ]
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next283, 3
-  br i1 %exitcond285.not, label %223, label %199, !llvm.loop !11
+  br i1 %exitcond285.not, label %223, label %199, !llvm.loop !12
 
 223:                                              ; preds = %222
   tail call void @free(ptr noundef nonnull %.1208) #12
@@ -1005,12 +1005,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}

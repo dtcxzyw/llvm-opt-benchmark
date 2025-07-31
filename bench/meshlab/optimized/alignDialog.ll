@@ -368,7 +368,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
   %.pr = phi i64 [ %.pr20, %28 ], [ %41, %.noexc7 ]
   %42 = getelementptr inbounds nuw i8, ptr %.08.i, i64 32
   %.not.i = icmp eq ptr %42, %11
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit: ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i, %5
   ret void
@@ -482,7 +482,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i:
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i.i, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %24, %22
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !9
 
 26:                                               ; preds = %_ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i
   %27 = landingpad { ptr, i32 }
@@ -542,7 +542,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %.lr.ph, %9
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, %2
   ret void
@@ -573,7 +573,7 @@ define noundef ptr @_ZN11AlignDialog11currentNodeEv(ptr noundef nonnull readonly
 15:                                               ; preds = %.lr.ph.i.i
   %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i) #22
   %.not.i.i = icmp eq ptr %16, %9
-  br i1 %.not.i.i, label %_ZN15EditAlignPlugin11currentNodeEv.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZN15EditAlignPlugin11currentNodeEv.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN15EditAlignPlugin11currentNodeEv.exit:         ; preds = %.lr.ph.i.i, %15, %1
   %.0.i.i = phi ptr [ null, %1 ], [ null, %15 ], [ %11, %.lr.ph.i.i ]
@@ -4584,7 +4584,7 @@ _ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6detachEv.exit: ; preds =
   %.1.i.i = select i1 %15, ptr %.011.i.i, ptr %.0810.i.i
   %.19.i.i = load ptr, ptr %.19.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.19.i.i, null
-  br i1 %.not.i.i, label %_ZN8QMapNodeIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE10lowerBoundERKS3_.exit.i, label %12, !llvm.loop !10
+  br i1 %.not.i.i, label %_ZN8QMapNodeIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE10lowerBoundERKS3_.exit.i, label %12, !llvm.loop !12
 
 _ZN8QMapNodeIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE10lowerBoundERKS3_.exit.i: ; preds = %12
   %.not11.i = icmp eq ptr %.1.i.i, null
@@ -4630,7 +4630,7 @@ _ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6detachEv.exit.i: ; preds
   %.1.in.i = getelementptr inbounds nuw i8, ptr %.027.i, i64 %.1.in.v.i
   %.0.i7 = load ptr, ptr %.1.in.i, align 8
   %.not.i8 = icmp eq ptr %.0.i7, null
-  br i1 %.not.i8, label %._crit_edge.i, label %27, !llvm.loop !11
+  br i1 %.not.i8, label %._crit_edge.i, label %27, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %27
   %.not23.i = icmp eq ptr %.121.i, null
@@ -4699,7 +4699,7 @@ define void @_ZN11AlignDialog13updateButtonsEv(ptr noundef nonnull readonly alig
 17:                                               ; preds = %.lr.ph.i.i.i
   %18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %18, %11
-  br i1 %.not.i.i.i, label %_ZN11AlignDialog11currentNodeEv.exit.thread, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %_ZN11AlignDialog11currentNodeEv.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZN11AlignDialog11currentNodeEv.exit:             ; preds = %.lr.ph.i.i.i
   %19 = load ptr, ptr %4, align 8
@@ -5152,7 +5152,7 @@ define void @_ZN11AlignDialog27updateCurrentNodeBackgroundEv(ptr noundef nonnull
 45:                                               ; preds = %.lr.ph.i.i.i
   %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %46, %39
-  br i1 %.not.i.i.i, label %_ZN11AlignDialog11currentNodeEv.exit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %_ZN11AlignDialog11currentNodeEv.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZN11AlignDialog11currentNodeEv.exit:             ; preds = %.lr.ph.i.i.i, %45, %30
   %.0.i.i.i = phi ptr [ null, %30 ], [ %41, %.lr.ph.i.i.i ], [ null, %45 ]
@@ -5221,7 +5221,7 @@ _ZN11AlignDialog11currentNodeEv.exit:             ; preds = %.lr.ph.i.i.i, %45, 
 74:                                               ; preds = %.lr.ph.i.i.i15
   %75 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011.i.i.i16) #22
   %.not.i.i.i17 = icmp eq ptr %75, %68
-  br i1 %.not.i.i.i17, label %_ZN11AlignDialog11currentNodeEv.exit19, label %.lr.ph.i.i.i15
+  br i1 %.not.i.i.i17, label %_ZN11AlignDialog11currentNodeEv.exit19, label %.lr.ph.i.i.i15, !llvm.loop !11
 
 _ZN11AlignDialog11currentNodeEv.exit19:           ; preds = %.lr.ph.i.i.i15, %74, %61
   %.0.i.i.i18 = phi ptr [ null, %61 ], [ %70, %.lr.ph.i.i.i15 ], [ null, %74 ]
@@ -5277,7 +5277,7 @@ _ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6detachEv.e
   %.1.i.i = select i1 %15, ptr %.011.i.i, ptr %.0810.i.i
   %.19.i.i = load ptr, ptr %.19.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.19.i.i, null
-  br i1 %.not.i.i, label %_ZN8QMapNodeIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE10lowerBoundERKS5_.exit.i, label %12, !llvm.loop !12
+  br i1 %.not.i.i, label %_ZN8QMapNodeIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE10lowerBoundERKS5_.exit.i, label %12, !llvm.loop !14
 
 _ZN8QMapNodeIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE10lowerBoundERKS5_.exit.i: ; preds = %12
   %.not11.i = icmp eq ptr %.1.i.i, null
@@ -5323,7 +5323,7 @@ _ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6detachEv.e
   %.1.in.i = getelementptr inbounds nuw i8, ptr %.027.i, i64 %.1.in.v.i
   %.0.i7 = load ptr, ptr %.1.in.i, align 8
   %.not.i8 = icmp eq ptr %.0.i7, null
-  br i1 %.not.i8, label %._crit_edge.i, label %27, !llvm.loop !13
+  br i1 %.not.i8, label %._crit_edge.i, label %27, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %27
   %.not23.i = icmp eq ptr %.121.i, null
@@ -5549,7 +5549,7 @@ define void @_ZN11AlignDialog11rebuildTreeEv(ptr noundef nonnull align 8 derefer
   %32 = load ptr, ptr %15, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.not = icmp eq ptr %31, %33
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !16
 
 34:                                               ; preds = %.lr.ph
   %35 = landingpad { ptr, i32 }
@@ -5600,7 +5600,7 @@ define void @_ZN11AlignDialog11rebuildTreeEv(ptr noundef nonnull align 8 derefer
   %65 = sub i64 %63, %64
   %66 = sdiv exact i64 %65, 488
   %67 = icmp ugt i64 %66, %indvars.iv.next
-  br i1 %67, label %.lr.ph24, label %._crit_edge, !llvm.loop !15
+  br i1 %67, label %.lr.ph24, label %._crit_edge, !llvm.loop !17
 
 68:                                               ; preds = %.lr.ph24
   %69 = landingpad { ptr, i32 }
@@ -5659,16 +5659,16 @@ define void @_ZN18MeshTreeWidgetItemC2EPN3vcg8MeshTreeI9MeshModelfE8MeshNodeE(pt
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MeshTreeWidgetItem, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1216
-  %21 = load ptr, ptr %20, align 8, !noalias !16
+  %21 = load ptr, ptr %20, align 8, !noalias !18
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !16
+  %23 = load i32, ptr %22, align 4, !noalias !18
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !18
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 1208
   invoke void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %.noexc unwind label %64
@@ -5685,18 +5685,18 @@ define void @_ZN18MeshTreeWidgetItemC2EPN3vcg8MeshTreeI9MeshModelfE8MeshNodeE(pt
 
 _ZNK9MeshModel9shortNameEv.exit.i:                ; preds = %.noexc
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !18
   br label %34
 
 29:                                               ; preds = %2
-  store ptr %21, ptr %9, align 8, !alias.scope !16
-  %30 = load atomic i32, ptr %21 monotonic, align 4, !noalias !16
+  store ptr %21, ptr %9, align 8, !alias.scope !18
+  %30 = load atomic i32, ptr %21 monotonic, align 4, !noalias !18
   %31 = add i32 %30, -1
   %or.cond.not.i.i.i = icmp ult i32 %31, -2
   br i1 %or.cond.not.i.i.i, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = atomicrmw add ptr %21, i32 1 seq_cst, align 4, !noalias !16
+  %33 = atomicrmw add ptr %21, i32 1 seq_cst, align 4, !noalias !18
   br label %34
 
 34:                                               ; preds = %_ZNK9MeshModel9shortNameEv.exit.i, %29, %32
@@ -6568,7 +6568,7 @@ _ZN15QTreeWidgetItem7setTextEiRK7QString.exit98:  ; preds = %.noexc95
   %137 = sub i64 %135, %136
   %138 = sdiv exact i64 %137, 80
   %139 = icmp ult i64 %132, %138
-  br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 140:                                              ; preds = %21, %4
   %141 = landingpad { ptr, i32 }
@@ -6886,7 +6886,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiP
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIiPN3vcg8MeshTreeI9MeshModelfE8MeshNodeESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit, label %.lr.ph.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i, label %_ZNSt3mapIiPN3vcg8MeshTreeI9MeshModelfE8MeshNodeESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit, label %.lr.ph.i.i.i, !llvm.loop !22
 
 _ZNSt3mapIiPN3vcg8MeshTreeI9MeshModelfE8MeshNodeESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -6994,7 +6994,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg8MeshTreeI9Mes
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !21
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -7066,7 +7066,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg8MeshTreeI9Mes
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !21
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !23
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -7131,7 +7131,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg8MeshTreeI9Mes
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !21
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !23
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -8809,7 +8809,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i120.i
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; preds = %53, %48
   %54 = icmp eq ptr %50, %1
-  br i1 %54, label %__cxx_global_var_init.5.exit, label %48
+  br i1 %54, label %__cxx_global_var_init.5.exit, label %48, !llvm.loop !24
 
 .body.thread724.i:                                ; preds = %0
   %55 = landingpad { ptr, i32 }
@@ -8857,7 +8857,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; pred
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i: ; preds = %72, %67
   %73 = icmp eq ptr %69, %1
-  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67
+  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67, !llvm.loop !25
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i, %62
   %.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %65, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i ]
@@ -8909,7 +8909,7 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; preds = %80, %.preheader.i
   %81 = icmp eq ptr %77, %1
-  br i1 %81, label %.body.thread.i, label %.preheader.i
+  br i1 %81, label %.body.thread.i, label %.preheader.i, !llvm.loop !26
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
@@ -8976,20 +8976,25 @@ attributes #24 = { noreturn }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNK9MeshModel5labelEv: argument 0"}
-!18 = distinct !{!18, !"_ZNK9MeshModel5labelEv"}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK9MeshModel5labelEv: argument 0"}
+!20 = distinct !{!20, !"_ZNK9MeshModel5labelEv"}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}

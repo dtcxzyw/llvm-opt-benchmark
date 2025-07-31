@@ -240,7 +240,7 @@ define dso_local ptr @pg_tzset(ptr noundef readonly captures(none) %0) local_unn
   store i8 %19, ptr %.022, align 1
   %21 = load i8, ptr %18, align 1
   %.not15 = icmp eq i8 %21, 0
-  br i1 %.not15, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %.not15, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr @timezone_cache, align 8
@@ -460,7 +460,7 @@ define dso_local void @pg_tzenumerate_end(ptr noundef %0) local_unnamed_addr #0 
   %18 = add i32 %17, -1
   store i32 %18, ptr %2, align 4
   %19 = icmp sgt i32 %18, -1
-  br i1 %19, label %7, label %._crit_edge, !llvm.loop !7
+  br i1 %19, label %7, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %7, %1
   tail call void @pfree(ptr noundef nonnull %0) #10
@@ -512,13 +512,13 @@ define dso_local ptr @pg_tzenumerate_next(ptr noundef %0) local_unnamed_addr #0 
   %28 = load i32, ptr %3, align 4
   %29 = add i32 %28, -1
   store i32 %29, ptr %3, align 4
-  br label %77, !llvm.loop !8
+  br label %77, !llvm.loop !9
 
 30:                                               ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 19
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 46
-  br i1 %33, label %thread-pre-split, label %34, !llvm.loop !8
+  br i1 %33, label %thread-pre-split, label %34, !llvm.loop !9
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %3, align 4
@@ -560,7 +560,7 @@ define dso_local ptr @pg_tzenumerate_next(ptr noundef %0) local_unnamed_addr #0 
   %60 = getelementptr inbounds [10 x ptr], ptr %6, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
   %.not35 = icmp eq ptr %61, null
-  br i1 %.not35, label %62, label %77, !llvm.loop !8
+  br i1 %.not35, label %62, label %77, !llvm.loop !9
 
 62:                                               ; preds = %48
   %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -576,11 +576,11 @@ define dso_local ptr @pg_tzenumerate_next(ptr noundef %0) local_unnamed_addr #0 
   %69 = getelementptr inbounds i8, ptr %2, i64 %68
   %70 = call i32 @tzload(ptr noundef nonnull %69, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true) #10
   %.not34 = icmp eq i32 %70, 0
-  br i1 %.not34, label %71, label %thread-pre-split, !llvm.loop !8
+  br i1 %.not34, label %71, label %thread-pre-split, !llvm.loop !9
 
 71:                                               ; preds = %66
   %72 = call zeroext i1 @pg_tz_acceptable(ptr noundef nonnull %8) #10
-  br i1 %72, label %.thread, label %thread-pre-split, !llvm.loop !8
+  br i1 %72, label %.thread, label %thread-pre-split, !llvm.loop !9
 
 .thread:                                          ; preds = %71
   %73 = load i32, ptr %0, align 8
@@ -645,8 +645,9 @@ attributes #12 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5}

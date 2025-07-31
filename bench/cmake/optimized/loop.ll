@@ -357,9 +357,9 @@ define dso_local range(i32 -38, 1) i32 @uv__loop_configure(ptr noundef captures(
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %7 = load i32, ptr %6, align 8, !tbaa !47
+  %7 = load i32, ptr %6, align 8, !tbaa !48
   %8 = or i32 %7, 1
-  store i32 %8, ptr %6, align 8, !tbaa !47
+  store i32 %8, ptr %6, align 8, !tbaa !48
   br label %29
 
 9:                                                ; preds = %3
@@ -391,9 +391,9 @@ define dso_local range(i32 -38, 1) i32 @uv__loop_configure(ptr noundef captures(
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load i64, ptr %26, align 8, !tbaa !50
+  %27 = load i64, ptr %26, align 8, !tbaa !51
   %28 = or i64 %27, 1
-  store i64 %28, ptr %26, align 8, !tbaa !50
+  store i64 %28, ptr %26, align 8, !tbaa !51
   br label %29
 
 29:                                               ; preds = %22, %3, %25, %4
@@ -456,9 +456,10 @@ attributes #4 = { nounwind }
 !42 = !{!"p1 _ZTS8uv__io_s", !6, i64 0}
 !43 = !{!15, !9, i64 40}
 !44 = !{!15, !9, i64 44}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!48, !9, i64 0}
-!48 = !{!"uv__loop_internal_fields_s", !9, i64 0, !49, i64 8}
-!49 = !{!"uv__loop_metrics_s", !10, i64 0, !10, i64 8, !7, i64 16}
-!50 = !{!5, !10, i64 56}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!49, !9, i64 0}
+!49 = !{!"uv__loop_internal_fields_s", !9, i64 0, !50, i64 8}
+!50 = !{!"uv__loop_metrics_s", !10, i64 0, !10, i64 8, !7, i64 16}
+!51 = !{!5, !10, i64 56}

@@ -1543,7 +1543,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %438, %435, %303, %d
   %569 = add i32 %562, %.4223.i.i
   %570 = add i32 %.4308.i.i, 1
   %.not250.i.i = icmp eq i32 %568, 0
-  br i1 %.not250.i.i, label %.loopexit.i.i, label %543, !llvm.loop !10
+  br i1 %.not250.i.i, label %.loopexit.i.i, label %543, !llvm.loop !11
 
 571:                                              ; preds = %565
   %572 = icmp eq i32 %.5230.i.i, 0
@@ -1704,7 +1704,7 @@ dissect_tsp.exit:                                 ; preds = %176, %178, %dissect
   %.0..0..0..0.28 = load volatile i32, ptr %6, align 4
   %628 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.28)
   %629 = icmp sgt i32 %628, 187
-  br i1 %629, label %71, label %._crit_edge, !llvm.loop !11
+  br i1 %629, label %71, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %624, %58
   %630 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1838,7 +1838,7 @@ define internal noundef zeroext i1 @heur_dissect_mp2t(ptr noundef %0, ptr nounde
 9:                                                ; preds = %.lr.ph
   %10 = add i32 %.016, 188
   %11 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %10)
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.preheader, %9
   %.016 = phi i32 [ %10, %9 ], [ 0, %.preheader ]
@@ -2451,8 +2451,9 @@ attributes #16 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

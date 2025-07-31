@@ -281,7 +281,7 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   store ptr %109, ptr %110, align 8
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next278, 10
-  br i1 %exitcond280.not, label %.preheader.preheader, label %102, !llvm.loop !8
+  br i1 %exitcond280.not, label %.preheader.preheader, label %102, !llvm.loop !9
 
 .preheader.preheader:                             ; preds = %102
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19TemplateInterpreter20_invoke_return_entryE, i64 32), align 16
@@ -299,7 +299,7 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   store ptr %.pre294, ptr %113, align 8
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next282, 4
-  br i1 %exitcond284.not, label %114, label %.preheader, !llvm.loop !9
+  br i1 %exitcond284.not, label %114, label %.preheader, !llvm.loop !10
 
 114:                                              ; preds = %.preheader
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %8) #7
@@ -341,7 +341,7 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
 134:                                              ; preds = %121, %129
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next286, 10
-  br i1 %exitcond288.not, label %135, label %121, !llvm.loop !10
+  br i1 %exitcond288.not, label %135, label %121, !llvm.loop !11
 
 135:                                              ; preds = %134
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %11) #7
@@ -1090,7 +1090,7 @@ _ZN9Bytecodes10is_definedEi.exit.thread.i:        ; preds = %_ZN9Bytecodes10is_d
 366:                                              ; preds = %_ZN9Bytecodes10is_definedEi.exit.thread.i, %360
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %_ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit, label %356, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit, label %356, !llvm.loop !12
 
 _ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit: ; preds = %366, %_ZN9Bytecodes10is_definedEi.exit.thread.i168
   %indvars.iv.i167 = phi i64 [ %indvars.iv.next.i169, %_ZN9Bytecodes10is_definedEi.exit.thread.i168 ], [ 0, %366 ]
@@ -1111,7 +1111,7 @@ _ZN9Bytecodes10is_definedEi.exit.i171:            ; preds = %_ZN28TemplateInterp
 _ZN9Bytecodes10is_definedEi.exit.thread.i168:     ; preds = %370, %_ZN9Bytecodes10is_definedEi.exit.i171, %_ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i167, 1
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, 256
-  br i1 %exitcond.not.i170, label %_ZN28TemplateInterpreterGenerator28set_safepoints_for_all_bytesEv.exit, label %_ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit, !llvm.loop !12
+  br i1 %exitcond.not.i170, label %_ZN28TemplateInterpreterGenerator28set_safepoints_for_all_bytesEv.exit, label %_ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit, !llvm.loop !13
 
 _ZN28TemplateInterpreterGenerator28set_safepoints_for_all_bytesEv.exit: ; preds = %_ZN9Bytecodes10is_definedEi.exit.thread.i168
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %50, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.51, i32 noundef -1) #7
@@ -1135,7 +1135,7 @@ _ZN28TemplateInterpreterGenerator28set_safepoints_for_all_bytesEv.exit: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %381, ptr noundef nonnull align 8 dereferenceable(80) %52, i64 80, i1 false)
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next290, 7
-  br i1 %exitcond292.not, label %382, label %373, !llvm.loop !13
+  br i1 %exitcond292.not, label %382, label %373, !llvm.loop !14
 
 382:                                              ; preds = %373
   call void @_ZNK13DispatchTable5entryEi(ptr dead_on_unwind nonnull writable sret(%class.EntryPoint) align 8 %53, ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_normal_tableE, i32 noundef 177) #7
@@ -1316,7 +1316,7 @@ _ZN9Bytecodes10is_definedEi.exit.thread:          ; preds = %4, %_ZN9Bytecodes10
 14:                                               ; preds = %8, %_ZN9Bytecodes10is_definedEi.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %15, label %4, !llvm.loop !11
+  br i1 %exitcond.not, label %15, label %4, !llvm.loop !12
 
 15:                                               ; preds = %14
   ret void
@@ -1345,7 +1345,7 @@ _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %2
 _ZN9Bytecodes10is_definedEi.exit.thread:          ; preds = %2, %_ZN9Bytecodes10is_definedEi.exit, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !12
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !13
 
 8:                                                ; preds = %_ZN9Bytecodes10is_definedEi.exit.thread
   ret void
@@ -2020,11 +2020,12 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

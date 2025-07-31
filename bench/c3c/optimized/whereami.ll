@@ -78,7 +78,7 @@ get_executable_path_raw.exit31:                   ; preds = %get_executable_path
   switch i8 %23, label %.preheader [
     i8 47, label %24
     i8 92, label %24
-  ], !llvm.loop !9
+  ], !llvm.loop !10
 
 24:                                               ; preds = %21, %21
   %25 = and i64 %indvars.iv40, 4294967295
@@ -136,6 +136,7 @@ attributes #9 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

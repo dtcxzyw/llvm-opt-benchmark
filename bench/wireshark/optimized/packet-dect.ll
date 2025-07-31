@@ -1671,7 +1671,7 @@ default.unreachable567:                           ; preds = %310, %308, %229, %6
 .thread.i:                                        ; preds = %389, %388
   %.229.i = phi i16 [ %385, %388 ], [ %390, %389 ]
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond50.not.i, label %calc_rcrc.exit, label %381, !llvm.loop !8
+  br i1 %exitcond50.not.i, label %calc_rcrc.exit, label %381, !llvm.loop !9
 
 calc_rcrc.exit:                                   ; preds = %.thread.i
   %392 = xor i16 %.229.i, 1
@@ -1809,7 +1809,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
   %55 = add nuw nsw i32 %44, 16
   %56 = and i32 %55, 65535
   %57 = icmp samesign ult i32 %56, %.094.ph
-  br i1 %57, label %43, label %._crit_edge.us, !llvm.loop !9
+  br i1 %57, label %43, label %._crit_edge.us, !llvm.loop !10
 
 58:                                               ; preds = %49
   %59 = add nuw nsw i64 %indvars.iv, %47
@@ -1826,12 +1826,12 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
   %indvars.iv.next135 = add nuw nsw i32 %indvars.iv134, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond137.not, label %.split.loop.exit, label %49, !llvm.loop !10
+  br i1 %exitcond137.not, label %.split.loop.exit, label %49, !llvm.loop !11
 
 ._crit_edge.us:                                   ; preds = %.split.loop.exit
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 8
-  br i1 %exitcond141.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !11
+  br i1 %exitcond141.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !12
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %.preheader.split
   %.087125 = phi i32 [ %72, %.preheader.split ], [ 0, %.preheader.split.preheader ]
@@ -1840,7 +1840,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
   %71 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef null, i32 noundef %69, ptr noundef %2, i32 noundef 19, i32 noundef 0, ptr noundef nonnull @.str.739, i32 noundef %.087125, i32 noundef %70)
   %72 = add nuw nsw i32 %.087125, 1
   %exitcond142.not = icmp eq i32 %72, 8
-  br i1 %exitcond142.not, label %.loopexit.thread, label %.preheader.split, !llvm.loop !13
+  br i1 %exitcond142.not, label %.loopexit.thread, label %.preheader.split, !llvm.loop !14
 
 73:                                               ; preds = %23
   %74 = load i32, ptr @hf_dect_B_Data, align 4
@@ -1883,7 +1883,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
   store i8 %.sink.i.i, ptr %90, align 1
   %96 = add nuw nsw i32 %.02951.i, 1
   %exitcond.not.i = icmp eq i32 %96, 80
-  br i1 %exitcond.not.i, label %97, label %77, !llvm.loop !14
+  br i1 %exitcond.not.i, label %97, label %77, !llvm.loop !15
 
 97:                                               ; preds = %77
   %98 = load i8, ptr %6, align 16
@@ -1922,7 +1922,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
 
 .preheader.i.backedge:                            ; preds = %107, %108
   %.337.i.be = phi i8 [ %104, %107 ], [ %109, %108 ]
-  br label %.preheader.i, !llvm.loop !15
+  br label %.preheader.i, !llvm.loop !16
 
 108:                                              ; preds = %.preheader.i
   %109 = xor i8 %104, 16
@@ -1932,7 +1932,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
 .thread.i:                                        ; preds = %108, %107
   %.236.i = phi i8 [ %104, %107 ], [ %109, %108 ]
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, 10
-  br i1 %exitcond63.not.i, label %calc_xcrc.exit, label %99, !llvm.loop !16
+  br i1 %exitcond63.not.i, label %calc_xcrc.exit, label %99, !llvm.loop !17
 
 calc_xcrc.exit:                                   ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %6) #6
@@ -2047,14 +2047,15 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

@@ -143,7 +143,7 @@ define hidden noundef double @_ZN12G1MMUTracker17calculate_gc_timeEd(ptr noundef
   %.1 = phi double [ %23, %21 ], [ %26, %24 ], [ %.018, %11 ]
   %28 = add nuw nsw i32 %.01517, 1
   %exitcond.not = icmp eq i32 %28, %6
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %27, %2
   %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %27 ]
@@ -272,7 +272,7 @@ _ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread: ; preds = %17, %._crit_
   %.1.i = phi double [ %62, %60 ], [ %65, %63 ], [ %.018.i, %50 ]
   %67 = add nuw nsw i32 %.01517.i, 1
   %exitcond.not.i = icmp eq i32 %67, %46
-  br i1 %exitcond.not.i, label %_ZN12G1MMUTracker17calculate_gc_timeEd.exit, label %50, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN12G1MMUTracker17calculate_gc_timeEd.exit, label %50, !llvm.loop !9
 
 _ZN12G1MMUTracker17calculate_gc_timeEd.exit:      ; preds = %66, %39
   %.0.lcssa.i = phi double [ 0.000000e+00, %39 ], [ %.1.i, %66 ]
@@ -384,7 +384,7 @@ define hidden noundef double @_ZNK12G1MMUTracker8when_secEdd(ptr noundef nonnull
   %35 = fsub double %.02228, %29
   %36 = add nuw nsw i32 %.02327, 1
   %exitcond.not = icmp eq i32 %36, %12
-  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !10
 
 .loopexit:                                        ; preds = %18, %34, %3, %31
   %.0 = phi double [ %33, %31 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %18 ]
@@ -446,7 +446,8 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

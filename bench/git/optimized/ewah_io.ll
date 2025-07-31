@@ -70,7 +70,7 @@ git_bswap64.exit:                                 ; preds = %git_bswap64.exit, %
 28:                                               ; preds = %26
   %29 = add i64 %.055, -2048
   %30 = icmp ugt i64 %29, 2047
-  br i1 %30, label %.preheader49, label %._crit_edge, !llvm.loop !20
+  br i1 %30, label %.preheader49, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %28, %17
   %.033.lcssa = phi ptr [ %18, %17 ], [ %25, %28 ]
@@ -88,7 +88,7 @@ git_bswap64.exit:                                 ; preds = %git_bswap64.exit, %
   %34 = add nuw i64 %.13657, 1
   %35 = getelementptr inbounds nuw i8, ptr %.258, i64 8
   %exitcond61.not = icmp eq i64 %34, %.0.lcssa
-  br i1 %exitcond61.not, label %36, label %.preheader, !llvm.loop !21
+  br i1 %exitcond61.not, label %36, label %.preheader, !llvm.loop !22
 
 36:                                               ; preds = %.preheader
   %37 = shl nuw nsw i64 %.0.lcssa, 3
@@ -99,7 +99,7 @@ git_bswap64.exit:                                 ; preds = %git_bswap64.exit, %
 
 git_bswap32.exit48:                               ; preds = %._crit_edge, %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !22
+  %41 = load ptr, ptr %40, align 8, !tbaa !23
   %42 = ptrtoint ptr %41 to i64
   %43 = load ptr, ptr %0, align 8, !tbaa !15
   %44 = ptrtoint ptr %43 to i64
@@ -182,7 +182,7 @@ git_bswap64.exit.i:                               ; preds = %.preheader49.i, %gi
   call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 16384) #5
   %24 = add i64 %.055.i, -2048
   %25 = icmp ugt i64 %24, 2047
-  br i1 %25, label %.preheader49.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %25, label %.preheader49.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %23, %2
   %.033.lcssa.i = phi ptr [ %15, %2 ], [ %22, %23 ]
@@ -200,7 +200,7 @@ git_bswap64.exit.i:                               ; preds = %.preheader49.i, %gi
   %29 = add nuw i64 %.13657.i, 1
   %30 = getelementptr inbounds nuw i8, ptr %.258.i, i64 8
   %exitcond61.not.i = icmp eq i64 %29, %.0.lcssa.i
-  br i1 %exitcond61.not.i, label %31, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond61.not.i, label %31, label %.preheader.i, !llvm.loop !22
 
 31:                                               ; preds = %.preheader.i
   %32 = shl nuw nsw i64 %.0.lcssa.i, 3
@@ -209,7 +209,7 @@ git_bswap64.exit.i:                               ; preds = %.preheader49.i, %gi
 
 ewah_serialize_to.exit:                           ; preds = %._crit_edge.i, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !22
+  %34 = load ptr, ptr %33, align 8, !tbaa !23
   %35 = ptrtoint ptr %34 to i64
   %36 = load ptr, ptr %0, align 8, !tbaa !15
   %37 = ptrtoint ptr %36 to i64
@@ -240,21 +240,21 @@ define dso_local range(i64 12, 0) i64 @ewah_read_mmap(ptr noundef captures(none)
   br label %95
 
 7:                                                ; preds = %3
-  %8 = load i8, ptr %1, align 1, !tbaa !23
+  %8 = load i8, ptr %1, align 1, !tbaa !24
   %9 = zext i8 %8 to i64
   %10 = shl nuw nsw i64 %9, 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %12 = load i8, ptr %11, align 1, !tbaa !23
+  %12 = load i8, ptr %11, align 1, !tbaa !24
   %13 = zext i8 %12 to i64
   %14 = shl nuw nsw i64 %13, 16
   %15 = or disjoint i64 %14, %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %17 = load i8, ptr %16, align 1, !tbaa !23
+  %17 = load i8, ptr %16, align 1, !tbaa !24
   %18 = zext i8 %17 to i64
   %19 = shl nuw nsw i64 %18, 8
   %20 = or disjoint i64 %15, %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %22 = load i8, ptr %21, align 1, !tbaa !23
+  %22 = load i8, ptr %21, align 1, !tbaa !24
   %23 = zext i8 %22 to i64
   %24 = or disjoint i64 %20, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -269,25 +269,25 @@ define dso_local range(i64 12, 0) i64 @ewah_read_mmap(ptr noundef captures(none)
 
 st_mult.exit:                                     ; preds = %7
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %31 = load i8, ptr %30, align 1, !tbaa !23
+  %31 = load i8, ptr %30, align 1, !tbaa !24
   %32 = zext i8 %31 to i64
   %33 = shl nuw nsw i64 %32, 24
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %35 = load i8, ptr %34, align 1, !tbaa !23
+  %35 = load i8, ptr %34, align 1, !tbaa !24
   %36 = zext i8 %35 to i64
   %37 = shl nuw nsw i64 %36, 16
   %38 = or disjoint i64 %37, %33
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %40 = load i8, ptr %39, align 1, !tbaa !23
+  %40 = load i8, ptr %39, align 1, !tbaa !24
   %41 = zext i8 %40 to i64
   %42 = shl nuw nsw i64 %41, 8
   %43 = or disjoint i64 %38, %42
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %45 = load i8, ptr %44, align 1, !tbaa !23
+  %45 = load i8, ptr %44, align 1, !tbaa !24
   %46 = zext i8 %45 to i64
   %47 = or disjoint i64 %43, %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %47, ptr %48, align 8, !tbaa !24
+  store i64 %47, ptr %48, align 8, !tbaa !25
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %47, ptr %49, align 8, !tbaa !14
   %50 = add i64 %2, -8
@@ -335,7 +335,7 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
   %70 = add nuw i64 %.054, 1
   %71 = load i64, ptr %49, align 8, !tbaa !14
   %72 = icmp ult i64 %70, %71
-  br i1 %72, label %git_bswap64.exit, label %._crit_edge, !llvm.loop !25
+  br i1 %72, label %git_bswap64.exit, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %git_bswap64.exit, %61
   %73 = icmp ult i64 %64, 4
@@ -347,16 +347,16 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
 
 76:                                               ; preds = %._crit_edge
   %77 = load ptr, ptr %0, align 8, !tbaa !15
-  %78 = load i8, ptr %63, align 1, !tbaa !23
+  %78 = load i8, ptr %63, align 1, !tbaa !24
   %79 = zext i8 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %63, i64 1
-  %81 = load i8, ptr %80, align 1, !tbaa !23
+  %81 = load i8, ptr %80, align 1, !tbaa !24
   %82 = zext i8 %81 to i64
   %83 = getelementptr inbounds nuw i8, ptr %63, i64 2
-  %84 = load i8, ptr %83, align 1, !tbaa !23
+  %84 = load i8, ptr %83, align 1, !tbaa !24
   %85 = zext i8 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %63, i64 3
-  %87 = load i8, ptr %86, align 1, !tbaa !23
+  %87 = load i8, ptr %86, align 1, !tbaa !24
   %88 = zext i8 %87 to i64
   %.idx = shl nuw nsw i64 %82, 19
   %89 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx
@@ -366,7 +366,7 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx53
   %92 = getelementptr inbounds nuw i64, ptr %91, i64 %88
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %92, ptr %93, align 8, !tbaa !22
+  store ptr %92, ptr %93, align 8, !tbaa !23
   %94 = add nuw nsw i64 %56, 12
   br label %95
 
@@ -416,11 +416,12 @@ attributes #7 = { noreturn nounwind }
 !15 = !{!5, !6, i64 0}
 !16 = !{!10, !10, i64 0}
 !17 = !{i64 3459771}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = !{!5, !6, i64 32}
-!23 = !{!8, !8, i64 0}
-!24 = !{!5, !10, i64 16}
-!25 = distinct !{!25, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = distinct !{!22, !19, !20}
+!23 = !{!5, !6, i64 32}
+!24 = !{!8, !8, i64 0}
+!25 = !{!5, !10, i64 16}
+!26 = distinct !{!26, !19, !20}

@@ -325,7 +325,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 179:                                              ; preds = %173, %178
   %indvars.iv.next1054 = add nuw nsw i64 %indvars.iv1053, 1
   %exitcond1057.not = icmp eq i64 %indvars.iv.next1054, %wide.trip.count1056
-  br i1 %exitcond1057.not, label %._crit_edge, label %.lr.ph890, !llvm.loop !11
+  br i1 %exitcond1057.not, label %._crit_edge, label %.lr.ph890, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %179, %.loopexit862
   %180 = sext i32 %167 to i64
@@ -351,7 +351,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %52, label %190, label %193
 
 190:                                              ; preds = %186
-  store i8 73, ptr %27, align 1, !tbaa !12
+  store i8 73, ptr %27, align 1, !tbaa !13
   br i1 %.not, label %191, label %268
 
 191:                                              ; preds = %190
@@ -365,7 +365,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not797, label %219, label %194
 
 194:                                              ; preds = %193
-  store i8 86, ptr %27, align 1, !tbaa !12
+  store i8 86, ptr %27, align 1, !tbaa !13
   %195 = load double, ptr %7, align 8, !tbaa !7
   %196 = fneg double %195
   store double %196, ptr %24, align 8, !tbaa !7
@@ -422,7 +422,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %221, ptr %22, align 4, !tbaa !3
   %222 = load i32, ptr %9, align 4, !tbaa !3
   store i32 %222, ptr %23, align 4, !tbaa !3
-  store i8 86, ptr %27, align 1, !tbaa !12
+  store i8 86, ptr %27, align 1, !tbaa !13
   store i32 %187, ptr %18, align 4, !tbaa !3
   %.not799897 = icmp slt i32 %187, 1
   br i1 %.not799897, label %._crit_edge901, label %.lr.ph900.preheader
@@ -770,7 +770,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %.1726 = select i1 %386, double %384, double %.0725919
   %indvars.iv.next1074 = add nsw i64 %indvars.iv1073, 1
   %.not824.not = icmp slt i64 %indvars.iv.next1074, %382
-  br i1 %.not824.not, label %.lr.ph921, label %387, !llvm.loop !13
+  br i1 %.not824.not, label %.lr.ph921, label %387, !llvm.loop !14
 
 387:                                              ; preds = %.lr.ph921
   store double %384, ptr %20, align 8, !tbaa !7
@@ -821,7 +821,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double 0.000000e+00, ptr %gep1175, align 8, !tbaa !7
   %indvars.iv.next1078 = add nsw i64 %indvars.iv1077, 1
   %.not828.not = icmp slt i64 %indvars.iv.next1078, %407
-  br i1 %.not828.not, label %408, label %.loopexit859, !llvm.loop !14
+  br i1 %.not828.not, label %408, label %.loopexit859, !llvm.loop !15
 
 .loopexit859:                                     ; preds = %408, %392, %388
   %412 = load i32, ptr %30, align 4, !tbaa !3
@@ -885,7 +885,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   call void @daxpy_(ptr noundef nonnull %30, ptr noundef nonnull %25, ptr noundef %gep1179, ptr noundef nonnull @c__2, ptr noundef %gep1181, ptr noundef nonnull @c__2) #7
   %indvars.iv.next1081 = add nuw nsw i64 %indvars.iv1080, 1
   %exitcond1084.not = icmp eq i64 %indvars.iv.next1081, %indvars.iv1085
-  br i1 %exitcond1084.not, label %._crit_edge932, label %.lr.ph931, !llvm.loop !15
+  br i1 %exitcond1084.not, label %._crit_edge932, label %.lr.ph931, !llvm.loop !16
 
 ._crit_edge932:                                   ; preds = %.lr.ph931, %.preheader855
   %438 = call double @dnrm2_(ptr noundef nonnull %30, ptr noundef %gep1181, ptr noundef nonnull @c__2) #7
@@ -897,7 +897,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 440:                                              ; preds = %424, %427, %._crit_edge932
   %indvars.iv.next1086 = add nuw nsw i64 %indvars.iv1085, 1
   %exitcond1089.not = icmp eq i64 %indvars.iv.next1086, %wide.trip.count1088
-  br i1 %exitcond1089.not, label %._crit_edge938.loopexit, label %.lr.ph937, !llvm.loop !16
+  br i1 %exitcond1089.not, label %._crit_edge938.loopexit, label %.lr.ph937, !llvm.loop !17
 
 ._crit_edge938.loopexit:                          ; preds = %440
   %.pre1150 = load i32, ptr %29, align 4, !tbaa !3
@@ -966,7 +966,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   call void @daxpy_(ptr noundef nonnull %30, ptr noundef nonnull %25, ptr noundef %gep1183, ptr noundef nonnull @c__2, ptr noundef %gep1185, ptr noundef nonnull @c__2) #7
   %indvars.iv.next1091 = add nuw nsw i64 %indvars.iv1090, 1
   %exitcond1094.not = icmp eq i64 %indvars.iv.next1091, %indvars.iv1095
-  br i1 %exitcond1094.not, label %._crit_edge942, label %.lr.ph941, !llvm.loop !17
+  br i1 %exitcond1094.not, label %._crit_edge942, label %.lr.ph941, !llvm.loop !18
 
 ._crit_edge942:                                   ; preds = %.lr.ph941, %.preheader
   %468 = call double @dnrm2_(ptr noundef nonnull %31, ptr noundef %gep1185, ptr noundef nonnull @c__2) #7
@@ -978,7 +978,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 470:                                              ; preds = %454, %457, %._crit_edge942
   %indvars.iv.next1096 = add nuw nsw i64 %indvars.iv1095, 1
   %exitcond1099.not = icmp eq i64 %indvars.iv.next1096, %wide.trip.count1098
-  br i1 %exitcond1099.not, label %._crit_edge948, label %.lr.ph947, !llvm.loop !18
+  br i1 %exitcond1099.not, label %._crit_edge948, label %.lr.ph947, !llvm.loop !19
 
 ._crit_edge948:                                   ; preds = %470, %._crit_edge938
   %471 = load double, ptr %26, align 8, !tbaa !7
@@ -1019,7 +1019,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double 0.000000e+00, ptr %gep1187, align 8, !tbaa !7
   %indvars.iv.next1103 = add nsw i64 %indvars.iv1102, 1
   %.not833.not = icmp slt i64 %indvars.iv.next1103, %489
-  br i1 %.not833.not, label %490, label %.loopexit858, !llvm.loop !19
+  br i1 %.not833.not, label %490, label %.loopexit858, !llvm.loop !20
 
 .loopexit858:                                     ; preds = %490, %375, %._crit_edge948, %474, %387
   %.3723 = phi i32 [ %.1721973, %474 ], [ %.1721973, %._crit_edge948 ], [ %.1721973, %387 ], [ %.1721973, %375 ], [ 1, %490 ]
@@ -1045,7 +1045,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %498, ptr %gep1191, align 8, !tbaa !7
   %indvars.iv.next1106 = add nuw nsw i64 %indvars.iv1105, 1
   %exitcond1109.not = icmp eq i64 %indvars.iv.next1106, %wide.trip.count1108
-  br i1 %exitcond1109.not, label %._crit_edge957, label %.lr.ph956, !llvm.loop !20
+  br i1 %exitcond1109.not, label %._crit_edge957, label %.lr.ph956, !llvm.loop !21
 
 ._crit_edge957:                                   ; preds = %.lr.ph956
   store double %495, ptr %20, align 8, !tbaa !7
@@ -1102,7 +1102,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %521 = load i32, ptr %19, align 4, !tbaa !3
   %522 = sext i32 %521 to i64
   %.not819 = icmp sgt i64 %indvars.iv.next1115, %522
-  br i1 %.not819, label %._crit_edge981, label %310, !llvm.loop !21
+  br i1 %.not819, label %._crit_edge981, label %310, !llvm.loop !22
 
 ._crit_edge981:                                   ; preds = %.loopexit857
   %523 = icmp ne i32 %.2722, 0
@@ -1140,7 +1140,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double 0.000000e+00, ptr %gep1195, align 8, !tbaa !7
   %indvars.iv.next1122 = add nsw i64 %indvars.iv1121, 1
   %.not820 = icmp sgt i64 %indvars.iv1121, %535
-  br i1 %.not820, label %.loopexit860, label %536, !llvm.loop !22
+  br i1 %.not820, label %.loopexit860, label %536, !llvm.loop !23
 
 .loopexit860:                                     ; preds = %536, %301, %525, %._crit_edge981
   %.1.lcssa1167 = phi i32 [ %.2, %525 ], [ %.2, %._crit_edge981 ], [ %.07091001, %301 ], [ %.2, %536 ]
@@ -1170,7 +1170,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %indvars.iv.next1125 = add nuw nsw i64 %indvars.iv1124, 2
   %550 = sext i32 %547 to i64
   %.not807 = icmp sgt i64 %indvars.iv.next1125, %550
-  br i1 %.not807, label %._crit_edge1004, label %295, !llvm.loop !23
+  br i1 %.not807, label %._crit_edge1004, label %295, !llvm.loop !24
 
 ._crit_edge1004:                                  ; preds = %546, %._crit_edge916
   %551 = load i32, ptr %10, align 4, !tbaa !3
@@ -1208,7 +1208,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %.3731 = select i1 %560, double %.27301008, double %559
   %indvars.iv.next1128 = add nuw nsw i64 %indvars.iv1127, 1
   %exitcond1133.not = icmp eq i64 %indvars.iv.next1128, %wide.trip.count1132
-  br i1 %exitcond1133.not, label %._crit_edge1011, label %.lr.ph1010, !llvm.loop !24
+  br i1 %exitcond1133.not, label %._crit_edge1011, label %.lr.ph1010, !llvm.loop !25
 
 ._crit_edge1011:                                  ; preds = %.lr.ph1010, %.lr.ph1021
   %.0750.lcssa = phi i32 [ 1, %.lr.ph1021 ], [ %.1751, %.lr.ph1010 ]
@@ -1245,7 +1245,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %577 = add nuw nsw i32 %.151019, 1
   %.not808.not = icmp slt i32 %.151019, %576
   %indvars.iv.next1131 = add nsw i32 %indvars.iv1130, -1
-  br i1 %.not808.not, label %.lr.ph1021, label %._crit_edge1022, !llvm.loop !25
+  br i1 %.not808.not, label %.lr.ph1021, label %._crit_edge1022, !llvm.loop !26
 
 ._crit_edge1022:                                  ; preds = %575, %._crit_edge1004
   %.not809 = icmp eq i32 %42, 0
@@ -1311,12 +1311,12 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %indvars.iv.next1139 = add nsw i64 %indvars.iv1138, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1139 to i32
   %exitcond1141.not = icmp eq i32 %601, %lftr.wideiv
-  br i1 %exitcond1141.not, label %._crit_edge1032, label %603, !llvm.loop !26
+  br i1 %exitcond1141.not, label %._crit_edge1032, label %603, !llvm.loop !27
 
 ._crit_edge1032:                                  ; preds = %603
   %indvars.iv.next1143 = add nuw nsw i64 %indvars.iv1142, 1
   %exitcond1146.not = icmp eq i64 %indvars.iv.next1143, %wide.trip.count1145
-  br i1 %exitcond1146.not, label %.loopexit854, label %.lr.ph1031, !llvm.loop !27
+  br i1 %exitcond1146.not, label %.loopexit854, label %.lr.ph1031, !llvm.loop !28
 
 .loopexit854:                                     ; preds = %._crit_edge1032, %596, %._crit_edge1027
   store i32 %582, ptr %10, align 4, !tbaa !3
@@ -1373,7 +1373,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %629 = load i32, ptr %18, align 4, !tbaa !3
   %630 = sext i32 %629 to i64
   %.not814.not = icmp slt i64 %indvars.iv1147, %630
-  br i1 %.not814.not, label %610, label %.loopexit, !llvm.loop !28
+  br i1 %.not814.not, label %610, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %363, %628, %606, %605, %._crit_edge896, %104, %105, %.thread, %450, %420, %.thread846
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #7
@@ -1464,23 +1464,24 @@ attributes #7 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = !{!5, !5, i64 0}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}

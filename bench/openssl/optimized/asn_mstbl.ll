@@ -202,7 +202,7 @@ define internal range(i32 0, 2) i32 @stbl_module_init(ptr noundef %0, ptr nounde
   %76 = add nuw nsw i32 %.01027, 1
   %77 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %6) #5
   %78 = icmp slt i32 %76, %77
-  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %75, %.preheader, %74, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %74 ], [ 1, %.preheader ], [ 1, %75 ]
@@ -281,6 +281,7 @@ attributes #6 = { nounwind willreturn memory(read) }
 !11 = !{!"long", !7, i64 0}
 !12 = !{!5, !5, i64 0}
 !13 = !{!7, !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
